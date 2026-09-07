@@ -27,14 +27,14 @@ It reuses the shared SSOT modules in-process (`scripts/_workspace_ops.js` →
 | `get_tradition` / `list_traditions` | Full tradition record (incl. axis profile + default instruments); browse/filter traditions. |
 | `list_options` | Enumerate override spaces: `rooms`, `tunings`, `chain_sections`, `archetypes`, `aesthetics`, `arrangements`, `instrument_families`, `tradition_families`, `axes`. |
 
-**The lyric family** (2026-08-18) — a **disjoint** tool family over the
-[lyric harness](../lyric-harness/): songwriting planning and grading. It shares
-no state with the recipe workspace (standing rule 1 of `lyric-harness/CLAUDE.md`:
-the recipe engine and the lyrics do not touch) and runs each call as its own
-`python3` subprocess over the harness CLI — the tested entrance, never a
-re-implementation. Stateless (a plan is a pure function of its seed), serial
-(one python at a time), and slower than the recipe tools (~10–15 s per grading
-call: the pronunciation lexicon loads per process).
+**The lyric family** is a disjoint songwriting pipeline over the
+[lyric harness](../lyric-harness/): planning, grading, writing and revision. It
+shares no state with the recipe workspace. The connector reaches the harness CLI
+through a serialized Python worker. Planning and grading use local code and
+staged lexical data; `lyric_revise` can maintain a run and, with `writer: kitchen`,
+call Google's Gemini API to propose lyric repairs. Revision is stateful and the
+kitchen's output is not deterministic. See [LYRICS_RUNTIME.md](./LYRICS_RUNTIME.md)
+for time budgets, paid-work accounting, run recovery and deployment requirements.
 
 | Tool | What it does |
 |---|---|
@@ -43,6 +43,7 @@ call: the pronunciation lexicon loads per process).
 | `lyric_grade` | The whole-song verdict: re-derives the plan from the same seed AND the same declarations (a declaration dropped here grades a different plan), fills it with the draft, grades rhyme/returns/meter/functions/floor, and returns the rendered song (performance order, bracket headers) + the report. |
 | `lyric_check` | Grade pasted lyrics without a plan: declare a letter scheme (`ABAB`) or line-number groups (`1,3;2,4`), optional verbatim-return classes, an optional `relation`, and an optional per-group `structures` declaration (`B:kalevala-alliteration`) whose uncalibrated disclosure rides in the verdict. |
 | `lyric_sweep` | Find seeds whose shape matches a declared want (`lines>=16`, `uses=bridge`, `before=verse,chorus`) over a bounded window of consecutive seeds. Returns seeds in SEED ORDER and does not rank; three counts never summed; windows compose, so continue from `next_seed_from`. |
+| `lyric_revise` | Revise a draft under its declared plan or mandate. The interview writer returns questions; the kitchen writer proposes and verifies repairs through Gemini. Retain the returned state/checkpoint and opaque `run_id`; a seed is not a run capability. |
 | `lyric_verify` | Did this revision earn it? Hand it a draft BEFORE and AFTER under the same mandate and it reports what the change FIXED and INTRODUCED. Read `accepted`, not `exit_code` — both verdicts exit 0. A DIFF, not a grade: it cannot report banned pairs that survived the change. |
 | `lyric_types` | The 9-axis rhyme-type coordinate for one word pair (taxonomy; for usable-or-banned use `lyric_screen`). |
 
@@ -98,43 +99,65 @@ A `render.yaml` blueprint is included at the repo root:
 2. Your endpoint is `https://<service-name>.onrender.com/mcp`.
 3. Claude → **Add connectors → custom** → paste that `…/mcp` URL.
 
-**Client timeout.** A grading call is not quick: measured 2026-09-01 on the shape the planner draws today, `lyric_grade` is three serial verbs and **90–170 s**, `lyric_revise` 30–90 s a call, `lyric_screen` on four words ~20 s (`MISSING.md` M-189, the timings every tool description carries). The MCP SDK's default request timeout is **60 s**, so an external client on the default clock will time out on a grade; raise the client's request timeout (the claude.ai client's is longer) or run the working order verb by verb. The server has one serial queue shared by every user, and a cancelled request still runs to completion on it.
+**Client timeout.** Lyrics grading and revision can take minutes. The MCP SDK's
+60-second default can expire before a legitimate grading call completes; configure
+an appropriate client timeout. The server's shared Python queue includes queue
+wait in the call deadline and propagates cancellation. A disconnect or timeout
+still does not prove whether an already dispatched model request executed. Keep
+returned checkpoints and follow [the recovery protocol](./LYRICS_RUNTIME.md).
 
-Notes: the `free` plan **spins down when idle** — the first call after a lull cold-starts in ~30–60s, which can stall the connector handshake; bump to `starter` to stay warm. The blueprint deploys from `main` (configured in `render.yaml`).
+The Blueprint selects the Standard plan and a persistent lyrics disk, deploys from
+`main`, and disables Render's automatic deployment. Applying the Blueprint
+provisions billable storage; committing it does not apply or deploy it.
 
-- **No login.** The engine is read-only compute, so the server is open. Don't add
-  auth for onboarding; put **edge rate-limiting** in front (e.g. Cloudflare) to
-  catch runaway/broken agents. Add API-key/OAuth metering later only if you monetize.
-- `GET /health` is a plain health check for your host's probes.
-- **Scaling:** the server is stateless (no in-process sessions), so it scales
-  horizontally without sticky sessions — run as many instances as you like.
-- **Cloudflare Workers** specifically: port `server_http.js` to
-  `WebStandardStreamableHTTPServerTransport` (the SDK's web-standard variant); the
-  Node transport used here targets Node hosts.
+- **No account login is required.** Public recipe tools are deterministic compute.
+  Lyrics revision can mutate run state and spend model credit. The server applies
+  request limits and shares one model-accounting ledger across chat and kitchen
+  calls, including kitchen calls made directly through `/mcp`.
+- `GET /health` reports liveness, commit, source/configuration fingerprints and
+  recovery-store status. It does not prove a successful kitchen run.
+- **Scaling:** durable receipts, signing and accounting currently require one Node
+  process on one instance with mounted storage. Multiple processes or replicas
+  require a transactional shared store; recipe state passing does not make the
+  lyrics runtime horizontally stateless.
+- The full lyrics runtime requires Node, Python subprocesses and the configured
+  storage. Changing the MCP transport alone does not port it to a worker-only
+  hosting environment.
 
 ## Cost
 
-Pure deterministic compute — no model inference, no GPU, no database. Per call is
-milliseconds of CPU and a few KB of JSON, and results are deterministic (cacheable).
-At personal usage it's effectively free; even at scale the dominant lever is response
-size + caching, not compute.
+Recipe tools use deterministic local computation and make no model calls. Local
+lyrics planning and grading also use no model inference, but can require
+substantial CPU and memory. Both `/chat` and `lyric_revise` with `writer: kitchen`
+use the service's Gemini key, including kitchen calls through `/mcp`.
 
-That is true of `/mcp`, where the CALLER brings the model. It is not true of `/chat`
-below, which is the one surface here that spends money.
+Paid calls share the declared **$25 daily allowance** and **$2.50 per chat turn or
+direct MCP operation allowance**, configurable through `CHAT_DAILY_USD` and
+`CHAT_MAX_TURN_USD`. Admission reserves estimated cost before dispatch and settles
+reported usage, including thinking tokens. Unknown usage retains a charge; these
+engineering allowances are not an invoice guarantee. See the
+[accounting limits](./LYRICS_RUNTIME.md#what-the-money-limits-establish).
 
 ## `/chat` — driving the tools for a caller with no MCP client
 
-The published catalog page is static and cannot hold a model key, so its chat bar posts
-here and this service calls Gemini. Same tools, same engines, same determinism; the
-only difference is who pays for the inference.
+The published catalog page is static and cannot hold a model key, so its chat bar
+posts here and this service calls Gemini. Chat can drive either the recipe tools
+or the separate lyrics pipeline.
 
-- `POST /chat` — `{message, history?, workspace?, sig?}` → `{reply, recipe, cards, tools,
-  history, workspace, sig}`. Stateless: the transcript and the workspace live in the
-  caller and round-trip on every turn, so this endpoint keeps no session (the same
-  promise `/mcp` makes). `sig` is an HMAC over the envelope — a caller can extend a
-  transcript this server wrote, and cannot fabricate one.
-- `GET /chat/status` — model, published price, spend against today's cap. The page calls
-  this before it shows the bar, so a deployment without a key renders no dead UI.
+- `POST /chat` accepts `{message, history?, workspace?, lyric?, sig?, request_id?}`
+  and returns the reply, tool trace and signed continuation envelope. The caller
+  threads `history`, `workspace`, `lyric` and `sig` into the next turn. The HMAC
+  prevents fabricating an envelope; it is not an account login.
+- Supplying a cryptographically random `request_id` enables retained request,
+  checkpoint and response recovery through `GET /chat/jobs/<request_id>`. This
+  identifier is a bearer capability. The battery uses it on every attempt; an
+  ordinary request without it has no recoverable request receipt.
+- `GET /chat/status` reports model availability, declared pricing, usage and
+  outstanding reservations against the shared daily allowance.
+
+The durable deployment retains request content and lyric progress; it is not
+stateless. See [LYRICS_RUNTIME.md](./LYRICS_RUNTIME.md) for receipt retention and
+[BATTERY_RECOVERY.md](./BATTERY_RECOVERY.md) for safe battery continuation.
 
 The workspace is **removed from the function declarations** rather than reformatted: it
 is a part-id → variant-id map over 4051 part ids and cannot be typed, so it reaches the
@@ -142,38 +165,54 @@ wire as an empty node, which restricted function-calling clients reject. The ser
 it and injects it. `mcp/gemini_tools.js` carries the arithmetic; `connector-gemini-legal`
 gates the result off a live `tools/list`.
 
-Configuration (all optional except the key):
+Configuration (the Blueprint pins deployed values):
 
-| Env | Default | What it bounds |
+| Env | Default or deployment value | What it controls |
 |---|---|---|
-| `GEMINI_API_KEY` | — | Unset disables `/chat` entirely; `/mcp` is unaffected. |
-| `GEMINI_MODEL` | `gemini-3.1-flash-lite` | Measured at ~$0.009 and ~32k tokens per conversation. |
-| `CHAT_SECRET` | random per boot | Envelope HMAC. Unset means a redeploy starts conversations fresh. |
-| `CHAT_IP_RPM` / `CHAT_IP_RPH` | 4 / 30 | Per-IP request ceilings. |
-| `CHAT_CONCURRENCY` | 2 | Simultaneous conversations. The free Gemini tier allows 15 requests/minute and one conversation spends 4–7, so this is the binding constraint. |
-| `CHAT_DAILY_USD` | 2 | Estimated spend before the endpoint refuses. Resets at midnight UTC. |
+| `GEMINI_API_KEY` | Unset | Required for `/chat` and the kitchen writer; recipe tools and local lyrics analysis need no model key. |
+| `GEMINI_MODEL` | `gemini-3.1-flash-lite` | Chat model; it must have declared pricing. |
+| `LYRIC_PROPOSER_MODEL` | `gemini-3.5-flash-lite` in the Blueprint | Kitchen writer model. |
+| `LYRIC_RUNTIME_DIR` | Unset locally; `/data/lyrics` in the Blueprint | Mounted storage for request receipts, signing key and accounting. |
+| `CHAT_SECRET` | Persisted generated key when runtime storage is configured; otherwise random per boot | Explicit envelope-signing override. Keep it stable to preserve signed continuations. |
+| `CHAT_IP_RPM` / `CHAT_IP_RPH` | 4 / 30 | Per-IP chat request limits. |
+| `CHAT_CONCURRENCY` | 2 | Simultaneous chat turns. |
+| `CHAT_DAILY_USD` | 25 | Shared chat/kitchen daily model allowance, tracked with reservations and reported usage. |
+| `CHAT_MAX_TURN_USD` | 2.5 | Chat-turn or direct MCP operation model allowance. |
 | `CHAT_MAX_TURNS` | 12 | Messages per conversation. |
 
-The counters are process-local, so a redeploy resets them; Google's own per-key quota is
-the backstop that cannot be reset by restarting this service.
+With correctly mounted runtime storage, counters, pending reservations and the
+signing key survive restarts. Without it, local operation is process-local and
+`/health.recovery.durable` is false. For storage overrides and failure handling,
+see [LYRICS_RUNTIME.md](./LYRICS_RUNTIME.md).
 
 ## Privacy & support
 
-See [PRIVACY.md](./PRIVACY.md) — in short: no accounts, no auth, no personal
-data; stateless compute over a public catalog, persisting no request content.
+See [PRIVACY.md](./PRIVACY.md). No account login is required. Lyrics and chat
+content may be retained for recovery and sent to Gemini when a model is invoked.
+Receipt identifiers, run identifiers and signed envelopes grant access to working
+state; keep them and decrypted battery artifacts private. The battery workflow
+requires a dedicated `BATTERY_RECOVERY_KEY` before paid work and uploads only
+encrypted recovery data; see [archive setup](./BATTERY_RECOVERY.md#encrypted-workflow-artifacts).
 
 - **Privacy policy:** https://github.com/WeningerII/CodexMusica/blob/main/mcp/PRIVACY.md
 - **Support:** https://github.com/WeningerII/CodexMusica/issues
 
 ## Connectors Directory readiness
 
-For submission to Anthropic's [Connectors Directory](https://claude.com/docs/connectors/building/submission):
+For submission to Anthropic's [Connectors Directory](https://claude.com/docs/connectors/building/submission), assess the current tool surface by operation:
 
-- ✅ Public HTTPS endpoint; handlers return in milliseconds (far under the 5-minute limit); tool results are small (far under the 25k-token cap).
-- ✅ Every tool carries annotations — all `readOnlyHint: true` (they compute over a fixed catalog and mutate nothing), plus `idempotentHint`/`openWorldHint: false`.
-- ✅ No authentication required (open, read-only public data).
-- ✅ Privacy policy + support channel (above); all listed domains are owned by the publisher.
-- ⚠️ **Host on a non-sleeping instance** before submitting — the Render free tier spins down after idle, which delays the first request ~50s; reviewers and users need prompt responses.
+- Recipe tools use local deterministic computation and carry
+  `readOnlyHint: true`, `idempotentHint: true`, `openWorldHint: false`.
+- `lyric_revise` carries `readOnlyHint: false`, `idempotentHint: false`,
+  `openWorldHint: true`: it changes run state and its kitchen writer calls an
+  external model. Do not describe every tool as read-only or deterministic.
+- Lyrics calls can take minutes and return substantial state. Directory timing
+  and payload requirements need separate verification; the recipe tools' speed
+  does not establish lyrics compliance.
+- The public endpoint requires no account login, but retained working state uses
+  opaque capabilities and signed envelopes. Privacy policy and support are linked
+  above. Use the deployed tool schemas and [runtime documentation](./LYRICS_RUNTIME.md)
+  when describing these capabilities.
 
 ## Files
 
@@ -182,7 +221,9 @@ For submission to Anthropic's [Connectors Directory](https://claude.com/docs/con
 - `server_stdio.js` — stdio entry (local).
 - `server_http.js` — Streamable HTTP entry (hosted connector) + the `/chat` mount.
 - `gemini_tools.js` — live `tools/list` → Gemini function declarations (pure; no SDK).
-- `lyric_tools.js` — the disjoint lyric family: subprocess bridge to `../lyric-harness/` (plan/grade/screen; writes no words).
+- `lyric_tools.js` — the disjoint lyric family and Python bridge: plan, grade, screen and stateful revision through interview or kitchen writers.
 - `gemini_agent.js` — one conversational turn: the tool loop, usage and measured cost.
-- `chat.js` — the `/chat` router: rate limits, spend cap, signed envelope.
+- `chat.js` — the `/chat` router: admission, shared model accounting and signed envelopes.
+- `job_store.js` — retained request receipts, signed checkpoint recovery and build identity.
+- `paid_budget.js` — shared chat/kitchen reservations, usage settlement and Python admission broker.
 - `test.mjs` — `npm test`.

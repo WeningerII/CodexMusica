@@ -175,7 +175,7 @@ class MemoReviser:
         out = compute()
         self._slot["tally"]["miss"] += 1
         if len(store) >= self._slot["cap"]:
-            # Past the derived ceiling the RUN's memo is cleared rather than
+            # Past the storage budget the RUN's memo is cleared rather than
             # partially evicted: the replay walks its prefix from the start,
             # so holding a suffix serves nothing, and a cleared store is the
             # old full-replay behaviour — slow, never wrong.
@@ -237,12 +237,10 @@ def wrap(reviser, key, n_lines):
     if key is None:
         return reviser, lambda: ("  REPLAY MEMO: no run key (an input was "
                                  "unreadable) — this resume replays in full")
-    # THE ENTRY CEILING IS DERIVED FROM THE RUN'S OWN DECLARED BUDGET, never
-    # chosen: the loop proposes at most `max_rounds x attempts_per_line` times
-    # per line, each proposal costs at most one call per memoised method, and
-    # the round machinery adds at most one brief/inspect per line-round on
-    # top — so the method count times the budget times the draft's own length
-    # bounds what one run can ever ask.
+    # This is a storage budget, not a claimed upper bound on every loop
+    # call. Group count/arity and width-squared tier-2 searches are not
+    # bounded by the tier-1 attempt count. Overflow remains correct, and is
+    # disclosed as eviction rather than a supposedly impossible event.
     rd = reviser.rdecl
     cap = (len(MEMOISED) * max(1, int(rd.max_rounds))
            * max(1, int(rd.attempts_per_line)) * max(1, int(n_lines)))
@@ -256,7 +254,7 @@ def wrap(reviser, key, n_lines):
                 f"call(s) answered from the process memo "
                 f"(runs held: {len(_RUNS)} of {RUNS_HELD})")
         if t["overflow"]:
-            line += (f"; the derived entry ceiling ({cap}) was passed "
+            line += (f"; the entry storage budget ({cap}) was passed "
                      f"{t['overflow']} time(s) and the store fell back to "
                      f"full replay")
         if t["bypass"]:

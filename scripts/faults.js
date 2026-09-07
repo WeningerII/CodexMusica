@@ -953,28 +953,35 @@ record(
 //
 // mcp/spend_store.js reads the daily spend counters from disk when the
 // deployment has somewhere to keep them. That file is the ONE input that can
-// RAISE the remaining budget, so it is validated on read: anything not a finite
-// non-negative number is zero. Drop the validation and a negative `usd` — from a
-// truncated write, a half-flushed crash, or anyone who can touch the disk —
+// RAISE the remaining budget, so invalid counters close admission on read.
+// Drop that rejection and a negative `usd` — from a truncated write, a
+// half-flushed crash, or anyone who can touch the disk —
 // restores budget that was already spent, and the cap silently stops capping.
 //
-// Planted by making the validator an identity function, which is exactly the
-// shape "just parse the JSON" would have.
+// Planted by removing the invalid-counter rejection after JSON parsing, which
+// restores the old "just parse the JSON" failure mode. Anchor on the rejection
+// itself rather than the former numeric-clamping helper.
 {
-  // render.yaml and src/ are staged because mcp/test.mjs also asserts the
-  // deployed model is priceable and that the chat field's maxlength matches the
-  // server's — both read the repo. Without them those two checks fail for a
-  // missing file, which is noise that could mask the planted defect.
-  const d = mkenv(['mcp', 'scripts', 'references', 'render.yaml', 'src']);
+  // test.mjs calls the same exported assertion. Its standalone runner keeps
+  // the baseline and mutant focused on disk validation: the full MCP suite
+  // exercises long kitchen runs and exceeds the gate's five-minute bound.
+  const d = mkenv(['mcp']);
+  const args = ['mcp/test_spend_store.mjs'];
+  const baseline = gate(d, args);
+  if (baseline.code !== 0)
+    throw new Error(
+      `faults: unmutated spend-store check failed (${baseline.code}):\n${baseline.out}`
+    );
   const f = path.join(d, 'mcp/spend_store.js');
   const src = fs.readFileSync(f, 'utf8');
-  const marker = 'const num = (v) => (Number.isFinite(v) && v >= 0 ? v : 0);';
-  if (!src.includes(marker)) throw new Error('faults: spend_store validator not found');
-  fs.writeFileSync(f, src.replace(marker, 'const num = (v) => v;'));
+  const marker = "throw new Error('invalid spend counters');";
+  if (src.split(marker).length !== 2)
+    throw new Error('faults: unique spend_store invalid-counter rejection not found');
+  fs.writeFileSync(f, src.replace(marker, '// FAULT: accept parsed counters without validation.'));
   record(
     'corrupt-spend-file-widens-cap -> mcp/test.mjs',
-    gate(d, ['mcp/test.mjs']),
-    /cannot widen the cap|negative spend must not restore budget/i
+    gate(d, args),
+    /invalid counters disable paid admission/
   );
 }
 

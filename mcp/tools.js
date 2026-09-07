@@ -13,6 +13,9 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import * as E from './engine.js';
 import { TOOL_SCHEMAS } from './schemas.js';
 import { registerLyricTools, LYRIC_INSTRUCTIONS } from './lyric_tools.js';
+import { withExecutionContext, childExecutionContext } from './execution_context.js';
+import { performance } from 'node:perf_hooks';
+import { TOOL_BUDGET_MS } from './budget.js';
 
 // Re-exported so existing importers keep working; the definitions live in
 // schemas.js, which does not import the MCP SDK.
@@ -31,10 +34,8 @@ function jsonResult(value) {
   return { content: [{ type: 'text', text: JSON.stringify(value) }] };
 }
 
-// Every tool is read-only, idempotent, and closed-world: state-passing and
-// deterministic (no server-side mutation), and derived entirely from the bundled
-// catalog (no external calls). Annotate accordingly — this is the metadata the
-// connector directory weighs most. Per-tool overrides win if a config sets its own.
+// Recipe tools keep their deterministic annotations. Lyric tools can override
+// them: revision mutates a run and its kitchen writer calls an external model.
 const READ_ONLY_ANNOTATIONS = { readOnlyHint: true, idempotentHint: true, openWorldHint: false };
 
 function tool(server, name, config, fn) {
@@ -42,9 +43,19 @@ function tool(server, name, config, fn) {
     ...config,
     annotations: { ...READ_ONLY_ANNOTATIONS, ...(config.annotations || {}) },
   };
-  server.registerTool(name, withAnnotations, async (args) => {
+  server.registerTool(name, withAnnotations, async (args, extra) => {
     try {
-      const out = await fn(args ?? {});
+      const out = await withExecutionContext(
+        childExecutionContext({
+          signal: extra?.signal,
+          ...(name.startsWith('lyric_')
+            ? {
+                deadlineAt: performance.now() + TOOL_BUDGET_MS,
+              }
+            : {}),
+        }),
+        () => fn(args ?? {}, extra)
+      );
       // A handler may return a ready MCP result (multiple content blocks —
       // lyric_grade leads with the SONG as plain text so a client presents
       // it rather than reformatting escaped JSON; the Wide Room screenshot,

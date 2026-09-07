@@ -1,40 +1,42 @@
 name: Flash battery
 
-# Runs scripts/flash_battery.mjs against the LIVE chat deployment and uploads
-# the JSONL transcripts as an artifact. Manual-only (workflow_dispatch): a
-# battery round spends real Gemini credit through the site's own rate-limited
-# /chat path, so a round is always a deliberate act, never a push side-effect.
-#
-# WHY A WORKFLOW AT ALL: the analyst's own container may sit behind a network
-# egress policy that cannot reach the Render host (GitHub is allowlisted,
-# onrender.com is not), while a GitHub runner has open egress. The driver is
-# the same committed instrument either way; only where it runs moves.
-
+# Paid, manual measurement. A schema-only smoke is mcp/check_live.mjs without
+# --commit; this workflow always verifies a specific implementation before it
+# spends credit. Checkpoints carry signed continuation capabilities and are
+# encrypted before artifact upload; only an allowlisted aggregate reaches logs.
 on:
   workflow_dispatch:
     inputs:
       songs:
-        description: 'How many songs to drive (briefs cycle)'
-        default: '3'
+        description: 'Songs to drive; all must satisfy the selected expected outcome'
+        default: '1'
         required: false
       turns:
-        description: 'Max user turns per song (M-224: 25 — round 14 folded 34 answers in six turns and nine could not hold the loop)'
+        description: 'Maximum user turns per song'
         default: '25'
         required: false
       pace:
-        description: 'Seconds between requests (the site allows ~30/hr/IP)'
+        description: 'Seconds between requests (the site allows about 30/hr/IP)'
         default: '130'
         required: false
-
+      expect:
+        description: 'finished requires every song; turn-wall requires a signed wall checkpoint; survey records coverage only'
+        type: choice
+        options: [finished, turn-wall, survey]
+        default: finished
       wait_for_live:
-        description: 'Wait until the live connector advertises this tree (mcp/check_live.mjs exit 0) before the first turn (M-225: the deploy job only queues the build)'
-        default: 'false'
-        required: false
-
+        description: 'Wait up to 45 minutes for the pinned build; false checks once and refuses a mismatch'
+        type: boolean
+        default: true
       live_commit:
-        description: 'M-230: with wait_for_live, also require /health to report this commit (the merge sha on main) — a change that touches no tool leaves the surface identical, and the surface alone matched the OLD deployment'
-        default: ''
+        description: 'Required full 40-character commit SHA to measure'
+        required: true
+      resume_run:
+        description: 'Optional Actions run ID whose battery artifact should be resumed'
         required: false
+permissions:
+  contents: read
+  actions: read
 concurrency:
   group: flash-battery
   cancel-in-progress: false
@@ -42,74 +44,136 @@ concurrency:
 jobs:
   battery:
     runs-on: ubuntu-latest
-    # DERIVED from what a round may now legitimately spend, not guessed: the
-    # M-163 driver continues past parked (exit 3) stops, so a single-song
-    # round can use its whole turn budget, and round 6 measured a legitimate
-    # turn at 16m49s (grade + revise chains inside one /chat response). Nine
-    # turns at that worst-observed pace is ~150 min; 300 covers it with the
-    # same 2x margin check_deploy_memory.js uses, under the 6h Actions cap.
-    # The old 120 was sized for the 130s-pace multi-song shape and would kill
-    # the job mid-round — taking the transcript with it.
+    # A driver-side aggregate deadline subtracts setup/deploy waiting and
+    # leaves five minutes for final records and upload before this hard wall.
     timeout-minutes: 355
     steps:
+      - name: Validate recovery encryption before any paid request
+        env:
+          LIVE_COMMIT: ${{ inputs.live_commit }}
+          BATTERY_RECOVERY_KEY: ${{ secrets.BATTERY_RECOVERY_KEY }}
+        run: |
+          if ! [[ "$BATTERY_RECOVERY_KEY" =~ ^[0-9a-fA-F]{64}$ ]]; then
+            echo '::error::Configure BATTERY_RECOVERY_KEY as 32 random bytes encoded by 64 hexadecimal characters before running or resuming a battery'
+            exit 1
+          fi
+          echo "BATTERY_JOB_STARTED=$(date +%s)" >> "$GITHUB_ENV"
+          if ! [[ "$LIVE_COMMIT" =~ ^[0-9a-f]{40}$ ]]; then
+            echo '::error::live_commit must be a full lowercase 40-character SHA'
+            exit 1
+          fi
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.live_commit }}
       - uses: actions/setup-node@v5
         with:
           node-version: '22'
-      # M-225: "ACCEPTED IS NOT DEPLOYED" (deploy-connector.yml's own words) —
-      # the deploy job only queues Render's build, and nothing reports when the
-      # new process is serving. mcp/check_live.mjs asks the live server what it
-      # advertises and exits 0 only when that matches THIS tree, so a round
-      # dispatched with wait_for_live=true starts its first turn against the
-      # build it was meant to measure and not the one before it. Bounded at
-      # 45 minutes; a wait that runs out is a red job, not a round against the
-      # wrong server.
-      - name: Wait until the live connector matches this tree
-        if: inputs.wait_for_live == 'true'
+      - name: Download a sealed prior checkpoint
+        if: inputs.resume_run != ''
+        uses: actions/download-artifact@v4
+        with:
+          name: flash-battery-recovery
+          path: battery-sealed-in/
+          run-id: ${{ inputs.resume_run }}
+          github-token: ${{ github.token }}
+      - name: Authenticate and restore the prior checkpoint
+        if: inputs.resume_run != ''
+        env:
+          BATTERY_RECOVERY_KEY: ${{ secrets.BATTERY_RECOVERY_KEY }}
+        run: node scripts/battery_archive.mjs open --archive=battery-sealed-in/battery-recovery.enc --out=battery-out
+      - name: Verify the live implementation
+        env:
+          LIVE_COMMIT: ${{ inputs.live_commit }}
+          WAIT_FOR_LIVE: ${{ inputs.wait_for_live }}
         run: |
+          umask 077
+          mkdir -p battery-out
+          node -e 'require("fs").writeFileSync("battery-out/preflight.json", JSON.stringify({expected_commit:process.env.LIVE_COMMIT,started:new Date().toISOString(),phase:"checking_live"},null,2))'
           (cd mcp && npm ci --no-audit --no-fund)
           deadline=$((SECONDS + 2700))
-          n=0
           while :; do
-            n=$((n + 1))
-            set +e
-            out=$(node mcp/check_live.mjs --commit="${{ inputs.live_commit }}" 2>&1); rc=$?
-            set -e
-            if [ "$rc" = "0" ]; then
-              echo "::notice title=battery wait-for-live::live connector matches this tree${{ inputs.live_commit && ' and reports the expected commit' || '' }} after $n probe(s), ${SECONDS}s"
+            if node mcp/check_live.mjs --commit="$LIVE_COMMIT"; then
               break
             fi
-            echo "probe $n: check_live exit $rc — $(echo "$out" | tail -1 | cut -c1-160)"
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error title=battery wait-for-live::the live connector did not match this tree inside 45 minutes (last exit $rc)"
+            if [ "$WAIT_FOR_LIVE" != 'true' ] || [ "$SECONDS" -ge "$deadline" ]; then
+              echo '::error::the live connector did not match the pinned build; no paid request was sent'
               exit 1
             fi
             sleep 30
           done
-      - name: Drive the battery against the live deployment
+      - name: Prove archive encryption before paid work and retain a sealed baseline
+        env:
+          BATTERY_RECOVERY_KEY: ${{ secrets.BATTERY_RECOVERY_KEY }}
         run: |
+          umask 077
+          mkdir -p battery-sealed
+          node scripts/battery_archive.mjs --check-key
+          node scripts/battery_archive.mjs seal --source=battery-out --out=battery-sealed/battery-recovery.enc > battery-sealed/manifest.json.tmp
+          mv battery-sealed/manifest.json.tmp battery-sealed/manifest.json
+      - name: Drive the battery against the pinned deployment
+        env:
+          LIVE_COMMIT: ${{ inputs.live_commit }}
+          SONGS: ${{ inputs.songs }}
+          TURNS: ${{ inputs.turns }}
+          PACE: ${{ inputs.pace }}
+          EXPECT: ${{ inputs.expect }}
+          RESUME_RUN: ${{ inputs.resume_run }}
+        run: |
+          umask 077
+          remaining=$((BATTERY_JOB_STARTED + 355 * 60 - $(date +%s) - 300))
+          if [ "$remaining" -le 0 ]; then
+            echo '::error::no time remains before the upload reserve'
+            exit 1
+          fi
+          resume=()
+          if [ -n "$RESUME_RUN" ]; then resume=(--resume); fi
+          set +e
           node scripts/flash_battery.mjs \
             --out=battery-out \
-            --songs=${{ inputs.songs }} \
-            --turns=${{ inputs.turns }} \
-            --pace=${{ inputs.pace }}
-      # The analyst's container cannot reach the artifact blob store either
-      # (same egress policy that motivated this workflow), but it CAN read job
-      # logs — so the transcripts are also printed here, size-guarded. The
-      # artifact remains the canonical full record.
-      - name: Print the transcripts into the log (the analyst reads logs)
+            --commit="$LIVE_COMMIT" \
+            --require-recovery \
+            --songs="$SONGS" \
+            --turns="$TURNS" \
+            --pace="$PACE" \
+            --expect="$EXPECT" \
+            --max-runtime="$remaining" \
+            "${resume[@]}" >> battery-out/driver.log 2>&1
+          rc=$?
+          set -e
+          echo "Battery process exited with status $rc; full details remain in the encrypted recovery artifact."
+          exit "$rc"
+      - name: Seal the latest records without removing the local evidence
+        id: seal
         if: always()
+        env:
+          BATTERY_RECOVERY_KEY: ${{ secrets.BATTERY_RECOVERY_KEY }}
         run: |
-          for f in battery-out/summary.json battery-out/*.jsonl; do
-            [ -f "$f" ] || continue
-            echo "═══ $f ═══"
-            head -c 400000 "$f"
-            echo
-          done
-      - name: Upload the transcripts (the record IS the deliverable)
+          umask 077
+          if [ ! -d battery-out ]; then exit 0; fi
+          mkdir -p battery-sealed
+          if node scripts/battery_archive.mjs seal --source=battery-out --out=battery-sealed/battery-recovery.enc > battery-sealed/manifest.json.tmp; then
+            mv battery-sealed/manifest.json.tmp battery-sealed/manifest.json
+          else
+            rm -f battery-sealed/manifest.json.tmp
+            echo '::error::Latest archive sealing failed. Local evidence and any previously sealed archive are preserved; plaintext will not be uploaded.'
+            exit 1
+          fi
+      - name: Record archive freshness without private content
         if: always()
+        env:
+          LATEST_SEAL_SUCCEEDED: ${{ steps.seal.outcome == 'success' }}
+        run: |
+          node -e 'const fs=require("fs"); const p="battery-sealed/manifest.json"; if(fs.existsSync(p)){const m=JSON.parse(fs.readFileSync(p,"utf8")); m.latest_seal_succeeded=process.env.LATEST_SEAL_SUCCEEDED==="true"; fs.writeFileSync(p,JSON.stringify(m,null,2)+"\n",{mode:0o600});}'
+      - name: Print only safe aggregate outcomes
+        if: always()
+        run: node scripts/battery_archive.mjs summary --source=battery-out
+      - name: Upload only encrypted recovery data and its public manifest
+        if: always() && hashFiles('battery-sealed/battery-recovery.enc') != ''
         uses: actions/upload-artifact@v4
         with:
-          name: flash-battery-transcripts
-          path: battery-out/
+          name: flash-battery-recovery
+          path: |
+            battery-sealed/battery-recovery.enc
+            battery-sealed/manifest.json
+          if-no-files-found: error
           retention-days: 30

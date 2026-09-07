@@ -3,7 +3,7 @@
 // STANDING RULE 1 OF lyric-harness/CLAUDE.md, HONORED IN THE ARCHITECTURE:
 // the recipe engine and the lyrics do not touch. This module imports nothing
 // from engine.js or schemas.js, shares no state with the workspace, and runs
-// every call as its own short-lived python3 subprocess over the CLI —
+// every call through the persistent or cold Python CLI entrance —
 // `lyric_harness.py` is the tested entrance (50-suite CI pool), and the
 // connector exposes ONLY real entrances (standing rule 3, 2026-08-18: no
 // private instruments). No re-implementation of any judgement lives here; a
@@ -15,18 +15,20 @@
 // brief, or a human pasting lyrics — because the graders do not care where
 // a draft came from.
 //
-// OPERATIONAL SHAPE. Stateless: a plan is a pure function of its seed, so
-// grading re-derives it (seed + draft in, verdict out) and nothing is held
-// server-side — the same no-handle promise the recipe tools keep. Serial: a
-// module-level queue runs ONE python at a time, because each call loads the
-// pronunciation lexicon (~10s, a few hundred MB) and the deploy target is a
-// small instance; a burst must queue, not OOM. Bounded: every input has a
+// OPERATIONAL SHAPE. A plan is a pure function of its seed; revision state
+// is separately capability-addressed and checkpointed. The process-wide queue
+// runs ONE Python request at a time to bound lexical/grading memory. Its
+// deadline includes queue wait, and cancellation removes pending work or kills
+// its active process. Kitchen calls are never transparently replayed after a
+// crash. Bounded: every input has a
 // ceiling (the same DoS arithmetic schemas.js records for the recipe side).
 // Argv-safe: word-like inputs are charset-validated and may not begin with
 // "-"; line text never reaches argv — it travels by temp file, deleted in
 // finally.
 
-import { execFile, spawn } from 'node:child_process';
+import { createPythonBridge } from './python_bridge.js';
+import { requestContext } from './execution_context.js';
+import { openKitchenBudget } from './paid_budget.js';
 import { createHash } from 'node:crypto';
 import { mkdtemp, writeFile, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -187,45 +189,11 @@ const RETURNS_RE = /^[0-9]+(,[0-9]+)*(;[0-9]+(,[0-9]+)*)*$/;
 // reason. Built from MAX_LINES so the two cannot part again.
 const SCHEME_RE = new RegExp(`^[A-Za-z]{1,${MAX_LINES}}$`);
 
-// One python at a time (see OPERATIONAL SHAPE above). A rejected run must
-// not wedge the chain, so the tail always settles.
-let queueTail = Promise.resolve();
-function enqueue(fn) {
-  const run = queueTail.then(fn, fn);
-  queueTail = run.then(
-    () => undefined,
-    () => undefined
-  );
-  return run;
-}
-
-// ── THE WARM WORKER (`MISSING.md` M-155) ──────────────────────────────────
-// One persistent `worker.py` serves verb requests over line-JSON, so the
-// interpreter and the harness's declared memos live between calls — the
-// lever that matters is `relations._WVP_MEMO`, which makes lyric_revise's
-// replay stop re-paying streams for drafts the process already judged.
-// STATELESSNESS IS UNCHANGED AT THE REQUEST BOUNDARY: every request is a
-// full `main()` on its own argv, and the memo answers only IDENTICAL calls
-// (declared-coordinate keys; quality/relations.py owns the argument).
-// FAILURE IS ALWAYS A FALLBACK, NEVER A WRONG ANSWER: a timeout, a dead
-// worker, or an unreadable reply kills the worker and re-runs THAT request
-// on the cold execFile path — one slow answer, byte-identical semantics.
-// `LYRIC_WORKER=0` disables the warm path entirely.
-const WORKER_PATH = path.join(path.dirname(fileURLToPath(import.meta.url)), 'worker.py');
-// THE ENV BOTH HARNESS PATHS RUN UNDER — one definition (M-254). `mcp/` on
-// PYTHONPATH is what lets `--propose=call:gemini_proposer:make` import the
-// kitchen proposer that lives beside this file; LYRIC_PROPOSER_MODEL is the
-// chat's own declared model, set once by chat.js at boot from the one place
-// it is declared (GEMINI_MODEL or DEFAULT_MODEL), so the writer the kitchen
-// asks is the model the service says it runs.
+// The bridge owns serial admission, deadlines, cancellation and streamed
+// checkpoints. Kitchen calls are side effects and are never replayed after a
+// worker crash; deterministic fallback shares the original request deadline.
 const MCP_DIR = path.dirname(fileURLToPath(import.meta.url));
-// THE KITCHEN'S WAIT BUDGET IS A DECLARED SHARE OF THE ONE TOOL BUDGET
-// (M-255). A kitchen run may spend this share waiting out 429s and the rest
-// grading and writing; both halves come off the same 600 s the verb is
-// killed at, so the share is stated here and derived nowhere else. 0.4 is a
-// declared choice: round 23's seven hints summed to ~300 s, which no share
-// of a ten-minute budget clears — that case is the proposer's hint cap and
-// a stopping place — while a two-or-three-hint stall (13-60 s each) fits.
+const WORKER_PATH = path.join(MCP_DIR, 'worker.py');
 const KITCHEN_WAIT_SHARE = 0.4;
 function harnessEnv() {
   const prior = process.env.PYTHONPATH;
@@ -236,261 +204,22 @@ function harnessEnv() {
     LYRIC_PROPOSER_WAIT_BUDGET_S: String(Math.floor((TOOL_BUDGET_MS / 1000) * KITCHEN_WAIT_SHARE)),
   };
 }
-// WHO WRITES THE LINE, ON THIS TOOL (M-254). `interview` is every earlier
-// caller's contract: the loop suspends at each question and the CALLER
-// answers through `state` + `answer`. `kitchen` is the owner's 2026-09-06
-// ruling for the chat surface: the loop runs to a stop condition HERE, with
-// `mcp/gemini_proposer.py` asking Gemini one line per question on the
-// harness's own rendered brief, and no question ever reaches the caller.
 const WRITERS = ['interview', 'kitchen'];
 const KITCHEN_PROPOSE = 'call:gemini_proposer:make';
 const WORKER_ENABLED = process.env.LYRIC_WORKER !== '0';
-let _worker = null;
-let _workerBuf = '';
-let _workerNextId = 1;
-let _workerWaiter = null; // {id, resolve, reject} — the queue is serial, so at most one
-
-// A KILL CARRIES ITS REASON (`MISSING.md` M-240, 2026-09-05). Every kill
-// used to reject the waiter with the same bare "worker died", so the one
-// cause that must NOT fall back to the cold path — a reply past the output
-// cap, which the cold path holds too — was indistinguishable from a crash,
-// which must. MEASURED: `finish` on the planner's own 80-line fixture draft
-// answers exit 4 in ~600 s and prints 8.56 MB, twice this cap; the warm
-// worker was killed at the cap, the fallback re-ran the same 600 s cold, and
-// execFile then refused the same bytes at the same cap — twenty minutes to
-// deliver one truncated block.
-function _killWorker(why) {
-  if (_worker) {
-    try {
-      _worker.kill('SIGKILL');
-    } catch {
-      /* already gone */
-    }
-  }
-  _worker = null;
-  _workerBuf = '';
-  if (_workerWaiter) {
-    const w = _workerWaiter;
-    _workerWaiter = null;
-    const e = new Error(why ? why.message || String(why) : 'worker died');
-    if (why && why.overflowed) e.overflowed = true;
-    w.reject(e);
-  }
-}
-
-function _spawnWorker() {
-  const w = spawn(PYTHON, [WORKER_PATH], {
-    cwd: HARNESS_DIR,
-    stdio: ['pipe', 'pipe', 'ignore'],
-    env: harnessEnv(),
-  });
-  // UNREF'd so the worker never holds the parent open: node exits when its
-  // own work is done, the worker's stdin sees EOF, and worker.py's read
-  // loop ends — the shutdown ordering is the pipe's, not a signal's.
-  w.unref();
-  if (w.stdin.unref) w.stdin.unref();
-  if (w.stdout.unref) w.stdout.unref();
-  w.stdout.setEncoding('utf8');
-  w.stdout.on('data', (chunk) => {
-    _workerBuf += chunk;
-    if (_workerBuf.length > MAX_OUTPUT_BYTES)
-      return _killWorker({
-        overflowed: true,
-        message: `the harness printed past this connector's ${MAX_OUTPUT_BYTES}-byte output cap`,
-      });
-    let nl;
-    while ((nl = _workerBuf.indexOf('\n')) >= 0) {
-      const line = _workerBuf.slice(0, nl);
-      _workerBuf = _workerBuf.slice(nl + 1);
-      if (!line.trim() || !_workerWaiter) continue;
-      let reply;
-      try {
-        reply = JSON.parse(line);
-      } catch {
-        return _killWorker(); // protocol corruption: cold path takes over
-      }
-      if (reply.id !== _workerWaiter.id) continue; // stale reply from a killed request
-      const wtr = _workerWaiter;
-      _workerWaiter = null;
-      wtr.resolve({
-        code: typeof reply.code === 'number' ? reply.code : -1,
-        stdout: reply.stdout || '',
-        stderr: reply.stderr || '',
-      });
-    }
-  });
-  w.on('exit', (code, signal) => {
-    // A WORKER THAT DIES IS A LOGGED EVENT, NOT A QUIET SLOWDOWN (M-216):
-    // from M-155 to 2026-09-01 the deployed image had no worker.py, every
-    // spawn failed, every call answered cold with byte-identical bytes, and
-    // nothing said so for three days. The fallback stays; its silence goes.
-    if (_worker === w) {
-      console.error(
-        `[lyric] warm worker exited (code=${code} signal=${signal}) — later calls answer COLD until it respawns`
-      );
-      _killWorker();
-    }
-  });
-  w.on('error', (e) => {
-    if (_worker === w) {
-      console.error(`[lyric] warm worker could not be spawned: ${e && e.message} — answering COLD`);
-      _killWorker();
-    }
-  });
-  _worker = w;
-  return w;
-}
-
-function _runVerbWarm(args) {
-  return new Promise((resolve, reject) => {
-    const w = _worker || _spawnWorker();
-    const id = _workerNextId++;
-    const timer = setTimeout(() => {
-      // A wedged request wedges the worker (it is serial), so the worker
-      // goes with it. The rejection is TAGGED so runVerb can tell a
-      // timed-out call from a dead worker: a crash falls back cold with
-      // byte-identical semantics, but a call that outlived the WHOLE
-      // shared budget once must not re-run cold — that blocks the serial
-      // queue for a second whole budget to earn the same kill (M-165;
-      // round 8's turn 8 spent 25.6 minutes this way).
-      if (_workerWaiter && _workerWaiter.id === id) {
-        const wtr = _workerWaiter;
-        _workerWaiter = null;
-        const e = new Error(`verb killed at the shared tool budget (${SUBPROCESS_TIMEOUT_MS}ms)`);
-        e.timedOut = true;
-        wtr.reject(e);
-      }
-      _killWorker();
-    }, SUBPROCESS_TIMEOUT_MS);
-    _workerWaiter = {
-      id,
-      resolve: (r) => {
-        clearTimeout(timer);
-        resolve(r);
-      },
-      reject: (e) => {
-        clearTimeout(timer);
-        reject(e);
-      },
-    };
-    try {
-      w.stdin.write(JSON.stringify({ id, argv: args }) + '\n');
-    } catch (e) {
-      _killWorker();
-      reject(e);
-    }
-  });
-}
-
-// THE OVERSIZE REFUSAL, WRITTEN IN THE HARNESS'S OWN VOICE so the verdict
-// builder reads it exactly as it reads a refusal the harness printed: exit 2
-// is "the harness did not answer; the report names why", which is precisely
-// what happened. It is NOT a cold fallback: the cold path carries the SAME
-// cap (`execFile`'s maxBuffer), so falling back could only spend the budget
-// a second time to fail the same way (M-240).
-function _oversizeRefusal(args) {
-  const mib = (MAX_OUTPUT_BYTES / (1024 * 1024)).toFixed(0);
-  return {
-    code: 2,
-    stdout:
-      `  REFUSED — ${args[0]} printed more than this connector can carry: its report ran past the ` +
-      `${mib} MiB output cap and was cut off, so no part of it is an answer.\n` +
-      `  A report grows with the SQUARE of the line count — the mandate prints every mandated pair, and a ` +
-      `plan draws a median 201 lines under the envelope derived on 2026-09-04 (MISSING.md M-239). MEASURED ` +
-      `2026-09-05 on the fixture drafts the planner draws: an 80-line finish prints 8.56 MB, twice this cap, ` +
-      `after ~600 s; a 47-line finish answers in 245 s and fits.\n` +
-      `  Ask for a shorter song (lyric_plan / lyric_grade / lyric_revise all take an exact 'lines'), or grade ` +
-      `the sections one at a time. A connector that pages a long report is MISSING.md M-240, open.\n`,
-    stderr: '',
-  };
-}
-
-function _runVerbCold(args) {
-  return new Promise((resolve) => {
-    execFile(
-      PYTHON,
-      ['lyric_harness.py', ...args],
-      {
-        cwd: HARNESS_DIR,
-        timeout: SUBPROCESS_TIMEOUT_MS,
-        maxBuffer: MAX_OUTPUT_BYTES,
-        env: harnessEnv(),
-      },
-      (err, stdout, stderr) => {
-        // THE SAME CAP, ON THIS PATH TOO (M-240, 2026-09-05). `execFile`
-        // reports an over-cap child as a STRING code, which the -1 default
-        // below flattened into "subprocess failure (-1)" — the one shape a
-        // caller cannot act on. It is the same event the warm path names,
-        // so it gets the same named refusal and the same advice.
-        if (err && err.code === 'ERR_CHILD_PROCESS_STDIO_MAXBUFFER')
-          return resolve(_oversizeRefusal(args));
-        // The CLI's exit codes are the contract: 0 answered clean,
-        // 2 REFUSED (the harness did not answer), 3 answered with a
-        // FLAG standing, 4 SUSPENDED. execFile treats any nonzero as
-        // `err`, so the codes are read back off the error object.
-        const code = err ? (typeof err.code === 'number' ? err.code : -1) : 0;
-        resolve({ code, stdout: stdout || '', stderr: stderr || '' });
-      }
-    );
-  });
-}
-
-function runVerb(args) {
-  // The cold fallback exists for a DEAD worker (spawn failure, protocol
-  // corruption, crash) — one slow answer, same semantics. A TIMED-OUT
-  // worker is a different verdict: the call itself outlived the shared
-  // budget, and re-running it cold would hold the serial queue for a
-  // second whole budget to reach the same -1. The tagged rejection is
-  // surfaced as the kill it is (M-165).
-  //
-  // THE PATH TAKEN AND THE TIME IT TOOK RIDE THE RESULT (M-216): `path` is
-  // one of warm / cold / cold-fallback / killed and `ms` the wall clock of
-  // this call. Ten battery rounds could not say which path the deployed box
-  // paid, and the harness/model split of a turn was never separable
-  // (M-170). A fallback is also LOGGED, because a silent one already cost
-  // three days of cold production (M-187).
-  const t0 = Date.now();
-  const stamp = (r, path) => ({ ...r, path, ms: Date.now() - t0 });
-  // The tail of a killed call, kept apart so the ternary below stays the
-  // one-line shape the M-165 pin reads (`e && e.timedOut ? { code: -1`).
-  const killed = (e, t) => ({
-    stdout: '',
-    stderr: String(e.message),
-    path: 'killed',
-    ms: Date.now() - t,
-  });
-  return enqueue(() =>
-    WORKER_ENABLED
-      ? _runVerbWarm(args).then(
-          (r) => stamp(r, 'warm'),
-          (e) =>
-            e && e.timedOut
-              ? { code: -1, ...killed(e, t0) }
-              : e && e.overflowed
-                ? (console.error(
-                    `[lyric] '${args[0]}' printed past the ${MAX_OUTPUT_BYTES}-byte output cap — REFUSED, not re-run cold`
-                  ),
-                  stamp(_oversizeRefusal(args), 'killed'))
-                : (console.error(
-                    `[lyric] warm worker unavailable (${e && e.message}); answering '${args[0]}' on the COLD path`
-                  ),
-                  _runVerbCold(args).then((r) => stamp(r, 'cold-fallback')))
-        )
-      : _runVerbCold(args).then((r) => stamp(r, 'cold'))
-  );
-}
-
-// TEST SEAM (M-155): mcp/test.mjs drives the two paths directly for its
-// byte-equality battery — the claim that the warm worker answers with the
-// COLD PATH'S EXACT BYTES is only checkable by running both on one argv.
-// Production code reaches both only through `runVerb`'s fallback.
-export const _workerInternals = {
-  runWarm: _runVerbWarm,
-  runCold: _runVerbCold,
-  kill: _killWorker,
-  pid: () => (_worker ? _worker.pid : null),
-  enabled: WORKER_ENABLED,
-};
+const bridge = createPythonBridge({
+  python: PYTHON,
+  harnessDir: HARNESS_DIR,
+  workerPath: WORKER_PATH,
+  harnessEnv,
+  timeoutMs: SUBPROCESS_TIMEOUT_MS,
+  maxOutputBytes: MAX_OUTPUT_BYTES,
+  workerEnabled: WORKER_ENABLED,
+  getContext: requestContext,
+  openKitchenBudget,
+});
+const runVerb = bridge.runVerb;
+export const _workerInternals = bridge.internals;
 
 const EXIT_MEANING = {
   0: 'answered — no flag stands',
@@ -601,24 +330,8 @@ function extractStanding(stdout) {
 // next pending question names the verdict. Exact below the attempt budget;
 // the budget's LAST attempt is `unknown` here (rejected-and-exhausted and
 // accepted both move to another line) and is left so, never guessed.
-// THE RUN RECORD THE TOOL KEEPS (M-237): one per run key, a cache of the
-// state the tool returns verbatim. See run_store.js.
+// Cache only by unguessable run capability; a seed never identifies an owner.
 export const RUNS = new RunStore();
-// A plan on a seed with an open run is NOT refused by the tool (a person may
-// plan again on purpose; the Gemini wrapper keeps its stricter refusal) —
-// the result says a run is open and names the move (M-237).
-function openRunNote(a) {
-  const key = runKeyOf(a);
-  const rec = key ? RUNS.get(key) : null;
-  if (!rec) return '';
-  return (
-    `\n\nNOTE: a lyric_revise run is OPEN on ${key} (run ${rec.run_id}, ${rec.status}` +
-    (rec.status === 'suspended'
-      ? `, ${rec.answers ?? 0} answer(s) on record`
-      : `, ${(rec.open || []).length} line(s) open`) +
-    `). This plan does not touch it: continue it with lyric_revise, or send \`new_run: true\` there to start over.`
-  );
-}
 
 export const CONNECTOR_MAX_ROUNDS = 8;
 export const CONNECTOR_ATTEMPTS = 1;
@@ -992,7 +705,29 @@ function extractRunRecord(stdout) {
 // the LAST line carries the running totals, so a run the budget killed
 // mid-loop still reports what it spent. Absent lines → zero calls, said as
 // such (`proposer_calls: 0`), never as missing keys.
-function extractProposerRecord(stdout) {
+function extractProposerRecord(stdout, record = null) {
+  if (record && typeof record === 'object') {
+    const fields = [
+      'model',
+      'calls',
+      'attempts',
+      'ms',
+      'tokens_in',
+      'tokens_out',
+      'tokens_thoughts',
+      'tokens_cached',
+      'tokens_total',
+      'empty',
+      'retries',
+      'wait_s',
+      'status',
+      'in_flight',
+      'usage_unknown',
+    ];
+    return Object.fromEntries(
+      fields.filter((k) => record[k] !== undefined).map((k) => [`proposer_${k}`, record[k]])
+    );
+  }
   const lines = [
     ...stdout.matchAll(
       /PROPOSER CALL (\d+): (\S+) (\d+) ms in=(\d+) out=(\d+)(?: finish=(\S+))? \| kitchen model=(\S+) calls=(\d+) ms=(\d+) in=(\d+) out=(\d+) empty=(\d+) retries=(\d+)(?: wait=(\d+))?/g
@@ -1023,6 +758,15 @@ function verdictOf(r) {
   };
   if (typeof r.path === 'string') v.path = r.path;
   if (typeof r.ms === 'number') v.ms = r.ms;
+  if (r.proposer_record) Object.assign(v, extractProposerRecord(r.stdout, r.proposer_record));
+  if (r.accounting_unknown) v.proposer_usage_unknown = true;
+  if (r.timed_out) v.timed_out = true;
+  if (r.cancelled) v.cancelled = true;
+  const coverage = r.lyric_result?.coverage || r.checkpoint?.coverage;
+  if (coverage) {
+    v.coverage = coverage;
+    v.certified = coverage.certified === true;
+  }
   Object.assign(v, extractRunRecord(r.stdout));
   if (r.code === 2) {
     const why = extractRefusal(r.stdout);
@@ -1170,7 +914,8 @@ function checkLines(lines) {
   if (lines.length < 1 || lines.length > MAX_LINES)
     throw refuse(`between 1 and ${MAX_LINES} lines — got ${lines.length}`);
   for (const l of lines)
-    if (l.length > MAX_LINE_CHARS) throw refuse(`line over ${MAX_LINE_CHARS} chars`);
+    if (typeof l !== 'string') throw refuse('every draft line must be a string');
+    else if (l.length > MAX_LINE_CHARS) throw refuse(`line over ${MAX_LINE_CHARS} chars`);
 }
 
 async function withTempDir(fn) {
@@ -1178,7 +923,9 @@ async function withTempDir(fn) {
   try {
     return await fn(dir);
   } finally {
-    await rm(dir, { recursive: true, force: true });
+    // An exceptional OS-level failure to reap a killed Python process must
+    // not let response cleanup remove files that process can still access.
+    await bridge.cleanup(() => rm(dir, { recursive: true, force: true }));
   }
 }
 
@@ -1610,26 +1357,33 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_STATE_CHARS)
       .optional()
       .describe(
-        "The `state` string returned by this tool's previous call on this song, VERBATIM. It is the harness's own deferred-run record (every answer already given, replayable by anyone); the server keeps nothing between calls, so dropping it restarts the revision from zero answers. Omit on the first call."
+        'The deferred interview `state` returned previously, VERBATIM. Pass it with the original `replay_draft` as `draft` and the same declarations to resume after the run cache expires. A live `run_id` carries those fields. Omit on the first call.'
+      ),
+    checkpoint: z
+      .string()
+      .max(MAX_STATE_CHARS)
+      .optional()
+      .describe(
+        'The kitchen checkpoint returned by an interrupted call, VERBATIM. It includes original input, accepted lines, and completed answers; resume under the SAME declarations. Completed answers are verified again without another paid proposal. Never substitute the displayed final_draft for its original replay_draft.'
       ),
     run_id: z
       .string()
       .max(80)
       .optional()
       .describe(
-        'The `run_id` a previous call on this song returned. Optional: without it the newest run on this seed (or mandate) is the run. Names one run when two are open on one seed.'
+        'The opaque run capability returned by a previous call. Send it to continue a cached run; a seed alone NEVER selects another run. Keep it private. Without it, pass the complete explicit state/checkpoint and draft or open an independent run.'
       ),
     new_run: z
       .boolean()
       .optional()
       .describe(
-        'true to DROP the run the tool remembers for this seed and open a fresh one on the draft you send. The only way past a parked run without rewriting it, and the only way to move a declaration mid-song.'
+        'true to open a fresh independent run on the draft you send, ignoring run_id. Existing runs remain intact. Omit state/checkpoint/answers when starting over.'
       ),
     writer: z
       .enum(WRITERS)
       .optional()
       .describe(
-        "Who writes the lines. 'interview' (the default, every earlier client's contract): the loop suspends at each question and YOU answer through `state` + `answer`/`answers`. 'kitchen': the server runs the loop to a stop condition itself, asking its own writer model one line per question on the harness's brief — no question comes back, no `state`/`answer` is taken, and the result is the [FINISHED …] song or a parked exit 3 to rewrite. The chat surface always uses 'kitchen'."
+        "Who writes the lines. 'interview' (default): the loop suspends at each question and YOU answer through run_id or state + answer/answers. 'kitchen': the server asks its own writer model. A completed call returns a graded stop; an interrupted call returns a checkpoint for explicit continuation. Kitchen takes checkpoint, not interview state/answer. The chat surface uses kitchen."
       ),
     answer: z
       .string()
@@ -1700,6 +1454,8 @@ export const LYRIC_TOOL_SCHEMAS = {
     before_text: textTwinOf('before').optional(),
     after: draftField.optional(),
     after_text: textTwinOf('after').optional(),
+    blueprint: blueprintField,
+    subdivision: subdivisionField,
     scheme: z
       .string()
       // ONE LETTER PER LINE (see SCHEME_RE): REPINNED 2026-09-05 (M-239)
@@ -1873,7 +1629,7 @@ export function registerLyricTools(server, tool) {
           const { report: _report, ...stamped } = verdict;
           return {
             content: [
-              { type: 'text', text: r.stdout + openRunNote(a) },
+              { type: 'text', text: r.stdout },
               { type: 'text', text: JSON.stringify({ ...stamped, exit_code: 0 }) },
             ],
           };
@@ -2026,14 +1782,14 @@ export function registerLyricTools(server, tool) {
         'or a DIFFERENT plan is revised): the loop grades, holds every flagged and banned line open, and ASKS — the ' +
         "first content block of a suspended call is the writer's brief for ONE question (which lines, what they " +
         'must answer, which words are FORBIDDEN as too predictable). Answer it by calling again with the SAME ' +
-        'declarations (seed and the rest) plus `state` (returned verbatim by every call — the server keeps ' +
-        'nothing) and `answer` (the new line) or `answers` (one {line, text} per asked line, for a batch or a group); on such a continuing call OMIT ' +
+        'declarations (seed and the rest) plus `run_id` (an opaque private capability) or explicit `state` ' +
+        'and `answer` (the new line) or `answers` (one {line, text} per asked line, for a batch or a group); on such a continuing call OMIT ' +
         '`draft` where the caller carries it (the chat connector does) — the draft is one draft for the whole ' +
         'run and never changes between its calls, and re-sending it is where calls have broken. THERE IS NO SONG IN ANY RESPONSE UNTIL THE LOOP REACHES A STOP ' +
         'CONDITION: a suspended call returns [AWAITING PROPOSAL] and the question, structurally without a render, ' +
-        'so a song cannot be presented that the loop never certified. At a stop condition the first block is the ' +
+        'so a suspended response is a work record. At a stop condition the first block is the ' +
         'rendered song in performance order under its bracket headers with a [FINISHED — seed N — exit E — ' +
-        'STOP_REASON — ...] stamp: exit 0 is converged clean; exit 3 names the lines still open, or — with no line open — ' +
+        'STOP_REASON — ...] stamp: exit 0 is converged clean; coverage and certified disclose whether every mandated pair was judged. Exit 2 can mean uncertified coverage. Exit 3 names the lines still open, or — with no line open — ' +
         'the WHOLE-DRAFT FLAG(S) standing (a PARKED song either way — present it only as parked, never as finished; ' +
         '`status` says which of the two, and `loop_whole_flag_codes` names the flags). The two-tier ban is enforced by the loop itself ' +
         '(MANDATORY_PURSUE), not by a stamp: banned pairs hold their lines open and the loop keeps asking for ' +
@@ -2043,24 +1799,25 @@ export function registerLyricTools(server, tool) {
         "constant across one song's calls. WHO WRITES THE LINES is `writer` (M-254): 'interview' (the default) is " +
         "the question-and-answer contract above, for a client that writes its own lines; 'kitchen' runs the loop " +
         'to a stop condition on the server with its own writer model answering every question one line at a ' +
-        'time on the same brief — no question comes back, no `state`/`answer` is taken, one call returns the ' +
-        '[FINISHED …] song or a parked exit 3 to rewrite with `draft_text`. The chat surface always cooks.',
+        'time on the same brief. A stop returns the song or a parked draft to rewrite. An interrupted kitchen returns `checkpoint` for explicit resume, `final_draft` as exact accepted lines, and `replay_draft` as original input. Never replay answers against final_draft. The chat surface always cooks.',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_revise,
+      annotations: { readOnlyHint: false, idempotentHint: false, openWorldHint: true },
     },
     (a) =>
       withTempDir(async (dir) => {
         // M-234: the draft may arrive as one string.
         if (typeof a.draft_text === 'string' && !Array.isArray(a.draft))
           a.draft = draftFromText(a.draft_text);
-        // THE RUN THE TOOL REMEMBERS (M-237). Resolved by `run_id` when the
-        // call names one, else the newest run on this key. `new_run` drops
-        // it. Then the tool's own refusals for a parked run, the moved
-        // declaration guard, and the carry: an omitted `state`, `draft` or
-        // declaration is filled from the record and SAID so on the verdict;
-        // an explicit value always wins and refreshes the record.
-        const runKey = runKeyOf(a);
-        let runRec = a.run_id ? RUNS.byId(a.run_id) : runKey ? RUNS.get(runKey) : null;
-        if (a.run_id && !runRec)
+        // A seed is a musical declaration, never an ownership key. Knowing
+        // another caller's seed cannot discover, modify, or erase their run.
+        if (
+          a.new_run &&
+          (a.state != null || a.checkpoint != null || a.answer != null || a.answers != null)
+        )
+          throw refuse('`new_run` starts on a draft: omit state, checkpoint, answer and answers');
+        let runKey = runKeyOf(a);
+        const runRec = a.new_run ? null : a.run_id ? RUNS.byId(a.run_id) : null;
+        if (a.run_id && !a.new_run && !runRec && a.state == null && a.checkpoint == null)
           throw refuse(
             `\`run_id\` ${a.run_id} names no run this tool remembers — it may have finished, expired (${Math.round(RUNS.ttlMs / 3600000)} h idle) or been forgotten by a restart; pass \`state\` back, or omit \`run_id\` and send the draft to open a fresh run`
           );
@@ -2068,10 +1825,6 @@ export function registerLyricTools(server, tool) {
           throw refuse(
             `\`run_id\` ${a.run_id} belongs to ${runRec.key}, and this call names ${runKey}`
           );
-        if (a.new_run === true && runRec) {
-          RUNS.del(runRec.key);
-          runRec = null;
-        }
         const runWander = runRefusal(runRec, a);
         if (runWander) throw refuse(runWander);
         const carried = { state: false, draft: false, decl: false };
@@ -2092,10 +1845,65 @@ export function registerLyricTools(server, tool) {
             carried.state = true;
           }
           if (runRec.status === 'suspended' && a.draft == null && Array.isArray(runRec.draft)) {
-            a.draft = runRec.draft;
+            a.draft = runRec.replay_draft || runRec.draft;
             carried.draft = true;
           }
+          if (
+            ['interrupted', 'uncertain_proposal'].includes(runRec.status) &&
+            a.checkpoint == null &&
+            runRec.checkpoint
+          ) {
+            a.checkpoint = runRec.checkpoint;
+            carried.state = true;
+          }
         }
+        let checkpoint = null;
+        if (a.checkpoint != null) {
+          try {
+            checkpoint = JSON.parse(a.checkpoint);
+          } catch {
+            throw refuse('`checkpoint` is not the JSON this tool returned — pass it back VERBATIM');
+          }
+          if (
+            checkpoint?.version !== 1 ||
+            !Array.isArray(checkpoint.input_draft) ||
+            !Array.isArray(checkpoint.accepted_lines) ||
+            !checkpoint.answered
+          )
+            throw refuse(
+              '`checkpoint` lacks its version, original input, accepted lines or completed answer journal'
+            );
+          if (checkpoint.uncertain_proposal)
+            throw refuse(
+              'The last provider request may have completed, but its answer was not recorded. This checkpoint cannot safely resume that request. The returned final_draft contains every accepted edit and replay_draft preserves the original input. To start independent work from those accepted lines, use new_run with that draft and omit checkpoint/state; another provider request may incur additional cost.'
+            );
+          checkLines(checkpoint.input_draft);
+          checkLines(checkpoint.accepted_lines);
+          if (checkpoint.connector_declarations) {
+            const decl = declarationsOf(
+              z.object(LYRIC_TOOL_SCHEMAS.lyric_revise).parse(checkpoint.connector_declarations)
+            );
+            const moved = movedDeclarations(decl, a);
+            if (moved.length)
+              throw refuse(
+                'checkpoint declarations moved: ' + moved.map((x) => x.field).join(', ')
+              );
+            for (const [k, v] of Object.entries(decl))
+              if (a[k] === undefined) {
+                a[k] = v;
+                carried.decl = true;
+              }
+          }
+          if (a.draft == null) {
+            a.draft = checkpoint.input_draft;
+            carried.draft = true;
+          }
+          if (JSON.stringify(a.draft) !== JSON.stringify(checkpoint.input_draft))
+            throw refuse(
+              'checkpoint resume needs its original replay_draft as draft; accepted lines are presentation/recovery data, not the replay input'
+            );
+        }
+        runKey = runKeyOf(a);
         if (!Array.isArray(a.draft))
           throw refuse(
             '`draft` omitted and no draft is carried for this run — pass the song lines (the SAME draft on every call of one run; the tool carries it for you after a suspended call)'
@@ -2103,8 +1911,10 @@ export function registerLyricTools(server, tool) {
         checkLines(a.draft);
         const draftPath = path.join(dir, 'draft.txt');
         const statePath = path.join(dir, 'state.json');
+        const checkpointPath = path.join(dir, 'checkpoint.json');
         await writeFile(draftPath, a.draft.join('\n') + '\n', 'utf8');
-        // The caller carries the record; the server keeps nothing. The blob
+        if (checkpoint) await writeFile(checkpointPath, JSON.stringify(checkpoint) + '\n', 'utf8');
+        // The caller can carry the record independently of the run cache. The blob
         // is the harness's OWN deferred-run state (its `answered` block is a
         // valid --propose=replay: file), so the revision is reproducible by
         // anyone holding the conversation — and it cannot be forged into a
@@ -2166,6 +1976,8 @@ export function registerLyricTools(server, tool) {
             '`blueprint` needs `subdivision` — the slot questions refuse rather than assume a grid'
           );
         const writer = a.writer || 'interview';
+        if (checkpoint && writer !== 'kitchen')
+          throw refuse('`checkpoint` resumes writer kitchen; interview resumes with state');
         if (writer === 'kitchen' && (a.state != null || a.answer != null || a.answers != null))
           throw refuse(
             "writer 'kitchen' takes no `state`, `answer` or `answers` — the server's own writer answers every question; send the draft (or rewrite a parked one with `draft_text`)"
@@ -2227,7 +2039,33 @@ export function registerLyricTools(server, tool) {
         args.push(`--max-rounds=${budget.max_rounds}`);
         args.push(`--attempts=${budget.attempts}`);
         args.push(`--backtrack=${budget.backtrack}`);
-        const r = await runVerb(args);
+        const execution = requestContext();
+        const r = await runVerb(args, {
+          checkpointPath,
+          context: {
+            ...execution,
+            onCheckpoint: (record) =>
+              execution.onCheckpoint?.({
+                ...record,
+                connector_declarations: declarationsOf(a),
+              }),
+          },
+        });
+        const currentCheckpoint =
+          r.checkpoint && Array.isArray(r.checkpoint.accepted_lines)
+            ? { ...r.checkpoint, connector_declarations: declarationsOf(a) }
+            : null;
+        const uncertainProposal = Boolean(
+          currentCheckpoint &&
+          (r.uncertain_proposal ||
+            (r.accounting_unknown && currentCheckpoint.status === 'proposing'))
+        );
+        if (uncertainProposal) currentCheckpoint.uncertain_proposal = true;
+        const exactDraft =
+          r.lyric_result?.final_draft ||
+          currentCheckpoint?.final_draft ||
+          currentCheckpoint?.accepted_lines ||
+          null;
         if (r.code === 4) {
           // Suspended: the verb wrote the state (question folded in) and
           // printed the brief. NO RENDER EXISTS in this output — the verb's
@@ -2254,13 +2092,14 @@ export function registerLyricTools(server, tool) {
                 status: 'suspended',
                 state: JSON.stringify(st),
                 draft: a.draft,
+                replay_draft: a.draft,
                 decl: declarationsOf(a),
                 answers: onRecord,
                 run_id: runRec?.run_id ?? newRunId(runKey),
               })
             : null;
           const continueNote =
-            `\n\nCONTINUE: call lyric_revise with \`seed\` and \`answer\`` +
+            `\n\nCONTINUE: call lyric_revise with \`run_id\` and \`answer\`` +
             (askedNow && askedNow.kind === 'propose_batch'
               ? ' (`answers`: one {line, text} per asked line)'
               : '') +
@@ -2299,31 +2138,45 @@ export function registerLyricTools(server, tool) {
                   ms: typeof r.ms === 'number' ? r.ms : null,
                   ...extractRunRecord(r.stdout),
                   state: JSON.stringify(st),
+                  replay_draft: a.draft,
+                  final_draft: exactDraft,
                 }),
               },
             ],
           };
         }
-        if (r.code === 0 || r.code === 3) {
+        if (
+          r.code === 0 ||
+          r.code === 3 ||
+          r.lyric_result?.status === 'finished' ||
+          currentCheckpoint?.status === 'finished'
+        ) {
           const m = r.stdout.match(/THE SONG, PERFORMANCE ORDER:\n\n([\s\S]*?\[FINISHED[^\]]*\])/);
           const verdict = verdictOf(r);
           verdict.status = loopStatusOf(r.code, verdict);
           verdict.writer = writer;
-          if (writer === 'kitchen') Object.assign(verdict, extractProposerRecord(r.stdout));
+          if (writer === 'kitchen' && !r.proposer_record)
+            Object.assign(verdict, extractProposerRecord(r.stdout));
+          verdict.final_draft = exactDraft;
+          verdict.replay_draft = a.draft;
+          if (currentCheckpoint) verdict.checkpoint = JSON.stringify(currentCheckpoint);
+          if (verdict.certified === false && r.code === 2) verdict.status = 'uncertified';
           // M-235: the last answer's verdict and the draft this stop was
           // reached on ride with the stop row, so a cycle is readable from
           // the rows alone.
-          verdict.draft_fp = draftFp(a.draft);
+          verdict.draft_fp = exactDraft ? draftFp(exactDraft) : null;
+          verdict.replay_draft_fp = draftFp(a.draft);
           // M-237: exit 3 PARKS the record (no state — no question pending);
           // exit 0 forgets it.
           verdict.run_state_carried = carried.state;
           verdict.run_draft_carried = carried.draft;
           verdict.run_decl_carried = carried.decl;
-          if (runKey && r.code === 3) {
+          if (runKey && r.code !== 0 && exactDraft) {
             const parkedRec = RUNS.put(runKey, {
               seed: typeof a.seed === 'number' ? a.seed : null,
               status: 'parked',
-              draft: a.draft,
+              draft: exactDraft,
+              replay_draft: a.draft,
               decl: declarationsOf(a),
               stop: verdict.loop_stop_reason ?? null,
               open: Array.isArray(verdict.loop_unresolved_lines)
@@ -2337,12 +2190,10 @@ export function registerLyricTools(server, tool) {
             });
             verdict.run_id = parkedRec.run_id;
           } else if (runKey && r.code === 0) {
-            RUNS.del(runKey);
+            if (runRec) RUNS.del(runRec.run_id);
             verdict.run_id = runRec?.run_id ?? null;
           }
-          verdict.song_at_stop = m
-            ? m[1].replace(/\n\n\[FINISHED[\s\S]*$/, '').slice(0, 4000)
-            : null;
+          verdict.song_at_stop = exactDraft ? exactDraft.join('\n') : null;
           try {
             const st = JSON.parse(await readFile(statePath, 'utf8'));
             verdict.answers_on_record =
@@ -2354,7 +2205,15 @@ export function registerLyricTools(server, tool) {
           } catch {
             /* state unreadable: the verdict still stands on the verb's own run */
           }
-          if (m) {
+          const render =
+            m?.[1] ||
+            (exactDraft
+              ? exactDraft.join('\n') +
+                '\n\n' +
+                (r.stdout.match(/\[FINISHED[^\]]*\]/)?.[0] ||
+                  `[LYRIC RUN — exit ${r.code} — ${verdict.status}]`)
+              : null);
+          if (render) {
             // M-232: the standing findings ride with the render, so a
             // parked song names what each open line still carries.
             const standingText =
@@ -2364,11 +2223,11 @@ export function registerLyricTools(server, tool) {
                 : '';
             const parkNote =
               r.code === 3
-                ? `\n\nCONTINUE: no question is pending. Rewrite the open line(s) and call lyric_revise with \`seed\` and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`${verdict.run_id ? ` (run ${verdict.run_id}; \`new_run: true\` starts over instead)` : ''}.`
+                ? `\n\nCONTINUE: no question is pending. Rewrite the open line(s) and call lyric_revise with \`run_id\` and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`${verdict.run_id ? ` (run ${verdict.run_id}; \`new_run: true\` starts independently)` : ''}.`
                 : '';
             return {
               content: [
-                { type: 'text', text: m[1] + standingText + parkNote },
+                { type: 'text', text: render + standingText + parkNote },
                 { type: 'text', text: JSON.stringify(verdict) },
               ],
             };
@@ -2377,7 +2236,38 @@ export function registerLyricTools(server, tool) {
         }
         const other = verdictOf(r);
         other.writer = writer;
-        if (writer === 'kitchen') Object.assign(other, extractProposerRecord(r.stdout));
+        if (writer === 'kitchen' && !r.proposer_record)
+          Object.assign(other, extractProposerRecord(r.stdout));
+        if (currentCheckpoint) {
+          const resumable =
+            r.code !== 2 ||
+            currentCheckpoint.proposals?.length > 0 ||
+            ['proposing', 'proposal_completed', 'accepted'].includes(currentCheckpoint.status);
+          other.status = uncertainProposal
+            ? 'uncertain_proposal'
+            : resumable
+              ? 'interrupted'
+              : 'refused';
+          if (uncertainProposal) other.uncertain_proposal = true;
+          other.checkpoint = JSON.stringify(currentCheckpoint);
+          other.final_draft = exactDraft;
+          other.replay_draft = a.draft;
+          if (resumable) {
+            const saved = RUNS.put(runKey, {
+              seed: a.seed ?? null,
+              status: other.status,
+              checkpoint: other.checkpoint,
+              draft: exactDraft,
+              replay_draft: a.draft,
+              decl: declarationsOf(a),
+              run_id: runRec?.run_id ?? newRunId(),
+            });
+            other.run_id = saved.run_id;
+            other.meaning += uncertainProposal
+              ? ' The provider request may have completed but no answer was recorded. Automatic continuation is stopped. final_draft preserves accepted edits; replay_draft and checkpoint preserve the evidence. Existing new_run can start independent work from final_draft, with a possible additional provider charge.'
+              : ' Resume explicitly with run_id or checkpoint under the same declarations; completed proposals are in the checkpoint.';
+          }
+        }
         return other;
       })
   );
@@ -2505,6 +2395,18 @@ export function registerLyricTools(server, tool) {
         // untargeted-rewrite rejection. This repo has already recorded what
         // happens when it is parsed and not read: `targeted = None` left the
         // whole verb suite green.
+        if (a.blueprint != null && a.subdivision == null)
+          throw refuse('`blueprint` needs `subdivision` — verify must use the declared grid');
+        if (a.blueprint != null) {
+          try {
+            JSON.parse(a.blueprint);
+          } catch {
+            throw refuse('`blueprint` is not JSON text');
+          }
+          const blueprintPath = path.join(dir, 'blueprint.json');
+          await writeFile(blueprintPath, a.blueprint, 'utf8');
+          args.push(`--blueprint=${blueprintPath}`, `--subdivision=${a.subdivision}`);
+        }
         if (a.targeted && a.targeted.length) args.push(...a.targeted.map(String));
         const r = await runVerb(args);
         return verifyVerdictOf(r);

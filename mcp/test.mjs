@@ -9,12 +9,9 @@ import { posix } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as E from './engine.js';
 import { TOOL_BUDGET_MS } from './budget.js';
-// THE NETWORK'S OWN fetch, captured before any check can stub `globalThis.fetch`
-// (M-255): the checks run concurrently and a dozen of them script the Gemini
-// endpoint by replacing the global for the length of one awaited turn. The
-// one check that talks to a REAL local server (the unpriced-model refusal)
-// went red once in two runs by landing inside such a window — its status
-// fetch answered with a scripted Gemini body and `enabled` was undefined.
+import { assertCorruptSpendFailsClosed } from './test_spend_store.mjs';
+// Keep a real network client for the checks that exercise localhost HTTP while
+// model fixtures replace globalThis.fetch. Checks themselves execute serially.
 const NET_FETCH = globalThis.fetch;
 
 // THE SURFACE THE INTERVIEW TESTS BELOW DRIVE (M-254). The chat surface
@@ -45,48 +42,27 @@ for (const inst of C.INSTRUMENTS || [])
     for (const v of p.variants || []) if (v.expanded) EXPANDED.add(`${inst.id}|${p.id}|${v.id}`);
 
 let passed = 0;
-// Async checks are awaited, which they were not.
-//
-// This used to be a bare `fn()` inside a try/catch. An `async` callback returns
-// a promise immediately and throws nothing synchronously, so the catch never
-// fired: the check printed `ok`, incremented `passed`, and any assertion inside
-// it became an unhandled rejection that changed no exit code. Both async checks
-// in this file were therefore reporting success unconditionally — verified by
-// planting a real mismatch in one and watching it still say `ok`.
-//
-// A promise-returning check is queued and settled before the summary rather
-// than awaited here, so every call site stays `check(...)` and no future one
-// can reintroduce the bug by forgetting an `await`. The cost is that async
-// checks report out of order, after the sync ones.
-const pending = [];
-function check(name, fn) {
-  const ok = () => {
+// Each check settles before another can replace process-global fetch or state.
+// Running these concurrently allowed one test to consume another test's model
+// response, hiding failures and producing order-dependent results.
+async function check(name, fn) {
+  try {
+    await fn();
     console.log(`  ok  ${name}`);
     passed++;
-  };
-  const bad = (err) => {
-    console.error(`FAIL  ${name}\n      ${err.message}`);
-    process.exitCode = 1;
-  };
-  try {
-    const result = fn();
-    if (result && typeof result.then === 'function') {
-      pending.push(result.then(ok, bad));
-      return;
-    }
-    ok();
   } catch (err) {
-    bad(err);
+    console.error(`FAIL  ${name}\n      ${err.stack || err.message}`);
+    process.exitCode = 1;
   }
 }
 // Simulate the model threading state: round-trip the workspace through JSON.
 const thread = (ws) => JSON.parse(JSON.stringify(ws));
 
-check('catalog loaded', () => {
+await check('catalog loaded', () => {
   assert.ok(E.counts.traditions > 1000 && E.counts.instruments > 400 && E.counts.prefaces > 500);
 });
 
-check('start_recipe = the Current Recipe (deterministic, primary-only header)', () => {
+await check('start_recipe = the Current Recipe (deterministic, primary-only header)', () => {
   const r = E.startRecipe({ traditions: ['garage_rock'] });
   assert.equal(r.mode, 'single');
   assert.ok(r.recipe.startsWith('Garage rock, '), `header: ${r.recipe.slice(0, 30)}`);
@@ -102,12 +78,12 @@ check('start_recipe = the Current Recipe (deterministic, primary-only header)', 
   );
 });
 
-check('max_chars ceiling honored', () => {
+await check('max_chars ceiling honored', () => {
   const r = E.startRecipe({ traditions: ['garage_rock'], max_chars: 300 });
   assert.ok(r.recipe_chars <= 300, `got ${r.recipe_chars}`);
 });
 
-check('max_chars above 1000 is clamped to the canonical 1000-char cap', () => {
+await check('max_chars above 1000 is clamped to the canonical 1000-char cap', () => {
   // The tool schema rejects >1000 at the boundary (max: 1000); the engine
   // clamps defensively so a direct call can't blow past the Current-Recipe cap.
   for (const mc of [1001, 4000, Number.MAX_SAFE_INTEGER]) {
@@ -116,7 +92,7 @@ check('max_chars above 1000 is clamped to the canonical 1000-char cap', () => {
   }
 });
 
-check('edit_recipe set_preface re-derives + labels verbatim (state threaded)', () => {
+await check('edit_recipe set_preface re-derives + labels verbatim (state threaded)', () => {
   const s = E.startRecipe({ traditions: ['garage_rock'] });
   const r = E.editRecipe({
     workspace: thread(s.workspace),
@@ -131,7 +107,7 @@ check('edit_recipe set_preface re-derives + labels verbatim (state threaded)', (
   assert.notDeepEqual(voice.parts, s.workspace.cards[0].parts, 'voice settings re-derived');
 });
 
-check('set_preface never AUTO-selects a borrowed (auto:false) material', () => {
+await check('set_preface never AUTO-selects a borrowed (auto:false) material', () => {
   // The universal cross-instrument materials are auto:false — a human picks them,
   // the inverse-configure optimizer must never reach for one on its own. This guards
   // scripts/_inverse_configure.js (shared by connector + CLI) against re-introducing
@@ -164,7 +140,7 @@ check('set_preface never AUTO-selects a borrowed (auto:false) material', () => {
   assert.ok(runs >= 6, `expected several inverse runs, got ${runs}`);
 });
 
-check('edit_recipe add_tradition reflects in the header (explicit staple)', () => {
+await check('edit_recipe add_tradition reflects in the header (explicit staple)', () => {
   const s = E.startRecipe({ traditions: ['garage_rock'] });
   const r = E.editRecipe({
     workspace: thread(s.workspace),
@@ -174,7 +150,7 @@ check('edit_recipe add_tradition reflects in the header (explicit staple)', () =
   assert.ok(r.cards.length > s.cards.length);
 });
 
-check('edit_recipe set_variant applies + chains multiple edits', () => {
+await check('edit_recipe set_variant applies + chains multiple edits', () => {
   const s = E.startRecipe({ traditions: ['garage_rock'] });
   const r = E.editRecipe({
     workspace: thread(s.workspace),
@@ -193,7 +169,7 @@ check('edit_recipe set_variant applies + chains multiple edits', () => {
   assert.ok(!r.cards.some((c) => c.instrument === 'tonewheel_organ'));
 });
 
-check('set_environment with no card targets the primary (and only it)', () => {
+await check('set_environment with no card targets the primary (and only it)', () => {
   // The recipe renders its tuning/room/chain from cards[0] alone, so an omitted
   // `card` has one correct meaning. Asserting the recipe MOVED (not just that a
   // field was written) is the point: a default that wrote to some other card
@@ -234,34 +210,34 @@ check('set_environment with no card targets the primary (and only it)', () => {
   );
 });
 
-check('render_recipe re-renders threaded state', () => {
+await check('render_recipe re-renders threaded state', () => {
   const s = E.startRecipe({ traditions: ['bluegrass'] });
   const r = E.renderRecipe({ workspace: thread(s.workspace), max_chars: 250 });
   assert.ok(r.recipe_chars <= 250 && r.recipe.length > 0);
 });
 
-check('search_catalog resolves words → ids', () => {
+await check('search_catalog resolves words → ids', () => {
   const r = E.searchCatalog({ query: 'garage rock', types: ['tradition'] });
   assert.ok(r.items.some((x) => x.id === 'garage_rock'));
 });
 
-check('search_prefaces returns preface ids', () => {
+await check('search_prefaces returns preface ids', () => {
   const r = E.searchPrefaces({ query: 'satirical' });
   assert.ok(r.items.some((x) => x.id === 'satirical'));
 });
 
-check('get_instrument exposes variant ids for set_variant', () => {
+await check('get_instrument exposes variant ids for set_variant', () => {
   const i = E.getInstrument({ id: 'electric_guitar_single_coil' });
   const bw = i.parts.find((p) => p.id === 'body_wood');
   assert.ok(bw && bw.variants.some((v) => v.id === 'mahogany'));
 });
 
-check('list_options enumerates rooms', () => {
+await check('list_options enumerates rooms', () => {
   const o = E.listOptions({ kind: 'rooms' });
   assert.ok(o.count > 0 && o.items[0].id);
 });
 
-check('validation: actionable errors', () => {
+await check('validation: actionable errors', () => {
   assert.throws(() => E.startRecipe({ traditions: ['nope_not_real'] }), /Unknown tradition/);
   assert.throws(
     () => E.editRecipe({ edits: [{ action: 'set_preface', card: 'voice', preface: 'x' }] }),
@@ -304,21 +280,21 @@ check('validation: actionable errors', () => {
   const { clientIp } = await import('./ratelimit.js');
 
   const req = (xff) => ({ headers: { 'x-forwarded-for': xff }, socket: {}, ip: '' });
-  check('clientIp ignores a spoofed leftmost X-Forwarded-For entry', () => {
+  await check('clientIp ignores a spoofed leftmost X-Forwarded-For entry', () => {
     assert.equal(clientIp(req('1.2.3.4, 203.0.113.7')), '203.0.113.7');
   });
-  check('clientIp gives one bucket regardless of the spoofed prefix', () => {
+  await check('clientIp gives one bucket regardless of the spoofed prefix', () => {
     assert.equal(clientIp(req('9.9.9.9, 203.0.113.7')), clientIp(req('8.8.8.8, 203.0.113.7')));
   });
-  check('clientIp keeps IPv6 intact', () => {
+  await check('clientIp keeps IPv6 intact', () => {
     assert.equal(clientIp(req('2001:db8::1, 2001:db8::99')), '2001:db8::99');
   });
 
-  check('an unpriced model has no price and no cost', () => {
+  await check('an unpriced model has no price and no cost', () => {
     assert.equal(priceFor('__no_such_model__'), null);
     assert.equal(cost({ promptTokens: 1e6, candidatesTokens: 1e6 }, '__no_such_model__'), null);
   });
-  check('a turn is bounded in dollars, not only in hops', async () => {
+  await check('a turn is bounded in dollars, not only in hops', async () => {
     assert.ok(LIMITS.maxTurnUsd > 0, 'maxTurnUsd must be set');
     // ~~`maxTurnUsd < 2`, "a single turn must not be able to spend the daily
     // cap"~~ — the 2 was the daily cap's own DEFAULT, typed as a literal here,
@@ -335,8 +311,8 @@ check('validation: actionable errors', () => {
     assert.equal(c.turnCapExceedsDay, LIMITS.maxTurnUsd > _CL.dailyUsd);
     assert.equal(
       c.dayOvershootUsd,
-      c.turnCapExceedsDay ? LIMITS.maxTurnUsd - _CL.dailyUsd : 0,
-      'the overshoot a single turn can cause is stated, not left to be inferred'
+      0,
+      'every paid request reserves against the day, including in-flight work'
     );
     // Whatever the two numbers are, the day must still be bounded by
     // SOMETHING a turn cannot exceed on its own: either the dollar cap sits
@@ -348,7 +324,7 @@ check('validation: actionable errors', () => {
       'a day with a turn cap above its dollar ceiling still needs a turn-count bound'
     );
   });
-  check(
+  await check(
     'the DAY has two ceilings too, and which one an ordinary day reaches is derived',
     async () => {
       // `dailyUsd` bounds the day in dollars, `maxTurnsPerDay` in requests, and
@@ -364,7 +340,6 @@ check('validation: actionable errors', () => {
         MEAN_TURN_USD,
         TURNS_HEADROOM,
       } = await import('./chat.js');
-      const { turnBudget } = await import('./gemini_agent.js');
       const c = chatCeilings();
       assert.equal(c.dayByTurnsUsd, _CL.maxTurnsPerDay * MEAN_TURN_USD);
       // THE COUNT CEILING IS DERIVED FROM THE BUDGET IT MUST NOT PRE-EMPT
@@ -384,16 +359,18 @@ check('validation: actionable errors', () => {
       // What this ceiling costs when the dollar arithmetic cannot be trusted —
       // the case it exists for — is REPORTED rather than left to be found, and
       // the bound on any ONE client is the rate limiter's, not this file's.
-      assert.equal(c.worstCaseDayUsd, _CL.maxTurnsPerDay * turnBudget().worstLegalTurnUsd);
+      assert.equal(c.worstCaseDayUsd, _CL.dailyUsd);
+      assert.equal(c.turnsPerDay, Math.floor(_CL.dailyUsd / LIMITS.maxTurnUsd));
+      assert.equal(c.perDay, 'perRequestReservation');
       assert.equal(c.perIpPerDay, _CL.perIpPerHour * 24);
       assert.ok(
         c.perIpPerDay < _CL.maxTurnsPerDay,
         'the day ceiling is a FLEET bound: one address cannot reach it alone'
       );
       assert.equal(
-        c.perDay,
+        c.estimatedChatDayConstraint,
         c.dayByTurnsUsd < c.dailyUsd ? 'maxTurnsPerDay' : 'dailyUsd',
-        'the reported daily ceiling IS that comparison'
+        'the estimated chat constraint is distinct from shared request admission'
       );
       assert.ok(
         MEAN_TURN_USD > 0,
@@ -401,17 +378,15 @@ check('validation: actionable errors', () => {
       );
     }
   );
-  check('there is a daily ceiling that does not consult the pricing table', async () => {
+  await check('there is a daily ceiling that does not consult the pricing table', async () => {
     const { CHAT_LIMITS } = await import('./chat.js');
     assert.ok(CHAT_LIMITS.maxTurnsPerDay > 0, 'maxTurnsPerDay must be set');
   });
 
-  // The daily counter survives a restart when the deployment gives it somewhere
-  // to live, and says so when it does not. See mcp/spend_store.js for why this
-  // is opt-in rather than always-on: render.yaml declares no disk, so writing to
-  // the container filesystem would reset on the exact event (a deploy) that
-  // motivated the fix.
-  check('the spend counter persists across a restart when it has a file', async () => {
+  // Legacy daily counters survive a restart when given a persistent path.
+  // render.yaml now mounts /data/lyrics for these counters and the shared paid
+  // ledger. An unconfigured local instance still reports ephemeral state.
+  await check('the spend counter persists across a restart when it has a file', async () => {
     const { SpendStore } = await import('./spend_store.js');
     const fs = await import('node:fs');
     const os = await import('node:os');
@@ -442,47 +417,31 @@ check('validation: actionable errors', () => {
   });
 
   // The file is the ONLY input that can raise the remaining budget, so it is
-  // treated as hostile: anything that is not a finite non-negative number reads
-  // as zero. A negative `usd` would otherwise hand back budget that was spent.
-  check('a corrupt spend file cannot widen the cap', async () => {
-    const { SpendStore } = await import('./spend_store.js');
-    const fs = await import('node:fs');
-    const os = await import('node:os');
-    const path = await import('node:path');
-    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'spend-bad-'));
-    const file = path.join(dir, 'spend.json');
-    try {
-      fs.writeFileSync(file, JSON.stringify({ day: '2026-01-02', usd: -9999, turns: 'lots' }));
-      const s = new SpendStore(file);
-      assert.equal(s.state.usd, 0, 'a negative spend must not restore budget');
-      assert.equal(s.state.turns, 0, 'a non-numeric turn count must read as zero');
+  // treated as hostile: invalid counters close admission instead of refunding
+  // the day. The prior zero fallback widened the cap on corrupt input.
+  await check('a corrupt spend file cannot widen the cap', assertCorruptSpendFailsClosed);
 
-      fs.writeFileSync(file, '{ not json');
-      const t = new SpendStore(file);
-      assert.equal(t.state.usd, 0, 'unparseable must read as zero');
-      assert.equal(t.state.day, null, 'unparseable must not claim a day');
-    } finally {
-      fs.rmSync(dir, { recursive: true, force: true });
-    }
-  });
-
-  // An unusable path must degrade to in-memory rather than take the endpoint
-  // down. /etc/hostname is a file, so creating a directory under it is ENOTDIR.
-  check('an unusable spend path degrades instead of throwing', async () => {
+  // A configured unusable path closes paid admission, without pretending that
+  // an ephemeral counter satisfies the configured persistence contract.
+  await check('an unusable spend path disables paid admission', async () => {
     const { SpendStore } = await import('./spend_store.js');
     let logged = '';
     const s = new SpendStore('/etc/hostname/sub/spend.json', { log: (m) => (logged = m) });
     assert.equal(s.durable, false, 'an unusable path must not report durable');
-    assert.match(logged, /not usable/, 'the fallback must be logged, not silent');
-    s.state.usd = 1;
-    s.save(); // must not throw
-    assert.equal(s.rollDay('2026-01-02'), true, 'rollDay still works in-memory');
+    assert.match(logged, /unavailable/, 'the failure must be logged, not silent');
+    assert.equal(s.healthy, false);
+    assert.throws(() => s.save(), /disabled/);
+    assert.throws(() => s.rollDay('2026-01-02'), /disabled/);
   });
 
   // The status endpoint must not present a partial total as the day's total.
-  check('/chat/status discloses whether the cap survives a restart', () => {
+  await check('/chat/status discloses whether the cap survives a restart', () => {
     const src = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
-    assert.match(src, /capDurable:\s*spendStore\.durable/, 'status must report capDurable');
+    assert.match(
+      src,
+      /capDurable:\s*paidLedger\.snapshot\(\)\.durable/,
+      'status must report capDurable'
+    );
     assert.match(src, /countingSince/, 'status must report when the counter last zeroed');
   });
 
@@ -494,7 +453,7 @@ check('validation: actionable errors', () => {
   //
   // The template is the source codex.html is built from, so this reads the
   // template rather than the artifact and stays honest between rebuilds.
-  check('the chat field and the server agree on the message ceiling', async () => {
+  await check('the chat field and the server agree on the message ceiling', async () => {
     const { CHAT_LIMITS } = await import('./chat.js');
     const tpl = readFileSync(new URL('../src/index.template.html', import.meta.url), 'utf8');
     const m = tpl.match(/id="chat-input"[^>]*maxlength="(\d+)"/);
@@ -518,7 +477,7 @@ check('validation: actionable errors', () => {
   // two-line shape in a file we control. A declaration that stops matching this
   // shape reads as "not declared", which fails loudly below rather than
   // silently passing.
-  check('the model named in render.yaml is one we can price', () => {
+  await check('the model named in render.yaml is one we can price', () => {
     const blueprint = readFileSync(new URL('../render.yaml', import.meta.url), 'utf8');
     const m = blueprint.match(/-\s*key:\s*GEMINI_MODEL\s*\n\s*value:\s*['"]?([\w.-]+)['"]?/);
     assert.ok(m, 'render.yaml must declare GEMINI_MODEL so the deployed model is auditable');
@@ -580,12 +539,12 @@ check('validation: actionable errors', () => {
     },
   ];
   const derived = toGeminiDeclarations(fixtureTools);
-  check('the state-taking tool is recognised for carriage, by derivation not by list', () => {
+  await check('the state-taking tool is recognised for carriage, by derivation not by list', () => {
     assert.deepEqual(derived.stateTools, ['lyric_revise']);
     assert.deepEqual(derived.workspaceTools, ['edit_recipe']);
   });
   const revise = derived.declarations.find((d) => d.name === 'lyric_revise');
-  check('the revise declaration exposes no `state` and keeps every other parameter', () => {
+  await check('the revise declaration exposes no `state` and keeps every other parameter', () => {
     assert.ok(!revise.parameters.properties.state, 'state must be stripped');
     assert.ok(revise.parameters.properties.answer, 'answer must survive');
     assert.ok(revise.parameters.properties.seed, 'seed must survive');
@@ -598,7 +557,7 @@ check('validation: actionable errors', () => {
   });
 
   const { _agentInternals } = await import('./gemini_agent.js');
-  check('a two-block verdict reaches the model without the blob', () => {
+  await check('a two-block verdict reaches the model without the blob', () => {
     const fr = _agentInternals.toFunctionResponse('lyric_revise', 'id1', {
       content: [
         {
@@ -619,7 +578,7 @@ check('validation: actionable errors', () => {
     assert.equal(fr.response.verdict.exit_code, 4, 'the verdict must survive');
     assert.ok(!('state' in fr.response.verdict), 'the blob must not reach the model');
   });
-  check('a one-block payload reaches the model without state or workspace', () => {
+  await check('a one-block payload reaches the model without state or workspace', () => {
     const fr = _agentInternals.toFunctionResponse('lyric_revise', 'id2', {
       content: [
         {
@@ -643,7 +602,7 @@ check('validation: actionable errors', () => {
   // ── M-189: the CLI's globals and the missing fields reach the tools ─────
   {
     const { LYRIC_TOOL_SCHEMAS: S, _argvInternals: AV } = await import('./lyric_tools.js');
-    check(
+    await check(
       'every grading tool can declare --voices and --fallback; screen takes a relation; verify takes structures',
       () => {
         for (const t of ['lyric_grade', 'lyric_revise', 'lyric_verify', 'lyric_check']) {
@@ -666,7 +625,7 @@ check('validation: actionable errors', () => {
         );
       }
     );
-    check('the globals stand AHEAD of the verb and only when declared', () => {
+    await check('the globals stand AHEAD of the verb and only when declared', () => {
       assert.deepEqual(AV.globalsFor({}), []);
       assert.deepEqual(AV.globalsFor({ voices: false, fallback: undefined }), []);
       assert.deepEqual(AV.globalsFor({ voices: true }), ['--voices']);
@@ -681,7 +640,7 @@ check('validation: actionable errors', () => {
         'an undeclared value is not passed through'
       );
     });
-    check('planArgs carries --narrative= exactly as it carries --title=', () => {
+    await check('planArgs carries --narrative= exactly as it carries --title=', () => {
       assert.deepEqual(AV.planArgs({ seed: 7 }), ['--seed=7']);
       assert.deepEqual(AV.planArgs({ seed: 7, narrative: 'off' }), ['--seed=7', '--narrative=off']);
       assert.deepEqual(
@@ -701,7 +660,7 @@ check('validation: actionable errors', () => {
   {
     const { LYRIC_TOOL_SCHEMAS: S, _verdictInternals: VI } = await import('./lyric_tools.js');
     const { _agentInternals: AI } = await import('./gemini_agent.js');
-    check(
+    await check(
       'lyric_recover exists; lyric_check and lyric_revise take a blueprint; lyric_revise no longer requires a seed',
       () => {
         assert.ok(
@@ -722,7 +681,7 @@ check('validation: actionable errors', () => {
     // the harness never prints, and passed while every real `refusals` came
     // back `[]` — the self-grep shape M-142 charged test_recover §6 with.
     // The live section below drives the real verb as well.
-    check('the recovered mandate and the refusals are read off the recover report', () => {
+    await check('the recovered mandate and the refusals are read off the recover report', () => {
       const stdout = [
         'RECOVERED STRUCTURE — every coordinate with how it was obtained',
         '  total_lines          [counted] 4',
@@ -767,29 +726,36 @@ check('validation: actionable errors', () => {
       assert.equal(v.exit_code, 3);
       assert.equal(VI.extractRecoveredMandate('nothing here'), null);
     });
-    check('a recovered mandate fits the check/revise ceiling (M-195, repinned 2026-09-02)', () => {
-      // MEASURED at the default four places: 10,009 chars over 32 lines
-      // (songs/matinee.txt), 5,299 over 25, 4,132 over 19 — every one
-      // refused by the old 400-char ceiling, so recover -> check -> revise
-      // could not chain. The ceiling is sized to the door now.
-      // 670 groups is the MEASURED count over 32 lines; the measured string
-      // (10,009 chars) mixes bare and placed members, so both a synthetic
-      // cover of that many groups and a literal 10k-char mandate must pass.
-      const long = Array.from(
-        { length: 670 },
-        (_, i) => `${1 + (i % 32)}.endword,${1 + ((i * 7) % 32)}`
-      ).join(';');
-      const measured = '1,2;'.repeat(2503); // 10,012 chars, the measured length
-      assert.equal(long.split(';').length, 670, 'the synthetic cover has the MEASURED group count');
-      assert.ok(S.lyric_check.groups.safeParse(long).success, 'lyric_check takes it');
-      assert.ok(S.lyric_revise.groups.safeParse(long).success, 'lyric_revise takes it');
-      assert.ok(S.lyric_check.groups.safeParse(measured).success, 'and a 10k-char mandate');
-      assert.ok(
-        !S.lyric_check.groups.safeParse('x'.repeat(70_000)).success,
-        'and a runaway is still refused, never clamped'
-      );
-    });
-    check("a pasted song's run is carried on its MANDATE, a planned one on its seed", () => {
+    await check(
+      'a recovered mandate fits the check/revise ceiling (M-195, repinned 2026-09-02)',
+      () => {
+        // MEASURED at the default four places: 10,009 chars over 32 lines
+        // (songs/matinee.txt), 5,299 over 25, 4,132 over 19 — every one
+        // refused by the old 400-char ceiling, so recover -> check -> revise
+        // could not chain. The ceiling is sized to the door now.
+        // 670 groups is the MEASURED count over 32 lines; the measured string
+        // (10,009 chars) mixes bare and placed members, so both a synthetic
+        // cover of that many groups and a literal 10k-char mandate must pass.
+        const long = Array.from(
+          { length: 670 },
+          (_, i) => `${1 + (i % 32)}.endword,${1 + ((i * 7) % 32)}`
+        ).join(';');
+        const measured = '1,2;'.repeat(2503); // 10,012 chars, the measured length
+        assert.equal(
+          long.split(';').length,
+          670,
+          'the synthetic cover has the MEASURED group count'
+        );
+        assert.ok(S.lyric_check.groups.safeParse(long).success, 'lyric_check takes it');
+        assert.ok(S.lyric_revise.groups.safeParse(long).success, 'lyric_revise takes it');
+        assert.ok(S.lyric_check.groups.safeParse(measured).success, 'and a 10k-char mandate');
+        assert.ok(
+          !S.lyric_check.groups.safeParse('x'.repeat(70_000)).success,
+          'and a runaway is still refused, never clamped'
+        );
+      }
+    );
+    await check("a pasted song's run is carried on its MANDATE, a planned one on its seed", () => {
       const surface = { stateTools: new Set(['lyric_revise']) };
       const seeded = { seed: 7 };
       const pasted = { groups: '1,3;2,4', returns: '5,13' };
@@ -848,7 +814,7 @@ check('validation: actionable errors', () => {
         'the declared mandate'
       );
     });
-    check("the stamp of a pasted song's run parses with no seed", () => {
+    await check("the stamp of a pasted song's run parses with no seed", () => {
       const rec = VI.extractLoopRecord(
         '  [FINISHED — declared mandate — exit 3 — NO_PROGRESS after 2 round(s) — UNRESOLVED: L2]'
       );
@@ -865,27 +831,30 @@ check('validation: actionable errors', () => {
     // M-186's status label, three words rather than two (2026-09-02): a
     // whole-only exit 3 used to read `stopped_with_open_lines` with
     // `loop_unresolved` 0 — a cause the verdict itself contradicted.
-    check('draft_text splits the same way in the tool and in the connector (M-234)', async () => {
-      const { splitDraftText } = await import('./gemini_agent.js');
-      const t = '[VERSE — 2 lines]\n The lantern spins \n\nThe ocean sighs\n[CHORUS]\nc\r\n';
-      assert.deepEqual(VI.draftFromText(t), ['The lantern spins', 'The ocean sighs', 'c']);
-      assert.deepEqual(
-        splitDraftText(t),
-        VI.draftFromText(t),
-        'one split, two spellings, byte-equal'
-      );
-      const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
-      assert.ok(
-        /turnRetries < 4 && retries < RETRY_ROUND_CAP/.test(bat),
-        "the retry budget is a turn's, under a round cap"
-      );
-    });
+    await check(
+      'draft_text splits the same way in the tool and in the connector (M-234)',
+      async () => {
+        const { splitDraftText } = await import('./gemini_agent.js');
+        const t = '[VERSE — 2 lines]\n The lantern spins \n\nThe ocean sighs\n[CHORUS]\nc\r\n';
+        assert.deepEqual(VI.draftFromText(t), ['The lantern spins', 'The ocean sighs', 'c']);
+        assert.deepEqual(
+          splitDraftText(t),
+          VI.draftFromText(t),
+          'one split, two spellings, byte-equal'
+        );
+        const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
+        assert.ok(
+          /turnRetries < 4 && retries < RETRY_ROUND_CAP/.test(bat),
+          "the retry budget is a turn's, under a round cap"
+        );
+      }
+    );
     // ── M-235: THE PROPOSAL RECORD ──────────────────────────────────────
     // Round 21 folded 190 answers over three loops and the rows could not say
     // which line any of them answered or whether verify took it. The verdict
     // is derived from the loop's own control flow: a rejected tier-1 proposal
     // is re-asked AT ONCE as (same line, same round, attempt+1).
-    check(
+    await check(
       'a folded answer is judged off the next question, exact below the attempt budget (M-235)',
       () => {
         const prompt2 =
@@ -983,8 +952,8 @@ check('validation: actionable errors', () => {
       }
     );
     // ── M-237: THE RUN RECORD, KEPT BY THE TOOL ──────────────────────────
-    check(
-      'the run store keeps one record per key, finds it by run_id, and forgets by TTL and cap (M-237)',
+    await check(
+      'the run store requires an opaque capability and forgets by TTL and cap',
       async () => {
         const { RunStore, newRunId, runKeyOf, declarationsOf } = await import('./run_store.js');
         let t = 0;
@@ -1002,14 +971,15 @@ check('validation: actionable errors', () => {
           open: ['L1'],
           run_id: 'seed:2#bbbb',
         });
-        assert.equal(st.get('seed:1').run_id, 'seed:1#aaaa');
+        assert.equal(st.get('seed:1'), null, 'a musical seed cannot retrieve private state');
+        assert.equal(st.get('run_aaaa').run_id, 'run_aaaa');
         assert.equal(st.byId('seed:2#bbbb').seed, 2);
         st.put('seed:3', { seed: 3, status: 'suspended', state: '{}', run_id: 'seed:3#cccc' });
         assert.equal(st.size(), 2, 'the cap evicts the least recently used');
         // `get` touched seed:1, then `byId` touched seed:2 — so seed:1 is the
         // coldest when seed:3 arrives.
-        assert.equal(st.get('seed:1'), null, 'seed:1 was the coldest');
-        assert.equal(st.get('seed:2').seed, 2, 'seed:2, touched last, survives');
+        assert.equal(st.get('run_aaaa'), null, 'the first capability was the coldest');
+        assert.equal(st.get('seed:2#bbbb').seed, 2, 'the last touched record survives');
         t = 2000;
         assert.equal(st.size(), 0, 'the TTL forgets an idle run');
         assert.equal(runKeyOf({ seed: 7 }), 'seed:7');
@@ -1030,7 +1000,7 @@ check('validation: actionable errors', () => {
         );
       }
     );
-    check(
+    await check(
       "the tool's own refusals on a parked run, and a moved declaration refused by name (M-237)",
       async () => {
         const { runRefusal, movedDeclarations, movedRefusal } = await import('./run_store.js');
@@ -1074,7 +1044,7 @@ check('validation: actionable errors', () => {
         assert.ok(/the run says 20, this call says 22/.test(why) && /new_run: true/.test(why));
       }
     );
-    check(
+    await check(
       'the run fields ride loopFields, chat.js tools[] and the tool source (M-237)',
       async () => {
         const { _agentInternals: AI } = await import('./gemini_agent.js');
@@ -1105,17 +1075,17 @@ check('validation: actionable errors', () => {
           'a moved declaration is refused, not replaced'
         );
         assert.ok(
-          /status: 'parked',/.test(src) && /RUNS\.del\(runKey\);/.test(src),
+          /status: 'parked',/.test(src) && /RUNS\.del\(runRec\.run_id\);/.test(src),
           'exit 3 parks the record and exit 0 forgets it'
         );
         assert.ok(
-          /text: r\.stdout \+ openRunNote\(a\)/.test(src),
-          'a plan on a seed with an open run says so'
+          !/openRunNote/.test(src),
+          'planning cannot reveal another caller’s run from a public seed'
         );
       }
     );
     // ── M-236: THE BATCH DOOR ON THE ROW, AND THE VERDICT OFF THE RECORD ──
-    check(
+    await check(
       'a batch question and its folded answers ride the row, one record per member, judged off `outcomes` (M-236)',
       () => {
         const pend = {
@@ -1192,7 +1162,7 @@ check('validation: actionable errors', () => {
       }
     );
     // ── M-253: THE GROUP VERDICT, OFF ITS OWN RECORD ─────────────────────
-    check(
+    await check(
       'a tier-2 group answer folds off `group_outcomes` — verdict, reasons, source — and stays unknown without it (M-253)',
       () => {
         const pend = {
@@ -1233,7 +1203,7 @@ check('validation: actionable errors', () => {
         assert.deepEqual(none.reasons, []);
       }
     );
-    check(
+    await check(
       "the connector's revise budget is one attempt, ONE group rewrite per stuck line (backtrack 1, on since M-247), eight rounds, and the driver tallies batch folds (M-236)",
       async () => {
         const LT = await import('./lyric_tools.js');
@@ -1300,7 +1270,7 @@ check('validation: actionable errors', () => {
         );
       }
     );
-    check(
+    await check(
       'a batch or group answer is STRUCTURE — `answers` joins into the harness row format here, and every line-taking tool has a one-string twin (M-248, round 22)',
       async () => {
         const LT = await import('./lyric_tools.js');
@@ -1436,7 +1406,7 @@ check('validation: actionable errors', () => {
         );
       }
     );
-    check(
+    await check(
       'the proposal record rides loopFields, chat.js tools[] and the battery rows (M-235)',
       async () => {
         const { _agentInternals: AI } = await import('./gemini_agent.js');
@@ -1480,7 +1450,7 @@ check('validation: actionable errors', () => {
         );
       }
     );
-    check('the standing findings at a stop are parsed off the report (M-232)', () => {
+    await check('the standing findings at a stop are parsed off the report (M-232)', () => {
       const st =
         "  FINDING [FLAG] METER: L3 early\n\n  STANDING AT THE STOP — the findings the open lines and the whole draft still carry, in the report's own spelling:\n    L3: FINDING [FLAG] METER: L3 wants six beats\n    L5: FINDING [FLAG] SLOP: too predictable\n    WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK: the title is not in the hook\n         title 'zebra confetti' vs hook \"Go on.\"; the title phrase occurs 0 time(s).\n\n  THE SONG, PERFORMANCE ORDER:\n\nx\n";
       // The shape a real parked `revise` prints (measured on keep_the_light
@@ -1496,7 +1466,7 @@ check('validation: actionable errors', () => {
         "the report's own findings before the block are not the standing ones"
       );
     });
-    check('a whole-only exit 3 is labelled by its cause, not as open lines', () => {
+    await check('a whole-only exit 3 is labelled by its cause, not as open lines', () => {
       assert.equal(VI.loopStatusOf(0, { loop_unresolved: 0 }), 'finished_clean');
       assert.equal(
         VI.loopStatusOf(3, { loop_unresolved: 2, loop_whole_flag_codes: ['HOOK_ABSENT'] }),
@@ -1532,31 +1502,34 @@ check('validation: actionable errors', () => {
         );
       }
     });
-    check('exit 1 is CRASHED, never read as a verdict', () => {
+    await check('exit 1 is CRASHED, never read as a verdict', () => {
       const v = VI.verdictOf({ code: 1, stdout: '', stderr: 'Traceback (most recent call last)' });
       assert.equal(v.exit_code, 1);
       assert.ok(v.meaning.startsWith('CRASHED'), v.meaning);
       assert.ok(!('flags' in v), 'no REPORT line, no counts invented');
     });
-    check('a flagged brief at exit 0 says the flags STAND instead of "no flag stands"', () => {
-      const stdout =
-        '  REPORT: 3 line(s) briefed — 2 FLAG, 1 NOTE (two counts, never summed: doctrine 79); 1 WHOLE-DRAFT finding(s), 1 of them FLAG(S), below\n';
-      const v = VI.verdictOf({ code: 0, stdout, stderr: '' });
-      assert.equal(v.flags, 2);
-      assert.equal(v.notes, 1);
-      assert.equal(v.whole_flags, 1);
-      assert.ok(v.meaning.includes('STAND') && !v.meaning.includes('no flag stands'), v.meaning);
-      const clean = VI.verdictOf({
-        code: 0,
-        stdout:
-          '  REPORT: 2 line(s) briefed — 0 FLAG, 2 NOTE (two counts, never summed: doctrine 79)\n',
-        stderr: '',
-      });
-      assert.equal(clean.flags, 0);
-      assert.equal(clean.whole_flags, 0, 'no whole-draft clause reads as zero, not as absent');
-      assert.equal(clean.meaning, VI.EXIT_MEANING[0], 'notes alone keep the plain meaning');
-    });
-    check('unreadable end words surface as refusals with their lines', () => {
+    await check(
+      'a flagged brief at exit 0 says the flags STAND instead of "no flag stands"',
+      () => {
+        const stdout =
+          '  REPORT: 3 line(s) briefed — 2 FLAG, 1 NOTE (two counts, never summed: doctrine 79); 1 WHOLE-DRAFT finding(s), 1 of them FLAG(S), below\n';
+        const v = VI.verdictOf({ code: 0, stdout, stderr: '' });
+        assert.equal(v.flags, 2);
+        assert.equal(v.notes, 1);
+        assert.equal(v.whole_flags, 1);
+        assert.ok(v.meaning.includes('STAND') && !v.meaning.includes('no flag stands'), v.meaning);
+        const clean = VI.verdictOf({
+          code: 0,
+          stdout:
+            '  REPORT: 2 line(s) briefed — 0 FLAG, 2 NOTE (two counts, never summed: doctrine 79)\n',
+          stderr: '',
+        });
+        assert.equal(clean.flags, 0);
+        assert.equal(clean.whole_flags, 0, 'no whole-draft clause reads as zero, not as absent');
+        assert.equal(clean.meaning, VI.EXIT_MEANING[0], 'notes alone keep the plain meaning');
+      }
+    );
+    await check('unreadable end words surface as refusals with their lines', () => {
       const stdout = [
         '  L4: the word was xqzt',
         '      FINDING [FLAG] UNREADABLE_END_WORD: L4 ends on a word the lexicon cannot read (lines 4)',
@@ -1572,7 +1545,7 @@ check('validation: actionable errors', () => {
       const none = VI.verdictOf({ code: 0, stdout: '  nothing flagged\n', stderr: '' });
       assert.ok(!('unreadable' in none), 'absent means none found, never zero invented');
     });
-    check('the loop stamp carries the whole-draft flags as their own count', () => {
+    await check('the loop stamp carries the whole-draft flags as their own count', () => {
       const rec = VI.extractLoopRecord(
         '  [FINISHED — seed 16 — exit 3 — NO_PROGRESS after 2 round(s) — UNRESOLVED: L2, L5 — WHOLE-DRAFT FLAG: STACKED_DRAFT, TITLE_NOT_IN_HOOK]'
       );
@@ -1590,7 +1563,7 @@ check('validation: actionable errors', () => {
       );
       assert.equal(old.whole_flags, 0, 'the pre-M-186 stamp still parses');
     });
-    check('the pursued findings printed at the stop reach banned_pairs', () => {
+    await check('the pursued findings printed at the stop reach banned_pairs', () => {
       const stdout = [
         "  STANDING AT THE STOP — the findings the open lines and the whole draft still carry, in the report's own spelling:",
         "    L3: FINDING [NOTE] HOMEOTELEUTON: L1/L3 rhyme on the SAME SPELLED ENDING ('store'/'wore', both -ore) — the laziest class, banned before any frequency judgment (lines 1, 3)",
@@ -1608,7 +1581,7 @@ check('validation: actionable errors', () => {
   // lyric_revise call for the seed, the harness replayed every answer and
   // stopped identically, and no parked-continue push ever asked the writer a
   // second question. Pinned in every direction the function decides.
-  check('only a SUSPENDED verdict (exit 4) is carried; a stop (0/3) clears the seed', () => {
+  await check('only a SUSPENDED verdict (exit 4) is carried; a stop (0/3) clears the seed', () => {
     const surface = { stateTools: new Set(['lyric_revise']) };
     const args = { seed: 7 };
     const suspended = carryState(
@@ -1645,6 +1618,9 @@ check('validation: actionable errors', () => {
         key: 'seed:7',
         seed: 7,
         parked: true,
+        exit_code: 3,
+        coverage: null,
+        uncertified: false,
         decl: { seed: 7 },
         stop: 'NO_PROGRESS',
         open: ['L2'],
@@ -1679,7 +1655,7 @@ check('validation: actionable errors', () => {
       'exit 4 with no state string carries nothing rather than a broken record'
     );
   });
-  check('a carried state with a pending question names its seed', () => {
+  await check('a carried state with a pending question names its seed', () => {
     assert.equal(suspendedSeed({ seed: 7, state: '{"pending":{"kind":"propose"}}' }), 7);
     assert.equal(
       suspendedSeed({ seed: 7, state: '{"answered":{}}' }),
@@ -1693,7 +1669,7 @@ check('validation: actionable errors', () => {
     );
     assert.equal(suspendedSeed(null), null);
   });
-  check('the reminder rides the systemInstruction only while a run is suspended', () => {
+  await check('the reminder rides the systemInstruction only while a run is suspended', () => {
     const surface = { instructions: 'BASE INSTRUCTIONS' };
     const withRun = buildSystemInstruction(surface, {
       seed: 7,
@@ -1719,7 +1695,7 @@ check('validation: actionable errors', () => {
     );
   });
   // ── M-162: the skipped-steps reminder (owner's go 2026-09-06) ───────────
-  check(
+  await check(
     'the skipped-steps note names what the transcript has not called, and leaves when it has',
     () => {
       const { lyricCallsOnRecord, SKIPPED_STEPS_NOTE } = _agentInternals;
@@ -1773,7 +1749,7 @@ check('validation: actionable errors', () => {
     }
   );
   // ── M-254: kitchen cooks — the chat surface never answers a revise question ──
-  check(
+  await check(
     'the chat surface sends every lyric_revise call as writer:kitchen and strips the interview fields',
     async () => {
       const { chatWriter } = _agentInternals;
@@ -1829,7 +1805,7 @@ check('validation: actionable errors', () => {
       const rev = decl.find((d) => d.name === 'lyric_revise');
       assert.deepEqual(
         Object.keys(rev.parameters.properties).sort(),
-        ['draft_text', 'run_id', 'seed'],
+        ['draft_text', 'seed'],
         "state/answer/answers/writer are gone from the chat model's view"
       );
       assert.deepEqual(
@@ -2034,35 +2010,26 @@ check('validation: actionable errors', () => {
       return { ok: false, status: 429, json: async () => ({ error: { message: 'quota' } }) };
     };
     try {
-      let caught = null;
-      try {
-        await _runTurn({
-          apiKey: 'k',
-          surface: {
-            instructions: '',
-            declarations: [],
-            workspaceTools: new Set(),
-            stateTools: new Set(),
-          },
-          callTool: async () => ({ content: [{ type: 'text', text: 'ok' }] }),
-          userText: 'hi',
-          limits: { ..._LIMITS, maxTurnUsd: 0 },
-          retries: 0,
-        });
-      } catch (e) {
-        caught = e;
-      }
-      check("a 429 on the second hop throws with the FIRST hop's usage on the error", () => {
-        assert.ok(caught, 'runTurn threw');
-        assert.equal(caught.status, 429);
-        assert.ok(caught.usage, 'the error carries usage');
-        assert.equal(caught.usage.requests, 1, 'one hop was billed before the throw');
-        assert.equal(caught.usage.promptTokens, 10);
-        assert.equal(caught.usage.candidatesTokens, 5);
-        assert.ok(
-          Array.isArray(caught.calls) && caught.calls.length === 1,
-          'and the one call it made'
-        );
+      const result = await _runTurn({
+        apiKey: 'k',
+        surface: {
+          instructions: '',
+          declarations: [],
+          workspaceTools: new Set(),
+          stateTools: new Set(),
+        },
+        callTool: async () => ({ content: [{ type: 'text', text: 'ok' }] }),
+        userText: 'hi',
+        limits: { ..._LIMITS, maxTurnUsd: 0 },
+        retries: 0,
+      });
+      await check("a second-hop 429 preserves the first hop's usage and continuation", () => {
+        assert.equal(result.stopped, 'UPSTREAM_429');
+        assert.equal(result.usage.requests, 1);
+        assert.equal(result.usage.promptTokens, 10);
+        assert.equal(result.usage.candidatesTokens, 5);
+        assert.equal(result.calls.length, 1);
+        assert.ok(result.history.some((c) => c.parts?.some((p) => p.functionResponse)));
       });
     } finally {
       globalThis.fetch = realFetch;
@@ -2070,15 +2037,18 @@ check('validation: actionable errors', () => {
   })();
   // ── M-258: THE TURN'S WALL CLOCK ──────────────────────────────────────
   // Round 25's turn 1 ran fourteen hops of kitchen runs toward a 140-minute
-  // deadline and the edge cut it at 100 with every call lost. The wall is
-  // checked BEFORE a hop starts: the hop in flight finishes, its call is on
-  // the record, and the turn ends with `stopped: 'MAX_TURN_MS'` and the
-  // numbers. A stub that answers a function call on every hop, under a
-  // one-millisecond wall, makes exactly one hop and stops on the second.
+  // deadline and the edge cut it at 100 with every call lost. The wall now
+  // covers every phase. This case advances the injected clock after a tool
+  // finishes: its completed result remains on record, and no next hop starts.
+  // A one-millisecond real timer raced initial admission on a busy CI runner.
+  // Real timer/cancellation behavior is covered by test_turn_lifecycle.mjs.
   await (async () => {
     const { runTurn: _runTurn, LIMITS: _LIMITS } = await import('./gemini_agent.js');
     const realFetch = globalThis.fetch;
     let hops = 0;
+    let tools = 0;
+    let now = 0;
+    const wall = 60_000;
     globalThis.fetch = async () => {
       hops += 1;
       return {
@@ -2103,27 +2073,43 @@ check('validation: actionable errors', () => {
           stateTools: new Set(),
         },
         callTool: async () => {
-          await new Promise((r) => setTimeout(r, 5));
+          tools += 1;
+          now = wall + 1;
           return { content: [{ type: 'text', text: 'ok' }] };
         },
         userText: 'hi',
-        limits: { ..._LIMITS, maxTurnUsd: 0, maxTurnMs: 1 },
+        clock: () => now,
+        limits: { ..._LIMITS, maxTurnUsd: 0, maxTurnMs: wall },
         retries: 0,
       });
     } finally {
       globalThis.fetch = realFetch;
     }
-    check('a turn past its wall clock ends after the hop in flight, calls kept (M-258)', () => {
-      assert.equal(out.stopped, 'MAX_TURN_MS');
-      assert.equal(hops, 1, 'the second hop never started');
-      assert.equal(out.calls.length, 1, "the first hop's call is on the record");
-      assert.equal(out.stoppedDetail.hops, 1);
-      assert.equal(out.stoppedDetail.cap, 1);
-      assert.ok(out.stoppedDetail.ms >= 1, 'with the elapsed time');
-      assert.equal(_LIMITS.maxTurnMs, 2_400_000, 'the deployed wall is forty minutes');
-    });
+    await check(
+      'a turn past its wall clock ends after the hop in flight, calls kept (M-258)',
+      () => {
+        assert.equal(out.stopped, 'MAX_TURN_MS');
+        assert.equal(hops, 1, 'the second hop never started');
+        assert.equal(tools, 1, 'the admitted first tool completed');
+        assert.equal(out.calls.length, 1, "the first hop's call is on the record");
+        assert.ok(
+          out.history.some((row) =>
+            row.parts?.some(
+              (part) =>
+                part.functionResponse?.name === 'lyric_types' &&
+                part.functionResponse?.response?.text === 'ok'
+            )
+          ),
+          'the completed tool result survives the elapsed wall'
+        );
+        assert.equal(out.stoppedDetail.hops, 1);
+        assert.equal(out.stoppedDetail.cap, wall);
+        assert.equal(out.stoppedDetail.ms, wall + 1, 'with the controlled elapsed time');
+        assert.equal(_LIMITS.maxTurnMs, 2_400_000, 'the deployed wall is forty minutes');
+      }
+    );
   })();
-  check(
+  await check(
     'chat.js retries a transient upstream three times and puts the seed on every row (M-232)',
     () => {
       const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
@@ -2137,27 +2123,32 @@ check('validation: actionable errors', () => {
       );
     }
   );
-  check('chat.js charges the partial usage in its catch and puts the cost on the reply', () => {
-    const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
-    assert.ok(/err\.usage\.requests > 0/.test(chat), 'the catch reads the partial usage');
-    assert.ok(
-      /chargedUsd = partial === null \? LIMITS\.maxTurnUsd : partial/.test(chat),
-      "an unpriceable partial charges the cap, the success path's own safe direction"
-    );
-    assert.ok(
-      /hopsBeforeFailure/.test(chat) && /chargedUsd: Number/.test(chat),
-      'and says so on the error body'
-    );
-    assert.ok(
-      /cost: run\.cost,\s*\n\s*usage: run\.usage,/.test(chat),
-      'the success body carries cost and usage (C11)'
-    );
-    const ga = readFileSync(new URL('./gemini_agent.js', import.meta.url), 'utf8');
-    assert.ok(
-      /err\.usage = usage;\s*\n\s*err\.calls = calls;/.test(ga),
-      'the agent attaches both on the way out'
-    );
-  });
+  await check(
+    'chat.js charges the partial usage in its catch and puts the cost on the reply',
+    () => {
+      const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+      assert.ok(/err\?\.usage\?\.requests > 0/.test(chat), 'the catch reads the partial usage');
+      assert.ok(
+        /const chargedUsd = budget\?\.snapshot\(\)\.usd/.test(chat),
+        'the error reports the shared ledger charge, including uncertain requests'
+      );
+      assert.ok(
+        /hopsBeforeFailure/.test(chat) && /chargedUsd: Number/.test(chat),
+        'and says so on the error body'
+      );
+      assert.ok(
+        /cost: run\.cost,[\s\S]*accounted_cost: run\.accounted_cost,[\s\S]*usage: run\.usage,/.test(
+          chat
+        ),
+        'the success body carries cost and usage (C11)'
+      );
+      const ga = readFileSync(new URL('./gemini_agent.js', import.meta.url), 'utf8');
+      assert.ok(
+        /err\.usage = usage;\s*\n\s*err\.calls = calls;/.test(ga),
+        'the agent attaches both on the way out'
+      );
+    }
+  );
   // ── M-168 (2026-09-02): a 429 on the chat path is retried inside a budget ──
   // Round 10 ended on a hard 429 the chat path threw at once. RATE_LIMIT_RETRY
   // retries at most twice, honours Retry-After when it fits the budget,
@@ -2221,7 +2212,7 @@ check('validation: actionable errors', () => {
       }
       return null;
     };
-    check('RATE_LIMIT_RETRY is two retries whose backoffs fit its own total wait', () => {
+    await check('RATE_LIMIT_RETRY is two retries whose backoffs fit its own total wait', () => {
       assert.equal(_RL.retries, 2);
       assert.deepEqual(_RL.backoffMs, [2000, 4000]);
       assert.ok(
@@ -2234,30 +2225,43 @@ check('validation: actionable errors', () => {
       );
     });
     const run = await drive([busy('0'), ok]);
-    check('a 429 then a 200 is ONE retry: the reply lands and usage counts both requests', () => {
-      assert.equal(run.reply, 'done');
-      assert.equal(run.usage.requests, 2, 'the retried 429 and the 200');
-      assert.equal(run.usage.retries, 1);
-      assert.equal(run.stopped, null);
-    });
+    await check(
+      'a 429 then a 200 is ONE retry: the reply lands and usage counts both requests',
+      () => {
+        assert.equal(run.reply, 'done');
+        assert.equal(run.usage.requests, 2, 'the retried 429 and the 200');
+        assert.equal(run.usage.retries, 1);
+        assert.equal(run.stopped, null);
+      }
+    );
     const past = await thrown([busy('60'), ok]);
-    check('a Retry-After past the budget is refused AT ONCE with the wait on the error', () => {
-      assert.ok(past, 'threw');
-      assert.equal(past.status, 429);
-      assert.equal(past.retryAfterMs, 60_000, 'the hint, in ms');
-      assert.equal(past.rateLimitRetries, 0, 'no retry was spent on it');
-      assert.equal(past.usage.requests, 0, 'and nothing was billed');
-    });
+    await check(
+      'a Retry-After past the budget is refused AT ONCE with the wait on the error',
+      () => {
+        assert.ok(past, 'threw');
+        assert.equal(past.status, 429);
+        assert.equal(past.retryAfterMs, 60_000, 'the hint, in ms');
+        assert.equal(past.rateLimitRetries, 0, 'no retry was spent on it');
+        assert.equal(past.usage.requests, 0, 'and nothing was billed');
+      }
+    );
     const exhausted = await thrown([busy('0'), busy('0'), busy('0'), ok]);
-    check('three 429s exhaust the two retries: the throw carries the two requests spent', () => {
-      assert.ok(exhausted, 'threw');
-      assert.equal(exhausted.status, 429);
-      assert.equal(exhausted.rateLimitRetries, 2);
-      assert.equal(exhausted.usage.requests, 2, 'two retried requests, the final throw uncounted');
-      assert.equal(exhausted.usage.retries, 2);
-    });
+    await check(
+      'three 429s exhaust the two retries: the throw carries the two requests spent',
+      () => {
+        assert.ok(exhausted, 'threw');
+        assert.equal(exhausted.status, 429);
+        assert.equal(exhausted.rateLimitRetries, 2);
+        assert.equal(
+          exhausted.usage.requests,
+          2,
+          'two retried requests, the final throw uncounted'
+        );
+        assert.equal(exhausted.usage.retries, 2);
+      }
+    );
   })();
-  check('chat.js hands runTurn the bounded 429 budget beside its transient list', () => {
+  await check('chat.js hands runTurn the bounded 429 budget beside its transient list', () => {
     const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
     assert.ok(
       /retryStatuses: RETRY_TRANSIENT,\s*\n\s*rateLimit: RATE_LIMIT_RETRY,/.test(chat),
@@ -2340,11 +2344,11 @@ check('validation: actionable errors', () => {
         globalThis.fetch = realFetch;
       }
     };
-    check('MALFORMED_CALL_RETRY is two re-asks, stated once', () => {
+    await check('MALFORMED_CALL_RETRY is two re-asks, stated once', () => {
       assert.equal(_MCR.retries, 2);
     });
     const recovered = await drive([malformed, call, done]);
-    check(
+    await check(
       'a malformed hop is re-asked in the same turn: the call lands, the turn ends on STOP, and the broken hop left nothing in the transcript',
       () => {
         assert.equal(recovered.stopped, null, 'the turn did not stop on the malformed hop');
@@ -2364,7 +2368,7 @@ check('validation: actionable errors', () => {
     // M-221: the re-ask keeps nothing of the broken hop in the TRANSCRIPT and
     // keeps its text in the RECORD — round 11 banked nine malformed turns and
     // could quote none of them.
-    check(
+    await check(
       "the malformed hop's finishMessage is recorded even when the re-ask then lands the call (M-221)",
       () => {
         assert.equal(recovered.malformed.length, 1);
@@ -2380,7 +2384,7 @@ check('validation: actionable errors', () => {
       }
     );
     const exhausted = await drive([malformed, malformed, malformed]);
-    check(
+    await check(
       'three malformed hops in a row exhaust the two re-asks: the turn stops as MALFORMED_FUNCTION_CALL with the count on stoppedDetail',
       () => {
         assert.equal(exhausted.stopped, 'MALFORMED_FUNCTION_CALL');
@@ -2391,7 +2395,7 @@ check('validation: actionable errors', () => {
         assert.equal(exhausted.calls.length, 0);
       }
     );
-    check(
+    await check(
       'an exhausted turn records all three malformed hops and puts the last text on stoppedDetail (M-221)',
       () => {
         assert.equal(
@@ -2410,7 +2414,7 @@ check('validation: actionable errors', () => {
         assert.equal(exhausted.stoppedDetail.finishMessage, MALFORMED_TEXT);
       }
     );
-    check(
+    await check(
       'a malformed hop with no finishMessage records null, not a fabricated text (M-221)',
       async () => {
         const { malformedText: mt, MALFORMED_TEXT_HEAD } = await import('./gemini_agent.js');
@@ -2515,7 +2519,7 @@ check('validation: actionable errors', () => {
       callWith({ seed: 6, answer: 'wrong seed' }),
       done,
     ]);
-    check(
+    await check(
       'an omitted draft on a continuing call is filled from the carried record, a sent draft stands, a different seed gets nothing (M-221)',
       () => {
         // M-229: the fourth call named a different seed while this run was
@@ -2568,7 +2572,7 @@ check('validation: actionable errors', () => {
     // suspended result has no `draft`; the first hop's did. Round 14's turn 7
     // recorded the first malformed call ever captured, and it broke inside
     // the draft array the model re-sent against a declaration that offered it.
-    check(
+    await check(
       "while a run is suspended the lyric_revise declaration has no draft to re-emit; the first call's did (M-226)",
       async () => {
         const decl = (req) =>
@@ -2618,7 +2622,7 @@ check('validation: actionable errors', () => {
       [callWith({ seed: 5, answer: 'a line on the next turn' }), done],
       { key: 'seed:5', seed: 5, state: '{"n":2}', draft: DRAFT }
     );
-    check('the carried draft survives the turn boundary through the envelope (M-221)', () => {
+    await check('the carried draft survives the turn boundary through the envelope (M-221)', () => {
       assert.deepEqual(seen[0].args.draft, DRAFT);
       assert.equal(seen[0].args.state, '{"n":2}');
       assert.equal(nextTurn.calls[0].draft_carried, true);
@@ -2629,7 +2633,7 @@ check('validation: actionable errors', () => {
       seed: 5,
       state: '{"n":1}',
     });
-    check(
+    await check(
       'an envelope written before M-221 carries a state and no draft: nothing is invented, the tool refuses in its own words (M-221)',
       () => {
         assert.equal(seen[0].args.draft, undefined);
@@ -2637,7 +2641,7 @@ check('validation: actionable errors', () => {
       }
     );
   })();
-  check(
+  await check(
     'chat.js tools[] carries the M-216 fields and the kitchen bill loopFields stamps (M-219, M-255)',
     () => {
       // Round 11's rows had none of them: loopFields put them on every call and
@@ -2759,7 +2763,7 @@ check('validation: actionable errors', () => {
     }
     const responsesIn = (req) =>
       req.contents.flatMap((c) => (c.parts || []).map((p) => p.functionResponse).filter(Boolean));
-    check(
+    await check(
       'between hops, a lyric result a later result of the same tool superseded is stubbed and the newest stays whole (M-228)',
       () => {
         assert.equal(requests.length, 4, 'four requests: three calls, then the reply');
@@ -2786,7 +2790,7 @@ check('validation: actionable errors', () => {
         );
       }
     );
-    check(
+    await check(
       'the handed-back history is the stubbed one, and stubbing it again changes nothing (M-228)',
       () => {
         const hist = run.history;
@@ -2803,7 +2807,7 @@ check('validation: actionable errors', () => {
         assert.equal(hist.filter((c) => c.role === 'model').length, 4, 'model parts untouched');
       }
     );
-    check(
+    await check(
       'stubSupersededInPlace leaves a recipe result and a lone lyric result alone (M-228)',
       () => {
         const c = [
@@ -2943,7 +2947,7 @@ check('validation: actionable errors', () => {
     } finally {
       globalThis.fetch = realFetch;
     }
-    check(
+    await check(
       "the run's declarations are carried and re-applied over a continuing call that moved one (M-229)",
       () => {
         assert.deepEqual(_da({ seed: 5, draft: ['a'], answer: 'x', state: 's', lines: 20 }), {
@@ -2967,7 +2971,7 @@ check('validation: actionable errors', () => {
         assert.equal(run.calls[0].declarations_carried, false);
       }
     );
-    check(
+    await check(
       'while a run is suspended the lyric_revise declaration is answer plus the run key, nothing else (M-229)',
       () => {
         const d = (req) => req.tools[0].functionDeclarations.find((x) => x.name === 'lyric_revise');
@@ -2987,7 +2991,7 @@ check('validation: actionable errors', () => {
         assert.deepEqual(_df(surface, null), surface.declarations);
       }
     );
-    check(
+    await check(
       'a call that wanders off a suspended run is refused by the connector and never reaches the harness (M-229)',
       () => {
         const names = seen.map((c) => c.name);
@@ -3155,7 +3159,7 @@ check('validation: actionable errors', () => {
     } finally {
       globalThis.fetch = realFetch;
     }
-    check(
+    await check(
       'a run that parks at exit 3 is carried as PARKED, and its continuing call is the rewritten draft plus the key (M-232)',
       () => {
         assert.deepEqual(
@@ -3302,7 +3306,7 @@ check('validation: actionable errors', () => {
     } finally {
       globalThis.fetch = realFetch;
     }
-    check(
+    await check(
       'a parked record is carried INTO the next turn: the draft-less call is refused by the connector and the rewrite goes through (M-233)',
       () => {
         assert.equal(run3.calls[0].refused_by_connector, true, 'the connector, not the harness');
@@ -3375,7 +3379,7 @@ check('validation: actionable errors', () => {
     } finally {
       globalThis.fetch = realFetch;
     }
-    check(
+    await check(
       'a turn the engine kills after a call is returned with its calls kept, not thrown (M-232)',
       () => {
         assert.equal(partial.stopped, 'UPSTREAM_503');
@@ -3400,7 +3404,7 @@ check('validation: actionable errors', () => {
       }
     );
   })();
-  check(
+  await check(
     'chat.js hands the malformed hops and draft_carried out, and the battery rows bank them (M-221)',
     () => {
       const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
@@ -3449,7 +3453,7 @@ check('validation: actionable errors', () => {
       new URL('../lyric-harness/lyric_harness.py', import.meta.url),
       'utf8'
     );
-    check("the harness's refusal headline is the shape the connector extracts", () => {
+    await check("the harness's refusal headline is the shape the connector extracts", () => {
       assert.ok(
         harness.includes('print(f"  REFUSED — {msg}")'),
         '`_refuse` prints `  REFUSED — {msg}` (the extractor is pinned to this line)'
@@ -3475,7 +3479,7 @@ check('validation: actionable errors', () => {
       assert.equal(AI.loopFields({ exit_code: 0 }).refusal, null);
     });
   })();
-  check('runTurn reaches the model through the one systemInstruction builder', () => {
+  await check('runTurn reaches the model through the one systemInstruction builder', () => {
     // The classic defect is built-but-unreachable: a helper both halves above
     // pass while runTurn keeps a second, reminder-less spelling. Pin the
     // source: exactly one assignment, fed only by buildSystemInstruction.
@@ -3525,7 +3529,7 @@ check('validation: actionable errors', () => {
     fold('lyric_revise', 'c3', brief(1)),
     { role: 'model', parts: [{ text: 'answered one' }] },
   ];
-  check('pruning stubs an older folded brief and touches nothing it must not', () => {
+  await check('pruning stubs an older folded brief and touches nothing it must not', () => {
     const before = JSON.stringify(history).length;
     const pruned = pruneHistory(history, { keepTurns: 1, maxBytes: 200_000 });
     assert.equal(pruned.length, history.length, 'no turn dropped under the bound');
@@ -3560,7 +3564,7 @@ check('validation: actionable errors', () => {
     assert.equal(pruneHistory(history, { keepTurns: 2 }).length, history.length);
     assert.equal(pruneHistory(history, { keepTurns: 2 })[4], history[4], 'keepTurns=2 keeps both');
   });
-  check('the byte ceiling drops whole oldest turns, never the newest kept one', () => {
+  await check('the byte ceiling drops whole oldest turns, never the newest kept one', () => {
     const tight = pruneHistory(history, { keepTurns: 1, maxBytes: 1000 });
     assert.equal(tight[0].parts[0].text, 'CONTINUE', 'the oldest turn went first');
     assert.equal(tight.length, 4, 'the newest turn survives whole even over the bound');
@@ -3590,7 +3594,7 @@ check('validation: actionable errors', () => {
     BYTES_PER_TOKEN,
     runTurn: _rt,
   } = await import('./gemini_agent.js');
-  check('turnBudget derives the per-hop cost from the declared coordinates alone', () => {
+  await check('turnBudget derives the per-hop cost from the declared coordinates alone', () => {
     const b = turnBudget();
     const price = PRICING[DEFAULT_MODEL];
     const expected =
@@ -3604,10 +3608,10 @@ check('validation: actionable errors', () => {
     assert.equal(b.hopsAffordable, Math.floor(_L.maxTurnUsd / b.perHopUsd));
     assert.equal(b.capBinds, b.hopsAffordable < _L.maxSteps);
   });
-  check('an unpriced model refuses the arithmetic rather than returning a number', () => {
+  await check('an unpriced model refuses the arithmetic rather than returning a number', () => {
     assert.equal(turnBudget(_L, 'no-such-model'), null);
   });
-  check('the code says WHICH of the two ceilings wins, and agrees with itself', async () => {
+  await check('the code says WHICH of the two ceilings wins, and agrees with itself', async () => {
     // ~~The measured state on 2026-09-02: $0.10 buys 6 hops of a legal 14, so
     // the DOLLAR cap is the operative step limit.~~ The owner raised the cap
     // to $2.50 the same day and the answer flipped to `maxSteps`, which is
@@ -3622,7 +3626,7 @@ check('validation: actionable errors', () => {
       'and a cap below the worst LEGAL turn is exactly what makes it bind'
     );
     assert.equal(
-      chatCeilings().perTurn,
+      chatCeilings().outerModelEstimate.perTurn,
       b.capBinds ? 'maxTurnUsd' : 'maxSteps',
       'the reported per-turn ceiling is the derivation, not a second opinion'
     );
@@ -3668,22 +3672,25 @@ check('validation: actionable errors', () => {
     } finally {
       globalThis.fetch = realFetch;
     }
-    check('a turn stopped by the cap carries what it spent, the cap and both hop counts', () => {
-      assert.equal(run.stopped, 'MAX_TURN_COST');
-      const d = run.stoppedDetail;
-      assert.ok(d, 'the stop is not a bare label');
-      assert.ok(d.usd >= d.cap, `spent ${d.usd} against cap ${d.cap}`);
-      assert.equal(d.cap, _L.maxTurnUsd);
-      assert.equal(d.hops, 1, 'it bought one hop, the prompt being twice the cap');
-      assert.equal(d.maxSteps, _L.maxSteps, 'and names the hop budget it did NOT reach');
-      assert.ok(d.hops < d.maxSteps, 'so MAX_TURN_COST cannot be read as MAX_STEPS');
-      // ~~`capBinds === true`~~ — another literal that was a function of the
-      // cap, and it went false when the owner raised it. What the stop owes
-      // is the DERIVATION, and that it is the same one `turnBudget` reports.
-      assert.deepEqual(d.budget, turnBudget(), 'and carries the derivation itself');
-    });
+    await check(
+      'a turn stopped by the cap carries what it spent, the cap and both hop counts',
+      () => {
+        assert.equal(run.stopped, 'MAX_TURN_COST');
+        const d = run.stoppedDetail;
+        assert.ok(d, 'the stop is not a bare label');
+        assert.ok(d.usd >= d.cap, `spent ${d.usd} against cap ${d.cap}`);
+        assert.equal(d.cap, _L.maxTurnUsd);
+        assert.equal(d.hops, 1, 'it bought one hop, the prompt being twice the cap');
+        assert.equal(d.maxSteps, _L.maxSteps, 'and names the hop budget it did NOT reach');
+        assert.ok(d.hops < d.maxSteps, 'so MAX_TURN_COST cannot be read as MAX_STEPS');
+        // ~~`capBinds === true`~~ — another literal that was a function of the
+        // cap, and it went false when the owner raised it. What the stop owes
+        // is the DERIVATION, and that it is the same one `turnBudget` reports.
+        assert.equal(d.usd, run.cost, 'the tool admission stop reports total spending');
+      }
+    );
   })();
-  check('chat.js publishes the stop detail beside the stop reason', () => {
+  await check('chat.js publishes the stop detail beside the stop reason', () => {
     const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
     assert.ok(
       /stopped_detail: run\.stoppedDetail \?\? null,/.test(chat),
@@ -3701,7 +3708,7 @@ check('validation: actionable errors', () => {
   // server's own declared budget, and a transport failure is a RECORDED
   // outcome, never a crash.
   const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
-  check(
+  await check(
     'the battery client derives its deadline instead of inheriting a fetch default',
     async () => {
       // Comments are stripped first: the file's own account of the defect says
@@ -3740,14 +3747,16 @@ check('validation: actionable errors', () => {
       );
     }
   );
-  check('the battery socket keeps the NAT awake while the server computes', () => {
+  await check('the battery socket keeps the NAT awake while the server computes', () => {
     // M-160: round 5's turn 0 was RESET at 272.7s where round 3's answered at
     // 214s — the bracket contains the 240s idle-flow timeout of the runners'
     // own NAT, and a /chat turn moves no bytes while the server grades. The
     // probes are the fix the CLIENT can make; the pin is that they exist and
     // ride the request socket.
     assert.ok(
-      /req\.on\('socket', \(s\) => s\.setKeepAlive\(true, KEEPALIVE_PROBE_MS\)\)/.test(bat),
+      /req\.on\('socket', \(socket\) => socket\.setKeepAlive\(true, KEEPALIVE_PROBE_MS\)\)/.test(
+        bat
+      ),
       'keep-alive probes are armed on the request socket'
     );
     assert.ok(
@@ -3755,24 +3764,27 @@ check('validation: actionable errors', () => {
       'and the cadence derives from the documented idle floor, not a bare number'
     );
   });
-  check('the battery finishes only on exit 0 — a parked exit 3 is declined and continued', () => {
-    // M-163 (owner's order): round 6 parked at exit 3 — NO_PROGRESS, twelve
-    // lines still flagged — and the driver hung up as if the song were done.
-    // Only exit 0 finishes a song now; the driver's user-role reply declines
-    // the parked draft and asks the loop to keep revising. Comments stripped
-    // for the same reason as the fetch pin above.
-    const code = bat.replace(/^\s*\/\/.*$/gm, '');
-    assert.ok(/if \(c\.exit_code === 0\) sawStop = 0;/.test(code), 'exit 0 is the only finish');
-    assert.ok(
-      !/sawStop = c\.exit_code/.test(code),
-      'the old exit-0-or-3 finish assignment is gone'
-    );
-    assert.ok(
-      /parkedLastTurn\s*\?\s*PARKED_CONTINUE\s*:\s*CONTINUE/.test(code),
-      'a parked turn is answered with the decline-and-continue message'
-    );
-  });
-  check("the deployment's transient answers earn the bounded logged backoff", () => {
+  await check(
+    'the battery finishes only on exit 0 — a parked exit 3 is declined and continued',
+    () => {
+      // M-163 (owner's order): round 6 parked at exit 3 — NO_PROGRESS, twelve
+      // lines still flagged — and the driver hung up as if the song were done.
+      // Only exit 0 finishes a song now; the driver's user-role reply declines
+      // the parked draft and asks the loop to keep revising. Comments stripped
+      // for the same reason as the fetch pin above.
+      const code = bat.replace(/^\s*\/\/.*$/gm, '');
+      assert.ok(/if \(c\.exit_code === 0\) sawStop = 0;/.test(code), 'exit 0 is the only finish');
+      assert.ok(
+        !/sawStop = c\.exit_code/.test(code),
+        'the old exit-0-or-3 finish assignment is gone'
+      );
+      assert.ok(
+        /parkedLastTurn\s*\?\s*PARKED_CONTINUE\s*:\s*CONTINUE/.test(code),
+        'a parked turn is answered with the decline-and-continue message'
+      );
+    }
+  );
+  await check("the deployment's transient answers earn the bounded logged backoff", () => {
     // M-164: round 7's turn 0 got chat.js's catch-all 502 ("The engine could
     // not answer that one") at 236s — the turn's upstream died past the
     // server's own single 5xx retry, the turn's work was thrown away, and the
@@ -3783,7 +3795,7 @@ check('validation: actionable errors', () => {
       '429, 502 and 503 all take the bounded retry path'
     );
   });
-  check(
+  await check(
     "the spend pins state the owner's ruling, and the day derives its own turn count (M-215)",
     () => {
       // Round 10's turns 0 and 4 stopped MAX_TURN_COST under a $0.10 pin while
@@ -3799,7 +3811,9 @@ check('validation: actionable errors', () => {
       const day = /key: CHAT_DAILY_USD\s+value: '([\d.]+)'/.exec(yaml);
       assert.ok(turn && day, 'render.yaml pins both dollar ceilings');
       const turnDefault =
-        /maxTurnUsd: Number\(process\.env\.CHAT_MAX_TURN_USD\) \|\| ([\d.]+)/.exec(agent);
+        /maxTurnUsd:[\s\S]*?\? Number\(process\.env\.CHAT_MAX_TURN_USD\)\s*:\s*([\d.]+)/.exec(
+          agent
+        );
       const dayDefault = /const DAILY_USD = num\('CHAT_DAILY_USD', ([\d.]+)\)/.exec(chat);
       assert.ok(turnDefault && dayDefault, 'the code declares a default for each');
       assert.equal(
@@ -3818,7 +3832,7 @@ check('validation: actionable errors', () => {
       );
     }
   );
-  check(
+  await check(
     'every lyric verdict says which path answered, how long it took, and what the run disclosed (M-216)',
     async () => {
       // Ten battery rounds could not say whether the deployed box answered
@@ -3864,12 +3878,12 @@ check('validation: actionable errors', () => {
       assert.equal(row.plan_lines, null);
       const cold = await WK.runCold(['screen', 'fire', 'desire']);
       assert.ok(typeof cold.stdout === 'string', 'the cold path still answers');
-      const src = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
+      const src = readFileSync(new URL('./python_bridge.js', import.meta.url), 'utf8');
       assert.ok(
-        /stamp\(r, 'warm'\)/.test(src) &&
-          /stamp\(r, 'cold-fallback'\)/.test(src) &&
-          /stamp\(r, 'cold'\)/.test(src) &&
-          /path: 'killed'/.test(src),
+        /stamp\(await warm\(args, options\), 'warm'\)/.test(src) &&
+          /stamp\(await cold\(args, options\), 'cold-fallback'\)/.test(src) &&
+          /stamp\(await cold\(args, options\), 'cold'\)/.test(src) &&
+          /stamp\(failure\(args, error\), 'killed'\)/.test(src),
         'runVerb names all four paths'
       );
       assert.ok(
@@ -3879,7 +3893,7 @@ check('validation: actionable errors', () => {
       assert.ok(/console\.error\([\s\S]*warm worker exited/.test(src), 'a worker death is LOGGED');
     }
   );
-  check(
+  await check(
     'one tool budget, five readers — the pin, the default, the client clock, the kill, the live test clock',
     () => {
       // M-165: round 8's turn 8 was EIGHT consecutive lyric_revise exit -1,
@@ -3923,7 +3937,7 @@ check('validation: actionable errors', () => {
       );
     }
   );
-  check("the loop's own record of a run survives every layer to the transcript", () => {
+  await check("the loop's own record of a run survives every layer to the transcript", () => {
     // M-169: revise_loop computes stop_reason / rounds / unresolved, the finish
     // verb prints all three in its [FINISHED …] stamp, and until this check
     // every layer above dropped them — so the battery transcript could say a
@@ -3974,7 +3988,7 @@ check('validation: actionable errors', () => {
     const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
     assert.ok(/loop_ladder: loopLadder/.test(bat), 'and the transcript banks the ladder');
   });
-  check('an unstopped call contributes no loop row — absent is not zero', () => {
+  await check('an unstopped call contributes no loop row — absent is not zero', () => {
     // Doctrine 20 at the record's edge: a SUSPENDED call (exit 4) has reached no
     // stop condition, so it HAS no stop reason and no round count. A zero there
     // would read as a loop that ran and did nothing.
@@ -3989,7 +4003,7 @@ check('validation: actionable errors', () => {
       'and the verdict adds the fields only when the stamp is there'
     );
   });
-  check(
+  await check(
     'the replay memo holds as many runs as the chat layer can have — one figure, not two spellings',
     () => {
       // M-167: quality/replay_memo.py's RUNS_HELD is DERIVED from chat.js's
@@ -4020,20 +4034,26 @@ check('validation: actionable errors', () => {
       );
     }
   );
-  check('a verb that outlives the budget is not re-run cold on the serial queue', () => {
+  await check('a verb that outlives the budget is not re-run cold on the serial queue', () => {
     // The cold fallback exists for a DEAD worker (crash, corruption): one
     // slow answer, identical semantics. A TIMED-OUT call already proved it
     // outlives the whole budget, so a cold re-run would hold the serial
     // queue for a SECOND whole budget to earn the same -1 — the double
     // block round 8 paid eight times over (M-165).
     const lt = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
-    assert.ok(/e\.timedOut = true/.test(lt), 'the budget kill is tagged where the timer fires');
     assert.ok(
-      /e && e\.timedOut\s*\?\s*\{ code: -1/.test(lt),
-      'and runVerb surfaces the tagged kill as the -1 it is instead of retrying cold'
+      /const runVerb = bridge\.runVerb/.test(lt),
+      'the tools use the shared execution bridge'
     );
+    const execution = readFileSync(new URL('./python_bridge.js', import.meta.url), 'utf8');
+    assert.ok(
+      /kitchen\s*\|\|\s*error\.timedOut\s*\|\|\s*error\.cancelled/.test(execution),
+      'side effects, timeouts and cancellation never enter cold replay'
+    );
+    // Runtime counterexamples and positive controls, including a crash after
+    // completed work, are executed by test_python_bridge.mjs in the same gate.
   });
-  check('the image ships every tracked runtime file under mcp/ — the worker included', () => {
+  await check('the image ships every tracked runtime file under mcp/ — the worker included', () => {
     // M-187: mcp/Dockerfile:20 read `COPY mcp/*.js ./mcp/`, and mcp/worker.py —
     // the warm process `_spawnWorker` starts — is not a .js file, so every
     // image Render built between M-155 (2026-08-29) and 2026-09-01 lacked it.
@@ -4058,6 +4078,17 @@ check('validation: actionable errors', () => {
       'mcp/README.md': 'documentation',
       'mcp/PRIVACY.md': 'documentation',
       'mcp/test.mjs': 'this suite — CI runs it against the tree; the image runs server_http.js',
+      'mcp/test_spend_store.mjs': 'shared corrupt-spend assertion and isolated fault runner',
+      'mcp/test_paid_budget.mjs': 'offline shared spending admission regressions',
+      'mcp/test_python_bridge.mjs': 'offline worker lifecycle regressions',
+      'mcp/test_lyric_state.mjs': 'offline lyric state and SDK regressions',
+      'mcp/test_turn_lifecycle.mjs': 'offline chat lifetime and signed continuation regressions',
+      'mcp/test_battery_lifecycle.mjs': 'offline real battery transport regressions',
+      'mcp/test_battery_archive.mjs': 'offline authenticated recovery archive regressions',
+      'mcp/test_battery_storage.mjs': 'offline bounded battery journal and admission regressions',
+      'mcp/test_job_store.mjs': 'offline durable recovery regressions',
+      'mcp/LYRICS_RUNTIME.md': 'operator documentation',
+      'mcp/BATTERY_RECOVERY.md': 'battery recovery operator documentation',
       'mcp/test_gemini_proposer.py':
         "the kitchen proposer's own suite (M-254) — spawned by this suite against a stub Gemini; the image carries gemini_proposer.py and not its test",
       'mcp/check_live.mjs':
@@ -4164,7 +4195,7 @@ check('validation: actionable errors', () => {
       'and without it the check names the worker — the finding, reproduced'
     );
   });
-  check('a battery transport failure is a recorded row, never a crash', async () => {
+  await check('a battery transport failure is a recorded row, never a crash', async () => {
     const { spawnSync } = await import('node:child_process');
     const { mkdtempSync, rmSync } = await import('node:fs');
     const { tmpdir } = await import('node:os');
@@ -4220,7 +4251,7 @@ check('validation: actionable errors', () => {
   // message; the third answer lands a call, and the round does NOT fail fast
   // — three rows for one turn, the user_reasks count on the row and the
   // summary, and the envelope of the LAST answer carried forward.
-  check(
+  await check(
     'a malformed, call-less turn is re-sent as the same message, bounded, and a recovered turn is not a failure',
     async () => {
       const { spawn } = await import('node:child_process');
@@ -4321,7 +4352,7 @@ check('validation: actionable errors', () => {
   // read. The connector's error body now carries the upstream status and
   // message; a 4xx that is not 429 ends the turn on the first answer, with
   // the detail and the hops on the row, and the round exits upstream_final.
-  check(
+  await check(
     'a 502 whose upstream answered 4xx ends the turn at once, the row quotes the cause, and the round exits upstream_final',
     async () => {
       const { spawn } = await import('node:child_process');
@@ -4393,22 +4424,28 @@ check('validation: actionable errors', () => {
       }
     }
   );
-  check('a 502 says what died: the upstream status and message ride on the body (M-231)', () => {
-    const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
-    assert.ok(/detail: String\(\(err && err\.message\) \|\| err\)\.slice\(0, 400\)/.test(chat));
-    assert.ok(
-      /upstream_status: Number\.isFinite\(err && err\.status\) \? err\.status : null/.test(chat)
-    );
-    assert.ok(/callsBeforeFailure: calls\.map/.test(chat), 'and the calls the turn had made');
-    const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
-    assert.ok(/!upstreamFinal\(\) &&/.test(bat), 'the retry loop stops on a final upstream answer');
-    assert.ok(
-      /r\.upstreamStatus >= 400 &&\s*r\.upstreamStatus < 500 &&\s*r\.upstreamStatus !== 429/.test(
-        bat
-      ),
-      'final is 4xx and not 429 — a 5xx upstream keeps the bounded retry'
-    );
-  });
+  await check(
+    'a 502 says what died: the upstream status and message ride on the body (M-231)',
+    () => {
+      const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+      assert.ok(/detail: String\(\(err && err\.message\) \|\| err\)\.slice\(0, 400\)/.test(chat));
+      assert.ok(
+        /upstream_status: Number\.isFinite\(err && err\.status\) \? err\.status : null/.test(chat)
+      );
+      assert.ok(/callsBeforeFailure: calls\.map/.test(chat), 'and the calls the turn had made');
+      const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
+      assert.ok(
+        /!upstreamFinal\(\) &&/.test(bat),
+        'the retry loop stops on a final upstream answer'
+      );
+      assert.ok(
+        /r\.upstreamStatus >= 400 &&\s*r\.upstreamStatus < 500 &&\s*r\.upstreamStatus !== 429/.test(
+          bat
+        ),
+        'final is 4xx and not 429 — a 5xx upstream keeps the bounded retry'
+      );
+    }
+  );
   // M-232: a turn the connector ended on an upstream 5xx WITH calls kept is
   // not an idle turn — no fail-fast, the flag names it, and the next turn
   // continues; here the next turn finishes the song, so the round exits 0.
@@ -4416,7 +4453,7 @@ check('validation: actionable errors', () => {
   // the idle rule must not read that as "no new answer folded". Four turns:
   // suspend (2 answers), park (3 answers, 5 open), a fresh run (0 answers),
   // finish — exit 0, no fail-fast.
-  check(
+  await check(
     'a park resets the answer baseline, so the continuing run is not idle (M-233)',
     async () => {
       const { spawn } = await import('node:child_process');
@@ -4507,7 +4544,7 @@ check('validation: actionable errors', () => {
   // lyric_revise, which refuses at exit 2 once its wait budget is spent. The
   // driver must read that refusal as M-249's `rate_limited`, bank one row, and
   // stop the round — never send a CONTINUE at the same wall.
-  check(
+  await check(
     'a kitchen refusal on a spent 429 is the rate_limited stopping place, and the round stops on that turn',
     async () => {
       const { spawn } = await import('node:child_process');
@@ -4612,7 +4649,7 @@ check('validation: actionable errors', () => {
       }
     }
   );
-  check(
+  await check(
     'a partial turn (calls kept, engine died) is not fail-fast, and the round goes on to finish',
     async () => {
       const { spawn } = await import('node:child_process');
@@ -4700,7 +4737,7 @@ check('validation: actionable errors', () => {
   // M-223: a 429 names its limiter in the body and its wait in Retry-After;
   // the retry row carries both and the wait is the server's number. Then the
   // round FINISHES (a lyric_revise exit 0) and exits 0, exit_reason finished.
-  check(
+  await check(
     "a 429 is retried after the server's own Retry-After, the row quotes the limiter, and a finished song exits 0",
     async () => {
       const { spawn } = await import('node:child_process');
@@ -4788,7 +4825,7 @@ check('validation: actionable errors', () => {
   // M-223 (round 13): a turn that made calls and THEN ended on a malformed
   // hop is truncated, not dead — it continues on the next message and is
   // counted, and fail-fast does not fire on it.
-  check(
+  await check(
     'a malformed end after calls is a truncated turn: no fail-fast, the next message goes out, and the summary counts it',
     async () => {
       const { spawn } = await import('node:child_process');
@@ -4877,7 +4914,7 @@ check('validation: actionable errors', () => {
   // M-224: the connector's own conversation cap (CHAT_MAX_TURNS) answers 429
   // with "start a new recipe" and no retry changes it — the round ends at once
   // with its own reason instead of four sixty-second waits.
-  check(
+  await check(
     "the connector's conversation cap ends the round at once with exit_reason server_turn_cap",
     async () => {
       const { spawn } = await import('node:child_process');
@@ -4945,7 +4982,7 @@ check('validation: actionable errors', () => {
       }
     }
   );
-  check(
+  await check(
     'the re-ask is bounded: a turn that fails a third time is the failure fail-fast stops on',
     async () => {
       const { spawn } = await import('node:child_process');
@@ -5198,7 +5235,7 @@ if (/\\/actions\\/workflows\\/[^/]+\\/runs\\?/.test(url)) {
     { id: 96, sha: 'c'.repeat(40), deploy: 'success' }, // older still
   ];
 
-  check(
+  await check(
     'deploy guard: the tip with no record on file deploys, and SAYS the check did not run',
     () => {
       // Doctrine 20 in one exit code: an absent record is UNKNOWN, and an
@@ -5222,15 +5259,18 @@ if (/\\/actions\\/workflows\\/[^/]+\\/runs\\?/.test(url)) {
     }
   );
 
-  check('deploy guard: the tip with a record that DIFFERS deploys, and names the record', () => {
-    const r = makeRepo();
-    const other = 'd'.repeat(40);
-    const res = runGuard(r.dir, r.base, other);
-    assert.equal(res.code, DEPLOY, `a different last-accepted sha must not block: ${res.out}`);
-    assert.ok(res.out.includes(other) && /differs/.test(res.out), res.out);
-  });
+  await check(
+    'deploy guard: the tip with a record that DIFFERS deploys, and names the record',
+    () => {
+      const r = makeRepo();
+      const other = 'd'.repeat(40);
+      const res = runGuard(r.dir, r.base, other);
+      assert.equal(res.code, DEPLOY, `a different last-accepted sha must not block: ${res.out}`);
+      assert.ok(res.out.includes(other) && /differs/.test(res.out), res.out);
+    }
+  );
 
-  check(
+  await check(
     'deploy guard: the tip that IS the last sha Render was asked for stands down at 10, naming both',
     () => {
       // The re-run M-187 (b) is about. A re-run of a push's CI run keeps
@@ -5249,7 +5289,7 @@ if (/\\/actions\\/workflows\\/[^/]+\\/runs\\?/.test(url)) {
     }
   );
 
-  check(
+  await check(
     'deploy guard: a sha BEHIND the tip stands down on ORDERING, and that test fires first',
     () => {
       // The ordering hazard is the older question and the guard asks it FIRST.
@@ -5272,7 +5312,7 @@ if (/\\/actions\\/workflows\\/[^/]+\\/runs\\?/.test(url)) {
     }
   );
 
-  check(
+  await check(
     'last_deployed_sha: the run in flight is skipped, and so is every Deploy that did not conclude success',
     () => {
       const tip = 'a'.repeat(40);
@@ -5311,7 +5351,7 @@ if (/\\/actions\\/workflows\\/[^/]+\\/runs\\?/.test(url)) {
     }
   );
 
-  check(
+  await check(
     'last_deployed_sha: a gh that FAILS is unknown, and unknown deploys rather than matching',
     () => {
       // The API refusing to answer is the case that must collapse into neither
@@ -5337,51 +5377,54 @@ if (/\\/actions\\/workflows\\/[^/]+\\/runs\\?/.test(url)) {
     }
   );
 
-  check('the same-sha rule is load-bearing in BOTH directions (the two planted mutants)', () => {
-    // A check that cannot fail enforces nothing — doctrine 48 one layer in,
-    // and the shape the COPY-set check above answers the same way. The guard
-    // is fed
-    // its own two defects here — the comparison struck, and an absent record
-    // read as a match — and each must flip exactly one of the answers above.
-    const text = readFileSync(GUARD, 'utf8');
-    const runMutant = (name, body, dir, built, last) => {
-      const p = join(shimDir, name);
-      writeFileSync(p, body);
-      chmodSync(p, 0o755);
-      return runGuard(dir, built, last, p);
-    };
+  await check(
+    'the same-sha rule is load-bearing in BOTH directions (the two planted mutants)',
+    () => {
+      // A check that cannot fail enforces nothing — doctrine 48 one layer in,
+      // and the shape the COPY-set check above answers the same way. The guard
+      // is fed
+      // its own two defects here — the comparison struck, and an absent record
+      // read as a match — and each must flip exactly one of the answers above.
+      const text = readFileSync(GUARD, 'utf8');
+      const runMutant = (name, body, dir, built, last) => {
+        const p = join(shimDir, name);
+        writeFileSync(p, body);
+        chmodSync(p, 0o755);
+        return runGuard(dir, built, last, p);
+      };
 
-    // MUTANT 1 — the same-sha block deleted, which is the guard exactly as it
-    // stood before M-187 (b). The already-asked tip deploys once more.
-    const struck = text.replace(
-      /^ {2}if \[ -n "\$\{LAST_DEPLOYED_SHA:-\}" \][\s\S]*?\n {2}fi\n/m,
-      ''
-    );
-    assert.notEqual(struck, text, 'the same-sha block is there to be struck');
-    const r1 = makeRepo();
-    assert.equal(
-      runMutant('mutant_struck.sh', struck, r1.dir, r1.base, r1.base).code,
-      DEPLOY,
-      'with the comparison gone the guard redeploys the sha Render was already asked for — the defect, reproduced'
-    );
+      // MUTANT 1 — the same-sha block deleted, which is the guard exactly as it
+      // stood before M-187 (b). The already-asked tip deploys once more.
+      const struck = text.replace(
+        /^ {2}if \[ -n "\$\{LAST_DEPLOYED_SHA:-\}" \][\s\S]*?\n {2}fi\n/m,
+        ''
+      );
+      assert.notEqual(struck, text, 'the same-sha block is there to be struck');
+      const r1 = makeRepo();
+      assert.equal(
+        runMutant('mutant_struck.sh', struck, r1.dir, r1.base, r1.base).code,
+        DEPLOY,
+        'with the comparison gone the guard redeploys the sha Render was already asked for — the defect, reproduced'
+      );
 
-    // MUTANT 2 — an absent record counted as a match. The tip with nothing on
-    // file stands down, which would stall the deploy of a commit nobody has
-    // ever shipped every time the history could not be read.
-    const greedy = text.replace(
-      '[ -n "${LAST_DEPLOYED_SHA:-}" ] && [ "$BUILT" = "$LAST_DEPLOYED_SHA" ]',
-      '[ -z "${LAST_DEPLOYED_SHA:-}" ] || [ "$BUILT" = "$LAST_DEPLOYED_SHA" ]'
-    );
-    assert.notEqual(greedy, text, 'the unknown-is-not-a-match guard is there to be broken');
-    const r2 = makeRepo();
-    assert.equal(
-      runMutant('mutant_greedy.sh', greedy, r2.dir, r2.base, '').code,
-      STAND_DOWN,
-      'reading an absent record as a match stands down on a commit that was never deployed — the other defect'
-    );
-  });
+      // MUTANT 2 — an absent record counted as a match. The tip with nothing on
+      // file stands down, which would stall the deploy of a commit nobody has
+      // ever shipped every time the history could not be read.
+      const greedy = text.replace(
+        '[ -n "${LAST_DEPLOYED_SHA:-}" ] && [ "$BUILT" = "$LAST_DEPLOYED_SHA" ]',
+        '[ -z "${LAST_DEPLOYED_SHA:-}" ] || [ "$BUILT" = "$LAST_DEPLOYED_SHA" ]'
+      );
+      assert.notEqual(greedy, text, 'the unknown-is-not-a-match guard is there to be broken');
+      const r2 = makeRepo();
+      assert.equal(
+        runMutant('mutant_greedy.sh', greedy, r2.dir, r2.base, '').code,
+        STAND_DOWN,
+        'reading an absent record as a match stands down on a commit that was never deployed — the other defect'
+      );
+    }
+  );
 
-  check(
+  await check(
     'deploy-connector.yml reaches both scripts, and LAST_DEPLOYED_SHA crosses the process boundary',
     () => {
       // check_publish_guard.js §7's lesson, learned there the expensive way:
@@ -5531,10 +5574,12 @@ try {
     'the nine lyric tools are advertised (M-195 added lyric_recover)'
   );
   for (const t of lyric) {
-    assert.equal(t.annotations?.readOnlyHint, true, `${t.name} read-only`);
-    assert.equal(t.annotations?.openWorldHint, false, `${t.name} closed-world`);
+    const writes = t.name === 'lyric_revise';
+    assert.equal(t.annotations?.readOnlyHint, !writes, `${t.name} declares its state effects`);
+    assert.equal(t.annotations?.openWorldHint, writes, `${t.name} declares its model access`);
+    assert.equal(t.annotations?.idempotentHint, !writes, `${t.name} declares replay semantics`);
   }
-  console.log('  ok  lyric family advertised: 9 tools, read-only, closed-world');
+  console.log('  ok  lyric family advertised: 9 tools, revise declares model and state effects');
   passed++;
 
   // DEPLOYMENT FRESHNESS HAS AN INSTRUMENT (M-127): check_live.mjs compares
@@ -6015,7 +6060,7 @@ try {
           ? pend1.record.members.map((n) => `L${n}: ${draft[n - 1]} again`).join('\n')
           : `${draft[pend1.record.line - 1]} again`;
     const rev3 = await client.callTool(
-      { name: 'lyric_revise', arguments: withLines({ answer: answer1 }) },
+      { name: 'lyric_revise', arguments: withLines({ run_id: rv1.run_id, answer: answer1 }) },
       undefined,
       LIVE_OPTS
     );
@@ -6517,9 +6562,5 @@ try {
     process.exitCode = 1;
   }
 }
-
-// Settle the queued async checks before counting. Without this the summary
-// prints while they are still in flight and reports a total that excludes them.
-await Promise.all(pending);
 
 console.log(`\n${passed} checks passed${process.exitCode ? ' (with failures)' : ''}`);

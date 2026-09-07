@@ -1452,14 +1452,22 @@ class Finding:
     evidence: str
     locations: list = field(default_factory=list)
     #: THE MANDATE GROUP LABEL(S) THIS FINDING IS ABOUT, when the emitter
-    #: knows one (`MISSING.md` M-207). DISCLOSURE, never a severity and never
-    #: a location: `codes()` does not read it, no diff keys on it, and a
-    #: finding that names none reads exactly as it always did. It exists
+    #: knows one (`MISSING.md` M-207). This identifies the obligation for
+    #: disclosure AND verification; the acceptance diff combines it with
+    #: code, severity and locations. A finding naming no group has no
+    #: group coordinate. It exists
     #: because a PAIR finding names two LINES, and two groups can hold the
     #: same line pair AT DIFFERENT WORDS — so the brief attributed an
     #: end-word ban to a group binding word 2 and told the writer to change a
     #: word the judge had already passed.
     groups: tuple = ()
+    #: Atomic obligations behind an aggregate report row. The public
+    #: locations list may contain only one endpoint from each of several
+    #: unrelated pairs, so it cannot identify which pair changed. Kept
+    #: separate from prose, severity and the renderer's historical shape.
+    obligations: tuple = ()
+    #: Stable declared subject when locations cannot identify it (a hook slot).
+    subject: tuple = ()
 
     def __str__(self):
         loc = f" (lines {', '.join(map(str, self.locations))})" if \
@@ -2102,7 +2110,7 @@ class SlopFloor:
                 + f". Deliberate anaphora is "
                 f"a figure — Whitman, the Psalms and every blues refrain trip "
                 f"this — so the finding is a decision handed back, not a "
-                f"verdict", hits))
+                f"verdict", hits, obligations=tuple((ln,) for ln in hits)))
 
         # 4. metronomic line length
         thr = d.resolve("line_length_cv_min", prof, n_tok)
@@ -2196,7 +2204,8 @@ class SlopFloor:
                     f"PURSUED since 2026-08-23 (owner ruling): the lines "
                     f"named are the members of the obvious pairs, and the "
                     f"revise loop holds them open — it still may not reject",
-                    locs))
+                    locs, obligations=tuple((i + 1, j + 1)
+                                            for i, j, _ in obvious)))
 
         # 6-8. relation-level defects the correctness engine already names.
         # These are length-independent, so they RUN under every profile and
@@ -2594,7 +2603,8 @@ class SlopFloor:
                   "`prons[0]` gate takes 118 to 114 by asserting one "
                   "convention over another, and an any-pronunciation gate "
                   "changes nothing at all (136 of 136 listed pairs pass it)",
-                [i for i, _, _ in cliche]))
+                [i for i, _, _ in cliche],
+                obligations=tuple((i, j) for i, j, _ in cliche)))
         if suffix:
             out.append(Finding(
                 "SHARED_SUFFIX", "note",
@@ -2606,7 +2616,8 @@ class SlopFloor:
                   "still rhyme produces no finding — the ending is then "
                   "incidental agreement, not the rhyme (owner's ruling, "
                   "`MISSING.md` M-90)",
-                [i for i, _, _ in suffix]))
+                [i for i, _, _ in suffix],
+                obligations=tuple((i, j) for i, j, _ in suffix)))
         # `rsev` again, for the same reason: this loop variable shadowed the
         # gate too. REPEAT_IN_VERSE does NOT go through it — see the
         # docstring — so the severity here is the one decided above.
@@ -2617,7 +2628,8 @@ class SlopFloor:
                     "REPEAT_IN_VERSE", rsev,
                     f"{len(rs)} pair(s) rhyme a word with itself",
                     "; ".join(f"{w!r} — {why}" for _, _, w, _, why in rs),
-                    [i for i, _, _, _, _ in rs]))
+                    [i for i, _, _, _, _ in rs],
+                    obligations=tuple((i, j) for i, j, _, _, _ in rs)))
         return out
 
     # -- reporting --------------------------------------------------------

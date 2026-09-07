@@ -12,6 +12,8 @@
 // browser → server → engine and back, and the model neither sees nor writes it.
 // See WORKSPACE_PROPERTY in gemini_tools.js for why it cannot be a parameter.
 
+import { performance } from 'node:perf_hooks';
+import { requestContext } from './execution_context.js';
 import { toGeminiDeclarations, WORKSPACE_PROPERTY, STATE_PROPERTY } from './gemini_tools.js';
 
 export const API_BASE = 'https://generativelanguage.googleapis.com/v1beta';
@@ -69,52 +71,24 @@ export const DEFAULT_THINKING = { thinkingLevel: 'low' };
 // without anybody attacking anything.
 export const LIMITS = {
   maxSteps: 14, // tool round-trips per user turn (baseline observed: 6-9)
-  // THE TURN'S WALL CLOCK (M-258, round 25). Fourteen hops of kitchen runs
-  // at the 600 s tool budget is 140 minutes, and the edge in front of the
-  // service answered 524 at 6,000,146 ms — one hundred minutes exactly —
-  // with every call of that turn lost: the driver got no tools, the
-  // record no rows, the spend no receipt. A turn that has been running
-  // this long ENDS after the hop in flight, with its calls kept and
-  // `stopped: 'MAX_TURN_MS'`, so the next turn continues the carried run
-  // (M-237) instead of the whole hour vanishing. Forty minutes plus one
-  // tool budget in flight is fifty, under the edge with room; the driver
-  // reads this number and derives its own deadline from it.
+  // One monotonic deadline covers model requests, response bodies, backoff,
+  // queue wait and every tool in a model hop. Interrupted tools get one short
+  // cleanup window to return their checkpoint; no further work is admitted.
   maxTurnMs: 2_400_000,
+  cancelGraceMs: 1_000,
   maxOutputTokens: 2048,
   temperature: 0,
-  // A ceiling in DOLLARS on one turn, checked between hops.
-  //
-  // maxSteps already bounds the hop count, but hops are not the unit that
-  // costs money: every hop re-sends the whole transcript, so cost grows with
-  // the SQUARE of the conversation rather than with the step counter. The
-  // measured worst prompt in the probe suite ran $0.033; ~~ten cents is three
-  // times that, so an ordinary bad turn never sees this and a pathological
-  // one stops before it matters.~~ RAISED TO $2.50 BY THE OWNER 2026-09-02,
-  // and the reason the old figure had to go is `turnBudget()` below: at the
-  // pruning ceiling ten cents bought SIX hops of a declared FOURTEEN, so the
-  // dollar cap was the operative step limit and `maxSteps` was decoration —
-  // a turn legal by the step counter died on the dollar counter and reported
-  // MAX_TURN_COST for it. $2.50 sits an order of magnitude above the worst
-  // LEGAL turn ($0.2180 at the ceiling), which is what makes this a
-  // PATHOLOGY bound again rather than a step limit wearing a dollar sign.
-  // Without it the only per-request bound is step count, and a turn that
-  // grew a large workspace could spend far more inside fourteen legal hops
-  // than fourteen ordinary hops ever would.
-  //
-  // IT NOW SITS ABOVE `chat.js`'s DAILY CEILING ($2 by default), AND THAT IS
-  // A CONSEQUENCE RATHER THAN AN OVERSIGHT. The daily check admits a turn
-  // BEFORE it runs and never interrupts one in flight, so a single turn may
-  // carry the day past its own ceiling. `chatCeilings()` in `chat.js` says
-  // which of the three binds and `/chat/status` reports it; `CHAT_DAILY_USD`
-  // is the other knob and was NOT moved here, being a separate decision.
-  maxTurnUsd: Number(process.env.CHAT_MAX_TURN_USD) || 2.5,
-  // WHICH OF THOSE TWO CEILINGS ACTUALLY BINDS IS `turnBudget()` BELOW, AND
-  // IT IS DISCLOSED RATHER THAN LEFT TO WHICHEVER IS SMALLER (2026-09-02,
-  // triage C11). `maxSteps` and `maxTurnUsd` are two answers to ONE question
-  // — how many hops may a turn take — and the smaller one wins in silence,
-  // so a turn that stopped at hop 8 of a legal 14 reported MAX_TURN_COST
-  // with no number beside it. That is the reading problem M-169 exists for,
-  // one coordinate over.
+  // The owner raised the per-turn ceiling to $2.50 on 2026-09-02.
+  // Every outer model and kitchen proposal now reserves its bounded cost
+  // BEFORE dispatch against the remaining turn AND daily budgets. Returned
+  // usage settles that reservation; unknown usage retains it conservatively.
+  // Step limits and historical outer-model estimates do not include kitchen
+  // proposal counts and are not a substitute for this shared admission gate.
+  maxTurnUsd:
+    Number.isFinite(Number(process.env.CHAT_MAX_TURN_USD)) &&
+    Number(process.env.CHAT_MAX_TURN_USD) > 0
+      ? Number(process.env.CHAT_MAX_TURN_USD)
+      : 2.5,
   // STALE-BRIEF PRUNING (M-197's open half). Every hop re-sends the whole
   // transcript, and the transcript is mostly FOLDED LYRIC RESULTS the model
   // has already acted on: a lyric_revise brief is ~20 KB on the record (a
@@ -180,6 +154,9 @@ export const RATE_LIMIT_RETRY = {
 export function priceFor(model) {
   const listed = PRICING[model];
   if (listed) return listed;
+  // These overrides declare the configured chat model's price, not a price
+  // for every unknown model a separate kitchen configuration could select.
+  if (model !== (process.env.GEMINI_MODEL || DEFAULT_MODEL)) return null;
   const input = Number(process.env.CHAT_PRICE_INPUT_PER_1M);
   const output = Number(process.env.CHAT_PRICE_OUTPUT_PER_1M);
   if (Number.isFinite(input) && Number.isFinite(output) && input >= 0 && output >= 0) {
@@ -279,7 +256,12 @@ function toFunctionResponse(name, id, result) {
     // later hop would re-send it. The model reads the question and the
     // verdict, never the blob.
     if (verdict && typeof verdict === 'object' && !Array.isArray(verdict)) {
-      const { [STATE_PROPERTY]: _state, ...visible } = verdict;
+      const {
+        [STATE_PROPERTY]: _state,
+        checkpoint: _checkpoint,
+        replay_draft: _replay,
+        ...visible
+      } = verdict;
       verdict = visible;
     }
     return { name, ...(id ? { id } : {}), response: { presentation: text, verdict } };
@@ -310,7 +292,13 @@ function toFunctionResponse(name, id, result) {
   // Nothing needs it here. The adapter has already harvested `workspace` into
   // its own variable by the time this runs, and injects it on the way back out.
   // The model was reading a value it cannot act on and cannot address.
-  const { workspace: _workspace, [STATE_PROPERTY]: _state, ...visible } = parsed;
+  const {
+    workspace: _workspace,
+    [STATE_PROPERTY]: _state,
+    checkpoint: _checkpoint,
+    replay_draft: _replay,
+    ...visible
+  } = parsed;
   return { name, ...(id ? { id } : {}), response: visible };
 }
 
@@ -326,7 +314,7 @@ function bodyHintMs(json) {
 }
 
 function retryDelayMs(json, attempt) {
-  return bodyHintMs(json) ?? Math.min(32000, 1000 * 2 ** attempt);
+  return Math.min(32_000, bodyHintMs(json) ?? 1000 * 2 ** attempt);
 }
 
 // What a 429 ASKED us to wait, or null when it asked nothing: the standard
@@ -398,6 +386,9 @@ export const RETRY_ALL = [429, ...RETRY_TRANSIENT];
 function loopFields(v) {
   return {
     exit_code: typeof v?.exit_code === 'number' ? v.exit_code : null,
+    status: typeof v?.status === 'string' ? v.status : null,
+    certified: typeof v?.certified === 'boolean' ? v.certified : null,
+    coverage: v?.coverage ?? null,
     banned_pairs: typeof v?.banned_pairs === 'number' ? v.banned_pairs : null,
     loop_stop_reason: typeof v?.loop_stop_reason === 'string' ? v.loop_stop_reason : null,
     loop_rounds: typeof v?.loop_rounds === 'number' ? v.loop_rounds : null,
@@ -451,6 +442,11 @@ function loopFields(v) {
     proposer_ms_max: typeof v?.proposer_ms_max === 'number' ? v.proposer_ms_max : null,
     proposer_tokens_in: typeof v?.proposer_tokens_in === 'number' ? v.proposer_tokens_in : null,
     proposer_tokens_out: typeof v?.proposer_tokens_out === 'number' ? v.proposer_tokens_out : null,
+    proposer_tokens_thoughts:
+      typeof v?.proposer_tokens_thoughts === 'number' ? v.proposer_tokens_thoughts : null,
+    proposer_cost_usd: typeof v?.proposer_cost_usd === 'number' ? v.proposer_cost_usd : null,
+    checkpoint: v?.checkpoint ?? null,
+    final_draft: Array.isArray(v?.final_draft) ? v.final_draft : null,
     proposer_empty: typeof v?.proposer_empty === 'number' ? v.proposer_empty : null,
     proposer_retries: typeof v?.proposer_retries === 'number' ? v.proposer_retries : null,
     proposer_wait_s: typeof v?.proposer_wait_s === 'number' ? v.proposer_wait_s : null,
@@ -482,6 +478,59 @@ export const _agentInternals = {
   stubSupersededInPlace,
 };
 
+// Unlike fetch's signal alone, this also bounds a response-body reader or
+// injected transport which fails to observe cancellation. The underlying
+// operation still receives the same signal so real work stops too.
+function abortable(operation, signal, graceMs = 0) {
+  if (!signal) return Promise.resolve().then(operation);
+  return new Promise((resolve, reject) => {
+    let timer;
+    let settled = false;
+    const finish = (fn, value) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      signal.removeEventListener('abort', abort);
+      fn(value);
+    };
+    const abort = () => {
+      const fail = () => finish(reject, signal.reason || new Error('CANCELLED'));
+      if (graceMs > 0) timer = setTimeout(fail, graceMs);
+      else fail();
+    };
+    signal.addEventListener('abort', abort, { once: true });
+    if (signal.aborted) {
+      finish(reject, signal.reason || new Error('CANCELLED'));
+      return;
+    }
+    Promise.resolve()
+      .then(() => {
+        if (signal.aborted) throw signal.reason;
+        return operation();
+      })
+      .then(
+        (value) => finish(resolve, value),
+        (err) => finish(reject, err)
+      );
+  });
+}
+
+function waitForRetry(ms, signal) {
+  return new Promise((resolve, reject) => {
+    if (signal?.aborted) return reject(signal.reason);
+    const done = () => {
+      signal?.removeEventListener('abort', abort);
+      resolve();
+    };
+    const timer = setTimeout(done, ms);
+    const abort = () => {
+      clearTimeout(timer);
+      reject(signal.reason);
+    };
+    signal?.addEventListener('abort', abort, { once: true });
+  });
+}
+
 async function generate({
   apiKey,
   model,
@@ -491,17 +540,57 @@ async function generate({
   retryStatuses = RETRY_ALL,
   rateLimit = null,
   onRetry,
+  budget,
+  beforeRequest,
 }) {
   let rateLimited = 0;
   let waited = 0;
   for (let attempt = 0; ; attempt++) {
-    const res = await fetch(`${API_BASE}/models/${model}:generateContent`, {
-      method: 'POST',
-      headers: { 'content-type': 'application/json', 'x-goog-api-key': apiKey },
-      body: JSON.stringify(body),
-      signal,
+    beforeRequest?.();
+    if (signal?.aborted) throw signal.reason;
+    const reservation = budget?.reserve({
+      model,
+      inputBytes: Buffer.byteLength(JSON.stringify(body)),
+      maxOutputTokens: body.generationConfig.maxOutputTokens,
     });
-    const json = await res.json().catch(() => null);
+    let res,
+      json,
+      settled = false,
+      dispatched = false;
+    try {
+      res = await abortable(() => {
+        beforeRequest?.();
+        if (signal?.aborted) throw signal.reason;
+        dispatched = true;
+        return fetch(`${API_BASE}/models/${model}:generateContent`, {
+          method: 'POST',
+          headers: { 'content-type': 'application/json', 'x-goog-api-key': apiKey },
+          body: JSON.stringify(body),
+          signal,
+        });
+      }, signal);
+      json = await abortable(() => res.json(), signal).catch((err) => {
+        if (signal?.aborted) throw err;
+        return null;
+      });
+      if (reservation != null) {
+        settled = true;
+        budget.settle(reservation, {
+          usage: json?.usageMetadata,
+          status: res.ok
+            ? json?.usageMetadata
+              ? 'success'
+              : 'unknown'
+            : (res.status >= 400 && res.status < 500 && res.status !== 408) || res.status === 503
+              ? 'rejected'
+              : 'unknown',
+        });
+      }
+    } catch (err) {
+      if (reservation != null && !settled)
+        budget.settle(reservation, { status: dispatched ? 'unknown' : 'rejected' });
+      throw err;
+    }
     if (res.ok) return json;
     // THE BOUNDED 429 PATH (RATE_LIMIT_RETRY, M-168): only where the caller
     // declared a budget AND is not already waiting 429 out unbounded.
@@ -512,7 +601,7 @@ async function generate({
         rateLimited += 1;
         waited += wait;
         if (onRetry) onRetry({ status: 429, waitMs: wait, attempt, rateLimited: true });
-        await new Promise((r) => setTimeout(r, wait));
+        await waitForRetry(wait, signal);
         continue;
       }
       const err = new Error(`Gemini 429: ${json?.error?.message || 'rate limited'}`);
@@ -525,7 +614,7 @@ async function generate({
     if (retriable && attempt < retries) {
       const wait = retryDelayMs(json, attempt);
       if (onRetry) onRetry({ status: res.status, waitMs: wait, attempt });
-      await new Promise((r) => setTimeout(r, wait));
+      await waitForRetry(wait, signal);
       continue;
     }
     const detail = json?.error?.message || `HTTP ${res.status}`;
@@ -660,7 +749,7 @@ function PARKED_RUN_NOTE(lyr) {
       : '';
   const n = Array.isArray(lyr.draft) ? lyr.draft.length : null;
   return (
-    `A lyric_revise run for ${who} is PARKED at exit 3` +
+    `A lyric_revise run for ${who} is ${lyr.uncertified ? 'UNCERTIFIED at exit 2' : 'PARKED at exit 3'}` +
     `${lyr.stop ? ` (${lyr.stop})` : ''}: ` +
     (open ? `line(s) ${open} are still flagged` : 'no line is open') +
     (whole ? `, and the whole-draft flag(s) ${whole} stand` : '') +
@@ -685,7 +774,18 @@ function PARKED_RUN_NOTE(lyr) {
 // The arguments that DECLARE a run, as opposed to answer it: everything but
 // the draft, the answer and the carried state. Stored on the record at the
 // first suspended call and re-applied on every continuing one (M-229).
-const RUN_ANSWER_FIELDS = new Set(['draft', 'answer', 'answers', STATE_PROPERTY]);
+const RUN_ANSWER_FIELDS = new Set([
+  'draft',
+  'draft_text',
+  'answer',
+  'answers',
+  'run_id',
+  'checkpoint',
+  'final_draft',
+  'replay_draft',
+  'new_run',
+  STATE_PROPERTY,
+]);
 export function declarationArgs(args) {
   const out = {};
   for (const [k, v] of Object.entries(args || {})) if (!RUN_ANSWER_FIELDS.has(k)) out[k] = v;
@@ -703,7 +803,7 @@ const RUN_KEY_FIELDS = new Set(['seed', 'scheme', 'groups', 'returns', 'relation
 // fumble. The server's own writer (mcp/gemini_proposer.py) takes the loop to
 // a stop condition. `LYRIC_CHAT_WRITER=interview` restores the old surface
 // for a measured comparison; nothing else does.
-const INTERVIEW_FIELDS = new Set(['state', 'answer', 'answers', 'writer']);
+const INTERVIEW_FIELDS = new Set(['state', 'answer', 'answers', 'writer', 'checkpoint', 'run_id']);
 
 export function declarationsFor(surface, lyr, writer = chatWriter()) {
   const base =
@@ -732,15 +832,20 @@ function declarationsForRun(surface, lyr) {
   // tool offers it — round 20's six malformed rewrites all broke inside the
   // array — and the array property leaves the parked declaration.
   const parked = isParked(lyr);
-  if (!parked && (!lyr || typeof lyr.state !== 'string' || !Array.isArray(lyr.draft)))
+  if (
+    !parked &&
+    (!lyr || (!lyr.resumable && typeof lyr.state !== 'string') || !Array.isArray(lyr.draft))
+  )
     return surface.declarations;
   return surface.declarations.map((d) => {
     if (!surface.stateTools?.has(d.name) || !d.parameters?.properties?.draft) return d;
     // M-248: a suspended run's call is `answers` (a batch or a group) or
     // `answer` (one line) plus the run's key — both stay declared.
     const keep = parked
-      ? new Set([d.parameters.properties.draft_text ? 'draft_text' : 'draft'])
-      : new Set(['answer', 'answers']);
+      ? new Set([d.parameters.properties.draft_text ? 'draft_text' : 'draft', 'new_run'])
+      : lyr.resumable
+        ? new Set()
+        : new Set(['answer', 'answers']);
     // M-226 dropped `draft`; M-229 drops every other declaration field too —
     // while a run is suspended the call is the answer plus the run's key, and
     // the connector puts the run's own declarations back (declarationArgs).
@@ -771,6 +876,16 @@ const WANDER_ALWAYS = new Set(['lyric_plan', 'lyric_sweep', 'lyric_recover']);
 const WANDER_KEYED = new Set(['lyric_grade', 'lyric_check', 'lyric_revise']);
 export function wanderRefusal(lyr, name, args) {
   if (isParked(lyr)) return parkedRefusal(lyr, name, args);
+  if (lyr?.uncertain_proposal && name === 'lyric_revise' && args.new_run !== true) {
+    return 'REFUSED by the connector: the previous proposal has an unknown outcome. Preserve its accepted draft; only an explicit new_run starts independent work.';
+  }
+  if (
+    lyr?.resumable &&
+    (WANDER_ALWAYS.has(name) ||
+      (WANDER_KEYED.has(name) && stateKey(args) != null && stateKey(args) !== carriedKey(lyr)))
+  ) {
+    return 'REFUSED by the connector: the kitchen has an interrupted checkpoint. Resume lyric_revise for the same seed or mandate; do not restart the song.';
+  }
   const seed = suspendedSeed(lyr);
   if (seed == null) return null;
   let where = null;
@@ -901,11 +1016,30 @@ function carryState(prev, toolName, args, verdict, surface) {
   const key = stateKey(args);
   if (key == null) return prev;
   const code = verdict && typeof verdict.exit_code === 'number' ? verdict.exit_code : null;
+  if (
+    ['interrupted', 'uncertain_proposal'].includes(verdict?.status) &&
+    typeof verdict.checkpoint === 'string'
+  ) {
+    return {
+      key,
+      seed: typeof args.seed === 'number' ? args.seed : null,
+      resumable: verdict.status === 'interrupted',
+      uncertain_proposal: verdict.status === 'uncertain_proposal',
+      checkpoint: verdict.checkpoint,
+      ...(typeof verdict.run_id === 'string' ? { run_id: verdict.run_id } : {}),
+      draft: verdict.replay_draft ?? args.draft ?? prev?.replay_draft ?? prev?.draft,
+      replay_draft: verdict.replay_draft ?? args.draft ?? prev?.replay_draft ?? prev?.draft,
+      final_draft: verdict.final_draft ?? prev?.final_draft,
+      decl: declarationArgs(args),
+    };
+  }
   if (code === 4 && typeof verdict[STATE_PROPERTY] === 'string') {
     return {
       key,
       seed: typeof args.seed === 'number' ? args.seed : null,
       state: verdict[STATE_PROPERTY],
+      ...(typeof verdict.run_id === 'string' ? { run_id: verdict.run_id } : {}),
+      ...(verdict.checkpoint != null ? { checkpoint: verdict.checkpoint } : {}),
       // THE DRAFT RIDES WITH THE RECORD (M-221). A deferred run replays its
       // answers onto ONE draft, so the draft is constant across a run's
       // calls by the harness's own contract — and the model was re-emitting
@@ -914,11 +1048,13 @@ function carryState(prev, toolName, args, verdict, surface) {
       // nothing carries, in its own words.
       // Present only when a draft is known — a record with none is
       // byte-identical to the pre-M-221 shape, so nothing that read it moves.
-      ...(Array.isArray(args.draft)
-        ? { draft: args.draft }
-        : Array.isArray(prev?.draft)
-          ? { draft: prev.draft }
-          : {}),
+      ...(Array.isArray(verdict.replay_draft)
+        ? { draft: verdict.replay_draft, replay_draft: verdict.replay_draft }
+        : Array.isArray(args.draft)
+          ? { draft: args.draft }
+          : Array.isArray(prev?.draft)
+            ? { draft: prev.draft }
+            : {}),
       // THE DECLARATIONS RIDE TOO (M-229, round 16). A seeded plan is a pure
       // function of the seed AND the declarations (form, lines, functions,
       // relation, title, budget knobs); round 16 changed one mid-run and the
@@ -928,22 +1064,33 @@ function carryState(prev, toolName, args, verdict, surface) {
       decl: declarationArgs(args),
     };
   }
-  if (code === 3 && !(prev && typeof prev.state === 'string' && carriedKey(prev) !== key)) {
+  if (
+    (code === 3 || verdict?.status === 'uncertified') &&
+    !(prev && typeof prev.state === 'string' && carriedKey(prev) !== key)
+  ) {
     // M-232: PARKED, not dropped (a stop on ANOTHER key while this one is
     // suspended still does not touch the suspended run). The record keeps the draft that parked,
     // the run's declarations, the open lines, the whole-draft flags and the
     // standing findings — no state, because no question is pending — so
     // the next call for this run is the rewritten draft and nothing else.
-    const draft = Array.isArray(args.draft)
-      ? args.draft
-      : Array.isArray(prev?.draft) && carriedKey(prev) === key
-        ? prev.draft
-        : null;
+    const draft = Array.isArray(verdict.final_draft)
+      ? verdict.final_draft
+      : Array.isArray(args.draft)
+        ? args.draft
+        : Array.isArray(prev?.draft) && carriedKey(prev) === key
+          ? prev.draft
+          : null;
     return {
       key,
       seed: typeof args.seed === 'number' ? args.seed : null,
       parked: true,
-      ...(draft ? { draft } : {}),
+      exit_code: code,
+      uncertified: verdict?.status === 'uncertified',
+      coverage: verdict.coverage ?? null,
+      ...(typeof verdict.run_id === 'string' ? { run_id: verdict.run_id } : {}),
+      ...(verdict.checkpoint != null ? { checkpoint: verdict.checkpoint } : {}),
+      ...(draft ? { draft, final_draft: draft } : {}),
+      ...(Array.isArray(verdict.replay_draft) ? { replay_draft: verdict.replay_draft } : {}),
       decl: declarationArgs(args),
       stop: typeof verdict.loop_stop_reason === 'string' ? verdict.loop_stop_reason : null,
       open: Array.isArray(verdict.loop_unresolved_lines) ? verdict.loop_unresolved_lines : [],
@@ -973,6 +1120,12 @@ function buildSystemInstruction(surface, lyr, record = null) {
     record ? SKIPPED_STEPS_NOTE(record) : null,
     seed == null ? null : SUSPENDED_RUN_NOTE(seed),
     isParked(lyr) ? PARKED_RUN_NOTE(lyr) : null,
+    lyr?.uncertain_proposal
+      ? 'The kitchen stopped before a provider answer was safely journalled; that request may already have completed. Do not automatically resume or restart it. Report the exact accepted draft and uncertainty. An explicit new_run on that draft starts independent work; it may repeat a provider request which already incurred a charge.'
+      : null,
+    lyr?.resumable
+      ? 'The kitchen was interrupted with an exact checkpoint. Call lyric_revise with the same seed or mandate; the accepted lines and proposal journal are carried. Do not rewrite or restart the song.'
+      : null,
   ]
     .filter(Boolean)
     .join('\n\n');
@@ -1153,6 +1306,9 @@ export async function runTurn({
   rateLimit = null,
   signal,
   onEvent,
+  onCheckpoint,
+  budget = requestContext()?.budget,
+  clock = () => performance.now(),
 }) {
   // THE ONE ASSEMBLY SITE. The prior transcript is pruned here and the
   // pruned transcript is what goes back in the envelope, so a fold is
@@ -1161,6 +1317,9 @@ export async function runTurn({
     ? pruneHistory(history, { keepTurns: limits.pruneKeepTurns, maxBytes: limits.pruneMaxBytes })
     : history;
   const contents = [...prior, { role: 'user', parts: [{ text: userText }] }];
+  let safeHistory = [...contents];
+  let safeWorkspace = workspace;
+  let safeLyric = lyric;
   const usage = {
     promptTokens: 0,
     candidatesTokens: 0,
@@ -1168,6 +1327,8 @@ export async function runTurn({
     requests: 0,
     retries: 0,
     malformedRetries: 0,
+    kitchenUsd: 0,
+    kitchenUnpriced: false,
   };
   const calls = [];
   let malformed = 0;
@@ -1183,7 +1344,13 @@ export async function runTurn({
   // thrown away at the top of turn 2, which then sent a draft-less call,
   // moved a declaration, planned again and restarted the run. A record is
   // carried when it is suspended (state) OR parked.
-  let lyr = lyric && (typeof lyric.state === 'string' || lyric.parked === true) ? lyric : null;
+  let lyr =
+    lyric &&
+    (typeof lyric.state === 'string' ||
+      lyric.parked === true ||
+      typeof lyric.checkpoint === 'string')
+      ? lyric
+      : null;
   let stopped = null;
   let stoppedDetail = null;
   let reply = '';
@@ -1205,23 +1372,42 @@ export async function runTurn({
   // billed hop before the throw was uncounted. The error now carries the
   // partial `usage` and the calls made, and `chat.js` charges it in its
   // catch before replying.
-  const turnStartedAt = Date.now();
+  const turnStartedAt = clock();
+  const deadline = limits.maxTurnMs > 0 ? turnStartedAt + limits.maxTurnMs : Infinity;
+  const controller = new AbortController();
+  const abortFromCaller = () => controller.abort(signal.reason || new Error('CANCELLED'));
+  if (signal?.aborted) abortFromCaller();
+  else signal?.addEventListener('abort', abortFromCaller, { once: true });
+  const expire = () =>
+    controller.abort(Object.assign(new Error('Turn deadline reached'), { code: 'MAX_TURN_MS' }));
+  const timer = Number.isFinite(deadline)
+    ? setTimeout(expire, Math.max(0, deadline - clock()))
+    : null;
+  const turnSignal = controller.signal;
+  const totalCost = () => {
+    const outer = costOf(usage, model);
+    if (outer === null || usage.kitchenUnpriced) return null;
+    const accounted = budget?.snapshot?.();
+    return Math.max(
+      outer + usage.kitchenUsd,
+      accounted ? accounted.usd + accounted.reservedUsd : 0
+    );
+  };
+  const interruption = (hops) => {
+    if (clock() >= deadline && !turnSignal.aborted) expire();
+    if (!turnSignal.aborted) return false;
+    stopped = turnSignal.reason?.code === 'MAX_TURN_MS' ? 'MAX_TURN_MS' : 'CANCELLED';
+    stoppedDetail = {
+      ms: Math.max(0, clock() - turnStartedAt),
+      cap: limits.maxTurnMs,
+      hops,
+      maxSteps: limits.maxSteps,
+    };
+    return true;
+  };
   try {
     for (let step = 0; step < limits.maxSteps; step++) {
-      // THE WALL (M-258): checked before a hop starts, never mid-hop, so a
-      // tool already running finishes and its result is on the record.
-      const turnMs = Date.now() - turnStartedAt;
-      if (step > 0 && limits.maxTurnMs > 0 && turnMs >= limits.maxTurnMs) {
-        stopped = 'MAX_TURN_MS';
-        stoppedDetail = {
-          ms: turnMs,
-          cap: limits.maxTurnMs,
-          hops: step,
-          maxSteps: limits.maxSteps,
-        };
-        if (onEvent) onEvent({ type: 'stopped', reason: stopped, ms: turnMs });
-        break;
-      }
+      if (interruption(step)) break;
       body.contents = contents;
       // Rebuilt per hop from the LIVE carried state (M-158): `lyr` moves when
       // a harvest lands mid-turn, and the reminder must move with it. The
@@ -1238,10 +1424,14 @@ export async function runTurn({
           apiKey,
           model,
           body,
-          signal,
+          signal: turnSignal,
           retries,
           retryStatuses,
           rateLimit,
+          budget,
+          beforeRequest: () => {
+            if (clock() >= deadline) expire();
+          },
           // A retried request spent a slot of the key's quota whether or not it
           // was billed tokens; the count is the record (M-197, M-168).
           onRetry: (r) => {
@@ -1265,11 +1455,23 @@ export async function runTurn({
         // (M-197's pin); the bounded in-hop retry has already absorbed a
         // short one. The partial return is for the engine dying (5xx, a
         // dropped socket), which no wait cures within the turn.
-        if (!calls.length || signal?.aborted || err?.status === 429) throw err;
+        if (interruption(step + 1)) break;
+        if (
+          err?.code === 'MAX_TURN_COST' ||
+          err?.code === 'DAILY_BUDGET' ||
+          err?.code === 'UNPRICED_MODEL' ||
+          err?.code === 'ACCOUNTING_UNAVAILABLE'
+        ) {
+          stopped = err.code;
+          stoppedDetail = { detail: err.message, hops: step, maxSteps: limits.maxSteps };
+          break;
+        }
+        if (!calls.length) throw err;
         const status = Number.isFinite(err?.status) ? err.status : null;
         stopped = `UPSTREAM_${status ?? 'ERROR'}`;
         stoppedDetail = {
           status,
+          retry_after_ms: Number.isFinite(err?.retryAfterMs) ? err.retryAfterMs : null,
           detail: String((err && err.message) || err).slice(0, 300),
           hops: step + 1,
           calls: calls.length,
@@ -1315,6 +1517,7 @@ export async function runTurn({
       contents.push({ role: 'model', parts });
 
       if (!functionCalls.length) {
+        if (interruption(step + 1)) break;
         reply = parts
           .filter((p) => typeof p.text === 'string' && !p.thought)
           .map((p) => p.text)
@@ -1351,6 +1554,34 @@ export async function runTurn({
       for (const fc of functionCalls) {
         const args = { ...(fc.args || {}) };
         let result;
+        const spent = totalCost();
+        const overCost = limits.maxTurnUsd > 0 && (spent === null || spent >= limits.maxTurnUsd);
+        if (stopped || interruption(step + 1) || overCost) {
+          if (!stopped) {
+            stopped = spent === null ? 'UNPRICED_MODEL' : 'MAX_TURN_COST';
+            stoppedDetail = {
+              usd: spent,
+              cap: limits.maxTurnUsd,
+              hops: step + 1,
+              maxSteps: limits.maxSteps,
+            };
+          }
+          result = {
+            isError: true,
+            content: [
+              { type: 'text', text: `Not run: ${stopped}; continue from the returned record.` },
+            ],
+          };
+          calls.push({
+            name: fc.name,
+            args,
+            isError: true,
+            error: result.content[0].text,
+            not_run: true,
+          });
+          responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
+          continue;
+        }
         if (surface.workspaceTools.has(fc.name)) {
           if (!ws) {
             // Not an exception: the model can fix this itself by seeding first,
@@ -1384,8 +1615,25 @@ export async function runTurn({
           args.draft = splitDraftText(args.draft_text);
           delete args.draft_text;
         }
-        const wander = wanderRefusal(lyr, fc.name, args);
+        if (lyr?.resumable && surface.stateTools?.has(fc.name) && stateKey(args) == null) {
+          Object.assign(args, lyr.decl);
+        }
+        const freshRun = surface.stateTools?.has(fc.name) && args.new_run === true;
+        const restartingUncertain = lyr?.uncertain_proposal && freshRun;
+        if (restartingUncertain && surface.stateTools?.has(fc.name) && stateKey(args) == null) {
+          for (const [key, value] of Object.entries(lyr.decl || {}))
+            if (args[key] === undefined) args[key] = value;
+        }
+        if (
+          restartingUncertain &&
+          surface.stateTools?.has(fc.name) &&
+          args.draft == null &&
+          Array.isArray(lyr.final_draft)
+        )
+          args.draft = lyr.final_draft;
+        const wander = freshRun ? null : wanderRefusal(lyr, fc.name, args);
         if (wander) {
+          if (lyr?.uncertain_proposal) stopped = 'UNCERTAIN_PROPOSAL';
           result = { isError: true, content: [{ type: 'text', text: `Error: ${wander}` }] };
           calls.push({
             name: fc.name,
@@ -1406,7 +1654,7 @@ export async function runTurn({
         let injectedState = false;
         let injectedDraft = false;
         let injectedDecl = false;
-        if (surface.stateTools?.has(fc.name)) {
+        if (surface.stateTools?.has(fc.name) && !freshRun) {
           if (isParked(lyr) && stateKey(args) != null && stateKey(args) === carriedKey(lyr)) {
             // M-232: a parked run's continuing call carries its own draft
             // (the rewrite) and gets the run's declarations back; nothing
@@ -1446,6 +1694,19 @@ export async function runTurn({
         // KITCHEN COOKS (M-254): on this surface the server's writer answers
         // every revise question. Mechanical, not asked of the model — the
         // interview fields never reach the tool from here.
+        if (surface.stateTools?.has(fc.name) && !freshRun && carriedKey(lyr) === stateKey(args)) {
+          if (typeof lyr?.run_id === 'string') args.run_id = lyr.run_id;
+          if (lyr?.resumable && lyr.checkpoint != null) {
+            args.checkpoint = lyr.checkpoint;
+            delete args.new_run;
+            args.draft = lyr.replay_draft ?? lyr.draft;
+            injectedDraft = true;
+          } else delete args.checkpoint;
+          if (args.draft == null && Array.isArray(lyr?.draft)) {
+            args.draft = lyr.draft;
+            injectedDraft = true;
+          }
+        }
         if (writer === 'kitchen' && surface.stateTools?.has(fc.name)) {
           args.writer = 'kitchen';
           delete args[STATE_PROPERTY];
@@ -1458,7 +1719,18 @@ export async function runTurn({
         // turned the entire conversation into a bare 502 with the record
         // of every earlier call discarded (flash battery finding #1).
         try {
-          result = await callTool(fc.name, args);
+          const remainingMs = Math.max(0, deadline - clock());
+          result = await abortable(
+            () =>
+              callTool(fc.name, args, {
+                signal: turnSignal,
+                budget,
+                remainingMs,
+                deadlineMs: Number.isFinite(remainingMs) ? Date.now() + remainingMs : undefined,
+              }),
+            turnSignal,
+            limits.cancelGraceMs ?? 1_000
+          );
         } catch (err) {
           result = {
             isError: true,
@@ -1470,13 +1742,13 @@ export async function runTurn({
         // this is the only place it can be captured.
         let payload = null;
         let lyricVerdict = null;
-        if (!isError) {
+        {
           try {
             payload = JSON.parse(result?.content?.[0]?.text ?? '');
           } catch {
             payload = null;
           }
-          if (payload && payload.workspace) ws = payload.workspace;
+          if (!isError && payload && payload.workspace) ws = payload.workspace;
           // Harvest a lyric verdict the same way: a two-block lyric result
           // carries it in the SECOND block (block 0 is the deliverable,
           // deliberately not JSON); a one-block lyric result IS the verdict.
@@ -1499,6 +1771,29 @@ export async function runTurn({
           // shown it, and the envelope carries it to the next turn — but ONLY
           // a suspended run is carried; see `carryState`.
           lyr = carryState(lyr, fc.name, args, lyricVerdict, surface);
+          if (lyricVerdict?.status === 'uncertain_proposal') {
+            stopped = 'UNCERTAIN_PROPOSAL';
+            stoppedDetail = {
+              detail:
+                'The interrupted model proposal may already have incurred a charge. Its accepted draft is preserved; automatic replay is stopped.',
+              calls: calls.length + 1,
+            };
+          }
+          if (lyricVerdict?.proposer_calls > 0) {
+            const kitchenCost =
+              typeof lyricVerdict.proposer_cost_usd === 'number'
+                ? lyricVerdict.proposer_cost_usd
+                : costOf(
+                    {
+                      promptTokens: lyricVerdict.proposer_tokens_in,
+                      candidatesTokens: lyricVerdict.proposer_tokens_out,
+                      thoughtsTokens: lyricVerdict.proposer_tokens_thoughts,
+                    },
+                    lyricVerdict.proposer_model
+                  );
+            if (kitchenCost === null) usage.kitchenUnpriced = true;
+            else usage.kitchenUsd += kitchenCost;
+          }
         }
         calls.push({
           name: fc.name,
@@ -1527,9 +1822,49 @@ export async function runTurn({
         });
         if (onEvent) onEvent({ type: 'tool', name: fc.name, isError });
         responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
+        if (onCheckpoint && responses.length < functionCalls.length) {
+          // A crash during the next tool must not erase this completed one.
+          // Close a COPY of the current model group for recovery, explicitly
+          // marking calls which had not begun at this checkpoint. The live
+          // transcript retains its original group and receives actual results.
+          const pending = functionCalls.slice(responses.length).map((next) => ({
+            functionResponse: toFunctionResponse(next.name, next.id, {
+              isError: true,
+              content: [
+                {
+                  type: 'text',
+                  text: 'Not run at this checkpoint; continue from the completed calls above.',
+                },
+              ],
+            }),
+          }));
+          safeHistory = [...contents, { role: 'user', parts: [...responses, ...pending] }];
+          safeWorkspace = ws;
+          safeLyric = lyr;
+          await onCheckpoint({
+            history: safeHistory,
+            workspace: ws,
+            lyric: lyr,
+            calls,
+            usage,
+            cost: totalCost(),
+          });
+        }
       }
       // Gemini takes tool output back on the `user` turn.
       contents.push({ role: 'user', parts: responses });
+      safeHistory = [...contents];
+      safeWorkspace = ws;
+      safeLyric = lyr;
+      if (onCheckpoint)
+        await onCheckpoint({
+          history: contents,
+          workspace: ws,
+          lyric: lyr,
+          calls,
+          usage,
+          cost: totalCost(),
+        });
       // M-228: the brief the model just answered leaves the transcript before
       // the next request; the result it has not acted on yet stays whole.
       if (limits.pruneFolded) stubSupersededInPlace(contents);
@@ -1543,7 +1878,8 @@ export async function runTurn({
       // A null cost means the model is unpriced, which the caller is supposed to
       // have refused before getting here; if one reaches this loop anyway, stop
       // rather than run on unmetered.
-      const soFar = costOf(usage, model);
+      if (stopped || interruption(step + 1)) break;
+      const soFar = totalCost();
       if (limits.maxTurnUsd > 0 && (soFar === null || soFar >= limits.maxTurnUsd)) {
         stopped = soFar === null ? 'UNPRICED_MODEL' : 'MAX_TURN_COST';
         // WITH THE NUMBERS, NOT AS A BARE LABEL (2026-09-02, triage C11).
@@ -1568,8 +1904,17 @@ export async function runTurn({
     if (err && typeof err === 'object') {
       err.usage = usage;
       err.calls = calls;
+      err.cost = totalCost();
+      err.envelope = {
+        history: safeHistory,
+        workspace: safeWorkspace,
+        ...(safeLyric != null ? { lyric: safeLyric } : {}),
+      };
     }
     throw err;
+  } finally {
+    clearTimeout(timer);
+    signal?.removeEventListener('abort', abortFromCaller);
   }
 
   return {
@@ -1579,7 +1924,11 @@ export async function runTurn({
     lyric: lyr,
     calls,
     usage,
-    cost: costOf(usage, model),
+    cost: totalCost(),
+    accounted_cost: budget ? budget.snapshot().usd + budget.snapshot().reservedUsd : null,
+    usage_unknown: budget
+      ? budget.snapshot().unknownUsd + budget.snapshot().reservedUsd > 0
+      : false,
     stoppedDetail,
     stopped,
     malformed: malformedHops,

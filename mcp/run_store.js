@@ -6,9 +6,9 @@
 // layer sits between the battery and Gemini and no other client reaches it:
 // a Claude session through the connector, or a person, saw the tool with no
 // memory of the last call. This module is the same record, one layer down,
-// so the tool itself remembers the run and any client gets the same carry
-// and the same refusals. The wrapper keeps doing what it did; an explicit
-// value from the client (or the wrapper) always beats the stored one.
+// so the tool itself remembers the run. A run is a bearer capability, not
+// a seed: two callers choosing the same musical declaration own independent
+// records. Only the opaque run_id can retrieve a cached record.
 //
 // THE RECORD IS A CACHE of a file the tool already returns verbatim in
 // `state`: a restart, the TTL or the cap forgets it, and a client that
@@ -34,12 +34,13 @@ export const RUN_ANSWER_FIELDS = new Set([
   // let through.
   'answers',
   'state',
+  'checkpoint',
   'run_id',
   'new_run',
 ]);
 
-// WHAT A RUN IS KEYED ON — the wrapper's `stateKey` rule (M-195): the seed
-// when there is one, otherwise the declared mandate of a pasted song.
+// Musical declaration identity, retained as metadata for mismatch checks.
+// It is deliberately NOT the cache key: independent runs can share it.
 export function runKeyOf(args) {
   if (typeof args?.seed === 'number') return `seed:${args.seed}`;
   const hasMandate =
@@ -64,8 +65,8 @@ export function declarationsOf(args) {
   return out;
 }
 
-export function newRunId(key, rand = () => randomBytes(4).toString('hex')) {
-  return `${key}#${rand()}`;
+export function newRunId(_key, rand = () => randomBytes(32).toString('hex')) {
+  return `run_${rand()}`;
 }
 
 export class RunStore {
@@ -73,36 +74,34 @@ export class RunStore {
     this.ttlMs = ttlMs;
     this.cap = cap;
     this.now = now;
-    this.map = new Map(); // key -> record, insertion order = recency
+    this.map = new Map(); // opaque run_id -> record, insertion order = recency
   }
   _sweep() {
     const t = this.now();
     for (const [k, r] of this.map) if (t - r.updated_at > this.ttlMs) this.map.delete(k);
     while (this.map.size > this.cap) this.map.delete(this.map.keys().next().value);
   }
-  get(key) {
+  get(runId) {
     this._sweep();
-    const r = this.map.get(key);
+    const r = this.map.get(runId);
     if (!r) return null;
     // touch: re-insert so the least recently used is first out
-    this.map.delete(key);
-    this.map.set(key, r);
+    this.map.delete(runId);
+    this.map.set(runId, r);
     return r;
   }
   byId(runId) {
-    this._sweep();
-    for (const r of this.map.values()) if (r.run_id === runId) return this.get(r.key);
-    return null;
+    return this.get(runId);
   }
   put(key, rec) {
-    const r = { ...rec, key, updated_at: this.now() };
-    this.map.delete(key);
-    this.map.set(key, r);
+    const r = { ...rec, key, run_id: rec.run_id || newRunId(), updated_at: this.now() };
+    this.map.delete(r.run_id);
+    this.map.set(r.run_id, r);
     this._sweep();
     return r;
   }
-  del(key) {
-    this.map.delete(key);
+  del(runId) {
+    this.map.delete(runId);
   }
   size() {
     this._sweep();
@@ -125,9 +124,14 @@ export function runRefusal(rec, args) {
   const who = typeof rec.seed === 'number' ? `seed ${rec.seed}` : 'the declared mandate';
   if (rec.status === 'parked') {
     const open = Array.isArray(rec.open) && rec.open.length ? rec.open.join(', ') : 'none';
-    const tail = ` Continue it: rewrite the open line(s) (${open}) and call lyric_revise with \`seed\` and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`. Or send \`new_run: true\` to start over on the draft you hold. (run ${rec.run_id})`;
+    const tail = ` Continue it: rewrite the open line(s) (${open}) and call lyric_revise with \`run_id\` and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`. Or send \`new_run: true\` to start an independent run on the draft you hold. (run ${rec.run_id})`;
     const head = `REFUSED by the tool: the lyric_revise run for ${who} is PARKED at exit 3 (no question pending)`;
-    if (args.answer != null || args.state != null)
+    if (
+      args.answer != null ||
+      args.answers != null ||
+      args.state != null ||
+      args.checkpoint != null
+    )
       return `${head}, and this call sends \`answer\`/\`state\` — there is no question to answer.${tail}`;
     if (!Array.isArray(args.draft))
       return `${head}, and this call omits the draft — a parked run is continued by a REWRITTEN draft, which only you can write.${tail}`;

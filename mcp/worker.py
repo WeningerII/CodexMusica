@@ -1,38 +1,25 @@
 #!/usr/bin/env python3
-"""worker.py — the connector's WARM harness process (`MISSING.md` M-155).
+"""Persistent, serial harness worker with streamed output frames.
 
-WHAT THIS IS, and what it is not. The connector has always run the harness
-subprocess-per-call ("stateless because a plan is a pure function of its
-seed" — CLAUDE.md's wrap paragraph), and the statelessness survives here
-UNCHANGED at the request boundary: every request is a full `main()` call on
-its own argv, and an identical argv answers with identical bytes whether it
-is request 1 or request 1,000. What a persistent process adds is exactly
-one thing — the interpreter and the module-level memos live between
-requests, so `lyric_revise`'s replay (which re-briefs the SAME draft on
-every call of a revision conversation) stops re-paying work the process
-already did. The soundness argument is the loop's own: `revise_loop` is
-deterministic (verified by inspection and across three separate processes —
-quality/loop.py's record), and the one cross-request memo
-(`relations._WVP_MEMO`) is keyed on declared coordinates and returns
-answers only to IDENTICAL calls.
+Each request still calls the real CLI with fresh argv. Lexical and grading
+memos survive between requests, while request-only deadline, checkpoint and
+budget-capability environment values are restored after each call.
 
-THE PROTOCOL is one JSON object per line, both directions, stdout used for
-NOTHING else — the harness's own stdout is captured per request and
-returned inside the reply, because a verb that printed straight through
-would interleave with the protocol.
+Protocol (one UTF-8 JSON object per line):
+  request: {"id": n, "argv": [...], "env": {...}}
+  output:  {"id": n, "event": "output", "stream": "stdout", "data": "..."}
+  result:  {"id": n, "code": 0, "stdout": "", "stderr": ""}
 
-  request:  {"id": <any>, "argv": ["song", "BP", "DRAFT", ...]}
-  reply:    {"id": <same>, "code": <int>, "stdout": "...", "stderr": "..."}
+Every output frame is flushed to the OS pipe immediately. The parent can
+retain an accepted checkpoint and known usage even if it kills this process.
+The parent applies its output cap to decoded UTF-8 text, exactly as it does
+for the cold CLI. Kernel control records carry a per-request nonce; ordinary
+lyric text cannot impersonate a checkpoint or usage event.
 
-LIFECYCLE IS THE PARENT'S. This process serves requests serially and
-forever; the connector kills it on a per-request timeout or a bad reply
-and falls back to the cold subprocess for that request, so a wedged worker
-costs one slow answer and never a wrong one. Nothing here traps signals.
-
-A CRASH IS A REPLY, NOT AN EXIT: an exception escaping `main()` (which the
-cold path would surface as Python's own exit 1 and a traceback on stderr)
-is returned as code 1 with the traceback in stderr — the same shape the
-cold path gives — and the worker keeps serving.
+Process death is not permission to repeat nondeterministic model calls. The
+parent permits cold fallback only for deterministic verbs, under the original
+admission deadline. Uncaught CLI exceptions remain code 1 plus traceback,
+matching the cold entrance.
 """
 
 import io
@@ -49,7 +36,28 @@ sys.path.insert(0, HARNESS)
 import lyric_harness  # noqa: E402
 
 
-def run_one(argv):
+class ProtocolStream(io.TextIOBase):
+    """Forward decoded output in bounded frames, flushing the OS pipe each time."""
+    def __init__(self, target, request_id, stream):
+        self.target, self.request_id, self.stream = target, request_id, stream
+
+    def write(self, text):
+        for offset in range(0, len(text), 16384):
+            self.target.write(json.dumps({"id": self.request_id,
+                "event": "output", "stream": self.stream,
+                "data": text[offset:offset + 16384]}, ensure_ascii=False) + "\n")
+        self.target.flush()
+        return len(text)
+
+    def flush(self):
+        self.target.flush()
+
+
+REQUEST_ENV = ("LYRIC_CONTROL_TOKEN", "LYRIC_REQUEST_DEADLINE_MS", "LYRIC_CHECKPOINT_PATH",
+               "LYRIC_PROPOSER_BUDGET_USD", "LYRIC_BUDGET_URL", "LYRIC_BUDGET_TOKEN")
+
+
+def run_one(argv, request_id=None, request_env=None):
     """One full `main()` on `argv` -> (exit_code, stdout, stderr).
 
     stdout/stderr are swapped for the duration and ALWAYS restored — the
@@ -63,7 +71,16 @@ def run_one(argv):
     the count), and calling `main()` bare answered the same command exit 1
     with a traceback. One dispatch, two entrances (M-155).
     """
-    out, err = io.StringIO(), io.StringIO()
+    out, err = (io.StringIO(), io.StringIO()) if request_id is None else (
+        ProtocolStream(sys.stdout, request_id, "stdout"),
+        ProtocolStream(sys.stdout, request_id, "stderr"))
+    old_env = {key: os.environ.get(key) for key in REQUEST_ENV}
+    for key in REQUEST_ENV:
+        value = (request_env or {}).get(key)
+        if value is None:
+            os.environ.pop(key, None)
+        elif isinstance(value, str):
+            os.environ[key] = value
     old_argv, old_out, old_err = sys.argv, sys.stdout, sys.stderr
     sys.argv = ["lyric_harness.py"] + list(argv)
     sys.stdout, sys.stderr = out, err
@@ -80,7 +97,12 @@ def run_one(argv):
         code = 1
     finally:
         sys.argv, sys.stdout, sys.stderr = old_argv, old_out, old_err
-    return code, out.getvalue(), err.getvalue()
+        for key, value in old_env.items():
+            if value is None:
+                os.environ.pop(key, None)
+            else:
+                os.environ[key] = value
+    return code, (out.getvalue() if request_id is None else ""), (err.getvalue() if request_id is None else "")
 
 
 def main():
@@ -99,9 +121,9 @@ def main():
                               "stderr": f"worker: unreadable request: {e}"}),
                   flush=True)
             continue
-        code, so, se = run_one(argv)
+        code, so, se = run_one(argv, req.get("id"), req.get("env"))
         print(json.dumps({"id": req.get("id"), "code": code,
-                          "stdout": so, "stderr": se}),
+                          "stdout": so, "stderr": se}, ensure_ascii=False),
               flush=True)
 
 

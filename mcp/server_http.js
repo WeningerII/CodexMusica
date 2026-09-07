@@ -3,19 +3,21 @@
 //
 // This is the deployable entry point. Host it at an HTTPS URL and add it in
 // Claude → Add connectors → custom → paste the URL. No login: the engine is
-// read-only compute, so the server is open. Open is not the same as unguarded —
+// recipe compute is public; optional paid lyrics use the shared admission ledger.
+// Open is not the same as unguarded —
 // per-IP limits live below (MCP_LIMITS) and per-request size ceilings live in
 // schemas.js. An edge limiter in front is still welcome; it is no longer the
 // only thing standing between an open endpoint and a busy loop.
 //
 // STATELESS mode: a fresh server + transport is created per request and no
 // session id is issued. This is the robust pattern for a hosted connector — an
-// instance restart (deploy, autoscale, crash-recovery) can't orphan a session,
-// because there are no sessions to lose. (The earlier stateful/in-memory variant
+// instance restart cannot orphan a transport session. Lyrics run capabilities
+// and durable /chat receipts have their own explicit recovery lifecycle. (The earlier stateful/in-memory variant
 // dropped sessions on every redeploy, which surfaced as "execution errors" on
 // calls made after a deploy.) Each tool call is self-contained.
 
 import express from 'express';
+import path from 'node:path';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
@@ -23,6 +25,14 @@ import { buildServer } from './tools.js';
 import { counts } from './engine.js';
 import { createChatRouter } from './chat.js';
 import { Windows, clientIp } from './ratelimit.js';
+import {
+  JobStore,
+  createJobRouter,
+  runtimeBuildIdentity,
+  redactJobCapability,
+} from './job_store.js';
+import { withExecutionContext } from './execution_context.js';
+import { createOperationBudget } from './paid_budget.js';
 
 const PORT = process.env.PORT || 3000;
 const MCP_PATH = process.env.MCP_PATH || '/mcp';
@@ -94,7 +104,7 @@ const HEADER_LOG_LIMIT = 300;
 function logHeader(req, name) {
   const raw = req.headers[name];
   if (raw == null) return null;
-  const flat = Array.isArray(raw) ? raw.join(', ') : String(raw);
+  const flat = redactJobCapability(Array.isArray(raw) ? raw.join(', ') : String(raw));
   return flat.length > HEADER_LOG_LIMIT ? `${flat.slice(0, HEADER_LOG_LIMIT)}...` : flat;
 }
 
@@ -114,7 +124,7 @@ app.use((req, res, next) => {
           ev: 'http',
           t: new Date().toISOString(),
           method: req.method,
-          url: req.originalUrl,
+          url: redactJobCapability(req.originalUrl),
           status: res.statusCode,
           ms: Number(ms.toFixed(1)),
           ua: logHeader(req, 'user-agent'),
@@ -155,12 +165,25 @@ app.use((req, res, next) => {
 
 // The chat bar's backend, mounted on this service because it already holds the
 // engine and the catalog in memory. It is a SEPARATE surface from /mcp: /mcp is
-// the open, unauthenticated, read-only connector, while /chat spends money on a
-// Gemini key and is therefore rate-limited and capped. Mounting it here rather
+// the public connector; paid lyrics calls and /chat share one model ledger.
+// /chat additionally has conversation admission and signed request recovery. Mounting it here rather
 // than in its own service is what keeps one deploy and one catalog load.
 //
 // Awaited before listen() so the in-memory MCP client it drives is connected
 // before the first request can arrive.
+const buildIdentity = runtimeBuildIdentity();
+let jobStore;
+try {
+  jobStore = new JobStore(
+    process.env.LYRIC_RUNTIME_DIR ? path.join(process.env.LYRIC_RUNTIME_DIR, 'jobs') : null
+  );
+} catch (err) {
+  console.error('[chat] recovery persistence is unusable; paid chat is disabled:', err.message);
+  jobStore = new JobStore();
+  jobStore.failure = err.message;
+}
+app.use(createJobRouter({ store: jobStore, build: buildIdentity }));
+
 app.use(
   await createChatRouter({
     buildServer,
@@ -180,7 +203,15 @@ app.get('/health', (_req, res) =>
   res.json({
     ok: true,
     service: 'codex-musica-mcp',
-    commit: process.env.RENDER_GIT_COMMIT || null,
+    commit: buildIdentity.commit,
+    build: buildIdentity,
+    recovery: {
+      durable: jobStore.durable,
+      retention_ms: jobStore.ttlMs,
+      max_records: jobStore.maxRecords,
+      max_payload_records: jobStore.maxPayloadRecords,
+      healthy: !jobStore.failure,
+    },
   })
 );
 
@@ -255,15 +286,24 @@ app.post(MCP_PATH, async (req, res) => {
 
   console.error(`[mcp] ${describe(req.body)}`);
   // Stateless: brand-new server + transport for this single request.
+  const controller = new AbortController();
+  const context = {
+    signal: controller.signal,
+    budget: createOperationBudget({
+      maxUsd: Number(process.env.CHAT_MAX_TURN_USD) || 2.5,
+      dailyUsd: Number(process.env.CHAT_DAILY_USD) || 25,
+    }),
+  };
   const server = buildServer();
   const transport = new StreamableHTTPServerTransport({ sessionIdGenerator: undefined });
   res.on('close', () => {
+    controller.abort(new Error('MCP client disconnected'));
     transport.close();
     server.close();
   });
   try {
     await server.connect(transport);
-    await transport.handleRequest(req, res, req.body);
+    await withExecutionContext(context, () => transport.handleRequest(req, res, req.body));
   } catch (err) {
     console.error('[mcp] request error:', err);
     if (!res.headersSent) {
@@ -272,6 +312,12 @@ app.post(MCP_PATH, async (req, res) => {
         error: { code: -32603, message: 'Internal server error' },
         id: null,
       });
+    }
+  } finally {
+    try {
+      context.budget.close();
+    } catch (err) {
+      console.error('[mcp] accounting settlement failed:', err.message);
     }
   }
 });

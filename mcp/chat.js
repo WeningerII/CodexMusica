@@ -6,11 +6,10 @@
 // credential. This is that something, mounted on the MCP service that already
 // has the engine and the catalog in memory.
 //
-// STILL NOTHING STORED. The conversation and the workspace live in the browser
-// and are posted back each turn; this process keeps no transcript, no session
-// and no handle (`connector-tools-read-only`, gated). What it does keep is
-// counters — rate-limit buckets and a spend total — which are about the SERVER,
-// not about any user, and are the only reason the endpoint can be open.
+// The conversation travels in a signed client envelope. Long-running clients
+// can also supply a random request capability: job_store persists a receipt and
+// safe continuation checkpoints before paid work starts. Model reservations,
+// token settlement and turn counters use durable stores when configured.
 //
 // THE ENVELOPE IS SIGNED. The client returns `history` verbatim, so without a
 // signature anyone could post a fabricated transcript — including invented model
@@ -20,6 +19,10 @@
 // is. What they cannot do is choose the other half of the conversation.
 
 import crypto from 'node:crypto';
+import { performance } from 'node:perf_hooks';
+import { requestContext, withExecutionContext } from './execution_context.js';
+import { createOperationBudget, paidLedger } from './paid_budget.js';
+import { loadChatSecret } from './job_store.js';
 import express from 'express';
 import { Windows, clientIp } from './ratelimit.js';
 import { createSpendStore } from './spend_store.js';
@@ -29,7 +32,6 @@ import {
   runTurn,
   DEFAULT_MODEL,
   LIMITS,
-  costOf,
   turnBudget,
   priceFor,
   RETRY_TRANSIENT,
@@ -149,35 +151,10 @@ export const CHAT_LIMITS = {
 };
 
 /**
- * WHICH OF THE THREE SPEND CEILINGS ACTUALLY BINDS, SAID OUT LOUD.
- *
- * There are three and they answer different questions: `maxSteps` bounds a
- * turn's HOPS, `maxTurnUsd` bounds one turn's DOLLARS, and `dailyUsd` bounds
- * the day's. The smallest one wins, and until 2026-09-02 which that was
- * depended on a transcript size nothing disclosed — a turn stopped at hop 6
- * of a legal 14 reported MAX_TURN_COST, which reads as a budget problem when
- * what bound it was the hop budget (triage C11).
- *
- * The owner raised `maxTurnUsd` to $2.50 that day, which moves the answer:
- * the turn cap now sits an order of magnitude above the worst LEGAL turn, so
- * `maxSteps` is the operative per-turn limit again — and $2.50 also sits
- * ABOVE `dailyUsd` ($2). That is not an error and it is not silently
- * absorbed: the daily check admits a turn BEFORE it runs and never
- * interrupts one in flight, so ONE turn may carry the day past its ceiling
- * by up to `maxTurnUsd - dailyUsd`. Reported, not repaired — `CHAT_DAILY_USD`
- * is the owner's other knob, and moving it here would be this function
- * deciding a budget rather than describing one.
- *
- * @returns {{perTurn:string, turnUsd:number, dailyUsd:number,
- *            turnCapExceedsDay:boolean, dayOvershootUsd:number,
- *            turnsPerDay:number|null}}
+ * The shared paid-call ledger admits each model request against the remaining
+ * turn and day dollars, including kitchen calls. Historical outer-model hop
+ * estimates remain explicitly labelled; they cannot predict kitchen spend.
  */
-// The measured mean cost of an ordinary turn, from the probe suite — the
-// figure `maxTurnsPerDay`'s own comment reasons with. Declared here because
-// `chatCeilings` prices the count ceiling in dollars with it, and a number
-// used in an arithmetic must be findable rather than quoted in prose
-// (doctrine 58).
-
 export function chatCeilings(limits = CHAT_LIMITS, agent = LIMITS, model = undefined) {
   const budget = turnBudget(agent, model === undefined ? DEFAULT_MODEL : model);
   const perTurn = budget === null ? 'UNPRICED_MODEL' : budget.capBinds ? 'maxTurnUsd' : 'maxSteps';
@@ -191,21 +168,26 @@ export function chatCeilings(limits = CHAT_LIMITS, agent = LIMITS, model = undef
   // day actually reaches.
   const dayByTurnsUsd = limits.maxTurnsPerDay * MEAN_TURN_USD;
   return {
-    perTurn,
+    perTurn: budget === null ? 'UNPRICED_MODEL' : 'perRequestReservation',
+    admissionStrategy: 'per-model-request-reservation',
+    dayBudgetScope: 'chat-and-kitchen-mcp',
+    outerModelEstimate: budget === null ? null : { perTurn, ...budget, scope: 'outer-model-only' },
     turnUsd: agent.maxTurnUsd,
     dailyUsd: limits.dailyUsd,
     turnCapExceedsDay,
-    // How far past the day's ceiling one admitted turn could carry it.
-    dayOvershootUsd: turnCapExceedsDay ? agent.maxTurnUsd - limits.dailyUsd : 0,
-    // How many worst-legal turns the day buys, or null when unpriced.
-    turnsPerDay: budget === null ? null : Math.floor(limits.dailyUsd / budget.worstLegalTurnUsd),
+    // Admission never knowingly crosses the declared priced reservation cap.
+    // A provider exceeding its reservation blocks further paid work.
+    dayOvershootUsd: 0,
+    // Full turn-budget allocations, not a predicted count of successful songs.
+    turnsPerDay: budget === null ? null : Math.floor(limits.dailyUsd / agent.maxTurnUsd),
     // Which of the DAY's two ceilings an ordinary day reaches first, and what
     // the count ceiling amounts to in dollars at the measured mean.
-    perDay: dayByTurnsUsd < limits.dailyUsd ? 'maxTurnsPerDay' : 'dailyUsd',
+    perDay: 'perRequestReservation',
+    estimatedChatDayConstraint: dayByTurnsUsd < limits.dailyUsd ? 'maxTurnsPerDay' : 'dailyUsd',
     dayByTurnsUsd,
-    // What the turn-count ceiling actually bounds when the DOLLAR arithmetic
-    // cannot be trusted — the case it exists for. Null when unpriced.
-    worstCaseDayUsd: budget === null ? null : limits.maxTurnsPerDay * budget.worstLegalTurnUsd,
+    // Shared dollar admission bounds both entry points. This assumes the
+    // configured prices and reserved token envelope are valid.
+    worstCaseDayUsd: budget === null ? null : limits.dailyUsd,
     // And what ONE address can reach, which is the rate limiter's bound and
     // not this file's: the ceiling above is a FLEET bound.
     perIpPerDay: limits.perIpPerHour * 24,
@@ -214,28 +196,26 @@ export function chatCeilings(limits = CHAT_LIMITS, agent = LIMITS, model = undef
 
 // ── rate limiting ────────────────────────────────────────────────────────────
 //
-// Windows and clientIp now live in ratelimit.js, because /mcp needs the same
-// two things — see the header there. The day's spend total below is still
-// chat-only: it is about money, and /mcp spends none.
-//
-// KNOWN LIMITATION, unchanged by the move: process-local. A redeploy or a crash
-// resets both the buckets and the day's spend total, and a second instance
-// (autoscale) would keep its own. Google's own per-key quota is the backstop
-// underneath this, and it is the one that cannot be reset by restarting us.
+// Windows and clientIp are shared with /mcp. Address buckets remain local to
+// this process; paid model calls on both surfaces share the durable ledger.
 
 // ── envelope signing ─────────────────────────────────────────────────────────
 //
-// The secret is generated at boot when unset, which means a redeploy invalidates
-// open conversations: the next message gets a fresh start rather than an error,
-// which is the right failure for a chat bar. Set CHAT_SECRET to survive deploys.
-const SECRET = process.env.CHAT_SECRET || crypto.randomBytes(32).toString('hex');
+// Use the configured secret or persisted runtime key. A damaged configured key
+// disables paid chat instead of silently invalidating recoverable receipts.
+let SECRET, secretError;
+try {
+  SECRET = loadChatSecret();
+} catch (err) {
+  secretError = err;
+}
 
 function sign(payload) {
   return crypto.createHmac('sha256', SECRET).update(JSON.stringify(payload)).digest('hex');
 }
 
 function verify(payload, signature) {
-  if (typeof signature !== 'string' || signature.length !== 64) return false;
+  if (typeof signature !== 'string' || !/^[a-f0-9]{64}$/.test(signature)) return false;
   const expected = sign(payload);
   // Constant-time: a length-checked compare that returns early leaks the prefix.
   return crypto.timingSafeEqual(Buffer.from(expected, 'hex'), Buffer.from(signature, 'hex'));
@@ -254,8 +234,20 @@ export async function createChatRouter({
   apiKey = process.env.GEMINI_API_KEY,
   model = process.env.GEMINI_MODEL || DEFAULT_MODEL,
   limits = CHAT_LIMITS,
+  turnLimits = LIMITS,
 }) {
   const router = express.Router();
+  if (secretError) {
+    router.post('/chat', (_req, res) =>
+      res.status(503).json({ error: 'The persisted conversation signing key is unavailable.' })
+    );
+    router.get('/chat/status', (_req, res) =>
+      res
+        .status(503)
+        .json({ ok: false, enabled: false, reason: 'Conversation signing is unavailable.' })
+    );
+    return router;
+  }
   // THE KITCHEN'S WRITER IS THE CHAT'S OWN MODEL (M-254): declared here once
   // (GEMINI_MODEL, else DEFAULT_MODEL) and handed to the harness processes
   // through their env, so mcp/gemini_proposer.py asks the model the service
@@ -273,10 +265,9 @@ export async function createChatRouter({
     return router;
   }
 
-  // ONE long-lived in-memory client, not one per request. Every tool is
-  // read-only, idempotent and closed-world (the annotations say so and the
-  // contract gate proves it), so there is no cross-request state to leak through
-  // it — the workspace arrives in the request and leaves in the response.
+  // One schema-validating in-memory client serves requests. Execution context
+  // carries each caller's deadline, cancellation and paid operation separately;
+  // lyric continuation uses its opaque run capability, never a shared seed.
   //
   // Tools are executed THROUGH the MCP client rather than by calling engine.js:
   // that is the path the zod schemas validate, and schemas.js is explicit that
@@ -298,8 +289,24 @@ export async function createChatRouter({
   // the lower one killed calls the higher one was still waiting for —
   // round 8's eight consecutive lyric_revise exit -1 in a single turn.
   const TOOL_TIMEOUT_MS = TOOL_BUDGET_MS;
-  const callTool = (name, args) =>
-    client.callTool({ name, arguments: args }, undefined, { timeout: TOOL_TIMEOUT_MS });
+  const callTool = (name, args, options = {}) => {
+    const remainingMs = Math.min(TOOL_TIMEOUT_MS, options.remainingMs ?? TOOL_TIMEOUT_MS);
+    const context = {
+      ...requestContext(),
+      signal: options.signal,
+      budget: options.budget ?? requestContext()?.budget,
+      deadlineAt: performance.now() + remainingMs,
+      deadlineMs: Date.now() + remainingMs,
+    };
+    // Cancellation reaches the worker through context. Keep the SDK reader
+    // alive for the bounded checkpoint cleanup, otherwise its immediate abort
+    // would discard the worker's final accounting and accepted draft.
+    return withExecutionContext(context, () =>
+      client.callTool({ name, arguments: args }, undefined, {
+        timeout: Math.max(1, remainingMs + (turnLimits.cancelGraceMs ?? 1_000)),
+      })
+    );
+  };
 
   const windows = new Windows();
   // The daily counters, behind a store that persists them when the deployment
@@ -337,15 +344,19 @@ export async function createChatRouter({
   // point of reporting it.
   const countingSince = new Date().toISOString();
 
-  if (!spendStore.durable) {
+  if (!paidLedger.snapshot().durable) {
     console.error(
       '[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, ' +
         `so CHAT_DAILY_USD ($${limits.dailyUsd}) bounds an uptime period rather than a UTC day. ` +
-        'Set CHAT_SPEND_FILE to a path on a mounted disk to make it durable.'
+        'Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.'
     );
   }
 
   router.get('/chat/status', (_req, res) => {
+    if (spendStore.healthy === false)
+      return res
+        .status(503)
+        .json({ ok: false, enabled: false, reason: 'Turn accounting persistence is unavailable.' });
     rollDay();
     res.json({
       ok: true,
@@ -356,7 +367,10 @@ export async function createChatRouter({
       // Say so out loud. A chat bar that is off because its price is unknown
       // should not look identical to one that is merely quiet.
       enabled: !!price,
-      spentUsdToday: Number(spend.usd.toFixed(4)),
+      spentUsdToday: Number(paidLedger.snapshot().usd.toFixed(4)),
+      reservedUsd: paidLedger.snapshot().reservedUsd,
+      unknownUsd: paidLedger.snapshot().unknownUsd,
+      accountingBlocked: paidLedger.snapshot().blocked,
       dailyCapUsd: limits.dailyUsd,
       turnsToday: spend.turns,
       dailyCapTurns: limits.maxTurnsPerDay,
@@ -375,13 +389,15 @@ export async function createChatRouter({
       // gives the instant it last started from zero — so a status response
       // taken minutes after a deploy is self-evidently a partial total rather
       // than a reassuring one.
-      capDurable: spendStore.durable,
+      capDurable: paidLedger.snapshot().durable,
       countingSince,
       tools: surface.declarations.length,
     });
   });
 
   router.post('/chat', async (req, res) => {
+    if (spendStore.healthy === false)
+      return res.status(503).json({ error: 'Turn accounting persistence is unavailable.' });
     rollDay();
     // Before anything else, including the rate limiters: an unmeterable model
     // means no request is safe to make, so there is nothing to rate-limit.
@@ -407,7 +423,8 @@ export async function createChatRouter({
         .status(429)
         .json({ error: 'Hourly limit reached for this address. Back shortly.' });
     }
-    if (spend.usd >= limits.dailyUsd) {
+    const paidStatus = paidLedger.snapshot();
+    if (paidStatus.blocked || paidStatus.usd + paidStatus.reservedUsd >= limits.dailyUsd) {
       return res
         .status(503)
         .json({ error: "The chat bar has hit today's budget. It resets at midnight UTC." });
@@ -468,61 +485,74 @@ export async function createChatRouter({
       }
     }
 
+    if (req.chatJob && !req.chatJob.begin()) return;
     inFlight++;
+    const controller = new AbortController();
+    const disconnect = () => {
+      if (!res.writableFinished)
+        controller.abort(Object.assign(new Error('Client disconnected'), { code: 'CANCELLED' }));
+    };
+    req.once('aborted', disconnect);
+    res.once('close', disconnect);
+    let budget;
+    const checkpoint = (progress) => {
+      const envelope = { history: progress.history, workspace: progress.workspace };
+      if (progress.lyric != null) envelope.lyric = progress.lyric;
+      req.chatJob?.checkpoint({ ...progress, ...envelope, sig: sign(envelope) });
+    };
     try {
-      const run = await runTurn({
-        apiKey,
-        model,
-        surface,
-        callTool,
-        history: priorHistory,
-        workspace: priorWorkspace,
-        lyric: priorLyric,
-        userText: message,
-        // One retry, and ONLY on a transient 5xx. Previously this was
-        // `retries: 0`, which meant a single blip from Google — a 500 on one hop
-        // of a nine-hop conversation — threw away the whole turn and showed the
-        // user "The engine could not answer that one", with everything they had
-        // built still intact but unreachable. The backoff for a 5xx is about a
-        // second, so the retry is invisible.
-        //
-        // 429 is deliberately NOT in this list. Its retry hint is routinely tens
-        // of seconds, and a chat bar that silently stalls for 38 seconds reads as
-        // broken; "busy, try again" is the better answer to a quota wall.
-        // WHAT IT GETS INSTEAD (2026-09-02, M-168): the BOUNDED budget —
-        // at most two retries, 2 s then 4 s or the hint when it fits, never
-        // more than eight seconds in all — because round 10 died on a hard
-        // 429 that a single refill slot of the 15-a-minute limiter would have
-        // cleared. A hint past the budget is refused at once, and the
-        // retries it did spend are on `usage.retries`.
-        // THREE, SINCE M-232 (round 18): every 502 of rounds 17 and 18 was a
-        // Gemini 503 "high demand"; one retry a second later lost to the same
-        // spike. Three retries at 1 s / 2 s / 4 s (retryDelayMs) cover a short
-        // spike for seven seconds of waiting; a longer one ends the turn
-        // with its calls kept (runTurn's partial return) rather than thrown.
-        retries: 3,
-        retryStatuses: RETRY_TRANSIENT,
-        rateLimit: RATE_LIMIT_RETRY,
-      });
-      // `?? null` and not `|| 0`.
-      //
-      // The old line read `run.cost || costOf(...) || 0`, which turned an
-      // uncostable turn into a free one: spend.usd never moved, so the daily
-      // gate never tripped and the cap was decoration. A cost we cannot compute
-      // is the one case where charging nothing is the worst possible choice —
-      // it is indistinguishable from having spent nothing, and it compounds.
-      //
-      // The constructor already refuses to serve an unpriced model, so reaching
-      // this branch means the accounting broke in some way we did not predict.
-      // Charge the turn's full allowance and say so: the day closes early, which
-      // is the safe direction to be wrong in.
-      const turnUsd = run.cost ?? costOf(run.usage, model);
-      if (turnUsd === null) {
-        console.error(`[chat] turn cost could not be computed for "${model}"; charging the cap.`);
-        spend.usd += LIMITS.maxTurnUsd;
-      } else {
-        spend.usd += turnUsd;
-      }
+      budget =
+        requestContext()?.budget ??
+        createOperationBudget({ maxUsd: turnLimits.maxTurnUsd, dailyUsd: limits.dailyUsd });
+      checkpoint({ history: priorHistory, workspace: priorWorkspace, lyric: priorLyric });
+      const run = await withExecutionContext(
+        { ...requestContext(), signal: controller.signal, budget },
+        () =>
+          runTurn({
+            apiKey,
+            model,
+            surface,
+            callTool,
+            history: priorHistory,
+            workspace: priorWorkspace,
+            lyric: priorLyric,
+            userText: message,
+            limits: turnLimits,
+            signal: controller.signal,
+            budget,
+            onCheckpoint: checkpoint,
+            // One retry, and ONLY on a transient 5xx. Previously this was
+            // `retries: 0`, which meant a single blip from Google — a 500 on one hop
+            // of a nine-hop conversation — threw away the whole turn and showed the
+            // user "The engine could not answer that one", with everything they had
+            // built still intact but unreachable. The backoff for a 5xx is about a
+            // second, so the retry is invisible.
+            //
+            // 429 is deliberately NOT in this list. Its retry hint is routinely tens
+            // of seconds, and a chat bar that silently stalls for 38 seconds reads as
+            // broken; "busy, try again" is the better answer to a quota wall.
+            // WHAT IT GETS INSTEAD (2026-09-02, M-168): the BOUNDED budget —
+            // at most two retries, 2 s then 4 s or the hint when it fits, never
+            // more than eight seconds in all — because round 10 died on a hard
+            // 429 that a single refill slot of the 15-a-minute limiter would have
+            // cleared. A hint past the budget is refused at once, and the
+            // retries it did spend are on `usage.retries`.
+            // THREE, SINCE M-232 (round 18): every 502 of rounds 17 and 18 was a
+            // Gemini 503 "high demand"; one retry a second later lost to the same
+            // spike. Fallback waits are 1 s / 2 s / 4 s; provider hints are
+            // clamped to 32 s and every wait shares the turn deadline. A longer spike ends the turn
+            // with its calls kept (runTurn's partial return) rather than thrown.
+            retries: 3,
+            retryStatuses: RETRY_TRANSIENT,
+            rateLimit: RATE_LIMIT_RETRY,
+          })
+      );
+      budget.close();
+      run.accounted_cost = budget.snapshot().usd;
+      run.usage_unknown = budget.snapshot().unknownUsd > 0;
+      // The shared paid-call ledger settles outer model and kitchen calls at
+      // their actual boundaries. This legacy store counts turns only; adding
+      // run.cost again would charge every completed call twice.
       spend.turns += 1;
       // Persist immediately after accounting, not at the end of the response:
       // the money is already spent by this point, and a crash between here and
@@ -540,6 +570,9 @@ export async function createChatRouter({
         // hops/turn off the response instead of inferring them from the log,
         // which is the measurement the CHAT_MAX_TURN_USD ruling waits on.
         cost: run.cost,
+        accounted_cost: run.accounted_cost,
+        usage_unknown: run.usage_unknown,
+        accounting: budget.snapshot(),
         usage: run.usage,
         // The recipe string is returned SEPARATELY as well as inside the reply.
         // The connector instructions ask the model to reproduce it verbatim, and
@@ -563,7 +596,11 @@ export async function createChatRouter({
           // be reproduced from the row (round 18's rows could not say).
           seed: typeof c.args?.seed === 'number' ? c.args.seed : null,
           error: c.isError ? c.error : null,
+          not_run: c.not_run === true,
           exit_code: c.exit_code ?? null,
+          status: c.status ?? null,
+          certified: c.certified ?? null,
+          coverage: c.coverage ?? null,
           banned_pairs: c.banned_pairs ?? null,
           loop_stop_reason: c.loop_stop_reason ?? null,
           loop_rounds: c.loop_rounds ?? null,
@@ -613,6 +650,9 @@ export async function createChatRouter({
           proposer_ms_max: c.proposer_ms_max ?? null,
           proposer_tokens_in: c.proposer_tokens_in ?? null,
           proposer_tokens_out: c.proposer_tokens_out ?? null,
+          proposer_tokens_thoughts: c.proposer_tokens_thoughts ?? null,
+          proposer_cost_usd: c.proposer_cost_usd ?? null,
+          final_draft: c.final_draft ?? null,
           proposer_empty: c.proposer_empty ?? null,
           proposer_retries: c.proposer_retries ?? null,
           proposer_wait_s: c.proposer_wait_s ?? null,
@@ -639,17 +679,15 @@ export async function createChatRouter({
         sig: sign(envelope),
       });
     } catch (err) {
-      const status = err.status === 429 ? 429 : 502;
+      const status = err.status === 429 ? 429 : err.code === 'ACCOUNTING_UNAVAILABLE' ? 503 : 502;
       // THE HOPS BEFORE THE THROW WERE BILLED, SO THEY ARE CHARGED (M-197):
       // `runTurn` hands the partial usage out on the error; a turn that died
       // on hop 5 spent four hops of someone's key, and a counter that skips
       // them reads lower than the bill. An uncomputable partial cost charges
       // the turn's cap, the same safe direction the success path takes.
-      let chargedUsd = 0;
-      if (err && err.usage && err.usage.requests > 0) {
-        const partial = costOf(err.usage, model);
-        chargedUsd = partial === null ? LIMITS.maxTurnUsd : partial;
-        spend.usd += chargedUsd;
+      budget?.close();
+      const chargedUsd = budget?.snapshot().usd ?? 0;
+      if (err?.usage?.requests > 0) {
         spend.turns += 1;
         spendStore.save();
       }
@@ -682,8 +720,12 @@ export async function createChatRouter({
           exit_code: typeof c.exit_code === 'number' ? c.exit_code : null,
         })),
         chargedUsd: Number(chargedUsd.toFixed(4)),
+        ...(err.envelope ? { ...err.envelope, sig: sign(err.envelope) } : {}),
       });
     } finally {
+      budget?.close();
+      req.removeListener('aborted', disconnect);
+      res.removeListener('close', disconnect);
       inFlight--;
     }
   });

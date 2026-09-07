@@ -31,23 +31,116 @@
 //     [--turns=N] [--pace=SECONDS] [--brief=INDEX] [--smoke]
 //     [--stop-on=malformed,idle|none]   (default for one song: malformed,idle)
 //     [--retry-after-cap=S]              (default 600; the longest Retry-After honoured)
-//     [--reask=N]                        (default for one song: 2; same-message re-sends on a malformed, call-less turn)
+//     [--reask=N]                        (default for one song: 2)
+//     [--expect=finished|turn-wall|survey] (default finished, including multi-song)
+//     [--commit=SHA] [--require-recovery] (pin implementation and durable recovery)
+//     [--max-runtime=SECONDS] [--delivery-reserve=SECONDS] (default 18000 / 30)
+//     [--resume]                         (same --out; reuse receipts and signed checkpoints)
 //
-// Output: DIR/song<i>.jsonl (one row per turn) and DIR/summary.json.
+// Output: song<i>.jsonl, summary.json, run.json, atomic song checkpoints and
+// fsynced attempt/receipt journals. The latter contain continuation capabilities;
+// encrypt them before public artifact upload; never publish raw records in logs. Resume polls an unknown
+// request ID instead of resending it; an interrupted server checkpoint is used
+// only on explicit --resume. It cannot recover work newer than that checkpoint.
 
-import { readFileSync } from 'node:fs';
+import {
+  readFileSync,
+  existsSync,
+  statSync,
+  truncateSync,
+  chmodSync,
+  readdirSync,
+  lstatSync,
+} from 'node:fs';
+import { randomUUID, randomBytes, createHash } from 'node:crypto';
+import { ARCHIVE_LIMITS } from './battery_archive.mjs';
+import { atomicJSON, appendDurable, readJSON, flushFile } from './battery_checkpoint.mjs';
 import { request as httpsRequest } from 'node:https';
 import { request as httpRequest } from 'node:http';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
-const args = Object.fromEntries(
+// The local plaintext record contains bearer capabilities.
+process.umask(0o077);
+
+let args = Object.fromEntries(
   process.argv.slice(2).map((a) => {
     const m = /^--([^=]+)(?:=(.*))?$/.exec(a);
     return m ? [m[1], m[2] ?? 'true'] : [a, 'true'];
   })
 );
 
+if (args.resume && args.out) {
+  const saved = readJSON(join(args.out, 'run.json'));
+  if (!saved) throw new Error('--resume requires an existing run.json in --out');
+  args = { ...saved.options, ...args };
+}
+const EXPECT = args.expect || 'finished';
+if (!['finished', 'turn-wall', 'survey'].includes(EXPECT)) {
+  throw new Error('--expect must be finished, turn-wall, or survey');
+}
+const EXPECTED_COMMIT = args.commit || null;
+if (args['require-recovery'] && !EXPECTED_COMMIT) {
+  throw new Error('--require-recovery requires --commit for a pinned measurement');
+}
+const MAX_HTTP_RESPONSE_BYTES = 4 * 1024 * 1024; // deployed receipt's whole-record ceiling
+const MAX_REQUEST_BYTES = 2 * 1024 * 1024; // server_http express.json limit
+const JOURNAL_SEGMENT_BYTES = 8 * 1024 * 1024;
+const RECORDING_RESERVE_BYTES = 64 * 1024 * 1024;
+const NONSEGMENTED_RESERVE_BYTES = 16 * 1024 * 1024;
+// The workflow redirects these diagnostics into the encrypted directory. Bound
+// the cumulative bytes as well as response bodies, including malformed servers.
+let diagnosticBytes = 0;
+for (const method of ['log', 'warn', 'error']) {
+  const original = console[method].bind(console);
+  console[method] = (...parts) => {
+    const line = parts.map(String).join(' ');
+    const size = Buffer.byteLength(line) + 1;
+    if (diagnosticBytes + size <= 4 * 1024 * 1024) original(line);
+    diagnosticBytes += size;
+  };
+}
+const RECORDING_LIMIT_BYTES = Number(args['recording-limit-bytes'] ?? ARCHIVE_LIMITS.totalBytes);
+if (
+  !Number.isSafeInteger(RECORDING_LIMIT_BYTES) ||
+  RECORDING_LIMIT_BYTES <= 0 ||
+  RECORDING_LIMIT_BYTES > ARCHIVE_LIMITS.totalBytes
+)
+  throw new Error('invalid --recording-limit-bytes');
+function recordingSize(directory) {
+  let total = 0,
+    count = 0;
+  function visit(path) {
+    for (const item of readdirSync(path)) {
+      const absolute = join(path, item),
+        stat = lstatSync(absolute);
+      if (++count > ARCHIVE_LIMITS.files - 64 || stat.isSymbolicLink()) return false;
+      if (stat.isDirectory()) {
+        if (!visit(absolute)) return false;
+      } else if (
+        stat.isFile() &&
+        stat.size <= ARCHIVE_LIMITS.fileBytes &&
+        (/^song[0-9]+\.attempts(?:\.[0-9]{6})?\.jsonl$/.test(item) ||
+          stat.size + NONSEGMENTED_RESERVE_BYTES <= ARCHIVE_LIMITS.fileBytes)
+      )
+        total += stat.size;
+      else return false;
+    }
+    return true;
+  }
+  return visit(directory) ? total : Infinity;
+}
+const MAX_RUNTIME_MS = Number(args['max-runtime'] ?? 18_000) * 1000;
+const DELIVERY_RESERVE_MS = Number(args['delivery-reserve'] ?? 30) * 1000;
+if (
+  !Number.isFinite(MAX_RUNTIME_MS) ||
+  MAX_RUNTIME_MS <= 0 ||
+  !Number.isFinite(DELIVERY_RESERVE_MS) ||
+  DELIVERY_RESERVE_MS < 0
+) {
+  throw new Error('runtime and delivery reserve must be finite nonnegative seconds (runtime > 0)');
+}
+const sessionDeadline = Date.now() + MAX_RUNTIME_MS;
 const BASE = args.base || 'https://codex-musica-mcp.onrender.com';
 const OUT = args.out;
 if (!OUT) {
@@ -73,8 +166,9 @@ const PACE_MS = Math.max(0, parseFloat(args.pace || '130') * 1000);
 // has mid-run is the run's status, and a run that stops at the first bad turn
 // hands that signal over within minutes instead of at the timeout. `--stop-on`
 // names the conditions (`malformed`, `idle`, `none`); the default for ONE song
-// is all of them and for a multi-song round it is none, because a multi-song
-// round's job is the survey and a single song's job is the diagnosis.
+// is all of them and for a multi-song round it is none, so failures can be
+// inspected across several songs. That does not make the run successful:
+// --expect=finished requires every song to finish; survey must be explicit.
 // `--reask=N` (M-222): how many times a turn that ended on a model-side
 // MALFORMED_FUNCTION_CALL with no tool call is re-sent, as the same user
 // message on the returned envelope, before fail-fast judges it. Default 2 for
@@ -228,6 +322,16 @@ const MAX_STEPS = readConst('mcp/gemini_agent.js', /maxSteps:\s*(\d+)/, 'LIMITS.
 // connection at 100 with the whole turn lost.
 const MAX_TURN_MS = readConst('mcp/gemini_agent.js', /maxTurnMs:\s*([\d_]+)/, 'LIMITS.maxTurnMs');
 const TURN_DEADLINE_MS = MAX_TURN_MS + TOOL_TIMEOUT_MS;
+// An operator may lower the client ceiling for a canary; never lengthen it.
+const CLIENT_DEADLINE_MS = Number(args['turn-deadline-ms'] ?? TURN_DEADLINE_MS);
+if (
+  !Number.isFinite(CLIENT_DEADLINE_MS) ||
+  CLIENT_DEADLINE_MS <= 0 ||
+  CLIENT_DEADLINE_MS > TURN_DEADLINE_MS
+)
+  throw new Error('invalid --turn-deadline-ms');
+const canAdmit = (waitMs = 0) =>
+  Date.now() + waitMs + CLIENT_DEADLINE_MS + DELIVERY_RESERVE_MS <= sessionDeadline;
 
 // M-160: a /chat turn is computed in SILENCE — no bytes move while the server
 // grades — and round 5 measured the network path killing exactly that
@@ -249,93 +353,240 @@ const KEEPALIVE_PROBE_MS = NAT_IDLE_FLOOR_MS / 10;
 // promise. It is deliberately NOT retried — the header's own rule is that
 // only the deployment's 429/503 pacing earns a bounded backoff, and a request
 // that outlived the server's whole declared budget is a finding, not noise.
-function post(body) {
+function post(body, { path = '/chat', method = 'POST', timeoutMs = CLIENT_DEADLINE_MS } = {}) {
   const started = Date.now();
   return new Promise((resolve) => {
-    const url = new URL('/chat', BASE);
-    const data = JSON.stringify(body);
+    let settled = false;
+    let deadline;
+    const finish = (result) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(deadline);
+      resolve({ ...result, ms: Date.now() - started });
+    };
+    const fail = (err, phase = 'request') =>
+      finish({
+        status: 0,
+        payload: null,
+        phase,
+        transport: String(err?.message || err),
+      });
+    const url = new URL(path, BASE);
+    const data = body == null ? '' : JSON.stringify(body);
     const req = (url.protocol === 'http:' ? httpRequest : httpsRequest)(
       url,
       {
-        method: 'POST',
+        method,
         headers: { 'content-type': 'application/json', 'content-length': Buffer.byteLength(data) },
       },
       (res) => {
         let buf = '';
+        let responseBytes = 0;
+        let ended = false;
         res.setEncoding('utf8');
         res.on('data', (c) => {
+          responseBytes += Buffer.byteLength(c);
+          if (responseBytes > MAX_HTTP_RESPONSE_BYTES) {
+            fail('response exceeds the retained-record byte ceiling', 'protocol');
+            res.destroy();
+            return;
+          }
           buf += c;
         });
+        res.on('aborted', () => fail('response aborted before completion', 'response'));
+        res.on('error', (err) => fail(err, 'response'));
+        res.on('close', () => {
+          if (!ended) fail('response closed before completion', 'response');
+        });
         res.on('end', () => {
-          let payload = null;
+          ended = true;
+          let payload;
           try {
             payload = JSON.parse(buf);
-          } catch {
-            payload = null;
+            if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
+              throw new Error('expected a JSON object');
+            }
+            if (Buffer.byteLength(JSON.stringify(payload)) > MAX_HTTP_RESPONSE_BYTES) {
+              throw new Error('canonical response exceeds the retained-record byte ceiling');
+            }
+          } catch (err) {
+            fail(`invalid JSON response (HTTP ${res.statusCode}): ${err.message}`, 'protocol');
+            return;
           }
-          // M-223: WHICH limiter answered. Round 12's turn 1 banked 429, 502,
-          // 429, 429, 502 as bare statuses; the connector names its limiter
-          // in the body and its wait in Retry-After, and the row carries both.
           const ra = Number(res.headers['retry-after']);
-          resolve({
+          finish({
             status: res.statusCode,
             payload,
-            ms: Date.now() - started,
             retryAfterS: Number.isFinite(ra) && ra > 0 ? ra : null,
-            error: payload && typeof payload.error === 'string' ? payload.error : null,
-            // M-231: the upstream cause the connector now puts on a 502.
-            detail: payload && typeof payload.detail === 'string' ? payload.detail : null,
-            upstreamStatus:
-              payload && Number.isFinite(payload.upstream_status) ? payload.upstream_status : null,
-            hopsBeforeFailure:
-              payload && Number.isFinite(payload.hopsBeforeFailure)
-                ? payload.hopsBeforeFailure
-                : null,
-            callsBeforeFailure:
-              payload && Array.isArray(payload.callsBeforeFailure)
-                ? payload.callsBeforeFailure
-                : null,
+            error: typeof payload.error === 'string' ? payload.error.slice(0, 4096) : null,
+            detail: typeof payload.detail === 'string' ? payload.detail.slice(0, 4096) : null,
+            upstreamStatus: Number.isFinite(payload.upstream_status)
+              ? payload.upstream_status
+              : null,
+            hopsBeforeFailure: Number.isFinite(payload.hopsBeforeFailure)
+              ? payload.hopsBeforeFailure
+              : null,
           });
         });
       }
     );
-    req.on('socket', (s) => s.setKeepAlive(true, KEEPALIVE_PROBE_MS));
-    const deadline = setTimeout(() => {
-      req.destroy(
-        new Error(
-          `no response inside the derived turn deadline (${TURN_DEADLINE_MS} ms = maxTurnMs ${MAX_TURN_MS} + tool timeout ${TOOL_TIMEOUT_MS} ms)`
-        )
+    req.on('socket', (socket) => socket.setKeepAlive(true, KEEPALIVE_PROBE_MS));
+    deadline = setTimeout(() => {
+      const err = new Error(
+        `no complete response inside the declared client deadline (${timeoutMs} ms)`
       );
-    }, TURN_DEADLINE_MS);
-    req.on('close', () => clearTimeout(deadline));
-    req.on('error', (err) =>
-      resolve({
-        status: 0,
-        payload: null,
-        transport: String((err && err.message) || err),
-        ms: Date.now() - started,
-      })
-    );
+      fail(err, 'deadline');
+      req.destroy(err);
+    }, timeoutMs);
+    // Request close only says the upload/socket ended. The response can still
+    // be incomplete; only settlement clears the delivery deadline.
+    req.on('error', (err) => fail(err));
     req.end(data);
   });
 }
 
-const { mkdirSync, appendFileSync, writeFileSync } = await import('node:fs');
-mkdirSync(OUT, { recursive: true });
+const only = args.brief != null ? [parseInt(args.brief, 10)] : null;
+const indices = only ?? Array.from({ length: N_SONGS }, (_, i) => i % BRIEFS.length);
+for (const [name, value] of Object.entries({
+  N_SONGS,
+  MAX_TURNS,
+  PACE_MS,
+  RETRY_AFTER_CAP_S,
+  RATE_WAIT_CAP_S,
+  RATE_PACED_MAX,
+  REASK,
+  PARTIAL_CAP,
+  PARK_STREAK_CAP,
+  RETRY_ROUND_CAP,
+})) {
+  if (!Number.isFinite(value) || value < 0)
+    throw new Error(`invalid numeric battery option: ${name}`);
+}
+if (indices.some((i) => !Number.isInteger(i) || i < 0 || i >= BRIEFS.length)) {
+  throw new Error('--brief must name an existing brief index');
+}
+
+const { mkdirSync, appendFileSync } = await import('node:fs');
+mkdirSync(OUT, { recursive: true, mode: 0o700 });
+chmodSync(OUT, 0o700);
 console.log(
   `turn deadline: ${TURN_DEADLINE_MS} ms (maxTurnMs ${MAX_TURN_MS} + CHAT_TOOL_TIMEOUT_MS ${TOOL_TIMEOUT_MS} ms, both read from source; maxSteps ${MAX_STEPS})`
 );
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const summary = { base: BASE, started: new Date().toISOString(), songs: [] };
-
-const only = args.brief != null ? [parseInt(args.brief, 10)] : null;
-const indices = only ?? Array.from({ length: N_SONGS }, (_, i) => i % BRIEFS.length);
+const runFile = join(OUT, 'run.json');
+if (!args.resume && existsSync(runFile)) {
+  throw new Error(
+    'output directory already contains a battery; choose a new --out or use --resume'
+  );
+}
+const manifest = args.resume
+  ? readJSON(runFile)
+  : {
+      version: 1,
+      run_id: randomUUID(),
+      base: BASE,
+      expected_commit: EXPECTED_COMMIT,
+      started: new Date().toISOString(),
+      options: args,
+    };
+if (manifest.base !== BASE || manifest.expected_commit !== EXPECTED_COMMIT) {
+  throw new Error('resume must use the original base and commit');
+}
+if (manifest.brief_indices && JSON.stringify(manifest.brief_indices) !== JSON.stringify(indices)) {
+  throw new Error('resume must retain the original songs and brief selection');
+}
+manifest.brief_indices = indices;
+manifest.options = args;
+atomicJSON(runFile, manifest);
+const summary = args.resume
+  ? readJSON(join(OUT, 'summary.json'))
+  : {
+      base: BASE,
+      started: manifest.started,
+      expected_commit: EXPECTED_COMMIT,
+      songs: [],
+    };
+summary.expect = EXPECT;
+summary.session_started = new Date().toISOString();
+summary.session_budget_ms = MAX_RUNTIME_MS;
+summary.delivery_reserve_ms = DELIVERY_RESERVE_MS;
+delete summary.finished;
+atomicJSON(join(OUT, 'summary.json'), summary);
 
 for (const [songNo, briefIdx] of indices.entries()) {
   const brief = BRIEFS[briefIdx];
   const file = `${OUT}/song${songNo}.jsonl`;
-  const flags = [];
+  const checkpointFile = join(OUT, `song${songNo}.checkpoint.json`);
+  const attemptsFile = join(OUT, `song${songNo}.attempts.jsonl`);
+  const saved = args.resume ? readJSON(checkpointFile) : null;
+  if (saved?.terminal) continue;
+  if (existsSync(file)) chmodSync(file, 0o600);
+  if (saved && existsSync(file)) truncateSync(file, saved.transcript_bytes);
+  const segmentNames = readdirSync(OUT)
+    .filter(
+      (name) =>
+        name === `song${songNo}.attempts.jsonl` ||
+        new RegExp(`^song${songNo}\\.attempts\\.[0-9]{6}\\.jsonl$`).test(name)
+    )
+    .sort((a, b) =>
+      a === `song${songNo}.attempts.jsonl`
+        ? -1
+        : b === `song${songNo}.attempts.jsonl`
+          ? 1
+          : a < b
+            ? -1
+            : a > b
+              ? 1
+              : 0
+    );
+  for (const [index, name] of segmentNames.entries()) {
+    const expectedName =
+      index === 0
+        ? `song${songNo}.attempts.jsonl`
+        : `song${songNo}.attempts.${String(index).padStart(6, '0')}.jsonl`;
+    if (name !== expectedName) throw new Error('attempt journal segments are not contiguous');
+  }
+  const attempts = [];
+  for (const [index, name] of segmentNames.entries()) {
+    const path = join(OUT, name);
+    let text = readFileSync(path, 'utf8');
+    if (text && !text.endsWith('\n')) {
+      if (index !== segmentNames.length - 1)
+        throw new Error('incomplete historical attempt segment');
+      text = text.slice(0, text.lastIndexOf('\n') + 1);
+      truncateSync(path, Buffer.byteLength(text));
+    }
+    attempts.push(
+      ...text
+        .trim()
+        .split('\n')
+        .filter(Boolean)
+        .map((line) => JSON.parse(line))
+    );
+  }
+  let segment = segmentNames.length ? segmentNames.length - 1 : 0;
+  let segmentFile = segmentNames.length ? join(OUT, segmentNames.at(-1)) : attemptsFile;
+  const appendAttempt = (record) => {
+    const size = Buffer.byteLength(JSON.stringify(record)) + 1;
+    if (size > ARCHIVE_LIMITS.fileBytes)
+      throw new Error('attempt receipt exceeds the archive file bound');
+    if (existsSync(segmentFile) && statSync(segmentFile).size + size > JOURNAL_SEGMENT_BYTES) {
+      segment++;
+      segmentFile = join(OUT, `song${songNo}.attempts.${String(segment).padStart(6, '0')}.jsonl`);
+    }
+    appendDurable(segmentFile, record);
+  };
+  const observed = new Map();
+  for (const event of attempts)
+    if (event.event === 'recovery_observed') {
+      const prior = observed.get(event.request_id);
+      observed.set(event.request_id, {
+        fingerprint: event.fingerprint,
+        count: (prior?.count || 0) + 1,
+      });
+    }
+  const flags = saved?.state.flags || [];
   let env = null; // {history, workspace, lyric?, sig}
   let sawStop = null; // lyric_revise exit 0 seen — the only "finished" (M-163)
   let parked = 0; // lyric_revise exit 3 stops — recorded, declined, continued
@@ -404,16 +655,455 @@ for (const [songNo, briefIdx] of indices.entries()) {
   let lastStatus = 200; // M-223: the last turn's HTTP status and error body
   let lastError = null;
 
-  for (let t = 0; t < MAX_TURNS; t++) {
+  let aggregateStopped = false;
+  let storageStopped = false;
+  let wallCanary = false;
+  let uncertainProposal = false;
+  let nextTurn = saved?.next_turn || 0;
+  let attemptNo = 0;
+  if (saved) {
+    ({
+      env,
+      sawStop,
+      parked,
+      cycleNo,
+      parkedLastTurn,
+      turns,
+      retries,
+      lastAnswers,
+      parkStreak,
+      lastOpen,
+      failedFast,
+      userReasks,
+      truncated,
+      hitTurnCap,
+      hitUpstreamFinal,
+      rateLimited,
+      partials,
+      lastStatus,
+      lastError,
+    } = saved.state);
+    cycle = { ...saved.state.cycle, reasons: new Map(saved.state.cycle.reasons) };
+    cycles.push(...saved.state.cycles);
+    loopLadder.push(...saved.state.loopLadder);
+  }
+  const checkpoint = (terminal = false) => {
+    // The checkpoint's transcript offset must never outrun durable bytes.
+    if (existsSync(file)) flushFile(file);
+    atomicJSON(checkpointFile, {
+      version: 1,
+      song: songNo,
+      next_turn: nextTurn,
+      terminal,
+      transcript_bytes: existsSync(file) ? statSync(file).size : 0,
+      state: {
+        env,
+        sawStop,
+        parked,
+        cycleNo,
+        cycle: { ...cycle, reasons: [...cycle.reasons] },
+        cycles,
+        parkedLastTurn,
+        turns,
+        retries,
+        loopLadder,
+        lastAnswers,
+        parkStreak,
+        lastOpen,
+        failedFast,
+        userReasks,
+        truncated,
+        hitTurnCap,
+        hitUpstreamFinal,
+        rateLimited,
+        partials,
+        lastStatus,
+        lastError,
+        flags,
+      },
+    });
+  };
+  const recover = async (requestId, initial = null) => {
+    const until = Math.min(Date.now() + CLIENT_DEADLINE_MS, sessionDeadline - DELIVERY_RESERVE_MS);
+    const pollMs = Math.max(10, Number(args['poll-ms'] ?? 5_000));
+    const recoveryFile = join(OUT, `song${songNo}.recovery.json`);
+    const localReceipt = readJSON(recoveryFile);
+    let cached =
+      localReceipt?.request_id === requestId &&
+      localReceipt.state === 'completed' &&
+      localReceipt.response
+        ? localReceipt
+        : null;
+    while (Date.now() + 5 < until) {
+      const read = cached
+        ? { status: 200, payload: cached, ms: 0 }
+        : await post(null, {
+            path: `/chat/jobs/${requestId}`,
+            method: 'GET',
+            timeoutMs: Math.max(1, Math.min(10_000, Math.floor((until - Date.now()) / 2))),
+          });
+      cached = null;
+      const job = read.payload;
+      if (read.status !== 200)
+        return (
+          initial || {
+            status: 0,
+            payload: null,
+            ms: read.ms,
+            transport: `unresolved request: recovery lookup returned ${read.status}; refusing automatic replay`,
+          }
+        );
+      const snapshot = {
+        request_id: requestId,
+        state: job.state,
+        checkpoint: job.checkpoint ?? null,
+        build: job.build ?? null,
+        progress: job.progress ?? null,
+        uncertain_proposal: job.uncertain_proposal ?? false,
+        persistence_error: job.persistence_error ?? null,
+        proposer_usage: job.proposer_usage ?? null,
+        response: job.response ?? null,
+        interruption: job.interruption ?? null,
+      };
+      const fingerprint = createHash('sha256').update(JSON.stringify(snapshot)).digest('hex');
+      const prior = observed.get(requestId);
+      if (prior?.fingerprint !== fingerprint) {
+        atomicJSON(recoveryFile, snapshot);
+        // Full changing progress replaces the latest snapshot; the journal
+        // carries bounded fingerprints, never another multi-MiB copy per poll.
+        if ((prior?.count || 0) < 1024 || job.state !== 'pending') {
+          appendAttempt({
+            event: 'recovery_observed',
+            request_id: requestId,
+            at: new Date().toISOString(),
+            fingerprint,
+            state: ['pending', 'completed', 'interrupted', 'retired'].includes(job.state)
+              ? job.state
+              : 'unknown',
+            snapshot_file: `song${songNo}.recovery.json`,
+            uncertain_proposal: !!snapshot.uncertain_proposal,
+            persistence_error: !!snapshot.persistence_error,
+          });
+        }
+        observed.set(requestId, { fingerprint, count: (prior?.count || 0) + 1 });
+      }
+
+      if (
+        EXPECTED_COMMIT &&
+        (job.build?.commit !== EXPECTED_COMMIT ||
+          (manifest.live_build &&
+            (job.build?.source_sha256 !== manifest.live_build.source_sha256 ||
+              job.build?.config_sha256 !== manifest.live_build.config_sha256)))
+      ) {
+        return {
+          status: 0,
+          payload: null,
+          ms: read.ms,
+          checkpoint: job.checkpoint ?? null,
+          transport:
+            'retained job belongs to a different build or configuration; refusing to attribute this response to the measured revision',
+        };
+      }
+      if (job.uncertain_proposal || job.progress?.uncertain_proposal) {
+        return {
+          status: 0,
+          payload: null,
+          ms: read.ms,
+          recovery_state: job.state,
+          uncertain_proposal: true,
+          checkpoint: job.checkpoint ?? null,
+          transport:
+            'a proposal may have executed beyond the checkpoint; automatic resume is stopped until an explicit new_run decision',
+        };
+      }
+      if (job.persistence_error && job.state !== 'completed') {
+        return {
+          status: 0,
+          payload: null,
+          ms: read.ms,
+          recovery_state: job.state,
+          persistence_error: job.persistence_error,
+          checkpoint: job.checkpoint ?? null,
+          transport:
+            'server recovery persistence failed; checkpoint retained, no new work may be started until repaired',
+        };
+      }
+      if (job.state === 'completed' && job.response) {
+        const p = job.response.body;
+        return {
+          status: job.response.status,
+          payload: p,
+          recovered: true,
+          ms: read.ms,
+          error: typeof p?.error === 'string' ? p.error.slice(0, 4096) : null,
+          detail: typeof p?.detail === 'string' ? p.detail.slice(0, 4096) : null,
+          retryAfterS:
+            Number(job.response.headers?.['retry-after']) > 0
+              ? Number(job.response.headers['retry-after'])
+              : null,
+          upstreamStatus: p?.upstream_status ?? null,
+          hopsBeforeFailure: p?.hopsBeforeFailure ?? null,
+        };
+      }
+      if (job.state !== 'pending') {
+        return {
+          status: 0,
+          payload: null,
+          ms: read.ms,
+          recovery_state: job.state,
+          checkpoint: job.checkpoint ?? null,
+          transport: `request is ${job.state}; its checkpoint is recorded, the interrupted request is not replayed`,
+        };
+      }
+      if (Date.now() + pollMs + 5 >= until) break;
+      await sleep(pollMs);
+    }
+    return (
+      initial || {
+        status: 0,
+        payload: null,
+        ms: 0,
+        transport: `request is still unresolved at the delivery reserve; resume polls the same request ID`,
+      }
+    );
+  };
+  const send = async (body, turn) => {
+    const ordinal = attemptNo++;
+    const existing = attempts.find(
+      (a) => a.event === 'request_started' && a.turn === turn && a.ordinal === ordinal
+    );
+    if (existing && JSON.stringify(existing.body) !== JSON.stringify(body)) {
+      throw new Error(
+        'checkpoint replay diverged from the recorded request; refusing a new paid request'
+      );
+    }
+    if (existing) {
+      if (
+        !attempts.some(
+          (a) => a.event === 'request_dispatched' && a.request_id === existing.request_id
+        )
+      ) {
+        // No dispatch marker means the prior process stopped before sending.
+        // The marker is fsynced before the socket can be opened.
+        return send(body, turn);
+      }
+      const received = attempts.findLast(
+        (a) => a.event === 'response_received' && a.request_id === existing.request_id
+      );
+      if (received && received.response.status !== 0 && received.response.status !== 202)
+        return received.response;
+      const response = await recover(existing.request_id);
+      const receipt = {
+        event: 'response_received',
+        at: new Date().toISOString(),
+        request_id: existing.request_id,
+        turn,
+        ordinal,
+        response,
+      };
+      appendAttempt(receipt);
+      attempts.push(receipt);
+      const cp = response.checkpoint;
+      if (
+        args.resume &&
+        response.recovery_state === 'interrupted' &&
+        !response.persistence_error &&
+        !response.uncertain_proposal &&
+        Array.isArray(cp?.history) &&
+        typeof cp.sig === 'string' &&
+        cp.sig
+      ) {
+        const continuation = {
+          message: CONTINUE,
+          history: cp.history,
+          workspace: cp.workspace,
+          sig: cp.sig,
+        };
+        if (cp.lyric != null) continuation.lyric = cp.lyric;
+        appendAttempt({
+          event: 'interrupted_resume',
+          request_id: existing.request_id,
+          at: new Date().toISOString(),
+          uncertainty:
+            'resuming only the last signed checkpoint; later unfinished work is not claimed as recovered',
+        });
+        const resumed = await send(continuation, turn);
+        return { ...resumed, resume_body: continuation };
+      }
+      return response;
+    }
+    // Reserve enough recording space before another paid request: its input,
+    // raw response, trusted receipt, latest recovery snapshot and final transcript
+    // are bounded by the server's 2MiB input/4MiB receipt contract. Changing polls
+    // overwrite one snapshot; only bounded compact metadata accumulates.
+    if (
+      Buffer.byteLength(JSON.stringify(body)) + 100 > MAX_REQUEST_BYTES ||
+      recordingSize(OUT) + RECORDING_RESERVE_BYTES > RECORDING_LIMIT_BYTES
+    ) {
+      storageStopped = true;
+      return {
+        status: 0,
+        payload: null,
+        ms: 0,
+        transport:
+          'recording capacity cannot retain another complete request and its recovery evidence; no request was sent',
+      };
+    }
+    if (!canAdmit()) {
+      aggregateStopped = true;
+      return {
+        status: 0,
+        payload: null,
+        transport: 'aggregate budget cannot admit a complete request plus delivery reserve',
+        ms: 0,
+      };
+    }
+    const intent = {
+      event: 'request_started',
+      at: new Date().toISOString(),
+      request_id: randomBytes(32).toString('hex'),
+      turn,
+      ordinal,
+      body,
+    };
+    appendAttempt(intent);
+    attempts.push(intent);
+    let response;
+    let dispatched = false;
+    if (EXPECTED_COMMIT) {
+      const identity = await post(null, { path: '/health', method: 'GET', timeoutMs: 10_000 });
+      if (identity.status !== 200 || identity.payload?.commit !== EXPECTED_COMMIT) {
+        response = {
+          status: 0,
+          payload: null,
+          transport: 'live commit changed or cannot be verified before request',
+          ms: identity.ms,
+          observed_commit: identity.payload?.commit ?? null,
+        };
+      }
+      appendAttempt({
+        event: 'identity_checked',
+        request_id: intent.request_id,
+        at: new Date().toISOString(),
+        commit: identity.payload?.commit ?? null,
+        build: identity.payload?.build ?? null,
+        recovery: identity.payload?.recovery ?? null,
+      });
+      if (
+        !response &&
+        args['require-recovery'] &&
+        (identity.payload?.recovery?.durable !== true ||
+          identity.payload?.recovery?.healthy !== true)
+      ) {
+        response = {
+          status: 0,
+          payload: null,
+          transport: 'healthy durable server recovery is required for this measurement',
+          ms: identity.ms,
+        };
+      }
+      const build = identity.payload?.build;
+      if (
+        !response &&
+        args['require-recovery'] &&
+        (![build?.source_sha256, build?.config_sha256].every((value) =>
+          /^[a-f0-9]{64}$/.test(value || '')
+        ) ||
+          build?.commit !== EXPECTED_COMMIT)
+      ) {
+        response = {
+          status: 0,
+          payload: null,
+          transport: 'complete source/configuration identity is required for this measurement',
+          ms: identity.ms,
+        };
+      }
+      if (
+        !response &&
+        manifest.live_build &&
+        (build?.source_sha256 !== manifest.live_build.source_sha256 ||
+          build?.config_sha256 !== manifest.live_build.config_sha256)
+      ) {
+        response = {
+          status: 0,
+          payload: null,
+          transport: 'live source or configuration changed during the battery',
+          ms: identity.ms,
+        };
+      }
+      if (!response && build && !manifest.live_build) {
+        manifest.live_build = build;
+        atomicJSON(runFile, manifest);
+      }
+    }
+    if (!response) {
+      const dispatch = {
+        event: 'request_dispatched',
+        at: new Date().toISOString(),
+        request_id: intent.request_id,
+        turn,
+        ordinal,
+      };
+      appendAttempt(dispatch);
+      attempts.push(dispatch);
+      dispatched = true;
+      response = await post({ ...body, request_id: intent.request_id });
+      appendAttempt({
+        event: 'http_response_received',
+        at: new Date().toISOString(),
+        request_id: intent.request_id,
+        turn,
+        ordinal,
+        response,
+      });
+    }
+    if (
+      dispatched &&
+      (response.status === 0 ||
+        (response.status === 202 && response.payload?.state === 'pending') ||
+        (response.payload?.request_id === intent.request_id &&
+          ['pending', 'interrupted', 'retired'].includes(response.payload?.state)))
+    ) {
+      response = await recover(intent.request_id, response.status === 0 ? response : null);
+    } else if (args['require-recovery'] && response.status === 200) {
+      // The pre-send health probe cannot identify a process deployed between
+      // the probe and POST. The retained job names the process that did work.
+      const original = response;
+      response = await recover(intent.request_id);
+      if (response.status === 0)
+        response.original_response_record = {
+          event: 'http_response_received',
+          request_id: intent.request_id,
+          status: original.status,
+        };
+    }
+    const receipt = {
+      event: 'response_received',
+      at: new Date().toISOString(),
+      request_id: intent.request_id,
+      turn,
+      ordinal,
+      response,
+    };
+    appendAttempt(receipt);
+    attempts.push(receipt);
+    return response;
+  };
+  checkpoint();
+  for (let t = nextTurn; t < MAX_TURNS; t++) {
+    nextTurn = t;
+    attemptNo = 0;
+    checkpoint();
     const message = t === 0 ? brief : parkedLastTurn ? PARKED_CONTINUE : CONTINUE;
-    const body = { message };
+    let body = { message };
     if (env) {
       body.history = env.history;
       body.workspace = env.workspace;
       if (env.lyric != null) body.lyric = env.lyric;
       body.sig = env.sig;
     }
-    let r = await post(body);
+    let r = await send(body, t);
+    if (r.resume_body) body = r.resume_body;
     // THE USER-LEVEL RE-ASK (M-222). The connector's own re-ask (M-219)
     // reaches the model only once it is deployed; until then a turn that ends
     // on MALFORMED_FUNCTION_CALL with no tool call is exactly what a person at
@@ -452,8 +1142,13 @@ for (const [songNo, briefIdx] of indices.entries()) {
         if (r.payload.lyric != null) again.lyric = r.payload.lyric;
         again.sig = r.payload.sig;
       }
+      if (!canAdmit(PACE_MS)) {
+        aggregateStopped = true;
+        break;
+      }
       await sleep(PACE_MS);
-      r = await post(again);
+      body = again;
+      r = await send(body, t);
     }
     // Bounded, logged backoff: a 429/503 is the deployment's own pacing and
     // is part of the record, never silently absorbed. 502 joined at M-164
@@ -492,9 +1187,21 @@ for (const [songNo, briefIdx] of indices.entries()) {
       (r.status === 429 || r.status === 502 || r.status === 503) &&
       !turnCapped() &&
       !upstreamFinal() &&
-      ((turnRetries < 4 && retries < RETRY_ROUND_CAP) ||
-        (paced() && rateWaitS < RATE_WAIT_CAP_S && pacedRetries < RATE_PACED_MAX))
+      !aggregateStopped &&
+      (paced()
+        ? rateWaitS < RATE_WAIT_CAP_S &&
+          pacedRetries < RATE_PACED_MAX &&
+          rateWaitS + Math.min(r.retryAfterS, RETRY_AFTER_CAP_S) <= RATE_WAIT_CAP_S
+        : turnRetries < 4 && retries < RETRY_ROUND_CAP)
     ) {
+      const waitMs =
+        r.retryAfterS != null
+          ? Math.min(r.retryAfterS, RETRY_AFTER_CAP_S) * 1000
+          : Math.max(PACE_MS, 60_000);
+      if (!canAdmit(waitMs)) {
+        aggregateStopped = true;
+        break;
+      }
       if (!paced()) {
         retries++;
         turnRetries++;
@@ -525,7 +1232,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
           detail: r.detail ?? null,
           upstream_status: r.upstreamStatus ?? null,
           hops_before_failure: r.hopsBeforeFailure ?? null,
-          calls_before_failure: r.callsBeforeFailure ?? null,
+          calls_before_failure: r.payload?.callsBeforeFailure ?? null,
           retry_after_s: r.retryAfterS ?? null,
           waited_s: waitS ?? Math.max(PACE_MS, 60_000) / 1000,
         }) + '\n'
@@ -543,7 +1250,13 @@ for (const [songNo, briefIdx] of indices.entries()) {
             : '')
       );
       await sleep(waitS != null ? waitS * 1000 : Math.max(PACE_MS, 60_000));
-      r = await post(body);
+      r = await send(body, t);
+    }
+    if (aggregateStopped || storageStopped) break;
+    if (r.uncertain_proposal) {
+      uncertainProposal = true;
+      flags.push({ turn: t, flag: 'uncertain_proposal', detail: r.transport });
+      break;
     }
     const p = r.payload || {};
     lastStatus = r.status;
@@ -563,7 +1276,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
           upstream_final: r.upstreamStatus,
           detail: r.detail ?? null,
           hops_before_failure: r.hopsBeforeFailure ?? null,
-          calls_before_failure: r.callsBeforeFailure ?? null,
+          calls_before_failure: r.payload?.callsBeforeFailure ?? null,
         }) + '\n'
       );
       console.log(
@@ -580,7 +1293,9 @@ for (const [songNo, briefIdx] of indices.entries()) {
     if (
       r.status === 429 &&
       !turnCapped() &&
-      (pacedRetries >= RATE_PACED_MAX || rateWaitS >= RATE_WAIT_CAP_S)
+      (pacedRetries >= RATE_PACED_MAX ||
+        rateWaitS >= RATE_WAIT_CAP_S ||
+        (paced() && rateWaitS + Math.min(r.retryAfterS, RETRY_AFTER_CAP_S) > RATE_WAIT_CAP_S))
     ) {
       rateLimited = true;
       flags.push({
@@ -785,6 +1500,29 @@ for (const [songNo, briefIdx] of indices.entries()) {
     }
     if (r.status !== 200) break;
     env = { history: p.history, workspace: p.workspace, lyric: p.lyric, sig: p.sig };
+    nextTurn = t + 1;
+    if (p.stopped === 'UNCERTAIN_PROPOSAL') {
+      uncertainProposal = true;
+      flags.push({
+        turn: t,
+        flag: 'uncertain_proposal',
+        detail:
+          'a proposal may have been paid for; automatic continuation is stopped until the operator explicitly chooses new_run from the last accepted draft',
+      });
+      checkpoint(true);
+      break;
+    }
+    if (
+      EXPECT === 'turn-wall' &&
+      p.stopped === 'MAX_TURN_MS' &&
+      Array.isArray(p.history) &&
+      typeof p.sig === 'string' &&
+      p.sig.length > 0
+    ) {
+      wallCanary = true;
+      checkpoint();
+      break;
+    }
     if (sawStop !== null) break; // exit 0 — the song is FINISHED (M-163)
     if (kitchenSpent) {
       rateLimited = true;
@@ -896,7 +1634,29 @@ for (const [songNo, briefIdx] of indices.entries()) {
     }
     lastAnswers = parkedRows.length ? -1 : Math.max(lastAnswers, answersNow);
     parkedLastTurn = parkedThisTurn;
-    await sleep(PACE_MS);
+    checkpoint();
+    const partialWaitMs =
+      p.stopped === 'UPSTREAM_429' && Number.isFinite(p.stopped_detail?.retry_after_ms)
+        ? Math.min(RETRY_AFTER_CAP_S * 1000, Math.max(0, p.stopped_detail.retry_after_ms))
+        : 0;
+    const nextWaitMs = Math.max(PACE_MS, partialWaitMs);
+    if (t + 1 < MAX_TURNS && !canAdmit(nextWaitMs)) {
+      aggregateStopped = true;
+      break;
+    }
+    if (t + 1 < MAX_TURNS) {
+      if (partialWaitMs)
+        appendFileSync(
+          file,
+          JSON.stringify({
+            turn: t,
+            partial_pacing: true,
+            retry_after_ms: p.stopped_detail.retry_after_ms,
+            waited_s: nextWaitMs / 1000,
+          }) + '\n'
+        );
+      await sleep(nextWaitMs);
+    }
   }
 
   // THE ROUND'S VERDICT IS THE EXIT CODE (M-223). Round 12 exited 0 with no
@@ -909,26 +1669,46 @@ for (const [songNo, briefIdx] of indices.entries()) {
   // last turn was a non-200 or an error body), no_stop (every turn answered and the
   // loop never reached exit 0). A single-song round is red on anything but
   // finished; a survey keeps exit 0 because its job is coverage.
-  const exitReason =
-    sawStop === 0
-      ? 'finished'
-      : failedFast
-        ? 'failed_fast'
-        : hitTurnCap
-          ? 'server_turn_cap'
-          : hitUpstreamFinal
-            ? 'upstream_final'
-            : rateLimited
-              ? 'rate_limited'
-              : lastStatus !== 200 || lastError
-                ? 'transport'
-                : 'no_stop';
-  if (N_SONGS === 1 && exitReason !== 'finished') process.exitCode = 1;
+  const exitReason = storageStopped
+    ? 'storage_budget'
+    : uncertainProposal
+      ? 'uncertain_proposal'
+      : aggregateStopped
+        ? 'aggregate_deadline'
+        : wallCanary
+          ? 'turn_wall_checkpoint'
+          : sawStop === 0
+            ? 'finished'
+            : failedFast
+              ? 'failed_fast'
+              : hitTurnCap
+                ? 'server_turn_cap'
+                : hitUpstreamFinal
+                  ? 'upstream_final'
+                  : rateLimited
+                    ? 'rate_limited'
+                    : lastStatus !== 200 || lastError
+                      ? 'transport'
+                      : 'no_stop';
+  const expected =
+    EXPECT === 'survey' ||
+    (EXPECT === 'finished' && exitReason === 'finished') ||
+    (EXPECT === 'turn-wall' && exitReason === 'turn_wall_checkpoint');
+  if (!expected) process.exitCode = 1;
+  checkpoint(
+    ![
+      'aggregate_deadline',
+      'storage_budget',
+      'turn_wall_checkpoint',
+      'no_stop',
+      'transport',
+    ].includes(exitReason)
+  );
   console.log(
-    `::${exitReason === 'finished' ? 'notice' : 'error'} title=battery verdict::song ${songNo}: ${exitReason}` +
+    `::${expected ? 'notice' : 'error'} title=battery verdict::song ${songNo}: ${exitReason}` +
       (lastError ? ` — last error: ${esc(lastError, 160)}` : '')
   );
-  summary.songs.push({
+  summary.songs[songNo] = {
     song: songNo,
     brief: esc(brief, 80),
     turns,
@@ -944,8 +1724,10 @@ for (const [songNo, briefIdx] of indices.entries()) {
     truncated_turns: truncated,
     loop_ladder: loopLadder,
     flags,
-  });
-  writeFileSync(`${OUT}/summary.json`, JSON.stringify(summary, null, 2) + '\n');
+    expected,
+    checkpoint: `song${songNo}.checkpoint.json`,
+  };
+  atomicJSON(join(OUT, 'summary.json'), summary);
   // The ladder prints too, because the log is what an analyst reads first and
   // a field that exists only in an uploaded artifact is a field nobody reads.
   const ladder = loopLadder
@@ -957,10 +1739,21 @@ for (const [songNo, briefIdx] of indices.entries()) {
         ? `\n  loop ladder: ${ladder}`
         : '\n  loop ladder: (no call reached a stop condition)')
   );
+  if (aggregateStopped || storageStopped) break;
 }
 
+summary.expected =
+  summary.songs.length === indices.length &&
+  summary.songs.every(
+    (song) =>
+      EXPECT === 'survey' ||
+      (EXPECT === 'finished'
+        ? song.exit_reason === 'finished'
+        : song.exit_reason === 'turn_wall_checkpoint')
+  );
+process.exitCode = summary.expected ? 0 : 1;
 summary.finished = new Date().toISOString();
-writeFileSync(`${OUT}/summary.json`, JSON.stringify(summary, null, 2) + '\n');
+atomicJSON(join(OUT, 'summary.json'), summary);
 console.log(
   `\nrecorded to ${OUT} — the transcript is the deliverable; the leak charging happens off it.`
 );

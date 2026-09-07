@@ -75,6 +75,7 @@ wait is counted on the record line (`wait=`), so a run that spent its budget
 says so.
 """
 import json
+import math
 import os
 import sys
 import time
@@ -95,6 +96,9 @@ TRANSIENT_BACKOFF_S = (1.0, 2.0, 4.0)
 WAIT_BUDGET_DEFAULT_S = 240.0
 RATE_BACKOFF_S = (2.0, 4.0, 8.0, 16.0, 32.0, 60.0)
 HINT_CAP_S = 120.0
+# A zero-second hint is valid but cannot bypass every retry ceiling.
+RATE_RETRIES = 32
+MIN_RATE_WAIT_S = 0.25
 
 #: What the writer is, in one breath. The brief itself (rendered by
 #: quality/propose.py) carries the whole question, the forbidden words and
@@ -134,14 +138,18 @@ def _retry_after_s(headers, body):
     ra = headers.get("Retry-After") if headers else None
     if ra:
         try:
-            return float(ra)
+            value = float(ra)
+            if math.isfinite(value) and value >= 0:
+                return value
         except ValueError:
             pass
     try:
         for d in (body or {}).get("error", {}).get("details", []):
             delay = d.get("retryDelay")
             if isinstance(delay, str) and delay.endswith("s"):
-                return float(delay[:-1])
+                value = float(delay[:-1])
+                if math.isfinite(value) and value >= 0:
+                    return value
     except (AttributeError, ValueError, TypeError):
         pass
     return None
@@ -156,7 +164,62 @@ class _Kitchen:
         self.empty = 0
         self.retries = 0
         self.waited_s = 0.0
+        self.wait_pending_s = 0.0
         self._checked = False
+        self.attempts = 0
+        self.tokens_thoughts = 0
+        self.tokens_cached = 0
+        self.tokens_total = 0
+        self.unknown_attempts = 0
+        self.in_flight = False
+        self._call_started = None
+        deadline = float(_env("LYRIC_REQUEST_DEADLINE_MS", "inf")) / 1000
+        self.deadline = time.monotonic() + max(0, deadline - time.time())
+
+    def _remaining(self):
+        remaining = self.deadline - time.monotonic()
+        if remaining <= 0:
+            raise ProposerUnavailable("the kitchen request deadline is spent")
+        return remaining
+
+    def _emit(self, status):
+        elapsed = 0 if self._call_started is None else int((time.monotonic() - self._call_started) * 1000)
+        record = {"transport_token": _env("LYRIC_CONTROL_TOKEN"), "model": _env("LYRIC_PROPOSER_MODEL") or _env("GEMINI_MODEL") or "unset",
+            "calls": self.calls, "attempts": self.attempts,
+            "ms": self.ms_total + elapsed,
+            "tokens_in": self.tokens_in, "tokens_out": self.tokens_out,
+            "tokens_thoughts": self.tokens_thoughts, "tokens_cached": self.tokens_cached,
+            "tokens_total": self.tokens_total, "empty": self.empty,
+            "retries": self.retries, "wait_s": self.waited_s, "wait_pending_s": self.wait_pending_s,
+            "status": status, "in_flight": self.in_flight,
+            "usage_unknown": bool(self.unknown_attempts), "unknown_attempts": self.unknown_attempts}
+        print("  proposer event: " + json.dumps(record, separators=(",", ":")), flush=True)
+
+    def _budget(self, action, **fields):
+        url = _env("LYRIC_BUDGET_URL")
+        if not url:
+            return {}  # standalone CLI; connector always installs the broker
+        data = json.dumps({"action": action, **fields}).encode("utf-8")
+        req = urllib.request.Request(url, data=data, method="POST", headers={
+            "content-type": "application/json",
+            "authorization": "Bearer " + _env("LYRIC_BUDGET_TOKEN", "")})
+        try:
+            with urllib.request.urlopen(req, timeout=min(5, self._remaining())) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except (urllib.error.URLError, OSError, ValueError) as error:
+            raise ProposerUnavailable(f"kitchen spend admission unavailable: {error}") from None
+
+    def _sleep(self, seconds, status):
+        if seconds >= self._remaining():
+            self._emit("deadline")
+            raise ProposerUnavailable("the next retry wait would exceed the kitchen request deadline")
+        self.wait_pending_s = seconds
+        self._emit(status)
+        time.sleep(seconds)
+        if status == "rate_wait":
+            self.waited_s += seconds
+        self.wait_pending_s = 0.0
+        self._emit("retry_ready")
 
     def _check(self):
         if self._checked:
@@ -191,21 +254,30 @@ class _Kitchen:
                             str(WAIT_BUDGET_DEFAULT_S)))
         rate_limited, transient = 0, 0
         while True:
+            self._remaining()
+            reservation = self._budget("reserve", model=model,
+                inputBytes=len(data), maxOutputTokens=body["generationConfig"]["maxOutputTokens"])
+            reservation_id = reservation.get("reservation_id")
+            self.attempts += 1
+            self.in_flight = True
+            self._emit("request")
             req = urllib.request.Request(
                 url, data=data, method="POST",
-                headers={"content-type": "application/json",
-                         "x-goog-api-key": key})
+                headers={"content-type": "application/json", "x-goog-api-key": key})
             try:
-                with urllib.request.urlopen(req, timeout=60) as resp:
-                    return json.loads(resp.read().decode("utf-8") or "null"), model
-            except urllib.error.HTTPError as e:
-                status = e.code
+                with urllib.request.urlopen(req, timeout=min(60, self._remaining())) as resp:
+                    reply = json.loads(resp.read().decode("utf-8") or "null")
+            except urllib.error.HTTPError as error:
+                self.in_flight = False
+                self._budget("settle", reservation_id=reservation_id, usage=None, status="rejected")
+                self._emit("rejected")
+                status = error.code
                 try:
-                    payload = json.loads(e.read().decode("utf-8") or "null")
+                    payload = json.loads(error.read().decode("utf-8") or "null")
                 except (ValueError, UnicodeDecodeError):
                     payload = None
                 if status == 429:
-                    hint = _retry_after_s(e.headers, payload)
+                    hint = _retry_after_s(error.headers, payload)
                     if hint is not None and hint > HINT_CAP_S:
                         raise ProposerUnavailable(
                             f"Gemini 429 with Retry-After {hint:.0f}s, past "
@@ -213,49 +285,59 @@ class _Kitchen:
                             f"resets on the provider's clock is a stopping "
                             f"place, not a wait (M-249); {self.waited_s:.0f}s "
                             f"of the {budget:.0f}s wait budget spent so far, "
-                            f"{rate_limited} paced retry(ies) on this "
-                            f"call") from None
-                    wait = hint if hint is not None else (
+                            f"{rate_limited} paced retry(ies) on this call") from None
+                    wait = max(MIN_RATE_WAIT_S, hint if hint is not None else
                         RATE_BACKOFF_S[min(rate_limited, len(RATE_BACKOFF_S) - 1)])
-                    if self.waited_s + wait <= budget:
-                        rate_limited += 1
-                        self.retries += 1
-                        self.waited_s += wait
-                        time.sleep(wait)
-                        continue
-                    raise ProposerUnavailable(
-                        f"Gemini 429 and the run's wait budget is spent: "
-                        f"{self.waited_s:.0f}s waited of "
-                        f"{budget:.0f}s (LYRIC_PROPOSER_WAIT_BUDGET_S), the "
-                        f"next wait would be {wait:.0f}s; {rate_limited} "
-                        f"paced retry(ies) on this call, hint "
-                        f"{hint if hint is not None else 'none'}") from None
+                    if rate_limited >= RATE_RETRIES:
+                        raise ProposerUnavailable(f"Gemini 429 paced retry cap spent ({RATE_RETRIES})") from None
+                    if self.waited_s + wait > budget:
+                        raise ProposerUnavailable(
+                            f"Gemini 429 and the run's wait budget is spent: "
+                            f"{self.waited_s:.0f}s waited of {budget:.0f}s "
+                            f"(LYRIC_PROPOSER_WAIT_BUDGET_S), the next wait would be {wait:.0f}s; "
+                            f"{rate_limited} paced retry(ies) on this call") from None
+                    rate_limited += 1
+                    self.retries += 1
+                    self._sleep(wait, "rate_wait")
+                    continue
                 if status in TRANSIENT_STATUSES and transient < TRANSIENT_RETRIES:
-                    wait = TRANSIENT_BACKOFF_S[min(transient,
-                                                   len(TRANSIENT_BACKOFF_S) - 1)]
+                    wait = TRANSIENT_BACKOFF_S[transient]
                     transient += 1
                     self.retries += 1
-                    time.sleep(wait)
+                    self._sleep(wait, "transient_wait")
                     continue
-                detail = ""
-                try:
-                    detail = payload["error"]["message"]
-                except (KeyError, TypeError):
-                    pass
+                detail = (payload or {}).get("error", {}).get("message", "") if isinstance(payload, dict) else ""
                 raise ProposerUnavailable(
                     f"Gemini {status}{': ' + detail if detail else ''}"
-                    + (f" after {transient} transient retries"
-                       if transient else "")) from None
-            except (urllib.error.URLError, TimeoutError, OSError) as e:
+                    + (f" after {transient} transient retries" if transient else "")) from None
+            except (urllib.error.URLError, TimeoutError, OSError, ValueError) as error:
+                self.in_flight = False
+                self.unknown_attempts += 1
+                self._budget("settle", reservation_id=reservation_id, usage=None, status="unknown")
                 if transient < TRANSIENT_RETRIES:
-                    wait = TRANSIENT_BACKOFF_S[min(transient,
-                                                   len(TRANSIENT_BACKOFF_S) - 1)]
+                    wait = TRANSIENT_BACKOFF_S[transient]
                     transient += 1
                     self.retries += 1
-                    time.sleep(wait)
+                    self._sleep(wait, "transport_wait")
                     continue
-                raise ProposerUnavailable(
-                    f"transport failed after {transient} retries: {e}") from None
+                raise ProposerUnavailable(f"transport failed after {transient} retries: {error}") from None
+            self.in_flight = False
+            usage = reply.get("usageMetadata") if isinstance(reply, dict) else None
+            if not isinstance(usage, dict) or not usage:
+                self.unknown_attempts += 1
+            # Retain known usage before settlement itself can fail. The broker
+            # conservatively holds a reservation if it loses the settlement.
+            usage = usage if isinstance(usage, dict) else {}
+            self.tokens_in += int(usage.get("promptTokenCount") or 0)
+            self.tokens_out += int(usage.get("candidatesTokenCount") or 0)
+            self.tokens_thoughts += int(usage.get("thoughtsTokenCount") or 0)
+            self.tokens_cached += int(usage.get("cachedContentTokenCount") or 0)
+            self.tokens_total += int(usage.get("totalTokenCount") or
+                sum(int(usage.get(key) or 0) for key in
+                    ("promptTokenCount", "candidatesTokenCount", "thoughtsTokenCount")))
+            self._emit("response")
+            self._budget("settle", reservation_id=reservation_id, usage=usage, status="success")
+            return reply, model
 
     @staticmethod
     def _text_of(reply):
@@ -267,37 +349,41 @@ class _Kitchen:
                        if isinstance(p, dict) and not p.get("thought"))
 
     def __call__(self, prompt):
-        self._check()
-        t0 = time.monotonic()
-        reply, model = self._post(prompt)
-        ms = int((time.monotonic() - t0) * 1000)
-        text = self._text_of(reply)
-        usage = (reply or {}).get("usageMetadata") or {}
-        t_in = int(usage.get("promptTokenCount") or 0)
-        t_out = int(usage.get("candidatesTokenCount") or 0)
+        self._call_started = time.monotonic()
+        t_in = t_out = 0
         finish = ""
+        status = "failed"
+        model = _env("LYRIC_PROPOSER_MODEL") or _env("GEMINI_MODEL") or "unset"
         try:
-            finish = reply["candidates"][0].get("finishReason", "") or ""
-        except (KeyError, IndexError, TypeError):
-            pass
-        self.calls += 1
-        self.ms_total += ms
-        self.tokens_in += t_in
-        self.tokens_out += t_out
-        status = "ok" if text.strip() else "empty"
-        if not text.strip():
-            self.empty += 1
-        # ONE LINE PER CALL, TOTALS ON EVERY LINE (the last line is the
-        # summary whether or not the loop finishes).
-        print(f"  PROPOSER CALL {self.calls}: {status} {ms} ms in={t_in} "
-              f"out={t_out}"
-              + (f" finish={finish}" if finish and finish != "STOP" else "")
-              + f" | kitchen model={model} calls={self.calls} "
-              f"ms={self.ms_total} in={self.tokens_in} out={self.tokens_out} "
-              f"empty={self.empty} retries={self.retries} "
-              f"wait={int(self.waited_s)}")
-        sys.stdout.flush()
-        return text
+            self._check()
+            reply, model = self._post(prompt)
+            text = self._text_of(reply)
+            usage = (reply or {}).get("usageMetadata") or {}
+            t_in = int(usage.get("promptTokenCount") or 0)
+            t_out = int(usage.get("candidatesTokenCount") or 0)
+            try:
+                finish = reply["candidates"][0].get("finishReason", "") or ""
+            except (KeyError, IndexError, TypeError):
+                pass
+            self.calls += 1
+            status = "ok" if text.strip() else "empty"
+            if not text.strip():
+                self.empty += 1
+            return text
+        finally:
+            ms = int((time.monotonic() - self._call_started) * 1000)
+            self.ms_total += ms
+            self._call_started = None
+            self._emit(status)
+            # The legacy human-readable line remains byte-compatible through
+            # wait=. Structured events above carry all added usage dimensions.
+            print(f"  PROPOSER CALL {self.calls}: {status} {ms} ms in={t_in} "
+                  f"out={t_out}"
+                  + (f" finish={finish}" if finish and finish != "STOP" else "")
+                  + f" | kitchen model={model} calls={self.calls} "
+                  f"ms={self.ms_total} in={self.tokens_in} out={self.tokens_out} "
+                  f"empty={self.empty} retries={self.retries} wait={int(self.waited_s)}",
+                  flush=True)
 
 
 def make():

@@ -952,9 +952,9 @@ MUTATIONS = [
     # first four mutations below deletes or blunts one of them.
     Mutation(
         name="QR1", layer="structure", file=REVISE,
-        old="        if len(new_flags) > self.rdecl.allow_net_new:",
-        new="        if len(new) > self.rdecl.allow_net_new:",
-        subset=T_LOOP,
+        old="        if sum(new[k] for k in new_flags) > self.rdecl.allow_net_new:",
+        new="        if sum(new.values()) > self.rdecl.allow_net_new:",
+        subset=T_LOOP + _q("test_audit_regressions.py"),
         rationale=(
             "`verify()`'s net-new gate goes back to counting NOTES against "
             "`allow_net_new` alongside flags — the severity-blind gate whose "
@@ -1009,24 +1009,25 @@ MUTATIONS = [
     ),
     Mutation(
         name="QR4", layer="structure", file=REVISE,
-        old="        gone, new = set(cb - ca), set(ca - cb)",
-        new="        gone, new = set(cb) - set(ca), set(ca) - set(cb)",
-        subset=T_LOOP,
+        old="            return collections.Counter(out_keys + sorted(aggregates))",
+        new="            return collections.Counter({\n"
+            "                (k[0], k[1], k[2], (), (), ())\n"
+            "                for k in out_keys + sorted(aggregates)})",
+        subset=T_LOOP + _q("test_audit_regressions.py"),
         rationale=(
-            "The finding diff reverts from MULTISET subtraction to a plain set "
-            "difference, undoing the `collections.Counter` fix CLAUDE.md "
-            "records: a pivot line trading ONE SCHEME_VIOLATION for TWO shows "
-            "the same `(line, code)` key before and after, so the regression "
-            "lands in neither `fixed` nor `new` and `verify()` accepts it. "
+            "The finding diff reverts to a plain set of coarse line/code/"
+            "severity keys, losing both multiplicity and obligation identity. "
+            "A pivot line trading ONE SCHEME_VIOLATION for TWO, or swapping "
+            "which pair fails at equal count, shows the same coarse key "
+            "before and after, so the regression lands in neither `fixed` "
+            "nor `new` and an unrelated repair lets `verify()` accept it. "
             "Doctrine 47 again — a loop that cannot see the change it asked "
             "for is a rubber stamp, and that is as true of a count as of a "
-            "key. Invisible to every assertion that checks membership rather "
-            "than multiplicity. ANCHOR REPINNED 2026-08-14: the left-hand "
-            "side was renamed `fixed` -> `gone` when `verify()` split a "
-            "holding requirement out of `fixed` into `broken`. The "
-            "MUTATION IS UNCHANGED -- it still reverts multiset "
-            "subtraction to a plain set difference; only the line it "
-            "anchors on moved."),
+            "key. ANCHOR REPINNED 2026-09-07: full obligation keys now make "
+            "distinct pairs visible even to a set diff, so plant the loss "
+            "at the identity builder. Keep the six-coordinate record shape "
+            "and the Counter interface: the intended wrong acceptance, "
+            "not a renderer exception, must be what catches this mutant."),
     ),
     Mutation(
         name="QR5", layer="structure", file=REVISE,

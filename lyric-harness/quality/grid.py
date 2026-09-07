@@ -1259,6 +1259,8 @@ class GridFinding:
     code: str
     message: str
     evidence: str
+    # Stable declaration identity, independent of changing evidence prose.
+    subject: tuple = ()
 
     @property
     def severity(self):
@@ -2195,12 +2197,13 @@ def hook_findings(song, hooks=(), title=None):
         return findings, refusals
 
     title = song.title if title is None else title
-    for h in hooks:
+    for hook_index, h in enumerate(hooks):
         occ = hook_occurrences(song, h)
         if not occ:
             findings.append(GridFinding(
                 "HOOK_ABSENT", f"the declared hook does not appear in the "
-                f"lyric at all", f"{h.text!r} occurs 0 times"))
+                f"lyric at all", f"{h.text!r} occurs 0 times",
+                subject=("hook", hook_index)))
             continue
         if len(occ) == 1:
             findings.append(GridFinding(
@@ -2209,7 +2212,8 @@ def hook_findings(song, hooks=(), title=None):
                 "hook",
                 f"{h.text!r} at bar {occ[0].bar}, in "
                 f"{occ[0].section!r} ({occ[0].function or 'UNDECLARED'}). A "
-                f"hook is defined by RETURN; one occurrence is a phrase."))
+                f"hook is defined by RETURN; one occurrence is a phrase.",
+                subject=("hook", hook_index)))
             continue
         fns = {o.function for o in occ}
         # UNDECLARED IS NOT A FUNCTION, AND IT USED TO BE COUNTED AS ONE.
@@ -2259,7 +2263,8 @@ def hook_findings(song, hooks=(), title=None):
                     f"sections, at bars {_bars_of(occ)}. A hook that leaks "
                     f"into a verse or a bridge is placed; one that only ever "
                     f"appears where it is expected is a section, not a "
-                    f"hook."))
+                    f"hook.",
+                subject=("hook", hook_index)))
 
     if not title:
         refusals.append(Refusal(
@@ -2271,7 +2276,7 @@ def hook_findings(song, hooks=(), title=None):
         return findings, refusals
 
     tkey = tokens(title)
-    for h in hooks:
+    for hook_index, h in enumerate(hooks):
         hk = h.key.split()
         # UNSATISFIABLE AS DECLARED, so it REFUSES rather than charging the
         # draft (2026-08-23, `MISSING.md` M-86). `TITLE_NOT_IN_HOOK` is a FLAG
@@ -2309,7 +2314,8 @@ def hook_findings(song, hooks=(), title=None):
             "TITLE_NOT_IN_HOOK",
             f"the title is not in the hook",
             f"title {title!r} vs hook {h.text!r}; {where}. A listener who "
-            f"wants to find this song again has the hook and not the title."))
+            f"wants to find this song again has the hook and not the title.",
+                subject=("hook", hook_index)))
     return findings, refusals
 
 
