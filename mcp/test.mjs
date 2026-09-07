@@ -1238,11 +1238,15 @@ check('validation: actionable errors', () => {
       async () => {
         const LT = await import('./lyric_tools.js');
         assert.equal(LT.CONNECTOR_ATTEMPTS, 1);
+        // M-257: the cook is re-asked at once; the chat model is not.
+        assert.equal(LT.KITCHEN_ATTEMPTS, 3);
         assert.equal(LT.CONNECTOR_BACKTRACK, 1);
         assert.equal(LT.CONNECTOR_MAX_ROUNDS, 8);
         const src = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
         assert.ok(
-          /attempts: a\.attempts \?\? CONNECTOR_ATTEMPTS,/.test(src),
+          /attempts: a\.attempts \?\? \(writer === 'kitchen' \? KITCHEN_ATTEMPTS : CONNECTOR_ATTEMPTS\),/.test(
+            src
+          ),
           "the model's own value wins, the constant fills"
         );
         assert.ok(

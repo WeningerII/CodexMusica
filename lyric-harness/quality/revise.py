@@ -420,6 +420,13 @@ class SlotField:
     #: every group that declares no `schema:` relation, which is every
     #: mandate written before relations existed.
     schema_refused: tuple = ()
+    #: HOW MANY OF `offered` CAME THROUGH THE VOWEL-BAND DOOR (M-257): the
+    #: place's declared relation refuses the rhyme band by construction
+    #: (`Reviser.schema_refuses_rhyme_band`), the rhyme-band offer was
+    #: empty, and these words share the call's vowel and answer every
+    #: schema bound here. 0 on every other place. Not a wider `offered`
+    #: in disguise: when this is non-zero, `offered` IS this list.
+    widened: int = 0
 
 
 @dataclass
@@ -630,6 +637,10 @@ class Brief:
     #: non-empty is a NARROWED offer, not a thin lexicon, and the renderers
     #: say which.
     schema_refused: tuple = ()
+    #: The `widened` of the SlotField at `slot` (M-257): non-zero when
+    #: `candidates` came through the vowel-band door because the declared
+    #: relation refuses every rhyme of the call, and the renderers say so.
+    field_widened: int = 0
     #: THE POINTER AN EMPTY OFFER OWES (`MISSING.md` M-246, 2026-09-05): a
     #: printable sentence, non-empty exactly when `candidates` is empty and
     #: `forbidden_modal` is not — every word answering this place's calls
@@ -4310,17 +4321,141 @@ class Reviser:
                 if not c:
                     continue
                 try:
+                    # ONE FRAME FOR THE TWO CARRIER LINES (`MISSING.md`
+                    # M-257, round 24). Without it a `frame="stanza"`
+                    # schema — `analysed rhyme` above all — REFUSED every
+                    # word for want of the capability, and a refusal read
+                    # here as `got is not True` emptied the offer: forty-
+                    # three kitchen runs were told "nothing in the lexicon
+                    # answers" a place the grade judges and accepts. The
+                    # grade's own stream frames the draft from its declared
+                    # sections; the pair route judges at the two declared
+                    # tokens and never quantifies the figure over the frame,
+                    # so the frame here is the capability gate and nothing
+                    # else (M-39(b) is about a figure quantified over a
+                    # frame nobody declared, which this route does not run).
                     st = _RL.build_stream(["the %s one" % c,
                                            "it was %s" % w], lex,
-                                          declaration={"language": "eng"})
+                                          declaration={"language": "eng"},
+                                          stanzas=False)
                     got = _RL.pair_satisfies(sch, st, (0, 1), (1, -1))
                 except Exception:
                     got = True          # unreadable is not a refusal
+                if isinstance(got, _RL.Refusal):
+                    # CANNOT TELL IS NOT A NO (doctrine 20): a capability
+                    # this probe still lacks leaves the word in the offer
+                    # rather than striking it as refused by the relation.
+                    got = True
                 if got is not True:
                     ok = False
                     break
             (kept if ok else refused).append(w)
         return kept, refused
+
+    @staticmethod
+    def schema_refuses_rhyme_band(schema_name):
+        """-> True when the named `schema:` relation cannot be answered by
+        ANY word of the call's rhyme band, by construction (M-257).
+
+        A rhyme band is the words whose nucleus AND coda agree with the
+        call's. A schema whose channel rule DIFFERs on the nucleus or the
+        coda (`analysed rhyme`: nucleus AGREE, coda DIFFER; `pararhyme`:
+        the vowel differs) therefore refuses every member of that band —
+        `schema_screen` is then correct and the offer is empty for a reason
+        that is neither the ban nor the lexicon. Read off the schema
+        object; an unknown or unreadable schema answers False.
+        """
+        try:
+            from quality import relations as _RL
+        except Exception:
+            return False
+        name = schema_name.split(":", 1)[1] if ":" in schema_name \
+            else schema_name
+        sch = getattr(_RL, "REGISTRY", {}).get(name)
+        if sch is None:
+            return False
+        return any(getattr(r, "channel", "") in ("nucleus", "coda")
+                   and getattr(getattr(r, "predicate", None), "name", "")
+                   == "DIFFER"
+                   for r in getattr(sch, "channels", ()) or ())
+
+    def _widen_pool(self, call, profile=None):
+        """-> the VOWEL BAND of `call`: every lexicon word whose anchor
+        syllable carries the call's anchor NUCLEUS, in the lexicon's own
+        frequency order — read off the engine's index, never scored
+        (M-257). Memoised on this instance beside the field.
+
+        NOT THE COMPARATOR'S POOL BELOW THETA. That pool is ordered by the
+        scalar, and the scalar ranks a near vowel with a matching coda
+        (`you`, `to`, `blue` against `sea`) above the exact vowel with a
+        different coda (`seem`, `need` — index ~6,200 of 10,298 on the
+        round-24 probe), so a bounded scan from its head never reaches the
+        words this door exists to offer. The nucleus is the one channel the
+        DIFFER-coda relation agrees on, so it is the band.
+        """
+        key = ("widen", call, self._promote(), profile)
+        hit = self._field_cache.get(key)
+        if hit is not None:
+            return hit
+        try:
+            ancs, _last = self._word_anchors(call)
+            nuc = ancs[0][0]["nucleus"] if ancs and ancs[0] else None
+        except Exception:
+            nuc = None
+        out = []
+        if nuc:
+            call_l = call.lower()
+            rows = []
+            for word, anc, rank in self.engine.index:
+                if not anc or word == call_l:
+                    continue
+                if anc[0].get("nucleus") == nuc:
+                    rows.append((rank, word))
+            rows.sort()
+            out = [w for _, w in rows]
+        self._field_cache[key] = out
+        return out
+
+    def schema_widened_field(self, calls, schema_names, exclude=(),
+                             profile=None):
+        """-> the offer for a place whose declared relation refuses the
+        rhyme band by construction (`schema_refuses_rhyme_band`): the words
+        that share the call's VOWEL BAND, in the comparator's own order,
+        screened by every `schema:` relation bound at the place (M-257).
+
+        WHY A SEPARATE DOOR AND NOT A WIDER `_field`. The field is doctrine
+        9's population — the words that RHYME with the calls, ranked by how
+        predictable they are, with the head forbidden. A word that shares
+        only the vowel is not in that population and no modal ban applies
+        to it: `grade()` files MODAL_RHYME on a rhyming pair, and these do
+        not rhyme. So this offer carries no ban and no `dropped`; it is
+        judged by the relation's own judge and nothing else, which is the
+        one promise an offered word makes (M-204).
+
+        MEASURED, round 24 (2026-09-07): the call `sea` under
+        `schema:analysed rhyme` — 0 offered from the rhyme band on every one
+        of forty-three kitchen runs; from this door `seem`, `dream`, `need`,
+        `seat` and their kin, every one accepted by `pair_satisfies` and by
+        `grade()` on the round's own draft.
+        """
+        if not calls or not schema_names:
+            return []
+        drop = {w.lower() for w in exclude if w}
+        pools = [self._widen_pool(c, profile=profile) for c in calls if c]
+        if not pools or not pools[0]:
+            return []
+        common = set(pools[0])
+        for pl in pools[1:]:
+            common &= set(pl)
+        ranked = [w for w in pools[0] if w in common and w not in drop
+                  and (len(w) >= 2 or w in ("a", "i"))]
+        limit = self._SCREEN_SCAN * self.rdecl.offered
+        offered = ranked[:limit]
+        for name in schema_names:
+            if not offered:
+                break
+            offered, _ = self.schema_screen(offered, list(calls), name)
+        return offered[:self.rdecl.offered]
 
     def joint_field_screened(self, calls, exclude=(), profile=None):
         """-> (offered, forbidden, dropped): `joint_field` with its third
@@ -4703,6 +4838,7 @@ class Reviser:
                     _calls = [c for c in dict.fromkeys(_calls) if c]
                     _cur = self._incumbent(lines, ln, _sl)
                     _schema_ref = []
+                    _widened = 0
                     if _calls:
                         _off, _forb, _drop = self.joint_field_screened(
                             _calls, exclude=(_cur,), profile=profile)
@@ -4747,6 +4883,32 @@ class Reviser:
                                 _forb, _calls, str(_rel))
                             _sref.extend(_ref)
                             _sref.extend(_bref)
+                        # THE VOWEL-BAND DOOR (`MISSING.md` M-257, round
+                        # 24). A relation that DIFFERs on the nucleus or
+                        # the coda refuses the whole rhyme band by
+                        # construction, so an empty offer here is neither
+                        # the ban's nor the lexicon's: the words that answer
+                        # it share the call's vowel and not its rhyme, and
+                        # they were never in `_field`'s population. Asked
+                        # only when the screened offer is empty and such a
+                        # relation binds this place; screened by every
+                        # schema bound here, so a word offered answers them
+                        # all (M-204's promise, kept).
+                        _bound_schemas = []
+                        for _k in ks:
+                            try:
+                                _r2 = m.relation_of(_k) or ""
+                            except Exception:
+                                _r2 = ""
+                            if str(_r2).startswith("schema:"):
+                                _bound_schemas.append(str(_r2))
+                        if not _off and any(
+                                self.schema_refuses_rhyme_band(_r2)
+                                for _r2 in _bound_schemas):
+                            _off = self.schema_widened_field(
+                                _calls, _bound_schemas, exclude=(_cur,),
+                                profile=profile)
+                            _widened = len(_off)
                         # ITS OWN COUNT, NOT `screened_out` (doctrine 79).
                         # Folding these into the ban's drop list was this
                         # repair's own first draft and it made the renderer
@@ -4786,7 +4948,8 @@ class Reviser:
                         joint_conflict=_jc,
                         dropped=tuple(_drop),
                         by_call=tuple(_bycall),
-                        schema_refused=tuple(_schema_ref))
+                        schema_refused=tuple(_schema_ref),
+                        widened=_widened)
                 _pf = b.fields_by_slot.get(_primary)
                 calls = list(_pf.calls) if _pf else []
                 # THE INCUMBENT AT THIS LINE'S OWN BINDING SITE — the
@@ -4819,6 +4982,9 @@ class Reviser:
                     b.partial_by_call = _pf.by_call
                     # M-204 — carried beside the field it narrowed.
                     b.schema_refused = _pf.schema_refused
+                    # M-257 — how many of `candidates` came through the
+                    # vowel-band door, beside the offer they are.
+                    b.field_widened = _pf.widened
                     # M-246 — the pointer an EMPTY offer owes, set beside
                     # the offer it explains and nowhere else: empty offer,
                     # non-empty ban, so the field was asked and the ban is
