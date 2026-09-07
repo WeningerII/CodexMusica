@@ -69,6 +69,17 @@ export const DEFAULT_THINKING = { thinkingLevel: 'low' };
 // without anybody attacking anything.
 export const LIMITS = {
   maxSteps: 14, // tool round-trips per user turn (baseline observed: 6-9)
+  // THE TURN'S WALL CLOCK (M-258, round 25). Fourteen hops of kitchen runs
+  // at the 600 s tool budget is 140 minutes, and the edge in front of the
+  // service answered 524 at 6,000,146 ms — one hundred minutes exactly —
+  // with every call of that turn lost: the driver got no tools, the
+  // record no rows, the spend no receipt. A turn that has been running
+  // this long ENDS after the hop in flight, with its calls kept and
+  // `stopped: 'MAX_TURN_MS'`, so the next turn continues the carried run
+  // (M-237) instead of the whole hour vanishing. Forty minutes plus one
+  // tool budget in flight is fifty, under the edge with room; the driver
+  // reads this number and derives its own deadline from it.
+  maxTurnMs: 2_400_000,
   maxOutputTokens: 2048,
   temperature: 0,
   // A ceiling in DOLLARS on one turn, checked between hops.
@@ -1194,8 +1205,23 @@ export async function runTurn({
   // billed hop before the throw was uncounted. The error now carries the
   // partial `usage` and the calls made, and `chat.js` charges it in its
   // catch before replying.
+  const turnStartedAt = Date.now();
   try {
     for (let step = 0; step < limits.maxSteps; step++) {
+      // THE WALL (M-258): checked before a hop starts, never mid-hop, so a
+      // tool already running finishes and its result is on the record.
+      const turnMs = Date.now() - turnStartedAt;
+      if (step > 0 && limits.maxTurnMs > 0 && turnMs >= limits.maxTurnMs) {
+        stopped = 'MAX_TURN_MS';
+        stoppedDetail = {
+          ms: turnMs,
+          cap: limits.maxTurnMs,
+          hops: step,
+          maxSteps: limits.maxSteps,
+        };
+        if (onEvent) onEvent({ type: 'stopped', reason: stopped, ms: turnMs });
+        break;
+      }
       body.contents = contents;
       // Rebuilt per hop from the LIVE carried state (M-158): `lyr` moves when
       // a harvest lands mid-turn, and the reminder must move with it. The

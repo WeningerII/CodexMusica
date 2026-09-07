@@ -221,7 +221,13 @@ const TOOL_TIMEOUT_MS = readConst(
   "render.yaml's pinned CHAT_TOOL_TIMEOUT_MS"
 );
 const MAX_STEPS = readConst('mcp/gemini_agent.js', /maxSteps:\s*(\d+)/, 'LIMITS.maxSteps');
-const TURN_DEADLINE_MS = MAX_STEPS * TOOL_TIMEOUT_MS;
+// M-258 (round 25): the server ends a turn on its own wall clock
+// (`LIMITS.maxTurnMs`) after the hop in flight, so the client's deadline is
+// that wall plus ONE tool budget, not maxSteps tool budgets — the old
+// product was 140 minutes and the edge in front of the service cut the
+// connection at 100 with the whole turn lost.
+const MAX_TURN_MS = readConst('mcp/gemini_agent.js', /maxTurnMs:\s*([\d_]+)/, 'LIMITS.maxTurnMs');
+const TURN_DEADLINE_MS = MAX_TURN_MS + TOOL_TIMEOUT_MS;
 
 // M-160: a /chat turn is computed in SILENCE — no bytes move while the server
 // grades — and round 5 measured the network path killing exactly that
@@ -297,7 +303,7 @@ function post(body) {
     const deadline = setTimeout(() => {
       req.destroy(
         new Error(
-          `no response inside the derived turn deadline (${TURN_DEADLINE_MS} ms = maxSteps ${MAX_STEPS} x tool timeout ${TOOL_TIMEOUT_MS} ms)`
+          `no response inside the derived turn deadline (${TURN_DEADLINE_MS} ms = maxTurnMs ${MAX_TURN_MS} + tool timeout ${TOOL_TIMEOUT_MS} ms)`
         )
       );
     }, TURN_DEADLINE_MS);
@@ -317,7 +323,7 @@ function post(body) {
 const { mkdirSync, appendFileSync, writeFileSync } = await import('node:fs');
 mkdirSync(OUT, { recursive: true });
 console.log(
-  `turn deadline: ${TURN_DEADLINE_MS} ms (maxSteps ${MAX_STEPS} x CHAT_TOOL_TIMEOUT_MS ${TOOL_TIMEOUT_MS} ms, both read from source)`
+  `turn deadline: ${TURN_DEADLINE_MS} ms (maxTurnMs ${MAX_TURN_MS} + CHAT_TOOL_TIMEOUT_MS ${TOOL_TIMEOUT_MS} ms, both read from source; maxSteps ${MAX_STEPS})`
 );
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

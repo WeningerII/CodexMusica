@@ -2068,6 +2068,61 @@ check('validation: actionable errors', () => {
       globalThis.fetch = realFetch;
     }
   })();
+  // ── M-258: THE TURN'S WALL CLOCK ──────────────────────────────────────
+  // Round 25's turn 1 ran fourteen hops of kitchen runs toward a 140-minute
+  // deadline and the edge cut it at 100 with every call lost. The wall is
+  // checked BEFORE a hop starts: the hop in flight finishes, its call is on
+  // the record, and the turn ends with `stopped: 'MAX_TURN_MS'` and the
+  // numbers. A stub that answers a function call on every hop, under a
+  // one-millisecond wall, makes exactly one hop and stops on the second.
+  await (async () => {
+    const { runTurn: _runTurn, LIMITS: _LIMITS } = await import('./gemini_agent.js');
+    const realFetch = globalThis.fetch;
+    let hops = 0;
+    globalThis.fetch = async () => {
+      hops += 1;
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({
+          candidates: [
+            { content: { parts: [{ functionCall: { name: 'lyric_types', args: { a: 'x' } } }] } },
+          ],
+          usageMetadata: { promptTokenCount: 10, candidatesTokenCount: 5, thoughtsTokenCount: 0 },
+        }),
+      };
+    };
+    let out;
+    try {
+      out = await _runTurn({
+        apiKey: 'k',
+        surface: {
+          instructions: '',
+          declarations: [],
+          workspaceTools: new Set(),
+          stateTools: new Set(),
+        },
+        callTool: async () => {
+          await new Promise((r) => setTimeout(r, 5));
+          return { content: [{ type: 'text', text: 'ok' }] };
+        },
+        userText: 'hi',
+        limits: { ..._LIMITS, maxTurnUsd: 0, maxTurnMs: 1 },
+        retries: 0,
+      });
+    } finally {
+      globalThis.fetch = realFetch;
+    }
+    check('a turn past its wall clock ends after the hop in flight, calls kept (M-258)', () => {
+      assert.equal(out.stopped, 'MAX_TURN_MS');
+      assert.equal(hops, 1, 'the second hop never started');
+      assert.equal(out.calls.length, 1, "the first hop's call is on the record");
+      assert.equal(out.stoppedDetail.hops, 1);
+      assert.equal(out.stoppedDetail.cap, 1);
+      assert.ok(out.stoppedDetail.ms >= 1, 'with the elapsed time');
+      assert.equal(_LIMITS.maxTurnMs, 2_400_000, 'the deployed wall is forty minutes');
+    });
+  })();
   check(
     'chat.js retries a transient upstream three times and puts the seed on every row (M-232)',
     () => {
@@ -3646,28 +3701,45 @@ check('validation: actionable errors', () => {
   // server's own declared budget, and a transport failure is a RECORDED
   // outcome, never a crash.
   const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
-  check('the battery client derives its deadline instead of inheriting a fetch default', () => {
-    // Comments are stripped first: the file's own account of the defect says
-    // "fetch()", and a pin defeated by its documentation is the
-    // test_declared_inputs lesson repeated.
-    const code = bat.replace(/^\s*\/\/.*$/gm, '');
-    assert.ok(
-      !/\bfetch\s*\(/.test(code),
-      'no call to global fetch — its undeclared 300s headers default is the defect'
-    );
-    assert.ok(
-      /TURN_DEADLINE_MS = MAX_STEPS \* TOOL_TIMEOUT_MS/.test(code),
-      'the deadline is the product of the two server-declared factors'
-    );
-    assert.ok(
-      /CHAT_TOOL_TIMEOUT_MS/.test(code) && /maxSteps/.test(code),
-      'and both factors are read from where they are declared, never respelled'
-    );
-    assert.ok(
-      /render\.yaml/.test(code),
-      'the per-call factor comes from render.yaml — the deploy pin, not a repo default (M-165)'
-    );
-  });
+  check(
+    'the battery client derives its deadline instead of inheriting a fetch default',
+    async () => {
+      // Comments are stripped first: the file's own account of the defect says
+      // "fetch()", and a pin defeated by its documentation is the
+      // test_declared_inputs lesson repeated.
+      const code = bat.replace(/^\s*\/\/.*$/gm, '');
+      assert.ok(
+        !/\bfetch\s*\(/.test(code),
+        'no call to global fetch — its undeclared 300s headers default is the defect'
+      );
+      // M-258: the wall plus ONE tool budget, under the edge's hundred minutes.
+      assert.ok(
+        /TURN_DEADLINE_MS = MAX_TURN_MS \+ TOOL_TIMEOUT_MS/.test(code),
+        "the deadline is the server's turn wall plus one tool budget in flight"
+      );
+      assert.ok(
+        /CHAT_TOOL_TIMEOUT_MS/.test(code) && /maxTurnMs/.test(code),
+        'and both factors are read from where they are declared, never respelled'
+      );
+      {
+        const { LIMITS: L } = await import('./gemini_agent.js');
+        const toolMs = Number(
+          /key: CHAT_TOOL_TIMEOUT_MS\s+value: '(\d+)'/.exec(
+            readFileSync(new URL('../render.yaml', import.meta.url), 'utf8')
+          )[1]
+        );
+        assert.ok(
+          L.maxTurnMs + toolMs < 6_000_000,
+          'wall + one budget sits under the 524 at 100 min'
+        );
+        assert.ok(L.maxTurnMs >= 4 * toolMs, 'and the wall still holds several full kitchen runs');
+      }
+      assert.ok(
+        /render\.yaml/.test(code),
+        'the per-call factor comes from render.yaml — the deploy pin, not a repo default (M-165)'
+      );
+    }
+  );
   check('the battery socket keeps the NAT awake while the server computes', () => {
     // M-160: round 5's turn 0 was RESET at 272.7s where round 3's answered at
     // 214s — the bracket contains the 240s idle-flow timeout of the runners'
