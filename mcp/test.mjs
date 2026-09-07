@@ -2037,15 +2037,18 @@ await check('validation: actionable errors', () => {
   })();
   // ── M-258: THE TURN'S WALL CLOCK ──────────────────────────────────────
   // Round 25's turn 1 ran fourteen hops of kitchen runs toward a 140-minute
-  // deadline and the edge cut it at 100 with every call lost. The wall is
-  // checked BEFORE a hop starts: the hop in flight finishes, its call is on
-  // the record, and the turn ends with `stopped: 'MAX_TURN_MS'` and the
-  // numbers. A stub that answers a function call on every hop, under a
-  // one-millisecond wall, makes exactly one hop and stops on the second.
+  // deadline and the edge cut it at 100 with every call lost. The wall now
+  // covers every phase. This case advances the injected clock after a tool
+  // finishes: its completed result remains on record, and no next hop starts.
+  // A one-millisecond real timer raced initial admission on a busy CI runner.
+  // Real timer/cancellation behavior is covered by test_turn_lifecycle.mjs.
   await (async () => {
     const { runTurn: _runTurn, LIMITS: _LIMITS } = await import('./gemini_agent.js');
     const realFetch = globalThis.fetch;
     let hops = 0;
+    let tools = 0;
+    let now = 0;
+    const wall = 60_000;
     globalThis.fetch = async () => {
       hops += 1;
       return {
@@ -2070,11 +2073,13 @@ await check('validation: actionable errors', () => {
           stateTools: new Set(),
         },
         callTool: async () => {
-          await new Promise((r) => setTimeout(r, 5));
+          tools += 1;
+          now = wall + 1;
           return { content: [{ type: 'text', text: 'ok' }] };
         },
         userText: 'hi',
-        limits: { ..._LIMITS, maxTurnUsd: 0, maxTurnMs: 1 },
+        clock: () => now,
+        limits: { ..._LIMITS, maxTurnUsd: 0, maxTurnMs: wall },
         retries: 0,
       });
     } finally {
@@ -2085,10 +2090,21 @@ await check('validation: actionable errors', () => {
       () => {
         assert.equal(out.stopped, 'MAX_TURN_MS');
         assert.equal(hops, 1, 'the second hop never started');
+        assert.equal(tools, 1, 'the admitted first tool completed');
         assert.equal(out.calls.length, 1, "the first hop's call is on the record");
+        assert.ok(
+          out.history.some((row) =>
+            row.parts?.some(
+              (part) =>
+                part.functionResponse?.name === 'lyric_types' &&
+                part.functionResponse?.response?.text === 'ok'
+            )
+          ),
+          'the completed tool result survives the elapsed wall'
+        );
         assert.equal(out.stoppedDetail.hops, 1);
-        assert.equal(out.stoppedDetail.cap, 1);
-        assert.ok(out.stoppedDetail.ms >= 1, 'with the elapsed time');
+        assert.equal(out.stoppedDetail.cap, wall);
+        assert.equal(out.stoppedDetail.ms, wall + 1, 'with the controlled elapsed time');
         assert.equal(_LIMITS.maxTurnMs, 2_400_000, 'the deployed wall is forty minutes');
       }
     );
