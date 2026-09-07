@@ -443,6 +443,14 @@ function loopFields(v) {
     proposer_empty: typeof v?.proposer_empty === 'number' ? v.proposer_empty : null,
     proposer_retries: typeof v?.proposer_retries === 'number' ? v.proposer_retries : null,
     proposer_wait_s: typeof v?.proposer_wait_s === 'number' ? v.proposer_wait_s : null,
+    // THE FINDINGS STANDING AT THE STOP, on the record (round 24's smoke run,
+    // 2026-09-07): six kitchen runs parked on the same two chorus lines and
+    // the rows said "UNRESOLVED: L5, L6" and never WHY — the verdict's
+    // `standing` (M-232) reached the model and no row. The report's two
+    // counts ride with it (never summed, M-186).
+    standing: Array.isArray(v?.standing) ? v.standing.slice(0, 24) : null,
+    flags: typeof v?.flags === 'number' ? v.flags : null,
+    whole_flags: typeof v?.whole_flags === 'number' ? v.whole_flags : null,
   };
 }
 

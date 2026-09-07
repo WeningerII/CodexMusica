@@ -83,6 +83,15 @@ services:
       # fails in CI rather than at deploy.
       - key: GEMINI_MODEL
         value: gemini-3.1-flash-lite
+      # THE COOK (M-254 kitchen), declared apart from the chat's model. Round
+      # 24's smoke run (2026-09-07) let the kitchen inherit GEMINI_MODEL and
+      # 3.1 Flash-Lite, asked for one rhyming line at a time under a meter and
+      # a named relation, parked six runs on the same two chorus lines. The
+      # chat bar stays on the cheap model; the writer is the newer Lite the
+      # pricing table already knows. mcp/test.mjs asserts the value here is
+      # one PRICING can price, so the kitchen's bill can be costed later.
+      - key: LYRIC_PROPOSER_MODEL
+        value: gemini-3.5-flash-lite
       # Longest message /chat will accept, in characters. Declared rather than
       # defaulted because the page's `maxlength` is the same bound written twice
       # — mcp/test.mjs asserts the two agree, and that assertion reads the repo,

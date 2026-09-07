@@ -660,6 +660,11 @@ for (const [songNo, briefIdx] of indices.entries()) {
           unknown: cycle.unknown,
           top_reasons: topReasons(cycle, 8),
           draft_fp: c.draft_fp ?? null,
+          // WHY it stopped where it did (round 24's smoke run, 2026-09-07):
+          // six kitchen runs parked on L5 and L6 and no row could say what
+          // those lines still carried. The findings standing at the stop,
+          // in the report's own spelling, from the verdict (M-232).
+          standing: Array.isArray(c.standing) ? c.standing : null,
         };
         cycles.push(rec);
         appendFileSync(file, JSON.stringify({ turn: t, cycle: rec }) + '\n');
@@ -667,7 +672,8 @@ for (const [songNo, briefIdx] of indices.entries()) {
           `::notice title=battery cycle::song ${songNo} cycle ${cycleNo} (turns ${rec.turns[0]}-${t}): ` +
             `stop=${rec.stop} rounds=${rec.rounds} open=${rec.open} whole=${(rec.whole_flags || []).join(',') || 'none'} ` +
             `answers=${rec.answers} accepted=${rec.accepted} rejected=${rec.rejected} unknown=${rec.unknown}` +
-            (rec.top_reasons ? ` reasons: ${esc(rec.top_reasons, 700)}` : '')
+            (rec.top_reasons ? ` reasons: ${esc(rec.top_reasons, 700)}` : '') +
+            (rec.standing ? ` standing: ${esc(rec.standing.join(' | '), 900)}` : '')
         );
         cycle = { accepted: 0, rejected: 0, unknown: 0, reasons: new Map(), firstTurn: t + 1 };
       }
@@ -687,6 +693,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
           unresolved: c.loop_unresolved ?? null,
           whole_flags: c.loop_whole_flag_codes ?? null,
           answers: c.answers_on_record ?? null,
+          standing: Array.isArray(c.standing) ? c.standing : null,
         });
       }
     }
