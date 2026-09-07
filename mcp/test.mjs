@@ -9,6 +9,13 @@ import { posix } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as E from './engine.js';
 import { TOOL_BUDGET_MS } from './budget.js';
+// THE NETWORK'S OWN fetch, captured before any check can stub `globalThis.fetch`
+// (M-255): the checks run concurrently and a dozen of them script the Gemini
+// endpoint by replacing the global for the length of one awaited turn. The
+// one check that talks to a REAL local server (the unpriced-model refusal)
+// went red once in two runs by landing inside such a window — its status
+// fetch answered with a scripted Gemini body and `enabled` was undefined.
+const NET_FETCH = globalThis.fetch;
 
 // THE SURFACE THE INTERVIEW TESTS BELOW DRIVE (M-254). The chat surface
 // COOKS by default since 2026-09-06: every lyric_revise call it makes is
@@ -1759,7 +1766,6 @@ check('validation: actionable errors', () => {
         runTurn: _runTurn,
         LIMITS: _LIMITS,
         declarationsFor,
-        RATE_LIMIT_RETRY,
         RETRY_TRANSIENT,
       } = await import('./gemini_agent.js');
       const { _verdictInternals } = await import('./lyric_tools.js');
@@ -1897,8 +1903,9 @@ check('validation: actionable errors', () => {
       assert.equal(seen[0].args.answer, undefined, 'answer stripped');
       assert.equal(seen[0].args.answers, undefined, 'answers stripped');
       assert.deepEqual(seen[0].args.draft, ['a', 'b'], 'the draft still goes through');
-      // THE KITCHEN'S BILL, and its pacing restating the chat driver's
-      const { extractProposerRecord, WRITERS, KITCHEN_PROPOSE } = _verdictInternals;
+      // THE KITCHEN'S BILL, and its 429 policy inside the tool budget (M-255)
+      const { extractProposerRecord, WRITERS, KITCHEN_PROPOSE, KITCHEN_WAIT_SHARE, harnessEnv } =
+        _verdictInternals;
       assert.deepEqual(WRITERS, ['interview', 'kitchen']);
       assert.equal(KITCHEN_PROPOSE, 'call:gemini_proposer:make');
       assert.deepEqual(extractProposerRecord('no proposer lines here'), { proposer_calls: 0 });
@@ -1915,9 +1922,22 @@ check('validation: actionable errors', () => {
         proposer_empty: 1,
         proposer_retries: 1,
         proposer_ms_max: 1500,
+        proposer_wait_s: 0,
       });
+      // M-255: the seconds the cook slept on 429s ride the record line as
+      // `wait=`; a line without it (an older image) reads as 0, not absent.
+      assert.equal(
+        extractProposerRecord(
+          out +
+            '  PROPOSER CALL 3: ok 700 ms in=900 out=9 | kitchen model=m calls=3 ms=3100 in=2520 out=19 empty=1 retries=4 wait=32\n'
+        ).proposer_wait_s,
+        32
+      );
       // DOCTRINE 1 ACROSS TWO LANGUAGES: the Python proposer restates
-      // RATE_LIMIT_RETRY / RETRY_TRANSIENT; hold them equal by reading it.
+      // RETRY_TRANSIENT for the transient statuses, and its 429 policy is the
+      // kitchen's own (M-255): a per-run wait budget the connector hands it
+      // as a share of the one tool budget, and a cap on the Retry-After hint
+      // it will honour. Hold every coordinate equal by reading it.
       const py = readFileSync(new URL('./gemini_proposer.py', import.meta.url), 'utf8');
       const num = (name) => Number(new RegExp(`^\\s*${name} = ([\\d.]+)`, 'm').exec(py)?.[1]);
       const tup = (name) =>
@@ -1925,12 +1945,28 @@ check('validation: actionable errors', () => {
           .split(',')
           .map((x) => Number(x.trim()))
           .filter((x) => !Number.isNaN(x));
-      assert.equal(num('RATE_LIMIT_RETRIES'), RATE_LIMIT_RETRY.retries);
-      assert.deepEqual(
-        tup('RATE_LIMIT_BACKOFF_S').map((x) => x * 1000),
-        RATE_LIMIT_RETRY.backoffMs
+      const budgetS = Math.floor((TOOL_BUDGET_MS / 1000) * KITCHEN_WAIT_SHARE);
+      assert.equal(KITCHEN_WAIT_SHARE, 0.4, 'the kitchen may sleep 40% of the tool budget');
+      assert.equal(
+        harnessEnv().LYRIC_PROPOSER_WAIT_BUDGET_S,
+        String(budgetS),
+        'the connector hands the cook its wait budget on every spawn'
       );
-      assert.equal(num('RATE_LIMIT_MAX_WAIT_S') * 1000, RATE_LIMIT_RETRY.maxTotalWaitMs);
+      assert.equal(
+        num('WAIT_BUDGET_DEFAULT_S'),
+        budgetS,
+        "the proposer's own default restates the share (a CLI run without the connector)"
+      );
+      assert.equal(num('HINT_CAP_S'), 120, 'a Retry-After past two minutes is a stopping place');
+      assert.ok(num('HINT_CAP_S') <= budgetS, 'the hint cap fits inside the budget');
+      assert.ok(
+        tup('RATE_BACKOFF_S').every((x, i, a) => i === 0 || x > a[i - 1]),
+        'the hintless backoff ladder rises'
+      );
+      assert.ok(
+        tup('RATE_BACKOFF_S').reduce((a, b) => a + b, 0) <= budgetS,
+        'one full ladder fits inside the budget'
+      );
       assert.deepEqual(tup('TRANSIENT_STATUSES'), RETRY_TRANSIENT);
       assert.equal(num('TRANSIENT_RETRIES'), 3, "the chat driver's `retries: 3` (chat.js)");
       // THE PROPOSER ITSELF, against a stub Gemini: its own Python suite,
@@ -2531,25 +2567,39 @@ check('validation: actionable errors', () => {
       }
     );
   })();
-  check('chat.js tools[] carries the seven M-216 fields loopFields stamps (M-219)', () => {
-    // Round 11's rows had none of them: loopFields put them on every call and
-    // chat.js's hand-spelled row projection never learned them.
-    const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
-    for (const f of [
-      'path',
-      'ms',
-      'memo_state',
-      'memo_hit',
-      'memo_asked',
-      'stale_answers',
-      'plan_lines',
-    ]) {
-      assert.ok(
-        new RegExp(`^\\s+${f}: c\\.${f} \\?\\? null,`, 'm').test(chat),
-        `tools[] carries ${f}`
-      );
+  check(
+    'chat.js tools[] carries the M-216 fields and the kitchen bill loopFields stamps (M-219, M-255)',
+    () => {
+      // Round 11's rows had none of them: loopFields put them on every call and
+      // chat.js's hand-spelled row projection never learned them.
+      const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+      for (const f of [
+        'path',
+        'ms',
+        'memo_state',
+        'memo_hit',
+        'memo_asked',
+        'stale_answers',
+        'plan_lines',
+        // M-254/M-255: the kitchen's bill rides the same hand-spelled map.
+        'writer',
+        'proposer_model',
+        'proposer_calls',
+        'proposer_ms',
+        'proposer_ms_max',
+        'proposer_tokens_in',
+        'proposer_tokens_out',
+        'proposer_empty',
+        'proposer_retries',
+        'proposer_wait_s',
+      ]) {
+        assert.ok(
+          new RegExp(`^\\s+${f}: c\\.${f} \\?\\? null,`, 'm').test(chat),
+          `tools[] carries ${f}`
+        );
+      }
     }
-  });
+  );
   // ── M-228: THE IN-TURN STUB ─────────────────────────────────────────────
   // Inside one turn every fold's brief rode every later hop (round 12: 328 KB
   // after one turn). Once a later result of the same lyric tool exists, the
@@ -4361,6 +4411,116 @@ check('validation: actionable errors', () => {
       }
     }
   );
+  // M-255: THE KITCHEN'S SPENT 429 IS A STOPPING PLACE, driven against a fake
+  // connector. Under the kitchen the rate limit hits the cook inside
+  // lyric_revise, which refuses at exit 2 once its wait budget is spent. The
+  // driver must read that refusal as M-249's `rate_limited`, bank one row, and
+  // stop the round — never send a CONTINUE at the same wall.
+  check(
+    'a kitchen refusal on a spent 429 is the rate_limited stopping place, and the round stops on that turn',
+    async () => {
+      const { spawn } = await import('node:child_process');
+      const { mkdtempSync, rmSync } = await import('node:fs');
+      const { tmpdir } = await import('node:os');
+      const { join } = await import('node:path');
+      const { fileURLToPath } = await import('node:url');
+      const http = await import('node:http');
+      let n = 0;
+      const refusal =
+        "the declared proposer could not answer: Gemini 429 and the run's wait budget is spent: " +
+        '240s waited of 240s (LYRIC_PROPOSER_WAIT_BUDGET_S), the next wait would be 60s';
+      const srv = http.createServer((req, res) => {
+        let body = '';
+        req.on('data', (c) => (body += c));
+        req.on('end', () => {
+          n++;
+          res.writeHead(200, { 'content-type': 'application/json' });
+          res.end(
+            JSON.stringify({
+              reply: 'the kitchen could not finish',
+              tools: [
+                { name: 'lyric_plan', exit_code: 0, path: 'warm', answers_on_record: null },
+                {
+                  name: 'lyric_revise',
+                  exit_code: 2,
+                  path: 'warm',
+                  writer: 'kitchen',
+                  refusal,
+                  proposer_calls: 9,
+                  proposer_retries: 6,
+                  proposer_wait_s: 240,
+                },
+              ],
+              stopped: null,
+              stopped_detail: null,
+              history: [{ role: 'user', parts: [{ text: `h${n}` }] }],
+              workspace: null,
+              sig: `sig${n}`,
+            })
+          );
+        });
+      });
+      await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+      const port = srv.address().port;
+      const out = mkdtempSync(join(tmpdir(), 'battery-m255-'));
+      try {
+        const r = await runDriver(spawn, [
+          fileURLToPath(new URL('../scripts/flash_battery.mjs', import.meta.url)),
+          `--out=${out}`,
+          `--base=http://127.0.0.1:${port}`,
+          '--songs=1',
+          '--turns=4',
+          '--pace=0',
+        ]);
+        assert.equal(r.status, 1, `no song, so exit 1: ${r.stderr}\n${r.stdout}`);
+        assert.equal(
+          n,
+          1,
+          'the round stopped on the turn that hit the wall — no CONTINUE was sent'
+        );
+        const summary = JSON.parse(readFileSync(join(out, 'summary.json'), 'utf8'));
+        assert.equal(summary.songs[0].exit_reason, 'rate_limited');
+        const flag = summary.songs[0].flags.find((f) => f.flag === 'rate_limited');
+        assert.ok(flag, 'the flag is on the record');
+        assert.equal(flag.kitchen, true, 'and says the kitchen hit it, not the chat turn');
+        assert.equal(flag.proposer_wait_s, 240);
+        assert.equal(flag.proposer_retries, 6);
+        assert.equal(flag.refusal, refusal);
+        const rows = readFileSync(join(out, 'song0.jsonl'), 'utf8')
+          .trim()
+          .split('\n')
+          .map((l) => JSON.parse(l));
+        assert.ok(
+          rows.some((row) => row.rate_limited === true && row.kitchen === true),
+          'the stop row is banked beside the turn row'
+        );
+        assert.ok(
+          /the kitchen's rate limit is SPENT/.test(r.stdout),
+          'the annotation names the kitchen'
+        );
+        // The texts the driver speaks are the kitchen's (M-255): no question
+        // to answer, one call with the seed and the draft, whole song back
+        // as draft_text after a park.
+        const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
+        const text = (name) => /const NAME =([\s\S]*?);/.source.replace('NAME', name);
+        const cont = new RegExp(text('CONTINUE')).exec(bat)?.[1] || '';
+        const parked = new RegExp(text('PARKED_CONTINUE')).exec(bat)?.[1] || '';
+        assert.ok(cont && parked, 'both texts are declared constants');
+        assert.ok(!/answer every question/.test(cont), 'CONTINUE no longer asks for answers');
+        assert.ok(
+          /same seed and the whole/.test(cont),
+          'CONTINUE asks for one call with seed and draft'
+        );
+        assert.ok(
+          /as draft_text on the same seed/.test(parked),
+          'PARKED_CONTINUE hands the whole song back'
+        );
+      } finally {
+        srv.close();
+        rmSync(out, { recursive: true, force: true });
+      }
+    }
+  );
   check(
     'a partial turn (calls kept, engine died) is not fail-fast, and the round goes on to finish',
     async () => {
@@ -5224,12 +5384,12 @@ try {
   const server = app.listen(0);
   await new Promise((r) => server.once('listening', r));
   const base = `http://127.0.0.1:${server.address().port}`;
-  const posted = await fetch(`${base}/chat`, {
+  const posted = await NET_FETCH(`${base}/chat`, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify({ message: 'hello' }),
   });
-  const status = await (await fetch(`${base}/chat/status`)).json();
+  const status = await (await NET_FETCH(`${base}/chat/status`)).json();
   server.close();
 
   assert.equal(posted.status, 503, `expected 503 for an unpriced model, got ${posted.status}`);

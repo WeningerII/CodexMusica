@@ -68,7 +68,7 @@ def ok_body(text, t_in=100, t_out=8, finish="STOP"):
 
 def env(**kw):
     for k in ("GEMINI_API_KEY", "LYRIC_PROPOSER_MODEL", "GEMINI_MODEL",
-              "LYRIC_PROPOSER_API_BASE"):
+              "LYRIC_PROPOSER_API_BASE", "LYRIC_PROPOSER_WAIT_BUDGET_S"):
         os.environ.pop(k, None)
     os.environ.update({k: v for k, v in kw.items() if v is not None})
 
@@ -106,24 +106,59 @@ def main():
           and m2.group(12) == "1", "\n".join(lines))
     srv.shutdown()
 
-    print("\n2. a 429 with the server's hint is waited out ONCE within the budget; past it, refused")
-    sc = Script([(429, {"Retry-After": "2"}, {"error": {"message": "slow down"}}),
-                 (200, {}, ok_body("after the wait"))])
+    print("\n2. a 429 is waited out on the hint or a doubling backoff, inside the run's wait budget (M-255)")
+    slept = []
+    GP.time.sleep = lambda s: slept.append(s)
+    sc = Script([(429, {"Retry-After": "20"}, {"error": {"message": "slow down"}}),
+                 (429, {}, {"error": {"message": "slow down"}}),
+                 (429, {}, {"error": {"message": "slow down"}}),
+                 (200, {}, ok_body("after the waits"))])
     srv = serve(sc)
     env(GEMINI_API_KEY="k", GEMINI_MODEL="from-gemini-model",
-        LYRIC_PROPOSER_API_BASE=f"http://127.0.0.1:{srv.server_port}")
+        LYRIC_PROPOSER_API_BASE=f"http://127.0.0.1:{srv.server_port}",
+        LYRIC_PROPOSER_WAIT_BUDGET_S="100")
     call = GP.make()
-    with redirect_stdout(io.StringIO()):
+    buf = io.StringIO()
+    with redirect_stdout(buf):
         got = call("x")
-    check("the hinted 429 is retried and the answer arrives; the retry is counted; "
-          "GEMINI_MODEL is the fallback model name",
-          got == "after the wait" and call.retries == 1 and len(sc.seen) == 2
-          and "/models/from-gemini-model:generateContent" in sc.seen[0]["_path"], repr(got))
+    check("a hinted 429 waits the HINT (20 s, past the old eight-second ceiling), "
+          "hintless 429s back off along the ladder by retry count (4 s, 8 s), and "
+          "the answer arrives",
+          got == "after the waits" and slept == [20.0, 4.0, 8.0] and call.retries == 3
+          and len(sc.seen) == 4, f"slept {slept} retries {call.retries}")
+    check("...the wait is on the record line as a running total, and GEMINI_MODEL is "
+          "the fallback model name",
+          "wait=32" in buf.getvalue() and call.waited_s == 32.0
+          and "/models/from-gemini-model:generateContent" in sc.seen[0]["_path"],
+          buf.getvalue().strip()[-120:])
     srv.shutdown()
-    sc = Script([(429, {"Retry-After": "60"}, {"error": {"message": "slow down"}})])
+    slept.clear()
+    sc = Script([(429, {"Retry-After": "30"}, {}), (200, {}, ok_body("one")),
+                 (429, {"Retry-After": "30"}, {}), (200, {}, ok_body("two"))])
     srv = serve(sc)
     env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m",
-        LYRIC_PROPOSER_API_BASE=f"http://127.0.0.1:{srv.server_port}")
+        LYRIC_PROPOSER_API_BASE=f"http://127.0.0.1:{srv.server_port}",
+        LYRIC_PROPOSER_WAIT_BUDGET_S="45")
+    call = GP.make()
+    with redirect_stdout(io.StringIO()):
+        first = call("a")
+    try:
+        with redirect_stdout(io.StringIO()):
+            call("b")
+        raised = None
+    except GP.ProposerUnavailable as e:
+        raised = str(e)
+    check("the budget is PER RUN, cumulative: a 30 s hint fits a 45 s budget once, and the "
+          "second is refused naming the budget, the spend and the next wait",
+          first == "one" and raised is not None and "wait budget is spent" in raised
+          and "30s waited of 45s" in raised and "would be 30s" in raised
+          and slept == [30.0], raised)
+    srv.shutdown()
+    sc = Script([(429, {"Retry-After": "600"}, {"error": {"message": "quota"}})])
+    srv = serve(sc)
+    env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m",
+        LYRIC_PROPOSER_API_BASE=f"http://127.0.0.1:{srv.server_port}",
+        LYRIC_PROPOSER_WAIT_BUDGET_S="1000")
     call = GP.make()
     try:
         with redirect_stdout(io.StringIO()):
@@ -131,9 +166,12 @@ def main():
         raised = None
     except GP.ProposerUnavailable as e:
         raised = str(e)
-    check("a hint past the eight-second budget is refused at once as ProposerUnavailable, naming 429",
-          raised is not None and "429" in raised and len(sc.seen) == 1, raised)
+    check("a hint past the hint cap is refused AT ONCE even inside a large budget — "
+          "a far-off quota reset is a stopping place (M-249), not a wait",
+          raised is not None and "past the" in raised and "hint cap" in raised
+          and "stopping place" in raised and len(sc.seen) == 1, raised)
     srv.shutdown()
+    GP.time.sleep = lambda s: None
 
     print("\n3. transport exhausted, and no key at all")
     sc = Script([(503, {}, {"error": {"message": "high demand"}})] * 4)

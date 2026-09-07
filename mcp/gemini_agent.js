@@ -429,6 +429,20 @@ function loopFields(v) {
     run_state_carried: v?.run_state_carried === true,
     run_draft_carried: v?.run_draft_carried === true,
     run_decl_carried: v?.run_decl_carried === true,
+    // THE KITCHEN'S BILL (M-254/M-255): who wrote the lines, and what the
+    // server's own writer spent doing it — calls, wall, tokens, empties,
+    // retries, seconds waited on 429s. A battery row that cannot say what a
+    // kitchen run cost is the row round 24 would be read wrong from.
+    writer: typeof v?.writer === 'string' ? v.writer : null,
+    proposer_model: typeof v?.proposer_model === 'string' ? v.proposer_model : null,
+    proposer_calls: typeof v?.proposer_calls === 'number' ? v.proposer_calls : null,
+    proposer_ms: typeof v?.proposer_ms === 'number' ? v.proposer_ms : null,
+    proposer_ms_max: typeof v?.proposer_ms_max === 'number' ? v.proposer_ms_max : null,
+    proposer_tokens_in: typeof v?.proposer_tokens_in === 'number' ? v.proposer_tokens_in : null,
+    proposer_tokens_out: typeof v?.proposer_tokens_out === 'number' ? v.proposer_tokens_out : null,
+    proposer_empty: typeof v?.proposer_empty === 'number' ? v.proposer_empty : null,
+    proposer_retries: typeof v?.proposer_retries === 'number' ? v.proposer_retries : null,
+    proposer_wait_s: typeof v?.proposer_wait_s === 'number' ? v.proposer_wait_s : null,
   };
 }
 

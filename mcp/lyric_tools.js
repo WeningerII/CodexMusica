@@ -219,12 +219,21 @@ const WORKER_PATH = path.join(path.dirname(fileURLToPath(import.meta.url)), 'wor
 // it is declared (GEMINI_MODEL or DEFAULT_MODEL), so the writer the kitchen
 // asks is the model the service says it runs.
 const MCP_DIR = path.dirname(fileURLToPath(import.meta.url));
+// THE KITCHEN'S WAIT BUDGET IS A DECLARED SHARE OF THE ONE TOOL BUDGET
+// (M-255). A kitchen run may spend this share waiting out 429s and the rest
+// grading and writing; both halves come off the same 600 s the verb is
+// killed at, so the share is stated here and derived nowhere else. 0.4 is a
+// declared choice: round 23's seven hints summed to ~300 s, which no share
+// of a ten-minute budget clears — that case is the proposer's hint cap and
+// a stopping place — while a two-or-three-hint stall (13-60 s each) fits.
+const KITCHEN_WAIT_SHARE = 0.4;
 function harnessEnv() {
   const prior = process.env.PYTHONPATH;
   return {
     ...process.env,
     PYTHONDONTWRITEBYTECODE: '1',
     PYTHONPATH: prior ? `${MCP_DIR}${path.delimiter}${prior}` : MCP_DIR,
+    LYRIC_PROPOSER_WAIT_BUDGET_S: String(Math.floor((TOOL_BUDGET_MS / 1000) * KITCHEN_WAIT_SHARE)),
   };
 }
 // WHO WRITES THE LINE, ON THIS TOOL (M-254). `interview` is every earlier
@@ -977,7 +986,7 @@ function extractRunRecord(stdout) {
 function extractProposerRecord(stdout) {
   const lines = [
     ...stdout.matchAll(
-      /PROPOSER CALL (\d+): (\S+) (\d+) ms in=(\d+) out=(\d+)(?: finish=(\S+))? \| kitchen model=(\S+) calls=(\d+) ms=(\d+) in=(\d+) out=(\d+) empty=(\d+) retries=(\d+)/g
+      /PROPOSER CALL (\d+): (\S+) (\d+) ms in=(\d+) out=(\d+)(?: finish=(\S+))? \| kitchen model=(\S+) calls=(\d+) ms=(\d+) in=(\d+) out=(\d+) empty=(\d+) retries=(\d+)(?: wait=(\d+))?/g
     ),
   ];
   if (!lines.length) return { proposer_calls: 0 };
@@ -990,6 +999,7 @@ function extractProposerRecord(stdout) {
     proposer_tokens_out: Number(last[11]),
     proposer_empty: Number(last[12]),
     proposer_retries: Number(last[13]),
+    proposer_wait_s: last[14] != null ? Number(last[14]) : 0,
     proposer_ms_max: Math.max(...lines.map((m) => Number(m[3]))),
   };
 }
@@ -1476,6 +1486,7 @@ export const _verdictInternals = {
   extractProposerRecord,
   WRITERS,
   KITCHEN_PROPOSE,
+  KITCHEN_WAIT_SHARE,
   harnessEnv,
   groupOutcomeAt,
   extractStanding,

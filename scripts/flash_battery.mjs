@@ -144,13 +144,19 @@ const BRIEFS = [
 // A user watching that says: tool calls only, no prose between them, the one
 // line the question asked, never the whole song retyped, and if a call did
 // not go through, make it again.
+// M-255 (kitchen era, 2026-09-06): the loop no longer asks questions — the
+// kitchen cook (M-254) answers them inside one lyric_revise call — so a
+// "continue" in the interview's words ("answer every question ... one
+// lyric_revise call after another") would steer the model at a process that
+// is gone. A user watching a kitchen run that stopped short of exit 0 says:
+// call it again with the same seed and the whole draft. Still process-only,
+// still no lyric line. The interview-era text is in git history.
 const CONTINUE =
-  'continue — and answer every question the revision loop asks within this ' +
-  'same reply, one lyric_revise call after another, as many as it takes. ' +
-  'One answer per reply is too slow; keep going until it reaches exit 0. ' +
-  'Tool calls only: no prose between calls, and never retype the song — ' +
-  'each answer is the one line (or the L<n>: lines) the question asked for, ' +
-  'plain ASCII punctuation. If a call did not go through, make the same call again.';
+  'continue — call lyric_revise once more with the same seed and the whole ' +
+  'draft; the loop revises the words itself and returns exit 0 when the song ' +
+  'is finished. Tool calls only: no prose between calls, never retype the ' +
+  'song into the chat, plain ASCII punctuation. If a call did not go ' +
+  'through, make the same call again.';
 // M-163 (owner's order, 2026-08-29: "keep going until we get a clean exit 0
 // song"): exit 3 is a real stop condition and NOT a finished song — the loop
 // parked with flags standing. The driver, still in its user role, does what
@@ -163,12 +169,17 @@ const CONTINUE =
 // lyric_plan calls, a fresh seed — throwing away five turns of folds. A user
 // who wants THIS song finished says so: the same-song clause below is the
 // remedy, still process-only, still writing no lyric line.
+// M-255: under the kitchen the parked draft has no open question to answer;
+// the cook has already tried the lines it could. The user's remedy is to have
+// the model rewrite the flagged lines and hand the WHOLE song back as
+// `draft_text` (M-248), on the same seed — still process-only.
 const PARKED_CONTINUE =
   'That run parked at exit 3 with lines still flagged. Do not stop there — ' +
-  'revise again until every check passes and lyric_revise reaches exit 0, ' +
-  'then show me the finished version. Stay on this same song and this same ' +
-  'plan: do not sweep again and do not plan a new one — starting over ' +
-  'throws away everything already fixed.';
+  'rewrite the flagged lines yourself, send the whole song back to ' +
+  'lyric_revise as draft_text on the same seed, and repeat until every check ' +
+  'passes and it reaches exit 0, then show me the finished version. Stay on ' +
+  'this same song and this same plan: do not sweep again and do not plan a ' +
+  'new one — starting over throws away everything already fixed.';
 
 function esc(s, n) {
   return (s || '').slice(0, n);
@@ -611,6 +622,21 @@ for (const [songNo, briefIdx] of indices.entries()) {
     const tools = Array.isArray(p.tools) ? p.tools : [];
     const reviseCalls = tools.filter((c) => c.name === 'lyric_revise');
     let parkedThisTurn = false;
+    // THE KITCHEN'S SPENT 429 IS THE SAME STOPPING PLACE (M-255). Under the
+    // kitchen (M-254) the rate limit that used to hit the chat model's turn
+    // now hits the cook inside lyric_revise, which refuses at exit 2 once its
+    // wait budget is spent ("the declared proposer could not answer: Gemini
+    // 429 ..."). That is M-249's result under a new name, not a refusal to
+    // steer past: a CONTINUE would only spend the next turn's budget on the
+    // same wall. One row, the flag, the verdict `rate_limited`, and the
+    // round stops here.
+    const kitchenSpent = reviseCalls.find(
+      (c) =>
+        c.exit_code === 2 &&
+        typeof c.refusal === 'string' &&
+        /could not answer/.test(c.refusal) &&
+        /\b429\b/.test(c.refusal)
+    );
     for (const c of reviseCalls) {
       foldInto(cycle, c);
       if (c.exit_code === 0) sawStop = 0;
@@ -747,6 +773,35 @@ for (const [songNo, briefIdx] of indices.entries()) {
     if (r.status !== 200) break;
     env = { history: p.history, workspace: p.workspace, lyric: p.lyric, sig: p.sig };
     if (sawStop !== null) break; // exit 0 — the song is FINISHED (M-163)
+    if (kitchenSpent) {
+      rateLimited = true;
+      flags.push({
+        turn: t,
+        flag: 'rate_limited',
+        kitchen: true,
+        proposer_wait_s: kitchenSpent.proposer_wait_s ?? null,
+        proposer_retries: kitchenSpent.proposer_retries ?? null,
+        refusal: kitchenSpent.refusal,
+      });
+      appendFileSync(
+        file,
+        JSON.stringify({
+          turn: t,
+          rate_limited: true,
+          kitchen: true,
+          proposer_wait_s: kitchenSpent.proposer_wait_s ?? null,
+          proposer_retries: kitchenSpent.proposer_retries ?? null,
+          refusal: kitchenSpent.refusal,
+        }) + '\n'
+      );
+      console.log(
+        `::error title=battery rate limited::song ${songNo} turn ${t}: the kitchen's rate limit is SPENT — ` +
+          `${kitchenSpent.proposer_wait_s ?? '?'}s waited over ${kitchenSpent.proposer_retries ?? '?'} paced 429(s) ` +
+          `and Gemini still answers 429. No wait this round can afford will clear it; the round stops here. — ` +
+          esc(kitchenSpent.refusal, 300)
+      );
+      break;
+    }
     if (p.error) break;
     // FAIL FAST (M-220). Three conditions, named separately in the row.
     const reasons = [];
