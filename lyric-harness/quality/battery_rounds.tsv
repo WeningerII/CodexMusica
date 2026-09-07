@@ -22,3 +22,4 @@ round	date	run_id	layer	entry	exit0	what_stopped_it
 21	2026-09-04	33876114108	instrument	M-235	no	190 answers folded over three loops and the record could not say which line any of them answered or whether verify took it
 22	2026-09-06	33999737190	model-shape	M-248	no	the first round on the batch answer: nine of nine lyric_revise hops MALFORMED where round 21's 190 bare-line answers went through
 23	2026-09-06	34038642870	rate-limit	M-249	no	0 malformed hops, 4 answers folded, then seven consecutive paced 429s waited out for fifteen minutes
+24	2026-09-07	34116990907	instrument	M-256	no	the first kitchen round: 43 kitchen runs, 809 cook calls, six open lines down to one and back to two, forty-three parks on L7 and L19 — L7's brief offered no word for a DIFFER-coda relation and said none existed

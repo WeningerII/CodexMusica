@@ -22,8 +22,9 @@ def main():
     known = BR.entries()
     check("the committed table passes", BR.problems(head, rows, known) == [],
           BR.problems(head, rows, known))
-    check("...and it is not vacuous: 23 rounds, 0 at exit 0, every layer in the vocabulary",
-          len(rows) == 23 and all(r["exit0"] == "no" for r in rows)
+    # REPINNED 2026-09-07 from ~~23~~: round 24 (M-256) joined the table.
+    check("...and it is not vacuous: 24 rounds, 0 at exit 0, every layer in the vocabulary",
+          len(rows) == 24 and all(r["exit0"] == "no" for r in rows)
           and {r["layer"] for r in rows} <= set(BR.LAYERS), len(rows))
     m = [dict(r) for r in rows]
     m[2]["layer"] = "model-vibes"

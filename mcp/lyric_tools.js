@@ -622,6 +622,15 @@ function openRunNote(a) {
 
 export const CONNECTOR_MAX_ROUNDS = 8;
 export const CONNECTOR_ATTEMPTS = 1;
+// THE KITCHEN'S OWN ATTEMPTS (M-257, round 24). One attempt per line was
+// M-236's budget for a CHAT model answering one question per hop, where a
+// re-ask at once cost a whole hop of history. The cook answers a question
+// in one call with nothing waiting on it, so a rejected line is re-asked
+// at once with its rejection quoted — the CLI's own default — instead of
+// waiting a round. Round 24 measured the cook holding two places of a
+// three-place line and dropping the third; the immediate re-ask is where
+// that line gets its second try. A caller's own `attempts` still wins.
+export const KITCHEN_ATTEMPTS = 3;
 // ON SINCE 2026-09-05 (lyric-harness/MISSING.md M-247, owner: "turn the
 // connector's backtrack default on"). Width 1, not the CLI's 5: the walk is
 // width² group questions per stuck line per round (each a suspension on
@@ -1646,7 +1655,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(6)
       .optional()
       .describe(
-        "Tier-1 attempts per flagged line (this connector's default is 1: a rejected line is re-briefed fresh next round with its rejection quoted, rather than re-asked at once). Same constancy rule as max_rounds."
+        "Tier-1 attempts per flagged line (this connector's default is 1 for writer:'interview' — a rejected line is re-briefed fresh next round with its rejection quoted, rather than re-asked at once — and 3 for writer:'kitchen', where the cook is re-asked at once). Same constancy rule as max_rounds."
       ),
     backtrack: z
       .number()
@@ -2212,7 +2221,7 @@ export function registerLyricTools(server, tool) {
         // mid-run.
         const budget = {
           max_rounds: a.max_rounds ?? CONNECTOR_MAX_ROUNDS,
-          attempts: a.attempts ?? CONNECTOR_ATTEMPTS,
+          attempts: a.attempts ?? (writer === 'kitchen' ? KITCHEN_ATTEMPTS : CONNECTOR_ATTEMPTS),
           backtrack: a.backtrack ?? CONNECTOR_BACKTRACK,
         };
         args.push(`--max-rounds=${budget.max_rounds}`);

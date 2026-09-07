@@ -4462,6 +4462,94 @@ def test_the_ban_is_the_same_field_as_the_offer():
           [(len(f.forbidden), f.schema_refused) for f in f0])
 
 
+def test_a_differ_coda_relation_is_offered_from_the_vowel_band():
+    """`MISSING.md` M-257 — round 24's forty-three parks on one place.
+
+    THE DEFECT. `schema_screen` probed the judge on two carrier lines with
+    no stanza frame, so a `frame="stanza"` schema REFUSED every word and the
+    refusal emptied the offer; and even judged, `analysed rhyme` (nucleus
+    AGREE, coda DIFFER) refuses the whole RHYME band by construction, which
+    is the only population `_field` draws from. The brief then said
+    "nothing in the lexicon answers" a place `grade()` accepts `seem` at.
+    """
+    print("\n56. M-257 — a relation that DIFFERs on the coda is offered from "
+          "the vowel band, and the screen judges instead of refusing")
+    R = RV.Reviser()
+    ana = "schema:analysed rhyme"
+    kept, refused = R.schema_screen(["see", "free", "be", "seem", "dream"],
+                                    ["sea"], ana)
+    check("the premise: under a one-stanza frame the judge ANSWERS — every "
+          "rhyme of `sea` is refused (same coda) and the same-vowel, "
+          "other-coda words are kept",
+          sorted(kept) == ["dream", "seem"]
+          and sorted(refused) == ["be", "free", "see"], (kept, refused))
+    check("the relation is read as refusing the rhyme band; `family rhyme` "
+          "is not",
+          R.schema_refuses_rhyme_band(ana)
+          and not R.schema_refuses_rhyme_band("schema:family rhyme"))
+    wid = R.schema_widened_field(["sea"], [ana], exclude=("find",))
+    check("the vowel-band door offers a full menu for `sea`, every word of "
+          "which the relation's own judge accepts",
+          len(wid) == R.rdecl.offered
+          and all(R.schema_screen([w], ["sea"], ana)[0] for w in wid),
+          wid[:8])
+    check("...and no rhyme of the call is on it — these share the vowel, "
+          "not the rhyme", not ({"see", "free", "be", "we", "me"} & set(wid)),
+          wid[:8])
+    lines = ["the boat is on the sea",
+             "I find the truth in what I agree",
+             "a stone, a thread sewn"]
+    # ONE DECLARED SECTION: a `frame="stanza"` schema is judged over a
+    # stanza the grade derives from declared sections (M-39), exactly as
+    # the round-24 draft carried its own; three bare lines are unframed
+    # and the pair reads UNREADABLE, which is the premise this section
+    # is not about.
+    import json as _json
+    import tempfile as _tf
+    _bp = {"title": "", "hooks": [],
+           "sections": [{"name": "verse1", "bars": 3, "start_bar": 1,
+                         "function": "verse",
+                         "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
+           "lines": [{"text": t, "bar": i + 1, "beat": 1, "duration": 4,
+                      "section": "verse1"} for i, t in enumerate(lines)]}
+    with _tf.NamedTemporaryFile("w", suffix=".blueprint.json",
+                                delete=False) as fh:
+        _json.dump(_bp, fh)
+        _bp_path = fh.name
+    m = SC.mandate([["1.T6", "2.T2"]], n_lines=3, relations={"A": ana})
+    b = [x for x in R.brief(lines, m, blueprint=_bp_path) if x.line_no == 2]
+    check("the premise: L2's word-2 place is briefed under the declared "
+          "relation and flagged", bool(b) and bool(b[0].fields_by_slot), b)
+    f = list(b[0].fields_by_slot.values())[0]
+    check("the brief's offer at that place came through the vowel-band "
+          "door — `widened` counts it and `candidates` IS that list",
+          f.widened > 0 and f.widened == len(f.offered)
+          and list(b[0].candidates) == list(f.offered)
+          and b[0].field_widened == f.widened,
+          (f.widened, f.offered[:6]))
+    check("...and every offered word is accepted by the judge the verdict "
+          "uses",
+          all(R.schema_screen([w], list(f.calls), ana)[0]
+              for w in f.offered), f.offered[:6])
+    from quality import propose as PR
+    prompt = PR.render_line(b[0], lines, attempt=0)
+    check("the renderer says the words share the vowel and not the rhyme, "
+          "before the list",
+          "OFFERED FROM THE VOWEL BAND" in prompt
+          and prompt.find("OFFERED FROM THE VOWEL BAND")
+          < prompt.find("word(s); field read at"), prompt[:200])
+    fam = "schema:family rhyme"
+    m2 = SC.mandate([["1.T6", "2.T2"]], n_lines=3, relations={"A": fam})
+    b2 = [x for x in R.brief(lines, m2, blueprint=_bp_path)
+          if x.line_no == 2]
+    check("a relation the rhyme band CAN answer never opens the door — "
+          "`widened` is 0 and the offer is the field it always was",
+          bool(b2) and all(fx.widened == 0
+                           for fx in b2[0].fields_by_slot.values()),
+          [fx.widened for fx in (b2[0].fields_by_slot.values()
+                                 if b2 else [])])
+
+
 def test_a_pair_finding_names_its_own_group():
     """`MISSING.md` M-207 — two groups can hold ONE line pair at TWO words.
 
@@ -4885,6 +4973,7 @@ if __name__ == "__main__":
                test_the_offer_falls_back_per_call_when_the_conjunction_is_empty,
                test_a_pair_finding_names_its_own_group,
                test_the_ban_is_the_same_field_as_the_offer,
+               test_a_differ_coda_relation_is_offered_from_the_vowel_band,
                test_the_hook_is_read_from_the_slot_not_the_snapshot,
                test_an_offer_the_ban_emptied_points_at_the_group_backtrack,
                test_the_verdict_carries_the_judging_spans)

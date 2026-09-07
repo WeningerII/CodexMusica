@@ -741,6 +741,20 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
                    + (", …" if len(_sref) > 8 else "") + ").")
         out.append("  The list below is what that relation accepts — the "
                    "same judge the verdict uses.")
+    _wid = int(getattr(brief, "field_widened", 0) or 0)
+    if candidates and _wid:
+        # THE VOWEL-BAND DOOR (`MISSING.md` M-257). Said before the list:
+        # these words do NOT rhyme with the call and are not meant to. The
+        # declared relation demands a different coda or vowel, so every
+        # rhyme of the call is refused by construction and the offer is
+        # drawn from the words that share the call's vowel, judged by that
+        # relation's own judge.
+        out.append("  OFFERED FROM THE VOWEL BAND: this place's declared "
+                   "relation refuses every RHYME of the call")
+        out.append("  by construction (it demands a different coda or "
+                   "vowel), so the words below share the call's")
+        out.append("  vowel and not its rhyme, and each one was accepted "
+                   "by that relation's own judge.")
     if candidates:
         out.extend(_offered_block(candidates, decl, note))
         out.append("  Offered, NOT required. The grader re-grades the rhyme "

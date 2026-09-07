@@ -146,6 +146,11 @@ class B:
         #: fixture, no error, no red. Defaulted empty: an offer that is
         #: not empty owes nothing.
         self.offer_emptied_by_ban = kw.get("offer_emptied_by_ban", "")
+        #: THE VOWEL-BAND DOOR'S COUNT (`MISSING.md` M-257, round 24):
+        #: `render_line` reads it through `getattr` and says, before the
+        #: list, that the offered words share the call's vowel and not its
+        #: rhyme. Defaulted 0: an offer from the rhyme band owes nothing.
+        self.field_widened = kw.get("field_widened", 0)
         #: THE PLACEMENT, added 2026-08-24 — and it was §7c below that found
         #: it, on the first CI run after the workflow started parsing again.
         #: `Brief` grew `slot`/`slot_conflict` at `9ad2dad` (`MISSING.md`
