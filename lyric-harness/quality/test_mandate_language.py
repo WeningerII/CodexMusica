@@ -1264,10 +1264,15 @@ def test_line_count_cannot_fire_through_the_reviser():
        "beside an `(int, code)` key raises TypeError, which is what "
        "`verify()`'s `sorted(fixed)`/`sorted(new)` would do",
        breaks)
-    ok("`verify()` gates acceptance on `new_flags` only, which is why NOTE "
-       "is the right severity there and not a matter of taste",
-       'new_flags = {k for k in new if sev.get(k) == "flag"}' in rsrc
-       and "if len(new_flags) > self.rdecl.allow_net_new:" in rsrc)
+    ok("`verify()`'s net-new finding budget counts FLAG occurrences only; "
+       "a new NOTE is disclosed without spending that budget",
+       'new_flags = {k for k in new if k[2] == "flag"}' in rsrc
+       and 'out["new_notes"] = projection(set(new) - new_flags)' in rsrc
+       and "if sum(new[k] for k in new_flags) > self.rdecl.allow_net_new:" in rsrc)
+    ok("coverage regression has its own refusal gate, separate from the "
+       "finding severity budget: unknown does not become an artistic FLAG",
+       'if out["coverage_regressions"]:' in rsrc
+       and '"; unknown is neither a violation nor a repaired obligation"' in rsrc)
     ok("and it could not reject a revision even as a flag: `verify()` "
        "refuses a line-count change outright and inspects BOTH sides with "
        "ONE mandate, so this finding is identical before and after and "

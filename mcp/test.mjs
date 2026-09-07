@@ -9,6 +9,7 @@ import { posix } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as E from './engine.js';
 import { TOOL_BUDGET_MS } from './budget.js';
+import { assertCorruptSpendFailsClosed } from './test_spend_store.mjs';
 // Keep a real network client for the checks that exercise localhost HTTP while
 // model fixtures replace globalThis.fetch. Checks themselves execute serially.
 const NET_FETCH = globalThis.fetch;
@@ -382,11 +383,9 @@ await check('validation: actionable errors', () => {
     assert.ok(CHAT_LIMITS.maxTurnsPerDay > 0, 'maxTurnsPerDay must be set');
   });
 
-  // The daily counter survives a restart when the deployment gives it somewhere
-  // to live, and says so when it does not. See mcp/spend_store.js for why this
-  // is opt-in rather than always-on: render.yaml declares no disk, so writing to
-  // the container filesystem would reset on the exact event (a deploy) that
-  // motivated the fix.
+  // Legacy daily counters survive a restart when given a persistent path.
+  // render.yaml now mounts /data/lyrics for these counters and the shared paid
+  // ledger. An unconfigured local instance still reports ephemeral state.
   await check('the spend counter persists across a restart when it has a file', async () => {
     const { SpendStore } = await import('./spend_store.js');
     const fs = await import('node:fs');
@@ -420,29 +419,7 @@ await check('validation: actionable errors', () => {
   // The file is the ONLY input that can raise the remaining budget, so it is
   // treated as hostile: invalid counters close admission instead of refunding
   // the day. The prior zero fallback widened the cap on corrupt input.
-  await check('a corrupt spend file cannot widen the cap', async () => {
-    const { SpendStore } = await import('./spend_store.js');
-    const fs = await import('node:fs');
-    const os = await import('node:os');
-    const path = await import('node:path');
-    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'spend-bad-'));
-    const file = path.join(dir, 'spend.json');
-    try {
-      fs.writeFileSync(file, JSON.stringify({ day: '2026-01-02', usd: -9999, turns: 'lots' }));
-      const s = new SpendStore(file);
-      assert.equal(s.healthy, false, 'invalid counters disable paid admission');
-      assert.equal(s.state.usd, Infinity, 'invalid input cannot restore budget');
-      assert.throws(() => s.rollDay('2026-01-03'), /disabled/);
-
-      fs.writeFileSync(file, '{ not json');
-      const t = new SpendStore(file);
-      assert.equal(t.state.usd, Infinity, 'unparseable must close admission');
-      assert.equal(t.state.day, null, 'unparseable must not claim a day');
-      assert.throws(() => t.save(), /disabled/);
-    } finally {
-      fs.rmSync(dir, { recursive: true, force: true });
-    }
-  });
+  await check('a corrupt spend file cannot widen the cap', assertCorruptSpendFailsClosed);
 
   // A configured unusable path closes paid admission, without pretending that
   // an ephemeral counter satisfies the configured persistence contract.
@@ -4085,11 +4062,14 @@ await check('validation: actionable errors', () => {
       'mcp/README.md': 'documentation',
       'mcp/PRIVACY.md': 'documentation',
       'mcp/test.mjs': 'this suite — CI runs it against the tree; the image runs server_http.js',
+      'mcp/test_spend_store.mjs': 'shared corrupt-spend assertion and isolated fault runner',
       'mcp/test_paid_budget.mjs': 'offline shared spending admission regressions',
       'mcp/test_python_bridge.mjs': 'offline worker lifecycle regressions',
       'mcp/test_lyric_state.mjs': 'offline lyric state and SDK regressions',
       'mcp/test_turn_lifecycle.mjs': 'offline chat lifetime and signed continuation regressions',
       'mcp/test_battery_lifecycle.mjs': 'offline real battery transport regressions',
+      'mcp/test_battery_archive.mjs': 'offline authenticated recovery archive regressions',
+      'mcp/test_battery_storage.mjs': 'offline bounded battery journal and admission regressions',
       'mcp/test_job_store.mjs': 'offline durable recovery regressions',
       'mcp/LYRICS_RUNTIME.md': 'operator documentation',
       'mcp/BATTERY_RECOVERY.md': 'battery recovery operator documentation',

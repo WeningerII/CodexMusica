@@ -4,7 +4,7 @@ import express from 'express';
 import { JobStore, createJobRouter } from './job_store.js';
 import { createServer } from 'node:http';
 import { spawn } from 'node:child_process';
-import { mkdtempSync, readFileSync, rmSync, existsSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, existsSync, statSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -143,6 +143,16 @@ for (const mode of ['aborted', 'invalid-json', 'deadline']) {
         assert.match(rows(join(out, 'song0.jsonl'))[0].transport, /aborted|closed|JSON|deadline/);
         const attempts = rows(join(out, 'song0.attempts.jsonl'));
         assert.equal(attempts[0].event, 'request_started');
+        assert.equal(statSync(out).mode & 0o777, 0o700);
+        for (const name of [
+          'run.json',
+          'summary.json',
+          'song0.jsonl',
+          'song0.attempts.jsonl',
+          'song0.checkpoint.json',
+        ]) {
+          assert.equal(statSync(join(out, name)).mode & 0o777, 0o600, `${name} is private`);
+        }
         assert.ok(attempts.some((a) => a.event === 'response_received'));
       }
     );

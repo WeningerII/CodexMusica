@@ -34,8 +34,9 @@ The original base URL, commit, song selection, and options are loaded from
 `run.json`. A larger `--turns=N` may be supplied if the earlier run exhausted its
 turn allowance. `--expect=finished` may replace `--expect=turn-wall` to continue
 from a returned wall checkpoint. The Actions `resume_run` input downloads that
-run's `flash-battery-transcripts` artifact before invoking the same CLI; keep the
-original song selection and commit in the dispatch inputs.
+run's `flash-battery-recovery` artifact, authenticates and decrypts it with the
+same recovery key, then invokes the same CLI. Keep the original song selection
+and commit in the dispatch inputs.
 
 The recovery cases are deliberately different:
 
@@ -59,7 +60,7 @@ submitted again.
 
 Before the first paid request the driver creates `run.json`, `summary.json`, a
 song checkpoint, and a request-intent journal. It writes and fsyncs the dispatch
-marker before opening the POST socket. Every received HTTP response is saved before
+marker and any new journal directory entry before opening the POST socket. Every received HTTP response is saved before
 recovery lookup or tool interpretation. Atomic checkpoint files contain the actual
 `history`, `workspace`, `lyric`, and `sig`, together with the battery's counters
 and transcript offset. Resume can replay analysis from saved receipts without
@@ -67,11 +68,72 @@ repeating model work.
 
 `summary.json` and `songN.jsonl` are the human-readable verdict/transcript files.
 `songN.attempts.jsonl` records request starts, dispatches, receipts, recovery
-observations, and identity checks. `songN.checkpoint.json` contains the latest
-battery continuation state. Those last two files contain continuation
-capabilities and are uploaded as artifacts, **not printed into public logs**.
-Their presence proves what was recorded; it does not prove progress that the
-server never returned or checkpointed.
+observations, and identity checks. Journals roll at 8MiB into consecutively numbered
+`songN.attempts.000001.jsonl` segments; resume refuses missing historical segments.
+Repeated identical recovery polls add no duplicate records. Changing progress
+atomically replaces `songN.recovery.json`, including the exact completed response
+when available; the journal retains at most 1024 compact progress fingerprints per
+request plus its terminal observation. `songN.checkpoint.json` contains the latest
+battery continuation state. Transcripts, journals, checkpoints and driver logs
+can all contain continuation capabilities or private lyrics. Local output files
+use mode 0600 inside a mode 0700 output directory. Their presence proves what was
+recorded; it does not prove progress that the server never returned or checkpointed.
+
+## Recording capacity
+
+Before every fresh paid request, the driver reserves 64MiB within the archive's
+128MiB plaintext limit and 16MiB of headroom on each file that does not rotate.
+It also reserves directory entries for new records. Request bodies are capped
+at 2MiB, received JSON at 4MiB both on the wire and after serialization, and driver
+diagnostics at 4MiB per invocation. Snapshots use compact JSON; attempt journals
+rotate before they can reach the archive's 32MiB per-file limit. These reserves
+cover the duplicated analytical transcript, checkpoint, summary, and response
+evidence, including changing recovery progress.
+
+If those reserves cannot be met, `storage_budget` stops fresh paid requests and
+leaves the latest checkpoint resumable. The completed work and exact receipts
+remain in the encrypted archive. After decrypting a copy, move bulky diagnostics
+or unrelated files out of the working directory (retain them separately), then
+resume. Preserve every attempt-journal segment, `run.json`, the song checkpoint,
+and its transcript: removing history is not a safe way to manufacture capacity.
+The lower-only `--recording-limit-bytes` option can enforce a smaller total limit.
+Recovery lookups remain read-only and never authorize a new POST without capacity.
+
+## Encrypted workflow artifacts
+
+Before running or resuming the Actions workflow, configure the repository Actions
+secret **`BATTERY_RECOVERY_KEY`** as 32 cryptographically random bytes encoded in
+64 hexadecimal characters. Use a dedicated archive key, separate from the service's
+model or signing keys. The workflow refuses to start paid work without it and
+proves that it can seal an archive before sending the first request. This is
+workflow configuration; the local plaintext CLI does not require this secret.
+
+The workflow uploads only `battery-recovery.enc` and a nonsecret manifest inside
+`flash-battery-recovery`. The archive uses AES-256-GCM with a fresh nonce and
+authenticated format metadata. Its contents include all plaintext records and
+`driver.log`; none of those files is uploaded directly. Only allowlisted aggregate
+counts and outcome enums reach the public log. Public artifact visibility must
+not be treated as access control for plaintext recovery capabilities.
+
+Keep the same key available to decrypt retained artifacts. Rotation does not
+re-encrypt old archives. `resume_run` accepts the encrypted artifact format;
+legacy plaintext artifacts are not automatically restored. For local restoration,
+make `BATTERY_RECOVERY_KEY` available in the environment and run:
+
+```sh
+node scripts/battery_archive.mjs open --archive=battery-recovery.enc --out=restored-battery
+```
+
+The destination must not already exist. Authentication and all path checks finish
+before a private staging directory is installed as the destination; tampering,
+a wrong key, path traversal, duplicate paths and symlinks are refused.
+
+Sealing writes a replacement atomically. If the final seal fails, the workflow
+keeps the plaintext source on the runner and any prior valid sealed archive;
+it never falls back to a plaintext upload. The public manifest records
+`latest_seal_succeeded: false` so an older archive cannot be mistaken for the latest
+record. Unsealed files on a disposable runner are not durable after runner cleanup.
+Download successful encrypted artifacts within the workflow's 30-day retention.
 
 ## Time and outcome policy
 
@@ -103,6 +165,8 @@ continuation. Neither substitutes for a completed, fully checked song.
 
 ```sh
 node mcp/test_battery_lifecycle.mjs
+node --test mcp/test_battery_archive.mjs
+node --test mcp/test_battery_storage.mjs
 ```
 
 This drives the unchanged public CLI against localhost HTTP servers. It covers
@@ -111,6 +175,9 @@ before the first response, completion retrieval without a repeated POST,
 ambiguous missing-job refusal, signed-envelope continuation, interrupted-job
 recovery, aggregate admission, completion policies, SHA/configuration checks,
 durable-recovery admission, pending-job polling, and partial-429 pacing. The persistence-failure and retired-receipt cases use the actual job router
-and receipt store. These
+and receipt store. Archive tests exercise authenticated round trips, wrong keys,
+tampering, path safety, and the actual workflow preflight. Storage tests drive
+480 accelerated recovery polls into the real journal and seal/restore the result;
+they also test total/per-file admission and missing-segment refusal. These
 are local protocol fixtures; they do not claim a paid provider soak or deployment
 restart measurement.

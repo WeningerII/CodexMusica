@@ -68,6 +68,31 @@ class AuditRegressions(unittest.TestCase):
                 self.assertFalse(out['accepted'])
                 self.assertTrue(out['new_flags'])
 
+    def test_note_budget_and_coverage_are_separate_acceptance_gates(self):
+        # Exercise the verifier's decision with controlled inspection rows.
+        # A repaired flag plus a new note is allowed. Promoting that same
+        # row to a flag or losing judged coverage must independently refuse.
+        def found(fs, refused=False):
+            return {'per_line': {2: fs}, 'whole': [],
+                    'grade': {'pairs_mandated': 1,
+                              'pairs_judged': 0 if refused else 1,
+                              'pairs_refused': int(refused),
+                              'refused_obligations': [(1, 2, 0)] if refused else []}}
+        repair = Finding('DENSITY_OUT_OF_BAND', 'flag', '', '', [2])
+        for severity, refused, accepted in (
+                ('note', False, True), ('flag', False, False),
+                ('note', True, False)):
+            new = Finding('MODAL_RHYME', severity, '', '', [2])
+            with self.subTest(severity=severity, refused=refused), \
+                 patch.object(self.rv, 'brief', return_value=[]), \
+                 patch.object(self.rv, 'inspect', side_effect=[found([repair]),
+                                                               found([new], refused)]):
+                out = self.rv.verify(['one', 'two'], ['one', 'changed'], 'AA', {2})
+                self.assertEqual(out['accepted'], accepted, out['reasons'])
+                self.assertEqual(bool(out['new_flags']), severity == 'flag')
+                self.assertEqual(bool(out['new_notes']), severity == 'note')
+                self.assertEqual(bool(out['coverage_regressions']), refused)
+
     def test_aggregate_pair_rows_keep_each_obligation(self):
         def found(f):
             return {'per_line': {ln: [f] for ln in f.locations}, 'whole': [],
@@ -282,6 +307,18 @@ class AuditRegressions(unittest.TestCase):
             self.assertEqual((p/'auditwriter.calls').read_text().splitlines(), ['called'])
             self.assertEqual(json.loads((p/'cp.json').read_text())['accepted_lines'],
                              cp['accepted_lines'])
+            for invalid in (dict(cp, config_key='another-run'),
+                            dict(cp, proposals=[None])):
+                (p/'cp.json').write_text(json.dumps(invalid))
+                refused = subprocess.run(argv, cwd=root, env=env, capture_output=True,
+                                         text=True, timeout=180)
+                self.assertEqual(refused.returncode, 2,
+                                 refused.stderr + refused.stdout[-2000:])
+                self.assertIn('REFUSED — the declared proposer cannot resume:',
+                              refused.stdout)
+                self.assertNotIn('Traceback', refused.stderr)
+                self.assertEqual((p/'auditwriter.calls').read_text().splitlines(),
+                                 ['called'])
 
     def test_memo_storage_budget_honestly_evicts_without_changing_answers(self):
         rv = type('Tiny', (), {'rdecl': ReviseDeclaration(max_rounds=1,

@@ -43,7 +43,10 @@ mount before setting the variable.
 Files are replaced atomically after file fsync and directory fsync, using mode
 0600; the job directory uses mode0700. Receipts contain private lyric drafts and
 signed continuation envelopes. Treat both the disk and downloaded battery
-artifacts as private working data. Do not publish them in a public issue.
+artifacts after decryption as private working data. The battery workflow requires
+a dedicated `BATTERY_RECOVERY_KEY` and uploads only authenticated encrypted
+archives plus a nonsecret manifest; see [BATTERY_RECOVERY.md](./BATTERY_RECOVERY.md).
+Do not publish plaintext receipts, decrypted artifacts or the key in a public issue.
 
 ## Request and recovery protocol
 
@@ -170,6 +173,13 @@ spend. These rules make the accounting limitations visible instead of assigning
 missing usage a zero price.
 
 ## Offline regression coverage
+
+Battery request journals and checkpoints are written to the runner's local disk,
+then encrypted before artifact upload. The workflow uploads at the end; its
+preflight archive contains only the records present before paid work starts.
+An abrupt loss of the runner before final sealing and upload can therefore lose
+newer local records. Local fsync and the server's durable receipts do not prove
+that the newest request capability has reached a downloadable artifact.
 
 Run `node --test mcp/test_job_store.mjs`. The suite uses real Express HTTP and real
 filesystem writes, with fixture work instead of a paid model. It checks intent

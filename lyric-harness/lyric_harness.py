@@ -11313,13 +11313,11 @@ def main():
                     _say_blueprint()
                 from quality import replay_memo as RM
                 _rm_key = RM.run_key(sys.argv[1:], input_paths=(args[1], bp_path))
+                from quality.propose import ProposerUnavailable
                 try:
                     propose, propose_group, say_proposer = _resolve_proposer(
                         propose_spec, lines=lines, checkpoint_key=_rm_key)
-                except Exception as e:
-                    from quality.propose import ProposerUnavailable
-                    if not isinstance(e, ProposerUnavailable):
-                        raise
+                except ProposerUnavailable as e:
                     _refuse(f"the declared proposer cannot resume: {e}")
                 # DISCLOSED BEFORE THE RUN AS WELL AS AFTER IT, and the two
                 # are the same callable. Which proposer wrote the draft is

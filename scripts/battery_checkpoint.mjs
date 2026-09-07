@@ -21,7 +21,7 @@ export function atomicJSON(file, value) {
   const tmp = `${file}.${randomUUID()}.tmp`;
   const fd = openSync(tmp, 'wx', 0o600);
   try {
-    writeFileSync(fd, JSON.stringify(value, null, 2) + '\n');
+    writeFileSync(fd, JSON.stringify(value) + '\n');
     fsyncSync(fd);
   } finally {
     closeSync(fd);
@@ -36,6 +36,7 @@ export function atomicJSON(file, value) {
 }
 
 export function appendDurable(file, value) {
+  const created = !existsSync(file);
   const fd = openSync(file, 'a', 0o600);
   try {
     const bytes = Buffer.from(JSON.stringify(value) + '\n');
@@ -44,6 +45,14 @@ export function appendDurable(file, value) {
     fsyncSync(fd);
   } finally {
     closeSync(fd);
+  }
+  if (created) {
+    const dir = openSync(dirname(file), 'r');
+    try {
+      fsyncSync(dir);
+    } finally {
+      closeSync(dir);
+    }
   }
 }
 

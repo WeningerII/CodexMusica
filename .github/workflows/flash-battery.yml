@@ -3,7 +3,7 @@ name: Flash battery
 # Paid, manual measurement. A schema-only smoke is mcp/check_live.mjs without
 # --commit; this workflow always verifies a specific implementation before it
 # spends credit. Checkpoints carry signed continuation capabilities and are
-# uploaded as artifacts, never printed into the public job log.
+# encrypted before artifact upload; only an allowlisted aggregate reaches logs.
 on:
   workflow_dispatch:
     inputs:
@@ -48,10 +48,15 @@ jobs:
     # leaves five minutes for final records and upload before this hard wall.
     timeout-minutes: 355
     steps:
-      - name: Record job deadline and validate the measured SHA
+      - name: Validate recovery encryption before any paid request
         env:
           LIVE_COMMIT: ${{ inputs.live_commit }}
+          BATTERY_RECOVERY_KEY: ${{ secrets.BATTERY_RECOVERY_KEY }}
         run: |
+          if ! [[ "$BATTERY_RECOVERY_KEY" =~ ^[0-9a-fA-F]{64}$ ]]; then
+            echo '::error::Configure BATTERY_RECOVERY_KEY as 32 random bytes encoded by 64 hexadecimal characters before running or resuming a battery'
+            exit 1
+          fi
           echo "BATTERY_JOB_STARTED=$(date +%s)" >> "$GITHUB_ENV"
           if ! [[ "$LIVE_COMMIT" =~ ^[0-9a-f]{40}$ ]]; then
             echo '::error::live_commit must be a full lowercase 40-character SHA'
@@ -63,19 +68,25 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: '22'
-      - name: Restore a prior checkpoint
+      - name: Download a sealed prior checkpoint
         if: inputs.resume_run != ''
         uses: actions/download-artifact@v4
         with:
-          name: flash-battery-transcripts
-          path: battery-out/
+          name: flash-battery-recovery
+          path: battery-sealed-in/
           run-id: ${{ inputs.resume_run }}
           github-token: ${{ github.token }}
+      - name: Authenticate and restore the prior checkpoint
+        if: inputs.resume_run != ''
+        env:
+          BATTERY_RECOVERY_KEY: ${{ secrets.BATTERY_RECOVERY_KEY }}
+        run: node scripts/battery_archive.mjs open --archive=battery-sealed-in/battery-recovery.enc --out=battery-out
       - name: Verify the live implementation
         env:
           LIVE_COMMIT: ${{ inputs.live_commit }}
           WAIT_FOR_LIVE: ${{ inputs.wait_for_live }}
         run: |
+          umask 077
           mkdir -p battery-out
           node -e 'require("fs").writeFileSync("battery-out/preflight.json", JSON.stringify({expected_commit:process.env.LIVE_COMMIT,started:new Date().toISOString(),phase:"checking_live"},null,2))'
           (cd mcp && npm ci --no-audit --no-fund)
@@ -90,6 +101,15 @@ jobs:
             fi
             sleep 30
           done
+      - name: Prove archive encryption before paid work and retain a sealed baseline
+        env:
+          BATTERY_RECOVERY_KEY: ${{ secrets.BATTERY_RECOVERY_KEY }}
+        run: |
+          umask 077
+          mkdir -p battery-sealed
+          node scripts/battery_archive.mjs --check-key
+          node scripts/battery_archive.mjs seal --source=battery-out --out=battery-sealed/battery-recovery.enc > battery-sealed/manifest.json.tmp
+          mv battery-sealed/manifest.json.tmp battery-sealed/manifest.json
       - name: Drive the battery against the pinned deployment
         env:
           LIVE_COMMIT: ${{ inputs.live_commit }}
@@ -99,6 +119,7 @@ jobs:
           EXPECT: ${{ inputs.expect }}
           RESUME_RUN: ${{ inputs.resume_run }}
         run: |
+          umask 077
           remaining=$((BATTERY_JOB_STARTED + 355 * 60 - $(date +%s) - 300))
           if [ "$remaining" -le 0 ]; then
             echo '::error::no time remains before the upload reserve'
@@ -106,6 +127,7 @@ jobs:
           fi
           resume=()
           if [ -n "$RESUME_RUN" ]; then resume=(--resume); fi
+          set +e
           node scripts/flash_battery.mjs \
             --out=battery-out \
             --commit="$LIVE_COMMIT" \
@@ -115,21 +137,43 @@ jobs:
             --pace="$PACE" \
             --expect="$EXPECT" \
             --max-runtime="$remaining" \
-            "${resume[@]}"
-      - name: Print verdicts and transcripts without continuation capabilities
+            "${resume[@]}" >> battery-out/driver.log 2>&1
+          rc=$?
+          set -e
+          echo "Battery process exited with status $rc; full details remain in the encrypted recovery artifact."
+          exit "$rc"
+      - name: Seal the latest records without removing the local evidence
+        id: seal
         if: always()
+        env:
+          BATTERY_RECOVERY_KEY: ${{ secrets.BATTERY_RECOVERY_KEY }}
         run: |
-          for f in battery-out/summary.json battery-out/song[0-9]*.jsonl; do
-            case "$f" in *.attempts.jsonl) continue ;; esac
-            [ -f "$f" ] || continue
-            echo "═══ $f ═══"
-            head -c 400000 "$f"
-            echo
-          done
-      - name: Upload the transcripts and resumable checkpoints
+          umask 077
+          if [ ! -d battery-out ]; then exit 0; fi
+          mkdir -p battery-sealed
+          if node scripts/battery_archive.mjs seal --source=battery-out --out=battery-sealed/battery-recovery.enc > battery-sealed/manifest.json.tmp; then
+            mv battery-sealed/manifest.json.tmp battery-sealed/manifest.json
+          else
+            rm -f battery-sealed/manifest.json.tmp
+            echo '::error::Latest archive sealing failed. Local evidence and any previously sealed archive are preserved; plaintext will not be uploaded.'
+            exit 1
+          fi
+      - name: Record archive freshness without private content
         if: always()
+        env:
+          LATEST_SEAL_SUCCEEDED: ${{ steps.seal.outcome == 'success' }}
+        run: |
+          node -e 'const fs=require("fs"); const p="battery-sealed/manifest.json"; if(fs.existsSync(p)){const m=JSON.parse(fs.readFileSync(p,"utf8")); m.latest_seal_succeeded=process.env.LATEST_SEAL_SUCCEEDED==="true"; fs.writeFileSync(p,JSON.stringify(m,null,2)+"\n",{mode:0o600});}'
+      - name: Print only safe aggregate outcomes
+        if: always()
+        run: node scripts/battery_archive.mjs summary --source=battery-out
+      - name: Upload only encrypted recovery data and its public manifest
+        if: always() && hashFiles('battery-sealed/battery-recovery.enc') != ''
         uses: actions/upload-artifact@v4
         with:
-          name: flash-battery-transcripts
-          path: battery-out/
+          name: flash-battery-recovery
+          path: |
+            battery-sealed/battery-recovery.enc
+            battery-sealed/manifest.json
+          if-no-files-found: error
           retention-days: 30
