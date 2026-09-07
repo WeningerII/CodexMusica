@@ -529,6 +529,17 @@ check('validation: actionable errors', () => {
         `/chat would refuse to serve on deploy. Add it to PRICING in gemini_agent.js, ` +
         `or declare CHAT_PRICE_INPUT_PER_1M / CHAT_PRICE_OUTPUT_PER_1M alongside it.`
     );
+    // The kitchen's cook is declared beside it (round 24's smoke run): a
+    // model the pricing table knows, so its bill can be costed, and never
+    // silently the chat's model again.
+    const k = blueprint.match(
+      /-\s*key:\s*LYRIC_PROPOSER_MODEL\s*\n\s*value:\s*['"]?([\w.-]+)['"]?/
+    );
+    assert.ok(k, 'render.yaml must declare LYRIC_PROPOSER_MODEL so the cook is auditable');
+    assert.ok(
+      priceFor(k[1]),
+      `render.yaml declares LYRIC_PROPOSER_MODEL=${k[1]}, which has no price`
+    );
   });
 }
 
