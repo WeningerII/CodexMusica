@@ -21,6 +21,41 @@ import { requestContext } from './execution_context.js';
 
 const id = () => crypto.randomBytes(32).toString('hex');
 const temp = () => fs.mkdtempSync(path.join(os.tmpdir(), 'lyrics-job-'));
+test('non-ASCII receipts fit a bounded heap and preserve exact independent replay values', () => {
+  const script = `
+    import assert from 'node:assert/strict';
+    import { JobStore } from './mcp/job_store.js';
+    const store = new JobStore();
+    const payload = 'x'.repeat(1024 * 1024 - 2) + '\\u0100';
+    for (let i = 0; i < 36; i++) {
+      const request_id = i.toString(16).padStart(64, '0');
+      store.begin(request_id, { request_id, message: payload }, {});
+      store.complete(request_id, 200, { text: payload, index: i });
+    }
+    assert(store.bytes > 70 * 1024 * 1024);
+    for (let i = 0; i < 36; i++) {
+      const request_id = i.toString(16).padStart(64, '0');
+      const record = store.get(request_id);
+      assert.equal(record.intent.message, payload);
+      assert.deepEqual(record.response.body, { text: payload, index: i });
+      record.response.body.text = 'caller mutation';
+      assert.equal(store.get(request_id).response.body.text, payload);
+    }
+    console.log('bounded heap receipt replay passed');
+  `;
+  const result = spawnSync(
+    process.execPath,
+    ['--max-old-space-size=80', '--input-type=module', '-e', script],
+    {
+      cwd: path.resolve(import.meta.dirname, '..'),
+      encoding: 'utf8',
+      timeout: 30000,
+    }
+  );
+  assert.equal(result.status, 0, result.error?.message || result.stderr);
+  assert.match(result.stdout, /bounded heap receipt replay passed/);
+});
+
 function signed(secret, lyric = null) {
   const envelope = {
     history: [{ role: 'user', parts: [{ text: 'continue' }] }],

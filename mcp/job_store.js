@@ -86,6 +86,23 @@ function copy(value) {
   return JSON.parse(JSON.stringify(value));
 }
 
+function compactRecord(record) {
+  // Retain payloads in their bounded UTF-8 wire representation. A single
+  // non-Latin-1 character can otherwise double an entire large V8 string.
+  // Metadata scans (expiry, reservations, reclamation) never decode payloads;
+  // reads and writes still expose the original JSON and preserve disk format.
+  const stored = { ...record };
+  for (const key of ['intent', 'checkpoint', 'progress', 'proposer_usage', 'response']) {
+    if (stored[key] == null) continue;
+    const bytes = Buffer.from(JSON.stringify(stored[key]), 'utf8');
+    Object.defineProperty(stored, key, {
+      enumerable: true,
+      get: () => JSON.parse(bytes.toString('utf8')),
+    });
+  }
+  return stored;
+}
+
 function interruptedRecord(record, reason, now) {
   // 'proposing' also covers a billed response whose answer has not reached the
   // proposal journal. Settled usage alone is not permission to repeat it.
@@ -177,7 +194,7 @@ export class JobStore {
       const record = JSON.parse(fs.readFileSync(file, 'utf8'));
       this.validate(record);
       if (name !== `${record.request_id}.json`) throw new Error('Job record identity mismatch');
-      this.records.set(record.request_id, record);
+      this.records.set(record.request_id, compactRecord(record));
       this.bytes += Buffer.byteLength(JSON.stringify(record));
     }
     // The process cannot know which upstream work completed before its crash.
@@ -250,7 +267,7 @@ export class JobStore {
       this.failure = err.message;
       throw err;
     }
-    this.records.set(record.request_id, record);
+    this.records.set(record.request_id, compactRecord(record));
     this.bytes += bytes - oldBytes;
     return record;
   }
@@ -451,7 +468,10 @@ export class JobStore {
       // The old disk receipt remains pending and becomes interrupted on boot.
       // In this process expose uncertainty immediately, retaining its last
       // successful checkpoint. The failure latch prevents new paid work.
-      this.records.set(id, interruptedRecord(record, 'response_persistence_failed', this.now()));
+      this.records.set(
+        id,
+        compactRecord(interruptedRecord(record, 'response_persistence_failed', this.now()))
+      );
     }
   }
 
