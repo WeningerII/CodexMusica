@@ -1,77 +1,47 @@
-# CodexMusica MCP server — Streamable HTTP.
-#
-# Build from the REPO ROOT (the server imports ../scripts and ../references):
-#   docker build -f mcp/Dockerfile -t codex-mcp .
-#   docker run -p 8080:8080 codex-mcp
-#
-# Runs the Node engine UNCHANGED — works on any container host:
-# Cloudflare Containers, Render, Fly, Railway, or a plain VPS.
-FROM node:22-slim
-
-# Install runtime deps first for layer caching.
-WORKDIR /app/mcp
-COPY mcp/package.json mcp/package-lock.json ./
-RUN npm ci --omit=dev
-
-# Engine + catalog (imported via ../scripts and ../references) and the server source.
-WORKDIR /app
-COPY scripts ./scripts
-COPY references ./references
-COPY mcp/*.js ./mcp/
-# THE WARM WORKER IS A .py FILE AND THE GLOB ABOVE IS *.js, so from M-155
-# (2026-08-29) to 2026-09-01 every image built from this file lacked
-# mcp/worker.py, and the connector's own fallback hid it: a spawn that fails
-# is the cold execFile with byte-identical output, so production answered
-# every verb cold, the M-167 replay memo never engaged, and no gate could see
-# it — M-170's audit found the line by reading it (`MISSING.md` M-187).
-# mcp/test.mjs now derives the runtime list from `git ls-files mcp/` and holds
-# this file's COPY set to it, so the next non-.js runtime file cannot repeat
-# this. MEASURED BEFORE SHIPPING, on this file's 2 GB history (M-157), seed 31
-# (22 lines; `scripts/measure_verb_memory.py --seed=31`, cold `--verb=both`
-# and `--worker --rounds=3`): cold grade 666 MB / revise 665 MB; through ONE
-# worker over plan, fill and three grade+revise rounds, peak 661 MB — the same
-# process doing the same work — with 594 MB RETAINED after the first round
-# and 602 MB after the third (+8 MB across two more rounds; 638 MB at most
-# between calls), and the second and third revise calls 6.4 s and 4.3 s
-# against 76.8 s for the first, which is the memo engaging. Safe at 2 GB
-# because the residual lives INSIDE the process whose peak the gate banks
-# (scripts/check_deploy_memory.js: 882 MB x 2.0 = 1,764 MB required of
-# 2,048): mcp/lyric_tools.js SIGKILLs the worker on every path that falls
-# back cold, so the box never holds a warm worker BESIDE a cold child at
-# peak. `LYRIC_WORKER=0` in the service's env is the documented switch if a
-# live measurement ever says otherwise.
-COPY mcp/worker.py ./mcp/
-# The kitchen proposer (M-254): Python beside the worker, reached by the
-# harness through `--propose=call:gemini_proposer:make` with mcp/ on
-# PYTHONPATH. A module the image does not carry is M-187's defect again.
-COPY mcp/gemini_proposer.py ./mcp/
-
-# The lyric harness (mcp/lyric_tools.js runs it as python3 subprocesses —
-# pure stdlib except nltk, which the slop floor's POS tagger reaches through
-# quality/features.py). Staging mirrors CI's revision-loop job exactly:
-# fetch_data() downloads CMUdict, quality/fetch_data.py stages the tagger
-# model and concreteness norms into data/. Grading resources are staged at
-# BUILD time; deterministic grading does not fetch them at runtime. The optional
-# lyrics kitchen makes paid Gemini requests under the shared admission ledger.
+# Build once in CI, qualify this image ID, and promote its registry digest.
+# Official node:22.23.2-bookworm-slim manifest, verified 2026-09-08.
+FROM node:22.23.2-bookworm-slim@sha256:83f487e0a63425e5b4d146fb5e5be574bcbe1b7b843d3ebafdd95eaf7767a7e5 AS runtime-base
 RUN apt-get update \
  && apt-get install -y --no-install-recommends python3 python3-pip \
  && rm -rf /var/lib/apt/lists/*
-COPY lyric-harness ./lyric-harness
-RUN python3 -m pip install --no-cache-dir --break-system-packages nltk \
- && cd lyric-harness \
- && python3 -c "import lyric_harness; lyric_harness.fetch_data()" \
- && python3 quality/fetch_data.py
+WORKDIR /app/mcp
+COPY mcp/package.json mcp/package-lock.json ./
+RUN npm ci --omit=dev
+COPY mcp/requirements-runtime.txt ./
+RUN python3 -m pip install --no-cache-dir --break-system-packages \
+    --only-binary=:all: --require-hashes -r requirements-runtime.txt
 
-# M-230: the process says which build it is. Render sets RENDER_GIT_COMMIT
-# in the runtime env; if it also hands it to the build, this bakes the same
-# value in, and the runtime value wins when both exist. Absent both, /health
-# reports null and mcp/check_live.mjs --commit treats that as NOT a match.
+FROM runtime-base AS assets
+WORKDIR /source
+COPY lyric-harness ./lyric-harness
+RUN cd lyric-harness \
+ && python3 -c "import lyric_harness; lyric_harness.fetch_data()" \
+ && python3 quality/fetch_data.py --runtime \
+ && python3 quality/release_assets.py --assemble /runtime/lyric-harness \
+ && python3 quality/release_assets.py --root /runtime/lyric-harness \
+      --staged-data /runtime/lyric-harness/data --check
+
+FROM runtime-base AS production
+WORKDIR /app
+COPY scripts ./scripts
+COPY references ./references
+COPY mcp/*.js mcp/production-config.json ./mcp/
+COPY mcp/worker.py mcp/gemini_proposer.py ./mcp/
+# Only approved runtime assets reach a final layer; research corpora and optional
+# uncleared norms remain outside the deployed image.
+COPY --from=assets /runtime/lyric-harness ./lyric-harness
 ARG RENDER_GIT_COMMIT=""
-ENV RENDER_GIT_COMMIT=$RENDER_GIT_COMMIT
+ARG BUILD_RELEASE_ID=""
+RUN node -e 'const fs=require("fs"); const commit=process.env.RENDER_GIT_COMMIT, release_id=process.env.BUILD_RELEASE_ID; if(!/^[a-f0-9]{40}$/.test(commit||"") || !/^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$/.test(release_id||"")) throw new Error("A full commit and unique CI release ID are required"); fs.writeFileSync("/app/mcp/build_identity.json",JSON.stringify({version:1,commit,release_id})+"\n",{mode:0o444});'
+# A proof generated in another Python build cannot authorize this runtime.
+# Verify every reviewed witness against the final assembled source/data tree;
+# retain a separate deterministic receipt without restamping reviewed assets.
+RUN cd /app/lyric-harness \
+ && timeout --signal=TERM --kill-after=15s 45m python3 quality/verify_capacity.py \
+      --output /app/mcp/capacity_verification.json --workers=1
 ENV BUILD_GIT_COMMIT=$RENDER_GIT_COMMIT
-# Runtime recovery is opt-in locally; mount persistent storage and set
-# LYRIC_RUNTIME_DIR for durable receipts, signing and paid accounting.
-# No VOLUME declaration: a forgotten anonymous volume must not claim durability.
+ENV RENDER_GIT_COMMIT=$RENDER_GIT_COMMIT
+ENV LYRIC_RELEASE_ASSETS_REQUIRED=1
 ENV PORT=8080
 EXPOSE 8080
 WORKDIR /app/mcp

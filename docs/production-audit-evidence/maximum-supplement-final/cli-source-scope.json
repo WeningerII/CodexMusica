@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "source": "lyric-harness/lyric_harness.py",
+  "before_sha256": "7a5d9184f568902732cd5cb2d4fa4123deef1b1deff0b4cd95d23af54f08024e",
+  "after_sha256": "bf27f6dec80209166bb223de44a3385b4ea97e1b3ba9ce8efeffc7ede3509e9b",
+  "patch": "named-screen-cli-patch.diff",
+  "changed_scope": [
+    "screen_pairs",
+    "main branch cmd == screen"
+  ],
+  "ast_outside_named_scope_identical": true,
+  "measurement_requests": [
+    "plan",
+    "song (grade)",
+    "finish (deferred first proposal)"
+  ],
+  "impact": "Named relation screening repairs are confined to an uncalled function and unselected CLI branch for these maximum measurement requests.",
+  "measurement_policy": "Raw source change flags remain unchanged. This documents route relevance, not byte identity or final-image qualification."
+}

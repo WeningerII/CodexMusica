@@ -111,17 +111,31 @@ def test_the_mandate_layer_three():
     fired["MANDATE_SCOPE_DECLARED"] = "scope=[1,2,3,4] over 6 lines"
     fired["COLLISION_UNDECLARED"] = "the same scoped mandate"
 
-    # A return naming a line outside 1..n. `SC.mandate(returns=...)` refuses
-    # this at construction, so the only way in is a hand-built `Return` on an
-    # already-built Mandate -- API-only by construction, not by omission.
+    # Every supported construction route now refuses an out-of-range return.
+    # Exercise that admission boundary separately from deliberate test-only
+    # object corruption used to probe the defensive leaf reader.
     base = SC.mandate([[1, 3], [2, 4]], n_lines=4)
-    hand = dataclasses.replace(
-        base, returns=(Return(lines=(1, 9), label="R1", verbatim=True),))
+    invalid = (Return(lines=(1, 9), label="R1", verbatim=True),)
+    refused = []
+    for build in (lambda: SC.mandate([[1, 3], [2, 4]], n_lines=4, returns=invalid),
+                  lambda: dataclasses.replace(base, returns=invalid)):
+        try:
+            build()
+        except SC.NoMandate as exc:
+            refused.append("outside 1..4" in str(exc))
+    check("public construction and dataclass replacement both refuse L9 "
+          "outside the declared four-line draft", refused == [True, True])
+    valid = dataclasses.replace(base, returns=(Return(lines=(1, 3), label="R1", verbatim=True),))
+    valid_codes = _codes(R, SIX[:4], valid)
+    check("an in-range return reaches the real content check without a range refusal",
+          "RETURN_NOT_VERBATIM" in valid_codes and "RETURN_OUT_OF_RANGE" not in valid_codes)
+    hand = dataclasses.replace(base)
+    object.__setattr__(hand, "returns", invalid)
     got2 = _codes(R, SIX[:4], hand)
-    check("RETURN_OUT_OF_RANGE fires on a return naming a line the draft "
-          "does not have",
+    check("the defensive RETURN_OUT_OF_RANGE reader fires on the deliberately "
+          "corrupted test object; production constructors admit no such object",
           "RETURN_OUT_OF_RANGE" in got2, sorted(got2))
-    fired["RETURN_OUT_OF_RANGE"] = "Return(lines=(1, 9)) on a 4-line draft"
+    fired["RETURN_OUT_OF_RANGE"] = "test-only corrupted Return(1,9); both supported constructors refuse"
 
 
 def test_the_meter_layer_three_and_the_one_that_cannot_fire():

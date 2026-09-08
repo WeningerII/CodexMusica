@@ -778,17 +778,27 @@ def _kind_of(findings):
 # agree, naming nothing, about a finding whose whole content is WHICH INDEX is
 # out of range. Doctrine 20: a check that did not run is not a check that
 # passed, and the message has to say the requirement was NOT CHECKED.
+# The repaired dataclass now also validates direct construction/replacement.
+# The malformed-object arm below is therefore explicit fault injection into
+# the leaf reader, separately from the production admission refusal.
 # ---------------------------------------------------------------------------
 
 def test_out_of_range_names_its_own_condition():
     print("\n§13  OUT_OF_RANGE — the message names the condition the guard "
           "actually tests")
     base = S.mandate([[1, 3], [2, 4]], n_lines=4)
-    hand = dataclasses.replace(
-        base, returns=(S.Return(lines=(1, 9), label="R1", verbatim=True),))
+    invalid = (S.Return(lines=(1, 9), label="R1", verbatim=True),)
+    ok("dataclass replacement also refuses an out-of-range return before "
+       "a malformed mandate can enter the grader",
+       raises(lambda: dataclasses.replace(base, returns=invalid), "outside"))
+    # Deliberate test-only corruption after valid construction exercises the
+    # defensive reader directly. Normal construction and replacement both
+    # refuse this state; it is not an admitted Reviser/connector input.
+    hand = dataclasses.replace(base)
+    object.__setattr__(hand, "returns", invalid)
     got = hand.returns_check(["a", "b", "c", "d"])
-    ok("the hand-built mandate — the ONLY input that reaches this guard from "
-       "inspect() — produces exactly one finding",
+    ok("the directly corrupted mandate produces exactly one defensive "
+       "reader finding without claiming the return was checked",
        [g[:4] for g in got] == [("R1", 1, 9, "OUT_OF_RANGE")],
        "-- shape unchanged: quality/revise.py branches on the KIND string")
     # NEVER INDEXES, and this line DID until 2026-08-13. `quality/mutate.py`'s

@@ -1,0 +1,8 @@
+test_song_frequency_literal_header_words_and_author_exclusion (quality.test_production_data.ProductionDataTests.test_song_frequency_literal_header_words_and_author_exclusion) ... ok
+test_song_frequency_refuses_bad_headers_counts_and_partial_cache (quality.test_production_data.ProductionDataTests.test_song_frequency_refuses_bad_headers_counts_and_partial_cache) ... ok
+test_song_frequency_live_population_includes_literal_word (quality.test_production_data.ProductionDataTests.test_song_frequency_live_population_includes_literal_word) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.682s
+
+OK

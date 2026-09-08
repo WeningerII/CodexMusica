@@ -1,0 +1,10 @@
+{
+  "before_sha256": "7a5d9184f568902732cd5cb2d4fa4123deef1b1deff0b4cd95d23af54f08024e",
+  "after_sha256": "bf27f6dec80209166bb223de44a3385b4ea97e1b3ba9ce8efeffc7ede3509e9b",
+  "changed_top_level_ast_nodes": [
+    "screen_pairs",
+    "main"
+  ],
+  "scope": "Independent named screen verdict and screen CLI rendering only; grade/scorer/reader unchanged.",
+  "ast_outside_screen_api_and_cli_branch_identical": true
+}

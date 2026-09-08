@@ -1,0 +1,8 @@
+  [DRIFT] apparatus            pinned       59  measured        1
+  [ok  ] decided              pinned   125501  measured   125501
+  [ok  ] declared_functions   pinned       22  measured       22
+  [DRIFT] typed                pinned    77093  measured    77052
+  [ok  ] undecided            pinned       32  measured       32
+  [ok  ] witnessed            pinned        5  measured        5
+
+  RESULTS_MARK_COVERAGE.md no longer describes this corpus. Repin with the date and keep the superseded value visible (doctrine 17).

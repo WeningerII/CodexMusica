@@ -1,0 +1,27 @@
+[
+  {
+    "suite": "provenance",
+    "exit_code": 0,
+    "wall_s": 46.455226880003465
+  },
+  {
+    "suite": "corpus_taxonomy",
+    "exit_code": 0,
+    "wall_s": 2.465304981000372
+  },
+  {
+    "suite": "section_marks",
+    "exit_code": 0,
+    "wall_s": 3.0728105419984786
+  },
+  {
+    "suite": "structure_census",
+    "exit_code": 0,
+    "wall_s": 33.9524057469971
+  },
+  {
+    "suite": "corpus_audit",
+    "exit_code": 0,
+    "wall_s": 19.856288217997644
+  }
+]

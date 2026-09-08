@@ -205,9 +205,14 @@ def main():
     # full sweep at 2m5s and would break this file's "runs in seconds"
     # promise, so it belongs on a nightly and not here.
     print("\n9. THE EXTENSION LEDGER (doctrine 48)")
-    bad = N.verify_extension()
+    cov, refused = N.ledger_census()
+    check("the ledger's declared corpus was actually read", refused is None,
+          str(refused) if refused else "")
+    bad = N.verify_extension(cov=cov) if refused is None else [str(refused)]
     check("every marker in EXTENSION_LEDGER still says what it said",
           not bad, "\n          ".join(bad))
+    if refused is None:
+        coverage_refusal_sections(cov)
 
     print("\n" + "=" * 62)
     if FAIL:
@@ -237,6 +242,91 @@ FAR = [
     "the road to market ran too long",
     "the horses waited on the plain",
 ]
+
+
+def coverage_refusal_sections(cov):
+    """An absent implementation, absent declaration, and unknown reading
+    require different remedies. Exercise actual judges, not fabricated rows.
+    """
+    from quality.phonology import get as get_phonology
+    phon = get_phonology("eng")
+    by = {c.schema: c for c in cov}
+    unsupported = ("cynghanedd sain", "cynghanedd sain gadwynog",
+                   "cynghanedd sain lafarog", "平仄 tonal template")
+    check("all four unimplemented full figures require implementation",
+          all(by[n].verdict == "cannot_obtain"
+              and by[n].refusal_kind == "unsupported_shape"
+              and by[n].requires_implementation
+              and by[n].remedy.startswith("IMPLEMENT ")
+              and "member" in by[n].detail for n in unsupported))
+    lines = ["cat", "hat", "bat"]
+    schema = R.REGISTRY["monorhyme / leash"]
+    bare = R.build_stream(lines, phon, declaration={"language": "eng"})
+    framed = R.build_stream(lines, phon, declaration={"language": "eng"},
+                            stanzas=[1, 1, 1], stanza_source="declared")
+    absent = N.coverage(bare, schemas={schema.name: schema})[0]
+    present = N.coverage(framed, schemas={schema.name: schema})[0]
+    check("an executable figure with a missing frame asks for a declaration",
+          absent.verdict == "cannot_obtain"
+          and not absent.requires_implementation
+          and "declare" in absent.remedy
+          and present.instances > 0
+          and present.verdict == "extendable")
+    got, refusal = N.ledger_slice()
+    assert refusal is None, refusal
+    ledger_lines, ledger_phon, lang = got
+    st = N._stream_of([R.tokenise(l) for l in ledger_lines if l.strip()],
+                      ledger_phon, lang)
+    for name in ("enjambed rhyme", "linked rhyme"):
+        schema = R.REGISTRY[name]
+        c = by[name]
+        check(name + " preserves unresolved witnesses instead of reporting zero",
+              c.verdict == "cannot_obtain" and c.instances == -1
+              and c.unresolved_instances > 0 and c.capability == "reading"
+              and not c.requires_implementation and "resolve" in c.remedy)
+        for keep in ("all", ("true",)):
+            values, refused = N._measure(st, schema,
+                                        [N.STATISTICS["count"]], keep=keep)
+            check(name + " cannot turn unknown into a numeric null observation "
+                  + repr(keep), values is None and isinstance(refused, R.Refusal)
+                  and refused.capability == "reading")
+    zero = R.build_stream(["cat", "moon"], phon, declaration={"language": "eng"})
+    schema = R.REGISTRY["perfect rhyme"]
+    c = N.coverage(zero, schemas={schema.name: schema})[0]
+    values, refused = N._measure(zero, schema, [N.STATISTICS["count"]])
+    check("a determinate negative still yields a measured zero",
+          c.verdict == "no_instance" and c.instances == 0
+          and c.unresolved_instances == 0 and values == [0] and refused is None)
+    c = by["paroemion"]
+    raw = R.realise(R.REGISTRY[c.schema], st)
+    check("partial coverage reports confirmed and unresolved counts separately",
+          c.instances > 0 and c.unresolved_instances > 0
+          and c.instances == sum(i.verdict is True for i in raw)
+          and c.unresolved_instances == sum(i.verdict is None for i in raw))
+    panel = {r.schema: r for r in N.panel_census([], {"ledger": (None, cov, None)})}
+    check("panel aggregation keeps implementation and reading remedies distinct",
+          all(panel[n].verdict == "cannot_obtain_never_provided"
+              and panel[n].detail.startswith("IMPLEMENT ") for n in unsupported)
+          and all(panel[n].verdict == "cannot_obtain_declarable"
+                  and "resolve" in panel[n].detail
+                  for n in ("enjambed rhyme", "linked rhyme")))
+    empty_panel = N.panel_census([], {})
+    check("an unmeasured panel cannot report an observed absence",
+          all(r.verdict == "cannot_obtain_declarable" and r.capability == "corpus"
+              and "not an observed absence" in r.detail for r in empty_panel))
+    schema = R.REGISTRY["perfect rhyme"]
+    uncertain = R.build_stream(["wind", "find"], phon,
+                               declaration={"language": "eng"})
+    uncertain_cov = N.coverage(uncertain, schemas={schema.name: schema})
+    zero_cov = N.coverage(zero, schemas={schema.name: schema})
+    mixed = {r.schema: r for r in N.panel_census([], {
+        "zero": (None, zero_cov, None),
+        "unknown": (None, uncertain_cov, None)})}[schema.name]
+    check("a measured zero on one slice cannot erase another slice's uncertainty",
+          zero_cov[0].verdict == "no_instance"
+          and uncertain_cov[0].unresolved_instances > 0
+          and mixed.verdict == "cannot_obtain_declarable"
+          and "absence is not established" in mixed.detail)
 
 #: The (schema, statistic) pairs `relations_null.ARMS` actually reports. The
 #: guard in §5 must pass every one of them: a tightening that disqualifies the

@@ -1,0 +1,13 @@
+✔ required readiness rejects a missing proof and invokes current-runtime validation for stale proofs (44.188367ms)
+✔ previous ready result is invalidated when proof bytes or source change (41.658685ms)
+✔ cached readiness notices an undeclared file in an existing unlisted nested directory (12.654923ms)
+✔ production cannot execute an NLTK override outside the model tree whose bytes were approved (15.211891ms)
+✔ required production mode exports exact recovery without Python or assets while retaining all task/input guards (1506.034623ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1831.330088

@@ -1548,6 +1548,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
 }
 .chat-panel-head {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--s2);
   padding: var(--s2) var(--s2) var(--s2) var(--s3);
@@ -1859,12 +1860,19 @@ body.is-dnd-active * { cursor: grabbing !important; }
     <div class="chat-panel-head">
       <span class="chat-panel-title">Ask the engine</span>
       <span class="chat-panel-meta" id="chat-meta"></span>
-      <button class="btn btn-ghost chat-reset" id="chat-reset" type="button"><span class="btn-label">New recipe</span></button>
+      <button class="btn btn-ghost chat-reset" id="chat-reset" type="button"><span class="btn-label">New conversation</span></button>
+      <button class="btn btn-ghost chat-reset" id="chat-recover" type="button">Saved runs</button>
       <button class="icon-btn" id="chat-collapse" aria-label="Collapse conversation"><span data-icon="x" data-size="14"></span></button>
     </div>
     <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-relevant="additions"></div>
   </div>
   <form class="chat-bar" id="chat-form" autocomplete="off">
+    <select id="chat-domain" class="btn btn-secondary" aria-label="Task">
+      <option value="recipe">Create recording recipe</option>
+      <option value="recipe-browse">Browse stock recipes</option>
+      <option value="lyrics">New song lyrics</option>
+      <option value="lyrics-edit">Edit existing lyrics</option>
+    </select>
     <!-- Keep in step with CHAT_MAX_MESSAGE in mcp/chat.js (and render.yaml). The
          attribute is a courtesy that stops the field accepting text the server
          will refuse; the server bound is the real one, since nothing stops a

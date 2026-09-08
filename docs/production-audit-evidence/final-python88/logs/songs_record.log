@@ -1,0 +1,77 @@
+
+1. the series — banked, and re-derivable from the bytes
+  PASS  songs/RESULTS.tsv carries rows, so this file cannot pass by examining nothing
+          180 row(s)
+  PASS  every banked row carries every declared column — a row missing a feature is a row that cannot be compared to the next one
+          15 column(s): ['abstract_noun_ratio', 'concreteness_mean', 'concreteness_p90', 'content_word_freq_mean']...
+  PASS  every delivered song has a banked row — an unmeasured song is the hole the whole file was written to close
+          unbanked: none
+
+2. the harness commit, and the dirty-tree disclosure
+  PASS  a commit column is produced at all
+          1e68fb89
+  PASS  ...and a dirty working tree is DISCLOSED in the value rather than passing as a clean commit (doctrine 20)
+          1e68fb89
+
+3. the drift detector is two-sided
+  16 song(s) re-derived against their newest banked row
+
+RESULT: PASS
+  PASS  --check PASSES against the series as banked, so it cannot be satisfied by failing on everything
+          rc=0
+  16 song(s) re-derived against their newest banked row
+  [MOVED] carry_it_over.txt  concreteness_mean: 9.999999 -> 3.043667  (last seen at 775f03f)
+
+  THE SONGS' BYTES DID NOT CHANGE, SO THE TREE DID. Attribute the delta to what moved between the two commits, bank the new row with --write, and say WHY in songs/README.md. Do not tune the feature to the pin.
+
+RESULT: FAIL
+  PASS  ...and with ONE banked feature perturbed it FAILS and names the song and the feature — a song's bytes cannot change, so a moved number is the tree moving and must be loud
+          rc=1
+  PASS  ...and the mutation is reverted, leaving the series as found
+
+4. the claim check catches the narrator, both ways
+  songs/README.md scanned; 16 song(s) banked, 15 column(s) citable
+
+RESULT: PASS
+  PASS  --claims PASSES on songs/README.md as committed
+          rc=0
+  songs/README.md scanned; 16 song(s) banked, 15 column(s) citable
+  [UNCITED] line 981: comparative 'best' with NO [RESULTS: column song] citation
+            This is the best song here by a mile.
+
+  A COMPARISON IS A CLAIM ABOUT THE SERIES, AND THE SERIES IS songs/RESULTS.tsv. Cite it — e.g. `[RESULTS: concreteness_mean carry_it_over.txt]` — or do not make the comparison. `song` exit 0 does not mean better: BOTH drafts of carry_it_over were exit 0 and one of them was fragments.
+
+RESULT: FAIL
+  songs/README.md scanned; 16 song(s) banked, 15 column(s) citable
+
+RESULT: PASS
+  songs/README.md scanned; 16 song(s) banked, 15 column(s) citable
+  [UNCITED] line 981: cites column 'not_a_column', not a column of RESULTS.tsv
+
+  A COMPARISON IS A CLAIM ABOUT THE SERIES, AND THE SERIES IS songs/RESULTS.tsv. Cite it — e.g. `[RESULTS: concreteness_mean carry_it_over.txt]` — or do not make the comparison. `song` exit 0 does not mean better: BOTH drafts of carry_it_over were exit 0 and one of them was fragments.
+
+RESULT: FAIL
+  PASS  an UNCITED superlative FAILS — 'the best song here by a mile' is the exact sentence this instrument exists to refuse
+          rc=1
+  PASS  ...a CITED comparison that RESOLVES passes, so the check is not just a ban on the word 'best'
+          rc=0
+  PASS  ...and a citation naming a column and a song that do not exist FAILS, so the citation cannot be decoration
+          rc=1
+  PASS  ...and README is restored byte-for-byte
+
+5. the sonnet-fitted discriminator is not reachable from here
+  PASS  song_record.py does not import `discriminate` — the refusal is enforced by absence, not asserted in prose
+  PASS  ...and it DOES read the pre-registered feature names from features.py rather than copying them, so it cannot drift from the pre-registration it reports
+          ['rhyme_predictability_mean', 'rhyme_predictability_min', 'concreteness_mean']
+
+6. a row is keyed on a commit, so it is written on one (`MISSING.md` M-196)
+  PASS  every song's LATEST banked row carries a clean sha — a measurement keyed to a tree that exists as a commit
+          dirty latest rows: []
+  REFUSED — the tree is dirty (abc1234-WORKING), so the row would be keyed on a commit that does not exist. Commit first, or pass --allow-dirty to bank a working-tree measurement on purpose (it will be stamped as one).
+  PASS  `--write` on a dirty tree REFUSES (exit 2) and writes nothing
+          rc 2, wrote False
+  PASS  `--record` on a dirty tree REFUSES before the command runs (a refused record costs nothing) — for the DIRTY reason, with the verb resolved
+          rc 2: REFUSED — the tree is dirty (abc1234-WORKING): a log row keyed on a commit that does not e
+  PASS  ...and `--allow-dirty` is the DECLARED way past, in both writers
+======================================================================
+the series is re-derivable and a comparison must cite it

@@ -19,14 +19,17 @@ hidden, not declared here:
   CMUdict, which the first run downloads (~3.5 MB; the frequency list ships in
   the repo as `data/opensubtitles_en_50k.tsv`).
 - **The six GRADING verbs — `song`, `brief`, `verify`, `revise`, `screen`,
-  `finish` — reach the floor**, which needs the `nltk` package and two fetched
-  resources, the Brysbaert concreteness norms and the POS-tagger model. Stage
-  them once:
+  `finish` — reach the floor**, which needs the `nltk` package and the current
+  POS-tagger model. Stage the production resources once:
 
-      python3 -m pip install nltk && python3 quality/fetch_data.py
+      python3 -m pip install nltk && python3 quality/fetch_data.py --runtime
 
-  Without them those six REFUSE at exit 2 — the one refusal shape, naming
-  which of the three is missing and printing that command — and never exit 1.
+  Full research features additionally need concreteness norms; opt in with
+  `python3 quality/fetch_data.py --research`. Retired tagger/Punkt source records
+  live in `quality/archive/retired-lexical-assets.json`; neither current profile
+  installs those packages. Research norms are not part of normal setup or the
+  production image. Missing requested resources
+  produce exit 2 with the matching staging command.
   CI runs on Python 3.11 (`.github/workflows/ci.yml`).
 
 ## Commands

@@ -1,0 +1,20 @@
+"""Attribute section-mark census changes using each checkout's own reader.
+The counted branch is the same bucket classifier used by mark_coverage.scan;
+return-pair diagnostics are omitted because they do not contribute to counts.
+"""
+from pathlib import Path
+import sys,collections,json,hashlib
+root=Path(sys.argv[1]).resolve();sys.path.insert(0,str(root))
+from quality import mark_coverage as M
+by_file={};total=collections.Counter()
+for path in sorted((root/'corpus/song').glob('*.txt')):
+ counts=collections.Counter()
+ for song in M.GR.read_marked_songs(str(path),language=M._lang(str(path))):
+  for b in song.blocks:
+   bucket=('apparatus' if not b.base else 'typed' if b.function else
+           M.CODE_BUCKET.get(b.refusal.code if b.refusal else 'MARK_UNRECOGNISED','undecided'))
+   counts[bucket]+=1
+ by_file[path.name]=dict(counts);total.update(counts)
+print(json.dumps({'root':str(root),'total':dict(total),'by_file':by_file,
+ 'mark_coverage_sha256':hashlib.sha256(Path(M.__file__).read_bytes()).hexdigest(),
+ 'grid_sha256':hashlib.sha256(Path(M.GR.__file__).read_bytes()).hexdigest()},indent=2))

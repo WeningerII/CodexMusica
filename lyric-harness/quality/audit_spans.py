@@ -90,9 +90,10 @@ def _bar(n, total, width=40):
 def sweep_battery(lex, decl, verbose=True):
     """Every mandated sonnet pair, classified by what its spans actually were.
 
-    The denominator is the JUDGED count, never the mandated one: 50 of the
-    1064 mandated pairs have an end word absent from CMUdict and were never
-    compared, so they have no spans to be right or wrong about. Doctrine 79.
+    The denominator is the JUDGED count, never the mandated one. The current
+    97 refusals contain 50 lexical failures, 28 endpoint-pronunciation
+    disagreements and 19 unresolved default-schema answers. A provisional
+    span on an unresolved pair is not certified evidence. Doctrine 79.
     """
     sonnets = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))
     mandated = judged = refused = 0
@@ -562,8 +563,16 @@ def sweep_record(lex, decl, verbose=True):
 #: calls adversary 7, so it is the worst place in the layer to have it.
 #: Doctrine 58: these are thresholds nobody wrote down until now. Argue them
 #: and repin; do not tune anything to meet them.
+#: REPINNED 2026-09-08 after the explicit pronunciation/schema refusals.
+#: Prior 1064/1014/50 -> 1064/967/97; 632 claims -> 605; 121 ties -> 114.
+#: The exact 47 newly refused coordinates contain 27 former claims and
+#: seven former ties. The lower violation count 14 -> 4 is lost certified
+#: coverage, not improved rhyme quality. Current violation attribution is
+#: one exact/exact (sonnet42) and three reach/reach (9,26,150).
+#: All counts and the full pair partition were independently measured;
+#: production_relation_oracle.json retains the exact causal coordinates.
 PINNED = {
-    "mandated": 1064, "judged": 1014, "refused": 50,
+    "mandated": 1064, "judged": 967, "refused": 97,
     #: ~~82~~ under the two-name door; ~~35~~ when it widened to all four
     #: relations (M-59); ~~12~~ when the whole schema vocabulary joined the
     #: default (M-116, owner ruling 2026-08-25 — 23 pairs stopped
@@ -575,9 +584,9 @@ PINNED = {
     #: 0 stopped, inside a preregistered ceiling of 20). THE FIRST THREE
     #: STEPS WIDENED THE DOOR AND THIS ONE TIGHTENED IT, which is why the
     #: count rose where it had fallen three times.
-    "violations": 14,
+    "violations": 4,
     #: report lines that name the two words that actually produced the number
-    "claimed": 632,
+    "claimed": 605,
     #: the same question asked of the violations alone.
     #: ~~36~~ of ~~82~~; ~~7~~ of ~~35~~; ~~2~~ of ~~12~~ under M-116;
     #: 4 of 14 under M-138's pricing — and the SHARE rose, 16.7% -> 28.6%,
@@ -585,7 +594,9 @@ PINNED = {
     #: backwards: a widening retires ordinary end-word comparisons first
     #: (the population that DOES name its own words), and a tightening adds
     #: them back. Both new pairs are ordinary end-word assonance.
-    "violations_claimed": 4,
+    "violations_claimed": 1,
+    "ties": 114,
+    "violation_ties": 3,
 }
 
 

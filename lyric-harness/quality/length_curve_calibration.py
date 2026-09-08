@@ -43,12 +43,17 @@ or a feature is (doctrine 1). Nothing outside the standard library is
 imported: the results must reproduce on a fresh clone.
 """
 import argparse
+import hashlib
+import importlib.metadata
+import inspect
+import json
 import math
 import os
 import random
 import statistics
 import sys
 import time
+from pathlib import Path
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if ROOT not in sys.path:
@@ -70,6 +75,74 @@ ROW_FIELDS = ["file", "author", "title", "n_lines", "n_tokens",
               "mattr", "fwr", "anaphora", "cv", "predictability"]
 
 
+def corpus_files():
+    """The same current work population owns the floor profile and curves."""
+    return C.corpus_files()
+
+
+def row_provenance():
+    """Actual inputs of saved measurements; a rows file is not self-authenticating."""
+    try:
+        import nltk
+    except ImportError:
+        raise ValueError("calibration provenance requires the NLTK package") from None
+    from quality.lyric_reader import population_fingerprint
+    corpus = hashlib.sha256()
+    for path in corpus_files():
+        corpus.update(os.path.relpath(path, ROOT).encode())
+        corpus.update(b"\0")
+        corpus.update(Path(path).read_bytes())
+        corpus.update(b"\0")
+    try:
+        tagger = Path(str(nltk.data.find("taggers/averaged_perceptron_tagger_eng/")))
+    except LookupError:
+        raise ValueError("calibration provenance requires the staged English tagger; configure NLTK_DATA") from None
+    model = hashlib.sha256()
+    for path in sorted(tagger.rglob("*.json")):
+        model.update(path.name.encode())
+        model.update(path.read_bytes())
+    from quality.source_identity import definition_source
+    question = hashlib.sha256("\n".join(definition_source(fn) for fn in
+        (C.population, C.anaphora, C.line_cv, C.author_of)).encode()).hexdigest()
+    return {"version": 1, "with_predictability": True, "comparator_fingerprint": C.comparator_fingerprint(),
+            "population_fingerprint": population_fingerprint(),
+            "corpus_sha256": corpus.hexdigest(), "question_sha256": question,
+            "tagger_sha256": model.hexdigest(), "nltk": importlib.metadata.version("nltk")}
+
+
+def write_rows(rows, path, provenance=None, **extra):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    with tmp.open("w", encoding="utf-8") as stream:
+        stream.write("\t".join(ROW_FIELDS) + "\n")
+        for row in rows:
+            stream.write("\t".join(str(row[k]) if k in
+                ("file", "author", "title", "n_lines", "n_tokens") else repr(float(row[k]))
+                for k in ROW_FIELDS) + "\n")
+    os.replace(tmp, path)
+    metadata = {**(provenance or row_provenance()), **extra,
+                "items": len(rows), "row_sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
+    sidecar = path.with_suffix(".meta.json")
+    tmp = sidecar.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(metadata, sort_keys=True, indent=2) + "\n", encoding="utf-8")
+    os.replace(tmp, sidecar)
+
+
+def verify_rows(path, current=None):
+    path = Path(path)
+    try:
+        recorded = json.loads(path.with_suffix(".meta.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError) as error:
+        raise ValueError(f"saved calibration rows lack verified provenance: {path}: {error}") from None
+    for key, value in (current or row_provenance()).items():
+        if recorded.get(key) != value:
+            raise ValueError(f"saved calibration rows are stale: {path}: {key}")
+    if recorded.get("row_sha256") != hashlib.sha256(path.read_bytes()).hexdigest():
+        raise ValueError(f"saved calibration rows changed bytes: {path}")
+    return recorded
+
+
 # ---------------------------------------------------------------------------
 # compute: the rows, exactly population()'s, to a TSV (sharded for stage B)
 # ---------------------------------------------------------------------------
@@ -84,6 +157,7 @@ def _shard(files, spec):
 
 def cmd_compute(a):
     files = _shard(C.corpus_files(), a.shard)
+    provenance = row_provenance()
     t0 = time.process_time()
     w0 = time.time()
     cache = C.PredictabilityCache(
@@ -95,13 +169,10 @@ def cmd_compute(a):
         scorer=scorer, with_predictability=not a.without_predictability,
         pred_max_tokens=None, files=files)
     cache.flush()
-    with open(a.out, "w", encoding="utf-8") as fh:
-        fh.write("\t".join(ROW_FIELDS) + "\n")
-        for r in rows:
-            fh.write("\t".join(
-                str(r[k]) if k in ("file", "author", "title", "n_lines",
-                                   "n_tokens")
-                else repr(float(r[k])) for k in ROW_FIELDS) + "\n")
+    if row_provenance() != provenance:
+        raise ValueError("calibration inputs changed during computation; refuse stale row adoption")
+    write_rows(rows, a.out, provenance, shard=a.shard,
+               with_predictability=not a.without_predictability)
     print("COMPUTE  shard %s: %d files, %d rows -> %s; cache hits %d misses "
           "%d; %.0f CPU-s, %.0f wall-s"
           % (a.shard or "1/1", len(files), len(rows), a.out, cache.hits,
@@ -142,9 +213,13 @@ def cmd_merge_cache(a):
 # rows in
 # ---------------------------------------------------------------------------
 
-def read_rows(paths):
+def read_rows(paths, verify=False):
     rows = []
+    current = row_provenance() if verify else None
+    coverage = []
     for p in paths:
+        metadata = verify_rows(p, current) if verify else None
+        start = len(rows)
         with open(p, encoding="utf-8") as fh:
             head = fh.readline().rstrip("\n").split("\t")
             for line in fh:
@@ -156,6 +231,22 @@ def read_rows(paths):
                     r[k] = float(r[k]) if k in r else float("nan")
                 r["x"] = math.log(r["n_tokens"])
                 rows.append(r)
+        if verify:
+            if len(rows) - start != metadata.get("items"):
+                raise ValueError(f"saved calibration row count differs from provenance: {p}")
+            spec = metadata.get("shard") or "1/1"
+            try:
+                index, total = map(int, spec.split("/"))
+                if not 1 <= index <= total:
+                    raise ValueError()
+            except (ValueError, AttributeError):
+                raise ValueError(f"invalid saved calibration shard: {p}: {spec}") from None
+            coverage.append((index, total))
+    if verify:
+        totals = {total for _index, total in coverage}
+        if len(totals) != 1 or len(coverage) != len(set(coverage)) or {
+                index for index, _total in coverage} != set(range(1, next(iter(totals), 0) + 1)):
+            raise ValueError("saved calibration rows require complete, unique shard coverage")
     rows.sort(key=lambda r: (r["n_tokens"], r["file"], r["title"]))
     for i, r in enumerate(rows):
         r["i"] = i
@@ -414,7 +505,13 @@ def flagged_ids(items, f, curve):
     return out
 
 
-def held_out(rows, bins, checks, seeds, verbose=True, bands=()):
+def _held_out_partition(args):
+    rows, bins, checks, indices, bands = args
+    return held_out(rows, bins, checks, len(indices), verbose=False,
+                    bands=bands, seed_indices=indices)
+
+
+def held_out(rows, bins, checks, seeds, verbose=True, bands=(), workers=1, seed_indices=None):
     """§4: 200 author (file) 50/50 splits; per seed, per check, per model,
     per bin: the held-out flag rate. -> results[f][model][k] = [rates],
     plus held counts and under-resolved marks.
@@ -432,7 +529,30 @@ def held_out(rows, bins, checks, seeds, verbose=True, bands=()):
     held_ids = []           # per seed: set of held item ids
     t0 = time.time()
     done = 0
-    for s in range(seeds):
+    indices = list(range(seeds)) if seed_indices is None else list(seed_indices)
+    if workers > 1:
+        import multiprocessing
+        width = max(1, math.ceil(len(indices) / (workers * 4)))
+        tasks = [(rows, bins, checks, indices[start:start + width], bands)
+                 for start in range(0, len(indices), width)]
+        with multiprocessing.get_context("fork").Pool(workers) as pool:
+            for partial in pool.imap(_held_out_partition, tasks):
+                p_res, p_held_n, p_unres, p_done, p_flags, p_ids = partial
+                for f in checks:
+                    for m in MODELS:
+                        for bn in bins:
+                            res[f][m][bn["k"]].extend(p_res[f][m][bn["k"]])
+                    for bn in bins:
+                        unres[f][bn["k"]] += p_unres[f][bn["k"]]
+                for bn in bins:
+                    held_n[bn["k"]].extend(p_held_n[bn["k"]])
+                flag_sets.extend(p_flags)
+                held_ids.extend(p_ids)
+                done += p_done
+                if verbose:
+                    print("  held-out seed %d/%d  %.0f s" % (done, seeds, time.time() - t0), flush=True)
+        return res, held_n, unres, done, flag_sets, held_ids
+    for s in indices:
         rnd = random.Random(s)
         sh = files[:]
         rnd.shuffle(sh)
@@ -499,8 +619,15 @@ def pct(v, p):
 
 
 def cmd_fit(a):
-    rows = read_rows(a.rows)
+    rows = read_rows(a.rows, verify=not getattr(a, "allow_unverified_rows", False))
+    if getattr(a, "allow_unverified_rows", False):
+        print("HISTORICAL/EXPLORATORY ROWS: provenance not verified; no current calibration adoption is established")
     checks = a.checks.split(",")
+    if a.seeds < 1 or len(checks) != len(set(checks)) or any(f not in TAU for f in checks):
+        raise ValueError("fit requires positive seeds and distinct declared checks")
+    if a.picks and any(f not in checks or m not in MODELS for f, m in a.picks.items()):
+        raise ValueError("declared picks must name a selected check and an available model")
+    input_provenance = row_provenance() if not getattr(a, "allow_unverified_rows", False) else None
     print("ROWS  %d items, %d files, N %d..%d, median %d"
           % (len(rows), len({r["file"] for r in rows}), rows[0]["n_tokens"],
              rows[-1]["n_tokens"], statistics.median(r["n_tokens"] for r in rows)))
@@ -572,7 +699,8 @@ def cmd_fit(a):
             band_thr[p.name] = (p.lo, p.hi, p.percentiles)
     print("\nHELD-OUT (§4): %d file 50/50 splits" % a.seeds, flush=True)
     res, held_n, unres, done, flag_sets, held_ids = held_out(
-        rows, bins, checks, a.seeds, bands=[(n, lo, hi) for n, (lo, hi, _) in band_thr.items()])
+        rows, bins, checks, a.seeds, bands=[(n, lo, hi) for n, (lo, hi, _) in band_thr.items()],
+        workers=getattr(a, "workers", 1))
     bounds = {}
     for bn in bins:
         nk = int(statistics.median(held_n[bn["k"]]))
@@ -619,6 +747,7 @@ def cmd_fit(a):
                 break
         if pick is None and all(passing["CK"]):
             pick = "CK"
+        rule_pick = pick
         if a.picks and f in a.picks:
             # A DECLARED pick, for re-running the in-sample sections (§5.4,
             # §5.5) with the picks the 200-seed run made, without paying the
@@ -626,6 +755,8 @@ def cmd_fit(a):
             print("  PICK %s: rule says %s; OVERRIDDEN to %s by --picks (in-sample re-run)"
                   % (f, pick, a.picks[f]))
             pick = a.picks[f]
+            if pick not in MODELS or not all(passing[pick]) or full[f][pick][1].get("refused"):
+                raise ValueError(f"declared pick {f}={pick} does not pass every measured bin; no adoption")
         if pick is None:
             ok_bins = [bn for bn, ok in zip(bins, passing["CK"]) if ok]
             holes = [bn for bn, ok in zip(bins, passing["CK"]) if not ok]
@@ -642,6 +773,8 @@ def cmd_fit(a):
             if pick == "C2" and full[f]["C2"][1].get("turn_inside"):
                 print("  E3: C2's turning point (N=%.0f) is inside the range — disclosed"
                       % full[f]["C2"][1]["turn_N"])
+
+        picks[f]["rule_model"] = rule_pick
 
     # 4. the shipped bands beside the pick, on the bins they cover (§5.4)
     print("\nSHIPPED BANDS BESIDE THE PICK (§5.4): per bin inside a band — the band's shipped constant "
@@ -692,6 +825,7 @@ def cmd_fit(a):
     print("\nHELD-OUT RATE PER CHECK, picked model, over ALL held-out items (median [5th-95th] of seeds) — "
           "the `held_out_fpr` row a profile ships:")
     all_keys = {bn["k"] for bn in bins}
+    held_out_fpr = {}
     for f in checks:
         m = picks[f]["model"]
         rates = []
@@ -700,6 +834,7 @@ def cmd_fit(a):
             if not defined:
                 continue
             rates.append(len(fs.get((f, m), set())) / len(defined))
+        held_out_fpr[f] = [100 * median_nan(rates), 100 * pct(rates, 0.05), 100 * pct(rates, 0.95)]
         print("  %-14s %s  %.2f%% [%.2f-%.2f]  -> (%.2f, %.2f, %.2f)"
               % (f, m, 100 * median_nan(rates), 100 * pct(rates, 0.05), 100 * pct(rates, 0.95),
                  100 * median_nan(rates), 100 * pct(rates, 0.05), 100 * pct(rates, 0.95)))
@@ -710,7 +845,8 @@ def cmd_fit(a):
         print("  bin %2d (N %5d-%5d): ANY %.2f%% [%.2f-%.2f]" % (bn["k"], bn["n_lo"], bn["n_hi"],
               100 * median_nan(u), 100 * pct(u, 0.05), 100 * pct(u, 0.95)))
     u = union_rate(flag_sets, held_ids, rows, bins, model_of, {bn["k"] for bn in bins})
-    print("  overall held-out ANY %.2f%% [%.2f-%.2f]" % (100 * median_nan(u), 100 * pct(u, 0.05), 100 * pct(u, 0.95)))
+    held_out_fpr["ANY"] = [100 * median_nan(u), 100 * pct(u, 0.05), 100 * pct(u, 0.95)]
+    print("  overall held-out ANY %.2f%% [%.2f-%.2f]" % tuple(held_out_fpr["ANY"]))
 
     # 4b. E2: the UNION on the bins a shipped band covers — the band's own
     # thresholds against the picked curves, both in-sample on the same items,
@@ -783,13 +919,28 @@ def cmd_fit(a):
             print("  %-14s %s coef (in ln N), FULL precision — what a profile row must carry: [%s]"
                   % (f, m, ", ".join("%r" % c for c in full[f][m][1]["coef"])))
 
+    if input_provenance is not None and row_provenance() != input_provenance:
+        raise ValueError("calibration inputs changed during fit; refuse stale adoption")
+    if getattr(a, "report", None):
+        result = {"version": 1, "provenance": input_provenance,
+                  "items": len(rows), "files": len({r["file"] for r in rows}),
+                  "lo": rows[0]["n_tokens"], "hi": rows[-1]["n_tokens"],
+                  "seeds": done, "picks": picks, "held_out_fpr": held_out_fpr,
+                  "curves": {f: full[f][picks[f]["model"]][1] for f in checks},
+                  "bins": bins}
+        destination = Path(a.report)
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        temporary = destination.with_suffix(destination.suffix + ".tmp")
+        temporary.write_text(json.dumps(result, sort_keys=True, indent=2) + "\n")
+        os.replace(temporary, destination)
+
 
 # ---------------------------------------------------------------------------
 # check: the shipped row re-derives from the corpus (the meter_bands /
 # capacity / song_profile_calibration --check pattern, M-239)
 # ---------------------------------------------------------------------------
 
-SHIPPED_MODEL = {"mattr": "C1", "fwr": "C2", "anaphora": "C2", "cv": "C2",
+SHIPPED_MODEL = {"mattr": "C1", "fwr": "C2", "anaphora": "C2", "cv": "CK",
                  "predictability": "CK"}
 KEY_OF = {"mattr": "mattr_min", "fwr": "function_word_ratio_max",
           "anaphora": "anaphora_max", "cv": "line_length_cv_min",
@@ -805,23 +956,22 @@ def cmd_check(a):
         sys.exit(2)
     prof = lyric[0]
     if a.rows:
-        rows = read_rows(a.rows)
+        rows = read_rows(a.rows, verify=True)
         print("ROWS  from %d file(s): %d items" % (len(a.rows), len(rows)))
     else:
+        provenance = row_provenance()
         cache = C.PredictabilityCache(a.cache_path, enabled=True).open()
         cache.report()
         rs, _ = C.population(scorer=C.Scorer(cache), with_predictability=True,
                              pred_max_tokens=None)
         cache.flush()
+        if row_provenance() != provenance:
+            raise ValueError("calibration inputs changed during computation; refuse stale row adoption")
         import tempfile
-        tmp = os.path.join(tempfile.gettempdir(), "length_curve_check_rows.tsv")
-        with open(tmp, "w", encoding="utf-8") as fh:
-            fh.write("\t".join(ROW_FIELDS) + "\n")
-            for r in rs:
-                fh.write("\t".join(
-                    str(r[k]) if k in ("file", "author", "title", "n_lines", "n_tokens")
-                    else repr(float(r[k])) for k in ROW_FIELDS) + "\n")
-        rows = read_rows([tmp])
+        with tempfile.TemporaryDirectory(prefix="length-curve-check-") as directory:
+            tmp = Path(directory) / "rows.tsv"
+            write_rows(rs, tmp, provenance)
+            rows = read_rows([tmp], verify=True)
         print("ROWS  computed: %d items (memo hits %d, misses %d)" % (len(rows), cache.hits, cache.misses))
     if len(rows) != prof.n_human:
         print("MOVED: the corpus holds %d items, the row was fit on %d — the "
@@ -829,6 +979,15 @@ def cmd_check(a):
               "(doctrine 58); re-run the cell and re-adopt as a set"
               % (len(rows), prof.n_human))
         sys.exit(1)
+    ttr_population = {"window": C.MATTR_WINDOW,
+                      "items": sum(row["n_tokens"] <= C.MATTR_WINDOW for row in rows)}
+    recorded_ttr_population = getattr(prof, "mattr_ttr_population", None)
+    if recorded_ttr_population != ttr_population:
+        print("MOVED: the lyric MATTR/TTR population was %r, measured %r"
+              % (recorded_ttr_population, ttr_population))
+        sys.exit(1)
+    print("MATTR/TTR  %d of %d items degenerate at calibration window %d -> HOLDS"
+          % (ttr_population["items"], len(rows), ttr_population["window"]))
     bins = make_bins(rows)
     moved = []
     for f, m in SHIPPED_MODEL.items():
@@ -876,7 +1035,12 @@ def main():
     f = sub.add_parser("fit")
     f.add_argument("rows", nargs="+")
     f.add_argument("--seeds", type=int, default=200)
+    f.add_argument("--workers", type=int, choices=range(1, 17), default=1,
+                   help="exact independent seed partitions; results retain original seed order")
+    f.add_argument("--allow-unverified-rows", action="store_true",
+                   help="historical/exploratory fit only; never accepted by the current check gate")
     f.add_argument("--checks", default="mattr,fwr,anaphora,cv,predictability")
+    f.add_argument("--report", help="write full-precision adoption measurements with provenance as JSON")
     f.add_argument("--picks", default=None,
                    help="check=MODEL,... — force the picks for the in-sample sections (disclosed)")
     f.set_defaults(fn=cmd_fit)
@@ -891,7 +1055,11 @@ def main():
     a = ap.parse_args()
     if getattr(a, "picks", None):
         a.picks = dict(kv.split("=") for kv in a.picks.split(","))
-    a.fn(a)
+    try:
+        a.fn(a)
+    except ValueError as error:
+        print(f"REFUSED — {error}")
+        raise SystemExit(2)
 
 
 if __name__ == "__main__":

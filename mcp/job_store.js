@@ -3,14 +3,26 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import express from 'express';
+import { runtimeAssets } from './runtime_assets.js';
+import { releaseIdentity, runtimeSourceFingerprint } from './build_identity.js';
 import { requestContext, withExecutionContext } from './execution_context.js';
 
 const ID = /^[a-f0-9]{64}$/;
 const STATES = new Set(['pending', 'completed', 'interrupted', 'retired']);
 const DEFAULT_TTL_MS = 24 * 60 * 60 * 1000;
-const MAX_RECORD_BYTES = 4 * 1024 * 1024;
+const MAX_RECORD_BYTES = 8 * 1024 * 1024;
+const INTENT_BYTES = 2 * 1024 * 1024;
+const CHECKPOINT_BYTES = 3 * 1024 * 1024;
+const PROGRESS_BYTES = 2 * 1024 * 1024;
+const RESPONSE_BYTES = 4 * 1024 * 1024;
+function boundedPayload(value, limit, label) {
+  if (Buffer.byteLength(JSON.stringify(value)) > limit)
+    throw Object.assign(new Error(`${label} exceeds the durable wire-byte limit (${limit}).`), {
+      code: 'JOB_PAYLOAD_TOO_LARGE',
+      status: 413,
+    });
+}
 const DEFAULT_MAX_BYTES = 256 * 1024 * 1024;
 
 export function atomicPrivateWrite(file, data) {
@@ -72,6 +84,23 @@ export function requestDigest(body) {
 
 function copy(value) {
   return JSON.parse(JSON.stringify(value));
+}
+
+function compactRecord(record) {
+  // Retain payloads in their bounded UTF-8 wire representation. A single
+  // non-Latin-1 character can otherwise double an entire large V8 string.
+  // Metadata scans (expiry, reservations, reclamation) never decode payloads;
+  // reads and writes still expose the original JSON and preserve disk format.
+  const stored = { ...record };
+  for (const key of ['intent', 'checkpoint', 'progress', 'proposer_usage', 'response']) {
+    if (stored[key] == null) continue;
+    const bytes = Buffer.from(JSON.stringify(stored[key]), 'utf8');
+    Object.defineProperty(stored, key, {
+      enumerable: true,
+      get: () => JSON.parse(bytes.toString('utf8')),
+    });
+  }
+  return stored;
 }
 
 function interruptedRecord(record, reason, now) {
@@ -165,7 +194,7 @@ export class JobStore {
       const record = JSON.parse(fs.readFileSync(file, 'utf8'));
       this.validate(record);
       if (name !== `${record.request_id}.json`) throw new Error('Job record identity mismatch');
-      this.records.set(record.request_id, record);
+      this.records.set(record.request_id, compactRecord(record));
       this.bytes += Buffer.byteLength(JSON.stringify(record));
     }
     // The process cannot know which upstream work completed before its crash.
@@ -217,10 +246,19 @@ export class JobStore {
     const bytes = Buffer.byteLength(text);
     const old = this.records.get(record.request_id);
     const oldBytes = old ? Buffer.byteLength(JSON.stringify(old)) : 0;
+    // Reserve the complete record allowance for every active request. A later
+    // receipt must not fail because another job consumed its completion space.
+    let reserve = record.state === 'pending' ? Math.max(0, this.maxRecordBytes - bytes) : 0;
+    for (const [id, pending] of this.records)
+      if (id !== record.request_id && pending.state === 'pending')
+        reserve += Math.max(0, this.maxRecordBytes - Buffer.byteLength(JSON.stringify(pending)));
     if (reclaim && bytes <= this.maxRecordBytes)
-      this.reclaim(record.request_id, bytes - oldBytes, !old);
-    if (bytes > this.maxRecordBytes || this.bytes - oldBytes + bytes > this.maxBytes) {
-      throw new Error('Job storage capacity exceeded; no additional work may be admitted');
+      this.reclaim(record.request_id, bytes - oldBytes + reserve, !old);
+    if (bytes > this.maxRecordBytes || this.bytes - oldBytes + bytes + reserve > this.maxBytes) {
+      throw Object.assign(
+        new Error('Job storage capacity exceeded; no additional work may be admitted'),
+        { code: 'JOB_CAPACITY', status: 503 }
+      );
     }
     try {
       if (this.directory)
@@ -229,7 +267,7 @@ export class JobStore {
       this.failure = err.message;
       throw err;
     }
-    this.records.set(record.request_id, record);
+    this.records.set(record.request_id, compactRecord(record));
     this.bytes += bytes - oldBytes;
     return record;
   }
@@ -244,7 +282,11 @@ export class JobStore {
       payloads() + Number(newPayload) > this.maxPayloadRecords
     ) {
       const record = terminal.shift();
-      if (!record) throw new Error('Job storage capacity exceeded; active work cannot be evicted');
+      if (!record)
+        throw Object.assign(
+          new Error('Job storage capacity exceeded; active work cannot be evicted'),
+          { code: 'JOB_CAPACITY', status: 503 }
+        );
       // Retain the id/digest until the metadata TTL expires. Payload eviction
       // must never make the same capability look like permission to execute.
       this.write(
@@ -296,7 +338,7 @@ export class JobStore {
     return record ? copy(record) : null;
   }
 
-  begin(id, body, build = {}) {
+  begin(id, body, build = {}, inheritedCheckpoint = null) {
     this.assertHealthy();
     if (!ID.test(id))
       throw Object.assign(
@@ -305,6 +347,7 @@ export class JobStore {
         ),
         { status: 400 }
       );
+    boundedPayload(body, INTENT_BYTES, 'Request intent');
     const digest = requestDigest(body);
     const previous = this.get(id);
     if (previous) {
@@ -318,6 +361,22 @@ export class JobStore {
       throw Object.assign(
         new Error('Recovery store is full; retry after existing receipts expire'),
         { status: 503 }
+      );
+    const parent = body.continuation_id == null ? null : this.get(body.continuation_id);
+    if (
+      body.continuation_id != null &&
+      (!parent || !['completed', 'interrupted'].includes(parent.state))
+    )
+      throw Object.assign(
+        new Error('The continuation receipt is unavailable; no work was started.'),
+        { status: 409, code: 'CONTINUATION_UNAVAILABLE' }
+      );
+    if (parent?.successor_id && parent.successor_id !== id)
+      throw Object.assign(
+        new Error(
+          'This continuation has already advanced; recover its successor before continuing.'
+        ),
+        { status: 409, code: 'STALE_CONTINUATION', successor_id: parent.successor_id }
       );
     const record = {
       version: 1,
@@ -333,10 +392,25 @@ export class JobStore {
       proposer_usage: null,
       response: null,
     };
-    return { created: true, record: copy(this.write(record)) };
+    if (inheritedCheckpoint) {
+      boundedPayload(inheritedCheckpoint, CHECKPOINT_BYTES, 'Inherited continuation');
+      record.checkpoint = copy(inheritedCheckpoint);
+    }
+    const saved = this.write(record);
+    // Persist a single successor before dispatch. If either disk write fails,
+    // admission fails closed; concurrent IDs cannot branch a paid turn.
+    if (parent) this.write({ ...this.records.get(parent.request_id), successor_id: id });
+    return { created: true, record: copy(saved) };
   }
 
   checkpoint(id, payload) {
+    boundedPayload(
+      payload,
+      Array.isArray(payload?.history) && typeof payload?.sig === 'string'
+        ? CHECKPOINT_BYTES
+        : PROGRESS_BYTES,
+      'Checkpoint'
+    );
     const record = this.records.get(id);
     if (!record || record.state !== 'pending') throw new Error('Cannot checkpoint an inactive job');
     const safe = payload && Array.isArray(payload.history) && typeof payload.sig === 'string';
@@ -363,11 +437,14 @@ export class JobStore {
   }
 
   complete(id, status, body, headers = {}) {
+    boundedPayload(body, RESPONSE_BYTES, 'Response');
     const record = this.records.get(id);
     if (!record || record.state !== 'pending') throw new Error('Cannot complete an inactive job');
     return this.write({
       ...record,
       state: 'completed',
+      checkpoint: null,
+      progress: null,
       updated_at: this.now(),
       response: {
         status,
@@ -379,12 +456,22 @@ export class JobStore {
 
   failedCompletion(id, error) {
     const record = this.records.get(id);
+    if (['JOB_CAPACITY', 'JOB_PAYLOAD_TOO_LARGE'].includes(error?.code)) {
+      // Expected input/capacity refusals are local to this capability. Keep the
+      // last durable checkpoint and the no-replay marker; they are not evidence
+      // that the disk or every other conversation is corrupt.
+      if (record?.state === 'pending') this.interrupt(id, error.code);
+      return;
+    }
     this.failure ||= error.message || 'Response persistence failed';
     if (record?.state === 'pending') {
       // The old disk receipt remains pending and becomes interrupted on boot.
       // In this process expose uncertainty immediately, retaining its last
       // successful checkpoint. The failure latch prevents new paid work.
-      this.records.set(id, interruptedRecord(record, 'response_persistence_failed', this.now()));
+      this.records.set(
+        id,
+        compactRecord(interruptedRecord(record, 'response_persistence_failed', this.now()))
+      );
     }
   }
 
@@ -401,6 +488,7 @@ export class JobStore {
       response: record.response,
       build: record.build,
       interruption: record.interruption ?? null,
+      successor_id: record.successor_id ?? null,
       durable: this.durable,
       retention_ms: this.ttlMs,
       persistence_error: this.failure ? 'Persistence failed; no new work is admitted.' : null,
@@ -408,8 +496,16 @@ export class JobStore {
   }
 }
 
-export function createJobRouter({ store, build = {} }) {
+export function createJobRouter({ store, build = {}, recoverCheckpoint = null }) {
   const router = express.Router();
+  const publicRecord = (record) => {
+    const visible = store.publicRecord(record);
+    if (record.state === 'interrupted' && recoverCheckpoint) {
+      const continuation = recoverCheckpoint(record);
+      if (continuation) visible.continuation = continuation;
+    }
+    return visible;
+  };
   router.get('/chat/jobs/:id', (req, res) => {
     res.set('Cache-Control', 'no-store');
     try {
@@ -423,7 +519,7 @@ export function createJobRouter({ store, build = {} }) {
           error:
             'No retained receipt for this request_id; absence does not establish that work was never executed.',
         });
-      return res.json(store.publicRecord(record));
+      return res.json(publicRecord(record));
     } catch {
       return res
         .status(503)
@@ -431,6 +527,42 @@ export function createJobRouter({ store, build = {} }) {
     }
   });
   router.post('/chat', (req, res, next) => {
+    req.chatRecovery = {
+      resolve: (id) => {
+        if (typeof id !== 'string' || !ID.test(id))
+          throw Object.assign(new Error('Invalid continuation_id.'), { status: 400 });
+        const record = store.get(id);
+        if (record?.successor_id && record.successor_id !== req.body?.request_id)
+          throw Object.assign(
+            new Error(
+              'This continuation has already advanced; recover its successor before continuing.'
+            ),
+            { status: 409, code: 'STALE_CONTINUATION', successor_id: record.successor_id }
+          );
+        if (!record || !['completed', 'interrupted'].includes(record.state))
+          throw Object.assign(
+            new Error('The continuation receipt is unavailable; no work was started.'),
+            { status: 409, code: 'CONTINUATION_UNAVAILABLE' }
+          );
+        const envelope =
+          record.state === 'completed' ? record.response?.body : recoverCheckpoint?.(record);
+        if (!envelope?.sig || envelope.lyric?.uncertain_proposal)
+          throw Object.assign(
+            new Error(
+              'This receipt cannot safely resume; recover its accepted draft and uncertainty.'
+            ),
+            { status: 409, code: 'CONTINUATION_UNCERTAIN' }
+          );
+        req.chatInheritedCheckpoint = {
+          history: envelope.history,
+          workspace: envelope.workspace ?? null,
+          ...(envelope.lyric != null ? { lyric: envelope.lyric } : {}),
+          ...(envelope.task != null ? { task: envelope.task } : {}),
+          sig: envelope.sig,
+        };
+        return envelope;
+      },
+    };
     const id = req.body?.request_id;
     const originalJson = res.json.bind(res);
     let admitted = false;
@@ -441,7 +573,7 @@ export function createJobRouter({ store, build = {} }) {
           res.set('Retry-After', record.response.headers['retry-after']);
         return res.status(record.response.status).json(record.response.body);
       }
-      return res.status(record.state === 'pending' ? 202 : 409).json(store.publicRecord(record));
+      return res.status(record.state === 'pending' ? 202 : 409).json(publicRecord(record));
     };
     if (id !== undefined) {
       res.set('Cache-Control', 'no-store');
@@ -475,7 +607,7 @@ export function createJobRouter({ store, build = {} }) {
     const begin = () => {
       if (admitted) return true;
       try {
-        const { created, record } = store.begin(id, req.body, build);
+        const { created, record } = store.begin(id, req.body, build, req.chatInheritedCheckpoint);
         if (!created) {
           existingReply(record);
           return false;
@@ -484,6 +616,8 @@ export function createJobRouter({ store, build = {} }) {
         return true;
       } catch (err) {
         res.status(err.status || 503).json({
+          code: err.code ?? null,
+          successor_id: err.successor_id ?? null,
           error: err.status
             ? err.message
             : 'Job intent could not be persisted; no work was started.',
@@ -543,31 +677,10 @@ export function createJobRouter({ store, build = {} }) {
   return router;
 }
 
+export { runtimeSourceFingerprint } from './build_identity.js';
+
 export function runtimeBuildIdentity(env = process.env) {
-  const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-  const hash = crypto.createHash('sha256');
-  function visit(relative) {
-    const directory = path.join(root, relative);
-    if (!fs.existsSync(directory)) return;
-    for (const item of fs
-      .readdirSync(directory, { withFileTypes: true })
-      .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))) {
-      if (
-        item.name.startsWith('.') ||
-        ['node_modules', '__pycache__', 'data', 'corpus', 'tests'].includes(item.name)
-      )
-        continue;
-      const name = path.join(relative, item.name);
-      if (item.isDirectory()) visit(name);
-      else if (/\.(js|py)$/.test(item.name) || item.name === 'package-lock.json') {
-        hash.update(name.replaceAll(path.sep, '/') + '\0');
-        hash.update(fs.readFileSync(path.join(root, name)));
-        hash.update('\0');
-      }
-    }
-  }
-  visit('mcp');
-  visit('lyric-harness');
+  const release = releaseIdentity(env);
   const config = {};
   for (const key of Object.keys(env).sort()) {
     if (
@@ -576,11 +689,15 @@ export function runtimeBuildIdentity(env = process.env) {
     )
       config[key] = env[key];
   }
+  const assets = runtimeAssets();
   return Object.freeze({
-    commit: env.BUILD_GIT_COMMIT || env.RENDER_GIT_COMMIT || null,
-    reported_commit: env.RENDER_GIT_COMMIT || null,
-    source_sha256: hash.digest('hex'),
+    ...release,
+    source_sha256: runtimeSourceFingerprint(),
     config_sha256: crypto.createHash('sha256').update(canonical(config)).digest('hex'),
     node: process.version,
+    assets_sha256: assets.assets_sha256,
+    asset_manifest_sha256: assets.manifest_sha256,
+    python: assets.python,
+    nltk: assets.nltk,
   });
 }

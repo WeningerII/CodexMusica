@@ -160,7 +160,7 @@ def _sections_from_marks(raw_lines):
     for i, raw in enumerate(raw_lines):
         s = raw.strip()
         if s.startswith("[") and s.endswith("]") and len(s) > 2:
-            if name is not None:
+            if name is not None or cur:
                 out.append((name, cur))
             name, cur = s[1:-1].strip(), []
             continue
@@ -265,8 +265,13 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
     raw = raw_lines if raw_lines is not None else list(lines)
     marked = _sections_from_marks(raw) if raw_lines is not None else None
     if marked:
-        r.put("sections", [{"name": n, "lines": len(ix)} for n, ix in marked],
-              "declared", "[SECTION] marks the writer wrote")
+        missing = [i + 1 for n, ix in marked if n is None for i in ix]
+        r.put("sections", [{"name": n, "lines": len(ix),
+                            "raw_lines": [i + 1 for i in ix],
+                            "classified": n is not None} for n, ix in marked],
+              "REFUSED" if missing else "declared",
+              (f"unclassified sung prefix at raw lines {missing}; mark its section"
+               if missing else "[SECTION] marks the writer wrote"))
     else:
         blocks = _sections_from_blanks(raw) if raw_lines is not None else None
         if blocks and len(blocks) > 1:
@@ -355,6 +360,17 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
                       if "." in str(e["a"]) or "." in str(e["b"])]
     bare_repeats = [e for e in repeats
                     if "." not in str(e["a"]) and "." not in str(e["b"])]
+    # End-word identity does not establish whole-line identity. Preserve
+    # unspellable observations explicitly rather than changing the song.
+    from quality.grid import normalise_line
+    word_repeats = [e for e in bare_repeats
+                    if normalise_line(lines[int(e["a"]) - 1]) !=
+                       normalise_line(lines[int(e["b"]) - 1])]
+    bare_repeats = [e for e in bare_repeats if e not in word_repeats]
+    if word_repeats:
+        r.put("repeated_end_words", word_repeats, "REFUSED",
+              "equal end words on different lines are word identities, not "
+              "whole-line returns; no whole-line identity is imposed")
     r.put("mandate_spelling",
           {"--groups=": ";".join(f"{e['a']},{e['b']}" for e in rhymes),
            "--returns=": ";".join(f"{e['a']},{e['b']}"

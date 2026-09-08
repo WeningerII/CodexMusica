@@ -1,0 +1,59 @@
+{
+  "status": "implemented_and_locally_verified",
+  "finding": "Wall qualification admitted a changed signed history with any tool row, including an unvisited refused writer call, and did not require a resumable checkpoint or replay/application evidence.",
+  "owned_files": [
+    "scripts/battery_verdict.mjs",
+    "mcp/test_battery_lifecycle.mjs",
+    "mcp/fixtures/wall_nested_replay.json"
+  ],
+  "closures": [
+    "Real checksummed resumable kitchen journal with completed proposal prefix; exact task/plan and measured build identity.",
+    "Native logical journal_id and acknowledged input bytes/wire hash, initial draft/accepted hashes, exact initial applied IDs, complete replay prefix, zero completed proposal redispatches.",
+    "Latest executed non-refused kitchen call only. Full applied chain traverses prior accepted frontier; new application must advance to exact current final draft. Partial replay receipt projections cannot count old acceptance as new work.",
+    "Terminal clean result requires current completedArtifact and cleared carried state; open terminal result requires exact parked draft and unchanged declarations.",
+    "Open completed continuation permits actual host LYRICS_UNFINISHED/MAX_STEPS stop tags only after complete native progress and parked-delivery proof; wall, cancellation, uncertainty and upstream-error stops refuse.",
+    "Shared host/consumer task identity includes version and instructions; changed task cannot borrow a new valid delivery hash to qualify the original continuation."
+  ],
+  "validation": {
+    "lifecycle_checks": 43,
+    "command": [
+      "node",
+      "mcp/test_battery_lifecycle.mjs"
+    ],
+    "timeout_s": 120,
+    "source_sha256": {
+      "scripts/battery_verdict.mjs": "55219309091a1b0b0e82e85f7a99a24e4d6ae32347c3222f0134f48cd28a8509",
+      "mcp/test_battery_lifecycle.mjs": "c726ebb9fd8830ebbd0dc761268aee508890f1392fe05ecf36dbe2aafa24ba0b",
+      "mcp/fixtures/wall_nested_replay.json": "420c1af5b0817b991f9d43713b129859b643d4da4e99c9f268777b3b4bfa4ef8",
+      "mcp/task_contract.js": "e5e07f46e7b461611ed74829d022ec40808c241f4bf7fc47bbaebd3ad969efff",
+      "scripts/flash_battery.mjs": "1b40c67e11ef7fd1714936ccbfe487a64acce7098510cd052f97c0c522ebd349",
+      "scripts/battery_repairs.mjs": "d60adc7d65299341bb2c85a0ddf994305a2eb67cb0fcfe7fb2458f4f3cc12932"
+    },
+    "exit_code": 0,
+    "wall_s": 8.650093101998209,
+    "source_unchanged": true
+  },
+  "evidence_files": [
+    "battery-wall-lifecycle-final.log",
+    "battery-wall-lifecycle-final.json",
+    "battery-wall-lifecycle-attempt1.log",
+    "battery-wall-lifecycle-attempt1.json",
+    "int35-nested-replay-probe.json",
+    "int35-nested-replay-probe.py",
+    "int35-nested-replay-probe.log",
+    "battery-wall-lifecycle-before-outer-stop.log",
+    "battery-wall-lifecycle-before-outer-stop.json",
+    "battery-wall-lifecycle-before-shared-task-identity.log",
+    "battery-wall-lifecycle-before-shared-task-identity.json"
+  ],
+  "prior_attempt": {
+    "result": "failed test fixture lacked actual interrupted empty verifier inventory newly required by repair collector; fixed fixture, no validator weakening",
+    "receipt": "battery-wall-lifecycle-attempt1.json"
+  },
+  "scope_limits": [
+    "Local HTTP stub proves the real driver and acceptance oracle consume the contract; it is not a paid production wall qualification.",
+    "Maintained nested replay fixture contains actual native Reviser.verify results captured by revision lane; no paid provider was called.",
+    "Native provider journal instrumentation and Node authenticated projection owned and tested by revision/chat lanes. No production clocks changed; CI owns the shared completedArtifact task-identity correction preserved here."
+  ],
+  "runtime_denominator_note": "43 internal lifecycle checks; node --test counts the standalone lifecycle script as one file test. This lane does not increase the eight-file TAP test denominator of65."
+}

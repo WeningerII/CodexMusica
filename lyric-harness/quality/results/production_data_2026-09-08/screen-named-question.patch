@@ -1,0 +1,86 @@
+--- before/lyric_harness.py
++++ after/lyric_harness.py
+@@ -5684,7 +5684,10 @@
+             # declaring this relation will judge the pair — same function,
+             # same position, so the screen's answer and the grade's cannot
+             # drift (doctrine 1).
+-            if relation is not None and not row["refused"]:
++            # The broad default and the requested name are independent
++            # questions. Unresolved default schemas cannot suppress a
++            # determinate requested cell; keep the broad refusal intact.
++            if relation is not None:
+                 if _schema is not None:
+                     _stream = _RL.build_stream(
+                         [_SCREEN_CARRIERS[0].format(w=a),
+@@ -5704,6 +5707,15 @@
+                             f"not supply) — a refusal, not a no")
+                     else:
+                         row["named"] = bool(_ans)
++                elif _kind == "class":
++                    row["named"] = _RT.coarse_relation_consensus(
++                        rv.lex, _SCREEN_CARRIERS[0].format(w=a),
++                        _SCREEN_CARRIERS[1].format(w=b), rv.decl,
++                        relation=_canon, promote=rv._promote())
++                    if row["named"] is None:
++                        row["named_reason"] = (
++                            "the requested class cannot be resolved across "
++                            "the available endpoint pronunciation readings")
+                 else:
+                     try:
+                         row["named"] = _RT.satisfies_relation(
+@@ -8685,8 +8697,20 @@
+         w = max(len(f"{r['a']} ~ {r['b']}") for r in rows)
+         for r in rows:
+             pair = f"{r['a']} ~ {r['b']}".ljust(w)
++            named_status = ""
++            if screen_rel:
++                if r["named"] is True:
++                    named_status = f"  |  SATISFIES {screen_rel}"
++                elif r["named"] is False:
++                    named_status = (f"  |  VIOLATES {screen_rel} — a "
++                                    f"mandate declaring it will charge "
++                                    f"this pair")
++                else:
++                    _nr = (r["named_reason"]
++                           or "the judge could not read the pair")
++                    named_status = f"  |  {screen_rel} REFUSED: {_nr[:110]}"
+             if r["refused"]:
+-                print(f"  {pair}  REFUSED — {r['reason']}")
++                print(f"  {pair}  REFUSED — {r['reason']}{named_status}")
+             else:
+                 verdict = f"{r['relation']} {r['score']:.3f}"
+                 # `why is None` is the GRADE's own satisfaction marker —
+@@ -8724,19 +8748,7 @@
+                     _cf = next(f for f in r["flags"]
+                                if f.startswith("coda: no evidence"))
+                     status += f"  |  {_cf}"
+-                if screen_rel:
+-                    if r["named"] is True:
+-                        status += f"  |  SATISFIES {screen_rel}"
+-                    elif r["named"] is False:
+-                        status += (f"  |  VIOLATES {screen_rel} — a "
+-                                   f"mandate declaring it will charge "
+-                                   f"this pair")
+-                    else:
+-                        _nr = (r["named_reason"]
+-                               or "the judge could not read the pair")
+-                        status += (f"  |  {screen_rel} REFUSED: "
+-                                   f"{_nr[:110]}")
+-                print(f"  {pair}  {verdict}  {status}")
++                print(f"  {pair}  {verdict}  {status}{named_status}")
+         print(f"  {n_banned} banned, {n_ref} refused, {n_rhyme} clean and "
+               f"rhyming, {n_near} clean and ADMITTED as a near relation, "
+               f"{n_non} clean but not a rhyme — a banned pair is "
+@@ -8745,6 +8757,12 @@
+               f"clean non-rhyme is not banned AND not a family (the "
+               f"mandate will charge it); refusal is the grader's own "
+               f"(doctrine 28)")
++        if screen_rel:
++            print(f"  NAMED COUNTS: "
++                  f"{sum(r['named'] is True for r in rows)} satisfies, "
++                  f"{sum(r['named'] is False for r in rows)} violates, "
++                  f"{sum(r['named'] is None for r in rows)} refused — "
++                  f"{screen_rel}, independent of the broad default above")
+         # ANCHORABILITY AS A DECLARED TOKEN (M-213) — the question the
+         # end-word screen above cannot ask, printed under the counts for the
+         # same reason the bank block below is: a report, not a verdict.

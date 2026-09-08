@@ -1,0 +1,134 @@
+
+1. the logs — populated, and shaped so a row cannot be half a row
+  PASS  there are songs to log at all, so this file cannot pass by examining nothing
+          16: ['carry_it_over.txt', 'crooked_waltz.txt', 'i_am_not_leaving.txt', 'keep_the_light.txt', 'long_bridge.txt', 'matinee.txt', 'oar_lair.txt', 'one_more.txt', 'stay_awake.txt', 'taught_me_time.txt', 'the_frost_ledger.txt', 'the_long_way_back.txt', 'the_river_keeps_the_score.txt', 'till_the_light_comes_home.txt', 'turn_the_wheel.txt', 'wheat_mane.txt']
+  PASS  every delivered song carries a process log — a song whose making nothing recorded is the hole this instrument exists to close
+          unlogged: none
+  PASS  ...and every row carries every declared column with no empty cell — an empty cell reads as a measurement that came back zero
+          malformed: none
+  PASS  ...and the step ordinals run 1..n with no gap, so the SEQUENCE of questions a session asked is what the log preserves
+          gapped: none
+
+2. two refusals — no parser, and a parser that read nothing
+  PASS  an undeclared verb has no parser key
+  PASS  ...and `--record` REFUSES it at exit 2 rather than banking an invocation nothing read
+          REFUSED — no declared parser for this command.
+  PASS  ...naming the declared vocabulary, so the refusal is actionable
+  PASS  a DECLARED verb whose output the parser reads nothing from is refused too — the verb's output moved, and a silent empty row would hide that
+          rc=2
+  PASS  ...and neither refusal left a log behind
+
+3. what is banked equals what the verb said
+  PASS  `screen` printed a verdict for the control pair
+          BANNED: HOMEOTELEUTON
+  PASS  ...and the parser reads that verdict VERBATIM off the stdout
+          'BANNED: HOMEOTELEUTON'
+  PASS  ...and it is the BANNED answer, so this section cannot pass on a pair the ban never looks at
+  PASS  ...and the summary counts come off the verb's own tail line, never re-counted here (doctrine 1) — M-113 split the clean bucket, so the two halves are two facts
+          banned=1 rhyming=0 non=0
+
+4. the claim gate — passes clean, fails on a moved claim
+  PASS  `--verdicts` PASSES on the committed README
+          RESULT: PASS
+  PASS  ...and it resolved claims rather than finding none to charge — a gate examining nothing prints the same PASS as a clean one
+          131 claim(s) RESOLVED (41 of them by an explicit [LOG:] citation), 0 MISMATCHED, 0 REFUSED
+  PASS  ...and the [LOG:] citations are counted APART from the prose claims, because a cited number and a matched sentence are two different strengths of evidence (doctrine 79)
+          41 cited
+  PASS  ...and prose TEACHING the citation form is counted as notation rather than silently skipped — an un-charged citation nobody can see is how a claim smuggles itself past wearing a code span
+          1 [LOG:] occurrence(s) read as NOTATION
+  PASS  the mutation actually changes the README
+  PASS  ...and a claim the log contradicts FAILS at exit 3
+          RESULT: FAIL
+  PASS  ...and the README is restored, so this section leaves no residue
+
+5. the instrument grades nothing — checked by absence
+  PASS  `song_log.py` does not reach for 'discriminate'
+  PASS  `song_log.py` does not reach for 'from quality import floor'
+  PASS  `song_log.py` does not reach for 'import floor'
+  PASS  `song_log.py` does not reach for 'Reviser'
+  PASS  `song_log.py` does not reach for 'QualityFeatures'
+  PASS  ...and every verdict it holds comes through subprocess, which is the only route that cannot become a second grader
+  PASS  ...and the commit column is BORROWED from song_record rather than respelled, so two registers cannot disagree about which tree a row was taken on (doctrine 1)
+
+6. the [LOG:] citation — word-keyed, and ambiguity is a refusal
+  PASS  a word screened exactly once RESOLVES to its run's count
+          '7'
+  PASS  ...a word no run screened REFUSES, naming the word
+          no screen run in carry_it_over.txt includes 'zzznotaword'
+  PASS  ...and a word screened by TWO runs REFUSES as ambiguous rather than resolving to the first
+          'bell' names 2 runs in __cite_probe__.txt; a citation must name one
+  PASS  ...and the probe log is removed, so this section leaves no residue
+  PASS  the README carries a cited count to move
+          10 [LOG: banned carry_it_over.txt cold]
+  PASS  ...and moving it off the log FAILS at exit 3 — the citation gates the NUMBER, not merely the existence of a row
+          RESULT: FAIL
+
+7. `finish` — the working order's LAST verb — has a declared parser, and it reads the stop stamp in both spellings (`MISSING.md` M-196)
+  PASS  `finish` is a declared parser, beside `revise`
+          ['brief', 'finish', 'plan', 'plan --sweep', 'revise', 'screen', 'song']
+  PASS  a seeded stamp yields the seed, the exit, the stop, the round count, the open-line count and the whole-draft count — the same six the connector's extractor reads
+          {'stop_reason': 'NO_PROGRESS', 'rounds': '2', 'mandated': '6', 'judged': '6', 'pairs_refused': '0', 'stamp_seed': '22', 'stamp_exit': '3', 'unresolved': '2', 'whole_flags': '1'}
+  PASS  a pasted song's stamp (M-195) reads with `declared mandate` in the seed's place, through the `revise` parser that verb prints it from
+          {'stamp_seed': 'declared mandate', 'stamp_exit': '0', 'stop_reason': 'SUCCESS', 'rounds': '1', 'unresolved': '0', 'whole_flags': '0'}
+  PASS  no stamp, no stamp facts — absent is not zero (doctrine 79)
+  PASS  the README claim gate can resolve a `finish` sentence
+
+8. the drafts behind the md5s — banked, recoverable, lost and failing, and only the last is red (`MISSING.md` M-196)
+  PASS  the discriminator is a DECLARED date, not a list of grandfathered rows — a list would need editing every time a row joined it, and an exception list nobody maintains is no gate
+          2026-09-02
+  PASS  ...and it actually separates the bank in two — every md5 row the sixteen songs carry was measured BEFORE it, so no banked row sits on the boundary where the rule cannot decide
+          50 md5 row(s), latest 2026-08-30
+  PASS  `--drafts` PASSES on the committed tree — history is not made red by a check written after it
+          RESULT: PASS
+  PASS  ...and it examined the whole census rather than nothing: the four buckets PARTITION the md5 rows, so a row cannot fall out unseen (the counts are never summed as a RATE — this is bookkeeping that every row landed somewhere)
+          3 BANKED, 44 RECOVERABLE (in the committed lyric, not in a draft file), 3 LOST before 2026-09-02, 0 FAILING vs 50 md5 rows
+  PASS  ...and the LOST bucket is exactly the drafts M-168 named LESS the one §9 recovered — crooked_waltz 19, matinee 54/55; the_long_way_back 2 is BANKED since 2026-09-06 — no more and no fewer
+          [('crooked_waltz.txt', '29697fccfe8d'), ('matinee.txt', '04065bbbcdd9'), ('matinee.txt', '707c48614794')]
+  PASS  ...and the recovered draft reads BANKED, from the committed file and not from anything this suite wrote
+  PASS  the fingerprint is BORROWED from the grader's own definition and never respelled here, so a draft file's name cannot come to mean something the report does not (doctrine 1)
+  PASS  a real grading verb recorded through `--record` banks its input's bytes
+          songs/drafts/__draft_probe__.19e5e1c218d0.draft.txt
+  PASS  ...at the name the verb's OWN printed fingerprint gives, so the file and the log fact agree BY CONSTRUCTION
+          md5 19e5e1c218d0 -> songs/drafts/__draft_probe__.19e5e1c218d0.draft.txt
+  PASS  ...and a later reader who loads that file gets the same population back, so the same bytes can be graded again — which is the entire point of banking them
+          4 line(s), 19e5e1c218d0
+  PASS  ...with the section marker DROPPED, because what is banked is what was GRADED and the grader never saw it
+  PASS  the MANDATE it ran under is banked too, VERBATIM off the argv — the fact whose absence made `oar_lair.txt`'s graded mandate unrecoverable
+          '1,3;2,4' / '2,4' / 'A:class:RHYME'
+  PASS  ...beside the whole command, so a coordinate this file has not learned the name of is still on record
+          python3 lyric_harness.py brief /tmp/tmpdjjmrpaz/probe.txt '--groups=1,3;2,4' --r
+  PASS  ...and `mandate_groups_text` is NOT `mandate_groups`, which the same row banks as an integer COUNT — one register, two quantities, two names (doctrine 1)
+  PASS  ...and the gate reads the new row as BANKED
+          RESULT: PASS
+  PASS  DELETING the banked draft turns the gate RED at exit 3 and names the row — a check that cannot fail is not a check
+          RESULT: FAIL
+  PASS  ...and it fails as FAILING rather than as LOST, because the row was recorded on or after the mechanism's own date — which is the whole discriminator working
+          ['  FAILING     __draft_probe__.txt 19e5e1c218d0 step 1 brief/md5 — recorded 2026-09-08, on or after 2026-09-02, and no readable draft']
+  PASS  ...and restoring the bytes restores the PASS
+  PASS  two positional drafts REFUSE rather than pick one — a wrong file banked under a right-looking name is the one outcome this mechanism exists to prevent
+          2 positional .txt files (songs/one_more.txt, songs/stay_awake.txt) — which one was graded is not guessed
+  PASS  a verb that printed NO fingerprint gets NO file, and the reason is said rather than an md5 invented for it
+          `song` printed no draft fingerprint, so there is no name to bank bytes under
+  PASS  ...and the probe leaves no residue — no log, no draft file
+  PASS  ...and the committed tree is back to PASS
+
+9. `--bank-draft` banks bytes a log already names, and refuses everything else (`MISSING.md` M-196)
+  PASS  a log with no md5 row for it REFUSES, naming the song and the md5 — a fingerprint the log never printed is not a draft of this song
+          zz_bank_probe.txt's log holds no row fingerprinted baf9597ac07e -- it holds no md5 at all -- so these bytes are not a draft this log ever named; nothing banked
+  PASS  a file whose bytes do NOT carry the md5 REFUSES and says what they do carry — nothing is banked under a name its contents lack
+          /tmp/tmpjawz9i1f/other.txt fingerprints 66cd7855403a, not baf9597ac07e; nothing banked under a name its bytes do not carry
+  PASS  the matching file is BANKED at the one draft path, byte for byte
+          songs/drafts/zz_bank_probe.baf9597ac07e.draft.txt
+  PASS  ...and banking it again is a no-op that answers the same path (idempotent, nothing overwritten)
+          songs/drafts/zz_bank_probe.baf9597ac07e.draft.txt
+  PASS  ...and a destination holding DIFFERENT bytes under that name REFUSES rather than overwriting
+          songs/drafts/zz_bank_probe.baf9597ac07e.draft.txt already holds DIFFERENT bytes under this fingerprint; nothing overwritten
+  PASS  the CLI spelling refuses at exit 2 with REFUSED in front, the same shape as every other refusal here
+          REFUSED -- songs/drafts/zz_bank_probe.baf9597ac07e.draft.txt already holds DIFFERENT bytes
+  PASS  ...and banks at exit 0 when the three conditions hold
+          BANKED zz_bank_probe.txt baf9597ac07e -> songs/drafts/zz_bank_probe.baf9597ac07e.draft.txt
+  PASS  ...and the probe leaves no residue
+  PASS  the_long_way_back's once-LOST draft is a committed file whose bytes fingerprint to the md5 in its name
+
+==============================================================
+all pass

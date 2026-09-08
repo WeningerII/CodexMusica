@@ -340,14 +340,15 @@ def test_nothing_was_lost_on_the_sonnets():
     # fix moved the oracle's own violation pin (redteam_band.py, battery.py
     # EXPECTED). 50 refusals stay out of the numerator either way -- that
     # invariance is what this whole test exists to check, and it holds.
+    # REPINNED 2026-09-08: the original 50 lexical refusals remain; 28
+    # pronunciation disagreements and 19 unresolved schema answers also refuse.
+    # battery.EXPECTED and production_relation_oracle.json own this partition.
     check(f"violations + refusals == the recorded total",
-          viol + ref == battery.EXPECTED["violations"] + 50,
+          viol + ref == battery.EXPECTED["violations"] + battery.EXPECTED["refused"],
           f"{viol} + {ref} -- nothing was invented and nothing vanished")
-    check("50 of them are REFUSALS, not rhyme failures, and that count is "
-          "independent of the band's thresholds", ref == 50,
-          "40.7% of the sonnet battery's headline violation count was "
-          "CMUdict failing to read Shakespeare, reported as Shakespeare "
-          "failing to rhyme")
+    check("97 pairs refuse: 50 lexical gaps, 28 reading disagreements, 19 unresolved schema answers",
+          ref == battery.EXPECTED["refused"] == 50 + 28 + 19,
+          "Unknown pronunciation/schema answers remain outside rhyme failures and judged coverage")
     # 73 -> 81 -> 82: 0.60 -> 0.80 calibrated theta_coda, then scalar ->
     # identity coda_agreement. The count that matters to THIS test is
     # unchanged: 50 refusals stay out of the numerator.
@@ -359,10 +360,11 @@ def test_nothing_was_lost_on_the_sonnets():
     check(f"the violation count is {battery.EXPECTED['violations']} "
           f"(was 73 at theta_coda 0.60, 81 at scalar coda_agreement)",
           viol == battery.EXPECTED["violations"], str(viol))
-    check("the judged denominator is 1014", judged == 1014,
+    check("the judged denominator is 967, and every mandated pair is accounted for",
+          judged == battery.EXPECTED["judged"] and judged + ref == mandated,
           f"{judged}: a violation RATE is "
-          f"{battery.EXPECTED['violations']}/1014 = "
-          f"{battery.EXPECTED['violations']/1014:.1%}, not 132/1064 = 12.4%")
+          f"{battery.EXPECTED['violations']}/{battery.EXPECTED['judged']} = "
+          f"{battery.EXPECTED['violations']/battery.EXPECTED['judged']:.1%}")
 
 
 # ---------------------------------------------------------------------------
@@ -546,23 +548,28 @@ def test_corpus_song_rate_is_pinned():
     # repin — the convention moved which lines are SUNG and moved no
     # refusal, which is the control that it landed where it aimed (the
     # rates move only in their sixth decimal, inside the pinned 1e-5).
-    check("countable lines 282397 — VERSE ONLY, now that apparatus lines "
+    # REPINNED 2026-09-08 after the reviewed corpus apparatus corrections
+    # (CORPUS_EDITORIAL_REVIEW.json). Runtime keeps all editions; this measures
+    # the source reader, independently of calibration's one-work weighting.
+    # 282397 -> 281903 countable;17255 ->17213 token refusals;428 piece refusals
+    # unchanged. Substitutions16686 ->16652, with no remaining silent anchor.
+    check("countable lines 281903 — VERSE ONLY, now that apparatus lines "
           "are excluded at the source instead of subtracted by hand, and "
           "under the CENTRE's `---` rather than a second `--- ` of our own",
-          r["lines_countable"] == 282397,
+          r["lines_countable"] == 281903,
           f"{r['lines_countable']}  (282402 before the bracketed-verse "
           f"repin; 282731 before the bracket-apparatus "
           f"repin; 282745 before the LATIN_SCRIPT repin; 179193 before the Tier-1 load; 153224 "
           f"before the mass load; 151894 before Pass-1)")
-    check("unreadable end word, cause TOKEN, 17255 — the follow rule took "
+    check("unreadable end word, cause TOKEN, 17213 — the follow rule took "
           "editorial-prose end words out of the population",
-          r["unreadable_final_token"] == 17255,
+          r["unreadable_final_token"] == 17213,
           f"{r['unreadable_final_token']} ({r['rate_token']:.4%})  "
           f"(17274 before the bracket-apparatus repin; "
           f"15958 before the LATIN_SCRIPT repin; 11658 before the Tier-1 load)")
     check("rate on that quantity is 6.11% — UP from 5.64%, and the rise is the "
           "harness reading the whole word instead of an ASCII fragment",
-          abs(r["rate_token"] - 0.061097) < 1e-5,
+          abs(r["rate_token"] - 17213 / 281903) < 1e-12,
           f"{r['rate_token']:.4%}  (5.6440% before the LATIN_SCRIPT repin; "
           f"6.5065% before the Tier-1 load)")
     check("unreadable end word, cause PIECE, 428 — the price of the hyphen "
@@ -571,11 +578,11 @@ def test_corpus_song_rate_is_pinned():
           f"{r['unreadable_final_piece']}  (260 before the LATIN_SCRIPT repin)")
     check("so the end-word refusal rate is 6.26% AFTER the rule and 6.11% "
           "before it, and both are printed",
-          r["unreadable_final"] == 17683 and abs(r["rate"] - 0.062616) < 1e-5,
+          r["unreadable_final"] == 17641 and abs(r["rate"] - 17641 / 281903) < 1e-12,
           f"{r['unreadable_final']} ({r['rate']:.4%})  (17702 / 6.2611% "
           f"before the bracket-apparatus repin)")
-    check("16686 of those would have had the rhyme word SUBSTITUTED by an "
-          "earlier word", r["substituted_end_word"] == 16686,
+    check("16652 of those would have had the rhyme word SUBSTITUTED by an "
+          "earlier word", r["substituted_end_word"] == 16652,
           f"{r['substituted_end_word']}  (16712 before the "
           f"bracket-apparatus repin; 15405 before the LATIN_SCRIPT repin)")
     # THE SUBSET CLAIM, PINNED 2026-08-14 — and it is pinned because it is
@@ -600,21 +607,22 @@ def test_corpus_song_rate_is_pinned():
     # class DROPS it and the line's end word IS `turf` now — the exact
     # exemplar CLAUDE.md known gap 8 filed as a `word_syllable_map` edge
     # case, closed by reading the page's own apparatus correctly instead.
-    check("16685 + 1, not 16686 + 0 — the substitution is NOT a subset of "
-          "the unreadable-final lines, and the 1 is the only line in this "
-          "module that no other finding reaches",
-          r["substituted_flagged"] == 16685 and r["substituted_silent"] == 1,
+    check("16652 flagged substitutions and zero silent substitutions after unanchored readings are refused",
+          r["substituted_flagged"] == 16652 and r["substituted_silent"] == 0,
           f"{r['substituted_flagged']} already flagged as a LINE by "
           f"UNREADABLE_END_WORD (the gap there was only the WORD) + "
           f"{r['substituted_silent']} reached by nothing "
           f"(D'Urfey's `_Sh----_`; Byron's `turf,[mm]` left the class when "
           f"the anchor rule dropped `[mm]`)")
-    check("and the complement is the larger half and is not a defect: 998 "
-          "unreadable-final lines are NOT substitutions",
-          r["unreadable_final"] - r["substituted_flagged"] == 998
+    check("989 unreadable-final lines are not substitutions: the end-word gap has no earlier readable anchor",
+          r["unreadable_final"] - r["substituted_flagged"] == 989
           and r["unreadable_final_piece"] == 428,
           f"{r['unreadable_final'] - r['substituted_flagged']}  (992 before "
           f"the bracket-apparatus repin)")
+    check("the reader's token/piece and substitution partitions conserve their actual populations",
+          r["unreadable_final_token"] + r["unreadable_final_piece"] == r["unreadable_final"]
+          and r["substituted_flagged"] + r["substituted_silent"] == r["substituted_end_word"]
+          and sum(row["lines"] for row in r["per_file"]) == r["lines_countable"])
     check("the rate is not uniform across files — a subset rate is a "
           "different number",
           max(d["rate"] for d in r["per_file"]) > 0.20
@@ -822,16 +830,13 @@ SONG_EXEMPLARS = [
      "Furl that Banner, for 'tis weary;",
      "the end rhyme `weary` is sound; CMUdict has no `furl`, so a mosaic "
      "anchor reaching back past it would join phones across a hole"),
-    ("SUBSTITUTED_END_WORD", "eng_british_lord_byron.txt",
-     "And the foam of his gasping lay white on the turf,[mm]",
-     "the RESIDUE, and the only case in this module where NO OTHER FINDING "
-     "FIRES AT ALL. `mm` transcribes to ['M'] -- it READS -- and a lone "
-     "consonant syllabifies to nothing, so `word_syllable_map` drops it "
-     "exactly as it drops an OOV word while `line_anchors` still returns an "
-     "anchor, built on `turf`. `final_unreadable` is therefore False and "
-     "every other code in this file stays silent. 2 lines of 151,894 in the "
-     "143 English song files; invented relation #4 of the module docstring "
-     "at a site `unread_final_piece` does not reach"),
+    (("SUBSTITUTED_END_WORD", "UNREADABLE_END_WORD"), "eng_hall_william_barnes.txt",
+     "The hedge to meet me in the drong,",
+     "REPinned 2026-09-08: a genuine sung Dorset line. The unknown final word "
+     "is refused and the earlier word that would have replaced it is also "
+     "disclosed. The former turf,[mm] exemplar was a source footnote; the "
+     "current canonical reader removes it, and an unscoped raw mm no longer "
+     "counts as a readable anchor merely because CMUdict lists one consonant."),
 ]
 
 #: The same defect on the OTHER population, and the reason its price there is
@@ -876,8 +881,8 @@ def test_every_emitted_code_has_a_case():
     case elsewhere in the repo, which was a guard no caller could reach. A code
     with no case cannot tell you which of the two it is.
 
-    One fixture per code, each firing exactly one, so a future change that
-    merges two of these guards fails here instead of quietly widening one. And
+    Every fixture has an exact expected set. Substitution names the word next
+    to the final-word refusal; neither finding may silently replace the other. And
     the roster is READ OUT OF THE SOURCE rather than listed by hand: a fifth
     code added to `report()` without a case fails this test, which is the only
     thing that stops the gap this test closes from reopening (doctrine 48 -- a
@@ -894,7 +899,8 @@ def test_every_emitted_code_has_a_case():
 
     with open(RD.__file__, encoding="utf-8") as f:
         emitted = set(_re.findall(r'code="([A-Z_]+)"', f.read()))
-    covered = {"UNREADABLE_END_WORD"} | {c for c, *_ in SONG_EXEMPLARS}
+    expected_codes = lambda code: set(code) if isinstance(code, tuple) else {code}
+    covered = {"UNREADABLE_END_WORD"} | set().union(*(expected_codes(c) for c, *_ in SONG_EXEMPLARS))
     check("report() emits exactly the five codes this file has cases for",
           emitted == covered,
           f"in source but uncovered: {sorted(emitted - covered)}; "
@@ -908,9 +914,18 @@ def test_every_emitted_code_has_a_case():
             check(f"{code}: exemplar still in {fname}", False, repr(text))
             continue
         got = codes([text])
-        check(f"{code} fires, and ONLY it, on a real line of {fname}",
-              got == {code}, f"{text!r}\n          {why}\n          "
+        check(f"the exact {sorted(expected_codes(code))} findings fire on a real line of {fname}",
+              got == expected_codes(code), f"{text!r}\n          {why}\n          "
                              f"codes: {sorted(got)}")
+
+    raw_byron = "And the foam of his gasping lay white on the turf,[mm]"
+    byron = os.path.join(SONG, "eng_british_lord_byron.txt")
+    canonical = [line for line in read_lines(byron) if line.startswith("And the foam of his gasping")]
+    check("the actual Byron verse ends on turf after its declared footnote anchor is removed",
+          present(byron, raw_byron) and canonical == ["And the foam of his gasping lay white on the turf,"]
+          and not codes(canonical))
+    check("without source provenance, the raw unanchored mm is refused rather than silently treated as readable",
+          codes([raw_byron]) == {"SUBSTITUTED_END_WORD", "UNREADABLE_END_WORD"})
 
     sonnets_path = os.path.join(CORPUS, "sonnets.txt")
     for code, sn, ln, text, unread_piece, read_piece in SONNET_EXEMPLARS:
@@ -1407,11 +1422,11 @@ def test_the_bracketed_verse_convention_keeps_the_body():
     check("Lovelace's printer's quoted-song-end mark is stripped and the "
           "sung line KEPT",
           any(l == "Or wound it o're againe." for l in lv))
-    check("...and the mid-line wrapped gloss `[The words / are by "
-          "Stanley.]` leaves: the opener truncated at its `[`, the close "
-          "line dropped",
-          any(l.endswith("1656. folio.") for l in lv)
-          and not any("are by Stanley" in l for l in lv))
+    check("the reviewed bibliography and its wrapped Stanley gloss both leave the sung population",
+          not any("1656. folio." in l or "are by Stanley" in l for l in lv)
+          and any(l == "Or wound it o're againe." for l in lv)
+          and present(os.path.join(SONG, "eng_british_richard_lovelace.txt"),
+                      "# APPARATUS: Printed by William Godbid for the Author, 1656. folio. [The words"))
 
     fr = read_lines(os.path.join(SONG, "eng_american_philip_freneau.txt"))
     check("Freneau's authorial parenthetical keeps EVERY word — the "

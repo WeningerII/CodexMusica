@@ -22,7 +22,7 @@
 // verbs run STRICTLY SERIAL (mcp/lyric_tools.js enqueue), so this is one
 // ordinary call's cost, not a concurrency story.
 //
-// THE GATE: render.yaml's declared plan must provide at least the measured
+// THE GATE: mcp/production-config.json's declared plan must provide at least the measured
 // peak times a declared margin. The margin is a BAND, not a tuning knob: it
 // covers the serving Node process ~~and the warm worker's residual beside the
 // child at peak (worker measured 181 MB resident after one light call;~~ (the
@@ -51,7 +51,7 @@
 // only by re-running the whole table, never one row of it.
 //
 // The check reads the DECLARED plan because the declaration is what this
-// repository can see — render.yaml already carries two long comments about
+// repository can see — mcp/production-config.json already carries two long comments about
 // dashboard-only settings being invisible drift, and this gate is that
 // argument applied to instance sizing.
 
@@ -72,17 +72,10 @@ const MEASURED_PEAK_MB = 882;
 // Declared margin (see the header): everything beside the child at its peak.
 const MARGIN = 2.0;
 
-const yamlPath = path.join(__dirname, '..', 'render.yaml');
-const text = fs.readFileSync(yamlPath, 'utf8');
-
-const plans = [...text.matchAll(/^\s*plan:\s*([^\s#]+)\s*$/gm)].map((m) => m[1]);
-if (plans.length !== 1) {
-  console.error(
-    `DEPLOY MEMORY: REFUSED — expected exactly one \`plan:\` line in render.yaml, found ${plans.length}`
-  );
-  process.exit(1);
-}
-const plan = plans[0];
+const config = JSON.parse(
+  fs.readFileSync(path.join(__dirname, '..', 'mcp', 'production-config.json'), 'utf8')
+);
+const plan = config.service.plan;
 const planMb = PLAN_MEMORY_MB[plan];
 if (planMb == null) {
   console.error(
@@ -95,7 +88,7 @@ if (planMb == null) {
 const requiredMb = Math.ceil(MEASURED_PEAK_MB * MARGIN);
 if (planMb < requiredMb) {
   console.error(
-    `DEPLOY MEMORY: FAIL — render.yaml declares plan '${plan}' (${planMb} MB), and the harness's ` +
+    `DEPLOY MEMORY: FAIL — mcp/production-config.json declares plan '${plan}' (${planMb} MB), and the harness's ` +
       `measured peak is ${MEASURED_PEAK_MB} MB (x${MARGIN} margin = ${requiredMb} MB required). ` +
       'A single lyric_grade or lyric_revise call OOM-kills this instance; re-run ' +
       'scripts/measure_verb_memory.py before moving the constant.'

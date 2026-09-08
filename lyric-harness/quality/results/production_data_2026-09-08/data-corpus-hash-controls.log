@@ -1,0 +1,7 @@
+test_corpus_hash_gate_checks_snapshot_and_local_declaration_independently (quality.test_production_data.ProductionDataTests.test_corpus_hash_gate_checks_snapshot_and_local_declaration_independently) ... ok
+test_corpus_snapshot_refuses_duplicate_weak_and_unbound_rows (quality.test_production_data.ProductionDataTests.test_corpus_snapshot_refuses_duplicate_weak_and_unbound_rows) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.124s
+
+OK

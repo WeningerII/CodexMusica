@@ -1,0 +1,95 @@
+
+1. `orthography` — eye rhyme
+  PASS  undeclared, `eye rhyme` REFUSES naming the surface
+  PASS  declared, it answers — and finds `love`/`move`, which is a rhyme to the EYE and not to the ear
+          LinePairResults({(1, 2)})
+
+2. `delivered` / `sung` — the surfaces called unobtainable
+  PASS  undeclared, `wrenched rhyme` REFUSES naming `delivered`
+  PASS  the override LANDS on the rhyme-bearing syllable and the PAGE is untouched — a delivery re-voices, it does not rewrite
+          page [(0, 1), (1, 0)] -> delivered [(0, 1), (1, 1)]
+  PASS  ...and the schema then judges instead of refusing
+  PASS  `sung` is the same constructor under the other name
+  PASS  a field that is not deliverable REFUSES — a delivery re-voices prominence/nucleus/coda/moras and never invents a syllable
+
+3. `stub_resolution` — refrain by reference
+  PASS  undeclared, `refrain by reference` REFUSES naming the resolution
+  PASS  declared, the stub line resolves and the schema finds it — L4 stands for the chorus at L1-L2 and now MATCHES L1
+          LinePairResults({(1, 4)})
+  PASS  `search_stub_resolution` resolves the UNAMBIGUOUS stub with nothing declared — the incipit matches exactly one earlier line
+          {'stubs': 1, 'resolved': {3: (0, 1)}, 'ambiguous': [], 'unmatched': []}
+  PASS  ...and the schema then finds the reference, so the derivation and the declaration COMPOSE — they are the same map, and the declaration wins where both speak
+          LinePairResults({(1, 4)})
+  PASS  the span it returns is ONE LINE, not a guessed chorus length — a stub stands for a whole chorus and the incipit finds only its FIRST line; widening it would be inventing the edition's judgement, which is the thing BLOCKERS says cannot be made here
+  PASS  a bare `&c.` is NO_INCIPIT, not a miss — the method does not apply to it, and that is a third answer
+          {'stubs': 2, 'resolved': {3: (0, 1)}, 'unmatched': [], 'no_incipit': [4]}
+  PASS  ...and the tokeniser is this module's own, so punctuation does not decide a match: `"gray, &c."` and `"gray"` share an incipit, which a `str.split()` fallback got wrong
+  PASS  the resolution records its EVIDENCE — the incipit length that decided it — so a five-word match and a two-word one are not reported as the same claim
+          evidence {3: 5}, lengths tried (5, 4, 3, 2)
+  PASS  ...and it resolves at the LONGEST length the stub can form, not at a fixed one: this stub carries five words and is decided on five, having never needed the fallback
+  PASS  a caller may still pin ONE length, which is what the measurement sweep in the docstring was run with
+  PASS  longest-first never resolves FEWER than any fixed length — every fixed length is a rung it falls through — and on a stub the long rungs cannot reach it resolves where fixed 4 and 5 return NOTHING (on the corpus: 469 of 989 against the best fixed length's 363)
+          longest-first 1; fixed 2:1, 3:1, 4:0, 5:0
+  PASS  ...and it records the rung that decided it, so the weaker evidence is visible rather than averaged away
+          {2: 3}
+  PASS  a resolution that is a span, not a line REFUSES at declaration time
+  PASS  a resolution that is a span containing itself REFUSES at declaration time
+  PASS  a resolution that is outside the stream REFUSES at declaration time
+
+4. `sense` — antanaclasis
+  PASS  undeclared, `antanaclasis` REFUSES naming `sense`
+  PASS  declared per POSITION, the figure is found — one word, two senses
+          LinePairResults({(2, 3)})
+  PASS  ...and with NO sense declared for those positions the figure is NOT found: silence means an ordinary repeat, never a figure — the safe direction, and the reason a word-keyed map cannot express this schema at all
+          LinePairResults()
+  PASS  with `derive_senses=True` the figure is found with NOTHING declared — WordNet, POS-tagged, simplified Lesk, keyed on the lexicographer file. This is the half that was declaration-only until 2026-08-23
+          LinePairResults({(2, 3)})
+  PASS  ...and the POS constraint is load-bearing: `sat` reads the SAME semantic field in both lines, so an ordinary repeat of a past-tense verb does NOT fire. Without it Lesk returned `saturday.n.01` on one line and `ride.v.01` on the other
+  PASS  the DERIVATION IS NOT THE DEFAULT, and the rate is why: measured over 40 corpus songs it separates 9.42% of shared-word line pairs and the samples are refrains, not puns — so a stream that declares neither still REFUSES (doctrine 16/22: an uncalibrated cut is stated as a rate, not adopted)
+
+5. `earlier` / `poet` — a SOURCED period or dialect reading
+  PASS  undeclared, `historical rhyme` REFUSES naming `earlier`
+  PASS  declared, `love`/`prove` reads as a rhyme on the period surface and as a NON-rhyme on the modern one, which is the definition
+          LinePairResults({(1, 2)})
+  PASS  an UNSOURCED period phonology still refuses to construct — the constructor joined the seam, it did not open a hole in it
+  PASS  ...and a BARE phonology is refused here, so the period/reconstruction/source checks cannot be routed around
+
+6. `lifts` — the scanner BLOCKERS said did not exist
+  PASS  undeclared, `alliterative long line` REFUSES naming `lifts`
+  PASS  `search_lifts` derives a map from PROMINENCE and names its source
+          1 line(s), source='prominence'
+  PASS  ...and both lift schemas then judge instead of refusing
+  PASS  `declare_lifts` takes a hand scansion and does NOT check it against prominence — a declared scansion is the caller's claim and a checker outranking it would be doctrine 1 inverted
+  PASS  the count per half-line is a PARAMETER, not a fiat — the alliterative long line's four is a convention of the form
+
+7. `beat`, and THE CHECK THAT CATCHES A RUBBER STAMP
+  PASS  undeclared, `offbeat internal rhyme` REFUSES naming `beat` — doctrine 4's default is untouched
+          Refusal(schema='offbeat internal rhyme', capability='beat', detail="offbeat internal rhyme
+  PASS  declared, it answers — doctrine 4 refuses an INFERRED grid and always allowed 'a declared tempo', which is what this is
+          LinePairResults({(1, 2)})
+  PASS  the schema keeps BOTH the capability gate and the placement — the gate is what makes an undeclared grid a refusal, the placement is what makes a declared one selective, and either alone is one of the two defects this schema has had
+  PASS  `trite rhyme` is SELECTIVE: it flags the declared pair sun/fun and NOT cap/clap, which is an ordinary perfect rhyme — a capability with no predicate behind it would have flagged both
+          LinePairResults({(1, 2)})
+  PASS  ...and it reads the DECLARED pair list, so its vocabulary is `lyric_harness.CLICHE_PAIRS` and not a corpus rank the pre-1931 sources cannot supply
+  PASS  `family rhyme` runs on the SHIPPED English phonology's own manner partition — no caller declaration, no fixture
+          LinePairResults({(2, 4), (1, 2), (1, 4)})
+  PASS  ...and the partition is doing the work its label claims: it adds cat/cap and cap/mat, which are T~P at the coda and both stops, to the perfect rhymes — a superset, not a relabelling
+          family [(1, 2), (1, 4), (2, 4)] vs perfect [(1, 4)]
+  PASS  ...and it EXCLUDES every pair carrying `can`, whose N is a nasal — which is the half a stamped capability could never have given, since a schema that only gates fires on everything or nothing
+          pairs touching line 3 (`can`): none
+  PASS  ...and withdrawing the phonology's declaration puts the schema straight back to REFUSING by name — so the shipped partition is what makes it answer, not the channels it would have anyway
+          Refusal(schema='family rhyme', capability='quotient:manner', detail="family rhyme needs 'quotient:manner'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` — declaring only the first would not make this schema run.", missing=('quotient:manner',), kind='capability', vacuous=())
+
+8. THE CENSUS — every schema askable, and it is DERIVED
+  PASS  all 77 schemas are askable with every declarable coordinate declared — 0 blocked
+          77 live / 77, 0 blocked: []
+  PASS  21 of them are INTRA-LINE and are read by the figures route, not by a mandate — a pair of lines cannot stand in a one-line figure
+          21
+  PASS  2 answer under their OWN phonology, which is a language coordinate (M-4) and not a gap in the registry
+          ['proest', 'Middle Chinese end rhyme (同用 group)']
+  PASS  ...and the census NAMES the ones that answer only on a fixture it declares itself — 77 askable is not 77 shipped, and the report has to be the thing that says so (doctrine 94)
+          ['dialect rhyme', 'historical rhyme', 'proest']
+  PASS  ...and every one of them carries a written reason that NAMES the capability it is standing in for, so a caller holding the table knows which declaration lifts it
+          {'dialect rhyme': (['poet'], 96), 'historical rhyme': (['earlier'], 180), 'proest': (['quotient:vowel_class'], 405)}
+==============================================================
+every capability the registry names is DECLARABLE, every declaration is the caller's, and nothing is inferred

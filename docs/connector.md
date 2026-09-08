@@ -2,7 +2,7 @@
 
 **Turn a plain-language vibe into a precise recording recipe.**
 
-CodexMusica is a read-only Claude connector backed by a structured catalog of
+CodexMusica provides separate recipe and lyrics tools. Its recipe engine uses a catalog of
 recorded-music traditions. Describe a sound in words — a genre, an era, a mood,
 an instrument — and Claude returns a compact **recipe**: a descriptor stack
 naming the instruments, materials, room, signal chain, and per-instrument
@@ -12,13 +12,14 @@ naming the instruments, materials, room, signal chain, and per-instrument
   256 rooms · 120 tunings · 741 prefaces, placed in a 13-dimensional parameter space.
 - **Browser app:** <https://weningerii.github.io/CodexMusica/codex.html>
 - **Endpoint:** `https://codex-musica-mcp.onrender.com/mcp` · health: `/health`
-- **Auth:** none (open, read-only) · **Data:** stateless, no account, no personal data.
+- **Auth:** public endpoint; run and request identifiers are private bearer capabilities.
+- **Task endpoints:** `/mcp/recipe` and `/mcp/lyrics`. `/health` reports liveness; `/ready` reports lyrics readiness.
 
 ## Add it to Claude
 
 1. Claude → **Settings → Connectors → Add custom connector**.
-2. Paste the URL: `https://codex-musica-mcp.onrender.com/mcp`.
-3. No sign-in — it's an open, read-only server. Start a chat and ask for a sound.
+2. Paste `https://codex-musica-mcp.onrender.com/mcp/recipe` for recipe work, or use `/mcp/lyrics` for lyric work.
+3. No sign-in. Keep returned run and request capabilities private.
 
 ## What is a "preface"?
 
@@ -80,8 +81,10 @@ Beside the recipes — and never touching them — the `lyric_*` family plans an
 | `lyric_verify` | Did this revision earn it? Hand it a draft BEFORE and AFTER under the same mandate and it reports what the change FIXED and INTRODUCED. Read `accepted`, not `exit_code` — both verdicts exit 0. A DIFF, not a grade: it cannot report banned pairs that survived the change. |
 | `lyric_types` | The 9-axis rhyme-type coordinate for one word pair (taxonomy; for usable-or-banned use `lyric_screen`). |
 
-Every tool is read-only and deterministic. State is passed in and out — Claude
-threads the `workspace` from each call into the next.
+Recipe tools pass `workspace` in and out. `lyric_revise` also retains run state;
+its optional kitchen writer sends the lyric brief and draft to Google and incurs
+model costs. `/chat` uses durable receipts to recover accepted work. See
+[LYRICS_RUNTIME.md](../mcp/LYRICS_RUNTIME.md) for storage and continuation rules.
 
 ## How it works (recipe = under 1,000 chars)
 
@@ -94,5 +97,29 @@ present it verbatim.
 
 ## Privacy & support
 
-- **Privacy:** [PRIVACY.md](../PRIVACY.md) — read-only, stateless, no personal data stored.
+- **Privacy:** [PRIVACY.md](../PRIVACY.md) — lyrics storage, external processing and retention.
 - **Support:** [SUPPORT.md](../SUPPORT.md) — GitHub Issues.
+
+## Native clients
+
+The maintained SDK client requires an explicit task and retains initialization
+instructions, descriptions, schemas and annotations. Before exposing tools it
+compares the server version, complete tool set and initialization contract with
+the installed client and refuses incompatible surfaces:
+
+```sh
+node scripts/connector_client.mjs --task=recipe --url=https://codex-musica-mcp.onrender.com/mcp
+```
+
+It prints the complete task surface. Add `--call=TOOL --args-file=FILE` to call
+a tool with JSON arguments. `--out=FILE` atomically saves the result with private
+file permissions, including when replacing an existing file. For a stdio host,
+set `MCP_TASK_DOMAIN=recipe` or
+`MCP_TASK_DOMAIN=lyrics` when launching `node mcp/server_stdio.js`. Host adapters
+must preserve the user-selected task outside model-generated arguments and retain
+the returned artifact verbatim. A connector cannot prevent an unrelated host from
+writing arbitrary prose after it ignores the tool result.
+
+Ordinary seeded lyric plans are admitted against the grader's work budget, reported
+in `execution_limits`. `inspection_only` exposes larger mathematical shapes but
+does not authorize writing. Carry `wants` unchanged through plan, grade and revise.

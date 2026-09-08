@@ -1,0 +1,183 @@
+
+1. the premise -- 'the two span loci' is a well-posed question over this registry
+  PASS  the registry is non-empty
+          77 schemas
+  PASS  every schema declares EXACTLY two span rules -- the day one does not, span_loci() raises instead of reporting a shape nobody declared
+          {}
+  PASS  span_slots is 2 x schemas, derived rather than asserted
+          154 over 77
+  PASS  the declared vocabulary is still attested in the registry
+          ()
+  PASS  ...and a three-span schema raises rather than being read as a pair
+
+2. the partition, and the bucket that CROSS-CUTS it
+  PASS  pair-shaped and not-pair-shaped are disjoint
+          set()
+  PASS  ...and together they are the whole registry
+  PASS  ...so the two counts sum to the registry and nothing else does
+  PASS  the arity bucket is NOT a third slice -- it overlaps pair-shaped, and the overlap is non-empty, so summing the three counts would double-count a real schema (doctrine 79)
+          ['monorhyme / leash']
+  PASS  ...and the overlap is exactly what the pin names
+          ['monorhyme / leash']
+  PASS  the figure-blind reading is STRICTLY larger than the pair count -- that difference is the hand count's overcount
+          span_shaped=26 pair_shaped=25
+  PASS  ...and every span-shaped-but-not-pair schema fails on FIGURE alone
+          {'analysed rhyme': ('FIGURE',)}
+
+3. the predicates fail in BOTH directions (doctrine 94)
+  PASS  a canonical 2-node / both-ends / both_line_final schema IS pair-shaped
+  PASS  ...and is NOT pair-shaped once FIGURE   (4 nodes, spans and placement unchanged) moves
+          FIGURE   (4 nodes, spans and placement unchanged)
+  PASS       ...with the failing conjunct named ('FIGURE',)
+          ('FIGURE',)
+  PASS  ...and is NOT pair-shaped once LOCUS    (one span looks at any_token) moves
+          LOCUS    (one span looks at any_token)
+  PASS       ...with the failing conjunct named ('LOCUS',)
+          ('LOCUS',)
+  PASS  ...and is NOT pair-shaped once PLACEMENT(no placement declared) moves
+          PLACEMENT(no placement declared)
+  PASS       ...with the failing conjunct named ('PLACEMENT',)
+          ('PLACEMENT',)
+  PASS  ...and is NOT pair-shaped once PLACEMENT(both_line_final declared FORBIDDEN) moves
+          PLACEMENT(both_line_final declared FORBIDDEN)
+  PASS       ...with the failing conjunct named ('PLACEMENT',)
+          ('PLACEMENT',)
+  PASS  the polarity reading is the LOAD-BEARING one: a forbidden both_line_final does not satisfy a required one
+  PASS  needs_arity_extension(2 nodes / exists) is False
+  PASS  needs_arity_extension(2 nodes / exists_k) is False
+  PASS  needs_arity_extension(2 nodes / forall) is True
+  PASS  needs_arity_extension(2 nodes / fraction) is True
+  PASS  needs_arity_extension(3 nodes / exists) is True
+  PASS  needs_arity_extension(4 nodes / exists) is True
+  PASS  needs_arity_extension(1 nodes / exists) is True
+  PASS  over the real registry, `pair_shaped` returns BOTH answers -- a constant predicate is an instrument that never looked
+          {False, True}
+  PASS  over the real registry, `arity_extension` returns BOTH answers -- a constant predicate is an instrument that never looked
+          {False, True}
+  PASS  over the real registry, `span_shaped` returns BOTH answers -- a constant predicate is an instrument that never looked
+          {False, True}
+  PASS  ...and the not-pair-shaped schemas fail on more than one distinct combination of conjuncts, so no single conjunct is carrying the whole classification
+          {('LOCUS', 'PLACEMENT'): 37, ('FIGURE',): 1, ('FIGURE', 'LOCUS', 'PLACEMENT'): 6, ('PLACEMENT',): 6, ('LOCUS',): 2}
+
+4. the gate goes RED -- from a moved pin AND from a moved registry
+  PASS  --check on this tree is GREEN, so a red one means something
+          ['RESULT: PASS']
+  PASS  a schema whose FIGURE moves turns --check red
+  PASS  ...and the report names the moved figure and its measured value
+          ['  [FAIL] not_pair_shaped            committed 52, measured 53', '  [FAIL] pair_shaped                committed 25, measured 24']
+  PASS  ...and names the schema that left the pair-shaped membership
+          ["  [FAIL] arity membership           committed 12 name(s), measured 13 -- left: none; entered: ['perfect rhyme']", "  [FAIL] pair-shaped membership     committed 25 name(s), measured 24 -- left: ['perfect rhyme']; entered: none"]
+  PASS  ...and says REPIN rather than 'adjust the predicate'
+  PASS  ...and keeps doctrine 17's instruction in the same breath
+  PASS  a schema whose QUANTIFIER moves turns --check red too -- the arity bucket and the figure profile both see it
+  PASS  ...and the arity membership is named as having GROWN
+          ['  [FAIL] arity_extension            committed 12, measured 13', '  [FAIL] n_pair_and_arity           committed 1, measured 2', "  [FAIL] arity membership           committed 12 name(s), measured 13 -- left: none; entered: ['perfect rhyme']", "  [FAIL] edge pair_and_arity        committed 1 name(s), measured 2 -- left: none; entered: ['perfect rhyme']"]
+  PASS  a schema whose FRAME moves -- changing no count and no membership -- is still caught, by the figure profile alone
+          ["  [FAIL] figure profile             committed [((('frame', 'song'), ('nodes', 2), ('quantifier', 'exists')), 58), ((('frame', 'line'), ('k', 2), ('nodes', 2), ('quantifier', 'exists_k')), 3), ((('frame', 'stanza'), ('nodes', 2), ('quantifier', 'forall')), 3), ((('frame', 'token'), ('nodes', 2), ('quantifier', 'exists')), 3), ((('frame', 'line'), ('nodes', 3), ('quantifier', 'exists')), 2), ((('fraction', 0.8), ('frame', 'line'), ('nodes', 2), ('quantifier', 'fraction')), 1), ((('frame', 'line'), ('nodes', 1), ('quantifier', 'exists'), ('template', 'declared 平仄 pattern')), 1), ((('frame', 'line'), ('nodes', 2), ('quantifier', 'exists')), 1), ((('frame', 'line'), ('nodes', 4), ('quantifier', 'exists')), 1), ((('frame', 'line_pair'), ('nodes', 4), ('quantifier', 'exists')), 1), ((('frame', 'song'), ('nodes', 2), ('quantifier', 'forall')), 1), ((('frame', 'stanza'), ('nodes', 3), ('quantifier', 'exists')), 1), ((('frame', 'stanza'), ('nodes', 4), ('quantifier', 'exists')), 1)], measured [((('frame', 'song'), ('nodes', 2), ('quantifier', 'exists')), 57), ((('frame', 'line'), ('k', 2), ('nodes', 2), ('quantifier', 'exists_k')), 3), ((('frame', 'stanza'), ('nodes', 2), ('quantifier', 'forall')), 3), ((('frame', 'token'), ('nodes', 2), ('quantifier', 'exists')), 3), ((('frame', 'line'), ('nodes', 3), ('quantifier', 'exists')), 2), ((('fraction', 0.8), ('frame', 'line'), ('nodes', 2), ('quantifier', 'fraction')), 1), ((('frame', 'line'), ('nodes', 1), ('quantifier', 'exists'), ('template', 'declared 平仄 pattern')), 1), ((('frame', 'line'), ('nodes', 2), ('quantifier', 'exists')), 1), ((('frame', 'line'), ('nodes', 4), ('quantifier', 'exists')), 1), ((('frame', 'line_pair'), ('nodes', 4), ('quantifier', 'exists')), 1), ((('frame', 'song'), ('nodes', 2), ('quantifier', 'forall')), 1), ((('frame', 'stanza'), ('nodes', 2), ('quantifier', 'exists')), 1), ((('frame', 'stanza'), ('nodes', 3), ('quantifier', 'exists')), 1), ((('frame', 'stanza'), ('nodes', 4), ('quantifier', 'exists')), 1)]"]
+  PASS  a moved SCALAR pin exits 1 through the CLI
+          ['RESULT: FAIL']
+  PASS  ...and prints `committed 999, measured 25`
+  PASS  a SWAP inside a membership pin -- same count, different name -- exits 1, which is the whole reason the small buckets are pinned by name and not by count
+          ['RESULT: FAIL']
+  PASS  ...and both sides of the swap are named
+          ["  [FAIL] arity membership           committed 12 name(s), measured 12 -- left: ['not a schema']; entered: ['平仄 tonal template']"]
+
+5. CANNOT TELL is reachable, and is never a moved figure (doctrine 20)
+  PASS  a measurement that raises exits 2, not 1
+  PASS  ...and says so in the instrument's own words
+  PASS  ...naming the cause rather than the pin
+  PASS  with the locus renamed under it, the classifier WOULD have reported nothing pair-shaped
+  PASS  ...but --check answers CANNOT TELL (2) instead of blaming the registry for 25 moved figures
+          ['RESULT: CANNOT TELL']
+  PASS  ...and names the drifted spelling
+
+6. doctrine 1 by AST -- no schema name is transcribed outside the pins
+  PASS  every registry name spelled in relation_shapes.py lives inside a PINNED* table -- the derivation transcribes none of them
+          []
+  PASS  ...and the guard is not vacuous: the pins DO spell schema names, so the scanner had something to find
+          161 string constants in PINNED*
+  PASS  ...and it opens no file of its own -- canon_sources owns the survey reader (doctrine 1)
+          0 open() calls
+
+7. the survey split adds up
+  PASS  the index is loaded, so the split is a measurement
+  PASS  covered + uncited == the index's own row count
+          375 + 226 vs 601
+  PASS  the row count is ASKED of canon_sources, not counted here
+  PASS  no schema cites an index the survey does not contain
+          ()
+  PASS  the per-cell uncited counts sum to the uncited total
+  PASS  ...and the per-cell covered counts sum to the covered total
+  PASS  every cell is present on one side or the other
+  PASS  ...and cell C splits its own declared 64 rows
+          measured 64
+  PASS  ...and cell E splits its own declared 74 rows
+          measured 74
+  PASS  ...and cell G splits its own declared 89 rows
+          measured 89
+  PASS  ...and cell I splits its own declared 74 rows
+          measured 74
+  PASS  ...and cell S splits its own declared 126 rows
+          measured 126
+  PASS  ...and cell X splits its own declared 174 rows
+          measured 174
+  PASS  per-schema cite counts deduplicate across traditions -- the naive sum is larger somewhere, so the distinction is real
+          {"Scots vowel-length rhyme (Aitken's Law)": (7, 6), 'alliteration': (76, 30), 'alliterative long line': (37, 19), 'anadiplosis': (19, 17), 'antanaclasis': (29, 20), 'assonance': (18, 9), 'consonance': (4, 3), 'cross rhyme': (10, 9), 'dvitiyakshara-prasa': (22, 7), 'epistrophe / radif': (17, 7), 'exact reduplication': (8, 6), 'eye rhyme': (9, 7), 'historical rhyme': (5, 4), 'homoioteleuton': (23, 13), 'incremental repetition': (6, 5), 'leonine rhyme': (9, 8), 'linked rhyme': (40, 22), 'monorhyme / leash': (10, 9), 'multisyllabic rhyme': (5, 4), 'parechesis / general consonance': (6, 5), 'perfect rhyme': (51, 23), 'proest': (4, 3), 'qafiya (before the radif)': (77, 43), 'repetition': (54, 36), 'rhyming reduplication': (8, 6), 'rime riche': (12, 8), '平仄 tonal template': (17, 8)}
+
+8. the surfaces -- bare, --json, --check
+  PASS  a bare run exits 0
+  PASS  ...and prints the 'pair-shaped' section
+  PASS  ...and prints the 'not pair-shaped' section
+  PASS  ...and prints the 'needs an arity extension' section
+  PASS  ...and prints the 'SPAN LOCI' section
+  PASS  ...and prints the 'SURVEY COVERAGE' section
+  PASS  ...and no format placeholder survives into the output
+  PASS  ...and every arity-bucket member is printed WITH its figure
+  PASS  --json exits 0 and parses
+  PASS  ...and its buckets agree with the in-process ones
+  PASS  ...and it carries the per-schema cite counts a consumer asked for
+  PASS  --check exits 0 on this tree
+          ['RESULT: PASS']
+  PASS  ...and it grades more than the three headline counts
+          20 rows
+
+9. quality/pin_sweep.py reads this instrument correctly, mechanically
+  PASS  the sweep DISCOVERS this instrument -- it spells `--check` and is not excluded
+  PASS  ...and does not sweep its test file
+  PASS  a PASSING run says nothing the sweep reads as 'cannot answer' -- otherwise a genuinely moved figure would be filed as inconclusive
+  PASS  ...while the CANNOT TELL run DOES match it, so exit 2 is filed as CANNOT RUN without a row in the sweep's EXIT_MEANING table
+  PASS  ...and a MOVED run gives the sweep real evidence to print, rather than a verdict with no reason
+          ['  [FAIL] arity_extension            committed 12, measured 13', '  [FAIL] n_span_not_pair            committed 1, measured 2']
+  PASS  ...and the sweep's conservative default reads this module's exit 1 as MOVED
+
+10. the arity bucket's premise -- the coordinate is declared and unread, and members 3+ have no rule
+  PASS  Figure.nodes/edges/template are enforced by production relations
+          ['quality/relations.py']
+  PASS  ...and the scanner is not vacuous: it finds this module
+          ['quality/relation_shapes.py', 'quality/relations.py', 'quality/test_relation_shapes.py']
+  PASS  the registry really does declare figures with more than two members
+          {'symploce': 4, 'analysed rhyme': 4, 'cynghanedd sain': 3, 'cynghanedd sain gadwynog': 4, 'cynghanedd sain lafarog': 3, 'blues AAB stanza': 3}
+  PASS  ...and every one of them still declares exactly two span rules, so its members beyond the second have no rule to find them by
+          {'symploce': 2, 'analysed rhyme': 2, 'cynghanedd sain': 2, 'cynghanedd sain gadwynog': 2, 'cynghanedd sain lafarog': 2, 'blues AAB stanza': 2}
+  PASS  ...and the producer's own entry point takes exactly two spans
+
+11. the quantifier vocabulary is ONE table (M-38)
+  PASS  `k` COUNTS is declared, once, and it is members
+          members
+  PASS  four canonical names
+          ['exists', 'exists_k', 'forall', 'fraction']
+  PASS  both modules' historical spellings are ALIASES onto them, kept rather than renamed (doctrine 17)
+  PASS  EVERY one of the 77 figures resolves through that one table
+  PASS  a Figure declaring 'nonsense' REFUSES AT CONSTRUCTION, so a typo in one of 77 schemas cannot fall through assemble()'s if/elif to a silent no-op (defect P15's shape)
+  PASS  a Figure declaring 'PAIR' REFUSES AT CONSTRUCTION, so a typo in one of 77 schemas cannot fall through assemble()'s if/elif to a silent no-op (defect P15's shape)
+  PASS  a Figure declaring '' REFUSES AT CONSTRUCTION, so a typo in one of 77 schemas cannot fall through assemble()'s if/elif to a silent no-op (defect P15's shape)
+  PASS  ...and a good one still constructs
+  PASS  the proxy is declared exact only at k=2
+          (2,)
+  PASS  Selection(exists_k, k=2) constructs — the only value in use
+  PASS  Selection REFUSES exists_k k=1 rather than picking a reading: its `>= k-1` figure count is a proxy for the declared member semantics, exact only at 2, and which module is right above 2 is CANNOT TELL from the source
+  PASS  Selection REFUSES exists_k k=3 rather than picking a reading: its `>= k-1` figure count is a proxy for the declared member semantics, exact only at 2, and which module is right above 2 is CANNOT TELL from the source
+  PASS  Selection REFUSES exists_k k=5 rather than picking a reading: its `>= k-1` figure count is a proxy for the declared member semantics, exact only at 2, and which module is right above 2 is CANNOT TELL from the source
+  PASS  relations' own exists_k carries NO such bound, because it is not a proxy — it counts distinct members and tests >= k exactly
+====================================================================
+the classification is an instrument: it answers, it can be wrong, and it says which figure moved

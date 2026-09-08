@@ -244,7 +244,15 @@ PINNED = {
     #: which is still the half that matters — the vocabulary grew by
     #: considering a mark somebody HAD thought about, not by reaching
     #: into the pile nobody has.
-    "typed": 77093, "decided": 125501, "undecided": 32, "apparatus": 59,
+    #: RE-MEASURED 2026-09-08 after normalized reading and editorial staging:
+    #: typed 77,093 -> 77,052; numeral apparatus 59 -> 1. The exact changes
+    #: are Whittier -1, Read -7, Hemans -12, Locker-Lampson -1,
+    #: Lovelace -17, D'Urfey -1 and Emmett -2 typed blocks; Hemans supplies
+    #: all 58 removed numeral-apparatus blocks. Source text is preserved
+    #: under explicit apparatus declarations, and no refused-mark decision
+    #: or vocabulary changed. Both checkout measurements are archived in
+    #: results/production_data_2026-09-08/mark-bucket-delta.json.
+    "typed": 77052, "decided": 125501, "undecided": 32, "apparatus": 1,
     "declared_functions": 22, "witnessed": 5,
 }
 

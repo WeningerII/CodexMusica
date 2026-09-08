@@ -97,6 +97,7 @@ function shapeOf(card) {
     chain: card.chain || {},
     preface: card.preface ?? null,
     prefaceAuto: card.prefaceAuto !== false,
+    pinnedParts: [...(card.pinnedParts || [])].sort(),
   };
 }
 
@@ -104,6 +105,8 @@ function diff(a, b) {
   const out = [];
   const A = shapeOf(a);
   const B = shapeOf(b);
+  if (JSON.stringify(A.pinnedParts) !== JSON.stringify(B.pinnedParts))
+    out.push(`pinnedParts: app=${A.pinnedParts} connector=${B.pinnedParts}`);
   for (const key of ['tuning', 'room', 'preface', 'prefaceAuto']) {
     if (A[key] !== B[key]) out.push(`${key}: app=${A[key]} connector=${B[key]}`);
   }

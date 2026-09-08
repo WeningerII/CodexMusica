@@ -1,0 +1,8 @@
+{
+  "name": "codex-musica-battery-actions",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@actions/artifact": "6.2.1"
+  }
+}

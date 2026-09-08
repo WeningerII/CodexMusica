@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "artifact_count": 124,
+  "artifact_index_sha256": "3e48b0321c10eee6aaff94f1638604e1bd7c5f9fbe21c77c945f86f5714ad8ac",
+  "epoch_sha256": "be72db664616cfae91dfcaed1acc6c06a6cc5e847673a5521efe94dff5eb4588",
+  "current_epoch_path_hashes_verified": 24,
+  "scope": "Independent root verification of every archived artifact byte length and SHA256 and every current epoch path relative to lyric-harness. Source and calibration gates are separately measured in archived receipts. Initial probe used repository-relative epoch paths and stopped before making a source claim; corrected to the declared harness root."
+}

@@ -1,0 +1,11 @@
+{
+  "before_sha256": "bf27f6dec80209166bb223de44a3385b4ea97e1b3ba9ce8efeffc7ede3509e9b",
+  "after_sha256": "40169c2d1be51c54a3dc2f74fd027c8d996b18988735b5a493135484bfe9ec62",
+  "changed_top_level_nodes": [
+    "_JournalCapacity",
+    "_journal_stop",
+    "_defer_proposer"
+  ],
+  "all_other_ast_identical": true,
+  "tests": "journal-batching-unit.log"
+}

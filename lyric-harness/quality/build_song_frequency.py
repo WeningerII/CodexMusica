@@ -239,38 +239,18 @@ class SongFrequencyBuilder:
         files = [os.path.basename(p) for p in corpus_files()]
         for base in files:
             author = base[:-4]
-            item_ends = []
-            with open(os.path.join(SONG, base), encoding="utf-8") as fh:
-                raw_lines = fh.read().splitlines()
-            # The DECLARED bracket-apparatus rules (M-47/M-27/M-152), same
-            # calls as `load_lyric_lines`: a wrapped Gutenberg note's tail
-            # must not supply an end word, a footnote anchor must not BE
-            # one (Byron rhymed on `a b c d` in every table built before
-            # this), and a bracketed SUNG stanza's own lines must (the
-            # M-152 edit runs before `_MARKER`, so a declared verse
-            # opener supplies its end word instead of being dropped).
-            drops = wrapped_apparatus_drops(raw_lines, base)
-            vdrops, vedits = bracketed_verse_edits(raw_lines, base)
-            drops |= vdrops
-            for i0, raw in enumerate(raw_lines):
-                if i0 in drops:
-                    continue
-                s = raw.rstrip()
-                if s.startswith("--- TITLE:"):
-                    stats["items"] += 1
-                    self._pairs(item_ends, pair, author, stats)
-                    item_ends = []
-                    continue
-                s = vedits.get(i0, s)
-                if not s.strip() or _MARKER.match(s):
-                    continue
-                stats["lines"] += 1
-                w, st = self.endword(normalise_bracket_spans(s, base))
-                stats["end_" + st] += 1
-                if st == "ok":
-                    end[(w, author)] += 1
-                    item_ends.append(w)
-            self._pairs(item_ends, pair, author, stats)
+            from quality.lyric_reader import calibration_items
+            for _title, _at, body in calibration_items(os.path.join(SONG, base)):
+                stats["items"] += 1
+                item_ends = []
+                for row in body:
+                    stats["lines"] += 1
+                    w, st = self.endword(row.text)
+                    stats["end_" + st] += 1
+                    if st == "ok":
+                        end[(w, author)] += 1
+                        item_ends.append(w)
+                self._pairs(item_ends, pair, author, stats)
             stats["authors"] += 1
         return end, pair, stats
 
@@ -306,12 +286,13 @@ _END_HEAD = """\
 # `author` is the corpus file's basename without `.txt`, which is the key
 # `data/lyricists.tsv:corpus_path` uses.
 #
-# THE PERIOD IS A COORDINATE OF THIS FILE, NOT A FOOTNOTE. All 143 authors
-# died in or before 1929 (median 1867), because the provenance gate admits
-# nothing later. So this is a model of what was predictable in ENGLISH SUNG
-# VERSE BEFORE 1930, and `thee` is its rank-2 line-final word. Doctrine 11
-# has already caught two features reading period rather than quality; assume
-# this one does too until a measurement says otherwise.
+# Current population: shared normalized-lyrics-v1 reader and explicit
+# one-work weights from data/calibration_work_editions.json. Historical
+# printings remain in the corpus; their repetitions do not gain extra votes.
+# This is historical English verse and carries the corpus period bias.
+# The earlier143-file median death year1867 and rank-2 `thee` observation
+# are historical results, not measurements claimed for this rebuilt table.
+# Current population counts and source hashes are recorded in data/sources.tsv.
 word\tauthor\tcount
 """
 

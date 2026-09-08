@@ -1,0 +1,167 @@
+  ok  catalog loaded
+  ok  start_recipe = the Current Recipe (deterministic, primary-only header)
+  ok  max_chars ceiling honored
+  ok  max_chars above 1000 is clamped to the canonical 1000-char cap
+  ok  edit_recipe set_preface re-derives + labels verbatim (state threaded)
+  ok  set_preface never AUTO-selects a borrowed (auto:false) material
+  ok  edit_recipe add_tradition reflects in the header (explicit staple)
+  ok  edit_recipe set_variant applies + chains multiple edits
+  ok  set_environment with no card targets the primary (and only it)
+  ok  render_recipe re-renders threaded state
+  ok  search_catalog resolves words → ids
+  ok  search_prefaces returns preface ids
+  ok  get_instrument exposes variant ids for set_variant
+  ok  list_options enumerates rooms
+  ok  validation: actionable errors
+  ok  clientIp ignores a spoofed leftmost X-Forwarded-For entry
+  ok  clientIp gives one bucket regardless of the spoofed prefix
+  ok  clientIp keeps IPv6 intact
+  ok  an unpriced model has no price and no cost
+  ok  a turn is bounded in dollars, not only in hops
+  ok  the DAY has two ceilings too, and which one an ordinary day reaches is derived
+  ok  there is a daily ceiling that does not consult the pricing table
+  ok  the spend counter persists across a restart when it has a file
+[chat] spend persistence unavailable (invalid spend counters); paid chat is disabled until repaired.
+[chat] spend persistence unavailable (Expected property name or '}' in JSON at position 2 (line 1 column 3)); paid chat is disabled until repaired.
+  ok  a corrupt spend file cannot widen the cap
+  ok  an unusable spend path disables paid admission
+  ok  /chat/status discloses whether the cap survives a restart
+  ok  the chat field and the server agree on the message ceiling
+  ok  the model named in render.yaml is one we can price
+  ok  the state-taking tool is recognised for carriage, by derivation not by list
+  ok  the revise declaration exposes no `state` and keeps every other parameter
+  ok  a two-block verdict reaches the model without the blob
+  ok  a one-block payload reaches the model without state or workspace
+  ok  every grading tool can declare --voices and --fallback; screen takes a relation; verify takes structures
+  ok  the globals stand AHEAD of the verb and only when declared
+  ok  planArgs carries --narrative= exactly as it carries --title=
+  ok  lyric_recover exists; lyric_check and lyric_revise take a blueprint; lyric_revise no longer requires a seed
+  ok  the recovered mandate and the refusals are read off the recover report
+  ok  a recovered mandate fits the check/revise ceiling (M-195, repinned 2026-09-02)
+  ok  a pasted song's run is carried on its MANDATE, a planned one on its seed
+  ok  the stamp of a pasted song's run parses with no seed
+  ok  draft_text splits the same way in the tool and in the connector (M-234)
+  ok  a folded answer without an outcome stays unknown despite the next question or attempt budget
+  ok  the run store requires an opaque capability and forgets by TTL and cap
+  ok  the tool's own refusals on a parked run, and a moved declaration refused by name (M-237)
+  ok  the run fields ride loopFields, chat.js tools[] and the tool source (M-237)
+  ok  a batch question and its folded answers ride the row, one record per member, judged off `outcomes` (M-236)
+  ok  a tier-2 group answer folds off `group_outcomes` — verdict, reasons, source — and stays unknown without it (M-253)
+  ok  the connector's revise budget is one attempt, ONE group rewrite per stuck line (backtrack 1, on since M-247), eight rounds, and the driver uses the verifier receipt ledger
+  ok  a batch or group answer is STRUCTURE — `answers` joins into the harness row format here, and every line-taking tool has a one-string twin (M-248, round 22)
+FAIL  the proposal record rides loopFields, chat.js tools[] and the battery rows (M-235)
+      AssertionError [ERR_ASSERTION]: and the per-turn accepted/rejected/unknown count
+    at file:///workspace/scratch/b0544e4bbdd6/production-fixes/mcp/test.mjs:1519:16
+    at async check (file:///workspace/scratch/b0544e4bbdd6/production-fixes/mcp/test.mjs:87:5)
+    at async file:///workspace/scratch/b0544e4bbdd6/production-fixes/mcp/test.mjs:1481:5
+  ok  the standing findings at a stop are parsed off the report (M-232)
+  ok  a whole-only exit 3 is labelled by its cause, not as open lines
+  ok  exit 1 is CRASHED, never read as a verdict
+  ok  partial or unmeasured responses cannot invent zero whole-draft findings
+  ok  a flagged brief at exit 0 says the flags STAND instead of "no flag stands"
+  ok  unreadable end words surface as refusals with their lines
+  ok  the loop stamp carries the whole-draft flags as their own count
+  ok  the pursued findings printed at the stop reach banned_pairs
+  ok  only a SUSPENDED verdict (exit 4) is carried; a stop (0/3) clears the seed
+  ok  a carried state with a pending question names its seed
+  ok  the reminder rides the systemInstruction only while a run is suspended
+  ok  the skipped-steps note names what the transcript has not called, and leaves when it has
+  ok  the chat surface sends every lyric_revise call as writer:kitchen and strips the interview fields
+  ok  a second-hop 429 preserves the first hop's usage and continuation
+  ok  a turn past its wall clock ends after the hop in flight, calls kept (M-258)
+  ok  chat.js retries a transient upstream three times and puts the seed on every row (M-232)
+  ok  chat.js charges the partial usage in its catch and puts the cost on the reply
+  ok  RATE_LIMIT_RETRY is two retries whose backoffs fit its own total wait
+  ok  a 429 then a 200 is ONE retry: the reply lands and usage counts both requests
+  ok  a Retry-After past the budget is refused AT ONCE with the wait on the error
+  ok  three 429s exhaust the two retries: the throw carries the two requests spent
+  ok  chat.js hands runTurn the bounded 429 budget beside its transient list
+  ok  MALFORMED_CALL_RETRY is two re-asks, stated once
+  ok  a malformed hop is re-asked in the same turn: the call lands, the turn ends on STOP, and the broken hop left nothing in the transcript
+  ok  the malformed hop's finishMessage is recorded even when the re-ask then lands the call (M-221)
+  ok  three malformed hops in a row exhaust the two re-asks: the turn stops as MALFORMED_FUNCTION_CALL with the count on stoppedDetail
+  ok  an exhausted turn records all three malformed hops and puts the last text on stoppedDetail (M-221)
+  ok  a malformed hop with no finishMessage records null, not a fabricated text (M-221)
+  ok  an omitted draft on a continuing call is filled from the carried record, a sent draft stands, a different seed gets nothing (M-221)
+  ok  while a run is suspended the lyric_revise declaration has no draft to re-emit; the first call's did (M-226)
+  ok  the carried draft survives the turn boundary through the envelope (M-221)
+  ok  an envelope written before M-221 carries a state and no draft: nothing is invented, the tool refuses in its own words (M-221)
+  ok  chat.js tools[] carries the M-216 fields and the kitchen bill loopFields stamps (M-219, M-255)
+  ok  between hops, a lyric result a later result of the same tool superseded is stubbed and the newest stays whole (M-228)
+  ok  the handed-back history is the stubbed one, and stubbing it again changes nothing (M-228)
+  ok  stubSupersededInPlace leaves a recipe result and a lone lyric result alone (M-228)
+  ok  the run's declarations are carried and re-applied over a continuing call that moved one (M-229)
+  ok  while a run is suspended the lyric_revise declaration is answer plus the run key, nothing else (M-229)
+  ok  a call that wanders off a suspended run is refused by the connector and never reaches the harness (M-229)
+  ok  a run that parks at exit 3 is carried as PARKED, and its continuing call is the rewritten draft plus the key (M-232)
+  ok  a parked record is carried INTO the next turn: the draft-less call is refused by the connector and the rewrite goes through (M-233)
+  ok  a turn the engine kills after a call is returned with its calls kept, not thrown (M-232)
+  ok  chat.js hands the malformed hops and draft_carried out, and the battery rows bank them (M-221)
+  ok  the harness's refusal headline is the shape the connector extracts
+  ok  runTurn reaches the model through the one systemInstruction builder
+  ok  pruning stubs an older folded brief and touches nothing it must not
+  ok  the byte ceiling drops whole oldest turns, never the newest kept one
+  ok  turnBudget derives the per-hop cost from the declared coordinates alone
+  ok  an unpriced model refuses the arithmetic rather than returning a number
+  ok  the code says WHICH of the two ceilings wins, and agrees with itself
+  ok  a turn stopped by the cap carries what it spent, the cap and both hop counts
+  ok  chat.js publishes the stop detail beside the stop reason
+  ok  the battery client derives its deadline instead of inheriting a fetch default
+  ok  the battery socket keeps the NAT awake while the server computes
+  ok  the battery finishes only on exit 0 — a parked exit 3 is declined and continued
+  ok  the deployment's transient answers earn the bounded logged backoff
+  ok  the spend pins state the owner's ruling, and the day derives its own turn count (M-215)
+  ok  every lyric verdict says which path answered, how long it took, and what the run disclosed (M-216)
+  ok  one tool budget, five readers — the pin, the default, the client clock, the kill, the live test clock
+  ok  the loop's own record of a run survives every layer to the transcript
+  ok  an unstopped call contributes no loop row — absent is not zero
+  ok  the replay memo holds as many runs as the chat layer can have — one figure, not two spellings
+  ok  a verb that outlives the budget is not re-run cold on the serial queue
+FAIL  the image ships every tracked runtime file under mcp/ — the worker included
+      AssertionError [ERR_ASSERTION]: tracked under mcp/, in no COPY and not in NOT_SHIPPED: mcp/test_battery_repairs.mjs, mcp/test_kitchen_repairs.mjs — COPY it in mcp/Dockerfile or declare why the image omits it
++ actual - expected
+
++ [
++   'mcp/test_battery_repairs.mjs',
++   'mcp/test_kitchen_repairs.mjs'
++ ]
+- []
+
+    at file:///workspace/scratch/b0544e4bbdd6/production-fixes/mcp/test.mjs:4352:12
+    at check (file:///workspace/scratch/b0544e4bbdd6/production-fixes/mcp/test.mjs:87:11)
+    at file:///workspace/scratch/b0544e4bbdd6/production-fixes/mcp/test.mjs:4218:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+  ok  a battery transport failure is a recorded row, never a crash
+  ok  a malformed, call-less turn is re-sent as the same message, bounded, and a recovered turn is not a failure
+  ok  a 502 whose upstream answered 4xx ends the turn at once, the row quotes the cause, and the round exits upstream_final
+  ok  a 502 says what died: the upstream status and message ride on the body (M-231)
+  ok  a park resets the answer baseline, so the continuing run is not idle (M-233)
+FAIL  a kitchen refusal on a spent 429 is the rate_limited stopping place, and the round stops on that turn
+      AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 'repair_evidence_unavailable'
+- 'rate_limited'
+
+    at file:///workspace/scratch/b0544e4bbdd6/production-fixes/mcp/test.mjs:4800:16
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async check (file:///workspace/scratch/b0544e4bbdd6/production-fixes/mcp/test.mjs:87:5)
+    at async file:///workspace/scratch/b0544e4bbdd6/production-fixes/mcp/test.mjs:4735:3
+  ok  a partial turn (calls kept, engine died) is not fail-fast, and the round goes on to finish
+  ok  a 429 is retried after the server's own Retry-After, the row quotes the limiter, and a finished song exits 0
+  ok  a malformed end after calls is a truncated turn: no fail-fast, the next message goes out, and the summary counts it
+  ok  the connector's conversation cap ends the round at once with exit_reason server_turn_cap
+  ok  the re-ask is bounded: a turn that fails a third time is the failure fail-fast stops on
+  ok  deploy guard: the tip with no record on file deploys, and SAYS the check did not run
+  ok  deploy guard: the tip with a record that DIFFERS deploys, and names the record
+  ok  deploy guard: the tip that IS the last sha Render was asked for stands down at 10, naming both
+  ok  deploy guard: a sha BEHIND the tip stands down on ORDERING, and that test fires first
+  ok  last_deployed_sha: the run in flight is skipped, and so is every Deploy that did not conclude success
+  ok  last_deployed_sha: a gh that FAILS is unknown, and unknown deploys rather than matching
+  ok  the same-sha rule is load-bearing in BOTH directions (the two planted mutants)
+  ok  deploy-connector.yml preserves main ordering without treating the same SHA as the same tested image
+  ok  server builds with all tools
+[chat] DISABLED — no price known for "__no_such_model__". The daily cap cannot be enforced without one, so /chat will refuse rather than spend unmetered. Add it to PRICING in gemini_agent.js, or set CHAT_PRICE_INPUT_PER_1M and CHAT_PRICE_OUTPUT_PER_1M.
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+  ok  /chat refuses to spend on a model it cannot price
+Offline connector assertions complete (132 passed); real harness integration was explicitly not requested.

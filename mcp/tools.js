@@ -1,3 +1,4 @@
+import { CONNECTOR_VERSION } from './contract_version.js';
 // tools.js — registers the CodexMusica deterministic workspace as MCP tools.
 //
 // The connector is the human app's canvas, headless: start_recipe seeds a
@@ -16,6 +17,15 @@ import { registerLyricTools, LYRIC_INSTRUCTIONS } from './lyric_tools.js';
 import { withExecutionContext, childExecutionContext } from './execution_context.js';
 import { performance } from 'node:perf_hooks';
 import { TOOL_BUDGET_MS } from './budget.js';
+import {
+  assertToolTask,
+  toolDomain,
+  taskDomain,
+  RECIPE_MARKER,
+  LYRICS_MARKER,
+} from './task_contract.js';
+import { runtimeAssets } from './runtime_assets.js';
+import { jsonBytes, HTTP_REQUEST_BYTES, assertStateFits } from './payload_limits.js';
 
 // Re-exported so existing importers keep working; the definitions live in
 // schemas.js, which does not import the MCP SDK.
@@ -39,15 +49,35 @@ function jsonResult(value) {
 const READ_ONLY_ANNOTATIONS = { readOnlyHint: true, idempotentHint: true, openWorldHint: false };
 
 function tool(server, name, config, fn) {
+  if (server.task && taskDomain(server.task) !== toolDomain(name)) return;
   const withAnnotations = {
     ...config,
     annotations: { ...READ_ONLY_ANNOTATIONS, ...(config.annotations || {}) },
   };
   server.registerTool(name, withAnnotations, async (args, extra) => {
     try {
+      const inputBytes = jsonBytes(args ?? {});
+      if (inputBytes > HTTP_REQUEST_BYTES - 1024)
+        throw new Error('Tool arguments exceed the encoded request budget.');
+      for (const key of ['state', 'checkpoint', 'blueprint'])
+        if (typeof args?.[key] === 'string') assertStateFits(args[key], key);
+      const inherited = childExecutionContext();
+      const task = server.task || inherited.task;
+      assertToolTask(task, name, args ?? {});
+      if (
+        name.startsWith('lyric_') &&
+        !(name === 'lyric_revise' && args?.recover_only === true) &&
+        process.env.LYRIC_RELEASE_ASSETS_REQUIRED === '1' &&
+        !runtimeAssets().ok
+      )
+        throw new Error(
+          'LYRIC_ASSETS_UNAVAILABLE: the installed grading assets failed the release check.'
+        );
       const out = await withExecutionContext(
         childExecutionContext({
           signal: extra?.signal,
+          task,
+          inputBytes,
           ...(name.startsWith('lyric_')
             ? {
                 deadlineAt: performance.now() + TOOL_BUDGET_MS,
@@ -102,7 +132,9 @@ export function registerTools(server) {
         'set_environment (any room/tuning/chain — freely across eras and regions; no combination is fenced. The recipe renders its ' +
         'environment from the FIRST card only, so this is ONE edit for the whole recording — omit `card` and it lands there; ' +
         'repeating it per instrument writes fields nothing renders), add_instrument / ' +
-        'remove_instrument (any instrument into any tradition), add_tradition / remove_tradition. Pass the `workspace` from the ' +
+        'remove_instrument (any instrument into any tradition), add_tradition / remove_tradition, move_instrument ' +
+        '(preserve the card and its settings; omit before to make it primary). Explicit part descriptors have priority in Rich ' +
+        'compression; inspect render_warnings for explicit words that could not survive. Pass the `workspace` from the ' +
         'previous call; get back the edited workspace + new recipe. Iterate until the recipe reflects every word the user said, ' +
         'then present the final `recipe` string VERBATIM.',
       inputSchema: TOOL_SCHEMAS.edit_recipe.shape,
@@ -212,29 +244,45 @@ export function registerTools(server) {
   registerLyricTools(server, tool);
 }
 
-export function buildServer() {
+export function buildServer({ task = null } = {}) {
+  if (task) taskDomain(task);
+  const recipeInstructions =
+    `CodexMusica turns plain-language musical intent into a precise recording recipe over ${E.counts.traditions} ` +
+    `traditions, ${E.counts.instruments} instruments (each decomposed into swappable per-part variants), and ` +
+    `${E.counts.prefaces} prefaces (named mood/technique signatures). THE DEFAULT SEED IS SCAFFOLDING, NOT THE ` +
+    `ANSWER: start_recipe returns a tradition's stock cards, and if the user expressed ANY preference — a mood, an ` +
+    `adjective, a piece of gear, a material, a space, an era — follow with edit_recipe before presenting. Map ` +
+    `intent to edits: mood/feel/aesthetic words → search_prefaces, then set_preface on EACH instrument it should ` +
+    `color (this re-derives that instrument's physical settings toward the word); specific gear/material/technique ` +
+    `→ get_instrument, then set_variant; space/era/medium → set_environment (any room, tuning, or chain stage); ` +
+    `roster → add/remove_instrument and add/remove_tradition (any instrument fits any tradition). There are NO ` +
+    `coherence fences: nothing is anachronistic, out-of-region, or physically impossible here — the catalog's ` +
+    `period-accurate defaults are flavor to keep or override, and every id-valid combination renders. Batch ` +
+    `several edits in one edit_recipe call; thread the returned 'workspace' into the next call; resolve every word ` +
+    `to an id with search_catalog / search_prefaces (never guess ids). Deterministic and reproducible — identical ` +
+    `to what a human sees in the app. Present the FINAL recipe string to the user verbatim (exact characters) — ` +
+    `final meaning after your edits, not the untouched default.` +
+    '';
+  const common =
+    'Only execute the task the user requested. Recipe and lyrics are separate tasks. ' +
+    'A recipe request never authorizes lyrics; a lyric request never derives declarations from a recipe. ' +
+    'Recipe defaults are Rich and at most 1000 characters. External hosts must preserve the selected task and exact artifact. ';
+  const instructions =
+    common +
+    '\n' +
+    (!task || taskDomain(task) === 'recipe'
+      ? RECIPE_MARKER + '\n' + recipeInstructions + '\n'
+      : '') +
+    (!task || taskDomain(task) === 'lyrics'
+      ? LYRICS_MARKER + '\n' + LYRIC_INSTRUCTIONS + '\n'
+      : '');
   const server = new McpServer(
-    { name: 'codex-musica', version: '2.2.0' },
-    {
-      instructions:
-        `CodexMusica turns plain-language musical intent into a precise recording recipe over ${E.counts.traditions} ` +
-        `traditions, ${E.counts.instruments} instruments (each decomposed into swappable per-part variants), and ` +
-        `${E.counts.prefaces} prefaces (named mood/technique signatures). THE DEFAULT SEED IS SCAFFOLDING, NOT THE ` +
-        `ANSWER: start_recipe returns a tradition's stock cards, and if the user expressed ANY preference — a mood, an ` +
-        `adjective, a piece of gear, a material, a space, an era — follow with edit_recipe before presenting. Map ` +
-        `intent to edits: mood/feel/aesthetic words → search_prefaces, then set_preface on EACH instrument it should ` +
-        `color (this re-derives that instrument's physical settings toward the word); specific gear/material/technique ` +
-        `→ get_instrument, then set_variant; space/era/medium → set_environment (any room, tuning, or chain stage); ` +
-        `roster → add/remove_instrument and add/remove_tradition (any instrument fits any tradition). There are NO ` +
-        `coherence fences: nothing is anachronistic, out-of-region, or physically impossible here — the catalog's ` +
-        `period-accurate defaults are flavor to keep or override, and every id-valid combination renders. Batch ` +
-        `several edits in one edit_recipe call; thread the returned 'workspace' into the next call; resolve every word ` +
-        `to an id with search_catalog / search_prefaces (never guess ids). Deterministic and reproducible — identical ` +
-        `to what a human sees in the app. Present the FINAL recipe string to the user verbatim (exact characters) — ` +
-        `final meaning after your edits, not the untouched default.` +
-        LYRIC_INSTRUCTIONS,
-    }
+    { name: 'codex-musica', version: CONNECTOR_VERSION },
+    { instructions }
   );
+  Object.defineProperty(server, 'task', {
+    value: task ? Object.freeze({ ...(typeof task === 'string' ? { domain: task } : task) }) : null,
+  });
   registerTools(server);
   return server;
 }

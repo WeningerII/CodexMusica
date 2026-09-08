@@ -20,7 +20,7 @@ Sections:
      cap disclosed rather than silently truncating
   3  `reasons` — the previous attempt's rejection, verbatim, plus which
      attempt this is
-  4  whole-draft findings, present AND labelled "NOT THIS LINE'S TO FIX",
+  4  whole-draft findings, present as constraints a permitted edit may improve,
      with their evidence
   5  parsing: every supported shape accepted, every ambiguous one REFUSED
      with `None`
@@ -113,6 +113,7 @@ class B:
         #: empty block rather than an error.
         self.forbidden_incumbent = kw.get("forbidden_incumbent", "")
         self.field_computed = kw.get("field_computed", False)
+        self.offers_requested = kw.get("offers_requested", True)
         self.keep = kw.get("keep", [])
         self.must_answer = kw.get("must_answer", [])
         #: Labels among `must_answer` whose mandate is REQUIRE_RETURN, added
@@ -121,6 +122,7 @@ class B:
         #: but not the KIND of requirement, so without this the renderers
         #: printed "must rhyme with" over a declared verbatim return.
         self.return_groups = kw.get("return_groups", ())
+        self.return_members = kw.get("return_members", ())
         self.joint_conflict = kw.get("joint_conflict", False)
         #: WHAT EACH CALL CAN BE ANSWERED BY WHEN THE CONJUNCTION IS EMPTY
         #: (`MISSING.md` M-202, 2026-09-03) — caught by §7c below the moment
@@ -226,6 +228,8 @@ class PB:
     def __init__(self, **kw):
         self.anchors = ()
         self.pivot_slot = None
+        self.whole_repair = False
+        self.mandate_description = ""
         for k, v in kw.items():
             setattr(self, k, v)
 
@@ -501,7 +505,7 @@ def test_forbidden_words_are_present_and_labelled():
           "contradicts eleven lines up",
           "no modal head was computed" not in jc
           and "came back EMPTY" in jc
-          and "nothing in the lexicon answers all of those groups" in jc,
+          and "this bounded search found no word that answers all of those groups" in jc,
           [l.strip() for l in jc.splitlines() if "none —" in l][:1])
     check("CONTROL: a line whose field was never computed DOES keep the "
           "original sentence -- the repair adds a state, it does not "
@@ -554,17 +558,19 @@ def test_reasons_reach_the_prompt():
 
 def test_whole_draft_findings_are_context_not_a_task():
     print("\n4. WHOLE — whole-draft findings reach the prompt, labelled as "
-          "NOT this line's to fix")
+          "constraints a permitted edit may improve")
     p = render_line(PLAIN_BRIEF, DRAFT, whole=WHOLE)
     block = _section(p, "WHOLE-DRAFT FINDINGS")
-    check("the heading itself says they are not this line's to fix",
-          "NOT THIS LINE'S TO FIX" in block, block.split("\n")[0])
+    check("the heading preserves the constraints rather than forbidding improvement",
+          "PRESERVE THESE CONSTRAINTS" in block, block.split("\n")[0])
     check("both codes are present with their EVIDENCE -- the evidence is "
           "the only place the measurement lives",
           all(f.code in block and f.evidence in block for f in WHOLE))
-    check("the block says why they are here anyway: `verify()` reads them, "
-          "so one can REJECT a revision it can never ask for",
-          "is rejected" in block and "none of them can be fixed" in block)
+    check("the block permits improvement within the target scope, preserves "
+          "the no-worsening rule, and does not demand every whole finding clear at once",
+          "may improve or clear" in block and "only the permitted lines" in block
+          and "not required to clear every one" in block and "WORSE is rejected" in block
+          and "none of them can be fixed" not in block and "no one-line rewrite clears" not in block)
     check("with no whole findings the section is absent, not an empty "
           "heading",
           "WHOLE-DRAFT FINDINGS" not in render_line(PLAIN_BRIEF, DRAFT))
@@ -587,7 +593,7 @@ def test_a_pivot_and_a_joint_conflict_are_stated():
           "PIVOT" in block and "EVERY one of them at once" in block)
     check("the joint conflict is stated: nothing answers all of the groups "
           "at once, which is a fact about the CONJUNCTION and is all it is",
-          "nothing in the lexicon answers all of those groups at once"
+          "this bounded search found no word that answers all of those groups at once"
           in block, block)
     # M-202, 2026-09-03. This check asserted `"MANDATE, not the line" in
     # block` as a LIVE sentence, and that sentence was measured false: the
@@ -796,8 +802,9 @@ def test_model_proposer_drives_a_real_loop_to_success():
 
     R = Reviser()
     res = revise_loop(R, CLICHE, "ABAB", propose=ModelProposer(call).propose)
-    check("the loop reaches SUCCESS through the proposer",
-          res.stop_reason == "success", res.stop_reason)
+    check("the line writer clears per-line work and honestly reports remaining global work",
+          not res.unresolved and res.stop_reason == "whole_draft_unresolved"
+          and bool(res.whole_flags), res.stop_reason)
     # REPINNED 2026-09-01 (`MISSING.md` M-185) from ~~{1, 2, 3, 4}~~: the
     # offer is now screened from the offered word's OWN side, so the first
     # word this prompt-reader takes for L1 no longer re-opens L3 as a
@@ -906,11 +913,10 @@ def test_group_prompt_states_the_tier2_situation():
             label="A", members=[1, 3], brief=PIVOT_BRIEF, lines=DRAFT,
             attempt=0, reasons=None, whole=WHOLE)
     p = render_group(pb)
-    check("it says the search has ALREADY come back empty, so this is not "
-          "'try harder' on the same line",
-          "came back empty" in p and "no better word" in p)
-    check("...and names what actually needs revising",
-          "MANDATE is" in p, [r for r in p.split("\n") if "MANDATE" in r])
+    check("the finite search is not falsely presented as an impossibility proof",
+          "finite menus do not prove the declaration impossible" in p)
+    check("the operation changes the words while preserving the declarations",
+          "every overlapping obligation" in p and "all other lines remain fixed" in p)
     check("both lines are present and both numbered",
           all(s in p for s in ("PIVOT   L3:", "MEMBER  L1:")))
     check("the `word` fields are labelled as the SEARCH'S PROPOSAL and "
@@ -933,9 +939,10 @@ def test_group_prompt_states_the_tier2_situation():
           and "ANCHOR OPTIONS" not in p)
     check("the coupling is stated: the two picks must rhyme with each other",
           "must rhyme" in p and "COUPLED" in p)
-    check("the whole draft and the whole-draft findings ride along, still "
-          "labelled not-these-lines'",
-          all(t in p for t in DRAFT) and "NOT THESE LINES' TO FIX" in p)
+    check("the whole draft and whole-draft findings remain constraints "
+          "a permitted group rewrite may improve",
+          all(t in p for t in DRAFT) and "PRESERVE THESE CONSTRAINTS" in p
+          and "only the permitted lines" in p and "may improve or clear" in p)
     check("the response format demands one L<n>: marker per MEMBER and says "
           "why bare lines are discarded",
           "L1: <the new L1>" in p and "L3: <the new L3>" in p
@@ -1003,7 +1010,7 @@ def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
             "whole", "pivot_slot",
             # `prior` — the last round's rejection of THIS group, read by
             # `render_group` and quoted in its ATTEMPT block (M-253).
-            "prior"}
+            "prior", "whole_repair", "mandate_description"}
     check("every field this suite builds a `PB` out of is a real "
           "`GroupBrief` field", used <= declared, sorted(used - declared))
     check("...and `GroupBrief` has grown no field this suite is blind to",
@@ -1086,6 +1093,7 @@ def test_model_proposer_serves_a_real_tier_2():
           "two modules on it")
     from quality.loop import revise_loop, swap_end_word
     from quality.revise import Reviser
+    from quality.schemes import mandate
 
     # THE DEFECT THIS PINS, MEASURED BEFORE IT WAS FIXED. `loop.py` called
     # `propose_pair(pivot_text, anchor_text, pivot_word, anchor_word)` — four
@@ -1129,7 +1137,16 @@ def test_model_proposer_serves_a_real_tier_2():
         return "\n".join(got)
 
     R = Reviser()
-    res = revise_loop(R, SILVER_MIND, [[1, 3], [2, 3]],
+    # 2026-09-08: the broader default now correctly retains unresolved
+    # pronunciation/schema readings on this historical fixture. Its absence
+    # of a definite joint conflict cannot exercise the group writer seam.
+    # Declare the exact coarse question; keep the old unknown as a control.
+    broad = R.grade(SILVER_MIND, [[1, 3], [2, 3]])
+    check("the historical default remains explicitly unjudged",
+          bool(broad['refusals']) and broad['pairs_refused'] > 0)
+    declared = mandate([[1, 3], [2, 3]], n_lines=3,
+                       default_relation='class:RHYME')
+    res = revise_loop(R, SILVER_MIND, declared,
                       propose_group=ModelProposer(call).propose_group)
     check("the loop reaches tier 2 through `ModelProposer` at all -- an "
           "arity mismatch here is a TypeError, not a quiet no-op",
@@ -1210,10 +1227,11 @@ def test_model_proposer_serves_a_real_tier_2():
     # word's side the same ONE backtrack lands and nothing stands after it.
     # The subject of this check is unchanged: the prompt carries what the
     # object does, and the outcome matches test_loop §4's object-driven run.
-    check("a proposer reading ONLY the prompt lands the ONE backtrack -- "
-          "the same result `loop.default_propose_group` gets off the "
-          "object, and nothing re-opens behind it",
-          res.stop_reason == "success" and len(seen) == 1,
+    baseline = revise_loop(Reviser(), SILVER_MIND, declared)
+    check("a proposer reading only the prompt has the same accepted artifact and coverage as the object-driven writer",
+          res.lines == baseline.lines and res.stop_reason == baseline.stop_reason
+          and res.coverage == baseline.coverage
+          and any(a.accepted and a.tier == 2 for rr in res.rounds for a in rr.attempts),
           f"{res.stop_reason} after {len(seen)} prompt(s)")
     check("L2 -- in neither backtracked group -- is untouched, so tier 2 "
           "stayed inside the group it named",

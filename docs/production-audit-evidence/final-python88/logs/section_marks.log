@@ -1,0 +1,41 @@
+
+1. the table is CLOSED against the corpus
+  FAIL  every printed mark has a row, every count re-derives, and the table agrees with `grid.MARK_FUNCTION` about which marks ARE functions — a load that prints a new mark turns this RED instead of joining the 62% that answer nothing
+          'VERSE': table says 74319 lines, corpus has 74278
+  PASS  every row carries a NOTE — a classification nobody can check is prose sitting in code's seat, which is the defect M-48 named one table over
+  PASS  every declared kind is in the closed set
+          ('function', 'movement', 'form', 'voice', 'apparatus', 'refused')
+
+2. the kinds are four questions, never one
+  PASS  ONLY a `function` row carries a `maps_to`. A form mark mapped to a function would put the form layer's answer in the function layer's slot — `[BAYT]` is a couplet and `[SLOKA]` is a stanza, and neither is what a section is FOR
+  PASS  the counts are reported PER KIND and never summed (doctrine 79) — a form mark and a function mark are not two of the same thing, and the headline that added them is the number this entry is about
+          {'function': (6, 77070), 'movement': (3, 12), 'form': (6, 125333), 'voice': (12, 60), 'apparatus': (27, 56), 'refused': (1, 1)}
+  PASS  `form` is the largest kind by LINES and `function` the largest by what the harness can use — 125,333 against 77,070, which is the measurement that says the corpus's marked mass is prosody, not song function
+          form 125333, function 77070
+
+3. the piobaireachd marks are a LEVEL, not three functions
+  PASS  URLAR / SIUBHAL / CRUNLUATH are `movement`, not `function` — MEASURED: in 3 of 3 files every one of them is immediately followed by a `[VERSE n]`, so each GROUPS verses rather than being one. Filing them as functions would have put a container in the contained layer's table
+          ['CRUNLUATH', 'SIUBHAL', 'URLAR']
+  PASS  ...and none of them maps to a section function, because the model has NO layer at that level yet — an empty `maps_to` here is a finding, not an omission
+
+4. the rows the vocabulary cannot yet answer
+  PASS  ZERO function-kind marks lack a `maps_to` — `[PATTER]` was the one such row from this table's first derivation until 2026-08-28, when M-52's close entered `patter` as the vocabulary's 22nd function on its printed witness (the source's own 'PATTER-TRIO.' heading; the file's note records that nothing else was tagged because that would be an editorial guess — the evidence rule working in both directions)
+          []
+  PASS  ...and the PATTER row now maps to the function it witnessed, which `--check`'s maps_to validation holds against the vocabulary
+  PASS  the `PART:` marks are a VOICE coordinate and there are 12 of them — WHO sings, not what the span is for. `--voices` already establishes that a voice is a declared reading in this repo
+          12 voice rows
+  PASS  a mark the corpus does not decide is REFUSED, not guessed (doctrine 20) — one row, `[tempat anu]`, one occurrence, printed lowercase, and one instance decides nothing
+
+5. the biggest unmapped mark, and why it is not mapped
+  PASS  `[RADIF]` is 54,193 lines — the second largest mark in the corpus — and is filed FORM, not function. A radif is the ghazal's repeated post-rhyme ELEMENT, not a span with a job; mapping it to `refrain` would make a prosodic unit a section
+          54193 lines in 30 files
+  PASS  ...and `[BAYT]`, the largest at 70,866, is form for the same reason: it is a couplet
+  PASS  between them they are the whole of the `form` mass, which is why 62% of marked lines answered nothing: the corpus's marked bulk is PERSIAN PROSODY and the only reader was an English song-form table
+
+6. the mark-length cap is a counted exclusion, not a silence (M-52, 2026-08-28)
+  PASS  the cap is a DECLARED constant with a pinned population — 24 distinct marks / 50 lines beyond it, all annotation-bearing heads (staging CHORUS annotations, Byron's and Shelley's publication notes, Coleridge's marginal glosses, one long part label), keyed by nothing on purpose
+          (24, 50)
+  PASS  ...and the exemplar that exposed it is measurably past the cap: the Kanteletar's thirteenth part label at 41 characters, which `grid.section_census` DOES read (its voices key has 13 labels where this table's voice rows have 12)
+  PASS  the gate is wired: `check()` compares the beyond-cap census against the pin, so a newly staged long mark moves a number instead of vanishing
+==============================================================
+1 FAILING: every printed mark has a row, every count re-derives, and the table agrees with `grid.MARK_FUNCTION` about which marks ARE functions — a load that prints a new mark turns this RED instead of joining the 62% that answer nothing

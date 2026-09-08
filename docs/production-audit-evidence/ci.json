@@ -1,0 +1,538 @@
+{
+  "owner": "fix_ci",
+  "status": "Implemented and locally verified on source commit e6b1fab65bdb5eaf35c159aed4f2fe078a6e3de2. Final complete maintained runtime and affected actual HTTP/native paths pass with source/data fences. Production qualification remains blocked on the explicitly required hosted/image/resource/mutation/calibration/paid-live evidence.",
+  "findings": {
+    "BCI-01": "Current completion requires matching task, full final-draft SHA256, full delivered-text SHA256, authoritative artifact and latest certified revise result. Blank/stale/changed/error delivery regressions fail.",
+    "BCI-02": "Terminal verdict is atomically stored with checkpoint; summaries rebuild from terminal records; sparse/missing songs fail. Both lost-success and lost-failure resume tests pass.",
+    "BCI-03": "Hosted paid workflow encrypts and remotely acknowledges a capability archive before each request, selects latest prior archive on resume. Offline upload/seal/loss/restore tested; actual Actions upload and runner-loss proof pending.",
+    "BCI-04": "INDETERMINATE, red baseline, missing detector and unrun locked sweep cannot report a successful release. Positive controls require caught_by evidence; standalone sweep distinguishes incomplete exit2. Injected indeterminate controls and all58static mutation anchors pass.",
+    "BCI-05": "Manual connector deploy and Pages publish require exact trusted main push CI and successful required jobs through verify_ci.mjs.",
+    "BCI-06": "Exact tested image ID publication and verified CI run+attempt registry digest promotion. Image bakes commit and unique CI release ID into a required file; runtime env cannot spoof it. Deployment removes SHA-only stand-down, retains main ordering and checks full metadata/init/effective config/readiness/assets/runtime/build identity. Actual Docker/registry/Render qualification pending.",
+    "BCI-07": "Push and PR concurrency groups separated; all CI events execute their own gates, eliminating unproved duplicate coverage.",
+    "BCI-08": "Receipt confirmation retains full request duration; poll lookup is separate. Budgets and timing use monotonic clock.",
+    "BCI-09": "A wall checkpoint must contain a checksummed completed-proposal kitchen journal. Same-build/same-task continuation must authenticate exact checkpoint replay, fully consume the prior completed prefix without redispatch, and apply a newly verified edit beyond the saved accepted frontier. Refused/unexecuted/mismatched/task-changed responses fail; exact parked results can carry bounded MAX_STEPS/LYRICS_UNFINISHED stops.",
+    "BCI-10": "Explicit manual production qualification runs all four mutation shards plus complete song/short comparisons and all five curves. Exact seven component receipts, current runtime/source/data/inventory and successful trusted run/attempt are required for promotion. Partial/bounded slices and timeout124 cannot qualify; paid schedules remain suspended.",
+    "BCI-11": "Mutation baseline fingerprint includes source, input data, sibling contracts, staged external data, interpreter/package/environment and execution settings.",
+    "BCI-12": "Executable acceptance requires same-build fresh program-planned songs, exact certified deliverables and verifier-proven applied repairs counted once by stable outcome ID, plus strict wall replay. Missing/malformed inventory refuses; no paid live success claimed.",
+    "DEP-06": "Required image capacity gate runs actual resident Node HTTP/chat/MCP server and near256MiB retained receipts alongside the exact1CPU/2GiB18/24/31x3seeds cold/warm Python matrix. It checks concurrent exact HTTP replay, restart, signing-key continuity, no extra Python bridge, whole cgroup peak and OOM counters, typed assessment and repair checkpoint. Capacity admission is distinct from lyric quality. Actual container qualification remains pending.",
+    "INT35": "Actual kitchen repairs previously had no folded interview outcomes and could never satisfy battery acceptance. Native verifier/application callbacks now produce authenticated durable outcome inventory; collector counts accepted+applied only, deduplicates continuation/replay, preserves interview source=outcome separately, and reports unavailable evidence explicitly. Actual local HTTP accepted/noop/receipt integration passes.",
+    "INT36": "Wall oracle no longer accepts HTTP200 plus arbitrary or refused tools. Exact task/build/checkpoint/native replay and an applied edit are required. Native nested replay frontiers and sorted prior outcome IDs have controlled positive/negative tests.",
+    "INT37": "Actual successful last-round repairs now derive finished_clean from the authenticated complete final grade while retaining ROUND_LIMIT traversal reason. Host and battery share ordered task identity including version and instructions, fixing real completion receipts rejected by old fixture-only hash. Actual HTTP completion and task-tamper controls pass."
+  },
+  "tests": {
+    "battery_lifecycle": 36,
+    "battery_storage": 5,
+    "battery_archive": 7,
+    "release_oracles": 6,
+    "mutation_static": "passed,58anchors+negative oracle/data cache checks",
+    "publish_guard": "12/12",
+    "scoped_eslint": "passed after independent review repairs",
+    "scoped_prettier": "passed",
+    "workflow_yaml": "all 4 parse",
+    "python_suite_census": "93/93 quality suites;85cheap; all new MCP tests and both scripts-level Python oracles registered;4workflowYAMLfilesparse",
+    "artifact_dependency_audit": "0advisories",
+    "connector_contracts": 18,
+    "connector_http": 1,
+    "capacity_oracle": 12,
+    "mcp_offline": "134 passed after authentic codec fixture migration; --checks-only explicitly excludes real harness",
+    "full_mcp": "131passed then real24line grade killed at598392ms; old fixture failures subsequently reconciled",
+    "chat_production": 21,
+    "persistence": 12,
+    "diff_check": "passed",
+    "production_offline": "59 Node tests + 12 capacity oracle/cleanup tests passed; newly registered3phase-profiler controls independently passed",
+    "repository_eslint": "passed after all host recovery/UI and harness timing-guidance changes",
+    "docs": "111 docs;13 commands;184 paths;8 behaviors passed",
+    "html_freshness": "rebuilt with recovery export UI; generated output passes syntax/data/script-size checks and committed codex.html matches byte-for-byte at6151866UTF-8bytes",
+    "discovery": "server.json regenerated3.0.0 and truthful stateful paid-revision description;llms task guidance repaired;sitemap/robots unchanged;actual HTTP card parity passed",
+    "repository_format": "Source files formatted; final repository check awaits root-owned production-audit-fixes.json freeze",
+    "creation_workflow": 12,
+    "profile_oracle": 3
+  },
+  "additional_fixes": [
+    "Signed error checkpoints preserved; stale envelope is never automatically retried after accepted work.",
+    "Explicit one-turn and zero paced-retry limits are respected.",
+    "Remote archival is bounded and paid admission rechecked afterward.",
+    "Large continuation envelopes replaced with retained receipt capability; stale parent follows recorded successor, no new branch.",
+    "Authenticated refusal and memo counters restored without report-text parsing.",
+    "Readiness rejects string accounting errors and non200endpoint statuses.",
+    "New assets and assetmanifest hashes bound into battery build identity.",
+    "Empty/unknown recipe edits fail probe; primary environment and multiselected chain edits compare correctly.",
+    "All CI NLTK installs use hash-pinned production dependency lock."
+  ],
+  "files": [
+    ".github/workflows/capacity-proof.yml",
+    ".github/workflows/ci.yml",
+    ".github/workflows/deploy-connector.yml",
+    ".github/workflows/flash-battery.yml",
+    ".github/workflows/sync-pages.yml",
+    "codex.html (rebuilt)",
+    "llms.txt",
+    "lyric-harness/quality/mutate.py",
+    "lyric-harness/quality/test_mutation.py",
+    "mcp/BATTERY_RECOVERY.md",
+    "mcp/Dockerfile",
+    "mcp/Dockerfile (baked identity)",
+    "mcp/IMAGE_RELEASE.md",
+    "mcp/budget.js",
+    "mcp/build_identity.js",
+    "mcp/chat.js (semantic admission/recovery guards only)",
+    "mcp/check_live.mjs",
+    "mcp/client.js",
+    "mcp/gemini_agent.js (recovery-only routing/declarations)",
+    "mcp/job_store.js",
+    "mcp/lyric_tools.js (typed refusal/telemetry forwarding only)",
+    "mcp/lyric_workflow.js",
+    "mcp/surface_contract.js",
+    "mcp/test.mjs",
+    "mcp/test_battery_lifecycle.mjs",
+    "mcp/test_battery_storage.mjs",
+    "mcp/test_chat_production.mjs",
+    "mcp/test_connector_contracts.mjs",
+    "mcp/test_connector_http.mjs",
+    "mcp/test_job_store.mjs",
+    "mcp/test_lyric_workflow.mjs",
+    "mcp/test_release_gates.mjs",
+    "package.json",
+    "scripts/battery-actions/package-lock.json",
+    "scripts/battery-actions/package.json",
+    "scripts/battery_archive.mjs",
+    "scripts/battery_remote.mjs",
+    "scripts/battery_verdict.mjs",
+    "scripts/build_discovery.js",
+    "scripts/check_battery_acceptance.mjs",
+    "scripts/check_lyrics_image.mjs",
+    "scripts/connector_client.mjs",
+    "scripts/flash_battery.mjs",
+    "scripts/image_release.mjs",
+    "scripts/recipe_probe_verdict.mjs",
+    "scripts/seed_lyrics_capacity_receipts.mjs (format and unused import cleanup)",
+    "scripts/test_lyrics_capacity.py",
+    "scripts/verify_ci.mjs",
+    "server.json",
+    "src/app.js (terminal recovery export rendering)"
+  ],
+  "external_actions_remaining": [
+    "No exact final trusted GitHub CI run exists for all12requiredjobs; local88-script inventory is not every Python test. Final complete revision-loop4shards remain unrun locally; verbs has earlier59section evidence plus6postchangecontrols.",
+    "No complete exact-source all4mutation+fullsong/short+fivecurve qualification workflow result; old combined nightly267.4m before setup/save does not fit240m.",
+    "Actual assembled Python3.11 all81 proof/build and whole1CPU2GiB72measured-call resource matrix remain unqualified; local3.12 or missing/proc data cannot substitute.",
+    "Render digestpromotion configuration/migration and livecommit/release/config/readiness verification remain external.",
+    "Hosted restart/offsite runner-loss restore and fresh paid song plus realwallcontinuation acceptance remain unrun."
+  ],
+  "mutations": "No remote writes, paid calls, deploys or commits performed.",
+  "remaining_blockers": [
+    "No exact final trusted GitHub CI run exists for all12requiredjobs; local88-script inventory is not every Python test. Final complete revision-loop4shards remain unrun locally; verbs has earlier59section evidence plus6postchangecontrols.",
+    "No complete exact-source all4mutation+fullsong/short+fivecurve qualification workflow result; old combined nightly267.4m before setup/save does not fit240m.",
+    "Actual assembled Python3.11 all81 proof/build and whole1CPU2GiB72measured-call resource matrix remain unqualified; local3.12 or missing/proc data cannot substitute.",
+    "Render digestpromotion configuration/migration and livecommit/release/config/readiness verification remain external.",
+    "Hosted restart/offsite runner-loss restore and fresh paid song plus realwallcontinuation acceptance remain unrun."
+  ],
+  "independent_review_fixes": [
+    "Actual /chat signed error fields are top-level. Driver preserves them and actual HTTP error receipt can continue without replaying stale input; both old nested archives and current responses covered.",
+    "Native adapter validates the exact current task toolset and complete initialization/version/metadata. Missing annotations, missing/duplicate/extra tools and old guidance/version refuse before calls.",
+    "Native client shares a 30-second delivery margin above the worker compute budget and preserves explicitly shorter caller timeouts.",
+    "Image release identity is baked in build_identity.json and bound to verified CI repository/run/attempt/job. Manifest validation rejects earlier-attempt artifacts, missing runtime versions or mismatched live release ID.",
+    "Runtime source fingerprint covers scripts/references recipe dependencies and hash-pinned Python runtime requirements. Shared pure helper avoids job-store/codec cycles.",
+    "Connector promotion no longer treats a prior same-SHA deployment as proof the newly tested image is serving. Main-tip ordering remains.",
+    "CLI output atomically replaces files at mode0600, including previously public files. Unknown/duplicate/empty CLI flags fail before connecting. Live-check option typos cannot silently omit required gates.",
+    "Chat uses the harness-owned semantic identity digest in signed lyric tasks and validates it before provider dispatch; raw progress cannot be re-encoded under changed semantics. Missing/stale identity returns409 preserving accepted lyrics as uncertified.",
+    "BATTERY_RECOVERY.md corrected exact-artifact completion, same-measurement wall continuation, atomic verdict checkpoint, capability parent/successor recovery, per-dispatch acknowledged encrypted archive, retention and real hosted qualification limits.",
+    "Creation repair admission requires coherent authenticated requested-layer obligations, unique IDs/status, exact refused IDs and pair counts; it accepts an actual uncertain exit2 assessment and meaningful zero-pair assessments, never a bare certified boolean. Exact draft and canonical plan binding remain mandatory.",
+    "Recovery-only host requests bypass writer injection, carried run/declarations and creation order without updating completed steps, workflow success or live carried state. Kitchen declarations keep an export-only checkpoint and recovery flags during suspended/parked runs; actual driver tests prove original arguments remain unchanged.",
+    "Independent combined-capacity review found cancellation could orphan owned instrument children, and NaN or missing signing identity could falsely satisfy runtime evidence. Group cleanup now runs in finally/atexit and finite metrics/strict traffic counts/stable key/stopped server/concurrent replay are required; 11 cheap oracle/cleanup tests pass.",
+    "Actual maximum recovery exports initially failed at the3MiB durable checkpoint despite native MCP/driver success. Terminal exports now live only in exact reply, without replacing/duplicating the current lyric artifact. Original tool input remains verbatim; history and call summaries hold a compact export receipt. Both parts persist/reopen through actual HTTP under existing3MiB checkpoint/4MiB response/8MiB record limits, no extra provider hop, and no workflow advancement.",
+    "Existing live artifacts caused the shipped UI to hide a successful recovery export. RECOVERY_EXPORTED now renders and copies the exact reply with an explicit ungraded export label, while keeping accepted artifacts and run state intact. Actual shipped UI receive/render/copy regression covers both all and journal; HTML regenerated and checked."
+  ],
+  "evidence_logs": [
+    "ci-review-focused.log",
+    "ci-review-identity.log",
+    "ci-review-release.log",
+    "ci-review-final.log",
+    "chat-semantic-contract.log",
+    "ci-review-offline.log",
+    "ci-review-lint.log",
+    "ci-census.json",
+    "final-production-offline.log",
+    "final-docs.log",
+    "final-lint.log",
+    "final-format.log",
+    "final-build-html.log",
+    "final-discovery.log",
+    "final-creation-coverage.log",
+    "resident-runtime-full-wire-smoke.json",
+    "recovery-http-boundary.log",
+    "recovery-host-byte-smoke.json",
+    "resident-runtime-runs-frozen-smoke.json",
+    "final-profile-oracle.log"
+  ],
+  "final_verification_entry": "npm run test:production:offline",
+  "artifact_verification_limit": "HTML and discovery were regenerated from current source and compared. Recipe API compilation was not repeated; its source catalog/engine inputs were unchanged. Full required CI remains the publication gate.",
+  "resident_smoke_limit": "Combined helper local full-wire smoke proved startup13.8s and exact2MiB replay near256MiB receipt ceiling, then correctly refused restart after concurrently edited source changed build identity. It is retained as failed/supplemental evidence, never production qualification; local proc visibility cannot prove RSS or lazy-child absence.",
+  "recovery_http_boundary": {
+    "status": "passed",
+    "scope": "Actual createChatRouter, actual MCP handlers, durable JobStore and reopening a fresh store; maximum512KiB escaped legacy journal all then journal via continuation_id",
+    "before_fix": "HTTP502: Checkpoint exceeds the durable wire-byte limit3145728",
+    "after_fix": [
+      {
+        "part": "all",
+        "http_bytes": 2363851,
+        "durable_receipt_bytes": 2364358,
+        "exact_reply_bytes": 525192
+      },
+      {
+        "part": "journal",
+        "http_bytes": 3151042,
+        "durable_receipt_bytes": 3151607,
+        "exact_reply_bytes": 525009
+      }
+    ],
+    "ceilings_unchanged": {
+      "checkpoint": 3145728,
+      "response": 4194304,
+      "record": 8388608
+    },
+    "provider_hops_per_export": 1
+  },
+  "capacity_wrapper_review": "Final frozen helper smoke: actual startup12.720s/restart8.448s, exact near-ceiling receipt replay, stable signing identity and64near-capacity RunStore records. Preparers are separately bounded and close owned groups. Local /proc visibility cannot prove RSS/no-extra-child, so smoke remains unqualified; strict production Docker matrix still required.",
+  "bci10_complete_qualification": {
+    "status": "implemented; complete hosted comparisons not executed",
+    "files": [
+      ".github/workflows/production-qualification.yml",
+      "scripts/production_qualification.py",
+      "scripts/test_production_qualification.py",
+      "scripts/verify_qualification.mjs",
+      "scripts/verify_ci.mjs",
+      "scripts/image_release.mjs",
+      ".github/workflows/ci.yml",
+      ".github/workflows/deploy-connector.yml",
+      "mcp/test_release_gates.mjs",
+      "mcp/test_connector_contracts.mjs",
+      "mcp/IMAGE_RELEASE.md",
+      "package.json"
+    ],
+    "behavior": [
+      "Dedicated manual workflow intentionally executes all four mutation shards; no date-selected subset qualifies",
+      "Full song and short band checks use200seeds/2000draws and all five adopted lyric curves; no reduced/sample/no-predictability flags accepted",
+      "Atomic running/completed/incomplete receipts bind actual exit, command, source/input/runtime fingerprint, commit, repository and run/attempt",
+      "All7component receipts and all8actual successful jobs required; latest failed attempt cannot be replaced by older success",
+      "Production promotion requires verified qualification artifact matching exact tested image commit and pre-build full-repository source fingerprint",
+      "Actual installed runtime source fingerprint remains separate because assembled Docker tree excludes research/test files",
+      "Nightly timeout124 is failed/incomplete with cache save retained; schedules stay disabled"
+    ],
+    "tests": {
+      "node_release_and_connector": 27,
+      "python_qualification": 6,
+      "workflow_yaml": 6,
+      "docs": "13commands/184paths/8behaviors pass",
+      "lint": "full lint passed before final small edits; focused final ESLint passed"
+    },
+    "evidence": [
+      "qualification-node-tests.log",
+      "qualification-python-tests.log",
+      "qualification-docs.log",
+      "qualification-lint.log"
+    ],
+    "limits": [
+      "No actual four-shard/current-calibration qualification run executed",
+      "No current aggregate completion-time measurement; historical77.4minother+150minsong+40mincurves=267.4min before setup/save exceeds old240minjob by27.4min",
+      "Separate component command bounds remain200/150/40min; fit under those bounds is not yet proven",
+      "This does not attest a new held-out model-adoption study, hosted resource matrix, restore proof or paid fresh-song acceptance",
+      "Current capacity all81 artifact is Python3.12.13; CI/Docker3.11 requires actual runtime recertification being implemented by revision/root; no header-only acceptance",
+      "Final broad git diff check currently reports mutable capacity TSV CRLF; root notified, file bytes not changed in this lane"
+    ],
+    "capacity_prerequisite": {
+      "status": "implemented; actual all81 generation not executed by CI lane",
+      "proof": "One prerequisite actual-runtime all81 receipt, exact-attempt transfer, metadata+bytehash+require_current_proof validation in every consumer",
+      "generator": "python3 quality/verify_capacity.py --output ../capacity-proof/capacity_verification.json --workers=1",
+      "budget": "35-minute proof allowance derived from measured single-worker wall \u00d71.25 rounded up to5minutes; reusable job45minutes includes10minutes setup/upload. Exact CI Python3.11 completion remains gated.",
+      "production_image": "Independent assembled-tree proof; build45minutes/job135minutes.2audit+45build+5offline+65capacity=117minutes plus18minutes explicit overhead. Exact Docker proof, full72-call resource matrix and total wall remain unmeasured."
+    },
+    "shared_capacity_workflow": {
+      "file": ".github/workflows/capacity-proof.yml",
+      "consumers": "Required main CI capacity-proof-result and nightly explicit capacity.py --check; production qualificationsevencomponents via strict receipt validation",
+      "nonconsumers_traced": "record pin_sweep --verify-argv is AST-only; verify_entries reads table, test_capacity regrades sample/lookup, normalplan guard requires proof only in installedrelease mode; no blanketsetup",
+      "qualification_jobs": 9,
+      "test_count_python": 6
+    }
+  },
+  "final_python_ci_gate": {
+    "status": "Completed with failures; fixes and a final repaired-snapshot gate are pending.",
+    "suite_count": 88,
+    "concurrency": 4,
+    "timeout_s": 3600,
+    "selection": "final-python88/selection.json",
+    "runner": "final-python88/run_gate.py",
+    "reason_count_changed": "candidate_pair_projection, capacity_receipt and floor_window registered;96qualitymodules=88cheap+8explicitotherjobs;zeroorphans",
+    "staged_data": "/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data",
+    "nltk_data": "/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data/nltk",
+    "worktree": "/workspace/scratch/b0544e4bbdd6/verification-candidate",
+    "commit": "1e68fb89c8079631a08130bf07ac8fb07195ca60",
+    "session_id": 37950,
+    "scope": "Ordinary nonproduction CI semantics; release-required mode unset; default installed receipt absent for the entire isolated snapshot.",
+    "wall_s": 876.9475201969981,
+    "complete_inventory": true,
+    "source_stable": true,
+    "passed": 65,
+    "failed": 23,
+    "failed_suites": [
+      "corpus_audit",
+      "corpus_taxonomy",
+      "cross_song",
+      "door_census",
+      "g2p",
+      "grid",
+      "homeoteleuton",
+      "mandate_language",
+      "mut_oracle",
+      "narrative",
+      "nc_census",
+      "null_shapes",
+      "propose",
+      "provenance",
+      "relations",
+      "replay_memo",
+      "screen",
+      "section_marks",
+      "shard",
+      "slots",
+      "spans",
+      "structure_census",
+      "structures"
+    ],
+    "result": "final-python88/result.json",
+    "next_runner": "final-python88-round2/run_gate.py"
+  },
+  "runtime_asset_admission": {
+    "status": "implemented and focused tests passed",
+    "files": [
+      "mcp/runtime_assets.js",
+      "mcp/tools.js",
+      "mcp/test_runtime_assets.mjs",
+      "package.json"
+    ],
+    "repairs": [
+      "Required readiness and normal tool admission validate current all-family capacity receipt through the same LYRIC_PYTHON as worker dispatch",
+      "Cached readiness invalidates on changed proof bytes, source fingerprint, interpreter/staging selection and consumed asset metadata; input swaps during validation refuse",
+      "Explicit read-only recovery passes existing task/byte/state checks and bypasses scorer asset admission; actual handler still refuses mixed writer/answer/state and malformed exports",
+      "Cached readiness tracks complete nested directory membership so undeclared files added inside existing unlisted data directories invalidate the cache",
+      "Required NLTK_DATA must resolve to the approved staged/nltk model; optional research overrides remain available"
+    ],
+    "tests": "5/5 runtime admission regressions, plus8release regressions (13total) passed; actual MCP required-mode recovery uses nonexistent Python/missing assets; nested-extra and external-model override controls included; focused ESLint passed",
+    "evidence": "final-admission-gates.log",
+    "limits": "These tests do not prove an assembled production runtime currently has a valid all81 receipt; actual image verification remains required"
+  },
+  "capacity_budget_latest": {
+    "status": "Setup-only allowances corrected again using latest measured cost; actual target runtime setup/matrix completion remains required.",
+    "measurement": {
+      "wall_s": 1600.725,
+      "process_cpu_s": 1596.374,
+      "families": 81,
+      "workers": 1,
+      "python": "3.12.13",
+      "source_identity": "5656add270dc695d8051cc6ff77e6906caa4254f36bc71166457e1baa59be97a",
+      "scope": "Previous verifier epoch before JSON-key comparison repair; exact witness grading completed, final acceptance must be regenerated and checked.",
+      "report": "capacity-final-runtime-receipt-measurement.json"
+    },
+    "allowances_minutes": {
+      "proof": 45,
+      "proof_job": 55,
+      "image_build": 55,
+      "image_job": 145,
+      "proof_rule": "1.25 times max(observed serial wall1600.725s, later aggregateCPU2042.343s), rounded up to5minutes",
+      "proof_setup_upload": 10,
+      "image_dependency_assembly": 10,
+      "image_remaining_overhead": 18
+    },
+    "image_sum": "2audit+55build+5offline+65capacity=127minutes, plus18minutes overhead=145minutes",
+    "matrix": {
+      "instrument_executions": 18,
+      "measured_verb_calls": 72,
+      "grade_calls": 36,
+      "revise_calls": 36,
+      "extra_work": "Plan/setup, resident HTTP/recovery and queue pressure",
+      "step_bound_minutes": 65,
+      "measured_complete_docker_fit": false
+    },
+    "limits": [
+      "Actual final Python3.11 proof must complete and validate; local3.12 timing is not interchangeable",
+      "Whole Docker resource matrix and image job timing remain unmeasured",
+      "Operational600-second calls and40-minute turn walls are unchanged"
+    ],
+    "final_local_proof": {
+      "status": "Actual after-batch all81 measurement, serialized strict check and installed admission passed; exact final CLI/propose hashes captured.",
+      "source_identity": "259de1d1e0dda759d9d0feb2cc689021ff7f00ec2afe47266e61a51505eb5ef3",
+      "workers": 4,
+      "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]",
+      "wall_s": 549.6956309800007,
+      "total_cpu_s": 2042.3432719999998,
+      "report": "capacity-after-batch-receipt-measurement.json",
+      "validation": "capacity-after-batch-strict-check.log",
+      "admission": "capacity-after-batch-installed-admission.log",
+      "limit": "Four-worker local completion is not the configured single-worker DockerPython3.11 setup timing. Latest measured aggregate CPU is an explicit setup-cost input, not a serial-wall measurement."
+    },
+    "latest_setup_controls": "setup-budget-final.json"
+  },
+  "main_gate_reconciliation": {
+    "mut_oracle": "Complete suite passed after removing duplicated old1014/50 literals; shared causally documented EXPECTED controls printed coverage.",
+    "shard": "Complete suite passed after replacing obsolete PR/API-shell shape assertions with actual output execution, negative false-coverage controls and event concurrency guards.",
+    "evidence": [
+      "final-mut-oracle-recheck.log",
+      "final-shard-recheck.log"
+    ]
+  },
+  "final_python_ci_gate_round2": {
+    "status": "Completed failed invocation:87 passed,1 failed. Sole null-denominator fixture later passed77checks with a documented test-only correction; composite source epochs remain explicit.",
+    "worktree": "/workspace/scratch/b0544e4bbdd6/verification-candidate2",
+    "commit": "e99dea5dd70d2c23a0c5732ee3c8c1186523e6c8",
+    "session_id": 60212,
+    "suite_count": 88,
+    "concurrency": 4,
+    "timeout_s": 3600,
+    "result": "final-python88-round2/result.json",
+    "scope": "Ordinary nonproduction CI suite semantics; required release mode unset; isolated source/data snapshot; default receipt presence bound before and after",
+    "wall_s": 917.9173367500043,
+    "complete_inventory": true,
+    "source_stable": true,
+    "passed": 87,
+    "failed": 1,
+    "failed_suites": [
+      "relations_null"
+    ]
+  },
+  "final_node_runtime_gate": {
+    "status": "passed",
+    "exit_code": 0,
+    "wall_s": 83.69327755599807,
+    "summary": {
+      "tests": 65,
+      "suites": 0,
+      "pass": 65,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "completion_proven": true,
+    "source_stable": true,
+    "identity_before": {
+      "commit": "e99dea5dd70d2c23a0c5732ee3c8c1186523e6c8",
+      "source_sha256": "859e984e403dd12b48a8eee7a2f3f22055f18886ca34a785edd1838d410ac5d2",
+      "node": "v24.19.0"
+    },
+    "stdout_sha256": "106fa6a6c6974f7dcb1c4986df069daef798bf3d2b727f7a48ccd971136d9f33",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "result": "final-node-runtime-captured-e99/result.json",
+    "prior_anomaly": "Original shell-redirected invocation reported exit0 but retained only103lines without completion. Exact command had no status masking. Cause unestablished; original evidence retained and not counted as a pass.",
+    "scope": "Earlier e99 eight-file65-test completion, superseded for changed INT31 source by final-runtime-candidate3."
+  },
+  "final_runtime_candidate3": {
+    "status": "passed",
+    "command": [
+      "npm",
+      "run",
+      "test:lyrics:runtime"
+    ],
+    "timeout_s": 600,
+    "source_stable": true,
+    "completion_proven": true,
+    "node_tests": [
+      67,
+      65
+    ],
+    "node_passes": [
+      67,
+      65
+    ],
+    "node_failures": [
+      0,
+      0
+    ],
+    "python_controls": [
+      16,
+      7,
+      5,
+      6
+    ],
+    "stdout_sha256": "08bc26d306654bf12a77dc0a78f5b8ba3bb9bb0df489f41940806c0135bac421",
+    "stderr_sha256": "d0a96e4b405d595c682e6899d6eafd1600fe540d0b93c18d858474143a0500ba",
+    "result": "final-runtime-candidate3/result.json",
+    "source_sha256": "832fb81bac8dd89d0767ccf50dc6d89813d8d7e15c7051bf0265a78bdd2b4a36"
+  },
+  "int31_dependencies": {
+    "python": "int31-python/result.json",
+    "python_inventory": "int31-python/completion-inventory.json",
+    "python_status": "Four stages passed; loop section21 four assertions failed on stale modal-closure premise. Test-only correction now executing separately.",
+    "mcp": "int31-mcp/result.json",
+    "mcp_status": "All4actual companion scripts passed on unchanged candidate3 source/data; no paid calls.",
+    "later_tail_liveness": "Chat-owned exact24line originaltail followup test pending."
+  },
+  "latest_local_integration": {
+    "status": "complete",
+    "offline_expected_node_tests": 74,
+    "runtime_expected_node_tests": 65,
+    "lifecycle_expected_internal_checks": 43,
+    "collector_helper_checks": 5,
+    "release_oracle_checks": 8,
+    "actual_http_script": "mcp/test_kitchen_repairs.mjs",
+    "maintained_gate": "test:connector:live",
+    "actual_http_scope": "localhost host/model/writer fixtures; real MCP/Python verifier and durable HTTP receipt; accepted application 1, rejected noop 0, repeated receipt count unchanged; exact completedArtifact accepted and mutated task version/instructions rejected",
+    "actual_http_initial_log": "kitchen-repair-http-initial.log",
+    "actual_http_initial_trace": "kitchen-repair-http-initial-trace.json",
+    "actual_http_fixture_failure": "kitchen-repair-http-contract.log (finished carrier omitted vs explicit null fixture assumption; corrected to nullish, product behavior was correct)",
+    "actual_http_latest_log": "kitchen-repair-http-contract-final.log",
+    "actual_http_latest_trace": "kitchen-repair-http-contract-final-trace.json",
+    "source_bound_capture": "int35-mcp/result.json",
+    "actual_companion_passes": 4,
+    "actual_companion_source_stable": true,
+    "actual_companion_seconds": {
+      "state_harness": 41.69,
+      "deferred_continuation": 35.52,
+      "writer_work_budget": 5.38,
+      "kitchen_repairs_http": 21.2
+    },
+    "prior_runtime_failure": "final-runtime-candidate4/result.json: actual74offline and allPythoncontrols passed;64/65runtime, stale barewall storage fixture failed before creating missingsegment. Preserved.",
+    "storage_fixture_correction": "battery-storage-final-reconciled.json: genuine unfinished plan/MAX_STEPS, all5 controls pass, driver/helper unchanged",
+    "current_checks_only": "connector-checks-final-int35.json:135/135pass; explicit test-only Docker fixture omission list delta",
+    "lifecycle": "battery-wall-lifecycle-final.json:43/43 internal controls pass and capturedsourceunchanged",
+    "collector_final_supplement": {
+      "path": "collector-final-supplement/result.json",
+      "sha256": "101a542ab9984d80b419c78b0aa1a06b3805a3acdd244266ef3e3042dc267e8d",
+      "bytes": 35343
+    },
+    "candidate5_source_drift": "final-runtime-candidate5/result.json: raw74/65pass but lifecycle36 and source reverted to oldHEAD during execution; sourcefence correctly failed, cause unestablished, not counted as pass",
+    "final_source_commit": "e6b1fab65bdb5eaf35c159aed4f2fe078a6e3de2",
+    "final_runtime_source_sha256": "d998718e8ebb353f5a18998350f1e2692cdd3a873a1ff6ba51969fb773b1daf9",
+    "final_maintained_runtime": {
+      "path": "final-runtime-candidate6/result.json",
+      "sha256": "811a21ef9e43d23c3470ea1c28d3cabf1cda338dd21133e63f3293559cd30b74",
+      "bytes": 37260
+    },
+    "final_maintained_counts": {
+      "node": [
+        74,
+        65
+      ],
+      "python": [
+        16,
+        7,
+        5,
+        6
+      ],
+      "battery_lifecycle_internal": 43,
+      "wall_s": 99.08660032400076,
+      "source_and_data_stable": true
+    },
+    "actual_companions": {
+      "path": "int35-mcp/result.json",
+      "sha256": "b8dbac256b784a0effc0ff7e9c18edc5faf492a6dd5f52aecb70634138f96ab8",
+      "bytes": 35984
+    },
+    "complete_composite": {
+      "path": "final-python-evidence-decision.json",
+      "sha256": "cd2fe1a4bc5dab224fb8cce429f8e229b9b582039651ac5ffcd9c540942bdcf1",
+      "bytes": 29925
+    },
+    "current_checks_only_scope": "135 full connector checks pass at the recorded21-file source epoch. The final two-file explicit-writer collector guard followed; the complete committed74/65 runtime plus5helper/actualHTTP/43lifecycle supplement covers that delta. No final native152-check invocation is claimed."
+  },
+  "tests_scope": "The tests object retains development-stage outcomes across explicit historical epochs. latest_local_integration and the final composite are the authoritative final verification scope; earlier failures are not relabeled.",
+  "final_scope": "The88-script composite comprises87 frozen passing scripts plus the independently corrected full relations_null script, with later exact dependency controls and disclosed source epochs. It excludes separate full revision-loop4shards and verbs lanes; hosted required jobs still must run on the published final commit. No paid provider or deployed Docker/Render qualification is claimed."
+}

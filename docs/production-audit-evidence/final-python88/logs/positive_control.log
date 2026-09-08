@@ -1,0 +1,29 @@
+
+1. the planted signal is what it claims to be
+  PASS  concentration 1.0 puts every event on the phase
+          20 events, all at phase 1
+  PASS  concentration 0.5 puts half on the phase
+          10/20 on phase
+  PASS  events are unique positions
+
+2. CEILING — the statistic detects a perfect signal
+  PASS  8 events over 65 slots at concentration 1.0
+          power 1.00 — this is the check the layer never ran in three instrument versions
+
+3. FLOOR — pure noise is not detected above alpha
+  PASS  concentration 1/4 at period 4 is chance and stays at alpha
+          false-positive 0.05 against a declared 0.05
+
+4. the layer is UNDERPOWERED at real item sizes
+  PASS  at 8 events a 60%-concentrated signal is mostly MISSED
+          power 0.17 — a null at this size is evidence about sample size, not about verse
+  PASS  at 8 events a 90%-concentrated signal is caught
+          power 1.00
+  PASS  more events buy power at the same concentration
+          the binding constraint is events per item, not corpus choice
+
+5. n=1 at ~15 events could not have answered the question
+  PASS  a single item at ~15 events has little power
+          power 0.55 for a real-sized effect. The withdrawn rap arm reported p = 0.132, 0.626 and 0.087 across three instruments; none of those meant 'no effect', they meant 'no power'
+==============================================================
+all positive-control regressions pass

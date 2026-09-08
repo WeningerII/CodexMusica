@@ -1,0 +1,825 @@
+{
+  "checked": {
+    "exit_code": 0,
+    "meaning": "answered — 0 per-line and 1 whole-draft flag(s) stand",
+    "report": "  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\n  draft: 2 line(s), md5 6fcfbf4839e7\n  ADJACENCY: longest stress run 3 (L2), longest weak run 3 (L1) — the prominence band counts and cannot hear a clot inside it or padding down into it; disclosed, uncalibrated, never charged (M-115).\n  REPORT: 2 line(s) briefed — 0 FLAG, 3 NOTE (two counts, never summed: doctrine 79); 1 WHOLE-DRAFT finding(s), 1 of them FLAG(S), below\n\n  WHAT TO CHANGE — 1 decision(s). Flags only; the notes below are measurements handed back, not defects (doctrine 6)\n    1. FUNCTION_WORD_HEAVY — WHOLE DRAFT (names no line; see below)\n\n  THE EVIDENCE — every finding not rolled up, in full; the lines carrying an un-rolled flag first\n  L1: we carry the evening to the mass\n      FINDING [NOTE] SHARED_SUFFIX: 1 pair(s) rhyme only on a shared grammatical ending (homeoteleuton) (lines 1)\n         -s (the spelled rime is 'ass' on both sides, so the agreement adds nothing the shared -s did not already give). THE ENDING IS THE WHOLE OF THE RHYME HERE: the stems were read and do not rhyme without it. A pair whose stems still rhyme produces no finding — the ending is then incidental agreement, not the rhyme (owner's ruling, `MISSING.md` M-90)\n      must answer group A [1, 2]: L2 ('pass')\n      FORBIDDEN (modal — doctrine 9): grass, glass, ass, lass, mass, brass, amass, harass, class, bass, cass, smartass, surpass, crass, sass, kass, dass, alas, 's, that, this, have, with\n      ALREADY THERE (a different rule — re-proposing the end word that is already on this line is not a revision): mass\n      offered: yes, us, last, place, nice, house, miss, guess, face, police, case, boss\n      THE 77-SCHEMA HALF OF THE DEFAULT WAS NOT CONSULTED FOR THIS FIELD. A\n      mandated pair declaring no relation is satisfied when `admits()`\n      passes it OR when the two LINES stand in any schema the vocabulary\n      names (`relations.whole_vocabulary_pairs`, all 77). This field was\n      built at the first door only: the second judges LINE PAIRS over a\n      built stream and this site holds one WORD, so it is not askable here\n      at any depth. That is a limit of the field and not a verdict on these\n      words -- a pair can satisfy the mandate on the schema route with none\n      of them taken, and a word absent from this list has not been refused\n      by the 77.\n  L2: and no one had to tell us about pass\n      FINDING [NOTE] HOMEOTELEUTON: L1/L2 rhyme on the SAME SPELLED ENDING ('mass'/'pass', both -ass) — the laziest class, banned before any frequency judgment (lines 1, 2)\n         spelled rime 'ass' on both sides. The near relations the taxonomy names (declared via Declaration.admit) are the palette that keeps this ban from closing the class: reach for a differently-spelled partner or a declared near rhyme, not the next word in the same spelling family.\n      FINDING [NOTE] BAND_UNJUDGED: this line's band verdicts are partial — counts are lower bounds, so only over-the-ceiling could be judged (lines 2)\n         1 token(s) unread: us. band adopted at reader 'fallback-low' over 139,694 corpus lines (RESULTS_METER_BANDS_READER.md; re-derive: python3 quality/meter_bands.py --check). A refusal is not a pass (doctrine 20) and not a violation (doctrine 79); it is said here so silence stays meaningful.\n      must answer group A [1, 2]: L1 ('mass') — VIOLATED\n      FORBIDDEN (modal — doctrine 9): pass, grass, ass, class, glass, bass, brass, cass, lass, harass, smartass, surpass, crass, sass, kass, dass, amass, alas, 's, that, this, have, with\n      ALREADY THERE (a different rule — re-proposing the end word that is already on this line is not a revision): pass\n      offered: yes, us, last, place, nice, house, miss, guess, face, police, case, boss\n      THE 77-SCHEMA HALF OF THE DEFAULT WAS NOT CONSULTED FOR THIS FIELD. A\n      mandated pair declaring no relation is satisfied when `admits()`\n      passes it OR when the two LINES stand in any schema the vocabulary\n      names (`relations.whole_vocabulary_pairs`, all 77). This field was\n      built at the first door only: the second judges LINE PAIRS over a\n      built stream and this site holds one WORD, so it is not askable here\n      at any depth. That is a limit of the field and not a verdict on these\n      words -- a pair can satisfy the mandate on the schema route with none\n      of them taken, and a word absent from this list has not been refused\n      by the 77.\n\n  WHOLE DRAFT — 1 finding(s) that name no single line, 1 of them FLAG(S)\n      Not a line to revise, and not covered by the per-line half above: these are properties of the ITEM (the hook, the shape of the grid, the vocabulary across the whole draft), so there is no line_no to hand back and no candidate field to offer. `verify()` DOES read them — its diff covers `whole` as well as `per_line` — so a whole-draft flag can REJECT a revision and can never ASK for one. Disclosed here for the same reason `quality/loop.py` discloses them under a SUCCESS: a silent one reads exactly like a clean draft.\n      FINDING [FLAG] FUNCTION_WORD_HEAVY: a high share of the text is closed-class filler\n         function-word ratio 0.562 > 0.5583 (human 95th percentile, lyric profile, evaluated at N=16 tokens from 0.760357 -0.0947309·ln N +0.007886·(ln N)^2); NO generated class exists at this length, so there is no AUC and no separation claim; the evidence is a false-positive rate of 5.07% on HELD-OUT human song (5th-95th percentile of seeds 3.29-7.54%). It says how often this fires on a human songwriter, not whether it catches a machine. Null within Shakespeare (0.536), so this is a register signal with no within-tradition support. Presumes a clean function/content split and does not transfer to agglutinative or polysynthetic languages\n",
+    "path": "warm",
+    "ms": 14814,
+    "coverage": {
+      "pairs_mandated": 1,
+      "pairs_judged": 1,
+      "pairs_refused": 0,
+      "scope": "requested_layers",
+      "certified": false,
+      "obligations": [
+        {
+          "id": "density:L1",
+          "layer": "density",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L1",
+          "layer": "prominence",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "density:L2",
+          "layer": "density",
+          "line": 2,
+          "status": "refused"
+        },
+        {
+          "id": "prominence:L2",
+          "layer": "prominence",
+          "line": 2,
+          "status": "refused"
+        },
+        {
+          "id": "sentencehood:draft",
+          "layer": "sentencehood",
+          "status": "answered"
+        },
+        {
+          "id": "floor:draft",
+          "layer": "floor",
+          "status": "answered"
+        },
+        {
+          "id": "meter:draft",
+          "layer": "meter",
+          "status": "not_requested"
+        },
+        {
+          "id": "slot_grid:draft",
+          "layer": "slot_grid",
+          "status": "not_requested"
+        },
+        {
+          "id": "setting:draft",
+          "layer": "setting",
+          "status": "not_requested"
+        },
+        {
+          "id": "rhyme:1:2:0",
+          "layer": "rhyme",
+          "status": "answered"
+        }
+      ],
+      "refused_obligations": [
+        "density:L2",
+        "prominence:L2"
+      ]
+    },
+    "certified": false,
+    "measurement_status": "graded",
+    "findings": [
+      {
+        "code": "SHARED_SUFFIX",
+        "severity": "note",
+        "message": "1 pair(s) rhyme only on a shared grammatical ending (homeoteleuton)",
+        "evidence": "-s (the spelled rime is 'ass' on both sides, so the agreement adds nothing the shared -s did not already give). THE ENDING IS THE WHOLE OF THE RHYME HERE: the stems were read and do not rhyme without it. A pair whose stems still rhyme produces no finding — the ending is then incidental agreement, not the rhyme (owner's ruling, `MISSING.md` M-90)",
+        "locations": [
+          1
+        ],
+        "groups": [],
+        "obligations": [
+          [
+            1,
+            2
+          ]
+        ],
+        "subject": []
+      },
+      {
+        "code": "HOMEOTELEUTON",
+        "severity": "note",
+        "message": "L1/L2 rhyme on the SAME SPELLED ENDING ('mass'/'pass', both -ass) — the laziest class, banned before any frequency judgment",
+        "evidence": "spelled rime 'ass' on both sides. The near relations the taxonomy names (declared via Declaration.admit) are the palette that keeps this ban from closing the class: reach for a differently-spelled partner or a declared near rhyme, not the next word in the same spelling family.",
+        "locations": [
+          1,
+          2
+        ],
+        "groups": [
+          "A"
+        ],
+        "obligations": [],
+        "subject": []
+      },
+      {
+        "code": "BAND_UNJUDGED",
+        "severity": "note",
+        "message": "this line's band verdicts are partial — counts are lower bounds, so only over-the-ceiling could be judged",
+        "evidence": "1 token(s) unread: us. band adopted at reader 'fallback-low' over 139,694 corpus lines (RESULTS_METER_BANDS_READER.md; re-derive: python3 quality/meter_bands.py --check). A refusal is not a pass (doctrine 20) and not a violation (doctrine 79); it is said here so silence stays meaningful.",
+        "locations": [
+          2
+        ],
+        "groups": [],
+        "obligations": [],
+        "subject": []
+      },
+      {
+        "code": "FUNCTION_WORD_HEAVY",
+        "severity": "flag",
+        "message": "a high share of the text is closed-class filler",
+        "evidence": "function-word ratio 0.562 > 0.5583 (human 95th percentile, lyric profile, evaluated at N=16 tokens from 0.760357 -0.0947309·ln N +0.007886·(ln N)^2); NO generated class exists at this length, so there is no AUC and no separation claim; the evidence is a false-positive rate of 5.07% on HELD-OUT human song (5th-95th percentile of seeds 3.29-7.54%). It says how often this fires on a human songwriter, not whether it catches a machine. Null within Shakespeare (0.536), so this is a register signal with no within-tradition support. Presumes a clean function/content split and does not transfer to agglutinative or polysynthetic languages",
+        "locations": [],
+        "groups": [],
+        "obligations": [],
+        "subject": []
+      }
+    ],
+    "flags": 0,
+    "whole_flags": 1,
+    "notes": 3,
+    "banned_pairs": 1,
+    "banned": [
+      {
+        "code": "HOMEOTELEUTON",
+        "lines": [
+          1,
+          2
+        ],
+        "finding": "L1/L2 rhyme on the SAME SPELLED ENDING ('mass'/'pass', both -ass) — the laziest class, banned before any frequency judgment"
+      }
+    ],
+    "unreadable_findings": [
+      {
+        "code": "BAND_UNJUDGED",
+        "severity": "note",
+        "message": "this line's band verdicts are partial — counts are lower bounds, so only over-the-ceiling could be judged",
+        "evidence": "1 token(s) unread: us. band adopted at reader 'fallback-low' over 139,694 corpus lines (RESULTS_METER_BANDS_READER.md; re-derive: python3 quality/meter_bands.py --check). A refusal is not a pass (doctrine 20) and not a violation (doctrine 79); it is said here so silence stays meaningful.",
+        "locations": [
+          2
+        ],
+        "groups": [],
+        "obligations": [],
+        "subject": []
+      }
+    ],
+    "unreadable": 1,
+    "standing": [
+      "L1/L2: FINDING [NOTE] HOMEOTELEUTON: L1/L2 rhyme on the SAME SPELLED ENDING ('mass'/'pass', both -ass) — the laziest class, banned before any frequency judgment",
+      "WHOLE-DRAFT: FINDING [FLAG] FUNCTION_WORD_HEAVY: a high share of the text is closed-class filler"
+    ],
+    "final_draft": [
+      "we carry the evening to the mass",
+      "and no one had to tell us about pass"
+    ],
+    "final_draft_sha256": "073fd00af326981324d63bf4f3e2a3b4a67d59d762c25ec9293b98ecf5d89f55",
+    "blueprint_declared": false
+  },
+  "structured": {
+    "exit_code": 0,
+    "meaning": "answered — no flag stands",
+    "report": "  MANDATE: 2 group(s) over 4 lines, 2 mandated pair(s), source=declared (declared line groups)\n           group A = lines 1,2, group B = lines 3,4 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)\n  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\n  draft: 4 line(s), md5 f3d0b179b6a1\n  ADMIT DOOR: 1 mandated pair(s) satisfied as a near relation (ASSONANCE x1) on the priced near-relation cut (ASSONANCE 0.82) — L4~L5 sun/silver ASSONANCE 0.667; that door's chance rate is PINNED at 173..193 of 4,000 random CMUdict pairs (4.3%–4.8%, 10.5–11.7x the sonnet canon arm's 0.41%; quality/chance_rate.py, a band over its sampler grid) and PRICED (M-138, quality/RESULTS_NEAR_RELATION_PRICING.md — the near relations carry their own cut, `Declaration.theta_by_relation`)\n  ADJACENCY: longest stress run 3 (L2), longest weak run 1 (L1) — the prominence band counts and cannot hear a clot inside it or padding down into it; disclosed, uncalibrated, never charged (M-115).\n  REPORT: 1 line(s) briefed — 0 FLAG, 1 NOTE (two counts, never summed: doctrine 79); 1 WHOLE-DRAFT finding(s), 0 of them FLAG(S), below\n\n  WHAT TO CHANGE — 0 decision(s). Flags only; the notes below are measurements handed back, not defects (doctrine 6)\n    nothing on any line, and nothing about the draft as a whole, carries a flag. The notes below still say what the draft is doing\n\n  THE EVIDENCE — every finding not rolled up, in full; the lines carrying an un-rolled flag first\n  L2: we held each other tight\n      FINDING [NOTE] HOMEOTELEUTON: L1/L2 rhyme on the SAME SPELLED ENDING ('bright'/'tight', both -ight) — the laziest class, banned before any frequency judgment (lines 1, 2)\n         spelled rime 'ight' on both sides. The near relations the taxonomy names (declared via Declaration.admit) are the palette that keeps this ban from closing the class: reach for a differently-spelled partner or a declared near rhyme, not the next word in the same spelling family.\n      must answer group A [1, 2]: L1 ('bright') — VIOLATED\n      FORBIDDEN (modal — doctrine 9): light, night, sight, delight, fight, might, right, flight, knight, plight, slight, tight, alight, fright, wight, blight, tonight, alright, overnight, dwight, wright, uptight, upright, allright, outright, forthright, enright, white, height, write, daylight, quite, unite\n      ALREADY THERE (a different rule — re-proposing the end word that is already on this line is not a revision): tight\n      offered: sprite, despite, spite, invite, midnight, polite, moonlight, that, what, not, but, out\n      THE 77-SCHEMA HALF OF THE DEFAULT WAS NOT CONSULTED FOR THIS FIELD. A\n      mandated pair declaring no relation is satisfied when `admits()`\n      passes it OR when the two LINES stand in any schema the vocabulary\n      names (`relations.whole_vocabulary_pairs`, all 77). This field was\n      built at the first door only: the second judges LINE PAIRS over a\n      built stream and this site holds one WORD, so it is not askable here\n      at any depth. That is a limit of the field and not a verdict on these\n      words -- a pair can satisfy the mandate on the schema route with none\n      of them taken, and a word absent from this list has not been refused\n      by the 77.\n\n  WHOLE DRAFT — 1 finding(s) that name no single line, 0 of them FLAG(S)\n      Not a line to revise, and not covered by the per-line half above: these are properties of the ITEM (the hook, the shape of the grid, the vocabulary across the whole draft), so there is no line_no to hand back and no candidate field to offer. `verify()` DOES read them — its diff covers `whole` as well as `per_line` — so a whole-draft flag can REJECT a revision and can never ASK for one. Disclosed here for the same reason `quality/loop.py` discloses them under a SUCCESS: a silent one reads exactly like a clean draft.\n      FINDING [NOTE] STRUCTURE_UNCALIBRATED: declared structure(s) 'kalevala-alliteration' have no measured laziness tier FOR THIS DRAFT'S LANGUAGE (eng) — correctness is graded by the catalog's own judge, laziness is NOT graded\n         Structure.calibrated is False for these rows: no preregistered calibration has adopted a predictability table or a lazy class under their own pairing relation, so the two-tier ban (HOMEOTELEUTON / MODAL_RHYME) does not apply to their pairs and nothing stands in for it. The meter-band pattern is the road: register -> measure -> adopt -> CI re-derives.\n",
+    "path": "warm",
+    "ms": 9619,
+    "coverage": {
+      "pairs_mandated": 2,
+      "pairs_judged": 2,
+      "pairs_refused": 0,
+      "scope": "requested_layers",
+      "certified": true,
+      "obligations": [
+        {
+          "id": "density:L1",
+          "layer": "density",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L1",
+          "layer": "prominence",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "density:L2",
+          "layer": "density",
+          "line": 2,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L2",
+          "layer": "prominence",
+          "line": 2,
+          "status": "answered"
+        },
+        {
+          "id": "density:L3",
+          "layer": "density",
+          "line": 3,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L3",
+          "layer": "prominence",
+          "line": 3,
+          "status": "answered"
+        },
+        {
+          "id": "density:L4",
+          "layer": "density",
+          "line": 4,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L4",
+          "layer": "prominence",
+          "line": 4,
+          "status": "answered"
+        },
+        {
+          "id": "sentencehood:draft",
+          "layer": "sentencehood",
+          "status": "answered"
+        },
+        {
+          "id": "floor:draft",
+          "layer": "floor",
+          "status": "answered"
+        },
+        {
+          "id": "meter:draft",
+          "layer": "meter",
+          "status": "not_requested"
+        },
+        {
+          "id": "slot_grid:draft",
+          "layer": "slot_grid",
+          "status": "not_requested"
+        },
+        {
+          "id": "setting:draft",
+          "layer": "setting",
+          "status": "not_requested"
+        },
+        {
+          "id": "rhyme:1:2:0",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:3:4:1",
+          "layer": "rhyme",
+          "status": "answered"
+        }
+      ],
+      "refused_obligations": []
+    },
+    "certified": true,
+    "measurement_status": "graded",
+    "findings": [
+      {
+        "code": "HOMEOTELEUTON",
+        "severity": "note",
+        "message": "L1/L2 rhyme on the SAME SPELLED ENDING ('bright'/'tight', both -ight) — the laziest class, banned before any frequency judgment",
+        "evidence": "spelled rime 'ight' on both sides. The near relations the taxonomy names (declared via Declaration.admit) are the palette that keeps this ban from closing the class: reach for a differently-spelled partner or a declared near rhyme, not the next word in the same spelling family.",
+        "locations": [
+          1,
+          2
+        ],
+        "groups": [
+          "A"
+        ],
+        "obligations": [],
+        "subject": []
+      },
+      {
+        "code": "STRUCTURE_UNCALIBRATED",
+        "severity": "note",
+        "message": "declared structure(s) 'kalevala-alliteration' have no measured laziness tier FOR THIS DRAFT'S LANGUAGE (eng) — correctness is graded by the catalog's own judge, laziness is NOT graded",
+        "evidence": "Structure.calibrated is False for these rows: no preregistered calibration has adopted a predictability table or a lazy class under their own pairing relation, so the two-tier ban (HOMEOTELEUTON / MODAL_RHYME) does not apply to their pairs and nothing stands in for it. The meter-band pattern is the road: register -> measure -> adopt -> CI re-derives.",
+        "locations": [],
+        "groups": [],
+        "obligations": [],
+        "subject": []
+      }
+    ],
+    "flags": 0,
+    "whole_flags": 0,
+    "notes": 2,
+    "banned_pairs": 1,
+    "banned": [
+      {
+        "code": "HOMEOTELEUTON",
+        "lines": [
+          1,
+          2
+        ],
+        "finding": "L1/L2 rhyme on the SAME SPELLED ENDING ('bright'/'tight', both -ight) — the laziest class, banned before any frequency judgment"
+      }
+    ],
+    "unreadable_findings": [],
+    "unreadable": 0,
+    "structures_uncalibrated": "declared structure(s) 'kalevala-alliteration' have no measured laziness tier FOR THIS DRAFT'S LANGUAGE (eng) — correctness is graded by the catalog's own judge, laziness is NOT graded",
+    "standing": [
+      "L1/L2: FINDING [NOTE] HOMEOTELEUTON: L1/L2 rhyme on the SAME SPELLED ENDING ('bright'/'tight', both -ight) — the laziest class, banned before any frequency judgment"
+    ],
+    "final_draft": [
+      "the night was cold and bright",
+      "we held each other tight",
+      "we walked beneath the sun",
+      "and rivers ran with silver"
+    ],
+    "final_draft_sha256": "3104daae82454c65535f8013f49fae8abe9dfe3146ef8ba9f66f6602599d2699",
+    "blueprint_declared": false
+  },
+  "narrowed": {
+    "exit_code": 0,
+    "meaning": "answered — 1 per-line and 0 whole-draft flag(s) stand",
+    "report": "  MANDATE: 2 group(s) over 4 lines, 2 mandated pair(s), source=declared (declared line groups)\n           group A = lines 1,2, group B = lines 3,4 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)\n  RELATION: every group is judged under 'class:RHYME' unless it declares its own — the named engine's own coordinate, not the scalar comparator's admit set.\n  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\n  draft: 4 line(s), md5 f3d0b179b6a1\n  ADJACENCY: longest stress run 3 (L2), longest weak run 1 (L1) — the prominence band counts and cannot hear a clot inside it or padding down into it; disclosed, uncalibrated, never charged (M-115).\n  REPORT: 2 line(s) briefed — 1 FLAG, 1 NOTE (two counts, never summed: doctrine 79)\n\n  WHAT TO CHANGE — 1 decision(s). Flags only; the notes below are measurements handed back, not defects (doctrine 6)\n    1. SCHEME_VIOLATION — L4\n\n  THE EVIDENCE — every finding not rolled up, in full; the lines carrying an un-rolled flag first\n  L4: and rivers ran with silver\n      FINDING [FLAG] SCHEME_VIOLATION: L3 and L4 are both in group B [3, 4] but do not rhyme (lines 3, 4)\n         does not satisfy the declared relation 'class:RHYME' — judged by the named-type engine at that relation's own coordinate, not by the scalar comparator's admit set (score 0.667; 'sun' ~ 'silver') — NAMED PAIR IS NOT THE EVIDENCE: scored on: -beneath the sun [last 1 of 2 syllables of 'beneath']  ~  silver   (best of k=6)   MOSAIC (left): the winning span reaches back past the end word\n      FAILS L3-L4 (sun/silver): 0.667  ASSONANCE  — does not satisfy the declared relation 'class:RHYME' — judged by the named-type engine at that relation's own coordinate, not by the scalar comparator's admit set\n          NAMED PAIR IS NOT THE EVIDENCE: left reaches past `sun`\n          scored on: -beneath the sun [last 1 of 2 syllables of 'beneath']  ~  silver   (best of k=6)   MOSAIC (left): the winning span reaches back past the end word\n      must answer group B [3, 4]: L3 ('sun') — VIOLATED\n      FORBIDDEN (modal — doctrine 9): run, begun, gun, dun, fun, shun, spun, nun, outrun, un, jun, chun, bun, pun, stun, hun, mun, kun, lun, rerun, homerun, brun, done, one, won, undone, none\n      ALREADY THERE (a different rule — re-proposing the end word that is already on this line is not a revision): silver\n      offered: on, don, can, when, an, then, been, man, down, than, someone, men\n  L2: we held each other tight\n      FINDING [NOTE] HOMEOTELEUTON: L1/L2 rhyme on the SAME SPELLED ENDING ('bright'/'tight', both -ight) — the laziest class, banned before any frequency judgment (lines 1, 2)\n         spelled rime 'ight' on both sides. The near relations the taxonomy names (declared via Declaration.admit) are the palette that keeps this ban from closing the class: reach for a differently-spelled partner or a declared near rhyme, not the next word in the same spelling family.\n      must answer group A [1, 2]: L1 ('bright') — VIOLATED\n      FORBIDDEN (modal — doctrine 9): light, night, sight, delight, fight, might, right, flight, knight, plight, slight, tight, alight, fright, wight, blight, tonight, alright, overnight, dwight, wright, uptight, upright, allright, outright, forthright, enright, white, height, write, daylight, quite, unite\n      ALREADY THERE (a different rule — re-proposing the end word that is already on this line is not a revision): tight\n      offered: sprite, despite, spite, invite, midnight, polite, moonlight, that, what, not, but, out\n",
+    "path": "warm",
+    "ms": 7554,
+    "coverage": {
+      "pairs_mandated": 2,
+      "pairs_judged": 2,
+      "pairs_refused": 0,
+      "scope": "requested_layers",
+      "certified": true,
+      "obligations": [
+        {
+          "id": "density:L1",
+          "layer": "density",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L1",
+          "layer": "prominence",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "density:L2",
+          "layer": "density",
+          "line": 2,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L2",
+          "layer": "prominence",
+          "line": 2,
+          "status": "answered"
+        },
+        {
+          "id": "density:L3",
+          "layer": "density",
+          "line": 3,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L3",
+          "layer": "prominence",
+          "line": 3,
+          "status": "answered"
+        },
+        {
+          "id": "density:L4",
+          "layer": "density",
+          "line": 4,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L4",
+          "layer": "prominence",
+          "line": 4,
+          "status": "answered"
+        },
+        {
+          "id": "sentencehood:draft",
+          "layer": "sentencehood",
+          "status": "answered"
+        },
+        {
+          "id": "floor:draft",
+          "layer": "floor",
+          "status": "answered"
+        },
+        {
+          "id": "meter:draft",
+          "layer": "meter",
+          "status": "not_requested"
+        },
+        {
+          "id": "slot_grid:draft",
+          "layer": "slot_grid",
+          "status": "not_requested"
+        },
+        {
+          "id": "setting:draft",
+          "layer": "setting",
+          "status": "not_requested"
+        },
+        {
+          "id": "rhyme:1:2:0",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:3:4:1",
+          "layer": "rhyme",
+          "status": "answered"
+        }
+      ],
+      "refused_obligations": []
+    },
+    "certified": true,
+    "measurement_status": "graded",
+    "findings": [
+      {
+        "code": "SCHEME_VIOLATION",
+        "severity": "flag",
+        "message": "L3 and L4 are both in group B [3, 4] but do not rhyme",
+        "evidence": "does not satisfy the declared relation 'class:RHYME' — judged by the named-type engine at that relation's own coordinate, not by the scalar comparator's admit set (score 0.667; 'sun' ~ 'silver') — NAMED PAIR IS NOT THE EVIDENCE: scored on: -beneath the sun [last 1 of 2 syllables of 'beneath']  ~  silver   (best of k=6)   MOSAIC (left): the winning span reaches back past the end word",
+        "locations": [
+          3,
+          4
+        ],
+        "groups": [
+          "B"
+        ],
+        "obligations": [],
+        "subject": []
+      },
+      {
+        "code": "HOMEOTELEUTON",
+        "severity": "note",
+        "message": "L1/L2 rhyme on the SAME SPELLED ENDING ('bright'/'tight', both -ight) — the laziest class, banned before any frequency judgment",
+        "evidence": "spelled rime 'ight' on both sides. The near relations the taxonomy names (declared via Declaration.admit) are the palette that keeps this ban from closing the class: reach for a differently-spelled partner or a declared near rhyme, not the next word in the same spelling family.",
+        "locations": [
+          1,
+          2
+        ],
+        "groups": [
+          "A"
+        ],
+        "obligations": [],
+        "subject": []
+      }
+    ],
+    "flags": 1,
+    "whole_flags": 0,
+    "notes": 1,
+    "banned_pairs": 1,
+    "banned": [
+      {
+        "code": "HOMEOTELEUTON",
+        "lines": [
+          1,
+          2
+        ],
+        "finding": "L1/L2 rhyme on the SAME SPELLED ENDING ('bright'/'tight', both -ight) — the laziest class, banned before any frequency judgment"
+      }
+    ],
+    "unreadable_findings": [],
+    "unreadable": 0,
+    "standing": [
+      "L3/L4: FINDING [FLAG] SCHEME_VIOLATION: L3 and L4 are both in group B [3, 4] but do not rhyme",
+      "L1/L2: FINDING [NOTE] HOMEOTELEUTON: L1/L2 rhyme on the SAME SPELLED ENDING ('bright'/'tight', both -ight) — the laziest class, banned before any frequency judgment"
+    ],
+    "final_draft": [
+      "the night was cold and bright",
+      "we held each other tight",
+      "we walked beneath the sun",
+      "and rivers ran with silver"
+    ],
+    "final_draft_sha256": "3104daae82454c65535f8013f49fae8abe9dfe3146ef8ba9f66f6602599d2699",
+    "blueprint_declared": false
+  },
+  "verify": {
+    "exit_code": 0,
+    "meaning": "ACCEPTED — read accepted and reasons; exit zero means the comparison answered.",
+    "report": "  MANDATE: 1 group(s) over 2 lines, 1 mandated pair(s), source=declared (declared line groups)\n           group A = lines 1,2 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)\n  RELATION: every group is judged under 'class:RHYME' unless it declares its own — the named engine's own coordinate, not the scalar comparator's admit set.\n  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\n  BEFORE: 2 line(s), md5 873af57ea39d\n  AFTER : 2 line(s), md5 e0aa18db62cc\n  VERDICT: ACCEPTED\n    fixed 1, introduced 0, changed only [2]\n    fixed: [(2, 'SCHEME_VIOLATION')]\n",
+    "path": "warm",
+    "ms": 8419,
+    "coverage": {
+      "pairs_mandated": 1,
+      "pairs_judged": 1,
+      "pairs_refused": 0,
+      "scope": "requested_layers",
+      "certified": true,
+      "obligations": [
+        {
+          "id": "density:L1",
+          "layer": "density",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L1",
+          "layer": "prominence",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "density:L2",
+          "layer": "density",
+          "line": 2,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L2",
+          "layer": "prominence",
+          "line": 2,
+          "status": "answered"
+        },
+        {
+          "id": "sentencehood:draft",
+          "layer": "sentencehood",
+          "status": "answered"
+        },
+        {
+          "id": "floor:draft",
+          "layer": "floor",
+          "status": "answered"
+        },
+        {
+          "id": "meter:draft",
+          "layer": "meter",
+          "status": "not_requested"
+        },
+        {
+          "id": "slot_grid:draft",
+          "layer": "slot_grid",
+          "status": "not_requested"
+        },
+        {
+          "id": "setting:draft",
+          "layer": "setting",
+          "status": "not_requested"
+        },
+        {
+          "id": "rhyme:1:2:0",
+          "layer": "rhyme",
+          "status": "answered"
+        }
+      ],
+      "refused_obligations": []
+    },
+    "certified": true,
+    "measurement_status": "verified",
+    "findings": [],
+    "flags": 0,
+    "whole_flags": 0,
+    "notes": 0,
+    "banned_pairs": 0,
+    "banned": [],
+    "unreadable_findings": [],
+    "unreadable": 0,
+    "standing": [],
+    "final_draft": [
+      "Lights cut, and the bass came down in a pour",
+      "Half the room gone quiet where the sound tore"
+    ],
+    "final_draft_sha256": "94bb258aeb6d7bdc39daf6130ce981a8d39e0cdcb2d0775dba7ff949685313b9",
+    "accepted": true,
+    "verdict": "ACCEPTED",
+    "reasons": [
+      "fixed 1, introduced 0, changed only [2]"
+    ],
+    "coverage_before": {
+      "pairs_mandated": 1,
+      "pairs_judged": 1,
+      "pairs_refused": 0,
+      "scope": "requested_layers",
+      "certified": true,
+      "obligations": [
+        {
+          "id": "density:L1",
+          "layer": "density",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L1",
+          "layer": "prominence",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "density:L2",
+          "layer": "density",
+          "line": 2,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L2",
+          "layer": "prominence",
+          "line": 2,
+          "status": "answered"
+        },
+        {
+          "id": "sentencehood:draft",
+          "layer": "sentencehood",
+          "status": "answered"
+        },
+        {
+          "id": "floor:draft",
+          "layer": "floor",
+          "status": "answered"
+        },
+        {
+          "id": "meter:draft",
+          "layer": "meter",
+          "status": "not_requested"
+        },
+        {
+          "id": "slot_grid:draft",
+          "layer": "slot_grid",
+          "status": "not_requested"
+        },
+        {
+          "id": "setting:draft",
+          "layer": "setting",
+          "status": "not_requested"
+        },
+        {
+          "id": "rhyme:1:2:0",
+          "layer": "rhyme",
+          "status": "answered"
+        }
+      ],
+      "refused_obligations": []
+    },
+    "coverage_regressions": [],
+    "layer_coverage_regressions": [],
+    "fixed": [
+      [
+        2,
+        "SCHEME_VIOLATION"
+      ]
+    ],
+    "new": [],
+    "new_flags": [],
+    "fixed_count": 1,
+    "introduced_count": 0,
+    "scope": "A revision comparison, not whole-song completion. It judges the declared change; surviving findings still require full grading."
+  },
+  "noOp": {
+    "exit_code": 0,
+    "meaning": "REJECTED — read accepted and reasons; exit zero means the comparison answered.",
+    "report": "  MANDATE: 1 group(s) over 2 lines, 1 mandated pair(s), source=declared (declared line groups)\n           group A = lines 1,2 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)\n  RELATION: every group is judged under 'class:RHYME' unless it declares its own — the named engine's own coordinate, not the scalar comparator's admit set.\n  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\n  BEFORE: 2 line(s), md5 873af57ea39d\n  AFTER : 2 line(s), md5 873af57ea39d\n  VERDICT: REJECTED\n    nothing was fixed\n",
+    "path": "warm",
+    "ms": 2932,
+    "coverage": {
+      "pairs_mandated": 1,
+      "pairs_judged": 1,
+      "pairs_refused": 0,
+      "scope": "requested_layers",
+      "certified": true,
+      "obligations": [
+        {
+          "id": "density:L1",
+          "layer": "density",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L1",
+          "layer": "prominence",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "density:L2",
+          "layer": "density",
+          "line": 2,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L2",
+          "layer": "prominence",
+          "line": 2,
+          "status": "answered"
+        },
+        {
+          "id": "sentencehood:draft",
+          "layer": "sentencehood",
+          "status": "answered"
+        },
+        {
+          "id": "floor:draft",
+          "layer": "floor",
+          "status": "answered"
+        },
+        {
+          "id": "meter:draft",
+          "layer": "meter",
+          "status": "not_requested"
+        },
+        {
+          "id": "slot_grid:draft",
+          "layer": "slot_grid",
+          "status": "not_requested"
+        },
+        {
+          "id": "setting:draft",
+          "layer": "setting",
+          "status": "not_requested"
+        },
+        {
+          "id": "rhyme:1:2:0",
+          "layer": "rhyme",
+          "status": "answered"
+        }
+      ],
+      "refused_obligations": []
+    },
+    "certified": true,
+    "measurement_status": "verified",
+    "findings": [],
+    "flags": 0,
+    "whole_flags": 0,
+    "notes": 0,
+    "banned_pairs": 0,
+    "banned": [],
+    "unreadable_findings": [],
+    "unreadable": 0,
+    "standing": [],
+    "final_draft": [
+      "Lights cut, and the bass came down in a pour",
+      "Half the room gone quiet where the sound stone"
+    ],
+    "final_draft_sha256": "62ba3b06129d86c63564807612f79397e1543ebe587e6cc9d2fd1df7274bbc08",
+    "accepted": false,
+    "verdict": "REJECTED",
+    "reasons": [
+      "nothing was fixed"
+    ],
+    "coverage_before": {
+      "pairs_mandated": 1,
+      "pairs_judged": 1,
+      "pairs_refused": 0,
+      "scope": "requested_layers",
+      "certified": true,
+      "obligations": [
+        {
+          "id": "density:L1",
+          "layer": "density",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L1",
+          "layer": "prominence",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "density:L2",
+          "layer": "density",
+          "line": 2,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L2",
+          "layer": "prominence",
+          "line": 2,
+          "status": "answered"
+        },
+        {
+          "id": "sentencehood:draft",
+          "layer": "sentencehood",
+          "status": "answered"
+        },
+        {
+          "id": "floor:draft",
+          "layer": "floor",
+          "status": "answered"
+        },
+        {
+          "id": "meter:draft",
+          "layer": "meter",
+          "status": "not_requested"
+        },
+        {
+          "id": "slot_grid:draft",
+          "layer": "slot_grid",
+          "status": "not_requested"
+        },
+        {
+          "id": "setting:draft",
+          "layer": "setting",
+          "status": "not_requested"
+        },
+        {
+          "id": "rhyme:1:2:0",
+          "layer": "rhyme",
+          "status": "answered"
+        }
+      ],
+      "refused_obligations": []
+    },
+    "coverage_regressions": [],
+    "layer_coverage_regressions": [],
+    "fixed": [],
+    "new": [],
+    "new_flags": [],
+    "fixed_count": 0,
+    "introduced_count": 0,
+    "scope": "A revision comparison, not whole-song completion. It judges the declared change; surviving findings still require full grading."
+  }
+}

@@ -1,5 +1,24 @@
 # What a control has to DESTROY to be a control
 
+**Current coverage correction, 2026-09-08.** The maintained 40-line Poe
+ledger under the repaired judge measures 3 controlled, 30 extendable,
+11 no-instance, and 33 cannot-obtain schemas. The last group contains
+28 cases requiring input, declaration, or reading resolution, and 5 requiring
+implementation. Three `cynghanedd sain` variants and `平仄 tonal template`
+require full figure implementations; declaring a capability does not fix
+them. Paroemion now has reachable topology (153 confirmed edges and
+9 unresolved candidates; derived menu 6 → 2). Enjambed rhyme, linked rhyme,
+parechesis, amphisbaenic rhyme, and rhyming slang have no confirmed witness
+but retain 1, 1, 22, 52, and 741 unresolved candidates respectively.
+They are refused instead of being reported as measured zero observations.
+
+This correction validates the coverage census and its refusal remedies.
+“Controlled” here records membership in the historical arm inventory;
+it does **not** qualify the historical effect sizes for the current judge.
+The deeper null sweeps and effect-size tables below remain dated evidence
+from their recorded source versions and have not been requalified by this
+coverage check. `--verify --deep` remains a separate measurement gate.
+
 Cell Y, 2026-08-11. `BACKLOG.md` §3.5 (`MISSING.md` K-2/K-3) and `BACKLOG.md`
 §4.2 (`MISSING.md` L-2), answered together because they are one question.
 

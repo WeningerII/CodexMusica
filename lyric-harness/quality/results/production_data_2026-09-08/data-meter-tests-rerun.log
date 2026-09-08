@@ -1,0 +1,121 @@
+
+1. nearest rank, the declared method — hand-computed cases
+  PASS  p30 of [15,20,35,40,50] is 20 — ceil(0.30*5)=2, the 2nd smallest (the textbook nearest-rank case)
+          20
+  PASS  p50 of five values is the 3rd — ceil(2.5)=3, where a floor would give the 2nd
+  PASS  p100 is the maximum
+  PASS  p1 of N=5 is the minimum — ceil(0.05)=1
+  PASS  N=1: every percentile is the one value
+  PASS  the answer is always a value that OCCURS — no interpolation invented
+  PASS  refuses ([], 50) — a percentile of nothing
+  PASS  refuses ([1], 0) — p=0 is outside (0, 100]
+  PASS  refuses ([1], 101) — p=101 is outside (0, 100]
+
+2. the lyric-line filter — structure OUT, words IN
+  PASS  exactly the 3 word-lines survive — comments, ---, [markers] and blanks are all structural
+          ['the cat sat on the mat', 'kiss me though you make believe', 'the river carries golden crowns']
+  PASS  ...and they are the right 3, in file order with real line numbers
+          [(5, 'the cat sat on the mat'), (6, 'kiss me though you make believe'), (9, 'the river carries golden crowns')]
+
+3. exclusion, not imputation (doctrine 79)
+  PASS  a clean line is MEASURED — no causes, plausible counts, and derived 0 under the default reader by construction
+          7 syllables, 4 prominent, causes ()
+  PASS  a numeral puts the line OUT with the cause NAMED — its count is a lower bound, and a lower bound in a percentile is a lie
+          ('NUMERAL',)
+  PASS  an out-of-lexicon token puts the line OUT with the cause NAMED
+          ('OUT_OF_LEXICON',)
+  PASS  pronunciation ambiguity is excluded with its own cause: PROMINENCE_UNDECIDED
+          ('PROMINENCE_UNDECIDED',)
+  PASS  pronunciation ambiguity is excluded with its own cause: UNRESOLVED_READING
+          ('UNRESOLVED_READING',)
+  PASS  conservation holds EXACTLY — measured + excluded == lyric lines (4 lyric, 3 measured, 1 excluded)
+          lyric 4, measured 3, excluded 1
+  PASS  ...and the excluded fraction and cause tally say so
+          {'NUMERAL': 1}
+  PASS  an empty population is REFUSED, not an empty table
+          no corpus files match 'eng_*.txt' under '/nonexistent-dir-xyz' — an em
+
+4. determinism — the sweep is a function of the corpus
+  PASS  the same corpus measures identically twice
+  PASS  ...and the sweep RECORDS which declared reader produced it, so the REPRODUCE line can never name a different run's command
+          default
+
+5. one real corpus file — the reader's arithmetic holds
+  PASS  the file yields records, and every one obeys 0 <= prominent <= syllables (prediction P2's per-line half)
+          17 measured, 1 excluded of 18
+  PASS  conservation holds on real data too
+
+6. the proposal is DERIVED from the envelope, not remembered
+  PASS  DENSITY == (p5, p95) of the measured syllables, recomputed here independently
+          (6, 8)
+  PASS  PROMINENCE == (p5, p95) of the measured prominents
+          (3, 4)
+  PASS  the proposal DISCLOSES its cut and population beside the numbers
+  PASS  the table serves every preregistered point
+
+7. the amendment — the registered subset test (METER_BANDS_PREREGISTRATION_AMENDMENT.md)
+  PASS  per-file rates are the file's OWN conservation — A 0/10, B 6/10
+          {'A': (10, 0, 0.0), 'B': (10, 6, 0.6)}
+  PASS  the split lands as declared — A LOW, B HIGH
+  PASS  the floor is measured against MEASURED lines — LOW keeps 10/14
+          0.714
+  PASS  identical distributions agree at every registered point and the verdict is ADOPTED
+          ADOPTED — the subset agrees within ±1 at every registered po
+  PASS  a warped pool is caught — deltas exceed ±1 and the verdict is NOT ADOPTED (the licence is the agreement, not the wish)
+          {'syllables': {5: 0, 50: -2, 95: -2}, 'prominent': {5: 0, 50: -1, 95: -1}}
+  PASS  a too-thin subset is REFUSED, not licensed from — 40% floor
+          REFUSED — LOW files keep 23.1% of measured lines, under the 40% floor;
+
+8. the reader trial — certain vs derived (METER_BANDS_PREREGISTRATION_READER.md)
+  PASS  the dialect line the default reader refuses is READ under fallback-low, with the derived tokens COUNTED, not hidden
+          9 syllables, 5 prominent, 2 derived
+  PASS  ...and the same line under the DEFAULT reader is still refused — run one stays reproducible, byte for byte
+          causes ('OUT_OF_LEXICON',)
+  PASS  an undeclared reader mode is refused by name
+          reader 'cmudict-plus-vibes' is not declared; the modes are (
+  PASS  agreement within ±1 on both quantities adopts BOTH pool bands
+          ADOPTED, BOTH — certain and derived lines are one 
+  PASS  a stress channel running 2 hot refuses PROMINENCE while DENSITY still adopts — the declared PARTIAL outcome
+          {5: 2, 50: 2, 95: 2}
+  PASS  past the exclusion ceiling the trial STOPS AT THE GATE — nothing adopts and no table is computed to be tempted by
+          exclusion 0.268
+  PASS  a trial with no derived lines is REFUSED, not vacuously passed
+          the reader trial needs derived lines to try — this sweep has
+
+9. the drift instrument — shipped constants vs a re-derived trial
+  PASS  the shipped constants are the adopted ones — DENSITY [5,12], PROMINENCE [2,7], at the registered reader
+  PASS  matching constants PASS with the derivation quoted
+          the shipped bands re-derive exactly: DENSITY [8, 8], PROMINENCE [4, 4]
+  PASS  a drifted band FAILS with both values NAMED — shipped and re-derived
+          DRIFT — DENSITY: shipped [5, 12], re-derived [8, 8]
+  PASS  a sweep read with the WRONG reader is refused before any comparison — checking against the wrong instrument checks nothing
+          the sweep was read with 'default' but the constants were adopted at 'f
+  PASS  a trial that no longer adopts a shipped band FAILS naming the verdict, not just the numbers
+          DRIFT — PROMINENCE: the trial no longer adopts it (verdict: PARTIAL — the quantity that ag
+
+10. THE ENFORCEMENT — the adopted bands are per-line FLAGS in the grader (the second sitting's deliverable)
+  PASS  an in-band line carries NO band finding — silence means clean, because the check runs unconditionally
+  PASS  too FEW syllables is a FLAG — under the floor is refused, not nudged
+          ['DENSITY_OUT_OF_BAND']
+  PASS  too MANY syllables and too many prominents are BOTH flags on the long line — a band, not a direction
+          ['DENSITY_OUT_OF_BAND', 'PROMINENCE_OUT_OF_BAND']
+  PASS  ...and every band violation is severity FLAG — the loop holds the line open until it is fixed, nothing to opt into
+  PASS  a refused token makes UNDER-the-floor unjudgeable: no flag, a BAND_UNJUDGED note names the token instead
+          ['BAND_UNJUDGED']
+  PASS  ...but OVER-the-ceiling flags anyway — a lower bound above 12 is a violation no missing token can undo
+          ['BAND_UNJUDGED', 'DENSITY_OUT_OF_BAND', 'PROMINENCE_OUT_OF_BAND']
+  PASS  a dialect line the fallback reads clean carries NO band finding — enforcement reads with the CALIBRATION'S reader (the registered instrument-match condition)
+
+11. M-115 — the adjacency beside the count, disclosed
+  PASS  a stress clot reads as a LONG run and the alternating line does not — same reader, same counts, different adjacency
+          clot 6, spread 3
+  PASS  ...and the weak run reads the other evasion — strung function words are a run of weak syllables the count cannot see
+          weak run 1
+  PASS  an undecided unit breaks both runs rather than joining either
+          (3, 0)
+  PASS  `inspect()` carries {line: (stress run, weak run)} for EVERY line — a key, never a Finding, and nothing charges it
+          {1: (6, 0), 2: (3, 1)}
+  PASS  MUTATION: with the runs flattened, the clot reads 0 — the disclosure reads the property, not the fixture
+  PASS  ...and the mutation is reverted
+==============================================================
+the envelope is measured the way the registration says it is

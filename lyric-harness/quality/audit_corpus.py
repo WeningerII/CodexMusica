@@ -1288,15 +1288,36 @@ def _check_declared_counts(rel, cf, fields):
     return out
 
 
-def check_hash(files, src):
+def check_hash(files, src, snapshot=None):
     """C · has the file drifted from its recorded hash — and is there one?"""
+    if snapshot is None:
+        from quality.corpus_manifest import read_manifest
+        try:
+            snapshot = read_manifest()
+        except (OSError, ValueError) as error:
+            return [Finding("C", FAIL, "data/calibration_manifest.tsv",
+                            "the staged-file hash snapshot is unavailable or malformed",
+                            str(error), "a missing or ambiguous record cannot prove byte identity", "34")]
     out = []
     for rel, cf in files:
+        # The all-file snapshot records STAGED bytes. It is an additional
+        # obligation: matching an old local-source hash cannot override a
+        # changed snapshot, and a matching snapshot cannot excuse stale
+        # hashes in a local source declaration.
+        recorded = snapshot.get(rel)
+        if recorded is not None and cf.md5 != recorded[0]:
+            out.append(Finding(
+                "C", FAIL, rel, "md5 drift from the staged-file calibration snapshot",
+                "snapshot %s: %s | measured %s" % (recorded[2], recorded[0], cf.md5),
+                "the current staged bytes differ from the population whose adoption was recorded", "79"))
+            continue
         route, sid = src.route(cf, rel)
         blob = src.blobs.get(sid, "") if sid else ""
         md5s = set(re.findall(r"md5\s+([0-9a-f]{32})", blob))
         shas = set(re.findall(r"sha256\s+([0-9a-f]{16,64})", blob))
         if route != ROUTE_LOCAL:
+            if recorded is not None:
+                continue
             out.append(Finding(
                 "C", WARN, rel,
                 "no hash of THIS file is recorded anywhere",
@@ -1324,6 +1345,8 @@ def check_hash(files, src):
                 "recorded %s | measured %s" % (sorted(shas)[:1], cf.sha256),
                 "as above", "79"))
         else:
+            if recorded is not None:
+                continue
             out.append(Finding(
                 "C", WARN, rel,
                 "local: row records no hash of any kind",
@@ -1984,18 +2007,19 @@ def check_staging(files, src):
             out.append(Finding(
                 "H", WARN, rel,
                 "%d one-line `[VERSE]` block(s) carry a declared apparatus "
-                "shape and are scored as sung words" % matched,
+                "shape in raw staging" % matched,
                 "%s | %s" % (
                     pop,
                     " · ".join("%s %d (%s)"
                                % (k, n, ", ".join(repr(e) for e
                                                   in examples[k][:2]))
                                for k, n in shapes.most_common())),
-                "a `[VERSE n]` mark declares a STANZA. These lines are a "
-                "printer's apparatus — a numeral, a byline, a title, a "
-                "speaker name, an ornament — and every one of them enters "
-                "MATTR, the function-word ratio, the rhyme graph and the "
-                "endword population. The four shapes are AT LEAST THREE "
+                "a `[VERSE n]` mark declares a STANZA. The matched shapes "
+                "can be a numeral, byline, title, speaker name or ornament. "
+                "This check reads raw staging; it does not test whether the "
+                "normalized runtime reader retains each row, and therefore "
+                "does not prove contamination of any active statistic. "
+                "The four shapes are AT LEAST THREE "
                 "DIFFERENT OBJECTS wanting three different repairs, so this "
                 "check RAISES the population and adjudicates none of it "
                 "(`MISSING.md` M-25(a))",
@@ -2212,7 +2236,8 @@ def check_enclitic_convention(files, src):
     """
     import lyric_harness as LH
     out = []
-    attached_re = re.compile(r"\w('(?:s|ll|re|ve|d|m|t|n))\b", re.I)
+    attached_re = re.compile(r"\w(" + "|".join(
+        re.escape(enclitic) for enclitic in LH.ENCLITICS) + r")\b", re.I)
     spaced_only, attached_only, both, dominant = 0, 0, 0, []
     for rel, cf in files:
         lang, _ = declared_language(cf, rel)
@@ -2220,7 +2245,10 @@ def check_enclitic_convention(files, src):
             continue
         text = LH.fold_apostrophes(cf.text)
         spaced = len(LH._SPACED_ENCLITIC.findall(text))
-        attached = len(attached_re.findall(text)) - spaced
+        # These patterns are disjoint: the attached pattern requires a word
+        # character immediately before the apostrophe. Subtracting spaced
+        # matches invents negative counts and false dominance findings.
+        attached = len(attached_re.findall(text))
         if not spaced and not attached:
             continue
         if spaced and attached:
@@ -2944,7 +2972,7 @@ def main(argv=None):
                  sum(1 for f in findings if f.severity == WARN),
                  sum(1 for f in findings if f.severity == NOTE)))
 
-    if "--verify-shape" in sys.argv:
+    if a.verify_shape:
         return _verify_shape(files, findings)
     return 1 if any(f.severity == FAIL for f in findings) else 0
 
@@ -3144,7 +3172,15 @@ def main(argv=None):
 #: the six notes leave by declaration; its NEW third question (orphan `]`
 #: closes in the kept stream) measures 0, so the whole delta is -6 and
 #: both new-staging guards are silent today.
-PINNED_SHAPE = {"files": 1430, "FAIL": 1, "WARN": 340, "NOTE": 1228}
+#: REPINNED 2026-09-08 from WARN 340 / NOTE 1228, after a full actual audit.
+#: WARN 141: the complete byte-bound snapshot resolves 198 missing-hash
+#: findings; Read's preserved title-page apparatus removes one H warning.
+#: NOTE 1195: J's disjoint attached/spaced regex counts were incorrectly
+#: subtracted, producing negative counts and 33 false dominance notes.
+#: J now measures 1048 attached-only, 0 spaced-only, 245 both; 26 dominant.
+#: H is explicitly a raw-staging census, not a claim about reader retention.
+#: The standing Persian-prefix LICENSE language FAIL remains disclosed.
+PINNED_SHAPE = {"files": 1430, "FAIL": 1, "WARN": 141, "NOTE": 1195}
 
 
 def _verify_shape(files, findings):

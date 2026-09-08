@@ -41,6 +41,8 @@ async function fixture({
   budgetBroker,
   extraEnv = {},
   onLifecycle,
+  maxAdmitted,
+  maxInputBytes,
 } = {}) {
   const dir = await mkdtemp(path.join(tmpdir(), 'lyrics-bridge-test-'));
   const harnessDir = path.join(dir, 'lyric-harness');
@@ -136,6 +138,8 @@ if __name__ == '__main__':
     },
     openKitchenBudget: budgetBroker,
     onLifecycle,
+    maxAdmitted,
+    maxInputBytes,
   });
   return {
     ...bridge,
@@ -333,7 +337,7 @@ test('MCP cancellation notification reaches a running bridge job', async () => {
   }
 });
 
-async function modelFixture({ hang = false } = {}) {
+async function modelFixture({ hang = false, payload } = {}) {
   let requests = 0;
   let markRequestReady;
   const requestReady = new Promise((resolve) => {
@@ -348,16 +352,18 @@ async function modelFixture({ hang = false } = {}) {
     if (hang) return;
     res.writeHead(200, { 'content-type': 'application/json' });
     res.end(
-      JSON.stringify({
-        candidates: [{ content: { parts: [{ text: 'saved' }] } }],
-        usageMetadata: {
-          promptTokenCount: 300,
-          candidatesTokenCount: 7,
-          thoughtsTokenCount: 900,
-          cachedContentTokenCount: 200,
-          totalTokenCount: 1207,
-        },
-      })
+      JSON.stringify(
+        payload ?? {
+          candidates: [{ finishReason: 'STOP', content: { parts: [{ text: 'saved' }] } }],
+          usageMetadata: {
+            promptTokenCount: 300,
+            candidatesTokenCount: 7,
+            thoughtsTokenCount: 900,
+            cachedContentTokenCount: 200,
+            totalTokenCount: 1207,
+          },
+        }
+      )
     );
   });
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
@@ -578,6 +584,7 @@ const bridge = createPythonBridge({
   harnessEnv: () => ({ ...process.env, TEST_LOG: ${JSON.stringify(f.log)}, PYTHONDONTWRITEBYTECODE: '1' }),
   timeoutMs: 2000, maxOutputBytes: 1048576,
 });
+
 const before = await bridge.internals.runWarm(['sleep', '0', 'before']);
 const oldPid = bridge.internals.pid();
 bridge.internals.kill();
@@ -595,5 +602,181 @@ process.stdout.write('IDLE_REAP_RESPAWN_OK\\n');
     assert.doesNotMatch(result.stderr, /unsettled top-level await/i);
   } finally {
     await f.close();
+  }
+});
+
+test('monotonic contexts ignore wall-clock steps on warm and cold paths', async () => {
+  for (const workerEnabled of [true, false])
+    for (const step of [-60_000, 60_000]) {
+      const context = { deadlineAt: performance.now() + 1500, deadlineMs: Date.now() + 1500 };
+      const f = await fixture({ workerEnabled, timeoutMs: 1500, getContext: () => context });
+      const clock = Date.now;
+      try {
+        Date.now = () => clock() + step;
+        const result = await f.runVerb(['sleep', '.01', 'clock stable']);
+        assert.equal(result.code, 0);
+        assert.match(result.stdout, /clock stable/);
+        assert.ok(context.deadlineAt > performance.now());
+      } finally {
+        Date.now = clock;
+        await f.close();
+      }
+    }
+});
+
+test('either inherited or explicit cancellation prevents spawn and cancels active work', async () => {
+  for (const parentAborted of [true, false]) {
+    const parent = new AbortController();
+    const child = new AbortController();
+    (parentAborted ? parent : child).abort();
+    const f = await fixture({ getContext: () => ({ signal: parent.signal }) });
+    try {
+      const result = await f.runVerb(['sleep', '0', 'must not run'], { signal: child.signal });
+      assert.equal(result.cancelled, true);
+      assert.equal((await f.events()).length, 0);
+    } finally {
+      await f.close();
+    }
+  }
+  for (const cancelParent of [true, false]) {
+    const parent = new AbortController();
+    const child = new AbortController();
+    const f = await fixture({ getContext: () => ({ signal: parent.signal }) });
+    try {
+      const running = f.runVerb(['hang', '2'], { signal: child.signal });
+      await ready(f.usageReady);
+      (cancelParent ? parent : child).abort();
+      assert.equal((await running).cancelled, true);
+    } finally {
+      await f.close();
+    }
+  }
+});
+
+test('global admission bounds jobs and bytes and cancellation promptly frees queue capacity', async () => {
+  const f = await fixture({ maxAdmitted: 2, maxInputBytes: 128, timeoutMs: 2000 });
+  try {
+    const active = f.runVerb(['sleep', '.2', 'first']);
+    const controller = new AbortController();
+    const queued = f.runVerb(['sleep', '.01', 'cancelled'], { signal: controller.signal });
+    const t = performance.now();
+    const refused = await f.runVerb(['sleep', '.01', 'over capacity']);
+    assert.equal(refused.error_code, 'PYTHON_BUSY');
+    assert.equal(refused.retryable, true);
+    assert.ok(performance.now() - t < 100);
+    assert.equal(f.capacity().admitted, 2);
+    controller.abort();
+    assert.equal((await queued).cancelled, true);
+    assert.equal(f.capacity().admitted, 1);
+    const next = f.runVerb(['sleep', '.01', 'next']);
+    assert.equal((await active).code, 0);
+    assert.equal((await next).code, 0);
+    assert.equal(f.capacity().admitted, 0);
+    assert.deepEqual(
+      (await f.events()).map((e) => e.mode),
+      ['sleep', 'sleep']
+    );
+    assert.throws(() => f.admit({ bytes: 129 }), { code: 'PYTHON_BUSY' });
+    assert.equal(f.capacity().admitted, 0);
+    const reservation = f.admit({ bytes: 128 });
+    assert.throws(() => f.admit({ bytes: 1 }), { code: 'PYTHON_BUSY' });
+    reservation.release();
+    assert.equal(f.capacity().admittedBytes, 0);
+  } finally {
+    await f.close();
+  }
+});
+
+test('preparation admission spans sequential verbs and releases safely in finally', async () => {
+  const f = await fixture({ maxAdmitted: 1 });
+  const admission = f.admit({ bytes: 123 });
+  try {
+    for (const word of ['first', 'second']) {
+      const result = await f.runVerb(['sleep', '.01', word], { admission });
+      assert.equal(result.code, 0);
+      assert.equal(f.capacity().admitted, 1);
+    }
+  } finally {
+    admission.release();
+    assert.equal(f.capacity().admitted, 0);
+    await f.close();
+  }
+});
+
+test('real warm/cold CLI refuses invalid usage and truncated candidates with authoritative accounting', async () => {
+  const dir = await mkdtemp(path.join(tmpdir(), 'lyrics-real-provider-test-'));
+  const draft = path.join(dir, 'draft.txt');
+  await writeFile(
+    draft,
+    'The elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat\n'
+  );
+  try {
+    for (const workerEnabled of [true, false])
+      for (const invalidUsage of [true, false]) {
+        const payload = {
+          candidates: [
+            {
+              finishReason: invalidUsage ? 'STOP' : 'MAX_TOKENS',
+              content: { parts: [{ text: 'Hold my hand' }] },
+            },
+          ],
+          usageMetadata: {
+            promptTokenCount: 100,
+            candidatesTokenCount: 4,
+            totalTokenCount: invalidUsage ? 999 : 104,
+          },
+        };
+        const model = await modelFixture({ payload });
+        const ledger = new PaidLedger({ pricing: () => ({ input: 1, output: 1 }) });
+        const budget = createOperationBudget({ ledger });
+        const receipts = [];
+        const bridge = createPythonBridge({
+          python: 'python3',
+          harnessDir: path.join(here, '..', 'lyric-harness'),
+          workerPath: path.join(here, 'worker.py'),
+          workerEnabled,
+          harnessEnv: () => ({ ...process.env, ...model.env, PYTHONPATH: here }),
+          timeoutMs: 60_000,
+          maxOutputBytes: 4 * 1024 * 1024,
+          getContext: () => ({ budget, onProposerUsage: (receipt) => receipts.push(receipt) }),
+          openKitchenBudget,
+        });
+        try {
+          const result = await bridge.runVerb([
+            'revise',
+            draft,
+            'AA',
+            '--relation=class:ASSONANCE',
+            '--attempts=1',
+            '--max-rounds=1',
+            '--backtrack=0',
+            '--propose=call:gemini_proposer:make',
+          ]);
+          assert.equal(model.requests(), 1, result.stdout + result.stderr);
+          assert.equal(result.code, 2, result.stdout + result.stderr);
+          assert.doesNotMatch(result.stderr, /Traceback/);
+          assert.equal(
+            result.proposer_record.failure_code,
+            invalidUsage ? 'PROVIDER_USAGE' : 'PROVIDER_TRUNCATED'
+          );
+          assert.equal(result.accounting_unknown, invalidUsage);
+          assert.equal(result.proposer_record.usage_unknown, invalidUsage);
+          assert.equal(result.accounting.accounting_unknown, invalidUsage);
+          assert.equal(result.accounting.events.length, 1);
+          assert.equal(result.accounting.reservedUsd, 0);
+          assert.equal(result.accounting.usd, budget.snapshot().usd);
+          assert.equal(
+            receipts.find((event) => event.status === 'settled').settlement,
+            invalidUsage ? 'unknown' : 'success'
+          );
+          assert.ok(result.checkpoint, 'accepted draft checkpoint survives provider refusal');
+        } finally {
+          await bridge.internals.kill();
+          await model.close();
+          budget.close();
+        }
+      }
+  } finally {
+    await rm(dir, { recursive: true, force: true });
   }
 });

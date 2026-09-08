@@ -11,6 +11,13 @@ const CHECKPOINT = '  lyric checkpoint: ';
 const USAGE = '  proposer event: ';
 const RESULT = '  lyric result: ';
 const CONTROL_CAP = 8 * 1024 * 1024;
+const positiveInteger = (value, fallback) =>
+  Number.isSafeInteger(Number(value)) && Number(value) > 0 ? Number(value) : fallback;
+export const PYTHON_MAX_ADMITTED = positiveInteger(process.env.LYRIC_QUEUE_MAX_JOBS, 16);
+export const PYTHON_MAX_INPUT_BYTES = positiveInteger(
+  process.env.LYRIC_QUEUE_MAX_BYTES,
+  32 * 1024 * 1024
+);
 
 function interrupted(message, flags = {}) {
   return Object.assign(new Error(message), flags);
@@ -126,8 +133,20 @@ export function createPythonBridge({
   getContext = () => ({}),
   openKitchenBudget,
   onLifecycle = () => {},
+  maxAdmitted = PYTHON_MAX_ADMITTED,
+  maxInputBytes = PYTHON_MAX_INPUT_BYTES,
 }) {
-  let tail = Promise.resolve();
+  if (
+    !Number.isSafeInteger(maxAdmitted) ||
+    maxAdmitted < 1 ||
+    !Number.isSafeInteger(maxInputBytes) ||
+    maxInputBytes < 1
+  )
+    throw new TypeError('Python queue limits must be positive integers');
+  const admissions = new Set();
+  let admittedBytes = 0;
+  const queue = [];
+  let active = false;
   let worker = null;
   let protocol = '';
   let nextId = 1;
@@ -276,21 +295,96 @@ export function createPythonBridge({
     const context = options?.context || getContext() || {};
     const now = Date.now();
     const at = performance.now();
-    const epochExternal = Math.min(options?.deadlineMs ?? Infinity, context.deadlineMs ?? Infinity);
-    const external = Math.min(epochExternal, now + (context.deadlineAt ?? Infinity) - at);
+    // Each source's monotonic value is authoritative; its epoch projection
+    // is only a compatibility fallback, never a second independent clock.
+    const deadline = (source) =>
+      Number.isFinite(source?.deadlineAt)
+        ? source.deadlineAt
+        : Number.isFinite(source?.deadlineMs)
+          ? at + source.deadlineMs - now
+          : Infinity;
+    const external = Math.min(deadline(options), deadline(context));
     // Leave response serialization/SDK delivery headroom when an upstream
     // deadline exists. A short test or caller deadline gets proportional room.
     const reserve = Number.isFinite(external)
-      ? Math.min(1000, Math.max(0, (external - now) * 0.05))
+      ? Math.min(1000, Math.max(0, (external - at) * 0.05))
       : 0;
+    const signals = [...new Set([options?.signal, context.signal].filter(Boolean))];
+    const signal = signals.length > 1 ? AbortSignal.any(signals) : signals[0];
+    const deadlineAt = Math.min(at + timeoutMs, external - reserve);
+    const deadlineMs = now + deadlineAt - at;
     return {
       ...options,
-      context,
+      context: { ...context, signal, deadlineAt, deadlineMs },
       controlToken: randomBytes(16).toString('hex'),
-      signal: options?.signal || context.signal,
-      deadlineMs: Math.min(now + timeoutMs, external - reserve),
-      deadlineAt: at + Math.min(timeoutMs, external - reserve - now),
+      signal,
+      deadlineMs,
+      deadlineAt,
     };
+  };
+  const admit = ({ bytes = 0, context = getContext() || {}, signal } = {}) => {
+    if (!Number.isSafeInteger(bytes) || bytes < 0)
+      throw interrupted('Python admission needs a nonnegative input byte count', {
+        code: 'BAD_REQUEST',
+      });
+    if (signal?.aborted || context.signal?.aborted)
+      throw interrupted('harness request cancelled before admission', { cancelled: true });
+    if (admissions.size >= maxAdmitted || bytes > maxInputBytes - admittedBytes)
+      throw interrupted('The lyric worker is busy; retry after current work completes.', {
+        code: 'PYTHON_BUSY',
+        retryable: true,
+        busy: true,
+      });
+    const token = {
+      bytes,
+      started: false,
+      releaseRequested: false,
+      release() {
+        // Once queued, the bridge owns release through completion/reaping.
+        if (token.started) {
+          token.releaseRequested = true;
+          return;
+        }
+        if (admissions.delete(token)) admittedBytes -= token.bytes;
+      },
+    };
+    admissions.add(token);
+    admittedBytes += bytes;
+    return token;
+  };
+  const release = (token, owned = true) => {
+    token.started = false;
+    if (owned || token.releaseRequested) token.release();
+  };
+  const pump = () => {
+    if (active || !queue.length) return;
+    const job = queue.shift();
+    active = true;
+    job.started = true;
+    job.cleanup();
+    const complete = async () => {
+      await reaping;
+      release(job.admission, job.owned);
+      active = false;
+      pump();
+    };
+    Promise.resolve()
+      .then(job.execute)
+      .then(
+        async (result) => {
+          if (result.termination_pending) {
+            job.resolve(result);
+            await complete();
+          } else {
+            await complete();
+            job.resolve(result);
+          }
+        },
+        async (error) => {
+          await complete();
+          job.reject(error);
+        }
+      );
   };
   const requestEnv = (options) => ({
     ...options.budgetEnv,
@@ -419,6 +513,9 @@ export function createPythonBridge({
       timed_out: Boolean(error.timedOut),
       cancelled: Boolean(error.cancelled),
       termination_pending: Boolean(error.terminationPending),
+      busy: Boolean(error.busy),
+      retryable: Boolean(error.retryable),
+      error_code: error.code,
     };
     result.stderr += `${result.stderr ? '\n' : ''}${error.message}`;
     if (error.overflowed) {
@@ -432,42 +529,27 @@ export function createPythonBridge({
     const t0 = performance.now();
     const options = limits(supplied);
     const stamp = (result, path) => ({ ...result, path, ms: Math.round(performance.now() - t0) });
-    let expired = false;
-    let finishEarly;
-    const early = new Promise((resolve) => {
-      finishEarly = resolve;
-    });
-    const expire = (cancelled) => {
-      expired = true;
-      finishEarly(
-        stamp(
-          failure(
-            args,
-            interrupted(
-              cancelled
-                ? 'harness request cancelled before dequeue'
-                : 'harness request expired in queue',
-              { cancelled, timedOut: !cancelled }
-            )
-          ),
-          'killed'
-        )
-      );
-    };
-    const abort = () => expire(true);
-    const timer = setTimeout(
-      () => expire(false),
-      Math.max(1, options.deadlineAt - performance.now())
-    );
-    options.signal?.addEventListener('abort', abort, { once: true });
-    if (options.signal?.aborted) expire(true);
+    let admission;
+    try {
+      admission =
+        supplied.admission || admit({ bytes: Buffer.byteLength(JSON.stringify(args)), ...options });
+      if (!admissions.has(admission) || admission.started || admission.releaseRequested)
+        throw interrupted('Invalid or already used Python admission', { code: 'BAD_REQUEST' });
+      admission.started = true;
+    } catch (error) {
+      return Promise.resolve(stamp(failure(args, error), error.busy ? 'busy' : 'killed'));
+    }
     const execute = async () => {
       await reaping;
-      clearTimeout(timer);
-      options.signal?.removeEventListener('abort', abort);
-      if (expired || options.signal?.aborted || performance.now() >= options.deadlineAt)
+      if (options.signal?.aborted || performance.now() >= options.deadlineAt)
         return stamp(
-          failure(args, interrupted('harness request expired before dequeue', { timedOut: true })),
+          failure(
+            args,
+            interrupted('harness request expired before dequeue', {
+              timedOut: !options.signal?.aborted,
+              cancelled: Boolean(options.signal?.aborted),
+            })
+          ),
           'killed'
         );
       const kitchen = args.some((arg) => arg.startsWith('--propose=call:'));
@@ -532,6 +614,10 @@ export function createPythonBridge({
             console.error(`[lyric] accounting cleanup after delayed reap failed: ${error.message}`);
           }
         });
+        if (broker?.accounting) {
+          result.accounting = broker.accounting();
+          result.accounting_unknown ||= result.accounting.accounting_unknown;
+        }
         return result;
       }
       try {
@@ -543,17 +629,68 @@ export function createPythonBridge({
         result.accounting_unknown = true;
         result.stderr += `${result.stderr ? '\n' : ''}kitchen accounting close failed: ${error.message}`;
       }
+      if (broker?.accounting) {
+        result.accounting = broker.accounting();
+        result.accounting_unknown ||= result.accounting.accounting_unknown;
+        if (result.proposer_record)
+          result.proposer_record.usage_unknown ||= result.accounting_unknown;
+      }
       return result;
     };
-    const run = tail.then(execute, execute);
-    tail = run.then(
-      () => reaping,
-      () => reaping
-    );
-    return Promise.race([run, early]);
+    return new Promise((resolve, reject) => {
+      let timer;
+      const job = {
+        admission,
+        owned: !supplied.admission,
+        execute,
+        resolve,
+        reject,
+        started: false,
+        cleanup() {
+          clearTimeout(timer);
+          options.signal?.removeEventListener('abort', abort);
+        },
+      };
+      const expire = (cancelled) => {
+        if (job.started) return;
+        const index = queue.indexOf(job);
+        if (index !== -1) queue.splice(index, 1);
+        job.cleanup();
+        release(admission, job.owned);
+        resolve(
+          stamp(
+            failure(
+              args,
+              interrupted(
+                cancelled
+                  ? 'harness request cancelled before dequeue'
+                  : 'harness request expired in queue',
+                { cancelled, timedOut: !cancelled }
+              )
+            ),
+            'killed'
+          )
+        );
+      };
+      const abort = () => expire(true);
+      queue.push(job);
+      timer = setTimeout(() => expire(false), Math.max(1, options.deadlineAt - performance.now()));
+      options.signal?.addEventListener('abort', abort, { once: true });
+      if (options.signal?.aborted) expire(true);
+      pump();
+    });
   };
   return {
     runVerb,
+    admit,
+    capacity: () => ({
+      maxAdmitted,
+      maxInputBytes,
+      admitted: admissions.size,
+      admittedBytes,
+      queued: queue.length,
+      active,
+    }),
     cleanup(fn) {
       if (!reapingChild) return fn();
       // An exceptionally slow SIGKILL acknowledgement must not cause a

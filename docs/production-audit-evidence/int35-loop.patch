@@ -1,0 +1,62 @@
+--- before/quality/loop.py
++++ after/quality/loop.py
+@@ -1037,6 +1037,18 @@
+         findings=[f for fs in found["per_line"].values() for f in fs] + list(found["whole"]))
+ 
+ 
++def _notify_verified(proposer, before, after, members, verdict, round_no):
++    """Report an actual verifier decision; application is a later checkpoint.
++
++    A stored provider answer, a declined question, or an unvisited batch
++    member never reaches this hook. Recording writers bind the decision to
++    the exact question and candidate they just returned.
++    """
++    record = getattr(proposer, "verified", None)
++    if record is not None:
++        record(list(before), list(after), tuple(members), verdict, round_no)
++
++
+ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
+                assume, profile, propose, whole=()):
+     tried = 0
+@@ -1073,6 +1085,8 @@
+         res = reviser.verify(lines, after, mandate, targeted=set(targets),
+                              profile=profile, blueprint=blueprint,
+                              subdivision=subdivision, assume=assume)
++        _notify_verified(propose, lines, after, sorted(targets), res,
++                         getattr(b, "round_no", None))
+         # THE VERDICT, TOLD TO THE PROPOSER THAT OFFERED THE LINE (M-236).
+         # A recording proposer (`defer:`) keeps it beside the answer, so a
+         # reader of the state file can say what verify made of each line
+@@ -1374,6 +1388,7 @@
+                 res = reviser.verify(lines, after, mandate, targeted=set(expanded),
+                                      profile=profile, blueprint=blueprint,
+                                      subdivision=subdivision, assume=assume)
++                _notify_verified(propose_group, lines, after, expanded, res, _round)
+                 if _record_g is not None:
+                     _record_g(expanded, _round, list(got), bool(res["accepted"]),
+                               list(res.get("reasons", ())))
+@@ -1511,6 +1526,7 @@
+                         lines, after, mandate, targeted=set(members),
+                         profile=profile, blueprint=blueprint,
+                         subdivision=subdivision, assume=assume)
++                    _notify_verified(propose_group, lines, after, members, res, _round)
+                     if _record_g is not None:
+                         _record_g(members, _round, list(got),
+                                   bool(res["accepted"]),
+@@ -1585,6 +1601,7 @@
+                     targeted=set(members), profile=profile,
+                     blueprint=blueprint, subdivision=subdivision,
+                     assume=assume)
++                _notify_verified(propose_group, lines, after, members, res, _round)
+                 if _record_g is not None:
+                     _record_g(members, _round, list(got),
+                               bool(res["accepted"]),
+@@ -1852,6 +1869,7 @@
+                     _v = reviser.verify(lines, _after, mandate, targeted=set(_members),
+                                         profile=profile, blueprint=blueprint,
+                                         subdivision=subdivision, assume=assume)
++                    _notify_verified(propose_group, lines, _after, _members, _v, round_no)
+                     _reasons = tuple(_v.get("reasons", ()))
+                     _record = getattr(propose_group, "record", None)
+                     if _record is not None:

@@ -52,7 +52,8 @@ CONFIGURATION IS ENVIRONMENT, DECLARED BY THE CONNECTOR AT WORKER SPAWN:
                                rejected line is re-asked with its rejection
                                quoted, and at 0 the re-ask returns the same
                                bytes and spends the attempt for nothing
-  LYRIC_PROPOSER_MAX_TOKENS    default 256 (one line, or one short group)
+  LYRIC_PROPOSER_MAX_TOKENS    default 1024 per requested line, up to31;
+                               an explicit lower allowance refuses dispatch
 
 THE TRANSIENT POLICY RESTATES `gemini_agent.js`'s (RETRY_TRANSIENT
 500/502/503/504, three retries at 1 / 2 / 4 s); `mcp/test.mjs` pins the two
@@ -81,8 +82,14 @@ import sys
 import time
 import urllib.error
 import urllib.request
+from email.utils import parsedate_to_datetime
 
 DEFAULT_API_BASE = "https://generativelanguage.googleapis.com/v1beta"
+MAX_RESPONSE_BYTES = 1024 * 1024
+MAX_PROPOSAL_LINES = 31
+MAX_PROPOSAL_BYTES_PER_LINE = 200 * 4 + 16  # UTF-8 lyric plus L<number> marker
+OUTPUT_TOKENS_PER_LINE = 1024
+MAX_TOKEN_COUNT = 9007199254740991  # same integer domain as the JS ledger
 
 #: gemini_agent.js RETRY_TRANSIENT, restated (see above).
 TRANSIENT_STATUSES = (500, 502, 503, 504)
@@ -135,14 +142,20 @@ def _env(name, default=None):
 
 def _retry_after_s(headers, body):
     """The server's own hint, in seconds, or None."""
-    ra = headers.get("Retry-After") if headers else None
+    ra = next((value for key, value in (headers.items() if headers else ())
+               if key.lower() == "retry-after"), None)
     if ra:
         try:
             value = float(ra)
             if math.isfinite(value) and value >= 0:
                 return value
-        except ValueError:
-            pass
+        except (ValueError, TypeError):
+            try:
+                date = parsedate_to_datetime(ra)
+                if date.tzinfo is not None:
+                    return max(0.0, date.timestamp() - time.time())
+            except (ValueError, TypeError, OverflowError):
+                pass
     try:
         for d in (body or {}).get("error", {}).get("details", []):
             delay = d.get("retryDelay")
@@ -155,8 +168,32 @@ def _retry_after_s(headers, body):
     return None
 
 
+def _usage_state(usage):
+    """Validate without coercion; missing accounting remains explicitly unknown."""
+    if usage is None or usage == {}:
+        return {}, False, None
+    if not isinstance(usage, dict):
+        return {}, False, "usageMetadata must be an object"
+    fields = ("promptTokenCount", "candidatesTokenCount", "thoughtsTokenCount",
+              "cachedContentTokenCount", "totalTokenCount", "toolUsePromptTokenCount")
+    for field in fields:
+        if field in usage and (type(usage[field]) is not int or
+                               not 0 <= usage[field] <= MAX_TOKEN_COUNT):
+            return {}, False, f"invalid {field}"
+    known = all(field in usage for field in fields[:2])
+    total = sum(usage.get(key, 0) for key in
+                ("promptTokenCount", "candidatesTokenCount", "thoughtsTokenCount",
+                 "toolUsePromptTokenCount"))
+    if "totalTokenCount" in usage and usage["totalTokenCount"] != total:
+        return usage, False, "inconsistent totalTokenCount"
+    if usage.get("cachedContentTokenCount", 0) > usage.get("promptTokenCount", 0):
+        return usage, False, "cachedContentTokenCount exceeds promptTokenCount"
+    return usage, known, None
+
+
 class _Kitchen:
     def __init__(self):
+        self._max_lines = 1
         self.calls = 0
         self.ms_total = 0
         self.tokens_in = 0
@@ -173,8 +210,24 @@ class _Kitchen:
         self.unknown_attempts = 0
         self.in_flight = False
         self._call_started = None
-        deadline = float(_env("LYRIC_REQUEST_DEADLINE_MS", "inf")) / 1000
-        self.deadline = time.monotonic() + max(0, deadline - time.time())
+        self.finish_reason = None
+        self.prompt_feedback = None
+        self.failure_code = None
+        self._configuration_error = None
+        try:
+            deadline = float(_env("LYRIC_REQUEST_DEADLINE_MS", "inf")) / 1000
+            if math.isnan(deadline):
+                raise ValueError("deadline is NaN")
+            self.deadline = time.monotonic() + max(0, deadline - time.time())
+        except ValueError:
+            self.deadline = math.inf
+            self._configuration_error = "invalid kitchen request deadline"
+
+    def _refuse(self, code, message):
+        self.failure_code = code
+        error = ProposerUnavailable(message)
+        error.code = code
+        raise error
 
     def _remaining(self):
         remaining = self.deadline - time.monotonic()
@@ -192,7 +245,9 @@ class _Kitchen:
             "tokens_total": self.tokens_total, "empty": self.empty,
             "retries": self.retries, "wait_s": self.waited_s, "wait_pending_s": self.wait_pending_s,
             "status": status, "in_flight": self.in_flight,
-            "usage_unknown": bool(self.unknown_attempts), "unknown_attempts": self.unknown_attempts}
+            "usage_unknown": bool(self.unknown_attempts), "unknown_attempts": self.unknown_attempts,
+            "finish_reason": self.finish_reason, "prompt_feedback": self.prompt_feedback,
+            "failure_code": self.failure_code}
         print("  proposer event: " + json.dumps(record, separators=(",", ":")), flush=True)
 
     def _budget(self, action, **fields):
@@ -224,6 +279,8 @@ class _Kitchen:
     def _check(self):
         if self._checked:
             return
+        if self._configuration_error:
+            self._refuse("PROPOSER_CONFIG", self._configuration_error)
         if not _env("GEMINI_API_KEY"):
             raise ProposerUnavailable(
                 "GEMINI_API_KEY is not set for the kitchen proposer — the "
@@ -240,18 +297,26 @@ class _Kitchen:
         key = _env("GEMINI_API_KEY")
         model = _env("LYRIC_PROPOSER_MODEL") or _env("GEMINI_MODEL")
         base = _env("LYRIC_PROPOSER_API_BASE", DEFAULT_API_BASE).rstrip("/")
+        try:
+            temperature = float(_env("LYRIC_PROPOSER_TEMPERATURE", "0.8"))
+            required_tokens = OUTPUT_TOKENS_PER_LINE * self._max_lines
+            max_tokens = int(_env("LYRIC_PROPOSER_MAX_TOKENS", str(required_tokens)))
+            budget = float(_env("LYRIC_PROPOSER_WAIT_BUDGET_S", str(WAIT_BUDGET_DEFAULT_S)))
+            if not (math.isfinite(temperature) and 0 <= temperature <= 2 and
+                    required_tokens <= max_tokens <= 65536 and math.isfinite(budget) and budget >= 0):
+                raise ValueError("out of bounds")
+        except ValueError:
+            self._refuse("PROPOSER_CONFIG", "invalid kitchen generation or wait configuration")
         body = {
             "systemInstruction": {"parts": [{"text": SYSTEM_INSTRUCTION}]},
             "contents": [{"role": "user", "parts": [{"text": prompt}]}],
             "generationConfig": {
-                "temperature": float(_env("LYRIC_PROPOSER_TEMPERATURE", "0.8")),
-                "maxOutputTokens": int(_env("LYRIC_PROPOSER_MAX_TOKENS", "256")),
+                "temperature": temperature,
+                "maxOutputTokens": max_tokens,
             },
         }
         data = json.dumps(body).encode("utf-8")
         url = f"{base}/models/{model}:generateContent"
-        budget = float(_env("LYRIC_PROPOSER_WAIT_BUDGET_S",
-                            str(WAIT_BUDGET_DEFAULT_S)))
         rate_limited, transient = 0, 0
         while True:
             self._remaining()
@@ -266,14 +331,14 @@ class _Kitchen:
                 headers={"content-type": "application/json", "x-goog-api-key": key})
             try:
                 with urllib.request.urlopen(req, timeout=min(60, self._remaining())) as resp:
-                    reply = json.loads(resp.read().decode("utf-8") or "null")
+                    raw = resp.read(MAX_RESPONSE_BYTES + 1)
             except urllib.error.HTTPError as error:
                 self.in_flight = False
                 self._budget("settle", reservation_id=reservation_id, usage=None, status="rejected")
                 self._emit("rejected")
                 status = error.code
                 try:
-                    payload = json.loads(error.read().decode("utf-8") or "null")
+                    payload = json.loads(error.read(MAX_RESPONSE_BYTES).decode("utf-8") or "null")
                 except (ValueError, UnicodeDecodeError):
                     payload = None
                 if status == 429:
@@ -306,7 +371,9 @@ class _Kitchen:
                     self.retries += 1
                     self._sleep(wait, "transient_wait")
                     continue
-                detail = (payload or {}).get("error", {}).get("message", "") if isinstance(payload, dict) else ""
+                detail = payload.get("error") if isinstance(payload, dict) else None
+                detail = detail.get("message") if isinstance(detail, dict) else None
+                detail = detail if isinstance(detail, str) else ""
                 raise ProposerUnavailable(
                     f"Gemini {status}{': ' + detail if detail else ''}"
                     + (f" after {transient} transient retries" if transient else "")) from None
@@ -322,34 +389,74 @@ class _Kitchen:
                     continue
                 raise ProposerUnavailable(f"transport failed after {transient} retries: {error}") from None
             self.in_flight = False
+            try:
+                if len(raw) > MAX_RESPONSE_BYTES:
+                    raise ValueError("provider response exceeds size limit")
+                reply = json.loads(raw.decode("utf-8"))
+            except (ValueError, UnicodeDecodeError):
+                self.unknown_attempts += 1
+                self._budget("settle", reservation_id=reservation_id, usage=None, status="unknown")
+                self._refuse("PROVIDER_PROTOCOL", "Gemini returned unreadable or oversized JSON")
             usage = reply.get("usageMetadata") if isinstance(reply, dict) else None
-            if not isinstance(usage, dict) or not usage:
+            usage, known, usage_error = _usage_state(usage)
+            if not known:
                 self.unknown_attempts += 1
             # Retain known usage before settlement itself can fail. The broker
             # conservatively holds a reservation if it loses the settlement.
-            usage = usage if isinstance(usage, dict) else {}
-            self.tokens_in += int(usage.get("promptTokenCount") or 0)
-            self.tokens_out += int(usage.get("candidatesTokenCount") or 0)
-            self.tokens_thoughts += int(usage.get("thoughtsTokenCount") or 0)
-            self.tokens_cached += int(usage.get("cachedContentTokenCount") or 0)
-            self.tokens_total += int(usage.get("totalTokenCount") or
-                sum(int(usage.get(key) or 0) for key in
-                    ("promptTokenCount", "candidatesTokenCount", "thoughtsTokenCount")))
+            self.tokens_in += usage.get("promptTokenCount", 0)
+            self.tokens_out += usage.get("candidatesTokenCount", 0)
+            self.tokens_thoughts += usage.get("thoughtsTokenCount", 0)
+            self.tokens_cached += usage.get("cachedContentTokenCount", 0)
+            self.tokens_total += usage.get("totalTokenCount", sum(usage.get(key, 0) for key in
+                    ("promptTokenCount", "candidatesTokenCount", "thoughtsTokenCount", "toolUsePromptTokenCount")))
             self._emit("response")
-            self._budget("settle", reservation_id=reservation_id, usage=usage, status="success")
+            settled = self._budget("settle", reservation_id=reservation_id,
+                                   usage=usage, status="success")
+            if settled.get("status") == "unknown" and known:
+                self.unknown_attempts += 1
+            if usage_error:
+                self._refuse("PROVIDER_USAGE", f"Gemini returned invalid usage: {usage_error}")
             return reply, model
 
-    @staticmethod
-    def _text_of(reply):
-        try:
-            parts = reply["candidates"][0]["content"]["parts"]
-        except (KeyError, IndexError, TypeError):
-            return ""
-        return "".join(p.get("text", "") for p in parts
-                       if isinstance(p, dict) and not p.get("thought"))
+    def _text_of(self, reply):
+        if not isinstance(reply, dict):
+            self._refuse("PROVIDER_PROTOCOL", "Gemini response must be an object")
+        self.prompt_feedback = reply.get("promptFeedback")
+        if self.prompt_feedback is not None and not isinstance(self.prompt_feedback, dict):
+            self._refuse("PROVIDER_PROTOCOL", "Gemini promptFeedback must be an object")
+        candidates = reply.get("candidates", [])
+        if not isinstance(candidates, list) or any(not isinstance(c, dict) for c in candidates):
+            self._refuse("PROVIDER_PROTOCOL", "Gemini candidates must be objects in a list")
+        if not candidates:
+            self._refuse("PROVIDER_REFUSAL", "Gemini returned no candidate; see prompt_feedback")
+        self.finish_reason = candidates[0].get("finishReason")
+        if not isinstance(self.finish_reason, str):
+            self._refuse("PROVIDER_PROTOCOL", "Gemini candidate is missing its finishReason")
+        if self.finish_reason != "STOP":
+            self._refuse("PROVIDER_TRUNCATED" if self.finish_reason == "MAX_TOKENS" else "PROVIDER_REFUSAL",
+                         f"Gemini candidate did not complete: {self.finish_reason}")
+        content = candidates[0].get("content")
+        parts = content.get("parts") if isinstance(content, dict) else None
+        if not isinstance(parts, list) or any(not isinstance(p, dict) or
+                ("text" in p and not isinstance(p["text"], str)) or
+                ("thought" in p and not isinstance(p["thought"], bool)) for p in parts):
+            self._refuse("PROVIDER_PROTOCOL", "Gemini content parts must contain string text")
+        if any("text" not in p for p in parts):
+            self._refuse("PROVIDER_PROTOCOL", "Gemini returned a non-text proposal part")
+        text = "".join(p["text"] for p in parts if not p.get("thought"))
+        if len(text.encode("utf-8")) > self._max_lines * MAX_PROPOSAL_BYTES_PER_LINE:
+            self._refuse("PROVIDER_PROPOSAL_TOO_LARGE", "Gemini proposal exceeds the declared line capacity")
+        return text
 
     def __call__(self, prompt):
+        return self.with_capacity(prompt, max_lines=1)
+
+    def with_capacity(self, prompt, *, max_lines):
+        if type(max_lines) is not int or not 1 <= max_lines <= MAX_PROPOSAL_LINES:
+            self._refuse("PROPOSER_CONFIG", "proposal line capacity must be an integer from1 to31")
+        self._max_lines = max_lines
         self._call_started = time.monotonic()
+        self.finish_reason = self.prompt_feedback = self.failure_code = None
         t_in = t_out = 0
         finish = ""
         status = "failed"
@@ -361,15 +468,17 @@ class _Kitchen:
             usage = (reply or {}).get("usageMetadata") or {}
             t_in = int(usage.get("promptTokenCount") or 0)
             t_out = int(usage.get("candidatesTokenCount") or 0)
-            try:
-                finish = reply["candidates"][0].get("finishReason", "") or ""
-            except (KeyError, IndexError, TypeError):
-                pass
+            finish = self.finish_reason
             self.calls += 1
             status = "ok" if text.strip() else "empty"
             if not text.strip():
                 self.empty += 1
             return text
+        except ProposerUnavailable:
+            status = "truncated" if self.failure_code == "PROVIDER_TRUNCATED" else (
+                "refused" if self.failure_code else "failed")
+            finish = self.finish_reason
+            raise
         finally:
             ms = int((time.monotonic() - self._call_started) * 1000)
             self.ms_total += ms

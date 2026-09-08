@@ -1,0 +1,7 @@
+{
+  "before_sha256": "65bd9d9c9a42d264e3ae8f317831261c71deb63f794681a3fd5f40b52704f955",
+  "after_sha256": "6584a566c288a74ad0a0b73deb9f2966e01044d282af94db9c5bf18aacef2678",
+  "fix": "Serialize the enriched request-local worker state before foldedOf reads it; no native grading/proposal/state replay changes.",
+  "negative_evidence": "connector-split-liveness-separate-answer-failure.json",
+  "pending_positive": "connector-split-liveness-final.json"
+}

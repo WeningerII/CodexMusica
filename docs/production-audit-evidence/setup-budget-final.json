@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "scope": "Setup-only formula and executable workflow/Docker consistency; not measured target-runtime fit.",
+  "source_files": {
+    ".github/workflows/capacity-proof.yml": "6e20c2aa27da494b9b046a0633292fd4871dc2ab5a376ae25af19bcfca7d1650",
+    ".github/workflows/ci.yml": "8ef80b6a31515d85d5059de6f8f1e97f1efbe770352eacec1fda6a0afae9a916",
+    "mcp/Dockerfile": "1337d3800808a32c1c75e9ec72481ce9f8339341a4c7635a426f5dd2c5b38b68",
+    "mcp/IMAGE_RELEASE.md": "6953ea0c5e13a4f8917672e8df2a481ab5256fdbb911a34de82cce19f7443713"
+  },
+  "source_stable": true,
+  "observed_costs_s": {
+    "serial_wall_previous_epoch": 1600.725,
+    "aggregate_cpu_later_four_workers": 2042.343272
+  },
+  "allowance_rule": "1.25 times max(observed costs), rounded up to5minutes",
+  "proof_minutes": 45,
+  "proof_job_minutes": 55,
+  "image_build_minutes": 55,
+  "image_job_minutes": 145,
+  "image_sum": "2+55+5+65+18=145",
+  "capacity_step_minutes": 65,
+  "controls_passed": [
+    "measured_cost_formula",
+    "reusable_job_overhead",
+    "actual_reusable_timeout_and_log",
+    "actual_Docker_timeout",
+    "build_step_and_both_byte_receipts",
+    "full_job_sum",
+    "matrix_bound_preserved",
+    "all_workflow_YAML_parses",
+    "source_stable"
+  ],
+  "wall_s": 0.4381054769983166,
+  "production_fit_measured": false,
+  "production_runtime_clocks_changed": false
+}

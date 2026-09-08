@@ -1,0 +1,323 @@
+{
+  "scope": "Actual Reviser.verify through _try_tier1, persisted native checkpoints, two finite resumes, no model or scoring mocks.",
+  "native_receipt_sha256": "d60823df85ea6bec39d91463644693cd8e0820dd1e3777afe05a4d1130173e84",
+  "native_source_sha256": {
+    "lyric-harness/lyric_harness.py": "00f0e288cb670a7c88d8747fbab41c4b4aa3866484b14a7c7d9e7a79137464fc",
+    "lyric-harness/quality/loop.py": "c4195e93d5d37cd805c78bce006fc83c11471cb5eefee59f6bf3e76ac3cbae7e",
+    "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679"
+  },
+  "calls_after_original": [1, 2, 3],
+  "calls_after_partial": [1, 2, 3],
+  "calls_after_final": [1, 2, 3, 4],
+  "partial": {
+    "version": 1,
+    "input_draft": [
+      "The elephant elephant elephant elephant elephant elephant stove",
+      "The elephant elephant elephant elephant elephant elephant coat",
+      "The elephant elephant elephant elephant elephant elephant rain",
+      "The elephant elephant elephant elephant elephant elephant stone"
+    ],
+    "journal_id": "3496934a838c4cb2b3c8090629297474",
+    "input_fingerprint": "757f88d01e43",
+    "config_key": "nested-cfg",
+    "proposer": "fake",
+    "accepted_lines": [
+      "My kettle whistles by the stove",
+      "Your fingers brush my heavy coat",
+      "The window shakes beneath the heavy rain",
+      "The elephant elephant elephant elephant elephant elephant stone"
+    ],
+    "round": 1,
+    "status": "accepted",
+    "proposals": [
+      {
+        "kind": "propose",
+        "question_sha256": "023f671ca0bf1a46c45ebe6d6e535333e89ea79e3b9b495e477e364f382c2f2c",
+        "answer": "My kettle whistles by the stove"
+      },
+      {
+        "kind": "propose",
+        "question_sha256": "25fa9ba869d5b5bae21fada27d1fc97bed60b6d70b31560ba96cb3443d24b69d",
+        "answer": "Your fingers brush my heavy coat"
+      },
+      {
+        "kind": "propose",
+        "question_sha256": "915e54389f40671539171ab90979f2b76ca0799de84c6ddd78c6a4a6a18e0258",
+        "answer": "The window shakes beneath the heavy rain"
+      }
+    ],
+    "answered": {
+      "propose": [
+        {
+          "line": 1,
+          "attempt": 0,
+          "round": 1,
+          "draft": "757f88d01e43",
+          "text": "My kettle whistles by the stove"
+        },
+        {
+          "line": 2,
+          "attempt": 0,
+          "round": 1,
+          "draft": "0213ff7bdcfb",
+          "text": "Your fingers brush my heavy coat"
+        },
+        {
+          "line": 3,
+          "attempt": 0,
+          "round": 1,
+          "draft": "1a8a54e05948",
+          "text": "The window shakes beneath the heavy rain"
+        }
+      ],
+      "propose_group": []
+    },
+    "verified_outcomes": [
+      {
+        "kind": "propose",
+        "proposal_index": 0,
+        "question_sha256": "023f671ca0bf1a46c45ebe6d6e535333e89ea79e3b9b495e477e364f382c2f2c",
+        "round": 1,
+        "attempt": 0,
+        "members": [1],
+        "accepted": true,
+        "applied": true,
+        "reasons": ["fixed 4, introduced 0, changed only [1]"],
+        "before_draft_sha256": "e0e34a47a6002b0cc4653ed9f8ce7db3479fedea3c9c5a240edf5c03b743e2e1",
+        "after_draft_sha256": "f5bbbe80d29dca88679e37bb174b27cc4ce116ab1328f6fd7c93281677ea3b2a",
+        "outcome_id": "dd954e7541b0b5418c21e77ab54247123f0f8d84c77281c30d436504371c10f2",
+        "applied_draft_sha256": "f5bbbe80d29dca88679e37bb174b27cc4ce116ab1328f6fd7c93281677ea3b2a"
+      }
+    ],
+    "resume_proof": {
+      "version": 1,
+      "journal_id": "3496934a838c4cb2b3c8090629297474",
+      "checkpoint_loaded": true,
+      "input_checkpoint_sha256": "821d89e4c2650aa371c3f8baab4af04439d3d2ddc3df56320d0e759b9235cdfb",
+      "input_draft_sha256": "e0e34a47a6002b0cc4653ed9f8ce7db3479fedea3c9c5a240edf5c03b743e2e1",
+      "accepted_draft_sha256_at_start": "c3e0e2cd3dddcced5094fd39490e5934ffb7c4354832f6436436496cbe732c21",
+      "applied_outcome_ids_at_start": [
+        "96530a2b4e8c63e932cb8d00c246ab7955d6a3efbb157a9dbfd272c083cafb89",
+        "dcf9ce6bc4f30b894a4b798b4bbbd44778c754ffb73accf148716b9efff8ea27",
+        "dd954e7541b0b5418c21e77ab54247123f0f8d84c77281c30d436504371c10f2"
+      ],
+      "completed_proposals_at_start": 3,
+      "completed_proposals_replayed": 1,
+      "new_proposer_dispatches": 0,
+      "completed_proposal_redispatches": 0,
+      "replay_prefix_consumed": false
+    }
+  },
+  "original": {
+    "version": 1,
+    "input_draft": [
+      "The elephant elephant elephant elephant elephant elephant stove",
+      "The elephant elephant elephant elephant elephant elephant coat",
+      "The elephant elephant elephant elephant elephant elephant rain",
+      "The elephant elephant elephant elephant elephant elephant stone"
+    ],
+    "journal_id": "3496934a838c4cb2b3c8090629297474",
+    "input_fingerprint": "757f88d01e43",
+    "config_key": "nested-cfg",
+    "proposer": "fake",
+    "accepted_lines": [
+      "My kettle whistles by the stove",
+      "Your fingers brush my heavy coat",
+      "The window shakes beneath the heavy rain",
+      "The elephant elephant elephant elephant elephant elephant stone"
+    ],
+    "round": 1,
+    "status": "accepted",
+    "proposals": [
+      {
+        "kind": "propose",
+        "question_sha256": "023f671ca0bf1a46c45ebe6d6e535333e89ea79e3b9b495e477e364f382c2f2c",
+        "answer": "My kettle whistles by the stove"
+      },
+      {
+        "kind": "propose",
+        "question_sha256": "25fa9ba869d5b5bae21fada27d1fc97bed60b6d70b31560ba96cb3443d24b69d",
+        "answer": "Your fingers brush my heavy coat"
+      },
+      {
+        "kind": "propose",
+        "question_sha256": "915e54389f40671539171ab90979f2b76ca0799de84c6ddd78c6a4a6a18e0258",
+        "answer": "The window shakes beneath the heavy rain"
+      }
+    ],
+    "answered": {
+      "propose": [
+        {
+          "line": 1,
+          "attempt": 0,
+          "round": 1,
+          "draft": "757f88d01e43",
+          "text": "My kettle whistles by the stove"
+        },
+        {
+          "line": 2,
+          "attempt": 0,
+          "round": 1,
+          "draft": "0213ff7bdcfb",
+          "text": "Your fingers brush my heavy coat"
+        },
+        {
+          "line": 3,
+          "attempt": 0,
+          "round": 1,
+          "draft": "1a8a54e05948",
+          "text": "The window shakes beneath the heavy rain"
+        }
+      ],
+      "propose_group": []
+    },
+    "verified_outcomes": [
+      {
+        "kind": "propose",
+        "proposal_index": 0,
+        "question_sha256": "023f671ca0bf1a46c45ebe6d6e535333e89ea79e3b9b495e477e364f382c2f2c",
+        "round": 1,
+        "attempt": 0,
+        "members": [1],
+        "accepted": true,
+        "applied": true,
+        "reasons": ["fixed 4, introduced 0, changed only [1]"],
+        "before_draft_sha256": "e0e34a47a6002b0cc4653ed9f8ce7db3479fedea3c9c5a240edf5c03b743e2e1",
+        "after_draft_sha256": "f5bbbe80d29dca88679e37bb174b27cc4ce116ab1328f6fd7c93281677ea3b2a",
+        "outcome_id": "dd954e7541b0b5418c21e77ab54247123f0f8d84c77281c30d436504371c10f2",
+        "applied_draft_sha256": "f5bbbe80d29dca88679e37bb174b27cc4ce116ab1328f6fd7c93281677ea3b2a"
+      },
+      {
+        "kind": "propose",
+        "proposal_index": 1,
+        "question_sha256": "25fa9ba869d5b5bae21fada27d1fc97bed60b6d70b31560ba96cb3443d24b69d",
+        "round": 1,
+        "attempt": 0,
+        "members": [2],
+        "accepted": true,
+        "applied": true,
+        "reasons": ["fixed 6, introduced 0, changed only [2]"],
+        "before_draft_sha256": "f5bbbe80d29dca88679e37bb174b27cc4ce116ab1328f6fd7c93281677ea3b2a",
+        "after_draft_sha256": "6ac868b2a1cd6df9e1023187bb0c52a6861921c544dafd88556b073355c2c685",
+        "outcome_id": "dcf9ce6bc4f30b894a4b798b4bbbd44778c754ffb73accf148716b9efff8ea27",
+        "applied_draft_sha256": "6ac868b2a1cd6df9e1023187bb0c52a6861921c544dafd88556b073355c2c685"
+      },
+      {
+        "kind": "propose",
+        "proposal_index": 2,
+        "question_sha256": "915e54389f40671539171ab90979f2b76ca0799de84c6ddd78c6a4a6a18e0258",
+        "round": 1,
+        "attempt": 0,
+        "members": [3],
+        "accepted": true,
+        "applied": true,
+        "reasons": ["fixed 2, introduced 0, changed only [3]"],
+        "before_draft_sha256": "6ac868b2a1cd6df9e1023187bb0c52a6861921c544dafd88556b073355c2c685",
+        "after_draft_sha256": "c3e0e2cd3dddcced5094fd39490e5934ffb7c4354832f6436436496cbe732c21",
+        "outcome_id": "96530a2b4e8c63e932cb8d00c246ab7955d6a3efbb157a9dbfd272c083cafb89",
+        "applied_draft_sha256": "c3e0e2cd3dddcced5094fd39490e5934ffb7c4354832f6436436496cbe732c21"
+      }
+    ],
+    "resume_proof": {
+      "version": 1,
+      "journal_id": "3496934a838c4cb2b3c8090629297474",
+      "checkpoint_loaded": false,
+      "input_checkpoint_sha256": null,
+      "input_draft_sha256": "e0e34a47a6002b0cc4653ed9f8ce7db3479fedea3c9c5a240edf5c03b743e2e1",
+      "accepted_draft_sha256_at_start": "e0e34a47a6002b0cc4653ed9f8ce7db3479fedea3c9c5a240edf5c03b743e2e1",
+      "applied_outcome_ids_at_start": [],
+      "completed_proposals_at_start": 0,
+      "completed_proposals_replayed": 0,
+      "new_proposer_dispatches": 3,
+      "completed_proposal_redispatches": 0,
+      "replay_prefix_consumed": true
+    }
+  },
+  "final_record": {
+    "verified_outcomes": [
+      {
+        "kind": "propose",
+        "proposal_index": 0,
+        "question_sha256": "023f671ca0bf1a46c45ebe6d6e535333e89ea79e3b9b495e477e364f382c2f2c",
+        "round": 1,
+        "attempt": 0,
+        "members": [1],
+        "accepted": true,
+        "applied": true,
+        "reasons": ["fixed 4, introduced 0, changed only [1]"],
+        "before_draft_sha256": "e0e34a47a6002b0cc4653ed9f8ce7db3479fedea3c9c5a240edf5c03b743e2e1",
+        "after_draft_sha256": "f5bbbe80d29dca88679e37bb174b27cc4ce116ab1328f6fd7c93281677ea3b2a",
+        "outcome_id": "dd954e7541b0b5418c21e77ab54247123f0f8d84c77281c30d436504371c10f2",
+        "applied_draft_sha256": "f5bbbe80d29dca88679e37bb174b27cc4ce116ab1328f6fd7c93281677ea3b2a"
+      },
+      {
+        "kind": "propose",
+        "proposal_index": 1,
+        "question_sha256": "25fa9ba869d5b5bae21fada27d1fc97bed60b6d70b31560ba96cb3443d24b69d",
+        "round": 1,
+        "attempt": 0,
+        "members": [2],
+        "accepted": true,
+        "applied": true,
+        "reasons": ["fixed 6, introduced 0, changed only [2]"],
+        "before_draft_sha256": "f5bbbe80d29dca88679e37bb174b27cc4ce116ab1328f6fd7c93281677ea3b2a",
+        "after_draft_sha256": "6ac868b2a1cd6df9e1023187bb0c52a6861921c544dafd88556b073355c2c685",
+        "outcome_id": "dcf9ce6bc4f30b894a4b798b4bbbd44778c754ffb73accf148716b9efff8ea27",
+        "applied_draft_sha256": "6ac868b2a1cd6df9e1023187bb0c52a6861921c544dafd88556b073355c2c685"
+      },
+      {
+        "kind": "propose",
+        "proposal_index": 2,
+        "question_sha256": "915e54389f40671539171ab90979f2b76ca0799de84c6ddd78c6a4a6a18e0258",
+        "round": 1,
+        "attempt": 0,
+        "members": [3],
+        "accepted": true,
+        "applied": true,
+        "reasons": ["fixed 2, introduced 0, changed only [3]"],
+        "before_draft_sha256": "6ac868b2a1cd6df9e1023187bb0c52a6861921c544dafd88556b073355c2c685",
+        "after_draft_sha256": "c3e0e2cd3dddcced5094fd39490e5934ffb7c4354832f6436436496cbe732c21",
+        "outcome_id": "96530a2b4e8c63e932cb8d00c246ab7955d6a3efbb157a9dbfd272c083cafb89",
+        "applied_draft_sha256": "c3e0e2cd3dddcced5094fd39490e5934ffb7c4354832f6436436496cbe732c21"
+      },
+      {
+        "kind": "propose",
+        "proposal_index": 3,
+        "question_sha256": "ad30819c39d0d545a8cdc85fbeae8d5c95acb03a6439c12a6b69d30ebe5bcb12",
+        "round": 1,
+        "attempt": 0,
+        "members": [4],
+        "accepted": true,
+        "applied": true,
+        "reasons": ["fixed 1, introduced 0, changed only [4]"],
+        "before_draft_sha256": "c3e0e2cd3dddcced5094fd39490e5934ffb7c4354832f6436436496cbe732c21",
+        "after_draft_sha256": "92581aabbe7939b80ace59d9e048f23eeb838c8e48b7e8a96aab2b654d9de070",
+        "outcome_id": "ab1c7508be6ac33f90ad791827c8893abf2b185187da87871304eae2584441df",
+        "applied_draft_sha256": "92581aabbe7939b80ace59d9e048f23eeb838c8e48b7e8a96aab2b654d9de070"
+      }
+    ],
+    "resume_proof": {
+      "version": 1,
+      "journal_id": "3496934a838c4cb2b3c8090629297474",
+      "checkpoint_loaded": true,
+      "input_checkpoint_sha256": "e85d3b0bacd1503062825801c488ae6910308db1f8a9d80f269764e77ba092d3",
+      "input_draft_sha256": "e0e34a47a6002b0cc4653ed9f8ce7db3479fedea3c9c5a240edf5c03b743e2e1",
+      "accepted_draft_sha256_at_start": "c3e0e2cd3dddcced5094fd39490e5934ffb7c4354832f6436436496cbe732c21",
+      "applied_outcome_ids_at_start": [
+        "dd954e7541b0b5418c21e77ab54247123f0f8d84c77281c30d436504371c10f2"
+      ],
+      "completed_proposals_at_start": 3,
+      "completed_proposals_replayed": 3,
+      "new_proposer_dispatches": 1,
+      "completed_proposal_redispatches": 0,
+      "replay_prefix_consumed": true
+    },
+    "stale_answers": 0
+  },
+  "final_lines": [
+    "My kettle whistles by the stove",
+    "Your fingers brush my heavy coat",
+    "The window shakes beneath the heavy rain",
+    "His folded paper rests upon the stone"
+  ]
+}

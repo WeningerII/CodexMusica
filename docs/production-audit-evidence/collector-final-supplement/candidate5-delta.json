@@ -1,0 +1,15 @@
+{
+  "scope": "Exact final malformed-writer oracle hardening; actual explicit kitchen/interview host output is unchanged.",
+  "changes": [
+    {
+      "path": "scripts/battery_repairs.mjs",
+      "candidate5_sha256": "d60adc7d65299341bb2c85a0ddf994305a2eb67cb0fcfe7fb2458f4f3cc12932",
+      "current_sha256": "21b3e1f3cb7db3bead24b0ce9c445ab80725ddade4e88ff633708df9696a0b57"
+    },
+    {
+      "path": "mcp/test_battery_repairs.mjs",
+      "candidate5_sha256": "8e1be299865b77a46d808e74d21b82625b9bc8bde54ef74417ee1faa2cb01a22",
+      "current_sha256": "9a225466a6b99d1bb5ac2ee54c577eee98c93317b52d02b6e2d726d6ef7ad31b"
+    }
+  ]
+}

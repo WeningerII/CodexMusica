@@ -1,0 +1,43 @@
+{
+  "reviewer": "fix_harness independent read-only review",
+  "scope": "INT35 paid-answer persistence, exact verified candidate application, replay dispatch and stable IDs, Node projections, and collector deduplication",
+  "source_sha256_at_completed_read": {
+    "lyric-harness/lyric_harness.py": "00f0e288cb670a7c88d8747fbab41c4b4aa3866484b14a7c7d9e7a79137464fc",
+    "lyric-harness/quality/loop.py": "c4195e93d5d37cd805c78bce006fc83c11471cb5eefee59f6bf3e76ac3cbae7e",
+    "mcp/lyric_tools.js": "65bd9d9c9a42d264e3ae8f317831261c71deb63f794681a3fd5f40b52704f955",
+    "mcp/gemini_agent.js": "c201c9bd394f033aa57beef6fcbdaf5f35189278ec7681582cbea952bdad3702",
+    "mcp/chat.js": "d80a1518b0ec7d4c3445b8a9e2b25ab9cb7cc7562eb23a8e832c362c7b0cfb56",
+    "scripts/battery_repairs.mjs": "9cd1be8262764cc64a30bfaeae6298f99922c3a4ee9213332a6aee0dc10f1a08",
+    "scripts/battery_verdict.mjs": "9f61bda047fe81c39a0be3c2d7e66a1b00c171eadd203fadd6efe63623893b00",
+    "scripts/flash_battery.mjs": "bb1157eab0f9b3bc73aeeb83c5ef1ef58d89b255e5c6c8424a682477588c7abd"
+  },
+  "native_review": {
+    "additional_concrete_counterexamples": [],
+    "examined": [
+      "Completed answers are written before actual verification; prior answers replay by exact question digest before any new dispatch.",
+      "Verifier hooks bind proposal index, kind, before draft, candidate text, return/group members, round and attempt.",
+      "Application must match the exact verified after-draft hash; unsuccessful checkpoint persistence rolls in-memory application state back.",
+      "Replay reconstructs verifier outcomes and stable journal/question/candidate IDs; new runs use distinct journal IDs.",
+      "Collector deduplicates stable IDs and permits unapplied-to-applied progression without counting repeated accepted outcomes."
+    ]
+  },
+  "counterexamples_found": [
+    {
+      "issue": "Interview outcomes refused by kitchen-only inventory availability check",
+      "concrete_case": "An interview call with an explicit folded outcome and the expected missing kitchen verified_outcomes error threw before reaching the interview branch.",
+      "source_correction_read": "Availability refusal moved inside writer === kitchen branch.",
+      "verification_scope": "Read-only source correction verified; maintained regression results belong to CI owner final receipt."
+    },
+    {
+      "issue": "Prior applied outcome IDs compared in incompatible order",
+      "concrete_case": "Native emits sorted prior-applied IDs; a checkpoint containing two IDs in reverse lexical proposal order was compared without sorting and would reject a valid replay.",
+      "source_correction_read": "Collector compares native array with sorted validated prior-applied IDs.",
+      "verification_scope": "Read-only source correction verified; maintained regression results belong to CI owner final receipt."
+    }
+  ],
+  "limits": [
+    "No source edits, paid calls, broad tests, or production qualification performed by this review.",
+    "A bounded review and the absence of another concrete counterexample are not proof of exhaustive defect freedom.",
+    "The source hashes apply to the completed read; subsequent source epochs require their own captured validation."
+  ]
+}

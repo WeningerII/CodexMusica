@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "source": "lyric-harness/quality/capacity.py",
+  "before_sha256": "f03424c7a8572a5389f98c29fabffc07dc07450fd428e52e6a9e66259be3b5fd",
+  "after_sha256": "736147307e73e4ee4e701e437f30a230f9c36ca919a23b6122d15e73302373a9",
+  "changed_top_level_ast_nodes": [
+    "validate_receipt"
+  ],
+  "patch": "capacity-wire-patch.diff",
+  "impact": "Installed proof receipt validation now compares JSON wire forms and exact types; local grading/planning without LYRIC_RELEASE_ASSETS_REQUIRED=1 does not call this function.",
+  "measurement_policy": "Raw source_unchanged flags remain untouched. This documents a bounded code-scope explanation; it does not relabel different source epochs as identical or qualify the final image.",
+  "owner_confirmation": "fix_revision confirmed before/after SHA and no generation constants, table rows, or grading changes."
+}

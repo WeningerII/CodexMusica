@@ -1,0 +1,18 @@
+{
+  "source_definition_bug": "inspect.getsource used stale co_firstlineno after unrelated earlier lines changed. The same unchanged functions reproduce the false hash; AST/name source resolution exactly matches the previously verified metadata.",
+  "old_offset_question_sha256": "8f7bbd4d67765fad29d7648fc4939c9a9fe325239247ffb010a9003c029ec2c2",
+  "name_resolved_question_sha256": "d53e59446e1a8ac79e0fbacce1d57c090dd77ba3013ec280a33143c5e159af7f",
+  "current_provenance_matches_saved_rows": true,
+  "unchanged_question_function_sha256": {
+    "predictability_frac": "b786e21a6e2d17e283a1829d21f6365524e72c51deaf2b148423d866f778c8c9",
+    "_couplet_pairs": "942c42ed7326bedcc27b0e8b42671b4094c225d7b5773fec1227c3350c8e5a86",
+    "population": "c94b02c45d84fe1dc8032b6c5ed9dff347243145612f6f090d3f4b7feacfb7d1",
+    "anaphora": "fc8a65a53e4ef6dcaf5fbd9b34a7b4b05e260535beb8f934eb0d25a3f62aca0a",
+    "line_cv": "2b1b3b40cecb7049e571087f2f230a41528004416e8e5046e3f0be516bf377c6",
+    "author_of": "812faa70b37b5f6ca5626961f7d1c4cf9bea363d4b4d262114db37bd130ead3b"
+  },
+  "completed_fit_log_sha256": "9dd1e51282b6d601a991ffa04f970f60ae890dc75cf0e9c5079c84c00abea855",
+  "seeds": 200,
+  "coefficients_independently_rederived": true,
+  "held_out_rates": "Recovered at the instrument printed precision (two decimal percentage points), from the completed 200-seed stream; not newly estimated."
+}

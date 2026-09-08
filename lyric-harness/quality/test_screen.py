@@ -80,17 +80,19 @@ def test_the_controls():
 def test_honesty_and_the_split():
     print("\n2. non-rhymes are answered honestly, and banned is not "
           "refused (doctrine 28)")
-    # PAIR REPINNED 2026-08-25 (M-116) from ~~stone/window~~: under the
-    # whole-vocabulary default that pair SATISFIES — its line-final spans
-    # stand in the assonance schema — so the screen (which IS the song
-    # grader, §3's NO DRIFT) now answers it CLEAN with no why, correctly.
-    # four/own is typed ASSONANCE by the k-span comparator but its
-    # line-final nuclei DIFFER (AO against OW), so no schema answers and
-    # the why survives — which is the shape this check needs: an honest
-    # non-rhyme, not a ban and not a refusal.
+    # 2026-09-08: the old four/own definite-negative fixture cannot
+    # establish absence across the whole default vocabulary. Keep that
+    # unknown as a negative control, then explicitly ask the narrower
+    # rhyme-only question whose determinate rejection this check needs.
     r = rows_for("four", "own")[0]
-    check("a non-rhyme reports the grader's own relation and why — never "
-          "a ban, never a refusal",
+    check("the broad default keeps unresolved schemas as a refusal, "
+          "never a definite non-rhyme",
+          r["refused"] and "default relation remains unresolved" in r["reason"]
+          and r["relation"] is None and not r["codes"], r)
+    r = LH.screen_pairs(["four", "own"],
+                        decl=LH.Declaration(admit=("RHYME", "RIME_RICHE")))[0]
+    check("the explicitly narrowed rhyme-only declaration reports a "
+          "determinate non-rhyme with the grader's own why",
           not r["refused"] and r["codes"] == [] and r["why"] is not None,
           f"{r['relation']} {r['score']}: {r['why']}")
     r = rows_for("fire", "fire")[0]
@@ -138,9 +140,9 @@ def test_no_drift():
 def test_the_scaffold():
     print("\n4. the carrier lines are scaffolding — readable, and never "
           "the finding")
-    rows = rows_for("stone", "rain", "door")
-    check("ordinary readable words screen with zero refusals — the "
-          "carriers never fail to read",
+    rows = rows_for("piano", "below", "though")
+    check("the determinate rhyme controls screen with zero refusals — "
+          "the carriers never fail to read",
           all(not r["refused"] for r in rows))
     carriers = LH._SCREEN_CARRIERS
     check("the two carrier lines DIFFER — identical carriers let the "
@@ -157,7 +159,7 @@ def test_the_scaffold():
 
 def run(*argv):
     p = subprocess.run([sys.executable, "lyric_harness.py", *argv],
-                       capture_output=True, text=True, cwd=ROOT)
+                       capture_output=True, text=True, cwd=ROOT, timeout=600)
     return p.returncode, p.stdout, p.stderr
 
 
@@ -198,26 +200,35 @@ def test_clean_answers_one_question():
     check("a true rhyme reads `CLEAN — RHYMES` — the affirmative half, "
           "so the split cannot pass by calling everything a non-rhyme",
           rc == 0 and "CLEAN — RHYMES" in out)
-    # taboo/suite is the MEASURED conflation: NO_RELATION 0.389, door
-    # failed, and three window-searching schemas fire on the carrier
-    # scaffold ("we carry the evening to the ..."), so the old rendering
-    # said bare CLEAN with the same word a 1.0 rhyme got.
+    # 2026-09-08: taboo/suite's old scaffold rescue depended on an
+    # unresolved schema. Preserve its refusal and use actual determinate
+    # stone/rain consonance evidence for the scaffold-rendering control.
     r = LH.screen_pairs(["taboo", "suite"])[0]
+    check("the former taboo/suite rescue stays unknown with no invented "
+          "schema evidence", r["refused"] and not r["schema_scaffold"]
+          and "unresolved" in r["reason"], r)
+    r = LH.screen_pairs(["stone", "rain"])[0]
     check("the scaffold-rescued pair carries `schema_scaffold` in the API "
           "row — the rescue is TELLABLE, not folded into why=None",
-          r["why"] is None and len(r["schema_scaffold"]) > 0,
+          not r["refused"] and r["why"] is None
+          and "consonance" in r["schema_scaffold"],
           f"scaffold={r['schema_scaffold']}")
-    rc, out, _ = run("screen", "taboo", "suite")
+    rc, out, _ = run("screen", "stone", "rain")
     check("...and the CLI renders it DOES NOT RHYME with the schema names "
           "— the scaffold's evidence is disclosed, never CLEAN's",
           rc == 0 and "DOES NOT RHYME as a pair" in out
           and "SCAFFOLD" in out, out.strip().splitlines()[1]
           if out.strip() else "")
     rc, out, _ = run("screen", "haiku", "suite")
-    check("a door-failed pair reads `CLEAN — DOES NOT RHYME` with the "
-          "grader's own why carried through",
-          rc == 0 and "CLEAN — DOES NOT RHYME (" in out)
-    rc, out, _ = run("screen", "gasoline", "tambourine", "taboo", "suite")
+    check("the old haiku/suite broad negative now discloses uncertainty "
+          "through the CLI", rc == 0 and "REFUSED" in out
+          and "default relation remains unresolved" in out
+          and "CLEAN — DOES NOT RHYME" not in out)
+    rc, out, _ = run("screen", "haiku", "haiku")
+    check("a determinate identity failure renders DOES NOT RHYME with "
+          "the grader's own reason", rc == 0
+          and "CLEAN — DOES NOT RHYME (REPEAT not rhyme (identical word))" in out)
+    rc, out, _ = run("screen", "gasoline", "tambourine", "stone", "rain")
     check("the tail line counts the two kinds APART, never summed "
           "(doctrine 79): `clean and rhyming` and `clean but not a rhyme` "
           "are both named",
@@ -364,13 +375,56 @@ def test_the_screen_says_which_words_cannot_be_bound_at_a_token():
           out[-600:])
 
 
+def test_named_judgment_survives_broad_uncertainty():
+    print("\n10. the requested relation is independent of broad default uncertainty")
+    from quality.revise import Reviser
+    from quality import schemes as SC
+    lines = [c.format(w=w) for c, w in zip(LH._SCREEN_CARRIERS, ("four", "own"))]
+    for relation, expected in (("class:ASSONANCE", True), ("class:RHYME", False)):
+        row = LH.screen_pairs(["four", "own"], relation=relation)[0]
+        grade = Reviser().grade(lines, SC.mandate([[1, 2]], n_lines=2,
+                                               default_relation=relation))
+        check(f"four/own retains broad refusal and independently answers {relation}",
+              row["refused"] and "unresolved" in row["reason"]
+              and row["named"] is expected and row["named_reason"] is None, row)
+        check(f"the requested {relation} agrees with the actual declared grade",
+              not grade["refusals"] and len(grade["verdicts"]) == 1
+              and (grade["verdicts"][0]["why"] is None) is expected,
+              grade["verdicts"])
+        rc, out, _ = run("screen", "four", "own", f"--relation={relation}")
+        counts = ("1 satisfies, 0 violates, 0 refused" if expected else
+                  "0 satisfies, 1 violates, 0 refused")
+        verdict = "SATISFIES" if expected else "VIOLATES"
+        check(f"CLI prints {relation}'s own verdict beside the unchanged broad refusal",
+              rc == 0 and "default relation remains unresolved" in out
+              and f"{verdict} {relation}" in out and f"NAMED COUNTS: {counts}" in out
+              and "0 banned, 1 refused" in out and "CLEAN —" not in out, out)
+    for a, b, relation in (("wind", "find", "class:RHYME"),
+                           ("wind", "find", "schema:perfect rhyme"),
+                           ("stone", "xzqwv", "schema:perfect rhyme")):
+        row = LH.screen_pairs([a, b], relation=relation)[0]
+        check(f"{a}/{b} keeps exact {relation} uncertainty instead of a false violation",
+              row["refused"] and row["named"] is None
+              and bool(row["named_reason"]), row)
+    row = LH.screen_pairs(["haiku", "suite"], relation="type:perfect rhyme (last stressed syllable)")[0]
+    check("a determinate named type also survives unrelated broad schema uncertainty",
+          row["refused"] and row["named"] is False and not row["named_reason"], row)
+    rc, out, _ = run("screen", "wind", "find", "--relation=class:RHYME")
+    check("CLI counts exact unknown separately and invents neither satisfaction nor violation",
+          rc == 0 and "class:RHYME REFUSED:" in out
+          and "NAMED COUNTS: 0 satisfies, 0 violates, 1 refused" in out
+          and "SATISFIES class:RHYME" not in out and "VIOLATES class:RHYME" not in out,
+          out)
+
+
 if __name__ == "__main__":
     for fn in (test_the_controls, test_honesty_and_the_split,
                test_no_drift, test_the_scaffold, test_the_cli,
                test_clean_answers_one_question,
                test_the_screen_asks_the_grades_question,
                test_the_screen_judges_a_drawn_schema_and_names_a_near_relation,
-               test_the_screen_says_which_words_cannot_be_bound_at_a_token):
+               test_the_screen_says_which_words_cannot_be_bound_at_a_token,
+               test_named_judgment_survives_broad_uncertainty):
         fn()
     print("=" * 62)
     if FAILURES:

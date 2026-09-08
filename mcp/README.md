@@ -16,6 +16,19 @@ It reuses the shared SSOT modules in-process (`scripts/_workspace_ops.js` →
 
 ## Tools
 
+Native clients should use `connectConnector` in `client.js`; new lyrics default
+to enforced creation order with host-owned execution receipts. Keep the connection
+or privately persist its `snapshot()` for reconnecting. The CLI uses the same
+client and requires `--session-file=FILE` for creation calls. An explicit host
+`phase: 'edit'` (`--phase=edit` in the CLI) selects an existing-song task.
+See [session workflow repairs](../docs/session-workflow-repairs.md) for continuation,
+verification evidence, and the limitations of independent raw MCP calls.
+
+Recipe edits include `move_instrument`, which preserves a card's settings while
+changing its position (`before` omitted means first). Rich compression prioritizes
+explicitly pinned descriptors; inspect `render_warnings` for explicit words absent
+from the result and `render_scope` for which shared environment is represented.
+
 | Tool | What it does |
 |---|---|
 | `start_recipe` | Seed a recipe from one or more `traditions` (first = primary, rest = explicit staples). Returns the recipe, a per-card summary, and the `workspace` to thread on. |
@@ -227,3 +240,49 @@ For submission to Anthropic's [Connectors Directory](https://claude.com/docs/con
 - `job_store.js` — retained request receipts, signed checkpoint recovery and build identity.
 - `paid_budget.js` — shared chat/kitchen reservations, usage settlement and Python admission broker.
 - `test.mjs` — `npm test`.
+
+### Explicit pronunciation choices
+
+`lyric_grade` and `lyric_check` return `pronunciation_options` from the actual
+English dictionary, with exact line text, one-based sung-token positions,
+pronunciations, syllable counts, stress, and all matching line numbers. Select
+what the word means in the lyric; do not choose a reading merely to remove a flag.
+For example, the noun *record* in this chorus is declared as:
+
+```json
+{
+  "pronunciations": [{
+    "line": "Cut that record; let the bass shake glass",
+    "token": 3,
+    "word": "record",
+    "phones": ["R", "EH1", "K", "ER0", "D"],
+    "basis": "dictionary",
+    "source": "Writer: record means the disc being played."
+  }]
+}
+```
+
+Pass the choices when grading, then revise. The maintained creation client and
+Gemini workflow restore omitted graded pronunciation/fallback/voices settings.
+A conflicting setting requires another grade. Suspended runs freeze these
+settings; changing them requires regrading and starting `new_run: true`.
+
+A choice applies to every verbatim occurrence of its exact line, including
+chorus returns. It never becomes a global dictionary entry. Editing the line
+removes that binding; an unused declaration is reported as stale and prevents
+certification. For independently performed variants of an identical line, this
+API requires different line text; it does not offer separate repeat-instance
+readings. Unsung asides follow `voices` and cannot shift sung-token indices.
+
+`basis: "dictionary"` verifies the exact phones against CMUdict.
+`basis: "declared"` accepts supplied ARPABET for a name, dialect, or performance
+reading, with a required source. The source is a caller declaration, not proof
+that the pronunciation was independently verified. Both choices and their
+provenance appear in authenticated grading/finished results and coverage.
+Unselected words retain each assessment layer's existing reading/fallback policy.
+
+The Python equivalents are `--pronunciations=<JSON>` on `song`, `finish`, `brief`,
+`revise`, `verify`, and `recover`. Limits are 128 choices, 128 phones per choice,
+4000 characters per bound line, and 1000 characters per source. Existing writer
+line/count/work limits still apply; supplied syllables count toward work limits.
+Run `npm run test:pronunciations` and `npm run qualify:session:workflow` to verify.

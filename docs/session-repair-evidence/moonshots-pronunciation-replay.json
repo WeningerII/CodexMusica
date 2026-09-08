@@ -1,0 +1,1684 @@
+[
+  {
+    "tool": "lyric_sweep",
+    "elapsed_ms": 1117,
+    "exit_code": 0,
+    "measurement_status": "no_authenticated_verdict",
+    "certified": false
+  },
+  {
+    "tool": "lyric_screen",
+    "elapsed_ms": 11188,
+    "exit_code": 0,
+    "measurement_status": "no_authenticated_verdict",
+    "certified": false
+  },
+  {
+    "tool": "lyric_plan",
+    "elapsed_ms": 944,
+    "exit_code": 0,
+    "measurement_status": "planned",
+    "certified": false
+  },
+  {
+    "tool": "lyric_grade",
+    "elapsed_ms": 62426,
+    "exit_code": 2,
+    "measurement_status": "graded",
+    "certified": false,
+    "coverage": {
+      "pairs_mandated": 22,
+      "pairs_judged": 22,
+      "pairs_refused": 0,
+      "scope": "requested_layers",
+      "certified": false,
+      "obligations": [
+        {
+          "id": "density:L1",
+          "layer": "density",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L1",
+          "layer": "prominence",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "density:L2",
+          "layer": "density",
+          "line": 2,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L2",
+          "layer": "prominence",
+          "line": 2,
+          "status": "answered"
+        },
+        {
+          "id": "density:L3",
+          "layer": "density",
+          "line": 3,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L3",
+          "layer": "prominence",
+          "line": 3,
+          "status": "answered"
+        },
+        {
+          "id": "density:L4",
+          "layer": "density",
+          "line": 4,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L4",
+          "layer": "prominence",
+          "line": 4,
+          "status": "answered"
+        },
+        {
+          "id": "density:L5",
+          "layer": "density",
+          "line": 5,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L5",
+          "layer": "prominence",
+          "line": 5,
+          "status": "answered"
+        },
+        {
+          "id": "density:L6",
+          "layer": "density",
+          "line": 6,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L6",
+          "layer": "prominence",
+          "line": 6,
+          "status": "answered"
+        },
+        {
+          "id": "density:L7",
+          "layer": "density",
+          "line": 7,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L7",
+          "layer": "prominence",
+          "line": 7,
+          "status": "answered"
+        },
+        {
+          "id": "density:L8",
+          "layer": "density",
+          "line": 8,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L8",
+          "layer": "prominence",
+          "line": 8,
+          "status": "answered"
+        },
+        {
+          "id": "density:L9",
+          "layer": "density",
+          "line": 9,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L9",
+          "layer": "prominence",
+          "line": 9,
+          "status": "answered"
+        },
+        {
+          "id": "density:L10",
+          "layer": "density",
+          "line": 10,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L10",
+          "layer": "prominence",
+          "line": 10,
+          "status": "answered"
+        },
+        {
+          "id": "density:L11",
+          "layer": "density",
+          "line": 11,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L11",
+          "layer": "prominence",
+          "line": 11,
+          "status": "answered"
+        },
+        {
+          "id": "density:L12",
+          "layer": "density",
+          "line": 12,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L12",
+          "layer": "prominence",
+          "line": 12,
+          "status": "answered"
+        },
+        {
+          "id": "density:L13",
+          "layer": "density",
+          "line": 13,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L13",
+          "layer": "prominence",
+          "line": 13,
+          "status": "answered"
+        },
+        {
+          "id": "density:L14",
+          "layer": "density",
+          "line": 14,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L14",
+          "layer": "prominence",
+          "line": 14,
+          "status": "answered"
+        },
+        {
+          "id": "density:L15",
+          "layer": "density",
+          "line": 15,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L15",
+          "layer": "prominence",
+          "line": 15,
+          "status": "answered"
+        },
+        {
+          "id": "density:L16",
+          "layer": "density",
+          "line": 16,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L16",
+          "layer": "prominence",
+          "line": 16,
+          "status": "answered"
+        },
+        {
+          "id": "density:L17",
+          "layer": "density",
+          "line": 17,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L17",
+          "layer": "prominence",
+          "line": 17,
+          "status": "answered"
+        },
+        {
+          "id": "density:L18",
+          "layer": "density",
+          "line": 18,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L18",
+          "layer": "prominence",
+          "line": 18,
+          "status": "answered"
+        },
+        {
+          "id": "density:L19",
+          "layer": "density",
+          "line": 19,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L19",
+          "layer": "prominence",
+          "line": 19,
+          "status": "answered"
+        },
+        {
+          "id": "density:L20",
+          "layer": "density",
+          "line": 20,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L20",
+          "layer": "prominence",
+          "line": 20,
+          "status": "answered"
+        },
+        {
+          "id": "density:L21",
+          "layer": "density",
+          "line": 21,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L21",
+          "layer": "prominence",
+          "line": 21,
+          "status": "answered"
+        },
+        {
+          "id": "density:L22",
+          "layer": "density",
+          "line": 22,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L22",
+          "layer": "prominence",
+          "line": 22,
+          "status": "answered"
+        },
+        {
+          "id": "density:L23",
+          "layer": "density",
+          "line": 23,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L23",
+          "layer": "prominence",
+          "line": 23,
+          "status": "refused"
+        },
+        {
+          "id": "density:L24",
+          "layer": "density",
+          "line": 24,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L24",
+          "layer": "prominence",
+          "line": 24,
+          "status": "answered"
+        },
+        {
+          "id": "density:L25",
+          "layer": "density",
+          "line": 25,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L25",
+          "layer": "prominence",
+          "line": 25,
+          "status": "answered"
+        },
+        {
+          "id": "density:L26",
+          "layer": "density",
+          "line": 26,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L26",
+          "layer": "prominence",
+          "line": 26,
+          "status": "answered"
+        },
+        {
+          "id": "density:L27",
+          "layer": "density",
+          "line": 27,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L27",
+          "layer": "prominence",
+          "line": 27,
+          "status": "answered"
+        },
+        {
+          "id": "density:L28",
+          "layer": "density",
+          "line": 28,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L28",
+          "layer": "prominence",
+          "line": 28,
+          "status": "refused"
+        },
+        {
+          "id": "density:L29",
+          "layer": "density",
+          "line": 29,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L29",
+          "layer": "prominence",
+          "line": 29,
+          "status": "answered"
+        },
+        {
+          "id": "density:L30",
+          "layer": "density",
+          "line": 30,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L30",
+          "layer": "prominence",
+          "line": 30,
+          "status": "answered"
+        },
+        {
+          "id": "sentencehood:draft",
+          "layer": "sentencehood",
+          "status": "answered"
+        },
+        {
+          "id": "floor:draft",
+          "layer": "floor",
+          "status": "answered"
+        },
+        {
+          "id": "meter:draft",
+          "layer": "meter",
+          "status": "answered"
+        },
+        {
+          "id": "slot_grid:draft",
+          "layer": "slot_grid",
+          "status": "answered"
+        },
+        {
+          "id": "setting:draft",
+          "layer": "setting",
+          "status": "not_requested"
+        },
+        {
+          "id": "meter:PROMINENCE_UNDECIDED:L23",
+          "layer": "meter",
+          "line": 23,
+          "status": "refused"
+        },
+        {
+          "id": "meter:PROMINENCE_UNDECIDED:L28",
+          "layer": "meter",
+          "line": 28,
+          "status": "refused"
+        },
+        {
+          "id": "rhyme:1:3:0",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:1:3:12",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:2:4:1",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:5:7:2",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:5:7:13",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:6:8:3",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:9:11:4",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:9:11:14",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:10:12:5",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:13:15:6",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:13:15:15",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:14:16:7",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:17:19:8",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:17:19:16",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:18:20:9",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:21:22:11",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:23:24:10",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:23:24:17",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:23:25:10",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:23:25:17",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:24:25:10",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:24:25:17",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "return:21:26",
+          "layer": "return",
+          "status": "answered"
+        },
+        {
+          "id": "return:22:27",
+          "layer": "return",
+          "status": "answered"
+        },
+        {
+          "id": "return:23:28",
+          "layer": "return",
+          "status": "answered"
+        },
+        {
+          "id": "return:24:29",
+          "layer": "return",
+          "status": "answered"
+        },
+        {
+          "id": "return:25:30",
+          "layer": "return",
+          "status": "answered"
+        }
+      ],
+      "refused_obligations": [
+        "prominence:L23",
+        "prominence:L28",
+        "meter:PROMINENCE_UNDECIDED:L23",
+        "meter:PROMINENCE_UNDECIDED:L28"
+      ]
+    }
+  },
+  {
+    "tool": "lyric_grade",
+    "elapsed_ms": 64047,
+    "exit_code": 3,
+    "measurement_status": "graded",
+    "certified": true,
+    "coverage": {
+      "pairs_mandated": 22,
+      "pairs_judged": 22,
+      "pairs_refused": 0,
+      "scope": "requested_layers",
+      "certified": true,
+      "obligations": [
+        {
+          "id": "density:L1",
+          "layer": "density",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L1",
+          "layer": "prominence",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "density:L2",
+          "layer": "density",
+          "line": 2,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L2",
+          "layer": "prominence",
+          "line": 2,
+          "status": "answered"
+        },
+        {
+          "id": "density:L3",
+          "layer": "density",
+          "line": 3,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L3",
+          "layer": "prominence",
+          "line": 3,
+          "status": "answered"
+        },
+        {
+          "id": "density:L4",
+          "layer": "density",
+          "line": 4,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L4",
+          "layer": "prominence",
+          "line": 4,
+          "status": "answered"
+        },
+        {
+          "id": "density:L5",
+          "layer": "density",
+          "line": 5,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L5",
+          "layer": "prominence",
+          "line": 5,
+          "status": "answered"
+        },
+        {
+          "id": "density:L6",
+          "layer": "density",
+          "line": 6,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L6",
+          "layer": "prominence",
+          "line": 6,
+          "status": "answered"
+        },
+        {
+          "id": "density:L7",
+          "layer": "density",
+          "line": 7,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L7",
+          "layer": "prominence",
+          "line": 7,
+          "status": "answered"
+        },
+        {
+          "id": "density:L8",
+          "layer": "density",
+          "line": 8,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L8",
+          "layer": "prominence",
+          "line": 8,
+          "status": "answered"
+        },
+        {
+          "id": "density:L9",
+          "layer": "density",
+          "line": 9,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L9",
+          "layer": "prominence",
+          "line": 9,
+          "status": "answered"
+        },
+        {
+          "id": "density:L10",
+          "layer": "density",
+          "line": 10,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L10",
+          "layer": "prominence",
+          "line": 10,
+          "status": "answered"
+        },
+        {
+          "id": "density:L11",
+          "layer": "density",
+          "line": 11,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L11",
+          "layer": "prominence",
+          "line": 11,
+          "status": "answered"
+        },
+        {
+          "id": "density:L12",
+          "layer": "density",
+          "line": 12,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L12",
+          "layer": "prominence",
+          "line": 12,
+          "status": "answered"
+        },
+        {
+          "id": "density:L13",
+          "layer": "density",
+          "line": 13,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L13",
+          "layer": "prominence",
+          "line": 13,
+          "status": "answered"
+        },
+        {
+          "id": "density:L14",
+          "layer": "density",
+          "line": 14,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L14",
+          "layer": "prominence",
+          "line": 14,
+          "status": "answered"
+        },
+        {
+          "id": "density:L15",
+          "layer": "density",
+          "line": 15,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L15",
+          "layer": "prominence",
+          "line": 15,
+          "status": "answered"
+        },
+        {
+          "id": "density:L16",
+          "layer": "density",
+          "line": 16,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L16",
+          "layer": "prominence",
+          "line": 16,
+          "status": "answered"
+        },
+        {
+          "id": "density:L17",
+          "layer": "density",
+          "line": 17,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L17",
+          "layer": "prominence",
+          "line": 17,
+          "status": "answered"
+        },
+        {
+          "id": "density:L18",
+          "layer": "density",
+          "line": 18,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L18",
+          "layer": "prominence",
+          "line": 18,
+          "status": "answered"
+        },
+        {
+          "id": "density:L19",
+          "layer": "density",
+          "line": 19,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L19",
+          "layer": "prominence",
+          "line": 19,
+          "status": "answered"
+        },
+        {
+          "id": "density:L20",
+          "layer": "density",
+          "line": 20,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L20",
+          "layer": "prominence",
+          "line": 20,
+          "status": "answered"
+        },
+        {
+          "id": "density:L21",
+          "layer": "density",
+          "line": 21,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L21",
+          "layer": "prominence",
+          "line": 21,
+          "status": "answered"
+        },
+        {
+          "id": "density:L22",
+          "layer": "density",
+          "line": 22,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L22",
+          "layer": "prominence",
+          "line": 22,
+          "status": "answered"
+        },
+        {
+          "id": "density:L23",
+          "layer": "density",
+          "line": 23,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L23",
+          "layer": "prominence",
+          "line": 23,
+          "status": "answered"
+        },
+        {
+          "id": "density:L24",
+          "layer": "density",
+          "line": 24,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L24",
+          "layer": "prominence",
+          "line": 24,
+          "status": "answered"
+        },
+        {
+          "id": "density:L25",
+          "layer": "density",
+          "line": 25,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L25",
+          "layer": "prominence",
+          "line": 25,
+          "status": "answered"
+        },
+        {
+          "id": "density:L26",
+          "layer": "density",
+          "line": 26,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L26",
+          "layer": "prominence",
+          "line": 26,
+          "status": "answered"
+        },
+        {
+          "id": "density:L27",
+          "layer": "density",
+          "line": 27,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L27",
+          "layer": "prominence",
+          "line": 27,
+          "status": "answered"
+        },
+        {
+          "id": "density:L28",
+          "layer": "density",
+          "line": 28,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L28",
+          "layer": "prominence",
+          "line": 28,
+          "status": "answered"
+        },
+        {
+          "id": "density:L29",
+          "layer": "density",
+          "line": 29,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L29",
+          "layer": "prominence",
+          "line": 29,
+          "status": "answered"
+        },
+        {
+          "id": "density:L30",
+          "layer": "density",
+          "line": 30,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L30",
+          "layer": "prominence",
+          "line": 30,
+          "status": "answered"
+        },
+        {
+          "id": "sentencehood:draft",
+          "layer": "sentencehood",
+          "status": "answered"
+        },
+        {
+          "id": "floor:draft",
+          "layer": "floor",
+          "status": "answered"
+        },
+        {
+          "id": "meter:draft",
+          "layer": "meter",
+          "status": "answered"
+        },
+        {
+          "id": "slot_grid:draft",
+          "layer": "slot_grid",
+          "status": "answered"
+        },
+        {
+          "id": "setting:draft",
+          "layer": "setting",
+          "status": "not_requested"
+        },
+        {
+          "id": "rhyme:1:3:0",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:1:3:12",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:2:4:1",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:5:7:2",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:5:7:13",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:6:8:3",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:9:11:4",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:9:11:14",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:10:12:5",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:13:15:6",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:13:15:15",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:14:16:7",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:17:19:8",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:17:19:16",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:18:20:9",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:21:22:11",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:23:24:10",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:23:24:17",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:23:25:10",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:23:25:17",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:24:25:10",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:24:25:17",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "return:21:26",
+          "layer": "return",
+          "status": "answered"
+        },
+        {
+          "id": "return:22:27",
+          "layer": "return",
+          "status": "answered"
+        },
+        {
+          "id": "return:23:28",
+          "layer": "return",
+          "status": "answered"
+        },
+        {
+          "id": "return:24:29",
+          "layer": "return",
+          "status": "answered"
+        },
+        {
+          "id": "return:25:30",
+          "layer": "return",
+          "status": "answered"
+        },
+        {
+          "id": "pronunciation:1",
+          "layer": "pronunciation",
+          "status": "answered",
+          "basis": "dictionary",
+          "source": "Writer: record means the disc being played, so select the noun pronunciation.",
+          "detail": "Explicit occurrence reading applied",
+          "line": "Cut that record; let the bass shake glass",
+          "token": 3,
+          "word": "record",
+          "phones": ["R", "EH1", "K", "ER0", "D"],
+          "matching_lines": [23, 28]
+        }
+      ],
+      "refused_obligations": []
+    }
+  },
+  {
+    "tool": "lyric_revise",
+    "elapsed_ms": 11143,
+    "exit_code": 4,
+    "status": "awaiting_proposal"
+  },
+  {
+    "tool": "lyric_revise",
+    "elapsed_ms": 15476,
+    "exit_code": 0,
+    "measurement_status": "finished",
+    "status": "finished_clean",
+    "certified": true,
+    "coverage": {
+      "pairs_mandated": 22,
+      "pairs_judged": 22,
+      "pairs_refused": 0,
+      "scope": "requested_layers",
+      "certified": true,
+      "obligations": [
+        {
+          "id": "density:L1",
+          "layer": "density",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L1",
+          "layer": "prominence",
+          "line": 1,
+          "status": "answered"
+        },
+        {
+          "id": "density:L2",
+          "layer": "density",
+          "line": 2,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L2",
+          "layer": "prominence",
+          "line": 2,
+          "status": "answered"
+        },
+        {
+          "id": "density:L3",
+          "layer": "density",
+          "line": 3,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L3",
+          "layer": "prominence",
+          "line": 3,
+          "status": "answered"
+        },
+        {
+          "id": "density:L4",
+          "layer": "density",
+          "line": 4,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L4",
+          "layer": "prominence",
+          "line": 4,
+          "status": "answered"
+        },
+        {
+          "id": "density:L5",
+          "layer": "density",
+          "line": 5,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L5",
+          "layer": "prominence",
+          "line": 5,
+          "status": "answered"
+        },
+        {
+          "id": "density:L6",
+          "layer": "density",
+          "line": 6,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L6",
+          "layer": "prominence",
+          "line": 6,
+          "status": "answered"
+        },
+        {
+          "id": "density:L7",
+          "layer": "density",
+          "line": 7,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L7",
+          "layer": "prominence",
+          "line": 7,
+          "status": "answered"
+        },
+        {
+          "id": "density:L8",
+          "layer": "density",
+          "line": 8,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L8",
+          "layer": "prominence",
+          "line": 8,
+          "status": "answered"
+        },
+        {
+          "id": "density:L9",
+          "layer": "density",
+          "line": 9,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L9",
+          "layer": "prominence",
+          "line": 9,
+          "status": "answered"
+        },
+        {
+          "id": "density:L10",
+          "layer": "density",
+          "line": 10,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L10",
+          "layer": "prominence",
+          "line": 10,
+          "status": "answered"
+        },
+        {
+          "id": "density:L11",
+          "layer": "density",
+          "line": 11,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L11",
+          "layer": "prominence",
+          "line": 11,
+          "status": "answered"
+        },
+        {
+          "id": "density:L12",
+          "layer": "density",
+          "line": 12,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L12",
+          "layer": "prominence",
+          "line": 12,
+          "status": "answered"
+        },
+        {
+          "id": "density:L13",
+          "layer": "density",
+          "line": 13,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L13",
+          "layer": "prominence",
+          "line": 13,
+          "status": "answered"
+        },
+        {
+          "id": "density:L14",
+          "layer": "density",
+          "line": 14,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L14",
+          "layer": "prominence",
+          "line": 14,
+          "status": "answered"
+        },
+        {
+          "id": "density:L15",
+          "layer": "density",
+          "line": 15,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L15",
+          "layer": "prominence",
+          "line": 15,
+          "status": "answered"
+        },
+        {
+          "id": "density:L16",
+          "layer": "density",
+          "line": 16,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L16",
+          "layer": "prominence",
+          "line": 16,
+          "status": "answered"
+        },
+        {
+          "id": "density:L17",
+          "layer": "density",
+          "line": 17,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L17",
+          "layer": "prominence",
+          "line": 17,
+          "status": "answered"
+        },
+        {
+          "id": "density:L18",
+          "layer": "density",
+          "line": 18,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L18",
+          "layer": "prominence",
+          "line": 18,
+          "status": "answered"
+        },
+        {
+          "id": "density:L19",
+          "layer": "density",
+          "line": 19,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L19",
+          "layer": "prominence",
+          "line": 19,
+          "status": "answered"
+        },
+        {
+          "id": "density:L20",
+          "layer": "density",
+          "line": 20,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L20",
+          "layer": "prominence",
+          "line": 20,
+          "status": "answered"
+        },
+        {
+          "id": "density:L21",
+          "layer": "density",
+          "line": 21,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L21",
+          "layer": "prominence",
+          "line": 21,
+          "status": "answered"
+        },
+        {
+          "id": "density:L22",
+          "layer": "density",
+          "line": 22,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L22",
+          "layer": "prominence",
+          "line": 22,
+          "status": "answered"
+        },
+        {
+          "id": "density:L23",
+          "layer": "density",
+          "line": 23,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L23",
+          "layer": "prominence",
+          "line": 23,
+          "status": "answered"
+        },
+        {
+          "id": "density:L24",
+          "layer": "density",
+          "line": 24,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L24",
+          "layer": "prominence",
+          "line": 24,
+          "status": "answered"
+        },
+        {
+          "id": "density:L25",
+          "layer": "density",
+          "line": 25,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L25",
+          "layer": "prominence",
+          "line": 25,
+          "status": "answered"
+        },
+        {
+          "id": "density:L26",
+          "layer": "density",
+          "line": 26,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L26",
+          "layer": "prominence",
+          "line": 26,
+          "status": "answered"
+        },
+        {
+          "id": "density:L27",
+          "layer": "density",
+          "line": 27,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L27",
+          "layer": "prominence",
+          "line": 27,
+          "status": "answered"
+        },
+        {
+          "id": "density:L28",
+          "layer": "density",
+          "line": 28,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L28",
+          "layer": "prominence",
+          "line": 28,
+          "status": "answered"
+        },
+        {
+          "id": "density:L29",
+          "layer": "density",
+          "line": 29,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L29",
+          "layer": "prominence",
+          "line": 29,
+          "status": "answered"
+        },
+        {
+          "id": "density:L30",
+          "layer": "density",
+          "line": 30,
+          "status": "answered"
+        },
+        {
+          "id": "prominence:L30",
+          "layer": "prominence",
+          "line": 30,
+          "status": "answered"
+        },
+        {
+          "id": "sentencehood:draft",
+          "layer": "sentencehood",
+          "status": "answered"
+        },
+        {
+          "id": "floor:draft",
+          "layer": "floor",
+          "status": "answered"
+        },
+        {
+          "id": "meter:draft",
+          "layer": "meter",
+          "status": "answered"
+        },
+        {
+          "id": "slot_grid:draft",
+          "layer": "slot_grid",
+          "status": "answered"
+        },
+        {
+          "id": "setting:draft",
+          "layer": "setting",
+          "status": "not_requested"
+        },
+        {
+          "id": "rhyme:1:3:0",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:1:3:12",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:2:4:1",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:5:7:2",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:5:7:13",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:6:8:3",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:9:11:4",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:9:11:14",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:10:12:5",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:13:15:6",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:13:15:15",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:14:16:7",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:17:19:8",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:17:19:16",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:18:20:9",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:21:22:11",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:23:24:10",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:23:24:17",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:23:25:10",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:23:25:17",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:24:25:10",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "rhyme:24:25:17",
+          "layer": "rhyme",
+          "status": "answered"
+        },
+        {
+          "id": "return:21:26",
+          "layer": "return",
+          "status": "answered"
+        },
+        {
+          "id": "return:22:27",
+          "layer": "return",
+          "status": "answered"
+        },
+        {
+          "id": "return:23:28",
+          "layer": "return",
+          "status": "answered"
+        },
+        {
+          "id": "return:24:29",
+          "layer": "return",
+          "status": "answered"
+        },
+        {
+          "id": "return:25:30",
+          "layer": "return",
+          "status": "answered"
+        },
+        {
+          "id": "pronunciation:1",
+          "layer": "pronunciation",
+          "status": "answered",
+          "basis": "dictionary",
+          "source": "Writer: record means the disc being played, so select the noun pronunciation.",
+          "detail": "Explicit occurrence reading applied",
+          "line": "Cut that record; let the bass shake glass",
+          "token": 3,
+          "word": "record",
+          "phones": ["R", "EH1", "K", "ER0", "D"],
+          "matching_lines": [23, 28]
+        }
+      ],
+      "refused_obligations": []
+    }
+  }
+]

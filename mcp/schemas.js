@@ -78,6 +78,7 @@ export const editSchema = z.object({
       'set_variant',
       'set_environment',
       'set_preface',
+      'move_instrument',
     ])
     .describe('Which edit to apply.'),
   tradition: z
@@ -87,6 +88,12 @@ export const editSchema = z.object({
       'Tradition id — for add_tradition / remove_tradition, or as context for add_instrument.'
     ),
   instrument: z.string().optional().describe('Instrument id — for add_instrument.'),
+  before: z
+    .string()
+    .optional()
+    .describe(
+      'Card reference for move_instrument. Omit to move the selected card to the front, making its tradition and environment primary. Existing settings are preserved.'
+    ),
   card: z
     .string()
     .optional()

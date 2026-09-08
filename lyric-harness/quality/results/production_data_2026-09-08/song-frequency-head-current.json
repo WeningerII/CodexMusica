@@ -1,0 +1,150 @@
+{
+  "me": {
+    "before": 2947,
+    "after": 2907,
+    "authors": 482,
+    "delta": [
+      {
+        "author": "eng_american_julia_ward_howe",
+        "before": 3,
+        "after": 1
+      },
+      {
+        "author": "eng_british_charles_kingsley",
+        "before": 26,
+        "after": 24
+      },
+      {
+        "author": "eng_british_christina_rossetti",
+        "before": 104,
+        "after": 97
+      },
+      {
+        "author": "eng_british_dante_gabriel_rossetti",
+        "before": 9,
+        "after": 8
+      },
+      {
+        "author": "eng_british_george_darley",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "author": "eng_british_robert_browning",
+        "before": 36,
+        "after": 35
+      },
+      {
+        "author": "eng_british_robert_herrick",
+        "before": 153,
+        "after": 150
+      },
+      {
+        "author": "eng_british_thomas_campion",
+        "before": 21,
+        "after": 18
+      },
+      {
+        "author": "eng_british_william_blake",
+        "before": 14,
+        "after": 12
+      },
+      {
+        "author": "eng_celtic_carolina_oliphant_lady_nairne",
+        "before": 22,
+        "after": 21
+      },
+      {
+        "author": "eng_celtic_james_hogg",
+        "before": 22,
+        "after": 21
+      },
+      {
+        "author": "eng_celtic_msm_alexander_rodger",
+        "before": 2,
+        "after": 1
+      },
+      {
+        "author": "eng_celtic_msm_john_dunlop",
+        "before": 10,
+        "after": 5
+      },
+      {
+        "author": "eng_celtic_msm_robert_lochore",
+        "before": 13,
+        "after": 12
+      },
+      {
+        "author": "eng_celtic_robert_burns",
+        "before": 237,
+        "after": 232
+      },
+      {
+        "author": "eng_hall_william_barnes",
+        "before": 43,
+        "after": 42
+      },
+      {
+        "author": "eng_oxford_edmund_spenser",
+        "before": 4,
+        "after": 3
+      },
+      {
+        "author": "eng_oxford_leigh_hunt",
+        "before": 6,
+        "after": 4
+      }
+    ]
+  },
+  "thee": {
+    "before": 2033,
+    "after": 2016,
+    "authors": 359,
+    "delta": [
+      {
+        "author": "eng_british_george_darley",
+        "before": 6,
+        "after": 5
+      },
+      {
+        "author": "eng_british_robert_herrick",
+        "before": 144,
+        "after": 141
+      },
+      {
+        "author": "eng_british_thomas_campion",
+        "before": 12,
+        "after": 10
+      },
+      {
+        "author": "eng_british_walter_savage_landor",
+        "before": 4,
+        "after": 2
+      },
+      {
+        "author": "eng_british_william_blake",
+        "before": 27,
+        "after": 20
+      },
+      {
+        "author": "eng_hymn_montgomery",
+        "before": 20,
+        "after": 19
+      },
+      {
+        "author": "eng_oxford_william_shakespeare",
+        "before": 13,
+        "after": 12
+      }
+    ]
+  },
+  "all": {
+    "types": 13856,
+    "tokens": 248628
+  },
+  "historical_parser_aggregate": {
+    "types": 13855,
+    "tokens": 248221
+  },
+  "aggregate_correction": "Exact first declared header only: prior startswith(word\\t) accidentally dropped real word=407; stored table bytes unchanged."
+}

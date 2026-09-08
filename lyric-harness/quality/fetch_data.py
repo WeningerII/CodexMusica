@@ -17,6 +17,9 @@ cannot be restated without them are not language-agnostic.
 import os
 import sys
 import zipfile
+import tempfile
+import shutil
+from pathlib import Path
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
@@ -33,44 +36,27 @@ from lyric_harness import download_to  # noqa: E402
 # looked for in another. ~~DATA = os.path.join(HERE, "..", "data") /
 # NLTK_DIR = os.path.join(DATA, "nltk")~~ were this file's own copies.
 from quality.features import DATA, NLTK_DIR, nltk_data_dir  # noqa: E402
+from quality.release_assets import manifest, sha256, file_errors  # noqa: E402
 
 RAW = "https://raw.githubusercontent.com"
+_ASSETS = {asset["id"]: asset for asset in manifest()["assets"]}
 
-FILES = {
-    # Brysbaert et al. concreteness norms, 40k English lemmas, 1-5 scale.
-    "concreteness.txt":
-        f"{RAW}/ArtsEngine/concreteness/master/"
-        "Concreteness_ratings_Brysbaert_et_al_BRM.txt",
-}
-
-NLTK_PACKAGES = {
-    "taggers/averaged_perceptron_tagger_eng":
-        f"{RAW}/nltk/nltk_data/gh-pages/packages/taggers/"
-        "averaged_perceptron_tagger_eng.zip",
-    "tokenizers/punkt_tab":
-        f"{RAW}/nltk/nltk_data/gh-pages/packages/tokenizers/punkt_tab.zip",
-    # ADDED 2026-08-23 for `quality/senses.py`, which supplies the `sense`
-    # capability `antanaclasis` refuses without. WordNet 3.0 is licensed for
-    # use, copy, modification and distribution without fee or royalty (the
-    # notice ships beside the data and both rows are in `data/sources.tsv`);
-    # it is FETCHED and not committed because `data/nltk/` is gitignored,
-    # which is this repo's convention for every large corpus.
-    "corpora/wordnet":
-        f"{RAW}/nltk/nltk_data/gh-pages/packages/corpora/wordnet.zip",
-    # THE TAGGER IS NOT OPTIONAL FOR THAT USE and the un-suffixed name is
-    # needed beside the `_eng` one above: `nltk.pos_tag` loads
-    # `averaged_perceptron_tagger` and then the language model. Simplified
-    # Lesk with NO part of speech resolves `sat` to `saturday.n.01` on one
-    # line and `ride.v.01` on another — measured — so a past-tense verb read
-    # as two senses and the figure fired on an ordinary repeat.
-    "taggers/averaged_perceptron_tagger":
-        f"{RAW}/nltk/nltk_data/gh-pages/packages/taggers/"
-        "averaged_perceptron_tagger.zip",
-}
+# Historical packages are not dependencies of current research or production.
+HISTORICAL_ASSETS = frozenset(("tagger_legacy", "punkt_tab"))
 
 
-def _get(url, dest):
+def selected_assets(*, runtime=True):
+    """Default to production inputs; current research explicitly opts in."""
+    return [asset for asset in _ASSETS.values()
+            if asset["base"] == "staged"
+            and (asset["runtime"] or not runtime)
+            and asset["id"] not in HISTORICAL_ASSETS]
+
+
+def _get(url, dest, expected_sha256=None):
     if os.path.exists(dest) and os.path.getsize(dest) > 0:
+        if expected_sha256 and sha256(dest) != expected_sha256:
+            raise ValueError(f"staged asset checksum mismatch: {dest}; restore the declared bytes")
         return False
     os.makedirs(os.path.dirname(dest), exist_ok=True)
     sys.stderr.write(f"  fetching {os.path.basename(dest)} ... ")
@@ -80,26 +66,58 @@ def _get(url, dest):
     # `<dest>.part` and renames only on success, which is what makes that
     # guard safe rather than merely fast.
     download_to(url, dest)
+    if expected_sha256 and sha256(dest) != expected_sha256:
+        os.remove(dest)
+        raise ValueError(f"downloaded asset checksum mismatch: {url}")
     sys.stderr.write(f"{os.path.getsize(dest):,} bytes\n")
     return True
 
 
-def fetch_all():
-    for name, url in FILES.items():
-        _get(url, os.path.join(DATA, name))
-    for pkg, url in NLTK_PACKAGES.items():
-        sub, leaf = pkg.split("/")
-        target = os.path.join(NLTK_DIR, sub, leaf)
-        if os.path.isdir(target):
+def fetch_all(runtime=True):
+    # Hashes and pinned URLs live in the same manifest the release image uses.
+    # A nonempty file or empty package directory is never proof of staging.
+    for asset in selected_assets(runtime=runtime):
+        if not asset.get("directory"):
+            entry = asset["files"][0]
+            _get(asset["url"], os.path.join(DATA, entry["path"]), entry["sha256"])
             continue
-        zp = os.path.join(NLTK_DIR, sub, leaf + ".zip")
-        _get(url, zp)
-        with zipfile.ZipFile(zp) as z:
-            z.extractall(os.path.join(NLTK_DIR, sub))
-        os.remove(zp)
+        target = Path(DATA) / asset["directory"]
+        if target.exists():
+            errors = file_errors(asset, DATA)
+            if errors:
+                raise ValueError("; ".join(errors))
+            continue
+        target.parent.mkdir(parents=True, exist_ok=True)
+        # Extract only after checking the official archive hash; verify the
+        # exact decompressed population before atomically installing it.
+        with tempfile.TemporaryDirectory(prefix="lyric-stage-", dir=target.parent) as temporary:
+            temporary = Path(temporary)
+            archive = temporary / "package.zip"
+            _get(asset["url"], archive, asset["archive_sha256"])
+            with zipfile.ZipFile(archive) as zipped:
+                for member in zipped.infolist():
+                    name = Path(member.filename)
+                    if name.is_absolute() or ".." in name.parts:
+                        raise ValueError("unsafe lexical package member")
+                zipped.extractall(temporary)
+            extracted = temporary / target.name
+            check_base = temporary / "checked"
+            installed = check_base / asset["directory"]
+            installed.parent.mkdir(parents=True)
+            shutil.move(extracted, installed)
+            errors = file_errors(asset, check_base)
+            if errors:
+                raise ValueError("; ".join(errors))
+            os.replace(installed, target)
     nltk_data_dir()
 
 
 if __name__ == "__main__":
-    fetch_all()
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument("--runtime", action="store_true", help="stage production inputs (default)")
+    modes.add_argument("--research", action="store_true", help="also stage current research feature inputs")
+    args = parser.parse_args()
+    fetch_all(runtime=not args.research)
     print(f"staged into {os.path.abspath(DATA)}")

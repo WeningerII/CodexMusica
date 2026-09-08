@@ -1,0 +1,163 @@
+
+1. ROUTE 1 — express PD affirmation
+  PASS  source affirming public domain admits
+          got ADMIT_PD_AFFIRMED
+  PASS  second PD-affirming source admits
+          got ADMIT_PD_AFFIRMED
+
+2. OPEN LICENCE != PD CLAIM
+  PASS  CC-BY source alone does NOT admit
+          got REJECT_NO_EVIDENCE — a redistribution grant is not a public-domain claim
+  PASS  same source WITH a verified date admits
+          got ADMIT_DATE_VERIFIED
+
+3. SOFTWARE LICENCE ON TEXT
+  PASS  Sefaria: software licence does not admit
+          got REJECT_NO_EVIDENCE
+  PASS  AKS-DHLAB: software licence does not admit
+          got REJECT_NO_EVIDENCE
+
+4. CONTESTED LICENCE FORCES PER-ITEM DATES
+  PASS  contested source with no author is rejected
+          got REJECT_CONTESTED_NO_DATE
+  PASS  the genuinely PD poet still admits (d.1689)
+          got ADMIT_DATE_VERIFIED
+
+5. MODEL-GENERATED CONTENT (science-safety, not legal)
+  PASS  generated source rejected despite a CC-BY tag
+          got REJECT_GENERATED
+  PASS  generated rejection outranks a verified date
+          got REJECT_GENERATED
+  PASS  item-level generated flag beats a PD-affirming source
+          got REJECT_GENERATED
+  PASS  six-adopter manifest names its maintained builder and stays generated
+  PASS  registered calibration metadata is not admitted as human lyrics
+
+6. MODEL RECALL IS NOT EVIDENCE
+  PASS  a recalled death year is REJECTED under strict
+          got REJECT_UNVERIFIED_DATE
+  PASS  recalled date rejected even though 1900 clears the term
+          got REJECT_UNVERIFIED_DATE — the year is fine; the SOURCING is not
+  PASS  non-strict admits it, so relaxing the rule is explicit and visible
+          got ADMIT_DATE_VERIFIED
+  PASS  a recalled date inside the term fails on BOTH grounds
+          got REJECT_UNVERIFIED_DATE
+
+7. TERM ARITHMETIC
+  PASS  cutoff is current_year - term_years
+          cutoff 1931: an author must have died by then to clear
+  PASS  a 1953 death is inside the term
+          got REJECT_UNVERIFIED_DATE
+
+8. NO EVIDENCE AT ALL
+  PASS  unknown source with no author is rejected
+          got REJECT_UNDECLARED_SOURCE
+  PASS  no-licence source with no author is rejected
+          got REJECT_NO_EVIDENCE
+
+9. LEDGER AND REPORT
+  PASS  ledger has one row per item, always
+          8 rows for 8
+  PASS  admitted count is correct
+          admitted ['he1', 'he2', 'syc1', 'ps1']
+  PASS  Persian is eliminated entirely (all generated)
+          eliminated: ['fa', 'ko']
+  PASS  Korean is eliminated entirely (recalled date only)
+          eliminated: ['fa', 'ko']
+  PASS  three languages survive
+          surviving 3
+
+
+PROVENANCE GATE — 4/8 items admitted (50.0%)
+
+  language      admitted  dropped  survival
+  ------------------------------------------
+  fa                   0        1     0.0%
+  he                   2        0   100.0%
+  ko                   0        1     0.0%
+  ps                   1        1    50.0%
+  syc                  1        1    50.0%
+
+  dropped, by reason:
+         1  REJECT_NO_EVIDENCE
+         1  REJECT_CONTESTED_NO_DATE
+         1  REJECT_GENERATED
+         1  REJECT_UNVERIFIED_DATE
+
+  languages surviving: 3
+  languages eliminated entirely: fa, ko
+
+
+10. an express non-commercial grant is a REJECTION
+  PASS  cc-by-nc-sa-4.0 refuses even with a verified 450 CE death year
+  PASS  the quoted rime-aca grant refuses -- doctrine 85's own case
+          an NC restriction has to bind the same way in every language
+  PASS  contested=true does not change the answer either way
+          contested only voids route 1; REJECT_CONTESTED_NO_DATE is reached after route 2 has already returned, which is why this check has to sit ahead of all three routes rather than beside them
+  PASS  CC0 still admits
+  PASS  plain CC BY + a verified date still admits
+  PASS  a row DENYING an NC clause is not read as carrying one
+          data/opensubtitles_en_50k.tsv is the shipped list; refusing it here would be the gate reading its own changelog as a restriction
+  PASS  and it admits end to end
+  PASS  the NC verdict fires on the staged sources it should, and no others
+          refused: ['tokushige-koyasan/gretil-corpus', 'rime-aca/corpus#quansongci', 'rime-aca/corpus#yuefushiji']
+
+11. `dataset_field:` NAMES A DATASET, and the dataset has to have a data/sources.tsv row (FIXED 2026-08-15)
+  PASS  route 1 · path prefix: 'chinese-poetry/chinese-poetry' reaches its row
+          got 'chinese-poetry/chinese-poetry'
+  PASS  route 2 · owner: 'chinese-poetry/authors.song.json' reaches its row
+          got 'chinese-poetry/chinese-poetry'
+  PASS  route 3 · repo name: 'disco/author_metadata.tsv:death' reaches its row
+          got 'pruizf/disco'
+  PASS  route 1 · path prefix, #subset stripped: 'OpenITI/RELEASE#metadata_2025-1-9' reaches its row
+          got 'OpenITI/RELEASE#metadata_2025-1-9'
+  PASS  and a payload naming nothing in the table reaches NOTHING — this is the half `trusted()` cannot ask
+          a resolver that always resolves is the defect wearing a new name
+  PASS  EVERY resolution over the shipped table returns an id that is actually a row, never a stripped string that names none
+          13788 payloads resolved; offenders: none
+  PASS  a date sourced to an UNDECLARED dataset is REJECTED, with its own verdict rather than folded into REJECT_UNVERIFIED_DATE (doctrine 79 — two failures are two counts)
+          got REJECT_UNDECLARED_DATASET
+  PASS  and the refusal NAMES the dataset that reached no row (doctrine 20 — a refusal states its own cause)
+          death year 800 for 'a' is sourced to dataset 'corpus_1835/csv/authors.csv', which reaches no data/sources.tsv row by any of the three declared routes (path prefix, owner, repo name) -- the scheme is an authority and the dataset it names never passed the provenance gate
+  PASS  a date sourced to a DECLARED dataset still admits
+          got ADMIT_DATE_VERIFIED
+  PASS  and the admission names WHICH row it resolved to — routes 2 and 3 are ambiguous in principle, so 'declared' without a row is unauditable
+          author died 800, clears 95-year term (cutoff 1931), dataset declared at chinese-poetry/chinese-poetry
+  PASS  `wikidata` is not asked for a sources.tsv row
+          wikidata
+  PASS  `viaf` is not asked for a sources.tsv row
+          viaf
+  PASS  `critical_edition` is not asked for a sources.tsv row
+          critical_edition
+  PASS  `printed_authority` is not asked for a sources.tsv row
+          printed_authority
+  PASS  require_declared_dataset=False restores the old answer, so the change is a DECLARED coordinate and not a new hardcoded rule
+  PASS  the shipped data/authority.tsv has a KNOWN, NAMED set of rows that reach no row — the number is reported, not asserted to be zero (doctrine 58: a recorded count is a threshold nobody wrote down)
+          187 rows across 2 datasets: ['corpus_1835/csv/authors.csv', 'trister95/dbnl_bear/notebook/poezie.csv']
+  PASS  the corrected spelling for 'abiwardi_shacir' resolves to OpenITI/RELEASE
+          got 'OpenITI/RELEASE'
+  PASS  the corrected spelling for 'solomon_ibn_gabirol' resolves to projectbenyehuda/public_domain_dump
+          got 'projectbenyehuda/public_domain_dump'
+
+12. doctrine 34 asked of `data/` and not only `corpus/` (FIXED 2026-08-15)
+  PASS  the tracked population is readable — a census that cannot see its population REFUSES rather than passing on an empty list
+          git ls-files returned ['data/CHANNELS.md', 'data/LICENSE.cmudict', 'data/LICENSE.perceptron-tagger', 'data/authority.tsv', 'data/calibration_manifest.tsv', 'data/calibration_populations.json', 'data/calibration_work_editions.json', 'data/eng_elision.tsv', 'data/g2p_letter_rules.tsv', 'data/kalevala_alliteration_pairs.tsv', 'data/labels/finnic_variant_counts/README.md', 'data/labels/finnic_variant_counts/build_finnic_variant_counts.py', 'data/labels/finnic_variant_counts/build_report.json', 'data/labels/finnic_variant_counts/verify.py', 'data/labels/ja_hyakunin_isshu/build_ja_hyakunin_isshu.py', 'data/labels/pa_bani/build_pa_bani.py', 'data/labels/sa_amarusataka/build_sa_amarusataka.py', 'data/labels/sa_subhasita/build_sa_subhasita.py', 'data/labels/sa_subhasita/gretil_io.py', 'data/ltc_rhyme_standards.tsv', 'data/lyricists.tsv', 'data/opensubtitles_en_50k.tsv', 'data/qieyun_mc.tsv', 'data/qieyun_variants.tsv', 'data/qindingcipu_aliases.tsv', 'data/qindingcipu_ge.tsv', 'data/rhyme_capacity_eng.tsv', 'data/runtime_assets.json', 'data/section_marks.tsv', 'data/siku_orthography.tsv', 'data/song_endword_en.tsv', 'data/song_functions_eng.tsv', 'data/song_regions.tsv', 'data/song_rhymepair_en.tsv', 'data/sources.tsv', 'data/structure_canon.tsv', 'data/structure_census_eng.tsv']
+  PASS  every tracked data table is reached by a data/sources.tsv row or by a row's prose — doctrine 34, asked of the directory the DATES live in
+          ORPHANS: none
+  PASS  and the routes are reported BY KIND rather than as one total
+          row 16 · prose-only 9 (['calibration_manifest.tsv', 'calibration_work_editions.json', 'lyricists.tsv', 'qieyun_mc.tsv', 'rhyme_capacity_eng.tsv', 'runtime_assets.json', 'song_functions_eng.tsv', 'song_regions.tsv', 'sources.tsv']) · declared-not-data 12 · orphan 0
+  PASS  data/authority.tsv — the table the gate reads its dates out of — is reached by a ROW, not by the weakest route
+          it was reached by NONE of the three routes until 2026-08-15
+  PASS  exactly one row claims data/authority.tsv
+          1 row(s)
+  PASS  the row names the builder that writes the table
+          data/authority.tsv DEATH YEARS ARE FACTS AND CARRY NO LICENCE OF THEIR OWN. What
+  PASS  and it states that the builder's inputs are NOT committed, so 'auditable' is not read as 'reproducible from this checkout'
+          data/authority.tsv DEATH YEARS ARE FACTS AND CARRY NO LICENCE OF THEIR OWN. What
+
+13. a refusal is not a failure, and not a pass
+  PASS  the suite has a third outcome and it is not spelled with the other two
+  PASS  this run IS inside a checkout, so §12's census ran rather than refusing — the guard cannot silence the check it guards
+          []
+==============================================================
+all provenance regressions pass

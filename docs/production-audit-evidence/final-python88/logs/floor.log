@@ -1,0 +1,423 @@
+
+. an uncalibrated length REFUSES to certify — it is not a note
+  PASS  the premise: this fixture reaches NO profile, so every length-sensitive check is skipped on it
+          3600 tokens -> profile None
+  PASS  the default still REPORTS rather than raising, because the floor is ONE layer and the rhyme, meter and structure layers grade a two-line draft perfectly well — raising here would charge a refusal to the wrong layer (doctrine 79)
+          ['OUT_OF_CALIBRATED_LENGTH', 'RADIF_LICENSED', 'REPEAT_IN_VERSE']
+  PASS  and the code is NAMED in `LENGTH_GATE_CODES`, beside the finding that emits it, so the gate and the emitter cannot drift about which lengths are ungraded (doctrine 1)
+  PASS  `EXTRAPOLATED_LENGTH` is deliberately NOT a gate code: inside a tolerance band every check still runs and reports, downgraded on a false-positive rate `Profile.tolerance` carries. That is a graded draft under a measured allowance, not an ungraded one
+  PASS  the declared hard stop RAISES for an API caller who wants the floor's silence to be fatal at the call site
+  PASS  and the pre-2026-08-23 behaviour is still reachable WITH ITS NAME ON IT — the shape `modal_exclusion=0` uses, so the defect stays demonstrable rather than becoming a sentence nobody can check
+          ['OUT_OF_CALIBRATED_LENGTH', 'RADIF_LICENSED', 'REPEAT_IN_VERSE']
+  PASS  `require_exact_length` refuses inside a TOLERANCE BAND too, where nothing can reject — off by default because the band is a measured allowance rather than an absence
+          450 tokens -> lyric, exact=False
+  PASS  AND THE SIZE OF THE HOLE IS MEASURED, not asserted: over 1-699 tokens the floor can FLAG at 99.6% of lengths and reaches no profile at all at 0.4% — the hole the band rows left is closed by the length curves (M-239)
+          flaggable 99.6%, no profile 0.4%
+
+1. the gate returns findings, never a number
+  PASS  check() returns a list of Finding
+          1 finding(s)
+  PASS  SlopFloor exposes no score/rank/rate method
+          doctrine 6: no weighted quality score, ever
+  PASS  every finding carries its own evidence
+          a caller can audit any flag without reading this module
+  PASS  severity is only 'flag' or 'note'
+
+2. below two lines the gate declines rather than guesses
+  PASS  empty input yields no findings
+  PASS  one line yields no findings
+  PASS  blank lines are not counted as lines
+          a stanza break must not become a datapoint
+
+3. a non-recurring self-rhyme is a violation
+  PASS  REPEAT_IN_VERSE fires
+  PASS  it is a flag when another pair rules a radif out
+          'the light' — carried by 1 of 2 pairs — it recurs NOWHERE, so no refrain reading is available and the fraction never enters. A one-off self-rhyme in an item with 2 pairs to contrast it against
+  PASS  it names the repeated word and the line
+          [1]
+
+3b. on one pair the gate declines to decide
+  PASS  it still reports the repetition
+  PASS  but only as a note, not a rejection
+  PASS  and it says why it will not decide
+          'the light' — only one rhyme pair here, so this cannot be told apart from a radif — the gate declines to decide
+
+4. a RECURRING refrain is licensed, not flagged (doctrine 3)
+  PASS  REPEAT_IN_VERSE does not fire on a recurring repetend
+          codes: ['ANAPHORA_OVERLOAD', 'FUNCTION_WORD_HEAVY', 'LEXICAL_MONOTONY', 'RADIF_LICENSED', 'SHARED_SUFFIX', 'UNIFORM_LINE_LENGTH']
+  PASS  the suppression is announced rather than silent
+          repetend 'for you' recurs across 100% of pairs, at or above the declared 50%, so it is read as a radif rather than as repeated rhyme words. The rhyme is scored on the qafiya that precedes it. WHAT IS SUPPRESSED IS THIS MODULE'S `REPEAT_IN_VERSE` AND NOTHING ELSE — the MANDATE layer judges an identical end word separately, on the declared `ReviseDeclaration.repeat_licence`, and under the default 'unlicensed' it reports every one of these pairs as a `SCHEME_VIOLATION` (REPEAT not rhyme) beside this note. MEASURED on a 5-couplet English ghazal, radif 'turn': 15 violations at the default and 0 at repeat_licence='refrain', with this finding unmoved in both. A radif is a LICENSED repeat and declaring it is the caller's move; saying 'self-rhyme checking is suppressed' full stop would claim a settlement this module cannot make for a layer it does not own (doctrine 1)
+  PASS  the radif is stripped and the qafiya exposed
+          call='waiting' answer='aching' radif_len=2
+
+4b. a run of two in an item of five is NOT a radif — the FRACTION is the licence's second condition (QF2's detector, `MISSING.md` M-179)
+  PASS  a run closing 2 of 5 pairs earns NO licence — the count cleared and the fraction did not
+          40% against the declared 50%
+  PASS  ...and REPEAT_IN_VERSE still speaks about those pairs — the licence did not swallow real self-rhyme
+          'it' — carried by 2 of 5 pairs, under the declared 50% needed to read it as a refrain. DISCLOSED, NOT CHARGED: that cut 
+  PASS  ...naming the run's own lines
+          [1, 3]
+  PASS  CONTROL: the same run at 2 of 2 pairs IS licensed — same words, different denominator, opposite verdict
+          repetend 'it' recurs across 100% of pairs, at or above the declared 50%, so it is read as 
+  PASS  CONTROL: ...and REPEAT_IN_VERSE is silent there
+
+5. the ending must be the WHOLE of the rhyme — every worked pair DECLARED, none chosen by eye
+  PASS  the case table is non-empty and carries BOTH verdicts, so this section cannot pass by examining one side of the rule
+          12 declared case(s)
+  PASS  EVERY declared case answers as ruled — this is the whole gate, and a pair that disagrees names itself rather than hiding in a fixture
+          12/12
+  PASS  a CARRIES pair reaches the finding, evidence and all
+          -ing (the spelled rime is 'ing' on both sides, so the agreement adds nothing the shared -ing did
+  PASS  a SURVIVES pair produces NO finding — `es` against `airs`, so the plural is incidental and the rhyme is care/stair
+  PASS  ...and that is NOT vacuous: those pairs DO share a grammatical ending, so only the spelled-rime condition is holding them back
+          [('glares', 'stairs'), ('cares', 'affairs'), ('abhors', 'doors'), ('adores', 'roars'), ('aches', 'breaks')]
+
+6. the stock-pair list still fires
+  PASS  rain/pain fires
+          rain/pain. WHAT THIS IS: membership in a hand-typed list of 30 pairs (`FloorDeclaration.cliche_pairs`), nothing more. It is a NOTE here and may not reject. The five percentile checks are calibrated at this length (lyric profile), but CLICHE_PAIR reads no percentile: its only measured false-positive rates are the two SUPERSEDED band rows' — 7.79% at 200-450 tokens (`song`, seed 5th-95th 6.19-9.07%) and 3.98% at 50-150 tokens (`short`, seed 5th-95th 3.35-4.68%) — and this text sits at 16 tokens, where no rate was taken. An unmeasured rate may not carry a rejection (doctrine 22); measuring it per length bin over 4-3,245 is owed (M-239). WHAT IT IS NOT: a cliche detector, and it does not measure over-familiarity to a living listener. Against this repo's own pair table (`data/song_rhymepair_en.tsv`, 15,409 distinct pairs by author dispersion) the shipped list has low SENSITIVITY: only 4 of the table's top 30 pairs are on it (13.3%; 3 of 10 at the top ten), its own median dispersion rank is #254 of 15,409, and 9 of its 30 pairs never fire anywhere in corpus/song/eng_*. The table's most dispersed rhymes are away/day, be/me, me/thee — none a cliche to anyone now, and none on the list. `quality/relations.py`'s `frequency` Unprovidable and `quality/phrase_commonplace.py` both REFUSE the over-familiarity claim at their own levels, because every admissible English source here is pre-1931; a shorter list does not earn the claim they declined. So this finding says 'this pair is on a named list that interrupts a human songwriter about 6% of the time', and it does not say the rhyme is tired. PRECISION DEFECT, RECORDED NOT FIXED: there is no rhyme test in front of the membership test — it is raw string-set membership on the two end words. `tears`/`years` fires 21 times over the corpus, 5 in band, on couplets the same pair table records as NOT rhyming (count zero), because cmudict's first pronunciation of `tears` is the rips sense and the table reads `prons[0]`. Neither layer read which sense is on the page. Both fixes were priced in band: a `prons[0]` gate takes 118 to 114 by asserting one convention over another, and an any-pronunciation gate changes nothing at all (136 of 136 listed pairs pass it)
+  PASS  the stock list is a declared coordinate
+          FloorDeclaration.cliche_pairs, 30 pairs
+  PASS  ...and it is DEFINITIONAL, not a measured threshold
+          there is no percentile to move: the only disagreement available is which pairs are on the list
+  PASS  declaring an empty list silences the check
+          the declaration is READ, not decorative
+  PASS  a swapped list does not inherit the shipped list's FPR
+          the measured rate is a property of THIS set on THIS corpus (doctrine 22), so the finding disowns it the moment the set is replaced. Repinned 2026-09-05 (M-239): this line named ~~the 6.35%~~, the 2026-08-14 150-400 point estimate; the shipped `song` row has carried 7.64% over 200-400 since 2026-08-26 and the finding now reads both band rows' rates off the rows rather than quoting a typed number
+  PASS  the finding states what it is NOT, not only what fired
+          measured: 4 of the top 30 pairs by author dispersion in data/song_rhymepair_en.tsv are on the list; 9 of the 30 never fire anywhere in corpus/song/eng_*
+  PASS  ...and it names the missing rhyme test
+          raw string-set membership: tears/years fires 21x over the corpus on couplets the repo's own perfect-rhyme table gives count zero
+
+6b. CLICHE_PAIR runs at every length and rejects at one
+  PASS  inside a measured range it is a FLAG
+          29 tokens, profile section, exact=True, severity=flag
+  PASS  past every profile's reach it still RUNS
+          3629 tokens, profile None; the membership test is length-blind and nothing about it changed
+  PASS  ...but it may not reject there
+          ~~MEASURED 2026-08-14: 14.74% of the 285 corpus items in this bucket fire it, against 6.35% in band.~~ Repinned 2026-09-05 (M-239): that 285-item bucket was the corpus outside the 2026-08-14 BAND table; under the live table no corpus item sits outside 4-3,245 tokens, so the rate out here is not merely different — it is UNMEASURED, which is the stronger form of the same reason. An unmeasured rate may not carry a rejection (doctrine 22)
+  PASS  ...and it was the ONLY flag the gate could emit there
+          OUT_OF_CALIBRATED_LENGTH returns before every length-sensitive check; REPEAT_IN_VERSE stays a flag on purpose, since a word rhymed with itself needs no calibration
+  PASS  a length between profiles is announced as extrapolated (reached under `_narrowed_lyric`; the shipped table has no such length)
+          429 tokens, profile lyric, exact=False
+  PASS  the extrapolation banner names which checks still ran
+          it claimed 'every finding below is downgraded to a note' and that was false — `_relation_findings` is appended AFTER `sev()` and hardcoded a flag — and false in the direction that makes a surviving flag look impossible
+  PASS  ...and the banner's claim now matches the severity emitted
+          severity=note
+  PASS  the out-of-range banner does too
+          a reader of the finding can tell which of the relation checks can still fail them
+
+7. repeated line openings
+  PASS  100% shared opening fires
+  PASS  it lists every offending line
+          [1, 2, 3, 4]
+  PASS  varied openings do not fire
+
+8. anaphora is reported as a decision, not a verdict
+  PASS  the evidence says deliberate anaphora is a figure
+          Whitman, the Psalms and every blues refrain would trip this; the gate must hand the judgement back rather than make it
+
+9. every threshold lives in the declaration
+  PASS  every threshold with a default value is a declared definition
+          valued: ['cliche_pairs', 'mattr_window', 'predictability_max', 'radif_min_pair_fraction', 'require_exact_length', 'uncalibrated_length']; definitional-or-policy: ['cliche_pairs', 'mattr_window', 'predictability_max', 'radif_min_pair_fraction', 'require_exact_length', 'uncalibrated_length'] — every other field is None and takes the profile's measurement, so the defaults assert nothing
+  PASS  the profile supplies the threshold when the field is unset
+  PASS  an override beats the measurement and suppresses its own finding
+          a disagreement lands in a coordinate of the declaration (doctrine 1), not in an argument about the gate
+  PASS  the declared MATTR window reaches the statistic, not just the doc
+          34 tokens: window 50 -> plain TTR, window 20 -> a real moving average. If these two were equal the field would be a number nothing reads
+  PASS  ...and the finding NAMES which statistic it computed
+          window 50 -> 'TTR 0.618 < 1.00'; window 20 -> 'MATTR 0.703 < 1.' — the `section` profile's own figures are plain TTR for exactly this reason (CALIBRATION['mattr_window'])
+
+9b. a threshold measured at one length is not used at another
+  PASS  the two profiles disagree about what is normal
+          anaphora_max: section 0.5 vs sonnet 0.2857 — applying the sonnet cut to a 4-line chorus flags any two lines sharing an opening
+  PASS  a 33-token section picks the section profile
+  PASS  a 118-token sonnet picks the sonnet profile
+  PASS  a length no profile reaches is refused, not extrapolated
+  PASS  40 tokens, once between two bands, is served EXACTLY now
+          profile=lyric, exact=True
+  PASS  a length between profiles is served but marked inexact (under `_narrowed_lyric`, since the shipped table has no such length)
+          profile=lyric, exact=False
+  PASS  the extrapolated branch is REACHED, so the three checks below are not silently skipped (under `_narrowed_lyric`; the shipped table covers this length exactly)
+          75 tokens, profile sonnet, exact=False
+  PASS  no length-calibrated flag survives extrapolation
+          75 tokens, profile sonnet, 7 finding(s); none left
+  PASS  ...and the downgrade was not vacuous: at least one length-calibrated finding IS present, as a note
+          [('ANAPHORA_OVERLOAD', 'note'), ('EXTRAPOLATED_LENGTH', 'note'), ('FUNCTION_WORD_HEAVY', 'note'), ('LEXICAL_MONOTONY', 'note'), ('PREDICTABLE_RHYME', 'note'), ('REPEAT_IN_VERSE', 'flag'), ('UNIFORM_LINE_LENGTH', 'note')]
+  PASS  length-independent findings keep their severity
+          a self-rhyme is a self-rhyme at any length
+  PASS  the extrapolation is announced
+  PASS  outside every profile the length-sensitive checks do not run
+          codes: ['OUT_OF_CALIBRATED_LENGTH', 'RADIF_LICENSED', 'REPEAT_IN_VERSE']
+
+10. the calibration block cannot silently overclaim
+  PASS  CALIBRATION declares 'calibrated'
+  PASS  CALIBRATION declares 'positive_class'
+  PASS  CALIBRATION declares 'negative_class'
+  PASS  CALIBRATION declares 'form'
+  PASS  CALIBRATION declares 'language'
+  PASS  CALIBRATION declares 'rule'
+  PASS  CALIBRATION declares 'known_limits'
+  PASS  every profile records its own thresholds — percentiles or length curves (`Profile.keys()`, M-239)
+          section:4, sonnet:5, song:5, short:4, lyric:5
+  PASS  no threshold can hide outside the THREE lists
+          5 measured, 4 definitional, 2 policy, 0 unaccounted
+  PASS  and every POLICY entry says what it selects and why it is not a number a corpus could answer — an unexplained policy field reads exactly like a threshold nobody calibrated
+          2 policy field(s): ['require_exact_length', 'uncalibrated_length']
+  PASS  each profile records evidence of one kind or the other
+          section: mattr=0.776, function_word_ratio=0.207, anaphora=0.245, line_length_cv=0.424; sonnet: mattr=0.87, function_word_ratio=0.135, anaphora=0.147, line_length_cv=0.35, predictability=0.44; song: no generated class; held-out FPR mattr=5.21%, function_word_ratio=5.13%, anaphora=4.58%, line_length_cv=4.95%, predictability=4.88%, ANY=19.68%, cliche=7.79%; short: no generated class; held-out FPR mattr=5.29%, function_word_ratio=5.07%, anaphora=3.80%, line_length_cv=5.13%, ANY=16.38%, cliche=3.98%; lyric: no generated class; held-out FPR mattr=4.88%, function_word_ratio=5.07%, anaphora=5.09%, line_length_cv=5.31%, predictability=2.63%, ANY=18.73%
+  PASS  a profile with no generated class claims no separation
+          n_generated=0 implies measured_auc={} — an AUC is a statement about two classes and there is only one
+  PASS  a profile whose only evidence is a false-positive rate names the text that rate was measured on
+          doctrine 22: an FPR is a coordinate of the population it was measured on
+  PASS  a profile cannot borrow a threshold it never measured
+          the section profile stays silent on PREDICTABLE_RHYME rather than reusing the sonnet cut
+  PASS  checks that failed their expectation are recorded too
+          a gate that only shows its working results is advertising
+  PASS  an uncalibrated block is marked provisional — the banner says so in the run's own output, not in a comment
+          ["*** THRESHOLDS ARE PROVISIONAL — estimates, not yet derived from the calibration corpora. Findings indicate 'outside a guessed range'. ***"]
+  PASS  ...and a CALIBRATED block does not print it, so the warning means something when it appears
+          CALIBRATION['calibrated'] is True in the shipped tree
+
+11. the note stays a note after the number moved in its favour
+  PASS  the section profile emits no PREDICTABLE_RHYME to pin
+          so the pins below declare the threshold themselves rather than asserting over an empty list
+  PASS  a declared threshold makes the finding fire, so these pins bite
+          1 finding(s)
+  PASS  PREDICTABLE_RHYME is a note, never a flag
+          doctrine 7 -- a floor may not order the region it already passed. This is the reason it may not reject, and it does not depend on the AUC: the severity is unchanged by the 2026-08-14 repin below
+  PASS  its evidence carries the COLD predictability-only AUC
+          predictability-only joint, Exp 2, absolute feature set, cold (quality/test_discriminate.py PINNED abs_exp2.joint_solo)
+  PASS  and does not still carry the superseded warm figure
+          REPINNED 2026-08-14: 0.560 was a warm reading and 'which is chance' was arithmetic on it. This pin required 0.560 until then, so the string and the test moved together or not at all
+  PASS  it names what the number is a coordinate of
+          doctrine 58: 0.648 is only readable against the ten-feature joint on the SAME human-vs-generated split
+
+12. running outside the calibration domain is stated, not hidden
+  PASS  the report names the calibration corpora
+  PASS  the report names the validity limit
+          one form, one language, one generator
+
+13. the length-sensitive half runs on a song-length lyric
+  PASS  anaphoric.txt lands in the lyric-sheet profile, exactly (M-239; it landed in `song` from 2026-08-11 to 2026-09-04)
+          26 lines, 221 tokens -> lyric, exact=True
+  PASS  anaphoric.txt gets a length-sensitive verdict
+          before 2026-08-11 the example songs got OUT_OF_CALIBRATED_LENGTH and the entire length-sensitive half of the floor sat out on the only song-length fixture this project had
+  PASS  anaphoric.txt really has 26 lines
+
+14. the thresholds were not chosen to make the examples pass
+  PASS  the fixture trips ANAPHORA_OVERLOAD
+          13 of its 26 lines open with 'I' — 50% against the human 95th percentile ~~of 30.0% measured on 1,859 corpus songs~~ REPINNED 2026-09-05 (M-239): the fixture lands in `lyric`, whose `anaphora_max` is a curve in ln N, and the number this check is graded against is that curve EVALUATED AT 221 TOKENS — 0.3050, read from the row rather than typed (§13 pins the profile). The 30.0% / 1,859-item figure was the `song` band's fixed percentile and is kept as the reading this test was written against. If a later change makes this pass, the threshold moved for the lyric's sake and this test is the thing that says so
+  PASS  and it is a flag, not a note
+          the ~~song~~ lyric profile (M-239, repinned 2026-09-05) covers 221 tokens exactly, so nothing is downgraded for extrapolation
+  PASS  the five song thresholds are the recorded corpus percentiles
+          RE-ADOPTED 2026-09-08 after canonical work/edition and shared-reader corrections: full 200-seed derivation, 200-450 tokens, 2,438 items, MATTR window50. The preceding August history describes the prior population. This pins the independently recorded current tuple; the flagship-example flag above is the control against tuning it to make the repository's examples pass.
+
+15. a profile with no negative class may not sound like one
+  PASS  `LENGTH_SENSITIVE` names every percentile any profile declares
+          declared-not-mapped []; mapped-not-declared []
+  PASS  the sheet lands EXACTLY in a profile with no generated class
+          234 tokens, 18 lines -> lyric, exact=True, n_generated=0
+  PASS  [lyric] every length-sensitive finding the profile declares actually FIRES on this sheet, so no check below is vacuous — minus the checks whose threshold at 234 tokens is the statistic's ceiling (none)
+          want ['ANAPHORA_OVERLOAD', 'FUNCTION_WORD_HEAVY', 'LEXICAL_MONOTONY', 'PREDICTABLE_RHYME', 'UNIFORM_LINE_LENGTH']; got ['ANAPHORA_OVERLOAD', 'FUNCTION_WORD_HEAVY', 'LEXICAL_MONOTONY', 'PREDICTABLE_RHYME', 'UNIFORM_LINE_LENGTH']
+  PASS  [lyric] at least one finding is under test
+  PASS  [lyric] LEXICAL_MONOTONY carries the profile's OWN evidence phrase, derived and not retyped
+          expected: NO generated class exists at this length, so there is no AUC and no se...
+  PASS  [lyric] FUNCTION_WORD_HEAVY carries the profile's OWN evidence phrase, derived and not retyped
+          expected: NO generated class exists at this length, so there is no AUC and no se...
+  PASS  [lyric] ANAPHORA_OVERLOAD carries the profile's OWN evidence phrase, derived and not retyped
+          expected: NO generated class exists at this length, so there is no AUC and no se...
+  PASS  [lyric] UNIFORM_LINE_LENGTH carries the profile's OWN evidence phrase, derived and not retyped
+          expected: NO generated class exists at this length, so there is no AUC and no se...
+  PASS  [lyric] PREDICTABLE_RHYME carries the profile's OWN evidence phrase, derived and not retyped
+          expected: NO generated class exists at this length, so there is no AUC and no se...
+  PASS  [lyric] PREDICTABLE_RHYME quotes a numeric AUC, so it names the arm that measured it and refuses the carry
+          an unattributed AUC under a profile with no generated class is the exact carry `Profile.evidence_for` exists to prevent
+  PASS  [lyric] and each says so in as many words
+  PASS  [lyric] every finding states its held-out false-positive rate
+          doctrine 22: a threshold is a false-positive rate, not a point on a scale
+  PASS  [lyric] and states that this does not mean it catches a machine
+  PASS  the sheet lands EXACTLY in a profile with no generated class
+          78 tokens, 6 lines -> lyric, exact=True, n_generated=0
+  PASS  [lyric] every length-sensitive finding the profile declares actually FIRES on this sheet, so no check below is vacuous — minus the checks whose threshold at 78 tokens is the statistic's ceiling (['PREDICTABLE_RHYME'])
+          want ['ANAPHORA_OVERLOAD', 'FUNCTION_WORD_HEAVY', 'LEXICAL_MONOTONY', 'UNIFORM_LINE_LENGTH']; got ['ANAPHORA_OVERLOAD', 'FUNCTION_WORD_HEAVY', 'LEXICAL_MONOTONY', 'UNIFORM_LINE_LENGTH']
+  PASS  [lyric] ...and a check whose threshold is the ceiling at this length is SILENT here, by resolution and not by omission: ['PREDICTABLE_RHYME']
+          fired anyway: []
+  PASS  [lyric] at least one finding is under test
+  PASS  [lyric] LEXICAL_MONOTONY carries the profile's OWN evidence phrase, derived and not retyped
+          expected: NO generated class exists at this length, so there is no AUC and no se...
+  PASS  [lyric] FUNCTION_WORD_HEAVY carries the profile's OWN evidence phrase, derived and not retyped
+          expected: NO generated class exists at this length, so there is no AUC and no se...
+  PASS  [lyric] ANAPHORA_OVERLOAD carries the profile's OWN evidence phrase, derived and not retyped
+          expected: NO generated class exists at this length, so there is no AUC and no se...
+  PASS  [lyric] UNIFORM_LINE_LENGTH carries the profile's OWN evidence phrase, derived and not retyped
+          expected: NO generated class exists at this length, so there is no AUC and no se...
+  PASS  [lyric] and each says so in as many words
+  PASS  [lyric] every finding states its held-out false-positive rate
+          doctrine 22: a threshold is a false-positive rate, not a point on a scale
+  PASS  [lyric] and states that this does not mean it catches a machine
+  PASS  the two arms land in ONE profile whose thresholds DIFFER between them (a curve, not a constant), so the derivation above is not one number read twice
+          ['lyric', 'lyric']; mattr_min at 78 tokens 0.6622 vs at 234 0.7044
+  PASS  exactly one ANAPHORA_OVERLOAD is under inspection
+          got 1 -- an empty list makes every check below vacuous, which is what the old `all(... if ...)` spelling did
+  PASS  the period question is carried in the finding, not only the docs
+          doctrine 48: a withdrawal that lives only in quality/RESULTS_SONG_FLOOR.md reaches nobody reading the finding
+  PASS  and what it carries is a WITHDRAWAL, not a live slope
+          re-derived over 407 dated authors against the original 108: rho -0.008, p_perm 0.8695 -- ABSENT and sign-flipped, not weaker, so the caution is withdrawn rather than softened
+  PASS  the struck figure is still legible, and marked as struck
+          doctrine 17: a check may be kept after its premise is falsified but never quoted as if it were not -- +0.275 stays visible and may not stand unqualified
+  PASS  and the withdrawal does not read as a clean bill
+          doctrine 20: 472 of 879 authors are undated and NOT missing at random, and `mattr`/`fwr` now carry the slopes -- a failure to reproduce, not an acquittal, and the confound relocated
+
+16. adding a profile must not delete the refusal
+  PASS  3246 tokens is still outside every profile
+          doctrine 15: length is a coordinate of the declaration. A profile widened until nothing refuses is not a calibration — and 3,245 is the corpus's longest item, not a number chosen
+  PASS  5000 tokens is still outside every profile
+          doctrine 15: length is a coordinate of the declaration. A profile widened until nothing refuses is not a calibration — and 3,245 is the corpus's longest item, not a number chosen
+  PASS  20000 tokens is still outside every profile
+          doctrine 15: length is a coordinate of the declaration. A profile widened until nothing refuses is not a calibration — and 3,245 is the corpus's longest item, not a number chosen
+  PASS  OUT_OF_CALIBRATED_LENGTH still fires above the calibrated range
+          codes: ['OUT_OF_CALIBRATED_LENGTH', 'RADIF_LICENSED', 'REPEAT_IN_VERSE']
+  PASS  450 tokens is served by the lyric profile EXACTLY — the 1.25x tolerance band that used to serve it inexactly (`song`, 160-500) has no job inside the calibrated range
+          got 'lyric', exact=True
+
+17. the scored text is independent of the text that set the cut
+  PASS  the calibration set is the one the profile names
+          280986 distinct normalised lines >= 12 chars in corpus/song/eng_*.txt
+  PASS  anaphoric.txt shares no line with the calibration set
+          26 long lines, 0 shared. Doctrine 13: a resource used to score a cell must be independent of that cell's label, and a calibration set containing the item it scores has measured nothing
+
+18. a tie is broken by the text, not by the hash seed
+  PASS  the tie goes to the word that appears first
+          0.5, 'alpha'
+  PASS  six PYTHONHASHSEEDs give one answer
+          ["(0.5, 'alpha')"]
+
+19. the two mutants this suite could not see (doctrine 94)
+  PASS  PROFILES is ordered section, sonnet, song, short, lyric — and the live set is section, sonnet, lyric
+          section -> sonnet -> song -> short -> lyric
+  PASS  at 199 tokens 2 live profiles REACH and none COVERS (under `_narrowed_lyric`) -- the mutated line is live here
+          reaches ['sonnet', 'lyric']
+  PASS  ...and the choice is `lyric`, the smallest extrapolation
+          got 'lyric'. `reach[0]` would give 'sonnet' -- 73 tokens past the sonnet's measured 126, against 1 short of the narrowed lyric's 200. This is the worked case `declaration_for`'s own comment records
+  PASS  at 180 tokens 2 live profiles REACH and none COVERS (under `_narrowed_lyric`) -- the mutated line is live here
+          reaches ['sonnet', 'lyric']
+  PASS  ...and the choice is `lyric`, the smallest extrapolation
+          got 'lyric'. `reach[0]` would give 'sonnet' -- 54 tokens past the sonnet's measured 126, against 20 short of the narrowed lyric's 200. This is the worked case `declaration_for`'s own comment records
+  PASS  every former seam — 127, 138, 150, 163, 175, 176, 199, and the limits 4 and 3,245 — is EXACT under `lyric` for a twenty-line text; the handoffs between `short`, `sonnet` and `song` that M-132/M-193 pinned are closed by one profile, not by three abutting bands
+          127 -> lyric/True, 138 -> lyric/True, 150 -> lyric/True, 163 -> lyric/True, 175 -> lyric/True, 176 -> lyric/True, 199 -> lyric/True, 4 -> lyric/True, 21 -> lyric/True, 3245 -> lyric/True
+  PASS  ...and at 200 tokens it is `lyric`, EXACT
+          got 'lyric', exact=True
+  PASS  ...and at 400 tokens it is `lyric`, EXACT
+          got 'lyric', exact=True
+  PASS  ...and at 37 tokens it is `section`, EXACT
+          got 'section', exact=True
+  PASS  ...and at 126 tokens it is `sonnet`, EXACT
+          got 'sonnet', exact=True
+  PASS  past every profile's REACH the answer is None, not a nearest guess
+          doctrine 15 -- text outside every calibrated length gets no length-sensitive finding at all, rather than one extrapolated past a measured edge (3,300 tokens is past the corpus's longest item, 3,245, since M-239)
+  PASS  radif_min_pair_fraction is declared and non-trivial
+          0.5 -- a fraction of ALL pairs, not a count, which is the half the mutant dropped
+  PASS  ...and it is DEFINITIONAL, so it is not a tunable threshold
+          a definitional constant states what the word MEANS; moving it changes the claim rather than the sensitivity
+
+  RADIF_LICENSED names the layer it speaks for
+  PASS  the radif is recognised on a real ghazal — 'turn' closes 15 of 15 mandated pairs, at or above the declared 50%
+          a refrain closes 15 of 15 rhyme pairs; THIS FLOOR's self-rhyme check is suppressed for it
+  PASS  ...and the MANDATE layer flags every one of those pairs anyway, because it reads a DIFFERENT declared coordinate
+          15 SCHEME_VIOLATION(s) at the default repeat_licence='unlicensed'
+  PASS  the note now says WHICH check it suppressed, and its evidence names the coordinate that governs the other one
+          a refrain closes 15 of 15 rhyme pairs; THIS FLOOR's self-rhyme check is suppressed for it
+  PASS  CONTROL: declaring the licence clears all 15 and leaves the finding standing — so the two layers are two questions, not one broken one, and the caller's declaration is what settles it
+          0 violation(s) at repeat_licence='refrain'; RADIF_LICENSED present
+
+26. two profiles covering one token count: the LINE COUNT breaks the tie (`quality/SHORT_SONG_FLOOR_PREREGISTRATION.md` §4)
+  PASS  the premise: two live profiles cover 118 tokens, `sonnet` and `lyric`
+          ['sonnet', 'lyric']
+  PASS  with NO line count the pick is list order — the pre-2026-09-01 answer, byte for byte
+  PASS  a fourteen-line text of 118 tokens is graded as a SONNET — the profile whose calibrated unit IS this text's shape
+          sonnet
+  PASS  a twenty-line text of 118 tokens is graded as a LYRIC SHEET — the profile whose unit fixes no line count — and not as a sonnet it is not
+          lyric
+  PASS  a twenty-line text of 33 tokens is a LYRIC SHEET, not a quatrain — the same tie-break, at the section's length
+          lyric
+  PASS  ...and a four-line text of 33 tokens is the quatrain
+          section
+  PASS  ...and a count NO profile covers still takes the nearest-measured-edge rule, inexact (under `_narrowed_lyric`)
+  PASS  `Floor.check` hands the picker the text's line count beside its token count
+          [(48, 6)]
+
+27. an OVERRIDDEN threshold may not be reported as the corpus's percentile (M-238, M-241)
+  PASS  the fixture lands in the lyric profile, exactly — the profile whose five thresholds are CURVES, so the struck helper's own branch is the one under test
+          48 lines, 552 tokens -> lyric, exact=True
+  PASS  PREMISE: all five length-sensitive findings FIRE on it under the default declaration, so neither arm below asserts over an empty list (doctrine 48)
+          missing []
+  PASS  [ANAPHORA_OVERLOAD] PREMISE: it fires under the override too, so the three checks below read a real string
+          1 finding(s)
+  PASS  [ANAPHORA_OVERLOAD] CONTROL: with no override the finding still names the corpus percentile and the profile it came from
+          expected '(human 95th percentile, lyric profile'
+  PASS  [ANAPHORA_OVERLOAD] ...and with `FloorDeclaration.anaphora_max` set it does NOT — the caller's cut is not a percentile of any corpus
+          0.0333 reported as the lyric corpus's 95th percentile
+  PASS  [ANAPHORA_OVERLOAD] ...and it NAMES the declaration the number came from, rather than going silent about its provenance (doctrine 20)
+  PASS  [ANAPHORA_OVERLOAD] CONTROL: the profile's own AUC/held-out sentence IS quoted when the profile's own threshold was applied
+          expected: NO generated class exists at this length, so there is no AUC...
+  PASS  [ANAPHORA_OVERLOAD] ...and is WITHDRAWN under the override, because it was measured at the threshold the declaration replaced
+          still quoting: NO generated class exists at this length, so there is no AUC...
+  PASS  [FUNCTION_WORD_HEAVY] PREMISE: it fires under the override too, so the three checks below read a real string
+          1 finding(s)
+  PASS  [FUNCTION_WORD_HEAVY] CONTROL: with no override the finding still names the corpus percentile and the profile it came from
+          expected '(human 95th percentile, lyric profile'
+  PASS  [FUNCTION_WORD_HEAVY] ...and with `FloorDeclaration.function_word_ratio_max` set it does NOT — the caller's cut is not a percentile of any corpus
+          0.1222 reported as the lyric corpus's 95th percentile
+  PASS  [FUNCTION_WORD_HEAVY] ...and it NAMES the declaration the number came from, rather than going silent about its provenance (doctrine 20)
+  PASS  [FUNCTION_WORD_HEAVY] CONTROL: the profile's own AUC/held-out sentence IS quoted when the profile's own threshold was applied
+          expected: NO generated class exists at this length, so there is no AUC...
+  PASS  [FUNCTION_WORD_HEAVY] ...and is WITHDRAWN under the override, because it was measured at the threshold the declaration replaced
+          still quoting: NO generated class exists at this length, so there is no AUC...
+  PASS  [UNIFORM_LINE_LENGTH] PREMISE: it fires under the override too, so the three checks below read a real string
+          1 finding(s)
+  PASS  [UNIFORM_LINE_LENGTH] CONTROL: with no override the finding still names the corpus percentile and the profile it came from
+          expected '(human 5th percentile, lyric profile'
+  PASS  [UNIFORM_LINE_LENGTH] ...and with `FloorDeclaration.line_length_cv_min` set it does NOT — the caller's cut is not a percentile of any corpus
+          0.4444 reported as the lyric corpus's 5th percentile
+  PASS  [UNIFORM_LINE_LENGTH] ...and it NAMES the declaration the number came from, rather than going silent about its provenance (doctrine 20)
+  PASS  [UNIFORM_LINE_LENGTH] CONTROL: the profile's own AUC/held-out sentence IS quoted when the profile's own threshold was applied
+          expected: NO generated class exists at this length, so there is no AUC...
+  PASS  [UNIFORM_LINE_LENGTH] ...and is WITHDRAWN under the override, because it was measured at the threshold the declaration replaced
+          still quoting: NO generated class exists at this length, so there is no AUC...
+  PASS  [LEXICAL_MONOTONY] PREMISE: it fires under the override too, so the three checks below read a real string
+          1 finding(s)
+  PASS  [LEXICAL_MONOTONY] CONTROL: with no override the finding still names the corpus percentile and the profile it came from
+          expected '(human 5th percentile, lyric profile'
+  PASS  [LEXICAL_MONOTONY] ...and with `FloorDeclaration.mattr_min` set it does NOT — the caller's cut is not a percentile of any corpus
+          0.9111 reported as the lyric corpus's 5th percentile
+  PASS  [LEXICAL_MONOTONY] ...and it NAMES the declaration the number came from, rather than going silent about its provenance (doctrine 20)
+  PASS  [LEXICAL_MONOTONY] CONTROL: the profile's own AUC/held-out sentence IS quoted when the profile's own threshold was applied
+          expected: NO generated class exists at this length, so there is no AUC...
+  PASS  [LEXICAL_MONOTONY] ...and is WITHDRAWN under the override, because it was measured at the threshold the declaration replaced
+          still quoting: NO generated class exists at this length, so there is no AUC...
+  PASS  [PREDICTABLE_RHYME] PREMISE: it fires under the override too, so the three checks below read a real string
+          1 finding(s)
+  PASS  [PREDICTABLE_RHYME] CONTROL: with no override the finding still names the corpus percentile and the profile it came from
+          expected '(human 95th percentile, lyric profile'
+  PASS  [PREDICTABLE_RHYME] ...and with `FloorDeclaration.predictable_pair_fraction_max` set it does NOT — the caller's cut is not a percentile of any corpus
+          0.0555 reported as the lyric corpus's 95th percentile
+  PASS  [PREDICTABLE_RHYME] ...and it NAMES the declaration the number came from, rather than going silent about its provenance (doctrine 20)
+  PASS  [PREDICTABLE_RHYME] CONTROL: the profile's own AUC/held-out sentence IS quoted when the profile's own threshold was applied
+          expected: NO generated class exists at this length, so there is no AUC...
+  PASS  [PREDICTABLE_RHYME] ...and is WITHDRAWN under the override, because it was measured at the threshold the declaration replaced
+          still quoting: NO generated class exists at this length, so there is no AUC...
+  PASS  the stanza fixture lands in `section`, exactly — a profile with NO curves, where the struck helper contributed nothing
+          32 tokens -> section, curves []
+  PASS  PREMISE: LEXICAL_MONOTONY fires on it under both declarations
+          1 / 1
+  PASS  CONTROL: the section profile's own cut is still reported as its 5th percentile
+  PASS  ...and an override under a FIXED-percentile profile is not — the defect `at_len` could not reach
+  PASS  ...and the section profile's AUC is withdrawn with it: 0.776 was measured at 0.7568 and prices nothing at 0.9111
+  PASS  PREMISE: `section` declares no `predictable_pair_fraction_max`, so §11's own fixture can only run this check on a declaration
+          section declares ['anaphora_max', 'function_word_ratio_max', 'line_length_cv_min', 'mattr_min']
+  PASS  PREMISE: it fires, as §11 requires
+  PASS  a cut the profile never measured is not reported as that profile's 95th percentile
+  PASS  ...and the finding says the profile measured NONE, rather than implying a threshold was overridden that never existed
+          100% of pairs above 0.90 predictability > 0.8333 (DECLARED by the caller: FloorDeclaration.predictable_pair_fraction_max
+==============================================================
+all slop-floor regressions pass

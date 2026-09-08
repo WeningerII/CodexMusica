@@ -368,7 +368,7 @@ def _p_revise(out):
 _STAMP = re.compile(
     r"\[FINISHED\s*—\s*(?:seed\s*(-?\d+)|(declared mandate))\s*—\s*exit\s*(\d+)"
     r"\s*—\s*([A-Z_]+)\s+after\s+(\d+)\s+round\(s\)\s*—\s*"
-    r"(?:UNRESOLVED:\s*([^\]—]*)|no flag stands)"
+    r"(?:UNRESOLVED:\s*([^\]—]*)|no (?:line )?flag stands)"
     r"(?:\s*—\s*WHOLE-DRAFT FLAG:\s*([^\]]*))?\]")
 
 

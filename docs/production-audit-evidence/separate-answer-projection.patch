@@ -1,0 +1,14 @@
+--- lyric_tools.before.js
++++ lyric_tools.after.js
+@@ -2268,6 +2268,11 @@
+                 // can consume it if an externally supplied near-limit journal
+                 // leaves insufficient room; the caller retains both exact inputs.
+                 assertContinuationCapacity(st);
++                // The fold receipt must read the submitted answer too, whether
++                // it arrived embedded in state or through answer/answers beside
++                // a run capability. This string is request-local; the cached
++                // predecessor remains immutable until the accepted successor.
++                a.state = JSON.stringify(st);
+                 await writeFile(statePath, JSON.stringify(st, null, 2) + '\n', 'utf8');
+               } else if (a.answer != null || a.answers != null) {
+                 throw refuse(

@@ -1,0 +1,4300 @@
+{
+  "root": "/workspace/scratch/b0544e4bbdd6/production-fixes/lyric-harness",
+  "total": {
+    "decided": 125501,
+    "typed": 77052,
+    "undecided": 32,
+    "apparatus": 1
+  },
+  "by_file": {
+    "cym_cynghanedd_llywelyn_goch_cywydd.txt": {
+      "decided": 1
+    },
+    "cym_song_alun.txt": {
+      "typed": 29
+    },
+    "cym_song_hwiangerddi.txt": {
+      "typed": 305
+    },
+    "cym_song_mynyddog.txt": {
+      "typed": 405
+    },
+    "cym_song_twm_or_nant.txt": {
+      "typed": 71
+    },
+    "eng_american_a_b_cunningham.txt": {
+      "typed": 9
+    },
+    "eng_american_a_e_blackmar.txt": {
+      "typed": 6
+    },
+    "eng_american_a_e_morris.txt": {
+      "typed": 4
+    },
+    "eng_american_a_f_leonard.txt": {
+      "typed": 4
+    },
+    "eng_american_a_f_leovy.txt": {
+      "typed": 3
+    },
+    "eng_american_a_g_knight.txt": {
+      "typed": 8
+    },
+    "eng_american_a_m_hobby.txt": {
+      "typed": 12
+    },
+    "eng_american_a_pender.txt": {
+      "typed": 5
+    },
+    "eng_american_a_w_kercheval.txt": {
+      "typed": 4
+    },
+    "eng_american_a_w_morse.txt": {
+      "typed": 3
+    },
+    "eng_american_abram_joseph_ryan.txt": {
+      "typed": 101
+    },
+    "eng_american_albert_pike.txt": {
+      "typed": 25
+    },
+    "eng_american_alex_a_cummins.txt": {
+      "typed": 4
+    },
+    "eng_american_alex_b_meek.txt": {
+      "typed": 4
+    },
+    "eng_american_alice_cary.txt": {
+      "typed": 3
+    },
+    "eng_american_ann_taylor.txt": {
+      "typed": 25
+    },
+    "eng_american_annie_adams_fields.txt": {
+      "typed": 9
+    },
+    "eng_american_annie_c_ketchum.txt": {
+      "typed": 4
+    },
+    "eng_american_annie_marie_neeby.txt": {
+      "typed": 9
+    },
+    "eng_american_basil_duke.txt": {
+      "typed": 7
+    },
+    "eng_american_bayard_taylor.txt": {
+      "typed": 66
+    },
+    "eng_american_benjamin_f_taylor.txt": {
+      "typed": 2
+    },
+    "eng_american_bliss_carman.txt": {
+      "typed": 26
+    },
+    "eng_american_bret_harte.txt": {
+      "typed": 61
+    },
+    "eng_american_byron_forceythe_willson.txt": {
+      "typed": 32
+    },
+    "eng_american_c_a_warfield.txt": {
+      "typed": 13
+    },
+    "eng_american_c_d_dasher.txt": {
+      "typed": 2
+    },
+    "eng_american_c_g_forshey.txt": {
+      "typed": 14
+    },
+    "eng_american_capt_blackford.txt": {
+      "typed": 4
+    },
+    "eng_american_capt_thorpe.txt": {
+      "typed": 1
+    },
+    "eng_american_carrie_bell_sinclair.txt": {
+      "typed": 17
+    },
+    "eng_american_celia_thaxter.txt": {
+      "typed": 20
+    },
+    "eng_american_charles_fenno_hoffman.txt": {
+      "typed": 23
+    },
+    "eng_american_charles_henry_lueders.txt": {
+      "typed": 4
+    },
+    "eng_american_christopher_pearse_cranch.txt": {
+      "typed": 17
+    },
+    "eng_american_cincinnatus_hiner_miller.txt": {
+      "typed": 4
+    },
+    "eng_american_clarence_prentice.txt": {
+      "typed": 6
+    },
+    "eng_american_clement_clarke_moore.txt": {
+      "typed": 6
+    },
+    "eng_american_dan_e_townsend.txt": {
+      "typed": 3
+    },
+    "eng_american_e_bowers.txt": {
+      "typed": 4
+    },
+    "eng_american_e_e_kidd.txt": {
+      "typed": 4
+    },
+    "eng_american_e_griswold.txt": {
+      "typed": 7
+    },
+    "eng_american_e_lloyd_wailes.txt": {
+      "typed": 3
+    },
+    "eng_american_e_m_thompson.txt": {
+      "typed": 4
+    },
+    "eng_american_e_w_cave.txt": {
+      "typed": 4
+    },
+    "eng_american_edgar_allan_poe.txt": {
+      "typed": 92
+    },
+    "eng_american_edmund_clarence_stedman.txt": {
+      "typed": 161
+    },
+    "eng_american_edward_coate_pinkney.txt": {
+      "typed": 7
+    },
+    "eng_american_edward_rowland_sill.txt": {
+      "typed": 42
+    },
+    "eng_american_edwin_hobby.txt": {
+      "typed": 11
+    },
+    "eng_american_emily_dickinson.txt": {
+      "typed": 18
+    },
+    "eng_american_emma_willard.txt": {
+      "typed": 3
+    },
+    "eng_american_ethelinda_beers.txt": {
+      "typed": 23,
+      "decided": 1
+    },
+    "eng_american_eugene_field.txt": {
+      "typed": 25
+    },
+    "eng_american_eugene_raymond.txt": {
+      "typed": 5
+    },
+    "eng_american_f_j_child.txt": {
+      "typed": 10
+    },
+    "eng_american_fitz_greene_halleck.txt": {
+      "typed": 12
+    },
+    "eng_american_fr_sulzner.txt": {
+      "typed": 4
+    },
+    "eng_american_frances_ellen_watkins_harper.txt": {
+      "typed": 7
+    },
+    "eng_american_francis_a_durivage.txt": {
+      "typed": 7
+    },
+    "eng_american_francis_miles_finch.txt": {
+      "typed": 17
+    },
+    "eng_american_francis_o_ticknor.txt": {
+      "typed": 40
+    },
+    "eng_american_francis_scott_key.txt": {
+      "typed": 4
+    },
+    "eng_american_frank_lee.txt": {
+      "typed": 3
+    },
+    "eng_american_g_w_alexander.txt": {
+      "typed": 7
+    },
+    "eng_american_george_b_milror.txt": {
+      "typed": 7
+    },
+    "eng_american_george_edward_woodberry.txt": {
+      "typed": 34
+    },
+    "eng_american_george_h_miles.txt": {
+      "typed": 9
+    },
+    "eng_american_george_henry_boker.txt": {
+      "typed": 207,
+      "undecided": 2
+    },
+    "eng_american_george_parsons_lathrop.txt": {
+      "typed": 13
+    },
+    "eng_american_george_pope_morris.txt": {
+      "typed": 38
+    },
+    "eng_american_h_h_strawbridge.txt": {
+      "typed": 3
+    },
+    "eng_american_h_walther.txt": {
+      "typed": 4
+    },
+    "eng_american_hamilton_washington.txt": {
+      "typed": 2
+    },
+    "eng_american_hannah_flagg_gould.txt": {
+      "typed": 45
+    },
+    "eng_american_harriet_prescott_spofford.txt": {
+      "typed": 27
+    },
+    "eng_american_harry_l_flash.txt": {
+      "typed": 8
+    },
+    "eng_american_harry_macarthy.txt": {
+      "typed": 20
+    },
+    "eng_american_helen_hunt_jackson.txt": {
+      "typed": 24
+    },
+    "eng_american_henry_cuyler_bunner.txt": {
+      "typed": 63
+    },
+    "eng_american_henry_david_thoreau.txt": {
+      "typed": 24
+    },
+    "eng_american_henry_houghton.txt": {
+      "typed": 4
+    },
+    "eng_american_henry_howard_brownell.txt": {
+      "typed": 171
+    },
+    "eng_american_henry_peterson.txt": {
+      "typed": 8
+    },
+    "eng_american_henry_timrod.txt": {
+      "typed": 78
+    },
+    "eng_american_henry_van_dyke.txt": {
+      "typed": 20
+    },
+    "eng_american_henry_wadsworth_longfellow.txt": {
+      "typed": 535
+    },
+    "eng_american_herman_melville.txt": {
+      "typed": 54
+    },
+    "eng_american_hiram_rich.txt": {
+      "typed": 23
+    },
+    "eng_american_ina_m_porter.txt": {
+      "typed": 21
+    },
+    "eng_american_j_a_waginer.txt": {
+      "typed": 3
+    },
+    "eng_american_j_b_magruder.txt": {
+      "typed": 3
+    },
+    "eng_american_j_e_carnes.txt": {
+      "typed": 15
+    },
+    "eng_american_j_h_woodcock.txt": {
+      "typed": 4
+    },
+    "eng_american_j_s_thovington.txt": {
+      "typed": 14
+    },
+    "eng_american_j_w_a_wright.txt": {
+      "typed": 4
+    },
+    "eng_american_j_w_de_forest.txt": {
+      "typed": 17
+    },
+    "eng_american_j_w_palmer.txt": {
+      "typed": 44
+    },
+    "eng_american_james_aldrich.txt": {
+      "typed": 2
+    },
+    "eng_american_james_b_marshall.txt": {
+      "typed": 5
+    },
+    "eng_american_james_haines.txt": {
+      "typed": 5
+    },
+    "eng_american_james_pierpont.txt": {
+      "typed": 12
+    },
+    "eng_american_james_russell_lowell.txt": {
+      "typed": 240
+    },
+    "eng_american_james_ryder_randall.txt": {
+      "typed": 26
+    },
+    "eng_american_james_whitcomb_riley.txt": {
+      "typed": 39
+    },
+    "eng_american_jane_taylor.txt": {
+      "typed": 42
+    },
+    "eng_american_jeff_thompson.txt": {
+      "typed": 3
+    },
+    "eng_american_jo_augustine_signaigo.txt": {
+      "typed": 4
+    },
+    "eng_american_john_banister_tabb.txt": {
+      "typed": 16
+    },
+    "eng_american_john_d_phelan.txt": {
+      "typed": 7
+    },
+    "eng_american_john_esten_cooke.txt": {
+      "typed": 4
+    },
+    "eng_american_john_greenleaf_whittier.txt": {
+      "typed": 643
+    },
+    "eng_american_john_h_hewitt.txt": {
+      "typed": 2
+    },
+    "eng_american_john_james_piatt.txt": {
+      "typed": 17
+    },
+    "eng_american_john_m_hewett.txt": {
+      "typed": 3
+    },
+    "eng_american_john_pierpont.txt": {
+      "typed": 37,
+      "decided": 1
+    },
+    "eng_american_john_r_thompson.txt": {
+      "typed": 72
+    },
+    "eng_american_john_shaw.txt": {
+      "typed": 3
+    },
+    "eng_american_john_w_paine.txt": {
+      "typed": 3
+    },
+    "eng_american_joseph_brownlee_brown.txt": {
+      "typed": 1
+    },
+    "eng_american_joseph_o_connor.txt": {
+      "typed": 16
+    },
+    "eng_american_joseph_rodman_drake.txt": {
+      "typed": 23,
+      "decided": 1
+    },
+    "eng_american_josiah_gilbert_holland.txt": {
+      "typed": 17
+    },
+    "eng_american_julia_ward_howe.txt": {
+      "typed": 56,
+      "decided": 1
+    },
+    "eng_american_kate_putnam_osgood.txt": {
+      "typed": 12
+    },
+    "eng_american_l_frank_tooker.txt": {
+      "typed": 11
+    },
+    "eng_american_l_virginia_french.txt": {
+      "typed": 3
+    },
+    "eng_american_lamar_fontaine.txt": {
+      "typed": 19
+    },
+    "eng_american_laura_lorrimer.txt": {
+      "typed": 5
+    },
+    "eng_american_lizette_woodworth_reese.txt": {
+      "typed": 4
+    },
+    "eng_american_lloyd_mifflin.txt": {
+      "typed": 9
+    },
+    "eng_american_louise_chandler_moulton.txt": {
+      "typed": 33
+    },
+    "eng_american_louise_imogen_guiney.txt": {
+      "typed": 19
+    },
+    "eng_american_lucy_larcom.txt": {
+      "typed": 55
+    },
+    "eng_american_lydia_maria_child.txt": {
+      "typed": 13
+    },
+    "eng_american_m_b_smith.txt": {
+      "typed": 19
+    },
+    "eng_american_m_f_bigney.txt": {
+      "typed": 3
+    },
+    "eng_american_major_mcknight.txt": {
+      "typed": 5
+    },
+    "eng_american_margaret_junkin_preston.txt": {
+      "typed": 107
+    },
+    "eng_american_maria_gowen_brooks.txt": {
+      "typed": 8
+    },
+    "eng_american_maria_la_conte.txt": {
+      "typed": 5
+    },
+    "eng_american_mary_ashley_townsend.txt": {
+      "typed": 9
+    },
+    "eng_american_mary_e_smith.txt": {
+      "typed": 9
+    },
+    "eng_american_mary_j_upshur.txt": {
+      "typed": 11
+    },
+    "eng_american_mary_l_wilson.txt": {
+      "typed": 9
+    },
+    "eng_american_mary_mapes_dodge.txt": {
+      "typed": 1
+    },
+    "eng_american_mary_woolsey_howland.txt": {
+      "typed": 6
+    },
+    "eng_american_maurice_bell.txt": {
+      "typed": 15
+    },
+    "eng_american_maurice_thompson.txt": {
+      "typed": 8
+    },
+    "eng_american_michael_o_connor.txt": {
+      "typed": 3
+    },
+    "eng_american_miss_maria_e_jones.txt": {
+      "typed": 16
+    },
+    "eng_american_miss_maria_grason.txt": {
+      "typed": 7
+    },
+    "eng_american_miss_mollie_e_moore.txt": {
+      "typed": 31
+    },
+    "eng_american_mrs_c_a_ball.txt": {
+      "typed": 6
+    },
+    "eng_american_mrs_henry_j_vose.txt": {
+      "typed": 5
+    },
+    "eng_american_mrs_j_d_young.txt": {
+      "typed": 5
+    },
+    "eng_american_mrs_j_t_h_cross.txt": {
+      "typed": 8
+    },
+    "eng_american_mrs_l_e_caplen.txt": {
+      "typed": 9
+    },
+    "eng_american_mrs_m_j_young.txt": {
+      "typed": 9
+    },
+    "eng_american_mrs_wm_barnes.txt": {
+      "typed": 6
+    },
+    "eng_american_n_g_shepherd.txt": {
+      "typed": 10
+    },
+    "eng_american_nathaniel_parker_willis.txt": {
+      "typed": 35
+    },
+    "eng_american_nora_perry.txt": {
+      "typed": 75
+    },
+    "eng_american_p_e_collins.txt": {
+      "typed": 3
+    },
+    "eng_american_paul_h_hayne.txt": {
+      "typed": 76
+    },
+    "eng_american_paul_laurence_dunbar.txt": {
+      "typed": 55
+    },
+    "eng_american_pearl_rivers.txt": {
+      "typed": 5
+    },
+    "eng_american_philip_freneau.txt": {
+      "typed": 216
+    },
+    "eng_american_phillis_wheatley.txt": {
+      "typed": 8
+    },
+    "eng_american_phoebe_cary.txt": {
+      "typed": 56
+    },
+    "eng_american_r_e_holtz.txt": {
+      "typed": 9
+    },
+    "eng_american_ralph_waldo_emerson.txt": {
+      "typed": 94
+    },
+    "eng_american_reuben_e_brown.txt": {
+      "typed": 8
+    },
+    "eng_american_richard_henry_dana_sr.txt": {
+      "typed": 5
+    },
+    "eng_american_richard_henry_stoddard.txt": {
+      "typed": 94
+    },
+    "eng_american_richard_henry_wilde.txt": {
+      "typed": 3
+    },
+    "eng_american_richard_hovey.txt": {
+      "typed": 45
+    },
+    "eng_american_richard_watson_gilder.txt": {
+      "typed": 48
+    },
+    "eng_american_robert_falligant.txt": {
+      "typed": 10
+    },
+    "eng_american_rose_terry_cooke.txt": {
+      "typed": 34
+    },
+    "eng_american_rossiter_johnson.txt": {
+      "typed": 23
+    },
+    "eng_american_rossiter_w_raymond.txt": {
+      "typed": 4
+    },
+    "eng_american_s_a_jonas.txt": {
+      "typed": 4
+    },
+    "eng_american_s_r_ezzell.txt": {
+      "typed": 16
+    },
+    "eng_american_s_teackle_wallis.txt": {
+      "typed": 18
+    },
+    "eng_american_sam_houston.txt": {
+      "typed": 3
+    },
+    "eng_american_samuel_h_m_byers.txt": {
+      "typed": 12
+    },
+    "eng_american_samuel_woodworth.txt": {
+      "typed": 6
+    },
+    "eng_american_sarah_josepha_hale.txt": {
+      "typed": 3
+    },
+    "eng_american_sarah_t_bolton.txt": {
+      "typed": 11
+    },
+    "eng_american_sidney_lanier.txt": {
+      "typed": 86
+    },
+    "eng_american_st_geo_tucker.txt": {
+      "typed": 6
+    },
+    "eng_american_susan_a_tally.txt": {
+      "typed": 4
+    },
+    "eng_american_theodore_ohara.txt": {
+      "typed": 12
+    },
+    "eng_american_thomas_bailey_aldrich.txt": {
+      "typed": 92
+    },
+    "eng_american_thomas_buchanan_read.txt": {
+      "typed": 59,
+      "decided": 1
+    },
+    "eng_american_thomas_william_parsons.txt": {
+      "typed": 23
+    },
+    "eng_american_virginia_norfolk.txt": {
+      "typed": 4
+    },
+    "eng_american_w_a_haynes.txt": {
+      "typed": 5
+    },
+    "eng_american_w_p_cunningham.txt": {
+      "typed": 9
+    },
+    "eng_american_w_s_hawkins.txt": {
+      "typed": 14
+    },
+    "eng_american_william_b_bradbury.txt": {
+      "typed": 10
+    },
+    "eng_american_william_cullen_bryant.txt": {
+      "typed": 127
+    },
+    "eng_american_william_dean_howells.txt": {
+      "typed": 20
+    },
+    "eng_american_william_prescott_foster.txt": {
+      "typed": 4
+    },
+    "eng_american_william_tuckey_meredith.txt": {
+      "typed": 7
+    },
+    "eng_american_william_winter.txt": {
+      "typed": 15
+    },
+    "eng_american_wm_neely.txt": {
+      "typed": 15
+    },
+    "eng_british_adelaide_anne_procter.txt": {
+      "typed": 1067
+    },
+    "eng_british_alfred_austin.txt": {
+      "typed": 21
+    },
+    "eng_british_alfred_domett.txt": {
+      "typed": 12
+    },
+    "eng_british_alfred_tennyson.txt": {
+      "typed": 302
+    },
+    "eng_british_algernon_charles_swinburne.txt": {
+      "typed": 196
+    },
+    "eng_british_arthur_hugh_clough.txt": {
+      "typed": 265
+    },
+    "eng_british_arthur_o_shaughnessy.txt": {
+      "typed": 23
+    },
+    "eng_british_aubrey_de_vere.txt": {
+      "typed": 8
+    },
+    "eng_british_austin_dobson.txt": {
+      "typed": 135
+    },
+    "eng_british_b_w_procter.txt": {
+      "typed": 36
+    },
+    "eng_british_ben_jonson.txt": {
+      "typed": 66
+    },
+    "eng_british_charles_kingsley.txt": {
+      "typed": 256
+    },
+    "eng_british_charles_mackay.txt": {
+      "typed": 11
+    },
+    "eng_british_christina_rossetti.txt": {
+      "typed": 1116
+    },
+    "eng_british_dante_gabriel_rossetti.txt": {
+      "typed": 56
+    },
+    "eng_british_edmund_gosse.txt": {
+      "typed": 17
+    },
+    "eng_british_edward_fitzgerald.txt": {
+      "typed": 204
+    },
+    "eng_british_edward_lear.txt": {
+      "typed": 174
+    },
+    "eng_british_edwin_arnold.txt": {
+      "typed": 22
+    },
+    "eng_british_eliza_cook.txt": {
+      "typed": 4
+    },
+    "eng_british_elizabeth_barrett_browning.txt": {
+      "typed": 556
+    },
+    "eng_british_emily_bronte.txt": {
+      "typed": 175
+    },
+    "eng_british_f_w_bourdillon.txt": {
+      "typed": 6
+    },
+    "eng_british_felicia_hemans.txt": {
+      "typed": 2720
+    },
+    "eng_british_frances_anne_kemble.txt": {
+      "typed": 147
+    },
+    "eng_british_francis_mahoney.txt": {
+      "typed": 8
+    },
+    "eng_british_francis_pilkington.txt": {
+      "typed": 6
+    },
+    "eng_british_frederick_locker_lampson.txt": {
+      "typed": 79
+    },
+    "eng_british_george_darley.txt": {
+      "typed": 51
+    },
+    "eng_british_george_mason_and_john_earsden.txt": {
+      "typed": 2
+    },
+    "eng_british_george_walter_thornbury.txt": {
+      "typed": 13
+    },
+    "eng_british_gerald_massey.txt": {
+      "typed": 15
+    },
+    "eng_british_giles_farnaby.txt": {
+      "typed": 4
+    },
+    "eng_british_hamilton_aide.txt": {
+      "typed": 8
+    },
+    "eng_british_henry_lichfild.txt": {
+      "typed": 2
+    },
+    "eng_british_henry_youll.txt": {
+      "typed": 3
+    },
+    "eng_british_j_ashby_sterry.txt": {
+      "typed": 10
+    },
+    "eng_british_jean_ingelow.txt": {
+      "typed": 608,
+      "undecided": 1
+    },
+    "eng_british_john_attye.txt": {
+      "typed": 3
+    },
+    "eng_british_john_coprario.txt": {
+      "typed": 2
+    },
+    "eng_british_john_danyel.txt": {
+      "typed": 4
+    },
+    "eng_british_john_dowland.txt": {
+      "typed": 79
+    },
+    "eng_british_john_farmer.txt": {
+      "typed": 8
+    },
+    "eng_british_john_keats.txt": {
+      "typed": 111
+    },
+    "eng_british_john_maynard.txt": {
+      "typed": 11
+    },
+    "eng_british_john_mundy.txt": {
+      "typed": 10
+    },
+    "eng_british_john_ward.txt": {
+      "typed": 1
+    },
+    "eng_british_john_wilbye.txt": {
+      "typed": 21
+    },
+    "eng_british_joseph_skipsey.txt": {
+      "typed": 11
+    },
+    "eng_british_lady_dufferin.txt": {
+      "typed": 18
+    },
+    "eng_british_lewis_carroll.txt": {
+      "typed": 621
+    },
+    "eng_british_lord_byron.txt": {
+      "typed": 244,
+      "undecided": 18
+    },
+    "eng_british_lord_de_tabley.txt": {
+      "typed": 10
+    },
+    "eng_british_martin_peerson.txt": {
+      "typed": 3
+    },
+    "eng_british_matthew_arnold.txt": {
+      "typed": 623
+    },
+    "eng_british_michael_este.txt": {
+      "typed": 4
+    },
+    "eng_british_michael_field.txt": {
+      "typed": 9
+    },
+    "eng_british_mortimer_collins.txt": {
+      "typed": 25
+    },
+    "eng_british_norman_gale.txt": {
+      "typed": 6
+    },
+    "eng_british_orlando_gibbons.txt": {
+      "typed": 5
+    },
+    "eng_british_percy_bysshe_shelley.txt": {
+      "typed": 514,
+      "undecided": 2
+    },
+    "eng_british_richard_alison.txt": {
+      "typed": 2
+    },
+    "eng_british_richard_carlton.txt": {
+      "typed": 2
+    },
+    "eng_british_richard_lovelace.txt": {
+      "typed": 599,
+      "undecided": 3
+    },
+    "eng_british_richard_monckton_milnes.txt": {
+      "typed": 14
+    },
+    "eng_british_robert_browning.txt": {
+      "typed": 303
+    },
+    "eng_british_robert_buchanan.txt": {
+      "typed": 13
+    },
+    "eng_british_robert_dowland.txt": {
+      "typed": 8
+    },
+    "eng_british_robert_herrick.txt": {
+      "typed": 1100,
+      "undecided": 2
+    },
+    "eng_british_robert_jones.txt": {
+      "typed": 82
+    },
+    "eng_british_robert_louis_stevenson.txt": {
+      "typed": 288
+    },
+    "eng_british_samuel_taylor_coleridge.txt": {
+      "typed": 151,
+      "decided": 12
+    },
+    "eng_british_sir_john_suckling.txt": {
+      "typed": 38
+    },
+    "eng_british_thomas_ashe.txt": {
+      "typed": 10
+    },
+    "eng_british_thomas_bateson.txt": {
+      "typed": 7
+    },
+    "eng_british_thomas_campion.txt": {
+      "typed": 192
+    },
+    "eng_british_thomas_carew.txt": {
+      "typed": 21
+    },
+    "eng_british_thomas_ford.txt": {
+      "typed": 28
+    },
+    "eng_british_thomas_greaves.txt": {
+      "typed": 4
+    },
+    "eng_british_thomas_hood.txt": {
+      "typed": 95
+    },
+    "eng_british_thomas_lovell_beddoes.txt": {
+      "typed": 26
+    },
+    "eng_british_thomas_morley.txt": {
+      "typed": 24
+    },
+    "eng_british_thomas_ravenscroft.txt": {
+      "typed": 4
+    },
+    "eng_british_thomas_tomkins.txt": {
+      "typed": 1
+    },
+    "eng_british_thomas_vautor.txt": {
+      "typed": 7
+    },
+    "eng_british_thomas_weelkes.txt": {
+      "typed": 39
+    },
+    "eng_british_walter_savage_landor.txt": {
+      "typed": 90
+    },
+    "eng_british_william_allingham.txt": {
+      "typed": 49
+    },
+    "eng_british_william_bell_scott.txt": {
+      "typed": 36
+    },
+    "eng_british_william_blake.txt": {
+      "typed": 259
+    },
+    "eng_british_william_byrd.txt": {
+      "typed": 59
+    },
+    "eng_british_william_corkine.txt": {
+      "typed": 11
+    },
+    "eng_british_william_cox_bennett.txt": {
+      "typed": 14
+    },
+    "eng_british_william_makepeace_thackeray.txt": {
+      "typed": 70
+    },
+    "eng_british_william_wordsworth.txt": {
+      "typed": 461,
+      "apparatus": 1
+    },
+    "eng_celtic_carolina_oliphant_lady_nairne.txt": {
+      "typed": 199
+    },
+    "eng_celtic_charles_joseph_kickham.txt": {
+      "typed": 14
+    },
+    "eng_celtic_edward_walsh.txt": {
+      "typed": 21
+    },
+    "eng_celtic_gerald_griffin.txt": {
+      "typed": 17
+    },
+    "eng_celtic_james_clarence_mangan.txt": {
+      "typed": 96
+    },
+    "eng_celtic_james_hogg.txt": {
+      "typed": 173
+    },
+    "eng_celtic_msm_alexander_a_ritchie.txt": {
+      "typed": 7
+    },
+    "eng_celtic_msm_alexander_bald.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_alexander_balfour.txt": {
+      "typed": 7
+    },
+    "eng_celtic_msm_alexander_buchanan.txt": {
+      "typed": 7
+    },
+    "eng_celtic_msm_alexander_campbell.txt": {
+      "typed": 5
+    },
+    "eng_celtic_msm_alexander_carlile.txt": {
+      "typed": 17
+    },
+    "eng_celtic_msm_alexander_douglas.txt": {
+      "typed": 9
+    },
+    "eng_celtic_msm_alexander_duke_of_gordon.txt": {
+      "typed": 5
+    },
+    "eng_celtic_msm_alexander_hume_b1809.txt": {
+      "typed": 30
+    },
+    "eng_celtic_msm_alexander_hume_b1811.txt": {
+      "typed": 4
+    },
+    "eng_celtic_msm_alexander_jamieson.txt": {
+      "typed": 7
+    },
+    "eng_celtic_msm_alexander_laing.txt": {
+      "typed": 27
+    },
+    "eng_celtic_msm_alexander_m_lachlan.txt": {
+      "typed": 4
+    },
+    "eng_celtic_msm_alexander_macansh.txt": {
+      "typed": 13
+    },
+    "eng_celtic_msm_alexander_macdonald.txt": {
+      "typed": 19,
+      "decided": 6
+    },
+    "eng_celtic_msm_alexander_maclagan.txt": {
+      "typed": 57
+    },
+    "eng_celtic_msm_alexander_rodger.txt": {
+      "typed": 32
+    },
+    "eng_celtic_msm_alexander_smart.txt": {
+      "typed": 8
+    },
+    "eng_celtic_msm_alexander_stephen_wilson.txt": {
+      "typed": 10
+    },
+    "eng_celtic_msm_alexander_tait.txt": {
+      "typed": 3
+    },
+    "eng_celtic_msm_alexander_wilson.txt": {
+      "typed": 24
+    },
+    "eng_celtic_msm_allan_cunningham.txt": {
+      "typed": 67
+    },
+    "eng_celtic_msm_allan_gibson.txt": {
+      "typed": 12
+    },
+    "eng_celtic_msm_allan_m_dougall.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_allan_stewart.txt": {
+      "typed": 16
+    },
+    "eng_celtic_msm_andrew_james_symington.txt": {
+      "typed": 15
+    },
+    "eng_celtic_msm_andrew_mercer.txt": {
+      "typed": 4
+    },
+    "eng_celtic_msm_andrew_park.txt": {
+      "typed": 27
+    },
+    "eng_celtic_msm_andrew_scott.txt": {
+      "typed": 62
+    },
+    "eng_celtic_msm_angus_fletcher.txt": {
+      "typed": 14
+    },
+    "eng_celtic_msm_archibald_crawford.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_archibald_mackay.txt": {
+      "typed": 16
+    },
+    "eng_celtic_msm_archibald_stirling_irving.txt": {
+      "typed": 2
+    },
+    "eng_celtic_msm_charles_doyne_sillery.txt": {
+      "typed": 10
+    },
+    "eng_celtic_msm_charles_fleming.txt": {
+      "typed": 5
+    },
+    "eng_celtic_msm_charles_gray.txt": {
+      "typed": 15
+    },
+    "eng_celtic_msm_charles_james_finlayson.txt": {
+      "typed": 10
+    },
+    "eng_celtic_msm_charles_mackay_ll_d.txt": {
+      "typed": 71
+    },
+    "eng_celtic_msm_charles_marshall.txt": {
+      "typed": 18
+    },
+    "eng_celtic_msm_charles_stewart_d_d.txt": {
+      "typed": 9
+    },
+    "eng_celtic_msm_colin_rae_brown.txt": {
+      "typed": 16
+    },
+    "eng_celtic_msm_daniel_weir.txt": {
+      "typed": 37
+    },
+    "eng_celtic_msm_david_drummond.txt": {
+      "typed": 4
+    },
+    "eng_celtic_msm_david_macbeth_moir.txt": {
+      "typed": 26
+    },
+    "eng_celtic_msm_david_taylor.txt": {
+      "typed": 3
+    },
+    "eng_celtic_msm_david_vedder.txt": {
+      "typed": 28
+    },
+    "eng_celtic_msm_david_webster.txt": {
+      "typed": 15
+    },
+    "eng_celtic_msm_dougal_buchanan.txt": {
+      "typed": 34
+    },
+    "eng_celtic_msm_dugald_moore.txt": {
+      "typed": 32
+    },
+    "eng_celtic_msm_duncan_kennedy.txt": {
+      "typed": 9
+    },
+    "eng_celtic_msm_duncan_macfarlan.txt": {
+      "typed": 2
+    },
+    "eng_celtic_msm_duncan_macintyre.txt": {
+      "typed": 22,
+      "decided": 5
+    },
+    "eng_celtic_msm_ebenezer_picken.txt": {
+      "typed": 12
+    },
+    "eng_celtic_msm_edward_polin.txt": {
+      "typed": 3
+    },
+    "eng_celtic_msm_erskine_conolly.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_evan_m_coll.txt": {
+      "typed": 9
+    },
+    "eng_celtic_msm_evan_maclachlan.txt": {
+      "typed": 15
+    },
+    "eng_celtic_msm_francis_bennoch.txt": {
+      "typed": 58
+    },
+    "eng_celtic_msm_george_allan.txt": {
+      "typed": 19
+    },
+    "eng_celtic_msm_george_donald.txt": {
+      "typed": 8
+    },
+    "eng_celtic_msm_george_donald_jun.txt": {
+      "typed": 9
+    },
+    "eng_celtic_msm_george_henderson.txt": {
+      "typed": 3
+    },
+    "eng_celtic_msm_george_macindoe.txt": {
+      "typed": 9
+    },
+    "eng_celtic_msm_george_menzies.txt": {
+      "typed": 11
+    },
+    "eng_celtic_msm_george_outram.txt": {
+      "typed": 13
+    },
+    "eng_celtic_msm_george_scott.txt": {
+      "typed": 3
+    },
+    "eng_celtic_msm_george_wilson.txt": {
+      "typed": 18
+    },
+    "eng_celtic_msm_hamilton_paul.txt": {
+      "typed": 8
+    },
+    "eng_celtic_msm_hector_macneill.txt": {
+      "typed": 62
+    },
+    "eng_celtic_msm_henry_duncan_d_d.txt": {
+      "typed": 32
+    },
+    "eng_celtic_msm_henry_glassford_bell.txt": {
+      "typed": 27
+    },
+    "eng_celtic_msm_henry_inglis.txt": {
+      "typed": 5
+    },
+    "eng_celtic_msm_henry_scott_riddell.txt": {
+      "typed": 83
+    },
+    "eng_celtic_msm_hew_ainslie.txt": {
+      "typed": 29
+    },
+    "eng_celtic_msm_horatius_bonar_d_d.txt": {
+      "typed": 13
+    },
+    "eng_celtic_msm_hugh_miller.txt": {
+      "typed": 21
+    },
+    "eng_celtic_msm_isabella_craig.txt": {
+      "typed": 17
+    },
+    "eng_celtic_msm_isobel_pagan.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_j_c_denovan.txt": {
+      "typed": 3
+    },
+    "eng_celtic_msm_james_affleck.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_james_ballantine.txt": {
+      "typed": 62
+    },
+    "eng_celtic_msm_james_brown.txt": {
+      "typed": 23
+    },
+    "eng_celtic_msm_james_d_burns.txt": {
+      "typed": 10
+    },
+    "eng_celtic_msm_james_dodds.txt": {
+      "typed": 12
+    },
+    "eng_celtic_msm_james_hedderwick.txt": {
+      "typed": 38
+    },
+    "eng_celtic_msm_james_henderson.txt": {
+      "typed": 15
+    },
+    "eng_celtic_msm_james_hislop.txt": {
+      "typed": 18
+    },
+    "eng_celtic_msm_james_home.txt": {
+      "typed": 22
+    },
+    "eng_celtic_msm_james_king.txt": {
+      "typed": 8
+    },
+    "eng_celtic_msm_james_little.txt": {
+      "typed": 15
+    },
+    "eng_celtic_msm_james_m_gregor_d_d.txt": {
+      "typed": 4
+    },
+    "eng_celtic_msm_james_m_laggan.txt": {
+      "typed": 7
+    },
+    "eng_celtic_msm_james_macdonald.txt": {
+      "typed": 13
+    },
+    "eng_celtic_msm_james_macfarlan.txt": {
+      "typed": 10
+    },
+    "eng_celtic_msm_james_maclardy.txt": {
+      "typed": 12
+    },
+    "eng_celtic_msm_james_manson.txt": {
+      "typed": 18
+    },
+    "eng_celtic_msm_james_muirhead_d_d.txt": {
+      "typed": 7
+    },
+    "eng_celtic_msm_james_nicol.txt": {
+      "typed": 17
+    },
+    "eng_celtic_msm_james_parker.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_james_pringle.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_james_scadlock.txt": {
+      "typed": 9
+    },
+    "eng_celtic_msm_james_stirrat.txt": {
+      "typed": 7
+    },
+    "eng_celtic_msm_james_telfer.txt": {
+      "typed": 16
+    },
+    "eng_celtic_msm_joanna_baillie.txt": {
+      "typed": 73
+    },
+    "eng_celtic_msm_john_bathurst_dickson.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_john_bethune.txt": {
+      "typed": 11
+    },
+    "eng_celtic_msm_john_brown.txt": {
+      "typed": 9
+    },
+    "eng_celtic_msm_john_burtt.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_john_campbell.txt": {
+      "typed": 1
+    },
+    "eng_celtic_msm_john_crawford.txt": {
+      "typed": 28
+    },
+    "eng_celtic_msm_john_dunlop.txt": {
+      "typed": 19
+    },
+    "eng_celtic_msm_john_finlay_b1782.txt": {
+      "typed": 16
+    },
+    "eng_celtic_msm_john_finlay_b1808.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_john_gibson_lockhart.txt": {
+      "typed": 27
+    },
+    "eng_celtic_msm_john_goldie.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_john_grieve.txt": {
+      "typed": 11
+    },
+    "eng_celtic_msm_john_halliday.txt": {
+      "typed": 11
+    },
+    "eng_celtic_msm_john_hamilton.txt": {
+      "typed": 26
+    },
+    "eng_celtic_msm_john_hunter.txt": {
+      "typed": 22
+    },
+    "eng_celtic_msm_john_imlah.txt": {
+      "typed": 37
+    },
+    "eng_celtic_msm_john_jeffrey.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_john_leyden_m_d.txt": {
+      "typed": 13
+    },
+    "eng_celtic_msm_john_m_diarmid.txt": {
+      "typed": 9
+    },
+    "eng_celtic_msm_john_macdonald_d_d.txt": {
+      "typed": 1
+    },
+    "eng_celtic_msm_john_macdonald_jun.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_john_macodrum.txt": {
+      "typed": 1
+    },
+    "eng_celtic_msm_john_malcolm.txt": {
+      "typed": 11
+    },
+    "eng_celtic_msm_john_mayne.txt": {
+      "typed": 23
+    },
+    "eng_celtic_msm_john_mitchell.txt": {
+      "typed": 12
+    },
+    "eng_celtic_msm_john_morrison.txt": {
+      "typed": 11
+    },
+    "eng_celtic_msm_john_munro.txt": {
+      "typed": 13
+    },
+    "eng_celtic_msm_john_nevay.txt": {
+      "typed": 7
+    },
+    "eng_celtic_msm_john_ramsay.txt": {
+      "typed": 4
+    },
+    "eng_celtic_msm_john_robertson.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_john_roy_stuart.txt": {
+      "typed": 5
+    },
+    "eng_celtic_msm_john_sim.txt": {
+      "typed": 8
+    },
+    "eng_celtic_msm_john_skinner.txt": {
+      "typed": 151
+    },
+    "eng_celtic_msm_john_struthers.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_john_stuart_blackie.txt": {
+      "typed": 20
+    },
+    "eng_celtic_msm_john_tait.txt": {
+      "typed": 3
+    },
+    "eng_celtic_msm_john_tweedie.txt": {
+      "typed": 4
+    },
+    "eng_celtic_msm_john_wilson.txt": {
+      "typed": 26
+    },
+    "eng_celtic_msm_john_wright.txt": {
+      "typed": 18
+    },
+    "eng_celtic_msm_john_younger.txt": {
+      "typed": 8
+    },
+    "eng_celtic_msm_joseph_grant.txt": {
+      "typed": 7
+    },
+    "eng_celtic_msm_joseph_macgregor.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_joseph_train.txt": {
+      "typed": 14
+    },
+    "eng_celtic_msm_kenneth_mackenzie.txt": {
+      "typed": 7
+    },
+    "eng_celtic_msm_lachlan_macvurich.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_lady_anne_barnard.txt": {
+      "typed": 30
+    },
+    "eng_celtic_msm_margaret_crawford.txt": {
+      "typed": 22
+    },
+    "eng_celtic_msm_marion_paul_aird.txt": {
+      "typed": 19
+    },
+    "eng_celtic_msm_mrs_agnes_lyon.txt": {
+      "typed": 16
+    },
+    "eng_celtic_msm_mrs_dugald_stewart.txt": {
+      "typed": 18
+    },
+    "eng_celtic_msm_mrs_eliza_a_h_ogilvy.txt": {
+      "typed": 10
+    },
+    "eng_celtic_msm_mrs_g_g_richardson.txt": {
+      "typed": 18
+    },
+    "eng_celtic_msm_mrs_grant_of_carron.txt": {
+      "typed": 4
+    },
+    "eng_celtic_msm_mrs_grant_of_laggan.txt": {
+      "typed": 9
+    },
+    "eng_celtic_msm_mrs_jane_c_simpson.txt": {
+      "typed": 23
+    },
+    "eng_celtic_msm_mrs_john_hunter.txt": {
+      "typed": 23
+    },
+    "eng_celtic_msm_mrs_margaret_m_inglis.txt": {
+      "typed": 20
+    },
+    "eng_celtic_msm_mrs_mary_macarthur.txt": {
+      "typed": 14
+    },
+    "eng_celtic_msm_norman_macleod_tormaid_ban.txt": {
+      "typed": 9
+    },
+    "eng_celtic_msm_patrick_scott.txt": {
+      "typed": 4
+    },
+    "eng_celtic_msm_peter_buchan.txt": {
+      "typed": 4
+    },
+    "eng_celtic_msm_peter_roger.txt": {
+      "typed": 3
+    },
+    "eng_celtic_msm_peter_still.txt": {
+      "typed": 14
+    },
+    "eng_celtic_msm_rev_t_g_torry_anderson.txt": {
+      "typed": 16
+    },
+    "eng_celtic_msm_richard_gall.txt": {
+      "typed": 31
+    },
+    "eng_celtic_msm_robert_allan.txt": {
+      "typed": 72
+    },
+    "eng_celtic_msm_robert_cathcart.txt": {
+      "typed": 3
+    },
+    "eng_celtic_msm_robert_chambers.txt": {
+      "typed": 20
+    },
+    "eng_celtic_msm_robert_couper_m_d.txt": {
+      "typed": 9
+    },
+    "eng_celtic_msm_robert_davidson.txt": {
+      "typed": 16
+    },
+    "eng_celtic_msm_robert_duthie.txt": {
+      "typed": 10
+    },
+    "eng_celtic_msm_robert_fraser.txt": {
+      "typed": 3
+    },
+    "eng_celtic_msm_robert_gilfillan.txt": {
+      "typed": 25
+    },
+    "eng_celtic_msm_robert_hendry_m_d.txt": {
+      "typed": 5
+    },
+    "eng_celtic_msm_robert_hogg.txt": {
+      "typed": 28
+    },
+    "eng_celtic_msm_robert_jamieson.txt": {
+      "typed": 8
+    },
+    "eng_celtic_msm_robert_l_malone.txt": {
+      "typed": 11
+    },
+    "eng_celtic_msm_robert_leighton.txt": {
+      "typed": 8
+    },
+    "eng_celtic_msm_robert_lochore.txt": {
+      "typed": 21
+    },
+    "eng_celtic_msm_robert_mackay_rob_donn.txt": {
+      "typed": 54,
+      "decided": 3
+    },
+    "eng_celtic_msm_robert_miller.txt": {
+      "typed": 9
+    },
+    "eng_celtic_msm_robert_nicoll.txt": {
+      "typed": 23
+    },
+    "eng_celtic_msm_robert_pollok.txt": {
+      "typed": 7
+    },
+    "eng_celtic_msm_robert_tannahill.txt": {
+      "typed": 75
+    },
+    "eng_celtic_msm_robert_white.txt": {
+      "typed": 27
+    },
+    "eng_celtic_msm_robert_wilson.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_sir_alexander_boswell_bart.txt": {
+      "typed": 40
+    },
+    "eng_celtic_msm_stuart_lewis.txt": {
+      "typed": 10
+    },
+    "eng_celtic_msm_thomas_aird.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_thomas_atkinson.txt": {
+      "typed": 4
+    },
+    "eng_celtic_msm_thomas_brown_m_d.txt": {
+      "typed": 16
+    },
+    "eng_celtic_msm_thomas_brydson.txt": {
+      "typed": 4
+    },
+    "eng_celtic_msm_thomas_c_latto.txt": {
+      "typed": 19
+    },
+    "eng_celtic_msm_thomas_campbell.txt": {
+      "typed": 70
+    },
+    "eng_celtic_msm_thomas_dick.txt": {
+      "typed": 2
+    },
+    "eng_celtic_msm_thomas_elliott.txt": {
+      "typed": 28
+    },
+    "eng_celtic_msm_thomas_lyle.txt": {
+      "typed": 12
+    },
+    "eng_celtic_msm_thomas_mathers.txt": {
+      "typed": 4
+    },
+    "eng_celtic_msm_thomas_mounsey_cunningham.txt": {
+      "typed": 22
+    },
+    "eng_celtic_msm_thomas_pringle.txt": {
+      "typed": 28
+    },
+    "eng_celtic_msm_thomas_smibert.txt": {
+      "typed": 22
+    },
+    "eng_celtic_msm_thomas_tod_stoddart.txt": {
+      "typed": 17
+    },
+    "eng_celtic_msm_thomas_watson.txt": {
+      "typed": 7
+    },
+    "eng_celtic_msm_thomas_young.txt": {
+      "typed": 10
+    },
+    "eng_celtic_msm_walter_watson.txt": {
+      "typed": 16
+    },
+    "eng_celtic_msm_william_air_foster.txt": {
+      "typed": 22
+    },
+    "eng_celtic_msm_william_anderson.txt": {
+      "typed": 19
+    },
+    "eng_celtic_msm_william_b_c_riddell.txt": {
+      "typed": 7
+    },
+    "eng_celtic_msm_william_bennet.txt": {
+      "typed": 20
+    },
+    "eng_celtic_msm_william_blair.txt": {
+      "typed": 6
+    },
+    "eng_celtic_msm_william_brockie.txt": {
+      "typed": 3
+    },
+    "eng_celtic_msm_william_cadenhead.txt": {
+      "typed": 8
+    },
+    "eng_celtic_msm_william_cameron_b1801.txt": {
+      "typed": 14
+    },
+    "eng_celtic_msm_william_cameron_d1811.txt": {
+      "typed": 7
+    },
+    "eng_celtic_msm_william_chalmers.txt": {
+      "typed": 8
+    },
+    "eng_celtic_msm_william_dobie.txt": {
+      "typed": 4
+    },
+    "eng_celtic_msm_william_dudgeon.txt": {
+      "typed": 3
+    },
+    "eng_celtic_msm_william_dunbar_d_d.txt": {
+      "typed": 3
+    },
+    "eng_celtic_msm_william_ferguson.txt": {
+      "typed": 15
+    },
+    "eng_celtic_msm_william_finlay.txt": {
+      "typed": 11
+    },
+    "eng_celtic_msm_william_gardiner.txt": {
+      "typed": 4
+    },
+    "eng_celtic_msm_william_gillespie.txt": {
+      "typed": 10
+    },
+    "eng_celtic_msm_william_glen.txt": {
+      "typed": 48
+    },
+    "eng_celtic_msm_william_jamie.txt": {
+      "typed": 4
+    },
+    "eng_celtic_msm_william_jerdan.txt": {
+      "typed": 5
+    },
+    "eng_celtic_msm_william_knox.txt": {
+      "typed": 12
+    },
+    "eng_celtic_msm_william_laidlaw.txt": {
+      "typed": 19
+    },
+    "eng_celtic_msm_william_logan.txt": {
+      "typed": 4
+    },
+    "eng_celtic_msm_william_m_hetherington_d_d_ll_d.txt": {
+      "typed": 9
+    },
+    "eng_celtic_msm_william_m_laren.txt": {
+      "typed": 13
+    },
+    "eng_celtic_msm_william_miller.txt": {
+      "typed": 8
+    },
+    "eng_celtic_msm_william_nicholson.txt": {
+      "typed": 21
+    },
+    "eng_celtic_msm_william_park.txt": {
+      "typed": 14
+    },
+    "eng_celtic_msm_william_reid.txt": {
+      "typed": 19
+    },
+    "eng_celtic_msm_william_ross.txt": {
+      "typed": 37
+    },
+    "eng_celtic_msm_william_sinclair.txt": {
+      "typed": 38
+    },
+    "eng_celtic_msm_william_stirling_m_p.txt": {
+      "typed": 10
+    },
+    "eng_celtic_msm_william_thom.txt": {
+      "typed": 29
+    },
+    "eng_celtic_msm_william_thomson.txt": {
+      "typed": 2
+    },
+    "eng_celtic_msm_william_wilson.txt": {
+      "typed": 40
+    },
+    "eng_celtic_robert_burns.txt": {
+      "typed": 3411,
+      "undecided": 1
+    },
+    "eng_celtic_samuel_lover.txt": {
+      "typed": 34
+    },
+    "eng_celtic_thomas_moore.txt": {
+      "typed": 426
+    },
+    "eng_celtic_thomas_osborne_davis.txt": {
+      "typed": 22
+    },
+    "eng_celtic_walter_scott.txt": {
+      "typed": 101
+    },
+    "eng_celtic_william_motherwell.txt": {
+      "typed": 33
+    },
+    "eng_hall_ebenezer_elliott.txt": {
+      "typed": 11
+    },
+    "eng_hall_edwin_waugh.txt": {
+      "typed": 185
+    },
+    "eng_hall_john_clare.txt": {
+      "typed": 317
+    },
+    "eng_hall_john_gay.txt": {
+      "typed": 139
+    },
+    "eng_hall_thomas_durfey.txt": {
+      "typed": 2783,
+      "decided": 5
+    },
+    "eng_hall_william_barnes.txt": {
+      "typed": 2143,
+      "decided": 13,
+      "undecided": 1
+    },
+    "eng_hall_ws_gilbert.txt": {
+      "typed": 247
+    },
+    "eng_hbv_aaron_hill.txt": {
+      "typed": 2
+    },
+    "eng_hbv_abbie_farwell_brown.txt": {
+      "typed": 10
+    },
+    "eng_hbv_adelaide_crapsey.txt": {
+      "typed": 4
+    },
+    "eng_hbv_adelaide_o_keefe.txt": {
+      "typed": 2
+    },
+    "eng_hbv_adeline_d_t_whitney.txt": {
+      "typed": 6
+    },
+    "eng_hbv_after_de_la_motte_by_james_merrick.txt": {
+      "typed": 6
+    },
+    "eng_hbv_albert_laighton.txt": {
+      "typed": 4
+    },
+    "eng_hbv_alexander_anderson.txt": {
+      "typed": 16
+    },
+    "eng_hbv_alexander_macgregor_rose.txt": {
+      "typed": 9
+    },
+    "eng_hbv_alexander_ross.txt": {
+      "typed": 5
+    },
+    "eng_hbv_alice_freeman_palmer.txt": {
+      "typed": 11
+    },
+    "eng_hbv_ambrose_philips.txt": {
+      "typed": 1
+    },
+    "eng_hbv_amelia_c_welby.txt": {
+      "typed": 1
+    },
+    "eng_hbv_amy_lowell.txt": {
+      "typed": 9
+    },
+    "eng_hbv_anne_barnard.txt": {
+      "typed": 3
+    },
+    "eng_hbv_anne_finch.txt": {
+      "typed": 3
+    },
+    "eng_hbv_anne_reeve_aldrich.txt": {
+      "typed": 6
+    },
+    "eng_hbv_annie_rankin_annan.txt": {
+      "typed": 3
+    },
+    "eng_hbv_arlo_bates.txt": {
+      "typed": 8
+    },
+    "eng_hbv_arthur_joseph_munby.txt": {
+      "typed": 12
+    },
+    "eng_hbv_arthur_upson.txt": {
+      "typed": 5
+    },
+    "eng_hbv_aubrey_thomas_de_vere.txt": {
+      "typed": 14
+    },
+    "eng_hbv_augusta_webster.txt": {
+      "typed": 3
+    },
+    "eng_hbv_barry_pain.txt": {
+      "typed": 14
+    },
+    "eng_hbv_ben_king.txt": {
+      "typed": 5
+    },
+    "eng_hbv_benjamin_franklin_taylor.txt": {
+      "typed": 7
+    },
+    "eng_hbv_bernard_barton.txt": {
+      "typed": 5
+    },
+    "eng_hbv_beverly_chew.txt": {
+      "typed": 3
+    },
+    "eng_hbv_bryan_waller_procter.txt": {
+      "typed": 9
+    },
+    "eng_hbv_caroline_elizabeth_sarah_norton.txt": {
+      "typed": 14
+    },
+    "eng_hbv_caroline_keppel.txt": {
+      "typed": 6
+    },
+    "eng_hbv_catherine_m_fanshawe.txt": {
+      "typed": 7
+    },
+    "eng_hbv_charles_best.txt": {
+      "typed": 1
+    },
+    "eng_hbv_charles_daubeny.txt": {
+      "typed": 4
+    },
+    "eng_hbv_charles_dibdin.txt": {
+      "typed": 19
+    },
+    "eng_hbv_charles_hanbury_williams.txt": {
+      "typed": 3
+    },
+    "eng_hbv_charles_henry_luders.txt": {
+      "typed": 1
+    },
+    "eng_hbv_charles_monroe_dickinson.txt": {
+      "typed": 8
+    },
+    "eng_hbv_charles_sedley.txt": {
+      "typed": 7
+    },
+    "eng_hbv_charles_stuart_calverley.txt": {
+      "typed": 23
+    },
+    "eng_hbv_charles_swain.txt": {
+      "typed": 10
+    },
+    "eng_hbv_charles_wyndham.txt": {
+      "typed": 5
+    },
+    "eng_hbv_charlotte_smith.txt": {
+      "typed": 3
+    },
+    "eng_hbv_clement_scott.txt": {
+      "typed": 5
+    },
+    "eng_hbv_coates_kinney.txt": {
+      "typed": 6
+    },
+    "eng_hbv_colley_cibber.txt": {
+      "typed": 5
+    },
+    "eng_hbv_cosmo_monkhouse.txt": {
+      "typed": 12
+    },
+    "eng_hbv_david_atwood_wasson.txt": {
+      "typed": 5
+    },
+    "eng_hbv_david_gray.txt": {
+      "typed": 4
+    },
+    "eng_hbv_denis_florence_maccarthy.txt": {
+      "typed": 5
+    },
+    "eng_hbv_digby_mackworth_dolben.txt": {
+      "typed": 4
+    },
+    "eng_hbv_dinah_maria_mulock_craik.txt": {
+      "typed": 38
+    },
+    "eng_hbv_dora_greenwell.txt": {
+      "typed": 2
+    },
+    "eng_hbv_dora_sigerson_shorter.txt": {
+      "typed": 16
+    },
+    "eng_hbv_dorothy_wordsworth.txt": {
+      "typed": 3
+    },
+    "eng_hbv_e_pauline_johnson.txt": {
+      "typed": 5
+    },
+    "eng_hbv_eaton_stannard_barrett.txt": {
+      "typed": 1
+    },
+    "eng_hbv_edgar_fawcett.txt": {
+      "typed": 10
+    },
+    "eng_hbv_edith_m_thomas.txt": {
+      "typed": 6
+    },
+    "eng_hbv_edith_nesbit.txt": {
+      "typed": 12
+    },
+    "eng_hbv_edmund_yates.txt": {
+      "typed": 2
+    },
+    "eng_hbv_edward_coote_pinkney.txt": {
+      "typed": 2
+    },
+    "eng_hbv_edward_dowden.txt": {
+      "typed": 2
+    },
+    "eng_hbv_edward_ernest_bowen.txt": {
+      "typed": 4
+    },
+    "eng_hbv_edward_george_earle_bulwer_lytton.txt": {
+      "typed": 5
+    },
+    "eng_hbv_edward_hovell_thurlow.txt": {
+      "typed": 5
+    },
+    "eng_hbv_edward_j_wheeler.txt": {
+      "typed": 1
+    },
+    "eng_hbv_edward_robert_bulwer_lytton.txt": {
+      "typed": 77
+    },
+    "eng_hbv_edward_vere.txt": {
+      "typed": 3
+    },
+    "eng_hbv_eliza_lee_fallen.txt": {
+      "typed": 5
+    },
+    "eng_hbv_elizabeth_akers.txt": {
+      "typed": 49
+    },
+    "eng_hbv_elizabeth_turner.txt": {
+      "typed": 6
+    },
+    "eng_hbv_ella_wheeler_wilcox.txt": {
+      "typed": 4
+    },
+    "eng_hbv_ellen_m_h_gates.txt": {
+      "typed": 3
+    },
+    "eng_hbv_ellen_mary_patrick_downing.txt": {
+      "typed": 2
+    },
+    "eng_hbv_emily_huntington_miller.txt": {
+      "typed": 6
+    },
+    "eng_hbv_emma_huntington_nason.txt": {
+      "typed": 6
+    },
+    "eng_hbv_ernest_dowson.txt": {
+      "typed": 40
+    },
+    "eng_hbv_eugene_lee_hamilton.txt": {
+      "typed": 6
+    },
+    "eng_hbv_florence_earle_coates.txt": {
+      "typed": 6
+    },
+    "eng_hbv_francis_bacon.txt": {
+      "typed": 4
+    },
+    "eng_hbv_francis_davis.txt": {
+      "typed": 4
+    },
+    "eng_hbv_francis_davison.txt": {
+      "typed": 12
+    },
+    "eng_hbv_francis_kynaston.txt": {
+      "typed": 7
+    },
+    "eng_hbv_francis_robert_st_clair_erskine.txt": {
+      "typed": 2
+    },
+    "eng_hbv_francis_william_bourdillon.txt": {
+      "typed": 12
+    },
+    "eng_hbv_frank_l_stanton.txt": {
+      "typed": 8
+    },
+    "eng_hbv_frederic_lawrence_knowles.txt": {
+      "typed": 21
+    },
+    "eng_hbv_frederick_william_faber.txt": {
+      "typed": 2
+    },
+    "eng_hbv_frederick_william_sawyer.txt": {
+      "typed": 4
+    },
+    "eng_hbv_frederick_william_thomas.txt": {
+      "typed": 4
+    },
+    "eng_hbv_george_a_strong.txt": {
+      "typed": 1
+    },
+    "eng_hbv_george_arnold.txt": {
+      "typed": 26
+    },
+    "eng_hbv_george_augustus_baker.txt": {
+      "typed": 4
+    },
+    "eng_hbv_george_birdseye.txt": {
+      "typed": 2
+    },
+    "eng_hbv_george_canning.txt": {
+      "typed": 10
+    },
+    "eng_hbv_george_cooper.txt": {
+      "typed": 8
+    },
+    "eng_hbv_george_eliot.txt": {
+      "typed": 10
+    },
+    "eng_hbv_george_etherege.txt": {
+      "typed": 2
+    },
+    "eng_hbv_george_gordon_byron.txt": {
+      "typed": 62
+    },
+    "eng_hbv_george_john_romanes.txt": {
+      "typed": 1
+    },
+    "eng_hbv_george_macdonald.txt": {
+      "typed": 39
+    },
+    "eng_hbv_george_sigerson.txt": {
+      "typed": 5
+    },
+    "eng_hbv_george_sterling.txt": {
+      "typed": 8
+    },
+    "eng_hbv_george_washington_cable.txt": {
+      "typed": 3
+    },
+    "eng_hbv_george_washington_doane.txt": {
+      "typed": 2
+    },
+    "eng_hbv_george_william_curtis.txt": {
+      "typed": 2
+    },
+    "eng_hbv_gilbert_elliot.txt": {
+      "typed": 4
+    },
+    "eng_hbv_gleeson_white.txt": {
+      "typed": 1
+    },
+    "eng_hbv_gustav_kobbe.txt": {
+      "typed": 8
+    },
+    "eng_hbv_hamilton_aide.txt": {
+      "typed": 2
+    },
+    "eng_hbv_harriet_mcewen_kimball.txt": {
+      "typed": 2
+    },
+    "eng_hbv_harry_thurston_peck.txt": {
+      "typed": 7
+    },
+    "eng_hbv_heinrich_hoffman.txt": {
+      "typed": 8
+    },
+    "eng_hbv_helen_barron_bostwick.txt": {
+      "typed": 5
+    },
+    "eng_hbv_helen_selina_sheridan.txt": {
+      "typed": 3
+    },
+    "eng_hbv_henry_abbey.txt": {
+      "typed": 3
+    },
+    "eng_hbv_henry_augustin_beers.txt": {
+      "typed": 7
+    },
+    "eng_hbv_henry_duff_traill.txt": {
+      "typed": 11
+    },
+    "eng_hbv_henry_fielding.txt": {
+      "typed": 7
+    },
+    "eng_hbv_henry_fothergill_chorley.txt": {
+      "typed": 3
+    },
+    "eng_hbv_henry_kirke_white.txt": {
+      "typed": 5
+    },
+    "eng_hbv_henry_sambrooke_leigh.txt": {
+      "typed": 10
+    },
+    "eng_hbv_henry_sidgwick.txt": {
+      "typed": 1
+    },
+    "eng_hbv_henry_sylvester_cornwell.txt": {
+      "typed": 1
+    },
+    "eng_hbv_herbert_bashford.txt": {
+      "typed": 19
+    },
+    "eng_hbv_herbert_trench.txt": {
+      "typed": 4
+    },
+    "eng_hbv_herman_knickerbocker_viele.txt": {
+      "typed": 4
+    },
+    "eng_hbv_horatio_nelson_powers.txt": {
+      "typed": 17
+    },
+    "eng_hbv_ina_donna_coolbrith.txt": {
+      "typed": 3
+    },
+    "eng_hbv_isaac_bickerstaff.txt": {
+      "typed": 4
+    },
+    "eng_hbv_isaac_pocock.txt": {
+      "typed": 2
+    },
+    "eng_hbv_izaak_walton.txt": {
+      "typed": 4
+    },
+    "eng_hbv_james_elroy_flecker.txt": {
+      "typed": 10
+    },
+    "eng_hbv_james_kenneth_stephen.txt": {
+      "typed": 9
+    },
+    "eng_hbv_james_thomas_fields.txt": {
+      "typed": 21
+    },
+    "eng_hbv_james_thomson_b1834.txt": {
+      "typed": 3
+    },
+    "eng_hbv_james_upton.txt": {
+      "typed": 4
+    },
+    "eng_hbv_jane_welsh_carlyle.txt": {
+      "typed": 7
+    },
+    "eng_hbv_jean_glover.txt": {
+      "typed": 6
+    },
+    "eng_hbv_jeffreys_taylor.txt": {
+      "typed": 3
+    },
+    "eng_hbv_joaquin_miller.txt": {
+      "typed": 12
+    },
+    "eng_hbv_john_addington_symonds.txt": {
+      "typed": 7
+    },
+    "eng_hbv_john_byrne_leicester_warren.txt": {
+      "typed": 25
+    },
+    "eng_hbv_john_byrom.txt": {
+      "typed": 1
+    },
+    "eng_hbv_john_chalkhill.txt": {
+      "typed": 14
+    },
+    "eng_hbv_john_clerk.txt": {
+      "typed": 5
+    },
+    "eng_hbv_john_collins.txt": {
+      "typed": 4
+    },
+    "eng_hbv_john_collins_bossidy.txt": {
+      "typed": 1
+    },
+    "eng_hbv_john_cunningham.txt": {
+      "typed": 4
+    },
+    "eng_hbv_john_francis_waller.txt": {
+      "typed": 4
+    },
+    "eng_hbv_john_fraser.txt": {
+      "typed": 3
+    },
+    "eng_hbv_john_heywood.txt": {
+      "typed": 14
+    },
+    "eng_hbv_john_hookham_frere.txt": {
+      "typed": 2
+    },
+    "eng_hbv_john_kendrick_bangs.txt": {
+      "typed": 1
+    },
+    "eng_hbv_john_oldmixon.txt": {
+      "typed": 2
+    },
+    "eng_hbv_john_payne.txt": {
+      "typed": 3
+    },
+    "eng_hbv_john_west.txt": {
+      "typed": 4
+    },
+    "eng_hbv_john_williamson_palmer.txt": {
+      "typed": 7
+    },
+    "eng_hbv_john_wolcot.txt": {
+      "typed": 2
+    },
+    "eng_hbv_jones_very.txt": {
+      "typed": 2
+    },
+    "eng_hbv_joseph_ashby_sterry.txt": {
+      "typed": 11
+    },
+    "eng_hbv_joseph_blanco_white.txt": {
+      "typed": 1
+    },
+    "eng_hbv_joseph_brenan.txt": {
+      "typed": 5
+    },
+    "eng_hbv_josephine_preston_peabody.txt": {
+      "typed": 21
+    },
+    "eng_hbv_julia_c_r_dorr.txt": {
+      "typed": 16
+    },
+    "eng_hbv_julia_fletcher_carney.txt": {
+      "typed": 4
+    },
+    "eng_hbv_julian_fane.txt": {
+      "typed": 1
+    },
+    "eng_hbv_julian_grenfell.txt": {
+      "typed": 4
+    },
+    "eng_hbv_laman_blanchard.txt": {
+      "typed": 6
+    },
+    "eng_hbv_langdon_smith.txt": {
+      "typed": 14
+    },
+    "eng_hbv_laurence_hope.txt": {
+      "typed": 15
+    },
+    "eng_hbv_lewis_morris.txt": {
+      "typed": 11
+    },
+    "eng_hbv_louisa_macartney_crawford.txt": {
+      "typed": 2
+    },
+    "eng_hbv_margaret_sangster.txt": {
+      "typed": 12
+    },
+    "eng_hbv_margaret_steele_anderson.txt": {
+      "typed": 3
+    },
+    "eng_hbv_margaret_thomson_janvier.txt": {
+      "typed": 8
+    },
+    "eng_hbv_maria_white_lowell.txt": {
+      "typed": 7
+    },
+    "eng_hbv_marjorie_l_c_pickthall.txt": {
+      "typed": 13
+    },
+    "eng_hbv_martin_macdermott.txt": {
+      "typed": 4
+    },
+    "eng_hbv_mary_ainge_de_vere.txt": {
+      "typed": 1
+    },
+    "eng_hbv_mary_emily_bradley.txt": {
+      "typed": 4
+    },
+    "eng_hbv_mary_f_butts.txt": {
+      "typed": 5
+    },
+    "eng_hbv_mary_howitt.txt": {
+      "typed": 49
+    },
+    "eng_hbv_mary_kyle_dallas.txt": {
+      "typed": 3
+    },
+    "eng_hbv_mary_newmarch_prescott.txt": {
+      "typed": 3
+    },
+    "eng_hbv_mathilde_blind.txt": {
+      "typed": 3
+    },
+    "eng_hbv_matthew_gregory_lewis.txt": {
+      "typed": 6
+    },
+    "eng_hbv_maurice_francis_egan.txt": {
+      "typed": 3
+    },
+    "eng_hbv_may_riley_smith.txt": {
+      "typed": 5
+    },
+    "eng_hbv_mirabeau_bonaparte_lamar.txt": {
+      "typed": 4
+    },
+    "eng_hbv_nathaniel_field.txt": {
+      "typed": 2
+    },
+    "eng_hbv_nora_hopper.txt": {
+      "typed": 15
+    },
+    "eng_hbv_oscar_wilde.txt": {
+      "typed": 13
+    },
+    "eng_hbv_paul_hamilton_hayne.txt": {
+      "typed": 14
+    },
+    "eng_hbv_philip_bourke_marston.txt": {
+      "typed": 21
+    },
+    "eng_hbv_philip_pendleton_cooke.txt": {
+      "typed": 5
+    },
+    "eng_hbv_philip_sidney.txt": {
+      "typed": 12
+    },
+    "eng_hbv_phillips_brooks.txt": {
+      "typed": 4
+    },
+    "eng_hbv_rembrandt_peale.txt": {
+      "typed": 6
+    },
+    "eng_hbv_richard_brinsley_sheridan.txt": {
+      "typed": 5
+    },
+    "eng_hbv_richard_corbet.txt": {
+      "typed": 6
+    },
+    "eng_hbv_richard_doddridge_blackmore.txt": {
+      "typed": 4
+    },
+    "eng_hbv_richard_garnett.txt": {
+      "typed": 9
+    },
+    "eng_hbv_richard_harris_barham.txt": {
+      "typed": 8
+    },
+    "eng_hbv_richard_middleton.txt": {
+      "typed": 31
+    },
+    "eng_hbv_richard_ryan.txt": {
+      "typed": 2
+    },
+    "eng_hbv_robert_brough.txt": {
+      "typed": 9
+    },
+    "eng_hbv_robert_cameron_rogers.txt": {
+      "typed": 3
+    },
+    "eng_hbv_rosa_mulholland.txt": {
+      "typed": 3
+    },
+    "eng_hbv_rosamund_marriott_watson.txt": {
+      "typed": 12
+    },
+    "eng_hbv_rupert_brooke.txt": {
+      "typed": 19
+    },
+    "eng_hbv_sam_walter_foss.txt": {
+      "typed": 13
+    },
+    "eng_hbv_samuel_bishop.txt": {
+      "typed": 6
+    },
+    "eng_hbv_samuel_hinds.txt": {
+      "typed": 2
+    },
+    "eng_hbv_samuel_rogers.txt": {
+      "typed": 8
+    },
+    "eng_hbv_sarah_m_b_piatt.txt": {
+      "typed": 5
+    },
+    "eng_hbv_sarah_roberts_boyle.txt": {
+      "typed": 7
+    },
+    "eng_hbv_selleck_osborn.txt": {
+      "typed": 9
+    },
+    "eng_hbv_sophie_jewett.txt": {
+      "typed": 2
+    },
+    "eng_hbv_st_george_tucker.txt": {
+      "typed": 3
+    },
+    "eng_hbv_stephen_crane.txt": {
+      "typed": 4
+    },
+    "eng_hbv_susan_coolidge.txt": {
+      "typed": 7
+    },
+    "eng_hbv_susan_marr_spalding.txt": {
+      "typed": 2
+    },
+    "eng_hbv_susanna_blamire.txt": {
+      "typed": 6
+    },
+    "eng_hbv_thomas_bedingfield.txt": {
+      "typed": 4
+    },
+    "eng_hbv_thomas_carlyle.txt": {
+      "typed": 5
+    },
+    "eng_hbv_thomas_constable.txt": {
+      "typed": 6
+    },
+    "eng_hbv_thomas_d_arcy_mcgee.txt": {
+      "typed": 5
+    },
+    "eng_hbv_thomas_hardy.txt": {
+      "typed": 4
+    },
+    "eng_hbv_thomas_hill.txt": {
+      "typed": 6
+    },
+    "eng_hbv_thomas_middleton.txt": {
+      "typed": 2
+    },
+    "eng_hbv_thomas_noel.txt": {
+      "typed": 7
+    },
+    "eng_hbv_thomas_percy.txt": {
+      "typed": 4
+    },
+    "eng_hbv_thomas_warton.txt": {
+      "typed": 5
+    },
+    "eng_hbv_thomas_wentworth_higginson.txt": {
+      "typed": 6
+    },
+    "eng_hbv_thomas_westwood.txt": {
+      "typed": 13
+    },
+    "eng_hbv_tom_hood.txt": {
+      "typed": 4
+    },
+    "eng_hbv_trumbull_stickney.txt": {
+      "typed": 4
+    },
+    "eng_hbv_violet_fane.txt": {
+      "typed": 5
+    },
+    "eng_hbv_walter_besant.txt": {
+      "typed": 3
+    },
+    "eng_hbv_walter_mitchell.txt": {
+      "typed": 15
+    },
+    "eng_hbv_walter_raleigh.txt": {
+      "typed": 5
+    },
+    "eng_hbv_walter_savage_lander.txt": {
+      "typed": 2
+    },
+    "eng_hbv_walter_thornbury.txt": {
+      "typed": 4
+    },
+    "eng_hbv_washington_irving.txt": {
+      "typed": 6
+    },
+    "eng_hbv_william_browne.txt": {
+      "typed": 8
+    },
+    "eng_hbv_william_caldwell_roscoe.txt": {
+      "typed": 4
+    },
+    "eng_hbv_william_dimond.txt": {
+      "typed": 14
+    },
+    "eng_hbv_william_douglas.txt": {
+      "typed": 3
+    },
+    "eng_hbv_william_erskine.txt": {
+      "typed": 1
+    },
+    "eng_hbv_william_johnson_cory.txt": {
+      "typed": 2
+    },
+    "eng_hbv_william_julius_mickle.txt": {
+      "typed": 6
+    },
+    "eng_hbv_william_sharp.txt": {
+      "typed": 4
+    },
+    "eng_hbv_william_stirling_maxwell.txt": {
+      "typed": 1
+    },
+    "eng_hbv_william_wallace_harney.txt": {
+      "typed": 7
+    },
+    "eng_hbv_william_wetmore_story.txt": {
+      "typed": 9
+    },
+    "eng_hbv_wilson_flagg.txt": {
+      "typed": 3
+    },
+    "eng_hymn_addison.txt": {
+      "typed": 36
+    },
+    "eng_hymn_bliss.txt": {
+      "typed": 7
+    },
+    "eng_hymn_borthwick.txt": {
+      "typed": 3
+    },
+    "eng_hymn_cennick.txt": {
+      "typed": 5
+    },
+    "eng_hymn_cf_alexander.txt": {
+      "typed": 4
+    },
+    "eng_hymn_charles_wesley.txt": {
+      "typed": 214
+    },
+    "eng_hymn_cowper.txt": {
+      "typed": 151
+    },
+    "eng_hymn_crosby.txt": {
+      "typed": 41
+    },
+    "eng_hymn_doddridge.txt": {
+      "typed": 115
+    },
+    "eng_hymn_fawcett.txt": {
+      "typed": 32
+    },
+    "eng_hymn_hart.txt": {
+      "typed": 14
+    },
+    "eng_hymn_hastings.txt": {
+      "typed": 21
+    },
+    "eng_hymn_havergal.txt": {
+      "typed": 20
+    },
+    "eng_hymn_hawks.txt": {
+      "typed": 11
+    },
+    "eng_hymn_heber.txt": {
+      "typed": 44
+    },
+    "eng_hymn_hoffman.txt": {
+      "typed": 17
+    },
+    "eng_hymn_ken.txt": {
+      "typed": 5
+    },
+    "eng_hymn_lowry.txt": {
+      "typed": 6
+    },
+    "eng_hymn_lyte.txt": {
+      "typed": 13
+    },
+    "eng_hymn_montgomery.txt": {
+      "typed": 238
+    },
+    "eng_hymn_newton.txt": {
+      "typed": 50
+    },
+    "eng_hymn_perronet.txt": {
+      "typed": 6
+    },
+    "eng_hymn_ray_palmer.txt": {
+      "typed": 32
+    },
+    "eng_hymn_robinson.txt": {
+      "typed": 3
+    },
+    "eng_hymn_sarah_flower_adams.txt": {
+      "typed": 18
+    },
+    "eng_hymn_sears.txt": {
+      "typed": 8
+    },
+    "eng_hymn_sf_smith.txt": {
+      "typed": 20
+    },
+    "eng_hymn_spafford.txt": {
+      "typed": 5
+    },
+    "eng_hymn_steele.txt": {
+      "typed": 36
+    },
+    "eng_hymn_stennett.txt": {
+      "typed": 13
+    },
+    "eng_hymn_tate.txt": {
+      "typed": 9
+    },
+    "eng_hymn_tate_brady.txt": {
+      "typed": 3
+    },
+    "eng_hymn_toplady.txt": {
+      "typed": 4
+    },
+    "eng_hymn_watts.txt": {
+      "typed": 5003
+    },
+    "eng_oxford_a_e_george_william_russell.txt": {
+      "typed": 7
+    },
+    "eng_oxford_abraham_cowley.txt": {
+      "typed": 19
+    },
+    "eng_oxford_alexander_brome.txt": {
+      "typed": 4
+    },
+    "eng_oxford_alexander_hume_b1560.txt": {
+      "typed": 30
+    },
+    "eng_oxford_alexander_mongtomerie.txt": {
+      "typed": 8
+    },
+    "eng_oxford_alexander_pope.txt": {
+      "typed": 12
+    },
+    "eng_oxford_alexander_scott.txt": {
+      "typed": 10
+    },
+    "eng_oxford_alexander_smith.txt": {
+      "typed": 14
+    },
+    "eng_oxford_alice_meynell.txt": {
+      "typed": 10
+    },
+    "eng_oxford_allan_ramsay.txt": {
+      "typed": 13
+    },
+    "eng_oxford_andrew_lang.txt": {
+      "typed": 39
+    },
+    "eng_oxford_andrew_marvell.txt": {
+      "typed": 60
+    },
+    "eng_oxford_anna_l_titia_barbauld.txt": {
+      "typed": 2
+    },
+    "eng_oxford_anthony_munday.txt": {
+      "typed": 2
+    },
+    "eng_oxford_aphra_behn.txt": {
+      "typed": 5
+    },
+    "eng_oxford_arthur_christopher_benson.txt": {
+      "typed": 10
+    },
+    "eng_oxford_arthur_william_edgar_o_shaughnessy.txt": {
+      "typed": 12
+    },
+    "eng_oxford_caroline_southey.txt": {
+      "typed": 5
+    },
+    "eng_oxford_charles_cotton.txt": {
+      "typed": 15
+    },
+    "eng_oxford_charles_lamb.txt": {
+      "typed": 17
+    },
+    "eng_oxford_charles_sackville_earl_of_dorset.txt": {
+      "typed": 11
+    },
+    "eng_oxford_charles_tennyson_turner.txt": {
+      "typed": 2
+    },
+    "eng_oxford_charles_webbe.txt": {
+      "typed": 2
+    },
+    "eng_oxford_charles_wolfe.txt": {
+      "typed": 15
+    },
+    "eng_oxford_christopher_marlowe.txt": {
+      "typed": 6
+    },
+    "eng_oxford_christopher_smart.txt": {
+      "typed": 18
+    },
+    "eng_oxford_coventry_patmore.txt": {
+      "typed": 17
+    },
+    "eng_oxford_dora_sigerson.txt": {
+      "typed": 4
+    },
+    "eng_oxford_douglas_hyde.txt": {
+      "typed": 6
+    },
+    "eng_oxford_ebenezer_jones.txt": {
+      "typed": 2
+    },
+    "eng_oxford_edmund_spenser.txt": {
+      "typed": 97
+    },
+    "eng_oxford_edmund_waller.txt": {
+      "typed": 19
+    },
+    "eng_oxford_emily_bront.txt": {
+      "typed": 7
+    },
+    "eng_oxford_fanny_greville.txt": {
+      "typed": 3
+    },
+    "eng_oxford_frances_bannerman.txt": {
+      "typed": 4
+    },
+    "eng_oxford_francis_beaumont.txt": {
+      "typed": 9
+    },
+    "eng_oxford_francis_quarles.txt": {
+      "typed": 4
+    },
+    "eng_oxford_francis_thompson.txt": {
+      "typed": 51
+    },
+    "eng_oxford_frederick_tennyson.txt": {
+      "typed": 25
+    },
+    "eng_oxford_fulke_greville_lord_brooke.txt": {
+      "typed": 4
+    },
+    "eng_oxford_geoffrey_chaucer.txt": {
+      "typed": 14
+    },
+    "eng_oxford_george_bubb_dodington_lord_melcombe.txt": {
+      "typed": 6
+    },
+    "eng_oxford_george_chapman.txt": {
+      "typed": 2
+    },
+    "eng_oxford_george_crabbe.txt": {
+      "typed": 5
+    },
+    "eng_oxford_george_fox.txt": {
+      "typed": 4
+    },
+    "eng_oxford_george_gascoigne.txt": {
+      "typed": 5
+    },
+    "eng_oxford_george_herbert.txt": {
+      "typed": 27
+    },
+    "eng_oxford_george_lyttelton_lord_lyttelton.txt": {
+      "typed": 5
+    },
+    "eng_oxford_george_meredith.txt": {
+      "typed": 45
+    },
+    "eng_oxford_george_peele.txt": {
+      "typed": 7
+    },
+    "eng_oxford_george_wither.txt": {
+      "typed": 33
+    },
+    "eng_oxford_gilbert_parker.txt": {
+      "typed": 1
+    },
+    "eng_oxford_giles_fletcher.txt": {
+      "typed": 2
+    },
+    "eng_oxford_hartley_coleridge.txt": {
+      "typed": 14
+    },
+    "eng_oxford_henry_alford.txt": {
+      "typed": 2
+    },
+    "eng_oxford_henry_austin_dobson.txt": {
+      "typed": 8
+    },
+    "eng_oxford_henry_carey.txt": {
+      "typed": 11
+    },
+    "eng_oxford_henry_charles_beeching.txt": {
+      "typed": 9
+    },
+    "eng_oxford_henry_clarence_kendall.txt": {
+      "typed": 6
+    },
+    "eng_oxford_henry_constable.txt": {
+      "typed": 6
+    },
+    "eng_oxford_henry_cust.txt": {
+      "typed": 3
+    },
+    "eng_oxford_henry_howard_earl_of_surrey.txt": {
+      "typed": 12
+    },
+    "eng_oxford_henry_king_bishop_of_chichester.txt": {
+      "typed": 6
+    },
+    "eng_oxford_henry_newbolt.txt": {
+      "typed": 12
+    },
+    "eng_oxford_henry_rowe.txt": {
+      "typed": 7
+    },
+    "eng_oxford_henry_vaughan.txt": {
+      "typed": 28
+    },
+    "eng_oxford_james_beattie.txt": {
+      "typed": 2
+    },
+    "eng_oxford_james_graham_marquis_of_montrose.txt": {
+      "typed": 4
+    },
+    "eng_oxford_james_shirley.txt": {
+      "typed": 6
+    },
+    "eng_oxford_james_thomson.txt": {
+      "typed": 12
+    },
+    "eng_oxford_jane_elliot.txt": {
+      "typed": 6
+    },
+    "eng_oxford_jasper_mayne.txt": {
+      "typed": 1
+    },
+    "eng_oxford_jeremiah_joseph_callanan.txt": {
+      "typed": 4
+    },
+    "eng_oxford_john_barbour.txt": {
+      "typed": 2
+    },
+    "eng_oxford_john_boyle_o_reilly.txt": {
+      "typed": 74
+    },
+    "eng_oxford_john_bunyan.txt": {
+      "typed": 3
+    },
+    "eng_oxford_john_cutts_lord_cutts.txt": {
+      "typed": 2
+    },
+    "eng_oxford_john_davidson.txt": {
+      "typed": 22
+    },
+    "eng_oxford_john_donne.txt": {
+      "typed": 29
+    },
+    "eng_oxford_john_dryden.txt": {
+      "typed": 28
+    },
+    "eng_oxford_john_fletcher.txt": {
+      "typed": 29
+    },
+    "eng_oxford_john_ford.txt": {
+      "typed": 1
+    },
+    "eng_oxford_john_keble.txt": {
+      "typed": 22
+    },
+    "eng_oxford_john_logan.txt": {
+      "typed": 13
+    },
+    "eng_oxford_john_lydgate.txt": {
+      "typed": 1
+    },
+    "eng_oxford_john_lyly.txt": {
+      "typed": 3
+    },
+    "eng_oxford_john_milton.txt": {
+      "typed": 80
+    },
+    "eng_oxford_john_oldham.txt": {
+      "typed": 1
+    },
+    "eng_oxford_john_ruskin.txt": {
+      "typed": 1
+    },
+    "eng_oxford_john_sheffield_duke_of_buckinghamshire.txt": {
+      "typed": 10
+    },
+    "eng_oxford_john_skelton.txt": {
+      "typed": 3
+    },
+    "eng_oxford_john_todhunter.txt": {
+      "typed": 12
+    },
+    "eng_oxford_john_webster.txt": {
+      "typed": 5
+    },
+    "eng_oxford_john_wilmot_earl_of_rochester.txt": {
+      "typed": 26
+    },
+    "eng_oxford_joshua_sylvester.txt": {
+      "typed": 1
+    },
+    "eng_oxford_katharine_tynan_hinkson.txt": {
+      "typed": 6
+    },
+    "eng_oxford_katherine_philips_orinda.txt": {
+      "typed": 2
+    },
+    "eng_oxford_king_james_i_of_scotland.txt": {
+      "typed": 1
+    },
+    "eng_oxford_lady_anne_lindsay.txt": {
+      "typed": 9
+    },
+    "eng_oxford_lady_grisel_baillie.txt": {
+      "typed": 10
+    },
+    "eng_oxford_laurence_binyon.txt": {
+      "typed": 2
+    },
+    "eng_oxford_leigh_hunt.txt": {
+      "typed": 10
+    },
+    "eng_oxford_margaret_l_woods.txt": {
+      "typed": 1
+    },
+    "eng_oxford_mark_akenside.txt": {
+      "typed": 24
+    },
+    "eng_oxford_mark_alexander_boyd.txt": {
+      "typed": 3
+    },
+    "eng_oxford_mary_lamb.txt": {
+      "typed": 5
+    },
+    "eng_oxford_matthew_prior.txt": {
+      "typed": 49
+    },
+    "eng_oxford_michael_drayton.txt": {
+      "typed": 42
+    },
+    "eng_oxford_nicholas_breton.txt": {
+      "typed": 8
+    },
+    "eng_oxford_nicholas_grimald.txt": {
+      "typed": 2
+    },
+    "eng_oxford_oliver_goldsmith.txt": {
+      "typed": 6
+    },
+    "eng_oxford_phineas_fletcher.txt": {
+      "typed": 1
+    },
+    "eng_oxford_r_d_blackmore.txt": {
+      "typed": 4
+    },
+    "eng_oxford_richard_barnefield.txt": {
+      "typed": 1
+    },
+    "eng_oxford_richard_crashaw.txt": {
+      "typed": 80
+    },
+    "eng_oxford_richard_edwardes.txt": {
+      "typed": 5
+    },
+    "eng_oxford_richard_henry_horne.txt": {
+      "typed": 8
+    },
+    "eng_oxford_richard_jago.txt": {
+      "typed": 4
+    },
+    "eng_oxford_richard_rowlands.txt": {
+      "typed": 4
+    },
+    "eng_oxford_robert_cunninghame_graham_of_gartmore.txt": {
+      "typed": 3
+    },
+    "eng_oxford_robert_greene.txt": {
+      "typed": 23
+    },
+    "eng_oxford_robert_henryson.txt": {
+      "typed": 36
+    },
+    "eng_oxford_robert_mannyng_of_brunne.txt": {
+      "typed": 1
+    },
+    "eng_oxford_robert_southwell.txt": {
+      "typed": 6
+    },
+    "eng_oxford_robert_stephen_hawker.txt": {
+      "typed": 7
+    },
+    "eng_oxford_robert_wever.txt": {
+      "typed": 3
+    },
+    "eng_oxford_roden_berkeley_wriothesley_noel.txt": {
+      "typed": 10
+    },
+    "eng_oxford_rudyard_kipling.txt": {
+      "typed": 23
+    },
+    "eng_oxford_samuel_daniel.txt": {
+      "typed": 18
+    },
+    "eng_oxford_samuel_johnson.txt": {
+      "typed": 17
+    },
+    "eng_oxford_sara_coleridge.txt": {
+      "typed": 22
+    },
+    "eng_oxford_sir_aubrey_de_vere.txt": {
+      "typed": 1
+    },
+    "eng_oxford_sir_charles_sedley.txt": {
+      "typed": 7
+    },
+    "eng_oxford_sir_george_etherege.txt": {
+      "typed": 4
+    },
+    "eng_oxford_sir_henry_taylor.txt": {
+      "typed": 2
+    },
+    "eng_oxford_sir_henry_wotton.txt": {
+      "typed": 9
+    },
+    "eng_oxford_sir_john_beaumont.txt": {
+      "typed": 1
+    },
+    "eng_oxford_sir_john_davies.txt": {
+      "typed": 2
+    },
+    "eng_oxford_sir_philip_sidney.txt": {
+      "typed": 21
+    },
+    "eng_oxford_sir_richard_fanshawe.txt": {
+      "typed": 1
+    },
+    "eng_oxford_sir_robert_ayton.txt": {
+      "typed": 8
+    },
+    "eng_oxford_sir_samuel_ferguson.txt": {
+      "typed": 35
+    },
+    "eng_oxford_sir_thomas_wyatt.txt": {
+      "typed": 24
+    },
+    "eng_oxford_sir_walter_raleigh.txt": {
+      "typed": 13
+    },
+    "eng_oxford_sir_william_davenant.txt": {
+      "typed": 9
+    },
+    "eng_oxford_sir_william_jones.txt": {
+      "typed": 2
+    },
+    "eng_oxford_stephen_hawes.txt": {
+      "typed": 2
+    },
+    "eng_oxford_sydney_dobell.txt": {
+      "typed": 29
+    },
+    "eng_oxford_t_sturge_moore.txt": {
+      "typed": 5
+    },
+    "eng_oxford_t_w_rolleston.txt": {
+      "typed": 5
+    },
+    "eng_oxford_theodore_watts_dunton.txt": {
+      "typed": 18
+    },
+    "eng_oxford_thomas_babington_macaulay_lord_macaulay.txt": {
+      "typed": 7
+    },
+    "eng_oxford_thomas_chatterton.txt": {
+      "typed": 8
+    },
+    "eng_oxford_thomas_dekker.txt": {
+      "typed": 4
+    },
+    "eng_oxford_thomas_edward_brown.txt": {
+      "typed": 7
+    },
+    "eng_oxford_thomas_flatman.txt": {
+      "typed": 2
+    },
+    "eng_oxford_thomas_gray.txt": {
+      "typed": 55
+    },
+    "eng_oxford_thomas_heywood.txt": {
+      "typed": 10
+    },
+    "eng_oxford_thomas_hoccleve.txt": {
+      "typed": 3
+    },
+    "eng_oxford_thomas_jordan.txt": {
+      "typed": 4
+    },
+    "eng_oxford_thomas_lodge.txt": {
+      "typed": 15
+    },
+    "eng_oxford_thomas_love_peacock.txt": {
+      "typed": 18
+    },
+    "eng_oxford_thomas_nashe.txt": {
+      "typed": 9
+    },
+    "eng_oxford_thomas_otway.txt": {
+      "typed": 3
+    },
+    "eng_oxford_thomas_parnell.txt": {
+      "typed": 3
+    },
+    "eng_oxford_thomas_randolph.txt": {
+      "typed": 8
+    },
+    "eng_oxford_thomas_stanley.txt": {
+      "typed": 7
+    },
+    "eng_oxford_thomas_traherne.txt": {
+      "typed": 4
+    },
+    "eng_oxford_thomas_wade.txt": {
+      "typed": 1
+    },
+    "eng_oxford_tobias_george_smollett.txt": {
+      "typed": 2
+    },
+    "eng_oxford_wilfrid_scawen_blunt.txt": {
+      "typed": 43
+    },
+    "eng_oxford_william_alexander_earl_of_stirling.txt": {
+      "typed": 2
+    },
+    "eng_oxford_william_brighty_rands.txt": {
+      "typed": 38
+    },
+    "eng_oxford_william_broome.txt": {
+      "typed": 2
+    },
+    "eng_oxford_william_browne_of_tavistock.txt": {
+      "typed": 16
+    },
+    "eng_oxford_william_butler_yeats.txt": {
+      "typed": 7
+    },
+    "eng_oxford_william_cartwright.txt": {
+      "typed": 8
+    },
+    "eng_oxford_william_collins.txt": {
+      "typed": 29
+    },
+    "eng_oxford_william_congreve.txt": {
+      "typed": 9
+    },
+    "eng_oxford_william_drummond_of_hawthornden.txt": {
+      "typed": 15
+    },
+    "eng_oxford_william_dunbar.txt": {
+      "typed": 44
+    },
+    "eng_oxford_william_habington.txt": {
+      "typed": 22
+    },
+    "eng_oxford_william_johnson_cory.txt": {
+      "typed": 6
+    },
+    "eng_oxford_william_lisle_bowles.txt": {
+      "typed": 4
+    },
+    "eng_oxford_william_morris.txt": {
+      "typed": 38
+    },
+    "eng_oxford_william_oldys.txt": {
+      "typed": 2
+    },
+    "eng_oxford_william_philpot.txt": {
+      "typed": 8
+    },
+    "eng_oxford_william_shakespeare.txt": {
+      "typed": 96
+    },
+    "eng_oxford_william_sidney_walker.txt": {
+      "typed": 1
+    },
+    "eng_oxford_william_stevenson.txt": {
+      "typed": 4
+    },
+    "eng_oxford_william_strode.txt": {
+      "typed": 2
+    },
+    "eng_oxford_william_walsh.txt": {
+      "typed": 2
+    },
+    "eng_oxford_william_watson.txt": {
+      "typed": 13
+    },
+    "eng_oxford_winthrop_mackworth_praed.txt": {
+      "typed": 60
+    },
+    "eng_pah_alan_seeger.txt": {
+      "typed": 10
+    },
+    "eng_pah_alethea_s_burroughs.txt": {
+      "typed": 7
+    },
+    "eng_pah_alfred_billings_street.txt": {
+      "typed": 8
+    },
+    "eng_pah_alfred_d_wood.txt": {
+      "typed": 6
+    },
+    "eng_pah_alfred_damon_runyon.txt": {
+      "typed": 9
+    },
+    "eng_pah_alonzo_lewis.txt": {
+      "typed": 5
+    },
+    "eng_pah_amanda_theodosia_jones.txt": {
+      "typed": 7
+    },
+    "eng_pah_amelia_josephine_burr.txt": {
+      "typed": 1
+    },
+    "eng_pah_arthur_cleveland_coxe.txt": {
+      "typed": 10
+    },
+    "eng_pah_arthur_guiterman.txt": {
+      "typed": 65
+    },
+    "eng_pah_arthur_hale.txt": {
+      "typed": 20
+    },
+    "eng_pah_arthur_lee.txt": {
+      "typed": 1
+    },
+    "eng_pah_augustine_joseph_hickey_duganne.txt": {
+      "typed": 15
+    },
+    "eng_pah_barrett_eastman.txt": {
+      "typed": 23
+    },
+    "eng_pah_benjamin_franklin.txt": {
+      "typed": 16
+    },
+    "eng_pah_benjamin_tompson.txt": {
+      "typed": 1
+    },
+    "eng_pah_bertrand_shadwell.txt": {
+      "typed": 13
+    },
+    "eng_pah_burton_egbert_stevenson.txt": {
+      "typed": 10
+    },
+    "eng_pah_c_r_ballard.txt": {
+      "typed": 6
+    },
+    "eng_pah_caroline_hazard.txt": {
+      "typed": 41
+    },
+    "eng_pah_caroline_king_duer.txt": {
+      "typed": 4
+    },
+    "eng_pah_charles_d_helmer.txt": {
+      "typed": 5
+    },
+    "eng_pah_charles_dawson_shanly.txt": {
+      "typed": 11
+    },
+    "eng_pah_charles_de_kay.txt": {
+      "typed": 4
+    },
+    "eng_pah_charles_edward_russell.txt": {
+      "typed": 5
+    },
+    "eng_pah_charles_fletcher_lummis.txt": {
+      "typed": 2
+    },
+    "eng_pah_charles_george_douglas_roberts.txt": {
+      "typed": 32
+    },
+    "eng_pah_charles_godfrey_leland.txt": {
+      "typed": 3
+    },
+    "eng_pah_charles_graham_halpine.txt": {
+      "typed": 41
+    },
+    "eng_pah_charles_l_s_jones.txt": {
+      "typed": 10
+    },
+    "eng_pah_charles_sprague_hall.txt": {
+      "typed": 6
+    },
+    "eng_pah_charles_timothy_brooks.txt": {
+      "typed": 14
+    },
+    "eng_pah_charlton_andrews.txt": {
+      "typed": 6
+    },
+    "eng_pah_cincinnatus_heine_joaquin_miller.txt": {
+      "typed": 30
+    },
+    "eng_pah_clinton_scollard.txt": {
+      "typed": 130
+    },
+    "eng_pah_constance_fenimore_woolson.txt": {
+      "typed": 34
+    },
+    "eng_pah_cornelius_c_cullen.txt": {
+      "typed": 7
+    },
+    "eng_pah_dana_burnet.txt": {
+      "typed": 8
+    },
+    "eng_pah_daniel_bedinger_lucas.txt": {
+      "typed": 13
+    },
+    "eng_pah_daniel_henderson.txt": {
+      "typed": 3
+    },
+    "eng_pah_david_humphreys.txt": {
+      "typed": 3
+    },
+    "eng_pah_david_morton.txt": {
+      "typed": 3
+    },
+    "eng_pah_dexter_smith.txt": {
+      "typed": 3
+    },
+    "eng_pah_dorothy_paul.txt": {
+      "typed": 4
+    },
+    "eng_pah_e_m_walker.txt": {
+      "typed": 4
+    },
+    "eng_pah_edith_matilda_thomas.txt": {
+      "typed": 18
+    },
+    "eng_pah_edmund_vance_cooke.txt": {
+      "typed": 5
+    },
+    "eng_pah_edna_dean_proctor.txt": {
+      "typed": 33
+    },
+    "eng_pah_ednah_proctor_clarke_hayes.txt": {
+      "typed": 9
+    },
+    "eng_pah_edward_bangs.txt": {
+      "typed": 15
+    },
+    "eng_pah_edward_botwood.txt": {
+      "typed": 4
+    },
+    "eng_pah_edward_everett_hale.txt": {
+      "typed": 54
+    },
+    "eng_pah_edward_sydney_tylee.txt": {
+      "typed": 7
+    },
+    "eng_pah_edwin_arlington_robinson.txt": {
+      "typed": 12
+    },
+    "eng_pah_edwin_markham.txt": {
+      "typed": 4
+    },
+    "eng_pah_eleanor_rogers_cox.txt": {
+      "typed": 7
+    },
+    "eng_pah_epes_sargent.txt": {
+      "typed": 12
+    },
+    "eng_pah_erastus_wolcott_ellsworth.txt": {
+      "typed": 5
+    },
+    "eng_pah_ernest_howard_crosby.txt": {
+      "typed": 14
+    },
+    "eng_pah_ernest_mcgaffey.txt": {
+      "typed": 13
+    },
+    "eng_pah_fitz_james_o_brien.txt": {
+      "typed": 5
+    },
+    "eng_pah_florus_b_plimpton.txt": {
+      "typed": 25
+    },
+    "eng_pah_francis_bret_harte.txt": {
+      "typed": 23
+    },
+    "eng_pah_francis_brooks.txt": {
+      "typed": 6
+    },
+    "eng_pah_francis_de_haes_janvier.txt": {
+      "typed": 4
+    },
+    "eng_pah_francis_hopkinson.txt": {
+      "typed": 50
+    },
+    "eng_pah_francis_lieber.txt": {
+      "typed": 24
+    },
+    "eng_pah_francis_marion_crawford.txt": {
+      "typed": 7
+    },
+    "eng_pah_franklin_lushington.txt": {
+      "typed": 6
+    },
+    "eng_pah_frederick_whittaker.txt": {
+      "typed": 9
+    },
+    "eng_pah_george_henry_calvert.txt": {
+      "typed": 4
+    },
+    "eng_pah_george_houghton.txt": {
+      "typed": 25
+    },
+    "eng_pah_grace_hazard_conkling.txt": {
+      "typed": 1
+    },
+    "eng_pah_gulian_crommelin_verplanck.txt": {
+      "typed": 1
+    },
+    "eng_pah_guy_humphreys_mcmaster.txt": {
+      "typed": 4
+    },
+    "eng_pah_guy_wetmore_carryl.txt": {
+      "typed": 12
+    },
+    "eng_pah_h_s_cornwall.txt": {
+      "typed": 4
+    },
+    "eng_pah_hamlin_garland.txt": {
+      "typed": 6
+    },
+    "eng_pah_hardwick_drummond_rawnsley.txt": {
+      "typed": 11
+    },
+    "eng_pah_harvey_rice.txt": {
+      "typed": 5
+    },
+    "eng_pah_helen_f_more.txt": {
+      "typed": 4
+    },
+    "eng_pah_henry_john_newbolt.txt": {
+      "typed": 9
+    },
+    "eng_pah_henry_lynden_flash.txt": {
+      "typed": 10
+    },
+    "eng_pah_henry_r_dorr.txt": {
+      "typed": 5
+    },
+    "eng_pah_herbert_b_swett.txt": {
+      "typed": 3
+    },
+    "eng_pah_hezekiah_butterworth.txt": {
+      "typed": 153
+    },
+    "eng_pah_hilda_johnson.txt": {
+      "typed": 5
+    },
+    "eng_pah_irene_fowler_brown.txt": {
+      "typed": 14
+    },
+    "eng_pah_j_corson_miller.txt": {
+      "typed": 5
+    },
+    "eng_pah_jacob_steendam.txt": {
+      "typed": 2
+    },
+    "eng_pah_james_barron_hope.txt": {
+      "typed": 2
+    },
+    "eng_pah_james_gates_percival.txt": {
+      "typed": 3
+    },
+    "eng_pah_james_jeffrey_roche.txt": {
+      "typed": 123
+    },
+    "eng_pah_james_kirke_paulding.txt": {
+      "typed": 20
+    },
+    "eng_pah_james_lindsay_gordon.txt": {
+      "typed": 5
+    },
+    "eng_pah_james_maurice_thompson.txt": {
+      "typed": 6
+    },
+    "eng_pah_james_sloan_gibbons.txt": {
+      "typed": 4
+    },
+    "eng_pah_james_stevenson.txt": {
+      "typed": 13
+    },
+    "eng_pah_james_wolfe.txt": {
+      "typed": 3
+    },
+    "eng_pah_james_wright_simmons.txt": {
+      "typed": 16
+    },
+    "eng_pah_jeanne_robert_foster.txt": {
+      "typed": 3
+    },
+    "eng_pah_jeremiah_eames_rankin.txt": {
+      "typed": 18
+    },
+    "eng_pah_joel_barlow.txt": {
+      "typed": 10
+    },
+    "eng_pah_joel_benton.txt": {
+      "typed": 4
+    },
+    "eng_pah_johann_christoph_friedrich_von_schiller.txt": {
+      "typed": 1
+    },
+    "eng_pah_john_andr.txt": {
+      "typed": 73
+    },
+    "eng_pah_john_chipman_farrar.txt": {
+      "typed": 8
+    },
+    "eng_pah_john_dickson_bruns.txt": {
+      "typed": 10
+    },
+    "eng_pah_john_eliot_bowen.txt": {
+      "typed": 5
+    },
+    "eng_pah_john_gardiner_calkins_brainard.txt": {
+      "typed": 8
+    },
+    "eng_pah_john_godfrey_saxe.txt": {
+      "typed": 50
+    },
+    "eng_pah_john_h_jewett.txt": {
+      "typed": 5
+    },
+    "eng_pah_john_hall_ingham.txt": {
+      "typed": 1
+    },
+    "eng_pah_john_hay.txt": {
+      "typed": 30
+    },
+    "eng_pah_john_james_meehan.txt": {
+      "typed": 8
+    },
+    "eng_pah_john_jerome_rooney.txt": {
+      "typed": 24
+    },
+    "eng_pah_john_townsend_trowbridge.txt": {
+      "typed": 32
+    },
+    "eng_pah_john_vance_cheney.txt": {
+      "typed": 4
+    },
+    "eng_pah_john_white_chadwick.txt": {
+      "typed": 16
+    },
+    "eng_pah_jonathan_mitchell_sewall.txt": {
+      "typed": 21
+    },
+    "eng_pah_joseph_b_gilder.txt": {
+      "typed": 3
+    },
+    "eng_pah_joseph_blynth_alston.txt": {
+      "typed": 3
+    },
+    "eng_pah_joseph_hopkinson.txt": {
+      "typed": 5
+    },
+    "eng_pah_joseph_hutton.txt": {
+      "typed": 6
+    },
+    "eng_pah_joseph_ignatius_constantine_clarke.txt": {
+      "typed": 5
+    },
+    "eng_pah_joseph_russell_taylor.txt": {
+      "typed": 1
+    },
+    "eng_pah_joseph_stansbury.txt": {
+      "typed": 8
+    },
+    "eng_pah_joseph_warren.txt": {
+      "typed": 7
+    },
+    "eng_pah_joyce_kilmer.txt": {
+      "typed": 33
+    },
+    "eng_pah_kinahan_cornwallis.txt": {
+      "typed": 1
+    },
+    "eng_pah_lansing_c_bailey.txt": {
+      "typed": 4
+    },
+    "eng_pah_laughton_osborn.txt": {
+      "typed": 7
+    },
+    "eng_pah_lewis_worthington_smith.txt": {
+      "typed": 4
+    },
+    "eng_pah_louis_james_block.txt": {
+      "typed": 5
+    },
+    "eng_pah_luigi_pulci.txt": {
+      "typed": 1
+    },
+    "eng_pah_madison_cawein.txt": {
+      "typed": 41
+    },
+    "eng_pah_marion_couthouy_smith.txt": {
+      "typed": 11
+    },
+    "eng_pah_mary_anna_phinney_stansbury.txt": {
+      "typed": 17
+    },
+    "eng_pah_mary_raymond_shipman_andrews.txt": {
+      "typed": 3
+    },
+    "eng_pah_mary_siegrist.txt": {
+      "typed": 2
+    },
+    "eng_pah_mesech_weare.txt": {
+      "typed": 10
+    },
+    "eng_pah_minna_irving.txt": {
+      "typed": 4
+    },
+    "eng_pah_mrs_adeline_dutton_train_whitney.txt": {
+      "typed": 9
+    },
+    "eng_pah_mrs_charlotte_fiske_bates_rog.txt": {
+      "typed": 5
+    },
+    "eng_pah_mrs_danske_dandridge.txt": {
+      "typed": 4
+    },
+    "eng_pah_mrs_dorothy_payne_madison.txt": {
+      "typed": 1
+    },
+    "eng_pah_mrs_elizabeth_stuart_phelps_ward.txt": {
+      "typed": 10
+    },
+    "eng_pah_mrs_florence_earle_coates.txt": {
+      "typed": 5
+    },
+    "eng_pah_mrs_katherine_margaret_brownlee_sherwood.txt": {
+      "typed": 48
+    },
+    "eng_pah_mrs_laura_elizabeth_richards.txt": {
+      "typed": 4
+    },
+    "eng_pah_mrs_lydia_huntley_sigourney.txt": {
+      "typed": 15
+    },
+    "eng_pah_mrs_m_m_webster.txt": {
+      "typed": 6
+    },
+    "eng_pah_mrs_marion_manville_pope.txt": {
+      "typed": 16
+    },
+    "eng_pah_mrs_mercy_warren.txt": {
+      "typed": 10
+    },
+    "eng_pah_mrs_sara_jane_lippincott.txt": {
+      "typed": 8
+    },
+    "eng_pah_mrs_sarah_wentworth_morton.txt": {
+      "typed": 6
+    },
+    "eng_pah_mrs_virginia_fraser_boyle.txt": {
+      "typed": 11
+    },
+    "eng_pah_oliver_wendell_holmes.txt": {
+      "typed": 233
+    },
+    "eng_pah_park_benjamin.txt": {
+      "typed": 7
+    },
+    "eng_pah_patrick_sarsfield_gilmore.txt": {
+      "typed": 4
+    },
+    "eng_pah_paul_revere.txt": {
+      "typed": 1
+    },
+    "eng_pah_peter_st_john.txt": {
+      "typed": 53
+    },
+    "eng_pah_randall_parrish.txt": {
+      "typed": 4
+    },
+    "eng_pah_richard_burton.txt": {
+      "typed": 3
+    },
+    "eng_pah_richard_butler_glaenzer.txt": {
+      "typed": 6
+    },
+    "eng_pah_richard_edward_white.txt": {
+      "typed": 14
+    },
+    "eng_pah_richard_handfield_titherington.txt": {
+      "typed": 6
+    },
+    "eng_pah_richard_le_gallienne.txt": {
+      "typed": 15
+    },
+    "eng_pah_richard_mansfield.txt": {
+      "typed": 4
+    },
+    "eng_pah_richard_monckton_milnes_baron_houghton.txt": {
+      "typed": 11
+    },
+    "eng_pah_richard_realf.txt": {
+      "typed": 16
+    },
+    "eng_pah_richard_rich.txt": {
+      "typed": 22
+    },
+    "eng_pah_richard_voorhees_risley.txt": {
+      "typed": 8
+    },
+    "eng_pah_robert_bridges.txt": {
+      "typed": 43
+    },
+    "eng_pah_robert_burns_wilson.txt": {
+      "typed": 10
+    },
+    "eng_pah_robert_loveman.txt": {
+      "typed": 6
+    },
+    "eng_pah_robert_southey.txt": {
+      "typed": 61
+    },
+    "eng_pah_robert_treat_paine.txt": {
+      "typed": 9
+    },
+    "eng_pah_robert_underwood_johnson.txt": {
+      "typed": 25
+    },
+    "eng_pah_robert_william_chambers.txt": {
+      "typed": 8
+    },
+    "eng_pah_roger_williams.txt": {
+      "typed": 3
+    },
+    "eng_pah_royall_tyler.txt": {
+      "typed": 1
+    },
+    "eng_pah_rupert_hughes.txt": {
+      "typed": 3
+    },
+    "eng_pah_s_j_alexander.txt": {
+      "typed": 5
+    },
+    "eng_pah_saint_john_honeywood.txt": {
+      "typed": 4
+    },
+    "eng_pah_seymour_w_whiting.txt": {
+      "typed": 6
+    },
+    "eng_pah_sharlot_m_hall.txt": {
+      "typed": 8
+    },
+    "eng_pah_silas_weir_mitchell.txt": {
+      "typed": 35
+    },
+    "eng_pah_sophie_e_eastman.txt": {
+      "typed": 9
+    },
+    "eng_pah_stephen_tilden.txt": {
+      "typed": 34
+    },
+    "eng_pah_theodore_tilton.txt": {
+      "typed": 7
+    },
+    "eng_pah_thomas_allibone_janvier.txt": {
+      "typed": 9
+    },
+    "eng_pah_thomas_cogswell_upham.txt": {
+      "typed": 6
+    },
+    "eng_pah_thomas_dunn_english.txt": {
+      "typed": 235
+    },
+    "eng_pah_thomas_frost.txt": {
+      "typed": 24
+    },
+    "eng_pah_thomas_green_fessenden.txt": {
+      "typed": 6
+    },
+    "eng_pah_thomas_nelson_page.txt": {
+      "typed": 18
+    },
+    "eng_pah_thomas_p_rodman.txt": {
+      "typed": 15
+    },
+    "eng_pah_thomas_paine.txt": {
+      "typed": 4
+    },
+    "eng_pah_thomas_tracy_bouv.txt": {
+      "typed": 13
+    },
+    "eng_pah_timothy_dwight.txt": {
+      "typed": 13
+    },
+    "eng_pah_tom_taylor.txt": {
+      "typed": 19
+    },
+    "eng_pah_tudor_jenks.txt": {
+      "typed": 3
+    },
+    "eng_pah_uriah_terry.txt": {
+      "typed": 39
+    },
+    "eng_pah_vachel_lindsay.txt": {
+      "typed": 8
+    },
+    "eng_pah_virginia_woodward_cloud.txt": {
+      "typed": 16
+    },
+    "eng_pah_walker_meriwether_bell.txt": {
+      "typed": 5
+    },
+    "eng_pah_wallace_bruce.txt": {
+      "typed": 12
+    },
+    "eng_pah_wallace_de_groot_cecil_rice.txt": {
+      "typed": 161
+    },
+    "eng_pah_walt_whitman.txt": {
+      "typed": 18
+    },
+    "eng_pah_walter_learned.txt": {
+      "typed": 30
+    },
+    "eng_pah_will_henry_thompson.txt": {
+      "typed": 15
+    },
+    "eng_pah_willard_wattles.txt": {
+      "typed": 4
+    },
+    "eng_pah_william_banker_jr.txt": {
+      "typed": 18
+    },
+    "eng_pah_william_bradford.txt": {
+      "typed": 2
+    },
+    "eng_pah_william_c_elam.txt": {
+      "typed": 8
+    },
+    "eng_pah_william_carleton.txt": {
+      "typed": 58
+    },
+    "eng_pah_william_davis_gallagher.txt": {
+      "typed": 5
+    },
+    "eng_pah_william_douw_schuyler_lighthall.txt": {
+      "typed": 7
+    },
+    "eng_pah_william_ernest_henley.txt": {
+      "typed": 51
+    },
+    "eng_pah_william_gilmore_simms.txt": {
+      "typed": 24
+    },
+    "eng_pah_william_h_wharton.txt": {
+      "typed": 4
+    },
+    "eng_pah_william_haines_lytle.txt": {
+      "typed": 11
+    },
+    "eng_pah_william_hamilton_hayne.txt": {
+      "typed": 3
+    },
+    "eng_pah_william_harrison_safford.txt": {
+      "typed": 29
+    },
+    "eng_pah_william_henry_babcock.txt": {
+      "typed": 52
+    },
+    "eng_pah_william_henry_cuyler_hosmer.txt": {
+      "typed": 3
+    },
+    "eng_pah_william_henry_venable.txt": {
+      "typed": 72
+    },
+    "eng_pah_william_milns.txt": {
+      "typed": 6
+    },
+    "eng_pah_william_vaughn_moody.txt": {
+      "typed": 26
+    },
+    "eng_pah_william_w_campbell.txt": {
+      "typed": 4
+    },
+    "eng_pah_william_wilberforce_lord.txt": {
+      "typed": 1
+    },
+    "eng_pah_witter_bynner.txt": {
+      "typed": 1
+    },
+    "eng_parlour_benjamin_hanby.txt": {
+      "typed": 10
+    },
+    "eng_parlour_charles_carroll_sawyer.txt": {
+      "typed": 1
+    },
+    "eng_parlour_charles_graham.txt": {
+      "typed": 5
+    },
+    "eng_parlour_daniel_decatur_emmett.txt": {
+      "typed": 15
+    },
+    "eng_parlour_george_frederick_root.txt": {
+      "typed": 15
+    },
+    "eng_parlour_henry_clay_work.txt": {
+      "typed": 11
+    },
+    "eng_parlour_henry_russell.txt": {
+      "typed": 10
+    },
+    "eng_parlour_john_howard_payne.txt": {
+      "typed": 8
+    },
+    "eng_parlour_monroe_h_rosenfeld.txt": {
+      "typed": 13
+    },
+    "eng_parlour_stephen_foster.txt": {
+      "typed": 44
+    },
+    "eng_parlour_thomas_haynes_bayly.txt": {
+      "typed": 19
+    },
+    "eng_parlour_will_s_hays.txt": {
+      "typed": 4
+    },
+    "fas_amir_khusraw.txt": {
+      "decided": 5350
+    },
+    "fas_anvari.txt": {
+      "decided": 3679
+    },
+    "fas_attar.txt": {
+      "decided": 5877
+    },
+    "fas_awhadi.txt": {
+      "decided": 4606
+    },
+    "fas_baba_tahir_dobayti.txt": {
+      "decided": 732
+    },
+    "fas_bidel_dihlavi.txt": {
+      "decided": 7376
+    },
+    "fas_fayd_kashani.txt": {
+      "decided": 5748
+    },
+    "fas_furughi_bistami.txt": {
+      "decided": 5164
+    },
+    "fas_hafez_ganjoor.txt": {
+      "decided": 7101
+    },
+    "fas_hatif_isfahani.txt": {
+      "decided": 891
+    },
+    "fas_hilali_chaghatai.txt": {
+      "decided": 3139
+    },
+    "fas_iraqi.txt": {
+      "decided": 5075
+    },
+    "fas_kamal_al_din_ismail.txt": {
+      "decided": 2791
+    },
+    "fas_kamal_khujandi.txt": {
+      "decided": 3361
+    },
+    "fas_khaqani.txt": {
+      "decided": 3244
+    },
+    "fas_khwaju_kirmani.txt": {
+      "decided": 4788
+    },
+    "fas_masud_sad_salman.txt": {
+      "decided": 280
+    },
+    "fas_muhtasham_kashani.txt": {
+      "decided": 4761
+    },
+    "fas_muizzi.txt": {
+      "decided": 652
+    },
+    "fas_qaani.txt": {
+      "decided": 1266
+    },
+    "fas_qudsi_mashhadi.txt": {
+      "decided": 3170
+    },
+    "fas_rumi_divan_shams.txt": {
+      "decided": 5830
+    },
+    "fas_sadi.txt": {
+      "decided": 5070
+    },
+    "fas_saib_tabrizi.txt": {
+      "decided": 8110
+    },
+    "fas_salman_savaji.txt": {
+      "decided": 5444
+    },
+    "fas_sanai.txt": {
+      "decided": 3186
+    },
+    "fas_sayf_farghani.txt": {
+      "decided": 7148
+    },
+    "fas_shah_nimatullah.txt": {
+      "decided": 4938
+    },
+    "fas_ubayd_zakani.txt": {
+      "decided": 1366
+    },
+    "fas_vahshi_bafqi.txt": {
+      "decided": 4801
+    },
+    "fas_zahir_faryabi.txt": {
+      "decided": 115
+    },
+    "fin_aleksis_kivi.txt": {
+      "typed": 333
+    },
+    "fin_eino_leino.txt": {
+      "typed": 946
+    },
+    "fin_jaakko_juteini.txt": {
+      "typed": 19
+    },
+    "fin_jh_erkko.txt": {
+      "typed": 579
+    },
+    "fin_julius_krohn.txt": {
+      "typed": 171
+    },
+    "fin_kaarlo_kramsu.txt": {
+      "typed": 171
+    },
+    "fin_kanteletar.txt": {
+      "typed": 2326,
+      "decided": 82
+    },
+    "fin_kanteletar_uudempia.txt": {
+      "typed": 232,
+      "decided": 45
+    },
+    "fin_kasimir_leino.txt": {
+      "typed": 183
+    },
+    "fin_paavo_cajander.txt": {
+      "typed": 629
+    },
+    "fin_wahanen_laulukirja.txt": {
+      "typed": 390
+    },
+    "ltc_huajianji.txt": {
+      "typed": 500
+    },
+    "ltc_siku_kr4j0001.txt": {
+      "typed": 182
+    },
+    "ltc_siku_kr4j0002.txt": {
+      "typed": 266
+    },
+    "ltc_siku_kr4j0003.txt": {
+      "typed": 181
+    },
+    "ltc_siku_kr4j0004.txt": {
+      "typed": 77
+    },
+    "ltc_siku_kr4j0005.txt": {
+      "typed": 352
+    },
+    "ltc_siku_kr4j0006.txt": {
+      "typed": 198
+    },
+    "ltc_siku_kr4j0008.txt": {
+      "typed": 70
+    },
+    "ltc_siku_kr4j0009.txt": {
+      "typed": 141
+    },
+    "ltc_siku_kr4j0010.txt": {
+      "typed": 359
+    },
+    "ltc_siku_kr4j0011.txt": {
+      "typed": 147
+    },
+    "ltc_siku_kr4j0012.txt": {
+      "typed": 103
+    },
+    "ltc_siku_kr4j0014.txt": {
+      "typed": 273
+    },
+    "ltc_siku_kr4j0015.txt": {
+      "typed": 171
+    },
+    "ltc_siku_kr4j0016.txt": {
+      "typed": 43
+    },
+    "ltc_siku_kr4j0017.txt": {
+      "typed": 137
+    },
+    "ltc_siku_kr4j0018.txt": {
+      "typed": 208
+    },
+    "ltc_siku_kr4j0019.txt": {
+      "typed": 68
+    },
+    "ltc_siku_kr4j0020.txt": {
+      "typed": 83
+    },
+    "ltc_siku_kr4j0021.txt": {
+      "typed": 97
+    },
+    "ltc_siku_kr4j0022.txt": {
+      "typed": 66
+    },
+    "ltc_siku_kr4j0024.txt": {
+      "typed": 140
+    },
+    "ltc_siku_kr4j0025.txt": {
+      "typed": 252
+    },
+    "ltc_siku_kr4j0026.txt": {
+      "typed": 21
+    },
+    "ltc_siku_kr4j0027.txt": {
+      "typed": 11
+    },
+    "ltc_siku_kr4j0028.txt": {
+      "typed": 193
+    },
+    "ltc_siku_kr4j0029.txt": {
+      "typed": 174
+    },
+    "ltc_siku_kr4j0030.txt": {
+      "typed": 25
+    },
+    "ltc_siku_kr4j0031.txt": {
+      "typed": 89
+    },
+    "ltc_siku_kr4j0032.txt": {
+      "typed": 191
+    },
+    "ltc_siku_kr4j0033.txt": {
+      "typed": 219
+    },
+    "ltc_siku_kr4j0034.txt": {
+      "typed": 103
+    },
+    "ltc_siku_kr4j0035.txt": {
+      "typed": 76
+    },
+    "ltc_siku_kr4j0036.txt": {
+      "typed": 170
+    },
+    "ltc_siku_kr4j0037.txt": {
+      "typed": 32
+    },
+    "ltc_siku_kr4j0038.txt": {
+      "typed": 42
+    },
+    "ltc_siku_kr4j0039.txt": {
+      "typed": 26
+    },
+    "ltc_siku_kr4j0040.txt": {
+      "typed": 559
+    },
+    "ltc_siku_kr4j0041.txt": {
+      "typed": 25
+    },
+    "ltc_siku_kr4j0042.txt": {
+      "typed": 24
+    },
+    "ltc_siku_kr4j0043.txt": {
+      "typed": 156
+    },
+    "ltc_siku_kr4j0044.txt": {
+      "typed": 14
+    },
+    "ltc_siku_kr4j0045.txt": {
+      "typed": 22
+    },
+    "ltc_siku_kr4j0046.txt": {
+      "typed": 28
+    },
+    "ltc_siku_kr4j0047.txt": {
+      "typed": 55
+    },
+    "ltc_siku_kr4j0048.txt": {
+      "typed": 232
+    },
+    "ltc_siku_kr4j0049.txt": {
+      "typed": 412
+    },
+    "ltc_siku_kr4j0050.txt": {
+      "typed": 26
+    },
+    "ltc_siku_kr4j0051.txt": {
+      "typed": 90
+    },
+    "ltc_siku_kr4j0052.txt": {
+      "typed": 20
+    },
+    "ltc_siku_kr4j0053.txt": {
+      "typed": 63
+    },
+    "ltc_siku_kr4j0054.txt": {
+      "typed": 93
+    },
+    "ltc_siku_kr4j0055.txt": {
+      "typed": 112
+    },
+    "ltc_siku_kr4j0056.txt": {
+      "typed": 38
+    },
+    "ltc_siku_kr4j0057.txt": {
+      "typed": 44
+    },
+    "ltc_siku_kr4j0058.txt": {
+      "typed": 29
+    },
+    "ltc_siku_kr4j0059.txt": {
+      "typed": 22
+    },
+    "ltc_siku_kr4j0060.txt": {
+      "typed": 80
+    },
+    "ltc_siku_kr4j0061.txt": {
+      "typed": 128
+    },
+    "ltc_siku_kr4j0063.txt": {
+      "typed": 60
+    },
+    "ltc_siku_kr4j0064.txt": {
+      "typed": 346
+    },
+    "ltc_siku_kr4j0070.txt": {
+      "typed": 277
+    },
+    "ltc_siku_kr4j0071.txt": {
+      "typed": 350
+    },
+    "ltc_siku_kr4j0073.txt": {
+      "typed": 2713
+    },
+    "ltc_siku_kr4j0074.txt": {
+      "typed": 4934
+    },
+    "ltc_siku_kr4j0075.txt": {
+      "typed": 945
+    },
+    "ltc_siku_kr4j0076.txt": {
+      "typed": 2169
+    },
+    "msa_skeat_pantun.txt": {
+      "decided": 129,
+      "undecided": 2
+    },
+    "non_egils_saga_hofudlausn.txt": {
+      "typed": 20
+    },
+    "non_egils_saga_lausavisur.txt": {
+      "typed": 55
+    },
+    "non_egils_saga_sonatorrek_arinbjarnarkvida.txt": {
+      "typed": 55
+    },
+    "non_eiriks_saga_rauda.txt": {
+      "typed": 3
+    },
+    "non_graenlendinga_saga.txt": {
+      "typed": 1
+    },
+    "non_gunnlaugs_saga_ormstungu.txt": {
+      "typed": 24
+    },
+    "non_hrana_saga_hrings.txt": {
+      "typed": 2
+    },
+    "san_bilhana_caurapancasika.txt": {
+      "typed": 97
+    },
+    "san_jayadeva_gitagovinda.txt": {
+      "typed": 384,
+      "decided": 136
+    }
+  },
+  "mark_coverage_sha256": "b544d0233705acb415b00c33dcfbe7c82db0299e3f0f1d54c25d5fe72b040d22",
+  "grid_sha256": "a3ef948ef172421d3eb6165a2e259da4978fc9605eb8576101dbf5f1b654688c"
+}

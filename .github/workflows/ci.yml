@@ -114,195 +114,29 @@ on:
 #      be cancelled" true by construction, rather than true by an argument about
 #      what `github.ref` happens to hold during a cron.
 #
-#   2. PUSH AND PULL_REQUEST FOR THE SAME BRANCH SHARE A GROUP. With the push
-#      filter widened to '**' above, a push to a branch that has an open PR fires
-#      BOTH events; keyed on `github.ref` they land in different groups
-#      (`refs/heads/x` vs `refs/pull/N/merge`) and both run to completion. That
-#      is +69.8 runner-minutes on every push during a PR — more than this block
-#      and the closure rule save put together. `github.head_ref ||
-#      github.ref_name` is the branch NAME under both events, so they collide
-#      and the newer cancels the older.
-#
-#   3. THE SOURCE REPOSITORY IS IN THE KEY. sync-pages.yml documents at length
-#      that `branches: [main]` matches a branch NAME and not a repository, so a
-#      fork whose branch is literally called `main` satisfies it. The same trick
-#      applies to a concurrency group: without the repo in the key, a fork PR
-#      from a branch named `main` would share a group with pushes to production,
-#      and an outsider could stall or cancel the very run sync-pages keys its
-#      publish off. `head_repository` is what separates WeningerII/CodexMusica
-#      from anyone/CodexMusica, exactly as it does there.
-#
-# AND THE CANCEL TEST IS ON THE GROUP'S OWN BRANCH COMPONENT, not on
-# `github.ref`. `github.ref != 'refs/heads/main'` reads correctly for a push and
-# is wrong for the one run that matters: during a pull_request run `github.ref`
-# is `refs/pull/N/merge`, which is never equal to `refs/heads/main` even when the
-# PR's head branch IS `main` — so that form answers "yes, cancel" for the only
-# event that could take production's run down. Testing the same expression the
-# group is built from means no run can cancel anything in the `main` group,
-# whatever event produced it.
+# Push and pull_request runs have separate groups. Event ordering must never
+# cancel the only run doing work while its twin assumes it is covered.
 concurrency:
   group: >-
     ${{ github.workflow }}-${{ (github.event_name == 'schedule' || github.event_name ==
-    'workflow_dispatch') && github.run_id || format('{0}@{1}',
+    'workflow_dispatch') && github.run_id || format('{0}@{1}@{2}',
     github.event.pull_request.head.repo.full_name || github.repository, github.head_ref ||
-    github.ref_name) }}
+    github.ref_name, github.event_name) }}
   cancel-in-progress: ${{ (github.head_ref || github.ref_name) != 'main' }}
 
 jobs:
-  # ── Is this exact commit already covered by another run? ──────────────
-  #
-  # TWO DUPLICATES, and this job is one question asked twice. Both were
-  # counted over the last 30 pushes to this branch.
-  #
-  # (1) THE TWIN — M-250, 2026-09-06. A push to a branch with an open PR
-  # starts TWO runs of this workflow — one `push`, one `pull_request` —
-  # and the concurrency group above cancels one of them within seconds, by
-  # design, EVERY TIME. 17 of those 30 pushes ended `cancelled`. The
-  # cancellation is not free: it leaves ~15 CANCELLED check runs on the
-  # PR's head commit, so a PR whose real run is entirely green reads "some
-  # checks were not successful" and sits at mergeable_state `unstable`.
-  # Measured twice in one day, on PR #236 and PR #237, each cleared only by
-  # re-running the dead twin by hand. `catalog-result`'s own comment block
-  # below records the same collision biting from the other side in August.
-  #
-  # (2) THE MERGE MIRROR — M-251, 2026-09-06. Merging a PR and restarting
-  # the branch from the default branch pushes THE MERGE COMMIT ITSELF back
-  # onto the branch. That push's run and the default branch's own run carry
-  # the same sha in DIFFERENT concurrency groups, so neither cancels the
-  # other and both do the full matrix on a byte-identical tree. It fired on
-  # all five merges in that window (#232 #233 #234 #235 #236) and ran to
-  # completion in three of them — a247c11a is the clean one: run
-  # 34038632516 on main at 14:16:13 and run 34038762057 on the branch at
-  # 14:18:45, ~20 minutes and ~44 jobs each, twice, for one tree. Question
-  # 1 cannot see this: the PR has just CLOSED, so "an OPEN pull request's
-  # head is this commit" is correctly false.
-  #
-  # THE DUPLICATE HAS NOTHING TO ADD in either case — the other run tests
-  # the identical tree — and a SKIPPED check is NEUTRAL on GitHub where a
-  # cancelled one is not. That difference is the whole fix; the
-  # runner-minutes come back with it, which also relieves the 20-job
-  # concurrency cap M-244 measured main's own merge run contending for.
-  #
-  # DENY-BY-DEFAULT, the same asymmetry the scope step in `gate` argues for.
-  # Skipping a run that was NOT covered means a commit with no CI at all,
-  # which is the six-uncovered-commits defect the `branches: ['**']` filter
-  # exists to prevent. So `covered` starts false and only a positive,
-  # parsed, HTTP 200 answer moves it: a curl failure, a non-200, a body
-  # that does not parse as a count, or a missing token all leave it false
-  # and the run proceeds. An unanswered question is not a yes.
-  #
-  # WHY QUESTION 2 DEMANDS THE DEFAULT BRANCH rather than merely "some run
-  # at this sha went green": a run can conclude success having SKIPPED
-  # every job — which is exactly what question 1 now makes the twin do —
-  # and that success proves nothing about the tree. A push run on the
-  # default branch never skips, because this whole job is a no-op there,
-  # so its success is the full matrix and nothing less.
-  #
-  # The two runs can still scope themselves differently — `gate`'s scope
-  # step diffs against the previous tip on the default branch and against a
-  # merge-base on the mirror, which there IS the commit — so the mirror might
-  # have rebuilt artifacts where the default branch's run did not. That
-  # costs nothing here: `freshness`, which proves the built artifacts are
-  # in sync, is not the scoped job and already passed on the same tree.
-  #
-  # NEVER ON THE DEFAULT BRANCH, belt and braces: a push to the production
-  # branch is the one run nothing may silently drop.
-  #
-  # THE QUESTION IS ITS OWN JOB, AND THAT IS THE POINT (M-252). It lived in
-  # `gate` first, where it could not win: a job's outputs are published when
-  # the JOB ends, and `gate` measured 57 s (checkout, npm ci, lint, prettier,
-  # validate, check-docs) while the concurrency cancellation that creates the
-  # duplicate's check runs arrived at 4 s and 40 s in the two twins measured
-  # on 2026-09-06. The answer has to beat the cancel, so it gets a job with
-  # NO CHECKOUT and no toolchain -- two HTTP questions and jq -- and every
-  # other job, `gate` included, hangs off it.
+  # Every event executes its own gates. A PR's existence is not proof that
+  # another run exists, completed, or tested its merge tree. Keep this output
+  # explicit because downstream jobs use it; never infer coverage from a PR.
   dup:
     runs-on: ubuntu-latest
-    # Two API calls. If this is not answered in a minute it is not going to be,
-    # and deny-by-default means an unanswered question runs the jobs anyway.
-    timeout-minutes: 5
+    timeout-minutes: 2
     outputs:
-      # Whether another run has already tested this exact commit -- a
-      # pull_request run now, or the default branch earlier -- so this run is a
-      # duplicate. Consumed by EVERY job below, `gate` first.
       already_covered: ${{ steps.ask.outputs.already_covered }}
     steps:
-      - name: Is this exact commit already covered by another run?
+      - name: This event owns its CI evidence
         id: ask
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          default_branch="${{ github.event.repository.default_branch }}"
-          covered=false
-          reason=""
-
-          # One HTTP question. Prints the response body on stdout and succeeds
-          # ONLY on a curl-clean HTTP 200; every other outcome says so and
-          # fails, which leaves the caller's `covered` exactly as it was.
-          ask() {
-            set +e
-            _resp=$(curl -sS --max-time 30 -w '\n%{http_code}' \
-              -H "Authorization: Bearer $GH_TOKEN" \
-              -H "Accept: application/vnd.github+json" \
-              -H "X-GitHub-Api-Version: 2022-11-28" "$1")
-            _rc=$?
-            set -e
-            _code=$(printf '%s' "$_resp" | tail -n1)
-            if [ "$_rc" = "0" ] && [ "$_code" = "200" ]; then
-              printf '%s' "$_resp" | sed '$d'
-              return 0
-            fi
-            echo "could not ask (curl rc $_rc, HTTP $_code) — running, because an unanswered question is not a yes" >&2
-            return 1
-          }
-
-          # A body that does not answer as a number is not an answer: say so
-          # and count zero, which is the answer that runs the jobs.
-          count() {
-            _n=$(printf '%s' "$1" | jq "$2" 2>/dev/null)
-            case "$_n" in
-              '' | *[!0-9]*)
-                echo "the answer did not parse as a count — running, because an unanswered question is not a yes" >&2
-                echo 0
-                ;;
-              *) echo "$_n" ;;
-            esac
-          }
-
-          if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.ref_name }}" != "$default_branch" ]; then
-            export DEFAULT_BRANCH="$default_branch"
-
-            # (1) Is an OPEN pull request's head this exact commit?
-            if json=$(ask "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/commits/${GITHUB_SHA}/pulls"); then
-              n=$(count "$json" '[.[]? | select(.state == "open") | select(.head.sha == env.GITHUB_SHA)] | length')
-              echo "open pull request(s) whose head IS this commit: $n"
-              if [ "$n" -gt 0 ]; then
-                covered=true
-                reason="a pull_request run is already testing this commit"
-              fi
-            fi
-
-            # (2) Has a push run on the default branch already gone green here?
-            if [ "$covered" = "false" ]; then
-              wf="${GITHUB_WORKFLOW_REF%%@*}"
-              wf="${wf##*/}"
-              if json=$(ask "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/actions/workflows/${wf}/runs?head_sha=${GITHUB_SHA}&event=push&status=success&branch=${default_branch}&per_page=100"); then
-                n=$(count "$json" '[.workflow_runs[]? | select(.head_sha == env.GITHUB_SHA) | select(.event == "push") | select(.conclusion == "success") | select(.head_branch == env.DEFAULT_BRANCH) | select((.id | tostring) != env.GITHUB_RUN_ID)] | length')
-                echo "successful $default_branch push run(s) of $wf at this commit: $n"
-                if [ "$n" -gt 0 ]; then
-                  covered=true
-                  reason="$default_branch has already run this exact tree green"
-                fi
-              fi
-            fi
-          fi
-
-          echo "already_covered=$covered" >> "$GITHUB_OUTPUT"
-          if [ "$covered" = "true" ]; then
-            echo "::notice title=CI duplicate::$reason ($GITHUB_SHA) — every job below SKIPS (M-250, M-251). Skipped is neutral; the run that did the work carries the verdict."
-          else
-            echo "already_covered=false — this run does the work"
-          fi
+        run: echo 'already_covered=false' >> "$GITHUB_OUTPUT"
 
   # Cheap, fast-failing gates, run FIRST and alone so an expensive job never
   # burns a runner proving something that is about to be thrown away.
@@ -472,11 +306,39 @@ jobs:
       - name: Build closure is sound (scope decision is provable)
         run: npm run check:closure
 
+  capacity-proof:
+    needs: [dup, gate]
+    if: needs.dup.outputs.already_covered != 'true'
+    uses: ./.github/workflows/capacity-proof.yml
+
+  capacity-proof-result:
+    needs: [dup, gate, capacity-proof]
+    if: always() && needs.dup.outputs.already_covered != 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require actual all-family proof from this workflow attempt
+        env:
+          RESULT: ${{ needs.capacity-proof.result }}
+        run: test "$RESULT" = success
+
   lyrics-image:
     needs: [dup, gate]
     if: needs.dup.outputs.already_covered != 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # 2026-09-08 observed all81 costs: 1600.725s workers1 wall, and 2042.343s
+    # aggregate CPU in the later workers4 proof. Proof 45m is 1.25 x their
+    # maximum, rounded up to 5m; build 55m adds 10m dependency/assembly allowance.
+    # Aggregate CPU is not a serial-wall measurement. 2m audit +55m build
+    # +5m image checks +65m matrix =127m; job 145m reserves 18m for
+    # checkout/setup/oracles/uploads/image publication.
+    # These are explicit bounded allowances, not measured Docker Python 3.11 timings.
+    # The 18 matrix executions contain 72 verb calls plus setup/recovery/queue
+    # work; their 65m whole-matrix fit also remains unmeasured. Keep evidence
+    # on failure. Operational 600s calls and 40m turn walls are unchanged.
+    timeout-minutes: 145
+    permissions:
+      contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -486,15 +348,79 @@ jobs:
         timeout-minutes: 2
         run: npm --prefix mcp audit --omit=dev --audit-level=high --package-lock-only --fetch-retries=0 --fetch-timeout=20000
       - name: Build the deployed lyrics runtime
-        timeout-minutes: 15
+        id: image
+        timeout-minutes: 55
         env:
           TESTED_SHA: ${{ github.sha }}
-        run: docker build --build-arg RENDER_GIT_COMMIT="$TESTED_SHA" -f mcp/Dockerfile -t codex-lyrics-ci .
+        run: |
+          repository_source=$(node --input-type=module -e 'import {runtimeSourceFingerprint} from "./mcp/build_identity.js"; console.log(runtimeSourceFingerprint());')
+          echo "repository_source_sha256=$repository_source" >> "$GITHUB_OUTPUT"
+          mkdir -p image-build-evidence
+          printf '%s\n' '{"status":"running","budget_s":3300,"scope":"assembled-image-build-including-all81-runtime-proof"}' > image-build-evidence/build.json
+          started=$SECONDS
+          set +e
+          docker build --platform=linux/amd64 --build-arg RENDER_GIT_COMMIT="$TESTED_SHA" --build-arg BUILD_RELEASE_ID="${{ github.repository_id }}:${{ github.run_id }}:${{ github.run_attempt }}:lyrics-image" -f mcp/Dockerfile -t codex-lyrics-ci .
+          rc=$?
+          set -e
+          printf '{"status":"completed","wall_s":%s,"exit_code":%s,"budget_s":3300,"scope":"assembled-image-build-including-all81-runtime-proof"}\n' "$((SECONDS-started))" "$rc" > image-build-evidence/build.json
+          cat image-build-evidence/build.json
+          [ "$rc" = 0 ] || exit "$rc"
+
+          echo "image_id=$(docker image inspect --format='{{.Id}}' codex-lyrics-ci)" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lyrics-image-build-${{ github.run_attempt }}
+          path: image-build-evidence/
+          if-no-files-found: error
       - name: Offline image pipeline and restart recovery
         timeout-minutes: 5
         env:
           TESTED_SHA: ${{ github.sha }}
-        run: node scripts/check_lyrics_image.mjs codex-lyrics-ci "$TESTED_SHA"
+        run: node scripts/check_lyrics_image.mjs "${{ steps.image.outputs.image_id }}" "$TESTED_SHA"
+
+      - name: Capacity acceptance oracle counterexamples
+        run: python3 scripts/test_lyrics_capacity.py
+      - name: Production CPU and memory capacity matrix
+        timeout-minutes: 65
+        env:
+          TESTED_IMAGE: ${{ steps.image.outputs.image_id }}
+        run: |
+          set -euo pipefail
+          mkdir -p capacity-evidence
+          docker run --rm --network=none --cpus=1 --memory=2g --memory-swap=2g --pids-limit=256 \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/scripts,dst=/app/scripts,readonly" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/capacity-evidence,dst=/evidence" \
+            --workdir=/app --entrypoint=python3 "$TESTED_IMAGE" \
+            /app/scripts/check_lyrics_capacity.py --out=/evidence/capacity.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lyrics-capacity
+          path: capacity-evidence/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Preserve and publish the exact tested image
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TESTED_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          image_id="${{ steps.image.outputs.image_id }}"
+          image_repository="ghcr.io/${GITHUB_REPOSITORY,,}/lyrics"
+          printf '%s' "$GH_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+          docker tag "$image_id" "$image_repository:$TESTED_SHA"
+          docker push "$image_repository:$TESTED_SHA"
+          node scripts/image_release.mjs record lyrics-image.json "$TESTED_SHA" "$image_repository" "$image_id" "${{ steps.image.outputs.repository_source_sha256 }}"
+      - uses: actions/upload-artifact@v4
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        with:
+          name: lyrics-image
+          path: lyrics-image.json
+          if-no-files-found: error
+          retention-days: 30
 
   verify:
     needs: [dup, gate]
@@ -544,10 +470,10 @@ jobs:
       # locally-green run never saw because the sandbox had nltk.
       - name: Stage the lyric harness for mcp/test.mjs's live checks
         run: |
-          python3 -m pip install --disable-pip-version-check nltk
+          python3 -m pip install --disable-pip-version-check --require-hashes -r "$GITHUB_WORKSPACE/mcp/requirements-runtime.txt"
           cd lyric-harness
           python3 -c "import lyric_harness; lyric_harness.fetch_data()"
-          python3 quality/fetch_data.py
+          python3 quality/fetch_data.py --runtime
 
       # The browser binaries are CACHED keyed on the lockfile: on a hit the
       # install below finds them present and exits in seconds, and the
@@ -612,6 +538,10 @@ jobs:
       - name: Audit data quality
         run: npm run audit
 
+      # npm test -> test:connector:live -> test:lyrics:runtime ->
+      # test:production:offline also executes quality/test_session_repairs.py
+      # and quality/test_pronunciation_choices.py. Named here for the test
+      # inventory census; both remain real executions in that npm gate.
       - name: Regression (recipes, prefaces, slots, app)
         run: npm run test
 
@@ -1957,11 +1887,11 @@ jobs:
       # model, the tokenizer and the concreteness norms; `pip install nltk`
       # supplies the package it needs to read them.
       - name: Install nltk (five suites reach the POS tagger through features.py)
-        run: python3 -m pip install --disable-pip-version-check nltk
+        run: python3 -m pip install --disable-pip-version-check --require-hashes -r "$GITHUB_WORKSPACE/mcp/requirements-runtime.txt"
 
       - name: Stage the tagger model and the concreteness norms
         working-directory: lyric-harness
-        run: python3 quality/fetch_data.py
+        run: python3 quality/fetch_data.py --research
 
       # Named, never globbed -- see the header. A glob is how test_mutation.py's
       # 53-CPU-minute sweep would arrive here without anybody deciding it should.
@@ -1994,7 +1924,7 @@ jobs:
       # caught `nc_census` on the run that added it — and `structures` on
       # the run that added THAT. `comm -23 <(ls quality/test_*.py | sed 's|quality/test_||;s|\.py$||'
       # | sort) <(the names in this file, sorted)` is that command.
-      - name: "The 80 cheap suites (audit_regressions joined 2026-09-07 for verification identity, coverage and durable proposal replay; propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling and data_row_claims with the re-derived provenance numbers, 2026-08-21; pin_sweep + suite_sweep 2026-08-22 — both were ORPHANS, found by the very check in test_verbs.py that exists because a list that is short looks exactly like a list that is complete; mandate_relation + relation_shapes + relations_null 2026-08-22, the SAME check catching the same shape a second time in one day — three suites written during the relation-ladder work and never added here, so every one of them was green on a developer machine and unrun in CI; placement 2026-08-22 with the section-constraint layer, added in the same commit as the suite rather than after somebody noticed; section_marks the same day with the bracketed-mark triage, whose own `--check` is the gate that a corpus load printing a NEW mark turns red instead of joining the 62% that answered nothing; slots 2026-08-23 with the placement coordinate and recover the same day with the second door into the pipeline, each added in the same commit as the module it gates so neither joins the census below; capabilities 2026-08-23 — the SAME orphan census a third time, and this one had been unrun since the day it was written — `quality/test_capabilities.py` §8 is what pins the 77-of-77-askable claim CLAUDE.md leads with, 51 checks at 6.9s, named by nothing that gates; gate_census 2026-08-23 with the census of which findings can refuse anything, added in the same commit as the module it gates — and the instrument's own first run is why it is here rather than a sitting later: it named two constructors, measured 46 codes, and omitted `quality/grid.py`'s SHAPE layer entirely, which a census reports as fully gated; songs 2026-08-24 — the DELIVERED songs, which until that day nothing in this repository read at all: zero checks under quality/, zero mentions here, and two of the five had shipped with their section structure missing while every gate in the tree stayed green; render_form the same day — the check that reads a MESSAGE, which no other gate can, plus the Stop hook that hands it the transcript and BLOCKS a turn carrying a section bracket with its apparatus stripped; songs_record the same day — the SERIES, because every report about these songs had been a PASS/FAIL bit read aloud as a judgement, and its claim check is the one gate in this tree aimed at the narrator rather than the code; songs_log the same day — the PROCESS beside the product, because the series banks what a song IS and nothing banked how it got there, and the zero-ceiling rhyme families were a markdown table no command could re-derive; sentencehood 2026-08-25 with the M-110 noun-stack layer — the nightly gained `sentencehood.py --check` in the same commit as the module and its SUITE joined nothing, the census's own defect one more time, caught by the census; narrative 2026-08-25 — the paired blind experiment's own suite, written across the M-121 narrative-layer sittings and never added here, and the census's finding was MASKED for a day: the orphan check is test_verbs §24, shard 1 died at §20's M-116 breakage two sections in front of it, so a crash in one section hid an orphan in another — the fix that cleared the crash is what let the census speak; door_census 2026-08-26 with the M-139 census of which DOOR each pair-satisfaction site judges at, added in the same commit as the module it gates -- and this label went from 71 to 72 with it, which `test_verbs.py` §43's own check is what caught: the label a reader trusts must equal the list it labels, and a suite added without moving the number is a list that is short looking exactly like a list that is complete; chance_rate 2026-08-26 with M-138's strike and M-140 -- the chance-rate measurement had by then been improvised TWICE from uncommitted scripts, which standing rule 3 calls a defect report, and its suite is here in the same commit as the module so it never joins the orphan census above; verify_figures 2026-08-28 with M-33's live/history citation instrument, added the sitting after its module -- the orphan census caught it on the full test_verbs run, the same shape a fourth time, and the label moved 73 to 74 with it; replay_memo 2026-08-29 with M-167's deferred-replay grading memo — the warm worker's cross-request answer to the quadratic resume cost round 9 measured, added in the same commit as the module it gates, label 74 to 75; staging 2026-09-01 with the retried, atomic staged download -- run #1195 lost a whole CI run to one TLS reset in a step that had not begun any test, and the `suites` shard matrix in this same commit took the number of jobs performing that unretried download from 5 to 8 per run, so the sharding made the failure MORE likely and this is the cost being paid rather than deferred, label 75 to 76; ban_convergence 2026-09-02 with the ban-against-the-bank instrument (M-168, triage C18), added in the same commit as the module it gates — its 13 checks re-derive one song's README triple through `Reviser.inspect` and kill a one-word mutation, ~2 min, label 76 to 77; cross_song 2026-09-02 with the cross-song disclosure M-111's ruling built (triage C08), added in the same commit as the module it gates — the section that earns its place is the PREFIX PIN, which holds `screen` output as a byte prefix of `screen --bank` and so makes the GATE the ruling refused mechanically unreachable rather than merely discouraged; the null half of the pin costs ~60s of corpus tagging and is `cross_song.py --check`'s business, which pin_sweep discovers by itself, label 77 to 78; brief_provenance 2026-09-02 with the gate on WHETHER A REVISION WAS BRIEFED (M-200), added in the same commit as the module it gates — the loop had been computing a complete OFFERED field per bound position, excluding both ban tiers, and nothing required a writer to read it, so a session hand-guessed five replacement pairs across three `finish` runs and every one came back BANNED; the check that earns its place is the FINGERPRINT one, which makes a brief earned on one draft unable to launder a hand-edit made to another, label 78 to 79; plan + capacity OUT to their own dealt matrix jobs and shard IN — the one dealing-and-timing idiom every dealt suite now calls — 2026-09-05 (M-244), label 79 to 78; battery_rounds 2026-09-06 with the one-row-per-round battery table and its closed layer vocabulary (M-254 D), added in the same commit as the module it gates — six checks, under a second, label 78 to 79)"
+      - name: "The 88 cheap suites (floor_window, capacity_receipt and candidate_pair_projection joined 2026-09-08 for the per-line query cost regression; production_data, production_harness, production_journal, production_relations and production_revision joined 2026-09-08 for the production audit repairs; audit_regressions joined 2026-09-07 for verification identity, coverage and durable proposal replay; propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling and data_row_claims with the re-derived provenance numbers, 2026-08-21; pin_sweep + suite_sweep 2026-08-22 — both were ORPHANS, found by the very check in test_verbs.py that exists because a list that is short looks exactly like a list that is complete; mandate_relation + relation_shapes + relations_null 2026-08-22, the SAME check catching the same shape a second time in one day — three suites written during the relation-ladder work and never added here, so every one of them was green on a developer machine and unrun in CI; placement 2026-08-22 with the section-constraint layer, added in the same commit as the suite rather than after somebody noticed; section_marks the same day with the bracketed-mark triage, whose own `--check` is the gate that a corpus load printing a NEW mark turns red instead of joining the 62% that answered nothing; slots 2026-08-23 with the placement coordinate and recover the same day with the second door into the pipeline, each added in the same commit as the module it gates so neither joins the census below; capabilities 2026-08-23 — the SAME orphan census a third time, and this one had been unrun since the day it was written — `quality/test_capabilities.py` §8 is what pins the 77-of-77-askable claim CLAUDE.md leads with, 51 checks at 6.9s, named by nothing that gates; gate_census 2026-08-23 with the census of which findings can refuse anything, added in the same commit as the module it gates — and the instrument's own first run is why it is here rather than a sitting later: it named two constructors, measured 46 codes, and omitted `quality/grid.py`'s SHAPE layer entirely, which a census reports as fully gated; songs 2026-08-24 — the DELIVERED songs, which until that day nothing in this repository read at all: zero checks under quality/, zero mentions here, and two of the five had shipped with their section structure missing while every gate in the tree stayed green; render_form the same day — the check that reads a MESSAGE, which no other gate can, plus the Stop hook that hands it the transcript and BLOCKS a turn carrying a section bracket with its apparatus stripped; songs_record the same day — the SERIES, because every report about these songs had been a PASS/FAIL bit read aloud as a judgement, and its claim check is the one gate in this tree aimed at the narrator rather than the code; songs_log the same day — the PROCESS beside the product, because the series banks what a song IS and nothing banked how it got there, and the zero-ceiling rhyme families were a markdown table no command could re-derive; sentencehood 2026-08-25 with the M-110 noun-stack layer — the nightly gained `sentencehood.py --check` in the same commit as the module and its SUITE joined nothing, the census's own defect one more time, caught by the census; narrative 2026-08-25 — the paired blind experiment's own suite, written across the M-121 narrative-layer sittings and never added here, and the census's finding was MASKED for a day: the orphan check is test_verbs §24, shard 1 died at §20's M-116 breakage two sections in front of it, so a crash in one section hid an orphan in another — the fix that cleared the crash is what let the census speak; door_census 2026-08-26 with the M-139 census of which DOOR each pair-satisfaction site judges at, added in the same commit as the module it gates -- and this label went from 71 to 72 with it, which `test_verbs.py` §43's own check is what caught: the label a reader trusts must equal the list it labels, and a suite added without moving the number is a list that is short looking exactly like a list that is complete; chance_rate 2026-08-26 with M-138's strike and M-140 -- the chance-rate measurement had by then been improvised TWICE from uncommitted scripts, which standing rule 3 calls a defect report, and its suite is here in the same commit as the module so it never joins the orphan census above; verify_figures 2026-08-28 with M-33's live/history citation instrument, added the sitting after its module -- the orphan census caught it on the full test_verbs run, the same shape a fourth time, and the label moved 73 to 74 with it; replay_memo 2026-08-29 with M-167's deferred-replay grading memo — the warm worker's cross-request answer to the quadratic resume cost round 9 measured, added in the same commit as the module it gates, label 74 to 75; staging 2026-09-01 with the retried, atomic staged download -- run #1195 lost a whole CI run to one TLS reset in a step that had not begun any test, and the `suites` shard matrix in this same commit took the number of jobs performing that unretried download from 5 to 8 per run, so the sharding made the failure MORE likely and this is the cost being paid rather than deferred, label 75 to 76; ban_convergence 2026-09-02 with the ban-against-the-bank instrument (M-168, triage C18), added in the same commit as the module it gates — its 13 checks re-derive one song's README triple through `Reviser.inspect` and kill a one-word mutation, ~2 min, label 76 to 77; cross_song 2026-09-02 with the cross-song disclosure M-111's ruling built (triage C08), added in the same commit as the module it gates — the section that earns its place is the PREFIX PIN, which holds `screen` output as a byte prefix of `screen --bank` and so makes the GATE the ruling refused mechanically unreachable rather than merely discouraged; the null half of the pin costs ~60s of corpus tagging and is `cross_song.py --check`'s business, which pin_sweep discovers by itself, label 77 to 78; brief_provenance 2026-09-02 with the gate on WHETHER A REVISION WAS BRIEFED (M-200), added in the same commit as the module it gates — the loop had been computing a complete OFFERED field per bound position, excluding both ban tiers, and nothing required a writer to read it, so a session hand-guessed five replacement pairs across three `finish` runs and every one came back BANNED; the check that earns its place is the FINGERPRINT one, which makes a brief earned on one draft unable to launder a hand-edit made to another, label 78 to 79; plan + capacity OUT to their own dealt matrix jobs and shard IN — the one dealing-and-timing idiom every dealt suite now calls — 2026-09-05 (M-244), label 79 to 78; battery_rounds 2026-09-06 with the one-row-per-round battery table and its closed layer vocabulary (M-254 D), added in the same commit as the module it gates — six checks, under a second, label 78 to 79)"
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -2085,7 +2015,8 @@ jobs:
                    phon_msa mandate_language phon_fas phon_non phon_san staging \
                    controls data_row_claims english_text meter verify_figures expected_drift \
                    ipa songs ban_convergence cross_song brief_provenance shard \
-                   battery_rounds audit_regressions; do
+                   battery_rounds audit_regressions production_harness production_relations \
+                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window; do
             # SHARDED ACROSS RUNNERS, 2026-09-01. The list above is already
             # run FOUR-WIDE on one runner (below), so this job was 5,612
             # CPU-s packed into 4 lanes = 1,403s wall — the measured
@@ -2472,9 +2403,9 @@ jobs:
       - name: Stage the pronunciation dictionary
         run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
       - name: Install nltk (the floor reaches the POS tagger through features.py)
-        run: python3 -m pip install --disable-pip-version-check nltk
+        run: python3 -m pip install --disable-pip-version-check --require-hashes -r "$GITHUB_WORKSPACE/mcp/requirements-runtime.txt"
       - name: Stage the tagger model and the concreteness norms
-        run: python3 quality/fetch_data.py
+        run: python3 quality/fetch_data.py --research
       - name: test_plan shard ${{ matrix.shard }}/5 (sections dealt by residue over the cost-ordered tuple; §3 deals its seeds by the same coordinate)
         run: python3 quality/test_plan.py
 
@@ -2540,9 +2471,9 @@ jobs:
       - name: Stage the pronunciation dictionary
         run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
       - name: Install nltk (the floor reaches the POS tagger through features.py)
-        run: python3 -m pip install --disable-pip-version-check nltk
+        run: python3 -m pip install --disable-pip-version-check --require-hashes -r "$GITHUB_WORKSPACE/mcp/requirements-runtime.txt"
       - name: Stage the tagger model and the concreteness norms
-        run: python3 quality/fetch_data.py
+        run: python3 quality/fetch_data.py --research
       - name: test_capacity shard ${{ matrix.shard }}/3 (sections dealt by residue)
         run: python3 quality/test_capacity.py
 
@@ -2609,9 +2540,9 @@ jobs:
       - name: Stage the pronunciation dictionary
         run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
       - name: Install nltk (the floor reaches the POS tagger through features.py)
-        run: python3 -m pip install --disable-pip-version-check nltk
+        run: python3 -m pip install --disable-pip-version-check --require-hashes -r "$GITHUB_WORKSPACE/mcp/requirements-runtime.txt"
       - name: Stage the tagger model and the concreteness norms
-        run: python3 quality/fetch_data.py
+        run: python3 quality/fetch_data.py --research
       # TWO PROCESSES, NOT TWO STEPS IN A QUEUE — 2026-09-01, M-182's second
       # open item, closed by the owner's instruction to run them in parallel.
       # `test_revise` and `test_loop` share NOTHING but a checkout: separate
@@ -2641,7 +2572,7 @@ jobs:
           rm -rf /tmp/rl-logs && mkdir -p /tmp/rl-logs
           for f in revise loop; do
             { _t0=$(date +%s)
-              python3 "quality/test_$f.py" 2>&1 | tee "/tmp/rl-logs/$f.log"
+              python3 -u "quality/test_$f.py" 2>&1 | tee "/tmp/rl-logs/$f.log"
               _rc=${PIPESTATUS[0]}
               echo "TIMED quality/test_$f.py $(( $(date +%s) - _t0 ))s rc=$_rc" \
                 >> /tmp/rl-times
@@ -2738,7 +2669,7 @@ jobs:
       - name: Stage the pronunciation dictionary
         run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
       - name: Install nltk (sections reach the POS tagger through features.py)
-        run: python3 -m pip install --disable-pip-version-check nltk
+        run: python3 -m pip install --disable-pip-version-check --require-hashes -r "$GITHUB_WORKSPACE/mcp/requirements-runtime.txt"
       # §43 parses THIS FILE with a real YAML parser, and a real parser is the
       # only thing that answers the question it asks. The check shipped
       # importing `yaml` and this runner does not have it, so shard 1 died on
@@ -2751,7 +2682,7 @@ jobs:
       - name: Install PyYAML (§43 parses this workflow with a real parser)
         run: python3 -m pip install --disable-pip-version-check PyYAML
       - name: Stage the tagger model and the concreteness norms
-        run: python3 quality/fetch_data.py
+        run: python3 quality/fetch_data.py --research
       # TWO SHARDS BECAME FOUR, 2026-09-01. Measured on run #1197 the two
       # came out 948s and 1265s, and a job's wall is its WORST shard, so a
       # third of the second runner bought nothing. FOUR does not fix that
@@ -2910,7 +2841,9 @@ jobs:
       # sitting that surfaced the missing package behind it. Same species
       # as the nltk note above, one package over.
       - name: Install the packages the suite reaches lazily
-        run: python3 -m pip install --disable-pip-version-check numpy scikit-learn nltk PyYAML
+        run: |
+          python3 -m pip install --disable-pip-version-check --require-hashes -r "$GITHUB_WORKSPACE/mcp/requirements-runtime.txt"
+          python3 -m pip install --disable-pip-version-check numpy scikit-learn PyYAML
 
       - name: Stage the pronunciation dictionary
         working-directory: lyric-harness
@@ -2918,7 +2851,7 @@ jobs:
 
       - name: Stage the tagger model and the concreteness norms
         working-directory: lyric-harness
-        run: python3 quality/fetch_data.py
+        run: python3 quality/fetch_data.py --research
 
       # THE BASELINE IS A MEMO, NOT A NIGHTLY TAX (`MISSING.md` M-178).
       # Phase 1 re-proves the UNMUTATED tree green inside the shadow — run
@@ -2991,7 +2924,7 @@ jobs:
           rc=$?
           set -e
           case $rc in
-            0) echo "SHARD $I/$N HOLDS — every mutation in this slice is caught." ;;
+            0) echo "SHARD $I/$N HOLDS — every mutation in this slice is caught or explicitly allowlisted." ;;
             124) echo "THE SHARD OUTGREW ITS BUDGET at 200m, and that is a"
                  echo "FAILURE and not a slice: the mutation verdicts are not"
                  echo "banked, so a truncated sweep answers nothing about them"
@@ -3022,6 +2955,7 @@ jobs:
   # kept out of `record` and `suites` by a MEASUREMENT, not by an impression,
   # and the measurement is stated at the step.
   nightly:
+    needs: capacity-proof-result
     if: >-
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'schedule' && github.event.schedule == '17 4 * * *')
@@ -3121,7 +3055,9 @@ jobs:
       # costume of a coverage hole. See the refusal test_mutation.py now makes
       # when its detector set has been gutted. Added 2026-08-14.
       - name: Install the three packages the nightly instruments need
-        run: python3 -m pip install --disable-pip-version-check numpy scikit-learn nltk
+        run: |
+          python3 -m pip install --disable-pip-version-check --require-hashes -r "$GITHUB_WORKSPACE/mcp/requirements-runtime.txt"
+          python3 -m pip install --disable-pip-version-check numpy scikit-learn
 
       - name: Stage the pronunciation dictionary
         working-directory: lyric-harness
@@ -3132,7 +3068,7 @@ jobs:
       # which is why audit_joint_auc_null.py refuses there.
       - name: Fetch the quality-layer resources
         working-directory: lyric-harness
-        run: python3 quality/fetch_data.py
+        run: python3 quality/fetch_data.py --research
 
       # ORDER IS LOAD-BEARING and this is the only place the chain is complete.
       # discriminate.py is the ONLY caller of save_cache, data/feature_cache.json
@@ -3222,6 +3158,15 @@ jobs:
       # is never PASS — arrived at by omission rather than by argument, and it
       # is why this job has been red for a week without anybody being able to
       # say how many things were wrong with it.
+      # This command actually calls capacity.check(), unlike record's static
+      # argv/figure checks and test_capacity's independent sample witnesses.
+      - uses: actions/download-artifact@v4
+        with:
+          name: capacity-proof-${{ github.run_attempt }}
+          path: capacity-proof
+      - name: Validate this attempt's proof against the nightly runtime/table
+        run: python3 scripts/production_qualification.py capacity-accept capacity-proof
+
       - name: Rhyme capacity adoption check (tier 1 in full + every sample witness re-graded)
         if: always()
         working-directory: lyric-harness
@@ -3388,11 +3333,7 @@ jobs:
             1) echo "DRIFT — the constants no longer describe corpus/song/."
                echo "Argue it and repin as a SET; do not tune to it (doctrine 58)."
                exit 1 ;;
-            124) echo "BOUNDED SLICE — not a failure and not a pass: the run hit"
-                 echo "its 150m budget with the memo advanced and banked. The next"
-                 echo "nightly resumes from it. A slice that banks ZERO new items"
-                 echo "twice running is the thing to investigate, not this."
-                 [ "$after" -gt "$before" ] || { echo "NO PROGRESS BANKED"; exit 1; } ;;
+            124) echo "INCOMPLETE — bounded memo progress is retained but cannot qualify calibration."; exit 124 ;;
             *) echo "UNEXPECTED exit $rc"; exit $rc ;;
           esac
 
@@ -3406,6 +3347,7 @@ jobs:
       # inherits whatever it banked. Exit 0 HOLDS, 1 MOVED (argue and repin
       # as a set, doctrine 58), 2 cannot tell, 124 the memo was still cold.
       - name: length-curve row re-derives from the corpus (M-239)
+        working-directory: lyric-harness
         run: |
           set +e
           timeout 40m python3 quality/length_curve_calibration.py check
@@ -3415,7 +3357,7 @@ jobs:
             0) echo "HOLDS — the lyric row's curves re-derive over the whole corpus." ;;
             1) echo "MOVED — the curves no longer describe corpus/song/. Argue it and repin as a SET (doctrine 58)."; exit 1 ;;
             2) echo "CANNOT TELL — the check refused before comparing; read its print."; exit 2 ;;
-            124) echo "BOUNDED — the predictability memo was still cold; the band check above banks it and the next nightly resumes." ;;
+            124) echo "INCOMPLETE — the memo remains resumable, but the full comparison did not finish."; exit 124 ;;
             *) echo "UNEXPECTED exit $rc"; exit $rc ;;
           esac
 
@@ -3456,6 +3398,15 @@ jobs:
         working-directory: mcp
         run: node check_live.mjs
 
+      # CURRENT LIMITATION (BCI-10): the older 77.4m non-song measurement plus
+      # the 150m song and newer 40m curve bounds totals 267.4m before setup/save,
+      # exceeding this 240m job by 27.4m. This is bound arithmetic, not a current
+      # completed-run measurement; cache save may be lost at the job ceiling.
+      # Production qualification now runs all four explicit mutation shards and
+      # each full calibration component in separate bounded jobs. A green slice
+      # or this historical timing estimate never authorizes production promotion.
+      # Historical budget calculation follows; its positive-margin claim is
+      # superseded by the newly counted curve step above.
       # THE JOB'S OWN TIME BUDGET, MEASURED 2026-08-27 rather than argued,
       # because three steps joined this job (structure_census, chance_rate
       # --null, regrade_verdicts) and nothing had re-added it up. Run #966's

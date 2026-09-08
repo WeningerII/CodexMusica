@@ -1,0 +1,21 @@
+
+1. the three the MANDATE layer owns — a SCOPE, and a return pointing off the end of the song
+  PASS  MANDATE_SCOPE_DECLARED fires when a mandate declares a SCOPE — the disclosure that it does not speak about every line
+          ['BAND_UNJUDGED', 'COLLISION_UNDECLARED', 'HOMEOTELEUTON', 'MANDATE_SCOPE_DECLARED', 'SHARED_SUFFIX']
+  PASS  COLLISION_UNDECLARED fires on the same run — a collision touching a line the mandate disclaims is a different answer from a violation (doctrine 28)
+          ['BAND_UNJUDGED', 'COLLISION_UNDECLARED', 'HOMEOTELEUTON', 'MANDATE_SCOPE_DECLARED', 'SHARED_SUFFIX']
+Traceback (most recent call last):
+  File "/workspace/scratch/b0544e4bbdd6/verification-candidate/lyric-harness/quality/test_nc_census.py", line 226, in <module>
+    fn()
+  File "/workspace/scratch/b0544e4bbdd6/verification-candidate/lyric-harness/quality/test_nc_census.py", line 118, in test_the_mandate_layer_three
+    hand = dataclasses.replace(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/dataclasses.py", line 1588, in replace
+    return obj.__class__(**changes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 16, in __init__
+  File "/workspace/scratch/b0544e4bbdd6/verification-candidate/lyric-harness/quality/../quality/schemes.py", line 1561, in __post_init__
+    _normalise_returns(self.returns, self.n_lines, self.rule)
+  File "/workspace/scratch/b0544e4bbdd6/verification-candidate/lyric-harness/quality/../quality/schemes.py", line 1282, in _normalise_returns
+    raise NoMandate(
+quality.schemes.NoMandate: return line 9 is outside 1..4.

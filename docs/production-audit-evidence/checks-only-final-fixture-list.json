@@ -1,0 +1,6 @@
+{
+  "candidate4_sha256": "ca7106761c93d12fb6a3ddef9490f6f88659b3e18fb1eb62d9b30b04b29f59fe",
+  "final_sha256": "3def360084febf34489ef98404f7213ea795ecb8574389a0d669a804420f4a40",
+  "patch": "checks-only-final-fixture-list.patch",
+  "nonimpact": "Only adds explicit test-only Docker omission for mcp/fixtures/wall_nested_replay.json to mcp/test.mjs. This file is not executed in candidate4 full runtime or four companion commands. Final checks-only executes the updated listing. Full runtime fingerprint differs because test files are included; no byte-identical whole-source claim is made."
+}

@@ -1,0 +1,83 @@
+
+1. the catalog — declared rows on one engine
+  PASS  58 declared structures: 1 comparator sentinel, 9 presets, 48 named axis cells — the 49 named types plus the shipped presets, as DATA
+          {'comparator': 1, 'preset': 9, 'cell': 48}
+  PASS  the default is the sentinel and resolves to itself
+  PASS  the world's own names resolve — masculine rhyme IS qafiya IS antya-prasa, one row, three traditions' vocabulary
+  PASS  spaces in a declared name are the hyphens of its row
+
+2. each judge asks its OWN tradition's question
+  PASS  drottkvaett-hending: winter/canter -> True — skothending: coda N agrees, vowels differ — the tradition's half-rhyme, and the generic nucleus+coda predicate would REFUSE it, which is why the judge reads the preset's own select
+          got True
+  PASS  drottkvaett-hending: silver/dreaming -> False — no coda agreement at the hending anchors
+          got False
+  PASS  drottkvaett-hending: storm/arm -> None — a fixed-index -2 anchor has no referent in one syllable: the question has no coordinates here — REFUSED, not failed
+          got None
+  PASS  kalevala-alliteration: wind/winter -> True — onset W agrees at the head anchor
+          got True
+  PASS  kalevala-alliteration: wind/storm -> False
+          got False
+  PASS  masculine-rhyme: night/delight -> True
+          got True
+  PASS  masculine-rhyme: night/night -> False — the cell demands identity 'distinct': the identical word is not a masculine rhyme
+          got False
+  PASS  masculine-rhyme: night/dream -> False
+          got False
+  PASS  cynghanedd-lusg: growing/slow -> True — the llusg reach: the penult rhymes an earlier syllable
+          got True
+
+3. refusals, never defaults
+  PASS  the sentinel REFUSES to judge — the default is graded by the scalar comparator and the declared admit set inside grade(), and a second implementation would drift
+          english-end-rhyme is judged by the scalar comparator and the
+  PASS  an unknown name refuses, naming the vocabulary
+          'vibes-rhyme' is not a declared structure or alias — the catalog holds
+  PASS  no row is unnamed — a coordinate without a name cannot be MANDATED by name, so it is not a row
+
+4. the mandate learns the coordinate
+  PASS  a dict by label lands index-aligned, '' meaning default
+          ('', 'kalevala-alliteration')
+  PASS  structure_of resolves absence to the sentinel and presence to the row
+  PASS  an alias declaration is STORED canonical — qafiya is the row masculine-rhyme, so downstream never re-resolves
+          ('masculine-rhyme',)
+  PASS  the list spelling works and short lists leave the tail default
+  PASS  an unknown structure name refuses as NoMandate
+  PASS  a label naming no group refuses as NoMandate
+  PASS  an overlong list refuses as NoMandate
+  PASS  the re-open path carries a late declaration — before it joined the re-open condition this was DROPPED at the idempotence branch, byte-identical to never declaring it
+  PASS  ...and the origin names what was re-declared, not '+ returns'
+          declared line groups + structures
+  PASS  idempotence itself is untouched
+
+5. grade() routes a mandated pair through its row's judge
+  PASS  sun/silver SATISFY the declared alliteration (onset S at the head anchor), while the broad default leaves this pair unresolved
+  PASS  every verdict names the judge that answered — the row under a declared coordinate, the sentinel for its default groups
+  PASS  CONTROL — the same default B pair remains explicitly unresolved; the named alliteration above answers a different declared question
+  PASS  bay/away FAIL the declared alliteration, and the why names the structure and its own judge kind rather than the comparator
+          does not satisfy the declared structure 'kalevala-alliteration' — judged by the 
+  PASS  storm/arm is REFUSED, not failed — a refusal record naming the structure, doctrine 79 in its reason, group B in its groups
+  PASS  ...counted in pairs_refused and NEVER in violations
+  PASS  ...and it renders through inspect() as SCHEME_UNREADABLE without a KeyError — the record minted mid-loop carries its own 'groups'
+
+6. end-rhyme laziness instruments: skipped under a declared structure, disclosed once
+  PASS  the DEFAULT pair in the same draft is still charged — bright/tight is HOMEOTELEUTON on group A, so the skip is scoped to the declared structure and not a hole in the ban
+          [(2, 'HOMEOTELEUTON')]
+  PASS  hair/chair under the declared perfect-rhyme row is NOT charged HOMEOTELEUTON or MODAL_RHYME — those are end-rhyme calibrations and this pair's question is a different row
+          [(2, 'HOMEOTELEUTON')]
+  PASS  the uncalibrated declaration is disclosed ONCE for the whole draft — a fact about the DECLARATION, not one per pair
+          ['STRUCTURE_UNCALIBRATED']
+  PASS  ...as a NOTE naming the row and saying laziness is NOT graded
+  PASS  CONTROL — no structures declared: no disclosure, and hair/chair is charged HOMEOTELEUTON exactly as the owner's rule requires
+  PASS  a fin-calibrated row declared on an ENGLISH draft still gets the disclosure — calibration is a fact about a language (doctrine 8), and the note says whose
+          declared structure(s) 'kalevala-alliteration' have no measured laziness tier FOR THIS DRAF
+
+7. the planner samples rows calibrated FOR ITS OWN LANGUAGE
+  PASS  every function kind gets a structure choice, disclosed with its pool
+  PASS  the pool IS the eng-calibrated set — derived from the rows' own language marker, not a hand copy
+          {'intro': ['english-end-rhyme'], 'chorus': ['english-end-rhyme'], 'postchorus': ['english-end-rhyme'], 'tag': ['english-end-rhyme'], 'verse': ['english-end-rhyme'], 'build': ['english-end-rhyme']}
+  PASS  every sampled name is calibrated for eng
+  PASS  the eng pool is exactly the comparator sentinel — the Kalevala adoption left it UNCHANGED, which is doctrine 8 holding
+          ['english-end-rhyme']
+  PASS  kalevala-alliteration IS calibrated — for fin, and only fin — and is therefore not in the eng pool
+  PASS  the same seed reproduces the same plan byte for byte
+==============================================================
+58 structures, one engine, every row a declared question — and the mandate, the grader and the planner now read the same catalog

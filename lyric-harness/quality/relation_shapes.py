@@ -243,7 +243,7 @@ def needs_arity_extension(schema):
     quantification and nothing about where the spans look.
     """
     f = schema.figure
-    return not (f.nodes == PAIR_NODES and f.quantifier in PAIR_QUANTIFIERS)
+    return not (f.nodes == PAIR_NODES and f.canonical_quantifier() in PAIR_QUANTIFIERS)
 
 
 def span_shaped(schema):
@@ -696,7 +696,7 @@ PINNED = {
     #: declared one selective, and either alone is one of the two defects
     #: that schema has had. The gate-only version fired on every internal
     #: rhyme and called it off-beat.
-    "placement_slots": 92,
+    "placement_slots": 93,
     # -- the survey ---------------------------------------------------------
     #    `survey_rows` is NOT here: `audit_register.PINNED["index_rows"]` owns
     #    it (exclusion 1).
@@ -708,7 +708,7 @@ PINNED = {
 
 #: The 13 span loci over 154 slots, as ((locus, n), ...) descending.
 PINNED_LOCUS_PROFILE = (
-    ("line_final_token", 71), ("any_token", 26), ("line", 14),
+    ("line_final_token", 71), ("any_token", 28), ("line", 12),
     ("line_initial_token", 9), ("free_run", 8), ("half_line_a", 4),
     ("half_line_b", 4), ("lift", 4), ("line_head_index", 4),
     ("token_first_half", 3), ("token_second_half", 3),
@@ -725,7 +725,7 @@ PINNED_LOCUS_PROFILE = (
 #: two different demands and are counted apart. A profile that summed them
 #: would read 29 and hide the only negated placement in the registry.
 PINNED_PLACEMENT_PROFILE = (
-    ("both_line_final", 28), ("different_lines", 16), ("same_line", 15),
+    ("both_line_final", 28), ("different_lines", 16), ("same_line", 16),
     ("adjacent_lines", 5), ("line_gap_at_most", 5), ("across_line_break", 3),
     ("at_caesura", 3), ("both_line_initial", 3), ("same_token", 3),
     ("a_is_split_token", 1), ("a_line_final", 1), ("at_lift", 1),

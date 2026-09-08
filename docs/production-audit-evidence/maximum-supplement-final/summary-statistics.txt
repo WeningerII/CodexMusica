@@ -1,0 +1,60 @@
+{
+  "all_declared_cases_completed": true,
+  "all_recorded_runtime_sources_match_current": false,
+  "statistics": {
+    "cold": {
+      "grade": {
+        "n": 3,
+        "min_seconds": 27.98811264899996,
+        "median_seconds": 32.82216391900147,
+        "max_seconds": 38.369186586998694,
+        "p95_nearest_rank_seconds": 38.369186586998694,
+        "deadline_exceedances": 0
+      },
+      "revise": {
+        "n": 3,
+        "min_seconds": 104.59326503199554,
+        "median_seconds": 117.352560627005,
+        "max_seconds": 360.89942784800223,
+        "p95_nearest_rank_seconds": 360.89942784800223,
+        "deadline_exceedances": 0
+      }
+    },
+    "worker": {
+      "grade": {
+        "n": 9,
+        "min_seconds": 16.00541167200572,
+        "median_seconds": 23.51286814299965,
+        "max_seconds": 61.63717574199836,
+        "p95_nearest_rank_seconds": 61.63717574199836,
+        "deadline_exceedances": 0
+      },
+      "revise": {
+        "n": 9,
+        "min_seconds": 2.9373939220022294,
+        "median_seconds": 4.029135648997908,
+        "max_seconds": 504.3403221260014,
+        "p95_nearest_rank_seconds": 504.3403221260014,
+        "deadline_exceedances": 0
+      }
+    },
+    "all": {
+      "grade": {
+        "n": 12,
+        "min_seconds": 16.00541167200572,
+        "median_seconds": 27.330899464999675,
+        "max_seconds": 61.63717574199836,
+        "p95_nearest_rank_seconds": 61.63717574199836,
+        "deadline_exceedances": 0
+      },
+      "revise": {
+        "n": 12,
+        "min_seconds": 2.9373939220022294,
+        "median_seconds": 47.401337923995015,
+        "max_seconds": 504.3403221260014,
+        "p95_nearest_rank_seconds": 504.3403221260014,
+        "deadline_exceedances": 0
+      }
+    }
+  }
+}

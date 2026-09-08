@@ -1,84 +1,19 @@
 #!/usr/bin/env python3
-"""A SECTION BRACKET MAY NOT BE PRESENTED WITHOUT ITS APPARATUS.
+"""Check section apparatus and the provenance of a finished presentation.
 
-    python3 quality/check_render_form.py --text FILE      # check a blob
-    python3 quality/check_render_form.py --transcript P   # last assistant turn
-    ... | python3 quality/check_render_form.py            # stdin
+``--text FILE`` and stdin perform FORMAT CHECKING ONLY. They cannot establish
+that a revision ran. ``--transcript`` additionally requires a FINISHED artifact
+to match the structured result of an actual ``lyric_revise`` tool invocation,
+paired by tool-use ID. It never discovers receipts by searching lyric prose.
 
-WHAT THIS REFUSES, AND WHY IT IS NOT A LINT
--------------------------------------------
-`quality/plan.py`'s `section_header` builds ONE bracket and every renderer
-uses it:
-
-    [INTRO — 2 lines — 2 bars of 8/8, one-beat pickup]
-    [INTERLUDE — instrumental — 2 bars of 8/8, no words]
-
-The line count, the bar count, the METER and the pickup are inside the
-bracket ON PURPOSE — the owner's rule, 2026-08-18: measured-and-followed
-means required in the OUTPUT, as implementation, not prose. Flattening that
-to `[INTRO]` when presenting a song throws away two thirds of what the
-section declares, and it has happened repeatedly because it looks harmless
-and because nothing could see it: `test_plan.py` §6 gates the RENDERER, and
-`test_songs.py` gates the FILE, and neither can read a message.
-
-This can. Given a blob of presented text it finds every section bracket and
-refuses the ones with no apparatus. Wired as a Stop hook it runs against the
-turn about to be delivered, so the flattened form is caught BEFORE a person
-has to come back and say it again.
-
-THE ONE DECLARED ESCAPE, AND IT IS DECLARED IN THE TEXT, NOT IN A SAFELIST
-HERE (the shape `quality/triage.py` uses for `TESTED WHILE OPEN`): a lyric
-FILE legitimately carries bare `[VERSE1]` markers — that is the form
-`songs/*.txt` stores and `test_songs.py` requires. Text that says
-`RAW LYRIC FILE` is quoting one, and is passed. Anything else presenting two
-or more bare section brackets is the defect.
-
-AND A RENDERED SONG CARRIES ITS CONVERGENCE STATE — THE OPERATOR SEAM
-(`MISSING.md` M-150). The working order is sweep -> screen -> plan -> write ->
-grade -> revise to a STOP CONDITION, and the owner's standing rule is that
-nothing is allowed to skip a step. Every step but the last is enforced by a
-verb that refuses; the last was enforced by nothing, because "the run
-reached a stop condition" is a fact about the RUN and the run's exit code
-lives in a terminal no gate can read — except this one, which is already
-reading the turn. A turn that presents the built form with not one word
-about how the run ended reads as FINISHED with no instrument having said
-so. So a turn presenting MIN_BRACKETS or more BUILT section headers must
-also DECLARE the state — ~~an exit code as the verbs print it ("exit 0",
-"exit 3")~~ the STAMP the verb wrote, or UNCONVERGED / PARKED for a draft
-that has not reached a stop.
-THE GATE REQUIRES THE DISCLOSURE AND NEVER ADJUDICATES IT: an exit-3 draft
-presented WITH its state is a disclosed draft, and a false claim is
-`quality/song_log.py --verdicts`' business, charged against the banked log
-rather than guessed at here. `RAW LYRIC FILE` escapes this check too — a
-quoted file is a record, not a presentation of finished work.
-
-AND THE STATE MUST SAY WHICH VERB SAID IT — GRADED IS NOT FINISHED
-(`MISSING.md` M-243, 2026-09-05). M-150 accepted a bare `exit N`, and the
-struck clause above is where it did. That was the hole a session walked
-through the same day M-242 was found: it graded a draft, presented the
-render beside "exit 0", and stopped — the loop never ran, six lines were
-still open, and the turn passed this gate because an exit code was SAID.
-A bare exit code cannot carry its provenance: `lyric_grade`, `song`,
-`revise` and `finish` all end in one, and NO CLI verb prints the words
-"exit N" into the text (measured: zero such `print` sites in
-`lyric_harness.py`) — so every bare "exit 0" in a turn was typed by the
-operator, and the operator is the seam this instrument exists to gate.
-What the verbs DO write is a stamp whose first word is the provenance:
-`[GRADED — seed N — exit E, … — N banned pair(s)]` from `lyric_grade`,
-an INTERIM artifact by its own tool description, and
-`[FINISHED — seed N — exit E — STOP after R round(s) — …]` (or
-`— declared mandate —` for a pasted song) from `finish` / `lyric_revise`,
-written ONLY past a stop condition. So the accepted declarations are now
-exactly those two stamps, or UNCONVERGED / PARKED. Still disclosure and
-never adjudication: a `[GRADED — …]` turn PASSES — it says what it is —
-and this file does not police the word "finished" in prose (the GRADED
-stamp itself says "not finished" when banned pairs stand). What it makes
-impossible is presenting a grade's exit code where a run's would be read.
-`quality/song_log.py:_STAMP` parses the FINISHED stamp for the log; the
-regex here recognises it, and `test_render_form.py` §8 holds the two to
-the same sample stamps so they cannot drift apart (doctrine 1).
+Bare section markers require the explicit RAW LYRIC FILE disclosure. Built
+sections require a complete FINISHED/GRADED stamp or PARKED/UNCONVERGED.
+GRADED and PARKED remain disclosures of interim work. A transcript FINISHED
+claim, including an honestly stopped draft, requires the exact returned
+``presentation_text``. Tool-only messages do not erase the last presentation.
 """
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -95,7 +30,7 @@ import sys
 #: `test_render_form.py` measured ZERO headers on a seed that builds
 #: twenty-three. A detector that cannot see the correct form is a detector
 #: that cannot say the incorrect one is a minority.
-BRACKET = re.compile(r"^\s*\[([A-Z][A-Z0-9_]*)([^\]]*)\]")
+BRACKET = re.compile(r"^\s*(?:#{1,6}\s+)?(?:\*\*|__)?\[([A-Z][A-Z0-9_]*)([^\]]*)\]")
 #: The apparatus separator `section_header` builds with. An em dash, spaced.
 #: Tested against the bracket's INSIDE, never the whole line — otherwise
 #: `[INTRO]   Freight — grey water` would pass on a dash in the lyric.
@@ -111,19 +46,16 @@ MIN_BRACKETS = 2
 #: em dashes is tolerated; the dash itself is not negotiable — a hyphenated
 #: stamp is a retyped stamp, and M-97 says present the bytes.
 STAMP_FINISHED = re.compile(
-    r"\[FINISHED\s*—\s*(?:seed\s*-?\d+|declared mandate)\s*—\s*exit\s*\d")
-STAMP_GRADED = re.compile(r"\[GRADED\s*—\s*seed\s*-?\d+\s*—\s*exit\s*\d")
-#: A convergence-state declaration: one of the two stamps above, or the two
-#: honest words for a draft that has not reached a stop condition.
-#: ~~`\bexit\s+\d\b|\bexit=\d\b`~~ STRUCK 2026-09-05 (M-243): a bare exit
-#: code does not say which verb produced it, and grade and finish both
-#: produce one. DELIBERATELY NOT `[FINISHED` alone: the gate wants the state
-#: SAID WITH ITS PROVENANCE, not the state CLEAN — a `[GRADED — …]` turn and
-#: an exit-3 `[FINISHED — …]` turn both pass, because disclosure is this
-#: instrument's whole question and truth is --verdicts'.
+    r"\[FINISHED\s*—\s*(?:seed\s*-?\d+|declared mandate)\s*—\s*"
+    r"exit\s*\d+\s*—\s*[A-Z_]+ after \d+ round\(s\)\s*—\s*[^\]\n]+\]")
+STAMP_GRADED = re.compile(
+    r"\[GRADED\s*—\s*seed\s*-?\d+\s*—\s*exit\s*\d+,"
+    r"[^\]\n]+—\s*\d+ banned pair\(s\)\]")
 STATE = re.compile(
     r"%s|%s|\bUNCONVERGED\b|\bPARKED\b"
     % (STAMP_FINISHED.pattern, STAMP_GRADED.pattern), re.IGNORECASE)
+FINISHED_CLAIM = re.compile(r"\[FINISHED\b", re.IGNORECASE)
+CONTROL_NAMES = frozenset(("FINISHED", "GRADED"))
 #: The old spelling, kept as a NAME so `test_render_form.py` §8 can restore
 #: it as a mutation and show the tightening is load-bearing. Read by nothing
 #: else.
@@ -137,7 +69,7 @@ def violations(text):
     bare, total = [], 0
     for i, line in enumerate(text.splitlines(), 1):
         m = BRACKET.match(line)
-        if not m:
+        if not m or m.group(1) in CONTROL_NAMES:
             continue
         total += 1
         if APPARATUS not in m.group(2):
@@ -160,56 +92,178 @@ def rendered_without_state(text):
     built = []
     for i, line in enumerate(text.splitlines(), 1):
         m = BRACKET.match(line)
-        if m and APPARATUS in m.group(2):
+        if m and m.group(1) not in CONTROL_NAMES and APPARATUS in m.group(2):
             built.append((i, line.strip()))
     if len(built) < MIN_BRACKETS or STATE.search(text):
         return []
     return built
 
 
-def last_assistant_turn(path):
-    """-> the text of the newest assistant message in a Claude Code JSONL."""
-    out = []
+def _text_blocks(content):
+    if isinstance(content, str):
+        return [content] if content.strip() else []
+    if isinstance(content, list):
+        return [c["text"] for c in content if isinstance(c, dict)
+                and c.get("type") == "text" and isinstance(c.get("text"), str)
+                and c["text"].strip()]
+    return []
+
+
+def _finished_receipt(content):
+    """Read the documented MCP envelope, never JSON embedded in lyrics.
+
+    Finished lyric_revise results have two content blocks: the human render,
+    then one JSON verdict. Claude may encode that MCP envelope as a JSON text
+    block or directly retain its content array. No other location is searched.
+    """
+    if isinstance(content, str):
+        try:
+            content = json.loads(content)
+        except (ValueError, TypeError):
+            return None
+    if isinstance(content, list) and len(content) == 1:
+        block = content[0]
+        if not isinstance(block, dict) or block.get("type") != "text":
+            return None
+        try:
+            content = json.loads(block.get("text", ""))
+        except (ValueError, TypeError):
+            return None
+    if isinstance(content, dict):
+        content = content.get("content")
+    if not isinstance(content, list) or len(content) != 2:
+        return None
+    human, machine = content
+    if not all(isinstance(c, dict) and c.get("type") == "text"
+               and isinstance(c.get("text"), str) for c in (human, machine)):
+        return None
+    try:
+        verdict = json.loads(machine["text"])
+    except (ValueError, TypeError):
+        return None
+    if not isinstance(verdict, dict):
+        return None
+    draft, presentation = verdict.get("final_draft"), verdict.get("presentation_text")
+    if (not isinstance(draft, list) or not draft
+            or not all(isinstance(line, str) for line in draft)
+            or not isinstance(presentation, str) or not presentation.strip()
+            or presentation not in human["text"]
+            or type(verdict.get("exit_code")) is not int
+            or not isinstance(verdict.get("loop_stop_reason"), str)
+            or not isinstance(verdict.get("loop_unresolved_lines"), list)
+            or type(verdict.get("loop_whole_flags")) is not int
+            or not isinstance(verdict.get("coverage"), dict)):
+        return None
+    digest = hashlib.sha256(json.dumps(draft, ensure_ascii=False,
+                                      separators=(",", ":")).encode("utf-8")).hexdigest()
+    if digest != verdict.get("final_draft_sha256"):
+        return None
+    if verdict["exit_code"] == 0 and not (
+            verdict.get("status") == "finished_clean"
+            and verdict.get("certified") is True
+            and verdict["coverage"].get("certified") is True
+            and verdict["loop_stop_reason"] == "SUCCESS"
+            and not verdict["loop_unresolved_lines"]
+            and verdict["loop_whole_flags"] == 0):
+        return None
+    # The exact stamp must agree with the typed verdict; lyric-like stamps
+    # earlier in the artifact never become machine status.
+    last_line = presentation.strip().splitlines()[-1].strip()
+    if not STAMP_FINISHED.fullmatch(last_line):
+        return None
+    if not re.search(r"—\s*exit\s*%d\s*—\s*%s after " % (
+            verdict["exit_code"], re.escape(verdict["loop_stop_reason"])), last_line):
+        return None
+    return verdict
+
+
+def transcript_presentation(path):
+    """Latest nonempty assistant text and preceding, paired revision receipts."""
+    out, pending, receipts, before_text = [], {}, [], []
     with open(path, encoding="utf-8", errors="replace") as fh:
         for raw in fh:
-            raw = raw.strip()
-            if not raw:
-                continue
             try:
                 rec = json.loads(raw)
             except ValueError:
                 continue
-            msg = rec.get("message") or {}
-            if rec.get("type") != "assistant" and msg.get("role") != "assistant":
+            if not isinstance(rec, dict):
                 continue
+            msg = rec.get("message") or {}
+            if not isinstance(msg, dict):
+                continue
+            assistant = rec.get("type") == "assistant" or msg.get("role") == "assistant"
             content = msg.get("content")
-            if isinstance(content, str):
-                out = [content]
-            elif isinstance(content, list):
-                out = [c.get("text", "") for c in content
-                       if isinstance(c, dict) and c.get("type") == "text"]
-    return "\n".join(out)
+            if assistant:
+                parts = _text_blocks(content)
+                if parts:
+                    out, before_text = parts, list(receipts)
+                for block in content if isinstance(content, list) else []:
+                    if not isinstance(block, dict) or block.get("type") != "tool_use":
+                        continue
+                    name, identifier = block.get("name", ""), block.get("id")
+                    if isinstance(name, str) and isinstance(identifier, str):
+                        pending[identifier] = name.split("__")[-1] == "lyric_revise"
+            elif rec.get("type") == "user" or msg.get("role") in ("user", "tool"):
+                for block in content if isinstance(content, list) else []:
+                    if not isinstance(block, dict) or block.get("type") != "tool_result":
+                        continue
+                    identifier = block.get("tool_use_id")
+                    valid_call = pending.pop(identifier, False) if isinstance(identifier, str) else False
+                    if valid_call and not block.get("is_error"):
+                        receipt = _finished_receipt(block.get("content"))
+                        if receipt is not None:
+                            receipts.append(receipt)
+    return "\n".join(out), before_text
+
+
+def last_assistant_turn(path):
+    return transcript_presentation(path)[0]
+
+
+def receipt_violation(text, receipts):
+    """A finished artifact must be quoted exactly from a paired tool receipt."""
+    if not FINISHED_CLAIM.search(text):
+        return None
+    for receipt in reversed(receipts):
+        artifact = receipt["presentation_text"].strip()
+        if artifact not in text:
+            continue
+        outside = text.replace(artifact, "", 1)
+        # Commentary is allowed; a second presentation or stamp is not covered
+        # by this receipt. Complete user lyric bytes inside the artifact remain
+        # data, even when they resemble a control stamp.
+        if FINISHED_CLAIM.search(outside) or any(BRACKET.match(line)
+                                                for line in outside.splitlines()):
+            continue
+        return None
+    return ("FINISHED has no matching lyric_revise tool receipt for these exact "
+            "presentation_text bytes. Present the tool artifact unchanged, or "
+            "disclose an interim draft as GRADED, PARKED, or UNCONVERGED.")
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--text", help="a file to check")
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--text", help="format check only; cannot certify a revision receipt")
     ap.add_argument("--transcript", help="a Claude Code JSONL; checks the "
                                          "newest assistant turn")
     a = ap.parse_args(argv)
     if a.transcript:
         if not os.path.exists(a.transcript):
-            return 0                      # nothing to read is not a verdict
-        text = last_assistant_turn(a.transcript)
+            print("Cannot check the presentation: transcript file is missing.", file=sys.stderr)
+            return 1
+        text, receipts = transcript_presentation(a.transcript)
     elif a.text:
         text = open(a.text, encoding="utf-8", errors="replace").read()
     else:
         text = sys.stdin.read()
 
+    receipt_error = receipt_violation(text, receipts) if a.transcript else None
     bad, total = violations(text)
     stateless = rendered_without_state(text)
-    if not bad and not stateless:
+    if not bad and not stateless and not receipt_error:
         return 0
+    if receipt_error:
+        print(receipt_error, file=sys.stderr)
     if bad:
         print("A SECTION BRACKET WAS PRESENTED WITHOUT ITS APPARATUS.",
               file=sys.stderr)
@@ -264,11 +318,9 @@ def main(argv=None):
                   "and says nothing about WHICH", file=sys.stderr)
             print("verb produced it. That is how a graded draft was presented "
                   "as a run's exit 0.", file=sys.stderr)
-        print("This gate requires the DISCLOSURE and never adjudicates it: "
-              "a GRADED turn and an", file=sys.stderr)
-        print("exit-3 FINISHED turn both pass. A false claim is "
-              "`quality/song_log.py --verdicts`'", file=sys.stderr)
-        print("business, charged against the banked log.", file=sys.stderr)
+        print("Transcript FINISHED claims require the exact artifact from a "
+              "paired lyric_revise tool result. --text and stdin check format "
+              "only; GRADED and PARKED disclose interim work.", file=sys.stderr)
         print(f"(Quoting a lyric file on purpose? Say '{DECLARED_RAW}' in "
               f"the text — declared, not silent.)", file=sys.stderr)
     return 1

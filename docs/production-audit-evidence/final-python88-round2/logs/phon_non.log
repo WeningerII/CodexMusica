@@ -1,0 +1,247 @@
+
+1. Old Norse — the declaration, every field of it
+  PASS  language is non
+  PASS  declares name
+  PASS  declares notation
+  PASS  declares grid_unit
+  PASS  declares prominence_rule
+  PASS  declares relation
+  PASS  declares source
+  PASS  notation names the ö merger it accepts
+  PASS  notation names what it REFUSES and what it cannot detect
+  PASS  source claims no external resource and vendors no text
+          rules only; no external resource, so nothing to licence. The rules are Snorr
+  PASS  grid_unit is the syllable, six to a line
+          syllable (six to a dróttkvætt line)
+
+2. Old Norse — the syllabifier on attested words
+  PASS  fyrðum -> fyrð.um
+  PASS  ofsa -> of.sa
+  PASS  stillir -> stil.lir
+  PASS  milli -> mil.li
+  PASS  friðrofs -> frið.rofs
+  PASS  landi -> lan.di
+  PASS  konungr -> ko.nungr
+  PASS  skylja -> sky.lja
+  PASS  hildigelti -> hil.di.gel.ti
+  PASS  ættstuðill -> ætt.stuð.ill
+  PASS  au ei ey are single nuclei
+  PASS  x is read as k+s
+          ['a', 'k', 's', 'l', 'a']
+
+3. Old Norse — outside the orthography is None, never False
+  PASS  'wolf' is unreadable, so syllabify returns nothing
+  PASS  'qveða' is unreadable, so syllabify returns nothing
+  PASS  'hattar1' is unreadable, so syllabify returns nothing
+  PASS  'cyning' is unreadable, so syllabify returns nothing
+  PASS  alliterates with an unreadable word is None, not False
+          False would assert they do not alliterate; the module cannot know
+  PASS  rhymes with an unreadable word is None
+  PASS  skothending with an unreadable word is None
+  PASS  aðalhending with an unreadable word is None
+  PASS  an out-of-range syllable index is None, not the last syllable
+  PASS  nothing falls back to another language
+          Old English is a different language; a Germanic-looking word is not a licence to read it
+
+4. Old Norse — sk/sp/st alliterate only with themselves
+  PASS  sk- does NOT alliterate with s-
+          a skald never heard those two answer each other
+  PASS  st- does NOT alliterate with s-
+  PASS  sp- does NOT alliterate with s-
+  PASS  sk- alliterates with sk-
+  PASS  st- alliterates with st-
+  PASS  sk- does NOT alliterate with st-
+  PASS  sj- sv- sl- are plain s-, not clusters
+          only sk, sp, st are separate staves
+  PASS  any vowel alliterates with any vowel
+          Snorri: 'ef hljóðstafr er höfuðstafrinn, þá skulu stuðlar vera ok hljóðstafir'
+  PASS  a vowel does not alliterate with a consonant
+  PASS  j- is a consonant here, not a vowel
+
+5. Old Norse — the TRADITION test: the cluster rule on Snorri
+  PASS  Stinn sár þróask stórum,       has exactly 2 stuðlar
+          höfuðstafr 'st' on 'sterk'; stuðlar ['Stinn', 'stórum']
+  PASS     ...on the 'st' stave
+          got 'st'
+  PASS     ...and WITHOUT the rule it would be 3, which is wrong
+          Snorri: 'en rangt er, ef þessir stafir standa fyrir samstöfur oftar ... en svá í fjórðungi vísu'
+  PASS  Sær Skjöldungs niðr skúrum,    has exactly 2 stuðlar
+          höfuðstafr 'sk' on 'sköft'; stuðlar ['Skjöldungs', 'skúrum']
+  PASS     ...on the 'sk' stave
+          got 'sk'
+  PASS     ...and WITHOUT the rule it would be 3, which is wrong
+          Snorri: 'en rangt er, ef þessir stafir standa fyrir samstöfur oftar ... en svá í fjórðungi vísu'
+
+6. Old Norse — Snorri's own two worked examples, and the distinction between them
+  PASS  jörð : fyrðum IS a skothending
+  PASS  jörð : fyrðum is NOT an aðalhending
+          they are different relations; a module that conflates them is useless
+  PASS  friðrofs : ofsa IS an aðalhending
+  PASS  friðrofs : ofsa is NOT a skothending
+  PASS  hattar : stuttu is a skothending (constructed pair)
+  PASS  harða : garði is an aðalhending (constructed pair)
+  PASS  harða : garði is NOT a skothending
+  PASS  a pair that shares nothing is False, in both relations
+  PASS  a word does not hend with itself
+          Snorri: 'upphafstafir greina orðin'
+  PASS  but hann : bannat does
+  PASS  an open syllable has no hending: no consonant follows the vowel
+
+7. Old Norse — the TRADITION test: both demonstration stanzas
+  PASS  Háttatal 1 L1 carries its skothending
+          oddhending 'lætr' in 'Lætr' answers viðrhending 'hei' in 'heitir' on 't'
+  PASS  Háttatal 1 L2 carries its adalhending
+          oddhending 'hann' in 'hann' answers viðrhending 'ban' in 'bannat' on 'nn'
+  PASS  Háttatal 1 L3 carries its skothending
+          oddhending 'jörð' in 'jörð' answers viðrhending 'fyrð' in 'fyrðum' on 'rð'
+  PASS  Háttatal 1 L4 carries its adalhending
+          hluthending 'rofs' in 'friðrofs' answers viðrhending 'of' in 'ofsa' on 'fs'
+  PASS  Háttatal 1 L5 carries its skothending
+          oddhending 'sjalfr' in 'Sjalfr' answers viðrhending 'el' in 'Elfar' on 'lf'
+  PASS  Háttatal 1 L6 carries its adalhending
+          oddhending 'stil' in 'stillir' answers viðrhending 'mil' in 'milli' on 'll'
+  PASS  Háttatal 1 L7 carries its skothending
+          oddhending 'gramr' in 'gramr' answers viðrhending 'frem' in 'fremri' on 'm'
+  PASS  Háttatal 1 L8 carries its adalhending
+          oddhending 'gan' in 'Gandvíkr' answers viðrhending 'lan' in 'landi' on 'nd'
+  PASS  Háttatal 1 L1 is NOT an aðalhending line
+  PASS  Háttatal 1 L3 is NOT an aðalhending line
+  PASS  Háttatal 1 L5 is NOT an aðalhending line
+  PASS  Háttatal 1 L7 is NOT an aðalhending line
+  PASS  Háttatal 2 L1 carries its skothending
+          oddhending 'fellr' in 'Fellr' answers viðrhending 'stil' in 'stilli' on 'll'
+  PASS  Háttatal 2 L2 carries its adalhending
+          hluthending 'braks' in 'fleinbraks' answers viðrhending 'ak' in 'axla' on 'ks'
+  PASS  Háttatal 2 L3 carries its skothending
+          oddhending 'fang' in 'fang' answers viðrhending 'hrin' in 'hringum' on 'ng'
+  PASS  Háttatal 2 L4 carries its adalhending
+          oddhending 'hylr' in 'hylr' answers viðrhending 'sky' in 'skylja' on 'l'
+  PASS  Háttatal 2 L5 carries its skothending
+          oddhending 'holt' in 'Holt' answers viðrhending 'gel' in 'hildigelti' on 'lt'
+  PASS  Háttatal 2 L6 carries its adalhending
+          oddhending 'hei' in 'heila' answers viðrhending 'dei' in 'deilir' on 'l'
+  PASS  Háttatal 2 L7 carries its skothending
+          oddhending 'gulls' in 'gulls' answers viðrhending 'stal' in 'stalli' on 'll'
+  PASS  Háttatal 2 L8 carries its adalhending
+          hluthending 'seið' in 'gunnseið' answers viðrhending 'reið' in 'reiðir' on 'ð'
+  PASS  Háttatal 2 L1 is NOT an aðalhending line
+  PASS  Háttatal 2 L3 is NOT an aðalhending line
+  PASS  Háttatal 2 L5 is NOT an aðalhending line
+  PASS  Háttatal 2 L7 is NOT an aðalhending line
+
+8. Old Norse — twelve staves to a stanza, three to a couplet
+  PASS  Háttatal 1 couplet 1: exactly 2 stuðlar
+          höfuðstafr 'h' on 'hann'; stuðlar ['Hákun', 'heitir']
+  PASS  Háttatal 1 couplet 2: exactly 2 stuðlar
+          höfuðstafr 'f' on 'friðrofs'; stuðlar ['frelsa', 'fyrðum']
+  PASS  Háttatal 1 couplet 3: exactly 2 stuðlar
+          höfuðstafr 'vowel' on 'ungr'; stuðlar ['allt', 'Elfar']; distinct vowels ['a', 'e'] — Snorri: it is 'fegra' if each stuðill has its own vowel
+  PASS  Háttatal 1 couplet 4: exactly 2 stuðlar
+          höfuðstafr 'g' on 'Gandvíkr'; stuðlar ['gramr', 'gift']
+  PASS  Háttatal 2 couplet 1: exactly 2 stuðlar
+          höfuðstafr 'f' on 'fleinbraks'; stuðlar ['Fellr', 'fúra']
+  PASS  Háttatal 2 couplet 2: exactly 2 stuðlar
+          höfuðstafr 'h' on 'hylr'; stuðlar ['Hamðis', 'hringum']
+  PASS  Háttatal 2 couplet 3: exactly 2 stuðlar
+          höfuðstafr 'h' on 'heila'; stuðlar ['Holt', 'hildigelti']
+  PASS  Háttatal 2 couplet 4: exactly 2 stuðlar
+          höfuðstafr 'g' on 'gunnseið'; stuðlar ['gulls', 'gelmis']
+  PASS  the vowel couplet works and `ok` does not count as a stuðill
+          Snorri licenses an extra vowel initial in málfylling: 'ek, - eða svá: en, er, at, í, á, of, af, um'
+  PASS     ...and without the list it would be 3, which Snorri calls rangt
+          vowel-initial words in the line: 3
+
+9. Old Norse — doctrine 53: the ǫ/ø -> ö merger, per RELATION
+  PASS  the module recognises the merged orthography from the text
+  PASS  aðalhending on two merged vowels is None, NOT True
+          returning True would assert an identity the edition destroyed
+  PASS  spelled ǫ : ǫ it resolves to True
+  PASS  spelled ǫ : ø it resolves to False
+          'this edition cannot tell me' and 'these vowels differ' are different answers
+  PASS  skothending across the merger stays definite: jörð : fyrðum
+          no reading of ö is y, so the merger cannot touch this verdict
+  PASS  and its aðalhending verdict is definite too, and False
+  PASS  skothending on two identical merged graphemes is None
+          the merger is harmless for skothending, not weightless
+  PASS  æ is exact by default
+  PASS  æ is ambiguous once the merged orthography is declared
+          classically bæði (æ) and grœði (œ) are different vowels, so the merged text would manufacture this aðalhending
+  PASS  spelled œ it resolves to False
+
+9b. Old Norse — when BOTH onsets are empty, the vowel is the initial letter
+  PASS  Iðrask:yðrum is a skothending, not an onset collision
+  PASS  ár:aura is a skothending, not an onset collision
+  PASS  orms:armi is a skothending, not an onset collision
+  PASS  endr:undir is a skothending, not an onset collision
+  PASS  ungr:Engla is a skothending, not an onset collision
+  PASS  same vowel and no onset either: nothing distinguishes them
+          an aðalhending needs the initial letters to DISTINGUISH the words, and two vowel-initial words with the same vowel do not
+  PASS  same MERGED grapheme and no onset: refuses, never decides
+          ö : ö cannot say whether the vowels are the same OR different, so neither predicate may answer
+  PASS  but a merged grapheme against a disjoint one stays DEFINITE
+          ö reads {ǫ,ø} and i reads {i}; the sets are disjoint, so the vowels differ whichever way the merger resolves — attested
+
+10. Old Norse — the vowel-length position, taken and declared
+  PASS  a : á is NOT an aðalhending — length is a phoneme
+  PASS  a : á IS a skothending — two different vowels is what it asks for
+          the alternative reading, that a bare quantity contrast is too weak to be heard as a hending, is defensible and is NOT taken; it is declared in skothending.__doc__
+  PASS  the position is stated in the docstring, not left to the reader
+  PASS  and the docstring's own example obeys the onset rule
+          same onset f-, so it is not a hending at all — Snorri: 'upphafstafir greina orðin'
+  PASS  a long vowel and a diphthong are both heavy
+
+11. Old Norse — doctrine 35: prominence is stress, weight is not
+  PASS  stress is fixed on the first syllable of the word
+  PASS  prominences() returns a real stress pattern (Old Norse HAS stress)
+  PASS  sonar: stressed-LIGHT then unstressed-HEAVY
+          collapsing weight into prominence would erase exactly this
+  PASS  a closed syllable is heavy even with a short vowel
+  PASS  a hyphen marks a compound, and its second element is stressed
+          unhyphenated, the module has no morphology and says so
+
+12. Old Norse — six syllables, and the line that has seven
+  PASS  Háttatal 1 L2 scans to six
+          hann.rek.kir.lið.ban.nat
+  PASS  Háttatal 1 L3 scans to six
+          jörð.kann.frel.sa.fyrð.um
+  PASS  Háttatal 1 L4 scans to six
+          frið.rofs.ko.nungr.of.sa
+  PASS  Háttatal 1 L5 scans to six
+          sjalfr.ræðr.allt.ok.el.far
+  PASS  Háttatal 1 L6 scans to six
+          ungr.stil.lir.sá.mil.li
+  PASS  Háttatal 1 L7 scans to six
+          gramr.á.gift.at.frem.ri
+  PASS  Háttatal 1 L8 scans to six
+          gan.dvíkr.jö.furr.lan.di
+  PASS  L1 reports SEVEN rather than silently forcing six
+          lætr.sá.er.há.kun.hei.tir — `sá er` = `sás`, which needs morphology this module does not have
+  PASS  and the hending is unaffected, being anchored to the penult
+
+13. Old Norse — what the orthography check can and cannot see
+  PASS  it names the ö merger on the real text
+          ['ö present: this is the ǫ/ø -> ö normalisation, so æ also stands for œ. Skothending is un
+  PASS  a modernised text is named, with the consequence
+          ['MODERNISED ICELANDIC (modern share 1.0000; maðr/maður 0:4, konungr/konungur 0:4, ok/og 0:12, at/að 0:12). Ep
+  PASS  an Old Norse text is not, AND the -ur flag is suppressed
+          ['not modernised (modern share 0.0000; maðr/maður 4:0, konungr/konungur 4:0, ok/og 12:0, at/að 12:0)', 'no lon
+  PASS  a MIXED text gets both counts and no verdict
+          modernised prose around archaised verse is the usual cause, and that is information the caller needs, not a call to make here
+  PASS  the 0.50 boundary is closed toward MODERNISED and is tested
+          ['MODERNISED ICELANDIC (modern share 0.5000; maðr/maður 4:4, konungr/konungur 4:4, ok/og 12:12, at/a
+  PASS  too few function words REFUSES rather than deciding
+          ['only 1 of the four function-word pairs present (maðr/maður 0:0, konungr/konungur 0:1, ok/og 0:0, at/að 0:0):
+  PASS  th/dh fires only when there is NO þ/ð anywhere
+  PASS  and a compound seam in a þ/ð text does NOT fire it
+          þróttharðr is t+h and Naddhristir is d+h -- both were false positives on a text that writes þ/ð 874 times
+  PASS  it flags accent-stripped text
+  PASS  it reports out-of-inventory words as REFUSED
+  PASS  an empty report is declared to prove nothing
+          `jord` for `jǫrð` is four legal letters and cannot be detected
+
+14. nothing here falls back to English
+  PASS  quality.phonology.non imports no English resource
+          imports: ['quality', 're', 'unicodedata']
+  PASS  and it registers itself under 'non'
+==============================================================
+all Old Norse phonology regressions pass

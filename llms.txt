@@ -9,19 +9,22 @@
 ## START HERE — the live EDITABLE engine (MCP connector)
 The full editable engine is a Model Context Protocol server: seed a recipe from any
 tradition, then re-pick prefaces, swap part variants, override room/chain/tuning, and
-add/remove instruments or traditions. Deterministic and side-effect-free (nothing is
-persisted); thread the returned workspace into the next call. Everything below this
+add/remove instruments or traditions. Recipe tools are deterministic; thread the
+returned workspace into the next call. Lyrics revision retains private run state,
+and optional kitchen writing sends briefs and drafts to a paid external provider.
+The chat surface supports durable request receipts. Everything below this
 section is a SEPARATE read-only product — one pre-compiled recipe per tradition, built by
 a different pipeline and worded differently. Use it for bulk reads; use the connector for
 anything you want to change, and do not expect the two strings to match.
 
-- Endpoint (Streamable HTTP, no auth): https://codex-musica-mcp.onrender.com/mcp
-- Add in Claude: Settings -> Connectors -> Add custom connector -> paste the URL.
-- Any MCP client works the same way (Claude, Codex CLI, Cursor, VS Code, Gemini CLI);
-  registering the endpoint is the only setup.
+- Task endpoints (Streamable HTTP, no auth): https://codex-musica-mcp.onrender.com/mcp/recipe and https://codex-musica-mcp.onrender.com/mcp/lyrics
+- Add in Claude: Settings -> Connectors -> Add custom connector -> paste the task URL.
+- Native clients must preserve initialization guidance, complete tool metadata,
+  the host-selected task and exact returned artifacts; use the maintained adapter
+  documented in docs/connector.md. Keep run and request capabilities private.
 - Server card (capabilities, for auto-discovery): https://codex-musica-mcp.onrender.com/.well-known/mcp.json
 - Tools: start_recipe, edit_recipe, render_recipe, search_catalog, search_prefaces, get_instrument, get_tradition, list_traditions, list_options.
-- Lyric tools (disjoint family; songwriting plan/grade, writes no words): lyric_screen, lyric_sweep, lyric_plan, lyric_grade, lyric_recover, lyric_check, lyric_verify, lyric_revise, lyric_types.
+- Lyric tools (separate planning/grading/revision pipeline; kitchen writing is paid): lyric_screen, lyric_sweep, lyric_plan, lyric_grade, lyric_recover, lyric_check, lyric_verify, lyric_revise, lyric_types.
 
 Do NOT fetch codex.html: it is a multi-megabyte browser GUI, it will blow your context or
 fail to load, and it contains no instructions for you.

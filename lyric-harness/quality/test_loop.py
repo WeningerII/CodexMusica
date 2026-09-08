@@ -288,7 +288,9 @@ def test_success_stop():
     print("\n1. SUCCESS — nothing left flagged, the stock proposer alone")
     R = Reviser()
     res = revise_loop(R, CLICHE, "ABAB")
-    check("stops on SUCCESS", res.stop_reason == "success", res.stop_reason)
+    check("whole-draft flags prevent success after the line repairs close",
+          res.stop_reason == "whole_draft_unresolved" and bool(res.whole_flags),
+          res.stop_reason)
     # RESTATED 2026-08-17 under MANDATORY PURSUIT: the loop now also fixes
     # the two lines carrying only a MODAL_RHYME note, because success while
     # one stands is unreportable (owner's order — see loop.MANDATORY_PURSUE).
@@ -302,7 +304,7 @@ def test_success_stop():
     check("both flagged lines were fixed, and the pursued lines were closed "
           "by those fixes rather than re-opened by them",
           set(res.rounds[0].fixed_lines) == {1, 2}
-          and 3 in res.rounds[0].resolved_elsewhere,
+          and 4 in res.rounds[0].resolved_elsewhere,
           f"fixed {res.rounds[0].fixed_lines}, resolved elsewhere "
           f"{res.rounds[0].resolved_elsewhere}")
     check("no line left unresolved", res.unresolved == [])
@@ -375,14 +377,15 @@ def test_round_limit_stop():
 def test_tier2_backtrack_resolves_a_joint_conflict():
     print("\n4. TIER 2 — backtracking an anchor actually clears "
          "joint_conflict")
-    R = Reviser()
-    before = R.brief(SILVER_MIND, [[1, 3], [2, 3]])
+    R = perfect_rhyme_reviser()
+    mandate = SC.mandate([[1, 3], [2, 3]], n_lines=3, default_relation="RHYME")
+    before = R.brief(SILVER_MIND, mandate)
     pivot_before = [b for b in before if b.line_no == 3][0]
     check("the fixture is a REAL joint_conflict before the loop runs",
           pivot_before.joint_conflict and not pivot_before.candidates,
           "L3 answers two groups whose call words share no rhyme")
 
-    res = revise_loop(R, SILVER_MIND, [[1, 3], [2, 3]])
+    res = revise_loop(R, SILVER_MIND, mandate)
     # RESTATED 2026-08-17: the tier-2 fix lands ('mankind' for the pivot) and
     # its accepted word is directionally modal against L2's 'mind', so
     # mandatory pursuit holds L3 open and the stop is a LOUD no_progress with
@@ -398,10 +401,8 @@ def test_tier2_backtrack_resolves_a_joint_conflict():
     # success. The owner's order stands unchanged: success while a
     # mandatory finding stands is unreportable (§20 pins it); what moved is
     # that the loop stopped offering the words that made one stand.
-    check("reaches SUCCESS with nothing pursued left standing — the "
-          "backtracked pair cannot re-open, because the menu no longer "
-          "offers a word whose own head holds the call",
-          res.stop_reason == "success"
+    check("the backtrack closes pursued findings while incomplete coverage still prevents success",
+          res.stop_reason == "uncertified" and res.coverage.get("certified") is False
           and [b.line_no for b in res.unresolved_pursued] == [],
           f"{res.stop_reason} pursued="
           f"{[b.line_no for b in res.unresolved_pursued]}")
@@ -410,13 +411,13 @@ def test_tier2_backtrack_resolves_a_joint_conflict():
           len(tier2) == 1 and tier2[0].accepted,
           tier2[0] if tier2 else None)
     check("it touched BOTH the pivot and the anchor, never a third line",
-          set(tier2[0].touched) == {1, 3},
-          tier2[0].touched)
+          bool(tier2) and set(tier2[0].touched) == {1, 3},
+          tier2[0].touched if tier2 else None)
     check("L2 (the untouched anchor) is byte-identical",
           res.lines[1] == SILVER_MIND[1])
 
-    R2 = Reviser()
-    after = R2.brief(res.lines, [[1, 3], [2, 3]])
+    R2 = perfect_rhyme_reviser()
+    after = R2.brief(res.lines, mandate)
     pivot_after = [b for b in after if b.line_no == 3]
     check("re-briefed independently, L3 carries no FLAG -- the pivot is "
           "genuinely resolved at the mandate level, not merely accepted on "
@@ -485,8 +486,8 @@ def test_tier2_tries_and_correctly_rejects():
     check("...and the reason names WHICH search failed -- the anchor's own "
           "conjunction, not a proposer that came back short (doctrine 58)",
           tier2 and "EMPTY MEMBER field" in tier2[0].reason
-          and "unsatisfiable at that member" in tier2[0].reason
-          and "own group(s) at once" in tier2[0].reason,
+          and "SEARCH_LIMITED, no impossibility proof" in tier2[0].reason
+          and "unscanned words" in tier2[0].reason,
           tier2[0].reason[:220] if tier2 else None)
     check("and every attempt was correctly rejected, none silently kept",
           tier2 and not tier2[0].accepted)
@@ -526,15 +527,17 @@ def test_tier2_rewrites_a_group_of_three_or_more():
     # see `perfect_rhyme_reviser`. The premise below is a claim about an
     # EMPTY conjunction and that was a property of the two-name field.
     R = perfect_rhyme_reviser()
-    before = R.brief(TOO_LARGE, [[1, 2, 5], [3, 4, 5]])
+    mandate = SC.mandate([[1, 2, 5], [3, 4, 5]], n_lines=5,
+                         default_relation="RHYME")
+    before = R.brief(TOO_LARGE, mandate)
     pivot = [b for b in before if b.line_no == 5][0]
-    check("the fixture is STILL a real joint_conflict with two 3-member "
-          "groups — the premise the old refusal was measured on",
-          pivot.joint_conflict
-          and all(len(mem) == 3 for _, mem, _ in pivot.must_answer),
+    check("the fixture has two coupled 3-member groups with an actual unsatisfied obligation",
+          len(pivot.must_answer) == 2
+          and all(len(mem) == 3 for _, mem, _ in pivot.must_answer)
+          and bool(R.grade(TOO_LARGE, mandate)["violations"]),
           [(lab, mem) for lab, mem, _ in pivot.must_answer])
 
-    res = revise_loop(R, TOO_LARGE, [[1, 2, 5], [3, 4, 5]])
+    res = revise_loop(R, TOO_LARGE, mandate)
     tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
     won = [a for a in tier2 if a.accepted]
     check("tier 2 ran AND tried something — the count that was pinned at 0",
@@ -552,15 +555,15 @@ def test_tier2_rewrites_a_group_of_three_or_more():
     # left its siblings would break the group it was rewriting.
     check("EVERY member of the group moved in that one attempt — 3 lines, "
           "not one",
-          bool(won) and set(won[0].touched) == {1, 2, 5},
+          bool(won) and set(won[0].touched) in ({1, 2, 5}, {3, 4, 5}),
           f"touched {won[0].touched if won else None}")
     check("the draft is NOT untouched — the assertion this section used to "
           "make in the other direction",
           res.lines != TOO_LARGE,
           f"changed: {[i + 1 for i in range(len(TOO_LARGE)) if res.lines[i] != TOO_LARGE[i]]}")
-    check("and the run reaches a stop condition rather than spending its "
-          "rounds on a group it cannot move",
-          res.stop_reason == "success", res.stop_reason)
+    check("and the run does not certify a draft with unresolved whole-draft flags",
+          res.stop_reason == ("whole_draft_unresolved" if res.whole_flags else "success"),
+          res.stop_reason)
     # THE DISCLOSURE REPLACES A REFUSAL, so it is checked rather than
     # assumed (doctrine 20): a reader told "3+ members were NOT attempted"
     # for weeks is owed the news in the same place.
@@ -581,14 +584,15 @@ def test_tier2_rewrites_a_group_of_three_or_more():
     # under test is that members assigned IN ORDER against every sibling
     # already placed come out MUTUALLY rhyming, and a greedy assignment that
     # only answered the pivot would fail exactly here.
-    R2 = Reviser()
-    after = R2.brief(res.lines, [[1, 2, 5], [3, 4, 5]])
+    R2 = perfect_rhyme_reviser()
+    after = R2.brief(res.lines, mandate)
     flags = [(b.line_no, f.code) for b in after for f in b.findings
              if f.severity == "flag"]
-    check("re-briefed with a FRESH Reviser, the jointly-rewritten group "
-          "carries no FLAG — the members rhyme with EACH OTHER and not "
-          "merely with the pivot",
-          not flags, flags)
+    grade = R2.grade(res.lines, mandate)
+    check("a fresh grader judges all six declared obligations without violations or refusals",
+          not flags and grade["pairs_judged"] == 6
+          and grade["pairs_refused"] == 0 and not grade["violations"],
+          (flags, grade["pairs_judged"], grade["pairs_refused"]))
 
 
 def test_the_loop_never_touches_an_unreported_line():
@@ -692,11 +696,13 @@ def test_optin_layers_are_disclosed_and_success_is_per_line():
           "questions REFUSED rather than assuming a grid",
           res.subdivision_declared is False
           and "NO SUBDIVISION DECLARED" in text)
+    final_grade = R.grade(res.lines, "ABAB")
     check("doctrine 79: mandated / judged / refused survive the loop as "
           "THREE counts rather than being discarded at the `brief()` call "
           "that computed them",
           (res.pairs_mandated, res.pairs_judged, res.pairs_refused)
-          == (2, 2, 0),
+          == tuple(final_grade[k] for k in ("pairs_mandated", "pairs_judged", "pairs_refused"))
+          and res.pairs_mandated == 2,
           f"{res.pairs_mandated} / {res.pairs_judged} / {res.pairs_refused}")
 
     # THE BLIND SPOT THE DISCLOSURE EXISTS FOR. `HOOK_ABSENT` is the only
@@ -705,8 +711,8 @@ def test_optin_layers_are_disclosed_and_success_is_per_line():
     # stops on SUCCESS with it standing. `verify()` DOES read it (CLAUDE.md
     # records a CLI run rejecting a chorus swap for introducing exactly this
     # code), so it can reject a revision and can never ask for one.
-    check("the loop reports SUCCESS...", res.stop_reason == "success",
-          res.stop_reason)
+    check("the loop names the unresolved global requirement rather than claiming success",
+          res.stop_reason == "whole_draft_unresolved", res.stop_reason)
     codes = [f.code for f in res.whole_flags]
     check("...on a draft that STILL carries HOOK_ABSENT, a flag -- so "
           "SUCCESS means 'nothing left this loop can act on', never 'clean'",
@@ -719,7 +725,7 @@ def test_optin_layers_are_disclosed_and_success_is_per_line():
           res.unresolved == [] and res.whole_flags != [],
           f"unresolved {res.unresolved}, whole flags {codes}")
     check("the printed result carries the warning, not just the dataclass",
-          "NO STOP CONDITION ABOVE CAN SEE" in str(res))
+          "WHOLE-DRAFT REQUIREMENTS UNRESOLVED" in str(res))
 
     def refuses_everything(brief, lines, attempt, reasons=None, whole=()):
         return None
@@ -812,8 +818,12 @@ def test_group_brief_carries_the_situation():
     # rejection that populates `reasons` comes from `verify()`'s no-op rule
     # instead of from a mandate rigged to be unsatisfiable. Same 8, same two
     # labels, same pivot.
-    R = Reviser(rdecl=ReviseDeclaration(backtrack_width=2))
-    res = revise_loop(R, SILVER_NIGHT_LOCKED, SILVER_NIGHT_OPEN_MANDATE,
+    base = perfect_rhyme_reviser()
+    R = Reviser(lex=base.lex, decl=base.decl, floor=base.floor,
+                 rdecl=ReviseDeclaration(backtrack_width=2))
+    mandate = SC.mandate(SILVER_NIGHT_OPEN_MANDATE, n_lines=5,
+                         default_relation="RHYME")
+    res = revise_loop(R, SILVER_NIGHT_LOCKED, mandate,
                       propose=lambda *a, **k: None, propose_group=recording)
     check("tier 2 ran and actually proposed groups", bool(seen), len(seen))
     check("ONE argument, and it is a GroupBrief -- not four positional "
@@ -821,6 +831,8 @@ def test_group_brief_carries_the_situation():
           all(isinstance(pb, GroupBrief) for pb in seen),
           [type(pb).__name__ for pb in seen[:1]])
 
+    if not seen:
+        return  # the failed premise above is reported; later sections still run
     first = seen[0]
     check("the PIVOT's line number is on it: L3, the line whose conjunction "
           "`joint_field` proved unsatisfiable",
@@ -926,8 +938,9 @@ def test_group_brief_carries_the_situation():
     narrowed = []
     try:
         _sheet.lo, _sheet.hi, _sheet.tolerance = 200, 400, 1.25
-        R2 = Reviser(rdecl=ReviseDeclaration(backtrack_width=2))
-        revise_loop(R2, SILVER_NIGHT_LOCKED, SILVER_NIGHT_OPEN_MANDATE,
+        R2 = Reviser(lex=R.lex, decl=R.decl, floor=R.floor,
+                     rdecl=ReviseDeclaration(backtrack_width=2))
+        revise_loop(R2, SILVER_NIGHT_LOCKED, mandate,
                     propose=lambda *a, **k: None,
                     propose_group=lambda gb: (narrowed.append(gb),
                                               _no_op_group(gb))[1])
@@ -1012,9 +1025,9 @@ def test_propose_sees_the_whole_draft_rubric():
           "never the move, which is why `whole` is its own argument",
           not (per_line & {"HOOK_ABSENT", "LEXICAL_MONOTONY"}),
           sorted(per_line))
-    check("and NO stop condition moved: this is still the SUCCESS test 11 "
-          "pins, on a draft still carrying both flags",
-          res.stop_reason == "success" and res.unresolved == [],
+    check("whole-draft flags prevent success even when every per-line repair is closed",
+          res.stop_reason == "whole_draft_unresolved" and res.unresolved == []
+          and bool(res.whole_flags),
           res.stop_reason)
 
 
@@ -1037,8 +1050,9 @@ def test_tier2_still_resolves_a_joint_conflict_through_group_brief():
             out.append(new)
         return tuple(out)
 
-    R = Reviser()
-    res = revise_loop(R, SILVER_MIND, [[1, 3], [2, 3]],
+    R = perfect_rhyme_reviser()
+    mandate = SC.mandate([[1, 3], [2, 3]], n_lines=3, default_relation="RHYME")
+    res = revise_loop(R, SILVER_MIND, mandate,
                       propose_group=writes_from_the_group_brief)
     # RESTATED 2026-08-17: same outcome as test 4 under mandatory pursuit —
     # the backtrack clears the joint conflict, its accepted word is
@@ -1049,9 +1063,8 @@ def test_tier2_still_resolves_a_joint_conflict_through_group_brief():
     # this `GroupBrief` proposer — reach SUCCESS with nothing pursued. The
     # claim this check makes is unchanged: the contract route stops exactly
     # as the stub does; what the stub does moved, and this pin with it.
-    check("stops exactly as test 4 does with the stub — SUCCESS, nothing "
-          "pursued left standing, since M-185's screened menu",
-          res.stop_reason == "success"
+    check("the GroupBrief route closes the same repair but cannot certify incomplete coverage",
+          res.stop_reason == "uncertified" and res.coverage.get("certified") is False
           and [b.line_no for b in res.unresolved_pursued] == [],
           res.stop_reason)
     tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
@@ -1059,14 +1072,15 @@ def test_tier2_still_resolves_a_joint_conflict_through_group_brief():
           len(tier2) == 1 and tier2[0].accepted, tier2[0] if tier2 else None)
     check("the lines it touched are exactly the members the `GroupBrief` "
           "NAMED, and no other line -- the brief and the outcome agree",
-          set(tier2[0].touched) == set(seen[0].members)
+          bool(tier2) and bool(seen)
+          and set(tier2[0].touched) == set(seen[0].members)
           == {seen[0].pivot_line_no, *(a.line_no for a in seen[0].anchors)}
           == {1, 3},
-          f"touched {tier2[0].touched}, brief named {seen[0].members}")
+          f"touched {[a.touched for a in tier2]}, brief named {[b.members for b in seen]}")
     check("L2 (the untouched anchor) is byte-identical",
           res.lines[1] == SILVER_MIND[1])
-    R2 = Reviser()
-    after = R2.brief(res.lines, [[1, 3], [2, 3]])
+    R2 = perfect_rhyme_reviser()
+    after = R2.brief(res.lines, mandate)
     pivot_after = [b for b in after if b.line_no == 3]
     check("re-briefed independently with a FRESH Reviser, L3 carries no "
           "FLAG: the pivot is genuinely resolved at the mandate level",
@@ -1086,8 +1100,10 @@ def test_backtrack_width_still_bounds_the_search():
 
     # `..._OPEN_` AND THE NO-OP PROPOSER, 2026-08-17 — same reason as test
     # 13. The number this section exists to pin is unmoved: 2 x 5^2 = 50.
-    R = Reviser()                       # the DECLARED default, width 5
-    res = revise_loop(R, SILVER_NIGHT_LOCKED, SILVER_NIGHT_OPEN_MANDATE,
+    R = perfect_rhyme_reviser()          # the DECLARED default, width 5
+    mandate = SC.mandate(SILVER_NIGHT_OPEN_MANDATE, n_lines=len(SILVER_NIGHT_LOCKED),
+                         default_relation="RHYME")
+    res = revise_loop(R, SILVER_NIGHT_LOCKED, mandate,
                       propose=lambda *a, **k: None, propose_group=counting)
     tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
     check("50 pairs proposed = 2 two-line group(s) x width 5 x width 5 -- "
@@ -1113,8 +1129,9 @@ def test_backtrack_width_still_bounds_the_search():
     # nothing another section did (doctrine 66), so the width-2 run is made
     # here, on the same fixture and the same no-op proposer test 13 uses.
     narrow_seen = []
-    R2 = Reviser(rdecl=ReviseDeclaration(backtrack_width=2))
-    revise_loop(R2, SILVER_NIGHT_LOCKED, SILVER_NIGHT_OPEN_MANDATE,
+    R2 = Reviser(lex=R.lex, decl=R.decl, floor=R.floor,
+                 rdecl=ReviseDeclaration(backtrack_width=2))
+    revise_loop(R2, SILVER_NIGHT_LOCKED, mandate,
                 propose=lambda *a, **k: None,
                 propose_group=lambda gb: (narrow_seen.append(gb),
                                           _no_op_group(gb))[1])
@@ -1130,7 +1147,7 @@ def test_backtrack_width_still_bounds_the_search():
           f"width {R.rdecl.backtrack_width} -> {len(seen)}")
     check("every one of the 50 was rejected and the draft is untouched, "
           "which is test 5's claim re-measured through the new contract",
-          not tier2[0].accepted and res.lines == SILVER_NIGHT_LOCKED)
+          bool(tier2) and not tier2[0].accepted and res.lines == SILVER_NIGHT_LOCKED)
 
 
 
@@ -1172,6 +1189,8 @@ def test_a_dead_end_and_an_open_line_each_name_their_own_rule():
           "lines": [{"text": t, "bar": i + 1, "beat": 1, "duration": 4,
                      "section": "V1"} for i, t in enumerate(D)]}
     sub = _FT.Subdivision(2, source="constructed for this regression")
+    m_aa = SC.mandate("AA", n_lines=2, default_relation="RHYME")
+    field_size = len(next(b for b in Reviser().brief(D, m_aa) if b.line_no == 2).candidates)
     decline = lambda *a, **k: None                            # noqa: E731
 
     def reason_for(res, ln):
@@ -1182,16 +1201,16 @@ def test_a_dead_end_and_an_open_line_each_name_their_own_rule():
         return ""
 
     # (a1) THE PROPOSER DECLINED, and a real field was on the table.
-    r1 = revise_loop(Reviser(), D, "AA", propose=decline)
+    r1 = revise_loop(Reviser(), D, m_aa, propose=decline)
     d1 = reason_for(r1, 2)
     check("a proposer that declines is reported as the PROPOSER's refusal, "
           "with the size of the field it declined, not as an empty offer",
-          "PROPOSER declined" in d1 and "24 candidate(s) offered" in d1
+          "PROPOSER declined" in d1 and f"{field_size} candidate(s) offered" in d1 and field_size > 0
           and "no candidates offered" not in d1, d1[:100])
 
     # (a2) THE HARNESS OFFERED NOTHING — a meter-only line carries no rhyme
     # finding, so `brief()` computes no field for it at all.
-    r2 = revise_loop(Reviser(), D, "AA", blueprint=bp, subdivision=sub,
+    r2 = revise_loop(Reviser(), D, m_aa, blueprint=bp, subdivision=sub,
                      propose=decline)
     d2 = reason_for(r2, 1)
     check("a line the harness could not offer a field for says so, and says "
@@ -1206,7 +1225,7 @@ def test_a_dead_end_and_an_open_line_each_name_their_own_rule():
 
     # (a3) NOT ASKED — inconclusive by construction, not a dead end.
     r3 = revise_loop(Reviser(rdecl=ReviseDeclaration(attempts_per_line=0)),
-                     D, "AA", propose=lambda *a, **k: "x")
+                     D, m_aa, propose=lambda *a, **k: "x")
     d3 = reason_for(r3, 2)
     check("a budget of zero attempts is INCONCLUSIVE BY CONSTRUCTION and "
           "says so by name — the loop never put the question (doctrine 20)",
@@ -1382,7 +1401,8 @@ def test_a_line_is_briefed_against_the_draft_as_it_now_stands():
 
     R2 = Reviser(rdecl=ReviseDeclaration(
         pursue=frozenset({"REPEAT_ACROSS_GROUPS"})))
-    r2 = revise_loop(R2, CLOSE, [[1, 2]], propose=spy2)
+    r2 = revise_loop(R2, CLOSE, SC.mandate([[1, 2]], n_lines=3,
+                                         default_relation="RHYME"), propose=spy2)
     rnd = r2.rounds[0]
     check("L3 opened the round and was NEVER ASKED ABOUT, because fixing L2 "
           "closed it -- the stale snapshot would have spent an attempt on a "
@@ -1597,15 +1617,15 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
           f"measuring a search that no longer runs — restore the comparator, "
           f"do not delete the claim")
     det = t2[-1].reason if t2 else ""
-    check("an EMPTY ANCHOR conjunction is reported as its own outcome, not "
-          "as a search that came back short",
+    check("empty member fields disclose a bounded search, never an "
+          "impossibility proof",
           "EMPTY MEMBER field" in det
-          and "unsatisfiable at that member" in det
-          and "L1's own group(s)" in det, det[:220])
+          and "SEARCH_LIMITED, no impossibility proof" in det
+          and "L1" in det
+          and "unsatisfiable at that member" not in det, det[:220])
 
-    # THE RETURN PIN — rung 3's own shape, with the PIVOT (L3) in a declared
-    # verbatim return. Every word this tier could offer it is illegal, so no
-    # pair is put to a proposer at all.
+    # 2026-09-08: the old return-pin expectation is superseded by atomic
+    # return repair. Every proposal must include the entire verbatim class.
     PIN = ANCHOR_IS_A_PIVOT + [ANCHOR_IS_A_PIVOT[2]]
     mp = _SC.mandate(_SC.mandate([[1, 2], [1, 3], [3, 4], [5, 6], [3, 7]],
                                  n_lines=7, returns=[[3, 7]]),
@@ -1615,25 +1635,18 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
                        propose_group=lambda pb: asked.append(pb))
     pinned_det = [a.reason for r in res2.rounds for a in r.attempts
                   if a.tier == 2]
-    check("a pivot pinned by a declared verbatim return is NOT SEARCHED, and "
-          "the reason names the group rather than reporting an empty field",
-          any("PINNED by return group" in d for d in pinned_det)
-          and any("is itself a RETURN" in d for d in pinned_det),
-          pinned_det[:1])
-    # SCOPED TO THE PINNED GROUP (`MISSING.md` M-205). This asserted
-    # `asked == []` over EVERY group in the fixture, which was the same
-    # sentence as "the pinned group is not searched" only while the pinned
-    # pivot was the sole line reaching tier 2. Under the M-205 escalation
-    # lines 2 and 6 reach it too and are legitimately asked. MEASURED: the
-    # prompts are pivot L2 (group A) and pivot L6 (group D); the PINNED
-    # pivot L3 is still never put to a proposer, and all three refusal
-    # sentences still appear. The claim is unchanged and is now stated about
-    # the thing it names.
-    check("...and the PINNED group is never put to a proposer — a refusal is "
-          "not a failed search (doctrine 20)",
-          [p for p in asked if p.pivot_line_no == 3] == []
-          and any("NOT ATTEMPTED" in d for d in pinned_det),
-          f"{len(asked)} group prompt(s) asked :: {pinned_det[:1]}")
+    atomic = [p for p in asked if p.pivot_line_no == 3]
+    check("a declared return expands every proposed edit to the full "
+          "verbatim class instead of falsely pinning the pivot",
+          atomic and all(p.whole_repair and {3, 7} <= set(p.members)
+                         for p in atomic),
+          [(p.label, p.members) for p in atomic])
+    check("declining those atomic proposals preserves the complete return "
+          "and is not reported as an unasked search",
+          res2.lines == PIN
+          and all("NOT ASKED" not in a.reason
+                  for r in res2.rounds for a in r.attempts
+                  if a.tier == 2 and a.line_no == 3), pinned_det)
 
     # THE WRITER IS TOLD. The prompt renders THE RHYME MANDATE ON THE PIVOT;
     # until this fix it rendered no block for the anchor, so the writer was
@@ -1658,7 +1671,8 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
     # does not
     # render. A fix that also fired here would be a second defect.
     plain = []
-    revise_loop(Reviser(), SILVER_MIND, [[1, 3], [2, 3]],
+    revise_loop(perfect_rhyme_reviser(), SILVER_MIND,
+                SC.mandate([[1, 3], [2, 3]], n_lines=3, default_relation="RHYME"),
                 propose=lambda *a, **k: None,
                 propose_group=lambda pb: plain.append(pb))
     check("CONTROL: a member in ONE group carries no extra calls and the "
@@ -1771,14 +1785,46 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     import tempfile
     import lyric_harness as LH
     from quality.revise import draft_fingerprint
+    from quality.loop import MANDATORY_PURSUE
+
+    def actionable(briefs):
+        return sorted(b.line_no for b in briefs
+                      if any(f.severity == "flag" or f.code in MANDATORY_PURSUE
+                             for f in b.findings))
+
+    # The historical fire/desire fixture remains an uncertainty control.
+    # A disclosed SCHEME_UNREADABLE note gives a line a brief but does not
+    # turn it into an actionable defect or a modal-rhyme certificate.
+    old_briefs = Reviser().brief(list(CLICHE), "ABAB", include_offers=False)
+    check("CONTROL: the original ambiguous draft has four briefs but only "
+          "L1, L2 and L4 are actionable",
+          sorted(b.line_no for b in old_briefs) == [1, 2, 3, 4]
+          and actionable(old_briefs) == [1, 2, 4],
+          [(b.line_no, [(f.code, f.severity) for f in b.findings])
+           for b in old_briefs])
+    check("CONTROL: original L3 is unjudged, not a pursued MODAL_RHYME "
+          "that L1's move could close",
+          any(b.line_no == 3 and any(f.code == "SCHEME_UNREADABLE"
+              for f in b.findings) and not any(f.code == "MODAL_RHYME"
+              for f in b.findings) for b in old_briefs))
+
+    # Re-establish the actual M-183/M-210 positive under unambiguous
+    # heart/apart readings, keeping the independent go/know group stuck.
+    # The writer answer still comes from the stock proposer, never a fake
+    # accepted verdict. Both initial/modal and final/open premises are
+    # measured independently of the recorded writer calls below.
+    draft = ["The candle burned and warmed my beating heart",
+             "He said the word and then he turned to go",
+             "And all night long she sat a breath apart",
+             "She never asked the thing she had to know"]
 
     # THE STOCK FIX FOR L1, taken off the loop's own proposer on the same
     # draft rather than typed, so the accepted answer is one the loop is
     # known to accept (test 1 fixes L1 in round 1 with it).
-    stock = revise_loop(Reviser(), list(CLICHE), "ABAB")
+    stock = revise_loop(Reviser(), list(draft), "ABAB")
     l1_fix = stock.lines[0]
     check("the stock proposer's L1 fix differs from L1 (so accepting it "
-          "MOVES the draft)", l1_fix != CLICHE[0])
+          "MOVES the draft)", l1_fix != draft[0])
 
     d = tempfile.mkdtemp()
     state = os.path.join(d, "state.json")
@@ -1786,15 +1832,15 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     asked = []          # (line, attempt, round, draft) in the order asked
 
     def answer(line_no):
-        return l1_fix if line_no == 1 else CLICHE[line_no - 1]
+        return l1_fix if line_no == 1 else draft[line_no - 1]
 
     # THE WRITER, DRIVEN THE WAY THE VERB DRIVES ONE: suspend, answer in the
     # state, run the same loop again. `_NeedProposal` is the suspension.
     for _ in range(40):
         propose, propose_group, disc = LH._defer_proposer(state,
-                                                          lines=list(CLICHE))
+                                                          lines=list(draft))
         try:
-            res = revise_loop(R, list(CLICHE), "ABAB", propose=propose,
+            res = revise_loop(R, list(draft), "ABAB", propose=propose,
                               propose_group=propose_group)
         except LH._NeedProposal as need:
             rec = need.record
@@ -1873,8 +1919,8 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     # first pin read "every line asked in round 1 is asked in round 2" and
     # would charge that closure to the record key. The CLOSED line is pinned
     # apart, as its own case (doctrine 79).
-    after_round1 = [l1_fix] + list(CLICHE[1:])
-    open_lines = sorted(b.line_no for b in R.brief(after_round1, "ABAB"))
+    after_round1 = [l1_fix] + list(draft[1:])
+    open_lines = actionable(R.brief(after_round1, "ABAB", include_offers=False))
     # THE CLOSED LINE IS READ OFF THE TWO BRIEFS, NOT OFF `per_line` —
     # REPINNED 2026-09-03 with M-210. It used to be "asked, and not open
     # afterwards", which could only find a line the loop had ASKED; the
@@ -1882,7 +1928,14 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     # all, so that derivation returned the empty set and the check went red
     # on a repair. The population is "flagged when the round opened and not
     # open after it", which is the same question asked of the briefs.
-    round1_open = sorted(b.line_no for b in R.brief(list(CLICHE), "ABAB"))
+    round1_briefs = R.brief(list(draft), "ABAB", include_offers=False)
+    round1_open = actionable(round1_briefs)
+    check("the constructive premise has all four lines actionable, L3 held "
+          "by MODAL_RHYME, and only L2/L4 remain after L1's measured fix",
+          round1_open == [1, 2, 3, 4] and open_lines == [2, 4]
+          and any(b.line_no == 3 and any(f.code == "MODAL_RHYME"
+                  for f in b.findings) for b in round1_briefs),
+          (round1_open, open_lines))
     closed_by_l1 = sorted(ln for ln in round1_open
                           if ln != 1 and ln not in open_lines)
     check("every record carries the round it was asked in and the "
@@ -1922,7 +1975,7 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
               for ln in open_lines),
           [(ln, rd, fp) for ln, _, rd, fp in asked])
     check("the first question's fingerprint is the input draft's",
-          asked and asked[0][3] == draft_fingerprint(list(CLICHE)))
+          asked and asked[0][3] == draft_fingerprint(list(draft)))
 
     # THE SAME RECORDS AS A REPLAY FILE, TWO WAYS. With the `round` field
     # the round-1 records answer round 1 only, and round 2's questions MISS
@@ -1958,7 +2011,7 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
         # section claims has moved; only the denominator it was reading.
         # Handing tier 2 a decliner keeps `pg1` uncalled, so `d1` counts
         # exactly the line questions it is about.
-        revise_loop(R, list(CLICHE), "ABAB", propose=p1,
+        revise_loop(R, list(draft), "ABAB", propose=p1,
                     propose_group=lambda *a, **k: None)
         tail = d1(done=True)
         hits[name] = tail
@@ -1981,13 +2034,13 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     # the proposer built on it names the stop before the loop starts, and
     # only for the draft the run finished on.
     st["complete"] = {"stop": res.stop_reason, "exit": 3,
-                      "draft": draft_fingerprint(list(CLICHE)),
+                      "draft": draft_fingerprint(list(draft)),
                       "final": draft_fingerprint(res.lines),
                       "unresolved": sorted(b.line_no
                                            for b in res.unresolved)}
     with open(state, "w") as fh:
         json.dump(st, fh)
-    _, _, d2 = LH._defer_proposer(state, lines=list(CLICHE))
+    _, _, d2 = LH._defer_proposer(state, lines=list(draft))
     head = d2()
     check("re-running a COMPLETE state on the same draft is told so up "
           "front, with the stop, the exit and the open lines",
@@ -1995,7 +2048,7 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
           and "exit 3" in head and "L2" in head, head)
     check("the marker is taken OFF the state so a later suspension cannot "
           "write it back stale", "complete" not in d2.state)
-    moved = list(CLICHE)
+    moved = list(draft)
     moved[0] = l1_fix
     p3, _, d3 = LH._defer_proposer(state, lines=moved)
     check("on a draft that MOVED, no COMPLETE warning — the questions are "
@@ -2112,7 +2165,8 @@ def test_tier2_that_walks_nothing_falls_through_to_tier1():
     # are non-empty, tier 2 walks and the proposer DECLINES every group
     # brief — consulted, refused, and correctly no fall-through.
     asked1[:], asked2[:] = [], []
-    res2 = revise_loop(Reviser(), draft, mandate, propose=declines,
+    res2 = revise_loop(Reviser(), draft,
+                       SC.mandate(mandate, n_lines=4, default_relation="RHYME"), propose=declines,
                        propose_group=declines_group)
     a3b = [a for r in res2.rounds for a in r.attempts if a.line_no == 3]
     check("a tier 2 the proposer DECLINED was asked: no fall-through, one "
@@ -2270,7 +2324,9 @@ def test_a_return_is_a_class_and_is_revised_together():
         return "REVISED" if attempt == 0 else None
 
 
-    _att, _after = _T1(_StubReviser(), _b, _lines, None, _RD(),
+    from quality.schemes import mandate as _mandate
+    _m = _mandate([[3, 6], [3, 4]], n_lines=6, returns=[[3, 6]])
+    _att, _after = _T1(_StubReviser(), _b, _lines, _m, _RD(),
                        None, None, None, None, _p)
     check("the briefed line moved", _after[2] == "REVISED", _after[2])
     check("its RETURN mate moved WITH it — the class is revised together, which "

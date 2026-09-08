@@ -1,0 +1,8 @@
+  [ok  ] apparatus            pinned        1  measured        1
+  [ok  ] decided              pinned   125501  measured   125501
+  [ok  ] declared_functions   pinned       22  measured       22
+  [ok  ] typed                pinned    77052  measured    77052
+  [ok  ] undecided            pinned       32  measured       32
+  [ok  ] witnessed            pinned        5  measured        5
+
+RESULT: PASS

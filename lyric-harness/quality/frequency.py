@@ -66,12 +66,41 @@ as someone remembers it. A licence string that only ever gets printed is prose.
 
 import collections
 import os
+import re
 import sys
 from dataclasses import dataclass, field
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 DATA = os.path.join(HERE, "..", "data")
+
+
+def _count_rows(path, header):
+    """Read one declared count table; data keys never masquerade as headers."""
+    seen_header = False
+    with open(path, encoding="utf-8") as stream:
+        for number, line in enumerate(stream, 1):
+            text = line.rstrip("\r\n")
+            if not text or text.startswith("#"):
+                continue
+            cells = tuple(text.split("\t"))
+            where = f"{os.path.basename(path)} line {number}"
+            if not seen_header:
+                if cells != header:
+                    raise ValueError(f"{where}: expected header {header!r}")
+                seen_header = True
+                continue
+            if cells == header:
+                raise ValueError(f"{where}: repeated header")
+            if len(cells) != len(header):
+                raise ValueError(f"{where}: expected {len(header)} columns")
+            if any(not value or value != value.strip() for value in cells[:-1]):
+                raise ValueError(f"{where}: empty or padded count key")
+            if not re.fullmatch(r"[1-9][0-9]*", cells[-1]):
+                raise ValueError(f"{where}: count must be a positive integer")
+            yield cells[:-1], int(cells[-1])
+    if not seen_header:
+        raise ValueError(f"{os.path.basename(path)}: missing count-table header")
 
 #: DOCTRINE 85, AND ONE REGISTRY FOR IT. Imported rather than reimplemented:
 #: `quality/provenance.py` holds the marker vocabulary (`cc-by-nc*` by
@@ -338,21 +367,22 @@ class FrequencyLayer:
         pair = collections.defaultdict(lambda: collections.defaultdict(
             collections.Counter))
         units = set()
-        with open(os.path.join(DATA, "song_endword_en.tsv"), encoding="utf-8") as f:
-            for line in f:
-                if line.startswith("#") or line.startswith("word\t"):
-                    continue
-                w, a, n = line.rstrip("\n").split("\t")
-                end[w][a] += int(n)
-                units.add(a)
-        with open(os.path.join(DATA, "song_rhymepair_en.tsv"), encoding="utf-8") as f:
-            for line in f:
-                if line.startswith("#") or line.startswith("a\t"):
-                    continue
-                a, b, au, n = line.rstrip("\n").split("\t")
-                n = int(n)
-                pair[a][b][au] += n
-                pair[b][a][au] += n
+        for (word, author), count in _count_rows(
+                os.path.join(DATA, "song_endword_en.tsv"), ("word", "author", "count")):
+            if author in end[word]:
+                raise ValueError("song_endword_en.tsv: duplicate word/author row")
+            end[word][author] = count
+            units.add(author)
+        for (a, b, author), count in _count_rows(
+                os.path.join(DATA, "song_rhymepair_en.tsv"), ("a", "b", "author", "count")):
+            if a >= b:
+                raise ValueError("song_rhymepair_en.tsv: pair must have canonical a < b")
+            if author not in end.get(a, {}) or author not in end.get(b, {}):
+                raise ValueError("song_rhymepair_en.tsv: pair lacks its word/author end counts")
+            if author in pair[a][b]:
+                raise ValueError("song_rhymepair_en.tsv: duplicate pair/author row")
+            pair[a][b][author] = count
+            pair[b][a][author] = count
         self._song[key] = (end, pair, units)
         return self._song[key]
 
@@ -564,7 +594,8 @@ LAYER.declare(FrequencySource(
     #: the old reader dropped (`barnes`, `hesper`, `indulgence`). 47 out,
     #: 5 in, all verified by re-running distinct0 at each of the three
     #: commits (13990 -> 13952 -> 13948). The check below is what caught it.
-    n_types=13948,
+    # 2026-09-08: shared normalized reader, explicit one-work population; full rebuild.
+    n_types=13856,
     n_types_from="distinct0:data/song_endword_en.tsv",
     pool="corpus/song/eng_*",
     loo_unit="author",

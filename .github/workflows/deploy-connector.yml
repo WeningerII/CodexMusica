@@ -1,42 +1,20 @@
 name: Deploy connector to Render
 
-# Deploys the MCP connector (render.yaml's `codex-musica-mcp`) — but ONLY after
-# CI passes on main, which is what `autoDeploy: true` could not express.
-#
-# WHAT THIS CLOSES. Two surfaces ship from this repo and until now only one of
-# them was gated. The WEBSITE goes live through sync-pages.yml, which triggers
-# on CI *completion* and publishes only when that run SUCCEEDED — "green before
-# live", enforced in the repo. The CONNECTOR shipped through Render's own
-# `autoDeploy`, which fires on PUSH and knows nothing about GitHub Actions, so
-# a red main reached the live MCP server while the identical red main could not
-# reach the live page. The connector is the surface with the harness inside it
-# (mcp/Dockerfile COPYs lyric-harness and runs it as python3 subprocesses), so
-# it was the half where shipping a red tree costs more, and it was the ungated
-# half.
-#
-# WHY NOT RENDER'S OWN "deploy only after CI passes" TOGGLE. Because it lives
-# in a dashboard. render.yaml already makes this argument against itself, twice
-# — GEMINI_MODEL was pinned here precisely so "the deployed model was whatever
-# the dashboard happened to hold, with no trace anywhere in this repo" stopped
-# being true, and CHAT_DAILY_USD sat disarmed for the same reason. A gate only
-# a dashboard remembers is a gate nobody can review, diff or test.
-#
-# THE ORDERING HAZARD IS REAL AND IS scripts/deploy_guard.sh's SUBJECT: runs
-# are serialized but NOT ordered, so an older run completing last would deploy
-# an older tree and roll the connector backwards. The guard stands the job down
-# when the commit CI validated is no longer main's tip.
+# Promotes the exact qualified image digest to the migrated image-backed service.
+# Desired settings live in mcp/production-config.json; the legacy render.yaml
+# is retained solely for migration reference. See mcp/IMAGE_RELEASE.md.
+# deploy_guard.sh refuses an older commit after main advances.
 
 on:
   workflow_run:
     workflows: ['CI']
     types: [completed]
-    branches: [main] # the branch render.yaml deploys from
+    branches: [main] # only qualified main commits can be promoted
   workflow_dispatch: {}
 
 permissions:
   contents: read
-  # The same-sha guard reads THIS workflow's own run history through the
-  # job's token (scripts/last_deployed_sha.sh, M-187 (b), 2026-09-02).
+  # Exact CI evidence and its tested image artifact are read with the job token.
   actions: read
 
 # Serialized, and NOT cancel-in-progress: a deploy POST that has been accepted
@@ -72,28 +50,16 @@ jobs:
     # would have gone RED on a sha it cannot resolve rather than deployed it,
     # which is noise rather than a hole, and still the wrong answer.
     #
-    # ~~WHAT THIS DOES NOT CLOSE, and why scripts/deploy_guard.sh gained no
-    # same-sha no-op: a RE-RUN of a push's CI run keeps `event == 'push'` and
-    # redeploys its sha once more. Standing that down needs the sha the live
-    # process is SERVING, and nothing in this repository holds it~~ — CLOSED
-    # 2026-09-02 (M-187 (b)) on a weaker and sufficient record: not the sha
-    # the process is SERVING but the sha Render was last ASKED to build, which
-    # this workflow's own run history holds (the last run whose `Deploy` step
-    # concluded success — `scripts/last_deployed_sha.sh`, read with the job's
-    # token under `actions: read`; no secret, service, artifact or variable
-    # added). A re-run of a push's CI run now stands down at the guard. The
-    # Deploy step's ACCEPTED IS NOT DEPLOYED still holds and is still
-    # mcp/check_live.mjs's question; a build Render accepted and then lost is
-    # re-asked by `workflow_dispatch`, which skips the lookup on purpose, and
-    # an unreadable history deploys WITH A WARNING rather than standing down
-    # — an unknown is not a match.
+    # Each verified CI attempt can produce a distinct tested image for the same
+    # commit. A same-SHA receipt cannot stand down that immutable promotion;
+    # serialization and the main-tip ordering guard remain authoritative.
     if: >-
       ${{ github.event_name == 'workflow_dispatch' ||
           (github.event.workflow_run.conclusion == 'success' &&
            github.event.workflow_run.event == 'push' &&
            github.event.workflow_run.head_repository.full_name == github.repository) }}
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 45
     steps:
       # fetch-depth 0 is load-bearing: deploy_guard.sh asks `merge-base` and
       # `rev-list --count` about the distance between two commits, and a
@@ -114,45 +80,59 @@ jobs:
           fi
           echo "sha=$SHA" >> "$GITHUB_OUTPUT"
 
-      # THE LAST SHA RENDER WAS ASKED TO BUILD (M-187 (b), 2026-09-02): read
-      # off this workflow's run history, never guessed. Skipped on a manual
-      # dispatch — the operator re-asking for a sha is the one legitimate way
-      # to deploy an unchanged tree (a build Render accepted and lost). A
-      # history the API will not serve is UNKNOWN: the guard runs without it,
-      # deploys, and this step says so in the log rather than standing down
-      # on a value it never had.
-      - name: What sha was Render last asked to build? (this workflow's own record)
-        id: last
-        if: github.event_name != 'workflow_dispatch'
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Require exact trusted CI evidence, including manual dispatch
         env:
           GH_TOKEN: ${{ github.token }}
+          TESTED_SHA: ${{ steps.sha.outputs.sha }}
+        id: evidence
         run: |
-          set +e
-          LAST=$(scripts/last_deployed_sha.sh)
-          rc=$?
-          set -e
-          if [ "$rc" -ne 0 ]; then
-            echo "WARNING — the run history could not be read (exit $rc); the same-sha"
-            echo "  check will NOT run and this commit deploys as before. Unknown is not a match."
-            LAST=""
-          fi
-          echo "last accepted deploy: ${LAST:-none on record}"
-          echo "last=$LAST" >> "$GITHUB_OUTPUT"
+          node scripts/verify_ci.mjs "$TESTED_SHA" --production > verified-ci.json
+          echo "run_id=$(node -p 'JSON.parse(require("fs").readFileSync("verified-ci.json")).run_id')" >> "$GITHUB_OUTPUT"
+          echo "qualification_run_id=$(node -p 'JSON.parse(require("fs").readFileSync("verified-ci.json")).qualification.run_id')" >> "$GITHUB_OUTPUT"
+          echo "qualification_attempt=$(node -p 'JSON.parse(require("fs").readFileSync("verified-ci.json")).qualification.run_attempt')" >> "$GITHUB_OUTPUT"
+          echo "release_id=${{ github.repository_id }}:$(node -p 'JSON.parse(require("fs").readFileSync("verified-ci.json")).run_id'):$(node -p 'JSON.parse(require("fs").readFileSync("verified-ci.json")).run_attempt'):lyrics-image" >> "$GITHUB_OUTPUT"
+
+      - name: Download the exact verified run's image manifest
+        uses: actions/download-artifact@v4
+        with:
+          name: lyrics-image
+          run-id: ${{ steps.evidence.outputs.run_id }}
+          github-token: ${{ github.token }}
+          path: verified-image
+
+      - name: Download the complete qualification from its verified attempt
+        uses: actions/download-artifact@v4
+        with:
+          name: production-qualification-${{ steps.evidence.outputs.qualification_attempt }}
+          run-id: ${{ steps.evidence.outputs.qualification_run_id }}
+          github-token: ${{ github.token }}
+          path: verified-qualification
+
+      - name: Bind complete qualification to the tested image source
+        run: node scripts/verify_qualification.mjs verified-qualification/qualification.json verified-image/lyrics-image.json verified-ci.json
+
+      - name: Require immutable image promotion configuration
+        env:
+          IMAGE_REPOSITORY: ${{ vars.RENDER_IMAGE_REPOSITORY }}
+          TESTED_SHA: ${{ steps.sha.outputs.sha }}
+          VERIFIED_RELEASE_ID: ${{ steps.evidence.outputs.release_id }}
+        run: |
+          node scripts/image_release.mjs url verified-image/lyrics-image.json "$TESTED_SHA" "$IMAGE_REPOSITORY" "$VERIFIED_RELEASE_ID" > image-url.txt
 
       # THREE ANSWERS, NEVER COLLAPSED (the shape mcp/check_live.mjs uses):
-      # 0 DEPLOY, 10 STAND DOWN — a newer commit's run will deploy, or Render
-      # has already been asked for exactly this tree — and any other code a
+      # 0 DEPLOY, 10 STAND DOWN — a newer commit's run will deploy — and any other code a
       # real error. A stand-down is not a failure and must not paint the run
       # red, or people learn to ignore the colour. The guard's own first line
       # is carried to the Stood down step so the reason is the guard's, not a
       # paraphrase.
-      - name: May this commit be deployed? (the ordering guard, then the same-sha guard)
+      - name: May this verified image be deployed? (the main ordering guard)
         id: guard
-        env:
-          LAST_DEPLOYED_SHA: ${{ steps.last.outputs.last }}
         run: |
           set +e
-          out=$(BUILT_SHA="${{ steps.sha.outputs.sha }}" scripts/deploy_guard.sh --verbose 2>&1)
+          out=$(LAST_DEPLOYED_SHA="" BUILT_SHA="${{ steps.sha.outputs.sha }}" scripts/deploy_guard.sh --verbose 2>&1)
           rc=$?
           set -e
           echo "$out"
@@ -176,30 +156,29 @@ jobs:
           if [ -z "$HOOK" ]; then
             echo "REFUSED — the repository secret RENDER_DEPLOY_HOOK_URL is unset."
             echo
-            echo "  render.yaml sets autoDeploy: false, so this workflow is the ONLY"
+            echo "  The migrated service must disable alternate deployment routes. This is the"
             echo "  path to a deploy. With no hook the connector silently stops"
             echo "  tracking main — which the nightly's mcp/check_live.mjs would"
             echo "  eventually report as DRIFT, hours later and one layer away."
             echo
-            echo "  Render dashboard -> codex-musica-mcp -> Settings -> Deploy Hook,"
+            echo "  Render dashboard -> migrated IMAGE-backed service -> Settings -> Deploy Hook,"
             echo "  then add the URL as the repository secret RENDER_DEPLOY_HOOK_URL."
             exit 1
           fi
 
-      # `?ref=` pins the deploy to the exact commit CI validated. THE GUARD IS
-      # WHAT MAKES THIS SAFE RATHER THAN THE PARAMETER: it has just established
-      # that this sha IS main's tip, so a Render that honours `ref` and a Render
-      # that ignores it and builds the branch tip deploy the same tree. The
-      # parameter narrows the window between the guard and the build; it is not
-      # what the correctness rests on.
+      # Promote exactly the image tested in the verified run. The ordering guard
+      # prevents a completed older run from rolling the service back.
       - name: Deploy
         if: steps.guard.outputs.go == 'yes'
         env:
           HOOK: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
           SHA: ${{ steps.sha.outputs.sha }}
         run: |
-          sep='?'; case "$HOOK" in *\?*) sep='&';; esac
-          code=$(curl -sS -o /tmp/deploy.json -w '%{http_code}' -X POST "${HOOK}${sep}ref=${SHA}")
+          # This hook must belong to an image-backed service configured for the
+          # same repository. Render rejects imgURL on mismatched repositories.
+          image_url=$(cat image-url.txt)
+          code=$(curl --max-time 60 -sS -o /tmp/deploy.json -w '%{http_code}' --get \
+            --data-urlencode "imgURL=$image_url" -X POST "$HOOK")
           echo "HTTP $code"
           cat /tmp/deploy.json 2>/dev/null || true
           echo
@@ -209,9 +188,22 @@ jobs:
             exit 1
           fi
           echo "Render accepted a deploy of $SHA."
-          echo "  ACCEPTED IS NOT DEPLOYED: this is the build being queued, not"
-          echo "  finished. What checks that the live process actually matches"
-          echo "  this tree is mcp/check_live.mjs in the nightly."
+          echo "Waiting for the live identity, readiness and configuration checks below."
+
+      - name: Verify the deployed runtime
+        if: steps.guard.outputs.go == 'yes'
+        env:
+          TESTED_SHA: ${{ steps.sha.outputs.sha }}
+        run: |
+          npm --prefix mcp ci --no-audit --no-fund
+          deadline=$((SECONDS + 1800))
+          until node mcp/check_live.mjs --commit="$TESTED_SHA" --ready --config=render --image-manifest=verified-image/lyrics-image.json; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo '::error::Render did not serve the verified commit and configuration within 30 minutes'
+              exit 1
+            fi
+            sleep 30
+          done
 
       - name: Stood down
         if: steps.guard.outputs.go == 'no'

@@ -1,0 +1,88 @@
+
+1. the sweep repairs nothing, and that is mechanical
+  PASS  no live string literal contains '--write'
+          []
+  PASS  no live string literal contains '--rebaseline'
+          []
+  PASS  no live string literal contains '--adopt'
+          []
+  PASS  no live string literal contains '--fix'
+          []
+  PASS  no live string literal contains '--repair'
+          []
+  PASS  the guard examined a real body of literals
+          98 live string constants
+  PASS  every `--` literal in the module is declared, and none of them reaches a suite
+          []
+  PASS  ...and the declaration is not padding: every allowed flag is actually present in the module
+          []
+
+2. discovery is a scan, and every exclusion carries its reason
+  PASS  the sweep finds a substantial population -- an empty one would make every check below pass on nothing (doctrine 20)
+          96 suites
+  PASS  every discovered suite exists on disk
+  PASS  every EXCLUDED key names a file that exists
+          []
+  PASS  every exclusion carries a written reason, not a bare name
+          []
+  PASS  nothing is both discovered and excluded
+  PASS  every SUITE_TIMEOUT key names a file that exists
+          []
+  PASS  this suite is itself in the population -- a sweep that skips its own regressions is the shape it exists to find
+
+3. the three verdicts are each reachable, on constructed suites
+  PASS  a clean suite is PASS
+          PASS
+  PASS  a red suite is FAIL and its OWN words are the evidence
+          ['FAIL  a thing']
+  PASS  a suite that exceeds its bound is CANNOT RUN, NOT FAIL
+          CANNOT RUN
+  PASS  a bound and a red check do not return the same verdict
+          CANNOT RUN vs FAIL
+  PASS  the bound is NAMED in the evidence, with its size
+          ['exceeded the 1s bound with no check printed red -- inconclusive, NOT a pass (doctrine 20)']
+  PASS  a sweep of all three reports one of each, kept apart
+          {'PASS': 1, 'FAIL': 1, 'CANNOT RUN': 1}
+
+3b. a red check printed BEFORE the bound is still red
+  PASS  a suite that printed FAIL and then timed out is FAIL, not CANNOT RUN
+          FAIL
+  PASS  the suite's own red check survives the bound as evidence
+          ['printed 1 FAIL line(s) BEFORE exceeding the 3s bound -- this much is red, and the REST of the suite is unknown', 'FAIL  a check that ran and was red']
+  PASS  and the run is disclosed as INCOMPLETE, not merely failed
+          ['printed 1 FAIL line(s) BEFORE exceeding the 3s bound -- this much is red, and the REST of the suite is unknown', 'FAIL  a check that ran and was red']
+  PASS  a silent timeout is still CANNOT RUN
+          CANNOT RUN
+
+4. a crash is FAIL; only the sweep's own blindness is CANNOT RUN
+  PASS  an import error is FAIL, not CANNOT RUN
+          FAIL
+  PASS  it says it CRASHED rather than failed a check, since no check was ever printed
+          ['    import quality_module_that_is_not_there', "ModuleNotFoundError: No module named 'quality_module_that_is_not_there'"]
+
+5. a suite that prints FAIL and exits 0 is caught and named
+  PASS  the printed check wins over the exit code
+          FAIL at exit 0
+  PASS  the disagreement is recorded as its own fact
+  PASS  and the evidence says CI would have missed it
+          ['this suite printed 1 FAIL line(s) AND EXITED 0 -- CI would not have caught it', 'FAIL  something real']
+  PASS  an honestly-failing suite is not flagged as disagreeing
+
+6. main calls sweep(), and the population is re-read at the end
+  PASS  main calls sweep() rather than walking the suites itself
+          ['_summarise', 'bool', 'discover', 'head_revision', 'len', 'print', 'sorted', 'sum', 'sweep']
+  PASS  main asks the tree TWICE -- once to plan, once to disclose
+          2 discover() calls in main
+  PASS  the summary can say the tree grew under the run
+
+7. the sweep says WHICH tree it graded, not only how many
+  PASS  read from a checkout, the revision is a short hash
+          '1e68fb89'
+  PASS  outside a checkout it answers '' rather than raising
+          "''" / ''
+  PASS  ...and it writes NOTHING to stderr — a failed probe must not leave a line a later reader can mistake for a cause
+          ''
+  PASS  the summary can say the tree MOVED under the run
+
+======================================================================
+the sweep tells a red check, a crash, a bound and a lie apart

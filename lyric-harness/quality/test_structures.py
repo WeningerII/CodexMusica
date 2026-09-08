@@ -185,6 +185,9 @@ def test_grade_routing():
     # here by name — the kalevala pair is then judged by the scalar
     # comparator, B lands in violations, and the verdict's structure key
     # goes None under a declared coordinate.
+    # Current whole-vocabulary default (2026-09-08): that B pair is unresolved
+    # rather than a false violation. The routing control still fails because
+    # a named answered verdict is required below.
     from quality import schemes as SC
     R = _reviser()
     lines = ["the night was cold and bright",
@@ -195,9 +198,11 @@ def test_grade_routing():
                    structures={"B": "kalevala-alliteration"})
     rep = R.grade(lines, m)
     check("sun/silver SATISFY the declared alliteration (onset S at the "
-          "head anchor) — no B violation, where the default end-rhyme "
-          "question fails the same pair",
-          not any(v["label"] == "B" for v in rep["violations"]),
+          "head anchor), while the broad default leaves this pair unresolved",
+          len([v for v in rep["verdicts"] if v["label"] == "B"
+               and v["why"] is None]) == 1
+          and not any(v["label"] == "B" for v in rep["violations"])
+          and not any(r["lines"] == (3, 4) for r in rep["refusals"]),
           [v["label"] for v in rep["violations"]])
     check("every verdict names the judge that answered — the row under a "
           "declared coordinate, the sentinel for its default groups",
@@ -205,11 +210,15 @@ def test_grade_routing():
           == {"A": ST.DEFAULT, "B": "kalevala-alliteration"})
     m0 = SC.mandate([[1, 2], [3, 4]], n_lines=4)
     rep0 = R.grade(lines, m0)
-    check("CONTROL — the same draft under the same groups with no "
-          "structures declared: B is a violation (sun/silver do not "
-          "end-rhyme) and the structure key is None on every verdict, "
-          "so no pre-catalog path moved",
-          any(v["label"] == "B" for v in rep0["violations"])
+    check("CONTROL — the same default B pair remains explicitly unresolved; "
+          "the named alliteration above answers a different declared question",
+          {tuple(r['lines']) for r in rep0['refusals']} == {(3, 4)}
+          and all(not r['unreadable'] and 'unresolved in schema' in r['reason']
+                  for r in rep0['refusals'])
+          and {v['label'] for v in rep0['verdicts']} == {'A'}
+          and not rep0['violations']
+          and (rep0["pairs_mandated"], rep0["pairs_judged"], rep0["pairs_refused"])
+          == (2, 1, 1)
           and all(v["structure"] is None for v in rep0["verdicts"]))
     lines_f = lines[:2] + ["the moon above the bay", "we danced the night "
                            "away"]

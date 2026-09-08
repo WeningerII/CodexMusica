@@ -1,0 +1,259 @@
+
+1. Six families, six refusals, each naming what it needs
+  PASS  all six probes refuse on an empty registry
+          ['R1', 'R2', 'R3', 'R4', 'R5', 'R6'] -> ['Refusal', 'Refusal', 'Refusal', 'Refusal', 'Refusal', 'Refusal']
+  PASS  R1 names 'orthography' in its refusal
+          NEEDS   orthography: Orthography(system, edition, vowel_letters, spellings|token_is_printed, source)
+  PASS  R2 names 'dated phonology' in its refusal
+          NEEDS   a dated phonology: PeriodPhonology(phonology with .syllabify(), language, period, reconstruction, source)
+  PASS  R3 names 'sense annotation' in its refusal
+          NEEDS   a sense annotation, per OCCURRENCE: SenseAnnotation(senses={(line, token): sense_id}, inventory, annotator, source)
+  PASS  R4 names 'referent chain' in its refusal
+          NEEDS   a referent chain, pair-keyed: SlangRegister(elisions={clipped: phrase}, expansions={phrase: referent}, tradition, source)
+  PASS  R5 names 'beat grid' in its refusal
+          NEEDS   a beat grid and a syllable-to-beat map: BeatGrid(cycle=meter.Cycle(...with groups...), positions={(line, syl): Fraction}, derived_from, tempo_bpm, source)
+  PASS  R6 names 'tone channel' in its refusal
+          NEEDS   a tone channel (and, separately, a contour map): ToneChannel(tones={word: (label, ...)}, contours={label: shape}, system, source)
+  PASS  R1 states its status and that this is not a 'no'
+  PASS  R2 states its status and that this is not a 'no'
+  PASS  R3 states its status and that this is not a 'no'
+  PASS  R4 states its status and that this is not a 'no'
+  PASS  R5 states its status and that this is not a 'no'
+  PASS  R6 states its status and that this is not a 'no'
+
+2. THE LOAD-BEARING ONE: a refusal cannot be read as a negative
+  PASS  attempt() returns a Refusal, not False
+  PASS  bool(refusal) RAISES rather than returning False
+          `if not result:` is the line that would silently turn 'no input' into 'does not rhyme'; it is made impossible, not discouraged
+  PASS  `not refusal` raises too
+  PASS  refusal == False is False
+  PASS  refusal == True is False
+  PASS  refusal == None is False
+  PASS  refusal != False
+  PASS  R1 returns no verdict at all with its input absent
+  PASS  R2 returns no verdict at all with its input absent
+  PASS  R3 returns no verdict at all with its input absent
+  PASS  R4 returns no verdict at all with its input absent
+  PASS  R5 returns no verdict at all with its input absent
+  PASS  R6 returns no verdict at all with its input absent
+  PASS  the refusal carries the full message for a caller to print
+  PASS  an UNDECIDED verdict also refuses bool() — None is not False
+  PASS  a decided verdict is an ordinary boolean
+
+3. Not-yet-built vs not-computable, machine-readable
+  PASS  three scheduled, three permanent
+  PASS  R1 SCHEDULED names the work that ends the refusal
+          a grapheme rung on the stream (RHYME_COVERAGE.md M1, prototyped there) plus an...
+  PASS  R2 SCHEDULED names the work that ends the refusal
+          a SOURCED dated phonology in the shape of quality/phonology/ltc.py — a lookup ...
+  PASS  R6 SCHEDULED names the work that ends the refusal
+          a `tone` field on quality.phonology.Syllable plus a tone-bearing phonology mod...
+  PASS  R3 PERMANENT has route OUTSIDE and no schedule
+          two identical strings are identical in every channel a phonology reads; the se...
+  PASS  R4 PERMANENT has route OUTSIDE and no schedule
+          the constitutive member is ABSENT FROM THE TEXT. 'plates of meat' rhymes 'feet...
+  PASS  R5 PERMANENT has route OUTSIDE and no schedule
+          there is no audio, so isochrony is an assumed coordinate and 'on the beat' is ...
+  PASS  a SCHEDULED family with an empty schedule is REFUSED
+          a schedule with nothing on it is an impossibility wearing a date
+  PASS  a PERMANENT family with a route is REFUSED
+          calling unscheduled work impossible is the other half of the error
+  PASS  R1 and R6 record a PERMANENT residue inside a SCHEDULED shell
+  PASS  R5 is permanent for the MEASUREMENT and says the plumbing is not
+
+4. The slots ship EMPTY, and an unsourced fill is refused
+  PASS  Orthography REFUSES construction with no source
+  PASS  Orthography constructs with one
+  PASS  PeriodPhonology REFUSES construction with no source
+  PASS  PeriodPhonology constructs with one
+  PASS  SenseAnnotation REFUSES construction with no source
+  PASS  SenseAnnotation constructs with one
+  PASS  SlangRegister REFUSES construction with no source
+  PASS  SlangRegister constructs with one
+  PASS  BeatGrid REFUSES construction with no source
+  PASS  BeatGrid constructs with one
+  PASS  ToneChannel REFUSES construction with no source
+  PASS  ToneChannel constructs with one
+  PASS  the R2 period slot is empty and says what would fill it
+  PASS  ...and names the shape that would fill it, not just the gap
+  PASS  an Orthography with no declared vowel letters is refused
+          the eye-rime runs to the last vowel LETTER and which those are is a property of the writing system
+  PASS  an Orthography with no named edition is refused
+  PASS  a PeriodPhonology with no period is refused
+  PASS  a PeriodPhonology over a word list (no .syllabify) is refused
+  PASS  a WORD-KEYED sense map is refused at construction
+          antanaclasis is ONE word with TWO senses; a word-keyed map assigns it one and could only ever report False
+  PASS  a BeatGrid with an unstated derivation is refused
+  PASS  a BeatGrid over a bare signature (no meter.Cycle) is refused
+
+5. R1 · eye rhyme — the printed form of sonnet 116's couplet
+  PASS  the couplet is read from corpus/sonnets.txt, not typed here
+          line 2005: 'prov’d' / 'lov’d'
+  PASS  'prov’d'/'lov’d' IS an eye rhyme once the orthography is declared
+          R1 eye rhyme: YES — spelling 'prov’d'/'lov’d' -> rime 'ov’d'/'ov’d' agrees; sound differs by generic (onset, nucleus, coda) channels [from: Project Gutenberg #1041 (corpus/sonnets.txt) — a modern-spelling setting that keeps the elision apostrophes; NOT the 1609 quarto, and the verdict is relative to THIS printing (data/sources.tsv 48:gutenberg:shakespeare-sonnets)]
+  PASS  the verdict carries the edition it is relative to
+  PASS  love/glove is NOT an eye rhyme — it sounds
+          spelled alike AND sounds alike is a rhyme, not an eye rhyme
+  PASS  move/prove is NOT an eye rhyme — same reason
+  PASS  love/move IS one in the declared General American coordinate
+          CLAUDE.md already records love/prove as CONSONANCE in this dialect; R1 says what the EYE does with the same pair, and R2 asks what an earlier dialect did
+  PASS  said/maid IS one — 'aid' printed twice, EH D against EY D heard
+          written here as a NEGATIVE first; the code was right and the expectation was wrong, which is the check earning its place
+  PASS  love/night is NOT one — the spelled rimes differ
+          sounding apart is only half of it; eye rhyme needs the LOOK to agree, and 'ove' is not 'ight'
+  PASS  a word with no printed form REFUSES and names the word
+  PASS  with a spelling but NO phonology it refuses the second half
+          eye rhyme is a CONJUNCTION: spelled alike AND does not sound alike; half a conjunction is not a verdict
+  PASS  a MODERNISED edition is refused outright (doctrine 50)
+          normalising the spelling destroys the only channel this question reads
+  PASS  SYLLABLE granularity refuses on the CMUdict path — PERMANENTLY
+          Syllable.text is empty there, so no grapheme-to-syllable alignment exists and inventing one puts letters in syllables no phonology put there
+
+6. R2 · historical rhyme — on the one dated phonology in the repo
+  PASS  with nothing declared it refuses and names the input
+  PASS  流/樓 rhyme under the declared period
+          R2 historical rhyme: YES — '流'/'樓' under ltc as of 切韻 system, c. 601 CE, as authorised by Tang 同用 practice, by rhyme category = (韻部 under a DECLARED standard, 聲) [from: data/qieyun_mc.tsv, extracted from nk2028/qieyun-python, 19,499 characters (CC0 1.0 public-domain dedication; see quality/phonology/ltc.py)] CONDITIONAL ON: the 切韻 system, c. 601 CE, as authorised by Tang 同用 practice reconstruction — a declared coordinate, not a measurement
+  PASS  the verdict is stamped CONDITIONAL ON the reconstruction
+          a dated phonology is a declared coordinate, not a measurement
+  PASS  the GENERIC channel comparison still gets the same pair WRONG
+          raw 切韻 classes are finer than any poet worked to (doctrine 36); 流/樓 is the rhyme of 登鸛雀樓
+  PASS  ...but the DEFAULT path now consults the phonology and gets it right
+          the producer asks a phonology that declares the relation; R2's job is narrower than it was, and this line records how much
+  PASS  consulting does not manufacture a rhyme where there is none
+          東 and 冬鐘 are different 同用 groups under the same consultation
+  PASS  ...so R2 asks the phonology in ITS OWN declared relation
+          '流'/'樓' under ltc as of 切韻 system, c. 601 CE, as authorised by Tang 同用 practice, by rhyme category = (韻部 under a DECLARED standard, 聲)
+  PASS  a real non-rhyme still comes back False, not a refusal
+          東 and 冬鐘 are different 同用 groups
+  PASS  a character outside the rime book is UNDECIDED, not False
+  PASS  the named slot is separate and still empty
+  PASS  a sourced period phonology registers by name
+
+7. R3 · antanaclasis — one word, two senses, per OCCURRENCE
+  PASS  a real repeated word is found in corpus/sonnets.txt
+          line 1994: 'Admit impediments. Love is not love'
+  PASS  with no sense at that occurrence it REFUSES and names it
+          ABSENT  no sense annotated at occurrence (1994, 2) (word 'Love')
+  PASS  ...and says the gap is PERMANENT, not scheduled
+  PASS  two senses at two occurrences of one word -> YES
+          R3 antanaclasis: YES — 'Love' at (1994, 2) is sense 'affection.N', at (1994, 5) is sense 'beloved-person.N' [from: STRUCTURE DEMO inventory — two ids, not a dictionary, and not a reading of this sonnet offered as evidence, annotated by STRUCTURE DEMO (STRUCTURE DEMO, not an annotation set)]
+  PASS  the same sense twice -> NO (that is repetition, doctrine 3)
+  PASS  two different words -> NO, and it says why
+  PASS  the verdict names the inventory that numbered the senses
+  PASS  the annotation is keyed by OCCURRENCE, so one word holds two
+
+8. R4 · rhyming slang — the member that is not in the text
+  PASS  an unregistered term REFUSES and names where the chain stopped
+          ABSENT  'plates' resolves no further than 'plates'
+  PASS  ...and says the referent is ABSENT FROM THE TEXT
+  PASS  the two-hop chain resolves and the rhyme is CHECKED, not assumed
+          R4 rhyming slang: YES — chain plates -> plates of meat -> feet; 'meat'/'feet' rhymes; target 'feet' matches the referent [from: Cockney rhyming slang (STRUCTURE DEMO — the single example named in quality/RHYME_COVERAGE.md §5, not a glossary)]
+  PASS  the chain is reported so a reader can audit each hop
+  PASS  a wrong target is False, not a refusal
+  PASS  a register entry whose rhyme does NOT hold is reported False
+          the register attests the convention; the phonology checks the sound
+  PASS  PERMANENT means per-case: a SECOND phrase still refuses
+          one declaration ends the refusal for one term and never in general — that is the difference from a scheduled gap
+  PASS  the register is pair-keyed, so it need not be transitive
+          RHYME_COVERAGE.md M8: every f(read(a), read(b)) predicate is an equivalence relation and attestation is not one
+
+9. R5 · offbeat — a declared grid, never a measured one
+  PASS  with nothing declared it names the grid AND the syllable map
+  PASS  ...and says the measurement is permanently out of reach
+  PASS  pulse 3 of 7/8 as 2+2+3 is OFF the beat (starts 0,2,4)
+          R5 offbeat: YES — syllable (0, 4) at pulse 3 of 7/8 (Fraction(2, 1), Fraction(2, 1), Fraction(3, 1)); group starts (0, Fraction(2, 1), Fraction(4, 1)) [from: asserted grid (STRUCTURE DEMO — an asserted grid, not a measurement)] CONDITIONAL ON: an ASSERTED grid — isochrony is not measured here, so this verdict is a function of the declaration (CLAUDE.md doctrine 4)
+  PASS  pulse 4 is ON it
+  PASS  the grid wraps: pulse 11 is pulse 4 of the next cycle
+  PASS  an ASSERTED grid stamps every verdict CONDITIONAL
+          isochrony is not measured here, so the verdict is a function of the declaration (doctrine 4)
+  PASS  a grid derived from audio carries no such condition
+  PASS  an unmapped syllable REFUSES and names the map (MISSING.md G-1)
+  PASS  an UNDECLARED GROUPING refuses instead of assuming one
+          7/8 has 64 orderings; meter.pulse_groups() returns None rather than asserting 2+2+3, and so does this
+
+10. R6 · tone — a category is not a contour
+  PASS  with nothing declared it names the tone channel
+  PASS  the channel is built from the SOURCED rime book, not from memory
+          {'流': ('平',), '樓': ('平',), '侯': ('平',), '日': ('入',), '月': ('入',)}
+  PASS  two 平 characters agree on tone CATEGORY
+  PASS  平 against 入 does not
+  PASS  two 入 characters agree even across rhyme groups
+  PASS  the CONTOUR question refuses separately and names the map
+  PASS  ...and says why that half never becomes a measurement here
+          two categories can share a contour and the mapping is period-specific
+  PASS  with a declared contour map the contour question answers
+  PASS  a word outside the channel REFUSES and names it
+  PASS  the tone channel is a DECLARATION, not a Syllable field
+          MISSING.md F-2 — closing R6 means adding the field, which is ordinary scheduled work
+
+11. The boundary file carries no language data
+  PASS  declared_inputs imported neither lyric_harness nor cmudict
+          it takes the caller's phonology, exactly as rhyme_types does, so a Welsh or Persian boundary lands in the same six families
+  PASS  the registry starts and ends empty
+  PASS  the capability report carries R1
+  PASS  the capability report carries R2
+  PASS  the capability report carries R3
+  PASS  the capability report carries R4
+  PASS  the capability report carries R5
+  PASS  the capability report carries R6
+  PASS  the report fires every refusal rather than describing it
+  PASS  the report states the scheduled/permanent split in one line
+
+12. §12 · a frequency table's licence GATES, it does not decorate
+  PASS  frequency.py uses provenance.py's OWN marker function, not a copy
+          doctrine 85 binds in every language; it has to bind in every registry too, and that is an identity check, not a similarity one
+  PASS  a restricted source still DECLARES — the row is a record, not a hole
+          refusing the declaration would train the next session to delete the row rather than write it; the refusal belongs at SERVICE
+  PASS  ...and REFUSES to be served, by identifier prefix
+          cell 'demo-nc': 'file:nowhere.tsv' carries an express non-commercial restriction ('cc-by-nc-sa-4
+  PASS  the refusal names the cell, the marker and the doctrine
+  PASS  ...and says there is NO override, unlike the scoring refusal
+          a pool dependence is cured by naming what you score; a restriction in the GRANT is not cured by anything said at the call site
+  PASS  the refusal quotes the licence, so the reason travels with it
+  PASS  the prose prohibition doctrine 85 was written about refuses too
+          4,347 ci and 734 樂府 were refused on this exact string by a human reading it; a table carrying it is refused by the code
+  PASS  `conditional()` refuses on the licence as well as `ranks()`
+          both routes reach a source through `source_for` and nowhere else, so the question is asked once — the shape provenance.admit uses to put doctrine 85 ahead of all three of its admitting routes
+  PASS  ...and it refuses BEFORE any file is opened
+          a licence refusal that first reads the data has already done the thing it was refusing
+  PASS  a row DESCRIBING an absent NC clause is not refused for saying so
+          the guard lives in provenance.py and comes along with the import; it did not have to be rewritten here, which is the point
+  PASS  eng-spoken (MIT) still serves, unchanged
+          50,000 types; moon rank 1137, yahoo rank 15632
+  PASS  eng-song's conditional still serves — the ONE table anything reads
+          P(partner|'night') top 6: ['light', 'bright', 'sight', 'delight', 'white', 'flight']
+  PASS  ...and its own pool refusal is untouched by the licence gate
+          doctrine 13's refusal and doctrine 85's are separate questions and stay separate exceptions
+  PASS  wordfreq cell 'fi' is not refused
+  PASS  wordfreq cell 'ces' is not refused
+  PASS  wordfreq cell 'nl' is not refused
+  PASS  wordfreq cell 'spa' is not refused
+  PASS  wordfreq cell 'he' is not refused
+  PASS  wordfreq cell 'ar' is not refused
+  PASS  wordfreq cell 'ja' is not refused
+  PASS  wordfreq cell 'ta' is not refused
+  PASS  ...because CC BY-SA carries no non-commercial term
+          'Apache-2.0 (code) / CC BY-SA 4.0 (data)' — SA is a share-alike obligation, not a commercial-use prohibition, and conflating them would strip eight cells for a clause they do not carry
+  PASS  the shipped registry has ZERO licence refusals, and that is stated
+          eng-web quotes 'I do not recommend using this data for commercial purposes WITHOUT LICENSING IT from the LDC' — a redistributor's recommendation with a route through it, not one of the unambiguous prohibitions NONCOMMERCIAL_PROSE is restricted to. Widening that vocabulary is a change to provenance.py and data/sources.tsv, which is what having one registry MEANS
+  PASS  the count is printed on every run, zero or not
+          a gate that fires on nothing must still say so: silence is indistinguishable from a gate that is not there
+  PASS  ...and eng-web is still LISTED, refusal or none
+
+15. every field of every `*Declaration` is READ by something (FIXED 2026-08-15)
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:263: SyntaxWarning: invalid escape sequence '\d'
+<unknown>:104: SyntaxWarning: invalid escape sequence '\`'
+  PASS  the declarations are found at all — a census that reads nothing reports no defects and looks identical to a clean one
+          8 declaration classes, 94 fields
+  PASS  no `*Declaration` field is referenced ONLY by the line that declares it — doctrine 1's tuple cannot locate a disagreement in a coordinate nothing consults
+          8 declarations, 94 fields; DEAD: none
+  PASS  REPEAT and RIME_RICHE are decided by EXACT identity, which is why no threshold governs them
+          REPEAT / RIME_RICHE
+  PASS  and `rhyme_constraints.Declaration` no longer offers a `tie_break` knob for a rule its own code fixes
+          ['anchors', 'caesura', 'channels', 'language', 'notes', 'phonology', 'surfaces']
+  PASS  the stated tie-break is the one the code actually takes — equal keys settle on the LOWEST index (doctrine 66)
+          stable `sorted` and first-maximum `max`
+==============================================================
+all declared-input regressions pass

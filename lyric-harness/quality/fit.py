@@ -103,6 +103,7 @@ import math
 import os
 import re
 import sys
+import unicodedata
 from dataclasses import dataclass, field
 from fractions import Fraction
 
@@ -110,7 +111,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 if os.path.join(HERE, "..") not in sys.path:
     sys.path.insert(0, os.path.join(HERE, ".."))
 
-from quality.meter import Cycle, section_meter  # noqa: E402
+from quality.meter import (Cycle, section_meter, validate_blueprint,  # noqa: E402
+                           exact_number, exact_integer, guard_expansion,
+                           MAX_FIT_DP_CELLS)
 
 # ---------------------------------------------------------------------------
 # REFUSALS — the same discipline as quality/declared_inputs.py, one layer over
@@ -179,6 +182,7 @@ class FitRefusal:
 
     def __str__(self):
         return self.render()
+
 
 
 def _no_tempo(question):
@@ -410,13 +414,22 @@ def _chunks(text, strip_parens=True):
     off a chunk that starts or ends with one, so a whole-line parenthetical
     like `(we'll sing along)` reads its words normally once the blanket
     erasure is skipped."""
-    t = re.sub(r"\([^)]*\)", " ", str(text)) if strip_parens else str(text)
-    out = []
-    for raw in t.split():
-        s = raw.strip("\"'‘’“”.,;:!?()[]{}—–-")
-        if s:
-            out.append(s)
-    return out
+    t = _sung_text(text, strip_parens)
+    out, word = [], []
+    for c in t:
+        if unicodedata.category(c)[0] in "LMN" or (word and c in "'’‑-"):
+            word.append(c)
+        elif word:
+            out.append("".join(word).strip("'’‑-"))
+            word = []
+    if word:
+        out.append("".join(word).strip("'’‑-"))
+    return [w for w in out if w]
+
+
+def _sung_text(text, strip_parens=True):
+    text = unicodedata.normalize("NFC", str(text))
+    return re.sub(r"\([^)]*\)", " ", text) if strip_parens else text
 
 
 def _resolve_prominence(p):
@@ -484,10 +497,13 @@ def read_line(text, phon=None, strip_parens=True):
     """
     from quality import phonology as PH
     phon = phon or PH.get("eng")
+    if hasattr(phon, "for_line"):
+        phon = phon.for_line(text)
     unit_name = "mora" if str(phon.grid_unit).startswith("mora") else "syllable"
     prom_refusal = _probe_prominence(phon)
 
-    chunks = _chunks(text, strip_parens=strip_parens)
+    sung_text = _sung_text(text, strip_parens)
+    chunks = _chunks(sung_text, strip_parens=False)
     refused = []
     for c in chunks:
         if _HAS_DIGIT.search(c):
@@ -500,8 +516,17 @@ def read_line(text, phon=None, strip_parens=True):
                 "raises no refusal. The count without it is a LOWER BOUND."))
 
     units = []
-    if hasattr(phon, "syllabify_line"):
-        sylls = phon.syllabify_line(text)
+    if hasattr(phon, "analyse_line"):
+        analysis = phon.analyse_line(sung_text)
+        chunks = list(analysis.tokens)
+        for _, token in analysis.refused:
+            refused.append(RefusedToken(token, "UNREADABLE", "line phonology refused this token"))
+        for i, (syllable, token_index) in enumerate(zip(analysis.syllables, analysis.token_indices)):
+            units.append(Unit(i, syllable.text, analysis.tokens[token_index], token_index,
+                              _resolve_prominence(syllable.prominence),
+                              _resolve_prominence(syllable.moras) or 1))
+    elif hasattr(phon, "syllabify_line"):
+        sylls = phon.syllabify_line(sung_text)
         for i, s in enumerate(sylls):
             units.append(Unit(i, getattr(s, "text", ""), getattr(s, "text", ""),
                               -1, _resolve_prominence(getattr(s, "prominence",
@@ -509,12 +534,63 @@ def read_line(text, phon=None, strip_parens=True):
                               getattr(s, "moras", 1) or 1))
     elif getattr(phon, "language", "") == "eng":
         import lyric_harness as _lh
-        lex = _english_lexicon(strip_parens=strip_parens,
+        lex = getattr(phon, "lexicon", None) or _english_lexicon(strip_parens=strip_parens,
                                fallback=getattr(phon, "fallback", None))
-        for k, s in enumerate(_lh.word_syllable_map(lex, text)):
-            units.append(Unit(k, s.get("nucleus", ""), s["word"], s["widx"],
-                              1 if s["stress"] in (1, 2) else 0, 1))
-        for tok in phon.unreadable(text):
+        mapped = _lh.word_syllable_map(lex, sung_text)
+        words = _lh.line_tokens(sung_text, strip_parens=False)
+        uncertain_words = set()
+        undecided_stresses = {}
+        chunk_indices = {}
+        cursor = 0
+        for wi, word in enumerate(words):
+            key = _lh.fold_apostrophes(word).lower()
+            for ci in range(cursor, len(chunks)):
+                if _lh.fold_apostrophes(chunks[ci]).lower() == key:
+                    chunk_indices[wi] = ci
+                    cursor = ci + 1
+                    break
+            token_phon = phon.for_token(wi) if hasattr(phon, "for_token") else phon
+            piece_readings = [token_phon.parses(piece) if hasattr(token_phon, "parses") else
+                              [token_phon.syllabify(piece)]
+                              for piece in lex.for_token(wi).word_pieces(word) if piece]
+            if any(len({len(r) for r in readings}) > 1 for readings in piece_readings):
+                uncertain_words.add(wi)
+                refused.append(RefusedToken(word, "UNRESOLVED_READING",
+                    "pronunciations disagree on syllable count; no reading was selected"))
+                continue
+            weak = word.lower() in _lh.WEAK_ALWAYS or (
+                word.lower() in _lh.WEAK_NONFINAL and wi < len(words) - 1)
+            offset = 0
+            for readings in piece_readings:
+                if not readings:
+                    continue
+                if not weak:
+                    for si in range(len(readings[0])):
+                        values = {_resolve_prominence(r[si].prominence) for r in readings}
+                        if len(values) != 1 or None in values:
+                            undecided_stresses[(wi, offset + si)] = None
+                offset += len(readings[0])
+        for s in mapped:
+            wi, si = s["widx"], s.get("syl_in_word", 0)
+            if wi in uncertain_words:
+                continue
+            prominence = (None if (wi, si) in undecided_stresses else
+                          1 if s["stress"] in (1, 2) else 0)
+            units.append(Unit(len(units), s.get("nucleus", ""), s["word"], chunk_indices.get(wi, -1),
+                              prominence, 1))
+        # The lexicon's Latin-only tokenizer cannot account for an unsupported
+        # script. Check every sung lexical chunk against the same reader.
+        by_chunk = {ci: wi for wi, ci in chunk_indices.items()}
+        for ci, tok in enumerate(chunks):
+            if _HAS_DIGIT.search(tok):
+                continue
+            wi = by_chunk.get(ci, -1)
+            token_phon = phon.for_token(wi) if hasattr(phon, "for_token") else phon
+            token = words[wi] if wi >= 0 else tok
+            pieces = [piece for piece in lex.for_token(wi).word_pieces(token) if piece]
+            if pieces and all(any(token_phon.parses(piece)) if hasattr(token_phon, "parses") else
+                              token_phon.syllabify(piece) for piece in pieces):
+                continue
             refused.append(RefusedToken(
                 tok, "OUT_OF_LEXICON",
                 f"{phon.name} could not read it, so it contributed no "
@@ -522,7 +598,7 @@ def read_line(text, phon=None, strip_parens=True):
     else:
         k = 0
         for c in chunks:
-            if not _WORDISH.fullmatch(c):
+            if _HAS_DIGIT.search(c):
                 continue
             try:
                 sylls = phon.syllabify(c)
@@ -646,7 +722,7 @@ class Placement:
     def __post_init__(self):
         object.__setattr__(self, "beat", _frac(self.beat))
         object.__setattr__(self, "duration", _frac(self.duration))
-        object.__setattr__(self, "bar", int(self.bar))
+        object.__setattr__(self, "bar", exact_integer(self.bar, "line bar", 1))
         if not hasattr(self.cycle, "group_starts"):
             raise ValueError(
                 "Placement.cycle must be a quality.meter.Cycle — the period "
@@ -1090,6 +1166,7 @@ def _slot_positions(placement, sub):
     s = sub.s
     lo = math.ceil(placement.start * s)
     hi = math.ceil(placement.end * s)
+    guard_expansion(max(0, hi - lo), "fit slots")
     return tuple(Fraction(j, s) for j in range(lo, hi))
 
 
@@ -1107,18 +1184,20 @@ def _max_prominent_on_heads(n, prom_idx, slots, is_head):
     prom = set(prom_idx)
     # best[i][j] = max hits placing units i.. into slots j..
     NEG = -1
-    best = [[NEG] * (S + 1) for _ in range(n + 1)]
-    for j in range(S + 1):
-        best[n][j] = 0
+    guard_expansion((n + 1) * (S + 1), "fit prominence DP cells", MAX_FIT_DP_CELLS)
+    # Only the following row is needed: O(slots) memory rather than
+    # O(units * slots), with an explicit bound on the remaining work.
+    following = [0] * (S + 1)
+    heads = [is_head(j) for j in range(S)]
     for i in range(n - 1, -1, -1):
+        current = [NEG] * (S + 1)
         for j in range(S - 1, -1, -1):
-            skip = best[i][j + 1]
-            take = NEG
-            if best[i + 1][j + 1] >= 0:
-                take = best[i + 1][j + 1] + (1 if (i in prom and is_head(j))
-                                             else 0)
-            best[i][j] = max(skip, take)
-    return best[0][0] if best[0][0] >= 0 else None
+            take = following[j + 1]
+            if take >= 0:
+                take += int(i in prom and heads[j])
+            current[j] = max(current[j + 1], take)
+        following = current
+    return following[0] if following[0] >= 0 else None
 
 
 def fit_line(text, placement, phon=None, subdivision=None, assume=None,
@@ -1562,9 +1641,12 @@ def _uncovered_bars(spans, pulses, bars, start_bar):
     sets of bars.
     """
     P = Fraction(pulses)
+    bars = exact_integer(bars, "section bars", 0)
+    guard_expansion(bars, "uncovered bars")
     covered = set()
     for a, b in spans:
-        k = int(a // P)
+        k = max(0, int(a // P))
+        b = min(b, bars * P)
         while Fraction(k) * P < b:
             if 0 <= k < bars:
                 covered.add(k)
@@ -1706,8 +1788,8 @@ def _cycle_of(raw, section=None):
     # here. It returns `{}` for an ABSENT meter, which keeps the defaults
     # below exactly as they were.
     meterdict = section_meter(raw, section)
-    return Cycle(pulses=int(meterdict.get("beats", 4)),
-                 unit=int(meterdict.get("unit", 4)),
+    return Cycle(pulses=exact_number(meterdict.get("beats", 4), "meter beats"),
+                 unit=exact_integer(meterdict.get("unit", 4), "meter unit", 1),
                  groups=tuple(meterdict.get("groups", ()) or ()))
 
 
@@ -1756,10 +1838,12 @@ def _owner_of(secs, name, bar, get):
     for s in hits or ():
         if get(s, "start_bar") <= bar < get(s, "start_bar") + get(s, "bars"):
             return s
-    for s in secs:
-        if get(s, "start_bar") <= bar < get(s, "start_bar") + get(s, "bars"):
-            return s
-    return secs[-1] if secs else None
+    if name:
+        raise ValueError(f"line has no unique section {name!r} at bar {bar}")
+    owners = [s for s in secs if get(s, "start_bar") <= bar < get(s, "start_bar") + get(s, "bars")]
+    if len(owners) != 1:
+        raise ValueError(f"line has no unique section at bar {bar}")
+    return owners[0]
 
 
 def from_blueprint(obj, assume_meter=None):
@@ -1772,6 +1856,7 @@ def from_blueprint(obj, assume_meter=None):
     if isinstance(obj, str):
         with open(obj) as fh:
             obj = json.load(fh)
+    validate_blueprint(obj)
     secs, bar = [], 1
     for s in obj.get("sections", []):
         # `section_meter` is the SHARED TYPE CHECK, and it runs BEFORE the
@@ -1844,15 +1929,15 @@ def from_song(song):
         if cyc is None or not hasattr(cyc, "group_starts"):
             cyc = Cycle(pulses=m.beats, unit=m.unit,
                         groups=tuple(getattr(m, "groups", ()) or ()))
-        start = int(getattr(s, "start_bar", bar) or bar)
+        start = exact_integer(getattr(s, "start_bar", bar), "section start_bar", 1)
         # `getattr` with True, duck-typed like everything else here: a Song
         # predating `grid.Meter.declared` reports declared, which is the same
         # answer this function gave before the coordinate existed.
-        secs.append({"name": s.name, "cycle": cyc, "bars": int(s.bars),
+        secs.append({"name": s.name, "cycle": cyc, "bars": exact_integer(s.bars, "section bars", 1),
                      "start_bar": start,
                      "meter_declared": bool(getattr(m, "declared", True)),
                      "meter_assumed": str(getattr(m, "assumed", "") or "")})
-        bar = start + int(s.bars)
+        bar = start + exact_integer(s.bars, "section bars", 1)
     places = []
     for l in song.lines:
         # Same resolution `from_blueprint` uses, and for the same reason: a
@@ -2038,6 +2123,26 @@ def fit_song(obj, phon=None, subdivision=None, assume=None,
         secs, places = from_song(obj)
     else:
         secs, places = from_blueprint(obj, assume_meter=assume_meter)
+    guard_expansion(sum(s["bars"] for s in secs), "song bars")
+    head_bound = 0
+    slot_bound = 0
+    for p in places:
+        starts = p.cycle.group_starts()
+        if starts:
+            head_bound += max(0, math.ceil(p.duration / p.cycle.pulses) + 1) * len(starts)
+        if subdivision is not None:
+            slot_bound += max(0, math.ceil(p.end * subdivision.s) - math.ceil(p.start * subdivision.s))
+    guard_expansion(head_bound, "song cycle heads")
+    guard_expansion(slot_bound, "song fit slots")
+    guard_expansion(sum(len(p.text) for p in places), "song lyric characters", 1_048_576)
+    readings = [read_line(p.text, phon, strip_parens=strip_parens) for p in places]
+    if subdivision is not None:
+        dp_work = 0
+        for p, reading in zip(places, readings):
+            slots = max(0, math.ceil(p.end * subdivision.s) - math.ceil(p.start * subdivision.s))
+            if len(reading.units) <= slots:
+                dp_work += (len(reading.units) + 1) * (slots + 1)
+        guard_expansion(dp_work, "song prominence DP cells", MAX_FIT_DP_CELLS)
     out = SongFit(sections=[SectionFit(name=s["name"], cycle=s["cycle"],
                                        bars=s["bars"], start_bar=s["start_bar"])
                             for s in secs])
@@ -2050,7 +2155,7 @@ def fit_song(obj, phon=None, subdivision=None, assume=None,
     by_sec = {(s.start_bar, s.name): s for s in out.sections}
     fits = []
     for i, p in enumerate(places):
-        f = fit_line(p.text, p, phon=phon, subdivision=subdivision,
+        f = fit_line(readings[i], p, phon=phon, subdivision=subdivision,
                      assume=assume, line_index=i, strip_parens=strip_parens)
         fits.append(f)
         by_sec[section_key(p)].lines.append(f)

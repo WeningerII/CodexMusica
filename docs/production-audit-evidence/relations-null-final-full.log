@@ -1,0 +1,19 @@
+==========================================================================
+RELATIONS NULLS · SECTION 9 (THE PANEL) — regressions
+==========================================================================
+
+§1 the panel is a partition of the registry
+  PASS  §1 every declared schema gets exactly one row (empty panel)
+          77 rows for 77 schemas
+  PASS  §1 every verdict is one of PANEL_VERDICTS
+          ['cannot_obtain_declarable']
+  PASS  §1 a schema no slice could ask still carries a REASON
+  PASS  §1 one real slice: still one row per schema
+  PASS  §1 one real slice: the eng cell produces live rows
+          40 schemas with at least one row
+
+§2 the reader is a coordinate (doctrine 58)
+  PASS  §2 `_read` KEEPS marker rows (the ledger's reader is unchanged)
+          2 of 40: ['--- TITLE: THE RAVEN.', '--- SOURCE: PG10031']
+  PASS  §2 `_read_slice` drops every marker row
+          0 marker rows in 40 panel lines

@@ -1,0 +1,194 @@
+
+1. Sanskrit — the aspirates are SINGLE consonants
+  PASS  bha -> bh+a
+  PASS  yudhiṣṭhiraṃ -> y+u+dh+i+ṣ+ṭh+i+r+a+ṃ
+  PASS  kṛṣṇa -> k+ṛ+ṣ+ṇ+a
+  PASS  rādhe -> r+ā+dh+e
+  PASS  hitaiṣiṇaḥ -> h+i+t+ai+ṣ+i+ṇ+a+ḥ
+  PASS  ahnaḥ -> a+h+n+a+ḥ
+  PASS  an aspirate never splits into stop + h
+          count the cluster in characters and `yu` becomes guru; it is laghu, and the whole line then misses its own metre while looking sound
+  PASS  ai and au are single long nuclei
+
+2. Sanskrit — ṛ ṝ ḷ ḹ are NUCLEI, not consonants
+  PASS  kṛ is one syllable with nucleus ṛ
+          [('kṛ', 'ṛ'), ('ṣṇa', 'a')]
+  PASS  mṛtyu is two syllables, not one
+          read ṛ as a consonant and mṛ- becomes a three-consonant onset with no vowel at all
+  PASS  ṝ is a long nucleus
+
+3. Sanskrit — the four ways to be guru, and the one to be laghu
+  PASS  bha is LAGHU: bh is one consonant, so nothing follows the vowel
+          a per-character loop sees b + h, calls it a cluster, and returns guru
+  PASS  a short vowel before a GENUINE cluster is guru (by position)
+          a.dhi.pa.sya — `pa` is heavy because sy follows it, and this is the rule most easily got wrong
+  PASS  a long nucleus is guru
+  PASS  anusvāra makes a syllable guru
+  PASS  visarga makes a syllable guru
+  PASS  a consonant-closed final syllable is guru before a pause
+  PASS  moras are 2 for guru and 1 for laghu
+  PASS  yudhiṣṭhiraṃ scans ⏑ — ⏑ —, which needs BOTH dh and ṣṭh counted right
+          yu laghu (dh is one), dhi guru (ṣ + ṭh is two)
+
+4. Sanskrit — a pāda is not the sum of its words' scansions
+  PASS  yam alone is guru
+  PASS  `yam ayuṅkta` scans ya.ma.yu.ṅkta with ya LAGHU
+          the m is the onset of the following vowel; scanning word by word and joining the lists gives a metrically wrong line that still looks like a line
+  PASS  syllabify REFUSES whitespace rather than scanning a phrase
+          it points the caller at scan_pada instead of quietly getting the position rule wrong
+  PASS  maximal onset puts the whole cluster on the following akṣara
+          which is what Devanāgarī does: a conjunct is written attached to the vowel that follows it
+  PASS  a vowelless sandhi remnant has no syllable of its own
+          'py is api after o-sandhi; [] is the right answer for a token with no nucleus, and it is not a refusal — units() reads it fine
+  PASS  and the pāda containing it still scans exactly
+          Kir 1.41 lglggllglglglglggllglglg — the p+y attach to the u of utsava. A module that scanned word by word would have dropped this token and shifted every position after it
+
+5. Sanskrit — NFD input must not silently change every retroflex
+  PASS  the NFC and NFD forms of one line are different strings
+          NFC 33 chars, NFD 37 chars
+  PASS  and they scan identically, because normalisation is done not hoped
+          NFC lglggllglglg / NFD lglggllglglg
+  PASS  a composed ṣ and a decomposed ṣ are the same phoneme
+          in NFD ṣ is s + U+0323; a membership test on the raw string sees a bare s and an unknown mark, and every retroflex changes class
+
+6. Sanskrit — every other notation is refused, never converted
+  PASS  'kRSNa' refused — Harvard-Kyoto (case is phonemic: R=ṛ, S=ṣ)
+  PASS  'zAnti' refused — Harvard-Kyoto (z=ś, A=ā)
+  PASS  'kfzRa' refused — SLP1 (f=ṛ, z=ṣ, R=ṇ)
+  PASS  'raama' refused — ITRANS (aa=ā)
+  PASS  'kRiShNa' refused — ITRANS
+  PASS  'कृष्ण' refused — Devanāgarī
+  PASS  'ṁ' refused — ISO 15919 anusvāra
+  PASS  'Rāma' refused — IAST but CAPITALISED
+  PASS  Harvard-Kyoto is the DANGEROUS one and it is closed
+          kRSNa case-folds to krsna, which IS a legal IAST string — so a module that lowercased its input would read कृष्ण as one syllable with a four-consonant onset and never say so
+  PASS  a caller holding capitalised IAST must lowercase it themselves
+          which makes the notation THEIR declaration, not this module's guess
+
+7. TRADITION — Kirātārjunīya 1.1-1.2 is exact vaṃśastha
+  PASS  śriyaḥ kurūṇām adhipasya pālanīṃ prajāsu vṛt lglggllglglglglggllglglg
+  PASS  sa varṇiliṅgī viditaḥ samāyayau yudhiṣṭhiraṃ lglggllglglglglggllglglg
+  PASS  kṛtapraṇāmasya mahīṃ mahībhuje jitāṃ sapatne lglggllglglglglggllglglg
+  PASS  na vivyathe tasya mano na hi priyaṃ pravaktu lglggllglglglglggllglglg
+  PASS  the template is ja-ta-ja-ra twice with anceps at 12 and 24
+          lglggllglglxlglggllglglx
+
+8. TRADITION — the sarga-closing metres, which stop this being a one-metre test
+  PASS  Kir 1.45 puṣpitāgrā  llllllglglggllllgllglglgg
+          na samayaparirakṣaṇaṃ kṣamaṃ te nikṛtipareṣu pareṣu bhūr
+  PASS  Kir 1.45 puṣpitāgrā  llllllglglggllllgllglglg?
+          ariṣu hi vijayārthinaḥ kṣitīśā vidadhati sopadhi saṃdhid
+  PASS  Kir 1.46 mālinī      llllllggglgglggllllllggglgglgg
+          vidhisamayaniyogād dīptisaṃhārajihmaṃ śithilabalam agādh
+  PASS  Kir 1.46 mālinī      llllllggglgglggllllllggglgglgg
+          riputimiram udasyodīyamānaṃ dinādau dinakṛtam iva lakṣmī
+  PASS  puṣpitāgrā is an ardhasamavṛtta: 12 + 13, not 12 + 12
+  PASS  a vaṃśastha line does NOT scan as mālinī, and vice versa
+          a readable pāda of the wrong shape is False, which is an answer; None is reserved for a pāda that could not be read at all
+
+9. TRADITION — Kirātārjunīya sarga 11 is pathyā anuṣṭubh
+  PASS  athāmarṣān nisargācca jitendriyatayā tay lggglggllglllglg
+  PASS  ājagāmāśramaṃ jiṣṇoḥ pratītaḥ pākaśāsana glgglggglggglglg
+  PASS  munirūpo 'nurūpeṇa sūnunā dadṛśe puraḥ   llgglgglglgllglg
+  PASS  drāghīyasā vayo'tītaḥ pariklāntaḥ kilādh gglglggglggglglg
+  PASS  jaṭānāṃ kīrṇayā keśaiḥ saṃhatyā paritaḥ  lggglggggggllglg
+  PASS  pṛktayendukarair ahnaḥ paryanta iva saṃd glgllggggglllglg
+  PASS  the śloka's signature is positions 5-7: ⏑ — — then ⏑ — ⏑
+          xxxxlggxxxxxlglx
+  PASS  an avagraha is silent and contributes no mora
+          munirūpo 'nurūpeṇa — the ' marks an `a` elided by sandhi, so it is dropped rather than parsed; pattern llgglgglglgllglg
+
+10. TRADITION — Gītagovinda 1.1, and what de-sandhi does to it
+  PASS  pāda 1 (DCS)          gggllglglllggglgglg
+          meghaiḥ meduram ambaram vanabhuvaḥ śyāmāḥ tamāladrumaiḥ
+  PASS  pāda 2 (transmitted)  gggllglglllggglggl?
+          naktaṃ bhīrur ayaṃ tvam eva tad imaṃ rādhe gṛhaṃ prāpaya
+  PASS  pāda 2 (DCS de-sandhied) FAILS  gggglglglllggglggl?
+          misses at position(s) [4] — syllable 4 is the DCS's restored `bhīruḥ` where the transmitted text has `bhīrur`. The module is right and the ORTHOGRAPHIC LAYER is what broke; scanning DCS segmented text is not scanning the recited verse
+  PASS  the two readings have the same syllable COUNT, so nothing looks wrong
+          which is why this is a silent failure and not a loud one
+
+11. Sanskrit — the declared anceps decision
+  PASS  a pāda-final laghu is reported as ?, not silently promoted
+          strict glglgl / reported glglg? — the indeterminacy is a fact about the METRE, not the phonology, so it is reported rather than resolved
+  PASS  prominence is None there and moras stays at the strict 1
+  PASS  and a template asking for guru accepts it
+          anceps promotes light to heavy and never the reverse
+  PASS  a pāda-final GURU is not touched
+  PASS  syllabify() never applies anceps — a word is not a pāda
+
+12. TRADITION — antya-prāsa in the Gītagovinda's first aṣṭapadī
+  PASS  vedam / akhedam
+  PASS  pṛṣṭhe / gariṣṭhe
+  PASS  lagnā / nimagnā
+  PASS  śṛṅgam / bhṛṅgam
+  PASS  pāpam / tāpam
+  PASS  pṛṣṭhe / gariṣṭhe is why the whole akṣara is compared
+          the rhyme is -ṣṭhe; the vowels before it are ṛ against i and do not agree, so a nucleus-and-coda key would call the textbook case a non-rhyme
+  PASS  an aspirate is not its plain stop: vedam does not rhyme prabandham
+  PASS  depth is declared, not assumed — and both answers are right
+          the shared run is -ṣṭhe: more than one akṣara, less than two
+  PASS  a word shorter than the declared depth returns None, not False
+          'cannot be compared at this depth' is not 'does not rhyme'
+  PASS  prasa_depth counts the shared run in phonemes
+          {('vedam', 'akhedam'): 4, ('pṛṣṭhe', 'gariṣṭhe'): 3, ('lagnā', 'nimagnā'): 4, ('śṛṅgam', 'bhṛṅgam'): 5, ('pāpam', 'tāpam'): 4}
+  PASS  and counts an aspirate as ONE
+          -am only: dh against d stops the run, where a character count would have read d+h and agreed on the d
+  PASS  five different couplet-finals share no single end-rhyme
+          most common key on 20% of the pādas
+
+13. Sanskrit — anuprāsa, and dvitīyākṣara-prāsa's anchor
+  PASS  pralayapayodhijale ~ payasi alliterate on p
+  PASS  strict=True wants the whole onset, so pra does not answer pa
+  PASS  two vowel-initial words do NOT alliterate
+          Finnish and Somali treat vowel-initial words as one class; that is a fact about those traditions. anuprāsa is a repeated CONSONANT, and there is none here to repeat
+  PASS  an unreadable word gives None, distinct from False
+  PASS  the anchor is the SECOND akṣara of the pāda
+          'yaḥ' onset ('y',)
+  PASS  a one-akṣara pāda returns None, not the first syllable
+          a pāda with one akṣara has no second one, and saying so is the answer; returning the first would be a quiet wrong number
+  PASS  an unreadable pāda returns None rather than crashing
+  PASS  prāsa is a per-stanza measure, reported as a share
+          anchor consonant 'v' on 100% of pādas (constructed, and labelled as such: whether the DCS texts satisfy dvitīyākṣara-prāsa is a claim about those texts, not about this module, and it is not asserted here)
+  PASS  a short or unreadable pāda stays in the DENOMINATOR
+          25% — doctrine 27: a draw that fails the filter is a denominator, not a dropped row
+
+14. Sanskrit — prominence is quantity, and stress is refused
+  PASS  grid_unit is the mora, declared
+  PASS  prominence carries guru/laghu, not stress
+  PASS  prominences() returns the quantitative binary
+  PASS  asking for STRESS raises
+          Sanskrit metre is quantitative; this module will not return a stress patte
+  PASS  moras() totals a pāda
+          ya(1) ma(1) yuṅk(2) ta(1) — the final ta is anceps and is counted at its strict 1; applying the metre's licence is the caller's job
+  PASS  an unreadable pāda gives None from every measure
+          None means 'could not read'; False means 'read it, and it does not scan'
+
+15. Sanskrit — it declares what it reads and what it is
+  PASS  declares language
+          language: san
+  PASS  declares name
+          name: Sanskrit
+  PASS  declares notation
+          notation: IAST (ā ī ū ṛ ṝ ḷ ḹ ṃ ḥ ṅ ñ ṭ ḍ ṇ ś ṣ), Unicode NFC, lowercase; input is
+  PASS  declares grid_unit
+          grid_unit: mora
+  PASS  declares prominence_rule
+          prominence_rule: guru (1) / laghu (0) -- the QUANTITATIVE binary Sanskrit metre constrain
+  PASS  declares relation
+          relation: prāsa -- anuprāsa (consonantal alliteration, classically anchored on the
+  PASS  declares source
+          source: rules only; no external resource, so nothing to licence. Validated again
+  PASS  language code is san
+  PASS  the notation names IAST and names what it refuses
+  PASS  the prominence rule says guru/laghu and says it is not stress
+  PASS  the relation names prāsa
+  PASS  it registered itself
+
+16. nothing here falls back to English
+  PASS  quality.phonology.san imports no English resource
+          imports: ['quality', 're', 'unicodedata']
+  PASS  and loads no corpus at runtime — it is rules only
+          the DCS validated it; it is not a dependency
+==============================================================
+all Sanskrit phonology regressions pass

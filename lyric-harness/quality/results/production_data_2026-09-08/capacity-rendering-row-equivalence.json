@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "at": "2026-09-08T06:25:54.026229+00:00",
+  "rows": 8545,
+  "byte_identical": true,
+  "sha256": "7ef7410bfb1271c596eaca69e261ffbc00cbae89059ea7e9a31d298344fe3b63",
+  "before_comparator": "44398a4be4debb5408e67d13de4f60a28080d7999f099bdcbc65e64618ff83fb",
+  "after_comparator": "703af9747e203dab62b0183e5fabec036bd4b339d74a2aea9a58fec85bf00de0",
+  "same_field_fingerprint": "473da80f8438a8d3a2f2927e5bc94a205a0ca0b06e6907aefc4ae56d2ef0996c",
+  "fields": 11380,
+  "source_patch": "capacity-rendering-row-epoch.patch",
+  "before_sidecar": "query-projection-current-calibration-rows.meta.json",
+  "after_sidecar": "current-calibration-rows.meta.json",
+  "wall_s": 386.7794730089954,
+  "peak_rss_bytes": 773103616,
+  "max_cached_fields": 512,
+  "scope": "Full8,545 item remeasurement under final frozen source using exact persisted phonetic fields; no item memo migrated across source fingerprints; all TSV bytes independently identical."
+}

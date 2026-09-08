@@ -459,6 +459,7 @@ const EXIT_REASONS = new Set([
   'aggregate_deadline',
   'storage_budget',
   'turn_wall_checkpoint',
+  'turn_wall_continued',
 ]);
 
 function count(value) {

@@ -1,0 +1,103 @@
+✔ archive round trip preserves every byte and restores private permissions (8.629027ms)
+✔ wrong key or ciphertext tampering creates no restore tree (2.742826ms)
+✔ seal refuses symlink sources and leaves prior archive and plaintext intact (1.601135ms)
+✔ restore refuses existing destinations and symlinked ancestors (2.604134ms)
+✔ authenticated malicious paths and duplicate entries cannot partially restore (5.686473ms)
+✔ safe public summary cannot carry capability-bearing strings or nested metadata (0.327246ms)
+✔ workflow validates the secret before paid work and uploads no plaintext path (13.797486ms)
+ok 1 - persistent paced429 cannot borrow ordinary retry budget
+ok 2 - paced wait sum never admits a retry exceeding its remaining budget
+ok 3 - post-header aborted settles with durable transport outcome
+ok 4 - post-header invalid-json settles with durable transport outcome
+ok 5 - post-header deadline settles with durable transport outcome
+ok 6 - kill during first request leaves intent; resume retrieves completion without repeating POST
+ok 7 - ambiguous missing job is never reissued on resume
+ok 8 - wall canary saves exact signed envelope and resumes next turn
+ok 9 - explicit resume can continue interrupted signed checkpoint with a new request ID
+ok 10 - aggregate admission refuses a request that cannot finish before delivery reserve
+ok 11 - multi-song finished policy has an explicit outcome
+ok 12 - multi-song survey policy has an explicit outcome
+ok 13 - wrong live SHA refuses paid request
+ok 14 - pending job is polled to its actual completion without a second paid POST
+ok 15 - measurement requires durable recovery before spending
+ok 16 - same commit with changed configuration stops before the next paid turn
+ok 17 - partial upstream429 preserves the envelope and honors its pacing hint
+ok 18 - actual job-router persistence503 recovers and never enters ordinary retry
+ok 19 - actual retired receipt refuses replay after its full response was evicted
+ok 20 - uncertain proposal stops automatic continuation and plain resume
+ok 21 - measurement refuses incomplete fingerprint identity even with durable recovery
+ok 22 - interrupted proposal uncertainty is terminal even when its signed checkpoint survives
+ok 23 - job receipt detects a deployment between health probe and paid request
+ok 24 - completion rejects blank delivery
+ok 25 - completion rejects earlier success followed by unfinished result
+ok 26 - completion rejects HTTP200 error after success
+ok 27 - completion rejects changed final draft under old receipt
+ok 28 - terminal checkpoint restores verdict lost before summary write without another request
+ok 29 - multi-song resume restores a lost failed verdict instead of passing a sparse summary
+ok 30 - a bare signed empty wall cannot satisfy the continuation canary
+ok 31 - mandatory remote recovery refuses before any paid POST when unavailable
+ok 32 - verified receipt keeps complete request latency rather than the final lookup latency
+ok 33 - error checkpoint (top-level) is retained and resumed without retrying the stale envelope
+ok 34 - error checkpoint (nested) is retained and resumed without retrying the stale envelope
+ok 35 - durable continuation uses only the parent receipt, including large signed state
+ok 36 - stale continuation follows the existing successor without another paid branch
+36 battery lifecycle checks passed
+✔ mcp/test_battery_lifecycle.mjs (7087.365356ms)
+✔ 480 identical recovery polls retain a full checkpoint without inflating the journal beyond archive limits (6484.436621ms)
+✔ recording capacity stops before POST and leaves a sealed resumable checkpoint (855.292775ms)
+✔ per-file recording headroom stops before a permitted archive file can overflow (617.237024ms)
+✔ resume refuses a missing historical journal segment before any new POST (182.038059ms)
+✔ rolled attempt segments replay a durable response after a lagging checkpoint without repeating POST (1100.037117ms)
+✔ receipt precedes execution; pending/different-input duplicates cannot dispatch; final payload is replayed (63.182137ms)
+✔ a killed process leaves an interrupted receipt and preserved signed checkpoint, never permission to replay (141.864906ms)
+✔ final receipt survives a lost response and is available to a second HTTP connection (13.659391ms)
+✔ corrupt receipts, key files and spend counters fail closed without overwriting evidence (4.719305ms)
+✔ storage failure before dispatch blocks execution and final persistence failure never claims a completed receipt (10.499866ms)
+✔ receipt capacity is bounded, active jobs cannot expire, and expiry is explicit (0.536956ms)
+✔ build fingerprints change with declared runtime config and never contain credentials (589.539515ms)
+✔ recovered error receipts preserve Retry-After pacing (12.535766ms)
+✔ capability redaction covers case-insensitive routes, query strings and referrers (0.897056ms)
+✔ rejected requests cannot consume recovery capacity before chat admission (15.409973ms)
+✔ terminal payload eviction retains a durable tombstone so its identifier cannot execute again (15.987793ms)
+✔ SIGKILL after a budgeted provider dispatch retains uncertainty and cannot replay the request (315.222748ms)
+lyric state: capability isolation, same-seed coexistence, validation safety, annotations and verify grid contract passed
+✔ mcp/test_lyric_state.mjs (1163.462915ms)
+✔ admission is shared across operations and settles actual thinking usage once (3.212461ms)
+✔ an uncosted or failed model request is never admitted as free (0.340424ms)
+✔ reservations survive a process restart as unknown spend, and corrupt storage blocks admission (2.323081ms)
+✔ provider envelope violations stay blocked after restart (1.16689ms)
+✔ UTC rollover preserves active reservations and backwards clocks cannot refund spend (0.543713ms)
+✔ loopback kitchen broker shares admission, isolates reservations and retains unknown work on close (63.310656ms)
+✔ expired kitchen admission and inherited cancellation prevent dispatch (23.17336ms)
+✔ broker returns its authoritative settlement and isolates call accounting (17.259489ms)
+✔ child contexts preserve authoritative monotonic deadlines after clock steps (0.542137ms)
+✔ settlement itself rolls UTC day before charging newly completed work (0.548903ms)
+✔ restart across UTC midnight retains interrupted reservations on the recovered day (3.14081ms)
+✔ inconsistent provider totals retain unknown spending rather than discard tokens (0.448628ms)
+✔ invalid persisted dates and unknown totals cannot restore paid allowance (1.468213ms)
+✔ non-private, oversized and linked ledger files are refused before loading or replacing them (1.15835ms)
+✔ kitchen dispatch permission waits for durable usage admission, and receipt failure returns no capability (6.056507ms)
+✔ queue deadline includes waiting and expired work never starts (737.353973ms)
+✔ cancellation removes queued work and stops an active worker (31.616873ms)
+✔ warm and cold kills retain the same checkpoint and completed usage (2021.248865ms)
+[lyric] warm worker exited {"event":"worker_exit","code":9,"signal":null,"active":true}
+✔ active kitchen crash does not transparently replay paid work (145.929029ms)
+[lyric] warm worker exited {"event":"worker_exit","code":9,"signal":null,"active":true}
+[lyric] warm worker unavailable; deterministic cold fallback {"event":"worker_cold_fallback","remaining_ms":1872}
+✔ deterministic crash fallback has only the remaining admission budget (2048.867649ms)
+✔ warm and cold count UTF-8 report bytes with identical output ceilings (159.105383ms)
+✔ checkpoint controls do not consume the verbose report cap (49.048293ms)
+✔ MCP cancellation notification reaches a running bridge job (54.154031ms)
+✔ real Python proposer shares admission and full usage with the Node budget broker (116.454432ms)
+✔ kitchen budget refuses before provider HTTP and an interrupted request holds unknown usage (249.556269ms)
+✔ ordinary lyric text cannot impersonate a checkpoint control record (62.785559ms)
+[lyric] warm worker exited {"event":"worker_exit","code":9,"signal":null,"active":true}
+✔ a crash between atomic checkpoint write and stdout is recovered from its trusted file (40.055829ms)
+✔ budget-close failure refuses while preserving accepted state and known usage (42.307537ms)
+✔ a queued job cannot spawn until the killed worker emits close (68.934173ms)
+✔ unexpected worker death and deterministic fallback are logged without lyric content (169.082878ms)
+✔ temporary cleanup waits for reap without holding the failure response open (36.866366ms)
+✔ known billed response remains uncertain until the answer journal is written (2028.051515ms)
+✔ standalone Node CLI survives idle worker kill and awaited respawn (169.375225ms)
+✔ monotonic contexts ignore wall-clock steps on warm and cold paths (177.54175ms)
+✔ either inherited or explicit cancellation prevents spawn and cancels active work (96.345684ms)

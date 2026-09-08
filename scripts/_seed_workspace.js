@@ -183,8 +183,10 @@ function renderWorkspace(cards, { format = 'rich', ceiling } = {}) {
   const { RECIPE_CHAR_CEILING } = require('./_api_contract.js');
   const cap = Math.min(ceiling || RECIPE_CHAR_CEILING, RECIPE_CHAR_CEILING);
   const header = recipeHeaderFromCards(cards);
+  if (header.length >= cap) return header.slice(0, Math.max(0, cap - 1)) + '…';
   const body = compileStack(cards, format, Math.max(1, cap - header.length));
-  return header + body;
+  const rendered = header + body;
+  return rendered.length <= cap ? rendered : rendered.slice(0, Math.max(0, cap - 1)) + '…';
 }
 
 // Only what another module actually imports. recipeHeaderFromCards,

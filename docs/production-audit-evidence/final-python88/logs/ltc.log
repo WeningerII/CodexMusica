@@ -1,0 +1,202 @@
+
+1. The rhyme standard is a DECLARED coordinate (doctrine 45)
+  PASS  the declaration names the standard in force
+          standard='pingshui', options=['qieyun', 'pingshui', 'cilin'] -- 平水韻 is the 詩 standard and the default because this module's two existing callers are Tang regulated-verse arms; a 詞 caller must say standard='cilin'
+  PASS  an undeclared standard is refused, not defaulted
+  PASS  a per-call standard is refused the same way
+  PASS  a key NAMES the standard that produced it, so two standards' keys cannot silently compare equal
+          pingshui [('平水第26部', '平')]  cilin [('詞林第12部', '平')]
+
+2. 流/樓 — doctrine 36's own demonstration, still reachable
+  PASS  raw 廣韻 class says NO (尤 vs 侯)
+  PASS  平水韻 同用 grouping says YES
+  PASS  詞林正韻 says YES too
+  PASS  grouped=False is still the legacy spelling of standard='qieyun'
+  PASS  登鸛雀樓 (王之渙) 流/樓 still rhymes under the 詩 standard
+  PASS  春望 (杜甫) 深/心 still rhymes under the 詩 standard
+  PASS  靜夜思 (李白) 光/霜/鄉 still rhymes under the 詩 standard
+  PASS  unrelated rhymes stay unrelated
+
+3. The sourced 平水韻 table against the hand-encoded one
+  PASS  蒸/登 and 青 MERGE in 上聲 (迥拯等): 肯/頂
+          sourced table True, hand table False -- the 平水韻 partition is NOT tone-invariant and _LEGACY_GROUPS has one list for all four tones
+  PASS  ...and in 去聲 (徑證嶝): 贈/定
+          sourced table True, hand table False -- the 平水韻 partition is NOT tone-invariant and _LEGACY_GROUPS has one list for all four tones
+  PASS  嚴's 入聲 (業) goes with 咸銜凡 (洽), not with 鹽添 (葉): 劫/洽
+          sourced table True, hand table False -- the 平水韻 partition is NOT tone-invariant and _LEGACY_GROUPS has one list for all four tones
+  PASS  夬 joins 佳/皆 in 去聲 (卦): 夬/卦
+          sourced table True, hand table False -- the 平水韻 partition is NOT tone-invariant and _LEGACY_GROUPS has one list for all four tones
+  PASS  廢 joins 灰/咍 in 去聲 (隊): 廢/退
+          sourced table True, hand table False -- the 平水韻 partition is NOT tone-invariant and _LEGACY_GROUPS has one list for all four tones
+  PASS  祭 joins 齊 in 去聲 (霽): 祭/計
+          sourced table True, hand table False -- the 平水韻 partition is NOT tone-invariant and _LEGACY_GROUPS has one list for all four tones
+  PASS  泰 stays alone in 去聲, as 平水韻 has it
+  PASS  five entries of the hand table index a name the data never uses
+          諄/真/殷/桓/戈 are in _LEGACY_GROUPS and the table writes 眞/欣/寒/歌 -- the grouping was encoded against a different naming convention than the file it indexes
+
+4. A refusal names WHOSE defect it is (doctrine 79, one layer in)
+  PASS  as shipped, the character that NAMES the 魂 group cannot be read
+          the 廣韻 prints 䰟 as the 字頭 of that 小韻; 477 characters carry 魂 as their rhyme label and 魂 is never a headword in it
+  PASS  the defect stays REACHABLE, so it can be demonstrated (doctrine 84)
+  PASS  with the 異體 map on, 魂 reads through 䰟
+  PASS  窗 reads through 窓
+  PASS  怎 and 做 are refused, and the refusal is CORRECT
+          no 廣韻 headword and no warranted 異體 -- the rime book does not contain the graph, so returning nothing is the right answer
+  PASS  a simplified character is refused with the SCRIPT named
+          not mapped: M-2 measured that resolving these silently returns a different word's rhyme wherever the 1956 reform merged two Middle Chinese words
+  PASS  MISSING M-2 IS FALSIFIED ON 你: it is not outside the rime book
+          廣韻 小韻 1310 is 伱, 孃開三之上, 乃里切, glossed 秦人呼傍人之稱 -- the second-person pronoun, in the book under another graph. M-2 lists 你 with 怎/樣/褪/做 as a vernacular character 'where refusal is CORRECT'. Four of the five hold; this one is ingestion
+  PASS  云 reads AND carries a hazard flag
+          the reading returned is 云's own. In a simplified text the word may be 雲, and nothing in the reading says so -- this is why OpenCC is not the fix
+
+5. readability() returns three counts, never two
+          map OFF  total 21668  read 21245 (98.05%)  refused 51  unread 372  via_variant 0  hazard_if_simplified 402  causes {'異體': 372, '後起': 50, '簡化': 1}
+          map ON   total 21668  read 21617 (99.76%)  refused 51  unread 0  via_variant 372  hazard_if_simplified 402  causes {'後起': 50, '簡化': 1}
+  PASS  the three counts partition the text
+  PASS  the 異體 map removes the ingestion residue entirely on this corpus
+          372 unread -> 0; the 51 that remain are refusals the module is RIGHT to make, and reporting one rate over both would have hidden that
+  PASS  readable rate rises and the correct refusals do NOT move
+          98.05% -> 99.76%
+  PASS  coverage() still returns the two-count legacy form
+
+6. THE TRADITION TEST: 花間集 against the 欽定詞譜 of 1715
+  PASS  the admitted corpus aligns to the spec on a usable population
+          413/500 songs match a 格 exactly on length AND 句讀, across 60 詞牌: 1844 mandated 韻 pairs and 537 控制 句 pairs
+          AS SHIPPED 平水韻, no 異體 map   韻 78.4% (1393/1776 judged, 68 refused)   句 1.3% (7/520 judged, 17 refused)
+                     廣韻 raw class       韻 54.1% (961/1776 judged, 68 refused)   句 1.0% (5/520 judged, 17 refused)
+          NOW        詞林正韻 + 異體 map    韻 94.0% (1723/1833 judged, 11 refused)   句 3.4% (18/535 judged, 2 refused)
+  PASS  the 詩 standard misses a fifth of the rhymes the tune mandates
+          78.4% True at positions the 1715 spec marks 韻/叶 -- as shipped, this module reports a ci failing to rhyme
+  PASS  the 詞 standard recovers them
+          78.4% -> 94.0%, +15.6 pp
+  PASS  and the matched control barely moves
+          句 1.3% -> 3.4%; the gap to the control goes 77.1 -> 90.6 pp. A standard that lifted both equally would have lifted nothing (doctrine 71)
+  PASS  the raw rime class is the worst of the three, which is doctrine 36
+          廣韻 54.1% < 平水韻 78.4% < 詞林正韻 94.0% -- the reference work's own granularity is the wrong one for BOTH forms
+  PASS  the 異體 map turns refusals into verdicts at rhyme positions
+          68 refused -> 11
+
+7. Merging 平 with 仄 inside a 詞林部 — REJECTED, by lift (doctrine 61)
+          strict  韻 94.0% (1723/1833 judged, 11 refused)   句 3.4% (18/535 judged, 2 refused)
+          merged  韻 94.4% (1730/1833 judged, 11 refused)   句 8.6% (46/535 judged, 2 refused)
+  PASS  merging fires MORE and is WORSE: the control rises further than the measurement
+          韻 +0.4 pp against 句 +5.2 pp. 詞林正韻 keeps the 平 and 上去 halves of a 部 apart and so does this module; where a tune licenses 平仄通叶 that is the TUNE's licence to grant, not the phonology's
+
+8. Which 廣韻 pairs the 詩 standard calls False at mandated positions
+          東/鍾                       39  fixed by 詞林正韻  39
+          虞/魚                       29  fixed by 詞林正韻  29
+          模/魚                       22  fixed by 詞林正韻  21
+          仙/元                       16  fixed by 詞林正韻  16
+          清/青                       13  fixed by 詞林正韻  13
+          之/脂                       11  fixed by 詞林正韻  11
+          佳/支/麻                     10  fixed by 詞林正韻   0
+          微/脂                        9  fixed by 詞林正韻   9
+  PASS  the 詞林正韻 partition shows through the 詩 standard's failures
+          MISSING M-1 tabulated the same pairs on 1,518 ci we may not hold -- 魚/虞, 支/微/齊, 東/冬, 庚/青/蒸, 元/先/寒/刪. The 500 admitted songs recover them independently
+  PASS  a large share of the 詩 standard's misses are exactly this
+          305/396 = 77.0% of the mandated positions 平水韻 calls False are True under 詞林正韻
+
+9. The fold over a 多音字's readings is a DECLARED coordinate (doctrine 45)
+  PASS  the declaration names the fold in force
+          overlap='any', options=['any', 'all', 'settled']. 'any' is the OR this module has always applied and every committed number rests on, so it stays the DEFAULT: changing it silently would re-score the record without pricing the change
+  PASS  an undeclared fold is refused at construction
+  PASS  and per call, the same way
+  PASS  the instance's fold is what a bare call uses
+          深 has a 平 and a 去 reading; 心 has only 平. The OR says they rhyme, and it is right that they can -- it is silent that they need not
+
+10. any / all / settled on real characters, and the doctrine 79 identity between the last two
+  PASS  流/樓 survives the STRICTEST fold, so doctrine 36's own demonstration is not an artefact of the OR
+          one reading each, one key each, and the keys are equal: nothing here was ever being decided by an unstated choice of reading
+  PASS  流/山 is False under every fold
+          a False already means NO reading pair agreed, so no fold can move it -- which is why the folds move Trues only
+  PASS  深/心 — 杜甫 春望's own rhyme — is True / False / None across the three
+          深 [('平水第27部', '去'), ('平水第27部', '平')], 心 [('平水第27部', '平')]. THE PRICE, stated: the strict folds refuse two of the three canonical Tang pins this file and test_phonology.py both carry. That is a cost of the coordinate, not an argument against it, and it is why 'any' remains the default
+  PASS  光/霜 — 李白 靜夜思's own rhyme — is True / False / None across the three
+          光 [('平水第22部', '平'), ('平水第23部', '去')], 霜 [('平水第22部', '平')]. THE PRICE, stated: the strict folds refuse two of the three canonical Tang pins this file and test_phonology.py both carry. That is a cost of the coordinate, not an argument against it, and it is why 'any' remains the default
+  PASS  湩/冬 shows the THIRD swallow: a reading the standard cannot place is dropped by rhyme_keys, and 'settled' refuses to call the pair settled anyway
+          湩 has a 冬上 reading and 詞林正韻 has no clean vote for that cell, so a one-key set looked certain. 2 characters in 19,499 under 'cilin' and 0 under 'pingshui'; it moves no number in the corpus and is counted because a small swallowed refusal is still one
+          花間集 overlap=all      韻 62.1% (1138/1833 judged, 11 refused)   句 0.6% (3/535 judged, 2 refused)
+          花間集 overlap=settled  韻 91.2% (1138/1248 judged, 596 refused)   句 0.6% (3/520 judged, 17 refused)
+  PASS  'all' and 'settled' have the SAME numerator and differ ONLY in whether the undecidables sit in the denominator — which is doctrine 79 made into a coordinate
+          韻 True 1138 under both; judged 1833 under 'all' vs 1248 under 'settled', so the rate reads 62.1% vs 91.2%. 'all' puts a REFUSAL in the numerator's complement; it is kept reachable because a doctrine whose demonstration is optimised away is a sentence nobody can check (doctrine 84)
+  PASS  on 花間集 the separation from the matched 句 control is UNCHANGED by the settled fold
+          any 90.6 pp -> settled 90.6 pp
+
+11. THE 四庫 MEASUREMENT: data/sources.tsv's four arms, re-run under each fold
+  PASS  the reconstruction from the COMMITTED corpus files reproduces every number in data/sources.tsv row kanripo/KR4j exactly
+          reading the --- RHYME / --- JU / --- GE headers of corpus/song/ltc_siku_*.txt rebuilds the same four arms build_ci_corpus.py:measure() built from 66 git clones, so the measurement is re-runnable without the network (doctrine 58)
+          overlap=any      yun 90.9%(28330/31162,2159R)  ju 7.4%(1047/14062,999R)  adj 2.9%(997/33841,2338R)  null 6.1%(1150/18745,1255R)
+          overlap=all      yun 61.5%(19176/31162,2159R)  ju 4.7%(665/14062,999R)  adj 1.0%(327/33841,2338R)  null 3.6%(670/18745,1255R)
+          overlap=settled  yun 87.1%(19176/22008,11313R)  ju 4.9%(665/13680,1381R)  adj 1.0%(327/33171,3008R)  null 3.7%(670/18265,1735R)
+  PASS  the committed 90.9% is the 'any' rate and nothing else moved it
+          90.9% on 31162 judged of 33321 mandated, 2159 refused
+  PASS  under 'any' the separation from the MATCHED 句 control survives
+          韻 90.9% - 句 7.4% = 83.5 pp; vs adj 88.0 pp, vs cross-poem null 84.8 pp
+  PASS  under 'all' the separation from the MATCHED 句 control survives
+          韻 61.5% - 句 4.7% = 56.8 pp; vs adj 60.6 pp, vs cross-poem null 58.0 pp
+  PASS  under 'settled' the separation from the MATCHED 句 control survives
+          韻 87.1% - 句 4.9% = 82.3 pp; vs adj 86.1 pp, vs cross-poem null 83.5 pp
+  PASS  ALL THREE CONTROLS move in the same direction as the mandated arm and further, in relative terms — the OR was buying the controls more than it was buying the result (doctrine 41)
+          yun -4%; ju -35%; adj -67%; null -40%. A fold that had merely made the comparator stricter everywhere would have shrunk them all by the same fraction
+  PASS  and the headline the coordinate exists for
+          9154 of 28330 Trues at mandated positions (32.3%) rest on an overlap the readings do not settle
+
+12. syllabify() no longer hands out a 平/仄 tone_class() refuses
+  PASS  there are characters tone_class() refuses and syllabify() used to answer for
+          12: 行重長過中華相間王供歐經
+  PASS  prominence is now exactly tone_class(), refusal included
+          one method refused and the other answered; `Syllable` already declares None on this channel to mean 'no binary prominence the grid can use', so the refusal needed no new type
+  PASS  a character whose readings AGREE keeps its confident value
+          流 is 平, 目 is 入 (therefore 仄), and 好 has two readings that agree on the class -- a 多音字 is not automatically undecided FOR THE PREDICATE
+  PASS  an unreadable character is still a placeholder syllable, not an exception
+  PASS  nucleus is STILL readings[0]'s 韻 and that residue is named, not hidden
+          refusing the nucleus here would delete the channel path doctrine 84 requires to stay reachable (test_taxonomy.py's consult=False arm reads it). The rhyme question is answered by rhyme_keys(), which reads every reading, under a declared fold
+
+13. the coverage DENOMINATOR excluded Extension A, and the bias ran both ways
+  PASS  䰟 -- the variant 魂 maps TO, the graph doctrine 88 is named for -- is Extension A, so it was outside the denominator of the rate that doctrine quotes
+          U+4C1F, and the old filter was U+4E00..U+9FFF
+  PASS  on 花間集 the widening ADDS characters and they all read, so the old figure was UNDERSTATED
+          total 21610 -> 21668 (+58), unread still 0
+  PASS  on the 四庫 ci corpus the widening adds characters that mostly do NOT read, so the SAME fix moves that figure the other way -- a rate polluted this way is not even conservative in a direction (doctrine 79)
+          denominator 578974 -> 582677 (+3703); read 565996 (97.14%), refused 13040, unread 3641 -- three counts that partition it
+  PASS  the positions that are NOT characters are counted rather than dropped: a gaiji entity and a lacuna each occupy one position the 1715 詞譜 counts
+          132 &KRnnnn; entities, 32 □/○ lacunae, neither of them an ideograph and both of them a character position
+
+14. EDITION is a coordinate, it is OFF by default, and its price is measured against the matched control
+  PASS  an undeclared edition raises rather than being guessed
+  PASS  the default is unchanged, so no committed number moves
+          every figure in data/sources.tsv row kanripo/KR4j was measured with no edition orthography, and a default changed without a held-out price is a silent re-scoring of the record
+  PASS  under edition='siku' the 四庫 hand reads, and its 異體 target is named rather than implied
+          黄->黃 别->別 逺->遠 緑->綠 㸃->點; the general table files the first three as 簡化 (a 1956 simplification) and 逺/緑 as 後起, and both verdicts are about a character rather than a character in an edition
+  PASS  a graph the rime book genuinely postdates stays refused under BOTH settings -- the map recovers an orthography, not a vocabulary
+          怎 is Song-Yuan vernacular; doctrine 88 says refusing it is CORRECT
+  PASS  the reconstruction from the staged files reproduces the COMMITTED 韻 and 句 arms exactly, before anything is changed
+          韻 90.9%, 句 7.4%
+  PASS  the edition map CUTS THE REFUSALS and does NOT lift the matched control -- a map manufacturing agreement would lift both (doctrine 41)
+          韻 refused 2159 -> 1070 (50.4% cut), 韻 rate 90.9% -> 90.8%, 句 control 7.4% -> 7.4%, separation 83.5 -> 83.4 pp
+
+15. the staged corpus's LINE BREAKS re-derive from the committed 1715 spec, with no clones and no network
+  PASS  every staged poem's 詞牌 resolves in a COMMITTED table
+          10029 poems, 10029 checked. 436 were UNVERIFIABLE before data/qindingcipu_aliases.tsv existed: their --- GE: header named a tune only a `git clone` of KR4j0086 could resolve (doctrine 34, one level in)
+  PASS  every printed line break equals the 格's own line-end vector, and the 韻/句 marks and the --- RHYME / --- JU headers agree with it
+          10028 confirmed + 1 unevidenced = 10029; 5572 with a unique 韻/句 partition, 4456 declared ambiguous, 0 defects
+  PASS  a segment made ENTIRELY of lacunae is refused rather than confirmed — the character count is the only evidence the segmentation is right, and a run of `□` satisfies it vacuously
+          ltc_siku_kr4j0032.txt 雙雁兒 其2  [air: 雙雁兒] — 4 seg, 20 chars
+  PASS  ...and the other five lacuna poems stay CONFIRMED, because their `□` sits inside a segment that also holds real characters, so every one of their breaks is still evidenced
+          6 poems carry a lacuna, 1 has an all-lacuna segment
+  PASS  the census of positions that are NOT characters is reported rather than dropped, and it names the poem that is half lacuna
+          132 &KRnnnn; in 123 poems, 32 □/○ in 6; 雙雁兒 其2's entire second 片 is lacuna
+
+16. the 同用 grouping is DECLARED to callers that compare channels, not only used inside rhymes()
+  PASS  the table answers as a partition over the 韻, not only over a character
+          `rhyme_keys` takes a CHARACTER and reads (韻, 聲); a channel comparison holds the 韻 alone and had no way to ask for the grouping. quality/relations.py's 'Middle Chinese end rhyme (同用 group)' therefore compared 尤 with 侯 at the IDENTITY and read 流/樓 -- the pair the whole grouping exists for -- as False, while this module read True. The table was never wrong; nothing handed it over.
+  PASS  a 韻 the grouping does not list is its own group, which can only make a checker stricter
+  PASS  the declaration says which quotients it authorises
+  PASS  ...and 'qieyun' authorises NONE, because that is what the coordinate means
+          the raw rime class is finer than any poet used and 流/樓 is False under it (section 2) -- a schema NAMED for the 同用 group has nothing to ask for there, and refusing is not the same answer as False (doctrine 79).
+  PASS  ...and neither does 'cilin', because its 部 is not a function of the 韻 alone
+          詞林正韻 merges 上 with 去 inside a 部 and holds the five 入聲 部 apart, so 冬 is 第1部 in 平上去 and 第15部 in 入. A 韻-keyed quotient would merge exactly the cells this standard separates; `rhyme_keys` reads (韻, 聲) and is the method that can answer it.
+  PASS  the tone-invariant partition agrees with the SOURCED 平水 table on 1,649 of 1,653 韻-pairs, and the 4 exceptions are named
+          1649/1653. The four are 嚴/添 and 嚴/鹽 (the 入聲 業 split section 3 pins), 眞/臻, and 祭/齊. The relation layer's second channel is `prominence`, which carries the 平/仄 binary, so 上, 去 and 入 are ONE value there and a tone-split partition could not be expressed at that layer even if it were handed over. The grain is stated rather than assumed, and this is the number it costs.
+==============================================================
+all Middle Chinese regressions pass

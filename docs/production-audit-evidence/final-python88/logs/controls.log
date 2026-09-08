@@ -1,0 +1,38 @@
+
+1. BLOCKER 1 — a pool-derived frequency source is refused
+  PASS  declaring a pool-derived source raises
+          cell 'fi': frequency source 'loo:skvr-pool' is derived from the labelled pool and carrie
+  PASS  a documented dependence is allowed but recorded
+          the dependence survives into the run log rather than being hidden
+
+2. BLOCKER 1 — an undeclared cell cannot be scored
+  PASS  undeclared cell raises rather than defaulting
+          "no frequency source declared for cell 'klingon'. Scoring a cell without a decla
+  PASS  cells with no independent list are named, not silently skipped
+          lzh -> Classical Chinese. wordfreq ships MODERN Chinese (zh) only. 
+
+3. BLOCKER 2 — the old twin is detectably degenerate
+  PASS  a constant control is flagged degenerate
+          max-min < tol
+  PASS  a varying control is not flagged
+
+4. BLOCKER 2 — the shuffle twin preserves every marginal
+  PASS  the rhyme-word multiset is exactly preserved
+          a permutation, not a resample, so frequency/length/word-class marginals are all held fixed
+  PASS  per-item counts are preserved
+  PASS  the item-to-word pairing is actually destroyed
+          6/6 items received different words
+  PASS  the shuffle is deterministic under a fixed seed
+          reproducible
+
+5. BLOCKER 3 — calibration comes from permuted labels
+  PASS  an honest battery shows a family-wise FPR well above its nominal alpha
+          family-wise 0.30 at nominal 0.05 across 8 features -- this is the multiplicity the correction must absorb
+  PASS  a mechanically-firing feature is caught at 100% under permutation
+          family-wise 1.00 -- a feature that fires with the labels destroyed cannot be a calibrator
+  PASS  mean discoveries reveal it is exactly one feature
+          1.03 discoveries per permutation
+  PASS  a calibrated threshold is derived from measurement, not assumption
+          alpha=0.01
+==============================================================
+all blocker-fix regressions pass

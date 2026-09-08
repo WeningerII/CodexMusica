@@ -1,0 +1,53 @@
+
+1. the log-odds scale has a true zero
+  PASS  some cells are negative
+          a substitution LESS likely under rhyme than chance must be able to score below zero; the additive comparator could not
+  PASS  some cells are exactly zero
+          no evidence means no evidence
+
+2. a cell with no observations may not score
+  PASS  every unobserved nucleus cell is ~0
+          210 unobserved cells, max |LO| 0.00e+00
+  PASS  without shrinkage the defect reappears (so the guard is load-bearing)
+          kappa=0 gives 210 unobserved cells above 1 bit — this is the artifact the P8 tripwire caught
+
+3. the stress channel is conditioning, not evidence
+  PASS  it is off by default
+          anchor stress says which anchors are COMPARABLE; the background model treats it as independent, which it is not
+  PASS  the stress channel contributes nothing when off
+          on: ['coda', 'nucleus', 'stress']; off: ['coda', 'nucleus']
+  PASS  and the two scores therefore differ
+          -0.390 vs +0.000 bits
+
+4. P3 — an absent coda must not pay what a matching coda pays
+  PASS  empty/empty earns nothing
+          empty -0.000; the additive comparator gave two ABSENT codas the full 1.0 of the coda weight for having nothing in common
+  PASS  a matching consonant coda still earns
+          matching ['-0.85', '+0.41'] on this toy corpus; on the 152 sonnets it is N:+3.17 T:+2.94 D:+3.54 S:+3.79 L:+4.45 against empty/empty at -0.000
+
+5. doctrine 13 — held-out by construction
+  PASS  one comparator per fold
+  PASS  every fold declares what it held out
+          fold 1/5, 1 items never seen in training
+  PASS  the shippable matrix declares that it is NOT held out
+          NONE — fitted on all data. Scoring any item that was in the training set with this matri
+  PASS  the two are distinguishable at the call site
+          a matrix fitted on everything cannot be mistaken for a held-out one
+
+6. training labels are the form's, not anyone's judgement
+  PASS  ABABCDCDEFEFGG mandates 7 pairs
+          7: [(0, 2), (1, 3), (4, 6), (5, 7), (8, 10), (9, 11), (12, 13)]
+  PASS  a scheme of the wrong length mandates nothing
+          a mismatch must not silently produce partial labels
+
+7. a matrix survives serialization exactly
+  PASS  every cell round-trips
+  PASS  the declaration round-trips too
+
+8. nothing switches by default
+  PASS  Declaration.fitted is still False
+          doctrine 5 stays honest: the shipped weights are hand-set, and the fitted matrix did not earn the default
+  PASS  the time layer takes a comparator but defaults to None
+  PASS  chain inference takes a comparator but defaults to None
+==============================================================
+all fitted-matrix regressions pass

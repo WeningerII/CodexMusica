@@ -1,0 +1,376 @@
+{
+  "component": "chat, client recovery, receipts and run identity",
+  "status": "implemented and locally verified",
+  "findings": [
+    {
+      "id": "CS01",
+      "status": "fixed",
+      "change": "Host task controls instructions, declarations and dispatch; recipe creation requires edit, Rich output <=1000; explicit stock browsing remains available.",
+      "verification": [
+        "recipe domain instruction/declaration/dispatch adversary",
+        "creation versus browse output gate"
+      ]
+    },
+    {
+      "id": "CS02",
+      "status": "fixed",
+      "change": "Browser persists request capabilities before dispatch, recovers receipts on loss/reload, preserves signed error continuations, honors Retry-After, follows one-successor durable continuations and restores exact artifacts.",
+      "verification": [
+        "actual shipped UI response loss, reload and 120-second pacing",
+        "actual ChatRouter/SDK 1.6MB durable continuation and successor rejection",
+        "newer worker checkpoint recovery"
+      ]
+    },
+    {
+      "id": "CS03",
+      "status": "fixed",
+      "change": "Only current authoritative lyric_revise exit0 + certified verdict + matching full draft hash can create completion. Exact presentation is delivered and copied; parked and model-fabricated finished text cannot replace it.",
+      "verification": [
+        "adversarial model after parked result",
+        "current canonical finished artifact and hashes",
+        "actual shipped display/Copy whitespace",
+        "previous pass invalidated by a new request"
+      ]
+    },
+    {
+      "id": "CS04",
+      "status": "fixed",
+      "change": "Blocked, missing, empty and exhausted malformed responses stop explicitly without appending empty model turns; malformed stop metadata is retained.",
+      "verification": [
+        "six invalid provider shapes",
+        "existing malformed retry metadata maintained"
+      ]
+    },
+    {
+      "id": "CS05",
+      "status": "fixed",
+      "change": "Canonical brief, accepted user instructions, current plan, completed workflow steps and monotonic conversation turn count are signed outside prunable observations.",
+      "verification": [
+        "forced real pruning threshold with canonical facts retained",
+        "actual signed HTTP turn counter and domain tamper rejection"
+      ]
+    },
+    {
+      "id": "CS06",
+      "status": "fixed",
+      "change": "Receipts reserve completion space, enforce serialized byte bounds, clear redundant terminal checkpoint payloads and distinguish expected capacity refusal from broken persistence. Durable continuation capabilities avoid large POST/localStorage copies.",
+      "verification": [
+        "durable 1.41MB ASCII, escaped and multibyte receipt lifecycles",
+        "4MB response refusal remains per-request",
+        "actual 1.6MB signed envelope continues by receipt capability after full-body413",
+        "disk restart preserves receipt chain"
+      ]
+    },
+    {
+      "id": "CS07",
+      "status": "fixed",
+      "change": "Conversation generation discards late old responses after Reset; prior capability stays in Saved runs, and old finalizers cannot overwrite active state.",
+      "verification": [
+        "actual shipped delayed response / Reset interleaving"
+      ]
+    },
+    {
+      "id": "CS08",
+      "status": "fixed",
+      "change": "Tool run lock spans read through write; run_revision is required, versioned and checked. Durable chat parent receipts accept one successor before provider dispatch.",
+      "verification": [
+        "real MCP clients and real Python concurrency race",
+        "sequential stale run revision rejection",
+        "actual chat successor conflict has unchanged provider dispatch count"
+      ]
+    },
+    {
+      "id": "CS09",
+      "status": "fixed",
+      "change": "Effective defaults and original replay input are immutable; newly supplied declarations absent at run creation are rejected. Explicit new runs and parked rewrites remain distinct.",
+      "verification": [
+        "real MCP omitted attempts1 -> explicit2 refused",
+        "real MCP suspended full draft substitution refused",
+        "RunStore identity tests; returns-only mandate identities supported"
+      ]
+    },
+    {
+      "id": "CS10",
+      "status": "fixed",
+      "change": "Quota and transient retry counters are independent under the same deadline and paid reservations; providerAttempts counts every dispatch.",
+      "verification": [
+        "429,429,503,503,200 reaches success with4 retries and5 provider attempts"
+      ]
+    }
+  ],
+  "additional_fixes": [
+    "Lyrics generation reserves32768 output tokens; recipe generation retains2048. MAX_TOKENS never certifies a truncated song.",
+    "Signed lyric task contract version2 refuses old planning state before model dispatch; accepted drafts remain recoverable.",
+    "Release lexical asset failure blocks paid chat before dispatch; durable accounting failure has an operator-repair reason rather than a midnight-reset budget message.",
+    "Browser stores capabilities rather than repeated large envelopes; receipts persist one-successor continuation identities before paid dispatch.",
+    "Explicit host-owned lyric create/edit phase is available in the browser and API; unsupported fresh phases are refused. Creation workflow provenance gates are implemented by the revision agent.",
+    "CON-11: decoded journals are bounded before new writer work: 384KiB working journal,448KiB final journal,32KiB connector declarations,512KiB codec. Exact accepted artifacts survive typed JOURNAL_CAPACITY or known proposal-size stops; journal and same-run/stateless replay require explicit independent new work.",
+    "Deferred progress now carries exact accepted input and journal snapshots; recovery selects state for interview and checkpoint for kitchen. Compressed contract2 state is decoded by suspended-task guards and encoded by interrupted receipt recovery."
+  ],
+  "files": [
+    "mcp/chat.js",
+    "mcp/gemini_agent.js",
+    "mcp/job_store.js",
+    "mcp/run_store.js",
+    "mcp/contract_version.js",
+    "src/app.js",
+    "src/index.template.html",
+    "mcp/test_chat_production.mjs",
+    "mcp/test_run_continuation.mjs",
+    "mcp/test_turn_lifecycle.mjs",
+    "lyric-harness/lyric_harness.py",
+    "lyric-harness/quality/test_production_journal.py"
+  ],
+  "validation": [
+    {
+      "command": "node --test mcp/test_chat_production.mjs",
+      "result": "17 tests passed per CI integration agent, including actual top-level502 receipt continuation and valid-HMAC stale semantic identity rejection.",
+      "log": "chat-production.log"
+    },
+    {
+      "command": "node --test mcp/test_job_store.mjs mcp/test_turn_lifecycle.mjs",
+      "result": "12 receipt tests and17 lifecycle regressions passed",
+      "log": "chat-existing.log"
+    },
+    {
+      "command": "node mcp/test_run_continuation.mjs with staged lexical data",
+      "result": "real MCP + real Python race/default/draft/stale-version assertions passed; typed journal capacity preserved exact draft and pending answered evidence, and replay was refused; no provider call",
+      "log": "chat-run-continuation.log"
+    },
+    {
+      "command": "python3 quality/test_production_journal.py",
+      "result": "6 boundary tests passed:31-line high-plane Unicode/control group answer replay, no-dispatch at capacity, settled provider oversize, deferred fullprompt bound, received answer preserved after oversized verifier reasons, final metadata overflow preserves accepted artifact"
+    },
+    {
+      "command": "node_modules/.bin/eslint src/app.js mcp/chat.js mcp/test_chat_production.mjs mcp/test_run_continuation.mjs",
+      "result": "passed"
+    },
+    {
+      "command": "python3 quality/test_audit_regressions.py with staged lexical data",
+      "result": "9 passed;3 changed-grader linguistic fixtures sent to revision agent, which is migrating them. Deterministic checkpoint tests passed."
+    }
+  ],
+  "boundaries": [
+    "No paid model or kitchen run was performed. Real provider reliability, paid task quality and production restart behavior still need the coordinated release acceptance run.",
+    "The legacy generic native MCP endpoint has no host-owned task guarantee; scoped endpoints and maintained chat clients carry the task contract.",
+    "Receipts have explicit retention and capacity limits; an expired/uncertain receipt never authorizes automatic replay.",
+    "Shared source and generated HTML need final integrated verification after the other agents finish; codex.html was intentionally not regenerated here.",
+    "The finite journal contract guarantees recoverable accepted work; it does not establish latency or convergence for every31-line plan. The separate H09 CPU/performance investigation remains with root/harness agents."
+  ],
+  "integration_reconciliation": {
+    "status": "Frozen continuation/resource/batch and full readability regressions pass; two-worker all-verbs inventory in progress.",
+    "passed": [
+      {
+        "suite": "quality/test_floor.py",
+        "assertions": 206,
+        "log": "floor-existing-final.log"
+      },
+      {
+        "suite": "quality/test_declared_inputs.py",
+        "assertions": 159,
+        "log": "declared-inputs-final.log"
+      },
+      {
+        "suite": "test_verbs staged-resource section",
+        "assertions": 14,
+        "log": "verbs-staged-resources-final.log"
+      },
+      {
+        "suite": "test_verbs deferred suspension/replay section",
+        "assertions": 14,
+        "log": "verbs-deferred-reconciled.log"
+      },
+      {
+        "suite": "test_verbs explicitRHYMEbatch section",
+        "result": "all assertions passed; shared initial log contains unrelated oldsection20 failures",
+        "log": "verbs-deferred-existing.log"
+      },
+      {
+        "suite": "quality/test_gate_census.py",
+        "assertions": 33,
+        "log": "gate-census-existing-reconciled.log"
+      },
+      {
+        "suite": "quality/test_readability.py",
+        "result": "all readability / recorded-refusal regressions pass",
+        "log": "readability-existing-reconciled.log"
+      },
+      {
+        "suite": "test_verbs defer, batch and staged-resource sections on frozen writer adapter",
+        "result": "all three completed with FAILURES []",
+        "log": "verbs-continuation-frozen.log"
+      }
+    ],
+    "actual_bug_fixed": "Gate census silently lost conditional finding names. The resolver now pairs code and severity conditional branches, preserves original gates, and counts new required-identity notes correctly. A mutation proves the old reader loses those branches.",
+    "fixture_changes": [
+      "Optional norms no longer disable floor; mandatorytagger absence still refuses; all-feature research still refuses missingnorms. ConfiguredNLTKpath respected.",
+      "Old whole-vocabulary four/own refused-coverage negative retained; deferredprotocol exercised on fullyjudged stove/leaf\u2192coat ASsonance.",
+      "Readability repins follow frozen corpus editorialreview and current shared sonnet97refusals/967judged oracle. GenuineBarnesverse replaces footnotecontaminatedexemplar, exacttwofinding expectation preserved, canonicalByronfootnotecleanup positive/negative added.",
+      "Seed sweep supports explicit40shown+remainingcount rather than assuming allacceptedseeds printed. Comparatorprofile test requires actualfinishedmachineverdict with matchingexit andcertifiedfalse foruncertified outcome.",
+      "Song comparator/meter wiring checks inspect machine graded report and required-coverage precedence; a false exit0 on the same flagged/unjudged report fails the oracle.",
+      "Invalid blueprint checks now require named finite duration or meter-group refusal in actual machine record, replacing raw Fraction exception prose.",
+      "Proposer positives declare class:RHYME with bounded attempts; replay lawn modal rejection and missing-answer behavior observed. Supplied callables now write invocation receipts so the test cannot pass by factory discovery alone. Default whole-vocabulary uncertainty remains negative.",
+      "Combined rhyme/return and title wiring predicates are being reconciled using actual machine obligations and coverage. Old seed17627line whole-flag fixture correctly refuses new12line plan; revision agent deriving genuine replacement."
+    ],
+    "all_verbs": "production-fix-results/verbs-final/results.json: two workers, per-CLI600s, per-section900s, overall5400s, per-source hashes and subprocess timing. Earlier180s aggregate attempts and ENOSPC fallout retained separately and not counted as passing.",
+    "readability": "Full quality/test_readability.py passed after corpus/sonnet causal reconciliation; log readability-existing-reconciled.log.",
+    "bounded_inventory_infrastructure": "First attempt stopped on ENOSPC caused by duplicate rsync field-cache files. Preserve verbs-bounded-progress.log and verbs-bounded/*.log. Section 1 has corrected explicit seed-summary oracle; sections 2/3 timed out while old source was running; section 4 and subsequent failed under full filesystem. Re-run will capture source fingerprints separately.",
+    "additional_actual_bugs_fixed": [
+      {
+        "bug": "Returns-only human report printed zero rhyme work without stating measured returns",
+        "fix": "Renders existing return coverage + violation findings as SATISFIED/VIOLATED/UNJUDGED, preserving rhyme/return distinction",
+        "test": "verbs-returns-rendered-final.log: actual CLI identical return positive and changed full line with same endword negative pass",
+        "source_identity": "returns-rendering-identity.json"
+      },
+      {
+        "bug": "Completion stamp said no flag stands beside a whole-draft flag",
+        "fix": "Scopes empty claim to no line flag stands; Python and MCP archived parsers retain old/new compatibility",
+        "test": "Existing stamp section assertions updated to distinguish whole flags and coverage; full rerun pending"
+      }
+    ],
+    "performance_counterexample": {
+      "command": "finish draft.txt --seed=31 --attempts=0 --backtrack=0",
+      "draft_lines": 12,
+      "draft_chars": 400,
+      "result": "Individual CLI timed out after600s, sharedCPU, no paid calls or proposals",
+      "artifact": "finish-seed31-timeout/reproduction.json",
+      "status": "H09 open; relations requested-pair full-stream projection landed, differential tests and rerun pending"
+    }
+  },
+  "python_integration_followup": {
+    "status": "Owned work complete and source frozen. All59maintained verb sections have passing actual evidence with per-run source epochs; the strengthened section59 was run in full and passed. Final committed-source88-suite qualification remains owned by root/CI.",
+    "scope": "Actual CLI reachability, accepted-artifact and refusal controls, returns rendering, floor/current corpus fixtures, gate-census completeness and historical-claim validation. No paid calls.",
+    "records": [
+      "verbs-acceptance-current.json",
+      "verb-reconciliation-notes.json",
+      "census-final-results.json",
+      "current-claims-final.json",
+      "section59-strengthened-final.json",
+      "historical-blob-hydration.json"
+    ],
+    "passed_checks": [
+      {
+        "suite": "readability",
+        "assertions": 185,
+        "log": "readability-existing-reconciled.log"
+      },
+      {
+        "suite": "declared inputs before the additional window refusal rule",
+        "assertions": 159,
+        "log": "test_declared_inputs-current.log"
+      },
+      {
+        "suite": "gate census including the new window refusal",
+        "assertions": 34,
+        "log": "gate-census-final-floor-window.log"
+      },
+      {
+        "suite": "complete claim-checker regression controls",
+        "result": "All passed;8current-capacity mutations plus real Git complete/failed/partial/dirty-state controls.",
+        "log": "verify-entry-tests-all-final.log"
+      },
+      {
+        "suite": "full current claims and historical pins",
+        "result": "PASS:790entry claims true;211prose true;9explicit historical refusals;128pins/10files/219moves preserved;5nonfailing marker notes. All214missing historical blobs hydrated and exactly Git-hash verified.",
+        "log": "verify-entries-capacity-final.log",
+        "scope": "--no-derivations; unrecognized claims remain refused, not verified."
+      }
+    ],
+    "remaining": [],
+    "limitations": [
+      "Passing verb records retain their actual source epoch; this is not a claim that every section ran on one final source snapshot. Root/CI owns final committed-source88suite, which excludes separately maintained test_verbs.",
+      "Local no-paid controls do not qualify production hardware capacity, live-provider writing quality or long-run convergence.",
+      "Some historical marker choices remain disclosed notes; unrecognized register statements remain explicitly outside the mechanical claim-checker proof."
+    ],
+    "historical_gate": {
+      "missing_objects": 214,
+      "hydrated_and_exact_hash_verified": 214,
+      "specs": 239,
+      "bytes": 24758031,
+      "remote_writes": 0,
+      "access_changes": 0,
+      "pins": 128,
+      "files": 10,
+      "moves": 219,
+      "vanished_values": 0,
+      "nonfailing_marker_notes": 5,
+      "remaining_false_claims": 0,
+      "false_claim_scope": "The7newly stale capacity claims were corrected by revision with explicit dated current values and retained historical paragraphs. The final9prose refusals are all explicitly historical claims; there are no unreadable documents.",
+      "marker_notes": 5
+    },
+    "handoff": [
+      "Root/CI final88-suite run must supply final committed-source broad gate results.",
+      "Production capacity/deployment and live-provider writing/convergence qualification remain outside these local no-paid regression proofs."
+    ]
+  },
+  "final_native_integration_followup": {
+    "status": "Owned work frozen. Current checks-only135/135 passed; actual fullattempts3 continuation passed; native kitchen finalcompletion/application qualification passed in CI lane. Candidate4 fullruntime andfourcompanions are root/CI final-source gates.",
+    "actual_fixes": [
+      {
+        "area": "deferred batching",
+        "problem": "The unchanged24-line seed1 fixture reached JOURNAL_CAPACITY before the first question because nine independent complete briefs exceeded the journal working bound.",
+        "repair": "Ask the largest actual-byte-admitted ordered prefix. Preserve complete briefs, all replay keys and unasked tail; atomic oversize still stops before dispatch with exact artifact. Identical restart is no longer advised as a cure.",
+        "focused_tests": "journal-batching-unit.log:8/8; first real native batch [1,5,6,14,15,17,19] fits311275bytes."
+      },
+      {
+        "area": "partial verdict scope",
+        "problem": "A verified change inherited fabricated zero full-draft finding counters, including banned_pairs:0.",
+        "repair": "Only authenticated graded/finished findings inventories emit counters. Partial statuses and missing completed inventories cannot certify. Compare scope points to full grade/check.",
+        "evidence": "connector-partial-verdict-scope-repair.json; connector-native-tail-probe.json"
+      },
+      {
+        "area": "missing verifier outcomes and separate-answer projection",
+        "problem": "An unvisited batch answer could be inferred accepted when attempts remained; run_id+answer was actually journaled but its response read the pre-answer state and returned folded:null.",
+        "repair": "Only actual outcomes report accepted/rejected; missing means unknown for all admitted budgets. Serialize the enriched request-local state before deriving the exact fold receipt.",
+        "evidence": [
+          "unvisited-fold-control.json",
+          "unvisited-fold.patch",
+          "connector-split-liveness-separate-answer-failure.json",
+          "separate-answer-projection.patch",
+          "separate-answer-projection-source.json",
+          "connector-split-liveness-final.json"
+        ],
+        "actual_result": "Full original24line seed1 fixture at attempts3 passed in131.795s: initial7 retained; pivot verified rejected; laterunvisited unknown; omitted21/23 reached at4 and folded at5; all original lyrics preserved."
+      },
+      {
+        "area": "native verified/application outcome and checkpoint replay projection",
+        "problem": "Kitchen qualification had no actual verifier/application numerator; checkpoint resume required binding actual native replay to supplied wire.",
+        "repair": "Project strictly typed native verified_outcomes with journalidentity, separate accepted/applied booleans, canonical before/after/applied/currentdraftSHA256. Malformed/unavailable arrays remain null+error. Only bind original wire SHA after native inputfile digest matches exact bytes written. Both fields survive tool\u2192agent\u2192actualHTTP.",
+        "evidence": [
+          "verified-outcome-chat-final.json",
+          "verified-outcome-chat-final.log"
+        ],
+        "scope": "Native verifier hooks and actual localhost kitchen acceptance+dedup are independently tested in revision/CI lanes."
+      },
+      {
+        "area": "last-round final status",
+        "problem": "A valid lastallowedround repair produced authenticated exit0/certifiedtrue with actual ROUND_LIMIT, while Node required SUCCESS and mislabeled the artifact uncertified/parked.",
+        "repair": "Classify finished_clean from the authenticated fullfinalgrade, complete certified requested-layer inventory, exactdraft and explicit zero blocking/open counts. Preserve actualROUND_LIMIT as loop_stop_reason.",
+        "evidence": [
+          "final-status.patch",
+          "final-status-source.json",
+          "connector-checks-final-int35.json"
+        ],
+        "native_positive": "CI actual localhost kitchen finalcompletion/status/tamper tests passed; root finalcapture owns its byte receipt."
+      }
+    ],
+    "test_oracle_reconciliation": [
+      "Attempts schema validation plus actual default1/1/8 and zero-attempt clean/flagged native controls replace whitespace regex.",
+      "24-line synthetic grade explicitly remains uncertified exit2; fully qualified title fixtures independently prove clean0 versus titleflag3 with equalcoverage.",
+      "Check uses brief exit0 for reported defects or refused pairs; explicit authenticated coverage and exact finding/refusal IDs prove uncertainty and narrow relation contrasts. Catalog/collision errors remain exit2.",
+      "Removed assertions for obsolete *_meaning fields in favor of actual authenticated finding/standing text and advertised tool contracts.",
+      "Verify accepted/rejected remains independent of exit0; surviving-ban contrast requires omitted unmeasured counters and explicit scope.",
+      "Docker gate now accounts for maintained offline runtime-assets test with an explicit test-only omission justification."
+    ],
+    "prose_gate": "current-claims-final-native.json",
+    "final_result": "Composite source-dependent evidence; priorfull152 is not relabeled as current after the verifier/application changes.",
+    "paid_calls": 0,
+    "qualification_limits": "Local functional evidence. No paid long-run or production capacity qualification is claimed.",
+    "prior_full_native_result": "connector-full-native-prior-fold.json",
+    "current_actual_continuation_result": "connector-split-liveness-final.json",
+    "current_chat_result": "verified-outcome-chat-final.json",
+    "current_checks_result": "connector-checks-final-int35.json",
+    "candidate4_test_only_delta": "checks-only-final-fixture-list.json",
+    "source_epoch_limits": "Priorfull152 and actualtail remain their recorded epochs. Tail after-delta only exit0classification/sharedcompletion/duplicate-key cleanup changed, with explicit causal patch; current135checks and CI actualHTTP test those paths. Candidate4 differs from current only latest test-only NOT_SHIPPED fixture list, which runtime/fourcompanions do not execute."
+  }
+}

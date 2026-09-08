@@ -55,9 +55,8 @@ per-LINE and knows nothing about whether meter or song-function were asked
 (`blueprint=` lives on the loop call, and `Reviser.brief`'s own docstring
 says it does not surface `blueprint_declared`). So this prompt never claims
 meter was or was not graded. What it does carry, when the caller passes it,
-is `whole` — the whole-draft findings — under a heading that says they are
-not this line's to fix, because `verify()` reads them and a proposer that
-cannot see them is being graded on a rubric it cannot read.
+is `whole` — the whole-draft findings — as constraints a permitted rewrite
+may improve. `verify()` reads them, so a proposer must be able to see them.
 
 PARSING REFUSES RATHER THAN GUESSES. A wrong parse writes a line the writer
 never wrote into a draft nobody re-reads, so `parse_line`/`parse_group`
@@ -291,24 +290,19 @@ def _offered_block(candidates, declaration, schema_note, indent="  "):
 
 
 def _whole_block(whole, indent="  "):
-    """-> [str]. Whole-draft findings, under a heading that says they are not
-    this line's to fix.
+    """Whole-draft measurements remain constraints on a permitted edit.
 
-    THE ONE THING THAT MUST NOT BE DROPPED AND MUST NOT BE MISLABELLED. A
-    whole-draft finding names no line, so no single-line rewrite clears one
-    — `LoopResult.disclosure` says exactly that, and it is why `revise_loop`
-    can return SUCCESS with one still standing. But `verify()`'s diff covers
-    `whole` as well as `per_line`, so one of these CAN reject a revision that
-    makes it worse. Both halves of that go in the prompt: it is context, and
-    it is context the grader reads.
+    Their measurement scope does not prove that a local edit cannot improve
+    them: a hook title or lexical outlier can change when one line changes.
+    The caller's declared target scope remains the permission boundary.
     """
     out = [
-        f"{indent}These name NO line and are NOT this line's to fix — no "
-        f"one-line rewrite clears one.",
-        f"{indent}They are here because the grader that judges your line "
-        f"reads them too: a revision that",
-        f"{indent}makes one of them WORSE is rejected, and none of them can "
-        f"be fixed by the line you write.",
+        f"{indent}These are measured over the WHOLE DRAFT. Preserve their "
+        f"constraints while changing only the permitted lines.",
+        f"{indent}A permitted rewrite may improve or clear a whole-draft "
+        f"finding; it is not required to clear every one in this single edit.",
+        f"{indent}The grader reads them too: a revision that makes one "
+        f"WORSE is rejected.",
     ]
     out.extend(_finding_lines(whole, indent=indent))
     return out
@@ -322,6 +316,11 @@ def _mandate_block(brief, indent="  "):
     out = []
     must_answer = _ordered(getattr(brief, "must_answer", ()) or ())
     rets = set(getattr(brief, "return_groups", ()) or ())
+    return_members = set(getattr(brief, "return_members", ()) or ())
+    if return_members:
+        out.append(f"{indent}VERBATIM RETURN CLASS: " +
+                   ", ".join(f"L{n}" for n in sorted(return_members)) +
+                   ". The tool mirrors the one replacement to this exact class.")
     # WHERE EACH GROUP BINDS THIS LINE, AND WHETHER IT HOLDS (M-184). A
     # line in two groups at two places is asked for two words; a group
     # that already holds needs nothing and the writer is told to leave it.
@@ -330,7 +329,11 @@ def _mandate_block(brief, indent="  "):
     gslots = dict(getattr(brief, "group_slots", {}) or {})
     violated = set(getattr(brief, "violated_groups", ()) or ())
     for lab, mem, calls in must_answer:
-        shown = ", ".join(f"L{n} ({w!r})" for n, w in _ordered(calls))
+        rhyme_calls = [(n, w) for n, w in calls if n not in return_members]
+        shown = ", ".join(f"L{n} ({w!r})" for n, w in _ordered(
+            calls if lab in rets else rhyme_calls))
+        if lab not in rets and not rhyme_calls:
+            continue
         place = ""
         if lab in gslots:
             place = (f" at its {_place_phrase(gslots[lab])}"
@@ -350,14 +353,8 @@ def _mandate_block(brief, indent="  "):
             out.append(f"{indent}group {lab} {list(_ordered(mem))} is a "
                        f"RETURN — this line must BE {shown}, the same line "
                        f"word for word.")
-            out.append(f"{indent}  A rhyme is NOT enough here, and note that "
-                       f"rule 2 below forbids you changing the other line: "
-                       f"if this")
-            out.append(f"{indent}  line has to move to satisfy something "
-                       f"else, the RETURN is what breaks, and that is a "
-                       f"fact about the")
-            out.append(f"{indent}  mandate rather than about anything you "
-                       f"can write.")
+            out.append(f"{indent}  The tool mirrors your replacement to the "
+                       f"exact declared return class; a rhyme alone is not enough.")
         else:
             out.append(f"{indent}group {lab} {list(_ordered(mem))}{place} — "
                        f"this line must rhyme with: {shown}{standing}")
@@ -380,8 +377,8 @@ def _mandate_block(brief, indent="  "):
     if getattr(brief, "joint_conflict", False):
         out.append(
             f"{indent}NO JOINT CANDIDATE at "
-            f"{getattr(brief, 'field_declaration', '?')}: nothing in the "
-            f"lexicon answers all of those groups at once.")
+            f"{getattr(brief, 'field_declaration', '?')}: this bounded search found no "
+            f"word that answers all of those groups at once; no impossibility is proved.")
         # THE SENTENCE THAT USED TO END THIS BLOCK IS STRUCK, NOT DELETED
         # (doctrine 17). It read: "The MANDATE, not the line, is what needs
         # revising — a one-line rewrite here is re-running a search that has
@@ -429,9 +426,8 @@ def _mandate_block(brief, indent="  "):
             out.append(f"{indent}  Every call here was ALSO asked on its "
                        f"own and the pool came back empty for each, so "
                        f"this place")
-            out.append(f"{indent}  really is unanswerable by one word — "
-                       f"which is a fact about the mandate, and is the "
-                       f"case the struck sentence was written for.")
+            out.append(f"{indent}  has no offered answer in those searched pools. "
+                       f"Unsearched words and whole-line rewrites remain possible.")
     mrw = getattr(brief, "must_rhyme_with", None)
     if mrw and not must_answer:
         out.append(f"{indent}must rhyme with L{mrw[0]} ({mrw[1]!r})")
@@ -440,7 +436,8 @@ def _mandate_block(brief, indent="  "):
     return out
 
 
-def _enforced_block(line_no, n_lines, indent="  ", word_name="end word"):
+def _enforced_block(line_no, n_lines, indent="  ", word_name="end word",
+                    targets=None):
     """-> [str]. The rejection rules of `Reviser.verify`, in the order that
     method applies them, and NOTHING ELSE.
 
@@ -462,7 +459,8 @@ def _enforced_block(line_no, n_lines, indent="  ", word_name="end word"):
         f"{indent}   line count is rejected outright: this loop revises "
         f"lines, it does not restructure",
         f"{indent}   the draft.",
-        f"{indent}2. ONLY L{line_no} changes. Any other line that comes back "
+        f"{indent}2. ONLY {', '.join('L%d' % n for n in (targets or (line_no,)))} "
+        f"changes (declared returns are mirrored). Any other line that comes back "
         f"different is rejected",
         f"{indent}   outright, whatever else the revision achieved.",
         # ITEM 3 WAS FALSE TWICE OVER — corrected 2026-08-16. It said "the
@@ -621,8 +619,8 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
     read with a `getattr` default, so a partial stand-in renders.
 
     `lines` is the WHOLE draft. `whole` is `inspect()`'s whole-draft finding
-    list — rendered as context under a heading that says it is not this
-    line's to fix. `attempt`/`reasons` are the loop's retry state: `reasons`
+    list — rendered as constraints without demanding that one edit clear
+    them all. `attempt`/`reasons` are the loop's retry state: `reasons`
     is `verify()`'s own rejection list for the previous attempt, quoted
     verbatim rather than summarised, because a paraphrase of "L1 took the
     modal candidate 'higher'" loses the word.
@@ -633,7 +631,9 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
     candidates = _ordered(getattr(brief, "candidates", ()) or ())
     forbidden = _ordered(getattr(brief, "forbidden_modal", ()) or ())
     incumbent = getattr(brief, "forbidden_incumbent", "") or ""
-    keep = _ordered(getattr(brief, "keep", ()) or ())
+    targets = tuple(getattr(brief, "return_members", ()) or (line_no,))
+    keep = [n for n in _ordered(getattr(brief, "keep", ()) or ())
+            if n not in targets]
     findings = _ordered(getattr(brief, "findings", ()) or ())
     whole = _ordered(whole or ())
     decl = getattr(brief, "field_declaration", "field_depth=?, field_band=?")
@@ -699,8 +699,7 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
     out.append("")
 
     if whole:
-        out.append(f"WHOLE-DRAFT FINDINGS — CONTEXT ONLY, NOT THIS LINE'S TO "
-                   f"FIX ({len(whole)})")
+        out.append(f"WHOLE-DRAFT FINDINGS — PRESERVE THESE CONSTRAINTS ({len(whole)})")
         out.extend(_whole_block(whole))
         out.append("")
 
@@ -722,10 +721,9 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
                    f"line ({', '.join(str(w) for w in screened[:6])}"
                    + (", …" if len(screened) > 6 else "") + ").")
         if not candidates:
-            out.append("  A call word in the top ranks of its own family "
-                       "cannot be rhymed cleanly at all: the PARTNER line")
-            out.append("  has to move to a rarer word, or this line takes "
-                       "a near relation the mandate admits.")
+            out.append("  No clean answer survived this searched field. A joint "
+                       "rewrite of the partner lines may open another field;")
+            out.append("  any near relation must still satisfy the unchanged declaration.")
     _sref = tuple(getattr(brief, "schema_refused", ()) or ())
     if _sref:
         # WHY THE OFFER IS SHORT (`MISSING.md` M-204). Said BEFORE the list,
@@ -736,7 +734,7 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
         # the wrong one.
         out.append(f"  {len(_sref)} word(s) the band admitted are NOT "
                    f"offered: this place is judged by its group's declared")
-        out.append(f"  relation, and they do not satisfy it "
+        out.append(f"  relation, and it did not certify them "
                    f"({', '.join(str(w) for w in _sref[:8])}"
                    + (", …" if len(_sref) > 8 else "") + ").")
         out.append("  The list below is what that relation accepts — the "
@@ -785,11 +783,9 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
         elif forbidden:
             out.append("  (no candidate field was offered — and it is NOT "
                        "that nothing answers this line:")
-            out.append("  every word that answers its groups is in the "
-                       "FORBIDDEN list below, so the field is")
-            out.append("  empty because doctrine 9 emptied it. The mandate, "
-                       "not the lexicon, is the binding")
-            out.append("  constraint here.)")
+            out.append("  every surviving word in this searched field is in the "
+                       "FORBIDDEN list below. A bounded empty offer")
+            out.append("  does not establish that every legal rewrite is unavailable.)")
         elif getattr(brief, "partial_by_call", ()):
             # A FOURTH CAUSE, AND IT IS NOT "NOTHING ANSWERS THIS LINE"
             # (`MISSING.md` M-202). The joint offer is empty because the
@@ -799,17 +795,15 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
             # lines under a block naming dozens.
             out.append("  (no JOINT candidate field was offered — and that "
                        "is NOT 'nothing answers this line'. The")
-            out.append("  calls at this place do not rhyme with each other, "
-                       "so their conjunction is empty by")
-            out.append("  construction. WHAT EACH CALL CAN BE ANSWERED BY "
-                       "ON ITS OWN is listed in the mandate")
-            out.append("  block above; the grader flags PAIRS, so answering "
-                       "the VIOLATED call is a fix.)")
+            out.append("  searched fields yielded no joint offer. WHAT EACH CALL "
+                       "CAN BE ANSWERED BY ON ITS OWN is listed")
+            out.append("  above as suggestions; a rewrite must fix a finding without "
+                       "breaking or losing coverage of another obligation.)")
         else:
             out.append("  (no candidate field was offered for this line — "
                        "either no rhyme finding is what")
-            out.append("  flagged it, or nothing in the lexicon answers its "
-                       "groups. Read the findings above:")
+            out.append("  flagged it, or this bounded search found no certified "
+                       "candidate. Read the findings above:")
             out.append("  a meter, return or anaphora finding is not "
                        "repaired by swapping an end word.)")
     out.append("")
@@ -909,14 +903,15 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
     else:
         out.append("  (the grader found something on every line; you are "
                    "still only asked for this one)")
-    out.append(f"  Every line except L{line_no} must come back byte-"
-               f"identical. Changing one is rejected")
+    out.append(f"  The tool applies your one answer to "
+               f"{', '.join('L%d' % n for n in targets)}. "
+               f"Every other line stays byte-identical. Changing one is rejected")
     out.append("  outright even if the change is an improvement.")
     out.append("")
 
     out.append("WHAT THE GRADER ENFORCES ON YOUR ANSWER")
     out.extend(_enforced_block(line_no, len(lines),
-                               word_name=word_name))
+                               word_name=word_name, targets=targets))
     out.append("")
 
     out.append("HOW TO ANSWER")
@@ -1047,6 +1042,19 @@ def render_group(group_brief):
     down. The line text is printed in full instead.
     """
     g = group_brief
+    if getattr(g, "whole_repair", False):
+        out = ["REPAIR THE DECLARED REQUIREMENTS", "",
+               "Preserve the song's meaning, line count, placement and all declared relations.",
+               "Change only what is needed to clear the following whole-draft requirements."]
+        out.extend(_finding_lines(g.whole))
+        out.extend(["", "DECLARED MANDATE", g.mandate_description, "", "CURRENT DRAFT"])
+        out.extend(_draft_block(g.lines))
+        out.extend(_attempt_block(g.attempt, g.reasons))
+        out.extend(["", "Return exactly these lines (include unchanged members): " +
+                    ", ".join(f"L{n}" for n in g.members),
+                    "One L<number>: <whole line> row each. No commentary or additional lines.",
+                    "The complete replacement is regraded; new defects and lost judgment coverage reject it."])
+        return "\n".join(out)
     p_no = getattr(g, "pivot_line_no", 0)
     p_text = getattr(g, "pivot_text", "")
     p_word = getattr(g, "pivot_word", "")
@@ -1073,30 +1081,12 @@ def render_group(group_brief):
     out.append(f"REWRITE A WHOLE RHYME GROUP — {k} coupled line(s): pivot "
                f"L{p_no}, with {a_list}.")
     out.append("")
-    out.append("THE SITUATION, AND IT IS NOT THE ORDINARY ONE")
-    out.append(f"  L{p_no} is a PIVOT: it sits in more than one rhyme group "
-               f"and has to answer every one")
-    out.append("  of them at once. The grader has ALREADY searched the "
-               "complete candidate pool and found")
-    out.append(f"  that NO single word does — that search came back empty at "
-               f"{decl}.")
-    out.append(f"  So there is no better word for L{p_no} to be found by "
-               f"looking harder. The MANDATE is")
-    out.append("  what needs revising: this line is required to rhyme with "
-               "lines that do not rhyme")
-    out.append("  with each other.")
+    out.append("THE REPAIR OPERATION")
+    out.append(f"  Rewrite the coupled members of group {label} {list(members)}.")
+    out.append("  The bounded candidate search did not close this repair one line at a time.")
+    out.append("  Its finite menus do not prove the declaration impossible. The words may change;")
+    out.append("  the declared relation, every overlapping obligation, and all other lines remain fixed.")
     out.append("")
-    out.append(f"  The move is to BACKTRACK. Change the bound word of every "
-               f"OTHER member of group")
-    out.append(f"  {label} {list(members)} — the lines L{p_no} has to match "
-               f"— so that what L{p_no} must satisfy")
-    out.append(f"  becomes satisfiable, and give L{p_no} a word that answers "
-               f"its OTHER group(s). All {k}")
-    out.append("  lines come back, and they must all rhyme with EACH OTHER, "
-               "or the group you just")
-    out.append("  rewrote is broken instead.")
-    out.append("")
-
     out.append("ATTEMPT")
     # THE LAST ROUND'S REJECTION OF THIS GROUP, QUOTED (M-253, 2026-09-06).
     # `reasons` is the rejection inside a round; `prior` is the previous
@@ -1159,8 +1149,7 @@ def render_group(group_brief):
     out.append("")
 
     if whole:
-        out.append(f"WHOLE-DRAFT FINDINGS — CONTEXT ONLY, NOT THESE LINES' "
-                   f"TO FIX ({len(whole)})")
+        out.append(f"WHOLE-DRAFT FINDINGS — PRESERVE THESE CONSTRAINTS ({len(whole)})")
         out.extend(_whole_block(whole))
         out.append("")
 
@@ -1209,8 +1198,7 @@ def render_group(group_brief):
             out.append(f"  (none offered — NOTHING answers group {label} "
                        f"{list(members)} AND L{a_no}'s own group(s) at once, "
                        f"so the conjunction")
-            out.append("   is unsatisfiable at this line and the MANDATE is "
-                       "what needs revising, not the words)")
+            out.append("   was not solved by this bounded search; no impossibility is established)")
         else:
             out.append("  (none offered)")
         out.append("")
@@ -1309,7 +1297,13 @@ def parse_group(text, members):
     fences = _FENCE_RE.findall(text)
     if len(fences) > 1:
         return None
+    if fences and _FENCE_RE.sub("", text, count=1).strip():
+        return None
     body = fences[0] if fences else text
+    # Consume the whole answer, not just the substrings matching markers.
+    if any(raw.strip() and not _MEMBER_MARK_RE.fullmatch(raw)
+           for raw in body.splitlines()):
+        return None
     got = {}
     for raw_no, payload in _MEMBER_MARK_RE.findall(body):
         n = int(raw_no)
@@ -1441,11 +1435,18 @@ class ModelProposer:
         self.call = call
         self.parse = parse or parse_line
 
+    # The connector's admitted artifact line bound. Reject before a parsed
+    # provider answer can enter the journal or accepted draft.
+    MAX_LINE_CHARS = 200
+
     def propose(self, brief, lines, attempt, reasons=None, whole=()):
         """-> a replacement line for `brief.line_no`, or `None`."""
         prompt = render_line(brief, lines, whole=whole, attempt=attempt,
                              reasons=reasons)
-        return self.parse(self.call(prompt))
+        with_capacity = getattr(self.call, "with_capacity", None)
+        raw = with_capacity(prompt, max_lines=1) if with_capacity else self.call(prompt)
+        parsed = self.parse(raw)
+        return parsed if parsed is None or len(parsed) <= self.MAX_LINE_CHARS else None
 
     def propose_group(self, group_brief):
         """-> one new line per member in `members` order, or `None`.
@@ -1454,5 +1455,10 @@ class ModelProposer:
         response, so a reply that answers a DIFFERENT set of lines is refused
         instead of accepted as a group nobody declared (doctrine 20).
         """
-        return parse_group(self.call(render_group(group_brief)),
-                           getattr(group_brief, "members", ()))
+        members = getattr(group_brief, "members", ())
+        prompt = render_group(group_brief)
+        with_capacity = getattr(self.call, "with_capacity", None)
+        raw = (with_capacity(prompt, max_lines=len(members)) if with_capacity
+               else self.call(prompt))
+        parsed = parse_group(raw, members)
+        return parsed if parsed is None or all(len(line) <= self.MAX_LINE_CHARS for line in parsed) else None

@@ -29,14 +29,9 @@ must not be confused:
              separately for exactly that reason -- collapsing the two would let
              a hole be closed by deleting the mutation that found it.
 
-There is a THIRD outcome, added 2026-08-13, and it asserts nothing on purpose:
-
-  INDETERMINATE  a test in scope never finished, even on an isolated re-run, so
-             this run has no verdict on that mutation. It is neither a
-             detection nor a hole, it is a REFUSAL (doctrine 79), and it is
-             printed with its own count. Asserting on it would make this file
-             red because the machine was busy, which teaches a reader to ignore
-             the one signal it exists to carry.
+The THIRD outcome is INDETERMINATE: a detector never finished. This is not a
+catch or a hole, but it MUST fail release qualification. A busy machine earns
+an explicit incomplete run, never a green assertion about tests it did not run.
 
 WHY THE ALLOWLIST HAS TO CARRY PROSE
 ------------------------------------
@@ -719,15 +714,8 @@ def test_the_run(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
           f"is not a hole in the suite.")
 
     indet = [r["name"] for r in results if r.get("indeterminate")]
-    if indet:
-        # REPORTED, NEVER ASSERTED. A test that never finished did not
-        # disagree with the mutant; calling that a hole would be doctrine 79
-        # inverted, and failing this file for it would make the machine's load
-        # the verdict on the suite.
-        print(f"  NOTE  {len(indet)} mutation(s) INDETERMINATE — a test in "
-              f"scope never finished even alone: {', '.join(indet)}")
-        print("        Neither caught nor a hole. Re-run these on a quiet "
-              "machine before treating either answer as measured.")
+    check("every mutation reached a conclusive verdict", not indet,
+          f"INDETERMINATE: {indet}; rerun incomplete detectors before release")
 
     # ------------------------------------------------------------------
     # A SURVIVOR WHOSE OWN DETECTOR WAS EXCLUDED IS "CANNOT TELL", NOT "NO
@@ -778,6 +766,7 @@ def test_the_run(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
                   for n in blocked))
         print("        Fix the baseline first, then re-run. Until then this "
               "is a fact about the environment, not about the suite.")
+    check("no survivor lost its baseline detector", not blocked, str(blocked))
     check("the surviving set is empty, or exactly the declared allowlist",
           not unexpected,
           # The FILE is named alongside the layer, because a hole is routed by
@@ -790,7 +779,7 @@ def test_the_run(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
           "assertion in quality/test_mut*.py -- adding the name to ALLOWLIST "
           "is a decision to ship undetectable, and needs the sentence that "
           "says why." if unexpected else
-          f"{len(results) - len(survivors) - len(stale)} of {len(results)} "
+          f"{sum(bool(r.get('caught_by')) and not r.get('stale') and not r.get('indeterminate') for r in results)} of {len(results)} "
           f"mutations caught; allowlist has {len(ALLOWLIST)} entr"
           f"{'y' if len(ALLOWLIST) == 1 else 'ies'}")
 
@@ -809,7 +798,7 @@ def test_the_run(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
         m11 = next((r for r in results if r["name"] == "M11"), None)
         if m11 is not None:
             check("M4's allowlist premise still holds: M11 is caught",
-                  not m11["survived"],
+                  bool(m11.get("caught_by")) and not m11.get("indeterminate") and not m11.get("stale"),
                   "M4 is excused as an equivalent mutant BECAUSE cluster_sim "
                   "carries the both-absent rule one layer down. If M11 "
                   "survives, that layer is unprotected too and the "
@@ -821,7 +810,7 @@ def test_the_run(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
     m1 = next((r for r in results if r["name"] == "M1"), None)
     if m1 is not None:
         check("M1 -- reverting the head/tail alignment fix -- is CAUGHT",
-              not m1["survived"],
+              bool(m1.get("caught_by")) and not m1.get("indeterminate") and not m1.get("stale"),
               "caught by " + ", ".join(sorted(
                   os.path.basename(t) for t in m1["caught_by"]))
               if m1["caught_by"] else
@@ -834,7 +823,8 @@ def test_the_run(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
                       ("M9", "theta_rhyme 0.75 -> 0.50")):
         r = next((x for x in results if x["name"] == name), None)
         if r is not None:
-            check(f"CONTROL {name} ({why}) is caught", not r["survived"],
+            check(f"CONTROL {name} ({why}) is caught",
+                  bool(r.get("caught_by")) and not r.get("indeterminate") and not r.get("stale"),
                   "a control that stops being caught means the runner stopped "
                   "running, not that the code got safer")
 
@@ -855,6 +845,7 @@ def test_the_run(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
     # ------------------------------------------------------------------
     print("\n5. blind spots, REPORTED (these are not assertions)")
     red = [t for t, r in bl.items() if r["status"] != "PASS"]
+    check("every baseline detector completed successfully", not red, str(red))
     if red:
         print(f"  NOTE  {len(red)} test file(s) are RED at baseline and were "
               f"excluded from the detector set: {', '.join(red)}")
@@ -882,6 +873,51 @@ def test_the_run(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
           "same number here. To measure it, run a mutant against battery.py "
           "alone. quality/test_mut_oracle.py is the standing assertion.")
     return results
+
+
+def test_release_oracle_rejects_incomplete_evidence():
+    """Fault injection at the sweep boundary; no costly mutation subprocesses."""
+    import contextlib
+    import io
+    from unittest.mock import patch
+    rows = [dict(name=name, file="quality/align.py", layer="anchor",
+                 survived=False, indeterminate=True, caught_by={}, stale=False)
+            for name in CORE]
+    baseline = {"quality/test_detector.py": {"status": "PASS"}}
+    assertions = []
+    with patch.dict(globals(), run_suite=lambda *a, **kw:
+                    (rows, baseline, [], [], [], [], 0.0),
+                    check=lambda name, condition, detail="":
+                    assertions.append((name, bool(condition)))), \
+            contextlib.redirect_stdout(io.StringIO()):
+        test_the_run("subset", list(CORE), 1, 1, False)
+    failures = [name for name, success in assertions if not success]
+    check("an all-INDETERMINATE sweep cannot pass release", bool(failures), str(failures))
+    check("the standalone sweep also refuses incomplete evidence",
+          mutate.sweep_exit(rows, baseline, [], []) == 2)
+    check("every positive control demands an actual catch",
+          sum("CAUGHT" in name or "CONTROL" in name for name in failures) == len(CORE),
+          str(failures))
+
+
+def test_baseline_fingerprint_includes_data_and_runtime():
+    import tempfile
+    from unittest.mock import patch
+    with tempfile.TemporaryDirectory() as directory:
+        data = os.path.join(directory, "labels.json")
+        with open(data, "w") as stream:
+            stream.write('{"value": 1}')
+        with patch.object(mutate, "ROOT", directory), \
+                patch.object(mutate, "SIBLING_RULES", ()), \
+                patch.dict(os.environ, {"NLTK_DATA": "", "LYRIC_STAGED_DATA": ""}):
+            first = mutate.source_fingerprint()
+            with open(data, "w") as stream:
+                stream.write('{"value": 2}')
+            changed = mutate.source_fingerprint()
+            with patch.dict(os.environ, {"PYTHONHASHSEED": "19"}):
+                runtime = mutate.source_fingerprint()
+    check("data-only changes invalidate the mutation baseline", first != changed)
+    check("runtime changes invalidate the mutation baseline", changed != runtime)
 
 
 if __name__ == "__main__":
@@ -963,6 +999,8 @@ if __name__ == "__main__":
     test_every_mutation_still_applies()
     test_M1_is_declared_verbatim()
     test_the_three_way_outcome()
+    test_release_oracle_rejects_incomplete_evidence()
+    test_baseline_fingerprint_includes_data_and_runtime()
     test_the_reported_cause_is_the_suites_own()
     test_the_bounds_are_declared_and_reachable()
     test_the_shards_partition_the_list()
@@ -995,6 +1033,7 @@ if __name__ == "__main__":
     with SingleInstance(mutate._scratch_base()) as lock:
         if not lock.held:
             print("\n4. the verdict")
+            check("this run executed its mutation sweep", False, "another sweep holds the lock")
             print("  SKIP  another mutation sweep is already running in this "
                   "scratch base")
             print("        The static checks above ran and passed. Piling a "
@@ -1024,6 +1063,6 @@ if __name__ == "__main__":
         # NOT "every declared mutation is caught" — this run asked a slice,
         # and a line that overclaims is worse than one that reports less.
         print(f"adversary 4 holds ON SHARD {shard[0]}/{shard[1]}: every "
-              f"mutation in this slice is caught. The slice is the claim.")
+              f"mutation in this slice is caught or explicitly allowlisted. The slice is the claim.")
     else:
-        print("adversary 4 holds: every declared mutation is caught")
+        print("adversary 4 holds: every declared mutation is caught or explicitly allowlisted")

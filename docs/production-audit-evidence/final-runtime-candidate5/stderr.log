@@ -1,0 +1,22 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+................
+----------------------------------------------------------------------
+Ran 16 tests in 0.126s
+
+OK
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.533s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.009s
+
+OK
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.106s
+
+OK

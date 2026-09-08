@@ -121,7 +121,8 @@ describes. The discipline: load in BATCHES on the working branch; at
 batch end run `python3 quality/corpus_manifest.py --check` — drift
 (exit 3) is the expected mid-load ANSWER — then, in ONE closing sitting:
 re-derive and re-adopt the corpus-calibrated constants (meter bands,
-floor profiles, the modal/end-word tables, structure-census rates —
+floor profiles, active lyric length curves, the modal/end-word tables,
+structure-census rates, and certified rhyme-capacity witnesses —
 each by its own preregistered pattern), re-run their `--check` lanes,
 and `--write` a fresh manifest in the same commit. Never drip single
 songs into a corpus whose checks are green-by-coincidence. The nightly
@@ -169,11 +170,20 @@ considered.
 touches before re-deriving anything.** Its drift report now names, per
 calibrated adoption, which drifted files fall inside that adoption's
 population — asked from each owning module, never re-typed there. A batch
-whose files land outside every population (the Old Norse one did: all four
-populations are `eng_`-scoped) owes **no** re-derivation, and the report
+whose files land outside every population (the Old Norse one did: the four
+populations registered at that sitting were `eng_`-scoped) owes **no** re-derivation, and the report
 says so in those words. That verdict is not the same claim as "re-derived
 and nothing moved", and the report REFUSES rather than reporting a clean
 when a population cannot be asked.
+
+The current registry has six owning modules, including active lyric curves
+and certified rhyme-capacity witnesses. The normalized reader and explicit
+work-edition policy are population inputs too: changing either requires
+all six adoptions even when no raw corpus bytes move. Deleted files are
+classified using the previous snapshot's membership; missing historical
+membership with a deletion withholds the verdict. The 2026-09-08 closing
+measurement and exact population are recorded in
+`quality/RESULTS_PRODUCTION_DATA_2026-09-08.md`.
 
 ## What the loading sessions must not do
 

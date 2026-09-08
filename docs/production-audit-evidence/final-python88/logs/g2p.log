@@ -1,0 +1,10 @@
+
+1. the fallback is OFF everywhere it was not asked for
+  PASS  the REGISTERED eng has no fallback
+          quality.phonology.get('eng') is what every existing caller holds; if this flips, every recorded number in the repo silently moves
+  PASS  and it still refuses `viewest`
+          the same refusal test_relations.py pins as known gap 1's canary
+  PASS  `layer_of` says None rather than raising
+          doctrine 28: 'cannot read' is a value in the same range as the layers, not an exception a caller can forget to catch
+  PASS  an undeclared mode is refused, not coerced
+          declared modes: ['high', 'low'] or None

@@ -1,0 +1,125 @@
+
+1. every section runs EXACTLY ONCE across a full k=1..n matrix, for every n that CI uses or might
+  PASS  n=1 k=1: the shard reports its coordinate and holds only indices ≡ 0 (mod 1)
+  PASS  n=1: the union of the shards is the whole tuple, each section once, in tuple order within a shard
+  PASS  n=2 k=1: the shard reports its coordinate and holds only indices ≡ 0 (mod 2)
+  PASS  n=2 k=2: the shard reports its coordinate and holds only indices ≡ 1 (mod 2)
+  PASS  n=2: the union of the shards is the whole tuple, each section once, in tuple order within a shard
+  PASS  n=3 k=1: the shard reports its coordinate and holds only indices ≡ 0 (mod 3)
+  PASS  n=3 k=2: the shard reports its coordinate and holds only indices ≡ 1 (mod 3)
+  PASS  n=3 k=3: the shard reports its coordinate and holds only indices ≡ 2 (mod 3)
+  PASS  n=3: the union of the shards is the whole tuple, each section once, in tuple order within a shard
+  PASS  n=4 k=1: the shard reports its coordinate and holds only indices ≡ 0 (mod 4)
+  PASS  n=4 k=2: the shard reports its coordinate and holds only indices ≡ 1 (mod 4)
+  PASS  n=4 k=3: the shard reports its coordinate and holds only indices ≡ 2 (mod 4)
+  PASS  n=4 k=4: the shard reports its coordinate and holds only indices ≡ 3 (mod 4)
+  PASS  n=4: the union of the shards is the whole tuple, each section once, in tuple order within a shard
+  PASS  n=5 k=1: the shard reports its coordinate and holds only indices ≡ 0 (mod 5)
+  PASS  n=5 k=2: the shard reports its coordinate and holds only indices ≡ 1 (mod 5)
+  PASS  n=5 k=3: the shard reports its coordinate and holds only indices ≡ 2 (mod 5)
+  PASS  n=5 k=4: the shard reports its coordinate and holds only indices ≡ 3 (mod 5)
+  PASS  n=5 k=5: the shard reports its coordinate and holds only indices ≡ 4 (mod 5)
+  PASS  n=5: the union of the shards is the whole tuple, each section once, in tuple order within a shard
+  PASS  n=6 k=1: the shard reports its coordinate and holds only indices ≡ 0 (mod 6)
+  PASS  n=6 k=2: the shard reports its coordinate and holds only indices ≡ 1 (mod 6)
+  PASS  n=6 k=3: the shard reports its coordinate and holds only indices ≡ 2 (mod 6)
+  PASS  n=6 k=4: the shard reports its coordinate and holds only indices ≡ 3 (mod 6)
+  PASS  n=6 k=5: the shard reports its coordinate and holds only indices ≡ 4 (mod 6)
+  PASS  n=6 k=6: the shard reports its coordinate and holds only indices ≡ 5 (mod 6)
+  PASS  n=6: the union of the shards is the whole tuple, each section once, in tuple order within a shard
+  PASS  n=8 k=1: the shard reports its coordinate and holds only indices ≡ 0 (mod 8)
+  PASS  n=8 k=2: the shard reports its coordinate and holds only indices ≡ 1 (mod 8)
+  PASS  n=8 k=3: the shard reports its coordinate and holds only indices ≡ 2 (mod 8)
+  PASS  n=8 k=4: the shard reports its coordinate and holds only indices ≡ 3 (mod 8)
+  PASS  n=8 k=5: the shard reports its coordinate and holds only indices ≡ 4 (mod 8)
+  PASS  n=8 k=6: the shard reports its coordinate and holds only indices ≡ 5 (mod 8)
+  PASS  n=8 k=7: the shard reports its coordinate and holds only indices ≡ 6 (mod 8)
+  PASS  n=8 k=8: the shard reports its coordinate and holds only indices ≡ 7 (mod 8)
+  PASS  n=8: the union of the shards is the whole tuple, each section once, in tuple order within a shard
+  PASS  n=12 k=1: the shard reports its coordinate and holds only indices ≡ 0 (mod 12)
+  PASS  n=12 k=2: the shard reports its coordinate and holds only indices ≡ 1 (mod 12)
+  PASS  n=12 k=3: the shard reports its coordinate and holds only indices ≡ 2 (mod 12)
+  PASS  n=12 k=4: the shard reports its coordinate and holds only indices ≡ 3 (mod 12)
+  PASS  n=12 k=5: the shard reports its coordinate and holds only indices ≡ 4 (mod 12)
+  PASS  n=12 k=6: the shard reports its coordinate and holds only indices ≡ 5 (mod 12)
+  PASS  n=12 k=7: the shard reports its coordinate and holds only indices ≡ 6 (mod 12)
+  PASS  n=12 k=8: the shard reports its coordinate and holds only indices ≡ 7 (mod 12)
+  PASS  n=12 k=9: the shard reports its coordinate and holds only indices ≡ 8 (mod 12)
+  PASS  n=12 k=10: the shard reports its coordinate and holds only indices ≡ 9 (mod 12)
+  PASS  n=12 k=11: the shard reports its coordinate and holds only indices ≡ 10 (mod 12)
+  PASS  n=12 k=12: the shard reports its coordinate and holds only indices ≡ 11 (mod 12)
+  PASS  n=12: the union of the shards is the whole tuple, each section once, in tuple order within a shard
+  PASS  unset runs everything, in order, and reports no coordinate — the local command nobody has to relearn
+  PASS  an EMPTY value is unset, not a refusal
+
+2. a malformed or out-of-range coordinate REFUSES rather than running the whole suite as if it were its share
+  PASS  '0/4' refuses by name
+  PASS  '5/4' refuses by name
+  PASS  '2' refuses by name
+  PASS  'a/b' refuses by name
+  PASS  '1/0' refuses by name
+
+3. run_sections times every section it ran, prints them slowest first, runs `always` on every shard, and gates on the failures list AFTER the sections ran
+  PASS  shard 1/2: exit 0 on an empty failures list and the footer is the last line
+  PASS  shard 1/2: `always` ran here too, first
+  PASS  shard 1/2: the dealt sections are the residue class
+  PASS  shard 1/2: SECTION COST names every section that ran and the TOTAL counts them (dealt + always)
+  PASS  shard 2/2: exit 0 on an empty failures list and the footer is the last line
+  PASS  shard 2/2: `always` ran here too, first
+  PASS  shard 2/2: the dealt sections are the residue class
+  PASS  shard 2/2: SECTION COST names every section that ran and the TOTAL counts them (dealt + always)
+  PASS  a non-empty failures list exits 1 and prints FAILING, never the footer
+  PASS  ...and unset ran all five
+
+4. every suite CI deals calls `quality.shard.run_sections` and keeps no residue arithmetic of its own (doctrine 1)
+  PASS  ci.yml deals at least the five suites this entry moved
+          ['CAPACITY', 'LOOP', 'PLAN', 'REVISE', 'VERBS']
+  PASS  test_capacity.py calls run_sections and spells no `% n ==` residue of its own (in code; comments may explain it)
+          /workspace/scratch/b0544e4bbdd6/verification-candidate2/lyric-harness/quality/test_capacity.py
+  PASS  test_loop.py calls run_sections and spells no `% n ==` residue of its own (in code; comments may explain it)
+          /workspace/scratch/b0544e4bbdd6/verification-candidate2/lyric-harness/quality/test_loop.py
+  PASS  test_plan.py calls run_sections and spells no `% n ==` residue of its own (in code; comments may explain it)
+          /workspace/scratch/b0544e4bbdd6/verification-candidate2/lyric-harness/quality/test_plan.py
+  PASS  test_revise.py calls run_sections and spells no `% n ==` residue of its own (in code; comments may explain it)
+          /workspace/scratch/b0544e4bbdd6/verification-candidate2/lyric-harness/quality/test_revise.py
+  PASS  test_verbs.py calls run_sections and spells no `% n ==` residue of its own (in code; comments may explain it)
+          /workspace/scratch/b0544e4bbdd6/verification-candidate2/lyric-harness/quality/test_verbs.py
+
+5. in a dealt suite no section READS module state another section WROTE -- a verdict that depends on section order is a verdict that depends on the deal (doctrine 66)
+  PASS  test_capacity.py: no section reads a container another section mutated
+          []
+  PASS  test_loop.py: no section reads a container another section mutated
+          []
+  PASS  test_plan.py: no section reads a container another section mutated
+          []
+  PASS  test_revise.py: no section reads a container another section mutated
+          []
+  PASS  test_verbs.py: no section reads a container another section mutated
+          []
+  PASS  PLANTED: a list one section appends and another reads IS found, named by writer and reader; a section-local list is not
+          [('_SEEN', ['test_a'], ['test_b'])]
+
+6. every CI event owns completed evidence; push/PR twins cannot cancel the only run doing work (BCI-07)
+  PASS  the workflow may ASK whether a PR covers this commit (`pull-requests: read`)
+  PASS  and whether the default branch already ran it (`actions: read`)
+  PASS  `dup` publishes the answer as an output every job can read
+          ['capacity', 'capacity-proof', 'capacity-proof-result', 'capacity-result', 'catalog', 'catalog-result', 'dup', 'freshness', 'gate', 'lyrics-image', 'mutation', 'nightly', 'plan', 'plan-result', 'record', 'revision-loop', 'revision-loop-result', 'suites', 'suites-result', 'tandem', 'verbs', 'verbs-result', 'verify']
+  PASS  `dup` answers before anything else: it needs nothing
+  PASS  and it stays fast: no checkout, no setup-node, no npm
+  PASS  `gate` is not exempt from the answer it used to publish
+  PASS  every job that runs off `dup` carries the guard
+          19 downstream: 
+  PASS  mutation needs no guard because it cannot run on a push
+  PASS  nightly needs no guard because it cannot run on a push
+  PASS  tandem needs no guard because it cannot run on a push
+  PASS  coverage is produced by an explicit local command
+  PASS  the actual command assigns this event its own work
+  PASS  PLANTED: claiming another run covers this event is rejected
+  PASS  PLANTED: missing or failed output cannot prove coverage
+  PASS  the coverage job performs no PR/run API lookup
+  PASS  push and PR concurrency groups include the event coordinate
+  PASS  production runs are never cancelled by a newer run
+  PASS  PLANTED: a downstream job whose guard was dropped IS caught
+          capacity
+==============================================================
+one deal, exactly once, timed, everywhere it is used

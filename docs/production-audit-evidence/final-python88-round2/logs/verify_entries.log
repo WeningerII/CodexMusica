@@ -1,0 +1,107 @@
+/workspace/scratch/b0544e4bbdd6/verification-candidate2/lyric-harness/quality/test_verify_entries.py:263: SyntaxWarning: invalid escape sequence '\d'
+  """`\b\d+` reads "1,297 English files" as 297 — the word boundary sits
+==============================================================================
+PROSE SCOPE — quality/verify_entries.py
+==============================================================================
+
+1. a cited path that is not on disk must be FALSE
+  [ok  ] a stale path produces exactly one verdict
+  [ok  ] and that verdict is FALSE
+  [ok  ] and it names the path it failed on
+  [ok  ] the same sentence with a live path is TRUE
+
+2. a cited path the sentence disclaims must be TRUE
+  [ok  ] disclaimed by 'does not exist'
+  [ok  ] disclaimed by 'is not in the repository'
+  [ok  ] disclaimed by 'no longer exists'
+  [ok  ] disclaimed by 'was deleted'
+  [ok  ] a live path asserted ABSENT is FALSE
+
+3. an absence phrase belonging to another subject is not borrowed
+  [ok  ] the live CLAUDE.md:958 sentence is TRUE
+  [ok  ] an unbroken phrase still binds to its path
+  [ok  ] a later live path does not inherit the phrase
+
+4. a path inside a `~~...~~` run is not reported
+  [ok  ] a struck stale path produces no FALSE
+  [ok  ] a multi-line struck run does not shift line numbers
+
+5. the declared scope
+  [ok  ] CLAUDE.md, README.md and quality/METHOD.md are all in scope
+  [ok  ] REPO_PATH_EXISTS is asked of exactly those three and no RESULTS document — it answers 29 FALSE over the wider set, and a gate that opens red is one people learn to skip
+  [ok  ] CAPACITY_FIGURE reaches PAST them to the document that actually quotes the figures — a per-shape scope, which is the rule the file states about itself
+  [ok  ] FLOOR_THRESHOLD likewise reaches the document that restates the shipped profile
+  [ok  ] PROSE_SCOPE is DERIVED from the per-shape scopes, so a scope added above cannot leave a document unopened by the reader
+  [ok  ] every declared document is readable at HEAD
+  [ok  ] every declared document yields segments
+  [ok  ] the live prose sweep finds no stale path
+  [ok  ] and it is green having read a real population
+  [ok  ] ...and CAPACITY_FIGURE fired on a real population of its own
+  [ok  ] ...and FLOOR_THRESHOLD fired on a real population of its own
+  [ok  ] ...and REPO_PATH_EXISTS fired on a real population of its own
+
+6. verify_entries.py's own prose probes
+  [ok  ] prose STALE probe
+  [ok  ] prose DISCLAIMED probe
+  [ok  ] prose STRUCK probe
+  [ok  ] prose SUBJECT probe
+
+7. a comma-grouped count is read whole
+  [ok  ] '1,297 English files'            reads as 1297
+  [ok  ] 'the 1,297 staged English files' reads as 1297
+  [ok  ] '297 English files'              reads as 297
+  [ok  ] '143 English files'              reads as 143
+  [ok  ] '12,000 Persian texts'           reads as 12000
+  [ok  ] the OLD pattern would have read '1,143 English files' as 143 — a stale claim passing against a real 143
+
+8. a per-family capacity figure is re-derived, not retyped
+  [ok  ] RESULTS_RHYME_CAPACITY.md: AY-ER's current spelling-class ceiling off by one
+  [ok  ] RESULTS_RHYME_CAPACITY.md: EH-R's current certified floor off by one
+  [ok  ] RESULTS_RHYME_CAPACITY.md: the attempt bound quoted above CERTIFY_ATTEMPT_CAP
+  [ok  ] RESULTS_RHYME_CAPACITY.md: the current `capacity fire` witness clique off by one
+  [ok  ] RESULTS_RHYME_CAPACITY.md: the second family of a semicolon list, which is the elliptical form
+  [ok  ] RESULTS_RHYME_CAPACITY.md: the singleton deepest holder replaced by a wrong known family
+  [ok  ] RESULTS_RHYME_CAPACITY.md: the spelled holder count wrong while its named holder stays right
+  [ok  ] CLAUDE.md: the claimed depth moved while the actual holder remains named
+
+9. a shipped floor threshold is re-derived, not retyped
+  [ok  ] the shipped document is clean, so every kill below is the mutation and not a standing failure
+  [ok  ] the pre-adoption mattr_min back under the word SHIPPED — the real one
+  [ok  ] line_length_cv_min back to its pre-adoption value
+  [ok  ] a threshold asserted for a profile that ships none
+  [ok  ] an absence asserted for a threshold the profile does ship
+  [ok  ] two cells swapped — every number right, every column wrong
+  [ok  ] the struck 'song profile, to 2026-08-21' row is not read as a second live claim — a document is never failed for keeping its own superseded values legible
+
+10. STATUS_XREF — a CLOSED task over a still-missing capability
+  [ok  ] a CLOSED entry citing a still-open MISSING id is FALSE with no declaration
+  [ok  ] ...and REFUSED/DISCHARGED once the entry declares it and says why
+  [ok  ] a declaration with no reason after it is FALSE — a bare marker is a green light with no argument attached
+  [ok  ] a declaration naming a DIFFERENT id does not cover this citation
+  [ok  ] a declaration whose MISSING half has since CLOSED is FALSE, not a pass — the entry is describing a state that moved on
+  [ok  ] the hatch is ONE-DIRECTIONAL: an OPEN entry over a CLOSED MISSING half is a stale register and stays FALSE
+  [ok  ] the shipped shape still ANSWERS live headings — zero resolved is a broken reader, not an empty register
+  [ok  ] ...and the register carries real discharges, so the hatch is not a shape with no instance
+
+11. CORPUS_TABLE_ROW — which cell holds the count
+  [ok  ] the classic `| prefix | language | songs |` row still answers
+  [ok  ] ...and a wrong count in it is still FALSE
+  [ok  ] a FOUR-column table is read by its header, not by position — the 391 is the song count and the 13 is the airs
+  [ok  ] ...and it still FAILS on a wrong count in the right column, so this is a re-aim and not an exemption
+  [ok  ] a table whose header names no `songs` column returns None — this row is not making the claim this shape checks
+
+12. git history transport distinguishes missing paths from failed reads
+  [ok  ] real git returns a complete Unicode blob beside an explicit missing path
+  [ok  ] a real nonzero git exit raises rather than looking like empty history
+  [ok  ] a clean temporary checkout reports its actual HEAD
+  [ok  ] untracked artifact bytes are not mislabeled as a clean commit pin
+  [ok  ] staged artifact changes also disclose the dirty working tree
+  [ok  ] cat-file transport failure refuses instead of returning an empty valid map
+  [ok  ] unreadable checkout state is unknown, not a clean HEAD claim
+  [ok  ] truncated body refuses the entire batch
+  [ok  ] missing second record refuses the entire batch
+  [ok  ] malformed size refuses the entire batch
+  [ok  ] extra unrequested output refuses the entire batch
+
+==============================================================================
+PASS

@@ -1,0 +1,20 @@
+{
+  "scope": "Test-only setup correction after strict wall semantics; actual storage/driver unchanged. Bare invalid MAX_TURN_MS no longer bypasses idle. A successful unfinished plan/MAX_STEPS yields measured no_stop and nonterminal checkpoint, then same missing journal segment fault must refuse without any new POST.",
+  "command": [
+    "node",
+    "--test",
+    "mcp/test_battery_storage.mjs"
+  ],
+  "exit_code": 0,
+  "tests": 5,
+  "passed": 5,
+  "failed": 0,
+  "duration_ms": 12600.351984,
+  "candidate4_test_sha256": "365ff9c74a25211ecce9ef3b1d0b6329ef937e68726a6f518e00f26ef1b3885c",
+  "current_test_sha256": "c95d6713be746e81f9e5d4eaf6915fd1bc895c43ef1a9e6e4a0d9dd727d25e90",
+  "driver_unchanged": true,
+  "verdict_helper_unchanged": true,
+  "log_sha256": "b849c79ef956af8066d4bfe0798a7e29af6e17168edd67b1bd0ca8adc3b794f0",
+  "patch": "battery-storage-final-reconciled.patch",
+  "prior_failed_invocation": "final-runtime-candidate4/result.json"
+}

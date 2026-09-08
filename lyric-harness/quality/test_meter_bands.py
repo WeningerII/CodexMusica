@@ -81,7 +81,7 @@ the cat sat on the mat
 kiss me though you make believe
 
 [CHORUS]
-somebody leave the open sign on
+the river carries golden crowns
 """
 
 
@@ -98,7 +98,7 @@ def test_lyric_filter():
     check("...and they are the right 3, in file order with real line numbers",
           texts == ["the cat sat on the mat",
                     "kiss me though you make believe",
-                    "somebody leave the open sign on"]
+                    "the river carries golden crowns"]
           and [n for n, _ in got] == [5, 6, 9], got)
 
 
@@ -117,6 +117,14 @@ def test_exclusion_not_imputation():
     _, _, _, causes = measure_line("the florgleblat sang zzyxxqj at dawn")
     check("an out-of-lexicon token puts the line OUT with the cause NAMED",
           "OUT_OF_LEXICON" in causes, causes)
+
+    # The old supposedly clean controls are ambiguous under all CMU
+    # readings. They belong in the exclusion test, not the measured pool.
+    for text, cause in (("somebody leave the open sign on", "PROMINENCE_UNDECIDED"),
+                        ("the river carries every crown", "UNRESOLVED_READING")):
+        _, _, _, uncertain = measure_line(text)
+        check("pronunciation ambiguity is excluded with its own cause: " + cause,
+              cause in uncertain, uncertain)
 
     with tempfile.TemporaryDirectory() as td:
         with open(os.path.join(td, "eng_synth.txt"), "w",
@@ -274,12 +282,12 @@ def test_the_reader_trial():
     # can never disagree about which words were read.
     ph = reader("fallback-low")
     syl, prom, derived, causes = measure_line(
-        "gie me a canty hour at hame", phon=ph)
+        "gie me a canty kiss at hame", phon=ph)
     check("the dialect line the default reader refuses is READ under "
           "fallback-low, with the derived tokens COUNTED, not hidden",
           causes == () and derived >= 2 and syl >= 7 and 0 <= prom <= syl,
           f"{syl} syllables, {prom} prominent, {derived} derived")
-    _, _, derived0, causes0 = measure_line("gie me a canty hour at hame")
+    _, _, derived0, causes0 = measure_line("gie me a canty kiss at hame")
     check("...and the same line under the DEFAULT reader is still refused — "
           "run one stays reproducible, byte for byte",
           "OUT_OF_LEXICON" in causes0 and derived0 == 0,
@@ -394,11 +402,10 @@ def test_the_enforcement():
         # 2: 3 syllables — under the density floor.
         "burn it down",
         # 3: long — over both ceilings.
-        "counting every lit-up letter in the window of the shuttered "
-        "five and dime tonight",
+        "dark stone cold black night falls dark stone cold black night falls tonight",
         # 4: in band, rhymes with 2 in the mandate so the rhyme layer has
         # its say too — the band layer must not disturb it.
-        "the river carries every crown",
+        "the river carries golden crowns",
     ]
     found = R.inspect(lines, mandate="AXXA")
     per = found["per_line"]
@@ -425,13 +432,13 @@ def test_the_enforcement():
           all(f.severity == "flag" for ln in (2, 3) for f in per[ln]
               if f.code.endswith("OUT_OF_BAND")))
 
-    # The lower-bound asymmetry (doctrine 79). `wi'` refuses even at
-    # fallback-low: a short line with it gets NO density flag (the floor
+    # The lower-bound asymmetry (doctrine 79). A numeral has no declared
+    # sung reading even at fallback-low: a short line gets NO density flag (the floor
     # cannot be proven) and a BAND_UNJUDGED note instead; a line already
     # over the ceiling on readable tokens alone flags DESPITE the refusal.
     found = R.inspect(
-        ["dance wi' me", "counting every lit-up letter in the window of "
-         "the shuttered five and dime wi' thee"], mandate="AA")
+        ["dance 66", "dark stone cold black night falls dark stone cold "
+         "black night falls tonight 66"], mandate="AA")
     per = found["per_line"]
     c1 = sorted(f.code for f in per.get(1, []) if "BAND" in f.code
                 or "OUT_OF" in f.code)
@@ -450,7 +457,7 @@ def test_the_enforcement():
     # default reader would stamp BAND_UNJUDGED here, and this check is what
     # goes red. The registered adoption condition, as a regression rather
     # than prose.
-    found = R.inspect(["gie me a canty hour at hame",
+    found = R.inspect(["gie me a canty kiss at hame",
                        "the bells ring out across the empty town"],
                       mandate="AA")
     c1 = sorted(f.code for f in found["per_line"].get(1, [])

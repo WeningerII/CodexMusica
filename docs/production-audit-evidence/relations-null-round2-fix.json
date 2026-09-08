@@ -1,0 +1,135 @@
+{
+  "test_file": "lyric-harness/quality/test_relations_null.py",
+  "sha256": "3a6acd3d27446f7295359d258d16977552739956bf1e311d8c5d627d99c995c6",
+  "original_failure": "final-python88-round2/logs/relations_null.log: section4 len(values)==n excludes legitimate unresolved replicate refusal",
+  "changes": [
+    "Count actual caesura preparation for observation and every replicate",
+    "Require used + refused + void = requested replicates",
+    "Require actual refusal to be reading/span, not missing caesura",
+    "Check p-value and resolution against used replicates",
+    "Preserve and strengthen actual no-prepare missing-caesura negative control"
+  ],
+  "full_command": [
+    "timeout",
+    "1200s",
+    "python",
+    "-u",
+    "lyric-harness/quality/test_relations_null.py"
+  ],
+  "full_log": "relations-null-full1200.log",
+  "full_status": "passed_source_frozen",
+  "product_source_changes": false,
+  "cwd": "/workspace/scratch/b0544e4bbdd6/production-fixes",
+  "environment": {
+    "LYRIC_STAGED_DATA": "/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data",
+    "NLTK_DATA": "/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data/nltk",
+    "PYTHONPATH": "lyric-harness"
+  },
+  "first_full_attempt": {
+    "argv": [
+      "timeout",
+      "600s",
+      "python",
+      "-u",
+      "lyric-harness/quality/test_relations_null.py"
+    ],
+    "exit_code": 124,
+    "timeout_bound_s": 600,
+    "log": "relations-null-final-full.log",
+    "observed_last_section": "section2 reader checks; no printed assertion failure",
+    "log_sha256": "202f16028c7e73cb6577fe2540588d7eb6d7a3eaff430e39a7089a3d63cb738e",
+    "source_sha256": "3a6acd3d27446f7295359d258d16977552739956bf1e311d8c5d627d99c995c6",
+    "source_file": "lyric-harness/quality/test_relations_null.py",
+    "exit_evidence": "Owner-observed native tool completion: session48278 / chunk f5f8ac returned exit_code124; raw stdout log does not itself contain the exit code.",
+    "cwd": "/workspace/scratch/b0544e4bbdd6/production-fixes",
+    "environment": {
+      "LYRIC_STAGED_DATA": "/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data",
+      "NLTK_DATA": "/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data/nltk",
+      "PYTHONPATH": "lyric-harness"
+    }
+  },
+  "timeout_justification": "Prior complete frozen suite measured 739 seconds under concurrent load; first 600-second attempt timed out. Root explicitly authorized bounded1200 research-suite rerun; production clocks unchanged.",
+  "setup_attempt": {
+    "argv": [
+      "/usr/bin/time",
+      "-p",
+      "-o",
+      "/workspace/scratch/b0544e4bbdd6/production-fix-results/relations-null-full1200.time",
+      "env",
+      "LYRIC_STAGED_DATA=/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data",
+      "NLTK_DATA=/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data/nltk",
+      "PYTHONPATH=lyric-harness",
+      "timeout",
+      "1200s",
+      "python",
+      "-u",
+      "lyric-harness/quality/test_relations_null.py"
+    ],
+    "exit_code": 127,
+    "source_sha256": "3a6acd3d27446f7295359d258d16977552739956bf1e311d8c5d627d99c995c6",
+    "python_test_started": false,
+    "log": "relations-null-time-command-unavailable.log",
+    "log_sha256": "3e737f6a9117cec194b02103b357f8668fae9adb86a8a8cd0bf25efab8948548",
+    "exit_evidence": "Owner-observed native exec completion chunk813754 returned exit_code127; log independently records /usr/bin/time missing.",
+    "cwd": "/workspace/scratch/b0544e4bbdd6/production-fixes"
+  },
+  "current_full_attempt": {
+    "argv": [
+      "timeout",
+      "1200s",
+      "python",
+      "-u",
+      "lyric-harness/quality/test_relations_null.py"
+    ],
+    "source_sha256": "3a6acd3d27446f7295359d258d16977552739956bf1e311d8c5d627d99c995c6",
+    "cwd": "/workspace/scratch/b0544e4bbdd6/production-fixes",
+    "environment": {
+      "LYRIC_STAGED_DATA": "/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data",
+      "NLTK_DATA": "/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data/nltk",
+      "PYTHONPATH": "lyric-harness"
+    },
+    "receipt": "relations-null-full1200-measurement.json",
+    "log": "relations-null-full1200.log",
+    "status": "completed",
+    "wrapper": "Python stdlib subprocess.run with combined stdout/stderr; monotonic wall time and RUSAGE_CHILDREN CPU/RSS are written after child completion.",
+    "exit_code": 0,
+    "exit_evidence": "Captured by stdlib subprocess.run returncode and completed native tool session11114/chunk54ed50.",
+    "command_note": "The wrapper resolves the python executable through sys.executable; full_command is the equivalent shell entrypoint."
+  },
+  "full_exit_code": 0,
+  "checks_passed": 77,
+  "checks_failed": 0,
+  "full_measurement": {
+    "exit_code": 0,
+    "wall_s": 759.8286115400042,
+    "user_s": 730.951189,
+    "system_s": 7.174404,
+    "max_rss_kib": 356852,
+    "research_suite_timeout_s": 1200
+  },
+  "source_unchanged": true,
+  "full_log_sha256": "f09f45a895b87b6a797a39faee558eef97377c9e45b090fbadce254bbb952ec4",
+  "full_receipt_sha256": "1f686202d95983bebd2a7d00624f0071b069634c544ead19fceee3869b0752d4",
+  "focused_section4": {
+    "log": "relations-null-section4-final.log",
+    "exit_code": 0,
+    "prepared_streams": 17,
+    "accounting_rows": [
+      [
+        3,
+        1,
+        0
+      ],
+      [
+        4,
+        0,
+        0
+      ]
+    ],
+    "actual_refusal": [
+      "reading",
+      "span"
+    ],
+    "negative_control": "without prepare: actual missing caesura capability refusal"
+  }
+}

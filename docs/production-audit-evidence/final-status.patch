@@ -1,0 +1,37 @@
+--- lyric_tools.before.js
++++ lyric_tools.after.js
+@@ -28,6 +28,7 @@
+ 
+ import { createPythonBridge } from './python_bridge.js';
+ import { requestContext } from './execution_context.js';
++import { assessmentCoverageValid } from './lyric_workflow.js';
+ import { openKitchenBudget } from './paid_budget.js';
+ import { createHash } from 'node:crypto';
+ import { AsyncLocalStorage } from 'node:async_hooks';
+@@ -547,11 +548,21 @@
+ // record, never re-derived from the report.
+ function loopStatusOf(code, verdict) {
+   if (code === 0)
+-    return verdict.certified === true &&
+-      verdict.loop_stop_reason === 'SUCCESS' &&
+-      !verdict.loop_unresolved &&
+-      !verdict.loop_whole_flags &&
+-      !verdict.banned_pairs
++    // The final allowed repair can clear the draft before another loop-start
++    // success check. Preserve ROUND_LIMIT as the walk's actual stop reason;
++    // the authenticated final grade decides whether the resulting song passed.
++    return verdict.measurement_status === 'finished' &&
++      verdict.findings_measured === true &&
++      verdict.certified === true &&
++      assessmentCoverageValid(verdict.coverage) &&
++      verdict.coverage.certified === true &&
++      verdict.flags === 0 &&
++      verdict.whole_flags === 0 &&
++      verdict.loop_unresolved === 0 &&
++      verdict.loop_whole_flags === 0 &&
++      verdict.banned_pairs === 0 &&
++      Array.isArray(verdict.final_draft) &&
++      verdict.final_draft.length > 0
+       ? 'finished_clean'
+       : 'uncertified';
+   const open = typeof verdict.loop_unresolved === 'number' ? verdict.loop_unresolved : 0;

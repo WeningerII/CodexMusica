@@ -154,7 +154,7 @@ class EnglishAllReadings(eng.English):
             # eng.English.syllabify explicitly, NOT self.syllabify: the
             # subclass below routes syllabify back through parses, and the
             # bound call recurses to the stack limit on the first OOV word.
-            return [eng.English.syllabify(self, word)]
+            return [eng.English._syllabify_single(self, word)]
         return [[Syllable(text=word, onset=tuple(s["onset"]),
                           nucleus=s["nucleus"], coda=tuple(s["coda"]),
                           prominence=1 if s["stress"] in (1, 2) else 0,
@@ -192,7 +192,7 @@ class LtcUncertain(LtcAllReadings):
         return merge_readings(self.parses(word))[0]
 
 
-E_FIRST = eng.English()
+E_FIRST = eng.English(readings="first")
 E_UNC = EnglishUncertain()
 L_UNC = LtcUncertain()
 A, D = R.Agree(), R.Differ()
@@ -767,11 +767,11 @@ def test_eng_song_corpus():
 
 
 # ---------------------------------------------------------------------------
-# 9. THE ORACLE DID NOT MOVE, and it cannot: `eng` still declares ONE reading
+# 9. THE ORACLE DID NOT MOVE, and it cannot: the explicit first-reading policy is retained
 # ---------------------------------------------------------------------------
 
 def test_the_default_is_untouched():
-    print("\n9. the shipped default is byte-identical — no module emits a set")
+    print("\n9. the explicit legacy first-reading policy preserves singleton channels")
     st = R.build_stream(["The cat sat on the mat", "He wore a funny hat"],
                         E_FIRST, declaration={"language": "eng"})
     same = True

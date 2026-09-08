@@ -49,7 +49,10 @@ export function usageUsd(usage, model, pricing = priceFor) {
     !tokenCount(usage.promptTokenCount) ||
     !tokenCount(usage.candidatesTokenCount) ||
     (usage.thoughtsTokenCount != null && !tokenCount(usage.thoughtsTokenCount)) ||
-    (usage.toolUsePromptTokenCount != null && !tokenCount(usage.toolUsePromptTokenCount))
+    (usage.toolUsePromptTokenCount != null && !tokenCount(usage.toolUsePromptTokenCount)) ||
+    (usage.cachedContentTokenCount != null &&
+      (!tokenCount(usage.cachedContentTokenCount) ||
+        usage.cachedContentTokenCount > usage.promptTokenCount))
   )
     return null;
   const input = usage.promptTokenCount + (usage.toolUsePromptTokenCount || 0);
@@ -247,6 +250,7 @@ export class PaidLedger {
       this.state.unknownUsd += charged;
     }
     operation.events.push({
+      reservation_id: reservation,
       model: held.model,
       status: unknown ? 'unknown' : status,
       usd: charged,
@@ -326,6 +330,23 @@ export async function openKitchenBudget(context = requestContext()) {
   const budget = context.budget || createOperationBudget();
   const token = id();
   const pending = new Set();
+  const reservations = new Set();
+  const heldAmounts = new Map();
+  const accounting = () => {
+    const events = budget
+      .snapshot()
+      .events.filter((event) => reservations.has(event.reservation_id));
+    return {
+      usd: events.reduce((sum, event) => sum + event.usd, 0),
+      unknownUsd: events.reduce(
+        (sum, event) => sum + (event.status === 'unknown' ? event.usd : 0),
+        0
+      ),
+      reservedUsd: [...pending].reduce((sum, reservation) => sum + heldAmounts.get(reservation), 0),
+      events,
+      accounting_unknown: pending.size > 0 || events.some((event) => event.status === 'unknown'),
+    };
+  };
   let closed = false;
   const server = createServer(async (req, res) => {
     const reply = (status, value) => {
@@ -352,8 +373,11 @@ export async function openKitchenBudget(context = requestContext()) {
       if (message.action === 'reserve') {
         if (closed || remainingExecutionMs(context) <= 0)
           throw fail('MAX_TURN_MS', 'The kitchen deadline has expired.');
+        const before = budget.snapshot().reservedUsd;
         const reservation = budget.reserve(message);
+        heldAmounts.set(reservation, Math.max(0, budget.snapshot().reservedUsd - before));
         pending.add(reservation);
+        reservations.add(reservation);
         // This callback is synchronous durable receipt storage. Python cannot
         // dispatch until this broker returns its reservation capability, so a
         // process death cannot hide admission in an unread stdout pipe.
@@ -374,20 +398,28 @@ export async function openKitchenBudget(context = requestContext()) {
           throw fail('ACCOUNTING_UNAVAILABLE', 'Reservation does not belong to this kitchen call.');
         const usd = budget.settle(message.reservation_id, message);
         pending.delete(message.reservation_id);
+        const settlement = accounting().events.find(
+          (event) => event.reservation_id === message.reservation_id
+        );
         try {
           context.onProposerUsage?.({
             source: 'budget_broker',
             status: 'settled',
             in_flight: false,
             reservation_id: message.reservation_id,
-            settlement: message.status,
+            settlement: settlement.status,
+            accounting_unknown: settlement.status === 'unknown',
             usd,
             usage: message.usage ?? null,
           });
         } catch {
           throw fail('ACCOUNTING_UNAVAILABLE', 'Kitchen settlement receipt cannot be persisted.');
         }
-        reply(200, { usd });
+        reply(200, {
+          usd,
+          status: settlement.status,
+          accounting_unknown: settlement.status === 'unknown',
+        });
       } else reply(400, { error: 'Unknown budget action.' });
     } catch (error) {
       reply(error.code === 'ACCOUNTING_UNAVAILABLE' ? 503 : 429, {
@@ -409,6 +441,7 @@ export async function openKitchenBudget(context = requestContext()) {
       LYRIC_BUDGET_TOKEN: token,
     },
     budget,
+    accounting,
     async close() {
       if (closed) return;
       closed = true;

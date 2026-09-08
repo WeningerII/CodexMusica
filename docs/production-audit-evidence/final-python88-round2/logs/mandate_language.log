@@ -1,0 +1,258 @@
+The mandate language: RHYME, RETURN, and the repeat licence per PAIR.
+
+§1  UNKNOWN — doctrine 28 made mechanical, not conventional
+  ok    UNKNOWN is a singleton
+  ok    bool(UNKNOWN) RAISES and names the doctrine   -- `None` would have been read as False by `if x:`
+  ok    UNKNOWN is not False and not None
+  ok    repr is readable
+  ok    decided() is the branch-free reader
+  ok    the requirement set is closed at five
+  ok    FREE and UNDECLARED are DIFFERENT VALUES   -- 'nothing required' vs 'never asked' (doctrine 28)
+
+§2  three statements where the language had one
+  ok    statement 1 — these lines must RHYME
+  ok    statement 2 — this line must RETURN verbatim
+  ok    statement 3 — the return TRANSPORTS the rhyme obligation   -- L33 IS L13, so L33 answers L17 and it is not a collision
+  ok    a pair the mandate declares unrhymed is FREE
+
+    doctrine 3 inverts BY PAIR, which no song-wide switch can do
+  ok    REPEAT is the REQUIREMENT at a return pair
+  ok    REPEAT is a VIOLATION at a rhyme pair in the same section   -- `repeat_licence='refrain'` would license this one too
+  ok    and it is a violation ACROSS the return as well   -- L37 IS L17, so slow/go must still be a rhyme
+  ok    REPEAT at a free pair is UNKNOWN, not False
+
+§3  doctrine 94 — the zero can still fire, and does, 4x on the real text
+  ok    4 of the 8 declared returns are NOT verbatim and are caught   [(14, 34), (15, 35), (16, 36), (20, 40)]
+  ok    each drift is a NAMED KIND, not a boolean (doctrine 24)   ['ANAPHORIC_RETURN', 'HEAD_PRESERVED']
+  ok    the four VERBATIM returns are silent
+
+    and the detector is not merely present — break one and it counts one more
+  ok    a refrain that drifts by one word is caught   4 -> 5
+
+    the couplet fixture's refrain returns VERBATIM, and that is a measured pass and not an absent check
+  ok    L4/L28 return verbatim -> no finding
+  ok    and the same check FIRES when L28 is altered   -- the pass above is a measurement, not a silence
+
+§4  declaring a return does not stop mandating the rhyme
+  ok    the four chorus classes span BOTH instances   [[13, 17, 33, 37], [14, 16, 34, 36], [15, 19, 35, 39], [18, 20, 38, 40]]
+  ok    every cross pair is now MANDATED, so a broken one is a violation and not a collision
+  ok    declaring the return ADDS mandated pairs rather than removing them   8 declared -> 24 required
+
+§5  the licence is PER PAIR, so it cannot leak into a verse
+  ok    a verse pair mandated to rhyme keeps REPEAT as a VIOLATION while the chorus return is declared   -- `repeat_licence='refrain'` licenses BOTH; this licenses one
+  ok    no pair outside a return class is ever licensed
+  ok    free verse pairs stay UNKNOWN rather than licensed
+
+§6  everything the song does elsewhere is still FREE and still reportable
+  ok    all ten remain FREE — the return licensed nothing about them   10 pairs
+
+§7  refusals, and every one of them is loud
+  ok    a return whose two runs are different lengths REFUSES   -- not a zip cut to the shorter run
+  ok    a return class of one line REFUSES
+  ok    a line that returns itself REFUSES
+  ok    a return line outside the song REFUSES
+  ok    a PLACED return member REFUSES BY NAME with the remedy stated — not `invalid literal for int()` from three frames down (M-142): a return class declares whole LINES identical and the identity judges read lines, so `1.head` has no judge to be handed to
+  ok    ...and a member that is not a line number at all refuses in this layer's own words too
+  ok    two declarations that transitively merge and DISAGREE about verbatim REFUSE   -- not a tie broken by declaration order (doctrine 66)
+  ok    no mandate at all still REFUSES
+
+    and the letters refuse rather than degrade
+  ok    to_letters() REFUSES on a mandate that carries returns   -- a letter cannot say 'this line is that line come back'
+  ok    the lossy projection is still available, NAMED for its loss
+  ok    a return-free mandate is EXACTLY the old object
+
+    a return declared NON-verbatim has no A-1 mark, so the notation refuses
+  ok    to_notation() REFUSES a return it cannot mark
+  ok    and its identity requirement is FALSE, not UNKNOWN, because it was DECLARED false
+  ok    an UNDECLARED verbatim requirement propagates as UNKNOWN
+  ok    and returns_check() stays SILENT about it rather than passing it
+
+§8  scope — the other half of doctrine 28
+  ok    a verse pair is UNDECLARED, not FREE
+  ok    UNDECLARED reports every field as UNKNOWN
+  ok    the chorus is unaffected
+  ok    with no scope the same pair is FREE   -- and those are DIFFERENT ANSWERS to a question a boolean could not tell apart
+  ok    a scope line outside the song REFUSES
+
+§9  the A-1 notation shipped and could not reach brief/verify
+  ok    a notation string now carries its identity half   -- `parse()` returned the rhyme partition and dropped the rest
+  ok    the 12 pairs are the villanelle's own refrains
+  ok    REPEAT is the REQUIREMENT at all 12 and a VIOLATION elsewhere in class a
+  ok    the notation round-trips through the mandate
+  ok    the rhyme projection is unchanged from what parse() always gave
+
+    the OLD reading stays reachable so the defect is demonstrable (doctrine 84's shape)
+  ok    carry_returns=False drops the identity half, as `parse()` did
+  ok    and it is NOT the default
+
+    RefrainScheme.to_mandate is the bridge, and it round-trips
+  ok    to_mandate() agrees with the string path
+  ok    a capital used ONCE is not a return
+
+§10  the declared mandate, in the language
+  ok    41 lines, 8 rhyme groups declared, 8 return classes
+  ok    16 cross pairs go from UNMANDATED to MANDATED   -- exactly the 16 findings the letter scheme produced
+  ok    8 of the 16 are the return correspondences themselves, and every one has REPEAT licensed
+  ok    the other 8 are transported, and REPEAT stays a VIOLATION at each   -- L13/L37 is slow/go and must still be a rhyme, not a repeat
+
+    the couplet fixture: the refrain costs it its letter scheme
+  ok    the COUPLET declaration is a partition
+  ok    declaring the return makes it a COVER (doctrine 2)   -- L4 must answer L3 and L27, because L28 IS L4
+
+§11  the read path — what actually reaches these coordinates
+  ok    requirement() READS in_scope, once per line, BEFORE anything else   [13, 33] -- so `in_scope` is not unread: `quality/revise.py`'s `grade()` and `inspect()` both call `requirement()` per pair
+  ok    and UNDECLARED is reachable through NOTHING ELSE — scope is its only source   -- which is why a mandate with no scope can never return it, and every production mandate has no scope
+
+    a scope that leaves out a line the mandate's OWN groups name is a contradiction, and it used to be built silently
+  ok    a scope excluding a MANDATED line REFUSES   -- pairs() mandated L1/L3 while requirement(1,3) called it UNDECLARED, and grade() reads BOTH
+  ok    a scope excluding a RETURNED line REFUSES too
+  ok    re-opening a mandate to ADD a scope is checked the same way   -- that path took `scope` on trust, not even the 1..n bound
+  ok    and the honest scope — one that covers every line the mandate names — is unaffected
+
+    repeat_is_violation — the METHOD is documented, the FIELD is what the grader reads, and nothing pinned them together
+  ok    Mandate.repeat_is_violation(i,j) IS requirement(i,j).repeat_is_violation at every pair of a real villanelle   171 pairs -- `quality/revise.py` calls `requirement(i, j).decided('repeat_is_violation')` and never the method, so changing the method alone would leave §2/§9 green and change nothing about a real grading run
+  ok    and at every pair of a plain letter scheme with no returns
+
+    the exact (is_declared, value) tuple `grade()` consumes
+  ok    REQUIRE_RETURN -> (True, False): the refrain is REQUIRED to repeat, at all 12 villanelle return pairs   -- grade() skips these, which is why a correct villanelle scores 0 violations
+  ok    REQUIRE_RHYME -> (True, True): an ordinary repeat in the same rhyme class is still charged   -- L1 and L4 are both class 'a' and are NOT the same line
+  ok    FREE and UNDECLARED -> (False, None): these two, and only these two, fall through to the song-wide repeat_licence switch
+
+    FINDING — the fallback is NOT what its own comment says, and the difference is measurable here
+  ok    a plain letter scheme is NOT 'UNDECLARED for this question on every pair': its MANDATED pairs are declared REQUIRE_RHYME   -- `quality/revise.py` grade() L480-483 claims otherwise. Because `declared` is True there, `is_violation if declared else not default_licensed` never reads the switch, so repeat_licence='refrain' is INERT on every letter scheme and Cover-without-returns. Only the DEFAULT 'unlicensed' reproduces the pre-fix behaviour
+  ok    a letter scheme cannot state the question at all, which is why REQUIRE_RHYME's True is this module's DEFAULT and not the writer's declaration   -- doctrine 3 inverts BY CONTEXT and a letter has two states for a question with five answers; the fix belongs at the call site, not in this value
+
+§12  _rep — which member of an identity class the licence transports FROM
+  ok    a returned line's representative is the FIRST member of its class   -- L33 IS L13, so every question about L33 is a question about L13
+
+    THE ANSWER THAT MOVES, on the chorus whose rhyme is declared ONCE and TRANSPORTED (doctrine 3: REPEAT inverts by context)
+  ok    L17/L33 is REQUIRE_RHYME — L33 IS L13, L13/L17 must rhyme, so an identical end word at L17/L33 is a VIOLATION   -- the exact tuple grade() consumes
+  ok    and read from the LAST member the SAME pair answers something ELSE, so this input DISCRIMINATES   -- L17 would represent as L37 and L33 as L33, no declared group holds that pair, and the violation is LICENSED AWAY in silence
+  ok    the returned chorus's OWN internal rhyme moves the same way   -- L33/L37 IS L13/L17 and nothing else in the mandate says so
+  ok    12 of this mandate's 820 pairs answer differently under the two readings, and all 12 touch the transported chorus   [(13, 37), (14, 36), (15, 39), (16, 34), (17, 33), (18, 40), (19, 35), (20, 38), (33, 37), (34, 36), (35, 39), (38, 40)]
+
+    BOTH DIRECTIONS IN ONE OBJECT — the mutation is not a uniform loosening, it EXCHANGES two answers (8 lines, one return class {2, 6}, one declared group on each side of it)
+  ok    L1/L6 — the first-member reading DECIDES it and the last-member reading loses the decision   -- L6 IS L2 and L1/L2 is a declared group, so a repeat is charged
+  ok    L2/L8 — and at the OTHER pair of the same object it MANUFACTURES a decision the mandate declined to make   -- so a suite that only counted findings could see a wash
+  ok    exactly those two pairs move, in opposite directions   [(1, 6), (2, 8)]
+
+    WHY THE SHIPPED FIXTURES ARE BLIND — doctrine 94's companion, and why this section is written on neither of them
+  ok    SONG_SCHEME letters BOTH chorus instances, so the two readings agree at every one of its 820 pairs   -- L17 represents as L17 or L37 and BOTH are in a declared group with L33's representative, so the mutated line runs and changes nothing
+  ok    and a real villanelle agrees at every one of its 171 pairs   -- both refrain classes sit wholly inside class 'a'
+  ok    a return class of ONE cannot discriminate either, and the language refuses to declare one at all   -- first IS last there; a test written at that shape would pass against both readings and prove nothing
+
+    AND NOTHING ELSE IN THE OBJECT MOVES, which is why the shape assertions in §4/§10 could not have caught it either
+  ok    ten observables of the transported mandate are IDENTICAL under both readings; only requirement()'s answer moves   -- groups, expanded_groups, pairs, expanded_pairs, return_pairs, identity_pairs, to_rhyme_letters, rhyme_partition_groups, expanded_overlapping_lines, returns_check
+
+§13  OUT_OF_RANGE — the message names the condition the guard actually tests
+  ok    dataclass replacement also refuses an out-of-range return before a malformed mandate can enter the grader
+  ok    the directly corrupted mandate produces exactly one defensive reader finding without claiming the return was checked   -- shape unchanged: quality/revise.py branches on the KIND string
+  ok    the message NAMES THE OFFENDING LINE rather than two line counts   return R1 names L9, past the 4 line(s) given, and L9 is outside 
+  ok    it says the mandate's OWN range is what L9 is outside of, so the repair is to the MANDATE and not to the draft (doctrine 79)
+  ok    and it says the requirement was NOT CHECKED — unasked is not answered clean (doctrine 20)
+
+    the OTHER reachable route names the OTHER layer — a short draft is a different repair from a mandate built around the constructor, and one message for both named neither
+  ok    a well-formed mandate given a SHORT draft says the DRAFT is short   return R1 names L3, past the 2 line(s) given, though L3 is inside the ma
+  ok    and it too says NOT CHECKED rather than falling silent
+  ok    the two messages are DIFFERENT TEXT for the two conditions   -- 'the mandate declares 4 lines and M were given' was one message for both, and the arithmetic was the only thing that varied
+
+    and the guard has not started swallowing the returns it is supposed to grade
+  ok    an IN-RANGE return that came back VERBATIM emits nothing
+  ok    an IN-RANGE return that DRIFTED takes the other branch and is a NAMED KIND, not OUT_OF_RANGE   ['LEXICAL_VARIATION']
+  ok    the constructor still refuses the out-of-range return outright, so this guard stays the LAST line of defence and not the first
+
+§14  check_identity — §13's twin, and this one was GENEROUS as well as misnamed
+
+    THE OBVIOUS INPUT DOES NOT DISCRIMINATE, and that is a measurement, not a caution
+  ok    the villanelle's LAST LINE IS A REFRAIN, so a short draft always trips the index guard on its own
+  ok    so a one-line-short villanelle reports findings under EITHER reading — a test written here cannot see the generosity   -- the obvious boundary value, and it proves nothing
+
+    THE DISCRIMINATING INPUT IS THE FORM WHOSE LAST LINE IS NOT A REFRAIN, and the registry says there is exactly ONE
+  ok    of the 8 shipped REFRAIN_FORMS, exactly one does not close on a refrain: `pantoum quatrain pair`   ['pantoum quatrain pair'] -- measured over the registry, not hand-picked. The other seven end on a refrain, which is WHY nothing found this: on 7 of 8 named forms the index guard covers for the missing check
+  ok    `pantoum quatrain pair` numbers 8 lines and its last refrain line is 7   -- a shipped form, not a constructed fixture
+  ok    the whole 8-line draft, refrains holding, still reports NOTHING   -- the fix did not buy its reach with noise on the clean case
+  ok    A DRAFT SHORT OF THE NOTATION IS NOT A CLEAN PASS — this returned [] until 2026-08-13, and it is the whole defect   -- doctrine 94: no positive case can reach this, because every positive case hands over a draft of the right length
+  ok    and it is NOT the index guard that catches it: every refrain line still lands inside the short draft   -- which is exactly why the index guard could not see it
+  ok    the finding is LINE_COUNT and there is exactly one of it   ['LINE_COUNT']
+  ok    its message NAMES THE MISSING LINE — here the two counts are the condition being tested, so unlike §13 they belong   the notation numbers 8 lines and 7 were given — L8 was never given, so t
+  ok    and it says how many requirements were graded on the positional assumption ANYWAY, so the reader is not left to infer it (doctrine 20/79)
+
+    AND THE OTHER DIRECTION, which no index guard can EVER reach: a draft LONGER than the notation numbers
+  ok    9 lines against an 8-line notation is reported, though every index is in range and every refrain is verbatim   -- a title line shifts every line number and the answers stay silent
+
+    a scheme with NO refrains still reports the mismatch, and that is deliberate — gating LINE_COUNT on 'has repeat pairs' would put the silence back for every rhyme-only notation
+  ok    `abab` — 0 refrains, 4 lines — given 3 lines still says so, and its three counts are honestly 0 of 0   -- this method is the only one that compares a NOTATION's length against a DRAFT's, so it is the only place the mismatch can surface
+  ok    and the same notation at its declared length is silent
+
+    the MESSAGE half — §13's defect, in §13's twin
+  ok    a scheme naming a refrain past its OWN n_lines used to print 'declares 4 lines and 4 were given' — two numbers that agree   refrain A names L9, past the 4 line(s) given, and L9 is outside 
+  ok    it charges the SCHEME, and names parse_refrain as the constructor that cannot produce it (doctrine 79)
+  ok    a well-formed notation given a SHORT draft charges the DRAFT instead, in DIFFERENT TEXT   refrain A2 names L19, past the 18 line(s) given, though L19 is inside th
+
+    and the guard has not started swallowing what it grades
+  ok    a full 19-line villanelle whose refrains hold still reports NOTHING
+  ok    and the drifted refrain is still caught as a NAMED KIND, with no LINE_COUNT row on a draft of the declared length   {'LEXICAL_VARIATION'}
+
+§15  returns_check — §13's other half, and §14's twin back
+
+    THE OBVIOUS INPUT DOES NOT DISCRIMINATE, and §13 already owns it: 'a short draft' is the phrase, and the short draft this repo already had in a test trips the index guard by itself
+  ok    §13's own short-draft fixture names L3, which is PAST a 2-line draft, so OUT_OF_RANGE fires under EITHER reading   -- the obvious boundary value, and it proves nothing about the length check
+
+    THE DISCRIMINATING INPUT IS THE ONE WHOSE RETURNS ALL LAND INSIDE THE SHORT DRAFT — the input the §14 lot supplied by name
+  ok    6 lines declared, 3 given, L1/L3 verbatim — A MANDATE AND A DRAFT THAT DISAGREE IS NOT A CLEAN PASS; this returned [] until 2026-08-13   -- doctrine 94: no positive case can reach it, because every positive case hands over a draft of the right length
+  ok    and it is NOT the index guard that catches it: every return line still lands inside the 3-line draft   -- which is exactly why the index guard could not see it
+  ok    the finding is LINE_COUNT and there is exactly one of it   ['LINE_COUNT']
+
+    AND THE SAME ONE-IN-EIGHT, ON THE SAME SHIPPED REGISTRY §14 MEASURED — because it is the same defect on the twin surface
+  ok    all 8 shipped REFRAIN_FORMS, put through `to_mandate()` and handed a one-line-short draft whose returns HOLD, now report the disagreement — NONE is silent   [] -- and `pantoum quatrain pair` was the only one of the eight that was silent BEFORE, which the next line measures as a property rather than re-asserting from memory
+  ok    and the PROPERTY that made it the discriminating one — a last line that is not a returning line, so no return index falls past a one-short draft — holds of exactly that form   ['pantoum quatrain pair'] -- measured over the registry, not hand-picked. The other seven close ON a return, so their index guard fires anyway and covered for the missing check on 7 of 8 named forms
+  ok    `pantoum quatrain pair` as a MANDATE, 8 lines declared and 7 given with both returns verbatim, now reports the disagreement   ['LINE_COUNT']
+  ok    the whole 8-line draft, returns holding, still reports NOTHING   -- the fix did not buy its reach with noise on the clean case
+
+    THE MESSAGE, phrased as `check_identity` phrases its own so the two surfaces cannot drift
+  ok    it NAMES THE MISSING LINE and both counts, which here ARE the condition being tested   the mandate numbers 8 lines and 7 were given — L8 was never given, so th
+  ok    and doctrine 79's counts are SEPARATE and never summed: graded on the positional assumption ANYWAY, not reached, and never graded here
+  ok    the two surfaces say the SAME SENTENCE about the same condition, with `mandate` for `notation` — that was §14's design choice and it holds both ways now   -- the shared frames, checked against check_identity's own text below
+  ok    ...and that is measured against `check_identity`'s LIVE output, not against a copy of it in this file   -- one says notation, one says mandate, and nothing else differs in the frame
+
+    THE OTHER DIRECTION, which no index guard can EVER reach: a draft LONGER than the mandate numbers
+  ok    5 lines against a 4-line mandate is reported, though every index is in range and the return is verbatim   -- a title line shifts every line number and the answers stay silent
+
+    a mandate with NO returns still reports the mismatch, and that is deliberate — gating LINE_COUNT on 'has returns' would put the silence back for every rhyme-only mandate
+  ok    `ABAB` — 0 returns, 4 lines — given 3 lines still says so, and its counts are honestly 0 of 0   -- this is the only method on `Mandate` that is shown the draft at all, so it is the only place the mismatch can surface
+  ok    and the same mandate at its declared length is silent
+
+    the FOURTH count, which `check_identity` does not need: a return this method SKIPS is neither graded nor blocked, and folding it into either would be doctrine 79 broken
+  ok    an UNKNOWN-verbatim return is counted as never graded here, not as graded and not as unchecked   NOWN and never graded here. This is the assumption said out loud, not a clean pass (doctrine 20)
+  ok    and at the declared length that mandate is still SILENT, exactly as §7 pins it
+
+    and the guard has not started swallowing what it grades
+  ok    an IN-RANGE return that came back VERBATIM at the declared length emits nothing
+  ok    an IN-RANGE return that DRIFTED is still a NAMED KIND, and there is no LINE_COUNT row on a draft of the declared length   ['LEXICAL_VARIATION']
+
+§15b  the new finding cannot fire through `Reviser.inspect()`, and this is the proof rather than the claim
+
+    STEP 1 — `SC.mandate(spec, n_lines=N)` returns `n_lines == N` or RAISES, on every accepted spec kind. Walked, not argued
+  ok    21 constructions over 7 spec kinds at three lengths each: every one either agrees with the `n_lines` it was given or refuses   8 agree, 13 refuse, 0 disagree []
+  ok    the RE-OPEN branch (`mandate(Mandate, returns=...)`) assigns `n = n_lines` outright, so it agrees too
+  ok    and `carry_returns=False` — the reachable OLD reading of an A-1 string — routes through the RGS branch and agrees as well
+
+    STEP 2 — the call site still passes the SAME list it measured. Read off `quality/revise.py`, so a change there breaks this proof rather than silently outdating it (doctrine 48)
+  ok    `Reviser.mandate` is still `SC.mandate(spec, n_lines=len(lines))`
+  ok    `inspect()` still builds its mandate from the draft it is grading
+  ok    ...and still hands `returns_check` that same `lines`
+  ok    so `self.n_lines == len(lines)` there BY CONSTRUCTION, and the LINE_COUNT branch is unreachable from inspect(), verify(), brief() and every CLI verb that runs the loop   -- the conjunction of the three reads above, asserted rather than narrated; step 1 supplies the other half
+
+    STEP 3 — WHAT WOULD HAVE TO CHANGE, pinned so the handoff is mechanical. This finding names NO PAIR, and `revise.py`'s loop sends every kind but OUT_OF_RANGE to a per-LINE flag
+  ok    `LINE_COUNT` carries label/i/j all None — a length disagreement is about the DRAFT, not about one return pair   [(None, None, None)]
+  ok    and `revise.py` routes every non-OUT_OF_RANGE kind to `add(j, Finding('RETURN_NOT_VERBATIM', 'flag', ...))`, which would key a FLAG on line `None` and break `verify()`'s sorted diff   -- so revise.py needs a LINE_COUNT branch, into `whole` as a NOTE beside RETURN_OUT_OF_RANGE, BEFORE anything makes this reachable
+  ok    and that break is a DEMONSTRATION: sorting a `(None, code)` key beside an `(int, code)` key raises TypeError, which is what `verify()`'s `sorted(fixed)`/`sorted(new)` would do
+  ok    `verify()`'s net-new finding budget counts FLAG occurrences only; a new NOTE is disclosed without spending that budget
+  ok    coverage regression has its own refusal gate, separate from the finding severity budget: unknown does not become an artistic FLAG
+  ok    and it could not reject a revision even as a flag: `verify()` refuses a line-count change outright and inspects BOTH sides with ONE mandate, so this finding is identical before and after and cancels out of the Counter diff
+
+    STEP 4 — AND THE FIX DID NOT DISARM ADVERSARY 4 ON ITS WAY PAST. `quality/mutate.py` plants its mutants by EXACT STRING, and a tidier line in the mutated region takes an anchor to 0. It is LOUD when it happens — `apply_mutation` raises, `--dry-run` prints STALE — but nothing in the regression sweep runs either, so the mutant is lost until the next mutation sweep. Pinned HERE, where the sweep will see it
+  ok    all 5 schemes.py mutants (QS1-QS5) still have exactly one anchor in the file they mutate   unapplicable: [] -- QS3's anchor is `returns_check`'s own `if r.verbatim is not True: continue`, INSIDE the block this lot edited, and the first draft of the fix folded it into a comprehension and took it from 1 to 0
+  ok    and none of the 57 mutants targets this method's LENGTH guard, which is why nothing had killed it — the mutation §15 uses belongs in that file as a QS7   58 mutations, 5 on schemes.py, all 5 on `Mandate`, none on a length guard
+
+151 passed, 0 failed

@@ -278,11 +278,11 @@ _HEAD = None
 
 
 def head_commit():
-    """The commit every VOLATILE measurement below is pinned to.
+    """Diagnostic checkout label, including uncommitted working-tree changes.
 
-    Pinned to a COMMIT and never to a date: the counters cell found that a
-    commit-pinned number re-derives forever and a date-pinned one cannot be
-    checked at all.
+    A dirty working tree is not the bytes of HEAD. This label identifies the
+    checkout and discloses that difference; it is not an artifact digest or a
+    promise that separately staged resources are recorded in the commit.
     """
     global _HEAD
     if _HEAD is not None:
@@ -296,10 +296,16 @@ def head_commit():
         # the tail of STDERR as a failing suite's cause, so that harmless line
         # became the stated reason for an unrelated failure and sent a reader
         # after a git problem that was not one.
-        _HEAD = subprocess.run(["git", "-C", ROOT, "rev-parse", "--short", "HEAD"],
+        head = subprocess.run(["git", "-C", ROOT, "rev-parse", "--short", "HEAD"],
                                stdout=subprocess.PIPE,
                                stderr=subprocess.DEVNULL, text=True,
-                               timeout=30).stdout.strip() or "unknown"
+                               timeout=30, check=True).stdout.strip()
+        state = subprocess.run(["git", "-C", ROOT, "status", "--porcelain",
+                                "--untracked-files=normal"],
+                               stdout=subprocess.PIPE,
+                               stderr=subprocess.DEVNULL, text=True,
+                               timeout=30, check=True).stdout
+        _HEAD = head + ("+dirty" if state.strip() else "") if head else "unknown"
     except Exception:                                            # noqa: BLE001
         _HEAD = "unknown"
     return _HEAD
@@ -2288,7 +2294,7 @@ def _git(args, timeout=120, stdin=None, binary=False):
                else stdin),
         stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
         text=not binary, errors=None if binary else "replace",
-        timeout=timeout).stdout
+        timeout=timeout, check=True).stdout
     return out
 
 
@@ -2317,15 +2323,21 @@ def _cat_file_batch(specs):
     for spec in specs:
         nl = raw.find(b"\n", pos)
         if nl < 0:
-            break
-        header = raw[pos:nl].split()
-        if len(header) < 3:                  # "<spec> missing"
+            return None
+        header_line = raw[pos:nl]
+        if header_line == spec.encode("utf-8") + b" missing":
             pos = nl + 1
             continue
+        header = header_line.split()
+        if len(header) != 3 or header[1] != b"blob" or not header[2].isdigit():
+            return None
         size = int(header[2])
+        end = nl + 1 + size
+        if end >= len(raw) or raw[end:end + 1] != b"\n":
+            return None
         out[spec] = raw[nl + 1:nl + 1 + size].decode("utf-8", "replace")
-        pos = nl + 1 + size + 1              # +1 for git's trailing newline
-    return out
+        pos = end + 1                       # +1 for git's trailing newline
+    return out if pos == len(raw) else None
 
 
 def pin_moves():

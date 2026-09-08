@@ -1,0 +1,659 @@
+
+1. lines-per-section is EMERGENT — there is no field for it
+  PASS  Section has no line-count field
+          fields are ['bars', 'function', 'meter', 'name', 'specialised_as', 'start_bar']
+  PASS  Section is measured in BARS
+  PASS  a section length need not be a multiple of anything
+
+2. nothing privileges 4/4
+  PASS  7/8 exists and is simple
+  PASS  an UNDECLARED grouping is refused, not guessed
+          None means this cycle has not said which of its 256 or 64 groupings it is
+  PASS  a DECLARED grouping is returned exactly
+          daichovo 9/8 and a 3+2+2 seven are now distinguishable from the European readings AND from each other
+  PASS  the convention still exists and is LABELLED a convention
+          available on request, never used as a default
+  PASS  a cycle knows what it is distinguished FROM
+          2^(9-1) = 256 orderings of nine pulses, minus itself
+  PASS  a declared grouping must exhaust the cycle
+  PASS  meter resolves per BAR and can change mid-song
+          bar 18 is the turn, bar 20 the chorus, bar 80 the coda
+
+3. two sections may share a name — the demo caught this
+  PASS  a repeated section name is refused rather than silently merged
+          matching by name collapsed both choruses and doubled the count, which stopped QUATRAIN_LOCK from firing correctly
+  PASS  passing the Section itself works and they differ
+          3 vs 4 lines — the same chorus for RHYME, two different spans for the GRID
+
+4. THE ONE THAT MATTERS — six 16-bar 4/4 sections, four lines each, must trip everything
+  PASS  METER_LOCKED fires
+  PASS  SECTION_LENGTH_LOCKED fires
+  PASS  QUATRAIN_LOCK fires
+  PASS  DOWNBEAT_LOCKED fires
+  PASS  PHRASE_LENGTH_LOCKED fires
+  PASS  and every drift measure reads 100%
+          {'four_four': '100%', 'bars_multiple_of_four': '100%', 'equal_section_length': '100%', 'equal_line_duration': '100%', 'downbeat_locked': '100%', 'uniform_anacrusis': '100%', 'four_lines_per_section': '100%'}
+
+5. and a song written ON the grid trips none of them
+  PASS  no findings
+  PASS  section lengths are irregular
+          [5, 11, 3, 14, 9, 6, 14, 19]
+  PASS  line counts per section are irregular
+          [1, 3, 2, 3, 3, 1, 4, 5] — ONE section landing on 4 lines is not the defect; every section landing on 4 is, which is why the measure is a fraction and not a flag
+  PASS  most lines do NOT start on a downbeat
+          32%
+  PASS  phrase lengths vary
+          14%
+  PASS  the detector is not vacuous — it separates the two songs
+
+6. grid -> scheme handoff stays per-LINE
+  PASS  one label per line, not one per section
+          22 labels
+  PASS  the scheme is ONE partition over all 22 lines
+  PASS  it carries long-range rhyme the stanza model forbade
+          max_span=21
+  PASS  and rhymes crossing section boundaries
+          13 crossings
+  PASS  the form has no name, out of 4.5 quadrillion at this length
+          Bell(22) = 4,506,715,738,447,323
+
+7. the FUNCTION coordinate and the BAR RANGE do not merge
+  PASS  two sections declaring one FUNCTION are two instances, not one
+          the accessor D-1 was missing: keyed on the declared function, in bar order
+  PASS  and lines_in STILL refuses a repeated NAME
+          these are two different keys and they must stay two: a chorus is one thing for FUNCTION and two spans for the GRID, which is the same sentence the bar-range rule has always made
+  PASS  adding `function` did not add a line-count field
+          fields are ['bars', 'function', 'meter', 'name', 'specialised_as', 'start_bar']
+  PASS  and it is not a uniformity channel
+          the anti-cliche measure is about the GRID; a form with two choruses is not thereby uniform. The channel COUNT moved from six to seven in the same round for an unrelated reason (uniform_anacrusis, test 8); `function` is still not one of them, which is what this line has always asserted
+  PASS  the drift checks read the declared function, never the name
+
+8. DOCTRINE 24 — the check RELABELS instead of going silent
+  PASS  the pickup is measured to the BARLINE, so it is meter-relative
+          beat 3.5 of 4/4, 6.5 of 7/8, 4.5 of 5/4 and 5.5 of 6/8 are FOUR offsets and ONE pickup — 1.5 pulses of run-up — which is how one constant hid in four time signatures. Keyed on `beat - 1` this reads four distinct values and the check never fires
+  PASS  half the lines are off the downbeat, so DOWNBEAT_LOCKED cannot see it
+          50%
+  PASS  UNIFORM_ANACRUSIS fires instead — the other shape of the defect
+          ['SECTION_LENGTH_LOCKED', 'UNIFORM_ANACRUSIS']; uniform_anacrusis 100% — every one of the 12 off-downbeat lines carries the same pickup
+  PASS  ...and the finding says what it CANNOT separate (doctrine 17)
+          a pickup uniform by fiat and one uniform because English line-openings are read the same here, and the finding says so rather than being quoted as if it did not
+  PASS  on an all-downbeat song only DOWNBEAT_LOCKED fires, not both
+          two shapes of one defect: the check names WHICH one it sees
+  PASS  uniform_anacrusis is 1.0 when nothing is anacrustic
+          this dict measures drift TOWARD the default; a song with no pickup anywhere has arrived at the default, not departed from it — and that keeps `all(v == 1.0)` in test 4 meaning what it says
+  PASS  ...and a song written ON the grid still trips neither
+          uniform_anacrusis 33% over 8 distinct pickups — the check is not vacuous in the other direction
+
+9. a DECLARED GROUPING is not a change of meter
+  PASS  declaring 4/4 as (2,2) leaves four_four at 100%
+          `s.meter == Meter(4, 4)` read the frozen `groups` field too, so adding `groups: [2, 2]` to this repo's own chorus dropped four_four from 29% to 0% with no bar changed — METER_LOCKED clearable by declaring where the beats are, which says nothing about whether the song is in four
+
+10. a real bar-grid blueprint, declared rather than inferred
+  PASS  16 lines over 16 bars in seven sections
+  PASS  no two declared spans intersect
+          one line per bar, each duration bounded to its own bar -- a real hand-written blueprint once got exactly this wrong (a genuine overlap, found and fixed), which is why the check exists rather than being assumed
+  PASS  every section declares a grouping
+          [('verse1', (3, 2, 2)), ('pre', (2, 2)), ('chorus', (2, 2)), ('verse2', (3, 2, 2)), ('bridge', (2, 2)), ('chorus2', (2, 2)), ('outro', (2, 2))] — 4/4 admits eight orderings and [2,2] is a different meter from [4], so declaring is a decision (doctrine 19 forbids inferring one)
+  PASS  a RETURN inherits its first instance's tune slot
+          a return is the same TUNE with new words, so a repeated section shares the pickup a different one would otherwise move
+  PASS  every line opens on the downbeat, so DOWNBEAT_LOCKED fires and UNIFORM_ANACRUSIS does not — the other shape of the same check, covered on a mixed-pickup fixture by test 8 above
+          downbeat_locked 100%; codes ['DOWNBEAT_LOCKED']
+  PASS  the numeral survives grid.py's normalisation
+          `lyric_harness.line_tokens` matches [A-Za-z'-]+ and drops it silently; `quality/fit.py` REFUSES it as a NUMERAL and marks the count a lower bound (doctrine 79). This layer must not be the third answer — a token dropped here would make the variation measurement blind to it too
+
+11. song_from_blueprint agrees with the hand-rolled reader on a real bar-grid blueprint
+  PASS  same section count, names, bars, start bars and meters
+  PASS  every section comes back UNDECLARED — this blueprint sets no "function" key and none is inferred from the name
+          [('verse1', ''), ('pre', ''), ('chorus', ''), ('verse2', ''), ('bridge', ''), ('chorus2', ''), ('outro', '')]
+  PASS  same line count, text, bar, beat, duration and section
+  PASS  no hooks key in this blueprint -> the empty list, not a KeyError
+  PASS  no title key either -> the empty string, the same UNDECLARED shape Song.title already uses
+
+11b. a `meter` written as a signature STRING is refused by name, not crashed on
+  PASS  song_from_blueprint raises MeterDeclarationError, NOT the AttributeError this used to be -- `'str' object has no attribute 'get'` names neither the file, the section, nor the field, and AttributeError is outside the refusal family, so the CLI tracebacked at exit 1 instead of refusing at 2
+          MeterDeclarationError('section \'intro\' declares "meter": "4/4", a string; this schema wants an object — {"beats": 4, "unit": 4}, optionally with "groups": [2, 2]. The time signature IS declared on that section and is not being read for want of one: a string carries the duration and cannot carry the grouping, and supplying the grouping it omits would be an assertion rather than a reading. Nothing else about the section is at fault — rewrite that one field.')
+  PASS  the message names the SECTION, quotes the VALUE it found, names its TYPE, and shows the shape this schema wants -- a diagnosis a writer can act on without opening the reader
+          section 'intro' declares "meter": "4/4", a string; this schema wants an object — {"beats": 4, "unit": 4}, optionally with "groups": [2, 2]. The time signature IS declared on that section and is not being read for want of one: a string carries the duration and cannot carry the grouping, and supplying the grouping it omits would be an assertion rather than a reading. Nothing else about the section is at fault — rewrite that one field.
+  PASS  and it does NOT say the section declares no time signature: it declares one on that very line, and the reader may not assert otherwise
+          section 'intro' declares "meter": "4/4", a string; this schema wants an object — {"beats": 4, "unit": 4}, optionally with "groups": [2, 2]. The time signature IS declared on that section and is not being read for want of one: a string carries the duration and cannot carry the grouping, and supplying the grouping it omits would be an assertion rather than a reading. Nothing else about the section is at fault — rewrite that one field.
+  PASS  an ABSENT meter is still not an error -- it comes back {} and each reader keeps its own documented default, exactly as `s.get("meter", {})` did
+  PASS  a dict passes through untouched, so no valid blueprint changes shape on the way in
+  PASS  a number is refused the same way and NAMED a number -- the type in the message is JSON's, because JSON is what the operator wrote, and the article agrees with it
+          section 'verse' declares "meter": 4, a number; this schema wants an object — {"beats": 4, "unit": 4}, optionally with "g
+  PASS  an array is refused the same way and NAMED an array -- the type in the message is JSON's, because JSON is what the operator wrote, and the article agrees with it
+          section 'verse' declares "meter": [4, 4], an array; this schema wants an object — {"beats": 4, "unit": 4}, optionally wi
+  PASS  a boolean is refused the same way and NAMED a boolean -- the type in the message is JSON's, because JSON is what the operator wrote, and the article agrees with it
+          section 'verse' declares "meter": true, a boolean; this schema wants an object — {"beats": 4, "unit": 4}, optionally wit
+
+12. song_from_blueprint reads a blueprint that DOES declare function and hooks
+  PASS  every section's declared function survives
+          [('verse1', 'verse'), ('verse2', 'verse'), ('chorus1', 'chorus'), ('verse3', 'verse'), ('chorus2', 'chorus'), ('bridge', 'bridge'), ('verse4', 'verse'), ('chorus3', 'chorus'), ('outro', 'outro')]
+  PASS  hooks pass through verbatim, as raw strings
+          ['a hook line for the reader to find']
+  PASS  title passes through
+  PASS  a path and an already-loaded dict give the same answer
+
+13. an unrecognised "function" value RAISES, the same contract Section() itself holds
+  PASS  a bogus function name is not silently dropped to UNDECLARED
+          doctrine 45's move for `language`: an unknown value raises rather than being coerced or ignored
+
+14. an unnamed line is owned by bar; an unknown name refuses
+  PASS  an unknown section name is refused instead of silently reassigned
+  PASS  a correctly-named line is owned by that section
+  PASS  an unnamed line is owned by whichever section its BAR falls in
+
+15. a float beat/duration in the JSON becomes the DECIMAL fraction, not its nearest binary neighbour
+  PASS  beat 1.1 -> exactly 11/10, not the ~3602879701896397/... IEEE double closest to it
+          11/10
+  PASS  duration 0.1 -> exactly 1/10
+          1/10
+
+16. a single-use function declared twice is a finding
+  PASS  two bridges earn SINGLE_USE_RECURRED
+          codes: ['BRIDGE_IS_A_VERSE', 'HOOK_ABSENT', 'RETURN_NEVER_RETURNS', 'SINGLE_USE_RECURRED']
+  PASS  every single_use function is covered, not only bridge
+          fires for all of ['intro', 'outro', 'bridge', 'coda', 'false_ending', 'reprise']
+  PASS  a well-formed song gains no SINGLE_USE_RECURRED
+  PASS  and gains no SINGLE_INSTANCE refusal for its one intro
+          gating on count>1 is what keeps the ordinary case silent
+  PASS  fixed_return and single_use are still disjoint
+          the guard is reached by its own branch, not by an overlap
+  PASS  every single_use function still has recurrence 'once'
+          otherwise the returns-branch would reach them: []
+  PASS  and every recurrence-'once' function is listed in single_use
+          the two spellings of 'expected once' agree on all 6 members
+
+17. HOOK_CONFINED and the undeclared landing
+  PASS  no hook declared -> the question is refused, not answered
+  PASS  a hook that also lands in an UNDECLARED section is not CONFINED
+          findings [] — the third occurrence is in a section whose function nobody declared, so whether the hook stays in the chorus is CANNOT TELL
+  PASS  it is a REFUSAL, and it names how many landings are undeclared
+          the hook recurs 3 times and 1 of those land in a section that declares no function
+  PASS  and no finding ever names the UNDECLARED marker as a function
+  PASS  with the last section DECLARED a chorus, HOOK_CONFINED fires again
+          'hold the line' occurs only in 'chorus' sections, at bars [5, 13, 17]. A hook that leaks i
+  PASS  and it names the chorus rather than the empty string
+  PASS  a hook that leaks into a declared verse is neither confined nor refused
+          findings [], refusals []
+
+18. asked / answered / refused are three counts of QUESTIONS
+  PASS  one question that records two refusals is still one question
+          asked 3, answered 0, refused 3; records 4
+  PASS  a count of answers is never negative
+  PASS  asked == answered + refused
+  PASS  the extra RECORD is disclosed rather than folded into the three
+          4 records from 3 refused questions: ['FUNCTION_UNDECLARED', 'FUNCTION_UNDECLARED', 'HOOK_PLACEMENT_UNDECLARED', 'TITLE_UNDECLARED'] — doctrine 79 wants three counts of the same kind of thing, and the list is returned in full either way
+  PASS  a partly-refused question is one refused question, not several
+          asked 5, answered 4, refused 1: ['CHANNEL_NOT_MEASURED'] — no rhyme key was declared, so `rhyme_inventory` was not measured
+
+19. THE ASK GATE — reachable, deliberately unreachable, and the cost on a well-formed song
+  PASS  two reprises are ASKED at all
+          questions asked: ['chorus', 'reprise', 'verse'] + bridge + hook
+  PASS  and answered: a recurred single-use function is a finding
+          codes: ['HOOK_ABSENT', 'RETURN_LENGTH_DRIFT', 'RETURN_NEVER_RETURNS', 'SINGLE_USE_RECURRED']
+  PASS  every recurrence-'once' function is reachable, not just the listed ones
+          all 6 of them: ['bridge', 'coda', 'false_ending', 'intro', 'outro', 'reprise']
+  PASS  the five 'open' functions are still not asked, on purpose
+          ['breakdown', 'build', 'interlude', 'solo', 'vamp'] — 'open' means the convention expects nothing about how often they occur; a vamp is a repeating figure HELD OPEN and reporting that two of them differ in length would be a finding against an expectation nobody declared
+  PASS  the well-formed fixture gains nothing: same findings as before
+          ['RETURN_LOCKED', 'HOOK_CONFINED', 'TITLE_NOT_IN_HOOK']
+  PASS  same refusals, and the same three counts
+          asked 5, answered 4, refused 1
+
+20. a declared chorus the song never comes back to
+  PASS  one chorus in the whole song is a finding, not silence
+          one instance, bars 9-16. Under 'popular song, Anglo-American, 20th century' a chorus is a returning function; declared once, it is a section with a chorus's name.
+  PASS  and the OTHER half of the same branch is a refusal
+          'does it land in the same place each time' has no second time — CANNOT TELL, not clean (doctrine 28)
+  PASS  it reaches the report, not only the function under it
+  PASS  one bridge is not RETURN_NEVER_RETURNS
+          bridge is not in fixed_return ['chorus', 'postchorus', 'refrain', 'burden', 'tag'] — a bridge appearing once is the convention, not a defect
+  PASS  and a chorus that DOES return does not earn it either
+          codes: ['RETURN_LOCKED']
+
+21. DOCTRINE 24 INVERTED — a return that LOSES or GAINS a line is not a VERBATIM return
+  PASS  a genuinely verbatim return still reports VERBATIM
+          kind=VERBATIM, qualities=['PARTIAL_RETURN', 'VERBATIM'] — the same four lines, unchanged
+  PASS  a chorus whose return DROPS its last line reports TRUNCATED_RETURN
+          kind=TRUNCATED_RETURN; all three surviving lines are identical, so NO PAIRED LINE DIFFERS — the dropped line is the entire difference and it is on neither side of any pair
+  PASS  ...and VERBATIM is not even among its qualities
+          qualities=['PARTIAL_RETURN', 'TRUNCATED_RETURN'] — asserting the kind alone would leave the qualities set free to claim both at once, and a caller reading `qualities` is reading the same object
+  PASS  a line dropped from the MIDDLE is truncation too
+          kind=TRUNCATED_RETURN, invariant=(1, 3, 4) — lines 1, 3 and 4 of the first are matched and line 2 is unmatched
+  PASS  the same shape the other way round reports EXTENDED_RETURN
+          kind=EXTENDED_RETURN, qualities=['EXTENDED_RETURN', 'PARTIAL_RETURN']
+  PASS  ...including the added bar on the last return, where every line of the first survives verbatim
+          kind=EXTENDED_RETURN, invariant=(1, 2, 3, 4) — all four original lines matched, one new line unmatched. This is the case a paired-lines-only rule is most sure about and most wrong
+  PASS  VERBATIM and a non-zero distance are never reported together
+          verbatim: VERBATIM line=0 token=0; tail cut: TRUNCATED_RETURN line=1 token=4; interior cut: TRUNCATED_RETURN line=1 token=5; extended: EXTENDED_RETURN line=1 token=4; bar added: EXTENDED_RETURN line=1 token=6
+  PASS  a verse is a 'new words' function, so identical words ARE a finding about it
+          verse -> 'new words', chorus -> 'verbatim'
+  PASS  the positive case survives: two identical verses ARE charged RETURNS_WITH_SAME_WORDS
+          ['RETURNS_WITH_SAME_WORDS']
+  PASS  a verse that comes back one line SHORT is not charged with returning with identical words
+          kinds ['TRUNCATED_RETURN'], findings ['RETURN_SLOT_DRIFT'] — the gate is `kinds == {'VERBATIM'}` and nothing else, so a kind collapsed to VERBATIM hands the writer a finding about a defect this verse does not have
+  PASS  ...and the truncation is what the return record actually says
+          ['TRUNCATED_RETURN']
+
+22. THE LADDER — every one of its kinds can be the REPORTED kind
+  PASS  every kind in VARIATION_KINDS has a fixture, and every fixture names a kind
+          ladder ['STUB', 'TEXT_VERBATIM_CHANNEL_UNREAD', 'VERBATIM', 'TRUNCATED_RETURN', 'EXTENDED_RETURN', 'LEXICAL_VARIATION', 'FRAME_PRESERVED', 'HEAD_AND_TAIL_PRESERVED', 'TAIL_PRESERVED', 'HEAD_PRESERVED', 'RHYME_PRESERVING_REWRITE', 'PARTIAL_RETURN', 'ANAPHORIC_RETURN', 'EPIPHORIC_RETURN', 'RESTATEMENT', 'REWRITTEN_RETURN']
+          fixtures ['ANAPHORIC_RETURN', 'EPIPHORIC_RETURN', 'EXTENDED_RETURN', 'FRAME_PRESERVED', 'HEAD_AND_TAIL_PRESERVED', 'HEAD_PRESERVED', 'LEXICAL_VARIATION', 'PARTIAL_RETURN', 'RESTATEMENT', 'REWRITTEN_RETURN', 'RHYME_PRESERVING_REWRITE', 'STUB', 'TAIL_PRESERVED', 'TEXT_VERBATIM_CHANNEL_UNREAD', 'TRUNCATED_RETURN', 'VERBATIM'] — half a set equality is not a set equality (test 16 learned this the hard way), so a kind added to the vocabulary without a fixture fails HERE rather than going unreachable in silence
+  PASS  EVERY rung is reachable as the reported kind — no rung of the ladder is shadowed by the one above it
+          16 kinds, 16 reported: ['STUB', 'TEXT_VERBATIM_CHANNEL_UNREAD', 'VERBATIM', 'TRUNCATED_RETURN', 'EXTENDED_RETURN', 'LEXICAL_VARIATION', 'FRAME_PRESERVED', 'HEAD_AND_TAIL_PRESERVED', 'TAIL_PRESERVED', 'HEAD_PRESERVED', 'RHYME_PRESERVING_REWRITE', 'PARTIAL_RETURN', 'ANAPHORIC_RETURN', 'EPIPHORIC_RETURN', 'RESTATEMENT', 'REWRITTEN_RETURN']
+
+23. `read_marked_songs` — the apparatus rule is the CENTRE's, and the mark test still runs first
+  PASS  one song, opened by `--- TITLE:` and titled from it
+          ['The Fixture']
+  PASS  three blocks, and the marks still OPEN them — the apparatus rule is asked AFTER `_MARK_RE`, never before it
+          ['VERSE 1', 'CHORUS', 'VERSE 2'] — every one of these is apparatus by `is_apparatus_line`, so a reader that dropped apparatus first would report NO blocks at all
+  PASS  the mark's trailing text is still an ANNOTATION and not a fifth line
+          "(an annotation on the mark's own line)"
+  PASS  VERSE 1 keeps its two sung lines and drops the four apparatus lines between them
+          ['Hold the line tonight', 'Rain against the shutters cold'] — dropped `[Exeunt.` (a `[` with no `]`, which `_MARK_RE` cannot match), an indented `#`, an indented `---`, and a four-hyphen epigraph that `--- ` never matched
+  PASS  VERSE 2 keeps its one line
+          ['Morning found the empty road']
+  PASS  NO line of any block is apparatus by the one definition — stated as the invariant rather than as four cases, because the four cases are what a second spelling of the rule always passes
+          survivors: []
+  PASS  the emptied block is EMPTY, not absent — the mark is still read, so the song still has a chorus with no words in it
+          CHORUS: []
+  PASS  `compare_returns` answers on an empty block from either side, with and without a phonology — no unguarded index, no exception
+          both sides empty -> VERBATIM/VERBATIM; empty return of a real block -> TRUNCATED_RETURN/TRUNCATED_RETURN; real return of an empty block -> EXTENDED_RETURN/EXTENDED_RETURN — TRUNCATED and EXTENDED are the honest answers: a return that prints no lines against one that prints four HAS lost four
+
+24. THE CROSS-FUNCTION REPRISE — does the outro come back to the intro?
+  PASS  `compare_returns` takes two LINE LISTS and nothing that names a section, a function, or an instance index — it was call-compatible with a cross-function pair from the day it was written
+          signature: ['first', 'again', 'decl', 'rhyme_key', 'first_slot', 'again_slot', 'stub_test']
+  PASS  ...and handed one intro and one outro it answers on the same ladder, with no special case
+          kind=EXTENDED_RETURN, invariant=[1, 2] — 'outro-extends-intro' is EXTENDED_RETURN in the ladder's own vocabulary. The primitive was never the missing piece
+  PASS  an outro built on the intro's lines IS found
+          findings ['CROSS_FUNCTION_REPRISE'], refusals []
+  PASS  and the finding names the KIND, the LINES and the THRESHOLD — not a boolean
+          'i' (intro, bars 1-2) -> 'o' (outro, bars 7-9) is EXTENDED_RETURN -- the first is a strict sub-sequence of the return -- the added bar on the last ret
+  PASS  a DIFFERENT outro of the same length comes back clean — no finding, and no refusal either: this was asked and answered
+          findings [], refusals []
+  PASS  two sections that share a LANGUAGE and no whole line stay quiet
+          the comparison happened and landed on [('HEAD_PRESERVED', 0)] — a NAMED variation kind with no invariant line. A threshold written as 'the kind is one of these six' would report a reprise here; keyed on `Return.invariant_lines` it does not
+  PASS  ...and the quiet is not the check being broken: the same song reports the reprise as soon as ONE line is held
+          one line of OUTRO_ECHO restored to the intro's wording, nothing else touched
+  PASS  declaring the threshold to 0 makes the SAME song report a reprise — so the quiet above is the threshold and not the fixture
+          doctrine 94: a positive-case suite cannot find a rule that is too GENEROUS, so the generous rule is run here on purpose
+  PASS  a verse and a chorus sharing a WHOLE LINE report no reprise under the default convention — the pair is not asked
+          pairs asked: [('outro', 'chorus'), ('outro', 'intro')]; findings ['RETURN_NEVER_RETURNS']
+  PASS  ...and the SAME song answers it when a convention declares the pair — which is what makes this a coordinate and not a hard-coded list
+          pairs asked: [('chorus', 'verse')]; findings ['CROSS_FUNCTION_REPRISE', 'RETURN_NEVER_RETURNS'] — doctrine 45: the expectation in force is declared by whoever is asking, and POPULAR_SONG is one answer rather than the only one
+  PASS  an outro that comes BEFORE the intro is refused, not reported — the pair is ordered and the bars are what enforce it
+          findings [], refusals ['REPRISE_IS_NOT_LATER']. The two sections share both lines; what they do not share is an order in which one can come back to the other
+  PASS  an instrumental outro REFUSES rather than reporting a reprise — `compare_returns` reads two empty line lists as VERBATIM and that is correct arithmetic and a false reprise here
+          findings [], refusals ['REPRISE_SIDE_HAS_NO_WORDS'] (doctrine 28: 'no words' and 'no reprise' are two answers)
+  PASS  called DIRECTLY with one side missing, it refuses
+          ['REPRISE_SIDE_UNDECLARED']
+  PASS  asked through the report on the well-formed fixture — verse, chorus, bridge and no intro, outro or reprise — NOTHING is asked and nothing is refused
+          pairs asked: []; asked 5 answered 4 refused 1 — the same three counts section 19 pins, unchanged by this layer
+  PASS  every declared pair names two DIFFERENT functions and both are in the vocabulary
+          [('outro', 'intro'), ('outro', 'chorus'), ('reprise', 'chorus')] — a pair naming one function twice is `return_findings`' question, already asked and answered there
+  PASS  the threshold is a DECLARED coordinate carrying a number, not an `if` inside the check (doctrine 58)
+          reprise_min_lines=1
+  PASS  and raising it silences the positive case, which is what makes it a threshold rather than a decoration
+          the intro holds 2 lines; asked for 3, the same song answers no
+
+25. a Return's OWN refusals reach the report — three codes that no grading path could see
+  PASS  the Return objects carry refusals at all — the thing that was being computed and thrown away
+          1 across 1 comparison(s)
+  PASS  END_WORD_UNREADABLE now reaches the returned refusal list
+          ['END_WORD_UNREADABLE']
+  PASS  and it says on how many comparisons it was refused, so the dedupe hides nothing
+  PASS  it survives into `song_function_report`'s refusal list
+  PASS  doctrine 79's triple still holds with the new records in it — no negative count, and the parts do not exceed what was asked
+          asked 5 answered 2 refused 3 records 3
+  PASS  REVERTED, the same song reports it nowhere — so it comes from the Return and not from a second path that already had it
+          records reverted 2 -> head 3
+  PASS  nothing was promoted to a FINDING by the collection — a refusal stays a refusal (doctrine 79/20)
+          2 -> 2
+
+26. a repeated section name is a SONG FORM — the reader owns lines by the section INSTANCE, not by what it is called
+  PASS  the reader keeps FOUR sections — two of them called `chorus`
+  PASS  each chorus instance owns its own four lines, by bar range
+          [4, 4, 2, 4]
+  PASS  `instances_of` finds BOTH — the function is the key that may repeat, and it is keyed on the DECLARED function, never the name
+  PASS  `lines_in` still refuses the repeated NAME as a string, which is the precedent the rest of this fix is written from
+  PASS  the two instances occupy the same TUNE SLOT — the measurement a collapsed pair could not have been asked for
+  PASS  a repeated name with no matching bar refuses before reassignment
+  PASS  a UNIQUE declared name outranks the bar range, unchanged
+  PASS  a REPEATED name is resolved by the bar, to each instance in turn
+          [0, 2, 1]
+  PASS  `quality.fit.from_blueprint` resolves it identically — one file, one answer, whichever reader is asked
+  PASS  ...and no line sits before its own section's downbeat, which is what the name-keyed reader produced: -56 pulses for the first chorus, a `pickup` fourteen bars long
+          min offset 0.0
+
+27. a Return's BROKEN rhyme scheme reaches the report — the answer that was computed on every run and told to nobody
+  PASS  the fixture isolates the flag and nothing else: same kind of rewrite, one end word apart, opposite answers
+          held RHYME_PRESERVING_REWRITE / broke PARTIAL_RETURN; line distance 3 both, 3 moved both
+  PASS  the broken return earns a finding and the held one does not — which is the asymmetry, closed
+          held [] -> broke ['RETURN_SCHEME_DRIFT']
+  PASS  the evidence prints BOTH partitions, so the claim is one a reader checks by eye rather than takes on trust
+          bars 1-4 is AABB and bars 5-8 is AABC (PARTIAL_RETURN, 3 line(s) moved). The words were re
+  PASS  and NAMES the phonology that produced them (doctrine 45)
+  PASS  a TRUNCATED return is silent here even though its flag is False — charging a LENGTH fact to the RHYME layer is doctrine 79's own error, and the kind already says it
+          TRUNCATED_RETURN, flag False, findings ['RETURN_SLOT_DRIFT'] — measured over corpus/song/ the gate takes the rule from 24 fires to 4, and all 20 it drops are line-count changes (ABCD -> A, A -> AA)
+  PASS  with no rhyme_key the finding does not fire — a silent default here would be a claim about a phonology nobody named
+  PASS  it reaches `song_function_report`
+  PASS  and the asked/answered/refused triple is UNMOVED — a finding is not a refusal, and this is the inflation the report's own docstring records being bitten by (doctrine 79)
+          held asked 4 answered 2 refused 2 records 2; broke asked 4 answered 2 refused 2 records 2
+  PASS  `kind` and `qualities` are untouched — the ladder still answers WHAT SURVIVED, and a rewrite that broke its rhyme still survived as PARTIAL_RETURN (doctrine 24)
+          PARTIAL_RETURN, qualities ['PARTIAL_RETURN']
+  PASS  and the name is not the positive's negation — it is a FINDING in the RETURN_*_DRIFT family and not a rung of the ladder, so no kind is deleted to make room for it
+          RETURN_LENGTH_DRIFT / RETURN_METER_DRIFT / RETURN_SLOT_DRIFT / RETURN_SCHEME_DRIFT — 'this returning function does not hold one X across its returns', one channel over
+  PASS  `RETURN_SCHEME_DRIFT` is declared a NOTE by `grid.SEVERITY`, in the module that defines it, so it cannot fail `verify()` — it is measured against a labelled CONVENTION (doctrine 6)
+          'popular song, Anglo-American, 20th century' — `return_findings` is never handed a mandate, so nothing it says is a requirement the writer declared. The flag for a REQUIRED return is RETURN_NOT_VERBATIM, from `Mandate.returns_check`, one layer down.
+  PASS  ...and the table rules on EVERY shape code, with the flag family held to a DECLARED SET rather than a count, so a new finding cannot join it by default — `severity_of` REFUSES an unruled code rather than defaulting it (doctrine 20)
+          25 codes ruled; all three flags are facts about the writer's own supplied hook text, not conventions — every other shape code is measured against 'popular song, Anglo-American, 20th century' and stays a note (doctrine 6)
+
+27b. `Return.line_runs` — computed on every comparison, read by nothing, now printed under the minimum it explains
+  PASS  it is computed, one row per line that moved
+          ((2, 1, 1), (3, 1, 0), (4, 3, 0))
+  PASS  `invariant_runs` IS its per-channel minimum — which is why it is the evidence and not a second measurement
+          (1, 0) over ((2, 1, 1), (3, 1, 0), (4, 3, 0))
+  PASS  and `describe()` now prints every one of them
+          ["         ->  'we counted every mile before we came alive'   (5 word edits; head 1, tail 1)", "         ->  'we watched the number settle as it froze'   (4 word edits; head 1, tail 0)", "         ->  'we let it fall as low as anyone drives'   (3 word edits; head 3, tail 0)"]
+  PASS  a Return with varied lines and NO line_runs — hand-built, or a STUB — still prints its edits rather than silently printing nothing
+          ["         ->  'a cat stood up'   (2 word edits)"] — the per-line runs are looked up by line number, never zipped, so a missing row drops the RUNS and not the LINE
+
+30. two refusals nothing had ever asserted — they fire
+  PASS  `compare_returns` with no phonology REFUSES the rhyme question rather than defaulting to one
+          refusals=['NO_RHYME_KEY'] preserved=None
+  PASS  ...and with a key declared it ANSWERS, so the refusal is a verdict about the declaration and not a permanent state
+          refusals=[] preserved=True
+  PASS  the stub convention under test is the one the harness actually recognises, not the one a reader would assume
+          &c.=True [Chorus]=False
+  PASS  an outro that POINTS at the intro is REFUSED, not graded — a stub reproduces nothing, so the lines it stands for were never compared
+          findings=[] refusals=['REPRISE_STUB']
+  PASS  ...and the comparison it refused is recorded as STUB rather than silently dropped
+          [('intro', 'out', 'STUB')]
+
+31. function aliases — genre dialects resolve, claims live on rows
+  PASS  the dialect names resolve to their functions — middle eight IS bridge, an instrumental solo IS solo, an instrumental break IS interlude
+          {'middle-eight': 'bridge', 'middle 8': 'bridge', 'Middle_Eight': 'bridge', 'departure section': 'bridge', 'instrumental solo': 'solo', 'instrumental-break': 'interlude'}
+  PASS  downstream reads the RESOLVED name — a Section declared 'middle 8' carries the bridge spec, so every recurrence and contrast convention follows the row and never the dialect
+  PASS  no alias shadows a declared function (refused at import if one ever does)
+  PASS  the map IS the rows' own declarations — no hand-written entry can diverge from a row (doctrine 1)
+  PASS  an unknown name still refuses — aliases widened the vocabulary's SPELLINGS, never its gate
+  PASS  the middle-8 claim lives on the bridge row itself, beside the gloss that has argued it in prose since the row was written — as a SPECIALISATION with its differentia, not an alias (M-57)
+
+35. the derived cover is read against the printing (M-28)
+  PASS  a cover matching the ladder reads 100% same-group / 0% cross
+          (1.0, 0.0, 2, 4)
+  PASS  the bearer convention inverts the rates and is still reported — low same-rate is typography, never a charge
+          (1.0, 0.2, 1, 5)
+  PASS  no ladder -> None, never a zero that reads as disagreement (doctrine 20)
+  PASS  one all-lines group -> None: no cross-group pairs to compare
+  PASS  a placement-suffixed member reads its line number
+  PASS  `brief --cliques` on a printed ladder DISCLOSES the agreement, in the derived block
+          ['  THE PRINTING (M-28): same-group pairs share the printed indent depth at 100% (2 pair(s)), cross-group at 0% (4) — an independent channel the derived cover reproduces, disclosed and never graded (an indent can mark the group or the bearer).']
+  PASS  a DECLARED mandate prints no printing line — the control is on the derived cover, and a declaration is not derived
+  PASS  a flat draft prints no line — no ladder, no comparison, no vacuous zero
+
+34. a specialisation is kept and checked, never widened (M-57)
+  PASS  a section declared 'middle-eight' with bars=8 resolves to the genus AND keeps the declared name
+          function='bridge' specialised_as='middle-eight'
+  PASS  declaring the GENUS makes no specialisation claim — specialised_as stays empty even at bars=8
+          ''
+  PASS  bars=13 declared 'middle-eight' REFUSES rather than silently widening to 'bridge'
+          declared 'middle-eight' with bars=13, and the specialisation's own claim is bars == 8 (the
+  PASS  bars=4 declared 'middle-eight' REFUSES rather than silently widening to 'bridge'
+          declared 'middle-eight' with bars=4, and the specialisation's own claim is bars == 8 (the 
+  PASS  the mismatch is a ValueError — the CLI refusal family
+  PASS  burden SPECIALISES refrain while staying its own row — the two statements the table used to make look exclusive
+          specialises='refrain'
+  PASS  aliases carry no differentia claims — the middle-eight family left, departure-section (no differentia) stayed
+  PASS  the planner refuses a specialisation in --functions rather than widening it to the genus
+          --functions names 'middle-eight', a specialisation of 'bridge' whose claim is bars == 8. T
+
+·  BACKLOG 3.2 / M-11 — the named air
+  PASS  split: 'CHWI FEIBION DEWRION  [air: Marseillai'
+          ('CHWI FEIBION DEWRION', 'Marseillaise')
+  PASS  split: 'MAALLENI.  [air: Ur svenska hjärtans d'
+          ('MAALLENI.', 'Ur svenska hjärtans djup en gång')
+  PASS  split: '菩薩蠻 其2  [air: 菩薩蠻]'
+          ('菩薩蠻 其2', '菩薩蠻')
+  PASS  split: 'THE SPACIOUS FIRMAMENT'
+          ('THE SPACIOUS FIRMAMENT', '')
+  PASS  split: 'A SONG  [AIR : Rodney ]'
+          ('A SONG', 'Rodney')
+  PASS  an air that differs from the title is DISTINCT
+  PASS  an air that restates the title is RESTATED, and `其N` does not make it distinct
+  PASS  no air at all is neither kind — an empty string, so a caller cannot read `unknown` as `none`
+  PASS  read_marked_songs puts the air in its own field and leaves the title clean
+          'DAU FYWYD' / 'Rodney'
+  PASS  every staged prefix is in the census — an absent key reads like a zero (doctrine 20)
+          ['cym', 'eng', 'fas', 'fin', 'ltc', 'msa', 'non', 'san']
+  PASS  cym: 391 songs, 13 with an air of their own
+          {'distinct': 13, 'restated': 0, 'songs': 391}
+  PASS  eng: 8661 songs, 539 with an air of their own
+          {'distinct': 539, 'restated': 0, 'songs': 8661}
+  PASS  fas: 8350 songs, 0 with an air of their own
+          {'distinct': 0, 'restated': 0, 'songs': 8350}
+  PASS  fin: 962 songs, 18 with an air of their own
+          {'distinct': 18, 'restated': 0, 'songs': 962}
+  PASS  ltc: 10529 songs, 0 with an air of their own
+          {'distinct': 0, 'restated': 10529, 'songs': 10529}
+  PASS  msa: 129 songs, 0 with an air of their own
+          {'distinct': 0, 'restated': 0, 'songs': 129}
+  PASS  non: 160 songs, 0 with an air of their own
+          {'distinct': 0, 'restated': 0, 'songs': 160}
+  PASS  san: 25 songs, 0 with an air of their own
+          {'distinct': 0, 'restated': 0, 'songs': 25}
+  PASS  M-11's ZERO is FALSE: its own five prefixes carry 31 named airs over 9,857 songs, all Welsh and Finnish
+          songs 9857 airs 31
+  PASS  ...and the 10,529 ci are NOT what falsifies it — every one is a RESTATED title, so folding them in would answer another question
+          ltc {'distinct': 0, 'restated': 10529, 'songs': 10529}
+
+test: the printed indent survives ingestion
+  PASS  line_indent counts leading columns
+          4
+  PASS  a blank line has no indent rather than its own length
+  PASS  the indents are recorded, index-aligned with the lines
+          ([0, 2, 0, 2], ['The wind was on the heath,', 'and there it stayed;', 'The sun was underneath,', 'and all was shade;'])
+  PASS  the lines themselves are STILL stripped — the text half is byte-identical to what every reader saw before
+          and there it stayed;
+  PASS  indent_partition is a SHAPE, not a column count
+          (0, 1, 0, 1)
+  PASS  8 spaces reads the same shape as 2
+          ((0, 1, 0, 1), [0, 8, 0, 8])
+  PASS  a Block with no recorded indents returns an EMPTY partition, never a row of zeros
+
+33. a declared off-text channel outranks VERBATIM (M-26)
+  PASS  with nothing declared the return is still VERBATIM
+          VERBATIM
+  PASS  a declared off-text channel relabels the headline
+          TEXT_VERBATIM_CHANNEL_UNREAD
+  PASS  and it REFUSES by name rather than only relabelling
+  PASS  the refusal names the channel the caller declared, so a reader learns WHICH question went unanswered
+          the words returned unchanged, and the melodic line (Carnatic sangati) 
+  PASS  ...and says it CANNOT TELL, not that the return did not vary
+          the words returned unchanged, and the melodic line (Carnatic sangati) is where this tradit
+  PASS  `qualities` still carries VERBATIM — the underlying measurement survives the relabel
+          ['PARTIAL_RETURN', 'TEXT_VERBATIM_CHANNEL_UNREAD', 'VERBATIM']
+  PASS  a return whose WORDS moved is unaffected by the declaration
+          LEXICAL_VARIATION
+  PASS  the new kind is ranked above VERBATIM in the declared order
+  PASS  STUB — the only other kind above VERBATIM — carries no VERBATIM quality, so the two readings agreed before this row
+          STUB ['STUB']
+  PASS  RETURNS_WITH_SAME_WORDS fires with the declaration as without — the words really are identical and that finding is about the words
+          base ['RETURNS_WITH_SAME_WORDS'] | declared ['RETURNS_WITH_SAME_WORDS']
+
+32. a refusal is true IN A LANGUAGE, not of a token (M-24)
+  PASS  every MARK_REFUSED key is a (language, mark) pair
+          []
+  PASS  every key's language is a DECLARED one, not a free string
+          []
+  PASS  and the table is not empty, so the two checks above examined something
+          16 rows
+  PASS  PART in fin gets fin's own written reason
+          MARK_NOT_A_FUNCTION
+  PASS  PART in another language is REFUSED ELSEWHERE, not decided
+          MARK_REFUSED_ELSEWHERE
+  PASS  and Finland's reason is NOT quoted over it
+          'PART' carries a written decision in fin and NONE in 'gle'. That other tradition
+  PASS  the refusal NAMES the language that did decide, and the one that did not
+          'PART' carries a written decision in fin and NONE in 'gle'. That other tradition
+  PASS  with no language the decision still stands, LABELLED with the tradition it was written for
+          [the decision below was written for 'fin'; this reader was given no la
+  PASS  a shared positive mark reads identically in every language
+  PASS  an unrecognised mark is UNRECOGNISED, not REFUSED_ELSEWHERE
+  PASS  a corpus path yields its declared language
+  PASS  a non-corpus path yields NO language rather than inventing one
+  PASS  a language with no phonology does not derive from a path — the half of M-24 that a coordinate alone does not close
+  PASS  read_marked_songs DERIVES the language from the path and hands it to ingest_mark
+          a speaker or role attribution in the Kalevala wedding songs 
+  PASS  the SAME mark in a cym file is refused elsewhere, not decided
+          MARK_REFUSED_ELSEWHERE
+  PASS  audit_corpus.LANG_PREFIX and phonology.declared() are the same vocabulary — asserted, since they are typed twice
+          set()
+
+test: the elaboration pointer, and the rank that was refused
+  PASS  no `rank` field was adopted on any section function
+  PASS  the ladder's top two rungs are declared but unattested — the measurement that refused `rank`
+          ['CRUNLUATH', 'CRUNLUATH A-MACH', 'SIUBHAL', 'TAORLUATH']
+  PASS  9 elaborating sections corpus-wide, 8 grounded BEFORE and 1 after
+          {'grounded_before': 8, 'grounded_after': 1, 'ungrounded': 0}
+  PASS  ...and the one grounded AFTER is not charged: `THE PRAISE OF MORAG` opens on a siubhal because the page prints its first movement with NO heading at all
+  PASS  a siubhal with no urlar anywhere in the song IS reported
+          [('ELABORATION_UNGROUNDED', '`SIUBHAL` elaborates `URLAR`, and no `URLAR` appears in this song')]
+  PASS  it carries a message and evidence, so a reader is told what the claim was and why it is false — an empty evidence string under a finding is a verdict with no reason
+          ('`SIUBHAL` elaborates `URLAR`, and no `URLAR` appears in this song', 'the mark declares itself a variation OF ')
+  PASS  the counts say ungrounded 1 and nothing else
+          {'grounded_before': 0, 'grounded_after': 0, 'ungrounded': 1}
+  PASS  with the urlar present the finding is gone and the count moves to grounded_before
+          ([], {'grounded_before': 1, 'grounded_after': 0, 'ungrounded': 0})
+
+·  M-39 — the section coordinate, supplied
+  PASS  a marker line is labelled so a caller can exclude it
+          ['section_marker', '']
+  PASS  every line carries its section, and the identity is PER OCCURRENCE — a second [VERSE] is a different section, which is what the placement predicates ask
+          ('VERSE#0', 'CHORUS#1', 'VERSE#2')
+  PASS  lines before the first mark are UNDECLARED, not guessed
+  PASS  the census counts marks and functions from the DECLARED table
+          {'marks': 3, 'sections': 3, 'functions': {'verse': 2, 'chorus': 1}, 'declared_functions': 3, 'refused': {}, 'voices': {}, 'lines_before_first_mark': 0}
+  PASS  a mark another tradition owns is REFUSED and counted apart, not silently accepted as an English section function
+          {'marks': 1, 'sections': 1, 'functions': {}, 'declared_functions': 0, 'refused': {'BAYT': 1}, 'voices': {}, 'lines_before_first_mark': 0}
+  PASS  ...and it still gets a section identity, so the line is not orphaned by the refusal
+  PASS  the marker is OUT of the token stream — unfiltered it becomes the WORD `CHORUS` and can stand in a `repetition`
+  PASS  ...and the loss is RECORDED, not silent
+          [(0, 'section_marker', '[VERSE 1]'), (3, 'section_marker', '[CHORUS]'), (6, 'section_marker', '[VERSE 2]')]
+  PASS  Unit.section is real for the first time
+          ['CHORUS#1', 'VERSE#0', 'VERSE#2']
+  PASS  the two predicates ANSWER, and answer differently — against the historical all-`""` stream one was always True and the other always False
+          (False, True)
+  PASS  ...and WITHOUT the supply they still collapse, which is the defect this pins rather than a second passing case
+
+M-39: the stanza ground is READ FROM THE PAGE, or REFUSED
+  PASS  BAYT/SLOKA/PANTUN are NOT section functions and DO open a group
+          each refusal says in its own words that the mark is a couplet-, stanza- or quatrain-unit; reading MARK_FUNCTION as the group table would have dropped all three
+  PASS  RADIF is a rhyme device and opens NOTHING
+          'not a span of the song. It has no bars and no return.'
+  PASS  PART is ABSENT rather than guessed, so a fin text carrying it refuses its ground WHOLE
+  PASS  a marked text grounds, and the mark and the blank line agree
+  PASS  a text printing NO break of any kind supplies NO ground — it does NOT supply one stanza
+  PASS  stanzas_from_sections maps a section vector to group indices
+  PASS  eng: the grounded reader returns the SAME lines as the plain one
+          one walk, not two — a parallel function mirroring the drop rule would be a second implementation of one question
+  PASS  fin: the grounded reader returns the SAME lines as the plain one
+          one walk, not two — a parallel function mirroring the drop rule would be a second implementation of one question
+  PASS  cym: the grounded reader returns the SAME lines as the plain one
+          one walk, not two — a parallel function mirroring the drop rule would be a second implementation of one question
+  PASS  cym_cynghanedd: the grounded reader returns the SAME lines as the plain one
+          one walk, not two — a parallel function mirroring the drop rule would be a second implementation of one question
+  PASS  non: the grounded reader returns the SAME lines as the plain one
+          one walk, not two — a parallel function mirroring the drop rule would be a second implementation of one question
+  PASS  san: the grounded reader returns the SAME lines as the plain one
+          one walk, not two — a parallel function mirroring the drop rule would be a second implementation of one question
+  PASS  msa: the grounded reader returns the SAME lines as the plain one
+          one walk, not two — a parallel function mirroring the drop rule would be a second implementation of one question
+  PASS  ltc: the grounded reader returns the SAME lines as the plain one
+          one walk, not two — a parallel function mirroring the drop rule would be a second implementation of one question
+  PASS  fas: the grounded reader returns the SAME lines as the plain one
+          one walk, not two — a parallel function mirroring the drop rule would be a second implementation of one question
+  PASS  seven of nine panel slices carry a printed ground, and fin/cym carry none
+          {'eng': ('printed_breaks', 7), 'fin': ('none', None), 'cym': ('none', None), 'cym_cynghanedd': ('printed_breaks', 1), 'non': ('printed_breaks', 5), 'san': ('printed_verse_number', 14), 'msa': ('printed_breaks', 10), 'ltc': ('printed_breaks', 10), 'fas': ('printed_breaks', 7)}
+  PASS  monorhyme/leash on Poe: 30 instances inside the printed stanzas
+          it read 268 over one 40-line block — a leash is a run of ONE rhyme sound inside ONE stanza, and 238 of those pairs no leash contains
+  PASS  ...and with NO ground declared it REFUSES, naming the frame
+          the refusal is the point: an instrument that never looked and one that looked and found nothing must not print the same thing
+
+·  M-39 — the CLI reads the marks it used to delete
+  PASS  the `[MARK]` and `---` rows are KEPT in the line vector and the `#` comment and the unclosed bracket are dropped
+          (2, 1, 2, ['--- TITLE: A SONG', '[VERSE 1]', 'the night', 'the light', '[CHORUS]', 'the day', 'the way'])
+  PASS  ...and each kept row carries the status that keeps it out of the token stream, which is what `exclude_status` reads
+          ('song_break', 'section_marker', '', '', 'section_marker', '', '')
+  PASS  a `#` header block is dropped rather than kept-and-excluded, because `stanza_ground` reads any line it cannot classify as CONTENT and nine lines of `# author:` would become a stanza
+  PASS  a lyric that marks its sections and prints NO blank line now grounds on its own marks
+          ('printed_breaks', Supply(capability='stanza', state='present', n=2, source='printed_breaks', detail="distinct stanzas over the stream's units"))
+  PASS  CONTROL — the reader as it was supplies NO ground for the same text, which is the refusal M-39 recorded at this seam
+          ('none', Supply(capability='stanza', state='absent', n=0, source='none', detail="no source declared: distinct stanzas over the stream's units"))
+  PASS  Unit.section is populated by a PRODUCTION caller for the first time — `sections=` had zero callers anywhere when M-39 was filed
+          ['CHORUS#1', 'VERSE#0']
+  PASS  the two placement predicates ANSWER, and answer differently
+          (False, True)
+  PASS  CONTROL — withhold `sections=` and they collapse again, one always True and the other always False over an all-`""` stream
+          (True, False)
+  PASS  a kept marker contributes NO units — the mark never becomes a word
+  PASS  ...and the loss is RECORDED rather than silent
+          [(0, 'song_break', '--- TITLE: A SONG'), (1, 'section_marker', '[VERSE 1]'), (4, 'section_marker', '[CHORUS]')]
+  PASS  CONTROL — hand the same lines over with no `exclude_status` and the marker IS a word, which is the defect the status exists for
+  PASS  this repo's own example lyric prints three marks `MARK_OPENS_GROUP` does not declare, and the ground goes WHOLE
+          (('BRIDGE', 'OUTRO', 'PRE'), 'none')
+  PASS  CONTROL — the blank lines WOULD have supplied seven groups, and they are deliberately not asked: a ground refused on the marks must not be answered by a different instrument (doctrine 45)
+          if this ever reads 1 the control has stopped controlling
+  PASS  ...so `supply('stanza')` is ABSENT and a stanza-framed schema REFUSES, naming the frame
+          Supply(capability='stanza', state='absent', n=0, source='none', detail="no source declared: distinct stanzas over the stream's units")
+  PASS  ...while the SECTION coordinate still stands — a mark this table cannot group is still a printed section identity
+          ['BRIDGE#4', 'CHORUS#2', 'CHORUS#5', 'OUTRO#6', 'PRE#1', 'VERSE#0', 'VERSE#3']
+  PASS  no `[MARK]` at all is still a GROUND where the page prints its stanzas — `stanza_ground` reads the blank line too
+          ('printed_breaks', 'Supply(capability=\'stanza\', state=\'present\', n=2, source=\'printed_breaks\', detail="distinct stanzas over the stream\'s units")')
+  PASS  a page printing no break of any kind supplies NO ground, and the fallback names it `none` rather than one stanza
+  PASS  RESIDUE — a trailing blank line alone: this reader declares nothing, and `build_stream`'s derivation calls it `blank_lines` with ONE stanza. Unchanged behaviour, named so it is visible
+          `stanza_ground` alone would have said `none` here; the difference belongs to relations.py's rule, which this cell does not own
+  PASS  printed eight marks supply eight sections and stanzas
+          (8, Supply(capability='stanza', state='present', n=8, source='printed_breaks', detail="distinct stanzas over the stream's units"))
+  PASS  the old reader supplied one stanza; preserving markers leaves the same phonology units
+          (252, 252, Supply(capability='stanza', state='present', n=1, source='blank_lines', detail="distinct stanzas over the stream's units"))
+  PASS  every reported leash covers its complete declared stanza; partial edges cannot certify one
+  PASS  full figure findings and refusals are disjoint, and unbound templates refuse in every fixture
+          [(32, 23), (32, 23), (22, 28)]
+  PASS  retaining only the section marks can change only frame-sensitive schemas
+  PASS  when stanza marks are refused, every stanza-dependent schema refuses
+  PASS  the VERB grounds on the page and says so — this is the check that fails if `sections=`/`stanzas=` are dropped from the call site while `relation_ground` keeps working
+          (0, ['  section coordinate: 2 [MARK] row(s) and 0 `---` row(s) KEPT (excluded from the token stream, not deleted), 0 apparatus row(s) dropped; 2 distinct Unit.section over the units', "  stanza ground: printed_breaks — supply('stanza') present, 2 distinct stanza(s)"])
+  PASS  CONTROL — the same verb on a page that declares nothing reports NO ground and names the fallback, so the two runs are distinguishable in the output and not only in the code
+          ["  stanza ground: none — supply('stanza') absent, 0 distinct stanza(s)  [FALLBACK: the page printed no break of any kind — no [MARK] that opens a group, no `---` row and no blank line between stanzas — so this reader declared nothing and the name above is `build_stream`'s own derivation]"]
+
+27. M-75 — a lock is a property of the song's MASS, so a free token cannot buy silence
+  PASS  the cliche itself still fires — the repair must not cost the check its original subject
+          1.000
+  PASS  AND THE OWNER'S SENTENCE FIRES NOW: five quatrains and a two-line outro is 20 of 22 lines in quatrains, where by section count it was 5 of 6 and silent
+          0.909 against 0.833 by section count
+  PASS  a genuinely varied form is still SILENT, so the repair did not buy its reach by charging everything
+          0.164
+  PASS  ...and neither does a song whose off-modal section is REAL — two quatrains beside an eighteen-line section is a form with a shape of its own, which is what `SECTION_LENGTH_LOCKED`'s own message asks for
+          0.308
+  PASS  the duck still exists and its price is DERIVED from the declared threshold: a three-line tag on five quatrains does silence it, because 3 of 23 lines is more than the ninth that (1-0.90)/0.90 asks for — and at that size the form has begun to have a shape
+          0.870
+  PASS  weighting by SECTION COUNT instead of by line mass puts the duck back — the owner's shape goes silent while the plain cliche still fires, which is the exact asymmetry M-75 names
+          5 quatrains + outro fires: False, 6 quatrains: True
+  PASS  ...and the restoration held
+  PASS  a one-bar tag no longer silences METER_LOCKED on a 65-bar song: 64 of 65 bars are a multiple of four where 4 of 5 sections was 0.800
+          0.985
+  PASS  ...and the two statistics that were ALREADY per-line stop being exceptions and become instances of one rule — every uniformity measure is a share of the mass it is about, and the channel set is unmoved
+          7 channels
+
+36. the voice coordinate, and the 22nd function (M-52, 2026-08-28)
+  PASS  Lönnrot's antiphonal part labels ride `Block.voice` — the label holds from its `[PART: X]` mark to the next one
+  PASS  ...and the alternation reads exactly as printed: each PART mark re-voices the blocks that follow it
+          [('PART', 'Kosiomiehen puoli'), ('VERSE', 'Kosiomiehen puoli'), ('PART', 'Kaason puoli'), ('VERSE', 'Kaason puoli')]
+  PASS  a new `--- TITLE:` inherits NOBODY's voice — no song opens with a voice unless its own first mark declares one
+  PASS  the PART block itself keeps its function-refusal — a voice is still not a section function, and no block count moved
+  PASS  `section_census` reports the voices as their own key, beside — never inside — the refused count (doctrine 79); an English file that prints no parts reports none. Deleting the PART branch empties this dict, which is the mutation that kills this section
+  PASS  the three [PATTER] blocks reach the declared 22nd function — no longer refused, and each carries its sung stanza
+          [('patter', 8), ('patter', 10), ('patter', 10)]
+==============================================================
+all grid regressions pass

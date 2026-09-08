@@ -51,7 +51,17 @@ answers alone, and `certify()` remains callable on any family).
 
 ## The numbers (`ADOPTED`, re-derived exactly by `--check`)
 
-39,969 words — the declared population: the frequency lexicon,
+**Now, re-adopted 2026-09-08:** 39,969 words in 12,387 first-reading construction
+families. The tier 1 counts remain 2,817 pools with at least 2 spelling classes,
+593 with at least 5, 162 with at least 12, and 81 with at least 20. These are
+upper bounds, not proof of earned chains. All 81 required families were
+reconstructed and actually reverified under explicit class:RHYME, including
+pronunciation uncertainty and the unchanged ban. The deepest verified chain
+is **23**, held by **ONE** family, `IY-Z`. The construction cap remains 40;
+the largest witnessed group is a lower bound, not a proven maximum.
+See [the complete re-adoption](RESULTS_CAPACITY_PRODUCTION_2026-09-08.md).
+
+**Was:** The superseded 2026-08-19/28 headline, retained for its causal history. 39,969 words — the declared population: the frequency lexicon,
 alphabetic, two letters up, readable — collapse into **12,387 rhyme
 families**. Ceilings: 2,817 families sustain even a 2-chain, 593 a
 5-chain, 162 a 12-chain, **81 a 20-chain**. All 81 of the >=20-class
@@ -134,7 +144,12 @@ of 64 (22%). A deeper family has more pairs for the ban to land on. The three
 families this document quotes by name all moved: `AY-ER` (fire's) 28 → **27**,
 `IY` 37 → **34**, `EH-R` 33 → **31**.
 
-**AND `max_chain_lo_family` NAMES ONE OF ~~NINE~~ TWELVE.** 40 is held by
+**Now, 2026-09-08:** `max_chain_lo_family` is `IY-Z`; the 23-word bound is
+held by `IY-Z` alone. It is the largest actual witness from bounded
+construction, not an upper bound on the language. The old 40-word groups
+below were not valid under the artifact's explicitly declared class:RHYME.
+
+**Was:** Historical tie before the corrected relation/reading audit. **AND `max_chain_lo_family` NAMES ONE OF ~~NINE~~ TWELVE.** 40 is held by
 `AE-K`, `AE-N`, `AO-L`, `AY-Z-D`, `EH-L`, `EY`, `EY-T-AH-D`, `EY-T-ER`,
 `EY-T-IH-NG`, `EY-Z`, `IH-Z-AH-M` and `OW-N` — every one of them at
 `CERTIFY_ATTEMPT_CAP` (the last three joined at the 2026-08-28
@@ -218,7 +233,13 @@ cause this time took re-grading the witnesses under both tables.
    classes; IY: 228 classes), because the spelled rime anchors at the
    PRIMARY and digs a distinct string per word (dictate -ictate, rotate
    -otate). Tier 1 barely binds there; the modal tier is what pinches.
-3. **The modal tier costs real chain length.** AY-ER (fire's family):
+3. **Current re-adoption, 2026-09-08:** AY-ER (fire's family): 34 classes,
+   certified **16**. IY: attempts 40, certified **22**. EH-R
+   (there/care/hair): 47 classes, certified **20**. The gap now includes
+   exact declared-relation and pronunciation refusals as well as the two-tier
+   ban; it must not all be attributed to the modal tier.
+
+**Was:** **The modal tier costs real chain length.** AY-ER (fire's family):
    34 classes, certified ~~28~~ **27**. IY: attempts 40, certified ~~37~~
    **34**. EH-R (there/care/hair): 47 classes, certified ~~33~~ ~~31~~
    **37** (the 2026-08-28 judge moved it back UP — the rebuilt modal
@@ -228,6 +249,11 @@ cause this time took re-grading the witnesses under both tables.
    2026-08-28 — see the sections above.) The chain_hi/chain_lo gap is
    the ban system working, family by family.
 4. **The witness cliques are usable objects, not just numbers.** Each
+   current row carries the actually accepted words. `capacity fire` prints
+   the **16**-word clique, re-adopted 2026-09-08. The current-runtime receipt
+   must verify all 81 witnesses before production can claim that acceptance.
+
+**Was:** **The witness cliques are usable objects, not just numbers.** Each
    certified row carries the words the grader accepted — `capacity
    fire` prints the ~~28~~ **27**-word clique a writer could actually
    walk (re-derived 2026-08-21; the witness is re-read from the

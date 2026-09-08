@@ -36,6 +36,7 @@ export const RUN_ANSWER_FIELDS = new Set([
   'state',
   'checkpoint',
   'run_id',
+  'run_revision',
   'new_run',
 ]);
 
@@ -44,7 +45,9 @@ export const RUN_ANSWER_FIELDS = new Set([
 export function runKeyOf(args) {
   if (typeof args?.seed === 'number') return `seed:${args.seed}`;
   const hasMandate =
-    (args?.scheme != null && args.scheme !== '') || (args?.groups != null && args.groups !== '');
+    (args?.scheme != null && args.scheme !== '') ||
+    (args?.groups != null && args.groups !== '') ||
+    (args?.returns != null && args.returns !== '');
   if (!hasMandate) return null;
   return (
     'mandate:' +
@@ -59,7 +62,11 @@ export function runKeyOf(args) {
 }
 
 export function declarationsOf(args) {
-  const out = {};
+  const out = {
+    writer: args?.writer ?? 'interview',
+    form: args?.form ?? 'verse-chorus',
+    voices: args?.voices ?? false,
+  };
   for (const [k, v] of Object.entries(args || {}))
     if (!RUN_ANSWER_FIELDS.has(k) && v !== undefined) out[k] = v;
   return out;
@@ -74,12 +81,32 @@ export class RunStore {
     this.ttlMs = ttlMs;
     this.cap = cap;
     this.now = now;
+    this.locks = new Set();
     this.map = new Map(); // opaque run_id -> record, insertion order = recency
+  }
+  acquire(runId) {
+    if (!runId) return () => {};
+    if (this.locks.has(runId)) return null;
+    this.locks.add(runId);
+    let released = false;
+    return () => {
+      if (!released) {
+        released = true;
+        this.locks.delete(runId);
+      }
+    };
   }
   _sweep() {
     const t = this.now();
-    for (const [k, r] of this.map) if (t - r.updated_at > this.ttlMs) this.map.delete(k);
-    while (this.map.size > this.cap) this.map.delete(this.map.keys().next().value);
+    // An active operation owns both the record and its revision until its
+    // final write. Evicting that record mid-call makes put() reset the
+    // revision to1, allowing a stale revision to name a different state.
+    for (const [k, r] of this.map)
+      if (!this.locks.has(k) && t - r.updated_at > this.ttlMs) this.map.delete(k);
+    for (const k of this.map.keys()) {
+      if (this.map.size <= this.cap) break;
+      if (!this.locks.has(k)) this.map.delete(k);
+    }
   }
   get(runId) {
     this._sweep();
@@ -94,7 +121,14 @@ export class RunStore {
     return this.get(runId);
   }
   put(key, rec) {
-    const r = { ...rec, key, run_id: rec.run_id || newRunId(), updated_at: this.now() };
+    const previous = rec.run_id ? this.map.get(rec.run_id) : null;
+    const r = {
+      ...rec,
+      key,
+      run_id: rec.run_id || newRunId(),
+      revision: (previous?.revision ?? 0) + 1,
+      updated_at: this.now(),
+    };
     this.map.delete(r.run_id);
     this.map.set(r.run_id, r);
     this._sweep();
@@ -121,6 +155,16 @@ function sameDraft(a, b) {
 // BEFORE anything is carried in.
 export function runRefusal(rec, args) {
   if (!rec) return null;
+  if (args.run_revision == null)
+    return `REFUSED: run_revision is required when continuing run_id; current revision is ${rec.revision}. Pass the revision returned with this run.`;
+  if (args.run_revision !== rec.revision)
+    return `REFUSED: stale run revision ${args.run_revision}; current revision is ${rec.revision}. Recover the current record before continuing.`;
+  if (
+    ['suspended', 'interrupted', 'uncertain_proposal'].includes(rec.status) &&
+    Array.isArray(args.draft) &&
+    !sameDraft(args.draft, rec.replay_draft ?? rec.draft)
+  )
+    return 'REFUSED: a continuation cannot replace the original replay draft. Omit draft to carry it, or use new_run with the new draft.';
   const who = typeof rec.seed === 'number' ? `seed ${rec.seed}` : 'the declared mandate';
   if (rec.status === 'parked') {
     const open = Array.isArray(rec.open) && rec.open.length ? rec.open.join(', ') : 'none';
@@ -147,10 +191,11 @@ export function runRefusal(rec, args) {
 // carried from the record (the plan is a function of all of them).
 export function movedDeclarations(recDecl, args) {
   const moved = [];
-  for (const [k, v] of Object.entries(recDecl || {})) {
-    if (args[k] === undefined) continue;
-    if (JSON.stringify(args[k]) !== JSON.stringify(v))
-      moved.push({ field: k, run: v, call: args[k] });
+  for (const [k, value] of Object.entries(args || {})) {
+    if (RUN_ANSWER_FIELDS.has(k) || value === undefined) continue;
+    const v = recDecl?.[k];
+    if (JSON.stringify(value) !== JSON.stringify(v))
+      moved.push({ field: k, run: v ?? null, call: value });
   }
   return moved;
 }

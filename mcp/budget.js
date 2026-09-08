@@ -33,3 +33,7 @@ export const DEFAULT_TOOL_BUDGET_MS = 600_000;
 // other spelling falls back to the derived default.
 const env = Number(process.env.CHAT_TOOL_TIMEOUT_MS);
 export const TOOL_BUDGET_MS = Number.isFinite(env) && env > 0 ? env : DEFAULT_TOOL_BUDGET_MS;
+
+// Network/SDK readers must retain the worker's final result through bounded cleanup.
+// This is delivery patience, never additional compute time.
+export const TOOL_DELIVERY_MARGIN_MS = 30_000;

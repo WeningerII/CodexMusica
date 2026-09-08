@@ -1,0 +1,32 @@
+
+1. the three the MANDATE layer owns — a SCOPE, and a return pointing off the end of the song
+  PASS  MANDATE_SCOPE_DECLARED fires when a mandate declares a SCOPE — the disclosure that it does not speak about every line
+          ['BAND_UNJUDGED', 'COLLISION_UNDECLARED', 'HOMEOTELEUTON', 'MANDATE_SCOPE_DECLARED', 'SHARED_SUFFIX']
+  PASS  COLLISION_UNDECLARED fires on the same run — a collision touching a line the mandate disclaims is a different answer from a violation (doctrine 28)
+          ['BAND_UNJUDGED', 'COLLISION_UNDECLARED', 'HOMEOTELEUTON', 'MANDATE_SCOPE_DECLARED', 'SHARED_SUFFIX']
+  PASS  public construction and dataclass replacement both refuse L9 outside the declared four-line draft
+  PASS  an in-range return reaches the real content check without a range refusal
+  PASS  the defensive RETURN_OUT_OF_RANGE reader fires on the deliberately corrupted test object; production constructors admit no such object
+          ['BAND_UNJUDGED', 'HOMEOTELEUTON', 'RETURN_OUT_OF_RANGE', 'SHARED_SUFFIX']
+
+2. the three the METER layer owns, and the one that cannot fire
+  PASS  BEATGRID_INCOMPLETE fires on a grid that holds SOME of the line — it answers for what it has and refuses the rest
+          ['BEATGRID_INCOMPLETE', 'NO_SUBDIVISION']
+  PASS  PROMINENCE_OFF_HEAD fires under a COMPLETE grid that lands a prominent unit off a group head
+          ['PROMINENCE_OFF_HEAD', 'SPARSE']
+  PASS  ASSUMED_METER fires on a section that declares no time signature, and carries the SOURCE of the assumption
+          2 refusal(s)
+  PASS  NO_TEMPO is the one member of the set that cannot fire, and it is DECLARED inert rather than quietly dropped from the census
+          fit.NO_TEMPO / declared_inputs.BeatGrid.tempo_bpm
+
+3. the one the SONG-STRUCTURE layer owns
+  PASS  REPRISE_SIDE_UNDECLARED fires when one side of the reprise relation is not declared at all — 'no reprise' would be an answer about a comparison never made
+          ['REPRISE_SIDE_UNDECLARED']
+
+4. the census closes over the declared set
+  PASS  every one of the eight is accounted for, and nothing outside the set was counted
+          missing []; extra []
+  PASS  ...and exactly ONE of them is accounted for as INERT rather than fired — the other seven were driven to fire in this file
+          {'ASSUMED_METER': 'a section declaring no meter + AssumedMeter', 'BEATGRID_INCOMPLETE': 'a BeatGrid holding 1 of 4 units', 'COLLISION_UNDECLARED': 'the same scoped mandate', 'MANDATE_SCOPE_DECLARED': 'scope=[1,2,3,4] over 6 lines', 'NO_TEMPO': 'INERT (blocker=build) — asserted, never fired', 'PROMINENCE_OFF_HEAD': 'a complete BeatGrid on 7/8 as (3, 2, 2)', 'REPRISE_SIDE_UNDECLARED': 'a song declaring an outro and no intro', 'RETURN_OUT_OF_RANGE': 'test-only corrupted Return(1,9); both supported constructors refuse'}
+==============================================================
+the NC set is exercised: 7 fired here, 1 declared inert

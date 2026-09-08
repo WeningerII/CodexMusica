@@ -124,7 +124,7 @@ that corpus at runtime; the module is rules only.
 import re
 import unicodedata
 
-from quality.phonology import Phonology, Syllable, Unsupported, register
+from quality.phonology import Phonology, Syllable, LineAnalysis, Unsupported, register
 
 #: Short vowel nuclei. `ṛ ḷ` are NUCLEI, not consonants -- reading them as
 #: consonants turns every `kṛ-` into a two-consonant onset and manufactures a
@@ -363,6 +363,42 @@ class Sanskrit(Phonology):
         if anceps and sylls and sylls[-1].prominence == 0:
             sylls[-1].prominence = None
         return sylls
+
+    def analyse_line(self, text, anceps=True):
+        """Scan printed pādas, preserving nucleus-to-lexical-token ownership.
+
+        Daṇḍa/pipe separators are actual pauses: consonants never migrate over
+        one. A token with no vowel contributes its consonants to the adjacent
+        syllable, rather than being deleted as unreadable. Invalid tokens
+        refuse the complete line, because a partial grid has false positions.
+        """
+        segments = re.split("[" + re.escape(_SEPARATORS) + "]+", text)
+        tokens, syllables, owners, refused = [], [], [], []
+        for segment in segments:
+            flat, positions = [], []
+            for token in _tokens(segment):
+                ti = len(tokens)
+                tokens.append(token)
+                phones = units(token)
+                if phones is None:
+                    refused.append((ti, token))
+                    continue
+                flat.extend(phones)
+                positions.extend([ti] * len(phones))
+            scanned = _syllables(flat)
+            if anceps and scanned and scanned[-1].prominence == 0:
+                scanned[-1].prominence = None
+            syllables.extend(scanned)
+            owners.extend(positions[i] for i, phone in enumerate(flat)
+                          if phone in VOWELS)
+        return LineAnalysis(tuple(tokens),
+                            () if refused else tuple(syllables),
+                            () if refused else tuple(owners), tuple(refused),
+                            "printed pāda pauses; final laghu anceps" if anceps
+                            else "printed pāda pauses; strict final weight")
+
+    def syllabify_line(self, text):
+        return list(self.analyse_line(text).syllables)
 
     def pattern(self, text, anceps=True):
         """-> 'g'/'l'/'?' per syllable, or None if the pāda is unreadable.

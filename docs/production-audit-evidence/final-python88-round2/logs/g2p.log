@@ -1,0 +1,231 @@
+
+1. the fallback is OFF everywhere it was not asked for
+  PASS  the REGISTERED eng has no fallback
+          quality.phonology.get('eng') is what every existing caller holds; if this flips, every recorded number in the repo silently moves
+  PASS  and it still refuses `viewest`
+          the same refusal test_relations.py pins as known gap 1's canary
+  PASS  `layer_of` says None rather than raising
+          doctrine 28: 'cannot read' is a value in the same range as the layers, not an exception a caller can forget to catch
+  PASS  an undeclared mode is refused, not coerced
+          declared modes: ['high', 'low'] or None
+
+2. fallback off reproduces the current battery, including unresolved readings and relations
+  PASS  the three counts and violations match the maintained battery
+          {'mandated': 1064, 'judged': 967, 'refused': 97, 'violations': 4}
+  PASS  the same exact pairs remain refused and violated
+
+3. no pronunciation exists here without its provenance
+  PASS  every non-refusal has a declared layer
+          love=dictionary, viewest=morphology, o'er=elision, hypotenuse=letter, carcanet=letter, to-day=dictionary
+  PASS  every DICTIONARY-DERIVED reading names the headwords it rests on
+          morphology and elision must point at a CMUdict entry; a reading with an empty basis is a reading with no dictionary behind it
+  PASS  the LETTER layer names no basis, because it has none
+  PASS  `dictionary_derived` is not the same predicate as `layer == 'dictionary'`
+          viewest is derived from a dictionary entry without being one
+  PASS  a Reading cannot be built without a layer
+          `layer` has no default, so there is no way to hold a reading and not know where it came from (doctrine 1)
+
+4. a word no declared layer reads still REFUSES
+  PASS  zzzqx refuses
+  PASS  hypotenuse refuses
+  PASS  carcanet refuses
+  PASS  zide refuses
+  PASS  hwome refuses
+  PASS  awa refuses
+  PASS  and refusing is not an exception
+          None is the answer; a caller records it as a refusal (doctrine 79)
+
+5. the morphology and elision layers, on words that were refused
+  PASS  all 21 known answers
+          ok
+  PASS  the allomorph is conditioned, not constant
+          `-st` after a sibilant takes the epenthetic vowel and after a vowel does not; a constant `S T` gave `Y UW1 S S T`, which is not a possible English word
+  PASS  the DICTIONARY wins over any rule
+          `writing` decomposes as `writ`+`-ing` and CMUdict lists `writ`; the morphology layer must never be reached for a word the dictionary already has
+
+6. every row of data/eng_elision.tsv still applies
+  PASS  the table loaded
+          14 rows
+  PASS  all rows resolve against the shipped dictionary
+          14 rows, no hand-written phones in any of them
+  PASS  a row whose BASIS is missing does not fabricate a reading
+          the table carries no phones, so a bad row can only refuse
+  PASS  THE LAYER ORDER IS LOAD-BEARING: elision must precede morphology
+          CMUdict lists `o'` (OW1), so with the elision table removed the morphology layer parses `o'er` as `o'` + `-er` and returns a TWO-syllable OW1 ER0. Both readings are dictionary-derived and only one is right, which is why the tiers are ordered rather than scored against each other: the closed attested table outranks the productive rule
+
+7. dialect is REFUSED, and that is the declared answer
+  PASS  no HIGH-confidence layer reads Dorset
+          `zide` is initial fricative voicing, not a misspelling of `side`; reading it as `side` moves the declaration's dialect coordinate without saying so (doctrine 1)
+  PASS  nor Scots
+          awa=-, weel=-, hame=-, gane=-, thegither=-, sair=-
+  PASS  the LETTER layer, by contrast, happily answers all of them
+          which is the whole objection to it: it has no way to say it does not know, so a dialect word gets a General American verdict
+
+8. held-out CMUdict, on a split this file states
+  PASS  the split reproduces
+          seed 20260811, fraction 0.1; 105744 train / 11749 held out (doctrine 66)
+  PASS  train and held-out are disjoint
+  PASS  the derived layers read a MINORITY of held-out CMUdict
+          read 252/800 = 31.5%. Held-out CMUdict is ordinary vocabulary, most of which is not morphologically derivable from another entry; this is NOT the coverage on the real refusal population and must not be quoted as if it were
+  PASS  and it is RIGHT about most of what it reads
+          whole word (stress included) 158/252 = 62.7%; phoneme 86.3%
+
+9. the REAL refusal population, judged by the form itself
+  PASS  off reproduces the current battery under the same declaration
+          (1064, 967, 97, 4)
+  PASS  the derived layers turn 39 of the 50 refusals into judgements
+          39 lexical rescues; total refused 97 -> 58
+  PASS  and all 39 SATISFY the current door, as the sonnet mandates
+          39/39 = 100.0%. This is the only clean accuracy number available on the real population: the form is ground truth about the sound and no resource of ours supplied it (doctrine 37)
+  PASS  no pair that was JUDGED before changed its verdict
+          the fallback fires only on words the dictionary refused, so a previously judged pair must be untouched; if this fails the fallback is overriding CMUdict somewhere
+  PASS  the same11 lexical gaps remain refused by the derived layers
+          ruinate, vassalage/embassage, equipage, invocate, forbear, carcanet, nought, jollity, strumpeted, attainted, 'greeing — words no morphology reaches, because they are not derived
+  PASS  G2P preserves every exact known-reading/schema uncertainty refusal
+
+10. letter guesses on lexical gaps; known-reading uncertainty remains unknown
+  PASS  the letter layer guesses the same ten lexical gaps and retains all uncertainty
+          41 unresolved known readings; total refused 52 -> 42
+  PASS  the exact two derived dialect residues and five wrong letter guesses remain
+  PASS  and about half of what it alone judges does NOT rhyme
+          5/10 = 50% violations among the pairs only the letter layer could judge, against 2/39 = 5.1% for the derived layers. Violations 82 -> 84 (high) -> 89 (low). A refusal replaced by a coin flip is doctrine 79's defect arriving through a new door: the harness reporting Shakespeare as failing to rhyme, on a pronunciation nothing attested
+  PASS  the letter layer is wrong at MANY TIMES the derived layers' rate — the comparison that decides the default, asserted rather than read off two independently-drifting literals
+          letter 50.0% against derived 5.1% = 9.8x. It buys 10 more judged pairs and pays 5 more violations for them; the derived layers bought 39 for 2
+  PASS  which is why `high` is the default and `low` is reachable
+          doctrine 48's shape: the cost is a number and the switch is a coordinate, not a paragraph
+
+11. known gap 1's canary: score "lot o' news" -- "hypotenuse"
+  PASS  the HIGH layers refuse `hypotenuse`
+          it is not derived from anything CMUdict has, so nothing here is entitled to a pronunciation for it. THE CANARY IS NOT FIXED BY THIS MODULE, and the gap entry has to say so
+  PASS  the LETTER layer answers it
+          HH AY0 P AH0 P T AH1 AH0 S
+  PASS  the guessed reading yields a NON-relation — a verdict, on an invention
+          guessed HH AY0 P AH0 P T AH1 AH0 S -> NO_RELATION 0.587
+  PASS  while the ATTESTED pronunciation yields a real relation
+          gold HH AY0 P AA1 T AH0 N UW2 S -> ASSONANCE 0.895. So the canary's remedy is a DICTIONARY ENTRY, not a G2P: letter-to-sound converts the refusal into a false 'these do not rhyme', which is strictly worse than the NO_ANCHOR the gap entry complains about
+
+12. dictionary / fallback / refused, never two of them
+  PASS  three keys and they sum to the total
+          {'dictionary': 1, 'fallback': 2, 'refused': 2, 'by_layer': {'morphology': 1, 'elision': 1}, 'total': 5}
+  PASS  the fallback column is itemised by layer
+          {'morphology': 1, 'elision': 1}
+  PASS  with the fallback off the middle column is empty, not absent
+          {'dictionary': 1, 'fallback': 0, 'refused': 3, 'by_layer': {}, 'total': 4}
+  PASS  `derived` lists what was answered on an assumption
+          the companion to `unreadable`: one names what was refused, the other names what rests on a rule, and a verdict needs both
+  PASS  U+2019 is folded before the token split, not after
+          doctrine 26: the apostrophe is INSIDE the words this layer exists for, so a split that treats it as punctuation manufactures the refusals the fallback removes
+
+13. corpus-scale three counts — skipped, pass --slow
+
+14. lh.Lexicon(): the default reproduces every prior refusal
+  PASS  no fallback object is built
+  PASS  'viewest' still refuses
+          ([], True)
+  PASS  "o'er" still refuses
+          ([], True)
+  PASS  'savour' still refuses
+          ([], True)
+  PASS  "groun'" still refuses
+          ([], True)
+  PASS  'hypotenuse' still refuses
+          ([], True)
+
+15. lh.Lexicon(fallback='high'): reads what Fallback reads
+  PASS  a Fallback instance is built and stored
+  PASS  known dictionary-derived OOV words are now readable
+          ok
+  PASS  a genuine coinage ('hypotenuse') still refuses at 'high'
+          ([], True)
+  PASS  a genuine coinage ('shiesty') still refuses at 'high'
+          ([], True)
+
+16. the fallback fires ONLY where the old heuristics already refused
+  PASS  'love' unchanged with fallback wired in
+          off=(['L', 'AH1', 'V'], False) on=(['L', 'AH1', 'V'], False)
+  PASS  'cats' unchanged with fallback wired in
+          off=(['K', 'AE1', 'T', 'S'], False) on=(['K', 'AE1', 'T', 'S'], False)
+  PASS  'wights' unchanged with fallback wired in
+          off=(['W', 'AY1', 'T', 'S'], False) on=(['W', 'AY1', 'T', 'S'], False)
+  PASS  "crown'd" unchanged with fallback wired in
+          off=(['K', 'R', 'AW1', 'N', 'D'], False) on=(['K', 'R', 'AW1', 'N', 'D'], False)
+  PASS  "feelin'" unchanged with fallback wired in
+          off=(['F', 'IY1', 'L', 'IH0', 'N'], False) on=(['F', 'IY1', 'L', 'IH0', 'N'], False)
+  PASS  'zzzqx' unchanged with fallback wired in
+          off=([], True) on=([], True)
+
+17. `transcribe_word`'s own boundary-apostrophe strip does not reach the fallback call
+  PASS  "groun'" is read via the elided-final-consonant layer
+          ['G', 'R', 'AW1', 'N'], oov=False
+  PASS  "thro'" is read via the elided-final-consonant layer
+          ['TH', 'R', 'UW1'], oov=False
+
+18. lex.g2p_fallback.counts is the SAME tally Fallback keeps, not a shadow one
+  PASS  morphology and elision both fired
+          Counter({'refused': 2, 'morphology': 1, 'elision': 1})
+  PASS  refused counted the coinage and the non-word
+          Counter({'refused': 2, 'morphology': 1, 'elision': 1})
+  PASS  the dictionary layer never fires through this path
+          every word that reaches `g2p_fallback.read` got there BECAUSE `Lexicon.transcribe_word` already checked `self.entries` (the same dict `_DictionaryOnlyLexicon` shares) and failed; `love`, above, returns from that check before the fallback is ever called, so it cannot appear in this tally at all
+
+19. the shim breaks the recursion `Fallback._dictionary` would otherwise cause
+  PASS  a genuine coinage resolves without a RecursionError
+          (['HH', 'AY0', 'P', 'AH0', 'P', 'T', 'AH1', 'AH0', 'S'], False)
+
+20. an undeclared fallback value is not silently coerced
+  PASS  an unknown mode raises rather than defaulting to something
+          doctrine 1: `fallback` is a declared coordinate with a closed vocabulary (None / 'high' / 'low'), not free text
+
+21. data/g2p_letter_rules.tsv can still be regenerated
+  PASS  the shipped rules exist and load
+          /workspace/scratch/b0544e4bbdd6/verification-candidate2/lyric-harness/quality/../data/g2p_letter_rules.tsv
+  PASS  the shipped file declares the split it was built on
+          # BUILT BY quality/g2p.py --train.  Training split = 105744 CMUdict headwords; 11749 held out (fraction 0.1, seed 20260811).
+  PASS  and that split is still the one the current dictionary produces
+          file says ('105744', '11749', '0.1', '20260811'); cmudict.dict + _split_dict say (105744, 11749, 0.1, 20260811). Unequal means the rules were derived from a training set this repo no longer has, and no test would have said so
+  PASS  `train_letter_rules` still executes end to end (2522 headwords)
+          wrote 32474 bytes to a temp path; the producer is reachable from nowhere but `--train`, so this is the only thing in the repo that runs it
+  PASS  and what it writes is readable by the loader that consumes it
+          a producer whose output its own loader refuses is a producer that does not work, and the file on disk would not say so
+      full regeneration + byte-diff — skipped, pass --slow (65s over the whole training split)
+
+22. the three counts, counted correctly and rendered
+  PASS  the three counts sum to the total, and the total is not a denominator
+          {'dictionary': 6, 'fallback': 2, 'refused': 2, 'total': 10, 'skipped': 0, 'given': 10, 'compound_agreement': 1, 'fallback_mode': 'high'}
+  PASS  `given` accounts for every token handed in
+          given 10 = total 10 + skipped 0
+  PASS  with no fallback declared the middle column is 0 and PRESENT
+          5 / 0 / 5; a layer that was not asked reports zero answers, which is not the same fact as a layer that was asked and found none (doctrine 20)
+  PASS  the mode that produced the numbers travels with them
+          doctrine 1: a count derived under an assumption carries it
+  PASS  `Fallback.three_counts` bound to the recursion-breaking shim OVERCOUNTS the fallback column
+          shim-bound 3/5/2 against 6/2/2. `Lexicon(fallback=...)` hands `Fallback` a `_DictionaryOnlyLexicon`, which cannot see `Lexicon.transcribe_word`'s own reductions, so `wights`, `crown'd` and `feelin'` get re-derived by the morphology layer and reported as things the fallback ADDED. It added nothing: the harness read all three before this module existed
+  PASS  `lexicon_three_counts` agrees with `English.three_counts` instead, which is the instrument bound to a real Lexicon
+          6/2/2 both ways, by layer {'morphology': 1, 'elision': 1}. Two counting instruments that answer the same question differently are one instrument and one bug; this pins which is which
+  PASS  a hyphenated compound read whole from CMUdict is DICTIONARY, and the disclosure says so
+          compound_agreement 1; `to-day` splits on the hyphen exactly as `Lexicon.transcribe` splits a LINE and both pieces are in CMUdict, so nothing was derived. A `dictionary` key inside `by_layer` is the bug this check exists for -- a layer name that cannot occur in the column it was printed under
+  PASS  the rendered line prints three numbers, named
+            three counts (words, doctrine 79 — never summed): dictionary 6   fallback 2   REFUSED 2   of 10
+    1 of the dictionary column is hyphenated compounds the fallback split and read from CMUdict whole — a tokenisation agreement, not a derivation
+    fallback=high, by layer: elision 1, morphology 1
+    refusal rate 2/10 = 20.00% of words; the derived share of what WAS read is 2/8 = 25.00%
+  PASS  and the derived share divides by dictionary+fallback, never by total
+          derived share printed over 8 (dictionary+fallback), not 10 (total). The sonnet battery divided by the mandated total and recorded Shakespeare as failing to rhyme `viewest`/`renewest`; the division is done once, here, so a caller cannot repeat it. The REFUSAL rate above it is over `total` and that is correct -- it is the one rate whose denominator is everything
+  PASS  a reading from the LETTER layer is flagged in the rendering
+          by layer {'morphology': 1, 'elision': 1, 'letter': 2}; §10 measures that layer as net harmful, so a count that includes it may not be printed as though it were the same kind of number as a derived one
+  PASS  nothing read is a finding, not a division by zero
+            three counts (words, doctrine 79 — never summed): dictionary 0   fallback 0   REFUSED 2   of 2 /     fallback: NONE DECLARED, so the middle column is a zero and not a measurement — `--fallback=high|low` asks the question /     nothing was read, so there is no rate to report — 2 refusal(s) and that is the whole finding
+
+23. `python3 quality/g2p.py --counts=...` prints them
+  PASS  the verb runs and exits 0
+          three counts (words, doctrine 79 — never summed): dictionary 1   fallback 2   REFUSED 1   of 4
+    fallback=high, by layer: elision 1, morphology 1
+    refusal rate 1/4 = 25.00% of words; the derived share of what WAS read is 2/3 = 66.67%
+  PASS  and prints all three counts
+          three counts (words, doctrine 79 — never summed): dictionary 1   fallback 2   REFUSED 1   of 4
+    fallback=high, by layer: elision 1, morphology 1
+    refusal rate 1/4 = 25.00% of words; the derived share of what WAS read is 2/3 = 66.67%
+  PASS  an undeclared mode REFUSES and exits 2 rather than counting under a mode nobody declared
+          --counts wants high, low or off, got 'maximum' (Fallback.min_confidence's own vocabulary plus `off` for the no-fallback baseline; doctrine 1 — not free text)
+======================================================================
+all g2p / fallback regressions pass

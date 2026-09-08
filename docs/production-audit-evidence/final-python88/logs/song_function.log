@@ -1,0 +1,228 @@
+
+1. FUNCTION IS A DECLARED COORDINATE (D-1)
+  PASS  the vocabulary is declared in one place and is enumerable
+          22 functions: breakdown, bridge, build, burden, chorus, coda, drop, false_ending, hook, interlude, intro, outro, patter, postchorus, prechorus, refrain, reprise, solo, tag, turnaround, vamp, verse
+  PASS  an unknown function RAISES rather than falling back to verse
+          the move check_cynghanedd made for `language` (doctrine 45)
+  PASS  ...and `middle8` RESOLVES through the constructor to the bridge spec — a SPECIALISATION now, kept and checked (M-57)
+  PASS  ...and `middle8` at bars=4 REFUSES — the differentia is the claim, and this check's own pre-M-57 fixture was the defect
+  PASS  THE ONE THAT MATTERS — a section NAMED 'chorus' is UNDECLARED
+          a name is not evidence. Inferring the function from the name is the same error as inferring a tradition from a schema's name, which this repo made and caught this week.
+  PASS  and UNDECLARED is not verse, and is distinguishable from it
+  PASS  every function carries a declared recurrence and return kind
+  PASS  spelling variants normalise; row-declared aliases resolve; a claim with no row still refuses
+          `pre-chorus` is a spelling of `prechorus`; `middle-8 -> bridge` is a CLAIM and it lives in the vocabulary WITH a gloss, which is exactly where this check always said claims belong
+
+2. THE QUESTIONS A WRITER ASKS, now askable
+  PASS  the FORM is a run of functions, not of names
+          ('verse', 'prechorus', 'chorus', 'verse', 'bridge', 'chorus', 'outro')  — 'chorus' and 'chorus2' are ONE function with two instances, which no name string could say
+  PASS  'how many bars until the first chorus' (D-1's own example)
+          5 bars, after a 4-bar verse and a 1-bar pre-chorus
+  PASS  'does this song have a pre-chorus' (D-1's other example)
+  PASS  does the chorus hold ONE length and ONE meter across returns?
+          both instances are 16 bars of 4/4
+  PASS  does it land in the SAME METRIC POSITION each time?
+          identical (bar-offset, beat, duration) profile across both returns — the tune slot is preserved
+  PASS  and the drift checks are not vacuous — a moved return is caught
+          shifting one chorus line by half a beat fires RETURN_SLOT_DRIFT
+  PASS  does the bridge CONTRAST, or is it a verse wearing a label?
+          separates on ['meter', 'bars', 'line_count', 'line_duration', 'rhyme_inventory', 'line_length'] — 6/8 against 7/8, 8 bars against 14, 4 lines against 8, 5.0 words a line against 7.4
+  PASS  and THAT check is not vacuous either
+          a bridge built to the verse's own measurements fires BRIDGE_IS_A_VERSE
+
+3. THE HOOK — a FRAGMENT, not a section (D-2)
+  PASS  a hook is found sub-line and located in BARS — TWO of them
+          [(6, 6, 'chorus'), (14, 14, 'chorus')]. Every line in this fixture begins on the downbeat, so `bar` and `next_downbeat` agree and neither line takes a pickup — the pickup case (where the two coordinates disagree) is a real possibility this field exists to name, just not one this fixture happens to exercise
+  PASS  and it knows which FUNCTION it landed in
+          which is only sayable because the section declares one
+  PASS  'is the title in the hook?' is ANSWERED
+          title 'Fixture Song' vs hook 'we counted every reason we were given to keep counting'; the title phrase occurs 0 time(s). A listener who wants to find this song again has the hook and not the title.
+  PASS  a fragment that occurs once is named a line, not a hook
+  PASS  ...and it is a FLAG, so it can refuse rather than only report — the severity read off the FINDING the layer built, not off the table it was read from (doctrine 1: one definition, checked where it is used)
+          flag
+  PASS  ...while the CONVENTION codes beside it stay notes, so the promotion moved one code and did not open the family (doctrine 6)
+          the locks are measurements against POPULAR_SONG at an uncalibrated threshold and a writer may depart from them
+  PASS  a hook that is not in the lyric is named
+  PASS  NO declared hook is a REFUSAL, never 'no hook problems'
+          doctrine 20 — a pass earned by asking nothing
+  PASS  the harness refuses to decide what your hook is
+
+4. REPETITION WITH VARIATION IS A MEASUREMENT (A-2)
+  PASS  there is no boolean: the return resolves to a NAMED kind
+          RHYME_PRESERVING_REWRITE — line count and rhyme partition held, words rewritten (Hanby, 'Darling Nelly Gray')
+  PASS  it reports WHICH lines are invariant and which move
+          invariant [1, 5, 6, 7], moved [2, 3, 4, 8]
+  PASS  each varied line's own edit distance is reported, not just a set
+          'we count the miles until we come alive' -> 'we counted every mile before we came alive' is 5 token edits; 'we hold the number steady till it goes' -> 'we watched the number settle as it froze' is 4
+  PASS  edit distance, at both scales
+  PASS  preserved-rhyme-scheme flag, with the phonology NAMED
+          drive/alive and goes/froze hold the partition; key = CMUdict General American; phones from the last stressed vowe...
+  PASS  preserved-tune-slot flag
+  PASS  with NO key declared the rhyme flag is CANNOT TELL, not False
+          doctrine 28 and doctrine 45: a silent default here would be a claim about a phonology nobody named
+  PASS  every declared kind has a gloss, and the residual is NAMED
+          16 kinds; doctrine 24 — a rule that would delete a category must RELABEL
+  PASS  a stub return REFUSES a distance rather than reporting a big one
+          'Oh, my poor Nelly Gray, &c.' points at a block it does not print; an edit distance there measures the printer
+
+5. THE A-1 NOTATION — and the villanelle is now writable
+  PASS  THE VILLANELLE CAN BE WRITTEN DOWN IN THIS REPO
+          A1bA2abA1abA2abA1abA2abA1A2
+  PASS  and it is 19 lines with the refrains in the right places
+  PASS  it round-trips
+  PASS  capital means VERBATIM and lowercase means rhyme only
+          12 REPEAT pairs the partition cannot carry: 6 from each refrain
+  PASS  the rhyme partition still comes out of parse(), unchanged
+  PASS  EVERY refrain form in the registry round-trips
+          8 forms: villanelle, triolet, rondel, rondeau (13 + 2 rentrement), kyrielle quatrain, ballade, pantoum quatrain pair, burden-first carol
+  PASS  superscripts and the ASCII/caret spellings are one notation
+
+   5b. THE DEFECT THE NOTATION FOUND ON ITS FIRST DAY
+  PASS  the registry's villanelle was 22 lines and a villanelle is 19
+          the old entry 'ABAABAABAABAABAABAABAA' had one tercet too many. Nothing could catch it: a rhyme-only string has no structure that pins its length, and `A1bA2 abA1 ...` is over-determined by its refrain positions
+  PASS  the triolet was 10 lines and a triolet is 8
+
+   5c. AND IT IS ENFORCEABLE, not merely readable
+  PASS  a villanelle whose refrains hold reports nothing
+  PASS  a refrain that drifted by ONE WORD is caught, and the drift is given a named KIND
+          A1 L1/L12: LEXICAL_VARIATION — 'gentle' -> 'gently'. The rhyme partition passes, the band passes, and the line that had to come back did not.
+
+6. THE CORPUS (doctrine 37) — 1421 files, and what the representation can and cannot express
+
+   BLOCKS: 202,586 marked blocks in 1421 files, 29,207 songs
+     mapped to a declared function : 77,052
+     REFUSED                       : 125,534
+       MARK_NOT_A_FUNCTION      125,501
+       MARK_UNRECOGNISED             32
+       MARK_IS_A_NUMERAL              1
+     top refused marks: {'BAYT': 70866, 'RADIF': 54193, 'SLOKA': 136, 'PANTUN': 88, 'PART': 61, 'NOTE': 48}
+     functions: {'verse': 74278, 'refrain': 709, 'chorus': 290, 'burden': 1772, 'patter': 3}
+  PASS  the three counts are separate and they add up (doctrine 79)
+          77,052 + 125,534 = 202,586. A refusal is not a failure; 125,059 of these blocks are BAYT and RADIF, and mapping a ghazal's couplet to `verse` would be this vocabulary claiming a form it does not describe
+  PASS  every refusal carries a REASON, not just a code
+
+   REPEAT BLOCKS, with the counting rule NAMED (doctrine 58): a block is one
+   `[MARK]` line and everything under it up to the next mark; the mark's own
+   tail is apparatus, not a line; marks are read from `corpus/song/*.txt`.
+     whole corpus : 2,771  {'burden': 1772, 'refrain': 709, 'chorus': 290}
+     eng_* only   : 2,470  {'chorus': 290, 'refrain': 597, 'burden': 1580, 'patter': 3}
+     blocks by language: {'cym': 811, 'eng': 50150, 'fas': 125059, 'fin': 6106, 'ltc': 19552, 'msa': 131, 'non': 160, 'san': 617}
+  PASS  the repeat-block families are all expressible, none collapsed
+          2,771 repeat blocks held, and BURDEN is kept SEPARATE from REFRAIN because the corpus marks them differently (doctrine 24). BURDEN was 1,795 until 2026-08-11, then 1,784: the first 11 that went were marks inside the duplicated Lyrical Ballads poems and the next 12 inside near-duplicate items, so they were being counted twice and no rate over them was right.
+  PASS  the register's `2,454 marked repeat blocks` reproduces, and the unwritten coordinate was LANGUAGE SCOPE
+          eng_* only gives 2,470 ({'chorus': 290, 'refrain': 597, 'burden': 1580, 'patter': 3}); the recorded 1,603/604/247 is the state at commit ef0baa4 restricted to `eng_*`, and the whole corpus now stands at 2,771 across 8 language prefixes. Doctrine 58 with SCOPE as the coordinate nobody wrote down -- and now with a SECOND one: the same scope over a deduplicated corpus gives 1,580/601/247, so the register's figure needs both a scope and a corpus state to be re-derivable.
+
+   RETURNS: 1,925 return pairs over 672 songs
+     measured : 1,382
+     REFUSED  : 543 (abbreviated '&c.' returns — a pointer, not a text)
+       VERBATIM                    1,163
+       STUB                          543
+       LEXICAL_VARIATION              64
+       ANAPHORIC_RETURN               50
+       HEAD_PRESERVED                 43
+       REWRITTEN_RETURN               33
+       TAIL_PRESERVED                 13
+       EXTENDED_RETURN                 5
+       PARTIAL_RETURN                  4
+       EPIPHORIC_RETURN                4
+       TRUNCATED_RETURN                2
+       RESTATEMENT                     1
+
+   by language:
+       cym  STUB                           17
+       eng  ANAPHORIC_RETURN                4
+       eng  EPIPHORIC_RETURN                4
+       eng  EXTENDED_RETURN                 5
+       eng  HEAD_PRESERVED                 43
+       eng  LEXICAL_VARIATION              47
+       eng  PARTIAL_RETURN                  4
+       eng  RESTATEMENT                     1
+       eng  REWRITTEN_RETURN               33
+       eng  STUB                          526
+       eng  TAIL_PRESERVED                 13
+       eng  TRUNCATED_RETURN                2
+       eng  VERBATIM                      992
+       fin  VERBATIM                       20
+       san  ANAPHORIC_RETURN               46
+       san  LEXICAL_VARIATION              17
+       san  VERBATIM                      151
+  PASS  every return pair resolved to a named kind — none fell through
+          12 distinct kinds used of 16 declared
+  PASS  and the answer is NOT 'they are all verbatim'
+          1,163 verbatim, 543 refused as stubs, and 219 returns that VARY — every one of which was unrepresentable
+  PASS  the corpus forced three kinds that no fixture would have
+          ANAPHORIC_RETURN (Bilhana's 46 `adyapi` refrains, a one-token line-initial anaphora the English threshold of 2 deleted), HEAD_PRESERVED and TAIL_PRESERVED (the Gitagovinda dhruva-tail and the radif shape INSIDE a line)
+  PASS  the scheme reaches four languages, and says which
+          ['cym', 'eng', 'fin', 'san'] — and the rhyme flag is refused on all but English, because the only phonology wired here is CMUdict (doctrine 45)
+
+7. THE EVIDENCE A-2 CITED, measured
+  PASS  Hanby's 'Darling Nelly Gray' — the rhyme scheme and the tune slot hold and the words are rewritten
+          RHYME_PRESERVING_REWRITE: all 4 lines move (26 word edits) and the partition survives — 'they have taken you away / I'll never see my darling any more' returns as 'up in heaven there they say / they'll never take you from me any more'
+  PASS  Russell's 'Cheer, Boys, Cheer' — first and last held, interior rewritten
+          FRAME_PRESERVED: lines 1, 3, 4 invariant, line 2 moves by 5 words
+  PASS  and the two are DIFFERENT kinds — which is the whole point
+          'not identical' resolved to two named kinds rather than to 'different' (doctrine 24)
+
+   7b. the corpus states a rule; the instrument is tested against it (doctrine 37, doctrine 62)
+  PASS  the Gitagovinda header declares a dhruva 'whose final run is invariant and whose head varies' — and the measurement agrees
+          tail run 3 tokens ('jaya jagadisa hare'), head run 1 ('kesava'), middle varies. The source called the shape a radif and the measurement finds one.
+
+8. THE REPORT — asked, answered, refused, always
+  PASS  three counts, and they are not interchangeable
+          asked 7, answered 6, refused 1 — the pre-chorus occurs once, so 'does it land in the same place each time' is CANNOT TELL, not clean
+  PASS  the convention in force is named in the result
+          popular song, Anglo-American, 20th century
+
+   8b. WITHOUT declarations, the checks REFUSE — they do not read the names
+  PASS  an undeclared song answers nothing and refuses everything
+          asked 3, answered 0, refused 3. The sections are still NAMED 'chorus', 'chorus2', 'bridge' and the harness says nothing about them — which is the difference between this and a name parser. The one finding that survives is TITLE_NOT_IN_HOOK, which needs a title and a hook and no function at all.
+  PASS  and the refusal says what is missing
+          no section declares function 'chorus'
+
+9. THE APPARATUS RULE — `read_marked_songs` calls the one definition, and what that cost
+     block lines held      : 581,820   (450,396 before the rule; 133 apparatus lines left)
+     empty blocks          : 6,476 of 202,586   {'cym': 4, 'eng': 449, 'fas': 5884, 'fin': 92, 'san': 47}
+     empty repeat blocks   : 0
+  PASS  NO line of any block, in any of the 260 files, is apparatus by `lyric_harness.is_apparatus_line` — the invariant, not the four shapes that happen to appear
+          0 survivors of 581,820 block lines
+  PASS  all 14 named blocks are EMPTY — a mark whose only content was a stage direction is a block with no words, and the reader now says so instead of printing the direction as a verse
+          14 of 14 empty at their pinned address
+  PASS  and each one's dropped line is still in the corpus, immediately under its mark
+          14 of 14 re-located
+  PASS  every one of them is apparatus by the CENTRE's rule — none is dropped by anything `grid.py` decided for itself
+          all 14 satisfy is_apparatus_line
+  PASS  and all 14 are the SAME defect: a `[` with no closing `]` on the line, which `_MARK_RE` cannot match
+          ['[Drinks.', '[Exeunt.', '[Holding', '[Music:', '[Rises.', '[Turns', '[_1', '[_Exeunt', '[_More', '[_Much', '[_The']
+  PASS  0 chorus/burden/refrain blocks are empty, so no return pair is ever built from an emptied block — unchanged by this rule, which empties only VERSE marks
+          0 empty repeat blocks; the 14 are ['VERSE 10', 'VERSE 12', 'VERSE 14', 'VERSE 2', 'VERSE 4', 'VERSE 6', 'VERSE 9']
+  PASS  an empty block was ALREADY the corpus's ordinary state, which is why nothing downstream could have been assuming otherwise
+          6,476 empty of 202,586 blocks ({'cym': 4, 'eng': 449, 'fas': 5884, 'fin': 92, 'san': 47}) — 6,187 before this rule and 6,476 after, so the rule added 14 to a population of thousands rather than creating the case
+  PASS  the 14 additions were English and the 4 from the follow rule are Finnish — no UNDECLARED arm moved at all
+          {'cym': 4, 'eng': 449, 'fas': 5884, 'fin': 92, 'san': 47} — eng 168 -> 182 (apparatus rule), fin 88 -> 92 (M-47 follow rule), everything else byte-identical
+
+10. THE CROSS-FUNCTION REPRISE — the asked set, priced
+
+   Every UNORDERED pair of two DIFFERENT declared functions inside one song,
+   first block against first block, over the same 1421 files:
+     pairs compared           : 896
+     >= 1 whole line in common: 61  (6.8%)
+       burden/verse           407 asked    26 shared    6.4%
+       refrain/verse          236 asked     8 shared    3.4%
+       chorus/verse           174 asked    27 shared   15.5%
+       chorus/refrain          78 asked     0 shared    0.0%
+       burden/chorus            1 asked     0 shared    0.0%
+     kinds: {'REWRITTEN_RETURN': 538, 'STUB': 212, 'EXTENDED_RETURN': 38, 'PARTIAL_RETURN': 30, 'EPIPHORIC_RETURN': 25, 'ANAPHORIC_RETURN': 20}
+  PASS  the corpus can supply cross-function pairs at all — four functions, so six possible pairings
+          896 pairs over 5 of the 6 possible pairings ([('burden', 'chorus'), ('burden', 'verse'), ('chorus', 'refrain'), ('chorus', 'verse'), ('refrain', 'verse')]); burden/refrain never co-occur in one song, which is itself the corpus saying the two marks are one printer's choice
+  PASS  ASKING EVERY PAIR WOULD BE WRONG 6.8% OF THE TIME — this is the number the declared asked set exists for
+          61 of 896 pairs share a whole line under the declared normalisation, and NOT ONE is a reprise: they are refrain lines a printer set inside the verse, or a war-song chorus line the verse itself sings. On a 21-function vocabulary that is 420 ordered questions per song at this error rate — doctrine 61, a rule that fires more often is not a better rule
+  PASS  and the pairs that carry it are exactly the ones the default convention does NOT ask
+          measured: [('burden', 'verse'), ('chorus', 'verse'), ('refrain', 'verse')]; asked by POPULAR_SONG: [('outro', 'intro'), ('outro', 'chorus'), ('reprise', 'chorus')] — disjoint, so every one of the 61 is silent under the shipped default
+  PASS  the corpus cannot witness the asked pairs, and the reason is in `MARK_FUNCTION` rather than in an argument
+          marks read: ['burden', 'chorus', 'patter', 'refrain', 'verse']; functions the asked pairs name: ['chorus', 'intro', 'outro', 'reprise']. The printed record marks verses and repetends and does not mark a song's opening or its close, so the positive side of this check rests on the vocabulary's own glosses and is labelled as doing so
+  PASS  the rate has an instance under it, re-located in the corpus
+          eng_british_alfred_tennyson.txt: [('The Charge Of The Light Brigade', 'EXTENDED_RETURN', 'Rode the six hundred.')] — Tennyson's burden IS the verse's last line, so 'the burden reprises the verse' is a sentence about a mark, not about a song
+  PASS  `compare_returns` resolved every cross-function pair to a named kind — the primitive needed nothing added to be asked this
+          11 kinds used; the same ladder section 6 runs on same-function returns, on pairs it was never handed
+======================================================================
+all song-function regressions pass
