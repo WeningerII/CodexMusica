@@ -78,7 +78,7 @@
     "check:mobile": "node scripts/check_mobile_layout.js",
     "check:cli": "node scripts/check_cli_output.js",
     "check:differential": "node scripts/check_edit_differential.js",
-    "check:atlas": "node scripts/build_atlas_geo.js --check",
+    "check:atlas": "node scripts/build_atlas_geo.js --check && node scripts/build_atlas_tree.js --check",
     "check:closure": "node scripts/check_build_closure.js"
   },
   "devDependencies": {
