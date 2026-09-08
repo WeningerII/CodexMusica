@@ -160,6 +160,32 @@ def published_limits():
     return execution_limits()
 
 
+class MeasurementProgress:
+    """Expose captured diagnostics without treating activity as a passing result."""
+    def __init__(self, identity):
+        self.identity = identity
+        self.started = self.last = time.monotonic()
+        self.output_bytes = 0
+
+    def emit(self, output, final=False):
+        now = time.monotonic()
+        if not final and now - self.last < 30:
+            return
+        raw = output.encode('utf-8') if isinstance(output, str) else (output or b'')
+        fresh = raw[self.output_bytes:]
+        if fresh:
+            print(fresh[-4000:].decode('utf-8', errors='replace'), end='', flush=True)
+        self.output_bytes = len(raw)
+        cpu = read('/sys/fs/cgroup/cpu.stat') or ''
+        usage = next((line.split()[1] for line in cpu.splitlines()
+                      if line.startswith('usage_usec ')), 'unavailable')
+        memory = read('/sys/fs/cgroup/memory.current') or 'unavailable'
+        print(f'Capacity activity {self.identity}: elapsed={now-self.started:.1f}s '
+              f'cgroup_cpu_usec={usage} cgroup_memory_bytes={memory} '
+              f'measurement={"exited; validation pending" if final else "running"}', flush=True)
+        self.last = now
+
+
 def source_identity():
     import hashlib
     return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in (
@@ -232,6 +258,7 @@ def main():
                     if mode == 'worker':
                         command += ['--worker', f"--rounds={LIMITS['worker_rounds']}"]
                     print(f'Capacity lines={size} seed={seed} mode={mode}', flush=True)
+                    progress = MeasurementProgress(f'{size}/{seed}/{mode}')
                     proc = None
                     try:
                         remaining = deadline - time.monotonic()
@@ -244,8 +271,10 @@ def main():
                         while True:
                             try:
                                 stdout, stderr = proc.communicate(timeout=min(5, max(.01, process_deadline - time.monotonic())))
+                                progress.emit(stdout, final=True)
                                 break
-                            except subprocess.TimeoutExpired:
+                            except subprocess.TimeoutExpired as pending:
+                                progress.emit(pending.output)
                                 runtime_failed = resident.record.get('errors') or resident.child.poll() is not None
                                 if time.monotonic() < process_deadline and not runtime_failed:
                                     continue

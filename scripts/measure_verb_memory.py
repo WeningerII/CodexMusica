@@ -336,6 +336,16 @@ def _grade_args(plan, bp_path, draft_path):
     return args
 
 
+def _next_worker_frame(replies, deadline):
+    remaining = deadline - time.monotonic()
+    if remaining <= 0:
+        raise RuntimeError('worker call deadline exceeded')
+    frame = replies.get(timeout=remaining)
+    if time.monotonic() >= deadline:
+        raise RuntimeError('worker call deadline exceeded')
+    return frame
+
+
 def _worker_sequence(seed, n_lines, draft_path, td, verb, rounds):
     """Cold then warm calls through the real streamed worker protocol."""
     plan_path, bp_path = os.path.join(td,"plan.json"), os.path.join(td,"bp.json")
@@ -356,11 +366,12 @@ def _worker_sequence(seed, n_lines, draft_path, td, verb, rounds):
         nonlocal rid,last_rss
         rid += 1
         t0 = time.monotonic()
+        print(f'worker call={rid} verb={verb_name} started deadline={CALL_TIMEOUT_S}s', flush=True)
         w.stdin.write(json.dumps({"id":rid,"argv":argv,
                                  "env":{"LYRIC_CONTROL_TOKEN":CONTROL_TOKEN}})+"\n"); w.stdin.flush()
         captured = WorkerCapture()
         while True:
-            line = replies.get(timeout=max(.001,CALL_TIMEOUT_S-(time.monotonic()-t0)))
+            line = _next_worker_frame(replies, t0 + CALL_TIMEOUT_S)
             if line is None:
                 raise RuntimeError("worker exited before its result frame")
             reply = json.loads(line)

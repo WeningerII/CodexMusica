@@ -4,7 +4,7 @@ import copy
 import hashlib
 from lyrics_capacity_runtime import runtime_evidence_failures, run_store_evidence_failures, queue_pressure_failures, ResidentRuntime
 import unittest
-from check_lyrics_capacity import validate_measurement, percentile, terminate_measurement
+from check_lyrics_capacity import validate_measurement, percentile, terminate_measurement, MeasurementProgress
 from measure_verb_memory import _checkpoint_valid, _machine_result, CONTROL_TOKEN, assessment_coverage_valid
 
 
@@ -55,6 +55,28 @@ def queue_measurements():
 
 
 class CapacityOracle(unittest.TestCase):
+    def test_progress_exposes_captured_work_before_completion_without_certifying_it(self):
+        import io
+        from contextlib import redirect_stdout
+        from unittest.mock import patch
+        output = io.StringIO()
+        with patch('check_lyrics_capacity.time.monotonic', side_effect=[0, 5, 30, 60, 61]), \
+             patch('check_lyrics_capacity.read', return_value=None), redirect_stdout(output):
+            progress = MeasurementProgress('31/20260910/worker')
+            progress.emit(b'worker call=1 completed\n')
+            self.assertEqual(output.getvalue(), '')
+            progress.emit(b'worker call=1 completed\n')
+            self.assertIn('worker call=1 completed', output.getvalue())
+            progress.emit(b'worker call=1 completed\nworker call=2 started\n')
+            progress.emit('worker call=1 completed\nworker call=2 started\n', final=True)
+        text = output.getvalue()
+        self.assertEqual(text.count('worker call=1 completed'), 1)
+        self.assertEqual(text.count('worker call=2 started'), 1)
+        self.assertIn('elapsed=60.0s', text)
+        self.assertIn('cgroup_cpu_usec=unavailable', text)
+        self.assertIn('exited; validation pending', text)
+        self.assertNotIn('passed', text)
+
     def test_actual_queue_boundaries_require_complete_independent_proof(self):
         good = queue_rows()
         self.assertEqual(queue_pressure_failures(good,queue_measurements()), [])

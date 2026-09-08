@@ -27,6 +27,20 @@ def record(**updates):
 
 
 class WorkerCaptureTests(unittest.TestCase):
+    def test_streamed_frames_cannot_extend_or_cross_the_call_deadline(self):
+        import queue
+        frames = queue.Queue()
+        frames.put('output event')
+        frames.put('result event')
+        with patch.object(measurement.time, 'monotonic', side_effect=[0, .5, 1]):
+            self.assertEqual(measurement._next_worker_frame(frames, 1), 'output event')
+            with self.assertRaisesRegex(RuntimeError, 'deadline exceeded'):
+                measurement._next_worker_frame(frames, 1)
+        self.assertEqual(frames.qsize(), 1)  # queued output cannot keep an expired call alive
+        with patch.object(measurement.time, 'monotonic', side_effect=[0, 1.1]):
+            with self.assertRaisesRegex(RuntimeError, 'deadline exceeded'):
+                measurement._next_worker_frame(frames, 1)
+
     def test_actual_frame_size_preserves_receipt_larger_than_diagnostic_tail(self):
         receipt = record(detail="x" * 225000)
         capture = measurement.WorkerCapture()
