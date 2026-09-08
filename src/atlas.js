@@ -158,30 +158,6 @@
     return [e.clientX - r.left, e.clientY - r.top];
   }
 
-  // Coarse region buckets for the sidebar. Deliberately not a political
-  // classification — it groups the in-view list so it can be skimmed.
-  function region(lat, lng) {
-    if (lat > 6 && lng >= -170 && lng < -52) {
-      if (lat > 24 && !(lat < 33 && lng > -88 && lng < -60)) return 'North America';
-      return 'Latin America & Caribbean';
-    }
-    if (lng >= -170 && lng < -30) return lat > 12 ? 'North America' : 'Latin America & Caribbean';
-    if (lng >= -30 && lng < 52 && lat < 37 && lat > -40 && !(lat > 30 && lng < 12))
-      return lng > 32 && lat > 12 ? 'Middle East' : 'Africa';
-    if (lat > 34 && lng >= -30 && lng < 45) return 'Europe';
-    if (lat > 34 && lng >= 45 && lng < 62) return 'Caucasus & Central Asia';
-    if (lng >= 42 && lng < 65 && lat > 11 && lat <= 42) return 'Middle East';
-    if (lng >= 30 && lng < 45 && lat > 28 && lat <= 42) return 'Middle East';
-    if (lng >= 55 && lng < 92 && lat > 4 && lat < 38) return 'South Asia';
-    if (lng >= 60 && lng < 90 && lat >= 38) return 'Central & North Asia';
-    if (lng >= 90 && lat >= 46) return 'Central & North Asia';
-    if (lng >= 92 && lat > 18) return 'East Asia';
-    if (lng >= 92 && lat > -12) return 'Southeast Asia';
-    if (lat <= -12 || (lng < -140 && lat < 20)) return 'Oceania & Pacific';
-    if (lng >= 45 && lat >= 42) return 'Central & North Asia';
-    return 'Africa';
-  }
-
   // ── boot ──
 
   function boot() {
@@ -276,6 +252,9 @@
           lat: g[0],
           lng: g[1],
           place: g[2],
+          // Sidebar bucket, from the table in scripts/_atlas_regions.js. The
+          // prototype derived this from coordinates and put Algiers in Europe.
+          region: g[3],
           x: p[0],
           y: p[1],
           color: rootColor(root),
@@ -1313,7 +1292,7 @@
     }
     var groups = {};
     vis.forEach(function (p) {
-      var r = region(p.lat, p.lng);
+      var r = p.region;
       (groups[r] = groups[r] || []).push(p);
     });
     var names = Object.keys(groups).sort(function (a, b) {

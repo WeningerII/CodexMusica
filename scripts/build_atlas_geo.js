@@ -66,6 +66,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { resolveRegion, REGIONS } = require('./_atlas_regions.js');
 
 const ROOT = path.join(__dirname, '..');
 const INDEX_FILE = path.join(ROOT, 'api', 'traditions', 'index.json');
@@ -163,7 +164,24 @@ function makeOnLand(polys) {
 }
 
 // ── the spread ──
-function computeDisplayCoords(geo, onLand) {
+function computeDisplayCoords(geo, onLand, unresolved) {
+  // The sidebar's region comes from a table, never from geometry. An unknown
+  // place label is recorded and fails the build below — see the no-fallback
+  // note in scripts/_atlas_regions.js for why a catch-all answer is worse than
+  // no answer.
+  const canonical = new Set(REGIONS);
+  const regionOf = (label) => {
+    const r = resolveRegion(label);
+    // An unknown label and a label mapped to a bucket the atlas does not render
+    // are the same failure: a pin nobody can find. Both are collected here and
+    // both fail the build.
+    if (!r || !canonical.has(r)) {
+      unresolved.push(label);
+      return null;
+    }
+    return r;
+  };
+
   const stacks = new Map();
   for (const id of Object.keys(geo)) {
     const g = geo[id];
@@ -201,7 +219,7 @@ function computeDisplayCoords(geo, onLand) {
     const lng0 = geo[ids[0]][1];
 
     if (n === 1) {
-      coords[ids[0]] = [lat0, lng0, geo[ids[0]][2]];
+      coords[ids[0]] = [lat0, lng0, geo[ids[0]][2], regionOf(geo[ids[0]][2])];
       stats.untouched++;
       continue;
     }
@@ -273,7 +291,12 @@ function computeDisplayCoords(geo, onLand) {
       const lng = ((((slot.ll[1] + 180) % 360) + 360) % 360) - 180;
       // 5dp is ~1m — far finer than anything this data claims, and it keeps the
       // committed file byte-stable across platforms.
-      coords[ids[i]] = [Math.round(lat * 1e5) / 1e5, Math.round(lng * 1e5) / 1e5, geo[ids[i]][2]];
+      coords[ids[i]] = [
+        Math.round(lat * 1e5) / 1e5,
+        Math.round(lng * 1e5) / 1e5,
+        geo[ids[i]][2],
+        regionOf(geo[ids[i]][2]),
+      ];
     }
   }
 
@@ -287,7 +310,7 @@ function render(coords, stats) {
     '{\n' +
     '  "generator": "scripts/build_atlas_geo.js",\n' +
     '  "source": "data/geo.json",\n' +
-    '  "note": "DISPLAY coordinates: [lat, lng, label]. Stacked pins are spread over a small land-aware disc so they can be clicked apart; unique coordinates are copied through untouched. The label is copied verbatim from data/geo.json, which is the record — never read this file for provenance.",\n' +
+    '  "note": "DISPLAY records: [lat, lng, label, region]. Stacked pins are spread over a small land-aware disc so they can be clicked apart; unique coordinates are copied through untouched. The label is copied verbatim from data/geo.json, which is the record — never read this file for provenance. The region is the sidebar bucket from scripts/_atlas_regions.js.",\n' +
     '  "params": { "radiusK": ' +
     RADIUS_K +
     ', "minKm": ' +
@@ -335,7 +358,21 @@ function main() {
   }
 
   const onLand = makeOnLand(loadLand(world));
-  const { coords, stats } = computeDisplayCoords(geo, onLand);
+  const unresolved = [];
+  const { coords, stats } = computeDisplayCoords(geo, onLand, unresolved);
+  if (unresolved.length) {
+    const uniq = [...new Set(unresolved)].sort();
+    console.error(
+      'build_atlas_geo: FAIL — ' +
+        uniq.length +
+        ' place label(s) have no region in scripts/_atlas_regions.js'
+    );
+    uniq.slice(0, 20).forEach((l) => console.error('  ' + l));
+    console.error(
+      '  add the trailing place token to PLACE_REGION (or the whole label to LABEL_REGION)'
+    );
+    process.exit(1);
+  }
   const body = render(coords, stats);
 
   if (check) {
