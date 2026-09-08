@@ -66,7 +66,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { resolveRegion, REGIONS } = require('./_atlas_regions.js');
+const { validateEntry } = require('./_atlas_regions.js');
 
 const ROOT = path.join(__dirname, '..');
 const INDEX_FILE = path.join(ROOT, 'api', 'traditions', 'index.json');
@@ -164,28 +164,13 @@ function makeOnLand(polys) {
 }
 
 // ── the spread ──
-function computeDisplayCoords(geo, onLand, unresolved) {
-  // The sidebar's region comes from a table, never from geometry. An unknown
-  // place label is recorded and fails the build below — see the no-fallback
-  // note in scripts/_atlas_regions.js for why a catch-all answer is worse than
-  // no answer.
-  const canonical = new Set(REGIONS);
-  const regionOf = (label) => {
-    const r = resolveRegion(label);
-    // An unknown label and a label mapped to a bucket the atlas does not render
-    // are the same failure: a pin nobody can find. Both are collected here and
-    // both fail the build.
-    if (!r || !canonical.has(r)) {
-      unresolved.push(label);
-      return null;
-    }
-    return r;
-  };
-
+function computeDisplayCoords(geo, onLand) {
+  // Group by exact coordinate: a stack is what has to be pulled apart. The
+  // label and region ride along untouched — they are authored in geo.json and
+  // validated before this runs.
   const stacks = new Map();
   for (const id of Object.keys(geo)) {
-    const g = geo[id];
-    const key = g[0] + ',' + g[1];
+    const key = geo[id][0] + ',' + geo[id][1];
     let s = stacks.get(key);
     if (!s) {
       s = [];
@@ -219,7 +204,7 @@ function computeDisplayCoords(geo, onLand, unresolved) {
     const lng0 = geo[ids[0]][1];
 
     if (n === 1) {
-      coords[ids[0]] = [lat0, lng0, geo[ids[0]][2], regionOf(geo[ids[0]][2])];
+      coords[ids[0]] = [lat0, lng0, geo[ids[0]][2], geo[ids[0]][3]];
       stats.untouched++;
       continue;
     }
@@ -295,7 +280,7 @@ function computeDisplayCoords(geo, onLand, unresolved) {
         Math.round(lat * 1e5) / 1e5,
         Math.round(lng * 1e5) / 1e5,
         geo[ids[i]][2],
-        regionOf(geo[ids[i]][2]),
+        geo[ids[i]][3],
       ];
     }
   }
@@ -358,21 +343,20 @@ function main() {
   }
 
   const onLand = makeOnLand(loadLand(world));
-  const unresolved = [];
-  const { coords, stats } = computeDisplayCoords(geo, onLand, unresolved);
-  if (unresolved.length) {
-    const uniq = [...new Set(unresolved)].sort();
-    console.error(
-      'build_atlas_geo: FAIL — ' +
-        uniq.length +
-        ' place label(s) have no region in scripts/_atlas_regions.js'
-    );
-    uniq.slice(0, 20).forEach((l) => console.error('  ' + l));
-    console.error(
-      '  add the trailing place token to PLACE_REGION (or the whole label to LABEL_REGION)'
-    );
+  // Validate every authored field before spreading anything: shape, ranges, the
+  // region against REGIONS, and the label against the name-the-place-not-the-
+  // state policy. A bad entry fails here rather than rendering as a pin nobody
+  // can find under a heading nobody expects.
+  const policyErrs = [];
+  for (const id of Object.keys(geo)) policyErrs.push(...validateEntry(id, geo[id]));
+  if (policyErrs.length) {
+    console.error('build_atlas_geo: FAIL — ' + policyErrs.length + ' geo.json policy error(s)');
+    policyErrs.slice(0, 25).forEach((e) => console.error('  ' + e.join(' ')));
+    console.error('  see the policy in scripts/_atlas_regions.js');
     process.exit(1);
   }
+
+  const { coords, stats } = computeDisplayCoords(geo, onLand);
   const body = render(coords, stats);
 
   if (check) {
