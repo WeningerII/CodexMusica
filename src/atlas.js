@@ -65,7 +65,13 @@
   var PICK_SLOP = 3; // px added to a hit radius
   var STACK_GROUP_THRESHOLD = 12; // popover groups by branch above this many
 
-  var CODEX_URL = 'codex.html';
+  // A published Artifact runs under a CSP that blocks fetch, so the standalone
+  // build (scripts/build_atlas_standalone.js) ships every sidecar inlined on
+  // window.__ATLAS_DATA__ and this file reads from there instead. Same code
+  // either way — the artifact is not a separate implementation that can drift.
+  var INLINE =
+    typeof window !== 'undefined' && window.__ATLAS_DATA__ ? window.__ATLAS_DATA__ : null;
+  var CODEX_URL = (INLINE && INLINE.codexUrl) || 'codex.html';
 
   // ── state ──
 
@@ -181,17 +187,31 @@
       });
     };
 
-    Promise.all([
-      get('api/traditions/index.json'),
-      get('data/atlas-geo.json'),
-      get('references/_tradition_signatures.json'),
-      get('data/countries.geo.json'),
-      get('data/tree-map.json'),
-      get('data/tree-nodes.json'),
-      get('data/routes.json'),
-      get('data/threads.json'),
-      get('data/geo-meta.json'),
-    ])
+    var sources = INLINE
+      ? Promise.resolve([
+          INLINE.index,
+          INLINE.geo,
+          INLINE.sigs,
+          INLINE.world,
+          INLINE.treeMap,
+          INLINE.nodes,
+          INLINE.routes,
+          INLINE.threads,
+          INLINE.meta,
+        ])
+      : Promise.all([
+          get('api/traditions/index.json'),
+          get('data/atlas-geo.json'),
+          get('references/_tradition_signatures.json'),
+          get('data/countries.geo.json'),
+          get('data/tree-map.json'),
+          get('data/tree-nodes.json'),
+          get('data/routes.json'),
+          get('data/threads.json'),
+          get('data/geo-meta.json'),
+        ]);
+
+    sources
       .then(function (r) {
         ingest(r[0], r[1].coords, r[2], r[3], r[4], r[5], r[6], r[7], r[8]);
         setupCanvas();
@@ -1155,6 +1175,17 @@
   }
 
   function fetchDetail(id) {
+    if (INLINE) {
+      var d = INLINE.detail[id] || ['', ''];
+      S.cache[id] = { lineage: d[0], recipe: d[1] };
+      if (S.sel && S.sel.id === id) {
+        S.sel.lineage = d[0];
+        S.sel.recipe = d[1];
+        S.sel.fetching = false;
+        renderCard();
+      }
+      return;
+    }
     // Relative, so a local checkout and a fork both read their own catalog.
     fetch('api/traditions/' + encodeURIComponent(id) + '.json')
       .then(function (r) {
