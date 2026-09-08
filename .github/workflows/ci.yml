@@ -2572,7 +2572,7 @@ jobs:
           rm -rf /tmp/rl-logs && mkdir -p /tmp/rl-logs
           for f in revise loop; do
             { _t0=$(date +%s)
-              python3 "quality/test_$f.py" 2>&1 | tee "/tmp/rl-logs/$f.log"
+              python3 -u "quality/test_$f.py" 2>&1 | tee "/tmp/rl-logs/$f.log"
               _rc=${PIPESTATUS[0]}
               echo "TIMED quality/test_$f.py $(( $(date +%s) - _t0 ))s rc=$_rc" \
                 >> /tmp/rl-times

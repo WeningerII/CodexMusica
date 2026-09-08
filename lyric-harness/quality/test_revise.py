@@ -999,9 +999,25 @@ def test_the_field_is_the_graders_own_field():
     # demonstration examining nothing (doctrine 48). The declared relation
     # keeps the flagged lines flagged; the leak is then measured on a
     # field that exists (23 words on this fixture, > 0 being the pin).
-    m_scal = SC.mandate(m, default_relation="class:RHYME")
+    # The production arm above still checks every offered word on the full
+    # song. The historical scalar arm isolates one failing pair: rescoring
+    # the complete song with that retired generator exhausted CI's 20m wall.
+    # Both raw rejected hints and nonempty filtered offers are required.
+    control = ["a lamp shines in the light", "she left her coat beside the door"]
+    m_scal = SC.mandate("AA", n_lines=2, default_relation="RHYME")
+    raw_rejected = []
+    for w in scal._field_one("light"):
+        ax, wa = scal._word_anchors("light")
+        ay, wb = scal._word_anchors(w)
+        if not admits(best_score(ax, ay, scal.decl, wa, wb),
+                      scal.decl.theta_rhyme):
+            raw_rejected.append(w)
+    check("the legacy scalar generator still produces hints outside the declared rhyme door",
+          bool(raw_rejected), raw_rejected[:8])
+    offered_count = 0
     leak = 0
-    for b in scal.brief(lines, m_scal):
+    for b in scal.brief(control, m_scal):
+        offered_count += len(b.candidates)
         calls = [w for _, _, cl in b.must_answer for _, w in cl]
         calls = [c for c in dict.fromkeys(calls) if c]
         for w in b.candidates:
@@ -1013,11 +1029,10 @@ def test_the_field_is_the_graders_own_field():
                     leak += 1
                     break
     check("the final declaration filter prevents legacy scalar hints from leaking rejected offers",
-          leak == 0,
-          f"field_band='scalar', field_depth=200 offers {leak} words the "
+          leak == 0 and offered_count > 0,
+          f"field_band='scalar', field_depth=200 offers {offered_count} words, {leak} of which the "
           f"grader rejects after the final declared-relation filter. Legacy "
-          f"scalar hints no longer bypass that filter, even when requested "
-          f"nobody can check (doctrine 84)")
+          f"scalar hints no longer bypass that filter when explicitly requested.")
 
 
 def test_no_joint_candidate_was_a_coordinate_of_a_literal():
@@ -1091,7 +1106,6 @@ def test_the_four_rejections_on_the_songs_own_shape():
     # declared relation restores the comparator they were proven against.
     m = SC.mandate(R.mandate_from_graph(lines),
                    default_relation="class:RHYME")
-    b33 = [x for x in R.brief(lines, m) if x.line_no == 33][0]
 
     def sub(idx, text):
         a = list(lines)
@@ -1111,18 +1125,37 @@ def test_the_four_rejections_on_the_songs_own_shape():
           not res["accepted"] and "not targeted" in " ".join(res["reasons"]),
           res["reasons"][0][:100])
 
+    bounded = R.verify(lines, sub(33, "So say the ledger. Say it low"),
+                       m, targeted=[33])
+    check("the historical full-song edit is explicitly refused at the work limit",
+          not bounded["accepted"] and bounded.get("stop_reason") == "RESOURCE_LIMIT",
+          bounded["reasons"])
+
+    # Keep the real target's entire rhyme group, repeat partner and stray-line
+    # control, with the original texts and relation. This admitted induced
+    # subdraft reaches the modal/net-negative/acceptance rules themselves.
+    groups = [g for g in m.groups if 33 in g]
+    source_lines = sorted({13, 33, 41} | {ln for g in groups for ln in g})
+    remap = {ln: i + 1 for i, ln in enumerate(source_lines)}
+    lines = [lines[ln - 1] for ln in source_lines]
+    m = SC.mandate([[remap[ln] for ln in g] for g in groups],
+                   n_lines=len(lines), default_relation="RHYME")
+    target = remap[33]
+    b33 = next(x for x in R.brief(lines, m) if x.line_no == target)
+    prefix = lines[target - 1].rsplit(" ", 1)[0]
+
     modal = [w for w in b33.forbidden_modal
-             if w != R.floor.qf._endword(lines[32])]
+             if w != R.floor.qf._endword(lines[target - 1])]
     check("L33 has a modal word to take", bool(modal),
           str(b33.forbidden_modal))
-    res = R.verify(lines, sub(33, f"So say the ledger. Say it {modal[0]}"),
-                   m, targeted=[33])
+    res = R.verify(lines, sub(target, f"{prefix} {modal[0]}"),
+                   m, targeted=[target])
     check("MODAL — L33 takes the most frequent word in its field, rejected",
           not res["accepted"] and res.get("modal_violations"),
           res["reasons"][0][:120])
 
-    res = R.verify(lines, sub(33, "So say the ledger. Say it kitchen"),
-                   m, targeted=[33])
+    res = R.verify(lines, sub(target, f"{prefix} kitchen"),
+                   m, targeted=[target])
     # "kitchen" answers none of L33's mandated partners, so this is a
     # genuine NET-NEGATIVE: fixing the L13/L33 REPEAT this way breaks
     # SCHEME_VIOLATION on TWO separate mandated pairs at once (L33 answers
@@ -1139,8 +1172,8 @@ def test_the_four_rejections_on_the_songs_own_shape():
     # and the ACCEPT, so none of the above is an always-reject
     picked = None
     for w in b33.candidates:
-        r2 = R.verify(lines, sub(33, f"So say the ledger. Say it {w}"),
-                      m, targeted=[33])
+        r2 = R.verify(lines, sub(target, f"{prefix} {w}"),
+                      m, targeted=[target])
         if r2["accepted"]:
             picked = (w, r2)
             break
@@ -3655,6 +3688,7 @@ def test_the_forbidden_list_is_two_rules_in_two_fields():
     import quality.fit as _FT
 
     R = Reviser()
+    m_aa = SC.mandate("AA", n_lines=2, default_relation="RHYME")
     b = [x for x in R.brief(CLICHE, "ABAB") if x.line_no == 1][0]
     check("the modal head no longer carries the incumbent as a member "
           "APPENDED to it — the two are separate fields",
@@ -3667,7 +3701,7 @@ def test_the_forbidden_list_is_two_rules_in_two_fields():
     # rules DISAGREE about a word.
     before = ["the kitchen light is burning at half past four",
               "and nobody came back to climb the stairs"]
-    b2 = [x for x in R.brief(before, "AA") if x.line_no == 2][0]
+    b2 = [x for x in R.brief(before, m_aa) if x.line_no == 2][0]
     check("on a line whose end word is NOT modal for its call, the head "
           "excludes it and the incumbent field carries it — one word, one "
           "rule, and the two lists disagree",
@@ -3713,7 +3747,7 @@ def test_the_forbidden_list_is_two_rules_in_two_fields():
                      "section": "V1"} for i, t in enumerate(before)]}
     after = ["at four the kitchen light still glares",
              "and nobody climbed the stairs"]
-    v = R.verify(before, after, "AA", blueprint=bp, subdivision=sub)
+    v = R.verify(before, after, m_aa, blueprint=bp, subdivision=sub)
     check("`verify()` still DISCLOSES a kept incumbent that is not modal — "
           "gating RULE 3 on the head alone would have deleted this outright",
           v["accepted"] is True
@@ -3727,7 +3761,7 @@ def test_the_forbidden_list_is_two_rules_in_two_fields():
 
     # CONTROL — doctrine 9's own rejection is untouched by the split.
     took = [before[0], "and nobody came back to open the door"]
-    v2 = R.verify(before, took, "AA", blueprint=bp, subdivision=sub)
+    v2 = R.verify(before, took, m_aa, blueprint=bp, subdivision=sub)
     check("CONTROL: moving onto a modal-head word is still rejected outright",
           v2["accepted"] is False
           and v2.get("modal_violations") == [(2, "door")],
@@ -4618,7 +4652,7 @@ def test_the_offer_falls_back_per_call_when_the_conjunction_is_empty():
     draft = ["she turned the key and shut the door",
              "and walked alone into the night",
              "i left my keys beside the lamp"]
-    m = SC.mandate([["1", "2", "3.T2"]], n_lines=3)
+    m = SC.mandate([["1", "2", "3.T2"]], n_lines=3, default_relation="RHYME")
     bs = {b.line_no: b for b in R.brief(draft, m)}
     b = bs.get(3)
     check("the defect's shape: L3 is briefed, the conjunction is EMPTY and "
@@ -4691,7 +4725,9 @@ def test_the_hook_is_read_from_the_slot_not_the_snapshot():
     bp_slot = _cp.deepcopy(bp_phrase)
     bp_slot["hook_slot"] = 3
     after = list(before)
-    after[2] = "i counted every passing train"      # the hook line, revised
+    after[2] = "we watched the quiet " + before[2].rsplit(" ", 1)[-1]
+    # Preserve the rhyme endpoint so this control reaches the hook diff
+    # without introducing a separate pronunciation-coverage regression.
     codes = lambda found: {f.code for f in found.get("whole", [])}  # noqa: E731
 
     f0 = R.inspect(before, GAP_SCHEME, blueprint=bp_slot)

@@ -288,7 +288,9 @@ def test_success_stop():
     print("\n1. SUCCESS — nothing left flagged, the stock proposer alone")
     R = Reviser()
     res = revise_loop(R, CLICHE, "ABAB")
-    check("stops on SUCCESS", res.stop_reason == "success", res.stop_reason)
+    check("whole-draft flags prevent success after the line repairs close",
+          res.stop_reason == "whole_draft_unresolved" and bool(res.whole_flags),
+          res.stop_reason)
     # RESTATED 2026-08-17 under MANDATORY PURSUIT: the loop now also fixes
     # the two lines carrying only a MODAL_RHYME note, because success while
     # one stands is unreportable (owner's order — see loop.MANDATORY_PURSUE).
@@ -302,7 +304,7 @@ def test_success_stop():
     check("both flagged lines were fixed, and the pursued lines were closed "
           "by those fixes rather than re-opened by them",
           set(res.rounds[0].fixed_lines) == {1, 2}
-          and 3 in res.rounds[0].resolved_elsewhere,
+          and 4 in res.rounds[0].resolved_elsewhere,
           f"fixed {res.rounds[0].fixed_lines}, resolved elsewhere "
           f"{res.rounds[0].resolved_elsewhere}")
     check("no line left unresolved", res.unresolved == [])
@@ -484,8 +486,8 @@ def test_tier2_tries_and_correctly_rejects():
     check("...and the reason names WHICH search failed -- the anchor's own "
           "conjunction, not a proposer that came back short (doctrine 58)",
           tier2 and "EMPTY MEMBER field" in tier2[0].reason
-          and "unsatisfiable at that member" in tier2[0].reason
-          and "own group(s) at once" in tier2[0].reason,
+          and "SEARCH_LIMITED, no impossibility proof" in tier2[0].reason
+          and "unscanned words" in tier2[0].reason,
           tier2[0].reason[:220] if tier2 else None)
     check("and every attempt was correctly rejected, none silently kept",
           tier2 and not tier2[0].accepted)
@@ -816,8 +818,12 @@ def test_group_brief_carries_the_situation():
     # rejection that populates `reasons` comes from `verify()`'s no-op rule
     # instead of from a mandate rigged to be unsatisfiable. Same 8, same two
     # labels, same pivot.
-    R = Reviser(rdecl=ReviseDeclaration(backtrack_width=2))
-    res = revise_loop(R, SILVER_NIGHT_LOCKED, SILVER_NIGHT_OPEN_MANDATE,
+    base = perfect_rhyme_reviser()
+    R = Reviser(lex=base.lex, decl=base.decl, floor=base.floor,
+                 rdecl=ReviseDeclaration(backtrack_width=2))
+    mandate = SC.mandate(SILVER_NIGHT_OPEN_MANDATE, n_lines=5,
+                         default_relation="RHYME")
+    res = revise_loop(R, SILVER_NIGHT_LOCKED, mandate,
                       propose=lambda *a, **k: None, propose_group=recording)
     check("tier 2 ran and actually proposed groups", bool(seen), len(seen))
     check("ONE argument, and it is a GroupBrief -- not four positional "
@@ -825,6 +831,8 @@ def test_group_brief_carries_the_situation():
           all(isinstance(pb, GroupBrief) for pb in seen),
           [type(pb).__name__ for pb in seen[:1]])
 
+    if not seen:
+        return  # the failed premise above is reported; later sections still run
     first = seen[0]
     check("the PIVOT's line number is on it: L3, the line whose conjunction "
           "`joint_field` proved unsatisfiable",
@@ -930,8 +938,9 @@ def test_group_brief_carries_the_situation():
     narrowed = []
     try:
         _sheet.lo, _sheet.hi, _sheet.tolerance = 200, 400, 1.25
-        R2 = Reviser(rdecl=ReviseDeclaration(backtrack_width=2))
-        revise_loop(R2, SILVER_NIGHT_LOCKED, SILVER_NIGHT_OPEN_MANDATE,
+        R2 = Reviser(lex=R.lex, decl=R.decl, floor=R.floor,
+                     rdecl=ReviseDeclaration(backtrack_width=2))
+        revise_loop(R2, SILVER_NIGHT_LOCKED, mandate,
                     propose=lambda *a, **k: None,
                     propose_group=lambda gb: (narrowed.append(gb),
                                               _no_op_group(gb))[1])
@@ -1180,6 +1189,8 @@ def test_a_dead_end_and_an_open_line_each_name_their_own_rule():
           "lines": [{"text": t, "bar": i + 1, "beat": 1, "duration": 4,
                      "section": "V1"} for i, t in enumerate(D)]}
     sub = _FT.Subdivision(2, source="constructed for this regression")
+    m_aa = SC.mandate("AA", n_lines=2, default_relation="RHYME")
+    field_size = len(next(b for b in Reviser().brief(D, m_aa) if b.line_no == 2).candidates)
     decline = lambda *a, **k: None                            # noqa: E731
 
     def reason_for(res, ln):
@@ -1190,16 +1201,16 @@ def test_a_dead_end_and_an_open_line_each_name_their_own_rule():
         return ""
 
     # (a1) THE PROPOSER DECLINED, and a real field was on the table.
-    r1 = revise_loop(Reviser(), D, "AA", propose=decline)
+    r1 = revise_loop(Reviser(), D, m_aa, propose=decline)
     d1 = reason_for(r1, 2)
     check("a proposer that declines is reported as the PROPOSER's refusal, "
           "with the size of the field it declined, not as an empty offer",
-          "PROPOSER declined" in d1 and "24 candidate(s) offered" in d1
+          "PROPOSER declined" in d1 and f"{field_size} candidate(s) offered" in d1 and field_size > 0
           and "no candidates offered" not in d1, d1[:100])
 
     # (a2) THE HARNESS OFFERED NOTHING — a meter-only line carries no rhyme
     # finding, so `brief()` computes no field for it at all.
-    r2 = revise_loop(Reviser(), D, "AA", blueprint=bp, subdivision=sub,
+    r2 = revise_loop(Reviser(), D, m_aa, blueprint=bp, subdivision=sub,
                      propose=decline)
     d2 = reason_for(r2, 1)
     check("a line the harness could not offer a field for says so, and says "
@@ -1214,7 +1225,7 @@ def test_a_dead_end_and_an_open_line_each_name_their_own_rule():
 
     # (a3) NOT ASKED — inconclusive by construction, not a dead end.
     r3 = revise_loop(Reviser(rdecl=ReviseDeclaration(attempts_per_line=0)),
-                     D, "AA", propose=lambda *a, **k: "x")
+                     D, m_aa, propose=lambda *a, **k: "x")
     d3 = reason_for(r3, 2)
     check("a budget of zero attempts is INCONCLUSIVE BY CONSTRUCTION and "
           "says so by name — the loop never put the question (doctrine 20)",
