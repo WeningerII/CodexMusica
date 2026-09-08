@@ -1,6 +1,7 @@
 // Replay the actual Moonshots interview through the maintained native client.
 // No paid writer, mocked grader, altered state, or hand-authored blueprint.
 import fs from 'node:fs/promises';
+import { format, resolveConfig } from 'prettier';
 import assert from 'node:assert/strict';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
@@ -113,9 +114,16 @@ try {
       x.includes('COUNT_IS_A_LOWER_BOUND')
     )
   );
+  const evidence = new URL(
+    '../docs/session-repair-evidence/moonshots-pronunciation-replay.json',
+    import.meta.url
+  );
   await fs.writeFile(
-    new URL('../docs/session-repair-evidence/moonshots-pronunciation-replay.json', import.meta.url),
-    JSON.stringify(receipts, null, 2) + '\n'
+    evidence,
+    await format(JSON.stringify(receipts, null, 2), {
+      ...(await resolveConfig(evidence)),
+      parser: 'json',
+    })
   );
   await fs.writeFile(
     new URL('../docs/session-repair-evidence/moonshots-pronunciation-replay.txt', import.meta.url),

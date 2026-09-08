@@ -1117,17 +1117,8 @@
           "line": "Cut that record; let the bass shake glass",
           "token": 3,
           "word": "record",
-          "phones": [
-            "R",
-            "EH1",
-            "K",
-            "ER0",
-            "D"
-          ],
-          "matching_lines": [
-            23,
-            28
-          ]
+          "phones": ["R", "EH1", "K", "ER0", "D"],
+          "matching_lines": [23, 28]
         }
       ],
       "refused_obligations": []
@@ -1683,17 +1674,8 @@
           "line": "Cut that record; let the bass shake glass",
           "token": 3,
           "word": "record",
-          "phones": [
-            "R",
-            "EH1",
-            "K",
-            "ER0",
-            "D"
-          ],
-          "matching_lines": [
-            23,
-            28
-          ]
+          "phones": ["R", "EH1", "K", "ER0", "D"],
+          "matching_lines": [23, 28]
         }
       ],
       "refused_obligations": []
