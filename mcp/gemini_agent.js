@@ -1,18 +1,25 @@
 // gemini_agent.js — one conversational turn of Gemini driving the real MCP tools.
 //
-// STATELESS BY CONSTRUCTION. runTurn() takes the prior `history` and `workspace`
-// and returns the new ones; it stores nothing. That is not a style preference —
-// AGENTS.md promises callers that "nothing is stored server-side… there is no
-// session to resume and no handle to hold" (`connector-tools-read-only`, gated
-// by check_connector_contract.js). The chat bar keeps its transcript in the
-// browser and posts it back each turn, so the server holding state would make
-// that sentence false.
+// runTurn() takes the prior history/workspace and returns the updated envelope.
+// The HTTP host durably stores signed continuation receipts and lyrics tools
+// own private run state. This driver preserves that host-owned state across
+// model calls; an extracted historical journal never counts as resumed work.
 //
 // The workspace rides in the ENVELOPE, never in the model's context: it goes
 // browser → server → engine and back, and the model neither sees nor writes it.
 // See WORKSPACE_PROPERTY in gemini_tools.js for why it cannot be a parameter.
 
 import { performance } from 'node:perf_hooks';
+import { createHash } from 'node:crypto';
+import { instructionsForTask, completionTaskIdentity } from './task_contract.js';
+import {
+  workflowFor,
+  creationRefusal,
+  recordCreation,
+  creationQualified,
+  isRecoveryOnly,
+} from './lyric_workflow.js';
+import { decodeState } from './state_codec.js';
 import { requestContext } from './execution_context.js';
 import { toGeminiDeclarations, WORKSPACE_PROPERTY, STATE_PROPERTY } from './gemini_tools.js';
 
@@ -77,6 +84,7 @@ export const LIMITS = {
   maxTurnMs: 2_400_000,
   cancelGraceMs: 1_000,
   maxOutputTokens: 2048,
+  maxLyricOutputTokens: 32768,
   temperature: 0,
   // The owner raised the per-turn ceiling to $2.50 on 2026-09-02.
   // Every outer model and kitchen proposal now reserves its bounded cost
@@ -421,8 +429,16 @@ function loopFields(v) {
     // the loop stopped on. Null where the verb stamped none.
     asked: v?.asked && typeof v.asked === 'object' ? v.asked : null,
     folded: v?.folded && typeof v.folded === 'object' ? v.folded : null,
+    verified_outcomes: Array.isArray(v?.verified_outcomes) ? v.verified_outcomes : null,
+    verified_outcomes_error: v?.verified_outcomes_error ?? null,
+    verified_outcomes_draft_sha256: v?.verified_outcomes_draft_sha256 ?? null,
+    journal_id: v?.journal_id ?? null,
+    resume_proof: v?.resume_proof ?? null,
+    resume_proof_error: v?.resume_proof_error ?? null,
     answer_sent: typeof v?.answer_sent === 'string' ? v.answer_sent : null,
     draft_fp: typeof v?.draft_fp === 'string' ? v.draft_fp : null,
+    final_draft_sha256: typeof v?.final_draft_sha256 === 'string' ? v.final_draft_sha256 : null,
+    run_revision: v?.run_revision ?? null,
     song_at_stop: typeof v?.song_at_stop === 'string' ? v.song_at_stop : null,
     // THE RUN THE TOOL REMEMBERED (M-237): its id, and which of the state,
     // the draft and the declarations the TOOL filled in (the wrapper's own
@@ -540,11 +556,13 @@ async function generate({
   retryStatuses = RETRY_ALL,
   rateLimit = null,
   onRetry,
+  onDispatch,
   budget,
   beforeRequest,
 }) {
   let rateLimited = 0;
   let waited = 0;
+  let transientRetries = 0;
   for (let attempt = 0; ; attempt++) {
     beforeRequest?.();
     if (signal?.aborted) throw signal.reason;
@@ -562,6 +580,7 @@ async function generate({
         beforeRequest?.();
         if (signal?.aborted) throw signal.reason;
         dispatched = true;
+        onDispatch?.();
         return fetch(`${API_BASE}/models/${model}:generateContent`, {
           method: 'POST',
           headers: { 'content-type': 'application/json', 'x-goog-api-key': apiKey },
@@ -611,8 +630,12 @@ async function generate({
       throw err;
     }
     const retriable = retryStatuses.includes(res.status);
-    if (retriable && attempt < retries) {
-      const wait = retryDelayMs(json, attempt);
+    if (retriable && transientRetries < retries) {
+      const wait = Math.min(
+        32_000,
+        rateLimitHintMs(res, json) ?? retryDelayMs(json, transientRetries)
+      );
+      transientRetries += 1;
       if (onRetry) onRetry({ status: res.status, waitMs: wait, attempt });
       await waitForRetry(wait, signal);
       continue;
@@ -780,6 +803,7 @@ const RUN_ANSWER_FIELDS = new Set([
   'answer',
   'answers',
   'run_id',
+  'run_revision',
   'checkpoint',
   'final_draft',
   'replay_draft',
@@ -802,8 +826,10 @@ const RUN_KEY_FIELDS = new Set(['seed', 'scheme', 'groups', 'returns', 'relation
 // `answers`, `writer`) leave the declaration it sees, so there is nothing to
 // fumble. The server's own writer (mcp/gemini_proposer.py) takes the loop to
 // a stop condition. `LYRIC_CHAT_WRITER=interview` restores the old surface
-// for a measured comparison; nothing else does.
+// for a measured comparison. Explicit recovery-only exports carry the original
+// checkpoint unchanged and never enter the writer.
 const INTERVIEW_FIELDS = new Set(['state', 'answer', 'answers', 'writer', 'checkpoint', 'run_id']);
+const RECOVERY_FIELDS = new Set(['recover_only', 'recovery_part', 'checkpoint']);
 
 export function declarationsFor(surface, lyr, writer = chatWriter()) {
   const base =
@@ -811,8 +837,15 @@ export function declarationsFor(surface, lyr, writer = chatWriter()) {
       ? surface.declarations.map((d) => {
           if (!surface.stateTools?.has(d.name) || !d.parameters?.properties) return d;
           const properties = {};
-          for (const [k, v] of Object.entries(d.parameters.properties))
-            if (!INTERVIEW_FIELDS.has(k)) properties[k] = v;
+          for (const [k, v] of Object.entries(d.parameters.properties)) {
+            if (k === 'checkpoint' && d.parameters.properties.recover_only)
+              properties[k] = {
+                ...v,
+                description:
+                  'Only with recover_only:true: the explicit original state/checkpoint envelope to export without replay. Omit every execution field; optionally set recovery_part. Ordinary revision carries its checkpoint automatically.',
+              };
+            else if (!INTERVIEW_FIELDS.has(k)) properties[k] = v;
+          }
           const required = Array.isArray(d.parameters.required)
             ? d.parameters.required.filter((n) => n in properties)
             : d.parameters.required;
@@ -851,11 +884,16 @@ function declarationsForRun(surface, lyr) {
     // the connector puts the run's own declarations back (declarationArgs).
     const properties = {};
     for (const [k, v] of Object.entries(d.parameters.properties))
-      if (keep.has(k) || RUN_KEY_FIELDS.has(k)) properties[k] = v;
+      if (keep.has(k) || RUN_KEY_FIELDS.has(k) || RECOVERY_FIELDS.has(k)) properties[k] = v;
     let required = Array.isArray(d.parameters.required)
       ? d.parameters.required.filter((n) => n in properties)
       : d.parameters.required;
-    if (keep.has('draft_text') && Array.isArray(required) && !required.includes('draft_text'))
+    if (
+      !properties.recover_only &&
+      keep.has('draft_text') &&
+      Array.isArray(required) &&
+      !required.includes('draft_text')
+    )
       required = [...required, 'draft_text'];
     return {
       ...d,
@@ -897,7 +935,7 @@ export function wanderRefusal(lyr, name, args) {
   if (!where) return null;
   let answers = null;
   try {
-    const st = JSON.parse(lyr.state);
+    const st = decodeState(lyr.state);
     answers = Array.isArray(st?.answered?.propose)
       ? st.answered.propose.length + (st.answered.propose_group?.length || 0)
       : null;
@@ -961,7 +999,7 @@ function parkedRefusal(lyr, name, args) {
 function suspendedSeed(lyr) {
   if (!lyr || typeof lyr.state !== 'string') return null;
   try {
-    const st = JSON.parse(lyr.state);
+    const st = decodeState(lyr.state);
     if (!(st && st.pending)) return null;
     if (typeof lyr.seed === 'number') return lyr.seed;
     // A pasted song's run (M-195) has no seed; the reminder names the run
@@ -997,7 +1035,9 @@ function suspendedSeed(lyr) {
 function stateKey(args) {
   if (typeof args?.seed === 'number') return `seed:${args.seed}`;
   const hasMandate =
-    (args?.scheme != null && args.scheme !== '') || (args?.groups != null && args.groups !== '');
+    (args?.scheme != null && args.scheme !== '') ||
+    (args?.groups != null && args.groups !== '') ||
+    (args?.returns != null && args.returns !== '');
   if (!hasMandate) return null;
   return (
     'mandate:' +
@@ -1113,11 +1153,19 @@ function carriedKey(lyr) {
 // `record` is the Set `lyricCallsOnRecord` returns for the live transcript.
 // Omitted (null) means "no record to read" and no skipped-steps note is
 // written — the two-argument contract every earlier caller and test holds.
-function buildSystemInstruction(surface, lyr, record = null) {
+function buildSystemInstruction(surface, lyr, record = null, task = null) {
   const seed = suspendedSeed(lyr);
   const text = [
-    surface.instructions,
-    record ? SKIPPED_STEPS_NOTE(record) : null,
+    task ? instructionsForTask(surface.instructions || '', task.domain) : surface.instructions,
+    task
+      ? `ACTIVE TASK (chosen by the user and held by the host): ${JSON.stringify({ ...task, artifact: undefined })}. Stay in this domain. The brief and current plan remain authoritative even when observations have been pruned.`
+      : null,
+    task?.domain === 'recipe'
+      ? task.phase === 'browse'
+        ? 'Return the requested stock Rich recipe verbatim, at most 1000 characters. Only recording recipe tools are available for this task.'
+        : 'Customize the recording with edit_recipe before returning its final Rich recipe verbatim, at most 1000 characters. Only recording recipe tools are available for this task.'
+      : null,
+    record && (!task || task.domain === 'lyrics') ? SKIPPED_STEPS_NOTE(record) : null,
     seed == null ? null : SUSPENDED_RUN_NOTE(seed),
     isParked(lyr) ? PARKED_RUN_NOTE(lyr) : null,
     lyr?.uncertain_proposal
@@ -1298,6 +1346,7 @@ export async function runTurn({
   history = [],
   workspace = null,
   lyric = null,
+  task = null,
   userText,
   thinking = DEFAULT_THINKING,
   limits = LIMITS,
@@ -1313,6 +1362,18 @@ export async function runTurn({
   // THE ONE ASSEMBLY SITE. The prior transcript is pruned here and the
   // pruned transcript is what goes back in the envelope, so a fold is
   // stubbed once and stays stubbed — pruneHistory is idempotent.
+  // The trusted host owns task identity. Copy before updating workflow facts;
+  // model arguments can never change this record or its authorization.
+  task = task ? structuredClone(task) : null;
+  workflowFor(task);
+  const completedSteps = new Set(task?.completedSteps || []);
+  if (task) {
+    task.turns = (task.turns || 0) + 1;
+    task.instructions = [...(task.instructions || []), userText];
+  }
+  let artifact = task?.artifact ? { ...task.artifact, certified: false } : null;
+  let recoveredDelivery = null;
+  if (task?.artifact) task.artifact = artifact;
   const prior = limits.pruneFolded
     ? pruneHistory(history, { keepTurns: limits.pruneKeepTurns, maxBytes: limits.pruneMaxBytes })
     : history;
@@ -1325,6 +1386,7 @@ export async function runTurn({
     candidatesTokens: 0,
     thoughtsTokens: 0,
     requests: 0,
+    providerAttempts: 0,
     retries: 0,
     malformedRetries: 0,
     kitchenUsd: 0,
@@ -1361,7 +1423,10 @@ export async function runTurn({
     toolConfig: { functionCallingConfig: { mode: 'AUTO' } },
     generationConfig: {
       temperature: limits.temperature,
-      maxOutputTokens: limits.maxOutputTokens,
+      maxOutputTokens:
+        task?.domain === 'lyrics'
+          ? Math.max(limits.maxOutputTokens, limits.maxLyricOutputTokens ?? 32768)
+          : limits.maxOutputTokens,
       ...(thinking ? { thinkingConfig: thinking } : {}),
     },
   };
@@ -1413,11 +1478,22 @@ export async function runTurn({
       // a harvest lands mid-turn, and the reminder must move with it. The
       // skipped-steps note (M-162) reads the transcript the same way, so it
       // disappears on the hop after a sweep or a screen lands.
-      const si = buildSystemInstruction(surface, lyr, lyricCallsOnRecord(contents));
+      const si = buildSystemInstruction(
+        surface,
+        lyr,
+        task ? completedSteps : lyricCallsOnRecord(contents),
+        task
+      );
       if (si) body.systemInstruction = si;
       else delete body.systemInstruction;
       // Per hop, like the reminder: the record can appear mid-turn (M-226).
-      body.tools = [{ functionDeclarations: declarationsFor(surface, lyr, writer) }];
+      body.tools = [
+        {
+          functionDeclarations: declarationsFor(surface, lyr, writer).filter(
+            (d) => !task || (task.domain === 'lyrics') === d.name.startsWith('lyric_')
+          ),
+        },
+      ];
       let json;
       try {
         json = await generate({
@@ -1434,6 +1510,9 @@ export async function runTurn({
           },
           // A retried request spent a slot of the key's quota whether or not it
           // was billed tokens; the count is the record (M-197, M-168).
+          onDispatch: () => {
+            usage.providerAttempts += 1;
+          },
           onRetry: (r) => {
             usage.requests += 1;
             usage.retries += 1;
@@ -1490,9 +1569,20 @@ export async function runTurn({
         if (onEvent) onEvent({ type: 'stopped', reason: stopped, status });
         break;
       }
-      addUsage(usage, json.usageMetadata);
-      const candidate = json.candidates?.[0];
-      const parts = candidate?.content?.parts || [];
+      addUsage(usage, json?.usageMetadata);
+      const candidate = json?.candidates?.[0];
+      const rawParts = candidate?.content?.parts;
+      const parts = Array.isArray(rawParts)
+        ? rawParts.filter(
+            (p) =>
+              p &&
+              typeof p === 'object' &&
+              ((typeof p.text === 'string' && p.text.length > 0) ||
+                (p.functionCall &&
+                  typeof p.functionCall.name === 'string' &&
+                  p.functionCall.name.length > 0))
+          )
+        : [];
       const functionCalls = parts.filter((p) => p.functionCall).map((p) => p.functionCall);
 
       // THE MALFORMED-CALL RE-ASK (MALFORMED_CALL_RETRY, M-219). Nothing of
@@ -1513,7 +1603,41 @@ export async function runTurn({
         continue;
       }
 
-      // Verbatim, including thoughtSignature.
+      if (
+        !parts.length ||
+        !parts.some(
+          (p) => p.functionCall || (typeof p.text === 'string' && p.text.trim() && !p.thought)
+        )
+      ) {
+        stopped =
+          candidate?.finishReason === 'MALFORMED_FUNCTION_CALL'
+            ? 'MALFORMED_FUNCTION_CALL'
+            : json?.promptFeedback?.blockReason
+              ? 'PROVIDER_BLOCKED'
+              : 'INVALID_PROVIDER_RESPONSE';
+        stoppedDetail = {
+          reason:
+            json?.promptFeedback?.blockReason ||
+            candidate?.finishReason ||
+            'No usable candidate content',
+          malformedRetries: malformed,
+          retriesAllowed: MALFORMED_CALL_RETRY.retries,
+          hops: step + 1,
+          maxSteps: limits.maxSteps,
+          ...(stopped === 'MALFORMED_FUNCTION_CALL'
+            ? { finishMessage: malformedText(candidate) }
+            : {}),
+        };
+        if (stopped === 'MALFORMED_FUNCTION_CALL')
+          malformedHops.push({
+            hop: step + 1,
+            attempt: malformed + 1,
+            reasked: false,
+            finishMessage: malformedText(candidate),
+          });
+        break;
+      }
+      // Verbatim, including thoughtSignature; never persist an empty model turn.
       contents.push({ role: 'model', parts });
 
       if (!functionCalls.length) {
@@ -1553,7 +1677,29 @@ export async function runTurn({
       const responses = [];
       for (const fc of functionCalls) {
         const args = { ...(fc.args || {}) };
+        const recoveryOnly = isRecoveryOnly(fc.name, args);
         let result;
+        if (task && (task.domain === 'lyrics') !== fc.name.startsWith('lyric_')) {
+          result = {
+            isError: true,
+            content: [
+              {
+                type: 'text',
+                text: `REFUSED: ${fc.name} is outside the active ${task.domain} task.`,
+              },
+            ],
+          };
+          calls.push({
+            name: fc.name,
+            args,
+            isError: true,
+            not_run: true,
+            error: result.content[0].text,
+          });
+          responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
+          continue;
+        }
+        if (task?.domain === 'recipe') args.format = 'rich';
         const spent = totalCost();
         const overCost = limits.maxTurnUsd > 0 && (spent === null || spent >= limits.maxTurnUsd);
         if (stopped || interruption(step + 1) || overCost) {
@@ -1611,14 +1757,19 @@ export async function runTurn({
         // connector, never sent to the harness.
         // M-234: a draft sent as one string becomes the array the tools take,
         // before any check reads it.
-        if (typeof args.draft_text === 'string' && !Array.isArray(args.draft)) {
+        if (!recoveryOnly && typeof args.draft_text === 'string' && !Array.isArray(args.draft)) {
           args.draft = splitDraftText(args.draft_text);
           delete args.draft_text;
         }
-        if (lyr?.resumable && surface.stateTools?.has(fc.name) && stateKey(args) == null) {
+        if (
+          !recoveryOnly &&
+          lyr?.resumable &&
+          surface.stateTools?.has(fc.name) &&
+          stateKey(args) == null
+        ) {
           Object.assign(args, lyr.decl);
         }
-        const freshRun = surface.stateTools?.has(fc.name) && args.new_run === true;
+        const freshRun = !recoveryOnly && surface.stateTools?.has(fc.name) && args.new_run === true;
         const restartingUncertain = lyr?.uncertain_proposal && freshRun;
         if (restartingUncertain && surface.stateTools?.has(fc.name) && stateKey(args) == null) {
           for (const [key, value] of Object.entries(lyr.decl || {}))
@@ -1631,7 +1782,7 @@ export async function runTurn({
           Array.isArray(lyr.final_draft)
         )
           args.draft = lyr.final_draft;
-        const wander = freshRun ? null : wanderRefusal(lyr, fc.name, args);
+        const wander = freshRun || recoveryOnly ? null : wanderRefusal(lyr, fc.name, args);
         if (wander) {
           if (lyr?.uncertain_proposal) stopped = 'UNCERTAIN_PROPOSAL';
           result = { isError: true, content: [{ type: 'text', text: `Error: ${wander}` }] };
@@ -1654,7 +1805,7 @@ export async function runTurn({
         let injectedState = false;
         let injectedDraft = false;
         let injectedDecl = false;
-        if (surface.stateTools?.has(fc.name) && !freshRun) {
+        if (!recoveryOnly && surface.stateTools?.has(fc.name) && !freshRun) {
           if (isParked(lyr) && stateKey(args) != null && stateKey(args) === carriedKey(lyr)) {
             // M-232: a parked run's continuing call carries its own draft
             // (the rewrite) and gets the run's declarations back; nothing
@@ -1694,8 +1845,16 @@ export async function runTurn({
         // KITCHEN COOKS (M-254): on this surface the server's writer answers
         // every revise question. Mechanical, not asked of the model — the
         // interview fields never reach the tool from here.
-        if (surface.stateTools?.has(fc.name) && !freshRun && carriedKey(lyr) === stateKey(args)) {
-          if (typeof lyr?.run_id === 'string') args.run_id = lyr.run_id;
+        if (
+          !recoveryOnly &&
+          surface.stateTools?.has(fc.name) &&
+          !freshRun &&
+          carriedKey(lyr) === stateKey(args)
+        ) {
+          if (typeof lyr?.run_id === 'string') {
+            args.run_id = lyr.run_id;
+            args.run_revision = lyr.run_revision;
+          }
           if (lyr?.resumable && lyr.checkpoint != null) {
             args.checkpoint = lyr.checkpoint;
             delete args.new_run;
@@ -1707,11 +1866,25 @@ export async function runTurn({
             injectedDraft = true;
           }
         }
-        if (writer === 'kitchen' && surface.stateTools?.has(fc.name)) {
+        if (!recoveryOnly && writer === 'kitchen' && surface.stateTools?.has(fc.name)) {
           args.writer = 'kitchen';
           delete args[STATE_PROPERTY];
           delete args.answer;
           delete args.answers;
+        }
+        const creationError = creationRefusal(task, fc.name, args, lyr);
+        if (creationError) {
+          result = { isError: true, content: [{ type: 'text', text: creationError }] };
+          calls.push({
+            name: fc.name,
+            args,
+            isError: true,
+            not_run: true,
+            refused_by_connector: true,
+            error: creationError,
+          });
+          responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
+          continue;
         }
         // A tool that fails — a timeout, a dropped transport — becomes an
         // ERROR RESULT the model can see and react to, never an exception
@@ -1724,6 +1897,7 @@ export async function runTurn({
             () =>
               callTool(fc.name, args, {
                 signal: turnSignal,
+                task,
                 budget,
                 remainingMs,
                 deadlineMs: Number.isFinite(remainingMs) ? Date.now() + remainingMs : undefined,
@@ -1742,6 +1916,7 @@ export async function runTurn({
         // this is the only place it can be captured.
         let payload = null;
         let lyricVerdict = null;
+        let recoveredExport = false;
         {
           try {
             payload = JSON.parse(result?.content?.[0]?.text ?? '');
@@ -1749,6 +1924,10 @@ export async function runTurn({
             payload = null;
           }
           if (!isError && payload && payload.workspace) ws = payload.workspace;
+          if (!isError && task?.domain === 'recipe') {
+            if (fc.name === 'start_recipe') task.customized = false;
+            if (fc.name === 'edit_recipe') task.customized = true;
+          }
           // Harvest a lyric verdict the same way: a two-block lyric result
           // carries it in the SECOND block (block 0 is the deliverable,
           // deliberately not JSON); a one-block lyric result IS the verdict.
@@ -1766,11 +1945,85 @@ export async function runTurn({
           if (!lyricVerdict && payload && typeof payload.exit_code === 'number') {
             lyricVerdict = payload;
           }
+          if (
+            recoveryOnly &&
+            !isError &&
+            payload?.status === 'recovered_artifact' &&
+            payload.certified === false &&
+            payload.resumable === false &&
+            payload.new_run_required === true
+          ) {
+            // Recovery has no grading exit code. Its tool-authored JSON is the
+            // export itself, including exact journal-part instructions.
+            lyricVerdict = payload;
+            recoveredExport = true;
+          }
           // Harvest the revise state the way the workspace is harvested above:
           // the verdict block is the only place it rides, the model is never
           // shown it, and the envelope carries it to the next turn — but ONLY
           // a suspended run is carried; see `carryState`.
-          lyr = carryState(lyr, fc.name, args, lyricVerdict, surface);
+          if (
+            !recoveryOnly &&
+            !isError &&
+            fc.name.startsWith('lyric_') &&
+            (lyricVerdict?.exit_code ?? 0) !== 2
+          ) {
+            completedSteps.add(fc.name);
+            if (task) {
+              task.completedSteps = [...completedSteps];
+              task.progress = fc.name.replace('lyric_', '');
+            }
+          }
+          recordCreation(task, fc.name, args, lyricVerdict, isError);
+          if (task?.domain === 'lyrics' && task.phase === 'create' && fc.name === 'lyric_plan') {
+            artifact = null;
+            task.artifact = null;
+          }
+          if (
+            !recoveryOnly &&
+            task?.domain === 'lyrics' &&
+            ['lyric_grade', 'lyric_check', 'lyric_revise'].includes(fc.name)
+          ) {
+            // A later grade/call invalidates any earlier finish, including an error.
+            const presentation =
+              typeof lyricVerdict?.presentation_text === 'string'
+                ? lyricVerdict.presentation_text
+                : null;
+            artifact = {
+              text: presentation,
+              final_draft: lyricVerdict?.final_draft ?? null,
+              status: lyricVerdict?.status ?? 'unfinished',
+              draft_fp: lyricVerdict?.draft_fp ?? null,
+              final_draft_sha256: lyricVerdict?.final_draft_sha256 ?? null,
+              certified:
+                !recoveryOnly &&
+                !isError &&
+                fc.name === 'lyric_revise' &&
+                creationQualified(task) &&
+                lyricVerdict?.exit_code === 0 &&
+                lyricVerdict?.certified === true &&
+                !!presentation &&
+                Array.isArray(lyricVerdict?.final_draft) &&
+                lyricVerdict.final_draft_sha256 ===
+                  createHash('sha256')
+                    .update(JSON.stringify(lyricVerdict.final_draft))
+                    .digest('hex'),
+            };
+            task.artifact = artifact;
+          }
+          if (recoveredExport) {
+            recoveredDelivery = result.content[0].text;
+            reply = recoveredDelivery;
+            stopped = 'RECOVERY_EXPORTED';
+            stoppedDetail = {
+              detail: 'The original stored artifact was exported without replay or grading.',
+              recovery_part: payload.recovery_part,
+              next_recovery_part: payload.next_recovery_part ?? null,
+            };
+          }
+          if (!recoveryOnly) lyr = carryState(lyr, fc.name, args, lyricVerdict, surface);
+          if (!recoveryOnly && lyr && lyricVerdict?.run_revision != null)
+            lyr.run_revision = lyricVerdict.run_revision;
           if (lyricVerdict?.status === 'uncertain_proposal') {
             stopped = 'UNCERTAIN_PROPOSAL';
             stoppedDetail = {
@@ -1800,15 +2053,22 @@ export async function runTurn({
           // The workspace is the bulk of an edit call and is not the model's
           // output; logging it would bury the argument that IS. The injected
           // revise state is the same bulk one family over.
-          args: surface.workspaceTools.has(fc.name)
-            ? { ...args, [WORKSPACE_PROPERTY]: '<injected>' }
-            : injectedState
-              ? {
-                  ...args,
-                  [STATE_PROPERTY]: '<injected>',
-                  ...(injectedDraft ? { draft: '<carried>' } : {}),
-                }
-              : args,
+          args: recoveredExport
+            ? {
+                recover_only: true,
+                recovery_part: payload.recovery_part,
+                original_wire_sha256: payload.original_wire_sha256,
+                original_wire_bytes: payload.original_wire_bytes,
+              }
+            : surface.workspaceTools.has(fc.name)
+              ? { ...args, [WORKSPACE_PROPERTY]: '<injected>' }
+              : injectedState
+                ? {
+                    ...args,
+                    [STATE_PROPERTY]: '<injected>',
+                    ...(injectedDraft ? { draft: '<carried>' } : {}),
+                  }
+                : args,
           isError,
           // M-221: whether this call's draft came from the model or from the
           // carried record — the row that says how much the model had to emit.
@@ -1821,7 +2081,33 @@ export async function runTurn({
           ...loopFields(lyricVerdict),
         });
         if (onEvent) onEvent({ type: 'tool', name: fc.name, isError });
-        responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
+        // The original tool arguments remain verbatim in the model turn.
+        // A terminal export is delivered exactly once in reply; retaining its
+        // body again in history and task.artifact can exceed durable limits.
+        const observation = recoveredExport
+          ? {
+              content: [
+                {
+                  type: 'text',
+                  text: JSON.stringify({
+                    status: payload.status,
+                    recovery_part: payload.recovery_part,
+                    original_wire_sha256: payload.original_wire_sha256,
+                    original_wire_bytes: payload.original_wire_bytes,
+                    journal_included: payload.journal_included,
+                    next_recovery_part: payload.next_recovery_part ?? null,
+                    certified: false,
+                    resumable: false,
+                    new_run_required: true,
+                    meaning:
+                      'Exact recovery export delivered in the HTTP reply and durable receipt; its body is omitted from future model observations. ' +
+                      payload.meaning,
+                  }),
+                },
+              ],
+            }
+          : result;
+        responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, observation) });
         if (onCheckpoint && responses.length < functionCalls.length) {
           // A crash during the next tool must not erase this completed one.
           // Close a COPY of the current model group for recovery, explicitly
@@ -1845,6 +2131,7 @@ export async function runTurn({
             history: safeHistory,
             workspace: ws,
             lyric: lyr,
+            task,
             calls,
             usage,
             cost: totalCost(),
@@ -1861,10 +2148,15 @@ export async function runTurn({
           history: contents,
           workspace: ws,
           lyric: lyr,
+          task,
           calls,
           usage,
           cost: totalCost(),
         });
+      if (task?.domain === 'lyrics' && artifact?.certified) {
+        stopped = null;
+        break;
+      }
       // M-228: the brief the model just answered leaves the transcript before
       // the next request; the result it has not acted on yet stays whole.
       if (limits.pruneFolded) stubSupersededInPlace(contents);
@@ -1909,6 +2201,7 @@ export async function runTurn({
         history: safeHistory,
         workspace: safeWorkspace,
         ...(safeLyric != null ? { lyric: safeLyric } : {}),
+        ...(task ? { task } : {}),
       };
     }
     throw err;
@@ -1917,8 +2210,45 @@ export async function runTurn({
     signal?.removeEventListener('abort', abortFromCaller);
   }
 
+  let completion = null;
+  if (recoveredDelivery !== null) {
+    reply = recoveredDelivery;
+  } else if (task?.domain === 'lyrics') {
+    reply = artifact?.text || 'This song has no certified final deliverable yet.';
+    if (artifact?.certified && creationQualified(task) && !stopped && artifact.draft_fp) {
+      completion = {
+        certified: true,
+        draft_fp: artifact.draft_fp,
+        final_draft_sha256: createHash('sha256')
+          .update(JSON.stringify(artifact.final_draft))
+          .digest('hex'),
+        delivery_sha256: createHash('sha256').update(reply).digest('hex'),
+        task_sha256: createHash('sha256')
+          .update(JSON.stringify(completionTaskIdentity(task)))
+          .digest('hex'),
+      };
+    } else if (!stopped) stopped = 'LYRICS_UNFINISHED';
+  }
+  if (task?.domain === 'recipe') {
+    const recipe = [...calls]
+      .reverse()
+      .find((c) => !c.isError && typeof c.recipe === 'string')?.recipe;
+    if (
+      recipe &&
+      recipe.length <= task.maxChars &&
+      (!task.requiresCustomization || task.customized)
+    )
+      reply = recipe;
+    else {
+      stopped ||= 'RECIPE_UNFINISHED';
+      reply = 'No customized Rich recipe has been produced yet.';
+    }
+  }
   return {
     reply,
+    task,
+    artifact,
+    completion,
     history: contents,
     workspace: ws,
     lyric: lyr,

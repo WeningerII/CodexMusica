@@ -1,0 +1,119 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> codex-music-tool@2.0.0 test:production:offline
+> node --test --test-concurrency=1 --test-timeout=120000 mcp/test_release_gates.mjs mcp/test_battery_repairs.mjs mcp/test_chat_production.mjs mcp/test_connector_contracts.mjs mcp/test_connector_http.mjs mcp/test_runtime_assets.mjs mcp/test_state_codec.mjs mcp/test_lyric_workflow.mjs && python3 scripts/test_lyrics_capacity.py && python3 scripts/test_profile_lyrics_phase.py && python3 scripts/test_worker_measurement_capture.py && python3 scripts/test_production_qualification.py
+
+✔ actual application identities count once across repeated calls and durable ledger restore (2.726836ms)
+✔ verified but unapplied, rejected, and unchanged proposals do not prove an applied repair (0.689876ms)
+✔ missing or malformed kitchen evidence refuses instead of being reported as zero (2.362126ms)
+✔ conflicting reused outcome IDs cannot inflate or overwrite accepted evidence (0.524089ms)
+✔ interview outcomes remain separate; unvisited, inferred and unexecuted answers are not accepted (0.456198ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ verified application evidence stays distinct from missing, rejected and unapplied proposals (5.591066ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ actual chat tool rows preserve compact verifier/application and exact checkpoint replay receipts (515.97562ms)
+✔ maximum recovery exports complete through actual HTTP and durable receipts within existing byte caps (1172.365899ms)
+ℹ all: HTTP 2364011 bytes; durable receipt 2364518 bytes; exact export 525192 bytes
+ℹ journal: HTTP 3151201 bytes; durable receipt 3151766 bytes; exact export 525009 bytes
+✔ recipe task excludes lyric instructions and declarations and rejects wrong-family dispatch (2.531248ms)
+✔ certified delivery uses the exact authoritative artifact and binds full draft digest (2.213787ms)
+✔ parked verdict defeats a later model finished claim and a later request cannot reuse an old pass (2.405771ms)
+✔ missing, blocked, empty and malformed candidates never persist an empty model turn (2.105466ms)
+✔ canonical brief, accepted instructions, current plan and step history survive pruning (2.079265ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ quota retries do not consume transient retries in a mixed response sequence (7.253262ms)
+✔ per-run admission lock and revisions reject simultaneous and stale operations; input identity is immutable (1.062593ms)
+✔ run cache pressure cannot evict an active record or reuse an earlier revision (0.713623ms)
+✔ run TTL cannot erase an in-flight revision but still expires released records (0.292825ms)
+✔ largest carried ASCII, escaped and multibyte receipts complete durably without a global latch (609.227421ms)
+✔ shipped UI exposes explicit lyric creation and pasted-edit task phases (23.978441ms)
+✔ shipped UI stores a request capability before dispatch, recovers a lost response and preserves signed errors and pacing (25.188013ms)
+✔ shipped UI reload recovers pending work and Reset cannot resurrect a discarded conversation (10.167407ms)
+✔ shipped lyric display and Copy preserve the authoritative performance text and unfinished verdict (5.066946ms)
+✔ shipped recovery display and Copy preserve the exact export while retaining the live artifact (13.2647ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ actual chat admission keeps a signed turn counter even when history is pruned (308.346328ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ signed lyrics with missing or changed semantic identity refuse before any provider call (225.409514ms)
+✔ lyric output allowance is reserved at 32768 and truncation cannot certify a song (0.775213ms)
+✔ recipe creation needs a successful customization; explicit browse can return a stock recipe (0.779725ms)
+[chat]  Gemini 400: HTTP 400
+✔ durable continuation bypasses wire-size limits and admits exactly one successor (1868.768667ms)
+✔ host-selected recipe endpoint exposes only recipe tools and retains full guidance (234.53949ms)
+✔ unscoped in-memory registration still enforces inherited trusted task at dispatch (35.696177ms)
+✔ initialization omissions fail explicitly (0.61824ms)
+✔ native client refuses real discovery and initialization drift before offering tools (198.268388ms)
+✔ native client gives the real tool budget a response margin and honors a shorter caller deadline (20.83473ms)
+✔ connector discovery rejects a looping pagination cursor without looping indefinitely (0.585141ms)
+✔ private CLI output atomically replaces public files and argument typos fail before connecting (41.998331ms)
+✔ image identity requires valid baked bytes and source fingerprint covers recipe runtime dependencies (44.13747ms)
+✔ the production build reader ignores runtime identity overrides and refuses a missing baked file (4.831153ms)
+✔ recover string input preserves the same section information as its array twin (1.595445ms)
+✔ actual revision dispatch refuses conflicting draft and proposal representations (302.093726ms)
+✔ quoted lyrics cannot create findings or finish metadata (1.106592ms)
+✔ live surface comparison detects annotations, output schema, titles and duplicate names (0.355786ms)
+✔ initialization compares full guidance and capabilities, including omission (0.238013ms)
+✔ live qualification options cannot silently drop a misspelled release gate (0.404453ms)
+✔ production readiness refuses disabled, transient, corrupt or stale configuration (0.865938ms)
+✔ recipe acceptance measures exact delivered rich artifact and real declared edits (0.60862ms)
+✔ image promotion binds exact verified commit, repository and immutable tested build (0.69863ms)
+✔ candidate build repository bytes must remain unchanged through image recording (0.20118ms)
+✔ production contract matches the legacy service during migration and binds source identity (5.00743ms)
+✔ public HTTP rejects untrusted Origin before dispatch and reports disabled lyrics honestly (2852.302125ms)
+✔ completedSteps and model-supplied fake workflow do not establish creation receipts (1.346659ms)
+✔ only accepted sweep seeds and unchanged declared structural predicates reach plan (1.015491ms)
+✔ a failed, forged, stale or unadmitted plan cannot establish creation qualification (1.085505ms)
+✔ grade receipt binds the exact canonical plan and exact draft (1.596046ms)
+✔ explicit edit tasks retain independent pasted-song grading and revision (0.174419ms)
+✔ an authenticated uncertain assessment permits repair but a pre-assessment refusal does not (0.529623ms)
+✔ actual graded projection requires coherent requested obligations while permitting zero rhyme pairs (0.93346ms)
+✔ explicit narrative survives canonical plan receipts and omitted continuation arguments (0.601969ms)
+✔ actual driver refuses reordered creation before calling any tool (3.098053ms)
+✔ actual kitchen driver exports the explicit original envelope without resuming its carried run (3.174067ms)
+✔ kitchen declarations retain the recovery export door during suspended and parked runs (0.433439ms)
+✔ actual driver qualifies only successful sweep-screen-program-plan-exact-grade-revise sequence (2.32468ms)
+✔ release CI requires actual successful jobs at the exact trusted main push (2.955469ms)
+✔ CI evidence addresses the actual attempt and refuses a missing attempt before job lookup (5.431389ms)
+✔ a newer failed CI run cannot be replaced by an older success (0.28887ms)
+✔ song coverage rejects sparse arrays, omitted verdicts and naked exit reasons (0.586698ms)
+✔ remote pre-dispatch archive retains the capability after complete local loss (11.073791ms)
+✔ live qualification oracle rejects missing repairs, corrupt delivery and mismatched wall build (19.450244ms)
+✔ production qualification requires each actual job in the exact trusted manual attempt (1.316041ms)
+✔ qualification artifact cannot cross source, attempt or incomplete calibration boundaries (3.530111ms)
+✔ required readiness rejects a missing proof and invokes current-runtime validation for stale proofs (36.852533ms)
+✔ previous ready result is invalidated when proof bytes or source change (40.191004ms)
+✔ cached readiness notices an undeclared file in an existing unlisted nested directory (12.783255ms)
+✔ production cannot execute an NLTK override outside the model tree whose bytes were approved (21.992405ms)
+✔ required production mode exports exact recovery without Python or assets while retaining all task/input guards (916.778295ms)
+recovery boundary: legacy-json drafts=1049503 journal=1049320 bytes; exact artifacts preserved
+recovery boundary: gzip+base64 drafts=1049561 journal=1049378 bytes; exact artifacts preserved
+state codec: lossless journal, UTF-8 wire bound, migration and bounded decompression passed
+✔ mcp/test_state_codec.mjs (626.30042ms)
+ℹ tests 75
+ℹ suites 0
+ℹ pass 75
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14660.35668
+................
+----------------------------------------------------------------------
+Ran 16 tests in 0.038s
+
+OK
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.388s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.007s
+
+OK
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.106s
+
+OK

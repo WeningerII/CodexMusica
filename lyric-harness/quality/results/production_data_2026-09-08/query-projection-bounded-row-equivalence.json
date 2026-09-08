@@ -1,0 +1,17 @@
+{
+  "kind": "complete item remeasurement with bounded exact-field residency after CLI query projection",
+  "rows": 8545,
+  "all_row_bytes_identical": true,
+  "row_sha256": "7ef7410bfb1271c596eaca69e261ffbc00cbae89059ea7e9a31d298344fe3b63",
+  "prior_row_artifact": "before-returns-current-calibration-rows.tsv",
+  "after_comparator_fingerprint": "44398a4be4debb5408e67d13de4f60a28080d7999f099bdcbc65e64618ff83fb",
+  "consumed_field_fingerprint": "473da80f8438a8d3a2f2927e5bc94a205a0ca0b06e6907aefc4ae56d2ef0996c",
+  "final_cli_sha256": "4256ce141654b499bf65c505ab6b5e5eb895b7857b2f72c1b576dec5acff2191",
+  "max_cached_fields": 512,
+  "peak_rss_bytes": 755691520,
+  "last_segment_wall_s": 404.409355582,
+  "resumed_current_item_memo": true,
+  "earlier_segment": "data-final-bounded-rows-128.log",
+  "disclosure": "The final segment resumed only exact current comparator-keyed item entries committed by the bounded 128-field run. The full resulting 8,545-row TSV is byte-identical to the independently measured earlier source. This is local research-runner memory evidence, not hosted runtime qualification.",
+  "at": "2026-09-08T05:20:22.965295+00:00"
+}

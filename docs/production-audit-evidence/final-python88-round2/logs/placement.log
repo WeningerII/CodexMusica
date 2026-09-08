@@ -1,0 +1,44 @@
+
+1. the table declares, with evidence
+  PASS  EVERY placement claim quotes a phrase that really occurs in a gloss in this vocabulary — the check that a rule can be traced back to the definition it came from, rather than asserted (doctrine 45)
+          10 rows claim something
+  PASS  exactly THREE rows carry a boundary — position is mostly DERIVED, which is the finding that killed `position in {first,last,free}`
+  PASS  `false_ending` needs something AFTER it — the keyword derivation read it as `last` on the word *close* and inverted the sign
+  PASS  `turnaround` and `interlude` are BETWEEN things, so neither first nor last
+  PASS  `prechorus`/`postchorus` REQUIRE a chorus — the roster precondition, which is a different question from adjacency and is why they are separate fields
+
+2. a REFUSAL and NO CLAIM are different states
+  PASS  `verse` claims nothing AND refuses nothing — nothing denies it a position, so the layer says nothing. That is the answer to "does verse know it can be first, free, and/or last": it does not need to, because the layer only ever DENIES
+  PASS  `tag` REFUSES, and records why — its gloss says "closing a section OR THE SONG" and asserts both readings, so picking one would settle by table order what the vocabulary has not settled (doctrine 20)
+  PASS  `drop` REFUSES the build edge in BOTH directions, and the refusal names the asymmetry rather than hiding it
+  PASS  a REFUSED row is SILENT in the grader — it is not a violation, it is a question the table declined to answer
+
+3. `placement_findings` — the one definition
+  PASS  a clean song is silent
+  PASS  an outro in the middle is caught — the case that graded CLEAN before this layer existed
+  PASS  an intro that is not first is caught
+  PASS  a prechorus in a song with NO chorus is caught, and it is the ROSTER question — the owner's "this song has no chorus so we neither pre nor post"
+  PASS  an interlude at either edge is caught — 'between sung sections' with nothing sung on one side
+  PASS  a postchorus that does not follow a chorus is caught
+  PASS  an UNDECLARED section is skipped, never guessed at — a section nobody typed a function on cannot violate a rule about functions
+  PASS  ...and it still OCCUPIES a position, so a needs_after section followed only by undeclared sections is NOT charged: something does follow it
+  PASS  an unknown function name does not raise — the vocabulary's own refusal happens at `as_function`, not here
+
+4. the planner derives from the SAME table
+  PASS  the edges are READ off `FunctionSpec.boundary`, not written into control flow — the literals were `"intro"` and `("outro", "coda")` inside `_sample_pattern`
+          first=('intro',) last=('coda', 'outro')
+  PASS  NO plan violates the vocabulary's own definitions. Measured before this layer: 19 of 300, every one an `interlude` opening or closing the song — a span whose gloss is "between sung sections"
+          200 plans, 0 violating
+  PASS  ...and the constraint pruned nothing legitimate: the planner still emits every SECTION-kind function the vocabulary declares
+          20 functions emitted of 20 section-kind
+  PASS  the sampler REFUSES rather than hanging if the constraints and the cell grammar do not intersect — rejection sampling is uniform over the accepted set, and a bound is what keeps it terminating
+
+5. the grader reaches it and quotes its evidence
+  PASS  a blueprint with an outro in the middle now produces a finding — before this it graded CLEAN, because the rule lived in the planner's control flow and the grader had never heard of it
+          [GridFinding(code='SECTION_NOT_AT_BOUNDARY', message='section 2 sits where its own definition says it cannot', evidence="'outro' closes the song by definition and sits at position 2 of 3 — 'closes the song'", subject=())]
+  PASS  ...and the finding QUOTES the gloss that licensed the rule, so a reader can check the claim rather than take it
+  PASS  a correctly-ordered song produces none
+  PASS  the whole ordered list is ONE question, not one per section — `song_function_report`'s own counting docstring records what happens when a question is counted per record instead (`asked 3, answered -1`)
+          6 either way
+==============================================================
+where a section may go is a DECLARED coordinate, and the planner and the grader read one table

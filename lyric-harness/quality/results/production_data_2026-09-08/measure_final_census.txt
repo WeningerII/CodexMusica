@@ -1,0 +1,53 @@
+from pathlib import Path
+import sys
+import json
+import collections
+import hashlib
+
+sys.path.insert(0, "quality")
+import audit_corpus as A
+import corpus_taxonomy as T
+import section_marks as S
+
+root = Path(".").resolve()
+prior = root.parent.parent / "CodexMusica/lyric-harness"
+out = root.parent.parent / "production-fix-results"
+
+def per_file(path):
+    corpus_file = A.CorpusFile(str(path))
+    blocks = A.one_line_verse_blocks(corpus_file)
+    shapes = collections.Counter(A.apparatus_shape(line) for _, line in blocks)
+    rows = T.read_file_taxonomy(str(path))[1] if path.name.startswith("eng_") else []
+    marks = collections.Counter(S.normalise(match.group(1))
+                                for line in path.read_text().splitlines()
+                                if (match := S._MARK.match(line)))
+    signatures = (len(A._item_signatures([("corpus/song/" + path.name, corpus_file)]))
+                  if path.name.startswith("eng_") else 0)
+    return {"raw_title_items": len(rows), "one_line_blocks": len(blocks),
+            "apparatus_shapes": {key: count for key, count in shapes.items() if key is not None},
+            "signature_items": signatures, "verse_marks": marks["VERSE"],
+            "title_names": [row["title"] for row in rows]}
+
+changes = {}
+for path in sorted((root / "corpus/song").glob("*.txt")):
+    old = prior / "corpus/song" / path.name
+    if old.exists() and old.read_bytes() != path.read_bytes():
+        before, after = per_file(old), per_file(path)
+        changes[path.name] = {"before": before, "after": after,
+                              "before_sha256": hashlib.sha256(old.read_bytes()).hexdigest(),
+                              "after_sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
+        print(path.name, {key: after[key] - before[key] for key in
+                         ("raw_title_items", "one_line_blocks", "signature_items", "verse_marks")})
+
+reports = {}
+for label, path in (("before", prior), ("after", root)):
+    taxonomy = T.report(str(path / "corpus/song"))
+    counts, files = S.census(str(path / "corpus"))
+    reports[label] = {"taxonomy": {key: value for key, value in taxonomy.items() if key != "cells"},
+                      "section_mark_counts": dict(counts), "section_mark_files": files}
+
+result = {"scope": "Same maintained current census functions on original source bytes versus reviewed current source bytes; changed files attributed. Raw title and weighted calibration populations remain distinct.",
+          "changed_files": changes, "reports": reports}
+(out / "data-final-census-attribution.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
+print("taxonomy", [(key, value["taxonomy"]["songs"], value["taxonomy"]["undeclared_region"])
+                   for key, value in reports.items()])

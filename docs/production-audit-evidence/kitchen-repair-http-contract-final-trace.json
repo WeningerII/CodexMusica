@@ -1,0 +1,1138 @@
+[
+  {
+    "mode": "accepted",
+    "request": {
+      "request_id": "f65de8638b0778c55b5ae72de766b43e9626c76af19f104cb7c9b6ef1cfd310d",
+      "task": {
+        "domain": "lyrics",
+        "phase": "edit"
+      },
+      "message": "Revise this supplied two-line draft with groups 1,2 and class:ASSONANCE. Preserve the second line.\nThe elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat"
+    },
+    "http_status": 200,
+    "body": {
+      "reply": "My kettle whistles by the stove\nYour fingers brush my heavy coat\n\n[FINISHED — declared mandate — exit 0 — ROUND_LIMIT after 1 round(s) — no line flag stands]",
+      "completion": {
+        "certified": true,
+        "draft_fp": "722e344810",
+        "final_draft_sha256": "a626e1f3478ecd9e4313902a7ac17f15b534919c8199fe3eeb8e102e792dd69f",
+        "delivery_sha256": "f8d3cef3f6fb8f07128224e1dd6f4b69ba064df118ae5d6b3ffdf2b03e754f13",
+        "task_sha256": "d63e7f5d376506bcd2b5e0f8a6fa658286c2aa940e33d04d818179ab5969eee7"
+      },
+      "artifact": {
+        "text": "My kettle whistles by the stove\nYour fingers brush my heavy coat\n\n[FINISHED — declared mandate — exit 0 — ROUND_LIMIT after 1 round(s) — no line flag stands]",
+        "final_draft": [
+          "My kettle whistles by the stove",
+          "Your fingers brush my heavy coat"
+        ],
+        "status": "finished_clean",
+        "draft_fp": "722e344810",
+        "final_draft_sha256": "a626e1f3478ecd9e4313902a7ac17f15b534919c8199fe3eeb8e102e792dd69f",
+        "certified": true
+      },
+      "cost": 0.000063,
+      "accounted_cost": 0.000063,
+      "usage_unknown": false,
+      "accounting": {
+        "id": "cebff6fb47b1d3cb0a5482308f9cad2b3b0ce6d401e9d9bb70f02cd5b4862f4e",
+        "usd": 0.000063,
+        "reservedUsd": 0,
+        "unknownUsd": 0,
+        "maxUsd": 2.5,
+        "events": [
+          {
+            "reservation_id": "25a595fdac57be1aa6fdee940eae9e6e6f25df1937bd1b5f3f7d66ed3b0761bf",
+            "model": "gemini-3.1-flash-lite",
+            "status": "success",
+            "usd": 0.000035,
+            "reservedUsd": 0.16189775,
+            "usage": {
+              "promptTokenCount": 20,
+              "candidatesTokenCount": 20,
+              "thoughtsTokenCount": 0
+            }
+          },
+          {
+            "reservation_id": "e75da3f35707e726019beddfe6a475777c43e001e284d296eb761cdaac9dce25",
+            "model": "gemini-3.5-flash-lite",
+            "status": "success",
+            "usd": 0.000028,
+            "reservedUsd": 0.1680416,
+            "usage": {
+              "promptTokenCount": 10,
+              "candidatesTokenCount": 10,
+              "thoughtsTokenCount": 0,
+              "totalTokenCount": 20
+            }
+          }
+        ]
+      },
+      "usage": {
+        "promptTokens": 20,
+        "candidatesTokens": 20,
+        "thoughtsTokens": 0,
+        "requests": 1,
+        "providerAttempts": 1,
+        "retries": 0,
+        "malformedRetries": 0,
+        "kitchenUsd": 0.000028,
+        "kitchenUnpriced": false
+      },
+      "recipe": null,
+      "cards": null,
+      "tools": [
+        {
+          "name": "lyric_revise",
+          "seed": null,
+          "error": null,
+          "not_run": false,
+          "exit_code": 0,
+          "status": "finished_clean",
+          "certified": true,
+          "coverage": {
+            "pairs_mandated": 1,
+            "pairs_judged": 1,
+            "pairs_refused": 0,
+            "scope": "requested_layers",
+            "certified": true,
+            "obligations": [
+              {
+                "id": "density:L1",
+                "layer": "density",
+                "line": 1,
+                "status": "answered"
+              },
+              {
+                "id": "prominence:L1",
+                "layer": "prominence",
+                "line": 1,
+                "status": "answered"
+              },
+              {
+                "id": "density:L2",
+                "layer": "density",
+                "line": 2,
+                "status": "answered"
+              },
+              {
+                "id": "prominence:L2",
+                "layer": "prominence",
+                "line": 2,
+                "status": "answered"
+              },
+              {
+                "id": "sentencehood:draft",
+                "layer": "sentencehood",
+                "status": "answered"
+              },
+              {
+                "id": "floor:draft",
+                "layer": "floor",
+                "status": "answered"
+              },
+              {
+                "id": "meter:draft",
+                "layer": "meter",
+                "status": "not_requested"
+              },
+              {
+                "id": "slot_grid:draft",
+                "layer": "slot_grid",
+                "status": "not_requested"
+              },
+              {
+                "id": "setting:draft",
+                "layer": "setting",
+                "status": "not_requested"
+              },
+              {
+                "id": "rhyme:1:2:0",
+                "layer": "rhyme",
+                "status": "answered"
+              }
+            ],
+            "refused_obligations": []
+          },
+          "banned_pairs": 0,
+          "loop_stop_reason": "ROUND_LIMIT",
+          "loop_rounds": 1,
+          "loop_unresolved": 0,
+          "loop_whole_flag_codes": [],
+          "answers_on_record": null,
+          "refusal": null,
+          "path": "warm",
+          "ms": 7499,
+          "memo_state": "cold",
+          "memo_hit": 0,
+          "memo_asked": 6,
+          "stale_answers": 0,
+          "plan_lines": null,
+          "draft_carried": false,
+          "declarations_carried": false,
+          "refused_by_connector": false,
+          "asked": null,
+          "folded": null,
+          "verified_outcomes": [
+            {
+              "outcome_id": "b4e2d4a5d52737fdee61d17eb0a19ae99ebc6d691ef9d910d72feb003bb25d53",
+              "kind": "propose",
+              "proposal_index": 0,
+              "question_sha256": "e1bdc63136a9dfd4e8d7e6b51051babfed42b716a987396250637836eb542631",
+              "round": 1,
+              "attempt": 0,
+              "members": [
+                1
+              ],
+              "accepted": true,
+              "applied": true,
+              "before_draft_sha256": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f",
+              "after_draft_sha256": "a626e1f3478ecd9e4313902a7ac17f15b534919c8199fe3eeb8e102e792dd69f",
+              "applied_draft_sha256": "a626e1f3478ecd9e4313902a7ac17f15b534919c8199fe3eeb8e102e792dd69f"
+            }
+          ],
+          "verified_outcomes_error": null,
+          "verified_outcomes_draft_sha256": "a626e1f3478ecd9e4313902a7ac17f15b534919c8199fe3eeb8e102e792dd69f",
+          "journal_id": "ccd059c7fcdd4639ab252d27e2528ea2",
+          "resume_proof": {
+            "version": 1,
+            "journal_id": "ccd059c7fcdd4639ab252d27e2528ea2",
+            "checkpoint_loaded": false,
+            "input_checkpoint_sha256": null,
+            "input_draft_sha256": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f",
+            "accepted_draft_sha256_at_start": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f",
+            "applied_outcome_ids_at_start": [],
+            "completed_proposals_at_start": 0,
+            "completed_proposals_replayed": 0,
+            "new_proposer_dispatches": 1,
+            "completed_proposal_redispatches": 0,
+            "replay_prefix_consumed": true
+          },
+          "resume_proof_error": null,
+          "answer_sent": null,
+          "draft_fp": "722e344810",
+          "final_draft_sha256": "a626e1f3478ecd9e4313902a7ac17f15b534919c8199fe3eeb8e102e792dd69f",
+          "run_revision": null,
+          "song_at_stop": "My kettle whistles by the stove\nYour fingers brush my heavy coat",
+          "run_id": null,
+          "run_state_carried": false,
+          "run_draft_carried": false,
+          "run_decl_carried": false,
+          "writer": "kitchen",
+          "proposer_model": "gemini-3.5-flash-lite",
+          "proposer_calls": 1,
+          "proposer_ms": 25,
+          "proposer_ms_max": null,
+          "proposer_tokens_in": 10,
+          "proposer_tokens_out": 10,
+          "proposer_tokens_thoughts": 0,
+          "proposer_cost_usd": null,
+          "final_draft": [
+            "My kettle whistles by the stove",
+            "Your fingers brush my heavy coat"
+          ],
+          "proposer_empty": 0,
+          "proposer_retries": 0,
+          "proposer_wait_s": 0,
+          "standing": [],
+          "flags": 0,
+          "whole_flags": 0
+        }
+      ],
+      "stopped": null,
+      "stopped_detail": null,
+      "malformed": [],
+      "history": [
+        {
+          "role": "user",
+          "parts": [
+            {
+              "text": "Revise this supplied two-line draft with groups 1,2 and class:ASSONANCE. Preserve the second line.\nThe elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat"
+            }
+          ]
+        },
+        {
+          "role": "model",
+          "parts": [
+            {
+              "functionCall": {
+                "name": "lyric_revise",
+                "args": {
+                  "draft": [
+                    "The elephant elephant elephant elephant elephant elephant stove",
+                    "Your fingers brush my heavy coat"
+                  ],
+                  "groups": "1,2",
+                  "relation": "class:ASSONANCE",
+                  "attempts": 1,
+                  "backtrack": 0,
+                  "max_rounds": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "parts": [
+            {
+              "functionResponse": {
+                "name": "lyric_revise",
+                "response": {
+                  "presentation": "My kettle whistles by the stove\nYour fingers brush my heavy coat\n\n[FINISHED — declared mandate — exit 0 — ROUND_LIMIT after 1 round(s) — no line flag stands]",
+                  "verdict": {
+                    "exit_code": 0,
+                    "meaning": "answered — no flag stands",
+                    "report": "  MANDATE: 1 group(s) over 2 lines, 1 mandated pair(s), source=declared (declared line groups)\n           group A = lines 1,2 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)\n  RELATION: every group is judged under 'class:ASSONANCE' unless it declares its own — the named engine's own coordinate, not the scalar comparator's admit set.\n  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\n  PROPOSER: call:gemini_proposer:make — DECLARED on the command line and imported as named; this harness supplied no module of its own. Wrapped in quality/propose.py's ModelProposer. Whatever that call reaches, and what it costs, is on the far side of this seam\n  PROPOSER CALL 1: ok 25 ms in=10 out=10 | kitchen model=gemini-3.5-flash-lite calls=1 ms=25 in=10 out=10 empty=0 retries=0 wait=0\nrevise_loop: ROUND_LIMIT after 1 round(s)\n  round 1: fixed L1\n    [OK] L1 tier1 (1 tried): fixed 1, introduced 0, disclosing 1 new note(s) [(0, 'UNIFORM_LINE_LENGTH')], changed only [1]\n  DRAFT: handed in 2 line(s), md5 286455d0b359 — emitted 2 line(s), md5 dc75be85bb69\n  LAYERS: rhyme, slop floor and declared returns ONLY. NO BLUEPRINT — meter and song-function were NOT ASKED, which is not the same as their being clean (doctrine 20: a refusal is not a pass)\n  COMPARATOR: profile=declared default\n  PAIRS: mandated 1, judged 1, refused 0 — three counts, never summed (doctrine 79)\n  REPLAY MEMO: cold — 0 of 6 grading call(s) answered from the process memo (runs held: 1 of 4)\n  PAIR MEMO: cold — 0 line pair(s) served from the process memo, 0 judged and recorded (0 schema slot(s), 0 row(s) held)\n  SCORE MEMO: pair scores 0 served / 2 scored; RANK MEMO: field rankings 14 served / 2 ranked\n  PROPOSER: call:gemini_proposer:make — DECLARED on the command line and imported as named; this harness supplied no module of its own. Wrapped in quality/propose.py's ModelProposer. Whatever that call reaches, and what it costs, is on the far side of this seam\n  COVERAGE: {\"certified\": true, \"obligations\": [{\"id\": \"density:L1\", \"layer\": \"density\", \"line\": 1, \"status\": \"answered\"}, {\"id\": \"prominence:L1\", \"layer\": \"prominence\", \"line\": 1, \"status\": \"answered\"}, {\"id\": \"density:L2\", \"layer\": \"density\", \"line\": 2, \"status\": \"answered\"}, {\"id\": \"prominence:L2\", \"layer\": \"prominence\", \"line\": 2, \"status\": \"answered\"}, {\"id\": \"sentencehood:draft\", \"layer\": \"sentencehood\", \"status\": \"answered\"}, {\"id\": \"floor:draft\", \"layer\": \"floor\", \"status\": \"answered\"}, {\"id\": \"meter:draft\", \"layer\": \"meter\", \"status\": \"not_requested\"}, {\"id\": \"slot_grid:draft\", \"layer\": \"slot_grid\", \"status\": \"not_requested\"}, {\"id\": \"setting:draft\", \"layer\": \"setting\", \"status\": \"not_requested\"}, {\"id\": \"rhyme:1:2:0\", \"layer\": \"rhyme\", \"status\": \"answered\"}], \"pairs_judged\": 1, \"pairs_mandated\": 1, \"pairs_refused\": 0, \"refused_obligations\": [], \"scope\": \"requested_layers\"}\n\n  FINAL DRAFT:\n  * L1: My kettle whistles by the stove\n    L2: Your fingers brush my heavy coat\n\n  THE SONG, PERFORMANCE ORDER:\n\nMy kettle whistles by the stove\nYour fingers brush my heavy coat\n\n[FINISHED — declared mandate — exit 0 — ROUND_LIMIT after 1 round(s) — no line flag stands]\n",
+                    "verified_outcomes": [
+                      {
+                        "outcome_id": "b4e2d4a5d52737fdee61d17eb0a19ae99ebc6d691ef9d910d72feb003bb25d53",
+                        "kind": "propose",
+                        "proposal_index": 0,
+                        "question_sha256": "e1bdc63136a9dfd4e8d7e6b51051babfed42b716a987396250637836eb542631",
+                        "round": 1,
+                        "attempt": 0,
+                        "members": [
+                          1
+                        ],
+                        "accepted": true,
+                        "applied": true,
+                        "before_draft_sha256": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f",
+                        "after_draft_sha256": "a626e1f3478ecd9e4313902a7ac17f15b534919c8199fe3eeb8e102e792dd69f",
+                        "applied_draft_sha256": "a626e1f3478ecd9e4313902a7ac17f15b534919c8199fe3eeb8e102e792dd69f"
+                      }
+                    ],
+                    "verified_outcomes_error": null,
+                    "verified_outcomes_draft_sha256": "a626e1f3478ecd9e4313902a7ac17f15b534919c8199fe3eeb8e102e792dd69f",
+                    "journal_id": "ccd059c7fcdd4639ab252d27e2528ea2",
+                    "resume_proof": {
+                      "version": 1,
+                      "journal_id": "ccd059c7fcdd4639ab252d27e2528ea2",
+                      "checkpoint_loaded": false,
+                      "input_checkpoint_sha256": null,
+                      "input_draft_sha256": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f",
+                      "accepted_draft_sha256_at_start": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f",
+                      "applied_outcome_ids_at_start": [],
+                      "completed_proposals_at_start": 0,
+                      "completed_proposals_replayed": 0,
+                      "new_proposer_dispatches": 1,
+                      "completed_proposal_redispatches": 0,
+                      "replay_prefix_consumed": true
+                    },
+                    "resume_proof_error": null,
+                    "path": "warm",
+                    "ms": 7499,
+                    "proposer_model": "gemini-3.5-flash-lite",
+                    "proposer_calls": 1,
+                    "proposer_attempts": 1,
+                    "proposer_ms": 25,
+                    "proposer_tokens_in": 10,
+                    "proposer_tokens_out": 10,
+                    "proposer_tokens_thoughts": 0,
+                    "proposer_tokens_cached": 0,
+                    "proposer_tokens_total": 20,
+                    "proposer_empty": 0,
+                    "proposer_retries": 0,
+                    "proposer_wait_s": 0,
+                    "proposer_status": "ok",
+                    "proposer_in_flight": false,
+                    "proposer_usage_unknown": false,
+                    "proposer_finish_reason": "STOP",
+                    "proposer_failure_code": null,
+                    "proposer_prompt_feedback": null,
+                    "accounting": {
+                      "usd": 0.000028,
+                      "unknownUsd": 0,
+                      "reservedUsd": 0,
+                      "events": [
+                        {
+                          "reservation_id": "e75da3f35707e726019beddfe6a475777c43e001e284d296eb761cdaac9dce25",
+                          "model": "gemini-3.5-flash-lite",
+                          "status": "success",
+                          "usd": 0.000028,
+                          "reservedUsd": 0.1680416,
+                          "usage": {
+                            "promptTokenCount": 10,
+                            "candidatesTokenCount": 10,
+                            "thoughtsTokenCount": 0,
+                            "totalTokenCount": 20
+                          }
+                        }
+                      ],
+                      "accounting_unknown": false
+                    },
+                    "coverage": {
+                      "pairs_mandated": 1,
+                      "pairs_judged": 1,
+                      "pairs_refused": 0,
+                      "scope": "requested_layers",
+                      "certified": true,
+                      "obligations": [
+                        {
+                          "id": "density:L1",
+                          "layer": "density",
+                          "line": 1,
+                          "status": "answered"
+                        },
+                        {
+                          "id": "prominence:L1",
+                          "layer": "prominence",
+                          "line": 1,
+                          "status": "answered"
+                        },
+                        {
+                          "id": "density:L2",
+                          "layer": "density",
+                          "line": 2,
+                          "status": "answered"
+                        },
+                        {
+                          "id": "prominence:L2",
+                          "layer": "prominence",
+                          "line": 2,
+                          "status": "answered"
+                        },
+                        {
+                          "id": "sentencehood:draft",
+                          "layer": "sentencehood",
+                          "status": "answered"
+                        },
+                        {
+                          "id": "floor:draft",
+                          "layer": "floor",
+                          "status": "answered"
+                        },
+                        {
+                          "id": "meter:draft",
+                          "layer": "meter",
+                          "status": "not_requested"
+                        },
+                        {
+                          "id": "slot_grid:draft",
+                          "layer": "slot_grid",
+                          "status": "not_requested"
+                        },
+                        {
+                          "id": "setting:draft",
+                          "layer": "setting",
+                          "status": "not_requested"
+                        },
+                        {
+                          "id": "rhyme:1:2:0",
+                          "layer": "rhyme",
+                          "status": "answered"
+                        }
+                      ],
+                      "refused_obligations": []
+                    },
+                    "certified": true,
+                    "measurement_status": "finished",
+                    "memo_state": "cold",
+                    "memo_hit": 0,
+                    "memo_asked": 6,
+                    "stale_answers": 0,
+                    "findings_measured": true,
+                    "findings": [
+                      {
+                        "code": "UNIFORM_LINE_LENGTH",
+                        "severity": "note",
+                        "message": "every line is close to the same length",
+                        "evidence": "line-length CV 0.000 < 0.0643 (human 5th percentile, lyric profile, evaluated at N=12 tokens from a knot table, 21 bin percentiles interpolated in ln N (0.0643 at N=35 ... 0.1301 at N=683)). NOT slop evidence: this check was built expecting metronomic lines to be a generated-text tell and the measurement came out BACKWARDS — Shakespeare is more uniform than the model. NO generated class exists at this length, so there is no AUC and no separation claim; the evidence is a false-positive rate of 5.31% on HELD-OUT human song (5th-95th percentile of seeds 4.28-6.72%). It says how often this fires on a human songwriter, not whether it catches a machine. In a fixed form uniformity is the form. Retained only as 'outside the human range', and meaningful, if at all, in free verse",
+                        "locations": [],
+                        "groups": [],
+                        "obligations": [],
+                        "subject": []
+                      }
+                    ],
+                    "flags": 0,
+                    "whole_flags": 0,
+                    "notes": 1,
+                    "banned_pairs": 0,
+                    "banned": [],
+                    "unreadable_findings": [],
+                    "unreadable": 0,
+                    "standing": [],
+                    "loop_stop_reason": "ROUND_LIMIT",
+                    "loop_rounds": 1,
+                    "loop_unresolved_lines": [],
+                    "loop_unresolved": 0,
+                    "loop_whole_flag_codes": [],
+                    "loop_whole_flags": 0,
+                    "presentation_text": "My kettle whistles by the stove\nYour fingers brush my heavy coat\n\n[FINISHED — declared mandate — exit 0 — ROUND_LIMIT after 1 round(s) — no line flag stands]",
+                    "shape_status": "declared_line_order",
+                    "final_draft": [
+                      "My kettle whistles by the stove",
+                      "Your fingers brush my heavy coat"
+                    ],
+                    "final_draft_sha256": "a626e1f3478ecd9e4313902a7ac17f15b534919c8199fe3eeb8e102e792dd69f",
+                    "status": "finished_clean",
+                    "writer": "kitchen",
+                    "draft_fp": "722e344810",
+                    "replay_draft_fp": "49fa1b5d3f",
+                    "run_state_carried": false,
+                    "run_draft_carried": false,
+                    "run_decl_carried": false,
+                    "run_id": null,
+                    "run_revision": null,
+                    "song_at_stop": "My kettle whistles by the stove\nYour fingers brush my heavy coat"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "workspace": null,
+      "task": {
+        "version": 2,
+        "domain": "lyrics",
+        "connector_semantic_identity": "3cfa7301f218e96e59c3e36903c3325888a73bae758092697004672c802acd9e",
+        "format": "rich",
+        "maxChars": 1000,
+        "phase": "edit",
+        "requiresCustomization": false,
+        "brief": "Revise this supplied two-line draft with groups 1,2 and class:ASSONANCE. Preserve the second line.\nThe elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat",
+        "plan": null,
+        "completedSteps": [
+          "lyric_revise"
+        ],
+        "turns": 1,
+        "instructions": [
+          "Revise this supplied two-line draft with groups 1,2 and class:ASSONANCE. Preserve the second line.\nThe elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat"
+        ],
+        "progress": "revise",
+        "artifact": {
+          "text": "My kettle whistles by the stove\nYour fingers brush my heavy coat\n\n[FINISHED — declared mandate — exit 0 — ROUND_LIMIT after 1 round(s) — no line flag stands]",
+          "final_draft": [
+            "My kettle whistles by the stove",
+            "Your fingers brush my heavy coat"
+          ],
+          "status": "finished_clean",
+          "draft_fp": "722e344810",
+          "final_draft_sha256": "a626e1f3478ecd9e4313902a7ac17f15b534919c8199fe3eeb8e102e792dd69f",
+          "certified": true
+        }
+      },
+      "sig": "421e174f26fa62d7a3f3c1450b31772eb4824fb303ac2ddd979a73c91b508cea"
+    },
+    "writer_calls": 1
+  },
+  {
+    "mode": "noop",
+    "request": {
+      "request_id": "3b0e0bdc25b008e889129c8497e38a2d4ec7a2dd514bb238e8f3491fed077899",
+      "task": {
+        "domain": "lyrics",
+        "phase": "edit"
+      },
+      "message": "Revise this supplied two-line draft with groups 1,2 and class:ASSONANCE. Preserve the second line.\nThe elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat"
+    },
+    "http_status": 200,
+    "body": {
+      "reply": "The elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat\n\n[FINISHED — declared mandate — exit 3 — ROUND_LIMIT after 1 round(s) — UNRESOLVED: L1]",
+      "completion": null,
+      "artifact": {
+        "text": "The elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat\n\n[FINISHED — declared mandate — exit 3 — ROUND_LIMIT after 1 round(s) — UNRESOLVED: L1]",
+        "final_draft": [
+          "The elephant elephant elephant elephant elephant elephant stove",
+          "Your fingers brush my heavy coat"
+        ],
+        "status": "stopped_with_open_lines",
+        "draft_fp": "49fa1b5d3f",
+        "final_draft_sha256": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f",
+        "certified": false
+      },
+      "cost": 0.000063,
+      "accounted_cost": 0.000063,
+      "usage_unknown": false,
+      "accounting": {
+        "id": "214721db9a141e0cc25c8dc36ad5fcf47c185dae55c874a9649f4a58436de938",
+        "usd": 0.000063,
+        "reservedUsd": 0,
+        "unknownUsd": 0,
+        "maxUsd": 2.5,
+        "events": [
+          {
+            "reservation_id": "c283165c86d1d054ee1c0523135c7b0d1571c5031fb73aa445cb8ddbe5370013",
+            "model": "gemini-3.1-flash-lite",
+            "status": "success",
+            "usd": 0.000035,
+            "reservedUsd": 0.16189775,
+            "usage": {
+              "promptTokenCount": 20,
+              "candidatesTokenCount": 20,
+              "thoughtsTokenCount": 0
+            }
+          },
+          {
+            "reservation_id": "c344b446bb28162c25d3103eaddf478e04871d0de1112ca00c6f198fb4c96ff3",
+            "model": "gemini-3.5-flash-lite",
+            "status": "success",
+            "usd": 0.000028,
+            "reservedUsd": 0.1680416,
+            "usage": {
+              "promptTokenCount": 10,
+              "candidatesTokenCount": 10,
+              "thoughtsTokenCount": 0,
+              "totalTokenCount": 20
+            }
+          }
+        ]
+      },
+      "usage": {
+        "promptTokens": 20,
+        "candidatesTokens": 20,
+        "thoughtsTokens": 0,
+        "requests": 1,
+        "providerAttempts": 1,
+        "retries": 0,
+        "malformedRetries": 0,
+        "kitchenUsd": 0.000028,
+        "kitchenUnpriced": false
+      },
+      "recipe": null,
+      "cards": null,
+      "tools": [
+        {
+          "name": "lyric_revise",
+          "seed": null,
+          "error": null,
+          "not_run": false,
+          "exit_code": 3,
+          "status": "stopped_with_open_lines",
+          "certified": true,
+          "coverage": {
+            "pairs_mandated": 1,
+            "pairs_judged": 1,
+            "pairs_refused": 0,
+            "scope": "requested_layers",
+            "certified": true,
+            "obligations": [
+              {
+                "id": "density:L1",
+                "layer": "density",
+                "line": 1,
+                "status": "answered"
+              },
+              {
+                "id": "prominence:L1",
+                "layer": "prominence",
+                "line": 1,
+                "status": "answered"
+              },
+              {
+                "id": "density:L2",
+                "layer": "density",
+                "line": 2,
+                "status": "answered"
+              },
+              {
+                "id": "prominence:L2",
+                "layer": "prominence",
+                "line": 2,
+                "status": "answered"
+              },
+              {
+                "id": "sentencehood:draft",
+                "layer": "sentencehood",
+                "status": "answered"
+              },
+              {
+                "id": "floor:draft",
+                "layer": "floor",
+                "status": "answered"
+              },
+              {
+                "id": "meter:draft",
+                "layer": "meter",
+                "status": "not_requested"
+              },
+              {
+                "id": "slot_grid:draft",
+                "layer": "slot_grid",
+                "status": "not_requested"
+              },
+              {
+                "id": "setting:draft",
+                "layer": "setting",
+                "status": "not_requested"
+              },
+              {
+                "id": "rhyme:1:2:0",
+                "layer": "rhyme",
+                "status": "answered"
+              }
+            ],
+            "refused_obligations": []
+          },
+          "banned_pairs": 0,
+          "loop_stop_reason": "ROUND_LIMIT",
+          "loop_rounds": 1,
+          "loop_unresolved": 1,
+          "loop_whole_flag_codes": [],
+          "answers_on_record": null,
+          "refusal": null,
+          "path": "warm",
+          "ms": 4159,
+          "memo_state": "warm",
+          "memo_hit": 5,
+          "memo_asked": 12,
+          "stale_answers": 0,
+          "plan_lines": null,
+          "draft_carried": false,
+          "declarations_carried": false,
+          "refused_by_connector": false,
+          "asked": null,
+          "folded": null,
+          "verified_outcomes": [
+            {
+              "outcome_id": "dada4d5c7d5f4b6c3d0d37fe2211aeb2cae0794207e3d192b21a31b51d769317",
+              "kind": "propose",
+              "proposal_index": 0,
+              "question_sha256": "e1bdc63136a9dfd4e8d7e6b51051babfed42b716a987396250637836eb542631",
+              "round": 1,
+              "attempt": 0,
+              "members": [
+                1
+              ],
+              "accepted": false,
+              "applied": false,
+              "before_draft_sha256": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f",
+              "after_draft_sha256": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f"
+            }
+          ],
+          "verified_outcomes_error": null,
+          "verified_outcomes_draft_sha256": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f",
+          "journal_id": "9562dc6950754eb7a6a9317d8809a80b",
+          "resume_proof": {
+            "version": 1,
+            "journal_id": "9562dc6950754eb7a6a9317d8809a80b",
+            "checkpoint_loaded": false,
+            "input_checkpoint_sha256": null,
+            "input_draft_sha256": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f",
+            "accepted_draft_sha256_at_start": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f",
+            "applied_outcome_ids_at_start": [],
+            "completed_proposals_at_start": 0,
+            "completed_proposals_replayed": 0,
+            "new_proposer_dispatches": 1,
+            "completed_proposal_redispatches": 0,
+            "replay_prefix_consumed": true
+          },
+          "resume_proof_error": null,
+          "answer_sent": null,
+          "draft_fp": "49fa1b5d3f",
+          "final_draft_sha256": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f",
+          "run_revision": 1,
+          "song_at_stop": "The elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat",
+          "run_id": "run_248b3c8cf27c2938048d3b7b97f82cb1e0cebb314f560d2f8677909401351ef7",
+          "run_state_carried": false,
+          "run_draft_carried": false,
+          "run_decl_carried": false,
+          "writer": "kitchen",
+          "proposer_model": "gemini-3.5-flash-lite",
+          "proposer_calls": 1,
+          "proposer_ms": 8,
+          "proposer_ms_max": null,
+          "proposer_tokens_in": 10,
+          "proposer_tokens_out": 10,
+          "proposer_tokens_thoughts": 0,
+          "proposer_cost_usd": null,
+          "final_draft": [
+            "The elephant elephant elephant elephant elephant elephant stove",
+            "Your fingers brush my heavy coat"
+          ],
+          "proposer_empty": 0,
+          "proposer_retries": 0,
+          "proposer_wait_s": 0,
+          "standing": [
+            "L1: FINDING [FLAG] DENSITY_OUT_OF_BAND: 20 syllable(s) — outside the calibrated [5, 12] band for a sung English line"
+          ],
+          "flags": 1,
+          "whole_flags": 0
+        }
+      ],
+      "stopped": "MAX_STEPS",
+      "stopped_detail": null,
+      "malformed": [],
+      "history": [
+        {
+          "role": "user",
+          "parts": [
+            {
+              "text": "Revise this supplied two-line draft with groups 1,2 and class:ASSONANCE. Preserve the second line.\nThe elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat"
+            }
+          ]
+        },
+        {
+          "role": "model",
+          "parts": [
+            {
+              "functionCall": {
+                "name": "lyric_revise",
+                "args": {
+                  "draft": [
+                    "The elephant elephant elephant elephant elephant elephant stove",
+                    "Your fingers brush my heavy coat"
+                  ],
+                  "groups": "1,2",
+                  "relation": "class:ASSONANCE",
+                  "attempts": 1,
+                  "backtrack": 0,
+                  "max_rounds": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "parts": [
+            {
+              "functionResponse": {
+                "name": "lyric_revise",
+                "response": {
+                  "presentation": "The elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat\n\n[FINISHED — declared mandate — exit 3 — ROUND_LIMIT after 1 round(s) — UNRESOLVED: L1]\n\nSTANDING AT THE STOP — what the open lines and the whole draft still carry:\n  L1: FINDING [FLAG] DENSITY_OUT_OF_BAND: 20 syllable(s) — outside the calibrated [5, 12] band for a sung English line\n\nCONTINUE: no question is pending. Rewrite the open line(s) and call lyric_revise with `run_id` and `draft_text` (the full song as ONE newline-separated string) — no `answer`, no `state` (run run_248b3c8cf27c2938048d3b7b97f82cb1e0cebb314f560d2f8677909401351ef7; `new_run: true` starts independently).",
+                  "verdict": {
+                    "exit_code": 3,
+                    "meaning": "answered — at least one FLAG stands; the report names the lines",
+                    "report": "  MANDATE: 1 group(s) over 2 lines, 1 mandated pair(s), source=declared (declared line groups)\n           group A = lines 1,2 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)\n  RELATION: every group is judged under 'class:ASSONANCE' unless it declares its own — the named engine's own coordinate, not the scalar comparator's admit set.\n  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\n  PROPOSER: call:gemini_proposer:make — DECLARED on the command line and imported as named; this harness supplied no module of its own. Wrapped in quality/propose.py's ModelProposer. Whatever that call reaches, and what it costs, is on the far side of this seam\n  PROPOSER CALL 1: ok 8 ms in=10 out=10 | kitchen model=gemini-3.5-flash-lite calls=1 ms=8 in=10 out=10 empty=0 retries=0 wait=0\nrevise_loop: ROUND_LIMIT after 1 round(s)\n  round 1: fixed none\n    [--] L1 tier1 (1 tried): tried 1 candidate(s), none accepted; last rejection: nothing was fixed; tier 2 was NOT entered — `backtrack_width` is 0, so the caller declared no backtrack and the escalation may not substitute one\n  unresolved: L1 (flag)\n  DRAFT: handed in 2 line(s), md5 286455d0b359 — emitted 2 line(s), md5 286455d0b359 (UNCHANGED)\n  LAYERS: rhyme, slop floor and declared returns ONLY. NO BLUEPRINT — meter and song-function were NOT ASKED, which is not the same as their being clean (doctrine 20: a refusal is not a pass)\n  COMPARATOR: profile=declared default\n  PAIRS: mandated 1, judged 1, refused 0 — three counts, never summed (doctrine 79)\n  REPLAY MEMO: warm — 5 of 12 grading call(s) answered from the process memo (runs held: 1 of 4)\n  PAIR MEMO: cold — 0 line pair(s) served from the process memo, 0 judged and recorded (0 schema slot(s), 0 row(s) held)\n  SCORE MEMO: pair scores 1 served / 2 scored; RANK MEMO: field rankings 20 served / 2 ranked\n  PROPOSER: call:gemini_proposer:make — DECLARED on the command line and imported as named; this harness supplied no module of its own. Wrapped in quality/propose.py's ModelProposer. Whatever that call reaches, and what it costs, is on the far side of this seam\n  COVERAGE: {\"certified\": true, \"obligations\": [{\"id\": \"density:L1\", \"layer\": \"density\", \"line\": 1, \"status\": \"answered\"}, {\"id\": \"prominence:L1\", \"layer\": \"prominence\", \"line\": 1, \"status\": \"answered\"}, {\"id\": \"density:L2\", \"layer\": \"density\", \"line\": 2, \"status\": \"answered\"}, {\"id\": \"prominence:L2\", \"layer\": \"prominence\", \"line\": 2, \"status\": \"answered\"}, {\"id\": \"sentencehood:draft\", \"layer\": \"sentencehood\", \"status\": \"answered\"}, {\"id\": \"floor:draft\", \"layer\": \"floor\", \"status\": \"answered\"}, {\"id\": \"meter:draft\", \"layer\": \"meter\", \"status\": \"not_requested\"}, {\"id\": \"slot_grid:draft\", \"layer\": \"slot_grid\", \"status\": \"not_requested\"}, {\"id\": \"setting:draft\", \"layer\": \"setting\", \"status\": \"not_requested\"}, {\"id\": \"rhyme:1:2:0\", \"layer\": \"rhyme\", \"status\": \"answered\"}], \"pairs_judged\": 1, \"pairs_mandated\": 1, \"pairs_refused\": 0, \"refused_obligations\": [], \"scope\": \"requested_layers\"}\n\n  STANDING AT THE STOP — the findings the open lines and the whole draft still carry, in the report's own spelling:\n    L1: FINDING [FLAG] DENSITY_OUT_OF_BAND: 20 syllable(s) — outside the calibrated [5, 12] band for a sung English line (lines 1)\n         band adopted at reader 'fallback-low' over 139,694 corpus lines (RESULTS_METER_BANDS_READER.md; re-derive: python3 quality/meter_bands.py --check). Fewer than 5 and more than 12 are both refused; the fix is a rewrite of THIS line, not a nudge in a direction.\n\n  THE SONG, PERFORMANCE ORDER:\n\nThe elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat\n\n[FINISHED — declared mandate — exit 3 — ROUND_LIMIT after 1 round(s) — UNRESOLVED: L1]\n",
+                    "verified_outcomes": [
+                      {
+                        "outcome_id": "dada4d5c7d5f4b6c3d0d37fe2211aeb2cae0794207e3d192b21a31b51d769317",
+                        "kind": "propose",
+                        "proposal_index": 0,
+                        "question_sha256": "e1bdc63136a9dfd4e8d7e6b51051babfed42b716a987396250637836eb542631",
+                        "round": 1,
+                        "attempt": 0,
+                        "members": [
+                          1
+                        ],
+                        "accepted": false,
+                        "applied": false,
+                        "before_draft_sha256": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f",
+                        "after_draft_sha256": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f"
+                      }
+                    ],
+                    "verified_outcomes_error": null,
+                    "verified_outcomes_draft_sha256": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f",
+                    "journal_id": "9562dc6950754eb7a6a9317d8809a80b",
+                    "resume_proof": {
+                      "version": 1,
+                      "journal_id": "9562dc6950754eb7a6a9317d8809a80b",
+                      "checkpoint_loaded": false,
+                      "input_checkpoint_sha256": null,
+                      "input_draft_sha256": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f",
+                      "accepted_draft_sha256_at_start": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f",
+                      "applied_outcome_ids_at_start": [],
+                      "completed_proposals_at_start": 0,
+                      "completed_proposals_replayed": 0,
+                      "new_proposer_dispatches": 1,
+                      "completed_proposal_redispatches": 0,
+                      "replay_prefix_consumed": true
+                    },
+                    "resume_proof_error": null,
+                    "path": "warm",
+                    "ms": 4159,
+                    "proposer_model": "gemini-3.5-flash-lite",
+                    "proposer_calls": 1,
+                    "proposer_attempts": 1,
+                    "proposer_ms": 8,
+                    "proposer_tokens_in": 10,
+                    "proposer_tokens_out": 10,
+                    "proposer_tokens_thoughts": 0,
+                    "proposer_tokens_cached": 0,
+                    "proposer_tokens_total": 20,
+                    "proposer_empty": 0,
+                    "proposer_retries": 0,
+                    "proposer_wait_s": 0,
+                    "proposer_status": "ok",
+                    "proposer_in_flight": false,
+                    "proposer_usage_unknown": false,
+                    "proposer_finish_reason": "STOP",
+                    "proposer_failure_code": null,
+                    "proposer_prompt_feedback": null,
+                    "accounting": {
+                      "usd": 0.000028,
+                      "unknownUsd": 0,
+                      "reservedUsd": 0,
+                      "events": [
+                        {
+                          "reservation_id": "c344b446bb28162c25d3103eaddf478e04871d0de1112ca00c6f198fb4c96ff3",
+                          "model": "gemini-3.5-flash-lite",
+                          "status": "success",
+                          "usd": 0.000028,
+                          "reservedUsd": 0.1680416,
+                          "usage": {
+                            "promptTokenCount": 10,
+                            "candidatesTokenCount": 10,
+                            "thoughtsTokenCount": 0,
+                            "totalTokenCount": 20
+                          }
+                        }
+                      ],
+                      "accounting_unknown": false
+                    },
+                    "coverage": {
+                      "pairs_mandated": 1,
+                      "pairs_judged": 1,
+                      "pairs_refused": 0,
+                      "scope": "requested_layers",
+                      "certified": true,
+                      "obligations": [
+                        {
+                          "id": "density:L1",
+                          "layer": "density",
+                          "line": 1,
+                          "status": "answered"
+                        },
+                        {
+                          "id": "prominence:L1",
+                          "layer": "prominence",
+                          "line": 1,
+                          "status": "answered"
+                        },
+                        {
+                          "id": "density:L2",
+                          "layer": "density",
+                          "line": 2,
+                          "status": "answered"
+                        },
+                        {
+                          "id": "prominence:L2",
+                          "layer": "prominence",
+                          "line": 2,
+                          "status": "answered"
+                        },
+                        {
+                          "id": "sentencehood:draft",
+                          "layer": "sentencehood",
+                          "status": "answered"
+                        },
+                        {
+                          "id": "floor:draft",
+                          "layer": "floor",
+                          "status": "answered"
+                        },
+                        {
+                          "id": "meter:draft",
+                          "layer": "meter",
+                          "status": "not_requested"
+                        },
+                        {
+                          "id": "slot_grid:draft",
+                          "layer": "slot_grid",
+                          "status": "not_requested"
+                        },
+                        {
+                          "id": "setting:draft",
+                          "layer": "setting",
+                          "status": "not_requested"
+                        },
+                        {
+                          "id": "rhyme:1:2:0",
+                          "layer": "rhyme",
+                          "status": "answered"
+                        }
+                      ],
+                      "refused_obligations": []
+                    },
+                    "certified": true,
+                    "measurement_status": "finished",
+                    "memo_state": "warm",
+                    "memo_hit": 5,
+                    "memo_asked": 12,
+                    "stale_answers": 0,
+                    "findings_measured": true,
+                    "findings": [
+                      {
+                        "code": "DENSITY_OUT_OF_BAND",
+                        "severity": "flag",
+                        "message": "20 syllable(s) — outside the calibrated [5, 12] band for a sung English line",
+                        "evidence": "band adopted at reader 'fallback-low' over 139,694 corpus lines (RESULTS_METER_BANDS_READER.md; re-derive: python3 quality/meter_bands.py --check). Fewer than 5 and more than 12 are both refused; the fix is a rewrite of THIS line, not a nudge in a direction.",
+                        "locations": [
+                          1
+                        ],
+                        "groups": [],
+                        "obligations": [],
+                        "subject": []
+                      }
+                    ],
+                    "flags": 1,
+                    "whole_flags": 0,
+                    "notes": 0,
+                    "banned_pairs": 0,
+                    "banned": [],
+                    "unreadable_findings": [],
+                    "unreadable": 0,
+                    "standing": [
+                      "L1: FINDING [FLAG] DENSITY_OUT_OF_BAND: 20 syllable(s) — outside the calibrated [5, 12] band for a sung English line"
+                    ],
+                    "loop_stop_reason": "ROUND_LIMIT",
+                    "loop_rounds": 1,
+                    "loop_unresolved_lines": [
+                      1
+                    ],
+                    "loop_unresolved": 1,
+                    "loop_whole_flag_codes": [],
+                    "loop_whole_flags": 0,
+                    "presentation_text": "The elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat\n\n[FINISHED — declared mandate — exit 3 — ROUND_LIMIT after 1 round(s) — UNRESOLVED: L1]",
+                    "shape_status": "declared_line_order",
+                    "final_draft": [
+                      "The elephant elephant elephant elephant elephant elephant stove",
+                      "Your fingers brush my heavy coat"
+                    ],
+                    "final_draft_sha256": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f",
+                    "status": "stopped_with_open_lines",
+                    "writer": "kitchen",
+                    "draft_fp": "49fa1b5d3f",
+                    "replay_draft_fp": "49fa1b5d3f",
+                    "run_state_carried": false,
+                    "run_draft_carried": false,
+                    "run_decl_carried": false,
+                    "run_id": "run_248b3c8cf27c2938048d3b7b97f82cb1e0cebb314f560d2f8677909401351ef7",
+                    "run_revision": 1,
+                    "song_at_stop": "The elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "workspace": null,
+      "lyric": {
+        "key": "mandate:[null,\"1,2\",null,\"class:ASSONANCE\",null]",
+        "seed": null,
+        "parked": true,
+        "exit_code": 3,
+        "uncertified": false,
+        "coverage": {
+          "pairs_mandated": 1,
+          "pairs_judged": 1,
+          "pairs_refused": 0,
+          "scope": "requested_layers",
+          "certified": true,
+          "obligations": [
+            {
+              "id": "density:L1",
+              "layer": "density",
+              "line": 1,
+              "status": "answered"
+            },
+            {
+              "id": "prominence:L1",
+              "layer": "prominence",
+              "line": 1,
+              "status": "answered"
+            },
+            {
+              "id": "density:L2",
+              "layer": "density",
+              "line": 2,
+              "status": "answered"
+            },
+            {
+              "id": "prominence:L2",
+              "layer": "prominence",
+              "line": 2,
+              "status": "answered"
+            },
+            {
+              "id": "sentencehood:draft",
+              "layer": "sentencehood",
+              "status": "answered"
+            },
+            {
+              "id": "floor:draft",
+              "layer": "floor",
+              "status": "answered"
+            },
+            {
+              "id": "meter:draft",
+              "layer": "meter",
+              "status": "not_requested"
+            },
+            {
+              "id": "slot_grid:draft",
+              "layer": "slot_grid",
+              "status": "not_requested"
+            },
+            {
+              "id": "setting:draft",
+              "layer": "setting",
+              "status": "not_requested"
+            },
+            {
+              "id": "rhyme:1:2:0",
+              "layer": "rhyme",
+              "status": "answered"
+            }
+          ],
+          "refused_obligations": []
+        },
+        "run_id": "run_248b3c8cf27c2938048d3b7b97f82cb1e0cebb314f560d2f8677909401351ef7",
+        "checkpoint": "{\"connector_contract\":2,\"semantic_identity\":\"3cfa7301f218e96e59c3e36903c3325888a73bae758092697004672c802acd9e\",\"codec\":1,\"encoding\":\"gzip+base64\",\"decoded_bytes\":3095,\"sha256\":\"af47605eacd767fb437ab891e7d6b3e70b903cd222a6a6ec1001f51f61518f0f\",\"payload\":\"H4sIAAAAAAAAA72WS2/cNhDHv8qCZxXgY0U9bkHRW5Ee0ksRGMKIHO4yK5EqSdleGP7uBbUvuXENB01yk4ac0X8e/FFP5B5DtN6RlhXEumlOnQ5gEmk/kz/3uMEBpz249G0PMfl7JAX5y89hY6zbYYibPsxxvxmPmz3C/XGjPCRyV5Avfg4Ohs5q0pKmlFwr2ZS0KrfYVyChEazSdU0bqGlPLiJPQadgXSIt4bXclqWmvSgbUhDlnbG77oDHvMZUI+pK9k1ZIjJWSlZxBIV8i1RqoaCpqq2kTWmo1jWjGppaMLYtG6i3vSEFmYKffMRAWqJgGNodjtbZ7mJuRzjkbEEpnBLqbrAO48+rYPCz00sDY4I0R9ISY52Ne9RX8TBkQU/kYPPWS0akIH/PGJP1rot74KUkLUHWayUFExIabfQWa12h7EtGS9ZDb1BveV8xCU1diUbykkpR1UJiX265FCxXwsWHpVz/twDPd5dgqEn7dNWdU8lVXrKGlHCcEmnpuhbnMf73bCR8TN9J2FlMtwt+nkj7+e65yMfJGou683NSfsT/qPqlKZ11Gh8X5T+kEbdyrIs04thjyNLY3W1sSWtgiFgQmKbBrt4DQvRuGWjn09663eYB4sbYR9R5/no0PuCJGzf1qoKKGy41clkKTisqe6EYiLrXpmeoTS+VNFVfMmE403WtaclLoTRstanzuQOTMPyAuOfenJCjIS+UqtKl2fZSCU21qAxyzhhgzxUgrZotpxUKzRrecwaC9SXTlcxsWkYhYJxHzETwJs/pmqrfCji1R3WYvHWpGzzoVSNO6FutX4ri5mF4ge/v24YL19ahO0hdTBDSd/rGaea6W2vi6guf7zLUx2nALONKtNUO+vqGgNMAx1xCWhCHD1dmd9rGCZLa5xPKXnPuAq73ZLYswbopoLGPnfIu91yTNoUZn4vMXBh+9u2p/D0G2OECR7AhdiM4DctxZsXZ9GXWuxeGgGaO56pE5SckLQm4EChfX3DMdCiIwpAWmp1yLIjvB7uDTKkT104HCF206dj+noGz+N6M2XLB9PVyugL9uTiHmIIfrUOn8GWUm/2dga5a+Bta+Lu18Le1vB0ookt5+9573Z7G4hZtvUjeDGMG78NX/ov1bccRE37tuFjXjs6n7tr7lfrBp24X7CvSLyvviYIpWbd7Jf3F/o4IYX8csWUtb+nKf7G+nv5C42W8u5fjmq/nmPyU3fO12A12tFkUPtpEWrH8NzpUyYdOoxogXFyfyEOwafnwwWYeOFIQ48NI2oX0+Iva+zDnI3Pvrcq4OBN7+TXI+liRZyngsMTMzBwgxvbDp09/fPzw8dffSEFGeOwWYXF9YZ9eelCHFEAdSEuf10IjjuCSVZ3V6FKe8pYIZaASlBnOamwklo0SKGRDhRKCl3VdQyV6wKqsacNlU1G6lRVXNeWgdIPk+R+YoZviFwwAAA==\"}",
+        "draft": [
+          "The elephant elephant elephant elephant elephant elephant stove",
+          "Your fingers brush my heavy coat"
+        ],
+        "final_draft": [
+          "The elephant elephant elephant elephant elephant elephant stove",
+          "Your fingers brush my heavy coat"
+        ],
+        "replay_draft": [
+          "The elephant elephant elephant elephant elephant elephant stove",
+          "Your fingers brush my heavy coat"
+        ],
+        "decl": {
+          "groups": "1,2",
+          "relation": "class:ASSONANCE",
+          "attempts": 1,
+          "backtrack": 0,
+          "max_rounds": 1,
+          "writer": "kitchen"
+        },
+        "stop": "ROUND_LIMIT",
+        "open": [
+          1
+        ],
+        "whole": [],
+        "standing": [
+          "L1: FINDING [FLAG] DENSITY_OUT_OF_BAND: 20 syllable(s) — outside the calibrated [5, 12] band for a sung English line"
+        ],
+        "run_revision": 1
+      },
+      "task": {
+        "version": 2,
+        "domain": "lyrics",
+        "connector_semantic_identity": "3cfa7301f218e96e59c3e36903c3325888a73bae758092697004672c802acd9e",
+        "format": "rich",
+        "maxChars": 1000,
+        "phase": "edit",
+        "requiresCustomization": false,
+        "brief": "Revise this supplied two-line draft with groups 1,2 and class:ASSONANCE. Preserve the second line.\nThe elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat",
+        "plan": null,
+        "completedSteps": [
+          "lyric_revise"
+        ],
+        "turns": 1,
+        "instructions": [
+          "Revise this supplied two-line draft with groups 1,2 and class:ASSONANCE. Preserve the second line.\nThe elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat"
+        ],
+        "progress": "revise",
+        "artifact": {
+          "text": "The elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat\n\n[FINISHED — declared mandate — exit 3 — ROUND_LIMIT after 1 round(s) — UNRESOLVED: L1]",
+          "final_draft": [
+            "The elephant elephant elephant elephant elephant elephant stove",
+            "Your fingers brush my heavy coat"
+          ],
+          "status": "stopped_with_open_lines",
+          "draft_fp": "49fa1b5d3f",
+          "final_draft_sha256": "c7a72f26de265320706b3c1a38bdfb1edfb6c6f7b513f21d88d05253cda4df8f",
+          "certified": false
+        }
+      },
+      "sig": "8c965562a150f8f7a38c18764cc0baa25470812669251fa487bf240b7beaf1e9"
+    },
+    "writer_calls": 1
+  }
+]

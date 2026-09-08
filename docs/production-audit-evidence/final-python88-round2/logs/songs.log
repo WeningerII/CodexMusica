@@ -1,0 +1,80 @@
+
+1. the population — this section cannot pass by examining nothing
+  PASS  there are delivered songs to check
+          16: ['carry_it_over.txt', 'crooked_waltz.txt', 'i_am_not_leaving.txt', 'keep_the_light.txt', 'long_bridge.txt', 'matinee.txt', 'oar_lair.txt', 'one_more.txt', 'stay_awake.txt', 'taught_me_time.txt', 'the_frost_ledger.txt', 'the_long_way_back.txt', 'the_river_keeps_the_score.txt', 'till_the_light_comes_home.txt', 'turn_the_wheel.txt', 'wheat_mane.txt']
+  PASS  every delivered song has its blueprint beside it — the blueprint is the AUTHORITY every check below reads, so a song without one is unmeasurable rather than clean (doctrine 20)
+          missing blueprints: none
+
+2. every shipped song carries its section markers
+  PASS  `carry_it_over.txt` carries section markers
+          23 marker(s) against 23 declared section(s)
+  PASS  `crooked_waltz.txt` carries section markers
+          5 marker(s) against 5 declared section(s)
+  PASS  `i_am_not_leaving.txt` carries section markers
+          6 marker(s) against 6 declared section(s)
+  PASS  `keep_the_light.txt` carries section markers
+          11 marker(s) against 11 declared section(s)
+  PASS  `long_bridge.txt` carries section markers
+          8 marker(s) against 8 declared section(s)
+  PASS  `matinee.txt` carries section markers
+          8 marker(s) against 8 declared section(s)
+  PASS  `oar_lair.txt` carries section markers
+          4 marker(s) against 4 declared section(s)
+  PASS  `one_more.txt` carries section markers
+          15 marker(s) against 15 declared section(s)
+  PASS  `stay_awake.txt` carries section markers
+          10 marker(s) against 10 declared section(s)
+  PASS  `taught_me_time.txt` carries section markers
+          8 marker(s) against 8 declared section(s)
+  PASS  `the_frost_ledger.txt` carries section markers
+          5 marker(s) against 5 declared section(s)
+  PASS  `the_long_way_back.txt` carries section markers
+          7 marker(s) against 7 declared section(s)
+  PASS  `the_river_keeps_the_score.txt` carries section markers
+          5 marker(s) against 5 declared section(s)
+  PASS  `till_the_light_comes_home.txt` carries section markers
+          12 marker(s) against 12 declared section(s)
+  PASS  `turn_the_wheel.txt` carries section markers
+          8 marker(s) against 8 declared section(s)
+  PASS  `wheat_mane.txt` carries section markers
+          7 marker(s) against 7 declared section(s)
+
+3. the markers ARE the blueprint's sections — name, order, size
+  PASS  `carry_it_over.txt` — markers match the blueprint's sections in order, with each section's line count
+          23 section(s), 25 line(s)
+  PASS  `crooked_waltz.txt` — markers match the blueprint's sections in order, with each section's line count
+          5 section(s), 17 line(s)
+  PASS  `i_am_not_leaving.txt` — markers match the blueprint's sections in order, with each section's line count
+          6 section(s), 20 line(s)
+  PASS  `keep_the_light.txt` — markers match the blueprint's sections in order, with each section's line count
+          11 section(s), 18 line(s)
+  PASS  `long_bridge.txt` — markers match the blueprint's sections in order, with each section's line count
+          8 section(s), 25 line(s)
+  PASS  `matinee.txt` — markers match the blueprint's sections in order, with each section's line count
+          8 section(s), 32 line(s)
+  PASS  `oar_lair.txt` — markers match the blueprint's sections in order, with each section's line count
+          4 section(s), 23 line(s)
+  PASS  `one_more.txt` — markers match the blueprint's sections in order, with each section's line count
+          15 section(s), 19 line(s)
+  PASS  `stay_awake.txt` — markers match the blueprint's sections in order, with each section's line count
+          10 section(s), 16 line(s)
+  PASS  `taught_me_time.txt` — markers match the blueprint's sections in order, with each section's line count
+          8 section(s), 25 line(s)
+  PASS  `the_frost_ledger.txt` — markers match the blueprint's sections in order, with each section's line count
+          5 section(s), 21 line(s)
+  PASS  `the_long_way_back.txt` — markers match the blueprint's sections in order, with each section's line count
+          7 section(s), 29 line(s)
+  PASS  `the_river_keeps_the_score.txt` — markers match the blueprint's sections in order, with each section's line count
+          5 section(s), 21 line(s)
+  PASS  `till_the_light_comes_home.txt` — markers match the blueprint's sections in order, with each section's line count
+          12 section(s), 33 line(s)
+  PASS  `turn_the_wheel.txt` — markers match the blueprint's sections in order, with each section's line count
+          8 section(s), 12 line(s)
+  PASS  `wheat_mane.txt` — markers match the blueprint's sections in order, with each section's line count
+          7 section(s), 20 line(s)
+
+4. MUTATION — a song with its markers stripped must FAIL
+  PASS  `carry_it_over.txt` with its brackets removed reads as ZERO sections and therefore does not match its blueprint — so §2 and §3 are two-sided and a markerless song cannot pass them
+          stripped -> 0 section(s); blueprint declares 23
+======================================================================
+every delivered song carries the shape its blueprint declares

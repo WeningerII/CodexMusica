@@ -1,0 +1,30 @@
+import hashlib, json, os, pathlib, sys, time
+ROOT=pathlib.Path('/workspace/scratch/b0544e4bbdd6/production-fixes/lyric-harness')
+E=ROOT.parent.parent/'production-fix-results'
+sys.path.insert(0,str(ROOT)); os.chdir(ROOT)
+from quality import frequency as F
+from quality import calibration_rebuild as R
+calls=[]
+def forbidden(*args, **kwargs):
+    calls.append('FrequencyLayer._song_tables')
+    raise AssertionError('Calibration unexpectedly depends on song-frequency parser')
+F.FrequencyLayer._song_tables=forbidden
+paths=['lyric_harness.py','quality/frequency.py','quality/features.py','quality/lyric_reader.py']
+def hashes():return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}
+before=hashes(); started=time.time()
+report={'before':before,'guard':'FrequencyLayer._song_tables raises on any call','fresh_item_cache':True}
+try:
+    result=R.main(['--output-dir',str(E/'data-batch-final'),'--field-cache','/tmp/codex-calibration-rebuild/current-field-cache.sqlite','--workers','1','--max-cached-fields','512'])
+    report.update(exit_code=result,after=hashes(),attempted_song_table_calls=calls,wall_s=time.time()-started)
+    current=E/'data-batch-final/current-calibration-rows.tsv'
+    previous=E/'current-calibration-rows.tsv'
+    report['current_rows_sha256']=hashlib.sha256(current.read_bytes()).hexdigest()
+    report['previous_rows_sha256']=hashlib.sha256(previous.read_bytes()).hexdigest()
+    report['byte_identical']=current.read_bytes()==previous.read_bytes()
+    report['source_stable']=report['after']==before
+    assert report['byte_identical'] and report['source_stable'] and not calls
+except BaseException as exc:
+    report.update(error=repr(exc),after=hashes(),attempted_song_table_calls=calls,wall_s=time.time()-started)
+    raise
+finally:
+    (E/'batch-calibration-remeasurement.json').write_text(json.dumps(report,indent=2)+'\n')

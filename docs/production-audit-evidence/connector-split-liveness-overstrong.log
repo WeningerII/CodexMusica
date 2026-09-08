@@ -1,0 +1,27 @@
+PASS real MCP + real Python: immutable defaults/input; one concurrent continuation; stale revision refused; capacity stop preserves exact artifact and journal and refuses replay.
+{"split_continuation":1,"asked":[1,8,9,10,11],"answered":[1,5,6,14,15,17,19],"rejected_first_subset":[1],"accepted_draft_sha256":"dcddfc39f9270faab7c5a011604fdd45523b50fdd8392bd6c195f398db20e667"}
+{"split_continuation":2,"asked":[2,7,16,18,20,21,23],"answered":[1,5,6,14,15,17,19],"rejected_first_subset":[1],"accepted_draft_sha256":"dcddfc39f9270faab7c5a011604fdd45523b50fdd8392bd6c195f398db20e667"}
+{"split_continuation":3,"asked":[2,12,13],"answered":[1,5,6,14,15,17,19,2,7,16,18,20,21,23],"rejected_first_subset":[1],"accepted_draft_sha256":"dcddfc39f9270faab7c5a011604fdd45523b50fdd8392bd6c195f398db20e667"}
+{"split_continuation":4,"asked":[3,22,24],"answered":[1,5,6,14,15,17,19,2,7,16,18,20,21,23],"rejected_first_subset":[1],"accepted_draft_sha256":"dcddfc39f9270faab7c5a011604fdd45523b50fdd8392bd6c195f398db20e667"}
+{"split_continuation":5,"asked":[3,4,9,10,12],"answered":[1,5,6,14,15,17,19,2,7,16,18,20,21,23,3,22,24],"rejected_first_subset":[1],"accepted_draft_sha256":"dcddfc39f9270faab7c5a011604fdd45523b50fdd8392bd6c195f398db20e667"}
+{"split_continuation":6,"asked":[4],"answered":[1,5,6,14,15,17,19,2,7,16,18,20,21,23,3,22,24],"rejected_first_subset":[1],"accepted_draft_sha256":"dcddfc39f9270faab7c5a011604fdd45523b50fdd8392bd6c195f398db20e667"}
+{"split_continuation":7,"asked":[4,6,7],"answered":[1,5,6,14,15,17,19,2,7,16,18,20,21,23,3,22,24,4],"rejected_first_subset":[1],"accepted_draft_sha256":"dcddfc39f9270faab7c5a011604fdd45523b50fdd8392bd6c195f398db20e667"}
+{"split_continuation":8,"asked":[11],"answered":[1,5,6,14,15,17,19,2,7,16,18,20,21,23,3,22,24,4],"rejected_first_subset":[1,5,6],"accepted_draft_sha256":"dcddfc39f9270faab7c5a011604fdd45523b50fdd8392bd6c195f398db20e667"}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: the real walk eventually verifies every first-batch answer
+
+3 !== 7
+
+    at file:///workspace/scratch/b0544e4bbdd6/production-fixes/mcp/test_run_continuation.mjs:254:10 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 3,
+  expected: 7,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

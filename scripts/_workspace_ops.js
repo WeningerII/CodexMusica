@@ -52,6 +52,21 @@ function findCard(ws, ref) {
   return ws.cards.find((x) => x.id === ref) || ws.cards.find((x) => x.instrumentId === ref) || null;
 }
 
+// Reordering preserves card identity and all explicit settings. A move to the
+// front also selects the primary tradition/environment used by the renderer.
+function moveInstrument(ws, ref, before = null) {
+  const next = clone(ws);
+  const card = findCard(next, ref);
+  const target = before == null ? null : findCard(next, before);
+  if (!card || (before != null && !target))
+    throw new WorkspaceError('Unknown card in move_instrument');
+  if (card === target) return next;
+  next.cards = next.cards.filter((c) => c !== card);
+  const index = target ? next.cards.indexOf(target) : 0;
+  next.cards.splice(index, 0, card);
+  return next;
+}
+
 // ── rosters ─────────────────────────────────────────────────────────────────
 
 // Start a workspace from one or more traditions (deterministic default cards).
@@ -397,6 +412,7 @@ function render(ws, opts) {
 // that mints a workspace, and it calls emptyWorkspace() itself. Exporting it
 // advertised a second way in that no caller ever used.
 module.exports = {
+  moveInstrument,
   seed,
   addTradition,
   removeTradition,

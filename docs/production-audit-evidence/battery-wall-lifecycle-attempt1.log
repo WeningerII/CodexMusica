@@ -1,0 +1,42 @@
+ok 1 - persistent paced429 cannot borrow ordinary retry budget
+ok 2 - paced wait sum never admits a retry exceeding its remaining budget
+ok 3 - post-header aborted settles with durable transport outcome
+ok 4 - post-header invalid-json settles with durable transport outcome
+ok 5 - post-header deadline settles with durable transport outcome
+ok 6 - kill during first request leaves intent; resume retrieves completion without repeating POST
+ok 7 - ambiguous missing job is never reissued on resume
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: file:///workspace/scratch/b0544e4bbdd6/production-fixes/scripts/battery_repairs.mjs:29
+      throw new Error('Kitchen repair evidence is unavailable or detached from its exact draft.');
+            ^
+
+Error: Kitchen repair evidence is unavailable or detached from its exact draft.
+    at repairEvents (file:///workspace/scratch/b0544e4bbdd6/production-fixes/scripts/battery_repairs.mjs:29:13)
+    at recordRepairs (file:///workspace/scratch/b0544e4bbdd6/production-fixes/scripts/battery_repairs.mjs:109:23)
+    at foldInto (file:///workspace/scratch/b0544e4bbdd6/production-fixes/scripts/flash_battery.mjs:637:21)
+    at file:///workspace/scratch/b0544e4bbdd6/production-fixes/scripts/flash_battery.mjs:1480:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+Node.js v24.19.0
+
+
+1 !== 0
+
+    at file:///workspace/scratch/b0544e4bbdd6/production-fixes/mcp/test_battery_lifecycle.mjs:379:14
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async fixture (file:///workspace/scratch/b0544e4bbdd6/production-fixes/mcp/test_battery_lifecycle.mjs:101:5)
+    at async file:///workspace/scratch/b0544e4bbdd6/production-fixes/mcp/test_battery_lifecycle.mjs:354:3
+    at async test (file:///workspace/scratch/b0544e4bbdd6/production-fixes/mcp/test_battery_lifecycle.mjs:110:3)
+    at async file:///workspace/scratch/b0544e4bbdd6/production-fixes/mcp/test_battery_lifecycle.mjs:350:1 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 1,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

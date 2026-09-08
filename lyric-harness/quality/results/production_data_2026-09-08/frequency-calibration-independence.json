@@ -1,0 +1,23 @@
+{
+  "before": {
+    "lyric_harness.py": "bf27f6dec80209166bb223de44a3385b4ea97e1b3ba9ce8efeffc7ede3509e9b",
+    "quality/frequency.py": "bd61d0ddf50d46350ba14316136c0e4b5b0f3590d16e7bc4f9c74b3ca29420c2",
+    "quality/features.py": "dba12b680845f3e82fe1d0fdbe3e33e51a16d98afa97f0445982b3f3de8a6298",
+    "quality/lyric_reader.py": "b76263a5e37b10d1c5fb3953f501560918a7efdcfbbc304872f54074b577f9e3"
+  },
+  "guard": "FrequencyLayer._song_tables raises on any call",
+  "fresh_item_cache": true,
+  "exit_code": 0,
+  "after": {
+    "lyric_harness.py": "bf27f6dec80209166bb223de44a3385b4ea97e1b3ba9ce8efeffc7ede3509e9b",
+    "quality/frequency.py": "bd61d0ddf50d46350ba14316136c0e4b5b0f3590d16e7bc4f9c74b3ca29420c2",
+    "quality/features.py": "dba12b680845f3e82fe1d0fdbe3e33e51a16d98afa97f0445982b3f3de8a6298",
+    "quality/lyric_reader.py": "b76263a5e37b10d1c5fb3953f501560918a7efdcfbbc304872f54074b577f9e3"
+  },
+  "attempted_song_table_calls": [],
+  "wall_s": 498.0631527900696,
+  "current_rows_sha256": "7ef7410bfb1271c596eaca69e261ffbc00cbae89059ea7e9a31d298344fe3b63",
+  "previous_rows_sha256": "7ef7410bfb1271c596eaca69e261ffbc00cbae89059ea7e9a31d298344fe3b63",
+  "byte_identical": true,
+  "source_stable": true
+}

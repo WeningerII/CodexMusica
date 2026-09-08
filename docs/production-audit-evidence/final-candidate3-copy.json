@@ -1,0 +1,30 @@
+{
+  "worktree": "/workspace/scratch/b0544e4bbdd6/verification-candidate3",
+  "files": {
+    "lyric-harness/lyric_harness.py": "40169c2d1be51c54a3dc2f74fd027c8d996b18988735b5a493135484bfe9ec62",
+    "lyric-harness/quality/propose.py": "81d6950a23a56e3f8a2f4cfc017bd619008d5e72ab5b62733f0eec00e48e0708",
+    "mcp/lyric_tools.js": "44fd64fd3b8677da1b7e047bbf4cd2e87b9d157de3871e7517e5a1f2f5eac2b6",
+    "mcp/test.mjs": "0c864b4200819bcffb16d95d5cc4704a48cb7db7bff87dbaca4709817c954df6"
+  },
+  "copied_tracked_differences": [
+    ".prettierignore",
+    "docs/production-audit-fixes.json",
+    "docs/production-audit-fixes.md",
+    "lyric-harness/lyric_harness.py",
+    "lyric-harness/quality/RESULTS_CAPACITY_PRODUCTION_2026-09-08.json",
+    "lyric-harness/quality/RESULTS_CAPACITY_PRODUCTION_2026-09-08.md",
+    "lyric-harness/quality/RESULTS_PRODUCTION_DATA_2026-09-08.md",
+    "lyric-harness/quality/propose.py",
+    "lyric-harness/quality/results/production_data_2026-09-08/README.md",
+    "lyric-harness/quality/results/production_data_2026-09-08/artifact-index.json",
+    "lyric-harness/quality/results/production_data_2026-09-08/current-calibration-rows.meta.json",
+    "lyric-harness/quality/results/production_data_2026-09-08/data.json",
+    "lyric-harness/quality/results/production_data_2026-09-08/final-data-publication-epoch.json",
+    "lyric-harness/quality/test_production_journal.py",
+    "lyric-harness/quality/test_propose.py",
+    "lyric-harness/quality/test_relations_null.py",
+    "mcp/lyric_tools.js",
+    "mcp/test.mjs"
+  ],
+  "installed_receipt_present": false
+}

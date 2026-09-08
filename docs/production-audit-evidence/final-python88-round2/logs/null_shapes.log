@@ -1,0 +1,86 @@
+==============================================================
+NULL-SHAPE REGRESSIONS — quality/controls.py
+==============================================================
+
+1. DOCTRINE 66 — the same seed under two PYTHONHASHSEEDs
+  PASS  both redeals reproduce across interpreter runs
+          a set-iteration tie here printed two different band_pass values for one seed
+
+2. THE PRESERVATION CLAIM — cross_item_redeal
+  PASS  line count preserved per item
+  PASS  words per line preserved
+  PASS  every word keeps its stress shape (so the grid is identical)
+          exact 37, count-only 0, kept 0
+  PASS  a word unique to an item never returns to it (doctrine 13)
+          28 private word types across the four items; leaks 0
+
+3. THE IDENTITY-MAP CHECKER — differs
+  PASS  a symmetric statistic reports 0 differing replicates
+          sum() is invariant under permutation
+  PASS  a statistic that moves is counted
+
+4. THE DETECTION FLOOR HAS TO MOVE (doctrine 76)
+  PASS  mono collapses rime classes below dispersed
+          distinct rime classes summed over items: mono 4, dispersed 32
+  PASS  the floor arms are not each other
+
+5. THE CENSUS — a partition, and it must not disqualify the arms
+  PASS  every declared schema is classified exactly once
+          77 schemas declared, 77 classified, 3 verdicts
+  PASS  the six verdicts partition the registry
+  PASS  no recorded ARM pair is dropped as constant-by-construction
+          would have deleted: []
+  PASS  a `same_line` schema really does sit at local_fraction@0 == 1.0
+          measured [1.0]
+  PASS  a `different_lines` schema really does sit at local_fraction@0 == 0.0
+          measured [0.0]
+  PASS  `line_fraction` is refused on a plain pair figure (it is `count` rescaled, not a second statistic)
+
+6. THE DERIVATION IS NOT THE AUTHORITY (doctrine 68)
+  PASS  null_menu DERIVES line_final_permutation to be an identity map for `perfect rhyme · count`
+          derived menu ('within_line_shuffle', 'global_redeal')
+  PASS  the SWEEP runs it anyway
+          sweep ran [('count', 'global_redeal'), ('count', 'line_final_permutation'), ('count', 'line_permutation'), ('count', 'within_line_shuffle'), ('local_fraction@2', 'global_redeal'), ('local_fraction@2', 'line_final_permutation'), ('local_fraction@2', 'line_permutation'), ('local_fraction@2', 'within_line_shuffle')]
+  PASS  null_menu reproduces the recorded identity-map row: line_permutation does not move `internal rhyme · count`
+  PASS  null_menu reproduces the recorded identity-map rows: only global_redeal moves Kalevala `line_fraction`
+          derived ('global_redeal',); the table records 0% differing under within_line_shuffle AND line_permutation
+
+7. THE SECOND RUNNER AGREES WITH THE FIRST
+  PASS  sweep and run_many return the same observation
+          run_many 4.0  sweep 4.0
+  PASS  sweep and run_many draw the SAME replicates (doctrine 66)
+          run_many [0.0, 0.0, 1.0, 0.0]
+          sweep    [0.0, 0.0, 1.0, 0.0]
+  PASS  `keep` is not a coordinate of any statistic here
+          keep='all' [4.0, 0.0]  keep=('true','none') [4.0, 0.0]
+
+8. NEVER_PROVIDED, and the planted floor (doctrines 44, 31/76)
+  PASS  no capability in NEVER_PROVIDED is reachable from a maximally declared stream
+          now provided: []
+  PASS  every NEVER_PROVIDED capability is asked for by a schema, or is a RETIRED entry whose argument is kept in relations.RETIRED_UNPROVIDABLE
+          orphans: []; retired and correctly still listed: ['frequency']
+  PASS  ...and every RETIRED capability is one no schema asks for — the retirement's own claim, checked here as well as in relations.py, because a row nobody re-measures is how this drifted
+          retired ['frequency']; still asked for []
+  PASS  the planted text is a PERMUTATION of the same lines, so it is inside the line_permutation null's own support
+  PASS  the planted floor MOVES the locality statistic (doctrine 76)
+          observed 0.0  planted 1.0 — a null on a statistic that cannot move is not a negative result
+
+9. THE EXTENSION LEDGER (doctrine 48)
+  PASS  the ledger's declared corpus was actually read
+  PASS  every marker in EXTENSION_LEDGER still says what it said
+  PASS  all four unimplemented full figures require implementation
+  PASS  an executable figure with a missing frame asks for a declaration
+  PASS  enjambed rhyme preserves unresolved witnesses instead of reporting zero
+  PASS  enjambed rhyme cannot turn unknown into a numeric null observation 'all'
+  PASS  enjambed rhyme cannot turn unknown into a numeric null observation ('true',)
+  PASS  linked rhyme preserves unresolved witnesses instead of reporting zero
+  PASS  linked rhyme cannot turn unknown into a numeric null observation 'all'
+  PASS  linked rhyme cannot turn unknown into a numeric null observation ('true',)
+  PASS  a determinate negative still yields a measured zero
+  PASS  partial coverage reports confirmed and unresolved counts separately
+  PASS  panel aggregation keeps implementation and reading remedies distinct
+  PASS  an unmeasured panel cannot report an observed absence
+  PASS  a measured zero on one slice cannot erase another slice's uncertainty
+
+==============================================================
+42 checks pass — the constructors reproduce and the floor moves

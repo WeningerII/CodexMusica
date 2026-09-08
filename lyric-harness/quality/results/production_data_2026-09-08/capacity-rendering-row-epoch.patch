@@ -1,0 +1,44 @@
+--- row-proof-4256ce.py
++++ publication-current.py
+@@ -8774,7 +8774,7 @@
+                     detail=[_usage])
+         try:
+             rows = CAP.read_table()
+-        except FileNotFoundError as e:
++        except (FileNotFoundError, ValueError) as e:
+             _refuse(str(e))
+         if top is not None:
+             try:
+@@ -8798,12 +8798,14 @@
+                 print(f"  {r['family']:<14} {r['words']:4} word(s)  "
+                       f"chain_hi {r['chain_hi']:3}  {lo}  e.g. "
+                       f"{' '.join(r['examples'].split()[:5])}")
+-            print(f"  The ceiling of English: only "
++            print(f"  Construction pools: "
+                   f"{sum(1 for r in rows if r['chain_hi'] >= 12)} "
+-                  f"families sustain a 12-chain, "
+-                  f"{sum(1 for r in rows if r['chain_hi'] >= 20)} a "
+-                  f"20-chain — the long dense verse switches families "
+-                  f"because the lexicon forces it")
++                  f"have at least 12 spelling classes; "
++                  f"{sum(1 for r in rows if r['chain_hi'] >= 20)} "
++                  f"have at least 20. These are first-reading upper bounds, "
++                  f"not earned-chain witnesses or a proof that the lexicon "
++                  f"forces a family change. Read chain_lo for the actually "
++                  f"certified witness size.")
+         elif len(rest) == 1 and rest[0].strip():
+             word = rest[0].strip().lower()
+             from quality.revise import Reviser
+@@ -8836,9 +8838,9 @@
+             else:
+                 print(f"  below the certification floor "
+                       f"({CAP.CERTIFY_MIN_CLASSES} classes) — tier-1 "
+-                      f"arithmetic answers alone: at most "
+-                      f"{len(classes)} mutually-earned lines on this "
+-                      f"sound")
++                      f"this construction pool contains "
++                      f"{len(classes)} spelling classes, an upper bound "
++                      f"without an actually certified chain here")
+         else:
+             _refuse("capacity takes one word or --top=N", detail=[_usage])
+ 

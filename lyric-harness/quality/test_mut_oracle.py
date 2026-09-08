@@ -75,8 +75,13 @@ DECL = Declaration()
 #: coordinate of the numbers below (doctrine 58).
 SONNETS = 152
 PAIRS_MANDATED = 1064          # 7 rhyme-mandated pairs x 152 sonnets
-PAIRS_REFUSED = 50             # end word absent from CMUdict: NOT judged
-PAIRS_JUDGED = 1014            # the only legitimate denominator
+PAIRS_REFUSED = battery.EXPECTED["refused"]
+PAIRS_JUDGED = battery.EXPECTED["judged"]
+# 2026-09-08: refusal now also preserves pronunciation disagreement and an
+# unresolved full-schema answer (production_relation_oracle.json). The old
+# 50/1014 literals counted only the earlier lexical gaps. Keep this rendering
+# check tied to the same causally documented oracle as the actual battery;
+# unresolved evidence is not either a pass or a rhyme violation.
 # Reads battery.EXPECTED rather than a second literal (doctrine 48) -- this
 # file held its own copy once and went stale on it when cell BA's
 # coda-identity fix moved the oracle 81 -> 82. History: 73 at theta_coda 0.60,
@@ -126,7 +131,8 @@ def test_sonnet_oracle_headline():
     for frag, why in [
         (f"mandated pairs {PAIRS_MANDATED}", "what the FORM requires"),
         (f"judged {PAIRS_JUDGED}", "the only legitimate denominator"),
-        (f"refused {PAIRS_REFUSED}", "end word absent from CMUdict"),
+        (f"refused {PAIRS_REFUSED}",
+         "lexical gaps, pronunciation disagreements and unresolved schema evidence"),
         (f"violations {VIOLATIONS} ", "the numerator"),
         ("of JUDGED pairs", "the rate must name its denominator"),
     ]:

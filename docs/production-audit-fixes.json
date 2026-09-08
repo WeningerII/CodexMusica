@@ -1,0 +1,2636 @@
+{
+  "report_version": 2,
+  "state": "local_repairs_verified_publication_and_production_gates_pending",
+  "audit_date_utc": "2026-09-08",
+  "audited_commit": "43cb831786e4a0e95b7d98a23b07856f471ed2e9",
+  "audited_tree": "d164923afab1099496813ee42241c1f5e36831f3",
+  "candidate_branch": "codex/production-audit-fixes",
+  "production_qualified": false,
+  "finding_count": 85,
+  "status_counts": {
+    "local_verified": 72,
+    "qualification_pending": 11,
+    "external_action_required": 2
+  },
+  "evidence_policy": "Local evidence is attributed to maintained repository tests and lane reports. Offline stubs, sampled profiles and negative gates do not establish paid-provider creative quality, production CPU/RSS, hosted recovery or live deployment settings. No claim that all 85 original acceptances are complete.",
+  "gates": [
+    {
+      "id": "data_readoption",
+      "status": "completed_locally",
+      "requirement": "Corrected population, all 200 held-out seeds/all 21 bins, all 81 exact rhyme-capacity witnesses, all six adopter snapshots and approved-only local assembly checks are complete. Actual current Python 3.12 installed receipt admission passes. The production Docker 3.11 image must independently generate and validate its own proof.",
+      "findings": ["DATA-04", "DATA-05", "DATA-06", "DATA-07"]
+    },
+    {
+      "id": "cpu_memory_capacity",
+      "status": "exact_image_qualification_pending",
+      "requirement": "All six predeclared local maximum-size samples completed: 12 graded calls and 12 deferred repairs stayed inside 600 seconds and preserved authenticated results. Exact per-run source changes and ambient load are disclosed. Qualify the complete 18-sample combined Node/Python/cache/queue matrix in the exact image under 1 CPU / 2 GiB; local component measurements cannot establish that gate.",
+      "findings": ["H-09", "DEP-06"]
+    },
+    {
+      "id": "trusted_release",
+      "status": "pending_external_settings",
+      "requirement": "Protect main and remove the existing untested Git-backed production release path; migrate obsolete overrides. Run every required trusted CI job, including the separate full revision-loop matrix, and complete production qualification; promote the exact tested image and verify live identity/readiness.",
+      "findings": ["DEP-02", "DEP-03", "DEP-04", "BCI-05", "BCI-06"]
+    },
+    {
+      "id": "fresh_autonomous_song",
+      "status": "pending",
+      "requirement": "On the same deployed build, qualify fresh brief-to-plan-to-song delivery, actual accepted repair, real wall checkpoint/continuation and hosted archive restore after runner loss. Run maintained acceptance oracle; then enable paid schedules.",
+      "findings": ["REG-01", "BCI-03", "BCI-09", "BCI-10", "BCI-12"]
+    }
+  ],
+  "findings": [
+    {
+      "id": "CON-01",
+      "severity": "P1",
+      "title": "The custom Codex bridge omits initialization guidance and suppresses discovery descriptions",
+      "status": "local_verified",
+      "owner": "root",
+      "change": "Maintained native/scoped client forwards complete initialization instructions and discovery contracts and refuses drift or missing guidance.",
+      "implementation_paths": ["mcp/client.js", "scripts/connector_client.mjs"],
+      "test_paths": ["mcp/test_connector_contracts.mjs"],
+      "local_evidence": "Root boundary integration: 39 tests pass, including connector contracts, chat and creation workflow. No live deployment.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Capture the actual model-bound request for each supported host, prove expected init text and descriptions reach it, and prove removing guidance fails an integration gate. Run from a fresh checkout without session-only bridge code.",
+      "original_test_gap": "Repository tests exercise buildSurface using the maintained adapter, not the session-specific custom client. Successful connection/tools/call and saved schemas do not prove that the driving model received instructions or descriptions."
+    },
+    {
+      "id": "CON-02",
+      "severity": "P1",
+      "title": "No trusted task scope prevents recipe-only requests from executing lyric tools",
+      "status": "local_verified",
+      "owner": "root",
+      "change": "Host-owned task domain filters instructions, discovery and dispatch; new lyric creation additionally requires actual ordered workflow receipts. A completed but uncertified grade may enter repair only with a coherent authenticated requested-layer coverage ledger; before-measurement refusals cannot establish that workflow step.",
+      "implementation_paths": ["mcp/task_contract.js", "mcp/tools.js", "mcp/lyric_workflow.js"],
+      "test_paths": [
+        "mcp/test_connector_contracts.mjs",
+        "mcp/test_chat_production.mjs",
+        "mcp/test_lyric_workflow.mjs"
+      ],
+      "local_evidence": "Root boundary integration: 39 tests pass, including connector contracts, chat and creation workflow. No live deployment.",
+      "remaining": "The task guarantee requires a scoped native endpoint or host-owned kitchen task retained outside model arguments. The legacy combined endpoint has no host-owned task guarantee. Actual supported-host and deployed acceptance remain required; tool output cannot constrain arbitrary prose written outside a complying host.",
+      "original_acceptance": "Use the actual user brief and adversarial mock calls: recipe-only can customize and renderRich<=1000, lyric_sweep/plan/revise and a model attempt to broaden scope cannot execute. A new user-requested lyrics task works independently. No forced recipe-to-lyrics bridge.",
+      "original_test_gap": "Schema/transport tests check valid arguments, not whether a user recipe request authorizes those calls. Existing tests intentionally establish only local recipe/lyrics data separation."
+    },
+    {
+      "id": "CON-03",
+      "severity": "P1",
+      "title": "The newline-string recover input deletes the structure it is supposed to recover",
+      "status": "local_verified",
+      "owner": "root",
+      "change": "Newline recovery input retains raw section rows; array and string forms recover the same structural information. Conflicting array/string aliases and embedded line separators are refused before worker dispatch.",
+      "implementation_paths": ["mcp/lyric_tools.js"],
+      "test_paths": ["mcp/test_connector_contracts.mjs"],
+      "local_evidence": "Root boundary integration: 39 tests pass, including connector contracts, chat and creation workflow. No live deployment.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Through actual MCP SDK, marked and blank-separated versions supplied as array and text must recover identical sections, sung-line counts, mandates and refusal sets, including CRLF and ordinary surrounding whitespace.",
+      "original_test_gap": "mcp/test.mjs:1333-1340 pins stripping for a generic draft and tests array priority;1396-1405 checks source text for takeLines calls. The live recover test at5736-5763 uses unmarked array lyrics and expects section refusal, so it cannot detect lost markers."
+    },
+    {
+      "id": "CON-04",
+      "severity": "P1",
+      "title": "Recover cannot declare sung parentheses; voices:true is silently stripped",
+      "status": "local_verified",
+      "owner": "root",
+      "change": "Recovery accepts and carries the declared sung-parentheses coordinate instead of stripping voices.",
+      "implementation_paths": ["mcp/lyric_tools.js"],
+      "test_paths": ["mcp/test_connector_contracts.mjs"],
+      "local_evidence": "Root boundary integration: 39 tests pass, including connector contracts, chat and creation workflow. No live deployment.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "SDK recovery with voices false/true must match corresponding CLI outputs and subsequent check/revise declarations; a typo in the field should not silently turn the declaration off.",
+      "original_test_gap": "mcp/test.mjs:606-624 explicitly enumerates grade/revise/verify/check for voices and omits recover. Outer Zod object strips the unsupported property instead of reporting a typo/unsupported declaration."
+    },
+    {
+      "id": "CON-05",
+      "severity": "P1",
+      "title": "The recovered mandate cannot be passed onward for returns-only songs",
+      "status": "local_verified",
+      "owner": "root",
+      "change": "Check, verify and revise admit a nonempty returns-only declaration; CLI preserves identity obligations without inventing rhyme.",
+      "implementation_paths": [
+        "mcp/lyric_tools.js",
+        "lyric-harness/quality/schemes.py",
+        "lyric-harness/lyric_harness.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_revision.py",
+        "lyric-harness/quality/test_production_harness.py",
+        "mcp/test.mjs"
+      ],
+      "local_evidence": "Lane reports 12 production harness tests plus actual CLI, bounded-allocation and real worker continuation checks. Capacity is a separate open gate.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Real connector end-to-end tests for rhyme+returns, returns-only, rhyme-only, and no recovered relation; preserve actual constraints and account for every refused layer. Returns-only must verify changed/repeated lines meaningfully without invented rhyme.",
+      "original_test_gap": "The live recover fixture asserts mandate.groups.length>0 at mcp/test.mjs:5750 and never passes a returns-only/empty recovered mandate through the next public tools. Existing all-free-rhyme refusals guard vacuity but do not establish a usable returns-only path."
+    },
+    {
+      "id": "CON-06",
+      "severity": "P1",
+      "title": "Claude Code Stop hook does not enforce exact or truthful song delivery",
+      "status": "local_verified",
+      "owner": "revision",
+      "change": "Stop hook detects Markdown-wrapped headers, validates complete stamps, preserves last text across tool-only messages, rechecks active repeats, requires exact presentation_text from a correlated real lyric_revise tool_result and typed draft hash/status.",
+      "implementation_paths": [
+        "lyric-harness/quality/check_render_form.py",
+        ".claude/render_form_hook.sh"
+      ],
+      "test_paths": ["lyric-harness/quality/test_render_form.py"],
+      "local_evidence": "Full hook suite passes including actual shell hook, active retry, counterfeit/mismatched receipt and exact artifact controls.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Mutate one lyric word, a section header, stamp prefix, provenance/exit status and Markdown wrapping; none may be delivered as certified original output. An unchanged bad retry must remain undelivered. A parked/noncertified tool result must never become a finished certified answer. See chat_state_audit for maintained Gemini final-reply reproduction.",
+      "original_test_gap": "test_render_form.py:174-195 deliberately asserts the invalid retry is accepted. Test fixtures cover exact uppercase plain brackets and sample stamps; they do not compare delivered text with the actual tool artifact or cover a trailing tool-use record."
+    },
+    {
+      "id": "CON-07",
+      "severity": "P2",
+      "title": "The deployment surface comparator ignores initialization instructions and safety annotations",
+      "status": "local_verified",
+      "owner": "root",
+      "change": "Surface identity includes initialization instructions/capabilities, full tool schema and safety annotations.",
+      "implementation_paths": ["mcp/surface_contract.js", "mcp/check_live.mjs"],
+      "test_paths": ["mcp/test_connector_contracts.mjs"],
+      "local_evidence": "Root boundary integration: 39 tests pass, including connector contracts, chat and creation workflow. No live deployment.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Changing only LYRIC_INSTRUCTIONS, readOnlyHint, idempotentHint or openWorldHint on the served side must make the offline drift gate fail; pure key/tool ordering must still match. Missing instructions must be distinguished from an empty intentional instruction contract.",
+      "original_test_gap": "Tests construct surf from only name,description,inputSchema, then exercise exactly those fields. Instruction/annotation coordinates are structurally removed before testing."
+    },
+    {
+      "id": "CON-08",
+      "severity": "P1",
+      "title": "The real-model recipe probe can pass with no recipe in its final answer",
+      "status": "local_verified",
+      "owner": "root",
+      "change": "Recipe probe requires the exact delivered Rich artifact, its 1000-character ceiling and actual declared edits before success.",
+      "implementation_paths": ["scripts/recipe_probe_verdict.mjs", "scripts/probe_gemini.mjs"],
+      "test_paths": ["mcp/test_connector_contracts.mjs"],
+      "local_evidence": "Root boundary integration: 39 tests pass, including connector contracts, chat and creation workflow. No live deployment.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "The current synthetic wrong-delivery trace must fail. A correct Rich artifact must pass; omitted/substituted recipe, appended lyrics, stale earlier recipe and unexpected lyric call must fail. Test both mocked control flow and bounded real-host delivery.",
+      "original_test_gap": "verbatim is explicitly not a pass criterion. Even if enabled as written, reply.includes(lastRecipe) admits arbitrary appended lyrics and extra prose. Pass only requires no recorded tool error, threading, successful edits and at least one edit."
+    },
+    {
+      "id": "CON-09",
+      "severity": "P1",
+      "title": "Discovery and privacy entry points contradict the stateful paid lyrics surface",
+      "status": "local_verified",
+      "owner": "root",
+      "change": "Discovery, privacy and runtime documentation describe paid stateful lyric execution and retained recovery capabilities.",
+      "implementation_paths": [
+        "PRIVACY.md",
+        "docs/connector.md",
+        "mcp/LYRICS_RUNTIME.md",
+        "AGENTS.md",
+        "scripts/build_discovery.js",
+        "server.json",
+        "llms.txt"
+      ],
+      "test_paths": [],
+      "local_evidence": "Generated discovery version is 3.0.0 and matches the real HTTP card; descriptions disclose paid stateful lyric tools. Fresh generated HTML matches the source build.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "After generation, every public discovery/privacy/tool inventory entry agrees with actual handshake/annotations and provider/storage behavior. A fixture that adds an external-writing tool cannot leave a readonly/no-egress claim green.",
+      "original_test_gap": "Catalog-generated freshness and count gates preserve stale authored phrases; local annotation tests do not scan all advertised statements. No gate enforces agreement among root policy, MCP policy, server card, directory submission and actual tools."
+    },
+    {
+      "id": "CON-10",
+      "severity": "P2",
+      "title": "Word tools reject typographic apostrophes that the harness normalizes",
+      "status": "local_verified",
+      "owner": "root",
+      "change": "Word inputs normalize typographic apostrophes consistently with the harness.",
+      "implementation_paths": ["mcp/lyric_tools.js"],
+      "test_paths": ["mcp/test.mjs"],
+      "local_evidence": "Maintained MCP offline checks-only suite reports 134 passed; this excludes real harness execution.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Both spellings of common contractions/elisions produce identical screen/types judgments and argument semantics; spaces or leading option markers remain rejected. Include U+2019 copied from user text.",
+      "original_test_gap": "Word validation tests use plain ASCII examples and do not prove typography parity across word/draft intake. WORD_RE contains a duplicated straight apostrophe rather than U+2019."
+    },
+    {
+      "id": "CON-11",
+      "severity": "P2",
+      "title": "Advertised 2MiB state fields exceed the 2MiB HTTP request ceiling",
+      "status": "local_verified",
+      "owner": "root",
+      "change": "Versioned bounded state codec, declaration bounds and pre-writer journal reservation preserve exact accepted work before capacity stops.",
+      "implementation_paths": [
+        "mcp/state_codec.js",
+        "mcp/payload_limits.js",
+        "lyric-harness/lyric_harness.py"
+      ],
+      "test_paths": [
+        "mcp/test_state_codec.mjs",
+        "mcp/test_deferred_continuation.mjs",
+        "lyric-harness/quality/test_production_journal.py"
+      ],
+      "local_evidence": "Maximum 512 KiB decoded journals with adversarial quote/backslash content export below the serialized 2 MiB MCP ceiling. Actual HTTP all/journal exports persist and reopen exactly below the 4 MiB response and 8 MiB receipt ceilings. Original journals/drafts are recovered without Python dispatch.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "A maximum supported returned checkpoint must round-trip through real HTTP with its required declarations/draft at worst supported encoding. Oversized cases must be refused before paid work with a usable recovery outcome and machine-readable error, not first discovered on resume.",
+      "original_test_gap": "Field limits are tested as character counts independently of encoded HTTP body size; normal small resumed fixtures do not probe the joint request envelope. See chat_state_audit for a distinct real4MiB receipt overflow after admitted chat work."
+    },
+    {
+      "id": "CON-12",
+      "severity": "P1",
+      "title": "Echoed lyric text is parsed as authoritative banned-pair findings",
+      "status": "local_verified",
+      "owner": "root",
+      "change": "Only authenticated machine findings and artifact metadata reach the connector verdict; lyric report prose cannot supply findings.",
+      "implementation_paths": ["mcp/lyric_tools.js", "lyric-harness/lyric_harness.py"],
+      "test_paths": [
+        "mcp/test_connector_contracts.mjs",
+        "lyric-harness/quality/test_production_revision.py"
+      ],
+      "local_evidence": "Root boundary integration: 39 tests pass, including connector contracts, chat and creation workflow. No live deployment.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Real SDK tests using report/stamp/count/refusal-like text in lyrics and titles must leave authoritative findings identical to the actual grader records; nonexistent line references must never emerge. Preserve true banned findings and do not simply suppress all matches.",
+      "original_test_gap": "Result-extractor unit tests supply synthetic correctly formatted report records. They do not include user lyrics/title text containing report syntax, and live simple fixtures do not collide with the unanchored regex."
+    },
+    {
+      "id": "CS01",
+      "severity": "P1",
+      "title": "Gemini injects the mandatory lyric workflow into fresh recipe-only conversations",
+      "status": "local_verified",
+      "owner": "chat",
+      "change": "Host task controls instructions, declarations and dispatch; recipe creation requires edit, Rich output <=1000; explicit stock browsing remains available.",
+      "implementation_paths": [
+        "mcp/chat.js",
+        "mcp/gemini_agent.js",
+        "mcp/job_store.js",
+        "mcp/run_store.js",
+        "src/app.js"
+      ],
+      "test_paths": [
+        "mcp/test_chat_production.mjs",
+        "mcp/test_run_continuation.mjs",
+        "mcp/test_turn_lifecycle.mjs"
+      ],
+      "local_evidence": "Lane reports 16 chat production tests; real MCP/Python run identity, cancellation and continuation tests pass. No paid call.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Capture first and later provider requests for recipe-only, lyric-only, and explicit task-switch conversations. Recipe-only contains no mandatory lyric instructions and attempted lyric dispatch is rejected before execution; legitimate lyric workflows retain their guidance.",
+      "original_test_gap": "Existing skipped-step tests require the reminder on an empty Set, but never supply a recipe-only user request or task domain. They encode the unconditional behavior as success."
+    },
+    {
+      "id": "CS02",
+      "severity": "P1",
+      "title": "The shipped browser chat never opts into durable request recovery and discards error continuations",
+      "status": "local_verified",
+      "owner": "chat",
+      "change": "Browser persists request capabilities before dispatch, recovers receipts on loss/reload, preserves signed error continuations, honors Retry-After, follows one-successor durable continuations and restores exact artifacts.",
+      "implementation_paths": [
+        "mcp/chat.js",
+        "mcp/gemini_agent.js",
+        "mcp/job_store.js",
+        "mcp/run_store.js",
+        "src/app.js"
+      ],
+      "test_paths": [
+        "mcp/test_chat_production.mjs",
+        "mcp/test_run_continuation.mjs",
+        "mcp/test_turn_lifecycle.mjs"
+      ],
+      "local_evidence": "Lane reports 16 chat production tests; real MCP/Python run identity, cancellation and continuation tests pass. No paid call.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Drive the actual UI through successful response loss, 524/network failure, reload while pending, server restart, and an error with advanced signed state. Each request has one stable identity; completed work is recovered once; uncertain outcomes stop; refresh resumes from retained state. Honor both HTTP Retry-After and partial-turn retry_after_ms, retaining the unsatisfied request without immediate redispatch.",
+      "original_test_gap": "Job-store and lifecycle tests use purpose-built HTTP drivers that add request_id and inspect recovery payloads. They do not drive the shipped _chatSubmit function or reload its state."
+    },
+    {
+      "id": "CS03",
+      "severity": "P1",
+      "title": "Final chat completion and displayed lyrics are not bound to the harness verdict or exact artifact",
+      "status": "local_verified",
+      "owner": "chat",
+      "change": "Only current authoritative lyric_revise exit0 + certified verdict + matching full draft hash can create completion. Exact presentation is delivered and copied; parked and model-fabricated finished text cannot replace it.",
+      "implementation_paths": [
+        "mcp/chat.js",
+        "mcp/gemini_agent.js",
+        "mcp/job_store.js",
+        "mcp/run_store.js",
+        "src/app.js"
+      ],
+      "test_paths": [
+        "mcp/test_chat_production.mjs",
+        "mcp/test_run_continuation.mjs",
+        "mcp/test_turn_lifecycle.mjs"
+      ],
+      "local_evidence": "Lane reports 16 chat production tests; real MCP/Python run identity, cancellation and continuation tests pass. No paid call.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "After parked, uncertified, suspended and interrupted results, a mock model's finished claim never becomes the product verdict. After a certified result, a changed word in the model reply cannot change the delivered artifact. Browser display and copy preserve exact line breaks, section marks, text and stamp.",
+      "original_test_gap": "Tests prove parked state and coverage are carried, not that an adversarial next model response cannot falsely declare completion or change the delivered song. The browser's lyric artifact rendering is not exercised by those tests."
+    },
+    {
+      "id": "CS04",
+      "severity": "P2",
+      "title": "Missing candidates and exhausted malformed-call retries leave empty model turns in continuation",
+      "status": "local_verified",
+      "owner": "chat",
+      "change": "Blocked, missing, empty and exhausted malformed responses stop explicitly without appending empty model turns; malformed stop metadata is retained.",
+      "implementation_paths": [
+        "mcp/chat.js",
+        "mcp/gemini_agent.js",
+        "mcp/job_store.js",
+        "mcp/run_store.js",
+        "src/app.js"
+      ],
+      "test_paths": [
+        "mcp/test_chat_production.mjs",
+        "mcp/test_run_continuation.mjs",
+        "mcp/test_turn_lifecycle.mjs"
+      ],
+      "local_evidence": "Lane reports 16 chat production tests; real MCP/Python run identity, cancellation and continuation tests pass. No paid call.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Exercise promptFeedback-only, candidates:[], absent content, parts:[], malformed content and valid text/tool responses. Invalid/blocked responses disclose the actual reason, never report a successful blank turn, and return a provider-valid continuation.",
+      "original_test_gap": "Provider mocks mostly emit one well-formed candidate; tests focus on finishReason, malformed function-call retries, and HTTP failures. They do not validate no-candidate HTTP200 responses before adding history. The no-empty-model-turn assertion is only in the recovered malformed case; the exhausted case checks retry counters and stop reason but not returned history."
+    },
+    {
+      "id": "CS05",
+      "severity": "P1",
+      "title": "History pruning can erase the original creative brief and the only current plan",
+      "status": "local_verified",
+      "owner": "chat",
+      "change": "Canonical brief, accepted user instructions, current plan, completed workflow steps and monotonic conversation turn count are signed outside prunable observations.",
+      "implementation_paths": [
+        "mcp/chat.js",
+        "mcp/gemini_agent.js",
+        "mcp/job_store.js",
+        "mcp/run_store.js",
+        "src/app.js"
+      ],
+      "test_paths": [
+        "mcp/test_chat_production.mjs",
+        "mcp/test_run_continuation.mjs",
+        "mcp/test_turn_lifecycle.mjs"
+      ],
+      "local_evidence": "Lane reports 16 chat production tests; real MCP/Python run identity, cancellation and continuation tests pass. No paid call.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Run long multi-turn fixtures beyond the actual pruning threshold, including newer turns that only say continue. Assert each provider request still has the exact original brief/current plan, every tool group is paired, prior verdicts remain attributable, and turn admission count does not reset when history is pruned.",
+      "original_test_gap": "Existing tests explicitly accept dropping the oldest turn and retaining only CONTINUE under pressure. They assert structure/size/idempotence but no preservation of original intent or a currently needed plan."
+    },
+    {
+      "id": "CS06",
+      "severity": "P1",
+      "title": "An admitted envelope can overflow its final receipt and disable all new chat work",
+      "status": "local_verified",
+      "owner": "chat",
+      "change": "Receipts reserve completion space, enforce serialized byte bounds, clear redundant terminal checkpoint payloads and distinguish expected capacity refusal from broken persistence. Durable continuation capabilities avoid large POST/localStorage copies.",
+      "implementation_paths": [
+        "mcp/chat.js",
+        "mcp/gemini_agent.js",
+        "mcp/job_store.js",
+        "mcp/run_store.js",
+        "src/app.js"
+      ],
+      "test_paths": [
+        "mcp/test_chat_production.mjs",
+        "mcp/test_run_continuation.mjs",
+        "mcp/test_turn_lifecycle.mjs"
+      ],
+      "local_evidence": "Lane reports 16 chat production tests; real MCP/Python run identity, cancellation and continuation tests pass. No paid call.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "At maximum admitted ASCII, escaped JSON and multibyte inputs, actual ChatRouter+JobRouter must either refuse before any provider dispatch or durably store the final response and continuation. A legal-sized request cannot latch the whole service off. Include growth from intermediate tool/proposal checkpoints.",
+      "original_test_gap": "Existing tiny-cap and disk-failure tests verify fail-closed behavior, but do not test whether the endpoint's maximum admissible envelope can complete through the real receipt lifecycle at default caps."
+    },
+    {
+      "id": "CS07",
+      "severity": "P2",
+      "title": "Reset during an in-flight browser request resurrects the discarded conversation",
+      "status": "local_verified",
+      "owner": "chat",
+      "change": "Conversation generation discards late old responses after Reset; prior capability stays in Saved runs, and old finalizers cannot overwrite active state.",
+      "implementation_paths": [
+        "mcp/chat.js",
+        "mcp/gemini_agent.js",
+        "mcp/job_store.js",
+        "mcp/run_store.js",
+        "src/app.js"
+      ],
+      "test_paths": [
+        "mcp/test_chat_production.mjs",
+        "mcp/test_run_continuation.mjs",
+        "mcp/test_turn_lifecycle.mjs"
+      ],
+      "local_evidence": "Lane reports 16 chat production tests; real MCP/Python run identity, cancellation and continuation tests pass. No paid call.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Reset while provider/tool work is pending, then complete or fail the old response. The new conversation stays empty/independent, old work remains recoverable by its request capability, and no late finally/response handler corrupts the new request's busy state.",
+      "original_test_gap": "No actual UI delayed-response/reset interleaving exists in the backend lifecycle suites."
+    },
+    {
+      "id": "CS08",
+      "severity": "P1",
+      "title": "Concurrent continuations of the same run execute from stale state and overwrite each other",
+      "status": "local_verified",
+      "owner": "chat",
+      "change": "Tool run lock spans read through write; run_revision is required, versioned and checked. Durable chat parent receipts accept one successor before provider dispatch. Cache count pressure and TTL sweeps also preserve an in-flight locked record; final writes cannot reset its revision and make an old revision current again.",
+      "implementation_paths": [
+        "mcp/chat.js",
+        "mcp/gemini_agent.js",
+        "mcp/job_store.js",
+        "mcp/run_store.js",
+        "src/app.js"
+      ],
+      "test_paths": [
+        "mcp/test_chat_production.mjs",
+        "mcp/test_run_continuation.mjs",
+        "mcp/test_turn_lifecycle.mjs"
+      ],
+      "local_evidence": "Run serialization and stale-continuation tests pass, including count-pressure and TTL reproductions where active cache eviction previously reset revision 2 to 1.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Race identical and different answers/checkpoints against one run using independent MCP clients and HTTP chat clients. Exactly one stale-version operation executes or the second resumes the newly committed state under explicit semantics. No accepted journal entry is overwritten; mocked kitchen provider dispatch counts prove duplicate proposals cannot be issued.",
+      "original_test_gap": "Existing tests prove that distinct opaque runs with the same seed are isolated, but do not submit simultaneous continuations of one opaque run or assert a version conflict before work starts."
+    },
+    {
+      "id": "CS09",
+      "severity": "P1",
+      "title": "Suspended runs accept a replaced original draft and changes to omitted default declarations",
+      "status": "local_verified",
+      "owner": "chat",
+      "change": "Effective defaults and original replay input are immutable; newly supplied declarations absent at run creation are rejected. Explicit new runs and parked rewrites remain distinct.",
+      "implementation_paths": [
+        "mcp/chat.js",
+        "mcp/gemini_agent.js",
+        "mcp/job_store.js",
+        "mcp/run_store.js",
+        "src/app.js"
+      ],
+      "test_paths": [
+        "mcp/test_chat_production.mjs",
+        "mcp/test_run_continuation.mjs",
+        "mcp/test_turn_lifecycle.mjs"
+      ],
+      "local_evidence": "Lane reports 16 chat production tests; real MCP/Python run identity, cancellation and continuation tests pass. No paid call.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "For every declaration, omitted-default then explicit-different must be rejected before execution on a continuation. Replacing suspended original draft while answering its pending question must be refused with the cached input preserved. Explicit new runs and legitimate parked rewrites must still work; accepted journal entries remain attributable to their original draft and declaration.",
+      "original_test_gap": "Moved-declaration tests compare explicitly recorded fields. Draft carry tests cover omitted drafts and parked same-draft rejection, not replacing a suspended run's original draft. Pure helper reproduction by revision audit was strengthened here to real harness integration."
+    },
+    {
+      "id": "CS10",
+      "severity": "P2",
+      "title": "Quota retries consume the separate transient-error retry allowance",
+      "status": "local_verified",
+      "owner": "chat",
+      "change": "Quota and transient retry counters are independent under the same deadline and paid reservations; providerAttempts counts every dispatch.",
+      "implementation_paths": [
+        "mcp/chat.js",
+        "mcp/gemini_agent.js",
+        "mcp/job_store.js",
+        "mcp/run_store.js",
+        "src/app.js"
+      ],
+      "test_paths": [
+        "mcp/test_chat_production.mjs",
+        "mcp/test_run_continuation.mjs",
+        "mcp/test_turn_lifecycle.mjs"
+      ],
+      "local_evidence": "Lane reports 16 chat production tests; real MCP/Python run identity, cancellation and continuation tests pass. No paid call.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Mixed429/5xx sequences honor each declared retry allowance independently while total waits, turn deadline and model reservations remain bounded; the reproduced sequence reaches its next200 when admission still allows it.",
+      "original_test_gap": "Existing tests exercise429 recovery and503 retry behavior separately; none crosses both response classes in one model hop."
+    },
+    {
+      "id": "H-01",
+      "severity": "P1",
+      "title": "Explicit global relations bypass planner satisfiability checks and produce impossible songs",
+      "status": "local_verified",
+      "owner": "harness",
+      "change": "Explicit global schemas traverse identical placement, cardinality, finite-domain and channel-closure feasibility filters as generated group schemas; independent joint gate resolves global defaults; writer brief carries global relation.",
+      "implementation_paths": [
+        "lyric-harness/quality/plan.py",
+        "lyric-harness/quality/meter.py",
+        "lyric-harness/quality/fit.py",
+        "lyric-harness/quality/schemes.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_harness.py",
+        "lyric-harness/quality/test_plan.py",
+        "lyric-harness/quality/test_fit.py"
+      ],
+      "local_evidence": "Lane reports 12 production harness tests plus actual CLI, bounded-allocation and real worker continuation checks. Capacity is a separate open gate.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "The exact semirhyme, internal-rhyme and anaphora requests either produce satisfiable compatible plans or promptly name the conflicting constraint. Adversarial tests exercise every effective relation route, including global defaults and per-group overrides.",
+      "original_test_gap": "Auto-sampled per-group relation guards are exercised; a caller-supplied global relation skips that branch, and the independent joint gate reads only the per-group relation map."
+    },
+    {
+      "id": "H-02",
+      "severity": "P1",
+      "title": "A legal bridge-only function roster traps the planner in an unbounded loop",
+      "status": "local_verified",
+      "owner": "harness",
+      "change": "Finite eligible-cell selection rejects exhausted once-only rosters; bridge-only24 line request finishes with named refusal without process termination.",
+      "implementation_paths": [
+        "lyric-harness/quality/plan.py",
+        "lyric-harness/quality/meter.py",
+        "lyric-harness/quality/fit.py",
+        "lyric-harness/quality/schemes.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_harness.py",
+        "lyric-harness/quality/test_plan.py",
+        "lyric-harness/quality/test_fit.py"
+      ],
+      "local_evidence": "Lane reports 12 production harness tests plus actual CLI, bounded-allocation and real worker continuation checks. Capacity is a separate open gate.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Enumerate singleton/small rosters and bounded length requests; every impossible combination returns a named refusal without relying on process termination.",
+      "original_test_gap": "Normal mixed rosters always leave a non-bridge cell available. Existing refusal tests do not cover a once-only singleton roster with a multi-cell draw."
+    },
+    {
+      "id": "H-03",
+      "severity": "P1",
+      "title": "Tiny blueprint numbers can trigger huge eager allocations before the tool deadline",
+      "status": "local_verified",
+      "owner": "harness",
+      "change": "Shared exact numeric validation, 256-bit rational coordinate budget, 100000 expanded position/bar/slot budget, 1000000 DP-cell budget, rolling-row DP, aggregate song preflight; huge40 million-slot request refuses under128MiB process.",
+      "implementation_paths": [
+        "lyric-harness/quality/plan.py",
+        "lyric-harness/quality/meter.py",
+        "lyric-harness/quality/fit.py",
+        "lyric-harness/quality/schemes.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_harness.py",
+        "lyric-harness/quality/test_plan.py",
+        "lyric-harness/quality/test_fit.py"
+      ],
+      "local_evidence": "Lane reports 12 production harness tests plus actual CLI, bounded-allocation and real worker continuation checks. Capacity is a separate open gate.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Small requests containing extreme finite values, huge integers and malformed/non-finite dimensions return bounded named refusals under a low-memory process. Normal fractional durations and supported cycles retain exact behavior.",
+      "original_test_gap": "Payload byte and line-count limits do not measure expanded slots, heads, uncovered bars, or the units-by-slots DP table. Existing meter tests cover small valid cycles."
+    },
+    {
+      "id": "H-04",
+      "severity": "P1",
+      "title": "The fit reader silently discards sung text while marking the count certain",
+      "status": "local_verified",
+      "owner": "harness",
+      "change": "NFC lexical token accounting includes all sung scripts, punctuation-separated words, consistent parenthetical exclusion, full lexical unit indices and compound pieces. English ambiguous counts are explicitly refused, stress ambiguity preserved. Sanskrit uses authoritative mapped line analysis.",
+      "implementation_paths": [
+        "lyric-harness/quality/plan.py",
+        "lyric-harness/quality/meter.py",
+        "lyric-harness/quality/fit.py",
+        "lyric-harness/quality/schemes.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_harness.py",
+        "lyric-harness/quality/test_plan.py",
+        "lyric-harness/quality/test_fit.py"
+      ],
+      "local_evidence": "Lane reports 12 production harness tests plus actual CLI, bounded-allocation and real worker continuation checks. Capacity is a separate open gate.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Every lexical chunk has a recorded disposition; NFC/NFD equivalents grade equivalently; punctuation-separated valid words survive; unsupported script cannot leave certain=true. Add whole-grade regressions for the same texts.",
+      "original_test_gap": "Tests exercise explicit Latin OOV/numerals and standalone phonology rules; they do not establish text conservation across the fit reader, normalization and per-language tokenization."
+    },
+    {
+      "id": "H-05",
+      "severity": "P1",
+      "title": "Relation endpoints move to the last readable token when the declared final word is unreadable",
+      "status": "local_verified",
+      "owner": "relations",
+      "change": "Actual lexical first/final ordinals retained despite unreadable tokens; scalar raw endpoint includes nonLatin printed words and refuses vowelless final tokens rather than borrowing earlier syllables.",
+      "implementation_paths": [
+        "lyric-harness/quality/relations.py",
+        "lyric-harness/quality/rhyme_types.py",
+        "lyric-harness/quality/phonology/eng.py",
+        "lyric-harness/quality/phonology/san.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_relations.py",
+        "lyric-harness/quality/test_relation_shapes.py",
+        "lyric-harness/quality/test_homograph.py"
+      ],
+      "local_evidence": "Lane reports 18 production counterexamples and maintained relation/phonology suites; coverage oracle re-derived with explicit refusals.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Adding an unreadable final token cannot preserve a positive end-rhyme verdict; interior unreadability only refuses relations that depend on it. Pair, instance, screen and whole-grade routes agree on the resolved span.",
+      "original_test_gap": "The scalar Latin-OOV path does refuse, so tests on that route miss the relation stream's separate readable-token projection. Standalone all-consonant-word coverage does not test a readable prefix."
+    },
+    {
+      "id": "H-06",
+      "severity": "P2",
+      "title": "Blueprint validation silently changes coordinates and accepts impossible group compositions",
+      "status": "local_verified",
+      "owner": "harness",
+      "change": "Both blueprint readers share validate_blueprint; third CLI reader delegates. Fractions retained in meter/beat/duration; fractional bar indices, invalid groups, missing/unknown/ambiguous owners refuse. Unique explicit owner outside its bar remains declared and fit reports overflow, without reassignment.",
+      "implementation_paths": [
+        "lyric-harness/quality/plan.py",
+        "lyric-harness/quality/meter.py",
+        "lyric-harness/quality/fit.py",
+        "lyric-harness/quality/schemes.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_harness.py",
+        "lyric-harness/quality/test_plan.py",
+        "lyric-harness/quality/test_fit.py"
+      ],
+      "local_evidence": "Lane reports 12 production harness tests plus actual CLI, bounded-allocation and real worker continuation checks. Capacity is a separate open gate.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Malformed blueprint matrix exercises every field and each public reader/verb; all readers either preserve identical declared coordinates or return the same actionable refusal without traceback.",
+      "original_test_gap": "Readers share validation of meter being an object, but no complete schema validates exact numeric types, positivity, referential ownership, and graph consistency."
+    },
+    {
+      "id": "H-07",
+      "severity": "P2",
+      "title": "Shipped English phonology still resolves homographs to one reading; tests close the gap only in test subclasses",
+      "status": "local_verified",
+      "owner": "relations",
+      "change": "Registered English merges all CMU readings; explicitfirst policy remains available. Relation and scalar comparisons retain uncertainty; memos key actual phonological declaration and lexical/syllable coordinates.",
+      "implementation_paths": [
+        "lyric-harness/quality/relations.py",
+        "lyric-harness/quality/rhyme_types.py",
+        "lyric-harness/quality/phonology/eng.py",
+        "lyric-harness/quality/phonology/san.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_relations.py",
+        "lyric-harness/quality/test_relation_shapes.py",
+        "lyric-harness/quality/test_homograph.py"
+      ],
+      "local_evidence": "Lane reports 18 production counterexamples and maintained relation/phonology suites; coverage oracle re-derived with explicit refusals.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Real connector requests for lexical homographs produce a conditional or undecided result unless a reading is declared, while unambiguous readings and legitimate pronunciation alternatives remain supported. Tests use the registered production phonology.",
+      "original_test_gap": "The uncertainty representation and predicates are tested with injected knowledge sets; shipped English remains intentionally unchanged. There is no shipped reading-selection coordinate that makes those tests prove production behavior."
+    },
+    {
+      "id": "H-08",
+      "severity": "P2",
+      "title": "Reopening a mandate bypasses length validation and ignores a rule-only update",
+      "status": "local_verified",
+      "owner": "harness",
+      "change": "Mandate constructor validates references and aligned metadata on every route; reopen length mismatch always refuses; explicit rule-only and empty-coordinate updates honored. Explicit returns-only identity mandates are admitted without inventing rhyme groups; identity members are not free.",
+      "implementation_paths": [
+        "lyric-harness/quality/plan.py",
+        "lyric-harness/quality/meter.py",
+        "lyric-harness/quality/fit.py",
+        "lyric-harness/quality/schemes.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_harness.py",
+        "lyric-harness/quality/test_plan.py",
+        "lyric-harness/quality/test_fit.py"
+      ],
+      "local_evidence": "Lane reports 12 production harness tests plus actual CLI, bounded-allocation and real worker continuation checks. Capacity is a separate open gate.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Cross-product tests cover idempotent/reopen/direct construction and changed length, groups, scope, returns, structures, relations and rules. Invalid references always refuse before indexing a draft.",
+      "original_test_gap": "Idempotent and reopened cases validate different invariants. The reopen condition lists optional fields but omits an explicitly supplied rule."
+    },
+    {
+      "id": "H-09",
+      "severity": "P1",
+      "title": "The planner still volunteers songs outside the default grader's workable size; green roundtrip tests explicitly permit it",
+      "status": "qualification_pending",
+      "owner": "harness",
+      "change": "Default planner admits only registry-derived candidate-bounded line totals. Current limit31 follows12 syllable density ceiling and2 million candidates/schema, not musical taste. Explicit144 line request refuses beforewriting; inspection_only preserves mathematical browsing and forbids fill. JSON execution_limits discloses bounds. Roundtrip oracle carries real planned relations and permits zero walled defaults.",
+      "implementation_paths": [
+        "lyric-harness/quality/plan.py",
+        "lyric-harness/quality/meter.py",
+        "lyric-harness/quality/fit.py",
+        "lyric-harness/quality/schemes.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_harness.py",
+        "lyric-harness/quality/test_plan.py",
+        "lyric-harness/quality/test_fit.py"
+      ],
+      "local_evidence": "Actual strict 31-line cold repair measurement passes with an authenticated suspended result and matching plan, draft and checkpoint; four requested-first/full-grade parity controls pass. Existing planner admission, bounded-allocation and real worker continuation checks also pass.",
+      "remaining": "All six local maximum-size cold/worker samples complete, including nine repeated worker rounds. Every repair preserves a valid checkpoint; the worst observed repair is 504.340 seconds within 600 seconds. This measures deferred questions, not writer convergence, and is not isolated production performance. The exact final-image 1 CPU / 2 GiB matrix and fresh autonomous song remain required.",
+      "original_acceptance": "Production-size plan-write-revise-finish runs complete or produce resumable bounded results across the declared supported matrix, including default seeds and near maximum length. A green end-to-end gate cannot tolerate a planned song that its next stage inherently refuses.",
+      "original_test_gap": "The roundtrip suite records known failures as permitted walled seeds; connector contract tests explicitly use24line fixtures. Neither proves support for the advertised447line maximum or default distribution."
+    },
+    {
+      "id": "R01",
+      "severity": "P1",
+      "title": "A refused meter-band judgment can count as a successful repair and finish clean",
+      "status": "local_verified",
+      "owner": "revision",
+      "change": "Track answered/refused/not-requested obligations for rhyme, returns, bands, sentencehood, floor and declared meter; reject coverage loss during verify; uncertified cannot finish clean.",
+      "implementation_paths": [
+        "lyric-harness/quality/revise.py",
+        "lyric-harness/quality/loop.py",
+        "lyric-harness/quality/propose.py",
+        "lyric-harness/quality/recover.py",
+        "lyric-harness/quality/floor.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_revision.py",
+        "lyric-harness/quality/test_audit_regressions.py"
+      ],
+      "local_evidence": "16 production regression methods pass across focused runs; 12 audit/checkpoint regressions pass. No paid writer.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "The exact flag-to-BAND_UNJUDGED revision is rejected as a coverage regression.",
+        "Interior numerals and unreadable non-rhyme words cannot produce finished_clean when required band checks are undecided.",
+        "Existing deliberately undeclared setting dimensions remain explicitly scoped, not turned into invented artistic failures.",
+        "Structured verdict and displayed result report the same per-layer coverage."
+      ],
+      "original_test_gap": "Previous coverage regression tests exercise refused rhyme obligations. They do not make a previously judged density/prominence/meter obligation become unknown while preserving readable rhyme endpoints. Zero new flags is not proof of unchanged measurement coverage."
+    },
+    {
+      "id": "R02",
+      "severity": "P1",
+      "title": "Offered revision words are not checked against class/type declarations",
+      "status": "local_verified",
+      "owner": "revision",
+      "change": "Grade actual slot replacements under exact group declaration and return closure, including class/type relations and pronunciation uncertainty; finite expansion excludes incumbent and forbidden words. Per-place offer checks distinguish already-open collateral failures from newly introduced violations or refusals; neither unrelated failures nor unknowns are erased.",
+      "implementation_paths": [
+        "lyric-harness/quality/revise.py",
+        "lyric-harness/quality/loop.py",
+        "lyric-harness/quality/propose.py",
+        "lyric-harness/quality/recover.py",
+        "lyric-harness/quality/floor.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_revision.py",
+        "lyric-harness/quality/test_audit_regressions.py"
+      ],
+      "local_evidence": "Exact-class/type and pronunciation controls, plus two actual per-place collateral regressions, pass. The latter preserve an unrelated failure/unknown while rejecting a new collateral CONSONANCE break.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "Every offered candidate in the reproduced class:CONSONANCE and class:ASSONANCE fixtures satisfies the stated bound obligation.",
+        "Include class/type/structure, asymmetric schema member order, multiple slots and overlapping groups in offer-to-grade contract tests.",
+        "Known valid candidates outside the present scalar pool remain reachable for relations that require them.",
+        "Recorded writer runs do not waste attempts solely because tool-provided offers violate the tool-provided mandate."
+      ],
+      "original_test_gap": "Field parity tests verify the default scalar/band door or specific schema paths. They do not substitute every offered candidate back into the declared class/type/structure and require the actual bound obligation to hold. Broadening the admitted comparator cannot prove named-relation parity."
+    },
+    {
+      "id": "R03",
+      "severity": "P1",
+      "title": "Inline draft text can counterfeit a finish stamp and truncate the returned song",
+      "status": "local_verified",
+      "owner": "revision",
+      "change": "Authenticated version1 lyric_result records carry final draft, typed findings/coverage/stop and canonical presentation_text; echoed prose cannot select status or artifact. Hook consumes paired MCP receipt.",
+      "implementation_paths": [
+        "lyric-harness/quality/revise.py",
+        "lyric-harness/quality/loop.py",
+        "lyric-harness/quality/propose.py",
+        "lyric-harness/quality/recover.py",
+        "lyric-harness/quality/floor.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_revision.py",
+        "lyric-harness/quality/test_audit_regressions.py"
+      ],
+      "local_evidence": "16 production regression methods pass across focused runs; 12 audit/checkpoint regressions pass. No paid writer.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "Exact counterfeit-stamp fixture returns every original lyric character and the true exit3/open-line/round metadata.",
+        "Fuzz draft lines containing FINISHED, GRADED, COVERAGE, report count, proposal record and section delimiters; none can change metadata or truncate output.",
+        "Assert returned presentation text is derived from the exact structured final draft and canonical server-written stamp."
+      ],
+      "original_test_gap": "Current extraction tests use generated-looking synthetic reports and ordinary song text. They test an existing regex shape, not adversarial collisions between source text and control syntax. The new authenticated lyric_result protects one record path while legacy regex consumers remain authoritative for presentation and loop metadata."
+    },
+    {
+      "id": "R04",
+      "severity": "P1",
+      "title": "Recovery turns equal end words into a requirement that whole lines be identical",
+      "status": "local_verified",
+      "owner": "revision",
+      "change": "Recovered end-word identity no longer invents whole-line return identity; only exact normalized whole-line equality declares a return.",
+      "implementation_paths": [
+        "lyric-harness/quality/revise.py",
+        "lyric-harness/quality/loop.py",
+        "lyric-harness/quality/propose.py",
+        "lyric-harness/quality/recover.py",
+        "lyric-harness/quality/floor.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_revision.py",
+        "lyric-harness/quality/test_audit_regressions.py"
+      ],
+      "local_evidence": "16 production regression methods pass across focused runs; 12 audit/checkpoint regressions pass. No paid writer.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "The two different door-ending lines do not acquire a whole-line equality obligation.",
+        "An actual identical repeated lyric line still recovers as a whole-line return.",
+        "Feed the complete recovered mandate, including returns and placed identities, through the complete inspection and revision path; compare what each recovered obligation actually observed."
+      ],
+      "original_test_gap": "test_recover section8 grades only mandate_spelling[--groups=] and counts only SCHEME_VIOLATION. It never grades the returned --returns= together with those groups, nor checks RETURN_NOT_VERBATIM. The test removes the problematic obligations before asserting the handoff is clean."
+    },
+    {
+      "id": "R05",
+      "severity": "P1",
+      "title": "Multi-line verify targets are truncated at the MCP-to-CLI boundary",
+      "status": "local_verified",
+      "owner": "revision",
+      "change": "Exact nonempty normalized-line target sets are validated; extra positional targets reject. Root owns MCP array serialization.",
+      "implementation_paths": [
+        "lyric-harness/quality/revise.py",
+        "lyric-harness/quality/loop.py",
+        "lyric-harness/quality/propose.py",
+        "lyric-harness/quality/recover.py",
+        "lyric-harness/quality/floor.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_revision.py",
+        "lyric-harness/quality/test_audit_regressions.py"
+      ],
+      "local_evidence": "16 production regression methods pass across focused runs; 12 audit/checkpoint regressions pass. No paid writer.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "The exact [2] and [1,2] cases both accept the same valid line2 repair.",
+        "An unrelated changed line is rejected.",
+        "Empty and nonexistent explicit targets refuse loudly; omitted targets retain their documented meaning.",
+        "Target numbering remains correct after the common apparatus loader."
+      ],
+      "original_test_gap": "Single-target and no-op before=after tests never require the second target to change. Schema validation permits an empty target array and does not know the post-loader line count."
+    },
+    {
+      "id": "R06",
+      "severity": "P2",
+      "title": "The revision engine never asks its writer to fix whole-draft-only flags",
+      "status": "local_verified",
+      "owner": "revision",
+      "change": "Whole-draft-only flags reach an actual bounded group writer question, including deferred CLI suspension/resume; unsolved global requirements remain parked.",
+      "implementation_paths": [
+        "lyric-harness/quality/revise.py",
+        "lyric-harness/quality/loop.py",
+        "lyric-harness/quality/propose.py",
+        "lyric-harness/quality/recover.py",
+        "lyric-harness/quality/floor.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_revision.py",
+        "lyric-harness/quality/test_audit_regressions.py"
+      ],
+      "local_evidence": "16 production regression methods pass across focused runs; 12 audit/checkpoint regressions pass. No paid writer.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "Start with only HOOK_ABSENT or TITLE_NOT_IN_HOOK and show the configured production path issues a relevant repair request and eventually rechecks the exact revised draft without user intervention.",
+        "If bounded attempts exhaust, result names the unresolved global requirement and never describes the run as successful completion."
+      ],
+      "original_test_gap": "The existing loop test explicitly pins this limitation as SUCCESS per line. It proves disclosure and correct exit3, not an end-to-end autonomous repair of a required hook or another global flag."
+    },
+    {
+      "id": "R07",
+      "severity": "P2",
+      "title": "Greedy group search reports unsatisfiability after skipping an available assignment",
+      "status": "local_verified",
+      "owner": "revision",
+      "change": "Bounded DFS explores earlier sibling branches; search limits disclose incompleteness without an impossibility claim or instruction to weaken artist intent.",
+      "implementation_paths": [
+        "lyric-harness/quality/revise.py",
+        "lyric-harness/quality/loop.py",
+        "lyric-harness/quality/propose.py",
+        "lyric-harness/quality/recover.py",
+        "lyric-harness/quality/floor.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_revision.py",
+        "lyric-harness/quality/test_audit_regressions.py"
+      ],
+      "local_evidence": "16 production regression methods pass across focused runs; 12 audit/checkpoint regressions pass. No paid writer.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "The finite counterexample is solved or honestly reported as a limited search, never as a proved impossible mandate.",
+        "No valid accepted clique is weakened; test independently for both soundness and the declared search completeness bound."
+      ],
+      "original_test_gap": "Existing clique checks show accepted greedy assignments satisfy every edge. They do not prove recall or distinguish an empty complete conjunction from an empty branch caused by an earlier greedy choice."
+    },
+    {
+      "id": "R08",
+      "severity": "P2",
+      "title": "Group and batch parsers silently choose one of two conflicting answer sets",
+      "status": "local_verified",
+      "owner": "revision",
+      "change": "Group/batch answers consume every substantive row; conflicting fenced/outside sets, duplicate, missing and unmarked rows refuse.",
+      "implementation_paths": [
+        "lyric-harness/quality/revise.py",
+        "lyric-harness/quality/loop.py",
+        "lyric-harness/quality/propose.py",
+        "lyric-harness/quality/recover.py",
+        "lyric-harness/quality/floor.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_revision.py",
+        "lyric-harness/quality/test_audit_regressions.py"
+      ],
+      "local_evidence": "16 production regression methods pass across focused runs; 12 audit/checkpoint regressions pass. No paid writer.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "The conflicting inside/outside fixture refuses without applying any line.",
+        "Missing, repeated, extra and unmarked substantive rows refuse or follow a specifically documented unambiguous wrapper rule.",
+        "Valid keyed group/batch responses preserve member order and exact text."
+      ],
+      "original_test_gap": "Tests require all members and detect repeated markers within the chosen body. They do not include contradictory markers outside the selected fence or unconsumed substantive text."
+    },
+    {
+      "id": "R09",
+      "severity": "P2",
+      "title": "Recovery silently excludes unsectioned opening lines from its declared section map",
+      "status": "local_verified",
+      "owner": "revision",
+      "change": "Recovery preserves and counts unsectioned opening lyrics and refuses incomplete section classification by explicit line identities.",
+      "implementation_paths": [
+        "lyric-harness/quality/revise.py",
+        "lyric-harness/quality/loop.py",
+        "lyric-harness/quality/propose.py",
+        "lyric-harness/quality/recover.py",
+        "lyric-harness/quality/floor.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_revision.py",
+        "lyric-harness/quality/test_audit_regressions.py"
+      ],
+      "local_evidence": "16 production regression methods pass across focused runs; 12 audit/checkpoint regressions pass. No paid writer.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "Partially marked input accounts for the unsectioned prefix or returns a named sectioning refusal.",
+        "Sum of covered sung lines plus explicitly unclassified lines equals total_lines; no silent omissions at either edge or between markers."
+      ],
+      "original_test_gap": "Marked-section fixtures begin with a marker. Their counts cannot expose an unmarked prefix discarded on the first transition."
+    },
+    {
+      "id": "R10",
+      "severity": "P2",
+      "title": "Writer prompts describe legal return propagation as an impossible rewrite",
+      "status": "local_verified",
+      "owner": "revision",
+      "change": "Prompts declare true return members and lawful mirroring, including overlapping rhyme groups; no false one-line impossibility.",
+      "implementation_paths": [
+        "lyric-harness/quality/revise.py",
+        "lyric-harness/quality/loop.py",
+        "lyric-harness/quality/propose.py",
+        "lyric-harness/quality/recover.py",
+        "lyric-harness/quality/floor.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_revision.py",
+        "lyric-harness/quality/test_audit_regressions.py"
+      ],
+      "local_evidence": "16 production regression methods pass across focused runs; 12 audit/checkpoint regressions pass. No paid writer.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "The real return fixture prompt names both affected lines and the mirroring behavior.",
+        "One-line answer propagation still preserves declared identity and verifier target protection.",
+        "Prompt-level allowed changes and actual accepted changed lines are compared for tier1, returns, group and batch operations."
+      ],
+      "original_test_gap": "Prompt tests pin old invariant prose or check quoted words/labels. They do not compare the advertised editable target set with the target closure the loop actually applies on declared returns."
+    },
+    {
+      "id": "R11",
+      "severity": "P1",
+      "title": "Return rewrites propagate by rhyme-group label rather than actual identity class",
+      "status": "local_verified",
+      "owner": "revision",
+      "change": "Propagation and verification use the actual identity class, including members outside the rhyme group; unrelated lines remain byte-identical.",
+      "implementation_paths": [
+        "lyric-harness/quality/revise.py",
+        "lyric-harness/quality/loop.py",
+        "lyric-harness/quality/propose.py",
+        "lyric-harness/quality/recover.py",
+        "lyric-harness/quality/floor.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_revision.py",
+        "lyric-harness/quality/test_audit_regressions.py"
+      ],
+      "local_evidence": "16 production regression methods pass across focused runs; 12 audit/checkpoint regressions pass. No paid writer.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "The over-propagation and CLI-equivalent fixtures accept the independently verified repair of 1+2 and preserve line 3 exactly.",
+        "The under-propagation fixture mirrors line 2 even when identity is not a raw rhyme group.",
+        "Exercise overlapping/transitively merged return classes, mixed ordinary groups, declared non-verbatim returns and return members with other slot obligations through real brief -> proposal -> verify.",
+        "A stub-accepting verifier is insufficient for the integration regression: assert actual return and rhyme obligations after the edit."
+      ],
+      "original_test_gap": "The M-201 regression test manually constructs a Brief whose return_groups labels already identify exact return classes and uses a stub verifier that always accepts. It never obtains that Brief from the actual mandate/brief pipeline. Thus it proves copying by labels while assuming the property the production producer fails to provide."
+    },
+    {
+      "id": "R12",
+      "severity": "P2",
+      "title": "The mandatory repetition floor can demand that a declared verbatim refrain stop repeating",
+      "status": "local_verified",
+      "owner": "revision",
+      "change": "Retain full performance anaphora/lexical evidence; class-scoped declared-return disposition only when independent representatives remove the outlier; unrelated/discretionary repetition still flags.",
+      "implementation_paths": [
+        "lyric-harness/quality/revise.py",
+        "lyric-harness/quality/loop.py",
+        "lyric-harness/quality/propose.py",
+        "lyric-harness/quality/recover.py",
+        "lyric-harness/quality/floor.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_revision.py",
+        "lyric-harness/quality/test_audit_regressions.py"
+      ],
+      "local_evidence": "16 production regression methods pass across focused runs; 12 audit/checkpoint regressions pass. No paid writer.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "The admitted return fixtures receive an explicit compatible disposition before any writer call; they cannot cycle trying to remove their required repeated opening.",
+        "A genuine unrequired repeated-opening defect remains visible under the adopted policy.",
+        "Exercise a return-dominated normal-length song, a mixed verse/refrain song and an explicit anaphora mandate through full inspection and revision.",
+        "Final state explains any unresolved declaration conflict rather than implying better prose alone can satisfy it."
+      ],
+      "original_test_gap": "Return tests verify identity correctness and subtraction from pair-level repeat findings. Floor tests check the calibrated statistic in isolation. No composed test asks whether an admitted mandatory form and the mandatory floor have a compatible completion. M-201 copying tests use a verifier stub and do not inspect surviving floor obligations."
+    },
+    {
+      "id": "REL-01",
+      "severity": "P1",
+      "title": "Declared multi-member figures are judged as partial pairs, including a drawable production relation",
+      "status": "local_verified",
+      "owner": "relations",
+      "change": "Complete symploce, analysed-rhyme labelled graph, bluesAAB, and full-frame quantifiers are evaluated before projecting a pair or reporting a figure. Four registrations lacking executable member bindings/templates refuse explicitly. Automatic pool requires maintained runtime witness+contrast and contains18schemas.",
+      "implementation_paths": [
+        "lyric-harness/quality/relations.py",
+        "lyric-harness/quality/rhyme_types.py",
+        "lyric-harness/quality/phonology/eng.py",
+        "lyric-harness/quality/phonology/san.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_relations.py",
+        "lyric-harness/quality/test_relation_shapes.py",
+        "lyric-harness/quality/test_homograph.py"
+      ],
+      "local_evidence": "Lane reports 18 production counterexamples and maintained relation/phonology suites; coverage oracle re-derived with explicit refusals.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "For each non-pair declaration, use a positive full figure and independent negatives removing each required member/edge, changing its frame, and violating any interior condition. The two reproduced fragments must not satisfy the full named figures. Run those cases through actual planner -> mandate -> Reviser.grade, not only realise or a classifier.",
+      "original_test_gap": "Shape tests prove classification of the gap and deliberately require the gap to remain. The drawable exhibit/contrast gate tests two-line proxies, including sun/much, and therefore never tests the four-member topology the same registry declares. Pairwise positive/negative controls cannot prove a conjunction of different edges over three/four members."
+    },
+    {
+      "id": "REL-02",
+      "severity": "P2",
+      "title": "Accepted quantifier aliases silently disappear at execution",
+      "status": "local_verified",
+      "owner": "relations",
+      "change": "Figure constructors canonicalize accepted quantifier aliases; assembly and shape classification use canonical semantics.",
+      "implementation_paths": [
+        "lyric-harness/quality/relations.py",
+        "lyric-harness/quality/rhyme_types.py",
+        "lyric-harness/quality/phonology/eng.py",
+        "lyric-harness/quality/phonology/san.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_relations.py",
+        "lyric-harness/quality/test_relation_shapes.py",
+        "lyric-harness/quality/test_homograph.py"
+      ],
+      "local_evidence": "Lane reports 18 production counterexamples and maintained relation/phonology suites; coverage oracle re-derived with explicit refusals.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "For every QUANTIFIER_ALIASES entry, identical streams/edges yield the same assembly, refusal behavior and shape classification as its canonical spelling. Include count_fraction at/above/below a declared threshold.",
+      "original_test_gap": "Constructor tests check canonical_quantifier and rejection of unknown spellings; execution branches compare the original field, not its canonical value. needs_arity_extension also compares raw spellings. Tests never run equivalent aliases through assembly/classification."
+    },
+    {
+      "id": "REL-03",
+      "severity": "P2",
+      "title": "Paroemion has no possible candidate edge despite being counted as askable",
+      "status": "local_verified",
+      "owner": "relations",
+      "change": "Paroemion uses actual token-onset members and one common onset-class fraction, counting unreadable members in the denominator. Census separates capability availability from semantic evidence.",
+      "implementation_paths": [
+        "lyric-harness/quality/relations.py",
+        "lyric-harness/quality/rhyme_types.py",
+        "lyric-harness/quality/phonology/eng.py",
+        "lyric-harness/quality/phonology/san.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_relations.py",
+        "lyric-harness/quality/test_relation_shapes.py",
+        "lyric-harness/quality/test_homograph.py"
+      ],
+      "local_evidence": "Lane reports 18 production counterexamples and maintained relation/phonology suites; coverage oracle re-derived with explicit refusals.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Use a fully alliterating line, a line below the specified fraction, a line exactly at the boundary, and an unreadable member. Require correct positive/negative/undecided distinctions and verify changing an unrelated line cannot affect the line-local result. Every registered schema must have either a full semantic witness or an explicit, accurately surfaced blocker.",
+      "original_test_gap": "The census checks Supply.state only and supplies fixtures; it never requires an executable positive witness. No paroemion semantic test was found in the current relation tests. A live capability count and a nonempty registry do not establish reachability."
+    },
+    {
+      "id": "REL-04",
+      "severity": "P2",
+      "title": "An ordinary short lift map crashes the fourth-lift relation",
+      "status": "local_verified",
+      "owner": "relations",
+      "change": "Missing lift ordinals cannot index beyond a short lift map; actual 4th-lift predicate remains live.",
+      "implementation_paths": [
+        "lyric-harness/quality/relations.py",
+        "lyric-harness/quality/rhyme_types.py",
+        "lyric-harness/quality/phonology/eng.py",
+        "lyric-harness/quality/phonology/san.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_relations.py",
+        "lyric-harness/quality/test_relation_shapes.py",
+        "lyric-harness/quality/test_homograph.py"
+      ],
+      "local_evidence": "Lane reports 18 production counterexamples and maintained relation/phonology suites; coverage oracle re-derived with explicit refusals.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "For maps with zero through four lifts and mixed short/long lines, all public relation consumers finish without traceback. At four lifts, independently test an alliterating and non-alliterating fourth member so the new bound guard cannot disable the predicate.",
+      "original_test_gap": "The existing capability test uses a sufficiently long alliterative fixture and asks only whether the capability no longer refuses. It does not vary the number of derived lifts or test the missing-fourth case promised by the docstring."
+    },
+    {
+      "id": "REL-05",
+      "severity": "P2",
+      "title": "Per-instance uncertainty becomes a definite failed mandate at the line-pair bridge",
+      "status": "local_verified",
+      "owner": "relations",
+      "change": "Ternary verdicts survive line-pair bridge, whole-vocabulary default, both graders, and cold/warm memos. Unknown is neither a pass nor a violation.",
+      "implementation_paths": [
+        "lyric-harness/quality/relations.py",
+        "lyric-harness/quality/rhyme_types.py",
+        "lyric-harness/quality/phonology/eng.py",
+        "lyric-harness/quality/phonology/san.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_relations.py",
+        "lyric-harness/quality/test_relation_shapes.py",
+        "lyric-harness/quality/test_homograph.py"
+      ],
+      "local_evidence": "Lane reports 18 production counterexamples and maintained relation/phonology suites; coverage oracle re-derived with explicit refusals.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "The exact Persian pair remains undecided through cold and warm cache paths. Add true-plus-undecided and all-false controls, mixed readable/unreadable spans, and ensure a refusal is not counted as a violated obligation or a certified completed judgment.",
+      "original_test_gap": "Current refusal tests cover missing whole-schema capabilities and lower-level ternary predicates. They do not establish end-to-end preservation of an undecided instance through line_pairs_for, its memo, and satisfies_relation."
+    },
+    {
+      "id": "REL-06",
+      "severity": "P2",
+      "title": "Middle Chinese schema collapses distinct rhyme tones into one oblique class",
+      "status": "local_verified",
+      "owner": "relations",
+      "change": "MiddleChinese same-group rhyme delegates to declared native tone-aware pingshui predicate and overlap policy. Other standards require their own named semantics.",
+      "implementation_paths": [
+        "lyric-harness/quality/relations.py",
+        "lyric-harness/quality/rhyme_types.py",
+        "lyric-harness/quality/phonology/eng.py",
+        "lyric-harness/quality/phonology/san.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_relations.py",
+        "lyric-harness/quality/test_relation_shapes.py",
+        "lyric-harness/quality/test_homograph.py"
+      ],
+      "local_evidence": "Lane reports 18 production counterexamples and maintained relation/phonology suites; coverage oracle re-derived with explicit refusals.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Compare the native declared-standard comparator and named schema on same-rime same-tone positives, same-rime different-tone negatives, same-group different-raw-rime positives, and ambiguous readings. The exact single-reading pair must be negative under pingshui. Test each supported standard without inventing a quotient for an unsupported one.",
+      "original_test_gap": "Tests establishing 流/樓 grouping exercise a level-tone example; native rhymes tests retain full tone, while the generic schema tests use binary prominence. A shared same-tone positive cannot detect two different oblique tones becoming equal. The capability census checks the grouping exists, not that the channel tuple preserves its standard."
+    },
+    {
+      "id": "REL-07",
+      "severity": "P2",
+      "title": "Generic line readers bypass Sanskrit resyllabification and certify the wrong mora count",
+      "status": "local_verified",
+      "owner": "relations",
+      "change": "Sanskrit authoritative line analysis preserves cross-word consonant migration, nucleus token ownership, printed pauses, and final anceps. Relations and fit consume same interface.",
+      "implementation_paths": [
+        "lyric-harness/quality/relations.py",
+        "lyric-harness/quality/rhyme_types.py",
+        "lyric-harness/quality/phonology/eng.py",
+        "lyric-harness/quality/phonology/san.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_relations.py",
+        "lyric-harness/quality/test_relation_shapes.py",
+        "lyric-harness/quality/test_homograph.py"
+      ],
+      "local_evidence": "Lane reports 18 production counterexamples and maintained relation/phonology suites; coverage oracle re-derived with explicit refusals.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "The exact example yields5moras and the declared prominence/boundary semantics through standalone phonology, fit, relation stream and the eventual multilingual grade path. Include word-boundary resyllabification, pause boundaries, unreadable tokens and declared anceps policy so a superficial method alias cannot lose alignment/refusal information.",
+      "original_test_gap": "Standalone Sanskrit tests validate scan_pada; fit has a syllabify_line duck-typed hook that Sanskrit does not implement, and relations has a separate per-word stream path. No test connects those generic line readers to this phonology promised line semantics."
+    },
+    {
+      "id": "RUNTIME-01",
+      "severity": "P2",
+      "title": "Valid JSON with malformed provider fields crashes the kitchen instead of producing a controlled proposer refusal",
+      "status": "local_verified",
+      "owner": "runtime",
+      "change": "Validated provider root/candidates/content/parts/text/usage before lyric parsing; malformed HTTP JSON and field types become typed ProposerUnavailable. Response read is capped at1MiB and invalid generation configuration refuses on first call, keeping factory safe.",
+      "implementation_paths": [
+        "mcp/gemini_proposer.py",
+        "mcp/python_bridge.js",
+        "mcp/paid_budget.js",
+        "mcp/execution_context.js"
+      ],
+      "test_paths": [
+        "mcp/test_gemini_proposer.py",
+        "mcp/test_python_bridge.mjs",
+        "mcp/test_paid_budget.mjs"
+      ],
+      "local_evidence": "Lane reports 38 Node tests, 39 provider checks and real warm/cold Python workers against localhost HTTP stubs.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "Stub HTTP 200 with null, array, wrong candidates/content/parts/text types and invalid token fields; no uncaught exception/exit1.",
+        "For every paid dispatch, exactly one settlement or conservative held reservation survives; checkpoint and direct MCP response explain the refusal.",
+        "Run through actual worker.py on warm and cold paths, not only a mocked callable."
+      ],
+      "original_test_gap": "The Python suite exercises missing usage and ordinary success/empty/HTTP errors but not nonnumeric counts, wrong root types, wrong candidate/text types, or non-object error payloads. Bridge fixtures assume valid provider metadata except absence."
+    },
+    {
+      "id": "RUNTIME-02",
+      "severity": "P2",
+      "title": "Direct MCP usage certainty can contradict the authoritative paid ledger",
+      "status": "local_verified",
+      "owner": "runtime",
+      "change": "Broker settlements return authoritative status/accounting_unknown and emit actual settlement status. Per-kitchen-call accounting isolates reservation IDs; bridge reconciles after close including process death and retained reservations. Python validates usage without coercion.",
+      "implementation_paths": [
+        "mcp/gemini_proposer.py",
+        "mcp/python_bridge.js",
+        "mcp/paid_budget.js",
+        "mcp/execution_context.js"
+      ],
+      "test_paths": [
+        "mcp/test_gemini_proposer.py",
+        "mcp/test_python_bridge.mjs",
+        "mcp/test_paid_budget.mjs"
+      ],
+      "local_evidence": "Lane reports 38 Node tests, 39 provider checks and real warm/cold Python workers against localhost HTTP stubs.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "For missing, inconsistent, negative and nonnumeric usage, direct MCP, Python event, broker receipt and operation ledger agree on unknown status.",
+        "For valid usage they agree on known actual cost without incorrectly inheriting unrelated earlier calls' uncertainty.",
+        "A killed process with admitted work but no readable usage stdout still reports the conservative accounting state."
+      ],
+      "original_test_gap": "Ledger tests verify invalid totals become unknown, and proposer tests verify absent usage becomes unknown, but no test joins them and asserts returned tool certainty equals ledger certainty. Existing valid-usage broker integration passes."
+    },
+    {
+      "id": "RUNTIME-03",
+      "severity": "P2",
+      "title": "The kitchen treats provider-truncated output as an ordinary successful proposal",
+      "status": "local_verified",
+      "owner": "runtime",
+      "change": "Only provider STOP reaches lyric parsing; MAX_TOKENS becomes PROVIDER_TRUNCATED, other finish reasons become PROVIDER_REFUSAL. Exact finish_reason, failure_code and prompt_feedback are structured.",
+      "implementation_paths": [
+        "mcp/gemini_proposer.py",
+        "mcp/python_bridge.js",
+        "mcp/paid_budget.js",
+        "mcp/execution_context.js"
+      ],
+      "test_paths": [
+        "mcp/test_gemini_proposer.py",
+        "mcp/test_python_bridge.mjs",
+        "mcp/test_paid_budget.mjs"
+      ],
+      "local_evidence": "Lane reports 38 Node tests, 39 provider checks and real warm/cold Python workers against localhost HTTP stubs.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "Nonempty MAX_TOKENS output is distinguishable from STOP throughout the connector and final run record.",
+        "Complete STOP single/group outputs retain current acceptance; truncated groups and provider refusal cases retain exact reason and usage.",
+        "An integration test drives a superficially parseable truncated line through ModelProposer and verifies the declared completion policy."
+      ],
+      "original_test_gap": "The existing MAX_TOKENS fixture has empty text. It proves empty counting and log spelling, not behavior of a nonempty truncated candidate. No policy test asserts finish-reason-aware proposal handling."
+    },
+    {
+      "id": "RUNTIME-04",
+      "severity": "P2",
+      "title": "Python ignores the standard HTTP-date form of Retry-After",
+      "status": "local_verified",
+      "owner": "runtime",
+      "change": "Retry-After accepts case-insensitive delay-seconds and HTTP-date, normalizes past dates, and applies the same hint cap/wait budget/deadline.",
+      "implementation_paths": [
+        "mcp/gemini_proposer.py",
+        "mcp/python_bridge.js",
+        "mcp/paid_budget.js",
+        "mcp/execution_context.js"
+      ],
+      "test_paths": [
+        "mcp/test_gemini_proposer.py",
+        "mcp/test_python_bridge.mjs",
+        "mcp/test_paid_budget.mjs"
+      ],
+      "local_evidence": "Lane reports 38 Node tests, 39 provider checks and real warm/cold Python workers against localhost HTTP stubs.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "Future, past, malformed and mixed-case HTTP-date headers tested with a controlled clock.",
+        "A 110-second date schedules approximately 110 seconds (stubbed clock); a date past HINT_CAP_S refuses without another provider attempt.",
+        "Actual dates and equivalent numeric hints make identical policy decisions."
+      ],
+      "original_test_gap": "Tests cover numeric header values, RetryInfo durations, invalid/nonfinite hints and zero-delay limits. They omit the other standard header representation."
+    },
+    {
+      "id": "RUNTIME-05",
+      "severity": "P2",
+      "title": "The Python bridge still allows wall-clock steps to override its monotonic deadline",
+      "status": "local_verified",
+      "owner": "runtime",
+      "change": "Bridge and childExecutionContext use authoritative monotonic deadlines, falling back to epoch once only when no monotonic deadline exists; broker receives effective child deadline.",
+      "implementation_paths": [
+        "mcp/gemini_proposer.py",
+        "mcp/python_bridge.js",
+        "mcp/paid_budget.js",
+        "mcp/execution_context.js"
+      ],
+      "test_paths": [
+        "mcp/test_gemini_proposer.py",
+        "mcp/test_python_bridge.mjs",
+        "mcp/test_paid_budget.mjs"
+      ],
+      "local_evidence": "Lane reports 38 Node tests, 39 provider checks and real warm/cold Python workers against localhost HTTP stubs.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "Positive and negative Date.now steps do not change a context's remaining monotonic execution time.",
+        "Epoch-only callers still receive bounded execution.",
+        "Queue, warm, cold, fallback and broker setup consume the same original monotonic budget."
+      ],
+      "original_test_gap": "Clock rollback tests cover the daily ledger; bridge deadline tests use an unchanged wall clock. They do not test a clock step between context creation and tool admission."
+    },
+    {
+      "id": "RUNTIME-06",
+      "severity": "P1",
+      "title": "The shared Python queue has no global pending-work capacity limit",
+      "status": "local_verified",
+      "owner": "runtime",
+      "change": "Bounded global admission reserves active/preparing/queued jobs and input bytes (defaults16/32MiB), explicitly refuses PYTHON_BUSY, removes cancelled queued jobs immediately, and reserves active cleanup until close. Exported pre-preparation leases permit sequential verbs; root integrates admission before tempfiles.",
+      "implementation_paths": [
+        "mcp/gemini_proposer.py",
+        "mcp/python_bridge.js",
+        "mcp/paid_budget.js",
+        "mcp/execution_context.js"
+      ],
+      "test_paths": [
+        "mcp/test_gemini_proposer.py",
+        "mcp/test_python_bridge.mjs",
+        "mcp/test_paid_budget.mjs"
+      ],
+      "local_evidence": "Lane reports 38 Node tests, 39 provider checks and real warm/cold Python workers against localhost HTTP stubs.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "Saturating the declared queue limit yields a prompt explicit busy response without worker spawn or new temp payload allocation.",
+        "Different HTTP clients/IPs cannot exceed the same global bound.",
+        "Cancellation frees queue capacity promptly; queued expiry cannot launch work; one long call cannot create an unbounded set of retained waiters.",
+        "Load test on the deployment memory class proves bounded RSS/temp storage and a stated latency/recovery policy."
+      ],
+      "original_test_gap": "Existing tests prove two queued requests honor deadlines and cancellation. They do not assert a global pending-job/byte maximum, prompt overload response, cross-IP fairness, or bounded memory/temp-file use under saturation."
+    },
+    {
+      "id": "RUNTIME-07",
+      "severity": "P3",
+      "title": "An explicit bridge signal shadows inherited cancellation instead of combining with it",
+      "status": "local_verified",
+      "owner": "runtime",
+      "change": "Composed inherited and explicit AbortSignals; either prevents spawn and either interrupts active work.",
+      "implementation_paths": [
+        "mcp/gemini_proposer.py",
+        "mcp/python_bridge.js",
+        "mcp/paid_budget.js",
+        "mcp/execution_context.js"
+      ],
+      "test_paths": [
+        "mcp/test_gemini_proposer.py",
+        "mcp/test_python_bridge.mjs",
+        "mcp/test_paid_budget.mjs"
+      ],
+      "local_evidence": "Lane reports 38 Node tests, 39 provider checks and real warm/cold Python workers against localhost HTTP stubs.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "Aborted parent plus live child causes zero worker spawns.",
+        "Live parent plus aborted child causes zero worker spawns.",
+        "Aborting either while active stops the subprocess and preserves the same checkpoint/accounting behavior."
+      ],
+      "original_test_gap": "Cancellation tests exercise either the supplied signal or inherited context cancellation, not both with differing states."
+    },
+    {
+      "id": "DATA-01",
+      "severity": "P1",
+      "title": "Mandatory live concreteness dependency has unresolved release clearance, and no admission gate enforces its recorded state",
+      "status": "qualification_pending",
+      "owner": "data",
+      "change": "The mandatory floor explicitly requests its2 used extractor coordinates; optional concreteness requires an explicit full-feature request and refuses when unavailable. The production assembly excludes uncleared norms and the release gate checks exact bytes and approved decisions. Required floor checks remain active.",
+      "implementation_paths": [
+        "lyric-harness/quality/features.py",
+        "lyric-harness/quality/floor.py",
+        "lyric-harness/quality/release_assets.py",
+        "lyric-harness/data/runtime_assets.json"
+      ],
+      "test_paths": ["lyric-harness/quality/test_production_data.py"],
+      "local_evidence": "Final approved-only runtime assembly v6 excludes uncleared norms, passes exact byte/asset-decision validation and all 10 actual offline checks; default floor remains active and explicit missing-norm requests refuse.",
+      "remaining": "Release-asset and floor subset checks exist; exact final production image smoke/asset inspection remains required.",
+      "original_acceptance": "A candidate production image contains only assets with recorded release decisions covering the intended use; a fixture changing a required asset to unresolved/refused prevents release. The exact shipped bytes and notices are tied to the decision. A real floor smoke run succeeds with the approved dependency set.",
+      "original_test_gap": "The existing provenance suite checks registry coverage and corpus admission rules, not clearance of every asset fetched into the image or opened by runtime. A sources.tsv row is accepted as documentation even when it documents an unresolved decision. Resource tests establish presence/readability, not release approval."
+    },
+    {
+      "id": "DATA-02",
+      "severity": "P2",
+      "title": "Production image copies research corpus files whose edition clearance is explicitly still open",
+      "status": "qualification_pending",
+      "owner": "data",
+      "change": "Runtime assembly copies executable modules and exact approved assets only. Research corpus, legacy tagger, Punkt, concreteness, and unused historical research tables are omitted. Release inventory rejects unexpected data files and research corpus contents.",
+      "implementation_paths": [
+        "lyric-harness/quality/release_assets.py",
+        "lyric-harness/data/runtime_assets.json",
+        "mcp/Dockerfile"
+      ],
+      "test_paths": ["lyric-harness/quality/test_production_data.py"],
+      "local_evidence": "Final runtime assembly v6 matches all 128 source files and its approved-only asset manifest; ten actual offline checks and strict current local capacity receipt admission pass. Exact Docker image remains separate.",
+      "remaining": "Approved-only assembly exists; exact final image absence/dependency smoke has not been completed.",
+      "original_acceptance": "Inspect a built image against an approved asset manifest: research-only files are absent unless deliberately cleared/included. Exercise English production entrypoints against that image to prove omitted research files are not hidden runtime dependencies.",
+      "original_test_gap": "CI can verify header/registry agreement and hashes without determining whether a recorded open edition gate is acceptable for release. No production image allowlist or release-asset decision check was found."
+    },
+    {
+      "id": "DATA-03",
+      "severity": "P2",
+      "title": "Provenance gate labels an unsupported anonymous publication date VERIFIED and admits undeclared item sources",
+      "status": "local_verified",
+      "owner": "data",
+      "change": "Unknown item source cannot bypass source admission through author/date. Anonymous publication dates need explicit matching publication evidence; unsupported dates no longer say VERIFIED. Generated calibration population provenance is separately registered and remains inadmissible as lyric content.",
+      "implementation_paths": [
+        "lyric-harness/quality/provenance.py",
+        "lyric-harness/quality/test_provenance.py",
+        "lyric-harness/quality/test_production_data.py"
+      ],
+      "test_paths": ["lyric-harness/quality/test_production_data.py"],
+      "local_evidence": "Full provenance suite passes with explicit unknown-source and missing/mismatched anonymous-publication evidence controls; generated-table provenance is registered and rejected as sung corpus content.",
+      "remaining": "Final combined CI and deployment acceptance still apply; provenance acceptance has local positive and negative evidence.",
+      "original_acceptance": "Missing source plus old author, missing source plus old anonymous year, empty anonymous evidence, and inconsistent edition metadata are refused with named causes; evidenced and declared positive controls still admit. Add cases proving explicit source restrictions cannot disappear by misspelling the source id.",
+      "original_test_gap": "The 59 existing provenance checks all pass. Unknown-source coverage supplies neither author nor publication year; date-dataset coverage checks the authority table source, not presence of the item source. Tests deliberately permit old authors on contested sources, which is a distinct designed route and not the defect reported here."
+    },
+    {
+      "id": "DATA-04",
+      "severity": "P2",
+      "title": "Known editorial prose is still treated as English lyrics and is already present in a shipped frequency table",
+      "status": "local_verified",
+      "owner": "data",
+      "change": "Explicitly preserved editorial matter as apparatus, including known Emmett/Hazlitt examples, title-page material, advertisements, 298Herrick glossary rows, 177Hemans footnote/direction rows, and5Byron datelines. Restored two joined-work boundaries (Blake and D'Urfey) without deleting the second poems. Final affected readers, frequency tables, band profiles, active curves and exact rhyme-capacity witnesses were recomputed and explicitly adopted.",
+      "implementation_paths": [
+        "lyric-harness/quality/CORPUS_EDITORIAL_REVIEW.json",
+        "lyric-harness/corpus/song/eng_parlour_daniel_decatur_emmett.txt",
+        "lyric-harness/corpus/song/eng_british_richard_lovelace.txt",
+        "lyric-harness/corpus/song/eng_british_felicia_hemans.txt",
+        "lyric-harness/corpus/song/eng_british_robert_herrick.txt",
+        "lyric-harness/corpus/song/eng_hall_thomas_durfey.txt",
+        "lyric-harness/data/song_endword_en.tsv",
+        "lyric-harness/data/song_rhymepair_en.tsv"
+      ],
+      "test_paths": ["lyric-harness/quality/test_production_data.py"],
+      "local_evidence": "All 8,545 nonempty works were independently remeasured under the final frozen CLI; row SHA256 remains 7ef7410bfb1271c596eaca69e261ffbc00cbae89059ea7e9a31d298344fe3b63. All five active curves pass all 21 bins over 200 held-out seeds. All 81 exact capacity witness families, the six-adopter corpus snapshot, 27 focused data regressions and 10 actual approved-assembly offline checks pass. The tracked production-data report and 50 SHA-indexed artifacts retain derivation, measured counts, source epochs and limitations.",
+      "remaining": "Current data corrections, all six affected adoptions and exact approved-only local assembly are complete. Exact production-image runtime proof, resource qualification and hosted acceptance remain separate gates.",
+      "original_acceptance": "The named editorial lines no longer reach any sung-line calibration reader or derived frequency table; genuine neighboring sung lines remain. Rebuild affected tables and re-adopt/revalidate constants with before/after counts and measured effects. Add semantic source fixtures, not only pinned whole-file counts.",
+      "original_test_gap": "Hash/shape checks only establish consistency with the currently pinned corpus. Existing apparatus normalization handles declared bracket conventions but cannot identify unbracketed editorial prose mislabeled as verse. A green table rebuild can faithfully rebuild the wrong content."
+    },
+    {
+      "id": "DATA-05",
+      "severity": "P2",
+      "title": "Duplicate historical song printings are counted as distinct English calibration items",
+      "status": "local_verified",
+      "owner": "data",
+      "change": "Explicit one-work policy for106reviewed work groups containing215historical editions, with byte-bound body identities and one representative vote.6Latin source poems are retained as verse but excluded from English calibration. Raw source/runtime reading preserves all editions. A second broader lexical/opening census leaves10reviewed distinct shared-opening sections, all retained.",
+      "implementation_paths": [
+        "lyric-harness/data/calibration_work_editions.json",
+        "lyric-harness/quality/lyric_reader.py",
+        "lyric-harness/quality/build_song_frequency.py"
+      ],
+      "test_paths": ["lyric-harness/quality/test_production_data.py"],
+      "local_evidence": "All 8,545 nonempty works were independently remeasured under the final frozen CLI; row SHA256 remains 7ef7410bfb1271c596eaca69e261ffbc00cbae89059ea7e9a31d298344fe3b63. All five active curves pass all 21 bins over 200 held-out seeds. All 81 exact capacity witness families, the six-adopter corpus snapshot, 27 focused data regressions and 10 actual approved-assembly offline checks pass. The tracked production-data report and 50 SHA-indexed artifacts retain derivation, measured counts, source epochs and limitations.",
+      "remaining": "Current data corrections, all six affected adoptions and exact approved-only local assembly are complete. Exact production-image runtime proof, resource qualification and hosted acceptance remain separate gates.",
+      "original_acceptance": "The two Hogg examples and short/orthographic variants are surfaced consistently; every retained multiple printing has a declared calibration weight. Rebuilt counts demonstrate that no duplicate printing silently gains another independent-work vote.",
+      "original_test_gap": "The near-duplicate detector excludes short signatures and requires at least eight shared long lines. A title+opening census misses orthographic variants. A pinned manifest and green calibration re-derivation cannot decide which edition or work weight is intended."
+    },
+    {
+      "id": "DATA-06",
+      "severity": "P2",
+      "title": "Three calibration readers still include apparatus that the live lyric reader removes",
+      "status": "local_verified",
+      "owner": "data",
+      "change": "Current calibration readers share normalized rows, source positions and item boundaries; versioned work weighting is a separate explicit population layer. Historical readers remain named. Corpus adoption binds reader/policy fingerprint. Saved calibration rows now bind corpus bytes, comparator/question code, NLTK/tagger bytes and file hash; stale or unverified rows cannot pass current curve checks.",
+      "implementation_paths": [
+        "lyric-harness/quality/lyric_reader.py",
+        "lyric-harness/quality/meter_bands.py",
+        "lyric-harness/quality/song_profile_calibration.py",
+        "lyric-harness/quality/structure_census.py",
+        "lyric-harness/quality/length_curve_calibration.py",
+        "lyric-harness/quality/calibration_rebuild.py"
+      ],
+      "test_paths": ["lyric-harness/quality/test_production_data.py"],
+      "local_evidence": "All8545 nonempty works remeasured under the final reader/CLI: exact row SHA2567ef7410bfb1271c596eaca69e261ffbc00cbae89059ea7e9a31d298344fe3b63, zero song-frequency calls. All five active curves pass all 21 bins over200 held-out seeds. Final all 81/8406-pair local capacity attestation, six-adopter corpus snapshot, 30 production-data regressions and10 approved-assembly offline checks pass. The data report and103 SHA-indexed artifacts preserve populations, source epochs and limitations.",
+      "remaining": "Current data corrections, all six affected adoptions and exact approved-only local assembly are complete. Exact production-image runtime proof, resource qualification and hosted acceptance remain separate gates.",
+      "original_acceptance": "Wrapped notes, orphan closers, bracketed sung text, footnote anchors, and genuine source lines agree across current-runtime calibrations and runtime loading. Historical reader modes remain reproducible and are labeled as historical. Report before/after population sizes and whether adopted constants move.",
+      "original_test_gap": "Separate per-reader checks can all pass because each reproduces its own marker-only filter. Corpus hashes do not fingerprint reader semantics. The readoption map tracks files, not the interpretation of those files; no cross-reader conformance check for the current bracket/apparatus rules was found in the targeted tests."
+    },
+    {
+      "id": "DATA-07",
+      "severity": "P2",
+      "title": "Calibration manifest says no re-adoption is owed after deleting an English calibration source",
+      "status": "local_verified",
+      "owner": "data",
+      "change": "Removed files are included in drift and checked against recorded historical population membership. Missing membership with deletions withholds verdict. Reader/policy changes owe all current calibrations. Active lyric length curves added to the adoption map. The actual snapshot CLI now initializes its package path correctly, prepares both outputs before publication and binds the two files with a digest so a partial publication cannot pass.",
+      "implementation_paths": [
+        "lyric-harness/quality/corpus_manifest.py",
+        "lyric-harness/data/calibration_populations.json",
+        "lyric-harness/quality/test_production_data.py"
+      ],
+      "test_paths": ["lyric-harness/quality/test_production_data.py"],
+      "local_evidence": "All 8,545 nonempty works were independently remeasured under the final frozen CLI; row SHA256 remains 7ef7410bfb1271c596eaca69e261ffbc00cbae89059ea7e9a31d298344fe3b63. All five active curves pass all 21 bins over 200 held-out seeds. All 81 exact capacity witness families, the six-adopter corpus snapshot, 27 focused data regressions and 10 actual approved-assembly offline checks pass. The tracked production-data report and 50 SHA-indexed artifacts retain derivation, measured counts, source epochs and limitations.",
+      "remaining": "Current data corrections, all six affected adoptions and exact approved-only local assembly are complete. Exact production-image runtime proof, resource qualification and hosted acceptance remain separate gates.",
+      "original_acceptance": "Delete or rename an English member in an isolated fixture: every affected calibration is marked owed while unrelated populations remain unowed. Non-English-only deletions receive the appropriate no-effect verdict. Keep the existing drift exit code and make instructions agree with the verdict.",
+      "original_test_gap": "The six existing re-adoption tests pass; they test membership of files that still exist and unaskable modules, not removals/renames. Merely adding gone to drifted is insufficient because _population asks live globs, which no longer return the removed path."
+    },
+    {
+      "id": "BCI-01",
+      "severity": "P1",
+      "title": "`finished` means any prior successful call, not the final checked and delivered song",
+      "status": "local_verified",
+      "owner": "ci",
+      "change": "Current completion requires matching task, full final-draft SHA256, full delivered-text SHA256, authoritative artifact and latest certified revise result. Blank/stale/changed/error delivery regressions fail.",
+      "implementation_paths": [
+        "scripts/flash_battery.mjs",
+        "scripts/battery_verdict.mjs",
+        "scripts/battery_archive.mjs",
+        "scripts/check_battery_acceptance.mjs",
+        ".github/workflows/ci.yml"
+      ],
+      "test_paths": [
+        "mcp/test_battery_lifecycle.mjs",
+        "mcp/test_battery_storage.mjs",
+        "mcp/test_release_gates.mjs",
+        "lyric-harness/quality/test_mutation.py"
+      ],
+      "local_evidence": "Lane reports 35 lifecycle, 5 storage, 7 archive, 12 publish-guard checks and release-negative controls. Hosted/live execution is separate.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Define a canonical completion receipt containing the exact final draft identity, final harness result, final rendered song and declaration identity. Require the final authoritative song state to match the successful receipt and delivered artifact; reject later conflicting state and any incomplete delivery. Keep initial-draft already-clean success distinct from a model-driven repair success. All three planted inconsistencies above must fail, and an unchanged genuine clean final result must pass.",
+      "original_test_gap": "Existing finished fixtures need only reply plus exit0; no final draft/delivery/state correlation."
+    },
+    {
+      "id": "BCI-02",
+      "severity": "P1",
+      "title": "a terminal checkpoint can lose the song verdict; multi-song resume can turn a failed song green",
+      "status": "local_verified",
+      "owner": "ci",
+      "change": "Terminal verdict is atomically stored with checkpoint; summaries rebuild from terminal records; sparse/missing songs fail. Both lost-success and lost-failure resume tests pass.",
+      "implementation_paths": [
+        "scripts/flash_battery.mjs",
+        "scripts/battery_verdict.mjs",
+        "scripts/battery_archive.mjs",
+        "scripts/check_battery_acceptance.mjs",
+        ".github/workflows/ci.yml"
+      ],
+      "test_paths": [
+        "mcp/test_battery_lifecycle.mjs",
+        "mcp/test_battery_storage.mjs",
+        "mcp/test_release_gates.mjs",
+        "lyric-harness/quality/test_mutation.py"
+      ],
+      "local_evidence": "Lane reports 35 lifecycle, 5 storage, 7 archive, 12 publish-guard checks and release-negative controls. Hosted/live execution is separate.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Commit the terminal outcome with its checkpoint as one authoritative transaction, or reconstruct every summary entry from durable checkpoint/receipt state. Iterate all requested indices explicitly and reject absent/null entries. Fault-inject each write/rename boundary for clean, failed, and incomplete songs in multi-song runs; no failure may disappear and no paid request may be replayed to repair a reporting gap.",
+      "original_test_gap": "Existing kill/resume probes miss terminal-checkpoint-to-summary crash boundary and sparse aggregate rows."
+    },
+    {
+      "id": "BCI-03",
+      "severity": "P1",
+      "title": "runner loss can still lose the entire battery's recovery capability",
+      "status": "qualification_pending",
+      "owner": "ci",
+      "change": "Hosted paid workflow encrypts and remotely acknowledges a capability archive before each request, selects latest prior archive on resume. Offline upload/seal/loss/restore tested; actual Actions upload and runner-loss proof pending.",
+      "implementation_paths": [
+        "scripts/flash_battery.mjs",
+        "scripts/battery_verdict.mjs",
+        "scripts/battery_archive.mjs",
+        "scripts/check_battery_acceptance.mjs",
+        ".github/workflows/ci.yml"
+      ],
+      "test_paths": [
+        "mcp/test_battery_lifecycle.mjs",
+        "mcp/test_battery_storage.mjs",
+        "mcp/test_release_gates.mjs",
+        "lyric-harness/quality/test_mutation.py"
+      ],
+      "local_evidence": "Lane reports 35 lifecycle, 5 storage, 7 archive, 12 publish-guard checks and release-negative controls. Hosted/live execution is separate.",
+      "remaining": "Offline archive loss/restore passes. Actual Actions remote upload and restoration after total runner loss remain unproved.",
+      "original_acceptance": "Persist the request intent/capability off the runner before execution, and retain authenticated encrypted checkpoint generations throughout the run, with a defined maximum loss window. Use a quiescent snapshot or checkpoint handoff, not a race with a mutating directory. Destroy the runner after dispatch, during work, after local receipt, during sealing and during upload; a different runner must find the retained request and recover or explicitly classify its outcome without duplicate spending. Preserve safe live progress separately: all current driver annotations are redirected to the private log and the public aggregate is printed only after the run.",
+      "original_test_gap": "Local fsync/encryption tests do not destroy a runner during a paid turn and restore from a prior external artifact."
+    },
+    {
+      "id": "BCI-04",
+      "severity": "P1",
+      "title": "mutation CI can claim all positive controls caught when none answered",
+      "status": "local_verified",
+      "owner": "ci",
+      "change": "INDETERMINATE, red baseline, missing detector and unrun locked sweep cannot report a successful release. Positive controls require caught_by evidence; standalone sweep distinguishes incomplete exit2. Injected indeterminate controls and all 58static mutation anchors pass.",
+      "implementation_paths": [
+        "scripts/flash_battery.mjs",
+        "scripts/battery_verdict.mjs",
+        "scripts/battery_archive.mjs",
+        "scripts/check_battery_acceptance.mjs",
+        ".github/workflows/ci.yml"
+      ],
+      "test_paths": [
+        "mcp/test_battery_lifecycle.mjs",
+        "mcp/test_battery_storage.mjs",
+        "mcp/test_release_gates.mjs",
+        "lyric-harness/quality/test_mutation.py"
+      ],
+      "local_evidence": "Lane reports 35 lifecycle, 5 storage, 7 archive, 12 publish-guard checks and release-negative controls. Hosted/live execution is separate.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Base caught on an actual successful detector outcome, require every positive control to be caught, and give incomplete mutation coverage a distinct non-accepting outcome. Preserve separate caught/survived/indeterminate/stale counts through the workflow. Inject indeterminate and dropped-baseline results for every positive control; all must refuse acceptance. Verify a complete known-good slice still passes. A lock-held skipped sweep (`test_mutation.py:995–1003`) must likewise never be reported as a fully executed slice.",
+      "original_test_gap": "Three-way outcome tests pass but wrapper uses not-survived and never refuses indeterminate controls."
+    },
+    {
+      "id": "BCI-05",
+      "severity": "P1",
+      "title": "manual deployment bypasses the claimed CI requirement",
+      "status": "local_verified",
+      "owner": "ci",
+      "change": "Manual connector deploy and Pages publish require exact trusted main push CI and successful required jobs through verify_ci.mjs.",
+      "implementation_paths": [
+        "scripts/flash_battery.mjs",
+        "scripts/battery_verdict.mjs",
+        "scripts/battery_archive.mjs",
+        "scripts/check_battery_acceptance.mjs",
+        ".github/workflows/ci.yml"
+      ],
+      "test_paths": [
+        "mcp/test_battery_lifecycle.mjs",
+        "mcp/test_battery_storage.mjs",
+        "mcp/test_release_gates.mjs",
+        "lyric-harness/quality/test_mutation.py"
+      ],
+      "local_evidence": "Lane reports 35 lifecycle, 5 storage, 7 archive, 12 publish-guard checks and release-negative controls. Hosted/live execution is separate.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Both automatic and manual paths must resolve a successful, complete required-check verdict for the exact source to deploy. Any emergency override must be a separate explicit policy, not silently implied by a redeploy button. Drive the actual guard with failed/pending/missing/skipped-only and successful exact-commit CI records; only the last may proceed normally.",
+      "original_test_gap": "Ordering guard tests do not enforce CI success on manual deployment."
+    },
+    {
+      "id": "BCI-06",
+      "severity": "P1",
+      "title": "an accepted deployment is never automatically verified as the deployed implementation",
+      "status": "qualification_pending",
+      "owner": "ci",
+      "change": "Root implemented exact tested imageID publication and verified-run registry digest promotion. Live gates check commit/fullmetadata/init/effectiveconfig/readiness/assets/runtime identity. HTTP readiness exercised locally; actual image promotion pending.",
+      "implementation_paths": [
+        "scripts/flash_battery.mjs",
+        "scripts/battery_verdict.mjs",
+        "scripts/battery_archive.mjs",
+        "scripts/check_battery_acceptance.mjs",
+        ".github/workflows/ci.yml"
+      ],
+      "test_paths": [
+        "mcp/test_battery_lifecycle.mjs",
+        "mcp/test_battery_storage.mjs",
+        "mcp/test_release_gates.mjs",
+        "lyric-harness/quality/test_mutation.py"
+      ],
+      "local_evidence": "Lane reports 35 lifecycle, 5 storage, 7 archive, 12 publish-guard checks and release-negative controls. Hosted/live execution is separate.",
+      "remaining": "Immutable promotion and live-identity gates pass local negative controls. No tested production image has been promoted or verified live.",
+      "original_acceptance": "Complete deployment only after checking the exact rollout/build identity, relevant configuration and tool/instruction surface, plus an offline or bounded nonpaid behavioral smoke on that revision. Handle failed accepted builds explicitly. Reproduce hook acceptance followed by build failure, same-schema stale code, wrong runtime configuration and unchanged-SHA retry; none may be labeled deployed. Keep this as one release-verification root cause, not separate duplicate findings for each missing backstop.",
+      "original_test_gap": "Accepted hook and schema-only suspended nightly do not verify actual rollout identity, initialization instructions or config."
+    },
+    {
+      "id": "BCI-07",
+      "severity": "P1",
+      "title": "CI deduplication can cancel the covering PR run and then skip every test",
+      "status": "local_verified",
+      "owner": "ci",
+      "change": "Push and PR concurrency groups separated; all CI events execute their own gates, eliminating unproved duplicate coverage.",
+      "implementation_paths": [
+        "scripts/flash_battery.mjs",
+        "scripts/battery_verdict.mjs",
+        "scripts/battery_archive.mjs",
+        "scripts/check_battery_acceptance.mjs",
+        ".github/workflows/ci.yml"
+      ],
+      "test_paths": [
+        "mcp/test_battery_lifecycle.mjs",
+        "mcp/test_battery_storage.mjs",
+        "mcp/test_release_gates.mjs",
+        "lyric-harness/quality/test_mutation.py"
+      ],
+      "local_evidence": "Lane reports 35 lifecycle, 5 storage, 7 archive, 12 publish-guard checks and release-negative controls. Hosted/live execution is separate.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Make the run selected to do work independent of event arrival order and require a real covering verdict rather than PR existence. Validate push-first, PR-first, queued, canceled, failed, absent and successful PR runs. At least one complete result for the tested revision must survive every ordering, with required results unable to pass solely through skipped jobs.",
+      "original_test_gap": "Stubbed open-PR counts do not model reversed event ordering/cancellation or absent PR workflows."
+    },
+    {
+      "id": "BCI-08",
+      "severity": "P2",
+      "title": "production battery turn timing measures receipt lookup instead of execution",
+      "status": "local_verified",
+      "owner": "ci",
+      "change": "Receipt confirmation retains full request duration; poll lookup is separate. Budgets and timing use monotonic clock.",
+      "implementation_paths": [
+        "scripts/flash_battery.mjs",
+        "scripts/battery_verdict.mjs",
+        "scripts/battery_archive.mjs",
+        "scripts/check_battery_acceptance.mjs",
+        ".github/workflows/ci.yml"
+      ],
+      "test_paths": [
+        "mcp/test_battery_lifecycle.mjs",
+        "mcp/test_battery_storage.mjs",
+        "mcp/test_release_gates.mjs",
+        "lyric-harness/quality/test_mutation.py"
+      ],
+      "local_evidence": "Lane reports 35 lifecycle, 5 storage, 7 archive, 12 publish-guard checks and release-negative controls. Hosted/live execution is separate.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Keep separate execution/POST duration, polling duration and total delivery wall time on one clock; retain both recovered and unrecovered cases. A delayed POST followed by a fast lookup must still report the delay in total turn duration. Also repair cycle turn ranges: two stopping calls in one turn currently produce a later cycle range `[1,0]` because `cycle.firstTurn=t+1` is used immediately for another same-turn cycle (`1399`); the stale-success fixture records this.",
+      "original_test_gap": "No elapsed-time assertion across require-recovery replacement; receipt retrieval overwrites POST duration."
+    },
+    {
+      "id": "BCI-09",
+      "severity": "P2",
+      "title": "the wall canary can pass without a song checkpoint or any demonstrated continuation",
+      "status": "qualification_pending",
+      "owner": "ci",
+      "change": "Wall expectation requires nonempty signed state and a successful real continuation. Qualification checks exact continuation requests and raw receipts.",
+      "implementation_paths": [
+        "scripts/flash_battery.mjs",
+        "scripts/battery_verdict.mjs",
+        "scripts/battery_archive.mjs",
+        "scripts/check_battery_acceptance.mjs",
+        ".github/workflows/ci.yml"
+      ],
+      "test_paths": [
+        "mcp/test_battery_lifecycle.mjs",
+        "mcp/test_battery_storage.mjs",
+        "mcp/test_release_gates.mjs",
+        "lyric-harness/quality/test_mutation.py"
+      ],
+      "local_evidence": "Lane reports 35 lifecycle, 5 storage, 7 archive, 12 publish-guard checks and release-negative controls. Hosted/live execution is separate.",
+      "remaining": "The canary now requires a signed song checkpoint and actual continuation; a real same-build wall/continuation run is still required.",
+      "original_acceptance": "Distinguish 'server reported wall' from 'durable song checkpoint recovered and resumed'. Require retained declaration/draft identity and resume the checkpoint on the pinned deployment. Demonstrate an accepted continuation with no duplicate completed proposal and eventual useful progress. Retain a separate artifact for the wall crossing and the resumed run. The canary must not imply a final song or provider reliability.",
+      "original_test_gap": "Wall canary only requires label/history-array/nonempty signature; it does not prove real song continuation."
+    },
+    {
+      "id": "BCI-10",
+      "severity": "P2",
+      "title": "scheduled validation is disabled and a scheduled calibration command is broken",
+      "status": "qualification_pending",
+      "owner": "ci",
+      "change": "A dedicated manual production qualification workflow requires all four mutation shards and full song/short-song/curve comparisons, with complete exact-source command receipts and trusted run/attempt validation before promotion. Bounded calibration timeouts cannot qualify. Ordinary nightly command location is corrected; paid schedules remain suspended until production qualification.",
+      "implementation_paths": [
+        "scripts/flash_battery.mjs",
+        "scripts/battery_verdict.mjs",
+        "scripts/battery_archive.mjs",
+        "scripts/check_battery_acceptance.mjs",
+        ".github/workflows/ci.yml"
+      ],
+      "test_paths": [
+        "mcp/test_battery_lifecycle.mjs",
+        "mcp/test_battery_storage.mjs",
+        "mcp/test_release_gates.mjs",
+        "lyric-harness/quality/test_mutation.py"
+      ],
+      "local_evidence": "Focused 27 Node and six Python qualification controls pass, including actual child timeout producing an incomplete receipt, missing/wrong shard and input/runtime/source rejection, trusted workflow/attempt checks and intentionally distinct repository versus assembled-runtime identities.",
+      "remaining": "Run the complete qualification workflow and measure each component within its declared bounds before restoring schedules. The historical combined nightly arithmetic is 267.4 minutes against a 240-minute job, before setup/save; separate qualification jobs remove that stacking but their current-runtime completion remains unmeasured.",
+      "original_acceptance": "Restore the intended schedules at the production-readiness point, fix the directory, and validate effective working directories of workflow commands. Establish a complete current calibration/mutation result, not merely restored YAML. The mutation dispatch selects one of four shards by day-of-year; repeated dispatches on the same day still cover only that slice (`2986–2990`). A release check needs an explicit four-shard completion record. The newly added 40-minute length-curve step also needs the night's aggregate time budget remeasured: the documented older cold estimate is 227 of 240 minutes before adding that bounded step (`3466–3475`); actual overrun was not measured here.",
+      "original_test_gap": "Push/PR skip expensive jobs, so missing working-directory is invisible; schedules remain disabled."
+    },
+    {
+      "id": "BCI-11",
+      "severity": "P2",
+      "title": "cached mutation baselines omit non-Python inputs and the execution environment",
+      "status": "local_verified",
+      "owner": "ci",
+      "change": "Mutation baseline fingerprint includes source, input data, sibling contracts, staged external data, interpreter/package/environment and execution settings.",
+      "implementation_paths": [
+        "scripts/flash_battery.mjs",
+        "scripts/battery_verdict.mjs",
+        "scripts/battery_archive.mjs",
+        "scripts/check_battery_acceptance.mjs",
+        ".github/workflows/ci.yml"
+      ],
+      "test_paths": [
+        "mcp/test_battery_lifecycle.mjs",
+        "mcp/test_battery_storage.mjs",
+        "mcp/test_release_gates.mjs",
+        "lyric-harness/quality/test_mutation.py"
+      ],
+      "local_evidence": "Lane reports 35 lifecycle, 5 storage, 7 archive, 12 publish-guard checks and release-negative controls. Hosted/live execution is separate.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": "Fingerprint the actual baseline's dependency/data/environment closure, or reprove baseline validity when any of it changes. A changed corpus fixture, runtime/dependency fingerprint or test execution policy must invalidate the memo; unchanged inputs must reuse it safely. Include red-to-green and green-to-red changes.",
+      "original_test_gap": "Cache fingerprint excludes data, dependencies/runtime and execution policy."
+    },
+    {
+      "id": "BCI-12",
+      "severity": "P1",
+      "title": "current green tests do not establish autonomous new-song success",
+      "status": "qualification_pending",
+      "owner": "ci",
+      "change": "Executable check_battery_acceptance.mjs requires same-build fresh planned songs, final matching deliverables, measured accepted repairs and wall continuation; live success is not claimed.",
+      "implementation_paths": [
+        "scripts/flash_battery.mjs",
+        "scripts/battery_verdict.mjs",
+        "scripts/battery_archive.mjs",
+        "scripts/check_battery_acceptance.mjs",
+        ".github/workflows/ci.yml"
+      ],
+      "test_paths": [
+        "mcp/test_battery_lifecycle.mjs",
+        "mcp/test_battery_storage.mjs",
+        "mcp/test_release_gates.mjs",
+        "lyric-harness/quality/test_mutation.py"
+      ],
+      "local_evidence": "Lane reports 35 lifecycle, 5 storage, 7 archive, 12 publish-guard checks and release-negative controls. Hosted/live execution is separate.",
+      "remaining": "Release oracle and creation workflow enforce exact fresh-plan/grade/repair/delivery evidence. Real autonomous paid new-song success is not yet demonstrated.",
+      "original_acceptance": "After fixing the deterministic blockers, use new briefs rather than the old song, predetermined seeds and declared test arms. Separate already-clean initial draft, actual kitchen repair of seeded defects, autonomous fresh-song completion, long-wall suspension/recovery, provider faults and client integration. Record every attempted draw and rejection, all outcomes and the denominators; do not select a successful seed and treat it as the whole experiment. Measure completion rate, latency, cost, accepted/rejected proposals, repeat work and creative/task adherence, then establish owner-approved operating targets from that evidence. Keep mechanical pass criteria strict: actual requested task, same declarations, no outstanding blocking findings/refusals, exact delivered artifact, durable recovery and reconciled spend. Do not equate a zero-round clean draft with proof that the kitchen repaired anything.",
+      "original_test_gap": "File inventory, zero-round fixture success and recorded-table shape cannot establish autonomous fresh-song/provider/longwall success."
+    },
+    {
+      "id": "DEP-01",
+      "severity": "P1",
+      "title": "Readiness reports healthy while signing or paid accounting disables chat",
+      "status": "local_verified",
+      "owner": "root",
+      "change": "Capability readiness covers signing, accounting, recovery, workers/assets and returns specific blocked reasons matching admission.",
+      "implementation_paths": ["mcp/server_http.js", "mcp/chat.js", "mcp/runtime_assets.js"],
+      "test_paths": ["mcp/test_connector_contracts.mjs", "mcp/test_chat_production.mjs"],
+      "local_evidence": "Root boundary integration: 39 tests pass, including connector contracts, chat and creation workflow. No live deployment.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "Boot with each essential store missing, malformed, read-only and full; ready state and actual admission agree.",
+        "Healthy recipe capability may remain available while unavailable lyrics capability is explicitly reported.",
+        "Persistent accounting failure is not described as an ordinary budget exhaustion."
+      ],
+      "original_test_gap": "Happy-path health and durable recovery checks omit failed signing and paid-ledger startup. Status tests do not require enabled/readiness to match admission."
+    },
+    {
+      "id": "DEP-02",
+      "severity": "P1",
+      "title": "Live daily turn limit still overrides the intended raised budget",
+      "status": "external_action_required",
+      "owner": "root",
+      "change": "Versioned effective configuration exposes binding deployed limits; release checks reject stale or different effective settings.",
+      "implementation_paths": ["mcp/runtime_config.js", "mcp/check_live.mjs", "render.yaml"],
+      "test_paths": ["mcp/test_connector_contracts.mjs"],
+      "local_evidence": "Root boundary integration: 39 tests pass, including connector contracts, chat and creation workflow. No live deployment.",
+      "remaining": "The live obsolete turn-limit override has not been migrated or checked against the new effective configuration.",
+      "original_acceptance": [
+        "Live status agrees with the reviewed effective configuration after deploy.",
+        "A stale override that changes the binding budget fails the deployment acceptance check even when commit and schemas match."
+      ],
+      "original_test_gap": "Tests compare repository defaults and Blueprint text. Commit identity and a configuration hash do not compare effective deployed values against expected values."
+    },
+    {
+      "id": "DEP-03",
+      "severity": "P1",
+      "title": "Repository and Blueprint deployment paths do not enforce the claimed CI release gate",
+      "status": "external_action_required",
+      "owner": "root",
+      "change": "Repository release workflows attest exact trusted CI and image identity; external main protection and existing Git-backed Render service are still unenforced.",
+      "implementation_paths": [
+        ".github/workflows/deploy-connector.yml",
+        "scripts/verify_ci.mjs",
+        "render.yaml"
+      ],
+      "test_paths": ["mcp/test_release_gates.mjs"],
+      "local_evidence": "Root boundary integration: 39 tests pass, including connector contracts, chat and creation workflow. No live deployment.",
+      "remaining": "Actual main branch protection and the existing Git-backed Render deployment path remain external changes. Code cannot attest those settings into existence.",
+      "original_acceptance": [
+        "An untested revision cannot reach the production service through a push, manual deploy, Blueprint sync or hook.",
+        "The release record identifies tested commit, immutable image and successful required run, and verifies the serving deployment."
+      ],
+      "original_test_gap": "Workflow YAML guards do not audit branch settings or alternative Render deployment triggers. Manual workflow bypass and deploy-hook-only success are separate BCI-05/06 findings."
+    },
+    {
+      "id": "DEP-04",
+      "severity": "P1",
+      "title": "A matching commit and build fingerprint do not identify a reproducible tested grading runtime",
+      "status": "qualification_pending",
+      "owner": "root",
+      "change": "Pinned dependencies and asset digests enter build/recovery identity; release promotes the immutable image tested by the trusted run.",
+      "implementation_paths": [
+        "mcp/Dockerfile",
+        "mcp/requirements-runtime.txt",
+        "mcp/build_identity.js",
+        "scripts/image_release.mjs",
+        "lyric-harness/data/runtime_assets.json"
+      ],
+      "test_paths": [
+        "mcp/test_connector_contracts.mjs",
+        "mcp/test_release_gates.mjs",
+        "lyric-harness/quality/test_production_data.py"
+      ],
+      "local_evidence": "Root boundary integration: 39 tests pass, including connector contracts, chat and creation workflow. No live deployment.",
+      "remaining": "Build identity and promotion controls are implemented; clean image assembly, immutable publication/promotion and serving-digest verification remain required.",
+      "original_acceptance": [
+        "Independent clean builds resolve the same declared dependency/data identities.",
+        "Changing one grading dataset byte changes the attested identity and blocks incompatible replay/deploy acceptance.",
+        "Production serves the tested image digest, not merely a rebuild of the same commit."
+      ],
+      "original_test_gap": "The image test proves its independently built image works for its fixture. Live checks prove selected source identity and schema parity, not byte-identical data/dependencies/image."
+    },
+    {
+      "id": "DEP-05",
+      "severity": "P2",
+      "title": "Data staging accepts corrupt files and empty resource directories as success",
+      "status": "local_verified",
+      "owner": "root",
+      "change": "Asset staging validates pinned bytes and required runtime readers, rejects corrupt caches and assembles only admitted resources.",
+      "implementation_paths": [
+        "lyric-harness/quality/fetch_data.py",
+        "lyric-harness/quality/release_assets.py"
+      ],
+      "test_paths": ["lyric-harness/quality/test_production_data.py"],
+      "local_evidence": "Root boundary integration: 39 tests pass, including connector contracts, chat and creation workflow. No live deployment.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "Interrupted extraction, empty directories, truncated/corrupt nonempty files and wrong-version assets are repaired or refused during staging.",
+        "An offline staged-readiness probe executes the exact runtime readers without downloading."
+      ],
+      "original_test_gap": "Resource-existence and normal-download tests do not plant incomplete extracted directories or nonempty corrupt content."
+    },
+    {
+      "id": "DEP-06",
+      "severity": "P1",
+      "title": "Image resource checks do not cover the actual CPU allocation or largest supported songs",
+      "status": "qualification_pending",
+      "owner": "root",
+      "change": "The final-image gate requires 1 CPU / 2 GiB, 18/24/31 lines, three seeds, cold/warm modes, latency, peak/retained memory, typed outcomes and recovery. An actual resident Node HTTP/MCP/chat server loads near-ceiling durable receipts, replays them during Python work and restarts with its stable signing key; the gate measures combined cgroup usage and rejects missing evidence.",
+      "implementation_paths": [
+        "scripts/check_lyrics_capacity.py",
+        "scripts/measure_verb_memory.py",
+        "scripts/check_lyrics_image.mjs",
+        "scripts/lyrics_capacity_runtime.py",
+        "scripts/seed_lyrics_capacity_receipts.mjs"
+      ],
+      "test_paths": ["scripts/test_lyrics_capacity.py"],
+      "local_evidence": "The reproduced 31-line cold repair now passes in 110.903 seconds with an authenticated exact-draft checkpoint. Actual local Node receipt serialization/restart was exercised. Missing local /proc residency evidence and the different workspace allocation explicitly prevent production capacity qualification. No container matrix is claimed.",
+      "remaining": "Execute the complete 18-sample matrix (72 measured grade/repair calls plus setup, recovery and queue pressure) in the exact production image under 1 CPU / 2 GiB. This workspace cannot prove retained/combined process residency and has no Docker; publication for Docker CI is blocked by automatic approval review.",
+      "original_acceptance": [
+        "Run declared short/typical/maximum cases on 1 CPU/2 GiB with a predeclared repeated sample count per workload and cold/warm mode; report denominators, peak RSS, retained memory, p95 latency, timeout/recovery behavior and queue bounds.",
+        "Every accepted workload either completes within the contract or returns a typed resumable/refused result without process loss.",
+        "A real long run follows passing deterministic capacity gates."
+      ],
+      "original_test_gap": "Neither a cheap stub image lifecycle nor idle/ordinary sampled metrics establishes full supported-envelope capacity, retained warm-worker memory over a long session or tail latency under queue contention."
+    },
+    {
+      "id": "DEP-07",
+      "severity": "P1",
+      "title": "Streamable HTTP does not validate browser Origin",
+      "status": "local_verified",
+      "owner": "root",
+      "change": "Supplied browser Origin is checked before dispatch; configured origins and supported headerless native clients have separate acceptance.",
+      "implementation_paths": ["mcp/server_http.js"],
+      "test_paths": ["mcp/test_connector_http.mjs"],
+      "local_evidence": "Actual local HTTP origin rejection/native-client regression passes.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "Approved browser origins work; unrelated and null origins are rejected before any tool/provider dispatch.",
+        "Supported native clients without Origin continue according to the intended access policy.",
+        "Verify against https://modelcontextprotocol.io/specification/2025-11-25/basic/transports."
+      ],
+      "original_test_gap": "Current transport probes test successful reachability and normal limits, not the configured trusted-origin contract."
+    },
+    {
+      "id": "DEP-08",
+      "severity": "P2",
+      "title": "Direct-to-Node deployments cannot disable proxy-header trust",
+      "status": "local_verified",
+      "owner": "root",
+      "change": "Nonnegative integer proxy-hop configuration honors zero and uses the declared trusted suffix.",
+      "implementation_paths": ["mcp/ratelimit.js"],
+      "test_paths": ["mcp/test_turn_lifecycle.mjs"],
+      "local_evidence": "Proxy-zero configuration is exercised by maintained lifecycle tests; live topology remains deployment configuration.",
+      "remaining": "Final combined CI and deployment acceptance still apply; this row records a bounded local fix, not whole-product qualification.",
+      "original_acceptance": [
+        "Zero-hop mode ignores every supplied forwarding header.",
+        "One/multiple-hop modes use only the correct trusted suffix and reject invalid configuration.",
+        "Limits remain tied to the true client under each supported topology."
+      ],
+      "original_test_gap": "Tests exercise trusted-proxy cases, not the supported zero-proxy deployment."
+    },
+    {
+      "id": "REG-01",
+      "severity": "P1",
+      "title": "Current default planner rarely satisfies a compact brief; the register’s count-first remedy is already implemented",
+      "status": "qualification_pending",
+      "owner": "harness",
+      "change": "make_plan(wants=...) accepts closed existing sweep vocabulary, conditions feasible length/section/stanza/group search, logs every candidate outcome, never ranks. Seeds0..9 satisfy all explicitly requested compact predicates and reproduce exactly.",
+      "implementation_paths": [
+        "lyric-harness/quality/plan.py",
+        "lyric-harness/quality/meter.py",
+        "lyric-harness/quality/fit.py",
+        "lyric-harness/quality/schemes.py"
+      ],
+      "test_paths": [
+        "lyric-harness/quality/test_production_harness.py",
+        "lyric-harness/quality/test_plan.py",
+        "lyric-harness/quality/test_fit.py"
+      ],
+      "local_evidence": "Lane reports 12 production harness tests plus actual CLI, bounded-allocation and real worker continuation checks. Capacity is a separate open gate.",
+      "remaining": "Controlled compact briefs and seeds pass local selection checks. Actual autonomous requested-song success, accepted repair and latency distributions remain unmeasured.",
+      "original_acceptance": "Fixed fresh controlled briefs and seeds, recorded declaration/selection/rejection rules, all outcomes, independent verification of final requested constraints and gradability under actual tool clocks. Demonstrate model-driven repair of seeded defects and durable wall/resume separately from initially clean drafts. Measure empirical success/latency/resource distributions; proposed SLOs are not pre-existing requirements.",
+      "original_test_gap": "test_verbs sweep only requires a known reachable predicate to yield seeds; it does not prove efficient request satisfaction, complete grading, model writability or production repair. This offline census invokes no writer/provider/grader."
+    }
+  ],
+  "publication": {
+    "status": "blocked_by_automatic_approval_review",
+    "attempted_action": "Create a GitHub blob for the committed contract_version.js",
+    "result": "Rejected before any remote write succeeded. Reviewer requires explicit permission to publish repository source to the destination.",
+    "local_checkpoint_commit": "e6b1fab65bdb5eaf35c159aed4f2fe078a6e3de2",
+    "remote_branch_created": false,
+    "pull_request_created": false,
+    "deployed": false,
+    "paid_calls": 0,
+    "destination": "WeningerII/CodexMusica",
+    "requested_next_action": "Push codex/production-audit-fixes and open a draft pull request; production deployment remains separately gated."
+  },
+  "integration_repairs": [
+    {
+      "id": "INT-01",
+      "change": "Conflicting array/string draft or answer aliases and embedded line separators are rejected before worker dispatch.",
+      "status": "local_verified"
+    },
+    {
+      "id": "INT-02",
+      "change": "Writer and revision admission check actual draft syllabic work, so 31 unusually dense lines cannot bypass the planner work bound through a character-only limit.",
+      "status": "local_verified"
+    },
+    {
+      "id": "INT-03",
+      "change": "Semantic identity binds source, runtime and actual assets across continuations. Read-only export recovers exact available accepted drafts and journals from incompatible states without a Python worker, replay, paid call or identity restamp. Maximum serialized MCP and real HTTP exports persist and reopen within the existing byte limits; the shipped UI displays and copies the exact export while retaining the live run.",
+      "status": "local_verified"
+    },
+    {
+      "id": "INT-04",
+      "change": "Creation now accepts an authenticated completed assessment with accounted refusals into repair, while rejecting malformed coverage or premeasurement refusals. Clean completion still needs the latest certified repair artifact.",
+      "status": "local_verified"
+    },
+    {
+      "id": "INT-05",
+      "change": "Assessments no longer build unused candidate menus. Exact requested-pair projection preserves full relation results and uncertainty. Requested-first candidate rejection skips the expensive collateral whole-vocabulary search for an already-failed or unknown requested slot; surviving candidates still undergo complete collateral checks. Four actual grader controls pass. The preserved 31-line repair improved from a 600-second timeout to 110.903 seconds, with an authenticated exact-draft checkpoint and needs_proposal stop under the unchanged deadline.",
+      "status": "local_verified"
+    },
+    {
+      "id": "INT-06",
+      "change": "Source identity locates named definitions by AST instead of stale loaded line offsets. Complete saved calibration provenance and independently rederived coefficients validate the completed 200-seed adoption.",
+      "status": "local_verified"
+    },
+    {
+      "id": "INT-07",
+      "change": "All 81 old rhyme-capacity witness families failed exact declared RHYME certification. All 81 nonempty families were reconstructed and fully regraded with the original predicate and ban rules; actual lower bounds range from 4 to 23, and the measured maximum 23 is explicitly adopted. This is separate from the 31-line writer workload bound. Each installed Python runtime must independently verify the full witness table before using its separate build receipt.",
+      "status": "local_verified"
+    },
+    {
+      "id": "INT-08",
+      "change": "The capacity gate loads actual resident Node JobStore receipts and 64 near-capacity RunStore records during concurrent HTTP replay and Python work. Frozen local startup took 12.720 seconds and restart/recovery 8.448 seconds, with exact replay and signing continuity. The gate rejects absent RSS/process evidence; this workspace therefore cannot qualify combined production memory or unexercised queued concurrency.",
+      "status": "local_verified"
+    },
+    {
+      "id": "INT-09",
+      "change": "Generated registry version and runtime descriptions now agree with the actual connector.",
+      "status": "local_verified"
+    },
+    {
+      "id": "INT-10",
+      "change": "Returns-only human reports distinguish satisfied from violated verbatim obligations. The finish stamp says no line flag stands when whole-draft flags remain.",
+      "status": "local_verified"
+    },
+    {
+      "id": "INT-11",
+      "change": "Band-profile checks now compare the measured population count; missing or drifted adoption counts cannot falsely pass.",
+      "status": "local_verified"
+    },
+    {
+      "id": "INT-12",
+      "change": "Cache eviction could remove a locked active run and reset its next revision from 2 to 1. Count-pressure and TTL eviction now preserve in-flight records, so stale continuations cannot regain a current revision. Both reproduced cases pass their regression tests.",
+      "status": "local_verified"
+    },
+    {
+      "id": "INT-13",
+      "status": "local_verified",
+      "change": "Per-place candidate verification now requires the requested relation to be satisfied while preserving existing unrelated failures as open obligations. Actual collateral pairs are regraded: newly broken or newly refused collateral obligations reject the offer. Positive RHYME repair, CONSONANCE-break rejection and preserved unknown controls pass."
+    },
+    {
+      "id": "INT-14",
+      "status": "local_verified",
+      "change": "A finish with both zero writer attempts and zero backtrack width no longer constructs unusable offer menus or falsely reports that a writer was asked. Nonzero backtracking retains its required menus. The actual finish-one-door integration section, including the previously timed-out seed31 zero/zero call, now passes in 48.42 seconds."
+    },
+    {
+      "id": "INT-15",
+      "status": "local_verified",
+      "change": "Release-asset verification uses the installed target tree's own manifest when --root selects a separate tree. An altered target release decision cannot be hidden by a valid source-checkout manifest; the assembled-tree negative control refuses."
+    },
+    {
+      "id": "INT-16",
+      "status": "local_verified",
+      "change": "The maintained calibration rebuild uses bounded SQLite-backed field and derived caches instead of eagerly decoding the entire checkpoint. All 8,545 rows remain byte-identical; final measured peak residency is 772,784,128 bytes. This is research-runner evidence, not production capacity proof."
+    },
+    {
+      "id": "INT-17",
+      "status": "local_verified",
+      "change": "Every staged corpus source is checked against its recorded all-file calibration snapshot as well as any local source declaration. Missing, duplicate or malformed snapshot entries and either form of byte drift fail. Five metadata declarations were corrected with historical hashes retained."
+    },
+    {
+      "id": "INT-18",
+      "status": "local_verified",
+      "change": "A custom MATTR window could borrow the calibrated 50-token threshold and false-positive claim. Nondefault windows now require an explicit caller threshold or a matching calibrated profile. Four actual controls prove omitted-cut refusal reaches coverage, default 50 parity and explicit caller-cut acceptance without borrowed calibration claims."
+    },
+    {
+      "id": "INT-19",
+      "status": "local_verified",
+      "change": "Production qualification now intentionally runs all four mutation shards and the complete song, short-song and active-curve comparisons in separate jobs. Exact command, source/input/runtime, commit and run/attempt receipts gate promotion. A timed-out calibration slice remains incomplete while its cache is retained. Focused 27 Node and six Python controls pass; full qualification runs and measured component budgets remain required."
+    },
+    {
+      "id": "INT-20",
+      "status": "local_verified",
+      "change": "Each installed runtime must grade all 81 witness families and save a separate source, table and runtime bound receipt. Strict readback caught integer dictionary keys becoming strings after the earlier 1600.725-second serial measurement. Canonical wire validation and real producer/write/read/admission controls now pass. The retained actual all 81/8406-pair run completed in 549.696 seconds with four workers on Python 3.12.13; strict saved-receipt readback and installed lookup/planning passed on unchanged source/table. Prior invalid and cancelled epochs remain retained, never restamped. Docker 3.11 independently generates and validates its own receipt before release. At that measurement epoch, full CLI and proposer bytes were separately fenced before and after this fresh complete measurement; deterministic receipt bytes match because deferred prompts are outside the consumed judge graph. The later kitchen application-evidence change passes strict current receipt validation with unchanged consumed judge identity; it does not claim another 81 measurement."
+    },
+    {
+      "id": "INT-21",
+      "status": "local_verified",
+      "change": "The prose/provenance checker ignored Git failures and could treat truncated cat-file output as complete history. It now requires successful operations and validated complete blob records. After SHA-verified read-only retrieval of214 missing historical blobs, current checking asks9050 entry claims:790 true, 8260 refused,zero false; prose reports211 true, 9 refused,zero false. It retains130 pins across226 moves with zero vanished values. Refused claims remain unproven. Actual failed-Git, truncated-stream and preserved prose-mutation controls pass. Working-tree measurements are labeled dirty or unknown when a clean commit cannot represent their bytes."
+    },
+    {
+      "id": "INT-22",
+      "status": "local_verified",
+      "change": "Production readiness and ordinary lyric admission require a current all-family runtime capacity proof and approved assets using the actual configured Python. Cached validation invalidates on nested file membership, proof/source and asset changes; production NLTK overrides cannot escape approved staged data. Explicit read-only recovery bypasses scorer readiness only after task/payload guards. Actual required-mode MCP export succeeds with no Python or receipt, preserves exact lyrics/journal and stays uncertified/nonresumable; ordinary execution still refuses."
+    },
+    {
+      "id": "INT-23",
+      "status": "local_verified",
+      "change": "Actual corpus snapshot CLI execution exposed a package-import failure after opening its output. The command now establishes its package path, prepares both snapshot payloads before replacement and validates a cross-file digest. Actual isolated CLI tests prove publication, partial-pair refusal and preservation on prepublication failure."
+    },
+    {
+      "id": "INT-24",
+      "status": "local_verified",
+      "change": "The corpus audit subtracted disjoint spaced-enclitic counts from attached counts, producing negative totals and false dominance claims. Independent counts and contrast controls now remove 33 false notes. Current census changes are fully attributed; the historical license-file language sentinel and remaining research warnings are retained explicitly."
+    },
+    {
+      "id": "INT-25",
+      "status": "local_verified",
+      "change": "The maintained warm-worker measurement discarded the start of large authenticated grade records by parsing only a 128 KiB diagnostic tail. Complete stdout control lines now have their own authenticated bounded capture. Five fragmentation, forgery, stream and oversize controls pass, and all three maximum worker samples complete under the repaired instrument; original failed captures remain preserved."
+    },
+    {
+      "id": "INT-26",
+      "status": "local_verified",
+      "change": "The wall test used a fresh creation task but tried direct revision, so the strengthened creation guard correctly stopped it before the delayed handler. The test now separately proves that HTTP refusal and exercises the intended timed continuation with an explicit edit task, actual handler entry and elapsed-time assertions. The 100 ms wall and 150 ms handler delay are unchanged; all 17 internal lifecycle regressions pass."
+    },
+    {
+      "id": "INT-27",
+      "status": "local_verified",
+      "change": "Complete maintained regression execution exposed downstream fixtures that assumed old corpus populations, unjustified definite relation verdicts, invalid dataclass construction or removed CI branches. Each correction retains actual positive/negative contrasts and historical failures. All 88 suites ran exactly once on unchanged source in each full pass: first 65/88, second 87/88. The sole remaining null-test denominator premise was corrected; its full rerun is recorded separately. No failed run is relabeled as green. Separate full null suite 77/77, targeted loop 26 assertions and final committed maintained Node 74/65 plus Python 16/7/5/6 pass. The source-delta composite keeps the two failed 88-script sweeps distinct and leaves complete trusted CI—including the separate revision-loop and verbs jobs—required."
+    },
+    {
+      "id": "INT-28",
+      "status": "local_verified",
+      "change": "A broad default-schema refusal suppressed an independently requested named screen judgment. The exact named question now runs and is reported separately from the preserved broad refusal and counts. Full screen54, cross-song35 and grid330 regressions pass with determinate positive/negative and genuinely unreadable controls; the broad unknown result remains unknown."
+    },
+    {
+      "id": "INT-29",
+      "status": "local_verified",
+      "change": "The null-study report described unimplemented shapes as fixable by a stream declaration and counted unresolved-only readings as zero observed instances. It now separates five implementation-required shapes, missing declarations, confirmed instances and unresolved coverage without changing the judge. Full null-shape controls and the complete null-redeal suite pass. The latter reports77 passed in759.829 seconds under a 1200-second research-test bound; prior 600-second timeout and unavailable timing-command attempts remain explicit. Historical effect sizes remain unqualified."
+    },
+    {
+      "id": "INT-30",
+      "status": "local_verified",
+      "change": "The song-frequency loader mistook every row beginning with word or a for a header, silently dropping literal-word and a-pair data. It now recognizes only exact first headers, validates both complete tables and publishes no partial cache after malformed input. This restores407 word occurrences and a/the 77 plus a/ca9; all other valid counts agree with an independent full-table parser. All30 production-data controls pass. All8545 calibration rows were remeasured under a raising song-table tripwire with zero calls and identical bytes, and all 81 capacity families were actually reverified under the final loader."
+    },
+    {
+      "id": "INT-31",
+      "status": "local_verified",
+      "change": "Actual 24-line seed1 revision exceeded the journal before any answer:400782 prompt bytes/403338 state bytes plus69904 reserved bytes. Batching now keeps the largest ordered prefix fitting complete prompts and answer reservation, with no truncation or skipping. Native first batch asks seven questions in311275 decoded bytes. Complete actual three-attempt continuation passes131.795s: all seven answers retained, pivot actually rejected, unvisited outcomes unknown, omitted L21/L23 reasked at continuation 4 and their answers folded at 5. Exact original 24-line draft preserved. Current calibration and retained capacity identity gates pass."
+    },
+    {
+      "id": "INT-32",
+      "status": "local_verified",
+      "change": "Revision prompts incorrectly asserted that no one-line rewrite could improve a whole-draft finding. Actual title-hook and lexical repair controls contradict that claim. Guidance now explains that a permitted rewrite can help whole-draft requirements while preserving all constraints and need not clear every whole-draft requirement alone. Twenty-eight existing determinism and line/group prompt controls pass; grading and repair requirements are unchanged."
+    },
+    {
+      "id": "INT-33",
+      "status": "local_verified",
+      "change": "Actual accepted and rejected revision comparisons fabricated whole-song zero findings and zero banned-pair counts without a findings inventory. Only authenticated graded/finished records with an actual inventory now produce whole-draft counts. Comparisons, planning, screening, recovery, suspension, refusal and capacity stops report findings_measured:false and cannot certify whole-song completion; their actual scoped coverage remains separate. Completed records missing an inventory also cannot certify. Actual native unchanged-known-ban comparison and full connector regression pass within the complete152-check native gate."
+    },
+    {
+      "id": "INT-34",
+      "status": "local_verified",
+      "change": "Missing verifier outcomes could be reported as accepted when a deferred batch used multiple attempts. Only actual outcomes now produce accepted/rejected; unvisited answers stay unknown across admitted attempt budgets 0–6. The actual run_id+answer path also passed an unenriched old state to foldedOf, returning null despite a verified rejection; request-local answer enrichment now reaches that projection. Both counterexamples and the passing actual three-attempt tail are retained; embedded-answer behavior remains covered."
+    },
+    {
+      "id": "INT-35",
+      "status": "local_verified",
+      "change": "Kitchen repairs had no authoritative verification/application inventory and could not satisfy a qualification gate counting only interview outcomes. Native journals now persist actual verifier decisions separately from durable application, with stable question/configuration/journal IDs and exact draft hashes. Compact authenticated tool records feed one deduplicating collector used by driver and oracle. Fourteen native controls cover actual line/group/whole repairs, persistence failure and nested replay. Actual /chat→MCP→Python→local writer proves accepted/applied=1, rejected no-op=0, durable exact records and dedup. Missing/malformed evidence refuses; interview evidence remains separately scoped. Fresh paid qualification remains pending."
+    },
+    {
+      "id": "INT-36",
+      "status": "local_verified",
+      "change": "The wall oracle accepted refused/unvisited continuation tools after any nonempty lyric object. It now requires a checksummed resumable kitchen journal, same logical journal/task/plan/build/declarations, native acknowledgment of exact supplied checkpoint bytes, complete replay without redispatch, latest successful writer call and exact carried or completed delivery. Full applied-chain validation handles nested partial replay without misclassifying prior acceptance as new work. Forty-three lifecycle controls include actual local HTTP and actual native ABC→partialA/currentC→ABCD progress; replay-only, stale delivery, changed identity and later-refusal controls fail. Real hosted wall qualification remains pending."
+    },
+    {
+      "id": "INT-37",
+      "status": "local_verified",
+      "change": "Actual HTTP accepted-repair integration exposed two completion contract mismatches. A repair on the final permitted round had an authentic ROUND_LIMIT stop but a certified clean final grade, while the connector labeled it uncertified. Finished status now requires a full authenticated measured inventory, valid certified coverage and explicit zero blocking counts; the actual traversal stop reason is preserved. The completion oracle also hashed fewer task fields than the server. Producer and consumers now share the full version/domain/brief/instructions/plan identity. Actual HTTP delivery passes completedArtifact, clears carried state, and rejects changed version or instructions."
+    }
+  ],
+  "local_verification": {
+    "offline_gate": {
+      "node_tests": 74,
+      "capacity_controls": 16,
+      "profiler_controls": 7,
+      "result": "pass",
+      "production_qualification": false,
+      "qualification_controls": 6,
+      "worker_capture_controls": 5,
+      "scope": "Complete74-test offline stage within clean committed final runtime gate; all Python16/7/5/6 controls independently completed. Full source/data stable."
+    },
+    "provider_runtime": {
+      "tests": 38,
+      "result": "pass",
+      "provider": "local HTTP stubs with actual warm and cold Python workers",
+      "paid_calls": 0
+    },
+    "mcp_offline": {
+      "checks": 134,
+      "result": "pass",
+      "scope": "earlier integrated suite; later recovery controls recorded separately"
+    },
+    "release_static": {
+      "status": "passed",
+      "commands": [
+        "npm run lint",
+        "npm run format:check",
+        "npm run check-docs",
+        "git diff --check"
+      ],
+      "source_commit": "e6b1fab65bdb5eaf35c159aed4f2fe078a6e3de2",
+      "source_stable": true,
+      "original_85_acceptance_and_test_gaps_preserved": true,
+      "original_implementation_test_paths_exist": true,
+      "evidence_path": "docs/production-audit-evidence/final-static/result.json",
+      "scope": "All maintained static commands and original ledger invariants passed. Final report bookkeeping adds this receipt and the current measured peak; no runtime source or acceptance condition changes."
+    },
+    "data": {
+      "nonempty_works": 8545,
+      "held_out_seeds": 200,
+      "length_bins": 21,
+      "all_selected_curves_pass": true,
+      "all_row_parity_sha256": "7ef7410bfb1271c596eaca69e261ffbc00cbae89059ea7e9a31d298344fe3b63",
+      "capacity_adoption": "All81 exact witness families/8406 pairs were measured in the retained 549.696-second proof. Current CLI/loop strict receipt validation passes with unchanged consumed judge identity; the application-evidence change does not claim a new81 measurement. Docker3.11 must generate its own proof.",
+      "final_row_remeasurement": {
+        "seconds": 440.399,
+        "scorer_seconds": 434.678,
+        "peak_bytes": 772784128,
+        "all8545_rows_identical": true,
+        "song_frequency_table_calls": 0,
+        "artifact_count": 124,
+        "artifact_index_sha256": "3e48b0321c10eee6aaff94f1638604e1bd7c5f9fbe21c77c945f86f5714ad8ac",
+        "method": "Fresh full 8545-row namespace under a raising song-table tripwire; exact phonetic-field cache allowed. Current rows byte-identical to the completed200-seed adoption inputs.",
+        "publication_epoch_sha256": "be72db664616cfae91dfcaed1acc6c06a6cc5e847673a5521efe94dff5eb4588",
+        "comparator_sha256": "af2fdcc9779d50238f112a2587c18dfcc422f0a58a31468b196610daab76b852",
+        "sidecar_sha256": "ec54a976b976fd872467f8324265065216d245033c626db8f36a4aaac7efb0d5",
+        "current_maintained_curve_gate": "pass"
+      },
+      "prior_batch_row_remeasurement": {
+        "seconds": 523.508,
+        "scorer_seconds": 519.827,
+        "peak_bytes": 773111808,
+        "all8545_rows_identical": true,
+        "song_frequency_table_calls": 0,
+        "artifact_count": 103,
+        "artifact_index_sha256": "8cd1cfd8f3fae364d8d13ca17efe93c4b83ed4599a46612d4f92fc0bd9588274",
+        "method": "Fresh full 8545-row namespace under a raising song-table tripwire; exact phonetic-field cache allowed. Current rows byte-identical to the completed200-seed adoption inputs.",
+        "publication_epoch_sha256": "0afae1a961c2953c2d1267a3ec9f0c2471ae9a27308cf8f7495b6b19cdc1a1cb",
+        "comparator_sha256": "42980129e0e5e6075b8db9ece418dbe5a04f770893391f13b4fe2bc6faebb777",
+        "sidecar_sha256": "4115a765a2849cf484a5c60b32e933901125a8202296dd869ba6131a047e50f0",
+        "current_maintained_curve_gate": "pass"
+      },
+      "current_source_gate": {
+        "cli_sha256": "00f0e288cb670a7c88d8747fbab41c4b4aa3866484b14a7c7d9e7a79137464fc",
+        "loop_sha256": "c4195e93d5d37cd805c78bce006fc83c11471cb5eefee59f6bf3e76ac3cbae7e",
+        "assembled_python_files": 128,
+        "offline_controls": 10,
+        "source_and_data_root_integrity": "docs/production-audit-evidence/data-final-root-integrity-124.json",
+        "previous_103_artifacts_preserved": true
+      }
+    },
+    "resident_smoke": {
+      "run_records": 64,
+      "startup_seconds": 12.72,
+      "restart_seconds": 8.448,
+      "exact_replay_and_signing_continuity": true,
+      "production_memory_qualified": false,
+      "limitation": "local /proc RSS/process evidence unavailable; queued concurrency unexercised"
+    },
+    "maximum_repair": {
+      "lines": 31,
+      "seed": 20260908,
+      "wall_seconds": 110.903,
+      "child_peak_mib": 791.223,
+      "exit_code": 4,
+      "status": "suspended",
+      "stop": "needs_proposal",
+      "authenticated_checkpoint": true,
+      "source_unchanged": true,
+      "production_qualified": false
+    },
+    "declining_writer": {
+      "lines": 12,
+      "seed": 2003,
+      "wall_seconds": 92.647,
+      "child_peak_mib": 710.758,
+      "exit_code": 3,
+      "status": "finished",
+      "stop": "ROUND_LIMIT",
+      "completed_empty_proposals": 20,
+      "exact_input_draft_preserved": true,
+      "coverage": {
+        "mandated": 9,
+        "judged": 3,
+        "refused": 6,
+        "certified": false
+      },
+      "paid_calls": 0
+    },
+    "verbs": {
+      "sections": 59,
+      "passed": 59,
+      "scope": "Every maintained section exercised, with exact per-run source epochs and corrected fixture controls; preserved original failures. This is not paid writer convergence."
+    },
+    "history_and_prose": {
+      "result": "no_false_claims_in_supported_checks",
+      "entry_claims_asked": 9050,
+      "entry_claims_true": 790,
+      "entry_claims_refused": 8260,
+      "entry_claims_false": 0,
+      "prose_claims_true": 211,
+      "prose_claims_false": 0,
+      "prose_claims_refused": 9,
+      "pins": 130,
+      "pin_files": 10,
+      "moves": 226,
+      "vanished_values": 0,
+      "prior_pins_preserved": 128,
+      "prior_moves_preserved": 219,
+      "hydrated_blobs": 214,
+      "remote_writes": 0,
+      "source_epoch": "Current dirty candidate after batch repair; refusal counts retained as unproven coverage, not successful assertions."
+    },
+    "python88_first_pass": {
+      "commit": "1e68fb89",
+      "suites": 88,
+      "passed": 65,
+      "failed": 23,
+      "wall_seconds": 876.948,
+      "complete_inventory": true,
+      "source_stable": true,
+      "receipt_present": false,
+      "status": "failed",
+      "scope": "Original failures preserved; not a green final gate."
+    },
+    "maximum_supplement": {
+      "per_call_deadline_seconds": 600,
+      "planned_lines": 31,
+      "predeclared_seeds": [20260908, 20260909, 20260910],
+      "selected_measurements": 6,
+      "all_declared_cases_completed": true,
+      "all_recorded_runtime_sources_match_current": false,
+      "statistics": {
+        "cold": {
+          "grade": {
+            "n": 3,
+            "min_seconds": 27.98811264899996,
+            "median_seconds": 32.82216391900147,
+            "max_seconds": 38.369186586998694,
+            "p95_nearest_rank_seconds": 38.369186586998694,
+            "deadline_exceedances": 0
+          },
+          "revise": {
+            "n": 3,
+            "min_seconds": 104.59326503199554,
+            "median_seconds": 117.352560627005,
+            "max_seconds": 360.89942784800223,
+            "p95_nearest_rank_seconds": 360.89942784800223,
+            "deadline_exceedances": 0
+          }
+        },
+        "worker": {
+          "grade": {
+            "n": 9,
+            "min_seconds": 16.00541167200572,
+            "median_seconds": 23.51286814299965,
+            "max_seconds": 61.63717574199836,
+            "p95_nearest_rank_seconds": 61.63717574199836,
+            "deadline_exceedances": 0
+          },
+          "revise": {
+            "n": 9,
+            "min_seconds": 2.9373939220022294,
+            "median_seconds": 4.029135648997908,
+            "max_seconds": 504.3403221260014,
+            "p95_nearest_rank_seconds": 504.3403221260014,
+            "deadline_exceedances": 0
+          }
+        },
+        "all": {
+          "grade": {
+            "n": 12,
+            "min_seconds": 16.00541167200572,
+            "median_seconds": 27.330899464999675,
+            "max_seconds": 61.63717574199836,
+            "p95_nearest_rank_seconds": 61.63717574199836,
+            "deadline_exceedances": 0
+          },
+          "revise": {
+            "n": 12,
+            "min_seconds": 2.9373939220022294,
+            "median_seconds": 47.401337923995015,
+            "max_seconds": 504.3403221260014,
+            "p95_nearest_rank_seconds": 504.3403221260014,
+            "deadline_exceedances": 0
+          }
+        }
+      },
+      "limits": [
+        "The worker returns no per-request retained RSS/HWM in this environment; those fields remain null.",
+        "Child wait4 peak is a Python component peak and does not include resident Node/server state.",
+        "No paid writer ran. Repair success here means a valid first deferred proposal/checkpoint, not a converged or artistically successful song. Each worker round starts a fresh deferred state; it does not replay an accepted writer answer.",
+        "The final image still requires its separate combined-runtime 1-CPU/2-GiB matrix and recovery/queue pressure qualification.",
+        "The later frequency-header reader repair postdates these measurements; final-byte performance is not inferred from them."
+      ],
+      "source_epoch_policy": "Byte changes are retained as changes. Known receipt-validation and unrelated CLI dispatch repairs are documented separately; these samples do not qualify the final image.",
+      "production_qualified": false
+    },
+    "connector_actual_final": {
+      "state_harness_seconds": 38.15,
+      "run_continuation_seconds": 19.711,
+      "deferred_continuation_seconds": 33.906,
+      "writer_work_budget_seconds": 8.076,
+      "result": "pass",
+      "paid_calls": 0,
+      "source_stable": true,
+      "completion_proven": true,
+      "scope": "Prior immutable candidate3 four-companion epoch. Current INT35 four-script candidate4 capture and actual multi-attempt tail are recorded separately; no claim of exact latest broad source identity.",
+      "evidence_path": "docs/production-audit-evidence/int31-mcp/result.json"
+    },
+    "node_runtime_final": {
+      "result": "pass",
+      "tests": 65,
+      "passed": 65,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "wall_seconds": 83.693,
+      "commit": "e99dea5dd70d2c23a0c5732ee3c8c1186523e6c8",
+      "source_stable": true,
+      "scope": "Exact eight-file maintained Node stage, actual worker/HTTP-stub execution, direct process capture with final completion summary. Node 24.19.0; no paid calls.",
+      "prior_capture": "Original shell call reported exit0 but its103-line output lacked the completion summary. That incomplete capture remains unexplained and is not counted as a pass.",
+      "evidence_path": "docs/production-audit-evidence/final-node-runtime-captured-e99/result.json"
+    },
+    "capacity_runtime_final": {
+      "status": "passed",
+      "epoch": "after deterministic deferred batch splitting and whole-draft prompt guidance correction",
+      "scope": "actual all 81 local Python 3.12.13 witness re-verification; production image remains independently gated",
+      "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]",
+      "source_identity": "259de1d1e0dda759d9d0feb2cc689021ff7f00ec2afe47266e61a51505eb5ef3",
+      "table_sha256": "f1aaeb13fc34462c09808eb0698dd8e6c90ed7782f1388861218c23eb4e7a560",
+      "receipt_sha256": "81a6b1309506d2f6e353ddfd578b68a8f227c5f27497164060b9a693f9b54a26",
+      "witnesses_verified": 81,
+      "pairs_judged": 8406,
+      "source_unchanged": true,
+      "reviewed_table_unchanged": true,
+      "full_pipeline_source_unchanged": true,
+      "full_pipeline_sources": {
+        "lyric_harness.py": "40169c2d1be51c54a3dc2f74fd027c8d996b18988735b5a493135484bfe9ec62",
+        "quality/propose.py": "81d6950a23a56e3f8a2f4cfc017bd619008d5e72ab5b62733f0eec00e48e0708"
+      },
+      "workers": 4,
+      "wall_s": 549.6956309800007,
+      "cpu_total_s": 2042.3432719999998,
+      "wait4_maxrss_mib": 655.5390625,
+      "sampled_aggregate_peak_mib": 3278.33984375,
+      "aggregate_scope": "wrapper and descendants, /proc RSS sampled every0.1s; shared pages may be counted per process",
+      "concurrent_other_functional_work": true,
+      "strict_post_write_check": "passed",
+      "installed_capacity_lookup_and_seed31_plan": "passed",
+      "determinism": "A fresh complete all81 measurement reproduces the prior deterministic receipt bytes: deferred prompting is outside the consumed capacity judge dependency graph. Full CLI and proposer source hashes were separately fenced before/after."
+    },
+    "python88_second_pass": {
+      "commit": "e99dea5dd70d2c23a0c5732ee3c8c1186523e6c8",
+      "suites": 88,
+      "passed": 87,
+      "failed": 1,
+      "wall_seconds": 917.917,
+      "complete_inventory": true,
+      "source_stable": true,
+      "receipt_present": false,
+      "status": "failed",
+      "sole_failure": "relations_null section4 assumed every nonvoid re-deal was judged, ignoring actual refusals.",
+      "scope": "Complete frozen-source sweep retained as87/88; not relabeled as a passing run. Corrected sole test is separately rerun in full."
+    },
+    "python88_sole_corrected_suite": {
+      "suite": "relations_null",
+      "passed": 77,
+      "failed": 0,
+      "exit_code": 0,
+      "wall_seconds": 759.829,
+      "bound_seconds": 1200,
+      "source_sha256": "3a6acd3d27446f7295359d258d16977552739956bf1e311d8c5d627d99c995c6",
+      "scope": "Full corrected test; production grader and call clocks unchanged. First600-second aggregate research attempt timed out and is preserved. This is separate from the retained87/88 complete sweep."
+    },
+    "final_maintained_runtime": {
+      "status": "passed",
+      "command": "npm run test:lyrics:runtime",
+      "source_commit": "e6b1fab65bdb5eaf35c159aed4f2fe078a6e3de2",
+      "runtime_source_sha256": "d998718e8ebb353f5a18998350f1e2692cdd3a873a1ff6ba51969fb773b1daf9",
+      "wall_seconds": 99.087,
+      "source_stable": true,
+      "completion_proven": true,
+      "node_test_inventories": [74, 65],
+      "node_failures": [0, 0],
+      "python_control_inventories": [16, 7, 5, 6],
+      "internal_battery_lifecycle_checks": 43,
+      "scope": "Complete maintained command in a clean checkout of committed final source e6b1fab6, including the final malformed-writer collector guard. Exact full source, tracked diff, declared data and receipt presence unchanged. Ordinary nonproduction mode, no installed receipt or ambient provider credentials. Prior failed, source-drifting and earlier-source attempts remain separately classified. Not a production image or paid qualification.",
+      "evidence_path": "docs/production-audit-evidence/final-runtime-candidate6/result.json"
+    },
+    "python_inventory_scope": "The88-script CI suites inventory excludes the separately required revision-loop four-shard job and verbs matrix. Every59 maintained verb section has earlier bounded evidence; direct post-batch sections are separately rechecked. Full required CI jobs, including the complete revision-loop matrix and production qualification, still run on the published candidate.",
+    "native_mcp_final": {
+      "status": "passed",
+      "command": "node mcp/test.mjs",
+      "checks": 152,
+      "exit_code": 0,
+      "wall_seconds": 301.574,
+      "source_hashes_checked": 11,
+      "source_stable": true,
+      "log_bytes": 13405,
+      "log_sha256": "d0eca805c604417711c2806144ad4efd82850de754a2d9d6fa2e60ff48b981b2",
+      "scope": "Prior full152-check native gate, before INT34–37 followups. Preserved source-fenced evidence, supplemented by current checks-only, actual multi-attempt tail, native14-control journal suite, HTTP kitchen integration and final maintained runtime. Not relabeled as one full latest-source native sweep."
+    },
+    "loop_supplement": {
+      "status": "passed",
+      "sections": [21, 26],
+      "assertions": 26,
+      "wall_seconds": 68.522,
+      "source_stable": true,
+      "scope": "Full selected sections preserve genuine carried closure and keyed/legacy reasks; old ambiguous fixture retained as explicit unknown negative. Four original failed assertions and their causal diagnosis remain separate evidence. This is not the complete required four-shard revision-loop CI job."
+    },
+    "setup_allowances": {
+      "proof_minutes": 45,
+      "proof_job_minutes": 55,
+      "image_build_minutes": 55,
+      "image_job_minutes": 145,
+      "capacity_step_minutes": 65,
+      "basis": "Round1.25×max(1600.725-second measured serialwall, 2042.343-second latest aggregateCPU) up to five-minute units. AggregateCPU is setup-cost evidence, not a target serialwall estimate proven on Docker 3.11.",
+      "actual_target_qualified": false,
+      "operational_call_seconds": 600,
+      "operational_turn_minutes": 40
+    },
+    "journal_application": {
+      "status": "passed",
+      "native_controls": 14,
+      "wall_seconds": 13.303,
+      "evidence_path": "docs/production-audit-evidence/int35-native-final-fourteen.json",
+      "scope": "Actual line, group and whole-draft verifier decisions; durable application, injected persistence failure, stable IDs, replay without redispatch, and nested partial replay. No paid provider."
+    },
+    "wall_oracle": {
+      "status": "passed",
+      "internal_lifecycle_checks": 43,
+      "wall_seconds": 8.65,
+      "evidence_path": "docs/production-audit-evidence/wall-proof-fix.json",
+      "scope": "Real local HTTP driver and actual native nested-replay receipt; same task/build/checkpoint, latest executed call, entire applied chain past saved draft, exact clean/parked delivery. These43 manual assertions remain one file test in the eight-file Node denominator65. Hosted paid wall remains pending."
+    },
+    "split_tail": {
+      "status": "passed",
+      "command": "node mcp/test_run_continuation.mjs",
+      "wall_seconds": 131.795,
+      "attempts_per_line": 3,
+      "original_lines": 24,
+      "first_batch_lines": [1, 5, 6, 14, 15, 17, 19],
+      "first_batch_decoded_bytes": 311275,
+      "omitted_lines": [21, 23],
+      "omitted_reasked_at_continuation": 4,
+      "omitted_answers_folded_at_continuation": 5,
+      "source_stable_during_capture": true,
+      "evidence_path": "docs/production-audit-evidence/connector-split-liveness-final.json",
+      "scope": "Actual first batch retained, pivot actually rejected, unvisited outcomes unknown, omitted questions reached and original draft unchanged. Final status/shared-task changes postdate this capture; answer transport and split replay paths unchanged."
+    },
+    "native_mcp_followup": {
+      "status": "passed",
+      "checks": 135,
+      "command": "node mcp/test.mjs --checks-only",
+      "wall_seconds": 23.85,
+      "source_files": 21,
+      "source_stable": true,
+      "log_sha256": "9acb48b179b4265d8ad0941171c61d34bc0d1f9ef0f55b773906381fd71248c2",
+      "evidence_path": "docs/production-audit-evidence/connector-checks-final-int35.json",
+      "scope": "Current checks-only gate after INT34–37. Separate actual native full152 prior epoch, attempts3 tail and actual kitchen/continuation integrations remain explicitly scoped."
+    },
+    "current_connector_integration": {
+      "status": "passed",
+      "command_inventory": [
+        "node mcp/test_lyric_state.mjs --harness",
+        "node mcp/test_deferred_continuation.mjs",
+        "node mcp/test_writer_work_budget.mjs",
+        "node mcp/test_kitchen_repairs.mjs"
+      ],
+      "source_stable": true,
+      "complete": true,
+      "evidence_path": "docs/production-audit-evidence/int35-mcp/result.json",
+      "scope": "Four actual maintained MCP/HTTP scripts on immutable candidate4; native14-control journal and attempts3 continuation separately recorded. Later test-only changes do not alter these execution paths; any final collector supplement is separate."
+    },
+    "final_collector_supplement": {
+      "status": "passed",
+      "controls": 5,
+      "actual_http": true,
+      "lifecycle_controls": 43,
+      "scope": "Malformed/missing writer identity cannot be counted as verified interview repair. Exact two-file guard and negative controls, full actual HTTP and lifecycle supplements are retained separately; final committed runtime includes this guard.",
+      "evidence_path": "docs/production-audit-evidence/collector-final-supplement/result.json"
+    },
+    "runtime_candidate4_attempt": {
+      "status": "failed_stale_fixture",
+      "exit_code": 1,
+      "source_stable": true,
+      "offline_tests_passed": 74,
+      "runtime_tests_passed": 64,
+      "runtime_tests_total": 65,
+      "scope": "Storage test setup relied on an invalid bare wall being resumable. Maintained setup now uses genuine unfinished work, then retains the actual missing segment and no-new-POST assertions. Original failure preserved.",
+      "evidence_path": "docs/production-audit-evidence/final-runtime-candidate4/result.json"
+    },
+    "runtime_candidate5_attempt": {
+      "status": "nonqualifying_source_drift",
+      "exit_code": 0,
+      "source_stable": false,
+      "reported_node_tests": [74, 65],
+      "scope": "All tracked dirty changes reverted during execution; source fingerprint changed and the old36 lifecycle assertions ran. No repository/test/helper reset cause established. Exit0 is not qualification. Replaced by a clean checkout of the committed source, still protected by before/after source/data fences.",
+      "evidence_path": "docs/production-audit-evidence/final-runtime-candidate5/result.json"
+    },
+    "prior_maintained_runtime_candidate3": {
+      "status": "passed",
+      "command": "npm run test:lyrics:runtime",
+      "wall_seconds": 116.555,
+      "source_stable": true,
+      "completion_proven": true,
+      "node_test_inventories": [67, 65],
+      "node_failures": [0, 0],
+      "python_control_inventories": [16, 7, 5, 6],
+      "scope": "Passed immutable candidate3 source epoch, before INT-34/35/36 followups. Ordinary nonproduction mode, no installed receipt, ambient provider credentials removed. Two complete Node summaries plus every Python completion checked. Preserved prior evidence; current candidate4 runtime rerun pending. Not a production image or paid qualification.",
+      "evidence_path": "docs/production-audit-evidence/final-runtime-candidate3/result.json"
+    }
+  }
+}

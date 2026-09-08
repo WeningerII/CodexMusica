@@ -1,0 +1,33 @@
+{
+  "at": "2026-09-08T06:16:56.591072+00:00",
+  "scope": "Final data publication; numeric adoption and row parity evidence retains its original epochs. Capacity installed-runtime receipt is generated separately.",
+  "sha256": {
+    "lyric_harness.py": "7a5d9184f568902732cd5cb2d4fa4123deef1b1deff0b4cd95d23af54f08024e",
+    "quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+    "quality/features.py": "dba12b680845f3e82fe1d0fdbe3e33e51a16d98afa97f0445982b3f3de8a6298",
+    "quality/lyric_reader.py": "b76263a5e37b10d1c5fb3953f501560918a7efdcfbbc304872f54074b577f9e3",
+    "quality/calibration_rebuild.py": "f1a8cd5bb0fc028cee4680c8bee5a7051ae5f3c0bd79cb410a1800bba1131b2d",
+    "quality/source_identity.py": "f5396aae68eb6406664e87c4d5d6526e0f3c6664b80f965c0e45c90eacbf3ef2",
+    "quality/length_curve_calibration.py": "e9b48859ce4f04bcb100646426815527a472903e2c825797021bf54aecabb1b3",
+    "quality/song_profile_calibration.py": "2f6fc16cdd660ccc84acb11876791d59a75689459af7ff46f98302d4201e5a17",
+    "quality/corpus_manifest.py": "57e3471ce32c7ec14e17e720dcd4c44daa3f0694b4afb7a54aa46a6e5ca38c5b",
+    "quality/audit_corpus.py": "4546c8d0e4fe7055815e2e8c113ed86631e5ec9af05707cea8b06b40539cda12",
+    "quality/release_assets.py": "f357b9fa2858decde6ffe3fd3983dd293dda1a7fcb9fab827ae0fef1200bdf74",
+    "data/runtime_assets.json": "418267988e447e48ee486a7556100ded77eeec36eef66c4fe43a7cc7f7fd7723",
+    "data/sources.tsv": "b155cbe1361c712f8801f7a614bdfda6aef2dab7a8701a1d4ffcd3cf91067878",
+    "data/calibration_manifest.tsv": "7673960b6b15dcd746009ef7b659d45fc7376c242f86b59c135f96440ac16e37",
+    "data/calibration_populations.json": "3d558b72b397657e59da067d278376f6edb01f5828ebb85d9730fef7b97cefc3",
+    "data/calibration_work_editions.json": "d91ed13b5933afcdd7eb334e3c262567f1cd8561a15a32ca8f032360a3b14748",
+    "data/song_endword_en.tsv": "2552af747a104b9eda001dd0da660437f7551d8f724a6fcea5e0a390e9618201",
+    "data/song_rhymepair_en.tsv": "b8e6f88a7bb46a4f8682779c983df172759f7819464a1855c0479f166b717de1",
+    "data/rhyme_capacity_eng.tsv": "f1aaeb13fc34462c09808eb0698dd8e6c90ed7782f1388861218c23eb4e7a560"
+  },
+  "numeric_adoption_epoch": "final-data-epoch.json",
+  "paid_calls": 0,
+  "completed_at": "2026-09-08T06:27:52.833240+00:00",
+  "row_sha256": "7ef7410bfb1271c596eaca69e261ffbc00cbae89059ea7e9a31d298344fe3b63",
+  "row_meta_sha256": "8985e4cbfad7031cd25000fdc2f42938292ac1688988f6294d5182b845033559",
+  "comparator_fingerprint": "703af9747e203dab62b0183e5fabec036bd4b339d74a2aea9a58fec85bf00de0",
+  "final_curve_gate": "data-curve-publication-check-rerun.log",
+  "offline_gate": "data-runtime-offline-frozen.json"
+}

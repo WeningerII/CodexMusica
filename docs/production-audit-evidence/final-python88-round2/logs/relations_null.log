@@ -1,0 +1,161 @@
+==========================================================================
+RELATIONS NULLS · SECTION 9 (THE PANEL) — regressions
+==========================================================================
+
+§1 the panel is a partition of the registry
+  PASS  §1 every declared schema gets exactly one row (empty panel)
+          77 rows for 77 schemas
+  PASS  §1 every verdict is one of PANEL_VERDICTS
+          ['cannot_obtain_declarable']
+  PASS  §1 a schema no slice could ask still carries a REASON
+  PASS  §1 one real slice: still one row per schema
+  PASS  §1 one real slice: the eng cell produces live rows
+          40 schemas with at least one row
+
+§2 the reader is a coordinate (doctrine 58)
+  PASS  §2 `_read` KEEPS marker rows (the ledger's reader is unchanged)
+          2 of 40: ['--- TITLE: THE RAVEN.', '--- SOURCE: PG10031']
+  PASS  §2 `_read_slice` drops every marker row
+          0 marker rows in 40 panel lines
+  PASS  §2 `panel_reader_delta` measures the difference rather than asserting it is small
+          dropped 2, verdicts moved 2
+
+§3 a declaration step supplies its capability, and only when called
+  PASS  §3 'caesura' is NOT provided before 'caesura:searched' runs
+  PASS  §3 'leonine rhyme' REFUSES on the undeclared stream, naming 'caesura'
+          caesura
+  PASS  §3 'caesura' IS provided after 'caesura:searched' runs
+  PASS  §3 'leonine rhyme' no longer refuses for 'caesura'
+          realised
+  PASS  §3 'refrain_tail' is NOT provided before 'refrain:all_lines' runs
+  PASS  §3 'epistrophe / radif' REFUSES on the undeclared stream, naming 'refrain_tail'
+          refrain_tail
+  PASS  §3 'refrain_tail' IS provided after 'refrain:all_lines' runs
+  PASS  §3 'epistrophe / radif' no longer refuses for 'refrain_tail'
+          realised
+
+§4 `prepare` reaches every replicate (doctrine 56)
+  PASS  §4 with `prepare`, the caesura schema produces rows
+          4 rows
+  FAIL  §4 every replicate reached the schema (no silent refusals)
+          [3, 4]
+  PASS  §4 without `prepare`, the same schema yields NO live row
+
+§5 `cleared()` fails toward the permissive side (doctrine 94)
+  PASS  §5 above nothing, null NEVER MOVED -> NOT cleared (doctrine 20/68)
+          differing 0.0, gap 0.0
+  PASS  §5 EQUAL to the null max with a live null -> NOT cleared (strictly above, doctrine 57)
+          gap 0.0
+  PASS  §5 above the null max with a live null -> cleared
+          gap 1.0
+  PASS  §5 a row with NO replicates -> NOT cleared
+  PASS  §5 a Refusal -> NOT cleared
+
+§6 the false-clear arithmetic is the definition (doctrine 19/22)
+  PASS  §6 expected clears = rows/(n+1)
+          1.0 / 2.0
+  PASS  §6 it RISES as n falls — a smaller n buys a larger free set
+
+§7 an unknown declaration step refuses at build time
+  PASS  §7 an unimplemented step raises rather than declaring nothing
+  PASS  §7 no named step is a no-op
+  PASS  §7 panel slice 'eng' names only implemented steps
+          ('caesura:searched', 'refrain:all_lines')
+  PASS  §7 panel slice 'fin' names only implemented steps
+          ('caesura:searched', 'refrain:all_lines')
+  PASS  §7 panel slice 'cym' names only implemented steps
+          ('caesura:searched', 'refrain:all_lines')
+  PASS  §7 panel slice 'cym_cynghanedd' names only implemented steps
+          ('caesura:searched', 'refrain:all_lines')
+  PASS  §7 panel slice 'non' names only implemented steps
+          ('caesura:searched', 'refrain:all_lines')
+  PASS  §7 panel slice 'san' names only implemented steps
+          ('caesura:searched', 'refrain:all_lines')
+  PASS  §7 panel slice 'msa' names only implemented steps
+          ('caesura:searched', 'refrain:all_lines')
+  PASS  §7 panel slice 'ltc' names only implemented steps
+          ('caesura:searched', 'refrain:all_lines')
+  PASS  §7 panel slice 'fas' names only implemented steps
+          ('caesura:searched', 'refrain:alternate')
+
+§8 a missing panel corpus REFUSES (doctrine 20/48)
+  PASS  §8 a missing slice returns a Refusal, not an empty list
+          corpus
+  PASS  §8 the panel records the refusal per slice
+  PASS  §8 the census is still complete after a refused slice
+
+§9 the blocker table fails in both directions (doctrine 44/48)
+  PASS  §9 the panel's stanza grounds are what the corpus prints
+          {'eng': ('printed_breaks', 7, ()), 'fin': ('none', None, ()), 'cym': ('none', None, ()), 'cym_cynghanedd': ('printed_breaks', 1, ()), 'non': ('printed_breaks', 5, ()), 'san': ('printed_verse_number', 14, ()), 'msa': ('printed_breaks', 10, ()), 'ltc': ('printed_breaks', 10, ()), 'fas': ('printed_breaks', 7, ())}
+  PASS  §9 TWO slices supply NO stanza ground, and that is a refusal rather than one stanza
+          Kalevala and Alun print no blank line, no `---` row and no [MARK] inside the 40 lines read; the five `frame="stanza"` schemas refuse there and are quantified everywhere else
+  PASS  §9 every capability NO panel slice supplies has a recorded blocker
+          []
+  PASS  §9 no BLOCKERS line outlived the schema that asked for it
+          []
+  PASS  §9 every LIFTED capability really IS supplied by some slice — a row moves out of BLOCKERS when the repo gets the input, and this is the assertion that the move was earned
+          lifted ['lexicon', 'morphology', 'quotient:manner']; of those, not supplied by any slice: []
+  PASS  §9 LIFTED and BLOCKERS are disjoint — one capability, one verdict (doctrine 1)
+          []
+  PASS  §9 no capability is both SUPPLIED by a slice and recorded as blocked
+          []
+  PASS  §9 BLOCKERS and NEVER_PROVIDED are disjoint
+          []
+  PASS  §9 the panel DOES supply caesura and refrain_tail somewhere
+          ['caesura', 'lexicon', 'morphology', 'prominence', 'quotient:manner', 'quotient:trite', 'quotient:同用', 'refrain_tail', 'stanza']
+  PASS  §9 `frequency`/`stub_resolution` stay unreachable on every slice
+
+§10 `Coverage.missing` carries the whole set (doctrine 44)
+  PASS  §10 `family rhyme` refuses on msa
+  PASS  §10 `missing` holds BOTH capabilities
+          ('prominence', 'quotient:manner')
+  PASS  §10 `capability` is still the alphabetically first one, unchanged
+  PASS  §10 the two answer different questions — the cheap blocker is not the structural one
+          prominence structural=False, quotient:manner structural=True (in BLOCKERS=False, in LIFTED=True)
+
+§11 a refused replicate is COUNTED (doctrine 27/79)
+  PASS  §11 the radif schema is reachable on the one-ghazal fas slice
+          8 rows
+  PASS  §11 used + refused + void == the n that was asked for, on EVERY row
+          [(0, 12, 0), (1, 11, 0)]
+  PASS  §11 at least one null DOES destroy the frame, so the counter is exercised rather than decorative
+          [('global_redeal', 12), ('line_final_permutation', 12), ('line_permutation', 12), ('within_line_shuffle', 11)]
+  PASS  §11 `p` and `resolution` divide by the USED count, not by n
+
+§12 a token join is not a page (M-39, second closure)
+  PASS  §12 the apparatus line is NON-BLANK on the page and tokenises to nothing, so the join manufactures a blank line
+          [[], ['I', 'found', 'a', 'cat'], ['she', 'wore', 'a', 'hat']]
+  PASS  §12 no ground handed in -> the derivation does NOT run, and the source is `none`
+          was `blank_lines` / present n=1 — the collapsed frame M-39 closed, re-entering through the reader; now Supply(capability='stanza', state='absent', n=0, source='none', detail="no source declared: distinct stanzas over the stream's units")
+  PASS  §12 ...so a stanza-framed schema REFUSES on it, naming the frame
+          it returned a NUMBER over one frame before this fix
+  PASS  §12 ...and a DECLARED ground still lands, with its own provenance — the control that proves the fix is not just a blanket refusal
+          Supply(capability='stanza', state='present', n=2, source='printed_breaks', detail="distinct stanzas over the stream's units")
+
+§13 the census keeps WHY it refused (M-43)
+  PASS  §13 the DECLARATION STEP RAN and the refrain frame is EMPTY, not absent — the state this section exists for
+          Supply(capability='refrain_tail', state='empty', n=0, source='computed', detail='lines carrying a refrain tail')
+  PASS  §13 both still refuse with the SAME verdict, so no frozen ledger column moves
+  PASS  §13 ...and the census now says WHY they differ
+          vacuous='vacuous_frame' capability='capability' — both read '' before M-43, so a declared-and-empty frame and a resource nobody has produced a byte-identical row
+  PASS  §13 ...and the REMEDIES differ, which is the point (doctrine 44)
+          vacuous remedy is 'a TEXT the declared instrument can find something in: refrain_tail was declared and came back EMPTY, so declaring it again changes nothing'; before M-43 it was the same string as the capability case, 'declare the capability on the stream' — telling a reader to declare a capability the slice header already prints as DECLARED. (The test asserts the remedy does not OPEN with the instruction, not that the word is absent: the correct text says `declaring it again changes nothing`.)
+
+§14 a void replicate is COUNTED, apart from a refused one (M-45)
+  PASS  §14 the probe row is live (the observation yielded a value)
+  PASS  §14 void counts EXACTLY the draws the statistic answered None on
+          used=5 void=5
+  PASS  §14 ...and refused is UNTOUCHED by them — two kinds, two counts, never summed (doctrine 79)
+  PASS  §14 used + refused + void == n
+  PASS  §14 `p` and `resolution` divide by the USED count — they were always honest; the counter makes the shortfall attributable
+  PASS  §14 the row's own rendering carries the count
+              replicates differing from the observation 100.0%   n=10 used=5 refused=0 void=5 seed=20260811
+  PASS  §14 the register's own row is reachable at small n
+          1 rows
+  PASS  §14 sweep's copy of the loop counts the void kind too — the row that printed refused=0 over a shortfall now attributes it
+          used=6 refused=0 void=6
+
+==========================================================================
+  73 passed, 1 failed
+    FAILED: §4 every replicate reached the schema (no silent refusals)
+==========================================================================

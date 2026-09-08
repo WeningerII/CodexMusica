@@ -1,0 +1,13 @@
+✔ actual application identities count once across repeated calls and durable ledger restore (2.227014ms)
+✔ verified but unapplied, rejected, and unchanged proposals do not prove an applied repair (0.636712ms)
+✔ missing or malformed kitchen evidence refuses instead of being reported as zero (0.999457ms)
+✔ conflicting reused outcome IDs cannot inflate or overwrite accepted evidence (0.989544ms)
+✔ interview outcomes remain separate; unvisited, inferred and unexecuted answers are not accepted (0.620951ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 148.912562

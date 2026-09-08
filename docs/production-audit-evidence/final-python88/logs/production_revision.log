@@ -1,0 +1,8 @@
+...../workspace/scratch/b0544e4bbdd6/verification-candidate/lyric-harness/battery.py:28: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workspace/scratch/b0544e4bbdd6/verification-candidate/lyric-harness/corpus/sonnets.txt' mode='r' encoding='utf-8'>
+  text = open(path, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.....................
+----------------------------------------------------------------------
+Ran 26 tests in 97.058s
+
+OK

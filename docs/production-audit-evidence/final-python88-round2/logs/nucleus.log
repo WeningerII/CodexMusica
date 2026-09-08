@@ -1,0 +1,54 @@
+
+1. `theta_nucleus = 0.60` enumerated (doctrine 22: a threshold is a RATE, and here it is also a LIST)
+  PASS  the vowel space is 15 symbols and 105 unordered non-identical pairs
+          15 vowels, 105 pairs
+  PASS  0.60 admits 40 of them (38%) as AGREEING
+          IH~IY  UH~UW  AE~EH  EH~IH  AH~ER  AW~AY  AH~EH  AA~AO  EY~IH  OW~OY  EH~IY  AO~OY  AE~AH  OW~UH  EH~ER  AO~UW  EH~EY  AA~AH  AE~IH  OW~UW  EY~IY  AO~UH  AE~AY  AA~AW  AH~UH  AO~OW  AE~AW  OY~UH  AE~ER  AA~AE  AH~IH  AH~AO  AH~AW  AA~AY  ER~IH  OY~UW  AE~IY  AY~EY  AE~EY  AH~AY
+  PASS  the cut lands between AH~AY at 0.603 and AA~UH at 0.598
+          thinnest ADMITTED AH~AY 0.603; widest refused AA~UH 0.598. A 0.005 gap decides them, and no measurement ever put the cut there — it was hand-set at the first commit and never moved.
+
+2. what 0.600 costs, asserted rather than described
+  PASS  `five`/`of` is typed RHYME, at nucleus 0.603 against 0.600
+          vowel_sim(AY, AH) = 0.603. A margin of 0.003 is a coin flip wearing a verdict, and this check exists so that it is VISIBLE rather than hidden. It is the declared cost of the incumbent, not a defect this file is asking someone to fix quietly.
+  PASS  `bed`/`bead` AGREE on the nucleus at 0.758
+          vowel_sim(EH, IY) = 0.758, comfortably clear of the cut. The pair types as CONSONANCE only because the CODAS differ; on the nucleus channel alone the harness says a short front vowel and a long one agree.
+  PASS  ...and raising the threshold is REACHABLE, so the cost is demonstrable (doctrine 84)
+          at 0.70 it is CONSONANCE
+
+3. `nucleus_agreement` — the SHAPE of the question, not the cut (doctrine 1)
+  PASS  it defaults to `scalar`, the present behaviour
+          'scalar'
+  PASS  the licence defaults to exactly one pair, AH~IH
+          (('AH', 'IH'),). Not a judgement about English: see check 4.
+  PASS  ...and it applies only where BOTH syllables are unstressed
+  PASS  all three coordinates print in the declaration
+          a coordinate that does not appear in the printed declaration is hidden, not declared
+  PASS  an undeclared shape RAISES rather than falling through to one
+          silently behaving like `identity` would be a coordinate lying about its own range
+  PASS  `identity` is reachable and refuses `five`/`of`
+          CONSONANCE. This is the red team's REFERENCE LINE promoted from a number inside a script to a shape a caller can select — which is what makes 'identity would delete slant rhyme' a checkable claim instead of a sentence.
+  PASS  `identity` also refuses `bed`/`bead` on the nucleus
+  PASS  `identity` still admits a perfect rhyme, so it is a shape and not an off switch
+  PASS  `licensed` admits `graces`/`faces` where `identity` refuses it
+          licensed=RHYME, identity=CONSONANCE — the two-tier rule, and the tier it adds is one pair wide
+  PASS  the licence does NOT reach a stressed pair: `bed`/`bead` stays refused under `licensed`
+  PASS  the shipped `scalar` shape is unaffected by the licence coordinates
+          at 0.60 the licensed pair already clears the scalar cut (AH~IH = 0.657), so the licence is a NO-OP on the default and only becomes load-bearing under a tightening. Said out loud so nobody reads it as a shipped behaviour change.
+
+4. AH0~IH0 is CMUdict spelling one reduced vowel two ways
+  PASS  the dictionary contradicts itself on the distinction, in 12.4% of the words where it lists more than one pronunciation
+          1,046 of 8,445 (12.4%) CMUdict words with two or more listed pronunciations collapse to ONE the moment AH0 and IH0 are read as the same symbol. No poem is involved in that measurement, which is the point: the licence is an INGESTION fact and charging the comparator for it is the triage error doctrine 79 names, one layer down.
+  PASS  the stress condition is what keeps it an ingestion fact
+          in mandated sonnet positions AH~IH is doubly-UNSTRESSED in 6 of 6; in a random background it is 394 of 545 (72%). Licensing it everywhere is reachable (`nucleus_licence_unstressed_only=False`) and doubles the shape's held-out false-positive rate, 0.33% -> 0.67%.
+
+5. what a 0.60 -> 0.70 tightening would refuse, over 60 sonnets, partitioned with no remainder
+  PASS  the tightening does cost something on this slice, or the check is vacuous
+          13 offending syllable pairs
+  PASS  EVERY one is a stressed vowel difference, a reduced-vowel artifact, or a promotion — there is no fourth category
+          stressed 11, reduced 2, promoted 0, OTHER 0: []. Over all 152 sonnets it is 28 / 6 / 1 / 0. A category that is entirely dialect, dictionary and metre is not a true-positive cost: it prices the `dialect` coordinate, not `theta_nucleus`.
+  PASS  the reduced-vowel cases are the ones the licence exists for
+          ['graces/faces', 'heaven/even'] — refused by a bare tightening. In each the offending SYLLABLE is AH0 against IH0 in an unstressed position, where the dictionary disagrees with itself; `graces`/`faces` differ in nothing else at all. That is what makes a tightening priced on this corpus look more expensive than it is, on top of it pricing the wrong coordinate.
+  PASS  and the stressed cases are the ones the DECLARED dialect is supposed to refuse
+          ['alone/gone', 'foregone/moan', 'glass/was', 'gone/alone', 'gone/moan', 'herd/beard', 'pass/was', 'past/waste'] — gone/alone, tongue/song, have/grave, blood/good. This project already accepts exactly this sentence for love/prove, which it types CONSONANCE and calls correct. A threshold cannot be calibrated on a corpus whose dialect differs from the declared one, on the channel the difference lives in.
+======================================================================
+all nucleus-channel shape and threshold regressions pass

@@ -119,9 +119,19 @@ def test_item_readers():
     # +560 songs (514 in new files, 46 top-ups) after the containment
     # dedup dropped 114 cross-source reprints.
     # REPINNED 2026-08-20 (Phase-1): 6,352 -> 7,618 items.
-    check("the --- TITLE: split reproduces build_song_frequency's own "
-          "item count EXACTLY — 8,667 over the 1297 files",
-          n_items == 8667, n_items)
+    # Re-adopted 2026-09-08 after explicit work-edition deduplication and
+    # apparatus curation: 8,546 weighted items, of which Sawyer's note-only
+    # source has no lyric lines. The builder discloses both denominators.
+    check("the shared work reader yields exactly 8,545 nonempty items "
+          "over the 1297 files",
+          n_items == 8545, n_items)
+    from quality.lyric_reader import calibration_items
+    all_items = [(os.path.basename(f), title, body) for f in files
+                 if os.path.basename(f).startswith("eng_")
+                 for title, _at, body in calibration_items(f)]
+    check("item exclusion is the one note-only Sawyer source, not lost verse",
+          len(all_items) == 8546 and [(name, title) for name, title, body in all_items if not body]
+          == [("eng_parlour_charles_carroll_sawyer.txt", "WHEN THIS CRUEL WAR IS OVER")])
     son = CEN.items_of(os.path.join(HERE, "..", "corpus", "sonnets.txt"))
     check("sonnets.txt reads through battery.parse_sonnets: 152 items "
           "of 14 lines, Gutenberg matter excluded by the oracle's reader",
@@ -324,7 +334,8 @@ def test_checkpointing():
         parts = os.path.join(d, "parts")
         CEN.run([SMALL], out1, "test", parts_dir=parts)
         base = os.path.basename(SMALL)
-        part = os.path.join(parts, base + ".part.tsv")
+        fingerprint = CEN.part_fingerprint(SMALL, CEN.checkpoint_fingerprint())
+        part = os.path.join(parts, base + "." + fingerprint + ".part.tsv")
         check("a finished file's cells land in an atomic part file",
               os.path.exists(part)
               and not os.path.exists(part + ".tmp")
@@ -340,6 +351,17 @@ def test_checkpointing():
         check("a restart reuses the part instead of recomputing — the "
               "planted sentinel comes back verbatim",
               CEN.read_tsv(out2) == sentinel)
+        # The old basename-only cache must never become an alternate hit.
+        # A changed comparator must compute a fresh part even while both
+        # an unbound legacy part and a valid previous-epoch part exist.
+        from unittest.mock import patch
+        CEN.write_tsv(os.path.join(parts, base + ".part.tsv"), sentinel)
+        with patch.object(CEN, "checkpoint_fingerprint", return_value="changed-comparator"):
+            out3 = os.path.join(d, "c.tsv")
+            CEN.run([SMALL], out3, "changed", parts_dir=parts)
+        check("a changed comparator cannot reuse the old or basename-only sentinel",
+              CEN.read_tsv(out3) == CEN.read_tsv(out1)
+              and CEN.read_tsv(out3) != sentinel)
     finally:
         shutil.rmtree(d, ignore_errors=True)
 

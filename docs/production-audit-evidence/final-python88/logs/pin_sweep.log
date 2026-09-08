@@ -1,0 +1,113 @@
+
+1. the sweep repairs nothing, and that is mechanical
+  PASS  no live string literal contains '--write'
+  PASS  no live string literal contains '--rebaseline'
+  PASS  no live string literal contains '--adopt'
+  PASS  no live string literal contains '--fix'
+  PASS  no live string literal contains '--repair'
+  PASS  `--check` IS among the live literals
+
+2. discovery is a scan, and every exclusion carries its reason
+  PASS  the sweep finds a substantial population -- an empty one would make every check below pass on nothing (doctrine 20)
+          50 instrument(s)
+  PASS  quality/audit_register.py is swept
+  PASS  quality/counters.py is swept
+  PASS  quality/meter_bands.py is swept
+  PASS  quality/corpus_manifest.py is swept
+  PASS  this module's own suite is not swept as an instrument
+  PASS  every declared exclusion carries a REASON, not just a name
+          ['quality/pin_sweep.py']
+  PASS  and the exclusions are actually excluded
+  PASS  `--only` narrows by basename glob
+          ['quality/counters.py']
+
+3. the exit vocabulary is each instrument's own
+  PASS  audit_register 2 is CANNOT RUN, not MOVED — 'cannot tell' and 'a figure moved' are different answers (doctrine 20)
+          CANNOT RUN
+  PASS  corpus_manifest 3 is MOVED — its own documented drift code
+  PASS  0 is HOLDS everywhere
+  PASS  an UNKNOWN instrument's non-zero exit reads MOVED, never CANNOT RUN — an instrument that has gone red must not be filed under inconclusive
+          MOVED
+  PASS  a ModuleNotFoundError in the output is recognised, and the module is captured
+          <re.Match object; span=(115, 159), match="ModuleNotFoundError: No module named 'numpy'">
+  PASS  ...and a clean report does NOT match it, so the rule cannot swallow an instrument that ran
+  PASS  ...and its zero still reads HOLDS
+
+4. a MOVED verdict always carries evidence
+  PASS  a declared pattern is matched and labelled `matched`
+          (['  [FAIL] public symbols'], 'matched')
+  PASS  and when nothing matches it falls back to the tail and SAYS so, rather than printing nothing
+          (['nothing here looks like a moved figure', 'last'], 'tail (nothing matched the declared evidence patterns)')
+
+5. the two false verdicts the first full run produced
+  PASS  audit_corpus's real pin invocation is DECLARED, not guessed
+          ['--verify-shape']
+  PASS  an argparse usage error is CANNOT RUN, never MOVED — the sweep asked the wrong question and that says nothing about the figures
+          usage: audit_corpus.py [-h] [--check CHECK]
+audit_
+  PASS  an instrument's OWN word for inconclusive is believed over the exit code (doctrine 1 — the instrument owns its vocabulary)
+          ot a pass, not a failure -- doctrine 20)
+  PASS  ...and a clean report does NOT match the refusal patterns, so the rule cannot swallow a real MOVED
+     (feature cache is COLD: no cache on disk; computing cold)
+  PASS  audit_joint_auc_null reads CANNOT RUN and carries its own words as the reason
+          ('CANNOT RUN', ['  CPU-MINUTES (measured 2026-08-13: 1049.5 CPU-s / 384 items) and this script'])
+
+5. one real instrument, end to end
+  PASS  the row carries the instrument, an exit code, a verdict and a time
+          {'instrument': 'quality/triage.py', 'exit': 0, 'verdict': 'HOLDS', 'seconds': 0.2, 'evidence': [], 'evidence_kind': ''}
+  PASS  triage.py's committed figures reproduce at HEAD
+          ('HOLDS', 0)
+  PASS  a HOLDS row carries no evidence — evidence is for what moved
+
+7. an interrupted sweep reports what it ran
+  PASS  the sweep announced the instrument BEFORE running it, so the interrupt lands mid-instrument rather than racing the summary
+          ('announced', 'still running')
+  PASS  the interrupted run still prints a summary
+          on
+  CANNOT RUN   0   inconclusive by construction, NOT a pass (doctrine 20)
+  three counts, never summed (doctrine 79)
+
+  PASS  it says INTERRUPTED and how far it got
+           MOVED        0   a figure moved -- repin it BY HAND, with the date and the reason
+  CANNOT RUN   0   inconclusive by construction, NOT a pass (doctrine 20)
+  three counts, never summed (doctrine 79)
+
+  PASS  and it NAMES what it never reached — an unrun instrument is not an instrument that passed
+           MOVED        0   a figure moved -- repin it BY HAND, with the date and the reason
+  CANNOT RUN   0   inconclusive by construction, NOT a pass (doctrine 20)
+  three counts, never summed (doctrine 79)
+
+  PASS  the exit code is 2, not 0: an interrupted sweep has not certified anything
+          2
+
+6. `main` calls `sweep` rather than walking the list again
+  PASS  main() calls sweep()
+          ['_summarise', 'discover', 'len', 'print', 'sum', 'sweep', 'verify_argv']
+  PASS  main() does NOT call run_one directly — that would be the second walk again
+          ['_summarise', 'discover', 'len', 'print', 'sum', 'sweep', 'verify_argv']
+  PASS  sweep() returns one row per instrument
+          [{'instrument': 'quality/triage.py', 'exit': 0, 'verdict': 'HOLDS', 'seconds': 0.2, 'evidence': [], 'evidence_kind': ''}]
+  PASS  progress is called BEFORE and AFTER each instrument, so a caller can distinguish slow from stalled
+          [True, False]
+
+the argv-consumption proof (M-21's close)
+  PASS  quality/meter_bands.py consumes --check as 'boolean' (membership)
+          classified 'boolean'
+  PASS  quality/corpus_manifest.py consumes --check as 'boolean' (list equality)
+          classified 'boolean'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+  PASS  quality/counters.py consumes --check as 'boolean' (argparse store_true)
+          classified 'boolean'
+  PASS  quality/audit_corpus.py consumes --check as 'takes_value' (argparse value-taking — the trap that earned the first row)
+          classified 'takes_value'
+  PASS  quality/audit_corpus.py consumes --verify-shape as 'boolean' (the row's own flag, verified the same way)
+          classified 'boolean'
+  PASS  a docstring-only mention is UNCONSUMED — discovery's string hit is not a consumption proof (doctrine 20)
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+  PASS  the WHOLE discovered population certifies — every unrowed instrument provably consumes bare --check, both rows' flag tokens verify
+  PASS  ...and the population is not vacuous — the proof examined the instruments discovery finds
+          discovered 50
+  PASS  exit 0 with NOTHING printed is CANNOT RUN, never HOLDS — a silent pass is indistinguishable from a dropped flag
+          {'instrument': 'quality/quiet.py', 'exit': 0, 'verdict': 'CANNOT RUN', 'seconds': 0.0, 'evidence': ['exit 0 and printed NOTHING — a silent pass is indistinguishable from a dropped flag; the instrument owes a verdict sentence'], 'evidence_kind': 'silent exit 0'}
+==================================================================
+all pin-sweep regressions pass

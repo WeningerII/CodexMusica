@@ -11,6 +11,9 @@ import os
 import re
 import sys
 import threading
+from datetime import datetime, timezone
+from email.utils import format_datetime
+from unittest.mock import patch
 from contextlib import redirect_stdout
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
@@ -69,7 +72,8 @@ def ok_body(text, t_in=100, t_out=8, finish="STOP"):
 def env(**kw):
     for k in ("GEMINI_API_KEY", "LYRIC_PROPOSER_MODEL", "GEMINI_MODEL",
               "LYRIC_PROPOSER_API_BASE", "LYRIC_PROPOSER_WAIT_BUDGET_S",
-              "LYRIC_REQUEST_DEADLINE_MS", "LYRIC_BUDGET_URL", "LYRIC_BUDGET_TOKEN"):
+              "LYRIC_REQUEST_DEADLINE_MS", "LYRIC_BUDGET_URL", "LYRIC_BUDGET_TOKEN",
+              "LYRIC_PROPOSER_MAX_TOKENS"):
         os.environ.pop(k, None)
     os.environ.update({k: v for k, v in kw.items() if v is not None})
 
@@ -78,7 +82,7 @@ def main():
     GP.time.sleep = lambda s: None          # the waits are the policy's; not paid here
     print("1. the reply shape, the record line, the totals")
     sc = Script([(200, {}, ok_body("the lantern swung", 300, 7)),
-                 (200, {}, ok_body("", 310, 0, "MAX_TOKENS"))])
+                 (200, {}, ok_body("", 310, 0, "STOP"))])
     srv = serve(sc)
     env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="stub-model",
         LYRIC_PROPOSER_API_BASE=f"http://127.0.0.1:{srv.server_port}")
@@ -96,13 +100,13 @@ def main():
           body["systemInstruction"]["parts"][0]["text"] == GP.SYSTEM_INSTRUCTION
           and body["contents"] == [{"role": "user", "parts": [{"text": "BRIEF ONE"}]}]
           and body["generationConfig"]["temperature"] == 0.8
-          and body["generationConfig"]["maxOutputTokens"] == 256, json.dumps(body)[:200])
+          and body["generationConfig"]["maxOutputTokens"] == GP.OUTPUT_TOKENS_PER_LINE, json.dumps(body)[:200])
     lines = [l for l in buf.getvalue().splitlines() if "PROPOSER CALL" in l]
     pat = re.compile(r"PROPOSER CALL (\d+): (\S+) (\d+) ms in=(\d+) out=(\d+)(?: finish=(\S+))? \| kitchen model=(\S+) calls=(\d+) ms=(\d+) in=(\d+) out=(\d+) empty=(\d+) retries=(\d+)")
     m1, m2 = pat.search(lines[0]), pat.search(lines[1])
     check("one record line per call, in the shape lyric_tools.js reads, totals on every line",
           len(lines) == 2 and m1 and m2 and m1.group(2) == "ok" and m2.group(2) == "empty"
-          and m2.group(6) == "MAX_TOKENS" and m2.group(7) == "stub-model"
+          and m2.group(6) is None and m2.group(7) == "stub-model"
           and m2.group(8) == "2" and m2.group(10) == "610" and m2.group(11) == "7"
           and m2.group(12) == "1", "\n".join(lines))
     srv.shutdown()
@@ -262,7 +266,7 @@ def main():
           and final["tokens_total"] == 1207 and not final["usage_unknown"], final)
     srv.shutdown()
 
-    sc = Script([(200, {}, {"candidates": [{"content": {"parts": [{"text": "no usage"}]}}]})])
+    sc = Script([(200, {}, {"candidates": [{"finishReason": "STOP", "content": {"parts": [{"text": "no usage"}]}}]})])
     srv = serve(sc)
     env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m",
         LYRIC_PROPOSER_API_BASE=f"http://127.0.0.1:{srv.server_port}")
@@ -284,6 +288,116 @@ def main():
         raised = str(error)
     check("expired request refuses before starting a paid HTTP attempt",
           raised is not None and "deadline" in raised and call.attempts == 0, raised)
+
+    print("\n5. malformed provider protocol and truncated proposals refuse before lyric parsing")
+    malformed = [None, [], ["wrong root"], {"candidates": {}}, {"candidates": [None]},
+                 {"candidates": [{"finishReason": "STOP", "content": {"parts": {}}}]},
+                 ok_body(123), ok_body("x", "oops"), ok_body("x", -1),
+                 ok_body("x", True), ok_body("x", 1.5),
+                 {**ok_body("x"), "usageMetadata": []}]
+    for index, payload in enumerate(malformed):
+        sc = Script([(200, {}, payload)])
+        srv = serve(sc)
+        env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m",
+            LYRIC_PROPOSER_API_BASE=f"http://127.0.0.1:{srv.server_port}")
+        call = GP.make()
+        try:
+            with redirect_stdout(io.StringIO()):
+                call("invalid protocol")
+            failure = None
+        except GP.ProposerUnavailable as error:
+            failure = error
+        check(f"malformed provider case {index} is a typed refusal after exactly one dispatch",
+              failure is not None and getattr(failure, "code", "").startswith("PROVIDER_")
+              and len(sc.seen) == 1 and not call.in_flight)
+        srv.shutdown()
+
+    for finish in ("MAX_TOKENS", "SAFETY", "RECITATION"):
+        sc = Script([(200, {}, ok_body("Hold my hand", finish=finish))])
+        srv = serve(sc)
+        env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m",
+            LYRIC_PROPOSER_API_BASE=f"http://127.0.0.1:{srv.server_port}")
+        call = GP.make()
+        buf = io.StringIO()
+        # The real ModelProposer parser would accept these complete-looking
+        # words, but the provider's completion policy must run before it.
+        from quality.propose import ModelProposer
+        check("the truncated text is superficially a valid line", ModelProposer(lambda prompt: prompt).parse("Hold my hand") is not None)
+        try:
+            with redirect_stdout(buf):
+                ModelProposer(lambda prompt: prompt).parse(call("one line"))
+            failure = None
+        except GP.ProposerUnavailable as error:
+            failure = error
+        final = [json.loads(line.split("proposer event: ", 1)[1])
+                 for line in buf.getvalue().splitlines() if "proposer event:" in line][-1]
+        check(f"{finish} is refused before parsing with its exact structured reason and known usage",
+              failure is not None and final["finish_reason"] == finish
+              and final["failure_code"] == ("PROVIDER_TRUNCATED" if finish == "MAX_TOKENS" else "PROVIDER_REFUSAL")
+              and final["tokens_in"] == 100 and not final["usage_unknown"])
+        srv.shutdown()
+
+    print("\n6. both Retry-After representations obey the same policy")
+    now = 1800000000
+    with patch.object(GP.time, "time", return_value=now):
+        for delay in (110, 130, -10):
+            date = format_datetime(datetime.fromtimestamp(now + delay, timezone.utc), usegmt=True)
+            check(f"HTTP-date {delay}s is normalized with a controlled clock",
+                  GP._retry_after_s({"rEtRy-AfTeR": date}, {}) == max(0, delay))
+        for delay in (110, 130):
+            slept = []
+            GP.time.sleep = lambda seconds: slept.append(seconds)
+            date = format_datetime(datetime.fromtimestamp(now + delay, timezone.utc), usegmt=True)
+            sc = Script([(429, {"Retry-After": date}, {}), (200, {}, ok_body("arrived"))])
+            srv = serve(sc)
+            env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m",
+                LYRIC_PROPOSER_WAIT_BUDGET_S="240",
+                LYRIC_PROPOSER_API_BASE=f"http://127.0.0.1:{srv.server_port}")
+            try:
+                with redirect_stdout(io.StringIO()):
+                    GP.make()("date policy")
+                refused = False
+            except GP.ProposerUnavailable:
+                refused = True
+            check(f"HTTP-date {delay}s honors wait and hint cap before another dispatch",
+                  (delay == 110 and not refused and slept == [110] and len(sc.seen) == 2)
+                  or (delay == 130 and refused and not slept and len(sc.seen) == 1))
+            srv.shutdown()
+
+    print("\n7. provider capacity is declared before spending and bounded before journaling")
+    for width in (1, 31):
+        sc = Script([(200, {}, ok_body("L1: a line")),
+                     (200, {}, ok_body("x" * (width * GP.MAX_PROPOSAL_BYTES_PER_LINE + 1)))])
+        srv = serve(sc)
+        env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m",
+            LYRIC_PROPOSER_API_BASE=f"http://127.0.0.1:{srv.server_port}")
+        writer = GP.make()
+        settlements = []
+        writer._budget = lambda action, **fields: settlements.append((action, fields)) or {}
+        with redirect_stdout(io.StringIO()):
+            writer.with_capacity("declared width", max_lines=width)
+            try:
+                writer.with_capacity("oversized text", max_lines=width)
+                failure = None
+            except GP.ProposerUnavailable as error:
+                failure = error
+        check(f"{width}-line capacity is reserved and oversized known response never replayed",
+              len(sc.seen) == 2 and sc.seen[0]["generationConfig"]["maxOutputTokens"] == width * GP.OUTPUT_TOKENS_PER_LINE
+              and settlements[0][1]["maxOutputTokens"] == width * GP.OUTPUT_TOKENS_PER_LINE
+              and settlements[-1][0] == "settle" and settlements[-1][1]["status"] == "success"
+              and getattr(failure, "code", None) == "PROVIDER_PROPOSAL_TOO_LARGE" and not writer.unknown_attempts)
+        srv.shutdown()
+    env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m", LYRIC_PROPOSER_MAX_TOKENS="256")
+    writer = GP.make()
+    with patch.object(GP.urllib.request, "urlopen", side_effect=AssertionError("must refuse before network")):
+        with redirect_stdout(io.StringIO()):
+            try:
+                writer.with_capacity("31-line request", max_lines=31)
+                failure = None
+            except GP.ProposerUnavailable as error:
+                failure = error
+    check("configured insufficient group output allowance refuses before any reservation",
+          getattr(failure, "code", None) == "PROPOSER_CONFIG" and writer.attempts == 0)
 
     print()
     if FAILURES:

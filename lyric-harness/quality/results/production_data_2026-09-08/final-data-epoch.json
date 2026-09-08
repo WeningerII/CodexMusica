@@ -1,0 +1,17 @@
+{
+  "at": "2026-09-08T05:26:00.256699+00:00",
+  "status": "PASS: all five adopted curves and MATTR/TTR population re-derived from exact current verified rows",
+  "items": 8545,
+  "row_sha256": "7ef7410bfb1271c596eaca69e261ffbc00cbae89059ea7e9a31d298344fe3b63",
+  "files": {
+    "quality/floor.py": "444634d4b274d290221e0840b065c5211b3a6fcb258ce1545e356c25a717dd24",
+    "quality/song_profile_calibration.py": "2f6fc16cdd660ccc84acb11876791d59a75689459af7ff46f98302d4201e5a17",
+    "quality/length_curve_calibration.py": "e9b48859ce4f04bcb100646426815527a472903e2c825797021bf54aecabb1b3",
+    "lyric_harness.py": "4256ce141654b499bf65c505ab6b5e5eb895b7857b2f72c1b576dec5acff2191",
+    "data/song_endword_en.tsv": "2552af747a104b9eda001dd0da660437f7551d8f724a6fcea5e0a390e9618201",
+    "data/song_rhymepair_en.tsv": "b8e6f88a7bb46a4f8682779c983df172759f7819464a1855c0479f166b717de1"
+  },
+  "curve_check_log": "data-curve-final-query-check.log",
+  "capacity_adoption": "pending independent all81 reconstruction and final re-verification",
+  "release_qualification": "not established by this data proof"
+}

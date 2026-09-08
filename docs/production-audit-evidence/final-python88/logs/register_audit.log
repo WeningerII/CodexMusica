@@ -1,0 +1,25 @@
+
+quality/test_register_audit.py — pins for the register auditor
+
+CALIBRATION SET (four entries known to have been wrong):
+  ok    C1 finds NO live shared-denominator contradiction in M-3/M-4
+  ok    ...and it still fires on the planted arithmetic
+  ok    C3 finds M-2's enumeration consistent with its own claim
+  ok    C2 finds M-3's before/after components summing to their totals
+  ok    D7 measures Finnish j. n. e. at 9 stubs / 18 tokens, 2 per stub
+  ok    ...and it reports MOVED rather than CONFIRMED, because the REGISTER is what is now stale — not the derivation
+  ok    D8 does not confirm the withdrawal
+
+THE INSTRUMENT:
+  ok    C5 passes
+  ok    C6 passes
+  ok    the canon now carries publication-year tokens
+  ok    Tradition.source is STILL the R<n> canon pointer, deliberately
+  ok    the index resolves and reports THREE counts, never two
+  ok    the traditions this project invented are still LISTED
+  ok    the single-line `from:` count is kept beside the multi-line one
+  ok    coverage names unaudited entries
+  ok    MISSING.md parses into entries
+  ok    every entry yields numbers with context
+
+0 failure(s)

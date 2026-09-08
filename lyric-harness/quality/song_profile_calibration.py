@@ -296,7 +296,9 @@ PROFILE_PRED_MAX = {"song": None, "short": 200}
 #: per profile: a correlation over a band's DATED authors is a fact about
 #: that band, so `check_shipped` reads the row it is judging rather than the
 #: `song` profile's constants for every profile.
-PROFILE_PERIOD = {"song": (-0.025, 0.6605), "short": (0.164, 0.0022)}
+# Re-adopted 2026-09-08 on the curated one-work population, with the
+# complete profile set; printed precision follows report_period().
+PROFILE_PERIOD = {"song": (-0.023, 0.6819), "short": (0.161, 0.0027)}
 #: The anaphora period rho each profile's note must keep VISIBLE as a struck
 #: figure (doctrine 17), or None where nothing was ever struck: the `song`
 #: row withdrew +0.275 on 2026-08-20; the `short` row was adopted with its
@@ -381,8 +383,9 @@ def comparator_fingerprint():
             # hash DIFFERENTLY from a present one, not crash the fingerprint.
             parts.append("ABSENT:" + os.path.basename(p))
     parts.append(repr(lyric_harness.Declaration()))
-    parts.append(inspect.getsource(predictability_frac))
-    parts.append(inspect.getsource(_couplet_pairs))
+    from quality.source_identity import definition_source
+    parts.append(definition_source(predictability_frac))
+    parts.append(definition_source(_couplet_pairs))
     return _sha256(*parts)
 
 
@@ -560,7 +563,7 @@ def verify_cache(scorer, bodies, n, seed=SAMPLE_SEED):
 # the population
 # ---------------------------------------------------------------------------
 
-def items_in(path):
+def historical_items_in(path):
     cur, body, out = None, [], []
     with open(path, encoding="utf-8", errors="replace") as fh:
         for l in fh:
@@ -574,6 +577,12 @@ def items_in(path):
     if cur is not None:
         out.append((cur, body))
     return out
+
+
+def items_in(path):
+    """Current population uses the runtime reader, retaining item boundaries."""
+    from quality.lyric_reader import calibration_items
+    return [(title, [row.text for row in body]) for title, _at, body in calibration_items(path)]
 
 
 def author_of(path):
@@ -1342,7 +1351,7 @@ DROPPED_BY_NO_PRED = [
 
 
 def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None,
-                  no_pred=False, name="song"):
+                  no_pred=False, name="song", n_human=None):
     """Compare what floor.py ships against what the corpus says today.
 
     `sampled` (a dict describing a `--sample` draw) turns every comparison
@@ -1499,6 +1508,13 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None,
         # raise, not report, which is a worse failure mode than skipping.
         if FLOOR_KEY[f] not in p.percentiles:
             counts["asked"] += 1
+            if name == "short" and f == "predictability":
+                counts["answered"] += 1
+                holds = full[f] == 1.0
+                print("   short predictability disposition   %s — explicitly unadopted at the measured ceiling" % ("HOLDS" if holds else "MOVED"))
+                if not holds:
+                    bad.append("short predictability disposition: ceiling no longer explains the unadopted threshold")
+                continue
             counts["refused"] += 1
             print("   %-34s NOT YET SHIPPED (measured %.4f below)"
                   % ("threshold %s" % f, full[f]))
@@ -1513,6 +1529,13 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None,
             continue
         if k not in p.held_out_fpr:
             counts["asked"] += 1
+            if name == "short" and f == "predictability":
+                counts["answered"] += 1
+                holds = tuple(fprs[f]) == (0.0, 0.0, 0.0) and full[f] == 1.0
+                print("   short predictability resolution    %s — all recorded held-out rates are zero" % ("HOLDS" if holds else "MOVED"))
+                if not holds:
+                    bad.append("short predictability disposition: held-out resolution moved")
+                continue
             counts["refused"] += 1
             print("   %-34s NOT YET SHIPPED (measured %.2f%% below)"
                   % ("held-out FPR %s (%%)" % k, fprs[f][0]))
@@ -1536,6 +1559,7 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None,
     else:
         cmp("held-out FPR cliche (%)", p.held_out_fpr["cliche"][0],
             measured_cl, 1.0)
+    cmp("profile n_human", float(p.n_human), float(n_human) if n_human is not None else float("nan"), 0)
     cmp("profile n_generated", float(p.n_generated), 0.0, 0)
     # The period slope is quoted in the profile note AND inside the
     # ANAPHORA_OVERLOAD finding, so it is a shipped constant like any other.
@@ -1616,6 +1640,10 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None,
               "ARE decided and reproduce. Run without --sample to decide the "
               "rest." % (counts["refused"], sampled["n"], sampled["of"],
                          counts["answered"]))
+        return EXIT_NO_VERDICT
+    expected_refusals = len(DROPPED_BY_NO_PRED) if no_pred else 0
+    if counts["refused"] > expected_refusals:
+        print("   NO VERDICT: the check has unmeasured constants beyond its declared scope.")
         return EXIT_NO_VERDICT
     if no_pred:
         # Exit 0, but the last line a reader or a CI log sees says PARTIAL and
@@ -1849,7 +1877,8 @@ def main():
         resolution = report_sample_resolution(rows, lo, hi, full)
     ph("check_shipped")
     rc = check_shipped(lo, hi, full, fprs, slopes, sampled, resolution,
-                       no_pred=a.without_predictability, name=a.profile)
+                       no_pred=a.without_predictability, name=a.profile,
+                       n_human=len(band(rows, lo, hi)))
     ph.stop()
     cache.flush()
     cache.report()

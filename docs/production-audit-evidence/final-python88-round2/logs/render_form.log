@@ -1,0 +1,121 @@
+
+1. the predicate — the flattened form is refused, the built one is not
+  PASS  the SHIPPED flattened render is refused, and every bracket in it is named — this fixture is the real defect's shape, not an invented one
+          4 of 4 refused
+  PASS  what `plan.section_header` actually builds passes — the check cannot be satisfied by refusing everything
+          0 of 3 refused
+
+2. the real builder's output passes its own check
+  PASS  all 7 header(s) `section_header` builds for seed 394 pass the check that guards them
+          0 refused of 7
+
+3. the declared escape, and the one-bracket floor
+  PASS  text declaring `RAW LYRIC FILE` is passed — a lyric FILE legitimately carries bare markers, and the escape is DECLARED IN THE TEXT rather than hidden in a safelist here
+          0 refused
+  PASS  a single bracketed word is prose, not a song — refusing it would make this instrument something people route around
+          0 refused
+
+4. the transcript reader takes the NEWEST assistant turn
+  PASS  an earlier CLEAN turn does not excuse the newest one — the reader takes the last, which is the turn about to be delivered
+          193 chars read
+A SECTION BRACKET WAS PRESENTED WITHOUT ITS APPARATUS.
+4 of 4 section bracket(s) carry no '—' clause:
+  line 3: [INTRO]         Freight, grey water, low in the hold
+  line 4: [INTERLUDE]     (instrumental)
+  line 5: [VAMP]          Down in the engine, counting strokes
+  line 6: [CHORUS]        Carry it. Don't look down.
+
+`quality/plan.py:section_header` builds the ONLY correct form and every renderer uses it:
+    [INTRO — 2 lines — 2 bars of 8/8, one-beat pickup]
+    [INTERLUDE — instrumental — 2 bars of 8/8, no words]
+The line count, the bar count, the METER and the pickup live INSIDE the bracket.
+DO NOT RETYPE A SONG. Run `plan --seed=N --fill=DRAFT --out=BP` and present its bytes.
+(Quoting a lyric file on purpose? Say 'RAW LYRIC FILE' in the text — declared, not silent.)
+  PASS  ...and the CLI refuses on it, exit 1
+
+5. MUTATION — with the apparatus test blunted, the defect passes
+  PASS  with the apparatus separator blunted to '', the SHIPPED flattened render is accepted — so §1's refusal is that separator doing the work and not the fixture
+          0 refused under the mutation
+  PASS  ...and the mutation is reverted, so this file leaves the instrument as it found it
+          4 refused
+
+6. the Stop hook that gives the check its jurisdiction
+  PASS  the hook script exists and is executable
+          /workspace/scratch/b0544e4bbdd6/verification-candidate2/.claude/render_form_hook.sh
+  PASS  ...and `.claude/settings.json` registers it on Stop, so it runs against the turn about to be delivered
+          /workspace/scratch/b0544e4bbdd6/verification-candidate2/.claude/settings.json
+  PASS  END TO END: a turn carrying the flattened render is BLOCKED (exit 2), which is the enforcement — not a note, not a reminder
+          {('bad', False): 2, ('bad', True): 2, ('good', False): 0, ('good', True): 0}
+  PASS  ...a turn carrying the built form WITH its state declared is allowed (exit 0), so the hook is two-sided and cannot pass by blocking everything
+          {('bad', False): 2, ('bad', True): 2, ('good', False): 0, ('good', True): 0}
+  PASS  ...and an active repeat is still blocked until the artifact is fixed
+          {('bad', False): 2, ('bad', True): 2, ('good', False): 0, ('good', True): 0}
+
+7. the operator seam — a rendered song carries its state
+  PASS  the built form presented with not one word about how the run ended is REFUSED — rendered right and stateless is the defect, and every built header is named
+          3 stateless header(s)
+A RENDERED SONG WAS PRESENTED WITH NO CONVERGENCE STATE DECLARED.
+3 built section header(s) and not one word about how the run ended:
+  line 1: [INTRO — 2 lines — 2 bars of 8/8]
+  line 3: [INTERLUDE — instrumental — 2 bars of 8/8, no words]
+  line 4: [VAMP — 2 lines — 2 bars of 8/8]
+
+A rendered song shown bare reads as FINISHED, and only the instruments may say that
+— the owner's rule: nothing is allowed to skip a step. Quote the STAMP the verb wrote,
+in the turn text, beside the song:
+    [FINISHED — seed N — exit E — STOP after R round(s) — …]  from `finish` / lyric_revise,
+        the only stamp written past a stop condition (exit 0 converged, exit 3 parked);
+    [GRADED — seed N — exit E, … — N banned pair(s)]          from lyric_grade — an INTERIM
+        draft, disclosed as one; or say UNCONVERGED / PARKED for a draft with no stop reached.
+Transcript FINISHED claims require the exact artifact from a paired lyric_revise tool result. --text and stdin check format only; GRADED and PARKED disclose interim work.
+(Quoting a lyric file on purpose? Say 'RAW LYRIC FILE' in the text — declared, not silent.)
+  PASS  ...and `main()` refuses it at exit 1, so the Stop hook that wraps this to exit 2 blocks the turn
+  PASS  the same render beside the `[FINISHED — …]` stamp passes — the state the verb WROTE, quoted in the turn, is the whole ask
+  PASS  ...and beside an exit-3 `[FINISHED — declared mandate — …]` stamp it ALSO passes — disclosure, never adjudication: a parked draft presented AS parked is a disclosed draft
+  PASS  ...and UNCONVERGED passes too, case-insensitively — the honest word for a draft with no stop condition reached is a state
+  PASS  `RAW LYRIC FILE` escapes this gate exactly as it escapes the apparatus gate — a quoted file is a record, not a presentation of finished work
+  PASS  prose carrying ONE built bracket is below the floor — this instrument must not be something people route around
+  PASS  MUTATION: with STATE blunted to match-anything, the stateless render is accepted — the state regex is what does the refusing
+          0 refused under the mutation
+  PASS  ...and the mutation is reverted, so this file leaves the instrument as it found it
+
+8. graded is not finished — the state carries its provenance
+  PASS  the fixture that was §6/§7's GOOD arm until 2026-09-05 — the built render beside a bare "song: exit 0" — is REFUSED now, every header named
+          3 refused
+  PASS  ...and so is a bare "revise: exit 3": the tightening is about PROVENANCE, not about the code being clean
+  PASS  the same render under the `[GRADED — …]` stamp PASSES — an interim draft disclosed as one is a disclosed draft
+  PASS  ...and under the `[FINISHED — …]` stamp passes — the only stamp written past a stop condition
+  PASS  a hyphenated stamp is a RETYPED stamp and does not count (M-97: present the bytes)
+  PASS  `main()` refuses the bare-exit turn at exit 1 and its reason names BOTH stamps and the M-243 rule, so the blocked turn is told what to quote instead
+          (Quoting a lyric file on purpose? Say 'RAW LYRIC FILE' in the text — d
+  PASS  song_log's `_STAMP` parser and this gate's `STAMP_FINISHED` agree on both shipped FINISHED shapes and both reject the GRADED stamp
+  PASS  MUTATION: with the pre-M-243 bare-exit rule restored, the bare "song: exit 0" turn is ACCEPTED — the provenance requirement is what refuses it
+  PASS  ...and the mutation is reverted, so this file leaves the instrument as it found it
+
+9. finished artifacts require actual correlated tool results
+  PASS  a paired authentic artifact passes in the documented direct envelope
+  PASS  a paired authentic artifact passes in the documented string envelope
+  PASS  a paired authentic artifact passes in the documented wrapped envelope
+  PASS  typing a complete stamp without a tool receipt cannot certify finished
+  PASS  a tool result for a different invocation cannot certify finished
+  PASS  a non-revision tool cannot issue a revision receipt
+  PASS  changing lyric bytes while keeping the actual stamp is rejected
+  PASS  a false clean status cannot overrule unknown required coverage
+  PASS  a changed final draft cannot keep another draft's digest
+  PASS  an appended counterfeit stamp is not covered by an authentic artifact
+  PASS  JSON typed into user prose is not a tool receipt
+  PASS  tool-use-only assistant messages cannot erase an unreceipted presentation
+  PASS  an interim grade remains an honest disclosure without a finished receipt
+  PASS  a parked interim draft remains an honest disclosure
+  PASS  an exact receipt also permits an honestly stopped draft
+  PASS  a raw-file label cannot authorize a finished claim
+
+10. visible Markdown headers and complete status grammar
+  PASS  ** section headers still expose missing apparatus
+  PASS  __ section headers still expose missing apparatus
+  PASS  partial finished stamps cannot satisfy format checking: [FINISHED — seed 6 — exit 0
+  PASS  partial finished stamps cannot satisfy format checking: [FINISHED — seed 6 — exit 0]
+  PASS  partial finished stamps cannot satisfy format checking: [FINISHED — seed 6 — exit 0 — SUCCESS after 2 round(s) — no flag stands
+  PASS  a complete stamp passes format checking only; transcript provenance is separate
+======================================================================
+the section apparatus cannot leave this session flattened

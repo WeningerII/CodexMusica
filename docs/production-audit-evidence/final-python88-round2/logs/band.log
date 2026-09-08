@@ -1,0 +1,87 @@
+
+1. TRIPWIRE — agreement is not evidence
+  PASS  see/free stays RHYME
+          RHYME at 1.000
+  PASS  day/way stays RHYME
+          RHYME at 1.000
+  PASS  low/snow stays RHYME
+          RHYME at 1.000
+  PASS  die/eye stays RHYME
+          RHYME at 1.000
+  PASS  me/be stays RHYME
+          RHYME at 1.000
+  PASS  true/you stays RHYME
+          RHYME at 1.000
+  PASS  both-empty codas AGREE
+          the predicate the band asks is agreement, not evidence
+
+2. P1 — sun/much is assonance, not a non-relation
+  PASS  sun/much types as ASSONANCE
+          ASSONANCE at 0.772
+  PASS  it is still a named member of the taxonomy
+          rejecting it outright would delete assonance from a harness built to represent it
+  PASS  but it is no longer admitted as rhyme
+          scalar 0.772 clears the .75 band; the relation does not
+
+3. the other half of the taxonomy
+  PASS  love/prove types as CONSONANCE
+          CONSONANCE at 0.784
+  PASS  dawn/again types as CONSONANCE
+          CONSONANCE at 0.729
+  PASS  love/prove is correctly NOT a rhyme in the declared dialect
+          the declaration says CMUdict General American; love/prove is an Early Modern rhyme and the residue is a dialect mismatch, which typing now says out loud
+
+4. the rule must not eat genuine rhyme
+  PASS  night/light stays RHYME
+          RHYME at 1.000
+  PASS  fire/desire stays RHYME
+          RHYME at 1.000
+  PASS  hand/land stays RHYME
+          RHYME at 1.000
+  PASS  state/gate stays RHYME
+          RHYME at 1.000
+  PASS  bad/bat is now ASSONANCE, not RHYME — the priced cost
+          ASSONANCE at 0.895. Voicing-only coda contrast. If this must be RHYME again, that is a theta_coda decision with a measured false-positive price, not a bug fix.
+
+5. P2 — the rule must not flatten the taxonomy
+  PASS  the assonance profile still admits sun/much
+          RHYME at 1.000 — that profile exists to score nucleus-only agreement, so a coda requirement there would be incoherent
+  PASS  the rule is a declared coordinate that can be turned off
+          a disagreement about the band lands in Declaration.conjunctive_band (doctrine 1)
+  PASS  the relation vocabulary grew rather than shrank
+          rhyme: ['RHYME', 'RIME_RICHE']; near: ['ASSONANCE', 'CONSONANCE']
+
+6. a strong first syllable cannot buy a weak second
+  PASS  identical multisyllable anchors agree on both channels
+  PASS  agreement is computed as a minimum over syllables
+          a mean would let a strong first syllable compensate, which is the defect being fixed one level up
+
+7. admission needs the scalar AND the relation
+  PASS  a high scalar with a near relation is refused
+  PASS  a low scalar with a rhyme relation is refused
+  PASS  both together are admitted
+  PASS  rime riche counts as rhyme
+  PASS  None is handled
+
+8. the priced per-relation cut, and which sites read it
+  PASS  the shipped cut is declared per relation, not as one scalar
+          {'ASSONANCE': 0.82, 'CONSONANCE': 0.75}
+  PASS  CONSONANCE is written down at 0.75 rather than omitted — a measured-equal entry and an absent one are different claims (doctrine 20)
+  PASS  ASSONANCE is cut at its priced value
+  PASS  RHYME falls back to theta_rhyme — 0.75 was calibrated ON it, and re-cutting it is a different sitting
+  PASS  RIME_RICHE falls back too
+  PASS  a None score does not raise — it answers theta_rhyme
+  PASS  an empty declaration restores the pre-pricing scalar exactly, so the cut is a DECLARED coordinate and the narrowing direction stays available
+  PASS  MANDATE VERDICT site reads theta_for: Reviser._field_one
+          a mandate site judging at a flat theta_rhyme is M-139 again
+  PASS  MANDATE VERDICT site reads theta_for: Reviser.grade
+          a mandate site judging at a flat theta_rhyme is M-139 again
+  PASS  MANDATE VERDICT site reads theta_for: check_scheme
+          a mandate site judging at a flat theta_rhyme is M-139 again
+  PASS  MANDATE VERDICT site reads theta_for: recover.recover
+          a mandate site judging at a flat theta_rhyme is M-139 again
+  PASS  NON-reader stays a non-reader: negative_control — it is a control of the BAND / adversary 3's NARROW door, and folding a mandate cut in would change what it measures (doctrine 14)
+  PASS  NON-reader stays a non-reader: redteam_band — it is a control of the BAND / adversary 3's NARROW door, and folding a mandate cut in would change what it measures (doctrine 14)
+  PASS  chance_rate.measure DOES read it — its subject is the shipped door, and a flat 0.75 there would measure a door that no longer exists
+==============================================================
+all conjunctive-band regressions pass

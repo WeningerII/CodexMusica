@@ -206,6 +206,70 @@ test('expired kitchen admission and inherited cancellation prevent dispatch', as
   }
 });
 
+test('broker returns its authoritative settlement and isolates call accounting', async () => {
+  const ledger = new PaidLedger({ pricing });
+  const budget = createOperationBudget({ ledger });
+  const prior = budget.reserve(request);
+  budget.settle(prior, { status: 'unknown' });
+  const receipts = [];
+  const broker = await openKitchenBudget({
+    budget,
+    onProposerUsage: (record) => receipts.push(record),
+  });
+  const post = async (body) => {
+    const response = await fetch(broker.env.LYRIC_BUDGET_URL, {
+      method: 'POST',
+      headers: { authorization: `Bearer ${broker.env.LYRIC_BUDGET_TOKEN}` },
+      body: JSON.stringify(body),
+    });
+    assert.equal(response.status, 200);
+    return response.json();
+  };
+  try {
+    const valid = await post({ action: 'reserve', ...request });
+    const known = await post({
+      action: 'settle',
+      reservation_id: valid.reservation_id,
+      status: 'success',
+      usage,
+    });
+    assert.equal(known.status, 'success');
+    assert.equal(
+      broker.accounting().accounting_unknown,
+      false,
+      'earlier operation uncertainty is not this call'
+    );
+    const invalid = await post({ action: 'reserve', ...request });
+    const unknown = await post({
+      action: 'settle',
+      reservation_id: invalid.reservation_id,
+      status: 'success',
+      usage: { promptTokenCount: 100, candidatesTokenCount: 4, totalTokenCount: 999 },
+    });
+    assert.equal(unknown.status, 'unknown');
+    assert.equal(unknown.accounting_unknown, true);
+    assert.equal(receipts.at(-1).settlement, 'unknown');
+    assert.equal(broker.accounting().events.length, 2);
+    assert.equal(broker.accounting().unknownUsd, unknown.usd);
+  } finally {
+    await broker.close();
+    budget.close();
+  }
+});
+
+test('child contexts preserve authoritative monotonic deadlines after clock steps', () => {
+  const context = { deadlineAt: performance.now() + 500, deadlineMs: Date.now() + 500 };
+  const clock = Date.now;
+  try {
+    Date.now = () => clock() + 60_000;
+    const child = childExecutionContext(context);
+    assert.equal(child.deadlineAt, context.deadlineAt);
+    assert.ok(remainingExecutionMs(child) > 400);
+  } finally {
+    Date.now = clock;
+  }
+});
+
 test('settlement itself rolls UTC day before charging newly completed work', () => {
   let clock = new Date('2026-09-07T23:59:59Z');
   const ledger = new PaidLedger({ pricing, now: () => clock });

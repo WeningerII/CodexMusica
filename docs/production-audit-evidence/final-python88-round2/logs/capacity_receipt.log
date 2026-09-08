@@ -1,0 +1,10 @@
+..verified 1/1 OW-N
+CAPACITY VERIFIED: 1/1 in 3.12.13; receipt /tmp/tmpf55s83lj/receipt.json
+CAPACITY RECEIPT VALID: 1/1 for actual runtime 3.12.13
+REFUSED — CAPACITY_UNVERIFIED: missing, stale or mismatched runtime/table attestation
+REFUSED — CAPACITY_UNVERIFIED: missing, stale or mismatched runtime/table attestation
+....
+----------------------------------------------------------------------
+Ran 6 tests in 34.631s
+
+OK

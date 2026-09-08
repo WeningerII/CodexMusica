@@ -1,0 +1,128 @@
+
+1. DOCTRINE 25 FIRST — two ABSENT codas AGREE and carry NO evidence; see/free is a perfect rhyme
+  PASS  Agree((), ()) is (True, uninformative) — unchanged
+          a quarter of the sonnets' mandated pairs have two empty codas. Conflating AGREEMENT with EVIDENCE deletes every one of them.
+  PASS  Differ((), ()) is False — two identical absences cannot differ
+          doctrine 60 in general form, and the set rewrite must not lose it.
+  PASS  see/free is a PERFECT RHYME under single reading
+          1 finding(s), verdicts [True]. The tripwire is that this survives the change, and it is checked before anything the change was FOR.
+  PASS  see/free is a PERFECT RHYME under knowledge sets
+          1 finding(s), verdicts [True]. The tripwire is that this survives the change, and it is checked before anything the change was FOR.
+  PASS  a plain str/tuple Syllable is CERTAIN and reports no uncertain channels
+          ()
+
+2. a Syllable may hold ONE reading or a SET, and the TYPE is the marker
+  PASS  a frozenset with >1 member is uncertain; a singleton is not
+  PASS  a TUPLE is one value, not a set of readings
+          a cluster is a single ordered value. This is `relations._alts`'s rule stated from the production side, and the two must not drift.
+  PASS  sole() returns the one reading and REFUSES to pick from two
+          picking is the defect; raising is the fix.
+  PASS  a Syllable holding a set is not certain and NAMES the channel
+          ('nucleus',)
+  PASS  readings() expands to every certain syllable it permits
+          the cartesian product over the uncertain channels.
+  PASS  certain_view() collapses to the FIRST reading and is a declared LOSS, not a fix
+  PASS  Readings iterates in ONE order, always (doctrine 66)
+          1 distinct orders observed: {(('S',), ('T',), ('Z',))}
+  PASS  ...and it is still a frozenset, so relations._alts sees no change
+
+3. all NINE modules that construct a Syllable, unchanged — the default is a str and a str is CERTAIN
+  PASS  nine phonologies are declared
+          ['cym', 'eng', 'fas', 'fin', 'ltc', 'msa', 'non', 'san', 'som']
+  PASS    cym: 11 words, every syllable CERTAIN and parses() defaults to the one reading
+          read 11 / refused 0 / undecided 0 — doctrine 79's three counts. A module that declares no second reading cannot become undecided, which is what BACKWARD-COMPATIBLE means here.
+  PASS    eng: 8 words, every syllable CERTAIN and parses() defaults to the one reading
+          read 8 / refused 0 / undecided 0 — doctrine 79's three counts. A module that declares no second reading cannot become undecided, which is what BACKWARD-COMPATIBLE means here.
+  PASS    fas: 8 words, every syllable CERTAIN and parses() defaults to the one reading
+          read 4 / refused 4 / undecided 0 — doctrine 79's three counts. A module that declares no second reading cannot become undecided, which is what BACKWARD-COMPATIBLE means here.
+  PASS    fin: 5 words, every syllable CERTAIN and parses() defaults to the one reading
+          read 5 / refused 0 / undecided 0 — doctrine 79's three counts. A module that declares no second reading cannot become undecided, which is what BACKWARD-COMPATIBLE means here.
+  PASS    ltc: 15 words, every syllable CERTAIN and parses() defaults to the one reading
+          read 15 / refused 0 / undecided 0 — doctrine 79's three counts. A module that declares no second reading cannot become undecided, which is what BACKWARD-COMPATIBLE means here.
+  PASS    msa: 7 words, every syllable CERTAIN and parses() defaults to the one reading
+          read 7 / refused 0 / undecided 0 — doctrine 79's three counts. A module that declares no second reading cannot become undecided, which is what BACKWARD-COMPATIBLE means here.
+  PASS    non: 8 words, every syllable CERTAIN and parses() defaults to the one reading
+          read 8 / refused 0 / undecided 0 — doctrine 79's three counts. A module that declares no second reading cannot become undecided, which is what BACKWARD-COMPATIBLE means here.
+  PASS    san: 7 words, every syllable CERTAIN and parses() defaults to the one reading
+          read 7 / refused 0 / undecided 0 — doctrine 79's three counts. A module that declares no second reading cannot become undecided, which is what BACKWARD-COMPATIBLE means here.
+  PASS    som: 8 words, every syllable CERTAIN and parses() defaults to the one reading
+          read 8 / refused 0 / undecided 0 — doctrine 79's three counts. A module that declares no second reading cannot become undecided, which is what BACKWARD-COMPATIBLE means here.
+  PASS  77 real words across the nine, none of them uncertain
+          77
+  PASS  the base Phonology's parses() is [syllabify()], so an unaware module is untouched
+
+4. eng — wind/live/read/bow/tear, and the shipped false positive
+  PASS  CMUdict holds two readings of each of the five
+          {'wind': [['W', 'AY1', 'N', 'D'], ['W', 'IH1', 'N', 'D']], 'read': [['R', 'EH1', 'D'], ['R', 'IY1', 'D']]}
+  PASS  and it lists the VERB first, which is why `prons[0]` was wrong quietly rather than loudly
+          W AY1 N D before W IH1 N D. A fixture taking the first reading gets the verb and says nothing about it.
+  PASS    wind: one syllable, nucleus UNDECIDED
+          nucleus Readings({'AY', 'IH'}); syllable 0 undecided on nucleus
+  PASS    live: one syllable, nucleus UNDECIDED
+          nucleus Readings({'AY', 'IH'}); syllable 0 undecided on nucleus
+  PASS    read: one syllable, nucleus UNDECIDED
+          nucleus Readings({'EH', 'IY'}); syllable 0 undecided on nucleus
+  PASS    bow: one syllable, nucleus UNDECIDED
+          nucleus Readings({'AW', 'OW'}); syllable 0 undecided on nucleus
+  PASS    tear: one syllable, nucleus UNDECIDED
+          nucleus Readings({'EH', 'IH'}); syllable 0 undecided on nucleus
+  PASS  wind/find under explicit historical first reading -> True
+          got [True]. A verdict on a reading nobody declared.
+  PASS  wind/find under knowledge sets  (P11 closed) -> None
+          got [None]. UNDECIDED, and the finding carries the reason: 2x1 readings overlap but do not settle it — a homograph the declaration cannot resolve, so the answer is UNDECIDED, not a guess
+  PASS  the schema still FINDS the pair — the relation is undecided, not deleted (doctrine 24)
+          a rule that answered None by dropping the instance would hide exactly the pairs P11 is about.
+  PASS  ...and set algebra still DECIDES where no reading can agree
+          False: AW is in neither reading of `wind`, so False is certain. UNDECIDED is reserved for genuine ambiguity.
+
+5. ltc — 多音字. eng's ambiguity is a VOWEL; this one reaches the TONE CLASS, which is what regulated verse constrains
+  PASS    行: 4 readings -> prominence(平/仄) UNDECIDED
+          prominence Readings({0, 1}), nucleus Readings({'唐', '庚'})
+  PASS    重: 3 readings -> prominence(平/仄) UNDECIDED
+          prominence Readings({0, 1}), nucleus '鍾'
+  PASS    長: 3 readings -> prominence(平/仄) UNDECIDED
+          prominence Readings({0, 1}), nucleus '陽'
+  PASS    過: 2 readings -> prominence(平/仄) UNDECIDED
+          prominence Readings({0, 1}), nucleus '歌'
+  PASS    中: 2 readings -> prominence(平/仄) UNDECIDED
+          prominence Readings({0, 1}), nucleus '東'
+  PASS  好 has two readings that AGREE on every channel, so it stays CERTAIN
+          doctrine 36: the granularity a reference work records is not the granularity a form works at. A 多音字 is not automatically ambiguous FOR THE PREDICATE.
+  PASS  `tone_class()` ALREADY refused on these and `syllabify()` did not — the refusal existed and did not propagate
+          13 characters. tone_class returns None for every one; syllabify handed out readings[0]'s 平/仄 for every one ([('中', None), ('供', None), ('歐', None), ('王', None)]...). Doctrine 84's rule that a producer must not silently swallow a refusal, inside a SINGLE module.
+
+6. DOCTRINE 79 — read / refused / undecided are THREE counts, and `refused` splits again (doctrine 88)
+  PASS  the sonnets' 1312 unique end words: the FIRST-reading census has an undecided count of ZERO by construction
+          read 1095 / refused 217 / undecided 0. That zero is not a fact about English; it is the instrument having no way to say the word.
+  PASS  ...and keeping every reading moves words out of `read` and into `undecided`, with `refused` UNCHANGED
+          read 952 / refused 217 / undecided 143 (127 merged, 16 unalignable). 13.1% of the end words the harness thought it had READ were being resolved silently. `refused` does not move, which is the check that this is a new COUNT and not a new failure.
+  PASS  the same three counts on 1200 花間集 characters
+          first reading: read 1200 / undecided 0. all readings: read 914 / undecided 286 (23.8%). NOTE the refused count is 0 in both, and that is NOT a claim that every character reads: `ltc.syllabify` emits a placeholder syllable for an unreadable character rather than returning [], so this layer's refusal count is the wrong instrument there and `ltc.readability()` is the right one.
+
+7. merge_readings has FOUR outcomes and a caller can tell them apart
+  PASS  one reading -> CERTAIN
+  PASS  identical readings -> CERTAIN, not MERGED
+          two witnesses that agree carry no uncertainty. Doctrine 51's shape: agreement is not evidence, and it is not doubt either.
+  PASS  no readable reading -> UNREADABLE and an EMPTY list
+  PASS  readings with different SYLLABLE COUNTS -> UNALIGNABLE and an EMPTY list
+          2 readings with syllable counts [1, 2]: no shared index to hold a knowledge set on, so the word is REFUSED rather than aligned by guess. Inventing an alignment is the kukka/kalevala error (doctrine 83) with extra steps; `fas.syllabify` already returns [] for exactly this and is the precedent.
+  PASS  ...and UNALIGNABLE is not UNREADABLE, which is doctrine 88's whole complaint
+          a refusal rate is uninterpretable until its causes are separated.
+  PASS  a WEIGHT disagreement becomes a knowledge set, and arithmetic on it fails LOUDLY
+          moras Readings({1, 2}). `san.moras()` is `sum(s.moras for s in sylls)`; a TypeError there is the correct outcome and a silently wrong sum is not. Refusing the whole word instead would be doctrine 24's error — deleting a category to protect a sum().
+
+8. the SEAM into relations.py — measured, not assumed. Two of its readers coerce with tuple() and cannot carry a set
+  PASS  nucleus and prominence pass through UNCOERCED, so a nucleus homograph reaches the predicates
+          nucleus Readings({'AY', 'IH'}) — `_rd_nucleus` returns `u.syl.nucleus` raw, which is why this half works today.
+  PASS  `_rd_coda` calls tuple() on the channel, so a CODA knowledge set arrives as one cluster of two readings
+          (('S',), ('Z',)) instead of two readings of a coda. This is a defect in `quality/relations.py`, which this cell does not own; the patch is `return u.syl.coda if isinstance(u.syl.coda, frozenset) else tuple(u.syl.coda)` in `_rd_coda` and `_rd_onset`. Until then the PRODUCTION side must not emit a coda set into that stream.
+  PASS  ...and the order it arrives in is at least FIXED (doctrine 66)
+          a bare frozenset would scramble under PYTHONHASHSEED and the wrongness would be invisible half the time. `Readings.__iter__` exists for this one reason.
+  PASS  `_rd_phones` no longer splices the set INTO the phone sequence
+          Alternatives({('W', 'AY', 'N', 'D'), ('W', 'IH', 'N', 'D')}) -- the product, not a tuple with a set inside. The wind/find comparison is still False and always was CORRECT, because `phones` carries the ONSET and W/F disagree under every reading; the patch note's own worked example was wrong about that and a fix aimed at making it None would over-refuse. The pair that actually moves is wind/wined -- see quality/test_readings_seam.py.
+
+9. the sonnet oracle is unmoved: 1064 / 967 / 97 / 4
+  PASS  mandated 1064, judged 967, refused 97, violations 4
+          (1064, 967, 97, 4). Doctrine 79: three counts, and the fourth is the one people quote. The production policy preserves pronunciation uncertainty; battery.py records each causal oracle revision.
+======================================================================
+all homograph / knowledge-set regressions pass

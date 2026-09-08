@@ -1,0 +1,52 @@
+
+1. spelled_rime — the declared orthographic rime, by table
+  PASS  all 19 declared cases — silent-e folds (stove->ove, bone->one), y is a vowel letter (day/way->ay), w is not (sown->own)
+          every case as declared
+  PASS  punctuation and case are stripped before the letters are read
+  PASS  a wordless token answers the empty string, never a crash
+
+2. the two tiers compose in the field (joint_field)
+  PASS  TIER 1: every same-spelled partner in the field is forbidden — chair, stair, despair, the whole -air family, whatever its rank
+          ['adair', 'affair', 'air', 'blair', 'chair', 'clair', 'debonair', 'despair']
+  PASS  TIER 2 digs into the DIFFERENTLY-spelled remainder — prayer (rank 7 under the old cliff, the word the gap let through) is now forbidden
+  PASS  ...and the ban is deeper than the old six
+          25 forbidden
+  PASS  the OFFERS exclude both tiers — no same-spelled word, nothing forbidden: the menu and the verdict cannot disagree
+          ['share', 'dare', 'compare', 'beware', 'here', 'their']
+
+3. the pair verdicts — each tier catches its own class
+  PASS  hair/chair is HOMEOTELEUTON — same spelled -air, caught by the pair's own spellings with no field consulted
+          {(1, 3): 'HOMEOTELEUTON', (4, 5): 'HOMEOTELEUTON'}
+  PASS  cove/wove is HOMEOTELEUTON — the -ove class the old cliff let through at rank 7
+  FAIL  hair/prayer is MODAL_RHYME — differently spelled, so tier 2's frequency judgment owns it, and it now reaches deep enough
+  PASS  bone/sown carries NEITHER — different spelling ('one'/'own') and below the frequency tier: silence still means clean
+          {(1, 3): 'HOMEOTELEUTON', (4, 5): 'HOMEOTELEUTON'}
+  PASS  HOMEOTELEUTON is a RHYME_FINDING, so a briefed line gets a candidate field to fix it with
+  PASS  the rime anchors at the STRESSED syllable — silver/deliver are DISTINCT ('ilver'/'iver'), not one banned -er class
+          ('ilver', 'iver')
+  PASS  ...and the anchor does not weaken the ban where the stress IS the last group: singing/ringing share 'inging', still banned
+
+4. the pursuit is mandatory — the class ban cannot be waited out
+  PASS  HOMEOTELEUTON is in MANDATORY_PURSUE beside MODAL_RHYME — additive-only, no declaration can remove it
+          ['HOMEOTELEUTON', 'MODAL_RHYME', 'PREDICTABLE_RHYME', 'SHARED_SUFFIX']
+
+5. the admit coordinate — ~~widening is BY DECLARATION, never by default~~ the default admits all four; NARROWING is the declared move (2026-08-22)
+  PASS  DEFAULT now SATISFIES sun/much — the band typed it ASSONANCE and the door no longer contradicts the band (~~violates as ASSONANCE, refusal naming the declared door~~)
+  PASS  DECLARED admit=ASSONANCE: sun/much (0.772) is now REFUSED by the PRICED near-relation cut, and the refusal names it — the declared door is not a licence to skip the calibration (~~SATISFIES on its scalar~~, M-138 priced 2026-09-02)
+          [(1, 2, 0.772, 'below theta(ASSONANCE)=0.82 (theta_rhyme=0.75; the near relations carry their own priced cut, M-138)')]
+  PASS  DECLARED admit=ASSONANCE: chores/norm (0.932 ASSONANCE, above the 0.82 cut) SATISFIES — the near relation is STILL a first-class declared move
+  PASS  theta_by_relation={} restores the pre-pricing scalar exactly — sun/much satisfies again, so the cut is a DECLARED coordinate and not a new law
+  PASS  an unknown relation refuses AT DECLARATION time
+          admit=('RHYME', 'PROEST') names ['PROEST'] — not admittable.
+  PASS  near-only refuses — that is not a rhyme mandate
+          admit=('ASSONANCE',) contains no rhyme relation — a mandate 
+  PASS  the admittable vocabulary is the taxonomy's named pair set, REPEAT deliberately absent (identity has its own licence)
+
+   the DEFAULT admit set
+  PASS  the default admits EVERY admittable relation — a near relation the band has already TYPED is a sonic event this project exists to represent, and a default that charged it as a violation was one repository giving two opposite answers about one pair
+          ('ASSONANCE', 'CONSONANCE', 'RHYME', 'RIME_RICHE')
+  PASS  ...and it DERIVES from `ADMITTABLE_RELATIONS` rather than restating it, so the default and the validator cannot drift (doctrine 1) — they were 2,000 lines apart and hand-typed until 2026-08-22
+  PASS  NARROWING is still available and is the useful direction — a cell that genuinely wants perfect rhyme only declares it and gets exactly the old behaviour BY SAYING SO
+  PASS  REPEAT is still REFUSED — identity has its own licence machinery and admitting it here would let a copied word satisfy a rhyme
+==============================================================
+1 FAILING: hair/prayer is MODAL_RHYME — differently spelled, so tier 2's frequency judgment owns it, and it now reaches deep enough

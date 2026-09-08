@@ -1,0 +1,70 @@
+
+==============================================================================
+CORPUS AUDIT — 1430 files under /workspace/scratch/b0544e4bbdd6/production-fixes/lyric-harness/corpus
+==============================================================================
+
+B · HEADER — the file's own header against its row
+     1430 files checked, 0 FAIL, 8 WARN, 4 NOTE
+  [WARN] B  corpus/cym_alun_strict.txt
+         no `#` header at all
+         measured:  44403 bytes, 1558 verse lines
+         mechanism: the header is where the edition, the orthography and the extraction rule live; without it the row is the only witness
+         doctrine:  34
+  [WARN] B  corpus/cym_twm_or_nant_cywydd.txt
+         no `#` header at all
+         measured:  4731 bytes, 156 verse lines
+         mechanism: the header is where the edition, the orthography and the extraction rule live; without it the row is the only witness
+         doctrine:  34
+  [WARN] B  corpus/fas_hafez.LICENSE.txt
+         no `#` header at all
+         measured:  4373 bytes, 74 verse lines
+         mechanism: the header is where the edition, the orthography and the extraction rule live; without it the row is the only witness
+         doctrine:  34
+  [WARN] B  corpus/fas_hafez.json
+         no `#` header at all
+         measured:  547585 bytes, 10860 verse lines
+         mechanism: the header is where the edition, the orthography and the extraction rule live; without it the row is the only witness
+         doctrine:  34
+  [WARN] B  corpus/fin_kalevala.txt
+         no `#` header at all
+         measured:  566562 bytes, 22795 verse lines
+         mechanism: the header is where the edition, the orthography and the extraction rule live; without it the row is the only witness
+         doctrine:  34
+  [WARN] B  corpus/generated/sonnets_generated.txt
+         no `#` header at all
+         measured:  23468 bytes, 599 verse lines
+         mechanism: the header is where the edition, the orthography and the extraction rule live; without it the row is the only witness
+         doctrine:  34
+  [NOTE] B  corpus/generated/sonnets_generated.txt
+         no declared language
+         measured:  no `# lang:` header and the filename prefix 'sonnets' is not a declared phonology
+         mechanism: checks D, F and G all key on the declared language, so an undeclared file is unaudited by three of eight checks
+         doctrine:  44
+  [NOTE] B  corpus/san_dcs_verse.txt
+         row states a licence, header does not
+         measured:  row licence: CC BY 4.0 (DCS digitisation layer); the verse is ancient and
+         mechanism: the file travels without its own terms
+         doctrine:  54
+  [WARN] B  corpus/sonnets.txt
+         no `#` header at all
+         measured:  119936 bytes, 2621 verse lines
+         mechanism: the header is where the edition, the orthography and the extraction rule live; without it the row is the only witness
+         doctrine:  34
+  [NOTE] B  corpus/sonnets.txt
+         no declared language
+         measured:  no `# lang:` header and the filename prefix 'sonnets.txt' is not a declared phonology
+         mechanism: checks D, F and G all key on the declared language, so an undeclared file is unaudited by three of eight checks
+         doctrine:  44
+  [WARN] B  corpus/whitman.txt
+         no `#` header at all
+         measured:  780492 bytes, 14482 verse lines
+         mechanism: the header is where the edition, the orthography and the extraction rule live; without it the row is the only witness
+         doctrine:  34
+  [NOTE] B  corpus/whitman.txt
+         no declared language
+         measured:  no `# lang:` header and the filename prefix 'whitman.txt' is not a declared phonology
+         mechanism: checks D, F and G all key on the declared language, so an undeclared file is unaudited by three of eight checks
+         doctrine:  44
+
+------------------------------------------------------------------------------
+  1430 files, 12 findings: 0 FAIL, 8 WARN, 4 NOTE

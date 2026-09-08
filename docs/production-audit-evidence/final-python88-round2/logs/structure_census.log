@@ -1,0 +1,100 @@
+
+0. every test_* function in this file is in the runner list
+  PASS  no section is defined and executed by nothing
+          []
+
+1. the censused rows
+  PASS  57 rows — every catalog row except the comparator sentinel, whose judge refuses by design
+  PASS  every censused row resolves and is not a comparator
+
+2. the item readers are the existing ones, never respelled
+  PASS  the population: 1297 eng_ files + 2 controls
+  PASS  the shared work reader yields exactly 8,545 nonempty items over the 1297 files
+          8545
+  PASS  item exclusion is the one note-only Sawyer source, not lost verse
+  PASS  sonnets.txt reads through battery.parse_sonnets: 152 items of 14 lines, Gutenberg matter excluded by the oracle's reader
+  PASS  whitman.txt reads through battery.whitman_verse: ONE item of the 150-line negative-control slice
+
+3. cell accounting on a real file
+  PASS  114 cells: 57 rows x 2 populations
+  PASS  F1 — the three verdict counts sum to n_pairs in EVERY cell (also asserted at build time; this is the artifact-side read)
+  PASS  the endword population is non-empty and the canary row judges most of it (not 100% refused — falsifier F2's canary)
+          [396, 11, 325, 60]
+  PASS  the dedup arm is BYTE-IDENTICAL to the live arm — the registration's declared verification of the dedup rule
+
+4. the constrained tag has three states, and `no` is a claim
+  PASS  end-rhyme family x endword-cross x rhyme-constrained corpora -> yes
+  PASS  whitman is incidental on EVERY row — the declared negative control; within-line and non-family rows are incidental everywhere
+  PASS  an undeclared corpus reads `undeclared`, not `no` (fas_hafez_ganjoor)
+  PASS  an undeclared corpus reads `undeclared`, not `no` (cym_song_alun)
+  PASS  an undeclared corpus reads `undeclared`, not `no` (san_bilhana_caurapancasika)
+  PASS  an undeclared corpus reads `undeclared`, not `no` (ltc_huajianji)
+  PASS  whitman's False carries a written reason, so it is a measurement and not a default
+  PASS  every declared family carries a reason, not a bare verdict
+          []
+  PASS  the membership set is DERIVED from the table, not typed beside it
+  PASS  no caller reads `constrained_tag` in a boolean context — `no` is truthy and would tag every cell `yes`
+          lines []
+  PASS  ...and the guard is not vacuous: the module does call it
+
+4b. the tag E1 struck says so mechanically, not only in prose
+  PASS  `dactylic-rhyme`'s tag is struck, and the reason names the amendment
+          STRUCK by E1's registered amendment (quality/RESULTS_STRUCTU
+  PASS  the five rows E1 re-read over are NOT struck
+  PASS  the struck row is still IN the constrained family, because the artifact it describes still tags it
+  PASS  the shipped artifact carries exactly the 144 struck `yes` cells the amendment describes
+          144 struck of 16530 rows
+  PASS  the three-state tag reproduces EVERY shipped row — a coordinate was added and no recorded value moved
+          0 row(s) moved: []
+
+5. the TSV round-trips
+  PASS  write -> read is identity (sorted rows, declared columns)
+  PASS  a rate cell is judged-base or EMPTY, never 0.0-for-nothing (doctrine 20)
+
+6. per-file checkpointing — an interruption costs one file
+  [1/1] eng_hymn_cennick.txt                            4.2s  memo    59,622
+test: 1 files, 114 cells, 4s total -> /tmp/tmp89rena6r/a.tsv
+  PASS  a finished file's cells land in an atomic part file
+  [1/1] eng_hymn_cennick.txt                         checkpointed — reused
+test: 1 files, 1 cells, 0s total -> /tmp/tmp89rena6r/b.tsv
+  PASS  a restart reuses the part instead of recomputing — the planted sentinel comes back verbatim
+  [1/1] eng_hymn_cennick.txt                            5.3s  memo    59,622
+changed: 1 files, 114 cells, 5s total -> /tmp/tmp89rena6r/c.tsv
+  PASS  a changed comparator cannot reuse the old or basename-only sentinel
+
+7. the tokeniser is a declared coordinate (M-22)
+  PASS  every declared tokeniser site resolves to a callable
+          []
+  PASS  the control fixture can TELL THE TWO READINGS APART
+          word-within-line 165 vs 190 distinct pairs; endword-cross identical (15), as expected
+  PASS  eng is byte-identical through the declared path
+          15 endword-cross pairs, unmoved
+  PASS  eng resolves to line_tokens, not English._tokens
+  PASS  the ASCII control still shreds what the live reader now reads
+          control ['t', 'n'] vs live ['tân']
+  PASS  fin reads its own words (ASCII shreds them)
+          fin._tokens ['pää'] vs ASCII ['p']
+  PASS  san reads its own words
+          3 words vs 5 ASCII fragments
+  PASS  pair_counters TOKENISES with the language's own reader
+          2486 endwords carry ä/ö under fin, 0 under ASCII
+  PASS  ltc refuses rather than shredding, and says why
+          ltc: PERMANENT. One character is one syllable, so WORD is not a unit of 
+  PASS  cym refuses rather than shredding, and says why
+          cym: BUILDABLE, and not built. `cym.py` CONSUMES tokens (`readability_ce
+  PASS  msa refuses rather than shredding, and says why
+          msa: BUILDABLE, and not built. `msa.py` takes tokens as an argument and 
+  PASS  an undeclared language refuses and says nobody has looked
+  PASS  no language is both declared and refused
+
+8. the population is a language parameter (M-22's renames)
+  PASS  the eng default reproduces the declared run-1 population byte-identically — no recorded figure moves under a rename
+          1299 vs 1299
+  PASS  another language globs its own prefix and gets NO English controls (doctrine 13/14)
+          ['cym_cynghanedd_llywelyn_goch_cywydd.txt', 'cym_song_alun.txt', 'cym_song_hwiangerddi.txt']
+  PASS  its song files key their own family, which has NO RHYME_CONSTRAINED row — M-23's three-state table reports that as `undeclared` rather than a measured negative
+          cym_song
+  PASS  the artifact path derives per language and the eng spelling IS the committed table
+  PASS  the two controls keep their own families either way
+==============================================================
+the census instrument: one judge, three counts, declared populations, and its readers are the repo's own

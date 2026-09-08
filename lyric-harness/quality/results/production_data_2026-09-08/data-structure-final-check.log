@@ -1,0 +1,39 @@
+======================================================================
+ARTIFACT ARM — re-derived from the COMMITTED table, true forever
+======================================================================
+
+======================================================================
+D1 ARM — re-derived from the LIVE TREE; true only of a DECLARED
+         corpus state, which is the whole reason this arm exists
+======================================================================
+D1: 4,392,354 unique eng_song endword-cross pairs, 1,000 sampled at seed 20260818
+  masculine-rhyme=  false  admits()= admits    10  e.g. 'dress'/'pass'
+  masculine-rhyme=  false  admits()=rejects   663  e.g. 'dane'/'sail'
+  masculine-rhyme=refused  admits()= admits     3  e.g. 'mountain-chain'/'strain'
+  masculine-rhyme=refused  admits()=rejects   315  e.g. "pow'r"/'be'
+  masculine-rhyme=   true  admits()= admits     4  e.g. 'dell'/'spell'
+  masculine-rhyme=   true  admits()=rejects     5  e.g. 'desperation'/'brae'
+  agreement over judged: 667/682 (97.8%); refusals apart (doctrine 79)
+
+  HOLDS 16
+    artifact cells          16530
+    artifact corpus_files   145
+    artifact md5            7d4daf7928cf7c973fdea04e17d06088
+    artifact n_false        233898661
+    artifact n_pairs        417020664
+    artifact n_refused      175411006
+    artifact n_true         7710997
+    artifact rows           57
+    D1 pool           4,392,354
+    D1 false/admits        10
+    D1 false/rejects       663
+    D1 refused/admits      3
+    D1 refused/rejects     315
+    D1 true/admits         4
+    D1 true/rejects        5
+    D1 agreement      667/682
+  MOVED 0
+  CANNOT RUN 0
+
+  THREE VERDICTS, NEVER SUMMED (doctrine 79). The run-1 D1 table is HISTORICAL and is not checked: it cannot be re-derived at head at any population — 3 of the 143 files were deleted at 76f978f and 140 changed content; reproduce with `git archive 2ff4e51 lyric-harness`.
+RESULT: PASS — every recorded figure re-derives.

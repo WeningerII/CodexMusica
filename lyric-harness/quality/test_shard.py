@@ -257,10 +257,9 @@ def _ci_jobs():
     return jobs
 
 
-def test_a_duplicate_push_run_skips_rather_than_cancelling():
-    print("\n6. a push run another run already covers SKIPS every job -- "
-          "skipped is NEUTRAL on the PR where cancelled is not "
-          "(`MISSING.md` M-250, M-251, M-252)")
+def test_each_ci_event_owns_completed_evidence():
+    print("\n6. every CI event owns completed evidence; push/PR twins "
+          "cannot cancel the only run doing work (BCI-07)")
     # THE TWO DEFECTS THIS PINS, both 2026-09-06, both counted over the last
     # 30 pushes to one branch.
     #
@@ -322,44 +321,39 @@ def test_a_duplicate_push_run_skips_rather_than_cancelling():
             continue
         check(f"{n} needs no guard because it cannot run on a push",
               "workflow_dispatch" in t and "schedule" in t)
-    # DENY BY DEFAULT: the step decides `false` first and only a parsed answer
-    # moves it, so an unanswered question never skips a run (the
-    # six-uncovered-commits defect the `branches: ['**']` filter prevents).
-    gate = dup
-    check("the check starts at false, so a failed or unparseable answer RUNS",
-          re.search(r"^\s+covered=false$", gate, re.M) is not None
-          and gate.count("an unanswered question is not a yes") >= 2)
-    check("and it never skips a push to the production branch",
-          'github.ref_name }}" != "$default_branch"' in gate
-          and 'default_branch="${{ github.event.repository.default_branch }}"'
-          in gate)
-    # QUESTION 1 (M-250): an OPEN pull request whose head IS this commit.
-    check("question 1 counts only OPEN pull requests at THIS sha",
-          'select(.state == "open")' in gate
-          and "select(.head.sha == env.GITHUB_SHA)" in gate)
-    # QUESTION 2 (M-251): a push run of this workflow on the DEFAULT branch
-    # that already concluded success at this sha.
-    check("question 2 is asked only when question 1 did not answer yes",
-          re.search(r'if \[ "\$covered" = "false" \]; then', gate) is not None)
-    for want, why in (
-        ("select(.head_sha == env.GITHUB_SHA)", "at THIS commit"),
-        ('select(.event == "push")', "a push run"),
-        ('select(.conclusion == "success")', "green"),
-        ("select(.head_branch == env.DEFAULT_BRANCH)", "on the DEFAULT branch"),
-        ("select((.id | tostring) != env.GITHUB_RUN_ID)", "not this run itself"),
-    ):
-        check(f"question 2 counts a run only if it is {why}", want in gate, want)
-    # WHY THE DEFAULT BRANCH IS DEMANDED and not merely "some green run": a run
-    # can conclude success having SKIPPED every job -- which is precisely what
-    # question 1 makes the twin do -- and that success proves nothing about the
-    # tree. The step is a no-op on the default branch, so a green run there is
-    # the full matrix and nothing less. That reasoning must stay ON the step.
-    check("the step says why a green run elsewhere would not do",
-          "WHY QUESTION 2 DEMANDS THE DEFAULT BRANCH" in ci)
-    # The workflow names itself from the ref rather than hard-coding a
-    # filename, so renaming this file cannot silently stop the question.
-    check("question 2 derives its own workflow file from GITHUB_WORKFLOW_REF",
-          'wf="${GITHUB_WORKFLOW_REF%%@*}"' in gate and 'wf="${wf##*/}"' in gate)
+    # 2026-09-08 BCI-07: the earlier open-PR/green-push inference was
+    # unsafe: event ordering could leave only the run that skipped its work.
+    # Every event now owns its evidence, and event-specific concurrency keeps
+    # the push and PR runs from cancelling one another. Exercise the real
+    # output command; a PR's existence cannot stand in for completed checks.
+    import subprocess
+    import tempfile
+
+    command = re.search(r"^        run: (.*)$", dup, re.M)
+    check("coverage is produced by an explicit local command", command is not None)
+    if command is not None:
+        def owns_evidence(script):
+            with tempfile.TemporaryDirectory() as temporary:
+                output = os.path.join(temporary, "output")
+                run = subprocess.run(["bash", "-e", "-c", script],
+                                     env={**os.environ, "GITHUB_OUTPUT": output},
+                                     capture_output=True, text=True, timeout=5)
+                value = open(output).read().splitlines() if os.path.exists(output) else []
+                return run.returncode == 0 and value == ["already_covered=false"]
+
+        check("the actual command assigns this event its own work",
+              owns_evidence(command.group(1)))
+        check("PLANTED: claiming another run covers this event is rejected",
+              not owns_evidence("echo 'already_covered=true' >> \"$GITHUB_OUTPUT\""))
+        check("PLANTED: missing or failed output cannot prove coverage",
+              not owns_evidence("true") and not owns_evidence("exit 1"))
+    check("the coverage job performs no PR/run API lookup",
+          not any(word in dup for word in ("gh api", "curl ", "pull_request", "workflow_runs")))
+    check("push and PR concurrency groups include the event coordinate",
+          "format('{0}@{1}@{2}'," in ci and
+          "github.ref_name, github.event_name)" in ci)
+    check("production runs are never cancelled by a newer run",
+          "cancel-in-progress: ${{ (github.head_ref || github.ref_name) != 'main' }}" in ci)
     # THE CHECK CAN FAIL: strip one job's guard and the sweep must catch it.
     victim = downstream[0]
     planted = dict(jobs)
@@ -373,7 +367,7 @@ if __name__ == "__main__":
                test_run_sections_times_and_gates,
                test_every_dealt_suite_calls_the_one_idiom,
                test_no_section_reads_what_another_section_wrote,
-               test_a_duplicate_push_run_skips_rather_than_cancelling):
+               test_each_ci_event_owns_completed_evidence):
         fn()
     print("=" * 62)
     if FAILURES:

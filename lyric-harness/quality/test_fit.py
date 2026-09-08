@@ -107,7 +107,7 @@ def test_the_count_is_in_the_phonologys_own_grid_unit():
 
 def test_a_refused_token_makes_the_count_a_lower_bound():
     print("\n2. doctrine 79 — a refusal is not a zero and not a failure")
-    lu = read_line("Nine miles of gravel on the whiteboard")
+    lu = read_line("Nine feet of gravel on the whiteboard")
     check("an out-of-lexicon word is NAMED, not silently dropped",
           [r.token for r in lu.refused] == ["whiteboard"]
           and lu.refused[0].cause == "OUT_OF_LEXICON",
@@ -451,7 +451,11 @@ def test_the_shipped_song():
           and "quality.grid" not in sys.modules,
           "duck-typed on Song instead, so this module has no build dependency "
           "on a file another cell owns")
-    f = fit_song(BLUEPRINT)
+    # Historical fixture counts declare the first CMU reading explicitly.
+    # The production all-readings path has separate ambiguity regressions.
+    from quality.phonology.eng import English
+    phon = English(readings="first")
+    f = fit_song(BLUEPRINT, phon=phon)
     rows = {r["section"]: r for r in f.table()}
     check("16 bars and 16 lines survive the round trip",
           sum(r["bars"] for r in rows.values()) == 16
@@ -481,12 +485,12 @@ def test_the_shipped_song():
           "the arithmetic of bar/beat/duration holds everywhere; what it "
           "demands of the setting is the finding")
     one = Subdivision(1, source=SOURCE)
-    g = fit_song(BLUEPRINT, subdivision=one)
+    g = fit_song(BLUEPRINT, phon=phon, subdivision=one)
     check("at ONE slot per pulse, every line becomes unsatisfiable",
           sum(r["unsatisfiable"] for r in g.table()) == 16,
           "a quarter-note grid cannot hold even the sparsest of these lines; "
           "the fixture needs the pulse to divide, and now that is a number")
-    two = fit_song(BLUEPRINT, subdivision=Subdivision(2, source=SOURCE))
+    two = fit_song(BLUEPRINT, phon=phon, subdivision=Subdivision(2, source=SOURCE))
     rows2 = {r["section"]: r for r in two.table()}
     check("at TWO the 7/8 verses fit and the 4/4 chorus does not",
           rows2["verse1"]["unsatisfiable"] == 0
@@ -536,8 +540,9 @@ def test_all_nine_declared_phonologies_go_through_it():
           {k for k, v in seen.items() if v[1]} == {"som", "fas", "msa"},
           "and `san` is NOT one of them: its prominence is guru/laghu, a "
           "quantitative binary that its tradition really does constrain")
-    check("the phrase-level hook is `syllabify_line`, and nothing declares it",
-          not any(hasattr(PH.get(l), "syllabify_line") for l in PH.declared()))
+    check("Sanskrit exposes an authoritative mapped line analysis",
+          hasattr(PH.get("san"), "analyse_line") and
+          hasattr(PH.get("san"), "syllabify_line"))
     check("...deliberately NOT `line_syllables`, which msa already has and "
           "which returns an int",
           hasattr(PH.get("msa"), "line_syllables")
@@ -1128,12 +1133,12 @@ def test_the_two_inert_coordinates_are_measured_not_asserted():
           "is a NUCLEUS ambiguity and never a prominence one",
           all(len(v) == 1 for v in pats.values()),
           {w: sorted(v) for w, v in pats.items()})
-    for probe in ("the record was a record of the year",
-                  "they wound the bandage round the wound"):
-        u = FIT.read_line(probe)
-        check(f"...so the shipped path leaves nothing undecided: {probe[:34]!r}",
-              not u.prominence_undecided,
-              f"pattern {u.pattern()!r}")
+    record = FIT.read_line("the record was a record of the year")
+    wound = FIT.read_line("they wound the bandage round the wound")
+    check("the shipped reader preserves RECORD's unresolved noun/verb stress",
+          bool(record.prominence_undecided), f"pattern {record.pattern()!r}")
+    check("nucleus-only WOUND ambiguity leaves its prominence decidable",
+          not wound.prominence_undecided, f"pattern {wound.pattern()!r}")
 
 
 def main():
@@ -1496,6 +1501,11 @@ def test_an_ambiguous_name_cannot_outrank_the_bar():
                      "bar": 10, "beat": 1, "duration": 4, "section": "c"},
                     {"text": "declared into c, sitting in neither", "bar": 2,
                      "beat": 1, "duration": 4, "section": "c"}]}
+    bad = dict(bp, lines=[bp["lines"][-1]])
+    check("contradictory repeated section ownership refuses in both readers",
+          _raises(lambda: from_blueprint(bad), "no unique section") and
+          _raises(lambda: GR.song_from_blueprint(bad), "no unique section"))
+    bp["lines"] = bp["lines"][:3]
     _s, places = from_blueprint(bp)
     check("a UNIQUE declared name outranks the bar range, unchanged",
           places[0].section == "a" and places[0].section_start_bar == 1,
@@ -1503,17 +1513,11 @@ def test_an_ambiguous_name_cannot_outrank_the_bar():
     check("a REPEATED name is resolved by the bar, to each instance in turn",
           [p.section_start_bar for p in places[1:3]] == [5, 9],
           f"{[p.section_start_bar for p in places[1:3]]}")
-    check("a repeated name whose bar is in NEITHER instance falls all the "
-          "way through to the plain bar range — an ambiguous name carries no "
-          "information, and the bar is the coordinate the pulse arithmetic "
-          "is done in. `by_name` answered `the last one` here, in silence",
-          places[3].section == "a" and places[3].section_start_bar == 1,
-          f"{places[3].section!r} @ {places[3].section_start_bar}")
     song, _h = GR.song_from_blueprint(bp)
     check("the grid reader resolves it the same way — pinned even though "
           "only `s.name` is read off the owner there, so it cannot go quietly "
           "wrong the day a second field is",
-          [l.section for l in song.lines] == ["a", "c", "c", "a"],
+          [l.section for l in song.lines] == ["a", "c", "c"],
           f"{[l.section for l in song.lines]}")
 
 

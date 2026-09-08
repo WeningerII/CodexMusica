@@ -88,7 +88,7 @@ from lyric_harness import (NEAR_RELATIONS, NO_ANCHOR,  # noqa: E402
                            RHYME_RELATIONS, THETA_COLLISION,
                            CandidateEngine, Declaration,
                            Lexicon, admits, best_score, bron_kerbosch,
-                           line_anchors, readability_records,
+                           line_anchors, line_readability, readability_records,
                            refusals_for_pairs, spans_note, spelled_rime,
                            theta_for)
 from quality import fit as FT  # noqa: E402
@@ -580,6 +580,8 @@ class Brief:
     #: rendering fix a four-site refactor. The label is the key those sites
     #: already carry.
     return_groups: tuple = ()
+    # Exact verbatim equivalence class; never a rhyme-group label.
+    return_members: tuple = ()
     #: Was the modal head COMPUTED at all for this line? Added 2026-08-16,
     #: because an EMPTY `forbidden_modal` means two different things and a
     #: renderer had no way to ask which.
@@ -691,9 +693,12 @@ class Brief:
     #: that owns the judge, and `quality/test_propose.py` §7e pins that
     #: `propose.py` contains no substring of it.
     schema_route_note: str = None
+    offers_requested: bool = True
 
     def __str__(self):
         out = [f"L{self.line_no}: {self.text}"]
+        if not self.offers_requested:
+            out.append("    repair candidate menus not requested in this assessment")
         for f in self.findings:
             # THE EVIDENCE IS THE PART A WRITER CAN ACT ON, and it was not
             # printed. A brief that says `SCHEME_VIOLATION: L15 and L19 do not
@@ -735,8 +740,8 @@ class Brief:
                            f"every one of them (conjunctive; doctrine 2)")
         if self.joint_conflict:
             out.append(f"    NO JOINT CANDIDATE at {self.field_declaration}: "
-                       f"nothing in the lexicon answers all of those groups "
-                       f"at once. ~~The mandate, not the line, is what needs "
+                       f"this bounded search found no word that answers all of those groups "
+                       f"at once; no impossibility is proved. ~~The mandate, not the line, is what needs "
                        f"revising.~~ STRUCK 2026-09-03 (M-202) — see below: "
                        f"the grader flags PAIRS, so a word answering the "
                        f"VIOLATED one is accepted.")
@@ -745,9 +750,8 @@ class Brief:
                            f"{', '.join(_ws[:12])}"
                            + (" ..." if len(_ws) > 12 else ""))
             if not self.partial_by_call:
-                out.append("      and no call here is answerable on its "
-                           "own either — every one of them was asked "
-                           "separately and the pool came back empty.")
+                out.append("      Separate searches also returned empty pools; "
+                           "unsearched words and whole-line rewrites remain possible.")
         if self.must_rhyme_with and not self.must_answer:
             n, w = self.must_rhyme_with
             out.append(f"    must rhyme with L{n} ({w!r})")
@@ -812,24 +816,17 @@ def ban_emptied_note(calls, labels, forbidden, width=76):
     partners = ", ".join(repr(c) for c in calls)
     labs = ", ".join(str(x) for x in labels) or "?"
     text = (
-        f"NOTHING OFFERED — and NOT because nothing rhymes with "
-        f"{partners}: every word that answers all of them at once is on "
-        f"the two-tier ban, the same spelled ending as one of them "
-        f"(HOMEOTELEUTON) or one of their most-predictable answers "
-        f"(MODAL_RHYME; the {len(forbidden)} under FORBIDDEN). No swap on "
-        f"THIS line clears it while the partners stand — the same ban "
-        f"answers the next word too. The GROUP ({labs}) has to move, and "
-        f"that is the loop's tier 2, the joint backtrack (M-105): "
-        f"`revise`/`finish` rewrite every member of the group at once and "
-        f"escalate there after tier 1 fails on this line (M-205) — the CLI "
-        f"at `--backtrack=5`, the connector's `lyric_revise` at "
-        f"`backtrack=1` (one group question per stuck line per round; 0 "
-        f"shuts it). So run the loop: a hand edit of this line alone is "
-        f"answered by the same ban. The other doors: narrow the mandate "
-        f"to fewer members, or "
-        f"move the group to a family certified deeper (`capacity WORD` "
-        f"prints the family's certified chain and which of its words the "
-        f"ban admits against WORD).")
+        f"NOTHING OFFERED: the searched answers to {partners} were removed "
+        f"by the two-tier ban (HOMEOTELEUTON / MODAL_RHYME; "
+        f"{len(forbidden)} under FORBIDDEN). This bounded field does not "
+        f"prove that no one-line repair exists. The GROUP ({labs}) can move "
+        f"together through tier 2, the joint backtrack (M-105): "
+        f"`revise`/`finish` escalate there after tier 1 fails (M-205). "
+        f"The CLI uses `--backtrack=5`; connector `lyric_revise` uses "
+        f"`backtrack=1` by default (0 disables group search). "
+        f"Preserve every declared relation and return while rewriting. "
+        f"`capacity WORD` can also show a certified chain and the words "
+        f"the ban admits against WORD; that evidence has its own declared scope.")
     return "\n".join(textwrap.wrap(text, width))
 
 
@@ -1009,6 +1006,13 @@ def field_memo_clear():
 class Reviser:
     """Grades a draft, briefs a revision, and verifies the result."""
 
+    def _relation_phonology(self):
+        if not getattr(self.lex, "pronunciations", ()):
+            return _relation_phonology()
+        from quality.phonology.eng import English
+        # Preserve the registered relation reader's fallback policy on unselected words.
+        return English(fallback=_relation_phonology().fallback, lexicon=self.lex)
+
     def __init__(self, lex=None, decl=None, rdecl=None, floor=None):
         self.lex = lex or Lexicon()
         self.decl = decl or Declaration()
@@ -1016,6 +1020,7 @@ class Reviser:
         self.floor = floor or SlopFloor()
         self._engine = None
         self._matrix_cache = {}
+        self._line_read_cache = collections.OrderedDict()
         #: per-PAIR scores for declared slots. Separate from
         #: `_matrix_cache` because the matrix is an n x n object
         #: over LINES and a slot pair is not a cell of it; only a
@@ -1269,13 +1274,35 @@ class Reviser:
         hit = self._matrix_cache.get(key)
         if hit is not None:
             return hit
-        anchors, endwords = [], []
-        for line in lines:
-            ancs, last, _ = line_anchors(self.lex, line,
-                                         promote=self._promote())
-            anchors.append(ancs)
+        anchors, endwords, records = [], [], []
+        # A candidate changes a few lines, but the matrix still includes every
+        # pair. Reuse only context-free line reads within this Reviser (whose
+        # lexicon is constant, as for its existing matrix/field caches). Custom
+        # readers and fallback readers may carry state, so they never enter it.
+        cacheable = type(self.lex) is Lexicon and self.lex.g2p_fallback is None
+        for i, line in enumerate(lines):
+            read_key = (line, id(self.lex), id(self.lex.entries),
+                        self.lex.strip_parens, self._promote())
+            hit = self._line_read_cache.get(read_key) if cacheable else None
+            if hit is None:
+                ancs, last, _ = line_anchors(self.lex, line, promote=self._promote())
+                rec = line_readability(self.lex, line, ancs)
+                hit = (ancs, last, rec)
+                if cacheable:
+                    self._line_read_cache[read_key] = hit
+                    while len(self._line_read_cache) > 256:
+                        self._line_read_cache.popitem(last=False)
+            elif cacheable:
+                self._line_read_cache.move_to_end(read_key)
+            ancs, last, rec = hit
+            # Position belongs to this draft, never to the cached line. Copy
+            # mutable record lists so a caller cannot corrupt the next read.
+            records.append({**rec, "line": i + 1,
+                **{k: list(v) for k, v in rec.items() if isinstance(v, list)}})
+            anchors.append([[{k: list(v) if isinstance(v, list) else v
+                              for k, v in syl.items()} for syl in anchor]
+                            for anchor in ancs])
             endwords.append(last)
-        records = readability_records(self.lex, lines, anchors)
         n = len(lines)
         matrix = [[None] * n for _ in range(n)]
         # THE PAIR-SCORE MEMO (M-217's remainder, lever 2). A pair's score is
@@ -1428,7 +1455,7 @@ class Reviser:
 
     # -- grading the mandate ----------------------------------------------
 
-    def grade(self, lines, mandate=None, profile=None, sections=None):
+    def grade(self, lines, mandate=None, profile=None, sections=None, *, _only_groups=None):
         """The mandate, diffed against the graph. -> dict, group-scoped.
 
         `sections` IS THE STANZA GROUND AND IT IS PASSED, NEVER INVENTED
@@ -1457,6 +1484,14 @@ class Reviser:
         m = self.mandate(lines, mandate)
         _, endwords, records, matrix = self._matrix(lines, profile=profile)
         pairs = m.pairs()
+        # Internal candidate projection: keep the full draft, mandate and
+        # schema frames, but judge only requested group obligations. The
+        # disjunctive reading needs every group's collateral verdicts.
+        if _only_groups is not None and self.rdecl.overlap_rule == "disjunctive":
+            _only_groups = None
+        if _only_groups is not None:
+            _only_groups = frozenset(_only_groups)
+            pairs = [p for p in pairs if p[2] in _only_groups]
         refusals = refusals_for_pairs(records, sorted({(i - 1, j - 1)
                                                        for i, j, _ in pairs}))
         # M-149(b): THE SKIP SET IS KEYED PER (PAIR, GROUP), NEVER PER PAIR.
@@ -1484,6 +1519,8 @@ class Reviser:
         for r in refusals:
             i, j = r["lines"]
             ks = sorted(set(m.groups_of(i)) & set(m.groups_of(j)))
+            if _only_groups is not None:
+                ks = [k for k in ks if k in _only_groups]
             hit = []
             for k in ks:
                 if _slotted_scalar:
@@ -1624,15 +1661,13 @@ class Reviser:
             # (owner ruling 2026-08-25, M-116). Two spellings of the stanza
             # derivation is how the two routes would drift (doctrine 1).
             return _RRm.build_stream(
-                lines, _relation_phonology(),
+                lines, self._relation_phonology(),
                 sections=sections,
                 stanzas=_RRm.stanzas_from_sections(sections),
                 stanza_source="declared_sections" if sections else "",
                 declaration={"language": "eng"})
         if _RT is not None:
-            _wants = {w for w in
-                      (list(getattr(m, "relations", ()) or [])
-                       + [getattr(m, "default_relation", "")]) if w}
+            _wants = {m.relation_of(k) for _, _, k in pairs if m.relation_of(k)}
             _schemas = [w for w in _wants if _schema_name_of(_RT, w)]
             if _schemas:
                 from quality import relations as _R_mod
@@ -1671,9 +1706,27 @@ class Reviser:
                     if _bearing:
                         _R_mod.mark_refrain_tail(_stream, lines=_bearing)
                 for w in _schemas:
+                    # Slotted pairs call pair_satisfies below. Enumerating a
+                    # whole-song figure for those pairs was unused work (and
+                    # multiplied every candidate verification by every named
+                    # figure). Default-slot consumers retain the full graph.
+                    needs_instances = any(
+                        m.relation_of(k) == w and
+                        (not m.slots_declared() or
+                         (_SL.is_default(m.slot_of(k, i)) and
+                          _SL.is_default(m.slot_of(k, j))))
+                        for i, j, k in pairs)
+                    if not needs_instances:
+                        continue
                     _canon = _schema_name_of(_RT, w)
+                    _requested = {(i, j) for i, j, k in pairs
+                                  if m.relation_of(k) == w and
+                                  (not m.slots_declared() or
+                                   (_SL.is_default(m.slot_of(k, i)) and
+                                    _SL.is_default(m.slot_of(k, j))))}
                     _sch_pairs[w] = _R_mod.line_pairs_for(
-                        _R_mod.REGISTRY[_canon], _stream)
+                        _R_mod.REGISTRY[_canon], _stream,
+                        requested_pairs=_requested)
         # THE SLOT PATH, and it is entered only by a mandate that declares
         # one. `slots_declared()` is False for every mandate written before
         # the coordinate existed and for every ordinary end-rhyme mandate, so
@@ -1701,10 +1754,46 @@ class Reviser:
             else:
                 s = matrix[i - 1][j - 1]
                 ew_i, ew_j = endwords[i - 1], endwords[j - 1]
+            member_lexicons = None
+            member_phons = None
+            if getattr(self.lex, "pronunciations", ()):
+                from quality.pronunciation import for_member
+                from quality.phonology.eng import English
+                try:
+                    member_lexicons = tuple(for_member(self.lex, lines[n-1], word,
+                        _SL.token_of(slot or n)) for n, word, slot in
+                        ((i, ew_i, slot_i), (j, ew_j, slot_j)))
+                    member_phons = tuple(English(fallback=self._relation_phonology().fallback,
+                        lexicon=reader) for reader in member_lexicons)
+                except ValueError as e:
+                    refusals.append({"lines": (i, j), "endwords": (ew_i, ew_j),
+                        "unreadable": [], "groups": [m.labels[k]], "reason": str(e)})
+                    refused.add((i, j, k))
+                    unknown.update(((i, k), (j, k)))
+                    continue
             rel = s["relation"]
             why = None
             struct = m.structure_of(k) if _ST is not None else None
             want = m.relation_of(k) if _RT is not None else ""
+            _coarse = (not want and (_ST is None or struct == _ST.DEFAULT)) or str(want).startswith("class:")
+            _ambiguous = any(len(self.lex.entries.get(str(w).lower(), ())) > 1
+                             for w in (ew_i, ew_j))
+            if _coarse and _ambiguous:
+                _default_slots = slot_i is None or (_SL.is_default(slot_i) and _SL.is_default(slot_j))
+                from quality.rhyme_types import coarse_relation_consensus
+                _consensus = coarse_relation_consensus(
+                    self.lex, lines[i - 1] if _default_slots else ew_i,
+                    lines[j - 1] if _default_slots else ew_j,
+                    self.decl, relation=str(want).split(":", 1)[1] if want else None,
+                    profile=profile, promote=self._promote(),
+                    member_lexicons=member_lexicons if not _default_slots else None)
+                if _consensus is None:
+                    refusals.append({"lines": (i, j), "endwords": (ew_i, ew_j),
+                                     "unreadable": [], "groups": [m.labels[k]],
+                                     "reason": "the declared relation differs across unresolved pronunciation readings"})
+                    refused.add((i, j, k))
+                    unknown.update(((i, k), (j, k)))
+                    continue
             if rel == "REPEAT" and not (want and _schema_name_of(_RT, want)):
                 # Identity is its own question under EVERY structure — the
                 # returns/licence machinery owns it, and an identical word
@@ -1810,9 +1899,10 @@ class Reviser:
                     try:
                         ok = _RT.satisfies_relation(
                             want, rel, ew_i, ew_j,
-                            _relation_phonology(),
+                            self._relation_phonology(),
                             position=_SL.position_of(slot_i or i),
-                            lines=(i, j), instances=_sch_pairs.get(want))
+                            lines=(i, j), instances=_sch_pairs.get(want),
+                            member_phons=member_phons)
                     except _RT.RelationRefused as e:
                         refusals.append({
                             "lines": (i, j),
@@ -2028,14 +2118,29 @@ class Reviser:
             # two graders cannot drift about which pair the default
             # satisfies (doctrine 1).
             _wvp = _RF.whole_vocabulary_pairs(
-                lines, _relation_phonology(), sections=sections,
+                lines, self._relation_phonology(), sections=sections,
                 bearing={ln - 1 for g in m.groups for ln in g
-                         if 1 <= ln <= len(lines)})
+                         if 1 <= ln <= len(lines)},
+                requested_pairs={tuple(v["lines"]) for v in _fan})
+            _fan_unknown = set()
             for v in _fan:
                 _hit = _wvp.get(tuple(sorted(v["lines"])))
                 if _hit:
                     v["why"] = None
                     v["satisfied_by"] = sorted(_hit)
+                else:
+                    _undecided = getattr(_wvp, "undecided", {}).get(tuple(sorted(v["lines"])))
+                    if _undecided:
+                        i, j = v["lines"]
+                        k = v["group"]
+                        refusals.append({"lines": (i, j), "endwords": v["endwords"],
+                                         "unreadable": [], "groups": [m.labels[k]],
+                                         "reason": "the default relation remains unresolved in schema(s): "
+                                         + ", ".join(sorted(_undecided))})
+                        refused.add((i, j, k))
+                        unknown.update(((i, k), (j, k)))
+                        _fan_unknown.add(id(v))
+            verdicts = [v for v in verdicts if id(v) not in _fan_unknown]
 
         default_licensed = self.rdecl.repeat_licence == "refrain"
         violations = []
@@ -2473,7 +2578,7 @@ class Reviser:
             if len(hit) > 8:
                 hit.clear()
             hit[key] = _RF.whole_vocabulary_pairs(
-                lines, _relation_phonology(),
+                lines, self._relation_phonology(),
                 bearing={ln - 1 for g in getattr(m, "groups", ())
                          for ln in g if 1 <= ln <= len(lines)})
         wvp = hit[key]
@@ -2591,7 +2696,10 @@ class Reviser:
                 f"every line after the first difference. They must be the "
                 f"same draft.")
         per, refusals = {}, {}
-        fits = [FT.fit_line(text, p, subdivision=subdivision, assume=assume,
+        from quality.phonology.eng import English
+        fallback = getattr(self.lex.g2p_fallback, "min_confidence", None)
+        phon = English(fallback=fallback, lexicon=self.lex)
+        fits = [FT.fit_line(text, p, phon=phon, subdivision=subdivision, assume=assume,
                             line_index=i, strip_parens=self.lex.strip_parens)
                 for i, (p, text) in enumerate(zip(places, lines))]
         # OVERLAPPING_SPANS IS A RELATION BETWEEN LINES, so `fit_line` cannot
@@ -2670,7 +2778,7 @@ class Reviser:
 
     # -- the calibrated bands ----------------------------------------------
 
-    def _band_findings(self, lines, runs_out=None):
+    def _band_findings(self, lines, runs_out=None, coverage_out=None):
         """-> {line_no: [Finding]}. The ADOPTED meter bands, enforced.
 
         `runs_out` (M-115): pass a dict and it is filled with
@@ -2717,6 +2825,14 @@ class Reviser:
         """
         from quality import meter_bands as MB
         phon = MB.reader(MB.ADOPTED_READER)
+        if getattr(self.lex, "pronunciations", ()):
+            from quality.phonology.eng import English
+            # Preserve the calibrated fallback for undeclared tokens.
+            import copy
+            reader_lex = copy.copy(FT._english_lexicon(
+                strip_parens=self.lex.strip_parens, fallback=phon.fallback))
+            reader_lex.pronunciations = self.lex.pronunciations
+            phon = English(fallback=phon.fallback, lexicon=reader_lex)
         d_lo, d_hi = MB.ADOPTED["DENSITY"]
         p_lo, p_hi = MB.ADOPTED["PROMINENCE"]
         basis = (f"band adopted at reader {MB.ADOPTED_READER!r} over "
@@ -2725,7 +2841,7 @@ class Reviser:
         per = {}
         for i, text in enumerate(lines):
             ln = i + 1
-            lu = FT.read_line(text, phon=phon)
+            lu = FT.read_line(text, phon=phon, strip_parens=self.lex.strip_parens)
             syl, prom = lu.syllables, len(lu.prominent)
             undecided = len(lu.prominence_undecided)
             if runs_out is not None:
@@ -2753,6 +2869,12 @@ class Reviser:
                     f"over the ceiling is a violation no missing token can "
                     f"undo.", [ln]))
             prom_certain = complete and not undecided
+            if coverage_out is not None:
+                coverage_out.extend([
+                    {"id": f"density:L{ln}", "layer": "density", "line": ln,
+                     "status": "answered" if complete or syl > d_hi else "refused"},
+                    {"id": f"prominence:L{ln}", "layer": "prominence", "line": ln,
+                     "status": "answered" if prom_certain or prom > p_hi else "refused"}])
             # M-115: the runs beside the count, on the finding a diluting
             # repair is aimed at — "and the" strung as padding shows up
             # here as the weak run the count cannot see.
@@ -3020,7 +3142,104 @@ class Reviser:
         fl = copy.copy(self.floor)
         fl.qf = qf
         fl._pairs = lambda _lines, _s, _p=pairs: list(_p)
+        forced = [tuple(r.lines) for r in m.returns
+                  if getattr(r, "verbatim", False) is True]
+        fl.declared_lexical_classes = tuple(forced)
+        for k, group in enumerate(m.groups):
+            if m.relation_of(k) == "schema:anaphora":
+                forced.append(tuple(group))
+        fl.declared_opening_classes = tuple(forced)
         return fl, "?" * m.n_lines
+
+    def earned_pair_ban(self, v, profile=None):
+        """The existing two-tier ban for one judged pair, shared by readers.
+
+        It returns the same Finding inspect files; unrelated floor layers
+        need not be executed to ask this named pair obligation.
+        """
+        if v["why"] or v["relation"] == "REPEAT":
+            return None       # a violation, or a declared identity
+        # A PAIR JUDGED UNDER A DECLARED NON-DEFAULT STRUCTURE IS NOT
+        # ASKED THIS QUESTION. Both tiers below are END-RHYME laziness
+        # instruments — `spelled_rime` reads the spelled ENDING and the
+        # modal table ranks END-RHYME partners over eng-song pairs — so
+        # asking them of a skothending (coda-only, line-internal
+        # anchors) or a Kalevala alliteration (word ONSETS) would grade
+        # the wrong axis with the wrong corpus and call the answer
+        # doctrine 9. The structure's own laziness regime arrives only
+        # by preregistered calibration (Structure.calibrated), and until
+        # one adopts, the honest state is DISCLOSED once per draft by
+        # the uncalibrated-structure note rather than faked per pair
+        # here (doctrine 20). `structure` is None on every mandate that
+        # never learned the coordinate, so this line is unreachable on
+        # every pre-catalog path.
+        _vs = v.get("structure")
+        if _vs is not None:
+            from quality import structures as _STm
+            if _vs != _STm.DEFAULT:
+                return None
+        i, j = v["lines"]
+        wi, wj = (w.lower() for w in v["endwords"])
+        # TIER 1 FIRST — HOMEOTELEUTON (owner's rule, 2026-08-18): the
+        # pair's own SPELLINGS decide, no field consulted, so a
+        # same-rime partner outside the finite field cannot slip
+        # through. hAIR/chAIR, stOVE/cOVE, sOWN/grOWN: the rhyme was
+        # found by pattern-matching the ending, and it is banned
+        # whatever the corpus frequency says. Symmetric by
+        # construction, and pursued mandatorily (loop.MANDATORY_PURSUE)
+        # — the two-tier ban exists because a reviser iterating
+        # candidates until the modal check passed was landing at rank 7
+        # of the same predictability list, and same-spelled endings are
+        # rank zero: the ones a search finds without even hearing them.
+        ri, rj = self._spelled_rime(wi), self._spelled_rime(wj)
+        if ri and ri == rj:
+            return Finding(
+                "HOMEOTELEUTON", "note",
+                f"L{i}/L{j} rhyme on the SAME SPELLED ENDING "
+                f"({v['endwords'][0]!r}/{v['endwords'][1]!r}, both "
+                f"-{ri}) — the laziest class, banned before any "
+                f"frequency judgment",
+                f"spelled rime {ri!r} on both sides. The near "
+                f"relations the taxonomy names (declared via "
+                f"Declaration.admit) are the palette that keeps this "
+                f"ban from closing the class: reach for a "
+                f"differently-spelled partner or a declared near "
+                f"rhyme, not the next word in the same spelling "
+                f"family.", [i, j], (v["label"],))
+            return None
+        # TIER 2 — the frequency ban over the differently-spelled
+        # remainder (`joint_field` composes the same two tiers for the
+        # OFFERS, so menu and verdict agree).
+        # THE HEAD ONLY (M-185): `modal_field` also builds the offer,
+        # and the offer now screens its words by their own heads.
+        forbidden_i = self.modal_head(wi, profile=profile)
+        forbidden_j = self.modal_head(wj, profile=profile)
+        hits = []
+        if wj in forbidden_i:
+            hits.append(f"{v['endwords'][1]!r} is one of the "
+                        f"{self.rdecl.modal_exclusion} most-predictable "
+                        f"answers to {v['endwords'][0]!r}")
+        if wi in forbidden_j:
+            hits.append(f"{v['endwords'][0]!r} is one of the "
+                        f"{self.rdecl.modal_exclusion} most-predictable "
+                        f"answers to {v['endwords'][1]!r}")
+        if not hits:
+            return None
+        return Finding(
+            "MODAL_RHYME", "note",
+            f"L{i}/L{j} rhyme, but the pair is one this word's own "
+            f"forbidden-modal set would exclude if either line were "
+            f"being revised",
+            "; ".join(hits) + ". modal_exclusion="
+            f"{self.rdecl.modal_exclusion} over the differently-spelled "
+            "remainder (the same-spelled class is banned outright as "
+            "HOMEOTELEUTON); set it to 0 to silence this the same way "
+            "it silences the reactive check. Doctrine 9's "
+            "exclusion is otherwise only consulted when fixing an "
+            "already-flagged line; this asks the same question of a "
+            "pair that never failed anything, because a first draft "
+            "can reach for the predictable rhyme exactly as easily as "
+            "a revision can.", [i, j], (v["label"],))
 
     def inspect(self, lines, mandate=None, profile=None, blueprint=None,
                 subdivision=None, assume=None):
@@ -3194,89 +3413,9 @@ class Reviser:
         # second. Nothing before this line had ever asked the question of a
         # pair that was never broken.
         for v in rep["verdicts"]:
-            if v["why"] or v["relation"] == "REPEAT":
-                continue          # a violation, or a declared identity
-            # A PAIR JUDGED UNDER A DECLARED NON-DEFAULT STRUCTURE IS NOT
-            # ASKED THIS QUESTION. Both tiers below are END-RHYME laziness
-            # instruments — `spelled_rime` reads the spelled ENDING and the
-            # modal table ranks END-RHYME partners over eng-song pairs — so
-            # asking them of a skothending (coda-only, line-internal
-            # anchors) or a Kalevala alliteration (word ONSETS) would grade
-            # the wrong axis with the wrong corpus and call the answer
-            # doctrine 9. The structure's own laziness regime arrives only
-            # by preregistered calibration (Structure.calibrated), and until
-            # one adopts, the honest state is DISCLOSED once per draft by
-            # the uncalibrated-structure note rather than faked per pair
-            # here (doctrine 20). `structure` is None on every mandate that
-            # never learned the coordinate, so this line is unreachable on
-            # every pre-catalog path.
-            _vs = v.get("structure")
-            if _vs is not None:
-                from quality import structures as _STm
-                if _vs != _STm.DEFAULT:
-                    continue
-            i, j = v["lines"]
-            wi, wj = (w.lower() for w in v["endwords"])
-            # TIER 1 FIRST — HOMEOTELEUTON (owner's rule, 2026-08-18): the
-            # pair's own SPELLINGS decide, no field consulted, so a
-            # same-rime partner outside the finite field cannot slip
-            # through. hAIR/chAIR, stOVE/cOVE, sOWN/grOWN: the rhyme was
-            # found by pattern-matching the ending, and it is banned
-            # whatever the corpus frequency says. Symmetric by
-            # construction, and pursued mandatorily (loop.MANDATORY_PURSUE)
-            # — the two-tier ban exists because a reviser iterating
-            # candidates until the modal check passed was landing at rank 7
-            # of the same predictability list, and same-spelled endings are
-            # rank zero: the ones a search finds without even hearing them.
-            ri, rj = self._spelled_rime(wi), self._spelled_rime(wj)
-            if ri and ri == rj:
-                add(j, Finding(
-                    "HOMEOTELEUTON", "note",
-                    f"L{i}/L{j} rhyme on the SAME SPELLED ENDING "
-                    f"({v['endwords'][0]!r}/{v['endwords'][1]!r}, both "
-                    f"-{ri}) — the laziest class, banned before any "
-                    f"frequency judgment",
-                    f"spelled rime {ri!r} on both sides. The near "
-                    f"relations the taxonomy names (declared via "
-                    f"Declaration.admit) are the palette that keeps this "
-                    f"ban from closing the class: reach for a "
-                    f"differently-spelled partner or a declared near "
-                    f"rhyme, not the next word in the same spelling "
-                    f"family.", [i, j], (v["label"],)))
-                continue
-            # TIER 2 — the frequency ban over the differently-spelled
-            # remainder (`joint_field` composes the same two tiers for the
-            # OFFERS, so menu and verdict agree).
-            # THE HEAD ONLY (M-185): `modal_field` also builds the offer,
-            # and the offer now screens its words by their own heads.
-            forbidden_i = self.modal_head(wi, profile=profile)
-            forbidden_j = self.modal_head(wj, profile=profile)
-            hits = []
-            if wj in forbidden_i:
-                hits.append(f"{v['endwords'][1]!r} is one of the "
-                            f"{self.rdecl.modal_exclusion} most-predictable "
-                            f"answers to {v['endwords'][0]!r}")
-            if wi in forbidden_j:
-                hits.append(f"{v['endwords'][0]!r} is one of the "
-                            f"{self.rdecl.modal_exclusion} most-predictable "
-                            f"answers to {v['endwords'][1]!r}")
-            if not hits:
-                continue
-            add(j, Finding(
-                "MODAL_RHYME", "note",
-                f"L{i}/L{j} rhyme, but the pair is one this word's own "
-                f"forbidden-modal set would exclude if either line were "
-                f"being revised",
-                "; ".join(hits) + ". modal_exclusion="
-                f"{self.rdecl.modal_exclusion} over the differently-spelled "
-                "remainder (the same-spelled class is banned outright as "
-                "HOMEOTELEUTON); set it to 0 to silence this the same way "
-                "it silences the reactive check. Doctrine 9's "
-                "exclusion is otherwise only consulted when fixing an "
-                "already-flagged line; this asks the same question of a "
-                "pair that never failed anything, because a first draft "
-                "can reach for the predictable rhyme exactly as easily as "
-                "a revision can.", [i, j], (v["label"],)))
+            finding = self.earned_pair_ban(v, profile=profile)
+            if finding is not None:
+                add(v["lines"][1], finding)
         default_licensed = self.rdecl.repeat_licence == "refrain"
         for v in rep["repeats"]:
             i, j = v["lines"]
@@ -3780,8 +3919,9 @@ class Reviser:
         # block above there is no opt-in coordinate to disclose and their
         # silence genuinely means the draft's lines sit inside what 139,694
         # sung English lines do (see `_band_findings`).
-        _prom_runs = {}
-        for ln, fs in self._band_findings(lines, runs_out=_prom_runs).items():
+        _prom_runs, _coverage_rows = {}, []
+        for ln, fs in self._band_findings(lines, runs_out=_prom_runs,
+                                        coverage_out=_coverage_rows).items():
             for f in fs:
                 add(ln, f)
         # `blueprint_declared` is NOT a Finding. Meter/function are an OPT-IN
@@ -3803,7 +3943,41 @@ class Reviser:
         # (longest stress run, longest weak run) the band's COUNT cannot
         # see — captured off the same read the band findings made, disclosed
         # and uncalibrated, never a Finding and never charged.
+        from quality.floor import LENGTH_GATE_CODES
+        _coverage_rows.append({"id": "sentencehood:draft", "layer": "sentencehood",
+                               "status": "answered" if _sh_checked else "refused"})
+        _coverage_rows.append({"id": "floor:draft", "layer": "floor",
+                               "status": "refused" if any(f.code in LENGTH_GATE_CODES
+                                                           for f in whole) else "answered"})
+        # Undeclared setting coordinates remain outside certification.
+        for layer, requested in (("meter", blueprint is not None),
+                                 ("slot_grid", subdivision is not None),
+                                 ("setting", assume is not None)):
+            _coverage_rows.append({"id": layer + ":draft", "layer": layer,
+                                   "status": "answered" if requested else "not_requested"})
+        if blueprint is not None:
+            for f in whole:
+                if f.code in {"NOTHING_READ", "COUNT_IS_A_LOWER_BOUND",
+                              "PROMINENCE_UNDECIDED", "BEATGRID_INCOMPLETE"}:
+                    for ln in f.locations:
+                        _coverage_rows.append({"id": f"meter:{f.code}:L{ln}",
+                                               "layer": "meter", "line": ln,
+                                               "status": "refused"})
+        _rhyme_unknown = set(map(tuple, rep.get("refused_obligations", ())))
+        for i, j, k in m.pairs():
+            _coverage_rows.append({"id": f"rhyme:{i}:{j}:{k}", "layer": "rhyme",
+                                   "status": "refused" if (i, j, k) in _rhyme_unknown else "answered"})
+        for i, j, ret in m.return_pairs():
+            _coverage_rows.append({"id": f"return:{i}:{j}", "layer": "return",
+                                   "status": "refused" if ret.verbatim is SC.UNKNOWN else "answered"})
+        from quality.pronunciation import declaration_coverage
+        _coverage_rows.extend(declaration_coverage(getattr(self.lex, "pronunciations", ()), lines))
+        _refused_ids = [row["id"] for row in _coverage_rows if row["status"] == "refused"]
+        _coverage = {k: rep[k] for k in ("pairs_mandated", "pairs_judged", "pairs_refused")}
+        _coverage.update(scope="requested_layers", certified=not _refused_ids,
+                         obligations=_coverage_rows, refused_obligations=_refused_ids)
         return {"per_line": per, "whole": whole, "mandate": m, "grade": rep,
+                "coverage": _coverage,
                 "merges": merges, "blueprint_declared": blueprint is not None,
                 "sentencehood_checked": _sh_checked,
                 "mixed_span_groups": (m.mixed_span_groups()
@@ -3812,6 +3986,74 @@ class Reviser:
                 "prominence_runs": _prom_runs}
 
     # -- the brief --------------------------------------------------------
+
+    def declared_offer(self, candidates, lines, m, line, slot, group_indices,
+                       profile=None, sections=None, limit=None):
+        """Filter word suggestions using the exact bound grade operation.
+
+        The replacement is made at its declared locus and mirrored only to
+        its actual verbatim class. Unknown at the requested locus never
+        advertises a verified offer; unchanged collateral obligations retain
+        their explicit unresolved or violated status.
+        The finite input is a suggestion pool, not an impossibility proof.
+        """
+        from quality.loop import swap_at_slot
+        requested = set(group_indices)
+        relevant = set(requested)
+        ret = m.return_of(line)
+        targets = tuple(ret.lines) if ret is not None and ret.verbatim is True else (line,)
+        relevant.update(k for ln in targets for k in m.groups_of(ln))
+        target_set = set(targets)
+
+        def failures(grade):
+            # Exact obligation identity, not failure prose or guessed endpoint
+            # independence: a changed head can alter a mosaic end-word score.
+            return {(min(v["lines"]), max(v["lines"]), v["group"])
+                    for v in grade["violations"]}
+
+        baseline_bad = baseline_unknown = None
+        kept, refused = [], []
+        for word in dict.fromkeys(candidates):
+            text = swap_at_slot(lines[line - 1], slot, word)
+            if text is None:
+                refused.append(word)
+                continue
+            trial = list(lines)
+            for ln in targets:
+                trial[ln - 1] = text
+            # A failed requested relation cannot be rescued by collateral
+            # checks. Reject it first, before paying for an unrelated default
+            # whole-vocabulary fan. The complete draft and mandate still reach
+            # the grader, including every global frame and verbatim target.
+            demanded_grade = self.grade(trial, m, profile=profile, sections=sections,
+                                        _only_groups=requested)
+            demanded_unknown = set(map(tuple, demanded_grade.get("refused_obligations", ())))
+            if any(k in requested and target_set.intersection((i, j))
+                   for i, j, k in failures(demanded_grade) | demanded_unknown):
+                refused.append(word)
+                continue
+            # Materialize the original collateral state only if a candidate
+            # answers the requested place. Accepted candidates still undergo
+            # the same complete relevant-group comparison as before.
+            if baseline_bad is None:
+                baseline = self.grade(lines, m, profile=profile, sections=sections,
+                                      _only_groups=relevant)
+                baseline_bad = failures(baseline)
+                baseline_unknown = set(map(tuple, baseline.get("refused_obligations", ())))
+            graded = self.grade(trial, m, profile=profile, sections=sections,
+                                _only_groups=relevant)
+            bad = failures(graded)
+            unknown = set(map(tuple, graded.get("refused_obligations", ())))
+            demanded = any(k in requested and target_set.intersection((i, j))
+                           for i, j, k in bad | unknown)
+            # A per-place menu must answer its requested relation. Existing
+            # failures/refusals at another place remain open for their own
+            # question; this word must not introduce any new collateral one.
+            regressed = bool((bad - baseline_bad) or (unknown - baseline_unknown))
+            (refused if demanded or regressed else kept).append(word)
+            if limit is not None and len(kept) >= limit:
+                break
+        return kept, refused
 
     def schema_route_open(self, m, group_index):
         """Is the 77-schema half of the default LIVE for one GROUP?
@@ -3996,6 +4238,7 @@ class Reviser:
         when the lexicon cannot be described — a miss, never a wrong hit."""
         try:
             from quality.discriminate import declaration_tuple
+            from quality.pronunciation import fingerprint
             from lyric_harness import CMUDICT_PATH as _cmudict_path
             dt = tuple(sorted(declaration_tuple(self.decl).items()))
             lex = self.lex
@@ -4004,7 +4247,8 @@ class Reviser:
                   getattr(lex, "strip_parens", None),
                   None if fb is None else (type(fb).__name__,
                                            getattr(fb, "min_confidence", None)),
-                  str(_cmudict_path))
+                  str(_cmudict_path),
+                  fingerprint(getattr(lex, "pronunciations", ())))
             return (dt, lk)
         except Exception:
             return None
@@ -4343,12 +4587,12 @@ class Reviser:
                                           stanzas=False)
                     got = _RL.pair_satisfies(sch, st, (0, 1), (1, -1))
                 except Exception:
-                    got = True          # unreadable is not a refusal
+                    got = False         # unknown cannot be a verified offer
                 if isinstance(got, _RL.Refusal):
                     # CANNOT TELL IS NOT A NO (doctrine 20): a capability
                     # this probe still lacks leaves the word in the offer
                     # rather than striking it as refused by the relation.
-                    got = True
+                    got = False
                 if got is not True:
                     ok = False
                     break
@@ -4637,7 +4881,8 @@ class Reviser:
         return self.joint_field([call_word], exclude=exclude, profile=profile)
 
     def brief(self, lines, mandate=None, profile=None, blueprint=None,
-              subdivision=None, assume=None):
+              subdivision=None, assume=None, *, include_offers=True,
+              target_lines=None):
         """-> [Brief], one per line that needs work. Lines with no findings are
         absent, because the loop revises FLAGGED LINES ONLY.
 
@@ -4700,6 +4945,10 @@ class Reviser:
         the line back. On this repo's two songs that takes 38 undifferentiated
         "unintended rhyme" notes down to 3 that are about the writing.
         """
+        # Assessment and writer guidance share the complete finding set.
+        # Only an actual requested question needs candidate enumeration;
+        # selecting a question never restricts the underlying inspection.
+        targets = None if target_lines is None else frozenset(target_lines)
         found = self.inspect(lines, mandate, profile=profile,
                              blueprint=blueprint, subdivision=subdivision,
                              assume=assume)
@@ -4707,8 +4956,11 @@ class Reviser:
         _, endwords, _, _ = self._matrix(lines, profile=profile)
         briefs = []
         for ln in sorted(found["per_line"]):
+            if targets is not None and ln not in targets:
+                continue
             fs = found["per_line"][ln]
             b = Brief(line_no=ln, text=lines[ln - 1], findings=fs,
+                      offers_requested=include_offers,
                       field_declaration=self.field_declaration(),
                       keep=[i for i in range(1, len(lines) + 1)
                             if i not in found["per_line"]])
@@ -4814,10 +5066,14 @@ class Reviser:
                 # requirement` is the one object that holds both kinds, and
                 # a renderer that guessed from `returns` membership would be
                 # a second statement of it (doctrine 1).
-                if any(getattr(m.requirement(ln, x), "name", "")
-                       == "REQUIRE_RETURN" for x in mates):
+                if mates and all(getattr(m.requirement(ln, x), "name", "")
+                                 == "REQUIRE_RETURN" for x in mates):
                     _returns.append(m.labels[k])
             b.return_groups = tuple(_returns)
+            _ret = m.return_of(ln)
+            b.return_members = (tuple(_ret.lines)
+                                if _ret is not None and _ret.verbatim is True
+                                else ())
             if groups and groups[0][1]:
                 _first = groups[0][1]
                 b.must_rhyme_with = (
@@ -4829,7 +5085,7 @@ class Reviser:
             # precisely where a writer reaches for the obvious replacement, so
             # they are precisely where the modal exclusion has to be applied.
             wants = any(f.code in RHYME_FINDINGS for f in fs)
-            if wants and groups:
+            if include_offers and wants and groups:
                 # ONE `joint_field` PER PLACE. On an ordinary end-rhyme
                 # mandate there is one place, so this is the one call it
                 # always was, over the same calls in the same order —
@@ -4853,39 +5109,10 @@ class Reviser:
                         # `pair_satisfies` accepts. On a group declaring no
                         # schema this is a no-op and the field is the one it
                         # always was.
+                        # Heuristic fields supply candidates only. Actual
+                        # declaration, orientation and locus are checked by
+                        # declared_offer below on the complete proposed text.
                         _sref = []
-                        for _k in ks:
-                            _rel = ""
-                            try:
-                                _rel = m.relation_of(_k) or ""
-                            except Exception:
-                                _rel = ""
-                            if not str(_rel).startswith("schema:"):
-                                continue
-                            _off, _ref = self.schema_screen(_off, _calls,
-                                                            str(_rel))
-                            # AND THE BAN IS THE SAME FIELD (`MISSING.md`
-                            # M-209). M-204 screened the OFFER and left the
-                            # FORBIDDEN list to the unscreened pool, so the
-                            # ban held words that cannot answer this group
-                            # at all — `bone`, `tone`, `phone` beside a
-                            # `family rhyme` call the judge refuses them
-                            # for. Three things read that list and all
-                            # three were wrong: the renderer says *"every
-                            # word that answers its groups is in the
-                            # FORBIDDEN list"*, which was not established;
-                            # `verify()` RULE 3 rejects OUTRIGHT for taking
-                            # a word that was never in the field; and
-                            # `joint_conflict` is gated on `not _forb`, so
-                            # an unscreened ban SUPPRESSED the tier-2
-                            # dispatch that a genuinely empty field is
-                            # supposed to trigger. Doctrine 9 bans the most
-                            # predictable answer IN ITS OWN FIELD, and a
-                            # word the relation refuses is not in the field.
-                            _forb, _bref = self.schema_screen(
-                                _forb, _calls, str(_rel))
-                            _sref.extend(_ref)
-                            _sref.extend(_bref)
                         # THE VOWEL-BAND DOOR (`MISSING.md` M-257, round
                         # 24). A relation that DIFFERs on the nucleus or
                         # the coda refuses the whole rhyme band by
@@ -4923,6 +5150,44 @@ class Reviser:
                         _schema_ref = list(dict.fromkeys(_sref))
                     else:
                         _off, _forb, _drop = [], [], []
+                    _explicit = any(m.relation_of(k) or
+                                    not self.schema_route_open(m, k) for k in ks)
+                    if _explicit and _calls:
+                        _sections = None
+                        if blueprint is not None:
+                            _song, _ = GR.song_from_blueprint(blueprint)
+                            _sections = [row.section for row in _song.lines]
+                        _off, _rejected = self.declared_offer(
+                            _off, lines, m, ln, _sl, ks,
+                            profile=profile, sections=_sections)
+                        _forb, _bad_ban = self.declared_offer(
+                            _forb, lines, m, ln, _sl, ks,
+                            profile=profile, sections=_sections)
+                        _schema_ref.extend(_rejected + _bad_ban)
+                        if not _off:
+                            # The named relation may live below the scalar
+                            # rhyme cut. Search the declared finite ranking
+                            # without that cut, then ask the same grade.
+                            _pool = [word for word, _anchor, _rank in
+                                     sorted(self.engine.index, key=lambda row: (row[2], row[0]))
+                                     [:self._SCREEN_SCAN * self.rdecl.offered]
+                                     if word not in {_cur, *_forb}]
+                            for _call in _calls:
+                                if any(str(m.relation_of(k) or "").startswith("schema:") for k in ks):
+                                    _pool.extend(self._widen_pool(_call, profile=profile)
+                                                 [:self._SCREEN_SCAN * self.rdecl.offered])
+                                _raw = self.engine.candidates(
+                                    _call, n=self._SCREEN_SCAN * self.rdecl.offered)
+                                _pool.extend(row["word"] for row in _raw.get("candidates", ())
+                                             if row["word"] not in {_cur, *_forb})
+                            _extra, _no = self.declared_offer(
+                                [w for w in _pool if w not in {_cur, *_forb, *_drop}],
+                                lines, m, ln, _sl, ks,
+                                profile=profile, sections=_sections,
+                                limit=self.rdecl.offered)
+                            _off = _extra[:self.rdecl.offered]
+                            _widened += len(_off)
+                        _off = [w for w in _off if w not in {_cur, *_forb, *_drop}]
                     _jc = (len(_calls) > 1 and not _off and not _forb)
                     # THE PER-CALL FALLBACK (`MISSING.md` M-202). Run ONLY
                     # when the conjunction came back empty at a place with
@@ -5057,14 +5322,36 @@ class Reviser:
         changed = {i + 1 for i in range(len(before))
                    if before[i].strip() != after[i].strip()}
         if targeted is not None:
-            stray = changed - set(targeted)
+            targeted = set(targeted)
+            if not targeted or any(type(n) is not int or not 1 <= n <= len(before)
+                                   for n in targeted):
+                out["reasons"].append("explicit targets must be nonempty integer "
+                                      "line numbers within the normalized draft")
+                return out
+            stray = changed - targeted
             if stray:
                 out["reasons"].append(
                     f"lines {sorted(stray)} were changed but not targeted; "
                     f"revise flagged lines only")
                 return out
+        # A writer can increase the actual enumerated workload even inside
+        # the admitted line count. Refuse before any candidate menu or full
+        # assessment; callers retain the exact accepted `before` artifact.
+        from quality.plan import draft_execution_bound
+        work = draft_execution_bound(after, phon=self._relation_phonology())
+        if not work["within_budget"]:
+            out.update(stop_reason="RESOURCE_LIMIT", execution_limits=work)
+            out["reasons"].append(
+                "RESOURCE_LIMIT: proposed draft exceeds the declared candidate-work budget "
+                f"({work['max_candidate_pairs']} > {work['max_pairs']}; "
+                f"{work['limiting_schema']})")
+            return out
         b_before = {b.line_no: b for b in self.brief(before, m,
-                                                    profile=profile)}
+                                                    profile=profile,
+                                                    blueprint=blueprint,
+                                                    subdivision=subdivision,
+                                                    assume=assume,
+                                                    target_lines=changed)}
         f_before = self.inspect(before, m, profile=profile,
                                 blueprint=blueprint, subdivision=subdivision,
                                 assume=assume)
@@ -5135,8 +5422,11 @@ class Reviser:
             g = found["grade"]
             return {k: g[k] for k in
                     ("pairs_mandated", "pairs_judged", "pairs_refused")}
-        out["coverage_before"] = coverage(f_before)
-        out["coverage_after"] = coverage(f_after)
+        out["coverage_before"] = f_before.get("coverage", coverage(f_before))
+        out["coverage_after"] = f_after.get("coverage", coverage(f_after))
+        layer_regressions = sorted(set(out["coverage_after"].get("refused_obligations", ())) -
+                                   set(out["coverage_before"].get("refused_obligations", ())))
+        out["layer_coverage_regressions"] = layer_regressions
         before_refused = set(map(tuple, f_before["grade"].get(
             "refused_obligations", ())))
         after_refused = set(map(tuple, f_after["grade"].get(
@@ -5144,6 +5434,10 @@ class Reviser:
         out["coverage_regressions"] = sorted(after_refused - before_refused)
         out["mandate"] = m
         out["independent"] = m.independent()
+        if layer_regressions:
+            out["reasons"].append("previously judged required check(s) became refused: " +
+                                  ", ".join(layer_regressions))
+            return out
         if out["coverage_regressions"]:
             out["reasons"].append(
                 "previously judged obligation(s) became refused: "

@@ -19,6 +19,33 @@ its first instrument and its first measurement.
 
 ## Headline
 
+**Re-adopted 2026-09-08:** 1,064 obligations partition into **967 judged
+and 97 refused**. Of the judged pairs, **605** name the words that produced
+their number and **362** do not; **114** have tied maximum spans. Of the
+**four** surviving violations, **one** is exact/exact and **three** are
+reach/reach mosaics, all three tied. The exact case identities are sonnet42
+L6–L8 `her/her` (exact) and sonnets9 L10–L12 `it/it`,26 L6–L8 `it/it`,150
+L5–L7 `thee/thee` (mosaic). All four are identical-word REPEAT violations.
+
+The prior counts below remain historical. The new coverage correction
+excludes28 endpoint-pronunciation disagreements and19 unresolved schema
+answers; it does not change a threshold or improve rhyme quality. The exact
+47 coordinates contain27 formerly claimed pairs and7 tied pairs, so
+632−27=605 and121−7=114. Sonnet33 L2–L4 `eye/alchemy` is the formerly
+violating mosaic now refused, accounting for4→3 mosaic violations.
+
+One actual `audit_spans.sweep_battery` measured the entire span-kind
+partition and exact violation witnesses. Its97 refusal and4 violation
+coordinates independently match the ordinary G2P arm. These facts are held
+in `production_relation_oracle.json`, and `test_spans.py` checks exact
+coordinates and attribution alongside the original real-line, untagged-span,
+compound-refusal, non-mosaic and no-tie contrast controls. The instrument's
+own `--check` now also gates both tie counts. This is an attribution census
+over the explicitly judged population, not a claim that refused pairs lack
+possible rhymes.
+
+### Historical headline and prior adoptions
+
 **Of the 1,014 sonnet pairs the harness JUDGES, 632 name the two words that
 produced their number and 382 do not. Of the ~~82~~ ~~35~~ ~~12~~ **14**
 violations, ~~36~~ ~~7~~ ~~2~~ **4** do and ~~46~~ ~~28~~ ~~10~~ **10** do

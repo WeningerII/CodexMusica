@@ -1,0 +1,360 @@
+
+3. TRIPWIRE: where every word is readable, nothing moves
+  PASS  cat/hat still scores exactly 1.0 RHYME
+          1.0 RHYME []
+  PASS  a readable mandated pair has no violation and no refusal
+  PASS  every mandated pair was judged
+  PASS  the readability records are clean and carry no reason
+  PASS  the demo's six pair scores are unchanged
+          [((1, 2), 0.729, 'CONSONANCE'), ((1, 3), 0.62, 'NO_RELATION'), ((1, 4), 0.477, 'NO_RELATION'), ((2, 3), 0.748, 'ASSONANCE'), ((2, 4), 0.748, 'ASSONANCE'), ((3, 4), 1.0, 'RHYME')]
+  PASS  under the whole-vocabulary DEFAULT the demo's old violation is SATISFIED by schema, and the rescue says which one answered
+          [] :: [{'lines': (1, 2), 'satisfied_by': ['cluster consonance / skothending span', 'consonance']}]
+  PASS  ...and under a DECLARED door the SAME pair still violates at the SAME score, with WHICH clause refusing it set by the door — relation under a rhyme-only door, scalar under one that admits CONSONANCE; a writer acts on the reason, so the two are not one answer, and neither is silently overridden by the default's rescue (doctrine 1)
+          narrowed: 'CONSONANCE not rhyme (conjunctive band; not in the declared admit set)'; scalar-door: 'below theta_rhyme=0.75'
+  PASS  the demo refuses nothing
+  PASS  the demo graph is unchanged
+  PASS  word_syllable_map is unchanged on readable text
+          8
+
+1. the constructed case: an unreadable end word is REFUSED, and the preceding word is not promoted in its place
+  PASS  line_anchors yields no anchor
+          an anchor here would have to be invented
+  PASS  the end word reported is the RAW final token, not the last readable one
+          last='zzzqx'
+  PASS  raw_final_token agrees
+  PASS  the OOV word is in the third return value
+  PASS  the record says the line is unreadable
+  PASS  the record names the instrument, not the poet
+          CMUdict has no pronunciation for the end word 'zzzqx'; the harness refuses rather than guessing one (no G2P fallback). This line's end-rhyme is UNKNOWN, not absent.
+  PASS  the record refuses a G2P fallback in so many words
+  PASS  the comparator refuses rather than scoring
+  PASS  even two IDENTICAL unreadable words are not called REPEAT
+          REPEAT would assert the sounds are equal, which is unknown
+  PASS  check_scheme does NOT call it a violation
+          it used to read 'below theta_rhyme=0.75', i.e. 'these do not rhyme'
+  PASS  check_scheme records a refusal instead
+  PASS  the refusal names the unreadable word
+  PASS  the denominator for a rate is stated and is zero here
+  PASS  a per-line readability record is attached
+  PASS  rhyme_graph names the unreadable nodes rather than dropping them
+          the node used to go silent: no edge, no oov, no trace
+  PASS  rhyme_graph names the refused edge
+  PASS  the unreadable line lands as a FILLER, as it always did
+  PASS  and its unreadability is now recorded there
+          the per-chain oov field used to cover MEMBERS only, so it systematically missed the one role an unreadable line can take
+  PASS  the chain's oov field covers fillers too
+  PASS  check_qafiya does NOT report 'cat' as the rhyme word
+          reported ['zzzqx', 'zzzqx'] -- this is relations.py's _loci('line_final_token') bug, and the shipped file had it
+  PASS  check_qafiya refuses and says so
+  PASS  a refused line contributes nothing to the established profile
+          one substituted function word used to move the majority rawi for every other line in the poem
+  PASS  an unreadable line is NOT reported as a licensed refrain
+          None used to mean 'radif/refrain line: licensed'
+  PASS  no pronunciation was invented for zzzqx
+
+2. a REAL corpus line: William Barnes, Dorset dialect (corpus/song/eng_hall_william_barnes.txt)
+  PASS  the couplet reads as expected
+          "An' zoo there's noo pleäce lik' the drong," / "Where I do hear the blackbird's zong."
+  PASS  Barnes is NOT reported as failing to rhyme
+          drong/zong is a rhyme; the harness has no dictionary for either
+  PASS  the refusal is recorded
+  PASS  the harness does not claim they rhyme either
+          refusing is not the same as answering no, and not the same as yes
+  PASS  both lines would have had their rhyme word substituted
+          [('drong', 'the'), ('zong', "blackbird's")]
+  PASS  the report emits an UNREADABLE_END_WORD finding, and beside it the SUBSTITUTED_END_WORD note that names the word `drong` and `zong` would each have been rhymed on instead (WIRED 2026-08-14; before that the count reached `main()` and the WORDS reached nothing)
+          ['UNREADABLE_END_WORD', 'SUBSTITUTED_END_WORD']
+  PASS  the finding carries the line numbers
+  PASS  ...and it is a NOTE, not a second charge: the LINE is already flagged above and what this adds is which WORD
+          note [1, 2] :: 2 line(s) would have had the RHYME WORD SILENTLY REPLACED by an earlier word: L1 'drong'->'the', L2 'zong'->"blackbird's"
+
+4. the sonnet battery: the refusals were SPLIT OUT, not deleted
+  PASS  152 sonnets parse
+          152
+  PASS  mandated pairs still 1064
+          1064
+  PASS  violations + refusals == the recorded total
+          4 + 97 -- nothing was invented and nothing vanished
+  PASS  97 pairs refuse: 50 lexical gaps, 28 reading disagreements, 19 unresolved schema answers
+          Unknown pronunciation/schema answers remain outside rhyme failures and judged coverage
+  PASS  the violation count is 4 (was 73 at theta_coda 0.60, 81 at scalar coda_agreement)
+          4
+  PASS  the judged denominator is 967, and every mandated pair is accounted for
+          967: a violation RATE is 4/967 = 0.4%
+
+5. corpus/song/ unreadable-end-word rate — fails if it moves
+  PASS  1297 ENGLISH song files present
+          1297
+  PASS  and the corpus is no longer monolingual, which is why the scope is now explicit
+          1421 files total across 8 language prefixes; MISSING K-6
+  PASS  countable lines 281903 — VERSE ONLY, now that apparatus lines are excluded at the source instead of subtracted by hand, and under the CENTRE's `---` rather than a second `--- ` of our own
+          281903  (282402 before the bracketed-verse repin; 282731 before the bracket-apparatus repin; 282745 before the LATIN_SCRIPT repin; 179193 before the Tier-1 load; 153224 before the mass load; 151894 before Pass-1)
+  PASS  unreadable end word, cause TOKEN, 17213 — the follow rule took editorial-prose end words out of the population
+          17213 (6.1060%)  (17274 before the bracket-apparatus repin; 15958 before the LATIN_SCRIPT repin; 11658 before the Tier-1 load)
+  PASS  rate on that quantity is 6.11% — UP from 5.64%, and the rise is the harness reading the whole word instead of an ASCII fragment
+          6.1060%  (5.6440% before the LATIN_SCRIPT repin; 6.5065% before the Tier-1 load)
+  PASS  unreadable end word, cause PIECE, 428 — the price of the hyphen refusal on VERSE lines alone
+          428  (260 before the LATIN_SCRIPT repin)
+  PASS  so the end-word refusal rate is 6.26% AFTER the rule and 6.11% before it, and both are printed
+          17641 (6.2578%)  (17702 / 6.2611% before the bracket-apparatus repin)
+  PASS  16652 of those would have had the rhyme word SUBSTITUTED by an earlier word
+          16652  (16712 before the bracket-apparatus repin; 15405 before the LATIN_SCRIPT repin)
+  PASS  16652 flagged substitutions and zero silent substitutions after unanchored readings are refused
+          16652 already flagged as a LINE by UNREADABLE_END_WORD (the gap there was only the WORD) + 0 reached by nothing (D'Urfey's `_Sh----_`; Byron's `turf,[mm]` left the class when the anchor rule dropped `[mm]`)
+  PASS  989 unreadable-final lines are not substitutions: the end-word gap has no earlier readable anchor
+          989  (992 before the bracket-apparatus repin)
+  PASS  the reader's token/piece and substitution partitions conserve their actual populations
+  PASS  the rate is not uniform across files — a subset rate is a different number
+          51.11% (George Macindoe, a mass-loaded file of dense Scots — `leeing`/`preeing`/`kebbocks` — displacing Edwin Waugh's 23.62%) to 0.0% (68 files, all readable); quoting one corpus-wide figure without the file set is doctrine 58
+  PASS  the hyphen population is 638 end tokens with a read piece and an unread piece (CLAUDE.md's 323 was this figure at the 143-file corpus)
+          638
+  PASS  split 428 ANCHOR-layer (refused) + 210 REPORT-layer (label overstates, never refused)
+          428 + 210
+  PASS  0 of 323 have an end-word piece misfiled as interior — the 328-of-328 defect, measured at zero
+          0 unexplained of 10 raw overlaps
+  PASS  and the 10 raw overlaps are REAL double occurrences, not misfilings — reported separately rather than summed (doctrine 79)
+          10: all eight are the same refrain shape — Kingsley's `Sing heigh-ho, and heigh-ho!` x4 and the mass-loaded David Macbeth Moir's `Sing heigh-ho! sing heigh-ho!--` x4 — where `heigh` is an interior token's unread piece AND the end token's; suppressing them would delete a real interior gap (doctrine 24)
+  PASS  `read_lines` and the declared apparatus rules are the SAME rule on every one of the corpus's letter-bearing lines — not two rules that happen to agree
+          360,060 letter-bearing lines swept, 0 disagreements
+  PASS  all four Wordsworth epigraphs are still in Hemans, verbatim
+          [] missing
+  PASS  and `read_lines` now excludes all four — 151,898 - 4 = 151,894, which is the whole of the repin
+          [] still counted as verse; each opens with four hyphens, so `--- ` did not match it and `---` does
+  PASS  they are apparatus by the CENTRE's rule, which is the reason they are excluded — not by a rule this file owns
+          is_apparatus_line: [True, True, True, True]
+
+6. a word with PHONES but no VOWEL is unreadable, not a crash — found by the full corpus/song/ calibration sweep hitting `_Sh----_`, an 18th-century censored name (Thomas D'Urfey) that tokenizes to `sh`. CMUdict lists `sh` as the interjection, one consonant phone (['SH']), no nucleus for `syllabify` to find. `line_anchors` used to fall through to `sylls[-1:]` on the empty syllable list and hand back a hollow, zero-syllable anchor instead of refusing — the first caller to index into it (`quality.features.RhymeField.field`) raised `IndexError`.
+  PASS  'sh' has phones (the dictionary CAN transcribe it)
+          phones=['SH']
+  PASS  'sh' still yields NO anchor — a phone list with no vowel is exactly the unreadable case, not an exception
+          ancs=[]
+  PASS  'shh' has phones (the dictionary CAN transcribe it)
+          phones=['SH']
+  PASS  'shh' still yields NO anchor — a phone list with no vowel is exactly the unreadable case, not an exception
+          ancs=[]
+  PASS  'hm' has phones (the dictionary CAN transcribe it)
+          phones=['HH', 'M']
+  PASS  'hm' still yields NO anchor — a phone list with no vowel is exactly the unreadable case, not an exception
+          ancs=[]
+  PASS  'hmm' has phones (the dictionary CAN transcribe it)
+          phones=['HH', 'M']
+  PASS  'hmm' still yields NO anchor — a phone list with no vowel is exactly the unreadable case, not an exception
+          ancs=[]
+  PASS  'mm' has phones (the dictionary CAN transcribe it)
+          phones=['M']
+  PASS  'mm' still yields NO anchor — a phone list with no vowel is exactly the unreadable case, not an exception
+          ancs=[]
+  PASS  RhymeField.field('sh') returns no candidates rather than raising IndexError
+  PASS  the real corpus couplet that found this scores (or correctly skips) instead of crashing the whole calibration run
+          vals=[]
+
+7. every code report() can emit has a case, and every case is a REAL corpus line
+  PASS  report() emits exactly the five codes this file has cases for
+          in source but uncovered: []; covered but no longer emitted: []
+  PASS  the exact ['UNREADABLE_END_WORD_PIECE'] findings fire on a real line of eng_hall_william_barnes.txt
+          'There down below the steep hill-zide,'
+          the canonical case. `zide` is Dorset initial fricative voicing and CMUdict has no entry, so the anchor would have been `hill`
+          codes: ['UNREADABLE_END_WORD_PIECE']
+  PASS  the exact ['UNREADABLE_END_WORD_PIECE'] findings fire on a real line of eng_hall_william_barnes.txt
+          "The happiest days that we've a-vound,"
+          the SHARPEST case: the only piece that reads is the participial prefix, whose one phone is a schwa -- see test 8
+          codes: ['UNREADABLE_END_WORD_PIECE']
+  PASS  the exact ['UNREADABLE_END_WORD_PIECE'] findings fire on a real line of eng_british_matthew_arnold.txt
+          'In heart, high-souled;'
+          not dialect at all: an ordinary literary compound CMUdict does not list. 88 of the 174 are this kind
+          codes: ['UNREADABLE_END_WORD_PIECE']
+  PASS  the exact ['UNREADABLE_END_WORD_PIECE'] findings fire on a real line of eng_british_percy_bysshe_shelley.txt
+          'Star-inwrought!'
+          a whole line that is one compound; the read piece `Star` is not the rhyme word either
+          codes: ['UNREADABLE_END_WORD_PIECE']
+  PASS  the exact ['UNREADABLE_END_WORD_PIECE'] findings fire on a real line of eng_british_robert_browning.txt
+          "The hillside's dew-pearled;"
+          Pippa's song, where the unread piece carries the rhyme with `world`
+          codes: ['UNREADABLE_END_WORD_PIECE']
+  PASS  the exact ['END_WORD_LABEL_OVERSTATES'] findings fire on a real line of eng_hall_john_clare.txt
+          'Shut out the sun--or to some threshing-floor.'
+          the REPORT-layer half: `floor` reads and IS the rhyme word, so the anchor is right and only the printed label overstates. Never a refusal -- 149 of the 323, and none of them are in `rate`
+          codes: ['END_WORD_LABEL_OVERSTATES']
+  PASS  the exact ['UNREADABLE_INTERIOR_WORD'] findings fire on a real line of eng_american_abram_joseph_ryan.txt
+          "Furl that Banner, for 'tis weary;"
+          the end rhyme `weary` is sound; CMUdict has no `furl`, so a mosaic anchor reaching back past it would join phones across a hole
+          codes: ['UNREADABLE_INTERIOR_WORD']
+  PASS  the exact ['SUBSTITUTED_END_WORD', 'UNREADABLE_END_WORD'] findings fire on a real line of eng_hall_william_barnes.txt
+          'The hedge to meet me in the drong,'
+          REPinned 2026-09-08: a genuine sung Dorset line. The unknown final word is refused and the earlier word that would have replaced it is also disclosed. The former turf,[mm] exemplar was a source footnote; the current canonical reader removes it, and an unscoped raw mm no longer counts as a readable anchor merely because CMUdict lists one consonant.
+          codes: ['SUBSTITUTED_END_WORD', 'UNREADABLE_END_WORD']
+  PASS  the actual Byron verse ends on turf after its declared footnote anchor is removed
+  PASS  without source provenance, the raw unanchored mm is refused rather than silently treated as readable
+  PASS  END_WORD_LABEL_OVERSTATES fires on sonnet 51 L13, and the line is NOT refused — the price of the hyphen rule on this population is zero
+          '‘Since from thee going, he went wilful-slow,' codes: ['END_WORD_LABEL_OVERSTATES']
+  PASS  sonnet 51 L13 reads on its LAST piece ('slow'), which is the rhyme word, and the overstatement is 'wilful' — folded, which is the lexicon's spelling and not always the corpus's
+          pieces=['wilful'] final_token='wilful-slow' (corpus line spells it 'wilful-slow,')
+  PASS  END_WORD_LABEL_OVERSTATES fires on sonnet 81 L10, and the line is NOT refused — the price of the hyphen rule on this population is zero
+          'Which eyes not yet created shall o’er-read;' codes: ['END_WORD_LABEL_OVERSTATES']
+  PASS  sonnet 81 L10 reads on its LAST piece ('read'), which is the rhyme word, and the overstatement is "o'er" — folded, which is the lexicon's spelling and not always the corpus's
+          pieces=["o'er"] final_token="o'er-read" (corpus line spells it 'o’er-read;')
+
+8. `a-vound`: the harness was MANUFACTURING rhymes, and the size of the manufactured class is measured, not asserted
+  PASS  118 distinct `a-` participles end a line in this one file with their last piece unread
+          118: ['a-baggèn', 'a-beät', 'a-blowèn', "a-boun'", "a-bro't", 'a-burnèn'] ... (29 before the LATIN_SCRIPT repin, and the other 89 were not even ONE token)
+  PASS  and ALL of them would have anchored on the IDENTICAL phone list — one schwa — so the class was mutually 'rhyming' by construction
+          1 distinct would-be anchors: [('AH0',)]
+  PASS  the manufactured class is the SIZE of that phone class, not a handful of pairs
+          221 line ends across 118 distinct participles
+  PASS  both real Barnes lines are still in the file
+  PASS  the two end words are DIFFERENT words with the SAME would-be phones — this is the manufacturing, stated as a fact about the lexicon path
+          'a-vound' vs 'a-vled'
+  PASS  `line_anchors` now REFUSES both rather than anchoring on `a-`
+          0 / 0 anchors
+  PASS  so the comparator returns NO_ANCHOR, not a rhyme it invented
+          NO_ANCHOR 0.0 — it used to pass the band on a schwa shared by every participle in the file
+  PASS  and the pair is REFUSED, not counted as a violation
+          a manufactured rhyme deleted is not a rhyme failure created
+
+10. the letter repertoire is DECLARED, and both readers use it
+  PASS  LATIN_SCRIPT is a compiled pattern on lyric_harness, not a local
+          re.compile('[A-Za-zÀ-ɏḀ-ỿ]')
+  PASS  every Latin-script letter this corpus prints is inside the class
+  PASS  '歸' is NOT in the Latin class
+          歸
+  PASS  'ω' is NOT in the Latin class
+          ω
+  PASS  'ا' is NOT in the Latin class
+          ا
+  PASS  'Ζ' is NOT in the Latin class
+          Ζ
+  PASS  line_tokens returns 'tân' as ONE token and transcribe reports that same whole word OOV — the two readers agree
+          (['SION', 'a', 'Sian', "oddeutu'r", 'tân'], ['SION', "oddeutu'r", 'tân'])
+  PASS  line_tokens returns 'jaÿ' as ONE token and transcribe reports that same whole word OOV — the two readers agree
+          (['You', "gie'd", 'me', 'life', 'you', "gie'd", 'me', 'jaÿ'], ["gie'd", "gie'd", 'jaÿ'])
+  PASS  the Welsh end word is `tân`, not `n`
+          tân
+  PASS  Barnes's end word is `jaÿ`, not `ja`
+          jaÿ
+  PASS  `tân` is refused as cause TOKEN — an honest refusal, not a fragment scored (doctrine 79)
+          (True, 'token')
+  PASS  pure-ASCII line unmoved: "Shall I compare thee to a summer's"
+          (['Shall', 'I', 'compare', 'thee', 'to', 'a', "summer's", 'day'], ['Shall', 'I', 'compare', 'thee', 'to', 'a', "summer's", 'day'])
+  PASS  pure-ASCII line unmoved: "Of hill-zide an' the wife-zide"
+          (['Of', 'hill-zide', "an'", 'the', 'wife-zide'], ['Of', 'hill-zide', "an'", 'the', 'wife-zide'])
+  PASS  pure-ASCII line unmoved: 'word--word and --and'
+          (['word--word', 'and', '--and'], ['word--word', 'and', '--and'])
+  PASS  letters_outside_repertoire names the scripts it cannot read
+          {'CJK': 1, 'GREEK': 3, 'ARABIC': 3}
+  PASS  and it is empty for a line the repertoire covers
+
+9. `interior_unreadable` is derived by POSITION — pinned at the RECORD layer, because the report layer cannot see half of it
+  PASS  the hill-zide line is still in Barnes
+  PASS  the unread piece is filed as an END-WORD piece
+          ['zide'] / piece
+  PASS  and `interior_unreadable` is EMPTY — the whole regression, and it is only visible here
+          []: position-blind logic files `zide` here, which is what 328 of 328 cases did
+  PASS  the vu'st line is still in Barnes
+  PASS  this line HAS interior unreadables and a refused end word
+          ["vu'st", 'thik']
+  PASS  yet report() emits only the end-word code — so an interior assertion made through report() is decoration on this population (doctrine 48)
+          codes: ['UNREADABLE_END_WORD_PIECE']
+  PASS  the threshing-floor line is still in Clare
+  PASS  an EARLIER unread piece is a final piece too, never interior
+          pieces=['threshing'] interior=[]
+  PASS  and here the exact code set does catch it
+          codes: ['END_WORD_LABEL_OVERSTATES']
+  PASS  the heigh-ho line is still in Kingsley
+  PASS  the SAME unread string is reported in BOTH places, because it genuinely is in both
+          pieces=['heigh'] interior=['heigh']
+  PASS  so both findings fire on one line, and neither is suppressed by the other
+          codes: ['END_WORD_LABEL_OVERSTATES', 'UNREADABLE_INTERIOR_WORD']
+
+11. the bracket-apparatus declarations (M-47/M-27, 2026-08-28)
+  PASS  Byron's footnote anchor is dropped: the line ends on `see`, not on the letter `a` (68 of the 93 sized markers were END WORDS)
+          ['It has not been your lot to see,']
+  PASS  Shelley's wrapped publication note is followed to its close — `1818.]` is no longer the first kept line of a song
+  PASS  Barnes's PG diacritic markup becomes the REAL letter — `dr[=e]ve` reads `drēve`, one token, not three fragments
+          ['But drēve light doust along between']
+  PASS  the `[oe]` ligature expands corpus-wide by CONTENT — `Ph[oe]bus` reads `Phoebus`
+          ['And _Phoebus_ by calling,']
+  PASS  an editor-supplied letter is KEPT — `BARNE[S].` reads `BARNES.`
+          ['OF MY DEAREST COSIN MRS. BOWES BARNES.']
+  PASS  the orphan caption tail is apparatus by content — the line that put `jpg` into the Welsh corpus's end words
+  PASS  a caller with NO FILE reaches only the corpus-wide content classes — a draft's `[something]` is untouched by Byron's anchor convention
+  PASS  MUTATION: Byron's row pulled from BRACKET_ANCHOR_FILES -> the span survives and would tokenise to end word `a` again, so the table is the load-bearing declaration
+          'see,[a]'
+  PASS  MUTATION: Shelley's row pulled from WRAPPED_APPARATUS_FOLLOW -> zero continuations drop and `1818.]` would leak again
+  PASS  ...and restored, the drops return
+  PASS  Durfey and Gay are OUT of the follow set on purpose — their unclosed blocks sit beside bracketed SUNG stanzas
+
+12. the bracketed-verse convention — keep the body, strip the brackets (M-152, 2026-08-28)
+  PASS  Watts's bracketed optional stanza keeps its OPENING line — sung verse that was apparatus for as long as the corpus has been read (14 blocks in the file, every opener a stanza's own first line)
+  PASS  ...and its close line reads clean: no kept Watts line ends on a close bracket
+  PASS  the two-stanza bracketed passage closes at +8 ACROSS its own `[VERSE n]` marker — the census read this block as never-closing because its scan stopped at the marker, and reading the text refuted the census
+  PASS  Skeat's sung colophon quatrain is FOUR lines again through the block reader — the bracketed opener was the quatrain's own first line, and its declared `--- SYLLABLES: [10, 11, 10, 11]` row always said so
+          ['Tamat-lah Sha`ir Dewa Kayangan,', 'Tamat didalam balei pengadapan;', "Serta meminta' bias kasihan", "Kapada tuan wakil karaja'an."]
+  PASS  ...and the colophon's close, THIRTEEN raw lines on in the NEXT staged item, reads clean
+  PASS  Durfey's one `[Music: <text>` opener that CARRIES the first sung line keeps it, prefix stripped
+  PASS  Durfey's `[Sidenote:` dialogue notes leave the sung stream — eleven continuation lines across ten notes
+  PASS  ...while the bare `[Music:` cues' SUNG bodies stay, closing clean on the burden
+  PASS  Gay's never-closing stage directions drop their continuation lines to the first blank — three direction lines across eight openers, and nothing else
+  PASS  Emmett's `Mass.]` — the tail of a wrapped note whose opener the staging lost — is apparatus by declared content
+  PASS  Lovelace's printer's quoted-song-end mark is stripped and the sung line KEPT
+  PASS  the reviewed bibliography and its wrapped Stanley gloss both leave the sung population
+  PASS  Freneau's authorial parenthetical keeps EVERY word — the bracket characters alone are stripped, because the gloss is metrically part of the verse
+  PASS  ZERO kept sung lines in all of corpus/song/ end on an orphan `]` — the class is closed, and audit_corpus check L guards new staging
+          []
+  PASS  the Hemans note is followed PAST its balanced footnote anchor to the real close — all three previously leaking lines drop
+  PASS  a caller with NO FILE is untouched by every table — a draft's unclosed `[Music:` line is nobody's convention
+  PASS  the two follow conventions are DISJOINT — no file may declare both, because M-47's scan would eat what M-152 declares as verse (the import-time assertion's own subject)
+  PASS  MUTATION: Watts's row pulled from BRACKETED_VERSE_FILES -> zero edits, so the 14 stanza openers would be apparatus again — the table is the load-bearing declaration
+  PASS  ...and restored, the edits return
+  PASS  MUTATION: the `[Sidenote:` row pulled from BRACKET_BLOCK_ROWS -> its eleven note lines leave the drop set and would leak as verse
+          0
+  PASS  MUTATION: Emmett's row pulled from BRACKET_LINE_EDITS -> nothing drops and `Mass.]` would be sung text again
+
+13. `score()` without the words DISCLOSES that identity was not asked (`MISSING.md` M-136 (1), ruled 2026-09-01)
+  PASS  wordless: RHYME, with the disclosure on its flags
+          RHYME ['identity: not asked (words omitted)']
+  PASS  worded: REPEAT, and no such flag
+          REPEAT ['identical_word']
+  PASS  the tripwire above is untouched: a worded best_score carries no disclosure and cat/hat is still a clean 1.0 RHYME
+
+14. `score()` DISCLOSES the empty/empty coda gift and moves nothing (`MISSING.md` E-5, the cheap half, 2026-09-02)
+  PASS  now/why still scores 0.902 RHYME — the verdict E-5 records, not moved by a disclosure
+          0.902 RHYME
+  PASS  ...and says on its flags that the coda channel had no evidence, with the 0.350 of the total that is agreement by absence
+          ['coda: no evidence (both codas empty on 1 of 1 syllable(s); 0.350 of the total is agreement by absence, not by sound — E-5)']
+  PASS  control: cat/hat — codas heard on both sides — carries no such flag and is still a clean 1.0 RHYME
+          1.0 RHYME []
+  PASS  see/free is still 1.0 RHYME (the agreement side is correct and untouched) and carries the same disclosure
+          1.0 RHYME ['coda: no evidence (both codas empty on 1 of 1 syllable(s); 0.350 of the total is agreement by absence, not by sound — E-5)']
+  PASS  `screen now why`: the row is CLEAN (why None, no ban) AND `coda_no_evidence` is set from the verdict's carried flags
+          RHYME 0.902 ['coda: no evidence (both codas empty on 1 of 1 syllable(s); 0.350 of the total is agreement by absence, not by sound — E-5)']
+  PASS  control: `screen cat hat` sets no `coda_no_evidence` and its verdict-carried flags are empty
+          []
+
+15. `profile="assonance"` DISCLOSES that the conjunctive band is off, and the verdict is untouched (`MISSING.md` M-136 (2), the disclosure half, 2026-09-02)
+  PASS  sun/much under the assonance profile is still 1.0 RHYME (M-136's measured row, not moved)
+          1.0 RHYME
+  PASS  ...with the band-off disclosure on its flags
+          ['conjunctive band: off (profile coda weight 0.0 — RHYME here is nucleus agreement only; ASSONANCE/CONSONANCE cannot be emitted, M-136 (2))']
+  PASS  control: the default profile still types sun/much ASSONANCE 0.772 and carries no band-off flag
+          0.772 ASSONANCE ['conjunctive band: nucleus agrees, coda does not']
+  PASS  control: a DECLARATION that switches the band off is not a profile switching it off — no flag, the declared coordinate speaks for itself (doctrine 1)
+          RHYME []
+
+16. the two default doors carry their PINNED chance rate where a rescued pair is reported, and neither line gates (`MISSING.md` M-138 / M-140, the disclosure halves, 2026-09-02)
+  PASS  `door_chance_note('schema')` renders the ADOPTED band 957..987 of 4,000, names M-140 and says UNPRICED — READ from `chance_rate.py`, never retyped
+          chance rate is PINNED at 957..987 of 4,000 random CMUdict pairs (23.9%–24.7%, 57.8–59.7x the sonnet canon arm's 0.41%; quality/chance_rate.py, a band over its sampler grid) and UNPRICED (M-140)
+  PASS  `door_chance_note('admit')` renders the ADOPTED band 173..193 of 4,000, names M-138 and says PRICED — READ from `chance_rate.py`, never retyped
+          chance rate is PINNED at 173..193 of 4,000 random CMUdict pairs (4.3%–4.8%, 10.5–11.7x the sonnet canon arm's 0.41%; quality/chance_rate.py, a band over its sampler grid) and PRICED (M-138, quality/RESULTS_NEAR_RELATION_PRICING.md — the near relations carry their own cut, `Declaration.theta_by_relation`)
+  PASS  the two doors do NOT say the same thing about pricing — the admit door was priced 2026-09-02 and the schema door was not, and a disclosure that outlived its gap is the defect this pin exists to catch (doctrine 17)
+  PASS  an empty rescue list renders NOTHING (no line where nothing was rescued — doctrine 20 in the other direction)
+  PASS  a schema-rescued pair's `SCHEMA DEFAULT` line names the pair and the schema, and the door's chance rate stands beside it
+            SCHEMA DEFAULT: 1 mandated pair(s) satisfied by the whole-vocabulary default, not the scalar door — L1~L3 (group A) via pararhyme — laziness at these relations is UNCALIBRATED; declaring a relation narrows (M-116)
+    (that door's chance rate is PINNED at 957..987 of 4,000 random CMUdict pairs (23.9%–24.7%, 57.8–59.7x the sonnet canon arm's 0.41%; quality/chance_rate.py, a band over its sampler grid) and UNPRICED (M-140))
+  PASS  the `ADMIT DOOR` line counts ONLY pairs satisfied AS a near relation on theta alone — not the RHYME pass, not the schema-rescued pair (never summed, doctrine 79) — by relation, with the admit door's chance rate beside it
+            ADMIT DOOR: 2 mandated pair(s) satisfied as a near relation (ASSONANCE x1, CONSONANCE x1) on the priced near-relation cut (ASSONANCE 0.82, CONSONANCE 0.75) — L1~L3 home/alone ASSONANCE 0.974; L6~L8 bad/bat CONSONANCE 0.800; that door's chance rate is PINNED at 173..193 of 4,000 random CMUdict pairs (4.3%–4.8%, 10.5–11.7x the sonnet canon arm's 0.41%; quality/chance_rate.py, a band over its sampler grid) and PRICED (M-138, quality/RESULTS_NEAR_RELATION_PRICING.md — the near relations carry their own cut, `Declaration.theta_by_relation`)
+  PASS  control: verdicts with no near-relation pass render NOTHING
+  PASS  the grade's verdict carries `flags` and, with the words in hand, no `identity: not asked` — production asks
+          ASSONANCE ['conjunctive band: nucleus agrees, coda does not']
+  PASS  every `test_*` in this file is in the runner's list — an explicit list that silently drops a section prints the same `all pass` as one that ran it
+====================================================================
+all readability / recorded-refusal regressions pass

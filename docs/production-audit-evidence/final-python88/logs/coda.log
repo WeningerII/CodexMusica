@@ -1,0 +1,88 @@
+
+1. the pairs two cells found on 2026-08-11, and what they are now
+  PASS  wall/floor is not RHYME
+          0.996 ASSONANCE — identical nucleus, coda L against R
+  PASS  call/floor is not RHYME
+          0.996 ASSONANCE — identical nucleus, coda L against R
+  PASS  wall/more is not RHYME
+          0.996 ASSONANCE — identical nucleus, coda L against R
+  PASS  call/more is not RHYME
+          0.996 ASSONANCE — identical nucleus, coda L against R
+  PASS  ear/will is not RHYME
+          0.947 ASSONANCE — identical nucleus, coda L against R
+  PASS  and each is RELABELLED, not rejected (doctrine 24)
+          ASSONANCE is a named member of the taxonomy: the graph keeps the edge and the name. A rule that deleted the category would be a worse defect than the leak.
+  PASS  `will`/`gun` was ALREADY ASSONANCE and is unchanged
+          the brief that opened this cell called it 'the same generosity on L against N'. It is not: cons_sim(L,N) is 0.730, BELOW theta_coda 0.80, so the band always typed it ASSONANCE. What made it look admitted is `check_scheme`'s collision list, which prints pairs on `total >= 0.9` and never consults the relation — a REPORT-layer defect, not a comparator one.
+
+2. no value of `theta_coda` separates R~L from identity
+  PASS  the consonant space is 24 symbols and 276 unordered non-identical pairs
+          24 consonants, 276 pairs
+  PASS  R~L is the ARGMAX of the entire matrix
+          L~R at 0.9875; runner-up S~TH at 0.9750
+  PASS  every cut that admits any non-identical pair also admits R~L
+          R~L = 0.9875; theta_coda 0.8->36, 0.9->17, 0.95->9, 0.98->1, 0.99->0. The first cut that refuses R~L is 0.99, which admits 0 of 276 — i.e. identity, reached by the back door and stated as a point on a scale rather than a rate (doctrine 22).
+  PASS  `scalar 0.95` pays the full true-positive cost and STILL admits wall/floor
+          which is why this was a SHAPE change and not a calibration
+
+3. is the generosity specific to liquids, to sonorants, or general?
+  PASS  36 of 276 pairs (13%) agree as a singleton coda at 0.80
+          36 pairs
+  PASS  the admitted set spans SIX manner classes, not just the liquids
+          affricate/fricative:8, affricate/stop:2, fricative/fricative:15, glide/glide:1, liquid/liquid:1, nasal/nasal:3, stop/stop:6
+  PASS  EVERY same-manner same-voicing pair scores >= 0.75, whatever its place distance
+          floor 0.7750 (F~HH) over 27 pairs — manner identity is worth 0.45 of the budget and the whole place axis can only take away 0.25, so the answer is GENERAL TO THE CONSTRUCTION, not a liquid quirk
+  PASS  miss/myth was admitted by the scalar and is not now
+          scalar 0.991 RHYME -> identity ASSONANCE
+  PASS  cap/cat was admitted by the scalar and is not now
+          scalar 0.974 RHYME -> identity ASSONANCE
+  PASS  rob/rod was admitted by the scalar and is not now
+          scalar 0.974 RHYME -> identity ASSONANCE
+  PASS  back/bat was admitted by the scalar and is not now
+          scalar 0.956 RHYME -> identity ASSONANCE
+
+4. `coda_agreement` is a coordinate, and an undeclared value is loud
+  PASS  the default is `identity`
+  PASS  the licence is EMPTY, and that is the measured result
+          S~Z was the candidate and every one of its 8 mandated observations is another layer's defect: wights/knights was our own OOV plural fallback, muse/use is a homograph, and glass/was, pass/was, is/amiss, this/is are Early Modern English
+  PASS  `scalar` is reachable
+  PASS  `identity` is reachable
+  PASS  `licensed` is reachable
+  PASS  an undeclared shape RAISES rather than falling through to one
+          a coordinate that silently picks a value is doctrine 1 broken inside the tuple
+  PASS  a declared licence works, and is word-final only by default
+          reachable so a later cell with real evidence can fill it (doctrine 84); not shipped, for the same reason the fitted matrix is not (known gap 2) — nothing showed it helped
+
+5. doctrine 94: a fix that lowers the FPR by refusing everything is not a fix
+  PASS  nation/station is still RHYME
+          1.000
+  PASS  see/free is still RHYME
+          1.000
+  PASS  day/way is still RHYME
+          1.000
+  PASS  light/night is still RHYME
+          1.000
+  PASS  wights/knights is still RHYME
+          1.000
+  PASS  graces/faces is still RHYME
+          0.931
+  PASS  two ABSENT codas still agree (doctrine 25)
+          reading empty-vs-empty as disagreement would delete every open-syllable rhyme in English
+  PASS  `sun`/`much` is still ASSONANCE — the case the band was built for
+  PASS  `bad`/`bat` is still ASSONANCE, not promoted back to RHYME
+          doctrine 94 priced this cost out loud when theta_coda moved 0.60 -> 0.80; a T~D licence would have undone it and is refused
+  PASS  a two-syllable anchor may not have one agreeing coda carry the other (mutate.py M3)
+          `nation` EY-SH-AH-N against `nasal` EY-Z-AH-L: the first aligned syllable has two ABSENT codas and agrees, the second is N against L and does not. Under `max(codas)` this reads RHYME. The band is conjunctive ACROSS SYLLABLES as well as across channels, and this is the check that says so.
+
+6. the OOV -s fallback, and doctrine 79's triage arriving from the comparator end
+  PASS  `wights` is NOT in CMUdict — it reaches the comparator through the fallback
+  PASS  the fallback no longer produces the impossible /tz/ coda
+          wights -> W AY1 T S; the old rule appended a hard-coded Z and gave W AY1 T Z
+  PASS  `wights`/`knights` now agrees by IDENTITY rather than by comparator generosity
+          this is the pair that made a coda licence for S~Z look earned. It was never a coda fact.
+  PASS  the rule is voicing-aware in all three classes
+          voiceless -> S, voiced -> Z, sibilant -> a syllable IH0 Z
+  PASS  and it is validated against CMUdict itself, not against its own rules (doctrine 37)
+          n=12470 dictionary -s words whose base is a true phonetic prefix: voicing-aware rule 96.61%, the old append-Z fallback 66.03%. By class the voiceless arm goes 0.2% -> 99.8%.
+======================================================================
+all coda-channel shape and threshold regressions pass

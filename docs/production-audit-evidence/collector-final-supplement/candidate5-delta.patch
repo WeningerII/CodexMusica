@@ -1,0 +1,21 @@
+--- candidate5/scripts/battery_repairs.mjs
++++ current/scripts/battery_repairs.mjs
+@@ -69,6 +69,7 @@
+       };
+     });
+   }
++  if (call.writer !== 'interview') return [];
+   const folded = Array.isArray(call.folded) ? call.folded : call.folded ? [call.folded] : [];
+   return folded.map((record) => {
+     const verified =
+--- candidate5/mcp/test_battery_repairs.mjs
++++ current/mcp/test_battery_repairs.mjs
+@@ -107,6 +107,8 @@
+     },
+   };
+   assert.equal(acceptedRepairs([call, structuredClone(call)]), 1);
++  assert.equal(acceptedRepairs([{ ...call, writer: undefined }]), 0);
++  assert.equal(acceptedRepairs([{ ...call, writer: 'unrecognized' }]), 0);
+   assert.equal(
+     acceptedRepairs([
+       {

@@ -1,0 +1,499 @@
+
+0. the inventory — DECLARED, REACHABLE and RUNNING are three different numbers
+  PASS  77 schemas are declared
+          77 in REGISTRY; all_schemas() is the accessor. There is no SCHEMAS attribute and never was.
+  PASS  4 named QUERIES are recorded as NOT types
+  PASS  the entry point is build_stream(), not Stream.from_lines
+  PASS  nothing raises on a plain English quatrain
+          ran=45 refused=32 raised=0
+  PASS  45 of 77 run; four unsupported complete shapes now refuse alongside capabilities and spans
+          ran=45 refused=32; capability_report says 51 reachable (2 of those refuse at the SPAN, which is correct: 'penult' and 'final_unstressed' name nothing in a line of monosyllables). WAS 53/24 until P14: `family rhyme`, `multisyllabic rhyme`, `proest` and the 同用 schema compare a channel at a DECLARED GRAIN, and a plain English declaration supplies none of the three quotients, so they refuse by name instead of answering at the identity. Four schemas moved from the wrong column to the honest one; nothing else in the inventory moved.
+  PASS  ...and the four are refused for the QUOTIENT they name, not for some other missing capability
+          {'family rhyme': 'quotient:manner', 'multisyllabic rhyme': 'quotient:manner', 'proest': 'quotient:vowel_class', 'Middle Chinese end rhyme (同用 group)': 'quotient:同用'}. M-15 was that the 同用 schema fired on four lines of English and nothing in the output could say the tradition had not matched. It is structural now: an English declaration authorises no 平水韻 grouping, so the schema cannot run at all rather than running and being labelled RULE SHAPE ONLY afterwards.
+  PASS  a four-line AABB quatrain yields findings for >= 15 schemas
+          16 schemas found something
+  PASS  perfect rhyme finds cat/hat and moon/tune, and nothing else
+
+P0. declared lexical endpoints survive unreadability without moving
+  PASS  an unreadable final token cannot borrow the preceding rhyme
+  PASS  line_final remains at the declared lexical boundary
+  PASS  the raw token count and unreadable evidence remain exact
+  PASS  a missing endpoint is unjudged through the mandate bridge
+  PASS  the same boundary rule holds at the line head
+
+P1. `required=False` is REPORTED, not ENFORCED (Snorri's fegra)
+  PASS  a required channel that reads False fails the pair
+  PASS  a required=False channel that reads False does NOT
+          soft verdict=True (was False)
+  PASS  the non-required read is still on the Instance
+          filtered out of the verdict, kept in the record
+
+P3. `forall` must actually quantify — monorhyme means ONE sound
+  PASS  cat/hat/moon/tune gives two TRUE edges
+  PASS  ...and is NOT monorhyme: two components, no finding
+          was one frame finding covering two different rhyme sounds
+  PASS  a real monorhyme IS found
+  PASS  the finding carries a verdict
+          (frame, edges, verdict) = (0, 6, True) — it used to be a 2-tuple with no verdict at all
+  PASS  one line outside the leash defeats the forall
+          3 of 4 lines rhyming is not a monorhyme over the frame
+
+P4. an identity RESOURCE is a fact about a WORD, not a syllable
+  PASS  sing ~ singing agree on their root
+          was False: ('sing',) compared against ('sing','sing')
+  PASS  love ~ loving agree on their root
+          was False
+  PASS  sing ~ sung agree on their root
+  PASS  sing ~ love do NOT
+  PASS  `resources` keyed on the CAPABILITY name resolves
+  PASS  `resources` keyed on the LEVEL name resolves too
+          capabilities()/provides() demanded 'morphology' and evaluate() looked up 'morpheme_root'; no declaration could satisfy both
+  PASS  with no resource at all it REFUSES, naming the capability
+
+P5. token identity collapses by COORDINATE, never by string
+  PASS  'love me love me' is NOT the same token sequence as 'love me'
+          was True — dict.fromkeys deduped the repeat away, which is exactly the distinction a refrain or an incremental repetition rests on
+  PASS  'love me' IS the same as 'love me'
+  PASS  a repeat still collapses its own syllables
+          two syllables of one token are one token
+
+P6. additive / subtractive rhyme is an EXTENSION, not an absence
+  PASS  additive: year/feared
+          all five read False before the fix
+  PASS  additive: down/found
+          all five read False before the fix
+  PASS  additive: rain/brains
+          all five read False before the fix
+  PASS  additive: prove/moved
+          all five read False before the fix
+  PASS  additive: stow/hope
+          all five read False before the fix
+  PASS  ...and the same pair is NOT subtractive in that order
+  PASS  subtractive is the same structure with the members exchanged
+  PASS  the total-absence case still passes: see/seed
+          proper extension is strictly weaker than the old emptiness test
+  PASS  a perfect rhyme is NOT additive
+  PASS  a coda that is not an extension is not additive
+
+P7. a second SURFACE that re-tokenises cannot be read position-wise, and must say so
+  PASS  every read on the divergent surface refuses
+          was ['it', 's', None, None, 'birthd', 'ay'] — 'my' read the grapheme of 's' and 'today' read 'birthday', silently
+  PASS  a surface that agrees on the tokenisation still projects
+          ["it's", 'my', 'birthd', 'ay', 'tod', 'ay']
+
+P8. the stanza is a coordinate READ FROM THE PAGE, not the constant 0
+  PASS  a blank line ends a stanza
+          was {0} for every text in the repo
+  PASS  ...and the derivation RECORDS that it had evidence
+          M-39: source='blank_lines'
+  PASS  stanza 0 is the first two lines
+  PASS  a text with no blank line SUPPLIES NO STANZA GROUND
+          was asserted to be 'one stanza'; source is now 'none'
+  PASS  ...so a stanza-framed schema REFUSES on it, naming the frame
+          it used to return edges over one frame and report a number
+  PASS  stanzas=False keeps the old behaviour, on purpose
+  PASS  a declared per-line stanza wins over the page
+  PASS  two stanzas, each a monorhyme, are two findings — P3 and P8 together
+          [(0, 1, True), (1, 1, True)]
+
+P14. a quotient nobody declared is not the identity — proest was UNSATISFIABLE, family rhyme fired on cat/bat, 同用 read 流/樓 False
+  PASS  the identity partition makes proest UNSATISFIABLE, and it is not a matter of degree: MUST-DIFFER and CLASS-EQUAL are each other's negation under it
+          6 real Welsh proest pairs, [False, False, False, False, False, False]. Either the nuclei are equal (DIFFER reads False) or they are not (CLASS-EQUAL reads False), so no input of any kind can read True — the schema was not strict, it was empty, and it answered FALSE rather than refusing, which is a WRONG ANSWER and not a missing one.
+  PASS  the shipped proest REFUSES on a declaration that names no vowel class, instead of answering False
+          Refusal(schema='proest', capability='quotient:vowel_class', detail="proest needs 'quotient:vowel_class'; this declaration (cym) does not supply it. Refused rather than asserted. Every missing name is on `.missing` — declaring only the first would not make this schema run.", missing=('quotient:vowel_class',), kind='capability', vacuous=())
+  PASS  with the quantity DECLARED, tân/tôn is proest — the first True this schema has ever been able to return
+  PASS  ...and so is llon/llan, two SHORT vowels under one coda
+  PASS  ...and tân/llon is not: long answered by short is the fault the class requirement exists to catch
+  PASS  ...and tôn/tôn is not either: the vowels must still DIFFER, so the class agreement did not swallow the other predicate
+  PASS  family rhyme no longer fires on cat/bat — it REFUSES for want of the manner partition its own label names
+          it read True on an ordinary perfect rhyme, as a FAMILY relation, because coda CLASS-EQUAL under the identity IS coda AGREE. Every instance the schema has ever reported was tail rhyme at the finest grain wearing a label about manner classes.
+  PASS  DECLARED, the partition does the work the label claims: cat/cap is family rhyme (T and P are both stops)
+  PASS  ...and cat/can is NOT (T is a stop, N is a nasal)
+          the identity partition read cat/cap False and cat/bat True — exactly backwards for a relation defined on manner classes.
+  PASS  流/樓 — the rhyme of 登鸛雀樓 — is TRUE at the relation layer, and agrees with the phonology that owns the table
+          [True] against ltc.rhymes -> True. The nuclei are 尤 and 侯, two 廣韻 categories the 平水韻 同用 grouping merges; comparing them at the identity is doctrine 36's own error, and the schema is NAMED for the grouping it was not consulting.
+  PASS  ...and the grouping reaches the schema from the PHONOLOGY, not from a table copied into relations.py
+          doctrine 84 and rhyme_types.py's own move: where a phonology declares the relation, the producer asks it instead of re-deriving one. relations.py imports no LANGUAGE (none) — `quality.phonology.get` in main() is the registry accessor and names no language — so the 平水韻 table stays in the one module that owns it and `phon.quotients` is the seam. Copying it here would have given the repo two sources for one grouping, which is the defect the fix is not allowed to trade for.
+  PASS  ...and a declaration that authorises NO grouping refuses rather than firing: standard='qieyun' is the raw rime class
+          'qieyun' means finer than any poet worked to, and 流/樓 being False under it is doctrine 36's demonstration — which `rhymes()` still gives. A schema named for the 同用 group has nothing to ask for there, and saying so is not the same as answering False.
+
+P15. `unmatched` declared 'differ', implemented it nowhere, and omitted the two values evaluate() actually branches on
+  PASS  the four values are MEASURED against evaluate()'s own branches, not recalled
+          the field's comment read `exclude | differ | forbid`. 'differ' is in no branch of evaluate() and on none of the 77 schemas; 'require_a'/'require_b' are two branches and two schemas (apocopated rhyme, semirhyme) and were not in the vocabulary at all. A MUST-DIFFER on the matched material is a CHANNEL rule — pararhyme states it as ChannelRule('nucleus', DIFFER) — so the honest close of the value is a DELETION, not a wiring.
+  PASS  ...and every schema in the registry declares one of the four
+          ['exclude', 'forbid', 'require_a', 'require_b']
+  PASS  an undeclared value REFUSES at construction rather than taking the 'exclude' path in silence
+          "unmatched must be one of ('exclude', 'forbid', 'require_a', 'require_b'), not 'differ'. It is a SPAN coordinate over the material the alignment left over; a MUST-DIFFER on the matched material is a CHANNEL rule (pararhyme states it as ChannelRule('nucleus', DIFFER)) and never this field." — it used to build fine and behave as 'exclude', so a typo and a policy read the same, which is doctrine 16's failure mode: an undeclared setting failing toward whoever guessed.
+
+build_stream(): the token map is built from the token, not by rescanning the song
+  PASS  4x the units costs well under 4x the time squared
+          7680 units 0.12s -> 30720 units 0.98s, ratio 7.9x (quadratic would be ~16x; it measured 11.9s at 30k units before)
+  PASS  30k units build in under 3 seconds
+          30720 units in 0.98s
+
+[REGRESSION GUARD] the three sequence predicates are implemented here and must not be ported backwards
+  PASS  SequenceEqual defines __call__
+  PASS  SequenceSuffix defines __call__
+  PASS  SubsequenceOf defines __call__
+  PASS  SequenceEqual is total and ordered
+  PASS  reverse_b reverses the ELEMENT stream (amphisbaenic: step/pets)
+          reversing a one-syllable span's index selection is a no-op, which is why the reversal has to happen inside the derived sequence
+  PASS  SequenceSuffix requires the bridge (croes vs traws)
+  PASS  SubsequenceOf is order-preserving containment
+  PASS  all three propagate None rather than deciding
+
+[THE HEADLINE CLAIM] a head-anchored relation is reachable, which is what a suffix comparator cannot do
+  PASS  the phonology says kukka/kalevala alliterate
+  PASS  a suffix comparator cannot see it: the tails share nothing
+          sa[-2:]=['kuk', 'ka'] vs sb[-2:]=['va', 'la'] — this is what a producer computing sa[-n:] against sb[-n:] compares, whatever `position` is passed
+  PASS  relations.py finds it, because the anchor is per MEMBER
+          ["alliteration: 'kuk' ~ 'ka' L0/L0 -> True"]
+  PASS  the span it found is HEAD-anchored, one syllable, word-initial
+
+[THE HEADLINE CLAIM] a missing capability is a Refusal naming it, never a False
+  PASS  a phonology with no prominence supplies none
+  PASS  perfect rhyme refuses on 'prominence'
+  PASS  a Refusal has no truth value
+          so it cannot be coerced into the False it is not
+
+R1. a refusal names EVERY missing capability, not the first one to sort
+  PASS  a schema needing TWO capabilities reports two
+          {'family rhyme': ('prominence', 'quotient:manner'), 'proest': ('prominence', 'quotient:vowel_class'), 'dialect rhyme': ('poet', 'prominence'), 'trite rhyme': ('prominence', 'quotient:trite')} — before the fix each of these returned after the FIRST failing capability and `.missing` did not exist
+  PASS  ...and `.capability` still holds the first, so it stays a stable grouping key
+          relations_null.Coverage buckets cannot_obtain rows on it; a key that silently changed shape would make every stored census incomparable with the next one
+  PASS  the detail names all of them, not just the key
+          a reader of the message gets the same set as a reader of the field
+  PASS  `missing` equals `provides`'s own answer for all 77 schemas
+          disagreements: []
+  PASS  `.complete` separates a capability refusal from every other kind
+          doctrine 28 at the scale of one dataclass: a span refusal or relations_null's 'denominator' refusal leaves `missing` empty, and empty must not read as 'nothing was missing'
+  PASS  a Refusal built the old three-argument way still constructs
+          quality/relations_null.py builds one that way and this file may not edit it
+
+R2. `poet` is a SECOND-DECLARATION surface, like `earlier`
+  PASS  `poet` is in ALT_SURFACES, and that tuple is the only gate
+          ('orthography', 'earlier', 'delivered', 'sung', 'licence', 'poet')
+  PASS  `dialect rhyme` and `historical rhyme` differ ONLY in the surface their channels read
+          so nothing distinguished them that could justify wiring one and not the other
+  PASS  with no alt declared, `poet` is still not supplied
+  PASS  ...and `dialect rhyme` still refuses, naming it
+  PASS  ...and `capability_report` still lists it under 'poet'
+          {'poet': ['dialect rhyme']}
+  PASS  a declared `poet` surface supplies the capability
+  PASS  ...and `dialect rhyme` FIRES on love/prove, which is CONSONANCE in the declared dialect
+          ["dialect rhyme: 'LAHV' ~ 'PRUWV' L0/L1 -> True"]
+  PASS  ...on the SECOND declaration's nuclei, not the first's
+          the schema wants nucleus AGREE on `poet` AND nucleus DIFFER on the anchor in the declared one; a bare flag could satisfy neither
+  PASS  an alt that is the SAME phonology finds nothing, which is why the wiring is not the capability
+          doctrine 44: the build was one name in a tuple; the blocker is a SOURCED dialect phonology, and this repo has none
+
+R3. the two capabilities that stay unprovidable, and why wiring them would MANUFACTURE
+  PASS  check_unprovidable finds nothing wrong with the table
+  PASS  every entry's blocker is one of doctrine 44/92's three
+          {'stub_resolution': 'build'}
+  PASS  `poet` and `frequency` are NOT in the live table; `stub_resolution` is
+          ['stub_resolution']
+  PASS  ...and `frequency` is RETIRED WHOLE rather than deleted — the reason a capability cannot be supplied does not stop being true because the schema that wanted it was re-founded
+          ['frequency'], detail 3742 chars
+  PASS  a retirement is checked in the OTHER direction too: a schema asking for a retired capability again is a finding, not a silence
+          ['frequency: RETIRED as unprovidable, and a schema asks for it again (trite rhyme). Move the entry back into UNPROVIDABL
+  PASS  neither is reachable from a stream declaring everything a caller CAN declare — including every alt surface
+          now provided: []
+  PASS  forcing `frequency` no longer makes `trite rhyme` fire — it REFUSES for want of `quotient:trite`, because the capability is now read on a channel instead of gated on a bare `requires=`
+          Refusal(schema='trite rhyme', capability='quotient:trite', detail="trite rhyme needs 'quotient:trite'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` — declaring only the first would not make this schema run.", missing=('quotient:trite',), kind='capability', vacuous=()); `perfect rhyme` on the same stream still returns 2 instances, which is what the old wiring copied
+  PASS  ...and the capability it DOES name is one of its own channels' — the difference between a schema that consults the thing it is named for and one that wears the label
+          capabilities ('prominence', 'quotient:trite'); channels [('nucleus', None), ('coda', None), ('token', 'trite')]
+  PASS  a flagged `stub_resolution` fires on ORDINARY verbatim repetition
+          1 instances on a plainly repeated line — which is `refrain/chorus`, a schema this registry already has
+  PASS  ...and finds NOTHING on the line that actually carries the stub
+          0 instances: `&c.` tokenises to `c`, so the pointer line is not equal to the line it points at and never will be until something RESOLVES it. The flag inverts the schema — it reports the cases the schema is not for and misses every case it is for.
+  PASS  `refrain by reference`'s `count` statistic has NO null in NULLS
+          so wiring the capability would start a schema firing with nothing behind it that could fail — doctrine 63/68. Its positional statistics DO have a menu: local_fraction@2 -> ('line_permutation', 'global_redeal', 'line_final_permutation')
+  PASS  every capability relations.py calls unprovidable is also in relations_null.NEVER_PROVIDED
+          the reverse containment is NOT required while a row there is being retired
+  PASS  a RETIRED capability keeps its NEVER_PROVIDED row and is still not provided by even a maximally declared stream — retiring the entry retires the SCHEMA'S CLAIM ON IT, not the blocker
+          retired: ['frequency']; in NEVER_PROVIDED ['frequency']; provided by the rich stream []
+  PASS  ...and every EXTRA row there is one this file has since made REACHABLE, never a gap relations.py forgot
+          extra rows: [] — OWED IN quality/relations_null.py (this file may not edit it): drop the 'poet' row from NEVER_PROVIDED, because `dialect rhyme` is now `historical rhyme`'s case — blocked on a SOURCED dialect phonology, not on a branch that does not exist. Its `cannot_obtain` remedy string currently reads 'BUILD it: no stream field carries the writer's dialect', which is the wrong remedy now; the right one is its own 'declare the capability on the stream'. Empty list here = the edit has landed.
+
+rhyme_constraints.py — an UNREADABLE nucleus is not an EMPTY one
+  PASS  fas writes no short vowel, so the nucleus is None
+  PASS  ...and the knowledge read is UNREADABLE, not a certain absence
+          [(None,), (None,)] — was (frozenset({'∅'}),), which two syllables then AGREE on at (True, False)
+  PASS  agree() on two unreadables refuses
+  PASS  agree() on two genuinely ABSENT codas still agrees, muted (doctrine 25: see/free)
+  PASS  an English nucleus is still certain knowledge
+
+M-15. traditions — SOURCED, honestly EMPTY, and the four scopes
+  PASS  every one of the 77 schemas is either SOURCED or listed in UNSOURCED with a reason
+          75 sourced, 2 honestly empty (blues AAB stanza, refrain by reference). The import-time builder RAISES on a schema in neither, so a new schema cannot ship an empty `traditions` by accident.
+  PASS  every Tradition cites a RHYME_CANON entry that exists, and the entry carries its `from:` line
+          a tradition read off a schema NAME is the gabay higaad error (RHYME_CANON §0): that entry was reconstructed from this repo's own modules and read back as external confirmation.
+  PASS  SOMALI is scoped to ZERO of the 77, which is what the source says
+          RHYME_CANON §0 and §5.4: `gabay higaad` has no source in the 601 at all and Somali appears in no inventory cell. The mechanical form of that is a zero, not a plausible-looking list.
+  PASS  M-15's three named cases are RULE SHAPE ONLY on English
+          they are not wrong — the rule shape matched. Before this nothing in the output could say so (doctrine 43).
+  PASS  ...and each is IN TRADITION on its own language
+  PASS  a FOURTH scope exists, because 'the source cannot say' is not 'the source says no'
+          R71 cites G63 — the germanic/finnic cell — and names no tradition in it. Reporting `rule_shape` there would assert an absence the canon does not support.
+  PASS  `named_cells` is ENTRY-scoped, not schema-scoped
+          the schema cites R1, whose from-line includes English indices — but R1's English tradition is named, under `perfect rhyme`, at grain=identity. Computed per SCHEMA this returned 'cannot say' where the source says plainly where English lives.
+  PASS  the report gives THREE counts for the run, not two (doctrine 79)
+          a schema the instrument REFUSED for want of a capability is not a schema that ran and found nothing.
+  PASS  ...and three counts over INSTANCES as well, with UNDECIDED kept
+          {'true': 46, 'false': 245, 'undecided': 0}
+  PASS  search_k is CONSUMED: a searched span rule reports its k
+          doctrine 56. `Span.search_k` was carried from the first commit and nothing read it, so a count obtained by SEARCH looked identical to one obtained by lookup.
+
+M-15a. the survey index, inlined — and the ways it went wrong
+  PASS  the index is present and complete over the six DECLARED cells
+          601 rows. `loaded()` False would make every witness below `None` — cannot tell — which is not `no witness`.
+  PASS  the POSITIONAL reading is checked against the canon's own prose, or REFUSES because the transcripts are not on this machine
+          REFUSED, not failed: no transcript recovered for cell(s) ['E', 'C', 'G', 'S', 'I', 'X']: no transcript file parsed under /root/.claude/projects. Set CANON_TRANSCRIPTS to a session store to run the rebuild.
+  PASS  the checks reach PAST the first sourceless indic entry (position 32)
+          18 of the indic cell's 74 entries carry no `source` key and are INTERLEAVED from 32, so a source-keyed reader renumbers the tail while I1 and I6 still look right. It put `chan (ฉันท์)` on I47, where the array holds `syair monorhyme quatrain`.
+  PASS  `md` is NOT a top-level domain here
+          with Moldova in the TLD list, `CLAUDE.md doctrine 18` parses as a hostname and six names — anaphora, epistrophe, repetend, repetition, refrain/burden/chorus, cynghanedd in English — read as externally attested on a citation to this repo's own doctrine file.
+  PASS  four witness states, and the last two are not `no`
+          doctrine 28: `we checked and it is us` and `nobody recorded a witness` are different sentences with different remedies.
+  PASS  `unrecorded` splits into an APPEAL and a missing FIELD
+          `standard rhetorical taxonomy` and `no source key at all` both resolve to nothing, and only one of them is answerable by reading harder.
+  PASS  every ADJUDICATED override names the entry it expects
+          the first draft was keyed on position alone, and when the recovery was corrected the `Thai named rhyme faults` override landed on `talibun and seloka`. An index is a position; a position is not an identity. `adjudicate()` raises on drift and on a no-op override.
+  PASS  every PRIMARY_IN_REPO citation is still quotable from its file
+          9 rows, each re-checked by running its own grep — Snorri's Háttatal c. 1222-25 in quality/phonology/non.py and 平水韻 (1252) / 詞林正韻 (1821) in quality/phonology/ltc.py. Doctrine 62: the primary source is a spec.
+  PASS  THREE counts over the traditions, never two (doctrine 79)
+          external 212, THIS PROJECT'S OWN 26, cannot tell 60, of 298 distinct on 319 attachments.
+  PASS  `attested()` is True/False/None and never collapses the last two
+          None PROPAGATES. A schema nobody could attribute and a schema whose tradition this project invented are different values.
+  PASS  the traditions this project invented are LABELLED, not dropped
+          an invented name that says it was invented is fine; an invented name that reads as attested is the defect. Arabic al-ḥurūf al-muhmala / al-muʿjama, Arabic qaṣīda monorhyme, Arabic tashābuh al-aṭrāf, Welsh cynghanedd lusg …
+  PASS  every attribution shares a distinctive token with the survey entry's own NAME, not merely with its tradition field
+          211 attributions, 0 matched on the tradition field alone: []. Filtering by language BEFORE testing uniqueness put `English refrain / burden / chorus` on `E3 repetition (same-word rhyme)` and `Finnish Kalevala vahva alkusointu` (vahva = STRONG) on `G82 Kalevala WEAK alliteration`.
+  PASS  a name whose only cell candidate contradicts its language gloss is NOT attributed
+          `I61` is `chan (ฉันท์) quantitative template`, Thai. Folding diacritics makes `chân` and `chan` the same token, and a filter that can only delete is what stops that becoming a citation.
+  PASS  the multi-line `from:` reader finds more than the single-line one
+          multi-line 654, single-line 0. audit_register.py --provenance counted the single-line reading with a regex on the first occurrence only. R1's from-line runs onto a second line, R29's onto three, and §H/§I write `from:` inline. Doctrine 58 inside the adversary built to find doctrine-58 errors -- and the 781 this check used to pin was itself a doctrine-58 error one layer further in, since a block that ran past `## 3.` counted another section's declarations as its own.
+  PASS  RHYME_CANON.md now carries publication YEARS, and they are the real ones
+          the audit's sharpest single finding was `0 publication-year tokens in 94 KB`. Every year in §8 comes from a repo file that prints it, never from recollection (doctrine 39).
+
+§2.6. the matched control — and the null that is the IDENTITY MAP
+  PASS  every null states what it PRESERVES and what it DESTROYS (doctrine 63)
+          5 nulls: global_redeal, identity, line_final_permutation, line_permutation, within_line_shuffle
+  PASS  the seed is FIXED and STATED (doctrine 66)
+  PASS  LINE PERMUTATION is the IDENTITY MAP for a schema with no bounded line-distance placement
+          observed 7.0, null max 7.0, 0% of replicates differ. This is the null this repo uses for Whitman, the Kalevala and BilhaNa. Doctrines 63/68 in a third mechanism.
+  PASS  ...and the derivation SAYS SO before the measurement does (doctrine 75, per PREDICATE)
+          derived from the schema's own placement tuple, not from the corpus. The measurement is still the authority (doctrine 68), and `report()` prints a disagreement AS a disagreement — one is already on record: `local_fraction@0` was first given `line_distance` and derived as biting under line_permutation, and moved 0 of 20 replicates. The table was corrected to match the measurement, not the other way round.
+  PASS  a fraction statistic with no denominator REFUSES rather than reporting 0.0
+          doctrine 79: no instances is not a placement of zero.
+  PASS  the result reports the GAP TO THE NULL MAX and the p RESOLUTION side by side (doctrine 57)
+          an empirical p at 1/(n+1) reports the resolution, not the effect.
+  PASS  the observation is built by the SAME pipeline as the replicates (doctrine 91)
+          `identity` is not a control; it exists so a difference between observed and null can never be the rendering.
+
+The five defects §2.8 left OPEN, each now at ONE of the three honest ends — wired, deleted, or declared inert with the reason. All five are asserted, so RE-OPENING one is a test failure that has to be read, exactly as closing one used to be.
+  PASS  P2 CLOSED by DELETION: SpanRule has no `terminator`, and nothing in the registry lost a distinction
+          154 member rules over 77 schemas. Before deletion: 153 carried the default 'word_edge' and 1 carried 'frame_edge', and NO magnitude mapped to two terminators — the field was a function of `magnitude` and could not distinguish anything. The single non-default was `broken rhyme`, whose magnitude 'to_frame_edge' already says it. Deleting a duplicate is the close; wiring one would have INVENTED a semantics no schema and no canon entry asks for. This assertion now fails if the field comes back OR if a magnitude ever needs two of them.
+  PASS  Span.unit: still inert, and now DECLARED inert in the code rather than only in this test
+          doctrine 1: a coordinate nobody reads is a stated assumption that is not in force, so the declaration lies about what the analysis depends on. The three honest ends are wire, delete, or KEEP IT AND DECLARE IT — and the third was previously being taken in a test file that a reader of relations.py never opens. relations.py §10a now carries the entry, with the reason and the activation condition.
+  PASS  ...and its blocker is named as one of doctrine 44/92's three, and it is `disjoint` — NOT `build`
+          this is the whole content of the entry and the reason 'build the granularity ladder' is the wrong instruction. Three of the nine shipped phonologies (fas, san, som) DECLARE grid_unit='mora', so the declaration half exists; all nine return Syllables from syllabify() and build_stream indexes those, so the stream half is the syllable for every one of them INCLUDING those three; and the consumer half exists in rhyme_constraints.read_channel, in a module whose own registry never sets the field. Every piece is built and no two are in one object.
+  PASS  ...and the declaration is MEASURED, not asserted — check_inert() re-derives it and fails in BOTH directions
+          doctrine 48: 'declared inert, with the reason' is a principle that lives only in prose and gets followed exactly as often as somebody remembers it. check_inert() enumerates every span the registry can produce and fails if a declared-inert field has GAINED a value — so a later session that starts setting Span.unit gets a failing test instead of a field quietly acquiring a semantics nobody declared. It also fails if the field is deleted while its entry survives. Run: python3 quality/relations.py --inert metidja.txt
+  PASS  ...and the sixth inert coordinate this repo has found is IN the table: rhyme_constraints.Span.unit, where the read is DEAD
+          read_channel() branches on `extent.unit != 'syllable'` into _phone_projection, so a grep for a read finds one. Measured over that module's registry, 40 of 40 member spans declare 'syllable' and the branch is unreachable from any shipped constraint. A read whose values do not exist is not a wiring — which is why the inventory of inert coordinates has to be MEASURED and not grepped.
+  PASS  ...and the SEVENTH shape, which neither a grep nor a coverage report can find: a branch that RUNS and cannot branch
+          `_extent_from` reads terminator to choose the locus edge over the frame edge, and the read is reachable only on the 11 of 40 member spans with an INT magnitude. None of those 11 declares 'locus_edge', and 'count' and 'frame_edge' both take the frame side — so three declared values and full line coverage produce ONE behaviour, on every reachable member, every time. check_inert() censuses the BRANCH each value selects rather than the values, because counting values would report this field LIVE while its behaviour is a constant.
+  PASS  text-order, half 1: a SYMMETRIC schema is byte-identical — the skip really was exact de-duplication there
+          60 of the 77 schemas have spans[0] == spans[1], so A and B are the same list and (b, a) is always enumerated too. Every count this repo has taken over a symmetric schema is unmoved, which is the precondition for touching this at all.
+  PASS  text-order, half 2: the DECLINE was FALSE — on an ASYMMETRIC schema the skip DELETED instances, and only there
+          metidja.txt, all 77 schemas: 103 instances recovered over 4 schemas (amphisbaenic rhyme, cynghanedd lusg, cynghanedd sain drosgl, mosaic rhyme), 65 of them TRUE, and ZERO on any of the 60 symmetric schemas. On an asymmetric schema the two members come from DIFFERENT rules, so (b, a) is generally not enumerated and there was nothing to de-duplicate — the skip was pure loss. `mirrored()` drops a reversed pair only where the mirror is genuinely a candidate.
+  PASS  ...and the concrete case: `mosaic rhyme` recovered its ENTIRE TRUE set, because every one of those pairs had the single word print SECOND
+          62 of the schema's 112 TRUE instances existed only because the positional skip was removed — every one of them a real rhyme where the single-word member happened to print after the multi-word run that rhymed with it. A schema's recall was a function of which member the text prints first, which is not a naming decision.
+  PASS  ...and `cynghanedd lusg` recovers candidates that still read FALSE, so 'recovered' and 'TRUE' are not the same claim
+          doctrine 20: a schema can gain candidates the old skip deleted and still judge every one of them False. The recovered pairs here are wrong for a phonological reason, not hidden by the ordering bug being also correct — the two questions (was this candidate EVALUATED, and did it PASS) stay separate on purpose.
+  PASS  ...and the loss is COUNTED from now on, from realise()'s own tally rather than a re-derived loop
+          doctrine 56's sibling: search_burden() counts hypotheses, order_burden() counts what the convention costs. Counting the raw A x B cross product instead would be a different denominator dressed as the same one — it skips the frame and bucket join and reads 9,044 where the schema reports 15 (adversary 7).
+  PASS  P10 closed: relations.py holds a LINE STATUS and ships no detector
+          the stub is a LINE STATUS and the stream now has the field. The TOKENISER is unchanged and still reads '&c' as 'c' — that is correct, because it is a pointer, not a word, and deciding which printed mark is a pointer is the EDITION's business (BACKLOG §2.4: Finnish prints 'j. n. e.', Malay 'd. s. b.'). relations.py ships no pattern, imports nothing from lyric_harness, and REFUSES to guess: Refusal(schema='search_stub_resolution', capability='line_status', detail="nobody has said which lines are POINTERS. Declare it -- `build_stream(line_status=...)`, or `line_status_from(lines, predicate, label)` -- or pass `is_stub=`. Which printed mark is a stub is the EDITION's judgement and this module ships no list: English prints `&c.`, Finnish `j. n. e.`, Malay `d. s. b.` (P10, BACKLOG 2.4). An empty map would say 'no pointers here', which is a different answer (doctrine 20).", missing=('line_status',), kind='capability', vacuous=())
+  PASS  ...and the caller's own predicate excludes it, with the loss RECORDED
+          build_stream(line_status=..., exclude_status=('chorus_stub',)) with lyric_harness.is_chorus_stub as the declared predicate: 'c' stops being an end word, and the dropped line lands in Stream.excluded_lines rather than vanishing (doctrine 79).
+  PASS  ...and a stream that declares nothing is unchanged, byte for byte
+          the coordinate is INERT by default. A capability nobody declared must not change a single count.
+  PASS  P11's production half is CLOSED, and the shipped `eng` still declares ONE reading — which is what keeps this fixture honest
+          `quality.phonology.Syllable` can hold a knowledge set as of 2026-08-11 and `Phonology.parses()` is the hook that produces one. The DEFAULT is still the single reading, in eng and in this fixture, so nothing here moves. See quality/test_homograph.py for the same fixture wired the other way, where wind/find stops being a perfect rhyme and becomes UNDECIDED.
+  PASS  P11 closed (comparison half): a channel may hold a KNOWLEDGE SET and an unresolved homograph reads UNDECIDED
+          mined from rhyme_constraints.py's frozenset-per-channel (M-16's one genuine advance, stranded in a file with no caller). Before this, one reading was picked and a verdict returned on a reading nobody declared.
+  PASS  ...and set algebra still DECIDES where the readings agree on the answer
+          disjoint readings cannot agree; a singleton set is certain knowledge. UNDECIDED is reserved for genuine ambiguity.
+  PASS  ...and an uncertain read is a WILDCARD in the candidate index, never pruned
+          a tuple is ONE value (a cluster), not a set of readings. Bucketing a homograph on one reading would delete exactly the pairs P11 is about — the Persian pruning failure arriving from the other side.
+  PASS  ...and doctrine 25 survives it: two ABSENT codas still agree, muted
+          a quarter of the sonnets' mandated pairs have two empty codas. A set-algebra rewrite that lost this would delete them all.
+  PASS  P11, END TO END: a two-reading phonology makes wind/find UNDECIDED through realise(), where the one-reading fixture asserts a VERDICT
+          knowledge-set fixture: None; single-pronunciation fixture: True. CMUdict holds W AY1 N D first and W IH1 N D second, so the shipped fixture reports `wind`/`find` as a PERFECT RHYME — correct for the verb, wrong for the noun, and nothing in the output said which one it had read. That is a false positive on a homograph, not merely a missing feature. The pair is not PRUNED either: an uncertain nucleus is a wildcard in the candidate index, so the homograph survives to be refused instead of being deleted from the sample.
+  PASS  ...and the refusal names itself on the Instance's reads
+          ['2x1 readings overlap but do not settle it — a homograph the declaration cannot resolve, so the answer is UNDECIDED, not a guess']
+  PASS  an `eng` phonology is declared (MISSING F-1 closed)
+          declared: ['cym', 'eng', 'fas', 'fin', 'ltc', 'msa', 'non', 'san', 'som']
+  PASS  eng REFUSES an out-of-dictionary word rather than guessing
+          known gap 1's canary. An empty syllabification is a refusal, not a zero-syllable word, and doctrine 79 says it must not land in a violation numerator.
+  PASS  eng leaves `rhymes()` as the inherited stub, deliberately
+          doctrine 84: a phonology that DECLARES a relation wins over the channels. English's rhyme relation IS the channel comparison under Declaration's theta, so implementing it here would hard-code one threshold inside the phonology and hide it from the declaration tuple (doctrine 1).
+
+X1. --inert: the published answer, and the falsifier that makes it worth publishing
+  PASS  `relations.py --inert metidja.txt` RUNS and exits 0 — the three declared-inert coordinates all still hold
+          measured: Span.unit 1 value over 5,761 observations, rhyme_constraints.Span.unit 1 over 40, rhyme_constraints.Span.terminator@branch 1 (frame side) over 11, and 0 SYMMETRIC schemas recovering a deleted instance. This is the command in every INERT entry's `measured` field and nothing in this repository had ever run it.
+  PASS  ...and the census it PRINTS is the one check_inert() reads, so the number a reader sees and the verdict cannot drift
+          3 entries, 3 MEASURED rows, census [(1450, ["'syllable'"]), (40, ["'syllable'"]), (11, ['frame side'])] — doctrine 58: the count is taken over the text in hand, never recorded in the entry.
+  PASS  EXIT 1 IS REACHABLE ON REAL INPUT: a stream with no observations fails rather than passing vacuously
+          doctrine 20. `Span.unit: no observations on this stream, so the inertness claim was not tested`. Verified end to end through the CLI as well: `python3 quality/relations.py --inert EMPTY` exits 1.
+  PASS  ...and EXIT 1 on the direction that matters — a declared-inert field that GAINS a second value
+          ["Span.unit: DECLARED INERT and takes 2 values over 1450 observations ('phone', 'syllable') — it is LIVE now, so the declaration is false and the reason must be replaced by what reads it"] — so a later session that wires Span.unit gets a failing command, not a field quietly acquiring a semantics nobody declared. Restored afterwards: check_inert is clean again ([]).
+  PASS  ...and the run is clean again once the patch is removed, so this test cannot leave the module poisoned
+  PASS  check_inert() takes (stream) alone — its `chans` parameter was declared and never read, and is gone
+          (stream) — an unread parameter in the one function whose job is to catch unread coordinates. No caller passed it; doctrine 1's three honest ends are wire, delete or declare, and nothing declares it.
+  PASS  the INERT table is THREE span-shaped fields, and none of them is an anchor / diacritic / glide coordinate
+          quality/RESULTS_CYM_RHYME.md §10a is headed 'None of the four declared coordinates is inert (`relations.py --inert`'s question)' and its four coordinates are anchor depth, anchor rule, diacritics and glide — measured by quality/cym_rhyme_rate.py over pair verdicts, not by this command, which reports three entirely different fields. The shared name is `relations.py`'s OWN §10a (the INERT section, and what this report's header prints); the two are different questions and only one of them has a command.
+
+X2. the default report path, RUN — and its printed numbers checked against the dict it renders
+  PASS  print_relation_report() runs and prints doctrine 79's three counts as the dict holds them
+          the renderer and relation_report() are two objects and only the dict had a test; a renderer that quietly printed the wrong field would have been invisible.
+  PASS  ...and the three INSTANCE counts too, UNDECIDED included
+          {'true': 46, 'false': 245, 'undecided': 0} — the ternary this module exists to preserve, and the pointer to the matched control, both reach stdout.
+  PASS  `python3 quality/relations.py metidja.txt` RUNS end to end and exits 0
+          REFUSED 24 · RAN AND FOUND NOTHING 29 · RAN AND FIRED 24. REPINNED 2026-08-23 from ~~31 · 26 · 20~~ (2026-08-22, M-39) and before that ~~26 · 27 · 24~~ (2026-08-13). SEVEN SCHEMAS STOPPED REFUSING on this text, and the move is the capability work of 2026-08-22/23, not drift. THREE of the seven are attributable here by measurement rather than by argument: withdrawing `eng.English.quotients` in memory and re-running this same verb gives REFUSED 27 · RAN AND FIRED 22, so the shipped manner and trite partitions account for 3 refusals and 2 of the extra firings. The other four are the stub, sense, lift, beat and delivery seams that landed in the same window. M-39's own note still holds and is why the number is not simply back at 26: `metidja.txt` prints NO blank line, so it supplies no stanza ground and the five `frame="stanza"` schemas refuse on it instead of quantifying over one frame.
+  PASS  the AAB fixture supplies a stanza ground from its printed blank line, and TWO stanzas — not one, which is what made the old hit meaningless
+          Supply(capability='stanza', state='present', n=2, source='blank_lines', detail="distinct stanzas over the stream's units")
+  PASS  ...and the UNSOURCED branch — a second dict read by schema name — is exercised rather than merely present
+          the only branch in the renderer that indexes UNSOURCED[schema]. `UNSOURCED` has exactly two members and the other, `refrain by reference`, needs `stub_resolution`, which nothing in this repo provides — so this schema on a real AAB stanza is the only route to the branch that is not an artefact.
+  PASS  a `#` stage direction and a `--- TITLE:` note are APPARATUS here too — this reader kept only the `[` case
+          `lyric_harness.py`'s relations verb was centralised onto is_apparatus_line on 2026-08-12 and this module's own main() was not, so the same file read through the two surfaces was two different texts — the stage direction tokenised, rhyme-graded and counted into the stanza frame on one of them. Spelled inline, not imported: P10's invariant is that relations.py imports nothing from lyric_harness, and readability.py / grid.py carry their own copy for the same reason. BLANK lines still go through, which is why load_lyric_lines would be wrong here even if it were importable — relations.py derives the stanza frame from them.
+
+X3. the caesura search: three k's, three denominators, one published number
+  PASS  search_caesura() RUNS on the staged Welsh strict-metre edition, and its own k is 4.02 per line — NOT the 10.6 it used to quote
+          corpus/cym_alun_strict.txt: mean_k 4.0167 over 1558 lines. k is the count of word-initial units after the first, i.e. the TWO-part cuts, because half_line_a / half_line_b is the only caesura locus in this registry.
+  PASS  ...and the 10.6 REPRODUCES, from cym.cynghanedd_scan()'s positions_tried — a different module and a wider search
+          10.6207 over the same 1,558 lines. `python3 quality/cynghanedd_rate.py corpus/cym_alun_strict.txt 1` prints `mean placements tried = 10.6` beside `890/1558 = 57.1%`, which is METHOD doctrine 56's own Alun figure.
+  PASS  ...and the gap is exactly the THREE-part sain cuts: mean of k + C(k,2) lands on the scanner's number
+          k+C(k,2) = 10.6996 against the scanner's 10.6207; the residue is the two modules' tokenisers (relations.tokenise against cym.WORD_RE/normalise). So a null built on THIS k under-corrects a three-part rule by ~2.6x, which is doctrine 56's own failure mode one level in.
+  PASS  with no caesura declared all four caesura schemas REFUSE and their search burden is literally zero members
+          ['cynghanedd draws', 'cynghanedd groes', 'cynghanedd groes o gyswllt', 'leonine rhyme'] — so the mean_k the `relations` verb prints live has never contained one caesura hypothesis on any input, because nothing in this repository calls search_caesura and the schemas that would carry it refuse first.
+  PASS  declaring the search moves them from REFUSED to firing, and the caesura's k enters search_burden() for the first time
+          corpus/cym_twm_or_nant_cywydd.txt: REFUSED 26 -> 22, fired 41 -> 44, decided-true 13,715 -> 13,773. `cynghanedd draws` returns 50 true instances where it returned a refusal.
+  PASS  ...and search_burden()'s mean_k is a THIRD statistic — size-biased over member spans, not per line
+          per line 4.1026; per member span 4.9875. Each line contributes 2k spans (one per half), so the span mean is sum(k^2)/sum(k) and a long line counts more than once. Two denominators, never a ratio (doctrine 79/91) — and neither of them is the 10.6.
+
+X4. the printed caesura: doctrine 55's third mark, and what its absence from the default costs
+  PASS  the shipped default reads ZERO printed caesurae on the edition that prints 228 of them
+          corpus/cym_alun_strict.txt, e.g. `Ust! y ffrwd,--pa sibrwd sydd?`. The default is `('/', '|')` and the gwant is neither.
+  PASS  ...and declaring the gwant reads 100 of them
+          100 of 228: the other 128 print the gwant line-final, where no unit follows it — the same trailing-dash case cym._marked_parts drops rather than reporting the whole line unreadable.
+  PASS  `marks` can hold a multi-character mark at all — a bare string is still iterated per character, which is what '/|' meant
+          cym.caesura_re builds the split pattern for any DECLARED mark set (M-7): `--` means a RUN of dashes and never a single hyphen. A caller spelling the gwant into the old string default got `-`, which fires on every hyphenated compound in a language that JOINS on the hyphen (doctrine 65) — so the mark was not merely absent from the default, it was inexpressible through the documented type.
+  PASS  and since M-7 the TWO defaults are the SAME two marks — cym's own `caesura='marked'` reads the dash only when an edition declares it, the rule this function has carried since 2026-08-13
+          cym.CAESURA_MARKS = ('/', '|'); the dash was promoted to gwant on ONE edition's evidence, and across five further Welsh files it is punctuation 72 of 72 times (MISSING.md M-7).
+  PASS  the default stays TWO marks on purpose: an English em-dash is punctuation, and punctuation is not metre
+          doctrine 55's own case was a printed COMMA selecting which rule each of 1,558 lines was tested against. Adding `--` to the default would move that defect one glyph over for every non-Welsh stream; the mark inventory is a DECLARATION (doctrine 1) and the caller makes it.
+
+X5. the refrain tail: the documented call could not work, and failed without an error
+  PASS  fas.ghazal_rhyme_lines() returns hemistich TEXTS, and mark_refrain_tail wants indices — the mismatch is a fact about the two signatures
+          `[h[0]] + h[1::2]` over 14 hemistichs. Both are correct on their own; the docstring joining them was not.
+  PASS  passing it REFUSES by name now, where it used to return None on 495 of 495 ghazals with no error
+          `lines` is the rhyme-bearing subset as LINE INDICES into stream.lines; got 8 element(s) that are not indices, first 'الا یا ایها الساقی ادر کاسا و ناولها'. `fas.ghazal_rhyme_lines()` returns hemistich TEXTS and matches no line at all -- use [0] + list(range(1, len(stream.lines), 2)) for the same Persian convention.
+  PASS  ...and with the INDICES it finds Hafez's radif, which is what the function is for
+          ('ها',) over 6 rhyme-bearing hemistichs of ghazal 1. MEASURED over the whole corpus: it fires on 66 of the 495 ghazals in corpus/fas_hafez.json (ghazal 2 `کجا`, ghazals 3 and 4 `را`) and on 0 of 495 through the call the docstring named.
+  PASS  ...and the two schemas that ride refrain_tail move from REFUSED to instances, not from REFUSED to a measured zero
+          before: ['epistrophe / radif', 'qafiya (before the radif)'] all REFUSED. after: `epistrophe / radif` 15 true instances. Through the documented call both schemas ran and reported 0 — a refusal turned into a null by a type error nobody could see (doctrine 20).
+
+X6. the vacuous frame — a declared source is not a population (doctrine 20)
+  PASS  the staged item reproduces the measured split 31 FIRED / 26 REFUSED / 20 RAN AND FOUND NOTHING (repinned from 30/26/21 at M-148: the repaired skothending schema now fires here)
+          (28, 30, 19) on corpus/song/eng_american_dan_e_townsend.txt: 25 raw lines, 204 units. PREMISE — it must hold on both trees.
+  PASS  STATE 1 never looked: supply is `absent` with source 'none', and the refusal's kind is 'capability'
+          Supply(capability='caesura', state='absent', n=0, source='none', detail='no source declared: lines carrying a caesura position') — the remedy here IS to declare a source.
+  PASS  both shipped frame-suppliers RUN on this text and mark NOTHING, and both now say so in their return
+          caesura {'marks': ('/', '|'), 'found': 0, 'lines': 24, 'source': 'printed'}; refrain {'depth': 0, 'run': (), 'lines': [], 'found': 0, 'candidates': 24, 'min_count': 2, 'min_fraction': 0.6}. MISSING M-28 is why: English prints no caesura, and the 1,628 lines carrying an internal run of 2+ spaces are line-number columns and speaker gaps. The SOURCE is still declared on purpose — deleting it would make 'the instrument ran and found none' read as 'nobody looked'.
+  PASS  STATE 2 looked-and-empty: supply is `empty`, n=0, and the SOURCE survives — so state 2 is distinguishable from state 1
+          Supply(capability='caesura', state='empty', n=0, source='printed', detail='lines carrying a caesura position') / Supply(capability='refrain_tail', state='empty', n=0, source='computed', detail='lines carrying a refrain tail')
+  PASS  ...and all SIX schemas REFUSE with kind 'vacuous_frame', naming the empty frame on `.vacuous` — not an empty list
+          {'cynghanedd groes': ('vacuous_frame', ('caesura',)), 'cynghanedd draws': ('vacuous_frame', ('caesura',)), 'cynghanedd groes o gyswllt': ('vacuous_frame', ('caesura',)), 'leonine rhyme': ('vacuous_frame', ('caesura',)), 'epistrophe / radif': ('vacuous_frame', ('refrain_tail',)), 'qafiya (before the radif)': ('vacuous_frame', ('refrain_tail',))}
+  PASS  ...so calling both markers moves NOTHING: the split is still 31/26/20, where it used to become 31/20/26
+          before (28, 30, 19) after (28, 30, 19). Six schemas crossing from REFUSED to RAN AND FOUND NOTHING is the collapse; the counts are the cheapest place to see it.
+  PASS  relation_report separates the two refusals and the partition still closes
+          refused 30 = capability 20 + EMPTY FRAME 6; ran-found-nothing 25; fired 22
+  PASS  STATE 3 looked-and-populated: supply is `present` with n>0, and the caesura schemas RUN AND FIRE
+          Supply(capability='caesura', state='present', n=2, source='printed', detail='lines carrying a caesura position'); leonine rhyme 2 true, cynghanedd groes 2 true on the consonant-skeleton pair. THE RULE MAY NOT SWALLOW A FINDING: a gate keyed on the population must open the moment the population is non-zero.
+  PASS  ...and the refrain schemas do the same on a text that HAS a shared tail
+          {'depth': 6, 'run': ('will', 'go', 'down', 'to', 'the', 'sea'), 'lines': [0, 1, 2, 3], 'found': 4, 'candidates': 4, 'min_count': 2, 'min_fraction': 0.6}; epistrophe 6 true, qafiya 6 true — the miscounted case, still counted.
+  PASS  neither a Refusal nor a Supply has a truth value, and `.capability` is still `missing[0]`
+          both raise TypeError. `kind` defaults to '' — a Refusal built outside realise() has passed through no gate here and labelling it 'capability' would be a claim about one.
+  PASS  `Supply.declared` is TRUE for both looked-at states and False only for never-looked
+          'declared and not provided' is the vacuous state, in one read.
+  PASS  MUTANT: with `provides` reading the SOURCE again, all six stop refusing and return an empty list, the split moves to 31/20/26, and the fourth count goes to zero
+          (28, 24, 25) under the mutant against (28, 30, 19) at head; {'cynghanedd groes': 0, 'cynghanedd draws': 0, 'cynghanedd groes o gyswllt': 0, 'leonine rhyme': 0, 'epistrophe / radif': 0, 'qafiya (before the radif)': 0}. Six schemas, six zeros, and nothing in the output able to say the frames were empty — that is the state this section exists to make illegal.
+  PASS  ...and the mutant is REVERSIBLE — head is restored, so the measurement above was not an artefact of the patch
+          Supply(capability='caesura', state='empty', n=0, source='printed', detail='lines carrying a caesura position')
+
+X7. the orthographic surface — declared by the caller, because a rime rule is a fact about a spelling system (doctrine 45/65)
+  PASS  `eye rhyme` REFUSES on a plain English stream, naming 'orthography' — the state this closes
+          orthography; MISSING E-2. PREMISE — true on both trees.
+  PASS  ...and DECLARING it supplies the capability, with a population
+          {'surface': 'orthography', 'units': 24, 'graphemes': 20, 'found': 20, 'tokens': 20, 'source': 'declared'}; Supply(capability='orthography', state='present', n=20, source='declared', detail='units that project into the second declaration and carry material there'). 20 of 24 units carry a grapheme — the four that do not are the non-word-final syllables of `never`, `engine` and `poet`, and they read UNKNOWN rather than empty.
+  PASS  ...and the schema RUNS and finds love/move: same spelled rime, different nucleus
+          ["eye rhyme: 'LAHV' ~ 'MUWV' L0/L1 -> True"] out of 6 judged pairs. spelled_rime('love') == spelled_rime('move') == 'ove'.
+  PASS  ...and rhyme/time, which SHARE the sound, are correctly NOT an eye rhyme — the schema is not `perfect rhyme` wearing a surface
+          ["eye rhyme: 'RAYM' ~ 'TAYM' L2/L3 -> False"]: the grapheme channel agrees on 'yme'/'ime' and the nucleus DIFFER channel is False, which is the conjunction doing its job.
+  PASS  this module ships NO rime rule and refuses a non-callable by name
+          y is a vowel letter and w is not; a final silent -e folds. Those are ENGLISH, and relations.py serves nine languages — a built-in default would be a checker silently picking a coordinate.
+  PASS  ...and `stress_from_end` is visibly the caller's: the SAME draft carries different graphemes on the surface under the two rules
+          bare ('er', 'er') vs anchored ('ilver', 'iver'). Bare, silver/deliver share '-er' and the ENTIRE unstressed -er/-ing/-ed space collapses into one grapheme class — `spelled_rime`'s own docstring calls that over-reach, and the anchor rule that fixes it is the harness's (last primary stress), not this module's. Choosing either here would be a coordinate nobody declared. Read at the SURFACE rather than through `eye rhyme`'s verdict on purpose: both readings verdict False on this pair because the nucleus DIFFER channel refuses it either way, and a check that could not see the difference would be asserting the wrong layer.
+  PASS  a rime rule that answers nothing leaves the surface DECLARED AND EMPTY, which refuses by name rather than running over unreadable positions
+          Supply(capability='orthography', state='empty', n=0, source='declared', detail='units that project into the second declaration and carry material there'). Defect P7 is the same shape with a real second phonology: a surface that re-tokenises projects to None at every position, so every read is None and the schema reports a zero.
+  PASS  the surface PROJECTS the primary segmentation rather than re-reading the text, so `_project` aligns at EVERY position and the surface's own phon refuses to syllabify
+          24 of 24 units project. A second declaration that re-tokenised would project to None everywhere (defect P7) and read as declared-and-empty here, which is why the surface is built by re-labelling and not by re-reading.
+  PASS  ...and declaring it moves NO phonemic count: `perfect rhyme` is byte-identical with and without the surface
+          a second declaration is read only where a ChannelRule names its surface; nothing else in the registry does.
+
+X8. `frequency`: the two shipped tables are doctrine 92's two halves, and they order the cliche vocabulary differently
+  PASS  `frequency` is still unprovidable and blocker 'disjoint', no stream supplies it, and the schema it names has stopped asking — which is what RETIRED means and why it is not in the live table
+          Supply(capability='frequency', state='absent', n=0, source='none', detail='`Stream.supply` has no branch for this name, so no declaration can supply it (see UNPROVIDABLE)'); `trite rhyme` capabilities ('prominence', 'quotient:trite')
+  FAIL  the ONLY line-final source is pre-1931 and its head is `me` and `thee`
+          data/song_endword_en.tsv: 13855 distinct line-final words, 248221 tokens. A commonness cut on it flags `thee` as one of the two tritest line-endings in English.
+  PASS  ...and the CONTEMPORARY source (`Lexicon.freq_rank` = data/opensubtitles_en_50k.tsv) orders the same words differently: Spearman 0.32
+          rho=0.320 over the 58 CLICHE_PAIRS words in both. `rhyme` is line-final rank 818 against spoken 9131; `skies` 61 against 5647. WHICH TABLE decides the verdict, and neither is the `eng-verse` cell that would settle it.
+  PASS  ...which is `frequency.NO_INDEPENDENT_SOURCE['eng-verse']` stating the same thing one module over
+          position + medium + period, and no source has all three. The refusal is not this file's opinion.
+  PASS  the table is NOT INDEPENDENT of the corpus (doctrine 13), so even reading it needs a DECLARED author a Stream does not carry
+          the item X6 measures the vacuity on has 20 rows IN the table; `quality/frequency.py` refuses to serve it for a contained author unless `leave_out=` is passed, and there is nothing on the stream to pass.
+  PASS  ...and the entry says all of this in `detail`, so a reader who never runs this file still gets the numbers
+          doctrine 48: a principle that lives only in prose gets followed exactly as often as somebody remembers it.
+  PASS  the first call computes and records exactly one entry
+          1 entries
+  PASS  a hit equals the fresh compute, key for key and name for name
+  PASS  ...and is a fresh copy, not the stored object — a caller's mutation cannot poison a later reader
+  PASS  a changed bearing is a DIFFERENT call and records its own entry
+          2 entries
+  PASS  the key is spellable for the phonology's own declaration
+  PASS  the memo is LIVE (the planted answer comes back for its own key) and SCOPED (the bearing call is untouched by it)
+
+X10. the pair guard refuses BEFORE it evaluates, and refuses the same inputs
+  PASS  the fixture reaches 2,961 candidate pairs on `chain rhyme (rap)` — enough to test a cap against
+          2961 candidates, 1403 instances
+  PASS  a stream over the cap still raises RuntimeError with the message `test_plan.py` and `mcp/lyric_tools.js` match on, byte for byte
+          RuntimeError: candidate explosion; tighten the schema
+  PASS  ...and `evaluate` was never called — the refusal is free
+          0 evaluations
+  PASS  ...where the frozen pre-move loop paid for exactly `max_pairs` evaluations before raising the same error (the probe: 0 is a number this check could have failed to reach)
+          50 evaluations before the raise
+  PASS  a cap ABOVE the exact count and BELOW the bound answers in full, instance for instance — the bound alone never refuses
+          2961 evaluations, 1403 instances
+  PASS  ...and one below the exact count refuses, as it did before
+          RuntimeError: candidate explosion; tighten the schema
+  PASS  all 45 running schemas return the SAME instances in the SAME order as the frozen loop, and the same deduplicated_candidates / recovered_instances / recovered_true
+          0 drifted: []
+  PASS  a `skip_line_pairs` call is identical too, and the skip is LIVE (it drops instances the unskipped call found)
+          1310 instances against 1403 unskipped; tally {'deduplicated_candidates': 2501}
+==================================================================
+1 FAILING:
+  - the ONLY line-final source is pre-1931 and its head is `me` and `thee`

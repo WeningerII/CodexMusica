@@ -157,6 +157,9 @@ INERT = ("order (sorted vs entries)", "draw (sample-2 vs choice-pair)")
 
 #: The cell a claim about THE SHIPPED GRADER is read off: production's own
 #: reader on the precedent's own population.
+# Compatibility name for the historical production reader. Since H-07 this
+# sampler does not implement the production endpoint-consensus refusal gate.
+CALIBRATION_SCOPE = "legacy scalar reader; production consensus/default coverage uncalibrated"
 SHIPPED = Sampler(seed=RB.SEED, n=4000,
                   population="redteam(isalpha,2..12)",
                   reader="line anchor + best_score")
@@ -285,7 +288,12 @@ def rate(m, key):
 #: was 2x — still under it on every cell, so the adoption does not depend on
 #: the number it moved. Had it not held, the cut would have been REFUSED
 #: rather than re-swept (doctrine 58).
-CANON_VIOLATIONS, CANON_JUDGED = 14, 1014
+# 2026-09-08: current coverage-aware corpus result (see the causal record
+# quality/production_relation_oracle.json). Historical random-pair sampler
+# rows below still use their explicitly named legacy scalar readers. Their
+# ratio to this revised denominator is descriptive, not validation of the
+# production consensus/full-schema grader; no new threshold is adopted here.
+CANON_VIOLATIONS, CANON_JUDGED = 4, 967
 CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 
 #: THE BAND, adopted over `GRID` (doctrine 57: a figure from a sampler is
@@ -335,10 +343,15 @@ CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 #: their SUM over one draw, so it sits above 2x while none of its members
 #: does, exactly as three rates under a ceiling can add past it. The
 #: per-relation figures are `quality/near_relation_pricing.py`'s.
+# 2026-09-08 production relation audit: full figure quantifiers and unresolved
+# pronunciation readings no longer count as a successful pair by default.
+# Exact same seed/4,000-pair grid in CI run 34266064026 measured schema
+# 889..914 (previously 957..987); the admit and narrow arms held exactly.
+# This records the instrument's new result, not a relaxed acceptance band.
 ADOPTED = {
     "admit": (173, 193),
     "narrow": (36, 46),
-    "schema": (957, 987),
+    "schema": (889, 914),
 }
 
 
@@ -610,6 +623,7 @@ def main(argv):
     check = "--check" in argv
     lex, decl = L.Lexicon(), L.Declaration()
     print(f"CHANCE RATE · the shipped door against random CMUdict pairs")
+    print("  calibration scope: " + CALIBRATION_SCOPE)
     print(f"  canon arm: {CANON_VIOLATIONS}/{CANON_JUDGED} = "
           f"{100 * CANON_RATE:.2f}% of Shakespeare's mandated pairs fail")
     print()

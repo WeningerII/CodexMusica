@@ -1057,10 +1057,11 @@ def song_from_blueprint(obj, assume_meter=None):
     verbatim (a list of raw phrase strings) -- `hook_findings` already
     coerces each one to a `Hook`, so no wrapping happens here.
     """
-    from quality.meter import section_meter
+    from quality.meter import section_meter, validate_blueprint, exact_number, exact_integer
     if isinstance(obj, str):
         with open(obj) as fh:
             obj = json.load(fh)
+    validate_blueprint(obj)
     secs, bar = [], 1
     for s in obj.get("sections", []):
         # `section_meter` is the SHARED TYPE CHECK -- `fit.from_blueprint`
@@ -1089,8 +1090,8 @@ def song_from_blueprint(obj, assume_meter=None):
                 f"assume_meter=fit.AssumedMeter(..., source='who decided') "
                 f"and carry the assumption in the report.")
         meter = Meter(
-            beats=int(md["beats"]) if _declared else int(assume_meter.beats),
-            unit=int(md["unit"]) if _declared else int(assume_meter.unit),
+            beats=exact_number(md["beats"], "meter beats") if _declared else exact_number(assume_meter.beats, "meter beats"),
+            unit=exact_integer(md["unit"], "meter unit", 1) if _declared else exact_integer(assume_meter.unit, "meter unit", 1),
             groups=tuple(md.get("groups", ())), declared=_declared,
             assumed="" if _declared else assume_meter.source)
         start = int(s.get("start_bar", bar))

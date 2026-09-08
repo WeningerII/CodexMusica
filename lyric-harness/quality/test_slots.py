@@ -248,14 +248,39 @@ def test_grade_reads_the_slot():
           "DECLARATION now: a head slot asks 'head', a default asks 'end'",
           SL.position_of(SL.parse_slot("3.head")) == "head"
           and SL.position_of(3) == "end")
+    named = SC.mandate([["1.T4", 2]], n_lines=2,
+                       relations=["type:perfect rhyme (last stressed syllable)"])
+    passed = rv.grade(DRAFT[:2], named)
+    failed = rv.grade([DRAFT[0], "we waited there until the night"], named)
+    check("the same explicit token slot has a determinate named pass and "
+          "failure: morning/warning rhyme, morning/night do not",
+          len(passed["verdicts"]) == 1 and not passed["violations"]
+          and not passed["refusals"]
+          and len(failed["violations"]) == 1 and not failed["refusals"]
+          and failed["violations"][0]["lines"] == (1, 2)
+          and failed["violations"][0]["endwords"] == ("morning", "night"))
 
 
 def test_untouched_path():
     print("\n8. the untouched path: an end-rhyme mandate is byte-identical")
     rv = Reviser()
     g = rv.grade(DRAFT, SC.mandate("ABAB", n_lines=4))
-    check("a plain letter mandate still grades its two pairs off the cached "
-          "n x n matrix", len(g["verdicts"]) == 2)
+    check("a plain letter mandate accounts for both exact pairs, preserving unresolved schemas",
+          not g['verdicts'] and not g['violations']
+          and {tuple(r['lines']) for r in g['refusals']} == {(1, 3), (2, 4)}
+          and all(not r['unreadable'] and 'unresolved in schema' in r['reason']
+                  for r in g['refusals'])
+          and (g["pairs_mandated"], g["pairs_judged"], g["pairs_refused"])
+          == (2, 0, 2))
+    clean_lines = ['we follow every beam of light', 'the stones are wet with rain',
+                   'and keep our candles through the night', 'we hear the distant train']
+    clean = rv.grade(clean_lines, SC.mandate('ABAB', n_lines=4))
+    matrix = rv._matrix(clean_lines)[3]
+    check("determinate plain-letter pairs still return both ordinary matrix verdicts",
+          {tuple(v['lines']) for v in clean['verdicts']} == {(1, 3), (2, 4)}
+          and not clean['refusals'] and not clean['violations']
+          and all(v["score"] == matrix[v["lines"][0] - 1][v["lines"][1] - 1]["total"]
+                  and not v["why"] for v in clean["verdicts"]))
     check("and its slot cache is never touched, so the ordinary run pays "
           "nothing for the coordinate existing",
           rv._slot_cache == {}, f"{len(rv._slot_cache)} entries")

@@ -1,0 +1,292 @@
+
+1. the census counts what it says, and cannot miss a layer
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+  PASS  the three verdicts partition the codes — every code has exactly one, and they sum to the total (this is the ONE place a sum is correct, because it is a partition and not three measurements)
+          {'codes': 76, 'gated': 25, 'disclosed_only': 51, 'undecidable': 0, 'computed': 0, 'consumer_assigned': 0}
+  PASS  the SHAPE layer is visible. Its constructor joined on the instrument's first run, which had silently omitted `quality/grid.py` entirely — a census blind to a whole layer reports that layer as fully gated, the flattering direction
+          ['Finding', 'FitFinding', 'GridFinding']
+  PASS  the rhyme, meter, floor and shape layers all contribute codes, so no single module's convention decides the answer
+          ['fit.py', 'floor.py', 'grid.py', 'revise.py', 'sentencehood.py']
+  PASS  the skipped prefixes are DECLARED, not implicit — an exclusion nobody writes down is a threshold nobody wrote down (doctrine 58)
+          ('test_', 'audit_', 'mutate', 'redteam')
+
+2. the gate sets are READ from the modules that own them
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+  PASS  `PREDICTABLE_RHYME` is GATED via the pursue set, which the census reads from `quality/loop.py` rather than respelling
+          ['MANDATORY_PURSUE']
+  PASS  `MODAL_RHYME` is GATED via the pursue set, which the census reads from `quality/loop.py` rather than respelling
+          ['MANDATORY_PURSUE']
+  PASS  `HOMEOTELEUTON` is GATED via the pursue set, which the census reads from `quality/loop.py` rather than respelling
+          ['MANDATORY_PURSUE']
+  PASS  `SHARED_SUFFIX` is GATED via the pursue set, which the census reads from `quality/loop.py` rather than respelling
+          ['MANDATORY_PURSUE']
+  PASS  `OUT_OF_CALIBRATED_LENGTH` is GATED via the floor gate, read from `quality/floor.py`
+          ['LENGTH_GATE_CODES']
+  PASS  `MATTR_WINDOW_UNCALIBRATED` is GATED via the floor gate, read from `quality/floor.py`
+          ['LENGTH_GATE_CODES']
+  PASS  a pursued NOTE is GATED — which is the whole reason a note is not automatically toothless, and the mechanism doctrine 9 needed
+          pursued notes count as enforcement
+
+3. an undecidable code is NEVER counted as gated
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+  PASS  the undecidable list is EMPTY, which is the claim M-77 makes — every code this tree can emit has a severity readable at its emitter, in one of the four declared spellings
+          0 undecidable: []
+  PASS  no undecidable code carries a gate — vacuous today by design, and kept because the moment a new constructor arrives it stops being vacuous and this is the check that catches a gate hiding inside an unreadable severity
+          0 undecidable
+  PASS  every DISCLOSED-ONLY code is a note at every construction site — the claim is that nothing CAN refuse on it, so a single flag construction anywhere must move it
+          51 disclosed-only
+
+4. the causes stay reported APART, and the READING is load-bearing
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+  PASS  computed-at-the-call-site and no-severity-field-at-all are still counted separately and still sum to the undecidable total: they ask different things of whoever closes them, and one total would hide the second entirely
+          0 computed + 0 consumer-assigned = 0
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+  PASS  forgetting that `FitFinding` spells its severity `satisfiable` puts 18 codes straight back into UNDECIDABLE — so the reading is READ, and the 0 is an answer rather than a classifier that stopped classifying
+          blind to the spelling: 18 undecidable (18 consumer-assigned) vs 0 when it is read
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+  PASS  ...and the restoration held
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+  PASS  and forgetting that a severity may be written as a TERNARY puts `CLICHE_PAIR` straight back into UNDECIDABLE — the shape the census actually met on 2026-09-05, so this reading is READ too and the 0 is an answer
+          blind to the ternary: 1 undecidable, 24 gated vs 0 and 25 when it is read
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+  PASS  ...and THAT restoration held too
+
+5. the pin moves when the tree does
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+  PASS  the live census matches the pin — a finding added without a gate MOVES a number instead of joining a list nobody reads
+          live {'codes': 76, 'gated': 25, 'disclosed_only': 51, 'undecidable': 0, 'computed': 0, 'consumer_assigned': 0} vs pinned {'codes': 76, 'gated': 25, 'disclosed_only': 51, 'undecidable': 0, 'computed': 0, 'consumer_assigned': 0}
+  PASS  the pin is on the COUNTS and not the membership, so a new finding is a question rather than a merge conflict
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+  PASS  removing a constructor MOVES the census, so the instrument is read rather than merely present — a census that could not fail reads exactly like one that passes
+          one constructor: 58 codes vs 76
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+  PASS  ...and the restoration held, so no later section inherits a mutated instrument
+
+6. every disclosed-only code carries a DECLARED disposition
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+  PASS  the population is non-empty, so this section cannot pass by examining nothing
+          51 disclosed-only
+  PASS  ...and NONE is unruled. M-73 produced the LIST and said the question 'should this one gate?' must be asked of each code by a person; a list nobody answers is the same defect one level up
+          unruled: []
+  PASS  every ruling is inside the CLOSED vocabulary, so a new kind is added deliberately rather than by somebody typing a new string (doctrine 58)
+          ['CONVENTION', 'DISCLOSURE', 'NO_MOVE', 'PROMOTED', 'PROMOTE_CANDIDATE', 'REFUSAL', 'SATISFIED', 'UNCALIBRATED']
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+  PASS  `PROMOTE_CANDIDATE` is REACHABLE — the vocabulary keeps a word for 'this should probably gate and it is not mine to decide', so a ruling can be WORK rather than a settled answer (doctrine 20). Proven by planting one, because the shipped queue may honestly be empty and a check that demands a backlog is asking the roster not to be worked
+          planted -> ['QUATRAIN_LOCK']; open in the shipped table: []
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+  PASS  ...and the restoration held, so the shipped queue is read as it ships and no later section inherits a planted ruling
+          []
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+FINDING CODES: 76
+  GATED             25  something can refuse on it
+  DISCLOSED-ONLY    51  emitted, and unable to stop anything
+  UNDECIDABLE        0  (0 computed at the call site, 0 with NO severity field on the constructor at all); NOT counted as gated — this census does not answer its own question in the flattering direction
+  three counts, never summed (doctrine 79)
+
+CHECK FAILED — 1 disclosed-only code(s) carry no declared disposition: QUATRAIN_LOCK. A note nobody has ruled on is indistinguishable from a note somebody decided to leave alone, and the second is a position while the first is an oversight (doctrine 20). Add a DISPOSITION row naming which of the 8 kinds it is.
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+FINDING CODES: 76
+  GATED             25  something can refuse on it
+  DISCLOSED-ONLY    51  emitted, and unable to stop anything
+  UNDECIDABLE        0  (0 computed at the call site, 0 with NO severity field on the constructor at all); NOT counted as gated — this census does not answer its own question in the flattering direction
+  three counts, never summed (doctrine 79)
+
+CHECK FAILED — disposition(s) outside the closed vocabulary: ['PROBABLY_FINE']. The set is closed so a new kind is added deliberately, not by somebody typing a new string.
+  PASS  removing one ruling REFUSES at exit 3 — the gate is read, not merely present
+          exit 3
+  PASS  and a disposition outside the vocabulary REFUSES too, so the closed set is closed by a check and not by hoping
+          exit 3
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+  PASS  ...and the restoration held, so no later section inherits a mutated table
+
+7. conditional codes are counted without inventing a gate on the disclosure
+  PASS  each conditional code receives only its own selected severity arm
+          {'DECLARED': {'note'}, 'BROKEN': {'flag'}, 'KW_DECLARED': {'note'}, 'KW_BROKEN': {'flag'}}
+  PASS  the old literal-only reader loses all four branches, so the fixture kills the regression
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+  PASS  both original floor flags remain gates while their required-identity counterparts remain notes
+
+ALL PASS

@@ -1,0 +1,2400 @@
+{
+  "version": 1,
+  "reader": "normalized-lyrics-v1",
+  "policy": "One work vote across explicitly reviewed printings. Unlisted items remain distinct. Shared generic titles alone never merge works. Raw runtime/source reading preserves every edition. Registry body hashes and physical positions are mandatory; drift refuses calibration.",
+  "works": [
+    {
+      "work_id": "edition-work-001",
+      "file": "corpus/song/eng_american_ethelinda_beers.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 13,
+          "title": "The Picket Guard ('All quiet along the Potomac')",
+          "body_sha256": "2b598ca52631599e1932de55113068a57ecb17c81b69f04b0184b3d81e2763f4",
+          "lines": 49,
+          "weight": 1
+        },
+        {
+          "title_line": 81,
+          "title": "THE PICKET-GUARD",
+          "body_sha256": "b1677f0ffcb321622616613056ffbde51479eab8b06aa1e26f16f56e51f08535",
+          "lines": 44,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-002",
+      "file": "corpus/song/eng_american_francis_o_ticknor.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 13,
+          "title": "LITTLE GIFFIN",
+          "body_sha256": "ab5fb526fd5d8df038c82754adcf9fe6242ac8da23b7212a512b547ec6136d3d",
+          "lines": 37,
+          "weight": 1
+        },
+        {
+          "title_line": 231,
+          "title": "LITTLE GIFFEN",
+          "body_sha256": "57e7f3ce476dabab58fd189cf56c158189b08e65dd8141f6d4c2426fe7049dc5",
+          "lines": 38,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-003",
+      "file": "corpus/song/eng_american_james_pierpont.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 12,
+          "title": "WE CONQUER OR DIE",
+          "body_sha256": "f3ed8893ecc1c9df6f3f104393522624946e5bb5d4b3a80a913a208b62df8bd5",
+          "lines": 24,
+          "weight": 1
+        },
+        {
+          "title_line": 45,
+          "title": "\"WE CONQUER OR DIE\"",
+          "body_sha256": "7fdbfef0fd7fc03a80d247d2860270ac102cd98f850c7d8f150e54489ad24b25",
+          "lines": 24,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-004",
+      "file": "corpus/song/eng_american_jane_taylor.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 15,
+          "title": "Twinkle, Twinkle, Little Star ('The Star')",
+          "body_sha256": "46b4386ccb9754bdcb1aa9f3821a7da6b43d2387719c0bb5099f8910b07da3dd",
+          "lines": 16,
+          "weight": 1
+        },
+        {
+          "title_line": 41,
+          "title": "THE STAR",
+          "body_sha256": "09328200ffa4862946c4caa1a1b6a308ea96966c935eed9b7b75ea2dc725e79a",
+          "lines": 20,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-005",
+      "file": "corpus/song/eng_american_julia_ward_howe.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 18,
+          "title": "The Battle Hymn of the Republic",
+          "body_sha256": "9d04c07d118a0c1185d513d21788e911bf8188fd516d10d7c9e90a92024a1384",
+          "lines": 20,
+          "weight": 1
+        },
+        {
+          "title_line": 50,
+          "title": "Battle-hymn of the Republic (Golden Treasury text)",
+          "body_sha256": "8afb61a52745c2a56042703fa1e8f68408f2f0c1a54f268eb50a97953fe5597b",
+          "lines": 21,
+          "weight": 0
+        },
+        {
+          "title_line": 85,
+          "title": "Battle Hymn of the Republic",
+          "body_sha256": "7ce9c0c15747ba3bbd661c4ea3f63f4a6684a6a7528b39da0c0069549816fc1c",
+          "lines": 25,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-006",
+      "file": "corpus/song/eng_american_louise_chandler_moulton.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 75,
+          "title": "A SUMMER WOOING",
+          "body_sha256": "6f501d7523844c88e67557eed74dd5f4d759099585376591a63783f5d3c12099",
+          "lines": 6,
+          "weight": 1
+        },
+        {
+          "title_line": 224,
+          "title": "A SUMMER WOOING",
+          "body_sha256": "6f501d7523844c88e67557eed74dd5f4d759099585376591a63783f5d3c12099",
+          "lines": 6,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-007",
+      "file": "corpus/song/eng_american_samuel_woodworth.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 11,
+          "title": "THE BUCKET",
+          "body_sha256": "5f69d66a58f81237ccf064ee6b74bc73a5f81329ae2e29e51c952d6df1c29350",
+          "lines": 30,
+          "weight": 1
+        },
+        {
+          "title_line": 49,
+          "title": "The Old Oaken Bucket which Hung in the Well (songster text)",
+          "body_sha256": "ebfffc896324cc3731816ac4ac448642fcb12e5653b250c50a8c3928a13655a3",
+          "lines": 29,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-008",
+      "file": "corpus/song/eng_british_adelaide_anne_procter.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 32,
+          "title": "Sent To Heaven",
+          "body_sha256": "39a889724ad4cf688fac1f72a2a46a697906f0df1ff6a314ca33b16fcbe7913d",
+          "lines": 52,
+          "weight": 1
+        },
+        {
+          "title_line": 5113,
+          "title": "Verse: Sent To Heaven",
+          "body_sha256": "9e7d95f2f26aee53f23a92dcb86e72491f8aa3724cbe12010febffe56610afb9",
+          "lines": 52,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-009",
+      "file": "corpus/song/eng_british_ben_jonson.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 69,
+          "title": "Simplex Munditiis",
+          "body_sha256": "f393dc46ed935c98537dea8894dc2f9aa7d2cc83b44093fc0582253465115077",
+          "lines": 12,
+          "weight": 1
+        },
+        {
+          "title_line": 347,
+          "title": "Still to be neat, still to be drest",
+          "body_sha256": "44637895edd7bb8b5aa66aedc9722fea9f6766380a90b402496199ffa6f3d807",
+          "lines": 6,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-010",
+      "file": "corpus/song/eng_british_charles_kingsley.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 42,
+          "title": "Airly Beacon",
+          "body_sha256": "a68ead9de95e338691c5c504ff7763ec2ed829b8258098193702abd7ef768cc9",
+          "lines": 12,
+          "weight": 1
+        },
+        {
+          "title_line": 1377,
+          "title": "Airly Beacon",
+          "body_sha256": "25900c626248fdaeaad25940fb02fe6a25a56b7fad1d2538c9d8111b3ea73e6e",
+          "lines": 12,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-011",
+      "file": "corpus/song/eng_british_christina_rossetti.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 46,
+          "title": "Dream-Land",
+          "body_sha256": "1ccdee63c4b3df2c246d3007cd23693cce5e11a947d8290b70ee06a8b45feab1",
+          "lines": 32,
+          "weight": 1
+        },
+        {
+          "title_line": 5632,
+          "title": "Dream Land",
+          "body_sha256": "9c4936b22031857b69da9aced32f62bdcd9632dee947293074b4a8b720a1c6f0",
+          "lines": 32,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-012",
+      "file": "corpus/song/eng_british_christina_rossetti.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 390,
+          "title": "Song",
+          "body_sha256": "f9d3af8480048ededccb2c19435f73c5b974d757a46b199a7d859ba349fe3fca",
+          "lines": 8,
+          "weight": 1
+        },
+        {
+          "title_line": 5726,
+          "title": "Song",
+          "body_sha256": "aef27b31380e8f9244747ee447d6d48561645e1364e9d340087c0aae30397387",
+          "lines": 8,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-013",
+      "file": "corpus/song/eng_british_christina_rossetti.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 402,
+          "title": "A Summer Wish",
+          "body_sha256": "398698da4d1dde7f379605224182003336dfc4351f25a46474e160a4d9a6a3ac",
+          "lines": 28,
+          "weight": 1
+        },
+        {
+          "title_line": 5738,
+          "title": "A Summer Wish",
+          "body_sha256": "a9f60e33ec20aff475f541877ba6ea252a92f5133bcd0ed51e1cba79c7975473",
+          "lines": 28,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-014",
+      "file": "corpus/song/eng_british_christina_rossetti.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 473,
+          "title": "Song",
+          "body_sha256": "0b26576126ee92764095aab73ff5504c313d6094a7950545f169dd95ba95f334",
+          "lines": 8,
+          "weight": 1
+        },
+        {
+          "title_line": 6755,
+          "title": "SONG.",
+          "body_sha256": "0b26576126ee92764095aab73ff5504c313d6094a7950545f169dd95ba95f334",
+          "lines": 8,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-015",
+      "file": "corpus/song/eng_british_christina_rossetti.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 688,
+          "title": "Twilight Calm",
+          "body_sha256": "181fbe62cd3c84345b5830b036142c585d6089d7aa94c9263d97a0b14c9899e0",
+          "lines": 60,
+          "weight": 1
+        },
+        {
+          "title_line": 5772,
+          "title": "Twilight Calm",
+          "body_sha256": "40ce60672e617449bf3d196d32b4689892a799847eb4e1e0c6dac65fb02e056b",
+          "lines": 60,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-016",
+      "file": "corpus/song/eng_british_christina_rossetti.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 1604,
+          "title": "Mother Country",
+          "body_sha256": "72004c29bb34b9f97ba36b69f5791e58abbd5db373607e0f1eec64850ccfbe35",
+          "lines": 72,
+          "weight": 1
+        },
+        {
+          "title_line": 6388,
+          "title": "(_Macmillan's Magazine_, March 1868.)",
+          "body_sha256": "0a741fe3b978daf14adf565f7611b8b5bef894c25e6ad71262ff144db3110d0a",
+          "lines": 72,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-017",
+      "file": "corpus/song/eng_british_christina_rossetti.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 1720,
+          "title": "The Poor Ghost",
+          "body_sha256": "325109e89486a53cad4c4705ad78224a6570a99bef6be3410f9076aa09f6b0c7",
+          "lines": 36,
+          "weight": 1
+        },
+        {
+          "title_line": 5875,
+          "title": "The Poor Ghost",
+          "body_sha256": "3d85887528e294f44b09fe55b097719e4727e9611c3c7cd08e9dedabbcf1e41e",
+          "lines": 36,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-018",
+      "file": "corpus/song/eng_british_christina_rossetti.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 2401,
+          "title": "Consider",
+          "body_sha256": "6cffca5cae9fc939a5f4c21ba5e856ed808e8f08e01fb20380a309b055c75fdf",
+          "lines": 20,
+          "weight": 1
+        },
+        {
+          "title_line": 6291,
+          "title": "(_Macmillan's Magazine_, Jan. 1866.)",
+          "body_sha256": "67ef93e6f8301ec0574e0540adc253ae7c86c7dc1a7fdc889bbf77f0dab553a1",
+          "lines": 20,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-019",
+      "file": "corpus/song/eng_british_christina_rossetti.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 2451,
+          "title": "Maggie A Lady",
+          "body_sha256": "04d77a9e1f6274461aeb2f98b245aca7a2be5b475028b7da17399970418c617b",
+          "lines": 48,
+          "weight": 1
+        },
+        {
+          "title_line": 6028,
+          "title": "Lady Maggie",
+          "body_sha256": "7d75a5e309d7522638c2097a9496253892c609a2fce40e13486505514b14ea52",
+          "lines": 48,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-020",
+      "file": "corpus/song/eng_british_christina_rossetti.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 3124,
+          "title": "Gone Forever",
+          "body_sha256": "217f438dfa852c6d56ff6d0e227c4f389055ef5bd20bad1bac688a77a9d8b2f6",
+          "lines": 18,
+          "weight": 1
+        },
+        {
+          "title_line": 6090,
+          "title": "Gone For Ever",
+          "body_sha256": "f39951da85060e900159176d348be20ad6ded58312af2b2a8c2f640f19136501",
+          "lines": 18,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-021",
+      "file": "corpus/song/eng_british_christina_rossetti.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 3352,
+          "title": "My Friend",
+          "body_sha256": "5393cb7fbcf8ce966651a9ba6263f07cd6d3bb6aae0f273c5695fc00c430ae3d",
+          "lines": 16,
+          "weight": 1
+        },
+        {
+          "title_line": 6222,
+          "title": "(_Macmillan's Magazine_, Dec. 1864.)",
+          "body_sha256": "5fda8a5cf9d3dbe707bfc3f00bdc863f72490cd93f8f575a35fa1f6f376dc4f0",
+          "lines": 16,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-022",
+      "file": "corpus/song/eng_british_christina_rossetti.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 3429,
+          "title": "A Smile And A Sigh",
+          "body_sha256": "1f4e8eacb2412267bf45275dafc898d0da16b82775b2b387c38b6a7b2d9820d8",
+          "lines": 10,
+          "weight": 1
+        },
+        {
+          "title_line": 6471,
+          "title": "(_Macmillan's Magazine_, May 1868.)",
+          "body_sha256": "e7125f3a407144305b0e8ac1c2d1b9e7491c2f49c025cead2b8106bacb4fc1c6",
+          "lines": 10,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-023",
+      "file": "corpus/song/eng_british_christina_rossetti.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 3692,
+          "title": "Who Shall Deliver Me?",
+          "body_sha256": "e82c815f48dad0df5fb84ba1a378fbf9bb848ed550e91551388da22d209dd426",
+          "lines": 24,
+          "weight": 1
+        },
+        {
+          "title_line": 6689,
+          "title": "(_The Argosy_, Feb. 1866.)",
+          "body_sha256": "f13f4908eb26cac1a4bfda70f4c6d5d29e1b48eee280a82a95d052233695ffa7",
+          "lines": 24,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-024",
+      "file": "corpus/song/eng_british_dante_gabriel_rossetti.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 69,
+          "title": "THREE SHADOWS.",
+          "body_sha256": "6913c194fe474f05a381c79825a5c9e8e6d33c433b863a45b3605d72c4382620",
+          "lines": 24,
+          "weight": 1
+        },
+        {
+          "title_line": 294,
+          "title": "THREE SHADOWS",
+          "body_sha256": "7f9aefe38f9d865316334af8980ff521fab6d0e40897a53d2abdb9acbe6d47b0",
+          "lines": 12,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-025",
+      "file": "corpus/song/eng_british_felicia_hemans.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 3527,
+          "title": "A Dirge",
+          "body_sha256": "8fee3198469ca39383f10d67526636f96f46e8e00b8f5b33e31852c7c901dd5d",
+          "lines": 12,
+          "weight": 1
+        },
+        {
+          "title_line": 16531,
+          "title": "Dirge",
+          "body_sha256": "46ba068810204b9d9cbeb8d593231dbe8bf63e907c573929804a14ae7600b26d",
+          "lines": 8,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-026",
+      "file": "corpus/song/eng_british_frederick_locker_lampson.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 16,
+          "title": "A GARDEN LYRIC.",
+          "body_sha256": "f928721c1858060de5562cdc1e4c112a670a0250ced09d074b36afe68db4722c",
+          "lines": 40,
+          "weight": 1
+        },
+        {
+          "title_line": 345,
+          "title": "A Garden Lyric",
+          "body_sha256": "b5ad3f48b33a8c2eb8af7c3e9c123c034d9ac778ce0f7c57151f4340d2c5d49c",
+          "lines": 40,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-027",
+      "file": "corpus/song/eng_british_george_darley.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 120,
+          "title": "Song",
+          "body_sha256": "6a857107212ddfd6a1928386171875206af78c90ce19f0741baf699e55351959",
+          "lines": 16,
+          "weight": 1
+        },
+        {
+          "title_line": 270,
+          "title": "THE FLOWER OF BEAUTY",
+          "body_sha256": "9437edf22c640487821a34ff45e77b3f8002890bb63f9995514023cb3cfe5925",
+          "lines": 16,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-028",
+      "file": "corpus/song/eng_british_jean_ingelow.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 88,
+          "title": "Sweet Is Childhood",
+          "body_sha256": "3768a4314cd08518d913811fa0e864e23c0f446ed6e48fac34a384804b1fa0d6",
+          "lines": 8,
+          "weight": 1
+        },
+        {
+          "title_line": 3548,
+          "title": "SWEET IS CHILDHOOD.",
+          "body_sha256": "3768a4314cd08518d913811fa0e864e23c0f446ed6e48fac34a384804b1fa0d6",
+          "lines": 8,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-029",
+      "file": "corpus/song/eng_british_lady_dufferin.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 34,
+          "title": "LAMENT OF THE IRISH EMIGRANT.",
+          "body_sha256": "6ea27e753d6c6e602677181c5b3b1f9132f979989f9311340435b9c9a757584c",
+          "lines": 64,
+          "weight": 1
+        },
+        {
+          "title_line": 109,
+          "title": "Lament of the Irish Emigrant",
+          "body_sha256": "12f03ae275e64ed7dd90263e753470aca81633246c870987d35ac72318289951",
+          "lines": 64,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-030",
+      "file": "corpus/song/eng_british_lewis_carroll.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 32,
+          "title": "You are old, Father William,’ the young man said",
+          "body_sha256": "1db811f6373bdf6186959494c924d4c18d195f7be3ffcba9c28226055624ff2d",
+          "lines": 32,
+          "weight": 1
+        },
+        {
+          "title_line": 3322,
+          "title": "Father William",
+          "body_sha256": "49668492e4967503058f70b9ddc8c45edf416e58177ab970800836337bf7c1d2",
+          "lines": 32,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-031",
+      "file": "corpus/song/eng_british_matthew_arnold.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 56,
+          "title": "Shakspeare",
+          "body_sha256": "eb421425918f4667ce5b82bf9fccd0f6db0d39efe14770d378a9b6c4f8a95f5e",
+          "lines": 14,
+          "weight": 1
+        },
+        {
+          "title_line": 3737,
+          "title": "Shakespeare",
+          "body_sha256": "8839af6fd5eddb3728464a8d9ccd15f0499fa410fe6f8dd5a2b642f588b73c2e",
+          "lines": 14,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-032",
+      "file": "corpus/song/eng_british_robert_browning.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 608,
+          "title": "Pippa’s Song",
+          "body_sha256": "41e9b76638a07c15f3ce61f198511abd4895810661e2e48661665f4120656915",
+          "lines": 8,
+          "weight": 1
+        },
+        {
+          "title_line": 2833,
+          "title": "Song, \"The year's at the spring\"",
+          "body_sha256": "39e560da66b0c12f53a63e38d8e14cc5dc8990da3a2e672efa8aee5d70e8338e",
+          "lines": 8,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-033",
+      "file": "corpus/song/eng_british_robert_browning.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 772,
+          "title": "Parting at Morning",
+          "body_sha256": "e5c6395ada07d99867142c29c25ef6eb4bb4abba85fc6323a851efe9eb9b21bf",
+          "lines": 4,
+          "weight": 1
+        },
+        {
+          "title_line": 2566,
+          "title": "PARTING AT MORNING",
+          "body_sha256": "36f32d02978aa8f37e5073102ab6ee925ef3a52a5aa5f85aaf9b434f1f06ec97",
+          "lines": 4,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-034",
+      "file": "corpus/song/eng_british_robert_herrick.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 598,
+          "title": "The Rock Of Rubies, And The Quarry Of Pearls",
+          "body_sha256": "d90d7c1412bf83b650b3c3edc62baa0927e0c8f55af52afd6b847beadb015c26",
+          "lines": 8,
+          "weight": 1
+        },
+        {
+          "title_line": 9913,
+          "title": "RUBIES AND PEARLS",
+          "body_sha256": "4e954cb84e9cfc9afefbe918f250116037a9414f36d0c5a2955e5da6145791aa",
+          "lines": 8,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-035",
+      "file": "corpus/song/eng_british_robert_herrick.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 2569,
+          "title": "To The Western Wind",
+          "body_sha256": "6d00ffa84b3b96438f4af679e2c7f0e58521e11c3a6a275d3705245752ef5376",
+          "lines": 8,
+          "weight": 1
+        },
+        {
+          "title_line": 9936,
+          "title": "TO THE WESTERN WIND",
+          "body_sha256": "e1f2bf4b3d192039747e3dbe9dad94b823e019ab36fd4b85728a140306fd6c74",
+          "lines": 8,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-036",
+      "file": "corpus/song/eng_british_robert_herrick.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 4004,
+          "title": "To Oenone",
+          "body_sha256": "7d111b99d594edfae49c4fa8fe605ed5417c36422039448f46dc9910b9628adb",
+          "lines": 12,
+          "weight": 1
+        },
+        {
+          "title_line": 9764,
+          "title": "To Œnone",
+          "body_sha256": "951cabedb44f1cdbd8ce957d3312619208fd6252e658a18ae1db1f021740b787",
+          "lines": 12,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-037",
+      "file": "corpus/song/eng_british_robert_herrick.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 5603,
+          "title": "To Electra",
+          "body_sha256": "8550e4a6d636feabc4c2bd8b704fd2e6bc23b1cd477457194b5b72f871e62494",
+          "lines": 8,
+          "weight": 1
+        },
+        {
+          "title_line": 9861,
+          "title": "To Electra",
+          "body_sha256": "d86e999f6bdcf975c8377fc01277d90c28409efe9ccb8d1a26d73c0c33ec1b86",
+          "lines": 8,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-038",
+      "file": "corpus/song/eng_british_robert_herrick.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 9874,
+          "title": "Upon Julia’s Clothes",
+          "body_sha256": "d01f0e9256bf26c2c9292574ba654dee30ce5a6aaffab72798c5525e9e08b00a",
+          "lines": 6,
+          "weight": 1
+        },
+        {
+          "title_line": 9926,
+          "title": "UPON JULIA'S CLOTHES",
+          "body_sha256": "2daba6326ef228065c66e884a3bfc60aeef5b9a750a2b89d7c9c390acc8c9313",
+          "lines": 6,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-039",
+      "file": "corpus/song/eng_british_robert_louis_stevenson.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 174,
+          "title": "V Whole Duty of Children",
+          "body_sha256": "f13f9a0137d2645c96e427e5db6f0d0cb95f8a386fa63e23ee686e886bfb93a6",
+          "lines": 4,
+          "weight": 1
+        },
+        {
+          "title_line": 1675,
+          "title": "Whole Duty of Children",
+          "body_sha256": "f13f9a0137d2645c96e427e5db6f0d0cb95f8a386fa63e23ee686e886bfb93a6",
+          "lines": 4,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-040",
+      "file": "corpus/song/eng_british_thomas_campion.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 348,
+          "title": "Now winter nights enlarge",
+          "body_sha256": "1e9c1fcf51f13ba837da791494f5f3c4af985116dfad115f12ab41c5f8732410",
+          "lines": 24,
+          "weight": 1
+        },
+        {
+          "title_line": 1096,
+          "title": "Winter Nights",
+          "body_sha256": "2a0ed059a4e7baf0f2e3ed7af4a277e57ef860e44dfad5beb1585018e61792cc",
+          "lines": 24,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-041",
+      "file": "corpus/song/eng_british_thomas_campion.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 543,
+          "title": "There is a garden in her face",
+          "body_sha256": "420ebf2a8fee0bc3acb7414d0abbedfde45fb0cdad629fed29dfc812a59415ba",
+          "lines": 18,
+          "weight": 1
+        },
+        {
+          "title_line": 1006,
+          "title": "Cherry-Ripe",
+          "body_sha256": "50fc76a6385fb6dbb1c0aa9019530b82143f45a621bec60b5a5e5a1394f472e2",
+          "lines": 18,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-042",
+      "file": "corpus/song/eng_british_thomas_campion.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 745,
+          "title": "The man of life upright",
+          "body_sha256": "22c6fd1eb972e47fd373e03f4050a6c29169e1ea8bbb213dc8dea5cfe367b17d",
+          "lines": 24,
+          "weight": 1
+        },
+        {
+          "title_line": 1124,
+          "title": "Integer Vitae",
+          "body_sha256": "541813df3c4ab032926cc39d4f43909a734a6dedc0b445d35d01b575fc9d34f1",
+          "lines": 24,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-043",
+      "file": "corpus/song/eng_british_thomas_campion.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 778,
+          "title": "When thou must home to shades of underground",
+          "body_sha256": "78fe40082034d7d4007aab705e63531371d45a2486afd3944e1201e3934682df",
+          "lines": 12,
+          "weight": 1
+        },
+        {
+          "title_line": 1056,
+          "title": "Vobiscum est Iope",
+          "body_sha256": "ded6f46ad48c14987ee2721c7094eebf19790ba438a03c63c6ec6c8b04b721eb",
+          "lines": 12,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-044",
+      "file": "corpus/song/eng_british_thomas_campion.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 991,
+          "title": "Were my heart as some men's are, thy errors would not move me",
+          "body_sha256": "5229a4a360eff929efbdd7a6348b9b1d718e8d971c7f7a04592158df486bb363",
+          "lines": 9,
+          "weight": 1
+        },
+        {
+          "title_line": 1363,
+          "title": "\"WERE MY HEART AS SOME MEN'S ARE\"",
+          "body_sha256": "5f25992cda8c66ebf81a565c3361303ff3e50dd0947896841698aec21082114c",
+          "lines": 9,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-045",
+      "file": "corpus/song/eng_british_thomas_hood.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 20,
+          "title": "BALLAD.",
+          "body_sha256": "d0d1d5ad0e583fba19743f3ea0f2099810a90b37dd64fdaaddbec04885325172",
+          "lines": 12,
+          "weight": 1
+        },
+        {
+          "title_line": 321,
+          "title": "Time of Roses",
+          "body_sha256": "15c53769eb51076852b5181331441ce225c8e93d3e5aa4e55227a3747027b850",
+          "lines": 12,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-046",
+      "file": "corpus/song/eng_british_thomas_vautor.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 36,
+          "title": "Sweet Suffolk owl, so trimly dight",
+          "body_sha256": "baead4aef41f32f98d099d26ffb7c2c3ae5b77167cd5dc03f417628fb8511156",
+          "lines": 8,
+          "weight": 1
+        },
+        {
+          "title_line": 49,
+          "title": "\"Sweet Suffolk Owl\"",
+          "body_sha256": "14ff947d3d3b3a953e1a3fca01fc0aeecdfad2957eebbef0adc5bd83e09cacf8",
+          "lines": 8,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-047",
+      "file": "corpus/song/eng_british_walter_savage_landor.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 20,
+          "title": "ROSE AYLMER.",
+          "body_sha256": "bb543b08edfbba84ee48c024633a5d26beccc2f23cabafb2ea998c9b7db6b555",
+          "lines": 8,
+          "weight": 1
+        },
+        {
+          "title_line": 170,
+          "title": "Rose Aylmer",
+          "body_sha256": "fe868b90575fd06a91cb52e3d2ee57c22c88e96549827876a3c52cc2b748292d",
+          "lines": 8,
+          "weight": 0
+        },
+        {
+          "title_line": 565,
+          "title": "ROSE AYLMER",
+          "body_sha256": "4399431a01b8a9714c50b4db3b4d9a0d0efecf70495638b624f6f3a1fa418503",
+          "lines": 8,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-048",
+      "file": "corpus/song/eng_british_walter_savage_landor.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 128,
+          "title": "FORSAKEN.",
+          "body_sha256": "6e7518a3d98f45ef5b93c50c489ab229d9dc684563282b9b2c42bac14d67d0f0",
+          "lines": 8,
+          "weight": 1
+        },
+        {
+          "title_line": 249,
+          "title": "Mother, I cannot mind my Wheel",
+          "body_sha256": "be6c5150aec6650272d7bd28e55134baa9e1b1ee8c84457279b3bda2b5bc001f",
+          "lines": 8,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-049",
+      "file": "corpus/song/eng_british_walter_savage_landor.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 380,
+          "title": "Years",
+          "body_sha256": "0aa62e6047bd89dba223204834c72131624ff102f8a50506591f1f18a569a3a8",
+          "lines": 8,
+          "weight": 1
+        },
+        {
+          "title_line": 552,
+          "title": "Years",
+          "body_sha256": "908afafd960227207feb7ef853b32a3c0a32f8b00decf5b7418a01fcab480248",
+          "lines": 8,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-050",
+      "file": "corpus/song/eng_british_william_allingham.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 18,
+          "title": "LOVELY MARY DONNELLY.",
+          "body_sha256": "6e7a728178bd276dd71096a19ba608337b217e16e40fc6fcb6dea7d01dd15447",
+          "lines": 36,
+          "weight": 1
+        },
+        {
+          "title_line": 237,
+          "title": "LOVELY MARY DONNELLY",
+          "body_sha256": "a62d2e14faf95432ebf1042ca8be78916cc649be02b69839c24b5ae73b75e7d8",
+          "lines": 36,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-051",
+      "file": "corpus/song/eng_british_william_blake.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 69,
+          "title": "The Shepherd",
+          "body_sha256": "70a579bfc9f733ca2124ffb52a19c0caa160a2b146ec8a46892d382be3a1d95d",
+          "lines": 8,
+          "weight": 1
+        },
+        {
+          "title_line": 1527,
+          "title": "The Shepherd",
+          "body_sha256": "7d11d804f28d4847f467405633ed2476aea6cfca2ae763b89af6f70734178b51",
+          "lines": 8,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-052",
+      "file": "corpus/song/eng_british_william_blake.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 267,
+          "title": "A Cradle Song",
+          "body_sha256": "5a424ebc056788f2aebad02a5d0d105ff244e5dc2a0eca3459060d23976c1437",
+          "lines": 32,
+          "weight": 1
+        },
+        {
+          "title_line": 1233,
+          "title": "A Song",
+          "body_sha256": "43e47abb6baf5d57a5395f43dbd97a4a435508ffe16a8da79cf398aefe088d2f",
+          "lines": 32,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-053",
+      "file": "corpus/song/eng_british_william_blake.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 309,
+          "title": "The Divine Image",
+          "body_sha256": "dd0b75d68decb410d2503eac56d597325e1d0621f379c71aa21d40e1b1366bf8",
+          "lines": 20,
+          "weight": 1
+        },
+        {
+          "title_line": 1275,
+          "title": "Divine Image",
+          "body_sha256": "5b10d2df8635bc136468002a4ae84fcdee9fd3292e98fb8851b1cc469f8e830d",
+          "lines": 20,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-054",
+      "file": "corpus/song/eng_british_william_blake.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 463,
+          "title": "Infant Joy",
+          "body_sha256": "ed7b4e04ba291d1782bee53505c8bdb3c342a9953117163a304e8dced4b6b18a",
+          "lines": 12,
+          "weight": 1
+        },
+        {
+          "title_line": 1510,
+          "title": "Infant Joy",
+          "body_sha256": "75115d24915eba98dbba8184d8e73d36641b49d799ca63dcc1d2aea2cfd7c57f",
+          "lines": 12,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-055",
+      "file": "corpus/song/eng_british_william_blake.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 788,
+          "title": "The Chimney-Sweeper",
+          "body_sha256": "23774a0bf726c44008967da1613839f3c445650fecee74826fa691ef46a7ab59",
+          "lines": 12,
+          "weight": 1
+        },
+        {
+          "title_line": 1302,
+          "title": "The Chimney Sweeper",
+          "body_sha256": "6371fd7a570b6c3b0e83ff3c0935a49c46b3060a9d9d0f5a57bec08bb0650a90",
+          "lines": 12,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-056",
+      "file": "corpus/song/eng_british_william_blake.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 878,
+          "title": "The Tiger",
+          "body_sha256": "9f6fa9c222cf4051508e2026aeaf994cfea208e53ba2dfc677dfcb9b85691c04",
+          "lines": 24,
+          "weight": 1
+        },
+        {
+          "title_line": 1319,
+          "title": "The Tyger",
+          "body_sha256": "aab70a81d92d8cc7faf0d6cb823cd0079f2a010b35cd238019063c115212f6c9",
+          "lines": 24,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-057",
+      "file": "corpus/song/eng_british_william_blake.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 943,
+          "title": "The Garden Of Love",
+          "body_sha256": "e1b058c1b4cd6933e9d9f5b18b9dda3ca4f3c2487089322e04db25a3291c0e6c",
+          "lines": 12,
+          "weight": 1
+        },
+        {
+          "title_line": 1364,
+          "title": "The Garden Of Love",
+          "body_sha256": "ca29cfd797f42503c06be86024cdc55d19017ee0d0e94173e7ef9b60b1a65c44",
+          "lines": 12,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-058",
+      "file": "corpus/song/eng_british_william_blake.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 1157,
+          "title": "The Schoolboy",
+          "body_sha256": "8accc2c675e3db097a6bf3bc8623833ecadb26f76d2a9901b9708d4e312d32ba",
+          "lines": 30,
+          "weight": 1
+        },
+        {
+          "title_line": 1381,
+          "title": "The Schoolboy",
+          "body_sha256": "bf87e93ac2c1e8db59a4f8e2fab3f9e0008ddaf603c3a6ad87a3ca5cfb6b3794",
+          "lines": 30,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-059",
+      "file": "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 101,
+          "title": "THE LAND O' THE LEAL",
+          "body_sha256": "1cf707348694671c2dee3c095b63cc9a416efe3ac9260c448729407f403b427f",
+          "lines": 32,
+          "weight": 1
+        },
+        {
+          "title_line": 1328,
+          "title": "The Land o’ the Leal",
+          "body_sha256": "e2b2c8a58ef12a3cd8d9b8c7245d163777a0ee0da70f6a114107741b27eb61ce",
+          "lines": 32,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-060",
+      "file": "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 565,
+          "title": "THE LASS O' GOWRIE  [air: Loch Erroch Side]",
+          "body_sha256": "4b56e4cf1d5acfe21891bebb1794778ee556b8cfc9375bc49c872f00fda53af9",
+          "lines": 32,
+          "weight": 1
+        },
+        {
+          "title_line": 1385,
+          "title": "THE LASS O' GOWRIE",
+          "body_sha256": "5c8871aa618b442b22c582b1c6b01ba3c9ea4ea6528742f2cd4dbe8eaa9e14c9",
+          "lines": 32,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-061",
+      "file": "corpus/song/eng_celtic_james_hogg.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 337,
+          "title": "THE WOMEN FOLK",
+          "body_sha256": "8204b4bad9eaa8ff2704b5555d34c7be08993e31802ab3a0c2c6f2d143d9474d",
+          "lines": 42,
+          "weight": 1
+        },
+        {
+          "title_line": 1469,
+          "title": "THE WOMEN FOLK",
+          "body_sha256": "bfcf550ea2a83fc5ff8c04c151fe8a497f68c94f91a16f02f9f368c1f6c31a1c",
+          "lines": 28,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-062",
+      "file": "corpus/song/eng_celtic_james_hogg.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 472,
+          "title": "LOVE IS LIKE A DIZZINESS  [air: Paddy's Wedding]",
+          "body_sha256": "2ba777f5e3ebb40f5b962740bc9b08dd20671a529bf5dcbda6435693cece3674",
+          "lines": 51,
+          "weight": 1
+        },
+        {
+          "title_line": 1502,
+          "title": "\"LOVE IS LIKE A DIZZINESS\"",
+          "body_sha256": "4abeba6c7484bd2b62da1874121affd1777d9335e2ae1be69debd6fb6ff793ba",
+          "lines": 44,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-063",
+      "file": "corpus/song/eng_celtic_msm_alexander_rodger.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 53,
+          "title": "BEHAVE YOURSEL' BEFORE FOLK  [air: Good-morrow to your night-cap]",
+          "body_sha256": "192459a57a0ab033e4ee79fa8f17a4dc328913e67684389c68b8d7537ca9b8c3",
+          "lines": 60,
+          "weight": 1
+        },
+        {
+          "title_line": 241,
+          "title": "\"BEHAVE YOURSEL' BEFORE FOLK\"",
+          "body_sha256": "0291842aec28f8eadbcdb4f20fdfab7dd83cdcbe7c6d602e07f50dd07e783dcc",
+          "lines": 60,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-064",
+      "file": "corpus/song/eng_celtic_msm_allan_cunningham.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 147,
+          "title": "IT 'S HAME, AND IT 'S HAME",
+          "body_sha256": "f119b99da1254b620359467c872607610ad27bc5c57a3b2cb44acb2a09de97a9",
+          "lines": 24,
+          "weight": 1
+        },
+        {
+          "title_line": 454,
+          "title": "Hame, Hame, Hame",
+          "body_sha256": "3e53e96e40dd371dbd4ef4ef7cb355b8e0e56018a54662dee95d2bd66ae51ba4",
+          "lines": 20,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-065",
+      "file": "corpus/song/eng_celtic_msm_james_ballantine.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 44,
+          "title": "CASTLES IN THE AIR",
+          "body_sha256": "833c388b3f34fc20ea515d4194bd2ece4e51feb7437ccda4da2e3514dc3a833e",
+          "lines": 24,
+          "weight": 1
+        },
+        {
+          "title_line": 332,
+          "title": "Castles in the Air",
+          "body_sha256": "778d4920d7f029c9d09832a0e70440ff9969860f6a0506521871650dfe5b9f8c",
+          "lines": 24,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-066",
+      "file": "corpus/song/eng_celtic_msm_james_ballantine.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 142,
+          "title": "CREEP AFORE YE GANG",
+          "body_sha256": "522daa65ec60442006b65e3a5bec02f33c58fb9716e7f225c3c81deca39bf5af",
+          "lines": 16,
+          "weight": 1
+        },
+        {
+          "title_line": 309,
+          "title": "Creep Afore Ye Gang",
+          "body_sha256": "2fbbc4941f54232ca0431eff781a90ec7a6a1378c8221ef4fde358950c3a7d22",
+          "lines": 16,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-067",
+      "file": "corpus/song/eng_celtic_msm_john_dunlop.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 36,
+          "title": "OH, DINNA ASK ME  [air: 'Comin' through the rye.']",
+          "body_sha256": "39779521f64de000fcf6dabba3e8657e918cf9f316c23ab3faca1e0363d76ac1",
+          "lines": 16,
+          "weight": 1
+        },
+        {
+          "title_line": 128,
+          "title": "\"DINNA ASK ME\"",
+          "body_sha256": "9459dd0e900df538817930d0d821a0ad9263ab4862c2c9fb0fcbf808d08dceb3",
+          "lines": 16,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-068",
+      "file": "corpus/song/eng_celtic_msm_robert_lochore.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 72,
+          "title": "MARRIAGE, AND THE CARE O'T  [air: Whistle o'er the lave o't]",
+          "body_sha256": "b38f7ca6645b9314a72f0ce522acb3a419b5f2bbbfb3879f436778def9f38cd9",
+          "lines": 32,
+          "weight": 1
+        },
+        {
+          "title_line": 180,
+          "title": "MARRIAGE AND THE CARE O'T",
+          "body_sha256": "9962f8f0302ffaaf93fea9ba93631cf7074a33b1042dbcfbbb111c155ab24521",
+          "lines": 32,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-069",
+      "file": "corpus/song/eng_celtic_msm_robert_tannahill.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 14,
+          "title": "JESSIE, THE FLOWER O' DUMBLANE",
+          "body_sha256": "8939aee4e7644329f1fc864ff88b3539ddf7a8dd457c6c58758cd755a963196e",
+          "lines": 24,
+          "weight": 1
+        },
+        {
+          "title_line": 573,
+          "title": "JESSIE, THE FLOWER O' DUNBLANE",
+          "body_sha256": "4928016e82cec3677a472d83426ec12704a43b101222c8c385cbac0649f29cea",
+          "lines": 24,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-070",
+      "file": "corpus/song/eng_celtic_robert_burns.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 7110,
+          "title": "To A Mountain Daisy,",
+          "body_sha256": "f7ac0469dfc203d915b86c39d8b189b20c6b2ce8e26cdf55828517dd10514c1b",
+          "lines": 55,
+          "weight": 1
+        },
+        {
+          "title_line": 22200,
+          "title": "To a Mountain Daisy",
+          "body_sha256": "7615d50645fe839b47427ae5e6493089c5978654cde5b0273452cc654f7dd543",
+          "lines": 54,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-071",
+      "file": "corpus/song/eng_celtic_robert_burns.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 12198,
+          "title": "Auld Lang Syne",
+          "body_sha256": "06158106752c9ca6ccbd2fbaff33db9f024e15d4a04bf4bb6af5da85b5583a90",
+          "lines": 28,
+          "weight": 1
+        },
+        {
+          "title_line": 22049,
+          "title": "Auld Lang Syne",
+          "body_sha256": "cc49c7161e14b5efca84dee1952c7a80e57ad069a79584bcb5a97f57d1f64ae9",
+          "lines": 24,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-072",
+      "file": "corpus/song/eng_celtic_robert_burns.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 12238,
+          "title": "My Bonie Mary",
+          "body_sha256": "bec8e14f2ec7dd5bdef335f3527910b621d8d2244fb5c52ee1f7a103d396907f",
+          "lines": 16,
+          "weight": 1
+        },
+        {
+          "title_line": 22082,
+          "title": "My Bonnie Mary",
+          "body_sha256": "60a9baf063f32540a55dc622fbef0f1b0e36ca8eb1431fd751095b143ee52280",
+          "lines": 16,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-073",
+      "file": "corpus/song/eng_celtic_robert_burns.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 13800,
+          "title": "Ca' The Yowes To The Knowes",
+          "body_sha256": "b199524258d4c5545f2400948427a27ee03b50c36becc2f23805cae17d5ed0b9",
+          "lines": 29,
+          "weight": 1
+        },
+        {
+          "title_line": 19626,
+          "title": "Ca' The Yowes To The Knowes--Second Version",
+          "body_sha256": "4160310788edbee18002033805b3c9a3dc3bdbd39cea1274106b57c046ad6248",
+          "lines": 29,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-074",
+      "file": "corpus/song/eng_celtic_robert_burns.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 14085,
+          "title": "My Heart's In The Highlands  [air: Failte na Miosg]",
+          "body_sha256": "f4ba7b3762dfac73161b525994f9e3a518a9ee21d4727e63d709407310c0df72",
+          "lines": 13,
+          "weight": 1
+        },
+        {
+          "title_line": 22266,
+          "title": "\"My Heart's in the Highlands\"",
+          "body_sha256": "ca53909c9a821456d6dfc6eca7ebbe631679af9e7c5fdc95f9e0c9635988d5bd",
+          "lines": 16,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-075",
+      "file": "corpus/song/eng_celtic_robert_burns.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 15592,
+          "title": "The Banks O' Doon--First Version",
+          "body_sha256": "39969dfdb08f8668ac731e45f96dbdec7ba0f56670f2484f48242506c20b228a",
+          "lines": 24,
+          "weight": 1
+        },
+        {
+          "title_line": 15620,
+          "title": "The Banks O' Doon--Second Version",
+          "body_sha256": "af334450dce89ae27de33af682354d356bc6b462e388f08296c0a6fbd230e8f2",
+          "lines": 24,
+          "weight": 0
+        },
+        {
+          "title_line": 22149,
+          "title": "BONNIE DOON",
+          "body_sha256": "4c5d79d7d96697e2c6643cddc1c036befd1932b7d81a350138ddb2fd8b41e208",
+          "lines": 20,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-076",
+      "file": "corpus/song/eng_celtic_robert_burns.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 16854,
+          "title": "Behold The Hour, The Boat, Arrive",
+          "body_sha256": "fa4d71ac36c405bff5089118c10fc64d940010e91bc88b43b70091664942cc05",
+          "lines": 16,
+          "weight": 1
+        },
+        {
+          "title_line": 18660,
+          "title": "Behold The Hour, The Boat Arrive",
+          "body_sha256": "d7d49dd48007ef3a034de0ae8497220349b265a076e7912fee14270b3ebc5678",
+          "lines": 16,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-077",
+      "file": "corpus/song/eng_celtic_robert_burns.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 17473,
+          "title": "My Wife's A Winsome Wee Thing",
+          "body_sha256": "4e96f84473e365e2dd4593885f8c829fbc7d9d6e72bca285d2469cb1dc6994f0",
+          "lines": 15,
+          "weight": 1
+        },
+        {
+          "title_line": 22177,
+          "title": "MY WIFE'S A WINSOME WEE THING",
+          "body_sha256": "a79713cac63fffdc7c4019f31ebe25e0bb5029174fe0d2726fdfc6c622ad0294",
+          "lines": 16,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-078",
+      "file": "corpus/song/eng_celtic_robert_burns.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 17861,
+          "title": "Wandering Willie--First Version",
+          "body_sha256": "ee2a5059184291aea406ba985ebfdb7272c4095eef7e2555367421e4b3aeb01e",
+          "lines": 16,
+          "weight": 1
+        },
+        {
+          "title_line": 17881,
+          "title": "Wandering Willie--Revised Version",
+          "body_sha256": "cb4e8950781980d533a7138c1dcf7c29b05aca6c9299d615fdc1a4abab391aa8",
+          "lines": 16,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-079",
+      "file": "corpus/song/eng_celtic_robert_burns.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 17972,
+          "title": "Meg O' The Mill",
+          "body_sha256": "27e1c7c0167818e930972b7e14301f3e0839d8a20da169068864617d97e600ea",
+          "lines": 16,
+          "weight": 1
+        },
+        {
+          "title_line": 17994,
+          "title": "Meg O' The Mill--Another Version",
+          "body_sha256": "a46e61bdaa569a8471fe9aeafbc25bc3c51e9783c4481ab8fdff788d8135dccf",
+          "lines": 16,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-080",
+      "file": "corpus/song/eng_celtic_robert_burns.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 18965,
+          "title": "The Minstrel At Lincluden  [air: Cumnock Psalms]",
+          "body_sha256": "bc00aa681cb42d3b10e5cc22b4dff71f0ce5a94e3702130b84eb843e88419f45",
+          "lines": 38,
+          "weight": 1
+        },
+        {
+          "title_line": 19019,
+          "title": "A Vision",
+          "body_sha256": "18c24cd55924a78f31c58fc33dedb49b42c50145ab80e2f562378b38958be3b5",
+          "lines": 32,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-081",
+      "file": "corpus/song/eng_celtic_robert_burns.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 20192,
+          "title": "My Nanie's Awa  [air: There'll never be peace till Jamie comes hame]",
+          "body_sha256": "1d006c289aeff1679b659c9c883e5ee77f91e091943c9baffbac72e5977e00d7",
+          "lines": 16,
+          "weight": 1
+        },
+        {
+          "title_line": 22126,
+          "title": "\"MY NANNIE'S AWA'\"",
+          "body_sha256": "df972c41ed296531332d05aa2cc867efddf12ce898c6b06e76df478af4a4db9a",
+          "lines": 16,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-082",
+      "file": "corpus/song/eng_celtic_thomas_moore.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 1398,
+          "title": "At the Mid Hour of Night  [air: Molly, my dear]",
+          "body_sha256": "9eb7238fb2592d400a2d389bd293c793582e2af0770e7c199a45db8fb7a825bd",
+          "lines": 10,
+          "weight": 1
+        },
+        {
+          "title_line": 3762,
+          "title": "At the Mid Hour of Night",
+          "body_sha256": "7d4ce51953eefac538d2242995b137c92dd991f6327ca89f21ee79475df7db14",
+          "lines": 10,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-083",
+      "file": "corpus/song/eng_hall_thomas_durfey.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 5019,
+          "title": "[v.5] A SONG. Set by Mr. RAMONDON, Sung at the Theatre.",
+          "body_sha256": "6c132731a96fe2f57ce840273da9b9354f2c2ba46d3bac5f456105b17ff90f9f",
+          "lines": 15,
+          "weight": 1
+        },
+        {
+          "title_line": 17340,
+          "title": "[v.6] A SONG. Set by Mr. RAMONDON. Sung at the Theatre.",
+          "body_sha256": "bde75ef2111c59a7944221b2921bd1c9528819541ac2f3f8dfe627e998bfa893",
+          "lines": 15,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-084",
+      "file": "corpus/song/eng_hall_william_barnes.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 292,
+          "title": "THE BLACKBIRD",
+          "body_sha256": "5fe9d79e74e86d1834d4879b20b338a2f5f283abe3d6b00285302913b697c6fe",
+          "lines": 42,
+          "weight": 1
+        },
+        {
+          "title_line": 16639,
+          "title": "The Blackbird",
+          "body_sha256": "0334c4d2bf5dbbd7cf762500ab26b7ece8b5260a64abe512da333f6b28fe8535",
+          "lines": 42,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-085",
+      "file": "corpus/song/eng_hall_william_barnes.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 447,
+          "title": "THE GIRT WOAK TREE THAT'S IN THE DELL",
+          "body_sha256": "b7fe971ef809629991da1232b135b23fab6af90a4b2d1543ba6a219957f63232",
+          "lines": 56,
+          "weight": 1
+        },
+        {
+          "title_line": 16577,
+          "title": "\"The Girt Woak Tree that's in the Dell\"",
+          "body_sha256": "20878244a27115f0c8de0c15297a73827bfa1ccf6c52193d65b4e0a4bd762690",
+          "lines": 56,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-086",
+      "file": "corpus/song/eng_hall_william_barnes.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 6642,
+          "title": "BLACKMWORE MAIDENS",
+          "body_sha256": "fb475387c80f34b23d25323097a5d7e68537b9776f64afcdbf66080a19d7ebae",
+          "lines": 40,
+          "weight": 1
+        },
+        {
+          "title_line": 16529,
+          "title": "Blackmwore Maidens",
+          "body_sha256": "abdc2504e0c63dc813e8960f7f3fc45c89cafbf6ce4aa8ad54847df08f14db70",
+          "lines": 40,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-087",
+      "file": "corpus/song/eng_hymn_charles_wesley.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 639,
+          "title": "Talk with us, Lord, thyself reveal",
+          "body_sha256": "f998b6af295e1fa4daeec3d1fd18a6ae62ff01190014e7b3841811173069203b",
+          "lines": 16,
+          "weight": 1
+        },
+        {
+          "title_line": 1143,
+          "title": "Speak with us, Lord; Thyself reveal",
+          "body_sha256": "a6c701d9ad2914c94e63794f2452442bb67ef96929238af6cb3b540ac77679dc",
+          "lines": 16,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-088",
+      "file": "corpus/song/eng_hymn_doddridge.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 32,
+          "title": "Hark the glad sound! the Savior comes",
+          "body_sha256": "28ac10dc50bc5c6fdee3403a60011c178f2f27245555444c31754a3ab632a70a",
+          "lines": 16,
+          "weight": 1
+        },
+        {
+          "title_line": 284,
+          "title": "Hark! the glad sound! the Saviour comes",
+          "body_sha256": "3ebc7b5cc37a162c978c8ca7a4d1b7beb661672dd6c85f60083b5dd6df56d344",
+          "lines": 20,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-089",
+      "file": "corpus/song/eng_hymn_montgomery.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 121,
+          "title": "Lord! teach us how to pray aright",
+          "body_sha256": "1fcb8c815e5fcaf88e288d011c64ab4a431087c13f31854c21e93cd9683ba479",
+          "lines": 16,
+          "weight": 1
+        },
+        {
+          "title_line": 349,
+          "title": "God of all grace, we come to Thee",
+          "body_sha256": "13b5bfd96ff008c66ad5312fa7352f50b1cfc17f4db58fec4d62a54fa07554be",
+          "lines": 16,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-090",
+      "file": "corpus/song/eng_hymn_montgomery.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 736,
+          "title": "Ages, ages have departed",
+          "body_sha256": "ed9cfc3be05a09f29a0d2c6207692f9a8d19f39cb64ace4e416f917b7fe2b15c",
+          "lines": 24,
+          "weight": 1
+        },
+        {
+          "title_line": 1460,
+          "title": "SLAVERY THAT WAS",
+          "body_sha256": "4e79e312489f8454be5b11d8206226b7058471c12f4a656afaa900dc394a8c38",
+          "lines": 24,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-091",
+      "file": "corpus/song/eng_oxford_allan_ramsay.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 13,
+          "title": "Peggy",
+          "body_sha256": "f106f7d05ea3c0504d3c779ddaa49769c04f0c37ce38ce297deed779280f6c00",
+          "lines": 32,
+          "weight": 1
+        },
+        {
+          "title_line": 52,
+          "title": "MY PEGGY",
+          "body_sha256": "174c294ded1200cf3b5d3083524dc5aa44059817902c4c56bd2bbc82c7ade7a0",
+          "lines": 32,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-092",
+      "file": "corpus/song/eng_oxford_charles_tennyson_turner.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 13,
+          "title": "Letty’s Globe",
+          "body_sha256": "6be02bb838a4552af546c3d9444ace135d5f44431ceb20a97f7384e9bed65b16",
+          "lines": 14,
+          "weight": 1
+        },
+        {
+          "title_line": 31,
+          "title": "Letty's Globe",
+          "body_sha256": "ab6f845a2701a110883d1e3dfcfc129345615d2384fcffd7b77abade9d295ad5",
+          "lines": 14,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-093",
+      "file": "corpus/song/eng_oxford_edmund_spenser.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 94,
+          "title": "Prothalamion",
+          "body_sha256": "a8568d9966f023c86ea309ac563d7ab4efe1505f18818bd1b1f3085e2b18db79",
+          "lines": 180,
+          "weight": 1
+        },
+        {
+          "title_line": 843,
+          "title": "PROTHALAMION",
+          "body_sha256": "9da8066ca51c1ebb7a7ad22b30fe51ef819344ade37ead4dad3951a4a97b8a03",
+          "lines": 180,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-094",
+      "file": "corpus/song/eng_oxford_edmund_spenser.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 287,
+          "title": "Epithalamion",
+          "body_sha256": "bf77f0fabe6b55068ee5844d083792070225a8a2e09ea29030ef945f53db66ec",
+          "lines": 433,
+          "weight": 1
+        },
+        {
+          "title_line": 1036,
+          "title": "EPITHALAMION",
+          "body_sha256": "fccb370f2fc7b62e65605673169386cf776daab7805b7bac9821047dd26dc9d3",
+          "lines": 433,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-095",
+      "file": "corpus/song/eng_oxford_john_boyle_o_reilly.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 19,
+          "title": "A White Rose",
+          "body_sha256": "e6b096e9aa13ee9cbf058f5782b6465a891a42c3d69e846227c16f8cea1f85cf",
+          "lines": 8,
+          "weight": 1
+        },
+        {
+          "title_line": 554,
+          "title": "A WHITE ROSE",
+          "body_sha256": "3abd7400e1d0399179aefd18bbcac82ce350756fda50bea57f57ca8b2d98e7d7",
+          "lines": 8,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-096",
+      "file": "corpus/song/eng_oxford_john_fletcher.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 53,
+          "title": "Aspatia’s Song",
+          "body_sha256": "52a2c2c1474c962abedb4d6a39c846f6e5d6f7d80af351cd284bea04fb4167ff",
+          "lines": 8,
+          "weight": 1
+        },
+        {
+          "title_line": 260,
+          "title": "ASPATIA'S SONG",
+          "body_sha256": "c167b5607c02cf092763ed61333307525a5ea8d3f4e81d40f2363cdb48bd1a84",
+          "lines": 8,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-097",
+      "file": "corpus/song/eng_oxford_john_sheffield_duke_of_buckinghamshire.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 15,
+          "title": "The Reconcilement",
+          "body_sha256": "563ce1681f5f7378d3106f2261cb8fd273e5eca857f7899a8e0ed52b8f222931",
+          "lines": 16,
+          "weight": 1
+        },
+        {
+          "title_line": 63,
+          "title": "SONG",
+          "body_sha256": "6dfa2379f907d078276985f15fefde4b2081ca314246e7ecd9ad4e99740ad0e2",
+          "lines": 16,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-098",
+      "file": "corpus/song/eng_oxford_leigh_hunt.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 15,
+          "title": "Jenny kiss’d Me",
+          "body_sha256": "2ece64e47e40ccc9ba3faf02725e17d9833d4ed49f7639841b9d75af57b4dfd1",
+          "lines": 8,
+          "weight": 1
+        },
+        {
+          "title_line": 68,
+          "title": "\"JENNY KISSED ME\"",
+          "body_sha256": "a1f59d7605b4b64b0817a1d7c0dd08818fdf04f2567c4cd35085645b14ca306d",
+          "lines": 8,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-099",
+      "file": "corpus/song/eng_oxford_oliver_goldsmith.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 13,
+          "title": "Woman",
+          "body_sha256": "06855e609ecc7515733344ad9a2c9de39c4c1b88c5689de3b0c44b81906baf87",
+          "lines": 8,
+          "weight": 1
+        },
+        {
+          "title_line": 39,
+          "title": "\"WHEN LOVELY WOMAN STOOPS TO FOLLY\"",
+          "body_sha256": "2dbc9a1ae32a854c299265adaff114f6188610bd3e9afc8149e25aa0e66fe79a",
+          "lines": 8,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-100",
+      "file": "corpus/song/eng_oxford_richard_henry_horne.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 15,
+          "title": "The Plough",
+          "body_sha256": "08531e6c5b9dc367a6580fb7a88300ee963e148cf238f794441bf1b958619c4e",
+          "lines": 16,
+          "weight": 1
+        },
+        {
+          "title_line": 38,
+          "title": "The Plow",
+          "body_sha256": "572f349d2cd1b630b86c6a8127b252d624fb482945e1c08e06a743c0c6d1b9ff",
+          "lines": 16,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-101",
+      "file": "corpus/song/eng_oxford_richard_jago.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 13,
+          "title": "Absence",
+          "body_sha256": "8fca0a7b4b6d921d67b0546a54dc47db635981f8040fc495f4e718a1c07a9967",
+          "lines": 8,
+          "weight": 1
+        },
+        {
+          "title_line": 26,
+          "title": "ABSENCE",
+          "body_sha256": "b522bf518723bfe25e9970cec2ddb10d5ab92f78a6c2871d68de81419930a8a9",
+          "lines": 8,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-102",
+      "file": "corpus/song/eng_oxford_sir_william_jones.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 15,
+          "title": "Epigram",
+          "body_sha256": "72b304e9a75a628e5979f749829f84a3486fb88f1425ac1472e84322ab75d8ba",
+          "lines": 4,
+          "weight": 1
+        },
+        {
+          "title_line": 23,
+          "title": "\"On Parent Knees\"",
+          "body_sha256": "a4c96b4931330267d134c6792fc4c39f0569d0af53761f22c5b9860abdf1b364",
+          "lines": 4,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-103",
+      "file": "corpus/song/eng_oxford_thomas_edward_brown.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 64,
+          "title": "My Garden",
+          "body_sha256": "18211f0ca5da53b77f8b21c141bc7b8df609aef36c8b63226bccd4c847e709b0",
+          "lines": 10,
+          "weight": 1
+        },
+        {
+          "title_line": 78,
+          "title": "My Garden",
+          "body_sha256": "1907154428d823a31a1359e1fcc40916cd27430a9b4c0552d7fe253f4f983b9c",
+          "lines": 10,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-104",
+      "file": "corpus/song/eng_oxford_william_shakespeare.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 335,
+          "title": "Take, O take those Lips away",
+          "body_sha256": "60ba0b0c421d8479ea799751ceeceab0530e6ebfb0d6882187f70d162c8c8fb3",
+          "lines": 8,
+          "weight": 1
+        },
+        {
+          "title_line": 929,
+          "title": "\"TAKE, O TAKE THOSE LIPS AWAY\"",
+          "body_sha256": "faa97c62c098a430ea731dfff144aaa0276fb2e9bac33482a8672beac417e445",
+          "lines": 12,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-105",
+      "file": "corpus/song/eng_oxford_william_shakespeare.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 347,
+          "title": "Aubade",
+          "body_sha256": "0c09b33ecc87437c54b310e010c4d70ccea9582c25b48938c5d8c11804556f56",
+          "lines": 9,
+          "weight": 1
+        },
+        {
+          "title_line": 946,
+          "title": "\"HARK, HARK, THE LARK\"",
+          "body_sha256": "cab99c1d5b9a51a22c146f89c17c7fc34b9128071f7a3dab01c6f6b273200a0e",
+          "lines": 9,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "work_id": "edition-work-106",
+      "file": "corpus/song/eng_oxford_william_strode.txt",
+      "reason": "Same work in historical printings or adapted/abridged editions, reviewed against complete bodies; spelling, typography, title, line wrapping, stanza order or extent may differ. One work contributes once; first staged representative is fixed independently of its score.",
+      "editions": [
+        {
+          "title_line": 13,
+          "title": "Chloris in the Snow",
+          "body_sha256": "6f627ebac32fa60f5ea066535d1c2ea5b3ce5b8573a1920eab3f7531287ad5ab",
+          "lines": 10,
+          "weight": 1
+        },
+        {
+          "title_line": 27,
+          "title": "ON CHLORIS WALKING IN THE SNOW",
+          "body_sha256": "0f3789c959115c9d7eec6187ed359a10d5b7f3015a7d7cc6a42dd6d1840aeb6d",
+          "lines": 10,
+          "weight": 0
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "file": "corpus/song/eng_british_richard_lovelace.txt",
+      "title_line": 2819,
+      "title": "Sanazari Hexasticon",
+      "body_sha256": "6b01a9933e327de25c93e3950c44af1ca6c3b99f9ec5bd9f871c4d266e281098",
+      "lines": 6,
+      "weight": 0,
+      "reason": "Latin source poem; preserved as verse, excluded from English calibration. The adjacent English translation remains."
+    },
+    {
+      "file": "corpus/song/eng_british_richard_lovelace.txt",
+      "title_line": 2837,
+      "title": "De Scaevola",
+      "body_sha256": "a52da9fa0c2ed92f74ce0b28a720608ad76cc08cac841207d41a9a5e9853e97e",
+      "lines": 6,
+      "weight": 0,
+      "reason": "Latin source poem; preserved as verse, excluded from English calibration. The adjacent English translation remains."
+    },
+    {
+      "file": "corpus/song/eng_british_richard_lovelace.txt",
+      "title_line": 2866,
+      "title": "Item",
+      "body_sha256": "1df644444c89540ff442cf6987f8fe0952dccd18a04e90689d3fe4df51552da5",
+      "lines": 6,
+      "weight": 0,
+      "reason": "Latin source poem; preserved as verse, excluded from English calibration. The adjacent English translation remains."
+    },
+    {
+      "file": "corpus/song/eng_british_richard_lovelace.txt",
+      "title_line": 2884,
+      "title": "Item",
+      "body_sha256": "75e27ea2ebea893640121bdb3af276df897ef06d324c422415040c971e143775",
+      "lines": 4,
+      "weight": 0,
+      "reason": "Latin source poem; preserved as verse, excluded from English calibration. The adjacent English translation remains."
+    },
+    {
+      "file": "corpus/song/eng_british_richard_lovelace.txt",
+      "title_line": 2900,
+      "title": "Item",
+      "body_sha256": "ce7bddda9d1d4f98e5445a5bb3c94dc6823febb523353b847f44c8ceb0769a36",
+      "lines": 4,
+      "weight": 0,
+      "reason": "Latin source poem; preserved as verse, excluded from English calibration. The adjacent English translation remains."
+    },
+    {
+      "file": "corpus/song/eng_british_richard_lovelace.txt",
+      "title_line": 2916,
+      "title": "Pentadii",
+      "body_sha256": "8b3df51a12209149b7cc7218edb0003011281f10477aad03fea78769fda2df87",
+      "lines": 14,
+      "weight": 0,
+      "reason": "Latin source poem; preserved as verse, excluded from English calibration. The adjacent English translation remains."
+    }
+  ],
+  "distinct_reviewed": [
+    {
+      "file": "corpus/song/eng_hymn_montgomery.txt",
+      "title_lines": [
+        47,
+        821
+      ],
+      "reason": "Different psalm paraphrases with shared closing stanzas; retain both. Same-line containment alone is insufficient."
+    },
+    {
+      "file": "corpus/song/eng_british_felicia_hemans.txt",
+      "title_lines": [
+        1680,
+        1742
+      ],
+      "reason": "Distinct complete poem/scene sections sharing an opening or refrain; complete bodies differ. No automatic merge from shared opening."
+    },
+    {
+      "file": "corpus/song/eng_british_lewis_carroll.txt",
+      "title_lines": [
+        991,
+        1138
+      ],
+      "reason": "Distinct complete poem/scene sections sharing an opening or refrain; complete bodies differ. No automatic merge from shared opening."
+    },
+    {
+      "file": "corpus/song/eng_british_lewis_carroll.txt",
+      "title_lines": [
+        991,
+        1230
+      ],
+      "reason": "Distinct complete poem/scene sections sharing an opening or refrain; complete bodies differ. No automatic merge from shared opening."
+    },
+    {
+      "file": "corpus/song/eng_british_lewis_carroll.txt",
+      "title_lines": [
+        991,
+        1282
+      ],
+      "reason": "Distinct complete poem/scene sections sharing an opening or refrain; complete bodies differ. No automatic merge from shared opening."
+    },
+    {
+      "file": "corpus/song/eng_british_lewis_carroll.txt",
+      "title_lines": [
+        1138,
+        1230
+      ],
+      "reason": "Distinct complete poem/scene sections sharing an opening or refrain; complete bodies differ. No automatic merge from shared opening."
+    },
+    {
+      "file": "corpus/song/eng_british_lewis_carroll.txt",
+      "title_lines": [
+        1138,
+        1282
+      ],
+      "reason": "Distinct complete poem/scene sections sharing an opening or refrain; complete bodies differ. No automatic merge from shared opening."
+    },
+    {
+      "file": "corpus/song/eng_british_lewis_carroll.txt",
+      "title_lines": [
+        1230,
+        1282
+      ],
+      "reason": "Distinct complete poem/scene sections sharing an opening or refrain; complete bodies differ. No automatic merge from shared opening."
+    },
+    {
+      "file": "corpus/song/eng_celtic_robert_burns.txt",
+      "title_lines": [
+        875,
+        1781
+      ],
+      "reason": "Distinct complete poem/scene sections sharing an opening or refrain; complete bodies differ. No automatic merge from shared opening."
+    },
+    {
+      "file": "corpus/song/eng_hall_william_barnes.txt",
+      "title_lines": [
+        1778,
+        1825
+      ],
+      "reason": "Distinct complete poem/scene sections sharing an opening or refrain; complete bodies differ. No automatic merge from shared opening."
+    },
+    {
+      "file": "corpus/song/eng_hall_william_barnes.txt",
+      "title_lines": [
+        7117,
+        11838
+      ],
+      "reason": "Distinct complete poem/scene sections sharing an opening or refrain; complete bodies differ. No automatic merge from shared opening."
+    }
+  ]
+}

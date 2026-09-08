@@ -441,9 +441,13 @@ def test_thresholds_are_declared_not_hidden():
     # actually thread it, so the test is that MOVING it moves the statistic
     # the finding reports. `same` is 34 tokens: at the shipped 50 it is
     # inside the window and `_mattr` degenerates to plain TTR, at 20 it is
-    # not and a real moving average is taken.
+    # not and a real moving average is taken. The nondefault window has no
+    # calibrated cut: declare the same caller-owned cut for both coordinates
+    # to isolate whether the statistic changes. test_floor_window separately
+    # proves that omitting this cut refuses lexical certification.
     def _mattr_evidence(w):
-        fl = SlopFloor(decl=FloorDeclaration(mattr_window=w), qf=FLOOR.qf)
+        fl = SlopFloor(decl=FloorDeclaration(mattr_window=w, mattr_min=1.0),
+                       qf=FLOOR.qf)
         for f in fl.check(same, "ABAB"):
             if f.code == "LEXICAL_MONOTONY":
                 return f.evidence
@@ -824,22 +828,18 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
     # `expected_drift.py`, which re-DERIVES. A pin and a re-derivation are
     # different instruments and this file holds the first kind.
     check("the five song thresholds are the recorded corpus percentiles",
-          song.percentiles == {"mattr_min": 0.7172,
-                               "function_word_ratio_max": 0.4783,
+          song.percentiles == {"mattr_min": 0.7182405540134821,
+                               "function_word_ratio_max": 0.47850980862679227,
                                "anaphora_max": 0.3000,
-                               "line_length_cv_min": 0.1111,
-                               "predictable_pair_fraction_max": 0.9333},
-          "RE-ADOPTED 2026-08-26: 200-400 tokens, 2,261 items, 663 authors, "
-          "MATTR window 50 (~~150-400, 3,571 items, 879 authors~~; "
-          "~~1,859 items, 108 authors~~). THE BAND IS WHAT MOVED and the "
-          "four thresholds follow it -- over the SHIPPED 150-400 they "
-          "re-derive EXACTLY, which `--without-predictability` measures. The "
-          "band moved because the rule is FIVE-check and sub-bin 150-200 "
-          "answers predictability 1.0000 against a band-wide 0.9375, "
-          "|d| 0.0625 > 0.05; floor.py's own note had been stating the rule "
-          "in its FOUR-check form. anaphora is unmoved at 0.3000 for the "
-          "third band running. quality/RESULTS_SONG_FLOOR.md 10 carries the "
-          "argument and the commands")
+                               "line_length_cv_min": 0.11159567903159137,
+                               "predictable_pair_fraction_max": 0.9230769230769231}
+          and (song.lo, song.hi, song.n_human) == (200, 450, 2438),
+          "RE-ADOPTED 2026-09-08 after canonical work/edition and shared-reader "
+          "corrections: full 200-seed derivation, 200-450 tokens, 2,438 items, "
+          "MATTR window50. The preceding August history describes the prior "
+          "population. This pins the independently recorded current tuple; "
+          "the flagship-example flag above is the control against tuning it "
+          "to make the repository's examples pass.")
 
 
 #: A sheet that trips EVERY length-sensitive check under the ~~`song`~~ live

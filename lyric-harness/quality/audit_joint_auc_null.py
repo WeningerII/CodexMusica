@@ -408,7 +408,7 @@ def check(m):
               "reached. None of")
         print("  these three files is tracked in git, so a fresh checkout has "
               "none of")
-        print("  them -- run quality/fetch_data.py first.")
+        print("  them -- run quality/fetch_data.py --research first.")
         print("\nRESULT: REFUSED (not a pass, not a failure -- doctrine 20)")
         return 2
     if m["cache_status"] != "fingerprint match":

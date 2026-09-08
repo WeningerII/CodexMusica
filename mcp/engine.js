@@ -21,7 +21,7 @@ const require = createRequire(import.meta.url);
 const C = require('../scripts/_loader.js');
 const W = require('../scripts/_workspace_ops.js');
 const { tokensOf } = require('../scripts/_preface_match.js');
-const { assignDedupedPrefaces } = require('../scripts/_recipe_stack.js');
+const { assignDedupedPrefaces, buildStackParts } = require('../scripts/_recipe_stack.js');
 const { seedTraditionCards, defaultParts } = require('../scripts/_seed_workspace.js');
 // The product-defining hard recipe cap — single source of truth, re-exported so
 // the tool schema (tools.js) derives its max_chars bound from the same constant.
@@ -220,6 +220,39 @@ function shape(ws, params = {}, meta = {}) {
     cards: cardsSummary(ws),
     workspace: ws,
   };
+  const environment = ws.cards.find(
+    (c) =>
+      c.room ||
+      c.tuning ||
+      Object.values(c.chain || {}).some((v) => (Array.isArray(v) ? v.length : v))
+  );
+  out.render_scope = {
+    environment_card: environment?.id || null,
+    environment:
+      'One shared room/tuning/signal chain; other cards do not create individual audio paths.',
+    output:
+      'Text recipe only; no recording, mix, stereo placement or listening test was performed.',
+  };
+  out.render_warnings = [];
+  for (const card of ws.cards) {
+    const parts = Object.fromEntries((card.pinnedParts || []).map((id) => [id, card.parts[id]]));
+    const instrument = buildStackParts({ ...card, parts }).find((p) => p.kind === 'instrument');
+    const missing = (instrument?.descriptors || []).filter((d) => !recipe.includes(d));
+    if (missing.length)
+      out.render_warnings.push({
+        card: card.id,
+        code: 'PINNED_DESCRIPTORS_NOT_LITERAL',
+        descriptors: missing,
+        meaning:
+          'Explicit part descriptors are absent literally from this output; compression or subsumption may remove them. Do not claim they survived.',
+      });
+    if (card.prefaceAuto === false && card.preface && !recipe.includes(card.preface))
+      out.render_warnings.push({
+        card: card.id,
+        code: 'EXPLICIT_PREFACE_NOT_LITERAL',
+        preface: card.preface,
+      });
+  }
   // Seed responses carry the edit affordance INSIDE the payload — it lands at
   // the exact moment a model decides whether to stop at the default or push it
   // toward the user's words. Deterministic (live catalog counts only).
@@ -269,6 +302,7 @@ const EDIT_ACTIONS = [
   'set_variant',
   'set_environment',
   'set_preface',
+  'move_instrument',
 ];
 
 // A missing `card` is not a typo, it is a misunderstanding of the model: every
@@ -357,6 +391,8 @@ function applyEdit(ws, e) {
     }
     case 'set_preface':
       return W.setPreface(ws, req(ws, e, 'card'), req(ws, e, 'preface'));
+    case 'move_instrument':
+      return W.moveInstrument(ws, req(ws, e, 'card'), e.before);
     default:
       throw new EngineError(
         `Unknown edit action "${e && e.action}". Valid: ${EDIT_ACTIONS.join(', ')}.`

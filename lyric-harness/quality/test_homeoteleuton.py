@@ -109,9 +109,14 @@ def test_pair_verdicts():
           codes.get((1, 3)) == "HOMEOTELEUTON", codes)
     check("cove/wove is HOMEOTELEUTON — the -ove class the old cliff let "
           "through at rank 7", codes.get((4, 5)) == "HOMEOTELEUTON")
-    check("hair/prayer is MODAL_RHYME — differently spelled, so tier 2's "
-          "frequency judgment owns it, and it now reaches deep enough",
-          codes.get((1, 2)) == "MODAL_RHYME")
+    check("hair/prayer remains unjudged when permitted pronunciations disagree",
+          (1, 2) not in codes and any(tuple(r['lines']) == (1, 2)
+              for r in found['grade']['refusals']))
+    modal = R.inspect(["we bend our will and then obey",
+                       "and watch the silent night away"], mandate=[[1, 2]])
+    check("obey/away is MODAL_RHYME — a determinate differently-spelled tier2 contrast",
+          any(f.code == 'MODAL_RHYME' and tuple(f.locations) == (1, 2)
+              for findings in modal['per_line'].values() for f in findings))
     check("bone/sown carries NEITHER — different spelling ('one'/'own') "
           "and below the frequency tier: silence still means clean",
           (6, 7) not in codes, codes)

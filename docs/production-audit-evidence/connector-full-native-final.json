@@ -1,0 +1,48 @@
+{
+  "command": [
+    "node",
+    "mcp/test.mjs"
+  ],
+  "cwd": "/workspace/scratch/b0544e4bbdd6/production-fixes",
+  "exit_code": 0,
+  "seconds": 301.57444864900026,
+  "timeout_seconds": 2400,
+  "ambient_provider_credentials_removed": true,
+  "checks_only": false,
+  "source_before": {
+    "mcp/test.mjs": "3235b411c168f473acb8f430276d0b6d2642d9f6da1a8aab6fb94eadebe7ed9a",
+    "mcp/lyric_tools.js": "44fd64fd3b8677da1b7e047bbf4cd2e87b9d157de3871e7517e5a1f2f5eac2b6",
+    "mcp/gemini_agent.js": "319959ffc9e68b934ab62a5534d230ae3a722f0573c881d8dd81249b528d1dbb",
+    "lyric-harness/lyric_harness.py": "40169c2d1be51c54a3dc2f74fd027c8d996b18988735b5a493135484bfe9ec62",
+    "lyric-harness/quality/propose.py": "81d6950a23a56e3f8a2f4cfc017bd619008d5e72ab5b62733f0eec00e48e0708",
+    "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679",
+    "lyric-harness/quality/relations.py": "c8321f5cfb33722e640820749c0f987a9e87072f1cfa2ce3ff04eb38f37fcdab",
+    "lyric-harness/quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+    "mcp/python_bridge.js": "7b94e3d9e2589bd2695b6c405c0cea2e4c12f21347e37121c566f2989e0d194b",
+    "mcp/state_codec.js": "a17bb33bbcbb128633a250dee6ab4939c24ed7d3133181b7dc72cae282257335",
+    "mcp/budget.js": "f2c5e67d0dbd6bf67fd47a7521024d9e148597112fbe16c0e14ad50575a57845"
+  },
+  "source_after": {
+    "mcp/test.mjs": "3235b411c168f473acb8f430276d0b6d2642d9f6da1a8aab6fb94eadebe7ed9a",
+    "mcp/lyric_tools.js": "44fd64fd3b8677da1b7e047bbf4cd2e87b9d157de3871e7517e5a1f2f5eac2b6",
+    "mcp/gemini_agent.js": "319959ffc9e68b934ab62a5534d230ae3a722f0573c881d8dd81249b528d1dbb",
+    "lyric-harness/lyric_harness.py": "40169c2d1be51c54a3dc2f74fd027c8d996b18988735b5a493135484bfe9ec62",
+    "lyric-harness/quality/propose.py": "81d6950a23a56e3f8a2f4cfc017bd619008d5e72ab5b62733f0eec00e48e0708",
+    "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679",
+    "lyric-harness/quality/relations.py": "c8321f5cfb33722e640820749c0f987a9e87072f1cfa2ce3ff04eb38f37fcdab",
+    "lyric-harness/quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+    "mcp/python_bridge.js": "7b94e3d9e2589bd2695b6c405c0cea2e4c12f21347e37121c566f2989e0d194b",
+    "mcp/state_codec.js": "a17bb33bbcbb128633a250dee6ab4939c24ed7d3133181b7dc72cae282257335",
+    "mcp/budget.js": "f2c5e67d0dbd6bf67fd47a7521024d9e148597112fbe16c0e14ad50575a57845"
+  },
+  "node": "v24.19.0",
+  "python": "Python 3.12.13",
+  "staged_data": "/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data",
+  "nltk_data": "/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data/nltk",
+  "summary_present": true,
+  "checks_passed": 152,
+  "summary_suffix": "",
+  "log_sha256": "d0eca805c604417711c2806144ad4efd82850de754a2d9d6fa2e60ff48b981b2",
+  "log_bytes": 13405,
+  "timing_scope": "functional run concurrent with other final regression/data gates; not isolated performance or production qualification"
+}

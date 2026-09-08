@@ -695,10 +695,19 @@ def _measure(st, schema, statistics, chans=None, keep="all"):
     difference.
     """
     kw = {} if chans is None else {"chans": chans}
-    out = R.realise(schema, st, keep=keep, **kw)
+    # A caller's storage preference may discard decided-false edges, but
+    # cannot discard the uncertainty used to decide whether a number exists.
+    out = R.realise(schema, st,
+                    keep="all" if keep == "all" else ("true", "none"), **kw)
     if isinstance(out, R.Refusal):
         return None, out
+    # These statistics count confirmed witnesses. An entirely unresolved
+    # observation cannot become the numeric zero used by the null test.
     inst = [i for i in out if i.verdict is True]
+    if not inst and any(i.verdict is None for i in out):
+        return None, R.Refusal(schema.name, 'reading',
+            'Possible witnesses remain unresolved; zero confirmed witnesses '
+            'is not a measured absence of this relation.', kind='span')
     findings = (R.assemble(schema, out, st)
                 if any(s.needs_assemble for s in statistics) else [])
     return [s.fn(inst, findings, st) for s in statistics], None
@@ -1122,7 +1131,7 @@ class Coverage:
     dropped: tuple = ()     # ((statistic, reason), ...) — doctrine 20 cases
     detail: str = ""
     capability: str = ""
-    instances: int = -1     # -1 = not measured (no stream supplied)
+    instances: int = -1     # confirmed witnesses; -1 = no determinate observation
     seconds: float = -1.0
     #: EVERY capability the stream did not supply, not only the first.
     #: `Refusal.capability` is `missing[0]` and `missing[0]` is ALPHABETICAL,
@@ -1161,11 +1170,18 @@ class Coverage:
     #: declaration can close and the other is a declaration that closed and
     #: found nothing.
     vacuous: tuple = ()
+    unresolved_instances: int = 0
+
+    @property
+    def requires_implementation(self):
+        """A declaration cannot supply executable semantics that do not exist."""
+        return self.refusal_kind == 'unsupported_shape' or self.capability in NEVER_PROVIDED
 
     @property
     def remedy(self):
         return {
-            "controlled": "already run; see this file's own docstring",
+            "controlled": "historical arm registered; current-source effect "
+                          "sizes require a matching rerun",
             "extendable": "RUN IT — `sweep()` does, and nothing else was in "
                           "the way. `--verify --deep` says whether the null "
                           "this verdict nominated actually moves anything, "
@@ -1179,6 +1195,11 @@ class Coverage:
                 # M-43: THE VACUOUS CASE FIRST, because for it the other two
                 # answers are both false -- the capability IS declared, and
                 # there is nothing to build.
+                ("IMPLEMENT the declared figure's full member bindings: " + self.detail)
+                if self.refusal_kind == 'unsupported_shape' else
+                ('resolve the required readings or supply a text with determinate '
+                 'witnesses; unresolved candidates are not absent instances')
+                if self.capability == 'reading' and self.unresolved_instances else
                 ("a TEXT the declared instrument can find something in: "
                  + ", ".join(self.vacuous) + " was declared and came back "
                  "EMPTY, so declaring it again changes nothing")
@@ -1229,22 +1250,30 @@ def coverage(stream=None, schemas=None, chans=None, statistics=None,
                 dropped.append((sn, "no null in NULLS moves it: every one is "
                                     "the identity map for this schema"))
         pairs, dropped = tuple(pairs), tuple(dropped)
-        inst, secs = -1, -1.0
+        inst, secs, unresolved = -1, -1.0, 0
         if stream is not None:
             if progress:
                 progress(name)
             t0 = time.time()
             kw = {} if chans is None else {"chans": chans}
-            res = R.realise(s, stream, keep=keep, **kw)
+            res = R.realise(s, stream,
+                            keep="all" if keep == "all" else ("true", "none"), **kw)
             secs = time.time() - t0
             if isinstance(res, R.Refusal):
                 out.append(Coverage(name, "cannot_obtain", pairs, dropped,
-                                    capability=res.capability, seconds=secs,
+                                    capability=res.capability, seconds=secs, detail=res.detail,
                                     missing=tuple(res.missing),
                                     refusal_kind=getattr(res, "kind", ""),
                                     vacuous=tuple(getattr(res, "vacuous", ()))))
                 continue
             inst = sum(1 for i in res if i.verdict is True)
+            unresolved = sum(1 for i in res if i.verdict is None)
+            if inst == 0 and unresolved:
+                out.append(Coverage(name, 'cannot_obtain', pairs, dropped,
+                    capability='reading', refusal_kind='span',
+                    detail='No determinate witness; unresolved is not absent.',
+                    unresolved_instances=unresolved, seconds=secs))
+                continue
             if inst == 0:
                 out.append(Coverage(name, "no_instance", pairs, dropped,
                                     instances=0, seconds=secs))
@@ -1256,7 +1285,8 @@ def coverage(stream=None, schemas=None, chans=None, statistics=None,
         # COST or it blows the bound it was given.
         if budget is not None and secs > budget:
             out.append(Coverage(name, "too_expensive", pairs, dropped,
-                                instances=inst, seconds=secs))
+                                instances=inst, seconds=secs,
+                                unresolved_instances=unresolved))
             continue
         if not pairs:
             miss = set()
@@ -1266,11 +1296,13 @@ def coverage(stream=None, schemas=None, chans=None, statistics=None,
             out.append(Coverage(name, "cannot_fail", pairs, dropped,
                                 detail="|".join(sorted(miss)) or "nothing a "
                                 "permutation of this text can move",
-                                instances=inst, seconds=secs))
+                                instances=inst, seconds=secs,
+                                unresolved_instances=unresolved))
             continue
         out.append(Coverage(
             name, "controlled" if name in ARM_SCHEMAS else "extendable",
-            pairs, dropped, instances=inst, seconds=secs))
+            pairs, dropped, instances=inst, seconds=secs,
+            unresolved_instances=unresolved))
     return out
 
 
@@ -1290,6 +1322,8 @@ def report_coverage(cov, verbose=True):
                               for v in VERDICTS[1:]))
     print("  the six are a partition, and each has a DIFFERENT remedy "
           "(doctrine 44).")
+    print("  CONTROLLED records the arm inventory, not current-source "
+          "effect-size qualification.")
     print("  The `statistic under null/null` lines below are the DERIVED "
           "menu (`null_menu`);\n  `sweep` runs EVERY null anyway and reports "
           "the differing fraction, because\n  the derivation is known wrong "
@@ -1301,11 +1335,11 @@ def report_coverage(cov, verbose=True):
             continue
         print(f"\n  -- {v.upper()}  ({len(rows)})")
         if v == "cannot_obtain":
-            hard = [c for c in rows if c.capability in NEVER_PROVIDED]
-            soft = [c for c in rows if c.capability not in NEVER_PROVIDED]
-            print(f"     of these, {len(hard)} need a capability NOTHING in "
-                  f"this repo can supply and {len(soft)} need one a caller "
-                  f"could DECLARE — different entries, doctrine 44")
+            hard = [c for c in rows if c.requires_implementation]
+            soft = [c for c in rows if not c.requires_implementation]
+            print(f"     of these, {len(hard)} need unimplemented semantics or a capability NOTHING in "
+                  f"this repo can supply and {len(soft)} need a declaration, "
+                  f"a different text, or resolved readings — different remedies, doctrine 44")
         if not verbose:
             print("     " + ", ".join(c.schema for c in rows))
             continue
@@ -1314,7 +1348,9 @@ def report_coverage(cov, verbose=True):
             if c.capability:
                 tail = f"  needs {c.capability!r}"
             elif c.instances >= 0:
-                tail = f"  {c.instances} instance(s)"
+                tail = f"  {c.instances} confirmed instance(s)"
+            if c.unresolved_instances:
+                tail += f"  {c.unresolved_instances} unresolved candidate(s)"
             if c.seconds >= 0:
                 tail += f"  [{c.seconds:.2f}s/pass]"
             print(f"     {c.schema}{tail}")
@@ -1623,7 +1659,11 @@ LEDGER_BUDGET = None
 #: moved between "declare the capability" and "BUILD it" is being sent to the
 #: WRONG REMEDY until this number is repinned, and the check that says so is
 #: `verify_extension`.
-LEDGER_CANNOT_OBTAIN = (23, 1)
+# 2026-09-08: the four unsupported full figures require implementation;
+# they do not become executable by declaring a stream capability. The
+# previous (23,1) remains historical above. Five additional rows have only
+# unresolved witnesses: they need readings, not a false zero observation.
+LEDGER_CANNOT_OBTAIN = (28, 5)
 
 
 def ledger_slice(root=None):
@@ -1731,6 +1771,17 @@ def menu_pairs(cov):
 #: row was simply not re-read in that sitting — `test_null_shapes` was not
 #: in its run list, the same species as the `test_grid` fixture pin M-47's
 #: sitting repinned. EXTENDABLE count follows the tuple: 33 -> 34.
+# 2026-09-08 current ledger: 3 controlled, 30 extendable, 11 no-instance,
+# 33 cannot-obtain (28 input-resolvable, 5 implementation-required).
+# Three sain variants and 平仄 previously accepted pair approximations of
+# unsupported figures. Paroemion's corrected reachable topology now fires
+# (153 confirmed edges, 9 unresolved; derived menu 6 -> 2). Enjambed and
+# linked rhyme lost their false positive witness; they each retain one
+# unresolved candidate. Parechesis, amphisbaenic rhyme, and rhyming slang
+# have no confirmed witness but 22, 52, and 741 unresolved candidates,
+# respectively: their former NO_INSTANCE was not a measured absence.
+# Historic deeper null sweeps above and below have NOT been requalified by
+# this cheap current-source coverage census.
 EXTENSION_LEDGER = (
     ('perfect rhyme',                           'controlled',      6,  4),
     ('rime riche',                              'extendable',      6,  0),
@@ -1739,13 +1790,13 @@ EXTENSION_LEDGER = (
     ('assonance',                               'extendable',      6,  0),
     ('consonance',                              'extendable',      6,  0),
     ('cluster consonance / skothending span',   'extendable',      4,  0),
-    ('parechesis / general consonance',         'no_instance',     2,  0),
+    ('parechesis / general consonance',         'cannot_obtain',   2,  0),
     ('pararhyme',                               'extendable',      6,  0),
     ('reverse rhyme',                           'extendable',      6,  0),
     ('alliteration',                            'extendable',      1,  0),
     ('Kalevala alliteration (weak)',            'controlled',      2,  3),
     ('Kalevala alliteration (strong)',          'extendable',      2,  0),
-    ('paroemion',                               'no_instance',     6,  0),
+    ('paroemion',                               'extendable',      2,  0),
     ('family rhyme',                            'extendable',      8,  0),
     ('additive rhyme',                          'no_instance',     8,  0),
     ('subtractive rhyme',                       'extendable',      8,  0),
@@ -1754,7 +1805,7 @@ EXTENSION_LEDGER = (
     ('light rhyme',                             'no_instance',     8,  0),
     ('wrenched rhyme',                          'cannot_obtain',   8,  0),
     ('syllabic rhyme',                          'extendable',      8,  0),
-    ('amphisbaenic rhyme',                      'no_instance',     6,  0),
+    ('amphisbaenic rhyme',                      'cannot_obtain',   6,  0),
     ('eye rhyme',                               'cannot_obtain',   8,  0),
     ('historical rhyme',                        'cannot_obtain',   8,  0),
     ('dialect rhyme',                           'cannot_obtain',   8,  0),
@@ -1765,7 +1816,7 @@ EXTENSION_LEDGER = (
     ('compound / phrasal rhyme',                'extendable',      8,  0),
     ('holorhyme',                               'no_instance',     2,  0),
     ('broken rhyme',                            'no_instance',     8,  0),
-    ('enjambed rhyme',                          'extendable',      4,  0),
+    ('enjambed rhyme',                          'cannot_obtain',   4,  0),
     ('rhyming reduplication',                   'no_instance',     0,  0),
     ('ablaut reduplication',                    'no_instance',     0,  0),
     ('exact reduplication',                     'no_instance',     0,  0),
@@ -1773,7 +1824,7 @@ EXTENSION_LEDGER = (
     ('leonine rhyme',                           'cannot_obtain',   2,  0),
     ('cross rhyme',                             'extendable',      4,  0),
     ('interlaced rhyme',                        'extendable',      4,  0),
-    ('linked rhyme',                            'extendable',      2,  0),
+    ('linked rhyme',                            'cannot_obtain',   2,  0),
     ('head rhyme (positional)',                 'extendable',      6,  0),
     ('anaphora',                                'extendable',      6,  0),
     ('epistrophe / radif',                      'cannot_obtain',   3,  0),
@@ -1791,19 +1842,19 @@ EXTENSION_LEDGER = (
     ('cynghanedd groes',                        'cannot_obtain',   2,  0),
     ('cynghanedd draws',                        'cannot_obtain',   2,  0),
     ('cynghanedd groes o gyswllt',              'cannot_obtain',   2,  0),
-    ('cynghanedd sain',                         'extendable',      1,  0),
-    ('cynghanedd sain gadwynog',                'extendable',      1,  0),
-    ('cynghanedd sain lafarog',                 'extendable',      1,  0),
+    ('cynghanedd sain',                         'cannot_obtain',   1,  0),
+    ('cynghanedd sain gadwynog',                'cannot_obtain',   1,  0),
+    ('cynghanedd sain lafarog',                 'cannot_obtain',   1,  0),
     ('cynghanedd sain drosgl',                  'extendable',      1,  0),
     ('cynghanedd lusg',                         'extendable',      1,  0),
     ('proest',                                  'cannot_obtain',   8,  0),
     ("Scots vowel-length rhyme (Aitken's Law)", 'extendable',      8,  0),
     ('Middle Chinese end rhyme (同用 group)',     'cannot_obtain',   8,  0),
-    ('平仄 tonal template',                       'no_instance',     5,  0),
+    ('平仄 tonal template',                       'cannot_obtain',   5,  0),
     ('pantun ABAB',                             'extendable',      4,  0),
     ('blues AAB stanza',                        'cannot_obtain',   2,  0),
     ('offbeat internal rhyme',                  'cannot_obtain',   4,  0),
-    ('rhyming slang',                           'no_instance',     4,  0),
+    ('rhyming slang',                           'cannot_obtain',   4,  0),
     ('transformative / bent rhyme',             'cannot_obtain',   4,  0),
     ('sung-delivery rhyme',                     'cannot_obtain',   4,  0),
     ('refrain by reference',                    'cannot_obtain',   4,  0),
@@ -2038,12 +2089,12 @@ def verify_extension(deep=False, root=None, progress=None, cov=None):
                 f"pairs for it and now run {h[2]} — 'nobody had run it' "
                 f"moved and the marker did not.")
     obtain = [c for c in cov if c.verdict == "cannot_obtain"]
-    split = (sum(1 for c in obtain if c.capability not in NEVER_PROVIDED),
-             sum(1 for c in obtain if c.capability in NEVER_PROVIDED))
+    split = (sum(1 for c in obtain if not c.requires_implementation),
+             sum(1 for c in obtain if c.requires_implementation))
     if split != LEDGER_CANNOT_OBTAIN:
         out.append(
-            f"CANNOT OBTAIN splits {split[0]} declarable / {split[1]} "
-            f"never-provided; the ledger says {LEDGER_CANNOT_OBTAIN[0]} / "
+            f"CANNOT OBTAIN splits {split[0]} input-resolvable / {split[1]} "
+            f"implementation-required; the ledger says {LEDGER_CANNOT_OBTAIN[0]} / "
             f"{LEDGER_CANNOT_OBTAIN[1]}. Doctrine 44 — 'declare the "
             f"capability' and 'BUILD it' are different remedies, and a "
             f"schema that moved between them is being sent to the wrong one.")
@@ -3109,10 +3160,14 @@ def panel_census(rows, per_slice):
             caps = always or set().union(*per)
             pr.capability = "+".join(sorted(caps))
             hard = sorted(c for c in caps if c in NEVER_PROVIDED)
-            pr.verdict = ("cannot_obtain_never_provided" if hard
+            unsupported = [c for _s, c in cs if c.refusal_kind == 'unsupported_shape']
+            unresolved = [c for _s, c in cs if c.unresolved_instances]
+            pr.verdict = ("cannot_obtain_never_provided" if hard or unsupported
                           else "cannot_obtain_declarable")
-            pr.detail = (("NEVER PROVIDED — " + NEVER_PROVIDED[hard[0]])
+            pr.detail = (unsupported[0].remedy if unsupported else
+                         ("NEVER PROVIDED — " + NEVER_PROVIDED[hard[0]])
                          if hard else
+                         unresolved[0].remedy if unresolved else
                          " · ".join(BLOCKERS.get(c, "no blocker recorded for "
                                                  + c) for c in sorted(caps)))
             extra = sorted(set().union(*per) - caps)
@@ -3120,12 +3175,22 @@ def panel_census(rows, per_slice):
                 pr.detail += (f"  [also missing on some slices and not on "
                               f"others, so not the blocker: "
                               f"{', '.join(extra)}]")
+        elif refused:
+            # A determinate zero on one slice does not resolve the unknown
+            # outcome of another. Keep partial input coverage visible.
+            pr.verdict = "cannot_obtain_declarable"
+            pr.capability = "+".join(sorted({c for _s, c, _m in refused}))
+            pr.detail = ("No confirmed witness on the measured slices; other "
+                         "slices refused, so absence is not established. " +
+                         " · ".join(sorted({c.remedy for _s, c in cs
+                                            if c.verdict == "cannot_obtain"})))
         elif cs:
             pr.verdict = "no_instance"
         else:
-            pr.verdict = "no_instance"
-            pr.detail = ("no panel slice could be read at all — every cell "
-                         "REFUSED on a missing corpus")
+            pr.verdict = "cannot_obtain_declarable"
+            pr.capability = "corpus"
+            pr.detail = ("Supply a readable panel corpus: no slice was measured. "
+                         "Missing input is not an observed absence.")
         out.append(pr)
     return out
 

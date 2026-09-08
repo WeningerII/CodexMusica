@@ -1,0 +1,96 @@
+{
+  "a_data_rows": [
+    {
+      "a": "a",
+      "b": "the",
+      "author": "eng_hall_thomas_durfey",
+      "count": "56"
+    },
+    {
+      "a": "a",
+      "b": "the",
+      "author": "eng_american_henry_wadsworth_longfellow",
+      "count": "6"
+    },
+    {
+      "a": "a",
+      "b": "ca",
+      "author": "eng_celtic_robert_burns",
+      "count": "5"
+    },
+    {
+      "a": "a",
+      "b": "the",
+      "author": "eng_american_george_henry_boker",
+      "count": "3"
+    },
+    {
+      "a": "a",
+      "b": "the",
+      "author": "eng_pah_clinton_scollard",
+      "count": "3"
+    },
+    {
+      "a": "a",
+      "b": "ca",
+      "author": "eng_celtic_msm_hector_macneill",
+      "count": "2"
+    },
+    {
+      "a": "a",
+      "b": "ca",
+      "author": "eng_celtic_msm_thomas_smibert",
+      "count": "2"
+    },
+    {
+      "a": "a",
+      "b": "the",
+      "author": "eng_celtic_msm_evan_maclachlan",
+      "count": "2"
+    },
+    {
+      "a": "a",
+      "b": "the",
+      "author": "eng_celtic_robert_burns",
+      "count": "2"
+    },
+    {
+      "a": "a",
+      "b": "the",
+      "author": "eng_american_john_pierpont",
+      "count": "1"
+    },
+    {
+      "a": "a",
+      "b": "the",
+      "author": "eng_british_richard_lovelace",
+      "count": "1"
+    },
+    {
+      "a": "a",
+      "b": "the",
+      "author": "eng_pah_madison_cawein",
+      "count": "1"
+    },
+    {
+      "a": "a",
+      "b": "the",
+      "author": "eng_pah_mary_raymond_shipman_andrews",
+      "count": "1"
+    },
+    {
+      "a": "a",
+      "b": "the",
+      "author": "eng_pah_thomas_dunn_english",
+      "count": "1"
+    }
+  ],
+  "affected_call_witnesses": [],
+  "a_in_witness": false,
+  "word_in_witness": false,
+  "witness_words": 1159,
+  "conditional_counters_compared": 1159,
+  "conditional_counters_changed": [],
+  "global_endword_rank_consumed_by_capacity": false,
+  "independent_frequency_fallback": "Reviser.lex.freq_rank, read from the general lexicon frequency asset"
+}

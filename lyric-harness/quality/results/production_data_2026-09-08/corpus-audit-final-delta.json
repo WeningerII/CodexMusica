@@ -1,0 +1,347 @@
+{
+  "prior_committed_shape": {
+    "files": 1430,
+    "FAIL": 1,
+    "WARN": 340,
+    "NOTE": 1228
+  },
+  "new_shape": {
+    "files": 1430,
+    "FAIL": 1,
+    "WARN": 141,
+    "NOTE": 1195
+  },
+  "resolved_missing_hash_warnings": 198,
+  "H_removed": [
+    {
+      "check": "H",
+      "severity": "WARN",
+      "path": "/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/corpus/song/eng_american_thomas_buchanan_read.txt",
+      "what": "2 one-line `[VERSE]` block(s) carry a declared apparatus shape and are scored as sung words",
+      "measured": "8 one-line of 66 `[VERSE]` blocks | matched 2 | residue 6 (UNADJUDICATED, not clean) | numeral 1 ('1881.') · allcaps-label 1 ('THOMAS BUCHANAN READ')",
+      "mechanism": "a `[VERSE n]` mark declares a STANZA. These lines are a printer's apparatus — a numeral, a byline, a title, a speaker name, an ornament — and every one of them enters MATTR, the function-word ratio, the rhyme graph and the endword population. The four shapes are AT LEAST THREE DIFFERENT OBJECTS wanting three different repairs, so this check RAISES the population and adjudicates none of it (`MISSING.md` M-25(a))",
+      "doctrine": "93"
+    }
+  ],
+  "H_added": [],
+  "J_removed_false_dominance_notes": [
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_british_b_w_procter.txt",
+      "what": "this edition sets enclitics SPACED — 11 spaced against 6 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_british_michael_field.txt",
+      "what": "this edition sets enclitics SPACED — 2 spaced against 1 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_british_norman_gale.txt",
+      "what": "this edition sets enclitics SPACED — 2 spaced against 0 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt",
+      "what": "this edition sets enclitics SPACED — 186 spaced against 14 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_alexander_carlile.txt",
+      "what": "this edition sets enclitics SPACED — 19 spaced against 2 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_alexander_hume_b1809.txt",
+      "what": "this edition sets enclitics SPACED — 18 spaced against 16 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_alexander_laing.txt",
+      "what": "this edition sets enclitics SPACED — 21 spaced against 0 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_alexander_rodger.txt",
+      "what": "this edition sets enclitics SPACED — 27 spaced against 3 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_allan_cunningham.txt",
+      "what": "this edition sets enclitics SPACED — 56 spaced against 13 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_andrew_mercer.txt",
+      "what": "this edition sets enclitics SPACED — 4 spaced against 2 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_andrew_scott.txt",
+      "what": "this edition sets enclitics SPACED — 44 spaced against 27 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_charles_gray.txt",
+      "what": "this edition sets enclitics SPACED — 12 spaced against 7 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_david_webster.txt",
+      "what": "this edition sets enclitics SPACED — 10 spaced against 1 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_james_home.txt",
+      "what": "this edition sets enclitics SPACED — 15 spaced against 0 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_james_nicol.txt",
+      "what": "this edition sets enclitics SPACED — 21 spaced against 2 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_joanna_baillie.txt",
+      "what": "this edition sets enclitics SPACED — 41 spaced against 37 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_john_crawford.txt",
+      "what": "this edition sets enclitics SPACED — 25 spaced against 3 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_john_finlay_b1808.txt",
+      "what": "this edition sets enclitics SPACED — 5 spaced against 1 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_john_hamilton.txt",
+      "what": "this edition sets enclitics SPACED — 15 spaced against 5 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_john_sim.txt",
+      "what": "this edition sets enclitics SPACED — 5 spaced against 4 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_mrs_agnes_lyon.txt",
+      "what": "this edition sets enclitics SPACED — 11 spaced against 8 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_mrs_g_g_richardson.txt",
+      "what": "this edition sets enclitics SPACED — 11 spaced against 3 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_peter_buchan.txt",
+      "what": "this edition sets enclitics SPACED — 4 spaced against 3 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_richard_gall.txt",
+      "what": "this edition sets enclitics SPACED — 18 spaced against 16 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_robert_duthie.txt",
+      "what": "this edition sets enclitics SPACED — 11 spaced against 5 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_robert_jamieson.txt",
+      "what": "this edition sets enclitics SPACED — 6 spaced against 3 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_robert_lochore.txt",
+      "what": "this edition sets enclitics SPACED — 42 spaced against 10 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_robert_tannahill.txt",
+      "what": "this edition sets enclitics SPACED — 43 spaced against 26 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_sir_alexander_boswell_bart.txt",
+      "what": "this edition sets enclitics SPACED — 34 spaced against 12 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_stuart_lewis.txt",
+      "what": "this edition sets enclitics SPACED — 10 spaced against 4 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_william_laidlaw.txt",
+      "what": "this edition sets enclitics SPACED — 16 spaced against 3 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_william_m_hetherington_d_d_ll_d.txt",
+      "what": "this edition sets enclitics SPACED — 4 spaced against 1 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    },
+    {
+      "check": "J",
+      "severity": "NOTE",
+      "path": "corpus/song/eng_celtic_msm_william_wilson.txt",
+      "what": "this edition sets enclitics SPACED — 13 spaced against 10 attached",
+      "measured": "the file's dominant convention is the compositor's spaced setting; `join_spaced_enclitics` re-attaches the closed set at read time, so no measurement counts the split tokens",
+      "mechanism": "named so a reader computing a per-edition rate knows this file's tokenisation was set by its printer, not its poet",
+      "doctrine": "1"
+    }
+  ],
+  "J_current_summary": {
+    "check": "J",
+    "severity": "NOTE",
+    "path": "corpus/song/ (every eng_ file with enclitic evidence)",
+    "what": "which enclitic convention each edition sets — attached-only 1048, spaced-only 0, both 245 file(s); three counts, never summed",
+    "measured": "the SPACED convention (`There 's`) is the edition's, not the language's; `join_spaced_enclitics` normalises it at read time and this check makes the convention SAYABLE per file so a per-edition rate can be stratified. 26 file(s) are spaced-DOMINANT (spaced > attached) and are named below",
+    "mechanism": "a convention is not a defect and nothing here charges one; what was silent is WHICH convention a file carries, and silence there made every mixed-corpus rate partly a measure of the compositor",
+    "doctrine": "1"
+  },
+  "standing_failures": [
+    {
+      "check": "D",
+      "severity": "FAIL",
+      "path": "corpus/fas_hafez.LICENSE.txt",
+      "what": "declared fas and unreadable under it",
+      "measured": "1.0% of 626 sampled tokens (rule: fas.in_inventory (script test); stride 1)",
+      "mechanism": "script census: Basic Latin letters 2894, Arabic 27, Latin Extended Additional 1, Latin-1/Extended 1",
+      "doctrine": "50"
+    }
+  ],
+  "proof_scope": "Complete actual audit plus before/after raw staging H run and disjoint-regex arithmetic contrast controls. No normalized reader or field scorer changes."
+}

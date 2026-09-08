@@ -1,0 +1,9 @@
+seed=20260910 lines=31 (deterministic filler draft)
+worker call=1 verb=plan exit=0 wall=1.2s rss=None peak=None
+worker call=2 verb=fill exit=0 wall=0.4s rss=None peak=None
+worker call=3 verb=grade exit=2 wall=26.7s rss=None peak=None
+worker call=4 verb=revise exit=4 wall=504.3s rss=None peak=None
+worker call=5 verb=grade exit=2 wall=23.5s rss=None peak=None
+worker call=6 verb=revise exit=4 wall=4.4s rss=None peak=None
+worker call=7 verb=grade exit=2 wall=16.0s rss=None peak=None
+worker call=8 verb=revise exit=4 wall=4.0s rss=None peak=None

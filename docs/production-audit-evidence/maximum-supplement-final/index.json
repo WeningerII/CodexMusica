@@ -1,0 +1,551 @@
+{
+  "version": 1,
+  "status": "completed",
+  "production_qualified": false,
+  "isolated_performance_qualified": false,
+  "retained_memory_qualified": false,
+  "combined_runtime_qualified": false,
+  "scope": "Six separate maintained maximum-size computation/continuation samples; complete deadline/refusal evidence, not resource isolation qualification.",
+  "ambient_load": "Runs overlap the declared single-worker capacity receipt generation and later ordinary functional suite, as authorized. The obsolete unrelated scan has exited.",
+  "seeds": [
+    20260908,
+    20260909,
+    20260910
+  ],
+  "lines": 31,
+  "worker_rounds": 3,
+  "per_call_deadline_seconds": 600,
+  "source_sha256": {
+    "lyric-harness/lyric_harness.py": "7a5d9184f568902732cd5cb2d4fa4123deef1b1deff0b4cd95d23af54f08024e",
+    "lyric-harness/quality/plan.py": "80ebf7c4ed57b1d75b6111f76d809ab22515d4b51387581ebe39d2ffb8150856",
+    "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679",
+    "lyric-harness/quality/relations.py": "c8321f5cfb33722e640820749c0f987a9e87072f1cfa2ce3ff04eb38f37fcdab",
+    "lyric-harness/quality/loop.py": "60276b2bc3f0edbc5133c8ee5f17366d2287c6be116fca3082c6ad119e796789",
+    "lyric-harness/quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+    "lyric-harness/quality/capacity.py": "f03424c7a8572a5389f98c29fabffc07dc07450fd428e52e6a9e66259be3b5fd",
+    "scripts/measure_verb_memory.py": "1bb741c6252e2de95c611021ef11d396123fcf90a9f1c9abad7b53aebd975f87"
+  },
+  "samples": [
+    {
+      "seed": 20260908,
+      "mode": "cold",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b0544e4bbdd6/production-fixes/scripts/measure_verb_memory.py",
+        "--seed=20260908",
+        "--lines=31",
+        "--verb=both",
+        "--json=/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260908-cold.json"
+      ],
+      "source_sha256": {
+        "lyric-harness/lyric_harness.py": "7a5d9184f568902732cd5cb2d4fa4123deef1b1deff0b4cd95d23af54f08024e",
+        "lyric-harness/quality/plan.py": "80ebf7c4ed57b1d75b6111f76d809ab22515d4b51387581ebe39d2ffb8150856",
+        "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679",
+        "lyric-harness/quality/relations.py": "c8321f5cfb33722e640820749c0f987a9e87072f1cfa2ce3ff04eb38f37fcdab",
+        "lyric-harness/quality/loop.py": "60276b2bc3f0edbc5133c8ee5f17366d2287c6be116fca3082c6ad119e796789",
+        "lyric-harness/quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+        "lyric-harness/quality/capacity.py": "f03424c7a8572a5389f98c29fabffc07dc07450fd428e52e6a9e66259be3b5fd",
+        "scripts/measure_verb_memory.py": "1bb741c6252e2de95c611021ef11d396123fcf90a9f1c9abad7b53aebd975f87"
+      },
+      "status": "completed",
+      "measurement_file": "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260908-cold.json",
+      "log_file": "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260908-cold.log",
+      "process_exit": 0,
+      "elapsed_outer_seconds": 159.21163610000076,
+      "source_unchanged": true,
+      "measurement_ok": true,
+      "rows": [
+        {
+          "verb": "plan",
+          "exit_code": 0,
+          "wall_s": 1.9316451580016292,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "planned",
+          "stop": "ready",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "typed": true
+        },
+        {
+          "verb": "fill",
+          "exit_code": 0,
+          "wall_s": 1.4766712860000553,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "planned",
+          "stop": "ready",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "typed": true
+        },
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 38.369186586998694,
+          "peak_mb": 677.51171875,
+          "retained_mb": null,
+          "machine_status": "graded",
+          "stop": "graded",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "typed": true
+        },
+        {
+          "verb": "revise",
+          "exit_code": 4,
+          "wall_s": 117.352560627005,
+          "peak_mb": 791.5078125,
+          "retained_mb": null,
+          "machine_status": "suspended",
+          "stop": "needs_proposal",
+          "authenticated": true,
+          "checkpoint_valid": true,
+          "typed": true
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": 20260908,
+      "mode": "worker",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b0544e4bbdd6/production-fixes/scripts/measure_verb_memory.py",
+        "--seed=20260908",
+        "--lines=31",
+        "--verb=both",
+        "--json=/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260908-worker.json",
+        "--worker",
+        "--rounds=3"
+      ],
+      "source_sha256": {
+        "lyric-harness/lyric_harness.py": "7a5d9184f568902732cd5cb2d4fa4123deef1b1deff0b4cd95d23af54f08024e",
+        "lyric-harness/quality/plan.py": "80ebf7c4ed57b1d75b6111f76d809ab22515d4b51387581ebe39d2ffb8150856",
+        "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679",
+        "lyric-harness/quality/relations.py": "c8321f5cfb33722e640820749c0f987a9e87072f1cfa2ce3ff04eb38f37fcdab",
+        "lyric-harness/quality/loop.py": "60276b2bc3f0edbc5133c8ee5f17366d2287c6be116fca3082c6ad119e796789",
+        "lyric-harness/quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+        "lyric-harness/quality/capacity.py": "f03424c7a8572a5389f98c29fabffc07dc07450fd428e52e6a9e66259be3b5fd",
+        "scripts/measure_verb_memory.py": "1bb741c6252e2de95c611021ef11d396123fcf90a9f1c9abad7b53aebd975f87"
+      },
+      "status": "completed",
+      "measurement_file": "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260908-worker.json",
+      "log_file": "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260908-worker.log",
+      "process_exit": 1,
+      "elapsed_outer_seconds": 39.05704124200565,
+      "source_unchanged": true,
+      "measurement_ok": false,
+      "rows": [
+        {
+          "verb": "plan",
+          "exit_code": 0,
+          "wall_s": 1.027929962001508,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "planned",
+          "stop": "ready",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "typed": true
+        },
+        {
+          "verb": "fill",
+          "exit_code": 0,
+          "wall_s": 0.5146967350010527,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "planned",
+          "stop": "ready",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "typed": true
+        },
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 35.820716123998864,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": null,
+          "stop": "missing_grade",
+          "authenticated": false,
+          "checkpoint_valid": false,
+          "typed": false
+        }
+      ],
+      "error": "untyped or refused grade: : density:L2, prominence:L2, density:L12, prominence:L12, density:L22, prominence:L22, meter:COUNT_IS_A_LOWER_BOUND:L2, meter:COUNT_IS_A_LOWER_BOUND:L6, meter:COUNT_IS_A_LOWER_BOUND:L12, meter:COUNT_IS_A_LOWER_BOUND:L16, meter:COUNT_IS_A_LOWER_BOUND:L22, meter:COUNT_IS_A_LOWER_BOUND:L26, rhyme:1:2:0, rhyme:1:3:1, rhyme:2:3:0, rhyme:4:7:4, rhyme:5:7:4, rhyme:5:7:5, rhyme:6:7:3, rhyme:6:8:3, rhyme:9:12:6, rhyme:9:12:8, rhyme:9:13:6, rhyme:12:13:6, rhyme:12:13:8, rhyme:14:15:10, rhyme:14:15:11, rhyme:21:23:15, rhyme:22:24:13, rhyme:25:26:18, rhyme:25:26:19, rhyme:25:26:20, rhyme:25:27:19, rhyme:25:28:19, rhyme:25:29:18, rhyme:25:30:18, rhyme:25:31:18, rhyme:26:27:19, rhyme:26:28:19, rhyme:26:29:18, rhyme:26:30:18, rhyme:26:31:18, rhyme:27:28:19, rhyme:27:30:16, rhyme:28:29:17, rhyme:28:31:17\n"
+    },
+    {
+      "seed": 20260909,
+      "mode": "cold",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b0544e4bbdd6/production-fixes/scripts/measure_verb_memory.py",
+        "--seed=20260909",
+        "--lines=31",
+        "--verb=both",
+        "--json=/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260909-cold.json"
+      ],
+      "source_sha256": {
+        "lyric-harness/lyric_harness.py": "7a5d9184f568902732cd5cb2d4fa4123deef1b1deff0b4cd95d23af54f08024e",
+        "lyric-harness/quality/plan.py": "80ebf7c4ed57b1d75b6111f76d809ab22515d4b51387581ebe39d2ffb8150856",
+        "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679",
+        "lyric-harness/quality/relations.py": "c8321f5cfb33722e640820749c0f987a9e87072f1cfa2ce3ff04eb38f37fcdab",
+        "lyric-harness/quality/loop.py": "60276b2bc3f0edbc5133c8ee5f17366d2287c6be116fca3082c6ad119e796789",
+        "lyric-harness/quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+        "lyric-harness/quality/capacity.py": "f03424c7a8572a5389f98c29fabffc07dc07450fd428e52e6a9e66259be3b5fd",
+        "scripts/measure_verb_memory.py": "1bb741c6252e2de95c611021ef11d396123fcf90a9f1c9abad7b53aebd975f87"
+      },
+      "status": "completed",
+      "measurement_file": "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260909-cold.json",
+      "log_file": "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260909-cold.log",
+      "process_exit": 0,
+      "elapsed_outer_seconds": 139.88503825099906,
+      "source_unchanged": true,
+      "measurement_ok": true,
+      "rows": [
+        {
+          "verb": "plan",
+          "exit_code": 0,
+          "wall_s": 1.195668389002094,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "planned",
+          "stop": "ready",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "typed": true
+        },
+        {
+          "verb": "fill",
+          "exit_code": 0,
+          "wall_s": 1.196180025996,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "planned",
+          "stop": "ready",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "typed": true
+        },
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 32.82216391900147,
+          "peak_mb": 650.6328125,
+          "retained_mb": null,
+          "machine_status": "graded",
+          "stop": "graded",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "typed": true
+        },
+        {
+          "verb": "revise",
+          "exit_code": 4,
+          "wall_s": 104.59326503199554,
+          "peak_mb": 726.1328125,
+          "retained_mb": null,
+          "machine_status": "suspended",
+          "stop": "needs_proposal",
+          "authenticated": true,
+          "checkpoint_valid": true,
+          "typed": true
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": 20260909,
+      "mode": "worker",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b0544e4bbdd6/production-fixes/scripts/measure_verb_memory.py",
+        "--seed=20260909",
+        "--lines=31",
+        "--verb=both",
+        "--json=/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260909-worker.json",
+        "--worker",
+        "--rounds=3"
+      ],
+      "source_sha256": {
+        "lyric-harness/lyric_harness.py": "7a5d9184f568902732cd5cb2d4fa4123deef1b1deff0b4cd95d23af54f08024e",
+        "lyric-harness/quality/plan.py": "80ebf7c4ed57b1d75b6111f76d809ab22515d4b51387581ebe39d2ffb8150856",
+        "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679",
+        "lyric-harness/quality/relations.py": "c8321f5cfb33722e640820749c0f987a9e87072f1cfa2ce3ff04eb38f37fcdab",
+        "lyric-harness/quality/loop.py": "60276b2bc3f0edbc5133c8ee5f17366d2287c6be116fca3082c6ad119e796789",
+        "lyric-harness/quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+        "lyric-harness/quality/capacity.py": "f03424c7a8572a5389f98c29fabffc07dc07450fd428e52e6a9e66259be3b5fd",
+        "scripts/measure_verb_memory.py": "1bb741c6252e2de95c611021ef11d396123fcf90a9f1c9abad7b53aebd975f87"
+      },
+      "status": "completed",
+      "measurement_file": "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260909-worker.json",
+      "log_file": "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260909-worker.log",
+      "process_exit": 1,
+      "elapsed_outer_seconds": 30.403512150995084,
+      "source_unchanged": true,
+      "measurement_ok": false,
+      "rows": [
+        {
+          "verb": "plan",
+          "exit_code": 0,
+          "wall_s": 1.0418655149987899,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "planned",
+          "stop": "ready",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "typed": true
+        },
+        {
+          "verb": "fill",
+          "exit_code": 0,
+          "wall_s": 0.4020010500025819,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "planned",
+          "stop": "ready",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "typed": true
+        },
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 26.3202646130012,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": null,
+          "stop": "missing_grade",
+          "authenticated": false,
+          "checkpoint_valid": false,
+          "typed": false
+        }
+      ],
+      "error": "untyped or refused grade:  meter:COUNT_IS_A_LOWER_BOUND:L2, meter:COUNT_IS_A_LOWER_BOUND:L6, meter:COUNT_IS_A_LOWER_BOUND:L12, meter:COUNT_IS_A_LOWER_BOUND:L16, meter:COUNT_IS_A_LOWER_BOUND:L22, meter:COUNT_IS_A_LOWER_BOUND:L26, rhyme:1:2:5, rhyme:1:3:5, rhyme:1:6:0, rhyme:1:6:4, rhyme:2:3:1, rhyme:2:3:5, rhyme:2:3:6, rhyme:2:4:1, rhyme:2:5:5, rhyme:2:6:5, rhyme:3:5:3, rhyme:3:5:5, rhyme:3:6:5, rhyme:4:6:7, rhyme:5:6:0, rhyme:7:8:10, rhyme:7:8:11, rhyme:7:9:9, rhyme:7:9:10, rhyme:7:9:11, rhyme:8:9:10, rhyme:15:16:13, rhyme:15:16:14, rhyme:17:18:16, rhyme:17:19:16, rhyme:17:19:19, rhyme:17:19:20, rhyme:17:21:20, rhyme:17:22:19, rhyme:18:19:20, rhyme:18:21:20, rhyme:19:20:19, rhyme:19:21:20, rhyme:19:22:19, rhyme:20:21:17, rhyme:20:22:19, rhyme:27:28:24, rhyme:29:30:27, rhyme:29:31:27, rhyme:30:31:27, rhyme:30:31:28\n"
+    },
+    {
+      "seed": 20260910,
+      "mode": "cold",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b0544e4bbdd6/production-fixes/scripts/measure_verb_memory.py",
+        "--seed=20260910",
+        "--lines=31",
+        "--verb=both",
+        "--json=/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260910-cold.json"
+      ],
+      "source_sha256": {
+        "lyric-harness/lyric_harness.py": "7a5d9184f568902732cd5cb2d4fa4123deef1b1deff0b4cd95d23af54f08024e",
+        "lyric-harness/quality/plan.py": "80ebf7c4ed57b1d75b6111f76d809ab22515d4b51387581ebe39d2ffb8150856",
+        "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679",
+        "lyric-harness/quality/relations.py": "c8321f5cfb33722e640820749c0f987a9e87072f1cfa2ce3ff04eb38f37fcdab",
+        "lyric-harness/quality/loop.py": "60276b2bc3f0edbc5133c8ee5f17366d2287c6be116fca3082c6ad119e796789",
+        "lyric-harness/quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+        "lyric-harness/quality/capacity.py": "f03424c7a8572a5389f98c29fabffc07dc07450fd428e52e6a9e66259be3b5fd",
+        "scripts/measure_verb_memory.py": "1bb741c6252e2de95c611021ef11d396123fcf90a9f1c9abad7b53aebd975f87"
+      },
+      "status": "completed",
+      "measurement_file": "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260910-cold.json",
+      "log_file": "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260910-cold.log",
+      "process_exit": 0,
+      "elapsed_outer_seconds": 391.8989668569993,
+      "source_unchanged": false,
+      "measurement_ok": true,
+      "rows": [
+        {
+          "verb": "plan",
+          "exit_code": 0,
+          "wall_s": 1.624374661994807,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "planned",
+          "stop": "ready",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "typed": true
+        },
+        {
+          "verb": "fill",
+          "exit_code": 0,
+          "wall_s": 1.2123680770018836,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "planned",
+          "stop": "ready",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "typed": true
+        },
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 27.98811264899996,
+          "peak_mb": 579.63671875,
+          "retained_mb": null,
+          "machine_status": "graded",
+          "stop": "graded",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "typed": true
+        },
+        {
+          "verb": "revise",
+          "exit_code": 4,
+          "wall_s": 360.89942784800223,
+          "peak_mb": 746.23828125,
+          "retained_mb": null,
+          "machine_status": "suspended",
+          "stop": "needs_proposal",
+          "authenticated": true,
+          "checkpoint_valid": true,
+          "typed": true
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": 20260910,
+      "mode": "worker",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b0544e4bbdd6/production-fixes/scripts/measure_verb_memory.py",
+        "--seed=20260910",
+        "--lines=31",
+        "--verb=both",
+        "--json=/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260910-worker.json",
+        "--worker",
+        "--rounds=3"
+      ],
+      "source_sha256": {
+        "lyric-harness/lyric_harness.py": "7a5d9184f568902732cd5cb2d4fa4123deef1b1deff0b4cd95d23af54f08024e",
+        "lyric-harness/quality/plan.py": "80ebf7c4ed57b1d75b6111f76d809ab22515d4b51387581ebe39d2ffb8150856",
+        "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679",
+        "lyric-harness/quality/relations.py": "c8321f5cfb33722e640820749c0f987a9e87072f1cfa2ce3ff04eb38f37fcdab",
+        "lyric-harness/quality/loop.py": "60276b2bc3f0edbc5133c8ee5f17366d2287c6be116fca3082c6ad119e796789",
+        "lyric-harness/quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+        "lyric-harness/quality/capacity.py": "f03424c7a8572a5389f98c29fabffc07dc07450fd428e52e6a9e66259be3b5fd",
+        "scripts/measure_verb_memory.py": "ead3f5477c1b6e5908fba961a4ef8eb4352decaa01d0f8e1152f6d2398d13e08"
+      },
+      "status": "completed",
+      "measurement_file": "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260910-worker.json",
+      "log_file": "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260910-worker.log",
+      "process_exit": 0,
+      "elapsed_outer_seconds": 585.8556856560026,
+      "source_unchanged": true,
+      "measurement_ok": true,
+      "rows": [
+        {
+          "verb": "plan",
+          "exit_code": 0,
+          "wall_s": 1.2284191630023997,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "planned",
+          "stop": "ready",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "typed": true
+        },
+        {
+          "verb": "fill",
+          "exit_code": 0,
+          "wall_s": 0.4226628000033088,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "planned",
+          "stop": "ready",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "typed": true
+        },
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 26.67368628099939,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "graded",
+          "stop": "graded",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "typed": true
+        },
+        {
+          "verb": "revise",
+          "exit_code": 4,
+          "wall_s": 504.3403221260014,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "suspended",
+          "stop": "needs_proposal",
+          "authenticated": true,
+          "checkpoint_valid": true,
+          "typed": true
+        },
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 23.51286814299965,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "graded",
+          "stop": "graded",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "typed": true
+        },
+        {
+          "verb": "revise",
+          "exit_code": 4,
+          "wall_s": 4.351834482993581,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "suspended",
+          "stop": "needs_proposal",
+          "authenticated": true,
+          "checkpoint_valid": true,
+          "typed": true
+        },
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 16.00541167200572,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "graded",
+          "stop": "graded",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "typed": true
+        },
+        {
+          "verb": "revise",
+          "exit_code": 4,
+          "wall_s": 4.029135648997908,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "suspended",
+          "stop": "needs_proposal",
+          "authenticated": true,
+          "checkpoint_valid": true,
+          "typed": true
+        }
+      ],
+      "error": null
+    }
+  ],
+  "source_after_sha256": {
+    "lyric-harness/lyric_harness.py": "7a5d9184f568902732cd5cb2d4fa4123deef1b1deff0b4cd95d23af54f08024e",
+    "lyric-harness/quality/plan.py": "80ebf7c4ed57b1d75b6111f76d809ab22515d4b51387581ebe39d2ffb8150856",
+    "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679",
+    "lyric-harness/quality/relations.py": "c8321f5cfb33722e640820749c0f987a9e87072f1cfa2ce3ff04eb38f37fcdab",
+    "lyric-harness/quality/loop.py": "60276b2bc3f0edbc5133c8ee5f17366d2287c6be116fca3082c6ad119e796789",
+    "lyric-harness/quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+    "lyric-harness/quality/capacity.py": "f03424c7a8572a5389f98c29fabffc07dc07450fd428e52e6a9e66259be3b5fd",
+    "scripts/measure_verb_memory.py": "ead3f5477c1b6e5908fba961a4ef8eb4352decaa01d0f8e1152f6d2398d13e08"
+  },
+  "source_unchanged": false
+}

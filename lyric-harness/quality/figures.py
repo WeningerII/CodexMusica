@@ -94,6 +94,13 @@ def line_figures(stream, names=None, keep_refusals=True):
                                 "missing": tuple(res.missing or ()),
                                 "detail": res.detail})
             continue
+        assemblies = R.assemble(sch, res, stream)
+        if isinstance(assemblies, R.Refusal):
+            if keep_refusals:
+                refused.append({"schema": name, "kind": assemblies.kind,
+                                "detail": assemblies.detail})
+            continue
+        res = [e for _, edges, verdict in assemblies if verdict is True for e in edges]
         for inst in res:
             if inst.verdict is not True:
                 continue

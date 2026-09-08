@@ -1,0 +1,28 @@
+{
+  "original_outcomes": 3,
+  "partial_outcomes": 1,
+  "partial_kept_furthest": true,
+  "final_outcomes": 4,
+  "calls": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "resume_proof": {
+    "version": 1,
+    "journal_id": "3496934a838c4cb2b3c8090629297474",
+    "checkpoint_loaded": true,
+    "input_checkpoint_sha256": "e85d3b0bacd1503062825801c488ae6910308db1f8a9d80f269764e77ba092d3",
+    "input_draft_sha256": "e0e34a47a6002b0cc4653ed9f8ce7db3479fedea3c9c5a240edf5c03b743e2e1",
+    "accepted_draft_sha256_at_start": "c3e0e2cd3dddcced5094fd39490e5934ffb7c4354832f6436436496cbe732c21",
+    "applied_outcome_ids_at_start": [
+      "dd954e7541b0b5418c21e77ab54247123f0f8d84c77281c30d436504371c10f2"
+    ],
+    "completed_proposals_at_start": 3,
+    "completed_proposals_replayed": 3,
+    "new_proposer_dispatches": 1,
+    "completed_proposal_redispatches": 0,
+    "replay_prefix_consumed": true
+  }
+}

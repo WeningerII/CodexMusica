@@ -1,0 +1,402 @@
+{
+  "lane": "runtime-data",
+  "status": "data_corrections_and_all_six_readoptions_complete_local_release_asset_checks_pass",
+  "findings": [
+    {
+      "id": "DATA-01",
+      "status": "fixed_local",
+      "files": [
+        "lyric-harness/quality/features.py",
+        "lyric-harness/quality/floor.py",
+        "lyric-harness/quality/release_assets.py",
+        "lyric-harness/data/runtime_assets.json"
+      ],
+      "change": "The mandatory floor explicitly requests its2 used extractor coordinates; optional concreteness requires an explicit full-feature request and refuses when unavailable. The production assembly excludes uncleared norms and the release gate checks exact bytes and approved decisions. Required floor checks remain active.",
+      "evidence": "All30 focused production-data tests pass. Final v6 isolated assembly passes exact byte/decision gate and10 offline resource/CLI checks with all128 Python sources matching MAIN; mandatory floor remains active and unavailable full-feature norms refuse explicitly.",
+      "remaining": "Original optional concreteness research rights remain unresolved; asset is excluded and unavailable feature requests refuse. No clearance is invented."
+    },
+    {
+      "id": "DATA-02",
+      "status": "fixed_local",
+      "files": [
+        "lyric-harness/quality/release_assets.py",
+        "lyric-harness/data/runtime_assets.json",
+        "mcp/Dockerfile"
+      ],
+      "change": "Runtime assembly copies executable modules and exact approved assets only. Research corpus, legacy tagger, Punkt, concreteness, and unused historical research tables are omitted. Release inventory rejects unexpected data files and research corpus contents.",
+      "evidence": "Fresh final assembly passed exact byte/decision gate and 10 actual offline checks; generated current-runtime capacity receipt and actual Docker build remain release gates owned by root/revision."
+    },
+    {
+      "id": "DATA-03",
+      "status": "fixed_local",
+      "files": [
+        "lyric-harness/quality/provenance.py",
+        "lyric-harness/quality/test_provenance.py",
+        "lyric-harness/quality/test_production_data.py"
+      ],
+      "change": "Unknown item source cannot bypass source admission through author/date. Anonymous publication dates need explicit matching publication evidence; unsupported dates no longer say VERIFIED.",
+      "evidence": "Original provenance suite passed; focused missing-source and mismatched/missing publication evidence regressions pass."
+    },
+    {
+      "id": "DATA-04",
+      "status": "fixed_local",
+      "files": [
+        "lyric-harness/quality/CORPUS_EDITORIAL_REVIEW.json",
+        "lyric-harness/corpus/song/eng_parlour_daniel_decatur_emmett.txt",
+        "lyric-harness/corpus/song/eng_british_richard_lovelace.txt",
+        "lyric-harness/corpus/song/eng_british_felicia_hemans.txt",
+        "lyric-harness/corpus/song/eng_british_robert_herrick.txt",
+        "lyric-harness/corpus/song/eng_hall_thomas_durfey.txt",
+        "lyric-harness/data/song_endword_en.tsv",
+        "lyric-harness/data/song_rhymepair_en.tsv"
+      ],
+      "change": "Explicitly preserved editorial matter as apparatus, including known Emmett/Hazlitt examples, title-page material, advertisements,298Herrick glossary rows,177Hemans footnote/direction rows, and5Byron datelines. Restored two joined-work boundaries (Blake and D'Urfey) without deleting the second poems.",
+      "evidence": "Complete frequency rebuild: 1,297 files, 8,546 TITLE items, 279,753 lines, 13,856 end types and 23,763 pair types. All 8,545 nonempty rows independently remeasured and byte-identical after final CLI changes. Final all 81 capacity witnesses reconstructed and reverified (8,406 pairs, maximum lower bound 23), reviewed table published; all six populations bound in final 1,430-file snapshot and real CLI check passed. Fresh approved assembly byte gate and actual offline language/floor checks passed.",
+      "remaining": "No data re-adoption is pending. Actual image/runtime qualification remains separate."
+    },
+    {
+      "id": "DATA-05",
+      "status": "fixed_local",
+      "files": [
+        "lyric-harness/data/calibration_work_editions.json",
+        "lyric-harness/quality/lyric_reader.py",
+        "lyric-harness/quality/build_song_frequency.py"
+      ],
+      "change": "Explicit one-work policy for106reviewed work groups containing215historical editions, with byte-bound body identities and one representative vote.6Latin source poems are retained as verse but excluded from English calibration. Raw source/runtime reading preserves all editions. A second broader lexical/opening census leaves10reviewed distinct shared-opening sections, all retained.",
+      "evidence": "Hogg variants,4line/orthographic/alternate-title duplicates, Blake split and Montgomery distinct-psalm regression. Full frequency rebuild reflects policy. Final all 81 capacity witnesses reconstructed and reverified (8,406 pairs, maximum lower bound 23), reviewed table published; all six populations bound in final 1,430-file snapshot and real CLI check passed. Fresh approved assembly byte gate and actual offline language/floor checks passed.",
+      "remaining": "No data re-adoption is pending. Actual image/runtime qualification remains separate."
+    },
+    {
+      "id": "DATA-06",
+      "status": "fixed_local",
+      "files": [
+        "lyric-harness/quality/lyric_reader.py",
+        "lyric-harness/quality/meter_bands.py",
+        "lyric-harness/quality/song_profile_calibration.py",
+        "lyric-harness/quality/structure_census.py",
+        "lyric-harness/quality/length_curve_calibration.py",
+        "lyric-harness/quality/calibration_rebuild.py"
+      ],
+      "change": "Current calibration readers share normalized rows, source positions and item boundaries; versioned work weighting is a separate explicit population layer. Historical readers remain named. Corpus adoption binds reader/policy fingerprint. Saved calibration rows now bind corpus bytes, comparator/question code, NLTK/tagger bytes and file hash; stale or unverified rows cannot pass current curve checks.",
+      "evidence": "Full meter and structure gates passed; all 11,380 exact prediction fields measured. Complete 200-seed profile adoption and final current-source five-curve check passed. Mark coverage and taxonomy closing gates passed. Final all 81 capacity witnesses reconstructed and reverified (8,406 pairs, maximum lower bound 23), reviewed table published; all six populations bound in final 1,430-file snapshot and real CLI check passed. Fresh approved assembly byte gate and actual offline language/floor checks passed.",
+      "remaining": "No data re-adoption is pending. Actual image/runtime qualification remains separate."
+    },
+    {
+      "id": "DATA-07",
+      "status": "fixed_local",
+      "files": [
+        "lyric-harness/quality/corpus_manifest.py",
+        "lyric-harness/data/calibration_populations.json",
+        "lyric-harness/quality/test_production_data.py"
+      ],
+      "change": "Removed files are included in drift and checked against recorded historical membership. Missing membership with deletions withholds verdict. Reader/work-policy changes owe all six dependent calibrations, including active lyric curves and certified rhyme-capacity witnesses. Publication prepares all owner populations before either output is touched, stages both outputs and binds population metadata to manifest SHA256; a cross-file mismatch refuses.",
+      "evidence": "27 focused tests passed, including actual isolated snapshot CLI success, cross-file digest failure, owner failure preserving both prior files, deleted-member obligations, and missing-membership refusal. Final actual six-adopter snapshot published and byte-identical CLI gate passed.",
+      "remaining": "None in local data lane; snapshot contains all 1,430 staged source files and all six adoption memberships."
+    }
+  ],
+  "additional_fixes": [
+    "Adaptive provider output budget1024tokens per requested line up to31; UTF-8 proposal cap816bytes perline with typed known-usage oversize refusal.",
+    "Feature subset extraction skips unused expensive predictability and inversions; full-vector parity with prechange measurement passed;2line subset measured0.00087s.",
+    "Saved-row provenance gate closes stale cached TSV re-adoption bypass.",
+    "Pinned NLTK archives and individual extracted files; corrected official tagger licence toMIT with vendored notice.",
+    "Current curve checks require complete, unique shard coverage and exact row count; default live compute uses isolated temporary rows with provenance before and after computation.",
+    "Maintained 200-seed fitting can run independent seed partitions in parallel, preserving exact original seed order; sequential-versus-parallel regression passed.",
+    "Declared curve overrides must pass every measured bin; a forced failed curve can no longer be printed as passing.",
+    "Structure census checkpoint identity now binds source bytes and conservative parser/judge/table fingerprints.",
+    "Band drift checks now compare the actual measured n_human population count and refuse unexpected unmeasured constants, including NaNs; the declared short predictability ceiling is measured explicitly.",
+    "Named AST source identity prevents stale live co_firstlineno offsets from hashing a neighbouring function during a long-running calibration.",
+    "Release root selection now binds verify_asset, inventory and assembly to the requested tree manifest; actual separate-tree CLI negative control passes.",
+    "The corpus source-hash audit validates the staged-file snapshot independently of local source declarations; duplicate, malformed and unavailable snapshots fail.",
+    "The active curve gate validates the inclusive MATTR/TTR population count and calibration window, preventing stale production narrative after future corpus changes.",
+    "Corpus audit attached/spaced counts are disjoint and no longer subtracted; contrast tests cover pure forms, ties, attached majority and excluded apheresis. Full census removes 33 false dominance notes.",
+    "Corpus audit main(argv) now honors an explicitly passed --verify-shape flag; raw-staging findings no longer claim to establish normalized-reader retention.",
+    "Exact declared first TSV header parsing restores literal word407 and first-member a pairs (a/the77,a/ca9). Both tables reject repeated/malformed headers, wrong width, invalid counts, duplicate keys and invalid pair foreign keys; cache publication is atomic across both parses.",
+    "Span attribution now pins all97 exact refused coordinates and4 exact repeat violations independently of aggregate counts;47 newly explicit pronunciation refusals account for632\u2192605 claimed pairs and121\u2192114 ties. Original semantic positive and negative controls remain.",
+    "Raw corpus census fixtures were re-derived before/after:8667\u21928661 titles,2550\u21922458 one-line VERSE blocks,1045\u21921043 apparatus matches,8258\u21928247 signature items and74319\u219274278 VERSE marks; per-file attribution and historical values are retained.",
+    "Generated calibration_populations.json is registered to its real six-adopter builder and explicitly refuses admission as human lyric text. Structure checkpoint tests retain a real exact-namespace hit and prove old-basename/changed-comparator misses."
+  ],
+  "paid_calls": 0,
+  "deployment_performed": false,
+  "current_population": {
+    "files": 1297,
+    "title_items": 8546,
+    "nonempty_items": 8545,
+    "empty_item": {
+      "file": "eng_parlour_charles_carroll_sawyer.txt",
+      "title": "WHEN THIS CRUEL WAR IS OVER",
+      "reason": "Only editorial essay was staged; shared reader correctly retains no lyric lines."
+    },
+    "work_groups": 106,
+    "editions": 215
+  },
+  "completed_gates": {
+    "meter_bands": {
+      "status": "PASS",
+      "density": [
+        5,
+        12
+      ],
+      "prominence": [
+        2,
+        7
+      ],
+      "measured_lines": 231750,
+      "log": "data-meter-check.log"
+    },
+    "structure_census": {
+      "status": "PASS",
+      "pool": 4392354,
+      "agreement": [
+        667,
+        682
+      ],
+      "moved": 0,
+      "cannot_run": 0,
+      "log": "data-structure-final-check.log"
+    },
+    "frequency_rebuild": {
+      "files": 1297,
+      "title_items": 8546,
+      "lines": 279753,
+      "end_types": 13856,
+      "pair_types": 23763,
+      "end_occurrences": 248628,
+      "pair_occurrences": 190210
+    },
+    "tests": {
+      "production_data": "30 passed in6.309s; data-frequency-parser-tests.log",
+      "structure": "PASS; item count plus exact note-only negative control",
+      "meter": "PASS; ambiguous reading negative controls preserved; data-meter-tests-rerun.log",
+      "post_audit_data_tests": 30
+    },
+    "song_profile": {
+      "status": "PASS",
+      "log": "data-song-final-check.log",
+      "band": [
+        200,
+        450
+      ],
+      "n_human": 2438,
+      "seeds": 200
+    },
+    "short_profile": {
+      "status": "PASS",
+      "log": "data-short-final-check-rerun.log",
+      "band": [
+        50,
+        150
+      ],
+      "n_human": 3641,
+      "seeds": 200,
+      "predictability_disposition": "Unadopted at measured ceiling 1.0; all held-out rates are zero. This disposition is now explicitly checked and fails if measurements move."
+    },
+    "curve_measurement": {
+      "status": "complete_and_independently_reconciled",
+      "items": 8545,
+      "seeds": 200,
+      "bins": 21,
+      "all_selected_checks_pass_every_bin": true,
+      "models": {
+        "mattr": "C1",
+        "fwr": "C2",
+        "anaphora": "C2",
+        "cv": "CK",
+        "predictability": "CK"
+      },
+      "artifact": "current-curve-adoption.json",
+      "recovery_proof": "curve-provenance-recovery.json",
+      "explanation": "All200 seeds completed, but final inspect.getsource read wrong neighbouring definitions after unrelated earlier source lines changed. The false hash was reproduced; named AST source matched all original row provenance; all reported coefficients and knots independently re-derived. Full source lookup regression now prevents recurrence."
+    },
+    "lyric_curve_drift": {
+      "status": "PASS",
+      "log": "data-curve-publication-check-rerun.log",
+      "items": 8545,
+      "curves": 5,
+      "mattr_ttr_items": 534,
+      "mattr_window": 50,
+      "epoch": "final-data-publication-epoch.json"
+    },
+    "bounded_row_parity": {
+      "status": "PASS",
+      "all_rows_byte_identical": true,
+      "items": 8545,
+      "row_sha256": "7ef7410bfb1271c596eaca69e261ffbc00cbae89059ea7e9a31d298344fe3b63",
+      "max_decoded_fields": 512,
+      "peak_rss_bytes": 773103616,
+      "log": "data-publication-final-rows.log",
+      "proof": "capacity-rendering-row-equivalence.json",
+      "scope": "Complete final frozen-source local research runner; no item memo migrated across comparator fingerprints. Not hosted-runtime resource qualification."
+    },
+    "mark_coverage": {
+      "status": "PASS",
+      "typed": 77052,
+      "decided": 125501,
+      "undecided": 32,
+      "apparatus": 1,
+      "declared_functions": 22,
+      "witnessed": 5,
+      "log": "data-mark-coverage-final-rerun.log",
+      "delta": "mark-bucket-delta.json"
+    },
+    "taxonomy": {
+      "status": "PASS",
+      "log": "data-taxonomy-final.log"
+    },
+    "capacity": {
+      "status": "reconstructed_reverified_and_published",
+      "families": 81,
+      "judged_pairs": 8406,
+      "maximum_lower_bound": 23,
+      "minimum_lower_bound": 4,
+      "table_sha256": "f1aaeb13fc34462c09808eb0698dd8e6c90ed7782f1388861218c23eb4e7a560",
+      "report": "quality/RESULTS_CAPACITY_PRODUCTION_2026-09-08.json",
+      "scope": "Reviewed table under actual local proof epoch; runtime must generate its own source/Python-bound receipt.",
+      "prior_frequency_runtime_receipt": {
+        "status": "PASS",
+        "families": 81,
+        "python": "3.12.13",
+        "actual_source_identity": "259de1d1e0dda759d9d0feb2cc689021ff7f00ec2afe47266e61a51505eb5ef3",
+        "receipt_sha256": "81a6b1309506d2f6e353ddfd578b68a8f227c5f27497164060b9a693f9b54a26",
+        "measurement": "capacity-after-header-receipt-measurement.json",
+        "runtime_assembly_check": "data-runtime-capacity-receipt-v4.log",
+        "scope": "Actual all81 corrected-source verification; strict read and independently assembled source/runtime admission pass. Actual Docker3.11 still requires its own generated receipt."
+      },
+      "final_runtime_receipt": {
+        "status": "PASS",
+        "families": 81,
+        "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]",
+        "actual_source_identity": "259de1d1e0dda759d9d0feb2cc689021ff7f00ec2afe47266e61a51505eb5ef3",
+        "receipt_sha256": "81a6b1309506d2f6e353ddfd578b68a8f227c5f27497164060b9a693f9b54a26",
+        "measurement": "capacity-after-batch-receipt-measurement.json",
+        "runtime_assembly_check": "data-runtime-capacity-receipt-v6.log",
+        "scope": "Actual all81 final deferred-batching and propose-guidance source verification; strict serialized read and independent v6 assembly source/runtime admission pass. Actual Docker3.11 still generates its own receipt."
+      }
+    },
+    "corpus_snapshot": {
+      "status": "PASS",
+      "files": 1430,
+      "adopters": 6,
+      "metadata_version": 2,
+      "log": "data-corpus-snapshot-check.log"
+    },
+    "release_assets": {
+      "status": "PASS",
+      "log": "data-runtime-byte-gate-v6.log",
+      "manifest_sha256": "b90f5b26bb9c6fd0b5fb87c39a9eb70ba0dabc57f665e314358c5be60e3ab71c"
+    },
+    "offline_runtime": {
+      "status": "PASS",
+      "actual_language_cli_calls": 9,
+      "mandatory_floor_and_optional_refusal": true,
+      "network_connections_denied": true,
+      "report": "data-runtime-offline-final-v6.json",
+      "scope": "Local installed Python 3.12.13/NLTK3.10.3; not Docker3.11 or hosted qualification.",
+      "source_drift": [],
+      "nonempty_readings_ports": 9,
+      "classified_cli_ports": 6,
+      "expected_indeterminate_cli_ports": [
+        "fas",
+        "msa",
+        "som"
+      ],
+      "indeterminacy_reason": "Default last-prominent anchor requires a stress coordinate these ports do not declare."
+    },
+    "corpus_audit": {
+      "status": "PASS_disclosed_census",
+      "files": 1430,
+      "FAIL": 1,
+      "WARN": 141,
+      "NOTE": 1195,
+      "log": "data-corpus-audit-final-rerun.log",
+      "standing_failure": "fas_hafez.LICENSE.txt is English license prose under a Persian filename prefix; outside English calibration and release assembly.",
+      "delta": "198 missing-hash warnings resolved by exact snapshot; one Read title-page warning removed;33 false enclitic dominance notes corrected."
+    },
+    "frequency_parser": {
+      "status": "PASS",
+      "tests_log": "data-frequency-parser-tests.log",
+      "independent_parse": "frequency-parser-independent.json",
+      "parser_sha256": "bd61d0ddf50d46350ba14316136c0e4b5b0f3590d16e7bc4f9c74b3ca29420c2",
+      "literal_word_occurrences": 407,
+      "restored_pairs": {
+        "a/the": 77,
+        "a/ca": 9
+      },
+      "types": 13856,
+      "tokens": 248628,
+      "current_capacity_counter_impact": "capacity-frequency-header-impact.json"
+    },
+    "final_census_regressions": {
+      "status": "PASS",
+      "suites": [
+        {
+          "suite": "provenance",
+          "exit_code": 0,
+          "wall_s": 46.455226880003465
+        },
+        {
+          "suite": "corpus_taxonomy",
+          "exit_code": 0,
+          "wall_s": 2.465304981000372
+        },
+        {
+          "suite": "section_marks",
+          "exit_code": 0,
+          "wall_s": 3.0728105419984786
+        },
+        {
+          "suite": "structure_census",
+          "exit_code": 0,
+          "wall_s": 33.9524057469971
+        },
+        {
+          "suite": "corpus_audit",
+          "exit_code": 0,
+          "wall_s": 19.856288217997644
+        }
+      ],
+      "attribution": "data-final-census-attribution.json",
+      "spans_log": "spans-final-rerun.log",
+      "spans_check_log": "spans-final-census-check.log",
+      "spans_exact_attribution": "spans-current-measure.json"
+    }
+  },
+  "calibration_checkpoint": {
+    "exact_fields": 11380,
+    "path": "/tmp/codex-calibration-rebuild/current-field-cache.sqlite",
+    "integrity": "ok",
+    "fingerprint": "473da80f8438a8d3a2f2927e5bc94a205a0ca0b06e6907aefc4ae56d2ef0996c",
+    "memo_migration": "Only exact fields migrated with byte-reconstruction proof; item rows never migrated.",
+    "recovery": "Workspace synchronisation recursively duplicated temporary SQLite copies and filled disk. Canonical 10000 committed fields passed SQLite integrity check; immutable proof retained, mutable checkpoint relocated outside synchronised directory and remaining fields completed."
+  },
+  "release_limits": [
+    "Root owns actual Docker build, H09/DEP06 runtime/image qualification and any final hosted/paid-provider run; these local data proofs do not establish them.",
+    "Every installed runtime must generate and validate the all81 capacity receipt against its own Python/source/table identity; local3.12 proof cannot certify Docker3.11.",
+    "Original optional concreteness dataset rights remain unresolved; runtime release excludes it and refuses unavailable feature requests.",
+    "Research audit retains one known non-lyric license-file language FAIL,141 raw-stage/provenance/channel warnings and1,195 notes. Census PASS is not a claim that research data is universally clean."
+  ],
+  "publication_row_refresh": {
+    "status": "PASS",
+    "rows": 8545,
+    "all_tsv_bytes_identical": true,
+    "proof": "batch-calibration-remeasurement.json",
+    "log": "data-batch-final-rows.log",
+    "curve_gate": "data-batch-final-curve-check.log",
+    "comparator": "42980129e0e5e6075b8db9ece418dbe5a04f770893391f13b4fe2bc6faebb777",
+    "wall_s": 519.8273989410009,
+    "peak_rss_bytes": 773111808,
+    "scope": "Actual final deferred batching source remeasurement with fresh item cache and bounded exact phonetic field cache; all TSV bytes equal current numeric adoption inputs; no provider calls."
+  },
+  "frozen_at": "2026-09-08T08:04:42.521344+00:00",
+  "prior_frequency_row_refresh": {
+    "status": "PASS",
+    "rows": 8545,
+    "all_tsv_bytes_identical": true,
+    "proof": "frequency-calibration-independence.json",
+    "log": "data-frequency-final-rows-rerun.log",
+    "curve_gate": "data-frequency-final-curve-check.log",
+    "comparator": "9d622e8afaf3c32898b99cc13157787417ec6dbe6f61d2da2dbbe3d93d1c48d0",
+    "wall_s": 493.39800228900276,
+    "peak_rss_bytes": 773038080,
+    "scope": "Fresh item cache,512 decoded exact fields at most, all8545 recomputed with song-frequency loader patched to raise on any call; zero such calls, source hashes stable, all TSV bytes equal the full200-seed adoption inputs."
+  }
+}

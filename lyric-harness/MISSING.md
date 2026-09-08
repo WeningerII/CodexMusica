@@ -20226,7 +20226,24 @@ entry is about, made settable.
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ **260**
 with this entry (2026-09-03).
 
-### M-241 · A song's length is a DECLARATION and the planner has no derivation behind it — under the derived envelope the total is uniform over 12..447 lines unless declared, and the section-count draw makes a song-shaped short song rare `OPEN` 2026-09-04 — found by the owner's ruling on M-239's envelope and by the verbs suite's sweep going to zero
+### M-241 · A song's length still needs a musical declaration; the default writer now uses a bounded executable subset of the calibration envelope `OPEN` 2026-09-04 — current status updated 2026-09-08
+
+**CURRENT STATUS — 2026-09-08.** The calibration and structural envelope
+remains distinct from execution admission. `plan.execution_limits()` derives
+the writer's current ceiling of **31 lines** from the candidate-work budget;
+ordinary verse-chorus plans draw from the feasible **12..31** subset unless
+the caller further constrains the total. `--lines` and `--want` are actual
+planning constraints. An explicitly requested larger plan requires
+`--inspection-only`; that artifact is for inspection and cannot enter the
+writer. This operational ceiling is neither a musical length recommendation
+nor evidence that every admitted draft completes within the runtime limit.
+The undeclared musical rationale for a song's length remains open, as does
+production qualification of the maximum workload. The 201-line median and
+the old rarity figures below describe the **historical 2026-09-04 sampler**,
+not the current default. A historical seed must be interpreted under its
+recorded source and data identity, never silently re-dealt as a continuation.
+
+**HISTORICAL 2026-09-04 RECORD (retained):**
 **THE RULING, verbatim (2026-09-04), when asked whether the envelope
 should be 12..447, a corpus-percentile ceiling, or the old 12..55:**
 *"Genre shifts it a lot: hip-hop runs 60–100+ (16-bar verses),
@@ -20296,7 +20313,30 @@ section-count draw still favours many thin sections at every length.
 a sweep predicate gets exactly that; the graders grade any length the
 floor covers. The cost is only to the writer who says nothing.
 
-### M-240 · The grader's rhyme-schema default door refuses at a pair guard between 108 and 144 lines, so the planner now volunteers lengths the graders cannot judge — recorded and refused loudly; the scaling schema door is the complete answer and is not built `OPEN` 2026-09-04 — found by the planner suite's round trip the hour M-239 widened the envelope; the owner ruled to keep the envelope and log this
+### M-240 · Schema work and end-to-end runtime still require capacity qualification; the historical oversized default plans are now excluded from writer admission `OPEN` 2026-09-04 — current status updated 2026-09-08
+
+**CURRENT STATUS — 2026-09-08.** Default executable plans now stay within
+the derived 31-line candidate-work ceiling, and native writer admission also
+checks the actual draft's pronunciation-based work bound before contacting a
+writer. Larger explicit plans are inspection-only. The relation engine now
+projects requested pairs while retaining the full draft and global frames;
+full-context differential controls support that projection's semantics.
+These changes supersede the statement below that the planner currently
+volunteers a median 201-line executable draft. During this audit, an admitted
+12-line declining writer and a maximum-size repair reached the 600-second
+native-call limit. Those failures are retained as **pre-fix measurements**:
+after the requested-slot and requested-pair work reductions, the exact
+12-line seed 2003 completed its declined round in **92.647 seconds**, with
+20 actual empty writer replies, all accepted lines intact, and explicitly
+uncertified coverage. The exact 31-line seed 20260908 reached its first
+writer question in **110.903 seconds**, with an authenticated recoverable
+checkpoint. Reaching that first question does not measure a whole writer
+round or convergence. These local replays repair the demonstrated stalls;
+the full workload matrix and deployment qualification remain open. The
+108/144-line wall below is historical evidence, not the current admission
+boundary or a production latency guarantee.
+
+**HISTORICAL 2026-09-04 RECORD (retained):**
 **THE WALL, MEASURED** (`explosion_probe2.log`, the planner's own dummy
 draft graded through `Reviser.inspect` under the round-trip mandate):
 

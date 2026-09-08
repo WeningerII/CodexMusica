@@ -1,0 +1,297 @@
+
+1. DETERMINISM — the same brief renders byte-identically, and goes on doing so under a different hash seed
+  PASS  two calls in one process are byte-identical
+          5067 chars
+  PASS  three processes with PYTHONHASHSEED 0/1/4242 agree, on a brief whose findings, candidates, forbidden set and keep list are all SETS -- a renderer that iterated one would differ here
+          ['a9331cf369dccd12b7ea98d4bae4e8e22ea762186abe0ce8c19b1904a8099ea2', 'a9331cf369dccd12b7ea98d4bae4e8e22ea762186abe0ce8c19b1904a8099ea2', 'a9331cf369dccd12b7ea98d4bae4e8e22ea762186abe0ce8c19b1904a8099ea2']
+  PASS  two sets built in opposite orders render the same text
+  PASS  the fallback orders un-orderable members by their PRINTED coordinates, so the same two findings sort the same way whatever their addresses
+  PASS  a member with no printed coordinate and no value __repr__ is REFUSED rather than ordered by where it happens to sit in memory
+          Opaque carries none of ('code', 'severity', 'message', 'evid
+  PASS  a member with a value __repr__ and no coordinates still orders
+  PASS  a ranked LIST keeps its own order (only sets are sorted)
+
+2. FORBIDDEN — every modal word reaches the prompt, inside the block that says taking one is rejected
+  PASS  every forbidden word appears in the prompt at all
+          missing []
+  PASS  ...and every one of them is inside the FORBIDDEN block, not merely somewhere in the text
+          outside the block: []
+  PASS  the block says taking one is REJECTED, not merely discouraged -- listing them without that is a list of good rhymes
+          ['  These are the most predictable answers in this field. MOVING to one of them is', '  REJECTED OUTRIGHT — before the grader looks at whether the line fixed anything at']
+  PASS  the OFFERED block says the field is offered, NOT required -- `verify()` never checks where the end word came from, and a prompt that demanded it would be enforcing a rule nobody grades
+  PASS  the INCUMBENT reaches the prompt, in its own block, under its own rule -- not folded into the modal list
+          THE WORD ALREADY THERE — a DIFFERENT rule from the one above (1)
+  PASS  ...and that block states the consequence RULE 3 actually applies: keeping it is NOT rejected outright, which is the opposite of what the modal block above says about its own words
+          ['is NOT rejected outright the way the list above is: the grader asks whether a modal']
+  PASS  the two blocks are DISJOINT -- no word appears under both rules, so a reader cannot attribute one to the other
+          incumbent='fire' head=['fire', 'higher', 'conspire', 'entire']
+  PASS  a JOINT-CONFLICT pivot -- head computed, came back empty -- is NOT told 'no modal head was computed', which the same prompt contradicts eleven lines up
+          ['(none — the modal head was COMPUTED for this line and came back EMPTY, which is not']
+  PASS  CONTROL: a line whose field was never computed DOES keep the original sentence -- the repair adds a state, it does not rename the one that was right
+  PASS  an over-long candidate field is capped AND says so, with both counts
+            40 of 57 shown, highest-ranked first (the field is larger than this prompt prints); field read at field_depth=complete pool, field_band='grader'
+  PASS  a field inside the cap is printed whole with no truncation note
+
+3. REASONS — why the last attempt was rejected reaches the next prompt, verbatim
+  PASS  every reason string is present VERBATIM, not summarised -- a paraphrase of "took the modal candidate 'higher'" loses the word
+  PASS  and it is labelled as the PREVIOUS attempt's rejection
+  PASS  the attempt number is stated (attempt=1 is the second try)
+            This is ATTEMPT 2 of this line's retry budget.
+  PASS  a first attempt says there was no rejection rather than leaving the block out
+  PASS  a bare string reason is not rendered one character per bullet
+
+4. WHOLE — whole-draft findings reach the prompt, labelled as NOT this line's to fix
+  PASS  the heading itself says they are not this line's to fix
+          WHOLE-DRAFT FINDINGS — CONTEXT ONLY, NOT THIS LINE'S TO FIX (2)
+  PASS  both codes are present with their EVIDENCE -- the evidence is the only place the measurement lives
+  PASS  the block says why they are here anyway: `verify()` reads them, so one can REJECT a revision it can never ask for
+  PASS  with no whole findings the section is absent, not an empty heading
+  PASS  the per-line findings' evidence is carried too
+  PASS  the WHOLE DRAFT is in the prompt with line numbers, and the target line is marked
+
+4b. the mandate half: every group, the words to answer, and what a joint conflict means
+  PASS  BOTH groups are named, with the word each one must answer
+          THE RHYME MANDATE ON L3
+  group A [1, 3] — this line must rhyme with: L1 ('silver')
+  group B [2, 3] — this line must rhyme with: L2 ('mind')
+  This line is a PIVOT: it is in 2 groups and must answer EVERY one of them at once (conjunctive; doctrine 2). Answering one and breaking another is not a fix.
+  NO JOINT CANDIDATE at field_depth=complete pool, field_band='grader': this bounded search found no word that answers all of those groups at once; no impossibility is proved.
+    ~~The MANDATE, not the line, is what needs revising — a one-line rewrite here is re-running a search that has already come back empty.~~ STRUCK 2026-09-03 (M-202): the grader flags PAIRS, not the conjunction, so a word that answers the VIOLATED call and leaves the others standing is accepted — measured, first try.
+    WHAT EACH CALL CAN BE ANSWERED BY ON ITS OWN (2 of 2 call(s) here answerable):
+      silver — 3 word(s): river, quiver, shiver
+      mind — 3 word(s): signed, behind, unwind
+    Read the mandate above for WHICH call is VIOLATED and which HOLDS. Answering a violated call
+    trades nothing; answering one that holds breaks the other pair and is rejected as a new flag.
+
+  PASS  the line is called a PIVOT and the conjunction is stated
+  PASS  the joint conflict is stated: nothing answers all of the groups at once, which is a fact about the CONJUNCTION and is all it is
+          THE RHYME MANDATE ON L3
+  group A [1, 3] — this line must rhyme with: L1 ('silver')
+  group B [2, 3] — this line must rhyme with: L2 ('mind')
+  This line is a PIVOT: it is in 2 groups and must answer EVERY one of them at once (conjunctive; doctrine 2). Answering one and breaking another is not a fix.
+  NO JOINT CANDIDATE at field_depth=complete pool, field_band='grader': this bounded search found no word that answers all of those groups at once; no impossibility is proved.
+    ~~The MANDATE, not the line, is what needs revising — a one-line rewrite here is re-running a search that has already come back empty.~~ STRUCK 2026-09-03 (M-202): the grader flags PAIRS, not the conjunction, so a word that answers the VIOLATED call and leaves the others standing is accepted — measured, first try.
+    WHAT EACH CALL CAN BE ANSWERED BY ON ITS OWN (2 of 2 call(s) here answerable):
+      silver — 3 word(s): river, quiver, shiver
+      mind — 3 word(s): signed, behind, unwind
+    Read the mandate above for WHICH call is VIOLATED and which HOLDS. Answering a violated call
+    trades nothing; answering one that holds breaks the other pair and is rejected as a new flag.
+
+  PASS  ...and the sentence that read 'the MANDATE, not the line' is STRUCK where it stands, not deleted, with the date and the entry that struck it
+          THE RHYME MANDATE ON L3
+  group A [1, 3] — this line must rhyme with: L1 ('silver')
+  group B [2, 3] — this line must rhyme with: L2 ('mind')
+  This line is a PIVOT: it is in 2 groups and must answer EVERY one of them at once (conjunctive; doctrine 2). Answering one and breaking another is not a fix.
+  NO JOINT CANDIDATE at field_depth=complete pool, field_band='grader': this bounded search found no word that answers all of those groups at once; no impossibility is proved.
+    ~~The MANDATE, not the line, is what needs revising — a one-line rewrite here is re-running a search that has already come back empty.~~ STRUCK 2026-09-03 (M-202): the grader flags PAIRS, not the conjunction, so a word that answers the VIOLATED call and leaves the others standing is accepted — measured, first try.
+    WHAT EACH CALL CAN BE ANSWERED BY ON ITS OWN (2 of 2 call(s) here answerable):
+      silver — 3 word(s): river, quiver, shiver
+      mind — 3 word(s): signed, behind, unwind
+    Read the mandate above for WHICH call is VIOLATED and which HOLDS. Answering a violated call
+    trades nothing; answering one that holds breaks the other pair and is rejected as a new flag.
+
+  PASS  each call's own field is named, under a heading that says these answer ONE call and not the conjunction
+          THE RHYME MANDATE ON L3
+  group A [1, 3] — this line must rhyme with: L1 ('silver')
+  group B [2, 3] — this line must rhyme with: L2 ('mind')
+  This line is a PIVOT: it is in 2 groups and must answer EVERY one of them at once (conjunctive; doctrine 2). Answering one and breaking another is not a fix.
+  NO JOINT CANDIDATE at field_depth=complete pool, field_band='grader': this bounded search found no word that answers all of those groups at once; no impossibility is proved.
+    ~~The MANDATE, not the line, is what needs revising — a one-line rewrite here is re-running a search that has already come back empty.~~ STRUCK 2026-09-03 (M-202): the grader flags PAIRS, not the conjunction, so a word that answers the VIOLATED call and leaves the others standing is accepted — measured, first try.
+    WHAT EACH CALL CAN BE ANSWERED BY ON ITS OWN (2 of 2 call(s) here answerable):
+      silver — 3 word(s): river, quiver, shiver
+      mind — 3 word(s): signed, behind, unwind
+    Read the mandate above for WHICH call is VIOLATED and which HOLDS. Answering a violated call
+    trades nothing; answering one that holds breaks the other pair and is rejected as a new flag.
+
+  PASS  a NARROWED offer says the band admitted more and the DECLARED RELATION refused it — a short list is not an exhausted lexicon
+          OFFERED — words for the end word that answer every group bound there
+  3 word(s) the band admitted are NOT offered: this place is judged by its group's declared
+  relation, and it did not certify them (night, quite, white).
+  The list below is what that relation accepts — the same judge the verdict uses.
+  2 word(s); field read at field_depth=complete pool, field_band='grader'
+    attire, sire
+  T
+  PASS  an empty JOINT field says WHY rather than printing nothing, and no longer says the lexicon had no answer for this line
+          OFFERED — words for the end word that answer every group bound there
+  (no JOINT candidate field was offered — and that is NOT 'nothing answers this line'. The
+  searched fields yielded no joint offer. WHAT EACH CALL CAN BE ANSWERED BY ON ITS OWN is listed
+  above as suggestions; a rewrite must fix a finding without breaking or losing coverage of another obligation.)
+
+  PASS  the constraints are stated even with no candidates: one line, no other line, and the forbidden rule stated as a MOVE
+          ['1. ONE line back, and it replaces L3. The draft stays 3 lines — a different', '3. The end word L3 MOVES TO is not one of the FORBIDDEN words above. That is']
+
+5. PARSE — every supported shape, and every ambiguous one refused
+  PASS  accepts bare line
+          'And all night long she nursed a small attire'
+  PASS  accepts bare line with whitespace
+          'And all night long she nursed a small attire'
+  PASS  accepts fenced block
+          'And all night long she nursed a small attire'
+  PASS  accepts fenced block with a language tag
+          'And all night long she nursed a small attire'
+  PASS  accepts fence after prose
+          'And all night long she nursed a small attire'
+  PASS  accepts LINE: marker
+          'And all night long she nursed a small attire'
+  PASS  accepts LINE: marker after prose
+          'And all night long she nursed a small attire'
+  PASS  accepts lowercase line: marker
+          'And all night long she nursed a small attire'
+  PASS  accepts echoed L3: label
+          'And all night long she nursed a small attire'
+  PASS  accepts echoed label inside a marker
+          'And all night long she nursed a small attire'
+  PASS  accepts fence and marker that AGREE
+          'And all night long she nursed a small attire'
+  PASS  accepts a line that opens AND closes on an apostrophe
+          "'Cause I was never goin'"
+  PASS  accepts the same with U+2019
+          '’Cause I was never goin’'
+  PASS  REFUSES empty (returns None)
+          None
+  PASS  REFUSES whitespace only (returns None)
+          None
+  PASS  REFUSES no letters at all (returns None)
+          None
+  PASS  REFUSES two bare lines (returns None)
+          None
+  PASS  REFUSES prose around a bare line, no marker (returns None)
+          None
+  PASS  REFUSES two LINE: markers (returns None)
+          None
+  PASS  REFUSES two fenced blocks (returns None)
+          None
+  PASS  REFUSES a fence holding two lines (returns None)
+          None
+  PASS  REFUSES an empty fence (returns None)
+          None
+  PASS  REFUSES fence and marker that DISAGREE (returns None)
+          None
+  PASS  REFUSES a quote-wrapped line (returns None)
+          None
+  PASS  REFUSES a curly-quote-wrapped line (returns None)
+          None
+  PASS  REFUSES a backtick-wrapped line (returns None)
+          None
+  PASS  REFUSES a marker with nothing after it (returns None)
+          None
+  PASS  REFUSES not a string at all (returns None)
+          None
+
+5b. PARSE GROUP — k lines are only k lines when it is said which is which, and the marker is the LINE NUMBER
+  PASS  accepts one marker per member, in members order
+          ('The first line ends here', 'The second ends there', 'The third ends elsewhere')
+  PASS  accepts it inside a fence
+  PASS  accepts the markers in ANY order and returns them in MEMBERS order -- the marker decides, never the position
+  PASS  a two-member group is just k=2, the case this replaced
+  PASS  REFUSES bare lines
+          'The first line ends here\nThe second ends the'
+  PASS  REFUSES a MISSING member
+          'L1: The first line ends here\nL3: The second '
+  PASS  REFUSES a repeated marker
+          'L1: The first line ends here\nL1: The first l'
+  PASS  REFUSES a marker for a line OUTSIDE the group
+          'L1: The first line ends here\nL3: The second '
+  PASS  REFUSES two fences
+          '```\nL1: The first line ends here\n```\n```\nL3:'
+  PASS  REFUSES a quoted member
+          'L1: "The first line ends here"\nL3: The secon'
+  PASS  REFUSES an EMPTY members list
+          'L1: The first line ends here'
+  PASS  REFUSES nothing
+          ''
+
+7. TIER 2 — the group prompt says the MANDATE is what needs revising, and round-trips through ModelProposer
+  PASS  the finite search is not falsely presented as an impossibility proof
+  PASS  the operation changes the words while preserving the declarations
+  PASS  both lines are present and both numbered
+  PASS  the `word` fields are labelled as the SEARCH'S PROPOSAL and not as what the lines bind on now
+  PASS  ...and the prompt DISCLOSES that the offered lists are ordered, which is the honest half of the clique-by-construction claim
+  PASS  ...and the prompt makes NO claim about a current end word at all — which is a stronger statement than making none it gets wrong
+          0 status-quo claim(s) inspected, 0 false
+  PASS  every option list is present and attributed to the right line BY LINE NUMBER -- a role name cannot address a group of nine
+  PASS  the coupling is stated: the two picks must rhyme with each other
+  PASS  the whole draft and the whole-draft findings ride along, still labelled not-these-lines'
+  PASS  the response format demands one L<n>: marker per MEMBER and says why bare lines are discarded
+  PASS  the pivot's own findings and evidence are carried
+  PASS  ModelProposer.propose_group returns the lines in `members` order, NOT in the order the response happened to list them
+          ('It gleamed like polished deliver', 'The whole thing felt like mankind')
+  PASS  ...off the prompt render_group produced
+  PASS  an unparseable group response is None, not a guess
+  PASS  a single-line response to a GROUP request is refused rather than written into one of the k slots
+
+7c. `PB`/`AS` are a SECOND statement of `loop.GroupBrief`/`loop.AnchorSlot`, and they are pinned to the first
+  PASS  every field this suite builds a `PB` out of is a real `GroupBrief` field
+  PASS  ...and `GroupBrief` has grown no field this suite is blind to
+  PASS  every field this suite builds an `AS` out of is a real `AnchorSlot` field
+  PASS  ...and `AnchorSlot` has grown no field this suite is blind to
+  PASS  `render_group` reads the REAL dataclasses, not just the stand-ins
+  PASS  every field this suite builds a `B` out of is a real `Brief` field
+  PASS  ...and `Brief` has grown no field this stand-in is blind to — which is what stops a new rule rendering as an empty block with the suite green
+  PASS  the DEFAULT placement renders 'end word' — every mandate written before placement existed is a bare int, so this repair moves no prompt this repo has ever produced
+          'end word'
+  PASS  a HEAD-anchored mandate no longer tells the writer to change the END word — the one word it does not bind
+          'first word'
+  PASS  ...and a numbered token says WHICH, so `1.T4` reads as the fourth word rather than as the end of the line
+          'word 4'
+  PASS  the three prompts DIFFER — a coordinate that changes no output is a coordinate the writer cannot act on (doctrine 1)
+          3 distinct prompt(s)
+
+7e. the door sentence has ONE definition, and it is not here
+  PASS  `propose.py` contains no copy of the disclosure — it reads it off the brief (doctrine 1)
+          THE 77-SCHEMA HALF OF THE DEFAULT WAS NOT CONSULTED FOR THIS
+  PASS  its UNKNOWN fallback is byte-equal to `relations`' — the one duplicated string this module's import guard costs, held here rather than left to drift
+  PASS  and the two sentences say DIFFERENT things: 'not recorded' is not 'not consulted' (doctrine 20/28)
+
+7b. ModelProposer's own contract
+  PASS  propose(brief, lines, attempt) -> str
+          The candle burned and set the room alight
+  PASS  ...and it renders exactly render_line's prompt
+  PASS  the full 5-argument form is accepted positionally, and both extras reach the prompt
+  PASS  a response nothing can be parsed out of is None, so the loop reads it as 'no further proposal' and moves on
+  PASS  a non-string response is None rather than a crash
+  PASS  `parse=` overrides the tier-1 parser only
+  PASS  an exception from `call` PROPAGATES -- an outage is not a model declining, and a loop that cannot tell them apart reports a dead end for a network failure
+  PASS  no network, no client, no key: the module imports `re` and nothing else
+          {'re'}
+
+7d. END TO END — TIER 2. `propose_group` is a DIFFERENT contract from `propose`, and until 2026-08-14 NOTHING crossed the two modules on it
+  PASS  the historical default remains explicitly unjudged
+  PASS  the loop reaches tier 2 through `ModelProposer` at all -- an arity mismatch here is a TypeError, not a quiet no-op
+          6 group prompt(s)
+  PASS  the prompt it was handed is the one `render_group` builds, so the stub answered off the PROMPT and never saw a GroupBrief
+  PASS  across every prompt a real loop generated, not one misstates what a line currently ends on
+  PASS  and it makes NO such claim to begin with — the prompt prints the line and lets the writer read where it ends
+          0 status-quo claim(s) inspected across 6 prompt(s)
+  PASS  the guard is LIVE: plant the 2026-08-14 misstatement back into a real prompt and the scan reports it
+          examined 1, flagged 1
+  PASS  the words it prints ARE the proposal — each differs from what its own line currently ends on
+          12 proposal(s) inspected, 0 equal to the status quo: []
+  PASS  a proposer reading only the prompt has the same accepted artifact and coverage as the object-driven writer
+          uncertified after 6 prompt(s)
+  PASS  L2 -- in neither backtracked group -- is untouched, so tier 2 stayed inside the group it named
+          ['It gleamed like polished find', 'We wandered deep into the mind', 'The whole thing felt like a found']
+
+6. END TO END — a stub `call` answering off the prompt alone drives a REAL revise_loop to SUCCESS
+  PASS  the line writer clears per-line work and honestly reports remaining global work
+          whole_draft_unresolved
+  PASS  both flagged lines were fixed, and both mandatory-pursued lines were CLOSED BY THOSE FIXES rather than re-opened by them
+          fixed [1, 2], resolved elsewhere [4], unresolved []
+  PASS  the stub was driven by the PROMPT and nothing else -- it never saw a Brief, so a prompt missing the line or the offered field could not have produced these; and a line another line's fix CLOSED is never prompted (M-210), so the prompts are exactly the lines fixed
+          2 prompt(s); fixed [1, 2]; closed [4]
+  PASS  the loop's output is a real draft, and every changed line was one the loop had opened — and only those (repinned 2026-09-01, M-185: L3/L4 are closed by L1/L2's moves and stay as written)
+          ['The candle burned and set the room on our', 'He said the word and then he turned to shadow', 'And all night long she nursed a small desire', 'She never asked the thing she had to know']
+  PASS  re-briefed with a FRESH Reviser the result carries no flag -- the SUCCESS is not taken on the loop's word
+
+6b. END TO END — a stub that takes a FORBIDDEN word is REJECTED, which is what makes the prompt's constraint real
+  PASS  the loop cannot make progress: every proposal is turned down
+          no_progress
+  PASS  the draft is byte-identical -- a rejected proposal changes nothing
+  PASS  and the rejection is the MODAL rule specifically, not some incidental failure: doctrine 9 enforced, exactly as the prompt said it would be
+          tried 2 candidate(s), none accepted; last rejection: L1 took the modal candidate 'higher' — it passes the band and it is the most predictable word in the field, which is the slop direction (doctrine 9
+  PASS  every attempt was really tried (the proposer answered; it did not decline)
+          [2, 2, 2]
+  PASS  the grader's own rejection reaches the NEXT prompt for that line
+          3 retry prompt(s)
+==============================================================
+all propose regressions pass

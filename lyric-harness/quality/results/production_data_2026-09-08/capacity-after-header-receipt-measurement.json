@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "quality/verify_capacity.py",
+    "--output",
+    "/workspace/scratch/b0544e4bbdd6/production-fixes/mcp/capacity_verification.json",
+    "--workers=4"
+  ],
+  "workers": 4,
+  "runtime": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]",
+  "exit_code": 0,
+  "wall_s": 475.22185258600075,
+  "cpu_user_s": 1632.04616,
+  "cpu_system_s": 5.671677,
+  "cpu_total_s": 1637.7178370000001,
+  "wait4_maxrss_mib": 658.02734375,
+  "sampled_aggregate_peak_mib": 3286.72265625,
+  "aggregate_samples": 4230,
+  "aggregate_scope": "wrapper and descendants, /proc RSS sampled every0.1s; shared pages may be counted per process",
+  "source_identity_before": "259de1d1e0dda759d9d0feb2cc689021ff7f00ec2afe47266e61a51505eb5ef3",
+  "source_identity_after": "259de1d1e0dda759d9d0feb2cc689021ff7f00ec2afe47266e61a51505eb5ef3",
+  "table_sha256": "f1aaeb13fc34462c09808eb0698dd8e6c90ed7782f1388861218c23eb4e7a560",
+  "deadline_s": 1800,
+  "isolated_from_other_project_heavy_jobs": false,
+  "other_functional_tests_may_run_concurrently": true,
+  "scope": "local Python3.12.13 workers4 actual final-wire re-verification; concurrent functional tests permitted; actual Docker Python3.11 remains an independent qualification gate",
+  "source_unchanged": true
+}

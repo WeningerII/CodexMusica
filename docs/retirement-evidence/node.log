@@ -1,0 +1,28 @@
+✔ host-selected recipe endpoint exposes only recipe tools and retains full guidance (99.867011ms)
+✔ unscoped in-memory registration still enforces inherited trusted task at dispatch (12.681116ms)
+✔ initialization omissions fail explicitly (0.23502ms)
+✔ native client refuses real discovery and initialization drift before offering tools (85.411089ms)
+✔ native client gives the real tool budget a response margin and honors a shorter caller deadline (65.800648ms)
+✔ connector discovery rejects a looping pagination cursor without looping indefinitely (0.358822ms)
+✔ private CLI output atomically replaces public files and argument typos fail before connecting (91.38605ms)
+✔ image identity requires valid baked bytes and source fingerprint covers recipe runtime dependencies (84.810093ms)
+✔ the production build reader ignores runtime identity overrides and refuses a missing baked file (4.691682ms)
+✔ recover string input preserves the same section information as its array twin (2.28575ms)
+✔ actual revision dispatch refuses conflicting draft and proposal representations (641.784942ms)
+✔ quoted lyrics cannot create findings or finish metadata (0.994288ms)
+✔ live surface comparison detects annotations, output schema, titles and duplicate names (0.360448ms)
+✔ initialization compares full guidance and capabilities, including omission (0.593291ms)
+✔ live qualification options cannot silently drop a misspelled release gate (0.889057ms)
+✔ production readiness refuses disabled, transient, corrupt or stale configuration (1.663461ms)
+✔ recipe acceptance measures exact delivered rich artifact and real declared edits (1.388713ms)
+✔ image promotion binds exact verified commit, repository and immutable tested build (0.646672ms)
+✔ candidate build repository bytes must remain unchanged through image recording (0.193146ms)
+✔ production contract matches the legacy service during migration and binds source identity (12.399247ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2716.76759

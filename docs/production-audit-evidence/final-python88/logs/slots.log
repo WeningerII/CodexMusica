@@ -1,0 +1,114 @@
+
+1. the DEFAULT slot IS `line_anchors`, called and not copied
+  PASS  the default slot returns EXACTLY what `line_anchors` returns, on every fixture line plus an empty line and an unreadable one — the byte-identity that lets every stored mandate keep its reading
+          6 lines, all identical
+  PASS  and with promote= carried through, since the promoted bare-final variant is part of what the default path means
+  PASS  `is_default` is true of a bare int, which is what makes an untouched mandate take the untouched path
+
+2. the spelling round-trips over the WHOLE named table
+  PASS  every name in NAMED_SLOTS parses and spells back to itself, so a name added without a spelling is a FAILING TEST rather than a slot that renders as `<locus/anchor>`
+          5 names; mismatches []
+  PASS  a bare line number spells back bare — the default is invisible in the notation, as it is in the object
+  PASS  a token index round-trips 1-BASED, and the 0-based `relations` index is converted in exactly one place
+  PASS  the vocabulary is IMPORTED, not respelled: the default rule is `relations.END_ANCHOR` itself, so a change there moves this layer
+
+3. an anchor that names nothing is a SKIP, never a guess
+  PASS  a last-stressed anchor inside an unstressed function word returns NO anchor rather than falling back to the next word — the same answer `relations._anchor_pos` gives by raising NoReferent
+          line-initial `The` carries no stress
+  PASS  and it DOES resolve when the head word carries a stress, so the check above is about the referent and not about the locus
+          label 'Silver'
+  PASS  a token index past the end of the line returns no anchor rather than the nearest word
+
+4. what REFUSES, and each refusal names its remedy
+  PASS  four unspellable slots all refuse at PARSE time, so a writer is told while they still hold the sentence they got wrong
+  PASS  every frame-blocked locus refuses AND names the frame it would need — a refusal that names a remedy is what stops the set being a list of things that mysteriously do not work
+          9 frame loci; offenders []
+  PASS  a SEARCHED anchor refuses, citing the multiplicity correction a mandated pair has nowhere to carry (doctrine 56) — the reason is the check, since refusing it for being unimplemented would be a different and weaker claim
+  PASS  an `any_token` locus with no declared index refuses: unindexed, it is a search over the line
+  PASS  and the two vocabularies do not overlap, so no locus is both gradeable and frame-blocked
+
+5. the mandate carries placement, and keeps two placements apart
+  PASS  a group member spelling a place is accepted and the LINES are unchanged, so every site that does arithmetic on a group is untouched
+  PASS  `slots_declared` is the one question a caller asks to decide whether to take the slot path at all
+  PASS  `slot_of` resolves a declared member and an undeclared one, so no caller repeats the absence rule (doctrine 1)
+  PASS  asking for a NON-member's slot raises instead of answering with the default — 'binds at the end' and 'is not in this group' are different facts (doctrine 20)
+  PASS  END and HEAD over the SAME pair of lines are TWO groups: a song can ask for both, and a dedup key of line numbers alone would have collapsed the second into the first
+  PASS  a mandate that declares no placement carries `loci` entries that are all empty — absence keeps ONE meaning
+
+6. a WITHIN-LINE binding refuses and names the route
+  PASS  a group naming one line twice REFUSES rather than silently deduplicating to a singleton, which is what the set semantics would otherwise do
+  PASS  and the refusal names the route that DOES answer it — `relations.realise` reports same-line instances and `quality/figures.py` reads them — so the boundary is a pointer rather than a wall (doctrine 20)
+          group ['1.head', '1.end'] names line 1 twice, at two places. A WITHIN-LINE binding is not expressible as a mandated grou
+
+7. `grade()` judges a declared slot with the SAME comparator
+  PASS  the mid-line binding is GRADED: L1's 4th word against L2's end
+          1 verdict(s) for (1, 2)
+  PASS  and it names the words the resolved span covers, not the line's end word — `morning` is L1's 4th token and `light` is its end
+          ('morning', 'warning')
+  PASS  scored by `best_score`, the comparator every threshold here was calibrated on — the placement moves, the judge does not
+          1.000 RHYME
+  PASS  the IDENTICAL pair with no slot declared reaches a DIFFERENT verdict — byte-identical output would mean the flag was dropped, which is the check every declared coordinate in this repo needs
+          no slot: ('light', 'warning')
+  PASS  and the position handed to the named judge comes from the DECLARATION now: a head slot asks 'head', a default asks 'end'
+
+8. the untouched path: an end-rhyme mandate is byte-identical
+  FAIL  a plain letter mandate still grades its two pairs off the cached n x n matrix
+  PASS  and its slot cache is never touched, so the ordinary run pays nothing for the coordinate existing
+          0 entries
+
+9. `span_provenance` guards every key it reads
+  PASS  `word_syllable_map` now emits the whole provenance tag set, so a span built from it can be attributed — it emitted `word`/`widx` only, and `span_provenance` GUARDED on `widx` while READING six
+          missing []
+  PASS  and a slot span actually answers: the crash this found was `KeyError: 'syl_in_word'` three frames down inside `best_score`
+          {'words': ['morning'], 'text': 'morning', 'widx': [3], 'runs': [{'widx': 3, 'word': 'morning', 'first_syllable': 1, 'word_syllables': 2, 'read': (), 'unread': (), 'syllables': 2}], 'syllables': 2, 'partial_word': False, 'substituted': False, 'unread': (), 'endword_only': True}
+  PASS  a span from a reader that tags NEITHER gets the documented None — 'cannot say' is this function's answer and a traceback is not a way of saying it
+  PASS  `syl_in_word` is 1-BASED, matching `_tag_span_words`' own counter — 0-based here would make `partial_word` true of every span
+
+10. `placement_word` — the coordinate that says whether two bindings MEET
+  PASS  there is a vocabulary to ask the question of
+          ['end', 'endword', 'head', 'headrime'] + T1..T8
+  PASS  FOUR NAMES DENOTE TWO WORDS, which is the whole finding (`MISSING.md` M-80): `end` and `endword` are both the last word — its rhyme span and the whole of it — and `head`, `headrime` and `T1` are all the first. A caller asking 'is this a different PLACEMENT?' is not asking 'is this a different WORD?'
+          [('end', 'last'), ('endword', 'last'), ('head', 1), ('headrime', 1)]
+  PASS  `T<n>` is 1-BASED here, the same base a declaration's line numbers and its `T<n>` spelling already use — an off-by-one would put every numbered binding on its neighbour's word
+          [1, 2, 3, 4, 5, 6, 7, 8]
+  PASS  the LAST word is a SENTINEL and not an index, so no caller can assert a line length nobody measured
+          'last'
+  PASS  EVERY name the table declares resolves except the one that names no word — so this is DERIVED from the loci and a placement added to `NAMED_SLOTS` is answered on the day it is added, not by a second table that goes stale (doctrine 1)
+  PASS  `line` REFUSES, naming the locus — a whole-line span is not a word, and filing it under a nearby one would make an unchecked collision read exactly like a line with none (doctrine 20)
+          the placement 'line' resolves to locus 'line', and this module cannot 
+  PASS  ...and a name the table does not hold refuses through `parse_slot`'s own vocabulary message rather than through this function's, so the two refusals stay distinguishable
+          '1.zzznotaplace' names no place this harness can find. Declared places
+
+11. `word_phrase` — the same span in the PROMPT's words, and it is one function because it had been two false sentences (`MISSING.md` M-91)
+  PASS  there is a vocabulary to ask the question of
+          ['end', 'endword', 'head', 'headrime']
+  PASS  a BARE INT — every mandate written before placement existed — reads 'end word', so this repair moves no prompt this repository has ever produced
+          'end word'
+  PASS  ...and so does an explicitly declared `end`/`endword`, because they are the same word (M-80) and a writer must not be told two things about one span
+          'end word'
+  PASS  the three names for the FIRST word all say 'first word' — same coordinate, same sentence
+          ['first word']
+  PASS  a numbered token says WHICH, 1-based, so `T4` is the fourth word and not the end of the line
+          ['word 2', 'word 4', 'word 7']
+  PASS  a locus that binds NO single word is NAMED rather than defaulted to 'end word' — defaulting is the defect M-91 records, so the refusal must not be renderable as the sentence it refuses
+          'declared span 1.line'
+  PASS  EVERY declared name answers — DERIVED from the loci, so a placement added to `NAMED_SLOTS` is spelled on the day it is added and not by a second table (doctrine 1)
+          4 name(s)
+  PASS  `propose.slot_phrase` DELEGATES here rather than carrying a second table
+          'word 4'
+  PASS  `Brief.__str__` — the OTHER renderer of the same sentence — reads it too, and said 'end word' whatever the mandate bound until M-91
+          ['    ALREADY THERE (not a modal word — re-proposing the word 4 that is already on this line is not a revision): stair']
+
+12. M-114 — the span-kind coordinate, and the mixed-group disclosure
+  PASS  the kind is derived from each slot's own RULE anchor — endword and head read the FRONT, end/headrime/T<n> read the RIME, line is its own kind — never from the placement's name
+          {'end': 'rime', 'endword': 'front', 'head': 'front', 'headrime': 'rime', 'T3': 'rime', 'line': 'line'}
+  PASS  ...and a bare line number is the default slot, a rime
+  PASS  a scalar group mixing endword with a default slot is NAMED, with the kinds spelled per member; the uniform sibling is not
+          [('A', {'front': ['1.endword'], 'rime': ['2']})]
+  PASS  a group DECLARING a relation is not named — the pair judge binds each member at its own slot there, so crossing kinds is the schema's own vocabulary, not the scalar comparator's
+  PASS  `inspect()` carries the disclosure as CALL metadata — a key, never a Finding (the `blueprint_declared` precedent): the mixing is a fact about the declaration, not the draft
+          [('A', {'front': ['1.endword'], 'rime': ['2']})]
+  PASS  MUTATION: with the kind flattened to one value, the mixed group is not named — the disclosure reads the coordinate
+  PASS  ...and the mutation is reverted
+
+FAILURES: ['a plain letter mandate still grades its two pairs off the cached n x n matrix']

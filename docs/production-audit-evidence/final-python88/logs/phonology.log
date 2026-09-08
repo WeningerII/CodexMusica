@@ -1,0 +1,494 @@
+
+1. Finnish — the syllabifier against known words
+  PASS  vaka -> va.ka
+  PASS  vanha -> van.ha
+  PASS  väinämöinen -> väi.nä.möi.nen
+  PASS  laulaja -> lau.la.ja
+  PASS  maailma -> maa.il.ma
+  PASS  aurinko -> au.rin.ko
+  PASS  kukka -> kuk.ka
+  PASS  suomi -> suo.mi
+  PASS  opiskelija -> o.pis.ke.li.ja
+
+2. Finnish — an unlisted vowel pair is TWO syllables
+  PASS  kaikki has a diphthong nucleus
+  PASS  kaaos splits at the hiatus
+          kaa.os.
+
+3. Finnish — stress is a rule, not a lexicon
+  PASS  primary stress on syllable 1
+  PASS  secondary on the third, none on the final
+  PASS  a three-syllable word does not stress its final
+
+4. Finnish — the TRADITION test: Kalevala lines must alliterate
+  PASS  Mieleni minun tekevi         2/3 share an initial
+          class ('m', '')
+  PASS  aivoni ajattelevi            2/2 share an initial
+          class ('', '')
+  PASS  lähteäni laulamahan          2/2 share an initial
+          class ('l', '')
+  PASS  saa'ani sanelemahan          2/2 share an initial
+          class ('s', '')
+  PASS  sukuvirttä suoltamahan       2/2 share an initial
+          class ('s', '')
+  PASS  lajivirttä laulamahan        2/2 share an initial
+          class ('l', '')
+  PASS  a line with no shared initial does not report one
+          1 words share an initial
+
+5b. Finnish — the two word-internal marks do OPPOSITE things
+  PASS  a compound seam is kept, not resyllabified across
+          ['i', 'än', 'i', 'kui', 'nen']
+  PASS  and WITHOUT the seam the same letters do resyllabify
+          so the hyphen carries information -- deleting it, which is the right rule for Welsh, would be the wrong rule here
+  PASS  a hyphenated compound alliterates on its first element
+  PASS  bare punctuation is not a word
+          (2, 4, ('v', ''))
+  PASS  the winning class is the same under every hash seed
+          seeds 1/3/7 gave {"('k', '')"}
+
+5. Finnish — vowel-initial words alliterate as one class
+  PASS  aivoni ~ ajattelevi (both vowel-initial, weak grade)
+  PASS  strong grade needs the vowel to match too
+  PASS  an unreadable word returns None, never a guess
+
+5c. Finnish — the SECOND relation, and its anchor is not English's
+  PASS  the anchor is a DECLARED coordinate, not an implied one
+          doctrine 45's general form: a checker that silently picks a coordinate is making a claim it never states
+  PASS  and the declaration AGREES with the shipped constant
+          the `relation` string read RIME_DEPTH=2 while RIME_DEPTH was 1 for the whole life of the relation; it now reads 1
+  PASS  `vowel_harmony` is stated either way, never left silent
+  PASS  `consonant_gradation` is stated either way, never left silent
+  PASS  `shared_grammatical_suffix` is stated either way, never left silent
+  PASS  fixed initial stress is WHY: `maa : vapaa` rhymes
+  PASS    and the ENGLISH PREDICATE PORTED calls it False, because `vapaa`'s only stress is on `va`
+          kept reachable so the falsification is a call and not a claim (doctrine 84)
+  PASS  harmony FORBIDS a variant, it does not license one
+  PASS  an undeclared setting RAISES rather than picking a default
+  PASS  a shared grammatical suffix is TYPED, not scored as a perfect rhyme (doctrine 24)
+          agglutination is the Finnish form of the radif question, and a rhymes() that scored every case-ending pair as perfect would be measuring morphology
+
+5d. Finnish — the TRADITION test: rhymed verse must rhyme, and the Kalevala-metre book must NOT
+  PASS  Kramsu's `Haihtumaton muisto` refrain is in the staged corpus, twice
+          found 2
+  PASS  and its 2&4 rhyme `yksinään : itsekään` is True
+  PASS    the RICH grade calls it False — a GRADE, not an error: the penultimate syllables are `si` and `se`
+  PASS    and its 1&3 pair, which does not rhyme, is False
+          POSITIVE arm, 10 rhymed volumes: mandated 1346, judged 1328, refused 18
+          2&4 observed 62.58%  null median 24.87%  max 26.41%  excess +36.17pp
+  PASS  rhymed Finnish verse that is KNOWN to rhyme DOES, and by more than 30 points over its own null
+          0.6258 against a null max of 0.2641
+  PASS    and the RATE alone is not the finding: a quarter of the corpus's own re-pairings rhyme before any poet is involved (doctrine 64)
+          null median 0.2487
+  PASS    the three counts are separate and a refusal is not a failure (doctrine 79)
+          18 of 1346 mandated pairs are REFUSALS
+          NEGATIVE arm, fin_kanteletar.txt: mandated 325, judged 325, refused 0
+          2&4 observed 21.85%  null median 30.15%  max 34.46%  excess -12.62pp
+  PASS  the Kalevala-metre book does NOT come back as rhyming — its 2&4 slot is below its own null
+          0.2185 against a null median of 0.3015; this is the arm that makes the positive one mean anything (doctrine 76)
+  PASS    and the two arms separate by more than 35 points on the same slot with the same instrument
+          62.58% rhymed vs 21.85% Kalevala-metre
+          ...but ADJACENT lines: observed 40.00%  max 33.85%  excess +6.15pp
+  PASS  THE TRAP: adjacent Kalevala-metre lines DO agree above chance, and it is not rhyme
+          parallelism repeats a syntactic frame across two lines, so both end in the same inflectional ending; without the null it reads as a discovery
+
+6. Somali — (C)V(V)(C), digraphs kept whole
+  PASS  gabay -> ga.bay
+  PASS  maanta -> maan.ta
+  PASS  dhagax -> dha.gax
+  PASS  shan -> shan
+  PASS  khayr -> khayr
+  PASS  geeddi -> geed.di
+  PASS  buur -> buur
+  PASS  caano -> caa.no
+  PASS  a long vowel carries two moras
+
+7. Somali — pitch accent, so no stress pattern is invented
+  PASS  grid_unit is the mora, declared
+  PASS  prominence is left None rather than faked
+  PASS  asking for stress raises
+          Somali has pitch accent, not stress; this module will not return a stress patt
+
+8. Somali — higaad is one consonant across the WHOLE poem
+  PASS  the fixed alliterating consonant is recovered
+          consonant 'g' on 100% of lines
+  PASS  it holds across every line
+          100%
+  PASS  a poem without a global constraint scores low
+          50% — the gabay constraint is global, so the measure is the share of LINES carrying it, and a real gabay approaches 1.0
+
+9. Middle Chinese — a table, and unknowns stay unknown
+  PASS  the table reads all of 登鸛雀樓
+          20/20
+  PASS  an unlisted character returns None, not a Mandarin fallback
+          modern Mandarin is a different language for rhyme purposes
+  PASS  tone class is the 平/仄 binary the form constrains
+          流 is 平 (level), 目 is 入 (entering, therefore 仄)
+
+10. Middle Chinese — the TRADITION test: canonical verse rhymes
+  PASS  登鸛雀樓 (王之渙) 流/樓
+  PASS  春望 (杜甫) 深/心
+  PASS  靜夜思 (李白) 光/霜/鄉
+  PASS  流/樓 do NOT match on the raw rime class
+          尤 vs 侯 — this is why the 同用 grouping is load-bearing, not a convenience
+  PASS  unrelated rhymes stay unrelated
+
+10b. Welsh — the eight digraphs, which ARE the whole problem
+  PASS  llyfr -> ll+y+f+r
+  PASS  mynydd -> m+y+n+y+dd
+  PASS  bachgen -> b+a+ch+g+e+n
+  PASS  llong -> ll+o+ng
+  PASS  rhywbeth -> rh+y+w+b+e+th
+  PASS  a digraph never splits into its letters
+          split ll into two /l/ and every consonant skeleton in the language is wrong -- and still looks plausible
+  PASS  penultimate stress, monosyllables stressed
+
+10c. Welsh — cynghanedd on Welsh phonology, not English
+  PASS  the skeleton keeps th as one consonant
+          ['t', 'n', 'th']
+  PASS  croes: the skeleton answered exactly
+          cytbwys acennog: skeleton ['t', 'n', 'th'] answered exactly
+  PASS  croes on a second constructed line
+          cytbwys acennog: skeleton ['d', 'r', 'd'] answered exactly
+  PASS  a COMMA is not a caesura
+          punctuation is not metre; the position of the caesura is either printed or it is not in the text
+  PASS  a dash is PUNCTUATION at the default — the caesura it might mark is not in the text until an edition declares it
+          no caesura is printed in this line, so its position is not in the text; pass caesura='search' to try every boundary. llusg: the final word is a monosyllable, so it has no penult
+  PASS  the DECLARED gwant `--` IS a caesura, and the line reads croes
+          cytbwys acennog: skeleton ['t', 'n', 'th'] answered exactly
+  PASS  the gwant set as '—' reads the same under the same declaration — `normalise` folds every dash spelling to `--`
+  PASS  the gwant set as '–' reads the same under the same declaration — `normalise` folds every dash spelling to `--`
+  PASS  a half-line ending in a proclitic stops at the real last stress
+          ['d']
+  PASS  a digraph onset survives into the skeleton
+          ['ll', 's', 'll']
+  PASS  a hymn line that is NOT strict metre is not croes, WITH a caesura supplied so the refusal is about the sound and not the punctuation
+          anghytbwys ddisgynedig: ['c', 'l', 'n', 'l', 'n'] not answered by ['n', 'll', 'n', 'd', 'n']; llusg: nothing earlier rhymes the penult 'o'
+  PASS  and it is not croes at ANY caesura placement either
+          10 placements tried, best None -- a negative control has to survive the search, not just the one placement we happened to choose
+  PASS  sain requires rhyme AND alliteration, not either
+          sain needs rhyme AND alliteration; rhyme=False allit=True
+  PASS  the elision "a'i" is readable
+          ['a', 'i']
+  PASS  the elision "i'r" is readable
+          ['i', 'r']
+  PASS  the elision "sy'n" is readable
+          ['s', 'y', 'n']
+  PASS  the elision "mae'r" is readable
+          ['m', 'a', 'e', 'r']
+  PASS  the elision "o'r" is readable
+          ['o', 'r']
+  PASS  a curly apostrophe reads identically to a straight one
+          ['m', 'a', 'e', 'r']
+  PASS  an internal hyphen joins rather than refusing
+  PASS  an acute-accented vowel does not fragment the token
+          the old hand-written class omitted the accented vowels that VOWELS already contained, so the word split in two
+  PASS  a search reports how many placements it tried
+          15
+  PASS  and an undeclared caesura mode raises rather than defaulting
+  PASS  the fixtures above are labelled as testing the IMPLEMENTATION, and the canon arm they defer to is STAGED rather than blocked
+          corpus/cym_alun_strict.txt: 1558 strict-metre lines (GITenberg/Gwaith-Alun_14865), read by quality/test_cym.py
+
+10f. Welsh — the accentuation class decides where the span stops
+  PASS  an end on the accent is acennog
+  PASS  an end one syllable past the accent is diacen
+  PASS  a half ending in a PROCLITIC is diacen, not acennog
+          the accent is on `dwr` and `dan` is the preposition, so the end is unaccented -- doctrine 46's edge case turns out to have a CLASS
+  PASS  a half of nothing but proclitics is refused, not read
+          (None, 'no accented syllable in this half, so it has no diweddeb')
+  PASS  an accent further back than the penult is refused
+          the accent falls 2 syllables from the end of this half; a diweddeb is accented or penultimate
+  PASS  the three extents differ on an unaccented end
+          [['d'], ['d', 'r', 'd'], ['d', 'r', 'd', 'n']]
+  PASS  and coincide on an accented one, which is why the old rule was right THERE and only there
+  PASS  an extent must be declared, never defaulted
+          no argument is the same thing as defaulting to the acennog span, which is the defect
+  PASS  and an undeclared extent raises rather than guessing
+  PASS  [Alun, ATTESTED] Draw'n sisial deyrn y Saeson,--    is cytbwys ddiacen
+          cytbwys ddiacen
+  PASS  [Alun, ATTESTED] ... and reads as croes
+          cytbwys ddiacen: skeleton ['d', 'r', 'n', 's', 's'] answered exactly across "Draw'n sisial" | 'd
+  PASS  [Alun, ATTESTED] ... and the acennog span does NOT answer it
+          acen: ['d', 'r', 'n', 's', 's'] | ['d', 'r', 'n', 's']
+  PASS  [Alun, ATTESTED] Trwy Gwalia, tir y gelyn;          is cytbwys ddiacen
+          cytbwys ddiacen
+  PASS  [Alun, ATTESTED] ... and reads as croes
+          cytbwys ddiacen: skeleton ['t', 'r', 'g', 'l'] answered exactly across 'Trwy Gwalia' | 'tir y ge
+  PASS  [Alun, ATTESTED] ... and the acennog span does NOT answer it
+          acen: ['t', 'r', 'g', 'l'] | ['t', 'r', 'g']
+  PASS  [Alun, ATTESTED] O flaen gorsedd felenwawr          is anghytbwys ddisgynedig
+          anghytbwys ddisgynedig
+  PASS  [Alun, ATTESTED] ... and reads as traws
+          anghytbwys ddisgynedig: skeleton ['f', 'l', 'n'] answered after bridge ['g', 'r', 's', 'dd'] acr
+  PASS  [Alun, ATTESTED] ... and the acennog span does NOT answer it
+          acen: ['f', 'l'] | ['g', 'r', 's', 'dd', 'f', 'l', 'n']
+  PASS  [Twm o'r Nant, ATTESTED] A luniodd pob galanas;             is cytbwys ddiacen
+          cytbwys ddiacen
+  PASS  [Twm o'r Nant, ATTESTED] ... and reads as traws
+          cytbwys ddiacen: skeleton ['l', 'n'] answered after bridge ['p', 'b', 'g'] across 'A luniodd' | 
+  PASS  [Twm o'r Nant, ATTESTED] ... and the acennog span does NOT answer it
+          acen: ['l', 'n'] | ['p', 'b', 'g', 'l']
+  PASS  [Dafydd ap Gwilym, ATTESTED] Darn fal haul | dyrnfol heli
+          anghytbwys ddisgynedig: ['d', 'r', 'n', 'f', 'l', 'h', 'l'] | ['d', 'r', 'n', 'f', 'l', 'h', 'l']
+  PASS  ... and the acennog span drops the very consonant the class exists to answer
+          it still comes out croes here, one consonant short -- a looser rule agreeing with a stricter one is not evidence that it is right
+  PASS  [Alun, ATTESTED] a ddyrchafedig placement is refused, not scored
+          anghytbwys ddyrchafedig: the consonantal cynghanedd is not written with an unaccented en
+  PASS  ... and the acennog span WOULD have called it croes
+          the seam falls either side of a consonant-free proclitic, so a real cytbwys acennog line grows a duplicate placement one word over -- which is what that class's apparent lift was made of
+  PASS  ... while the LINE still reads, at the placement that is legal
+          cytbwys acennog: skeleton ['g', 'r', 'n', 't'] answered exactly across "A'i gorn teg" | 'i gern 
+  PASS  the fourth class is reachable by name, so the choice is measurable
+  PASS  and an undeclared dyrchafedig value raises
+  PASS  [Alun, ATTESTED] a half with no diweddeb refuses the whole placement
+          first half: the accent falls 2 syllables from the end of this half; a diweddeb is accent
+  PASS  ... and the acennog span WOULD have called that croes too
+          refusing where the class cannot be determined is the fix; defaulting to acennog is the defect
+
+10e. Welsh — proclitics cannot answer a cynghanedd
+  PASS  the article y is unstressed
+  PASS  a monosyllabic content word is stressed
+  PASS  llusg answers on a content word, not on the article
+          penult 'cy' of 'cychwyn' rhymes 'ddy' in 'ddyry'
+
+10g. Welsh — the SECOND relation, and its anchor is not English's
+  PASS  the anchor is a DECLARED coordinate, not an implied one
+          doctrine 45's general form: a checker that silently picks a coordinate is making a claim it never states
+  PASS  and the declaration AGREES with the shipped constants
+          built FROM the constants: fin.py's `relation` string named a depth the module did not ship, for the whole life of that relation
+  PASS  `nucleus` is stated either way, never left silent
+  PASS  `coda` is stated either way, never left silent
+  PASS  `diacritics` is stated either way, never left silent
+  PASS  `glide` is stated either way, never left silent
+  PASS  `mutation` is stated either way, never left silent
+  PASS  `shared_ending` is stated either way, never left silent
+  PASS  `refusals` is stated either way, never left silent
+  PASS  PENULTIMATE stress is WHY: the cywydd's own couplet rhymes
+  PASS    and the ENGLISH PREDICATE PORTED calls it False, because the anchor lands two syllables back on one side and one on the other
+          kept reachable so the falsification is a call and not a claim (doctrine 84)
+  PASS    the port REFUSES outright on a proclitic line-end, which has no prominent syllable at all (doctrine 46)
+  PASS  an undeclared setting RAISES rather than picking a default
+  PASS  the EIGHT DIGRAPHS stay whole inside the coda, which is the whole reason this module exists
+          (('y', 'dd'), ('a', 'rdd'))
+  PASS  identity is TYPED, never scored as a rhyme (doctrine 3)
+  PASS  a REPEAT on a glide-ambiguous word is TRUE, not undecided
+          the word still holds two readings; what it does not hold is two INDEPENDENT readings against a copy of itself
+  PASS    ...while two DIFFERENT glide-ambiguous words stay independent
+          `wych` and `fynych` are separate lexical facts and the cross-product is the right comparison there
+  PASS    ...and 'same form' is the comparison units() makes: the hyphen and the length mark fold into it
+          so the shipped fold makes `tân` and `tan` one word and diacritics='keep' makes them two, which is the choice being declared rather than a side effect of it
+  PASS  `shared_tail` is a diagnostic and NOT a type — this module holds no sourced Welsh ending list and refuses to invent one
+
+10h. Welsh — treiglad is outside the rime BY CONSTRUCTION
+  PASS  tân / dân / thân have ONE rime between them
+          {('a', 'n')}
+  PASS    ...so tân : dân is True
+  PASS    ...so tân : thân is True
+  PASS  brân / frân have ONE rime between them
+          {('a', 'n')}
+  PASS    ...so brân : frân is True
+  PASS  môr / fôr have ONE rime between them
+          {('o', 'r')}
+  PASS    ...so môr : fôr is True
+  PASS  cân / gân / chân have ONE rime between them
+          {('a', 'n')}
+  PASS    ...so cân : gân is True
+  PASS    ...so cân : chân is True
+  PASS  and the reason is structural, not a table: the rime starts at a NUCLEUS and never reads its own first onset
+          a change confined to the word-initial consonant run cannot enter any rime this module builds, at any depth, under either anchor
+  PASS  `mutation` says so in the declaration rather than nowhere
+
+10i. Welsh — the TRADITION test: the cywydd is rhymed couplets, and its straddling pairs are not
+  PASS  the staged cywydd is 108 lines
+          108
+  PASS  L1/L2 of the staged file really are 'hoew-fardd' / 'fardd'
+          got 'hoew-fardd' / 'fardd'
+  PASS  L3/L4 of the staged file really are 'heddiw' / 'lliw'
+          got 'heddiw' / 'lliw'
+  PASS  L5/L6 of the staged file really are 'trwch--' / 'degwch'
+          got 'trwch--' / 'degwch'
+  PASS  L9/L10 of the staged file really are 'wynedd' / 'bedd'
+          got 'wynedd' / 'bedd'
+  PASS  L31/L32 of the staged file really are 'sidan' / 'lân'
+          got 'sidan' / 'lân'
+  PASS  L1/L2  hoew-fardd : fardd  rhymes
+          ((('a', 'rdd'),), (('a', 'rdd'),))
+  PASS  L3/L4  heddiw : lliw  rhymes
+          ((('iw', ''),), (('iw', ''),))
+  PASS  L5/L6  trwch-- : degwch  rhymes
+          ((('w', 'ch'),), (('w', 'ch'),))
+  PASS  L9/L10  wynedd : bedd  rhymes
+          ((('e', 'dd'),), (('e', 'dd'),))
+  PASS  L31/L32  sidan : lân  rhymes
+          ((('a', 'n'),), (('a', 'n'),))
+  PASS    ...and the L5/L6 pair rhymes THROUGH the edition's em dash, which normalise() folds to `--` and units() drops
+  PASS    ...and L1/L2 rhymes THROUGH the edition's hyphen, which in Welsh JOINS (doctrine 65)
+  PASS    ...and diacritics='keep' calls L31/L32 False, so the fold is a measurable choice rather than a silent one
+  PASS  a STRADDLING pair at the same line distance does NOT rhyme: L2/L3 fardd : heddiw
+  PASS  L55/L56 fynych : wych is REFUSED, not guessed: `wych` is `w`+`ych` or the diphthong `wy`+`ch` and the two readings disagree
+          (('wy', 'ch'), ('y', 'ch'))
+  PASS    ...and BOTH decided readings are reachable, so the refusal is measured against them rather than asserted better (doctrine 84)
+          POSITIVE arm, the mandated couplets: mandated 54, judged 51, refused 3 -> 51 True
+          NEGATIVE arm, the straddling pairs:  mandated 53, judged 53, refused 0 -> 0 True
+  PASS  a cywydd's mandated couplets DO rhyme — every judged one of them
+          51 of 51
+  PASS    and the three counts are separate: the refusals are the DESIGNED glide refusal and are not charged to the comparator (doctrine 79)
+          {'undecided_glide': 3}
+  PASS  the STRADDLING pairs do not — 0 of them, on the same text with the same instrument at the same line distance
+          0 of 53
+  PASS    the arms separate by 100 points, which is what makes the positive one mean anything (doctrine 76)
+          the ENGLISH PORT on the same couplets: mandated 54, judged 52, refused 2 -> 2 True
+  PASS  THE ANCHOR IS THE COORDINATE THIS RELATION TURNS ON: the English port answers True on 2 of 52 where the shipped rule answers 51 of 51
+          Welsh stress is penultimate, so a cywydd couplet pairs an accented end with an unaccented one and a prominence anchor reads a different span on each side
+          REPEAT share of TRUE adjacent verdicts in the four song books: 29 of 1061
+  PASS  REPEAT is typed rather than scored as rhyme, and it is not zero — a song corpus repeats its refrain (doctrine 3)
+          half of corpus/whitman.txt's detected links are REPEAT on an identical token, which is why that file was never an eligible negative control; a rhymes() that could not say REPEAT would walk into the same wall here
+
+10j. Welsh — the rime path must not move a cynghanedd number
+  PASS  the diacritic fold is NOT applied by syllabify
+          folding globally would change a syllable COUNT — `â'u` is two nuclei and folds to the listed diphthong `au`, which is one — so it is confined to the rime path (doctrine 58)
+  PASS  the glide alternative is NOT applied by syllabify either
+  PASS  `skeleton` is unchanged on an attested line
+          ['t', 'r', 'g', 'l']
+  PASS  and the folding function refuses to rescue an out-of-inventory letter: it drops a mark only over a VOWEL
+          a blanket strip would turn ñ into n and quietly admit a foreign proper name that units() correctly refuses
+
+10d. the harness's own checker now reads Welsh
+  PASS  it defaults to Welsh, because that is what cynghanedd is
+          standard Welsh orthography, treated as near-phonemic
+  PASS  and finds croes on Welsh units
+          [('croes', "cytbwys acennog: skeleton ['t', 'n', 'th'] answered exactly")]
+  PASS  the th digraph survived into the skeleton
+          an English reading would have split it into t + h
+  PASS  English is still reachable, but by name
+  PASS  and it labels itself an imitation
+          CMUdict General American — ENGLISH IMITATION of a Welsh form, not cyng
+  PASS  an undeclared language raises rather than defaulting
+          no cynghanedd phonology for 'fra'. Declared: 'cym' (Welsh, the language of t
+
+10k. `cynghanedd_scan` reads its declared caesura (FIXED 2026-08-15)
+  PASS  a line whose PRINTED caesura works reads the same TYPE both ways
+          traws / traws
+  PASS  ...and the two readings report DIFFERENT multiplicities, which is the whole reason the coordinate exists — 1 declared placement is not 15 searched ones (doctrine 19/56)
+          marked k=1, search k=15
+  PASS  a type that exists ONLY because the boundary was swept is reported under `search` and REFUSED under `marked` — the edition does not print that placement
+          search=sain k=15; marked=None k=1
+  PASS  a line with NO printed caesura refuses under `marked` and says so, rather than falling back to the search it was told not to run
+          k=0: no caesura is printed in this line, so its position is not i
+  PASS  an undeclared value REFUSES by name, the way the sibling method has since it was written
+          silently searching for a caller who declared otherwise is the substitution doctrine 1 is about
+  PASS  the DEFAULT reading is unchanged — omitting the argument still sweeps every boundary
+          10 placements on a 5-word line, 15 on a 6-word one
+
+10m. the caesura mark set is a declared coordinate (M-7)
+  PASS  the DEFAULT is `/` and `|` — the marks that mean a caesura in every language a text can be staged in
+          cym.CAESURA_MARKS = ('/', '|')
+  PASS  at the default a dash line has NO printed caesura — refused, never searched
+          no caesura is printed in this line, so its position is not in the text; pass caesura='search' to try every boundary. llusg: the final word is a monosyllable, so it has no penult
+  PASS  the same line under the DECLARED gwant reads croes
+  PASS  ...and `cynghanedd_scan` agrees under the SAME declaration, at k=1 — the marked branch tokenises the PARTS, because a flush-set dash glues `thi--tywyn` into one raw token and an index derived from the raw line lands the cut a word early (doctrine 1; found and fixed in this same sitting)
+          croes k=1
+  PASS  `|` and `/` are untouched — the default two still read
+  PASS  MUTATION: dash restored to the default -> the same call reads croes, so the constant is the load-bearing declaration
+  PASS  restored: the default refuses the dash again
+          no caesura is printed in this line, so its position is not in the text; pass caesura='search' to try every boundary. llusg: the final word is a monosyllable, so it has no penult
+
+11. every phonology declares what it reads and what it is
+  PASS  the four originally unblocked languages are still registered
+          ['cym', 'eng', 'fas', 'fin', 'ltc', 'msa', 'non', 'san', 'som']
+  PASS  cym is registered under the name it declares
+          registry key 'cym' vs declared 'cym'
+  PASS  eng is registered under the name it declares
+          registry key 'eng' vs declared 'eng'
+  PASS  fas is registered under the name it declares
+          registry key 'fas' vs declared 'fas'
+  PASS  fin is registered under the name it declares
+          registry key 'fin' vs declared 'fin'
+  PASS  ltc is registered under the name it declares
+          registry key 'ltc' vs declared 'ltc'
+  PASS  msa is registered under the name it declares
+          registry key 'msa' vs declared 'msa'
+  PASS  non is registered under the name it declares
+          registry key 'non' vs declared 'non'
+  PASS  san is registered under the name it declares
+          registry key 'san' vs declared 'san'
+  PASS  som is registered under the name it declares
+          registry key 'som' vs declared 'som'
+  PASS  cym declares notation
+  PASS  cym declares grid_unit
+          grid_unit: syllable
+  PASS  cym declares prominence_rule
+  PASS  cym declares relation
+  PASS  cym declares source
+  PASS  eng declares notation
+  PASS  eng declares grid_unit
+          grid_unit: syllable
+  PASS  eng declares prominence_rule
+  PASS  eng declares relation
+  PASS  eng declares source
+  PASS  fas declares notation
+  PASS  fas declares grid_unit
+          grid_unit: mora
+  PASS  fas declares prominence_rule
+  PASS  fas declares relation
+  PASS  fas declares source
+  PASS  fin declares notation
+  PASS  fin declares grid_unit
+          grid_unit: syllable
+  PASS  fin declares prominence_rule
+  PASS  fin declares relation
+  PASS  fin declares source
+  PASS  ltc declares notation
+  PASS  ltc declares grid_unit
+          grid_unit: syllable
+  PASS  ltc declares prominence_rule
+  PASS  ltc declares relation
+  PASS  ltc declares source
+  PASS  msa declares notation
+  PASS  msa declares grid_unit
+          grid_unit: syllable
+  PASS  msa declares prominence_rule
+  PASS  msa declares relation
+  PASS  msa declares source
+  PASS  non declares notation
+  PASS  non declares grid_unit
+          grid_unit: syllable (six to a dróttkvætt line)
+  PASS  non declares prominence_rule
+  PASS  non declares relation
+  PASS  non declares source
+  PASS  san declares notation
+  PASS  san declares grid_unit
+          grid_unit: mora
+  PASS  san declares prominence_rule
+  PASS  san declares relation
+  PASS  san declares source
+  PASS  som declares notation
+  PASS  som declares grid_unit
+          grid_unit: mora
+  PASS  som declares prominence_rule
+  PASS  som declares relation
+  PASS  som declares source
+
+12. nothing here falls back to English
+  PASS  every REGISTERED module is checked, not a hardcoded list
+          ['cym', 'eng', 'fas', 'fin', 'ltc', 'msa', 'non', 'san', 'som']
+  PASS  quality.phonology.cym imports no English resource
+          imports: ['itertools', 'quality', 're', 'unicodedata']
+  PASS  eng DOES import the English resource, by declaration
+          an explicitly declared eng is the opposite of a DEFAULT to English: get('cym') cannot reach it (doctrine: registry)
+  PASS  quality.phonology.fas imports no English resource
+          imports: ['quality', 'unicodedata']
+  PASS  quality.phonology.fin imports no English resource
+          imports: ['quality', 're']
+  PASS  quality.phonology.ltc imports no English resource
+          imports: ['os', 'quality']
+  PASS  quality.phonology.msa imports no English resource
+          imports: ['quality', 're', 'unicodedata']
+  PASS  quality.phonology.non imports no English resource
+          imports: ['quality', 're', 'unicodedata']
+  PASS  quality.phonology.san imports no English resource
+          imports: ['quality', 're', 'unicodedata']
+  PASS  quality.phonology.som imports no English resource
+          imports: ['quality', 're']
+==============================================================
+all phonology regressions pass

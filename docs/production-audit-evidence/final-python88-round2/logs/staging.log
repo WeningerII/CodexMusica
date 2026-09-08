@@ -1,0 +1,64 @@
+==============================================================================
+STAGED DOWNLOADS — retried, atomic, and declared in one place
+==============================================================================
+
+1. a transport failure is retried rather than fatal
+  staged.dict: [Errno 104] Connection reset by peer — retrying in 2s (2 of 4)
+  staged.dict: [Errno 104] Connection reset by peer — retrying in 4s (3 of 4)
+  [ok  ] two resets then success raises nothing
+  [ok  ] ...and the third attempt is the one that ran
+  [ok  ] ...and the destination holds the WHOLE body
+  [ok  ] ...and no `.part` file is left behind
+  [ok  ] a first-attempt success costs ONE call and ZERO waits
+
+2. the attempts and the backoff are READ off the declaration
+  staged.dict: [Errno 104] Connection reset by peer — retrying in 2s (2 of 4)
+  staged.dict: [Errno 104] Connection reset by peer — retrying in 4s (3 of 4)
+  staged.dict: [Errno 104] Connection reset by peer — retrying in 8s (4 of 4)
+  [ok  ] a permanently reset host is tried exactly DOWNLOAD_ATTEMPTS times
+  [ok  ] ...and waits DOWNLOAD_BACKOFF_S between them, in order
+  [ok  ] ...which is one fewer wait than attempts — the waits SEPARATE the attempts and are never summed into a 'timeout' (doctrine 79)
+  staged.dict: [Errno 104] Connection reset by peer — retrying in 2s (2 of 2)
+  [ok  ] an explicit attempts= is honoured
+
+3. four resets running is a different answer from one
+  staged.dict: [Errno 104] Connection reset by peer — retrying in 2s (2 of 4)
+  staged.dict: [Errno 104] Connection reset by peer — retrying in 4s (3 of 4)
+  staged.dict: [Errno 104] Connection reset by peer — retrying in 8s (4 of 4)
+  [ok  ] exhaustion raises DownloadFailed, not the raw transport error
+  [ok  ] ...and the final transport error is CHAINED, so nothing is lost
+  [ok  ] ...and the message names how many attempts were spent
+
+4. a moved URL is not a flaky one
+  [ok  ] a 404 is raised on the FIRST attempt
+  [ok  ] ...and still as DownloadFailed, so one exception type covers every way a staging fetch can fail
+  [ok  ] ...and it waited for nothing
+  staged.dict: HTTP Error 503: no — retrying in 2s (2 of 4)
+  staged.dict: HTTP Error 503: no — retrying in 4s (3 of 4)
+  [ok  ] a 503 IS retried and then succeeds
+  staged.dict: IncompleteRead(2 bytes read) — retrying in 2s (2 of 4)
+  [ok  ] an IncompleteRead is retried like any other transport failure
+
+5. a failed transfer leaves the destination ABSENT, never short
+  staged.dict: [Errno 104] Connection reset by peer — retrying in 2s (2 of 4)
+  staged.dict: [Errno 104] Connection reset by peer — retrying in 4s (3 of 4)
+  staged.dict: [Errno 104] Connection reset by peer — retrying in 8s (4 of 4)
+  [ok  ] a connection that never opens writes nothing
+  staged.dict: [Errno 104] Connection reset by peer — retrying in 2s (2 of 4)
+  staged.dict: [Errno 104] Connection reset by peer — retrying in 4s (3 of 4)
+  staged.dict: [Errno 104] Connection reset by peer — retrying in 8s (4 of 4)
+  [ok  ] a transfer that dies MID-BODY leaves the destination ABSENT — not a short file every later `os.path.exists` would trust
+  [ok  ] ...and no `.part` file is left for a later run to trip over
+  [ok  ] ...and it was retried like any other transport failure
+  staged.dict: [Errno 104] Connection reset by peer — retrying in 2s (2 of 4)
+  [ok  ] a transfer retried after a mid-body death stages the COMPLETE body, byte for byte
+
+6. the two stagers do not each own a retry policy
+  [ok  ] `quality/fetch_data.py` IMPORTS the shipped helper
+  [ok  ] ...and calls it
+  [ok  ] ...and no longer opens its own connection, which is what a second policy would have to be built on
+  [ok  ] ...and it is the SAME function object, so the two cannot drift
+  [ok  ] `lyric_harness` CALLS `urlopen` and no longer calls `urlretrieve` — read off the AST, because the docstring names the thing it replaced and a grep cannot tell a warning from a call
+
+==============================================================================
+PASS

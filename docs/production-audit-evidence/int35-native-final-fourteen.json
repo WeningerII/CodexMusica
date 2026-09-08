@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "native_tests": 14,
+  "native_test_wall_s": 13.303,
+  "test_source_before": "a36ccbfc7eca20882ddf2fc3393a3ad9826efa2b0336d9d6915eb94f4b31869e",
+  "test_source_after": "5062d9b2fe92234dd85c5092d13e1ba4667fee25ba22b6dc4f15dc327f371875",
+  "runtime_sources_unchanged": true,
+  "scope": "Test-only nestedpartial replay regression after real native counterexample; no CLI/loop/data change. Relations owns wall consumer correction.",
+  "evidence": [
+    "int35-native-journal-fourteen.log",
+    "int35-journal-test-nested.patch",
+    "int35-nested-replay-probe.py",
+    "int35-nested-replay-probe.json",
+    "int35-nested-replay-probe.log"
+  ]
+}

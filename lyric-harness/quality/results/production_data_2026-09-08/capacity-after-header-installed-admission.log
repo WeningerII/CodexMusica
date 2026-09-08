@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "installed_mode": true,
+  "capacity_lookup_families": 12387,
+  "verified_witnesses": 81,
+  "pairs_judged": 8406,
+  "plan_seed": 31,
+  "plan_lines": 12,
+  "adopted_group_bound": 23,
+  "receipt_sha256": "81a6b1309506d2f6e353ddfd578b68a8f227c5f27497164060b9a693f9b54a26",
+  "source_identity": "259de1d1e0dda759d9d0feb2cc689021ff7f00ec2afe47266e61a51505eb5ef3",
+  "runtime": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]"
+}

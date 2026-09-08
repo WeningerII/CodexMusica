@@ -1,0 +1,43 @@
+{
+  "scope": "Independent final-output inventory check; original failed stage remains failed; exit alone is not completion evidence.",
+  "source_result_sha256": "450b34f5eb09359ed2363408a59ca46ba57c8df8724721e4a155d851fb90d486",
+  "python_and_data_stable": true,
+  "broader_runtime_source_stable": false,
+  "rows": [
+    {
+      "stage": "production_journal",
+      "expected_test_count": 8,
+      "actual_test_count": 8,
+      "completion_seen": true
+    },
+    {
+      "stage": "production_revision",
+      "expected_test_count": 26,
+      "actual_test_count": 26,
+      "completion_seen": true
+    },
+    {
+      "stage": "replay_memo",
+      "assertions_passed": 47,
+      "completion_seen": true
+    },
+    {
+      "stage": "loop",
+      "expected_section_count": 2,
+      "actual_section_count": 2,
+      "final_exit_code": 1,
+      "assertions_passed": 19,
+      "assertions_failed": 4,
+      "completion_seen": true
+    },
+    {
+      "stage": "verbs",
+      "expected_section_count": 6,
+      "actual_section_count": 6,
+      "final_exit_code": 0,
+      "assertions_passed": 51,
+      "assertions_failed": 0,
+      "completion_seen": true
+    }
+  ]
+}

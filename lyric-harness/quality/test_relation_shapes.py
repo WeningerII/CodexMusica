@@ -485,10 +485,8 @@ def test_the_arity_premise():
                 readers.append(rel)
     mine = {"quality/relation_shapes.py", "quality/test_relation_shapes.py"}
     others = sorted(set(readers) - mine)
-    check("Figure.nodes/edges/template are read by NO production module but "
-          "this classifier -- the arity coordinate is declared and unwired, "
-          "which is the whole of 'needs a mandate object that does not exist'",
-          not others, str(others))
+    check("Figure.nodes/edges/template are enforced by production relations",
+          "quality/relations.py" in others, str(others))
     check("...and the scanner is not vacuous: it finds this module",
           "quality/relation_shapes.py" in readers, str(sorted(readers)))
 

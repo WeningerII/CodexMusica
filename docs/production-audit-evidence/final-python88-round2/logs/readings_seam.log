@@ -1,0 +1,140 @@
+
+1. DOCTRINE 25 FIRST — see/free stays ONE perfect rhyme, verdict True, and two absent codas AGREE
+  PASS  Agree((), ()) is (True, uninformative) — unchanged by the seam fix
+          Read(value=True, informative=False, note='')
+  PASS  Differ((), ()) is False — two identical absences cannot differ
+          Read(value=False, informative=False, note='both absent; cannot differ')
+  PASS  see/free is ONE perfect-rhyme finding, verdict True [single reading]
+          1 finding(s), verdicts [True]
+  PASS  ...and the FOUR patched readers are byte-identical on a CERTAIN syllable [single reading]
+          {'onset': (('S',), ('F', 'R')), 'coda': ((), ()), 'consonants': (('S',), ('F', 'R')), 'phones': (('S', 'IY'), ('F', 'R', 'IY'))}
+  PASS  ...and Agree on the two ABSENT codas is (True, uninformative) through the reader [single reading]
+          the tripwire at the layer the fix actually touched, not only at the predicate.
+  PASS  see/free is ONE perfect-rhyme finding, verdict True [knowledge sets]
+          1 finding(s), verdicts [True]
+  PASS  ...and the FOUR patched readers are byte-identical on a CERTAIN syllable [knowledge sets]
+          {'onset': (('S',), ('F', 'R')), 'coda': ((), ()), 'consonants': (('S',), ('F', 'R')), 'phones': (('S', 'IY'), ('F', 'R', 'IY'))}
+  PASS  ...and Agree on the two ABSENT codas is (True, uninformative) through the reader [knowledge sets]
+          the tripwire at the layer the fix actually touched, not only at the predicate.
+
+2. the four readers that coerced — an uncertain channel now produces an uncertain read
+  PASS  _rd_coda: the coda set arrives UNCERTAIN, where it used to arrive as one value
+          before (('S',), ('Z',))
+          after  Readings({('S',), ('Z',)})
+  PASS  _rd_onset: the onset set arrives UNCERTAIN, where it used to arrive as one value
+          before (('N', 'Y'), ('N',))
+          after  Readings({('N', 'Y'), ('N',)})
+  PASS  _rd_nucleus: the nucleus set (already worked) arrives UNCERTAIN, where it used to arrive as one value
+          before Readings({'AY', 'IH'})
+          after  Readings({'AY', 'IH'})
+  PASS  a SINGLETON set is certainty and comes back as a scalar cluster, not as a set
+          onset ('S',), coda ('T',), phones ('S', 'IH', 'T'). `merge_readings` never emits a one-member set, but a hand-written `parses()` can, and `_seq` extends with `v if isinstance(v, tuple) else [v]` — so a singleton frozenset would enter a consonant skeleton as ONE element. That is the same splice this fix removes, arriving through the door the fix would otherwise have left open. One schema reads `onset` at sequence scope, so the path is live.
+  PASS  all 7 phonemic readers now report the syllable as uncertain; `grapheme` and `token` correctly do not
+          {'onset': 'Readings', 'nucleus': 'Readings', 'coda': 'Readings', 'prominence': 'Readings', 'moras': 'Readings', 'consonants': 'Alternatives', 'grapheme': 'str', 'phones': 'Alternatives', 'token': 'str'}. `text` is excluded from `quality.phonology.CHANNELS` on purpose — a set of SPELLINGS is not a sound — and `token` is the printed token.
+  PASS  ...and exactly FOUR readers used to LOSE the uncertainty: onset, coda, consonants, phones
+          ['coda', 'consonants', 'onset', 'phones']. The brief for this fix named three; `_rd_consonants` has the same shape as `_rd_phones`, feeds the five cynghanedd schemas at SEQUENCE scope, and fixing three of four would have left the Welsh consonant skeleton answering a confident False about a homograph. `moras` and `prominence` passed their set through and needed nothing.
+  PASS  ...and the loss took TWO forms, which is why one predicate cannot detect it: three readers FLATTENED the set into a cluster, `phones` HID it inside one
+          before: coda (('D',), ('T',)) — the readings became the members of a cluster and no frozenset survives, so nothing downstream could even notice. phones (('B',), ('P',), Readings({'AA', 'AE'}), ('D',), ('T',)) — a frozenset survives but inside a tuple, where `uncertain()` cannot see it and `_set_agree` compares it unequal to everything. Both answer a confident False; only the second leaves a trace.
+  PASS  _rd_consonants on close: the set is no longer SPLICED into the sequence
+          before ('K', 'L', ('S',), ('Z',))
+          after  Alternatives({('K', 'L', 'S'), ('K', 'L', 'Z')})
+  PASS  _rd_phones on close: the set is no longer SPLICED into the sequence
+          before ('K', 'L', 'OW', ('S',), ('Z',))
+          after  Alternatives({('K', 'L', 'OW', 'S'), ('K', 'L', 'OW', 'Z')})
+  PASS  _rd_phones on wind: the set is no longer SPLICED into the sequence
+          before ('W', Readings({'AY', 'IH'}), 'N', 'D')
+          after  Alternatives({('W', 'AY', 'N', 'D'), ('W', 'IH', 'N', 'D')})
+
+3. the tri-state, on every patched channel: all readings agree -> True, none can -> False, some do and some do not -> None
+  PASS  wind/wined on `phones`: UNDECIDED, where it was a confident False
+          one reading of `wind` IS /W AY N D/ and the other is not, so the phone sequences overlap and do not settle. Before the fix the frozenset was spliced in as a single element and the whole sequence compared unequal: a definite False about a word the declaration cannot resolve.
+  PASS  wind/find on `phones` is a definite FALSE both before and after, and that is CORRECT
+          recorded because the patch note that motivated this cell gives `Agree(phones(wind), ('F','AY','N','D')) -> False  # should be None` as its worked example, and that example is wrong: `phones` carries the ONSET, W and F disagree under every reading, and no reading of either member agrees. The defect is real; this pair is not an instance of it, and a fix aimed at making THIS None would have been a fix that over-refuses.
+  PASS  wind/sand on `phones`: still a definite FALSE — the fix does not over-refuse
+          no reading of either agrees, so the answer is decidable and it is given. A flat `return None` on any uncertain channel would have thrown this away and looked like a fix.
+  PASS  close/rose on `coda`: UNDECIDED (readings overlap, do not settle)
+          before: `(('S',),('Z',))` != `('Z',)`, definite False. The whole defect in one line.
+  PASS  close/close on `coda`: UNDECIDED, not True — two homographs holding the SAME readings still need not sound alike
+          `Syllable.key`'s documented trap, honoured here: this is the key of the KNOWLEDGE, not of a sound. The old reader answered a confident True by comparing two identical spliced tuples.
+  PASS  rose/doze on `coda`: True, and no set is involved at all
+          the certain path is unchanged, which is what section 8's `untouched` column counts.
+  PASS  Differ inverts the same three answers rather than collapsing them
+          None must not become True on inversion; that is how a refusal turns into a finding.
+
+4. doctrine 66 — the derived sets iterate in a FIXED order, so any consumer that iterates one cannot differ between runs
+  PASS  `Alternatives.__iter__` is sorted by repr, like `Readings`'
+          [('W', 'AY', 'N', 'D'), ('W', 'IH', 'N', 'D')]
+  PASS  ...and the SET is what the algebra uses, so the order changes no verdict
+          the order guarantee is for consumers that ITERATE, not for `_set_agree`. Doctrine 66 asks a tie-break to be arbitrary, FIXED and stated; this is all three and it is load-bearing for nothing.
+  PASS  a production `Readings` needs no conversion at the seam
+          `_alts` keys on `isinstance(x, frozenset)`, so the two sides of the seam share a contract and not an import.
+
+5. the derived product inherits per-channel merging, so it can hold sequences no reading declares — conservatively
+  PASS  `or` merges to nucleus {AO, ER} x coda {('R',), ()} and the product is FOUR sequences, two of them undeclared
+          [('AO',), ('AO', 'R'), ('ER',), ('ER', 'R')]. The declared readings are ('AO','R') and ('ER',); ('AO',) and ('ER','R') are artefacts of folding the channels independently. `Syllable.readings()` does exactly the same product for the same reason: once merge_readings has run, the correlation between channels is not on the unit any more.
+  PASS  ...and a SUPERSET of readings can only cost a verdict, never manufacture one
+          overlap without settlement is None; disjoint is still False. The loss is decisions, and it is in the direction a refusal is in.
+
+6. `_seq` and `_bucket_key` both already guarded on `uncertain()` — and never saw one, because the reader coerced it
+  PASS  _seq REFUSES a sequence containing an uncertain element, as its own comment has always said it does
+          before: (Readings({'AH', 'EY'}), 'M', 'AY', 'T', 'IY', 'W', Readings({'AY', 'IH'}), 'N', 'D', ('HH', 'W'), ('W',), 'AH', 'T', 'AY', 'D', 'IH', 'D', 'F', 'AY', 'N', 'D')
+          after:  None — the guard at `if uncertain(v)` was unreachable through onset/coda/phones/consonants, because those four handed it a tuple.
+  PASS  _bucket_key treats an uncertain read as a WILDCARD, so a homograph is no longer bucketed onto one of its readings
+          before: (('coda', (('S',), ('Z',))),)
+          after:  None. `consonance` buckets on the coda, and `close` was being filed under one cluster made of BOTH its readings -- a bucket nothing else can ever land in, so every candidate pair for it was deleted before any predicate ran. This is why section 7 and section 8 have an ADDED column: the fix RECOVERS pairs as well as refusing them, and deleting the pairs P11 is about is the worse of the two failure modes because nothing downstream can see it happen.
+
+7. end to end through realise(), over all 63 schemas that read a patched channel
+  PASS  63 of 77 schemas read onset / coda / consonants / phones
+          the seam is not a corner of the module: it is two thirds of the declared inventory.
+  PASS  'he counts the years' / 'she hides her tears': instances move, and NO verdict is contradicted — every move is to or from None
+          17 of 170 shared instances move: {(False, None): 17}; contradictions none; 2 instance(s) exist only under the NEW readers (bucket_key no longer prunes a homograph), 0 only under the old.
+  PASS  ...and no instance is LOST, which a refusal must not do
+          an instance that disappears is a pair the producer stopped looking at, which is a different and worse change than a verdict withdrawn.
+  PASS  'a door left close' / 'a wilted rose': instances move, and NO verdict is contradicted — every move is to or from None
+          11 of 138 shared instances move: {(True, None): 4, (False, None): 6, (None, True): 1}; contradictions none; 18 instance(s) exist only under the NEW readers (bucket_key no longer prunes a homograph), 0 only under the old.
+  PASS  ...and no instance is LOST, which a refusal must not do
+          an instance that disappears is a pair the producer stopped looking at, which is a different and worse change than a verdict withdrawn.
+  PASS  wind/find is UNDECIDED under a two-reading phonology and a VERDICT under the shipped one-reading `eng` — unchanged by this fix
+          [None] vs [True]. The seam fix must not disturb this: it was already right, through `_rd_nucleus`, and it is the reference the other channels are being made to match.
+
+9. the explicit legacy first-reading policy preserves singleton channels
+  PASS  every channel of every unit reads identically old vs new under the shipped `eng`
+          the fix is inert wherever no channel holds a set, which is every shipped phonology today. `python3 battery.py` still prints 1064 / 1014 / 50 / 81.
+  PASS  ...and `Alternatives` is only ever constructed from an uncertain channel
+          a certain syllable never acquires a set on the way through.
+
+8. THE COUNTS — three of them, on both corpora (doctrine 79)
+    ENGLISH corpus/sonnets.txt: 2476 adjacent line-final pairs
+    channel      exposed  T->None  F->None  untouched  other (must be 0)
+    onset             77        0        5       2471                   0
+    coda              79        2       18       2456                   0
+    consonants       152        2        1       2473                   0
+    phones           349        2        1       2473                   0
+    nucleus          244        0        0       2476                   0
+    prominence       333        0        0       2476                   0
+  PASS  ENGLISH corpus/sonnets.txt: every move is a confident verdict -> a refusal, and nothing moves the other way
+          a True->False or a None->True here would mean the fix invented an answer rather than withdrawing one.
+  PASS  ENGLISH corpus/sonnets.txt: the two channels that were ALREADY right do not move
+          `_rd_nucleus` and `_rd_prominence` returned their channel raw before the fix and return it raw after; a move here would mean the patch changed something it was not supposed to touch.
+  PASS  ENGLISH corpus/sonnets.txt: the recorded counts reproduce
+          got {'onset': (0, 5), 'coda': (2, 18), 'consonants': (2, 1), 'phones': (2, 1), 'nucleus': (0, 0), 'prominence': (0, 0)}
+          expected {'onset': (0, 5), 'coda': (2, 18), 'consonants': (2, 1), 'phones': (2, 1), 'nucleus': (0, 0), 'prominence': (0, 0)}
+    MIDDLE CHINESE 花間集: 3732 adjacent line-final pairs
+    channel      exposed  T->None  F->None  untouched  other (must be 0)
+    onset            517        1       14       3717                   0
+    coda               0        0        0       3732                   0
+    consonants       517        1       14       3717                   0
+    phones           622        1        6       3725                   0
+    nucleus          432        0        0       3732                   0
+    prominence       838        0        0       3732                   0
+  PASS  MIDDLE CHINESE 花間集: every move is a confident verdict -> a refusal, and nothing moves the other way
+          a True->False or a None->True here would mean the fix invented an answer rather than withdrawing one.
+  PASS  MIDDLE CHINESE 花間集: the two channels that were ALREADY right do not move
+          `_rd_nucleus` and `_rd_prominence` returned their channel raw before the fix and return it raw after; a move here would mean the patch changed something it was not supposed to touch.
+  PASS  MIDDLE CHINESE 花間集: the recorded counts reproduce
+          got {'onset': (1, 14), 'coda': (0, 0), 'consonants': (1, 14), 'phones': (1, 6), 'nucleus': (0, 0), 'prominence': (0, 0)}
+          expected {'onset': (1, 14), 'coda': (0, 0), 'consonants': (1, 14), 'phones': (1, 6), 'nucleus': (0, 0), 'prominence': (0, 0)}
+      corpus/song/eng_* (143 files, 189,414 pairs) is RECORDED in this section's comment rather than re-run: it is a 40s pass and the sonnets above exercise the same code on the same phonology.
+      re-run it with: python3 quality/test_readings_seam.py --eng
+======================================================================
+all readings-seam regressions pass

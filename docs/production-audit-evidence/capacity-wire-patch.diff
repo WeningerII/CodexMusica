@@ -1,0 +1,16 @@
+--- quality/capacity.py before wire fix
++++ quality/capacity.py after wire fix
+@@ -836,10 +836,11 @@
+         "source_identity": source_identity, "table_sha256": table_sha256,
+         "families_total": len(rows), "witnesses_required": len(expected),
+         "witnesses_verified": len(expected), "construction_attempt_cap": CERTIFY_ATTEMPT_CAP,
+-        "summary": summarize(rows),
++        "summary": json.loads(json.dumps(summarize(rows))),
+     }
+     if not isinstance(receipt, dict) or any(type(receipt.get(k)) is not type(v)
+-            or receipt.get(k) != v for k, v in scalar.items()):
++            or json.dumps(receipt.get(k), sort_keys=True) != json.dumps(v, sort_keys=True)
++            for k, v in scalar.items()):
+         raise ValueError("CAPACITY_UNVERIFIED: missing, stale or mismatched runtime/table attestation")
+     records = receipt.get("witnesses")
+     if not isinstance(records, list) or len(records) != len(expected):

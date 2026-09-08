@@ -1,0 +1,9 @@
+{
+  "status": "clean_committed_source",
+  "source_commit": "e6b1fab65bdb5eaf35c159aed4f2fe078a6e3de2",
+  "candidate": "/workspace/scratch/b0544e4bbdd6/verification-candidate6",
+  "runtime_source_sha256": "d998718e8ebb353f5a18998350f1e2692cdd3a873a1ff6ba51969fb773b1daf9",
+  "tracked_diff_empty": true,
+  "installed_receipt": false,
+  "installed_build_identity": false
+}

@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "source_commit": "e6b1fab65bdb5eaf35c159aed4f2fe078a6e3de2",
+  "source_before": "d998718e8ebb353f5a18998350f1e2692cdd3a873a1ff6ba51969fb773b1daf9",
+  "source_after": "d998718e8ebb353f5a18998350f1e2692cdd3a873a1ff6ba51969fb773b1daf9",
+  "source_stable": true,
+  "commands": [
+    {
+      "name": "lint",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exit_code": 0,
+      "wall_s": 5.987544021001668,
+      "stdout_sha256": "b0e91f1a821f731f782cfdf0bd70e663d74c07394ddb4a8c581fb21123bb1f50",
+      "stderr_sha256": "7125f194612fcff2f454c05d848e7cb71facc1967b4d5017e25b34fdee3ba74f"
+    },
+    {
+      "name": "format",
+      "command": [
+        "npm",
+        "run",
+        "format:check"
+      ],
+      "exit_code": 0,
+      "wall_s": 9.80435816499812,
+      "stdout_sha256": "cc002c9970c60a473fb318bcb9fb7937ca47c7e397f00d657b1c7976982979fc",
+      "stderr_sha256": "7125f194612fcff2f454c05d848e7cb71facc1967b4d5017e25b34fdee3ba74f"
+    },
+    {
+      "name": "docs",
+      "command": [
+        "npm",
+        "run",
+        "check-docs"
+      ],
+      "exit_code": 0,
+      "wall_s": 77.14597603599395,
+      "stdout_sha256": "194640d1dfd9c6f25e4726e023d035b437ffd3324fe7e9ff0626aa2fdf0e3fc6",
+      "stderr_sha256": "7125f194612fcff2f454c05d848e7cb71facc1967b4d5017e25b34fdee3ba74f"
+    },
+    {
+      "name": "whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "HEAD",
+        "--",
+        ".",
+        ":!docs/production-audit-evidence",
+        ":!lyric-harness/quality/results/production_data_2026-09-08"
+      ],
+      "exit_code": 0,
+      "wall_s": 0.010295387997757643,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "original_85_acceptance_and_test_gaps_preserved": true,
+  "all_original_implementation_test_paths_exist": true,
+  "integration_repairs": 37,
+  "production_qualified": false,
+  "scope": "Final maintained lint/format/docs and original audit-contract integrity on committed runtime source. Raw archived reproductions are excluded from style checks; their exact bytes and index are independently checked. Report status bookkeeping after this gate cannot change runtime source."
+}

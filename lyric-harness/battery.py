@@ -25,7 +25,8 @@ decl = Declaration()
 
 # ---------------------------------------------------------------- sonnets
 def parse_sonnets(path):
-    text = open(path, encoding="utf-8").read()
+    with open(path, encoding="utf-8") as source:
+        text = source.read()
     # body between the first sonnet number and Gutenberg end matter
     lines = text.splitlines()
     sonnets, current = [], []
@@ -76,7 +77,7 @@ def sonnet_battery():
     judged = total_pairs - len(refused)
     rate = len(viol) / judged if judged else 0.0
     print(f"  mandated pairs {total_pairs}, judged {judged}, "
-          f"refused {len(refused)} (end word not in CMUdict)")
+          f"refused {len(refused)} (unreadable endpoint or unresolved relation)")
     print(f"  violations {len(viol)} ({rate:.1%} of JUDGED pairs)")
     pair_counts = Counter((a.lower(), b.lower()) for _, a, b, _ in viol)
     print("  most frequent failing pairs:")
@@ -333,7 +334,15 @@ def whitman_battery():
 # ~~violations 12~~ is kept visible rather than overwritten (doctrine 17),
 # and it is what `chance_rate.CANON_VIOLATIONS` and every ratio derived from
 # it read until the same day.
-EXPECTED = {"mandated": 1064, "judged": 1014, "refused": 50, "violations": 14}
+# REPINNED 2026-09-08 after REL-01/05 and H-05/07, not a band change.
+# The exact same 1,064 obligations now have 97 refusals: 50 existing lexical
+# refusals, 28 endpoint-pronunciation disagreements, and 19 scalar failures
+# whose applicable full-schema answer is unresolved. Ten former violations
+# and nine formerly "rescued" pairs belong in those 19, not in either pass
+# or failure. Four identical-word REPEAT violations remain. This decrease is
+# reduced certified coverage, not improved rhyme quality. Full causal rows:
+# quality/production_relation_oracle.json. Thresholds and corpus unchanged.
+EXPECTED = {"mandated": 1064, "judged": 967, "refused": 97, "violations": 4}
 
 
 def assert_pinned(got, expected=EXPECTED):

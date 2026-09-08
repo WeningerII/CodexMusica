@@ -1,0 +1,114 @@
+name: Production qualification
+
+# Intentional, complete coverage. No paid calls, no schedule and no date rotation.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: read
+concurrency:
+  group: production-qualification-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  capacity-proof:
+    uses: ./.github/workflows/capacity-proof.yml
+
+  capacity-proof-result:
+    name: qualification-capacity-proof
+    needs: capacity-proof
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require actual full-checkout verification
+        env:
+          RESULT: ${{ needs.capacity-proof.result }}
+        run: test "$RESULT" = success
+
+  component:
+    needs: capacity-proof
+    name: qualification-${{ matrix.component }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      matrix:
+        component: [mutation-1, mutation-2, mutation-3, mutation-4, song, short, curves]
+    env:
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      PYTHONHASHSEED: '0'
+      MUTATE_SCRATCH: /tmp/mutate-scratch
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Install the full detector environment
+        run: |
+          python3 -m pip install --disable-pip-version-check --require-hashes -r "$GITHUB_WORKSPACE/mcp/requirements-runtime.txt"
+          python3 -m pip install --disable-pip-version-check numpy scikit-learn PyYAML
+          npm --prefix mcp ci --no-audit --no-fund
+      - name: Stage every declared lexical input
+        working-directory: lyric-harness
+        run: |
+          python3 -c "import lyric_harness; lyric_harness.fetch_data()"
+          python3 quality/fetch_data.py --research
+      - name: Transfer this attempt's all-family capacity proof
+        uses: actions/download-artifact@v4
+        with:
+          name: capacity-proof-${{ github.run_attempt }}
+          path: capacity-proof
+      - name: Require the proof to match this consumer's actual runtime and table
+        run: python3 scripts/production_qualification.py capacity-accept capacity-proof
+      - uses: actions/cache/restore@v4
+        with:
+          path: |
+            ~/.cache/lyric-harness
+            /tmp/mutate-scratch/baseline.json
+          key: qualification-${{ matrix.component }}-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: qualification-${{ matrix.component }}-${{ github.sha }}-
+      - name: Complete the exact comparison within its existing command budget
+        run: python3 scripts/production_qualification.py run '${{ matrix.component }}' --out=evidence/${{ matrix.component }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qualification-${{ matrix.component }}-${{ github.run_attempt }}
+          path: evidence/
+          if-no-files-found: error
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: |
+            ~/.cache/lyric-harness
+            /tmp/mutate-scratch/baseline.json
+          key: qualification-${{ matrix.component }}-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+
+  qualification-result:
+    needs: [capacity-proof-result, component]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Require every component job to succeed
+        env:
+          RESULT: ${{ needs.component.result }}
+          CAPACITY_RESULT: ${{ needs.capacity-proof-result.result }}
+        run: test "$RESULT" = success && test "$CAPACITY_RESULT" = success
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qualification-*-${{ github.run_attempt }}
+          path: evidence
+      - name: Require exact complete source and attempt coverage
+        run: python3 scripts/production_qualification.py aggregate evidence --out=qualification.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: production-qualification-${{ github.run_attempt }}
+          path: qualification.json
+          if-no-files-found: error

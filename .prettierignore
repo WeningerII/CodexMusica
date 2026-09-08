@@ -76,3 +76,10 @@ lyric-harness/quality/matrix_eval.json
 # are vendored or derived catalog data, not prose — the same rationale that
 # excludes references/ above.
 data
+
+# Measured audit evidence: preserve generator bytes and archived SHA256 identities.
+lyric-harness/quality/RESULTS_CAPACITY_PRODUCTION_2026-09-08.json
+lyric-harness/quality/results/production_data_2026-09-08
+
+# Raw audit regression receipts/logs: SHA-indexed evidence, not authored inputs.
+docs/production-audit-evidence

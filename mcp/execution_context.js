@@ -19,7 +19,8 @@ export function childExecutionContext(options = {}) {
   const signals = [...new Set([parent.signal, options.signal].filter(Boolean))];
   const now = performance.now();
   const deadlines = [parent.deadlineAt, options.deadlineAt];
-  if (Number.isFinite(options.deadlineMs)) deadlines.push(now + options.deadlineMs - Date.now());
+  if (!Number.isFinite(options.deadlineAt) && Number.isFinite(options.deadlineMs))
+    deadlines.push(now + options.deadlineMs - Date.now());
   if (!Number.isFinite(parent.deadlineAt) && Number.isFinite(parent.deadlineMs)) {
     deadlines.push(now + parent.deadlineMs - Date.now());
   }

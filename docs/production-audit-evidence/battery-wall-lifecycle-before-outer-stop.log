@@ -1,0 +1,43 @@
+ok 1 - persistent paced429 cannot borrow ordinary retry budget
+ok 2 - paced wait sum never admits a retry exceeding its remaining budget
+ok 3 - post-header aborted settles with durable transport outcome
+ok 4 - post-header invalid-json settles with durable transport outcome
+ok 5 - post-header deadline settles with durable transport outcome
+ok 6 - kill during first request leaves intent; resume retrieves completion without repeating POST
+ok 7 - ambiguous missing job is never reissued on resume
+ok 8 - wall canary replays the exact durable checkpoint and measures a newly verified application
+ok 9 - wall receipts refuse fabricated progress, changed identity, and incomplete replay
+ok 10 - wall progress compares the exact prior applied identity set independently of lexical ordering
+ok 11 - actual native nested replay measures only advancement beyond the preserved accepted frontier
+ok 12 - wall continuation retains the actual parked artifact and declarations
+ok 13 - actual wall HTTP refused-not-run cannot pass the canary
+ok 14 - actual wall HTTP missing-inventory cannot pass the canary
+ok 15 - explicit resume can continue interrupted signed checkpoint with a new request ID
+ok 16 - aggregate admission refuses a request that cannot finish before delivery reserve
+ok 17 - multi-song finished policy has an explicit outcome
+ok 18 - multi-song survey policy has an explicit outcome
+ok 19 - wrong live SHA refuses paid request
+ok 20 - pending job is polled to its actual completion without a second paid POST
+ok 21 - measurement requires durable recovery before spending
+ok 22 - same commit with changed configuration stops before the next paid turn
+ok 23 - partial upstream429 preserves the envelope and honors its pacing hint
+ok 24 - actual job-router persistence503 recovers and never enters ordinary retry
+ok 25 - actual retired receipt refuses replay after its full response was evicted
+ok 26 - uncertain proposal stops automatic continuation and plain resume
+ok 27 - measurement refuses incomplete fingerprint identity even with durable recovery
+ok 28 - interrupted proposal uncertainty is terminal even when its signed checkpoint survives
+ok 29 - job receipt detects a deployment between health probe and paid request
+ok 30 - completion rejects blank delivery
+ok 31 - completion rejects earlier success followed by unfinished result
+ok 32 - completion rejects HTTP200 error after success
+ok 33 - completion rejects changed final draft under old receipt
+ok 34 - terminal checkpoint restores verdict lost before summary write without another request
+ok 35 - multi-song resume restores a lost failed verdict instead of passing a sparse summary
+ok 36 - a bare signed empty wall cannot satisfy the continuation canary
+ok 37 - mandatory remote recovery refuses before any paid POST when unavailable
+ok 38 - verified receipt keeps complete request latency rather than the final lookup latency
+ok 39 - error checkpoint (top-level) is retained and resumed without retrying the stale envelope
+ok 40 - error checkpoint (nested) is retained and resumed without retrying the stale envelope
+ok 41 - durable continuation uses only the parent receipt, including large signed state
+ok 42 - stale continuation follows the existing successor without another paid branch
+42 battery lifecycle checks passed

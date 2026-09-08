@@ -1,0 +1,17 @@
+test_aggregate_pair_rows_keep_each_obligation (__main__.AuditRegressions.test_aggregate_pair_rows_keep_each_obligation) ... ok
+test_checkpoint_replays_paid_answers_and_preserves_accepted_draft (__main__.AuditRegressions.test_checkpoint_replays_paid_answers_and_preserves_accepted_draft) ... ok
+test_declared_hook_swap_preserves_hook_identity (__main__.AuditRegressions.test_declared_hook_swap_preserves_hook_identity) ... ok
+test_direct_conflict_zero_width_and_profile (__main__.AuditRegressions.test_direct_conflict_zero_width_and_profile) ... ok
+test_equal_count_pair_swap_is_a_regression (__main__.AuditRegressions.test_equal_count_pair_swap_is_a_regression) ... ok
+test_group_and_severity_survive_same_location (__main__.AuditRegressions.test_group_and_severity_survive_same_location) ... ok
+test_interrupted_real_loop_preserves_accepted_edit_before_next_request (__main__.AuditRegressions.test_interrupted_real_loop_preserves_accepted_edit_before_next_request) ... ok
+test_judged_to_refused_is_not_a_repair (__main__.AuditRegressions.test_judged_to_refused_is_not_a_repair) ... ok
+test_malformed_completed_proposal_is_replayed_without_spending (__main__.AuditRegressions.test_malformed_completed_proposal_is_replayed_without_spending) ... ok
+test_memo_storage_budget_honestly_evicts_without_changing_answers (__main__.AuditRegressions.test_memo_storage_budget_honestly_evicts_without_changing_answers) ... ok
+test_note_budget_and_coverage_are_separate_acceptance_gates (__main__.AuditRegressions.test_note_budget_and_coverage_are_separate_acceptance_gates) ... ok
+test_seedless_cli_renders_and_resumes_exact_accepted_draft (__main__.AuditRegressions.test_seedless_cli_renders_and_resumes_exact_accepted_draft) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 66.362s
+
+OK

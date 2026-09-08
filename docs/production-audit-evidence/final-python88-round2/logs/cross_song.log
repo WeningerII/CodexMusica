@@ -1,0 +1,73 @@
+
+1. one definition of the population, one spelling of the content partition
+  PASS  the population IS song_record's (a lyric with a blueprint) — the same reach `ban_convergence.songs()` takes, never a second copy (doctrine 1)
+          16
+  PASS  sixteen songs banked at the pin
+          16
+  PASS  this module globs the HUMAN corpus and nothing else — it never enumerates songs/ itself
+          1 glob call(s)
+  PASS  and it defines no content-partition of its own: the partition is imported from narrative_bands (panel run 5 measured two hand spellings of it disagreeing by one type)
+
+2. the depth measurement, derived live from the committed bytes
+  PASS  every banked song read; refusals counted apart (doctrine 79)
+          (16, [])
+  PASS  the distinct-type pin re-derives
+          951
+  PASS  the OBSERVED half of the pinned spectrum re-derives exactly (the null half costs ~60s and is `--check`'s business)
+          all 15 depths agree
+  PASS  `light` is the deepest single word the register names, and its depth is a MEASUREMENT rather than a verdict
+          7
+  PASS  panel6 and after_panel PARTITION the bank — six and ten, disjoint, together the whole population
+          (6, 10)
+  PASS  an undeclared subset REFUSES naming its closed vocabulary, rather than quietly measuring everything
+          --subset='bogus' names no declared subset; the vocabulary is all / panel6 / after_panel
+  PASS  0 sung lines in the bank carry a parenthetical, which is what makes the bank read's `strip_parens` default a knob with nothing to turn rather than an undeclared coordinate
+  PASS  no derived bank table under data/ — the frequencies are read live, so the bank never becomes a corpus file (doctrine 34)
+
+3. THE MECHANICAL REFUSAL — the bank may be OBSERVED and may not be SAMPLED
+  PASS  pointing the NULL population at songs/ raises BankIsNotCorpus rather than returning a number somebody would go on to quote
+          16 path(s) under songs/ were handed to the NULL population, starting w
+  PASS  and the refusal names both doctrines and the corpus that DOES carry sources.tsv rows
+  PASS  giving the bank a sources.tsv row to silence it is named IN the refusal as the back door, not the fix
+  PASS  the guard sits INSIDE human_population, so no caller can reach the null population around it
+          ['sorted', '_refuse_bank_as_population', 'enumerate', '_tag', 'len', 'content_types', 'len']
+
+4. no threshold, no verdict — a disclosure and not a gate
+  PASS  the disclosure row carries a DEPTH and no boolean verdict, no severity and no finding code
+          ['bank_songs', 'depth', 'pinned_at_depth', 'pinned_null_median', 'refused', 'songs', 'word']
+  PASS  a word absent from the bank reads 0 — an ordinary answer, not a good one
+  PASS  a depth past the pinned spectrum is disclosed as UNAVAILABLE and names the command that re-derives it, never left blank
+          rown past the 2026-09-02 spectrum; re-derive with `python3 quality/cross_song.py --check`]
+  PASS  `light` at depth 7 is disclosed BESIDE the null's own reading of depth 7, so the reader is not invited to read depth as defect
+          (5, 5.0)
+  PASS  the module names no ceiling, floor or max of its own — a threshold on a statistic that is not scale-invariant would ask a different question at every bank size (doctrine 15/72)
+  PASS  matched draws give each banked song its OWN length-matched pool; unmatched gives every one the whole population, and both are reachable so the case for matching stays a measurement
+          (30, 110, 400)
+  PASS  a matched pool never drops below the declared floor, so a long banked song still gets a draw rather than a silently narrowed null
+          [30, 110]
+  PASS  every spectrum row carries its own SHARE of the bank, because `>= 4` is two-thirds of six and a quarter of sixteen
+
+5. THE PREFIX PIN — `--bank` may only APPEND, so it cannot become a gate
+  PASS  both runs exit 0 — a disclosure changes no exit status
+          (0, 0)
+  PASS  THE UN-FLAGGED OUTPUT IS A BYTE PREFIX OF THE FLAGGED ONE. A finding, a code or a moved count would have to change an EARLIER line, and this check is what makes that impossible (doctrine 79: a report is not a control)
+          base 1228B, flagged 1820B, appended 592B
+  PASS  what is appended is the BANK block and only the bank block
+          BANK   : cross-song depth over the 16 banked songs (`quality
+  PASS  the appended block says out loud that it moves nothing above it
+  PASS  and it discloses the depth with the null beside it
+            BANK   : cross-song depth over the 16 banked songs (`quality/cross_song.py`, M-111) — how many of YOUR OWN songs already sing each word as a content word. A DISCLOSURE: it moves no verdict, no count
+  PASS  the banned/clean summary line is present, unchanged, and appears in neither the appended block nor a second time
+          (1, 1, False)
+  PASS  the shared prefix keeps the broad schema refusal and the bank block invents no definite pair verdict
+
+6. the declared coordinate — omit it and pay nothing
+  PASS  `--bank=VALUE` refuses by name at exit 2, the shape `--voices`/`--isochronous` already hold for a bare flag
+          (2, '  REFUSED — --bank takes NO value -- it is a bare presence flag declaring that this screen ALSO discloses, for each word')
+  PASS  a near-miss spelling still refuses rather than silently disclosing nothing
+          (2, "  REFUSED — screen does not take '--bnak'\n    usage: screen WORD WORD [WORD...] [--relation=NAME] [-")
+  PASS  a screen with no `--bank` imports NEITHER quality.cross_song nor the content partition it reads the bank with, so no banked song is opened
+          False False
+  PASS  the verb's own usage names the flag, so it is reachable by reading rather than by knowing (standing rule 3)
+==============================================================
+cross-song reuse is DISCLOSED, and the gate is refused by the shape of the wiring

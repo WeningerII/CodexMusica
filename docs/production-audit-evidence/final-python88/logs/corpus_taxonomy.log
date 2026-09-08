@@ -1,0 +1,58 @@
+
+1. the vocabularies
+  PASS  regions table holds exactly the four active traditions
+  PASS  functions table holds exactly the nine active rows
+  PASS  every row carries a definition and an evidence rule — a value without an evidence rule cannot be assigned honestly
+
+2. resolution precedence
+  PASS  a song with no lines of its own inherits the file header
+  PASS  a song's own lines beat the header, and function carries MULTIPLE attested values as a tuple
+  PASS  no header and no song lines resolve to BLANK — undeclared is the honest state, never a guess
+
+3. the closed set
+  PASS  an unknown region refuses naming the value
+  PASS  an unknown function refuses naming the value
+  PASS  a DOUBLED region refuses — contested stays blank, recorded, never split between two cells
+  PASS  the three violations are three findings, each naming its song's line
+
+3b. the shape gate — prose on a value key is not a declaration
+  PASS  prose on `# region:` never becomes a region — no by_region cell, no coverage cell, nothing named after a sentence
+  PASS  ...and it does not leak through `# function:` either, NOT EVEN the well-shaped first word: a line that fails the shape is prose entire, and harvesting 'none' out of a sentence is the same defect in miniature
+  PASS  the song is counted UNDECLARED on both axes — nobody successfully declared anything for it
+  PASS  and the collapse is NOT silent (doctrine 20): the unreadable lines are carried apart, at the LINE where the defect is
+  PASS  check_file reports ONE violation per LINE, not one per comma-separated fragment — the Montgomery note produced seven, and two lines of prose must produce two
+  PASS  ...and each names the key and quotes the raw text, so the reader is told what to fix rather than handed a word salad
+  PASS  CONTROL — a well-shaped unknown value still refuses BY NAME, so the shape gate has not swallowed the table gate
+  PASS  CONTROL — and it is NOT diverted to malformed: it is a typo of a value, which is a different finding from prose
+  PASS  CONTROL — a `-basis:` key is invisible to the value reader: the region is still english and nothing is malformed
+  PASS  CONTROL — and a legal declaration beside it is untouched
+
+4. APPARATUS INVISIBILITY — tags move no reader
+  PASS  load_lyric_lines: tagged and untagged twins are identical
+  PASS  read_marked_songs: same songs, same titles, same lines
+  PASS  readability.read_lines: identical
+
+5. the backfilled corpus
+  PASS  all 1297 eng files are seen
+  PASS  every assignment in the corpus names a declared value
+  PASS  620 files declare a region and 677 declare a stated blank — every file answers the axis, none is silently empty
+  PASS  THE TAYLOR PIN: eng_american_ann_taylor resolves english — the filename is the acquisition batch, not an analytic claim
+  PASS  the hymn seed: Watts carries function hymn (hymnal-attested), and Addison carries NONE — his staged source is a Poetical Works, and evidence-or-blank means blank
+  PASS  the hymn group crosses regions — Crosby american, Borthwick scottish, Alexander irish — which is the axis split working
+  FAIL  the report counts the corpus: 8,667 songs, 1,538 honestly undeclared regions, undeclared functions counted APART (evidence-or-blank leaves most songs untagged)
+  FAIL  region totals plus the undeclared partition the corpus — the axis is single-valued, and a blank is counted, never dropped
+
+6. the calibration manifest
+  PASS  at HEAD the live corpus IS the declared calibration set (exit 0)
+  PASS  the manifest covers the audit's own population (1430 files)
+  PASS  manifest files and live files are the same set
+
+6b. the re-adoption verdict
+  PASS  every named adoption declares a population that can be ASKED — a re-typed glob here would be doctrine 1's second definition
+  PASS  an English song file is OWED by all four adoptions — the map can say OWED, not only NOT-OWED
+  PASS  a staged Old Norse file is owed by NONE — every calibrated glob is eng_-scoped, so no adopted constant can have moved
+  PASS  ...and that verdict is a fact about the POPULATIONS, not about the file's content: the same file is owed by a population that does read it
+  PASS  a module that declares neither is UNASKABLE, never a silent clean
+  PASS  a module that does not exist is UNASKABLE, never a silent clean
+==============================================================
+2 FAILING: the report counts the corpus: 8,667 songs, 1,538 honestly undeclared regions, undeclared functions counted APART (evidence-or-blank leaves most songs untagged), region totals plus the undeclared partition the corpus — the axis is single-valued, and a blank is counted, never dropped

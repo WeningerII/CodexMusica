@@ -1548,6 +1548,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
 }
 .chat-panel-head {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--s2);
   padding: var(--s2) var(--s2) var(--s2) var(--s3);
@@ -1859,12 +1860,19 @@ body.is-dnd-active * { cursor: grabbing !important; }
     <div class="chat-panel-head">
       <span class="chat-panel-title">Ask the engine</span>
       <span class="chat-panel-meta" id="chat-meta"></span>
-      <button class="btn btn-ghost chat-reset" id="chat-reset" type="button"><span class="btn-label">New recipe</span></button>
+      <button class="btn btn-ghost chat-reset" id="chat-reset" type="button"><span class="btn-label">New conversation</span></button>
+      <button class="btn btn-ghost chat-reset" id="chat-recover" type="button">Saved runs</button>
       <button class="icon-btn" id="chat-collapse" aria-label="Collapse conversation"><span data-icon="x" data-size="14"></span></button>
     </div>
     <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-relevant="additions"></div>
   </div>
   <form class="chat-bar" id="chat-form" autocomplete="off">
+    <select id="chat-domain" class="btn btn-secondary" aria-label="Task">
+      <option value="recipe">Create recording recipe</option>
+      <option value="recipe-browse">Browse stock recipes</option>
+      <option value="lyrics">New song lyrics</option>
+      <option value="lyrics-edit">Edit existing lyrics</option>
+    </select>
     <!-- Keep in step with CHAT_MAX_MESSAGE in mcp/chat.js (and render.yaml). The
          attribute is a courtesy that stops the field accepting text the server
          will refuse; the server bound is the real one, since nothing stops a
@@ -61701,6 +61709,10 @@ function commitPrefaceChange(card, prefaceId) {
 // under which the browser pushes a history entry — the caller owns pushHistory()
 // and rerenderCard(), as it did when this was inline.
 function applyPartEdit(card, partId) {
+  // Every explicit choice is a pin, including non-material techniques. Without
+  // this a later material edit may silently reconfigure an earlier choice.
+  if (!Array.isArray(card.pinnedParts)) card.pinnedParts = [];
+  if (!card.pinnedParts.includes(partId)) card.pinnedParts.push(partId);
   const inst = Inst(card.instrumentId);
   const partDef = inst ? (inst.parts || []).find(p => p.id === partId) : null;
   // Material parts (those carrying the universal cross-instrument materials)
@@ -61998,6 +62010,15 @@ function compressCompactRecipe(cards, ceiling) {
 }
 
 function compressRichRecipe(cards, ceiling) {
+  // Explicit part choices outrank stock material/gear descriptors under pressure.
+  // Use the actual rendered descriptors; variant IDs are not output tokens.
+  const pinnedDescriptors = new Set();
+  for (const card of cards) {
+    const parts = Object.fromEntries((card.pinnedParts || []).map(id => [id, card.parts[id]]));
+    const inst = buildStackParts({ ...card, parts }).find(p => p.kind === 'instrument');
+    for (const d of (inst && inst.descriptors) || []) pinnedDescriptors.add(d);
+  }
+  const richTier = d => pinnedDescriptors.has(d) ? -1 : _descriptorTier(d);
   // Rich render — same collapse logic as compressProseRecipe but each chunk
   // carries the full post-noun descriptor stack (material, part, technique,
   // acoustic-feature). The collapse pools descriptors across all cards that
@@ -62140,7 +62161,8 @@ function compressRichRecipe(cards, ceiling) {
   // The same priority sort Tags uses — meaning-bearing tokens lead, scaffolds
   // and textures sink. Position in the post-colon list is a signal too.
   for (const c of finalChunks) {
-    c.descriptors = _sortDescriptorsByPriority(c.descriptors);
+    c.descriptors = _sortDescriptorsByPriority(c.descriptors).sort((a, b) =>
+      Number(pinnedDescriptors.has(b)) - Number(pinnedDescriptors.has(a)));
   }
 
   // ---- Render with ceiling enforcement ----
@@ -62174,7 +62196,7 @@ function compressRichRecipe(cards, ceiling) {
     for (let i = 0; i < finalChunks.length; i++) {
       if (finalChunks[i].descriptors.length === 0) continue;
       const last = finalChunks[i].descriptors[finalChunks[i].descriptors.length - 1];
-      const t = _descriptorTier(last);
+      const t = richTier(last);
       const better = (t > targetTier) ||
         (t === targetTier && finalChunks[i].descriptors.length > (target >= 0 ? finalChunks[target].descriptors.length : 0));
       if (better) { target = i; targetTier = t; }
@@ -62255,13 +62277,17 @@ function compileRecipeStack(cards, format, options) {
   _RECIPE_PREFACE_OVERRIDES = _computeRecipeDedupedPrefaces(cards);
   try {
     const header = _recipeHeader(cards);
+    if (header.length >= ceiling) return header.slice(0, Math.max(0, ceiling - 1)) + '…';
     // Header eats into the 1000-char budget — pass the remainder to compress
     // so the total output (header + body) stays under ceiling.
     const bodyCeiling = ceiling - header.length;
-    if (format === 'tags')    return header + compressTagsRecipe(cards, bodyCeiling);
-    if (format === 'compact') return header + compressCompactRecipe(cards, bodyCeiling);
-    if (format === 'rich')    return header + compressRichRecipe(cards, bodyCeiling);
-    return header + compressProseRecipe(cards, bodyCeiling);
+    const body = format === 'tags' ? compressTagsRecipe(cards, bodyCeiling)
+      : format === 'compact' ? compressCompactRecipe(cards, bodyCeiling)
+      : format === 'rich' ? compressRichRecipe(cards, bodyCeiling)
+      : compressProseRecipe(cards, bodyCeiling);
+    const rendered = header + body;
+    return rendered.length <= ceiling ? rendered
+      : rendered.slice(0, Math.max(0, ceiling - 1)) + '…';
   } finally {
     _RECIPE_PREFACE_OVERRIDES = prevOverrides;
   }
@@ -66937,14 +66963,14 @@ function wireSimilarEvents(container) {
 // The page is static (GitHub Pages), so it cannot hold a model key and cannot
 // call Gemini. Every message goes to the MCP service, which holds the key, runs
 // the tool loop against the same engine this app is built on, and hands back the
-// recipe. The browser keeps the conversation; the server keeps nothing — which
-// is why `history`, `workspace` and `sig` travel in both directions on every
-// turn. The signature is the server's; it round-trips untouched.
+// authoritative result. The server durably retains private request receipts
+// and lyric runs. The browser stores the continuation capability and preserves
+// signed envelopes when recovering older requests.
 //
 // The workspace here is the CONNECTOR's workspace, not this app's canvas, and
 // the two are deliberately not wired together: importing a chat result into the
 // canvas is a different feature with its own undo semantics. What the dock
-// promises is what it does — a recipe string, reproduced exactly.
+// renders authoritative recipes, lyric artifacts and explicit recovery exports.
 // ═══════════════════════════════════════════════════════════════════════════
 
 // Overridable so the dock can be pointed at a local server during development
@@ -66953,7 +66979,110 @@ const CHAT_BACKEND =
   (typeof window !== 'undefined' && window.CODEX_CHAT_ENDPOINT) ||
   'https://codex-musica-mcp.onrender.com';
 
-const chatState = { history: null, workspace: null, lyric: null, sig: null, busy: false };
+const CHAT_STORAGE_KEY = `codex-musica-chat-v2:${CHAT_BACKEND}`;
+const chatState = { history: null, workspace: null, lyric: null, task: null, sig: null, continuationId: null,
+  busy: false, generation: 0, pending: null, archives: [], retryAt: 0, controller: null };
+function _chatSave() {
+  const {history,workspace,lyric,task,sig,continuationId,generation,pending,archives,retryAt} = chatState;
+  localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(continuationId ? {continuationId,generation,pending,archives,retryAt,domain:task?.domain,phase:task?.phase} : {history,workspace,lyric,task,sig,generation,pending,archives,retryAt}));
+}
+function _chatLoad() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(CHAT_STORAGE_KEY) || 'null');
+    if (saved && typeof saved === 'object') for (const key of ['history','workspace','lyric','task','sig','continuationId','generation','pending','archives','retryAt'])
+      if (saved[key] !== undefined) chatState[key] = saved[key];
+    if (saved?.domain && !chatState.task) chatState.task = {domain:saved.domain,phase:saved.phase};
+  } catch { /* A malformed saved view cannot authorize server work. */ }
+}
+function _chatRequestId() {
+  return Array.from(crypto.getRandomValues(new Uint8Array(32)), b => b.toString(16).padStart(2,'0')).join('');
+}
+function _chatHarvest(payload) {
+  if (typeof payload?.sig !== 'string' || !Array.isArray(payload.history)) return;
+  chatState.history = payload.history;
+  chatState.workspace = payload.workspace ?? null;
+  chatState.lyric = payload.lyric ?? null;
+  chatState.task = payload.task ?? null;
+  chatState.sig = payload.sig;
+}
+function _chatPace(payload, headers) {
+  const raw = headers?.get?.('retry-after');
+  const fromHeader = raw == null ? 0 : /^\d+$/.test(raw.trim()) ? Number(raw) * 1000 : Math.max(0, Date.parse(raw) - Date.now());
+  const wait = Math.max(Number.isFinite(fromHeader) ? fromHeader : 0, Number(payload?.stopped_detail?.retry_after_ms) || 0);
+  if (wait > 0) chatState.retryAt = Math.max(chatState.retryAt || 0, Date.now() + wait);
+}
+function _chatReceive(payload, headers) {
+  const request = chatState.pending;
+  _chatHarvest(payload); // Signed error continuations advance state too.
+  if (request?.request_id && payload?.sig) chatState.continuationId = request.request_id;
+  _chatPace(payload, headers);
+  chatState.pending = null;
+  try { _chatSave(); }
+  catch {
+    chatState.pending = request;
+    throw new Error('The continuation could not be saved locally. The completed request remains recoverable; it will not be repeated.');
+  }
+  if (payload?.error) {
+    _chatAppend(`<div class="chat-msg chat-msg-error">${esc(payload.error)}</div>`);
+    if (payload.artifact) _chatRenderReply(payload);
+  }
+  else _chatRenderReply(payload);
+  if (chatState.retryAt > Date.now()) _chatAppend(`<div class="chat-msg chat-msg-note">Continue after ${new Date(chatState.retryAt).toLocaleTimeString()}.</div>`);
+}
+async function _chatRecover(generation = chatState.generation) {
+  let job = chatState.pending;
+  if (!job) return;
+  const visited = new Set([job.request_id]);
+  _chatSetBusy(true);
+  _chatOpenPanel();
+  const note = _chatAppend('<div class="chat-msg chat-msg-note">Recovering the saved request…</div>');
+  try {
+    for (;;) {
+      const res = await fetch(`${CHAT_BACKEND}/chat/jobs/${job.request_id}`, {cache:'no-store'});
+      const record = await res.json();
+      if (generation !== chatState.generation) return;
+      if (!res.ok) throw new Error(record.error || 'The request outcome is unknown. The saved request will not be repeated.');
+      if (record.successor_id && record.successor_id !== job.request_id) {
+        if (!/^[a-f0-9]{64}$/.test(record.successor_id) || visited.has(record.successor_id) || visited.size >= 512)
+          throw new Error('The saved continuation chain is invalid. No work was repeated.');
+        visited.add(record.successor_id);
+        job = {...job,request_id:record.successor_id}; chatState.pending = job; _chatSave();
+        continue;
+      }
+      if (record.state === 'completed' && record.response) {
+        _chatReceive(record.response.body, {get:name => record.response.headers?.[name.toLowerCase()] ?? null});
+        return;
+      }
+      if (record.state === 'pending') {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        if (generation !== chatState.generation) return;
+        continue;
+      }
+      _chatHarvest(record.continuation || record.checkpoint);
+      if (record.continuation?.sig || record.checkpoint?.sig) chatState.continuationId = job.request_id;
+      const uncertain = record.uncertain_proposal || record.progress?.uncertain_proposal ||
+        record.progress?.status === 'proposing' || record.proposer_usage?.in_flight;
+      // A worker checkpoint newer than the signed chat continuation cannot be
+      // silently replayed from the older envelope. Retain its capability.
+      if (!uncertain && (record.continuation?.sig || (record.checkpoint?.sig && !record.progress))) {
+        chatState.pending = null;
+        const input = _chatEl('chat-input');
+        if (input) input.value = job.message || 'Continue.';
+        _chatSave();
+        _chatAppend('<div class="chat-msg chat-msg-note">Recovered the last completed exchange. You can continue from it.</div>');
+        return;
+      }
+      _chatSave();
+      throw new Error(uncertain ? 'The interrupted proposal may already have been charged. Its receipt is retained; it will not be repeated automatically.' :
+        'The interrupted request has newer work outside the last chat checkpoint. Its receipt is retained; automatic replay is stopped.');
+    }
+  } catch (error) {
+    if (generation === chatState.generation) _chatAppend(`<div class="chat-msg chat-msg-error">${esc(error.message)}</div>`);
+  } finally {
+    note?.remove();
+    if (generation === chatState.generation) _chatSetBusy(false);
+  }
+}
 
 function _chatEl(id) { return document.getElementById(id); }
 
@@ -67031,12 +67160,28 @@ function _chatStripRecipeCopy(reply, recipe) {
 }
 
 function _chatRenderReply(payload) {
-  const prose = _chatStripRecipeCopy(payload.reply, payload.recipe);
+  const recoveryExport = payload.stopped === 'RECOVERY_EXPORTED' && typeof payload.reply === 'string';
+  const prose = payload.artifact || recoveryExport ? '' : _chatStripRecipeCopy(payload.reply, payload.recipe);
   const parts = [];
   if (prose) parts.push(`<p style="margin:0;">${esc(prose)}</p>`);
   const node = _chatAppend(`<div class="chat-msg chat-msg-engine">${parts.join('') || ''}</div>`);
   if (!node) return;
 
+  if (payload.artifact || recoveryExport) {
+    const box = document.createElement('div');
+    box.className = 'chat-recipe';
+    const verdict = document.createElement('div');
+    verdict.className = 'chat-recipe-foot';
+    verdict.textContent = recoveryExport ? 'Recovered export · not graded' : payload.completion?.certified === true ? 'Finished · certified' : `Unfinished · ${payload.artifact.status || payload.stopped || 'not certified'}`;
+    const pre = document.createElement('pre');
+    pre.className = 'chat-recipe-text';
+    const text = recoveryExport ? payload.reply : payload.artifact.text || (payload.artifact.final_draft || []).join('\n');
+    pre.textContent = text;
+    const copy = document.createElement('button');
+    copy.className = 'btn btn-secondary'; copy.type = 'button'; copy.textContent = recoveryExport ? 'Copy export' : 'Copy lyrics';
+    copy.addEventListener('click', () => copyToClipboard(text,recoveryExport ? 'Export copied' : 'Lyrics copied','Could not copy'));
+    box.appendChild(verdict); box.appendChild(pre); box.appendChild(copy); node.appendChild(box);
+  }
   if (payload.recipe) {
     const box = document.createElement('div');
     box.className = 'chat-recipe';
@@ -67073,7 +67218,7 @@ function _chatRenderReply(payload) {
       // verdict only the model ever saw protects nobody. Recipe tools have
       // neither and keep the bare name.
       const banned = typeof t.banned_pairs === 'number' && t.banned_pairs > 0;
-      chip.className = 'chat-tool' + (t.error ? ' is-error' : banned ? ' is-alert' : '');
+      chip.className = 'chat-tool' + (t.error ? ' is-error' : banned || (typeof t.exit_code === 'number' && (t.exit_code !== 0 || t.certified === false)) ? ' is-alert' : '');
       let label = t.name;
       if (typeof t.exit_code === 'number') label += ` · exit ${t.exit_code}`;
       if (banned) label += ` · ${t.banned_pairs} banned`;
@@ -67086,7 +67231,7 @@ function _chatRenderReply(payload) {
     node.appendChild(trace);
   }
 
-  if (payload.stopped) {
+  if (payload.stopped && !recoveryExport) {
     // A truncated answer that looks complete is the worst outcome here, so the
     // reason the loop ended is shown rather than swallowed.
     const note = document.createElement('div');
@@ -67108,73 +67253,90 @@ function _chatSetBusy(busy) {
   if (dock) dock.classList.toggle('is-busy', busy);
   if (input) input.disabled = busy;
   if (send) send.disabled = busy;
+  const domain = _chatEl('chat-domain');
+  if (domain) {
+    domain.disabled = busy || !!chatState.sig || !!chatState.continuationId;
+    if (chatState.task?.domain) domain.value = chatState.task.domain + (chatState.task.phase === 'edit' ? '-edit' : chatState.task.phase === 'browse' ? '-browse' : '');
+  }
+  const recover = _chatEl('chat-recover');
+  if (recover) recover.disabled = busy;
 }
 
 function _chatReset() {
-  chatState.history = null;
-  chatState.workspace = null;
-  chatState.lyric = null;
-  chatState.sig = null;
+  const previous = chatState.pending || (chatState.continuationId ? {request_id:chatState.continuationId,domain:chatState.task?.domain,message:'Saved conversation'} : null);
+  if (previous) chatState.archives = [...chatState.archives, previous].slice(-8);
+  chatState.generation++;
+  chatState.controller?.abort();
+  Object.assign(chatState,{history:null,workspace:null,lyric:null,task:null,sig:null,continuationId:null,pending:null,controller:null,retryAt:0});
+  _chatSave();
+  _chatSetBusy(false);
   const log = _chatEl('chat-log');
   if (log) log.innerHTML = '';
   const panel = _chatEl('chat-panel');
   if (panel) panel.hidden = true;
-  const input = _chatEl('chat-input');
-  if (input) input.focus();
+  _chatEl('chat-input')?.focus();
 }
 
 async function _chatSubmit(e) {
   e.preventDefault();
   if (chatState.busy) return;
+  if (chatState.pending) return _chatRecover();
+  if (chatState.retryAt > Date.now()) {
+    _chatOpenPanel();
+    _chatAppend(`<div class="chat-msg chat-msg-note">The service asked us to wait until ${new Date(chatState.retryAt).toLocaleTimeString()}.</div>`);
+    return;
+  }
   const input = _chatEl('chat-input');
-  const message = input ? input.value.trim() : '';
+  const message = input?.value.trim() || '';
   if (!message) return;
-
+  const generation = chatState.generation;
+  const request_id = _chatRequestId();
+  const choice = _chatEl('chat-domain')?.value || 'recipe';
+  const domain = chatState.task?.domain || (choice === 'recipe-browse' ? 'recipe' : choice === 'lyrics-edit' ? 'lyrics' : choice);
+  const body = {message,request_id,task:{domain,phase:choice === 'recipe-browse' ? 'browse' : choice === 'lyrics-edit' ? 'edit' : 'create'}};
+  if (chatState.continuationId) { body.continuation_id = chatState.continuationId; delete body.task; }
+  else if (chatState.sig) {
+    Object.assign(body,{history:chatState.history,workspace:chatState.workspace,sig:chatState.sig});
+    if (chatState.lyric != null) body.lyric = chatState.lyric;
+    if (chatState.task != null) body.task = chatState.task;
+    else delete body.task; // Preserve signatures from before task contracts.
+  }
+  chatState.pending = {request_id,message,domain,created_at:Date.now()};
+  try { _chatSave(); }
+  catch {
+    chatState.pending = null;
+    _chatOpenPanel();
+    _chatAppend('<div class="chat-msg chat-msg-error">This browser could not save the request for recovery. Free local storage before starting it.</div>');
+    return;
+  }
   _chatOpenPanel();
   _chatAppend(`<div class="chat-msg chat-msg-you">${esc(message)}</div>`);
   if (input) input.value = '';
   _chatSetBusy(true);
-  const pending = _chatAppend('<div class="chat-msg chat-msg-note">Working through the catalog…</div>');
-
+  const note = _chatAppend('<div class="chat-msg chat-msg-note">Working on your request…</div>');
+  const controller = new AbortController();
+  chatState.controller = controller;
   try {
-    const body = { message };
-    // Only send an envelope once the server has given us one to send back.
-    if (chatState.sig) {
-      body.history = chatState.history;
-      body.workspace = chatState.workspace;
-      // The carried revise state is part of the signed envelope only when a
-      // revise run is actually in flight; sending it when null would change
-      // the envelope's shape and fail the signature.
-      if (chatState.lyric != null) body.lyric = chatState.lyric;
-      body.sig = chatState.sig;
-    }
-    const res = await fetch(`${CHAT_BACKEND}/chat`, {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(body),
-    });
+    const res = await fetch(`${CHAT_BACKEND}/chat`, {method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body),signal:controller.signal});
     const payload = await res.json().catch(() => null);
-    if (pending) pending.remove();
-
-    if (!res.ok || !payload || payload.error) {
-      const msg = (payload && payload.error) || `The engine returned ${res.status}.`;
-      _chatAppend(`<div class="chat-msg chat-msg-error">${esc(msg)}</div>`);
-      return;
+    if (generation !== chatState.generation) return;
+    if (payload?.code === 'STALE_CONTINUATION' && /^[a-f0-9]{64}$/.test(payload.successor_id || '')) {
+      chatState.pending = {...chatState.pending,request_id:payload.successor_id}; _chatSave();
+      return await _chatRecover(generation);
     }
-    chatState.history = payload.history;
-    chatState.workspace = payload.workspace;
-    chatState.lyric = payload.lyric != null ? payload.lyric : null;
-    chatState.sig = payload.sig;
-    _chatRenderReply(payload);
-  } catch (err) {
-    if (pending) pending.remove();
-    // A network failure and a server error read the same to a user; say which.
-    _chatAppend(
-      `<div class="chat-msg chat-msg-error">Could not reach the engine. ${esc(err && err.message ? err.message : '')}</div>`
-    );
+    if (!payload || ['pending','interrupted','retired'].includes(payload.state)) return await _chatRecover(generation);
+    _chatReceive(payload,res.headers);
+  } catch {
+    if (generation !== chatState.generation) return;
+    _chatAppend('<div class="chat-msg chat-msg-note">The response was interrupted. Checking the saved request before continuing…</div>');
+    await _chatRecover(generation);
   } finally {
-    _chatSetBusy(false);
-    if (input && !input.disabled) input.focus();
+    note?.remove();
+    if (generation === chatState.generation) {
+      chatState.controller = null;
+      _chatSetBusy(false);
+      if (input && !input.disabled) input.focus();
+    }
   }
 }
 
@@ -67186,6 +67348,23 @@ function initChatDock() {
   const form = _chatEl('chat-form');
   if (!dock || !form) return;
 
+  _chatLoad();
+  const domain = _chatEl('chat-domain');
+  if (domain && chatState.task?.domain) domain.value = chatState.task.domain + (chatState.task.phase === 'edit' ? '-edit' : chatState.task.phase === 'browse' ? '-browse' : '');
+  const recover = _chatEl('chat-recover');
+  if (recover) recover.addEventListener('click', () => {
+    if (chatState.busy) return;
+    if (!chatState.pending && chatState.archives.length) {
+      const saved = chatState.archives.pop();
+      _chatReset();
+      chatState.pending = saved;
+      _chatSave();
+    }
+    _chatRecover();
+  });
+  if (!chatState.pending && chatState.continuationId) chatState.pending = {request_id:chatState.continuationId,message:'',domain:chatState.task?.domain};
+  if (chatState.pending) _chatRecover();
+  _chatSetBusy(chatState.busy);
   form.addEventListener('submit', _chatSubmit);
   const collapse = _chatEl('chat-collapse');
   if (collapse) collapse.addEventListener('click', () => {
@@ -67198,7 +67377,7 @@ function initChatDock() {
   fetch(`${CHAT_BACKEND}/chat/status`)
     .then(r => (r.ok ? r.json() : null))
     .then(status => {
-      if (!status || !status.ok) return;
+      if (!status || !status.ok || status.enabled === false) return;
       dock.hidden = false;
       const meta = _chatEl('chat-meta');
       if (meta) meta.textContent = status.model ? `${status.model} · ${status.tools} tools` : '';

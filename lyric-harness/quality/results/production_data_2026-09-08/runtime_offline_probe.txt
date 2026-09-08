@@ -1,0 +1,82 @@
+"""Actual CLI resource-availability checks against one isolated release assembly."""
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import time
+
+root = Path(sys.argv[1]).resolve()
+output = Path(sys.argv[2]).resolve()
+env = dict(os.environ, LYRIC_STAGED_DATA=str(root / "data"),
+           NLTK_DATA=str(root / "data/nltk"), PYTHONPATH=str(root))
+env.pop("PYTHONSTARTUP", None)
+guard = '''import socket,sys,runpy
+def denied(*args, **kwargs):
+    raise AssertionError("network access forbidden during offline release probe")
+socket.socket.connect=denied
+socket.create_connection=denied
+'''
+pairs = {"eng": ("night", "light"), "cym": ("cariad", "bariad"),
+         "fas": ("کار", "یار"), "fin": ("laulu", "kaulu"),
+         "ltc": ("流", "樓"), "msa": ("sayang", "bayang"),
+         "non": ("dagr", "fagr"), "san": ("rāma", "kāma"),
+         "som": ("bari", "dari")}
+results = []
+for lang, (first, second) in pairs.items():
+    args = [str(root / "lyric_harness.py"), "types", first, "--", second, "--lang=" + lang]
+    code = guard + "sys.argv=" + repr(args) + "\nrunpy.run_path(sys.argv[0],run_name='__main__')\n"
+    start = time.monotonic()
+    run = subprocess.run([sys.executable, "-c", code], cwd=root, env=env,
+                         text=True, capture_output=True, timeout=90)
+    results.append({"kind": "actual_cli", "lang": lang, "argv": args[1:],
+                    "returncode": run.returncode, "seconds": time.monotonic() - start,
+                    "stdout": run.stdout, "stderr": run.stderr})
+    assert run.returncode == 0, results[-1]
+    if lang in ("fas", "msa", "som"):
+        assert "INDETERMINATE:" in run.stdout and "prominence" in run.stdout, results[-1]
+        results[-1]["outcome"] = "expected indeterminacy: default anchor needs undeclared stress"
+    else:
+        assert "phonology: " + lang in run.stdout and "agreement (" in run.stdout, results[-1]
+        results[-1]["outcome"] = "classified"
+
+code = guard + "pairs=" + repr(pairs) + "\n" + '''
+from pathlib import Path
+from quality.phonology import get
+from quality.floor import SlopFloor, FLOOR_FEATURES
+from quality.features import QualityFeatures
+for lang, words in pairs.items():
+    for word in words:
+        readings=get(lang).parses(word)
+        assert readings and all(readings), (lang,word,readings)
+print("all nine phonologies produced nonempty readings for both declared probe words")
+assert not Path("data/concreteness.txt").exists()
+assert not Path("corpus").exists()
+assert FLOOR_FEATURES == ("mattr", "function_word_ratio")
+findings=SlopFloor().check(["My kettle whistles by the stove", "Your fingers brush my heavy coat"])
+print("mandatory floor completed",len(findings))
+try:
+    QualityFeatures()
+except SystemExit as exc:
+    assert exc.code == 2, exc.code
+    print("missing optional concreteness explicitly refused with exit2")
+else:
+    raise AssertionError("full feature extractor silently accepted missing norms")
+'''
+start = time.monotonic()
+run = subprocess.run([sys.executable, "-c", code], cwd=root, env=env,
+                     text=True, capture_output=True, timeout=90)
+results.append({"kind": "mandatory_floor_optional_refusal", "returncode": run.returncode,
+                "seconds": time.monotonic() - start, "stdout": run.stdout, "stderr": run.stderr})
+assert run.returncode == 0, results[-1]
+assert "concreteness" in run.stdout + run.stderr, results[-1]
+sha = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
+record = {"ok": True, "root": str(root), "python": sys.version,
+          "network_connections_denied": True,
+          "proof_scope": "Local installed Python and isolated approved assets; not Docker3.11 or hosted resource qualification",
+          "manifest_sha256": sha(root / "data/runtime_assets.json"),
+          "source_sha256": {str(p.relative_to(root)): sha(p) for p in sorted(root.rglob("*.py"))},
+          "results": results}
+output.write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n")
+print(json.dumps({"ok": True, "checks": len(results), "output": str(output)}))

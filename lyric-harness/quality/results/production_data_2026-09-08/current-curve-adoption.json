@@ -1,0 +1,582 @@
+{
+  "version": 1,
+  "provenance": {
+    "version": 1,
+    "with_predictability": true,
+    "comparator_fingerprint": "44398a4be4debb5408e67d13de4f60a28080d7999f099bdcbc65e64618ff83fb",
+    "population_fingerprint": "d794778fa138ff24ead0c36f108eadf3fe1f2d8723614dff6cb214bb3fcefef5",
+    "corpus_sha256": "f32f91aa32a5d0dc509bde574a38676ed600ff231f557d2ca698ee9749094f96",
+    "question_sha256": "d53e59446e1a8ac79e0fbacce1d57c090dd77ba3013ec280a33143c5e159af7f",
+    "tagger_sha256": "0189b5b3824b9c61b131d017c86749201a8e3962e089a67a811548aefcd195a3",
+    "nltk": "3.10.3"
+  },
+  "items": 8545,
+  "files": 1296,
+  "lo": 4,
+  "hi": 3245,
+  "seeds": 200,
+  "picks": {
+    "mattr": {
+      "model": "C1",
+      "rule_model": "C1",
+      "partial": false,
+      "range": [
+        4,
+        3245
+      ],
+      "holes": []
+    },
+    "fwr": {
+      "model": "C2",
+      "rule_model": "C2",
+      "partial": false,
+      "range": [
+        4,
+        3245
+      ],
+      "holes": []
+    },
+    "anaphora": {
+      "model": "C2",
+      "rule_model": "C2",
+      "partial": false,
+      "range": [
+        4,
+        3245
+      ],
+      "holes": []
+    },
+    "cv": {
+      "model": "CK",
+      "rule_model": "CK",
+      "partial": false,
+      "range": [
+        4,
+        3245
+      ],
+      "holes": []
+    },
+    "predictability": {
+      "model": "CK",
+      "rule_model": "C0",
+      "partial": false,
+      "range": [
+        4,
+        3245
+      ],
+      "holes": []
+    }
+  },
+  "held_out_fpr": {
+    "mattr": [
+      4.88,
+      3.01,
+      7.95
+    ],
+    "fwr": [
+      5.07,
+      3.29,
+      7.54
+    ],
+    "anaphora": [
+      5.09,
+      3.39,
+      7.19
+    ],
+    "cv": [
+      5.31,
+      4.28,
+      6.72
+    ],
+    "predictability": [
+      2.63,
+      1.34,
+      4.62
+    ],
+    "ANY": [
+      18.73,
+      14.73,
+      23.95
+    ]
+  },
+  "curves": {
+    "mattr": {
+      "coef": [
+        0.4952517776188664,
+        0.03833007003286887
+      ],
+      "loss": 74.06442304926667,
+      "iters": 88,
+      "agree": 6.355965323751243e-10,
+      "n": 8545,
+      "loss_zero_start": 74.06442304926667
+    },
+    "fwr": {
+      "coef": [
+        0.76035749241284,
+        -0.09473094361657966,
+        0.007885996159314509
+      ],
+      "loss": 48.9615811297155,
+      "iters": 75,
+      "agree": 7.01725366133053e-12,
+      "n": 8545,
+      "loss_zero_start": 48.9615811297155
+    },
+    "anaphora": {
+      "coef": [
+        1.137291175721639,
+        -0.24012626484613134,
+        0.015914662949523505
+      ],
+      "loss": 99.68717730443672,
+      "iters": 42,
+      "agree": 4.25952815970984e-12,
+      "n": 8545,
+      "loss_zero_start": 99.68717730486134
+    },
+    "cv": {
+      "knots": [
+        [
+          3.5553480614894135,
+          0.0642758144161543
+        ],
+        [
+          3.970291913552122,
+          0.07692307692307693
+        ],
+        [
+          4.23410650459726,
+          0.08532865858965079
+        ],
+        [
+          4.418840607796598,
+          0.10096848201132634
+        ],
+        [
+          4.543294782270004,
+          0.10861498714281173
+        ],
+        [
+          4.634728988229636,
+          0.10492525271043605
+        ],
+        [
+          4.718498871295094,
+          0.09363110694663351
+        ],
+        [
+          4.795790545596741,
+          0.0930223193236085
+        ],
+        [
+          4.890349128221754,
+          0.09767358546241532
+        ],
+        [
+          4.955827057601261,
+          0.10488070138377338
+        ],
+        [
+          5.0238805208462765,
+          0.10112296691274376
+        ],
+        [
+          5.10594547390058,
+          0.10552011308194521
+        ],
+        [
+          5.204006687076795,
+          0.11043838037447044
+        ],
+        [
+          5.293304824724492,
+          0.11196985898950418
+        ],
+        [
+          5.389071729816501,
+          0.10582981563598604
+        ],
+        [
+          5.497168225293202,
+          0.11580745882323212
+        ],
+        [
+          5.602118820879701,
+          0.11109864169798606
+        ],
+        [
+          5.730099782973574,
+          0.1105870870492807
+        ],
+        [
+          5.8805329864007,
+          0.1179530281629346
+        ],
+        [
+          6.074195944705447,
+          0.12060908124979246
+        ],
+        [
+          6.52649485957079,
+          0.1300570413066717
+        ]
+      ]
+    },
+    "predictability": {
+      "knots": [
+        [
+          3.5553480614894135,
+          1.0
+        ],
+        [
+          3.970291913552122,
+          1.0
+        ],
+        [
+          4.23410650459726,
+          1.0
+        ],
+        [
+          4.418840607796598,
+          1.0
+        ],
+        [
+          4.543294782270004,
+          1.0
+        ],
+        [
+          4.634728988229636,
+          1.0
+        ],
+        [
+          4.718498871295094,
+          1.0
+        ],
+        [
+          4.795790545596741,
+          1.0
+        ],
+        [
+          4.890349128221754,
+          1.0
+        ],
+        [
+          4.955827057601261,
+          1.0
+        ],
+        [
+          5.0238805208462765,
+          1.0
+        ],
+        [
+          5.10594547390058,
+          1.0
+        ],
+        [
+          5.204006687076795,
+          0.9375
+        ],
+        [
+          5.293304824724492,
+          0.9285714285714286
+        ],
+        [
+          5.389071729816501,
+          0.9335416666666665
+        ],
+        [
+          5.497168225293202,
+          0.9333333333333333
+        ],
+        [
+          5.602118820879701,
+          0.9415032679738561
+        ],
+        [
+          5.730099782973574,
+          0.9090909090909091
+        ],
+        [
+          5.8805329864007,
+          0.9047619047619048
+        ],
+        [
+          6.074195944705447,
+          0.8826797385620911
+        ],
+        [
+          6.52649485957079,
+          0.8571428571428571
+        ]
+      ]
+    }
+  },
+  "bins": [
+    {
+      "k": 0,
+      "lo_i": 0,
+      "hi_i": 400,
+      "n": 400,
+      "n_lo": 4,
+      "n_hi": 46,
+      "med": 35.0,
+      "x_med": 3.5553480614894135
+    },
+    {
+      "k": 1,
+      "lo_i": 400,
+      "hi_i": 800,
+      "n": 400,
+      "n_lo": 46,
+      "n_hi": 61,
+      "med": 53.0,
+      "x_med": 3.970291913552122
+    },
+    {
+      "k": 2,
+      "lo_i": 800,
+      "hi_i": 1200,
+      "n": 400,
+      "n_lo": 61,
+      "n_hi": 77,
+      "med": 69.0,
+      "x_med": 4.23410650459726
+    },
+    {
+      "k": 3,
+      "lo_i": 1200,
+      "hi_i": 1600,
+      "n": 400,
+      "n_lo": 77,
+      "n_hi": 90,
+      "med": 83.0,
+      "x_med": 4.418840607796598
+    },
+    {
+      "k": 4,
+      "lo_i": 1600,
+      "hi_i": 2000,
+      "n": 400,
+      "n_lo": 90,
+      "n_hi": 99,
+      "med": 94.0,
+      "x_med": 4.543294782270004
+    },
+    {
+      "k": 5,
+      "lo_i": 2000,
+      "hi_i": 2400,
+      "n": 400,
+      "n_lo": 99,
+      "n_hi": 108,
+      "med": 103.0,
+      "x_med": 4.634728988229636
+    },
+    {
+      "k": 6,
+      "lo_i": 2400,
+      "hi_i": 2800,
+      "n": 400,
+      "n_lo": 108,
+      "n_hi": 116,
+      "med": 112.0,
+      "x_med": 4.718498871295094
+    },
+    {
+      "k": 7,
+      "lo_i": 2800,
+      "hi_i": 3200,
+      "n": 400,
+      "n_lo": 116,
+      "n_hi": 127,
+      "med": 121.0,
+      "x_med": 4.795790545596741
+    },
+    {
+      "k": 8,
+      "lo_i": 3200,
+      "hi_i": 3600,
+      "n": 400,
+      "n_lo": 127,
+      "n_hi": 138,
+      "med": 133.0,
+      "x_med": 4.890349128221754
+    },
+    {
+      "k": 9,
+      "lo_i": 3600,
+      "hi_i": 4000,
+      "n": 400,
+      "n_lo": 138,
+      "n_hi": 147,
+      "med": 142.0,
+      "x_med": 4.955827057601261
+    },
+    {
+      "k": 10,
+      "lo_i": 4000,
+      "hi_i": 4400,
+      "n": 400,
+      "n_lo": 147,
+      "n_hi": 159,
+      "med": 152.0,
+      "x_med": 5.0238805208462765
+    },
+    {
+      "k": 11,
+      "lo_i": 4400,
+      "hi_i": 4800,
+      "n": 400,
+      "n_lo": 159,
+      "n_hi": 173,
+      "med": 165.0,
+      "x_med": 5.10594547390058
+    },
+    {
+      "k": 12,
+      "lo_i": 4800,
+      "hi_i": 5200,
+      "n": 400,
+      "n_lo": 173,
+      "n_hi": 190,
+      "med": 182.0,
+      "x_med": 5.204006687076795
+    },
+    {
+      "k": 13,
+      "lo_i": 5200,
+      "hi_i": 5600,
+      "n": 400,
+      "n_lo": 190,
+      "n_hi": 208,
+      "med": 199.0,
+      "x_med": 5.293304824724492
+    },
+    {
+      "k": 14,
+      "lo_i": 5600,
+      "hi_i": 6000,
+      "n": 400,
+      "n_lo": 208,
+      "n_hi": 231,
+      "med": 219.0,
+      "x_med": 5.389071729816501
+    },
+    {
+      "k": 15,
+      "lo_i": 6000,
+      "hi_i": 6400,
+      "n": 400,
+      "n_lo": 231,
+      "n_hi": 257,
+      "med": 244.0,
+      "x_med": 5.497168225293202
+    },
+    {
+      "k": 16,
+      "lo_i": 6400,
+      "hi_i": 6800,
+      "n": 400,
+      "n_lo": 257,
+      "n_hi": 288,
+      "med": 271.0,
+      "x_med": 5.602118820879701
+    },
+    {
+      "k": 17,
+      "lo_i": 6800,
+      "hi_i": 7200,
+      "n": 400,
+      "n_lo": 289,
+      "n_hi": 329,
+      "med": 308.0,
+      "x_med": 5.730099782973574
+    },
+    {
+      "k": 18,
+      "lo_i": 7200,
+      "hi_i": 7600,
+      "n": 400,
+      "n_lo": 329,
+      "n_hi": 392,
+      "med": 358.0,
+      "x_med": 5.8805329864007
+    },
+    {
+      "k": 19,
+      "lo_i": 7600,
+      "hi_i": 8000,
+      "n": 400,
+      "n_lo": 392,
+      "n_hi": 504,
+      "med": 434.5,
+      "x_med": 6.074195944705447
+    },
+    {
+      "k": 20,
+      "lo_i": 8000,
+      "hi_i": 8545,
+      "n": 545,
+      "n_lo": 504,
+      "n_hi": 3245,
+      "med": 683,
+      "x_med": 6.52649485957079
+    }
+  ],
+  "recovery_proof": {
+    "source_definition_bug": "inspect.getsource used stale co_firstlineno after unrelated earlier lines changed. The same unchanged functions reproduce the false hash; AST/name source resolution exactly matches the previously verified metadata.",
+    "old_offset_question_sha256": "8f7bbd4d67765fad29d7648fc4939c9a9fe325239247ffb010a9003c029ec2c2",
+    "name_resolved_question_sha256": "d53e59446e1a8ac79e0fbacce1d57c090dd77ba3013ec280a33143c5e159af7f",
+    "current_provenance_matches_saved_rows": true,
+    "unchanged_question_function_sha256": {
+      "predictability_frac": "b786e21a6e2d17e283a1829d21f6365524e72c51deaf2b148423d866f778c8c9",
+      "_couplet_pairs": "942c42ed7326bedcc27b0e8b42671b4094c225d7b5773fec1227c3350c8e5a86",
+      "population": "c94b02c45d84fe1dc8032b6c5ed9dff347243145612f6f090d3f4b7feacfb7d1",
+      "anaphora": "fc8a65a53e4ef6dcaf5fbd9b34a7b4b05e260535beb8f934eb0d25a3f62aca0a",
+      "line_cv": "2b1b3b40cecb7049e571087f2f230a41528004416e8e5046e3f0be516bf377c6",
+      "author_of": "812faa70b37b5f6ca5626961f7d1c4cf9bea363d4b4d262114db37bd130ead3b"
+    },
+    "completed_fit_log_sha256": "9dd1e51282b6d601a991ffa04f970f60ae890dc75cf0e9c5079c84c00abea855",
+    "seeds": 200,
+    "coefficients_independently_rederived": true,
+    "held_out_rates": "Recovered at the instrument printed precision (two decimal percentage points), from the completed 200-seed stream; not newly estimated."
+  },
+  "rendering_equivalence_proof": {
+    "kind": "complete independent item remeasurement after rendering-only CLI patch",
+    "rows": 8545,
+    "all_row_bytes_identical": true,
+    "row_sha256": "7ef7410bfb1271c596eaca69e261ffbc00cbae89059ea7e9a31d298344fe3b63",
+    "before_comparator_fingerprint": "0a726100c24520f2087544e9d8007f4650d1636bdc5669ba690eaf5de54eae79",
+    "after_comparator_fingerprint": "ec46dc28b3dcb89d7c474642b5004b7fd240fbae02d4925f7d8a48377f9b18e0",
+    "rendering_patch": {
+      "before_sha256": "e0bc48aa9e5ef1fed60d7ab4a234e893bc04e8bf196bb2ab491866d409f08496",
+      "after_sha256": "427d4e4c79b9479cf9126d71466961d22d035f0fd2ced6a6afc53ad27fcdf3fc",
+      "scope": "Only rendering existing return obligations and scoping empty line-flag stamp. No reader/scorer/field/plan behavior changed."
+    },
+    "at": "2026-09-08T04:59:06.658272+00:00"
+  },
+  "query_projection_equivalence_proof": {
+    "kind": "complete item remeasurement with bounded exact-field residency after CLI query projection",
+    "rows": 8545,
+    "all_row_bytes_identical": true,
+    "row_sha256": "7ef7410bfb1271c596eaca69e261ffbc00cbae89059ea7e9a31d298344fe3b63",
+    "prior_row_artifact": "before-returns-current-calibration-rows.tsv",
+    "after_comparator_fingerprint": "44398a4be4debb5408e67d13de4f60a28080d7999f099bdcbc65e64618ff83fb",
+    "consumed_field_fingerprint": "473da80f8438a8d3a2f2927e5bc94a205a0ca0b06e6907aefc4ae56d2ef0996c",
+    "final_cli_sha256": "4256ce141654b499bf65c505ab6b5e5eb895b7857b2f72c1b576dec5acff2191",
+    "max_cached_fields": 512,
+    "peak_rss_bytes": 755691520,
+    "last_segment_wall_s": 404.409355582,
+    "resumed_current_item_memo": true,
+    "earlier_segment": "data-final-bounded-rows-128.log",
+    "disclosure": "The final segment resumed only exact current comparator-keyed item entries committed by the bounded 128-field run. The full resulting 8,545-row TSV is byte-identical to the independently measured earlier source. This is local research-runner memory evidence, not hosted runtime qualification.",
+    "at": "2026-09-08T05:20:22.965295+00:00"
+  },
+  "mattr_window_population": {
+    "window": 50,
+    "n_human": 8545,
+    "degenerate_ttr": 534,
+    "moving_average": 8011
+  }
+}

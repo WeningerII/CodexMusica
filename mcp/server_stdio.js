@@ -8,7 +8,8 @@
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { buildServer } from './tools.js';
 
-const server = buildServer();
+const domain = process.env.MCP_TASK_DOMAIN;
+const server = buildServer(domain ? { task: { domain, format: 'rich', maxChars: 1000 } } : {});
 const transport = new StdioServerTransport();
 await server.connect(transport);
 

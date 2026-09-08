@@ -144,6 +144,14 @@ module.exports = [
     },
   },
   {
-    ignores: ['node_modules/**', 'references/**', 'tests/**', '**/*.min.js'],
+    // Archived reproductions preserve the exact historical bytes; maintained
+    // test and runtime sources remain linted in mcp/ and scripts/.
+    ignores: [
+      'node_modules/**',
+      'references/**',
+      'tests/**',
+      '**/*.min.js',
+      'docs/production-audit-evidence/**',
+    ],
   },
 ];

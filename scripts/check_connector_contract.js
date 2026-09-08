@@ -91,10 +91,18 @@ const STRUCTURAL = [
 //     deliberate: a plain z.object silently swallows a typo'd stage, which is
 //     the exact silent-failure class the chain validation exists to prevent.
 //     One boolean is worth a loud error.
+//
+//   pronunciations.items.additionalProperties — false, from strictObject.
+//     Occurrence bindings must reject typo'd provenance/position fields rather
+//     than silently dropping them. The Gemini adapter removes this keyword
+//     from its declarations while server-side strict validation stays intact.
 const EXEMPT = new Set([
   'edit_recipe.properties.workspace.properties.cards.items:EMPTY',
   'render_recipe.properties.workspace.properties.cards.items:EMPTY',
   'edit_recipe.properties.edits.items.properties.chain.additionalProperties',
+  ...['lyric_grade', 'lyric_revise', 'lyric_verify', 'lyric_recover', 'lyric_check'].map(
+    (name) => `${name}.properties.pronunciations.items.additionalProperties`
+  ),
 ]);
 
 // Exactly the surface we intend to advertise. A tenth tool inflates the schema

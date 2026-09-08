@@ -88,7 +88,7 @@ class EnglishAllReadings(eng.English):
         w = lh.fold_apostrophes(word).lower()
         prons = LEX.entries.get(w)
         if not prons:
-            return [self.syllabify(word)]
+            return [self._syllabify_single(word)]
         return [[Syllable(text=word, onset=tuple(s["onset"]),
                           nucleus=s["nucleus"], coda=tuple(s["coda"]),
                           prominence=1 if s["stress"] in (1, 2) else 0,
@@ -123,7 +123,7 @@ class LtcAllReadings(ltc.MiddleChinese):
         return [list(c) for c in itertools.product(*cols)]
 
 
-E_FIRST = eng.English()
+E_FIRST = eng.English(readings="first")
 E_ALL = EnglishAllReadings()
 E_UNC = EnglishUncertain()
 L_FIRST = ltc.MiddleChinese()
@@ -260,7 +260,7 @@ def test_nine_modules_are_unmoved():
 
     total_words = 0
     for lang in declared():
-        phon = get(lang)
+        phon = eng.English(readings="first") if lang == "eng" else get(lang)
         words = [t for line in PROBE[lang]
                  for t in (list(line.replace(" ", "")) if lang == "ltc"
                            else line.split())]
@@ -323,7 +323,7 @@ def test_eng_homographs():
               f"nucleus {sy[0].nucleus!r}; {note}")
 
     # THE case.
-    for phon, label, want in ((E_FIRST, "single reading (as shipped)", True),
+    for phon, label, want in ((E_FIRST, "explicit historical first reading", True),
                               (E_UNC, "knowledge sets  (P11 closed)", None)):
         st = R.build_stream(["a mighty wind", "what i did find"], phon,
                             declaration={"language": "eng"})
@@ -614,9 +614,8 @@ def test_the_oracle_did_not_move():
           got == (battery.EXPECTED["mandated"], battery.EXPECTED["judged"],
                   battery.EXPECTED["refused"], battery.EXPECTED["violations"]),
           f"{got}. Doctrine 79: three counts, and the fourth is the one people "
-          f"quote. Identical before and after the Syllable change, because "
-          f"the shipped `eng` still declares one reading — this file's "
-          f"section 4 is what shows the capability is nonetheless reachable.")
+          f"quote. The production policy preserves pronunciation uncertainty; "
+          f"battery.py records each causal oracle revision.")
 
 
 if __name__ == "__main__":

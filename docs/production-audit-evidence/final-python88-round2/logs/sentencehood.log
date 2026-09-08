@@ -1,0 +1,38 @@
+
+1. the banked witness — the song this layer was built to hear
+  PASS  the tagger is available in this environment (the sections below examine nothing without it)
+  PASS  `long_bridge` trips STACKED_DRAFT — the draft every sound-layer gate passed at exit 0
+          flags: ['STACKED_DRAFT']
+  PASS  its four stacked lines are the ones the blind panel quoted (8, 14, 23, 25)
+          stacked: [8, 14, 23, 25]
+  PASS  `one_more` — the five the panel passed carry ZERO stacked lines
+          stacked: []
+  PASS  `turn_the_wheel` — the five the panel passed carry ZERO stacked lines
+          stacked: []
+  PASS  `stay_awake` — the five the panel passed carry ZERO stacked lines
+          stacked: []
+  PASS  `carry_it_over` — the five the panel passed carry ZERO stacked lines
+          stacked: []
+  PASS  `keep_the_light` — the five the panel passed carry ZERO stacked lines
+          stacked: []
+
+2. the boundary — verbless is NOT stacked (doctrine 7)
+  PASS  a prepositional verbless line is not a stack
+  PASS  a comma-spliced noun inventory is
+  PASS  a short fragment is beneath the predicate's notice
+  PASS  an imperative is finite — 'Carry it. Don't look down.' is a sentence
+
+3. the calibration population's own floor
+  PASS  a 4-line draft with one stacked line gets the NOTE and no flag — the ceiling was calibrated on songs of >= 8 lines and asks nothing below its own population
+          ['STACKED_LINE']
+
+4. MUTATION — the ceiling is load-bearing
+  PASS  ceiling raised past 1.0 -> the flag disappears, so the constant is read and not decorative
+
+5. the wiring — inspect() carries the layer and says so
+  PASS  inspect() discloses `sentencehood_checked` beside `blueprint_declared`
+  PASS  STACKED_DRAFT reaches inspect()'s whole-draft set — the same seam `song`'s exit 3 and verify()'s new_flags read
+          whole: ['UNIFORM_LINE_LENGTH', 'STACKED_DRAFT', 'COLLISION_CUT_IS_SCALAR_ONLY']
+  PASS  the per-line notes name their lines through the same fold
+======================================================================
+a line of stacked nouns is not a sung phrase, and now a gate says so

@@ -832,8 +832,12 @@ def test_item_level_near_duplication_series():
     # remove any.
     # REPINNED 2026-08-20 (HBV): 1,048 -> 1,297 eng files, 7,258 ->
     # 8,258 items.
-    check("1297 eng_* files and 8,258 items are big enough to judge",
-          len({r for r, _ in eng}) == 1297 and len(recs) == 8258,
+    # 2026-09-08: 8258 -> 8247 eligible signatures after reviewed source
+    # corrections: Whittier -1, Lovelace -2, Herrick -10, Blake +1 and
+    # D'Urfey +1. This instrument's minimum-signature population is distinct
+    # from 8661 raw TITLEs and 8545 nonempty weighted calibration works.
+    check("1297 eng_* files and 8,247 items meet the signature rule",
+          len({r for r, _ in eng}) == 1297 and len(recs) == 8247,
           (len({r for r, _ in eng}), len(recs)))
     series = {}
     for cut in (0.30, 0.50, 0.60, 0.80, 1.00):
@@ -1126,20 +1130,24 @@ def test_check_H_on_the_real_corpus():
             if k:
                 matched += 1
                 shapes[k] = shapes.get(k, 0) + 1
-    check("2,550 one-line `[VERSE]` blocks under corpus/song/", one == 2550,
+    # 2026-09-08: actual before/after census attributes -92 one-line blocks
+    # to preserved editorial matter (Herrick -63, Lovelace -9, Read -7,
+    # Hemans -5, Byron -5, Emmett -2, D'Urfey -1). Only Read's numeral and
+    # allcaps title-page rows were in the matched half (-2); residue -90.
+    check("2,458 one-line `[VERSE]` blocks under corpus/song/", one == 2458,
           one)
-    check("1,045 of them carry a declared apparatus shape", matched == 1045,
+    check("1,043 of them carry a declared apparatus shape", matched == 1043,
           matched)
     check("the shape split reproduces",
-          shapes == {"allcaps-label": 512, "numeral": 445, "ornament": 72,
+          shapes == {"allcaps-label": 511, "numeral": 444, "ornament": 72,
                      "heading-word": 16}, shapes)
-    check("the residue is 1,505 and is NOT claimed to be clean",
-          one - matched == 1505, one - matched)
+    check("the residue is 1,415 and is NOT claimed to be clean",
+          one - matched == 1415, one - matched)
     fs = AC.check_staging(files, AC.Sources())
     warn = sum(1 for f in fs if f.severity == AC.WARN)
     note = sum(1 for f in fs if f.severity == AC.NOTE)
-    check("105 files carry a charged block, 48 carry residue only",
-          (warn, note) == (105, 48), (warn, note))
+    check("104 files carry raw apparatus-shaped blocks, 48 carry residue only",
+          (warn, note) == (104, 48), (warn, note))
 
 
 # ---------------------------------------------------------------------------

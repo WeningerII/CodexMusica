@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "command": [
+    "node",
+    "--test",
+    "--test-concurrency=1",
+    "mcp/test_paid_budget.mjs",
+    "mcp/test_python_bridge.mjs",
+    "mcp/test_lyric_state.mjs",
+    "mcp/test_turn_lifecycle.mjs",
+    "mcp/test_battery_lifecycle.mjs",
+    "mcp/test_battery_archive.mjs",
+    "mcp/test_battery_storage.mjs",
+    "mcp/test_job_store.mjs"
+  ],
+  "expected_tests": 65,
+  "timeout_s": 360,
+  "identity_before": {
+    "commit": "e99dea5dd70d2c23a0c5732ee3c8c1186523e6c8",
+    "source_sha256": "859e984e403dd12b48a8eee7a2f3f22055f18886ca34a785edd1838d410ac5d2",
+    "node": "v24.19.0"
+  },
+  "exit_code": 0,
+  "wall_s": 83.69327755599807,
+  "summary": {
+    "tests": 65,
+    "suites": 0,
+    "pass": 65,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "completion_proven": true,
+  "source_stable": true,
+  "identity_after": {
+    "commit": "e99dea5dd70d2c23a0c5732ee3c8c1186523e6c8",
+    "source_sha256": "859e984e403dd12b48a8eee7a2f3f22055f18886ca34a785edd1838d410ac5d2",
+    "node": "v24.19.0"
+  },
+  "stdout_sha256": "106fa6a6c6974f7dcb1c4986df069daef798bf3d2b727f7a48ccd971136d9f33",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_bytes": 11028,
+  "stderr_bytes": 0
+}

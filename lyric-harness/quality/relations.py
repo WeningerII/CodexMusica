@@ -255,7 +255,7 @@ class Refusal:
 
 #: The gates `realise()` can refuse at.  `Refusal.kind` is one of these or the
 #: empty string; see the field's own comment for why "" is not `'capability'`.
-REFUSAL_KINDS = ("capability", "vacuous_frame", "span")
+REFUSAL_KINDS = ("capability", "vacuous_frame", "span", "unsupported_shape", "work_budget")
 
 #: `Supply.state`'s value set, ordered from least to most supplied.
 #:
@@ -533,6 +533,8 @@ class Stream:
     #: the difference is a rate every English measurement in this repo depends
     #: on.  Before this field the loss was silent.
     unreadable: list = field(default_factory=list)
+    lexical_tokens: tuple = ()
+    line_stanzas: tuple = ()
     #: DEFECT P10, closed as a DECLARED COORDINATE.  One label per line, ""
     #: where the caller declared none.  A chorus stub -- `Oh, my poor Nelly
     #: Gray, &c.` -- is not a line of verse, it is a POINTER to one, and
@@ -777,7 +779,7 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
     silent.  Both default to inert: a caller that declares neither gets the
     stream it got before, byte for byte.
     """
-    units, lines, toks, unreadable, excluded = [], [], {}, [], []
+    units, lines, toks, unreadable, excluded, lexical = [], [], {}, [], [], []
     if stanzas is None and stanza_source == "none":
         # THE CALLER KNOWS THERE IS NO GROUND AND SAYS SO, and this branch is
         # the one that must exist for the derivation to be REFUSABLE (M-39,
@@ -830,28 +832,41 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
         st = line_status[li] if li < len(line_status) else ""
         if st and st in exclude_status:
             excluded.append((li, st, raw))
+            lexical.append(())
             lines.append(())
             pending_split = False
             continue
-        words = tokeniser(raw)
+        line_phon = phon.for_line(raw) if hasattr(phon, "for_line") else phon
+        analysis = (line_phon.analyse_line(raw)
+                    if hasattr(line_phon, "analyse_line") else None)
+        declared_tokens = (line_phon.tokens_for_line(raw)
+                           if tokeniser is tokenise and hasattr(line_phon, "tokens_for_line") else None)
+        words = (list(analysis.tokens) if analysis else
+                 declared_tokens if declared_tokens is not None else tokeniser(raw))
+        lexical.append(tuple(words))
         cut = bool(re.search(r"[\w’'](-)\s*$", raw)) and hyphen_continues
-        # Two passes over the line.  The first finds which tokens the
-        # declaration can actually read, because `line_initial` / `line_final`
-        # are facts about the SURVIVING material and computing them from the raw
-        # token count is defect P0.  The second builds the units.
         read = []
-        for ti, w in enumerate(words):
-            sy = phon.syllabify(w)
-            if sy:
-                read.append((ti, w, sy))
-            else:
-                # out of the declared inventory: the token contributes NO units.
-                # The token index still advances, so a placement rule reading
-                # `line_tokens` still sees it -- and it is now RECORDED, so the
-                # loss is a number a caller can quote instead of a silence.
-                unreadable.append((li, ti, w))
-        first_ti = read[0][0] if read else -1
-        last_ti = read[-1][0] if read else -1
+        if analysis:
+            unreadable.extend((li, ti, w) for ti, w in analysis.refused)
+            owned = {}
+            for syl, owner in zip(analysis.syllables, analysis.token_indices):
+                owned.setdefault(owner, []).append(syl)
+            for ti, w in enumerate(words):
+                sy = owned.get(ti, [])
+                if sy:
+                    read.append((ti, w, sy))
+        else:
+            for ti, w in enumerate(words):
+                token_phon = line_phon.for_token(ti) if hasattr(line_phon, "for_token") else line_phon
+                sy = token_phon.syllabify(w)
+                if sy:
+                    read.append((ti, w, sy))
+                else:
+                    unreadable.append((li, ti, w))
+        # A declared boundary is lexical, even when its token cannot be read.
+        # Moving the boundary to the nearest readable token certifies a
+        # different line (cat qzxqzx / hat was a false perfect rhyme).
+        first_ti, last_ti = 0, len(words) - 1
         idxs = []
         for ti, w, sy in read:
             here = []
@@ -877,6 +892,7 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
                   declaration=dict(declaration or {}),
                   frames=Frames(stanza_source=stanza_source),
                   text_lines=tuple(text_lines), unreadable=unreadable,
+                  lexical_tokens=tuple(lexical), line_stanzas=tuple(stanzas),
                   line_status=line_status, excluded_lines=excluded)
 
 
@@ -1242,6 +1258,18 @@ class Agree(Predicate):
         return Read(v, inf, note)
 
 
+@dataclass(frozen=True)
+class NativeRhyme(Predicate):
+    phon: object = None
+    name: str = "DECLARED-NATIVE-RHYME"
+
+    def __call__(self, x, y):
+        if self.phon is None or x is None or y is None:
+            return Read(None, False, "native rhyme standard unavailable")
+        return Read(self.phon.rhymes(x, y), True,
+                    "phonology-authorized standard and reading-overlap policy")
+
+
 class Differ(Predicate):
     name = "DIFFER"
 
@@ -1458,6 +1486,8 @@ def _bind_quotient(pred, stream):
     """A ClassEqual whose quotient is DECLARED elsewhere, resolved against this
     stream.  Any other predicate, and any partition the schema states in full,
     is returned untouched."""
+    if isinstance(pred, NativeRhyme):
+        return replace(pred, phon=stream.phon)
     if getattr(pred, "resource", "") and pred.partition is None:
         q = _quotient_of(stream, pred.resource)
         if q is not None:
@@ -1682,6 +1712,20 @@ def _anchor_pos(rule, stream, ids):
             raise NoReferent("token has no penult")
         return len(us) - 2
     if a in ("last_stressed", "penult_stressed", "final_unstressed"):
+        if any(uncertain(u.syl.prominence) for u in us):
+            target = 0 if a == "final_unstressed" else 1
+            definite = [k for k,u in enumerate(us) if _alts(u.syl.prominence) == {target}]
+            possible = [k for k,u in enumerate(us) if target in _alts(u.syl.prominence)]
+            indices = {k for k in possible if not any(j > k for j in definite)}
+            if not definite:
+                if a == "final_unstressed":
+                    raise NoReferent("pronunciation readings disagree whether an unstressed anchor exists")
+                indices.add(0)  # the declared no-stress fallback
+            if a == "penult_stressed":
+                indices = {k-1 if k else k for k in indices}
+            if len(indices) == 1:
+                return next(iter(indices))
+            raise NoReferent("pronunciation readings disagree on the anchor position")
         if all(u.syl.prominence is None for u in us):
             raise NoReferent(
                 "this declaration carries no prominence, so an anchor rule "
@@ -1714,11 +1758,12 @@ def _loci(rule, stream):
         if not ids:
             continue
         if rule.locus == "line_final_token":
-            t = stream.units[ids[-1]].token
-            out.append((stream.tokens[(li, t)], f"L{li}.final", 1))
+            t = stream.units[ids[-1]].line_tokens - 1
+            if (li, t) in stream.tokens:
+                out.append((stream.tokens[(li, t)], f"L{li}.final", 1))
         elif rule.locus == "line_initial_token":
-            t = stream.units[ids[0]].token
-            out.append((stream.tokens[(li, t)], f"L{li}.initial", 1))
+            if (li, 0) in stream.tokens:
+                out.append((stream.tokens[(li, 0)], f"L{li}.initial", 1))
         elif rule.locus == "any_token":
             for (l2, t2), tid in stream.tokens.items():
                 if l2 == li and tid:
@@ -2005,7 +2050,8 @@ class Placement:
             if stream.frames.lift_source == "none":
                 return None
             lf = stream.frames.lifts.get(U[b.head()].line, ())
-            return bool(lf) and b.head() == lf[self.args[0]]
+            return (0 <= self.args[0] < len(lf)
+                    and b.head() == lf[self.args[0]])
         if k == "off_beat":
             # THE SAME SHAPE AS `at_lift` DIRECTLY ABOVE, and for the same
             # reason: an undeclared grid is a REFUSAL (None), never a False.
@@ -2113,7 +2159,8 @@ class Figure:
         # refuses at import rather than falling through `assemble()`'s
         # if/elif chain to silent no-op (the shape `unmatched` was fixed for
         # in `RelationSchema.__post_init__`, defect P15).
-        quantifier_table()[1](self.quantifier)
+        object.__setattr__(self, "quantifier",
+                           quantifier_table()[1](self.quantifier))
 
     def canonical_quantifier(self):
         """-> the canonical name, whatever spelling was declared."""
@@ -2731,7 +2778,7 @@ def _cand_buckets(schema, a, stream, chans, idx, wild):
 
 
 def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
-                     skip_line_pairs, tally=None):
+                     skip_line_pairs, tally=None, requested_line_pairs=None):
     """Every pair `realise()` would evaluate, in `realise()`'s order.
 
     ONE definition of what a candidate is (doctrine 1).  The `seen`
@@ -2744,15 +2791,53 @@ def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
     None, because a run that refuses records nothing and a run that does not
     refuse must count `deduplicated_candidates` exactly once.
     """
+    # A cached line-pair verdict is a skip, not a reason to reparse every
+    # span origin for every cross-product candidate. Bucket lists are shared
+    # by many A spans; cache their metadata once for this enumeration pass.
+    bucket_meta = {}
+    need_line = bool(skip_line_pairs) or requested_line_pairs is not None
+    for _, buckets in layout:
+        for values in buckets:
+            if id(values) not in bucket_meta:
+                bucket_meta[id(values)] = [(b, b.head(),
+                    _span_line(b, stream) if need_line else None) for b in values]
+    mirror_complete = a_keys == b_keys
     seen = set()
+    # A requested pair projection used to filter only after visiting the
+    # complete span Cartesian product. Build the same canonical line-pair
+    # predicate once, then retain each bucket's original order. The old
+    # predicate ran before seen/mirror/tally, so unrequested pairs contribute
+    # to none of those operations and can be removed here without changing
+    # their result. Full-figure/global queries retain the unfiltered path.
+    requested_partners = None
+    projected_buckets = {}
+    if requested_line_pairs is not None:
+        requested_partners = {}
+        for left, right in requested_line_pairs:
+            if left is not None and right is not None and left < right:
+                requested_partners.setdefault(left, set()).add(right)
+                requested_partners.setdefault(right, set()).add(left)
     for a, buckets in layout:
+        a_head = a.head()
+        la = _span_line(a, stream) if need_line else None
+        if requested_partners is not None:
+            partners = requested_partners.get(la)
+            if not partners:
+                continue
         for v in buckets:
-            for b in v:
+            candidates = bucket_meta[id(v)]
+            if requested_partners is not None:
+                key = (id(v), la)
+                if key not in projected_buckets:
+                    projected_buckets[key] = [row for row in candidates
+                                               if row[2] in partners]
+                candidates = projected_buckets[key]
+            for b, b_head, lb in candidates:
                 if a.idx == b.idx or (a.idx, b.idx) in seen:
                     continue
                 seen.add((a.idx, b.idx))
-                reversed_pair = a.head() > b.head()
-                if reversed_pair and mirrored(a, b, a_keys, b_keys):
+                reversed_pair = a_head > b_head
+                if reversed_pair and (mirror_complete or mirrored(a, b, a_keys, b_keys)):
                     # CANDIDATE level: a de-duplicated pair is never
                     # evaluated, so this count and `recovered_instances` sit
                     # on different denominators and must never be compared or
@@ -2763,15 +2848,18 @@ def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
                             tally.get("deduplicated_candidates", 0) + 1)
                     continue     # the mirror carries it; see mirrored()
                 if skip_line_pairs:
-                    la, lb = _span_line(a, stream), _span_line(b, stream)
                     if (la != lb and la is not None and lb is not None
                             and (min(la, lb), max(la, lb)) in skip_line_pairs):
                         continue  # the memo carries it; see line_pairs_for
                 yield a, b, reversed_pair
 
 
-def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
-            keep=("true", "none"), tally=None, skip_line_pairs=None):
+MAX_CANDIDATE_PAIRS = 2_000_000
+
+
+def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=MAX_CANDIDATE_PAIRS,
+            keep=("true", "none"), tally=None, skip_line_pairs=None,
+            requested_line_pairs=None):
     """Find every instance of `schema` in the song.  -> [Instance] or Refusal.
 
     THE ALGORITHM
@@ -2809,7 +2897,17 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
     remainder).  Same-line candidates are never skipped.  None (the default)
     evaluates everything, byte-identical to the call before the parameter
     existed.
+
+    `requested_line_pairs` optionally limits evaluation to 0-based unordered
+    cross-line pairs. It is permitted ONLY for pair-local schemas: their
+    verdict depends on these members in the full stream. Global figures and
+    quantifiers must be evaluated and assembled in full before projection.
     """
+    if requested_line_pairs is not None and not pair_scope_representable(schema):
+        raise ValueError("candidate projection requires a pair-local schema")
+    if not figure_pair_representable(schema) and schema.name not in (
+            "symploce", "analysed rhyme", "blues AAB stanza"):
+        return _full_shape(schema, stream)
     # THE WHOLE SET, not the first name.  This loop used to `return` inside the
     # `for`, so the answer was whichever missing capability sorted first and a
     # schema needing two reported one.  See `Refusal` for the measurement; the
@@ -2907,7 +3005,8 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
     if sum(len(v) for _, vs in layout for v in vs) > max_pairs:
         n = 0
         for _ in _candidate_pairs(schema, layout, stream, a_keys, b_keys,
-                                  skip_line_pairs):
+                                  skip_line_pairs,
+                                  requested_line_pairs=requested_line_pairs):
             n += 1
             if n > max_pairs:
                 raise RuntimeError("candidate explosion; tighten the schema")
@@ -2915,7 +3014,7 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
     out = []
     for a, b, reversed_pair in _candidate_pairs(
             schema, layout, stream, a_keys, b_keys, skip_line_pairs,
-            tally=tally):
+            tally=tally, requested_line_pairs=requested_line_pairs):
         inst = evaluate(schema, a, b, stream, chans)
         if inst is None:
             continue
@@ -2945,6 +3044,19 @@ def _forall_population(schema, frame, stream):
                     pop.add(stream.units[sp.head()].line)
         except NoReferent:
             continue
+    # An unreadable line cannot disappear from a universal denominator.
+    # Its declared frame survives even when it contributes no units.
+    for li, _, _ in stream.unreadable:
+        if schema.figure.frame == "stanza":
+            belongs = bool(stream.line_stanzas) and stream.line_stanzas[li] == frame
+        elif schema.figure.frame == "line":
+            belongs = li == frame
+        elif schema.figure.frame == "line_pair":
+            belongs = li // 2 == frame
+        else:
+            belongs = True
+        if belongs:
+            pop.add(li)
     return pop
 
 
@@ -2969,6 +3081,45 @@ def _components(es):
     return list(groups.values())
 
 
+def _common_onset_fraction(schema, edges, stream):
+    """A shared initial across a fraction of ALL lexical tokens in a line.
+
+    The denominator includes unreadable words. Definite and possible support
+    are counted separately, so uncertainty neither increases a true count nor
+    becomes a definite absence. A union of unrelated sound classes is never
+    mistaken for one shared initial.
+    """
+    result = []
+    threshold = schema.figure.fraction
+    for li, ids in enumerate(stream.lines):
+        words = stream.lexical_tokens[li] if stream.lexical_tokens else ()
+        total = len(words) if words else len({stream.units[i].token for i in ids})
+        if not total:
+            continue
+        values = []
+        candidates = set()
+        for ti in range(total):
+            tok = stream.tokens.get((li, ti), ())
+            value = stream.units[tok[0]].syl.onset if tok else None
+            values.append(value)
+            if value is not None:
+                candidates.update(_alts(value))
+        for candidate in sorted(candidates, key=repr):
+            lower = sum(v is not None and _alts(v) == {candidate} for v in values)
+            upper = sum(v is None or candidate in _alts(v) for v in values)
+            if upper / total < threshold:
+                continue
+            verdict = True if lower / total >= threshold else None
+            group = [e for e in edges if stream.line_of(e.a) == li
+                     and all((v is None or candidate in _alts(v)) for v in
+                             (stream.units[e.a.head()].syl.onset,
+                              stream.units[e.b.head()].syl.onset))]
+            result.append((li, group, verdict))
+        if not candidates and any(v is None for v in values):
+            result.append((li, [], None))
+    return result
+
+
 def assemble(schema, edges, stream):
     """Figures beyond the pair.  Edges are grouped into the declared shape and
     the member-selection quantifier is applied over the declared frame.
@@ -2991,6 +3142,12 @@ def assemble(schema, edges, stream):
     cover every line in the frame the span rule reaches.
     """
     fig = schema.figure
+    if not figure_pair_representable(schema):
+        return _full_shape(schema, stream)
+    if isinstance(edges, Refusal):
+        return edges
+    if schema.name == "paroemion" and fig.quantifier == "fraction":
+        return _common_onset_fraction(schema, edges, stream)
     by = {}
     for e in edges:
         if e.verdict is False:
@@ -3004,16 +3161,22 @@ def assemble(schema, edges, stream):
             for e in es:
                 emit([e])
         elif fig.quantifier == "exists_k":
-            nodes = {e.a.idx for e in es} | {e.b.idx for e in es}
-            if len(nodes) >= fig.k:
-                emit(es)
+            # Required members share one relation component. Disconnected
+            # sound classes cannot combine to manufacture a k-member figure.
+            for group in _components(es):
+                nodes = {e.a.idx for e in group} | {e.b.idx for e in group}
+                if len(nodes) >= fig.k:
+                    emit(group)
         elif fig.quantifier == "fraction":
             li = frame if isinstance(frame, int) else None
-            tot = (len({stream.units[i].token for i in stream.lines[li]})
+            tot = (len(stream.lexical_tokens[li]) if stream.lexical_tokens
+                   and li is not None and li < len(stream.lines) else
+                   len({stream.units[i].token for i in stream.lines[li]})
                    if li is not None and li < len(stream.lines) else 0)
-            nodes = {e.a.idx for e in es} | {e.b.idx for e in es}
-            if tot and len(nodes) / tot >= (fig.fraction or 1.0):
-                emit(es)
+            for group in _components(es):
+                nodes = {e.a.idx for e in group} | {e.b.idx for e in group}
+                if tot and len(nodes) / tot >= (fig.fraction if fig.fraction is not None else 1.0):
+                    emit(group)
         elif fig.quantifier == "forall":
             comps = _components(es)
             if len(comps) != 1:
@@ -3021,8 +3184,12 @@ def assemble(schema, edges, stream):
             group = comps[0]
             covered = {stream.units[e.a.head()].line for e in group} | \
                       {stream.units[e.b.head()].line for e in group}
-            if _forall_population(schema, frame, stream) - covered:
-                continue                     # a line in the frame is left out
+            missing = _forall_population(schema, frame, stream) - covered
+            unreadable_lines = {li for li, _, _ in stream.unreadable}
+            if missing:
+                if missing <= unreadable_lines:
+                    out.append((frame, group, None))
+                continue
             emit(group)
     return out
 
@@ -3497,7 +3664,7 @@ def search_lifts(stream, per_half_line=LIFTS_PER_HALF_LINE,
             got = 0
             for k in part:
                 syl = stream.units[k].syl
-                if syl is not None and (syl.prominence or 0) >= 1:
+                if syl is not None and syl.prominence == 1:
                     lifts.append(k)
                     got += 1
                     if got >= per_half_line:
@@ -4271,9 +4438,9 @@ declare(RelationSchema(
 
 declare(RelationSchema(
     name="paroemion",
-    spans=(SpanRule("line", "none", 1, "word_initial_syllables"),) * 2,
-    align="none",
-    channels=(ChannelRule("onset", SequenceEqual(), "sequence"),),
+    spans=(HEAD_ANY, HEAD_ANY), align="flush_left",
+    channels=(ChannelRule("onset", AGREE, "first"),),
+    placement=(Placement("same_line"),),
     figure=Figure(quantifier="fraction", fraction=0.8, frame="line"),
     note="Universally quantified member selection. Doctrine 63: any rate needs "
          "a null that permutes the WHOLE token stream and re-cuts on the "
@@ -4890,11 +5057,9 @@ declare(RelationSchema(
 declare(RelationSchema(
     name="Middle Chinese end rhyme (同用 group)",
     spans=(END_LAST, END_LAST), align="flush_right",
-    channels=(ChannelRule("nucleus", ClassEqual(resource="同用",
-                                                label="declared 同用 grouping"),
-                          "last"),
-              ChannelRule("prominence", AGREE, "last")),
+    channels=(ChannelRule("grapheme", NativeRhyme(), "last"),),
     placement=(Placement("both_line_final"),), identity=(DISTINCT,),
+    requires=("quotient:同用",),
     note="doctrine 36: the granularity a REFERENCE WORK records is not the "
          "granularity a FORM works at. prominence here carries 平/仄, because "
          "that is what ltc declares -- there is no stress channel at all. "
@@ -6502,13 +6667,25 @@ def relation_report(stream, chans=None, schemas=None):
             refusals.append((name, "+".join(out.missing) or out.capability,
                              tradition_scope(s, lang), out.kind))
             continue
-        t = sum(1 for i in out if i.verdict is True)
-        f = sum(1 for i in out if i.verdict is False)
-        u = sum(1 for i in out if i.verdict is None)
+        edge_counts = {"true": sum(i.verdict is True for i in out),
+                       "false": sum(i.verdict is False for i in out),
+                       "undecided": sum(i.verdict is None for i in out)}
+        if not pair_scope_representable(s):
+            assembled = assemble(s, out, stream)
+            if isinstance(assembled, Refusal):
+                refusals.append((name, assembled.capability,
+                                 tradition_scope(s, lang), assembled.kind))
+                continue
+            t = sum(v is True for _, _, v in assembled)
+            f = sum(v is False for _, _, v in assembled)
+            u = sum(v is None for _, _, v in assembled)
+        else:
+            t, f, u = (edge_counts[k] for k in ("true", "false", "undecided"))
         rows.append({"schema": name, "scope": tradition_scope(s, lang),
                      "traditions": s.traditions,
                      "canon": canon_entries(s),
                      "true": t, "false": f, "undecided": u,
+                     "edge_instances": edge_counts,
                      "search": search_burden(s, stream)})
     fired = [r for r in rows if r["true"]]
     vac = [r for r in refusals if r[3] == "vacuous_frame"]
@@ -6517,7 +6694,9 @@ def relation_report(stream, chans=None, schemas=None):
         "declared": len(reg),
         "refused": len(refusals),
         "refused_vacuous": len(vac),
-        "refused_capability": len(refusals) - len(vac),
+        "refused_capability": sum(r[3] == "capability" for r in refusals),
+        "refused_other": sum(r[3] not in ("capability", "vacuous_frame") for r in refusals),
+        "refused_by_kind": dict(collections.Counter(r[3] for r in refusals)),
         "vacuous_refusals": vac,
         "ran_found_nothing": len(rows) - len(fired),
         "ran_and_fired": len(fired),
@@ -6539,7 +6718,8 @@ def print_relation_report(rep, limit=None):
     print(f"  phonology {rep['language'] or '?'}   schemas declared "
           f"{rep['declared']}")
     print(f"  REFUSED {rep['refused']} (capability {rep['refused_capability']}"
-          f" · EMPTY DECLARED FRAME {rep['refused_vacuous']})  ·  RAN AND "
+          f" · EMPTY DECLARED FRAME {rep['refused_vacuous']}"
+          f" · OTHER {rep.get('refused_other', 0)})  ·  RAN AND "
           f"FOUND NOTHING {rep['ran_found_nothing']}  ·  RAN AND FIRED "
           f"{rep['ran_and_fired']}   (four counts, doctrine 79/20)")
     for name, key, _scope, _kind in rep["vacuous_refusals"]:
@@ -6638,22 +6818,31 @@ _WVP_MEMO = {}
 _WVP_MEMO_CAP = 32
 
 
-def _wvp_key(text_lines, phon, sections, bearing):
+def _wvp_key(text_lines, phon, sections, bearing, requested_pairs=None):
     """-> a hashable key for the memo, or None when one cannot be spelled."""
     try:
         d = phon.declaration()
-        pk = (d["language"], d["name"])
+        pk = (d["language"], d["name"],
+              json.dumps(d, sort_keys=True, default=repr))
     except (AttributeError, KeyError, TypeError):
         return None
     try:
         sk = json.dumps(sections, sort_keys=True) if sections else None
         return (pk, tuple(text_lines), sk,
-                tuple(sorted(bearing)) if bearing else None)
+                tuple(sorted(bearing)) if bearing else None, requested_pairs)
     except TypeError:
         return None
 
 
-def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None):
+class VocabularyPairResults(dict):
+    """Definite schema witnesses with a separate undecided pair inventory."""
+    def __init__(self, true=(), undecided=()):
+        super().__init__((k,list(v)) for k,v in dict(true).items())
+        self.undecided = {k:list(v) for k,v in dict(undecided).items() if k not in self}
+
+
+def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
+                           requested_pairs=None):
     """Every 1-based line pair ANY registered schema is true of, with the
     names that answered -> {(i, j): [canonical schema names, sorted]}.
 
@@ -6675,10 +6864,17 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None):
     MEMOISED on declared coordinates — see `_WVP_MEMO` above. A hit is a
     fresh copy of a recorded answer to an IDENTICAL call, never a nearby
     one; a call whose key cannot be spelled runs the judge in full.
+
+    `requested_pairs` is an optional collection of 1-based cross-line pairs.
+    Every requested witness is retained; unrequested pairs are absent, not
+    measured false. The full text and declared frames remain the context.
+    The exact query is part of the memo key, including the empty query.
     """
-    memo_key = _wvp_key(text_lines, phon, sections, bearing)
+    requested_pairs = _normalise_pair_query(requested_pairs, len(text_lines))
+    memo_key = _wvp_key(text_lines, phon, sections, bearing, requested_pairs)
     if memo_key is not None and memo_key in _WVP_MEMO:
-        return {k: list(v) for k, v in _WVP_MEMO[memo_key].items()}
+        cached = _WVP_MEMO[memo_key]
+        return VocabularyPairResults(cached, cached.undecided)
     stream = build_stream(text_lines, phon,
                           sections=sections,
                           stanzas=stanzas_from_sections(sections),
@@ -6687,7 +6883,7 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None):
                           declaration={"language": "eng"})
     if bearing:
         mark_refrain_tail(stream, lines=sorted(bearing))
-    out = {}
+    out, undecided = {}, {}
     for name in sorted(REGISTRY):
         # THE DEFAULT DOOR READS `normative` (2026-09-01, `MISSING.md`
         # M-140 ruled under the owner's delegation). A schema the registry
@@ -6702,14 +6898,17 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None):
         # moves — this is what the default CLAIMS, made true.
         if REGISTRY[name].normative in ("forbidden", "deprecated"):
             continue
-        ps = line_pairs_for(REGISTRY[name], stream, keep_refusal=False)
+        ps = line_pairs_for(REGISTRY[name], stream, keep_refusal=False,
+                            requested_pairs=requested_pairs)
         for pair in ps:
             out.setdefault(pair, []).append(name)
+        for pair in getattr(ps, "undecided", ()):
+            undecided.setdefault(pair, []).append(name)
     if memo_key is not None:
         if len(_WVP_MEMO) >= _WVP_MEMO_CAP:
             _WVP_MEMO.pop(next(iter(_WVP_MEMO)))
-        _WVP_MEMO[memo_key] = {k: tuple(v) for k, v in out.items()}
-    return out
+        _WVP_MEMO[memo_key] = VocabularyPairResults(out, undecided)
+    return VocabularyPairResults(out, undecided)
 
 
 #: THE ONE SENTENCE THIS TREE SAYS ABOUT THE ROUTE ABOVE, SAID ONCE
@@ -6825,6 +7024,9 @@ def derive_drawable_schemas(phon=None):
         stanzas=stanzas_from_sections(list(DRAWABLE_WITNESS_SECTIONS)),
         stanza_source="declared_sections",
         declaration={"language": "eng"})
+    from quality.revise import Reviser
+    from quality.schemes import mandate
+    verifier = Reviser()
     out = []
     for name in sorted(REGISTRY):
         sch = REGISTRY[name]
@@ -6834,16 +7036,37 @@ def derive_drawable_schemas(phon=None):
         # future witness cannot certify one in by accident.
         if sch.normative in ("forbidden", "deprecated"):
             continue
+        if not pair_scope_representable(sch):
+            continue
         ps = line_pairs_for(sch, stream)
         if isinstance(ps, Refusal) or not ps:
-            continue
+            exhibit = DRAWABLE_EXHIBITS.get(name)
+            if exhibit is None:
+                continue
+            a, b, _, _ = exhibit[0]
+            witness = build_stream([a,b], phon, stanzas=[0,0],
+                                   stanza_source="dedicated_exhibit")
+            ps = line_pairs_for(sch,witness)
+            if isinstance(ps, Refusal) or not ps:
+                continue
         pk = {p.kind for p in sch.placement}
         if pk and pk <= intra:
             continue
         if any(type(r.predicate).__name__ == "Agree" for r in sch.identity) \
                 and (not pk or pk & final):
             continue
-        out.append(name)
+        # Production eligibility needs a definite positive AND contrast on
+        # the real declared-slot grade route. A merely callable new schema
+        # cannot enter the draw by matching an incidental aggregate edge.
+        if name not in DRAWABLE_EXHIBITS:
+            continue
+        controls = []
+        for a,b,sa,sb in DRAWABLE_EXHIBITS[name]:
+            report = verifier.grade([a,b], mandate([[sa,sb]], n_lines=2,
+                                    default_relation="schema:"+name))
+            controls.append(None if report["refusals"] else not report["violations"])
+        if controls == [True,False]:
+            out.append(name)
     return tuple(out)
 
 
@@ -7007,7 +7230,8 @@ def pair_bindable(schema):
     schema's name.  A schema failing this is still drawable at DEFAULT
     slots, where the instances route judges it at its own loci.
     """
-    return all(r.locus in _TOKEN_LOCI and r.anchor != "searched"
+    return pair_scope_representable(schema) and all(
+               r.locus in _TOKEN_LOCI and r.anchor != "searched"
                for r in (schema.spans[0], schema.spans[-1]))
 
 
@@ -7171,10 +7395,8 @@ def group_satisfiable(schema, members):
 #: pool is a moved witness or a moved registry, and either fails loud.
 DRAWABLE_SCHEMAS = (
     "Scots vowel-length rhyme (Aitken's Law)",
-    "analysed rhyme",
     "anaphora",
     "assonance",
-    "chain rhyme (rap)",
     "cluster consonance / skothending span",
     "compound / phrasal rhyme",
     "consonance",
@@ -7183,8 +7405,6 @@ DRAWABLE_SCHEMAS = (
     "interlaced rhyme",
     "internal rhyme",
     "light rhyme",
-    "monai",
-    "monorhyme / leash",
     "multisyllabic rhyme",
     "pantun ABAB",
     "pararhyme",
@@ -7224,11 +7444,6 @@ DRAWABLE_EXHIBITS = {
          "a silver ship went sailing past", "1", "2"),
         ("the kitchen light was fading fast",
          "a silver ship went sailing fat", "1", "2")),
-    "analysed rhyme": (
-        ("we stood beneath the winter sun",
-         "the cold had never asked for much", "1", "2"),
-        ("we stood beneath the winter sun",
-         "the cold had never let us run", "1", "2")),
     "anaphora": (
         ("never say the word aloud", "never leave the room",
          "1.head", "2.head"),
@@ -7237,10 +7452,6 @@ DRAWABLE_EXHIBITS = {
     "assonance": (
         ("we walked out in the sun", "it never felt like much", "1", "2"),
         ("we walked out in the sun", "and started in to run", "1", "2")),
-    "chain rhyme (rap)": (
-        ("the kitchen light was fading fast",
-         "a silver ship went sailing past", "1", "2"),
-        ("the kitchen light was fading fast", "go slow", "1", "2")),
     "cluster consonance / skothending span": (
         ("she kept the fast", "he lost the lost", "1", "2"),
         ("she kept the day", "he lost the sea", "1", "2")),
@@ -7271,12 +7482,6 @@ DRAWABLE_EXHIBITS = {
     "light rhyme": (
         ("a bee", "the beauty", "1", "2"),
         ("a bee", "the sea", "1", "2")),
-    "monai": (
-        ("sing me the song again", "sun on the wall", "1", "2"),
-        ("sing me the song again", "moon on the wall", "1", "2")),
-    "monorhyme / leash": (
-        ("she fed the cat", "he wore the hat", "1", "2"),
-        ("she fed the cat", "he wore the cap", "1", "2")),
     "multisyllabic rhyme": (
         ("the kitchen light was fading fast",
          "a silver ship went sailing past", "1", "2"),
@@ -7295,7 +7500,7 @@ DRAWABLE_EXHIBITS = {
         ("the sea", "the tea", "1", "2")),
     "semirhyme": (
         ("a bend", "an ending", "1", "2"),
-        ("a bend", "he entered", "1", "2")),
+        ("a bend", "he broke it", "1", "2")),
     "subtractive rhyme": (
         ("he feared", "a year", "1", "2"),
         ("a year", "he feared", "1", "2")),
@@ -7328,7 +7533,165 @@ def audible_as_end_rhyme(schema):
     return {"nucleus", "coda"} <= agree
 
 
-def line_pairs_for(schema, stream, keep_refusal=True):
+class LinePairResults(frozenset):
+    """True pairs plus undecided obligations, without changing set callers.
+
+    Use verdict() when enforcing a mandate. Iteration contains only definite
+    witnesses, so an undecided relation never manufactures an allowed pair.
+    """
+    def __new__(cls, true=(), undecided=()):
+        obj = super().__new__(cls, true)
+        obj.undecided = frozenset(undecided) - obj
+        return obj
+
+    def verdict(self, pair):
+        pair = tuple(sorted(pair))
+        return True if pair in self else (None if pair in self.undecided else False)
+
+
+def figure_pair_representable(schema):
+    """The mandate's all-pairs relation cannot encode labelled member graphs."""
+    fig = schema.figure
+    return (fig.nodes == 2 and fig.edges in ((), ((0, 1, "self"),))
+            and fig.template is None)
+
+
+def pair_scope_representable(schema):
+    """A two-token mandate preserves both arity and selection population."""
+    fig = schema.figure
+    return (figure_pair_representable(schema)
+            and (fig.quantifier == "exists" or
+                 fig.quantifier == "exists_k" and fig.k <= 2))
+
+
+class FigureMembers(list):
+    """Evaluated graph edges retaining every declared member, even unreadable ones."""
+    def __init__(self, members):
+        super().__init__()
+        self.members = tuple(li + 1 for li in members)
+
+
+def _full_shape(schema, stream):
+    """Evaluate labelled complete figures, never their two-member proxy.
+
+    Members are bound in printed order within the declared frame. A named
+    composite without executable member bindings refuses explicitly.
+    """
+    import itertools
+    import math
+    supported = {"symploce", "analysed rhyme", "blues AAB stanza"}
+    if schema.name not in supported:
+        return Refusal(schema.name, "figure",
+                       "The declared multi-member graph/template has no "
+                       "executable member bindings; a pair projection cannot "
+                       "certify the full figure.", kind="unsupported_shape")
+    if schema.figure.frame == "stanza" and not stream.provides("stanza"):
+        return Refusal(schema.name, "stanza", "A full figure requires a "
+                       "declared stanza frame.", missing=("stanza",))
+    frames = {}
+    for li, ids in enumerate(stream.lines):
+        if ids or (stream.lexical_tokens and stream.lexical_tokens[li]):
+            frame = (_frame_key(schema, Span(ids, origin=f"L{li}"), stream) if ids else
+                     stream.line_stanzas[li] if schema.figure.frame == "stanza" and stream.line_stanzas else
+                     li // 2 if schema.figure.frame == "line_pair" else None)
+            frames.setdefault(frame, []).append(li)
+    n = 2 if schema.name == "symploce" else schema.figure.nodes
+    work = sum(math.comb(len(ls), n) for ls in frames.values() if len(ls) >= n)
+    if work > MAX_CANDIDATE_PAIRS:
+        return Refusal(schema.name, "work_budget", "Full-figure candidate "
+                       f"count {work} exceeds {MAX_CANDIDATE_PAIRS}; narrow the declared "
+                       "frame before evaluating.", kind="work_budget")
+    result = []
+    edge_memo = {}
+    for frame, ls in frames.items():
+        for members in itertools.combinations(ls, n):
+            edges, values = FigureMembers(members), []
+            def edge(label, ai, bi, token_a=-1, token_b=-1):
+                base = REGISTRY[label] if isinstance(label, str) else label
+                key = (base.name, base.spans, members[ai], members[bi], token_a, token_b)
+                if key in edge_memo:
+                    cached = edge_memo[key]
+                    if cached is None:
+                        values.append(None)
+                    else:
+                        edges.append(cached)
+                        values.append(cached.verdict)
+                    return
+                slots = []
+                for li, ti, rule in ((members[ai], token_a, base.spans[0]),
+                                     (members[bi], token_b, base.spans[-1])):
+                    count = (len(stream.lexical_tokens[li]) if stream.lexical_tokens
+                             else stream.units[stream.lines[li][-1]].line_tokens)
+                    ti = count + ti if ti < 0 else ti
+                    ids = stream.tokens.get((li, ti), ())
+                    try:
+                        got = list(_spans_at(rule, stream, ids, f"L{li}.T{ti}")) if ids else []
+                    except NoReferent:
+                        got = []
+                    if not got:
+                        values.append(None)
+                        edge_memo[key] = None
+                        return
+                    slots.append(got[0])
+                e = evaluate(replace(base, placement=(), figure=PAIR), *slots, stream)
+                edge_memo[key] = e
+                if e is not None:
+                    edges.append(e)
+                    values.append(e.verdict)
+            if schema.name == "symploce":
+                a, b = members
+                wa = (stream.lexical_tokens[a] if stream.lexical_tokens else tokenise(stream.text_lines[a]))
+                wb = (stream.lexical_tokens[b] if stream.lexical_tokens else tokenise(stream.text_lines[b]))
+                # Interior contrast is constitutive, including an actual
+                # interior on both lines; repeating an entire line is refrain.
+                values.append(len(wa) > 2 and len(wb) > 2 and
+                              tuple(w.lower() for w in wa[1:-1]) !=
+                              tuple(w.lower() for w in wb[1:-1]))
+                if values[-1] is False:
+                    continue
+                edge("anaphora", 0, 1, 0, 0)
+                if values[-1] is False:
+                    continue
+                # Epistrophe is token identity at the true lexical endpoint.
+                ep = replace(REGISTRY["anaphora"], spans=(END_WORD, END_WORD),
+                             placement=(), figure=PAIR)
+                edge(ep, 0, 1)
+            elif schema.name == "analysed rhyme":
+                for ai, bi, label in schema.figure.edges:
+                    edge(label, ai, bi)
+                    if values[-1] is False:
+                        break
+            else:
+                a, b, c = members
+                values.append(stream.text_lines[a].strip().casefold() ==
+                              stream.text_lines[b].strip().casefold())
+                if values[-1] is False:
+                    continue
+                edge("perfect rhyme", 0, 2)
+                if values[-1] is False:
+                    continue
+                edge("perfect rhyme", 1, 2)
+            verdict = tri_and(values)
+            if verdict is not False:
+                result.append((frame, edges, verdict))
+    return result
+
+
+def _normalise_pair_query(requested_pairs, n_lines):
+    """Canonical, validated 1-based query; None denotes the whole domain."""
+    if requested_pairs is None:
+        return None
+    result = set()
+    for pair in requested_pairs:
+        if (not isinstance(pair, (tuple, list)) or len(pair) != 2 or
+                any(type(i) is not int or not 1 <= i <= n_lines for i in pair)
+                or pair[0] == pair[1]):
+            raise ValueError("requested_pairs requires distinct 1-based line pairs")
+        result.add(tuple(sorted(pair)))
+    return frozenset(result)
+
+
+def line_pairs_for(schema, stream, keep_refusal=True, requested_pairs=None):
     """Every LINE PAIR this schema is true of, 1-based.  -> frozenset or a
     `Refusal`.
 
@@ -7341,7 +7704,31 @@ def line_pairs_for(schema, stream, keep_refusal=True):
     "this schema needs a capability the stream does not supply" and "this
     schema is true of no pair here" are different answers and doctrine 20
     forbids spelling them the same.  An empty frozenset means looked-and-none.
+
+    With `requested_pairs`, only these 1-based pairs are answered. Pair-local
+    schemas skip other candidates while retaining the FULL stream, indices,
+    declarations and frames. Global figures/quantifiers are fully assembled
+    before projecting their result. Only measured pairs enter the pair memo.
     """
+    requested_pairs = _normalise_pair_query(requested_pairs, len(stream.lines))
+    def answer(true=(), unknown=()):
+        if requested_pairs is not None:
+            true = set(true) & requested_pairs
+            unknown = set(unknown) & requested_pairs
+        return LinePairResults(true, unknown)
+
+    if not figure_pair_representable(schema):
+        assemblies = _full_shape(schema, stream)
+        if isinstance(assemblies, Refusal):
+            return assemblies if keep_refusal else LinePairResults()
+        true, unknown = set(), set()
+        for _, es, verdict in assemblies:
+            ls = sorted(getattr(es, "members",
+                        {_origin_line(e.a) for e in es} | {_origin_line(e.b) for e in es}))
+            target = true if verdict is True else unknown
+            target.update((a, b) for ai, a in enumerate(ls) for b in ls[ai+1:]
+                          if a is not None and b is not None)
+        return answer(true, unknown)
     # THE PER-PAIR MEMO (M-217's remainder, 2026-09-03).  A revision loop
     # grades a candidate draft that differs from the last by ONE LINE, and
     # every schema was re-judged over every line pair of it: 484 realise()
@@ -7354,22 +7741,33 @@ def line_pairs_for(schema, stream, keep_refusal=True):
     # verdict is remembered per (schema, declaration, line a, line b) and a
     # pair whose two lines are unchanged is not judged again.  A key the
     # memo cannot spell disables it for that call rather than guessing.
-    memo = _pair_memo_slot(schema, stream)
+    pair_local = pair_scope_representable(schema)
+    memo = _pair_memo_slot(schema, stream) if pair_local else None
+    measured = (tuple((i, j) for i in range(len(stream.lines))
+                      for j in range(i + 1, len(stream.lines)))
+                if requested_pairs is None else
+                tuple(sorted((i - 1, j - 1) for i, j in requested_pairs)))
     skip, sigs = {}, None
     if memo is not None:
         sigs = [_line_sig(stream, i) for i in range(len(stream.lines))]
-        for i in range(len(sigs)):
-            for j in range(i + 1, len(sigs)):
-                k = (i, j, sigs[i], sigs[j])
-                if k in memo["store"]:
-                    skip[(i, j)] = memo["store"][k]
+        for i, j in measured:
+            k = (i, j, sigs[i], sigs[j])
+            if k in memo["store"]:
+                skip[(i, j)] = memo["store"][k]
         _PAIR_MEMO_TALLY["hit"] += len(skip)
-    out = realise(schema, stream, skip_line_pairs=set(skip) or None)
+    out = realise(schema, stream, skip_line_pairs=set(skip) or None,
+                  requested_line_pairs=(set(measured)
+                      if pair_local and requested_pairs is not None else None))
     if isinstance(out, Refusal):
         return out if keep_refusal else frozenset()
-    pairs = set()
+    if not pair_local:
+        assemblies = assemble(schema, out, stream)
+        if isinstance(assemblies, Refusal):
+            return assemblies if keep_refusal else LinePairResults()
+        out = [replace(e, verdict=v) for _, edges, v in assemblies for e in edges]
+    pairs, undecided = set(), set()
     for inst in out:
-        if inst.verdict is not True:
+        if inst.verdict is False:
             continue
         a, b = _origin_line(inst.a), _origin_line(inst.b)
         if a is None or b is None or a == b:
@@ -7381,7 +7779,28 @@ def line_pairs_for(schema, stream, keep_refusal=True):
             # set, and the caller reports that as "no pair" rather than as a
             # violation — see `rhyme_types.satisfies_relation`.
             continue
-        pairs.add((min(a, b), max(a, b)))
+        (pairs if inst.verdict is True else undecided).add((min(a, b), max(a, b)))
+    # Missing material at a required endpoint is unjudged, never an invitation
+    # to use the nearest readable token. Interior OOV need not poison end rhyme.
+    bad_lines = set()
+    loci = {r.locus for r in schema.spans}
+    for li, ti, _ in stream.unreadable:
+        total = (len(stream.lexical_tokens[li]) if stream.lexical_tokens else 0)
+        if (("line_final_token" in loci and ti == total - 1)
+                or ("line_initial_token" in loci and ti == 0)
+                or loci & {"line", "free_run", "line_head_index", "line_final_before_refrain"}):
+            bad_lines.add(li + 1)
+    for rule in schema.spans:
+        if rule.anchor in ("last_stressed", "penult_stressed", "final_unstressed"):
+            for ids, origin, _ in _loci(rule, stream):
+                if ids and any(uncertain(stream.units[i].syl.prominence) for i in ids):
+                    try:
+                        list(_spans_at(rule, stream, ids, origin))
+                    except NoReferent:
+                        bad_lines.add(stream.units[ids[0]].line + 1)
+    undecided.update((i, j) for i in range(1, len(stream.lines)+1)
+                     for j in range(i+1, len(stream.lines)+1)
+                     if i in bad_lines or j in bad_lines)
     if memo is not None:
         # RECORD every pair this call JUDGED -- the ones it skipped were
         # already on record -- as True or False.  A pair with no candidate
@@ -7389,20 +7808,23 @@ def line_pairs_for(schema, stream, keep_refusal=True):
         # candidate next time either.  1-based in `pairs`, 0-based in the
         # key, and the conversion is here and in the replay below only.
         fresh = 0
-        for i in range(len(sigs)):
-            for j in range(i + 1, len(sigs)):
-                if (i, j) in skip:
-                    continue
-                memo["store"][(i, j, sigs[i], sigs[j])] = (i + 1, j + 1) in pairs
-                fresh += 1
+        for i, j in measured:
+            if (i, j) in skip:
+                continue
+            memo["store"][(i, j, sigs[i], sigs[j])] = (
+                True if (i + 1, j + 1) in pairs else
+                None if (i + 1, j + 1) in undecided else False)
+            fresh += 1
         _PAIR_MEMO_TALLY["miss"] += fresh
         while len(memo["store"]) > PAIR_MEMO_CAP:
             memo["store"].pop(next(iter(memo["store"])))
             _PAIR_MEMO_TALLY["evicted"] += 1
         for (i, j), v in skip.items():
-            if v:
+            if v is True:
                 pairs.add((i + 1, j + 1))
-    return frozenset(pairs)
+            elif v is None:
+                undecided.add((i + 1, j + 1))
+    return answer(pairs, undecided)
 
 
 def _span_line(span, stream):
@@ -7492,7 +7914,8 @@ def _stream_const_key(stream):
         return None
     try:
         d = stream.phon.declaration()
-        pk = (d["language"], d["name"])
+        pk = (d["language"], d["name"],
+              json.dumps(d, sort_keys=True, default=repr))
     except (AttributeError, KeyError, TypeError):
         return None
     fr = stream.frames
@@ -7520,7 +7943,7 @@ def _pair_memo_slot(schema, stream):
     const = _stream_const_key(stream)
     if const is None:
         return None
-    key = (schema.name, const)
+    key = (schema.name, repr(schema), const)
     slot = _PAIR_MEMO.get(key)
     if slot is None:
         slot = {"store": {}}
@@ -7572,6 +7995,11 @@ def _line_sig(stream, li):
         off(fr.refrain_tail.get(li)), repr(fr.stub_resolution.get(li)),
         repr(fr.hemistich.get(li)), off(beat),
         tuple((t, len(v)) for (l, t), v in stream.tokens.items() if l == li),
+        stream.lexical_tokens[li] if stream.lexical_tokens else (),
+        tuple((u.token, u.tok_syl, u.line_first, u.line_last,
+               u.syl.onset, u.syl.nucleus, u.syl.coda,
+               u.syl.prominence, u.syl.moras) for u in
+              (stream.units[i] for i in ids)),
     )
     return hashlib.blake2b(repr(parts).encode("utf-8"), digest_size=12).digest()
 
@@ -7623,6 +8051,10 @@ def pair_satisfies(schema, stream, at_a, at_b, chans=DEFAULT_CHANNELS):
     shapes one token cannot bind — named, so a caller can say WHY the pair
     route refuses where the instances route stands.
     """
+    if not pair_scope_representable(schema):
+        return Refusal(schema.name, "figure", "This figure requires its full "
+                       "member graph; two bound tokens cannot represent it.",
+                       kind="unsupported_shape")
     sup = {c: stream.supply(c) for c in schema.capabilities()}
     miss = tuple(c for c in schema.capabilities()
                  if sup[c].state != "present")
@@ -7663,7 +8095,8 @@ def pair_satisfies(schema, stream, at_a, at_b, chans=DEFAULT_CHANNELS):
         if li < 0 or li >= len(stream.lines) or not stream.lines[li]:
             return None
         if t < 0:
-            t = stream.units[stream.lines[li][-1]].token + 1 + t
+            t = ((len(stream.lexical_tokens[li]) if stream.lexical_tokens
+                  else stream.units[stream.lines[li][-1]].line_tokens) + t)
         ids = stream.tokens.get((li, t))
         if not ids:
             return None            # the declared word reads to nothing
@@ -7874,3 +8307,51 @@ if __name__ == "__main__":
     _sys.path.insert(0, __import__("os").path.dirname(
         __import__("os").path.dirname(__import__("os").path.abspath(__file__))))
     raise SystemExit(main(_sys.argv[1:]))
+
+
+def planning_work_bound(n_lines, max_syllables_per_line, max_pairs=MAX_CANDIDATE_PAIRS):
+    """Conservative candidate admission bound before text or paid writing.
+
+    Token counts are bounded by syllables for readable English draft lines.
+    Per-line span counts follow the actual locus/search magnitude vocabulary;
+    unknown future loci refuse the estimate. No phonological bucket pruning
+    is assumed, so this bound also covers a text sharing every bucket key.
+    """
+    import math
+    if (isinstance(n_lines, bool) or not isinstance(n_lines, int) or n_lines < 0
+            or isinstance(max_syllables_per_line, bool)
+            or not isinstance(max_syllables_per_line, int)
+            or max_syllables_per_line < 0):
+        raise ValueError('line and syllable bounds must be nonnegative integers')
+    n, length = n_lines, max_syllables_per_line
+    def count(rule):
+        if rule.locus == 'free_run' and rule.anchor == 'searched':
+            lo, hi = rule.magnitude if isinstance(rule.magnitude, tuple) else (rule.magnitude,)*2
+            return sum(max(0, length-k+1) for k in range(lo,min(hi,length)+1))
+        if rule.locus in ('any_token','lift','token_first_half','token_second_half'):
+            return length
+        if rule.locus in ('half_line_a','half_line_b'):
+            return max(0,length-1)
+        if rule.locus in ('line','line_initial_token','line_final_token',
+                          'line_head_index','line_final_before_refrain','line_refrain_tail'):
+            return int(length > 0)
+        return None
+    rows = []
+    for name, sch in sorted(REGISTRY.items()):
+        a, b = count(sch.spans[0]), count(sch.spans[-1])
+        bound = None if a is None or b is None else n*n*a*b
+        if not figure_pair_representable(sch):
+            if sch.name in ('analysed rhyme','blues AAB stanza'):
+                bound = max(bound or 0, math.comb(n,sch.figure.nodes)
+                            if n >= sch.figure.nodes else 0)
+            elif sch.name not in ('symploce',):
+                bound = 0  # explicit unsupported-shape refusal; no enumeration
+        rows.append({'schema':name,'upper_bound':bound})
+    unbounded = [row['schema'] for row in rows if row['upper_bound'] is None]
+    limiting = max((row for row in rows if row['upper_bound'] is not None),
+                   key=lambda row:row['upper_bound'], default={'schema':None,'upper_bound':0})
+    return {'bounded':not unbounded,
+            'within_budget':not unbounded and limiting['upper_bound'] <= max_pairs,
+            'limiting_schema':limiting['schema'],
+            'max_candidate_pairs':limiting['upper_bound'], 'max_pairs':max_pairs,
+            'unbounded_schemas':unbounded, 'schemas':rows}

@@ -1,0 +1,828 @@
+{
+  "version": 1,
+  "rows": [
+    {
+      "verb": "plan",
+      "exit_code": 0,
+      "wall_s": 1.624374661994807,
+      "peak_mb": null,
+      "retained_mb": null,
+      "stop": "ready",
+      "coverage": null,
+      "machine_status": "planned",
+      "authenticated": true,
+      "quality_certified": null,
+      "refusals": null,
+      "checkpoint_present": false,
+      "checkpoint_valid": false,
+      "typed": true
+    },
+    {
+      "verb": "fill",
+      "exit_code": 0,
+      "wall_s": 1.2123680770018836,
+      "peak_mb": null,
+      "retained_mb": null,
+      "stop": "ready",
+      "coverage": null,
+      "machine_status": "planned",
+      "authenticated": true,
+      "quality_certified": null,
+      "refusals": null,
+      "checkpoint_present": false,
+      "checkpoint_valid": false,
+      "typed": true
+    },
+    {
+      "verb": "grade",
+      "exit_code": 2,
+      "wall_s": 27.98811264899996,
+      "peak_mb": 579.63671875,
+      "retained_mb": null,
+      "stop": "graded",
+      "coverage": {
+        "pairs_mandated": 46,
+        "pairs_judged": 18,
+        "pairs_refused": 28,
+        "scope": "requested_layers",
+        "certified": false,
+        "obligations": [
+          {
+            "id": "density:L1",
+            "layer": "density",
+            "line": 1,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L1",
+            "layer": "prominence",
+            "line": 1,
+            "status": "answered"
+          },
+          {
+            "id": "density:L2",
+            "layer": "density",
+            "line": 2,
+            "status": "refused"
+          },
+          {
+            "id": "prominence:L2",
+            "layer": "prominence",
+            "line": 2,
+            "status": "refused"
+          },
+          {
+            "id": "density:L3",
+            "layer": "density",
+            "line": 3,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L3",
+            "layer": "prominence",
+            "line": 3,
+            "status": "answered"
+          },
+          {
+            "id": "density:L4",
+            "layer": "density",
+            "line": 4,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L4",
+            "layer": "prominence",
+            "line": 4,
+            "status": "answered"
+          },
+          {
+            "id": "density:L5",
+            "layer": "density",
+            "line": 5,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L5",
+            "layer": "prominence",
+            "line": 5,
+            "status": "answered"
+          },
+          {
+            "id": "density:L6",
+            "layer": "density",
+            "line": 6,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L6",
+            "layer": "prominence",
+            "line": 6,
+            "status": "answered"
+          },
+          {
+            "id": "density:L7",
+            "layer": "density",
+            "line": 7,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L7",
+            "layer": "prominence",
+            "line": 7,
+            "status": "answered"
+          },
+          {
+            "id": "density:L8",
+            "layer": "density",
+            "line": 8,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L8",
+            "layer": "prominence",
+            "line": 8,
+            "status": "answered"
+          },
+          {
+            "id": "density:L9",
+            "layer": "density",
+            "line": 9,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L9",
+            "layer": "prominence",
+            "line": 9,
+            "status": "answered"
+          },
+          {
+            "id": "density:L10",
+            "layer": "density",
+            "line": 10,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L10",
+            "layer": "prominence",
+            "line": 10,
+            "status": "answered"
+          },
+          {
+            "id": "density:L11",
+            "layer": "density",
+            "line": 11,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L11",
+            "layer": "prominence",
+            "line": 11,
+            "status": "answered"
+          },
+          {
+            "id": "density:L12",
+            "layer": "density",
+            "line": 12,
+            "status": "refused"
+          },
+          {
+            "id": "prominence:L12",
+            "layer": "prominence",
+            "line": 12,
+            "status": "refused"
+          },
+          {
+            "id": "density:L13",
+            "layer": "density",
+            "line": 13,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L13",
+            "layer": "prominence",
+            "line": 13,
+            "status": "answered"
+          },
+          {
+            "id": "density:L14",
+            "layer": "density",
+            "line": 14,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L14",
+            "layer": "prominence",
+            "line": 14,
+            "status": "answered"
+          },
+          {
+            "id": "density:L15",
+            "layer": "density",
+            "line": 15,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L15",
+            "layer": "prominence",
+            "line": 15,
+            "status": "answered"
+          },
+          {
+            "id": "density:L16",
+            "layer": "density",
+            "line": 16,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L16",
+            "layer": "prominence",
+            "line": 16,
+            "status": "answered"
+          },
+          {
+            "id": "density:L17",
+            "layer": "density",
+            "line": 17,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L17",
+            "layer": "prominence",
+            "line": 17,
+            "status": "answered"
+          },
+          {
+            "id": "density:L18",
+            "layer": "density",
+            "line": 18,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L18",
+            "layer": "prominence",
+            "line": 18,
+            "status": "answered"
+          },
+          {
+            "id": "density:L19",
+            "layer": "density",
+            "line": 19,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L19",
+            "layer": "prominence",
+            "line": 19,
+            "status": "answered"
+          },
+          {
+            "id": "density:L20",
+            "layer": "density",
+            "line": 20,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L20",
+            "layer": "prominence",
+            "line": 20,
+            "status": "answered"
+          },
+          {
+            "id": "density:L21",
+            "layer": "density",
+            "line": 21,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L21",
+            "layer": "prominence",
+            "line": 21,
+            "status": "answered"
+          },
+          {
+            "id": "density:L22",
+            "layer": "density",
+            "line": 22,
+            "status": "refused"
+          },
+          {
+            "id": "prominence:L22",
+            "layer": "prominence",
+            "line": 22,
+            "status": "refused"
+          },
+          {
+            "id": "density:L23",
+            "layer": "density",
+            "line": 23,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L23",
+            "layer": "prominence",
+            "line": 23,
+            "status": "answered"
+          },
+          {
+            "id": "density:L24",
+            "layer": "density",
+            "line": 24,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L24",
+            "layer": "prominence",
+            "line": 24,
+            "status": "answered"
+          },
+          {
+            "id": "density:L25",
+            "layer": "density",
+            "line": 25,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L25",
+            "layer": "prominence",
+            "line": 25,
+            "status": "answered"
+          },
+          {
+            "id": "density:L26",
+            "layer": "density",
+            "line": 26,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L26",
+            "layer": "prominence",
+            "line": 26,
+            "status": "answered"
+          },
+          {
+            "id": "density:L27",
+            "layer": "density",
+            "line": 27,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L27",
+            "layer": "prominence",
+            "line": 27,
+            "status": "answered"
+          },
+          {
+            "id": "density:L28",
+            "layer": "density",
+            "line": 28,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L28",
+            "layer": "prominence",
+            "line": 28,
+            "status": "answered"
+          },
+          {
+            "id": "density:L29",
+            "layer": "density",
+            "line": 29,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L29",
+            "layer": "prominence",
+            "line": 29,
+            "status": "answered"
+          },
+          {
+            "id": "density:L30",
+            "layer": "density",
+            "line": 30,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L30",
+            "layer": "prominence",
+            "line": 30,
+            "status": "answered"
+          },
+          {
+            "id": "density:L31",
+            "layer": "density",
+            "line": 31,
+            "status": "answered"
+          },
+          {
+            "id": "prominence:L31",
+            "layer": "prominence",
+            "line": 31,
+            "status": "answered"
+          },
+          {
+            "id": "sentencehood:draft",
+            "layer": "sentencehood",
+            "status": "answered"
+          },
+          {
+            "id": "floor:draft",
+            "layer": "floor",
+            "status": "answered"
+          },
+          {
+            "id": "meter:draft",
+            "layer": "meter",
+            "status": "answered"
+          },
+          {
+            "id": "slot_grid:draft",
+            "layer": "slot_grid",
+            "status": "answered"
+          },
+          {
+            "id": "setting:draft",
+            "layer": "setting",
+            "status": "not_requested"
+          },
+          {
+            "id": "meter:COUNT_IS_A_LOWER_BOUND:L2",
+            "layer": "meter",
+            "line": 2,
+            "status": "refused"
+          },
+          {
+            "id": "meter:COUNT_IS_A_LOWER_BOUND:L6",
+            "layer": "meter",
+            "line": 6,
+            "status": "refused"
+          },
+          {
+            "id": "meter:COUNT_IS_A_LOWER_BOUND:L12",
+            "layer": "meter",
+            "line": 12,
+            "status": "refused"
+          },
+          {
+            "id": "meter:COUNT_IS_A_LOWER_BOUND:L16",
+            "layer": "meter",
+            "line": 16,
+            "status": "refused"
+          },
+          {
+            "id": "meter:COUNT_IS_A_LOWER_BOUND:L22",
+            "layer": "meter",
+            "line": 22,
+            "status": "refused"
+          },
+          {
+            "id": "meter:COUNT_IS_A_LOWER_BOUND:L26",
+            "layer": "meter",
+            "line": 26,
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:2:3:0",
+            "layer": "rhyme",
+            "status": "answered"
+          },
+          {
+            "id": "rhyme:2:3:13",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:2:4:0",
+            "layer": "rhyme",
+            "status": "answered"
+          },
+          {
+            "id": "rhyme:2:4:13",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:2:5:2",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:2:6:2",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:3:4:0",
+            "layer": "rhyme",
+            "status": "answered"
+          },
+          {
+            "id": "rhyme:3:4:13",
+            "layer": "rhyme",
+            "status": "answered"
+          },
+          {
+            "id": "rhyme:5:6:1",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:5:6:2",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:5:6:14",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:7:8:3",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:7:8:15",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:9:11:4",
+            "layer": "rhyme",
+            "status": "answered"
+          },
+          {
+            "id": "rhyme:9:14:4",
+            "layer": "rhyme",
+            "status": "answered"
+          },
+          {
+            "id": "rhyme:10:11:6",
+            "layer": "rhyme",
+            "status": "answered"
+          },
+          {
+            "id": "rhyme:10:12:5",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:10:12:6",
+            "layer": "rhyme",
+            "status": "answered"
+          },
+          {
+            "id": "rhyme:10:13:5",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:10:13:6",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:10:13:16",
+            "layer": "rhyme",
+            "status": "answered"
+          },
+          {
+            "id": "rhyme:10:14:6",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:10:15:5",
+            "layer": "rhyme",
+            "status": "answered"
+          },
+          {
+            "id": "rhyme:10:15:16",
+            "layer": "rhyme",
+            "status": "answered"
+          },
+          {
+            "id": "rhyme:11:12:6",
+            "layer": "rhyme",
+            "status": "answered"
+          },
+          {
+            "id": "rhyme:11:13:6",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:11:14:4",
+            "layer": "rhyme",
+            "status": "answered"
+          },
+          {
+            "id": "rhyme:11:14:6",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:12:13:5",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:12:13:6",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:12:14:6",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:12:15:5",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:13:14:6",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:13:15:5",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:13:15:16",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:16:17:7",
+            "layer": "rhyme",
+            "status": "answered"
+          },
+          {
+            "id": "rhyme:16:17:8",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:16:17:17",
+            "layer": "rhyme",
+            "status": "answered"
+          },
+          {
+            "id": "rhyme:25:26:9",
+            "layer": "rhyme",
+            "status": "answered"
+          },
+          {
+            "id": "rhyme:25:26:10",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:25:26:18",
+            "layer": "rhyme",
+            "status": "answered"
+          },
+          {
+            "id": "rhyme:27:29:11",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:27:29:19",
+            "layer": "rhyme",
+            "status": "answered"
+          },
+          {
+            "id": "rhyme:27:30:11",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:28:30:12",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "rhyme:29:30:11",
+            "layer": "rhyme",
+            "status": "refused"
+          },
+          {
+            "id": "return:9:18",
+            "layer": "return",
+            "status": "answered"
+          },
+          {
+            "id": "return:10:19",
+            "layer": "return",
+            "status": "answered"
+          },
+          {
+            "id": "return:11:20",
+            "layer": "return",
+            "status": "answered"
+          },
+          {
+            "id": "return:12:21",
+            "layer": "return",
+            "status": "answered"
+          },
+          {
+            "id": "return:13:22",
+            "layer": "return",
+            "status": "answered"
+          },
+          {
+            "id": "return:14:23",
+            "layer": "return",
+            "status": "answered"
+          },
+          {
+            "id": "return:15:24",
+            "layer": "return",
+            "status": "answered"
+          }
+        ],
+        "refused_obligations": [
+          "density:L2",
+          "prominence:L2",
+          "density:L12",
+          "prominence:L12",
+          "density:L22",
+          "prominence:L22",
+          "meter:COUNT_IS_A_LOWER_BOUND:L2",
+          "meter:COUNT_IS_A_LOWER_BOUND:L6",
+          "meter:COUNT_IS_A_LOWER_BOUND:L12",
+          "meter:COUNT_IS_A_LOWER_BOUND:L16",
+          "meter:COUNT_IS_A_LOWER_BOUND:L22",
+          "meter:COUNT_IS_A_LOWER_BOUND:L26",
+          "rhyme:2:3:13",
+          "rhyme:2:4:13",
+          "rhyme:2:5:2",
+          "rhyme:2:6:2",
+          "rhyme:5:6:1",
+          "rhyme:5:6:2",
+          "rhyme:5:6:14",
+          "rhyme:7:8:3",
+          "rhyme:7:8:15",
+          "rhyme:10:12:5",
+          "rhyme:10:13:5",
+          "rhyme:10:13:6",
+          "rhyme:10:14:6",
+          "rhyme:11:13:6",
+          "rhyme:11:14:6",
+          "rhyme:12:13:5",
+          "rhyme:12:13:6",
+          "rhyme:12:14:6",
+          "rhyme:12:15:5",
+          "rhyme:13:14:6",
+          "rhyme:13:15:5",
+          "rhyme:13:15:16",
+          "rhyme:16:17:8",
+          "rhyme:25:26:10",
+          "rhyme:27:29:11",
+          "rhyme:27:30:11",
+          "rhyme:28:30:12",
+          "rhyme:29:30:11"
+        ]
+      },
+      "machine_status": "graded",
+      "authenticated": true,
+      "quality_certified": false,
+      "refusals": 40,
+      "checkpoint_present": false,
+      "checkpoint_valid": false,
+      "typed": true
+    },
+    {
+      "verb": "revise",
+      "exit_code": 4,
+      "wall_s": 360.89942784800223,
+      "peak_mb": 746.23828125,
+      "retained_mb": null,
+      "stop": "needs_proposal",
+      "coverage": null,
+      "machine_status": "suspended",
+      "authenticated": true,
+      "quality_certified": null,
+      "refusals": null,
+      "checkpoint_present": true,
+      "checkpoint_valid": true,
+      "typed": true
+    }
+  ],
+  "ok": true,
+  "seed": 20260910,
+  "mode": "cold",
+  "rounds": 1,
+  "lines": 31,
+  "plan_version": 3,
+  "draft_sha256": "2e0149bc224cc8e4b523378b9e0a1e997a163eeb030ea9f1860d2631e23288c1",
+  "scope": "grade and initial deferred repair on deterministic filler; no writer answers or convergence claim",
+  "peak_mb": 746.23828125,
+  "residual_mb": null,
+  "growth_mb": null
+}

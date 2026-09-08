@@ -204,19 +204,58 @@ def s3_declarations():
 
 def s4_prepare_per_replicate():
     print("\n§4 `prepare` reaches every replicate (doctrine 56)")
+    from unittest.mock import patch
     n = 4
     phon = get_phonology("eng")
     prep = N.declaration_step(("caesura:searched",))
-    got, _cens = N.sweep(FIXTURE, phon, "eng",
-                         schemas={"leonine rhyme":
-                                  R.REGISTRY["leonine rhyme"]},
-                         n=n, budget=None, prepare=prep)
+    prepared, refusals = [], []
+
+    def prepare(st):
+        prep(st)
+        prepared.append(st.supply("caesura"))
+
+    measure = N._measure
+
+    def measured(*args, **kwargs):
+        values, refusal = measure(*args, **kwargs)
+        if refusal is not None:
+            refusals.append(refusal)
+        return values, refusal
+
+    # Observe the actual declaration and judge. A successfully declared
+    # caesura does not make uncertain pronunciation readings determinate.
+    with patch.object(N, "_measure", side_effect=measured):
+        got, _cens = N.sweep(FIXTURE, phon, "eng",
+                             schemas={"leonine rhyme":
+                                      R.REGISTRY["leonine rhyme"]},
+                             n=n, budget=None, prepare=prepare)
     live = [r for r in got if not isinstance(r, R.Refusal)]
     check("§4 with `prepare`, the caesura schema produces rows",
           bool(live), f"{len(live)} rows")
-    check("§4 every replicate reached the schema (no silent refusals)",
-          all(len(r.values) == n for r in live),
-          str(sorted({len(r.values) for r in live})))
+    check("§4 the observation and every null replicate run the declaration",
+          len(prepared) == 1 + n * (len(N.NULLS) - 1)
+          and all(s.state in ("present", "empty") and s.source != "none"
+                  for s in prepared),
+          f"{len(prepared)} prepared streams; states "
+          f"{sorted({s.state for s in prepared})}")
+    # 2026-09-08: the old len(values)==n assertion confused reaching the
+    # schema with being judgeable. One real redeal has only unresolved
+    # witnesses and must remain refused rather than become a numeric zero.
+    check("§4 every replicate is accounted for as used, refused, or void",
+          bool(live) and all(len(r.values) + r.refused_replicates
+                             + r.void_replicates == n for r in live),
+          str(sorted({(len(r.values), r.refused_replicates, r.void_replicates)
+                      for r in live})))
+    check("§4 actual unknown readings remain explicit refusals, not missing declarations",
+          bool(refusals) and all(r.capability == "reading" and r.kind == "span"
+                                for r in refusals)
+          and any(r.refused_replicates > 0 for r in live),
+          str([(r.capability, r.kind) for r in refusals]))
+    check("§4 the null resolution and p-value use only measured replicates",
+          bool(live) and all(
+              abs(r.resolution - 1 / (len(r.values) + 1)) < 1e-12
+              and abs(r.p - (1 + sum(v >= r.observed for v in r.values))
+                      / (len(r.values) + 1)) < 1e-12 for r in live))
     # THE OTHER DIRECTION.  Without the step the schema must not appear at
     # all: a row here would mean the capability gate had stopped gating.
     got2, _c2 = N.sweep(FIXTURE, phon, "eng",
@@ -224,7 +263,10 @@ def s4_prepare_per_replicate():
                                  R.REGISTRY["leonine rhyme"]},
                         n=1, budget=None, prepare=None)
     check("§4 without `prepare`, the same schema yields NO live row",
-          not [r for r in got2 if not isinstance(r, R.Refusal)])
+          not [r for r in got2 if not isinstance(r, R.Refusal)]
+          and len(_c2) == 1 and _c2[0].verdict == "cannot_obtain"
+          and _c2[0].refusal_kind == "capability"
+          and "caesura" in _c2[0].missing)
 
 
 # ---------------------------------------------------------------------------

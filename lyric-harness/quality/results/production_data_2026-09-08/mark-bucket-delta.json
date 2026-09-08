@@ -1,0 +1,89 @@
+{
+  "before": {
+    "decided": 125501,
+    "typed": 77093,
+    "undecided": 32,
+    "apparatus": 59
+  },
+  "current": {
+    "decided": 125501,
+    "typed": 77052,
+    "undecided": 32,
+    "apparatus": 1
+  },
+  "files": [
+    {
+      "file": "eng_american_john_greenleaf_whittier.txt",
+      "before": {
+        "typed": 644
+      },
+      "after": {
+        "typed": 643
+      }
+    },
+    {
+      "file": "eng_american_thomas_buchanan_read.txt",
+      "before": {
+        "typed": 66,
+        "decided": 1
+      },
+      "after": {
+        "typed": 59,
+        "decided": 1
+      }
+    },
+    {
+      "file": "eng_british_felicia_hemans.txt",
+      "before": {
+        "typed": 2732,
+        "apparatus": 58
+      },
+      "after": {
+        "typed": 2720
+      }
+    },
+    {
+      "file": "eng_british_frederick_locker_lampson.txt",
+      "before": {
+        "typed": 80
+      },
+      "after": {
+        "typed": 79
+      }
+    },
+    {
+      "file": "eng_british_richard_lovelace.txt",
+      "before": {
+        "typed": 616,
+        "undecided": 3
+      },
+      "after": {
+        "typed": 599,
+        "undecided": 3
+      }
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "before": {
+        "typed": 2784,
+        "decided": 5
+      },
+      "after": {
+        "typed": 2783,
+        "decided": 5
+      }
+    },
+    {
+      "file": "eng_parlour_daniel_decatur_emmett.txt",
+      "before": {
+        "typed": 17
+      },
+      "after": {
+        "typed": 15
+      }
+    }
+  ],
+  "baseline_commit": "a283e6e884b81dce35aae392e4843cfe8a3da6aa",
+  "instrument": "measure_mark_buckets.txt",
+  "instrument_sha256": "30784a28b733b870b9f2dca33c53a4cb4b204a8764ec2b7e775930b1a93711cc"
+}

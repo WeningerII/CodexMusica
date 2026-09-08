@@ -8,8 +8,9 @@
 #   apparatus -- not sung and not structural
 #   refused   -- the corpus does not decide (doctrine 20)
 # `lines` and `files` are MEASURED, not typed; --check re-derives both.
+# RE-ADOPTED 2026-09-08: VERSE 74319 -> 74278; 41 reviewed apparatus marks preserved as comments. Kind/mapping/file counts unchanged; exact per-file delta in quality/results/production_data_2026-09-08/data-final-census-attribution.json.
 mark	kind	maps_to	lines	files	note
-VERSE	function	verse	74319	1388	the narrative section; `grid.MARK_FUNCTION` has read it since that table was written
+VERSE	function	verse	74278	1388	the narrative section; `grid.MARK_FUNCTION` has read it since that table was written
 BAYT	form		70866	31	Persian/Arabic couplet -- the ghazal's prosodic unit, not a section
 RADIF	form		54193	30	the ghazal's repeated post-rhyme element. RETURNING material, and `refrain` is the function it is closest to -- see M-52
 BURDEN	function	burden	1753	35	a refrain sung by all; MEASURED 1,580 of 1,580 staged instances follow a verse block. Kept separate from refrain because the corpus marks the two differently

@@ -1,0 +1,91 @@
+
+1. the sonnet oracle reports three counts and they are pinned
+  PASS  152 sonnets parse
+          SONNET ORACLE: 152 sonnets parsed, scheme ABABCDCDEFEFGG, declaration = General American
+  PASS  violations == 4
+          got 4. This is a coordinate of theta_coda: 73 at 0.60, 81 at the shipped 0.80 (RESULTS_REDTEAM.md predicted the move). If it changes, say which coordinate moved and price it held out (doctrine 5) -- do not retune this constant to match.
+  PASS  the headline prints 'mandated pairs 1064'
+          what the FORM requires
+  PASS  the headline prints 'judged 967'
+          the only legitimate denominator
+  PASS  the headline prints 'refused 97'
+          lexical gaps, pronunciation disagreements and unresolved schema evidence
+  PASS  the headline prints 'violations 4 '
+          the numerator
+  PASS  the headline prints 'of JUDGED pairs'
+          the rate must name its denominator
+  PASS  refused + judged == mandated
+          97 + 967 = 1064. Dividing by the MANDATED pairs charges the comparator for the ingestion layer's misses and reports Shakespeare as failing to rhyme viewest/renewest. It is also not conservative in a predictable direction: it SHRINKS the band's measured effect.
+
+2. an unreadable end word is a RECORDED REFUSAL (doctrine 79)
+  PASS  the pair containing the unreadable word is REFUSED
+          refused=1 [((2, 4), ['zzzqx'])]
+  PASS  ...and does NOT appear among the violations
+          violations []
+  PASS  the counts are reported separately
+          mandated 2, judged 1, refused 1
+  PASS  the record says the END WORD is what could not be read
+          {'final_token': 'zzzqx', 'readable': False, 'final_unreadable': True}
+  PASS  and it names the instrument, not the poet
+          CMUdict has no pronunciation for the end word 'zzzqx'; the harness refuses rather than guessing one (no G2P fallback). This line's end-rhyme is UNKNOWN, not absent.
+  PASS  refusals_for_pairs finds it from the records alone
+
+3. the mandate is built from EQUAL, non-free classes (mutations M17, M18)
+  PASS  X is not a rhyme class
+  PASS  . is not a rhyme class
+  PASS  A is
+  PASS  same_scheme_class('A', 'A') is True
+          same class
+  PASS  same_scheme_class('A', 'B') is False
+          different classes
+  PASS  same_scheme_class('a', 'A') is True
+          case is not a coordinate
+  PASS  same_scheme_class('X', 'X') is False
+          two free lines are two SINGLETONS, not a pair
+  PASS  same_scheme_class('.', '.') is False
+          same
+  PASS  same_scheme_class('A', 'X') is False
+          one of them is free
+  PASS  scheme AXXA mandates 1 pair(s)
+          got 1. `quality/schemes.py` has always treated an unrhymed line as a singleton BLOCK, so ABXB and ABCB are the same partition; the spine disagreed with it silently until 2026-08-10, and declaring 24 lines of a 41-line lyric free then mandated all 276 of their pairs and demanded that 'does' rhyme with 'heat'. The sonnet oracle cannot see this: ABABCDCDEFEFGG contains no X.
+  PASS  scheme ABCA mandates 1 pair(s)
+          got 1. `quality/schemes.py` has always treated an unrhymed line as a singleton BLOCK, so ABXB and ABCB are the same partition; the spine disagreed with it silently until 2026-08-10, and declaring 24 lines of a 41-line lyric free then mandated all 276 of their pairs and demanded that 'does' rhyme with 'heat'. The sonnet oracle cannot see this: ABABCDCDEFEFGG contains no X.
+  PASS  scheme AABB mandates 2 pair(s)
+          got 2. `quality/schemes.py` has always treated an unrhymed line as a singleton BLOCK, so ABXB and ABCB are the same partition; the spine disagreed with it silently until 2026-08-10, and declaring 24 lines of a 41-line lyric free then mandated all 276 of their pairs and demanded that 'does' rhyme with 'heat'. The sonnet oracle cannot see this: ABABCDCDEFEFGG contains no X.
+  PASS  scheme AAAA mandates 6 pair(s)
+          got 6. `quality/schemes.py` has always treated an unrhymed line as a singleton BLOCK, so ABXB and ABCB are the same partition; the spine disagreed with it silently until 2026-08-10, and declaring 24 lines of a 41-line lyric free then mandated all 276 of their pairs and demanded that 'does' rhyme with 'heat'. The sonnet oracle cannot see this: ABABCDCDEFEFGG contains no X.
+  PASS  scheme XXXX mandates 0 pair(s)
+          got 0. `quality/schemes.py` has always treated an unrhymed line as a singleton BLOCK, so ABXB and ABCB are the same partition; the spine disagreed with it silently until 2026-08-10, and declaring 24 lines of a 41-line lyric free then mandated all 276 of their pairs and demanded that 'does' rhyme with 'heat'. The sonnet oracle cannot see this: ABABCDCDEFEFGG contains no X.
+
+4. the graph's self-consistency check (mutation M19)
+  PASS  under the DEFAULT door the triangle is COMPLETE — CONSONANCE is admitted, so done/stone is a real edge and there is no defect
+          {('done', 'gone'): ('RHYME', 0.828), ('done', 'stone'): ('CONSONANCE', 0.772), ('gone', 'stone'): ('RHYME', 0.835)}; admit=('ASSONANCE', 'CONSONANCE', 'RHYME', 'RIME_RICHE')
+  PASS  ...and NARROWING the door to the two rhyme relations makes the same three lines a broken class again — done/stone clears the .75 scalar and fails on the RELATION, which is `admits`'s second clause and the only thing this counter exists to say
+          {('done', 'gone'): ('RHYME', 0.828), ('done', 'stone'): ('CONSONANCE', 0.772), ('gone', 'stone'): ('RHYME', 0.835)}; admit=('RHYME', 'RIME_RICHE'). A counter that fired on COMPLETE triangles instead would report a broken class as clean.
+  PASS  a complete triangle is NOT a defect
+          {('done', 'won'): 'RHYME', ('done', 'begun'): 'RHYME', ('won', 'begun'): 'RHYME'}
+
+5. identity is not rhyme, and the value flags are findings (mutations M26-M29)
+  PASS  an identical word is REPEAT
+          doctrine 3: REPEAT inverts by context -- a violation inside a verse, the requirement across chorus instances, licensed as radif. Without the check a self-rhyme scores 1.0 and wins.
+  PASS  same sound, different word is RIME_RICHE
+          the taxonomy has to be able to SAY it (doctrine 24)
+  PASS  a genuine rhyme is neither
+  PASS  the cliche pair is flagged
+          doctrine 9: passing the band by reaching for fire/desire is the slop direction, and revise.py's modal exclusion is built on it
+  PASS  the shared-suffix stem check fires
+          grammatical rather than phonetic rhyme
+  PASS  ...and does NOT fire where the stem is not a word
+          -er/-ed/-es/-s only count on real stems: `weath` and `feath` are not words, so this is a phonetic rhyme and not a grammatical one. (`water`/`matter` DOES fire, because `wat` and `matt` both appear in the frequency list -- which is the rule working, not failing.)
+
+6. reading a line into words (mutations M22, M24)
+  PASS  U+2019 is normalised wherever a word is extracted
+          got ['The', 'rose', "prepar'd"]. Doctrine 26: the matrix fitter's endword() did not, `prepar’d` split, the bare letter 'd' became an end word 75 times, 9.2% of the training pairs were corrupted and two of eight registered predictions flipped verdict.
+  PASS  U+2018 too
+          ["'tis", 'done']
+  PASS  the end word is the line's LAST token
+  PASS  ...even when the dictionary cannot read it
+          a path that takes the last word the DICTIONARY could read reports the rhyme word as `cat`, and on Shakespeare's `grow'st` line reports `thou`. Measured at 5.14% of song lines before it was fixed.
+  PASS  parentheticals are not words
+======================================================================
+all mutation-derived structure/value/ingestion regressions pass

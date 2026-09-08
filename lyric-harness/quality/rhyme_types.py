@@ -1008,7 +1008,7 @@ def _read(text, phon):
         return (list(s), [0] * len(s)) if s else None
     out, owner = [], []
     for i, t in enumerate(toks):
-        s = phon.syllabify(t)
+        s = (phon.for_token(i) if hasattr(phon, "for_token") else phon).syllabify(t)
         if not s:
             return None
         out.extend(s)
@@ -1325,7 +1325,7 @@ def _position(a, b, frame, spans):
 
 def classify_pair(a, b, phon, span=None, position=None, boundary="simple",
                   realisation="phonetic", anchor_a=None, anchor_b=None,
-                  preset=None, frame=None, select=None, consult=True):
+                  preset=None, frame=None, select=None, consult=True, member_phons=None):
     """Two members and a phonology -> a RhymeType coordinate, or None.
 
     None means at least one member is outside the phonology's declared
@@ -1407,7 +1407,8 @@ def classify_pair(a, b, phon, span=None, position=None, boundary="simple",
             f"declared placement is now either verified or refused. Pass "
             f"Frame(line_a=..., line_b=...).")
 
-    ra, rb = _read(a, phon), _read(b, phon)
+    pa, pb = member_phons or (phon, phon)
+    ra, rb = _read(a, pa), _read(b, pb)
     if ra is None or rb is None:
         return None
     sa, oa = ra
@@ -1870,7 +1871,10 @@ def _all_same_line(canon):
     from it means looked-and-none, not cannot-ask.
     """
     kinds = _placements_of(canon)
-    return bool(kinds) and set(kinds) <= INTRA_LINE_PLACEMENTS
+    from quality.relations import REGISTRY
+    schema = REGISTRY.get(canon)
+    return ((schema is not None and schema.figure.frame in ("line", "token"))
+            or bool(kinds) and set(kinds) <= INTRA_LINE_PLACEMENTS)
 
 
 #: M-58 ITEM 2: NAMES WHOSE DEFINITION DOES NOT TURN ON SYLLABLE COUNT.
@@ -1928,7 +1932,7 @@ def _extends(observed, registered):
 
 
 def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
-                       position=None, lines=None, instances=None):
+                       position=None, lines=None, instances=None, member_phons=None):
     """Does this pair stand in the declared relation?
 
     -> True / False / None, and **None is a REFUSAL, not a no** (doctrine 79)
@@ -1998,7 +2002,8 @@ def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
                 f"is a property of a single line and no pair of lines can "
                 f"stand in it. A mandate group declares a relation BETWEEN "
                 f"lines; this schema has none to declare.")
-        return (i, j) in instances
+        return (instances.verdict((i, j)) if hasattr(instances, "verdict")
+                else (i, j) in instances)
     if kind == "class":
         return coarse == canon
     if phon is None:
@@ -2089,7 +2094,7 @@ def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
     # member.  `quality/test_mandate_relation.py` caught exactly that when
     # this block was first written, which is the check doing its job.
     try:
-        readable = classify_pair(a, b, phon,
+        readable = classify_pair(a, b, phon, member_phons=member_phons,
                                  **({"preset": preset} if preset else {}))
     except Indeterminate:
         return None
@@ -2123,7 +2128,7 @@ def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
         if reg_position is not None and reg_position != position:
             continue
         try:
-            t = classify_pair(a, b, phon, boundary=key[4],
+            t = classify_pair(a, b, phon, member_phons=member_phons, boundary=key[4],
                               realisation=key[6], anchor_a=key[7],
                               anchor_b=key[8],
                               **({"preset": preset} if preset else {}))
@@ -2241,3 +2246,51 @@ __all__ = ["CHANNELS", "SPAN", "IDENTITY", "STRESS", "POSITION", "BOUNDARY",
            "RelationRefused", "relation_vocabulary",
            "relation_collisions", "resolve_relation",
            "satisfies_relation"]
+
+
+def coarse_relation_consensus(lex, line_a, line_b, decl, relation=None,
+                              profile=None, promote=False, min_score=None, member_lexicons=None):
+    """Unanimous endpoint-pronunciation verdict with the existing scorer.
+
+    Each pronunciation still gets the scorer's declared anchor-span search.
+    Dictionary ordering and maximizing over different readings cannot turn an
+    unresolved homograph into a certified rhyme. ``relation`` is a canonical
+    coarse class, or None for the declaration's admissibility predicate.
+    """
+    import itertools
+    import lyric_harness as lh
+    def candidates(line, lex):
+        reader = lex.for_line(line) if hasattr(lex, "for_line") else lex
+        words = lh.line_tokens(line, strip_parens=lex.strip_parens)
+        if not words:
+            return []
+        key = lh.fold_apostrophes(words[-1]).lower().strip("'\".,;:!?()[]")
+        end_reader = reader.for_token(len(words) - 1) if hasattr(reader, "for_token") else reader
+        prons = end_reader.entries.get(key)
+        if not prons:
+            ancs, label, _ = lh.line_anchors(reader, line, promote=promote)
+            return [(ancs, label)] if ancs else []
+        out = []
+        for pron in prons:
+            ancs, label, _ = lh.line_anchors(reader, line, promote=promote,
+                                            endpoint_pronunciations=[pron])
+            if not ancs:
+                return []
+            out.append((ancs, label))
+        return out
+    la, lb = member_lexicons or (lex, lex)
+    aa, bb = candidates(line_a, la), candidates(line_b, lb)
+    if not aa or not bb:
+        return None
+    values = set()
+    for (anc_a, word_a), (anc_b, word_b) in itertools.product(aa, bb):
+        score = lh.best_score(anc_a, anc_b, decl, word_a, word_b, profile=profile)
+        value = (score['relation'] == relation if relation else
+                 lh.admits(score, lh.theta_for(score, decl),
+                           relations=frozenset(decl.admit)))
+        if min_score is not None:
+            value = value and score['total'] >= min_score
+        values.add(value)
+        if len(values) > 1:
+            return None
+    return next(iter(values))

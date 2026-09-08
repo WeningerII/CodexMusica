@@ -1,0 +1,28 @@
+======================================================================
+VERIFY FIGURES — the prose answers to the pin (M-33)
+======================================================================
+
+§1 the shipped document is clean, and the scan examined something
+  PASS  §1 zero violations on quality/RESULTS.md — M-33's seven stale sites were repinned in the entry's own commit and none has crept back
+  PASS  §1 ...and the scan is NOT vacuous: current and history occurrences both counted above zero, so an empty document or a broken regex cannot read as clean (doctrine 20)
+  PASS  §1 the derivation matches the pin — the declared spellings ARE the pin's values at the quoted precision
+
+§2 the declared history form is the whole rule — struck or blockquote, nothing softer
+  PASS  §2 the live leak is a VIOLATION — the word SUPERSEDED beside it rescues nothing
+  PASS  §2 a struck value is HISTORY
+  PASS  §2 a blockquote line is HISTORY for every value on it
+  PASS  §2 the current pair is counted as current, never charged
+  PASS  §2 a RETIRED value in labelled narrative is listed and not a violation — the lifecycle's unpoliced tier
+  PASS  §2 a longer decimal does not match a tracked spelling — 0.9640 yields no row for line 6
+
+§3 the derivation check IS the relation to the pin (the half M-33 found missing)
+  PASS  §3 a moved measurement reds the derivation for the moved quantity AND the gap it feeds — the prose cannot stay quiet under a repin
+  PASS  §3 ...and the real pin derives every declared spelling exactly (the control)
+
+§4 scope is declared per document, and CLAUDE.md is OUT of it on a stated argument
+  PASS  §4 the in-scope set is exactly the declared tuple
+  PASS  §4 the reason is still true: CLAUDE.md's doctrine-7 ladder quotes a superseded pair in unmarked narrative — the form the rule cannot admit
+
+======================================================================
+  13 passed, 0 failed
+======================================================================

@@ -1,0 +1,43 @@
+shard 1/1: solo='none' pool=1/1
+── quality/test_relations_null.py
+── quality/test_songs_record.py
+── quality/test_screen.py
+── quality/test_g2p.py
+
+1. the series — banked, and re-derivable from the bytes
+  PASS  songs/RESULTS.tsv carries rows, so this file cannot pass by examining nothing
+          180 row(s)
+
+1. the pairs that taught us the bans answer the same through the front door
+  PASS  every banked row carries every declared column — a row missing a feature is a row that cannot be compared to the next one
+          15 column(s): ['abstract_noun_ratio', 'concreteness_mean', 'concreteness_p90', 'content_word_freq_mean']...
+  PASS  every delivered song has a banked row — an unmeasured song is the hole the whole file was written to close
+          unbanked: none
+
+2. the harness commit, and the dirty-tree disclosure
+  PASS  a commit column is produced at all
+          1e68fb89
+  PASS  ...and a dirty working tree is DISCLOSED in the value rather than passing as a clean commit (doctrine 20)
+          1e68fb89
+
+3. the drift detector is two-sided
+==========================================================================
+RELATIONS NULLS · SECTION 9 (THE PANEL) — regressions
+==========================================================================
+
+§1 the panel is a partition of the registry
+  PASS  §1 every declared schema gets exactly one row (empty panel)
+          77 rows for 77 schemas
+  PASS  §1 every verdict is one of PANEL_VERDICTS
+          ['no_instance']
+  PASS  §1 a schema no slice could ask still carries a REASON
+
+1. the fallback is OFF everywhere it was not asked for
+  PASS  the REGISTERED eng has no fallback
+          quality.phonology.get('eng') is what every existing caller holds; if this flips, every recorded number in the repo silently moves
+  PASS  and it still refuses `viewest`
+          the same refusal test_relations.py pins as known gap 1's canary
+  PASS  `layer_of` says None rather than raising
+          doctrine 28: 'cannot read' is a value in the same range as the layers, not an exception a caller can forget to catch
+  PASS  an undeclared mode is refused, not coerced
+          declared modes: ['high', 'low'] or None

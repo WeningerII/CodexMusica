@@ -45,3 +45,7 @@ graphify-out/
 # Python bytecode caches anywhere in the tree (mcp/worker.py is imported by tests and reviews;
 # lyric-harness/.gitignore already carries the same rule for its own subtree)
 __pycache__/
+
+# These attest the actual assembled build/runtime, not a source checkout.
+/mcp/build_identity.json
+/mcp/capacity_verification.json

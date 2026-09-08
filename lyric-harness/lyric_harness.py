@@ -44,7 +44,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 CMUDICT_PATH = os.path.join(HERE, "cmudict.dict")
 FREQ_PATH = os.path.join(HERE, "data", "opensubtitles_en_50k.tsv")
 
-CMUDICT_URL = "https://raw.githubusercontent.com/cmusphinx/cmudict/master/cmudict.dict"
+CMUDICT_URL = "https://raw.githubusercontent.com/cmusphinx/cmudict/74790861f652b15e4ac49015a90074ad62a27690/cmudict.dict"
 
 
 #: HOW A STAGED DOWNLOAD IS RETRIED, DECLARED IN ONE PLACE — 2026-09-01.
@@ -106,7 +106,8 @@ def download_to(url, dest, attempts=DOWNLOAD_ATTEMPTS, sleep=time.sleep):
     `sleep` is a parameter so a test can prove the backoff without waiting
     for it; production never passes it.
     """
-    tmp = dest + ".part"
+    dest = os.fspath(dest)
+    tmp = dest + (b".part" if isinstance(dest, bytes) else ".part")
     last = None
     for attempt in range(attempts):
         try:
@@ -137,6 +138,8 @@ def fetch_data():
     if not os.path.exists(CMUDICT_PATH):
         print(f"downloading {os.path.basename(CMUDICT_PATH)} ...", file=sys.stderr)
         download_to(CMUDICT_URL, CMUDICT_PATH)
+    from quality.release_assets import verify_asset
+    verify_asset("cmudict", root=HERE)
     if not os.path.exists(FREQ_PATH):
         # Repo-committed and provenance-gated (data/sources.tsv), not a raw
         # upstream mirror -- the file adds a `#` header and a rank column
@@ -885,7 +888,7 @@ class _DictionaryOnlyLexicon:
 
 
 class Lexicon:
-    def __init__(self, fallback=None, strip_parens=True):
+    def __init__(self, fallback=None, strip_parens=True, pronunciations=None):
         """`fallback` is a DECLARED coordinate, `None` by default -- omitting
         it reproduces every transcription this class has ever returned,
         unchanged. Passing `"high"` or `"low"` (the same vocabulary
@@ -965,6 +968,27 @@ class Lexicon:
         # be defined in terms of the quantity it controls, and this one is
         # now defined by the list it must sit past).
         self.freq_rank_oov = len(self.freq_rank)
+        self.pronunciations = []
+        if pronunciations is not None:
+            from quality.pronunciation import validate_choices
+            self.pronunciations = validate_choices(pronunciations, self)
+
+    def for_line(self, text):
+        if not getattr(self, "pronunciations", ()):
+            return self
+        from quality.pronunciation import for_line
+        return for_line(self, text)
+
+    def for_token(self, index):
+        if not getattr(self, "pronunciations", ()):
+            return self
+        from quality.pronunciation import for_token
+        return for_token(self, index)
+
+    def word_pieces(self, word):
+        choice = getattr(self, '_pronunciation_choice', None)
+        return [word] if choice and choice['word'] == word else re.split(r"[-\u2011]", word)
+
 
     def transcribe_word(self, word):
         """Return (phones, oov_flag). Naive fallback for out-of-vocabulary."""
@@ -1018,6 +1042,7 @@ class Lexicon:
         `(...)` is a non-sung aside (stripped, the default) or real words in
         a second voice (kept). Demotes function-word stress so the anchor
         reaches the content word (mosaic rhyme: "spit in it")."""
+        self = self.for_line(text)
         text = text.replace("\u2019", "'").replace("\u2018", "'")
         if self.strip_parens:
             text = re.sub(r"\([^)]*\)", " ", text)
@@ -1031,15 +1056,16 @@ class Lexicon:
         # syllables (T-IY, EH-N) onto the one word and reported the Welsh line
         # READABLE, anchored on a spelling-out of its own rhyme word.
         words = [t for t in _TOKEN_RUN.findall(text) if LATIN_SCRIPT.search(t)]
-        for w in words:
-            for piece in re.split(r"[-\u2011]", w):
+        for index, w in enumerate(words):
+            reader = self.for_token(index)
+            for piece in (reader.word_pieces(w) if hasattr(reader, "word_pieces") else re.split(r"[-\u2011]", w)):
                 if not piece:
                     continue
-                p, is_oov = self.transcribe_word(piece)
+                p, is_oov = reader.transcribe_word(piece)
                 if is_oov:
                     oov.append(piece)
                 lw = piece.lower()
-                is_final = phrase_final and (w == words[-1])
+                is_final = phrase_final and (index == len(words) - 1)
                 if lw in WEAK_ALWAYS or (lw in WEAK_NONFINAL
                                          and not is_final):
                     p = [re.sub(r"[12]$", "0", ph) for ph in p]
@@ -1921,21 +1947,9 @@ def load_lyric_lines(path, with_indent=False):
     prints rather than an apparatus row.
     A file with no declaration reads byte-identically to before.
     """
-    raw = read_lyric_text(path).splitlines()
-    drops = wrapped_apparatus_drops(raw, path)
-    vdrops, vedits = bracketed_verse_edits(raw, path)
-    drops |= vdrops
-    rows = []
-    for i, l in enumerate(raw):
-        if i in drops:
-            continue
-        s = vedits.get(i, l.strip())
-        if not s or is_apparatus_line(s):
-            continue
-        text = normalise_bracket_spans(s, path).strip()
-        if not text:
-            continue
-        rows.append((line_indent(l), text))
+    from quality.lyric_reader import normalized_rows
+    rows = [(row.indent, row.text) for row in normalized_rows(path)
+            if row.kind == "lyric"]
     return rows if with_indent else [t for _i, t in rows]
 
 
@@ -2161,8 +2175,22 @@ def raw_final_token(text, strip_parens=True):
 
     `strip_parens` -- see `line_tokens`, whose declaration this one shares.
     """
-    toks = line_tokens(text, strip_parens=strip_parens)
-    return toks[-1] if toks else None
+    # Locate before English repertoire filtering: a printed final 我 is
+    # still the endpoint and cannot silently turn the preceding cat into it.
+    norm = fold_apostrophes(text)
+    if strip_parens:
+        norm = re.sub(r"\([^)]*\)", " ", norm)
+    runs, current = [], []
+    for ch in norm:
+        if ch.isalpha() or unicodedata.category(ch).startswith("M") or ch in "'-":
+            current.append(ch)
+        else:
+            if current and any(c.isalpha() for c in current):
+                runs.append("".join(current))
+            current = []
+    if current and any(c.isalpha() for c in current):
+        runs.append("".join(current))
+    return runs[-1] if runs else None
 
 
 def line_readability(lex, text, anchors=None):
@@ -2215,13 +2243,14 @@ def line_readability(lex, text, anchors=None):
     the pieces move to `final_unread_pieces` (doctrine 24 -- a rule that would
     delete a category RELABELS instead).
     """
+    lex = lex.for_line(text) if hasattr(lex, "for_line") else lex
     toks = line_tokens(text, strip_parens=lex.strip_parens)
-    final = toks[-1] if toks else None
+    final = raw_final_token(text, strip_parens=lex.strip_parens)
     _, _, oov = lex.transcribe(text)
     unreadable = list(dict.fromkeys(oov))
     if final is None:
         return {"text": text, "final_token": None, "readable": False,
-                "final_unreadable": False, "final_unreadable_cause": None,
+                "final_unreadable": True, "final_unreadable_cause": "no_endpoint",
                 "final_unread_pieces": [], "unreadable": unreadable,
                 "interior_unreadable": unreadable,
                 "reason": "no word tokens in the line: nothing to anchor on"}
@@ -2324,10 +2353,11 @@ def _phone_owners(lex, words):
     """
     owners = []
     for k, w in enumerate(words):
-        for piece in re.split(r"[-‑]", w):
+        reader = lex.for_token(k) if hasattr(lex, "for_token") else lex
+        for piece in (reader.word_pieces(w) if hasattr(reader, "word_pieces") else re.split(r"[-\u2011]", w)):
             if not piece:
                 continue
-            p, _ = lex.transcribe_word(piece)
+            p, _ = reader.transcribe_word(piece)
             lw = piece.lower()
             if lw in WEAK_ALWAYS or lw in WEAK_NONFINAL:
                 pass          # stress rewrite does not change the phone count
@@ -2399,7 +2429,7 @@ def token_pieces(lex, token):
     ask whether it is evidence of the form or an artifact of the edition.
     """
     read, unread = [], []
-    for p in HYPHEN_SPLIT.split(token):
+    for p in (lex.word_pieces(token) if hasattr(lex, "word_pieces") else token.split("-")):
         if not p or not LATIN_SCRIPT.search(p):
             continue
         ph, is_oov = lex.transcribe_word(p)
@@ -2466,7 +2496,7 @@ def _tag_span_words(sylls, phones, owners, words, lex=None):
         for w in set(owners[ni] for ni in nuclei):
             tok = words[w]
             if HYPHEN_SPLIT.search(tok):
-                pieces[w] = token_pieces(lex, tok)
+                pieces[w] = token_pieces(lex.for_token(w) if hasattr(lex, "for_token") else lex, tok)
     seen = {}
     for k, ni in enumerate(nuclei):
         w = owners[ni]
@@ -2480,7 +2510,7 @@ def _tag_span_words(sylls, phones, owners, words, lex=None):
         sylls[k]["word_unread"] = tuple(un) if un is not None else ()
 
 
-def line_anchors(lex, text, promote=False):
+def line_anchors(lex, text, promote=False, endpoint_pronunciations=None):
     """All anchor readings of a line: the last word cycles through its
     dictionary pronunciation variants (homographs: live, wind, read).
     promote=True adds the metrically-promoted bare-final-syllable variant —
@@ -2497,21 +2527,27 @@ def line_anchors(lex, text, promote=False):
     not say which words it had read -- so a mosaic reach like `get to go` was
     reported under the end word `go`. See `span_provenance`.
     """
+    lex = lex.for_line(text) if hasattr(lex, "for_line") else lex
     words = line_tokens(text, strip_parens=lex.strip_parens)
-    if not words:
-        return [], "", []
+    actual_last = raw_final_token(text, strip_parens=lex.strip_parens)
+    if not words or words[-1] != actual_last:
+        return [], actual_last or "", [actual_last] if actual_last else []
     prefix = " ".join(words[:-1])
-    last = words[-1]
+    last = actual_last
     pre_phones, _, pre_oov = (lex.transcribe(prefix, phrase_final=False)
                               if prefix else ([], [], []))
     pre_owners = _phone_owners(lex, words[:-1]) if prefix else []
     if len(pre_owners) != len(pre_phones):
         pre_owners = None            # cannot attribute: refuse to guess
     lw = fold_apostrophes(last).lower().strip("'\".,;:!?()[]")
-    variants = lex.entries.get(lw, [])[:4]
+    # The consensus bridge narrows only this endpoint. Replacing a lexicon
+    # entry would also change earlier occurrences of the same homograph.
+    end_reader = lex.for_token(len(words) - 1) if hasattr(lex, "for_token") else lex
+    variants = (end_reader.entries.get(lw, []) if endpoint_pronunciations is None
+                else endpoint_pronunciations)
     oov = list(pre_oov)
     if not variants:
-        p, _, oo = lex.transcribe(last)   # handles hyphenated compounds
+        p, _, oo = end_reader.transcribe(last)   # handles hyphenated compounds
         oov.extend(oo)
         variants = [p] if p else []
         # THE HYPHEN REFUSAL, 2026-08-11. `transcribe` splits a compound on
@@ -2528,11 +2564,13 @@ def line_anchors(lex, text, promote=False):
         # last piece) and 174 line ends on the 143-file English song corpus,
         # 84 of them in one Dorset file (doctrine 67 -- a refusal rate is not
         # a tax, measure WHERE it falls).
-        if unread_final_piece(lex, last)[0] is not None:
+        if unread_final_piece(end_reader, last)[0] is not None:
             variants = []
     anchors = []
     for var in variants:
         v = list(var)
+        if not syllabify(v):
+            continue  # a vowelless final token cannot borrow the prefix nucleus
         if lw in WEAK_ALWAYS:
             v = [re.sub(r"[12]$", "0", ph) for ph in v]
         full = pre_phones + v
@@ -3952,6 +3990,7 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
     # counts were obtained under" -- an undeclared comparator is not a thing
     # to discover partway through a matrix.
     channel_profile(profile)
+    from quality.rhyme_types import coarse_relation_consensus
     assert len(scheme) == len(lines), "scheme length must equal line count"
     anchors, endwords = [], []
     for line in lines:
@@ -3989,13 +4028,35 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                            endwords[i], endwords[j], profile=profile)
             matrix[i][j] = s
             same = same_scheme_class(scheme[i], scheme[j])
+            reading_verdict = None
+            if (not records[i]["final_unreadable"] and
+                    not records[j]["final_unreadable"] and
+                    (same or s["total"] >= THETA_COLLISION)):
+                reading_verdict = coarse_relation_consensus(
+                    lex, lines[i], lines[j], decl, profile=profile,
+                    promote=decl.final_promotion,
+                    relation=None if same else s["relation"],
+                    min_score=None if same else THETA_COLLISION)
+            s["reading_verdict"] = reading_verdict
             if same:
                 if (i + 1, j + 1) in refused:
                     continue          # refused: recorded, never judged
+                if reading_verdict is None:
+                    refusals.append({"lines": (i + 1, j + 1),
+                        "endwords": (endwords[i], endwords[j]), "unreadable": [],
+                        "reason": "Permitted endpoint pronunciations disagree on "
+                                  "the declared relation; the reading is unresolved."})
+                    refused.add((i + 1, j + 1))
+                    continue
                 if s["relation"] == "REPEAT":
                     violations.append(
                         (i + 1, j + 1, s["total"],
                          "REPEAT not rhyme (identical word)"))
+                elif reading_verdict is True:
+                    continue
+                elif admits(s, theta_for(s, decl), relations=frozenset(decl.admit)):
+                    violations.append((i + 1, j + 1, s["total"],
+                        "No permitted endpoint reading satisfies the declaration"))
                 elif s["relation"] in NEAR_RELATIONS and \
                         s["relation"] not in decl.admit:
                     # An ADMITTED near relation falls through to `admits()`
@@ -4045,7 +4106,7 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                         (i + 1, j + 1, s["total"],
                          f"{s['relation']} not rhyme (conjunctive band)"))
             else:
-                if s["total"] >= THETA_COLLISION:
+                if s["total"] >= THETA_COLLISION and reading_verdict is True:
                     # THE CUT IS THE NAMED CONSTANT SINCE 2026-08-16 —
                     # it was the literal `0.9` here and `THETA_COLLISION`
                     # in `quality/revise.py`, two spellings of one number
@@ -4092,13 +4153,23 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
         from quality import phonology as _PH
         from quality.relations import whole_vocabulary_pairs as _WVP
         _wvp = _WVP(list(lines), _PH.get("eng"),
-                    bearing={x for pr in mandated for x in pr})
+                    bearing={x for pr in mandated for x in pr},
+                    requested_pairs={(v[0], v[1]) for v in violations
+                                     if not v[3].startswith("REPEAT")})
         _kept = []
         for v in violations:
             if (not v[3].startswith("REPEAT")) and (v[0], v[1]) in _wvp:
                 schema_satisfied.append(
                     {"lines": (v[0], v[1]),
                      "satisfied_by": sorted(_wvp[(v[0], v[1])])})
+            elif (not v[3].startswith("REPEAT")) and (v[0], v[1]) in _wvp.undecided:
+                names = _wvp.undecided[(v[0], v[1])]
+                refusals.append({"lines": (v[0], v[1]),
+                    "endwords": (endwords[v[0]-1], endwords[v[1]-1]),
+                    "unreadable": [], "schemas": sorted(names),
+                    "reason": "Default relation remains unresolved in applicable schemas: "
+                              + ", ".join(sorted(names))})
+                refused.add((v[0], v[1]))
             else:
                 _kept.append(v)
         violations = _kept
@@ -4151,6 +4222,7 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                 {"lines": (i + 1, j + 1), "endwords": (endwords[i], endwords[j]),
                  "score": matrix[i][j]["total"],
                  "relation": matrix[i][j]["relation"],
+                 "reading_verdict": matrix[i][j].get("reading_verdict"),
                  "flags": matrix[i][j]["flags"],
                  # The number's PROVENANCE, beside the number. `endwords` is
                  # the pair the scheme mandates; `spans` is the pair that was
@@ -4504,14 +4576,16 @@ def word_syllable_map(lex, text):
     the same commit to test every key it reads, so a span from a THIRD reader
     gets the documented `None` \u2014 "cannot say" \u2014 instead of a traceback.
     """
+    lex = lex.for_line(text) if hasattr(lex, "for_line") else lex
     words = line_tokens(text, strip_parens=lex.strip_parens)
     out = []
     for k, w in enumerate(words):
+        reader = lex.for_token(k) if hasattr(lex, "for_token") else lex
         phones = []
-        for piece in re.split(r"[-\u2011]", w):
+        for piece in (reader.word_pieces(w) if hasattr(reader, "word_pieces") else re.split(r"[-\u2011]", w)):
             if not piece:
                 continue
-            p, _ = lex.transcribe_word(piece)
+            p, _ = reader.transcribe_word(piece)
             phones.extend(p)
         lw = fold_apostrophes(w).lower().strip("'\".,;:!?()[]")
         final = (k == len(words) - 1)
@@ -4521,7 +4595,7 @@ def word_syllable_map(lex, text):
         # a span may name a token that is only partly the string it was built
         # from, and a provenance record that cannot say so is the defect
         # `token_pieces` exists to close.
-        rd, un = (token_pieces(lex, w) if HYPHEN_SPLIT.search(w)
+        rd, un = (token_pieces(reader, w) if HYPHEN_SPLIT.search(w)
                   else (None, None))
         sylls = syllabify(phones)
         for n, s in enumerate(sylls):
@@ -5640,7 +5714,10 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
             # declaring this relation will judge the pair — same function,
             # same position, so the screen's answer and the grade's cannot
             # drift (doctrine 1).
-            if relation is not None and not row["refused"]:
+            # The broad default and the requested name are independent
+            # questions. Unresolved default schemas cannot suppress a
+            # determinate requested cell; keep the broad refusal intact.
+            if relation is not None:
                 if _schema is not None:
                     _stream = _RL.build_stream(
                         [_SCREEN_CARRIERS[0].format(w=a),
@@ -5660,6 +5737,15 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
                             f"not supply) — a refusal, not a no")
                     else:
                         row["named"] = bool(_ans)
+                elif _kind == "class":
+                    row["named"] = _RT.coarse_relation_consensus(
+                        rv.lex, _SCREEN_CARRIERS[0].format(w=a),
+                        _SCREEN_CARRIERS[1].format(w=b), rv.decl,
+                        relation=_canon, promote=rv._promote())
+                    if row["named"] is None:
+                        row["named_reason"] = (
+                            "the requested class cannot be resolved across "
+                            "the available endpoint pronunciation readings")
                 else:
                     try:
                         row["named"] = _RT.satisfies_relation(
@@ -5689,7 +5775,16 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
 # remembered eight times in one round.
 # ---------------------------------------------------------------------------
 
-USAGE = """--fallback=high|low, BEFORE any verb, on any command: opts every
+USAGE = """--pronunciations=<JSON> on song, finish, brief, revise, verify and recover:
+explicit occurrence readings: a list of {line, token, word, phones, basis, source}.
+line is exact complete text; token is the 1-based sung word. Each choice applies
+to every verbatim repeat of the line, never to a changed line. basis=dictionary
+verifies the selected ARPABET phones against CMUdict; basis=declared accepts a
+supplied pronunciation with its caller-stated source. Grade/check results expose
+pronunciation_options. Choose the intended reading, regrade, then revise under
+the same choices. A changed declaration requires a new revision run.
+
+--fallback=high|low, BEFORE any verb, on any command: opts every
 verb's Lexicon into quality/g2p.py's morphology/elision/compound layer for
 words CMUdict refuses outright (viewest, o'er, savour, groun'). Omitted by
 default -- a refusal stays a refusal unless this is declared. 'low' also
@@ -5887,7 +5982,8 @@ the quality layer (each says which module answered):
                           and never a silent downgrade to the stub
   plan --seed=N [--form=verse-chorus] [--lines=N] [--relation=NAME]
        [--functions=a,b,c] [--title=TEXT] [--fill=DRAFT]
-       [--out=PATH]      the PLANNING phase: a request in, a blueprint and
+       [--want=PRED;PRED] [--inspection-only] [--out=PATH]
+                        the PLANNING phase: a request in, a blueprint and
                           a mandate out (quality/plan.py). Structure from a
                           declared pattern grammar, schemes from the FULL
                           rgs() enumeration, meters from a declared cycle
@@ -5903,7 +5999,12 @@ the quality layer (each says which module answered):
                           that question comes back TITLE_UNDECLARED rather
                           than guessing one off the first line. Unknown
                           forms, blocked forms and unattainable lengths
-                          refuse by name with the alternatives listed
+                          refuse by name with the alternatives listed.
+                          --want conditions the plan on the existing closed
+                          sweep predicates; all candidate outcomes are disclosed.
+                          Default plans fit the registry-derived execution
+                          budget. --inspection-only exposes larger mathematical
+                          plans for inspection; they cannot be filled or finished.
   plan --sweep=LO-HI [--want=PRED;PRED] [the same declarations]
                           THE SEED SWEEP, a verb since 2026-08-23 (the last
                           instrument standing rule 3 named and left manual).
@@ -6084,7 +6185,26 @@ def _strip_flag(args, flag, bare=False):
     return out
 
 
-def _refuse(msg, sides=(), detail=()):
+def _lyric_result(**record):
+    """Emit one authenticated machine record; report prose is never status."""
+    import json
+    record.update(version=1, transport_token=os.environ.get("LYRIC_CONTROL_TOKEN"))
+    print("  lyric result: " + json.dumps(record, ensure_ascii=False,
+                                          separators=(",", ":")), flush=True)
+
+
+def _lyric_run_record(say_memo, say_proposer, plan=None):
+    """Counters from the modules that own them, never parsed from disclosures."""
+    memo_record = getattr(say_memo, "record", None)
+    proposer_record = getattr(say_proposer, "record", None)
+    out = dict(memo_record() if memo_record else {})
+    out.update(proposer_record() if proposer_record else {"stale_answers": 0})
+    if plan is not None:
+        out["plan_lines"] = plan["total_lines"]
+    return out
+
+
+def _refuse(msg, sides=(), detail=(), machine=None):
     """Print the ONE refusal shape and exit 2. Never returns.
 
     `_blueprint_or_refuse` has printed `  REFUSED -- {e}` at exit 2 since the
@@ -6120,6 +6240,7 @@ def _refuse(msg, sides=(), detail=()):
         print(f"    {role}: {path}")
     for ln in detail:
         print(f"    {ln}")
+    _lyric_result(status="refused", exit=2, refusal=str(msg), **(machine or {}))
     sys.exit(2)
 
 
@@ -6673,6 +6794,93 @@ class _NeedProposal(Exception):
         self.kind, self.record, self.prompt = kind, record, prompt
 
 
+# These are decoded compact UTF-8 JSON bounds, not gzip estimates. The outer
+# connector reserves another 32 KiB for declarations under its 512 KiB codec.
+# Working journals leave 64 KiB for the final accepted draft and stop metadata.
+JOURNAL_WORK_BYTES = 384 * 1024
+JOURNAL_BYTES = 448 * 1024
+JOURNAL_LINE_CHARS = 200
+
+
+def _journal_bytes(value):
+    return len(json.dumps(value, ensure_ascii=False,
+                          separators=(",", ":")).encode("utf-8"))
+
+
+class _JournalCapacity(Exception):
+    """A known capacity stop, before another answer can become unrecordable."""
+    def __init__(self, state, lines, path=None, code="JOURNAL_CAPACITY"):
+        import copy
+        super().__init__(code + ": keep this exact accepted artifact and journal; "
+                         "this run cannot resume. An identical restart can reach "
+                         "the same limit; reduce the requested scope explicitly "
+                         "before starting independent work")
+        self.state = copy.deepcopy(state)
+        self.lines = list(lines or state.get("accepted_lines") or ())
+        self.path, self.code = path, code
+
+
+def _journal_admit(state, reserve=0, *, lines=None, path=None,
+                   ceiling=JOURNAL_WORK_BYTES, prior=None):
+    if _journal_bytes(state) + reserve > ceiling:
+        raise _JournalCapacity(state if prior is None else prior, lines, path)
+
+
+def _journal_answer_reserve(count, copies=2):
+    # A parsed answer has <=200 Unicode code points per line. JSON's largest
+    # representation is six bytes per code point (escaped ASCII controls),
+    # larger than UTF-8's four bytes. Include array delimiters and record keys.
+    return copies * count * (JOURNAL_LINE_CHARS * 6 + 8) + 4096
+
+
+def _journal_stop(error, machine=None, plan=None):
+    """Persist the exact accepted prefix and emit a typed, non-resumable park."""
+    import tempfile
+    st = error.state
+    st.update(accepted_lines=error.lines, status="journal_capacity",
+              stop_reason=error.code, new_run_required=True)
+    # No answer or prompt is deleted to make this fit. Incoming over-capacity
+    # artifacts are refused by connector admission before reaching the worker.
+    fits = _journal_bytes(st) <= JOURNAL_BYTES
+    if error.path and fits:
+        fd, tmp = tempfile.mkstemp(prefix=".lyric-capacity-",
+                                  dir=os.path.dirname(os.path.abspath(error.path)))
+        try:
+            with os.fdopen(fd, "w", encoding="utf-8") as fh:
+                json.dump(st, fh, ensure_ascii=False, separators=(",", ":"))
+                fh.flush()
+                os.fsync(fh.fileno())
+            os.replace(tmp, error.path)
+            directory_fd = os.open(os.path.dirname(os.path.abspath(error.path)), os.O_RDONLY)
+            try:
+                os.fsync(directory_fd)
+            finally:
+                os.close(directory_fd)
+        finally:
+            if os.path.exists(tmp):
+                os.unlink(tmp)
+    if fits:
+        print("  lyric checkpoint: " + json.dumps(
+            dict(st, transport_token=os.environ.get("LYRIC_CONTROL_TOKEN")),
+            ensure_ascii=False, separators=(",", ":")), flush=True)
+    text = "\n".join(error.lines)
+    if plan is not None:
+        from quality.plan import render_song
+        text = render_song(plan, error.lines).rstrip()
+    text += ("\n\n[STOPPED — " + error.code + " — accepted draft preserved; "
+             "not certified. Keep the journal. This run cannot resume; an "
+             "identical restart can reach the same limit. Reduce the requested "
+             "scope explicitly before starting independent work.]")
+    _lyric_result(status="journal_capacity", exit=3, stop_reason=error.code,
+                  code=error.code, input_draft=st.get("input_draft", error.lines),
+                  accepted_lines=error.lines, final_draft=error.lines,
+                  certified=False, resumable=False, new_run_required=True,
+                  coverage={"certified": False, "scope": "capacity_stop"},
+                  presentation_text=text, **(machine or {}))
+    print(text)
+    sys.exit(3)
+
+
 def _defer_state(path):
     """-> the deferred-run state at `path`, or an empty one. Never raises."""
     empty = {"version": 1, "answered": {"propose": [], "propose_group": []},
@@ -6737,6 +6945,12 @@ def _defer_proposer(path, lines=None):
     from quality import propose as PR
     from quality.revise import draft_fingerprint as _dfp
     st = _defer_state(path)
+    st.setdefault("input_draft", list(lines or ()))
+    st.setdefault("accepted_lines", list(lines or ()))
+    _journal_admit(st, lines=st["accepted_lines"], path=path,
+                   ceiling=JOURNAL_BYTES)
+    if st.get("new_run_required"):
+        raise _JournalCapacity(st, st["accepted_lines"], path)
     # A STATE THAT REACHED A STOP CONDITION IS COMPLETE, and the marker is
     # taken OFF the state here so it is never written back stale: a run that
     # suspends again (the draft moved, or the writer struck some answers)
@@ -6759,6 +6973,18 @@ def _defer_proposer(path, lines=None):
         # Answered: fold it into the record and clear the slot. The loop below
         # re-runs from the top and replays it along with everything earlier.
         rec, ans = dict(pend["record"]), pend["answer"]
+        count = (len(rec.get("records") or ()) if pend["kind"] == "propose_batch"
+                 else len(rec.get("members") or ()) if pend["kind"] == "propose_group"
+                 else 1)
+        if (not isinstance(ans, str)
+                or len(ans.encode("utf-8")) > count * (200 * 4 + 16)):
+            raise _JournalCapacity(st, st["accepted_lines"], path,
+                                   "PROVIDER_PROPOSAL_TOO_LARGE")
+        # _suspend reserved this growth before asking the writer. Recheck an
+        # externally supplied journal without consuming or changing its answer.
+        folded_base = dict(st, pending=None)
+        _journal_admit(folded_base, _journal_answer_reserve(count),
+                       lines=st["accepted_lines"], path=path, prior=st)
         if pend["kind"] == "propose_batch":
             # A BATCH IS SEVERAL TIER-1 RECORDS ANSWERED IN ONE ROW SET
             # (M-236): parsed on the group parser's contract (every marker,
@@ -6776,6 +7002,9 @@ def _defer_proposer(path, lines=None):
                                 "lines and needs every one back, each "
                                 "marker once and nothing else "
                                 "(quality/propose.py `parse_batch`)."])
+            if any(len(text) > JOURNAL_LINE_CHARS for text in parsed.values()):
+                raise _JournalCapacity(st, st["accepted_lines"], path,
+                                       "PROVIDER_PROPOSAL_TOO_LARGE")
             for r in _recs:
                 r2 = dict(r)
                 r2["text"] = parsed[int(r["line"])]
@@ -6791,6 +7020,9 @@ def _defer_proposer(path, lines=None):
                                 "nobody proposed into the draft, and verify() "
                                 "cannot catch that — a mis-parsed line is just "
                                 "a changed line, which is what was asked for."])
+            if len(parsed) > JOURNAL_LINE_CHARS:
+                raise _JournalCapacity(st, st["accepted_lines"], path,
+                                       "PROVIDER_PROPOSAL_TOO_LARGE")
             rec["text"] = parsed
             st["answered"]["propose"].append(rec)
         else:
@@ -6806,6 +7038,9 @@ def _defer_proposer(path, lines=None):
                                 "L<n>: marker is required and each may "
                                 "appear once (quality/propose.py "
                                 "`parse_group`)."])
+            if any(len(text) > JOURNAL_LINE_CHARS for text in parsed):
+                raise _JournalCapacity(st, st["accepted_lines"], path,
+                                       "PROVIDER_PROPOSAL_TOO_LARGE")
             rec["new"] = list(parsed)
             st["answered"]["propose_group"].append(rec)
         st["pending"] = None
@@ -6860,6 +7095,12 @@ def _defer_proposer(path, lines=None):
                  "reasons": [str(r) for r in (reasons or ())]}
         k = (entry["line"], entry["attempt"], entry["round"])
         i = _outcome_at.get(k)
+        trial = dict(st, outcomes=list(st["outcomes"]))
+        if i is None:
+            trial["outcomes"].append(entry)
+        else:
+            trial["outcomes"][i] = entry
+        _journal_admit(trial, lines=st["accepted_lines"], path=path, prior=st)
         if i is None:
             _outcome_at[k] = len(st["outcomes"])
             st["outcomes"].append(entry)
@@ -6873,8 +7114,18 @@ def _defer_proposer(path, lines=None):
                                        "reasons": entry["reasons"]}
 
     def _suspend(kind, record, prompt):
-        st["pending"] = {"kind": kind, "record": record, "prompt": prompt,
-                         "answer": None}
+        pending = {"kind": kind, "record": record, "prompt": prompt,
+                   "answer": None}
+        count = (len(record.get("records") or ()) if kind == "propose_batch"
+                 else len(record.get("members") or ()) if kind == "propose_group"
+                 else 1)
+        # Full prompt/records are counted, including return-closure expansion.
+        # Reserve the raw answer's worst JSON escaping and two parsed copies
+        # (answered + outcome). Rejection details are measured before accepting.
+        trial = dict(st, pending=pending)
+        reserve = count * (200 * 4 + 16) * 6 + _journal_answer_reserve(count)
+        _journal_admit(trial, reserve, lines=st["accepted_lines"], path=path, prior=st)
+        st["pending"] = pending
         raise _NeedProposal(kind, record, prompt)
 
     def _prior(brief, attempt):
@@ -6933,6 +7184,7 @@ def _defer_proposer(path, lines=None):
                 rel.add(int(_mr[0]))
             except (TypeError, ValueError, IndexError):
                 pass
+        rel.update(int(n) for n in getattr(brief, "return_members", ()) or ())
         rel.discard(int(brief.line_no))
         return rel
 
@@ -6956,24 +7208,42 @@ def _defer_proposer(path, lines=None):
             if xn in nos or any(xn in r for r in rels) \
                     or (xr & nos) or any(xr & r for r in rels):
                 continue
+            # Independence and replay are decidable from the assessed
+            # mandate context. Only a question that survives those tests
+            # needs its exact current candidate menu.
+            materialize = getattr(x, "_materialize", None)
+            if materialize is not None:
+                x = materialize()
+            if x is None or x.joint_conflict:
+                continue
             chosen.append(x)
             rels.append(xr)
             nos.add(xn)
         _rn = getattr(brief, "round_no", None)
-        if len(chosen) == 1:
-            _suspend("propose",
-                     {"line": brief.line_no, "attempt": 0, "round": _rn,
-                      "draft": _dfp(lines), "text": None},
-                     PR.render_line(brief, lines, whole=whole, attempt=0,
-                                    reasons=None, prior=_prior(brief, 0)))
-        _suspend("propose_batch",
-                 {"records": [{"line": b.line_no, "attempt": 0, "round": _rn,
-                               "draft": _dfp(lines), "text": None}
-                              for b in chosen],
-                  "round": _rn},
-                 PR.render_batch(chosen, lines, whole=whole,
-                                 priors={b.line_no: _prior(b, 0)
-                                         for b in chosen}))
+        # Independent questions may fit separately even when their combined
+        # full briefs do not. Keep the largest fitting prefix of this exact
+        # order. A failed _suspend admission has not mutated the journal or
+        # asked the writer, so retrying a smaller batch loses no work. The
+        # omitted tail is still unanswered and the replay walk asks it later;
+        # no constraint or text inside an admitted question is shortened.
+        while True:
+            if len(chosen) == 1:
+                _suspend("propose",
+                         {"line": brief.line_no, "attempt": 0, "round": _rn,
+                          "draft": _dfp(lines), "text": None},
+                         PR.render_line(brief, lines, whole=whole, attempt=0,
+                                        reasons=None, prior=_prior(brief, 0)))
+            try:
+                _suspend("propose_batch",
+                         {"records": [{"line": b.line_no, "attempt": 0,
+                                       "round": _rn, "draft": _dfp(lines),
+                                       "text": None} for b in chosen],
+                          "round": _rn},
+                         PR.render_batch(chosen, lines, whole=whole,
+                                         priors={b.line_no: _prior(b, 0)
+                                                 for b in chosen}))
+            except _JournalCapacity:
+                chosen.pop()
 
     propose.prefetch = prefetch
     propose.record = record
@@ -7001,6 +7271,12 @@ def _defer_proposer(path, lines=None):
                  "reasons": [str(r) for r in (reasons or ())]}
         k = (_m, entry["round"])
         i = _goutcome_at.get(k)
+        trial = dict(st, group_outcomes=list(st["group_outcomes"]))
+        if i is None:
+            trial["group_outcomes"].append(entry)
+        else:
+            trial["group_outcomes"][i] = entry
+        _journal_admit(trial, lines=st["accepted_lines"], path=path, prior=st)
         if i is None:
             _goutcome_at[k] = len(st["group_outcomes"])
             st["group_outcomes"].append(entry)
@@ -7076,6 +7352,29 @@ def _defer_proposer(path, lines=None):
                      f"new state file (M-183)")
         return tail
 
+    replaying = st["accepted_lines"] != list(lines or ())
+
+    def checkpoint(current, round_no, status, **extra):
+        nonlocal replaying
+        if replaying:
+            if list(current) != st["accepted_lines"]:
+                return
+            replaying = False
+        trial = dict(st, accepted_lines=list(current), round=round_no, status=status)
+        if status != "finished":
+            for key in ("final_draft", "coverage", "stop", "exit"):
+                trial.pop(key, None)
+        trial.update(extra)
+        _journal_admit(trial, lines=current, path=path, ceiling=JOURNAL_BYTES, prior=st)
+        st.clear()
+        st.update(trial)
+        print("  lyric checkpoint: " + json.dumps(
+            dict(st, transport_token=os.environ.get("LYRIC_CONTROL_TOKEN")),
+            ensure_ascii=False, separators=(",", ":")), flush=True)
+
+    propose.checkpoint = checkpoint
+    propose.checkpoint_state = st
+    disclosure.record = lambda: {"stale_answers": len(tally["stale"])}
     disclosure.state = st                    # the verb writes it on suspension
     return propose, propose_group, disclosure
 
@@ -7091,18 +7390,23 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
     from quality.revise import draft_fingerprint
     import hashlib
     import tempfile
+    import uuid
 
     path = os.environ.get("LYRIC_CHECKPOINT_PATH")
     initial = list(lines or ())
     state = {"version": 1, "input_draft": initial,
+             "journal_id": uuid.uuid4().hex,
              "input_fingerprint": draft_fingerprint(initial),
              "config_key": config_key, "proposer": spec,
              "accepted_lines": initial, "round": 0, "status": "started",
              "proposals": [], "answered": {"propose": [], "propose_group": []}}
+    input_checkpoint_sha256 = None
     if path and os.path.exists(path) and os.path.getsize(path):
         try:
-            with open(path, encoding="utf-8") as fh:
-                prior = json.load(fh)
+            with open(path, "rb") as fh:
+                checkpoint_bytes = fh.read()
+            input_checkpoint_sha256 = hashlib.sha256(checkpoint_bytes).hexdigest()
+            prior = json.loads(checkpoint_bytes)
             if not isinstance(prior, dict):
                 raise ValueError("checkpoint must be an object")
             if (prior.get("version") != 1
@@ -7133,13 +7437,51 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
                             isinstance(answer, list)
                             and all(isinstance(x, str) for x in answer)))):
                     raise ValueError("invalid completed proposal record")
-            state = prior
+            journal_id = prior.get("journal_id", state["journal_id"])
+            if (not isinstance(journal_id, str) or len(journal_id) != 32
+                    or any(c not in "0123456789abcdef" for c in journal_id)):
+                raise ValueError("invalid journal identity")
+            state = dict(prior, journal_id=journal_id)
         except (OSError, ValueError, TypeError) as e:
             raise ProposerUnavailable(f"checkpoint cannot resume: {e}") from e
     cursor = 0
     replay_count = len(state["proposals"])
+    accepted_at_start = list(state["accepted_lines"])
+    applied_ids_at_start = sorted({o["outcome_id"]
+        for o in state.get("verified_outcomes", ())
+        if isinstance(o, dict) and o.get("accepted") is True and o.get("applied") is True
+        and isinstance(o.get("outcome_id"), str) and len(o["outcome_id"]) == 64
+        and all(c in "0123456789abcdef" for c in o["outcome_id"])})
+    # A prior answer is replay input, not a new verifier receipt. Rebuild
+    # this projection only as the actual verifier visits each proposal.
+    # Stable IDs let consumers deduplicate the same decision across resumes.
+    state["verified_outcomes"] = []
+    confirmed = {}
+    active = None
+    replayed_completed = 0
+    dispatched = []
+    _journal_admit(state, lines=state["accepted_lines"], path=path,
+                   ceiling=JOURNAL_BYTES)
+    if state.get("new_run_required"):
+        raise _JournalCapacity(state, state["accepted_lines"], path)
+
+    def resume_record():
+        return {"version": 1, "journal_id": state["journal_id"],
+                "checkpoint_loaded": input_checkpoint_sha256 is not None,
+                "input_checkpoint_sha256": input_checkpoint_sha256,
+                "input_draft_sha256": draft_sha(initial),
+                "accepted_draft_sha256_at_start": draft_sha(accepted_at_start),
+                "applied_outcome_ids_at_start": applied_ids_at_start,
+                "completed_proposals_at_start": replay_count,
+                "completed_proposals_replayed": replayed_completed,
+                "new_proposer_dispatches": len(dispatched),
+                "completed_proposal_redispatches": sum(i < replay_count for i in dispatched),
+                "replay_prefix_consumed": cursor >= replay_count}
 
     def emit():
+        state["resume_proof"] = resume_record()
+        _journal_admit(state, lines=state["accepted_lines"], path=path,
+                       ceiling=JOURNAL_BYTES)
         data = json.dumps(state, ensure_ascii=False, separators=(",", ":"))
         if path:
             fd, tmp = tempfile.mkstemp(prefix=".lyric-checkpoint-",
@@ -7166,29 +7508,80 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
     def checkpoint(current, round_no, status, **extra):
         # Replaying a prefix may temporarily visit older accepted drafts.
         # Keep the durable furthest checkpoint until that prefix is consumed.
-        if cursor < replay_count:
+        applied = None
+        if status == "accepted" and active is not None:
+            index = active["index"]
+            prior_outcome = confirmed.get(index)
+            if prior_outcome is not None and prior_outcome["accepted"]:
+                current_hash = draft_sha(current)
+                if current_hash != prior_outcome["after_draft_sha256"]:
+                    raise ProposerUnavailable(
+                        "accepted checkpoint differs from the verified candidate")
+                applied = dict(prior_outcome, applied=True,
+                               applied_draft_sha256=current_hash)
+        if cursor < replay_count and applied is None:
             return
-        state.update(accepted_lines=list(current), round=round_no, status=status)
-        if status != "finished":
+        trial = (dict(state) if cursor < replay_count else
+                 dict(state, accepted_lines=list(current), round=round_no, status=status))
+        if applied is not None:
+            projection = dict(confirmed)
+            projection[active["index"]] = applied
+            trial["verified_outcomes"] = [projection[i] for i in sorted(projection)]
+        if status != "finished" and cursor >= replay_count:
             for key in ("final_draft", "coverage", "stop", "exit"):
-                state.pop(key, None)
-        state.update(extra)
-        emit()
+                trial.pop(key, None)
+        trial.update(extra)
+        _journal_admit(trial, lines=current, path=path, ceiling=JOURNAL_BYTES,
+                       prior=state)
+        previous = dict(state)
+        state.clear()
+        state.update(trial)
+        try:
+            emit()
+        except BaseException:
+            state.clear()
+            state.update(previous)
+            raise
+        if applied is not None:
+            confirmed[active["index"]] = applied
 
     def ask(kind, prompt, current, round_no, call, record):
-        nonlocal cursor
+        nonlocal cursor, active, replayed_completed
         identity = hashlib.sha256(prompt.encode("utf-8")).hexdigest()
+        active = {"index": cursor, "kind": kind, "record": dict(record),
+                  "current": list(current), "question_sha256": identity}
         if cursor < replay_count:
             event = state["proposals"][cursor]
             if event.get("kind") != kind or event.get("question_sha256") != identity:
                 raise ProposerUnavailable(
                     "checkpoint replay question differs; no new writer request was made")
             cursor += 1
+            replayed_completed += 1
             return event.get("answer")
+        count = 1 if kind == "propose" else len(record["members"])
+        # Count actual record text/return-closure metadata, both answer copies,
+        # and the largest possible accepted-draft growth before dispatch. Only
+        # the prompt hash is stored here; defer's full prompts are counted above.
+        reserve = (_journal_answer_reserve(count) + _journal_bytes(record)
+                   + len(initial) * (JOURNAL_LINE_CHARS * 6 + 8))
+        _journal_admit(state, reserve, lines=current, path=path)
         checkpoint(current, round_no, "proposing")
-        answer = call()
+        try:
+            dispatched.append(cursor)
+            answer = call()
+        except ProposerUnavailable as error:
+            if getattr(error, "code", None) == "PROVIDER_PROPOSAL_TOO_LARGE":
+                raise _JournalCapacity(state, current, path, error.code) from error
+            raise
         if isinstance(answer, tuple):
             answer = list(answer)
+        texts = [answer] if kind == "propose" else answer
+        if answer is not None and (not isinstance(texts, list)
+                or len(texts) != count
+                or any(not isinstance(text, str) or len(text) > JOURNAL_LINE_CHARS
+                       for text in texts)):
+            raise _JournalCapacity(state, current, path,
+                                   "PROVIDER_PROPOSAL_TOO_LARGE")
         state["proposals"].append({"kind": kind,
                                    "question_sha256": identity, "answer": answer})
         cursor += 1
@@ -7200,6 +7593,62 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
         state["status"] = "proposal_completed"
         emit()
         return answer
+
+    def draft_sha(current):
+        # Same canonical line-array bytes as the connector's final draft hash.
+        return hashlib.sha256(json.dumps(list(current), ensure_ascii=False,
+            separators=(",", ":")).encode("utf-8")).hexdigest()
+
+    def verified(kind, before, after, members, verdict, round_no):
+        if (active is None or active["kind"] != kind
+                or active["index"] != cursor - 1
+                or active["current"] != before
+                or type(verdict.get("accepted")) is not bool):
+            raise ProposerUnavailable("verifier outcome has no matching completed proposal")
+        event = state["proposals"][active["index"]]
+        answer, record = event["answer"], active["record"]
+        if record.get("round") is not None and record["round"] != round_no:
+            raise ProposerUnavailable("verifier round differs from the completed proposal")
+        members = list(members)
+        if (answer is None or len(after) != len(before)
+                or not members or len(set(members)) != len(members)
+                or any(type(n) is not int or n < 1 or n > len(before) for n in members)):
+            raise ProposerUnavailable("verifier outcome has invalid proposal coordinates")
+        proposed = ([answer] * len(members) if kind == "propose" else answer)
+        if (kind == "propose" and record["line"] not in members
+                or kind == "propose_group" and members != record["members"]
+                or [after[n - 1] for n in members] != proposed
+                or any(after[i] != before[i] for i in range(len(before))
+                       if i + 1 not in members)):
+            raise ProposerUnavailable("verifier outcome differs from the returned proposal")
+        entry = {"kind": kind, "proposal_index": active["index"],
+                 "question_sha256": active["question_sha256"],
+                 "round": round_no, "attempt": record.get("attempt"),
+                 "members": members, "accepted": verdict["accepted"],
+                 "applied": False, "reasons": list(verdict.get("reasons") or ()),
+                 "before_draft_sha256": draft_sha(before),
+                 "after_draft_sha256": draft_sha(after)}
+        key = [state["journal_id"], config_key, state["input_fingerprint"], entry["proposal_index"],
+               kind, entry["question_sha256"], round_no, entry["attempt"], members,
+               answer, entry["after_draft_sha256"]]
+        entry["outcome_id"] = hashlib.sha256(json.dumps(key, ensure_ascii=False,
+            separators=(",", ":")).encode("utf-8")).hexdigest()
+        projection = dict(confirmed)
+        projection[active["index"]] = entry
+        trial = dict(state, verified_outcomes=[projection[i] for i in sorted(projection)])
+        _journal_admit(trial, lines=state["accepted_lines"], path=path, prior=state)
+        previous = dict(state)
+        state.clear()
+        state.update(trial)
+        # Persist the decision before control returns to the loop. Only the
+        # subsequent accepted checkpoint can attest that it was applied.
+        try:
+            emit()
+        except BaseException:
+            state.clear()
+            state.update(previous)
+            raise
+        confirmed[active["index"]] = entry
 
     def wrapped_one(brief, current, attempt, reasons=None, whole=()):
         round_no = getattr(brief, "round_no", None)
@@ -7215,10 +7664,18 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
         return ask("propose_group", render_group(brief), brief.lines, round_no,
                    lambda: two(brief),
                    {"members": list(members), "texts": list(texts),
-                    "words": list(words), "round": round_no})
+                    "words": list(words), "round": round_no,
+                    "attempt": getattr(brief, "attempt", None)})
 
     wrapped_one.checkpoint = checkpoint
     wrapped_one.checkpoint_state = state
+    wrapped_one.verified = lambda *args: verified("propose", *args)
+    wrapped_two.verified = lambda *args: verified("propose_group", *args)
+    def verification_record():
+        import copy
+        return {"verified_outcomes": copy.deepcopy(state["verified_outcomes"]),
+                "resume_proof": resume_record(), "stale_answers": 0}
+    wrapped_one.verification_record = verification_record
     return wrapped_one, wrapped_two if two is not None else None
 
 
@@ -7378,6 +7835,7 @@ def _resolve_proposer(spec, lines=None, checkpoint_key=None):
                    "back to quality/loop.py's own stub slot-swap, so any "
                    "backtracked line is a SPLICE and not proposed text"))
     one, two = _checkpoint_proposer(one, two, lines, checkpoint_key, spec)
+    disclosure.record = one.verification_record
     return one, two, disclosure
 
 
@@ -7507,8 +7965,22 @@ def main():
         print(__doc__)
         print(USAGE)
         return
+    if "--pronunciations" in args or sum(a.startswith("--pronunciations=") for a in args) > 1:
+        _refuse("use one --pronunciations=<JSON> declaration")
+    pronunciation_json = _flag_value(args, "--pronunciations", eq_only=True)
+    args = [a for a in args if not a.startswith("--pronunciations=")]
+    try:
+        choices = json.loads(pronunciation_json) if pronunciation_json is not None else []
+        lex = Lexicon(fallback=fallback, strip_parens=not voices, pronunciations=choices)
+    except (ValueError, TypeError) as e:
+        _refuse(f"invalid pronunciation declaration: {e}")
+
+    if not args:
+        _refuse("a pronunciation declaration requires a command")
     cmd = args[0]
-    lex = Lexicon(fallback=fallback, strip_parens=not voices)
+    if pronunciation_json is not None and cmd not in {"song", "finish", "brief", "revise", "verify", "recover"}:
+        _refuse("--pronunciations is supported on song, finish, brief, revise, verify and recover")
+    from quality.pronunciation import reading_options
 
     if cmd == "declaration":
         print(decl.show())
@@ -8422,8 +8894,20 @@ def main():
         w = max(len(f"{r['a']} ~ {r['b']}") for r in rows)
         for r in rows:
             pair = f"{r['a']} ~ {r['b']}".ljust(w)
+            named_status = ""
+            if screen_rel:
+                if r["named"] is True:
+                    named_status = f"  |  SATISFIES {screen_rel}"
+                elif r["named"] is False:
+                    named_status = (f"  |  VIOLATES {screen_rel} — a "
+                                    f"mandate declaring it will charge "
+                                    f"this pair")
+                else:
+                    _nr = (r["named_reason"]
+                           or "the judge could not read the pair")
+                    named_status = f"  |  {screen_rel} REFUSED: {_nr[:110]}"
             if r["refused"]:
-                print(f"  {pair}  REFUSED — {r['reason']}")
+                print(f"  {pair}  REFUSED — {r['reason']}{named_status}")
             else:
                 verdict = f"{r['relation']} {r['score']:.3f}"
                 # `why is None` is the GRADE's own satisfaction marker —
@@ -8461,19 +8945,7 @@ def main():
                     _cf = next(f for f in r["flags"]
                                if f.startswith("coda: no evidence"))
                     status += f"  |  {_cf}"
-                if screen_rel:
-                    if r["named"] is True:
-                        status += f"  |  SATISFIES {screen_rel}"
-                    elif r["named"] is False:
-                        status += (f"  |  VIOLATES {screen_rel} — a "
-                                   f"mandate declaring it will charge "
-                                   f"this pair")
-                    else:
-                        _nr = (r["named_reason"]
-                               or "the judge could not read the pair")
-                        status += (f"  |  {screen_rel} REFUSED: "
-                                   f"{_nr[:110]}")
-                print(f"  {pair}  {verdict}  {status}")
+                print(f"  {pair}  {verdict}  {status}{named_status}")
         print(f"  {n_banned} banned, {n_ref} refused, {n_rhyme} clean and "
               f"rhyming, {n_near} clean and ADMITTED as a near relation, "
               f"{n_non} clean but not a rhyme — a banned pair is "
@@ -8482,6 +8954,12 @@ def main():
               f"clean non-rhyme is not banned AND not a family (the "
               f"mandate will charge it); refusal is the grader's own "
               f"(doctrine 28)")
+        if screen_rel:
+            print(f"  NAMED COUNTS: "
+                  f"{sum(r['named'] is True for r in rows)} satisfies, "
+                  f"{sum(r['named'] is False for r in rows)} violates, "
+                  f"{sum(r['named'] is None for r in rows)} refused — "
+                  f"{screen_rel}, independent of the broad default above")
         # ANCHORABILITY AS A DECLARED TOKEN (M-213) — the question the
         # end-word screen above cannot ask, printed under the counts for the
         # same reason the bank block below is: a report, not a verdict.
@@ -8511,7 +8989,7 @@ def main():
                     detail=[_usage])
         try:
             rows = CAP.read_table()
-        except FileNotFoundError as e:
+        except (FileNotFoundError, ValueError) as e:
             _refuse(str(e))
         if top is not None:
             try:
@@ -8535,12 +9013,14 @@ def main():
                 print(f"  {r['family']:<14} {r['words']:4} word(s)  "
                       f"chain_hi {r['chain_hi']:3}  {lo}  e.g. "
                       f"{' '.join(r['examples'].split()[:5])}")
-            print(f"  The ceiling of English: only "
+            print(f"  Construction pools: "
                   f"{sum(1 for r in rows if r['chain_hi'] >= 12)} "
-                  f"families sustain a 12-chain, "
-                  f"{sum(1 for r in rows if r['chain_hi'] >= 20)} a "
-                  f"20-chain — the long dense verse switches families "
-                  f"because the lexicon forces it")
+                  f"have at least 12 spelling classes; "
+                  f"{sum(1 for r in rows if r['chain_hi'] >= 20)} "
+                  f"have at least 20. These are first-reading upper bounds, "
+                  f"not earned-chain witnesses or a proof that the lexicon "
+                  f"forces a family change. Read chain_lo for the actually "
+                  f"certified witness size.")
         elif len(rest) == 1 and rest[0].strip():
             word = rest[0].strip().lower()
             from quality.revise import Reviser
@@ -8573,9 +9053,9 @@ def main():
             else:
                 print(f"  below the certification floor "
                       f"({CAP.CERTIFY_MIN_CLASSES} classes) — tier-1 "
-                      f"arithmetic answers alone: at most "
-                      f"{len(classes)} mutually-earned lines on this "
-                      f"sound")
+                      f"this construction pool contains "
+                      f"{len(classes)} spelling classes, an upper bound "
+                      f"without an actually certified chain here")
         else:
             _refuse("capacity takes one word or --top=N", detail=[_usage])
 
@@ -8616,6 +9096,8 @@ def main():
         narrative_raw = _flag_value(rest, "--narrative")
         sweep_raw = _flag_value(rest, "--sweep")
         want_raw = _flag_value(rest, "--want")
+        inspection_only = "--inspection-only" in rest
+        rest = [a for a in rest if a != "--inspection-only"]
         rest = _strip_flag(rest, "--narrative")
         rest = _strip_flag(rest, "--sweep")
         rest = _strip_flag(rest, "--want")
@@ -8633,6 +9115,7 @@ def main():
                             "[--lines=N] [--relation=NAME] "
                             "[--functions=a,b,c] [--title=TEXT] "
                             "[--narrative=off|ATOM,ATOM/JUNCTION,...] "
+                            "[--want=PRED;PRED] [--inspection-only] "
                             "[--fill=DRAFT] [--out=PATH]",
                             "   or: plan --sweep=LO-HI [--want=PRED;PRED] "
                             "[the same declarations]",
@@ -8644,12 +9127,17 @@ def main():
         # `_parse_narrative_flag`, extracted 2026-08-28 with the `finish`
         # verb, byte-identical behaviour to the inline block it replaces.
         narrative = _parse_narrative_flag(narrative_raw)
+        try:
+            parsed_nlines = int(nlines) if nlines is not None else None
+        except ValueError:
+            _refuse("plan --lines takes an integer")
         plan_kw = dict(
             form=form,
-            lines=int(nlines) if nlines is not None else None,
+            lines=parsed_nlines,
             relation=relation,
             title=title,
             narrative=narrative,
+            inspection_only=inspection_only,
             functions=[x for x in (funcs_raw or "").split(",") if x.strip()]
             or None)
         if sweep_raw is not None:
@@ -8734,7 +9222,8 @@ def main():
             # flag parsed, the usage line advertised it, and the blueprint
             # came out with `"title": ""` anyway (doctrine 1).
             the_plan = PLN.make_plan(
-                seed=int(seed) if seed is not None else None, **plan_kw)
+                seed=int(seed) if seed is not None else None,
+                wants=[w for w in str(want_raw or "").split(";") if w.strip()], **plan_kw)
         except PLN.PlanRefused as e:
             _refuse(str(e))
         except ValueError:
@@ -8745,6 +9234,9 @@ def main():
               f"{len(the_plan['sections'])} section(s): "
               f"{'-'.join(pat['functions'])}")
         print(f"    (pattern drawn from {pat['chosen_from']})")
+        print("  EXECUTION LIMITS: " + json.dumps(the_plan["execution_limits"], sort_keys=True))
+        if "brief_selection" in the_plan["choices"]:
+            print("  BRIEF SELECTION: " + json.dumps(the_plan["choices"]["brief_selection"], sort_keys=True))
         # DECLARED, OUT LOUD. Silence here would make `plan --seed=3` and
         # `plan --seed=3 --relation=type:rime riche` look identical on a run
         # where the relation happens not to change the sampled shape — the
@@ -8852,7 +9344,15 @@ def main():
             print(f"  WROTE {what} -> {out_path}")
         else:
             print(json.dumps(payload, indent=1, sort_keys=True))
+        _lyric_result(status="planned", exit=0,
+                      plan_lines=the_plan["total_lines"],
+                      plan_version=the_plan["plan_version"],
+                      execution_limits=the_plan["execution_limits"])
         print()
+        if not the_plan["execution_limits"]["admitted"]:
+            print("  INSPECTION ONLY: this shape exceeds the declared writer/grader "
+                  "capacity. Select an admitted plan before writing or filling it.")
+            return 0
         if fill:
             print("  GRADE IT: " + PLN.grading_command(
                 the_plan, draft_path=fill,
@@ -8879,6 +9379,8 @@ def main():
                 _refill.append(_shlex.quote(f"--title={title}"))
             if narrative_raw:
                 _refill.append(_shlex.quote(f"--narrative={narrative_raw}"))
+            if want_raw:
+                _refill.append(_shlex.quote(f"--want={want_raw}"))
             _refill.append("--fill=DRAFT.txt --out=BP.json")
             print("  GRADE IT — TWO STEPS on the plan-first path (the "
                   "file --out wrote is a PLAN; `song` reads a BLUEPRINT):")
@@ -9572,8 +10074,9 @@ def main():
             _ffuncs = _flag_value(args, "--functions")
             _ftitle = _flag_value(args, "--title")
             _fnarr = _flag_value(args, "--narrative")
+            _fwant = _flag_value(args, "--want")
             for _f in ("--seed", "--form", "--lines", "--relation",
-                       "--functions", "--title", "--narrative"):
+                       "--functions", "--title", "--narrative", "--want"):
                 args = _strip_flag(args, _f)
             if _fseed is None:
                 _refuse("finish requires --seed=N — the plan is the "
@@ -9600,6 +10103,7 @@ def main():
                     relation=_frel,
                     title=_ftitle,
                     narrative=_parse_narrative_flag(_fnarr),
+                    wants=[w for w in str(_fwant or "").split(";") if w.strip()],
                     functions=[x for x in (_ffuncs or "").split(",")
                                if x.strip()] or None)
             except PLN2.PlanRefused as e:
@@ -10286,12 +10790,12 @@ def main():
             # `--returns=` groups are REQUIRE_RETURN — identity REQUIRED,
             # REPEAT is the requirement and not a violation (doctrine 3's
             # second half). `--groups=` groups are plain REQUIRE_RHYME. Both
-            # go into ONE cover with `returns=` naming which of them are the
-            # return classes, because a Mandate is the only object that can
+            # remain independent obligations: returns add no phantom rhyme
+            # group, and may be the only declared requirement. A Mandate can
             # hold two different requirement kinds at once, and
             # `Reviser.mandate()` forwards no `returns=` of its own.
             if r:
-                return _finish(SC.mandate(g + r, n_lines=len(lines),
+                return _finish(SC.mandate(g, n_lines=len(lines),
                                           returns=r, structures=st,
                                           relations=rl),
                                tail)
@@ -10498,7 +11002,10 @@ def main():
             """
             briefs = rv.brief(lines, scheme, blueprint=blueprint,
                               subdivision=subdivision, assume=assume,
-                              profile=rv_profile)
+                              profile=rv_profile, include_offers=(cmd == "brief"))
+            if cmd != "brief":
+                print("  ASSESSMENT: all declared findings and coverage are measured; "
+                      "repair candidate menus are generated when a writer question is requested.")
             # WHAT WAS GRADED, printed the moment the grader has read it and
             # BEFORE any render path forks — the early returns below include
             # `nothing flagged`, which is precisely the report a wrong draft
@@ -10545,6 +11052,42 @@ def main():
                                blueprint=blueprint,
                                subdivision=subdivision, assume=assume)
             whole = dedupe_findings(found["whole"])
+            from dataclasses import asdict as _finding_dict
+            _machine_findings = [_finding_dict(f)
+                                 for fs in found["per_line"].values() for f in fs]
+            _machine_findings.extend(_finding_dict(f) for f in whole)
+            _machine = {"version": 1, "status": "graded", "command": cmd,
+                        "transport_token": os.environ.get("LYRIC_CONTROL_TOKEN"),
+                        "final_draft": list(lines), "coverage": found["coverage"],
+                        "pronunciations": lex.pronunciations,
+                        "pronunciation_options": reading_options(lex, lines),
+                        "findings": _machine_findings}
+            print("  lyric result: " + json.dumps(_machine, ensure_ascii=False,
+                                                  separators=(",", ":")), flush=True)
+            # Rhyme groups and full-line returns are distinct obligations.
+            # A returns-only mandate has zero rhyme pairs; disclose its own
+            # measured results without manufacturing a rhyme group or
+            # treating an answered violation as a satisfied return.
+            _return_pairs = list(found["mandate"].return_pairs())
+            if _return_pairs:
+                _return_status = {row["id"]: row["status"]
+                                  for row in found["coverage"]["obligations"]
+                                  if row["layer"] == "return"}
+                _return_failures = {tuple(f["locations"])
+                                    for f in _machine_findings
+                                    if f["code"] == "RETURN_NOT_VERBATIM"
+                                    and f["severity"] == "flag"}
+                print(f"  DECLARED RETURNS: {len(_return_pairs)} full-line obligation(s)")
+                for _i, _j, _ret in _return_pairs:
+                    if _return_status.get(f"return:{_i}:{_j}") != "answered":
+                        _answer = "UNJUDGED — verbatim requirement is undeclared"
+                    elif _ret.verbatim is not True:
+                        _answer = "VARIATION PERMITTED — exact repetition is not required"
+                    elif (_i, _j) in _return_failures:
+                        _answer = "VIOLATED — required verbatim return changed"
+                    else:
+                        _answer = "SATISFIED — required verbatim return"
+                    print(f"    L{_i}~L{_j}: {_answer}")
             # THE WHOLE-VOCABULARY DEFAULT, DISCLOSED (M-116, owner ruling
             # 2026-08-25). A pair the scalar door failed and a schema
             # satisfied is a PASS, and a silent one reads exactly like a
@@ -10711,6 +11254,7 @@ def main():
                         "rolled_findings": rolled_n,
                         "whole": len(whole), "whole_flags": len(whole_flags),
                         "ungraded_length": len(ungraded),
+                        "coverage": found["coverage"],
                         "banned_lines": banned_lines,
                         "banned_codes": banned_codes}
 
@@ -11172,11 +11716,27 @@ def main():
                 # every positional behind it, and this one is the targeted
                 # line list. Reading the raw index is what met `--returns=1`
                 # at `int()` and refused in the wrong layer's words.
+                if len(tail) > 1:
+                    raise ValueError("verify accepts one comma-separated target list; "
+                                     "unexpected positional arguments: " + repr(tail[1:]))
                 targeted = ({int(x) for x in tail[0].split(",")}
                             if tail else None)
                 v = rv.verify(before, after, scheme, targeted=targeted,
                               blueprint=bp_path, subdivision=subdivision,
                               assume=assume, profile=rv_profile)
+                print("  lyric result: " + json.dumps({
+                    "version": 1, "status": "verified", "command": "verify",
+                    "pronunciations": lex.pronunciations,
+                    "transport_token": os.environ.get("LYRIC_CONTROL_TOKEN"),
+                    "before_draft": list(before), "final_draft": list(after),
+                    "accepted": bool(v.get("accepted")), "reasons": v.get("reasons", []),
+                    "coverage": v.get("coverage_after", {}),
+                    "coverage_before": v.get("coverage_before", {}),
+                    "coverage_regressions": v.get("coverage_regressions", []),
+                    "layer_coverage_regressions": v.get("layer_coverage_regressions", []),
+                    "fixed": v.get("fixed", []), "new": v.get("new", []),
+                    "new_flags": v.get("new_flags", [])}, ensure_ascii=False,
+                    separators=(",", ":")), flush=True)
                 print(f"  VERDICT: "
                       f"{'ACCEPTED' if v.get('accepted') else 'REJECTED'}")
                 for r in v.get("reasons", []):
@@ -11311,12 +11871,38 @@ def main():
                 _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
+                from quality.plan import execution_limits as _writer_limits
+                _limits = _writer_limits()
+                if len(lines) > _limits["max_lines"]:
+                    _refuse(
+                        f"RESOURCE_LIMIT: writer execution admits at most "
+                        f"{_limits['max_lines']} lines under the registry candidate "
+                        f"budget; this draft has {len(lines)}. Measurement verbs "
+                        "remain available for larger drafts; no writer was started.",
+                        machine={"execution_limits": _limits})
+                if any(len(line) > 200 for line in lines):
+                    _refuse("RESOURCE_LIMIT: writer execution admits at most 200 "
+                            "characters per sung line, the connector's declared "
+                            "text capacity; no writer was started.")
+                from quality.plan import draft_execution_bound as _draft_work
+                _actual_work = _draft_work(lines, phon=rv._relation_phonology())
+                if not _actual_work["within_budget"]:
+                    _refuse(
+                        "RESOURCE_LIMIT: this draft's actual pronunciation spans "
+                        f"require up to {_actual_work['max_candidate_pairs']} "
+                        "candidate pairs per schema, above the declared "
+                        f"{_actual_work['max_pairs']} budget. Shorter drafts or "
+                        "less expansive lines may be admitted; no writer was started.",
+                        machine={"execution_limits": _actual_work,
+                                 "final_draft": list(lines), "certified": False})
                 from quality import replay_memo as RM
                 _rm_key = RM.run_key(sys.argv[1:], input_paths=(args[1], bp_path))
                 from quality.propose import ProposerUnavailable
                 try:
                     propose, propose_group, say_proposer = _resolve_proposer(
                         propose_spec, lines=lines, checkpoint_key=_rm_key)
+                except _JournalCapacity as e:
+                    _journal_stop(e, plan=finish_plan if cmd == "finish" else None)
                 except ProposerUnavailable as e:
                     _refuse(f"the declared proposer cannot resume: {e}")
                 # DISCLOSED BEFORE THE RUN AS WELL AS AFTER IT, and the two
@@ -11355,6 +11941,10 @@ def main():
                                             profile=rv_profile,
                                             propose=propose,
                                             propose_group=propose_group)
+                except _JournalCapacity as e:
+                    _journal_stop(e, machine=_lyric_run_record(say_memo, say_proposer,
+                                  finish_plan if cmd == "finish" else None),
+                                  plan=finish_plan if cmd == "finish" else None)
                 except _NeedProposal as need:
                     # EXIT 4 — SUSPENDED, and it is a fourth code for the same
                     # reason `song`'s flag verdict needed a third: 0 is "the
@@ -11378,6 +11968,9 @@ def main():
                     print(f"  Written to {path}. Fill `pending.answer`, then "
                           f"run the SAME command again.\n")
                     print(need.prompt)
+                    _lyric_result(status="suspended", exit=4,
+                                  **_lyric_run_record(say_memo, say_proposer,
+                                                     finish_plan if cmd == "finish" else None))
                     sys.exit(4)
                 except _PR_unavailable as e:
                     # THE FAR SIDE OF THE `call:` SEAM COULD NOT BE REACHED
@@ -11397,7 +11990,9 @@ def main():
                                     "verdict stands, and the same command "
                                     "answers once the far side is reachable",
                                     "a malformed reply is NOT this refusal: "
-                                    "it parses to None and the loop moves on"])
+                                    "it parses to None and the loop moves on"],
+                            machine=_lyric_run_record(say_memo, say_proposer,
+                                                      finish_plan if cmd == "finish" else None))
                 print(result)
                 print(say_memo())
                 # THE PAIR MEMO'S OWN LINE (M-217's remainder): the schema
@@ -11429,24 +12024,66 @@ def main():
                 _whole_codes = [f.code for f in result.whole_flags]
                 _code = (3 if (result.unresolved or _whole_codes) else
                          0 if result.coverage_certified else 2)
-                _coverage = {"pairs_mandated": result.pairs_mandated,
-                             "pairs_judged": result.pairs_judged,
-                             "pairs_refused": result.pairs_refused,
-                             "scope": "declared_rhyme_pairs",
-                             "certified": result.coverage_certified}
+                _coverage = result.coverage or {
+                    "pairs_mandated": result.pairs_mandated,
+                    "pairs_judged": result.pairs_judged,
+                    "pairs_refused": result.pairs_refused,
+                    "scope": "requested_layers", "certified": result.coverage_certified}
+                from dataclasses import asdict as _finding_dict
+                _stamp_subject = (f"seed {finish_seed}" if cmd == "finish"
+                                  else "declared mandate")
+                _stamp = (f"[FINISHED — {_stamp_subject} — exit {_code} — "
+                          f"{result.stop_reason.upper()} after {len(result.rounds)} round(s) — "
+                          + ("UNRESOLVED: " + ", ".join(f"L{n}" for n in _open)
+                             if _open else "no line flag stands")
+                          + (" — WHOLE-DRAFT FLAG: " + ", ".join(_whole_codes)
+                             if _whole_codes else "")
+                          + (" — COVERAGE UNCERTIFIED: " + ", ".join(
+                              _coverage.get("refused_obligations", ()))
+                             if not result.coverage_certified else "") + "]")
+                if cmd == "finish":
+                    from quality import plan as _presentation_plan
+                    _song_text = _presentation_plan.render_song(finish_plan, result.lines).rstrip()
+                elif bp_path:
+                    from quality.plan import render_blueprint_song
+                    _song_text = render_blueprint_song(bp_path, result.lines).rstrip()
+                else:
+                    _song_text = "\n".join(result.lines)
+                _presentation_text = _song_text + "\n\n" + _stamp
                 print("  COVERAGE: " + json.dumps(_coverage, sort_keys=True))
+                _cp = getattr(propose, "checkpoint", None)
+                if _cp is not None:
+                    try:
+                        _complete = ({"complete": {
+                            "stop": result.stop_reason, "exit": _code,
+                            "draft": draft_fingerprint(lines),
+                            "final": draft_fingerprint(result.lines),
+                            "unresolved": _open, "whole_flags": list(_whole_codes)}}
+                            if propose_spec.startswith("defer:") else {})
+                        _cp(result.lines, len(result.rounds), "finished",
+                            final_draft=list(result.lines), coverage=_coverage,
+                            stop=result.stop_reason, exit=_code, **_complete)
+                    except _JournalCapacity as e:
+                        _journal_stop(e, machine=_lyric_run_record(say_memo, say_proposer,
+                                      finish_plan if cmd == "finish" else None),
+                                      plan=finish_plan if cmd == "finish" else None)
                 print("  lyric result: " + json.dumps({
                     "version": 1, "status": "finished", "input_draft": list(lines),
                     "transport_token": os.environ.get("LYRIC_CONTROL_TOKEN"),
                     "accepted_lines": list(result.lines),
                     "final_draft": list(result.lines), "coverage": _coverage,
-                    "stop": result.stop_reason, "exit": _code},
+                    "pronunciations": lex.pronunciations,
+                    "pronunciation_options": reading_options(lex, result.lines),
+                    "stop": result.stop_reason, "stop_reason": result.stop_reason.upper(),
+                    "rounds": len(result.rounds), "unresolved_lines": _open,
+                    "whole_flags": _whole_codes,
+                    "findings": [_finding_dict(f) for f in result.findings],
+                    "presentation_text": _presentation_text,
+                    "shape_status": "performance_order" if cmd == "finish" or bp_path else "declared_line_order",
+                    **_lyric_run_record(say_memo, say_proposer,
+                                       finish_plan if cmd == "finish" else None),
+                    "exit": _code},
                     ensure_ascii=False, separators=(",", ":")), flush=True)
-                _cp = getattr(propose, "checkpoint", None)
-                if _cp is not None:
-                    _cp(result.lines, len(result.rounds), "finished",
-                        final_draft=list(result.lines), coverage=_coverage,
-                        stop=result.stop_reason, exit=_code)
                 # THE FINDINGS STANDING AT THE STOP, in the report's own
                 # `FINDING [SEV] CODE: …` spelling (M-186): the pursued
                 # notes (HOMEOTELEUTON/MODAL_RHYME) and the flags on the
@@ -11502,56 +12139,9 @@ def main():
                     for i, l in enumerate(result.lines, 1):
                         mark = "*" if l != lines[i - 1] else " "
                         print(f"  {mark} L{i}: {l}")
-                if cmd == "revise" and propose_spec.startswith(("defer:", "call:")):
-                    # THE SAME DOOR FOR A PASTED SONG (M-195, 2026-09-01):
-                    # `finish` renders and stamps past a stop condition and
-                    # `revise` did not, so a song with no seed — the human
-                    # door M-72 opened — had a loop but no finished song and
-                    # no convergence declaration (M-150). No plan means no
-                    # bracket headers: the lines print in order, under the
-                    # same stamp with `declared mandate` where a seed would
-                    # stand, and `mcp/lyric_tools.js:extractLoopRecord`
-                    # reads both spellings.
+                if cmd == "finish" or propose_spec.startswith(("defer:", "call:")):
                     print("\n  THE SONG, PERFORMANCE ORDER:\n")
-                    print("\n".join(result.lines))
-                    print(f"\n  [FINISHED — declared mandate — "
-                          f"exit {_code} — {result.stop_reason.upper()} "
-                          f"after {len(result.rounds)} round(s) — "
-                          + (f"UNRESOLVED: "
-                             + ", ".join(f"L{n}" for n in _open)
-                             if _open else "no flag stands")
-                          + (f" — WHOLE-DRAFT FLAG: "
-                             + ", ".join(_whole_codes)
-                             if _whole_codes else "")
-                          + "]")
-                if cmd == "finish":
-                    # THE RENDER EXISTS ONLY PAST A STOP CONDITION — this
-                    # call sits after `revise_loop` returned, so a
-                    # suspended run (exit 4, in the except above) emits the
-                    # writer's question and no song, STRUCTURALLY rather
-                    # than by anyone's discipline. It renders the LOOP'S
-                    # final lines, not the file's: the loop revises, and
-                    # rendering the input would present the draft the run
-                    # just improved on. The stamp is the convergence
-                    # declaration M-150 requires at presentation, emitted
-                    # by the verb itself so a faithful copy-paste carries
-                    # it — exit and stop reason in the verbs' own spelling,
-                    # unresolved lines named because a parked song shown
-                    # without its open lines reads as a finished one.
-                    print("\n  THE SONG, PERFORMANCE ORDER:\n")
-                    from quality import plan as PLN2
-                    print(PLN2.render_song(finish_plan,
-                                           result.lines).rstrip())
-                    print(f"\n  [FINISHED — seed {finish_seed} — "
-                          f"exit {_code} — {result.stop_reason.upper()} "
-                          f"after {len(result.rounds)} round(s) — "
-                          + (f"UNRESOLVED: "
-                             + ", ".join(f"L{n}" for n in _open)
-                             if _open else "no flag stands")
-                          + (f" — WHOLE-DRAFT FLAG: "
-                             + ", ".join(_whole_codes)
-                             if _whole_codes else "")
-                          + "]")
+                    print(_presentation_text)
                 # EXIT 3 WHEN ANYTHING ACTIONABLE STANDS — `_code` above
                 # carries the argument, and this is its one reader.
                 if _code:
@@ -11583,6 +12173,7 @@ def main():
                 print("  REFUSED — the mandate was not accepted.")
             for ln in str(e).splitlines():
                 print(f"  {ln}")
+            _lyric_result(status="refused", exit=2, refusal=str(e))
             sys.exit(2)
         except ValueError as e:
             # THE SAME REFUSAL, FOR ALL FOUR VERBS — FIXED 2026-08-13. A
@@ -11678,6 +12269,10 @@ def main():
         # in a pipeline can tell "your song has a defect" from "I cannot
         # grade a song this length" — which is the distinction doctrine 20
         # exists for, and which a note beside exit 0 destroyed.
+        if cmd == "song" and song_counts and not song_counts.get("coverage", {}).get("certified", True):
+            print("\n  EXIT 2 — required checks remain unjudged: " + ", ".join(
+                  song_counts["coverage"].get("refused_obligations", ())))
+            sys.exit(2)
         if cmd == "song" and song_counts and song_counts.get(
                 "ungraded_length"):
             print(f"\n  EXIT 2 — this draft's length reaches no calibrated "

@@ -1,0 +1,64 @@
+{
+  "command": [
+    "node",
+    "mcp/test_run_continuation.mjs"
+  ],
+  "cwd": "/workspace/scratch/b0544e4bbdd6/production-fixes",
+  "source_before": {
+    "mcp/test.mjs": "ee355a090694d56917e65522ad8cc2cab27f8162cc6ee7566ba6f36628dffd07",
+    "mcp/test_run_continuation.mjs": "82a138b34b06f552422ffd3de4f76fe3f05cb27071cac821ceea37f7e5ae323e",
+    "mcp/test_chat_production.mjs": "bda62c8d153bb62779591b8e2a3785f5ee2de7b4f092400a81aff07b6bf291e8",
+    "mcp/lyric_tools.js": "65bd9d9c9a42d264e3ae8f317831261c71deb63f794681a3fd5f40b52704f955",
+    "mcp/gemini_agent.js": "c201c9bd394f033aa57beef6fcbdaf5f35189278ec7681582cbea952bdad3702",
+    "mcp/chat.js": "d80a1518b0ec7d4c3445b8a9e2b25ab9cb7cc7562eb23a8e832c362c7b0cfb56",
+    "mcp/python_bridge.js": "7b94e3d9e2589bd2695b6c405c0cea2e4c12f21347e37121c566f2989e0d194b",
+    "mcp/state_codec.js": "a17bb33bbcbb128633a250dee6ab4939c24ed7d3133181b7dc72cae282257335",
+    "mcp/budget.js": "f2c5e67d0dbd6bf67fd47a7521024d9e148597112fbe16c0e14ad50575a57845",
+    "lyric-harness/lyric_harness.py": "00f0e288cb670a7c88d8747fbab41c4b4aa3866484b14a7c7d9e7a79137464fc",
+    "lyric-harness/quality/loop.py": "c4195e93d5d37cd805c78bce006fc83c11471cb5eefee59f6bf3e76ac3cbae7e",
+    "lyric-harness/quality/propose.py": "81d6950a23a56e3f8a2f4cfc017bd619008d5e72ab5b62733f0eec00e48e0708",
+    "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679",
+    "lyric-harness/quality/relations.py": "c8321f5cfb33722e640820749c0f987a9e87072f1cfa2ce3ff04eb38f37fcdab",
+    "lyric-harness/quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+    "mcp/run_store.js": "c4b89db0c9910b3a07fc9e69b24dd775d09d8f49c6f87f84cf7ddf864d2f4a56"
+  },
+  "data_before": {
+    "/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data/rhyme_capacity_eng.tsv": "8ceef4177901a188f57e17494cd634b6391864e75e0c380ff0044fdc66f8922f"
+  },
+  "ambient_provider_credentials_removed": true,
+  "staged_data": "/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data",
+  "nltk_data": "/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data/nltk",
+  "started_utc": "2026-09-08T08:53:19Z",
+  "timing_scope": "functional regression concurrent with final gates, not isolated production timing",
+  "timeout_seconds": 1200,
+  "node": "v24.19.0",
+  "python": "Python 3.12.13",
+  "exit_code": 1,
+  "seconds": 54.637878727997304,
+  "source_after": {
+    "mcp/test.mjs": "ee355a090694d56917e65522ad8cc2cab27f8162cc6ee7566ba6f36628dffd07",
+    "mcp/test_run_continuation.mjs": "82a138b34b06f552422ffd3de4f76fe3f05cb27071cac821ceea37f7e5ae323e",
+    "mcp/test_chat_production.mjs": "bda62c8d153bb62779591b8e2a3785f5ee2de7b4f092400a81aff07b6bf291e8",
+    "mcp/lyric_tools.js": "65bd9d9c9a42d264e3ae8f317831261c71deb63f794681a3fd5f40b52704f955",
+    "mcp/gemini_agent.js": "c201c9bd394f033aa57beef6fcbdaf5f35189278ec7681582cbea952bdad3702",
+    "mcp/chat.js": "d80a1518b0ec7d4c3445b8a9e2b25ab9cb7cc7562eb23a8e832c362c7b0cfb56",
+    "mcp/python_bridge.js": "7b94e3d9e2589bd2695b6c405c0cea2e4c12f21347e37121c566f2989e0d194b",
+    "mcp/state_codec.js": "a17bb33bbcbb128633a250dee6ab4939c24ed7d3133181b7dc72cae282257335",
+    "mcp/budget.js": "f2c5e67d0dbd6bf67fd47a7521024d9e148597112fbe16c0e14ad50575a57845",
+    "lyric-harness/lyric_harness.py": "00f0e288cb670a7c88d8747fbab41c4b4aa3866484b14a7c7d9e7a79137464fc",
+    "lyric-harness/quality/loop.py": "c4195e93d5d37cd805c78bce006fc83c11471cb5eefee59f6bf3e76ac3cbae7e",
+    "lyric-harness/quality/propose.py": "81d6950a23a56e3f8a2f4cfc017bd619008d5e72ab5b62733f0eec00e48e0708",
+    "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679",
+    "lyric-harness/quality/relations.py": "c8321f5cfb33722e640820749c0f987a9e87072f1cfa2ce3ff04eb38f37fcdab",
+    "lyric-harness/quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+    "mcp/run_store.js": "c4b89db0c9910b3a07fc9e69b24dd775d09d8f49c6f87f84cf7ddf864d2f4a56"
+  },
+  "data_after": {
+    "/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data/rhyme_capacity_eng.tsv": "8ceef4177901a188f57e17494cd634b6391864e75e0c380ff0044fdc66f8922f"
+  },
+  "log_sha256": "f296c1c73062e021fca5bd6f76658b2efa09fd2801743614fbd21ea1bb3e2f2e",
+  "log_bytes": 580,
+  "finished_utc": "2026-09-08T08:54:13Z",
+  "source_unchanged": true,
+  "complete": false
+}

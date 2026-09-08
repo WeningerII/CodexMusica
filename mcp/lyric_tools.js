@@ -28,14 +28,25 @@
 
 import { createPythonBridge } from './python_bridge.js';
 import { requestContext } from './execution_context.js';
+import { assessmentCoverageValid } from './lyric_workflow.js';
 import { openKitchenBudget } from './paid_budget.js';
 import { createHash } from 'node:crypto';
+import { AsyncLocalStorage } from 'node:async_hooks';
 import { mkdtemp, writeFile, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
-import { TOOL_BUDGET_MS } from './budget.js';
+import { TOOL_BUDGET_MS, TOOL_DELIVERY_MARGIN_MS } from './budget.js';
+import { STATE_MAX_CHARS } from './payload_limits.js';
+import {
+  encodeState,
+  decodeState,
+  recoverState,
+  assertContinuationCapacity,
+  continuationSemanticIdentity,
+  CONNECTOR_DECLARATION_BYTES,
+} from './state_codec.js';
 import {
   RunStore,
   runKeyOf,
@@ -48,6 +59,11 @@ import {
 
 const HARNESS_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'lyric-harness');
 const PYTHON = process.env.LYRIC_PYTHON || 'python3';
+const EXECUTION_CONTRACT =
+  `Computation has a shared ${TOOL_BUDGET_MS / 1000}-second deadline, including queue time, ` +
+  `with up to ${TOOL_DELIVERY_MARGIN_MS / 1000} seconds for bounded cleanup and delivery. ` +
+  'These are limits, not completion estimates or proof that the full admitted capacity finishes within them. ' +
+  'Read the typed status and requested-layer coverage; admission alone does not certify a result.';
 
 // ── ceilings (every one refused loudly, none silently clamped) ─────────────
 const MAX_WORDS = 12;
@@ -114,7 +130,7 @@ const MAX_MANDATE_CHARS = 65536;
 // that scales with the envelope is the schema-door scaling item's neighbour
 // (`MISSING.md` M-240, open).
 const MAX_SWEEP_SEEDS = 28;
-const MAX_WANTS = 13; // = |SWEEP_MEASURES| + |SWEEP_SETS| + |SWEEP_ORDERS|
+const MAX_WANTS = 13; // Per-request predicate budget, not the vocabulary size.
 const MAX_WANT_CHARS = 80;
 // lyric_revise: one answer may carry a whole tier-2 group (one `L<n>:` line
 // per member), so its ceiling is a group's worth of MAX_LINE_CHARS lines
@@ -126,7 +142,7 @@ const MAX_WANT_CHARS = 80;
 // this server re-parse. The answered records themselves are small (the
 // fold keeps the record, never the prompt).
 const MAX_ANSWER_CHARS = 4000;
-const MAX_STATE_CHARS = 2097152;
+const MAX_STATE_CHARS = STATE_MAX_CHARS;
 
 // RAISED 90s -> 180s 2026-08-26: the whole-vocabulary default (M-116) made
 // a full plan->fill->grade round trip measurably slower — ~61s wall on a CI
@@ -147,7 +163,7 @@ const MAX_OUTPUT_BYTES = 4 * 1024 * 1024;
 // A word that reaches argv: letters, apostrophes, internal hyphens. The
 // leading character is constrained separately so no input can grow into a
 // flag; there is no shell (execFile), so this is belt on top of braces.
-const WORD_RE = /^[A-Za-z][A-Za-z''-]*$/;
+const WORD_RE = /^[A-Za-z][A-Za-z'’‘ʼ-]*$/;
 // Mandate strings (--groups=/--returns=). A member is a LINE NUMBER, or a
 // line and a PLACE IN IT since 2026-08-23 — `3.head`, `3.T2`, `3.end`,
 // `3.endword`, `3.line`, `3.headrime` (`quality/slots.py`). The owner's
@@ -178,7 +194,7 @@ const MANDATE_RE = new RegExp(`^${MEMBER_RE}(,${MEMBER_RE})*(;${MEMBER_RE}(,${ME
 // table, and a second copy of a closed vocabulary in JS is the copy that goes
 // stale (doctrine 1). This is charset only, and the first character is pinned
 // to a letter so nothing input-shaped can grow into a flag.
-const WANT_RE = /^[a-z][a-z_]{0,23}(<=|>=|=)[A-Za-z0-9_,-]{1,48}$/;
+const WANT_RE = /^[a-z][a-z_]{0,23}(<=|>=|=)[A-Za-z0-9_.,-]{1,48}$/;
 const STRUCTURES_RE =
   /^[A-Za-z0-9]{1,3}:[A-Za-z0-9()',. /-]{1,64}(,[A-Za-z0-9]{1,3}:[A-Za-z0-9()',. /-]{1,64})*$/;
 const RETURNS_RE = /^[0-9]+(,[0-9]+)*(;[0-9]+(,[0-9]+)*)*$/;
@@ -218,7 +234,13 @@ const bridge = createPythonBridge({
   getContext: requestContext,
   openKitchenBudget,
 });
-const runVerb = bridge.runVerb;
+const admissionScope = new AsyncLocalStorage();
+const runVerb = (args, options = {}) =>
+  bridge.runVerb(args, {
+    ...options,
+    admission: options.admission || admissionScope.getStore(),
+  });
+export const lyricCapacity = () => bridge.capacity();
 export const _workerInternals = bridge.internals;
 
 const EXIT_MEANING = {
@@ -255,24 +277,6 @@ function extractBannedPairs(report) {
     out.push({ code: m[1], lines: [Number(m[3]), Number(m[4])], finding: m[2] });
   }
   return out;
-}
-
-// THE UNCALIBRATED-STRUCTURE DISCLOSURE, and it rides beside banned_pairs
-// for the same reason banned_pairs exists. Declaring any catalog row makes
-// `grade()` judge that group by the row's own judge AND makes the proactive
-// two-tier ban SKIP those pairs — the spelled-rime class and the eng-song
-// modal table are end-rhyme instruments and charging them to a coda-only
-// hending would grade the wrong axis. Exactly two of the 58 rows carry a
-// measured laziness regime, `english-end-rhyme` for eng (whose judge refuses,
-// so it cannot be declared) and `kalevala-alliteration` for fin — so on an
-// English draft EVERY declarable row is uncalibrated, the ban is skipped, and
-// `banned_pairs` is absent because the question was never asked. Absent reads
-// as clean. That is the 2026-08-19 site failure exactly, one coordinate over.
-function extractUncalibrated(report) {
-  const m = report.match(
-    /FINDING \[NOTE\] STRUCTURE_UNCALIBRATED: declared structure\(s\) ([^\n]*?) have no measured laziness tier[^\n]*/
-  );
-  return m ? m[1].trim() : null;
 }
 
 // THE LOOP'S OWN RECORD OF ITS RUN, extracted from the stamp the verb already
@@ -405,9 +409,9 @@ function priorReasons(prompt) {
 // THE VERDICT, OFF THE RECORD WHEN THE RECORD HAS IT (M-236). The harness
 // now writes what verify made of every candidate into the state file
 // (`outcomes`, keyed line/attempt/round) as the loop replays, so the verdict
-// is READ there first — exact for every attempt, the last one and a batch
-// member included. The M-235 derivation below stays as the fallback for a
-// state an older harness wrote.
+// is READ there — exact for every attempt, the last one and a batch member
+// included. A folded answer may still await the linear verification walk;
+// no next-question shape or unused attempt budget can prove its acceptance.
 function outcomeAt(st, line, attempt, round) {
   const outs = st && Array.isArray(st.outcomes) ? st.outcomes : [];
   for (let i = outs.length - 1; i >= 0; i--) {
@@ -436,12 +440,10 @@ function groupOutcomeAt(st, members, round) {
   return null;
 }
 
-function foldedOne(asked, answer, st, budget) {
-  const next = st && typeof st === 'object' ? st.pending : null;
-  const nextAsked = askedOf(next);
+function foldedOne(asked, answer, st) {
   let verdict = 'unknown';
   let reasons = [];
-  let source = 'derived';
+  let source = 'unverified';
   const o =
     asked.kind === 'propose' && typeof asked.attempt === 'number'
       ? outcomeAt(st, asked.line, asked.attempt, asked.round)
@@ -452,19 +454,6 @@ function foldedOne(asked, answer, st, budget) {
     verdict = o.accepted === true ? 'accepted' : o.accepted === false ? 'rejected' : 'unknown';
     reasons = Array.isArray(o.reasons) ? o.reasons.map((r) => String(r).slice(0, 300)) : [];
     source = 'outcome';
-  } else if (asked.kind === 'propose' && typeof asked.attempt === 'number') {
-    const reasked =
-      nextAsked &&
-      nextAsked.kind === 'propose' &&
-      nextAsked.line === asked.line &&
-      nextAsked.round === asked.round &&
-      nextAsked.attempt === asked.attempt + 1;
-    if (reasked) {
-      verdict = 'rejected';
-      reasons = priorReasons(next.prompt);
-    } else if (asked.attempt + 1 < budget) {
-      verdict = 'accepted';
-    }
   }
   return {
     ...asked,
@@ -476,7 +465,7 @@ function foldedOne(asked, answer, st, budget) {
   };
 }
 
-function foldedOf(prevStateText, st, attempts) {
+function foldedOf(prevStateText, st) {
   let prev;
   try {
     prev = typeof prevStateText === 'string' ? JSON.parse(prevStateText) : prevStateText;
@@ -488,7 +477,6 @@ function foldedOf(prevStateText, st, attempts) {
   if (pend.answer == null || pend.answer === '') return null;
   const asked = askedOf(pend);
   if (!asked) return null;
-  const budget = typeof attempts === 'number' && attempts >= 0 ? attempts : 3;
   if (asked.kind === 'propose_batch') {
     // One record per member (M-236); the member's own answer is the row the
     // harness folded, read back off the replay file.
@@ -508,15 +496,10 @@ function foldedOf(prevStateText, st, attempts) {
           (f.attempt ?? 0) === one.attempt &&
           (f.round ?? null) === one.round
       );
-      return foldedOne(
-        one,
-        rec && typeof rec.text === 'string' ? rec.text : pend.answer,
-        st,
-        budget
-      );
+      return foldedOne(one, rec && typeof rec.text === 'string' ? rec.text : pend.answer, st);
     });
   }
-  return foldedOne(asked, pend.answer, st, budget);
+  return foldedOne(asked, pend.answer, st);
 }
 
 // A short fingerprint of the draft a call carried, so the cycles of one song
@@ -533,7 +516,7 @@ function extractLoopRecord(report) {
   // separate count from the open lines (doctrine 79): a song with no open
   // line and one whole-draft flag is NOT finished, and used to be stamped so.
   const m =
-    /\[FINISHED\s*—\s*(?:seed\s*(-?\d+)|declared mandate)\s*—\s*exit\s*(\d+)\s*—\s*([A-Z_]+)\s+after\s+(\d+)\s+round\(s\)\s*—\s*(?:UNRESOLVED:\s*([^\]—]*)|no flag stands)(?:\s*—\s*WHOLE-DRAFT FLAG:\s*([^\]]*))?\]/.exec(
+    /\[FINISHED\s*—\s*(?:seed\s*(-?\d+)|declared mandate)\s*—\s*exit\s*(\d+)\s*—\s*([A-Z_]+)\s+after\s+(\d+)\s+round\(s\)\s*—\s*(?:UNRESOLVED:\s*([^\]—]*)|no (?:line )?flag stands)(?:\s*—\s*WHOLE-DRAFT FLAG:\s*([^\]]*))?\]/.exec(
       report
     );
   if (!m) return null;
@@ -564,7 +547,24 @@ function extractLoopRecord(report) {
 // a cause the verdict itself contradicts. Read off the verdict's own loop
 // record, never re-derived from the report.
 function loopStatusOf(code, verdict) {
-  if (code === 0) return 'finished_clean';
+  if (code === 0)
+    // The final allowed repair can clear the draft before another loop-start
+    // success check. Preserve ROUND_LIMIT as the walk's actual stop reason;
+    // the authenticated final grade decides whether the resulting song passed.
+    return verdict.measurement_status === 'finished' &&
+      verdict.findings_measured === true &&
+      verdict.certified === true &&
+      assessmentCoverageValid(verdict.coverage) &&
+      verdict.coverage.certified === true &&
+      verdict.flags === 0 &&
+      verdict.whole_flags === 0 &&
+      verdict.loop_unresolved === 0 &&
+      verdict.loop_whole_flags === 0 &&
+      verdict.banned_pairs === 0 &&
+      Array.isArray(verdict.final_draft) &&
+      verdict.final_draft.length > 0
+      ? 'finished_clean'
+      : 'uncertified';
   const open = typeof verdict.loop_unresolved === 'number' ? verdict.loop_unresolved : 0;
   const whole = Array.isArray(verdict.loop_whole_flag_codes)
     ? verdict.loop_whole_flag_codes.length
@@ -723,6 +723,9 @@ function extractProposerRecord(stdout, record = null) {
       'status',
       'in_flight',
       'usage_unknown',
+      'finish_reason',
+      'failure_code',
+      'prompt_feedback',
     ];
     return Object.fromEntries(
       fields.filter((k) => record[k] !== undefined).map((k) => [`proposer_${k}`, record[k]])
@@ -748,147 +751,304 @@ function extractProposerRecord(stdout, record = null) {
   };
 }
 
+const SHA256_RE = /^[0-9a-f]{64}$/;
+const JOURNAL_ID_RE = /^[0-9a-f]{32}$/;
+const sha256 = (value) => createHash('sha256').update(value, 'utf8').digest('hex');
+
+// These are verifier receipts, not a count inferred from proposals, changed
+// words, or an unused attempt budget. Native journals retain the full reasons;
+// repeated chat rows carry the compact identity and exact application proof.
+function verificationEvidenceOf(r) {
+  const record = r.lyric_result?.version === 1 ? r.lyric_result : null;
+  const checkpoint = r.checkpoint?.version === 1 ? r.checkpoint : null;
+  const source =
+    record && Object.hasOwn(record, 'verified_outcomes')
+      ? record
+      : checkpoint && Object.hasOwn(checkpoint, 'verified_outcomes')
+        ? checkpoint
+        : null;
+  const unavailable = (error) => ({
+    verified_outcomes: null,
+    verified_outcomes_error: error,
+    verified_outcomes_draft_sha256: null,
+    journal_id: null,
+  });
+  if (!source) return unavailable('No authenticated verifier outcome inventory is available.');
+  const journal = source.journal_id ?? source.resume_proof?.journal_id;
+  const draft = source.final_draft ?? source.accepted_lines ?? record?.final_draft;
+  if (
+    !JOURNAL_ID_RE.test(journal) ||
+    !Array.isArray(source.verified_outcomes) ||
+    !Array.isArray(draft) ||
+    !draft.every((line) => typeof line === 'string')
+  )
+    return unavailable('Malformed authenticated verifier inventory or accepted artifact.');
+  const projected = new Map();
+  const natural = (n) => Number.isSafeInteger(n) && n >= 0;
+  for (const entry of source.verified_outcomes) {
+    if (
+      !entry ||
+      !SHA256_RE.test(entry.outcome_id) ||
+      !SHA256_RE.test(entry.question_sha256) ||
+      !['propose', 'propose_group'].includes(entry.kind) ||
+      !natural(entry.proposal_index) ||
+      !(entry.round === null || natural(entry.round)) ||
+      !(entry.attempt === null || natural(entry.attempt)) ||
+      !Array.isArray(entry.members) ||
+      !entry.members.length ||
+      new Set(entry.members).size !== entry.members.length ||
+      !entry.members.every((n) => Number.isSafeInteger(n) && n >= 1 && n <= draft.length) ||
+      typeof entry.accepted !== 'boolean' ||
+      typeof entry.applied !== 'boolean' ||
+      !SHA256_RE.test(entry.before_draft_sha256) ||
+      !SHA256_RE.test(entry.after_draft_sha256) ||
+      (entry.applied &&
+        (!entry.accepted || entry.applied_draft_sha256 !== entry.after_draft_sha256)) ||
+      (!entry.applied && entry.applied_draft_sha256 != null)
+    )
+      return unavailable('Malformed authenticated verifier outcome; no outcome count is proven.');
+    const compact = Object.fromEntries(
+      [
+        'outcome_id',
+        'kind',
+        'proposal_index',
+        'question_sha256',
+        'round',
+        'attempt',
+        'members',
+        'accepted',
+        'applied',
+        'before_draft_sha256',
+        'after_draft_sha256',
+        'applied_draft_sha256',
+      ]
+        .filter((key) => entry[key] !== undefined)
+        .map((key) => [key, entry[key]])
+    );
+    if (
+      projected.has(entry.outcome_id) &&
+      JSON.stringify(projected.get(entry.outcome_id)) !== JSON.stringify(compact)
+    )
+      return unavailable('Conflicting authenticated verifier outcome identities.');
+    projected.set(entry.outcome_id, compact);
+  }
+  return {
+    verified_outcomes: [...projected.values()],
+    verified_outcomes_error: null,
+    verified_outcomes_draft_sha256: sha256(JSON.stringify(draft)),
+    journal_id: journal,
+  };
+}
+
+function resumeEvidenceOf(r) {
+  const record = r.lyric_result?.version === 1 ? r.lyric_result : null;
+  const checkpoint = r.checkpoint?.version === 1 ? r.checkpoint : null;
+  const proof = record?.resume_proof ?? checkpoint?.resume_proof;
+  const unavailable = (error) => ({ resume_proof: null, resume_proof_error: error });
+  if (!proof) return unavailable('No authenticated checkpoint replay receipt is available.');
+  if (
+    proof.version !== 1 ||
+    !JOURNAL_ID_RE.test(proof.journal_id) ||
+    typeof proof.checkpoint_loaded !== 'boolean' ||
+    typeof proof.replay_prefix_consumed !== 'boolean' ||
+    !SHA256_RE.test(proof.input_draft_sha256) ||
+    !SHA256_RE.test(proof.accepted_draft_sha256_at_start) ||
+    !Array.isArray(proof.applied_outcome_ids_at_start) ||
+    !proof.applied_outcome_ids_at_start.every((id) => SHA256_RE.test(id)) ||
+    new Set(proof.applied_outcome_ids_at_start).size !==
+      proof.applied_outcome_ids_at_start.length ||
+    ![
+      'completed_proposals_at_start',
+      'completed_proposals_replayed',
+      'new_proposer_dispatches',
+      'completed_proposal_redispatches',
+    ].every((key) => Number.isSafeInteger(proof[key]) && proof[key] >= 0) ||
+    proof.completed_proposals_replayed > proof.completed_proposals_at_start ||
+    (proof.checkpoint_loaded
+      ? !SHA256_RE.test(proof.input_checkpoint_sha256)
+      : proof.input_checkpoint_sha256 !== null)
+  )
+    return unavailable('Malformed authenticated checkpoint replay receipt.');
+  const compact = Object.fromEntries(
+    [
+      'version',
+      'journal_id',
+      'checkpoint_loaded',
+      'input_checkpoint_sha256',
+      'input_draft_sha256',
+      'accepted_draft_sha256_at_start',
+      'applied_outcome_ids_at_start',
+      'completed_proposals_at_start',
+      'completed_proposals_replayed',
+      'new_proposer_dispatches',
+      'completed_proposal_redispatches',
+      'replay_prefix_consumed',
+    ].map((key) => [key, proof[key]])
+  );
+  if (proof.checkpoint_loaded) {
+    if (
+      !r.checkpoint_input_sha256 ||
+      proof.input_checkpoint_sha256 !== r.checkpoint_input_sha256 ||
+      !SHA256_RE.test(r.checkpoint_wire_sha256)
+    )
+      return unavailable('Checkpoint replay receipt does not bind the exact supplied checkpoint.');
+    compact.wire_checkpoint_sha256 = r.checkpoint_wire_sha256;
+  } else if (r.checkpoint_input_sha256)
+    return unavailable('Checkpoint replay receipt did not acknowledge the supplied checkpoint.');
+  return { resume_proof: compact, resume_proof_error: null };
+}
+
 function verdictOf(r) {
-  const banned = extractBannedPairs(r.stdout);
-  const uncalibrated = extractUncalibrated(r.stdout);
-  const loop = extractLoopRecord(r.stdout);
+  // Only the per-process authenticated record carries machine truth. The report
+  // can quote arbitrary lyrics, including text that looks exactly like a stamp.
+  const record = r.lyric_result;
   const v = {
     exit_code: r.code,
-    meaning: EXIT_MEANING[r.code] || `subprocess failure (${r.code}): ${r.stderr.slice(0, 400)}`,
+    meaning:
+      EXIT_MEANING[r.code] || `subprocess failure (${r.code}): ${(r.stderr || '').slice(0, 400)}`,
+    report: r.stdout,
+    ...verificationEvidenceOf(r),
+    ...resumeEvidenceOf(r),
   };
+  if (r.code === 1 && r.stderr) {
+    v.stderr = String(r.stderr).slice(-8000);
+    v.stderr_truncated = String(r.stderr).length > 8000;
+  }
   if (typeof r.path === 'string') v.path = r.path;
   if (typeof r.ms === 'number') v.ms = r.ms;
-  if (r.proposer_record) Object.assign(v, extractProposerRecord(r.stdout, r.proposer_record));
+  if (r.proposer_record) Object.assign(v, extractProposerRecord('', r.proposer_record));
+  if (r.accounting) {
+    v.accounting = r.accounting;
+    // A broker with no admitted/settled request proves replay made no paid
+    // call. Missing Python prose alone cannot prove that zero.
+    if (
+      !r.proposer_record &&
+      Array.isArray(r.accounting.events) &&
+      r.accounting.events.length === 0 &&
+      r.accounting.reservedUsd === 0 &&
+      r.accounting.unknownUsd === 0
+    )
+      v.proposer_calls = 0;
+  }
   if (r.accounting_unknown) v.proposer_usage_unknown = true;
   if (r.timed_out) v.timed_out = true;
   if (r.cancelled) v.cancelled = true;
-  const coverage = r.lyric_result?.coverage || r.checkpoint?.coverage;
+  const coverage = record?.coverage || r.checkpoint?.coverage;
   if (coverage) {
     v.coverage = coverage;
     v.certified = coverage.certified === true;
   }
-  Object.assign(v, extractRunRecord(r.stdout));
-  if (r.code === 2) {
-    const why = extractRefusal(r.stdout);
-    if (why) v.refusal = why;
+  if (!record || record.version !== 1) {
+    v.certified = false;
+    v.measurement_status = 'no_authenticated_verdict';
+    if (r.code === 0)
+      v.meaning = 'answered — no authenticated grading verdict; whole-draft findings are unknown';
+    return v;
   }
-  // THE REPORT'S COUNTS AND THE REFUSALS (M-186), on every verb that prints
-  // them. `brief`/`lyric_check` exit 0 with flags standing because their exit
-  // gates are `song`'s alone; the verdict says so instead of "no flag stands".
-  const counts = extractReportCounts(r.stdout);
-  if (counts) {
-    v.flags = counts.flags;
-    v.notes = counts.notes;
-    v.whole_flags = counts.whole_flags;
-    if (r.code === 0 && (counts.flags > 0 || counts.whole_flags > 0)) {
-      v.meaning =
-        `answered — ${counts.flags} per-line FLAG(s) and ${counts.whole_flags} whole-draft ` +
-        "FLAG(s) STAND (two counts, never summed); the exit code is brief's, whose gates are " +
-        'song\'s alone, so 0 here means "answered", not "clean" — read the report';
-    }
-  }
-  const unreadable = extractUnreadable(r.stdout);
-  if (unreadable.length) {
-    v.unreadable = unreadable.length;
-    v.unreadable_findings = unreadable;
-    v.unreadable_meaning =
-      'These pairs were NOT judged: an end word the lexicon cannot read is a refusal, not a ' +
-      'pass (doctrine 28). A clean exit code says nothing about them — read the words, or ' +
-      'pass --fallback=low through `fallback` where a tool offers it.';
-  }
-  const standing = extractStanding(r.stdout);
-  if (standing.length) v.standing = standing;
-  if (loop) {
-    // THREE COUNTS, NEVER SUMMED (doctrine 79): rounds spent, lines still open
-    // and answers on record answer different questions. `stop_reason` is the
-    // loop's own vocabulary (SUCCESS / NO_PROGRESS / ROUND_LIMIT) and is not
-    // re-spelled here.
-    v.loop_stop_reason = loop.stop_reason;
-    v.loop_rounds = loop.rounds;
-    v.loop_unresolved = loop.unresolved;
-    v.loop_unresolved_lines = loop.unresolved_lines;
-    v.loop_whole_flags = loop.whole_flags;
-    v.loop_whole_flag_codes = loop.whole_flag_codes;
-    v.loop_record_meaning =
-      'The revision loop’s own account of the run it just finished: which stop condition ended ' +
-      'it, how many rounds it spent, and which lines still carry something. ROUND_LIMIT or ' +
-      'NO_PROGRESS with lines still open means the loop STOPPED TRYING — the song is not ' +
-      'finished and more rounds of the same kind will not finish it.';
-  }
-  // Before `report`, deliberately: a count buried under a long report is a
-  // count a reader in a hurry never reaches.
-  if (banned.length) {
+  v.measurement_status = record.status;
+  if (Array.isArray(record.pronunciations)) v.pronunciations = record.pronunciations;
+  if (record.pronunciation_options) v.pronunciation_options = record.pronunciation_options;
+  if (r.code === 2 && ['graded', 'finished'].includes(record.status))
+    v.meaning =
+      'measured — coverage incomplete; this is an uncertified draft, not a successful song';
+  if (r.code === 2 && record.status === 'refused' && typeof record.refusal === 'string')
+    v.refusal = record.refusal;
+  if (typeof record.memo_state === 'string') v.memo_state = record.memo_state;
+  for (const key of ['memo_hit', 'memo_asked', 'stale_answers', 'plan_lines'])
+    if (Number.isInteger(record[key]) && record[key] >= 0) v[key] = record[key];
+  const findings = Array.isArray(record.findings)
+    ? [...new Map(record.findings.map((f) => [JSON.stringify(f), f])).values()]
+    : [];
+  // A comparison, plan, recovery, suspension or refusal has no final
+  // findings census. Empty defaults on those paths would claim zero bans or
+  // flags in work that was never fully measured. Only an authenticated
+  // grading/finish inventory supports these counts; coverage remains separate.
+  const measuredFindings =
+    ['graded', 'finished'].includes(record.status) && Array.isArray(record.findings);
+  v.findings_measured = measuredFindings;
+  if (!measuredFindings) v.certified = false;
+  if (measuredFindings) {
+    v.findings = findings;
+    v.flags = findings.filter((f) => f.severity === 'flag' && f.locations?.length).length;
+    v.whole_flags = findings.filter((f) => f.severity === 'flag' && !f.locations?.length).length;
+    v.notes = findings.filter((f) => f.severity === 'note').length;
+    const banned = findings.filter((f) => ['HOMEOTELEUTON', 'MODAL_RHYME'].includes(f.code));
     v.banned_pairs = banned.length;
-    v.banned_pairs_meaning =
-      'UNSKIPPABLE, even at exit 0: these mandated pairs land on the two-tier ban ' +
-      '(HOMEOTELEUTON — same spelled ending; MODAL_RHYME — the most predictable partner). ' +
-      'A song presented with banned pairs standing is NOT finished: replace the end words ' +
-      'on the named lines (screen replacements with lyric_screen first) and grade again.';
-    v.banned = banned;
+    v.banned = banned.map((f) => ({ code: f.code, lines: f.locations || [], finding: f.message }));
+    v.unreadable_findings = findings.filter((f) => /UNREADABLE|UNJUDGED|REFUSED/.test(f.code));
+    v.unreadable = v.unreadable_findings.length;
+    const uncalibrated = findings.filter((f) => f.code === 'STRUCTURE_UNCALIBRATED');
+    if (uncalibrated.length)
+      v.structures_uncalibrated = uncalibrated.map((f) => f.message).join('; ');
+    v.standing = findings
+      .filter((f) => f.severity === 'flag' || ['HOMEOTELEUTON', 'MODAL_RHYME'].includes(f.code))
+      .map(
+        (f) =>
+          `${f.locations?.length ? f.locations.map((n) => 'L' + n).join('/') : 'WHOLE-DRAFT'}: ` +
+          `FINDING [${String(f.severity).toUpperCase()}] ${f.code}: ${f.message}`
+      );
+  } else if (['graded', 'finished'].includes(record.status)) {
+    v.certified = false;
+    v.meaning = 'uncertified — the authenticated grading inventory is missing';
+  } else if (r.code === 0) {
+    v.meaning = `answered — ${record.status} response; whole-draft findings were not measured`;
   }
-  if (uncalibrated) {
-    v.structures_uncalibrated = uncalibrated;
-    v.structures_uncalibrated_meaning =
-      'CORRECTNESS is graded for these declared structure(s) — the catalog row judges the ' +
-      'pair at its own anchors — but LAZINESS is NOT, because no preregistered calibration ' +
-      "has adopted a predictability table for them in this draft's language. The two-tier " +
-      'ban (HOMEOTELEUTON / MODAL_RHYME) is SKIPPED on those pairs and nothing stands in for ' +
-      'it, so an absent banned_pairs here means the question was NOT ASKED, not that the ' +
-      'answer was clean. Screen those pairs with lyric_screen yourself.';
+  if (record.status === 'finished') {
+    v.loop_stop_reason = record.stop_reason;
+    v.loop_rounds = record.rounds;
+    v.loop_unresolved_lines = record.unresolved_lines || [];
+    v.loop_unresolved = v.loop_unresolved_lines.length;
+    v.loop_whole_flag_codes = record.whole_flags || [];
+    v.loop_whole_flags = v.loop_whole_flag_codes.length;
+    v.presentation_text = record.presentation_text;
+    v.shape_status = record.shape_status;
   }
-  v.report = r.stdout;
+  if (record.final_draft) {
+    v.final_draft = record.final_draft;
+    v.final_draft_sha256 = createHash('sha256')
+      .update(JSON.stringify(record.final_draft))
+      .digest('hex');
+  }
+  if (r.code === 0 && (v.flags || v.whole_flags))
+    v.meaning = `answered — ${v.flags} per-line and ${v.whole_flags} whole-draft flag(s) stand`;
   return v;
 }
 
-// `verify` NEEDS ITS OWN VERDICT, and reusing verdictOf would be the trap.
-// Two measured reasons. (1) The verify report emits ZERO `FINDING` lines —
-// it prints only the diff block — so `extractBannedPairs` returns [] on every
-// call and `banned_pairs` would be ABSENT on a draft full of banned pairs.
-// Absent reads as clean: the 2026-08-19 failure, third time. (2) `verify`
-// exits 0 for ACCEPTED *and* REJECTED — the verdict is in the text — so a
-// caller reading only exit_code would hear "no flag stands" about a revision
-// the harness just refused.
+// `verify` needs its own verdict. Its authenticated record contains the diff,
+// not a complete finding inventory. Deriving counters from an empty default
+// previously fabricated banned_pairs:0 even when a ban survived unchanged.
+// Those counters are now absent, with findings_measured:false, certified:false
+// and an explicit scope. Also, verify exits 0 for both ACCEPTED and REJECTED;
+// the authenticated accepted field, not the exit code, answers that question.
 //
 // AND WHAT verify CANNOT SAY IS PART OF THE ANSWER. It is a DIFF: it speaks
 // about what this change FIXED and what it INTRODUCED, never about what
 // survived. A pair that was banned before and is still banned after appears
 // in neither list, correctly, because nothing about it changed.
 function verifyVerdictOf(r) {
-  const out = r.stdout;
-  const m = out.match(/VERDICT: (ACCEPTED|REJECTED)/);
-  const v = {
-    exit_code: r.code,
-    accepted: m ? m[1] === 'ACCEPTED' : null,
-    verdict: m ? m[1] : null,
-  };
-  if (!m)
-    v.meaning = EXIT_MEANING[r.code] || `subprocess failure (${r.code}): ${r.stderr.slice(0, 400)}`;
-  else
+  const record = r.lyric_result?.status === 'verified' ? r.lyric_result : null;
+  const v = verdictOf(r);
+  v.accepted = record ? record.accepted === true : null;
+  v.verdict = record ? (v.accepted ? 'ACCEPTED' : 'REJECTED') : null;
+  if (record) {
+    for (const key of [
+      'reasons',
+      'coverage',
+      'coverage_before',
+      'coverage_regressions',
+      'layer_coverage_regressions',
+      'fixed',
+      'new',
+      'new_flags',
+    ])
+      v[key] = record[key];
+    v.fixed_count = record.fixed?.length || 0;
+    v.introduced_count = record.new?.length || 0;
     v.meaning =
-      (v.accepted
-        ? 'ACCEPTED — this revision earned it: it fixed something and introduced no flag, and touched only lines that were targeted.'
-        : 'REJECTED — the harness refused this revision. The reason is in the report: it fixed nothing, or it introduced a flag, or it took a forbidden modal candidate, or it changed lines nobody targeted.') +
-      ' NOTE THE EXIT CODE IS 0 EITHER WAY — read `accepted`, not `exit_code`.';
-  const grab = (label) => {
-    const g = out.match(new RegExp(`${label}: (\\[[^\\n]*\\])`));
-    return g ? g[1] : null;
-  };
-  for (const k of ['fixed', 'new_flags', 'new_notes']) {
-    const got = grab(k);
-    if (got) v[k] = got;
-  }
-  const counts = out.match(/fixed (\d+), introduced (\d+)/);
-  if (counts) {
-    v.fixed_count = Number(counts[1]);
-    v.introduced_count = Number(counts[2]);
+      v.verdict + ' — read accepted and reasons; exit zero means the comparison answered.';
   }
   v.scope =
-    'A DIFF, NOT A GRADE. verify answers "did this change earn it" — what it fixed and what ' +
-    'it introduced. It says NOTHING about defects that survived the change unaltered, and it ' +
-    'does not report banned pairs: a pair banned before and still banned after appears in ' +
-    'neither list because nothing about it moved. For "is this song finished", grade the ' +
-    'whole draft with lyric_grade or lyric_check.';
-  v.report = out;
+    'A revision comparison, not whole-song completion. It does not report banned pairs surviving the change. Read accepted and reasons; use lyric_grade for a planned song or lyric_check for a declared pasted song to assess the complete draft.';
   return v;
 }
 
@@ -915,18 +1075,56 @@ function checkLines(lines) {
     throw refuse(`between 1 and ${MAX_LINES} lines — got ${lines.length}`);
   for (const l of lines)
     if (typeof l !== 'string') throw refuse('every draft line must be a string');
+    else if (/[\r\n\u2028\u2029]/.test(l))
+      throw refuse(
+        'each array item must be exactly one lyric line; use the newline text field for multiple rows'
+      );
     else if (l.length > MAX_LINE_CHARS) throw refuse(`line over ${MAX_LINE_CHARS} chars`);
 }
 
 async function withTempDir(fn) {
-  const dir = await mkdtemp(path.join(tmpdir(), 'lyric-'));
+  const token = bridge.admit({
+    bytes: requestContext().inputBytes || 0,
+    context: requestContext(),
+  });
+  let dir;
   try {
-    return await fn(dir);
+    dir = await mkdtemp(path.join(tmpdir(), 'lyric-'));
+    return await admissionScope.run(token, () => fn(dir));
   } finally {
-    // An exceptional OS-level failure to reap a killed Python process must
-    // not let response cleanup remove files that process can still access.
-    await bridge.cleanup(() => rm(dir, { recursive: true, force: true }));
+    try {
+      if (dir) await bridge.cleanup(() => rm(dir, { recursive: true, force: true }));
+    } finally {
+      token.release();
+    }
   }
+}
+
+async function withRunLock(args, fn) {
+  const release = RUNS.acquire(args.new_run ? null : args.run_id);
+  if (!release)
+    throw refuse(
+      'RUN_BUSY: this run already has a continuation in progress; recover its latest revision before retrying.'
+    );
+  try {
+    return await fn();
+  } finally {
+    release();
+  }
+}
+
+function recoverContinuationOnly(args) {
+  const fields = ['state', 'checkpoint'].filter((field) => args[field] != null);
+  const extra = Object.keys(args).filter(
+    (key) =>
+      args[key] !== undefined &&
+      !['recover_only', 'recovery_part', 'state', 'checkpoint'].includes(key)
+  );
+  if (fields.length !== 1 || extra.length)
+    throw refuse(
+      'Recovery requires recover_only:true and exactly one original state or checkpoint; omit writer, answers, draft, run_id and all execution declarations.'
+    );
+  return recoverState(args[fields[0]], { part: args.recovery_part || 'all' });
 }
 
 // THE GLOBALS, AHEAD OF THE VERB (M-189): `--voices` is bare-presence and
@@ -937,6 +1135,8 @@ function globalsFor(a) {
   const out = [];
   if (a && a.voices === true) out.push('--voices');
   if (a && (a.fallback === 'high' || a.fallback === 'low')) out.push(`--fallback=${a.fallback}`);
+  if (a?.pronunciations !== undefined)
+    out.push(`--pronunciations=${JSON.stringify(a.pronunciations)}`);
   return out;
 }
 
@@ -977,6 +1177,8 @@ function planArgs(a) {
   // `--narrative=` mirrors `--title=`: guarded on truthiness, and `off` is
   // a legal value the CLI reads as "silence the layer" (M-189).
   if (a.narrative) args.push(`--narrative=${a.narrative}`);
+  if (a.wants?.length) args.push(`--want=${a.wants.join(';')}`);
+  if (a.inspection_only === true) args.push('--inspection-only');
   return args;
 }
 
@@ -994,11 +1196,11 @@ function extractSweep(stdout) {
   );
   if (!c) return null;
   const listed = stdout.match(/own bias\):\n\s*([0-9, ]*)/);
-  const shown = listed
+  const shown = listed?.[1]?.trim()
     ? listed[1]
         .split(',')
         .map((x) => Number(x.trim()))
-        .filter((x) => Number.isFinite(x))
+        .filter((x) => Number.isSafeInteger(x) && x >= 0)
     : [];
   return {
     swept: Number(c[1]),
@@ -1076,7 +1278,7 @@ const relationField = z
   .max(64)
   .optional()
   .describe(
-    'Declare ONE rhyme relation every mandated group is judged under, e.g. "type:rime riche", "type:pararhyme", "class:ASSONANCE", "schema:perfect rhyme". Namespace it (type: / class: / schema:) — 26 names live in two namespaces and a bare one refuses by name. All three namespaces are judged: class: is the coarse band, type: is the named-cell engine, schema: is realised over the whole draft (29 of the 77 schemas are end-rhyme and fit a group directly; an INTRA-LINE figure like schema:alliteration REFUSES and names its placement, because it is a property of one line and no pair of lines can stand in it). Omit and the COMPLETE default applies, and it is TWO doors and not one: the coarse band admits ALL FOUR classes (since 2026-08-22, so a near relation the band typed is no longer charged as a violation) OR the two lines stand in ANY of the 77 named schemas (since 2026-08-25) — laziness at the 77 is UNCALIBRATED and every pair rescued that way is named on the report\'s SCHEMA DEFAULT line. This description carried only the first half from 2026-08-25 to 2026-08-26. AND ON lyric_plan / lyric_grade AN OMITTED RELATION IS NOT "NO RELATION": the planner DRAWS one schema per group and the grade judges the draw — the plan report names each group\'s relation. Declaring one NARROWS, everywhere. Ask lyric_types for the vocabulary.'
+    'Declare ONE rhyme relation every mandated group is judged under, e.g. "type:rime riche", "type:pararhyme", "class:ASSONANCE", "schema:perfect rhyme". Namespace it (type: / class: / schema:); overlapping bare names refuse. class: is the coarse band, type: is the named-cell engine, and schema: requires the complete declared figure and its placement. The registry has 77 named schemas: 73 implemented shapes and 4 explicit unsupported-shape refusals. An intra-line figure cannot stand in for a pair of lines; missing topology or placement refuses instead of accepting partial edges. With no declaration, the default remains a union: any of the four coarse classes OR membership in a fully realised supported named figure. Schema rescue and unresolved obligations are disclosed; unsupported shapes never count as success. On lyric_plan / lyric_grade an omitted relation instead draws and discloses one schema per group from 18 pair-representable schemas with witness/contrast coverage. Declaring one narrows that choice. Ask lyric_types for the vocabulary.'
   );
 
 const functionsField = z
@@ -1124,6 +1326,58 @@ const fallbackField = z
   .describe(
     "How far the pronunciation fallback may reach for a word the lexicon lacks (CMUdict, ~130k entries). Omit: dictionary only — an unknown end word REFUSES the pair (UNREADABLE_END_WORD / SCHEME_UNREADABLE: not judged, never passed). 'high': dictionary-derived readings (morphology, elision, compounds) — the confident layer. 'low': also the letter-to-sound guess, which the harness's own measurement calls net harmful (wrong on 50% of the refusals only it can read); use it to get an ANSWER on a coinage and read the answer with that in mind."
   );
+const pronunciationField = z
+  .array(
+    z
+      .object({
+        line: z
+          .string()
+          .min(1)
+          .max(4000)
+          .describe(
+            'Exact complete lyric line. Applies to every verbatim occurrence, including repeated choruses; any changed wording invalidates the binding.'
+          ),
+        token: z
+          .number()
+          .int()
+          .min(1)
+          .max(4000)
+          .describe(
+            'One-based sung-token position from pronunciation_options. Parentheses follow voices.'
+          ),
+        word: z
+          .string()
+          .min(1)
+          .max(4000)
+          .describe('Exact token at that position; mismatch refuses.'),
+        phones: z
+          .array(z.string().min(1).max(4))
+          .min(1)
+          .max(128)
+          .describe(
+            'One selected ARPABET pronunciation, including vowel stress digits. Copy a dictionary_readings phones array or explicitly supply a reading.'
+          ),
+        basis: z
+          .enum(['dictionary', 'declared'])
+          .describe(
+            'dictionary verifies phones against CMUdict. declared accepts a supplied reading; its source is a caller declaration, not independently verified evidence.'
+          ),
+        source: z
+          .string()
+          .min(1)
+          .max(1000)
+          .describe(
+            'Who chose this reading and why (e.g. writer: record means the disc), or the supplied pronunciation source. Never silently guess.'
+          ),
+      })
+      .strict()
+  )
+  .max(128)
+  .optional()
+  .describe(
+    'Explicit occurrence pronunciations, selected from pronunciation_options returned by grade/check, or supplied with a stated source. Rerun grade after choosing; the choice resolves a reading, not a pass. Carry unchanged through a revision run; regrade and start a new run to change declarations.'
+  );
+
 const narrativeField = z
   .string()
   .max(200)
@@ -1196,9 +1450,17 @@ const textTwinOf = (arrayName) =>
     .describe(
       `The same lines as \`${arrayName}\` as ONE newline-separated string, one line per row, performance order — for a caller whose array calls break. Send one of the two.`
     );
-export function takeLines(a, arrayName, textName) {
-  if (typeof a[textName] === 'string' && !Array.isArray(a[arrayName]))
-    a[arrayName] = draftFromText(a[textName]);
+export function takeLines(a, arrayName, textName, { preserveStructure = false } = {}) {
+  if (typeof a[textName] === 'string') {
+    const lines = preserveStructure
+      ? String(a[textName]).replace(/\r\n?/g, '\n').split('\n')
+      : draftFromText(a[textName]);
+    if (Array.isArray(a[arrayName]) && JSON.stringify(a[arrayName]) !== JSON.stringify(lines))
+      throw refuse(
+        `Conflicting ${arrayName} and ${textName}: send one exact draft representation.`
+      );
+    a[arrayName] = lines;
+  }
   if (!Array.isArray(a[arrayName]))
     throw refuse(`\`${arrayName}\` (or \`${textName}\`, the same lines as one string) is required`);
 }
@@ -1239,6 +1501,8 @@ export function answerFromRows(rows, kind) {
 export const _argvInternals = { globalsFor, planArgs };
 
 export const _verdictInternals = {
+  verificationEvidenceOf,
+  resumeEvidenceOf,
   extractProposerRecord,
   WRITERS,
   KITCHEN_PROPOSE,
@@ -1280,6 +1544,19 @@ export const LYRIC_TOOL_SCHEMAS = {
     fallback: fallbackField,
   },
   lyric_plan: {
+    wants: z
+      .array(z.string().max(MAX_WANT_CHARS))
+      .max(MAX_WANTS)
+      .optional()
+      .describe(
+        'Declared structural predicates, applied by the planner. Carry unchanged to grade and revise; the plan discloses selection. Example: ["lines<=30", "group<=4"].'
+      ),
+    inspection_only: z
+      .boolean()
+      .optional()
+      .describe(
+        'Explicitly inspect a shape outside the executable capacity. Such a plan is marked do-not-write and cannot be filled or revised.'
+      ),
     seed: seedField,
     form: formField,
     lines: linesField,
@@ -1289,6 +1566,11 @@ export const LYRIC_TOOL_SCHEMAS = {
     narrative: narrativeField,
   },
   lyric_grade: {
+    wants: z
+      .array(z.string().max(MAX_WANT_CHARS))
+      .max(MAX_WANTS)
+      .optional()
+      .describe('The exact wants used to construct this plan.'),
     seed: seedField,
     form: formField,
     lines: linesField,
@@ -1300,8 +1582,16 @@ export const LYRIC_TOOL_SCHEMAS = {
     draft_text: textTwinOf('draft').optional(),
     voices: voicesField,
     fallback: fallbackField,
+    pronunciations: pronunciationField,
   },
   lyric_revise: {
+    wants: z
+      .array(z.string().max(MAX_WANT_CHARS))
+      .max(MAX_WANTS)
+      .optional()
+      .describe(
+        'The exact wants used to construct this seeded plan; immutable through continuations.'
+      ),
     // OPTIONAL SINCE M-195: a pasted song has no seed. Declare EITHER a seed
     // (the plan is the mandate) OR a mandate (`scheme` or `groups`, with
     // `returns`/`relation`/`structures`/`blueprint`/`subdivision` as
@@ -1352,12 +1642,13 @@ export const LYRIC_TOOL_SCHEMAS = {
     draft_text: draftTextField.optional(),
     voices: voicesField,
     fallback: fallbackField,
+    pronunciations: pronunciationField,
     state: z
       .string()
       .max(MAX_STATE_CHARS)
       .optional()
       .describe(
-        'The deferred interview `state` returned previously, VERBATIM. Pass it with the original `replay_draft` as `draft` and the same declarations to resume after the run cache expires. A live `run_id` carries those fields. Omit on the first call.'
+        'The opaque, versioned interview state returned previously, VERBATIM. It carries original replay input and exact declarations even after the run cache expires. Use answer/answers for the new text; never edit the state envelope. Old contract states require explicit recovery rather than replay under changed semantics. Omit on the first call.'
       ),
     checkpoint: z
       .string()
@@ -1366,12 +1657,32 @@ export const LYRIC_TOOL_SCHEMAS = {
       .describe(
         'The kitchen checkpoint returned by an interrupted call, VERBATIM. It includes original input, accepted lines, and completed answers; resume under the SAME declarations. Completed answers are verified again without another paid proposal. Never substitute the displayed final_draft for its original replay_draft.'
       ),
+    recover_only: z
+      .boolean()
+      .optional()
+      .describe(
+        'true exports accepted/input lyrics and the exact stored journal from one supplied state or checkpoint, including after a semantic migration refusal. No replay, grading, writer call or run mutation occurs. Omit every other argument except that state/checkpoint and optional recovery_part. Recovery is bounded to 512 KiB decoded data and 2 MiB serialized result; if journal_included is false, repeat with recovery_part:journal and the same original wire. The artifact is uncertified and nonresumable; legacy JSON has no checksum proof.'
+      ),
+    recovery_part: z
+      .enum(['all', 'journal'])
+      .optional()
+      .describe(
+        'Only with recover_only:true. all (default) exports drafts and journal together when they fit; journal exports the exact full journal separately with the same original_wire_sha256, without replay or restamping.'
+      ),
     run_id: z
       .string()
       .max(80)
       .optional()
       .describe(
         'The opaque run capability returned by a previous call. Send it to continue a cached run; a seed alone NEVER selects another run. Keep it private. Without it, pass the complete explicit state/checkpoint and draft or open an independent run.'
+      ),
+    run_revision: z
+      .number()
+      .int()
+      .positive()
+      .optional()
+      .describe(
+        'Required with run_id: the exact revision returned by the last accepted continuation. Stale revisions refuse.'
       ),
     new_run: z
       .boolean()
@@ -1443,7 +1754,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_WANTS)
       .optional()
       .describe(
-        "What you want the shape to be, as predicates: NAME<=N, NAME>=N, or NAME=VALUE. The vocabulary is CLOSED and an undeclared name refuses BY NAME, printing the whole table. Counts (answer <=, >=, =): lines, sections, lines_per_section (smallest SUNG section), group (deepest rhyme group), bars_per_line, beats_per_line, slots_per_line, hook (line number, 0 if none), returns (how many verbatim-return classes), pins_per_line (most words any line is bound at), bound_words_per_line (the MEAN words bound per line, over every line — the DENSITY coordinate, and the one that answers a fraction: `pins_per_line` is a per-line CAP, so it asks whether EVERY line is under k and at song length nearly every draw puts some line at the ceiling), binding_cap (the plan's own DENSITY coordinate: the most web bindings any line was ASKED to draw, drawn per plan uniform over 1..the line-binding ceiling — binding_cap<=1 is the classic end-rhyme song with one web binding a line, and bound_words_per_line is what that draw then measured), story_lineups (how many legal story line-ups the shape admits — story_lineups>=1 filters for shapes that can carry a story at all). Function-valued (answer '=' only, comma-separated names): uses=verse,chorus means BOTH were drawn; before=verse,chorus means the first verse precedes the first chorus, and is FALSE rather than an error if either is absent. Omit entirely and every seed that plans is accepted, which is honest and useless — there is no default, because a sweep does not decide what you want."
+        "What you want the shape to be, as predicates: NAME<=N, NAME>=N, or NAME=VALUE. The vocabulary is CLOSED and an undeclared name refuses BY NAME, printing the whole table. Function-specific counts: sections.verse=5, min_lines.verse=4, max_lines.verse=4 (replace verse with any declared section function; absence reads zero). Counts (answer <=, >=, =): lines, sections, lines_per_section (smallest SUNG section), group (deepest rhyme group), bars_per_line, beats_per_line, slots_per_line, hook (line number, 0 if none), returns (how many verbatim-return classes), pins_per_line (most words any line is bound at), bound_words_per_line (the MEAN words bound per line, over every line — the DENSITY coordinate, and the one that answers a fraction: `pins_per_line` is a per-line CAP, so it asks whether EVERY line is under k and at song length nearly every draw puts some line at the ceiling), binding_cap (the plan's own DENSITY coordinate: the most web bindings any line was ASKED to draw, drawn per plan uniform over 1..the line-binding ceiling — binding_cap<=1 is the classic end-rhyme song with one web binding a line, and bound_words_per_line is what that draw then measured), story_lineups (how many legal story line-ups the shape admits — story_lineups>=1 filters for shapes that can carry a story at all). Function-valued (answer '=' only, comma-separated names): uses=verse,chorus means BOTH were drawn; before=verse,chorus means the first verse precedes the first chorus, and is FALSE rather than an error if either is absent. Omit entirely and every seed that plans is accepted, which is honest and useless — there is no default, because a sweep does not decide what you want."
       ),
     form: formField,
     lines: linesField,
@@ -1490,6 +1801,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       ),
     voices: voicesField,
     fallback: fallbackField,
+    pronunciations: pronunciationField,
     targeted: z
       .array(z.number().int().min(1).max(MAX_LINES))
       .max(MAX_LINES)
@@ -1509,6 +1821,8 @@ export const LYRIC_TOOL_SCHEMAS = {
         "Which places in a line the recovered web searches, comma-separated (end, endword, head, headrime, T<n>); omit for the module's default set, which the report names."
       ),
     fallback: fallbackField,
+    pronunciations: pronunciationField,
+    voices: voicesField,
   },
   lyric_check: {
     lines: draftField.optional(),
@@ -1550,6 +1864,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       ),
     voices: voicesField,
     fallback: fallbackField,
+    pronunciations: pronunciationField,
     blueprint: blueprintField,
     subdivision: subdivisionField,
     returns: z
@@ -1578,11 +1893,14 @@ export function registerLyricTools(server, tool) {
         'Is this rhyme pair USABLE? Judged by the song grader itself on a minimal mandated pair — every unordered pair among ' +
         'the words gets a verdict: CLEAN — RHYMES, CLEAN — DOES NOT RHYME (clean means not banned; whether it rhymes is its ' +
         'own answer), BANNED (HOMEOTELEUTON — same spelled ending, the laziest true rhyme; MODAL_RHYME — ' +
-        "the most predictable partner), or the grader's own refusal for an unreadable word. A banned " +
-        'pair is an ANSWER, not an error. USE THIS BEFORE WRITING: screening end words first is how songs pass grading in one ' +
-        "draft. Pass `relation` to ask the question a plan's drawn relation will ask (SATISFIES / VIOLATES per pair). " +
-        'MEASURED 2026-09-01: ~20 s for four words cold (each pair is a full grade on a carrier pair; the lexicon loads per ' +
-        'call on a cold path) — not the ~10 s this text used to promise.',
+        "the most predictable partner), or the grader's own refusal for unreadable or unresolved readings/schemas. A banned " +
+        'pair is an ANSWER, not an error. USE THIS BEFORE WRITING to check proposed pairs against the declared requirements. ' +
+        "Pass `relation` to ask the question a plan's drawn relation will ask (SATISFIES / VIOLATES / REFUSED per pair). " +
+        'That requested judgment is reported independently alongside the broad default judgment and its refusals. ' +
+        'Scope: this screens bare candidate words on fixed carrier lines, not the eventual lyric lines. ' +
+        'Coarse class relations search anchor spans and may differ in full-line context; CLEAN means no ban, not a passed rhyme. ' +
+        'Only lyric_grade on the exact planned draft establishes whether its actual bindings satisfy the mandate. ' +
+        EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_screen,
     },
     async (a) => {
@@ -1620,6 +1938,11 @@ export function registerLyricTools(server, tool) {
         // Same presentation-first shape as lyric_grade: the report (plan
         // rows + writer brief, headers intact) leads as plain text.
         if (r.code === 0) {
+          const plan = JSON.parse(await readFile(path.join(dir, 'plan.json'), 'utf8'));
+          verdict.plan = plan;
+          verdict.plan_sha256 = createHash('sha256').update(JSON.stringify(plan)).digest('hex');
+          verdict.plan_request = plan.request;
+          verdict.execution_limits = plan.execution_limits;
           // The verdict block carries everything verdictOf stamped — path,
           // ms, plan_lines (M-216) — and not the report, which is block 0.
           // This block used to re-spell the verdict as {exit_code, meaning}
@@ -1658,8 +1981,8 @@ export function registerLyricTools(server, tool) {
         '(HOMEOTELEUTON / MODAL_RHYME) and is UNSKIPPABLE AT ANY EXIT CODE — banned_pairs above zero means the song is ' +
         'NOT finished, whatever exit_code says: replace those end words (screen replacements with lyric_screen) and ' +
         'grade again; other NOTES are measurements, not defects. Exit 0 clean, 2 refused (e.g. wrong line count), 3 ' +
-        'flags standing. Revise the flagged and banned lines only and call again. ~~~15s.~~ ' +
-        'MEASURED 2026-09-04 on the fixture drafts the planner draws, and it is a CURVE with a WALL, not a flat number: 53 lines grade in 56 s, 108 lines in 330 s, and at 144 lines the default rhyme door REFUSES (exit 2) because it considers every candidate pair over the whole draft, so its cost grows with the SQUARE of the line count and it stops at a declared pair guard. The exact wall depends on the TEXT, not only its length. Declare a class:/type: relation per group to stay off that door, or grade a shorter draft. A client with a 60 s default timeout must raise it. ',
+        'flags standing. Revise the flagged and banned lines only and call again. ' +
+        EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_grade,
     },
     (a) =>
@@ -1737,6 +2060,9 @@ export function registerLyricTools(server, tool) {
         const p3 = await runVerb(songArgs);
         const render = extractRender(p2.stdout);
         const verdict = verdictOf(p3);
+        verdict.plan_sha256 = createHash('sha256').update(JSON.stringify(plan)).digest('hex');
+        verdict.plan_request = plan.request;
+        verdict.execution_limits = plan.execution_limits;
         // The SONG leads as its own plain-text block so a client presents
         // it instead of reformatting escaped JSON — the Wide Room
         // screenshot (2026-08-19) showed a Claude client rewriting the
@@ -1794,482 +2120,652 @@ export function registerLyricTools(server, tool) {
         '`status` says which of the two, and `loop_whole_flag_codes` names the flags). The two-tier ban is enforced by the loop itself ' +
         '(MANDATORY_PURSUE), not by a stamp: banned pairs hold their lines open and the loop keeps asking for ' +
         'replacements. Each call re-runs the loop from its record (deterministic, so the same questions arrive in ' +
-        'the same order) — expect ~60-120s early, growing ~15s per answer on record (a late call in a long ' +
-        'run can legitimately take several minutes); keep any budget fields ' +
+        'the same order). Preserve the exact returned state or checkpoint and accepted draft, and resume only ' +
+        'when the typed result permits it; never replay an unknown provider completion. Keep any budget fields ' +
         "constant across one song's calls. WHO WRITES THE LINES is `writer` (M-254): 'interview' (the default) is " +
         "the question-and-answer contract above, for a client that writes its own lines; 'kitchen' runs the loop " +
         'to a stop condition on the server with its own writer model answering every question one line at a ' +
-        'time on the same brief. A stop returns the song or a parked draft to rewrite. An interrupted kitchen returns `checkpoint` for explicit resume, `final_draft` as exact accepted lines, and `replay_draft` as original input. Never replay answers against final_draft. The chat surface always cooks.',
+        'time on the same brief. A stop returns the song or a parked draft to rewrite. An interrupted kitchen returns `checkpoint` for explicit resume, `final_draft` as exact accepted lines, and `replay_draft` as original input. Never replay answers against final_draft. Writer execution also enforces the registry-derived capacity reported by lyric_plan and 200 characters per sung line; larger pasted drafts remain measurable. A journal_capacity stop preserves the exact journal and accepted draft and cannot resume. An identical restart may hit the same limit; reduce the requested scope explicitly before independent new_run work. After migration refusal, send recover_only:true with only the original state/checkpoint to export its accepted lyrics and journal without replay or restamping. The chat surface always cooks. ' +
+        EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_revise,
       annotations: { readOnlyHint: false, idempotentHint: false, openWorldHint: true },
     },
-    (a) =>
-      withTempDir(async (dir) => {
-        // M-234: the draft may arrive as one string.
-        if (typeof a.draft_text === 'string' && !Array.isArray(a.draft))
-          a.draft = draftFromText(a.draft_text);
-        // A seed is a musical declaration, never an ownership key. Knowing
-        // another caller's seed cannot discover, modify, or erase their run.
-        if (
-          a.new_run &&
-          (a.state != null || a.checkpoint != null || a.answer != null || a.answers != null)
-        )
-          throw refuse('`new_run` starts on a draft: omit state, checkpoint, answer and answers');
-        let runKey = runKeyOf(a);
-        const runRec = a.new_run ? null : a.run_id ? RUNS.byId(a.run_id) : null;
-        if (a.run_id && !a.new_run && !runRec && a.state == null && a.checkpoint == null)
-          throw refuse(
-            `\`run_id\` ${a.run_id} names no run this tool remembers — it may have finished, expired (${Math.round(RUNS.ttlMs / 3600000)} h idle) or been forgotten by a restart; pass \`state\` back, or omit \`run_id\` and send the draft to open a fresh run`
-          );
-        if (runRec && runKey && runRec.key !== runKey)
-          throw refuse(
-            `\`run_id\` ${a.run_id} belongs to ${runRec.key}, and this call names ${runKey}`
-          );
-        const runWander = runRefusal(runRec, a);
-        if (runWander) throw refuse(runWander);
-        const carried = { state: false, draft: false, decl: false };
-        if (runRec) {
-          const moved = movedDeclarations(runRec.decl, a);
-          if (moved.length) throw refuse(movedRefusal(runRec, moved));
-          for (const [k, v] of Object.entries(runRec.decl || {}))
-            if (a[k] === undefined) {
-              a[k] = v;
-              carried.decl = true;
-            }
-          if (
-            runRec.status === 'suspended' &&
-            a.state == null &&
-            typeof runRec.state === 'string'
-          ) {
-            a.state = runRec.state;
-            carried.state = true;
-          }
-          if (runRec.status === 'suspended' && a.draft == null && Array.isArray(runRec.draft)) {
-            a.draft = runRec.replay_draft || runRec.draft;
-            carried.draft = true;
-          }
-          if (
-            ['interrupted', 'uncertain_proposal'].includes(runRec.status) &&
-            a.checkpoint == null &&
-            runRec.checkpoint
-          ) {
-            a.checkpoint = runRec.checkpoint;
-            carried.state = true;
-          }
-        }
-        let checkpoint = null;
-        if (a.checkpoint != null) {
-          try {
-            checkpoint = JSON.parse(a.checkpoint);
-          } catch {
-            throw refuse('`checkpoint` is not the JSON this tool returned — pass it back VERBATIM');
-          }
-          if (
-            checkpoint?.version !== 1 ||
-            !Array.isArray(checkpoint.input_draft) ||
-            !Array.isArray(checkpoint.accepted_lines) ||
-            !checkpoint.answered
-          )
-            throw refuse(
-              '`checkpoint` lacks its version, original input, accepted lines or completed answer journal'
-            );
-          if (checkpoint.uncertain_proposal)
-            throw refuse(
-              'The last provider request may have completed, but its answer was not recorded. This checkpoint cannot safely resume that request. The returned final_draft contains every accepted edit and replay_draft preserves the original input. To start independent work from those accepted lines, use new_run with that draft and omit checkpoint/state; another provider request may incur additional cost.'
-            );
-          checkLines(checkpoint.input_draft);
-          checkLines(checkpoint.accepted_lines);
-          if (checkpoint.connector_declarations) {
-            const decl = declarationsOf(
-              z.object(LYRIC_TOOL_SCHEMAS.lyric_revise).parse(checkpoint.connector_declarations)
-            );
-            const moved = movedDeclarations(decl, a);
-            if (moved.length)
-              throw refuse(
-                'checkpoint declarations moved: ' + moved.map((x) => x.field).join(', ')
-              );
-            for (const [k, v] of Object.entries(decl))
-              if (a[k] === undefined) {
-                a[k] = v;
-                carried.decl = true;
-              }
-          }
-          if (a.draft == null) {
-            a.draft = checkpoint.input_draft;
-            carried.draft = true;
-          }
-          if (JSON.stringify(a.draft) !== JSON.stringify(checkpoint.input_draft))
-            throw refuse(
-              'checkpoint resume needs its original replay_draft as draft; accepted lines are presentation/recovery data, not the replay input'
-            );
-        }
-        runKey = runKeyOf(a);
-        if (!Array.isArray(a.draft))
-          throw refuse(
-            '`draft` omitted and no draft is carried for this run — pass the song lines (the SAME draft on every call of one run; the tool carries it for you after a suspended call)'
-          );
-        checkLines(a.draft);
-        const draftPath = path.join(dir, 'draft.txt');
-        const statePath = path.join(dir, 'state.json');
-        const checkpointPath = path.join(dir, 'checkpoint.json');
-        await writeFile(draftPath, a.draft.join('\n') + '\n', 'utf8');
-        if (checkpoint) await writeFile(checkpointPath, JSON.stringify(checkpoint) + '\n', 'utf8');
-        // The caller can carry the record independently of the run cache. The blob
-        // is the harness's OWN deferred-run state (its `answered` block is a
-        // valid --propose=replay: file), so the revision is reproducible by
-        // anyone holding the conversation — and it cannot be forged into a
-        // finished song, because every answer in it is REPLAYED through
-        // verify() on this call and the render below only ever comes from
-        // the verb's own run past a stop condition.
-        if (a.state != null) {
-          let st;
-          try {
-            st = JSON.parse(a.state);
-          } catch {
-            throw refuse('`state` is not the JSON this tool returned — pass it back VERBATIM');
-          }
-          // M-248: the structured answer becomes the harness's own row
-          // format here, keyed on the question's kind.
-          if (a.answer == null && Array.isArray(a.answers))
-            a.answer = answerFromRows(a.answers, st?.pending?.kind);
-          if (a.answer != null) {
-            if (!st || !st.pending)
-              throw refuse(
-                '`answer`/`answers` was given and `state` holds no pending question — there is nothing it answers'
-              );
-            st.pending.answer = a.answer;
-          }
-          await writeFile(statePath, JSON.stringify(st, null, 2) + '\n', 'utf8');
-        } else if (a.answer != null || a.answers != null) {
-          throw refuse(
-            '`answer`/`answers` without `state` — the first call has no question to answer'
-          );
-        }
-        // SEEDED: `finish` reads the mandate off the plan. UNSEEDED (M-195):
-        // `revise` under the declared mandate, with the same deferred state,
-        // the same stop conditions and — since M-195 — the same render and
-        // [FINISHED — …] stamp, so a pasted song has the same door to a
-        // finished song a planned one has.
-        const seeded = a.seed != null;
-        const hasScheme = a.scheme != null && a.scheme !== '';
-        const hasGroups = a.groups != null && a.groups !== '';
-        if (seeded && (hasScheme || hasGroups || a.returns || a.structures || a.blueprint))
-          throw refuse(
-            'a seeded run takes its mandate and its blueprint OFF THE PLAN — drop scheme/groups/returns/structures/blueprint, or drop the seed to revise a pasted song'
-          );
-        if (!seeded && hasScheme === hasGroups)
-          throw refuse(
-            "without a seed, declare exactly one of 'scheme' or 'groups' — a pasted song's mandate is a declaration, not a default"
-          );
-        if (!seeded && hasScheme && !SCHEME_RE.test(a.scheme))
-          throw refuse("scheme must be letters only, e.g. 'ABAB'");
-        if (!seeded && hasGroups && !MANDATE_RE.test(a.groups))
-          throw refuse("groups must be line numbers like '1,3;2,4', optionally naming a place");
-        if (!seeded && a.returns && !RETURNS_RE.test(a.returns))
-          throw refuse("returns must be line numbers like '5,13;6,14'");
-        if (!seeded && a.structures && !STRUCTURES_RE.test(a.structures))
-          throw refuse(
-            "structures must be 'LABEL:name' pairs, comma-separated, e.g. 'A:pararhyme'"
-          );
-        if (a.blueprint != null && a.subdivision == null)
-          throw refuse(
-            '`blueprint` needs `subdivision` — the slot questions refuse rather than assume a grid'
-          );
-        const writer = a.writer || 'interview';
-        if (checkpoint && writer !== 'kitchen')
-          throw refuse('`checkpoint` resumes writer kitchen; interview resumes with state');
-        if (writer === 'kitchen' && (a.state != null || a.answer != null || a.answers != null))
-          throw refuse(
-            "writer 'kitchen' takes no `state`, `answer` or `answers` — the server's own writer answers every question; send the draft (or rewrite a parked one with `draft_text`)"
-          );
-        if (writer === 'kitchen' && !process.env.GEMINI_API_KEY)
-          throw refuse(
-            "writer 'kitchen' needs the service's GEMINI_API_KEY and it is unset here — use writer 'interview' and answer the questions yourself"
-          );
-        const proposeSpec = writer === 'kitchen' ? KITCHEN_PROPOSE : `defer:${statePath}`;
-        let args;
-        if (seeded) {
-          args = [
-            ...globalsFor(a),
-            'finish',
-            draftPath,
-            ...planArgs(a),
-            `--propose=${proposeSpec}`,
-          ];
-        } else {
-          args = [...globalsFor(a), 'revise', draftPath];
-          if (hasScheme) args.push(a.scheme);
-          if (hasGroups) args.push(`--groups=${a.groups}`);
-          if (a.returns) args.push(`--returns=${a.returns}`);
-          if (a.relation) args.push(`--relation=${a.relation}`);
-          if (a.structures) args.push(`--structures=${a.structures}`);
-          if (a.blueprint != null) {
-            const bpPath = path.join(dir, 'blueprint.json');
-            try {
-              JSON.parse(a.blueprint);
-            } catch {
-              throw refuse('`blueprint` is not JSON text');
-            }
-            await writeFile(bpPath, a.blueprint, 'utf8');
-            args.push(`--blueprint=${bpPath}`, '--subdivision', String(a.subdivision));
-          }
-          args.push(`--propose=${proposeSpec}`);
-        }
-        // THE CONNECTOR'S BUDGET (M-236): one attempt per line, ONE group
-        // rewrite per stuck line (backtrack width 1 — on since M-247, off
-        // under M-236), eight rounds. The re-ask inside a round is where a
-        // model-driven run spent most of its hops (round 21: 103 answers for
-        // four rounds); under one attempt a rejected line is re-briefed
-        // fresh next round with its rejection quoted, the batch door asks
-        // the round's independent lines together, and the rounds are cheap
-        // enough to have more of. Tier 2's backtrack WAS off on this path
-        // for the same reason — with one attempt every rejection would open
-        // a group rewrite at once — and is on at width 1 since M-247: a
-        // line whose every single-word answer the ban refuses (M-246) has
-        // no tier-1 move at all, and the one group question a width of 1
-        // opens is the budget's own shape. A model that declares its own values
-        // keeps them; the carried declarations (M-229) hold whichever
-        // applied for the run's whole life, so the budget never moves
-        // mid-run.
-        const budget = {
-          max_rounds: a.max_rounds ?? CONNECTOR_MAX_ROUNDS,
-          attempts: a.attempts ?? (writer === 'kitchen' ? KITCHEN_ATTEMPTS : CONNECTOR_ATTEMPTS),
-          backtrack: a.backtrack ?? CONNECTOR_BACKTRACK,
-        };
-        args.push(`--max-rounds=${budget.max_rounds}`);
-        args.push(`--attempts=${budget.attempts}`);
-        args.push(`--backtrack=${budget.backtrack}`);
-        const execution = requestContext();
-        const r = await runVerb(args, {
-          checkpointPath,
-          context: {
-            ...execution,
-            onCheckpoint: (record) =>
-              execution.onCheckpoint?.({
-                ...record,
-                connector_declarations: declarationsOf(a),
-              }),
-          },
-        });
-        const currentCheckpoint =
-          r.checkpoint && Array.isArray(r.checkpoint.accepted_lines)
-            ? { ...r.checkpoint, connector_declarations: declarationsOf(a) }
-            : null;
-        const uncertainProposal = Boolean(
-          currentCheckpoint &&
-          (r.uncertain_proposal ||
-            (r.accounting_unknown && currentCheckpoint.status === 'proposing'))
+    (a) => {
+      if (a.recovery_part != null && !a.recover_only)
+        throw refuse(
+          'recovery_part requires recover_only:true; it cannot request a writer continuation.'
         );
-        if (uncertainProposal) currentCheckpoint.uncertain_proposal = true;
-        const exactDraft =
-          r.lyric_result?.final_draft ||
-          currentCheckpoint?.final_draft ||
-          currentCheckpoint?.accepted_lines ||
-          null;
-        if (r.code === 4) {
-          // Suspended: the verb wrote the state (question folded in) and
-          // printed the brief. NO RENDER EXISTS in this output — the verb's
-          // render call sits after the loop's return — so this branch has
-          // nothing to leak even if it tried.
-          const st = JSON.parse(await readFile(statePath, 'utf8'));
-          const onRecord = st.answered.propose.length + st.answered.propose_group.length;
-          const askedNow = askedOf(st.pending);
-          const batchNote =
-            askedNow &&
-            askedNow.kind === 'propose_batch' &&
-            Array.isArray(askedNow.lines) &&
-            askedNow.lines.length
-              ? ` BATCH: answer ${askedNow.lines.map((n) => `L${n}`).join(', ')} with \`answers\` — one {line, text} per asked line, every one required, nothing else.`
-              : '';
-          // The bracketed stamp keeps its shape (readers pin on it); the
-          // batch note follows it on the same line (M-236).
-          const head = `[AWAITING PROPOSAL — ${a.seed != null ? `seed ${a.seed}` : 'declared mandate'} — ${onRecord} answer(s) on record — NO SONG YET]${batchNote}`;
-          // M-237: the tool remembers the run; the client may omit `state`
-          // and `draft` on the next call.
-          const runNow = runKey
-            ? RUNS.put(runKey, {
-                seed: typeof a.seed === 'number' ? a.seed : null,
-                status: 'suspended',
-                state: JSON.stringify(st),
-                draft: a.draft,
-                replay_draft: a.draft,
-                decl: declarationsOf(a),
-                answers: onRecord,
-                run_id: runRec?.run_id ?? newRunId(runKey),
-              })
-            : null;
-          const continueNote =
-            `\n\nCONTINUE: call lyric_revise with \`run_id\` and \`answer\`` +
-            (askedNow && askedNow.kind === 'propose_batch'
-              ? ' (`answers`: one {line, text} per asked line)'
-              : '') +
-            (runNow
-              ? ` — the state and the draft are carried for you (run ${runNow.run_id}); \`state\` passed back verbatim also works.`
-              : '.');
-          return {
-            content: [
-              {
-                type: 'text',
-                text: `${head}\n\n${(st.pending && st.pending.prompt) || r.stdout}${continueNote}`,
-              },
-              {
-                type: 'text',
-                text: JSON.stringify({
-                  exit_code: 4,
-                  status: 'awaiting_proposal',
-                  kind: st.pending ? st.pending.kind : null,
-                  answers_on_record: onRecord,
-                  // M-235: the question this call left open, the question its
-                  // `answer` folded and what verify made of that answer.
-                  asked: askedNow,
-                  folded: foldedOf(a.state, st, budget.attempts),
-                  run_id: runNow ? runNow.run_id : null,
-                  run_state_carried: carried.state,
-                  run_draft_carried: carried.draft,
-                  run_decl_carried: carried.decl,
-                  answer_sent: typeof a.answer === 'string' ? a.answer.slice(0, 300) : null,
-                  draft_fp: draftFp(a.draft),
-                  // THE SUSPENDED VERDICT IS THE COMMON ROW OF A REAL RUN — 32
-                  // of round 11's 33 rows — and it was built here by hand,
-                  // without the path and time `verdictOf` stamps (M-216), so
-                  // the one row that could have said warm or cold never did
-                  // (M-219's second finding, the third spelling of it).
-                  path: typeof r.path === 'string' ? r.path : null,
-                  ms: typeof r.ms === 'number' ? r.ms : null,
-                  ...extractRunRecord(r.stdout),
-                  state: JSON.stringify(st),
-                  replay_draft: a.draft,
+      return a.recover_only
+        ? recoverContinuationOnly(a)
+        : withRunLock(a, () =>
+            withTempDir(async (dir) => {
+              // M-234: the draft may arrive as one string.
+              if (a.draft_text != null || a.draft != null) takeLines(a, 'draft', 'draft_text');
+              // A seed is a musical declaration, never an ownership key. Knowing
+              // another caller's seed cannot discover, modify, or erase their run.
+              if (
+                a.new_run &&
+                (a.state != null || a.checkpoint != null || a.answer != null || a.answers != null)
+              )
+                throw refuse(
+                  '`new_run` starts on a draft: omit state, checkpoint, answer and answers'
+                );
+              let runKey = runKeyOf(a);
+              const runRec = a.new_run ? null : a.run_id ? RUNS.byId(a.run_id) : null;
+              if (runRec?.status === 'journal_capacity')
+                throw refuse(
+                  'JOURNAL_CAPACITY: this run reached its journal capacity. Keep its returned state/checkpoint and final_draft. This run cannot resume; an identical restart may hit the same limit. Reduce the requested scope explicitly before independent new_run work.'
+                );
+              if (a.run_id && !a.new_run && !runRec && a.state == null && a.checkpoint == null)
+                throw refuse(
+                  `\`run_id\` ${a.run_id} names no run this tool remembers — it may have finished, expired (${Math.round(RUNS.ttlMs / 3600000)} h idle) or been forgotten by a restart; pass \`state\` back, or omit \`run_id\` and send the draft to open a fresh run`
+                );
+              if (runRec && runKey && runRec.key !== runKey)
+                throw refuse(
+                  `\`run_id\` ${a.run_id} belongs to ${runRec.key}, and this call names ${runKey}`
+                );
+              const runWander = runRefusal(runRec, a);
+              if (runWander) throw refuse(runWander);
+              const carried = { state: false, draft: false, decl: false };
+              if (runRec) {
+                const moved = movedDeclarations(runRec.decl, a);
+                if (moved.length) throw refuse(movedRefusal(runRec, moved));
+                for (const [k, v] of Object.entries(runRec.decl || {}))
+                  if (a[k] === undefined) {
+                    a[k] = v;
+                    carried.decl = true;
+                  }
+                if (
+                  (runRec.status === 'suspended' ||
+                    (runRec.status === 'interrupted' && runRec.decl?.writer === 'interview')) &&
+                  a.state == null &&
+                  typeof runRec.state === 'string'
+                ) {
+                  a.state = runRec.state;
+                  carried.state = true;
+                }
+                if (
+                  ['suspended', 'interrupted'].includes(runRec.status) &&
+                  a.draft == null &&
+                  Array.isArray(runRec.draft)
+                ) {
+                  a.draft = runRec.replay_draft || runRec.draft;
+                  carried.draft = true;
+                }
+                if (
+                  ['interrupted', 'uncertain_proposal'].includes(runRec.status) &&
+                  a.checkpoint == null &&
+                  runRec.checkpoint
+                ) {
+                  a.checkpoint = runRec.checkpoint;
+                  carried.state = true;
+                }
+              }
+              // Only the outer connector contract changes here. The worker reads
+              // its original journal schema, and foldedOf/askedOf see raw state.
+              const checkpointWire = a.checkpoint;
+              for (const field of ['state', 'checkpoint'])
+                if (a[field] != null) {
+                  const decoded = decodeState(a[field]);
+                  assertContinuationCapacity(decoded);
+                  if (decoded.new_run_required || decoded.status === 'journal_capacity')
+                    throw refuse(
+                      'JOURNAL_CAPACITY: this journal is a recovery artifact and cannot resume. Keep it and its final_draft or accepted_lines. An identical restart may hit the same limit; reduce the requested scope explicitly before independent new_run work.'
+                    );
+                  if (field === 'state') {
+                    if (!decoded.connector_declarations || !Array.isArray(decoded.input_draft))
+                      throw refuse(
+                        'CONTINUATION_INVALID: interview state lacks original input and declarations; preserve it as a recovery artifact.'
+                      );
+                    const decl = declarationsOf(
+                      z
+                        .object(LYRIC_TOOL_SCHEMAS.lyric_revise)
+                        .parse(decoded.connector_declarations)
+                    );
+                    const moved = movedDeclarations(decl, a);
+                    if (moved.length)
+                      throw refuse(
+                        'state declarations moved: ' + moved.map((x) => x.field).join(', ')
+                      );
+                    for (const [key, value] of Object.entries(decl))
+                      if (a[key] === undefined) {
+                        a[key] = value;
+                        carried.decl = true;
+                      }
+                    checkLines(decoded.input_draft);
+                    if (a.draft == null) {
+                      a.draft = decoded.input_draft;
+                      carried.draft = true;
+                    }
+                    if (JSON.stringify(a.draft) !== JSON.stringify(decoded.input_draft))
+                      throw refuse(
+                        'state resume requires its original replay_draft; accepted lyrics cannot replace replay input.'
+                      );
+                    // Connector metadata is carried outside the worker's journal budget.
+                    delete decoded.connector_declarations;
+                    delete decoded.connector_semantic_identity;
+                  }
+                  a[field] = JSON.stringify(decoded);
+                }
+              let checkpoint = null;
+              if (a.checkpoint != null) {
+                try {
+                  checkpoint = JSON.parse(a.checkpoint);
+                } catch {
+                  throw refuse(
+                    '`checkpoint` is not the JSON this tool returned — pass it back VERBATIM'
+                  );
+                }
+                if (
+                  checkpoint?.version !== 1 ||
+                  !Array.isArray(checkpoint.input_draft) ||
+                  !Array.isArray(checkpoint.accepted_lines) ||
+                  !checkpoint.answered
+                )
+                  throw refuse(
+                    '`checkpoint` lacks its version, original input, accepted lines or completed answer journal'
+                  );
+                if (checkpoint.uncertain_proposal)
+                  throw refuse(
+                    'The last provider request may have completed, but its answer was not recorded. This checkpoint cannot safely resume that request. The returned final_draft contains every accepted edit and replay_draft preserves the original input. To start independent work from those accepted lines, use new_run with that draft and omit checkpoint/state; another provider request may incur additional cost.'
+                  );
+                checkLines(checkpoint.input_draft);
+                checkLines(checkpoint.accepted_lines);
+                if (checkpoint.connector_declarations) {
+                  const decl = declarationsOf(
+                    z
+                      .object(LYRIC_TOOL_SCHEMAS.lyric_revise)
+                      .parse(checkpoint.connector_declarations)
+                  );
+                  const moved = movedDeclarations(decl, a);
+                  if (moved.length)
+                    throw refuse(
+                      'checkpoint declarations moved: ' + moved.map((x) => x.field).join(', ')
+                    );
+                  for (const [k, v] of Object.entries(decl))
+                    if (a[k] === undefined) {
+                      a[k] = v;
+                      carried.decl = true;
+                    }
+                }
+                if (a.draft == null) {
+                  a.draft = checkpoint.input_draft;
+                  carried.draft = true;
+                }
+                if (JSON.stringify(a.draft) !== JSON.stringify(checkpoint.input_draft))
+                  throw refuse(
+                    'checkpoint resume needs its original replay_draft as draft; accepted lines are presentation/recovery data, not the replay input'
+                  );
+                // Metadata has been validated and carried into a; the worker's
+                // 448 KiB journal budget excludes this separately bounded envelope.
+                delete checkpoint.connector_declarations;
+                delete checkpoint.connector_semantic_identity;
+              }
+              runKey = runKeyOf(a);
+              if (!Array.isArray(a.draft))
+                throw refuse(
+                  '`draft` omitted and no draft is carried for this run — pass the song lines (the SAME draft on every call of one run; the tool carries it for you after a suspended call)'
+                );
+              checkLines(a.draft);
+              const draftPath = path.join(dir, 'draft.txt');
+              const statePath = path.join(dir, 'state.json');
+              const checkpointPath = path.join(dir, 'checkpoint.json');
+              await writeFile(draftPath, a.draft.join('\n') + '\n', 'utf8');
+              const checkpointInput = checkpoint ? JSON.stringify(checkpoint) + '\n' : null;
+              if (checkpointInput) await writeFile(checkpointPath, checkpointInput, 'utf8');
+              // The caller can carry the record independently of the run cache. The blob
+              // is the harness's OWN deferred-run state (its `answered` block is a
+              // valid --propose=replay: file), so the revision is reproducible by
+              // anyone holding the conversation — and it cannot be forged into a
+              // finished song, because every answer in it is REPLAYED through
+              // verify() on this call and the render below only ever comes from
+              // the verb's own run past a stop condition.
+              if (a.state != null) {
+                let st;
+                try {
+                  st = JSON.parse(a.state);
+                } catch {
+                  throw refuse(
+                    '`state` is not the JSON this tool returned — pass it back VERBATIM'
+                  );
+                }
+                // M-248: the structured answer becomes the harness's own row
+                // format here, keyed on the question's kind.
+                if (Array.isArray(a.answers)) {
+                  const answer = answerFromRows(a.answers, st?.pending?.kind);
+                  if (a.answer != null && a.answer !== answer)
+                    throw refuse(
+                      'Conflicting answer and answers: send one exact proposal representation.'
+                    );
+                  a.answer = answer;
+                }
+                if (a.answer != null) {
+                  if (!st || !st.pending)
+                    throw refuse(
+                      '`answer`/`answers` was given and `state` holds no pending question — there is nothing it answers'
+                    );
+                  st.pending.answer = a.answer;
+                }
+                // The newly supplied answer counts too. Reject before the worker
+                // can consume it if an externally supplied near-limit journal
+                // leaves insufficient room; the caller retains both exact inputs.
+                assertContinuationCapacity(st);
+                // The fold receipt must read the submitted answer too, whether
+                // it arrived embedded in state or through answer/answers beside
+                // a run capability. This string is request-local; the cached
+                // predecessor remains immutable until the accepted successor.
+                a.state = JSON.stringify(st);
+                await writeFile(statePath, JSON.stringify(st, null, 2) + '\n', 'utf8');
+              } else if (a.answer != null || a.answers != null) {
+                throw refuse(
+                  '`answer`/`answers` without `state` — the first call has no question to answer'
+                );
+              }
+              // SEEDED: `finish` reads the mandate off the plan. UNSEEDED (M-195):
+              // `revise` under the declared mandate, with the same deferred state,
+              // the same stop conditions and — since M-195 — the same render and
+              // [FINISHED — …] stamp, so a pasted song has the same door to a
+              // finished song a planned one has.
+              const seeded = a.seed != null;
+              const hasScheme = a.scheme != null && a.scheme !== '';
+              const hasGroups = a.groups != null && a.groups !== '';
+              if (seeded && (hasScheme || hasGroups || a.returns || a.structures || a.blueprint))
+                throw refuse(
+                  'a seeded run takes its mandate and its blueprint OFF THE PLAN — drop scheme/groups/returns/structures/blueprint, or drop the seed to revise a pasted song'
+                );
+              if (!seeded && ((hasScheme && hasGroups) || (!hasScheme && !hasGroups && !a.returns)))
+                throw refuse(
+                  "without a seed, declare one of 'scheme' or 'groups', or a returns-only mandate — a pasted song's mandate is a declaration, not a default"
+                );
+              if (!seeded && hasScheme && !SCHEME_RE.test(a.scheme))
+                throw refuse("scheme must be letters only, e.g. 'ABAB'");
+              if (!seeded && hasGroups && !MANDATE_RE.test(a.groups))
+                throw refuse(
+                  "groups must be line numbers like '1,3;2,4', optionally naming a place"
+                );
+              if (!seeded && a.returns && !RETURNS_RE.test(a.returns))
+                throw refuse("returns must be line numbers like '5,13;6,14'");
+              if (!seeded && a.structures && !STRUCTURES_RE.test(a.structures))
+                throw refuse(
+                  "structures must be 'LABEL:name' pairs, comma-separated, e.g. 'A:pararhyme'"
+                );
+              if (a.blueprint != null && a.subdivision == null)
+                throw refuse(
+                  '`blueprint` needs `subdivision` — the slot questions refuse rather than assume a grid'
+                );
+              const writer = a.writer || 'interview';
+              if (checkpoint && writer !== 'kitchen')
+                throw refuse('`checkpoint` resumes writer kitchen; interview resumes with state');
+              if (
+                writer === 'kitchen' &&
+                (a.state != null || a.answer != null || a.answers != null)
+              )
+                throw refuse(
+                  "writer 'kitchen' takes no `state`, `answer` or `answers` — the server's own writer answers every question; send the draft (or rewrite a parked one with `draft_text`)"
+                );
+              if (writer === 'kitchen' && !process.env.GEMINI_API_KEY)
+                throw refuse(
+                  "writer 'kitchen' needs the service's GEMINI_API_KEY and it is unset here — use writer 'interview' and answer the questions yourself"
+                );
+              const proposeSpec = writer === 'kitchen' ? KITCHEN_PROPOSE : `defer:${statePath}`;
+              let args;
+              if (seeded) {
+                args = [
+                  ...globalsFor(a),
+                  'finish',
+                  draftPath,
+                  ...planArgs(a),
+                  `--propose=${proposeSpec}`,
+                ];
+              } else {
+                args = [...globalsFor(a), 'revise', draftPath];
+                if (hasScheme) args.push(a.scheme);
+                if (hasGroups) args.push(`--groups=${a.groups}`);
+                if (a.returns) args.push(`--returns=${a.returns}`);
+                if (a.relation) args.push(`--relation=${a.relation}`);
+                if (a.structures) args.push(`--structures=${a.structures}`);
+                if (a.blueprint != null) {
+                  const bpPath = path.join(dir, 'blueprint.json');
+                  try {
+                    JSON.parse(a.blueprint);
+                  } catch {
+                    throw refuse('`blueprint` is not JSON text');
+                  }
+                  await writeFile(bpPath, a.blueprint, 'utf8');
+                  args.push(`--blueprint=${bpPath}`, '--subdivision', String(a.subdivision));
+                }
+                args.push(`--propose=${proposeSpec}`);
+              }
+              // THE CONNECTOR'S BUDGET (M-236): one attempt per line, ONE group
+              // rewrite per stuck line (backtrack width 1 — on since M-247, off
+              // under M-236), eight rounds. The re-ask inside a round is where a
+              // model-driven run spent most of its hops (round 21: 103 answers for
+              // four rounds); under one attempt a rejected line is re-briefed
+              // fresh next round with its rejection quoted, the batch door asks
+              // the round's independent lines together, and the rounds are cheap
+              // enough to have more of. Tier 2's backtrack WAS off on this path
+              // for the same reason — with one attempt every rejection would open
+              // a group rewrite at once — and is on at width 1 since M-247: a
+              // line whose every single-word answer the ban refuses (M-246) has
+              // no tier-1 move at all, and the one group question a width of 1
+              // opens is the budget's own shape. A model that declares its own values
+              // keeps them; the carried declarations (M-229) hold whichever
+              // applied for the run's whole life, so the budget never moves
+              // mid-run.
+              const budget = {
+                max_rounds: a.max_rounds ?? CONNECTOR_MAX_ROUNDS,
+                attempts:
+                  a.attempts ?? (writer === 'kitchen' ? KITCHEN_ATTEMPTS : CONNECTOR_ATTEMPTS),
+                backtrack: a.backtrack ?? CONNECTOR_BACKTRACK,
+              };
+              Object.assign(a, budget, { writer });
+              if (
+                Buffer.byteLength(JSON.stringify(declarationsOf(a)), 'utf8') >
+                CONNECTOR_DECLARATION_BYTES
+              )
+                throw refuse(
+                  `DECLARATION_CAPACITY: writer declarations exceed ${CONNECTOR_DECLARATION_BYTES} UTF-8 bytes. Measurement tools still accept their documented payload limits; no writer was started.`
+                );
+              const encodeInterview = (state) =>
+                encodeState({
+                  ...state,
+                  input_draft: a.draft,
+                  connector_declarations: declarationsOf(a),
+                  connector_semantic_identity: continuationSemanticIdentity(),
+                });
+              args.push(`--max-rounds=${budget.max_rounds}`);
+              args.push(`--attempts=${budget.attempts}`);
+              args.push(`--backtrack=${budget.backtrack}`);
+              const execution = requestContext();
+              const r = await runVerb(args, {
+                checkpointPath,
+                context: {
+                  ...execution,
+                  onCheckpoint: (record) =>
+                    execution.onCheckpoint?.({
+                      ...record,
+                      connector_declarations: declarationsOf(a),
+                      connector_semantic_identity: continuationSemanticIdentity(),
+                    }),
+                },
+              });
+              // Bind the native replay receipt to both the exact file bytes it
+              // consumed and the original signed connector wire supplied here.
+              if (checkpointInput) {
+                r.checkpoint_input_sha256 = sha256(checkpointInput);
+                r.checkpoint_wire_sha256 = sha256(checkpointWire);
+              }
+              const currentCheckpoint =
+                r.checkpoint && Array.isArray(r.checkpoint.accepted_lines)
+                  ? {
+                      ...r.checkpoint,
+                      connector_declarations: declarationsOf(a),
+                      connector_semantic_identity: continuationSemanticIdentity(),
+                    }
+                  : null;
+              const uncertainProposal = Boolean(
+                currentCheckpoint &&
+                (r.uncertain_proposal ||
+                  (r.accounting_unknown && currentCheckpoint.status === 'proposing'))
+              );
+              if (uncertainProposal) currentCheckpoint.uncertain_proposal = true;
+              const exactDraft =
+                r.lyric_result?.final_draft ||
+                currentCheckpoint?.final_draft ||
+                currentCheckpoint?.accepted_lines ||
+                null;
+              if (r.lyric_result?.status === 'journal_capacity') {
+                const oversizedProposal = r.lyric_result.code === 'PROVIDER_PROPOSAL_TOO_LARGE';
+                const result = {
+                  ...verdictOf(r),
+                  status: 'journal_capacity',
+                  writer,
+                  certified: false,
+                  resumable: false,
+                  new_run_required: true,
                   final_draft: exactDraft,
-                }),
-              },
-            ],
-          };
-        }
-        if (
-          r.code === 0 ||
-          r.code === 3 ||
-          r.lyric_result?.status === 'finished' ||
-          currentCheckpoint?.status === 'finished'
-        ) {
-          const m = r.stdout.match(/THE SONG, PERFORMANCE ORDER:\n\n([\s\S]*?\[FINISHED[^\]]*\])/);
-          const verdict = verdictOf(r);
-          verdict.status = loopStatusOf(r.code, verdict);
-          verdict.writer = writer;
-          if (writer === 'kitchen' && !r.proposer_record)
-            Object.assign(verdict, extractProposerRecord(r.stdout));
-          verdict.final_draft = exactDraft;
-          verdict.replay_draft = a.draft;
-          if (currentCheckpoint) verdict.checkpoint = JSON.stringify(currentCheckpoint);
-          if (verdict.certified === false && r.code === 2) verdict.status = 'uncertified';
-          // M-235: the last answer's verdict and the draft this stop was
-          // reached on ride with the stop row, so a cycle is readable from
-          // the rows alone.
-          verdict.draft_fp = exactDraft ? draftFp(exactDraft) : null;
-          verdict.replay_draft_fp = draftFp(a.draft);
-          // M-237: exit 3 PARKS the record (no state — no question pending);
-          // exit 0 forgets it.
-          verdict.run_state_carried = carried.state;
-          verdict.run_draft_carried = carried.draft;
-          verdict.run_decl_carried = carried.decl;
-          if (runKey && r.code !== 0 && exactDraft) {
-            const parkedRec = RUNS.put(runKey, {
-              seed: typeof a.seed === 'number' ? a.seed : null,
-              status: 'parked',
-              draft: exactDraft,
-              replay_draft: a.draft,
-              decl: declarationsOf(a),
-              stop: verdict.loop_stop_reason ?? null,
-              open: Array.isArray(verdict.loop_unresolved_lines)
-                ? verdict.loop_unresolved_lines
-                : [],
-              whole: Array.isArray(verdict.loop_whole_flag_codes)
-                ? verdict.loop_whole_flag_codes
-                : [],
-              standing: Array.isArray(verdict.standing) ? verdict.standing.slice(0, 24) : [],
-              run_id: runRec?.run_id ?? newRunId(runKey),
-            });
-            verdict.run_id = parkedRec.run_id;
-          } else if (runKey && r.code === 0) {
-            if (runRec) RUNS.del(runRec.run_id);
-            verdict.run_id = runRec?.run_id ?? null;
-          }
-          verdict.song_at_stop = exactDraft ? exactDraft.join('\n') : null;
-          try {
-            const st = JSON.parse(await readFile(statePath, 'utf8'));
-            verdict.answers_on_record =
-              st.answered.propose.length + st.answered.propose_group.length;
-            verdict.folded = foldedOf(a.state, st, budget.attempts);
-            // A finished deferred run is a RECORDED run: hand the record
-            // back so the song's provenance travels with the conversation.
-            verdict.state = JSON.stringify(st);
-          } catch {
-            /* state unreadable: the verdict still stands on the verb's own run */
-          }
-          const render =
-            m?.[1] ||
-            (exactDraft
-              ? exactDraft.join('\n') +
-                '\n\n' +
-                (r.stdout.match(/\[FINISHED[^\]]*\]/)?.[0] ||
-                  `[LYRIC RUN — exit ${r.code} — ${verdict.status}]`)
-              : null);
-          if (render) {
-            // M-232: the standing findings ride with the render, so a
-            // parked song names what each open line still carries.
-            const standingText =
-              Array.isArray(verdict.standing) && verdict.standing.length
-                ? '\n\nSTANDING AT THE STOP — what the open lines and the whole draft still carry:\n' +
-                  verdict.standing.map((x) => `  ${x}`).join('\n')
-                : '';
-            const parkNote =
-              r.code === 3
-                ? `\n\nCONTINUE: no question is pending. Rewrite the open line(s) and call lyric_revise with \`run_id\` and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`${verdict.run_id ? ` (run ${verdict.run_id}; \`new_run: true\` starts independently)` : ''}.`
-                : '';
-            return {
-              content: [
-                { type: 'text', text: render + standingText + parkNote },
-                { type: 'text', text: JSON.stringify(verdict) },
-              ],
-            };
-          }
-          return verdict;
-        }
-        const other = verdictOf(r);
-        other.writer = writer;
-        if (writer === 'kitchen' && !r.proposer_record)
-          Object.assign(other, extractProposerRecord(r.stdout));
-        if (currentCheckpoint) {
-          const resumable =
-            r.code !== 2 ||
-            currentCheckpoint.proposals?.length > 0 ||
-            ['proposing', 'proposal_completed', 'accepted'].includes(currentCheckpoint.status);
-          other.status = uncertainProposal
-            ? 'uncertain_proposal'
-            : resumable
-              ? 'interrupted'
-              : 'refused';
-          if (uncertainProposal) other.uncertain_proposal = true;
-          other.checkpoint = JSON.stringify(currentCheckpoint);
-          other.final_draft = exactDraft;
-          other.replay_draft = a.draft;
-          if (resumable) {
-            const saved = RUNS.put(runKey, {
-              seed: a.seed ?? null,
-              status: other.status,
-              checkpoint: other.checkpoint,
-              draft: exactDraft,
-              replay_draft: a.draft,
-              decl: declarationsOf(a),
-              run_id: runRec?.run_id ?? newRunId(),
-            });
-            other.run_id = saved.run_id;
-            other.meaning += uncertainProposal
-              ? ' The provider request may have completed but no answer was recorded. Automatic continuation is stopped. final_draft preserves accepted edits; replay_draft and checkpoint preserve the evidence. Existing new_run can start independent work from final_draft, with a possible additional provider charge.'
-              : ' Resume explicitly with run_id or checkpoint under the same declarations; completed proposals are in the checkpoint.';
-          }
-        }
-        return other;
-      })
+                  replay_draft: a.draft,
+                  meaning:
+                    (oversizedProposal
+                      ? 'The provider returned a proposal outside the declared response capacity; that proposal was not accepted and its call may have incurred a charge. '
+                      : 'The journal reached its declared capacity; no further writer request was started. ') +
+                    'All accepted lyrics and the recorded proposal history are preserved below. Keep this recovery artifact and final_draft. This run cannot resume; an identical restart may hit the same limit. Reduce the requested scope explicitly before independent new_run work.',
+                };
+                if (currentCheckpoint)
+                  if (writer === 'interview') result.state = encodeInterview(currentCheckpoint);
+                  else result.checkpoint = encodeState(currentCheckpoint);
+                try {
+                  result.state = encodeInterview(JSON.parse(await readFile(statePath, 'utf8')));
+                } catch (error) {
+                  if (error.code !== 'ENOENT') throw error;
+                }
+                const saved = RUNS.put(runKey, {
+                  status: 'journal_capacity',
+                  draft: exactDraft,
+                  replay_draft: a.draft,
+                  state: result.state,
+                  checkpoint: result.checkpoint,
+                  decl: declarationsOf(a),
+                  run_id: runRec?.run_id ?? newRunId(),
+                });
+                result.run_id = saved.run_id;
+                result.run_revision = saved.revision;
+                return result;
+              }
+              if (r.code === 4) {
+                // Suspended: the verb wrote the state (question folded in) and
+                // printed the brief. NO RENDER EXISTS in this output — the verb's
+                // render call sits after the loop's return — so this branch has
+                // nothing to leak even if it tried.
+                const st = JSON.parse(await readFile(statePath, 'utf8'));
+                const stateWire = encodeInterview(st);
+                const onRecord = st.answered.propose.length + st.answered.propose_group.length;
+                const askedNow = askedOf(st.pending);
+                const batchNote =
+                  askedNow &&
+                  askedNow.kind === 'propose_batch' &&
+                  Array.isArray(askedNow.lines) &&
+                  askedNow.lines.length
+                    ? ` BATCH: answer ${askedNow.lines.map((n) => `L${n}`).join(', ')} with \`answers\` — one {line, text} per asked line, every one required, nothing else.`
+                    : '';
+                // The bracketed stamp keeps its shape (readers pin on it); the
+                // batch note follows it on the same line (M-236).
+                const head = `[AWAITING PROPOSAL — ${a.seed != null ? `seed ${a.seed}` : 'declared mandate'} — ${onRecord} answer(s) on record — NO SONG YET]${batchNote}`;
+                // M-237: the tool remembers the run; the client may omit `state`
+                // and `draft` on the next call.
+                const runNow = runKey
+                  ? RUNS.put(runKey, {
+                      seed: typeof a.seed === 'number' ? a.seed : null,
+                      status: 'suspended',
+                      state: stateWire,
+                      draft: a.draft,
+                      replay_draft: a.draft,
+                      decl: declarationsOf(a),
+                      answers: onRecord,
+                      run_id: runRec?.run_id ?? newRunId(runKey),
+                    })
+                  : null;
+                const continueNote =
+                  `\n\nCONTINUE: call lyric_revise with \`run_id\` and \`answer\`` +
+                  (askedNow && askedNow.kind === 'propose_batch'
+                    ? ' (`answers`: one {line, text} per asked line)'
+                    : '') +
+                  (runNow
+                    ? ` — the state and the draft are carried for you (run ${runNow.run_id}); \`state\` passed back verbatim also works.`
+                    : '.');
+                return {
+                  content: [
+                    {
+                      type: 'text',
+                      text: `${head}\n\n${(st.pending && st.pending.prompt) || r.stdout}${continueNote}`,
+                    },
+                    {
+                      type: 'text',
+                      text: JSON.stringify({
+                        exit_code: 4,
+                        status: 'awaiting_proposal',
+                        writer,
+                        ...verificationEvidenceOf(r),
+                        ...resumeEvidenceOf(r),
+                        kind: st.pending ? st.pending.kind : null,
+                        answers_on_record: onRecord,
+                        // M-235: the question this call left open, the question its
+                        // `answer` folded and what verify made of that answer.
+                        asked: askedNow,
+                        folded: foldedOf(a.state, st, budget.attempts),
+                        run_id: runNow ? runNow.run_id : null,
+                        run_revision: runNow?.revision ?? null,
+                        run_state_carried: carried.state,
+                        run_draft_carried: carried.draft,
+                        run_decl_carried: carried.decl,
+                        answer_sent: typeof a.answer === 'string' ? a.answer.slice(0, 300) : null,
+                        draft_fp: draftFp(a.draft),
+                        // THE SUSPENDED VERDICT IS THE COMMON ROW OF A REAL RUN — 32
+                        // of round 11's 33 rows — and it was built here by hand,
+                        // without the path and time `verdictOf` stamps (M-216), so
+                        // the one row that could have said warm or cold never did
+                        // (M-219's second finding, the third spelling of it).
+                        path: typeof r.path === 'string' ? r.path : null,
+                        ms: typeof r.ms === 'number' ? r.ms : null,
+                        ...extractRunRecord(r.stdout),
+                        state: stateWire,
+                        replay_draft: a.draft,
+                        final_draft: exactDraft,
+                      }),
+                    },
+                  ],
+                };
+              }
+              if (
+                r.code === 0 ||
+                r.code === 3 ||
+                r.lyric_result?.status === 'finished' ||
+                currentCheckpoint?.status === 'finished'
+              ) {
+                const verdict = verdictOf(r);
+                verdict.status = loopStatusOf(r.code, verdict);
+                verdict.writer = writer;
+
+                verdict.final_draft = exactDraft;
+                verdict.replay_draft = a.draft;
+                if (currentCheckpoint)
+                  if (writer === 'interview') verdict.state = encodeInterview(currentCheckpoint);
+                  else verdict.checkpoint = encodeState(currentCheckpoint);
+                if (verdict.certified === false && r.code === 2) verdict.status = 'uncertified';
+                // M-235: the last answer's verdict and the draft this stop was
+                // reached on ride with the stop row, so a cycle is readable from
+                // the rows alone.
+                verdict.draft_fp = exactDraft ? draftFp(exactDraft) : null;
+                verdict.replay_draft_fp = draftFp(a.draft);
+                // M-237: exit 3 PARKS the record (no state — no question pending);
+                // exit 0 forgets it.
+                verdict.run_state_carried = carried.state;
+                verdict.run_draft_carried = carried.draft;
+                verdict.run_decl_carried = carried.decl;
+                if (runKey && r.code !== 0 && exactDraft) {
+                  const parkedRec = RUNS.put(runKey, {
+                    seed: typeof a.seed === 'number' ? a.seed : null,
+                    status: 'parked',
+                    draft: exactDraft,
+                    replay_draft: a.draft,
+                    decl: declarationsOf(a),
+                    stop: verdict.loop_stop_reason ?? null,
+                    open: Array.isArray(verdict.loop_unresolved_lines)
+                      ? verdict.loop_unresolved_lines
+                      : [],
+                    whole: Array.isArray(verdict.loop_whole_flag_codes)
+                      ? verdict.loop_whole_flag_codes
+                      : [],
+                    standing: Array.isArray(verdict.standing) ? verdict.standing.slice(0, 24) : [],
+                    run_id: runRec?.run_id ?? newRunId(runKey),
+                  });
+                  verdict.run_id = parkedRec.run_id;
+                  verdict.run_revision = parkedRec.revision;
+                } else if (runKey && r.code === 0) {
+                  if (runRec) RUNS.del(runRec.run_id);
+                  verdict.run_id = runRec?.run_id ?? null;
+                  verdict.run_revision = runRec?.revision ?? null;
+                }
+                verdict.song_at_stop = exactDraft ? exactDraft.join('\n') : null;
+                try {
+                  const st = JSON.parse(await readFile(statePath, 'utf8'));
+                  verdict.answers_on_record =
+                    st.answered.propose.length + st.answered.propose_group.length;
+                  verdict.folded = foldedOf(a.state, st, budget.attempts);
+                  // A finished deferred run is a RECORDED run: hand the record
+                  // back so the song's provenance travels with the conversation.
+                  verdict.state = encodeInterview(st);
+                } catch (error) {
+                  if (error.code !== 'ENOENT') throw error;
+                  /* Kitchen has no deferred state file; its checkpoint carries the journal. */
+                }
+                const render =
+                  typeof r.lyric_result?.presentation_text === 'string'
+                    ? r.lyric_result.presentation_text
+                    : null;
+                if (render) {
+                  // M-232: the standing findings ride with the render, so a
+                  // parked song names what each open line still carries.
+                  const standingText =
+                    Array.isArray(verdict.standing) && verdict.standing.length
+                      ? '\n\nSTANDING AT THE STOP — what the open lines and the whole draft still carry:\n' +
+                        verdict.standing.map((x) => `  ${x}`).join('\n')
+                      : '';
+                  const parkNote =
+                    r.code === 3
+                      ? `\n\nCONTINUE: no question is pending. Rewrite the open line(s) and call lyric_revise with \`run_id\` and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`${verdict.run_id ? ` (run ${verdict.run_id}; \`new_run: true\` starts independently)` : ''}.`
+                      : '';
+                  return {
+                    content: [
+                      { type: 'text', text: render + standingText + parkNote },
+                      { type: 'text', text: JSON.stringify(verdict) },
+                    ],
+                  };
+                }
+                return verdict;
+              }
+              const other = verdictOf(r);
+              other.writer = writer;
+
+              if (currentCheckpoint) {
+                const resumable =
+                  r.code !== 2 ||
+                  currentCheckpoint.proposals?.length > 0 ||
+                  ['proposing', 'proposal_completed', 'accepted'].includes(
+                    currentCheckpoint.status
+                  );
+                other.status = uncertainProposal
+                  ? 'uncertain_proposal'
+                  : resumable
+                    ? 'interrupted'
+                    : 'refused';
+                if (uncertainProposal) other.uncertain_proposal = true;
+                if (writer === 'interview') other.state = encodeInterview(currentCheckpoint);
+                else other.checkpoint = encodeState(currentCheckpoint);
+                other.final_draft = exactDraft;
+                other.replay_draft = a.draft;
+                if (resumable) {
+                  const saved = RUNS.put(runKey, {
+                    seed: a.seed ?? null,
+                    status: other.status,
+                    checkpoint: other.checkpoint,
+                    state: other.state,
+                    draft: exactDraft,
+                    replay_draft: a.draft,
+                    decl: declarationsOf(a),
+                    run_id: runRec?.run_id ?? newRunId(),
+                  });
+                  other.run_id = saved.run_id;
+                  other.run_revision = saved.revision;
+                  other.meaning += uncertainProposal
+                    ? ' The provider request may have completed but no answer was recorded. Automatic continuation is stopped. final_draft preserves accepted edits; replay_draft and checkpoint preserve the evidence. Existing new_run can start independent work from final_draft, with a possible additional provider charge.'
+                    : ` Resume explicitly with run_id or ${writer === 'interview' ? 'state' : 'checkpoint'} under the same declarations; completed proposals are in that journal.`;
+                }
+              }
+              return other;
+            })
+          );
+    }
   );
 
   tool(
@@ -2288,9 +2784,8 @@ export function registerLyricTools(server, tool) {
         'turning a request down (an unbuildable roster, an unattainable length) and is NOT a predicate rejecting a ' +
         'shape, so `planned 0` means the DECLARATION is unbuildable and the predicates never ran. The window is ' +
         `bounded at ${MAX_SWEEP_SEEDS} seeds per call and sweeps compose exactly — continue from next_seed_from ` +
-        'and add the counts. ~14s at the full window (the window is derived against a 60s client clock from a ' +
-        'MEASURED ~510ms per seed: a sweep PLANS every seed, and a plan now draws a median 201 lines). A selective ' +
-        'want accepts a few percent of seeds at best, so expect to page: call again from next_seed_from.',
+        'and add the counts. Selective wants may require more windows: call again from next_seed_from. ' +
+        EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_sweep,
     },
     async (a) => {
@@ -2355,8 +2850,8 @@ export function registerLyricTools(server, tool) {
         'exits 0 for ACCEPTED and REJECTED alike, because the verdict is an answer and not an error. IT IS A DIFF, ' +
         'NOT A GRADE — it reports what this change fixed and introduced, and says nothing about defects that ' +
         'survived it untouched, so it does not and cannot report banned pairs. For "is the song finished", use ' +
-        'lyric_grade or lyric_check. ~~~25s~~ — it scores the same pairs lyric_grade does, so it carries the same ' +
-        'length curve and the same wall: MEASURED 2026-09-04 on the fixture drafts the planner draws, and it is a CURVE with a WALL, not a flat number: 53 lines grade in 56 s, 108 lines in 330 s, and at 144 lines the default rhyme door REFUSES (exit 2) because it considers every candidate pair over the whole draft, so its cost grows with the SQUARE of the line count and it stops at a declared pair guard. The exact wall depends on the TEXT, not only its length. Declare a class:/type: relation per group to stay off that door, or grade a shorter draft. A client with a 60 s default timeout must raise it. ',
+        'lyric_grade or lyric_check. ' +
+        EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_verify,
     },
     (a) =>
@@ -2367,9 +2862,9 @@ export function registerLyricTools(server, tool) {
         checkLines(a.after);
         const hasScheme = a.scheme != null && a.scheme !== '';
         const hasGroups = a.groups != null && a.groups !== '';
-        if (hasScheme === hasGroups)
+        if ((hasScheme && hasGroups) || (!hasScheme && !hasGroups && !a.returns))
           throw refuse(
-            "declare exactly one of 'scheme' or 'groups' — a verify with no mandate has nothing to judge the change against"
+            "declare one of 'scheme' or 'groups', or a returns-only mandate — a verify with no mandate has nothing to judge the change against"
           );
         if (hasScheme && !SCHEME_RE.test(a.scheme))
           throw refuse("scheme must be letters only, e.g. 'ABAB'");
@@ -2407,7 +2902,11 @@ export function registerLyricTools(server, tool) {
           await writeFile(blueprintPath, a.blueprint, 'utf8');
           args.push(`--blueprint=${blueprintPath}`, `--subdivision=${a.subdivision}`);
         }
-        if (a.targeted && a.targeted.length) args.push(...a.targeted.map(String));
+        if (a.targeted !== undefined) {
+          if (!a.targeted.length || a.targeted.some((n) => n > a.before.length))
+            throw refuse('targeted must name existing lines and cannot be empty');
+          args.push(a.targeted.join(','));
+        }
         const r = await runVerb(args);
         return verifyVerdictOf(r);
       })
@@ -2439,7 +2938,7 @@ export function registerLyricTools(server, tool) {
     },
     (a) =>
       withTempDir(async (dir) => {
-        takeLines(a, 'lines', 'lines_text');
+        takeLines(a, 'lines', 'lines_text', { preserveStructure: true });
         checkLines(a.lines);
         if (a.placements != null && !/^[A-Za-z0-9]+(,[A-Za-z0-9]+)*$/.test(a.placements))
           throw refuse("placements must be names like 'end,head,T4', comma-separated");
@@ -2475,10 +2974,7 @@ export function registerLyricTools(server, tool) {
         'numbers; banned_pairs counts declared pairs on the two-tier ban (HOMEOTELEUTON / MODAL_RHYME), unskippable at ' +
         "any exit code; other NOTES are measurements. THE EXIT CODE IS brief's, whose gates are song's alone: `flags` " +
         'and `whole_flags` in the verdict say what STANDS at exit 0, and `unreadable` names the pairs that were NOT judged. ' +
-        'MEASURED 2026-09-01: ~20 s for a four-line draft cold, and it grows with the line count (a 16-line song grades in ' +
-        '~90-170 s) — not the ~10 s this text used to promise. A client with a 60 s default timeout must raise it. ' +
-        "AND THE CURVE HAS A WALL, added 2026-09-05 (`MISSING.md` M-240) when the planner's envelope reached 447 " +
-        'lines: MEASURED 2026-09-04 on the fixture drafts the planner draws, and it is a CURVE with a WALL, not a flat number: 53 lines grade in 56 s, 108 lines in 330 s, and at 144 lines the default rhyme door REFUSES (exit 2) because it considers every candidate pair over the whole draft, so its cost grows with the SQUARE of the line count and it stops at a declared pair guard. The exact wall depends on the TEXT, not only its length. Declare a class:/type: relation per group to stay off that door, or grade a shorter draft. A client with a 60 s default timeout must raise it. ',
+        EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_check,
     },
     (a) =>
@@ -2487,9 +2983,9 @@ export function registerLyricTools(server, tool) {
         checkLines(a.lines);
         const hasScheme = a.scheme != null && a.scheme !== '';
         const hasGroups = a.groups != null && a.groups !== '';
-        if (hasScheme === hasGroups)
+        if ((hasScheme && hasGroups) || (!hasScheme && !hasGroups && !a.returns))
           throw refuse(
-            "declare exactly one of 'scheme' or 'groups' — the mandate is a choice, not a default"
+            "declare one of 'scheme' or 'groups', or a returns-only mandate — the mandate is a choice, not a default"
           );
         if (hasScheme && !SCHEME_RE.test(a.scheme))
           throw refuse("scheme must be letters only, e.g. 'ABAB'");
@@ -2559,7 +3055,8 @@ export function registerLyricTools(server, tool) {
       description:
         'The full rhyme-type coordinate for one word pair: per-syllable agreement, anchor, identity, stress, boundary, ' +
         'traditional names where the coordinate has one. Taxonomy, not judgement — for the usable-or-banned verdict use ' +
-        'lyric_screen. MEASURED 2026-09-01: ~1 s.',
+        'lyric_screen. ' +
+        EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_types,
     },
     async (a) => {
@@ -2575,7 +3072,7 @@ export function registerLyricTools(server, tool) {
 //: the live instructions), so the two surfaces stay one description.
 export const LYRIC_INSTRUCTIONS =
   ' BESIDE THE RECIPES, AND NEVER TOUCHING THEM, the lyric_* family is a songwriting ' +
-  'harness (plan and grade; it writes no words — the writer is you or the user). The working order that ' +
+  'system. The program plans and grades; lyrics come from the client or the declared kitchen writer. Its 77-schema registry includes 73 implemented shapes and 4 explicit unsupported-shape refusals; automatic planning draws from 18 pair-representable schemas with witness/contrast coverage. Full figures and refused obligations remain explicit. The default rhyme test remains the union of the four coarse classes and supported named figures. The working order that ' +
   'produces one-draft songs: (0) lyric_sweep to CHOOSE the seed rather than guess it — declare what you ' +
   'want the shape to be and it returns the seeds that hold, in seed order, unranked; ' +
   '(1) lyric_screen candidate end-word pairs BEFORE writing — a banned pair ' +
@@ -2615,5 +3112,9 @@ export const LYRIC_INSTRUCTIONS =
   'unskippable whatever their severity; other NOTES are measurements and are not to be "fixed". A verdict ' +
   'carrying structures_uncalibrated is the third thing to read: correctness IS graded for that declared ' +
   'structure and laziness is NOT, the two-tier ban is skipped on its pairs, and an absent banned_pairs ' +
-  'there means the question was not asked rather than answered clean. Recipes ' +
+  'there means the question was not asked rather than answered clean. For unresolved pronunciation, read ' +
+  'pronunciation_options from grade/check, select the intended dictionary reading or supply ARPABET with ' +
+  'an honest source in pronunciations, then regrade. Choices bind exact line text and token position, ' +
+  'including every verbatim chorus return. Never choose phones just to pass a check. Changed wording ' +
+  'requires a fresh declaration; changing readings during revision requires regrading and a new run. Recipes ' +
   'describe the SOUND, lyric tools govern the WORDS; the conversation is the only place they meet.';
