@@ -538,6 +538,10 @@ jobs:
       - name: Audit data quality
         run: npm run audit
 
+      # npm test -> test:connector:live -> test:lyrics:runtime ->
+      # test:production:offline also executes quality/test_session_repairs.py
+      # and quality/test_pronunciation_choices.py. Named here for the test
+      # inventory census; both remain real executions in that npm gate.
       - name: Regression (recipes, prefaces, slots, app)
         run: npm run test
 
