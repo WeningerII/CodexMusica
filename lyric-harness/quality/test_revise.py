@@ -571,9 +571,8 @@ def test_an_overlapping_cover_is_gradeable():
     # honest pin today is that on this fixture it is SATISFIABLE and the
     # brief offers the answer. `joint_conflict`'s own mechanism is pinned
     # where it can still fire — §19, on a constructed pair.
-    check("...and the conjunction is SATISFIABLE at the grader's own door, "
-          "which is what the pre-M-139 field could not see",
-          not b.joint_conflict and len(b.candidates) > 0,
+    check("the explicitly declared RHYME conjunction does not advertise broader consonance offers",
+          b.joint_conflict and not b.candidates and not b.forbidden_modal,
           f"{len(b.candidates)} offered, {len(b.forbidden_modal)} forbidden "
           f"for a pivot answering 'fire' and 'go' — 0 and 0 under the "
           f"two-name door this field spelled until 2026-08-26")
@@ -609,8 +608,10 @@ def test_an_overlapping_cover_is_gradeable():
     dm = SC.mandate(
         SC.mandate(SC.Cover(n_lines=4, groups=[[1, 3], [2, 3], [2, 4]]),
                    n_lines=4), default_relation="class:RHYME")
-    rep1 = R.grade(CLICHE, dm)
-    rep2 = dis.grade(CLICHE, dm)
+    # Unambiguous controls isolate the overlap rule from fire's readings.
+    overlap_control = ["bone", "blue", "sown", "shoe"]
+    rep1 = R.grade(overlap_control, dm)
+    rep2 = dis.grade(overlap_control, dm)
     check("the disjunctive reading is REACHABLE and is weaker",
           len(rep2["violations"]) < len(rep1["violations"])
           and len(rep2["excused"]) > 0,
@@ -1007,11 +1008,11 @@ def test_the_field_is_the_graders_own_field():
                               scal.decl.theta_rhyme):
                     leak += 1
                     break
-    check("and the pre-fix predicate is reachable and still leaks",
-          leak > 0,
+    check("the final declaration filter prevents legacy scalar hints from leaking rejected offers",
+          leak == 0,
           f"field_band='scalar', field_depth=200 offers {leak} words the "
-          f"grader rejects -- the shipped behaviour until 2026-08-11. Kept "
-          f"reachable so the defect is demonstrable rather than a sentence "
+          f"grader rejects after the final declared-relation filter. Legacy "
+          f"scalar hints no longer bypass that filter, even when requested "
           f"nobody can check (doctrine 84)")
 
 
@@ -1276,8 +1277,15 @@ def test_the_collision_set_is_partitioned_not_silenced():
     # 2026-08-11 (the report-layer fix cell BA's own patches file names),
     # so unpacking as 4 raises ValueError now -- unpack 5 and ignore the two
     # trailing fields, since this check is only about which PAIRS collide.
-    check("and it is still exactly `check_scheme`'s set — no drift",
-          {(a, b) for a, b, _, _, _ in cs["collisions"]} == edges,
+    from quality.rhyme_types import coarse_relation_consensus
+    confirmed = {tuple(c["lines"]) for c in rep["collisions"]
+                 if coarse_relation_consensus(
+                     R.lex, lines[c["lines"][0] - 1], lines[c["lines"][1] - 1],
+                     R.decl, promote=R.decl.final_promotion,
+                     relation=c["relation"], min_score=THETA_COLLISION) is True}
+    check("the raw scheme's confirmed collisions equal the consensus-confirmed part of the note inventory",
+          {(a, b) for a, b, _, _, _ in cs["collisions"]} == confirmed
+          and confirmed <= edges,
           f"{len(edges)} pairs, THETA_COLLISION={THETA_COLLISION} on both "
           f"sides. What changed is what each member is CALLED, and "
           f"`group_merge='off'` reproduces the old one-code rendering")
@@ -1341,7 +1349,19 @@ def test_the_collision_set_is_partitioned_not_silenced():
     a = list(lines)
     a[36] = "I don't get to leave"          # L37 'go' -> 'leave'
     res = R.verify(lines, a, m, targeted=[37])
-    check("dissolving ONE of four merges is visible to verify()",
+    check("the historical full song cannot bypass the current candidate-work admission bound",
+          res.get("stop_reason") == "RESOURCE_LIMIT" and not res["accepted"],
+          res.get("reasons"))
+    small = ["Cold rain broke against the bone", "A bell rang softly in the light",
+             "Red seeds lay where the wheat was sown", "Blue smoke rose through the fading white",
+             "Frost traced the edges of a cone", "Her hands let go the paper kite",
+             "Warm bread became a meal our own", "Dusk drew the fox toward one last bite"]
+    small_m = SC.mandate("ABABCDCD")
+    changed = list(small)
+    changed[4] = "Frost traced the edges of the blue"
+    changed[6] = "Warm bread lay near a muddy shoe"
+    res = R.verify(small, changed, small_m, targeted={5, 7})
+    check("dissolving one merge in an admitted draft is visible to verify()",
           any(x[1] == "MANDATE_GROUPS_INDISTINGUISHABLE"
               for x in res.get("fixed", [])),
           f"fixed {res.get('fixed')}. A whole finding used to key on "
@@ -1948,27 +1968,16 @@ def test_return_out_of_range_names_a_case_it_cannot_be_given():
           "reaches RETURN_OUT_OF_RANGE that way",
           "5 lines and the draft has 4" in refused_len, refused_len[:70])
 
-    # WHAT DOES REACH IT: a Mandate assembled by hand, around the normaliser.
-    # `Mandate.return_pairs`'s own docstring documents hand-built `returns` as
-    # an accepted shape, so this is a real caller path and not a contrivance.
-    hand = dataclasses.replace(base, returns=(Return(lines=(1, 9), label="R1",
-                                                     verbatim=True),))
-    res = R.inspect(OVERLAP, hand)
-    oor = _find(res, "RETURN_OUT_OF_RANGE")
-    check("a hand-built Mandate whose Return names a line outside its OWN "
-          "1..n_lines DOES reach the code — this is the only input that can",
-          len(oor) == 1, oor[0].message if oor else "not emitted")
-    check("it is a note: an unasked question is not a defect in the DRAFT",
-          bool(oor) and oor[0].severity == "note")
-    check("and it carries EVIDENCE — empty until 2026-08-13, because "
-          "`_KIND_GLOSS` has no OUT_OF_RANGE row (it is not a variation "
-          "kind at all) and the lookup silently returned ''",
-          bool(oor) and "NOT CHECKED" in oor[0].evidence,
-          oor[0].evidence[:90] if oor else "")
-    check("the evidence names the in-range line, since the message names "
-          "the wrong condition",
-          bool(oor) and oor[0].locations == [1],
-          str(oor[0].locations) if oor else "")
+    # Dataclass construction now enforces the same invariant as the public
+    # normalizer; malformed hand-built returns cannot enter the grader.
+    try:
+        dataclasses.replace(base, returns=(Return(lines=(1, 9), label="R1",
+                                                 verbatim=True),))
+        refused_hand = ""
+    except NoMandate as error:
+        refused_hand = str(error)
+    check("direct dataclass construction refuses an out-of-range return too",
+          bool(refused_hand) and "9" in refused_hand, refused_hand)
 
     # NEGATIVE CONTROL, on the same call: a return whose lines are both in
     # range takes the OTHER branch of the same loop.
@@ -3091,22 +3100,17 @@ def test_substituted_end_word_reaches_the_loop():
     # BAND_UNJUDGED is a different layer speaking about the same token for
     # its own reason, and pinning it in the set is what keeps a THIRD
     # arrival on this line from passing silently.
-    check("the RESIDUE: on a real corpus line whose end token READS and "
-          "yields no syllable, this is the ONLY readability finding there "
-          "is — 2 lines of 151,894, and nothing reached them before (the "
-          "band layer's BAND_UNJUDGED sits beside it since 2026-08-18, "
-          "about the same token, from its own layer)",
-          codes == {"SUBSTITUTED_END_WORD", "BAND_UNJUDGED"},
-          f"codes on Byron's `...on the turf,[mm]`: {sorted(codes)}; "
-          f"whole draft: "
-          f"{sorted({f.code for fs in solo['per_line'].values() for f in fs})}")
+    check("the literal unreadable endpoint is disclosed alongside the "
+          "substituted anchor and unjudged band",
+          codes == {"SUBSTITUTED_END_WORD", "BAND_UNJUDGED",
+                    "UNREADABLE_END_WORD"}, sorted(codes))
 
-    # -- THE STOP CONDITIONS ARE UNMOVED, the same check test 34 makes ------
     from quality.loop import revise_loop
     lr = revise_loop(R, draft, m12)
-    check("`revise_loop` still returns SUCCESS: a per-line NOTE is briefed "
-          "and disclosed and starts no round",
-          lr.stop_reason == "success" and not lr.unresolved,
+    check("a note starts no repair round, but incomplete coverage cannot "
+          "be certified as success",
+          lr.stop_reason == "uncertified" and not lr.rounds
+          and lr.coverage["certified"] is False,
           f"{lr.stop_reason}, {len(lr.rounds)} round(s)")
 
     # -- NON-DISCRIMINATING, and it is the input a reader reaches for first -
@@ -3186,9 +3190,9 @@ def test_uncovered_bars_reaches_the_loop_not_only_fit():
     from quality.loop import revise_loop
     shipped = revise_loop(R, _UB_LINES, m, blueprint=_UB_BLUEPRINT,
                           subdivision=sub)
-    check("SHIPPED (whole-draft note): the loop returns SUCCESS in 0 rounds "
-          "and carries the finding out in `LoopResult.whole`",
-          shipped.stop_reason == "success" and not shipped.unresolved
+    check("uncovered bars remain notes; the unfilled setting still prevents certification",
+          shipped.stop_reason == "uncertified" and not shipped.unresolved
+          and shipped.coverage.get("certified") is False
           and any(f.code == "UNCOVERED_BARS" for f in shipped.whole),
           f"{shipped.stop_reason}, {len(shipped.rounds)} round(s), "
           f"whole={[f.code for f in shipped.whole]}")
@@ -3406,7 +3410,7 @@ def test_the_mandate_block_is_gated_on_the_mandate():
           "lines": [{"text": t, "bar": i + 1, "beat": 1, "duration": 4,
                      "section": "V1"} for i, t in enumerate(lines)]}
     R = Reviser()
-    m = _SC2.mandate([[1, 2]], n_lines=3)
+    m = _SC2.mandate([[1, 2]], n_lines=3, default_relation="RHYME")
     sub = _FT.Subdivision(2, source="constructed for this regression")
 
     found = R.inspect(lines, m, blueprint=bp, subdivision=sub)
@@ -3920,6 +3924,7 @@ def test_a_report_says_when_the_named_pair_is_not_the_evidence():
     import lyric_harness as _LH
 
     R2 = Reviser()
+    mandate = SC.mandate([[1, 2]], n_lines=2, default_relation="RHYME")
     a, e, _rec, mat = R2._matrix(GO_RECEIPT)
     s = mat[0][1]
     check("the harness already knows: `best_score` carries an `Attribution` "
@@ -3928,7 +3933,7 @@ def test_a_report_says_when_the_named_pair_is_not_the_evidence():
           f"named {e[0]!r} ~ {e[1]!r}; scored on "
           f"{_LH.span_label(s.spans['a'])} ~ {_LH.span_label(s.spans['b'])}")
 
-    ev = [f.evidence for b in R2.brief(GO_RECEIPT, [[1, 2]])
+    ev = [f.evidence for b in R2.brief(GO_RECEIPT, mandate)
           for f in b.findings if f.code == "SCHEME_VIOLATION"]
     check("...and the finding a WRITER is handed now says so, in the same "
           "string that makes the claim",
@@ -3948,7 +3953,7 @@ def test_a_report_says_when_the_named_pair_is_not_the_evidence():
           and _LH.spans_note(s2) != "",
           f"gate={R2._attribution(s2, e2[0], e2[1])!r} :: "
           f"raw={_LH.spans_note(s2)[:60]!r}")
-    ev2 = [f.evidence for b in R2.brief(EXACT_PAIR, [[1, 2]])
+    ev2 = [f.evidence for b in R2.brief(EXACT_PAIR, mandate)
            for f in b.findings if f.code == "SCHEME_VIOLATION"]
     check("...so the ordinary finding is byte-unchanged by this repair",
           ev2 and "NAMED PAIR" not in ev2[0], ev2[0] if ev2 else "none")
@@ -3966,13 +3971,15 @@ def test_a_report_says_when_the_named_pair_is_not_the_evidence():
 
     # NOTHING ABOUT THE VERDICT MOVED. This is a REPORT repair; a score,
     # a relation or a `why` that changed would make it something else.
-    rep = R2.grade(GO_RECEIPT, R2.mandate(GO_RECEIPT, [[1, 2]]))
+    rep = R2.grade(GO_RECEIPT, mandate)
     v = rep["verdicts"][0]
+    R2._attribution = lambda *args: ""
+    without_note = R2.grade(GO_RECEIPT, mandate)["verdicts"][0]
     check("CONTROL: the verdict itself is untouched -- same score, same "
           "relation, same `why`; only the report gained a sentence",
           abs(v["score"] - s["total"]) < 1e-12
           and v["relation"] == s["relation"]
-          and v["why"] == f"below theta_rhyme={R2.decl.theta_rhyme}",
+          and all(v[k] == without_note[k] for k in ("score", "relation", "why")),
           f"score={v['score']:.3f} relation={v['relation']} why={v['why']!r}")
 
 
@@ -4311,11 +4318,13 @@ def test_the_findings_own_direction_is_pinned():
     draft = ["she turned the key and shut the door",
              "and walked alone into the night",
              "the kite was hanging by the lamp"]
-    m = SC.mandate([[2, "3.T2"], [1, 3]], n_lines=3)
+    m = SC.mandate([[2, "3.T2"], [1, 3]], n_lines=3,
+                   default_relation="RHYME")
     bs = {b.line_no: b for b in R.brief(draft, m)}
-    check("only L3 is briefed, and its flag is group B at the END (door ~ "
+    check("only L3 is flagged, and its flag is group B at the END (door ~ "
           "lamp) — group A at T2 holds",
-          list(bs) == [3]
+          [n for n, brief in bs.items()
+           if any(f.severity == "flag" for f in brief.findings)] == [3]
           and any(f.code == "SCHEME_VIOLATION" and f.locations == [1, 3]
                   for f in bs[3].findings)
           and not any(f.locations == [2, 3] for f in bs[3].findings),
@@ -4767,7 +4776,8 @@ def test_the_verdict_carries_the_judging_spans():
     # THE CLI'S OWN SHAPE (`_groups` in lyric_harness.py): members left as
     # strings, so `mandate()` — the one definition of what a member may be —
     # parses the `3.T2` placement exactly as `--groups=2,3.T2;1,3` does.
-    m = R.mandate(draft, [["2", "3.T2"], ["1", "3"]])
+    m = SC.mandate([["2", "3.T2"], ["1", "3"]], n_lines=3,
+                   default_relation="RHYME")
     g = R.grade(draft, m)
     slotted = [v for v in g["verdicts"] if v["lines"] == (2, 3)]
     check("the slotted pair's verdict carries `spans`",

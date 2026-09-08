@@ -1467,12 +1467,20 @@ def test_no_broad_exception_handler_hides_a_call():
     import ast
     src = open(os.path.join(ROOT, "lyric_harness.py")).read()
     broad = []
+    rollback = []
     for node in ast.walk(ast.parse(src)):
         if isinstance(node, ast.ExceptHandler):
             if node.type is None or (isinstance(node.type, ast.Name)
                                      and node.type.id in ("Exception",
                                                           "BaseException")):
-                broad.append(node.lineno)
+                # Straight-line rollback followed by a bare re-raise cannot
+                # swallow the failure. Returning or branching is not exempt.
+                propagates = (isinstance(node.body[-1], ast.Raise)
+                              and node.body[-1].exc is None
+                              and node.body[-1].cause is None
+                              and all(isinstance(s, (ast.Expr, ast.Assign))
+                                      for s in node.body[:-1]))
+                (rollback if propagates else broad).append(node.lineno)
     bare = [n.lineno for n in ast.walk(ast.parse(src))
             if isinstance(n, ast.ExceptHandler) and n.type is None]
     check("no BARE `except:` anywhere in the spine",
@@ -1484,9 +1492,10 @@ def test_no_broad_exception_handler_hides_a_call():
     # --returns=), `song`, `verify` and `revise` on 2026-08-13 and fired on
     # none of them, so there is no proof it hides anything — it is pinned
     # here rather than removed on suspicion.
-    check("broad `except Exception` handlers in lyric_harness.py: exactly "
-          "the one declared span-lookup fallback",
+    check("broad handlers that can suppress failures: exactly the declared span-lookup fallback",
           len(broad) == 1, f"at lines {broad}")
+    check("both journal rollback handlers re-raise every failure after restoring state",
+          len(rollback) == 2, f"at lines {rollback}")
 
 
 def _md5(s):

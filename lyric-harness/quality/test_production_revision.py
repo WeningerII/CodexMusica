@@ -358,6 +358,44 @@ class ProductionRevisionTests(unittest.TestCase):
                 self.assertFalse(m.returns_check(result.lines))
                 self.assertFalse(r.grade(result.lines, m)['violations'])
 
+    def test_atomic_group_attempts_keep_feedback_and_count_declines(self):
+        lines = ["old", "old", "other"]
+        m = mandate([[1, 3], [1, 2]], n_lines=3, returns=[[1, 2]])
+        b = SimpleNamespace(line_no=1, text="old", findings=(), round_no=2,
+                            must_answer=[("A", [1, 3], [(3, "other")]),
+                                         ("B", [1, 2], [(2, "old")])])
+        class Search:
+            def verify(self, *args, **kwargs):
+                return {"accepted": False, "reasons": ["nothing was fixed"]}
+        class Writer:
+            def __init__(self): self.seen, self.records = [], []
+            def __call__(self, g):
+                self.seen.append(g)
+                if len(self.seen) == 1: return ["wrong length"]
+                if len(self.seen) == 2: return [lines[n - 1] for n in g.members]
+                return None
+            def prior(self, members, round_no): return (tuple(members), round_no)
+            def record(self, *args): self.records.append(args)
+        writer = Writer()
+        result, after = _try_tier2(Search(), b, lines, m,
+                                  ReviseDeclaration(backtrack_width=2),
+                                  None, None, None, None, writer)
+        self.assertEqual([g.attempt for g in writer.seen], [0, 1, 2, 3])
+        self.assertTrue(all({1, 2} <= set(g.members) for g in writer.seen))
+        self.assertIn("proposer returned 1", writer.seen[1].reasons[0])
+        self.assertEqual(writer.seen[2].reasons, ("nothing was fixed",))
+        self.assertTrue(all(g.prior == (tuple(g.members), 2) for g in writer.seen))
+        self.assertEqual(len(writer.records), 1)
+        self.assertEqual(result.tried, 2)
+        self.assertNotIn("NOT ASKED", result.reason)
+        self.assertFalse(result.accepted)
+        self.assertEqual(after, lines)
+        declined, _ = _try_tier2(Search(), b, lines, m,
+                                 ReviseDeclaration(backtrack_width=1),
+                                 None, None, None, None, lambda g: None)
+        self.assertNotIn("NOT ASKED", declined.reason)
+        self.assertEqual(declined.tried, 0)
+
     def test_declared_returns_cannot_require_variation_of_fixed_openings(self):
         for n in [2, 12]:
             lines = [CLEAN[0]] * n

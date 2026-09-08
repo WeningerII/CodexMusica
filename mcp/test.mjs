@@ -3971,9 +3971,8 @@ await check('validation: actionable errors', () => {
       {
         const { LIMITS: L } = await import('./gemini_agent.js');
         const toolMs = Number(
-          /key: CHAT_TOOL_TIMEOUT_MS\s+value: '(\d+)'/.exec(
-            readFileSync(new URL('../render.yaml', import.meta.url), 'utf8')
-          )[1]
+          JSON.parse(readFileSync(new URL('./production-config.json', import.meta.url), 'utf8'))
+            .environment.CHAT_TOOL_TIMEOUT_MS
         );
         assert.ok(
           L.maxTurnMs + toolMs < 6_000_000,
@@ -3982,8 +3981,8 @@ await check('validation: actionable errors', () => {
         assert.ok(L.maxTurnMs >= 4 * toolMs, 'and the wall still holds several full kitchen runs');
       }
       assert.ok(
-        /render\.yaml/.test(code),
-        'the per-call factor comes from render.yaml — the deploy pin, not a repo default (M-165)'
+        /production-config\.json/.test(code),
+        'the per-call factor comes from the production configuration consumed by deployment'
       );
     }
   );
@@ -4341,6 +4340,9 @@ await check('validation: actionable errors', () => {
       'mcp/test_runtime_assets.mjs': 'offline immutable runtime asset inventory regressions',
       'mcp/test_lyric_workflow.mjs':
         'offline lyrics creation order and task authorization regressions',
+      'mcp/test_pronunciation_choices.mjs': 'offline occurrence pronunciation contract regressions',
+      'mcp/test_session_repairs.mjs': 'offline session workflow and Rich rendering regressions',
+      'mcp/qualify_session_workflow.mjs': 'operator-run session qualification and evidence writer',
       'mcp/IMAGE_RELEASE.md': 'immutable image promotion operator documentation',
       'mcp/LYRICS_RUNTIME.md': 'operator documentation',
       'mcp/BATTERY_RECOVERY.md': 'battery recovery operator documentation',

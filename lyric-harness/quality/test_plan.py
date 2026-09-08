@@ -268,6 +268,23 @@ def _round_trip_one(seed):
     judged_total = refused_total = 0
     plan = make_plan(seed=seed)
     draft = dummy_draft(plan, unambiguous=True)
+    # A free-run schema reads interior tokens too. Fix the fixture's
+    # performance readings there as well as choosing unambiguous end words;
+    # otherwise carry/the/to introduce lexical uncertainty into a shape test.
+    import copy
+    from quality.pronunciation import validate_choices
+    from quality.revise import Reviser
+    lex = copy.copy(R.lex)
+    choices = []
+    for line in dict.fromkeys(draft):
+        for token, word in enumerate(line.split(), 1):
+            readings = lex.entries.get(word.lower(), ())
+            if len(readings) > 1:
+                choices.append(dict(line=line, token=token, word=word,
+                                    phones=readings[0], basis="dictionary",
+                                    source="Plan round-trip fixture: fixed performance reading"))
+    lex.pronunciations = validate_choices(choices, lex)
+    R = Reviser(lex=lex)
     try:
         bp = fill_plan(plan, draft)
         # M-212: the hook is a SLOT and the blueprint carries it beside the
@@ -893,6 +910,17 @@ def test_the_measure():
     # one of those doors.
     tree = ast.parse(open(os.path.join(HERE, "plan.py"),
                           encoding="utf-8").read())
+    # These public post-draw helpers consume a supplied draft/blueprint.
+    # They are not sampler dependencies. Prove that no other function in
+    # this module references them before excluding their reader bodies.
+    post_draw = {"draft_execution_bound", "render_blueprint_song"}
+    sampler_tree = ast.Module(body=[n for n in tree.body
+                                   if not isinstance(n, ast.FunctionDef)
+                                   or n.name not in post_draw], type_ignores=[])
+    references = {n.id for n in ast.walk(sampler_tree) if isinstance(n, ast.Name)}
+    check("draft admission and blueprint rendering cannot feed the sampler",
+          not post_draw & references, str(sorted(post_draw & references)))
+    tree = sampler_tree
     subs = set()
     for n in ast.walk(tree):
         if isinstance(n, ast.Import):
@@ -2880,7 +2908,7 @@ def test_the_relation_draw():
           ("coda_presence", "anchor", "Differ")
           in traits["subtractive rhyme"]["claims"]
           and ("coda_presence", "anchor", "Agree")
-          in traits["monorhyme / leash"]["claims"]
+          in traits["perfect rhyme"]["claims"]
           and len(RL.CHANNEL_DOMAINS["coda_presence"]) == 2,
           f"subtractive {traits['subtractive rhyme']['claims']}")
     check("M-125: span LENGTH is a hidden equality channel and the "
@@ -3021,11 +3049,12 @@ def test_the_relation_draw():
     unbindable = tuple(n for n in RL.DRAWABLE_SCHEMAS
                        if not RL.pair_bindable(RL.REGISTRY[n]))
     check("the pair-unbindable subset of the drawable pool is DERIVED "
-          "from the registry's own span rules and is exactly the four "
-          "shapes the pair judge refuses by name — free_run's three "
-          "searchers and monai's head index",
-          unbindable == ("chain rhyme (rap)", "compound / phrasal rhyme",
-                         "monai", "multisyllabic rhyme"),
+          "from the registry's own span rules: the two drawable free-run "
+          "searchers remain; chain rhyme and monai are figure-level relations",
+          unbindable == ("compound / phrasal rhyme", "multisyllabic rhyme")
+          and all(n in RL.REGISTRY and n not in RL.DRAWABLE_SCHEMAS
+                  and not RL.pair_bindable(RL.REGISTRY[n])
+                  for n in ("chain rhyme (rap)", "monai")),
           f"{unbindable}")
     leaked = []
     for _seed in (1, 2, 7, 23, 37, 56):
@@ -3046,7 +3075,7 @@ def test_the_relation_draw():
           "the filter), zero conjunctions",
           not leaked, leaked[:4])
     check("...and the unbindable schemas STAY drawable at default slots — "
-          "the filter narrows the slotted pool, it does not delete four "
+          "the filter narrows the slotted pool, it does not delete "
           "names from the certified adoption",
           set(unbindable) <= set(RL.DRAWABLE_SCHEMAS))
 

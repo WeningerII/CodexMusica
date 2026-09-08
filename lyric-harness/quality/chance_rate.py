@@ -343,10 +343,15 @@ CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 #: their SUM over one draw, so it sits above 2x while none of its members
 #: does, exactly as three rates under a ceiling can add past it. The
 #: per-relation figures are `quality/near_relation_pricing.py`'s.
+# 2026-09-08 production relation audit: full figure quantifiers and unresolved
+# pronunciation readings no longer count as a successful pair by default.
+# Exact same seed/4,000-pair grid in CI run 34266064026 measured schema
+# 889..914 (previously 957..987); the admit and narrow arms held exactly.
+# This records the instrument's new result, not a relaxed acceptance band.
 ADOPTED = {
     "admit": (173, 193),
     "narrow": (36, 46),
-    "schema": (957, 987),
+    "schema": (889, 914),
 }
 
 

@@ -449,11 +449,13 @@ record(
 {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'scripts/_seed_workspace.js');
+  const source = fs.readFileSync(f, 'utf8');
+  const anchor = 'const rendered = header + body;';
+  if (source.split(anchor).length !== 2)
+    throw new Error('app-connector-parity-drift mutation anchor is stale or ambiguous');
   fs.writeFileSync(
     f,
-    fs
-      .readFileSync(f, 'utf8')
-      .replace('return header + body;', "return header + body + ' __PARITY_FAULT__';")
+    source.replace(anchor, "const rendered = '__PARITY_FAULT__' + header + body;")
   );
   record(
     'app-connector-parity-drift -> check_app_parity.js',

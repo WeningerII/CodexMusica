@@ -1372,15 +1372,23 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         if any(mandate.return_of(member) is not None and
                mandate.return_of(member).verbatim is True for member in members):
             expanded = tuple(sorted(closure))
-            for attempt in range(rdecl.backtrack_width):
+            for _ in range(rdecl.backtrack_width):
                 gb = GroupBrief(b.line_no, b.text, "", (), (), label, expanded,
                                 b, tuple(lines), attempt, whole=tuple(b.findings) + tuple(whole),
-                                whole_repair=True, mandate_description=mandate.describe())
+                                whole_repair=True, mandate_description=mandate.describe(),
+                                reasons=reasons,
+                                prior=(_prior_g(expanded, _round)
+                                       if _prior_g is not None else None))
                 got = propose_group(gb)
+                attempt += 1
                 if got is None:
                     continue
                 tried += 1
+                got = tuple(got)
                 if len(got) != len(expanded):
+                    reasons = (f"proposer returned {len(got)} line(s) for "
+                               f"atomic group {label}, which has {len(expanded)} "
+                               f"member(s) — one line per GroupBrief.members entry",)
                     continue
                 after = list(lines)
                 for ln, text in zip(expanded, got):
@@ -1396,6 +1404,7 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                     return LineAttempt(b.line_no, 2, True, tried,
                                        "atomic group/return repair: " + "; ".join(res["reasons"]),
                                        expanded), after
+                reasons = tuple(res["reasons"])
             continue
         # (a) A RETURN PINS A LINE. If this group IS a declared verbatim
         # return, or another of the pivot's groups is, the only legal end

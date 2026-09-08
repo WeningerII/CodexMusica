@@ -677,8 +677,8 @@ MUTATIONS = [
     ),
     Mutation(
         name="M24", layer="ingestion", file=LH,
-        old="    return toks[-1] if toks else None",
-        new="    return toks[0] if toks else None",
+        old="    return runs[-1] if runs else None",
+        new="    return runs[0] if runs else None",
         subset=T_INGEST,
         rationale=(
             "`raw_final_token` returns the line's FIRST word. The recorded "

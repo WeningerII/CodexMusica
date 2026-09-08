@@ -36,7 +36,7 @@ sys.path.insert(0, ROOT)
 
 from quality import capacity as CAP  # noqa: E402
 from quality.revise import Reviser  # noqa: E402
-from lyric_harness import Declaration  # noqa: E402
+from lyric_harness import Declaration, Lexicon  # noqa: E402
 import quality.schemes as SC  # noqa: E402
 
 FAILURES = []
@@ -57,8 +57,8 @@ def fam(word):
     return CAP._rime_key(phones)
 
 
-def pair_verdict(a, b):
-    found = R.inspect([f"we carry the evening to the {a}",
+def pair_verdict(a, b, reviser=None):
+    found = (reviser or R).inspect([f"we carry the evening to the {a}",
                        f"and no one had to tell us about {b}"],
                       SC.mandate([[1, 2]], n_lines=2))
     v = found["grade"]["verdicts"]
@@ -215,13 +215,23 @@ def test_the_anchor():
           v_bin_n is not None
           and "theta_rhyme" in (v_bin_n["why"] or ""),
           str(v_bin_n and v_bin_n["why"]))
-    v_hair, _ = pair_verdict("hair", "hire")
-    narrow = Reviser(decl=Declaration(admit=("RHYME", "RIME_RICHE")))
+    unresolved = R.inspect(["we carry the evening to the hair",
+                            "and no one had to tell us about hire"],
+                           SC.mandate([[1, 2]], n_lines=2))["grade"]
+    check("unresolved hire readings refuse the default obligation instead of selecting a convenient verdict",
+          unresolved["pairs_refused"] == 1 and unresolved["pairs_judged"] == 0
+          and "pronunciation" in unresolved["refusals"][0]["reason"])
+    lex = Lexicon(pronunciations=[{
+        "line": "and no one had to tell us about hire", "token": 9, "word": "hire",
+        "phones": ["HH", "AY1", "R"], "basis": "dictionary",
+        "source": "Capacity regression: explicit monosyllabic performance reading"}])
+    v_hair, _ = pair_verdict("hair", "hire", Reviser(lex=lex))
+    narrow = Reviser(lex=lex, decl=Declaration(admit=("RHYME", "RIME_RICHE")))
     f_n = narrow.inspect(["we carry the evening to the hair",
                           "and no one had to tell us about hire"],
                          SC.mandate([[1, 2]], n_lines=2))
     v_narrow = (f_n["grade"]["verdicts"] or [None])[0]
-    check("`hair`/`hire` clears the scalar as CONSONANCE, so whether it "
+    check("with explicit monosyllabic hire, `hair`/`hire` clears the scalar as CONSONANCE, so whether it "
           "SATISFIES is entirely the declared door: the default admits it, "
           "a rhyme-only declaration refuses it BY RELATION",
           (v_hair is not None and v_hair["why"] is None
@@ -511,7 +521,7 @@ def test_the_relation_is_a_coordinate():
         try:
             CAP.read_table(path)
             unreadable = False
-        except AssertionError:
+        except ValueError:
             unreadable = True
         check("MUTATION: a relation-less table (yesterday's schema) is "
               "REFUSED at read — the coordinate cannot be dropped by "
