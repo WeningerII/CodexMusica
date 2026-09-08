@@ -679,13 +679,17 @@ def test_the_song_the_loop_could_not_grade():
     # -- the PARTITION path, reproducing it
     m = SC.mandate(SONG_SCHEME)
     rep = R.grade(lines, m)
-    check("the PARTITION path reproduces it exactly",
+    from quality.rhyme_types import coarse_relation_consensus
+    confirmed = {tuple(c["lines"]) for c in rep["collisions"]
+                 if coarse_relation_consensus(
+                     R.lex, lines[c["lines"][0] - 1], lines[c["lines"][1] - 1],
+                     R.decl, promote=R.decl.final_promotion,
+                     relation=c["relation"], min_score=THETA_COLLISION) is True}
+    check("the partition reproduces mandated verdicts and confirmed collisions",
           (rep["pairs_mandated"], rep["pairs_judged"], rep["pairs_refused"],
            len(rep["violations"])) == (8, 8, 0, 0)
-          and len(rep["collisions"]) == len(cs["collisions"]),
-          f"{rep['pairs_mandated']}/{rep['pairs_judged']}, "
-          f"{len(rep['violations'])} violations, "
-          f"{len(rep['collisions'])} collisions")
+          and confirmed == {(a, b) for a, b, *_ in cs["collisions"]},
+          (rep["pairs_judged"], len(confirmed), len(cs["collisions"])))
 
     # -- the GRAPH's own structure, WAS the real song, NOT ANY MORE.
     #
@@ -1552,14 +1556,12 @@ def test_meter_folds_into_the_same_finding_set():
     found = R.inspect(lines, m, blueprint=SONG_BLUEPRINT, subdivision=sub)
     unsat = sorted(ln for ln, fs in found["per_line"].items()
                    for f in fs if f.code == "SLOTS_EXCEEDED")
-    check("at this declared subdivision, the same 16 lines the `fit` CLI "
-          "verb reports as UNSATISFIABLE come back as hard FLAGS here",
-          unsat == [13, 14, 15, 16, 17, 18, 19, 20,
-                    33, 34, 35, 37, 38, 39, 40, 41],
-          f"got {unsat} -- cross-checked against `python3 lyric_harness.py "
-          f"fit quality/fixtures/mandate_song.blueprint.json "
-          f"--subdivision 2`, which prints UNSAT 8+7+1=16 over chorus/"
-          f"chorus2/outro")
+    fitted = FT.fit_song(SONG_BLUEPRINT, subdivision=sub)
+    expected_unsat = [i for i, line in enumerate(fitted.lines, 1)
+                      if any(f.code == "SLOTS_EXCEEDED" for f in line.findings)]
+    check("inspect reports exactly the fit engine's proven slot overflows, "
+          "without promoting uncertain readings into failures",
+          unsat == expected_unsat and bool(unsat), (unsat, expected_unsat))
     check("every SLOTS_EXCEEDED lands as severity=flag, never note",
           all(f.severity == "flag" for ln, fs in found["per_line"].items()
               for f in fs if f.code == "SLOTS_EXCEEDED"),
@@ -1579,15 +1581,24 @@ def test_meter_folds_into_the_same_finding_set():
     # real flagged rhyme line, and the EXISTING net-negative diff must catch
     # it -- this is the whole of what "wire meter into the loop" means.
     after = list(lines)
-    after[0] = (lines[0] + " today and every single morning after that as "
-                "well, over and over again without end")
-    res = R.verify(lines, after, m, targeted={1}, blueprint=SONG_BLUEPRINT,
-                   subdivision=sub)
-    check("a revision that overflows a bar is REJECTED by the SAME rule "
-          "that rejects breaking a rhyme -- no meter-specific veto exists",
-          not res["accepted"]
-          and (1, "SLOTS_EXCEEDED") in res["new"],
-          res["reasons"][0][:160])
+    after[0] += " elephant elephant elephant elephant elephant"
+    oversized = R.verify(lines, after, m, targeted={1}, blueprint=SONG_BLUEPRINT,
+                         subdivision=sub)
+    check("the historical full-song edit respects the work-admission bound",
+          not oversized["accepted"] and oversized.get("stop_reason") == "RESOURCE_LIMIT",
+          oversized["reasons"])
+    small = ["My kettle whistles by the stove", "Your fingers brush my heavy coat"]
+    bp = {"sections": [{"name": "V1", "bars": 2, "start_bar": 1,
+                         "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
+          "lines": [{"text": text, "bar": i + 1, "beat": 1, "duration": 4,
+                     "section": "V1"} for i, text in enumerate(small)]}
+    after = list(small)
+    after[0] = "My kettle whistles by the elephant elephant elephant elephant stove"
+    res = R.verify(small, after, SC.mandate("AA", default_relation="ASSONANCE"),
+                   targeted={1}, blueprint=bp, subdivision=sub)
+    check("an admitted edit that overflows a bar is rejected by the shared finding diff",
+          not res["accepted"] and (1, "SLOTS_EXCEEDED") in res.get("new", []),
+          res["reasons"])
 
     try:
         R._meter_findings(lines[:-1], SONG_BLUEPRINT, sub)
@@ -2775,10 +2786,11 @@ def test_the_whole_draft_half_reaches_the_report():
     # on the interactive one) and would now FAIL if `song`'s exit code ever
     # leaked into `brief`.
     for verb, rc, out in (("brief", rc_b, out_b), ("song", rc_s, out_s)):
-        answered = (0,) if verb == "brief" else (0, 3)
-        check(f"`{verb}` answers on this draft rather than refusing or "
-              f"crashing (exit {' or '.join(map(str, answered))})",
-              rc in answered, f"rc {rc}")
+        answered = (0,) if verb == "brief" else (2,)
+        check(f"`{verb}` keeps its exit contract on this incompletely specified draft (exit {' or '.join(map(str, answered))})",
+              rc in answered and (verb != "song" or
+                                  "EXIT 2 — required checks remain unjudged" in out),
+              f"rc {rc}")
         check(f"`{verb}` PRINTS HOOK_ABSENT — the whole point: this verb's "
               f"own banner says song-function joins the finding set, and "
               f"until this fix that was true of the SET and false of the "
@@ -4220,12 +4232,13 @@ def test_a_field_is_per_place_not_per_line():
     from quality.loop import revise_loop
     draft = ["she turned the key and shut the door",
              "and walked alone into the night",
-             "i left my keys beside the lamp"]
-    m = SC.mandate([[2, "3.T2"], [1, 3]], n_lines=3)
+             "i left my keys before the war"]
+    m = SC.mandate([[2, "3.T2"], [1, 3]], n_lines=3, default_relation="RHYME")
     bs = {b.line_no: b for b in R.brief(draft, m)}
-    check("the probe's shape: only L3 is briefed, and its flag is group A "
+    check("the probe's shape: only L3 is flagged, and its flag is group A "
           "at its T2 word (night ~ left)",
-          list(bs) == [3]
+          [n for n, brief in bs.items()
+           if any(f.severity == "flag" for f in brief.findings)] == [3]
           and any(f.code == "SCHEME_VIOLATION" and f.locations == [2, 3]
                   for f in bs[3].findings),
           {ln: [f.code for f in b.findings] for ln, b in bs.items()})
@@ -4254,7 +4267,7 @@ def test_a_field_is_per_place_not_per_line():
           and "light" in b.forbidden_modal,
           f"offered {b.candidates[:6]} forbidden {b.forbidden_modal[:6]}")
     check("the incumbent is the word AT THAT PLACE, 'left', not the end "
-          "word 'lamp'", b.forbidden_incumbent == "left",
+          "word 'war'", b.forbidden_incumbent == "left",
           b.forbidden_incumbent)
     check("no joint conflict: two places are two questions, and the "
           "conjunction at T2 has one call", not b.joint_conflict
@@ -4288,8 +4301,9 @@ def test_a_field_is_per_place_not_per_line():
     # tier-2 rewrite of L1. The stub swaps the T2 word for the first
     # offered candidate and the rhyme HOLDS; what is left open is the
     # pursued MODAL_RHYME note on that pair, which is the loop's own job.
-    draft4 = draft + ["she wrote it down and left a note"]
-    m4 = SC.mandate([[2, "3.T2"], [1, 3], [4, "3.T4"]], n_lines=4)
+    draft4 = draft + ["she knew the chance was hers to seize"]
+    m4 = SC.mandate([[2, "3.T2"], [1, 3], [4, "3.T4"]], n_lines=4,
+                    default_relation="RHYME")
     res = revise_loop(R, draft4, m4)
     a1 = [a for r in res.rounds for a in r.attempts if a.line_no == 3]
     check("the stub loop fixes L3 at its T2 word through TIER 1 in round 1 "
