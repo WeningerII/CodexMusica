@@ -106,7 +106,8 @@ def download_to(url, dest, attempts=DOWNLOAD_ATTEMPTS, sleep=time.sleep):
     `sleep` is a parameter so a test can prove the backoff without waiting
     for it; production never passes it.
     """
-    tmp = dest + ".part"
+    dest = os.fspath(dest)
+    tmp = dest + (b".part" if isinstance(dest, bytes) else ".part")
     last = None
     for attempt in range(attempts):
         try:

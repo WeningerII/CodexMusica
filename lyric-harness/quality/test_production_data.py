@@ -19,6 +19,32 @@ from quality import corpus_manifest as cm
 
 
 class ProductionDataTests(unittest.TestCase):
+    def test_cold_archive_staging_downloads_verifies_and_installs(self):
+        from quality import fetch_data as staging
+        import zipfile
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            archive = root / "source.zip"
+            payload = b'{"model": "fixture"}'
+            with zipfile.ZipFile(archive, "w") as zipped:
+                zipped.writestr("fixture/model.json", payload)
+            asset = {"id": "fixture", "base": "staged", "runtime": True,
+                     "url": archive.as_uri(), "archive_sha256": staging.sha256(archive),
+                     "directory": "nltk/taggers/fixture", "files": [
+                         {"path": "nltk/taggers/fixture/model.json", "bytes": len(payload),
+                          "sha256": hashlib.sha256(payload).hexdigest()}]}
+            staged = root / "staged"
+            with patch.object(staging, "DATA", str(staged)), \
+                 patch.object(staging, "_ASSETS", {"fixture": asset}), \
+                 patch.object(staging, "nltk_data_dir"):
+                staging.fetch_all()
+                self.assertEqual((staged / asset["files"][0]["path"]).read_bytes(), payload)
+                self.assertEqual(staging.file_errors(asset, staged), [])
+                self.assertEqual(list(staged.rglob("*.part")), [])
+                self.assertEqual(list(staged.rglob("lyric-stage-*")), [])
+                archive.unlink()
+                staging.fetch_all()  # Verified warm install needs no source archive.
+
     def test_default_staging_never_fetches_optional_research_or_legacy_models(self):
         from quality import fetch_data as staging
         assets = {key: {"id": key, "base": "staged", "runtime": key == "current",
