@@ -1,0 +1,13 @@
+✔ 480 identical recovery polls retain a full checkpoint without inflating the journal beyond archive limits (8290.573933ms)
+✔ recording capacity stops before POST and leaves a sealed resumable checkpoint (2014.684508ms)
+✔ per-file recording headroom stops before a permitted archive file can overflow (568.627863ms)
+✔ resume refuses a missing historical journal segment before any new POST (236.616165ms)
+✔ rolled attempt segments replay a durable response after a lagging checkpoint without repeating POST (1252.050429ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12600.351984

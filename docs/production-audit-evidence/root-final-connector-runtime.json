@@ -1,0 +1,39 @@
+[
+  {
+    "test": "state",
+    "command": [
+      "node",
+      "mcp/test_lyric_state.mjs",
+      "--harness"
+    ],
+    "exit_code": 0,
+    "wall_s": 60.318
+  },
+  {
+    "test": "run-continuation",
+    "command": [
+      "node",
+      "mcp/test_run_continuation.mjs"
+    ],
+    "exit_code": 0,
+    "wall_s": 24.286
+  },
+  {
+    "test": "deferred-continuation",
+    "command": [
+      "node",
+      "mcp/test_deferred_continuation.mjs"
+    ],
+    "exit_code": 0,
+    "wall_s": 41.804
+  },
+  {
+    "test": "writer-work-budget",
+    "command": [
+      "node",
+      "mcp/test_writer_work_budget.mjs"
+    ],
+    "exit_code": 0,
+    "wall_s": 7.555
+  }
+]

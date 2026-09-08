@@ -1,0 +1,16 @@
+PASS real MCP + real Python: immutable defaults/input; one concurrent continuation; stale revision refused; capacity stop preserves exact artifact and journal and refuses replay.
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: the actual batch result reports each supplied answer
+    at file:///workspace/scratch/b0544e4bbdd6/production-fixes/mcp/test_run_continuation.mjs:209:14 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

@@ -66,6 +66,8 @@ REJECT_CONTESTED_NO_DATE = "REJECT_CONTESTED_NO_DATE"
 REJECT_UNVERIFIED_DATE = "REJECT_UNVERIFIED_DATE"
 REJECT_TOO_RECENT = "REJECT_TOO_RECENT"
 REJECT_NO_EVIDENCE = "REJECT_NO_EVIDENCE"
+REJECT_UNDECLARED_SOURCE = "REJECT_UNDECLARED_SOURCE"
+REJECT_UNVERIFIED_PUBLICATION = "REJECT_UNVERIFIED_PUBLICATION"
 
 REJECT_PUBLICATION_TOO_RECENT = "REJECT_PUBLICATION_TOO_RECENT"
 #: doctrine 34/48 -- the date's scheme was an authority and the DATASET IT
@@ -311,6 +313,7 @@ class Item:
     generated: bool = False
     #: per-item publication year, overriding the source's, when known
     pub_year: int = None
+    publication_evidence: str = ""
 
 
 @dataclass
@@ -437,6 +440,10 @@ class ProvenanceGate:
             return REJECT_GENERATED, (
                 "content or a key column is model-generated; scoring it "
                 "measures the model, not the tradition")
+        if src is None:
+            return REJECT_UNDECLARED_SOURCE, (
+                f"item source '{item.source_id}' has no sources.tsv record; "
+                "author or publication dates cannot bypass source terms and edition evidence")
 
         # LICENCE BEFORE DATES -- doctrine 85, and the ORDER is the whole fix.
         #
@@ -524,6 +531,17 @@ class ProvenanceGate:
         if not item.author_key:
             pub = item.pub_year or (src.publication_year if src else None)
             if pub is not None:
+                evidence = (item.publication_evidence if item.pub_year is not None
+                            else src.publication_evidence)
+                # A source's evidence also covers the identical declared year;
+                # it cannot establish an unrelated caller-supplied date.
+                if item.pub_year == src.publication_year and not evidence:
+                    evidence = src.publication_evidence
+                if (type(pub) is not int or pub <= 0 or not isinstance(evidence, str)
+                        or not evidence.strip()):
+                    return REJECT_UNVERIFIED_PUBLICATION, (
+                        f"anonymous publication year {pub!r} lacks matching source/item "
+                        "publication evidence; a stated year is not verified evidence")
                 src_term = src.anon_term_years if src else None
                 if self.decl.override_source_terms or not src_term:
                     term = self.decl.anon_term_years
@@ -531,7 +549,7 @@ class ProvenanceGate:
                     term = src_term
                 juris = (src.jurisdiction if src else "") or "unspecified"
                 if pub + term <= self.decl.current_year:
-                    ev = (src.publication_evidence if src else "") or "stated"
+                    ev = evidence
                     return ADMIT_PUBLICATION_VERIFIED, (
                         f"anonymous work published {pub}, clears the {term}-year "
                         f"publication term for {juris} ({ev})")

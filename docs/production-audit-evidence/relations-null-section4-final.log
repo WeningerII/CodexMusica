@@ -1,0 +1,12 @@
+
+§4 `prepare` reaches every replicate (doctrine 56)
+  PASS  §4 with `prepare`, the caesura schema produces rows
+          4 rows
+  PASS  §4 the observation and every null replicate run the declaration
+          17 prepared streams; states ['present']
+  PASS  §4 every replicate is accounted for as used, refused, or void
+          [(3, 1, 0), (4, 0, 0)]
+  PASS  §4 actual unknown readings remain explicit refusals, not missing declarations
+          [('reading', 'span')]
+  PASS  §4 the null resolution and p-value use only measured replicates
+  PASS  §4 without `prepare`, the same schema yields NO live row

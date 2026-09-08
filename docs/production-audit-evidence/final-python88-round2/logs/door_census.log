@@ -1,0 +1,57 @@
+1. the census sees every site, and the pins hold
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+  PASS  the shipped census matches its own pins
+          measured {'sites': 28, 'full': 5, 'incomplete': 0, 'per_word': 3, 'rendering': 6, 'validation': 1, 'argued': 13}
+  PASS  every site carries a ruling — an unexamined site is not a compliant one (doctrine 20)
+          0 unruled
+  PASS  a FULL ruling is a claim about the CODE, and every one of them reaches the 77 judge
+          5 FULL site(s), all reaching `whole_vocabulary_pairs`
+
+2. MUTATION — a census blind to the attribute spelling reports fewer sites, and the sites it loses are the ones nobody would notice
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+  PASS  the crippled census SEES FEWER SITES
+          24 against 28
+  PASS  ...and `quality/structure_census.py` is what it loses — the module that writes `LH.admits(...)`
+          lost [('quality/chance_rate.py', 'measure'), ('quality/rhyme_types.py', 'coarse_relation_consensus'), ('quality/structure_census.py', 'd1_diagnostic')]
+  PASS  ...and `--check` would REFUSE that census rather than pass it, because the pins move
+          crippled counts {'sites': 24, 'full': 5, 'incomplete': 0, 'per_word': 3, 'rendering': 6, 'validation': 1, 'argued': 9}
+
+2b. MUTATION — and a census blind to the LITERAL `('RHYME', 'RIME_RICHE')` loses a different module again
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+  PASS  `quality/redteam_band.py` is lost — the module the census's own first draft missed entirely
+          lost [('lyric_harness.py', 'Declaration.__post_init__'), ('lyric_harness.py', 'main'), ('quality/redteam_band.py', 'run'), ('quality/revise.py', 'Reviser._collision_code'), ('quality/revise.py', 'Reviser.inspect'), ('quality/revise.py', 'Reviser.joint_field_screened'), ('quality/time_layer.py', '_raw_score')]
+  PASS  ...and the two blindnesses lose DIFFERENT modules, so they are two gaps and not two namings of one
+          attribute-blind loses ['quality/chance_rate.py', 'quality/rhyme_types.py', 'quality/structure_census.py'], literal-blind loses ['lyric_harness.py', 'quality/redteam_band.py', 'quality/revise.py', 'quality/time_layer.py']
+
+3. MUTATION — scope inheritance is load-bearing: a nested function sees its enclosing scope's judge
+  PASS  `check_scheme.ok` is a real site and it is nested inside a function that consults the 77
+          [('lyric_harness.py', 'check_scheme.ok', True)]
+  PASS  without inheritance it reads as blind — which is what the first detector said about a judge thirty lines above it
+          prefix chain `check_scheme.ok` -> `check_scheme` is the scope chain
+  PASS  ...and it does NOT over-credit a sibling: a method does not reach its class's other methods
+          `Reviser.grade` consulting the judge must not license `Reviser.mandate_from_graph`
+
+3b. the ONE-HOP call resolution is exactly one hop
+  PASS  a helper the site CALLS counts
+          group_merges -> _schema_satisfies -> the judge
+  PASS  ...a SIBLING it does not call does NOT
+          calling `foo` must not inherit `grade`'s judge
+  PASS  ...and TWO hops do not, which is what keeps this bounded
+          a -> b -> c reaching the judge at c must NOT credit a
+
+4. a narrow site is named and MEASURED, not merely counted
+  PASS  every INCOMPLETE site's ruling cites the register entry that holds it open
+          []
+  PASS  there ARE ARGUED sites to check — the guard is not vacuous
+          10 ARGUED site(s)
+  PASS  every ARGUED ruling carries a MEASUREMENT — the narrowness is argued with numbers, never talked into
+          all measured
+  PASS  ...and cites the register entry the argument lives in
+          all cited
+  PASS  the census may never report every site FULL — a tree where nothing is narrow is a tree that stopped asking
+          full 5 of 28 sites
+
+all pass

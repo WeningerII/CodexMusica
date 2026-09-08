@@ -22,7 +22,8 @@ WHAT IS PINNED HERE
 6. the provenance is ABSENT rather than invented when an anchor was built
    outside `line_anchors`
 7. the consumers actually print it: check_scheme, the graph, the chains
-8. THE SONNET ORACLE DOES NOT MOVE — this is a reporting change
+8. attribution preserves the currently adopted oracle and its exact refusals;
+   explicitly re-adopted pronunciation coverage changes retain their history
 
 and, added 2026-08-11 when the floor turned out not to be the ceiling:
 
@@ -51,6 +52,7 @@ printing convention and its language is a declared coordinate.
 import re
 import os
 import sys
+import json
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
@@ -60,6 +62,9 @@ import lyric_harness as lh  # noqa: E402
 LEX = lh.Lexicon()
 DECL = lh.Declaration()
 FAILURES = []
+with open(os.path.join(HERE, "production_relation_oracle.json")) as _stream:
+    ORACLE = json.load(_stream)
+ATTRIBUTION = ORACLE["span_attribution"]
 
 
 def check(name, cond, detail=""):
@@ -81,8 +86,9 @@ def test_the_original_bad_report_line():
     aa = anchors("I don't get to go")
     bb = anchors("how they read the address like a receipt")
     s = lh.best_score(aa, bb, DECL, "go", "receipt")
-    check("the number is still 0.579 — nothing about the verdict moves",
-          s["total"] == 0.579, f"total {s['total']}  relation {s['relation']}")
+    check("the original scalar remains 0.579 with the current NO_RELATION verdict",
+          s["total"] == 0.579 and s["relation"] == "NO_RELATION",
+          f"total {s['total']}  relation {s['relation']}")
     sp = s["spans"]
     check("the winning LEFT span is the mosaic reach, not the end word",
           sp["a"]["words"] == ["get", "to", "go"], sp["a"]["text"])
@@ -288,26 +294,33 @@ def test_the_consumers_print_it():
 
 
 def test_the_oracle_does_not_move():
-    print("\n7. this is a REPORTING change: no verdict may move")
+    print("\n7. attribution preserves the adopted pronunciation-aware oracle")
     import battery
     sonnets = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))
     check("152 sonnets parse", len(sonnets) == 152, f"{len(sonnets)}")
     mandated = judged = refused = viol = 0
     mosaic_scored = 0
-    for sn in sonnets:
+    refusal_coordinates, violation_coordinates, mosaic_coordinates = [], [], []
+    for number, sn in enumerate(sonnets, 1):
         res = lh.check_scheme(LEX, sn, "ABABCDCDEFEFGG", DECL)
         mandated += res["pairs_mandated"]
         judged += res["pairs_judged"]
         refused += res["pairs_refused"]
         viol += len(res["violations"])
+        refusal_coordinates.extend([number, *r["lines"]] for r in res["refusals"])
         by_pair = {p["lines"]: p for p in res["pair_scores"]}
         for v in res["violations"]:
+            violation_coordinates.append([number, v[0], v[1]])
             sp = by_pair[(v[0], v[1])]["spans"]
             if sp and sp["mosaic"]:
                 mosaic_scored += 1
-    check("mandated pairs 1064", mandated == 1064, str(mandated))
-    check("judged 1014", judged == 1014, str(judged))
-    check("refused 50", refused == 50, str(refused))
+                mosaic_coordinates.append([number, v[0], v[1]])
+    for key, got in (("mandated", mandated), ("judged", judged), ("refused", refused)):
+        check(f"{key} agrees with the shared oracle ({ORACLE['current'][key]})",
+              got == ORACLE["current"][key] == battery.EXPECTED[key], str(got))
+    check("the exact refusal and violation coordinates agree, not only their counts",
+          sorted(refusal_coordinates) == ORACLE["current_partition"]["refused"]
+          and sorted(violation_coordinates) == ORACLE["current_partition"]["violations"])
     # Reads battery.EXPECTED rather than a second literal (doctrine 48) -- this
     # file held its own copy of the oracle's pin and went stale on it once
     # already, when cell BA's coda-identity fix moved 81 -> 82.
@@ -333,8 +346,13 @@ def test_the_oracle_does_not_move():
     # the two new violations are ordinary end-word comparisons, not mosaic
     # ones — so only the denominator in the label is corrected. Doctrine
     # 91: a count is a coordinate of the RENDERING, not only of the check.
-    check("4 of the 14 violations were scored on a span that is NOT the "
-          "end word", mosaic_scored == 4, f"{mosaic_scored} / {viol} "
+    # 2026-09-08: 4/14 -> 3/4. Sonnet33 L2-L4 eye/alchemy is now
+    # honestly refused for unresolved schema evidence. The three surviving
+    # mosaics are identical-word REPEAT violations; no span rule changed.
+    check(f"{ATTRIBUTION['mosaic_violations']} of {viol} violations have a mosaic span",
+          mosaic_scored == ATTRIBUTION["mosaic_violations"]
+          and sorted(mosaic_coordinates) == [[9, 10, 12], [26, 6, 8], [150, 5, 7]],
+          f"{mosaic_scored} / {viol} "
           f"= {mosaic_scored / viol:.1%} of the oracle's violations named a "
           f"pair of words that did not produce their number")
 
@@ -397,9 +415,9 @@ def test_the_report_line_checks_its_own_claim():
           not any("NOT THE EVIDENCE" in ln
                   for ln in lh.report_pair(ok, "cat", "hat")),
           str(lh.report_pair(ok, "cat", "hat")))
-    # The banner is graded and the COUNT is not: `part` alone is 380 of the
-    # sonnets' 1014 judged pairs, so a banner on every one would train a
-    # reader to skip the line that matters (doctrine 91).
+    # The banner is graded: a declared anchor cut remains reconstructable,
+    # unlike reach/substitution. The historical 380/1014 part-only count
+    # predates the explicit pronunciation refusals; this contrast is exact.
     q = lh.best_score(anchors("dawn"), anchors("again"), DECL, "dawn", "again")
     r = lh.report_pair(q, "dawn", "again")
     check("an anchor cut alone is printed in the label and does NOT raise "
@@ -522,7 +540,8 @@ def test_the_sweep_runs_and_reports_three_counts():
     import audit_spans
     r = audit_spans.sweep_battery(LEX, DECL, verbose=False)
     check("three counts, always (doctrine 79)",
-          (r["mandated"], r["judged"], r["refused"]) == (1064, 1014, 50),
+          all(r[key] == ORACLE["current"][key]
+              for key in ("mandated", "judged", "refused")),
           f"mandated {r['mandated']} judged {r['judged']} "
           f"refused {r['refused']}")
     # REPINNED 2026-08-11: 81 -> battery.EXPECTED['violations'] after cell BA's
@@ -533,8 +552,8 @@ def test_the_sweep_runs_and_reports_three_counts():
           "oracle the battery does",
           r["violations"] == battery.EXPECTED["violations"],
           str(r["violations"]))
-    check("632 of the 1014 JUDGED pairs name the two words that produced "
-          "their number", r["claimed"] == 632,
+    check(f"{ATTRIBUTION['current']['claimed']} of {r['judged']} judged pairs name their evidence",
+          r["claimed"] == ATTRIBUTION["current"]["claimed"],
           f"{r['claimed']} / {r['judged']}; the other "
           f"{r['judged'] - r['claimed']} name a pair that did not")
     # REPINNED 2026-08-23: ~~36 of 82~~ -> 7 of 35, and the RATE moved in a
@@ -567,9 +586,12 @@ def test_the_sweep_runs_and_reports_three_counts():
     # name the words that produced their number. The share goes 16.7% ->
     # 28.6% and the mechanism is the same one read backwards, which is the
     # check confirming the argument rather than merely absorbing a number.
-    check("4 of the 14 VIOLATIONS do — this is the number that decides "
-          "whether a triage lands on the right layer",
-          r["violations_claimed"] == 4,
+    # 2026-09-08: 632/1014 -> 605/967 and 4/14 -> 1/4. The47
+    # new uncertainty refusals contain exactly27 previously claimed pairs.
+    # The remaining exact violation is sonnet42's her/her; all three others
+    # are reach/reach. Exact rows below prevent equal counts hiding a shift.
+    check(f"{ATTRIBUTION['current']['violations_claimed']} of {r['violations']} violations name their evidence",
+          r["violations_claimed"] == ATTRIBUTION["current"]["violations_claimed"],
           f"{r['violations_claimed']} / {r['violations']}")
     severe = sum(v for k, v in r["viol_kinds"].items()
                  if any(x in (lh.SPAN_REACH, lh.SPAN_SUBSTITUTED,
@@ -578,17 +600,24 @@ def test_the_sweep_runs_and_reports_three_counts():
     # M-116 door: the widened default retired reconstructable violations
     # faster than unreconstructable ones, so the residue this check keeps
     # visible is now a THIRD of the total rather than a quarter.
-    check("4 of them could not be reconstructed from the printed words even "
-          "in principle (reach / substituted / unattributed)", severe == 4,
+    check("the exact severe-violation population remains visible",
+          severe == ATTRIBUTION["severe_violations"],
           f"{severe} / {r['violations']}; the remaining "
           f"{r['violations'] - r['violations_claimed'] - severe} are the "
           f"declared anchor cut, visible in the label")
     check("the partition is exhaustive over the judged pairs",
           sum(r["pair_kinds"].values()) == r["judged"],
           f"{sum(r['pair_kinds'].values())} == {r['judged']}")
-    check("121 judged pairs had a TIE at the maximum — a second, "
-          "independent way the named span is one of several",
-          r["ties"] == 121, str(r["ties"]))
+    check("the full span-kind partition matches the measured oracle",
+          [{"kinds": list(k), "n": v} for k, v in sorted(r["pair_kinds"].items())]
+          == ATTRIBUTION["pair_kinds"])
+    check("the exact four violations retain their independent attribution witnesses",
+          [{key: list(v[key]) if isinstance(v[key], tuple) else v[key]
+            for key in ("sonnet", "lines", "endwords", "claim", "kinds")}
+           for v in r["violation_rows"]] == ATTRIBUTION["violation_rows"])
+    check("ties match the measured oracle; 7 former ties are now refused",
+          r["ties"] == ATTRIBUTION["current"]["ties"]
+          and r["violation_ties"] == ATTRIBUTION["current"]["violation_ties"], str(r["ties"]))
     rec = audit_spans.sweep_record(LEX, DECL, verbose=False)
     check("the record sweep finds this project's own canonical bad report "
           "line and cannot reproduce it from the words it names",

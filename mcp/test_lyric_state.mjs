@@ -1,6 +1,7 @@
 // Offline connector regressions. Real independent MCP clients and handlers;
 // synthetic cached records avoid invoking a writer or needing a model key.
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { createServer } from 'node:http';
 import { once } from 'node:events';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
@@ -9,6 +10,13 @@ import { buildServer } from './tools.js';
 import { RUNS, LYRIC_TOOL_SCHEMAS, _workerInternals } from './lyric_tools.js';
 import { RunStore, newRunId } from './run_store.js';
 import { withExecutionContext } from './execution_context.js';
+import {
+  encodeState,
+  decodeState,
+  WORKER_STATE_BYTES,
+  STATE_DECODED_BYTES,
+  RECOVERY_RESULT_BYTES,
+} from './state_codec.js';
 
 const peers = [];
 async function connect(name) {
@@ -40,7 +48,7 @@ try {
     seed: 91357,
     status: 'suspended',
     draft: ['Copper cat', 'Azure dog'],
-    state: '{}',
+    state: encodeState({}),
     decl: { seed: 91357, title: 'CLIENT_A_PRIVATE_TITLE' },
   });
   const a = await connect('client-A'),
@@ -68,7 +76,7 @@ try {
   );
   const owned = await a.callTool({
     name: 'lyric_revise',
-    arguments: { run_id: idA, title: 'MOVED' },
+    arguments: { run_id: idA, run_revision: RUNS.byId(idA).revision, title: 'MOVED' },
   });
   assert.match(
     message(owned),
@@ -113,7 +121,7 @@ try {
   assert.equal(malformedGrid.isError, true);
   assert.match(message(malformedGrid), /blueprint.*not JSON/);
   const uncertainId = newRunId();
-  const uncertainCheckpoint = JSON.stringify({
+  const uncertainCheckpoint = encodeState({
     version: 1,
     input_draft: ['Copper cat', 'Azure dog'],
     accepted_lines: ['Copper cat', 'Azure dog'],
@@ -129,10 +137,187 @@ try {
   });
   const unknownResume = await a.callTool({
     name: 'lyric_revise',
-    arguments: { run_id: uncertainId },
+    arguments: { run_id: uncertainId, run_revision: RUNS.byId(uncertainId).revision },
   });
   assert.equal(unknownResume.isError, true);
   assert.match(message(unknownResume), /may have completed.*cannot safely resume/);
+  const legacy = await a.callTool({
+    name: 'lyric_revise',
+    arguments: {
+      state: JSON.stringify({ version: 1, answered: {}, pending: null }),
+    },
+  });
+  assert.match(message(legacy), /CONTINUATION_MIGRATION_REQUIRED/);
+  const recoveryJournal = {
+    version: 1,
+    input_draft: ['Original line'],
+    accepted_lines: ['Accepted love line'],
+    answered: { propose: [{ answer: 'Accepted love line' }], propose_group: [] },
+    pending: { kind: 'propose', line: 1 },
+  };
+  const recoveryWire = JSON.stringify({
+    ...JSON.parse(encodeState(recoveryJournal)),
+    semantic_identity: '0'.repeat(64),
+    connector_contract: 1,
+  });
+  const beforeRecoveryRevision = RUNS.byId(idA).revision;
+  const beforeRecoveryWorker = _workerInternals.pid();
+  const recoveryReply = await a.callTool({
+    name: 'lyric_revise',
+    arguments: {
+      checkpoint: recoveryWire,
+      recover_only: true,
+    },
+  });
+  assert.notEqual(recoveryReply.isError, true, message(recoveryReply));
+  const recovery = JSON.parse(recoveryReply.content.find((part) => part.type === 'text').text);
+  assert.equal(recovery.status, 'recovered_artifact');
+  assert.deepEqual(recovery.final_draft, recoveryJournal.accepted_lines);
+  assert.deepEqual(recovery.replay_draft, recoveryJournal.input_draft);
+  assert.deepEqual(recovery.journal, recoveryJournal);
+  assert.equal(
+    recovery.original_wire_sha256,
+    createHash('sha256').update(recoveryWire).digest('hex')
+  );
+  assert.equal(recovery.resumable, false);
+  assert.equal(recovery.certified, false);
+  assert.equal(RUNS.byId(idA).revision, beforeRecoveryRevision);
+  assert.equal(
+    _workerInternals.pid(),
+    beforeRecoveryWorker,
+    'recovery never starts a Python worker'
+  );
+  for (const extra of [
+    { writer: 'kitchen' },
+    { answer: 'new text' },
+    { run_id: idA },
+    { state: recoveryWire },
+  ]) {
+    const refusedRecovery = await a.callTool({
+      name: 'lyric_revise',
+      arguments: {
+        recover_only: true,
+        checkpoint: recoveryWire,
+        ...extra,
+      },
+    });
+    assert.equal(refusedRecovery.isError, true);
+    assert.match(message(refusedRecovery), /Recovery requires/);
+  }
+  const corruptedRecovery = { ...JSON.parse(recoveryWire), sha256: 'f'.repeat(64) };
+  const corruption = await a.callTool({
+    name: 'lyric_revise',
+    arguments: {
+      recover_only: true,
+      checkpoint: JSON.stringify(corruptedRecovery),
+    },
+  });
+  assert.equal(corruption.isError, true);
+  assert.match(message(corruption), /CONTINUATION_INVALID/);
+  const maximumJournal = { version: 1, input_draft: [''], accepted_lines: [''], padding: '' };
+  const count = Math.floor(
+    (STATE_DECODED_BYTES - Buffer.byteLength(JSON.stringify(maximumJournal))) / 4
+  );
+  maximumJournal.input_draft[0] = '\\'.repeat(count);
+  maximumJournal.accepted_lines[0] = '"'.repeat(count);
+  maximumJournal.padding = 'x'.repeat(
+    STATE_DECODED_BYTES - Buffer.byteLength(JSON.stringify(maximumJournal))
+  );
+  const maximumWire = JSON.stringify(maximumJournal);
+  const maxReply = await a.callTool({
+    name: 'lyric_revise',
+    arguments: { recover_only: true, checkpoint: maximumWire },
+  });
+  assert.notEqual(
+    maxReply.isError,
+    true,
+    'bounded export preserves drafts instead of returning an oversized-result error'
+  );
+  assert.ok(Buffer.byteLength(JSON.stringify(maxReply)) <= RECOVERY_RESULT_BYTES);
+  const maxRecovery = JSON.parse(maxReply.content[0].text);
+  assert.deepEqual(maxRecovery.final_draft, maximumJournal.accepted_lines);
+  assert.deepEqual(maxRecovery.replay_draft, maximumJournal.input_draft);
+  if (!maxRecovery.journal_included) {
+    assert.equal(maxRecovery.next_recovery_part, 'journal');
+    const journalReply = await a.callTool({
+      name: 'lyric_revise',
+      arguments: { recover_only: true, recovery_part: 'journal', checkpoint: maximumWire },
+    });
+    assert.notEqual(journalReply.isError, true);
+    assert.ok(Buffer.byteLength(JSON.stringify(journalReply)) <= RECOVERY_RESULT_BYTES);
+    const journalRecovery = JSON.parse(journalReply.content[0].text);
+    assert.deepEqual(journalRecovery.journal, maximumJournal);
+    assert.equal(journalRecovery.original_wire_sha256, maxRecovery.original_wire_sha256);
+  } else assert.deepEqual(maxRecovery.journal, maximumJournal);
+  const exhausted = await a.callTool({
+    name: 'lyric_revise',
+    arguments: {
+      checkpoint: encodeState({
+        version: 1,
+        status: 'journal_capacity',
+        new_run_required: true,
+        accepted_lines: ['I love you'],
+      }),
+    },
+  });
+  assert.match(message(exhausted), /JOURNAL_CAPACITY.*cannot resume/);
+  const hugeDeclaration = await a.callTool({
+    name: 'lyric_revise',
+    arguments: {
+      scheme: 'AA',
+      draft: ['I hold your hand', 'I love you'],
+      subdivision: 4,
+      blueprint: JSON.stringify({ notes: 'x'.repeat(33 * 1024) }),
+    },
+  });
+  assert.match(message(hugeDeclaration), /DECLARATION_CAPACITY.*no writer was started/);
+  const independentState = encodeState({
+    version: 1,
+    input_draft: ['I hold your hand', 'I love you'],
+    connector_declarations: {
+      scheme: 'AA',
+      writer: 'interview',
+      form: 'verse-chorus',
+      voices: false,
+    },
+    answered: { propose: [], propose_group: [] },
+    pending: null,
+  });
+  const movedState = await a.callTool({
+    name: 'lyric_revise',
+    arguments: {
+      state: independentState,
+      relation: 'class:ASSONANCE',
+    },
+  });
+  assert.match(message(movedState), /state declarations moved: relation/);
+  const movedReplay = await a.callTool({
+    name: 'lyric_revise',
+    arguments: {
+      state: independentState,
+      draft: ['I hold your hand', 'Changed original input'],
+    },
+  });
+  assert.match(message(movedReplay), /state resume requires its original replay_draft/);
+  const narrow = decodeState(independentState);
+  narrow.pending = { kind: 'propose', record: { line: 1 }, prompt: '', answer: null };
+  narrow.retained_metadata = '';
+  const { connector_declarations: _declarations, ...workerState } = narrow;
+  narrow.retained_metadata = 'x'.repeat(
+    WORKER_STATE_BYTES - 100 - Buffer.byteLength(JSON.stringify(workerState), 'utf8')
+  );
+  const overflowAnswer = await a.callTool({
+    name: 'lyric_revise',
+    arguments: {
+      state: encodeState(narrow),
+      answer: 'x'.repeat(1000),
+    },
+  });
+  assert.match(
+    message(overflowAnswer),
+    /CONTINUATION_CAPACITY/,
+    'answer growth is refused before the worker consumes any of the supplied journal'
+  );
   assert.ok(RUNS.byId(uncertainId));
   RUNS.del(uncertainId);
   RUNS.del(idA);
@@ -195,6 +380,26 @@ try {
       assert.fail(message(result));
     };
     try {
+      const oversized = verdict(
+        await a.callTool(
+          {
+            name: 'lyric_revise',
+            arguments: {
+              scheme: 'A'.repeat(32),
+              draft: Array(32).fill('I hold your hand'),
+              writer: 'kitchen',
+              attempts: 1,
+              backtrack: 0,
+              max_rounds: 1,
+            },
+          },
+          undefined,
+          { timeout: 120000 }
+        )
+      );
+      assert.equal(oversized.exit_code, 2);
+      assert.match(oversized.refusal, /RESOURCE_LIMIT.*writer execution/);
+      assert.equal(calls, 0, 'oversize pasted writer request refuses before provider dispatch');
       const first = verdict(
         await a.callTool(
           {
@@ -213,13 +418,38 @@ try {
           { timeout: 120000 }
         )
       );
-      assert.equal(calls, 2);
+      assert.equal(calls, 2, JSON.stringify(first));
       assert.deepEqual(
         first.final_draft,
         proposals,
         'accepted edits, not input, are the returned draft'
       );
       assert.deepEqual(first.replay_draft, input);
+      const changedSemantics = JSON.parse(first.checkpoint);
+      changedSemantics.semantic_identity = '0'.repeat(64);
+      const incompatible = await a.callTool({
+        name: 'lyric_revise',
+        arguments: {
+          checkpoint: JSON.stringify(changedSemantics),
+        },
+      });
+      assert.equal(incompatible.isError, true);
+      assert.match(message(incompatible), /CONTINUATION_MIGRATION_REQUIRED/);
+      assert.equal(calls, 2, 'semantic mismatch refuses before another provider request');
+      const recoveredReply = await a.callTool({
+        name: 'lyric_revise',
+        arguments: {
+          checkpoint: JSON.stringify(changedSemantics),
+          recover_only: true,
+        },
+      });
+      const recoveredCheckpoint = JSON.parse(
+        recoveredReply.content.find((part) => part.type === 'text').text
+      );
+      assert.deepEqual(recoveredCheckpoint.final_draft, proposals);
+      assert.equal(recoveredCheckpoint.resumable, false);
+      assert.equal(recoveredCheckpoint.certified, false);
+      assert.equal(calls, 2, 'recovery-only export never makes a provider request');
       assert.equal(first.song_at_stop, proposals.join('\n'));
       assert.equal(first.proposer_tokens_thoughts, 6);
       assert.equal(first.coverage.pairs_mandated, 1);
@@ -230,7 +460,7 @@ try {
       );
       const same = await a.callTool({
         name: 'lyric_revise',
-        arguments: { run_id: first.run_id, draft: proposals },
+        arguments: { run_id: first.run_id, run_revision: first.run_revision, draft: proposals },
       });
       assert.equal(same.isError, true);
       assert.match(message(same), /SAME draft/);
@@ -300,7 +530,10 @@ try {
       assert.equal(durableCheckpoint.connector_declarations.scheme, 'AA');
       const recovered = verdict(
         await a.callTool(
-          { name: 'lyric_revise', arguments: { run_id: interrupted.run_id } },
+          {
+            name: 'lyric_revise',
+            arguments: { run_id: interrupted.run_id, run_revision: interrupted.run_revision },
+          },
           undefined,
           { timeout: 120000 }
         )
@@ -341,11 +574,11 @@ try {
       );
       assert.equal(uncertain.status, 'uncertain_proposal');
       assert.equal(uncertain.proposer_usage_unknown, true);
-      assert.equal(JSON.parse(uncertain.checkpoint).uncertain_proposal, true);
+      assert.equal(decodeState(uncertain.checkpoint).uncertain_proposal, true);
       assert.equal(calls, 1);
       const uncertainResume = await a.callTool({
         name: 'lyric_revise',
-        arguments: { run_id: uncertain.run_id },
+        arguments: { run_id: uncertain.run_id, run_revision: uncertain.run_revision },
       });
       assert.equal(uncertainResume.isError, true);
       assert.match(message(uncertainResume), /cannot safely resume/);

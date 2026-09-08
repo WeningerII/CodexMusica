@@ -1,0 +1,6 @@
+seed=20260908 lines=31 (deterministic filler draft)
+worker call=1 verb=plan exit=0 wall=1.0s rss=None peak=None
+worker call=2 verb=fill exit=0 wall=0.5s rss=None peak=None
+worker call=3 verb=grade exit=2 wall=35.8s rss=None peak=None
+worker FAILED: untyped or refused grade: : density:L2, prominence:L2, density:L12, prominence:L12, density:L22, prominence:L22, meter:COUNT_IS_A_LOWER_BOUND:L2, meter:COUNT_IS_A_LOWER_BOUND:L6, meter:COUNT_IS_A_LOWER_BOUND:L12, meter:COUNT_IS_A_LOWER_BOUND:L16, meter:COUNT_IS_A_LOWER_BOUND:L22, meter:COUNT_IS_A_LOWER_BOUND:L26, rhyme:1:2:0, rhyme:1:3:1, rhyme:2:3:0, rhyme:4:7:4, rhyme:5:7:4, rhyme:5:7:5, rhyme:6:7:3, rhyme:6:8:3, rhyme:9:12:6, rhyme:9:12:8, rhyme:9:13:6, rhyme:12:13:6, rhyme:12:13:8, rhyme:14:15:10, rhyme:14:15:11, rhyme:21:23:15, rhyme:22:24:13, rhyme:25:26:18, rhyme:25:26:19, rhyme:25:26:20, rhyme:25:27:19, rhyme:25:28:19, rhyme:25:29:18, rhyme:25:30:18, rhyme:25:31:18, rhyme:26:27:19, rhyme:26:28:19, rhyme:26:29:18, rhyme:26:30:18, rhyme:26:31:18, rhyme:27:28:19, rhyme:27:30:16, rhyme:28:29:17, rhyme:28:31:17
+

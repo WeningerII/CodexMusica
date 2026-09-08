@@ -1,0 +1,51 @@
+== tokenisation (doctrines 26, 58) ==
+  PASS  U+2019 normalised to U+0027
+  PASS  hyphens BREAK, they do not join
+  PASS  a bare apostrophe is dropped, not kept as a token
+  PASS  case folded
+
+== the blocker is DECLARED, not implied (doctrines 44, 92) ==
+  PASS  names which of the three blockers
+  PASS  says it is NOT hard-to-build
+  PASS  says it is NOT unobtainable
+  PASS  enumerates what would lift it
+  PASS  separates the size blocker from the population blocker
+
+== refusal is not a pass (doctrine 20) ==
+  PASS  check() refuses by default
+  PASS  the refusal is TRUTHY, so it cannot read as an empty finding list
+  PASS  the refusal names its severity
+  PASS  the refusal carries the blocker
+
+== leave-one-author-out is enforceable (doctrine 13) ==
+  PASS  index built over one file per author
+  PASS  excluding the author cannot RAISE the count
+
+== the two fixtures (doctrine 94) ==
+  PASS  FIRES: 'the glory of the morning on the water'
+  PASS  the firing witness is a real corpus 4-gram
+  PASS  SILENT: 'and every gallows post remembered his weight'
+  PASS  SILENT holds at every n from 3 to 6 — not an artifact of one n
+  PASS  every n=2 witness is at least HALF closed-class, so it is grammar
+  PASS  every n=2 witness is ENTIRELY closed-class
+
+== the sparsity wall is real, not a threshold choice (§2) ==
+  PASS  n=5 max dispersion is in single digits
+
+== the instrument stays REACHABLE past its refusal (doctrine 84) ==
+  PASS  force=True returns findings, not a Refusal
+  PASS  a forced finding is a NOTE and never a flag (doctrines 6, 7)
+  PASS  a forced finding carries no score, only a count and a witness
+  PASS  a forced finding says PRE-1931 in its own evidence
+  PASS  the silent fixture yields nothing even when forced
+
+== module self-test agrees with this file ==
+  FIRE   PASS  'the glory of the morning on the water'
+         -> 13 authors, witness 'the glory of the'
+  SILENT PASS  'and every gallows post remembered his weight'
+         -> 0 authors, witness None
+  REFUSE PASS  check() refuses by default and is TRUTHY, so it cannot be read as a clean pass
+  REACH  PASS  force=True reaches the instrument (doctrine 84): 1 note(s)
+  PASS  self_test() passes
+
+all tests passed

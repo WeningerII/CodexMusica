@@ -2,7 +2,7 @@
 """Regressions for the capacity layer (quality/capacity.py).
 
 THE ONE CLAIM THAT MATTERS is NO DRIFT FROM THE GRADER: capacity's
-families must be the grader's own perfect-rhyme classes, its tier-1
+families are explicitly only first-reading construction pools, their tier-1
 classes the grader's own homeoteleuton classes, and every committed
 witness a group the REAL Reviser still accepts — because a capacity
 table that disagrees with the judge is a rumor with a checksum. The
@@ -66,6 +66,91 @@ def pair_verdict(a, b):
     return (v[0] if v else None), codes
 
 
+def test_certification_uses_the_named_relation():
+    print("\n8. certification asks the artifact's declared RHYME relation")
+    bad, drift = CAP._grade_group(R, ['bone', 'sown'])
+    check("a real earned rhyme is a valid certification witness", not bad and not drift)
+    bad, drift = CAP._grade_group(R, ['bone', 'bin'])
+    check("default consonance rescue cannot certify a RHYME witness", drift == {0, 1})
+    bad, drift = CAP._grade_group(R, ['wind', 'find'])
+    check("unresolved pronunciations cannot certify a RHYME witness", drift == {0, 1})
+    bad, drift = CAP._grade_group(R, ['hair', 'chair'])
+    check("a satisfied relation cannot hide a same-spelling ban", bad == {frozenset((0, 1))} and not drift)
+
+
+def test_parts_cannot_reuse_an_old_judge():
+    import tempfile
+    from unittest.mock import patch
+    from pathlib import Path
+    classes = {str(n): ['bone'] for n in range(CAP.CERTIFY_MIN_CLASSES)}
+    with tempfile.TemporaryDirectory() as temp, \
+            patch.object(CAP, 'families', return_value={('OW', 'N'): classes}), \
+            patch.object(CAP, 'certify', return_value=(['bone', 'sown'], 1)) as certify, \
+            patch.object(CAP, 'certification_identity', return_value='old-judge') as identity:
+        Path(temp, 'OW-N.tsv').write_text('99\tuncertified stale words\n')
+        first = CAP.derive(R, parts_dir=temp, log=lambda _: None)
+        again = CAP.derive(R, parts_dir=temp, log=lambda _: None)
+        check("unbound legacy parts are ignored; identical bound parts can resume",
+              first == again and first[0]['chain_lo'] == 2 and certify.call_count == 1)
+        identity.return_value = 'changed-judge'
+        moved = CAP.derive(R, parts_dir=temp, log=lambda _: None)
+        check("changed judge/source identity requires fresh certification",
+              moved == first and certify.call_count == 2)
+
+
+def test_source_capsule_tracks_judge_helpers():
+    import ast
+    import tempfile
+    from pathlib import Path
+    source = """class Reviser:
+    def __init__(self): pass
+    def grade(self): return self.helper()
+    def helper(self): return 1
+    def earned_pair_ban(self, verdict): return None
+    def _spelled_rime(self, word): return word
+    def brief(self): return 1
+"""
+    with tempfile.TemporaryDirectory() as temp:
+        path = Path(temp, 'revise.py')
+        def capsule(text):
+            path.write_text(text)
+            return ast.dump(CAP._certification_source(path), include_attributes=False)
+        original = capsule(source)
+        menu = capsule(source.replace('def brief(self): return 1', 'def brief(self): return 2'))
+        judge = capsule(source.replace('def helper(self): return 1', 'def helper(self): return 2'))
+        check("unconsumed menu changes do not invalidate a pair witness", original == menu)
+        check("a transitively consumed judge helper invalidates a pair witness", original != judge)
+        path = Path(temp, 'floor.py')
+        floor = 'class Finding:\n    severity = "note"\nPROFILES = [1]\n'
+        original = capsule(floor)
+        check("unused floor thresholds do not invalidate pair proof", original == capsule(floor.replace('[1]', '[2]')))
+        check("the consumed Finding type remains bound", original != capsule(floor.replace('"note"', '"flag"')))
+
+
+def test_published_rows_retain_actual_proof_source():
+    import tempfile
+    from pathlib import Path
+    row = {"relation": CAP.ADOPTED_RELATION, "family": "OW-N", "words": 2,
+           "classes": 2, "chain_hi": 2, "certified": 1, "chain_lo": 2,
+           "witness": "bone sown", "examples": "bone sown"}
+    with tempfile.TemporaryDirectory() as temp:
+        path = str(Path(temp, 'table.tsv'))
+        try:
+            CAP.emit_table([row], path)
+            unbound_refused = False
+        except ValueError:
+            unbound_refused = True
+        check("certified rows cannot be silently stamped with unrelated default inputs", unbound_refused)
+        rows = CAP.CertifiedRows('a' * 64)
+        rows.append(row)
+        CAP.emit_table(rows, path)
+        check("publication retains the actual derivation's source identity", CAP.read_certification_source(path) == 'a' * 64)
+        check("source metadata is independent of the table fingerprint and rows", CAP.read_table(path)[0] == row)
+        text = Path(path).read_text().replace(CAP.SOURCE_HEADER + '\t' + 'a' * 64, CAP.SOURCE_HEADER + '\tbroken')
+        Path(path).write_text(text)
+        check("a corrupt source receipt is missing proof, never a match", CAP.read_certification_source(path) is None)
+
+
 def test_the_anchor():
     print("\n1. the family key mirrors the COMPARATOR's anchor (last "
           "prominent, secondary included)")
@@ -79,8 +164,8 @@ def test_the_anchor():
         v, _ = pair_verdict(a, b)
         if fam(a) != fam(b) or v is None or v["why"] is not None:
             ok = False
-    check("pairs in one family GRADE as satisfied rhymes — the key is "
-          "the judge's own equivalence, not a lookalike", ok)
+    check("the registered same-family anchor controls retain their actual "
+          "default relation verdicts; this does not certify all family pairs", ok)
     # SPLIT 2026-08-23, because the two halves stopped having one answer
     # (doctrine 17). This asserted `fam(a) != fam(b) AND the pair does not
     # grade as satisfied` over both pairs at once, under the DEFAULT door.
@@ -294,10 +379,11 @@ def test_the_verb():
           rc == 0 and "AY-ER" in out and "HOMEOTELEUTON" in out
           and "chain_lo" in out, f"rc {rc}")
     rc, out, _ = run("capacity", "--top=5")
-    check("`capacity --top=5` renders the deepest families with the "
-          "ceiling sentence",
+    check("`capacity --top=5` separates construction upper bounds from earned witnesses",
           rc == 0 and out.count("chain_hi") >= 5
-          and "switches families" in out)
+          and "Construction pools" in out and "first-reading upper bounds" in out
+          and "not earned-chain witnesses" in out
+          and "The ceiling of English" not in out)
     rc, out, err = run("capacity")
     check("no argument refuses at exit 2", rc == 2, f"rc {rc}")
     rc, out, err = run("capacity", "fire", "--nope")
@@ -443,7 +529,11 @@ if __name__ == "__main__":
     from quality.shard import run_sections
     _SECTIONS = (test_the_anchor, test_tier1, test_the_crown,
                test_determinism_and_bounds, test_the_verb,
-               test_the_judge_is_recorded, test_the_relation_is_a_coordinate)
+               test_the_judge_is_recorded, test_the_relation_is_a_coordinate,
+               test_certification_uses_the_named_relation,
+               test_parts_cannot_reuse_an_old_judge,
+               test_source_capsule_tracks_judge_helpers,
+               test_published_rows_retain_actual_proof_source)
     sys.exit(run_sections(_SECTIONS, "TEST_CAPACITY_SHARD", FAILURES,
                           footer="capacity states what the language holds, in the judge's own "
           "units — and grades nothing"))

@@ -1,0 +1,84 @@
+
+1. .125/1 through 64/32, exact, with no special cases
+  PASS     1/8/1 -> 1/8 whole-notes
+  PASS     5/2/4 -> 5/8 whole-notes
+  PASS       3/4 -> 3/4 whole-notes
+  PASS     64/32 -> 2 whole-notes
+  PASS     12/16 -> 3/4 whole-notes
+  PASS       4/3 -> 4/3 whole-notes
+  PASS       5/6 -> 5/6 whole-notes
+  PASS      13/8 -> 13/8 whole-notes
+  PASS  a FRACTIONAL numerator is not a special case
+          2.5/4 — `beats: int` could not hold this at all
+  PASS  a non-power-of-two denominator is DECLARED, not rejected
+          4/3 is four third-notes; 'irrational' names the denominator, not a number
+  PASS  12/16 and 3/4 are the same duration and different signatures
+  PASS  a non-positive cycle is refused
+
+2. groupings are ORDERED compositions — 2^(n-1), not partitions
+  PASS  1 pulses -> 1 orderings
+  PASS  2 pulses -> 2 orderings
+  PASS  3 pulses -> 4 orderings
+  PASS  4 pulses -> 8 orderings
+  PASS  5 pulses -> 16 orderings
+  PASS  7 pulses -> 64 orderings
+  PASS  9 pulses -> 256 orderings
+  PASS  11 pulses -> 1024 orderings
+  PASS  (2,2,3) and (3,2,2) are BOTH present and different
+          ordered — this is what separates a rachenitsa from its mirror
+  PASS  every composition exhausts the cycle
+
+3. THE ONE THAT MATTERS — it used to assert, now it refuses
+  PASS  9/8 undeclared returns None
+          it returned (3,3,3), the European reading, over Balkan daichovo
+  PASS  7/8 undeclared returns None
+          it returned seven single pulses, which is not a grouping
+  PASS  a declared grouping comes back exactly
+  PASS  and the two are distinguishable, which they were not
+  PASS  the convention exists SEPARATELY and is labelled one
+          available on request, never a default
+  PASS  a cycle knows the 255 meters it is distinguished FROM
+  PASS  a grouping that does not exhaust the cycle is refused
+
+4. polymeter vs polyrhythm — independent barlines vs one span
+  PASS  3/4 against 4/4 realigns after 3 whole-notes
+          four bars of three against three bars of four
+  PASS  5/8 against 7/8 realigns after 35/8
+  PASS  lcm is computed on FRACTIONS, not integers
+  PASS  3:2 shares one span and resolves at 1/6
+  PASS  4:3 resolves at 1/12
+  PASS  polyrhythm and polymeter are different classes on purpose
+
+5. an usul is not a grouping — position IDENTITY matters
+  PASS  every position carries a label
+  PASS  a partial labelling is refused
+          a labelled cycle labels EVERY position; '-' is a rest, not a gap
+  PASS  labels do not imply a grouping
+          D T - T / - T D - is stroke identity, not accent structure
+  PASS  groups may be TYPED — a tala's angas
+  PASS  group_labels must run parallel to groups
+
+6. colotomic nesting, marked positions, and no canonical beat 1
+  PASS  nested periodicities resolve with phase
+          the kempul sits OFFSET between the kenongs — phase is the point
+  PASS  marked positions are separate from grouping
+  PASS  origin=None is POLYCENTRIC and says so
+          no privileged downbeat — the setting that breaks every representation quietly assuming one exists
+
+7. meter as a function of bar; density is NOT a meter change
+  PASS  meter resolves per BAR, not per section
+  PASS  an unmixed map says so
+  PASS  irama doubles the layer against an UNCHANGED frame
+          storing this as a meter change would say the frame moved, and the frame is exactly what does not move
+  PASS  Density is deliberately not a Cycle
+
+8. the catalogues are absent, and it says so instead of guessing
+  PASS  nothing is pre-registered
+  PASS  get_named raises with what is missing named
+  PASS  and the message names the scale of the gap
+          35 talas, 100+ usuls, ~100 iqa'at, the gamelan forms, the compases and the timelines all need SOURCING
+  PASS  an entry without a SOURCE is refused
+          a catalogue entry written from memory is unsourced data in the evidence base — the refusal the parlour cell made about lyrics it could recite
+  PASS  a sourced entry registers
+==============================================================
+all metric-cycle regressions pass

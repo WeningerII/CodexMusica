@@ -1,0 +1,19 @@
+
+1. doctrine 26, finally applied to the ENGLISH path
+  PASS  weep’d folds to weep'd
+  PASS  prepar’d folds to prepar'd
+  PASS  I’m folds to I'm
+  PASS  o’er folds to o'er
+  PASS  every typographic variant folds, not just U+2019
+          8 marks fold to one
+  PASS  a straight apostrophe is untouched
+
+2. `&c.` is a POINTER, not sung text — 941 of them in the corpus
+  PASS  recognised: 'Oh, my poor Nelly Gray, &c.'
+  PASS  recognised: 'Then come, weel speed my pleughman'
+  PASS  recognised: 'Farewell to the shore, etc.'
+  PASS  a real line is NOT a stub: 'Farewell to the old Kentucky s'
+  PASS  a real line is NOT a stub: "And I'll never see my darling "
+  PASS  a real line is NOT a stub: 'The spacious firmament on high'
+==============================================================
+all English-text regressions pass

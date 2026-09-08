@@ -1,0 +1,21 @@
+{
+  "command": [
+    "node",
+    "--test",
+    "mcp/test_chat_production.mjs"
+  ],
+  "exit_code": 0,
+  "tests": 23,
+  "pass": 23,
+  "fail": 0,
+  "duration_ms": 8613.554577,
+  "source_sha256": {
+    "mcp/lyric_tools.js": "6584a566c288a74ad0a0b73deb9f2966e01044d282af94db9c5bf18aacef2678",
+    "mcp/gemini_agent.js": "f7e6e55120d4058d83742133ea423424dc8f102c612c516e56835d5fd6208a90",
+    "mcp/chat.js": "a223d969e338797dafa9ba048911960250d82284ef310437877678e9efac7830",
+    "mcp/test_chat_production.mjs": "bda62c8d153bb62779591b8e2a3785f5ee2de7b4f092400a81aff07b6bf291e8"
+  },
+  "log_sha256": "49556c664ab3619dee0fbdfe11b2dfbcdee0f9468275746a9bf32fb16188b6bf",
+  "log_bytes": 3972,
+  "scope": "Localhost HTTP plus deterministic fixtures. Native kitchen acceptance and wall replay are separate CI-lane actual-HTTP gates."
+}

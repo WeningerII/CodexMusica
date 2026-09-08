@@ -1,0 +1,128 @@
+EXACT_SELECTED_SECTIONS ['test_the_loop_suspends_instead_of_guessing', 'test_finish_is_the_one_door_from_draft_to_rendered_song', 'test_the_loop_verbs_exit_on_what_stands_at_the_stop', 'test_the_pasted_song_has_the_same_door_as_a_planned_one', 'test_the_batch_door_asks_independent_lines_together', 'test_the_group_verdict_is_on_the_state_and_quoted_next_round']
+
+20. `--propose=defer:PATH` — suspension, validated answers and exact replay
+  PASS  the old unresolved-reading premise refuses certification instead of inventing a repair
+          rc 2
+  PASS  the first run SUSPENDS at its own exit 4 rather than guessing a line
+          rc 4
+  PASS  the state names the precise requested line and leaves an empty answer slot
+  PASS  the progress journal retains exact original and accepted lyrics
+  PASS  re-running WITHOUT an answer neither advances nor emits a final draft
+          rc 4
+  PASS  a malformed multi-line answer REFUSES without folding any proposed text
+          rc 2
+  PASS  one independently verified answer drives the loop to SUCCESS
+          rc 0
+  PASS  EXACTLY ONE line was asked about and answered — L2 of the declared assonance pair
+  PASS  only the answered line changed, and the exact accepted artifact is preserved
+  PASS  a converged run has no pending request and names its stop and original draft
+  PASS  every answer names the draft it was requested against
+  PASS  re-running the finished state is disclosed and reproduces its exact stop
+          rc 0
+  PASS  the answered journal independently replays the same change without any writer
+  PASS  defer without a PATH refuses as an invalid flag
+
+44. `finish` — THE SEAM: no rendered song without a stop condition (`MISSING.md` M-154, owner's directive 2026-08-28)
+  PASS  the plan declares its own line count for the fixture to honor
+          rc 0
+  PASS  no --seed REFUSES naming the flag — the plan is the mandate's one statement
+          rc 2
+  PASS  --blueprint on finish REFUSES — a second statement of the meter layer beside the plan's own
+          rc 2
+  PASS  a positional mandate REFUSES — two statements of one cover
+          rc 2
+  PASS  a draft of the wrong length REFUSES with the plan's own count
+          rc 2
+  PASS  a deferred run with no answers SUSPENDS at exit 4
+          rc 4
+  PASS  ...and NO render reaches a suspended run — the seam holds
+          the render exists only past a stop condition
+  PASS  ...and the state file holds the question, so the run is resumable
+          /tmp/tmphw1vitxp/state.json
+  PASS  the BLUEPRINT banner names the subdivision the run is GRADED under — the plan's own — not the flag this verb does not take
+            BLUEPRINT: /tmp/finish_bp_nkcqyfi6.json — meter and song-function join the rhyme/floor finding set, subdivision=1 (the plan's own declared subdivision (seed 31), read off the artifact `finish` derived the mandate from), no isochrony assumed — the setting questions refuse (`NO_SETTING`) rather than divide the span evenly on their own
+  PASS  ...and it AGREES with the MANDATE line above it — one fact, one statement (doctrine 1), where the two used to contradict
+            MANDATE: read from the plan (seed 31) — groups, returns and relations as its own GRADE IT line spells them; the bluepr
+  PASS  a stop condition renders the song under its stamp
+          rc 3
+  PASS  ...the stamp's exit code IS the process's — it cannot say finished about a run that is not
+          [FINISHED — seed 31 — exit 3 — NO_PROGRESS after 1 round(s) — UNRESOLVED: L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12 — WHOLE-DRAFT FLAG: LEXICAL_MONOTONY, FUNCTION_WORD_HEAVY, HOOK_DOES_NOT_RECUR — COVERAGE UNCERTIFIED: density:L11, prominence:L11, meter:COUNT_IS_A_LOWER_BOUND:L11, rhyme:4:5:1, rhyme:7:8:2, rhyme:9:10:3, rhyme:11:12:4]
+  PASS  ...and the stamp names the stop reason and the open lines (or the whole-draft flag), so a parked song cannot read as a clean one
+          [FINISHED — seed 31 — exit 3 — NO_PROGRESS after 1 round(s) — UNRESOLVED: L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12 — WHOLE-DRAFT FLAG: LEXICAL_MONOTONY, FUNCTION_WORD_HEAVY, HOOK_DOES_NOT_RECUR — COVERAGE UNCERTIFIED: density:L11, prominence:L11, meter:COUNT_IS_A_LOWER_BOUND:L11, rhyme:4:5:1, rhyme:7:8:2, rhyme:9:10:3, rhyme:11:12:4]
+  PASS  ...and the render carries the plan's own bracket headers
+          the section header format is the measurement carrier (M-97)
+  PASS  --max-rounds on `brief` REFUSES — only the loop verbs own a budget
+          rc 2
+
+48. `revise`/`finish` exit 3 on a WHOLE-DRAFT flag and print the findings standing at the stop (`MISSING.md` M-186)
+  PASS  `revise` exits 3 when a WHOLE-DRAFT flag stands and no line is open — the same 3 `song` gives the same draft
+          rc 3
+  PASS  ...and prints that flag at the stop in the report's own FINDING spelling, marked as the whole draft's
+          STANDING AT THE STOP — the findings the open lines and the whole draft still carry, in the report's own spelling:
+    WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK: the title is not in the hook
+         title 'zebra confetti' vs hook "Go on. I'll keep the light."; the title phrase occurs 0 time(s). 
+  PASS  under defer: the stamp carries `— WHOLE-DRAFT FLAG: TITLE_NOT_IN_HOOK` beside `no line flag stands`, and its exit is the process's 3
+          [FINISHED — declared mandate — exit 3 — WHOLE_DRAFT_UNRESOLVED after 0 round(s) — no line flag stands — WHOLE-DRAFT FLAG: TITLE_NOT_IN_HOOK — COVERAGE UNCERTIFIED: density:L4, prominence:L4, prominence:L8, meter:COUNT_IS_A_LOWER_BOUND:L4, meter:COUNT_IS_A_LOWER_BOUND:L15, meter:PROMINENCE_UNDECIDED:L8]
+  PASS  CONTROL: the committed title clears the whole-draft flag while unjudged coverage still prevents success
+          [FINISHED — declared mandate — exit 2 — UNCERTIFIED after 0 round(s) — no line flag stands — COVERAGE UNCERTIFIED: density:L4, prominence:L4, prominence:L8, meter:COUNT_IS_A_LOWER_BOUND:L4, meter:COUNT_IS_A_LOWER_BOUND:L15, meter:PROMINENCE_UNDECIDED:L8]
+  PASS  a pursued note standing at the stop is printed as `FINDING [NOTE] HOMEOTELEUTON: L1/L2 …` — the spelling the connector's `extractBannedPairs` reads — and the exit is 3
+          rc 3; STANDING AT THE STOP — the findings the open lines and the whole draft still carry, in the report's own spelling:
+    L2: FINDING [NOTE] HOMEOTELEUTON: L1/L2 rhyme on the SAME SPELLED ENDING ('hair'/'
+
+49. `recover` is a verb, and `revise` under defer: renders and stamps a pasted song's stop (`MISSING.md` M-195)
+  PASS  `recover` on a banked song exits 3 — the meter is REFUSED, a work order and not a failure — and prints the two CLI flags
+          rc 3; MANDATE SPELLING (the cover as the two CLI flags — hand them to brief/revise; `--groups=` charges a REPEAT edge as a violation, `--returns=` is the only spellin
+  PASS  an unknown flag refuses at exit 2, like every verb
+          rc 2
+  PASS  no file refuses with the usage
+          rc 2
+  PASS  `revise --propose=defer:` renders the lines in order under a [FINISHED — declared mandate — …] stamp at a stop condition
+          rc 2; [FINISHED — declared mandate — exit 2 — UNCERTIFIED after 0 round(s) — no line flag stands — COVERAGE UNCERTIFIED: rhyme:2:3:0]
+  PASS  the stub exposes the same accepted artifact and honest uncertified stop
+          rc 2
+
+54. the BATCH DOOR under `--propose=defer:` — independent lines are asked together, folded apart, judged on the record, and the rejection reaches the next round (M-236)
+  PASS  the first suspension is ONE batch of the four independent open lines, not four questions
+          rc 4 kind propose_batch lines [2, 4, 6, 8]
+  PASS  the prompt says how many lines, names the answer shape, and carries one full brief per member
+          REVISE 4 LINES AT ONCE — L2, L4, L6, L8 of a 8-line draft.
+
+Each of these lines was flagged by the grader, and none of t
+  PASS  every batch member records its round and the draft it was asked against, like a single question does (M-183)
+          [{'line': 2, 'attempt': 0, 'round': 1, 'draft': 'e597aa048e0e', 'text': None}, {'line': 4, 'attempt': 0, 'round': 1, 'draft': 'e597aa048e0e', 'text': None}, {'line': 6, 'attempt': 0, 'round': 1, 'draft': 'e597aa048e0e', 'text': None}, {'line': 8, 'attempt': 0, 'round': 1, 'draft': 'e597aa048e0e', 'text': None}]
+  PASS  a batch answer missing a member REFUSES rather than folding the rows it did get
+          rc 2
+  PASS  the batch answer folded as FOUR per-line records, the replay file's own shape
+          [(2, 0, 1), (4, 0, 1), (6, 0, 1), (8, 0, 1)]
+  PASS  what verify made of each answer is ON THE RECORD, with the grader's reasons
+          {(2, 0, 1): (False, ['previously judged required check(s) became refused: density:L2, prominence:L2']), (4, 0, 1): (False, ["L4 took the modal candidate 'wrench' — it passes the band and it is the most predictable word in the field, which is the slop direction (doctrine 9)"]), (6, 0, 1): (False, ['nothing was fixed']), (8, 0, 1): (False, ["L8 took the modal candidate 'light' — it passes the band and it is the most predictable word in the field, which is the slop direction (doctrine 9)"])}
+  PASS  under attempts=1 a barren round is not yet NO_PROGRESS: round 2 asks the same four lines again, as one batch
+          rc 4 pending propose_batch round 2
+  PASS  ...and each member's brief quotes its ROUND-1 rejection, verbatim, since no re-ask inside the round could
+          4
+  PASS  CONTROL: under the default budget the rejected line is re-asked at once, alone, at attempt 2 — the single question as it was
+          rc 4 propose {'line': 2, 'attempt': 1, 'round': 1, 'draft': 'e597aa048e0e', 'text': None}
+
+— a rejected joint rewrite is ON THE STATE with the grader's reasons, and the next group question quotes it (`MISSING.md` M-253)
+  PASS  a group question was asked on the deferred path
+          2
+  PASS  a rejected joint rewrite is recorded on `group_outcomes` with members, round, the answer and the grader's reasons
+          {'members': [3, 4], 'round': 1, 'text': 'L3: she left the coffee cooling on the chairs\nL4: i heard him turn the handle of the door', 'accepted': False, 'reasons': ['nothing was fixed']}
+  PASS  ...and the NEXT group question quotes that rejection, round, text and reasons, verbatim
+          ATTEMPT
+  This is ATTEMPT 1 of this line's retry budget.
+  Your rewrite of this group in ROUND 1 was REJECTED: 'L3: she left the coffee cooling on the chairs\nL4: i heard him turn the handle of the door'. The grader's reasons, verbatim:
+    - nothing was fixed
+  The draft has been re-read since; do not send back someth
+==============================================================
+SECTION COST, slowest first — the top line is the floor a shard count cannot beat:
+     211.3s  test_the_group_verdict_is_on_the_state_and_quoted_next_round
+     146.2s  test_the_loop_verbs_exit_on_what_stands_at_the_stop
+      94.5s  test_the_loop_suspends_instead_of_guessing
+      64.1s  test_finish_is_the_one_door_from_draft_to_rendered_song
+      59.5s  test_the_batch_door_asks_independent_lines_together
+      27.1s  test_the_pasted_song_has_the_same_door_as_a_planned_one
+     602.8s  TOTAL, this shard (6 of 6 sections)
+==============================================================
+All selected INT31 dependency sections completed
+SELECTED_SECTIONS_COMPLETED 6 EXIT 0

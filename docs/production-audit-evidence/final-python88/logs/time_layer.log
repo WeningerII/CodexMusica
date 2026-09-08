@@ -1,0 +1,64 @@
+
+1. the statistic never needs to know where the downbeat is
+  PASS  shifting every event by one slot changes nothing
+          KL 1.3863 at P=4 vs 1.3863 at P=4 — no downbeat detection is needed, which is the whole reason for this form
+
+2. the null is the item's own slots, not a uniform assumption
+  PASS  events filling every slot give exactly zero divergence
+          KL 0.00e+00 — against a uniform null this would be positive purely from 47 not dividing by 4
+
+3. KL is positively biased at small n and the null carries it
+  PASS  declines cleanly when there is too little to test — and NAMES the refusal rather than returning a bare None
+          rhyme_events:cannot_tell: NO EVENT WAS ATTAINABLE. The best pair in this item reaches p = 5.25e-03; the loosest pe
+
+4. TRIPWIRE (H3) — line-final phase must not be free signal
+  PASS  the control refuses rather than reporting a determined result — and says which stage refused (doctrine 20; this rode on `True` until 2026-08-23)
+          analyse:n_events: too few events or slots for a permutation test to mean anything; the layer declines rath
+  PASS  line-final positions are excluded from the primary slots
+          4 line-final syllables; primary uses 12 slots
+
+4b. a saturated comparison has no power and must decline
+  PASS  a fully saturated event set is refused, not scored
+          saturation 100%; 100% of eligible slots are events, at or above the declared 75% ceiling. When ne
+  PASS  the refusal blames the instrument, not the verse
+          the comparator's additive floor over a 32-syllable window is what makes nearly every stressed syllable an event
+  PASS  below the ceiling the test still runs
+          saturation 33%
+
+4c. a control that cannot fire must announce itself
+  PASS  the control cannot fire on this fixture and ANNOUNCES it — a refusal that names itself and the guard that raised it, not a bare None and not a KL of zero
+          analyse:n_events at n_events=0: too few events or slots for a permutation test to mean anything; the layer d
+  PASS  the post-hoc variant is labelled post-hoc in its own output
+          against_all (POST-HOC, expected to FIRE)
+  PASS  the two modes are genuinely different comparisons
+          against_all uses 16 slots, within uses 4
+
+4d. the recovered period is biased and must not be read off noise
+  PASS  on pure noise the sweep concentrates on the largest periods
+          {8: 144, 6: 56} — E[KL] grows with bin count, so argmax lands on the largest period offered. The observed sonnet split was 27/40 at P=8 and 13/40 at P=6, indistinguishable from this
+
+5. H4 — the null preserves every marginal it should
+  PASS  only stressed syllables occupy a slot on the stress grid
+          English times its stresses, not its syllables
+  PASS  the grid index is dense over occupied slots
+          no two slots share a coordinate
+
+6. the two grid units are not interchangeable
+  PASS  the stress grid has strictly fewer slots than the syllable grid
+          8 stresses vs 20 syllables — a result that holds on one and reverses on the other is an artifact of the isochrony assumption (pre-registered H5)
+
+7. the layer never claims to have measured time
+  PASS  isochrony is declared an assumption, in the declaration
+  PASS  every result carries the assumption forward
+  PASS  no output word promises a beat
+          there is no audio in this project; 'on the beat' is not a claim this code can make
+
+8. doctrine 6 — the layer reports a statistic, not a score
+  PASS  no 'score' key in the result
+  PASS  no 'quality' key in the result
+  PASS  no 'rating' key in the result
+  PASS  no 'grade' key in the result
+  PASS  the result carries its own null so it can be argued with
+          a statistic without its null is an assertion
+==============================================================
+all time-layer regressions pass

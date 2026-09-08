@@ -1,9 +1,9 @@
 {
   "name": "codex-music-mcp",
-  "version": "2.2.0",
+  "version": "3.1.0",
   "private": true,
   "type": "module",
-  "description": "MCP server exposing the full CodexMusica recipe engine (blend, customize, axis-target) as callable tools for AI agents.",
+  "description": "Task-scoped recipe and lyrics MCP tools with bounded revision, explicit coverage and recoverable paid-work accounting.",
   "engines": {
     "node": ">=22"
   },

@@ -1,0 +1,230 @@
+
+1. the report line that started this: `go/receipt 0.579 RHYME`
+  PASS  the number is still 0.579 — nothing about the verdict moves
+          total 0.579  relation NO_RELATION
+  PASS  the winning LEFT span is the mosaic reach, not the end word
+          get to go
+  PASS  the winning RIGHT span is part of a word, and says which part
+          -receipt [last 1 of 2 syllables of 'receipt']
+  PASS  the pair is flagged MOSAIC on the left only
+  PASS  and the printable note names both spans and the search size
+          scored on: get to go  ~  -receipt [last 1 of 2 syllables of 'receipt']   (best of k=6)   MOSAIC (left): the winning span reaches back past the end word
+
+2. anchors carry word provenance, and it is derived from the NUCLEUS
+  PASS  every syllable of every candidate anchor is tagged
+          17 syllables over three lines, each carrying syl_in_word, widx, word, word_syllables
+  PASS  a word's own syllable count is recorded, not the span's
+          [('nation', 1, 2), ('nation', 2, 2)]
+  PASS  the metrically-promoted variant keeps its word tag
+          2 candidates with promotion on
+
+3. doctrine 56 — a max over k hypotheses records k
+  PASS  search_k is the product of the two candidate counts
+          k=6 = 2 x 3
+  PASS  `beat` is GONE — it was `search_k - 1` stored as a bare key that no production path read (M-137); a derived value is the reader's arithmetic, not a banked field
+          ['a', 'anchor_a', 'anchor_b', 'b', 'candidates_a', 'candidates_b', 'kind_a', 'kind_b', 'mosaic', 'mosaic_a', 'mosaic_b', 'search_k', 'substituted', 'substituted_a', 'substituted_b', 'tied_at_max']
+  PASS  `search_null.search_shape` reads candidates_a/candidates_b and reports k as their product, per side
+          {'pairs': 1, 'mean_k': 6.0, 'max_k': 6, 'mean_a': 2.0, 'mean_b': 3.0}
+  PASS  `span_kind` ITERATES `SPAN_KINDS` — the declared order is the enforced order, one statement (M-137)
+          ('unattributed', 'substituted', 'reach', 'part', 'exact')
+  PASS  the winning anchors themselves are returned, not just their words
+  PASS  a max over k is not a max over 1 here — the search is real
+          so a bare maximum quotes a search back at itself until k is known
+
+4. a tie means the named span is ONE of several
+  PASS  a real oracle pair with two spans at the maximum reports the tie
+          2 tied of k=8
+  PASS  and the printed note says so
+          scored on: -increase [last 1 of 2 syllables of 'increase']  ~  die   (best of k=8, 2 tied at the max)
+  PASS  a single-winner pair does not claim one
+          1 of 1
+  PASS  `tied_at_max` counts pairs at the max, so it is never 0
+
+5. an anchor built elsewhere gets NO provenance, not a guess
+  PASS  span_provenance returns None on an untagged anchor
+  PASS  best_score still returns a `spans` record with the search size
+  PASS  spans_note degrades to `?` rather than naming a word it cannot see
+          scored on: ?  ~  ?   (best of k=1)
+  PASS  an empty anchor has no provenance
+  PASS  spans_note on a score with no spans key is empty
+
+6. every consumer that pairs a number with a word carries it
+  PASS  check_scheme.pair_scores carries `spans` on every pair
+          6 pairs
+  PASS  ...and a rendered `spans_note` beside it
+  PASS  the endwords and the scored spans are SEPARATE fields, and they DIFFER on the case that named this defect
+          endwords ('it', 'it') score 1.0 REPEAT  ::  scored on: -enjoys it [last 1 of 2 syllables of 'enjoys']  ~  -destroys it [last 1 of 2 syllables of 'destroys']   (best of k=9, 2 tied at the max)   MOSAIC (both sides): the winning span reaches back past the end word
+  PASS  the printed note is non-empty exactly where there is provenance
+  PASS  rhyme_graph found edges to report on
+          2 edges
+  PASS  rhyme_graph edge tuples keep their 4-field shape
+          test_readability pins `g['edges'] == [(2, 3, 1.0, 'RHYME')]`, so a fifth field would break a reader that unpacks it
+  PASS  ...and edge_spans is index-aligned with edges and carries a note
+          scored on: spend  ~  end   (best of k=4)
+  PASS  infer_chains reports which of a chain's pairs were mosaic
+          mean_coherence is a mean over pairs and the endwords beside it are only the pairs' labels
+  PASS  ...and on a real chain it names the mosaic pairs behind the mean
+          ['scored on: thy wrong  ~  live young   (best of k=4)   MOSAIC (both sides): the winning span reaches back past the end word']
+
+7. this is a REPORTING change: no verdict may move
+  PASS  152 sonnets parse
+          152
+  PASS  mandated pairs 1064
+          1064
+  FAIL  judged 1014
+          967
+  FAIL  refused 50
+          97
+  PASS  violations 4 (0.4% of judged)
+          4 (0.4%)
+  FAIL  4 of the 14 violations were scored on a span that is NOT the end word
+          3 / 4 = 75.0% of the oracle's violations named a pair of words that did not produce their number
+
+10. the spans are not a KEY on the score, they are the OBJECT
+  PASS  best_score returns a Scored — the TYPE is the marker, so there is no flag to forget
+          Scored; and a Scored is still a dict, so every existing reader works: True
+  PASS  a single-pair `score` is NOT a Scored — the two are distinguishable by isinstance, not by remembering a key
+  PASS  del s['spans'] RAISES rather than quietly succeeding
+  PASS  s.pop('spans') RAISES rather than quietly succeeding
+  PASS  s['spans'] = None RAISES rather than quietly succeeding
+  PASS  ...and the record survived all three attempts
+  PASS  an Attribution is FROZEN: a provenance record that can be edited after the fact is one that can be invented
+  PASS  the derived questions are on the object, not recomputed by each consumer
+  PASS  `claims` evaluates the assertion a report line makes
+          two words and a number on one line IS an assertion
+  PASS  str(Scored) cannot print a bare number
+          0.579  NO_RELATION   scored on: get to go  ~  -receipt [last 1 of 2 sy
+
+11. `report_pair` — one call renders the label AND the evidence
+  PASS  the head line is the number beside the words, as before
+          (go/receipt): 0.579  NO_RELATION
+  PASS  and the line BELOW it says the named pair is not the evidence
+                  NAMED PAIR IS NOT THE EVIDENCE: left reaches past `go`, right is part of `receipt`
+  PASS  naming which side and how
+                  NAMED PAIR IS NOT THE EVIDENCE: left reaches past `go`, right is part of `receipt`
+  PASS  a pair whose words ARE the evidence gets no banner
+          ['(cat/hat): 1.0  RHYME', '        scored on: cat  ~  hat   (best of k=1)']
+  PASS  an anchor cut alone is printed in the label and does NOT raise the banner — the rendering says less than the count, on purpose
+                  scored on: dawn  ~  -again [last 1 of 2 syllables of 'again']   (best of k=2)
+
+12. SUBSTITUTED — the label names a string that was never read
+  PASS  token_pieces splits the compound and says which half read
+          ['hill'] / ['zide']
+  PASS  `unread_final_piece` is TRUE on `hill-zide`: the last piece is unread and an earlier one read
+          (['hill'], ['zide'])
+  PASS  and FALSE on `threshing-floor`, where the last piece IS the rhyme word — the report half, which is not refused
+          (['floor'], ['threshing'])
+  PASS  `line_anchors` now returns NO anchor for the line — the refusal is on the SHIPPED path, not only in the record, so `score` returns NO_ANCHOR to every caller and the two cannot drift apart
+          0 anchors
+  PASS  `line_readability` says NOT readable, and names the cause `piece`
+          False / piece
+  PASS  the reason names the pieces both ways round and charges the LEXICON rather than the poet (doctrine 79)
+          the end word 'hill-zide' is a compound and CMUdict has no pronunciation for its LAST piece (zide); the pieces that DO read (hill) are not the rhyme word, so the harness refuses rather than anchoring on them. This line's end-rhyme is UNKNOWN, not absent, and the gap is the lexicon's, not the poet's.
+  PASS  `zide` is NOT filed as an INTERIOR unreadable — it is part of the END word, and the two mean opposite things downstream (doctrine 28; the misfiling was 328 of 328 cases)
+          interior ['zunny'], final pieces ['zide'] — and `zunny` IS interior and stays there, which is the separation working rather than the category being emptied
+  PASS  `wilful-slow` still reads on its LAST piece and is still typed SUBSTITUTED — the report defect survives the anchor fix
+          (['slow'], ['wilful'])
+  PASS  and that line stays READABLE, with the overstating label recorded separately from any refusal
+          True / ['wilful']
+  PASS  the label names the piece that was read and the piece that was not
+          flesh in his wilful-slow [read as slow: wilful not in the lexicon, inside 'wilful-slow']
+  PASS  three sonnet tokens carry an unread hyphen piece
+          [(28, "swart-complexion'd"), (51, 'wilful-slow'), (81, "o'er-read")]
+  PASS  2 pairs are MANDATED and JUDGED on one, and both score 1.0 — correct answers on a label that overstates, which is exactly why 152 sonnets could never have caught this (doctrine 95's shape)
+          [(51, (13, 14), ('wilful-slow', 'go'), 1.0), (81, (10, 12), ("o'er-read", 'dead'), 1.0)]
+  PASS  the third is NOT an end word: sonnet 28 L11 ends on `night` and `swart-complexion'd` is reached by a MOSAIC span, so the substitution rides inside a span label rather than an end-word label — two defects of this cell's compounding
+          and it is not mandated with anything, so it costs no verdict
+
+13. adversary 7's instrument: quality/audit_spans.py
+  FAIL  three counts, always (doctrine 79)
+          mandated 1064 judged 967 refused 97
+  PASS  violations match the oracle's own pin — the sweep reads the same oracle the battery does
+          4
+  FAIL  632 of the 1014 JUDGED pairs name the two words that produced their number
+          605 / 967; the other 362 name a pair that did not
+  FAIL  4 of the 14 VIOLATIONS do — this is the number that decides whether a triage lands on the right layer
+          1 / 4
+  FAIL  4 of them could not be reconstructed from the printed words even in principle (reach / substituted / unattributed)
+          3 / 4; the remaining 0 are the declared anchor cut, visible in the label
+  PASS  the partition is exhaustive over the judged pairs
+          967 == 967
+  FAIL  121 judged pairs had a TIE at the maximum — a second, independent way the named span is one of several
+          114
+  PASS  the record sweep finds this project's own canonical bad report line and cannot reproduce it from the words it names
+          recorded 0.579, measured 0.272 from `go` and `receipt`
+  PASS  and it REFUSES the rows whose number is a different quantity rather than calling them wrong (doctrine 79)
+          7 refused, 38 reproduce, 13 disagree, of 58 adjudicable
+  PASS  the three outcomes partition the adjudicable rows
+  PASS  the sweep EXCLUDES its own report by name, and says so — an instrument that swept its own findings would report its output as fresh evidence and grow every time the prose was edited
+          quality/RESULTS_SPANS.md
+
+8. BACKLOG 2.4 — the refrain pointer's LANGUAGE is a coordinate
+  PASS  eng still recognised: 'Oh, my poor Nelly Gray, &c.'
+  PASS  eng still recognised: 'Then come, weel speed my pleughm'
+  PASS  eng still recognised: 'Farewell to the shore, etc.'
+  PASS  fin: 'Aita mulle päälle kaatui j. n. e. [4'
+          ('fin', 'j. n. e. (ja niin edelleen)')
+  PASS  fin: 'Pytikästä j. n. e. (vaikka loppumatt'
+          ('fin', 'j. n. e. (ja niin edelleen)')
+  PASS  fin: 'Härkä ei juo vettä j. n. e."'
+          ('fin', 'j. n. e. (ja niin edelleen)')
+  PASS  fin: 'Nuora ei lyö härkää j. n. e."'
+          ('fin', 'j. n. e. (ja niin edelleen)')
+  PASS  fin: 'Hiiri ei pure nuoraa j. n. e."'
+          ('fin', 'j. n. e. (ja niin edelleen)')
+  PASS  fin: 'Kissa ei syö hiirtä j. n. e."'
+          ('fin', 'j. n. e. (ja niin edelleen)')
+  PASS  fin: '"Kiesuksen jätän siaani, j. n. e."'
+          ('fin', 'j. n. e. (ja niin edelleen)')
+  PASS  fin: 'Va rahalla ra j. n. e.'
+          ('fin', 'j. n. e. (ja niin edelleen)')
+  PASS  msa `d. s. b.` is recognised where it occurs
+          MEASURED 2026-08-11: corpus/song/msa_skeat_pantun.txt contains ZERO instances, against the ~100 recorded in MISSING.md M-4
+  PASS  a real line is NOT a stub: 'Farewell to the old Kentucky sho'
+  PASS  a real line is NOT a stub: "And I'll never see my darling an"
+  PASS  a real line is NOT a stub: 'The spacious firmament on high,'
+  PASS  a real line is NOT a stub: 'she said j. n. e. and then walke'
+  PASS  a real line is NOT a stub: 'a fine etcetera of small complai'
+  PASS  the language is a COORDINATE, not a guess (doctrine 45)
+          asking for English does not silently answer with Finnish
+
+8b. BACKLOG 2.4 — Welsh prints `&c.`, and it is not English
+  PASS  the staged Welsh really carries line-final pointers, and the quoted witnesses are really in it
+          33 line-final pointers in cym_song_mynyddog.txt; missing witnesses: none
+  PASS  the Welsh WORDS the entry expected occur ZERO times line-final — so the fix is a second attestation, not a fourth pattern
+          found line-final: none
+  PASS  cym: 'Rhowch, &c.' -> cym
+          ('cym', '&c. / etc. (et cetera)')
+  PASS  cym: "Ond dyma'r gwirionedd, &c." -> cym
+          ('cym', '&c. / etc. (et cetera)')
+  PASS  cym: 'Dysgwch ddweyd "Na," &c.' -> cym
+          ('cym', '&c. / etc. (et cetera)')
+  PASS  ...and a declared Welsh line is never answered `not a stub`
+  PASS  undeclared, a SHARED form answers `cannot tell` and still answers `stub`: 'Rhowch, &c.'
+          (None, '&c. / etc. (et cetera)')
+  PASS  undeclared, a SHARED form answers `cannot tell` and still answers `stub`: 'Oh, my poor Nelly Gray, &c.'
+          (None, '&c. / etc. (et cetera)')
+  PASS  ...while a form attested in ONE tradition still names it undeclared, so this is a refusal and not a blanket None
+  PASS  `chorus_stub_languages` reports the attestation set, and `()` for a line that carries no pointer
+  PASS  a Finnish citation truncation is NOT a Finnish pointer: 'Ruotsinkielisestä: "Toma glas i godt kal'
+  PASS  a Finnish citation truncation is NOT a Finnish pointer: 'Mukailtu C. M. BellmanIN teoksesta "Fade'
+  PASS  a Finnish citation truncation is NOT a Finnish pointer: 'Mukailtu C. M. BellmanIN teoksesta "Hjer'
+  PASS  a Finnish citation truncation is NOT a Finnish pointer: 'Mukailtu C. M. Bellman teoksesta: "Supa '
+  PASS  a Finnish citation truncation is NOT a Finnish pointer: 'Mukailtu C. M. Bellman teoksesta "Kärast'
+  PASS  ...and they DO match undeclared, which is why the language has to be supplied rather than inferred
+  PASS  the `"quoted," &c.` shape does NOT separate citations from pointers — 5 real pointers share it, so no heuristic replaces the coordinate
+          cym_song_mynyddog.txt:935,947,960 and eng_british_richard_lovelace.txt:1273, eng_celtic_msm_richard_gall.txt:189
+  PASS  is_chorus_stub keeps its one-argument boolean contract
+  PASS  CHORUS_STUB is still a compiled pattern matching any convention
+
+9. BACKLOG 1.5 — dedupe findings before printing
+  PASS  six identical findings collapse to one
+          7 in, 2 out
+  PASS  the finding that was NOT repeated survives — it is the one a writer needs and it was being buried
+          ['SHARED_SUFFIX', 'CLICHE_PAIR']
+  PASS  two different findings of the same code both survive
+  PASS  distinct objects with identical text still collapse
+          the fan-out reuses one object, but a rebuilt equal one is just as much a duplicate to a reader
+  PASS  order is preserved and an empty list is safe
+==============================================================
+8 FAILING: judged 1014, refused 50, 4 of the 14 violations were scored on a span that is NOT the end word, three counts, always (doctrine 79), 632 of the 1014 JUDGED pairs name the two words that produced their number, 4 of the 14 VIOLATIONS do — this is the number that decides whether a triage lands on the right layer, 4 of them could not be reconstructed from the printed words even in principle (reach / substituted / unattributed), 121 judged pairs had a TIE at the maximum — a second, independent way the named span is one of several

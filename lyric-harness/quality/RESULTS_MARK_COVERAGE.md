@@ -1,5 +1,27 @@
 # RESULTS — mark coverage: what the section vocabulary cannot type
 
+## Current measurement, 2026-09-08
+
+The complete current census has 77,052 typed blocks, 125,501 decided refusals,
+32 undecided marks and one numeral-apparatus block. The vocabulary still has
+22 declared functions and five witnessed functions. The earlier counts were
+77,093 typed and 59 numeral-apparatus blocks; decided and undecided counts did
+not move.
+
+The exact typed-block delta is Whittier −1, Read −7, Hemans −12,
+Locker-Lampson −1, Lovelace −17, D'Urfey −1 and Emmett −2. Hemans accounts
+for all 58 numeral-apparatus removals. These follow the normalized reader
+and explicit editorial staging decisions; source text remains recorded as
+apparatus. Both original-checkout and current-checkout measurements, with
+per-file counts and reader identities, are retained in
+`quality/results/production_data_2026-09-08/mark-bucket-delta.json` and its
+`mark-buckets-before.json` / `mark-buckets-current.json` companions.
+
+The dated notes and tables below record earlier populations. The current
+executable pin and `--check` refer to the measurement above.
+
+## Historical measurements
+
 > **REPINNED 2026-08-28 (M-52's close): typed ~~77,090~~ 77,093, decided
 > ~~125,504~~ 125,501, declared functions ~~21~~ 22, witnessed ~~4~~ 5 —
 > every unit of the delta is `patter` entering the vocabulary on its

@@ -717,6 +717,8 @@ class GroupBrief:
     #: asked again next round with the grader's reasons said nowhere —
     #: the shape M-236 closed for a line, open here until this field.
     prior: object = None
+    whole_repair: bool = False
+    mandate_description: str = ""
 
     def proposal_for(self, line_no):
         """-> (text, proposed word, slot) for one member, or `None`.
@@ -727,6 +729,8 @@ class GroupBrief:
         got it backwards would splice the pivot's word onto an anchor with no
         error anywhere (doctrine 1).
         """
+        if self.whole_repair and line_no in self.members:
+            return self.lines[line_no - 1], "", None
         if line_no == self.pivot_line_no:
             return self.pivot_text, self.pivot_word, self.pivot_slot
         for a in self.anchors:
@@ -843,11 +847,13 @@ class LoopResult:
     #: absence rather than inventing an identity (doctrine 20).
     input_n: int = 0
     input_fingerprint: str = ""
+    coverage: dict = field(default_factory=dict)
+    findings: list = field(default_factory=list)
 
     @property
     def coverage_certified(self):
         """Every declared pair was judged; separate from writing defects."""
-        return self.pairs_refused == 0
+        return self.coverage.get("certified", self.pairs_refused == 0)
 
     @property
     def whole_flags(self):
@@ -912,14 +918,11 @@ class LoopResult:
             out.append("  COVERAGE UNCERTIFIED: declared obligations remain "
                        "unjudged; this is not an artistic violation")
         if self.whole_flags:
-            out.append("  WHOLE-DRAFT FLAG(S) NO STOP CONDITION ABOVE CAN "
-                      "SEE: " + ", ".join(f.code for f in self.whole_flags))
-            out.append("    a whole-draft finding names no line, and this "
-                      "loop's only move is a word swap on a named line, so "
-                      "these were never briefed and never revised. "
-                      "`verify()` DOES read them, so one of these can reject "
-                      "a revision and can never ask for one. Disclosed here "
-                      "so a SUCCESS is not read as a clean draft")
+            out.append("  WHOLE-DRAFT REQUIREMENTS UNRESOLVED: " +
+                       ", ".join(f.code for f in self.whole_flags))
+            out.append("    These required checks remain open after the configured "
+                       "repair budget. A whole-draft writer can repair them; "
+                       "this result is not successful completion.")
         return out
 
     def __str__(self):
@@ -1013,7 +1016,9 @@ def _close(reviser, stop_reason, lines, rounds, unresolved, mandate,
     # what "unresolved" contains (doctrine 1, the argument `_open_lines`
     # itself was written for).
     _flagged, _pursued = _open_by_rule(unresolved, pursue)
-    if stop_reason == "success" and g["pairs_refused"]:
+    if stop_reason == "success" and any(f.severity == "flag" for f in found["whole"]):
+        stop_reason = "whole_draft_unresolved"
+    if stop_reason == "success" and not found.get("coverage", {}).get("certified", not g["pairs_refused"]):
         stop_reason = "uncertified"
     return LoopResult(
         stop_reason, lines, rounds, unresolved,
@@ -1027,7 +1032,21 @@ def _close(reviser, stop_reason, lines, rounds, unresolved, mandate,
         pairs_judged=g["pairs_judged"],
         pairs_refused=g["pairs_refused"],
         input_n=input_n,
-        input_fingerprint=input_fp)
+        input_fingerprint=input_fp,
+        coverage=found.get("coverage", {}),
+        findings=[f for fs in found["per_line"].values() for f in fs] + list(found["whole"]))
+
+
+def _notify_verified(proposer, before, after, members, verdict, round_no):
+    """Report an actual verifier decision; application is a later checkpoint.
+
+    A stored provider answer, a declined question, or an unvisited batch
+    member never reaches this hook. Recording writers bind the decision to
+    the exact question and candidate they just returned.
+    """
+    record = getattr(proposer, "verified", None)
+    if record is not None:
+        record(list(before), list(after), tuple(members), verdict, round_no)
 
 
 def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
@@ -1057,17 +1076,17 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         # revising a PAIR and started revising the whole group: a set of
         # lines that must move together is revised together, in one proposal,
         # and every member is TARGETED so rule 2 admits what it asked for.
-        targets = {b.line_no}
-        for _lab, _members, _pairs in (b.must_answer or ()):
-            if _lab not in (b.return_groups or ()):
-                continue
-            for _ln in _members:
-                if 1 <= _ln <= len(after):
-                    after[_ln - 1] = candidate
-                    targets.add(_ln)
+        m = mandate if hasattr(mandate, "return_of") else reviser.mandate(lines, mandate)
+        ret = m.return_of(b.line_no)
+        targets = (set(ret.lines) if ret is not None and ret.verbatim is True
+                   else {b.line_no})
+        for ln in targets:
+            after[ln - 1] = candidate
         res = reviser.verify(lines, after, mandate, targeted=set(targets),
                              profile=profile, blueprint=blueprint,
                              subdivision=subdivision, assume=assume)
+        _notify_verified(propose, lines, after, sorted(targets), res,
+                         getattr(b, "round_no", None))
         # THE VERDICT, TOLD TO THE PROPOSER THAT OFFERED THE LINE (M-236).
         # A recording proposer (`defer:`) keeps it beside the answer, so a
         # reader of the state file can say what verify made of each line
@@ -1153,7 +1172,8 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
             detail = (f"the PROPOSER declined at attempt 0 with "
                       f"{len(b.candidates)} candidate(s) offered — its "
                       f"refusal, not an empty field")
-    return LineAttempt(b.line_no, 1, False, tried, detail, ()), lines
+    return LineAttempt(b.line_no, 1, False, tried, detail, (),
+                       asked=rdecl.attempts_per_line > 0), lines
 
 
 def _anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line,
@@ -1343,6 +1363,40 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
     labels = list(getattr(mandate, "labels", ()))
     for label, members, calls in groups:
         gi = labels.index(label) if label in labels else None
+        # A return expands the atomic edit; it does not pin its members.
+        closure = set(members)
+        for member in tuple(closure):
+            ret = mandate.return_of(member)
+            if ret is not None and ret.verbatim is True:
+                closure.update(ret.lines)
+        if any(mandate.return_of(member) is not None and
+               mandate.return_of(member).verbatim is True for member in members):
+            expanded = tuple(sorted(closure))
+            for attempt in range(rdecl.backtrack_width):
+                gb = GroupBrief(b.line_no, b.text, "", (), (), label, expanded,
+                                b, tuple(lines), attempt, whole=tuple(b.findings) + tuple(whole),
+                                whole_repair=True, mandate_description=mandate.describe())
+                got = propose_group(gb)
+                if got is None:
+                    continue
+                tried += 1
+                if len(got) != len(expanded):
+                    continue
+                after = list(lines)
+                for ln, text in zip(expanded, got):
+                    after[ln - 1] = text
+                res = reviser.verify(lines, after, mandate, targeted=set(expanded),
+                                     profile=profile, blueprint=blueprint,
+                                     subdivision=subdivision, assume=assume)
+                _notify_verified(propose_group, lines, after, expanded, res, _round)
+                if _record_g is not None:
+                    _record_g(expanded, _round, list(got), bool(res["accepted"]),
+                              list(res.get("reasons", ())))
+                if res["accepted"]:
+                    return LineAttempt(b.line_no, 2, True, tried,
+                                       "atomic group/return repair: " + "; ".join(res["reasons"]),
+                                       expanded), after
+            continue
         # (a) A RETURN PINS A LINE. If this group IS a declared verbatim
         # return, or another of the pivot's groups is, the only legal end
         # word is the one already there — which `exclude` removes — so every
@@ -1472,6 +1526,7 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                         lines, after, mandate, targeted=set(members),
                         profile=profile, blueprint=blueprint,
                         subdivision=subdivision, assume=assume)
+                    _notify_verified(propose_group, lines, after, members, res, _round)
                     if _record_g is not None:
                         _record_g(members, _round, list(got),
                                   bool(res["accepted"]),
@@ -1489,42 +1544,31 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
             continue
         empty_member = collections.Counter()
         for w in walked:
-            # THE CHAIN. `chosen` grows as members are assigned, and each
-            # member's field is searched against ALL of it — so member i
-            # answers the pivot AND every sibling already placed, which is
-            # what keeps the group mutually rhyming without a second
-            # predicate. The LAST member is the one walked, so the k=2 case
-            # walks its single anchor exactly as the pair search did.
-            chosen = [w]
-            assigned, broke = [], None
-            for idx, (m_line, m_current, m_other) in enumerate(others):
+            # Explore earlier sibling choices as well as the last member.
+            # Every accepted assignment remains a clique. The node budget
+            # bounds effort and is never described as proving impossibility.
+            assignments, searched = [], [0]
+            node_cap = max(1, rdecl.backtrack_width ** 2 * len(others))
+            def walk(idx, chosen, assigned):
+                if len(assignments) >= rdecl.backtrack_width or searched[0] >= node_cap:
+                    return
+                if idx == len(others):
+                    assignments.append(tuple(assigned))
+                    return
+                searched[0] += 1
+                m_line, m_current, m_other = others[idx]
                 field, _mf = reviser.joint_field(
                     chosen + list(m_other), exclude=(m_current,), profile=profile)
                 if not field:
-                    # THIS MEMBER'S OWN CONJUNCTION CAME BACK EMPTY, a
-                    # sentence only the folded field can form — the
-                    # unfolded search was never empty here and offered
-                    # words that all broke a group nobody had mentioned.
-                    # Counted PER MEMBER, so the dead end below can name
-                    # WHICH line the conjunction failed at.
-                    broke = m_line
-                    break
-                assigned.append((m_line, m_current, m_other, field))
-                if idx < len(others) - 1:
-                    chosen.append(field[0])
-            if broke is not None:
-                empty_member[broke] += 1
-                continue
-            last_field = assigned[-1][3]
-            for v in last_field[:rdecl.backtrack_width]:
-                anchors = []
-                for j, (m_line, _m_cur, m_calls, m_field) in enumerate(
-                        assigned):
-                    word = v if j == len(assigned) - 1 else chosen[j + 1]
-                    anchors.append(AnchorSlot(
-                        line_no=m_line, text=lines[m_line - 1], word=word,
-                        offered=tuple(m_field), calls=tuple(m_calls),
-                        slot=_slot_for(mandate, gi, m_line)))
+                    empty_member[m_line] += 1
+                    return
+                for word in field[:rdecl.backtrack_width]:
+                    walk(idx + 1, chosen + [word], assigned + [
+                        AnchorSlot(line_no=m_line, text=lines[m_line - 1], word=word,
+                                   offered=tuple(field), calls=tuple(m_other),
+                                   slot=_slot_for(mandate, gi, m_line))])
+            walk(0, [w], [])
+            for anchors in assignments:
                 got = propose_group(GroupBrief(
                     pivot_line_no=b.line_no, pivot_text=b.text,
                     pivot_word=w, pivot_offered=tuple(p_offered),
@@ -1557,6 +1601,7 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                     targeted=set(members), profile=profile,
                     blueprint=blueprint, subdivision=subdivision,
                     assume=assume)
+                _notify_verified(propose_group, lines, after, members, res, _round)
                 if _record_g is not None:
                     _record_g(members, _round, list(got),
                               bool(res["accepted"]),
@@ -1572,7 +1617,7 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                         + "; ".join(res["reasons"]),
                         tuple(members)), after
                 reasons = tuple(res["reasons"])
-        if walked and sum(empty_member.values()) == len(walked):
+        if walked and empty_member:
             where = ", ".join(f"L{ln} x{n}" for ln, n
                               in sorted(empty_member.items()))
             # NAMING THE MEMBERS IS THE POINT, not decoration: this sentence
@@ -1582,12 +1627,11 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
             # the count of pivot words it died under beside each.
             names = " / ".join(f"L{ln}" for ln in sorted(empty_member))
             starved.append(
-                f"group {label} {list(members)}: every one of the "
-                f"{len(walked)} pivot word(s) walked left a member with an "
-                f"EMPTY field ({where}) — nothing answers the new pivot "
-                f"word AND {names}'s own group(s) at once, so the "
-                f"conjunction is unsatisfiable at that member and this is "
-                f"not a search that came back short")
+                f"group {label} {list(members)}: search over {len(walked)} pivot word(s) "
+                f"encountered EMPTY member fields ({where}). The node budget per pivot "
+                f"was {max(1, rdecl.backtrack_width ** 2 * len(others))}; "
+                f"bounded search exhausted those branches, and unscanned words or "
+                f"earlier sibling choices may still admit a repair")
     # PINNED IS ITS OWN COUNT AND IS NEVER FOLDED INTO `tried` (doctrine 79):
     # a group the loop REFUSED to search because no legal answer exists is
     # not a group it searched and failed. Reporting them together would say
@@ -1641,8 +1685,7 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
     # reported as a proposer that could not find anything.
     if starved:
         detail += (f"; {len(starved)} group(s) reached an EMPTY MEMBER "
-                   f"field — the conjunction is unsatisfiable at that "
-                   f"member, not a search that came back short: "
+                   f"field — SEARCH_LIMITED, no impossibility proof: "
                    + "; ".join(starved))
     # THE TWO SKIPS THAT USED TO SAY NOTHING (`MISSING.md` M-205). Their own
     # counts, never folded into `tried`, `pinned` or `starved` (doctrine 79),
@@ -1793,7 +1836,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
             _checkpoint(lines, round_no, "grading")
         briefs = reviser.brief(lines, mandate, profile=profile,
                                blueprint=blueprint, subdivision=subdivision,
-                               assume=assume)
+                               assume=assume, include_offers=False)
         # THE ROUND IS A COORDINATE OF THE QUESTION (M-183): stamped on the
         # brief, read by the recording proposers, so the same line at the
         # same attempt in a later round is a new question and not a replay.
@@ -1806,6 +1849,47 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         # here. `_close` carries those out in `LoopResult.whole_flags`.
         flagged = _open_lines(briefs, pursue)
         if not flagged:
+            _found = reviser.inspect(lines, mandate, profile=profile,
+                                     blueprint=blueprint, subdivision=subdivision,
+                                     assume=assume)
+            _global = tuple(f for f in _found["whole"] if f.severity == "flag")
+            if _global and _group_declared and rdecl.attempts_per_line > 0:
+                _members = tuple(range(1, len(lines) + 1))
+                _reasons, _moved, _attempts = None, False, []
+                for _attempt in range(rdecl.attempts_per_line):
+                    _gb = GroupBrief(1, lines[0], "", (), (), "whole_draft", _members,
+                                     briefs[0] if briefs else None, tuple(lines), _attempt,
+                                     reasons=_reasons, whole=_global, whole_repair=True,
+                                     mandate_description=_found["mandate"].describe())
+                    _got = propose_group(_gb)
+                    if _got is None:
+                        _reasons = ("writer returned no unambiguous whole-draft answer",)
+                        continue
+                    _after = list(_got)
+                    _v = reviser.verify(lines, _after, mandate, targeted=set(_members),
+                                        profile=profile, blueprint=blueprint,
+                                        subdivision=subdivision, assume=assume)
+                    _notify_verified(propose_group, lines, _after, _members, _v, round_no)
+                    _reasons = tuple(_v.get("reasons", ()))
+                    _record = getattr(propose_group, "record", None)
+                    if _record is not None:
+                        _record(_members, round_no, _after, bool(_v["accepted"]), list(_reasons))
+                    _changed = tuple(i + 1 for i, (a, b) in enumerate(zip(lines, _after)) if a != b)
+                    _attempts.append(LineAttempt(1, 3, bool(_v["accepted"]), _attempt + 1,
+                                                 "; ".join(_reasons), _changed))
+                    if _v["accepted"]:
+                        lines, _moved = _after, True
+                        if _checkpoint is not None:
+                            _checkpoint(lines, round_no, "accepted")
+                        break
+                rounds.append(RoundResult(round_no, _attempts,
+                                          sorted({n for a in _attempts if a.accepted
+                                                  for n in a.touched})))
+                if _moved:
+                    continue
+                return _close(reviser, "whole_draft_unresolved", lines, rounds, [], mandate,
+                              blueprint, subdivision, assume, profile,
+                              input_n=input_n, input_fp=input_fp, pursue=pursue)
             return _close(reviser, "success", lines, rounds, [], mandate,
                           blueprint, subdivision, assume, profile,
                           input_n=input_n, input_fp=input_fp,
@@ -1887,7 +1971,8 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
             if lines != brief_lines:
                 fresh = reviser.brief(lines, mandate, profile=profile,
                                       blueprint=blueprint,
-                                      subdivision=subdivision, assume=assume)
+                                      subdivision=subdivision, assume=assume,
+                                      include_offers=False)
                 for _b in fresh:
                     _b.round_no = round_no
                 # `whole` is the rubric `verify()` grades against and it
@@ -1928,6 +2013,31 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                     resolved_elsewhere.append(b.line_no)
                     continue
                 b = latest_open[b.line_no]
+            # Materialize only the imminent writer question. The assessed
+            # finding inventory above still covers every line and is
+            # refreshed after every accepted edit; the writer receives the
+            # same complete verified brief as an explicit brief request.
+            def _materialize(_b):
+                if getattr(_b, "offers_requested", True):
+                    return _b
+                _exact = reviser.brief(lines, mandate, profile=profile,
+                                      blueprint=blueprint, subdivision=subdivision,
+                                      assume=assume, target_lines={_b.line_no})
+                _got = next((x for x in _exact if x.line_no == _b.line_no), None)
+                if _got is not None:
+                    _got.round_no = round_no
+                return _got
+
+            _selected_line = b.line_no
+            # A declared zero/zero diagnostic run cannot ask either writer.
+            # Keep its full assessed obligations, but no candidate menu is
+            # consumed. A nonzero backtrack budget still needs exact offers
+            # even when the line-attempt budget is zero.
+            if not (rdecl.attempts_per_line == 0 and rdecl.backtrack_width == 0):
+                b = _materialize(b)
+            if b is None:
+                resolved_elsewhere.append(_selected_line)
+                continue
             # THE BATCH DOOR (M-236). A proposer that asks a writer one
             # question per process (`defer:`) is handed, before THIS line's
             # first question, the briefs of every open line still ahead of
@@ -1959,6 +2069,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                             continue
                     if _x.joint_conflict:
                         continue
+                    _x._materialize = lambda _candidate=_x: _materialize(_candidate)
                     _ahead.append(_x)
                 _prefetch(b, _ahead, lines, whole)
             if b.joint_conflict:
@@ -2069,7 +2180,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
 
     briefs = reviser.brief(lines, mandate, profile=profile,
                            blueprint=blueprint, subdivision=subdivision,
-                           assume=assume)
+                           assume=assume, include_offers=False)
     unresolved = _open_lines(briefs, pursue)
     return _close(reviser, "round_limit", lines, rounds, unresolved, mandate,
                   blueprint, subdivision, assume, profile,

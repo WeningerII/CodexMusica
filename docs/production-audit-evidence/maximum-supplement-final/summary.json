@@ -1,0 +1,579 @@
+{
+  "version": 1,
+  "scope": "Supplemental local maximum computation and repeated-worker variability",
+  "production_qualified": false,
+  "isolated_performance_qualified": false,
+  "retained_memory_qualified": false,
+  "combined_runtime_qualified": false,
+  "per_call_deadline_seconds": 600,
+  "planned_lines": 31,
+  "predeclared_seeds": [
+    20260908,
+    20260909,
+    20260910
+  ],
+  "selected_measurements": 6,
+  "ambient_load": "Runs overlap the declared single-worker capacity receipt generation and later ordinary functional suite, as authorized. The obsolete unrelated scan has exited.",
+  "percentile_method": "Descriptive nearest-rank p95 of the observed rows, with explicit denominator. Three seeds do not estimate population tails.",
+  "source_scope_evidence": [
+    "capacity-source-scope.json",
+    "cli-source-scope.json"
+  ],
+  "source_epoch_policy": "Byte changes are retained as changes. Known receipt-validation and unrelated CLI dispatch repairs are documented separately; these samples do not qualify the final image.",
+  "failed_transport_attempts": [
+    "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260908-worker.json",
+    "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260909-worker.json"
+  ],
+  "samples": [
+    {
+      "seed": 20260908,
+      "mode": "cold",
+      "measurement_file": "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260908-cold.json",
+      "complete": true,
+      "expected_grade_repair_rows": 2,
+      "observed_grade_repair_rows": 2,
+      "recorded_runtime_sources_match_current": false,
+      "source_sha256": {
+        "lyric-harness/lyric_harness.py": "7a5d9184f568902732cd5cb2d4fa4123deef1b1deff0b4cd95d23af54f08024e",
+        "lyric-harness/quality/plan.py": "80ebf7c4ed57b1d75b6111f76d809ab22515d4b51387581ebe39d2ffb8150856",
+        "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679",
+        "lyric-harness/quality/relations.py": "c8321f5cfb33722e640820749c0f987a9e87072f1cfa2ce3ff04eb38f37fcdab",
+        "lyric-harness/quality/loop.py": "60276b2bc3f0edbc5133c8ee5f17366d2287c6be116fca3082c6ad119e796789",
+        "lyric-harness/quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+        "lyric-harness/quality/capacity.py": "f03424c7a8572a5389f98c29fabffc07dc07450fd428e52e6a9e66259be3b5fd",
+        "scripts/measure_verb_memory.py": "1bb741c6252e2de95c611021ef11d396123fcf90a9f1c9abad7b53aebd975f87"
+      },
+      "reported_source_unchanged": true,
+      "component_peak_mb": 791.5078125,
+      "retained_mb": null,
+      "growth_mb": null,
+      "rows": [
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 38.369186586998694,
+          "peak_mb": 677.51171875,
+          "retained_mb": null,
+          "machine_status": "graded",
+          "stop": "graded",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "quality_certified": false,
+          "refusals": 46,
+          "control_record_bytes": null
+        },
+        {
+          "verb": "revise",
+          "exit_code": 4,
+          "wall_s": 117.352560627005,
+          "peak_mb": 791.5078125,
+          "retained_mb": null,
+          "machine_status": "suspended",
+          "stop": "needs_proposal",
+          "authenticated": true,
+          "checkpoint_valid": true,
+          "quality_certified": null,
+          "refusals": null,
+          "control_record_bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 20260908,
+      "mode": "worker",
+      "measurement_file": "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260908-worker-capture-fixed.json",
+      "complete": true,
+      "expected_grade_repair_rows": 6,
+      "observed_grade_repair_rows": 6,
+      "recorded_runtime_sources_match_current": false,
+      "source_sha256": {
+        "lyric-harness/lyric_harness.py": "7a5d9184f568902732cd5cb2d4fa4123deef1b1deff0b4cd95d23af54f08024e",
+        "lyric-harness/quality/plan.py": "80ebf7c4ed57b1d75b6111f76d809ab22515d4b51387581ebe39d2ffb8150856",
+        "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679",
+        "lyric-harness/quality/relations.py": "c8321f5cfb33722e640820749c0f987a9e87072f1cfa2ce3ff04eb38f37fcdab",
+        "lyric-harness/quality/loop.py": "60276b2bc3f0edbc5133c8ee5f17366d2287c6be116fca3082c6ad119e796789",
+        "lyric-harness/quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+        "lyric-harness/quality/capacity.py": "f03424c7a8572a5389f98c29fabffc07dc07450fd428e52e6a9e66259be3b5fd",
+        "scripts/measure_verb_memory.py": "ead3f5477c1b6e5908fba961a4ef8eb4352decaa01d0f8e1152f6d2398d13e08"
+      },
+      "reported_source_unchanged": false,
+      "component_peak_mb": 788.08984375,
+      "retained_mb": null,
+      "growth_mb": null,
+      "rows": [
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 61.63717574199836,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "graded",
+          "stop": "graded",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "quality_certified": false,
+          "refusals": 46,
+          "control_record_bytes": 258437
+        },
+        {
+          "verb": "revise",
+          "exit_code": 4,
+          "wall_s": 118.91210639099882,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "suspended",
+          "stop": "needs_proposal",
+          "authenticated": true,
+          "checkpoint_valid": true,
+          "quality_certified": null,
+          "refusals": null,
+          "control_record_bytes": 210
+        },
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 34.081152692000614,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "graded",
+          "stop": "graded",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "quality_certified": false,
+          "refusals": 46,
+          "control_record_bytes": 258437
+        },
+        {
+          "verb": "revise",
+          "exit_code": 4,
+          "wall_s": 3.244216802995652,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "suspended",
+          "stop": "needs_proposal",
+          "authenticated": true,
+          "checkpoint_valid": true,
+          "quality_certified": null,
+          "refusals": null,
+          "control_record_bytes": 211
+        },
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 16.559691478003515,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "graded",
+          "stop": "graded",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "quality_certified": false,
+          "refusals": 46,
+          "control_record_bytes": 258437
+        },
+        {
+          "verb": "revise",
+          "exit_code": 4,
+          "wall_s": 2.9373939220022294,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "suspended",
+          "stop": "needs_proposal",
+          "authenticated": true,
+          "checkpoint_valid": true,
+          "quality_certified": null,
+          "refusals": null,
+          "control_record_bytes": 212
+        }
+      ]
+    },
+    {
+      "seed": 20260909,
+      "mode": "cold",
+      "measurement_file": "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260909-cold.json",
+      "complete": true,
+      "expected_grade_repair_rows": 2,
+      "observed_grade_repair_rows": 2,
+      "recorded_runtime_sources_match_current": false,
+      "source_sha256": {
+        "lyric-harness/lyric_harness.py": "7a5d9184f568902732cd5cb2d4fa4123deef1b1deff0b4cd95d23af54f08024e",
+        "lyric-harness/quality/plan.py": "80ebf7c4ed57b1d75b6111f76d809ab22515d4b51387581ebe39d2ffb8150856",
+        "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679",
+        "lyric-harness/quality/relations.py": "c8321f5cfb33722e640820749c0f987a9e87072f1cfa2ce3ff04eb38f37fcdab",
+        "lyric-harness/quality/loop.py": "60276b2bc3f0edbc5133c8ee5f17366d2287c6be116fca3082c6ad119e796789",
+        "lyric-harness/quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+        "lyric-harness/quality/capacity.py": "f03424c7a8572a5389f98c29fabffc07dc07450fd428e52e6a9e66259be3b5fd",
+        "scripts/measure_verb_memory.py": "1bb741c6252e2de95c611021ef11d396123fcf90a9f1c9abad7b53aebd975f87"
+      },
+      "reported_source_unchanged": true,
+      "component_peak_mb": 726.1328125,
+      "retained_mb": null,
+      "growth_mb": null,
+      "rows": [
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 32.82216391900147,
+          "peak_mb": 650.6328125,
+          "retained_mb": null,
+          "machine_status": "graded",
+          "stop": "graded",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "quality_certified": false,
+          "refusals": 53,
+          "control_record_bytes": null
+        },
+        {
+          "verb": "revise",
+          "exit_code": 4,
+          "wall_s": 104.59326503199554,
+          "peak_mb": 726.1328125,
+          "retained_mb": null,
+          "machine_status": "suspended",
+          "stop": "needs_proposal",
+          "authenticated": true,
+          "checkpoint_valid": true,
+          "quality_certified": null,
+          "refusals": null,
+          "control_record_bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 20260909,
+      "mode": "worker",
+      "measurement_file": "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260909-worker-capture-fixed.json",
+      "complete": true,
+      "expected_grade_repair_rows": 6,
+      "observed_grade_repair_rows": 6,
+      "recorded_runtime_sources_match_current": false,
+      "source_sha256": {
+        "lyric-harness/lyric_harness.py": "7a5d9184f568902732cd5cb2d4fa4123deef1b1deff0b4cd95d23af54f08024e",
+        "lyric-harness/quality/plan.py": "80ebf7c4ed57b1d75b6111f76d809ab22515d4b51387581ebe39d2ffb8150856",
+        "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679",
+        "lyric-harness/quality/relations.py": "c8321f5cfb33722e640820749c0f987a9e87072f1cfa2ce3ff04eb38f37fcdab",
+        "lyric-harness/quality/loop.py": "60276b2bc3f0edbc5133c8ee5f17366d2287c6be116fca3082c6ad119e796789",
+        "lyric-harness/quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+        "lyric-harness/quality/capacity.py": "736147307e73e4ee4e701e437f30a230f9c36ca919a23b6122d15e73302373a9",
+        "scripts/measure_verb_memory.py": "ead3f5477c1b6e5908fba961a4ef8eb4352decaa01d0f8e1152f6d2398d13e08"
+      },
+      "reported_source_unchanged": false,
+      "component_peak_mb": 808.8203125,
+      "retained_mb": null,
+      "growth_mb": null,
+      "rows": [
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 35.74537479400169,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "graded",
+          "stop": "graded",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "quality_certified": false,
+          "refusals": 53,
+          "control_record_bytes": 263521
+        },
+        {
+          "verb": "revise",
+          "exit_code": 4,
+          "wall_s": 90.45084136499645,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "suspended",
+          "stop": "needs_proposal",
+          "authenticated": true,
+          "checkpoint_valid": true,
+          "quality_certified": null,
+          "refusals": null,
+          "control_record_bytes": 211
+        },
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 19.269108354994387,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "graded",
+          "stop": "graded",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "quality_certified": false,
+          "refusals": 53,
+          "control_record_bytes": 263521
+        },
+        {
+          "verb": "revise",
+          "exit_code": 4,
+          "wall_s": 3.1133361009997316,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "suspended",
+          "stop": "needs_proposal",
+          "authenticated": true,
+          "checkpoint_valid": true,
+          "quality_certified": null,
+          "refusals": null,
+          "control_record_bytes": 212
+        },
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 18.14991659700172,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "graded",
+          "stop": "graded",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "quality_certified": false,
+          "refusals": 53,
+          "control_record_bytes": 263521
+        },
+        {
+          "verb": "revise",
+          "exit_code": 4,
+          "wall_s": 3.2484369410012732,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "suspended",
+          "stop": "needs_proposal",
+          "authenticated": true,
+          "checkpoint_valid": true,
+          "quality_certified": null,
+          "refusals": null,
+          "control_record_bytes": 212
+        }
+      ]
+    },
+    {
+      "seed": 20260910,
+      "mode": "cold",
+      "measurement_file": "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260910-cold.json",
+      "complete": true,
+      "expected_grade_repair_rows": 2,
+      "observed_grade_repair_rows": 2,
+      "recorded_runtime_sources_match_current": false,
+      "source_sha256": {
+        "lyric-harness/lyric_harness.py": "7a5d9184f568902732cd5cb2d4fa4123deef1b1deff0b4cd95d23af54f08024e",
+        "lyric-harness/quality/plan.py": "80ebf7c4ed57b1d75b6111f76d809ab22515d4b51387581ebe39d2ffb8150856",
+        "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679",
+        "lyric-harness/quality/relations.py": "c8321f5cfb33722e640820749c0f987a9e87072f1cfa2ce3ff04eb38f37fcdab",
+        "lyric-harness/quality/loop.py": "60276b2bc3f0edbc5133c8ee5f17366d2287c6be116fca3082c6ad119e796789",
+        "lyric-harness/quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+        "lyric-harness/quality/capacity.py": "f03424c7a8572a5389f98c29fabffc07dc07450fd428e52e6a9e66259be3b5fd",
+        "scripts/measure_verb_memory.py": "1bb741c6252e2de95c611021ef11d396123fcf90a9f1c9abad7b53aebd975f87"
+      },
+      "reported_source_unchanged": false,
+      "component_peak_mb": 746.23828125,
+      "retained_mb": null,
+      "growth_mb": null,
+      "rows": [
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 27.98811264899996,
+          "peak_mb": 579.63671875,
+          "retained_mb": null,
+          "machine_status": "graded",
+          "stop": "graded",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "quality_certified": false,
+          "refusals": 40,
+          "control_record_bytes": null
+        },
+        {
+          "verb": "revise",
+          "exit_code": 4,
+          "wall_s": 360.89942784800223,
+          "peak_mb": 746.23828125,
+          "retained_mb": null,
+          "machine_status": "suspended",
+          "stop": "needs_proposal",
+          "authenticated": true,
+          "checkpoint_valid": true,
+          "quality_certified": null,
+          "refusals": null,
+          "control_record_bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 20260910,
+      "mode": "worker",
+      "measurement_file": "/workspace/scratch/b0544e4bbdd6/production-fix-results/maximum-supplement-final/20260910-worker.json",
+      "complete": true,
+      "expected_grade_repair_rows": 6,
+      "observed_grade_repair_rows": 6,
+      "recorded_runtime_sources_match_current": false,
+      "source_sha256": {
+        "lyric-harness/lyric_harness.py": "7a5d9184f568902732cd5cb2d4fa4123deef1b1deff0b4cd95d23af54f08024e",
+        "lyric-harness/quality/plan.py": "80ebf7c4ed57b1d75b6111f76d809ab22515d4b51387581ebe39d2ffb8150856",
+        "lyric-harness/quality/revise.py": "409de9f367a8cbd5a3f69986ed518e24ed61ddeda1dfc6be1bb119da1e83f679",
+        "lyric-harness/quality/relations.py": "c8321f5cfb33722e640820749c0f987a9e87072f1cfa2ce3ff04eb38f37fcdab",
+        "lyric-harness/quality/loop.py": "60276b2bc3f0edbc5133c8ee5f17366d2287c6be116fca3082c6ad119e796789",
+        "lyric-harness/quality/floor.py": "9f18b5fc51a985b3001fb99191fc1fbe1fe7590bbd6ad74e65a535868f403e53",
+        "lyric-harness/quality/capacity.py": "f03424c7a8572a5389f98c29fabffc07dc07450fd428e52e6a9e66259be3b5fd",
+        "scripts/measure_verb_memory.py": "ead3f5477c1b6e5908fba961a4ef8eb4352decaa01d0f8e1152f6d2398d13e08"
+      },
+      "reported_source_unchanged": true,
+      "component_peak_mb": 773.41015625,
+      "retained_mb": null,
+      "growth_mb": null,
+      "rows": [
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 26.67368628099939,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "graded",
+          "stop": "graded",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "quality_certified": false,
+          "refusals": 40,
+          "control_record_bytes": 255256
+        },
+        {
+          "verb": "revise",
+          "exit_code": 4,
+          "wall_s": 504.3403221260014,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "suspended",
+          "stop": "needs_proposal",
+          "authenticated": true,
+          "checkpoint_valid": true,
+          "quality_certified": null,
+          "refusals": null,
+          "control_record_bytes": 211
+        },
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 23.51286814299965,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "graded",
+          "stop": "graded",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "quality_certified": false,
+          "refusals": 40,
+          "control_record_bytes": 255256
+        },
+        {
+          "verb": "revise",
+          "exit_code": 4,
+          "wall_s": 4.351834482993581,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "suspended",
+          "stop": "needs_proposal",
+          "authenticated": true,
+          "checkpoint_valid": true,
+          "quality_certified": null,
+          "refusals": null,
+          "control_record_bytes": 212
+        },
+        {
+          "verb": "grade",
+          "exit_code": 2,
+          "wall_s": 16.00541167200572,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "graded",
+          "stop": "graded",
+          "authenticated": true,
+          "checkpoint_valid": false,
+          "quality_certified": false,
+          "refusals": 40,
+          "control_record_bytes": 255256
+        },
+        {
+          "verb": "revise",
+          "exit_code": 4,
+          "wall_s": 4.029135648997908,
+          "peak_mb": null,
+          "retained_mb": null,
+          "machine_status": "suspended",
+          "stop": "needs_proposal",
+          "authenticated": true,
+          "checkpoint_valid": true,
+          "quality_certified": null,
+          "refusals": null,
+          "control_record_bytes": 212
+        }
+      ]
+    }
+  ],
+  "statistics": {
+    "cold": {
+      "grade": {
+        "n": 3,
+        "min_seconds": 27.98811264899996,
+        "median_seconds": 32.82216391900147,
+        "max_seconds": 38.369186586998694,
+        "p95_nearest_rank_seconds": 38.369186586998694,
+        "deadline_exceedances": 0
+      },
+      "revise": {
+        "n": 3,
+        "min_seconds": 104.59326503199554,
+        "median_seconds": 117.352560627005,
+        "max_seconds": 360.89942784800223,
+        "p95_nearest_rank_seconds": 360.89942784800223,
+        "deadline_exceedances": 0
+      }
+    },
+    "worker": {
+      "grade": {
+        "n": 9,
+        "min_seconds": 16.00541167200572,
+        "median_seconds": 23.51286814299965,
+        "max_seconds": 61.63717574199836,
+        "p95_nearest_rank_seconds": 61.63717574199836,
+        "deadline_exceedances": 0
+      },
+      "revise": {
+        "n": 9,
+        "min_seconds": 2.9373939220022294,
+        "median_seconds": 4.029135648997908,
+        "max_seconds": 504.3403221260014,
+        "p95_nearest_rank_seconds": 504.3403221260014,
+        "deadline_exceedances": 0
+      }
+    },
+    "all": {
+      "grade": {
+        "n": 12,
+        "min_seconds": 16.00541167200572,
+        "median_seconds": 27.330899464999675,
+        "max_seconds": 61.63717574199836,
+        "p95_nearest_rank_seconds": 61.63717574199836,
+        "deadline_exceedances": 0
+      },
+      "revise": {
+        "n": 12,
+        "min_seconds": 2.9373939220022294,
+        "median_seconds": 47.401337923995015,
+        "max_seconds": 504.3403221260014,
+        "p95_nearest_rank_seconds": 504.3403221260014,
+        "deadline_exceedances": 0
+      }
+    }
+  },
+  "limits": [
+    "The worker returns no per-request retained RSS/HWM in this environment; those fields remain null.",
+    "Child wait4 peak is a Python component peak and does not include resident Node/server state.",
+    "No paid writer ran. Repair success here means a valid first deferred proposal/checkpoint, not a converged or artistically successful song. Each worker round starts a fresh deferred state; it does not replay an accepted writer answer.",
+    "The final image still requires its separate combined-runtime 1-CPU/2-GiB matrix and recovery/queue pressure qualification."
+  ],
+  "all_declared_cases_completed": true,
+  "all_recorded_runtime_sources_match_current": false
+}

@@ -1,0 +1,3 @@
+seed=20260909 lines=31 (deterministic filler draft)
+verb=grade  seed=20260909 lines=31 exit=2 wall=32.8s peak_mb=651
+verb=revise seed=20260909 lines=31 exit=4 wall=104.6s peak_mb=726

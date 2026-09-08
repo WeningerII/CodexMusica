@@ -29,6 +29,8 @@ Run:  python3 quality/structure_census.py --pilot
 import argparse
 import collections
 import glob
+import hashlib
+from pathlib import Path
 import re
 import os
 import sys
@@ -163,7 +165,7 @@ ARTIFACT_RECORDED = {
 #: and 140 changed content — which is exactly why it is spelled as a dated
 #: record rather than as a live expectation (doctrine 17: the superseded
 #: measurement stays visible, it just stops being quotable as current).
-D1_RECORDED = {
+D1_2026_08_26 = {
     "pool": 4436096,
     "measured": "2026-08-26",
     "population": "the 1,297 eng_ files at the 2026-08-22 manifest snapshot",
@@ -171,6 +173,19 @@ D1_RECORDED = {
               ("false", "admits"): 10, ("false", "rejects"): 696,
               ("refused", "admits"): 5, ("refused", "rejects"): 276},
     "agree": (707, 719),
+}
+
+# Re-adopted as a set after the shared reader, editorial corrections and
+# explicit work-edition population landed. The historical artifact arm above
+# remains a dated145-file table; it is not silently called the current tree.
+D1_RECORDED = {
+    "pool": 4392354,
+    "measured": "2026-09-08",
+    "population": "1297 English files; normalized-lyrics-v1, 106 explicit work groups",
+    "table": {("true", "admits"): 4, ("true", "rejects"): 5,
+              ("false", "admits"): 10, ("false", "rejects"): 663,
+              ("refused", "admits"): 3, ("refused", "rejects"): 315},
+    "agree": (667, 682),
 }
 
 #: HISTORICAL, and unreachable from this tree by any population.
@@ -404,21 +419,8 @@ def items_of(path):
         if base == "sonnets.txt":
             return battery.parse_sonnets(path)
         return [battery.whitman_verse(path)]
-    text = LH.read_lyric_text(path)
-    items, cur = [], []
-    for raw in text.splitlines():
-        line = raw.strip()
-        if line.startswith("--- TITLE:"):
-            if cur:
-                items.append(cur)
-            cur = []
-            continue
-        if not line or LH.is_apparatus_line(line):
-            continue
-        cur.append(line)
-    if cur:
-        items.append(cur)
-    return items
+    from quality.lyric_reader import calibration_items
+    return [[row.text for row in body] for _title, _at, body in calibration_items(path) if body]
 
 
 def pair_counters(path, language=None, tokens=None):
@@ -559,6 +561,28 @@ def read_tsv(path):
         return [tuple(line.rstrip("\n").split("\t")) for line in fh]
 
 
+def checkpoint_fingerprint():
+    """Conservative exact identity for every parser, judge and staged table."""
+    digest = hashlib.sha256()
+    paths = [Path(LH.__file__), Path(LH.CMUDICT_PATH), Path(LH.FREQ_PATH)]
+    paths += sorted(Path(HERE).glob("*.py"))
+    paths += sorted((Path(ROOT) / "data").glob("*.tsv"))
+    paths += [Path(ROOT) / "data" / "calibration_work_editions.json"]
+    for path in paths:
+        digest.update(str(path.relative_to(Path(ROOT).resolve()) if path.is_relative_to(Path(ROOT).resolve()) else path.name).encode())
+        digest.update(b"\0")
+        digest.update(path.read_bytes())
+        digest.update(b"\0")
+    return digest.hexdigest()
+
+
+def part_fingerprint(path, comparator):
+    digest = hashlib.sha256(comparator.encode())
+    digest.update(str(Path(path).resolve()).encode())
+    digest.update(Path(path).read_bytes())
+    return digest.hexdigest()
+
+
 def run(files, out_path, label, parts_dir=None):
     """PER-FILE CHECKPOINTING (run-2 amendment, from run 1's own
     operations): three shard processes were killed by a process cap
@@ -583,10 +607,12 @@ def run(files, out_path, label, parts_dir=None):
         os.path.basename(out_path) + ".parts")
     os.makedirs(parts, exist_ok=True)
     all_rows = []
+    comparator = checkpoint_fingerprint()
     t0 = time.time()
     for i, path in enumerate(files, 1):
         base = os.path.basename(path)
-        part = os.path.join(parts, base + ".part.tsv")
+        fingerprint = part_fingerprint(path, comparator)
+        part = os.path.join(parts, base + "." + fingerprint + ".part.tsv")
         if os.path.exists(part):
             all_rows.extend(read_tsv(part))
             print(f"  [{i}/{len(files)}] {base:44s} checkpointed — reused",
@@ -603,12 +629,16 @@ def run(files, out_path, label, parts_dir=None):
         memo = Memo(PH.get(lang))
         cells = census_file(path, memo, dedup=True, language=lang)
         rows = rows_for(path, cells, language=lang)
+        if part_fingerprint(path, comparator) != fingerprint:
+            raise ValueError(f"source changed during census: {path}")
         write_tsv(part + ".tmp", rows)
         os.replace(part + ".tmp", part)
         all_rows.extend(rows)
         print(f"  [{i}/{len(files)}] {base:44s} "
               f"{time.time() - tf:6.1f}s  memo {len(memo.d):>9,}",
               flush=True)
+    if checkpoint_fingerprint() != comparator:
+        raise ValueError("census comparator changed during measurement; rerun before adoption")
     write_tsv(out_path, all_rows)
     print(f"{label}: {len(files)} files, {len(all_rows)} cells, "
           f"{time.time() - t0:.0f}s total -> {out_path}")

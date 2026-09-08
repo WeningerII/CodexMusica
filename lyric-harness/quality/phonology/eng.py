@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 """English — the ninth phonology, and the one that was missing (MISSING F-1).
 
+PRODUCTION READING POLICY (2026-09-08, H-07)
+
+The registered adapter retains all CMUdict pronunciations. Agreeing channels
+stay definite; differing channels are knowledge sets; incompatible syllable
+counts refuse alignment. `English(readings="first")` is an explicit historical
+policy for controlled comparisons, not the production default. Scalar scheme
+and revision graders separately require unanimous endpoint-reading verdicts.
+
 WHY THIS FILE EXISTS AND WHY IT IS LATE
 
 Eight languages had a declared phonology and English did not. English ran on
@@ -99,7 +107,7 @@ would compete with a coordinate that can already say it.
 
 import re
 
-from quality.phonology import Phonology, Syllable, register
+from quality.phonology import Phonology, Syllable, merge_readings, register
 from quality import quotients as _QUOTIENTS  # noqa: E402
 from quality import morphology as _MORPH  # noqa: E402
 
@@ -159,7 +167,7 @@ class English(Phonology):
               "5837aa6e49fd070d482b8ca0525f28ef; BSD-2-clause (Carnegie "
               "Mellon University), NOT public domain; see data/sources.tsv")
 
-    def __init__(self, fallback=None):
+    def __init__(self, fallback=None, readings="all", lexicon=None):
         """`fallback` is a DECLARED coordinate, defaulting to the refusal.
 
         It is not a boolean, because "did you guess" has three answers here and
@@ -169,6 +177,10 @@ class English(Phonology):
             raise ValueError(
                 f"fallback={fallback!r} is not declared; the modes are "
                 f"{sorted(k for k in FALLBACK_MODES if k)} or None")
+        if readings not in ("all", "first"):
+            raise ValueError("readings must be 'all' or explicitly 'first'")
+        self.lexicon = lexicon
+        self.readings = readings
         self.fallback = fallback
         self._fb = None
         # THE DECLARED QUOTIENTS THIS PHONOLOGY SUPPLIES (2026-08-22).
@@ -202,14 +214,42 @@ class English(Phonology):
         is an assumption a reader of any downstream verdict needs.
         """
         d = super().declaration()
+        d["readings"] = self.readings
+        if self.lexicon is not None and self.lexicon.pronunciations:
+            from quality.pronunciation import fingerprint
+            d['pronunciations_sha256'] = fingerprint(self.lexicon.pronunciations)
+            d['pronunciation_scope_sha256'] = fingerprint({
+                'tokens': getattr(self.lexicon, '_pronunciation_tokens', {}),
+                'choice': getattr(self.lexicon, '_pronunciation_choice', None)})
         d["fallback"] = self.fallback
         d["fallback_licenses"] = FALLBACK_MODES[self.fallback]
         return d
 
+    def _lexicon(self):
+        return self.lexicon if self.lexicon is not None else _lexicon()
+
+    def for_line(self, text):
+        if self.lexicon is None or not self.lexicon.pronunciations:
+            return self
+        return English(fallback=self.fallback, readings=self.readings,
+                       lexicon=self.lexicon.for_line(text))
+
+    def for_token(self, index):
+        if self.lexicon is None or not self.lexicon.pronunciations:
+            return self
+        return English(fallback=self.fallback, readings=self.readings,
+                       lexicon=self.lexicon.for_token(index))
+
+    def tokens_for_line(self, text):
+        if self.lexicon is None:
+            return None
+        import lyric_harness as lh
+        return lh.line_tokens(text, strip_parens=self.lexicon.strip_parens)
+
     def _fallback(self):
         if self._fb is None and self.fallback is not None:
             from quality.g2p import Fallback
-            self._fb = Fallback(_lexicon(), min_confidence=self.fallback)
+            self._fb = Fallback(self._lexicon(), min_confidence=self.fallback)
         return self._fb
 
     # ---------------------------------------------------------------- reads
@@ -226,10 +266,17 @@ class English(Phonology):
         change when the mode does.
         """
         from quality.g2p import Reading
+        choice = getattr(self.lexicon, '_pronunciation_choice', None)
+        if choice and choice['word'] == word:
+            return Reading(tuple(choice['phones']), 'declared', choice['source'], (word.lower(),))
         fb = self._fallback()
         if fb is not None:
             return fb.read(word)
-        phones, oov = _lexicon().transcribe_word(word)
+        lex = self._lexicon()
+        if getattr(lex, "g2p_fallback", None) is not None:
+            from quality.g2p import _NoFallbackView
+            lex = _NoFallbackView(lex)
+        phones, oov = lex.transcribe_word(word)
         if oov or not phones:
             return None
         return Reading(tuple(phones), "dictionary", "CMUdict", (word.lower(),))
@@ -266,7 +313,7 @@ class English(Phonology):
                 "refused": out["refused"], "by_layer": dict(by),
                 "total": len(words)}
 
-    def syllabify(self, word):
+    def _syllabify_single(self, word):
         """-> [Syllable]. EMPTY when the declared layers cannot read the word.
 
         Empty is a refusal and callers must treat it as one. It is not a
@@ -298,6 +345,26 @@ class English(Phonology):
                 # read; `grid_unit` already says the grid is the syllable.
                 moras=1))
         return out
+
+    def parses(self, word):
+        """Every CMU pronunciation unless the caller explicitly chose first.
+
+        Readings that disagree are not resolved by dictionary ordering. The
+        inherited fallback remains a single sourced reading when no entry is
+        present; it must never recurse through the merged adapter.
+        """
+        import lyric_harness as lh
+        key = lh.fold_apostrophes(word).lower()
+        prons = self._lexicon().entries.get(key)
+        if self.readings == "first" or not prons:
+            return [self._syllabify_single(word)]
+        return [[Syllable(word, tuple(s["onset"]), s["nucleus"],
+                          tuple(s["coda"]),
+                          1 if s["stress"] in (1, 2) else 0, 1)
+                 for s in lh.syllabify(p)] for p in prons]
+
+    def syllabify(self, word):
+        return merge_readings(self.parses(word))[0]
 
     def readable(self, word):
         """-> bool. Separates 'no syllables' from 'could not read', which

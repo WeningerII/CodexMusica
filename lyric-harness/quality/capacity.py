@@ -1,83 +1,54 @@
 #!/usr/bin/env python3
-"""The CAPACITY layer — what the English lexicon can sustain, derived.
+"""English rhyme capacity, constructed and checked through the current judge.
 
-STAGE 1 OF THE DENSITY DESIGN (owner's ruling, 2026-08-18). The question
-"how much rhyme density is even possible" is not a corpus question — a
-census of what's been done would band the middle of the distribution and
-rate the ten-line marvel verse out-of-band, which is the move-37 ban all
-over again. It is a LEXICON question, and this module answers it the way
-`plan.py` answered meters: a space derived from the grammar of the
-material, never sampled from history.
+A FAMILY is a construction pool over the declared frequency vocabulary,
+keyed by the first pronunciation's phoneme tail from its last prominent
+vowel. It is not an equivalence class of the certified class:RHYME relation:
+RIME_RICHE shares that tail but is a distinct subtype, and another allowed
+pronunciation can make a prospective pair unresolved. Certification must
+answer those differences, not infer acceptance from a family key.
 
-THE OBJECTS.
-- A FAMILY is a perfect-rhyme equivalence class: words sharing the
-  phoneme string from the RHYMING syllable's vowel to the end, anchored
-  at the last PROMINENT vowel (primary or secondary stress, else the
-  last vowel) — the COMPARATOR's anchor, the one the judge hears with.
-  Run 1 anchored primary-first (`_spelled_rime`'s own rule, which is
-  tier 1's, not the comparator's) and was VOIDED before commit:
-  test_capacity §1's control pair convicted it (gasoline/tambourine
-  grade as a satisfied rhyme on the final -ine; the primary-first key
-  filed them apart). Held to the grader behaviorally — a family whose
-  members do not grade as satisfied rhymes is a drift, and the witness
-  certification below convicts it.
-- A SPELLING CLASS within a family is `Reviser._spelled_rime`'s value —
-  tier 1 of the two-tier ban: same-class pairs are HOMEOTELEUTON,
-  banned outright. So a family's EARNED-chain ceiling is its spelling-
-  class count (`chain_hi`): a scheme group of k mutually-earned lines
-  needs k distinct spellings of one sound, because every pair in a
-  mandated group is judged.
-- The MODAL tier (the most-predictable partners) deletes a few more
-  pairs. Rather than re-implementing that judgment — the drift sin the
-  `screen` verb exists to avoid — the certified lower bound
-  (`chain_lo`) is built by construction THROUGH THE GRADER ITSELF: a
-  candidate witness (one word per spelling class, most frequent first)
-  is graded as a real mandated group by `Reviser.inspect`, offending
-  members are swapped or dropped, and the surviving clique is stored
-  with its WITNESS WORDS so anyone can re-run the certification. The
-  grader is the oracle; this module never holds an opinion of its own
-  about any pair.
+A SPELLING CLASS is Reviser._spelled_rime's value. Same-class pairs incur
+HOMEOTELEUTON, so the class count (chain_hi) is an upper bound on an earned
+clique within this pool. The corpus-derived MODAL_RHYME ban removes further
+pairs. chain_lo stores an actual witness accepted by Reviser.grade under
+explicit class:RHYME and the same Reviser.earned_pair_ban accessor used by
+inspect. Unrelated prose, meter and whole-draft floor layers are not rhyme
+capacity obligations and are not executed by this pair-specific instrument.
 
-THE POPULATION is declared, not universal: the frequency lexicon
-(`data/opensubtitles_en_50k.tsv` — the singable working vocabulary),
-alphabetic words of two letters or more, transcribable by the
-harness's own reader. Capacity of the LIVING vocabulary; a rarer word
-is hand-reachable and simply not counted here.
+The population is frequency-lexicon words of at least two alphabetic letters
+that the harness can transcribe, not a claim about every English word. Every
+family with at least 20 spelling classes is certified. Construction attempts
+at most 40 classes, repairs at most 12 rounds, and drops remaining incompatible
+vertices before a final exact grade. A bounded construction proves its
+achieved lower bound; neither failure to enlarge it nor the largest stored
+witness proves a mathematical maximum. The planner's adopted bound is the
+largest measured witness, never the ungraded spelling-class ceiling.
 
-WHAT THE NUMBERS SAY (derived 2026-08-18; `ADOPTED` below, re-derived
-exactly by `--check`). English is narrow UNDER PERFECT RHYME: 12,387
-families, and only a handful support a long single-sound earned chain —
-the distribution's tail is in `data/rhyme_capacity_eng.tsv`. The
-ten-line dense verse therefore REQUIRES family switching; that is a
-derived fact about the language AND the relation, and the relation is
-the coordinate the first rendering of this sentence dropped (M-41):
-the identical population partitions into families whose count moves by
-two orders of magnitude with the relation (`--families=RELATION` — 15
-under assonance against 12,387 under perfect rhyme), so every capacity
-number here names its relation and the certified figures are RHYME's.
+The 2026-09-08 production re-adoption corrects an earlier false certificate:
+the artifact declared RHYME while its oracle silently asked the broader
+unnamed default. All 81 old witnesses failed explicit class:RHYME because
+RIME_RICHE or unresolved pronunciation edges were present. Earlier comments
+about family equivalence and a certified 40-word maximum were therefore not
+valid proofs under the artifact's declared coordinate. Current ADOPTED values
+and data/rhyme_capacity_eng.tsv must be derived together; the production
+results record the complete replacement measurement and its source hashes.
 
-WHAT THIS DOES NOT LICENSE. Nothing here grades a draft (stage 2, the
-earned-event counter, is deliberately unbuilt pending the owner's
-ruling), nothing here is a target (a capacity is a ceiling, not a
-score), and the planner samples none of it. The one consumer today is
-the `capacity` verb: a reader over the committed artifact.
+Reusable family checkpoints are bound to actual judge source, lexical data,
+modal tables and declarations. A changed namespace cannot reuse proof; the
+parallel instrument can explicitly re-verify every old witness under the new
+judge, including its two-tier ban, before binding a new checkpoint.
 
-Run:   python3 quality/capacity.py --derive [--parts=DIR]  (writes the table)
-       python3 quality/capacity.py --check                 (re-derives tier 1
-                                                            + re-certifies the
-                                                            sample; exits 1 on
-                                                            any drift)
-       python3 quality/capacity.py --families=RELATION     (UNCERTIFIED family
-                                                            counts under a
-                                                            declared relation —
-                                                            M-41's comparison
-                                                            row as a command)
-Verb:  python3 lyric_harness.py capacity WORD | --top=N
-Test:  python3 quality/test_capacity.py
+Run: python3 quality/capacity.py --derive --parts=DIR
+     python3 quality/recertify_capacity.py --parts=DIR --workers=4 --report=FILE
+     python3 quality/capacity.py --check
+     python3 quality/capacity.py --families=RELATION  (uncertified pool counts)
+Verb: python3 lyric_harness.py capacity WORD | --top=N
 """
 
 import csv
 import hashlib
+import json
 import os
 import re
 import sys
@@ -87,6 +58,19 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 
 TABLE_PATH = os.path.join(HERE, "..", "data", "rhyme_capacity_eng.tsv")
+
+
+def corpus_files():
+    """Actual population feeding the corpus-derived modal judge tables."""
+    from quality.build_song_frequency import corpus_files as source_files
+    return source_files()
+
+
+class CertifiedRows(list):
+    """Rows coupled to the exact source/data/declaration actually derived."""
+    def __init__(self, identity):
+        super().__init__()
+        self.certification_identity = identity
 
 
 class BudgetReached(RuntimeError):
@@ -121,19 +105,19 @@ MAX_REPAIR_ROUNDS = 12
 #: constant, which the record and the verb's wording both carry.
 CERTIFY_ATTEMPT_CAP = 40
 
-#: The headline constants, adopted from the 2026-08-18 derivation and
-#: re-derived EXACTLY by --check (the Kalevala discipline: a committed
-#: number nothing re-measures is a rumor). Filled by that run; the check
-#: recomputes tier 1 in full (~seconds) and re-certifies the sample
-#: families below through the grader.
+#: Re-adopted2026-09-08 after all81 published witnesses failed the
+#: explicitly declared class:RHYME oracle (old construction used default
+#: relation rescue). All81 rebuilt at the same attempt cap40 and reverified,
+#: including pronunciation uncertainty and the unchanged two-tier ban.
+#: These are witnessed lower bounds, not maximum-clique proofs.
 ADOPTED = {
     "population": 39969,
     "families": 12387,
     "chain_hi_at_least": {2: 2817, 5: 593, 8: 272, 12: 162, 16: 106,
                           20: 81},
     "certified": 81,
-    "max_chain_lo": 40,
-    "max_chain_lo_family": "EY",
+    "max_chain_lo": 23,
+    "max_chain_lo_family": "IY-Z",
 }
 
 #: Families the per-push crown re-certifies (test_capacity §3) — the
@@ -143,50 +127,26 @@ CHECK_SAMPLE = ("IY", "AY-ER", "EH-R", "UW-Z", "EY-N", "AO-R")
 _PAIR_RE = re.compile(r"L(\d+)/L(\d+)")
 
 
-#: THE DEEPEST RHYME GROUP THE LEXICON IS MEASURED TO SUSTAIN — the adopted
-#: constant, and the only figure from this layer a GENERATOR may read
-#: (2026-08-23, `MISSING.md` M-41's first half).
-#:
-#: A rhyme group of k members needs a family with k members that the grader
-#: accepts TOGETHER, and this layer is what measures that. Two numbers, and
-#: the smaller one is the one that binds:
-#:   * the tier-1 CEILING reaches 228 (family `IY`) — a spelling-class count,
-#:     an upper bound nobody has graded;
-#:   * the deepest CERTIFIED chain is 40 — a witness clique stored word for
-#:     word and graded THROUGH `Reviser.inspect`, held by TWELVE families at
-#:     the declared construction cap (~~nine~~ REPINNED 2026-08-28: the
-#:     re-derivation under the M-47/M-152 judge moved 15 chain_lo values,
-#:     every one UP, and AY-Z-D, EY-Z and OW-N joined the cap tie —
-#:     `MISSING.md` M-41's close holds the delta).
-#: 40 is adopted because it is the one a run can stand on. It measures the
-#: CAP rather than the language — those twelve families are bounded BELOW at
-#: 40 and their true ceilings are unmeasured — so a generator refusing above
-#: it is refusing where the MEASUREMENT stops, which is the honest place.
-#:
-#: WHY A CONSTANT AND NOT A CALL: `quality/plan.py` may open no file (the
-#: owner's move-37 ban), and `read_table()` opens one. This is the same
-#: species as `meter_bands.ADOPTED` and `floor.PROFILES` — an adopted figure
-#: from a preregistered derivation, re-derived by `capacity.py --check` in
-#: the nightly lane, so drift fails loud rather than silently widening what a
-#: planner will volunteer.
-ADOPTED_MAX_GROUP = 40
+#: Largest actually witnessed class:RHYME group in the current artifact.
+#: Re-adopted2026-09-08:23 words in IY-Z, after all81 families were rebuilt
+#: at construction attempt cap40 and regraded with the actual current ban.
+#: The former40 was not valid under the artifact's declared strict relation;
+#: rich-rime/default rescue and ambiguous readings had been admitted.
+#: Neither23 nor the first-reading spelling-class ceiling proves a maximum.
+#: This generator rhyme-group bound is separate from writer workload limits.
+#: `plan.py` reads this adopted measurement; production admission additionally
+#: requires an all-family proof bound to the actual installed runtime.
+ADOPTED_MAX_GROUP = 23
 
 
 def _rime_key(phones):
-    """Phoneme rime from the rhyming syllable's vowel to the end, stress
-    digits stripped. The ANCHOR IS THE COMPARATOR'S — last PROMINENT
-    vowel (primary or secondary stress), else the last vowel — because a
-    family is a perfect-rhyme class as the JUDGE hears it: gasoline
-    (…AE1…IY2 N) rhymes on the final -ine, not on the early primary.
-    This is deliberately NOT `_spelled_rime`'s primary-first anchor —
-    that one is tier 1's own (the spelling classes below still use it) —
-    and the first run of test_capacity §1 caught exactly this conflation
-    (2026-08-18): the primary-first key put gasoline and tambourine in
-    different families while the grader called them a satisfied rhyme.
-    Held to the grader behaviorally: same-key pairs must grade satisfied
-    (the crown re-grades every committed witness). The converse is NOT
-    claimed: the graded band admits some cross-family near pairs
-    (silver/deliver), so families are strictly FINER than the band."""
+    """First-reading construction key from the last prominent vowel.
+
+    This preserves the comparator's last-primary-or-secondary anchor and
+    the historical gasoline/tambourine correction. Equal keys do not prove
+    explicit class:RHYME: rich-rime subtypes and pronunciation disagreements
+    are adjudicated by the actual certification oracle.
+    """
     vidx = [i for i, p in enumerate(phones) if p[-1:].isdigit()]
     if not vidx:
         return None
@@ -342,94 +302,232 @@ def fam_label(key):
     return "-".join(key)
 
 
-def _grade_group(reviser, words):
-    """One real mandated group over carrier lines -> (bad_pairs, drifted).
-    bad_pairs: {frozenset of two member INDICES} that the grader banned
-    (HOMEOTELEUTON / MODAL_RHYME). drifted: members whose pairs the
-    grader did not judge as satisfied rhymes at all — a family-key drift
-    this module must fail loudly on, never absorb."""
+def _group_measurement(reviser, words):
+    """Exact pair relations and the shared grader ban, with failed edges.
+
+    The first-reading perfect-tail partition is only a construction pool:
+    RHYME excludes its RIME_RICHE subtype, and unresolved pronunciations
+    cannot certify a pair. Every accepted witness answers the declared class.
+    """
     import quality.schemes as SC
+    if len(words) < 2:
+        raise ValueError("a certified capacity witness needs at least two words")
     lines = [f"we carry the evening to the {w}" for w in words]
-    found = reviser.inspect(lines, SC.mandate([list(range(1, len(words) + 1))],
-                                              n_lines=len(words)))
-    bad = set()
-    for fs in found["per_line"].values():
-        for f in fs:
-            if f.code in ("HOMEOTELEUTON", "MODAL_RHYME"):
-                m = _PAIR_RE.search(str(f.message))
-                if m:
-                    bad.add(frozenset((int(m.group(1)) - 1,
-                                       int(m.group(2)) - 1)))
-    drifted = set()
-    for v in found["grade"]["verdicts"]:
+    m = SC.mandate([list(range(1, len(words) + 1))], n_lines=len(words),
+                   default_relation=f"class:{ADOPTED_RELATION}")
+    found = reviser.grade(lines, m)
+    bad, incompatible = set(), set()
+    for v in found["verdicts"]:
+        pair = frozenset(i - 1 for i in v["lines"])
         if v["why"] is not None:
-            i, j = v["lines"]
-            drifted.add(i - 1)
-            drifted.add(j - 1)
-    for r in found["grade"]["refusals"]:
-        i, j = r["lines"]
-        drifted.add(i - 1)
-        drifted.add(j - 1)
-    return bad, drifted
+            incompatible.add(pair)
+        elif reviser.earned_pair_ban(v) is not None:
+            bad.add(pair)
+    for row in found["refusals"]:
+        incompatible.add(frozenset(i - 1 for i in row["lines"]))
+    expected = {frozenset((i, j)) for i in range(len(words)) for j in range(i + 1, len(words))}
+    judged = {frozenset(i - 1 for i in v["lines"]) for v in found["verdicts"]}
+    incompatible.update(expected - judged)
+    return found, bad, incompatible
+
+
+def _group_constraints(reviser, words):
+    if len(words) < 2:
+        return set(), set()
+    _found, bad, incompatible = _group_measurement(reviser, words)
+    return bad, incompatible
+
+
+def _grade_group(reviser, words):
+    """The exact declared pair/ban oracle -> (banned edges, drift members)."""
+    bad, incompatible = _group_constraints(reviser, words)
+    return bad, {i for pair in incompatible for i in pair}
+
+
+def _certification_source(path):
+    """Semantic source capsule for the exact capacity oracle.
+
+    Reviser menus, verification, and floor calibration do not participate in
+    grade/earned_pair_ban. Follow self-method references from those roots so
+    their helpers remain bound while independent repair/calibration can run.
+    All other imported source is retained conservatively.
+    """
+    import ast
+    from pathlib import Path
+    tree = ast.parse(Path(path).read_text())
+    if Path(path).name == "lyric_harness.py":
+        definitions = {n.name: n for n in tree.body
+                       if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef))}
+        revtree = ast.parse((Path(HERE) / "revise.py").read_text())
+        pending = {alias.name for n in revtree.body
+                   if isinstance(n, ast.ImportFrom) and n.module == "lyric_harness"
+                   for alias in n.names}
+        pending.update({"Lexicon", "Declaration"})
+        selected = []
+        for n in tree.body:
+            if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+                continue
+            if (isinstance(n, ast.If) and isinstance(n.test, ast.Compare)
+                    and isinstance(n.test.left, ast.Name) and n.test.left.id == "__name__"
+                    and len(n.test.comparators) == 1 and isinstance(n.test.comparators[0], ast.Constant)
+                    and n.test.comparators[0].value == "__main__" and not n.orelse):
+                continue
+            selected.append(n)
+            pending.update(x.id for x in ast.walk(n) if isinstance(x, ast.Name) and isinstance(x.ctx, ast.Load))
+        seen = set()
+        while pending:
+            name = pending.pop()
+            if name in seen or name not in definitions:
+                continue
+            seen.add(name)
+            n = definitions[name]
+            selected.append(n)
+            pending.update(x.id for x in ast.walk(n) if isinstance(x, ast.Name) and isinstance(x.ctx, ast.Load))
+        tree.body = sorted(selected, key=lambda n: n.lineno)
+    elif Path(path).name == "revise.py":
+        cls = next(n for n in tree.body if isinstance(n, ast.ClassDef) and n.name == "Reviser")
+        methods = {n.name: n for n in cls.body if isinstance(n, ast.FunctionDef)}
+        pending = {"__init__", "grade", "earned_pair_ban", "_spelled_rime"}
+        selected = set()
+        while pending:
+            name = pending.pop()
+            if name in selected or name not in methods:
+                continue
+            selected.add(name)
+            for n in ast.walk(methods[name]):
+                if (isinstance(n, ast.Attribute) and isinstance(n.value, ast.Name)
+                        and n.value.id in {"self", "cls", "Reviser"}):
+                    pending.add(n.attr)
+        cls.body = [n for n in cls.body if not isinstance(n, ast.FunctionDef) or n.name in selected]
+    elif Path(path).name == "floor.py":
+        tree.body = [n for n in tree.body if isinstance(n, ast.ClassDef) and n.name == "Finding"]
+    elif Path(path).name == "capacity.py":
+        tree.body = [n for n in tree.body if not (isinstance(n, (ast.Assign, ast.AnnAssign))
+            and any(isinstance(t, ast.Name) and t.id in {"ADOPTED", "ADOPTED_MAX_GROUP"}
+                    for t in (n.targets if isinstance(n, ast.Assign) else [n.target])))]
+    # Documentation and line positions are not executable judge inputs.
+    for node in ast.walk(tree):
+        body = getattr(node, "body", None)
+        if isinstance(body, list) and body and isinstance(body[0], ast.Expr) and isinstance(body[0].value, ast.Constant) and isinstance(body[0].value.value, str):
+            body.pop(0)
+    return tree
+
+
+def certification_identity(reviser):
+    """Bind parts to actual grade/ban code, lexical data and declarations.
+
+    The imported module graph is conservative. The only exclusions are
+    unrelated Reviser methods, the floor beyond the Finding value type, and
+    previously measured capacity constants (outputs of this derivation).
+    """
+    import ast
+    from pathlib import Path
+    import lyric_harness as LH
+    root = Path(HERE).parent
+    pending = [root / 'lyric_harness.py', Path(HERE) / 'capacity.py',
+               Path(HERE) / 'revise.py', Path(HERE) / 'verify_capacity.py']
+    sources = {}
+    while pending:
+        path = pending.pop()
+        rel = str(path.relative_to(root))
+        if rel in sources or not path.is_file():
+            continue
+        tree = _certification_source(path)
+        sources[rel] = hashlib.sha256(ast.dump(tree, include_attributes=False).encode()).hexdigest()
+        for node in ast.walk(tree):
+            candidates = []
+            if isinstance(node, ast.Import):
+                candidates = [alias.name for alias in node.names]
+            elif isinstance(node, ast.ImportFrom) and node.module:
+                candidates = [node.module] + [node.module + '.' + alias.name for alias in node.names]
+            for name in candidates:
+                if not (name == 'lyric_harness' or name.startswith('quality.')):
+                    continue
+                candidate = root / (name.replace('.', '/') + '.py')
+                if not candidate.is_file():
+                    candidate = root / name.replace('.', '/') / '__init__.py'
+                if candidate.is_file():
+                    pending.append(candidate)
+    lexical = {name: hashlib.sha256(Path(path).read_bytes()).hexdigest()
+               for name, path in [('cmudict', LH.CMUDICT_PATH), ('frequency', LH.FREQ_PATH)]}
+    from dataclasses import asdict
+    def canonical(value):
+        if isinstance(value, dict):
+            return {key: canonical(item) for key, item in value.items()}
+        if isinstance(value, (set, frozenset)):
+            return sorted((canonical(item) for item in value),
+                          key=lambda item: json.dumps(item, sort_keys=True))
+        if isinstance(value, (tuple, list)):
+            return [canonical(item) for item in value]
+        return value
+    record = {'version': 3, 'relation': ADOPTED_RELATION,
+              'judge': judge_fingerprint(), 'sources': sources, 'lexical': lexical,
+              'python': sys.version, 'declaration': canonical(asdict(reviser.decl)),
+              'revision_declaration': canonical(asdict(reviser.rdecl))}
+    return hashlib.sha256(json.dumps(record, sort_keys=True).encode()).hexdigest()
 
 
 def certify(reviser, classes, max_rounds=MAX_REPAIR_ROUNDS):
-    """Build and grade a witness clique for one family -> (witness, rounds).
+    """Construct a bounded witness through the current exact pair oracle.
 
-    Start with each spelling class's most frequent member; grade the
-    whole group through the REAL Reviser; on a banned pair, advance the
-    rarer side to its class's next member (drop the class when the well
-    is dry); a pair the grader would not judge as rhyme at all is a
-    family drift and raises. The returned witness is exactly what the
-    grader accepted — chain_lo by construction, not by claim. Families
-    beyond CERTIFY_ATTEMPT_CAP classes attempt only the cap's worth (the
-    classes with the most frequent top members), so the bound is honest
-    and the cost is bounded; the ceiling (chain_hi) is never capped."""
+    At most CERTIFY_ATTEMPT_CAP classes are attempted together. Incompatible
+    or unknown relation edges are rejected alongside banned edges; advancing
+    representatives never counts an unanswered pair as certified. The final
+    greedy deletion proves a lower bound, not a maximum or impossibility.
+    """
+    fr = reviser.lex.freq_rank
     slots = [list(ws) for ws in classes.values() if ws]
-    if len(slots) > CERTIFY_ATTEMPT_CAP:
-        fr = reviser.lex.freq_rank
-        slots.sort(key=lambda ws: fr.get(ws[0], 10 ** 9))
-        slots = slots[:CERTIFY_ATTEMPT_CAP]
+    slots.sort(key=lambda ws: (fr.get(ws[0], 10 ** 9), ws[0]))
+    slots = slots[:CERTIFY_ATTEMPT_CAP]
     pick = [0] * len(slots)
     live = list(range(len(slots)))
-    for _round in range(max_rounds):
+    rounds = 0
+    for rounds in range(1, max_rounds + 1):
         words = [slots[i][pick[i]] for i in live]
-        bad, drifted = _grade_group(reviser, words)
-        if drifted:
-            raise RuntimeError(
-                f"family drift: the grader refused/denied rhyme inside a "
-                f"derived family ({[words[k] for k in sorted(drifted)]}) — "
-                f"the family key no longer mirrors the grader's anchor")
-        if not bad:
-            return words, _round + 1
+        banned, incompatible = _group_constraints(reviser, words)
+        edges = banned | incompatible
+        if not edges:
+            return words, rounds
+        # An edge cover targets the actual blockers; marking both ends of
+        # every refused pair would discard an entire family over one reading.
         demote = set()
-        for pair in bad:
-            k = max(pair, key=lambda x: pick[live[x]])
-            demote.add(k)
+        remaining = set(edges)
+        while remaining:
+            degree = defaultdict(int)
+            for pair in remaining:
+                for k in pair:
+                    degree[k] += 1
+            worst = max(degree, key=lambda k: (degree[k], pick[live[k]],
+                                               fr.get(words[k], 10 ** 9), k))
+            demote.add(worst)
+            remaining = {pair for pair in remaining if worst not in pair}
         new_live = []
-        for idx, i in enumerate(live):
-            if idx in demote:
-                if pick[i] + 1 < len(slots[i]):
-                    pick[i] += 1
-                    new_live.append(i)
-            else:
-                new_live.append(i)
+        for index, member in enumerate(live):
+            if index in demote:
+                if pick[member] + 1 >= len(slots[member]):
+                    continue
+                pick[member] += 1
+            new_live.append(member)
         live = new_live
         if not live:
-            return [], _round + 1
+            return [], rounds
     words = [slots[i][pick[i]] for i in live]
-    bad, _ = _grade_group(reviser, words)
-    while bad:
-        counts = defaultdict(int)
-        for pair in bad:
+    banned, incompatible = _group_constraints(reviser, words)
+    edges = banned | incompatible
+    kept = set(range(len(words)))
+    while edges:
+        degree = defaultdict(int)
+        for pair in edges:
             for k in pair:
-                counts[k] += 1
-        worst = max(counts, key=lambda k: counts[k])
-        del words[worst]
-        if not words:
-            return [], max_rounds
-        bad, _ = _grade_group(reviser, words)
-    return words, max_rounds
+                degree[k] += 1
+        worst = max(degree, key=lambda k: (degree[k], fr.get(words[k], 10 ** 9), k))
+        kept.remove(worst)
+        edges = {pair for pair in edges if worst not in pair}
+    witness = [word for i, word in enumerate(words) if i in kept]
+    bad, drift = _grade_group(reviser, witness)
+    if bad or drift:
+        raise RuntimeError("capacity construction returned an uncertified witness")
+    return witness, rounds
 
 
 def derive(reviser=None, certify_min=CERTIFY_MIN_CLASSES, parts_dir=None,
@@ -448,6 +546,11 @@ def derive(reviser=None, certify_min=CERTIFY_MIN_CLASSES, parts_dir=None,
     if reviser is None:
         from quality.revise import Reviser
         reviser = Reviser()
+    identity = certification_identity(reviser)
+    if parts_dir:
+        # Legacy unbound parts are never read. Changed source/data receives
+        # a new namespace while retaining previous evidence for inspection.
+        parts_dir = os.path.join(parts_dir, identity)
     # THE ARTIFACT IS DERIVED UNDER ONE DECLARED RELATION AND SAYS SO ON
     # EVERY ROW (M-41). Deriving it under another is not a parameter here
     # on purpose: the certified half prices at hours of grading per
@@ -455,7 +558,7 @@ def derive(reviser=None, certify_min=CERTIFY_MIN_CLASSES, parts_dir=None,
     # ruling (BACKLOG RULINGS WANTED); the uncertified family counts for
     # the other three are `--families=RELATION`, which writes nothing.
     fams = families(reviser, relation=ADOPTED_RELATION)
-    rows = []
+    rows = CertifiedRows(identity)
     todo = sorted(fams.items(), key=lambda kv: (-len(kv[1]), fam_label(kv[0])))
     for key, classes in todo:
         n_classes = len(classes)
@@ -496,6 +599,8 @@ def derive(reviser=None, certify_min=CERTIFY_MIN_CLASSES, parts_dir=None,
                         fh.write(f"{len(witness)}\t{row['witness']}\n")
                     os.replace(tmp, part)
         rows.append(row)
+    if certification_identity(reviser) != identity:
+        raise RuntimeError("capacity inputs changed during certification; no artifact may be adopted")
     return rows
 
 
@@ -528,6 +633,7 @@ COLUMNS = ("relation", "family", "words", "classes", "chain_hi", "certified",
 #: eng-song frequency source is declared, so a third table joining the modal
 #: tier cannot be silently left out of this fingerprint (doctrine 1).
 JUDGE_HEADER = "#judge"
+SOURCE_HEADER = "#certification-source"
 
 
 def judge_files():
@@ -570,30 +676,50 @@ def read_judge(path=TABLE_PATH):
     return None
 
 
+def read_certification_source(path=TABLE_PATH):
+    """The bound all-family proof inputs, distinct from the six-family smoke."""
+    with open(path, encoding="utf-8") as fh:
+        for line in fh:
+            if not line.startswith("#"):
+                break
+            if line.startswith(SOURCE_HEADER + "\t"):
+                value = line.rstrip("\n").split("\t", 1)[1]
+                return value if re.fullmatch(r"[0-9a-f]{64}", value) else None
+    return None
+
+
 def emit_table(rows, path=TABLE_PATH):
+    identity = getattr(rows, "certification_identity", None)
+    if any(r["certified"] for r in rows) and not identity:
+        raise ValueError("certified capacity rows lack their actual derivation source identity")
     tmp = path + ".part"
     with open(tmp, "w", encoding="utf-8", newline="") as fh:
-        w = csv.writer(fh, delimiter="\t")
+        w = csv.writer(fh, delimiter="\t", lineterminator="\n")
         w.writerow([JUDGE_HEADER] +
                    ["%s=%s" % kv for kv in sorted(judge_fingerprint().items())])
+        if identity:
+            w.writerow([SOURCE_HEADER, identity])
         w.writerow(COLUMNS)
         for r in rows:
             w.writerow([r[c] for c in COLUMNS])
     os.replace(tmp, path)
 
 
-def read_table(path=TABLE_PATH):
+def read_table(path=TABLE_PATH, *, verify_runtime=True):
     if not os.path.exists(path):
         raise FileNotFoundError(
             f"{path} is missing — the capacity artifact ships with the "
             f"repo. Re-derive with `python3 quality/capacity.py --derive` "
             f"(the certified half grades every deep family through the "
             f"real Reviser and takes ~an hour).")
+    if verify_runtime and os.environ.get("LYRIC_RELEASE_ASSETS_REQUIRED") == "1":
+        require_current_proof(path=path)
     with open(path, encoding="utf-8") as fh:
         rd = csv.reader((l for l in fh if not l.startswith("#")),
                         delimiter="\t")
         header = next(rd)
-        assert tuple(header) == COLUMNS, f"unexpected columns: {header}"
+        if tuple(header) != COLUMNS:
+            raise ValueError(f"unexpected capacity columns: {header}")
         out = []
         for rec in rd:
             row = dict(zip(COLUMNS, rec))
@@ -621,17 +747,15 @@ def summarize(rows):
     }
 
 
-def check():
-    """Re-derive tier 1 exactly and re-certify the sample -> exit code."""
-    from quality.revise import Reviser
-    rv = Reviser()
-    rows = read_table()
+def validate_rows(rv, rows, path=TABLE_PATH):
+    """The complete population, witness shape and adopted-constant contract."""
     fams = families(rv)
     fresh = {}
     for key, classes in fams.items():
         fresh[fam_label(key)] = (sum(len(v) for v in classes.values()),
                                  len(classes))
     bad = []
+    by_classes = {fam_label(key): classes for key, classes in fams.items()}
     for r in rows:
         # THE COORDINATE IS VERIFIED, NOT ASSUMED (M-41): every artifact
         # row must name the adopted relation — `read_table` already made
@@ -639,6 +763,16 @@ def check():
         if r.get("relation") != ADOPTED_RELATION:
             bad.append(f"{r['family']}: relation {r.get('relation')!r} "
                        f"is not the adopted {ADOPTED_RELATION!r}")
+        if bool(r["certified"]) != (r["classes"] >= CERTIFY_MIN_CLASSES):
+            bad.append(f"{r['family']}: certified coverage does not match the declared floor")
+        if r["certified"]:
+            words = r["witness"].split()
+            choices = {word: spelling for spelling, members in by_classes.get(r["family"], {}).items()
+                       for word in members}
+            if (r["chain_lo"] != len(words) or len(words) > min(r["chain_hi"], CERTIFY_ATTEMPT_CAP)
+                    or any(word not in choices for word in words)
+                    or len({choices[word] for word in words if word in choices}) != len(words)):
+                bad.append(f"{r['family']}: witness length, membership or spelling classes are invalid")
         got = fresh.pop(r["family"], None)
         if got != (r["words"], r["classes"]):
             bad.append(f"{r['family']}: table says {r['words']}w/"
@@ -659,6 +793,121 @@ def check():
         if summary.get(k) != v:
             bad.append(f"ADOPTED[{k!r}] = {v!r} but the table says "
                        f"{summary.get(k)!r}")
+    recorded, current = read_judge(path), judge_fingerprint()
+    if recorded != current:
+        bad.append("capacity modal-table fingerprint is missing or stale")
+    return bad, summary
+
+
+
+_PROOF_CACHE = None
+
+
+def _proof_path():
+    return os.environ.get("LYRIC_CAPACITY_ATTESTATION") or os.path.abspath(
+        os.path.join(HERE, "..", "..", "mcp", "capacity_verification.json"))
+
+
+def _proof_epoch(path, receipt_path):
+    """Cheap cache invalidation over source/data files, with exact bytes in the proof."""
+    from pathlib import Path
+    import lyric_harness as LH
+    root = Path(HERE).parent
+    paths = [root / "lyric_harness.py", Path(path), Path(receipt_path),
+             Path(LH.CMUDICT_PATH), Path(LH.FREQ_PATH)]
+    paths.extend(Path(HERE).glob("*.py"))
+    paths.extend(Path(root / name) for name in judge_fingerprint())
+    def stamp(p):
+        try:
+            st = p.stat()
+            return str(p), st.st_size, st.st_mtime_ns, st.st_ctime_ns, st.st_ino
+        except OSError:
+            return str(p), None
+    return (sys.version, ADOPTED_MAX_GROUP, json.dumps(ADOPTED, sort_keys=True),
+            tuple(sorted(stamp(p) for p in paths)))
+
+
+def validate_receipt(receipt, rows, *, table_sha256, source_identity, python_version):
+    """Validate one trusted build-generated all-family attestation, never stdout."""
+    expected = {r["family"]: r for r in rows if r["certified"]}
+    scalar = {
+        "version": 1, "status": "verified", "scope": "all_certified_capacity_witnesses",
+        "relation": ADOPTED_RELATION, "python": python_version,
+        "source_identity": source_identity, "table_sha256": table_sha256,
+        "families_total": len(rows), "witnesses_required": len(expected),
+        "witnesses_verified": len(expected), "construction_attempt_cap": CERTIFY_ATTEMPT_CAP,
+        "summary": json.loads(json.dumps(summarize(rows))),
+    }
+    if not isinstance(receipt, dict) or any(type(receipt.get(k)) is not type(v)
+            or json.dumps(receipt.get(k), sort_keys=True) != json.dumps(v, sort_keys=True)
+            for k, v in scalar.items()):
+        raise ValueError("CAPACITY_UNVERIFIED: missing, stale or mismatched runtime/table attestation")
+    records = receipt.get("witnesses")
+    if not isinstance(records, list) or len(records) != len(expected):
+        raise ValueError("CAPACITY_UNVERIFIED: the attestation did not verify every required witness")
+    seen = set()
+    for record in records:
+        if not isinstance(record, dict) or record.get("family") not in expected or record["family"] in seen:
+            raise ValueError("CAPACITY_UNVERIFIED: duplicate or unexpected witness proof")
+        seen.add(record["family"])
+        row = expected[record["family"]]
+        n = len(row["witness"].split())
+        numbers = {"chain_lo": n, "pairs_judged": n * (n - 1) // 2,
+                   "banned_pairs": 0, "refused_pairs": 0, "violated_pairs": 0}
+        if any(type(record.get(k)) is not int or record[k] != v for k, v in numbers.items()):
+            raise ValueError("CAPACITY_UNVERIFIED: incomplete or unsuccessful witness verdict")
+    return receipt
+
+
+def require_current_proof(*, path=TABLE_PATH, receipt_path=None, reviser=None):
+    """Require proof for this installed runtime and exact reviewed table bytes.
+
+    The receipt is produced by quality/verify_capacity.py through ALL certified
+    witnesses in the actual image. A six-family smoke, old source header, or
+    another Python runtime cannot substitute. This reads a build artifact,
+    not model-provided data or a conversational certification claim.
+    """
+    global _PROOF_CACHE
+    import copy
+    from pathlib import Path
+    use_cache = reviser is None
+    receipt_path = receipt_path or _proof_path()
+    try:
+        epoch = _proof_epoch(path, receipt_path)
+        if use_cache and _PROOF_CACHE is not None and _PROOF_CACHE[0] == epoch:
+            return copy.deepcopy(_PROOF_CACHE[1])
+        receipt = json.loads(Path(receipt_path).read_text())
+        rows = read_table(path, verify_runtime=False)
+        summary = summarize(rows)
+        if summary != ADOPTED or summary["max_chain_lo"] != ADOPTED_MAX_GROUP:
+            raise ValueError("CAPACITY_UNVERIFIED: adopted generator capacity does not match the verified table")
+        if reviser is None:
+            from quality.revise import Reviser
+            reviser = Reviser()
+        identity = certification_identity(reviser)
+        valid = validate_receipt(receipt, rows,
+            table_sha256=hashlib.sha256(Path(path).read_bytes()).hexdigest(),
+            source_identity=identity, python_version=sys.version)
+        if _proof_epoch(path, receipt_path) != epoch:
+            raise ValueError("CAPACITY_UNVERIFIED: proof inputs changed during admission")
+        if use_cache:
+            _PROOF_CACHE = (epoch, valid)
+        return copy.deepcopy(valid)
+    except (OSError, json.JSONDecodeError, TypeError, KeyError) as exc:
+        raise ValueError("CAPACITY_UNVERIFIED: actual-runtime all-family receipt is missing or unreadable") from exc
+
+
+def check():
+    """Re-derive tier 1 exactly and re-certify the sample -> exit code."""
+    from quality.revise import Reviser
+    rv = Reviser()
+    rows = read_table()
+    bad, summary = validate_rows(rv, rows)
+    if read_certification_source() != certification_identity(rv):
+        try:
+            require_current_proof(reviser=rv)
+        except ValueError as exc:
+            bad.append(str(exc))
     # THE JUDGE, ASKED FIRST AND REPORTED AS THE CAUSE. A witness that no
     # longer passes has two very different explanations -- the artifact is
     # wrong, or the grader moved underneath it -- and until 2026-08-21 this

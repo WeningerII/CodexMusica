@@ -1,0 +1,228 @@
+
+1. the scheme space is Bell(n), and it is enumerated exhaustively
+  PASS  Bell numbers match the known sequence
+          [1, 1, 2, 5, 15, 52, 203, 877]
+  PASS  n=1: enumerates exactly Bell(1) = 1
+  PASS  n=2: enumerates exactly Bell(2) = 2
+  PASS  n=3: enumerates exactly Bell(3) = 5
+  PASS  n=4: enumerates exactly Bell(4) = 15
+  PASS  n=5: enumerates exactly Bell(5) = 52
+  PASS  n=6: enumerates exactly Bell(6) = 203
+  PASS  n=7: enumerates exactly Bell(7) = 877
+  PASS  the fifteen four-line schemes are ALL of them
+          this project had been using three of these fifteen
+  PASS  Stirling rows sum to Bell
+  PASS  max_blocks slices the space without breaking canonicity
+
+2. one partition, one representation
+  PASS  ABAB and BABA are the same object
+  PASS  CDCD too
+  PASS  an X is a singleton block, not a missing value
+          'unrhymed' is a block of size one, so ABXB IS ABCB
+  PASS  two X's are two DIFFERENT singletons, not one class
+          if X meant a shared class, AXXA would be ABBA -- it is not
+  PASS  round-trips
+  PASS  beyond 26 sounds it keeps going
+
+3. coordinates locate a scheme; letters alone do not
+  PASS  ABAB and ABBA have identical block sizes
+          so block sizes alone cannot tell interlocking from enclosed
+  PASS  but ABAB crosses and ABBA nests
+  PASS  AABB is adjacency, not crossing or nesting
+  PASS  every unrhymed line is its own singleton block
+          ABCB has TWO unrhymed lines, 1 and 3 — they are not one class
+  PASS  ABCD is four singletons and no rhyme at all
+  PASS  a 30-line scheme reports its true span
+          the stanza model could not represent this rhyme at all
+
+4. THE ONE THAT MATTERS — sections label lines, they do not partition the analysis
+  PASS  the long-range rhyme exists in the object
+          max_span=10
+  PASS  rhymes spanning a section boundary are reported
+          [(2, 6, 'verse', 'chorus'), (6, 12, 'chorus', 'verse')]
+  PASS  section_crossing counts them
+  PASS  a long-range rhyme WITHIN one label is not a crossing
+          span and crossing are separate coordinates
+  PASS  sections must be per-LINE, and a per-section list is refused
+          a caller handing over three section NAMES for twelve lines is reaching for the chunking model, and is stopped
+  PASS  relabelling the sections does not change the rhyme structure
+          the partition is over the SONG; sections are an overlay
+
+5. the named forms are a labelled subset, and a small one
+  PASS  ABAB resolves to its names
+  PASS  rhyme royal is a point in the space
+  PASS  an arbitrary six-line scheme has NO name, and that is the point
+  PASS  n=6: at least 90.0% of the space is unnamed
+          96.0591% of 203 schemes unnamed
+  PASS  n=8: at least 99.0% of the space is unnamed
+          99.9034% of 4,140 schemes unnamed
+  PASS  n=10: at least 99.9% of the space is unnamed
+          100.0000% of 115,975 schemes unnamed
+
+6. doctrine 2 — overlapping cliques have no letter scheme
+  PASS  a disjoint cover projects to a letter scheme
+  PASS  an overlapping cover returns None rather than a fake scheme
+          forcing a partition here would delete the overlap that IS the structure
+  PASS  and it names the pivot line
+  PASS  is_partition is the honest predicate
+
+7. the type space is a product, and English named 6 of 8 cells
+  PASS  there are exactly eight single-syllable agreement cells
+  PASS  two of the eight have no English name
+          (1,1,0) is onset+nucleus agreeing and coda differing — bat : back
+  PASS  perfect rhyme is nucleus+coda, NOT all three
+  PASS  the space is large and enumerable
+          span<=3 is 1,513,728
+  PASS  and the ANCHOR axis multiplies it, per member, twice
+          span-1 was 20,736 placement cells and is 36,578,304 once the locator is a coordinate — a factor of 1,764, which is the size of the hole the seven-axis model had
+  PASS  named types are a vanishing fraction of even the span-1 slice
+          26 named of 20,736 — 99.8746% unnamed
+
+8. named types resolve; unnamed ones say so
+  PASS  masculine perfect end rhyme is named
+  PASS  feminine is a span-2 coordinate, not a separate concept
+  PASS  mosaic is the boundary axis
+  PASS  wrenched is the stress axis
+  PASS  eye rhyme is the realisation axis, not an agreement cell
+          its sound channels DISAGREE and the relation is real anyway, so it cannot be a cell of the agreement pattern
+  PASS  a real combination nobody named reports UNNAMED
+          wrenched AND broken is a thing a writer can do and English has no word for it
+  PASS  the non-English relations sit in the SAME space
+          eight phonology modules bought this: not special cases, coordinates
+  PASS  classify takes agreements a phonology computed, and transcribes nothing
+  PASS  an undeclared axis is refused rather than silently ignored
+
+9. gap E-1 — two words and a phonology now yield a coordinate
+  PASS  cym: llais~llon lands in the space
+          UNNAMED — masculine (1 syl: alliteration), distinct, aligned stress, UNLOC
+  PASS  fin: kukka~kukko lands in the space
+          UNNAMED — feminine (2 syl: identical sound, pararhyme), distinct, aligned 
+  PASS  msa: burong~tolong lands in the space
+          UNNAMED — masculine (1 syl: perfect rhyme), distinct, aligned stress, UNLO
+  PASS  san: rāma~kāma lands in the space
+          UNNAMED — masculine (1 syl: identical sound), rich, unstressed stress, UNL
+  PASS  an out-of-inventory word gives None, not a guess
+          Welsh has no k, q or x
+  PASS  and a word that only LOOKS foreign is read, correctly
+          w is a vowel in Welsh; refusing this would be the opposite error
+  PASS  Persian: an unwritten short vowel propagates as UNKNOWN
+          the channel is named, so a caller knows WHY the verdict is None
+  PASS  and it agrees with the phonology's own independent answer
+          two separately written paths, same tri-state
+  PASS  'anchor' is REFUSED where the phonology carries no prominence
+          som/msa/fas decline a stress grid, so 'last stressed syllable to end' has nothing to point at — the rule is a coordinate, not a universal
+  PASS  verdict() is the tri-state a caller wants
+
+10. the channel space is 27, not 8; span has no ceiling
+  PASS  binary is the fully-DETERMINED subset
+  PASS  span names do not cap at 4
+          the old SPAN dict lumped everything 4+ into 'extended'
+  PASS  an undetermined type reports UNNAMED rather than a nearest cell
+
+11. AXIS 8 — the anchor fixes the ORIGIN of the span, per member
+  PASS  the tail locator reads kukka~kalevala as a 2-syllable rhyme span
+          'kuk' against 'va' and 'ka' against 'la' — and the SECOND cell reports 'perfect rhyme', which is a false-positive label sitting on top of a false-negative verdict
+  PASS  and the declared relation now OVERRULES it, which is the half of doctrine 83 that M-6 closes
+          fin.rhymes reads the shared open final `a` -- the Finnish one-syllable loppusointu -- where the tail locator saw kuk~va
+  PASS  and that disagrees with the phonology's own relation
+          fin.alliterates says True; the tail-located coordinate says False
+  PASS  THE FIX — the head anchor locates the relation that is there
+          (('kuk',), ('ka',)), cell 'alliteration', and it now AGREES with fin.alliterates()
+  PASS  and it resolves to the head-anchored names
+  PASS  the anchor is what changed, not the label
+          under the old model 'head' was a POSITION value that changed the label and not one comparison
+  PASS  an anchor carries a rule AND a determinacy AND a span
+  PASS  fourteen anchor rules and three determinacies are declared
+          unanchored, word-initial, word-final, fixed-index, first-prominent, ...
+  PASS  an undeclared anchor rule is refused, not approximated
+  PASS  'fixed-index' with no index is refused — the index IS the rule
+  PASS  'unanchored' with a measured span is refused
+          a span measured from an origin that does not exist is the inert-parameter defect wearing a different hat
+  PASS  som: every prominence-dependent anchor RAISES
+          pitch accent / contested stress / quantitative metre — the rule has no referent and the module will not default to the tail
+  PASS  msa: every prominence-dependent anchor RAISES
+          pitch accent / contested stress / quantitative metre — the rule has no referent and the module will not default to the tail
+  PASS  fas: every prominence-dependent anchor RAISES
+          pitch accent / contested stress / quantitative metre — the rule has no referent and the module will not default to the tail
+  PASS  but a WORD-EDGE anchor still works there, because it needs no prominence
+          the legacy span= path is now the named coordinate Anchor('word-final', 'declared', -n)
+  PASS  span runs FROM the anchor, and a negative span runs leftward
+          offset i means 'i steps from THIS member's own origin', which is what lets a head-anchored member zip against a tail-anchored one
+
+12. position is COMPUTED from a frame, or it is not asserted
+  PASS  an unframed call leaves position UNLOCATED rather than 'end'
+          None here means the relation was read and its placement was not measured — not a missing value waiting for the modal one
+  PASS  DECLARING a position with nothing to check it against RAISES
+          this parameter used to be accepted and never consulted; an inert parameter that looks live is worse than an absent one
+  PASS  and the refusal is Unverifiable, a kind of Indeterminate
+  PASS  every one of the six declared positions is COMPUTABLE
+          {'end': 'end', 'head': 'head', 'internal': 'internal', 'cross': 'cross', 'leonine': 'leonine', 'holorhyme': 'holorhyme'}
+  PASS  a declared position that CONTRADICTS the frame is refused, and not overwritten in either direction
+  PASS  a member that is not in its declared line is refused
+          nothing about its placement can be measured, so nothing is said
+
+13. the four cross-language proofs — every one on real material
+  PASS  fin: the head anchor agrees with fin.alliterates on 8/8
+          the tail anchor agrees on 7/8
+  PASS  san: the second-akṣara anchor lands on the second akṣara
+          the tail locator lands on (('ya',), ('va',)) — a different syllable, and the relation is not there
+  PASS  and the tail locator does NOT find the relation
+  PASS  san declares its prominence is guru/laghu, NOT stress
+          which is why the anchor rules here are written on PROMINENCE and the module never says 'stress'
+  PASS  a multi-token Sanskrit member is read by scan_pada, not joined
+          saṃhitā resyllabifies across word boundaries, so a token-by-token join would put every index after the first boundary in the wrong place — and every anchor rule here is an index
+  PASS  non: the fixed-index -2 anchor finds the viðrhending on 8/8 Háttatal lines
+          non.line_hending computes the same syllable independently
+  PASS  and on Snorri's own demonstration line it names the relation
+          jörð : fyrð is the pair Snorri's prose defines skothending on
+  PASS  the two members are located by DIFFERENT rules, and the searched side reports its k
+          k=4 candidate origins tried on side A, ties=1 — doctrine 56, a searched rate is not an unsearched one and the k has to travel with it
+  PASS  a tail anchor cannot express this relation at all
+          both members are the same line, so a single global origin gives one position against itself
+  PASS  cym: per-member anchors recover cynghanedd lusg on 104/104 lines
+          side A is SEARCHED over the prominent syllables and side B is RULE-FIXED on the final word's stressed PENULT — a different rule and a different determinacy on the two members of one relation
+  PASS  the same-anchor-both-sides reading recovers 0/104
+          the final word's answering syllable is its PENULT, so a tail anchor is looking one syllable past the relation on every line
+  PASS  NO SINGLE GLOBAL ALIGNMENT COVERS THE PAIR
+          side B's origin sits at its HEAD on 184/184 croes lines and on 0/375 traws lines (traws bridges run 1-13 consonants). Head-align both and traws is unrepresentable; tail-align both and croes cannot be told from traws, because the distinction IS the anchor
+
+14. channel equality is not the relation everywhere
+  PASS  ltc: the raw channels say 流~樓 do NOT rhyme
+          nucleus 尤 against 侯 — different rime categories in the rime book
+  PASS  but ltc.rhymes says they DO, and that answer wins
+          doctrine 36: the granularity a REFERENCE WORK records is not the granularity a FORM works at, and ltc is a lookup, not a G2P
+  PASS  the disagreement is REPORTED, never resolved silently
+          this disagreement is how the case was found; a producer that hid it would ship a confident wrong answer on the strongest positive control this project has
+  PASS  consult=False is reachable, so the channel-only path stays demonstrable
+  PASS  a phonology that declares NO rhyme predicate is not consulted
+          eng consults CMUdict but declares no `rhymes` predicate of its own; reading the inherited stub's None as a refusal would delete every English verdict. It is the LAST eligible module -- see the comment above
+  PASS  ...and the stub's None does not become a refusal: the channels still answer, in both directions
+          the failure this guards against is silent — a stub read as a refusal returns None, which looks like a designed refusal and is an unimplemented one (doctrine 88: a refusal rate is uninterpretable until its causes are separated)
+  PASS  while fin, which now HAS one, is consulted (M-6 closed)
+          the verdict is unchanged -- False either way; what moved is which layer answered
+  PASS  cym, which USED to be this check's example, is consulted now (2026-08-11)
+          and the verdict is unchanged on this pair -- True either way; what moved is which layer answered, exactly as it did for fin
+  PASS    ...and consult=False still reaches the channel path, so what the declared relation corrects stays demonstrable (doctrine 84)
+  PASS    ...and cym's DESIGNED refusal propagates as None where the channels would have answered False
+          `wych` is `w`+`ych` or the diphthong `wy`+`ch`, the orthography does not say which, and the two readings disagree about this pair. That None is a REFUSAL and not a stub, which is the distinction this whole block exists to keep
+  PASS  and a declared LOCATOR suppresses the consultation, because phon.rhymes() would be answering a different question
+  PASS  a REFUSAL propagates and is not a fallback to the channels
+          fas returns None on 60.2% of real Hafez pairs by design, and None from a refusal is not None from an unimplemented stub
+
+15. how much of the registry the producer can actually EMIT
+  PASS  real pairs resolve a substantial share of the registry
+          37 of 76 registry names resolved from 28 pairs × 64 anchor pairings × 6 frames, landing on 2,843 distinct coordinates. Before the anchor axis the producer could not resolve ANY name whose placement it did not verify
+  PASS  the ONLY declared axis value the producer can never emit is length='apocopated'
+          unemittable by axis: {'length': ['apocopated']} — and apocopation is not a length, it is an ANCHOR, so the name survives in its anchor-keyed form and the length value is the dead coordinate
+  PASS  and every remaining unresolved name is combination-limited, not axis-blocked
+          39 of 76 names unresolved by this sample; 33 of them have every axis value individually emittable and are missing only the exact 9-tuple — a fact about a 28-pair sample, not about the producer. The other 6 need a longer span, a searched anchor's own corpus (section 13), or the apocopated length
+  PASS  'apocopated' on the LENGTH axis is still unreachable, and that is the finding
+          nothing computes a dropped final syllable, so length='apocopated' was a value the producer could never emit. Apocopation is an ANCHOR — the penultimate stressed syllable — and THAT form is reachable, which is the axis paying for itself
+  PASS  the anchor-keyed apocopated rhyme IS emitted by a real pair
+          (('ka',), ('sa',)) at origin (0, 0)
+  PASS  perfect / syllabic / apocopated locate THREE different syllables
+          perfect='va' · syllabic='la' · apocopated='ka'
+  PASS  and perfect vs apocopated differ in NOTHING BUT THE ANCHOR
+          differing axes: ['anchor_a', 'anchor_b'] — same channels, same placement, same identity, same everything the seven-axis model could see
+==============================================================
+all taxonomy regressions pass

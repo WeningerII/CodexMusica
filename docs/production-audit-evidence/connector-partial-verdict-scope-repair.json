@@ -1,0 +1,18 @@
+{
+  "finding": "INT-33",
+  "problem": "Authenticated partial/diff records inherited whole-draft zero counters from a generic empty findings default. An actual accepted/rejected revision comparison carried banned_pairs:0 and flags:0 even though surviving findings were not measured.",
+  "evidence_before": "connector-native-tail-probe.json",
+  "fix": "Only authenticated graded or finished records with an actual findings array emit full-draft counters. All unmeasured statuses carry findings_measured:false and top-level certified:false. Missing completed inventory cannot certify. Authenticated coverage remains separate. Verify names its diff scope and points to lyric_grade/lyric_check.",
+  "consumer_review": "Gemini completion accepts only lyric_revise exit0 with certified:true and exact final_draft/presentation digest; missing full inventory now forces certified:false at producer. Grade/check/verify cannot issue completion. Pruned history keeps meaning, which names unknown/unmeasured scope.",
+  "files": {
+    "mcp/lyric_tools.js": "44fd64fd3b8677da1b7e047bbf4cd2e87b9d157de3871e7517e5a1f2f5eac2b6",
+    "mcp/test.mjs": "b9441bf0d21b9f34e1a85db55cbd16f8d644026c5d6612b49fae4e155da83998"
+  },
+  "controls": [
+    "graded actual-empty census reports measured zero",
+    "verified/planned/screened/recovered/suspended/refused/journal_capacity cannot emit fabricated counters",
+    "finished with missing inventory remains uncertified",
+    "actual banned draft versus unchanged diff preserves separate known-ban and unmeasured-comparison evidence"
+  ],
+  "final_native_result": "See connector-full-native-final.json for the separately source-attributed completed gate; this record captures the repair epoch, not the final qualification result."
+}

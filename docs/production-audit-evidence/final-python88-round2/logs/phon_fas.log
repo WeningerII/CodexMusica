@@ -1,0 +1,154 @@
+
+1. normalise — the codepoints that break equality while looking identical
+  PASS  the two spellings really are different strings
+          U+06CC vs U+064A
+  PASS  ARABIC YEH U+064A folds onto FARSI YEH U+06CC
+  PASS  the two spellings really are different strings
+          U+06A9 vs U+0643
+  PASS  ARABIC KAF U+0643 folds onto KEHEH U+06A9
+  PASS  ALEF MAKSURA U+0649 folds onto FARSI YEH too
+  PASS  and the fold reaches the radif: a ghazal typed with ARABIC YEH still yields the same radif
+          without the fold the two spellings share no trailing token at all
+
+2. normalise — ZWNJ U+200C, and the twin it does NOT merge with
+  PASS  the ZWNJ form and its space-written twin normalise together
+          'مشکل ها'
+  PASS  ZWNJ survives nowhere in the output
+  PASS  the JOINED spelling stays a different token, and that is the declared cost of the choice
+          ghazal 1 writes ناولها joined and مشکل ها spaced — 2 of its 8 rhyming lines are therefore invisible to a token-level radif
+  PASS  NBSP and the other Unicode spaces fold to U+0020 as well
+
+3. normalise — ḥarakāt, tatwīl, presentation forms, dagger alef
+  PASS  a vocalised word equals its unvocalised self
+  PASS  shadda is removed too — declared, and it costs gemination
+          gemination is phonemic in Persian and changes syllable weight; this corpus carries zero ḥarakāt so nothing is lost HERE
+  PASS  tatwīl / kashida is not a letter
+  PASS  NFKC folds the Arabic Presentation Forms back to base letters
+          isolated/final shapes leak out of PDF and OCR
+  PASS  dagger alef U+0670 folds to ا rather than being deleted
+          'ا'
+  PASS  punctuation cannot split a radif
+
+4. the declared inventory, and the Arabic letters that stay in it
+  PASS  every letter of three real ghazals is in the declared inventory
+          30 letters used, outside: []
+  PASS  ث is in the inventory (Arabic loan grapheme, native pronunciation)
+  PASS  ذ is in the inventory (Arabic loan grapheme, native pronunciation)
+  PASS  ض is in the inventory (Arabic loan grapheme, native pronunciation)
+  PASS  ظ is in the inventory (Arabic loan grapheme, native pronunciation)
+  PASS  وعظ, a real Hafez word carrying ظ, reads
+          {(None, ('ظ',)), (None, ('ع', 'ظ'))}
+
+5. syllables — unwritten nuclei are marked, weight is not faked
+  PASS  کجا has one unique parse, two syllables
+          ['ک?', 'جā']
+  PASS  the first nucleus is marked UNKNOWN, not guessed
+          the short vowel of کـ is not on the page
+  PASS  weight is still recoverable: light CV=1, heavy CVV=2
+  PASS  دل is CVC, heavy, nucleus unknown
+  PASS  نامه ends on the one short vowel Persian writes
+          {('e', ()), (None, ('ه',)), ('ā', ('م', 'ه'))}
+
+6. syllables — an indeterminate split says so instead of inventing one
+  PASS  مشکل has more than one legal parse
+          3 legal parses, 3 distinct shapes: the syllable count is not recoverable without the short vowels
+  PASS  so syllabify() returns nothing rather than picking one
+  PASS  and the return SAYS which kind of refusal it is
+          3 legal parses, 3 distinct shapes: the syllable count is not recoverable without the short vowels
+  PASS  a unique parse is still delivered
+  PASS  out of inventory is a DIFFERENT refusal and says so
+          out of inventory: not Perso-Arabic script after normalisation (refusal is on script, never on language)
+
+7. prominence — refused, because ʿarūż is quantitative
+  PASS  grid_unit is the mora, declared
+  PASS  prominence is left None rather than faked
+  PASS  asking for stress raises
+          Persian metre is quantitative (ʿarūż), so the grid is the mora and not the str
+  PASS  the refusal names BOTH reasons
+          word-final stress is real but is not the grid the form uses, AND the grid has no known length to index
+
+8. rhymes — True / False / None, and None is the frequent answer
+  PASS  کار / یار — both {ā} before the same rawī: a confident True
+  PASS  کار / بهار likewise
+  PASS  کجا / صبا — bare long ā
+  PASS  کار / در — {ā} against {a,e,o}, disjoint: a confident False
+  PASS  دل / کار — the same, the other way round
+
+9. rhymes — THE test: matching skeletons, differing short vowels
+  PASS  their rhyme tails are literally identical
+          {(None, ('ل',))} / {(None, ('ل',))}
+  PASS  and rhymes() returns None — not True
+          /del/ against /gol/: a module that answered True here would report a corpus-wide qāfiya agreement that is an artefact of its own guess
+  PASS  Syllable.key() WOULD call them equal — which is why rhymes() does not use it
+          key() = (None, ('ل',))
+  PASS  مشکل / دل — an indeterminate split also propagates as None
+  PASS  پرور is /parvar/ and not /parur/, so دلبر / هنرپرور is None and not False
+          reading C-و-C as a vowel was a guess, and the guess returned False on one of Hafez's own rhymes
+  PASS  کله / سیه likewise — final ه is /e/ or /h/ and the page does not say
+
+10. alliterates — tri-state, and decidable because onsets are written
+  PASS  کجا / کار share an onset
+  PASS  دل / کار do not
+  PASS  word-initial ا آ ع are one glottal class, declared
+  PASS  out of inventory returns None, never a guess
+
+11. radif — the TRADITION test, on ghazals with known radifs
+  PASS  ghazal 2: radif کجا on every rhyming line
+          9/9
+  PASS  ghazal 422: a TWO-token radif آمده ای
+          {'radif': 'آمده ای', 'count': 6, 'fraction': 0.75, 'lines': 8, 'reason': 'recurs'}
+  PASS  its two missing lines are the ones that write بازآمده joined
+          the radif is present in the sound and joined in the spelling
+  PASS  ghazal 1: radif ها on 6 of 8, the other 2 written joined
+          {'radif': 'ها', 'count': 6, 'fraction': 0.75, 'lines': 8, 'reason': 'recurs'}
+  PASS  the qāfiya is the token before the radif
+          ['خراب', 'به', 'ناب', 'رباب', 'آفتاب', 'جناب', 'شتاب', 'عتاب', 'خواب']
+  PASS  a line that does not carry the radif gets None, not a token from the wrong position
+
+12. radif — a shared tail ONCE is not a refrain (doctrine 18)
+  PASS  only two of eight lines share a trailing token -> None
+          no trailing token sequence recurs on at least 3 lines and 60% of them
+  PASS  and it is a recurrence failure, not a script failure
+  PASS  two lines with an identical tail still return None
+          2 lines is below min_lines=4: a single pair is no evidence either way, so this is a refusal and not a negative
+  PASS  and the reason names it as a refusal, not a negative
+  PASS  the thresholds are named parameters, not literals
+          lowering the declared gate does find it — which is exactly why the gate has to be declared
+  PASS  a candidate that would consume a whole line is rejected
+          no trailing token sequence recurs on at least 3 lines and 60% of them
+
+13. refusal — on SCRIPT, and the declared limit of that
+  PASS  Latin script: radif returns None
+          out of inventory: not Perso-Arabic script after normalisation; refused on script, never on language
+  PASS  Latin script: rhymes returns None
+  PASS  Latin script: syllabify returns nothing
+  PASS  Cyrillic likewise
+  PASS  a digit is not a phoneme this module can state
+          1390
+  PASS  Arabic in Arabic script is NOT refused, by declared design
+          متی ما تلق من تهوی دع الدنیا و اهملها — a line of Hafez. A module that refused Arabic would refuse this ghazal.
+  PASS  the refusal itself says which axis it refuses on
+          out of inventory: not Perso-Arabic script after normalisation (refusal is on script, never on language)
+
+14. the module declares what it reads and what it refuses
+  PASS  declares language
+  PASS  declares name
+  PASS  declares notation
+  PASS  declares grid_unit
+  PASS  declares prominence_rule
+  PASS  declares relation
+  PASS  declares source
+  PASS  notation states the script AND that it is unvocalised
+  PASS  notation names the folds codepoint by codepoint
+  PASS  notation says the short vowels are not supplied
+  PASS  relation names both radif and qāfiya
+  PASS  relation says the rhyme half is frequently not decidable
+  PASS  language code is fas
+
+15. nothing here falls back to English
+  PASS  fas imports no English resource
+          imports: ['quality', 'unicodedata']
+  PASS  and no external data file of any kind
+          imports: ['quality', 'unicodedata']
+==============================================================
+all Persian phonology regressions pass

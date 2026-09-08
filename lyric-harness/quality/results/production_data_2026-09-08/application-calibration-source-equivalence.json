@@ -1,0 +1,27 @@
+{
+  "before_cli_sha256": "40169c2d1be51c54a3dc2f74fd027c8d996b18988735b5a493135484bfe9ec62",
+  "after_cli_sha256": "00f0e288cb670a7c88d8747fbab41c4b4aa3866484b14a7c7d9e7a79137464fc",
+  "changed_top_level_ast_nodes": [
+    "_checkpoint_proposer",
+    "_resolve_proposer"
+  ],
+  "consumed_harness_field_sha256": "fcf2003728d771c26c7c4bb7950836b7fc9f057dad3e0d83e9f24468ae0c9f72",
+  "consumed_field_closure_identical": true,
+  "field_fingerprint": "473da80f8438a8d3a2f2927e5bc94a205a0ca0b06e6907aefc4ae56d2ef0996c",
+  "row_provenance_changed_keys": [
+    "comparator_fingerprint"
+  ],
+  "previous_row_comparator": "42980129e0e5e6075b8db9ece418dbe5a04f770893391f13b4fe2bc6faebb777",
+  "current_row_comparator": "af2fdcc9779d50238f112a2587c18dfcc422f0a58a31468b196610daab76b852",
+  "other_native_source_delta": {
+    "lyric_harness.py": {
+      "before_sha256": "40169c2d1be51c54a3dc2f74fd027c8d996b18988735b5a493135484bfe9ec62",
+      "after_sha256": "00f0e288cb670a7c88d8747fbab41c4b4aa3866484b14a7c7d9e7a79137464fc"
+    },
+    "quality/loop.py": {
+      "before_sha256": "60276b2bc3f0edbc5133c8ee5f17366d2287c6be116fca3082c6ad119e796789",
+      "after_sha256": "c4195e93d5d37cd805c78bce006fc83c11471cb5eefee59f6bf3e76ac3cbae7e"
+    }
+  },
+  "disposition": "Preserve actual previous103-artifact epoch; compute all8545 current rows with fresh item memo so the whole-CLI-bound maintained gate passes. No200-seed refit if TSV bytes remain identical."
+}

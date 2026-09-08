@@ -1549,6 +1549,32 @@ class Mandate:
         that is worse at declaration time than at grade time because the
         writer is still holding the sentence they got wrong.
         """
+        if type(self.n_lines) is not int or self.n_lines < 0:
+            raise NoMandate("n_lines must be a non-negative integer")
+        for name, members in [("group", g) for g in self.groups] + [
+                ("free", self.free)]:
+            if any(type(i) is not int or not 1 <= i <= self.n_lines
+                   for i in members):
+                raise NoMandate(f"{name} names a line outside 1..{self.n_lines}")
+        if self.scope is not None:
+            _normalise_scope(self.scope, self.n_lines, self.groups, self.returns)
+        _normalise_returns(self.returns, self.n_lines, self.rule)
+        if len(self.labels) != len(self.groups):
+            raise NoMandate("labels must run parallel to groups")
+        if len(self.relations) > len(self.groups) or len(self.structures) > len(self.groups):
+            raise NoMandate("relations and structures cannot name absent groups")
+        if self.loci and (len(self.loci) > len(self.groups) or any(
+                loc and len(loc) != len(self.groups[i])
+                for i, loc in enumerate(self.loci))):
+            raise NoMandate("loci must run parallel to groups and their members")
+        if len(set(self.labels)) != len(self.labels):
+            raise NoMandate("group labels must be unique")
+        if any(len(set(g)) != len(g) for g in self.groups):
+            raise NoMandate("a group cannot repeat the same line")
+        normal_structures = _normalise_structures(self.structures, self.labels, len(self.groups))
+        normal_relations = _normalise_relations(self.relations, self.labels, len(self.groups), normal_structures)
+        object.__setattr__(self, "structures", normal_structures)
+        object.__setattr__(self, "relations", normal_relations)
         if self.default_relation:
             from quality import rhyme_types as _RT
             object.__setattr__(self, "default_relation",
@@ -2569,7 +2595,12 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
                 f"{n_lines}.")
         spec = m
 
-    if isinstance(spec, Mandate) and (returns or scope
+    if isinstance(spec, Mandate) and n_lines is not None and n_lines != spec.n_lines:
+        raise NoMandate(
+            f"this mandate is written over {spec.n_lines} lines and the draft "
+            f"has {n_lines}; reopening cannot change the song's line identity")
+
+    if isinstance(spec, Mandate) and (rule_declared or returns is not None or scope is not None
                                       or structures is not None
                                       or relations is not None
                                       or default_relation is not None):
@@ -2622,7 +2653,8 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
                                           ("structures", structures),
                                           ("relations", relations),
                                           ("default_relation",
-                                           default_relation))
+                                           default_relation),
+                                          ("rule", rule if rule_declared else None))
                  if given is not None]
         return Mandate(n_lines=n, groups=spec.groups, labels=spec.labels,
                        default_relation=(spec.default_relation
@@ -2660,6 +2692,10 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
                                       relations, spec.labels,
                                       len(spec.groups), _st_spec)))
 
+    if spec is None and returns:
+        if n_lines is None:
+            raise NoMandate("a returns-only declaration needs n_lines to name the draft it constrains")
+        spec = []
     if spec is None:
         # `empty=True` MARKS THE ONE REFUSAL THAT MEANS "NOTHING WAS
         # DECLARED". Every other `NoMandate` in this module means the caller
@@ -2731,7 +2767,9 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
             org = origin or "declared line groups"
 
     groups, free, loci = _normalise_groups(raw, n)
-    if not groups:
+    rets = _normalise_returns(
+        extra_returns + (_list_returns(returns) if returns else []), n, rule)
+    if not groups and not rets:
         raise NoMandate(
             "the mandate declares no group of two or more lines, so it "
             "mandates NO pair and cannot flag anything. An all-free scheme "
@@ -2741,8 +2779,6 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
             "plainly that the song has no rhyme requirement and do not run "
             "the loop.")
     labels = tuple(label((k,)) for k in range(len(groups)))
-    rets = _normalise_returns(
-        extra_returns + (_list_returns(returns) if returns else []), n, rule)
     if rets:
         # `free` means "in no group at all", and a returned line IS in one --
         # the group its own first instance is in. Computing it off the
@@ -2751,6 +2787,7 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
         probe = Mandate(n_lines=n, groups=groups, labels=labels, free=(),
                         source=source, origin=org, returns=rets, rule=rule)
         covered = {i for g in probe.expanded_groups() for i in g}
+        covered.update(i for group in rets for i in group)
         free = tuple(i for i in range(1, n + 1) if i not in covered)
     sc = _normalise_scope(scope, n, groups, rets)
     return Mandate(n_lines=n, groups=groups, labels=labels, free=free,

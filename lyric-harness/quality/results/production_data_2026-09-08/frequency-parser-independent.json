@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "source_sha256": "bd61d0ddf50d46350ba14316136c0e4b5b0f3590d16e7bc4f9c74b3ca29420c2",
+  "all_table_counts_match_independent_exact_header_parse": true,
+  "all_non_header_named_keys_identical_to_old_parser": true,
+  "endword_types": 13856,
+  "end_count_total": 248628,
+  "restored_literal_word_count": 407,
+  "restored_a_partners": {
+    "the": 77,
+    "ca": 9
+  },
+  "all_author_units_conserved": true,
+  "live_consumers": [
+    "Reviser._rank_field_compute uses LAYER.conditional with scoring=UNSEEN",
+    "Reviser._offer_reopens uses LAYER.conditional with scoring=UNSEEN"
+  ],
+  "calibration_recomputed": false
+}

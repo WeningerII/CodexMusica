@@ -1,0 +1,235 @@
+
+> codex-music-tool@2.0.0 test:lyrics:runtime
+> npm run test:production:offline && node --test --test-concurrency=1 mcp/test_paid_budget.mjs mcp/test_python_bridge.mjs mcp/test_lyric_state.mjs mcp/test_turn_lifecycle.mjs mcp/test_battery_lifecycle.mjs mcp/test_battery_archive.mjs mcp/test_battery_storage.mjs mcp/test_job_store.mjs
+
+
+> codex-music-tool@2.0.0 test:production:offline
+> node --test --test-concurrency=1 --test-timeout=120000 mcp/test_release_gates.mjs mcp/test_battery_repairs.mjs mcp/test_chat_production.mjs mcp/test_connector_contracts.mjs mcp/test_connector_http.mjs mcp/test_runtime_assets.mjs mcp/test_state_codec.mjs mcp/test_lyric_workflow.mjs && python3 scripts/test_lyrics_capacity.py && python3 scripts/test_profile_lyrics_phase.py && python3 scripts/test_worker_measurement_capture.py && python3 scripts/test_production_qualification.py
+
+✔ actual application identities count once across repeated calls and durable ledger restore (3.239295ms)
+✔ verified but unapplied, rejected, and unchanged proposals do not prove an applied repair (0.5966ms)
+✔ missing or malformed kitchen evidence refuses instead of being reported as zero (1.293121ms)
+✔ conflicting reused outcome IDs cannot inflate or overwrite accepted evidence (0.678806ms)
+✔ interview outcomes remain separate; unvisited, inferred and unexecuted answers are not accepted (0.812836ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ verified application evidence stays distinct from missing, rejected and unapplied proposals (4.026136ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ actual chat tool rows preserve compact verifier/application and exact checkpoint replay receipts (446.744783ms)
+✔ maximum recovery exports complete through actual HTTP and durable receipts within existing byte caps (923.75147ms)
+ℹ all: HTTP 2364011 bytes; durable receipt 2364518 bytes; exact export 525192 bytes
+ℹ journal: HTTP 3151201 bytes; durable receipt 3151766 bytes; exact export 525009 bytes
+✔ recipe task excludes lyric instructions and declarations and rejects wrong-family dispatch (2.530928ms)
+✔ certified delivery uses the exact authoritative artifact and binds full draft digest (1.184006ms)
+✔ parked verdict defeats a later model finished claim and a later request cannot reuse an old pass (2.323699ms)
+✔ missing, blocked, empty and malformed candidates never persist an empty model turn (1.227755ms)
+✔ canonical brief, accepted instructions, current plan and step history survive pruning (1.365904ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ quota retries do not consume transient retries in a mixed response sequence (9.327255ms)
+✔ per-run admission lock and revisions reject simultaneous and stale operations; input identity is immutable (1.336595ms)
+✔ run cache pressure cannot evict an active record or reuse an earlier revision (0.58566ms)
+✔ run TTL cannot erase an in-flight revision but still expires released records (0.191188ms)
+✔ largest carried ASCII, escaped and multibyte receipts complete durably without a global latch (977.379141ms)
+✔ shipped UI exposes explicit lyric creation and pasted-edit task phases (28.509671ms)
+✔ shipped UI stores a request capability before dispatch, recovers a lost response and preserves signed errors and pacing (22.874805ms)
+✔ shipped UI reload recovers pending work and Reset cannot resurrect a discarded conversation (15.408985ms)
+✔ shipped lyric display and Copy preserve the authoritative performance text and unfinished verdict (5.312966ms)
+✔ shipped recovery display and Copy preserve the exact export while retaining the live artifact (10.823773ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ actual chat admission keeps a signed turn counter even when history is pruned (884.540047ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ signed lyrics with missing or changed semantic identity refuse before any provider call (140.121475ms)
+✔ lyric output allowance is reserved at 32768 and truncation cannot certify a song (0.967552ms)
+✔ recipe creation needs a successful customization; explicit browse can return a stock recipe (2.116481ms)
+[chat]  Gemini 400: HTTP 400
+✔ durable continuation bypasses wire-size limits and admits exactly one successor (896.556662ms)
+✔ host-selected recipe endpoint exposes only recipe tools and retains full guidance (33.699045ms)
+✔ unscoped in-memory registration still enforces inherited trusted task at dispatch (4.916406ms)
+✔ initialization omissions fail explicitly (0.92973ms)
+✔ native client refuses real discovery and initialization drift before offering tools (51.524376ms)
+✔ native client gives the real tool budget a response margin and honors a shorter caller deadline (8.946182ms)
+✔ connector discovery rejects a looping pagination cursor without looping indefinitely (0.278006ms)
+✔ private CLI output atomically replaces public files and argument typos fail before connecting (15.984999ms)
+✔ image identity requires valid baked bytes and source fingerprint covers recipe runtime dependencies (27.858951ms)
+✔ the production build reader ignores runtime identity overrides and refuses a missing baked file (7.219421ms)
+✔ recover string input preserves the same section information as its array twin (1.082151ms)
+✔ actual revision dispatch refuses conflicting draft and proposal representations (345.000965ms)
+✔ quoted lyrics cannot create findings or finish metadata (0.69847ms)
+✔ live surface comparison detects annotations, output schema, titles and duplicate names (0.496047ms)
+✔ initialization compares full guidance and capabilities, including omission (0.438004ms)
+✔ live qualification options cannot silently drop a misspelled release gate (0.449921ms)
+✔ production readiness refuses disabled, transient, corrupt or stale configuration (0.824385ms)
+✔ recipe acceptance measures exact delivered rich artifact and real declared edits (1.267511ms)
+✔ image promotion binds exact verified commit, repository and immutable tested build (1.055315ms)
+✔ candidate build repository bytes must remain unchanged through image recording (0.194409ms)
+✔ public HTTP rejects untrusted Origin before dispatch and reports disabled lyrics honestly (3628.545821ms)
+✔ completedSteps and model-supplied fake workflow do not establish creation receipts (1.453408ms)
+✔ only accepted sweep seeds and unchanged declared structural predicates reach plan (1.587729ms)
+✔ a failed, forged, stale or unadmitted plan cannot establish creation qualification (1.009691ms)
+✔ grade receipt binds the exact canonical plan and exact draft (1.269605ms)
+✔ explicit edit tasks retain independent pasted-song grading and revision (0.163376ms)
+✔ an authenticated uncertain assessment permits repair but a pre-assessment refusal does not (0.446615ms)
+✔ actual graded projection requires coherent requested obligations while permitting zero rhyme pairs (1.712236ms)
+✔ explicit narrative survives canonical plan receipts and omitted continuation arguments (0.55179ms)
+✔ actual driver refuses reordered creation before calling any tool (4.235946ms)
+✔ actual kitchen driver exports the explicit original envelope without resuming its carried run (3.230562ms)
+✔ kitchen declarations retain the recovery export door during suspended and parked runs (0.379ms)
+✔ actual driver qualifies only successful sweep-screen-program-plan-exact-grade-revise sequence (2.618159ms)
+✔ release CI requires actual successful jobs at the exact trusted main push (1.730267ms)
+✔ CI evidence addresses the actual attempt and refuses a missing attempt before job lookup (2.106558ms)
+✔ a newer failed CI run cannot be replaced by an older success (0.39061ms)
+✔ song coverage rejects sparse arrays, omitted verdicts and naked exit reasons (0.331405ms)
+✔ remote pre-dispatch archive retains the capability after complete local loss (9.357419ms)
+✔ live qualification oracle rejects missing repairs, corrupt delivery and mismatched wall build (7.966434ms)
+✔ production qualification requires each actual job in the exact trusted manual attempt (0.784288ms)
+✔ qualification artifact cannot cross source, attempt or incomplete calibration boundaries (2.069707ms)
+✔ required readiness rejects a missing proof and invokes current-runtime validation for stale proofs (20.336135ms)
+✔ previous ready result is invalidated when proof bytes or source change (40.084475ms)
+✔ cached readiness notices an undeclared file in an existing unlisted nested directory (11.550304ms)
+✔ production cannot execute an NLTK override outside the model tree whose bytes were approved (22.962554ms)
+✔ required production mode exports exact recovery without Python or assets while retaining all task/input guards (889.209601ms)
+recovery boundary: legacy-json drafts=1049503 journal=1049320 bytes; exact artifacts preserved
+recovery boundary: gzip+base64 drafts=1049561 journal=1049378 bytes; exact artifacts preserved
+state codec: lossless journal, UTF-8 wire bound, migration and bounded decompression passed
+✔ mcp/test_state_codec.mjs (1370.144681ms)
+ℹ tests 74
+ℹ suites 0
+ℹ pass 74
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15256.153617
+✔ archive round trip preserves every byte and restores private permissions (19.76706ms)
+✔ wrong key or ciphertext tampering creates no restore tree (12.650292ms)
+✔ seal refuses symlink sources and leaves prior archive and plaintext intact (2.086922ms)
+✔ restore refuses existing destinations and symlinked ancestors (4.632142ms)
+✔ authenticated malicious paths and duplicate entries cannot partially restore (21.719192ms)
+✔ safe public summary cannot carry capability-bearing strings or nested metadata (0.758997ms)
+✔ workflow validates the secret before paid work and uploads no plaintext path (19.818212ms)
+ok 1 - persistent paced429 cannot borrow ordinary retry budget
+ok 2 - paced wait sum never admits a retry exceeding its remaining budget
+ok 3 - post-header aborted settles with durable transport outcome
+ok 4 - post-header invalid-json settles with durable transport outcome
+ok 5 - post-header deadline settles with durable transport outcome
+ok 6 - kill during first request leaves intent; resume retrieves completion without repeating POST
+ok 7 - ambiguous missing job is never reissued on resume
+ok 8 - wall canary saves exact signed envelope and resumes next turn
+ok 9 - explicit resume can continue interrupted signed checkpoint with a new request ID
+ok 10 - aggregate admission refuses a request that cannot finish before delivery reserve
+ok 11 - multi-song finished policy has an explicit outcome
+ok 12 - multi-song survey policy has an explicit outcome
+ok 13 - wrong live SHA refuses paid request
+ok 14 - pending job is polled to its actual completion without a second paid POST
+ok 15 - measurement requires durable recovery before spending
+ok 16 - same commit with changed configuration stops before the next paid turn
+ok 17 - partial upstream429 preserves the envelope and honors its pacing hint
+ok 18 - actual job-router persistence503 recovers and never enters ordinary retry
+ok 19 - actual retired receipt refuses replay after its full response was evicted
+ok 20 - uncertain proposal stops automatic continuation and plain resume
+ok 21 - measurement refuses incomplete fingerprint identity even with durable recovery
+ok 22 - interrupted proposal uncertainty is terminal even when its signed checkpoint survives
+ok 23 - job receipt detects a deployment between health probe and paid request
+ok 24 - completion rejects blank delivery
+ok 25 - completion rejects earlier success followed by unfinished result
+ok 26 - completion rejects HTTP200 error after success
+ok 27 - completion rejects changed final draft under old receipt
+ok 28 - terminal checkpoint restores verdict lost before summary write without another request
+ok 29 - multi-song resume restores a lost failed verdict instead of passing a sparse summary
+ok 30 - a bare signed empty wall cannot satisfy the continuation canary
+ok 31 - mandatory remote recovery refuses before any paid POST when unavailable
+ok 32 - verified receipt keeps complete request latency rather than the final lookup latency
+ok 33 - error checkpoint (top-level) is retained and resumed without retrying the stale envelope
+ok 34 - error checkpoint (nested) is retained and resumed without retrying the stale envelope
+ok 35 - durable continuation uses only the parent receipt, including large signed state
+ok 36 - stale continuation follows the existing successor without another paid branch
+36 battery lifecycle checks passed
+✔ mcp/test_battery_lifecycle.mjs (7916.412283ms)
+✔ 480 identical recovery polls retain a full checkpoint without inflating the journal beyond archive limits (7083.052727ms)
+✔ recording capacity stops before POST and leaves a sealed resumable checkpoint (1454.832469ms)
+✔ per-file recording headroom stops before a permitted archive file can overflow (1013.021212ms)
+✔ resume refuses a missing historical journal segment before any new POST (214.00091ms)
+✔ rolled attempt segments replay a durable response after a lagging checkpoint without repeating POST (1916.396189ms)
+✔ receipt precedes execution; pending/different-input duplicates cannot dispatch; final payload is replayed (63.821953ms)
+✔ a killed process leaves an interrupted receipt and preserved signed checkpoint, never permission to replay (141.937392ms)
+✔ final receipt survives a lost response and is available to a second HTTP connection (8.761673ms)
+✔ corrupt receipts, key files and spend counters fail closed without overwriting evidence (2.221235ms)
+✔ storage failure before dispatch blocks execution and final persistence failure never claims a completed receipt (10.967423ms)
+✔ receipt capacity is bounded, active jobs cannot expire, and expiry is explicit (0.555943ms)
+✔ build fingerprints change with declared runtime config and never contain credentials (421.319097ms)
+✔ recovered error receipts preserve Retry-After pacing (18.223009ms)
+✔ capability redaction covers case-insensitive routes, query strings and referrers (0.451151ms)
+✔ rejected requests cannot consume recovery capacity before chat admission (14.029469ms)
+✔ terminal payload eviction retains a durable tombstone so its identifier cannot execute again (5.608649ms)
+✔ SIGKILL after a budgeted provider dispatch retains uncertainty and cannot replay the request (186.86818ms)
+lyric state: capability isolation, same-seed coexistence, validation safety, annotations and verify grid contract passed
+✔ mcp/test_lyric_state.mjs (1480.763844ms)
+✔ admission is shared across operations and settles actual thinking usage once (3.995765ms)
+✔ an uncosted or failed model request is never admitted as free (0.497657ms)
+✔ reservations survive a process restart as unknown spend, and corrupt storage blocks admission (3.396383ms)
+✔ provider envelope violations stay blocked after restart (1.524426ms)
+✔ UTC rollover preserves active reservations and backwards clocks cannot refund spend (0.496567ms)
+✔ loopback kitchen broker shares admission, isolates reservations and retains unknown work on close (48.274965ms)
+✔ expired kitchen admission and inherited cancellation prevent dispatch (7.699919ms)
+✔ broker returns its authoritative settlement and isolates call accounting (12.86216ms)
+✔ child contexts preserve authoritative monotonic deadlines after clock steps (0.3452ms)
+✔ settlement itself rolls UTC day before charging newly completed work (0.338063ms)
+✔ restart across UTC midnight retains interrupted reservations on the recovered day (1.829338ms)
+✔ inconsistent provider totals retain unknown spending rather than discard tokens (0.209168ms)
+✔ invalid persisted dates and unknown totals cannot restore paid allowance (0.948777ms)
+✔ non-private, oversized and linked ledger files are refused before loading or replacing them (0.76702ms)
+✔ kitchen dispatch permission waits for durable usage admission, and receipt failure returns no capability (4.045337ms)
+✔ queue deadline includes waiting and expired work never starts (759.448252ms)
+✔ cancellation removes queued work and stops an active worker (202.734758ms)
+✔ warm and cold kills retain the same checkpoint and completed usage (2076.138982ms)
+[lyric] warm worker exited {"event":"worker_exit","code":9,"signal":null,"active":true}
+✔ active kitchen crash does not transparently replay paid work (159.986666ms)
+[lyric] warm worker exited {"event":"worker_exit","code":9,"signal":null,"active":true}
+[lyric] warm worker unavailable; deterministic cold fallback {"event":"worker_cold_fallback","remaining_ms":1877}
+✔ deterministic crash fallback has only the remaining admission budget (2101.546766ms)
+✔ warm and cold count UTF-8 report bytes with identical output ceilings (256.396008ms)
+✔ checkpoint controls do not consume the verbose report cap (55.637805ms)
+✔ MCP cancellation notification reaches a running bridge job (47.735375ms)
+✔ real Python proposer shares admission and full usage with the Node budget broker (90.710977ms)
+✔ kitchen budget refuses before provider HTTP and an interrupted request holds unknown usage (93.531151ms)
+✔ ordinary lyric text cannot impersonate a checkpoint control record (33.689486ms)
+[lyric] warm worker exited {"event":"worker_exit","code":9,"signal":null,"active":true}
+✔ a crash between atomic checkpoint write and stdout is recovered from its trusted file (32.416649ms)
+✔ budget-close failure refuses while preserving accepted state and known usage (39.399711ms)
+✔ a queued job cannot spawn until the killed worker emits close (82.250061ms)
+✔ unexpected worker death and deterministic fallback are logged without lyric content (163.925809ms)
+✔ temporary cleanup waits for reap without holding the failure response open (25.887342ms)
+✔ known billed response remains uncertain until the answer journal is written (2108.913654ms)
+✔ standalone Node CLI survives idle worker kill and awaited respawn (223.468211ms)
+✔ monotonic contexts ignore wall-clock steps on warm and cold paths (274.714825ms)
+✔ either inherited or explicit cancellation prevents spawn and cancels active work (97.180163ms)
+✔ global admission bounds jobs and bytes and cancellation promptly frees queue capacity (342.442236ms)
+✔ preparation admission spans sequential verbs and releases safely in finally (84.580571ms)
+✔ real warm/cold CLI refuses invalid usage and truncated candidates with authoritative accounting (57597.88797ms)
+PASS chat price overrides cannot price an unrelated unknown kitchen model
+PASS each emitted call is paired; expired later calls never start
+PASS each completed tool has a signed-ready recovery transcript before the next starts
+PASS model latency uses the same deadline as tool admission
+PASS a stalled fetch ends without any tool call
+PASS a stalled body ends without any tool call
+PASS large retry hints are clamped and waits cancel at the deadline
+PASS cancelled tools return their exact checkpoint before the paired result is recorded
+PASS an uncertain paid proposal stops automatic replay and preserves accepted work
+PASS an explicit fresh run bypasses the old parked record without injecting its capability
+PASS uncertified completion keeps the exact draft and coverage for continuation
+PASS reported kitchen thinking cost stops admission inside a multi-call hop
+PASS each model attempt reserves before dispatch and settles unknown cancellation
+PASS a budget refusal before a model fetch yields a recoverable stopped turn
+PASS already-cancelled work is never dispatched, including inside admission
+PASS rate limiting after completed work preserves the envelope and pacing hint
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+PASS actual HTTP and SDK preserve signed continuation and stop on disconnect
+17 turn lifecycle regressions passed
+✔ mcp/test_turn_lifecycle.mjs (2000.067023ms)
+ℹ tests 65
+ℹ suites 0
+ℹ pass 65
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 91965.522702

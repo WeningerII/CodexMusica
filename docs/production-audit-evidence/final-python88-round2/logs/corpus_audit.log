@@ -1,0 +1,199 @@
+
+test_a_second_header_source_must_reach_a_row_too
+  Doctrine 34, and the hole this test was written for.
+  ok    A FAILs the second `# source:` id when the first one resolves
+  ok    ...and the planted file really is the same two declarations in the other order
+  ok    A FAILs the FIRST `# source:` id too — the defect is not positional
+  ok    `route()` still answers ROUTE_HEADER on it, which is exactly why the old check reported 0 FAIL on the three real files
+  ok    ...and the fixture with only its resolving header is SILENT
+
+test_an_extract_md5_is_not_its_source_md5
+  A `local:` row records the md5 of the STAGED bytes; a header records
+  ok    no eng_hall_* file FAILs check B on an upstream-md5 comparison
+  ok    the upstream-md5 comparison is still exercised on those files
+
+test_bracket_guard_l
+  L (M-47/M-27): a bracket in a sung line is read by a declaration or
+  ok    an undeclared token-yielding span NOTEs the file — the shape that put footnote letters into Byron's end words
+  ok    an unclosed `[` block in a file with no wrapped-note declaration NOTEs — the continuation may be leaking as verse
+  ok    ...and since M-152 the SAME leak is named from its other end — the kept continuation line ends on an orphan `]`
+  ok    a numeric span is measured harmless and earns NOTHING — a letters-only tokeniser reads no word in `[10]`
+  ok    the REAL Byron is silent — every span it prints is resolved by its declared class and its wrapped blocks are followed
+  ok    MUTATION: Byron's row pulled from BRACKET_ANCHOR_FILES -> the same file NOTEs its spans, so the gate reads the declaration and cannot be satisfied by silence
+
+test_calibration_cltk_pair
+  Doctrine 51. `cltk/non_texts` and `cltk/old_norse_texts_heimskringla`
+  ok    E re-finds the byte-identical pair on the planted fixture
+  ok    the real cltk pair still hashes to c221b376…
+  ok    the recorded md5 has not been edited out of the module
+
+test_calibration_hattatal
+  Doctrine 52. The 1848 Arnamagnæan Háttatal OCR reads fine and contains
+  ok    F re-finds the consonant wipe on the planted fixture
+  ok    the real 1848 OCR reproduces 0 channel chars and 3,474 Greek
+
+test_calibration_malay_population
+  Doctrine 79, and this session's instance of it. `-uk` is 0 on the
+  ok    E+G re-find the extract-vs-source split on the planted fixture
+  ok    the real PG47873 reproduces 705/330 blocks and -uk 0 vs 2
+
+test_calibration_overall
+  The gate `--calibrate` exits on.
+  ok    calibration_failed() agrees with the three cases
+
+test_channel_check_is_exercised_and_finds_no_zero
+  Check F must run on most of the corpus and find no Háttatal case in it.
+  ok    check F keys on a declared language for >90%% of the corpus
+  ok    no shipped corpus file has a ZERO channel
+
+test_check_C_can_actually_fire
+  Doctrine 94 again, aimed at check C. Every hash on this corpus matches,
+  ok    C reports md5 drift when the recorded value is not the file's
+  ok    C is silent when the recorded value IS the file's
+
+test_check_D_can_actually_fire
+  A file declared `cym` whose bytes are mojibake reads at ~0% under the
+  ok    D reports a cym-declared file that does not read as Welsh
+
+test_check_E_can_actually_fire
+  Doctrine 94, aimed at check E, and the test the file's own prose has
+  ok    E re-finds two item bodies that are byte-identical across files
+  ok    ...and the near-duplicate fixture is genuinely NOT byte-identical
+  ok    E re-finds one poem printed two ways across two files, which the item-body hash cannot see
+  ok    E re-finds the RUN-ON: one item carrying another item's title as a body line
+  ok    E is SILENT on the fixture alone, with nothing to duplicate it
+  ok    E is SILENT on the run-on fixture once the swallowed title and the item it pointed at are removed
+
+test_check_H_does_not_charge_a_cased_non_latin_script
+  RUN 2's manufactured finding, and it is the sharper one.
+  ok    Byron's Greek refrain is not an ALL-CAPS label
+  ok    a Greek line in actual capitals still IS one
+  ok    and the Latin case still reads, so the fix did not delete the rule
+
+test_check_H_does_not_charge_a_caseless_script
+  RUN 1's manufactured finding. `ltc_siku_kr4j0074.txt`'s
+  ok    a case-less line is not an ALL-CAPS label: '欲寄逺憑誰是。'
+  ok    a case-less line is not an ALL-CAPS label: '心有靈犀一㸃通。'
+  ok    a case-less line is not an ALL-CAPS label: '一曲哀絃謾託。'
+
+test_check_H_fires_on_a_planted_apparatus_block_and_not_on_a_stanza
+  Doctrine 94 aimed at check H. The planted file carries BOTH: a one-line
+  ok    the walk finds exactly the two one-line blocks
+  ok    check H returns exactly one finding for the file
+  ok    it is a WARN, because a declared shape matched
+  ok    it charges the byline and NOT the sung line
+  ok    the residue is named as UNADJUDICATED, never as clean
+
+test_check_H_is_wired_into_the_audit
+  A helper that computes the right population and reports it to NOBODY is
+  ok    H is registered in CHECKS
+  ok    audit(checks=['H']) reaches the check and it fires
+  ok    and a full audit() carries the same finding
+
+test_check_H_on_the_real_corpus
+  The corpus-wide figure, pinned with the rule that produced it.
+  ok    2,458 one-line `[VERSE]` blocks under corpus/song/
+  ok    1,043 of them carry a declared apparatus shape
+  ok    the shape split reproduces
+  ok    the residue is 1,415 and is NOT claimed to be clean
+  ok    104 files carry raw apparatus-shaped blocks, 48 carry residue only
+
+test_check_H_reports_a_residue_only_file_rather_than_passing_it
+  Doctrine 20 — a population nobody has looked at must not render as a
+  ok    a residue-only file is REPORTED, not silent
+  ok    and it is a NOTE, not a WARN — nothing was charged
+  ok    the doctrine cited is 20
+
+test_check_H_shapes_are_the_declared_four
+  The table is the rule (doctrine 58). A shape that is not in it leaves
+  ok    'I.' -> numeral
+  ok    'XLIV.—XLVI.  DA.' -> allcaps-label
+  ok    'II-1' -> numeral
+  ok    '1845.' -> numeral
+  ok    '* * * * *' -> ornament
+  ok    'Recitativo' -> heading-word
+  ok    "Come gie 's a sang, Montgomery cried," -> None
+  ok    'The nativity of Christ, Luke 1. 30 &c.' -> None
+
+test_check_I_reads_the_indent_and_charges_nothing
+  `MISSING.md` M-28. The compositor's indent predicts a shared spelled
+  ok    check I emits findings
+  ok    EVERY one is a NOTE — nothing is charged
+  ok    and every one cites doctrine 14, the independence argument
+  ok    exactly one corpus-wide summary carries the three counts
+  ok    517 agree / 6 opposite / 22 inside the null
+  ok    the per-file notes are the two SMALL populations only, 28 of them
+  ok    `eng_pah_francis_lieber.txt` is named as running OPPOSITE — the file that refutes any threshold
+  ok    H and I are both registered
+
+test_cross_language_baseline_is_what_makes_check_D_weak
+  The number the module docstring rests on. English reads at 95.8% under
+  ok    English reads >90%% as Welsh under cym.syllabify
+  ok    English reads >95%% as Finnish under fin.syllabify
+  ok    the pinned CROSS_LANGUAGE_BASELINE still reproduces
+
+test_distinct_bytes_finds_the_two_live_duplications
+  Doctrine 51, live. This corpus HAD two item-level duplications and the
+  ok    E finds NO byte-identical item shared across two files
+  ok    ...and specifically not the Lyrical Ballads pair, which was 9 item bodies staged under both authors
+  ok    ...nor the Tate/Brady hymn, which was 1 item body claimed solely by each of two files
+
+test_doctrine_70_figure_on_the_staged_file
+  ok    513 verse lines
+  ok    2,111 tokens under doctrine 70's stated rule
+  ok    -ong 38 tokens / 26 types
+  ok    -ok 28 tokens / 15 types
+  ok    -ung 0 and -uk 0 ON THIS FILE
+  ok    check G reports doctrine 70's 66 preserving over 2,111 tokens
+
+test_encoding_guard_k
+  K (F-4): a Latin-1 orthography claim over flattened bytes FAILS,
+  ok    the FLATTENED file under a Latin-1 orthography claim FAILS — the letter the declaration exists to keep is gone
+  ok    ...and the file that KEEPS the letter is silent, and a file that merely records an ISO-8859-1 SOURCE makes no claim and is out of scope (260 MSM files name one and many are honestly pure ASCII)
+  ok    the REAL staged Barnes is healthy — its declaration is populated (3,058 staged lines carry the letter) and K emits nothing, so the corpus shape does not move
+
+test_every_declared_source_reaches_a_row
+  Doctrine 34 over the live corpus, at the DECLARATION and not the file.
+  ok    2014 id-shaped `# source:` declarations are checked, over 1430 files
+  ok    316 files declare two or more sources — the case the file-level check cannot see
+  ok    every declared `# source:` id reaches a data/sources.tsv row
+  ok    data/sources.tsv declares GITenberg/Little-Ann-and-Other-Poems_42947
+  ok    data/sources.tsv declares GITenberg/BeechenbrookA-Rhyme-of-the-War_16480
+  ok    the header's full slug resolves to the table's short one (Kanteletar_7078)
+  ok    the header's full slug resolves to the table's short one (Malay-Magic_47873)
+  ok    a same-org id with an ebook number no row carries stays UNRESOLVED
+
+test_every_file_reaches_a_row
+  Doctrine 34, the live assertion. A file with no row IS the defect.
+  ok    every corpus file reaches a data/sources.tsv row
+  ok    the corpus is not empty (the check ran on something)
+
+test_item_level_near_duplication_series
+  E's new unit, on the live corpus, reported as a SERIES.
+  ok    1297 eng_* files and 8,247 items meet the signature rule
+  ok    NO cross-file item duplication survives at the audit's own 0.60 floor or above — below it sit exactly the 8 named cross-source variant printings (Pagan~Burns, Home~Hogg, Mackay~Russell, Fontaine~Beers x2, Jones~Durfey, Jones~Raleigh, and Durfey's _Pills_ reprinting the Earl of Dorset's song, which Oxford prints under Dorset). Montgomery~Montgomery left this list by MERGER, not by deletion — it is now within-file. THE ONE HBV ADDED is Jones~Raleigh: Robert Jones's Elizabethan song-book prints a lyric the Home Book of Verse credits to Walter Raleigh, which is the same contested-attribution shape as Jones~Durfey beside it and is correctly kept, not deduped
+  ok    the within-file series is 68 / 54 / 31 / 24 / 5
+  ok    the TOTAL series is 76 / 58 / 31 / 24 / 5, and everything at the 0.60 dedup floor and above is UNMOVED across three loads
+  ok    4 CONTENTS pages, 11 RUN-ONs and 5 TITLE echoes remain, all named
+
+test_no_recorded_hash_has_drifted
+  ok    no file has drifted from its recorded hash
+  ok    at least 40 files have a recorded hash to drift FROM
+
+test_prose_is_not_a_declared_count
+  `cym_song_alun.txt` says "(3 hymns + 3 songs; the free-metre half of
+  ok    the `# songs: 2` field is checked and passes
+  ok    the prose `3 songs`, `852 ghazals` and `50 songs` are NOT read as claims about this file
+
+test_the_walk_reports_what_it_did_not_walk
+  Doctrine 34 can only be asked of a file the WALK HANDED OVER.
+  ok    the walk reads exactly the declared extensions
+  ok    and everything else is REPORTED as unwalked rather than dropped in silence — the population doctrine 34 was never asked of
+  ok    the two sets partition the tree: nothing is in both, nothing is in neither (doctrine 79 — two counts, and they must add up)
+  ok    the exclusion is a NAMED constant, not a literal inside the walk
+  ok    the AUDIT reports every skipped file — not just the helper that can find them
+  ok    ...and it reports the tree it was HANDED, not the shipped one — the first implementation called `unwalked()` with no root
+  ok    the shipped corpus/ has NOTHING the walk skips today, so this check is latent by measurement and not by construction
+
+--------------------------------------------------------------------------
+all pins hold

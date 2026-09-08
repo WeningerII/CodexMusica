@@ -108,8 +108,8 @@ class Calibration:
         return len(self.excluded) / self.lyric_lines if self.lyric_lines else 0.0
 
 
-def lyric_lines(path):
-    """-> [(lineno, text)] for one corpus file, by the preregistered filter."""
+def historical_lyric_lines(path):
+    """The original marker-only registration reader, for historical reproduction."""
     out = []
     with open(path, encoding="utf-8") as fh:
         for i, raw in enumerate(fh, 1):
@@ -118,6 +118,13 @@ def lyric_lines(path):
                 continue
             out.append((i, s))
     return out
+
+
+def lyric_lines(path):
+    """Current calibration rows, identical to runtime normalization."""
+    from quality.lyric_reader import calibration_items
+    return [(row.lineno, row.text) for _title, _at, body in calibration_items(path)
+            for row in body]
 
 
 #: The declared readers (METER_BANDS_PREREGISTRATION_READER.md). "default"

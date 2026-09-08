@@ -29,6 +29,7 @@ Run: python3 quality/test_g2p.py
                                              # and the full 65s rule rebuild
 """
 import os
+import json
 import re
 import sys
 
@@ -103,20 +104,22 @@ def _raises(fn):
 
 def test_battery_is_unmoved():
     import battery
-    print(f"\n2. battery.py with the fallback off: 1064 / 1014 / 50 / "
-          f"{battery.EXPECTED['violations']}")
-    sonnets = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))
-    total = viol = refused = 0
-    for sn in sonnets:
-        res = lh.check_scheme(LEX, sn, "ABABCDCDEFEFGG", lh.Declaration())
-        viol += len(res["violations"])
-        refused += len(res.get("refusals", []))
-        total += 7
-    check("mandated 1064", total == 1064, str(total))
-    check("refused 50", refused == 50, str(refused))
-    check("judged 1014", total - refused == 1014, str(total - refused))
-    check(f"violations {battery.EXPECTED['violations']}",
-          viol == battery.EXPECTED["violations"], str(viol))
+    print("\n2. fallback off reproduces the current battery, including "
+          "unresolved readings and relations")
+    total, judged, refused, violations = _patched_battery(None)
+    got = dict(mandated=total, judged=judged, refused=len(refused),
+               violations=len(violations))
+    check("the three counts and violations match the maintained battery",
+          got == battery.EXPECTED, str(got))
+    oracle = _production_oracle()
+    check("the same exact pairs remain refused and violated",
+          refused == {tuple(p) for p in oracle['current_partition']['refused']}
+          and violations == {tuple(p) for p in oracle['current_partition']['violations']})
+
+
+def _production_oracle():
+    with open(os.path.join(HERE, 'production_relation_oracle.json')) as stream:
+        return json.load(stream)
 
 
 # ---------------------------------------------------------------------------
@@ -338,11 +341,11 @@ def test_heldout_split_is_declared_and_reproducible():
 # 9. THE REAL POPULATION — ground truth nobody here supplied
 # ---------------------------------------------------------------------------
 
-def _patched_battery(mode, extra=None, decl=None):
+def _patched_battery(mode, extra=None, decl=None, *, with_refusal_details=False):
     """Run the sonnet scheme check with `Lexicon.transcribe_word` routed
-    through the fallback. Returns (mandated, judged, refused, violations,
-    newly-judged pairs, violations among them). `decl` declares the door
-    the arms grade under; None is the shipped default."""
+    through the fallback. Returns (mandated, judged, refused, violations),
+    optionally followed by the actual refusal rows. `decl` declares the
+    door the arms grade under; None is the shipped default."""
     import battery
     orig = lh.Lexicon.transcribe_word
     cache = {}
@@ -362,24 +365,42 @@ def _patched_battery(mode, extra=None, decl=None):
     try:
         sonnets = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))
         total = 0
-        viol, refused = set(), set()
+        viol, refused, refusal_details = set(), set(), {}
         for idx, sn in enumerate(sonnets, 1):
             res = lh.check_scheme(LEX, sn, "ABABCDCDEFEFGG",
                                   decl or lh.Declaration())
             for v in res["violations"]:
                 viol.add((idx, v[0], v[1]))
             for r in res.get("refusals", []):
-                refused.add((idx, r["lines"][0], r["lines"][1]))
+                coordinate = (idx, r["lines"][0], r["lines"][1])
+                refused.add(coordinate)
+                refusal_details[coordinate] = r
             total += 7
     finally:
         lh.Lexicon.transcribe_word = orig
-    return total, total - len(refused), refused, viol
+    result = total, total - len(refused), refused, viol
+    return (*result, refusal_details) if with_refusal_details else result
+
+
+# These are the original eleven lexical gaps left by the derived layers,
+# now identified separately from known-word pronunciation/schema uncertainty.
+# The letter layer guesses all but the final coordinate; its five wrong
+# guesses and the derived layers' two dialect residues remain unchanged.
+_HIGH_LEXICAL_REFUSALS = {
+    (10, 5, 7), (26, 1, 3), (32, 10, 12), (38, 10, 12),
+    (41, 9, 11), (52, 6, 8), (57, 9, 11), (66, 1, 3),
+    (66, 6, 8), (88, 5, 7), (113, 9, 11),
+}
+_LOW_LEXICAL_REFUSALS = {(113, 9, 11)}
+_DERIVED_WRONG = {(45, 9, 11), (46, 9, 11)}
+_LETTER_WRONG = {(10, 5, 7), (41, 9, 11), (52, 6, 8), (66, 1, 3), (66, 6, 8)}
 
 
 def test_real_population_against_shakespeares_own_form():
     print("\n9. the REAL refusal population, judged by the form itself")
-    m0, j0, r0, v0 = _patched_battery(None)
-    m1, j1, r1, v1 = _patched_battery("high")
+    import battery
+    m0, j0, r0, v0, details0 = _patched_battery(None, with_refusal_details=True)
+    m1, j1, r1, v1, details1 = _patched_battery("high", with_refusal_details=True)
     newly = r0 - r1
     new_viol = [p for p in newly if p in v1]
     # REPINNED 2026-08-23 from ~~82~~ violations to 35 (doctrine 17), and
@@ -404,12 +425,15 @@ def test_real_population_against_shakespeares_own_form():
     # moved TIGHTER this time where the two before moved it wider, which is
     # why the count rose instead of falling. The other three do not move,
     # for the reason the paragraph above gives.
-    check("off reproduces the battery — mandated/judged/refused unmoved, "
-          "violations at the priced door",
-          (m0, j0, len(r0), len(v0)) == (1064, 1014, 50, 14),
+    # 2026-09-08: the historical measurements above predate truthful
+    # pronunciation and full-schema uncertainty. The G2P rescue population
+    # remains39 lexical pairs;47 additional unresolved pairs remain unknown.
+    check("off reproduces the current battery under the same declaration",
+          dict(mandated=m0, judged=j0, refused=len(r0), violations=len(v0)) == battery.EXPECTED,
           f"{(m0, j0, len(r0), len(v0))}")
     check("the derived layers turn 39 of the 50 refusals into judgements",
-          len(newly) == 39, f"{len(newly)}; refused 50 -> {len(r1)}")
+          len(newly) == 39 and all(details0[p]['unreadable'] for p in newly),
+          f"{len(newly)} lexical rescues; total refused {len(r0)} -> {len(r1)}")
     # REPINNED 2026-08-11: 38/39 -> 37/39, one PAIR added, after cell BA's
     # coda-identity fix. Sonnet 46 L9/L11, `impannelled`/`determined`, reads
     # ...N AH0 L D / ...M AH0 N D under the "high" fallback -- codas L-D and
@@ -449,19 +473,27 @@ def test_real_population_against_shakespeares_own_form():
           f"ground truth about the sound and no resource of ours supplied it "
           f"(doctrine 37)")
     check("no pair that was JUDGED before changed its verdict",
-          v0 <= v1 and not (v0 - v1),
+          r1 <= r0 and v1 - newly == v0,
           "the fallback fires only on words the dictionary refused, so a "
           "previously judged pair must be untouched; if this fails the "
           "fallback is overriding CMUdict somewhere")
-    check("11 pairs still refuse, and they are real lexical gaps",
-          len(r1) == 11,
+    lexical1 = {p for p, row in details1.items() if row['unreadable']}
+    check("the same11 lexical gaps remain refused by the derived layers",
+          lexical1 == _HIGH_LEXICAL_REFUSALS,
           "ruinate, vassalage/embassage, equipage, invocate, forbear, "
           "carcanet, nought, jollity, strumpeted, attainted, 'greeing — "
           "words no morphology reaches, because they are not derived")
+    oracle = _production_oracle()
+    uncertainty = {(row['sonnet'], *row['lines'])
+                   for key in ('new_reading_refusals', 'default_schema_refusals')
+                   for row in oracle[key]}
+    check("G2P preserves every exact known-reading/schema uncertainty refusal",
+          {p for p, row in details0.items() if not row['unreadable']} == uncertainty
+          and r1 == uncertainty | _HIGH_LEXICAL_REFUSALS)
 
 
 def test_letter_layer_costs_more_than_it_buys():
-    print("\n10. what the LETTER layer does to the same 50 pairs")
+    print("\n10. letter guesses on lexical gaps; known-reading uncertainty remains unknown")
     # UNDER THE DECLARED TWO-NAME DOOR SINCE 2026-08-25 (M-116). This
     # comparison decides a shipped default by measuring how often each
     # fallback layer answers Shakespeare's real refusals WRONG — and under
@@ -474,7 +506,7 @@ def test_letter_layer_costs_more_than_it_buys():
     # original 50.0%-vs-5.1% measurement was made under — re-measured
     # here, it reproduces to the decimal (5/10 against 2/39, 9.8x).
     _door = lh.Declaration(admit=("RHYME", "RIME_RICHE"))
-    m0, j0, r0, v0 = _patched_battery(None, decl=_door)
+    m0, j0, r0, v0, details0 = _patched_battery(None, decl=_door, with_refusal_details=True)
     m1, j1, r1, v1 = _patched_battery("high", decl=_door)
     m2, j2, r2, v2 = _patched_battery("low", decl=_door)
     only_letter = r1 - r2                       # judged by the letter layer
@@ -490,8 +522,14 @@ def test_letter_layer_costs_more_than_it_buys():
     derived_wrong = [p for p in derived_new if p in v1]
     d_rate = len(derived_wrong) / len(derived_new) if derived_new else 0.0
     l_rate = len(lv) / len(only_letter) if only_letter else 0.0
-    check("it makes almost every remaining pair judgeable",
-          len(r2) <= 1, f"refused {len(r1)} -> {len(r2)}")
+    uncertainty = {p for p, row in details0.items() if not row['unreadable']}
+    check("the letter layer guesses the same ten lexical gaps and retains all uncertainty",
+          r1 == uncertainty | _HIGH_LEXICAL_REFUSALS
+          and r2 == uncertainty | _LOW_LEXICAL_REFUSALS
+          and only_letter == _HIGH_LEXICAL_REFUSALS - _LOW_LEXICAL_REFUSALS,
+          f"{len(uncertainty)} unresolved known readings; total refused {len(r1)} -> {len(r2)}")
+    check("the exact two derived dialect residues and five wrong letter guesses remain",
+          set(derived_wrong) == _DERIVED_WRONG and set(lv) == _LETTER_WRONG)
     check("and about half of what it alone judges does NOT rhyme",
           only_letter and l_rate >= 0.4,
           f"{len(lv)}/{len(only_letter)} = {l_rate:.0%} violations among the "

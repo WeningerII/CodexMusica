@@ -491,8 +491,7 @@ def test_song_from_blueprint_rejects_an_undeclared_function():
 
 
 def test_song_from_blueprint_owns_lines_by_bar_when_unnamed():
-    print("\n14. a line naming no section, or an unknown one, is owned by "
-          "BAR RANGE — the same fallback quality.fit.from_blueprint uses")
+    print("\n14. an unnamed line is owned by bar; an unknown name refuses")
     obj = {"sections": [{"name": "a", "bars": 4, "meter": {"beats": 4, "unit": 4}},
                         {"name": "b", "bars": 4, "start_bar": 5,
                          "meter": {"beats": 4, "unit": 4}}],
@@ -500,14 +499,14 @@ def test_song_from_blueprint_owns_lines_by_bar_when_unnamed():
                      {"text": "in b, unnamed", "bar": 6},
                      {"text": "in b, wrong name given", "bar": 7,
                       "section": "nonexistent"}]}
+    check("an unknown section name is refused instead of silently reassigned",
+          _raises(lambda: song_from_blueprint(obj)))
+    obj["lines"] = obj["lines"][:2]
     song, _ = song_from_blueprint(obj)
     check("a correctly-named line is owned by that section",
           song.lines[0].section == "a")
     check("an unnamed line is owned by whichever section its BAR falls in",
           song.lines[1].section == "b")
-    check("a line naming a section that does not exist falls back to bar "
-          "range too, rather than raising or being silently dropped",
-          song.lines[2].section == "b")
 
 
 def test_song_from_blueprint_float_beats_are_exact():
@@ -1746,23 +1745,15 @@ def test_two_sections_may_share_a_name():
                       "beat": 1, "duration": 4, "section": "c"},
                      {"text": "declared into c, sitting in neither", "bar": 2,
                       "beat": 1, "duration": 4, "section": "c"}]}
+    check("a repeated name with no matching bar refuses before reassignment",
+          _raises(lambda: song_from_blueprint(amb)))
+    amb["lines"] = amb["lines"][:3]
     asong, _h2 = song_from_blueprint(amb)
     check("a UNIQUE declared name outranks the bar range, unchanged",
           asong.lines[0].section == "a")
     check("a REPEATED name is resolved by the bar, to each instance in turn",
-          [len(asong.lines_in(s)) for s in asong.sections] == [1, 2, 1],
+          [len(asong.lines_in(s)) for s in asong.sections] == [0, 2, 1],
           f"{[len(asong.lines_in(s)) for s in asong.sections]}")
-    # THE ONE PLACE THE LATENCY LIFTS, and the only assertion in this section
-    # that could have caught the dict. When the ambiguous name's bar is in
-    # NEITHER instance, `by_name` answered `the last one` and this answers
-    # `the section the bar is actually in`, so the two disagree in the one
-    # field this reader reads.
-    check("a repeated name whose bar is in neither instance falls through to "
-          "the bar range — an ambiguous name carries no information, and "
-          "`by_name` answered `whichever came last` in silence",
-          [l.section for l in asong.lines] == ["a", "c", "c", "a"],
-          f"{[l.section for l in asong.lines]}")
-
     # BOTH READERS OR NEITHER. `quality/fit.py` reads the same blueprint
     # independently, and the repo's own rule is that the two must agree or the
     # `grid` verb and the `song` verb answer differently about one file.
@@ -2101,7 +2092,11 @@ _SONG_GLOB = os.path.join(os.path.dirname(os.path.abspath(__file__)),
 
 #: MEASURED 2026-08-21 over `corpus/song/`. M-11's own five prefixes and their
 #: song counts are the register's, re-derived; the AIRS are the finding.
-_AIR_EXPECT = {"cym": (391, 13), "eng": (8667, 539), "fas": (8350, 0),
+#: 2026-09-08 raw English TITLE census: 8667 -> 8661 after editorial
+#: correction (Whittier -1, Read -1, Hemans -5, Lovelace -1; restored work
+#: boundaries Blake +1, D'Urfey +1). This retains every source edition;
+#: it is not the separately weighted/nonempty 8545-item calibration set.
+_AIR_EXPECT = {"cym": (391, 13), "eng": (8661, 539), "fas": (8350, 0),
                "fin": (962, 18), "ltc": (10529, 0), "msa": (129, 0),
                # ADDED 2026-08-22 with the K-4 Old Norse staging: 160 vísur,
                # ZERO named airs, and the zero is a reading rather than an
@@ -3147,105 +3142,59 @@ def test_the_cli_reads_the_marks_it_used_to_delete():
           "`stanza_ground` alone would have said `none` here; the difference "
           "belongs to relations.py's rule, which this cell does not own")
 
-    # -- 7. A REAL CORPUS FILE, and the numbers are the point.
-    #
-    #    PINNED 2026-08-22.  `corpus/song/eng_american_a_g_knight.txt` prints
-    #    eight `[VERSE n]`/`[CHORUS]` marks and ONE blank line, and that one
-    #    stands before the first stanza -- so the reader as it was reported
-    #    `blank_lines` with ONE distinct stanza over 256 units and the five
-    #    `frame="stanza"` schemas ran and printed numbers over a frame the
-    #    text had told nobody about.
+    # -- 7. Real corpus seam: compare the SAME reading policy on both
+    # readers. H07 now preserves CMU ambiguity, so a historical unit-count
+    # literal does not test section-marker preservation.
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    path = os.path.join(root, "corpus", "song",
-                        "eng_american_a_g_knight.txt")
+    path = os.path.join(root, "corpus", "song", "eng_american_a_g_knight.txt")
     ctext = [l.rstrip() for l in _LH.read_lyric_text(path).splitlines()]
     cg = _LH.relation_ground(ctext, "eng")
-    cst = _stream(cg)
-    check("the corpus file frames as it PRINTS: eight marks, eight sections, "
-          "eight stanzas, and the unit count is untouched",
-          (cg.marks, len({u.section for u in cst.units}),
-           cst.supply("stanza").n, len(cst.units)) == (8, 8, 8, 256),
-          (cg.marks, sorted({u.section for u in cst.units}),
-           cst.supply("stanza"), len(cst.units)))
-    cold = _old(ctext)
-    check("CONTROL — the reader as it was called the same file ONE stanza "
-          "and named a source for it",
-          (cold.frames.stanza_source, cold.supply("stanza").n,
-           len(cold.units)) == ("blank_lines", 1, 256),
-          (cold.frames.stanza_source, cold.supply("stanza")))
+    cst, cold = _stream(cg), _old(ctext)
+    check("printed eight marks supply eight sections and stanzas",
+          (cg.marks, len({u.section for u in cst.units}), cst.supply("stanza").n)
+          == (8, 8, 8), (cg.marks, cst.supply("stanza")))
+    check("the old reader supplied one stanza; preserving markers leaves the same phonology units",
+          (cold.frames.stanza_source, cold.supply("stanza").n) == ("blank_lines", 1)
+          and [u.syl for u in cst.units] == [u.syl for u in cold.units],
+          (len(cst.units), len(cold.units), cold.supply("stanza")))
 
-    def _leash(s):
-        out = _R.realise(_R.REGISTRY["monorhyme / leash"], s, keep="true")
-        return (out.capability if isinstance(out, _R.Refusal)
-                else sum(1 for i in out if i.verdict is True))
-    check("monorhyme/leash reads ~~61~~ 19 instances — a leash is a run of "
-          "ONE rhyme sound inside ONE stanza, and 42 of those pairs no leash "
-          "contains",
-          (_leash(cst), _leash(cold)) == (19, 61),
-          (_leash(cst), _leash(cold)))
+    leash = _R.REGISTRY["monorhyme / leash"]
+    def complete_leashes(st):
+        out = _R.assemble(leash, _R.realise(leash, st), st)
+        assert not isinstance(out, _R.Refusal)
+        return [(frame, edges) for frame, edges, verdict in out if verdict is True]
+    bad = []
+    for st in (cst, cold):
+        for frame, edges in complete_leashes(st):
+            covered = {st.units[e.a.head()].line for e in edges} | {st.units[e.b.head()].line for e in edges}
+            if covered != _R._forall_population(leash, frame, st):
+                bad.append((frame, covered))
+    check("every reported leash covers its complete declared stanza; partial edges cannot certify one",
+          not bad, bad)
 
-    # THE WHOLE-REGISTRY COUNTS THE VERB PRINTS.  Doctrine 79 and the third
-    # constraint on this work: an instrument that found nothing and one that
-    # never looked must produce different output, so the two counts are
-    # pinned TOGETHER and a schema crossing between `refused` and `nothing`
-    # moves one of them.
-    def _split(s):
-        found = refused = 0
-        for sch in _R.all_schemas().values():
-            out = _R.realise(sch, s)
+    def inventory(st):
+        found, refused = set(), set()
+        for name, sch in _R.all_schemas().items():
+            out = _R.assemble(sch, _R.realise(sch, st), st)
             if isinstance(out, _R.Refusal):
-                refused += 1
-            elif any(i.verdict is True for i in out):
-                found += 1
+                refused.add(name)
+            elif any(verdict is True for _,_,verdict in out):
+                found.add(name)
         return found, refused
-    # REPINNED 2026-08-22 (~~(35, 26)~~ / ~~(38, 26)~~ -> (39, 20) / (42, 20)),
-    # and the movement is one-directional BY CONSTRUCTION: this lot supplied
-    # capabilities that were absent, so schemas can only cross from `refused`
-    # toward `found` or `nothing`, never back. What was supplied, each on the
-    # seam the phonology already used for `ltc`'s 同用 grouping — a manner
-    # partition and a declared trite-pair partition (`quality/quotients.py`),
-    # a root/affix/lexeme resource built on `g2p`'s own pre-registered suffix
-    # set (`quality/morphology.py`), and an orthography surface. `refused`
-    # falls 26 -> 20 on both fixtures and `found` rises 35 -> 39 and 38 -> 42.
-    # The DIFFERENCE between the two fixtures — 3 schemas — is unchanged,
-    # which is what this check is actually about: the marked file and the
-    # unmarked one still differ by exactly the marks.
-    # SETTLED AT (40, 19) / (43, 19). The (39, 20) pin above it was measured
-    # mid-lot and superseded within the hour by `trite rhyme` gaining a real
-    # predicate — one more schema FINDING, one fewer REFUSING. Both numbers
-    # are kept in the label because the ladder is the useful record: 35 -> 39
-    # -> 40 finding, 26 -> 20 -> 19 refusing. The `sense` derivation added
-    # later does NOT appear here: it is opt-in, so a stream that declares
-    # nothing is unchanged by it, which is exactly what "opt-in" has to mean
-    # to be worth the word.
-    check("the verb's two summary counts on that file: ~~38~~ ~~35~~ ~~39~~ "
-          "40 finding, ~~26~~ ~~20~~ 19 refusing — the two fixtures still "
-          "differ by exactly three schemas, and NOT ONE crossed the "
-          "refused/nothing line, because the file declares every mark it "
-          "prints",
-          (_split(cst), _split(cold)) == ((40, 19), (43, 19)),
-          (_split(cst), _split(cold)))
-    # REPINNED 2026-08-22, same lot, same direction: ~~(23, 31)~~ -> (27, 25).
-    # `refused` falls by 6 and `found` rises by 4 for the reasons above; the
-    # five `frame="stanza"` schemas this check names are NOT among them and
-    # still refuse, because a stanza frame is GROUND and not a resource —
-    # M-39(b) is why, and supplying it from an all-zero vector is the exact
-    # defect that entry closed.
-    # REPINNED 2026-08-28: ~~(27, 24)~~ -> (28, 24), and the drift is
-    # INHERITED, not this sitting's — verified by running this suite in a
-    # worktree at `beb9a6a` (the commit before the bracket-apparatus
-    # reader), where it reads (28, 24) identically, and by swapping the
-    # pre-rebuild frequency tables back in, which moves nothing. The +1
-    # finding is the same one-directional movement M-148 recorded when
-    # `relations._seq` began reading the post-vocalic CLUSTER (its own
-    # test_relations pin went 30/26/21 -> 31/26/20 in that sitting); this
-    # suite was not in that sitting's run list, so its copy of the pin sat
-    # stale until the M-47/M-27 sitting ran it.
-    check("on the fixture whose marks are REFUSED the refused count moves "
-          "instead: ~~25~~ ~~23~~ ~~27~~ 28 finding, ~~26~~ ~~31~~ ~~25~~ "
-          "24 refusing, and the five `frame=\"stanza\"` schemas are still "
-          "among the refused",
-          _split(fst) == (28, 24), _split(fst))
+    marked, old, absent = inventory(cst), inventory(cold), inventory(fst)
+    unsupported = {"cynghanedd sain", "cynghanedd sain gadwynog",
+                   "cynghanedd sain lafarog", "平仄 tonal template"}
+    check("full figure findings and refusals are disjoint, and unbound templates refuse in every fixture",
+          all(not found & refused and unsupported <= refused
+              for found, refused in (marked, old, absent)),
+          [(len(found),len(refused)) for found,refused in (marked,old,absent)])
+    frame_sensitive = {name for name, sch in _R.all_schemas().items()
+                       if "stanza" in sch.capabilities() or "section" in sch.capabilities()}
+    changed = (marked[0] ^ old[0]) | (marked[1] ^ old[1])
+    check("retaining only the section marks can change only frame-sensitive schemas",
+          changed <= frame_sensitive, sorted(changed))
+    check("when stanza marks are refused, every stanza-dependent schema refuses",
+          frame_sensitive <= absent[1], sorted(frame_sensitive - absent[1]))
 
     # -- 8. THE CALL SITE, and not only the function. Everything above builds
     #    its own stream from `relation_ground`, so it would all still pass

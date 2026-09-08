@@ -1,0 +1,60 @@
+Adversary 7 — do the number, the label and the evidence agree?
+declaration: dialect cmudict (General American citation forms), theta_rhyme 0.75, band on, fitted False
+==========================================================================
+SWEEP 1 — the sonnet oracle, 152 sonnets, ABABCDCDEFEFGG
+==========================================================================
+  mandated 1064   judged 967   refused 97   (three counts, doctrine 79)
+  violations 4 (0.4% of JUDGED)
+
+  THE MEASUREMENT — of the pairs the harness JUDGED, how many named
+  the two words that produced their number?
+    report line true as printed :   605 / 967   #########################...............
+    named a pair that did NOT   :   362 / 967
+
+  by (kind of left span, kind of right span), sorted:
+    ('exact', 'exact')                         605
+    ('exact', 'part')                          273
+    ('part', 'part')                            81
+    ('reach', 'reach')                           4
+    ('exact', 'substituted')                     2
+    ('exact', 'reach')                           1
+    ('part', 'reach')                            1
+
+  and separately, the OTHER way a named span is not the only one:
+    tied at the maximum        :   114 / 967   the named span is one of several
+
+  THE SAME MEASUREMENT OVER THE 4 VIOLATIONS — this is the number
+  that decides whether a triage lands on the right layer:
+    violation line true as printed :     1 / 4
+    named a pair that did NOT      :     3 / 4
+    ('reach', 'reach')                           3
+    ('exact', 'exact')                           1
+    tied at the maximum            :     3 / 4
+
+  OF THOSE, the ones a reader could not reconstruct from the printed
+  words even in principle (reach / substituted / unattributed): 3 / 4
+    sonnet   9 L10-L12  it/it  1.0  REPEAT
+        scored on: -enjoys it [last 1 of 2 syllables of 'enjoys']  ~  -destroys it [last 1 of 2 syllables of 'destroys']   (best of k=9, 2 tied at the max)   MOSAIC (both sides): the winning span reaches back past the end word
+    sonnet  26 L6-L8  it/it  1.0  REPEAT
+        scored on: show it  ~  -bestow it [last 1 of 2 syllables of 'bestow']   (best of k=9, 2 tied at the max)   MOSAIC (both sides): the winning span reaches back past the end word
+    sonnet 150 L5-L7  thee/thee  1.0  REPEAT
+        scored on: -accuse thee [last 1 of 2 syllables of 'accuse']  ~  -misuse thee [last 1 of 2 syllables of 'misuse']   (best of k=4, 2 tied at the max)   MOSAIC (both sides): the winning span reaches back past the end word
+
+  the battery's own `most frequent failing pairs` table, re-asked:
+      2x  it / it   <- 2 of 2 misnamed
+      1x  her / her
+      1x  thee / thee   <- 1 of 1 misnamed
+
+==========================================================================
+CHECK -- RESULTS_SPANS.md's committed headline against this run
+==========================================================================
+  [ok  ] claimed              committed 605
+  [ok  ] judged               committed 967
+  [ok  ] mandated             committed 1064
+  [ok  ] refused              committed 97
+  [ok  ] ties                 committed 114
+  [ok  ] violation_ties       committed 3
+  [ok  ] violations           committed 4
+  [ok  ] violations_claimed   committed 1
+
+RESULT: PASS

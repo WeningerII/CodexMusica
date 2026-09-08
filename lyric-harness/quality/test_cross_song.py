@@ -268,12 +268,20 @@ def test_the_prefix_pin():
     # The summary counts are the line a gate would have to move, and the
     # prefix property already forbids that; this states the consequence in
     # the counts' own words so a reader does not have to derive it.
-    summary = "0 banned, 0 refused, 0 clean and rhyming"
+    # 2026-09-08: light/shore's broad default contains unresolved schemas;
+    # the repaired judge refuses instead of asserting a clean non-rhyme.
+    # Keep that uncertainty in both outputs; the BANK append cannot erase it.
+    summary = ("0 banned, 1 refused, 0 clean and rhyming, "
+               "0 clean and ADMITTED as a near relation, 0 clean but not a rhyme")
     check("the banned/clean summary line is present, unchanged, and "
           "appears in neither the appended block nor a second time",
           summary in base and with_bank.count(summary) == 1
           and summary not in tail,
           (base.count(summary), with_bank.count(summary), summary in tail))
+    check("the shared prefix keeps the broad schema refusal and the "
+          "bank block invents no definite pair verdict",
+          "default relation remains unresolved" in base
+          and "CLEAN —" not in base and "REFUSED" not in tail)
 
 
 def test_the_declared_coordinate():

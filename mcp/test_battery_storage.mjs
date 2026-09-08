@@ -1,6 +1,7 @@
 // Real battery CLI + actual journals/archive, accelerated localhost polling.
 // No Gemini calls, production endpoints or real secrets are used.
 import assert from 'node:assert/strict';
+import { sha256 } from '../scripts/battery_verdict.mjs';
 import { test } from 'node:test';
 import { createServer } from 'node:http';
 import { spawn } from 'node:child_process';
@@ -102,11 +103,34 @@ const checkpoint = {
 };
 const finished = {
   reply: 'finished',
+  task: { domain: 'lyrics', brief: 'fixture', plan: {} },
   history: checkpoint.history,
   workspace: null,
   lyric: checkpoint.lyric,
   sig: checkpoint.sig,
-  tools: [{ name: 'lyric_revise', exit_code: 0 }],
+  tools: [
+    {
+      name: 'lyric_revise',
+      exit_code: 0,
+      certified: true,
+      final_draft_sha256: sha256(JSON.stringify(['finished'])),
+      draft_fp: sha256('finished'),
+    },
+  ],
+  artifact: {
+    text: 'finished',
+    certified: true,
+    final_draft_sha256: sha256(JSON.stringify(['finished'])),
+    final_draft: ['finished'],
+    draft_fp: sha256('finished'),
+  },
+  completion: {
+    certified: true,
+    task_sha256: sha256(JSON.stringify({ domain: 'lyrics', brief: 'fixture', plan: {} })),
+    final_draft_sha256: sha256(JSON.stringify(['finished'])),
+    draft_fp: sha256('finished'),
+    delivery_sha256: sha256('finished'),
+  },
 };
 
 test('480 identical recovery polls retain a full checkpoint without inflating the journal beyond archive limits', async () => {
@@ -231,19 +255,29 @@ test('resume refuses a missing historical journal segment before any new POST', 
   await fixture(
     (req, res) => {
       if (req.method === 'POST') posts++;
-      json(res, 200, { ...finished, tools: [], stopped: 'MAX_TURN_MS' });
+      // A real unfinished turn keeps a nonterminal driver checkpoint. A
+      // bare wall label is not a resumable kitchen journal and must not be
+      // used to bypass normal idle/continuation admission in this storage test.
+      json(res, 200, {
+        ...checkpoint,
+        reply: '',
+        task: { domain: 'lyrics', brief: 'fixture', plan: {} },
+        tools: [{ name: 'lyric_plan', exit_code: 0 }],
+        stopped: 'MAX_STEPS',
+      });
     },
     async ({ out, run }) => {
-      const first = await run(['--turn-deadline-ms=10000', '--expect=turn-wall']);
-      assert.equal(first.status, 0, `${first.stdout}\n${first.stderr}`);
+      const first = await run(['--turn-deadline-ms=10000', '--expect=finished', '--turns=1']);
+      assert.equal(first.status, 1, `${first.stdout}\n${first.stderr}`);
       assert.equal(posts, 1);
+      assert.equal(readJSON(join(out, 'summary.json')).songs[0].exit_reason, 'no_stop');
       assert.equal(readJSON(join(out, 'song0.checkpoint.json')).terminal, false);
       writeFileSync(
         join(out, 'song0.attempts.000002.jsonl'),
         JSON.stringify({ event: 'fixture_after_missing_segment' }) + '\n',
         { mode: 0o600 }
       );
-      const resumed = await run(['--turn-deadline-ms=10000', '--expect=turn-wall', '--resume']);
+      const resumed = await run(['--turn-deadline-ms=10000', '--expect=finished', '--resume']);
       assert.equal(resumed.status, 1);
       assert.match(resumed.stderr, /segment|contiguous/);
       assert.equal(posts, 1, 'missing history cannot authorize another request');

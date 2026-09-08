@@ -1,0 +1,25 @@
+{
+  "command": "GIT_NO_LAZY_FETCH=1 python3 quality/verify_entries.py --no-derivations",
+  "cwd": "/workspace/scratch/b0544e4bbdd6/production-fixes/lyric-harness",
+  "exit_code": 0,
+  "log": "current-claims-final-native.log",
+  "entry_claims": {
+    "asked": 9050,
+    "answered": 790,
+    "refused": 8260,
+    "false": 0
+  },
+  "prose_segments": {
+    "true": 211,
+    "false": 0,
+    "refused": 9
+  },
+  "pin_supersession": {
+    "pins": 130,
+    "files": 10,
+    "moved": 226,
+    "vanished": 0
+  },
+  "limits": "Only supported claim shapes are evaluated; refused claims are not proven true. Full data derivations intentionally excluded.",
+  "log_sha256": "8e61ad4259f6aca6e74e78ae758d4ca72bf42de97656a4dc29661922de5ae24f"
+}

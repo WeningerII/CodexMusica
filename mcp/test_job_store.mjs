@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readBakedBuildIdentity } from './build_identity.js';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -301,7 +302,9 @@ test('build fingerprints change with declared runtime config and never contain c
   assert.equal(base.source_sha256, changed.source_sha256);
   assert.notEqual(base.config_sha256, changed.config_sha256);
   assert.ok(!JSON.stringify(base).includes('private-secret'));
-  assert.equal(base.commit, 'test-commit');
+  const baked = readBakedBuildIdentity();
+  assert.equal(base.commit, baked?.commit || 'test-commit');
+  assert.equal(base.release_id, baked?.release_id ?? null);
 });
 
 test('recovered error receipts preserve Retry-After pacing', async () => {

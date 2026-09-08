@@ -327,6 +327,21 @@ def reading_census(phon, words):
     return c
 
 
+@dataclass(frozen=True)
+class LineAnalysis:
+    """Authoritative line scansion and its lexical coordinates.
+
+    Each syllable belongs to the token containing its nucleus; resyllabified
+    consonants may cross that boundary. A refusal leaves no partial grid.
+    ``boundary_policy`` states how printed pauses and anceps were handled.
+    """
+    tokens: tuple
+    syllables: tuple
+    token_indices: tuple
+    refused: tuple = ()
+    boundary_policy: str = ""
+
+
 class Phonology:
     """Interface. Every field is declared; none is inferred."""
 

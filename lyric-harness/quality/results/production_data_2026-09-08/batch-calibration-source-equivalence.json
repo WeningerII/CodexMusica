@@ -1,0 +1,19 @@
+{
+  "before_cli_sha256": "bf27f6dec80209166bb223de44a3385b4ea97e1b3ba9ce8efeffc7ede3509e9b",
+  "after_cli_sha256": "40169c2d1be51c54a3dc2f74fd027c8d996b18988735b5a493135484bfe9ec62",
+  "changed_top_level_ast_nodes": [
+    "_JournalCapacity",
+    "_defer_proposer",
+    "_journal_stop"
+  ],
+  "all_other_ast_nodes_identical": true,
+  "consumed_harness_field_sha256": "fcf2003728d771c26c7c4bb7950836b7fc9f057dad3e0d83e9f24468ae0c9f72",
+  "consumed_field_closure_identical": true,
+  "field_fingerprint": "473da80f8438a8d3a2f2927e5bc94a205a0ca0b06e6907aefc4ae56d2ef0996c",
+  "row_provenance_changed_keys": [
+    "comparator_fingerprint"
+  ],
+  "previous_row_comparator": "9d622e8afaf3c32898b99cc13157787417ec6dbe6f61d2da2dbbe3d93d1c48d0",
+  "current_row_comparator": "42980129e0e5e6075b8db9ece418dbe5a04f770893391f13b4fe2bc6faebb777",
+  "disposition": "Keep the previous actual8545 measurement unchanged; recompute all current rows so the intentionally whole-CLI-bound current gate passes without metadata restamping."
+}

@@ -29,6 +29,7 @@ for (const a of process.argv.slice(2)) {
 const BASE = (flags.base || 'https://weningerii.github.io/CodexMusica').replace(/\/$/, '');
 const API_DIR = flags.api ? path.resolve(ROOT, flags.api) : path.join(ROOT, 'api');
 const OUT_DIR = flags.out ? path.resolve(ROOT, flags.out) : ROOT;
+fs.mkdirSync(OUT_DIR, { recursive: true });
 
 const tindex = JSON.parse(fs.readFileSync(path.join(API_DIR, 'traditions', 'index.json'), 'utf8'));
 const iindex = JSON.parse(fs.readFileSync(path.join(API_DIR, 'instruments', 'index.json'), 'utf8'));
@@ -61,19 +62,22 @@ const llms = `# Codex Musica
 ## START HERE — the live EDITABLE engine (MCP connector)
 The full editable engine is a Model Context Protocol server: seed a recipe from any
 tradition, then re-pick prefaces, swap part variants, override room/chain/tuning, and
-add/remove instruments or traditions. Deterministic and side-effect-free (nothing is
-persisted); thread the returned workspace into the next call. Everything below this
+add/remove instruments or traditions. Recipe tools are deterministic; thread the
+returned workspace into the next call. Lyrics revision retains private run state,
+and optional kitchen writing sends briefs and drafts to a paid external provider.
+The chat surface supports durable request receipts. Everything below this
 section is a SEPARATE read-only product — one pre-compiled recipe per tradition, built by
 a different pipeline and worded differently. Use it for bulk reads; use the connector for
 anything you want to change, and do not expect the two strings to match.
 
-- Endpoint (Streamable HTTP, no auth): https://codex-musica-mcp.onrender.com/mcp
-- Add in Claude: Settings -> Connectors -> Add custom connector -> paste the URL.
-- Any MCP client works the same way (Claude, Codex CLI, Cursor, VS Code, Gemini CLI);
-  registering the endpoint is the only setup.
+- Task endpoints (Streamable HTTP, no auth): https://codex-musica-mcp.onrender.com/mcp/recipe and https://codex-musica-mcp.onrender.com/mcp/lyrics
+- Add in Claude: Settings -> Connectors -> Add custom connector -> paste the task URL.
+- Native clients must preserve initialization guidance, complete tool metadata,
+  the host-selected task and exact returned artifacts; use the maintained adapter
+  documented in docs/connector.md. Keep run and request capabilities private.
 - Server card (capabilities, for auto-discovery): https://codex-musica-mcp.onrender.com/.well-known/mcp.json
 - Tools: start_recipe, edit_recipe, render_recipe, search_catalog, search_prefaces, get_instrument, get_tradition, list_traditions, list_options.
-- Lyric tools (disjoint family; songwriting plan/grade, writes no words): lyric_screen, lyric_sweep, lyric_plan, lyric_grade, lyric_recover, lyric_check, lyric_verify, lyric_revise, lyric_types.
+- Lyric tools (separate planning/grading/revision pipeline; kitchen writing is paid): lyric_screen, lyric_sweep, lyric_plan, lyric_grade, lyric_recover, lyric_check, lyric_verify, lyric_revise, lyric_types.
 
 Do NOT fetch codex.html: it is a multi-megabyte browser GUI, it will blow your context or
 fail to load, and it contains no instructions for you.
@@ -247,11 +251,8 @@ const serverManifest = {
   name: 'io.github.weningerii/codex-musica',
   title: 'Codex Musica',
   description:
-    `Deterministic recording-recipe workspace: seed a recipe from any of ${tindex.count} music ` +
-    'traditions and edit it (prefaces, part variants, room/chain/tuning, instruments) — ' +
-    'the headless twin of the browser app, read-only and reproducible. Plus the lyric_* ' +
-    'family: seeded song-shape planning and whole-song lyric grading (rhyme bans, verbatim ' +
-    'returns, meter fit) — a disjoint, stateless songwriting harness.',
+    `Recording recipes over ${tindex.count} traditions and a separate lyrics planning, grading and revision pipeline. ` +
+    'Recipe tools are deterministic. Lyrics revision stores private run state and optional kitchen writing makes paid external model calls.',
   version: mcpPkg.version,
   websiteUrl: BASE,
   repository: {

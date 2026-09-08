@@ -1,0 +1,48 @@
+
+1. NOTATION IS DECLARED, NEVER GUESSED
+  PASS  ARPABET parses under ARPABET
+          Phone('AA', stress=1)
+  PASS  IPA under ARPABET is Unknown, not a crash
+          Unknown('yː')
+  PASS  undeclared notation raises rather than sniffing
+          undeclared notation 'guess'; expected 'arpabet' or 'ipa'
+
+2. THE EXACT SYMBOLS THAT CRASHED split_phone
+  PASS  parse 'yː'
+          Phone('y', long)
+  PASS  parse 'ç'
+          Phone('ç')
+  PASS  parse 'ˈbyː'
+          Phone('by', stress=1, long)
+  PASS  parse 'ˌkɑ'
+          Phone('kɑ', stress=2)
+
+3. UNKNOWN NEVER PRODUCES A NUMBER
+  PASS  two IDENTICAL unknown symbols return None, not 1.0
+          got None -- the old vowel_sim returned 1.0 here via its a==b short-circuit
+  PASS  two DIFFERENT unknown symbols return None, not a crash
+          got None -- the old cons_sim raised KeyError
+  PASS  known vs unknown returns None
+          got None
+
+4. KNOWN SYMBOLS STILL SCORE
+  PASS  identical vowel scores 1.0
+          1.0
+  PASS  y~u are close but not identical
+          0.6666666666666666
+  PASS  vowel vs consonant scores 0.0
+          0.0
+  PASS  length difference is penalised, not ignored
+          0.9
+
+5. COVERAGE IS CHECKABLE UP FRONT
+  PASS  coverage reports the unknown symbols by name
+          3/5 known, unknown=['θ', 'ʒ']
+
+6. AN UNDECLARED LANGUAGE IS REFUSED
+  PASS  undeclared language refuses rather than defaulting to English
+          "no phoneme inventory declared for 'da'. Declared: ['nl']. Scoring a language without a de
+  PASS  registry reports what is declared
+          ['nl']
+==============================================================
+all IPA-layer regressions pass

@@ -1,0 +1,787 @@
+==============================================================================
+ENTRY CLAIMS — MISSING.md and BACKLOG.md, checked at e99dea5d+dirty
+==============================================================================
+  348 entries: 35 BACKLOG.md, 313 MISSING.md
+
+  asked 9050, answered 790, refused 8260
+      asked    = every claim drawn from every segment, headings included;
+                 a segment no shape recognises still counts as one asked claim
+      answered = a declared shape resolved it against the repo
+      refused  = no shape, or a shape with no coordinate to work from
+
+  ANSWERED, by shape:
+    SYMBOL_ABSENT            0 true    0 FALSE
+    HASATTR                  0 true    0 FALSE
+    REPO_PATH_EXISTS       755 true    0 FALSE
+    STAGED_FILE_COUNT       10 true    0 FALSE   [VOLATILE, measured at e99dea5d+dirty]
+    MODULE_LINE_COUNT        3 true    0 FALSE
+    CORPUS_MARKER_ABSENT     3 true    0 FALSE   [VOLATILE, measured at e99dea5d+dirty]
+    CORPUS_TABLE_ROW         9 true    0 FALSE   [VOLATILE, measured at e99dea5d+dirty]
+    STATUS_XREF              7 true    0 FALSE
+    SCRATCH_NAMESPACED       3 true    0 FALSE
+    CAPACITY_FIGURE          0 true    0 FALSE
+    FLOOR_THRESHOLD          0 true    0 FALSE
+
+    [dead] SYMBOL_ABSENT, HASATTR, CAPACITY_FIGURE, FLOOR_THRESHOLD matched no segment in this run — a shape with no live instance
+           proves nothing about the register; see the positive control below.
+
+  REFUSED, by kind — the honest size of the unchecked remainder:
+    NO_SHAPE               8241
+    AMBIGUOUS_SCOPE          12
+    DISCHARGED                5
+    NO_INSTRUMENT             2
+
+==============================================================================
+FALSE CLAIMS — none
+==============================================================================
+
+STATUS vs CONTENT
+------------------------------------------------------------------------------
+  [ok  ] no OPEN/PARTIAL/BLOCKED entry has all its absence-claims already filled
+  [note] MISSING.md K-2 is CLOSED and its absence-claim is still TRUE (allowed: a shut entry may record a residue, and N-2 does)
+         no `--- X:` in corpus/song/ -> MEASURED 0 occurrences at e99dea5d+dirty
+  [note] BACKLOG.md 3.2 is CLOSED and its absence-claim is still TRUE (allowed: a shut entry may record a residue, and N-2 does)
+         no `--- AIR:` in corpus/song/ -> MEASURED 0 occurrences at e99dea5d+dirty
+
+CLAIMS IN PROSE — CAPACITY_FIGURE, FLOOR_THRESHOLD, REPO_PATH_EXISTS, over CLAUDE.md, README.md, quality/METHOD.md, quality/RESULTS_RHYME_CAPACITY.md, quality/RESULTS_SONG_FLOOR.md
+------------------------------------------------------------------------------
+  a backticked repo path must exist unless the sentence says it does not; a
+  per-family capacity figure must re-derive from data/rhyme_capacity_eng.tsv; a
+  shipped floor threshold must re-derive from quality/floor.py. Counted apart
+  from the register's triple above: these are not claims drawn from an entry.
+  CAPACITY_FIGURE   15 citation(s) in 15 segment(s): 8 true, 0 FALSE, 7 refused.
+  FLOOR_THRESHOLD   3 citation(s) in 3 segment(s): 3 true, 0 FALSE, 0 refused.
+  REPO_PATH_EXISTS  245 citation(s) in 202 segment(s): 200 true, 0 FALSE, 2 refused.
+
+PIN SUPERSESSION — doctrine 17, over quality/audit_*.py
+------------------------------------------------------------------------------
+  a check may be kept after its premise is falsified, but never quoted as if
+  it were not. IF a pin moved, its documents must still carry the old value.
+  130 pins in 10 files; 226 moved.
+  [ok  ] audit_spans.py  PINNED/violations
+         82 -> 35   at c7847af3 2026-08-23  (Four more record steps, and a gate that name)
+         kept at BACKLOG.md:318; BACKLOG.md:1509; BACKLOG.md:1913 and 49 more
+  [ok  ] audit_spans.py  PINNED/violations_claimed
+         36 -> 7   at c7847af3 2026-08-23  (Four more record steps, and a gate that name)
+         kept at BACKLOG.md:284; BACKLOG.md:1700; BACKLOG.md:1807 and 37 more
+  [ok  ] audit_spans.py  PINNED/violations
+         35 -> 12   at 60cbd773 2026-08-25  (Record job: re-anchor M12, repin the span au)
+         kept at BACKLOG.md:1906; BACKLOG.md:1907; BACKLOG.md:2044 and 68 more
+  [ok  ] audit_spans.py  PINNED/violations_claimed
+         7 -> 2   at 60cbd773 2026-08-25  (Record job: re-anchor M12, repin the span au)
+         kept at BACKLOG.md:39; BACKLOG.md:40; BACKLOG.md:43 and 305 more
+  [ok  ] audit_spans.py  PINNED/violations
+         12 -> 14   at b8f699ac 2026-09-02  (Carry the pricing repin into the three place)
+         kept at BACKLOG.md:187; BACKLOG.md:566; BACKLOG.md:1152 and 234 more
+  [ok  ] audit_spans.py  PINNED/violations_claimed
+         2 -> 4   at b8f699ac 2026-09-02  (Carry the pricing repin into the three place)
+         kept at BACKLOG.md:10; BACKLOG.md:11; BACKLOG.md:34 and 944 more
+  [ok  ] audit_spans.py  PINNED/claimed
+         632 -> 605   at e99dea5d 2026-09-08  (Repair screening and frequency parsing and r)
+         kept at quality/RESULTS_SPANS.md:34; quality/RESULTS_SPANS.md:49; quality/RESULTS_SPANS.md:79 and 4 more
+  [ok  ] audit_spans.py  PINNED/judged
+         1014 -> 967   at e99dea5d 2026-09-08  (Repair screening and frequency parsing and r)
+         kept at BACKLOG.md:1790; BACKLOG.md:2043; BACKLOG.md:2044 and 51 more
+  [ok  ] audit_spans.py  PINNED/refused
+         50 -> 97   at e99dea5d 2026-09-08  (Repair screening and frequency parsing and r)
+         kept at BACKLOG.md:37; BACKLOG.md:773; BACKLOG.md:1472 and 96 more
+  [ok  ] audit_spans.py  PINNED/violations
+         14 -> 4   at e99dea5d 2026-09-08  (Repair screening and frequency parsing and r)
+         kept at BACKLOG.md:172; BACKLOG.md:554; BACKLOG.md:1062 and 235 more
+  [ok  ] audit_spans.py  PINNED/violations_claimed
+         4 -> 1   at e99dea5d 2026-09-08  (Repair screening and frequency parsing and r)
+         kept at BACKLOG.md:36; BACKLOG.md:54; BACKLOG.md:67 and 657 more
+  [ok  ] audit_corpus.py  PINNED_SHAPE/NOTE
+         198 -> 199   at 1f53c938 2026-08-16  (nine records went stale where no instrument )
+         kept at MISSING.md:1979; MISSING.md:2052; MISSING.md:19713 and 5 more
+  [ok  ] audit_corpus.py  PINNED_SHAPE/WARN
+         230 -> 229   at 1f53c938 2026-08-16  (nine records went stale where no instrument )
+         kept at MISSING.md:2049; MISSING.md:17615; MISSING.md:17689 and 5 more
+  [ok  ] audit_corpus.py  PINNED_SHAPE/NOTE
+         199 -> 202   at bdde80b3 2026-08-19  (Pass-1 loading batch 1: 49 hymns from alread)
+         kept at MISSING.md:6976; MISSING.md:13395; MISSING.md:13404 and 6 more
+  [ok  ] audit_corpus.py  PINNED_SHAPE/WARN
+         229 -> 231   at bdde80b3 2026-08-19  (Pass-1 loading batch 1: 49 hymns from alread)
+         kept at MISSING.md:17533; MISSING.md:17615; MISSING.md:20664 and 18 more
+  [ok  ] audit_corpus.py  PINNED_SHAPE/NOTE
+         202 -> 429   at 550dfb17 2026-08-20  (Mass load: 245 Modern Scottish Minstrel auth)
+         kept at MISSING.md:15428; MISSING.md:15574; MISSING.md:15576 and 9 more
+  [ok  ] audit_corpus.py  PINNED_SHAPE/files
+         269 -> 514   at 550dfb17 2026-08-20  (Mass load: 245 Modern Scottish Minstrel auth)
+         kept at MISSING.md:4449; MISSING.md:4870; MISSING.md:21090 and 9 more
+  [ok  ] audit_corpus.py  PINNED_SHAPE/NOTE
+         429 -> 601   at 810cc5eb 2026-08-20  (Tier-1 concurrent load: 560 songs from five )
+         kept at MISSING.md:2895; MISSING.md:16545; MISSING.md:16755 and 32 more
+  [ok  ] audit_corpus.py  PINNED_SHAPE/files
+         514 -> 748   at 810cc5eb 2026-08-20  (Tier-1 concurrent load: 560 songs from five )
+         kept at MISSING.md:2048; MISSING.md:18379; MISSING.md:20481 and 3 more
+  [ok  ] audit_corpus.py  PINNED_SHAPE/NOTE
+         601 -> 598   at 01bc0e67 2026-08-20  (Merge six cross-book spelling-variant twin a)
+         kept at MISSING.md:2404; MISSING.md:2421; MISSING.md:3608 and 6 more
+  [ok  ] audit_corpus.py  PINNED_SHAPE/files
+         748 -> 742   at 01bc0e67 2026-08-20  (Merge six cross-book spelling-variant twin a)
+         kept at quality/RESULTS_CORPUS_AUDIT.md:676
+  [ok  ] audit_corpus.py  PINNED_SHAPE/NOTE
+         598 -> 902   at 5286812c 2026-08-20  (Phase 1: land Oxford and Poems of American H)
+         kept at quality/RESULTS_CORPUS_AUDIT.md:233; quality/RESULTS_CORPUS_AUDIT.md:675
+  [ok  ] audit_corpus.py  PINNED_SHAPE/files
+         742 -> 1175   at 5286812c 2026-08-20  (Phase 1: land Oxford and Poems of American H)
+         kept at quality/RESULTS_CORPUS_AUDIT.md:675
+  [note] audit_corpus.py  PINNED_SHAPE/NOTE
+         902 -> 901   at aa43838f 2026-08-20  (Merge the Montgomery twin: one man, two file)
+         kept at quality/RESULTS_CORPUS_AUDIT.md:155
+         and NOT ONE of those 1 block(s) carries a date or a supersession
+         marker. The record states a value the instrument no longer stands
+         behind, as if it were current — which is doctrine 17's own sentence.
+  [note] audit_corpus.py  PINNED_SHAPE/files
+         1175 -> 1174   at aa43838f 2026-08-20  (Merge the Montgomery twin: one man, two file)
+         kept at MISSING.md:18171; quality/RESULTS_CORPUS_AUDIT.md:155
+         and NOT ONE of those 2 block(s) carries a date or a supersession
+         marker. The record states a value the instrument no longer stands
+         behind, as if it were current — which is doctrine 17's own sentence.
+  [note] audit_corpus.py  PINNED_SHAPE/NOTE
+         901 -> 1085   at 76f978f3 2026-08-20  (Land the Home Book of Verse safe subset: 1,0)
+         kept at MISSING.md:7080
+         and NOT ONE of those 1 block(s) carries a date or a supersession
+         marker. The record states a value the instrument no longer stands
+         behind, as if it were current — which is doctrine 17's own sentence.
+  [ok  ] audit_corpus.py  PINNED_SHAPE/WARN
+         231 -> 233   at 76f978f3 2026-08-20  (Land the Home Book of Verse safe subset: 1,0)
+         kept at MISSING.md:606; MISSING.md:4125; MISSING.md:4822 and 12 more
+  [note] audit_corpus.py  PINNED_SHAPE/files
+         1174 -> 1423   at 76f978f3 2026-08-20  (Land the Home Book of Verse safe subset: 1,0)
+         kept at quality/RESULTS_CORPUS_AUDIT.md:295; quality/RESULTS_CORPUS_AUDIT.md:480
+         and NOT ONE of those 2 block(s) carries a date or a supersession
+         marker. The record states a value the instrument no longer stands
+         behind, as if it were current — which is doctrine 17's own sentence.
+  [ok  ] audit_corpus.py  PINNED_SHAPE/WARN
+         233 -> 235   at 0e38caaf 2026-08-21  (CI: three pins that had to move, and one API)
+         kept at MISSING.md:1318; MISSING.md:3046; MISSING.md:3827 and 9 more
+  [ok  ] audit_corpus.py  PINNED_SHAPE/NOTE
+         1085 -> 1133   at 2ca1880e 2026-08-21  (The staging discriminator ships, 14 of 940 a)
+         kept at quality/RESULTS_CORPUS_AUDIT.md:651; quality/RESULTS_CORPUS_AUDIT.md:657
+  [ok  ] audit_corpus.py  PINNED_SHAPE/WARN
+         235 -> 340   at 2ca1880e 2026-08-21  (The staging discriminator ships, 14 of 940 a)
+         kept at MISSING.md:17162; MISSING.md:19696; MISSING.md:20686 and 6 more
+  [----] audit_corpus.py  PINNED_SHAPE/NOTE
+         1133 -> 1162   at 1580d116 2026-08-22  (The tokeniser could not spell English as pri)
+         the record could not be read at 1580d116^, so whether the value was ever on the page cannot be told
+  [----] audit_corpus.py  PINNED_SHAPE/NOTE
+         1162 -> 1168   at 7142d4e8 2026-08-22  (K-4: the ruling was made, and Old Norse is s)
+         the record could not be read at 7142d4e8^, so whether the value was ever on the page cannot be told
+  [ok  ] audit_corpus.py  PINNED_SHAPE/files
+         1423 -> 1430   at 7142d4e8 2026-08-22  (K-4: the ruling was made, and Old Norse is s)
+         kept at MISSING.md:6562; quality/RESULTS_CORPUS_AUDIT.md:480; quality/RESULTS_CORPUS_AUDIT.md:651 and 1 more
+  [ok  ] audit_corpus.py  PINNED_SHAPE/NOTE
+         1168 -> 1228   at 9d757aff 2026-08-28  (BUILD-S batch: M-114, M-115 RESOLVED; F-4, F)
+         kept at quality/RESULTS_CORPUS_AUDIT.md:647; quality/RESULTS_CORPUS_AUDIT.md:650
+  [ok  ] audit_corpus.py  PINNED_SHAPE/NOTE
+         1228 -> 1234   at f2359548 2026-08-28  (M-47+M-27: a bracket in a sung line is read )
+         kept at MISSING.md:4509; MISSING.md:1380; MISSING.md:1490 and 4 more
+  [ok  ] audit_corpus.py  PINNED_SHAPE/NOTE
+         1234 -> 1228   at 13cadc4e 2026-08-28  (M-152: bracketed verse keeps the body and lo)
+         kept at MISSING.md:4509; quality/RESULTS_CORPUS_AUDIT.md:630
+  [ok  ] audit_corpus.py  PINNED_SHAPE/NOTE
+         1228 -> 1195   at 1e68fb89 2026-09-08  (Complete lyrics data re-adoption and enforce)
+         kept at MISSING.md:4509; MISSING.md:1380; MISSING.md:1490 and 4 more
+  [ok  ] audit_corpus.py  PINNED_SHAPE/WARN
+         340 -> 141   at 1e68fb89 2026-09-08  (Complete lyrics data re-adoption and enforce)
+         kept at MISSING.md:2255; MISSING.md:16865; MISSING.md:16914 and 6 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         75 -> 76   at 769d7d4c 2026-08-21  (audit_register: repin coverage_entries 75 ->)
+         kept at MISSING.md:2162; MISSING.md:2169; MISSING.md:2173 and 54 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         76 -> 77   at 59a18390 2026-08-21  (MISSING M-21: one register fact, two pins, t)
+         kept at MISSING.md:1775; MISSING.md:1776; MISSING.md:1784 and 40 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         77 -> 79   at dd19cc14 2026-08-21  (Fruit sweep, second basket: L-4 closes, F-4 )
+         kept at MISSING.md:376; MISSING.md:431; MISSING.md:435 and 155 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         79 -> 84   at 78845daf 2026-08-21  (Repin coverage_entries 79 -> 84, four commit)
+         kept at MISSING.md:847; MISSING.md:981; MISSING.md:1215 and 160 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         84 -> 86   at 2ca1880e 2026-08-21  (The staging discriminator ships, 14 of 940 a)
+         kept at MISSING.md:7750; MISSING.md:7751; MISSING.md:10610 and 17 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         86 -> 87   at 1580d116 2026-08-22  (The tokeniser could not spell English as pri)
+         kept at MISSING.md:1253; MISSING.md:10809; MISSING.md:10812 and 11 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         87 -> 88   at 926a66dd 2026-08-22  (M-30: the sweep called a suite it could not )
+         kept at MISSING.md:1474; MISSING.md:1475; MISSING.md:2416 and 21 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         88 -> 89   at fcff2abe 2026-08-22  (Refuse wordfreq20k, and the swap turns out t)
+         kept at MISSING.md:2357; MISSING.md:2416; MISSING.md:2420 and 21 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         89 -> 90   at c6213af7 2026-08-22  (M-32: feature 10's committed direction and i)
+         kept at MISSING.md:1931; MISSING.md:1947; MISSING.md:2692 and 19 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         90 -> 91   at a8dc80e5 2026-08-22  (Take the ruling on feature 10: the gloss was)
+         kept at MISSING.md:1266; MISSING.md:3542; MISSING.md:3547 and 18 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         91 -> 92   at a7cc5bd5 2026-08-22  (Step 1: a mandate names the relation it want)
+         kept at MISSING.md:853; MISSING.md:1006; MISSING.md:4604 and 30 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         92 -> 94   at 78305119 2026-08-22  (Step 7: declare what cannot be nulled, with )
+         kept at MISSING.md:305; MISSING.md:1071; MISSING.md:1368 and 24 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         94 -> 95   at 036317f3 2026-08-22  (Step 3 stops at the first move: 26 relation )
+         kept at MISSING.md:3424; MISSING.md:3563; MISSING.md:9814 and 22 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         95 -> 96   at 164531a1 2026-08-22  (M-38: one quantifier coordinate, two modules)
+         kept at MISSING.md:1318; MISSING.md:1617; MISSING.md:1620 and 30 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         96 -> 97   at a7ea4c47 2026-08-22  (Step 0 closes: the admissible set, and the s)
+         kept at MISSING.md:3554; MISSING.md:5478; MISSING.md:7280 and 7 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         97 -> 98   at 4daae32d 2026-08-22  (M-39: the stanza frame had no ground, and fi)
+         kept at MISSING.md:9429; MISSING.md:11351; MISSING.md:15356 and 14 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         98 -> 99   at 06453578 2026-08-22  (M-41: the capacity ceiling is derived under )
+         kept at MISSING.md:5221; MISSING.md:11390; MISSING.md:11442 and 8 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         99 -> 100   at 85d7b87c 2026-08-22  (M-42: two of the four nulls are ONE randomis)
+         kept at MISSING.md:2415; MISSING.md:2461; MISSING.md:2622 and 18 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         100 -> 101   at 47a8594b 2026-08-22  (M-43: the census threw away WHY a schema ref)
+         kept at MISSING.md:160; MISSING.md:2415; MISSING.md:2461 and 51 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         101 -> 102   at 84167b32 2026-08-22  (M-44: the named-relation judge reaches 4 of )
+         kept at MISSING.md:1261; MISSING.md:1297; MISSING.md:2415 and 16 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         102 -> 104   at 605bf0ab 2026-08-22  (M-45 and M-46: two bookkeeping defects in th)
+         kept at MISSING.md:1415; MISSING.md:2146; MISSING.md:2156 and 17 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         104 -> 105   at 4882d956 2026-08-22  (M-47: apparatus survives into LINE-FINAL pos)
+         kept at MISSING.md:2181; MISSING.md:2804; MISSING.md:2834 and 11 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         105 -> 106   at cd0ab5e9 2026-08-22  (M-48: the survey's dedup column holds prose,)
+         kept at MISSING.md:2182; MISSING.md:6691; MISSING.md:6739 and 13 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         106 -> 112   at 5927a32c 2026-08-22  (Wire the relation as the mandate's default r)
+         kept at MISSING.md:11841; MISSING.md:12072; MISSING.md:13055 and 17 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         112 -> 115   at 6efd3e16 2026-08-22  (Design the section-constraint layer before b)
+         kept at MISSING.md:9843; MISSING.md:12415; MISSING.md:14402 and 1 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         115 -> 116   at 04eda9e7 2026-08-22  (M-58: the named-relation judge is monosyllab)
+         kept at MISSING.md:9382; MISSING.md:10903; MISSING.md:12593 and 10 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         116 -> 117   at d0b3a5d1 2026-08-23  (Open every gate: default admits all four, sc)
+         kept at MISSING.md:12492; MISSING.md:12517; MISSING.md:12644 and 30 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         117 -> 121   at c7847af3 2026-08-23  (Four more record steps, and a gate that name)
+         kept at MISSING.md:1696; MISSING.md:1697; MISSING.md:1705 and 45 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         121 -> 122   at 7b532ff7 2026-08-23  (A crash at import is not a moved pin — and t)
+         kept at MISSING.md:1433; MISSING.md:1463; MISSING.md:12858 and 7 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         122 -> 123   at dd218c30 2026-08-23  (The nightly job died on its first line whene)
+         kept at MISSING.md:775; MISSING.md:791; MISSING.md:1450 and 9 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         123 -> 124   at 6bb3bf5a 2026-08-23  (PREDICTABLE_RHYME joins the mandatory pursue)
+         kept at MISSING.md:3233; MISSING.md:12937; MISSING.md:13063 and 5 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         124 -> 129   at d1f8e40d 2026-08-23  (The planner draws placements and overlapping)
+         kept at MISSING.md:774; MISSING.md:775; MISSING.md:2076 and 13 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         129 -> 130   at 33c0ac08 2026-08-23  (Structure recovery: the pasted-song door get)
+         kept at MISSING.md:942; MISSING.md:1752; MISSING.md:2404 and 27 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         130 -> 132   at 18835a41 2026-08-23  (The gate census: how much of this harness ca)
+         kept at MISSING.md:2419; MISSING.md:2532; MISSING.md:2626 and 14 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         132 -> 133   at 2ad3c96c 2026-08-23  (Size the owner's gaming anecdote: the shape )
+         kept at MISSING.md:3233; MISSING.md:4446; MISSING.md:11095 and 6 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         133 -> 134   at 0c369a4f 2026-08-23  (Wire the code graph in as a lens, and measur)
+         kept at MISSING.md:1450; MISSING.md:1451; MISSING.md:7295 and 13 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         134 -> 135   at 49bc649e 2026-08-23  (Decide the 44 undecidable codes — and 39 of )
+         kept at MISSING.md:3230; MISSING.md:13530; MISSING.md:19714 and 1 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         135 -> 136   at bdee58de 2026-08-23  (Rule on all 51 disclosed-only codes — and fi)
+         kept at MISSING.md:2453; MISSING.md:13573; MISSING.md:13844 and 9 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         136 -> 137   at ab577d62 2026-08-23  (First end-to-end run: the pipeline stops at )
+         kept at MISSING.md:555; MISSING.md:6568; MISSING.md:10660 and 7 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         137 -> 138   at 3cd27d4d 2026-08-23  (The plan-time joint satisfiability gate — an)
+         kept at MISSING.md:4350; MISSING.md:4447; MISSING.md:10296 and 5 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         138 -> 139   at 6b23e10c 2026-08-23  (File M-81: a plan can be satisfiable and sti)
+         kept at MISSING.md:556; MISSING.md:589; MISSING.md:10296 and 28 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         139 -> 140   at 2b631552 2026-08-23  (plan --sweep: the last private instrument is)
+         kept at MISSING.md:2550; MISSING.md:2566; MISSING.md:3618 and 32 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         140 -> 141   at 5ab091d7 2026-08-23  (plan --fill was the sixth holdout from the o)
+         kept at MISSING.md:556; MISSING.md:607; MISSING.md:10543 and 23 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         141 -> 142   at cbcb43d8 2026-08-24  (HOOK_DOES_NOT_RECUR gates now, and the plann)
+         kept at MISSING.md:1156; MISSING.md:1199; MISSING.md:10608 and 4 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         142 -> 143   at f2c21c9d 2026-08-24  (Gate the section header's apparatus; pursue )
+         kept at MISSING.md:1199; MISSING.md:1212; MISSING.md:1213 and 10 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         143 -> 144   at bf2ea2ea 2026-08-24  (TITLE_NOT_IN_HOOK gates, on reaffirmation, w)
+         kept at MISSING.md:42; MISSING.md:1120; MISSING.md:1128 and 23 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         144 -> 145   at 05757247 2026-08-24  (The sweep gained the two coordinates a hook )
+         kept at MISSING.md:3447; MISSING.md:5148; MISSING.md:5470 and 26 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         145 -> 146   at bb16edb5 2026-08-24  (The two-tier ban gates the grading verb, not)
+         kept at MISSING.md:2567; MISSING.md:3373; MISSING.md:10958 and 15 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         146 -> 147   at cd37f3f1 2026-08-24  (Fix the CI workflow: it had been invalid YAM)
+         kept at MISSING.md:7047; MISSING.md:10958; MISSING.md:11003 and 8 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         147 -> 150   at 5cd83c64 2026-08-24  (Four reds the first parseable CI run found, )
+         kept at MISSING.md:11003; MISSING.md:15513; MISSING.md:15576 and 1 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         150 -> 151   at 3e9c8410 2026-08-24  (A song at seed 568, and the title finally ha)
+         kept at MISSING.md:2041; MISSING.md:4592; MISSING.md:8875 and 51 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         151 -> 152   at b54c0cd1 2026-08-24  (The gate refused the planner's own blueprint)
+         kept at MISSING.md:2531; MISSING.md:7266; MISSING.md:15936 and 9 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         152 -> 153   at 739a7ca9 2026-08-24  (tandem and nightly, red for a week on four s)
+         kept at MISSING.md:1162; MISSING.md:2035; MISSING.md:3906 and 31 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         153 -> 154   at 76d495fa 2026-08-24  (Five songs shipped and nothing in this repo )
+         kept at MISSING.md:1149; MISSING.md:16101; CLAUDE.md:2596 and 2 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         154 -> 155   at 8daf8613 2026-08-24  (The flattened bracket now has jurisdiction o)
+         kept at MISSING.md:1149; MISSING.md:1169; MISSING.md:1171 and 14 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         155 -> 157   at 34149deb 2026-08-24  (Bank the songs as a series: quality/song_rec)
+         kept at MISSING.md:2550; MISSING.md:2566; MISSING.md:2646 and 17 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         157 -> 159   at 797b6e59 2026-08-24  (The process log: songs/<name>.log.tsv, what )
+         kept at MISSING.md:7330; MISSING.md:7345; MISSING.md:9787 and 13 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         159 -> 160   at eb6e9e74 2026-08-24  (A song-wide relation may not stand beside a )
+         kept at MISSING.md:3287; MISSING.md:16509; MISSING.md:16569 and 4 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         160 -> 161   at ed135b2c 2026-08-24  (Two catalog rows could not be spelled throug)
+         kept at MISSING.md:1380; MISSING.md:1490; MISSING.md:16568 and 6 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         161 -> 162   at cc642129 2026-08-24  (Connector: lyric_verify ships, revise stays )
+         kept at MISSING.md:16617; MISSING.md:16776; MISSING.md:16819 and 2 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         162 -> 163   at 41bb186f 2026-08-24  (The joint backtrack: tier 2 rewrites a whole)
+         kept at MISSING.md:3287; MISSING.md:16678; MISSING.md:16898 and 5 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         163 -> 164   at 978b1e0b 2026-08-24  (The song's length comes from the profile tha)
+         kept at MISSING.md:10001; MISSING.md:13394; MISSING.md:13395 and 15 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         164 -> 165   at 25a968e2 2026-08-25  (The end-rhyme pass: each section's own schem)
+         kept at MISSING.md:3232; MISSING.md:4243; MISSING.md:13404 and 12 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         165 -> 167   at 4e83d20b 2026-08-25  (One mandate header, not two — and the narrat)
+         kept at MISSING.md:12220; MISSING.md:16617; MISSING.md:16669 and 9 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         167 -> 169   at fb2b1afd 2026-08-25  (The sentencehood layer: a line of stacked no)
+         kept at MISSING.md:6644; MISSING.md:12220; MISSING.md:12411 and 10 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         169 -> 170   at 13d96a96 2026-08-25  (Panel run 3 and M-112: the pressure survived)
+         kept at MISSING.md:12411; MISSING.md:12446; MISSING.md:15484 and 7 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         170 -> 172   at 4d19ca9e 2026-08-25  (Bank matinee: seed 3, series song 4 — the ma)
+         kept at MISSING.md:12446; MISSING.md:12499; MISSING.md:14686 and 36 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         172 -> 173   at 3948e3c1 2026-08-25  (Panel run 4, M-115, and the series trend rep)
+         kept at MISSING.md:12559; MISSING.md:12616; MISSING.md:13666 and 1 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         173 -> 174   at 9b5e9c28 2026-08-25  (All 77 schemas join the default — the owner')
+         kept at MISSING.md:4021; MISSING.md:12616; MISSING.md:12676 and 9 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         174 -> 175   at b0070e18 2026-08-25  (The planner draws relations from the certifi)
+         kept at MISSING.md:1834; MISSING.md:1869; MISSING.md:12676 and 18 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         175 -> 176   at 6d79e082 2026-08-25  (M-118: the relation draw gets its conjunctio)
+         kept at MISSING.md:12774; MISSING.md:12796; MISSING.md:13395 and 3 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         176 -> 177   at 9577aec3 2026-08-25  (M-119: the conjunction gate reads span loci )
+         kept at MISSING.md:1931; MISSING.md:2009; MISSING.md:2692 and 14 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         177 -> 178   at 4226b942 2026-08-25  (Panel run 5 results: crooked_waltz measured,)
+         kept at MISSING.md:508; MISSING.md:11749; MISSING.md:12830 and 5 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         178 -> 179   at 63cc8be7 2026-08-25  (M-121: the five narrative rulings, made unde)
+         kept at MISSING.md:508; MISSING.md:9843; MISSING.md:12856 and 3 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         179 -> 180   at ca3d2b5c 2026-08-25  (M-122: the gate's claim ledger becomes a gra)
+         kept at MISSING.md:1171; MISSING.md:12327; MISSING.md:12887 and 7 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         180 -> 181   at 3333d672 2026-08-25  (M-123: a Differ claim is a disequality cliqu)
+         kept at MISSING.md:12935; MISSING.md:13001; MISSING.md:16617 and 6 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         181 -> 183   at 4c86adec 2026-08-25  (M-124 + M-125: a schema's IdentityRule is th)
+         kept at MISSING.md:1523; MISSING.md:2319; MISSING.md:13001 and 17 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         183 -> 184   at 75ec03e1 2026-08-25  (M-126: the whole-vocabulary rescue defers to)
+         kept at MISSING.md:11953; MISSING.md:13069; MISSING.md:17102 and 21 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         184 -> 185   at 365949fb 2026-08-26  (M-127: the deployment gets a freshness gate )
+         kept at MISSING.md:218; MISSING.md:13283; MISSING.md:13298 and 18 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         185 -> 186   at fdea503d 2026-08-26  (M-128: the renderer's reproducible order was)
+         kept at MISSING.md:13235; MISSING.md:13283; MISSING.md:13290 and 13 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         186 -> 187   at 2dede472 2026-08-26  (M-129: equal shard COUNTS were read as equal)
+         kept at MISSING.md:6703; MISSING.md:13284; MISSING.md:13290 and 11 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         187 -> 188   at 93c6a499 2026-08-26  (M-130: a docs gate whose population was what)
+         kept at MISSING.md:13285; MISSING.md:13522; MISSING.md:17400 and 16 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         188 -> 190   at 0336a811 2026-08-26  (M-131/M-132: the song profile re-adopted at )
+         kept at MISSING.md:12272; MISSING.md:13286; MISSING.md:13522 and 2 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         190 -> 191   at 3322a477 2026-08-26  (M-133: the band move re-swept the planner's )
+         kept at MISSING.md:13520; MISSING.md:13523; MISSING.md:17414 and 8 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         191 -> 192   at 4b115009 2026-08-26  (M-134: the kill-bound disclosure missed the )
+         kept at MISSING.md:1171; MISSING.md:4224; MISSING.md:6640 and 12 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         192 -> 193   at 6803a8de 2026-08-26  (M-135: the comparator's span search has no n)
+         kept at MISSING.md:3459; MISSING.md:4172; MISSING.md:19194 and 8 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         193 -> 196   at 4ba1b5cf 2026-08-26  (The comparator audit, three entries: M-136, )
+         kept at MISSING.md:2139; MISSING.md:2315; MISSING.md:2320 and 24 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         196 -> 197   at 428e35ff 2026-08-26  (M-139: the door moved twice and 17 of 19 sit)
+         kept at MISSING.md:4041; MISSING.md:10171; MISSING.md:11280 and 7 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         197 -> 198   at 3d48b274 2026-08-26  (The figures I recorded came from a script no)
+         kept at MISSING.md:17132; MISSING.md:17133; MISSING.md:17161 and 14 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         198 -> 199   at dac1c116 2026-08-26  (The census's one live figure drifted 84% for)
+         kept at MISSING.md:1979; MISSING.md:2052; MISSING.md:19713 and 7 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         199 -> 200   at 569f5709 2026-08-27  (The module that structures a pasted song mad)
+         kept at MISSING.md:6976; MISSING.md:13395; MISSING.md:13404 and 6 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         200 -> 202   at 8be52608 2026-08-27  (The candidate field was built at one door an)
+         kept at MISSING.md:1966; MISSING.md:2083; MISSING.md:2841 and 124 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         202 -> 203   at 59e928ab 2026-08-27  (Rule the two open door-census sites: --cliqu)
+         kept at MISSING.md:15428; MISSING.md:15574; MISSING.md:15576 and 7 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         203 -> 205   at a8863a69 2026-08-27  (Three entries were written after the counter)
+         kept at MISSING.md:15428; MISSING.md:15574; MISSING.md:15576 and 5 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         205 -> 206   at e61757e3 2026-08-27  (M-148: the certified draw pool and the manda)
+         kept at MISSING.md:3230; MISSING.md:3272; MISSING.md:15575 and 14 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         206 -> 207   at 0593fa15 2026-08-27  (M-148: the schema judge accepts canonical an)
+         kept at MISSING.md:2371; MISSING.md:14711; MISSING.md:15645 and 7 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         207 -> 208   at 75413251 2026-08-28  (M-150: a rendered song carries its convergen)
+         kept at MISSING.md:2420; MISSING.md:2454; MISSING.md:14444 and 4 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         208 -> 209   at beb9a6a4 2026-08-28  (M-7: the Welsh caesura mark set is a declare)
+         kept at MISSING.md:112; MISSING.md:597; MISSING.md:1318 and 11 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         209 -> 210   at f2359548 2026-08-28  (M-47+M-27: a bracket in a sung line is read )
+         kept at MISSING.md:2049; MISSING.md:10835; MISSING.md:21361
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         210 -> 213   at 68abbf0f 2026-08-28  (CI green drive: prettier on the two mcp file)
+         kept at MISSING.md:9426; MISSING.md:17541; MISSING.md:20692 and 2 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         213 -> 214   at f284d051 2026-08-28  (M-156: the revise state takes the workspace )
+         kept at MISSING.md:20775; MISSING.md:20826; MISSING.md:20832 and 5 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         214 -> 215   at d1a2e9d7 2026-08-28  (M-157: the deployed instance was sized below)
+         kept at MISSING.md:6201; MISSING.md:16583; MISSING.md:20998 and 2 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         215 -> 216   at 478dec02 2026-08-29  (M-158: the wrong-channel answer — the suspen)
+         kept at MISSING.md:2052; MISSING.md:3810; MISSING.md:21020
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         216 -> 217   at 845ec143 2026-08-29  (M-159: the battery abandoned a legitimate tu)
+         kept at MISSING.md:16550; MISSING.md:20879; MISSING.md:20918 and 4 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         217 -> 218   at 67438683 2026-08-29  (M-160: the turn's silence is what the networ)
+         kept at MISSING.md:1314; MISSING.md:1979; MISSING.md:16550 and 9 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         218 -> 220   at 0c9ed5f8 2026-08-29  (Round 6 banked: the reminder cured the stall)
+         kept at MISSING.md:13297; MISSING.md:16711; MISSING.md:20464 and 2 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         220 -> 221   at 4444e4de 2026-08-29  (M-163: the driver hung up on a parked song —)
+         kept at MISSING.md:1153; MISSING.md:1157; MISSING.md:1213 and 13 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         221 -> 222   at 95778b46 2026-08-29  (M-164: a dead upstream answers 502 and the d)
+         kept at MISSING.md:292; MISSING.md:1768; MISSING.md:12069 and 13 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         222 -> 223   at 481b84d4 2026-08-29  (M-165: one tool budget — the subprocess wall)
+         kept at MISSING.md:12068; MISSING.md:16778; MISSING.md:16841 and 9 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         223 -> 224   at 644bfc31 2026-08-29  (M-166: round 9 banked — the kills are gone, )
+         kept at MISSING.md:11036; MISSING.md:16841; MISSING.md:16903 and 5 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         224 -> 225   at 8d3cecad 2026-08-29  (M-167: the deferred replay re-graded every d)
+         kept at MISSING.md:6644; MISSING.md:16903; MISSING.md:17025
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         225 -> 226   at ecc7eea2 2026-08-29  (M-168: round 10 banked — batching landed, ze)
+         kept at MISSING.md:4558; MISSING.md:12064; MISSING.md:12068 and 4 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         226 -> 228   at 29c0515f 2026-08-29  (M-169/M-170: the audit, and the record it sa)
+         kept at MISSING.md:12711; MISSING.md:12716; MISSING.md:17085 and 10 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         228 -> 229   at a09f7877 2026-08-29  (M-171: the participation bound protected the)
+         kept at MISSING.md:1380; MISSING.md:1490; MISSING.md:1523 and 13 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         229 -> 230   at 53ce7d5d 2026-08-29  (M-172: the audit's biggest loss was already )
+         kept at MISSING.md:17533; MISSING.md:17615; MISSING.md:20664 and 16 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         230 -> 231   at c0459cb4 2026-08-30  (M-173: the sufficiency measurement — written)
+         kept at MISSING.md:2049; MISSING.md:17615; MISSING.md:17689 and 5 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         231 -> 232   at 3a07c0d8 2026-08-30  (M-174: an overhang schema ORDERS its group, )
+         kept at MISSING.md:606; MISSING.md:4125; MISSING.md:4822 and 7 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         232 -> 233   at cdce6c3a 2026-08-30  (M-175: the mandate required the repeat and t)
+         kept at MISSING.md:4559; MISSING.md:4626; MISSING.md:16679 and 15 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         233 -> 236   at e2c1e74c 2026-08-30  (Sea of green: the shadow gets the repo's sha)
+         kept at MISSING.md:1318; MISSING.md:3046; MISSING.md:3827 and 9 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         236 -> 238   at 8a8c663d 2026-08-30  (QF2 earns its detector and the mutation job )
+         kept at MISSING.md:18018; MISSING.md:18021; MISSING.md:20684 and 13 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         238 -> 239   at 06045297 2026-09-01  (M-181: the listenable songs are unreachable )
+         kept at MISSING.md:3554; MISSING.md:5222; MISSING.md:18019 and 9 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         239 -> 240   at f8ba6714 2026-09-01  (M-182: the wall clock is bounded by granular)
+         kept at MISSING.md:11871; MISSING.md:11887; MISSING.md:13341 and 21 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         240 -> 253   at 775f03f6 2026-09-02  (Rule the triage's open questions under deleg)
+         kept at MISSING.md:6639; MISSING.md:7137; MISSING.md:11276 and 23 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         253 -> 254   at 6dcee9b5 2026-09-02  (Re-bank the song record on a clean tree, ref)
+         kept at MISSING.md:2010; MISSING.md:14711; MISSING.md:22791 and 4 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         254 -> 255   at 89e6e792 2026-09-02  (Read tier 2's anchor obligations at the slot)
+         kept at MISSING.md:19892; MISSING.md:22919; MISSING.md:22923 and 4 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         255 -> 256   at faebb515 2026-09-02  (Regenerate llms.txt, and record the gate who)
+         kept at MISSING.md:147; MISSING.md:2319; MISSING.md:6914 and 10 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         256 -> 257   at 7cd1d21f 2026-09-02  (Gate the PROCESS, not the word: a revised li)
+         kept at MISSING.md:145; MISSING.md:1318; MISSING.md:5251 and 10 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         257 -> 259   at 7cf15b28 2026-09-03  (M-202: the offer is a CONJUNCTION, the grade)
+         kept at MISSING.md:2531; MISSING.md:20057; MISSING.md:20102 and 3 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         259 -> 260   at f8a2d8d8 2026-09-03  (M-203: the BLUEPRINT banner named the --subd)
+         kept at MISSING.md:2902; MISSING.md:20167; MISSING.md:20226 and 1 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         260 -> 261   at 8a663298 2026-09-03  (M-204: the backspace exists and is triggered)
+         kept at MISSING.md:826; MISSING.md:1696; MISSING.md:1703 and 11 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         261 -> 264   at a7bd127c 2026-09-03  (Three defects the loop surfaced by writing s)
+         kept at MISSING.md:2083; MISSING.md:9481; MISSING.md:13337 and 8 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         264 -> 265   at f342bf6a 2026-09-03  (M-209: the ban and the offer are ONE field, )
+         kept at MISSING.md:3926; MISSING.md:8737; MISSING.md:10659 and 3 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         265 -> 266   at ff935234 2026-09-03  (M-210: a re-brief refreshed one line and the)
+         kept at MISSING.md:1931; MISSING.md:2692; MISSING.md:21358 and 6 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         266 -> 270   at 438c6687 2026-09-03  (M-211..M-214: four defects found by writing )
+         kept at MISSING.md:7154; MISSING.md:14586; MISSING.md:21305 and 2 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         270 -> 274   at dee87672 2026-09-03  (M-215..M-217 and the late M-205 entry: the t)
+         kept at MISSING.md:3059; MISSING.md:4125; MISSING.md:21040 and 2 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         274 -> 275   at 95839160 2026-09-03  (mcp/test.mjs: the live lyric checks' clock d)
+         kept at MISSING.md:4262; MISSING.md:7211; MISSING.md:20971 and 1 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         275 -> 277   at 8725a5ea 2026-09-03  (M-219/M-220: re-ask a malformed tool call in)
+         kept at MISSING.md:20071; MISSING.md:20957; MISSING.md:20971
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         277 -> 278   at 45c1885e 2026-09-04  (M-221: record what a malformed call containe)
+         kept at MISSING.md:20911; MISSING.md:20925; MISSING.md:20933
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         278 -> 279   at 1e187fa7 2026-09-04  (M-222: the driver re-sends a malformed, call)
+         kept at MISSING.md:3654; MISSING.md:4223; MISSING.md:20893 and 1 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         279 -> 280   at 89481da3 2026-09-04  (M-223: the round's exit code is its verdict,)
+         kept at MISSING.md:20881; MISSING.md:20893; CLAUDE.md:2606 and 2 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         280 -> 281   at cab9aad3 2026-09-04  (M-226: while a run is suspended the model's )
+         kept at MISSING.md:1298; MISSING.md:2567; MISSING.md:20865 and 5 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         281 -> 283   at 393b3165 2026-09-04  (M-228: superseded lyric results are stubbed )
+         kept at MISSING.md:13476; MISSING.md:20834; MISSING.md:20865
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         283 -> 284   at a802bf7d 2026-09-04  (M-229: the run's declarations are carried, t)
+         kept at MISSING.md:1132; MISSING.md:1135; MISSING.md:3907 and 3 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         284 -> 285   at 95e4812d 2026-09-04  (M-230: the live probe compares the build bes)
+         kept at MISSING.md:3289; MISSING.md:11955; MISSING.md:12073 and 3 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         285 -> 286   at e596a90c 2026-09-04  (M-231: a 502 says what died, and a 502 whose)
+         kept at MISSING.md:20789; MISSING.md:20805
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         286 -> 287   at 570cc3e9 2026-09-04  (M-232: a parked run is carried and continued)
+         kept at MISSING.md:4283; MISSING.md:6429; MISSING.md:6435 and 4 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         287 -> 288   at f5cd699d 2026-09-04  (M-233: a parked record survives the turn bou)
+         kept at MISSING.md:7136; MISSING.md:20751; MISSING.md:20771
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         288 -> 289   at c6d4f3a7 2026-09-04  (M-234: the draft goes as one string, and the)
+         kept at MISSING.md:5789; MISSING.md:20733; MISSING.md:20751
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         289 -> 290   at 20ceee31 2026-09-04  (M-235: the proposal record — which question )
+         kept at MISSING.md:13957; MISSING.md:20718; MISSING.md:20733 and 1 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         290 -> 291   at 83bddb46 2026-09-04  (M-236: the round's independent lines are ask)
+         kept at MISSING.md:1133; MISSING.md:1142; MISSING.md:1259 and 5 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         291 -> 292   at 398e3b14 2026-09-04  (M-237: the run record lives in the tools, so)
+         kept at MISSING.md:9930; MISSING.md:14687; MISSING.md:14817 and 3 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         292 -> 293   at bce5ffb9 2026-09-04  (M-238: strike the "listener preferred" wordi)
+         kept at MISSING.md:1340; MISSING.md:3907; MISSING.md:20652 and 1 more
+  [note] audit_register.py  PINNED/coverage_entries
+         293 -> 296   at 0a1f2d58 2026-09-05  (M-239, M-240, M-241 written; the review's co)
+         kept at MISSING.md:13993; MISSING.md:18359
+         and NOT ONE of those 2 block(s) carries a date or a supersession
+         marker. The record states a value the instrument no longer stands
+         behind, as if it were current — which is doctrine 17's own sentence.
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         296 -> 297   at 8639beff 2026-09-05  (The M-242 entry moved audit_register's pinne)
+         kept at MISSING.md:18344; MISSING.md:18359; MISSING.md:21739 and 3 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         297 -> 298   at 511449c8 2026-09-05  (The Stop hook's convergence gate accepted a )
+         kept at MISSING.md:43; MISSING.md:1120; MISSING.md:1128 and 34 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         298 -> 299   at 1c465193 2026-09-05  (WIP (M-244, part 1 of 2): one dealing-and-ti)
+         kept at MISSING.md:3086; MISSING.md:3554; MISSING.md:3558 and 22 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         299 -> 300   at cd7762ce 2026-09-05  (schema:semirhyme reads its coda as the post-)
+         kept at MISSING.md:14029; MISSING.md:19325; MISSING.md:22122 and 1 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         300 -> 301   at 2fd80182 2026-09-05  (An offer the two-tier ban emptied now says w)
+         kept at MISSING.md:2246; MISSING.md:2355; MISSING.md:2465 and 48 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         301 -> 302   at 3c46f7a5 2026-09-05  (The connector's lyric_revise opens the group)
+         kept at MISSING.md:3907; MISSING.md:22292; MISSING.md:22324 and 1 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         302 -> 303   at 156b842b 2026-09-06  (Round 22 banked: the batch answer is structu)
+         kept at MISSING.md:2231; MISSING.md:2249; MISSING.md:22325 and 2 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         303 -> 304   at e46596d2 2026-09-06  (A spent rate limit is a stopping place, not )
+         kept at MISSING.md:8267; MISSING.md:22420; MISSING.md:22491 and 1 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         304 -> 305   at 18e9506f 2026-09-06  (A push run a pull_request run already covers)
+         kept at MISSING.md:10878; MISSING.md:10881; MISSING.md:22492 and 1 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         305 -> 306   at 80edba49 2026-09-06  (The merge commit mirrored back onto the bran)
+         kept at MISSING.md:2415; MISSING.md:2427; MISSING.md:2440 and 8 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         306 -> 307   at 569a6d5f 2026-09-06  (The duplicate question could not beat the ca)
+         kept at MISSING.md:2427; MISSING.md:2428; MISSING.md:22670 and 5 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         307 -> 308   at 4e440fab 2026-09-06  (A connector writer reported three defects an)
+         kept at MISSING.md:22788; MISSING.md:22916; quality/RHYME_CANON.md:1798
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         308 -> 309   at 21a22c5f 2026-09-06  (Kitchen cooks (M-254): the connector runs th)
+         kept at MISSING.md:22917
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         309 -> 310   at 29e863c6 2026-09-06  (M-255: the kitchen's own 429 budget, the dri)
+         kept at quality/METHOD.md:679
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         310 -> 311   at 1a76a359 2026-09-07  (M-256: round 24 banked — the first kitchen r)
+         kept at MISSING.md:20939; MISSING.md:22937; quality/METHOD.md:658
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         311 -> 312   at e05cce40 2026-09-07  (M-257: the offer told the cook a lie on roun)
+         kept at MISSING.md:2232; MISSING.md:22945; CLAUDE.md:3183 and 2 more
+  [ok  ] audit_register.py  PINNED/coverage_entries
+         312 -> 313   at 5d31db98 2026-09-07  (M-258: round 25 banked; the turn has a wall )
+         kept at MISSING.md:2083; MISSING.md:22953; quality/METHOD.md:693
+  [----] audit_kalevala_null.py  PINNED_SERIES/kanteletar/alliterating
+         18094 -> 18095   at 39597f18 2026-08-13  (checkpoint three lots mid-write — parses, NO)
+         the record could not be read at 39597f18^, so whether the value was ever on the page cannot be told
+  [----] audit_kalevala_null.py  PINNED_SERIES/kanteletar/alliterating
+         18095 -> 18094   at e3998574 2026-08-13  (kalevala: pin the SERIES, not the level — an)
+         the record could not be read at e3998574^, so whether the value was ever on the page cannot be told
+  [----] audit_kalevala_null.py  PINNED_ANALYTIC/literary7
+         48.2890 -> 48.2557   at 68abbf0f 2026-08-28  (CI green drive: prettier on the two mcp file)
+         no document carried it before the move either, so nothing was superseded — a correction, not a repin
+  [----] audit_kalevala_null.py  PINNED_SERIES/literary7/alliterating
+         9734 -> 9719   at 68abbf0f 2026-08-28  (CI green drive: prettier on the two mcp file)
+         no document carried it before the move either, so nothing was superseded — a correction, not a repin
+  [----] audit_kalevala_null.py  PINNED_SERIES/literary7/lines
+         15331 -> 15313   at 68abbf0f 2026-08-28  (CI green drive: prettier on the two mcp file)
+         no document carried it before the move either, so nothing was superseded — a correction, not a repin
+  [ok  ] audit_joint_auc_null.py  for(tag,feats,rec1,rec2)/ABSOLUTE (original ten)/[2]
+         0.659 -> 0.717   at 98f07a4d 2026-08-13  (fix the silent cold-recompute this round int)
+         kept at quality/RESULTS.md:12; quality/RESULTS.md:107; quality/RESULTS.md:357 and 12 more
+  [ok  ] audit_joint_auc_null.py  for(tag,feats,rec1,rec2)/ABSOLUTE (original ten)/[3]
+         0.975 -> 0.964   at 98f07a4d 2026-08-13  (fix the silent cold-recompute this round int)
+         kept at quality/RESULTS.md:12; quality/RESULTS.md:107; quality/RESULTS.md:357 and 12 more
+  [ok  ] audit_joint_auc_null.py  for(tag,feats,rec1,rec2)/WITHIN-ITEM (respecified eight)/[2]
+         0.604 -> 0.638   at 98f07a4d 2026-08-13  (fix the silent cold-recompute this round int)
+         kept at quality/RESULTS.md:12; quality/RESULTS.md:692; quality/RESULTS_WITHIN_ITEM.md:19 and 4 more
+  [ok  ] audit_joint_auc_null.py  for(tag,feats,rec1,rec2)/WITHIN-ITEM (respecified eight)/[3]
+         0.877 -> 0.891   at 98f07a4d 2026-08-13  (fix the silent cold-recompute this round int)
+         kept at quality/RESULTS.md:13; quality/RESULTS_WITHIN_ITEM.md:19; quality/RESULTS_WITHIN_ITEM.md:83
+  [ok  ] audit_joint_auc_null.py  PINNED/abs_exp1/seed_median
+         0.638 -> 0.635   at aaf04558 2026-08-22  (Repin audit_joint_auc_null, and the seed med)
+         kept at quality/RESULTS.md:12; quality/RESULTS.md:526; quality/RESULTS.md:694 and 19 more
+  [ok  ] audit_joint_auc_null.py  PINNED/abs_exp2/seed_median
+         0.967 -> 0.961   at aaf04558 2026-08-22  (Repin audit_joint_auc_null, and the seed med)
+         kept at quality/RESULTS.md:526; quality/RESULTS_WITHIN_ITEM.md:103; quality/RESULTS_WITHIN_ITEM.md:223 and 1 more
+  [ok  ] audit_joint_auc_null.py  PINNED/wi_exp1/seed_median
+         0.640 -> 0.623   at aaf04558 2026-08-22  (Repin audit_joint_auc_null, and the seed med)
+         kept at quality/RESULTS_WITHIN_ITEM.md:104; quality/RESULTS_WITHIN_ITEM.md:254; quality/RESULTS_WITHIN_ITEM.md:266 and 2 more
+  [ok  ] audit_joint_auc_null.py  PINNED/wi_exp2/seed_median
+         0.900 -> 0.906   at aaf04558 2026-08-22  (Repin audit_joint_auc_null, and the seed med)
+         kept at quality/RESULTS_WITHIN_ITEM.md:104; quality/RESULTS_WITHIN_ITEM.md:223; MISSING.md:5937
+  [ok  ] audit_joint_auc_null.py  for(tag,feats,rec1,rec2)/ABSOLUTE (original ten)/[2]
+         0.717 -> 0.723   at aaf04558 2026-08-22  (Repin audit_joint_auc_null, and the seed med)
+         kept at quality/RESULTS.md:12; quality/RESULTS.md:44; quality/RESULTS.md:83 and 26 more
+  [ok  ] audit_joint_auc_null.py  for(tag,feats,rec1,rec2)/ABSOLUTE (original ten)/[3]
+         0.964 -> 0.960   at aaf04558 2026-08-22  (Repin audit_joint_auc_null, and the seed med)
+         kept at quality/RESULTS.md:12; quality/RESULTS.md:44; quality/RESULTS.md:83 and 21 more
+  [ok  ] audit_joint_auc_null.py  for(tag,feats,rec1,rec2)/WITHIN-ITEM (respecified eight)/[2]
+         0.638 -> 0.621   at aaf04558 2026-08-22  (Repin audit_joint_auc_null, and the seed med)
+         kept at quality/RESULTS.md:12; quality/RESULTS.md:526; quality/RESULTS.md:694 and 19 more
+  [ok  ] audit_joint_auc_null.py  for(tag,feats,rec1,rec2)/WITHIN-ITEM (respecified eight)/[3]
+         0.891 -> 0.896   at aaf04558 2026-08-22  (Repin audit_joint_auc_null, and the seed med)
+         kept at quality/RESULTS.md:13; quality/RESULTS.md:694; quality/RESULTS_WITHIN_ITEM.md:19 and 5 more
+
+  The 5 note(s) above do NOT move this file's exit code, the same way
+  `status_content`'s second direction does not: the remedy is a human
+  editing a RESULTS document, and whether a given marker is enough is a
+  judgement. A VANISHED value is not a judgement and it FAILS.
+
+POSITIVE CONTROL — can each shape still fire?
+------------------------------------------------------------------------------
+  [ok  ] SYMBOL_ABSENT
+  [ok  ] HASATTR
+  [ok  ] REPO_PATH_EXISTS
+  [ok  ] STAGED_FILE_COUNT
+  [ok  ] MODULE_LINE_COUNT
+  [ok  ] CORPUS_MARKER_ABSENT
+  [ok  ] CORPUS_TABLE_ROW
+  [ok  ] STATUS_XREF
+  [ok  ] SCRATCH_NAMESPACED
+  [ok  ] CAPACITY_FIGURE
+  [ok  ] FLOOR_THRESHOLD
+  [ok  ] prose STALE probe
+  [ok  ] prose DISCLAIMED probe
+  [ok  ] prose STRUCK probe
+  [ok  ] prose SUBJECT probe
+  [ok  ] pin extractor
+  [ok  ] pin VANISHED probe
+  [ok  ] pin UNMARKED probe
+  [ok  ] pin ok probe
+  [ok  ] pin ok probe
+  [ok  ] pin history VANISHED probe
+  [ok  ] pin history NEVER_QUOTED probe
+  [ok  ] pin history REFUSED probe
+  (STATUS_XREF is exercised by the sweep itself: 12 live cross-reference(s) resolved — 7 true, 0 FALSE, 5 discharged.)
+
+RESULT: PASS

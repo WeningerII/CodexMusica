@@ -1,7 +1,10 @@
-# Render Blueprint — deploys the CodexMusica MCP server as a Docker web service.
+# Legacy Git-backed Render Blueprint and public runtime configuration contract.
+# Production promotion now requires an image-backed service: see mcp/IMAGE_RELEASE.md.
+# Do not synchronize this legacy Blueprint to deploy a release; it rebuilds source.
 #
-# Deploy: Render dashboard → New + → Blueprint → connect this repo → Apply.
-# Endpoint after deploy: https://<service-name>.onrender.com/mcp
+# Migration reference only. Do not create or sync a service from this file.
+# Desired production settings: mcp/production-config.json.
+# Retire this file and its parity tests after the IMAGE_RELEASE.md migration passes.
 services:
   - type: web
     name: codex-musica-mcp
@@ -49,11 +52,11 @@ services:
     # precisely because the deployed model used to be whatever the dashboard
     # happened to hold, and CHAT_DAILY_USD sat disarmed the same way.
     #
-    # .github/workflows/deploy-connector.yml is the only path to a deploy now:
+    # .github/workflows/deploy-connector.yml promotes a tested image digest:
     # it triggers on CI *completion* for main, runs only when that run
-    # SUCCEEDED, and POSTs the Render deploy hook pinned to the validated
-    # commit. It needs the repository secret RENDER_DEPLOY_HOOK_URL (Render
-    # dashboard -> this service -> Settings -> Deploy Hook), and it FAILS LOUD
+    # SUCCEEDED, and POSTs an image-backed Render deploy hook pinned to the
+    # tested image digest. This legacy Git-backed Blueprint cannot do that. It needs the repository secret RENDER_DEPLOY_HOOK_URL (Render
+    # dashboard -> migrated IMAGE-backed service -> Settings -> Deploy Hook), and it FAILS LOUD
     # rather than quietly not deploying if that secret is unset.
     autoDeploy: false
     # Recipe tools require no key. Both /chat and the optional lyrics kitchen

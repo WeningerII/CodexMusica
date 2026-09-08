@@ -59,3 +59,10 @@ lyric-harness/songs/*.blueprint.json
 lyric-harness/corpus
 lyric-harness/data
 lyric-harness/quality/matrix_eval.json
+
+# Measured audit evidence: preserve generator bytes and archived SHA256 identities.
+lyric-harness/quality/RESULTS_CAPACITY_PRODUCTION_2026-09-08.json
+lyric-harness/quality/results/production_data_2026-09-08
+
+# Raw audit regression receipts/logs: SHA-indexed evidence, not authored inputs.
+docs/production-audit-evidence

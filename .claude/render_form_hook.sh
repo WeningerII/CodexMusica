@@ -14,14 +14,12 @@ set -uo pipefail
 payload=$(cat)
 transcript=$(printf '%s' "$payload" | python3 -c \
   'import json,sys; print((json.load(sys.stdin) or {}).get("transcript_path",""))' 2>/dev/null)
-active=$(printf '%s' "$payload" | python3 -c \
-  'import json,sys; print((json.load(sys.stdin) or {}).get("stop_hook_active",False))' 2>/dev/null)
-
-# BLOCK ONCE, NEVER LOOP. `stop_hook_active` is true on a turn that is already
-# a response to this hook; refusing again there would trap the session.
-[ "$active" = "True" ] && exit 0
-[ -z "$transcript" ] && exit 0
-[ -f "$transcript" ] || exit 0
+# Re-check every attempted presentation, including a response to a previous
+# block. stop_hook_active is context, not permission to send the same defect.
+if [ -z "$transcript" ] || [ ! -f "$transcript" ]; then
+  printf '%s\n' 'Cannot check the presentation: Stop hook transcript is missing.' >&2
+  exit 2
+fi
 
 out=$(python3 "$CLAUDE_PROJECT_DIR/lyric-harness/quality/check_render_form.py" \
       --transcript "$transcript" 2>&1)

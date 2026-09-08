@@ -1,0 +1,49 @@
+name: Actual-runtime capacity proof
+
+# One actual all-family proof per caller workflow attempt. Reused by CI and
+# complete production qualification; consumers validate their own runtime.
+on:
+  workflow_call: {}
+permissions:
+  contents: read
+jobs:
+  capacity-proof:
+    name: verify
+    runs-on: ubuntu-latest
+    # 2026-09-08: observed local workers1 wall was 1600.725s; the later
+    # workers4 full proof consumed 2042.343s aggregate CPU. Proof 45m is
+    # 1.25 x max(those measured costs), rounded up to 5m; job 55m adds 10m
+    # for checkout/dependencies/staging/upload. Aggregate CPU is a conservative
+    # setup-cost input, not observed serial wall. These are allowances;
+    # actual CI Python3.11 completion remains required, not inferred.
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the exact runtime dependencies
+        run: python3 -m pip install --disable-pip-version-check --require-hashes -r "$GITHUB_WORKSPACE/mcp/requirements-runtime.txt"
+      - name: Stage the actual lexical runtime
+        working-directory: lyric-harness
+        run: |
+          python3 -c "import lyric_harness; lyric_harness.fetch_data()"
+          python3 quality/fetch_data.py --runtime
+      - name: Verify all81 current-runtime witnesses once
+        working-directory: lyric-harness
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/capacity-proof"
+          started=$SECONDS
+          set +e
+          timeout 45m python3 quality/verify_capacity.py --output "$GITHUB_WORKSPACE/capacity-proof/capacity_verification.json" --workers=1
+          rc=$?
+          set -e
+          echo "all81 runtime proof: $((SECONDS-started))s elapsed, exit=$rc, bound=2700s; a bound is not a completed measurement"
+          exit "$rc"
+      - name: Bind verified proof to this commit and attempt
+        run: python3 scripts/production_qualification.py capacity-record capacity-proof
+      - uses: actions/upload-artifact@v4
+        with:
+          name: capacity-proof-${{ github.run_attempt }}
+          path: capacity-proof/
+          if-no-files-found: error

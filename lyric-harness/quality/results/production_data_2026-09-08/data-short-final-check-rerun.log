@@ -1,0 +1,96 @@
+PROFILE  `short`: band rule searched over edges 50..200; predictability computed for items <= 200 tokens only
+CACHE  /workspace/scratch/b0544e4bbdd6/production-fix-results/current-predictability.tsv
+       fingerprint 0a726100c245 | read 8545 entries, written 2026-09-07T22:29:50 | hits 0, misses 0
+POPULATION  1296 files, 1293 distinct authors, 8545 items, 279753 sung lines
+CACHE  after population: hits 5432, misses 0
+
+2. THE THRESHOLDS AND THEIR HELD-OUT FALSE-POSITIVE RATE (doctrine 22)
+   band 50-150 tokens: 3641 items, 690 authors
+   SHIPPED thresholds (5th/95th percentile of the whole band): mattr 0.6685  fwr 0.4938  anaphora 0.3750  cv 0.0960  predictability 1.0000
+   AUTHOR-held out — the honest split, 200 seeds, 50% held out
+      FPR mattr     median   5.29%  [5th-95th percentile of seeds  2.05- 9.82%]  min  1.08% max 13.04%
+      FPR fwr       median   5.07%  [5th-95th percentile of seeds  2.71- 8.75%]  min  2.21% max 10.26%
+      FPR anaphora  median   3.80%  [5th-95th percentile of seeds  3.12- 7.52%]  min  2.78% max  8.20%
+      FPR cv        median   5.13%  [5th-95th percentile of seeds  3.44- 7.40%]  min  2.71% max  8.49%
+      FPR predictability median   0.00%  [5th-95th percentile of seeds  0.00- 0.00%]  min  0.00% max  0.00%
+      FPR ANY       median  16.38%  [5th-95th percentile of seeds 11.31-22.76%]  min  9.57% max 27.24%
+   item-held out — the WRONG split, priced, 200 seeds, 50% held out
+      FPR mattr     median   5.02%  [5th-95th percentile of seeds  3.84- 6.38%]  min  2.71% max  6.89%
+      FPR fwr       median   4.99%  [5th-95th percentile of seeds  3.87- 6.17%]  min  2.78% max  6.78%
+      FPR anaphora  median   3.84%  [5th-95th percentile of seeds  3.25- 6.16%]  min  2.65% max  7.21%
+      FPR cv        median   4.98%  [5th-95th percentile of seeds  3.90- 6.36%]  min  3.56% max  7.54%
+      FPR predictability median   0.00%  [5th-95th percentile of seeds  0.00- 0.00%]  min  0.00% max  0.00%
+      FPR ANY       median  15.48%  [5th-95th percentile of seeds 13.76-17.57%]  min 12.49% max 19.91%
+   CLICHE_PAIR (no threshold, not in ANY), 200 seeds, AUTHOR-held out
+      FPR cliche    median   3.98%  [5th-95th percentile of seeds  3.35- 4.68%]  min  2.89% max  5.22%
+      point estimate over the whole band 144/3641 = 3.95%. It has no percentile to fit, so the split buys the SPREAD and not the threshold.
+   The two splits agree on the MEDIAN and disagree on the SPREAD by about a factor of two. That gap is doctrine 13's price: the item split reports an interval that is roughly half as wide as the evidence supports, because it lets an author's other songs vouch for this one.
+
+   author concentration in the band, since the percentiles are ITEM-weighted:
+      median items per author 1; top five 35.7% of the band: hymn_watts 421, british_robert_herrick 344, celtic_robert_burns 252, hall_thomas_durfey 172, british_felicia_hemans 112
+      leave-one-author-out mattr     max |shift| 0.0101
+      leave-one-author-out fwr       max |shift| 0.0028
+      leave-one-author-out anaphora  max |shift| 0.0000
+      leave-one-author-out cv        max |shift| 0.0019
+      leave-one-author-out predictability max |shift| 0.0000
+      author-weighted alternative (one median per author, n=690): mattr 0.6893  fwr 0.4882  anaphora 0.3509  cv 0.1011  predictability 0.8889
+
+4. PERIOD (doctrine 11), inside the provenance gate
+   381 of 690 authors carry printed dates and are correlated below; 309 are UNDATED and dropped from this check alone (counted apart, never as a zero). Dated: born 1260-1888, median 1800; latest death 1929. No song here is by anyone alive after 1929 — that is the safe-subset gate's doing and not an accident of sampling, so nothing below extrapolates to a lyric written now.
+   4a. author-level Spearman against birth year, with a label-permutation null over authors (10000 draws). Bonferroni over the 5 checks cuts at 0.0100.
+      mattr           rho -0.226  p_perm 0.0001  SURVIVES Bonferroni
+      fwr             rho +0.140  p_perm 0.0062  SURVIVES Bonferroni
+      anaphora        rho +0.161  p_perm 0.0027  SURVIVES Bonferroni
+      cv              rho +0.114  p_perm 0.0280  does not survive Bonferroni
+      predictability  rho +0.022  p_perm 0.6698  does not survive Bonferroni  (2/381 authors had no decidable value)
+   4b. cross-cohort threshold transfer at the median birth year 1800: EARLY 191 authors / 2232 items, LATE 190 authors / 728 items. The control permutes the COHORT LABEL over the same authors at the same partition sizes, 2000 draws — it varies only the thing under test (doctrine 14). Bonferroni over the 12 comparisons cuts at 0.00417.
+      EARLY -> LATE
+         mattr     observed 10.85%   null median  4.25% [5th-95th  1.63-10.00%]   p 0.0345
+         fwr       observed  9.20%   null median  5.38% [5th-95th  3.16- 8.39%]   p 0.0230
+         anaphora  observed  9.48%   null median  3.81% [5th-95th  3.24- 7.16%]   p 0.0005  SURVIVES
+         cv        observed  5.08%   null median  5.44% [5th-95th  3.76- 7.65%]   p 0.5722
+         predictability observed  0.00%   null median  0.00% [5th-95th  0.00- 0.00%]   p 1.0000
+         ANY       observed 25.55%   null median 16.02% [5th-95th 11.57-23.25%]   p 0.0100
+      LATE -> EARLY
+         mattr     observed  3.14%   null median  5.69% [5th-95th  2.16-11.19%]   p 0.8746
+         fwr       observed  2.51%   null median  4.61% [5th-95th  2.34- 7.77%]   p 0.9120
+         anaphora  observed  2.60%   null median  3.76% [5th-95th  2.90- 7.66%]   p 0.9930
+         cv        observed  4.79%   null median  4.61% [5th-95th  2.87- 6.73%]   p 0.4608
+         predictability observed  0.00%   null median  0.00% [5th-95th  0.00- 0.00%]   p 1.0000
+         ANY       observed 11.11%   null median 15.63% [5th-95th 10.33-22.49%]   p 0.8996
+      The direction is the part that matters and it is not symmetric: thresholds fitted on earlier-born authors OVER-flag later-born ones, and the reverse runs at or below nominal. A 2026 lyric sits further along that same axis than any author here.
+
+6. WHAT floor.py SHIPS, against what the corpus says today (profile `short`)
+   band lo (tokens)                   shipped 50.0000    measured 50.0000    ok
+   band hi (tokens)                   shipped 150.0000   measured 150.0000   ok
+   MATTR window admissibility         shipped lo 50 >= window 50 (this run's band lo 50): every item is a moving average, and at exactly 50 tokens the one window IS the TTR
+   threshold mattr                    shipped 0.6685     measured 0.6685     ok
+   threshold fwr                      shipped 0.4938     measured 0.4938     ok
+   threshold anaphora                 shipped 0.3750     measured 0.3750     ok
+   threshold cv                       shipped 0.0960     measured 0.0960     ok
+   short predictability disposition   HOLDS — explicitly unadopted at the measured ceiling
+   held-out FPR mattr (%)             shipped 5.2900     measured 5.2900     ok
+   held-out FPR function_word_ratio (%) shipped 5.0700     measured 5.0700     ok
+   held-out FPR anaphora (%)          shipped 3.8000     measured 3.8000     ok
+   held-out FPR line_length_cv (%)    shipped 5.1300     measured 5.1300     ok
+   short predictability resolution    HOLDS — all recorded held-out rates are zero
+   held-out FPR ANY (%)               shipped 16.3800    measured 16.3800    ok
+   held-out FPR cliche (%)            shipped 3.9800     measured 3.9800     ok
+   profile n_human                    shipped 3641.0000  measured 3641.0000  ok
+   profile n_generated                shipped 0.0000     measured 0.0000     ok
+   anaphora period slope rho          shipped 0.1610     measured 0.1610     ok
+   anaphora period slope p_perm       shipped 0.0027     measured 0.0027     ok
+   profile note quotes rho             nothing struck for this profile yet; its live rho is judged above
+
+   asked 21, answered 21, refused 0 (doctrine 79)
+   every shipped constant reproduces.
+CACHE  /workspace/scratch/b0544e4bbdd6/production-fix-results/current-predictability.tsv
+       fingerprint 0a726100c245 | read 8545 entries, written 2026-09-07T22:29:50 | hits 5432, misses 0
+
+PHASE COST  (wall / cpu seconds; they are not the same number and neither is the other's estimate)
+   population                      103.7      94.3
+   pick_band                         0.0       0.0
+   report_fpr                       10.5      10.5
+   report_period                    46.5      46.2
+   check_shipped                     0.0       0.0
+   TOTAL                           160.8     151.0

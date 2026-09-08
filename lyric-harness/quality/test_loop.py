@@ -705,8 +705,8 @@ def test_optin_layers_are_disclosed_and_success_is_per_line():
     # stops on SUCCESS with it standing. `verify()` DOES read it (CLAUDE.md
     # records a CLI run rejecting a chorus swap for introducing exactly this
     # code), so it can reject a revision and can never ask for one.
-    check("the loop reports SUCCESS...", res.stop_reason == "success",
-          res.stop_reason)
+    check("the loop names the unresolved global requirement rather than claiming success",
+          res.stop_reason == "whole_draft_unresolved", res.stop_reason)
     codes = [f.code for f in res.whole_flags]
     check("...on a draft that STILL carries HOOK_ABSENT, a flag -- so "
           "SUCCESS means 'nothing left this loop can act on', never 'clean'",
@@ -1771,14 +1771,46 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     import tempfile
     import lyric_harness as LH
     from quality.revise import draft_fingerprint
+    from quality.loop import MANDATORY_PURSUE
+
+    def actionable(briefs):
+        return sorted(b.line_no for b in briefs
+                      if any(f.severity == "flag" or f.code in MANDATORY_PURSUE
+                             for f in b.findings))
+
+    # The historical fire/desire fixture remains an uncertainty control.
+    # A disclosed SCHEME_UNREADABLE note gives a line a brief but does not
+    # turn it into an actionable defect or a modal-rhyme certificate.
+    old_briefs = Reviser().brief(list(CLICHE), "ABAB", include_offers=False)
+    check("CONTROL: the original ambiguous draft has four briefs but only "
+          "L1, L2 and L4 are actionable",
+          sorted(b.line_no for b in old_briefs) == [1, 2, 3, 4]
+          and actionable(old_briefs) == [1, 2, 4],
+          [(b.line_no, [(f.code, f.severity) for f in b.findings])
+           for b in old_briefs])
+    check("CONTROL: original L3 is unjudged, not a pursued MODAL_RHYME "
+          "that L1's move could close",
+          any(b.line_no == 3 and any(f.code == "SCHEME_UNREADABLE"
+              for f in b.findings) and not any(f.code == "MODAL_RHYME"
+              for f in b.findings) for b in old_briefs))
+
+    # Re-establish the actual M-183/M-210 positive under unambiguous
+    # heart/apart readings, keeping the independent go/know group stuck.
+    # The writer answer still comes from the stock proposer, never a fake
+    # accepted verdict. Both initial/modal and final/open premises are
+    # measured independently of the recorded writer calls below.
+    draft = ["The candle burned and warmed my beating heart",
+             "He said the word and then he turned to go",
+             "And all night long she sat a breath apart",
+             "She never asked the thing she had to know"]
 
     # THE STOCK FIX FOR L1, taken off the loop's own proposer on the same
     # draft rather than typed, so the accepted answer is one the loop is
     # known to accept (test 1 fixes L1 in round 1 with it).
-    stock = revise_loop(Reviser(), list(CLICHE), "ABAB")
+    stock = revise_loop(Reviser(), list(draft), "ABAB")
     l1_fix = stock.lines[0]
     check("the stock proposer's L1 fix differs from L1 (so accepting it "
-          "MOVES the draft)", l1_fix != CLICHE[0])
+          "MOVES the draft)", l1_fix != draft[0])
 
     d = tempfile.mkdtemp()
     state = os.path.join(d, "state.json")
@@ -1786,15 +1818,15 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     asked = []          # (line, attempt, round, draft) in the order asked
 
     def answer(line_no):
-        return l1_fix if line_no == 1 else CLICHE[line_no - 1]
+        return l1_fix if line_no == 1 else draft[line_no - 1]
 
     # THE WRITER, DRIVEN THE WAY THE VERB DRIVES ONE: suspend, answer in the
     # state, run the same loop again. `_NeedProposal` is the suspension.
     for _ in range(40):
         propose, propose_group, disc = LH._defer_proposer(state,
-                                                          lines=list(CLICHE))
+                                                          lines=list(draft))
         try:
-            res = revise_loop(R, list(CLICHE), "ABAB", propose=propose,
+            res = revise_loop(R, list(draft), "ABAB", propose=propose,
                               propose_group=propose_group)
         except LH._NeedProposal as need:
             rec = need.record
@@ -1873,8 +1905,8 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     # first pin read "every line asked in round 1 is asked in round 2" and
     # would charge that closure to the record key. The CLOSED line is pinned
     # apart, as its own case (doctrine 79).
-    after_round1 = [l1_fix] + list(CLICHE[1:])
-    open_lines = sorted(b.line_no for b in R.brief(after_round1, "ABAB"))
+    after_round1 = [l1_fix] + list(draft[1:])
+    open_lines = actionable(R.brief(after_round1, "ABAB", include_offers=False))
     # THE CLOSED LINE IS READ OFF THE TWO BRIEFS, NOT OFF `per_line` —
     # REPINNED 2026-09-03 with M-210. It used to be "asked, and not open
     # afterwards", which could only find a line the loop had ASKED; the
@@ -1882,7 +1914,14 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     # all, so that derivation returned the empty set and the check went red
     # on a repair. The population is "flagged when the round opened and not
     # open after it", which is the same question asked of the briefs.
-    round1_open = sorted(b.line_no for b in R.brief(list(CLICHE), "ABAB"))
+    round1_briefs = R.brief(list(draft), "ABAB", include_offers=False)
+    round1_open = actionable(round1_briefs)
+    check("the constructive premise has all four lines actionable, L3 held "
+          "by MODAL_RHYME, and only L2/L4 remain after L1's measured fix",
+          round1_open == [1, 2, 3, 4] and open_lines == [2, 4]
+          and any(b.line_no == 3 and any(f.code == "MODAL_RHYME"
+                  for f in b.findings) for b in round1_briefs),
+          (round1_open, open_lines))
     closed_by_l1 = sorted(ln for ln in round1_open
                           if ln != 1 and ln not in open_lines)
     check("every record carries the round it was asked in and the "
@@ -1922,7 +1961,7 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
               for ln in open_lines),
           [(ln, rd, fp) for ln, _, rd, fp in asked])
     check("the first question's fingerprint is the input draft's",
-          asked and asked[0][3] == draft_fingerprint(list(CLICHE)))
+          asked and asked[0][3] == draft_fingerprint(list(draft)))
 
     # THE SAME RECORDS AS A REPLAY FILE, TWO WAYS. With the `round` field
     # the round-1 records answer round 1 only, and round 2's questions MISS
@@ -1958,7 +1997,7 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
         # section claims has moved; only the denominator it was reading.
         # Handing tier 2 a decliner keeps `pg1` uncalled, so `d1` counts
         # exactly the line questions it is about.
-        revise_loop(R, list(CLICHE), "ABAB", propose=p1,
+        revise_loop(R, list(draft), "ABAB", propose=p1,
                     propose_group=lambda *a, **k: None)
         tail = d1(done=True)
         hits[name] = tail
@@ -1981,13 +2020,13 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     # the proposer built on it names the stop before the loop starts, and
     # only for the draft the run finished on.
     st["complete"] = {"stop": res.stop_reason, "exit": 3,
-                      "draft": draft_fingerprint(list(CLICHE)),
+                      "draft": draft_fingerprint(list(draft)),
                       "final": draft_fingerprint(res.lines),
                       "unresolved": sorted(b.line_no
                                            for b in res.unresolved)}
     with open(state, "w") as fh:
         json.dump(st, fh)
-    _, _, d2 = LH._defer_proposer(state, lines=list(CLICHE))
+    _, _, d2 = LH._defer_proposer(state, lines=list(draft))
     head = d2()
     check("re-running a COMPLETE state on the same draft is told so up "
           "front, with the stop, the exit and the open lines",
@@ -1995,7 +2034,7 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
           and "exit 3" in head and "L2" in head, head)
     check("the marker is taken OFF the state so a later suspension cannot "
           "write it back stale", "complete" not in d2.state)
-    moved = list(CLICHE)
+    moved = list(draft)
     moved[0] = l1_fix
     p3, _, d3 = LH._defer_proposer(state, lines=moved)
     check("on a draft that MOVED, no COMPLETE warning — the questions are "
@@ -2270,7 +2309,9 @@ def test_a_return_is_a_class_and_is_revised_together():
         return "REVISED" if attempt == 0 else None
 
 
-    _att, _after = _T1(_StubReviser(), _b, _lines, None, _RD(),
+    from quality.schemes import mandate as _mandate
+    _m = _mandate([[3, 6], [3, 4]], n_lines=6, returns=[[3, 6]])
+    _att, _after = _T1(_StubReviser(), _b, _lines, _m, _RD(),
                        None, None, None, None, _p)
     check("the briefed line moved", _after[2] == "REVISED", _after[2])
     check("its RETURN mate moved WITH it — the class is revised together, which "

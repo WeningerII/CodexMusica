@@ -1,0 +1,91 @@
+
+1. the pairs that taught us the bans answer the same through the front door
+  PASS  hair/chair is BANNED: HOMEOTELEUTON — the same spelled ending (-air), the tier-1 ban that closed the a3-era escapes
+          {'a': 'hair', 'b': 'chair', 'codes': ['HOMEOTELEUTON'], 'refused': False, 'reason': None, 'relation': 'RHYME', 'score': 1.0, 'why': None, 'schema_scaffold': [], 'flags': [], 'coda_no_evidence': False, 'named': None, 'named_reason': None}
+  PASS  obey/away is BANNED: MODAL_RHYME — the tier-2 predictability ban, differently spelled and banned anyway
+          {'a': 'obey', 'b': 'away', 'codes': ['MODAL_RHYME'], 'refused': False, 'reason': None, 'relation': 'RHYME', 'score': 1.0, 'why': None, 'schema_scaffold': [], 'flags': ['coda: no evidence (both codas empty on 1 of 1 syllable(s); 0.350 of the total is agreement by absence, not by sound — E-5)'], 'coda_no_evidence': True, 'named': None, 'named_reason': None}
+  PASS  gasoline/tambourine is CLEAN — a true rhyme outside both tiers, the pair Count to Five was built on
+          {'a': 'gasoline', 'b': 'tambourine', 'codes': [], 'refused': False, 'reason': None, 'relation': 'RHYME', 'score': 1.0, 'why': None, 'schema_scaffold': [], 'flags': [], 'coda_no_evidence': False, 'named': None, 'named_reason': None}
+  PASS  a triple screens as its three pairs, in declared order, all clean — the other Count to Five group
+
+2. non-rhymes are answered honestly, and banned is not refused (doctrine 28)
+  FAIL  a non-rhyme reports the grader's own relation and why — never a ban, never a refusal
+          None None: None
+  PASS  an identical word is answered as the identity machinery answers it — REPEAT, with the grader's why
+          REPEAT not rhyme (identical word)
+  PASS  an unreadable word is the grader's OWN refusal, naming the word and the reason — UNKNOWN is not absent
+          CMUdict has no pronunciation for the end word 'xzqwv'; the harness refuses rathe
+  PASS  ...and a banned pair is an ANSWER, not a refusal — the split the summary line states
+
+3. NO DRIFT — the screen IS the grader, not a lookalike
+  PASS  the banned pair carries HOMEOTELEUTON in the FULL-DRAFT grade and in screen's answer; the clean pair carries it in neither
+          ['HOMEOTELEUTON']
+  PASS  screen_pairs visibly goes THROUGH Reviser.inspect — no re-implementation to drift (doctrine 91 at the code level)
+
+4. the carrier lines are scaffolding — readable, and never the finding
+  FAIL  ordinary readable words screen with zero refusals — the carriers never fail to read
+  PASS  the two carrier lines DIFFER — identical carriers let the mosaic scorer find the shared span and inflate a non-rhyme's score (measured 0.762 on stone/window before the split)
+  PASS  ...and with split carriers the non-rhyme's reported score is the pair's, not the scaffold's (under the old shared-carrier inflation this sat at 0.762)
+          0.65
+
+5. the CLI verb — dispatch, refusals, exit codes
+  PASS  `screen hair chair` answers at exit 0 with the ban named — a banned pair is an ANSWER
+          rc 0
+  PASS  a clean pair says CLEAN at exit 0
+  PASS  one word refuses at exit 2 — the question is about a PAIR
+          rc 2
+  PASS  an unknown flag refuses at exit 2 rather than being ignored (doctrine 20)
+          rc 2
+  PASS  a multi-word 'word' refuses at exit 2, pointing at brief/song for phrase rhymes
+          rc 2
+
+6. M-113 — CLEAN says WHICH clean, and the scaffold cannot answer for the pair
+  PASS  a true rhyme reads `CLEAN — RHYMES` — the affirmative half, so the split cannot pass by calling everything a non-rhyme
+  FAIL  the scaffold-rescued pair carries `schema_scaffold` in the API row — the rescue is TELLABLE, not folded into why=None
+          scaffold=[]
+  FAIL  ...and the CLI renders it DOES NOT RHYME with the schema names — the scaffold's evidence is disclosed, never CLEAN's
+            (the verdict column is the COARSE class; a mandate declaring a NAMED relation is judged by that name's own cell, which can answer differently in both directions — screen with --relation=NAME to ask the grade's question, M-58)
+  FAIL  a door-failed pair reads `CLEAN — DOES NOT RHYME` with the grader's own why carried through
+  PASS  the tail line counts the two kinds APART, never summed (doctrine 79): `clean and rhyming` and `clean but not a rhyme` are both named
+
+7. M-58 — the screen asks the question the grade will ask
+  PASS  the declared relation is judged per pair, and the entry's own measured defect answers SATISFIES now
+          rc 0
+  PASS  ...and a pair that RHYMES but is not the declared relation says VIOLATES with the consequence named — the screen and the grade cannot disagree, which is the whole ask
+  PASS  ...and the header names the question being asked
+  PASS  WITHOUT a relation the header says the verdict column is the COARSE class and points at --relation — disclosure, so the two questions stop wearing one word
+  PASS  a pair-bindable schema-namespace relation is JUDGED at the two end words now, not refused — the pair route, not the instances route
+          rc 0
+  PASS  an unknown relation name refuses at exit 2 by name
+          rc 2
+
+8. M-189 — the screen judges a drawn schema at the two end words, and says ADMITTED where the door let a near relation in
+  PASS  a drawn end-rhyme schema is judged per pair at the two end words — SATISFIES on a perfect rhyme, alongside the ban row
+          rc 0
+  PASS  a rime riche pair SATISFIES the rime riche schema
+          rc 0
+  PASS  a perfect rhyme VIOLATES a DIFFER schema — the answer the grade would give, learned BEFORE writing
+          rc 0
+  PASS  an ASSONANCE pair the door admits is printed ADMITTED, not RHYMES, with the consequence named
+            SCREEN: 3 pair(s) from 3 word(s) — the song grader on a minimal mandated pair each, under the active declaration; only pair-scoped findings are relayed (HOMEOTELEUTON, MODAL_RHYME), the carrier lines are scaffolding
+  (the verdict column is the COARSE class; a mandate declaring a NAMED relation is judged by that name's own cell, which can answer differently in both directions — screen with --relation=NAME to ask the grade's question, M-58)
+  home ~ alone   ASSONANCE 0.974  CLEAN — ADMITTED as ASSONANCE (a near relation the default door admits; a schema or class that needs the nucleus and cod
+  PASS  ...and the tail counts it apart from the rhyming pairs (doctrine 79)
+          ean but not a rhyme — a banned pair is an ANSWER; an admitted near relation passes a bare group and fails any schema or class that needs the rhyme; a clean non-rhyme is not banned AND not a family (the mandate will charge it); refusal is the grader's own (doctrine 28)
+  ANCHOR : every word anchors as a declared token (T1..Tn) before the line end and at it — a plan may bind any of them at any word
+
+
+9. M-213 — the screen says which words have NO ANCHOR as a declared token (T1..Tn), the question its end-word verdict cannot ask: `by ~ buy ~ bye` SATISFIES rime riche at the end and `by` at L6's first word was REFUSED unjudged on seed 7009
+  PASS  `by` anchors as the line's last word and NOT before it — the WEAK_NONFINAL demotion, read through the grade's own resolver
+  PASS  `in` anchors at NEITHER position as a declared token
+  PASS  `buy`, `bye`, `window` anchor at both
+  PASS  the disclosure names each unanchorable word, its position, and that a mandate binding it there is REFUSED unjudged — and says nothing about `buy`
+            ANCHOR : 'by' — NO ANCHOR as a declared token BEFORE the line end (T1..Tn, not the last word): demoted to weak there, with no stressed syllable to read a rhyme span from; it anchors as the line's last word. A mandate binding it at such a slot is REFUSED unjudged (M-144), whatever the pair says above — the screen judged it at the line END.
+  ANCHOR : 'in' — NO ANCHOR as a declared token at ANY position (T1..Tn, last word included): this phonology reads it as weak wherever it stands; only the default end slot and `head` (its first syllable) can bind it. A mandate binding it at such a slot is REFUSED unjudged (M-144), whatever the pair says above — the screen judged it at the line END.
+  PASS  when every word anchors the block is ONE line saying so — silence would be indistinguishable from not having asked
+  PASS  through the CLI: the pair rows still SATISFY the schema at the end, and the ANCHOR block under the counts names `by`
+          a rhyme — a banned pair is an ANSWER; an admitted near relation passes a bare group and fails any schema or class that needs the rhyme; a clean non-rhyme is not banned AND not a family (the mandate will charge it); refusal is the grader's own (doctrine 28)
+  ANCHOR : 'by' — NO ANCHOR as a declared token BEFORE the line end (T1..Tn, not the last word): demoted to weak there, with no stressed syllable to read a rhyme span from; it anchors as the line's last word. A mandate binding it at such a slot is REFUSED unjudged (M-144), whatever the pair says above — the screen judged it at the line END.
+
+==============================================================
+5 FAILING: a non-rhyme reports the grader's own relation and why — never a ban, never a refusal, ordinary readable words screen with zero refusals — the carriers never fail to read, the scaffold-rescued pair carries `schema_scaffold` in the API row — the rescue is TELLABLE, not folded into why=None, ...and the CLI renders it DOES NOT RHYME with the schema names — the scaffold's evidence is disclosed, never CLEAN's, a door-failed pair reads `CLEAN — DOES NOT RHYME` with the grader's own why carried through

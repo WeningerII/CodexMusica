@@ -1,0 +1,165 @@
+The mandate language: RHYME, RETURN, and the repeat licence per PAIR.
+
+§1  UNKNOWN — doctrine 28 made mechanical, not conventional
+  ok    UNKNOWN is a singleton
+  ok    bool(UNKNOWN) RAISES and names the doctrine   -- `None` would have been read as False by `if x:`
+  ok    UNKNOWN is not False and not None
+  ok    repr is readable
+  ok    decided() is the branch-free reader
+  ok    the requirement set is closed at five
+  ok    FREE and UNDECLARED are DIFFERENT VALUES   -- 'nothing required' vs 'never asked' (doctrine 28)
+
+§2  three statements where the language had one
+  ok    statement 1 — these lines must RHYME
+  ok    statement 2 — this line must RETURN verbatim
+  ok    statement 3 — the return TRANSPORTS the rhyme obligation   -- L33 IS L13, so L33 answers L17 and it is not a collision
+  ok    a pair the mandate declares unrhymed is FREE
+
+    doctrine 3 inverts BY PAIR, which no song-wide switch can do
+  ok    REPEAT is the REQUIREMENT at a return pair
+  ok    REPEAT is a VIOLATION at a rhyme pair in the same section   -- `repeat_licence='refrain'` would license this one too
+  ok    and it is a violation ACROSS the return as well   -- L37 IS L17, so slow/go must still be a rhyme
+  ok    REPEAT at a free pair is UNKNOWN, not False
+
+§3  doctrine 94 — the zero can still fire, and does, 4x on the real text
+  ok    4 of the 8 declared returns are NOT verbatim and are caught   [(14, 34), (15, 35), (16, 36), (20, 40)]
+  ok    each drift is a NAMED KIND, not a boolean (doctrine 24)   ['ANAPHORIC_RETURN', 'HEAD_PRESERVED']
+  ok    the four VERBATIM returns are silent
+
+    and the detector is not merely present — break one and it counts one more
+  ok    a refrain that drifts by one word is caught   4 -> 5
+
+    the couplet fixture's refrain returns VERBATIM, and that is a measured pass and not an absent check
+  ok    L4/L28 return verbatim -> no finding
+  ok    and the same check FIRES when L28 is altered   -- the pass above is a measurement, not a silence
+
+§4  declaring a return does not stop mandating the rhyme
+  ok    the four chorus classes span BOTH instances   [[13, 17, 33, 37], [14, 16, 34, 36], [15, 19, 35, 39], [18, 20, 38, 40]]
+  ok    every cross pair is now MANDATED, so a broken one is a violation and not a collision
+  ok    declaring the return ADDS mandated pairs rather than removing them   8 declared -> 24 required
+
+§5  the licence is PER PAIR, so it cannot leak into a verse
+  ok    a verse pair mandated to rhyme keeps REPEAT as a VIOLATION while the chorus return is declared   -- `repeat_licence='refrain'` licenses BOTH; this licenses one
+  ok    no pair outside a return class is ever licensed
+  ok    free verse pairs stay UNKNOWN rather than licensed
+
+§6  everything the song does elsewhere is still FREE and still reportable
+  ok    all ten remain FREE — the return licensed nothing about them   10 pairs
+
+§7  refusals, and every one of them is loud
+  ok    a return whose two runs are different lengths REFUSES   -- not a zip cut to the shorter run
+  ok    a return class of one line REFUSES
+  ok    a line that returns itself REFUSES
+  ok    a return line outside the song REFUSES
+  ok    a PLACED return member REFUSES BY NAME with the remedy stated — not `invalid literal for int()` from three frames down (M-142): a return class declares whole LINES identical and the identity judges read lines, so `1.head` has no judge to be handed to
+  ok    ...and a member that is not a line number at all refuses in this layer's own words too
+  ok    two declarations that transitively merge and DISAGREE about verbatim REFUSE   -- not a tie broken by declaration order (doctrine 66)
+  ok    no mandate at all still REFUSES
+
+    and the letters refuse rather than degrade
+  ok    to_letters() REFUSES on a mandate that carries returns   -- a letter cannot say 'this line is that line come back'
+  ok    the lossy projection is still available, NAMED for its loss
+  ok    a return-free mandate is EXACTLY the old object
+
+    a return declared NON-verbatim has no A-1 mark, so the notation refuses
+  ok    to_notation() REFUSES a return it cannot mark
+  ok    and its identity requirement is FALSE, not UNKNOWN, because it was DECLARED false
+  ok    an UNDECLARED verbatim requirement propagates as UNKNOWN
+  ok    and returns_check() stays SILENT about it rather than passing it
+
+§8  scope — the other half of doctrine 28
+  ok    a verse pair is UNDECLARED, not FREE
+  ok    UNDECLARED reports every field as UNKNOWN
+  ok    the chorus is unaffected
+  ok    with no scope the same pair is FREE   -- and those are DIFFERENT ANSWERS to a question a boolean could not tell apart
+  ok    a scope line outside the song REFUSES
+
+§9  the A-1 notation shipped and could not reach brief/verify
+  ok    a notation string now carries its identity half   -- `parse()` returned the rhyme partition and dropped the rest
+  ok    the 12 pairs are the villanelle's own refrains
+  ok    REPEAT is the REQUIREMENT at all 12 and a VIOLATION elsewhere in class a
+  ok    the notation round-trips through the mandate
+  ok    the rhyme projection is unchanged from what parse() always gave
+
+    the OLD reading stays reachable so the defect is demonstrable (doctrine 84's shape)
+  ok    carry_returns=False drops the identity half, as `parse()` did
+  ok    and it is NOT the default
+
+    RefrainScheme.to_mandate is the bridge, and it round-trips
+  ok    to_mandate() agrees with the string path
+  ok    a capital used ONCE is not a return
+
+§10  the declared mandate, in the language
+  ok    41 lines, 8 rhyme groups declared, 8 return classes
+  ok    16 cross pairs go from UNMANDATED to MANDATED   -- exactly the 16 findings the letter scheme produced
+  ok    8 of the 16 are the return correspondences themselves, and every one has REPEAT licensed
+  ok    the other 8 are transported, and REPEAT stays a VIOLATION at each   -- L13/L37 is slow/go and must still be a rhyme, not a repeat
+
+    the couplet fixture: the refrain costs it its letter scheme
+  ok    the COUPLET declaration is a partition
+  ok    declaring the return makes it a COVER (doctrine 2)   -- L4 must answer L3 and L27, because L28 IS L4
+
+§11  the read path — what actually reaches these coordinates
+  ok    requirement() READS in_scope, once per line, BEFORE anything else   [13, 33] -- so `in_scope` is not unread: `quality/revise.py`'s `grade()` and `inspect()` both call `requirement()` per pair
+  ok    and UNDECLARED is reachable through NOTHING ELSE — scope is its only source   -- which is why a mandate with no scope can never return it, and every production mandate has no scope
+
+    a scope that leaves out a line the mandate's OWN groups name is a contradiction, and it used to be built silently
+  ok    a scope excluding a MANDATED line REFUSES   -- pairs() mandated L1/L3 while requirement(1,3) called it UNDECLARED, and grade() reads BOTH
+  ok    a scope excluding a RETURNED line REFUSES too
+  ok    re-opening a mandate to ADD a scope is checked the same way   -- that path took `scope` on trust, not even the 1..n bound
+  ok    and the honest scope — one that covers every line the mandate names — is unaffected
+
+    repeat_is_violation — the METHOD is documented, the FIELD is what the grader reads, and nothing pinned them together
+  ok    Mandate.repeat_is_violation(i,j) IS requirement(i,j).repeat_is_violation at every pair of a real villanelle   171 pairs -- `quality/revise.py` calls `requirement(i, j).decided('repeat_is_violation')` and never the method, so changing the method alone would leave §2/§9 green and change nothing about a real grading run
+  ok    and at every pair of a plain letter scheme with no returns
+
+    the exact (is_declared, value) tuple `grade()` consumes
+  ok    REQUIRE_RETURN -> (True, False): the refrain is REQUIRED to repeat, at all 12 villanelle return pairs   -- grade() skips these, which is why a correct villanelle scores 0 violations
+  ok    REQUIRE_RHYME -> (True, True): an ordinary repeat in the same rhyme class is still charged   -- L1 and L4 are both class 'a' and are NOT the same line
+  ok    FREE and UNDECLARED -> (False, None): these two, and only these two, fall through to the song-wide repeat_licence switch
+
+    FINDING — the fallback is NOT what its own comment says, and the difference is measurable here
+  ok    a plain letter scheme is NOT 'UNDECLARED for this question on every pair': its MANDATED pairs are declared REQUIRE_RHYME   -- `quality/revise.py` grade() L480-483 claims otherwise. Because `declared` is True there, `is_violation if declared else not default_licensed` never reads the switch, so repeat_licence='refrain' is INERT on every letter scheme and Cover-without-returns. Only the DEFAULT 'unlicensed' reproduces the pre-fix behaviour
+  ok    a letter scheme cannot state the question at all, which is why REQUIRE_RHYME's True is this module's DEFAULT and not the writer's declaration   -- doctrine 3 inverts BY CONTEXT and a letter has two states for a question with five answers; the fix belongs at the call site, not in this value
+
+§12  _rep — which member of an identity class the licence transports FROM
+  ok    a returned line's representative is the FIRST member of its class   -- L33 IS L13, so every question about L33 is a question about L13
+
+    THE ANSWER THAT MOVES, on the chorus whose rhyme is declared ONCE and TRANSPORTED (doctrine 3: REPEAT inverts by context)
+  ok    L17/L33 is REQUIRE_RHYME — L33 IS L13, L13/L17 must rhyme, so an identical end word at L17/L33 is a VIOLATION   -- the exact tuple grade() consumes
+  ok    and read from the LAST member the SAME pair answers something ELSE, so this input DISCRIMINATES   -- L17 would represent as L37 and L33 as L33, no declared group holds that pair, and the violation is LICENSED AWAY in silence
+  ok    the returned chorus's OWN internal rhyme moves the same way   -- L33/L37 IS L13/L17 and nothing else in the mandate says so
+  ok    12 of this mandate's 820 pairs answer differently under the two readings, and all 12 touch the transported chorus   [(13, 37), (14, 36), (15, 39), (16, 34), (17, 33), (18, 40), (19, 35), (20, 38), (33, 37), (34, 36), (35, 39), (38, 40)]
+
+    BOTH DIRECTIONS IN ONE OBJECT — the mutation is not a uniform loosening, it EXCHANGES two answers (8 lines, one return class {2, 6}, one declared group on each side of it)
+  ok    L1/L6 — the first-member reading DECIDES it and the last-member reading loses the decision   -- L6 IS L2 and L1/L2 is a declared group, so a repeat is charged
+  ok    L2/L8 — and at the OTHER pair of the same object it MANUFACTURES a decision the mandate declined to make   -- so a suite that only counted findings could see a wash
+  ok    exactly those two pairs move, in opposite directions   [(1, 6), (2, 8)]
+
+    WHY THE SHIPPED FIXTURES ARE BLIND — doctrine 94's companion, and why this section is written on neither of them
+  ok    SONG_SCHEME letters BOTH chorus instances, so the two readings agree at every one of its 820 pairs   -- L17 represents as L17 or L37 and BOTH are in a declared group with L33's representative, so the mutated line runs and changes nothing
+  ok    and a real villanelle agrees at every one of its 171 pairs   -- both refrain classes sit wholly inside class 'a'
+  ok    a return class of ONE cannot discriminate either, and the language refuses to declare one at all   -- first IS last there; a test written at that shape would pass against both readings and prove nothing
+
+    AND NOTHING ELSE IN THE OBJECT MOVES, which is why the shape assertions in §4/§10 could not have caught it either
+  ok    ten observables of the transported mandate are IDENTICAL under both readings; only requirement()'s answer moves   -- groups, expanded_groups, pairs, expanded_pairs, return_pairs, identity_pairs, to_rhyme_letters, rhyme_partition_groups, expanded_overlapping_lines, returns_check
+
+§13  OUT_OF_RANGE — the message names the condition the guard actually tests
+Traceback (most recent call last):
+  File "/workspace/scratch/b0544e4bbdd6/verification-candidate/lyric-harness/quality/test_mandate_language.py", line 1336, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/workspace/scratch/b0544e4bbdd6/verification-candidate/lyric-harness/quality/test_mandate_language.py", line 1324, in main
+    test_out_of_range_names_its_own_condition()
+  File "/workspace/scratch/b0544e4bbdd6/verification-candidate/lyric-harness/quality/test_mandate_language.py", line 787, in test_out_of_range_names_its_own_condition
+    hand = dataclasses.replace(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/dataclasses.py", line 1588, in replace
+    return obj.__class__(**changes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 16, in __init__
+  File "/workspace/scratch/b0544e4bbdd6/verification-candidate/lyric-harness/quality/schemes.py", line 1561, in __post_init__
+    _normalise_returns(self.returns, self.n_lines, self.rule)
+  File "/workspace/scratch/b0544e4bbdd6/verification-candidate/lyric-harness/quality/schemes.py", line 1282, in _normalise_returns
+    raise NoMandate(
+quality.schemes.NoMandate: return line 9 is outside 1..4.

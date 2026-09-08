@@ -1,0 +1,18 @@
+{
+  "command": [
+    "npm",
+    "run",
+    "check-docs"
+  ],
+  "exit_code": 0,
+  "wall_s": 60.91566288800095,
+  "stdout_sha256": "99ec193473719faca53e1563f3cd76dc1aaa3b82056cea3bbde0671d7df0f1e7",
+  "stderr_sha256": "7125f194612fcff2f454c05d848e7cb71facc1967b4d5017e25b34fdee3ba74f",
+  "scope": "Final setup-only workflow/Docker/docs correction; no runtime code changes.",
+  "source_files": {
+    ".github/workflows/capacity-proof.yml": "6e20c2aa27da494b9b046a0633292fd4871dc2ab5a376ae25af19bcfca7d1650",
+    ".github/workflows/ci.yml": "8ef80b6a31515d85d5059de6f8f1e97f1efbe770352eacec1fda6a0afae9a916",
+    "mcp/Dockerfile": "1337d3800808a32c1c75e9ec72481ce9f8339341a4c7635a426f5dd2c5b38b68",
+    "mcp/IMAGE_RELEASE.md": "6953ea0c5e13a4f8917672e8df2a481ab5256fdbb911a34de82cce19f7443713"
+  }
+}

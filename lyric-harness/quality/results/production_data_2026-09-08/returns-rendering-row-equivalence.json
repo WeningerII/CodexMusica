@@ -1,0 +1,14 @@
+{
+  "kind": "complete independent item remeasurement after rendering-only CLI patch",
+  "rows": 8545,
+  "all_row_bytes_identical": true,
+  "row_sha256": "7ef7410bfb1271c596eaca69e261ffbc00cbae89059ea7e9a31d298344fe3b63",
+  "before_comparator_fingerprint": "0a726100c24520f2087544e9d8007f4650d1636bdc5669ba690eaf5de54eae79",
+  "after_comparator_fingerprint": "ec46dc28b3dcb89d7c474642b5004b7fd240fbae02d4925f7d8a48377f9b18e0",
+  "rendering_patch": {
+    "before_sha256": "e0bc48aa9e5ef1fed60d7ab4a234e893bc04e8bf196bb2ab491866d409f08496",
+    "after_sha256": "427d4e4c79b9479cf9126d71466961d22d035f0fd2ced6a6afc53ad27fcdf3fc",
+    "scope": "Only rendering existing return obligations and scoping empty line-flag stamp. No reader/scorer/field/plan behavior changed."
+  },
+  "at": "2026-09-08T04:59:06.658272+00:00"
+}

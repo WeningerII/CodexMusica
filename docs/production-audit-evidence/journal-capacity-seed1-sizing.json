@@ -1,0 +1,78 @@
+[
+  {
+    "bytes": 1798,
+    "reserve": 0,
+    "ceiling": 458752,
+    "sum": 1798,
+    "admitted": true,
+    "keys": {
+      "version": 1,
+      "answered": 33,
+      "pending": 4,
+      "input_draft": 846,
+      "accepted_lines": 846
+    }
+  },
+  {
+    "bytes": 1861,
+    "reserve": 0,
+    "ceiling": 458752,
+    "sum": 1861,
+    "admitted": true,
+    "keys": {
+      "version": 1,
+      "answered": 33,
+      "pending": 4,
+      "input_draft": 846,
+      "accepted_lines": 846,
+      "outcomes": 2,
+      "group_outcomes": 2,
+      "round": 1,
+      "status": 9
+    }
+  },
+  {
+    "bytes": 1861,
+    "reserve": 0,
+    "ceiling": 458752,
+    "sum": 1861,
+    "admitted": true,
+    "keys": {
+      "version": 1,
+      "answered": 33,
+      "pending": 4,
+      "input_draft": 846,
+      "accepted_lines": 846,
+      "outcomes": 2,
+      "group_outcomes": 2,
+      "round": 1,
+      "status": 9
+    }
+  },
+  {
+    "bytes": 403338,
+    "reserve": 69904,
+    "ceiling": 393216,
+    "sum": 473242,
+    "admitted": false,
+    "keys": {
+      "version": 1,
+      "answered": 33,
+      "pending": 401481,
+      "input_draft": 846,
+      "accepted_lines": 846,
+      "outcomes": 2,
+      "group_outcomes": 2,
+      "round": 1,
+      "status": 9
+    },
+    "pending_kind": "propose_batch",
+    "pending_keys": {
+      "kind": 15,
+      "record": 641,
+      "prompt": 400782,
+      "answer": 4
+    },
+    "lines_asked": 9
+  }
+]

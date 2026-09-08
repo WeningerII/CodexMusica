@@ -12,8 +12,8 @@
 // anything that gates. A staleness that only a person can notice is the
 // private-instrument defect wearing a deployment hat.
 //
-// WHAT IT COMPARES: the tool surface a CLIENT sees — (name, description,
-// inputSchema) for every advertised tool — read through the SAME SDK listTools
+// WHAT IT COMPARES: complete initialization and tool metadata, including
+// descriptions, input/output schemas and annotations — read through SDK listTools
 // path on both sides, so whatever the SDK rewrites on the way out is rewritten
 // identically on both and the comparison is apples to apples. The EXPECTED
 // side is buildServer() from this tree over an in-memory transport; the LIVE
@@ -29,63 +29,55 @@
 //                     is not a server that matches.
 //
 // Usage: node check_live.mjs [URL]     (or MCP_LIVE_URL in the environment)
-// The default is the deployed endpoint render.yaml declares (service name
-// `codex-musica-mcp`, path /mcp) — render.yaml is the one definition of the
-// deployment and this literal is a quotation of it, overridable per call.
-//
-// WHERE IT GATES: the nightly CI job, and deliberately NOT the per-push jobs —
-// render.yaml deploys from main, so a feature branch that edits the connector
-// LEGITIMATELY differs from the deployment until it merges, and a per-push
-// gate would charge every honest connector change with the drift it is about
-// to fix. The nightly runs on main, where tree != deployment is always a
-// defect: either autoDeploy failed or it has not caught up.
+// The default URL is the existing public connector; migration preserves it.
+// Desired settings come from production-config.json. --config=render retains
+// its public CLI spelling but never reads the legacy deployment Blueprint.
+// Check deployed-image identity after promotion; a feature checkout is not
+// expected to match production before promotion.
 
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
-import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
-import { buildServer } from './tools.js';
+import { readFile } from 'node:fs/promises';
+import { expectedProductionConfig, configDrift } from './runtime_config.js';
+import {
+  surfaceDrift,
+  initializationDrift,
+  initialization,
+  listAll,
+  expectedSurface,
+} from './surface_contract.js';
+export { canonical, surfaceDrift, initializationDrift } from './surface_contract.js';
+import { validateImageManifest, imageBuildDrift } from '../scripts/image_release.mjs';
 
 const DEFAULT_URL = 'https://codex-musica-mcp.onrender.com/mcp';
 
-// Stable stringify: object keys sorted recursively, so two schemas that differ
-// only in key order compare equal and a real difference is a real difference.
-export function canonical(value) {
-  if (Array.isArray(value)) return `[${value.map(canonical).join(',')}]`;
-  if (value && typeof value === 'object')
-    return `{${Object.keys(value)
-      .sort()
-      .map((k) => `${JSON.stringify(k)}:${canonical(value[k])}`)
-      .join(',')}}`;
-  return JSON.stringify(value);
-}
-
-function surfaceOf(tools) {
-  const map = new Map();
-  for (const t of tools)
-    map.set(t.name, {
-      description: t.description || '',
-      inputSchema: canonical(t.inputSchema ?? null),
-    });
-  return map;
-}
-
-// The pure comparator, exported so mcp/test.mjs can prove it fails in every
-// direction without a network. Returns a list of drift records; [] is MATCH.
-export function surfaceDrift(expectedTools, liveTools) {
-  const exp = surfaceOf(expectedTools);
-  const live = surfaceOf(liveTools);
-  const drift = [];
-  for (const name of exp.keys())
-    if (!live.has(name)) drift.push({ tool: name, what: 'missing from the live server' });
-  for (const name of live.keys())
-    if (!exp.has(name)) drift.push({ tool: name, what: 'advertised live but not in the tree' });
-  for (const [name, e] of exp) {
-    const l = live.get(name);
-    if (!l) continue;
-    if (e.description !== l.description) drift.push({ tool: name, what: 'description differs' });
-    if (e.inputSchema !== l.inputSchema) drift.push({ tool: name, what: 'inputSchema differs' });
+export function parseLiveArguments(argv) {
+  const flags = {},
+    positional = [];
+  for (const arg of argv) {
+    if (!arg.startsWith('--')) {
+      positional.push(arg);
+      continue;
+    }
+    const match = /^--(commit|config|image-manifest)=(.+)$/.exec(arg);
+    const key = arg === '--ready' ? 'ready' : match?.[1];
+    if (!key || key in flags)
+      throw new Error(`Unknown, empty or duplicate live-check option: ${arg}`);
+    flags[key] = key === 'ready' ? true : match[2];
   }
-  return drift;
+  if (positional.length > 1) throw new Error('Supply at most one live endpoint URL.');
+  if (flags.config && flags.config !== 'render') throw new Error('Unknown configuration profile');
+  return { url: positional[0], ...flags };
+}
+
+async function endpointJson(url, endpoint, { allowFailure = false } = {}) {
+  const res = await fetch(new URL(endpoint, url), {
+    headers: { accept: 'application/json' },
+    signal: AbortSignal.timeout(30_000),
+  });
+  if (!allowFailure && !res.ok) throw new Error(`GET ${endpoint} -> ${res.status}`);
+  const body = await res.json();
+  return allowFailure ? { ...body, _http_status: res.status } : body;
 }
 
 // M-230: the surface is not the build. A change that touches no tool leaves
@@ -110,31 +102,13 @@ export function commitDrift(expected, live) {
 
 async function liveCommit(url) {
   const health = new URL('/health', url);
-  const res = await fetch(health, { headers: { accept: 'application/json' } });
+  const res = await fetch(health, {
+    headers: { accept: 'application/json' },
+    signal: AbortSignal.timeout(30_000),
+  });
   if (!res.ok) throw new Error(`GET ${health} -> ${res.status}`);
   const body = await res.json();
   return body && typeof body === 'object' ? (body.commit ?? null) : null;
-}
-
-async function listAll(client) {
-  const tools = [];
-  let cursor;
-  do {
-    const page = await client.listTools(cursor ? { cursor } : undefined);
-    tools.push(...page.tools);
-    cursor = page.nextCursor;
-  } while (cursor);
-  return tools;
-}
-
-async function expectedSurface() {
-  const server = buildServer();
-  const [clientSide, serverSide] = InMemoryTransport.createLinkedPair();
-  const client = new Client({ name: 'check-live-expected', version: '0' }, { capabilities: {} });
-  await Promise.all([server.connect(serverSide), client.connect(clientSide)]);
-  const tools = await listAll(client);
-  await client.close();
-  return tools;
 }
 
 async function liveSurface(url) {
@@ -142,18 +116,46 @@ async function liveSurface(url) {
   const client = new Client({ name: 'check-live', version: '0' }, { capabilities: {} });
   await client.connect(transport);
   try {
-    return await listAll(client);
+    return { tools: await listAll(client), init: initialization(client) };
   } finally {
     await client.close();
   }
 }
 
+export function readinessDrift(ready, { expected = null, status = null } = {}) {
+  const drift = [];
+  if (
+    (ready?._http_status != null && ready._http_status !== 200) ||
+    ready?.ready !== true ||
+    ready.capabilities?.lyrics !== true ||
+    ready.recovery?.healthy !== true
+  )
+    drift.push({ tool: '/ready', what: 'lyrics capability is unavailable' });
+  if (expected) {
+    drift.push(...configDrift(expected, ready?.configuration));
+    if (ready?.recovery?.durable !== true)
+      drift.push({ tool: '/ready', what: 'production recovery is not durable' });
+    if (
+      (status?._http_status != null && status._http_status !== 200) ||
+      status?.enabled !== true ||
+      status.capDurable !== true ||
+      status.accountingBlocked
+    )
+      drift.push({ tool: '/chat/status', what: 'paid accounting is unavailable or not durable' });
+  }
+  return drift;
+}
+
 async function main() {
-  const positional = process.argv.slice(2).filter((a) => !a.startsWith('--'));
-  const flag = process.argv.slice(2).find((a) => a.startsWith('--commit='));
-  const url = positional[0] || process.env.MCP_LIVE_URL || DEFAULT_URL;
-  const expectCommit = flag ? flag.slice('--commit='.length) : process.env.EXPECT_COMMIT || '';
-  const expected = await expectedSurface();
+  const args = parseLiveArguments(process.argv.slice(2));
+  const url = args.url || process.env.MCP_LIVE_URL || DEFAULT_URL;
+  const expectCommit = args.commit || process.env.EXPECT_COMMIT || '';
+  const requireReady = args.ready;
+  const configFlag = args.config;
+  const imageFlag = args['image-manifest'];
+  if (imageFlag && !expectCommit) throw new Error('An image manifest requires an expected commit.');
+  const task = /\/(recipe|lyrics)\/?$/.exec(new URL(url).pathname)?.[1] || null;
+  const expected = await expectedSurface(task);
 
   let live;
   try {
@@ -169,7 +171,30 @@ async function main() {
     process.exit(2);
   }
 
-  const drift = surfaceDrift(expected, live);
+  const drift = [
+    ...surfaceDrift(expected.tools, live.tools),
+    ...initializationDrift(expected.init, live.init),
+  ];
+  if (imageFlag) {
+    const manifest = JSON.parse(await readFile(imageFlag, 'utf8'));
+    validateImageManifest(manifest, { sha: expectCommit, repository: manifest.repository });
+    const health = await endpointJson(url, '/health');
+    drift.push(
+      ...imageBuildDrift(manifest, health.build).map((key) => ({
+        tool: '/health',
+        what: `tested image build.${key} differs`,
+      }))
+    );
+  }
+  if (requireReady || configFlag) {
+    const ready = await endpointJson(url, '/ready', { allowFailure: true });
+    const status = configFlag
+      ? await endpointJson(url, '/chat/status', { allowFailure: true })
+      : null;
+    drift.push(
+      ...readinessDrift(ready, { expected: configFlag ? expectedProductionConfig() : null, status })
+    );
+  }
   if (drift.length === 0) {
     // M-230: with a commit to expect, the surface matching is necessary, not
     // sufficient — the build has to say it is this one.
@@ -195,7 +220,7 @@ async function main() {
     }
     console.log(
       `MATCH — the live server at ${url} advertises the tree's own surface: ` +
-        `${expected.length} tool(s), descriptions and schemas byte-identical under canonical ordering` +
+        `${expected.tools.length} tool(s), full tool metadata and initialization match` +
         (expectCommit ? `; /health reports commit ${String(expectCommit).slice(0, 12)}` : '')
     );
     process.exit(0);

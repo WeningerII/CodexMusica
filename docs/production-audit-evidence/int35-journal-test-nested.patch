@@ -1,0 +1,77 @@
+--- before/quality/test_production_journal.py
++++ after/quality/test_production_journal.py
+@@ -415,6 +415,74 @@
+             self.assertTrue(outcomes[0]['accepted'])
+             self.assertTrue(outcomes[0]['applied'])
+ 
++    def test_nested_partial_replay_preserves_furthest_artifact_and_restores_full_chain(self):
++        from quality.loop import _try_tier1
++        from quality.schemes import mandate
++        import hashlib
++        before = ['The elephant elephant elephant elephant elephant elephant ' + word
++                  for word in ['stove', 'coat', 'rain', 'stone']]
++        answers = ['My kettle whistles by the stove', 'Your fingers brush my heavy coat',
++                   'The window shakes beneath the heavy rain',
++                   'His folded paper rests upon the stone']
++        m = mandate([[1, 2]], n_lines=4, default_relation='class:ASSONANCE')
++        calls = []
++        def writer(b, *args, **kwargs):
++            calls.append(b.line_no)
++            return answers[b.line_no - 1]
++        def step(one, current, n):
++            b = next(b for b in self.r.brief(current, m, include_offers=False)
++                     if b.line_no == n)
++            b.round_no = 1
++            attempt, after = _try_tier1(self.r, b, list(current), m, self.r.rdecl,
++                                        None, None, None, None, one)
++            self.assertTrue(attempt.accepted, attempt.reason)
++            one.checkpoint(after, 1, 'accepted')
++            return after
++        def digest(lines):
++            return hashlib.sha256(json.dumps(lines, ensure_ascii=False,
++                separators=(',', ':')).encode()).hexdigest()
++        with tempfile.TemporaryDirectory() as tmp, \
++             patch.dict(os.environ, {'LYRIC_CHECKPOINT_PATH': str(Path(tmp)/'cp')}), \
++             contextlib.redirect_stdout(io.StringIO()):
++            cp = Path(tmp)/'cp'
++            one, _ = LH._checkpoint_proposer(writer, None, before, 'nested-cfg', 'fake')
++            current = list(before)
++            for n in [1, 2, 3]:
++                current = step(one, current, n)
++            original = json.loads(cp.read_text())
++            original_ids = [o['outcome_id'] for o in original['verified_outcomes']]
++            self.assertEqual(len(original_ids), 3)
++            resumed, _ = LH._checkpoint_proposer(writer, None, before, 'nested-cfg', 'fake')
++            step(resumed, list(before), 1)
++            partial = json.loads(cp.read_text())
++            self.assertEqual(partial['accepted_lines'], original['accepted_lines'])
++            self.assertEqual([o['outcome_id'] for o in partial['verified_outcomes']], original_ids[:1])
++            self.assertEqual(calls, [1, 2, 3])
++            # Another wall interrupts this replay. The next invocation must
++            # reconstruct B/C as historical prefix, not lose them or call the
++            # provider again. A new D then makes real post-checkpoint progress.
++            twice, _ = LH._checkpoint_proposer(writer, None, before, 'nested-cfg', 'fake')
++            current = list(before)
++            for n in [1, 2, 3, 4]:
++                current = step(twice, current, n)
++            record = twice.verification_record()
++            outcomes, proof = record['verified_outcomes'], record['resume_proof']
++            self.assertEqual(current, answers)
++            self.assertEqual(calls, [1, 2, 3, 4])
++            self.assertEqual([o['outcome_id'] for o in outcomes[:3]], original_ids)
++            self.assertEqual(len({o['outcome_id'] for o in outcomes}), 4)
++            self.assertEqual(proof['applied_outcome_ids_at_start'], original_ids[:1])
++            self.assertEqual(proof['accepted_draft_sha256_at_start'], digest(original['accepted_lines']))
++            self.assertEqual(proof['completed_proposals_replayed'], 3)
++            self.assertEqual(proof['completed_proposal_redispatches'], 0)
++            self.assertEqual(proof['new_proposer_dispatches'], 1)
++            position = digest(before)
++            for outcome in outcomes:
++                self.assertTrue(outcome['accepted'] and outcome['applied'])
++                self.assertEqual(outcome['before_draft_sha256'], position)
++                position = outcome['applied_draft_sha256']
++            self.assertEqual(position, digest(answers))
++
+ 
+ if __name__ == '__main__':
+     unittest.main()

@@ -1,121 +1,77 @@
-# Privacy Policy — CodexMusica connector
+# Privacy
 
-_Last updated: 2026-08-03_
+Last updated: 2026-09-08
 
-CodexMusica is a **read-only, stateless** Model Context Protocol (MCP) server. It
-turns musical requests into recording recipes from a fixed, bundled catalog. This
-policy describes what it does and does not do with data.
+CodexMusica exposes public recipe tools, a separate lyrics pipeline and a browser
+chat service. There is no user account system. Random run and request identifiers
+are bearer capabilities: someone who holds one can recover its retained data.
+Keep these identifiers and signed continuation envelopes private.
 
-## What we collect
+## Processing and storage
 
-**No accounts, and no user profiles.** The connector requires no sign-in, sets no
-cookies, and builds no profile of anyone. It accesses no private data on your
-behalf. The one thing it does record about a caller is the ordinary network
-metadata of the HTTP request itself — see **Request logging** below.
+Recipe tool operations pass their workspace in and out and do not save a recipe
+workspace as a server account. The browser chat protocol can retain that workspace
+alongside a conversation receipt. The workspace is passed to the engine outside
+the model's prompt.
 
-When Claude calls a tool, the server receives the structured arguments for that
-call (e.g. a tradition id, an instrument id, or a search phrase you asked Claude
-to look up). The server:
+Direct `lyric_revise` calls retain private run state in a process-local cache
+(default: 64 records, six-hour inactivity limit). Returned state and checkpoints
+allow explicit recovery after that cache expires, subject to contract compatibility.
+The browser and battery `/chat` surface write request intents, accepted worker
+progress, responses and signed continuations to the configured runtime directory.
+The browser keeps recovery identifiers and may keep a fallback envelope locally.
+Clearing browser data removes those local copies; it does not delete retained
+server receipts.
 
-- is **stateless** — it creates a fresh handler per request and keeps no session,
-  database, or persistent store of requests or responses;
-- writes one **request log** line per inbound HTTP request, described in full
-  under **Request logging** below, plus a second line for MCP calls carrying the
-  JSON-RPC method and the tool name (e.g. `tools/call start_recipe`), for uptime
-  and error monitoring. Neither line contains a request body, so MCP tool
-  arguments and the recipe text are not logged;
-- makes **no outbound network calls to serve an MCP tool call** — every tool
-  response is computed from the immutable catalog shipped with the server
-  (closed-world; zero runtime dependencies).
+The service also persists its conversation signing key and shared model-spend
+ledger. These files allow recovery after restart and prevent accounting from
+resetting after deployment. `/health` and `/ready` disclose whether recovery is
+configured as durable. Local development without persistent storage is temporary.
 
-That last point is scoped to the MCP surface deliberately, because the same
-deployment also serves a chat bar that does call out. See **The chat bar** below.
+## External model processing
 
-## The chat bar (`/chat`) — this one does call out
+Browser chat sends conversation text and relevant tool results to Google's Gemini
+API. `lyric_revise` with `writer: kitchen` also sends the lyric brief, draft and
+revision context to Gemini, including when called directly through MCP. These are
+paid model requests made with the service's API key. The `interview` writer uses
+answers supplied by the caller instead of invoking the server's kitchen model.
+Your connecting AI host may independently process the information you give it.
 
-The published web page carries a chat bar, and its backend is mounted on this
-same service. It is a **separate surface** from the MCP connector, and it does
-not share the connector's no-egress property:
+## Logs
 
-- **Your message and the conversation history are sent to Google** — specifically
-  to the Gemini API, which turns what you type into tool calls against the local
-  engine. Nothing else in this service sends anything anywhere; this endpoint
-  does, on every turn.
-- Google processes that text under **its own terms and privacy policy**, not
-  this one. The request is made with our API key, so it is not tied to any
-  account of yours.
-- **Your workspace is withheld from the model.** The recipe workspace travels in
-  the request envelope and is passed straight to the engine; it is never placed
-  in the model's context.
-- This server still stores none of it. The conversation lives in your browser and
-  is posted back each turn; the process keeps no transcript and no session — only
-  server-level counters (rate-limit buckets, a spend total) that describe the
-  service rather than any user.
+The server logs request time, method, path, status, duration, user-agent, referer,
+proxy-reported IP address and whether the connection ended prematurely. Request
+capabilities in receipt paths are redacted. Avoid placing private content in URL
+query parameters or custom referer headers. Request bodies and response bodies are
+not included in this HTTP access log; lyric content is retained separately in the
+recovery files described above. The hosting provider can also retain its own
+infrastructure logs and error traces.
 
-If you use only the MCP connector — the tools Claude calls — no part of your
-request reaches Google or any other third party.
+## Retention
 
-## Request logging
+The default receipt metadata retention is 24 hours after its last update. Expiry
+and capacity cleanup run when the store is used or loaded, so this is not a
+promise of deletion at an exact wall-clock instant. Payload capacity limits can
+retire an older completed payload earlier while retaining its identifier to block
+accidental redispatch. Pending work is protected from ordinary payload eviction.
+Runtime files use private filesystem permissions; they are not encrypted at rest
+by this application. Hosting backups and platform logs have their own retention.
 
-Every inbound HTTP request is written as one line to the server's standard
-output, which the hosting platform captures as the service log. This exists for a
-specific reason: the claim that some agent or crawler fetched one of our URLs
-should be checkable against the server's own record instead of taken on trust.
+Battery recovery archives contain private working data. The maintained Actions
+workflow encrypts them with a dedicated recovery key before remote upload. Their
+retention follows the workflow artifact settings. Do not publish decrypted
+archives, signed envelopes or recovery keys.
 
-Each line holds a timestamp, the HTTP method, the requested path **including its
-query string**, the response status code, how long the request took, and the
-three headers that identify the caller — `user-agent`, `referer` and
-`x-forwarded-for`. One of those is worth spelling out:
+## Use and support
 
-- **`x-forwarded-for` carries an IP address** — the calling network's, as
-  reported by the proxy in front of the service.
+CodexMusica does not use request content for advertising or sell request data.
+The application does not implement a training or profiling pipeline. External
+hosts and model providers apply their own terms to the data they process.
 
-**Request bodies are never logged.** MCP tool arguments travel in the body, so
-they are not recorded, and neither is any response or recipe text.
-
-## What we do not do
-
-- We do not sell or rent data to anyone. The one third party that receives
-  content is Google, and only for the chat bar described above — never for an
-  MCP tool call, and never for advertising or marketing.
-- We do not use request content for analytics, advertising, profiling, or model
-  training.
-- We do not store request bodies or the recipes returned.
-
-## Hosting & transit
-
-The service is hosted on Render (United States) and reached over HTTPS. Requests
-reach the server via your Claude client and Anthropic's connector
-infrastructure, each governed by their own terms and privacy policies. Render
-captures the service's standard output — the request log described above — along
-with its own infrastructure logs and error traces, and retains them under its
-own policy.
-
-## Data retention
-
-The server writes no database, no file and no cache; it persists nothing itself.
-The only data that outlives a request is the log lines above, held by the hosting
-platform for whatever window its policy allows. We can tell you exactly what we
-write and what we refuse to write; we cannot make a retention promise on Render's
-behalf, so this document does not make one.
-
-## Your choices
-
-Because there is no account and the server stores nothing itself, there is no
-profile to delete; the only trace of a call is the platform-held log line
-described above, which ages out on the host's schedule. You can remove the
-connector from Claude at any time via **Settings → Connectors**.
-
-## Changes
-
-We may update this policy; material changes will be reflected by the "Last
-updated" date above.
-
-## Contact
-
-Questions about this policy or the service: open an issue at
-<https://github.com/WeningerII/CodexMusica/issues>.
-
----
+Remove the connector from your AI host to stop future connector access. There is
+no public capability-deletion endpoint; recovery data is removed by the retention
+and capacity lifecycle above. For questions, open an issue at
+<https://github.com/WeningerII/CodexMusica/issues> without including private lyrics,
+request identifiers, signed envelopes or API keys.
 
 CodexMusica and its catalog data are proprietary. See `LICENSE`.

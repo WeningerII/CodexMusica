@@ -84,7 +84,7 @@ def test_gate_sets_are_read_not_respelled():
                   f"{c[code]['gates']}")
     for code in LENGTH_GATE_CODES:
         if code in c:
-            check(f"`{code}` is GATED via the length gate, read from "
+            check(f"`{code}` is GATED via the floor gate, read from "
                   f"`quality/floor.py`",
                   c[code]["verdict"] == "GATED"
                   and "LENGTH_GATE_CODES" in c[code]["gates"],
@@ -296,13 +296,49 @@ def test_every_toothless_code_is_ruled():
           "mutated table", GC.unruled() == [])
 
 
+def test_conditional_codes_keep_their_correlated_severity():
+    import ast
+    import tempfile
+    print("\n7. conditional codes are counted without inventing a gate on the disclosure")
+    text = '''
+def emit(required):
+    Finding("DECLARED" if required else "BROKEN",
+            "note" if required else sev("flag"), "message")
+    Finding("KW_DECLARED" if required else "KW_BROKEN",
+            severity="note" if required else "flag")
+'''
+    with tempfile.NamedTemporaryFile("w", suffix=".py") as fixture:
+        fixture.write(text)
+        fixture.flush()
+        actual = GC._severities(fixture.name, {"Finding": 1})
+        check("each conditional code receives only its own selected severity arm",
+              dict(actual) == {"DECLARED": {"note"}, "BROKEN": {"flag"},
+                               "KW_DECLARED": {"note"}, "KW_BROKEN": {"flag"}},
+              dict(actual))
+        original = GC._finding_call_variants
+        try:
+            GC._finding_call_variants = lambda call, fields: (
+                () if isinstance(call.args[0], ast.IfExp) else original(call, fields))
+            blind = GC._severities(fixture.name, {"Finding": 1})
+        finally:
+            GC._finding_call_variants = original
+        check("the old literal-only reader loses all four branches, so the fixture kills the regression",
+              not blind and len(actual) == 4)
+    live = GC.census()
+    check("both original floor flags remain gates while their required-identity counterparts remain notes",
+          all(live[code]["verdict"] == "GATED" for code in ("LEXICAL_MONOTONY", "ANAPHORA_OVERLOAD"))
+          and all(live[code]["verdict"] == "DISCLOSED-ONLY" for code in
+                  ("LEXICAL_REPETITION_DECLARED", "ANAPHORA_DECLARED")))
+
+
 def main():
     for fn in (test_the_census_sees_every_layer,
                test_gate_sets_are_read_not_respelled,
                test_undecidable_is_never_counted_as_gated,
                test_the_two_causes_are_apart,
                test_the_pin_moves_when_the_tree_does,
-               test_every_toothless_code_is_ruled):
+               test_every_toothless_code_is_ruled,
+               test_conditional_codes_keep_their_correlated_severity):
         fn()
     print(f"\n{'ALL PASS' if not FAILURES else 'FAILURES: ' + str(FAILURES)}")
     return 1 if FAILURES else 0

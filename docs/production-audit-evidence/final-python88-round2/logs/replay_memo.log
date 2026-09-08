@@ -1,0 +1,70 @@
+test_replay_memo — the deferred-replay memo (M-167)
+
+1. warm-in-one-process == cold-subprocess-per-step, byte for byte outside the memo's own disclosure
+  PASS  both arms walk the same number of resumes
+  PASS  both arms end at the same stop
+  PASS  every resume prints identical bytes modulo paths and the memo line
+  PASS  the final draft line the answer wrote appears in both arms
+  PASS  the warm arm's later resumes HIT the memo — the equivalence above examined a live memo, not two cold arms
+  PASS  warm resumes inherit more cached grading answers than fresh subprocesses; within-call assessment/menu hits are legitimate in both arms
+
+2. the run's store holds the calls this module claims to memoise
+  PASS  at least one `brief` result is in the store
+  PASS  at least one `verify` result is in the store
+
+3. LYRIC_REPLAY_MEMO=0 hands back the bare reviser and says so
+  PASS  the disabled arm reaches the same stop
+  PASS  the disabled arm discloses OFF on every resume, never warmth
+  PASS  disabled output equals the cold arm's, byte for byte outside the memo line
+  PASS  the original default-reading fixture explicitly refuses its unjudged obligation without inventing a repair request
+
+4. one changed input is a different run
+  PASS  the same inputs freeze to the same key
+  PASS  a draft differing in content is a different run
+  PASS  a mandate differing in one character is a different run
+  PASS  the growing --propose state is NOT part of the identity
+  PASS  an unreadable input yields no key (no memo, never a guess)
+
+5. LRU at the derived bound; an unrecognised shape is bypassed
+  PASS  the registry never holds more runs than its derived bound
+  PASS  eviction is LRU — the oldest unit keys are gone, the newest stay
+  PASS  an unsortable targeted set is BYPASSED (counted, not keyed, and the real method still answered)
+
+ALL PASS
+
+6. THE PROCESS-LEVEL FIELD MEMO (M-217) — a second Reviser in the same process is served the first one's fields on an IDENTICAL key, a different declaration is a miss, and LYRIC_FIELD_MEMO=0 bypasses it
+  PASS  the first Reviser MISSES and stores (one miss, one held)
+  PASS  a SECOND Reviser, same lexicon and declaration, HITS — and the field is the same list, not a recomputation
+  PASS  a Reviser with a DIFFERENT declaration (theta 0.9) misses — the declaration is in the key
+  PASS  a Reviser over a lexicon with a different aside rule misses — the lexicon's identity is in the key
+  PASS  LYRIC_FIELD_MEMO=0 bypasses the store: two Revisers, zero hits, zero misses, nothing held
+  PASS  the cap is ~~the planner's own envelope (55 lines x 4 places x 2 bands, rounded)~~ 64 lines x 4 places x 2 bands: sized 2026-09-02 to the 55-line envelope of that day, a BOUND with LRU eviction since the envelope went to 447 (M-239), scaling filed under M-240 — stated once
+
+7. THE PER-PAIR SCHEMA MEMO (M-217's remainder) — a candidate draft that differs by ONE line re-judges only the pairs that touch it, the verdicts are byte-identical to the memo-off judge, a hyphen-continued neighbour is part of the line, and LYRIC_PAIR_MEMO=0 bypasses it
+  PASS  LYRIC_PAIR_MEMO=0 bypasses the store: nothing held, nothing hit
+  PASS  six schemas, two drafts: every verdict set is byte-identical to the memo-off judge
+  PASS  the first draft of each schema is all misses (15 pairs judged, 0 hits)
+  PASS  the one-line variant hits the 10 pairs that do not touch the changed line and judges only the 5 that do — on every schema
+  PASS  a stream under a different declaration misses on every pair — the declaration is in the key
+  PASS  a change to a hyphen-cut line also re-judges the line it continues into: pairs touching L1 or L2 miss (5 of 6), the one pair that touches neither hits
+  PASS  the cut rule the signature quotes is build_stream's own
+  PASS  a stream that cannot spell per-line signatures (no text lines) bypasses the memo instead of collapsing every line onto one key
+  PASS  the two caps are stated once, and the row cap holds a 55-line draft's 1,485 pairs plus 48 one-line folds — ~~which is the planner's longest~~ a 55-line draft being the 2026-09-02 envelope's longest; the cap holds a whole draft to 91 lines and is a BOUND with LRU eviction past it (M-239; scaling filed under M-240)
+
+ALL PASS
+
+8. THE PAIR-SCORE AND RANKING MEMOS (M-217's remainder, levers 2 and 3) — a second Reviser is served the first one's pair scores and rankings on an identical key, a different profile or declaration misses, the served objects are the same verdicts, and the two kill switches bypass them
+  PASS  the first draft scores all 6 pairs and records them (6 misses, 0 hits)
+  PASS  a SECOND Reviser grading the one-line variant is served the 3 pairs that do not touch the changed line and scores the 3 that do
+  PASS  a served score IS the recorded verdict: L1~L2 identical across the two Revisers, total and relation
+  PASS  a different comparator profile misses on every pair — the profile is in the key
+  PASS  a different declaration misses on every pair — the declaration is in the key
+  PASS  the first ranking misses and is recorded; a second Reviser's identical ask is served (one miss, one hit) and the forbidden head is the same list
+  PASS  a different declaration's ranking misses — the declaration is in the key
+  PASS  the spelled-rime memo holds every word the rankings read, and the same word asked twice reads once
+  PASS  LYRIC_SCORE_MEMO=0 bypasses its store: two Revisers, zero hits, zero misses, nothing held
+  PASS  LYRIC_RANK_MEMO=0 bypasses its store: two Revisers, zero hits, zero misses, nothing held
+  PASS  the caps are stated once and the score cap holds a 55-line draft's 1,485 pairs plus every one-line fold of a long run — a 55-line draft being the 2026-09-02 envelope's longest, not ~~the planner's~~ today's (12..447 since M-239); whole drafts to 128 lines, a BOUND with LRU eviction past that, scaling filed under M-240
+  PASS  the disclosure names both memos and says served and judged apart
+
+ALL PASS

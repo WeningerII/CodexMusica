@@ -373,17 +373,22 @@ def test_backfilled_corpus():
     # REPINNED 2026-08-20 (HBV safe subset): 7,618 -> 8,667 songs
     # (+1,049 landed of 1,938 extracted: 400 refused by the safe gate,
     # 489 cross-source duplicates), undeclared_region 947 -> 1,589.
-    check("the report counts the corpus: 8,667 songs, 1,538 honestly "
+    # 2026-09-08: 8667 -> 8661 raw TITLEs. Whittier -1, Read -1,
+    # Hemans -5 and Lovelace -1 are editorial material; Blake +1 and
+    # D'Urfey +1 restore joined-work boundaries. None moves the1538 honest
+    # region blanks. This is the unweighted source census, not8545 works.
+    check("the report counts the corpus: 8,661 songs, 1,538 honestly "
           "undeclared regions, undeclared functions counted APART "
           "(evidence-or-blank leaves most songs untagged)",
-          r["songs"] == 8667 and r["undeclared_region"] == 1538
+          r["songs"] == 8661 and r["undeclared_region"] == 1538
           and r["undeclared_function"] > 3000
           and r["undeclared_function"] + sum(r["multi_tag"].values())
           == r["songs"])
     check("region totals plus the undeclared partition the corpus — the "
           "axis is single-valued, and a blank is counted, never dropped",
-          sum(r["by_region"].values()) + r["undeclared_region"] == 8667
-          and sum(r["by_region"].values()) == 7129)
+          sum(r["by_region"].values()) + r["undeclared_region"] == 8661
+          and r["by_region"] == {"american": 845, "english": 4500,
+                                 "irish": 205, "scottish": 1573})
 
 
 def test_manifest():

@@ -1,0 +1,252 @@
+
+1. ng / ny / sy are ONE consonant — on real corpus words
+  PASS  memanggil -> me.mang.gil
+          me.mang.gil
+  PASS  its ng coda is ONE unit, not ('n','g')
+          ('ng',)
+  PASS  ngg reads ng + g, so tanggong is tang.gong
+          tang.gong
+  PASS  nyawa -> nya.wa
+          nya.wa
+  PASS  its ny onset is ONE unit
+          ('ny',)
+  PASS  banyak -> ba.nyak
+          ba.nyak
+  PASS  banyak's ny is an onset, not a coda+onset
+          ((), ('ny',))
+  PASS  Shurga -> syur.ga (sh is one consonant)
+          syur.ga
+  PASS  sh and modern sy give the SAME units
+          ['sy', 'u', 'r', 'g', 'a'] vs ['sy', 'u', 'r', 'g', 'a']
+  PASS  nj is n + j, so menjadi is men.ja.di (not a /ɲ/ onset)
+          men.ja.di
+
+2. the ng coda decides real pantun rhymes
+  PASS  iring-iring rhymes beriring
+          True
+  PASS  panggil-panggil rhymes memanggil
+  PASS  tanjong rhymes di-kandong
+  PASS  -ing does not rhyme -ang
+
+3. unknown never produces an answer (commitment 2)
+  PASS  a footnote marker syllabifies to []
+  PASS  digits syllabify to []
+  PASS  rhymes() on an unreadable word is None, not False
+          None
+  PASS  alliterates() on an unreadable word is None, not False
+  PASS  a Cyrillic word is out of inventory
+  PASS  rhymes() against it is None
+  PASS  anggrek (complex cluster) refuses rather than guessing
+  PASS  but a word-initial cluster is ACCEPTED — the onset is not a rime
+          prang / kre.ma.se.na
+
+4. a 1900 spelling against its modern twin — AS DECLARED
+  PASS  burong / burung -> None (o~u inside the rime)
+          None
+  PASS  adek / adik -> None (e~i inside the rime)
+          None
+  PASS  dato' / dudok -> None (Straits writes final /ʔ/ both ways)
+          None
+  PASS  burong / tanjong -> True (same spelling, same rime)
+  PASS  burong / burok -> False (different coda, decided)
+  PASS  pechah and pecah give identical syllables
+          pe.cah
+  PASS  pechah / pecah is REPEAT, not two words that sound alike
+          REPEAT
+  PASS  katiga / ketiga rhyme (the swap is outside the rime)
+  PASS  ...while syllabify shows the difference it did not fold
+          ka.ti.ga / ke.ti.ga
+  PASS  angkau / engkau rhyme (the swap is in the penult)
+  PASS  bunglei and selesei rhyme on the Straits -ei = /ai/
+  PASS  bunglei -> bung.lai, one final syllable not two
+          bung.lai
+  PASS  ...but medial ei is NOT rewritten (aleikum keeps its hiatus)
+          a.le.i.kum
+
+5. sharing a final LETTER is not sharing a rime
+  PASS  tanah / tumboh do NOT rhyme
+          False
+  PASS  pechah / tumboh do NOT rhyme
+          False
+  PASS  melukut / berampat do NOT rhyme
+          False
+  PASS  purun / berjambangan do NOT rhyme
+          False
+  PASS  burong / beriring do NOT rhyme
+          False
+  PASS  hati / nyawa do NOT rhyme
+          False
+  PASS  real pair: panah / tanah (quatrain 27, B-rhyme)
+  PASS  real pair: melukut / di-jeput (quatrain 7, A-rhyme)
+  PASS  real pair: purun / turun (quatrain 7, B-rhyme)
+  PASS  real pair: benchah / pechah (quatrain 24, A-rhyme)
+  PASS  real pair: tedong / kudong (quatrain 24, B-rhyme)
+
+6. the apostrophe — hamzah, apheresis, syncope
+  PASS  ta' is one syllable with a GLOTTAL CODA
+          [Syllable(text="ta'", onset=('t',), nucleus='a', coda=("'",), prominence=None, moras=1)]
+  PASS  pinta' -> pin.ta'
+          pin.ta'
+  PASS  the final hamzah is in the rime, so pinta' does not rhyme pinta
+  PASS  do'a is TWO syllables (do.'a), the hamzah blocking the merge
+          do.'a
+  PASS  mala'ikat -> ma.la.'i.kat
+          ma.la.'i.kat
+  PASS  Ta'tabek -> ta'.ta.bek (hamzah as coda before a consonant)
+          ta'.ta.bek
+  PASS  'ku is read as ku
+          ku
+  PASS  'nak is read as nak
+          nak
+  PASS  hati-'ku -> ha.ti.ku, and its rime is the clitic's
+          ha.ti.ku
+  PASS  hadapan-'ku rhymes hati-'ku (quatrain 37 A-rhyme is on -ku)
+  PASS  anak'nda -> a.nak.nda
+          a.nak.nda
+  PASS  anak'nda rhymes kuda (quatrain 56 B-rhyme)
+  PASS  `Ijrail -> ij.ra.il
+          ij.ra.il
+  PASS  `adat -> a.dat
+          a.dat
+  PASS  U+2019 behaves exactly as ASCII ' (doctrine 26)
+          ku vs ku
+
+6b. the hyphen is a SEAM here, not a joiner (doctrine 65)
+  PASS  arak-arak -> a.rak.a.rak
+          a.rak.a.rak
+  PASS  ...and the Welsh rule would give the WRONG a.ra.ka.rak
+          a.ra.ka.rak
+  PASS  di-jeput and dijeput agree (the seam changes nothing here)
+          di.je.put / di.je.put
+  PASS  the last hyphenated element carries the rime
+
+7. ai / au / oi are diphthongs word-finally and hiatus elsewhere
+  PASS  pulai -> pu.lai (quatrain 25)
+          pu.lai
+  PASS  naik -> na.ik, NOT nai.k (quatrain 49)
+          na.ik
+  PASS  laut -> la.ut (quatrain 25)
+          la.ut
+  PASS  daun -> da.un (quatrain 3)
+          da.un
+  PASS  kau -> kau, one syllable (quatrain 78)
+          kau
+  PASS  puar / kaluar rhyme on -ar (quatrain 23), ua never a diphthong
+          pu.ar
+  PASS  rumbia / dia rhyme on -a (quatrain 44), ia never a diphthong
+          rum.bi.a
+
+8. Malay supplies no stress binary, and says so
+  PASS  prominences() raises Unsupported
+  PASS  ...and the refusal names the syllable grid instead
+          Malay has no stress binary this grid can use: stress is contested (penultimate a
+  PASS  every syllable carries prominence None, not 0
+  PASS  grid_unit is the syllable
+  PASS  prominence_rule says NONE out loud
+          NONE — Malay stress is contested (penult
+
+9. the printed line has three editorial layers
+  PASS  a footnote marker is not the end word
+          'ijrail
+  PASS  ...and the two footnoted copies still rhyme
+  PASS  an editorial BRACKET around the rhyme word keeps it
+          kampong
+  PASS  ...so quatrain 25's A-rhyme resolves: renchong / kampong
+  PASS  a bracketed gloss line still yields a word
+  PASS  editorial_parentheses='drop' takes the poet's word
+          nyiris
+  PASS  editorial_parentheses='keep' takes the editor's
+          nyirih
+  PASS  the default is the conservative reading
+          drop
+
+10. the ABAB pattern over all 82 Skeat quatrains
+          drop : 80/82 confirmed (97.6%), 2 refuted, 0 undecidable
+          keep : 82/82 confirmed (100.0%), 0 refuted, 0 undecidable
+  PASS  under 'keep' every one of the 82 confirms
+          (82, 0, 0)
+  PASS  under the default 'drop' 80 of 82 confirm — the 2 that do not are the two whose end word IS an editorial parenthesis
+          (80, 2, 0)
+  PASS  the two are quatrains 36 and 77 (1-indexed)
+          [36, 77]
+  PASS  no quatrain is UNDECIDABLE — the merger refusal never fires here
+
+11. a matched null: the same words, the non-mandated pairings
+          non-mandated pairs rhyming: 0/328 (0.0%)
+  PASS  the null is at or near zero, so 80/82 is not an inventory artefact
+          0/328
+
+12. identity is not rhyme (doctrine 3), and here it matters
+          over the 164 mandated pairs: {'RIME_RICHE': 84, 'REPEAT': 18, 'RHYME': 60, 'NONE': 2}
+  PASS  REPEAT is separated from RHYME rather than counted as one
+          {'RIME_RICHE': 84, 'REPEAT': 18, 'RHYME': 60, 'NONE': 2}
+  PASS  `Ijrail against itself is REPEAT
+  PASS  beriring against iring-iring is RIME_RICHE, not REPEAT
+          RIME_RICHE
+  PASS  tanjong against di-kandong is a plain RHYME
+          RHYME
+  PASS  echo_depth(purun, turun) == 1 — the rime syllable only
+          1
+  PASS  echo_depth(perabun, rabun) == 2 — a near-whole-word echo (quatrain 15, A-rhyme)
+          2
+  PASS  echo_depth(iring-iring, beriring) == 1 — the shared -iring is one syllable deep, because the onsets diverge above it
+          1
+
+13. the pembayang/maksud split is handed over, never scored
+  PASS  pembayang is lines 1-2
+  PASS  maksud is lines 3-4
+  PASS  the A pair is lines 1&3
+  PASS  the B pair is lines 2&4
+  PASS  no semantic field is offered
+          ['confirmed', 'maksud', 'pairs', 'pembayang', 'syllables']
+
+14. the pantun's grid is the syllable count per line
+          323/328 lines countable; 280 (85.4%) inside the declared 8-12; range 4-13
+  PASS  the declared band is stated, not inferred from the corpus
+          (8, 12)
+  PASS  most lines fall inside it
+          280/328
+  PASS  an uncountable line returns None rather than a partial count
+
+15. notation is declared; detection is a report for the caller
+          markers in the 82 quatrains: ['straits']
+  PASS  the corpus reads as Straits
+          ['straits']
+  PASS  and shows NO van Ophuijsen marker — this is the Wilkinson line
+          ['straits']
+  PASS  Dutch-orthography Malay IS flagged when present
+  PASS  modern Ejaan Rumi Baharu is flagged as modern
+  PASS  syllabify does not switch on the detector: nj stays TWO units
+          ['n', 'j', 'a', 'd', 'i']
+
+16. what the merger refusal costs, measured
+          mandated pairs refused on a merger: 0/164
+          null pairs refused on a merger:     0/328
+  PASS  the refusal costs this corpus nothing — it is uniformly Straits
+          0/164, 0/328
+  PASS  and it does fire on a cross-orthography set: 3 of 4
+          3/4
+
+17. the module declares itself and registers under its own name
+  PASS  msa is registered
+          ['cym', 'eng', 'fas', 'fin', 'ltc', 'msa', 'non', 'san', 'som']
+  PASS  registered under the name it declares
+  PASS  declares language
+  PASS  declares name
+  PASS  declares notation
+  PASS  declares grid_unit
+  PASS  declares prominence_rule
+  PASS  declares relation
+  PASS  declares source
+  PASS  notation names the orthography it reads
+  PASS  notation states what it refuses
+  PASS  relation names the form
+  PASS  source claims no external resource
+
+18. nothing here consults English (commitment 3)
+  PASS  msa imports no English resource
+          imports: ['quality', 're', 'unicodedata']
+  PASS  and imports nothing but the standard library and the interface
+          imports: ['quality', 're', 'unicodedata']
+==============================================================
+all Malay phonology regressions pass

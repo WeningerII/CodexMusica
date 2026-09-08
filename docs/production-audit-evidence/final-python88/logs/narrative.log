@@ -1,0 +1,30 @@
+
+1. the tables are closed and internally consistent
+  PASS  every candidate set is a subset of the closed atom vocabulary
+  PASS  every ENTER set is a subset of the closed atom vocabulary, and every junction has one
+  PASS  the TURN rule is held STRUCTURALLY: TURN appears in exactly the BUT and JUXTAPOSE enter sets — softened from BUT-only by the M-121 ruling on the kishotenketsu witness (the ten is a turn entered by juxtaposition); THEREFORE and AND_THEN stay out, and a membership edit is the mutation that kills this
+          TURN enterable by ['BUT', 'JUXTAPOSE']
+  PASS  every invariant-return function is a declared function with a non-empty candidate set (a card must have at least one face)
+  PASS  `verse` is NOT on the invariant-return roster — its own gloss returns with NEW WORDS, and binding the card rule to it would pin every verse of a song to one atom
+
+2. the encoded violate-it clauses
+  PASS  a bridge-opening shape admits NOTHING: bridge's only atom is TURN and a turn nothing precedes has nothing to flip
+  PASS  a tag-opening shape admits NOTHING: tag's only atom is JUDGE and judgment before anything has happened is an epigraph
+  PASS  the same functions NOT at the opening are fine — the rule is positional, not a ban on the function
+  PASS  RESOLVE needs a prior COMPLICATE: [intro, false_ending] admits nothing (false_ending's only atom is RESOLVE and intro's only atom is ESTABLISH), while [build, false_ending] admits (build IS the complication)
+
+3. the card rule and the room-between-returns rule (§D)
+  PASS  [drop, drop] counts exactly 3 — the ANCHOR card's three non-BUT inbound junctions; both drops share one card by construction
+          3
+  PASS  an interlude between two choruses RAISES the count — the wordless section carries no atom but IS intervening material, so the second chorus regains its inbound BUT
+          24 back-to-back vs 32 with room
+  PASS  the seam weight itself says why: ANCHOR<-ANCHOR back-to-back excludes BUT, with room admits it
+
+4. refusal and determinism
+  PASS  an unknown function REFUSES by name, listing the declared rows (doctrine 20)
+  PASS  the count is deterministic — two calls agree exactly (doctrine 66: no RNG, no set-order dependence)
+  PASS  the classic verse-chorus-bridge shape admits, its bridge TURN entered by BUT or JUXTAPOSE per the ruled edge rule
+
+5. the measured seeds — re-swept 2026-08-26 under the re-adopted song band, 2026-08-28 under the 22-function vocabulary (35 admit / 5 zero through both), and 2026-09-01 under the short-profile envelope (seeds 1-40: 36 admit, 4 admit zero — the census moved by one for the first time, and the exemplars are re-chosen again). ~~That 2026-09-01 sweep is the last basis~~ — REPINNED 2026-09-05 (`MISSING.md` M-239): the `lyric` LENGTH-CURVE profile superseded the `song` and `short` band rows on 2026-09-04, `song_line_counts()` is 1..447 and `fillable_line_counts()` 12..447 (was {6..20} | {22..55} and 12..55), so every seed's drawn LENGTH was re-rolled a fifth time and ~~the figures printed here were measured under the 12..55 envelope, not this one~~ — RE-SWEPT 2026-09-05 under M-239's envelope, which is what the figures below now are: seeds 1-40 are ~~36 admit / 4 zero~~ -> 34 ADMIT / 6 ZERO, and every exemplar is re-chosen from that sweep
+  FAIL  eighteen pinned seeds re-derive exactly (repinned 2026-09-05, M-239) — three shapes with line-ups (~~seeds 1 and 7 byte-identical~~, struck: all three re-dealt), seven class-crossers, the three zero-shapes refused at the OPENING (false_ending-, tag-, bridge-first), the two refused LATER by the RESOLVE-needs-a-prior-COMPLICATE clause at position 2, and one each at positions 3, 4 and 5
+          {1: 319488, 4: 24768, 6: 14976, 7: 320, 9: 26624, 15: 76096, 19: 143744, 23: 269568, 24: 83520, 25: 4160, 27: 1872, 28: 1872, 30: 4992, 31: 34112, 34: 6255616, 39: 111360, 77: 4608, 89: 149760}

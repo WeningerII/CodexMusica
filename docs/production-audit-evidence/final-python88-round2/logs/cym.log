@@ -1,0 +1,39 @@
+quality/test_cym.py — cym.readability_census, pinned
+
+1. Welsh: RESULTS_CYM_RHYME.md §6's two rows re-derive from the census
+  PASS  the §6 word-level table is still there and has BOTH rows
+          ['ALL tokens, 5 files', 'line-final tokens']
+  PASS  ALL tokens, 5 files: 29569/29443/0/126 {'vowelless_token': 126} — as published
+          census gives (29569, 29443, 0, 126, {'vowelless_token': 126})
+  PASS  line-final tokens: 5246/5198/0/48 {'vowelless_token': 48} — as published
+          census gives (5246, 5198, 0, 48, {'vowelless_token': 48})
+
+2. Welsh: the third count is THREE, not a bucket that is always empty
+  PASS  under every reading the published table covers, `refused` is 0 — so the published table ALONE cannot pin the bucket
+          [('depth 1 (SHIPPED)', 0), ('depth 2', 0), ('diacritics=keep', 0), ('glide=vocalic', 0), ('glide=consonantal', 0)]
+  PASS  rule='prominent' is the reading that LOADS it: 126 line-final tokens refused, all `no_prominent_syllable`
+          refused 126 {'no_prominent_syllable': 126, 'vowelless_token': 48}
+  PASS    and the refusal is PHONOLOGY's, while the 48 defective stay INGESTION's — doctrine 88, the two are not pooled
+          {'phonology': 126, 'ingestion': 48}
+  PASS  over ALL tokens the same reading refuses 8173 and still calls only 126 defective
+          refused 8173 defective 126 read 21270
+
+3. Welsh: §6's zero `out_of_inventory` is measured, not a dead branch
+  PASS  the staged Welsh corpus really does emit no `out_of_inventory`
+          {'vowelless_token': 48}
+  PASS  but real English tokens carrying k/q/x DO fire it, so the zero above is a count and not an unreachable branch
+          {'out_of_inventory': 5}
+  PASS    and a notation refusal is REFUSED, never DEFECTIVE — the distinction doctrine 88 asks the census to keep
+          refused 5 defective 0 read 3
+  PASS    `k`, `q` and `x` are genuinely outside the declared inventory
+
+4. Welsh: refused vs defective is UNREADABLE_REASONS' decision, and it is checked
+  PASS  read + refused + defective == total, on all 8 population x reading cases
+          []
+  PASS  sum(by_code) == refused + defective, so no code is counted in one place and dropped from the other
+          []
+  PASS  and every code's defect bit and layer are the ones UNREADABLE_REASONS declares
+          []
+  PASS  `undecided_glide` is declared but is NOT a word-level code — it takes a pair, and `pair_census` is where it can appear
+==============================================================
+cym.readability_census regressions pass

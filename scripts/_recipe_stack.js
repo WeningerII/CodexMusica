@@ -1054,6 +1054,15 @@ function compressCompactRecipe(cards, ceiling) {
 
 // ─────────────────────────── rich ───────────────────────────
 function compressRichRecipe(cards, ceiling) {
+  // Explicit part choices outrank stock material/gear descriptors under pressure.
+  // Use the actual rendered descriptors; variant IDs are not output tokens.
+  const pinnedDescriptors = new Set();
+  for (const card of cards) {
+    const parts = Object.fromEntries((card.pinnedParts || []).map((id) => [id, card.parts[id]]));
+    const inst = buildStackParts({ ...card, parts }).find((p) => p.kind === 'instrument');
+    for (const d of (inst && inst.descriptors) || []) pinnedDescriptors.add(d);
+  }
+  const richTier = (d) => (pinnedDescriptors.has(d) ? -1 : _descriptorTier(d));
   const rawChunks = [];
   for (const card of cards) {
     const parts = buildStackParts(card);
@@ -1169,7 +1178,10 @@ function compressRichRecipe(cards, ceiling) {
     }
   }
 
-  for (const c of finalChunks) c.descriptors = _sortDescriptorsByPriority(c.descriptors);
+  for (const c of finalChunks)
+    c.descriptors = _sortDescriptorsByPriority(c.descriptors).sort(
+      (a, b) => Number(pinnedDescriptors.has(b)) - Number(pinnedDescriptors.has(a))
+    );
 
   const renderChunk = (c) => {
     const tokens = [];
@@ -1192,7 +1204,7 @@ function compressRichRecipe(cards, ceiling) {
     for (let i = 0; i < finalChunks.length; i++) {
       if (finalChunks[i].descriptors.length === 0) continue;
       const last = finalChunks[i].descriptors[finalChunks[i].descriptors.length - 1];
-      const t = _descriptorTier(last);
+      const t = richTier(last);
       const better =
         t > targetTier ||
         (t === targetTier &&

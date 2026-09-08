@@ -1,0 +1,113 @@
+
+1. the defect is reachable, and its size is DERIVED not recalled
+  PASS  the declaration implies a per-position error far past alpha
+          1-(1-r)^m = 84.3% with r=0.0206 (per-pair FPR at theta=0.8, over ALL valid chance draws) and m=89 (candidate comparisons per position); alpha=0.05
+  PASS  the uncorrected saturation tracks that prediction
+          observed 55.0% against predicted 84.3%; the prediction over-reads by a stable ~1.4x across all four band settings because the median family overstates a typical position's DISTINCT comparisons and the tests are positively dependent
+  PASS  corrected saturation lands inside the declared ceiling
+          0.0% against 75%
+  PASS  each position really is a family of many comparisons
+          median family 89
+
+2. M-4a — m is the comparisons MADE, not the ones that survived
+  PASS  the defect is reachable and moves with the band
+          family='scored': H0 false-event rate 4.0% at theta_coda 0.60 -> 21.4% at 0.80. A TIGHTER band gives a HIGHER corrected error rate, which is the signature of an m that is counted downstream of the filter
+  PASS  counting the candidates makes the rate invariant to the band
+          family='candidate': 0.0% at theta_coda 0.60, 0.0% at 0.80 — the correction no longer reads the band
+  PASS  the primary family population is the candidates
+          'scored' stays reachable so the defect stays demonstrable (doctrine 84); it is not the default
+  PASS  and the invariance is not bought by muting only the tight arm
+          5/6 and 5/6 H0 items refuse under either band — the power cost is real and it is the SAME cost at both settings, so it is not the band that caused it
+
+3. P2 — the corrected false-event rate sits at alpha
+  PASS  word-scrambled text sits at or below the declared alpha
+          pooled 0.0% over 1321 slot decisions in n=20 items, against alpha 5.0% (tolerance 6.2% = alpha + 2 s.e. on 1321 decisions). The tolerance is set from the CLAIM, and at this width a 2x miss — the 9.6% doctrine 72 measured — FAILS, which `mean < 0.20` on three sonnets could not
+  PASS  a zero rate is accounted for, never just accepted
+          16/20 H0 items returned CANNOT TELL rather than 0 events. At the honest family size the rate is 0.0% because the instrument is mute on this material, not because alpha was hit — and the layer says which
+
+4. P3 TRIPWIRE — REGISTERED FORM FALSIFIED, kept and restated
+          P3 as registered (n > 0): FALSIFIED — 0 events at 0%
+  PASS  an unfirable item REFUSES instead of reporting zero events
+          NO EVENT WAS ATTAINABLE. The best pair in this item reaches p = 4.95e-03; the loosest per-position cut is 1.90e-03, so no candidate could have been declared an event at alpha=0.05 however perfect it w
+  PASS  the refusal is arithmetic anyone can check
+          best attainable p 4.95e-03 against the loosest per-position cut 1.90e-03; the floor is the number of CHANCE re-pairings of this item's own spans that are themselves perfect rhymes
+  PASS  the cost is priced, not buried
+          family='scored' returns 3 events here and family='candidate' returns 0. Those 3 were bought by a cut 1.9e-03 -> looser, i.e. by not counting the comparisons that failed the band
+
+5. doctrine 28's tripwire, and its threshold is a COORDINATE
+  PASS  the guard carries the setting it was measured at
+          2 x max over 30 Shakespeare sonnets = 2 x 0.076, measured 2026-08-11 at alignment=tail, theta_coda=0.80, theta=0.80, window=32, null_samples=20000. Re
+  PASS  the degenerate item is refused under tail (shipped)
+          22% of RANDOM re-pairings in this item already pass the rhyme band, above the declared 15%. The item's own inv
+  PASS  the refusal reports a band-pass rate above the guard under tail (shipped)
+          0.225 against a guard of 0.152
+  PASS  real verse is nowhere near the guard under tail (shipped)
+          0.086
+  PASS  the degenerate item is refused under head (pre-b1d7f64)
+          43% of RANDOM re-pairings in this item already pass the rhyme band, above the declared 15%. The item's own inv
+  PASS  the refusal reports a band-pass rate above the guard under head (pre-b1d7f64)
+          0.426 against a guard of 0.152
+  PASS  real verse is nowhere near the guard under head (pre-b1d7f64)
+          0.077
+
+6. the null counts chance pairs that FAIL the band
+  PASS  null_scores reports the valid-draw count separately
+          254 scored, 3000 valid draws — the difference is chance pairs that failed the band and still belong in the denominator
+  PASS  an unbeatable score gets the resolution floor, never zero
+          p = 3.33e-04
+  PASS  the denominator is the valid draws, not the band-passing ones
+          conditioning on the band inflates every p-value
+
+7. BH needs a finer tail than FWER and says so when it lacks one
+  PASS  BH refuses when its own threshold is below the p-value floor
+          BH needs a p-value resolution finer than q/n = 1.37e-05; this null resolves to 5.00e-04. Raise null_samples to at least 73030 or u
+  PASS  FWER's threshold is orders of magnitude coarser than BH's
+          alpha/m with m = 203 is 2.5e-04; q/n with n = 7303 is 1.4e-05. That ordering is what doctrine 29 claims and it survives
+          AMENDS DOCTRINE 29: at null_samples=2000 the FWER cut 2.5e-04 sits BELOW the p-value floor 5.0e-04. m ~ 15 was the scored family.
+  PASS  the DEFAULT declaration resolves its own FWER cut
+          cut 2.5e-04 against resolution 5.0e-05 at null_samples=20000 — 5x of headroom, where BH would need 73030 draws
+
+8. the BH helper is the standard step-up
+  PASS  nothing is discovered when every p is large
+  PASS  the largest qualifying p is returned
+  PASS  an empty family discovers nothing
+  PASS  the family size may exceed the p-values supplied
+          pairs that fail the band are hypotheses with p = 1; they never qualify but they stay in n
+
+10. RESULTS_FWER named two routes out of muteness; both are dead
+  PASS  the layer reports M_NEEDED, the size that decides
+          m_needed=12 (largest family at which this item's best pair still fires) against a median family of 203; 0.0% of positions are small enough
+  PASS  the gap at a TYPICAL position is an order of magnitude, not 1.8x
+          m_med/M_NEEDED = 16.9x. The 1.7-1.8x in the record is min_p against the cut at the SMALLEST family, a position at the edge of the item where the best pair is not; `loosest_cut` is an upper bound on attainability and was read as an estimate of it
+  PASS  no chance draw ever beats the item's best pair -- they TIE it
+          best score 1.0, 84 draws at or above it, 0 strictly above. The comparator saturates at a perfect rhyme, so min_p is the density of perfect chance re-pairings -- a rate, not a floor
+  PASS  min_p sits far above the resolution it is supposedly limited by
+          min_p 4.20e-03 against a resolution of 5.00e-05 — 84x above it, so the tail is resolved and the answer is still no
+  PASS  a 10x finer null does not halve min_p, which is what a floor would
+          3.998e-03 at 2,000 draws -> 4.200e-03 at 20,000, while the resolution floor fell 10x. At 200,000 it is 4.415e-3, i.e. HIGHER than at 20,000: more draws estimate the tie rate upward. The lever runs backwards
+  PASS  the window only reaches the range once it is no wider than a span
+          the median family first drops to M_NEEDED at window 2, against max_span=3. A window that small admits only pairs whose two anchors are ADJACENT, so the setting that lets the layer speak is the setting at which it is no longer measuring rhyme at a distance
+  PASS  and min_p does not move with the window, so nothing was bought
+          the null re-pairs the item's spans at ANY distance while the observed pairs are window-bounded; narrowing the window removes comparisons and leaves the null's perfect-pair density alone. A window-MATCHED null would draw from exactly the scored population and every p would be uniform by construction (doctrine 68), so the mismatch is the only thing giving the p-value content
+
+9. every knob is a coordinate
+  PASS  correction is declared
+          correction=sidak
+  PASS  family is declared
+          family=candidate
+  PASS  alpha is declared
+          alpha=0.05
+  PASS  q is declared
+          q=0.1
+  PASS  null_samples is declared
+          null_samples=20000
+  PASS  max_null_band_pass is declared
+          max_null_band_pass=0.152
+  PASS  max_null_band_pass_basis is declared
+          max_null_band_pass_basis=2 x max over 30 Shakespeare sonnets = 2 x 0.076, measured 20
+  PASS  max_saturation is declared
+          max_saturation=0.75
+  PASS  the primary correction is the family-wise one
+          the question the event set asks is per-position, so FWER is the guarantee that matches it
+==============================================================
+all family-wise-error regressions pass

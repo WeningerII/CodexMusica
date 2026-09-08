@@ -46,7 +46,8 @@ NLTK_DIR = os.path.join(DATA, "nltk")
 
 #: The two staging commands, ONE spelling: the refusal in
 #: `staged_resources_or_refuse` prints it and `README.md` quotes it. `pip`
-#: supplies the package; `fetch_data.py` stages the norms and the model.
+#: supplies the package; default staging supplies runtime models. Research
+#: refusals append --research when concreteness norms are requested.
 STAGING_COMMANDS = ("python3 -m pip install nltk && "
                     "python3 quality/fetch_data.py")
 
@@ -147,7 +148,7 @@ def _tagger():
     return nltk.pos_tag
 
 
-def staged_resources_or_refuse():
+def staged_resources_or_refuse(require_concreteness=True):
     """REFUSE at exit 2, in the ONE refusal shape, unless the floor's three
     staged resources are all present. -> None when they are.
 
@@ -183,12 +184,14 @@ def staged_resources_or_refuse():
     apart and never summed (doctrine 79).
     """
     norms, package, model = STAGED_RESOURCES
+    required = STAGED_RESOURCES if require_concreteness else STAGED_RESOURCES[1:]
     present, missing, unprobed = [], [], []
     path = os.path.abspath(os.path.join(DATA, "concreteness.txt"))
-    if os.path.exists(path):
-        present.append(f"{norms} at {path}")
-    else:
-        missing.append(f"{norms} -- nothing at {path}")
+    if require_concreteness:
+        if os.path.exists(path):
+            present.append(f"{norms} at {path}")
+        else:
+            missing.append(f"{norms} -- nothing at {path}")
     try:
         import nltk
     except ImportError as e:
@@ -207,13 +210,13 @@ def staged_resources_or_refuse():
     if not missing:
         return
     from lyric_harness import _refuse
-    _refuse(f"the slop floor needs {len(STAGED_RESOURCES)} staged resources "
+    _refuse(f"the requested quality features need {len(required)} staged resources "
             f"and {len(missing)} of them "
             f"{'is' if len(missing) == 1 else 'are'} missing",
             detail=[f"MISSING     {m}" for m in missing]
             + [f"NOT PROBED  {u}" for u in unprobed]
             + [f"PRESENT     {p}" for p in present]
-            + [f"stage them: {STAGING_COMMANDS}",
+            + [f"stage them: {STAGING_COMMANDS}" + (" --research" if require_concreteness else ""),
                f"read from {os.path.abspath(DATA)} (LYRIC_STAGED_DATA "
                f"overrides that directory; NLTK_DATA overrides the model's)",
                "doctrine 20: a refusal, not a grade -- this verb did not "
@@ -394,14 +397,23 @@ class QualityFeatures:
         "content_word_freq_mean": "higher",
     }
 
-    def __init__(self, lex=None, decl=None, mattr_window=MATTR_WINDOW):
+    CONCRETENESS_FEATURES = frozenset(("concreteness_mean", "concreteness_p90", "abstract_noun_ratio"))
+
+    def __init__(self, lex=None, decl=None, mattr_window=MATTR_WINDOW, features=None):
         # FIRST, before a lexicon is built: when a resource is absent the
         # refusal IS the answer, and a caller should not pay for the lexicon
         # to hear it (M-188; the check's docstring carries the argument).
-        staged_resources_or_refuse()
+        self.requested_features = frozenset(self.NAMES if features is None else features)
+        unknown = self.requested_features - set(self.NAMES)
+        if unknown:
+            raise ValueError(f"unknown requested quality features: {sorted(unknown)}")
+        needs_norms = bool(self.requested_features & self.CONCRETENESS_FEATURES)
+        staged_resources_or_refuse(require_concreteness=needs_norms)
         self.lex = lex or Lexicon()
         self.decl = decl or Declaration()
-        self.conc = load_concreteness()
+        self.conc = load_concreteness() if needs_norms else {}
+        self.unavailable_features = {name: "not included in this extractor's feature declaration"
+                                     for name in set(self.NAMES) - self.requested_features}
         self.field = RhymeField(self.lex, self.decl)
         self.pos_tag = _tagger()
         #: the window `extract()` uses when its caller names none. A caller
@@ -553,7 +565,7 @@ class QualityFeatures:
         cb = wb[-1].lower().strip("'-.,;:!?") if wb else ""
         return ca, cb, k
 
-    def extract(self, lines, scheme=None, mattr_window=None):
+    def extract(self, lines, scheme=None, mattr_window=None, features=None):
         """Feature vector for one poem/lyric. `scheme` supplies the mandated
         rhyme pairs; without it, adjacent couplets are assumed.
 
@@ -562,25 +574,31 @@ class QualityFeatures:
         rather than how it is scored — see `_mattr`. None means "use whatever
         this instance was built with", so every existing caller is unmoved.
         """
+        requested = self.requested_features if features is None else frozenset(features)
+        unavailable = requested - self.requested_features
+        if unavailable:
+            raise ValueError(f"requested quality features are unavailable: {sorted(unavailable)}; "
+                             "construct an extractor with the required resources")
         lines = [l for l in lines if l.strip()]
         if not lines:
-            return {n: float("nan") for n in self.NAMES}
+            return {name: float("nan") for name in self.NAMES if name in requested}
         if scheme and len(scheme) == len(lines):
             pairs = self.pairs_from_scheme(scheme)
         else:
             pairs = [(i, i + 1) for i in range(0, len(lines) - 1, 2)]
-
         tagged = self._tag_lines(lines)
         flat = [(w.lower(), t) for tl in tagged for w, t in tl]
         words = [w for w, _ in flat]
 
         # 1-2 rhyme predictability
-        pred = [v for _i, _j, v in self._predictability(lines, pairs)]
+        pred = ([v for _i, _j, v in self._predictability(lines, pairs)]
+                if requested & {"rhyme_predictability_mean", "rhyme_predictability_min"} else [])
         f_pred_mean = sum(pred) / len(pred) if pred else float("nan")
         f_pred_min = min(pred) if pred else float("nan")
 
         # 3-5 concreteness
-        content = [w for w, t in flat if t in CONTENT_TAGS]
+        content = ([w for w, t in flat if t in CONTENT_TAGS]
+                   if requested & (self.CONCRETENESS_FEATURES | {"content_word_freq_mean"}) else [])
         cvals = [self.conc[w] for w in content if w in self.conc]
         f_conc_mean = sum(cvals) / len(cvals) if cvals else float("nan")
         if cvals:
@@ -588,7 +606,8 @@ class QualityFeatures:
             f_conc_p90 = srt[min(len(srt) - 1, int(0.9 * len(srt)))]
         else:
             f_conc_p90 = float("nan")
-        nouns = [w for w, t in flat if t in NOUN_TAGS and w in self.conc]
+        nouns = ([w for w, t in flat if t in NOUN_TAGS and w in self.conc]
+                 if "abstract_noun_ratio" in requested else [])
         if nouns:
             f_abstract = sum(1 for w in nouns
                              if self.conc[w] < CONC_ABSTRACT) / len(nouns)
@@ -600,7 +619,7 @@ class QualityFeatures:
         # not inflection, so sang/hang must not count as a category difference
         # merely because one is VBD and the other VB.
         tagmap = {}
-        for i, tl in enumerate(tagged):
+        for i, tl in enumerate(tagged if "pos_binding_diversity" in requested else []):
             if tl:
                 tagmap[i] = self._coarse(tl[-1][1])
         diffs = [1.0 if tagmap.get(i) != tagmap.get(j) else 0.0
@@ -612,21 +631,23 @@ class QualityFeatures:
         #   returns plain TTR instead (see `_mattr`).
         f_mattr = self._mattr(
             words,
-            self.mattr_window if mattr_window is None else mattr_window)
+            self.mattr_window if mattr_window is None else mattr_window) if "mattr" in requested else float("nan")
 
         # 8 function-word share
         f_func = (sum(1 for _, t in flat if t in FUNCTION_TAGS) / len(flat)
                   if flat else float("nan"))
 
         # 9 syntactic strain
-        f_inv = sum(self._inversions(tl) for tl in tagged) / len(tagged)
+        f_inv = (sum(self._inversions(tl) for tl in tagged) / len(tagged)
+                 if "syntactic_inversion_rate" in requested else float("nan"))
 
         # 10 rarity of the content vocabulary
         oov = getattr(self.lex, "freq_rank_oov", len(self.lex.freq_rank))
-        cranks = [self.lex.freq_rank.get(w, oov) for w in content]
+        cranks = ([self.lex.freq_rank.get(w, oov) for w in content]
+                  if "content_word_freq_mean" in requested else [])
         f_freq = sum(cranks) / len(cranks) if cranks else float("nan")
 
-        return {
+        values = {
             "rhyme_predictability_mean": f_pred_mean,
             "rhyme_predictability_min": f_pred_min,
             "concreteness_mean": f_conc_mean,
@@ -638,6 +659,7 @@ class QualityFeatures:
             "syntactic_inversion_rate": f_inv,
             "content_word_freq_mean": f_freq,
         }
+        return {name: value for name, value in values.items() if name in requested}
 
     @staticmethod
     def _coarse(tag):

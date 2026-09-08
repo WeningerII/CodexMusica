@@ -33,6 +33,7 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
   group: sync-pages
@@ -86,6 +87,11 @@ jobs:
         with:
           node-version: '22'
           cache: npm
+
+      - name: Require exact trusted CI before publishing, including manual dispatch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/verify_ci.mjs "$(git rev-parse HEAD)"
 
       # --ignore-scripts, defensively. The gate above is what keeps untrusted
       # code out of this write-privileged job; this is the second lock on the

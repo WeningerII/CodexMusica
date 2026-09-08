@@ -1,0 +1,239 @@
+--- before/lyric_harness.py
++++ after/lyric_harness.py
+@@ -7351,18 +7351,23 @@
+     from quality.revise import draft_fingerprint
+     import hashlib
+     import tempfile
++    import uuid
+ 
+     path = os.environ.get("LYRIC_CHECKPOINT_PATH")
+     initial = list(lines or ())
+     state = {"version": 1, "input_draft": initial,
++             "journal_id": uuid.uuid4().hex,
+              "input_fingerprint": draft_fingerprint(initial),
+              "config_key": config_key, "proposer": spec,
+              "accepted_lines": initial, "round": 0, "status": "started",
+              "proposals": [], "answered": {"propose": [], "propose_group": []}}
++    input_checkpoint_sha256 = None
+     if path and os.path.exists(path) and os.path.getsize(path):
+         try:
+-            with open(path, encoding="utf-8") as fh:
+-                prior = json.load(fh)
++            with open(path, "rb") as fh:
++                checkpoint_bytes = fh.read()
++            input_checkpoint_sha256 = hashlib.sha256(checkpoint_bytes).hexdigest()
++            prior = json.loads(checkpoint_bytes)
+             if not isinstance(prior, dict):
+                 raise ValueError("checkpoint must be an object")
+             if (prior.get("version") != 1
+@@ -7393,17 +7398,49 @@
+                             isinstance(answer, list)
+                             and all(isinstance(x, str) for x in answer)))):
+                     raise ValueError("invalid completed proposal record")
+-            state = prior
++            journal_id = prior.get("journal_id", state["journal_id"])
++            if (not isinstance(journal_id, str) or len(journal_id) != 32
++                    or any(c not in "0123456789abcdef" for c in journal_id)):
++                raise ValueError("invalid journal identity")
++            state = dict(prior, journal_id=journal_id)
+         except (OSError, ValueError, TypeError) as e:
+             raise ProposerUnavailable(f"checkpoint cannot resume: {e}") from e
+     cursor = 0
+     replay_count = len(state["proposals"])
++    accepted_at_start = list(state["accepted_lines"])
++    applied_ids_at_start = sorted({o["outcome_id"]
++        for o in state.get("verified_outcomes", ())
++        if isinstance(o, dict) and o.get("accepted") is True and o.get("applied") is True
++        and isinstance(o.get("outcome_id"), str) and len(o["outcome_id"]) == 64
++        and all(c in "0123456789abcdef" for c in o["outcome_id"])})
++    # A prior answer is replay input, not a new verifier receipt. Rebuild
++    # this projection only as the actual verifier visits each proposal.
++    # Stable IDs let consumers deduplicate the same decision across resumes.
++    state["verified_outcomes"] = []
++    confirmed = {}
++    active = None
++    replayed_completed = 0
++    dispatched = []
+     _journal_admit(state, lines=state["accepted_lines"], path=path,
+                    ceiling=JOURNAL_BYTES)
+     if state.get("new_run_required"):
+         raise _JournalCapacity(state, state["accepted_lines"], path)
+ 
++    def resume_record():
++        return {"version": 1, "journal_id": state["journal_id"],
++                "checkpoint_loaded": input_checkpoint_sha256 is not None,
++                "input_checkpoint_sha256": input_checkpoint_sha256,
++                "input_draft_sha256": draft_sha(initial),
++                "accepted_draft_sha256_at_start": draft_sha(accepted_at_start),
++                "applied_outcome_ids_at_start": applied_ids_at_start,
++                "completed_proposals_at_start": replay_count,
++                "completed_proposals_replayed": replayed_completed,
++                "new_proposer_dispatches": len(dispatched),
++                "completed_proposal_redispatches": sum(i < replay_count for i in dispatched),
++                "replay_prefix_consumed": cursor >= replay_count}
++
+     def emit():
++        state["resume_proof"] = resume_record()
+         _journal_admit(state, lines=state["accepted_lines"], path=path,
+                        ceiling=JOURNAL_BYTES)
+         data = json.dumps(state, ensure_ascii=False, separators=(",", ":"))
+@@ -7432,28 +7469,55 @@
+     def checkpoint(current, round_no, status, **extra):
+         # Replaying a prefix may temporarily visit older accepted drafts.
+         # Keep the durable furthest checkpoint until that prefix is consumed.
+-        if cursor < replay_count:
++        applied = None
++        if status == "accepted" and active is not None:
++            index = active["index"]
++            prior_outcome = confirmed.get(index)
++            if prior_outcome is not None and prior_outcome["accepted"]:
++                current_hash = draft_sha(current)
++                if current_hash != prior_outcome["after_draft_sha256"]:
++                    raise ProposerUnavailable(
++                        "accepted checkpoint differs from the verified candidate")
++                applied = dict(prior_outcome, applied=True,
++                               applied_draft_sha256=current_hash)
++        if cursor < replay_count and applied is None:
+             return
+-        trial = dict(state, accepted_lines=list(current), round=round_no, status=status)
+-        if status != "finished":
++        trial = (dict(state) if cursor < replay_count else
++                 dict(state, accepted_lines=list(current), round=round_no, status=status))
++        if applied is not None:
++            projection = dict(confirmed)
++            projection[active["index"]] = applied
++            trial["verified_outcomes"] = [projection[i] for i in sorted(projection)]
++        if status != "finished" and cursor >= replay_count:
+             for key in ("final_draft", "coverage", "stop", "exit"):
+                 trial.pop(key, None)
+         trial.update(extra)
+         _journal_admit(trial, lines=current, path=path, ceiling=JOURNAL_BYTES,
+                        prior=state)
++        previous = dict(state)
+         state.clear()
+         state.update(trial)
+-        emit()
++        try:
++            emit()
++        except BaseException:
++            state.clear()
++            state.update(previous)
++            raise
++        if applied is not None:
++            confirmed[active["index"]] = applied
+ 
+     def ask(kind, prompt, current, round_no, call, record):
+-        nonlocal cursor
++        nonlocal cursor, active, replayed_completed
+         identity = hashlib.sha256(prompt.encode("utf-8")).hexdigest()
++        active = {"index": cursor, "kind": kind, "record": dict(record),
++                  "current": list(current), "question_sha256": identity}
+         if cursor < replay_count:
+             event = state["proposals"][cursor]
+             if event.get("kind") != kind or event.get("question_sha256") != identity:
+                 raise ProposerUnavailable(
+                     "checkpoint replay question differs; no new writer request was made")
+             cursor += 1
++            replayed_completed += 1
+             return event.get("answer")
+         count = 1 if kind == "propose" else len(record["members"])
+         # Count actual record text/return-closure metadata, both answer copies,
+@@ -7464,6 +7528,7 @@
+         _journal_admit(state, reserve, lines=current, path=path)
+         checkpoint(current, round_no, "proposing")
+         try:
++            dispatched.append(cursor)
+             answer = call()
+         except ProposerUnavailable as error:
+             if getattr(error, "code", None) == "PROVIDER_PROPOSAL_TOO_LARGE":
+@@ -7490,6 +7555,62 @@
+         emit()
+         return answer
+ 
++    def draft_sha(current):
++        # Same canonical line-array bytes as the connector's final draft hash.
++        return hashlib.sha256(json.dumps(list(current), ensure_ascii=False,
++            separators=(",", ":")).encode("utf-8")).hexdigest()
++
++    def verified(kind, before, after, members, verdict, round_no):
++        if (active is None or active["kind"] != kind
++                or active["index"] != cursor - 1
++                or active["current"] != before
++                or type(verdict.get("accepted")) is not bool):
++            raise ProposerUnavailable("verifier outcome has no matching completed proposal")
++        event = state["proposals"][active["index"]]
++        answer, record = event["answer"], active["record"]
++        if record.get("round") is not None and record["round"] != round_no:
++            raise ProposerUnavailable("verifier round differs from the completed proposal")
++        members = list(members)
++        if (answer is None or len(after) != len(before)
++                or not members or len(set(members)) != len(members)
++                or any(type(n) is not int or n < 1 or n > len(before) for n in members)):
++            raise ProposerUnavailable("verifier outcome has invalid proposal coordinates")
++        proposed = ([answer] * len(members) if kind == "propose" else answer)
++        if (kind == "propose" and record["line"] not in members
++                or kind == "propose_group" and members != record["members"]
++                or [after[n - 1] for n in members] != proposed
++                or any(after[i] != before[i] for i in range(len(before))
++                       if i + 1 not in members)):
++            raise ProposerUnavailable("verifier outcome differs from the returned proposal")
++        entry = {"kind": kind, "proposal_index": active["index"],
++                 "question_sha256": active["question_sha256"],
++                 "round": round_no, "attempt": record.get("attempt"),
++                 "members": members, "accepted": verdict["accepted"],
++                 "applied": False, "reasons": list(verdict.get("reasons") or ()),
++                 "before_draft_sha256": draft_sha(before),
++                 "after_draft_sha256": draft_sha(after)}
++        key = [state["journal_id"], config_key, state["input_fingerprint"], entry["proposal_index"],
++               kind, entry["question_sha256"], round_no, entry["attempt"], members,
++               answer, entry["after_draft_sha256"]]
++        entry["outcome_id"] = hashlib.sha256(json.dumps(key, ensure_ascii=False,
++            separators=(",", ":")).encode("utf-8")).hexdigest()
++        projection = dict(confirmed)
++        projection[active["index"]] = entry
++        trial = dict(state, verified_outcomes=[projection[i] for i in sorted(projection)])
++        _journal_admit(trial, lines=state["accepted_lines"], path=path, prior=state)
++        previous = dict(state)
++        state.clear()
++        state.update(trial)
++        # Persist the decision before control returns to the loop. Only the
++        # subsequent accepted checkpoint can attest that it was applied.
++        try:
++            emit()
++        except BaseException:
++            state.clear()
++            state.update(previous)
++            raise
++        confirmed[active["index"]] = entry
++
+     def wrapped_one(brief, current, attempt, reasons=None, whole=()):
+         round_no = getattr(brief, "round_no", None)
+         prompt = render_line(brief, current, whole=whole,
+@@ -7504,10 +7625,18 @@
+         return ask("propose_group", render_group(brief), brief.lines, round_no,
+                    lambda: two(brief),
+                    {"members": list(members), "texts": list(texts),
+-                    "words": list(words), "round": round_no})
++                    "words": list(words), "round": round_no,
++                    "attempt": getattr(brief, "attempt", None)})
+ 
+     wrapped_one.checkpoint = checkpoint
+     wrapped_one.checkpoint_state = state
++    wrapped_one.verified = lambda *args: verified("propose", *args)
++    wrapped_two.verified = lambda *args: verified("propose_group", *args)
++    def verification_record():
++        import copy
++        return {"verified_outcomes": copy.deepcopy(state["verified_outcomes"]),
++                "resume_proof": resume_record(), "stale_answers": 0}
++    wrapped_one.verification_record = verification_record
+     return wrapped_one, wrapped_two if two is not None else None
+ 
+ 
+@@ -7667,6 +7796,7 @@
+                    "back to quality/loop.py's own stub slot-swap, so any "
+                    "backtracked line is a SPLICE and not proposed text"))
+     one, two = _checkpoint_proposer(one, two, lines, checkpoint_key, spec)
++    disclosure.record = one.verification_record
+     return one, two, disclosure
+ 
+ 

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { CONNECTOR_VERSION } from './contract_version.js';
 // server_http.js — run the CodexMusica MCP server over Streamable HTTP.
 //
 // This is the deployable entry point. Host it at an HTTPS URL and add it in
@@ -32,7 +33,11 @@ import {
   redactJobCapability,
 } from './job_store.js';
 import { withExecutionContext } from './execution_context.js';
+import { HTTP_REQUEST_BYTES } from './payload_limits.js';
+import { lyricCapacity } from './lyric_tools.js';
 import { createOperationBudget } from './paid_budget.js';
+import { effectiveConfiguration } from './runtime_config.js';
+import { runtimeAssets } from './runtime_assets.js';
 
 const PORT = process.env.PORT || 3000;
 const MCP_PATH = process.env.MCP_PATH || '/mcp';
@@ -152,11 +157,31 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.json({ limit: '2mb' }));
+app.use(express.json({ limit: HTTP_REQUEST_BYTES }));
 
-// Permissive CORS so browser-based MCP clients / the Inspector can connect.
+// Supplied browser origins are checked before any dispatch, including preflights.
+// Native clients without Origin follow the public endpoint's access policy.
+const allowedOrigins = new Set(
+  (
+    process.env.MCP_ALLOWED_ORIGINS ||
+    'https://weningerii.github.io,https://codex-musica-mcp.onrender.com'
+  )
+    .split(',')
+    .map((x) => x.trim())
+    .filter(Boolean)
+);
+for (const origin of allowedOrigins) {
+  if (origin === '*' || new URL(origin).origin !== origin)
+    throw new Error('MCP_ALLOWED_ORIGINS must list exact trusted origins, never a wildcard.');
+}
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+  const origin = req.headers.origin;
+  if (origin !== undefined && (typeof origin !== 'string' || !allowedOrigins.has(origin)))
+    return res.status(403).json({ error: 'Origin is not permitted by this service.' });
+  if (origin) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Vary', 'Origin');
+  }
   res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, mcp-session-id, mcp-protocol-version');
   if (req.method === 'OPTIONS') return res.sendStatus(204);
@@ -182,15 +207,21 @@ try {
   jobStore = new JobStore();
   jobStore.failure = err.message;
 }
-app.use(createJobRouter({ store: jobStore, build: buildIdentity }));
-
+let chatRouter;
 app.use(
-  await createChatRouter({
-    buildServer,
-    Client,
-    InMemoryTransport,
+  createJobRouter({
+    store: jobStore,
+    build: buildIdentity,
+    recoverCheckpoint: (record) => chatRouter?.recoverCheckpoint?.(record),
   })
 );
+
+chatRouter = await createChatRouter({
+  buildServer,
+  Client,
+  InMemoryTransport,
+});
+app.use(chatRouter);
 
 // M-230: the process says WHICH BUILD it is. mcp/check_live.mjs compares the
 // tool surface, and a change that touches no tool (the M-228/M-229 merge —
@@ -203,6 +234,8 @@ app.get('/health', (_req, res) =>
   res.json({
     ok: true,
     service: 'codex-musica-mcp',
+    lyrics: chatRouter.readiness(),
+    queue: lyricCapacity(),
     commit: buildIdentity.commit,
     build: buildIdentity,
     recovery: {
@@ -214,6 +247,22 @@ app.get('/health', (_req, res) =>
     },
   })
 );
+
+app.get('/ready', (_req, res) => {
+  const lyrics = chatRouter.readiness();
+  const assets = runtimeAssets();
+  const ready = lyrics.ready === true && !jobStore.failure && assets.ok;
+  res.status(ready ? 200 : 503).json({
+    ready,
+    capabilities: { recipe: true, lyrics: ready },
+    lyrics,
+    recovery: { durable: jobStore.durable, healthy: !jobStore.failure },
+    queue: lyricCapacity(),
+    build: buildIdentity,
+    assets,
+    configuration: effectiveConfiguration(),
+  });
+});
 
 // A one-hop pointer for anyone who opens the bare origin in a browser, so the
 // root is not express's default "Cannot GET /". The MCP handshake is the whole
@@ -238,13 +287,15 @@ app.get('/.well-known/mcp.json', (_req, res) =>
     name: 'io.github.weningerii/codex-musica',
     title: 'Codex Musica',
     description:
-      `Deterministic recording-recipe workspace: seed a recipe from any of ${counts.traditions} music ` +
-      'traditions and edit it (prefaces, part variants, room/chain/tuning, instruments) — ' +
-      'the headless twin of the browser app, read-only and reproducible.',
-    version: '2.1.0',
+      `Recording recipes over ${counts.traditions} traditions and a separate lyrics planning, grading and revision pipeline. ` +
+      'Recipe tools are deterministic. Lyrics revision stores private run state and optional kitchen writing makes paid external model calls.',
+    version: CONNECTOR_VERSION,
     transport: 'streamable-http',
     endpoint: PUBLIC_MCP_URL,
     authentication: 'none',
+    taskEndpoints: { recipe: PUBLIC_MCP_URL + '/recipe', lyrics: PUBLIC_MCP_URL + '/lyrics' },
+    privacy:
+      'Lyrics requests, accepted drafts, recovery receipts and accounting can be persisted. Kitchen writing sends its brief to the configured provider.',
     documentation: 'https://weningerii.github.io/CodexMusica/AGENTS.md',
     websiteUrl: 'https://weningerii.github.io/CodexMusica',
     repository: 'https://github.com/WeningerII/CodexMusica',
@@ -270,7 +321,8 @@ function tooMany(res, retryAfterMs) {
   });
 }
 
-app.post(MCP_PATH, async (req, res) => {
+const mcpPaths = [MCP_PATH, MCP_PATH + '/recipe', MCP_PATH + '/lyrics'];
+app.post(mcpPaths, async (req, res) => {
   const ip = clientIp(req);
   const now = Date.now();
   const perMin = mcpWindows.hit(`mcp:${ip}`, 60_000, MCP_LIMITS.perIpPerMinute, now);
@@ -287,14 +339,22 @@ app.post(MCP_PATH, async (req, res) => {
   console.error(`[mcp] ${describe(req.body)}`);
   // Stateless: brand-new server + transport for this single request.
   const controller = new AbortController();
+  const domain =
+    req.path === MCP_PATH + '/recipe'
+      ? 'recipe'
+      : req.path === MCP_PATH + '/lyrics'
+        ? 'lyrics'
+        : null;
+  const task = domain ? { domain, format: 'rich', maxChars: 1000 } : null;
   const context = {
+    task,
     signal: controller.signal,
     budget: createOperationBudget({
       maxUsd: Number(process.env.CHAT_MAX_TURN_USD) || 2.5,
       dailyUsd: Number(process.env.CHAT_DAILY_USD) || 25,
     }),
   };
-  const server = buildServer();
+  const server = buildServer(task ? { task } : {});
   const transport = new StreamableHTTPServerTransport({ sessionIdGenerator: undefined });
   res.on('close', () => {
     controller.abort(new Error('MCP client disconnected'));
@@ -329,8 +389,8 @@ const notAllowed = (_req, res) =>
     error: { code: -32000, message: 'Method not allowed (stateless server).' },
     id: null,
   });
-app.get(MCP_PATH, notAllowed);
-app.delete(MCP_PATH, notAllowed);
+app.get(mcpPaths, notAllowed);
+app.delete(mcpPaths, notAllowed);
 
 app.listen(PORT, () => {
   console.error(

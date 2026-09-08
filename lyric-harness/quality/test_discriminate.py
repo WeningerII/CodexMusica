@@ -515,7 +515,7 @@ def main(argv=None):
         for k in absent:
             print(f"      {k}")
         print("  These are quality/discriminate.py's own RESOURCE_FILES. Run "
-              "`python3 quality/fetch_data.py` first.")
+              "`python3 quality/fetch_data.py --research` first.")
         print("\nRESULT: REFUSED (not a pass, not a failure — doctrine 20)")
         return 2
 

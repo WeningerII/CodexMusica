@@ -22,7 +22,7 @@ sys.path.insert(0, os.path.join(HERE, "..", ".."))
 from quality.provenance import (ADMIT_DATE_VERIFIED,  # noqa: E402
                                 ADMIT_PD_AFFIRMED, ADMITTED,
                                 REJECT_CONTESTED_NO_DATE, REJECT_GENERATED,
-                                REJECT_NO_EVIDENCE, REJECT_TOO_RECENT,
+                                REJECT_NO_EVIDENCE, REJECT_UNDECLARED_SOURCE, REJECT_TOO_RECENT,
                                 REJECT_UNVERIFIED_DATE, Item,
                                 ProvenanceDeclaration, ProvenanceGate, report,
                                 load_authority, load_sources)
@@ -126,6 +126,15 @@ def test_generated_is_hard_rejected():
     v = verdict(g, source_id="openscriptures/morphhb", generated=True)
     check("item-level generated flag beats a PD-affirming source",
           v == REJECT_GENERATED, f"got {v}")
+    # Integrity metadata is registered so the repository census can trace its
+    # builder, but that registration must not let it masquerade as lyric text.
+    source_id = "data/calibration_populations.json"
+    source = load_sources()[source_id]
+    check("six-adopter manifest names its maintained builder and stays generated",
+          source.generated and not source.pd_affirmed
+          and "quality/corpus_manifest.py --write" in source.publication_evidence)
+    check("registered calibration metadata is not admitted as human lyrics",
+          verdict(g, source_id=source_id) == REJECT_GENERATED)
 
 
 def test_model_recall_is_not_evidence():
@@ -167,7 +176,7 @@ def test_no_evidence():
     g = gate()
     v = verdict(g, source_id="some/unknown-corpus")
     check("unknown source with no author is rejected",
-          v == REJECT_NO_EVIDENCE, f"got {v}")
+          v == REJECT_UNDECLARED_SOURCE, f"got {v}")
     v = verdict(g, source_id="linhd-postdata/metrique-en-ligne")
     check("no-licence source with no author is rejected",
           v == REJECT_NO_EVIDENCE, f"got {v}")

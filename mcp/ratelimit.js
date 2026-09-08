@@ -60,7 +60,12 @@ export class Windows {
 
 // How many proxies sit in front of this process. Render is one; a deploy behind
 // an extra CDN would be two. Same meaning as Express's numeric `trust proxy`.
-const TRUSTED_PROXY_HOPS = Math.max(1, Number(process.env.TRUSTED_PROXY_HOPS) || 1);
+const proxyValue = process.env.TRUSTED_PROXY_HOPS;
+export const TRUSTED_PROXY_HOPS = proxyValue === undefined ? 1 : Number(proxyValue);
+if (!Number.isInteger(TRUSTED_PROXY_HOPS) || TRUSTED_PROXY_HOPS < 0)
+  throw new Error(
+    'TRUSTED_PROXY_HOPS must be a nonnegative integer; use zero for direct connections.'
+  );
 
 // The client IP, counted back from the RIGHT of X-Forwarded-For.
 //
@@ -82,6 +87,7 @@ const TRUSTED_PROXY_HOPS = Math.max(1, Number(process.env.TRUSTED_PROXY_HOPS) ||
 // Trusting more hops than exist walks left past the proxy-written entries and
 // back into caller-controlled text, which is the bug this replaced.
 export function clientIp(req) {
+  if (TRUSTED_PROXY_HOPS === 0) return req.socket?.remoteAddress || req.ip || 'unknown';
   const xff = req.headers['x-forwarded-for'];
   if (typeof xff === 'string' && xff.length) {
     const hops = xff

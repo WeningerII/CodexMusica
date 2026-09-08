@@ -1,0 +1,629 @@
+{
+  "status": "local_repair_evidence_complete_production_qualification_pending",
+  "scope": "Composite local verification across explicit source epochs. The88-script inventory is the cheap-script CI lane, not all Python tests or hosted production qualification.",
+  "one_final_88_script_invocation_passed": false,
+  "production_qualified": false,
+  "inventory": {
+    "expected_scripts": 88,
+    "first_invocation": {
+      "passed": 65,
+      "failed": 23,
+      "result": {
+        "path": "final-python88/result.json",
+        "sha256": "d21b8f2260c0bfd4f58b34f7e8fc9ccde2b981655d5d89ffc480e20693be1707",
+        "bytes": 46199
+      }
+    },
+    "second_invocation": {
+      "passed": 87,
+      "failed": 1,
+      "status": "failed invocation preserved",
+      "commit": "e99dea5dd70d2c23a0c5732ee3c8c1186523e6c8",
+      "source_stable": true,
+      "result": {
+        "path": "final-python88-round2/result.json",
+        "sha256": "d735adfe6b3429fa5f579d4e746d7baefee28bebcda057c589594943643d0087",
+        "bytes": 46201
+      }
+    },
+    "sole_corrected_script": {
+      "name": "relations_null",
+      "passed_checks": 77,
+      "failed_checks": 0,
+      "wall_s": 759.8286115400042,
+      "source_sha256": "3a6acd3d27446f7295359d258d16977552739956bf1e311d8c5d627d99c995c6",
+      "product_code_changed_for_correction": false,
+      "result": {
+        "path": "relations-null-round2-fix.json",
+        "sha256": "9bbc11854a20ff7b6f3c4b54314a3f53524564c3f0fe7caaaceaa018b3d8d879",
+        "bytes": 5525
+      },
+      "measurement": {
+        "path": "relations-null-full1200-measurement.json",
+        "sha256": "1f686202d95983bebd2a7d00624f0071b069634c544ead19fceee3869b0752d4",
+        "bytes": 161
+      }
+    },
+    "composite_script_names_with_passing_evidence": 88
+  },
+  "postchange_python_dependencies": {
+    "original_result": {
+      "path": "int31-python/result.json",
+      "sha256": "450b34f5eb09359ed2363408a59ca46ba57c8df8724721e4a155d851fb90d486",
+      "bytes": 90812
+    },
+    "output_inventory": {
+      "path": "int31-python/completion-inventory.json",
+      "sha256": "450568ae754ad5fcd1aecc9363e046e4818721bd23ab70d60adba4d1d031c770",
+      "bytes": 1160
+    },
+    "passes": [
+      {
+        "stage": "production_journal",
+        "unit_tests": 8
+      },
+      {
+        "stage": "production_revision",
+        "unit_tests": 26
+      },
+      {
+        "stage": "replay_memo",
+        "assertions": 47
+      },
+      {
+        "stage": "verbs",
+        "selected_sections": 6,
+        "assertions": 51
+      }
+    ],
+    "original_loop_failure": "Four assertions in section21 assumed a MODAL closure on an uncertain pronunciation fixture. Original failure remains unchanged; section26 passed.",
+    "corrected_loop": {
+      "selected_sections": 2,
+      "assertions": 26,
+      "wall_s": 68.52185015499708,
+      "result": {
+        "path": "int31-loop-reconciled/result.json",
+        "sha256": "3b558633008c77f8115f9a65fb26e900f8d5c5acb250fd9bdc47bd82528c3487",
+        "bytes": 88815
+      },
+      "scope": "Original uncertain negative retained; independent unambiguous actual closure plus keyed/legacy reask controls pass. Test-only correction.",
+      "python_and_data_stable": true,
+      "broader_node_source_stable": false
+    },
+    "source_scope": "Both Python dependency captures bind all tracked Python source and declared data; unrelated concurrent Node test edits are disclosed as broader_source_stable=false, not hidden.",
+    "scope": "INT31 direct dependency evidence retained; INT35 later changes verifier outcome/checkpoint reporting in CLI and loop, with current14 native controls and actual companion paths recorded separately below. No third88 invocation is claimed."
+  },
+  "capacity_receipt": {
+    "measurement": {
+      "path": "capacity-after-batch-receipt-measurement.json",
+      "sha256": "49e1d9225c8fbf0a490058b5cf7c05826cca63c156bd7380684491cff047ba7c",
+      "bytes": 1821
+    },
+    "strict_check": {
+      "path": "capacity-after-batch-strict-check.log",
+      "sha256": "12e2d37b3e1228f1269857054542189157cf87cfdb99a90aec15bae235c130df",
+      "bytes": 57
+    },
+    "installed_admission": {
+      "path": "capacity-after-batch-installed-admission.log",
+      "sha256": "777ba9b4b4ee526af3c443926af627bc28368b53835f1f6b339ec773efa96a08",
+      "bytes": 455
+    },
+    "families": 81,
+    "pairs": 8406,
+    "local_runtime": "Python3.12.13",
+    "production_python311_qualified": false,
+    "current_nonscoring_delta_validation": {
+      "path": "int35-capacity-strict-check.log",
+      "sha256": "12e2d37b3e1228f1269857054542189157cf87cfdb99a90aec15bae235c130df",
+      "bytes": 57
+    },
+    "scope": "The all81/8406 actual local measurement is retained at its disclosed source epoch. The later INT35 reporting-only change passes strict current consumed-source/table/runtime validation; target productionPython3.11 still requires its own full measurement."
+  },
+  "setup_budget": {
+    "controls": {
+      "path": "setup-budget-final.json",
+      "sha256": "30fb5588ef9905a867cabba54e988888681ae1d6a0e6c8ff95a8dac0dc659f44",
+      "bytes": 1368
+    },
+    "docs": {
+      "path": "setup-budget-docs.json",
+      "sha256": "8364a324a1e69e457697bece5fca81a2d35b38345b539d4beb0bc6e13b909ddb",
+      "bytes": 796
+    },
+    "proof_minutes": 45,
+    "proof_job_minutes": 55,
+    "image_build_minutes": 55,
+    "image_job_minutes": 145,
+    "operational_call_seconds": 600,
+    "operational_turn_minutes": 40,
+    "claim": "Evidence-based setup allowances; actual target-runtime setup and whole72-call matrix completion remain unmeasured."
+  },
+  "instruction_review": {
+    "AGENTS.md": "No requirement for a third complete local88 invocation after scoped late changes.",
+    "lyric-harness/CLAUDE.md": "Describes suite_sweep as before-you-push and allows --only subsets.",
+    ".github/workflows/ci.yml": "Full maintained matrix remains required on the exact published commit. Local composite does not substitute."
+  },
+  "remaining_required_evidence": {
+    "trusted_exact_final_github_jobs": [
+      "gate",
+      "lyrics-image",
+      "capacity-proof-result",
+      "verify",
+      "freshness",
+      "catalog-result",
+      "record",
+      "suites-result",
+      "plan-result",
+      "capacity-result",
+      "revision-loop-result",
+      "verbs-result"
+    ],
+    "trusted_github_run_verified_here": false,
+    "separate_python_lanes": "The88-script inventory excludes the complete revision-loop4shards and verbs. Final full4shard revision-loop is unrun locally; verbs has earlier59sections across disclosed epochs plus current6postchangecontrols.",
+    "production_qualification": "All4 complete mutation shards plus full song/short comparisons and5curves on exact source/current runtime/trusted run and attempt; no partial slice qualifies.",
+    "image_and_resources": "Actual final assembledPython3.11 all81 proof; exact tested image;1CPU2GiB complete18executions/72grade-revise calls with resident server/recovery/cache/queue evidence.",
+    "hosted_and_paid": "Immutable Render image migration/configuration, live identity/readiness, durable/offsite recovery, fresh paid-song completion and real40m wall continuation remain required.",
+    "old_nightly_budget": "77.4m other+150m song+40m curves=267.4m before setup/save, exceeding240m; schedules remain disabled."
+  },
+  "preserved_anomalies": [
+    "First g2p capture exited early without a complete inventory; cause unestablished, original evidence retained.",
+    "Original Node runtime shell capture reported0 but omitted final inventory; not counted aspass. External complete65test capture is separate evidence.",
+    "Both full88 invocations retain their actual failures, as do null600s timeout and setup127 failure.",
+    "Candidate5 runtime returned exit0 and raw74/65 counts while copied tracked source reverted to olderHEAD and lifecycle inventory changed43\u219236. The source fence failed; cause unestablished, result not counted. A clean source commit and candidate6 repeated the complete final74/65/43 gate successfully."
+  ],
+  "source_comparison_at_int31": {
+    "candidate2": "/workspace/scratch/b0544e4bbdd6/verification-candidate2",
+    "candidate3": "/workspace/scratch/b0544e4bbdd6/verification-candidate3",
+    "candidate2_runtime_source_sha256": "859e984e403dd12b48a8eee7a2f3f22055f18886ca34a785edd1838d410ac5d2",
+    "candidate3_runtime_source_sha256": "832fb81bac8dd89d0767ccf50dc6d89813d8d7e15c7051bf0265a78bdd2b4a36",
+    "all_124_bound_data_entries_identical": true,
+    "candidate2_and_candidate3_default_installed_receipt": "absent throughout both ordinary nonproduction measurements",
+    "tracked_code_changes_candidate2_to_current": [
+      {
+        "path": "lyric-harness/lyric_harness.py",
+        "candidate2_sha256": "bf27f6dec80209166bb223de44a3385b4ea97e1b3ba9ce8efeffc7ede3509e9b",
+        "current_sha256": "40169c2d1be51c54a3dc2f74fd027c8d996b18988735b5a493135484bfe9ec62",
+        "kind": "runtime"
+      },
+      {
+        "path": "lyric-harness/quality/propose.py",
+        "candidate2_sha256": "bb6e7adba2161ae9c30cc63ef541845d5f1fce6b0ae6a076d3dea37f2b320a49",
+        "current_sha256": "81d6950a23a56e3f8a2f4cfc017bd619008d5e72ab5b62733f0eec00e48e0708",
+        "kind": "runtime"
+      },
+      {
+        "path": "lyric-harness/quality/test_loop.py",
+        "candidate2_sha256": "3d57b4534ce6f7bc79949d4964e2761c53179abd0c649bc074c7970f396594d7",
+        "current_sha256": "95040a5dd3964ca764e6cdbdd13ef01ab80c29ef239bb22f2bd1fa9d807db47d",
+        "kind": "test"
+      },
+      {
+        "path": "lyric-harness/quality/test_production_journal.py",
+        "candidate2_sha256": "78b21e3a1b3ea6fb5ec2463c4049460233839a1c6520387bf19527b53f2d5d7b",
+        "current_sha256": "1970d0dbb8e9103330efeca8cfb65533dfa2ef71f1ab02ff6d867b7cd369673b",
+        "kind": "test"
+      },
+      {
+        "path": "lyric-harness/quality/test_propose.py",
+        "candidate2_sha256": "3ee22705b8aca3fd10bf1aadfc59eb1cf7e68a7b62261c85beede0ee46209204",
+        "current_sha256": "d6ae4224d10be667a32fdd77e70c07138b76af1e74abeb7d8ddff87831efdc1d",
+        "kind": "test"
+      },
+      {
+        "path": "lyric-harness/quality/test_relations_null.py",
+        "candidate2_sha256": "d86b097d48afa4068dd6a91e22681d87aa833030cd5b1b286654e3df46796530",
+        "current_sha256": "3a6acd3d27446f7295359d258d16977552739956bf1e311d8c5d627d99c995c6",
+        "kind": "test"
+      },
+      {
+        "path": "mcp/lyric_tools.js",
+        "candidate2_sha256": "8356038e7d561c887ad9826dbadafe7e5f01d39af8029d1934e056ba6ef195ae",
+        "current_sha256": "44fd64fd3b8677da1b7e047bbf4cd2e87b9d157de3871e7517e5a1f2f5eac2b6",
+        "kind": "runtime"
+      },
+      {
+        "path": "mcp/test.mjs",
+        "candidate2_sha256": "de099616eb33cf4f8dccfc5f959b599200f5d06e48ad241cf1f5d7ba71e4d6e2",
+        "current_sha256": "3235b411c168f473acb8f430276d0b6d2642d9f6da1a8aab6fb94eadebe7ed9a",
+        "kind": "test"
+      },
+      {
+        "path": "mcp/test_run_continuation.mjs",
+        "candidate2_sha256": "af886149fb654cbb222d6871d1fcab6b9dcd7f81760633347a8e45771415cff4",
+        "current_sha256": "05cba6701ee665ae4ac994844aa95fcfd37f0fe08f54752dd62d1296b91e56fb",
+        "kind": "test"
+      }
+    ],
+    "runtime_change_review": {
+      "lyric-harness/lyric_harness.py": "Deterministic actual-byte independent-batch prefix splitting and truthful capacity-stop guidance; journal keys, answer parsing, replay outcomes and grading functions unchanged.",
+      "lyric-harness/quality/propose.py": "Correct whole-draft finding guidance in prompts; permitted edit scope and verification unchanged.",
+      "mcp/lyric_tools.js": "Only measured authenticated grading/finish inventories support finding counters. Unmeasured results remain uncertified without fabricated zeros; capacity recovery guidance corrected."
+    },
+    "scope": "Preserved comparison at the INT31 epoch; current_sha256 inside this historical section is not a claim about the later INT35/INT37 source."
+  },
+  "connector_evidence_at_int31": {
+    "actual_companions": {
+      "path": "int31-mcp/result.json",
+      "sha256": "b80f7d746807e6c2d3e5249c467fc73b8aec7025970f1e775bd8eea96902da81",
+      "bytes": 35734
+    },
+    "actual_companion_count": 4,
+    "maintained_runtime": {
+      "path": "final-runtime-candidate3/result.json",
+      "sha256": "b0ad0cd1f299aa0e757355bcb1ce279f0a69a72fd514de41ae5e42ac26b35f41",
+      "bytes": 37228
+    },
+    "node_groups": [
+      67,
+      65
+    ],
+    "python_control_groups": [
+      16,
+      7,
+      5,
+      6
+    ],
+    "full_native": {
+      "path": "connector-full-native-final.json",
+      "sha256": "3614a8c6c4680fcdd9a9ad00f41fcac96b0815bcfeb2ed0456ab3c6bcb13da3e",
+      "bytes": 3042
+    },
+    "full_native_checks": 152,
+    "full_native_wall_s": 301.57444864900026,
+    "paid_provider_calls": 0,
+    "scope": "Earlier captured epoch retained; the later measured dependencies below supersede it for changed behavior."
+  },
+  "final_source": {
+    "candidate4": "/workspace/scratch/b0544e4bbdd6/verification-candidate4",
+    "copy_receipt": {
+      "path": "candidate4-source-copy.json",
+      "sha256": "a8185cd2b4d36c690a7c7a903b667b6606edd11f2efc2f9a4020676fc180f774",
+      "bytes": 1816
+    },
+    "candidate4_runtime_source_sha256": "d9339a97013d0120cd0376ce01dfb8f4354d0d15f1534c37ae3ee34c4e8217b3",
+    "installed_receipt_and_baked_build_identity": "absent throughout ordinary nonproduction copied candidate; production admission proof remains a separate gate",
+    "runtime_and_test_changes_from_candidate2": [
+      {
+        "path": "lyric-harness/lyric_harness.py",
+        "candidate2_sha256": "bf27f6dec80209166bb223de44a3385b4ea97e1b3ba9ce8efeffc7ede3509e9b",
+        "candidate4_sha256": "00f0e288cb670a7c88d8747fbab41c4b4aa3866484b14a7c7d9e7a79137464fc",
+        "kind": "runtime_or_instrument"
+      },
+      {
+        "path": "lyric-harness/quality/loop.py",
+        "candidate2_sha256": "60276b2bc3f0edbc5133c8ee5f17366d2287c6be116fca3082c6ad119e796789",
+        "candidate4_sha256": "c4195e93d5d37cd805c78bce006fc83c11471cb5eefee59f6bf3e76ac3cbae7e",
+        "kind": "runtime_or_instrument"
+      },
+      {
+        "path": "lyric-harness/quality/test_production_journal.py",
+        "candidate2_sha256": "78b21e3a1b3ea6fb5ec2463c4049460233839a1c6520387bf19527b53f2d5d7b",
+        "candidate4_sha256": "5062d9b2fe92234dd85c5092d13e1ba4667fee25ba22b6dc4f15dc327f371875",
+        "kind": "test"
+      },
+      {
+        "path": "mcp/chat.js",
+        "candidate2_sha256": "a1c26a33f6ee6adf81c845e26ffa1c38944e9e6743b4f669b8e01341aa4e8d8a",
+        "candidate4_sha256": "a223d969e338797dafa9ba048911960250d82284ef310437877678e9efac7830",
+        "kind": "runtime_or_instrument"
+      },
+      {
+        "path": "mcp/gemini_agent.js",
+        "candidate2_sha256": "319959ffc9e68b934ab62a5534d230ae3a722f0573c881d8dd81249b528d1dbb",
+        "candidate4_sha256": "4872e5f8228d15189e4cf42681f0afb6f9529778045c2917ea33bb376a3bdd90",
+        "kind": "runtime_or_instrument"
+      },
+      {
+        "path": "mcp/lyric_tools.js",
+        "candidate2_sha256": "8356038e7d561c887ad9826dbadafe7e5f01d39af8029d1934e056ba6ef195ae",
+        "candidate4_sha256": "86a692805fab9e4ecf774592c3f871ed4bbbb35aed97357ad0ec689e83cba8f0",
+        "kind": "runtime_or_instrument"
+      },
+      {
+        "path": "mcp/task_contract.js",
+        "candidate2_sha256": "286d433818281d09ac5fecd197a87882f94d627b514a14e61550115a661e45b7",
+        "candidate4_sha256": "e5e07f46e7b461611ed74829d022ec40808c241f4bf7fc47bbaebd3ad969efff",
+        "kind": "runtime_or_instrument"
+      },
+      {
+        "path": "mcp/test.mjs",
+        "candidate2_sha256": "de099616eb33cf4f8dccfc5f959b599200f5d06e48ad241cf1f5d7ba71e4d6e2",
+        "candidate4_sha256": "ca7106761c93d12fb6a3ddef9490f6f88659b3e18fb1eb62d9b30b04b29f59fe",
+        "kind": "test"
+      },
+      {
+        "path": "mcp/test_battery_lifecycle.mjs",
+        "candidate2_sha256": "4c692bbc31bef2e464666df9c69609e213b63eb450f64da99385426b6b645510",
+        "candidate4_sha256": "c726ebb9fd8830ebbd0dc761268aee508890f1392fe05ecf36dbe2aafa24ba0b",
+        "kind": "test"
+      },
+      {
+        "path": "mcp/test_battery_repairs.mjs",
+        "candidate2_sha256": null,
+        "candidate4_sha256": "8e1be299865b77a46d808e74d21b82625b9bc8bde54ef74417ee1faa2cb01a22",
+        "kind": "test"
+      },
+      {
+        "path": "mcp/test_chat_production.mjs",
+        "candidate2_sha256": "d941f65d897bcf2b993e47728a4a8746d5749bff42e82fed767a385656386c0f",
+        "candidate4_sha256": "bda62c8d153bb62779591b8e2a3785f5ee2de7b4f092400a81aff07b6bf291e8",
+        "kind": "test"
+      },
+      {
+        "path": "mcp/test_kitchen_repairs.mjs",
+        "candidate2_sha256": null,
+        "candidate4_sha256": "4ec3f2234e2781d809d9081893fd1ad888eae94296dbd4b02fd0fe56b948bb4d",
+        "kind": "test"
+      },
+      {
+        "path": "mcp/test_release_gates.mjs",
+        "candidate2_sha256": "d8af1f270e5922d776eb6c2481e6342362d2bbf985f510b7748b830f53d4c4a1",
+        "candidate4_sha256": "af5d6739c86ce540c4100a7ffd29781c941e31027562c4f32bed5d028de6bd33",
+        "kind": "test"
+      },
+      {
+        "path": "mcp/test_run_continuation.mjs",
+        "candidate2_sha256": "af886149fb654cbb222d6871d1fcab6b9dcd7f81760633347a8e45771415cff4",
+        "candidate4_sha256": "9114aeba534f7fbebefe11c06554dc3d5498fc4528aca0cadd04afa5ce8ed586",
+        "kind": "test"
+      },
+      {
+        "path": "scripts/battery_repairs.mjs",
+        "candidate2_sha256": null,
+        "candidate4_sha256": "d60adc7d65299341bb2c85a0ddf994305a2eb67cb0fcfe7fb2458f4f3cc12932",
+        "kind": "runtime_or_instrument"
+      },
+      {
+        "path": "scripts/battery_verdict.mjs",
+        "candidate2_sha256": "9aa7dd6332960d1d81d69e03e37d799577d0ab25d2f83a73861a45f2967fc550",
+        "candidate4_sha256": "55219309091a1b0b0e82e85f7a99a24e4d6ae32347c3222f0134f48cd28a8509",
+        "kind": "runtime_or_instrument"
+      },
+      {
+        "path": "scripts/check_battery_acceptance.mjs",
+        "candidate2_sha256": "a039a46b5933b3660f98e28e850d6f7f22f497108a32af8a06e9295964301c54",
+        "candidate4_sha256": "1db4c0f1ca78a8104167768bb2e47f45cac9944ef3a8dd2167908cfa3d38df50",
+        "kind": "runtime_or_instrument"
+      },
+      {
+        "path": "scripts/flash_battery.mjs",
+        "candidate2_sha256": "96cf15b7b717c19458c2f8823f155aaea983102136a30c3fd6c4048f316559a2",
+        "candidate4_sha256": "1b40c67e11ef7fd1714936ccbfe487a64acce7098510cd052f97c0c522ebd349",
+        "kind": "runtime_or_instrument"
+      }
+    ],
+    "current_main_delta_after_candidate4": [
+      {
+        "path": "lyric-harness/quality/propose.py",
+        "candidate4_sha256": "bb6e7adba2161ae9c30cc63ef541845d5f1fce6b0ae6a076d3dea37f2b320a49",
+        "current_sha256": "81d6950a23a56e3f8a2f4cfc017bd619008d5e72ab5b62733f0eec00e48e0708"
+      },
+      {
+        "path": "lyric-harness/quality/test_loop.py",
+        "candidate4_sha256": "3d57b4534ce6f7bc79949d4964e2761c53179abd0c649bc074c7970f396594d7",
+        "current_sha256": "95040a5dd3964ca764e6cdbdd13ef01ab80c29ef239bb22f2bd1fa9d807db47d"
+      },
+      {
+        "path": "lyric-harness/quality/test_propose.py",
+        "candidate4_sha256": "3ee22705b8aca3fd10bf1aadfc59eb1cf7e68a7b62261c85beede0ee46209204",
+        "current_sha256": "d6ae4224d10be667a32fdd77e70c07138b76af1e74abeb7d8ddff87831efdc1d"
+      },
+      {
+        "path": "lyric-harness/quality/test_relations_null.py",
+        "candidate4_sha256": "d86b097d48afa4068dd6a91e22681d87aa833030cd5b1b286654e3df46796530",
+        "current_sha256": "3a6acd3d27446f7295359d258d16977552739956bf1e311d8c5d627d99c995c6"
+      },
+      {
+        "path": "mcp/test.mjs",
+        "candidate4_sha256": "ca7106761c93d12fb6a3ddef9490f6f88659b3e18fb1eb62d9b30b04b29f59fe",
+        "current_sha256": "3def360084febf34489ef98404f7213ea795ecb8574389a0d669a804420f4a40"
+      },
+      {
+        "path": "mcp/test_battery_repairs.mjs",
+        "candidate4_sha256": "8e1be299865b77a46d808e74d21b82625b9bc8bde54ef74417ee1faa2cb01a22",
+        "current_sha256": "9a225466a6b99d1bb5ac2ee54c577eee98c93317b52d02b6e2d726d6ef7ad31b"
+      },
+      {
+        "path": "mcp/test_battery_storage.mjs",
+        "candidate4_sha256": "365ff9c74a25211ecce9ef3b1d0b6329ef937e68726a6f518e00f26ef1b3885c",
+        "current_sha256": "c95d6713be746e81f9e5d4eaf6915fd1bc895c43ef1a9e6e4a0d9dd727d25e90"
+      },
+      {
+        "path": "scripts/battery_repairs.mjs",
+        "candidate4_sha256": "d60adc7d65299341bb2c85a0ddf994305a2eb67cb0fcfe7fb2458f4f3cc12932",
+        "current_sha256": "21b3e1f3cb7db3bead24b0ce9c445ab80725ddade4e88ff633708df9696a0b57"
+      }
+    ],
+    "delta_policy": "Candidate4 was kept immutable. Any later source/test changes remain explicit; a test-only Docker census change in mcp/test.mjs is checked by its own current complete invocation, and is not silently attributed to candidate4.",
+    "final_committed_source": {
+      "path": "candidate6-source-copy.json",
+      "sha256": "80e7941d4b79f9e64273c4d991a4420d74ccde6c2185037747b2715c957401ce",
+      "bytes": 370
+    },
+    "final_runtime_source_sha256": "d998718e8ebb353f5a18998350f1e2692cdd3a873a1ff6ba51969fb773b1daf9",
+    "scope": "The candidate4 differential and later deltas are retained to attribute the actual companion tests. Candidate6 is the clean committed final source, including both test fixture corrections and the explicit-writer collector guard.",
+    "candidate5_drift": "Candidate5 unexpectedly lost copied tracked changes during its full runtime invocation. No causal reset was established; raw74/65 counts cannot qualify a run whose source and internal43-check inventory changed. The failed source fence and original logs remain preserved.",
+    "candidate5_to_final_guard": "Two-file explicit-interview-mode guard only: scripts/battery_repairs.mjs and mcp/test_battery_repairs.mjs. Its5helper+actualHTTP+43lifecycle supplement passed with exactly final runtime source d998718e, independently of the later Git commit.",
+    "candidate5_runtime_source_sha256": "9b05c5201844cfdc4df165c647daf16c4ccc708313bef38e0107ffb10b293a2c",
+    "candidate4_to_candidate5_delta": "Only mcp/test.mjs Docker omission list and mcp/test_battery_storage.mjs genuine unfinished-turn setup changed. Neither is executed by candidate4 actual HTTP/native companion scripts. Candidate5 repeats the full maintained runtime including its corrected storage fixture."
+  },
+  "final_native_outcome_evidence": {
+    "native_controls": {
+      "path": "int35-native-final-fourteen.json",
+      "sha256": "b1c6ac05b3e9a1c2ca563e1462d51b205087304fe1ad4e5024f47f4f52eb00bb",
+      "bytes": 666
+    },
+    "native_log": {
+      "path": "int35-native-journal-fourteen.log",
+      "sha256": "1b7b641109f518e04aa2aa26dbba02450c471fe9ff4a9d97a0d6641f71df62f0",
+      "bytes": 114
+    },
+    "nested_replay": {
+      "path": "int35-nested-replay-probe.json",
+      "sha256": "d60823df85ea6bec39d91463644693cd8e0820dd1e3777afe05a4d1130173e84",
+      "bytes": 19410
+    },
+    "source_epoch": {
+      "path": "int35-native-source-epoch.json",
+      "sha256": "f41d9f159513bd9a3d8d16144d5888df103ddf919fc512bce287709635299b1a",
+      "bytes": 412
+    },
+    "independent_hook_review": {
+      "path": "int35-independent-hook-review.json",
+      "sha256": "c421c13cb32d3189cd655433ae1559683db479176572b70949c5a10a9d48dc40",
+      "bytes": 3238
+    },
+    "scope": "14 real native controls prove post-verification outcomes, accepted-versus-applied atomicity, identity/replay, rejected/noop/decline, group/whole writes and nested partial replay. No scorer/relation/floor changes in this delta.",
+    "command_companion": {
+      "path": "int35-native-fourteen-command.json",
+      "sha256": "52168a5c6dd866df87ea9f57438a1e498ebef15c488c50b9a8e46f3fd78a5ebd",
+      "bytes": 2399
+    }
+  },
+  "connector_evidence": {
+    "status": "passed at explicitly captured epochs with final coherent source-committed runtime and affected-consumer supplement",
+    "actual_companions": {
+      "path": "int35-mcp/result.json",
+      "sha256": "b8dbac256b784a0effc0ff7e9c18edc5faf492a6dd5f52aecb70634138f96ab8",
+      "bytes": 35984
+    },
+    "expected_actual_companion_scripts": 4,
+    "later_run_continuation_tail": {
+      "path": "connector-split-liveness-final.json",
+      "sha256": "faec7c08a1eb31ca5ea2a017e8531f6793cf7b9d92e9ec3728ed4d459e1ddcc0",
+      "bytes": 4406
+    },
+    "later_run_continuation_scope": "Actual attempts3 run: original7 answers retained, first pivot actually rejected, omitted tail21/23 actually asked and folded, exact24-line draft preserved; unvisited answers stay unknown. It precedes final-status/shared task hash changes; candidate4 actual HTTP covers those exact later seams.",
+    "maintained_runtime_prior_failed": {
+      "path": "final-runtime-candidate4/result.json",
+      "sha256": "d942cdf0e5a62a15761fc3a789a5463bf5939853cde4f7d8f7a5de4d4dde5b69",
+      "bytes": 37242
+    },
+    "maintained_runtime_drifted": {
+      "path": "final-runtime-candidate5/result.json",
+      "sha256": "e7bdd4db0dd940909c4cf543a1529881d00999d74acf857796315b037baf9718",
+      "bytes": 37244
+    },
+    "maintained_runtime": {
+      "path": "final-runtime-candidate6/result.json",
+      "sha256": "811a21ef9e43d23c3470ea1c28d3cabf1cda338dd21133e63f3293559cd30b74",
+      "bytes": 37260
+    },
+    "maintained_runtime_candidate": {
+      "path": "candidate6-source-copy.json",
+      "sha256": "80e7941d4b79f9e64273c4d991a4420d74ccde6c2185037747b2715c957401ce",
+      "bytes": 370
+    },
+    "final_collector_guard_supplement": {
+      "path": "collector-final-supplement/result.json",
+      "sha256": "101a542ab9984d80b419c78b0aa1a06b3805a3acdd244266ef3e3042dc267e8d",
+      "bytes": 35343
+    },
+    "final_collector_guard_delta": {
+      "path": "collector-final-supplement/candidate5-delta.json",
+      "sha256": "8954767cda53fcd2dde8cc3b7abbd97f76040ce803dde5cc3f472fa7eef3339a",
+      "bytes": 632
+    },
+    "storage_fixture_correction": {
+      "path": "battery-storage-final-reconciled.json",
+      "sha256": "5b276c4591369767ba593e7511a3cced733ad79769e473bcbfd15dcf974da0fb",
+      "bytes": 954
+    },
+    "checks_only_test_delta": {
+      "path": "checks-only-final-fixture-list.json",
+      "sha256": "7672a345dd37612eb2cfb75f5538d2cfa8d62e1422bafb6162e351339044ed62",
+      "bytes": 593
+    },
+    "expected_node_groups": [
+      74,
+      65
+    ],
+    "expected_lifecycle_internal_checks": 43,
+    "expected_python_control_groups": [
+      16,
+      7,
+      5,
+      6
+    ],
+    "wall_oracle": {
+      "path": "battery-wall-lifecycle-final.json",
+      "sha256": "2fbaef1f5632a54698c739faf14bcf75e4295487a4ba420c6f0db7f1115d035c",
+      "bytes": 815
+    },
+    "wall_scope": "43 internal real local HTTP/driver controls plus exact synthetic native replay fixtures, including the real native nested replay case; no actual40-minute provider soak claim.",
+    "final_status": {
+      "path": "final-status-source.json",
+      "sha256": "119c07a80433c9d15c1b56466c3b3ce6a95fbcbdb97c24d28ab895ac7f340b6d",
+      "bytes": 735
+    },
+    "paid_provider_calls": 0,
+    "final_maintained_counts": {
+      "node": [
+        74,
+        65
+      ],
+      "python": [
+        16,
+        7,
+        5,
+        6
+      ],
+      "battery_lifecycle_internal": 43,
+      "wall_s": 99.08660032400076,
+      "source_and_data_stable": true
+    },
+    "actual_companions_complete": 4,
+    "final_collector_supplement_complete": {
+      "helper_tests": 5,
+      "actual_http_scripts": 1,
+      "battery_lifecycle_internal": 43,
+      "source_and_data_stable": true
+    },
+    "full_checks_only_before_final_collector_guard": {
+      "path": "connector-checks-final-int35.json",
+      "sha256": "20f7cc71a0ab06ece17fd9762acf8aef4b04a13ce95077d1eb26118e24e9b1cb",
+      "bytes": 5503
+    },
+    "full_checks_only_scope": "135 full connector checks pass at the recorded21-file source epoch. The final two-file explicit-writer collector guard followed; the complete committed74/65 runtime plus5helper/actualHTTP/43lifecycle supplement covers that delta. No final native152-check invocation is claimed."
+  },
+  "preserved_http_attempts": [
+    {
+      "path": "kitchen-repair-http-initial.log",
+      "sha256": "9631ccb44e34a47ae8d9e83458dc097adfd9841f644494c972c83aafe16add32",
+      "bytes": 379
+    },
+    {
+      "path": "kitchen-repair-http-initial-trace.json",
+      "sha256": "c1ccce02b5256b17f4f56f86a555e8f26b885e6448a2ecacdd981c2eb95772b3",
+      "bytes": 60729
+    },
+    {
+      "path": "kitchen-repair-http-contract.log",
+      "sha256": "490cd43460f2d8b0b3f2609cc8b89a95807cd4b85c8ea3017782a3e64118e1b5",
+      "bytes": 763
+    },
+    {
+      "path": "kitchen-repair-http-contract-trace.json",
+      "sha256": "4d3f6202c540c596c21758b21bc4aac197bde9dfd23ead1324ac8c72a10baa7f",
+      "bytes": 25220
+    },
+    {
+      "path": "kitchen-repair-http-contract-final.log",
+      "sha256": "9631ccb44e34a47ae8d9e83458dc097adfd9841f644494c972c83aafe16add32",
+      "bytes": 379
+    },
+    {
+      "path": "kitchen-repair-http-contract-final-trace.json",
+      "sha256": "ae5ae23846ecc1efcadeb9f165ffaf84539bd8b776cd24ed534a751cf7f848b5",
+      "bytes": 56155
+    }
+  ],
+  "preserved_http_scope": "Initial actual receipt exposed ROUND_LIMIT/final-status and task-hash consumer inconsistencies. The first corrected fixture then failed only on omitted versus null cleared carrier; that test assumption was corrected and the next actual HTTP pass retained. Current source-bound candidate4 repeats the whole HTTP integration.",
+  "source_commit": "e6b1fab65bdb5eaf35c159aed4f2fe078a6e3de2",
+  "final_declared_data_integrity": {
+    "path": "data-final-root-integrity-124.json",
+    "sha256": "ceb83c7b6d99ece3ce58e715c815eb9f04e3ced26b7268da8fc1031d17c548e9",
+    "bytes": 633
+  }
+}

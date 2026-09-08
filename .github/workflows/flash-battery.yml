@@ -1,7 +1,7 @@
 name: Flash battery
 
-# Paid, manual measurement. A schema-only smoke is mcp/check_live.mjs without
-# --commit; this workflow always verifies a specific implementation before it
+# Paid, manual measurement. A bare mcp/check_live.mjs call checks initialization
+# and tool metadata; this workflow verifies build, readiness and settings before it
 # spends credit. Checkpoints carry signed continuation capabilities and are
 # encrypted before artifact upload; only an allowlisted aggregate reaches logs.
 on:
@@ -20,7 +20,7 @@ on:
         default: '130'
         required: false
       expect:
-        description: 'finished requires every song; turn-wall requires a signed wall checkpoint; survey records coverage only'
+        description: 'finished requires every song; turn-wall requires a signed wall checkpoint and successful continuation; survey records coverage only'
         type: choice
         options: [finished, turn-wall, survey]
         default: finished
@@ -68,11 +68,24 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: '22'
-      - name: Download a sealed prior checkpoint
+      - name: Select the latest remotely acknowledged checkpoint
+        id: prior
+        if: inputs.resume_run != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PRIOR_RUN: ${{ inputs.resume_run }}
+        run: |
+          [[ "$PRIOR_RUN" =~ ^[0-9]+$ ]] || { echo 'Invalid prior run ID'; exit 1; }
+          id=$(gh api --paginate "repos/$GITHUB_REPOSITORY/actions/runs/$PRIOR_RUN/artifacts?per_page=100" \
+            --jq '.artifacts[] | select(.expired == false) | select(.name == "flash-battery-recovery" or (.name | startswith("flash-battery-checkpoint-"))) | .id' | sort -nr | head -1)
+          [ -n "$id" ] || { echo 'No retained encrypted checkpoint exists'; exit 1; }
+          echo "id=$id" >> "$GITHUB_OUTPUT"
+      - name: Download the acknowledged encrypted checkpoint
         if: inputs.resume_run != ''
         uses: actions/download-artifact@v4
         with:
-          name: flash-battery-recovery
+          artifact-ids: ${{ steps.prior.outputs.id }}
+          merge-multiple: true
           path: battery-sealed-in/
           run-id: ${{ inputs.resume_run }}
           github-token: ${{ github.token }}
@@ -92,7 +105,7 @@ jobs:
           (cd mcp && npm ci --no-audit --no-fund)
           deadline=$((SECONDS + 2700))
           while :; do
-            if node mcp/check_live.mjs --commit="$LIVE_COMMIT"; then
+            if node mcp/check_live.mjs --commit="$LIVE_COMMIT" --ready --config=render; then
               break
             fi
             if [ "$WAIT_FOR_LIVE" != 'true' ] || [ "$SECONDS" -ge "$deadline" ]; then
@@ -101,6 +114,18 @@ jobs:
             fi
             sleep 30
           done
+      - name: Install the pinned remote checkpoint client
+        run: npm ci --prefix scripts/battery-actions --ignore-scripts --no-audit --no-fund
+      - name: Expose the scoped Actions artifact runtime to the driver
+        uses: actions/github-script@v7
+        with:
+          script: |
+            for (const name of ['ACTIONS_RUNTIME_TOKEN', 'ACTIONS_RESULTS_URL']) {
+              const value = process.env[name];
+              if (!value) throw new Error(`Artifact runtime is missing ${name}`);
+              if (name.endsWith('TOKEN')) core.setSecret(value);
+              core.exportVariable(name, value);
+            }
       - name: Prove archive encryption before paid work and retain a sealed baseline
         env:
           BATTERY_RECOVERY_KEY: ${{ secrets.BATTERY_RECOVERY_KEY }}
@@ -110,8 +135,16 @@ jobs:
           node scripts/battery_archive.mjs --check-key
           node scripts/battery_archive.mjs seal --source=battery-out --out=battery-sealed/battery-recovery.enc > battery-sealed/manifest.json.tmp
           mv battery-sealed/manifest.json.tmp battery-sealed/manifest.json
+      - name: Retain the encrypted baseline remotely before paid work
+        uses: actions/upload-artifact@v4
+        with:
+          name: flash-battery-checkpoint-baseline
+          path: battery-sealed/battery-recovery.enc
+          if-no-files-found: error
+          retention-days: 7
       - name: Drive the battery against the pinned deployment
         env:
+          BATTERY_RECOVERY_KEY: ${{ secrets.BATTERY_RECOVERY_KEY }}
           LIVE_COMMIT: ${{ inputs.live_commit }}
           SONGS: ${{ inputs.songs }}
           TURNS: ${{ inputs.turns }}
@@ -132,6 +165,7 @@ jobs:
             --out=battery-out \
             --commit="$LIVE_COMMIT" \
             --require-recovery \
+            --require-remote-recovery \
             --songs="$SONGS" \
             --turns="$TURNS" \
             --pace="$PACE" \

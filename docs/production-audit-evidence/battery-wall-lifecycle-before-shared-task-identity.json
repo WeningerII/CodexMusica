@@ -1,0 +1,17 @@
+{
+  "command": [
+    "node",
+    "mcp/test_battery_lifecycle.mjs"
+  ],
+  "timeout_s": 120,
+  "source_sha256": {
+    "scripts/battery_verdict.mjs": "36c457e31c3bb3051c3f94c67a1d922ab3ee8a92838dbc0d8180c841bde133f6",
+    "mcp/test_battery_lifecycle.mjs": "9889bb27343e4b821d6c88dc07e3d71a1c91d63f9e3202d55ff425e726964ee0",
+    "mcp/fixtures/wall_nested_replay.json": "420c1af5b0817b991f9d43713b129859b643d4da4e99c9f268777b3b4bfa4ef8",
+    "scripts/flash_battery.mjs": "a2a1a4fae850ac1ba599db32049ae95ea45571bf5545fdfedf7d6dd1ae2e47d5",
+    "scripts/battery_repairs.mjs": "d60adc7d65299341bb2c85a0ddf994305a2eb67cb0fcfe7fb2458f4f3cc12932"
+  },
+  "exit_code": 0,
+  "wall_s": 7.805811706006352,
+  "source_unchanged": true
+}

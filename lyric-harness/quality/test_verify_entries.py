@@ -316,37 +316,57 @@ def test_comma_grouped_counts_are_read_whole():
 #: The anchor must appear EXACTLY ONCE — an anchor that stops matching would
 #: silently drop a mutation from the sweep and take the count down with it, so
 #: a miss is a FAILURE here rather than a skip (doctrine 20).
+# Re-anchored 2026-09-08 after the earned-relation/reading audit. Current
+# claims live beside **Was:** paragraphs containing the superseded claims;
+# mutate only the live claim. Derive numeric anchors from the artifact so a
+# later re-adoption does not turn the control into a stale historical quote.
+# The document must still carry each complete anchor exactly once, and every
+# mutant must turn a clean document into an actual FALSE verdict.
+_CAP_ROWS = VE.capacity_rows()
+_CAP_AY = _CAP_ROWS["AY-ER"]
+_CAP_IY = _CAP_ROWS["IY"]
+_CAP_EHR = _CAP_ROWS["EH-R"]
+_CAP_DEPTH = max(row["chain_lo"] or 0 for row in _CAP_ROWS.values())
+_CAP_HOLDERS = sorted(f for f, row in _CAP_ROWS.items()
+                      if row["certified"] and row["chain_lo"] == _CAP_DEPTH)
+_CAP_COUNT = next(word.upper() for word, n in VE._WORDNUM.items()
+                  if n == len(_CAP_HOLDERS))
+_CAP_WRONG_COUNT = "TWO" if _CAP_COUNT == "ONE" else "ONE"
+_CAP_WRONG_FAMILY = next(f for f in _CAP_ROWS if f not in _CAP_HOLDERS)
+_CAP_ATTEMPTS = VE._cap_attempts(_CAP_IY)
+_CAP_CLIQUE = len(str(_CAP_AY["witness"]).split())
+
 CAPACITY_MUTANTS = [
     ("quality/RESULTS_RHYME_CAPACITY.md",
-     "34 classes, certified", "35 classes, certified",
-     "AY-ER's spelling-class ceiling off by one"),
-    # The four rows below were REPOINTED 2026-08-28: the M-41 re-derivation
-    # under the M-47/M-152-rebuilt judge rewrote the capacity document (the
-    # tie at 40 went ~~NINE~~ TWELVE, EH-R's floor moved back UP to 37), so
-    # the old anchors matched nothing and every row reported "the mutation
-    # could not be applied". The instrument went stale exactly the way it
-    # polices others for, and its own "found 0" refusal is what caught it.
+     f"{_CAP_AY['chain_hi']} classes,\n   certified **{_CAP_AY['chain_lo']}**",
+     f"{_CAP_AY['chain_hi'] + 1} classes,\n   certified **{_CAP_AY['chain_lo']}**",
+     "AY-ER's current spelling-class ceiling off by one"),
     ("quality/RESULTS_RHYME_CAPACITY.md",
-     "**37** (the 2026-08-28 judge", "**36** (the 2026-08-28 judge",
-     "EH-R's certified floor off by one"),
+     f"{_CAP_EHR['chain_hi']} classes, certified **{_CAP_EHR['chain_lo']}**",
+     f"{_CAP_EHR['chain_hi']} classes, certified **{_CAP_EHR['chain_lo'] + 1}**",
+     "EH-R's current certified floor off by one"),
     ("quality/RESULTS_RHYME_CAPACITY.md",
-     "IY: attempts 40", "IY: attempts 41",
+     f"IY: attempts {_CAP_ATTEMPTS}, certified **{_CAP_IY['chain_lo']}**",
+     f"IY: attempts {_CAP_ATTEMPTS + 1}, certified **{_CAP_IY['chain_lo']}**",
      "the attempt bound quoted above CERTIFY_ATTEMPT_CAP"),
     ("quality/RESULTS_RHYME_CAPACITY.md",
-     "**27**-word clique", "**28**-word clique",
-     "the `capacity fire` clique back to its pre-rebuild size"),
+     f"**{_CAP_CLIQUE}**-word clique", f"**{_CAP_CLIQUE + 1}**-word clique",
+     "the current `capacity fire` witness clique off by one"),
     ("quality/RESULTS_RHYME_CAPACITY.md",
-     "IY: 228 classes", "IY: 229 classes",
+     f"IY: {_CAP_IY['chain_hi']} classes", f"IY: {_CAP_IY['chain_hi'] + 1} classes",
      "the second family of a semicolon list, which is the elliptical form"),
     ("quality/RESULTS_RHYME_CAPACITY.md",
-     "`IH-Z-AH-M` and `OW-N`", "and `OW-N`",
-     "one family dropped from the tie at 40"),
+     f"held by `{_CAP_HOLDERS[0]}` alone",
+     f"held by `{_CAP_WRONG_FAMILY}` alone",
+     "the singleton deepest holder replaced by a wrong known family"),
     ("quality/RESULTS_RHYME_CAPACITY.md",
-     "held by ~~NINE~~ **TWELVE** families", "held by ~~NINE~~ **ELEVEN** families",
-     "the spelled tie count wrong while the named list stays right"),
+     f"is **{_CAP_DEPTH}**, held by **{_CAP_COUNT}** family",
+     f"is **{_CAP_DEPTH}**, held by **{_CAP_WRONG_COUNT}** family",
+     "the spelled holder count wrong while its named holder stays right"),
     ("CLAUDE.md",
-     "chain is 40, held by TWELVE", "chain is 39, held by TWELVE",
-     "the tie DEPTH moved, so those twelve no longer hold it"),
+     f"chain is {_CAP_DEPTH}, held by {_CAP_COUNT}",
+     f"chain is {_CAP_DEPTH + 1}, held by {_CAP_COUNT}",
+     "the claimed depth moved while the actual holder remains named"),
 ]
 
 
@@ -626,6 +646,61 @@ def test_the_corpus_table_column_is_found_by_its_header():
           v is None, str(v and (v.status, v.measured)))
 
 
+def test_git_transport_refuses_failed_or_partial_history():
+    """A failed history read must never certify an empty, unchanged record."""
+    import subprocess
+    import tempfile
+    from unittest.mock import patch
+
+    print("\n12. git history transport distinguishes missing paths from failed reads")
+    with tempfile.TemporaryDirectory() as tmp:
+        subprocess.run(["git", "init", "-q", tmp], check=True)
+        with patch.object(VE, "ROOT", tmp):
+            body = "A measured poem — exact Unicode bytes.\n"
+            sha = VE._git(["hash-object", "-w", "--stdin"], stdin=body).strip()
+            missing = "HEAD:no-such-audit.py"
+            check("real git returns a complete Unicode blob beside an explicit missing path",
+                  VE._cat_file_batch([sha, missing]) == {sha: body})
+            failed = False
+            try:
+                VE._git(["rev-parse", "--verify", "no-such-revision"])
+            except subprocess.CalledProcessError:
+                failed = True
+            check("a real nonzero git exit raises rather than looking like empty history", failed)
+            subprocess.run(["git", "-C", tmp, "-c", "user.name=Verification fixture",
+                            "-c", "user.email=fixture@example.invalid", "commit",
+                            "--quiet", "--no-gpg-sign", "--allow-empty", "-m", "fixture"],
+                           check=True)
+            current = VE._git(["rev-parse", "--short", "HEAD"]).strip()
+            with patch.object(VE, "_HEAD", None):
+                check("a clean temporary checkout reports its actual HEAD",
+                      VE.head_commit() == current)
+            dirty_path = os.path.join(tmp, "uncommitted.txt")
+            with open(dirty_path, "w", encoding="utf-8") as handle:
+                handle.write("new artifact bytes\n")
+            with patch.object(VE, "_HEAD", None):
+                check("untracked artifact bytes are not mislabeled as a clean commit pin",
+                      VE.head_commit() == current + "+dirty")
+            VE._git(["add", "uncommitted.txt"])
+            with patch.object(VE, "_HEAD", None):
+                check("staged artifact changes also disclose the dirty working tree",
+                      VE.head_commit() == current + "+dirty")
+        with patch.object(VE, "ROOT", os.path.join(tmp, "absent")):
+            check("cat-file transport failure refuses instead of returning an empty valid map",
+                  VE._cat_file_batch([sha]) is None)
+            with patch.object(VE, "_HEAD", None):
+                check("unreadable checkout state is unknown, not a clean HEAD claim",
+                      VE.head_commit() == "unknown")
+        valid = sha.encode() + b" blob 3\nabc\n"
+        for label, raw, specs in [
+                ("truncated body", valid[:-2], [sha]),
+                ("missing second record", valid, [sha, missing]),
+                ("malformed size", sha.encode() + b" blob unknown\n", [sha]),
+                ("extra unrequested output", valid + b"unparsed\n", [sha])]:
+            with patch.object(VE, "_git", return_value=raw):
+                check(label + " refuses the entire batch", VE._cat_file_batch(specs) is None)
+
+
 def main():
     print("=" * 78)
     print("PROSE SCOPE — quality/verify_entries.py")
@@ -641,6 +716,7 @@ def main():
     test_floor_thresholds_are_re_derived()
     test_the_discharge_hatch_is_narrow()
     test_the_corpus_table_column_is_found_by_its_header()
+    test_git_transport_refuses_failed_or_partial_history()
     print()
     print("=" * 78)
     if _FAILURES:

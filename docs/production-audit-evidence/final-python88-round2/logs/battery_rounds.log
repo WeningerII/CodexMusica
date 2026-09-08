@@ -1,0 +1,9 @@
+1. the committed table holds, and each declared rule refuses its mutation
+  PASS  the committed table passes
+  PASS  ...and it is not vacuous: 25 rounds, 0 at exit 0, every layer in the vocabulary
+  PASS  an undeclared layer FAILS by name — a new kind of failure gets a row in the vocabulary before a row in the table
+  PASS  an entry that is no heading FAILS
+  PASS  a missing round FAILS as non-contiguous
+  PASS  a ten-digit run id FAILS
+
+all battery-rounds checks pass

@@ -1,0 +1,23 @@
+
+> codex-music-tool@2.0.0 check-docs
+> node scripts/check_docs.js && node scripts/check_doc_commands.js && node scripts/check_doc_paths.js && node scripts/check_doc_behaviors.js
+
+=== Documentation verification ===
+(117 active docs scanned: *.md + llms.txt + index.html; CHANGELOG/tests + codex.html excluded)
+
+[NUMERIC CLAIMS]  (22 count types)
+  ✓ All canonical counts match current catalog state.
+
+[SCRIPT REFERENCES]  (70 unique refs across active docs)
+  ✓ All script refs resolve to existing files.
+
+PASS — no drift detected.
+(Run with --with-audits for fast audit-count checks, or --all for full sweep.)
+=== Documented command execution (13 concrete commands) ===
+PASS — all 13 documented script commands exit 0.
+=== Documented path existence ===
+  present 199   ignored 0   declared-unreproducible 8   MISSING 0
+  (four counts, never summed — doctrine 79)
+PASS — every documented path is present, git-ignored, or declared unreproducible.
+=== Documented behavior assertions (8) ===
+PASS — all 8 documented behaviors hold.

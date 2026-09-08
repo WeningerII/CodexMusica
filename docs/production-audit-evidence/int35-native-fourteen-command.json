@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "scope": "Command provenance for the already completed final14 native test run; no rerun and no raw artifact modification.",
+  "command": [
+    "python3",
+    "quality/test_production_journal.py"
+  ],
+  "cwd": "/workspace/scratch/b0544e4bbdd6/production-fixes/lyric-harness",
+  "explicit_environment": {
+    "LYRIC_STAGED_DATA": "/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data",
+    "NLTK_DATA": "/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data/nltk"
+  },
+  "environment_scope": "The shell command overrode exactly these two environment variables and otherwise inherited the Work Mode process environment. No full inherited environment snapshot was captured; secrets are not reproduced.",
+  "shell_command": "LYRIC_STAGED_DATA=/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data NLTK_DATA=/workspace/scratch/b0544e4bbdd6/CodexMusica/lyric-harness/data/nltk python3 quality/test_production_journal.py > /workspace/scratch/b0544e4bbdd6/production-fix-results/int35-native-journal-fourteen.log 2>&1",
+  "stdout_stderr": "int35-native-journal-fourteen.log",
+  "stdout_stderr_sha256": "1b7b641109f518e04aa2aa26dbba02450c471fe9ff4a9d97a0d6641f71df62f0",
+  "execution_session": 99193,
+  "native_observed_exit_code": 0,
+  "exit_evidence": "The tracked exec session99193 completed with exit_code0, observed through write_stdin; log independently reports14 tests and OK.",
+  "python_runtime_scope": "Same local Python3.12.13 environment as the preceding native controls; this is not Docker3.11 qualification.",
+  "test_source_sha256_executed": "5062d9b2fe92234dd85c5092d13e1ba4667fee25ba22b6dc4f15dc327f371875",
+  "hash_delta_clarification": {
+    "test_source_before": "a36ccbfc7eca20882ddf2fc3393a3ad9826efa2b0336d9d6915eb94f4b31869e",
+    "test_source_after": "5062d9b2fe92234dd85c5092d13e1ba4667fee25ba22b6dc4f15dc327f371875",
+    "meaning": "These are the source hashes before and after the authorized test-only edit that added the nested partial replay case. The edit completed before launching session99193. They do not indicate source mutation during that test execution."
+  },
+  "runtime_source_scope": "CLI00f0e288cb670a7c88d8747fbab41c4b4aa3866484b14a7c7d9e7a79137464fc and loopc4195e93d5d37cd805c78bce006fc83c11471cb5eefee59f6bf3e76ac3cbae7e remained unchanged; the completion evidence checked these exact production source hashes."
+}

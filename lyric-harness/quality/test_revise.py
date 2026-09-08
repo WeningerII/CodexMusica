@@ -3521,8 +3521,11 @@ def test_rule_three_asks_whether_a_word_was_taken():
     # for a word the field cannot contain. `MISSING.md` M-90 holds that
     # measurement and the question it puts to the owner; this fixture answers
     # it in neither direction.
+    # All-readings pronunciation now leaves nobody's stress unresolved.
+    # Use a determinate subject so this Rule-3 positive control can still
+    # prove convergence; uncertainty is covered by the dedicated regressions.
     before = ["the kitchen light is burning at half past four",
-              "and nobody came back to climb the stair"]
+              "and my brother came back to climb the stair"]
     bp = {"_note": "constructed inline for this regression, not a fixture",
           "sections": [{"name": "V1", "bars": 2, "start_bar": 1,
                         "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
@@ -3535,7 +3538,7 @@ def test_rule_three_asks_whether_a_word_was_taken():
     # 'four' ~ 'stair' fails the mandate; L1 answering on 'glare' repairs
     # the pair AND its own SLOTS_EXCEEDED, so L2 then needs only its meter.
     ANSWERS = ["at four the kitchen light still glare",
-               "and nobody climbed the stair"]
+               "and my brother climbed the stair"]
 
     off, forb_ex = R.modal_field("four", exclude=("stair",))
     _o2, forb_raw = R.modal_field("four")
@@ -3579,7 +3582,7 @@ def test_rule_three_asks_whether_a_word_was_taken():
     # CONTROL — the rule is still load-bearing in the direction it was
     # written for: a revision that lands ON a modal candidate is refused,
     # in the same words, before anything else about the line is looked at.
-    took = [before[0], "and nobody came back to open the door"]
+    took = [before[0], "and my brother came back to open the door"]
     v2 = R.verify(before, took, m_aa, **kw)
     check("CONTROL: a revision that genuinely TAKES a modal candidate is "
           "still rejected outright, and still says so",
@@ -3837,13 +3840,11 @@ def test_a_return_is_not_rendered_as_a_rhyme():
     # against the whitespace-collapsed text -- pinning the sentence and not
     # the wrap column, which a later lot may move.
     flat = " ".join(p1.split())
-    check("...and it states the rule-2 consequence rather than leaving the "
-          "writer to discover that no legal answer satisfies both",
-          "rule 2 below forbids you changing the other line" in flat
-          and "the RETURN is what breaks" in flat
-          and "a fact about the mandate rather than about anything you can "
-              "write" in flat,
-          [l.strip() for l in p1.splitlines() if "rule 2" in l])
+    check("the prompt advertises the actual atomic return rewrite",
+          "VERBATIM RETURN CLASS: L1, L3" in flat
+          and "tool mirrors the one replacement to this exact class" in flat
+          and "applies your one answer to L1, L3" in flat,
+          flat[:300])
 
     pb = GroupBrief(pivot_line_no=3, pivot_text=DEC[2], pivot_word="given",
                     pivot_offered=["risen"],
@@ -4454,100 +4455,48 @@ def test_the_ban_is_the_same_field_as_the_offer():
     m0 = SC.mandate("ABAB", n_lines=4)
     f0 = [f for b0 in R.brief(list(CLICHE), m0)
           for f in (b0.fields_by_slot or {}).values()]
-    check("CONTROL: with no `schema:` declared the screen never runs and "
-          "the ban is untouched — 4 places, every one with a real ban and "
-          "no refusal, so no earlier run reads differently",
-          len(f0) == 4 and all(f.schema_refused == () for f in f0)
+    check("CONTROL: scalar menu generation does not invent named-relation refusals; "
+          "pronunciation coverage may independently reduce the briefed places",
+          bool(f0) and all(f.schema_refused == () for f in f0)
           and all(f.forbidden for f in f0),
           [(len(f.forbidden), f.schema_refused) for f in f0])
 
 
 def test_a_differ_coda_relation_is_offered_from_the_vowel_band():
-    """`MISSING.md` M-257 — round 24's forty-three parks on one place.
+    """M-257 correction: a two-token approximation is not the whole figure.
 
-    THE DEFECT. `schema_screen` probed the judge on two carrier lines with
-    no stanza frame, so a `frame="stanza"` schema REFUSED every word and the
-    refusal emptied the offer; and even judged, `analysed rhyme` (nucleus
-    AGREE, coda DIFFER) refuses the whole RHYME band by construction, which
-    is the only population `_field` draws from. The brief then said
-    "nothing in the lexicon answers" a place `grade()` accepts `seem` at.
+    Production audit REL03 established that analysed rhyme requires its full
+    member graph. The previous regression treated the two-word vowel/coda
+    edge as that entire figure. A refused coordinate cannot furnish a
+    verified word menu, even when the words pass that incomplete edge test.
     """
-    print("\n56. M-257 — a relation that DIFFERs on the coda is offered from "
-          "the vowel band, and the screen judges instead of refusing")
+    print("\n56. an unsupported pair-only figure is refused, not offered as verified")
     R = RV.Reviser()
-    ana = "schema:analysed rhyme"
-    kept, refused = R.schema_screen(["see", "free", "be", "seem", "dream"],
-                                    ["sea"], ana)
-    check("the premise: under a one-stanza frame the judge ANSWERS — every "
-          "rhyme of `sea` is refused (same coda) and the same-vowel, "
-          "other-coda words are kept",
-          sorted(kept) == ["dream", "seem"]
-          and sorted(refused) == ["be", "free", "see"], (kept, refused))
-    check("the relation is read as refusing the rhyme band; `family rhyme` "
-          "is not",
-          R.schema_refuses_rhyme_band(ana)
-          and not R.schema_refuses_rhyme_band("schema:family rhyme"))
-    wid = R.schema_widened_field(["sea"], [ana], exclude=("find",))
-    check("the vowel-band door offers a full menu for `sea`, every word of "
-          "which the relation's own judge accepts",
-          len(wid) == R.rdecl.offered
-          and all(R.schema_screen([w], ["sea"], ana)[0] for w in wid),
-          wid[:8])
-    check("...and no rhyme of the call is on it — these share the vowel, "
-          "not the rhyme", not ({"see", "free", "be", "we", "me"} & set(wid)),
-          wid[:8])
-    lines = ["the boat is on the sea",
-             "I find the truth in what I agree",
-             "a stone, a thread sewn"]
-    # ONE DECLARED SECTION: a `frame="stanza"` schema is judged over a
-    # stanza the grade derives from declared sections (M-39), exactly as
-    # the round-24 draft carried its own; three bare lines are unframed
-    # and the pair reads UNREADABLE, which is the premise this section
-    # is not about.
-    import json as _json
-    import tempfile as _tf
-    _bp = {"title": "", "hooks": [],
-           "sections": [{"name": "verse1", "bars": 3, "start_bar": 1,
+    relation = "schema:analysed rhyme"
+    words = ["see", "free", "be", "seem", "dream"]
+    kept, refused = R.schema_screen(words, ["sea"], relation)
+    check("the incomplete two-token screen certifies none of the words",
+          kept == [] and set(refused) == set(words), (kept, refused))
+    lines = ["the boat is on the sea", "I find the truth in what I agree"]
+    bp = {"sections": [{"name": "verse1", "bars": 2, "start_bar": 1,
                          "function": "verse",
                          "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
-           "lines": [{"text": t, "bar": i + 1, "beat": 1, "duration": 4,
-                      "section": "verse1"} for i, t in enumerate(lines)]}
-    with _tf.NamedTemporaryFile("w", suffix=".blueprint.json",
-                                delete=False) as fh:
-        _json.dump(_bp, fh)
-        _bp_path = fh.name
-    m = SC.mandate([["1.T6", "2.T2"]], n_lines=3, relations={"A": ana})
-    b = [x for x in R.brief(lines, m, blueprint=_bp_path) if x.line_no == 2]
-    check("the premise: L2's word-2 place is briefed under the declared "
-          "relation and flagged", bool(b) and bool(b[0].fields_by_slot), b)
-    f = list(b[0].fields_by_slot.values())[0]
-    check("the brief's offer at that place came through the vowel-band "
-          "door — `widened` counts it and `candidates` IS that list",
-          f.widened > 0 and f.widened == len(f.offered)
-          and list(b[0].candidates) == list(f.offered)
-          and b[0].field_widened == f.widened,
-          (f.widened, f.offered[:6]))
-    check("...and every offered word is accepted by the judge the verdict "
-          "uses",
-          all(R.schema_screen([w], list(f.calls), ana)[0]
-              for w in f.offered), f.offered[:6])
-    from quality import propose as PR
-    prompt = PR.render_line(b[0], lines, attempt=0)
-    check("the renderer says the words share the vowel and not the rhyme, "
-          "before the list",
-          "OFFERED FROM THE VOWEL BAND" in prompt
-          and prompt.find("OFFERED FROM THE VOWEL BAND")
-          < prompt.find("word(s); field read at"), prompt[:200])
-    fam = "schema:family rhyme"
-    m2 = SC.mandate([["1.T6", "2.T2"]], n_lines=3, relations={"A": fam})
-    b2 = [x for x in R.brief(lines, m2, blueprint=_bp_path)
-          if x.line_no == 2]
-    check("a relation the rhyme band CAN answer never opens the door — "
-          "`widened` is 0 and the offer is the field it always was",
-          bool(b2) and all(fx.widened == 0
-                           for fx in b2[0].fields_by_slot.values()),
-          [fx.widened for fx in (b2[0].fields_by_slot.values()
-                                 if b2 else [])])
+          "lines": [{"text": t, "bar": i + 1, "beat": 1, "duration": 4,
+                     "section": "verse1"} for i, t in enumerate(lines)]}
+    m = SC.mandate([["1.T6", "2.T2"]], n_lines=2, relations={"A": relation})
+    found = R.inspect(lines, m, blueprint=bp)
+    check("the full grader reports why these declared tokens are insufficient",
+          found["grade"]["pairs_refused"] == 1 and
+          any("full member graph" in row["reason"] for row in found["grade"]["refusals"]),
+          found["grade"]["refusals"])
+    check("that unresolved requirement blocks certification",
+          found["coverage"]["certified"] is False)
+    briefs = R.brief(lines, m, blueprint=bp)
+    check("the refused figure is never presented as a verified replacement menu",
+          all(not brief.candidates for brief in briefs))
+    kept, refused = R.schema_screen(["told", "bone"], ["cold"], "schema:family rhyme")
+    check("CONTROL: a supported pair relation still discriminates its actual coordinates",
+          kept == ["told"] and refused == ["bone"], (kept, refused))
 
 
 def test_a_pair_finding_names_its_own_group():
@@ -4765,80 +4714,37 @@ def test_the_hook_is_read_from_the_slot_not_the_snapshot():
 
 
 def test_an_offer_the_ban_emptied_points_at_the_group_backtrack():
-    """§57 (`MISSING.md` M-246). A connector user's seed-33 line 9 was
-    briefed with twenty FORBIDDEN words and NO offer — four partners already
-    held both spelling classes of the -oat family, so tier one banned every
-    remaining monosyllable and tier two banned the last — and the brief
-    said nothing about what to do. Three hand edits, three bans. The state
-    has no single-word fix by construction; the fix is the group's, and the
-    loop has it (tier 2, M-105, reached by escalation, M-205). The brief now
-    says so, at every renderer."""
-    print("\n57. M-246 — an offer the BAN emptied says why, and points at "
-          "the group backtrack")
+    """Bounded empty fields provide an actionable move without claiming impossibility."""
+    print("\n57. bounded field evidence preserves the declaration and offers legal moves")
     from quality.propose import render_line
-    L = ["the cold went down my throat", "he signed the time on a note",
-         "everything sinks that he wrote", "a light left on in the boat",
-         "under the lid a white float"]
-    R = Reviser()
-    bs = {b.line_no: b for b in
-          R.brief(L, SC.mandate([[1, 2, 3, 4, 5]], n_lines=5,
-                             default_relation="schema:perfect rhyme"))}
-    b2, b3 = bs[2], bs[3]
-    check("PREMISE: L2's offer is EMPTY, its ban is not, the field WAS "
-          "computed, and it is not a joint conflict — the friend's line 9 "
-          "shape (four partners on both spelled endings of one family)",
-          not b2.candidates and len(b2.forbidden_modal) >= 10
-          and b2.field_computed and not b2.joint_conflict,
-          f"offered {b2.candidates}, forbidden {len(b2.forbidden_modal)}, "
-          f"jc {b2.joint_conflict}")
-    note = b2.offer_emptied_by_ban
-    check("the brief carries the pointer: the partners by name, the ban's "
-          "two tiers, the GROUP, tier 2 / the joint backtrack (M-105), the "
-          "escalation (M-205), and the connector's `backtrack` coordinate",
-          all(x in note for x in ("'throat'", "'wrote'", "HOMEOTELEUTON",
-                                  "MODAL_RHYME", "GROUP", "tier 2",
-                                  "joint backtrack", "M-105", "M-205",
-                                  "lyric_revise", "backtrack=1",
-                                  "capacity WORD")),
-          note)
-    # The sentence is WRAPPED at 76 columns, so phrases are read on the
-    # whitespace-normalised text.
-    def _flat(x):
-        return " ".join(str(x).split())
-    check("`Brief.__str__` prints it", "joint backtrack" in _flat(b2)
-          and "The GROUP (A) has to move" in _flat(b2), _flat(b2)[-400:])
-    p2 = _flat(render_line(b2, L))
-    check("the writer prompt prints it IN PLACE of the old case-(c) "
-          "sentence, which named the cause and no move",
-          "joint backtrack" in p2 and "backtrack=1" in p2
-          and "is the binding" not in p2, p2[-600:])
-    check("CONTROL: L3, whose offer is NOT empty (`quote` survives both "
-          "tiers), owes no pointer and renders none",
-          b3.candidates and not b3.offer_emptied_by_ban
-          and "joint backtrack" not in _flat(b3)
-          and "joint backtrack" not in _flat(render_line(b3, L)),
-          f"offered {b3.candidates}")
-    # CONTROL: the SAME lines and partners under a BARE group — no declared
-    # relation — keep a non-empty offer (the default door admits the near
-    # relations: thought, lot, put …), so the only coordinate that empties
-    # the offer is the declared schema, and a non-empty offer owes nothing.
-    bare = {b.line_no: b for b in
-            R.brief(L, SC.mandate([[1, 2, 3, 4, 5]], n_lines=5))}
-    check("CONTROL: the same five lines under a BARE group keep a non-empty "
-          "offer on every briefed line and owe no pointer — the declared "
-          "schema is the coordinate that emptied it",
-          bare and all(b.candidates for b in bare.values())
-          and not any(b.offer_emptied_by_ban for b in bare.values()),
-          {n: (len(b.candidates), bool(b.offer_emptied_by_ban))
-           for n, b in bare.items()})
-    # THE ONE DEFINITION: the sentence on the brief IS `ban_emptied_note`'s,
-    # so a renderer cannot restate it.
     from quality.revise import ban_emptied_note
-    check("the sentence is `ban_emptied_note`'s own, byte for byte",
-          note == ban_emptied_note(
-              b2.fields_by_slot[None].calls,
-              b2.fields_by_slot[None].labels,
-              b2.fields_by_slot[None].forbidden))
+    import dataclasses
+    lines = ["the cold went down my throat", "he signed the time on a note",
+             "everything sinks that he wrote", "a light left on in the boat",
+             "under the lid a white float"]
+    r = Reviser()
+    m = SC.mandate([[1, 2, 3, 4, 5]], n_lines=5, default_relation="schema:perfect rhyme")
+    b = next(b for b in r.brief(lines, m) if b.line_no == 2)
+    check("the expanded relation search never offers its incumbent or forbidden words",
+          not set(b.candidates).intersection({b.forbidden_incumbent, *b.forbidden_modal}),
+          repr(b.candidates))
+    for word in b.candidates:
+        proposed = list(lines)
+        proposed[1] = "he signed the time on a " + word
+        grade = r.grade(proposed, m)
+        check("expanded suggestion satisfies the actual relation: " + word,
+              not grade['violations'] and grade['pairs_refused'] == 0)
+    note = ban_emptied_note(('throat', 'wrote'), ('A',), ('note', 'coat'))
+    flat = " ".join(note.split())
+    check("an empty search points to group backtracking while preserving artist intent",
+          "no one-line repair exists" in flat and "does not prove" in flat
+          and "joint backtrack" in flat and "lyric_revise" in flat
+          and "backtrack=1" in flat and "Preserve every declared relation" in flat
+          and "narrow the mandate" not in flat, flat)
+    empty = dataclasses.replace(b, candidates=[], offer_emptied_by_ban=note)
+    check("both production renderers print the same bounded-search guidance",
+          "joint backtrack" in str(empty) and "joint backtrack" in render_line(empty, lines)
+          and "narrow the mandate" not in render_line(empty, lines))
 
 
 def test_the_verdict_carries_the_judging_spans():

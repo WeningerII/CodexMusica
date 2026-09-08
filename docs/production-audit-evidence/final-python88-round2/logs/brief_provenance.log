@@ -1,0 +1,90 @@
+
+1. the fingerprint is the SAME one the loop stamps into its records
+  PASS  the local fingerprint equals quality.revise.draft_fingerprint over five drafts including the empty one
+          a drift here reports every line UNBRIEFED and blames the writer for the gate's own arithmetic
+
+2. a changed line COUNT is refused, never diffed
+  PASS  a length change raises rather than aligning
+          REFUSED — 2 line(s) in, 3 out. This gate asks which LINES we
+  PASS  equal-length drafts diff to the moved lines
+          [2, 4]
+
+3. THE GATE'S SUBJECT — a brief must name THIS draft, not any draft
+  PASS  both revised lines are BRIEFED when the brief names this draft
+          {'before_fingerprint': 'd1bb296c1467', 'after_fingerprint': '998769ce3552', 'briefed': [2, 4], 'unbriefed': [], 'briefed_unchanged': []}
+  PASS  a brief issued against a DIFFERENT draft launders nothing — both lines are UNBRIEFED
+          {'before_fingerprint': 'd1bb296c1467', 'after_fingerprint': '998769ce3552', 'briefed': [], 'unbriefed': [2, 4], 'briefed_unchanged': []}
+  PASS  the question standing at suspension counts as issued (pending is read, not only answered)
+          {'before_fingerprint': 'd1bb296c1467', 'after_fingerprint': '998769ce3552', 'briefed': [2, 4], 'unbriefed': [], 'briefed_unchanged': []}
+
+4. the three counts are separate and never summed (doctrine 79)
+  PASS  BRIEFED [2], UNBRIEFED [4], BRIEFED_UNCHANGED [3] — a line asked about and left alone is in neither of the other two
+          {'before_fingerprint': 'd1bb296c1467', 'after_fingerprint': '998769ce3552', 'briefed': [2], 'unbriefed': [4], 'briefed_unchanged': [3]}
+  PASS  the rendering prints all three and never a total
+
+5. --check is a GATE: exit 3 on an unbriefed revision, 0 when clean
+  BRIEF PROVENANCE: draft d1bb296c1467 -> 998769ce3552
+    BRIEFED             2   a brief was issued for this line, against THIS draft — [2, 4]
+    UNBRIEFED           0   the line was revised with no brief behind it — the offered field was computed and not read
+    BRIEFED_UNCHANGED   0   asked about and left alone — neither a defect nor a revision
+    (three counts, never summed — doctrine 79)
+
+  PASS — every revised line was briefed against this draft.
+  PASS  exit 0 when every revised line was briefed
+  BRIEF PROVENANCE: draft d1bb296c1467 -> 998769ce3552
+    BRIEFED             0   a brief was issued for this line, against THIS draft
+    UNBRIEFED           2   the line was revised with no brief behind it — the offered field was computed and not read — [2, 4]
+    BRIEFED_UNCHANGED   0   asked about and left alone — neither a defect nor a revision
+    (three counts, never summed — doctrine 79)
+
+  FAIL — a revised line with no brief behind it. The loop had already searched the complete pool for that position and excluded both ban tiers; guessing past it re-runs that search worse. Answer from `--propose=defer:` instead.
+  PASS  exit 3 when a revised line was not
+  BRIEF PROVENANCE: draft d1bb296c1467 -> 998769ce3552
+    BRIEFED             0   a brief was issued for this line, against THIS draft
+    UNBRIEFED           2   the line was revised with no brief behind it — the offered field was computed and not read — [2, 4]
+    BRIEFED_UNCHANGED   0   asked about and left alone — neither a defect nor a revision
+    (three counts, never summed — doctrine 79)
+
+  FAIL — a revised line with no brief behind it. The loop had already searched the complete pool for that position and excluded both ban tiers; guessing past it re-runs that search worse. Answer from `--propose=defer:` instead.
+  PASS  exit 3 with NO state file at all — a hand-edited draft is the case this gate exists for
+  BRIEF PROVENANCE: draft d1bb296c1467 -> 998769ce3552
+    BRIEFED             0   a brief was issued for this line, against THIS draft
+    UNBRIEFED           2   the line was revised with no brief behind it — the offered field was computed and not read — [2, 4]
+    BRIEFED_UNCHANGED   0   asked about and left alone — neither a defect nor a revision
+    (three counts, never summed — doctrine 79)
+  PASS  without --check it REPORTS and does not gate (exit 0)
+  REFUSED — [Errno 2] No such file or directory: '/tmp/tmp_2wg4iya/nope.txt'
+  PASS  a missing draft REFUSES at 2 rather than raising
+  REFUSED — usage: brief_provenance.py BEFORE AFTER [STATE.json ...] [--check]
+    BEFORE/AFTER are drafts; STATE is a `--propose=defer:` state file. --check exits 3 when any revised line was never briefed.
+  PASS  too few arguments REFUSE at 2 with the usage line
+
+6. THE LEDGER — the loop is the front door, and this is the memory
+  PASS  no ledger yet — a FIRST draft is admitted, there is nothing it could have been briefed about
+  PASS  the ledger records the draft AS HANDED IN, not the loop's output — what a writer edits next is the file they handed in
+  PASS  re-grading the IDENTICAL draft is not a revision and is admitted
+  PASS  a hand-edited line with no brief is REFUSED, naming the line
+          unbriefed revision — line(s) [2, 4] moved since draft d1bb296c1467 and no brief was ever issued for them
+  PASS  a DECLARED reason admits it and carries the writer's own words into the message (the fit.AssumedMeter precedent)
+            BRIEFS: 2 line(s) revised with NO brief behind them — [2, 4]. ADMITTED because the caller declared a reason, which is recorded and printed rather than assumed: 'fixing a typo'
+  PASS  a BRIEFED revision passes — the false refusal is the worse bug and this is the check that keeps it out
+            BRIEFS: 2 revised line(s), every one briefed against draft d1bb296c1467 — [2, 4]
+  PASS  a brief against another draft does not admit it here either
+  PASS  a changed line COUNT is admitted and named a restructure, because this gate asks which LINES moved and a changed count has no answer
+            BRIEFS: the draft changed LENGTH (4 -> 5 lines), which is a restructure and not a revision — this gate asks which LINES moved and a changed count has no answer (doctrine 20).
+  PASS  the ledger carries the state paths forward — a gate a caller can evade by forgetting an argument fails toward whoever forgot
+          ['/tmp/tmp0xgfmfxu/s.json']
+
+7. A STATE THE LEDGER NAMES AND THE DISK NO LONGER HOLDS testifies to no brief (M-211) — the refusal is 'unbriefed', never an OSError
+  PASS  absent_states names the missing path and nothing else
+  PASS  briefed() over a missing state RETURNS EMPTY rather than raising — the FileNotFoundError that escaped to the CLI's top-level handler and was reported as a mis-spelled path
+  PASS  admit REFUSES with the unbriefed message, naming the moved lines AND the state that is gone — not an exception
+          unbriefed revision — line(s) [2, 4] moved since draft d1bb296c1467 and no brief was ever issued for them — and 1 of the ledger's deferred state(s) cannot be read, so testify to no brief: ['/tmp/tmpid5f0w55/s.json']
+  PASS  a declared reason still admits it, and the message still names the missing state beside the reason (doctrine 79: its own count)
+            BRIEFS: 2 line(s) revised with NO brief behind them — [2, 4]. ADMITTED because the caller declared a reason, which is recorded and printed rather than assumed: 're-chosen after SCHEME_UNREADABLE' — and 1 of the ledger's deferred state(s) cannot be read, so testify to no brief: ['/tmp/tmpid5f0w55/s.json']
+  PASS  a state that is present but not JSON is ABSENT in the same sense — it can testify to nothing
+  PASS  a readable state beside the missing one still briefs the lines — the missing one costs nothing but its mention
+            BRIEFS: 2 revised line(s), every one briefed against draft d1bb296c1467 — [2, 4]
+
+==============================================================
+ALL PASS

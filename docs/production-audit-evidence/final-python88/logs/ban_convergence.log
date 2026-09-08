@@ -1,0 +1,36 @@
+
+1. the population and the mandate sources
+  PASS  the population is song_record's (a lyric with a blueprint)
+          ['carry_it_over.txt', 'crooked_waltz.txt', 'i_am_not_leaving.txt', 'keep_the_light.txt', 'long_bridge.txt', 'matinee.txt', 'oar_lair.txt', 'one_more.txt', 'stay_awake.txt', 'taught_me_time.txt', 'the_frost_ledger.txt', 'the_long_way_back.txt', 'the_river_keeps_the_score.txt', 'till_the_light_comes_home.txt', 'turn_the_wheel.txt', 'wheat_mane.txt']
+  PASS  sixteen songs banked at the pin
+          16
+  PASS  mandate sources: three counts, never summed — README command, plan-log facts, refused by name
+          {'readme': 11, 'log': 4, None: 1}
+  PASS  oar_lair.txt is REFUSED — no README section, no plan row: the mandate is banked nowhere and is not invented (doctrine 20)
+          (None, 'no `song` command in songs/README.md and no `plan` row with a `groups` fact in the log')
+  PASS  carry_it_over's mandate is the README's `song` command, with its returns
+          ('readme', [['1.head', '2.endword'], ['1.T2', '2.T1'], ['3', '4.T2'], ['5.T6', '6.head'], ['5.T3', '6.T6'], ['9.T4', '10.headrime'], ['9', '10.T3'], ['9.T5', '10.T6'], ['11.T6', '12.headrime']], [['7', '17'], ['7', '20']], None, None)
+
+2. carry_it_over — the grader's own counts, through this file
+  PASS  screened pool from the log: 35 HOMEOTELEUTON / 25 MODAL_RHYME / 33 CLEAN / 5 REFUSED / 0 other
+          {'song': 'carry_it_over.txt', 'screen_homeo': 35, 'screen_modal': 25, 'screen_clean': 33, 'screen_refused': 5, 'screen_other': 0, 'mandate_source': 'readme', 'pairs_mandated': 11, 'pairs_judged': 11, 'pairs_refused': 0, 'banned_in_final': 0, 'flags': 0, 'eligible': 9, 'rank_head': 0, 'rank_tail': 7, 'rank_outside': 2, 'ranks': [288, 11, 48, 29, 24, 17, 33], 'pairs': [((1, 2), 'freight', 'strait', 'outside', None), ((1, 2), 'grey', 'weigh', 'outside', None), ((3, 4), 'dust', 'cussed', 'tail', 288), ((5, 6), 'war', 'door', 'tail', 11), ((5, 6), 'tide', 'sighed', 'tail', 48), ((9, 10), 'fear', 'here', 'tail', 29), ((9, 10), 'quell', 'bell', 'tail', 24), ((9, 10), 'spark', 'arc', 'tail', 17), ((11, 12), 'sheer', 'clear', 'tail', 33)]}
+  PASS  final: 11 mandated / 11 judged / 0 refused — the README's own line, re-derived
+          {'song': 'carry_it_over.txt', 'screen_homeo': 35, 'screen_modal': 25, 'screen_clean': 33, 'screen_refused': 5, 'screen_other': 0, 'mandate_source': 'readme', 'pairs_mandated': 11, 'pairs_judged': 11, 'pairs_refused': 0, 'banned_in_final': 0, 'flags': 0, 'eligible': 9, 'rank_head': 0, 'rank_tail': 7, 'rank_outside': 2, 'ranks': [288, 11, 48, 29, 24, 17, 33], 'pairs': [((1, 2), 'freight', 'strait', 'outside', None), ((1, 2), 'grey', 'weigh', 'outside', None), ((3, 4), 'dust', 'cussed', 'tail', 288), ((5, 6), 'war', 'door', 'tail', 11), ((5, 6), 'tide', 'sighed', 'tail', 48), ((9, 10), 'fear', 'here', 'tail', 29), ((9, 10), 'quell', 'bell', 'tail', 24), ((9, 10), 'spark', 'arc', 'tail', 17), ((11, 12), 'sheer', 'clear', 'tail', 33)]}
+  PASS  exit-0 bytes carry no ban finding
+          {'song': 'carry_it_over.txt', 'screen_homeo': 35, 'screen_modal': 25, 'screen_clean': 33, 'screen_refused': 5, 'screen_other': 0, 'mandate_source': 'readme', 'pairs_mandated': 11, 'pairs_judged': 11, 'pairs_refused': 0, 'banned_in_final': 0, 'flags': 0, 'eligible': 9, 'rank_head': 0, 'rank_tail': 7, 'rank_outside': 2, 'ranks': [288, 11, 48, 29, 24, 17, 33], 'pairs': [((1, 2), 'freight', 'strait', 'outside', None), ((1, 2), 'grey', 'weigh', 'outside', None), ((3, 4), 'dust', 'cussed', 'tail', 288), ((5, 6), 'war', 'door', 'tail', 11), ((5, 6), 'tide', 'sighed', 'tail', 48), ((9, 10), 'fear', 'here', 'tail', 29), ((9, 10), 'quell', 'bell', 'tail', 24), ((9, 10), 'spark', 'arc', 'tail', 17), ((11, 12), 'sheer', 'clear', 'tail', 33)]}
+  PASS  9 ban-eligible rhyming pairs (11 minus the two REPEAT returns)
+          [((1, 2), 'freight', 'strait', 'outside', None), ((1, 2), 'grey', 'weigh', 'outside', None), ((3, 4), 'dust', 'cussed', 'tail', 288), ((5, 6), 'war', 'door', 'tail', 11), ((5, 6), 'tide', 'sighed', 'tail', 48), ((9, 10), 'fear', 'here', 'tail', 29), ((9, 10), 'quell', 'bell', 'tail', 24), ((9, 10), 'spark', 'arc', 'tail', 17), ((11, 12), 'sheer', 'clear', 'tail', 33)]
+  PASS  no partner sits in the ban's head; HEAD + TAIL + OUTSIDE are never summed and account for every eligible pair
+          {'song': 'carry_it_over.txt', 'screen_homeo': 35, 'screen_modal': 25, 'screen_clean': 33, 'screen_refused': 5, 'screen_other': 0, 'mandate_source': 'readme', 'pairs_mandated': 11, 'pairs_judged': 11, 'pairs_refused': 0, 'banned_in_final': 0, 'flags': 0, 'eligible': 9, 'rank_head': 0, 'rank_tail': 7, 'rank_outside': 2, 'ranks': [288, 11, 48, 29, 24, 17, 33], 'pairs': [((1, 2), 'freight', 'strait', 'outside', None), ((1, 2), 'grey', 'weigh', 'outside', None), ((3, 4), 'dust', 'cussed', 'tail', 288), ((5, 6), 'war', 'door', 'tail', 11), ((5, 6), 'tide', 'sighed', 'tail', 48), ((9, 10), 'fear', 'here', 'tail', 29), ((9, 10), 'quell', 'bell', 'tail', 24), ((9, 10), 'spark', 'arc', 'tail', 17), ((11, 12), 'sheer', 'clear', 'tail', 33)]}
+
+3. a mutation — one partner pulled back to the modal head
+  PASS  the ban fires on the mutated pair (banned_in_final 0 -> >=1)
+          (0, 1)
+  PASS  the partner is now in the HEAD bucket (rank_head 0 -> 1)
+          (0, 1)
+  PASS  the pair still rhymes, so the eligible count does not move
+          (9, 9)
+  PASS  the HEAD pair is L3/L4 dust~trust at rank 0 of dust's field
+          [((3, 4), 'dust', 'trust', 'head', 0)]
+==============================================================
+the ban is measured against the bank, through the grader

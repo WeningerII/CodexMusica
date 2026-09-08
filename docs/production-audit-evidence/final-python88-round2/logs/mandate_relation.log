@@ -1,0 +1,186 @@
+
+1. the declarable vocabulary
+  PASS  the coarse classes are declarable
+          ['RHYME', 'RIME_RICHE', 'ASSONANCE', 'CONSONANCE']
+  PASS  the named types are DERIVED from NAMED, not re-typed — every synonym in every cell is declarable
+          76 named
+  PASS  a tradition's own word resolves to the same cell as the English one — `qafiya` and `masculine rhyme` are one question
+  PASS  no name is both a coarse class and a named cell — one declaration cannot mean two things
+  PASS  resolution is case-insensitive across the tables, which spell themselves differently
+  PASS  three namespaces are declared
+          ('class', 'type', 'schema')
+  PASS  26 names are in more than one namespace, and every one of them is (schema, type) — the classes escape only because they are spelled in capitals, which is a finding and not a reassurance
+          (26, [('schema', 'type')])
+  PASS  a bare name in two namespaces REFUSES and prints both prefixed forms — picking one would make a mandate mean whichever table was consulted first ('assonance')
+  PASS  a bare name in two namespaces REFUSES and prints both prefixed forms — picking one would make a mandate mean whichever table was consulted first ('syllabic rhyme')
+  PASS  a bare name in two namespaces REFUSES and prints both prefixed forms — picking one would make a mandate mean whichever table was consulted first ('consonance')
+  PASS  an explicit prefix is unambiguous in every namespace
+  PASS  ...and the 51 schema-only and 54 type-only names still resolve BARE, so namespacing costs nothing where nothing is ambiguous
+  PASS  EXACT match is tried across all three before any case-insensitive pass, so `ASSONANCE` stays the class while `assonance` refuses — the two are one shift key apart and must not silently swap
+  PASS  an undeclared namespace refuses against the declared list
+  PASS  a `schema:` name is declarable but NOT judgeable yet — a RelationSchema is evaluated over a whole stream, and routing it is gated on the null sweep, so it refuses rather than grading as something else
+  PASS  an unknown name REFUSES rather than falling back to the default — a relation that does not exist, graded as the default, is a silently different question (doctrine 20)
+
+2. the judge, in both directions
+  PASS  a coarse class is answered from the score alone — no classify_pair, no phonology needed
+  PASS  a named type SATISFIES when the pair stands in it
+  PASS  ...and its tradition synonym gives the same answer, because they name one cell
+  PASS  a named type REFUSES the pair when it does not stand in it — the classifier can say no, so it is not an instrument that only ever says yes (doctrine 94)
+  PASS  ...and says yes to a pair that DOES stand in it
+  PASS  an unreadable member is None — a REFUSAL, never a no. Reading it as False charges the writer for a word the engine cannot pronounce (doctrine 79)
+          None
+
+3. the mandate learns the coordinate
+  PASS  absence means DEFAULT, and the default is "" rather than an invented name — the default is the coarse admit SET, which is not a row in this vocabulary
+  PASS  a declaration lands on the group its LABEL names, STORED NAMESPACED so it re-resolves to the same judge (M-49)
+  PASS  a short tuple reads as default for the tail, so widening a mandate by one group shifts nothing (doctrine 66)
+  PASS  an unknown name refuses IN THE MANDATE LAYER'S OWN TYPE, so every CLI surface turns it into REFUSED at exit 2
+  PASS  a label naming no group refuses IN THE MANDATE LAYER'S OWN TYPE, so every CLI surface turns it into REFUSED at exit 2
+  PASS  an index outside the mandate refuses IN THE MANDATE LAYER'S OWN TYPE, so every CLI surface turns it into REFUSED at exit 2
+  PASS  a group declaring BOTH a structure and a relation refuses — two judges over one group's pairs, and which answered would depend on grade()'s branch order (doctrine 1)
+  PASS  ...but the two coordinates coexist on DIFFERENT groups, which is the whole point of them being per-group
+
+4. grade() routes a declared group, and the declaration BINDS
+  PASS  a mandate that never learned the coordinate takes the old path
+  PASS  a declared coarse class the pair satisfies is satisfied
+  PASS  a declared NAMED type the pair satisfies is satisfied
+  PASS  ...and so is its tradition synonym
+  PASS  a declared named type the pair does NOT satisfy FLAGS, and the finding names the relation
+          does not satisfy the declared relation 'type:feminine rhyme' — judged by the named-type engine at that relation's own coordinate, not by the scalar comparator's admit set
+  PASS  A GROUP DECLARING ASSONANCE IS NOT SATISFIED BY A FULL RHYME. This is what a global widening could never express: adding ASSONANCE to `admits()` makes every requirement in every song satisfiable by assonance — looser. Asked per group, the same name is STRICTER.
+          does not satisfy the declared relation 'class:ASSONANCE' — judged by the named-type engine at that relation's own coordinate, not by the scalar comparator's admit set
+  PASS  an unreadable member REFUSES the pair rather than failing it
+
+5. position is DECLARED, never assumed (M-34)
+  PASS  31 of the 49 named types require a non-None position — the measurement M-34 rests on
+          31 of 49
+  PASS  `classify_pair` takes two bare words and leaves position None, so those 31 can never match on that path — which is why the `types` verb reports UNNAMED for a masculine rhyme
+          (None, ())
+  PASS  a named relation with no declared position REFUSES rather than silently answering 'no name here' for two thirds of the vocabulary (doctrine 45)
+  PASS  an undeclared position value REFUSES against the declared vocabulary
+  PASS  the realisation axis is exactly ('phonetic','eye','historical') and only TWO of the 49 keys sit off 'phonetic'
+          ('phonetic', 'eye', 'historical')
+  PASS  type:eye rhyme is only reachable at a non-phonetic realisation, so it REFUSES rather than answering False — `classify_pair` reads a phonemic stream and cannot see the channel the relation is defined on (doctrine 20/79)
+  PASS  type:sight rhyme is only reachable at a non-phonetic realisation, so it REFUSES rather than answering False — `classify_pair` reads a phonemic stream and cannot see the channel the relation is defined on (doctrine 20/79)
+  PASS  type:historical rhyme is only reachable at a non-phonetic realisation, so it REFUSES rather than answering False — `classify_pair` reads a phonemic stream and cannot see the channel the relation is defined on (doctrine 20/79)
+  PASS  ...and the rule does NOT swallow the 47 phonetic keys: a masculine rhyme still answers, and answers True
+
+6. the MANDATE-LEVEL relation is the default route
+  PASS  EVERY declarable relation survives the store — the value a mandate keeps re-resolves to the SAME judge, which a bare canonical name does not for the 26 two-namespace names (`MISSING.md` M-49; 105 survived / 52 refused before)
+          157 survive, 0 refused
+  PASS  re-opening a mandate does not refuse the relation it already accepted — validation at __post_init__ means every replace() re-validates, so the stored form has to be idempotent
+  PASS  a group that declares nothing takes the mandate's relation
+  PASS  a group's OWN declaration wins, and the default fills the rest — the only order that lets a song be mostly one relation with exceptions
+  PASS  a mandate declaring NEITHER still answers "", which is the coarse `Declaration.admit` path — so every caller that never learned this field is byte-for-byte unchanged
+  PASS  an unknown mandate-level relation refuses WHEN THE MANDATE IS WRITTEN — the writer is still holding the sentence they got wrong, and a name graded as the coarse default is a silently different question (doctrine 20)
+  PASS  declaring the relation ONCE at the mandate level is the SAME declaration as repeating it on every group — same verdicts, so the shorthand is not a second meaning (doctrine 1)
+          ((3, 4),) == ((3, 4),)
+  PASS  ...and it is READ: the coarse admit set passes both pairs and the declared relation does not, so a gate that ignored this field would report a clean draft on a question nobody asked
+          coarse () vs declared ((3, 4),)
+  PASS  the declaration is not a blanket no — night/knight IS a rime riche and stands, bay/way is a perfect rhyme and does not
+          ((3, 4),)
+
+7. the re-open path carries every coordinate it is not re-declaring
+  PASS  the premise: a non-default rule is stored as declared
+          positional
+  PASS  re-opening to add default_relation carries the declared ReturnRule — `return_rhyme` decides whether a return class's rhyme obligations are read as a UNION with its group's or POSITIONALLY, so re-defaulting it re-judges the song (`MISSING.md` M-53)
+          positional
+  PASS  re-opening to add relations carries the declared ReturnRule — `return_rhyme` decides whether a return class's rhyme obligations are read as a UNION with its group's or POSITIONALLY, so re-defaulting it re-judges the song (`MISSING.md` M-53)
+          positional
+  PASS  re-opening to add structures carries the declared ReturnRule — `return_rhyme` decides whether a return class's rhyme obligations are read as a UNION with its group's or POSITIONALLY, so re-defaulting it re-judges the song (`MISSING.md` M-53)
+          positional
+  PASS  re-opening to add returns carries the declared ReturnRule — `return_rhyme` decides whether a return class's rhyme obligations are read as a UNION with its group's or POSITIONALLY, so re-defaulting it re-judges the song (`MISSING.md` M-53)
+          positional
+  PASS  re-opening to add scope carries the declared ReturnRule — `return_rhyme` decides whether a return class's rhyme obligations are read as a UNION with its group's or POSITIONALLY, so re-defaulting it re-judges the song (`MISSING.md` M-53)
+          positional
+  PASS  ...and an EXPLICIT rule on the re-open still wins — the fix distinguishes silence from a declaration, it does not make the field unwritable
+  PASS  ...and a FRESH build with no rule still gets the default, so the `rule or ReturnRule()` contract is untouched for every caller that never declared one
+  PASS  a re-declared relation is CARRIED, not dropped — before M-50 this compared EQUAL to the mandate it re-opened, which is a declared coordinate consumed and ignored
+          ('type:qafiya', '')
+  PASS  ...and `origin` NAMES it, so the provenance string is not a trailing conjunction with nothing after it
+          letter scheme 'ABAB' + relations
+  PASS  a re-opened mandate CARRIES its placements — the third group's `1.T2` survives adding a relation
+          ("(Slot(line=1, rule=SpanRule(locus='any_token', anchor='last_stressed', direction=1, magnitude='to_word_end', cross_word=False, requires=('token:1',))), None)", "(Slot(line=1, rule=SpanRule(locus='any_token', anchor='last_stressed', direction=1, magnitude='to_word_end', cross_word=False, requires=('token:1',))), None)")
+  PASS  ...and every other re-open spelling carries them too (structures, returns, scope)
+
+8. the `schema:` namespace is judged — over the stream, answered per pair
+  PASS  a declared SCHEMA is SATISFIED where it holds — 'much'/'touch' under `schema:perfect rhyme`, the namespace that refused every one of its 77 names until today
+          ([], [])
+  PASS  ...and VIOLATED where it does not — the same pair is a full rhyme, not a consonance, so the schema route is STRICTER than the coarse door and not merely another way to pass
+          ([{'lines': (2, 4), 'group': 0, 'label': 'A', 'members': [2, 4], 'endwords': ('much', 'touch'), 'score': 1.0, 'relation': 'RHYME', 'spans': {'a': {'words': ['much'], 'text': 'much', 'widx': [6], 'runs': [{'widx': 6, 'word': 'much', 'first_syllable': 1, 'word_syllables': 1, 'read': (), 'unread': (), 'syllables': 1}], 'syllables': 1, 'partial_word': False, 'substituted': False, 'unread': (), 'endword_only': True}, 'b': {'words': ['touch'], 'text': 'touch', 'widx': [7], 'runs': [{'widx': 7, 'word': 'touch', 'first_syllable': 1, 'word_syllables': 1, 'read': (), 'unread': (), 'syllables': 1}], 'syllables': 1, 'partial_word': False, 'substituted': False, 'unread': (), 'endword_only': True}, 'anchor_a': [{'onset': ['M'], 'nucleus': 'AH', 'stress': 1, 'coda': ['CH'], 'widx': 6, 'word': 'much', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': ()}], 'anchor_b': [{'onset': ['T'], 'nucleus': 'AH', 'stress': 1, 'coda': ['CH'], 'widx': 7, 'word': 'touch', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': ()}], 'search_k': 4, 'candidates_a': 2, 'candidates_b': 2, 'tied_at_max': 1, 'mosaic_a': False, 'mosaic_b': False, 'mosaic': False, 'substituted_a': False, 'substituted_b': False, 'substituted': False, 'kind_a': 'exact', 'kind_b': 'exact'}, 'attribution': '', 'structure': None, 'flags': [], 'why': "does not satisfy the declared relation 'schema:consonance' — judged by the named-type engine at that relation's own coordinate, not by the scalar comparator's admit set"}], [])
+  PASS  an INTRA-LINE figure REFUSES and names its placement — 19 of the 77 are properties of ONE line, and answering `False` would charge the writer for asking a question the schema does not answer (doctrine 20)
+          the declared relation 'schema:alliteration' cannot be judged here: 'alliteration' is an INTRA-LINE figure (placement same_line), so it is a property of a single
+  PASS  a schema whose CAPABILITY this draft cannot supply refuses with the capability named — a REFUSAL, never a failure (doctrine 79), and distinct from the placement refusal above
+          the declared relation 'schema:antanaclasis' cannot be judged here: 'antanaclasis' could not be realised over this draft: antanaclasis needs 'sense'; this declar
+  PASS  the two refusals are DIFFERENT TEXT — 'cannot be asked of a pair' and 'this draft has no evidence' are two answers and spelling them the same is the collapse doctrine 20 forbids
+  PASS  `satisfies_relation` called WITHOUT `instances=` still refuses, naming the realisation step — the judge never guesses a whole-stream answer from two words
+  PASS  `epistrophe / radif` is JUDGED, not refused — `grade()` calls `mark_refrain_tail` when a declared schema needs the frame, so the capability the schema demands is supplied by the run that demands it
+          2 judged / 0 refused of 2 mandated; refusals []
+  PASS  ...and the SAME declaration on a draft with no refrain tail REFUSES BY NAME — which is what proves the coordinate was read, since the radif fixture answers identically under every schema and under none
+          0 judged / 2 refused; ["the declared relation 'schema:epistrophe / radif' cannot be judged here: 'epistrophe / r"]
+  PASS  the frame is genuinely ABSENT before the mark and PRESENT after — so the wiring supplies something the stream did not carry, rather than dressing up a capability it already had
+          ('absent', 'present')
+  PASS  ...and the schema then finds real line pairs on a radif draft
+          LinePairResults({(2, 3), (2, 4), (1, 2), (3, 4), (1, 3), (1, 4)})
+  PASS  `qafiya (before the radif)` on the same draft returns the EMPTY set, not a refusal — looked-and-none is a third answer and the route keeps it apart from both (doctrine 20)
+  PASS  a mandate declaring a NAMED type never builds a stream — the schema route is lazy, like the structure route beside it
+
+9. identity is the schema's own ruling (M-124)
+  PASS  an anaphora group whose bound words are IDENTICAL is SATISFIED — the schema's token-Agree identity rule is the declared ruling, and identity here is the requirement
+  PASS  a BARE group with identical end words still charges REPEAT — doctrine 3 is untouched where nothing declared otherwise
+          [{'lines': (1, 2), 'group': 0, 'label': 'A', 'members': [1, 2], 'endwords': ('high', 'high'), 'score': 1.0, 'relation': 'REPEAT', 'spans': {'a': {'words': ['tide', 'is', 'high'], 'text': 'tide is high', 'widx': [1, 2, 3], 'runs': [{'widx': 1, 'word': 'tide', 'first_syllable': 1, 'word_syllables': 1, 'read': (), 'unread': (), 'syllables': 1}, {'widx': 2, 'word': 'is', 'first_syllable': 1, 'word_syllables': 1, 'read': (), 'unread': (), 'syllables': 1}, {'widx': 3, 'word': 'high', 'first_syllable': 1, 'word_syllables': 1, 'read': (), 'unread': (), 'syllables': 1}], 'syllables': 3, 'partial_word': False, 'substituted': False, 'unread': (), 'endword_only': False}, 'b': {'words': ['tide', 'is', 'high'], 'text': 'tide is high', 'widx': [1, 2, 3], 'runs': [{'widx': 1, 'word': 'tide', 'first_syllable': 1, 'word_syllables': 1, 'read': (), 'unread': (), 'syllables': 1}, {'widx': 2, 'word': 'is', 'first_syllable': 1, 'word_syllables': 1, 'read': (), 'unread': (), 'syllables': 1}, {'widx': 3, 'word': 'high', 'first_syllable': 1, 'word_syllables': 1, 'read': (), 'unread': (), 'syllables': 1}], 'syllables': 3, 'partial_word': False, 'substituted': False, 'unread': (), 'endword_only': False}, 'anchor_a': [{'onset': ['T'], 'nucleus': 'AY', 'stress': 1, 'coda': [], 'widx': 1, 'word': 'tide', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': ()}, {'onset': ['D'], 'nucleus': 'IH', 'stress': 0, 'coda': ['Z'], 'widx': 2, 'word': 'is', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': ()}, {'onset': ['HH'], 'nucleus': 'AY', 'stress': 1, 'coda': [], 'widx': 3, 'word': 'high', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': ()}], 'anchor_b': [{'onset': ['T'], 'nucleus': 'AY', 'stress': 1, 'coda': [], 'widx': 1, 'word': 'tide', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': ()}, {'onset': ['D'], 'nucleus': 'IH', 'stress': 0, 'coda': ['Z'], 'widx': 2, 'word': 'is', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': ()}, {'onset': ['HH'], 'nucleus': 'AY', 'stress': 1, 'coda': [], 'widx': 3, 'word': 'high', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': ()}], 'search_k': 4, 'candidates_a': 2, 'candidates_b': 2, 'tied_at_max': 2, 'mosaic_a': True, 'mosaic_b': True, 'mosaic': True, 'substituted_a': False, 'substituted_b': False, 'substituted': False, 'kind_a': 'reach', 'kind_b': 'reach'}, 'attribution': ' — NAMED PAIR IS NOT THE EVIDENCE: scored on: tide is high  ~  tide is high   (best of k=4, 2 tied at the max)   MOSAIC (both sides): the winning span reaches back past the end word', 'structure': None, 'flags': ['coda: no evidence (both codas empty on 2 of 3 syllable(s); 0.200 of the total is agreement by absence, not by sound — E-5)', 'identical_word'], 'why': 'REPEAT not rhyme (identical word)'}]
+  PASS  a Differ-identity schema judged on SEARCHED spans reads nothing off the bound end words — internal rhyme with identical end words is satisfied by its tide~guide spans, because the schema's identity rule binds the spans it matches, not the slots the mandate drew
+
+10. the M-148 gate — the drawable pool answers through the grade route
+  PASS  every drawable name is SATISFIED on its own witness exhibit through `Reviser.grade` — the route a planned mandate takes, not the route the certificate was issued on
+  PASS  the four definite canonical monosyllable pairs are SATISFIED at default slots — fast~lost is the canonical English instance, and this arm is the check that reds on the whole-syllable `_seq` flatten (M-148 P1: [F,S,T] vs [L,S,T])
+  PASS  best~last refuses when permitted pronunciations differ on last's final T
+          REFUSED: the declared relation 'schema:cluster consonance / skothending span' has no coor
+  PASS  `milk~walk` is VIOLATED — walk's L is silent in the declared dialect, so the spelling-skothending pair honestly fails the phonology the mandate grades through
+          violated
+  PASS  `day~sea` is VIOLATED, not vacuously satisfied — two open syllables share an EMPTY post-vocalic cluster, and a cluster relation over zero consonants must answer False with the reason, or the 77-schema default door satisfies every such pair silently
+          violated
+  PASS  a schema at a DECLARED token is judged AT that token — `fast`@1.T3 ~ `lost`@2.end SATISFIED
+          ([], [])
+  PASS  ...and the NEIGHBOURING token under the same schema is VIOLATED (`held`@1.T2), which is the contrast that proves the slot is read — both answer alike through the instances route
+          ([{'lines': (1, 2), 'group': 0, 'label': 'A', 'members': [1, 2], 'endwords': ('held', 'lost'), 'score': 0.561, 'relation': 'NO_RELATION', 'spans': {'a': {'words': ['held'], 'text': 'held', 'widx': [1], 'runs': [{'widx': 1, 'word': 'held', 'first_syllable': 1, 'word_syllables': 1, 'read': (), 'unread': (), 'syllables': 1}], 'syllables': 1, 'partial_word': False, 'substituted': False, 'unread': (), 'endword_only': True}, 'b': {'words': ['lost'], 'text': 'lost', 'widx': [5], 'runs': [{'widx': 5, 'word': 'lost', 'first_syllable': 1, 'word_syllables': 1, 'read': (), 'unread': (), 'syllables': 1}], 'syllables': 1, 'partial_word': False, 'substituted': False, 'unread': (), 'endword_only': True}, 'anchor_a': [{'onset': ['HH'], 'nucleus': 'EH', 'stress': 1, 'coda': ['L', 'D'], 'word': 'held', 'widx': 1, 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': ()}], 'anchor_b': [{'onset': ['L'], 'nucleus': 'AO', 'stress': 1, 'coda': ['S', 'T'], 'widx': 5, 'word': 'lost', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': ()}], 'search_k': 2, 'candidates_a': 1, 'candidates_b': 2, 'tied_at_max': 1, 'mosaic_a': False, 'mosaic_b': False, 'mosaic': False, 'substituted_a': False, 'substituted_b': False, 'substituted': False, 'kind_a': 'exact', 'kind_b': 'exact'}, 'attribution': '', 'structure': None, 'flags': ['conjunctive band: neither channel agrees'], 'why': "does not satisfy the declared relation 'schema:cluster consonance / skothending span' — judged by the schema's own channels at the DECLARED tokens (relations.pair_satisfies), not at the schema's own loci"}], [])
+  PASS  a free_run schema at a declared slot REFUSES with the locus named — a refusal, never a wrong answer
+          the declared relation 'schema:multisyllabic rhyme' cannot be judged at the declared tokens: 'multisyllabic rhyme''s memb
+  PASS  the CLASS route at a declared slot is unmoved — cat@1.T4 ~ hat@2.end still satisfies `class:RHYME` (the measured E2 control)
+          ([], [])
+
+§11. M-58 — the type judge past one syllable
+  PASS  the entry's own measured defect: cellar/seller satisfies `type:rime riche` — identical sound, different word, and length is nowhere in the definition
+  PASS  flour/flower is unresolved when permitted syllable counts differ
+  PASS  ...while the four monosyllable answers hold exactly as before
+  PASS  a failed extension is a REAL no, never a refusal — cellar/teller is a perfect rhyme (onset differs at the anchor) and not rime riche
+  PASS  a COUNT-DEFINITIONAL name at the wrong length is a real no: masculine rhyme MEANS the final stressed monosyllable, and the same pair IS feminine rhyme — the vocabulary answers, so refusing would be false modesty
+  PASS  a name that is NEITHER refuses naming the registry's gap — pararhyme has no 2-syllable key and no ruled extension, and the pair may well stand in it (doctrine 79)
+  PASS  the identity family extends too: a repeated word is `type:identical rhyme` at any length
+  PASS  MUTATION: with EXTENSIBLE emptied, cellar/seller stops satisfying and REFUSES — the extension is what answers, and item 1's refusal is what catches the gap
+  PASS  MUTATION: with pararhyme marked count-definitional, the refusal collapses to a flat False — the three-way disposition is what keeps the registry's gap honest
+  PASS  ...and both mutations are reverted
+
+12. the whole-vocabulary DEFAULT declines a FORBIDDEN or DEPRECATED schema; asked by name, the judge still answers (`MISSING.md` M-140, ruled 2026-09-01)
+  PASS  the premise: perfect rhyme answers cat/hat on this stream by name
+  PASS  ...and the default door names it on that pair
+          ["Scots vowel-length rhyme (Aitken's Law)", 'family rhyme', 'internal rhyme', 'mosaic rhyme', 'pantun ABAB', 'perfect rhyme']
+  PASS  marked FORBIDDEN, the silent default no longer names it — the registry cannot ban a pair on one page and admit it on the next
+          ["Scots vowel-length rhyme (Aitken's Law)", 'family rhyme', 'internal rhyme', 'mosaic rhyme', 'pantun ABAB']
+  PASS  ...while the judge asked BY NAME still answers: a writer who declares `schema:` a forbidden name gets the answer and the name's own status to read
+  PASS  ...and the restoration held
+  PASS  the registry DOES carry forbidden and deprecated rows — `homoioteleuton`, the tier-1 ban, among them — so the filter is live and not vacuous
+          ['cynghanedd sain drosgl', 'fourth lift must not alliterate', 'homoioteleuton', 'trite rhyme']
+  PASS  ...and none of them is drawable by the planner
+
+13. the M-245 gate — every drawable schema answers its own example and refuses its own near miss, through the grade route
+  PASS  every name in the drawable pool has an exhibit row, and every row names a drawable schema — the table and the pool are one set
+          missing [], extra []
+  PASS  all drawable exhibits SATISFY and all contrasts VIOLATE — none refused — on the route a planned mandate takes
+  PASS  semirhyme's exhibit IS the registry's own example, bend~ending, and the M-148 witness exhibit for it (grow~growing, an open syllable) still satisfies beside it
+  PASS  MUTATION — the anchor-syllable coda read (the declaration before M-245) answers False on bend~ending: the example the schema names refused its own judge
+          old False, now True
+  PASS  MUTATION — the cluster scope with plain Agree still refuses hum~humble ([M] against [M,B]); the PREFIX predicate is the other half of the repair
+          half False, now True, enter None
+==============================================================
+a mandate names the relation it wants — richer than a wider global set, and stricter than the door it replaces

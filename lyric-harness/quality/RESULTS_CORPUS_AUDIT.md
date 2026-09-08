@@ -588,6 +588,29 @@ FAILs — E's two duplications (§0) and D's one mislabelled file. The audit tak
 19 seconds over 26 MB; the calibration takes half a second, with the real
 trees present or absent, so there is no excuse for skipping it.
 
+> **REPINNED 2026-09-08: 1,337 findings — 1 FAIL, 141 WARN, 1,195 NOTE**,
+> over **1,430 files**. The prior 340 WARN / 1,228 NOTE remain below.
+> The complete staged-file snapshot now independently binds all source bytes,
+> resolving 198 missing-hash warnings. The remaining warning delta is Read's
+> title-page material, preserved as apparatus; an actual before/after H run
+> attributes that single disappearance. H measures raw staging shapes and
+> cannot establish whether a current normalized reader retains those rows.
+> Its earlier claim that every such row entered active statistics was unsupported
+> and is corrected in the instrument.
+>
+> J also had an arithmetic defect: its attached and spaced regex matches are
+> disjoint, but it subtracted spaced matches from attached matches. This produced
+> negative counts and 33 false spaced-dominance notes. The corrected complete
+> run measures 1,048 attached-only editions, zero spaced-only, 245 with both,
+> and 26 spaced-dominant editions. Contrast tests cover pure spellings, ties,
+> majority-attached text and excluded apheresis; no linguistic reader changed.
+>
+> The standing FAIL remains `corpus/fas_hafez.LICENSE.txt`: its English license
+> prose does not read as the filename's Persian declaration. This is a known
+> non-lyric sentinel, excluded from English calibration and release assembly.
+> A shape PASS proves the census matches these disclosed findings, not that
+> the research corpus contains no warnings or unresolved editorial questions.
+>
 > **REPINNED 2026-08-28 (third, same day): 1,569 findings — 1 FAIL, 340
 > WARN, 1,228 NOTE**, over **1,430 files**. M-152 CLOSED — the six files
 > the block below carried as standing NOTEs are DECLARED in the

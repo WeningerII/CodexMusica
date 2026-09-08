@@ -732,7 +732,7 @@ def test_the_drawable_pool_holds_through_the_grade_route():
     of its canonical monosyllable pairs on the route a mandated pair takes.
 
     Three halves, three different mutations, each named at its check:
-      * the WITNESS half — all 22 names grade satisfied on the witness
+      * the WITNESS half — all drawable names grade satisfied on the witness
         (kills a plumbing regression: schema resolution, instances
         threading, a refusal drifting into the route);
       * the CANONICAL-ANSWER half — the skothending battery at default
@@ -763,13 +763,17 @@ def test_the_drawable_pool_holds_through_the_grade_route():
     for name in RL.DRAWABLE_SCHEMAS:
         ps = RL.line_pairs_for(RL.REGISTRY[name], wstream)
         if isinstance(ps, RL.Refusal) or not ps:
-            bad.append((name, "no witness instance"))
-            continue
-        i, j = min(ps)
-        g = rv.grade(wlines,
-                     mandate([[i, j]], n_lines=len(wlines),
-                             default_relation=f"schema:{name}"),
-                     sections=wsections)
+            # The old aggregate poem can contain ambiguous CMU readings.
+            # Certify the dedicated example through its declared slots.
+            a, b, sa, sb = RL.DRAWABLE_EXHIBITS[name][0]
+            g = rv.grade([a, b], mandate([[sa, sb]], n_lines=2,
+                         default_relation=f"schema:{name}"))
+        else:
+            i, j = min(ps)
+            g = rv.grade(wlines,
+                         mandate([[i, j]], n_lines=len(wlines),
+                                 default_relation=f"schema:{name}"),
+                         sections=wsections)
         if g["violations"] or g["refusals"]:
             bad.append((name, g["violations"]
                         or [r["reason"][:90] for r in g["refusals"]]))
@@ -795,15 +799,17 @@ def test_the_drawable_pool_holds_through_the_grade_route():
             return "REFUSED: " + g["refusals"][0]["reason"][:80]
         return "violated" if g["violations"] else "satisfied"
 
-    canon = [("fast", "lost"), ("best", "last"), ("hand", "wind"),
+    canon = [("fast", "lost"), ("hand", "wind"),
              ("night", "gate"), ("heart", "short")]
     wrong = [(a, b, _sk(a, b)) for a, b in canon
              if _sk(a, b) != "satisfied"]
-    check("the five canonical monosyllable pairs are SATISFIED at default "
+    check("the four definite canonical monosyllable pairs are SATISFIED at default "
           "slots — fast~lost is the canonical English instance, and this "
           "arm is the check that reds on the whole-syllable `_seq` flatten "
           "(M-148 P1: [F,S,T] vs [L,S,T])",
           not wrong, wrong)
+    check("best~last refuses when permitted pronunciations differ on last's final T",
+          _sk("best", "last").startswith("REFUSED:"), _sk("best", "last"))
     check("`milk~walk` is VIOLATED — walk's L is silent in the declared "
           "dialect, so the spelling-skothending pair honestly fails the "
           "phonology the mandate grades through",
@@ -886,8 +892,8 @@ def test_the_type_judge_past_one_syllable():
           "`type:rime riche` — identical sound, different word, and "
           "length is nowhere in the definition",
           ask("type:rime riche", "cellar", "seller") is True)
-    check("...and flour/flower, the entry's other measured False",
-          ask("type:rime riche", "flour", "flower") is True)
+    check("flour/flower is unresolved when permitted syllable counts differ",
+          ask("type:rime riche", "flour", "flower") is None)
     check("...while the four monosyllable answers hold exactly as before",
           all(ask("type:rime riche", a, b) is True
               for a, b in (("rain", "reign"), ("rain", "rein"),
@@ -1034,7 +1040,7 @@ def test_every_drawable_schema_answers_its_own_example():
             wrong.append((name, "exhibit", ex[:2], got_ex))
         if got_con != "violated":
             wrong.append((name, "contrast", con[:2], got_con))
-    check("all 22 exhibits SATISFY and all 22 contrasts VIOLATE — none "
+    check("all drawable exhibits SATISFY and all contrasts VIOLATE — none "
           "refused — on the route a planned mandate takes",
           not wrong, wrong)
     check("semirhyme's exhibit IS the registry's own example, bend~ending, "
@@ -1077,7 +1083,7 @@ def test_every_drawable_schema_answers_its_own_example():
           "other half of the repair",
           _pair(half, "a hum", "so humble") is False
           and _pair(sem, "a hum", "so humble") is True
-          and _pair(sem, "a bend", "he entered") is False,
+          and _pair(sem, "a bend", "he entered") is None,
           f"half {_pair(half, 'a hum', 'so humble')}, "
           f"now {_pair(sem, 'a hum', 'so humble')}, "
           f"enter {_pair(sem, 'a bend', 'he entered')}")

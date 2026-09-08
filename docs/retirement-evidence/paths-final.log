@@ -1,0 +1,4 @@
+=== Documented path existence ===
+  present 199   ignored 0   declared-unreproducible 8   MISSING 0
+  (four counts, never summed — doctrine 79)
+PASS — every documented path is present, git-ignored, or declared unreproducible.

@@ -163,7 +163,39 @@ def census():
             live.append(name)          # answers under its own phonology
         else:
             blocked[name] = miss
-    return {"live": live, "blocked": blocked, "other_language": other,
+    # Capability availability is not an executable positive witness. Every
+    # schema carries a separate semantic validation record; missing witnesses
+    # remain visible release work instead of being folded into "77 live".
+    semantic = {}
+    from quality.revise import Reviser
+    from quality.schemes import mandate
+    verifier = Reviser()
+    for name, sch in sorted(R.REGISTRY.items()):
+        if not R.figure_pair_representable(sch) and name not in (
+                "symploce", "analysed rhyme", "blues AAB stanza"):
+            semantic[name] = {"status": "unsupported_shape",
+                              "blocker": "member bindings/template not implemented"}
+        elif name in R.DRAWABLE_EXHIBITS and R.pair_scope_representable(sch):
+            controls = []
+            for a,b,sa,sb in R.DRAWABLE_EXHIBITS[name]:
+                got = verifier.grade([a,b], mandate([[sa,sb]], n_lines=2,
+                                      default_relation="schema:"+name))
+                controls.append(None if got["refusals"] else not got["violations"])
+            semantic[name] = {"status": "witness_and_contrast" if controls == [True,False]
+                              else "unvalidated", "verdicts": controls,
+                              "evidence": "DRAWABLE_EXHIBITS through declared mandate slots and Reviser.grade",
+                              "blocker": None if controls == [True,False] else
+                              "declared controls do not both produce definite expected verdicts"}
+        elif name in ("symploce","analysed rhyme","blues AAB stanza","paroemion",
+                       "Middle Chinese end rhyme (同用 group)"):
+            semantic[name] = {"status":"regression_witness",
+                              "evidence":"quality/test_production_relations.py",
+                              "blocker":None}
+        else:
+            semantic[name] = {"status":"unvalidated",
+                              "blocker":"full semantic witness and independent contrast not registered"}
+    return {"live": live, "capability_live": live, "semantic_status": semantic,
+            "blocked": blocked, "other_language": other,
             "fixture_only": sorted(n for n in FIXTURE_ONLY if n in live),
             "intra": sorted(n for n in R.REGISTRY if RT._all_same_line(n))}
 
@@ -172,10 +204,21 @@ def main():
     rep = census()
     n = len(R.REGISTRY)
     print(f"REGISTRY {n} schemas")
-    print(f"  ASKABLE with every declarable coordinate declared : "
+    print(f"  CAPABILITY-AVAILABLE with every coordinate declared : "
           f"{len(rep['live'])}")
     print(f"  still blocked                                     : "
           f"{len(rep['blocked'])}")
+    counts = {}
+    for row in rep["semantic_status"].values():
+        counts[row["status"]] = counts.get(row["status"],0)+1
+    print(f"  semantic validation (separate from capability): {counts}")
+    print("  Runtime qualification: capability availability is not a production "
+          "success claim. Only the listed witness routes have semantic evidence.")
+    for status in ("unsupported_shape", "unvalidated"):
+        names = [name for name, row in rep["semantic_status"].items()
+                 if row["status"] == status]
+        if names:
+            print(f"  {status} ({len(names)}): " + "; ".join(names))
     if rep["other_language"]:
         print(f"  (of the askable, {len(rep['other_language'])} answer under "
               f"their OWN phonology and not English:\n   "

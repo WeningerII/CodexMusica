@@ -254,6 +254,44 @@ def _declared_tables(paths):
     return out
 
 
+def _finding_call_variants(call, sev_index):
+    """Expand literal conditional codes, preserving correlated severity arms.
+
+    A shared conditional selects a code and its severity together. Giving both
+    codes the maximum severity of the whole expression would incorrectly turn
+    a required-return disclosure into a repair gate.
+    """
+    if not call.args:
+        return
+    pos = sev_index.get(call.func.id)
+    severity = call.args[pos] if isinstance(pos, int) and len(call.args) > pos else None
+    keyword = next((k for k in call.keywords if k.arg == "severity"), None)
+    if keyword is not None:
+        severity = keyword.value
+
+    def branches(code, sev):
+        if isinstance(code, ast.IfExp):
+            paired = (isinstance(sev, ast.IfExp)
+                      and ast.dump(code.test) == ast.dump(sev.test))
+            yield from branches(code.body, sev.body if paired else sev)
+            yield from branches(code.orelse, sev.orelse if paired else sev)
+        elif isinstance(code, ast.Constant) and isinstance(code.value, str):
+            yield code, sev
+
+    for code, sev in branches(call.args[0], severity):
+        import copy
+        variant = copy.copy(call)
+        variant.args = list(call.args)
+        variant.args[0] = code
+        variant.keywords = [copy.copy(k) for k in call.keywords]
+        if keyword is not None:
+            next(k for k in variant.keywords if k.arg == "severity").value = sev
+        elif isinstance(pos, int) and sev is not None:
+            variant.args[pos] = sev
+        variant._origin_id = id(call)
+        yield variant
+
+
 def _severities(path, sev_index):
     """-> {code: set of severities as written at the call site}.
 
@@ -278,10 +316,10 @@ def _severities(path, sev_index):
         for c in stmts:
             if isinstance(c, ast.Call):
                 scope[id(c)] = stmts
-    for n in ast.walk(tree):
-        if not (isinstance(n, ast.Call) and isinstance(n.func, ast.Name)
-                and n.func.id in FINDING_CONSTRUCTORS):
-            continue
+    calls = (call for call in ast.walk(tree)
+             if isinstance(call, ast.Call) and isinstance(call.func, ast.Name)
+             and call.func.id in FINDING_CONSTRUCTORS)
+    for n in (variant for call in calls for variant in _finding_call_variants(call, sev_index)):
         if not n.args or not isinstance(n.args[0], ast.Constant):
             continue
         code = n.args[0].value
@@ -324,7 +362,7 @@ def _severities(path, sev_index):
                 if isinstance(arg, ast.Constant) and arg.value in ("flag", "note"):
                     sev = arg.value
                 else:
-                    reach = _ceiling_severity(arg, scope.get(id(n), ()))
+                    reach = _ceiling_severity(arg, scope.get(n._origin_id, ()))
                     if reach in ("flag", "note"):
                         sev = reach
         for kw in n.keywords:
@@ -534,6 +572,10 @@ DISPOSITIONS = {
 #: new note cannot join the silent majority without somebody deciding it
 #: should — which is the gate this list did not have.
 DISPOSITION = {
+    # Required return/anaphora identity is satisfied, while the same raw
+    # repetition metric remains visible. Rewriting it would violate the task.
+    "LEXICAL_REPETITION_DECLARED": "SATISFIED",
+    "ANAPHORA_DECLARED": "SATISFIED",
     # --- quality/grid.py: the SHAPE layer. Conventions, near enough entire.
     "DOWNBEAT_LOCKED": "CONVENTION",
     "METER_LOCKED": "CONVENTION",
@@ -739,7 +781,14 @@ def by_disposition(c=None):
 #: is a hand-written blueprint or a recovered song rather than a plan.
 # REPINNED 2026-08-25: sentencehood joined (M-110) — `STACKED_DRAFT` a
 # flag (gated), `STACKED_LINE` a ruled disclosure. 71 -> 73.
-PINNED = {'codes': 73, 'gated': 24, 'disclosed_only': 49, 'undecidable': 0,
+# REPINNED 2026-09-08: conditional code names made two existing flags invisible
+# to the old literal-only scan. Reading both correlated branches restores them
+# and includes the two new required-identity disclosures: 73/24/49 -> 75/24/51.
+# REPINNED 2026-09-08: MATTR_WINDOW_UNCALIBRATED is a note that blocks
+# certification via the floor gate set (also exposed under its legacy
+# LENGTH_GATE_CODES name). A nondefault window without a caller-owned cut
+# leaves lexical diversity unjudged; it is not a newly calibrated threshold.
+PINNED = {'codes': 76, 'gated': 25, 'disclosed_only': 51, 'undecidable': 0,
           'computed': 0, 'consumer_assigned': 0}
 
 

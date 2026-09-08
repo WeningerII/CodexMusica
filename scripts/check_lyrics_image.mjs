@@ -77,7 +77,7 @@ if (
     '--network=none',
     '--memory=2g',
     '--memory-swap=2g',
-    '--cpus=2',
+    '--cpus=1',
     '--pids-limit=256',
     '--env=HTTP_PROXY=',
     '--env=HTTPS_PROXY=',
@@ -136,6 +136,11 @@ if (
     assert.ok(health, 'production server did not become healthy within 20 seconds');
     assert.equal(health.commit, commit, 'health commit must match the built image');
     assert.equal(health.build.commit, commit);
+    const baked = JSON.parse(fs.readFileSync('/app/mcp/build_identity.json', 'utf8'));
+    assert.equal(baked.commit, commit);
+    assert.equal(health.build.release_id, baked.release_id);
+    assert.match(health.build.release_id, /^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$/);
+    assert.notEqual(health.build.release_id, 'runtime-cannot-override-this');
     assert.equal(health.recovery.durable, true);
     assert.equal(health.recovery.healthy, true);
     assert.match(health.build.source_sha256, /^[0-9a-f]{64}$/);
@@ -191,6 +196,9 @@ if (
         '--env=LYRIC_RUNTIME_DIR=/data/lyrics',
         '--env=PORT=8080',
         '--env=GEMINI_API_KEY=image-gate-offline-placeholder',
+        '--env=BUILD_GIT_COMMIT=runtime-cannot-override-this',
+        '--env=RENDER_GIT_COMMIT=runtime-cannot-override-this',
+        '--env=BUILD_RELEASE_ID=runtime-cannot-override-this',
         imageId,
       ],
       { quiet: true }

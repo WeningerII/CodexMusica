@@ -185,12 +185,16 @@ class MemoReviser:
         return out
 
     def brief(self, lines, mandate=None, profile=None, blueprint=None,
-              subdivision=None, assume=None):
+              subdivision=None, assume=None, *, include_offers=True,
+              target_lines=None):
         frozen = _freeze_lines(lines)
-        key = None if frozen is None else ("brief", frozen, profile)
+        targets = None if target_lines is None else tuple(sorted(set(target_lines)))
+        key = (None if frozen is None else
+               ("brief", frozen, profile, include_offers, targets))
         return self._memo(key, lambda: self._rv.brief(
             lines, mandate, profile=profile, blueprint=blueprint,
-            subdivision=subdivision, assume=assume))
+            subdivision=subdivision, assume=assume,
+            include_offers=include_offers, target_lines=targets))
 
     def verify(self, before, after, mandate=None, targeted=None,
                profile=None, blueprint=None, subdivision=None, assume=None):
@@ -232,11 +236,15 @@ def wrap(reviser, key, n_lines):
     "disabled").
     """
     if not enabled():
-        return reviser, lambda: ("  REPLAY MEMO: off (LYRIC_REPLAY_MEMO=0) "
-                                 "— every resume replays in full")
+        def disclosure():
+            return "  REPLAY MEMO: off (LYRIC_REPLAY_MEMO=0) — every resume replays in full"
+        disclosure.record = lambda: {"memo_state": "off"}
+        return reviser, disclosure
     if key is None:
-        return reviser, lambda: ("  REPLAY MEMO: no run key (an input was "
-                                 "unreadable) — this resume replays in full")
+        def disclosure():
+            return "  REPLAY MEMO: no run key (an input was unreadable) — this resume replays in full"
+        disclosure.record = lambda: {"memo_state": "no run key"}
+        return reviser, disclosure
     # This is a storage budget, not a claimed upper bound on every loop
     # call. Group count/arity and width-squared tier-2 searches are not
     # bounded by the tier-1 attempt count. Overflow remains correct, and is
@@ -261,4 +269,9 @@ def wrap(reviser, key, n_lines):
             line += f"; {t['bypass']} call(s) bypassed on shape"
         return line
 
+    disclosure.record = lambda: {
+        "memo_state": "warm" if slot["tally"]["hit"] else "cold",
+        "memo_hit": slot["tally"]["hit"],
+        "memo_asked": slot["tally"]["hit"] + slot["tally"]["miss"],
+    }
     return MemoReviser(reviser, slot), disclosure

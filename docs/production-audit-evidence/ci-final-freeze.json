@@ -1,0 +1,18 @@
+{
+  "status": "frozen",
+  "source_commit": "e6b1fab65bdb5eaf35c159aed4f2fe078a6e3de2",
+  "reports": [
+    {
+      "path": "ci.json",
+      "sha256": "75f1eb464ef2ffe7b9b71cc827a76aef7b30e3b61448996fbeb41c2b89b49bc1",
+      "bytes": 35579
+    },
+    {
+      "path": "final-python-evidence-decision.json",
+      "sha256": "cd2fe1a4bc5dab224fb8cce429f8e229b9b582039651ac5ffcd9c540942bdcf1",
+      "bytes": 29925
+    }
+  ],
+  "exact_evidence_references_checked": 48,
+  "production_qualified": false
+}

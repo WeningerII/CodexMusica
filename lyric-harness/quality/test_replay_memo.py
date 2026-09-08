@@ -83,15 +83,20 @@ def run_warm(*args):
     return code, out.getvalue(), err.getvalue()
 
 
-# The fixture is test_verbs §20's, unchanged on purpose: a four-line draft
-# whose mandate asks exactly ONE question (L3 — four~own stands in no schema
-# under the whole-vocabulary default), answered by a line measured clean.
-LINES = ["The bank foreclosed and boarded up the store",
-         "the freight train left the siding after four",
-         "we packed the truck with everything we own",
-         "and drove until the radio was gone"]
-MAND = "--groups=2,3;1,4"
-ANSWER = "we stacked our boxes on the hardwood floor"
+# 2026-09-08: the historical four/own default relation is now explicitly
+# UNKNOWN, not a definite violation the writer can be asked to repair.
+# Keep that negative below; exercise replay with a measured density repair
+# whose declared assonance and every other required coordinate are answered.
+HISTORICAL_LINES = ["The bank foreclosed and boarded up the store",
+                    "the freight train left the siding after four",
+                    "we packed the truck with everything we own",
+                    "and drove until the radio was gone"]
+LINES = ["The elephant elephant elephant elephant elephant elephant stove",
+         "Your fingers brush my heavy coat"]
+MAND = "--groups=1,2"
+ANSWER = "My kettle whistles by the stove"
+REPAIR_ARGS = (MAND, "--relation=class:ASSONANCE", "--max-rounds=1",
+               "--attempts=1", "--backtrack=0")
 
 
 def drive(runner, workdir, env=None):
@@ -105,7 +110,7 @@ def drive(runner, workdir, env=None):
     if env and runner is run_warm:
         os.environ.update(env)
     try:
-        rc, out, _ = runner("revise", draft, MAND,
+        rc, out, _ = runner("revise", draft, *REPAIR_ARGS,
                             f"--propose=defer:{state}", **kw)
         steps.append((rc, out))
         # Answer whatever is pending until the loop stops asking. The walk is
@@ -120,7 +125,7 @@ def drive(runner, workdir, env=None):
             st["pending"]["answer"] = ANSWER
             with open(state, "w", encoding="utf-8") as fh:
                 json.dump(st, fh)
-            rc, out, _ = runner("revise", draft, MAND,
+            rc, out, _ = runner("revise", draft, *REPAIR_ARGS,
                                 f"--propose=defer:{state}", **kw)
             steps.append((rc, out))
     finally:
@@ -136,9 +141,24 @@ def normalise(out, workdir):
     rank memos' one line each, whose tallies differ between a warm arm and a
     cold one by construction."""
     out = out.replace(workdir, "<TMP>")
-    return "\n".join(l for l in out.splitlines()
-                     if not l.strip().startswith(("REPLAY MEMO:", "PAIR MEMO:",
-                                                  "SCORE MEMO:")))
+    kept = []
+    for line in out.splitlines():
+        if line.strip().startswith(("REPLAY MEMO:", "PAIR MEMO:", "SCORE MEMO:")):
+            continue
+        if line.startswith("  lyric result: "):
+            record = json.loads(line.removeprefix("  lyric result: "))
+            # Only measured memo counters legitimately differ. Draft,
+            # findings, coverage, journal and stop metadata remain compared.
+            for key in ("memo_state", "memo_hit", "memo_asked"):
+                record.pop(key, None)
+            line = "  lyric result: " + json.dumps(record, sort_keys=True)
+        kept.append(line)
+    return "\n".join(kept)
+
+
+def result_record(out):
+    return next(json.loads(line.removeprefix("  lyric result: "))
+                for line in out.splitlines() if line.startswith("  lyric result: "))
 
 
 print("test_replay_memo — the deferred-replay memo (M-167)")
@@ -164,9 +184,10 @@ check("the final draft line the answer wrote appears in both arms",
 check("the warm arm's later resumes HIT the memo — the equivalence above "
       "examined a live memo, not two cold arms",
       any("REPLAY MEMO: warm" in w[1] for w in warm[1:]))
-check("the cold arm never reports warmth (a subprocess cannot inherit a "
-      "process memo)",
-      all("REPLAY MEMO: warm" not in c[1] for c in cold))
+check("warm resumes inherit more cached grading answers than fresh subprocesses; "
+      "within-call assessment/menu hits are legitimate in both arms",
+      any(result_record(w[1])["memo_hit"] > result_record(c[1])["memo_hit"]
+          for c, w in zip(cold[1:], warm[1:])))
 
 # ── 2. the proxy intercepts the grading calls ────────────────────────────
 print("\n2. the run's store holds the calls this module claims to memoise")
@@ -190,6 +211,23 @@ same_off = all(normalise(c[1], d_cold) == normalise(o[1], d_off)
                for c, o in zip(cold, off))
 check("disabled output equals the cold arm's, byte for byte outside the "
       "memo line", same_off)
+
+with tempfile.TemporaryDirectory(prefix="rm_unknown_") as unknown_dir:
+    draft = os.path.join(unknown_dir, "draft.txt")
+    state = os.path.join(unknown_dir, "state.json")
+    with open(draft, "w", encoding="utf-8") as fh:
+        fh.write("\n".join(HISTORICAL_LINES) + "\n")
+    rc, out, err = run_cold("revise", draft, "--groups=2,3;1,4",
+                            f"--propose=defer:{state}")
+    unknown = result_record(out)
+    journal = json.load(open(state, encoding="utf-8"))
+    check("the original default-reading fixture explicitly refuses its unjudged "
+          "obligation without inventing a repair request",
+          rc == 2 and unknown["stop_reason"] == "UNCERTIFIED"
+          and unknown["final_draft"] == HISTORICAL_LINES
+          and "rhyme:2:3:0" in unknown["coverage"]["refused_obligations"]
+          and journal["pending"] is None
+          and not any(journal["answered"].values()), err)
 
 # ── 4. key separation ────────────────────────────────────────────────────
 print("\n4. one changed input is a different run")

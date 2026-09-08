@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "service": {
+    "name": "codex-musica-mcp",
+    "plan": "standard",
+    "instances": 1,
+    "disk": {
+      "mountPath": "/data/lyrics",
+      "sizeGB": 1
+    }
+  },
+  "environment": {
+    "LYRIC_RUNTIME_DIR": "/data/lyrics",
+    "CHAT_SPEND_FILE": "/data/lyrics/chat-spend.json",
+    "GEMINI_MODEL": "gemini-3.1-flash-lite",
+    "LYRIC_PROPOSER_MODEL": "gemini-3.5-flash-lite",
+    "CHAT_MAX_MESSAGE": "5000",
+    "CHAT_DAILY_USD": "25",
+    "CHAT_MAX_TURN_USD": "2.5",
+    "CHAT_TOOL_TIMEOUT_MS": "600000",
+    "TRUSTED_PROXY_HOPS": "1"
+  },
+  "secrets": ["GEMINI_API_KEY", "CHAT_SECRET"],
+  "forbiddenOverrides": ["CHAT_MAX_TURNS_PER_DAY"]
+}

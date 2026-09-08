@@ -155,7 +155,7 @@ __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
            "tokens_per_line_band", "gradeable_line_counts",
            "line_count_gaps", "song_line_counts", "stanza_line_floor",
            "GENERATOR_ROSTER", "ZERO_LINE_FUNCTIONS", "PlanRefused",
-           "make_plan", "fill_plan", "writer_brief", "grading_command",
+           "make_plan", "execution_limits", "fill_plan", "writer_brief", "grading_command",
            "render_song", "section_header",
            "meter_dims", "meter_space_size", "bell",
            "meter_factorisations", "beats_values",
@@ -523,13 +523,21 @@ def song_line_counts():
     tokens-per-line is 1 line; 3,245 at its lowest is 447). Every seam this
     docstring diagnosed — 6-11, 18-21, 21 — is closed by the same move, and
     for the reason it gave: they were facts about which bands were unioned.
-    What the planner VOLUNTEERS is `fillable_line_counts()`, 12..447, and
-    the draw over it is uniform; the owner ruled 2026-09-04 that no ceiling
+    At the 2026-09-04 adoption, the planner volunteered
+    `fillable_line_counts()`, 12..447, with a uniform draw; the owner ruled
+    that day that no musical ceiling
     is to be typed in ("55 was wrong, otherwise we wouldn't be here"), and
     that what makes a song 16 lines or 100 is a DECLARATION — a form, a
     sweep predicate, a `--lines` — never a number the planner carries.
     MEASURED over 40 seeds at adoption: median drawn total 201 lines (was
     ~35 under 12..55), min 18, max 418, 0 refused, 440-line plans in ~4 s.
+
+    OPERATIONAL UPDATE 2026-09-08: this function still exposes the calibrated
+    structural domain. Ordinary `make_plan` draws from its intersection with
+    the registry-derived execution budget (currently 12..31); inspection_only
+    retains the full domain. This operational bound is not a musical rule or
+    proof of latency: actual text is checked again before writer admission,
+    and maximum-size repair still requires the measured capacity gate.
 
     WHAT THIS COSTS, SAID PLAINLY: ~~a song of fewer than 17 (then 22) lines
     is now outside the planner's envelope — the cost ROSE by five lines with
@@ -1597,7 +1605,7 @@ def joint_findings(plan):
     _rel = plan.get("relations") or {}
     _groups = [g for g in str(plan.get("groups") or "").split(";") if g.strip()]
     for _gi, _g in enumerate(_groups):
-        _name = _rel.get(SC.label((_gi,)), "")
+        _name = _rel.get(SC.label((_gi,))) or plan.get("relation") or ""
         if not _name.startswith("schema:"):
             continue
         _s = _RL.REGISTRY.get(_name.split(":", 1)[1])
@@ -1922,14 +1930,18 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None):
         n_cells = rng.randint(1, max(1, max_cells))
         bridge_used = False
         for _ in range(n_cells):
-            while True:
-                cell = cells[rng.randrange(len(cells))]
-                if "bridge" in cell and bridge_used:
-                    continue
+            eligible = [c for c in cells if not (bridge_used and "bridge" in c)]
+            if not eligible:
+                # A once-only singleton roster has no next cell. Reject this
+                # finite draw; never spin waiting for a cell that cannot exist.
+                funcs = []
                 break
+            cell = eligible[rng.randrange(len(eligible))]
             if "bridge" in cell:
                 bridge_used = True
             funcs.extend(cell)
+        if not funcs:
+            continue
         # AT MOST ONE CLOSER, and that bound is NOT derived — nothing in
         # either gloss says a song may not carry a coda AND an outro. It is
         # the old `rng.choice((None, "outro", "coda"))` preserved as an
@@ -2098,6 +2110,21 @@ SWEEP_MEASURES = {
 #: is not a count: refusing its natural spelling would make the coordinate
 #: reachable only at integer densities, and the whole band this separates the
 #: songs on (0.72-1.50 against 2.17-2.97) lies between two integers.
+# Function-specific counts let callers express "five verses, four lines each"
+# without private seed-search scripts. These filter draws, never rank them.
+for _function in GENERATOR_ROSTER:
+    SWEEP_MEASURES[f"sections.{_function}"] = (
+        f"number of {_function} section instances",
+        lambda p, fn=_function: sum(s["function"] == fn for s in p["sections"]))
+    SWEEP_MEASURES[f"min_lines.{_function}"] = (
+        f"smallest {_function} section, or zero if absent",
+        lambda p, fn=_function: min([_sweep_sung(p).get(s["name"], 0)
+            for s in p["sections"] if s["function"] == fn] or [0]))
+    SWEEP_MEASURES[f"max_lines.{_function}"] = (
+        f"largest {_function} section, or zero if absent",
+        lambda p, fn=_function: max([_sweep_sung(p).get(s["name"], 0)
+            for s in p["sections"] if s["function"] == fn] or [0]))
+
 SWEEP_REAL = ("bound_words_per_line",)
 
 #: SET measures: `uses=chorus,bridge` asks that the draw REACHED them, which
@@ -2173,7 +2200,8 @@ def parse_sweep_want(text):
                     f"names functions, and functions do not compare.")
         elif name in SWEEP_REAL:
             try:
-                float(val)
+                if not math.isfinite(float(val)):
+                    raise ValueError("non-finite predicate")
             except ValueError:
                 raise PlanRefused(
                     f"{raw!r}: {name!r} is a real-valued measure and "
@@ -2273,8 +2301,130 @@ def _sweep_one(job):
     return (s, "planned", all(sweep_holds(p, w) for w in wants))
 
 
+
+
+def draft_execution_bound(lines, phon=None):
+    """Bound candidate work for this text before writer assessment or acceptance.
+
+    This is an operational bound, not a syllable-count verdict or a density
+    requirement. The maximum of every declared pronunciation is retained;
+    unreadable lexical tokens reserve one unit instead of vanishing from the
+    estimate. A short song may therefore exceed the calibrated density band
+    and still be admitted. Every proposed replacement must pass this same
+    calculation before it can replace the previously accepted draft.
+    """
+    if not isinstance(lines, (list, tuple)) or not all(isinstance(s, str) for s in lines):
+        raise ValueError("writer draft must be a sequence of text lines")
+    if phon is None:
+        from quality import phonology
+        phon = phonology.get("eng")
+    line_units, unreadable = [], []
+    for line in lines:
+        line_phon = phon.for_line(line) if hasattr(phon, "for_line") else phon
+        if hasattr(line_phon, "analyse_line"):
+            analysis = line_phon.analyse_line(line)
+            absent = len(analysis.refused)
+            # Lexical cardinality also bounds any-token locus enumeration.
+            count = max(len(analysis.tokens), len(analysis.syllables) + absent)
+        else:
+            count = absent = 0
+            declared_tokens = (line_phon.tokens_for_line(line)
+                               if hasattr(line_phon, "tokens_for_line") else None)
+            tokens = declared_tokens if declared_tokens is not None else _RL.tokenise(line)
+            for index, token in enumerate(tokens):
+                reader = line_phon.for_token(index) if hasattr(line_phon, "for_token") else line_phon
+                parses = reader.parses(token) if hasattr(reader, "parses") else [reader.syllabify(token)]
+                size = max((len(reading) for reading in parses), default=0)
+                count += max(1, size)
+                absent += int(size == 0)
+        line_units.append(count)
+        unreadable.append(absent)
+    maximum = max(line_units, default=0)
+    bound = _RL.planning_work_bound(len(lines), maximum)
+    return {**bound, "observed_line_units": line_units,
+            "unreadable_tokens_per_line": unreadable,
+            "max_observed_line_units": maximum,
+            "basis": "registry enumeration; maximum declared pronunciation length plus unreadable-token reservations",
+            "scope": "current draft candidate work; no density, latency or RSS verdict"}
+
+
+def execution_limits():
+    """Registry-derived operational admission, separate from musical space.
+
+    The bound covers all legal English lines within the declared density band.
+    It assumes no index selectivity and does not claim a latency or RSS SLO.
+    """
+    syllables = int(MB.ADOPTED["DENSITY"][1])
+    lo, hi = 0, ENVELOPE["total_lines"][1]
+    while lo < hi:
+        mid = (lo + hi + 1) // 2
+        if _RL.planning_work_bound(mid, syllables)["within_budget"]:
+            lo = mid
+        else:
+            hi = mid - 1
+    bound = _RL.planning_work_bound(lo, syllables)
+    return {"max_lines": lo, "max_syllables_per_line": syllables,
+            "max_candidate_pairs": bound["max_pairs"],
+            "limiting_schema": bound["limiting_schema"],
+            "basis": "registry span enumeration; no phonological bucket pruning assumed",
+            "scope": "English lines at or below the declared density ceiling; no latency/RSS guarantee"}
+
+
 def make_plan(seed, form="verse-chorus", lines=None, relation=None,
-              functions=None, title=None, narrative=None):
+              functions=None, title=None, narrative=None, wants=(), inspection_only=False):
+    """Plan under explicit brief predicates; never supply aesthetic defaults.
+
+    The existing closed sweep vocabulary is also accepted at the generation
+    entrance. Length, section count and minimum stanza size condition the
+    feasible draw directly. Remaining predicates reject complete candidates.
+    Candidate seeds and every rejection are disclosed; no candidates are ranked.
+    """
+    # Installed planning may use this bound only after all reviewed witnesses
+    # have been verified by the actual image runtime, not another Python build.
+    if os.environ.get("LYRIC_RELEASE_ASSETS_REQUIRED") == "1":
+        try:
+            _CAP.require_current_proof()
+        except ValueError as exc:
+            raise PlanRefused(str(exc)) from exc
+    if seed is None:
+        raise PlanRefused("plan requires --seed=N — an explicit integer seed")
+    if isinstance(wants, str):
+        wants = [p for p in wants.split(";") if p.strip()]
+    parsed = [parse_sweep_want(w) if isinstance(w, str) else
+              parse_sweep_want("".join(w)) for w in wants]
+    kw = dict(form=form, lines=lines, relation=relation, functions=functions,
+              title=title, narrative=narrative, _wants=parsed, inspection_only=inspection_only)
+    if not parsed:
+        return _make_plan_candidate(seed, **kw)
+    rng = random.Random(seed)
+    attempts = []
+    for attempt in range(64):
+        candidate_seed = seed if attempt == 0 else rng.getrandbits(64)
+        try:
+            plan = _make_plan_candidate(candidate_seed, **kw)
+        except PlanRefused as exc:
+            attempts.append({"seed": candidate_seed, "status": "refused", "reason": str(exc)})
+            continue
+        failed = ["".join(w) for w in parsed if not sweep_holds(plan, w)]
+        attempts.append({"seed": candidate_seed,
+                         "status": "rejected" if failed else "accepted",
+                         "failed": failed})
+        if failed:
+            continue
+        plan["request"]["seed"] = seed
+        plan["choices"]["brief_selection"] = {
+            "wants": ["".join(w) for w in parsed], "attempts": attempts,
+            "candidate_seed": candidate_seed, "policy": "first satisfying candidate; no ranking"}
+        plan["writer_brief"] = writer_brief(plan)
+        return plan
+    raise PlanRefused(
+        f"brief predicates found no accepted plan in {len(attempts)} bounded "
+        f"candidate draws; declared wants={[ ''.join(w) for w in parsed ]}; "
+        f"outcomes={attempts}")
+
+
+def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
+                         functions=None, title=None, narrative=None, _wants=(), inspection_only=False):
     """A request -> the plan dict. Refuses rather than guessing.
 
     `relation`, `functions` and `title` are THE WRITER'S DECLARATION
@@ -2410,7 +2560,34 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     # space, CONDITIONED on the envelope (and on --lines when given).
     # Deterministic — the retries are the same rng stream.
     _GRADEABLE = fillable_line_counts(form)
+    operational = execution_limits()
+    if not inspection_only:
+        if lines is not None and lines > operational["max_lines"]:
+            raise PlanRefused(
+                f"RESOURCE_LIMIT: requested {lines} lines exceeds the registry-derived "
+                f"candidate budget ({operational['max_lines']} lines at "
+                f"{operational['max_syllables_per_line']} syllables per line; "
+                f"{operational['max_candidate_pairs']} candidates per schema). "
+                "No writing was started. --inspection-only permits mathematical "
+                "plan browsing outside this execution boundary, not a finishable run.")
+        _GRADEABLE = {n for n in _GRADEABLE if n <= operational["max_lines"]}
+    for name, op, value in _wants:
+        if name == "lines":
+            n = int(value)
+            _GRADEABLE = {k for k in _GRADEABLE if k <= n} if op == "<=" else {
+                k for k in _GRADEABLE if k >= n} if op == ">=" else {
+                k for k in _GRADEABLE if k == n}
+    if not _GRADEABLE or (lines is not None and lines not in _GRADEABLE):
+        raise PlanRefused("declared line constraints have no feasible total")
     _STANZA = stanza_line_floor()
+    _min_section = max([1] + [int(v) for n, op, v in _wants
+                             if n == "lines_per_section" and op in (">=", "=")])
+    _max_sections = min([ENVELOPE["sections"][1]] + [int(v) for n, op, v in _wants
+                             if n == "sections" and op in ("<=", "=")])
+    _max_group = min([_CAP.ADOPTED_MAX_GROUP] + [int(v) for n, op, v in _wants
+                             if n == "group" and op in ("<=", "=")])
+    if _max_sections < 1 or _max_group < 2:
+        raise PlanRefused("declared section/group bounds cannot carry the required song mandate")
     k_lo, k_hi = ENVELOPE["lines_per_section"]
     for _attempt in range(500):
         # THE LENGTH FIRST. It is the coordinate that decides what the floor
@@ -2447,7 +2624,7 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         # was drawn INDEPENDENTLY of the count it was then divided among.
         # `stanza_line_floor()` is read from the `section` profile's own
         # measured range, so this is a derivation and not a tuning.
-        _cells_hi = max(1, total // _STANZA)
+        _cells_hi = min(_max_sections, max(1, total // max(_STANZA, _min_section)))
         try:
             funcs = _sample_pattern(rng, roster, form=form,
                                     max_cells=_cells_hi)
@@ -2462,7 +2639,11 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             # impossible on the strength of one unlucky length.
             continue
         s_lo, s_hi = ENVELOPE["sections"]
-        if not s_lo <= len(funcs) <= s_hi:
+        if not s_lo <= len(funcs) <= min(s_hi, _max_sections):
+            continue
+        shape_view = {"sections": [{"function": f} for f in funcs]}
+        if any(not sweep_holds(shape_view, w) for w in _wants
+               if w[0] in ("sections", "uses", "before")):
             continue
         # THE TOTAL FIRST, THEN THE PARTITION — the dimension-by-dimension
         # derivation `_sample_meter` already follows, and it is not a
@@ -2487,7 +2668,9 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         order = list(kinds)
         rng.shuffle(order)
         shape = tuple(counts[f] for f in order)
-        drawn = _partition_uniform(shape, total, rng)
+        drawn = _partition_uniform(shape, total - (_min_section - 1) * sum(shape), rng)
+        if drawn is not None:
+            drawn = [k + _min_section - 1 for k in drawn]
         if drawn is None:
             # This (pattern, total) pair admits no assignment at all — every
             # kind needs at least one line per instance and the total cannot
@@ -2584,7 +2767,12 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     for fn in dict.fromkeys(funcs):
         if ks[fn] == 0:
             continue
-        code, pool = _scheme_for(ks[fn], rng)
+        for _scheme_attempt in range(500):
+            code, pool = _scheme_for(ks[fn], rng)
+            if max(code.count(x) for x in set(code)) <= _max_group:
+                break
+        else:
+            raise PlanRefused("declared group bound found no scheme in 500 draws")
         by_func[fn] = code
         scheme_meta[fn] = {"rgs": list(code), "chosen_from": pool,
                            "lines": ks[fn],
@@ -2718,17 +2906,15 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                 # THE CAPACITY GATE (`MISSING.md` M-41). A rhyme group of k
                 # members needs a family the grader accepts k members of AT
                 # ONCE, and `quality/capacity.py` is what measured that: the
-                # deepest CERTIFIED chain is 40, a witness clique graded
-                # through `Reviser.inspect`. A plan volunteering a larger
-                # group is asking for something no family in this lexicon is
-                # measured to fill — unfillable homework, refused here rather
-                # than discovered three revise rounds in.
+                # adopted bound is the largest actually witnessed class:RHYME
+                # group, not a maximum-clique proof. Larger groups are not
+                # volunteered until a real witness establishes their capacity.
                 if len(_g) > _CAP.ADOPTED_MAX_GROUP:
                     raise PlanRefused(
                         f"this seed's scheme puts {len(_g)} lines in one "
-                        f"rhyme group, and the lexicon is measured to "
-                        f"sustain at most {_CAP.ADOPTED_MAX_GROUP} "
-                        f"(quality/capacity.py: the deepest CERTIFIED chain, "
+                        f"rhyme group, larger than the adopted "
+                        f"{_CAP.ADOPTED_MAX_GROUP}-member witness "
+                        f"(quality/capacity.py: the largest CERTIFIED chain, "
                         f"a witness clique graded through the reviser). The "
                         f"tier-1 ceiling reaches further and is ungraded, so "
                         f"this refuses where the MEASUREMENT stops rather "
@@ -2816,7 +3002,7 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                              if have[ln] < want[ln]]
                     if len(short) < 2:
                         break
-                    hi = min(len(short), _CAP.ADOPTED_MAX_GROUP)
+                    hi = min(len(short), _max_group)
                     members = rng.sample(short, rng.randint(2, hi))
                     spelled = _place_group(sorted(members), rng,
                                            _max_token, used)
@@ -2896,15 +3082,18 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         struct_meta[fn] = {"name": name, "chosen_from": list(spool)}
 
     plan = {
-        "plan_version": 2,
-        "request": {"form": form, "lines": lines, "seed": seed},
+        "plan_version": 3,
+        "request": {"form": form, "lines": lines, "seed": seed,
+                    "relation": relation, "functions": functions, "title": title,
+                    "narrative": narrative, "wants": ["".join(w) for w in _wants],
+                    "inspection_only": bool(inspection_only)},
         "envelope": {k: (list(v) if isinstance(v, tuple) else v)
                      for k, v in ENVELOPE.items()},
         "choices": {
             "pattern": {"functions": list(funcs),
                         "chosen_from": (f"generated grammar: {len(_CELLS)} "
                                         f"cell types x "
-                                        f"{ENVELOPE['body_cells']} cells, "
+                                        f"1..{_cells_hi} cells under the drawn total and declared brief, "
                                         f"optional intro/outro/coda, "
                                         f"roster {len(GENERATOR_ROSTER)} "
                                         f"of {_vocab_size()} functions")},
@@ -3072,7 +3261,7 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     # the GRADER stays the final word, and this gate only removes draws
     # that are unsatisfiable on the registry's own declared coordinates.
     drawn_relations = {}
-    if not relation:
+    if not relation or relation.startswith("schema:"):
         _traits = _RL.drawable_traits()
         _grp_lines = [sorted({int(str(m).split(".")[0])
                               for m in g.split(",")})
@@ -3189,8 +3378,15 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             # then refused the plan.
             _slotted_g = any(not _SL.is_default_spelling(_m2)
                              for _m2 in groups[_gi])
-            _ok = [""]
-            for _cand in _RL.DRAWABLE_SCHEMAS:
+            _ok = [] if relation else [""]
+            _candidates = ([relation.split(":", 1)[1]] if relation
+                           else _RL.DRAWABLE_SCHEMAS)
+            for _cand in _candidates:
+                if _cand not in _traits:
+                    raise PlanRefused(
+                        f"declared relation schema:{_cand} has no certified "
+                        "planning feasibility contract; declare a supported "
+                        "relation before writing")
                 if _slotted_g and not _RL.pair_bindable(
                         _RL.REGISTRY[_cand]):
                     continue
@@ -3316,9 +3512,15 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                 if _bad:
                     continue
                 _ok.append(_cand)
-            _pick = _ok[rng.randrange(len(_ok))]
+            if not _ok:
+                raise PlanRefused(
+                    f"declared relation {relation!r} cannot bind group "
+                    f"{SC.label((_gi,))} ({groups[_gi]}) together with this "
+                    "plan's placement, cardinality and channel constraints")
+            _pick = _ok[0] if relation else _ok[rng.randrange(len(_ok))]
             if _pick:
-                drawn_relations[SC.label((_gi,))] = "schema:" + _pick
+                if not relation:
+                    drawn_relations[SC.label((_gi,))] = "schema:" + _pick
                 for _ch, _co, _pr in _traits[_pick]["claims"]:
                     for _p in _pairs:
                         _pairc[(_p, _ch, _co)] = _pr
@@ -3446,6 +3648,12 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         "value": {k: v for k, v in plan["narrative"].items()
                   if k != "reason"}}
     plan["choices"]["audible"] = audible_share(plan)
+    plan["choices"]["shape_attempts"] = _attempt + 1
+    work_bound = _RL.planning_work_bound(total, operational["max_syllables_per_line"])
+    plan["execution_limits"] = dict(operational, admitted=work_bound["within_budget"],
+                                    inspection_only=bool(inspection_only),
+                                    candidate_upper_bound=work_bound["max_candidate_pairs"])
+    plan["choices"]["execution"] = dict(plan["execution_limits"])
     plan["writer_brief"] = writer_brief(plan)
     return plan
 
@@ -3458,6 +3666,8 @@ def fill_plan(plan, lines):
     difference — the same argument `quality/fit.py` makes for its own count
     refusal.
     """
+    if not plan.get("execution_limits", {}).get("admitted", True):
+        raise PlanRefused("RESOURCE_LIMIT: this inspection-only plan is outside the execution budget; it cannot be filled for writing or grading")
     want = plan["total_lines"]
     got = [l for l in lines if l.strip()]
     if len(got) != want:
@@ -3577,10 +3787,37 @@ def section_header(sec, slots):
             f"of {im['beats']}/{im['unit']}")
     if not slots:
         return f"[{sec['function'].upper()} — instrumental — {size}, no words]"
-    pickup = _pickup_phrase(slots[0]["beat"] - 1)
+    pickup = (_pickup_phrase(slots[0]["beat"] - 1)
+              if len({s["beat"] for s in slots}) == 1 else ", mixed line pickups")
     n = len(slots)
     return (f"[{sec['function'].upper()} — {n} "
             f"line{'s' if n != 1 else ''} — {size}{pickup}]")
+
+
+def render_blueprint_song(blueprint, lines):
+    """Render declared placements with the same headers as a generated plan.
+
+    Match section instances by name AND start bar: repeated chorus names
+    must not collect each other's lines. Never infer a missing meter.
+    """
+    from quality.fit import from_blueprint
+    if isinstance(blueprint, str):
+        with open(blueprint, encoding="utf-8") as fh:
+            blueprint = json.load(fh)
+    sections, placements = from_blueprint(blueprint)
+    if len(lines) != len(placements):
+        raise PlanRefused("blueprint and draft line counts differ")
+    out = []
+    for declared, sec in zip(blueprint["sections"], sections):
+        indices = [i for i, p in enumerate(placements)
+                   if (p.section, p.section_start_bar) ==
+                   (sec["name"], sec["start_bar"])]
+        header = dict(declared, function=declared.get("function") or sec["name"])
+        slots = [{"beat": placements[i].beat} for i in indices]
+        out.append(section_header(header, slots))
+        out.extend(lines[i] for i in indices)
+        out.append("")
+    return "\n".join(out).rstrip() + "\n"
 
 
 def render_song(plan, lines):
@@ -3612,7 +3849,9 @@ def writer_brief(plan):
     """The plan as a blind writer's seed — shape and rhyme plan, nothing
     about the harness (the coverage experiment's bias rule, kept)."""
     m = plan["sections"][0]["meter"]
-    out = [f"Write a song: {plan['total_lines']} lines, "
+    out = (["INSPECTION ONLY — outside the execution candidate budget. Do not start paid writing."]
+           if not plan.get("execution_limits", {}).get("admitted", True) else [])
+    out += [f"Write a song: {plan['total_lines']} lines, "
            f"{len(plan['sections'])} sections, in this order:"]
     for sec in plan["sections"]:
         slots = [s for s in plan["line_slots"]
@@ -3635,7 +3874,7 @@ def writer_brief(plan):
         rels = plan.get("relations") or {}
         out.append("Rhyme plan (line numbers over the whole song):")
         for gi, g in enumerate(plan["groups"].split(";")):
-            name = rels.get(SC.label((gi,)))
+            name = rels.get(SC.label((gi,))) or plan.get("relation")
             if name:
                 out.append(f"  lines {g.replace(',', ' & ')} stand in "
                            f"{name.split(':', 1)[1]} — a NAMED relation, "
@@ -3827,7 +4066,9 @@ def brief_legend(plan):
         for pl in places:
             out.append(f"  {pl}: {place_gloss(pl)}")
     names = []
-    for name in (plan.get("relations") or {}).values():
+    for name in list((plan.get("relations") or {}).values()) + [plan.get("relation") or ""]:
+        if not name.startswith("schema:"):
+            continue
         sname = name.split(":", 1)[1]
         if sname not in names:
             names.append(sname)

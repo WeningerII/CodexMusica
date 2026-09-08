@@ -1,0 +1,40 @@
+
+1. the band aligns from the TAIL and the scalar from the HEAD, by declaration
+  PASS  the fixture is unequal-length, or this file tests nothing
+          remember anchors ['EH', 'ER'], her anchors ['ER']. On EQUAL lengths the two alignments are the same computation, which is exactly why every test in this repo passed for the life of the project (doctrine 95).
+  PASS  score() reports the HEADS as its first compared syllable
+          0.748 = vowel_sim(EH, ER) = 0.748; the TAILS are vowel_sim(ER, ER) = 1.000. The two are different numbers here, which is what makes this fixture able to tell the readings apart.
+  PASS  ...and `scalar_alignment='tail'` reports the TAILS instead
+          1.0 vs 1.000. Both readings are REACHABLE: doctrine 84 keeps a demonstration alive rather than optimising it away, and an unreachable alternative is a claim nobody can check.
+  PASS  the two readings really do give different totals here
+          head 0.374, tail 0.7
+  PASS  the BAND, meanwhile, reads the tails whatever the scalar does
+          channel_agreement -> nucleus=True, coda=True. `remember`'s final ER against `her`'s ER is identity. The scalar is a MAGNITUDE and the band is a VERDICT; they are allowed to read the same anchors differently, and before `Declaration.scalar_alignment` existed nothing said that they do.
+  PASS  the band's verdict is the same under both scalar readings
+          the coordinate moves the scalar only; if this ever fails, the two halves have become entangled and the measurement below is void
+  PASS  on `get to go` ~ `ceipt` the band refuses, where a HEAD-aligned band would admit
+          tail-aligned -> (False, False); the heads are vowel_sim(EH, IY) = 0.758, which clears theta_nucleus, and the T codas are identical — so head-aligned it is (True, True) and `go/receipt 0.579` was typed RHYME. This is the report line the whole red team round started from.
+
+2. `scalar_alignment` is a coordinate of the Declaration (doctrine 1)
+  PASS  it exists and defaults to the present behaviour
+          got 'head'. The default is the INCUMBENT, not the winner: nothing beat it held out, so nothing changed. Changing this line is a decision with a test attached.
+  PASS  an undeclared value RAISES rather than silently picking one
+          a third value that quietly behaved like `head` would be a coordinate that lies about its own range
+  PASS  it survives the declaration's own printer
+          every report prints the declaration; a coordinate that does not appear there is not declared, it is hidden
+
+3. the held-out price, re-measured on 800 random CMUdict pairs
+  PASS  the sample is majority unequal-length, so it can see the difference at all
+          511 of 800 (63.9%). A sample of equal-length pairs would pass every check in this file while measuring nothing — that is doctrine 95's own blind spot, and it is a property of the SAMPLE, not of the assertions.
+  PASS  the scalar total moves on most of them: the coordinate is not cosmetic
+          507 of 800 (63.4%) totals differ between the two readings
+  PASS  ...and the RELATION never moves, because the band tail-aligns regardless
+          0 relation flips. This is why the change is a magnitude question and not a taxonomy question, and it is the reason the sonnet oracle cannot price it.
+  PASS  the ADMITTED verdict moves on a handful, and that handful is the entire measurable difference
+          0 of 800 (0.00%) change whether `admits()` says rhyme. Held out on 6,000 pairs this is 5 flips, 3 one way and 2 the other, and the FPR difference is 0.00pp. Doctrine 5: a change that does not beat the incumbent held out does not ship because it is more principled.
+
+4. the sonnet oracle cannot see the difference, and this is structural rather than lucky
+  PASS  all 20 sampled sonnets return the IDENTICAL violation set under both readings
+          20/20. Over all 152 it is 82/1014 either way, and 43/510 and 39/504 in the two halves — identical to the pair. Only the reported SCORE moves, on 4 sonnets of 152. A corpus whose mandated pairs are already best-aligned at equal length cannot price an alignment coordinate, so 'the oracle did not move' is not evidence that the readings agree.
+======================================================================
+all scalar/band alignment regressions pass

@@ -1,0 +1,208 @@
+
+1. Malay: one pepet syncope, two spellings, ONE verdict (M-3)
+  PASS  every apostrophe-syncope token is now readable
+          []
+  PASS  and each syllabifies to the syncopated form
+          {}
+  PASS  the apostrophe-less spelling is unchanged
+          {}
+  PASS  `s'ri` and `sri` are now the SAME WORD
+  PASS  `b'ras` and `bras` are the same word
+  PASS  `s'ri` rhymes `hati` on -i (the pantun's commonest rime)
+  PASS  `b'ras` rhymes `atas` on -as
+  PASS  and `b'ras` does NOT rhyme `hati`
+
+2. Malay: the split survives where it was RIGHT
+  PASS  `anak'nda` still splits at the boundary
+          ['a', 'nak', 'nda']
+  PASS  because `anak` is a well-formed Malay word on its own
+  PASS  while `s` is not, which is the whole of the rule
+
+3. Malay: a correct refusal is not a defect and must not be 'fixed'
+  PASS  `anggrek` still refuses, as complex_medial
+          {'code': 'complex_medial', 'part': 'anggrek', 'layer': 'phonology', 'is_defect': False, 'explanation': 'three or more medial consonants, which cannot be split into one coda plus one onset. `indra`, `anggrek`, `chandrawasi`, `mentri` are ndr/nggr loans. Correct refusal.'}
+  PASS    and `anggrek` is classed a REFUSAL, not a defect
+  PASS  `indra` still refuses, as complex_medial
+          {'code': 'complex_medial', 'part': 'indra', 'layer': 'phonology', 'is_defect': False, 'explanation': 'three or more medial consonants, which cannot be split into one coda plus one onset. `indra`, `anggrek`, `chandrawasi`, `mentri` are ndr/nggr loans. Correct refusal.'}
+  PASS    and `indra` is classed a REFUSAL, not a defect
+  PASS  `chandrawasi` still refuses, as complex_medial
+          {'code': 'complex_medial', 'part': 'chandrawasi', 'layer': 'phonology', 'is_defect': False, 'explanation': 'three or more medial consonants, which cannot be split into one coda plus one onset. `indra`, `anggrek`, `chandrawasi`, `mentri` are ndr/nggr loans. Correct refusal.'}
+  PASS    and `chandrawasi` is classed a REFUSAL, not a defect
+  PASS  `mentri` still refuses, as complex_medial
+          {'code': 'complex_medial', 'part': 'mentri', 'layer': 'phonology', 'is_defect': False, 'explanation': 'three or more medial consonants, which cannot be split into one coda plus one onset. `indra`, `anggrek`, `chandrawasi`, `mentri` are ndr/nggr loans. Correct refusal.'}
+  PASS    and `mentri` is classed a REFUSAL, not a defect
+  PASS  `ters'lit` still refuses, as complex_coda
+          {'code': 'complex_coda', 'part': 'ters', 'layer': 'phonology', 'is_defect': False, 'explanation': 'a word-final consonant run of more than one unit. Native Malay has no complex coda and THE CODA IS THE RIME, so a guess here would corrupt the one thing this module reports. Correct refusal.'}
+  PASS    and `ters'lit` is classed a REFUSAL, not a defect
+  PASS  the refrain-stub letter `b` is an INGESTION defect
+  PASS  the refrain-stub letter `d` is an INGESTION defect
+  PASS  the refrain-stub letter `s` is an INGESTION defect
+  PASS  the two classes have different layers, so a count cannot pool them
+
+4. Malay: refused / defective / read are THREE counts (doctrine 79)
+  PASS  read + refused + defective == total
+          2107 + 10 + 1 = 2118
+          staged corpus: 2118 tokens, 2107 read, 10 refused, 1 defective
+          by code: {'complex_medial': 10, 'vowelless_token': 1}
+  PASS  the staged corpus has NO apostrophe-caused unreadable token left
+          []
+  PASS  and the refusals that remain are all `complex_medial`
+          ['complex_medial', 'vowelless_token']
+
+5. Malay: doctrine 65 undercounts — there are FIVE positions
+  PASS  five are declared
+          ['final', 'after_vowel', 'initial', 'after_consonant', 'after_hyphen']
+  PASS  the fifth is `after_hyphen`
+  PASS  `darah-'kau` classifies its mark as after_hyphen
+          {6: 'after_hyphen'}
+  PASS    and `darah-'kau` reads correctly anyway
+          ['da', 'rah', 'kau']
+  PASS  `munchong-'kau` classifies its mark as after_hyphen
+          {9: 'after_hyphen'}
+  PASS    and `munchong-'kau` reads correctly anyway
+          ['mun', 'cong', 'kau']
+  PASS  `hati-'ku` classifies its mark as after_hyphen
+          {5: 'after_hyphen'}
+  PASS    and `hati-'ku` reads correctly anyway
+          ['ha', 'ti', 'ku']
+  PASS  `mata-'kau` classifies its mark as after_hyphen
+          {5: 'after_hyphen'}
+  PASS    and `mata-'kau` reads correctly anyway
+          ['ma', 'ta', 'kau']
+          staged corpus, by position: {'after_consonant': 14, 'after_hyphen': 20, 'after_vowel': 11, 'final': 23, 'initial': 77}
+  PASS  NOTHING is unclassified
+          ['after_consonant', 'after_hyphen', 'after_vowel', 'final', 'initial']
+  PASS  and after_hyphen is 20 marks — the ones an audit that knew four would report as unclassified
+          20
+
+6. Malay: the 1900 spelling is the SURFACE form (doctrine 70)
+          word-final types: {'ung': 0, 'ong': 28, 'uk': 0, 'ok': 14}
+  PASS  word-final -ung occurs ZERO times
+          {'ung': 0, 'ong': 28, 'uk': 0, 'ok': 14}
+  PASS  word-final -uk occurs ZERO times
+          {'ung': 0, 'ong': 28, 'uk': 0, 'ok': 14}
+  PASS  against 28 distinct -ong types
+          {'ung': 0, 'ong': 28, 'uk': 0, 'ok': 14}
+  PASS  and 14 distinct -ok types (the recorded 15 counts whole tokens, not hyphen elements — doctrine 58)
+          {'ung': 0, 'ong': 28, 'uk': 0, 'ok': 14}
+  PASS  `burong` is still read natively, not modernised
+  PASS  and burong~burung inside the rime is still a REFUSAL
+
+7. Malay: the ABAB known answer, both settings (doctrine 58)
+  PASS  editorial_parentheses='drop': 80/82 confirm
+          True 80, False 2, None 0
+  PASS  editorial_parentheses='keep': 82/82 confirm
+          True 82, False 0, None 0
+
+8. Finnish: `rhymes()` exists — M-6
+  PASS  fin declares TWO relations
+  PASS  and rhymes() is not the base class's stub
+  PASS  the base class stub would have said None
+  PASS  depth is a DECLARED parameter, not a constant in the body
+
+9. Finnish: fixed initial stress makes the ENGLISH port wrong
+  PASS  `maa : vapaa` rhymes — the depth clamps to the shorter word
+  PASS  and the PORTED predicate calls it False, because `vapaa`'s only stress is on `va`
+  PASS  Kramsu's own refrain rhyme `yksinään : itsekään` is True
+  PASS    the ported predicate calls THAT False too
+  PASS    and so does the rich grade, which is why depth 1 is the default
+  PASS  the unrhymed pair in the same quatrain stays False
+
+10. Finnish: long/short is a CONTRAST, and the coda bug ate it
+  PASS  `kyll'` records a GEMINATE coda ('l','l')
+          ('l', 'l')
+  PASS    not the truncated ('l',) the old code recorded
+  PASS  `onk'` records coda ('n','k')
+          ('n', 'k')
+  PASS  `kaks` keeps its whole final cluster
+          kaks -> ('k', 's')
+  PASS  `laps` keeps its whole final cluster
+          laps -> ('p', 's')
+  PASS  `maall` keeps its whole final cluster
+          maall -> ('l', 'l')
+  PASS  `kans` keeps its whole final cluster
+          kans -> ('n', 's')
+  PASS  `vaikeammiks` keeps its whole final cluster
+          vaikeammiks -> ('k', 's')
+  PASS  so `all` and `al` are NOT one rime
+  PASS  and text still agrees with the segments
+  PASS  `tuli : tuuli` is False at the rich grade (long vs short)
+  PASS  `tuli : tulli` is False at the rich grade (geminate vs single)
+  PASS  both are True at depth 1, because the contrast sits in the syllable depth 1 does not reach — a GRADE, not an error
+
+11. Finnish: harmony does NOT make a and ä one sound
+  PASS  `tahdokaan : niitäkään` — one morpheme in two harmonic shapes — is False
+  PASS    and `harmony='paired'` is reachable, so the rejected reading is checkable rather than merely asserted (doctrine 84)
+  PASS  `metsässä : talossa` stays False under the default
+  PASS  while the harmonic MATCH `vanhentuu : muu` from the same stanza is True
+  PASS  an unknown harmony setting RAISES rather than guessing
+  PASS  and so does an unknown rule
+
+12. Finnish: the tri-state, and WHY each None happens
+  PASS  `neitosien` refuses — non-initial `ie` is a compound element's diphthong or a morpheme-seam hiatus and nothing here can tell
+  PASS    named by code
+  PASS  `kotilies : vihamies` refuses for the same reason
+  PASS  a bare `j. n. e.` refrain-stub letter is an INGESTION miss
+  PASS  a foreign proper name is a CORRECT refusal, not a defect
+  PASS    and the designed rime refusal is a third code again
+  PASS    so the three cannot be pooled into one 'unreadable' number
+  PASS  a readable word has NO reason
+          staged Finnish corpus: 145717 tokens, 144999 read, 567 refused, 151 defective
+          by code: {'non_initial_opening_diphthong': 538, 'out_of_inventory': 29, 'vowelless_token': 151}
+  PASS  read + refused + defective == total, three counts not two
+  PASS  the opening diphthongs are declared, not inline
+  PASS  and they are still read as ONE nucleus in the FIRST syllable, where the rule is right
+
+13. Finnish: <w> and <v> are allographs, MIXED in one book (M-5)
+  PASS  `Wäinämöisen` and `Väinämöisen` are the same word for the rime
+  PASS  the fold is DECLARED
+  PASS  and it is OFF by default in alliteration, because the recorded rates are coordinates of the unfolded reading (doctrine 58)
+  PASS    while the folded reading is one argument away
+
+14. Finnish: agglutination gets its own type (doctrine 24)
+  PASS  `metsässä : kädessä` is a SUFFIX_RHYME — the whole agreement is the inessive ending
+  PASS  `kulta : tulta` is NOT, though it shares `ulta`, which ENDS with the partitive `ta` — the test is exact membership
+  PASS  `yksinään : itsekään` is a plain RHYME
+  PASS  identity is REPEAT, never rhyme (doctrine 3)
+  PASS  a non-rhyme is NONE, and a refusal is None
+  PASS  SUFFIXES is a declared list, part of the phonology (doctrine 46)
+
+15. Finnish: the corpus rhymes lines 2&4 — measured, with its null beside it (doctrines 63, 64)
+  PASS  the ten rhymed volumes give 1,346 four-line units
+          1346
+          2&4: obs 62.58%  judged 1328  refused 18  null med 24.76% max 27.04%  excess +35.53pp
+  PASS  2&4 clears its own null by more than 30 points
+          0.6258 vs max 0.2704
+  PASS    and the null is NOT the identity map
+          differ 0.957
+  PASS    a third of the null's own re-pairings rhyme anyway, so the RATE alone is not the finding (doctrine 64)
+          null median 0.2476
+          1&3: obs 28.21%  judged 1340  refused 6  null med 24.74% max 27.61%  excess  +0.60pp
+  PASS  1&3 is nowhere near 2&4's excess, which is the claim the corpus actually supports
+          +0.60pp against 2&4's +35.53pp
+          1&2: obs 24.62%  judged 1332  refused 14  null med 25.04% max 28.46%  excess  -3.84pp
+  PASS  1&2 does NOT clear its null
+          0.2462 vs max 0.2846
+
+16. Finnish: the Kalevala-metre book does not end-rhyme, and the rate that looks like rhyme is PARALLELISM (doctrine 71)
+  PASS  325 four-line stanzas
+          325
+          2&4: obs 21.85%  null med 29.85% max 34.77%
+  PASS  the 2&4 slot is BELOW its own null — a real negative control
+          0.2185 vs median 0.2985
+          1&2: obs 40.00%  null med 30.15% max 34.77%
+  PASS  while ADJACENT lines are above it — Kalevala parallelism repeats a syntactic frame, so the two lines end in one ending
+          0.4000 vs max 0.3477
+  PASS  so the two books separate on 2&4 and AGREE on 1&2, which is what makes the null load-bearing rather than decorative
+          2&4 0.2185 < null median 0.2985; 1&2 0.4000 > null max 0.3477. Asserted rather than narrated since 2026-08-23 — it rode on `True` and would have said PASS with both arms reversed.
+
+17. Finnish: the coda fix must not touch alliteration
+  PASS  22,113 Kanteletar verse lines
+          22113
+  PASS  Kanteletar weak alliteration is 18096/22113 (81.8342%) — the recorded value, to the digit
+          18096/22113 = 81.8342%
+  PASS  Kanteletar strong alliteration is 13315/22113 (60.2134%) — the recorded value, to the digit
+          13315/22113 = 60.2134%
+  PASS  alliteration never reads a coda, which is WHY the fix is safe
+==============================================================
+all M-3 / M-6 regressions pass

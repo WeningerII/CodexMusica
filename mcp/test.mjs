@@ -2,6 +2,8 @@
 // Engine tests need no SDK; the server-build check is skipped if the SDK isn't
 // installed (npm ci in mcp/). Run: npm test
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
+import { decodeState, encodeState } from './state_codec.js';
 import { createRequire } from 'node:module';
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -23,6 +25,41 @@ const NET_FETCH = globalThis.fetch;
 // comparison; they run under the interview surface, declared here once.
 // The kitchen block sets its own surface around its own calls.
 process.env.LYRIC_CHAT_WRITER = 'interview';
+const machine = (findings = [], extra = {}) => ({
+  version: 1,
+  status: 'graded',
+  findings,
+  coverage: { certified: true },
+  ...extra,
+});
+const finding = (code, severity, locations = [], message = code) => ({
+  code,
+  severity,
+  locations,
+  message,
+});
+const hash = (value) => createHash('sha256').update(value).digest('hex');
+function certifiedTestDelivery(payload) {
+  const latest = payload.tools?.filter((t) => t.name === 'lyric_revise').at(-1);
+  if (latest?.exit_code !== 0 || latest.error || payload.stopped || payload.error) return payload;
+  const final_draft = [payload.reply];
+  const task = { domain: 'lyrics', brief: 'local transport fixture', plan: {} };
+  const draft_fp = hash(payload.reply).slice(0, 10);
+  const final_draft_sha256 = hash(JSON.stringify(final_draft));
+  Object.assign(latest, { certified: true, draft_fp, final_draft_sha256 });
+  return {
+    ...payload,
+    task,
+    artifact: { text: payload.reply, final_draft, certified: true, draft_fp, final_draft_sha256 },
+    completion: {
+      certified: true,
+      draft_fp,
+      final_draft_sha256,
+      delivery_sha256: hash(payload.reply),
+      task_sha256: hash(JSON.stringify(task)),
+    },
+  };
+}
 
 // Raw merged catalog (with the universal cross-instrument materials present) so the
 // guard below can tell a curated variant from a borrowed (expanded, auto:false) one.
@@ -809,7 +846,7 @@ await check('validation: actionable errors', () => {
         AI.suspendedSeed({
           key: AI.stateKey(pasted),
           seed: null,
-          state: '{"pending":{"kind":"propose"}}',
+          state: encodeState({ pending: { kind: 'propose' } }),
         }),
         'the declared mandate'
       );
@@ -852,10 +889,10 @@ await check('validation: actionable errors', () => {
     // ── M-235: THE PROPOSAL RECORD ──────────────────────────────────────
     // Round 21 folded 190 answers over three loops and the rows could not say
     // which line any of them answered or whether verify took it. The verdict
-    // is derived from the loop's own control flow: a rejected tier-1 proposal
-    // is re-asked AT ONCE as (same line, same round, attempt+1).
+    // originally was inferred from the next question. A batched answer may
+    // still be unvisited, so only its actual outcome now supplies a verdict.
     await check(
-      'a folded answer is judged off the next question, exact below the attempt budget (M-235)',
+      'a folded answer without an outcome stays unknown despite the next question or attempt budget',
       () => {
         const prompt2 =
           "REVISE ONE LINE — L3 of a 20-line draft.\n\nATTEMPT\n  This is ATTEMPT 2 of this line's retry budget.\n  The PREVIOUS attempt was REJECTED. The grader's reasons, verbatim:\n    - L3 took the modal candidate 'higher'\n    - L3 wants six beats, got 7\n  Do not send back something the same reason would reject again.\n\nTHE LINE TO REVISE\n  L3: x\n";
@@ -866,7 +903,7 @@ await check('validation: actionable errors', () => {
             answer: 'a new line',
           },
         });
-        // Re-asked as attempt 1 of the same line and round: REJECTED, reasons read.
+        // A next-question prompt is not this answer's verification record.
         const rejected = VI.foldedOf(
           prev,
           {
@@ -878,25 +915,30 @@ await check('validation: actionable errors', () => {
           },
           3
         );
-        assert.equal(rejected.verdict, 'rejected');
+        assert.equal(rejected.verdict, 'unknown');
         assert.equal(rejected.line, 3);
         assert.equal(rejected.attempt, 0);
         assert.equal(rejected.answer, 'a new line');
-        assert.deepEqual(rejected.reasons, [
+        assert.deepEqual(rejected.reasons, []);
+        assert.equal(rejected.source, 'unverified');
+        assert.deepEqual(VI.priorReasons(prompt2), [
           "L3 took the modal candidate 'higher'",
           'L3 wants six beats, got 7',
         ]);
-        // Asked something else next while attempts remained: ACCEPTED.
+        // Moving to another question while attempts remain proves no outcome.
         const accepted = VI.foldedOf(
           prev,
           { pending: { kind: 'propose', record: { line: 7, attempt: 0, round: 1 }, prompt: '' } },
           3
         );
-        assert.equal(accepted.verdict, 'accepted');
+        assert.equal(accepted.verdict, 'unknown');
         assert.deepEqual(accepted.reasons, []);
-        // A stop (no next question) with attempts remaining is ACCEPTED too:
-        // a rejection would have been re-asked before any stop check.
-        assert.equal(VI.foldedOf(prev, { pending: null }, 3).verdict, 'accepted');
+        // Nor can a stop or a larger admitted budget manufacture acceptance.
+        for (const budget of [0, 1, 2, 3, 4, 5, 6]) {
+          const unvisited = VI.foldedOf(prev, { pending: null }, budget);
+          assert.equal(unvisited.verdict, 'unknown');
+          assert.equal(unvisited.source, 'unverified');
+        }
         // The budget's LAST attempt cannot be told from the state: UNKNOWN, never guessed.
         const last = JSON.stringify({
           pending: { kind: 'propose', record: { line: 3, attempt: 2, round: 1 }, answer: 'z' },
@@ -996,7 +1038,7 @@ await check('validation: actionable errors', () => {
             new_run: true,
             lines: 20,
           }),
-          { seed: 1, lines: 20 }
+          { seed: 1, lines: 20, form: 'verse-chorus', voices: false, writer: 'interview' }
         );
       }
     );
@@ -1007,27 +1049,35 @@ await check('validation: actionable errors', () => {
         const rec = {
           seed: 2,
           status: 'parked',
+          revision: 1,
           draft: ['a', 'b'],
           open: ['L1'],
           run_id: 'seed:2#bbbb',
-          decl: { seed: 2, lines: 20 },
+          decl: { seed: 2, run_revision: 1, lines: 20 },
         };
         assert.ok(
-          /PARKED.*sends `answer`\/`state`/.test(runRefusal(rec, { seed: 2, answer: 'x' }))
+          /PARKED.*sends `answer`\/`state`/.test(
+            runRefusal(rec, { seed: 2, run_revision: 1, answer: 'x' })
+          )
         );
-        assert.ok(/omits the draft/.test(runRefusal(rec, { seed: 2 })));
-        assert.ok(/SAME draft/.test(runRefusal(rec, { seed: 2, draft: ['a', 'b'] })));
+        assert.ok(/omits the draft/.test(runRefusal(rec, { seed: 2, run_revision: 1 })));
         assert.ok(
-          /new_run: true/.test(runRefusal(rec, { seed: 2, draft: ['a', 'b'] })),
+          /SAME draft/.test(runRefusal(rec, { seed: 2, run_revision: 1, draft: ['a', 'b'] }))
+        );
+        assert.ok(
+          /new_run: true/.test(runRefusal(rec, { seed: 2, run_revision: 1, draft: ['a', 'b'] })),
           'every refusal names the way out'
         );
         assert.equal(
-          runRefusal(rec, { seed: 2, draft: ['a', 'c'] }),
+          runRefusal(rec, { seed: 2, run_revision: 1, draft: ['a', 'c'] }),
           null,
           'a rewritten draft goes through'
         );
         assert.equal(
-          runRefusal({ ...rec, status: 'suspended', state: '{}' }, { seed: 2, answer: 'x' }),
+          runRefusal(
+            { ...rec, status: 'suspended', state: '{}' },
+            { seed: 2, run_revision: 1, answer: 'x' }
+          ),
           null,
           'a suspended run refuses nothing here — the carry handles it'
         );
@@ -1136,6 +1186,19 @@ await check('validation: actionable errors', () => {
         assert.equal(folded[0].source, 'outcome');
         assert.deepEqual(folded[0].reasons, ['L2 took the modal candidate']);
         assert.equal(folded[1].verdict, 'accepted');
+        const partial = { ...st, outcomes: st.outcomes.slice(0, 1) };
+        for (const budget of [1, 2, 3, 4, 5, 6]) {
+          const waiting = VI.foldedOf(
+            JSON.stringify({ pending: { ...pend, answer: 'L2: two\nL4: four' } }),
+            partial,
+            budget
+          );
+          assert.equal(waiting[0].verdict, 'rejected');
+          assert.equal(waiting[0].source, 'outcome');
+          assert.equal(waiting[1].verdict, 'unknown');
+          assert.equal(waiting[1].source, 'unverified');
+          assert.deepEqual(waiting[1].reasons, []);
+        }
         // The record wins over the derivation on a single question too: the
         // budget's last attempt is no longer unknown when the harness wrote it.
         const last = JSON.stringify({
@@ -1204,7 +1267,7 @@ await check('validation: actionable errors', () => {
       }
     );
     await check(
-      "the connector's revise budget is one attempt, ONE group rewrite per stuck line (backtrack 1, on since M-247), eight rounds, and the driver tallies batch folds (M-236)",
+      "the connector's revise budget is one attempt, ONE group rewrite per stuck line (backtrack 1, on since M-247), eight rounds, and the driver uses the verifier receipt ledger",
       async () => {
         const LT = await import('./lyric_tools.js');
         assert.equal(LT.CONNECTOR_ATTEMPTS, 1);
@@ -1213,22 +1276,25 @@ await check('validation: actionable errors', () => {
         assert.equal(LT.CONNECTOR_BACKTRACK, 1);
         assert.equal(LT.CONNECTOR_MAX_ROUNDS, 8);
         const src = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
-        assert.ok(
-          /attempts: a\.attempts \?\? \(writer === 'kitchen' \? KITCHEN_ATTEMPTS : CONNECTOR_ATTEMPTS\),/.test(
-            src
-          ),
-          "the model's own value wins, the constant fills"
-        );
-        assert.ok(
-          /args\.push\(`--attempts=\$\{budget\.attempts\}`\)/.test(src),
-          'and it reaches the verb on every call'
-        );
+        const attempts = LT.LYRIC_TOOL_SCHEMAS.lyric_revise.attempts;
+        assert.equal(attempts.safeParse(0).success, true, 'the schema preserves explicit zero');
+        assert.equal(attempts.safeParse(-1).success, false, 'negative attempts refuse');
+        assert.equal(attempts.safeParse(0.5).success, false, 'fractional attempts refuse');
+        // The actual MCP section below checks default declarations on the
+        // suspended native journal and contrasts explicit-zero termination.
         assert.ok(
           /BATCH: answer \$\{askedNow\.lines/.test(src),
           'the suspended head names the batch and its answer shape'
         );
         const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
-        assert.ok(/const foldedList = \(c\) =>/.test(bat), 'a batch call folds several answers');
+        assert.ok(
+          /recordRepairs\(repairLedger, c\)/.test(bat),
+          'the driver uses the shared verifier receipt ledger'
+        );
+        assert.ok(
+          /from '\.\/battery_repairs\.mjs'/.test(bat),
+          'summary and qualification consume one outcome contract'
+        );
         // M-249 (round 23): a rate limit no affordable wait clears is a STOP,
         // and the counter that reports it has to be able to move. Round 23 sat
         // in a paced-429 loop printing `retry 0/4` on every line because a
@@ -1260,7 +1326,13 @@ await check('validation: actionable errors', () => {
             answers: [{ line: 1, text: 'a' }],
             relation: 'type:pararhyme',
           }),
-          { seed: 7, relation: 'type:pararhyme' },
+          {
+            seed: 7,
+            relation: 'type:pararhyme',
+            form: 'verse-chorus',
+            voices: false,
+            writer: 'interview',
+          },
           "so it never lands in a run's declarations"
         );
         const ga = readFileSync(new URL('./gemini_agent.js', import.meta.url), 'utf8');
@@ -1330,12 +1402,12 @@ await check('validation: actionable errors', () => {
             S.lyric_verify.before.isOptional(),
           'lyric_verify: before_text / after_text'
         );
-        // takeLines fills the array from the twin, keeps an array that was sent, refuses neither.
+        // takeLines fills a missing array and refuses contradictory representations.
         const a1 = { draft_text: 'one\n[VERSE]\n\n two ' };
         LT.takeLines(a1, 'draft', 'draft_text');
         assert.deepEqual(a1.draft, ['one', 'two']);
         const a2 = { draft: ['kept'], draft_text: 'ignored' };
-        LT.takeLines(a2, 'draft', 'draft_text');
+        assert.throws(() => LT.takeLines(a2, 'draft', 'draft_text'), /Conflicting/);
         assert.deepEqual(a2.draft, ['kept']);
         assert.throws(() => LT.takeLines({}, 'lines', 'lines_text'), /`lines` \(or `lines_text`/);
         // The suspended declaration keeps BOTH answer shapes beside the key;
@@ -1390,7 +1462,7 @@ await check('validation: actionable errors', () => {
           'the head names `answers`'
         );
         assert.ok(
-          /a\.answer = answerFromRows\(a\.answers, st\?\.pending\?\.kind\)/.test(src),
+          /const answer = answerFromRows\(a\.answers, st\?\.pending\?\.kind\)/.test(src),
           'the join is keyed on the question kind'
         );
         for (const t of ['lyric_grade', 'lyric_check', 'lyric_recover'])
@@ -1445,8 +1517,9 @@ await check('validation: actionable errors', () => {
         );
         assert.ok(/title=battery cycle::/.test(bat), 'and prints one cycle line per stop');
         assert.ok(
-          /proposals=\$\{countVerdict\(reviseCalls, 'accepted'\)/.test(bat),
-          'and the per-turn accepted/rejected/unknown count'
+          /proposals=\$\{repairEvidenceError \? 'unavailable'/.test(bat) &&
+            /countVerdict\(reviseCalls, 'accepted'\)/.test(bat),
+          'the per-turn counts distinguish unavailable evidence from zero repairs'
         );
       }
     );
@@ -1467,7 +1540,84 @@ await check('validation: actionable errors', () => {
       );
     });
     await check('a whole-only exit 3 is labelled by its cause, not as open lines', () => {
-      assert.equal(VI.loopStatusOf(0, { loop_unresolved: 0 }), 'finished_clean');
+      const coverage = {
+        scope: 'requested_layers',
+        certified: true,
+        pairs_mandated: 1,
+        pairs_judged: 1,
+        pairs_refused: 0,
+        refused_obligations: [],
+        obligations: [
+          ...[1, 2].flatMap((line) =>
+            ['density', 'prominence'].map((layer) => ({
+              id: `${layer}:L${line}`,
+              layer,
+              line,
+              status: 'answered',
+            }))
+          ),
+          ...['sentencehood', 'floor'].map((layer) => ({
+            id: `${layer}:draft`,
+            layer,
+            status: 'answered',
+          })),
+          ...['meter', 'slot_grid', 'setting'].map((layer) => ({
+            id: `${layer}:draft`,
+            layer,
+            status: 'not_requested',
+          })),
+          { id: 'rhyme:1:2:0', layer: 'rhyme', status: 'answered' },
+        ],
+      };
+      for (const reason of ['SUCCESS', 'ROUND_LIMIT']) {
+        const result = VI.verdictOf({
+          code: 0,
+          lyric_result: machine([], {
+            status: 'finished',
+            stop_reason: reason,
+            coverage,
+            final_draft: ['My kettle whistles by the stove', 'Your fingers brush my heavy coat'],
+          }),
+        });
+        assert.equal(VI.loopStatusOf(0, result), 'finished_clean');
+        assert.equal(
+          result.loop_stop_reason,
+          reason,
+          'the final grade does not rewrite the walk stop'
+        );
+        for (const change of [
+          { certified: false },
+          { findings_measured: false },
+          { measurement_status: 'verified' },
+          { flags: 1 },
+          { whole_flags: 1 },
+          { loop_unresolved: 1 },
+          { loop_whole_flags: 1 },
+          { banned_pairs: 1 },
+          { final_draft: null },
+          { coverage: { certified: true } },
+          { coverage: { ...coverage, certified: false } },
+          { coverage: { ...coverage, obligations: [] } },
+          {
+            coverage: {
+              ...coverage,
+              pairs_judged: 0,
+              pairs_refused: 1,
+              certified: false,
+              refused_obligations: ['rhyme:1:2:0'],
+              obligations: coverage.obligations.map((row) =>
+                row.layer === 'rhyme' ? { ...row, status: 'refused' } : row
+              ),
+            },
+          },
+        ])
+          assert.equal(VI.loopStatusOf(0, { ...result, ...change }), 'uncertified');
+      }
+      assert.equal(
+        VI.loopStatusOf(0, { certified: true, loop_stop_reason: 'SUCCESS' }),
+        'uncertified',
+        'a success label alone is not an authenticated final grade'
+      );
       assert.equal(
         VI.loopStatusOf(3, { loop_unresolved: 2, loop_whole_flag_codes: ['HOOK_ABSENT'] }),
         'stopped_with_open_lines'
@@ -1508,18 +1658,72 @@ await check('validation: actionable errors', () => {
       assert.ok(v.meaning.startsWith('CRASHED'), v.meaning);
       assert.ok(!('flags' in v), 'no REPORT line, no counts invented');
     });
+    await check('partial or unmeasured responses cannot invent zero whole-draft findings', () => {
+      for (const status of [
+        'verified',
+        'planned',
+        'screened',
+        'recovered',
+        'suspended',
+        'refused',
+        'journal_capacity',
+      ]) {
+        const v = VI.verdictOf({ code: 0, lyric_result: machine([], { status }) });
+        assert.equal(v.findings_measured, false);
+        assert.equal(v.certified, false);
+        for (const key of [
+          'flags',
+          'whole_flags',
+          'notes',
+          'banned_pairs',
+          'banned',
+          'findings',
+          'standing',
+          'unreadable',
+        ])
+          assert.ok(!Object.hasOwn(v, key), `${status} must not invent ${key}`);
+        assert.ok(v.meaning.includes('whole-draft findings were not measured'));
+      }
+      const incomplete = VI.verdictOf({
+        code: 0,
+        lyric_result: { version: 1, status: 'finished', coverage: { certified: true } },
+      });
+      assert.equal(incomplete.certified, false);
+      assert.equal(incomplete.findings_measured, false);
+      assert.equal(VI.loopStatusOf(0, incomplete), 'uncertified');
+      const absent = VI.verdictOf({ code: 0, stdout: 'no flag stands' });
+      assert.equal(absent.certified, false);
+      assert.ok(absent.meaning.includes('findings are unknown'));
+      const measured = VI.verdictOf({ code: 0, lyric_result: machine([]) });
+      assert.equal(measured.findings_measured, true);
+      assert.equal(measured.banned_pairs, 0);
+    });
     await check(
       'a flagged brief at exit 0 says the flags STAND instead of "no flag stands"',
       () => {
         const stdout =
           '  REPORT: 3 line(s) briefed — 2 FLAG, 1 NOTE (two counts, never summed: doctrine 79); 1 WHOLE-DRAFT finding(s), 1 of them FLAG(S), below\n';
-        const v = VI.verdictOf({ code: 0, stdout, stderr: '' });
+        const v = VI.verdictOf({
+          code: 0,
+          stdout,
+          stderr: '',
+          lyric_result: machine([
+            finding('METER', 'flag', [1]),
+            finding('SLOP', 'flag', [2]),
+            finding('NOTE', 'note', [3]),
+            finding('HOOK', 'flag'),
+          ]),
+        });
         assert.equal(v.flags, 2);
         assert.equal(v.notes, 1);
         assert.equal(v.whole_flags, 1);
-        assert.ok(v.meaning.includes('STAND') && !v.meaning.includes('no flag stands'), v.meaning);
+        assert.ok(
+          v.meaning.toLowerCase().includes('stand') && !v.meaning.includes('no flag stands'),
+          v.meaning
+        );
         const clean = VI.verdictOf({
           code: 0,
+          lyric_result: machine([finding('INFO', 'note', [1]), finding('INFO', 'note', [2])]),
           stdout:
             '  REPORT: 2 line(s) briefed — 0 FLAG, 2 NOTE (two counts, never summed: doctrine 79)\n',
           stderr: '',
@@ -1537,11 +1741,19 @@ await check('validation: actionable errors', () => {
         '      FINDING [NOTE] SCHEME_UNREADABLE: L2/L4 were NOT judged — the pair has an unreadable end (lines 2, 4)',
         '         refusal, not a verdict',
       ].join('\n');
-      const v = VI.verdictOf({ code: 0, stdout, stderr: '' });
+      const v = VI.verdictOf({
+        code: 0,
+        stdout,
+        stderr: '',
+        lyric_result: machine([
+          finding('UNREADABLE_END_WORD', 'flag', [4]),
+          finding('SCHEME_UNREADABLE', 'note', [2, 4]),
+        ]),
+      });
       assert.equal(v.unreadable, 2);
-      assert.deepEqual(v.unreadable_findings[0].lines, ['4']);
-      assert.deepEqual(v.unreadable_findings[1].lines.sort(), ['2', '4']);
-      assert.ok(v.unreadable_meaning.includes('NOT judged'));
+      assert.deepEqual(v.unreadable_findings[0].locations, [4]);
+      assert.deepEqual(v.unreadable_findings[1].locations, [2, 4]);
+      assert.equal(v.unreadable_findings[1].code, 'SCHEME_UNREADABLE');
       const none = VI.verdictOf({ code: 0, stdout: '  nothing flagged\n', stderr: '' });
       assert.ok(!('unreadable' in none), 'absent means none found, never zero invented');
     });
@@ -1570,7 +1782,18 @@ await check('validation: actionable errors', () => {
         "         spelled rime 'ore' on both sides.",
         '  [FINISHED — seed 16 — exit 3 — NO_PROGRESS after 1 round(s) — UNRESOLVED: L3]',
       ].join('\n');
-      const v = VI.verdictOf({ code: 3, stdout, stderr: '' });
+      const v = VI.verdictOf({
+        code: 3,
+        stdout,
+        stderr: '',
+        lyric_result: machine([finding('HOMEOTELEUTON', 'note', [1, 3])], {
+          status: 'finished',
+          stop_reason: 'NO_PROGRESS',
+          rounds: 1,
+          unresolved_lines: [3],
+          whole_flags: [],
+        }),
+      });
       assert.equal(v.banned_pairs, 1, 'the ban chip can fire on the finishing verb');
       assert.equal(v.loop_unresolved, 1);
     });
@@ -1656,9 +1879,12 @@ await check('validation: actionable errors', () => {
     );
   });
   await check('a carried state with a pending question names its seed', () => {
-    assert.equal(suspendedSeed({ seed: 7, state: '{"pending":{"kind":"propose"}}' }), 7);
     assert.equal(
-      suspendedSeed({ seed: 7, state: '{"answered":{}}' }),
+      suspendedSeed({ seed: 7, state: encodeState({ pending: { kind: 'propose' } }) }),
+      7
+    );
+    assert.equal(
+      suspendedSeed({ seed: 7, state: encodeState({ answered: {} }) }),
       null,
       'no pending → no reminder'
     );
@@ -1673,7 +1899,7 @@ await check('validation: actionable errors', () => {
     const surface = { instructions: 'BASE INSTRUCTIONS' };
     const withRun = buildSystemInstruction(surface, {
       seed: 7,
-      state: '{"pending":{"kind":"propose"}}',
+      state: encodeState({ pending: { kind: 'propose' } }),
     });
     const text = withRun.parts[0].text;
     assert.ok(text.startsWith('BASE INSTRUCTIONS'), 'the base instructions must survive in front');
@@ -1739,7 +1965,7 @@ await check('validation: actionable errors', () => {
       // it composes with the M-158 reminder: note first, then the suspended run
       const both = buildSystemInstruction(
         surface,
-        { seed: 7, state: '{"pending":{"kind":"propose"}}' },
+        { seed: 7, state: encodeState({ pending: { kind: 'propose' } }) },
         new Set()
       ).parts[0].text;
       assert.ok(
@@ -1768,6 +1994,7 @@ await check('validation: actionable errors', () => {
         delete process.env.LYRIC_CHAT_WRITER;
         const unset = chatWriter();
         process.env.LYRIC_CHAT_WRITER = 'interview';
+
         const declared = chatWriter();
         if (saved === undefined) delete process.env.LYRIC_CHAT_WRITER;
         else process.env.LYRIC_CHAT_WRITER = saved;
@@ -2477,7 +2704,7 @@ await check('validation: actionable errors', () => {
             exit_code: 4,
             status: 'awaiting_proposal',
             answers_on_record: n,
-            state: `{"pending":{"kind":"propose"},"n":${n}}`,
+            state: encodeState({ pending: { kind: 'propose' }, n }),
           }),
         },
       ],
@@ -2534,7 +2761,7 @@ await check('validation: actionable errors', () => {
         );
         assert.equal(
           seen[1].args.state,
-          '{"pending":{"kind":"propose"},"n":0}',
+          encodeState({ pending: { kind: 'propose' }, n: 0 }),
           'beside the carried state'
         );
         assert.deepEqual(
@@ -2748,7 +2975,7 @@ await check('validation: actionable errors', () => {
                   exit_code: 4,
                   status: 'awaiting_proposal',
                   answers_on_record: n,
-                  state: `{"pending":{"kind":"propose"},"n":${n}}`,
+                  state: encodeState({ pending: { kind: 'propose' }, n }),
                 }),
               },
             ],
@@ -2892,7 +3119,10 @@ await check('validation: actionable errors', () => {
             exit_code: 4,
             status: 'awaiting_proposal',
             answers_on_record: n,
-            state: `{"pending":{"kind":"propose"},"answered":{"propose":${JSON.stringify(Array(n).fill('x'))},"propose_group":[]}}`,
+            state: encodeState({
+              pending: { kind: 'propose' },
+              answered: { propose: Array(n).fill('x'), propose_group: [] },
+            }),
           }),
         },
       ],
@@ -3469,7 +3699,15 @@ await check('validation: actionable errors', () => {
         'the headline, not the counts line that also says REFUSED'
       );
       assert.equal(VI.extractRefusal('  PLAN: seed 31\n  fine\n'), null, 'a clean report has none');
-      const v = VI.verdictOf({ code: 2, stdout: sweep, stderr: '' });
+      const v = VI.verdictOf({
+        code: 2,
+        stdout: sweep,
+        stderr: '',
+        lyric_result: machine([], {
+          status: 'refused',
+          refusal: 'no seed in 0..99 satisfies every declared predicate',
+        }),
+      });
       assert.equal(v.refusal, 'no seed in 0..99 satisfies every declared predicate');
       assert.ok(
         !('refusal' in VI.verdictOf({ code: 0, stdout: sweep, stderr: '' })),
@@ -3487,7 +3725,9 @@ await check('validation: actionable errors', () => {
     const assigns = src.match(/body\.systemInstruction\s*=\s*(\w+)/g) || [];
     assert.equal(assigns.length, 1, 'exactly one assignment site');
     assert.ok(
-      /const si = buildSystemInstruction\(surface, lyr, lyricCallsOnRecord\(contents\)\)/.test(src),
+      /const si = buildSystemInstruction\(\s*surface,\s*lyr,\s*task \? completedSteps : lyricCallsOnRecord\(contents\),\s*task\s*\)/.test(
+        src
+      ),
       'and it is fed by the builder, per hop, from the live carried state AND the live transcript (M-162)'
     );
   });
@@ -3773,7 +4013,10 @@ await check('validation: actionable errors', () => {
       // the parked draft and asks the loop to keep revising. Comments stripped
       // for the same reason as the fetch pin above.
       const code = bat.replace(/^\s*\/\/.*$/gm, '');
-      assert.ok(/if \(c\.exit_code === 0\) sawStop = 0;/.test(code), 'exit 0 is the only finish');
+      assert.ok(
+        /completion = completedArtifact\(p, r.status\)/.test(code),
+        'only the latest exact delivered artifact certifies completion'
+      );
       assert.ok(
         !/sawStop = c\.exit_code/.test(code),
         'the old exit-0-or-3 finish assignment is gone'
@@ -3866,6 +4109,12 @@ await check('validation: actionable errors', () => {
         stderr: '',
         path: 'warm',
         ms: 1234,
+        lyric_result: machine([], {
+          memo_state: 'cold',
+          memo_hit: 0,
+          memo_asked: 2,
+          stale_answers: 0,
+        }),
       });
       assert.equal(v.path, 'warm');
       assert.equal(v.ms, 1234);
@@ -3937,7 +4186,8 @@ await check('validation: actionable errors', () => {
       );
     }
   );
-  await check("the loop's own record of a run survives every layer to the transcript", () => {
+  await check("the loop's own record of a run survives every layer to the transcript", async () => {
+    const { _verdictInternals: VI } = await import('./lyric_tools.js');
     // M-169: revise_loop computes stop_reason / rounds / unresolved, the finish
     // verb prints all three in its [FINISHED …] stamp, and until this check
     // every layer above dropped them — so the battery transcript could say a
@@ -3947,34 +4197,24 @@ await check('validation: actionable errors', () => {
     const lt = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
     assert.ok(/function extractLoopRecord/.test(lt), 'the extractor exists');
     assert.ok(
-      /v\.loop_stop_reason = loop\.stop_reason/.test(lt),
-      'and the verdict carries it — extraction, not re-derivation'
+      /v\.loop_stop_reason = record\.stop_reason/.test(lt),
+      'the authenticated machine record carries the stop reason'
     );
-    // THE STAMP IS THE HARNESS'S, so the regex is checked against the harness's
-    // OWN spelling rather than against a copy of it. A pattern tested only on a
-    // fixture the test wrote is a pattern agreeing with itself.
-    const py = readFileSync(new URL('../lyric-harness/lyric_harness.py', import.meta.url), 'utf8');
-    assert.ok(
-      /\[FINISHED — seed \{finish_seed\} — "\s*\n\s*f"exit \{_code\} — \{result\.stop_reason\.upper\(\)\} "\s*\n\s*f"after \{len\(result\.rounds\)\} round\(s\) — /.test(
-        py
-      ),
-      'the harness still prints seed, exit, stop reason and round count in that order'
-    );
-    // A pasted song's run (M-195) is stamped `declared mandate` where a
-    // planned one is stamped `seed N`; the harness prints both spellings and
-    // the connector's ONE regex reads both. The source substring is compared
-    // as a string rather than as a regex over a regex, so the pin reads the
-    // way the extractor is spelled.
-    assert.ok(
-      /\[FINISHED — declared mandate — "\s*\n\s*f"exit \{_code\} — \{result\.stop_reason\.upper\(\)\} "\s*\n\s*f"after \{len\(result\.rounds\)\} round\(s\) — /.test(
-        py
-      ),
-      "and the unseeded revise prints the same stamp with `declared mandate` in the seed's place"
-    );
-    const m = lt.includes(
-      '/\\[FINISHED\\s*—\\s*(?:seed\\s*(-?\\d+)|declared mandate)\\s*—\\s*exit\\s*(\\d+)\\s*—\\s*([A-Z_]+)\\s+after\\s+(\\d+)\\s+round\\(s\\)'
-    );
-    assert.ok(m, 'and the connector reads exactly that shape, in both spellings');
+    const record = VI.verdictOf({
+      code: 3,
+      stdout: '[FINISHED — seed 9 — exit 0 — SUCCESS after 0 round(s)]',
+      lyric_result: machine([], {
+        status: 'finished',
+        stop_reason: 'NO_PROGRESS',
+        rounds: 2,
+        unresolved_lines: [2],
+        whole_flags: ['TITLE_NOT_IN_HOOK'],
+      }),
+    });
+    assert.equal(record.loop_stop_reason, 'NO_PROGRESS');
+    assert.equal(record.loop_rounds, 2);
+    assert.deepEqual(record.loop_unresolved_lines, [2]);
+    assert.deepEqual(record.loop_whole_flag_codes, ['TITLE_NOT_IN_HOOK']);
     const ga = readFileSync(new URL('./gemini_agent.js', import.meta.url), 'utf8');
     assert.ok(
       /loop_stop_reason:/.test(ga) && /answers_on_record:/.test(ga),
@@ -3999,8 +4239,8 @@ await check('validation: actionable errors', () => {
     );
     const lt = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
     assert.ok(
-      /const loop = extractLoopRecord\(r\.stdout\);/.test(lt) && /if \(loop\) \{/.test(lt),
-      'and the verdict adds the fields only when the stamp is there'
+      /if \(record\.status === 'finished'\)/.test(lt),
+      'and the verdict adds stop fields only from the authenticated finished result'
     );
   });
   await check(
@@ -4041,10 +4281,7 @@ await check('validation: actionable errors', () => {
     // queue for a SECOND whole budget to earn the same -1 — the double
     // block round 8 paid eight times over (M-165).
     const lt = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
-    assert.ok(
-      /const runVerb = bridge\.runVerb/.test(lt),
-      'the tools use the shared execution bridge'
-    );
+    assert.ok(/bridge\.runVerb\(/.test(lt), 'the tools use the shared execution bridge');
     const execution = readFileSync(new URL('./python_bridge.js', import.meta.url), 'utf8');
     assert.ok(
       /kitchen\s*\|\|\s*error\.timedOut\s*\|\|\s*error\.cancelled/.test(execution),
@@ -4084,9 +4321,27 @@ await check('validation: actionable errors', () => {
       'mcp/test_lyric_state.mjs': 'offline lyric state and SDK regressions',
       'mcp/test_turn_lifecycle.mjs': 'offline chat lifetime and signed continuation regressions',
       'mcp/test_battery_lifecycle.mjs': 'offline real battery transport regressions',
+      'mcp/fixtures/wall_nested_replay.json':
+        'offline recorded checkpoint replay fixture consumed only by tests',
       'mcp/test_battery_archive.mjs': 'offline authenticated recovery archive regressions',
       'mcp/test_battery_storage.mjs': 'offline bounded battery journal and admission regressions',
+      'mcp/test_battery_repairs.mjs':
+        'offline verifier application receipt and deduplication regressions',
+      'mcp/test_kitchen_repairs.mjs':
+        'localhost HTTP kitchen repair and durable receipt integration regressions',
       'mcp/test_job_store.mjs': 'offline durable recovery regressions',
+      'mcp/test_chat_production.mjs': 'offline authoritative delivery and task routing regressions',
+      'mcp/test_connector_contracts.mjs': 'offline connector and release contract regressions',
+      'mcp/test_connector_http.mjs': 'offline public HTTP and Origin regressions',
+      'mcp/test_release_gates.mjs': 'offline verified CI and battery acceptance regressions',
+      'mcp/test_run_continuation.mjs': 'offline real run continuation regressions',
+      'mcp/test_writer_work_budget.mjs': 'real native writer candidate-work admission regression',
+      'mcp/test_deferred_continuation.mjs': 'real deferred provider recovery regression',
+      'mcp/test_state_codec.mjs': 'offline portable state codec regressions',
+      'mcp/test_runtime_assets.mjs': 'offline immutable runtime asset inventory regressions',
+      'mcp/test_lyric_workflow.mjs':
+        'offline lyrics creation order and task authorization regressions',
+      'mcp/IMAGE_RELEASE.md': 'immutable image promotion operator documentation',
       'mcp/LYRICS_RUNTIME.md': 'operator documentation',
       'mcp/BATTERY_RECOVERY.md': 'battery recovery operator documentation',
       'mcp/test_gemini_proposer.py':
@@ -4097,10 +4352,23 @@ await check('validation: actionable errors', () => {
     const ROOT = fileURLToPath(new URL('..', import.meta.url));
     let tracked;
     try {
-      tracked = execFileSync('git', ['ls-files', '-z', '--', 'mcp/'], {
-        cwd: ROOT,
-        encoding: 'utf8',
-      })
+      tracked = execFileSync(
+        'git',
+        [
+          'ls-files',
+          '--cached',
+          '--others',
+          '--exclude-standard',
+          '-z',
+          '--',
+          'mcp/',
+          ':!:mcp/node_modules',
+        ],
+        {
+          cwd: ROOT,
+          encoding: 'utf8',
+        }
+      )
         .split('\0')
         .filter(Boolean);
     } catch (e) {
@@ -4187,7 +4455,7 @@ await check('validation: actionable errors', () => {
       'the worker lands beside lyric_tools.js, where WORKER_PATH resolves'
     );
     // The planted mutant: the pre-fix Dockerfile, reproduced from the fixed one.
-    const mutant = text.replace(/^COPY mcp\/worker\.py .*\n/m, '');
+    const mutant = text.replace(/^(COPY )mcp\/worker\.py /m, '$1');
     assert.notEqual(mutant, text, "the worker's COPY line is there to be removed");
     assert.deepEqual(
       coverage(mutant).uncovered,
@@ -4271,17 +4539,19 @@ await check('validation: actionable errors', () => {
           const malformedTurn = n <= 2;
           res.writeHead(200, { 'content-type': 'application/json' });
           res.end(
-            JSON.stringify({
-              reply: malformedTurn ? '' : 'planned',
-              tools: malformedTurn
-                ? []
-                : [{ name: 'lyric_plan', exit_code: 0, path: 'warm', answers_on_record: null }],
-              stopped: malformedTurn ? 'MALFORMED_FUNCTION_CALL' : null,
-              stopped_detail: null,
-              history: [{ role: 'user', parts: [{ text: `h${n}` }] }],
-              workspace: null,
-              sig: `sig${n}`,
-            })
+            JSON.stringify(
+              certifiedTestDelivery({
+                reply: malformedTurn ? '' : 'planned',
+                tools: malformedTurn
+                  ? []
+                  : [{ name: 'lyric_plan', exit_code: 0, path: 'warm', answers_on_record: null }],
+                stopped: malformedTurn ? 'MALFORMED_FUNCTION_CALL' : null,
+                stopped_detail: null,
+                history: [{ role: 'user', parts: [{ text: `h${n}` }] }],
+                workspace: null,
+                sig: `sig${n}`,
+              })
+            )
           );
         });
       });
@@ -4300,13 +4570,10 @@ await check('validation: actionable errors', () => {
         // The round reached no stop, so it is red (M-223) — but NOT as a
         // fail-fast: the reason separates a recovered turn from a failure.
         assert.equal(r.status, 1, `no song, so exit 1: ${r.stderr}\n${r.stdout}`);
-        // The driver's floor is two turns; turn 0 is the message sent three
-        // times and turn 1 is the CONTINUE message sent once.
-        assert.equal(seen.length, 4, 'turn 0 sent three times, turn 1 once');
-        assert.notEqual(
-          seen[3].message,
-          seen[0].message,
-          'the fourth request is the next turn, not a re-ask'
+        assert.equal(
+          seen.length,
+          3,
+          'the one explicitly requested turn is re-asked twice, then stops'
         );
         assert.equal(seen[1].message, seen[0].message, 'the re-ask is the SAME message');
         assert.equal(seen[1].sig, 'sig1', 'on the envelope the failed answer handed back');
@@ -4497,14 +4764,16 @@ await check('validation: actionable errors', () => {
           n++;
           res.writeHead(200, { 'content-type': 'application/json' });
           res.end(
-            JSON.stringify({
-              reply: '',
-              tools,
-              stopped: null,
-              history: [{ role: 'user', parts: [{ text: `h${n}` }] }],
-              workspace: null,
-              sig: `sig${n}`,
-            })
+            JSON.stringify(
+              certifiedTestDelivery({
+                reply: n >= 4 ? 'The complete fixture song' : '',
+                tools,
+                stopped: null,
+                history: [{ role: 'user', parts: [{ text: `h${n}` }] }],
+                workspace: null,
+                sig: `sig${n}`,
+              })
+            )
           );
         });
       });
@@ -4564,27 +4833,29 @@ await check('validation: actionable errors', () => {
           n++;
           res.writeHead(200, { 'content-type': 'application/json' });
           res.end(
-            JSON.stringify({
-              reply: 'the kitchen could not finish',
-              tools: [
-                { name: 'lyric_plan', exit_code: 0, path: 'warm', answers_on_record: null },
-                {
-                  name: 'lyric_revise',
-                  exit_code: 2,
-                  path: 'warm',
-                  writer: 'kitchen',
-                  refusal,
-                  proposer_calls: 9,
-                  proposer_retries: 6,
-                  proposer_wait_s: 240,
-                },
-              ],
-              stopped: null,
-              stopped_detail: null,
-              history: [{ role: 'user', parts: [{ text: `h${n}` }] }],
-              workspace: null,
-              sig: `sig${n}`,
-            })
+            JSON.stringify(
+              certifiedTestDelivery({
+                reply: 'the kitchen could not finish',
+                tools: [
+                  { name: 'lyric_plan', exit_code: 0, path: 'warm', answers_on_record: null },
+                  {
+                    name: 'lyric_revise',
+                    exit_code: 2,
+                    path: 'warm',
+                    writer: 'kitchen',
+                    refusal,
+                    proposer_calls: 9,
+                    proposer_retries: 6,
+                    proposer_wait_s: 240,
+                  },
+                ],
+                stopped: null,
+                stopped_detail: null,
+                history: [{ role: 'user', parts: [{ text: `h${n}` }] }],
+                workspace: null,
+                sig: `sig${n}`,
+              })
+            )
           );
         });
       });
@@ -4667,37 +4938,39 @@ await check('validation: actionable errors', () => {
           res.writeHead(200, { 'content-type': 'application/json' });
           res.end(
             JSON.stringify(
-              n === 1
-                ? {
-                    reply: '',
-                    tools: [{ name: 'lyric_plan', seed: 5, exit_code: 0, path: 'warm' }],
-                    stopped: 'UPSTREAM_503',
-                    stopped_detail: {
-                      status: 503,
-                      detail: 'Gemini 503: high demand',
-                      hops: 2,
-                      calls: 1,
-                    },
-                    history: [{ role: 'user', parts: [{ text: 'h1' }] }],
-                    workspace: null,
-                    sig: 'sig1',
-                  }
-                : {
-                    reply: 'done',
-                    tools: [
-                      {
-                        name: 'lyric_revise',
-                        seed: 5,
-                        exit_code: 0,
-                        path: 'warm',
-                        answers_on_record: 0,
+              certifiedTestDelivery(
+                n === 1
+                  ? {
+                      reply: '',
+                      tools: [{ name: 'lyric_plan', seed: 5, exit_code: 0, path: 'warm' }],
+                      stopped: 'UPSTREAM_503',
+                      stopped_detail: {
+                        status: 503,
+                        detail: 'Gemini 503: high demand',
+                        hops: 2,
+                        calls: 1,
                       },
-                    ],
-                    stopped: null,
-                    history: [{ role: 'user', parts: [{ text: 'h2' }] }],
-                    workspace: null,
-                    sig: 'sig2',
-                  }
+                      history: [{ role: 'user', parts: [{ text: 'h1' }] }],
+                      workspace: null,
+                      sig: 'sig1',
+                    }
+                  : {
+                      reply: 'done',
+                      tools: [
+                        {
+                          name: 'lyric_revise',
+                          seed: 5,
+                          exit_code: 0,
+                          path: 'warm',
+                          answers_on_record: 0,
+                        },
+                      ],
+                      stopped: null,
+                      history: [{ role: 'user', parts: [{ text: 'h2' }] }],
+                      workspace: null,
+                      sig: 'sig2',
+                    }
+              )
             )
           );
         });
@@ -4762,22 +5035,24 @@ await check('validation: actionable errors', () => {
           }
           res.writeHead(200, { 'content-type': 'application/json' });
           res.end(
-            JSON.stringify({
-              reply: 'done',
-              tools: [
-                {
-                  name: 'lyric_revise',
-                  exit_code: 0,
-                  loop_stop_reason: 'success',
-                  loop_rounds: 2,
-                  answers_on_record: 3,
-                },
-              ],
-              stopped: null,
-              history: [],
-              workspace: null,
-              sig: 's',
-            })
+            JSON.stringify(
+              certifiedTestDelivery({
+                reply: 'done',
+                tools: [
+                  {
+                    name: 'lyric_revise',
+                    exit_code: 0,
+                    loop_stop_reason: 'success',
+                    loop_rounds: 2,
+                    answers_on_record: 3,
+                  },
+                ],
+                stopped: null,
+                history: [],
+                workspace: null,
+                sig: 's',
+              })
+            )
           );
         });
       });
@@ -4844,34 +5119,36 @@ await check('validation: actionable errors', () => {
           res.writeHead(200, { 'content-type': 'application/json' });
           res.end(
             JSON.stringify(
-              n === 1
-                ? {
-                    reply: '',
-                    tools: [
-                      { name: 'lyric_plan', exit_code: 0 },
-                      { name: 'lyric_revise', exit_code: 4, answers_on_record: 2 },
-                    ],
-                    stopped: 'MALFORMED_FUNCTION_CALL',
-                    history: [{ role: 'user', parts: [{ text: 'h1' }] }],
-                    workspace: null,
-                    sig: 'sig1',
-                  }
-                : {
-                    reply: 'done',
-                    tools: [
-                      {
-                        name: 'lyric_revise',
-                        exit_code: 0,
-                        loop_stop_reason: 'success',
-                        loop_rounds: 1,
-                        answers_on_record: 3,
-                      },
-                    ],
-                    stopped: null,
-                    history: [],
-                    workspace: null,
-                    sig: 'sig2',
-                  }
+              certifiedTestDelivery(
+                n === 1
+                  ? {
+                      reply: '',
+                      tools: [
+                        { name: 'lyric_plan', exit_code: 0 },
+                        { name: 'lyric_revise', exit_code: 4, answers_on_record: 2 },
+                      ],
+                      stopped: 'MALFORMED_FUNCTION_CALL',
+                      history: [{ role: 'user', parts: [{ text: 'h1' }] }],
+                      workspace: null,
+                      sig: 'sig1',
+                    }
+                  : {
+                      reply: 'done',
+                      tools: [
+                        {
+                          name: 'lyric_revise',
+                          exit_code: 0,
+                          loop_stop_reason: 'success',
+                          loop_rounds: 1,
+                          answers_on_record: 3,
+                        },
+                      ],
+                      stopped: null,
+                      history: [],
+                      workspace: null,
+                      sig: 'sig2',
+                    }
+              )
             )
           );
         });
@@ -4932,14 +5209,16 @@ await check('validation: actionable errors', () => {
           if (n === 1) {
             res.writeHead(200, { 'content-type': 'application/json' });
             res.end(
-              JSON.stringify({
-                reply: '',
-                tools: [{ name: 'lyric_plan', exit_code: 0 }],
-                stopped: null,
-                history: [],
-                workspace: null,
-                sig: 's1',
-              })
+              JSON.stringify(
+                certifiedTestDelivery({
+                  reply: '',
+                  tools: [{ name: 'lyric_plan', exit_code: 0 }],
+                  stopped: null,
+                  history: [],
+                  workspace: null,
+                  sig: 's1',
+                })
+              )
             );
             return;
           }
@@ -4998,15 +5277,17 @@ await check('validation: actionable errors', () => {
           n++;
           res.writeHead(200, { 'content-type': 'application/json' });
           res.end(
-            JSON.stringify({
-              reply: '',
-              tools: [],
-              stopped: 'MALFORMED_FUNCTION_CALL',
-              stopped_detail: null,
-              history: [],
-              workspace: null,
-              sig: `s${n}`,
-            })
+            JSON.stringify(
+              certifiedTestDelivery({
+                reply: '',
+                tools: [],
+                stopped: 'MALFORMED_FUNCTION_CALL',
+                stopped_detail: null,
+                history: [],
+                workspace: null,
+                sig: `s${n}`,
+              })
+            )
           );
         });
       });
@@ -5425,7 +5706,7 @@ if (/\\/actions\\/workflows\\/[^/]+\\/runs\\?/.test(url)) {
   );
 
   await check(
-    'deploy-connector.yml reaches both scripts, and LAST_DEPLOYED_SHA crosses the process boundary',
+    'deploy-connector.yml preserves main ordering without treating the same SHA as the same tested image',
     () => {
       // check_publish_guard.js §7's lesson, learned there the expensive way:
       // the publish guard's first live run refused to decide because
@@ -5445,19 +5726,19 @@ if (/\\/actions\\/workflows\\/[^/]+\\/runs\\?/.test(url)) {
         return hit ? hit.i : -1;
       };
       assert.ok(lineOf('scripts/deploy_guard.sh') >= 0, 'the workflow calls the guard');
-      assert.ok(lineOf('scripts/last_deployed_sha.sh') >= 0, '...and the lookup that feeds it');
-      assert.ok(
-        lineOf('scripts/last_deployed_sha.sh') < lineOf('scripts/deploy_guard.sh'),
-        'the record is read BEFORE the guard is asked, or the guard is handed nothing'
+      assert.equal(
+        lineOf('scripts/last_deployed_sha.sh'),
+        -1,
+        'a SHA-only receipt cannot identify the newly tested immutable image'
       );
-      // The guard is a CHILD PROCESS: the sha has to be in its environment,
-      // which for a `run` step means the step's `env:` block or an inline
-      // assignment — never a bare shell variable.
+      assert.match(
+        wf,
+        /LAST_DEPLOYED_SHA=""\s+BUILT_SHA=/,
+        'the legacy SHA stand-down is explicitly disabled for image promotion'
+      );
       assert.ok(
-        /env:\s*\n\s*LAST_DEPLOYED_SHA:/.test(wf) ||
-          /LAST_DEPLOYED_SHA=\S+\s+\S*deploy_guard\.sh/.test(wf) ||
-          /^\s*export\s+LAST_DEPLOYED_SHA\b/m.test(wf),
-        'LAST_DEPLOYED_SHA reaches the guard as an environment variable'
+        lineOf('scripts/image_release.mjs') >= 0,
+        'promotion validates the exact image manifest'
       );
       assert.ok(
         /BUILT_SHA=(?:"[^"]*"|'[^']*'|\S+)\s+\S*scripts\/deploy_guard\.sh/.test(wf) ||
@@ -5470,7 +5751,7 @@ if (/\\/actions\\/workflows\\/[^/]+\\/runs\\?/.test(url)) {
       assert.ok(/\b10\)/.test(wf) && /go=no/.test(wf), 'exit 10 is handled as a clean stand-down');
       assert.ok(
         /actions:\s*read/.test(wf),
-        "the lookup needs actions: read to see this workflow's own run history"
+        'verified CI and image artifacts require actions: read'
       );
     }
   );
@@ -5537,6 +5818,13 @@ try {
     console.error(`FAIL  /chat refuses to spend on a model it cannot price\n      ${err.message}`);
     process.exitCode = 1;
   }
+}
+
+if (process.argv.includes('--checks-only')) {
+  console.log(
+    `Offline connector assertions complete (${passed} passed); real harness integration was explicitly not requested.`
+  );
+  process.exit(process.exitCode || 0);
 }
 
 // The lyric family (mcp/lyric_tools.js) — the DISJOINT tool family over the
@@ -5764,6 +6052,23 @@ try {
     );
     passed++;
 
+    // Current measured constructive seed176 control, shared by title and
+    // interview tests; the scaffolded24-line plan remains a separate negative.
+    const qualifiedDraft = [
+      'Bone buttons gleam beneath a red balloon',
+      "My mother's herbs were never sown in June",
+      'A kettle ticks against the stove',
+      'Blue shadows drag the curtains through my doubt',
+      'Before the drought we kept a jar of salt',
+      'Each crawl beneath the window wakes the rain',
+      'Those hands divide the haul and mend the vein',
+      'Each crawl beneath the window wakes the rain',
+      'Those hands divide the haul and mend the vein',
+      'Bright napkins fold around a chipped blue plate',
+      'She swept the porch while winter filled the lane',
+      'A quiet lamp still burns beside the gate',
+    ];
+
     // THE SHAPE IS READ FROM THE PLAN, NEVER REMEMBERED (2026-08-23).
     // This block used to open `Seed 55 is Count to Five's shape: 22 lines,
     // chorus lines 17-19 returning verbatim as 20-22` and build a 22-line
@@ -5924,14 +6229,19 @@ try {
     // The provenance stamp is SERVER-written under the song, inside the
     // verbatim block: seed + exit + banned-pair count reach the user even
     // through a client that relays nothing else.
-    assert.ok(
-      new RegExp(`\\[GRADED — seed ${planSeed} — exit [03], .+ — \\d+ banned pair\\(s\\)`).test(
-        song
-      ),
-      'block 0 carries the [GRADED — seed …] stamp line'
-    );
     const gradeVerdict = JSON.parse(gradedRes.content[1].text);
-    assert.ok([0, 3].includes(gradeVerdict.exit_code), 'grade answered (0 or 3, never a refusal)');
+    assert.equal(
+      gradeVerdict.exit_code,
+      2,
+      'the scaffold draft has unresolved requested obligations'
+    );
+    assert.equal(gradeVerdict.certified, false);
+    assert.equal(gradeVerdict.coverage.certified, false);
+    assert.ok(gradeVerdict.coverage.refused_obligations.length > 0);
+    assert.ok(
+      new RegExp(`\\[GRADED — seed ${planSeed} — exit 2, .+ — \\d+ banned pair\\(s\\)`).test(song),
+      'block 0 carries the same unjudged [GRADED — seed …] stamp as the authenticated verdict'
+    );
     assert.ok(
       /pairs?/i.test(gradeVerdict.report) || gradeVerdict.report.includes('REPORT'),
       'a grade report came back in the verdict block'
@@ -5998,16 +6308,58 @@ try {
       '  ok  lyric_revise live: an omitted draft nothing carries refuses by name (M-221)'
     );
     passed++;
-    const rev1 = await client.callTool(
+    // The original 24-line seed1 fixture produced a 400KB nine-line prompt,
+    // before its first answer. Independent questions must split into fitting
+    // batches without discarding their constraints or ending the fresh run.
+    const splitRes = await client.callTool(
       { name: 'lyric_revise', arguments: withLines({ draft }) },
       undefined,
       LIVE_OPTS
     );
+    assert.ok(!splitRes.isError);
+    assert.equal(splitRes.content.length, 2);
+    const splitVerdict = JSON.parse(splitRes.content[1].text);
+    assert.equal(splitVerdict.status, 'awaiting_proposal');
+    assert.equal(splitVerdict.exit_code, 4);
+    const splitState = decodeState(splitVerdict.state);
+    assert.deepEqual(splitState.accepted_lines, draft);
+    assert.deepEqual(splitState.answered.propose, []);
+    assert.equal(splitState.pending.kind, 'propose_batch');
+    assert.ok(splitState.pending.record.records.length > 1);
+    assert.ok(splitState.pending.record.records.length < 9);
+    assert.ok(Buffer.byteLength(JSON.stringify(splitState), 'utf8') < 384 * 1024);
+    assert.ok(splitRes.content[0].text.includes(splitState.pending.prompt));
+    console.log(
+      `  ok  lyric_revise live: seed ${planSeed}, ${nLines} lines, first batch ` +
+        `[${splitState.pending.record.records.map((r) => r.line).join(',')}] ` +
+        `fits ${Buffer.byteLength(JSON.stringify(splitState), 'utf8')} state bytes without dropping a brief`
+    );
+    passed++;
+    const revisionSeed = 176;
+    const revisionDraft = [...qualifiedDraft];
+    revisionDraft[0] = 'Bone buttons gleam beneath the rain in June';
+    const withRevision = (extra) => ({
+      seed: revisionSeed,
+      relation: 'class:RHYME',
+      title: 'wakes the rain',
+      ...extra,
+    });
+    const rev1 = await client.callTool(
+      { name: 'lyric_revise', arguments: withRevision({ draft: revisionDraft }) },
+      undefined,
+      LIVE_OPTS
+    );
     assert.ok(!rev1.isError, 'lyric_revise answered without isError');
-    assert.equal(rev1.content.length, 2, 'revise returns two blocks: question, then verdict');
+    assert.equal(
+      rev1.content.length,
+      2,
+      `revise returns two blocks: question, then verdict; got ${rev1.content[0]?.text.slice(0, 2500)}`
+    );
     const q1 = rev1.content[0].text;
     assert.ok(
-      q1.startsWith(`[AWAITING PROPOSAL — seed ${planSeed} — 0 answer(s) on record — NO SONG YET]`),
+      q1.startsWith(
+        `[AWAITING PROPOSAL — seed ${revisionSeed} — 0 answer(s) on record — NO SONG YET]`
+      ),
       'a fresh revision suspends awaiting the first proposal'
     );
     assert.ok(
@@ -6027,8 +6379,15 @@ try {
       ['warm', 'cold', 'cold-fallback'].includes(rv1.path) && typeof rv1.ms === 'number',
       `a suspended verdict names its path and time too (got ${rv1.path}, ${rv1.ms})`
     );
-    const st1 = JSON.parse(rv1.state);
+    const st1 = decodeState(rv1.state);
     assert.ok(st1.pending && st1.pending.kind, 'the state carries the pending question');
+    assert.equal(
+      st1.connector_declarations.attempts,
+      1,
+      'the native journal preserves the actual default attempt budget'
+    );
+    assert.equal(st1.connector_declarations.backtrack, 1);
+    assert.equal(st1.connector_declarations.max_rounds, 8);
     // M-235: the row names the question left open; a first call folds nothing.
     assert.equal(rv1.asked && rv1.asked.kind, st1.pending.kind, 'the row names the open question');
     assert.equal(rv1.folded, null, 'a first call folds no answer');
@@ -6037,14 +6396,22 @@ try {
     // harness refuses to advance past an unanswered pending — that refusal
     // IS the enforcement, and it must be idempotent or a retry would skip).
     const rev2 = await client.callTool(
-      { name: 'lyric_revise', arguments: withLines({ draft, state: rv1.state }) },
+      {
+        name: 'lyric_revise',
+        arguments: withRevision({
+          draft: revisionDraft,
+          state: rv1.state,
+          run_id: rv1.run_id,
+          run_revision: rv1.run_revision,
+        }),
+      },
       undefined,
       LIVE_OPTS
     );
     const rv2 = JSON.parse(rev2.content[1].text);
     assert.equal(rv2.exit_code, 4, 'an unanswered state re-suspends');
     assert.equal(
-      JSON.parse(rv2.state).pending.prompt,
+      decodeState(rv2.state).pending.prompt,
       st1.pending.prompt,
       'and re-asks the IDENTICAL question — the loop is resumed, not re-imagined'
     );
@@ -6055,12 +6422,21 @@ try {
     const pend1 = st1.pending;
     const answer1 =
       pend1.kind === 'propose_batch'
-        ? pend1.record.records.map((r) => `L${r.line}: ${draft[r.line - 1]} again`).join('\n')
+        ? pend1.record.records
+            .map((r) => `L${r.line}: ${revisionDraft[r.line - 1]} again`)
+            .join('\n')
         : pend1.kind === 'propose_group'
-          ? pend1.record.members.map((n) => `L${n}: ${draft[n - 1]} again`).join('\n')
-          : `${draft[pend1.record.line - 1]} again`;
+          ? pend1.record.members.map((n) => `L${n}: ${revisionDraft[n - 1]} again`).join('\n')
+          : `${revisionDraft[pend1.record.line - 1]} again`;
     const rev3 = await client.callTool(
-      { name: 'lyric_revise', arguments: withLines({ run_id: rv1.run_id, answer: answer1 }) },
+      {
+        name: 'lyric_revise',
+        arguments: withRevision({
+          run_id: rv2.run_id,
+          run_revision: rv2.run_revision,
+          answer: answer1,
+        }),
+      },
       undefined,
       LIVE_OPTS
     );
@@ -6078,7 +6454,12 @@ try {
     const revBad = await client.callTool(
       {
         name: 'lyric_revise',
-        arguments: { seed: planSeed + 100000, lines: LIVE_LINES, draft, answer: 'a line' },
+        arguments: {
+          seed: revisionSeed + 100000,
+          relation: 'class:RHYME',
+          draft: revisionDraft,
+          answer: 'a line',
+        },
       },
       undefined,
       LIVE_OPTS
@@ -6089,7 +6470,7 @@ try {
     );
     // `new_run` drops the record: zero answers, a different id.
     const rev4 = await client.callTool(
-      { name: 'lyric_revise', arguments: withLines({ draft, new_run: true }) },
+      { name: 'lyric_revise', arguments: withRevision({ draft: revisionDraft, new_run: true }) },
       undefined,
       LIVE_OPTS
     );
@@ -6100,6 +6481,56 @@ try {
     const rv4 = JSON.parse(rev4.content[1].text);
     assert.equal(rv4.answers_on_record ?? 0, 0, 'a fresh run has no answers');
     assert.notEqual(rv4.run_id, rv1.run_id, 'and a new id');
+    const { RUNS: actualRuns } = await import('./lyric_tools.js');
+    for (const [zeroDraft, expectedExit] of [
+      [revisionDraft, 3],
+      [qualifiedDraft, 0],
+    ]) {
+      const zeroRes = await client.callTool(
+        {
+          name: 'lyric_revise',
+          arguments: withRevision({
+            draft: zeroDraft,
+            new_run: true,
+            attempts: 0,
+            backtrack: 0,
+            max_rounds: 1,
+          }),
+        },
+        undefined,
+        LIVE_OPTS
+      );
+      assert.ok(!zeroRes.isError);
+      const zeroVerdict = JSON.parse(zeroRes.content.at(-1).text);
+      assert.equal(
+        zeroVerdict.exit_code,
+        expectedExit,
+        'zero attempts distinguishes a definite standing flag from a clean finish without requesting a proposal'
+      );
+      assert.equal(zeroVerdict.certified, true);
+      assert.deepEqual(
+        zeroVerdict.final_draft,
+        zeroDraft,
+        'no proposal changed the accepted draft'
+      );
+      assert.equal(
+        Object.hasOwn(zeroVerdict, 'asked'),
+        false,
+        'a stopped run carries no open question'
+      );
+      if (expectedExit === 3) {
+        const zeroRun = actualRuns.get(zeroVerdict.run_id);
+        assert.equal(
+          zeroRun.decl.attempts,
+          0,
+          'the actual handler preserves explicit zero instead of substituting the default'
+        );
+        assert.equal(zeroRun.decl.backtrack, 0);
+        assert.equal(zeroRun.decl.max_rounds, 1);
+      } else {
+        assert.equal(zeroVerdict.run_id, null, 'a clean fresh finish creates no parked capability');
+      }
+    }
     console.log(
       '  ok  lyric_revise live: suspends with the question, no render, state round-trips'
     );
@@ -6189,10 +6620,46 @@ try {
       outOfHook.report.includes('TITLE_NOT_IN_HOOK'),
       'a title outside the hook answers NO'
     );
+    assert.ok(
+      outOfHook.findings.some((f) => f.code === 'TITLE_NOT_IN_HOOK' && f.severity === 'flag')
+    );
     assert.equal(
       outOfHook.exit_code,
-      3,
-      'and that answer is a FLAG (M-86) — the connector can now trip it AND fix it'
+      2,
+      'a title flag cannot override unresolved scaffold obligations'
+    );
+    assert.equal(outOfHook.coverage.certified, false);
+    // A separately qualified current seed controls clean0 versus flag3.
+    // The only difference is the title; requested coverage and every lyric
+    // remain identical. The scaffold above is the explicit unjudged case.
+
+    const qualifiedTitle = async (title) => {
+      const result = await client.callTool(
+        {
+          name: 'lyric_grade',
+          arguments: { seed: 176, draft: qualifiedDraft, relation: 'class:RHYME', title },
+        },
+        undefined,
+        LIVE_OPTS
+      );
+      assert.ok(!result.isError);
+      assert.equal(result.content.length, 2);
+      return JSON.parse(result.content[1].text);
+    };
+    const qualifiedClean = await qualifiedTitle('wakes the rain');
+    const qualifiedFlag = await qualifiedTitle('zebra confetti');
+    assert.equal(qualifiedClean.exit_code, 0);
+    assert.equal(qualifiedClean.certified, true);
+    assert.deepEqual(
+      qualifiedClean.findings.filter((f) => f.severity === 'flag'),
+      []
+    );
+    assert.equal(qualifiedFlag.exit_code, 3);
+    assert.equal(qualifiedFlag.certified, true);
+    assert.deepEqual(qualifiedFlag.coverage, qualifiedClean.coverage);
+    assert.deepEqual(
+      qualifiedFlag.findings.filter((f) => f.severity === 'flag').map((f) => f.code),
+      ['TITLE_NOT_IN_HOOK']
     );
     console.log('  ok  lyric_grade live: --title reaches the plan, both directions');
     passed++;
@@ -6211,13 +6678,24 @@ try {
     assert.equal(checked.banned_pairs, 1, 'exactly one banned pair is surfaced');
     assert.equal(checked.banned[0].code, 'HOMEOTELEUTON', 'named by the ban tier that caught it');
     assert.deepEqual(checked.banned[0].lines, [1, 2], 'with the lines to revise');
+    assert.ok(checked.standing.some((s) => s.startsWith('L1/L2: FINDING [NOTE] HOMEOTELEUTON:')));
     assert.ok(
-      typeof checked.banned_pairs_meaning === 'string' &&
-        checked.banned_pairs_meaning.includes('UNSKIPPABLE'),
-      'and the meaning says the ban is unskippable'
+      /unskippable at any exit code/i.test(lyric.find((t) => t.name === 'lyric_check').description),
+      'the actual advertised tool contract requires action on the authenticated ban at any exit'
     );
     console.log('  ok  lyric_check live: banned_pairs surfaces the ban at exit 0');
     passed++;
+    const survivingBan = await callText('lyric_verify', {
+      before: checked.final_draft,
+      after: checked.final_draft,
+      scheme: 'AA',
+    });
+    assert.equal(survivingBan.accepted, false);
+    assert.equal(survivingBan.findings_measured, false);
+    assert.equal(survivingBan.certified, false);
+    assert.ok(!Object.hasOwn(survivingBan, 'banned_pairs'));
+    assert.ok(!Object.hasOwn(survivingBan, 'flags'));
+    assert.ok(/does not report banned pairs/.test(survivingBan.scope));
 
     // `structures` REACHES lyric_check (MISSING.md M-103's flag, wired here).
     // Mirrors quality/test_verbs.py §39: the binding assertion is a
@@ -6230,10 +6708,14 @@ try {
       'and rivers ran with silver',
     ];
     const plain = await callText('lyric_check', { lines: stLines, groups: '1,2;3,4' });
-    assert.ok(
-      plain.report.includes('SCHEME_VIOLATION'),
-      'sun/silver is a violation under the default end-rhyme question'
+    assert.equal(
+      plain.exit_code,
+      0,
+      'check answers at the brief verb exit even with unjudged pairs'
     );
+    assert.equal(plain.certified, false, 'sun/silver is unjudged under the broad default');
+    assert.equal(plain.coverage.certified, false);
+    assert.deepEqual(plain.coverage.refused_obligations, ['rhyme:3:4:1']);
     const structured = await callText('lyric_check', {
       lines: stLines,
       groups: '1,2;3,4',
@@ -6242,6 +6724,24 @@ try {
     assert.ok(
       !structured.report.includes('SCHEME_VIOLATION'),
       'and NOT one under the declared alliteration — the field is read, not dropped'
+    );
+    assert.equal(structured.exit_code, 0);
+    assert.equal(structured.coverage.certified, true);
+    assert.equal(structured.coverage.pairs_judged, 2);
+    const narrowed = await callText('lyric_check', {
+      lines: stLines,
+      groups: '1,2;3,4',
+      relation: 'class:RHYME',
+    });
+    assert.equal(
+      narrowed.exit_code,
+      0,
+      'check reports a definite violation at the brief verb exit'
+    );
+    assert.equal(narrowed.coverage.certified, true);
+    assert.deepEqual(
+      narrowed.findings.filter((f) => f.severity === 'flag').map((f) => [f.code, f.locations]),
+      [['SCHEME_VIOLATION', [3, 4]]]
     );
     // THE DISCLOSURE IS THE REASON THE FIELD IS SAFE TO EXPOSE. Every
     // declarable row is uncalibrated for English, so the two-tier ban is
@@ -6253,8 +6753,9 @@ try {
       'the verdict carries structures_uncalibrated, naming the row'
     );
     assert.ok(
-      /laziness is NOT/i.test(structured.structures_uncalibrated_meaning || ''),
-      'and its meaning says correctness is graded and laziness is not'
+      /correctness is graded/i.test(structured.structures_uncalibrated) &&
+        /laziness is NOT graded/i.test(structured.structures_uncalibrated),
+      'the authenticated finding itself says correctness is graded and laziness is not'
     );
     const bogus = await callText('lyric_check', {
       lines: stLines,
@@ -6518,8 +7019,9 @@ try {
     assert.equal(bad.exit_code, ok.exit_code, 'and BOTH exit with the same code');
     assert.equal(bad.exit_code, 0, '...which is 0 — the verdict is an answer, not an error');
     assert.ok(
-      /accepted.*not.*exit_code/i.test(bad.meaning),
-      'so the meaning tells the caller to read accepted, not exit_code'
+      /read accepted and reasons/i.test(bad.meaning) &&
+        /exit zero means the comparison answered/i.test(bad.meaning),
+      'the meaning distinguishes the comparison answer from accepting the change'
     );
     // IT IS A DIFF AND SAYS SO. verify cannot speak about a defect that
     // survived the change untouched, so it must not carry banned_pairs —
@@ -6558,7 +7060,7 @@ try {
   if (/Cannot find package|Cannot find module/.test(err.message)) {
     console.log('  --  lyric family checks skipped (SDK not installed in-container)');
   } else {
-    console.error(`FAIL  lyric family\n      ${err.message}`);
+    console.error(`FAIL  lyric family\n      ${err.stack || err.message}`);
     process.exitCode = 1;
   }
 }

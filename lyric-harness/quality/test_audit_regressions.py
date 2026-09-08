@@ -151,10 +151,12 @@ class AuditRegressions(unittest.TestCase):
         self.assertEqual(stopped.unresolved, [])
 
     def test_direct_conflict_zero_width_and_profile(self):
-        lines = ['It gleamed like polished silver',
-                 'We wandered deep into the mind',
-                 'The whole thing felt like a dream']
-        m = [[1, 3], [2, 3]]
+        # Unambiguous declared class: the test is search/budget control,
+        # not the default vocabulary's unresolved pronunciation rescue.
+        lines = ['The kettle whistles near the cat',
+                 'Your fingers brush a heavy dog',
+                 'The copper basket hides a fish']
+        m = mandate([[1, 3], [2, 3]], n_lines=3, default_relation='class:RHYME')
         rv = Reviser(rdecl=ReviseDeclaration(max_rounds=1, attempts_per_line=0,
                                             backtrack_width=0))
         briefs = rv.brief(lines, m)
@@ -218,11 +220,11 @@ class AuditRegressions(unittest.TestCase):
             self.assertEqual(len(called), 1)
 
     def test_interrupted_real_loop_preserves_accepted_edit_before_next_request(self):
-        initial = ['The bank foreclosed and boarded up the store',
-                   'the freight train left the siding after four',
-                   'we packed the truck with everything we own',
-                   'and drove until the radio was gone']
-        m = [[2, 3], [1, 4]]
+        # A real density violation has one deterministic legal repair and
+        # does not depend on ambiguous CMU pronunciations at own/gone.
+        initial = ['The elephant elephant elephant elephant elephant elephant stove',
+                   'Your fingers brush my heavy coat']
+        m = mandate('AA', n_lines=2, default_relation='class:ASSONANCE')
         rv = Reviser(rdecl=ReviseDeclaration(max_rounds=1, attempts_per_line=1,
                                             backtrack_width=0))
         with tempfile.TemporaryDirectory() as tmp, \
@@ -231,7 +233,7 @@ class AuditRegressions(unittest.TestCase):
             calls = []
             def writer(*a, **kw):
                 calls.append(True)
-                return 'we stacked our boxes on the hardwood floor'
+                return 'My kettle whistles by the stove'
             one, _ = LH._checkpoint_proposer(writer, None, initial, 'config', 'fake')
             save = one.checkpoint
             def interrupt(current, round_no, status):
@@ -243,7 +245,7 @@ class AuditRegressions(unittest.TestCase):
                 revise_loop(rv, initial, m, propose=one)
             cp = json.loads((Path(tmp)/'cp.json').read_text())
             self.assertEqual(cp['status'], 'accepted')
-            self.assertEqual(cp['accepted_lines'][2], 'we stacked our boxes on the hardwood floor')
+            self.assertEqual(cp['accepted_lines'][0], 'My kettle whistles by the stove')
             one, _ = LH._checkpoint_proposer(writer, None, initial, 'config', 'fake')
             result = revise_loop(rv, initial, m, propose=one)
             self.assertEqual(result.lines, cp['accepted_lines'])
@@ -268,10 +270,10 @@ class AuditRegressions(unittest.TestCase):
 
     def test_seedless_cli_renders_and_resumes_exact_accepted_draft(self):
         root = Path(__file__).resolve().parents[1]
-        initial = ['The bank foreclosed and boarded up the store',
-                   'the freight train left the siding after four',
-                   'we packed the truck with everything we own',
-                   'and drove until the radio was gone']
+        # A real density violation has one deterministic legal repair and
+        # does not depend on ambiguous CMU pronunciations at own/gone.
+        initial = ['The elephant elephant elephant elephant elephant elephant stove',
+                   'Your fingers brush my heavy coat']
         with tempfile.TemporaryDirectory() as tmp:
             p = Path(tmp)
             (p/'draft.txt').write_text('\n'.join(initial) + '\n')
@@ -281,12 +283,12 @@ class AuditRegressions(unittest.TestCase):
                 '    def call(prompt):\n'
                 '        p = Path(__file__).with_suffix(".calls")\n'
                 '        with p.open("a") as f: f.write("called\\n")\n'
-                '        return "we stacked our boxes on the hardwood floor"\n'
+                '        return "My kettle whistles by the stove"\n'
                 '    return call\n')
             env = dict(os.environ, PYTHONPATH=tmp + os.pathsep + str(root),
                        LYRIC_CHECKPOINT_PATH=str(p/'cp.json'))
             argv = [sys.executable, 'lyric_harness.py', 'revise', str(p/'draft.txt'),
-                    '--groups=2,3;1,4', '--propose=call:auditwriter:make',
+                    '--groups=1,2', '--relation=class:ASSONANCE', '--propose=call:auditwriter:make',
                     '--max-rounds=1', '--attempts=1', '--backtrack=0']
             first = subprocess.run(argv, cwd=root, env=env, capture_output=True,
                                    text=True, timeout=180)

@@ -23,6 +23,16 @@ import { performance } from 'node:perf_hooks';
 import { requestContext, withExecutionContext } from './execution_context.js';
 import { createOperationBudget, paidLedger } from './paid_budget.js';
 import { loadChatSecret } from './job_store.js';
+import { taskDomain } from './task_contract.js';
+import { runKeyOf } from './run_store.js';
+import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
+import {
+  encodeState,
+  continuationSemanticIdentity,
+  assertContinuationSemantics,
+} from './state_codec.js';
+import { runtimeAssets } from './runtime_assets.js';
+import { jsonBytes } from './payload_limits.js';
 import express from 'express';
 import { Windows, clientIp } from './ratelimit.js';
 import { createSpendStore } from './spend_store.js';
@@ -104,7 +114,7 @@ export const CHAT_LIMITS = {
   // 1.5MB holds the measured state plus a long transcript and stays under the
   // 2MiB express.json body limit the POST must fit inside.
   maxHistoryBytes: num('CHAT_MAX_HISTORY_BYTES', 1_500_000),
-  maxTurns: num('CHAT_MAX_TURNS', 12),
+  maxTurns: num('CHAT_MAX_TURNS', 50),
   // A SECOND daily ceiling, in turns, deliberately independent of the first.
   //
   // The dollar cap is only as good as the pricing table behind it: it needs a
@@ -238,6 +248,11 @@ export async function createChatRouter({
 }) {
   const router = express.Router();
   if (secretError) {
+    router.readiness = () => ({
+      ready: false,
+      reason: 'Conversation signing is unavailable.',
+      capabilities: { chat: false, lyrics: false },
+    });
     router.post('/chat', (_req, res) =>
       res.status(503).json({ error: 'The persisted conversation signing key is unavailable.' })
     );
@@ -256,12 +271,19 @@ export async function createChatRouter({
   if (!process.env.LYRIC_PROPOSER_MODEL) process.env.LYRIC_PROPOSER_MODEL = model;
 
   if (!apiKey) {
+    router.readiness = () => ({
+      ready: false,
+      reason: 'no-key',
+      capabilities: { chat: false, lyrics: false },
+    });
     // A chat bar that 500s on every message is worse than one that says it is
     // off. This is the deploy-without-a-key case, and it should be legible.
     router.post('/chat', (_req, res) =>
       res.status(503).json({ error: 'The chat bar is not configured on this deployment.' })
     );
-    router.get('/chat/status', (_req, res) => res.json({ ok: false, reason: 'no-key' }));
+    router.get('/chat/status', (_req, res) =>
+      res.json({ ok: false, enabled: false, reason: 'no-key' })
+    );
     return router;
   }
 
@@ -294,6 +316,7 @@ export async function createChatRouter({
     const context = {
       ...requestContext(),
       signal: options.signal,
+      task: options.task ?? requestContext()?.task,
       budget: options.budget ?? requestContext()?.budget,
       deadlineAt: performance.now() + remainingMs,
       deadlineMs: Date.now() + remainingMs,
@@ -352,11 +375,100 @@ export async function createChatRouter({
     );
   }
 
+  router.readiness = () => {
+    const blocked = paidLedger.snapshot().blocked;
+    const assets = runtimeAssets();
+    const reason =
+      assets.releaseRequired && !assets.ok
+        ? 'Release lexical assets failed validation; operator repair is required.'
+        : spendStore.healthy === false
+          ? 'Turn accounting persistence is unavailable.'
+          : blocked
+            ? 'Paid accounting persistence is unavailable; operator repair is required.'
+            : !price
+              ? 'The configured model has no declared price.'
+              : null;
+    return { ready: !reason, reason, capabilities: { chat: !reason, lyrics: !reason } };
+  };
+  router.recoverCheckpoint = (record) => {
+    const base = record?.checkpoint;
+    const progress = record?.progress;
+    if (!base?.sig || !Array.isArray(base.history)) return null;
+    const envelope = { history: base.history, workspace: base.workspace ?? null };
+    if (base.lyric != null) envelope.lyric = base.lyric;
+    if (base.task != null) envelope.task = base.task;
+    if (!verify(envelope, base.sig)) return null;
+    if (envelope.lyric || envelope.task?.domain === 'lyrics') {
+      if (envelope.task?.version !== CONNECTOR_CONTRACT_VERSION) return null;
+      try {
+        assertContinuationSemantics(envelope.task?.connector_semantic_identity);
+      } catch {
+        return null;
+      }
+    }
+    if (!progress) return { ...envelope, sig: base.sig };
+    if (
+      envelope.task?.domain !== 'lyrics' ||
+      progress.version !== 1 ||
+      !Array.isArray(progress.input_draft) ||
+      !Array.isArray(progress.accepted_lines) ||
+      !progress.answered ||
+      !progress.connector_declarations
+    )
+      return null;
+    const decl = progress.connector_declarations;
+    const key = runKeyOf(decl);
+    if (!key) return null;
+    const uncertain = !!(
+      record.uncertain_proposal ||
+      progress.uncertain_proposal ||
+      progress.status === 'proposing' ||
+      record.proposer_usage?.in_flight
+    );
+    const cp = { ...progress, ...(uncertain ? { uncertain_proposal: true } : {}) };
+    const capacityStop = cp.new_run_required || cp.status === 'journal_capacity';
+    let wire;
+    try {
+      // Never wrap an earlier worker journal in a current semantic envelope.
+      assertContinuationSemantics(cp.connector_semantic_identity);
+      wire = encodeState(cp);
+    } catch {
+      return null;
+    }
+    envelope.lyric = {
+      key,
+      seed: decl.seed ?? null,
+      decl,
+      resumable: !uncertain && !capacityStop,
+      uncertain_proposal: uncertain,
+      ...(decl.writer === 'interview' ? { state: wire } : { checkpoint: wire }),
+      ...(capacityStop ? { new_run_required: true, status: 'journal_capacity' } : {}),
+      draft: cp.input_draft,
+      replay_draft: cp.input_draft,
+      final_draft: cp.accepted_lines,
+    };
+    envelope.task = {
+      ...envelope.task,
+      phase: envelope.task.phase === 'edit' ? 'edit' : 'create',
+      progress: 'revise',
+      artifact: {
+        text: null,
+        final_draft: cp.accepted_lines,
+        certified: false,
+        status: capacityStop
+          ? 'journal_capacity'
+          : uncertain
+            ? 'uncertain_proposal'
+            : 'interrupted',
+        draft_fp: null,
+      },
+    };
+    if (jsonBytes(envelope) > 4 * 1024 * 1024) return null;
+    return { ...envelope, sig: sign(envelope) };
+  };
   router.get('/chat/status', (_req, res) => {
-    if (spendStore.healthy === false)
-      return res
-        .status(503)
-        .json({ ok: false, enabled: false, reason: 'Turn accounting persistence is unavailable.' });
+    const readiness = router.readiness();
+    if (!readiness.ready) return res.status(503).json({ ok: false, enabled: false, ...readiness });
     rollDay();
     res.json({
       ok: true,
@@ -392,10 +504,16 @@ export async function createChatRouter({
       capDurable: paidLedger.snapshot().durable,
       countingSince,
       tools: surface.declarations.length,
+      maxTurns: limits.maxTurns,
+      taskDomains: ['recipe', 'lyrics'],
+      durableContinuations: true,
     });
   });
 
   router.post('/chat', async (req, res) => {
+    const readiness = router.readiness();
+    if (!readiness.ready)
+      return res.status(503).json({ error: readiness.reason, code: 'CHAT_NOT_READY' });
     if (spendStore.healthy === false)
       return res.status(503).json({ error: 'Turn accounting persistence is unavailable.' });
     rollDay();
@@ -424,7 +542,12 @@ export async function createChatRouter({
         .json({ error: 'Hourly limit reached for this address. Back shortly.' });
     }
     const paidStatus = paidLedger.snapshot();
-    if (paidStatus.blocked || paidStatus.usd + paidStatus.reservedUsd >= limits.dailyUsd) {
+    if (paidStatus.blocked)
+      return res.status(503).json({
+        error: 'Paid accounting is unavailable; operator repair is required.',
+        code: 'ACCOUNTING_UNAVAILABLE',
+      });
+    if (paidStatus.usd + paidStatus.reservedUsd >= limits.dailyUsd) {
       return res
         .status(503)
         .json({ error: "The chat bar has hit today's budget. It resets at midnight UTC." });
@@ -443,7 +566,29 @@ export async function createChatRouter({
         .json({ error: 'Busy — a couple of recipes are already cooking. Try again in a moment.' });
     }
 
-    const { message, history, workspace, lyric, sig } = req.body || {};
+    let input = req.body || {};
+    let storedContinuation = false;
+    if (input.continuation_id != null) {
+      if (!input.request_id)
+        return res.status(400).json({ error: 'A continuation_id requires a fresh request_id.' });
+      if (['history', 'workspace', 'lyric', 'sig', 'task'].some((k) => input[k] !== undefined))
+        return res
+          .status(400)
+          .json({ error: 'Send continuation_id or a signed envelope, not both.' });
+      try {
+        if (!req.chatRecovery) throw new Error('Durable continuation lookup is unavailable.');
+        const prior = req.chatRecovery.resolve(input.continuation_id);
+        input = { ...prior, message: input.message };
+        storedContinuation = true;
+      } catch (error) {
+        return res.status(error.status || 503).json({
+          error: error.message,
+          code: error.code ?? null,
+          successor_id: error.successor_id ?? null,
+        });
+      }
+    }
+    const { message, history, workspace, lyric, sig, task } = input;
     if (typeof message !== 'string' || !message.trim()) {
       return res.status(400).json({ error: 'Say something first.' });
     }
@@ -455,6 +600,7 @@ export async function createChatRouter({
     let priorHistory = [];
     let priorWorkspace = null;
     let priorLyric = null;
+    let priorTask = null;
     if (history !== undefined || workspace !== undefined || sig !== undefined) {
       const envelope = { history: history || [], workspace: workspace ?? null };
       // `lyric` (the carried revise state) joins the envelope ONLY when it is
@@ -462,12 +608,13 @@ export async function createChatRouter({
       // envelope from before the field existed, or from a conversation that
       // never ran the revise loop, keeps its old shape and its old signature.
       if (lyric != null) envelope.lyric = lyric;
+      if (task != null) envelope.task = task;
       if (!verify(envelope, sig)) {
         return res
           .status(400)
           .json({ error: 'That conversation could not be verified — start a new one.' });
       }
-      if (JSON.stringify(envelope).length > limits.maxHistoryBytes) {
+      if (!storedContinuation && jsonBytes(envelope) > limits.maxHistoryBytes) {
         return res
           .status(413)
           .json({ error: 'This conversation has grown too long — start a new one.' });
@@ -475,16 +622,83 @@ export async function createChatRouter({
       priorHistory = envelope.history;
       priorWorkspace = envelope.workspace;
       priorLyric = envelope.lyric ?? null;
-      const userTurns = priorHistory.filter(
-        (c) => c.role === 'user' && (c.parts || []).some((p) => typeof p.text === 'string')
-      ).length;
+      priorTask = envelope.task ?? null;
+      if (
+        (priorLyric || priorTask?.domain === 'lyrics') &&
+        priorTask?.version !== CONNECTOR_CONTRACT_VERSION
+      )
+        return res.status(409).json({
+          code: 'LYRIC_CONTRACT_CHANGED',
+          error:
+            'This lyric continuation uses an earlier planning contract. Recover and keep its accepted draft; start explicit new work under the current contract. The old seed and journal will not be reinterpreted.',
+          artifact: priorTask?.artifact ?? {
+            final_draft: priorLyric?.final_draft ?? priorLyric?.draft ?? null,
+            certified: false,
+            status: 'contract_changed',
+          },
+        });
+      if (priorLyric || priorTask?.domain === 'lyrics') {
+        try {
+          assertContinuationSemantics(priorTask?.connector_semantic_identity);
+        } catch (error) {
+          return res.status(409).json({
+            code: error.code,
+            error: error.message,
+            artifact: {
+              ...(priorTask?.artifact ?? {
+                final_draft: priorLyric?.final_draft ?? priorLyric?.draft ?? null,
+              }),
+              certified: false,
+              status: 'contract_changed',
+            },
+          });
+        }
+      }
+      const userTurns =
+        priorTask?.turns ??
+        priorHistory.filter(
+          (c) => c.role === 'user' && (c.parts || []).some((p) => typeof p.text === 'string')
+        ).length;
       if (userTurns >= limits.maxTurns) {
         return res.status(429).json({
-          error: `That is ${limits.maxTurns} messages — start a new recipe to keep going.`,
+          error: `That is ${limits.maxTurns} messages — start a new conversation to keep going.`,
         });
       }
     }
 
+    if (!priorTask) {
+      let domain;
+      try {
+        domain = taskDomain(task ?? (priorLyric ? 'lyrics' : 'recipe'));
+      } catch (error) {
+        return res.status(400).json({ error: error.message });
+      }
+      const phases = domain === 'lyrics' ? ['create', 'edit'] : ['create', 'browse'];
+      if (task?.phase !== undefined && !phases.includes(task.phase))
+        return res
+          .status(400)
+          .json({ error: `The ${domain} task phase must be ${phases.join(' or ')}.` });
+      priorTask = {
+        version: CONNECTOR_CONTRACT_VERSION,
+        domain,
+        ...(domain === 'lyrics'
+          ? { connector_semantic_identity: continuationSemanticIdentity() }
+          : {}),
+        format: 'rich',
+        maxChars: 1000,
+        phase: task?.phase ?? 'create',
+        requiresCustomization: domain === 'recipe' && task?.phase !== 'browse',
+        brief:
+          priorHistory
+            .find((c) => c.role === 'user' && c.parts?.some((p) => typeof p.text === 'string'))
+            ?.parts?.find((p) => typeof p.text === 'string')?.text ?? message,
+        plan: null,
+        completedSteps: [],
+        turns: priorHistory.filter(
+          (c) => c.role === 'user' && c.parts?.some((p) => typeof p.text === 'string')
+        ).length,
+      };
+    }
     if (req.chatJob && !req.chatJob.begin()) return;
     inFlight++;
     const controller = new AbortController();
@@ -498,15 +712,21 @@ export async function createChatRouter({
     const checkpoint = (progress) => {
       const envelope = { history: progress.history, workspace: progress.workspace };
       if (progress.lyric != null) envelope.lyric = progress.lyric;
+      envelope.task = progress.task ?? priorTask;
       req.chatJob?.checkpoint({ ...progress, ...envelope, sig: sign(envelope) });
     };
     try {
       budget =
         requestContext()?.budget ??
         createOperationBudget({ maxUsd: turnLimits.maxTurnUsd, dailyUsd: limits.dailyUsd });
-      checkpoint({ history: priorHistory, workspace: priorWorkspace, lyric: priorLyric });
+      checkpoint({
+        history: priorHistory,
+        workspace: priorWorkspace,
+        lyric: priorLyric,
+        task: priorTask,
+      });
       const run = await withExecutionContext(
-        { ...requestContext(), signal: controller.signal, budget },
+        { ...requestContext(), signal: controller.signal, budget, task: priorTask },
         () =>
           runTurn({
             apiKey,
@@ -516,6 +736,7 @@ export async function createChatRouter({
             history: priorHistory,
             workspace: priorWorkspace,
             lyric: priorLyric,
+            task: priorTask,
             userText: message,
             limits: turnLimits,
             signal: controller.signal,
@@ -562,9 +783,15 @@ export async function createChatRouter({
 
       const envelope = { history: run.history, workspace: run.workspace };
       if (run.lyric != null) envelope.lyric = run.lyric;
-      const lastRecipe = [...run.calls].reverse().find((c) => c.recipe && !c.isError);
+      envelope.task = run.task;
+      const lastRecipe =
+        run.task?.requiresCustomization && !run.task?.customized
+          ? null
+          : [...run.calls].reverse().find((c) => c.recipe && !c.isError);
       res.json({
         reply: run.reply,
+        completion: run.completion ?? null,
+        artifact: run.artifact ?? null,
         // WHAT THE TURN COST AND HOW MANY HOPS IT TOOK (2026-09-01, triage
         // finding C11): the battery and the page can record $/turn and
         // hops/turn off the response instead of inferring them from the log,
@@ -632,8 +859,16 @@ export async function createChatRouter({
           // M-235: the proposal record, copied by name as the M-216 fields are.
           asked: c.asked ?? null,
           folded: c.folded ?? null,
+          verified_outcomes: c.verified_outcomes ?? null,
+          verified_outcomes_error: c.verified_outcomes_error ?? null,
+          verified_outcomes_draft_sha256: c.verified_outcomes_draft_sha256 ?? null,
+          journal_id: c.journal_id ?? null,
+          resume_proof: c.resume_proof ?? null,
+          resume_proof_error: c.resume_proof_error ?? null,
           answer_sent: c.answer_sent ?? null,
           draft_fp: c.draft_fp ?? null,
+          final_draft_sha256: c.final_draft_sha256 ?? null,
+          run_revision: c.run_revision ?? null,
           song_at_stop: c.song_at_stop ?? null,
           // M-237: the run the tool remembered, copied by name.
           run_id: c.run_id ?? null,
@@ -709,7 +944,7 @@ export async function createChatRouter({
       res.status(status).json({
         error:
           status === 429
-            ? 'The engine is over its rate limit for the moment — try again in a minute.'
+            ? 'The engine is over its rate limit. Retry after the indicated wait.'
             : 'The engine could not answer that one. Try rephrasing?',
         detail: String((err && err.message) || err).slice(0, 400),
         upstream_status: Number.isFinite(err && err.status) ? err.status : null,

@@ -119,6 +119,20 @@ ARGUED = "ARGUED"
 #: Every ruling states the QUESTION the site asks, because the disposition
 #: follows from the question and not from the door it happens to spell.
 RULINGS = {
+    ("quality/rhyme_types.py", "coarse_relation_consensus"): (
+        ARGUED,
+        "The all-pronunciation scalar subquestion: each permitted endpoint "
+        "reading is tested against the caller's declared scalar admit set. "
+        "A disagreement returns unknown; this helper never claims full "
+        "default-schema satisfaction. check_scheme and Reviser.grade compose "
+        "its determinate scalar result with their own whole_vocabulary_pairs "
+        "route when the declaration asks the default question. Adding schema "
+        "rescue inside this scalar consensus would change that subquestion "
+        "and its explicit class/score consumers. M-139's site-question "
+        "distinction applies here. MEASURED by test_production_relations: "
+        "4 controls give cat/hat=True, wind/moon=False and wind/find plus "
+        "an unreadable endpoint=unknown; the helper is not allowed to turn "
+        "that last state into either scalar satisfaction or absence."),
     # ---------------------------------------------------------------- FULL
     ("lyric_harness.py", "check_scheme"): (
         FULL,
@@ -536,8 +550,10 @@ _BY_DOOR = {
 #: No door moved; `full` and `incomplete` are unchanged, which is the
 #: control that the delegation sitting widened nothing (`MISSING.md`
 #: M-185, M-189).
-PINNED = {"sites": 26, "full": 4, "incomplete": 0, "per_word": 3,
-          "rendering": 6, "validation": 1, "argued": 12}
+# 2026-09-08: pronunciation-consensus helper adds one deliberately scalar
+# site; check_scheme's all-readings-false branch adds one existing FULL site.
+PINNED = {"sites": 28, "full": 5, "incomplete": 0, "per_word": 3,
+          "rendering": 6, "validation": 1, "argued": 13}
 
 
 def _innermost(tree):

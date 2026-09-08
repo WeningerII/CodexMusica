@@ -37,8 +37,8 @@
     "test:connector:differential": "node scripts/check_edit_differential.js",
     "test:connector:contract": "node scripts/check_connector_contract.js",
     "test:connector:memory": "node scripts/check_deploy_memory.js",
-    "test:connector:live": "node mcp/test.mjs && npm run test:lyrics:runtime && node mcp/test_lyric_state.mjs --harness",
-    "test:lyrics:runtime": "node --test --test-concurrency=1 mcp/test_paid_budget.mjs mcp/test_python_bridge.mjs mcp/test_lyric_state.mjs mcp/test_turn_lifecycle.mjs mcp/test_battery_lifecycle.mjs mcp/test_battery_archive.mjs mcp/test_battery_storage.mjs mcp/test_job_store.mjs",
+    "test:connector:live": "node mcp/test.mjs && npm run test:lyrics:runtime && node mcp/test_lyric_state.mjs --harness && node mcp/test_run_continuation.mjs && node mcp/test_deferred_continuation.mjs && node mcp/test_writer_work_budget.mjs && node mcp/test_kitchen_repairs.mjs",
+    "test:lyrics:runtime": "npm run test:production:offline && node --test --test-concurrency=1 mcp/test_paid_budget.mjs mcp/test_python_bridge.mjs mcp/test_lyric_state.mjs mcp/test_turn_lifecycle.mjs mcp/test_battery_lifecycle.mjs mcp/test_battery_archive.mjs mcp/test_battery_storage.mjs mcp/test_job_store.mjs",
     "test:connector:names": "node scripts/check_name_isolation.js",
     "test:connector:publish": "node scripts/check_publish_guard.js",
     "eval": "node scripts/eval_capabilities.js",
@@ -78,7 +78,11 @@
     "check:mobile": "node scripts/check_mobile_layout.js",
     "check:cli": "node scripts/check_cli_output.js",
     "check:differential": "node scripts/check_edit_differential.js",
-    "check:closure": "node scripts/check_build_closure.js"
+    "check:closure": "node scripts/check_build_closure.js",
+    "test:production:offline": "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_release_gates.mjs mcp/test_battery_repairs.mjs mcp/test_chat_production.mjs mcp/test_connector_contracts.mjs mcp/test_connector_http.mjs mcp/test_runtime_assets.mjs mcp/test_state_codec.mjs mcp/test_lyric_workflow.mjs mcp/test_session_repairs.mjs mcp/test_pronunciation_choices.mjs && python3 scripts/test_lyrics_capacity.py && python3 scripts/test_profile_lyrics_phase.py && python3 scripts/test_worker_measurement_capture.py && python3 scripts/test_production_qualification.py && python3 lyric-harness/quality/test_session_repairs.py && python3 lyric-harness/quality/test_pronunciation_choices.py",
+    "test:pronunciations": "node --test mcp/test_pronunciation_choices.mjs mcp/test_lyric_workflow.mjs && python3 lyric-harness/quality/test_pronunciation_choices.py",
+    "test:session:repairs": "node --test mcp/test_session_repairs.mjs && python3 lyric-harness/quality/test_session_repairs.py",
+    "qualify:session:workflow": "node mcp/qualify_session_workflow.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",

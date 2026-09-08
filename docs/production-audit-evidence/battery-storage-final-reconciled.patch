@@ -1,0 +1,35 @@
+--- candidate4/mcp/test_battery_storage.mjs
++++ current/mcp/test_battery_storage.mjs
+@@ -255,19 +255,29 @@
+   await fixture(
+     (req, res) => {
+       if (req.method === 'POST') posts++;
+-      json(res, 200, { ...finished, tools: [], stopped: 'MAX_TURN_MS' });
++      // A real unfinished turn keeps a nonterminal driver checkpoint. A
++      // bare wall label is not a resumable kitchen journal and must not be
++      // used to bypass normal idle/continuation admission in this storage test.
++      json(res, 200, {
++        ...checkpoint,
++        reply: '',
++        task: { domain: 'lyrics', brief: 'fixture', plan: {} },
++        tools: [{ name: 'lyric_plan', exit_code: 0 }],
++        stopped: 'MAX_STEPS',
++      });
+     },
+     async ({ out, run }) => {
+-      const first = await run(['--turn-deadline-ms=10000', '--expect=turn-wall', '--turns=1']);
++      const first = await run(['--turn-deadline-ms=10000', '--expect=finished', '--turns=1']);
+       assert.equal(first.status, 1, `${first.stdout}\n${first.stderr}`);
+       assert.equal(posts, 1);
++      assert.equal(readJSON(join(out, 'summary.json')).songs[0].exit_reason, 'no_stop');
+       assert.equal(readJSON(join(out, 'song0.checkpoint.json')).terminal, false);
+       writeFileSync(
+         join(out, 'song0.attempts.000002.jsonl'),
+         JSON.stringify({ event: 'fixture_after_missing_segment' }) + '\n',
+         { mode: 0o600 }
+       );
+-      const resumed = await run(['--turn-deadline-ms=10000', '--expect=turn-wall', '--resume']);
++      const resumed = await run(['--turn-deadline-ms=10000', '--expect=finished', '--resume']);
+       assert.equal(resumed.status, 1);
+       assert.match(resumed.stderr, /segment|contiguous/);
+       assert.equal(posts, 1, 'missing history cannot authorize another request');

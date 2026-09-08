@@ -1,0 +1,69 @@
+--- before/lyric_harness.py
++++ after/lyric_harness.py
+@@ -6773,7 +6773,9 @@
+     def __init__(self, state, lines, path=None, code="JOURNAL_CAPACITY"):
+         import copy
+         super().__init__(code + ": keep this exact accepted artifact and journal; "
+-                         "an independent new run requires an explicit new_run")
++                         "this run cannot resume. An identical restart can reach "
++                         "the same limit; reduce the requested scope explicitly "
++                         "before starting independent work")
+         self.state = copy.deepcopy(state)
+         self.lines = list(lines or state.get("accepted_lines") or ())
+         self.path, self.code = path, code
+@@ -6827,7 +6829,9 @@
+         from quality.plan import render_song
+         text = render_song(plan, error.lines).rstrip()
+     text += ("\n\n[STOPPED — " + error.code + " — accepted draft preserved; "
+-             "not certified. Start an independent new run explicitly to continue.]")
++             "not certified. Keep the journal. This run cannot resume; an "
++             "identical restart can reach the same limit. Reduce the requested "
++             "scope explicitly before starting independent work.]")
+     _lyric_result(status="journal_capacity", exit=3, stop_reason=error.code,
+                   code=error.code, input_draft=st.get("input_draft", error.lines),
+                   accepted_lines=error.lines, final_draft=error.lines,
+@@ -7177,20 +7181,30 @@
+             rels.append(xr)
+             nos.add(xn)
+         _rn = getattr(brief, "round_no", None)
+-        if len(chosen) == 1:
+-            _suspend("propose",
+-                     {"line": brief.line_no, "attempt": 0, "round": _rn,
+-                      "draft": _dfp(lines), "text": None},
+-                     PR.render_line(brief, lines, whole=whole, attempt=0,
+-                                    reasons=None, prior=_prior(brief, 0)))
+-        _suspend("propose_batch",
+-                 {"records": [{"line": b.line_no, "attempt": 0, "round": _rn,
+-                               "draft": _dfp(lines), "text": None}
+-                              for b in chosen],
+-                  "round": _rn},
+-                 PR.render_batch(chosen, lines, whole=whole,
+-                                 priors={b.line_no: _prior(b, 0)
+-                                         for b in chosen}))
++        # Independent questions may fit separately even when their combined
++        # full briefs do not. Keep the largest fitting prefix of this exact
++        # order. A failed _suspend admission has not mutated the journal or
++        # asked the writer, so retrying a smaller batch loses no work. The
++        # omitted tail is still unanswered and the replay walk asks it later;
++        # no constraint or text inside an admitted question is shortened.
++        while True:
++            if len(chosen) == 1:
++                _suspend("propose",
++                         {"line": brief.line_no, "attempt": 0, "round": _rn,
++                          "draft": _dfp(lines), "text": None},
++                         PR.render_line(brief, lines, whole=whole, attempt=0,
++                                        reasons=None, prior=_prior(brief, 0)))
++            try:
++                _suspend("propose_batch",
++                         {"records": [{"line": b.line_no, "attempt": 0,
++                                       "round": _rn, "draft": _dfp(lines),
++                                       "text": None} for b in chosen],
++                          "round": _rn},
++                         PR.render_batch(chosen, lines, whole=whole,
++                                         priors={b.line_no: _prior(b, 0)
++                                                 for b in chosen}))
++            except _JournalCapacity:
++                chosen.pop()
+ 
+     propose.prefetch = prefetch
+     propose.record = record

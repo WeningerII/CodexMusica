@@ -1,0 +1,39 @@
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ verified application evidence stays distinct from missing, rejected and unapplied proposals (58.917421ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ actual chat tool rows preserve compact verifier/application and exact checkpoint replay receipts (1565.306747ms)
+✔ maximum recovery exports complete through actual HTTP and durable receipts within existing byte caps (1607.064122ms)
+ℹ all: HTTP 2364011 bytes; durable receipt 2364518 bytes; exact export 525192 bytes
+ℹ journal: HTTP 3151201 bytes; durable receipt 3151766 bytes; exact export 525009 bytes
+✔ recipe task excludes lyric instructions and declarations and rejects wrong-family dispatch (3.113858ms)
+✔ certified delivery uses the exact authoritative artifact and binds full draft digest (7.618242ms)
+✔ parked verdict defeats a later model finished claim and a later request cannot reuse an old pass (20.48944ms)
+✔ missing, blocked, empty and malformed candidates never persist an empty model turn (20.118558ms)
+✔ canonical brief, accepted instructions, current plan and step history survive pruning (14.601774ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ quota retries do not consume transient retries in a mixed response sequence (37.790344ms)
+✔ per-run admission lock and revisions reject simultaneous and stale operations; input identity is immutable (1.519737ms)
+✔ run cache pressure cannot evict an active record or reuse an earlier revision (0.555568ms)
+✔ run TTL cannot erase an in-flight revision but still expires released records (0.869552ms)
+✔ largest carried ASCII, escaped and multibyte receipts complete durably without a global latch (1190.508532ms)
+✔ shipped UI exposes explicit lyric creation and pasted-edit task phases (18.135633ms)
+✔ shipped UI stores a request capability before dispatch, recovers a lost response and preserves signed errors and pacing (27.063665ms)
+✔ shipped UI reload recovers pending work and Reset cannot resurrect a discarded conversation (10.457058ms)
+✔ shipped lyric display and Copy preserve the authoritative performance text and unfinished verdict (12.060974ms)
+✔ shipped recovery display and Copy preserve the exact export while retaining the live artifact (10.688097ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ actual chat admission keeps a signed turn counter even when history is pruned (325.627805ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ signed lyrics with missing or changed semantic identity refuse before any provider call (130.362442ms)
+✔ lyric output allowance is reserved at 32768 and truncation cannot certify a song (1.114314ms)
+✔ recipe creation needs a successful customization; explicit browse can return a stock recipe (0.847338ms)
+[chat]  Gemini 400: HTTP 400
+✔ durable continuation bypasses wire-size limits and admits exactly one successor (710.896276ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8613.554577

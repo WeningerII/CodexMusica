@@ -1,0 +1,58 @@
+
+1. the tables are closed and internally consistent
+  PASS  every candidate set is a subset of the closed atom vocabulary
+  PASS  every ENTER set is a subset of the closed atom vocabulary, and every junction has one
+  PASS  the TURN rule is held STRUCTURALLY: TURN appears in exactly the BUT and JUXTAPOSE enter sets — softened from BUT-only by the M-121 ruling on the kishotenketsu witness (the ten is a turn entered by juxtaposition); THEREFORE and AND_THEN stay out, and a membership edit is the mutation that kills this
+          TURN enterable by ['BUT', 'JUXTAPOSE']
+  PASS  every invariant-return function is a declared function with a non-empty candidate set (a card must have at least one face)
+  PASS  `verse` is NOT on the invariant-return roster — its own gloss returns with NEW WORDS, and binding the card rule to it would pin every verse of a song to one atom
+
+2. the encoded violate-it clauses
+  PASS  a bridge-opening shape admits NOTHING: bridge's only atom is TURN and a turn nothing precedes has nothing to flip
+  PASS  a tag-opening shape admits NOTHING: tag's only atom is JUDGE and judgment before anything has happened is an epigraph
+  PASS  the same functions NOT at the opening are fine — the rule is positional, not a ban on the function
+  PASS  RESOLVE needs a prior COMPLICATE: [intro, false_ending] admits nothing (false_ending's only atom is RESOLVE and intro's only atom is ESTABLISH), while [build, false_ending] admits (build IS the complication)
+
+3. the card rule and the room-between-returns rule (§D)
+  PASS  [drop, drop] counts exactly 3 — the ANCHOR card's three non-BUT inbound junctions; both drops share one card by construction
+          3
+  PASS  an interlude between two choruses RAISES the count — the wordless section carries no atom but IS intervening material, so the second chorus regains its inbound BUT
+          24 back-to-back vs 32 with room
+  PASS  the seam weight itself says why: ANCHOR<-ANCHOR back-to-back excludes BUT, with room admits it
+
+4. refusal and determinism
+  PASS  an unknown function REFUSES by name, listing the declared rows (doctrine 20)
+  PASS  the count is deterministic — two calls agree exactly (doctrine 66: no RNG, no set-order dependence)
+  PASS  the classic verse-chorus-bridge shape admits, its bridge TURN entered by BUT or JUXTAPOSE per the ruled edge rule
+
+5. measured seeds, 2026-09-08: executable plans use the current 12..31 work envelope; the historical envelope sweeps below are retained as history. Current seeds 1..40: 39 admit / 1 zero.
+  PASS  all eighteen historical seeds and all five current zero exemplars re-derive exactly under the executable plan envelope
+          {1: 319488, 4: 24768, 6: 14976, 7: 320, 9: 26624, 15: 76096, 19: 143744, 20: 0, 23: 269568, 24: 83520, 25: 4160, 27: 1872, 28: 1872, 30: 4992, 31: 34112, 34: 6255616, 39: 111360, 50: 0, 74: 0, 77: 4608, 82: 0, 88: 0, 89: 149760}
+  PASS  the complete current 100-seed denominator has exactly five zero shapes, including exactly one among the first forty
+  PASS  actual current zeros distinguish opening refusals, a second-section refusal, and later RESOLVE refusals at sections six and seven
+          {20: 1, 50: 6, 74: 7, 82: 1, 88: 2}
+  PASS  declared depth 3 has a legal prefix, refuses RESOLVE without COMPLICATE, and admits after an actual build
+  PASS  declared depth 4 has a legal prefix, refuses RESOLVE without COMPLICATE, and admits after an actual build
+  PASS  declared depth 5 has a legal prefix, refuses RESOLVE without COMPLICATE, and admits after an actual build
+
+6. the wired half — the planner plays the joker card (M-121), entropy last, declared-silences-drawn
+  PASS  seed 31's exact current relation draw re-derives
+          {'A': 'schema:head rhyme (positional)', 'D': 'schema:pararhyme', 'F': 'schema:cluster consonance / skothending span', 'J': None}
+  PASS  seed 31 now draws the executable floor 12, with 79 groups and 8 labels; the prior 18/147/9 draw remains recorded above
+          lines 12, groups 79, labels 8
+  PASS  the collapse is RECORDED: mode drawn, the exact line-up count disclosed, one atom per sung section, one junction per seam
+  PASS  the drawn line-up VALIDATES under the one shared validator
+  PASS  the draw is deterministic with the seed
+  PASS  the brief carries the story plan in writer's words, nothing about the harness
+  PASS  a zero-shape seed DISCLOSES and still ships: mode none, lineups 0, the brief says nothing is asked of the meaning axis, and the sound plan is intact
+  PASS  a DECLARED line-up is carried, never resampled
+  PASS  an illegal declared line-up REFUSES at plan time, while the writer is still holding the declaration
+  PASS  narrative='off' silences the layer and moves nothing else
+  PASS  the premise for the illegal spelling: seed 31's first sung section cannot carry TURN, by the validator's own word
+          ['section 1 (intro) cannot carry TURN — its faces are ESTABLISH']
+  PASS  the CLI spelling is REACHABLE (the M-55 lesson): --narrative=off prints no story plan, the declared grammar lands in the brief, and an illegal declaration refuses at exit 2 naming the row
+          off rc=0, dec rc=0, bad rc=2
+  PASS  the seed filter actually accepts 19 and 21 and rejects 20, the current false-ending opening refusal; both positive and negative arms execute
+          [19, 21]
+==============================================================
+the tables hold, the counter counts, and a shape that admits no story says so before anyone writes a word

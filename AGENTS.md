@@ -55,11 +55,25 @@ For full structured arrangements (ensemble, room, chain, tuning) per tradition:
 
 ## Live MCP connector (hosted — no clone, no setup)
 
+For native SDK/CLI integration, use `mcp/client.js`. New lyrics default to creation
+mode with executed sweep/screen/plan/grade/revise receipts; retain the connection
+or its private snapshot. CLI creation calls require the same `--session-file=FILE`
+on every call. An explicit host `phase: 'edit'` is for an existing song only.
+The raw endpoint cannot enforce an external host's user intent. See
+`docs/session-workflow-repairs.md` for the exact integration and verification scope.
+
+`edit_recipe` also supports `move_instrument` (`card`, optional `before`); omitting
+`before` makes that existing card primary without rebuilding its settings. Rich
+compression prioritizes explicitly pinned part descriptors. Inspect the returned
+`render_warnings` for requested words absent from the actual output, and
+`render_scope` for the one shared environment; neither a preface nor a chain
+description establishes a measured audio result.
+
 A hosted **Model Context Protocol** server is the headless twin of the browser app — it
 exposes the full *editable* engine as tools. Seed a recipe from any tradition, then edit
 it (re-pick a preface, swap a part variant, override room/chain/tuning, add/remove
-instruments or traditions) and re-render. Deterministic and read-only; state passes in and
-out, so thread the returned `workspace` into the next call.
+instruments or traditions) and re-render. Recipe operations are deterministic and pass `workspace` in and out. Lyrics revision
+has a separate run lifecycle and can make paid external model calls.
 
 - **Endpoint** (Streamable HTTP, no auth): `https://codex-musica-mcp.onrender.com/mcp`
 - **Add in Claude:** Settings → Connectors → Add custom connector → paste the URL.
@@ -81,10 +95,16 @@ out, so thread the returned `workspace` into the next call.
   preface is still auto-derived, that can change which preface the card is heading toward. It is
   not a bare field write — batch a `set_preface` first if you want to steer the cascade.
   <!-- @promise: connector-edit-parity -->
-- Every tool is **read-only, idempotent and closed-world**: state is passed in and out, nothing is
-  stored server-side, and every answer comes from the bundled catalog. Thread the returned
-  `workspace` into the next call — there is no session to resume and no handle to hold.
+- Recipe tools are **read-only, idempotent and closed-world**; thread the returned `workspace`.
+  `lyric_revise` stores private run state and its kitchen writer makes paid external calls.
+  `/chat` persists request receipts, accepted progress, signed continuations and accounting
+  when durable storage is configured. Preserve `run_id` and `run_revision` for direct
+  continuations, and `request_id` for chat recovery. See `mcp/LYRICS_RUNTIME.md`.
   <!-- @promise: connector-tools-read-only -->
+- Select `/mcp/recipe` or `/mcp/lyrics` explicitly. Consume initialization instructions and
+  full tool descriptions/schemas. The legacy `/mcp` endpoint exposes both families and
+  cannot infer an external host's task. Recipes default to Rich with a 1,000-character
+  ceiling. A recipe request does not authorize lyric work.
 - Published tool schemas stay inside the shape a restricted function-calling client can represent:
   no `additionalProperties`, `propertyNames`, `anyOf`/`oneOf`/`allOf`, `$ref` or empty schema nodes,
   beyond a short exemption list enumerated and justified in the gate itself.

@@ -12,6 +12,7 @@ THE FIXTURES BELOW ARE THE REAL DEFECT, not an invented one: the bracket
 column from the two songs this session presented flattened.
 """
 import json
+import hashlib
 import os
 import subprocess
 import sys
@@ -52,6 +53,40 @@ CORRECT_GRADED = CORRECT + "\n" + GRADED_STAMP + "\n"
 #: into text, so it says nothing about which verb produced it. It is the
 #: exact spelling a session used to present a graded draft as a run's exit 0.
 CORRECT_BARE_EXIT = CORRECT + "\nsong: exit 0 — revise SUCCESS in 0 rounds\n"
+
+
+def receipt_records(text=CORRECT_STATED, *, call_id="revise-1", result_id=None,
+                    name="mcp__musica__lyric_revise", envelope="direct", overrides=None):
+    draft = ["Freight, grey water, low in the hold", "Down in the engine, counting strokes"]
+    verdict = {"exit_code": 0, "status": "finished_clean", "certified": True,
+               "coverage": {"certified": True}, "loop_stop_reason": "SUCCESS",
+               "loop_unresolved_lines": [], "loop_whole_flags": 0,
+               "final_draft": draft, "presentation_text": text,
+               "final_draft_sha256": hashlib.sha256(json.dumps(
+                   draft, separators=(",", ":")).encode()).hexdigest()}
+    verdict.update(overrides or {})
+    content = [{"type": "text", "text": text},
+               {"type": "text", "text": json.dumps(verdict)}]
+    if envelope == "string":
+        content = json.dumps({"content": content})
+    elif envelope == "wrapped":
+        content = [{"type": "text", "text": json.dumps({"content": content})}]
+    return [
+        {"type": "assistant", "message": {"role": "assistant", "content": [
+            {"type": "tool_use", "id": call_id, "name": name, "input": {}}]}},
+        {"type": "user", "message": {"role": "user", "content": [
+            {"type": "tool_result", "tool_use_id": result_id or call_id, "content": content}]}}]
+
+
+def assistant_record(text):
+    return {"type": "assistant", "message": {"role": "assistant", "content": [
+        {"type": "text", "text": text}]}}
+
+
+def write_transcript(path, records):
+    with open(path, "w", encoding="utf-8") as fh:
+        for record in records:
+            fh.write(json.dumps(record) + "\n")
 
 
 def check(msg, ok, detail=""):
@@ -173,10 +208,8 @@ def test_the_hook_is_wired():
         outcomes = {}
         for name, text in (("bad", FLATTENED), ("good", CORRECT_STATED)):
             tp = os.path.join(td, f"{name}.jsonl")
-            with open(tp, "w", encoding="utf-8") as fh:
-                fh.write(json.dumps({"type": "assistant", "message": {
-                    "role": "assistant",
-                    "content": [{"type": "text", "text": text}]}}) + "\n")
+            write_transcript(tp, (receipt_records(text) if name == "good" else [])
+                             + [assistant_record(text)])
             for active in (False, True):
                 r = subprocess.run(
                     [hook], input=json.dumps(
@@ -190,9 +223,9 @@ def test_the_hook_is_wired():
           "allowed (exit 0), so the hook is two-sided and cannot pass by "
           "blocking everything",
           outcomes[("good", False)] == 0, str(outcomes))
-    check("...and `stop_hook_active` is honoured, so the hook blocks ONCE "
-          "and can never trap the session in a loop",
-          outcomes[("bad", True)] == 0, str(outcomes))
+    check("...and an active repeat is still blocked until the artifact is fixed",
+          outcomes[("bad", True)] == 2 and outcomes[("good", True)] == 0,
+          str(outcomes))
 
 
 def test_the_operator_seam():
@@ -335,11 +368,76 @@ def test_graded_is_not_finished():
           len(C.rendered_without_state(CORRECT_BARE_EXIT)) == 3)
 
 
+def test_finished_requires_a_paired_exact_receipt():
+    print("\n9. finished artifacts require actual correlated tool results")
+    import contextlib, io
+    with tempfile.TemporaryDirectory() as td:
+        path = os.path.join(td, "receipt.jsonl")
+        def run(records):
+            write_transcript(path, records)
+            with contextlib.redirect_stderr(io.StringIO()):
+                return C.main(["--transcript", path])
+        for envelope in ("direct", "string", "wrapped"):
+            check("a paired authentic artifact passes in the documented " + envelope + " envelope",
+                  run(receipt_records(envelope=envelope) + [assistant_record(CORRECT_STATED)]) == 0)
+        check("typing a complete stamp without a tool receipt cannot certify finished",
+              run([assistant_record(CORRECT_STATED)]) == 1)
+        check("a tool result for a different invocation cannot certify finished",
+              run(receipt_records(result_id="unrelated") + [assistant_record(CORRECT_STATED)]) == 1)
+        check("a non-revision tool cannot issue a revision receipt",
+              run(receipt_records(name="mcp__musica__lyric_grade") + [assistant_record(CORRECT_STATED)]) == 1)
+        check("changing lyric bytes while keeping the actual stamp is rejected",
+              run(receipt_records() + [assistant_record(CORRECT_STATED.replace("Freight", "Weight"))]) == 1)
+        check("a false clean status cannot overrule unknown required coverage",
+              run(receipt_records(overrides={"coverage": {"certified": False}})
+                  + [assistant_record(CORRECT_STATED)]) == 1)
+        check("a changed final draft cannot keep another draft's digest",
+              run(receipt_records(overrides={"final_draft": ["another song"]})
+                  + [assistant_record(CORRECT_STATED)]) == 1)
+        check("an appended counterfeit stamp is not covered by an authentic artifact",
+              run(receipt_records() + [assistant_record(CORRECT_STATED + FINISHED_STAMP)]) == 1)
+        check("JSON typed into user prose is not a tool receipt",
+              run([{"type": "user", "message": {"role": "user", "content": json.dumps(receipt_records())}},
+                   assistant_record(CORRECT_STATED)]) == 1)
+        tools_only = {"type": "assistant", "message": {"role": "assistant", "content": [
+            {"type": "tool_use", "id": "later", "name": "inspect", "input": {}}]}}
+        records = [assistant_record(CORRECT_STATED), tools_only]
+        check("tool-use-only assistant messages cannot erase an unreceipted presentation",
+              run(records) == 1 and C.last_assistant_turn(path) == CORRECT_STATED)
+        check("an interim grade remains an honest disclosure without a finished receipt",
+              run([assistant_record(CORRECT_GRADED)]) == 0)
+        check("a parked interim draft remains an honest disclosure",
+              run([assistant_record(CORRECT + "\nPARKED")]) == 0)
+        parked = CORRECT + "\n[FINISHED — seed 6 — exit 3 — ROUND_LIMIT after 2 round(s) — UNRESOLVED: L1]"
+        check("an exact receipt also permits an honestly stopped draft",
+              run(receipt_records(parked, overrides={"exit_code": 3,
+                  "status": "stopped_with_open_lines", "loop_stop_reason": "ROUND_LIMIT",
+                  "loop_unresolved_lines": [1]}) + [assistant_record(parked)]) == 0)
+        raw_counterfeit = CORRECT_STATED + "\nRAW LYRIC FILE"
+        check("a raw-file label cannot authorize a finished claim",
+              run([assistant_record(raw_counterfeit)]) == 1)
+
+
+def test_markdown_and_complete_stamps():
+    print("\n10. visible Markdown headers and complete status grammar")
+    for marker in ("**", "__"):
+        text = "\n".join(marker + line + marker for line in FLATTENED.splitlines())
+        check(marker + " section headers still expose missing apparatus",
+              len(C.violations(text)[0]) == 4)
+    for fragment in ("[FINISHED — seed 6 — exit 0", "[FINISHED — seed 6 — exit 0]",
+                     "[FINISHED — seed 6 — exit 0 — SUCCESS after 2 round(s) — no flag stands"):
+        check("partial finished stamps cannot satisfy format checking: " + fragment,
+              len(C.rendered_without_state(CORRECT + "\n" + fragment)) == 3)
+    check("a complete stamp passes format checking only; transcript provenance is separate",
+          C.rendered_without_state(CORRECT_STATED) == [])
+
+
 if __name__ == "__main__":
     for fn in (test_the_predicate, test_the_builder_itself_passes,
                test_the_escapes_and_the_floor, test_the_transcript_reader,
                test_the_mutation, test_the_hook_is_wired,
-               test_the_operator_seam, test_graded_is_not_finished):
+               test_the_operator_seam, test_graded_is_not_finished,
+               test_finished_requires_a_paired_exact_receipt, test_markdown_and_complete_stamps):
         fn()
     print("=" * 70)
     if FAILURES:

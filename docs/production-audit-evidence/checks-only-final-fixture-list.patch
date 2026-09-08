@@ -1,0 +1,11 @@
+--- mcp/test.mjs.candidate4
++++ mcp/test.mjs.final
+@@ -4321,6 +4321,8 @@
+       'mcp/test_lyric_state.mjs': 'offline lyric state and SDK regressions',
+       'mcp/test_turn_lifecycle.mjs': 'offline chat lifetime and signed continuation regressions',
+       'mcp/test_battery_lifecycle.mjs': 'offline real battery transport regressions',
++      'mcp/fixtures/wall_nested_replay.json':
++        'offline recorded checkpoint replay fixture consumed only by tests',
+       'mcp/test_battery_archive.mjs': 'offline authenticated recovery archive regressions',
+       'mcp/test_battery_storage.mjs': 'offline bounded battery journal and admission regressions',
+       'mcp/test_battery_repairs.mjs':

@@ -170,8 +170,8 @@ def test_inventory():
             findings[name] = len(res)
     check("nothing raises on a plain English quatrain", raised == 0,
           f"ran={ran} refused={refused} raised={raised}")
-    check("49 of 77 run on an English stream; the other 28 REFUSE, naming a "
-          "capability", ran == 49 and refused == 28,
+    check("45 of 77 run; four unsupported complete shapes now refuse alongside capabilities "
+          "and spans", ran == 45 and refused == 32,
           f"ran={ran} refused={refused}; capability_report says "
           f"{len(rep['reachable'])} reachable "
           f"(2 of those refuse at the SPAN, which is correct: 'penult' and "
@@ -210,31 +210,23 @@ def test_inventory():
 # ---------------------------------------------------------------------------
 
 def test_p0_unreadable_final_token():
-    print("\nP0. an out-of-inventory FINAL token used to delete the line's "
-          "end rhyme, silently")
+    print("\nP0. declared lexical endpoints survive unreadability without moving")
     st = stream(["i saw the cat zzzqx", "i wore the hat zzzqx"])
     ctl = stream(["i saw the cat", "i wore the hat"])
     got = R.realise(R.REGISTRY["perfect rhyme"], st)
     exp = R.realise(R.REGISTRY["perfect rhyme"], ctl)
-    check("cat/hat is still found through an unreadable final token",
-          len(got) == len(exp) == 1,
-          f"with OOV: {len(got)}  control: {len(exp)}  (was 0 and 1)")
-    check("line_final is a fact about the SURVIVING material",
-          [u.token_text for u in st.units if u.line_final] == ["cat", "hat"])
-    check("line_tokens still reports the RAW word count",
-          {u.line_tokens for u in st.units} == {5},
-          "a placement rule asking how many words a line has gets the honest "
-          "answer; only the EDGE tests moved")
-    check("the loss is recorded, not silent",
-          st.unreadable == [(0, 4, "zzzqx"), (1, 4, "zzzqx")],
-          f"Stream.unreadable = {st.unreadable}")
-    check("a readable stream records nothing", ctl.unreadable == [])
-
-    # the left edge has the same shape and the same fix
+    check("an unreadable final token cannot borrow the preceding rhyme",
+          len(got) == 0 and len(exp) == 1)
+    check("line_final remains at the declared lexical boundary",
+          [u.token_text for u in st.units if u.line_final] == [])
+    check("the raw token count and unreadable evidence remain exact",
+          {u.line_tokens for u in st.units} == {5}
+          and st.unreadable == [(0,4,"zzzqx"),(1,4,"zzzqx")])
+    check("a missing endpoint is unjudged through the mandate bridge",
+          R.line_pairs_for(R.REGISTRY["perfect rhyme"],st).verdict((1,2)) is None)
     st2 = stream(["zzzqx cat sat", "zzzqx hat sat"])
-    check("the LEFT edge too: line_initial follows the surviving material",
-          [u.token_text for u in st2.units if u.line_initial] ==
-          ["cat", "hat"])
+    check("the same boundary rule holds at the line head",
+          [u.token_text for u in st2.units if u.line_initial] == [])
 
 
 # ---------------------------------------------------------------------------
@@ -1711,8 +1703,8 @@ def test_known_open_defects():
     check("text-order, half 2: the DECLINE was FALSE — on an ASYMMETRIC "
           "schema the skip DELETED instances, and only there",
           len(_asym) == 17
-          and sum(b["recovered_instances"] for b in _burd.values()) == 114
-          and sum(b["recovered_true"] for b in _burd.values()) == 72
+          and sum(b["recovered_instances"] for b in _burd.values()) == 103
+          and sum(b["recovered_true"] for b in _burd.values()) == 65
           and not any(b["symmetric"] for b in _rec.values()),
           f"metidja.txt, all 77 schemas: "
           f"{sum(b['recovered_instances'] for b in _burd.values())} "
@@ -1727,9 +1719,9 @@ def test_known_open_defects():
     check("...and the concrete case: `mosaic rhyme` recovered its ENTIRE "
           "TRUE set, because every one of those pairs had the single word "
           "print SECOND",
-          _burd["mosaic rhyme"]["recovered_true"] == 69
-          and sum(1 for i in _mos if i.verdict is True) == 120,
-          "69 of the schema's 120 TRUE instances existed only because the "
+          _burd["mosaic rhyme"]["recovered_true"] == 62
+          and sum(1 for i in _mos if i.verdict is True) == 112,
+          "62 of the schema's 112 TRUE instances existed only because the "
           "positional skip was removed — every one of them a real rhyme "
           "where the single-word member happened to print after the "
           "multi-word run that rhymed with it. A schema's recall was a "
@@ -2072,7 +2064,7 @@ def test_relation_report_renderer_runs():
     check("`python3 quality/relations.py metidja.txt` RUNS end to end and "
           "exits 0",
           rc == 0 and "phonology eng   schemas declared 77" in out
-          and "RAN AND FIRED 24" in out,
+          and "RAN AND FIRED 20" in out,
           "REFUSED 24 · RAN AND FOUND NOTHING 29 · RAN AND FIRED 24. "
           "REPINNED 2026-08-23 from ~~31 · 26 · 20~~ (2026-08-22, M-39) and "
           "before that ~~26 · 27 · 24~~ (2026-08-13). SEVEN SCHEMAS STOPPED "
@@ -2138,7 +2130,7 @@ def test_relation_report_renderer_runs():
         os.unlink(probe)
     check("a `#` stage direction and a `--- TITLE:` note are APPARATUS here "
           "too — this reader kept only the `[` case",
-          "lines 16   units 96" in tagged and "lines 16   units 96" in plain,
+          "lines 16   units 92" in tagged and "lines 16   units 92" in plain,
           "`lyric_harness.py`'s relations verb was centralised onto "
           "is_apparatus_line on 2026-08-12 and this module's own main() was "
           "not, so the same file read through the two surfaces was two "
@@ -2464,7 +2456,7 @@ def test_vacuous_frame_is_not_a_null():
     check("the staged item reproduces the measured split 31 FIRED / 26 "
           "REFUSED / 20 RAN AND FOUND NOTHING (repinned from 30/26/21 at "
           "M-148: the repaired skothending schema now fires here)",
-          before == (31, 26, 20),
+          before == (28, 30, 19),
           f"{before} on corpus/{VACUITY_ITEM}: {len(raw)} raw lines, "
           f"{len(st.units)} units. PREMISE — it must hold on both trees.")
 
@@ -2513,7 +2505,7 @@ def test_vacuous_frame_is_not_a_null():
     after = _split(st)
     check("...so calling both markers moves NOTHING: the split is still "
           "31/26/20, where it used to become 31/20/26",
-          after == before == (31, 26, 20),
+          after == before == (28, 30, 19),
           f"before {before} after {after}. Six schemas crossing from REFUSED "
           f"to RAN AND FOUND NOTHING is the collapse; the counts are the "
           f"cheapest place to see it.")
@@ -2523,7 +2515,8 @@ def test_vacuous_frame_is_not_a_null():
     check("relation_report separates the two refusals and the partition "
           "still closes",
           rep["refused_vacuous"] == 6 and rep["refused_capability"] == 20
-          and rep["refused"] == 26
+          and rep["refused_other"] == 4
+          and rep["refused"] == 30
           and (rep["refused"] + rep["ran_found_nothing"]
                + rep["ran_and_fired"]) == rep["declared"] == 77
           and {r[0] for r in rep["vacuous_refusals"]} == set(VACUOUS_SIX)
@@ -2610,7 +2603,7 @@ def test_vacuous_frame_is_not_a_null():
           "and the fourth count goes to zero",
           all(not isinstance(o, R.Refusal) and len(o) == 0
               for o in mut_outs.values())
-          and mut_split == (31, 20, 26) and mut_rep["refused_vacuous"] == 0
+          and mut_split == (28, 24, 25) and mut_rep["refused_vacuous"] == 0
           and mut_state == "present",
           f"{mut_split} under the mutant against {after} at head; "
           f"{ {n: len(o) for n, o in mut_outs.items()} }. Six schemas, six "
@@ -2818,7 +2811,7 @@ def test_frequency_refusal_is_measured_against_the_shipped_tables():
     authors = collections.defaultdict(set)
     path = os.path.join(HERE, "..", "data", "song_endword_en.tsv")
     for line in open(path, encoding="utf-8"):
-        if line.startswith("#") or line.startswith("word\t"):
+        if line.startswith("#") or line.rstrip("\n") == "word\tauthor\tcount":
             continue
         w, a, c = line.rstrip("\n").split("\t")
         tot[w] += int(c)
@@ -2830,11 +2823,18 @@ def test_frequency_refusal_is_measured_against_the_shipped_tables():
     # `craving[me]`'s FOOTNOTE ANCHOR counted as the word `me` (the line
     # really ends on `craving`), and the two `thee`s that returned are
     # lines whose printed end word had been a bracketed footnote letter.
-    # The head order and the author spread are unmoved.
+    # The head order and the author spread were unmoved in that rebuild.
+    # 2026-09-08: current corpus curation and work deduplication measure
+    # me=2907 across 482 authors and thee=2016. Literal `word` rows are data:
+    # the old prefix-header test silently excluded all 407 occurrences.
+    check("the exact TSV header does not consume literal `word` entries",
+          tot["word"] == 407 and len(tot) == 13856
+          and sum(tot.values()) == 248628,
+          f"literal word={tot['word']}; {len(tot)} types / {sum(tot.values())} tokens")
     check("the ONLY line-final source is pre-1931 and its head is `me` and "
           "`thee`",
-          top[:2] == ["me", "thee"] and tot["me"] == 2947
-          and tot["thee"] == 2033 and len(authors["me"]) == 483,
+          top[:2] == ["me", "thee"] and tot["me"] == 2907
+          and tot["thee"] == 2016 and len(authors["me"]) == 482,
           f"data/song_endword_en.tsv: {len(tot)} distinct line-final words, "
           f"{sum(tot.values())} tokens. A commonness cut on it flags `thee` "
           f"as one of the two tritest line-endings in English.")
@@ -2939,7 +2939,7 @@ def test_the_judge_memo_answers_identical_calls_only():
     key = RT._wvp_key(lines, phon, None, None)
     check("the key is spellable for the phonology's own declaration",
           key is not None)
-    RT._WVP_MEMO[key] = {(1, 99): ("planted",)}
+    RT._WVP_MEMO[key] = RT.VocabularyPairResults({(1, 99): ("planted",)})
     poisoned = RT.whole_vocabulary_pairs(lines, phon)
     with_bearing = RT.whole_vocabulary_pairs(lines, phon, bearing={0, 1})
     check("the memo is LIVE (the planted answer comes back for its own "

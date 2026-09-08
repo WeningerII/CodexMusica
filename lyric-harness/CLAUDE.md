@@ -668,7 +668,27 @@ removes the LYRIC half and nothing else. The first fix overshot the other way
 drawn against the longest SUNG section THIS plan drew, a derivation from the
 plan rather than a number chosen for it.
 
-**THE CAPACITY LAYER (density stage 1, derived 2026-08-19).** The
+**THE CAPACITY LAYER (density stage 1, re-adopted 2026-09-08).**
+The owner's ruling remains: solve capacity, do not enforce a census of
+what has been popular. `quality/capacity.py` partitions 39,969 declared
+readable words into 12,387 first-reading construction families. Spelling-class
+counts are upper bounds for those pools, not earned-chain witnesses.
+All 81 families at the 20-class certification floor have rebuilt witnesses
+under explicit class:RHYME and the unchanged two-tier ban. The deepest
+certified chain is 23, held by ONE family, `IY-Z`; 23 is a witnessed lower
+bound, not a maximum-clique proof. The construction attempt cap remains 40,
+and the separate writer workload limit remains 31 lines. The former 40-word
+claims failed the declared relation: default rescue and ambiguous readings
+had certified groups the narrower class does not accept. Current evidence:
+`quality/RESULTS_CAPACITY_PRODUCTION_2026-09-08.md` and
+`data/rhyme_capacity_eng.tsv`. Installed lookup and planning require an
+all 81-family attestation from `quality/verify_capacity.py` bound to the
+actual runtime, judge inputs and table bytes; the six-family `--check` smoke
+cannot renew that proof. Stages 2 and 3 remain deliberately unbuilt; no draft
+is graded against a corpus popularity distribution.
+
+**Was:** Historical 2026-08-19/28 result, superseded 2026-09-08 after actual
+all-family re-verification; retained verbatim as the prior claim. **THE CAPACITY LAYER (density stage 1, derived 2026-08-19).** The
 owner's ruling on rhyme density: solve, don't census — a survey of
 what's been done would band the middle and rate the marvel verse
 out-of-band (move 37 again). `quality/capacity.py` derives what the
@@ -993,7 +1013,8 @@ null must not become enforceable"~~ — STRUCK. It is the same prove-it-first
 instinct that produced the two-name default. **The null sweep governs what
 this harness may ASSERT unprompted; it does not govern what a writer may ASK
 FOR by name.**
-**ALL 77 ARE ASKABLE SINCE 2026-08-22 — 0 BLOCKED** (`python3 quality/schema_census.py` re-derives it; `quality/test_capabilities.py` §8 pins it). Seven capabilities stood in the way at the last count and every one closed by building the CONSTRUCTOR that lets a caller DECLARE the coordinate, never by inferring it: `declare_senses`, `declare_stub_resolution`, `declare_period_surface`, `declare_beat`, `declare_lifts`/`search_lifts`, and `declare_delivery` for the delivered/sung surfaces. Doctrine 4 is untouched — its own words were then "no beat grid without audio OR A DECLARED TEMPO" (amended 2026-08-23 to name the DECLARED TEMPO alone: audio left the project's vocabulary by owner ruling, and the quote here is kept as the historical wording), so an INFERRED grid is still refused and `frames.beat` is still None by default. Two schemas also needed a PREDICATE rather than a capability: a bare `requires=` gate cannot make a schema selective, and stamping it would have labelled every perfect rhyme trite and every internal rhyme offbeat — which `UNPROVIDABLE` predicted in as many words.
+**2026-09-08 AUDIT CORRECTION: all 77 names remain addressable; 73 have executable semantics and 4 explicitly refuse unsupported full shapes/templates.** The four are `cynghanedd sain`, `cynghanedd sain gadwynog`, `cynghanedd sain lafarog`, and `平仄 tonal template`. Capability availability did not prove those semantics. Of the 73 executable registrations, 18 have maintained positive/contrast witnesses through the actual grade route, 5 have dedicated full-figure/native regressions, and 50 remain unvalidated named semantics. This is not a claim that all 73 are production-qualified. **Historical 2026-08-22 capability census: 77 available capabilities, not zero semantic blockers** (`python3 quality/schema_census.py` re-derives it; `quality/test_capabilities.py` §8 pins it). Seven capabilities stood in the way at the last count and every one closed by building the CONSTRUCTOR that lets a caller DECLARE the coordinate, never by inferring it: `declare_senses`, `declare_stub_resolution`, `declare_period_surface`, `declare_beat`, `declare_lifts`/`search_lifts`, and `declare_delivery` for the delivered/sung surfaces. Doctrine 4 is untouched — its own words were then "no beat grid without audio OR A DECLARED TEMPO" (amended 2026-08-23 to name the DECLARED TEMPO alone: audio left the project's vocabulary by owner ruling, and the quote here is kept as the historical wording), so an INFERRED grid is still refused and `frames.beat` is still None by default. Two schemas also needed a PREDICATE rather than a capability: a bare `requires=` gate cannot make a schema selective, and stamping it would have labelled every perfect rhyme trite and every internal rhyme offbeat — which `UNPROVIDABLE` predicted in as many words.
+**2026-09-08 oracle correction:** the maintained sonnet battery has **1,064 mandated pairs, 967 judged, 97 refused, and 4 violations**. Preserving pronunciation and schema uncertainty withdrew 47 unsupported judgments; the smaller violation count is a coverage correction, not evidence of improved writing or recalibrated thresholds. `quality/production_relation_oracle.json` records the pair-level causes.
 **WHAT ROUTING BUYS, counted apart (doctrine 79) — 35 of the 77 were live in a mandate at the halfway mark.** 33 out of the box, plus 2 (`epistrophe / radif`,
 `qafiya (before the radif)`) that this same lot turned on by calling
 `relations.mark_refrain_tail` when a declared schema needs the frame — and
@@ -1090,8 +1111,12 @@ nobody asked for is the "move 37" ban pointed at rhyme instead of at
 shape.~~ **SUPERSEDED BY OWNER RULING 2026-08-25 (`MISSING.md` M-117, the
 planner half of M-116, doctrine 17 keeps the strike visible): when the
 writer declares NOTHING, each group now DRAWS its relation uniformly over
-the bare default plus `relations.DRAWABLE_SCHEMAS` — the 22 schemas a
-declared sixteen-line English witness certifies a writer can satisfy
+the bare default plus `relations.DRAWABLE_SCHEMAS` — **18 schemas as corrected
+2026-09-08**, each requiring its own positive and negative contrast through the
+actual declared-slot `Reviser.grade` route. The earlier count of 22 included
+four invalid pair projections; those full schemas remain available by name
+at their proper scope. The historical sixteen-line witness had claimed to
+certify the earlier pool
 (**a certificate M-148, 2026-08-27, measured as issued on the wrong
 ROUTE — it answered on the realise() stream while at least one drawn name
 refused its own canonical answers on the mandate's word-pair route,

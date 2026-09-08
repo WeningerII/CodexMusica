@@ -73,6 +73,109 @@ from dataclasses import dataclass, field
 from fractions import Fraction
 from math import gcd
 
+# Explicit operational bounds: these constrain expanded work, not musical form.
+MAX_EXPANDED_POSITIONS = 100_000
+MAX_FIT_DP_CELLS = 1_000_000
+MAX_BLUEPRINT_ITEMS = 10_000
+
+
+def exact_number(value, field="number"):
+    if isinstance(value, bool) or not isinstance(value, (int, float, str, Fraction)):
+        raise ValueError(f"{field} must be a finite exact number")
+    try:
+        out = Fraction(str(value)) if isinstance(value, float) else Fraction(value)
+    except (ValueError, TypeError, ZeroDivisionError, OverflowError):
+        raise ValueError(f"{field} must be a finite exact number") from None
+    # Enormous rational coordinates also create expensive arithmetic without
+    # large JSON payloads. This is a representation budget, disclosed by name.
+    if max(out.numerator.bit_length(), out.denominator.bit_length()) > 256:
+        raise ValueError(f"RESOURCE_LIMIT: {field} exceeds the 256-bit coordinate budget")
+    return out
+
+
+def exact_integer(value, field="integer", minimum=None):
+    out = exact_number(value, field)
+    if out.denominator != 1:
+        raise ValueError(f"{field} must be an integer; fractional coordinates are not truncated")
+    out = int(out)
+    if minimum is not None and out < minimum:
+        raise ValueError(f"{field} must be at least {minimum}")
+    return out
+
+
+def guard_expansion(count, field, limit=MAX_EXPANDED_POSITIONS):
+    if count > limit:
+        raise ValueError(f"RESOURCE_LIMIT: {field} requires {count} entries; "
+                         f"the supported per-operation budget is {limit}")
+
+
+def validate_blueprint(obj):
+    """Validate the shared JSON shape before any reader coerces or expands it.
+
+    Fractional meter numerators, beats and durations retain exact values.
+    Bar indices/counts and denominator units are integral declarations.
+    The function does not infer a missing meter or alter the supplied object.
+    """
+    if not isinstance(obj, dict):
+        raise ValueError("blueprint must be an object")
+    sections, lines = obj.get("sections", []), obj.get("lines", [])
+    for field, rows in (("sections", sections), ("lines", lines)):
+        if not isinstance(rows, list) or any(not isinstance(r, dict) for r in rows):
+            raise ValueError(f"blueprint {field} must be an array of objects")
+        guard_expansion(len(rows), f"blueprint {field}", MAX_BLUEPRINT_ITEMS)
+    if lines and not sections:
+        raise ValueError("blueprint lines require at least one declared section")
+    spans, cursor, total_bars = [], 1, 0
+    for i, section in enumerate(sections):
+        name = section.get("name")
+        if not isinstance(name, str) or not name.strip():
+            raise ValueError(f"section {i + 1} requires a nonempty name")
+        bars = exact_integer(section.get("bars"), f"section {name!r} bars", 1)
+        start = exact_integer(section.get("start_bar", cursor), "start_bar", 1)
+        total_bars += bars
+        guard_expansion(total_bars, "blueprint bars")
+        md = section_meter(section.get("meter"), name)
+        if "beats" in md:
+            pulses = exact_number(md["beats"], "meter beats")
+            if pulses <= 0:
+                raise ValueError("meter beats must be positive")
+        else:
+            pulses = None
+        if "unit" in md:
+            exact_integer(md["unit"], "meter unit", 1)
+        groups = md.get("groups", ())
+        if groups is not None:
+            if not isinstance(groups, (list, tuple)):
+                raise ValueError("meter groups must be an array")
+            guard_expansion(len(groups), "meter groups")
+            parts = [exact_number(g, "meter group") for g in groups]
+            if any(g <= 0 for g in parts):
+                raise ValueError("every meter group must be positive")
+            if parts and pulses is not None and sum(parts) != pulses:
+                raise ValueError("meter groups must sum to the declared beats")
+        spans.append((name, start, start + bars))
+        cursor = start + bars
+    for i, line in enumerate(lines):
+        if "bar" not in line:
+            raise ValueError(f"line {i + 1} requires a bar")
+        bar = exact_integer(line["bar"], f"line {i + 1} bar", 1)
+        exact_number(line.get("beat", 1), "line beat")
+        duration = exact_number(line.get("duration", 4), "line duration")
+        if duration <= 0:
+            raise ValueError("line duration must be positive")
+        named = line.get("section")
+        hits = [s for s in spans if s[0] == named] if named else spans
+        if named and not hits:
+            raise ValueError(f"line {i + 1} names unknown section {named!r}")
+        # A unique explicit owner is a declaration, including deliberately
+        # overflowing placements which fit reports. Repeated names need a bar.
+        if not named or len(hits) != 1:
+            owners = [s for s in hits if s[1] <= bar < s[2]]
+            if len(owners) != 1:
+                raise ValueError(f"line {i + 1} has no unique section at bar {bar}")
+    return obj
+
+
 # ---------------------------------------------------------------------------
 # THE MATH
 # ---------------------------------------------------------------------------
@@ -125,7 +228,10 @@ class Marker:
     phase: Fraction = Fraction(0)
 
     def positions(self, cycle_pulses):
-        p, out, x = Fraction(self.period), [], Fraction(self.phase)
+        p, out, x = exact_number(self.period, "marker period"), [], exact_number(self.phase, "marker phase")
+        if p <= 0:
+            raise ValueError("marker period must be positive")
+        guard_expansion(max(0, -((x - cycle_pulses) // p)), "marker positions")
         while x < cycle_pulses:
             out.append(x)
             x += p
@@ -154,7 +260,11 @@ class Cycle:
     source: str = ""            # where the catalogue entry came from
 
     def __post_init__(self):
-        object.__setattr__(self, "pulses", Fraction(self.pulses))
+        object.__setattr__(self, "pulses", exact_number(self.pulses, "cycle pulses"))
+        object.__setattr__(self, "unit", exact_integer(self.unit, "cycle unit", 1))
+        object.__setattr__(self, "groups", tuple(exact_number(g, "cycle group") for g in self.groups))
+        if any(g <= 0 for g in self.groups):
+            raise ValueError("every cycle group must be positive")
         if self.unit <= 0:
             raise ValueError("unit must be positive")
         if self.pulses <= 0:
@@ -282,6 +392,8 @@ class Cycle:
             return ()
         period = Fraction(self.pulses)
         k = start // period          # Fraction floor division -> integer value
+        cycles = max(0, -((start - end) // period) + 1)
+        guard_expansion(cycles * len(starts), "cycle heads")
         out = []
         while k * period < end:
             base = k * period

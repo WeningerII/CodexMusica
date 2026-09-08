@@ -446,9 +446,9 @@ def test_the_whole_registry():
           len(rep["blocked"]) == 0 and len(rep["live"]) == len(R.REGISTRY),
           f"{len(rep['live'])} live / {len(R.REGISTRY)}, "
           f"{len(rep['blocked'])} blocked: {sorted(rep['blocked'])}")
-    check("19 of them are INTRA-LINE and are read by the figures route, not "
+    check("21 of them are INTRA-LINE and are read by the figures route, not "
           "by a mandate — a pair of lines cannot stand in a one-line figure",
-          len(rep["intra"]) == 19, len(rep["intra"]))
+          len(rep["intra"]) == 21, len(rep["intra"]))
     check("2 answer under their OWN phonology, which is a language "
           "coordinate (M-4) and not a gap in the registry",
           len(rep["other_language"]) == 2, rep["other_language"])

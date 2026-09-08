@@ -995,7 +995,7 @@ MUTATIONS = [
     ),
     Mutation(
         name="QR3", layer="structure", file=REVISE,
-        old="            stray = changed - set(targeted)",
+        old="            stray = changed - targeted",
         new="            stray = set()",
         subset=T_LOOP,
         rationale=(
@@ -1820,17 +1820,51 @@ def confirm_failure(tree, rel_path, timeout=None, attempts=3):
 # ---------------------------------------------------------------------------
 
 def source_fingerprint():
-    """sha256 over every `.py` the shadow tree copies, so a baseline computed
-    against one snapshot is never reused against another."""
+    """Hash executable source, every input file, sibling contracts and runtime.
+
+    A data-only change must invalidate the baseline just like a Python edit.
+    Digests, not contents or environment values, are emitted in the report.
+    """
+    import importlib.metadata
+    import platform
     h = hashlib.sha256()
-    for d in (ROOT, os.path.join(ROOT, "quality"),
-              os.path.join(ROOT, "quality", "phonology")):
-        for name in sorted(os.listdir(d)):
-            if name.endswith(".py"):
-                p = os.path.join(d, name)
-                h.update(name.encode())
-                h.update(open(p, "rb").read())
-    return h.hexdigest()[:16]
+    def visit(root, prefix, recursive=True):
+        if not os.path.isdir(root):
+            h.update((prefix + ":ABSENT").encode())
+            return
+        for directory, names, files in os.walk(root, followlinks=True):
+            names[:] = sorted(n for n in names if n not in SKIP_NAMES)
+            for name in sorted(files):
+                if name in SKIP_NAMES:
+                    continue
+                path = os.path.join(directory, name)
+                h.update((prefix + "/" + os.path.relpath(path, root)).encode())
+                with open(path, "rb") as stream:
+                    for block in iter(lambda: stream.read(1024 * 1024), b""):
+                        h.update(block)
+            if not recursive:
+                break
+    visit(ROOT, "harness")
+    for name, rule in SIBLING_RULES:
+        visit(os.path.join(os.path.dirname(ROOT), name), name, rule == "tree")
+    for key in ("LYRIC_STAGED_DATA", "NLTK_DATA"):
+        value = os.environ.get(key, "")
+        h.update((key + "=" + value).encode())
+        for index, path in enumerate(value.split(os.pathsep)):
+            if path:
+                visit(path, f"{key}:{index}")
+    packages = {}
+    for name in ("nltk", "numpy", "scikit-learn"):
+        try:
+            packages[name] = importlib.metadata.version(name)
+        except importlib.metadata.PackageNotFoundError:
+            packages[name] = None
+    runtime = {"python": sys.version, "platform": platform.platform(),
+               "packages": packages,
+               "environment": {k: os.environ.get(k) for k in
+                   ("PYTHONPATH", "PYTHONHASHSEED", "LANG", "LC_ALL")}}
+    h.update(json.dumps(runtime, sort_keys=True).encode())
+    return h.hexdigest()
 
 
 def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
@@ -1838,10 +1872,11 @@ def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
     """Which tests are GREEN right now. A test red at baseline is excluded
     from the detector set: it fails either way, so it distinguishes nothing."""
     fp = source_fingerprint()
+    config = {"jobs": jobs, "confirm_all": confirm_all, "timeout": timeout}
     if not force and cache_path and os.path.exists(cache_path):
         try:
             cached = json.load(open(cache_path))
-            if cached.get("fingerprint") == fp and \
+            if cached.get("fingerprint") == fp and cached.get("config") == config and \
                     set(cached["results"]) >= set(tests):
                 print(f"baseline: cached ({fp})")
                 return cached["results"]
@@ -1887,7 +1922,7 @@ def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
     finally:
         shutil.rmtree(shadow_root(tree), ignore_errors=True)
     if cache_path:
-        json.dump({"fingerprint": fp, "results": results},
+        json.dump({"fingerprint": fp, "config": config, "results": results},
                   open(cache_path, "w"), indent=1)
     green = [t for t, r in results.items() if r["status"] == "PASS"]
     # TWO REASONS A SUITE LEAVES THE BASELINE, AND THEY ARE NEVER SUMMED
@@ -2254,6 +2289,15 @@ def report(results, baseline_results, elapsed, mode, bounded=None):
 
 # ---------------------------------------------------------------------------
 
+def sweep_exit(results, baseline_results, survivors, problems, stale_now=()):
+    """Separate a detected failure (1) from incomplete evidence (2)."""
+    if (not results or stale_now or
+            any(r.get("stale") or r.get("indeterminate") for r in results) or
+            any(r.get("status") != "PASS" for r in baseline_results.values())):
+        return 2
+    return 1 if survivors or problems else 0
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--full", action="store_true",
@@ -2396,7 +2440,9 @@ def main(argv=None):
         for f in futures.as_completed(fs):
             r = f.result()
             results.append(r)
-            mark = "SURVIVED" if r["survived"] else "caught"
+            mark = ("STALE" if r.get("stale") else "INDETERMINATE"
+                    if r.get("indeterminate") else "SURVIVED"
+                    if r["survived"] else "caught")
             print(f"  {r['name']:4s} {r['layer']:11s} {mark:9s} "
                   f"{r['scope_run']:16s} {r['seconds']:6.1f}s  "
                   + (", ".join(os.path.basename(t) for t in r["caught_by"])
@@ -2438,7 +2484,7 @@ def main(argv=None):
                    "indeterminate": [r["name"] for r in results
                                      if r.get("indeterminate")]},
                   open(a.json, "w"), indent=1)
-    return 1 if (survivors or problems) else 0
+    return sweep_exit(results, bl, survivors, problems, stale_now)
 
 
 if __name__ == "__main__":

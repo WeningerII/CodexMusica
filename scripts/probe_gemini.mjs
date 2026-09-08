@@ -27,6 +27,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { buildSurface, runTurn, DEFAULT_MODEL, PRICING } from '../mcp/gemini_agent.js';
+import { judge } from './recipe_probe_verdict.mjs';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -136,101 +137,7 @@ const callTool = (name, args) => client.callTool({ name, arguments: args });
 // resolved by the engine, which throws `Unknown tradition: x` / `Unknown
 // preface` / `no part` rather than guessing — so a guessed id IS a tool error,
 // and the two criteria collapse into one measurement the engine performs.
-const ID_ERROR = /unknown|no part|no card|not found|no such/i;
-
-// Did every edit the model successfully applied actually take, end to end?
-// Read off the FINAL workspace, so a later edit that silently reverted an
-// earlier one is caught too. Ops with no directly-readable result (add/remove
-// tradition, and set_preface's re-derivation) are checked by their own visible
-// field; anything this function cannot verify it does not claim to.
-function editsHold(run) {
-  const ws = run.workspace;
-  if (!ws) return false;
-  const card = (ref) =>
-    (ws.cards || []).find((c) => c.id === ref) ||
-    (ws.cards || []).find((c) => c.instrumentId === ref);
-  for (const call of run.calls) {
-    if (call.name !== 'edit_recipe' || call.isError) continue;
-    for (const e of call.args?.edits || []) {
-      const c = e.card ? card(e.card) : null;
-      switch (e.action) {
-        case 'set_variant':
-          if (!c || c.parts?.[e.part] !== e.variant) return false;
-          break;
-        case 'set_preface':
-          if (!c || c.preface !== e.preface) return false;
-          break;
-        case 'set_environment':
-          if (!c) return false;
-          if (e.room !== undefined && c.room !== e.room) return false;
-          if (e.tuning !== undefined && c.tuning !== e.tuning) return false;
-          for (const [stage, id] of Object.entries(e.chain || {})) {
-            const got = c.chain?.[stage];
-            if (Array.isArray(got) ? !got.includes(id) : got !== id) return false;
-          }
-          break;
-        case 'add_instrument':
-          if (!(ws.cards || []).some((x) => x.instrumentId === e.instrument)) return false;
-          break;
-        case 'remove_instrument':
-          if (e.card && card(e.card)) return false;
-          break;
-        case 'add_tradition':
-          if (!(ws.cards || []).some((x) => x.traditionId === e.tradition)) return false;
-          break;
-        case 'remove_tradition':
-          if ((ws.cards || []).some((x) => x.traditionId === e.tradition)) return false;
-          break;
-        default:
-          break;
-      }
-    }
-  }
-  return true;
-}
-
-function judge(run) {
-  const errors = run.calls.filter((c) => c.isError);
-  const idErrors = errors.filter((c) => ID_ERROR.test(c.error || ''));
-  const recipeCalls = run.calls.filter((c) => c.recipe && !c.isError);
-  const editCalls = run.calls.filter((c) => c.name === 'edit_recipe' && !c.isError);
-  // The workspace is threaded by the adapter, so the thing worth proving is that
-  // the thread never broke: an edit that ran before any seed comes back as the
-  // "no recipe yet" error, and an edit on a stale workspace comes back as an
-  // unknown-card error. Both are already counted above; this asserts the
-  // POSITIVE — every edit call actually received one.
-  const threaded =
-    editCalls.length === 0 ||
-    (recipeCalls.length > 0 && !errors.some((c) => /no recipe yet/.test(c.error || '')));
-  // `changed` is the engine's own confirmation that an edit landed — but it
-  // reports a DIFFERENCE FROM THE SEED, so it is legitimately absent when the
-  // seed already satisfied the request. Measured: "delta blues with a resonator
-  // — steel body, glass slide" seeds `steel-body-resonator: bronze steel …
-  // slide` before any edit runs, so the model's set_variant was a correct no-op
-  // and `changed` was correctly empty. Failing that is failing the engine for
-  // being right the first time.
-  //
-  // So `changed` is REPORTED, and the pass criterion is the stronger property it
-  // was standing in for: does the state the model asked for actually hold in the
-  // final workspace? That catches a silently-dropped edit (which `changed` also
-  // caught) AND is honest about a no-op (which `changed` did not).
-  const reportedChanged = editCalls.every((c) => (c.cards || []).some((card) => card.changed));
-  const applied = editsHold(run);
-  const lastRecipe = recipeCalls.length ? recipeCalls[recipeCalls.length - 1].recipe : null;
-  return {
-    errors: errors.length,
-    idErrors: idErrors.length,
-    threaded,
-    edits: editCalls.length,
-    // Not a pass criterion, but the connector instructions ask for the final
-    // recipe verbatim and the chat bar is worthless if that does not survive.
-    verbatim: !!lastRecipe && run.reply.includes(lastRecipe),
-    reportedChanged,
-    applied,
-    pass: errors.length === 0 && threaded && applied && editCalls.length > 0,
-    lastRecipe,
-  };
-}
+// Acceptance is also exercised without model calls.
 
 const results = [];
 for (const prompt of suite) {
@@ -240,6 +147,7 @@ for (const prompt of suite) {
   let threw = null;
   try {
     run = await runTurn({
+      task: { domain: 'recipe', format: 'rich', maxChars: 1000 },
       apiKey,
       model: MODEL,
       surface,

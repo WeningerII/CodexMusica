@@ -550,7 +550,13 @@ await check('actual HTTP and SDK preserve signed continuation and stop on discon
     afterDisconnectCalls = 0,
     modelSignal;
   const buildServer = () => {
-    const server = new McpServer({ name: 'lifecycle-fixture', version: '1.0.0' });
+    const server = new McpServer(
+      { name: 'lifecycle-fixture', version: '1.0.0' },
+      {
+        instructions:
+          '=== RECIPE TASK === Recording recipes only. === LYRICS TASK === Lyrics only.',
+      }
+    );
     server.registerTool(
       'lyric_revise',
       {
@@ -639,18 +645,37 @@ await check('actual HTTP and SDK preserve signed continuation and stop on discon
     ]);
   };
   try {
-    const first = await post({ message: 'write' });
+    // An omitted phase is a new-song task. Its premature revise must be
+    // refused before the delayed handler; it cannot establish a wall test.
+    const creation = await post({ message: 'write', task: { domain: 'lyrics' } });
+    assert.equal(creation.status, 200);
+    assert.equal(creation.body.task.phase, 'create');
+    assert.equal(creation.body.tools[0].not_run, true);
+    assert.match(creation.body.tools[0].error, /^CREATION_ORDER:/);
+    assert.equal(recordedArgs.length, 0);
+
+    const firstModelBody = modelBodies.length;
+    const first = await post({
+      message: 'edit these existing lyrics',
+      task: { domain: 'lyrics', phase: 'edit' },
+    });
     assert.equal(first.status, 200);
+    assert.equal(recordedArgs.length, 1, 'the delayed SDK handler actually ran');
     assert.equal(first.body.stopped, 'MAX_TURN_MS');
+    assert.equal(first.body.stopped_detail.cap, 100);
+    assert.ok(first.body.stopped_detail.ms >= 100);
     assert.deepEqual(first.body.lyric.draft, ['accepted A', 'original B']);
     assert.equal(first.body.lyric.run_id, 'b'.repeat(64));
-    const { history, workspace, lyric, sig } = first.body;
+    const { history, workspace, lyric, sig, task } = first.body;
     phase = 'continue';
-    const second = await post({ message: 'continue', history, workspace, lyric, sig });
+    const second = await post({ message: 'continue', history, workspace, lyric, sig, task });
     assert.equal(second.status, 200);
     assert.equal(recordedArgs[1].form, 'couplet');
     assert.equal(recordedArgs[1].run_id, 'b'.repeat(64));
-    assert.equal(modelBodies[1].contents[1].parts[0].thoughtSignature, 'signature-park');
+    assert.equal(
+      modelBodies[firstModelBody + 1].contents[1].parts[0].thoughtSignature,
+      'signature-park'
+    );
     assert.equal(history.at(-1).parts[0].functionResponse.id, 'park');
     const tamper = await post({ message: 'continue', history: [], workspace, lyric, sig });
     assert.equal(tamper.status, 400);
