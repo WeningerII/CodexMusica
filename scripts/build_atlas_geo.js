@@ -37,10 +37,16 @@
 // each candidate is tested against the basemap polygons; if a pin whose origin
 // is on land would land at sea, the angle is nudged through a fixed ladder
 // (inland is almost always available in SOME direction) and only then is the
-// radius shrunk. Pins whose ORIGIN is already at sea are left alone, since
-// there is no shore to stay on — 134 of today's draft sit in water, 99 of them
-// inside a stack, which is itself a finding for the geo.json audit pass
-// (--stats reports the stacked count).
+// radius shrunk. Pins whose ORIGIN falls outside every basemap polygon are left
+// alone, since there is no shore to keep them on: --stats counts 99 of those
+// inside a stack.
+//
+// THAT COUNT IS NOT A COORDINATE AUDIT, and an earlier version of this comment
+// wrongly read it as one. data/countries.geo.json carries 180 country outlines
+// and draws no small island territories, so a pin sitting correctly on an
+// island the basemap omits tests exactly the same as a pin genuinely dropped in
+// the ocean. The number measures the basemap's coverage, not geo.json's
+// accuracy, and nothing here should be read as a finding about the data.
 //
 // A minimum separation of 0.62 * R/sqrt(n) km is also enforced between accepted
 // slots, so the angle search can never park two pins on top of each other and
@@ -402,7 +408,7 @@ function main() {
         stats.unplaceable
     );
     console.log(
-      '  pins whose ORIGIN is already at sea (geo.json audit): ' +
+      '  stacked pins whose ORIGIN is off every basemap polygon: ' +
         stats.originAtSea +
         '; max displacement ' +
         stats.maxDisplacementKm.toFixed(1) +
