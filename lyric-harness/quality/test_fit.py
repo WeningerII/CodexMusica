@@ -395,10 +395,22 @@ def test_the_boundary_is_a_value_in_the_module():
     whys = " ".join(w for _q, w in UNANSWERABLE)
     check("every impossibility says PERMANENT or SCHEDULED",
           all(("PERMANENT" in w or "SCHEDULED" in w) for _q, w in UNANSWERABLE))
+    # THE KEYS ARE PINNED WITH THEIR REGISTER PREFIX, AND THAT IS THE POINT.
+    # These two rows are what guards MISSING.md C-4 and C-5 — the entries say
+    # so themselves — but `quality/triage.py`'s `m_win` only sees a key with
+    # the literal `MISSING` within `MISSING_NEAR` characters of it, and this
+    # assertion used to name them bare ("C-4" in whys). So both entries read
+    # CITED (a module names it, no test guards it) when they were DECLARED (a
+    # test names it and the entry says why), which inflated CITED while
+    # emptying DECLARED. C-4 recorded that blind spot on 2026-08-21 and left
+    # it, correctly, as its own change; this is that change, made the narrow
+    # way. Widening the SCANNER would reshuffle all five triage counts —
+    # fixing the SPELLING here moves exactly these two entries, and makes the
+    # check stricter on the way: a row that renames its citation now fails.
     check("tempo, groove, melisma, the unsniffed grouping and doctrine 35 are "
-          "all on it",
-          "C-5" in whys and "C-4" in whys and "melisma" in " ".join(
-              q for q, _w in UNANSWERABLE)
+          "all on it, each naming its register entry in full",
+          "MISSING.md C-5" in whys and "MISSING.md C-4" in whys
+          and "melisma" in " ".join(q for q, _w in UNANSWERABLE)
           and "doctrine 19" in whys and "doctrine 35" in whys)
 
 

@@ -205,8 +205,19 @@ measurement, the difference between a line that lands and one that drags.
 > so this entry reads as `CITED` (a module names it, no test guards it) when it
 > is `DECLARED` (a test names it and the entry says why). **Same class as the
 > `m_re` fix that moved D-1, one spelling further on**, and it inflates CITED
-> while emptying DECLARED. Recorded here, NOT fixed in this commit: widening
-> the scanner reshuffles all five triage counts, which is its own change.
+> while emptying DECLARED. ~~Recorded here, NOT fixed in this commit: widening
+> the scanner reshuffles all five triage counts, which is its own change.~~
+> **FIXED 2026-09-09, and the narrow way.** The scanner is untouched — the
+> reshuffle warning above still stands against widening it. What changed is
+> the SPELLING in `quality/test_fit.py` §12, from `"C-4" in whys` to
+> `"MISSING.md C-4" in whys`, which moves exactly this entry and C-5 and makes
+> the assertion stricter: a row that renames its citation now fails.
+>
+> **TESTED WHILE OPEN.** `quality/test_fit.py` §12 names this entry and PINS
+> THE GAP rather than guarding a fix — it requires `fit.UNANSWERABLE` to still
+> carry the row refusing beat placement by name. It goes RED on the day
+> syncopation-given-a-declared-grid is measured, which is the day this entry
+> closes. A green run here is the refusal still standing, not the gap filled.
 
 ### C-5 · Tempo is not represented `PARTIAL`
 **Now:** `Song` has bars and meters, no tempo, no tempo change. **That sentence
@@ -234,9 +245,20 @@ is TRUE at head** — `grep -n tempo quality/grid.py` returns nothing.
 > the class is `BeatGrid` (`declared_inputs.py:524`). A test pinning a
 > non-existent symbol name is a check that cannot notice the symbol moving.
 >
-> The triage blind spot recorded under C-4 applies here identically:
+> ~~The triage blind spot recorded under C-4 applies here identically:
 > `test_fit.py` asserts `"C-5" in whys` by bare key, so this entry also reads
-> `CITED` when it is `DECLARED`.
+> `CITED` when it is `DECLARED`.~~ **FIXED 2026-09-09** — the assertion now
+> pins `"MISSING.md C-5" in whys`, which `m_win` can see and which is the
+> stricter check besides: a row that renames its citation now fails.
+>
+> **TESTED WHILE OPEN.** `quality/test_fit.py` §12 and its `INERT` section
+> name this entry, and both PIN THE GAP rather than guard a fix. §12 requires
+> the per-second refusal to still carry `MISSING.md C-5`; the `INERT` section
+> re-derives that `fit._no_tempo` has no production caller and that
+> `declared_inputs.BeatGrid.tempo_bpm` is read by nothing. Those tests go RED
+> on the day tempo is wired — which is the day this entry closes — and red
+> again if the declaration outlives its subject. A passing regression here is
+> the gap holding still, not the gap being filled.
 
 ---
 
