@@ -707,21 +707,32 @@ declared, like everything else in `quality/phonology/`.
 > **THE LIVE DEFECT: the two readers fail on the SAME staged line in OPPOSITE
 > directions, and nothing discloses it.** Measured on one Barnes line —
 >
+> **THE TRANSCRIPT BELOW WAS HALF STALE WITHIN A DAY, AND IS RE-MEASURED HERE
+> 2026-09-09.** `line_tokens` stopped shredding the diaeresis on 2026-08-21,
+> when `LATIN_SCRIPT` widened — the change that closed `F-4a`. Both readers now
+> keep `greäve` and `Jeäne` whole, so the "opposite failures" framing has
+> collapsed to ONE direction. Measured at head on the same line:
+>
 > ```
 > relations.tokenise : ['The','greäve','wer','wide','my','Jeäne','an',
 >                       'a-vallen','o','the','sky',"i'th",'hall','ithin','twer']
-> lyric_harness.line_tokens : ['The','gre','ve','wer','wide','my','Je','ne',
+> lyric_harness.line_tokens : ['The','greäve','wer','wide','my','Jeäne',
 >                       "an'",'a-vallen',"o'",'the','sky',"i'th'",'hall',
 >                       "'ithin","'twer"]
 > ```
 >
-> `relations.tokenise` KEEPS the diaeresis and DROPS every elision mark
-> (`an'`→`an`, `o'`→`o`, `'ithin`→`ithin`, `'twer`→`twer`), erasing jobs (i)
-> and (ii) above. `line_tokens` KEEPS all four marks and SHREDS the diaeresis
-> into two fragments (`greäve` → `gre`, `ve`). **One file, two readers,
-> opposite failures.** That is doctrine 1 on the same reader pair `F-4a` is
-> filed against, and `F-4a`'s premise re-derives at head (**5,963 of the staged
-> Barnes lines carry a non-ASCII letter**). `line_tokens` does normalise U+2019
+> `relations.tokenise` DROPS every elision mark (`an'`→`an`, `o'`→`o`,
+> `'ithin`→`ithin`, `'twer`→`twer`), erasing jobs (i) and (ii) above.
+> `line_tokens` KEEPS all four. **One file, two readers, one live disagreement**
+> — about what a dialect elision mark IS, which is exactly the per-dialect
+> question this entry is filed on, and it is undisclosed. The diaeresis half of
+> the old transcript is struck below.
+>
+> ~~`line_tokens` SHREDS the diaeresis into two fragments (`greäve` → `gre`,
+> `ve`). One file, two readers, OPPOSITE failures. That is doctrine 1 on the
+> same reader pair `F-4a` is filed against, and `F-4a`'s premise re-derives at
+> head (5,963 of the staged Barnes lines carry a non-ASCII letter).~~ The count
+> still re-derives; what it counts is now lines the reader handles correctly. `line_tokens` does normalise U+2019
 > first (doctrine 26), so **the Lancashire half is safe and the Dorset half is
 > not** — Waugh's curly apostrophes survive and Barnes's vowels do not.
 >
@@ -758,8 +769,14 @@ declared, like everything else in `quality/phonology/`.
 > **So ORTHOGRAPHY is a BUILD with a seam already in place, and PHONOLOGY is a
 > built mechanism blocked on an OBTAINABLE source.** Two remedies, one entry.
 >
-> **DO NOT CLOSE THIS BY WIDENING `line_tokens`** — that is `F-4a`'s job and it
-> costs the `song_endword_en.tsv` / `song_rhymepair_en.tsv` repins. The
+> ~~**DO NOT CLOSE THIS BY WIDENING `line_tokens`** — that is `F-4a`'s job and
+> it costs the `song_endword_en.tsv` / `song_rhymepair_en.tsv` repins.~~
+> **STRUCK 2026-09-09: the widening happened on 2026-08-21, `F-4a` is CLOSED,
+> and the repins it priced never occurred — both tables rebuilt byte-identical
+> and neither holds a non-ASCII byte.** The warning is kept struck rather than
+> deleted because its REASONING was sound and only its premise expired: this
+> entry is still not closed by anything done to `line_tokens`, since what
+> remains is the elision disagreement above. The
 > orthography half belongs behind `build_stream(tokeniser=)`, where
 > `relations.py` imports nothing from `lyric_harness` (P10) and no shipped
 > table is derived, so the blast radius is zero.
@@ -857,12 +874,48 @@ entry and is not closed by this.
 **AND THE SAME DOCTRINE IS VIOLATED ONE LAYER DOWN, ON THIS VERY FILE — split
 out as F-4a** because it is a different actor with a different blast radius.
 
-### F-4a · The reader flattens the letter the transcription kept `OPEN`
-Found 2026-08-21 while verifying F-4. Staging the Latin-1 Barnes preserved
-`ä`; `lyric_harness.line_tokens` (`lyric_harness.py:1030`) matches
-`[A-Za-z'\-]+`, so the non-ASCII letter BREAKS THE TOKEN:
-`line_tokens('The greäve wer wide, my Jeäne')` →
-`['The', 'gre', 've', 'wer', 'wide', 'my', 'Je', 'ne']` — measured, at head.
+### F-4a · ~~The reader flattens the letter the transcription kept~~ `CLOSED` 2026-09-09
+**CLOSED BY A COMMIT THAT LANDED THE DAY AFTER THIS ENTRY WAS WRITTEN, and the
+entry never heard.** `lyric_harness.LATIN_SCRIPT` was widened to
+`[A-Za-zÀ-ɏḀ-ỿ]` on 2026-08-21 (`lyric_harness.py:2095`, `:2106`, with `:2099`
+recording the old class as historical). Every clause below is dead, re-derived
+at head 2026-09-09:
+>
+> - **The worked example returns the opposite of what it claims.**
+>   `line_tokens('The greäve wer wide, my Jeäne')` →
+>   `['The', 'greäve', 'wer', 'wide', 'my', 'Jeäne']`, and `raw_final_token` on
+>   that line returns `Jeäne`, not `ne`. The eight-token fragmentation quoted
+>   below as "measured, at head" cannot be reproduced.
+> - **The cited coordinate no longer holds a tokenizer.** `line_tokens` is at
+>   `lyric_harness.py:2130`; `:1030` is Lexicon g2p-fallback code.
+> - **The harm is structurally gone.** The 5,934/13,909 count still re-derives,
+>   but it now counts lines the reader handles CORRECTLY. With the final token
+>   whole there is no fragment to score and no `n ~ n` collision to report 1.0
+>   on. `build_song_frequency.py:72-84` strikes its own `accent_refusal`
+>   paragraph and measures the bucket falling **1,635 → 10**, the survivors
+>   itemised as 8 joiner-discipline cases and 2 Greek tokens — neither this.
+> - **The disclosure is no longer docstring-only.** `test_readability.py`
+>   §10 pins `LATIN_SCRIPT` as a compiled pattern and asserts every Latin-script
+>   letter the corpus prints is inside the class.
+> - **The ~1-day repin cost never materialised, and was MEASURED not argued.**
+>   `build_song_frequency.py:95-97` records both tables rebuilding
+>   BYTE-IDENTICAL across the fix; confirmed at head — `song_endword_en.tsv` and
+>   `song_rhymepair_en.tsv` each contain 0 lines with a non-ASCII byte.
+>
+> Found 2026-09-09 by a 16-agent sweep of the UNGUARDED bucket — open entries
+> that nothing in the tree names — asking the D-1 question of a bucket nobody
+> had asked it of. Ten staleness claims, eight refuted, two upheld. This is one;
+> `M-153` is the other. **The lesson is the bucket, not the entry:** an entry
+> nothing cites is an entry nobody rereads, so the register's own queue is where
+> staleness is least likely to be noticed.
+>
+> The original text follows, struck, per doctrine 17.
+>
+> ~~Found 2026-08-21 while verifying F-4. Staging the Latin-1 Barnes preserved
+> `ä`; `lyric_harness.line_tokens` (`lyric_harness.py:1030`) matches
+> `[A-Za-z'\-]+`, so the non-ASCII letter BREAKS THE TOKEN:
+> `line_tokens('The greäve wer wide, my Jeäne')` →
+> `['The', 'gre', 've', 'wer', 'wide', 'my', 'Je', 'ne']` — measured, at head.~~
 Over the staged file: **5,934 of 13,909 verse lines contain a non-ASCII
 letter; 1,515 carry it in the FINAL word**, the rhyme position, where the
 harness then scores the fragment (`n ~ n` reports `1.0 RHYME`).
@@ -16120,8 +16173,35 @@ and Emmett's `[VERSE 1]` holds the attribution line "By DAN D. EMMETT."
 — editorial text under a verse mark, with no bracket for this convention
 to key on. That class is M-153.
 
-### M-153 · Editorial text staged under `[VERSE n]` marks: two measured instances, no bracket to key on `OPEN`
-Found 2026-08-28 adjudicating M-152's orbit, and it is the staging class
+### M-153 · ~~Editorial text staged under `[VERSE n]` marks: two measured instances, no bracket to key on~~ `CLOSED` 2026-09-09
+**BOTH MEASURED INSTANCES WERE RE-STAGED IN `a75da39` (2026-09-08), which is
+one of the two remedies this entry itself names.** Re-derived at head
+2026-09-09:
+>
+> - `corpus/song/eng_parlour_daniel_decatur_emmett.txt:12-16` — the Emmett
+>   attribution is now `# APPARATUS: [VERSE 1]` / `# APPARATUS: By DAN D.
+>   EMMETT.` and the orphan tail `# APPARATUS: [VERSE 2]` / `# APPARATUS:
+>   Mass.]`. The first SUNG stanza is `[VERSE 3]`. The header also carries the
+>   attribution, so both halves of the named remedy landed.
+> - `corpus/song/eng_british_richard_lovelace.txt:2772-2800` — the Hazlitt notes
+>   under `[VERSE 8..10]` and the later note blocks are all `# APPARATUS:` rows.
+>   `[VERSE 7]` still ends on its own anchor, so no sung text was disturbed.
+> - `lyric_harness.py:1151` — `is_apparatus_line` makes a `#` row apparatus and
+>   never sung, and the remedy reaches every reader rather than one:
+>   `readability.py:406`, `grid.py:3714`/`:3728`, `fin_rhyme_rate.py:138`,
+>   `audit_register.py:499` all drop those rows.
+> - `quality/test_readability.py:1419-1431` — the new staging is PINNED, not
+>   merely present: Emmett's `Mass.]` asserted absent from the sung lines,
+>   Lovelace's bibliography asserted present as an APPARATUS byte. It cannot
+>   silently regress.
+>
+> Found 2026-09-09 by the same UNGUARDED sweep that closed `F-4a`. The entry's
+> scope is explicitly closed-ended — "Measured instances, both read in place" —
+> so two fixed instances is the whole of it.
+>
+> The original text follows, struck, per doctrine 17.
+>
+> ~~Found 2026-08-28 adjudicating M-152's orbit,~~ and it is the staging class
 that convention CANNOT reach: text that is not sung, standing under a
 real verse mark, with no bracket for a declared span or block rule to
 key on. Measured instances, both read in place: (1)
