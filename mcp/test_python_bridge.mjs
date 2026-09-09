@@ -343,9 +343,21 @@ async function modelFixture({ hang = false, payload } = {}) {
   const requestReady = new Promise((resolve) => {
     markRequestReady = resolve;
   });
-  const server = createServer(async (req, res) => {
+  // Nothing awaits an http request listener, so a rejection out of an async one
+  // becomes an unhandled rejection and node:test charges it to whichever test
+  // happens to be running. The interruption tests kill the client mid-request on
+  // purpose; Node answers that by destroying `req` with an ECONNRESET, which
+  // rejects the `for await` below. That is expected here and is swallowed.
+  // Anything else is a genuine fault in this fixture and is left to surface.
+  const server = createServer((req, res) => {
     requests += 1;
     markRequestReady();
+    respond(req, res).catch((err) => {
+      if (err && (err.code === 'ECONNRESET' || err.code === 'ECONNABORTED')) return;
+      throw err;
+    });
+  });
+  async function respond(req, res) {
     for await (const _chunk of req) {
       /* consume request */
     }
@@ -365,7 +377,7 @@ async function modelFixture({ hang = false, payload } = {}) {
         }
       )
     );
-  });
+  }
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   return {
     requests: () => requests,
