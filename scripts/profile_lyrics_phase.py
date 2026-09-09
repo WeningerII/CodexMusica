@@ -88,6 +88,42 @@ def source_hashes(root):
     return result
 
 
+def write_top(profiler, path):
+    """Render the cumulative-time table for `profiler` into `path`.
+
+    -> None when it rendered, or a one-line note when it could not.
+
+    THE PROFILE IS DIAGNOSTIC; THE RUN'S VERDICT IS THE PRODUCT. This is
+    called from `main`'s `finally`, where an exception does not merely lose
+    the table — it replaces the exit code the run had already decided and
+    loses the report with it. MEASURED: a phase deadline that fires before
+    the profiler records a single call leaves its stats EMPTY, and
+    `pstats.Stats` raises `TypeError: Cannot create or construct a Stats
+    object from <cProfile.Profile ...>` on empty stats (`pstats.load_stats`'
+    final guard, which sits outside its own elif chain). CI run 1505 exited
+    1 where its test asserts 124, and the deadline the run correctly
+    detected never reached the report.
+
+    Python 3.11 and 3.12 do not agree on exactly when that guard fires — an
+    enable/disable with nothing between raises on the runner's 3.12 and not
+    on 3.11 — so this does not test for emptiness and hope the predicate
+    matches the interpreter. It renders, and if rendering fails for any
+    reason it says so in the file and hands the caller a note. The `.cprof`
+    dump is written before this and is unaffected either way, so nothing a
+    reader needs is lost.
+    """
+    try:
+        with path.open('w') as top:
+            pstats.Stats(profiler, stream=top).strip_dirs().sort_stats(
+                'cumulative').print_stats(80)
+        return None
+    except Exception as exc:
+        note = f'{type(exc).__name__}: {exc}'
+        with path.open('w') as top:
+            top.write(f'no profile table: {note}\n')
+        return note
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--repo-root', type=Path, default=Path(__file__).resolve().parents[1])
@@ -217,8 +253,9 @@ def main():
                       source_unchanged=source_hashes(root) == report['source_sha256'])
         if capture.started:
             capture.profiler.dump_stats(str(outputs['stats']))
-            with outputs['top'].open('w') as top:
-                pstats.Stats(capture.profiler, stream=top).strip_dirs().sort_stats('cumulative').print_stats(80)
+            note = write_top(capture.profiler, outputs['top'])
+            if note:
+                report['profile_top_error'] = note
         save()
     print(json.dumps({k: report[k] for k in ('status', 'elapsed_seconds', 'profile_started', 'profile_completed', 'source_unchanged')}), flush=True)
     return exit_code
