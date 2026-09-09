@@ -317,13 +317,20 @@
   }
 
   function renderProvenance() {
+    // Two counts, never added together. A model re-derived every coordinate
+    // blind and a person has checked none of them, and those are different
+    // claims — collapsing them into one "verified" number is the overclaim
+    // this line exists to avoid. See the note in data/geo-meta.json.
+    var reviewed = (S.meta.reviewed || []).length;
     var verified = (S.meta.verified || []).length;
     el.provenance.textContent =
       'Bubbles count documented scenes, not musical abundance · ' +
       S.pts.length.toLocaleString('en') +
       ' pins drafted · ' +
-      verified +
-      ' verified — corrections welcome';
+      reviewed.toLocaleString('en') +
+      ' model-reviewed · ' +
+      verified.toLocaleString('en') +
+      ' human-verified — corrections welcome';
   }
 
   // ── canvas ──

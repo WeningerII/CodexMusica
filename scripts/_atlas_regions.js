@@ -116,7 +116,7 @@ const REGIONS = [
 // Keyed by the place or country the argument is about, not by tradition id.
 const CONTESTED = {
   Turkey:
-    'Middle East; the UN geoscheme files it Western Asia and most of its pins are Istanbul, which is partly in Europe.',
+    'Middle East; the UN geoscheme files it Western Asia and most of its pins are Istanbul, which is partly in Europe. The rule holds THROUGHOUT, including Edirne and Istanbul, which are physically in European Thrace — and including the Greek-culture-in-Anatolia repertoires, which is where it was actually broken: Byzantine chant and Pontic Greek were filed Middle East while Homeric rhapsode recitation at Ionia (Izmir) was filed Europe, the only entry in the file that put an Asian coordinate in Europe. The argument for Europe is real — Homeric recitation is Archaic Greek and belongs with the Hellenic sphere — but it is an argument about culture that the atlas already declined to make for Byzantine chant in the same breath, so making it once is an inconsistency rather than a position.',
   Cyprus:
     'Europe: an EU member whose majority repertoire is Greek-language and is shelved with Greece in the reference literature. M49 says Western Asia, but filing it Middle East would read to Greek Cypriots as an erasure, which outranks the code.',
   Egypt:

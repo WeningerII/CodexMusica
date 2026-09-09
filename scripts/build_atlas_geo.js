@@ -16,9 +16,9 @@
 //
 //   1. data/geo.json stays the honest record. A pin whose origin is "London" is
 //      recorded as London. This file is a DISPLAY transform, generated and
-//      byte-compared, never hand-edited — so the audit pass that moves ids into
-//      data/geo-meta.json's verified list reviews real coordinates, not nudged
-//      ones.
+//      byte-compared, never hand-edited — so an audit pass reading geo.json,
+//      and the reviewed/verified lists in data/geo-meta.json that record one,
+//      judge real coordinates rather than nudged ones.
 //   2. It is self-liquidating. Only coordinates shared by 2+ traditions are
 //      touched; a unique coordinate is copied through exactly. Give a tradition
 //      a real venue coordinate and it leaves the stack and stops being nudged,
