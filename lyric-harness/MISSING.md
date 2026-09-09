@@ -21,18 +21,65 @@ with the constraint named).
 
 ## A. Notation and scheme representation
 
-### A-1 · Capital/lowercase refrain notation `OPEN`
-**TESTED WHILE OPEN.** `test_english_text.py` and `test_song_function.py`
-name this entry to PIN THE GAP, not to guard a fix — the citation reads
-"the repo cannot represent it (MISSING.md A-1)". A test that asserts an
-absence is the correct shape for an open entry and must not be read as
-evidence it closed (`quality/triage.py`).
-**Now (verified 2026-08-10):** `quality/schemes.py` `parse()` handles `X` and
-`.` as unrhymed singletons and letters as rhyme classes. Nothing else.
-**Missing:** the standard prosodic convention where **capital = a line repeated
-verbatim**, **lowercase = rhyme only**, with superscripts for distinct refrains
-(`A¹`, `A²`). The villanelle is `A1bA2 abA1 abA2 abA1 abA2 abA1A2` and cannot
-be written down here.
+### A-1 · ~~Capital/lowercase refrain notation~~ — the NOTATION shipped; what stands is line identity BY REFERENCE `PARTIAL` 2026-09-09
+**REPINNED 2026-09-09, AND THE DECLARATION BELOW WAS FALSE.** Found by an
+audit of the DECLARED bucket — the one bucket nothing in CI re-examines —
+and upheld by two sceptics who were told to default to the register being
+right and could not refute it. One wrote: *"I could not save the headline."*
+This is the M-2 shape `quality/triage.py`'s docstring warns about, caught in
+the bucket that shape lives in.
+
+> **THE HEADLINE CLAUSE IS DEAD.** The notation shipped. `schemes.py` says so
+> in its own comment — *"and until now it could not be written down in this
+> repo at all"* — and the villanelle this entry says "cannot be written down
+> here" renders at head as `A1bA2abA1abA2abA1abA2abA1A2`, which is the exact
+> string below, character for character. `parse_refrain`, `REFRAIN_FORMS` (8
+> forms) and `refrain_form` are all live.
+>
+> **AND THE OLD DECLARATION CLAIMED THE OPPOSITE OF WHAT ITS TESTS DO.** It
+> said both suites "PIN THE GAP, not guard a fix" and that "a test that asserts
+> an absence is the correct shape for an open entry". `test_song_function.py`
+> section 5 is titled *"THE A-1 NOTATION — and the villanelle is now writable"*
+> and asserts a PRESENCE: it goes red if the notation is REMOVED and can never
+> go red on the day the gap closes. `test_english_text.py:50` carries the
+> citation in a COMMENT, above assertions that `is_chorus_stub` fires. A
+> declaration that describes its tests backwards is worse than none, because it
+> is the thing a reader checks instead of the code.
+>
+> **WHAT STANDS, RE-DERIVED AT HEAD.** The third form — line identity BY
+> REFERENCE — and it stands on the path that needs it:
+>
+> - `quality/grid.py:1932-1943` still short-circuits EVERY stubbed return with
+>   `Return(kind="STUB")` and a refusal whose own words are *"the stub must be
+>   RESOLVED against its target before any distance means anything, and only
+>   the exclusion is built (MISSING.md A-1)"*.
+> - A resolver DOES exist — `relations.py:3866 search_stub_resolution` — and
+>   this is where the audit went wrong and the sceptics went right: it has NO
+>   production caller. Every call site in the tree is a test.
+> - It could not close the position clause anyway. It searches `for j in
+>   range(i)` (`relations.py:3966`) — EARLIER LINES ONLY — so a chorus printed
+>   after the author attribution, which this entry says is in the corpus, is
+>   unreachable by construction. It also returns a one-line span
+>   `(hit, hit+1)`, not the chorus block.
+>
+> `PARTIAL` rather than `OPEN`, because half of what this entry asked for was
+> built and the register never heard.
+
+**TESTED WHILE OPEN.** `quality/test_song_function.py` section 5 and
+`quality/test_english_text.py` name this entry, and — stated correctly this
+time — they GUARD THE CLOSED HALF rather than pin the open one. Section 5
+asserts the villanelle IS writable, so it goes red if the notation regresses;
+`test_english_text.py` asserts `is_chorus_stub` fires, which is the EXCLUSION
+half. Nothing in the tree asserts the RESOLUTION half, which is the half that
+keeps this entry open, and that is stated here rather than left for a reader
+to infer from a green suite.
+
+~~**Now (verified 2026-08-10):** `quality/schemes.py` `parse()` handles `X` and
+`.` as unrhymed singletons and letters as rhyme classes. Nothing else.~~
+~~**Missing:** the standard prosodic convention where **capital = a line
+repeated verbatim**, **lowercase = rhyme only**, with superscripts for distinct
+refrains (`A¹`, `A²`). The villanelle is `A1bA2 abA1 abA2 abA1 abA2 abA1A2` and
+cannot be written down here.~~
 **Why it matters:** every refrain, burden, tag, hook-return and radif is line
 IDENTITY, not rhyme. `schemes.py` already admits this in a note on its own
 villanelle entry and did not act on it.
