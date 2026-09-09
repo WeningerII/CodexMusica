@@ -64,13 +64,53 @@ jobs:
           path: capacity-proof
       - name: Require the proof to match this consumer's actual runtime and table
         run: python3 scripts/production_qualification.py capacity-accept capacity-proof
+      # THE BUDGETS BELOW ARE WARM-MEMO BUDGETS, AND THIS IS WHERE THE MEMO
+      # COMES FROM. `curves` runs `length_curve_calibration.py check` with no
+      # `--rows`, so it re-derives every one of 8,667 corpus items rather than
+      # trusting a saved TSV — the stronger claim, and the reason the
+      # predictability memo at ~/.cache/lyric-harness is not an optimisation
+      # here but the difference between a job that finishes and one that does
+      # not. ci.yml's own repinned figure for a COLD memo is 8,758 CPU-s
+      # (2026-08-30, run 33305249323); the `curves` budget is 2,400.
+      #
+      # The nightly song-profile job banks that memo under
+      # `lyric-harness-predictability-v1-<run_id>` with `if: always()`, and
+      # Actions caches are shared across workflows in a repository. Until
+      # 2026-09-09 this restore could not name that prefix, so the FIRST
+      # attempt at any new SHA was cold by construction — the
+      # `qualification-<component>-<sha>-` prefix can only hit a re-run of a
+      # commit that already ran. Production qualification run 1 never got far
+      # enough to show it (`curves` refused in 1.8s on M-259's tagger lookup),
+      # and the second attempt would have spent the budget instead.
+      #
+      # ORDER MATTERS: the qualification-specific prefix is listed FIRST so a
+      # re-run of this exact commit still prefers its own banked state, which
+      # also carries /tmp/mutate-scratch/baseline.json; the nightly prefix is
+      # the fallback and carries only the memo.
       - uses: actions/cache/restore@v4
         with:
           path: |
             ~/.cache/lyric-harness
             /tmp/mutate-scratch/baseline.json
           key: qualification-${{ matrix.component }}-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: qualification-${{ matrix.component }}-${{ github.sha }}-
+          restore-keys: |
+            qualification-${{ matrix.component }}-${{ github.sha }}-
+            lyric-harness-predictability-v1-
+      # A 124 on `curves` and a 124 on a cold memo look identical in the
+      # evidence record, and they are not the same finding. This says which,
+      # BEFORE the budget starts, in one line that costs nothing.
+      - name: Report the predictability memo this component starts from
+        run: |
+          # NO ARITHMETIC ON grep's OUTPUT. ci.yml's nightly step carries the
+          # paragraph: `grep -c` exits 1 on a zero count and 2 on an absent
+          # file, so `$(grep -c ... || echo N)` yields the TWO-LINE string
+          # "0\nN" in the first case and breaks whatever consumes it. `|| true`
+          # plus a default expansion is one value in all three cases -- a
+          # count, or nothing, or nothing.
+          MEMO=~/.cache/lyric-harness/song_predictability_v1.tsv
+          LINES=$(grep -c '' "$MEMO" 2>/dev/null || true)
+          echo "predictability memo: ${LINES:-0} line(s) at $MEMO"
+          echo "  cold is 0; a memo covering the whole corpus is ~8,668 (8,667 items and a header)"
       - name: Complete the exact comparison within its existing command budget
         run: python3 scripts/production_qualification.py run '${{ matrix.component }}' --out=evidence/${{ matrix.component }}.json
       - uses: actions/upload-artifact@v4
