@@ -235,6 +235,35 @@ def test_theta_for_and_its_readers():
           "theta_for(" in inspect.getsource(_CR.measure))
 
 
+def test_the_negative_control_carries_the_property():
+    """MISSING.md K-3 — the text used as the negative control is not eligible.
+
+    PINS THE GAP, and it pins the clause that no build can discharge: K-3's
+    finding is a fact about `corpus/whitman.txt` itself, not about a
+    separation that better calibration could fix. A negative control has to
+    be a text WITHOUT the property under test; this one carries it, as
+    epistrophe on an identical token.
+
+    Deliberately null-free, so it costs ~2s rather than a replicate draw: the
+    eligibility clause needs no threshold sweep. It goes red the day the
+    detected links stop being majority REPEAT — i.e. the day the control is
+    actually clean, which is the day this entry closes — and red the other
+    way if the link population empties out, since a majority over nothing is
+    the empty-population pass doctrine 20 exists to refuse.
+    """
+    print("\n9. MISSING.md K-3 — the negative control carries the property")
+    import negative_control as _NC
+    rel, same, tot = _NC.whitman_link_relations(LEX, DECL, _NC.whitman_lines())
+    check("the link population is non-empty, so this cannot pass by "
+          "examining nothing (doctrine 20)",
+          tot >= 5, f"{tot} detected links")
+    check("...and they are MAJORITY REPEAT on an identical token, which is "
+          "what makes corpus/whitman.txt ineligible as a control "
+          "(MISSING.md K-3)",
+          rel.get("REPEAT", 0) * 2 > tot and same > 0,
+          f"{dict(rel)}, {same} of {tot} on the same token")
+
+
 if __name__ == "__main__":
     for fn in (test_tripwire_open_syllables_stay_rhyme,
                test_the_leak_closes_by_naming,
@@ -243,7 +272,8 @@ if __name__ == "__main__":
                test_no_flattening,
                test_conjunctive_across_syllables,
                test_admits_requires_both,
-               test_theta_for_and_its_readers):
+               test_theta_for_and_its_readers,
+               test_the_negative_control_carries_the_property):
         fn()
     print("=" * 62)
     if FAILURES:

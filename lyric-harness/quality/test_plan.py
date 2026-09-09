@@ -2132,6 +2132,25 @@ def test_the_seed_sweep_is_a_verb():
                          "uses=verse,chorus", "before=verse,chorus",
                          "pins_per_line<=5")}
     res = PLN.sweep(_R, wants=wants)
+
+    # MISSING.md M-79 — Finding 2: whether a plan is song-shaped is still
+    # answered by SEARCHING seeds rather than by the draw. Pinned as an
+    # INEQUALITY and never as a count: this section struck a seed list twice
+    # in one day (M-106, M-107) and the comment above says why, so recording
+    # "5 of 160" here would be recording the same fragility a third time.
+    # The band is what M-79 claims and what the closing commit breaks: six
+    # undemanding predicates accept a STRICT MINORITY of an arbitrary range,
+    # and MORE THAN NONE — a shape-aware draw, a plan-time shape gate or a
+    # rate-matched order pushes the share past the minority bound and fails
+    # this, while a planner that stopped drawing them at all fails the other
+    # side. Reuses the sweep above rather than running a second one.
+    _share = len(res["accepted"]) / len(_R)
+    check("six undemanding criteria still accept a strict minority of an "
+          "arbitrary seed range, and more than none — so writability is "
+          "SEARCHED and not drawn (MISSING.md M-79)",
+          0 < _share < 0.5,
+          f"{len(res['accepted'])} of {len(_R)} = {_share:.1%} accepted")
+
     check("the conjunction accepts EXACTLY the intersection of the six "
           "predicates taken one at a time — the property a verb that ANDs "
           "correctly must have whatever the planner happens to draw",

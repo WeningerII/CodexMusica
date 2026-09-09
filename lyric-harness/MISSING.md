@@ -1451,6 +1451,14 @@ and dead" burden closing every stanza and our file records no refrain marking
 at all. That is a fact about Whitman, and Whitman is K-3's subject.
 
 ### K-3 · The Whitman negative control does not separate `OPEN`
+> **TESTED WHILE OPEN.** `quality/test_band.py` section 9 names this entry and
+> PINS THE ELIGIBILITY CLAUSE — the one no build can discharge, because it is a
+> fact about `corpus/whitman.txt` rather than about a separation better
+> calibration could fix. It requires the detected link population to be
+> non-empty (a majority over nothing is the empty-population pass doctrine 20
+> refuses) AND majority REPEAT on an identical token: 7 REPEAT / 2 RHYME of 9,
+> 7 on the same token. Deliberately null-free, so it costs seconds rather than
+> a replicate draw. Red the day the control stops carrying the property.
 **Now (verified):** all four recorded Whitman figures (18.0, 20.0, 21.3, 26.0%)
 fall inside one line-permutation null spanning 6.7–27.3%. Replacement is the
 corpus's own shuffled self, plus a multi-author positive spanning more than one
@@ -2086,6 +2094,15 @@ this half stays OPEN because the CAPABILITY — a false-event rate controlled at
 α — is exactly as missing as it was.
 
 ### L-2 · Real sonnets do not separate from scrambled text on event rate `OPEN` — EXPLAINED
+> **TESTED WHILE OPEN.** `quality/test_null_shapes.py` section 4 names this
+> entry and PINS WHY the separation fails: the admissible null preserves the
+> item's private rime inventory, so the quantity a rate comparison reads barely
+> moves under it. Pinned as RATIOS against the real arm and never as point
+> values — cross_item_redeal ~0.85x inside a declared 1.5x band, rime_pool mono
+> ~7.7x and dispersed ~0.35x both far outside — plus a roster clause naming the
+> seven public functions of `quality.controls`, so a new span-multiset null
+> cannot land unnoticed. Red when an admissible null actually destroys the
+> inventory.
 ~~10.9% observed vs 9.6% word-scramble (p=0.095).~~ Either the detector is
 broken or these sonnets carry no internal rhyme, and this event set cannot tell
 them apart — so any null placement result on it is uninterpretable.
@@ -2841,6 +2858,14 @@ the measurement that says so. It was stated in one absolute too many.
 against a HEAD containing the change — is about the AUDIT and is unaffected.
 
 ### M-5 · A printing can spell one sound two ways, and the modernisation check cannot see it `OPEN`
+> **TESTED WHILE OPEN.** `quality/test_msa_fin.py` section 13 names this entry
+> and PINS BOTH HALVES: that the mixing is really in the staged book — four
+> named w/v pairs co-occurring in `fin_kanteletar.txt`, named rather than
+> counted because a count of w-initial types is a coordinate of whichever
+> tokenizer reads the file — and that `declared_inputs.Orthography` still
+> carries "has this been modernised?" and no field asking whether a printing
+> spells one sound two ways. That absence is what this entry owns. Red when a
+> spelling or allograph field joins the roster.
 Every recorded instance of the orthography rule (doctrine 50, CHANNELS.md rule 4) is a MODERNISATION. The Kanteletar is not modernised at all and still carries
 a hazard: `w` and `v` are **allographs of one phoneme** and the printing MIXES
 them — `Väinämöisen` and `Wäinämöinen`, same name, same book. `fin.py` keys the
@@ -3799,6 +3824,14 @@ declared dialect, which this repository does not have.** Until it exists,
 obtain", not "hard to build".
 
 ### M-20 · Poems staged TWICE in their own file, and every instrument that could see it is looking somewhere else `OPEN`
+> **TESTED WHILE OPEN.** `quality/test_corpus_audit.py`'s near-duplication
+> series names this entry and PINS THE POPULATION'S EXISTENCE together with the
+> fact that its SIZE is a coordinate of the fold: two spellings of "same title,
+> same opening line" — script-wide and ASCII-only — return different numbers,
+> and a census whose number moves with its own normalisation is not a census
+> (doctrine 58). What this entry owes is a ruling about which printing wins, so
+> a bare count would pin the wrong thing. Red the day the duplicates are ruled
+> on and deleted: the population empties and both halves fail together.
 **Found 2026-08-21 while splitting the named air out of the title (§3.2), by
 the checker that was already looking.** `quality/audit_corpus.py`'s
 `false_unit_items` compares each item's body lines against the OTHER items'
@@ -9878,6 +9911,14 @@ someone else's footnote. **Nothing is changed until that is ruled**, because a
 doctrine number is the owner's vocabulary and not a session's.
 
 ### M-79 · the first end-to-end run: the pipeline stops at WRITE, because nothing checks that a plan is writable `OPEN` — measured 2026-08-23
+> **TESTED WHILE OPEN.** `quality/test_plan.py` section 10 names this entry and
+> PINS FINDING 2 as an INEQUALITY, never as a count — that section struck a seed
+> list twice in one day (M-106, M-107) and says why, so recording a third would
+> be recording the same fragility again. Six undemanding predicates accept a
+> STRICT MINORITY of an arbitrary seed range and MORE THAN NONE, so whether a
+> plan is song-shaped is still answered by SEARCHING seeds rather than by the
+> draw. A shape-aware draw or a plan-time shape gate pushes the share past the
+> bound and fails it; a planner that stopped drawing them fails the other side.
 **The owner's instruction**, after asking what the shortest line to a finished
 song is: _"yes, run it."_ One song, end to end, through the real verbs, nothing
 done by hand. **It did not reach the WRITE step**, and the reason is

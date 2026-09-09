@@ -196,6 +196,60 @@ def main():
           % (cm, cd))
     check("the floor arms are not each other", mono != disp)
 
+    # MISSING.md L-2 — real sonnets do not separate from scrambled text on
+    # event rate, and this is WHY: the admissible null preserves the item's
+    # private rime inventory, so the quantity a rate comparison reads barely
+    # moves under it. Pinned as RATIOS against the real arm rather than as
+    # point values, so a derivation lot that shifts every number leaves the
+    # relationship standing (doctrine 58):
+    #
+    #   cross_item_redeal   ~0.85x real  — inside a declared <=1.5x band
+    #   rime_pool mono      ~7.7x  real  — declared inadmissible, far outside
+    #   rime_pool dispersed ~0.35x real  — declared inadmissible, far outside
+    #
+    # Red the day an admissible null actually destroys the private inventory
+    # (the ratio leaves the band), and red the day a NEW span-multiset null
+    # lands in quality.controls, since the roster clause names the seven
+    # public functions the module has.
+    import quality.controls as _CTRL
+
+    def _identity_share(arm):
+        tot = same = 0
+        for it in arm:
+            ws = [w for l in it for w in line_tokens(l)]
+            for i in range(len(ws)):
+                for j in range(i + 1, len(ws)):
+                    tot += 1
+                    if rime(ws[i]) == rime(ws[j]):
+                        same += 1
+        return same / tot if tot else 0.0
+
+    _real = _identity_share(ITEMS)
+    _xi = _identity_share(cross_item_redeal(ITEMS, line_tokens, shape,
+                                            seed=7)[0])
+    _mono = _identity_share(mono)
+    _disp = _identity_share(disp)
+    _public = sorted(n for n in dir(_CTRL)
+                     if not n.startswith("_")
+                     and callable(getattr(_CTRL, n))
+                     and getattr(getattr(_CTRL, n), "__module__", "")
+                     == _CTRL.__name__)
+    check("the admissible null leaves the item's private rime inventory "
+          "nearly intact while both inadmissible floors do not — which is "
+          "why a rate comparison cannot separate (MISSING.md L-2)",
+          _real > 0
+          and 0.5 <= _xi / _real <= 1.5
+          and _mono / _real > 3
+          and _disp / _real < 0.5
+          and _public == ["calibrated_threshold", "cross_item_redeal",
+                          "differs", "permuted_label_null",
+                          "rime_pool_redeal", "shuffle_twin",
+                          "twin_is_degenerate"],
+          "real %.4f | cross_item %.4f (%.2fx) | mono %.4f (%.2fx) | "
+          "dispersed %.4f (%.2fx)"
+          % (_real, _xi, _xi / _real, _mono, _mono / _real,
+             _disp, _disp / _real))
+
     relations_sections()
 
     # 9. THE LEDGER RUNS IN THE SUITE, not only from the CLI. `--verify` is a
