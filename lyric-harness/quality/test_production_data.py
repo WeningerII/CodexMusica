@@ -177,6 +177,51 @@ class ProductionDataTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "lack verified provenance"):
                 lc.read_rows([path], verify=True)
 
+    def test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer(self):
+        """The model the sidecar names must be the model the tagging uses.
+
+        `row_provenance` used to call `nltk.data.find` on nltk's ambient search
+        path, which never consults `features.nltk_data_dir` -- the ONE place
+        the staged directory is decided (doctrine 1). Production qualification
+        run 1 staged the model under `lyric-harness/data/nltk`, exported no
+        `NLTK_DATA`, and `curves` refused in 1.8s of a 2400s budget.
+
+        The assertion is EQUALITY between an environment that points at the
+        staged model and one that says nothing, not merely "it did not
+        raise" -- because the silent half of the defect is a box that HAS an
+        ambient copy, where the old code returned a fingerprint of bytes no
+        measurement ever touched. Neither half survives an equal sha. `HOME`
+        moves so a stray `~/nltk_data` cannot decide the answer either way.
+        """
+        import subprocess
+        staged = os.path.abspath(os.path.join(ROOT, "data", "nltk"))
+        script = ("import json,sys;sys.path.insert(0,%r);"
+                  "from quality import length_curve_calibration as lc;"
+                  "print(json.dumps(lc.row_provenance()))" % str(ROOT))
+
+        def provenance(**overrides):
+            env = {k: v for k, v in os.environ.items() if k != "NLTK_DATA"}
+            with tempfile.TemporaryDirectory() as elsewhere:
+                env["HOME"] = elsewhere
+                env.update({k: v for k, v in overrides.items() if v is not None})
+                return subprocess.run([sys.executable, "-c", script], cwd=str(ROOT),
+                                      env=env, capture_output=True, text=True)
+
+        silent = provenance()
+        self.assertEqual(silent.returncode, 0, silent.stderr)
+        told = provenance(NLTK_DATA=staged)
+        self.assertEqual(told.returncode, 0, told.stderr)
+        self.assertEqual(json.loads(silent.stdout)["tagger_sha256"],
+                         json.loads(told.stdout)["tagger_sha256"])
+        self.assertTrue(json.loads(silent.stdout)["tagger_sha256"])
+
+        # And the refusal still reaches an operator who really has no model:
+        # a guard whose failing branch cannot fire is decoration (doctrine 48).
+        with tempfile.TemporaryDirectory() as bare:
+            hidden = provenance(LYRIC_STAGED_DATA=bare, NLTK_DATA=bare)
+            self.assertNotEqual(hidden.returncode, 0)
+            self.assertIn("requires the staged English tagger", hidden.stderr)
+
     def test_saved_rows_refuse_missing_and_duplicate_shards(self):
         from quality import length_curve_calibration as lc
         row = {"file": "fixture", "author": "author", "title": "song", "n_lines": 2,
