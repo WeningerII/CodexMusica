@@ -305,5 +305,99 @@ class CapacityOracle(unittest.TestCase):
         self.assertTrue(validate_measurement(value))
 
 
+class ShardedCapacityMerge(unittest.TestCase):
+    """The merger must refuse every way three shards can fail to be one matrix.
+
+    Sharding the matrix bought back most of a 35.6-minute step, and it gave
+    away the one thing the single process had for free: a run that could not
+    finish without covering every declared size. Three containers CAN finish
+    while one of them never ran. So the interesting assertions here are the
+    refusals, not the happy path -- a merger that only knows how to say yes
+    would let CI go green on two thirds of its evidence.
+    """
+
+    @staticmethod
+    def shard(size, **over):
+        from check_lyrics_capacity import LIMITS, SEEDS
+        return {**{
+            'version': 1, 'status': 'passed', 'production_qualified': False,
+            'local_supplement': False, 'sizes': [size], 'seeds': list(SEEDS),
+            'scope': 'resource capacity with explicit refusal accounting; not lyric-quality certification',
+            'limits': LIMITS, 'isolation': {'production_limits_verified': True},
+            'published_execution_limits': {'max_lines': 31},
+            'measurements': [{'lines': size, 'seed': seed, 'mode': mode, 'rows': []}
+                             for seed in SEEDS for mode in ('cold', 'worker')],
+            'memory_trace': [{'lines': size, 'seed': seed, 'mode': mode,
+                              'peak_bytes': 1000, 'current_bytes': 900}
+                             for seed in SEEDS for mode in ('cold', 'worker')],
+            'summaries': [], 'failures': [],
+            'source_sha256': 'a' * 64, 'source_sha256_after': 'a' * 64,
+        }, **over}
+
+    def complete(self):
+        from check_lyrics_capacity import SIZES
+        return [(f'capacity-{n}.json', self.shard(n)) for n in SIZES]
+
+    def test_a_complete_consistent_matrix_qualifies(self):
+        from merge_lyrics_capacity import merge
+        from check_lyrics_capacity import SIZES, SEEDS
+        report, failures = merge(self.complete())
+        self.assertEqual(failures, [])
+        self.assertTrue(report['production_qualified'])
+        self.assertEqual(report['status'], 'passed')
+        self.assertEqual(len(report['measurements']), len(SIZES) * len(SEEDS) * 2)
+        # Never copied from a shard: no shard can be qualified alone, and each
+        # one sets this False for exactly that reason.
+        self.assertFalse(any(s['production_qualified'] for _, s in self.complete()))
+
+    def test_every_way_three_shards_fail_to_be_one_matrix_is_refused(self):
+        from merge_lyrics_capacity import merge
+        from check_lyrics_capacity import SIZES
+        cases = {
+            'a missing size': lambda s: s[:-1],
+            'a duplicated size': lambda s: s[:-1] + [(f'capacity-{SIZES[0]}-again.json',
+                                                      self.shard(SIZES[0]))],
+            'no shards at all': lambda s: [],
+            'a shard that did not pass': lambda s: s[:-1] + [
+                (s[-1][0], {**s[-1][1], 'status': 'failed'})],
+            'a shard carrying a failure': lambda s: s[:-1] + [
+                (s[-1][0], {**s[-1][1], 'failures': ['excessive call latency']})],
+            'a --local supplement': lambda s: s[:-1] + [
+                (s[-1][0], {**s[-1][1], 'local_supplement': True})],
+            'unverified cgroup limits': lambda s: s[:-1] + [
+                (s[-1][0], {**s[-1][1], 'isolation': {'production_limits_verified': False}})],
+            'a shard that measured a different tree': lambda s: s[:-1] + [
+                (s[-1][0], {**s[-1][1], 'source_sha256': 'b' * 64,
+                            'source_sha256_after': 'b' * 64})],
+            'source that moved mid-shard': lambda s: s[:-1] + [
+                (s[-1][0], {**s[-1][1], 'source_sha256_after': 'c' * 64})],
+            'a shard that skipped executions': lambda s: s[:-1] + [
+                (s[-1][0], {**s[-1][1], 'measurements': s[-1][1]['measurements'][:1]})],
+            'a shard with no memory trace at all': lambda s: s[:-1] + [
+                (s[-1][0], {**s[-1][1], 'memory_trace': []})],
+            'a trace that misses a boundary': lambda s: s[:-1] + [
+                (s[-1][0], {**s[-1][1],
+                            'memory_trace': s[-1][1]['memory_trace'][:-1]})],
+            'shards disagreeing about the declared limits': lambda s: s[:-1] + [
+                (s[-1][0], {**s[-1][1], 'limits': {'call_seconds': 9999}})],
+        }
+        for label, break_it in cases.items():
+            with self.subTest(label):
+                report, failures = merge(break_it(self.complete()))
+                self.assertTrue(failures, f'{label} was accepted')
+                self.assertFalse(report.get('production_qualified'),
+                                 f'{label} still reported production_qualified')
+
+    def test_the_merger_reads_the_population_from_where_it_is_declared(self):
+        """Not a retyped 18,24,31 -- the matrix and its merger cannot disagree."""
+        import check_lyrics_capacity as matrix
+        import merge_lyrics_capacity as merger
+        self.assertIs(merger.SIZES, matrix.SIZES)
+        self.assertIs(merger.SEEDS, matrix.SEEDS)
+        self.assertIs(merger.LIMITS, matrix.LIMITS)
+        self.assertEqual(merger.EXPECTED_EXECUTIONS,
+                         len(matrix.SIZES) * len(matrix.SEEDS) * 2)
+
+
 if __name__ == '__main__':
     unittest.main()

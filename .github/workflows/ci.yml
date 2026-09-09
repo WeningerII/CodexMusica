@@ -328,14 +328,32 @@ jobs:
     # 2026-09-08 observed all81 costs: 1600.725s workers1 wall, and 2042.343s
     # aggregate CPU in the later workers4 proof. Proof 45m is 1.25 x their
     # maximum, rounded up to 5m; build 55m adds 10m dependency/assembly allowance.
-    # Aggregate CPU is not a serial-wall measurement. 2m audit +55m build
-    # +5m image checks +65m matrix =127m; job 145m reserves 18m for
-    # checkout/setup/oracles/uploads/image publication.
-    # These are explicit bounded allowances, not measured Docker Python 3.11 timings.
-    # The 18 matrix executions contain 72 verb calls plus setup/recovery/queue
-    # work; their 65m whole-matrix fit also remains unmeasured. Keep evidence
-    # on failure. Operational 600s calls and 40m turn walls are unchanged.
-    timeout-minutes: 145
+    # Aggregate CPU is not a serial-wall measurement.
+    #
+    # ~~2m audit +55m build +5m image checks +65m matrix =127m; job 145m~~
+    # 2m audit +55m build +5m image checks +35m matrix =97m; job 115m reserves
+    # 18m for checkout/setup/oracles/uploads/image publication. The matrix bound
+    # moved because the matrix is sharded now (see the step); the build bound
+    # did NOT move, even though the build should fall sharply, because a bound
+    # lowered on a prediction is a flake waiting for a slow runner.
+    #
+    # AND THE TWO SENTENCES BELOW WERE TRUE WHEN WRITTEN AND ARE NOT NOW.
+    # ~~These are explicit bounded allowances, not measured Docker Python 3.11
+    # timings. The 18 matrix executions contain 72 verb calls plus
+    # setup/recovery/queue work; their 65m whole-matrix fit also remains
+    # unmeasured.~~ MEASURED 2026-09-09 on run 34358366237 (main a1666165,
+    # green): this job took 53.2 min of a 54.5-min run and WAS the critical
+    # path alone -- every other job had finished by minute 28. Its split was
+    # build 16.1 min, matrix 35.6 min, image checks 0.8 min. Inside the build,
+    # BuildKit's own step timings put `verify_capacity.py --workers=1` at
+    # 938.7s of 968s -- 97.0%, with apt 10.3s, npm ci 1.5s, pip 2.3s and the
+    # asset assembly 2.1s. So neither half of this job was ever a Docker or a
+    # dependency problem: it was the same serial proof twice, beside a matrix
+    # that was a queue rather than a limit. Both are addressed at the step and
+    # in mcp/Dockerfile; what the change is worth is for the next run to say.
+    # Keep evidence on failure. Operational 600s calls and 40m turn walls are
+    # unchanged.
+    timeout-minutes: 115
     permissions:
       contents: read
       packages: write
@@ -381,18 +399,94 @@ jobs:
 
       - name: Capacity acceptance oracle counterexamples
         run: python3 scripts/test_lyrics_capacity.py
-      - name: Production CPU and memory capacity matrix
-        timeout-minutes: 65
+      # THE LARGEST SINGLE STEP IN CI, AND IT WAS A QUEUE RATHER THAN A LIMIT.
+      # MEASURED on run 34358366237 (main a1666165, green): this step took
+      # 35.6 min, `lyrics-image` took 53.2 min, and the whole run took 54.5 --
+      # so this job WAS the critical path and this step was two thirds of it.
+      # Every other job in that run had finished by minute 28.
+      #
+      # `--cpus=1 --memory=2g` DECLARES THE DEPLOYED SERVICE'S ENVELOPE. It is
+      # not a request to run the 18 executions one after another, and the
+      # difference is the whole saving: three containers each pinned to 1 CPU
+      # on a 4-vCPU runner each still get the entire CPU they declare, and each
+      # still reads `cpus == 1` out of its OWN cgroup, which is the thing
+      # `isolation()` verifies and refuses without. Three of four vCPUs, 6 GiB
+      # of 16 -- the fourth core is left to the runner and the docker daemon
+      # rather than sold to a fourth shard.
+      #
+      # The split is by workload, because `--sizes` is the coordinate
+      # `check_lyrics_capacity.py` already declares and validates against
+      # 18,24,31.
+      #
+      # TWO SHARDS, NOT THREE, AND THAT IS A MEASUREMENT RATHER THAN A TASTE.
+      # The per-size bodies, read off that run's log timestamps: 18 -> 455.29s,
+      # 24 -> 578.52s, 31 -> 1042.56s, with a 50.80s prologue and a 9.94s
+      # epilogue summing to the 2137.12s the step actually took. Size 31 is
+      # 50.2% of the body, so it is the pole under ANY split: three shards give
+      # max(1103.30, 639.26, 516.03) and two give max(1103.30, 1094.55) -- the
+      # same 1103.30s wall. A third shard would buy zero minutes and spend a
+      # third CPU to do it. Two declares 2 of 4 vCPUs and leaves two spare for
+      # the docker daemon and the runner agent. Going below ~18 min means
+      # splitting size 31 BY SEED, which needs a flag the script does not have
+      # and a balance fitted to one noisy observation -- the same cell holds a
+      # 252.2s revise and a 1.9s revise. Not attempted here.
+      #
+      # AND DO NOT "IMPROVE" THIS WITH --cpuset-cpus. Pinning looks tidier and
+      # is a trap: on a 4-vCPU hosted runner the vCPUs are two physical cores
+      # with their SMT siblings, and the pairing is not documented. Pinning the
+      # two shards to a sibling pair would put both on one physical core --
+      # slower than the quota-only scheduling this uses, and slower in a way
+      # that looks like contention from concurrency rather than from the pin.
+      #
+      # CONTENTION CANNOT MANUFACTURE A PASS, WHICH IS WHY THE DIRECTION IS
+      # SAFE: every latency assertion here is an UPPER bound (600s per call,
+      # 30s startup/recovery, 5s queue-pressure phase), so a run that passes
+      # while sharing a host passes a fortiori alone. Memory assertions read
+      # this container's own cgroup and no neighbour can move them. The tightest
+      # budget is the 5s queue-pressure phase, and it is the one to watch first
+      # if this ever goes flaky.
+      #
+      # WHAT SHARDING GAVE AWAY, AND WHERE IT IS BOUGHT BACK: one process could
+      # not finish without covering every declared size. Three can, by one of
+      # them never running. `merge_lyrics_capacity.py` is where that is said out
+      # loud -- it refuses a missing size, a duplicated size, a shard that
+      # measured a different tree, and eight other shapes, and it re-derives
+      # `production_qualified` rather than copying it from any shard.
+      # `scripts/test_lyrics_capacity.py` pins all of them.
+      - name: Production CPU and memory capacity matrix (sharded by workload)
+        timeout-minutes: 35
         env:
           TESTED_IMAGE: ${{ steps.image.outputs.image_id }}
         run: |
           set -euo pipefail
           mkdir -p capacity-evidence
-          docker run --rm --network=none --cpus=1 --memory=2g --memory-swap=2g --pids-limit=256 \
-            --mount "type=bind,src=$GITHUB_WORKSPACE/scripts,dst=/app/scripts,readonly" \
-            --mount "type=bind,src=$GITHUB_WORKSPACE/capacity-evidence,dst=/evidence" \
-            --workdir=/app --entrypoint=python3 "$TESTED_IMAGE" \
-            /app/scripts/check_lyrics_capacity.py --out=/evidence/capacity.json
+          shard() {
+            docker run --rm --network=none --cpus=1 --memory=2g --memory-swap=2g --pids-limit=256 \
+              --mount "type=bind,src=$GITHUB_WORKSPACE/scripts,dst=/app/scripts,readonly" \
+              --mount "type=bind,src=$GITHUB_WORKSPACE/capacity-evidence,dst=/evidence" \
+              --workdir=/app --entrypoint=python3 "$TESTED_IMAGE" \
+              /app/scripts/check_lyrics_capacity.py --sizes="$1" \
+              --out="/evidence/capacity-$2.json" \
+              > "capacity-evidence/shard-$2.log" 2>&1
+          }
+          shard 31 pole & pole=$!
+          shard 18,24 rest & rest=$!
+          # BOTH statuses, not the first failure. Two shards that failed
+          # differently are two findings, and stopping at the first would throw
+          # away the second shard's evidence while it was still being written.
+          rc=0
+          wait "$pole" || rc=1
+          wait "$rest" || rc=1
+          for name in pole rest; do
+            echo "::group::capacity shard $name"
+            cat "capacity-evidence/shard-$name.log" || true
+            echo '::endgroup::'
+          done
+          [ "$rc" = 0 ] || exit "$rc"
+          python3 scripts/merge_lyrics_capacity.py \
+            capacity-evidence/capacity-pole.json \
+            capacity-evidence/capacity-rest.json \
+            --out=capacity-evidence/capacity.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:

@@ -142,6 +142,17 @@ def validate_measurement(result, expected=None):
     return failures
 
 
+def cgroup_bytes(name):
+    """-> int bytes from this container's own cgroup file, or None.
+
+    Per-cgroup by construction, so a neighbouring container cannot move it.
+    That is what lets the matrix be split across containers without the
+    memory evidence becoming a reading of the runner instead of the runtime.
+    """
+    value = read(f'/sys/fs/cgroup/{name}')
+    return int(value) if value and value.isdigit() else None
+
+
 def write_result(path, result):
     path.parent.mkdir(parents=True, exist_ok=True)
     temp = path.with_suffix(path.suffix + '.tmp')
@@ -225,7 +236,8 @@ def main():
     report = {"version": 1, "status": "running", "production_qualified": False,
               "local_supplement": args.local, "sizes": sizes, "seeds": SEEDS,
               "scope": "resource capacity with explicit refusal accounting; not lyric-quality certification",
-              "limits": LIMITS, "isolation": isolation(), "measurements": [], "failures": [],
+              "limits": LIMITS, "isolation": isolation(), "measurements": [],
+              "memory_trace": [], "failures": [],
               "source_sha256": source_identity()}
     try:
         report['published_execution_limits'] = published_limits()
@@ -299,6 +311,21 @@ def main():
                             report['failures'].append(f'{size}/{seed}/{mode}: queue-pressure cleanup: {error}')
                         finally:
                             terminate_measurement(proc)
+                    # A HIGH-WATER MARK READ ONCE AT THE END CANNOT SEE A CLIMB.
+                    # `whole_runtime_peak_bytes` below is /sys/fs/cgroup/memory.peak
+                    # read after the whole loop -- a max, and one number. It was
+                    # doing double duty: bounding the peak AND standing in for
+                    # "the resident server does not accumulate across a long
+                    # run". Only the first of those survives being read once,
+                    # and when this matrix was split across containers (ci.yml,
+                    # 2026-09-09) the second would have been lost silently.
+                    # Sampling at every execution boundary answers both, with
+                    # one reading per execution instead of one per run, and it
+                    # is the same 18 executions either way.
+                    report['memory_trace'].append({
+                        'lines': size, 'seed': seed, 'mode': mode,
+                        'peak_bytes': cgroup_bytes('memory.peak'),
+                        'current_bytes': cgroup_bytes('memory.current')})
                     write_result(out, report)
         try:
             if report.get('resident_runtime', {}).get('startup_ok'):
@@ -320,6 +347,26 @@ def main():
     expected = len(sizes) * len(SEEDS) * 2
     if len(report['measurements']) != expected:
         report['failures'].append(f"completed {len(report['measurements'])}/{expected} declared measurements")
+    ceiling = LIMITS['whole_runtime_peak_mib'] * 1024**2
+    if not args.local:
+        if len(report['memory_trace']) != len(report['measurements']):
+            report['failures'].append('the memory trace does not cover every execution')
+        for sample in report['memory_trace']:
+            if sample['peak_bytes'] is None or sample['peak_bytes'] > ceiling:
+                report['failures'].append(
+                    f"{sample['lines']}/{sample['seed']}/{sample['mode']}: missing or "
+                    f"excessive whole-cgroup peak at this boundary")
+        # THE LEAK SIGNATURE, AND DELIBERATELY A STRICT ONE. Resident memory
+        # rising at EVERY boundary without once falling back is accumulation;
+        # anything less than that is a working set moving around, and calling
+        # it a leak would make this check a coin toss on a busy runner. Needs
+        # at least four boundaries before it will say anything at all.
+        climb = [s['current_bytes'] for s in report['memory_trace']]
+        if len(climb) >= 4 and all(isinstance(v, int) for v in climb) and \
+                all(b > a for a, b in zip(climb, climb[1:])):
+            report['failures'].append(
+                'resident memory rose at every execution boundary; the runtime '
+                'accumulates across a long run')
     whole_peak = read('/sys/fs/cgroup/memory.peak')
     report['whole_runtime_peak_bytes'] = int(whole_peak) if whole_peak and whole_peak.isdigit() else None
     if not args.local and (report['whole_runtime_peak_bytes'] is None or
