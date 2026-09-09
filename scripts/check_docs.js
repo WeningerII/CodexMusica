@@ -180,10 +180,11 @@ for (const md of allMarkdowns) {
   const content = fs.readFileSync(md, 'utf-8');
   if (!isExcluded(rel, content)) activeMarkdowns.push({ rel, abs: md, content });
 }
-// Also gate the non-.md discovery surfaces (llms.txt, index.html, package.json):
+// Also gate the non-.md discovery surfaces (llms.txt, index.html, atlas.html,
+// package.json):
 // they carry canonical counts and script refs, but findMarkdowns only collects
 // *.md. (codex.html is intentionally excluded — a generated bundle full of data.)
-for (const extra of ['llms.txt', 'index.html', 'package.json']) {
+for (const extra of ['llms.txt', 'index.html', 'atlas.html', 'package.json']) {
   const abs = path.join(ROOT, extra);
   if (fs.existsSync(abs))
     activeMarkdowns.push({ rel: extra, abs, content: fs.readFileSync(abs, 'utf-8') });
@@ -647,7 +648,7 @@ if (JSON_OUT) {
 
 console.log(`=== Documentation verification ===`);
 console.log(
-  `(${activeMarkdowns.length} active docs scanned: *.md + llms.txt + index.html; CHANGELOG/tests + codex.html excluded)\n`
+  `(${activeMarkdowns.length} active docs scanned: *.md + llms.txt + index.html + atlas.html; CHANGELOG/tests + codex.html excluded)\n`
 );
 
 // Numeric counts

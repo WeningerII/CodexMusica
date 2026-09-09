@@ -60,6 +60,23 @@ lyric-harness/corpus
 lyric-harness/data
 lyric-harness/quality/matrix_eval.json
 
+# Atlas sidecars. Two reasons, matching the exclusions above:
+#
+# data/atlas-geo.json  generated output whose exact BYTES are the gate.
+#                      scripts/build_atlas_geo.js --check re-derives the file
+#                      and string-compares it, so a prettier reflow would fail
+#                      a gate whose whole job is to notice drift. Same class as
+#                      scripts/_voice_parts_data.js.
+# data/geo.json        a hand-curated review surface, deliberately written one
+#                      tradition per line so the human pass that moves ids into
+#                      data/geo-meta.json's verified list produces readable
+#                      diffs. Reflowing it would collapse that.
+#
+# The remaining sidecars (countries.geo.json and the tree/route/thread tables)
+# are vendored or derived catalog data, not prose — the same rationale that
+# excludes references/ above.
+data
+
 # Measured audit evidence: preserve generator bytes and archived SHA256 identities.
 lyric-harness/quality/RESULTS_CAPACITY_PRODUCTION_2026-09-08.json
 lyric-harness/quality/results/production_data_2026-09-08
