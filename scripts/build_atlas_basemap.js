@@ -6,9 +6,15 @@
 // territories. That is not a cosmetic gap: build_atlas_geo.js tests every pin
 // against these polygons to keep spread pins ashore, so an undrawn island reads
 // as open ocean. Twenty-nine coordinate groups sat more than 50km from any
-// drawn land — Tahiti, Réunion, Okinawa, the Faroes, the Canaries, Jeju,
-// Shetland, Barbados, Malé, Zanzibar — and every one of them was a CORRECT
+// drawn land — Tahiti (3212km), Malé (612km), Réunion (709km), Okinawa (588km),
+// the Faroes (385km), La Gomera (341km), Barbados (284km), Las Palmas (223km),
+// Shetland (197km), Jeju (99km) — and every one of them was a CORRECT
 // coordinate on an island the basemap omitted. The file was wrong, not the data.
+// (Zanzibar was in this list until 2026-09-09 and does not belong: it measures
+// 46.6km, under the threshold. The COUNT of 29 was re-derived when this gate
+// moved from a vertex metric to an edge metric; the NAMES beside it were not,
+// and one of them changed sides. Re-deriving a number without re-deriving the
+// sentence around it is the same defect as the one two paragraphs down.)
 // (An earlier comment in build_atlas_geo.js read that count as a geo.json audit
 // finding. It never was one, and this script is why the confusion cannot recur:
 // with these polygons nothing sits further than ~6km offshore.)
@@ -49,17 +55,23 @@ const OUT_FILE = path.join(ROOT, 'data', 'countries.geo.json');
 // eye: at 0.02 no origin coordinate in data/geo.json sits further than 6.1km
 // from a drawn coast, and every one of those is a real coastal or delta city
 // (Belém on the braided Pará channels is the furthest). Coarser tolerances stay
-// correct on that metric but cut visibly into bays; 0.05 was measured at 6.1km
-// too and saves 330KB, and is the obvious lever if the payload ever matters
-// more than the coastline.
+// correct on that metric but cut visibly into bays. 0.05 saves 330KB and is the
+// obvious lever if the payload ever matters more than the coastline, but it is
+// NOT free on the metric: re-measured 2026-09-09 it puts the furthest origin at
+// 8.63km (Dangriga), not the 6.1km an earlier draft of this comment claimed —
+// that figure came from the vertex metric this gate no longer uses. Still well
+// inside MAX_OFFSHORE_KM, so the lever is real; it just costs 2.5km of headroom.
 //
 // DO NOT REACH FOR ADAPTIVE TOLERANCE HERE. 57 coordinate groups still test as
 // just-offshore, all within 6.1km, and the obvious theory is that flat
 // simplification shaves small islands harder than large landmasses. MEASURED
 // AND FALSE: scaling tolerance by ring size costs 6,171 vertices and 100KB and
-// moves the count by ZERO, because those pins are offshore in the RAW,
-// UNSIMPLIFIED source too — New York, Venice, Cádiz, Belém, Bridgetown,
-// Fort-de-France, Shetland, all of them. 1:50m is a 1:50-million-scale product
+// moves the count by ZERO, because these pins are overwhelmingly offshore in the
+// RAW, UNSIMPLIFIED source too — New York, Venice, Cádiz, Belém, Bridgetown,
+// Fort-de-France, Shetland, Goa and Apia are each offshore in the raw file,
+// which carries 54 offshore groups against the shipped file's 57. (An earlier
+// draft said "all of them", which overstated it by three.) 1:50m is a
+// 1:50-million-scale product
 // whose coastlines the cartographers already generalised at about this
 // distance; Manhattan sits inside the harbour generalisation and Venice is a
 // lagoon. The residue is the source's scale, not this script's arithmetic, and
@@ -181,7 +193,13 @@ function main() {
   // Not a soft warning. Losing a polygon is the failure mode, so it fails.
   if (dropped) {
     console.error('build_atlas_basemap: FAIL — ' + dropped + ' polygon(s) collapsed to nothing');
-    console.error('  lower TOLERANCE; a dropped ring is an island removed from the map');
+    // Name PRECISION, not TOLERANCE. reduceRing falls back to the UNSIMPLIFIED
+    // ring when simplification takes it below four points, so a null return
+    // depends only on PRECISION and the source — measured across
+    // TOLERANCE 0 .. 1e9 at PRECISION 1, the drop count is 65 every time.
+    // Telling an operator to lower TOLERANCE here sends them to a dial that
+    // provably cannot move this number.
+    console.error('  raise PRECISION; a dropped ring is an island removed from the map');
     process.exit(1);
   }
 

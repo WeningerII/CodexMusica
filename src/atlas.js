@@ -321,8 +321,14 @@
     // blind and a person has checked none of them, and those are different
     // claims — collapsing them into one "verified" number is the overclaim
     // this line exists to avoid. See the note in data/geo-meta.json.
-    var reviewed = (S.meta.reviewed || []).length;
-    var verified = (S.meta.verified || []).length;
+    // Either shape: the live page fetches data/geo-meta.json and gets the id
+    // lists, the standalone build inlines the COUNTS instead — 2,503 ids is
+    // 42KB in every published artifact to read one `.length` from.
+    var count = function (v) {
+      return typeof v === 'number' ? v : (v || []).length;
+    };
+    var reviewed = count(S.meta.reviewed);
+    var verified = count(S.meta.verified);
     el.provenance.textContent =
       'Bubbles count documented scenes, not musical abundance · ' +
       S.pts.length.toLocaleString('en') +

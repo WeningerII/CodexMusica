@@ -1,1 +1,10 @@
 graphify-out/graph.json merge=graphify
+
+# Byte-compared generated files. Their --check gates re-derive the file and
+# string-compare it against what is on disk, so an EOL conversion at checkout
+# fails the gate on a clone with core.autocrlf=true while nothing is actually
+# wrong. -text keeps git's hands off the line endings; the generators write \n.
+data/countries.geo.json -text
+data/atlas-geo.json     -text
+data/tree-nodes.json    -text
+data/tree-map.json      -text

@@ -88,6 +88,7 @@ const INDEX_FILE = path.join(ROOT, 'api', 'traditions', 'index.json');
 const GEO_FILE = path.join(ROOT, 'data', 'geo.json');
 const WORLD_FILE = path.join(ROOT, 'data', 'countries.geo.json');
 const OUT_FILE = path.join(ROOT, 'data', 'atlas-geo.json');
+const META_FILE = path.join(ROOT, 'data', 'geo-meta.json');
 
 // Spread parameters. RADIUS_K * sqrt(n), clamped — so a pair sits ~7km apart
 // while a 25-deep stack fills a 25km disc, roughly the reach of the metro areas
@@ -184,6 +185,16 @@ function makeOnLand(polys) {
   };
 }
 
+// Longitude differences, folded onto the shorter way round the globe.
+//
+// Without this, a point at 179.999E and a coast at 179.9W are 360 degrees apart
+// instead of 0.1, and the seam runs through inhabited islands: MEASURED, a pin
+// at [-17.11, -179.999] in the Lau group reads 16.3km from land when the true
+// distance is 14.5km, which is enough to trip MAX_OFFSHORE_KM and fail the
+// build for a coordinate that is fine. A scan of the +/-180 band found 30 such
+// false-fail latitudes in Fiji alone and 8 more off Wrangel.
+const wrapDeg = (d) => (d > 180 ? d - 360 : d < -180 ? d + 360 : d);
+
 // Distance from a point to the nearest land EDGE, in km.
 //
 // It has to be the edge and not the nearest VERTEX. A vertex metric reads a
@@ -192,19 +203,26 @@ function makeOnLand(polys) {
 // the data — the first draft of this gate called Durban 62km offshore for
 // exactly that reason. Local equirectangular metres are plenty at this scale
 // and avoid a great-circle call per segment.
+//
+// THERE IS NO BOUNDING-BOX PREFILTER, DELIBERATELY. The first draft skipped any
+// polygon more than 10 degrees away, which is fast and wrong in two directions:
+// it cannot see across the antimeridian at all, and a point further out than
+// the pad gets no polygon at all and returns Infinity — which then printed
+// "Infinitykm" in the failure report and made the sort comparator return NaN
+// for two such points. This runs over every ring for the handful of coordinates
+// that are offshore at all (57 today, of 835), which is well under a second.
 function nearestLandKm(polys, lat, lng) {
   const kx = 111.32 * Math.cos((lat * Math.PI) / 180);
   const ky = 110.57;
   let best = Infinity;
   for (const p of polys) {
-    if (lng < p.minx - 10 || lng > p.maxx + 10 || lat < p.miny - 10 || lat > p.maxy + 10) continue;
     for (const ring of p.rings) {
       for (let i = 1; i < ring.length; i++) {
         const a = ring[i - 1];
         const b = ring[i];
-        const px = (lng - a[0]) * kx;
+        const px = wrapDeg(lng - a[0]) * kx;
         const py = (lat - a[1]) * ky;
-        const dx = (b[0] - a[0]) * kx;
+        const dx = wrapDeg(b[0] - a[0]) * kx;
         const dy = (b[1] - a[1]) * ky;
         const len = dx * dx + dy * dy;
         let t = len > 0 ? (px * dx + py * dy) / len : 0;
@@ -222,6 +240,16 @@ function nearestLandKm(polys, lat, lng) {
 // Every distinct ORIGIN coordinate must be on land, or close enough to a coast
 // that the basemap's own resolution explains it. Distinct coordinates only: a
 // 103-stack shares one origin and is one fact, not 103.
+//
+// WHAT THIS GATE CANNOT SEE: INLAND WATER. Natural Earth's admin-0 outlines do
+// not cut lakes out of a country, so onLand() is true in the middle of Lake
+// Michigan, Baikal or Victoria and the distance is never computed. MEASURED: a
+// coordinate at [43.5, -87], 344km from the nearest polygon EDGE and several
+// hundred km of open fresh water from any shore, passes this gate silently.
+// Closing that needs Natural Earth's lakes layer vendored beside the countries
+// and subtracted here, which is a second source and its own change. Recorded
+// rather than left for someone to discover, because a gate that is silent on a
+// whole class of error reads exactly like a gate that found nothing.
 function checkOffshore(geo, polys, onLand) {
   const seen = new Set();
   const adrift = [];
@@ -428,6 +456,36 @@ function main() {
     console.error('build_atlas_geo: FAIL — ' + policyErrs.length + ' geo.json policy error(s)');
     policyErrs.slice(0, 25).forEach((e) => console.error('  ' + e.join(' ')));
     console.error('  see the policy in scripts/_atlas_regions.js');
+    process.exit(1);
+  }
+
+  // data/geo-meta.json's lists drive the atlas footer's "N model-reviewed /
+  // N human-verified" line, and until this check existed nothing tied them to
+  // anything: an id could be removed from geo.json, or invented outright, and
+  // the page would keep counting it. A provenance number nothing gates is the
+  // same species of claim as the ones this build already refuses.
+  const metaErrs = [];
+  if (fs.existsSync(META_FILE)) {
+    const meta = JSON.parse(fs.readFileSync(META_FILE, 'utf8'));
+    for (const field of ['reviewed', 'verified']) {
+      const list = meta[field];
+      if (list === undefined) continue;
+      if (!Array.isArray(list)) {
+        metaErrs.push(['META_NOT_A_LIST', field]);
+        continue;
+      }
+      const seen = new Set();
+      for (const id of list) {
+        if (!geo[id]) metaErrs.push(['META_UNKNOWN_ID', field, String(id)]);
+        if (seen.has(id)) metaErrs.push(['META_DUPLICATE_ID', field, String(id)]);
+        seen.add(id);
+      }
+    }
+  }
+  if (metaErrs.length) {
+    console.error('build_atlas_geo: FAIL — ' + metaErrs.length + ' data/geo-meta.json error(s)');
+    metaErrs.slice(0, 25).forEach((e) => console.error('  ' + e.join(' ')));
+    console.error('  every reviewed/verified id must name a tradition in data/geo.json');
     process.exit(1);
   }
 
