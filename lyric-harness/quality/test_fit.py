@@ -413,6 +413,24 @@ def test_the_boundary_is_a_value_in_the_module():
           and "melisma" in " ".join(q for q, _w in UNANSWERABLE)
           and "doctrine 19" in whys and "doctrine 35" in whys)
 
+    # G-2's RESIDUE, pinned the same way. The prosodic-fit entry's metric half
+    # shipped; what it still owns is one UNANSWERABLE row -- breath, a long
+    # vowel on a long note, a word broken across a rest -- and it is SCHEDULED
+    # behind MISSING.md F-2 rather than permanent. Pinning the row's own words
+    # keeps the entry from outliving its subject: if the row is deleted,
+    # reworded off its keys, or promoted out of UNANSWERABLE the day the
+    # residue ships, this fails.
+    residue = [q for q, w in UNANSWERABLE if "MISSING.md G-2" in w]
+    check("G-2's residue is one SCHEDULED row naming its blocker and all "
+          "three of its clauses",
+          len(residue) == 1
+          and "BREATHES" in residue[0].upper()
+          and "long note" in residue[0]
+          and "broken across" in residue[0]
+          and all("SCHEDULED" in w and "MISSING.md F-2" in w
+                  for q, w in UNANSWERABLE if "MISSING.md G-2" in w),
+          residue)
+
 
 def _check_overlaps_still_detects():
     """The blueprint's overlap count is a ZERO now, and a zero is what a

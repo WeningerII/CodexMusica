@@ -149,6 +149,13 @@ being distinguished from. `grid.Meter` delegates, so the assertion is gone
 there too.
 
 ### C-2 · No cyclic-metre systems `PARTIAL` — the container exists, the
+> **TESTED WHILE OPEN.** `quality/test_meter.py` section 8 names this entry and
+> PINS THE GAP: it requires `meter.CATALOGUE` to be EMPTY at import, requires
+> `get_named("teental")` to raise, and requires that refusal to still name the
+> scale of the unsourced data and cite `MISSING.md C-2` in full. It goes red the
+> day any sourced catalogue ships and registers — the day this entry closes —
+> and red the other way if the refusal renames its citation. A green run is the
+> catalogue still absent, not the catalogue built.
 catalogues do not `OPEN`
 **Now:** `Cycle` can hold every one of them — **typed groups** (a tāla's angas:
 laghu/drutam/anudrutam), **per-position labels** (an usul or īqāʿ is a LABELLED
@@ -678,6 +685,14 @@ harmony (Turkish, Finnish, Hungarian) as a rhyme constraint; consonant mutation
 changes what rhyme even means.
 
 ### F-3 · Dialect orthography is a per-dialect SYSTEM, not a spelling quirk `OPEN`
+> **TESTED WHILE OPEN.** `quality/test_relations.py` P7b names this entry and
+> PINS THE LIVE HALF: on one staged Barnes line, `relations.tokenise` strips
+> every elision mark while `lyric_harness.line_tokens` keeps every one, and the
+> `build_stream(tokeniser=)` seam the remedy depends on is present with no
+> production caller overriding it. It deliberately does NOT assert the diaeresis
+> divergence, which closed with `F-4a` on 2026-08-21 — asserting a dead clause
+> would be a guard red on day one. Red the day a per-dialect tokeniser is wired
+> or either reader learns the apostrophe jobs.
 **Found in the corpus 2026-08-10, and it contradicts what is already built.**
 Three English dialects in the staged song corpus use the apostrophe and hyphen
 for four different jobs, and the existing modules would corrupt three of them:
@@ -943,6 +958,12 @@ holds.
 fits, is crammed, or leaves the bar empty.
 
 ### G-2 · ~~No prosodic fit~~ — the METRIC half is delivered; melodic, vowel-length and the rest are the residue `PARTIAL`
+> **TESTED WHILE OPEN.** `quality/test_fit.py` section 12 names this entry and
+> PINS THE RESIDUE: exactly one `fit.UNANSWERABLE` row must carry
+> `MISSING.md G-2`, be SCHEDULED rather than permanent, name `MISSING.md F-2`
+> as its blocker, and still carry all three residue clauses — breath, a long
+> vowel on a long note, a word broken across a rest. Red the day the row is
+> promoted out of UNANSWERABLE, which is the day the residue ships.
 **Missing:** whether lyric stress agrees with melodic/metric accent, whether a
 long vowel sits on a long note, whether a phrase breathes, whether a word is
 broken across a rest. This is the thing that makes a lyric singable and
@@ -978,6 +999,12 @@ broken across a rest. This is the thing that makes a lyric singable and
 > entry's coordinate rather than on work this entry names.
 
 ### G-3 · Meter templates are unconnected to the bar grid `PARTIAL`
+> **TESTED WHILE OPEN.** `quality/test_verbs.py` section 1 names this entry and
+> PINS THE DISCONNECTION as three facts, any of which the connecting commit
+> breaks: `meter (template)` still answers from the SPINE and not from
+> `quality/grid.py` or `quality/fit.py`; `check_meter`'s signature is still
+> `(lex, lines, template=None)` with nothing bar-shaped and no grid/fit symbol
+> in its body; and no non-test module under `quality/` calls it at all.
 **Now:** `lyric_harness.py meter TEMPLATE` checks a stress template on text.
 It has no relationship to `quality/grid.py`.
 
@@ -9762,6 +9789,13 @@ purpose. But 47 is the real size of the owner's complaint, and it is a
 question for a person, per code, which is what this census exists to put.
 
 ### M-78 · the rule that decides note-vs-flag for 51 of 71 codes is not a doctrine, and has been cited as one 22 times `OPEN` — sized 2026-08-23
+> **TESTED WHILE OPEN.** `quality/test_gate_census.py` section 6 names this
+> entry and PINS THE ABSENCE: the `CONVENTION` disposition rules the largest
+> disclosed-only bucket, its own gloss states the note-vs-flag rule, and NO
+> doctrine title states it — searched over all 95. The search is proven ALIVE
+> against the gloss itself before its absence is read as a finding, because an
+> empty scan and a clean one look identical (doctrine 20). Red the day the rule
+> is minted as a doctrine or the citations are repointed.
 **Found by the owner asking a one-line question** while M-77's disposition
 table was being written: _"did you say that we have a doctrine contradicting
 the rest of them? are you saying that doctrine 6 says just wrote prose?"_ The
@@ -12905,6 +12939,12 @@ WRITING defect (no shared nucleus run) and correctly stays one.
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~176~~ -> **177**.
 
 ### M-120 · schema satisfaction and audible scheme are different coordinates, and nothing discloses the second `OPEN`
+> **TESTED WHILE OPEN.** `quality/test_plan.py` section 14 names this entry and
+> PINS THAT NOTHING RULES ON AUDIBILITY: the drawable pool is unfiltered (12 of
+> 18 schemas are inaudible at a line end), no `plan.JOINT_CODES` member can
+> refuse a plan for it, and no `plan.SWEEP_MEASURES` name lets a sweep select on
+> it. M-192 shipped the disclosure; this pins that the disclosure is all there
+> is. Red the day the ruling lands as a coordinate.
 Filed 2026-08-25 from panel run 5 (`quality/RESULTS_PANEL.md` §8), the
 first measurement of a song whose relations the planner DREW (M-117).
 Both weakest-of-set ballots against the suspect heard the drawn web as
@@ -13646,6 +13686,12 @@ to close, and it reappeared inside M-129's own repair — the same shape as
 M-133's vacuous first gate draft, in the neighbouring file, on the same day.
 
 ### M-135 · the comparator's span search has no null under the same search `OPEN`
+> **TESTED WHILE OPEN.** `quality/test_spans.py` section 3 names this entry and
+> PINS THE UNCORRECTED SEARCH: the k=6 span search beats its own k=1
+> restriction (0.579 against 0.272), yet `Declaration` carries no field naming a
+> search or a k, so the identical bare theta admits both — and
+> `search_null.CROSSOVER` (0.72) sits BELOW that theta (0.75), which is the one
+> state this entry's gate refuses. Red the day k enters the comparison.
 The audit the owner asked for, run against the site every rhyme number passes
 through. **DOCTRINE 56 IS HONOURED IN ONE LAYER AND RECORDED-BUT-UNAPPLIED IN
 THE OTHER, and the two layers are one screen apart.**
@@ -15126,6 +15172,13 @@ flipped — which is why it did not survive being named as owed.
 Attributed to a lane; the D1 table, the pool and the gate I re-derived myself.
 
 ### M-142 · the recovered cover could not be spelled as a mandate `OPEN`
+> **TESTED WHILE OPEN.** `quality/test_mandate_language.py` section 7 names this
+> entry and PINS THE MISSING SPELLING: a return class member carrying a
+> placement (`1.head`) is REFUSED BY NAME with its remedy stated, while the
+> bare-line spelling `returns="1,3"` in the same section is ACCEPTED — a placed
+> word-identity has no mandate spelling here, which is this entry's open half.
+> Red the day a Return can carry loci and a returns_check compares the words at
+> them.
 Opened and half-closed 2026-08-26, out of M-139's `recover` lane. **The module
 that structures a PASTED song makes one claim about itself and it was FALSE
 through the only handoff it documents.**

@@ -188,8 +188,14 @@ def test_the_catalogue_is_empty_and_refuses():
         get_named("teental")
     except KeyError as e:
         msg = str(e)
-        check("and the message names the scale of the gap",
-              "35 talas" in msg and "usul" in msg and "MISSING.md" in msg,
+        # The key is pinned WITH its register prefix. quality/triage.py's
+        # m_win only sees a key when the literal MISSING sits within
+        # MISSING_NEAR characters of it, so a bare "MISSING.md" here left
+        # C-2 reading CITED (a module names it, no test guards it) when it
+        # was DECLARED. Same move as test_fit.py section 12, and stricter:
+        # a refusal that renames its citation now fails.
+        check("and the message names the scale of the gap and its entry",
+              "35 talas" in msg and "usul" in msg and "MISSING.md C-2" in msg,
               "35 talas, 100+ usuls, ~100 iqa'at, the gamelan forms, the "
               "compases and the timelines all need SOURCING")
     check("an entry without a SOURCE is refused",

@@ -355,7 +355,8 @@ def test_refusals():
     ok("a return line outside the song REFUSES",
        raises(lambda: S.mandate("ABAB", returns="1,9"), "outside"))
     ok("a PLACED return member REFUSES BY NAME with the remedy stated — "
-       "not `invalid literal for int()` from three frames down (M-142): "
+       "not `invalid literal for int()` from three frames down "
+       "(MISSING.md M-142): "
        "a return class declares whole LINES identical and the identity "
        "judges read lines, so `1.head` has no judge to be handed to",
        raises(lambda: S.mandate([["1.head", "3"]], n_lines=4,

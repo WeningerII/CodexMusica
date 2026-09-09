@@ -178,6 +178,30 @@ def test_search_size_is_recorded():
     check("a max over k is not a max over 1 here — the search is real",
           sp["search_k"] > 1,
           "so a bare maximum quotes a search back at itself until k is known")
+    # MISSING.md M-135 — the span search has no null under it, and this is
+    # the pin that says so rather than a citation. The search DOES work
+    # (restricting both sides to endword_only collapses k to 1 and drops the
+    # score), yet k reaches no admission decision: `Declaration` carries no
+    # field naming a search or a k, so the same bare theta faces a k=6 total
+    # and a k=1 total, and `search_null.CROSSOVER` sits BELOW that theta —
+    # the one state M-135's gate refuses. It goes red the day k enters the
+    # comparison, or the day CROSSOVER rises past theta.
+    # endword_only returns ONE candidate, not a list — best_score wants lists.
+    one = lh.best_score([SN.endword_only(aa)], [SN.endword_only(bb)], DECL,
+                        "go", "receipt")
+    decl_fields = [f for f in dir(DECL)
+                   if not f.startswith("_")
+                   and ("search" in f.lower() or f == "k")]
+    check("the k=6 search beats its own k=1 restriction, yet k reaches no "
+          "admission decision and CROSSOVER sits under theta "
+          "(MISSING.md M-135)",
+          one["spans"]["search_k"] == 1
+          and s["total"] > one["total"]
+          and decl_fields == []
+          and SN.CROSSOVER < DECL.theta_rhyme,
+          f"k={sp['search_k']} scores {s['total']:.3f} vs k=1 "
+          f"{one['total']:.3f}; declaration k-fields {decl_fields}; "
+          f"CROSSOVER {SN.CROSSOVER} < theta {DECL.theta_rhyme}")
 
 
 def test_a_tie_at_the_maximum_is_reported():
