@@ -52,6 +52,18 @@ const OUT_FILE = path.join(ROOT, 'data', 'countries.geo.json');
 // correct on that metric but cut visibly into bays; 0.05 was measured at 6.1km
 // too and saves 330KB, and is the obvious lever if the payload ever matters
 // more than the coastline.
+//
+// DO NOT REACH FOR ADAPTIVE TOLERANCE HERE. 57 coordinate groups still test as
+// just-offshore, all within 6.1km, and the obvious theory is that flat
+// simplification shaves small islands harder than large landmasses. MEASURED
+// AND FALSE: scaling tolerance by ring size costs 6,171 vertices and 100KB and
+// moves the count by ZERO, because those pins are offshore in the RAW,
+// UNSIMPLIFIED source too — New York, Venice, Cádiz, Belém, Bridgetown,
+// Fort-de-France, Shetland, all of them. 1:50m is a 1:50-million-scale product
+// whose coastlines the cartographers already generalised at about this
+// distance; Manhattan sits inside the harbour generalisation and Venice is a
+// lagoon. The residue is the source's scale, not this script's arithmetic, and
+// the only fix would be a finer Natural Earth tier at several times the bytes.
 const TOLERANCE = 0.02;
 const PRECISION = 3;
 
