@@ -37,16 +37,25 @@
 // each candidate is tested against the basemap polygons; if a pin whose origin
 // is on land would land at sea, the angle is nudged through a fixed ladder
 // (inland is almost always available in SOME direction) and only then is the
-// radius shrunk. Pins whose ORIGIN falls outside every basemap polygon are left
-// alone, since there is no shore to keep them on: --stats counts 99 of those
-// inside a stack.
+// radius shrunk. Pins whose ORIGIN is already offshore are left alone, since
+// there is no shore to keep them on.
 //
-// THAT COUNT IS NOT A COORDINATE AUDIT, and an earlier version of this comment
-// wrongly read it as one. data/countries.geo.json carries 180 country outlines
-// and draws no small island territories, so a pin sitting correctly on an
-// island the basemap omits tests exactly the same as a pin genuinely dropped in
-// the ocean. The number measures the basemap's coverage, not geo.json's
-// accuracy, and nothing here should be read as a finding about the data.
+// THE OFFSHORE COUNT IS NOT A COORDINATE AUDIT. An earlier version of this
+// comment read it as one and was wrong: the basemap then carried 180 country
+// outlines and drew no small island territories, so a pin sitting CORRECTLY on
+// an undrawn island tested exactly the same as one dropped in the ocean. Under
+// that file 29 coordinate groups read as more than 50km from land, and all 29
+// were right — Tahiti, Réunion, Okinawa, the Faroes, the Canaries, Jeju,
+// Shetland, Barbados, Malé, Zanzibar. The number measured the basemap, not the
+// data. data/countries.geo.json is now derived by scripts/build_atlas_basemap.js
+// from Natural Earth 1:50m, which draws all of them.
+//
+// So the count is now worth gating, and checkOffshore below does: no origin
+// coordinate may sit further than MAX_OFFSHORE_KM from a drawn coast. Today the
+// furthest is ~6km (Belém, on the braided Pará delta channels) and every entry
+// past 2km is a real coastal, delta or island city. The gate catches two things
+// at once — a coordinate typed into geo.json that is genuinely adrift, and a
+// basemap change that stops drawing somewhere people live.
 //
 // A minimum separation of 0.62 * R/sqrt(n) km is also enforced between accepted
 // slots, so the angle search can never park two pins on top of each other and
@@ -99,6 +108,12 @@ const KM_PER_DEGREE = 111.32;
 // ladder. Fixed tables, not a search — the output must be reproducible.
 const ANGLE_TRIES = [0, 0.52, -0.52, 1.05, -1.05, 1.65, -1.65, 2.3, -2.3, Math.PI];
 const SHRINK_TRIES = [1, 0.72, 0.5, 0.32, 0.18];
+
+// How far offshore an ORIGIN coordinate may sit before the build refuses it.
+// The furthest today is 6.1km, so 15 leaves real headroom for a coastline the
+// simplifier trims differently while still catching anything actually adrift:
+// under the old 180-outline basemap, 29 groups read past 50km.
+const MAX_OFFSHORE_KM = 15;
 
 // FNV-1a. Any stable string hash works; this one is short and has no deps.
 function hash32(str) {
@@ -167,6 +182,59 @@ function makeOnLand(polys) {
     }
     return false;
   };
+}
+
+// Distance from a point to the nearest land EDGE, in km.
+//
+// It has to be the edge and not the nearest VERTEX. A vertex metric reads a
+// coastal city as far out to sea whenever simplification leaves a long straight
+// segment beside it, so it moves with the basemap's tolerance rather than with
+// the data — the first draft of this gate called Durban 62km offshore for
+// exactly that reason. Local equirectangular metres are plenty at this scale
+// and avoid a great-circle call per segment.
+function nearestLandKm(polys, lat, lng) {
+  const kx = 111.32 * Math.cos((lat * Math.PI) / 180);
+  const ky = 110.57;
+  let best = Infinity;
+  for (const p of polys) {
+    if (lng < p.minx - 10 || lng > p.maxx + 10 || lat < p.miny - 10 || lat > p.maxy + 10) continue;
+    for (const ring of p.rings) {
+      for (let i = 1; i < ring.length; i++) {
+        const a = ring[i - 1];
+        const b = ring[i];
+        const px = (lng - a[0]) * kx;
+        const py = (lat - a[1]) * ky;
+        const dx = (b[0] - a[0]) * kx;
+        const dy = (b[1] - a[1]) * ky;
+        const len = dx * dx + dy * dy;
+        let t = len > 0 ? (px * dx + py * dy) / len : 0;
+        t = t < 0 ? 0 : t > 1 ? 1 : t;
+        const ex = px - t * dx;
+        const ey = py - t * dy;
+        const km = Math.sqrt(ex * ex + ey * ey);
+        if (km < best) best = km;
+      }
+    }
+  }
+  return best;
+}
+
+// Every distinct ORIGIN coordinate must be on land, or close enough to a coast
+// that the basemap's own resolution explains it. Distinct coordinates only: a
+// 103-stack shares one origin and is one fact, not 103.
+function checkOffshore(geo, polys, onLand) {
+  const seen = new Set();
+  const adrift = [];
+  for (const id of Object.keys(geo)) {
+    const [lat, lng, place] = geo[id];
+    const key = lat + ',' + lng;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    if (onLand(lat, lng)) continue;
+    const km = nearestLandKm(polys, lat, lng);
+    if (km > MAX_OFFSHORE_KM) adrift.push({ id, place, lat, lng, km });
+  }
+  return adrift.sort((a, b) => b.km - a.km);
 }
 
 // ── the spread ──
@@ -348,7 +416,8 @@ function main() {
     process.exit(1);
   }
 
-  const onLand = makeOnLand(loadLand(world));
+  const polys = loadLand(world);
+  const onLand = makeOnLand(polys);
   // Validate every authored field before spreading anything: shape, ranges, the
   // region against REGIONS, and the label against the name-the-place-not-the-
   // state policy. A bad entry fails here rather than rendering as a pin nobody
@@ -359,6 +428,26 @@ function main() {
     console.error('build_atlas_geo: FAIL — ' + policyErrs.length + ' geo.json policy error(s)');
     policyErrs.slice(0, 25).forEach((e) => console.error('  ' + e.join(' ')));
     console.error('  see the policy in scripts/_atlas_regions.js');
+    process.exit(1);
+  }
+
+  const adrift = checkOffshore(geo, polys, onLand);
+  if (adrift.length) {
+    console.error(
+      'build_atlas_geo: FAIL — ' +
+        adrift.length +
+        ' coordinate(s) more than ' +
+        MAX_OFFSHORE_KM +
+        'km from any drawn coast'
+    );
+    adrift
+      .slice(0, 25)
+      .forEach((a) =>
+        console.error(
+          '  ' + Math.round(a.km) + 'km  ' + a.place + '  [' + a.lat + ', ' + a.lng + ']  ' + a.id
+        )
+      );
+    console.error('  either the coordinate is wrong, or the basemap stopped drawing that land');
     process.exit(1);
   }
 
@@ -408,7 +497,9 @@ function main() {
         stats.unplaceable
     );
     console.log(
-      '  stacked pins whose ORIGIN is off every basemap polygon: ' +
+      '  stacked pins whose ORIGIN is offshore (basemap resolution, gated at ' +
+        MAX_OFFSHORE_KM +
+        'km): ' +
         stats.originAtSea +
         '; max displacement ' +
         stats.maxDisplacementKm.toFixed(1) +
