@@ -115,6 +115,15 @@ jobs:
       # and the toolkit's own miss message says so ("There exist one or more
       # cache(s) with similar key but they have different version or scope").
       #
+      # AND THIS IS THE SHIPPED BYTES, NOT THE LIBRARY IN GENERAL. The rule
+      # above was re-read out of the bundled `dist/restore/index.js` at
+      # actions/cache `0057852bfaa89a56745cba8c7296529d2fc39830` -- the SHA the
+      # failing job's own log records downloading -- so "main may differ from
+      # what shipped" is closed rather than assumed. The compression component
+      # is `zstd-without-long`: the dist returns it whenever zstd exists at
+      # all, and the job's tar line is `--use-compress-program zstdmt` with no
+      # `--long=30`. So the two hashes below are the live ones.
+      #
       # MEASURED, NOT DEDUCED. ci.yml:3592-3596 banks the memo under `path:
       # ~/.cache/lyric-harness`. The nightly of run 34413319893 banked 172,949
       # bytes at 01:32:47Z under `lyric-harness-predictability-v1-34413319893`.
