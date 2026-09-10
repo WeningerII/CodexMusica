@@ -68,7 +68,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        component: [mutation-1, mutation-2, mutation-3, mutation-4, song, short, curves]
+        component:
+          [
+            mutation-1,
+            mutation-2,
+            mutation-3,
+            mutation-4,
+            mutation-5,
+            mutation-6,
+            mutation-7,
+            mutation-8,
+            song,
+            short,
+            curves,
+          ]
     env:
       OMP_NUM_THREADS: '1'
       MKL_NUM_THREADS: '1'
@@ -100,38 +113,83 @@ jobs:
           path: capacity-proof
       - name: Require the proof to match this consumer's actual runtime and table
         run: python3 scripts/production_qualification.py capacity-accept capacity-proof
-      # THE BUDGETS BELOW ARE WARM-MEMO BUDGETS, AND THIS IS WHERE THE MEMO
-      # COMES FROM. `curves` runs `length_curve_calibration.py check` with no
-      # `--rows`, so it re-derives every one of 8,667 corpus items rather than
-      # trusting a saved TSV — the stronger claim, and the reason the
-      # predictability memo at ~/.cache/lyric-harness is not an optimisation
-      # here but the difference between a job that finishes and one that does
-      # not. ci.yml's own repinned figure for a COLD memo is 8,758 CPU-s
-      # (2026-08-30, run 33305249323); the `curves` budget is 2,400.
+      # ONE RESTORE STEP PER PRODUCER, AND THE `path:` LIST IS WHY (M-264).
+      # Until 2026-09-10 this was ONE step listing TWO paths and naming the
+      # nightly's prefix, and that prefix could not match on any run, ever.
       #
-      # The nightly song-profile job banks that memo under
-      # `lyric-harness-predictability-v1-<run_id>` with `if: always()`, and
-      # Actions caches are shared across workflows in a repository. Until
-      # 2026-09-09 this restore could not name that prefix, so the FIRST
-      # attempt at any new SHA was cold by construction — the
-      # `qualification-<component>-<sha>-` prefix can only hit a re-run of a
-      # commit that already ran. Production qualification run 1 never got far
-      # enough to show it (`curves` refused in 1.8s on M-259's tagger lookup),
-      # and the second attempt would have spent the budget instead.
+      # actions/cache does not address an entry by its key alone. It computes
+      # `version = sha256(paths.join('|') + '|' + compressionMethod + '|' +
+      # '1.0')` and sends that ONE version alongside the primary key AND every
+      # restore-key — on the v1 REST path (`cache?keys=...&version=...`) and
+      # on the v2 twirp path alike — and there is no version-relaxed fallback.
+      # The strings it hashes are the RAW `path:` lines: `resolvePaths()`
+      # output feeds only `createTar`, never the version. So a two-line list
+      # is a DIFFERENT VERSION from a one-line list naming the same directory,
+      # and the toolkit's own miss message says so ("There exist one or more
+      # cache(s) with similar key but they have different version or scope").
       #
-      # ORDER MATTERS: the qualification-specific prefix is listed FIRST so a
-      # re-run of this exact commit still prefers its own banked state, which
-      # also carries /tmp/mutate-scratch/baseline.json; the nightly prefix is
-      # the fallback and carries only the memo.
-      - uses: actions/cache/restore@v4
+      # AND THIS IS THE SHIPPED BYTES, NOT THE LIBRARY IN GENERAL. The rule
+      # above was re-read out of the bundled `dist/restore/index.js` at
+      # actions/cache `0057852bfaa89a56745cba8c7296529d2fc39830` -- the SHA the
+      # failing job's own log records downloading -- so "main may differ from
+      # what shipped" is closed rather than assumed. The compression component
+      # is `zstd-without-long`: the dist returns it whenever zstd exists at
+      # all, and the job's tar line is `--use-compress-program zstdmt` with no
+      # `--long=30`. So the two hashes below are the live ones.
+      #
+      # MEASURED, NOT DEDUCED. ci.yml:3592-3596 banks the memo under `path:
+      # ~/.cache/lyric-harness`. The nightly of run 34413319893 banked 172,949
+      # bytes at 01:32:47Z under `lyric-harness-predictability-v1-34413319893`.
+      # Three hours later qualification run 34436960370 logged `Cache not
+      # found for input keys: ..., lyric-harness-predictability-v1-`, reported
+      # `predictability memo: 0 line(s)`, and spent its whole 2,400 s budget
+      # on a cold memo for exit 124. Reimplementing getCacheVersion over the
+      # two literal lists gives f1a8e46d72... for ci.yml's one-line path and
+      # 201f650e7f... for the two-line list that stood here.
+      #
+      # So each producer gets its own step whose `path:` is byte-identical to
+      # that producer's. This is STRING equality of the list, not path
+      # equivalence: `$HOME/.cache/lyric-harness`, a trailing slash, or
+      # reordering the two lines would each still miss. The saves at the foot
+      # of this job are split the same way, because a save's version comes
+      # from the same function and a combined save is unreachable from split
+      # restores.
+      #
+      # ORDER MATTERS within each step: the qualification-specific prefix is
+      # listed FIRST so a re-run of this exact commit prefers its own banked
+      # state; the cross-workflow prefix is the fallback.
+      #
+      # WHAT THIS DOES NOT DECIDE: whether the restored memo is USABLE. It is
+      # fingerprint-guarded — `comparator_fingerprint()` whole-file hashes
+      # `lyric_harness.py` and `quality/features.py` — so a memo banked before
+      # a commit that touched either is read, discarded by name, and
+      # recomputed. Reaching the entry and being able to use it are two
+      # different repairs; this is the first. The `curves` budget carries the
+      # second.
+      - name: Restore the predictability memo (ci.yml's path list, exactly)
+        uses: actions/cache/restore@v4
         with:
-          path: |
-            ~/.cache/lyric-harness
-            /tmp/mutate-scratch/baseline.json
-          key: qualification-${{ matrix.component }}-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ~/.cache/lyric-harness
+          key: qualification-${{ matrix.component }}-memo-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
-            qualification-${{ matrix.component }}-${{ github.sha }}-
+            qualification-${{ matrix.component }}-memo-${{ github.sha }}-
             lyric-harness-predictability-v1-
+      # NO `lyric-harness-mutation-baseline-v1-` PREFIX HERE, AND THAT IS THE
+      # STRIKE STANDING, NOT AN OVERSIGHT. M-263 established that a baseline
+      # banked by another workflow can be RESTORED and still never ACCEPTED:
+      # `mutate.baseline()` takes a cached file only when its fingerprint and
+      # its `{jobs, confirm_all, timeout}` config both match, and
+      # `mutate.source_fingerprint()` hashes the whole harness tree. Naming
+      # the prefix here would put a file on disk that `mutate.baseline()`
+      # reads, rejects and recomputes — the same nothing, one layer deeper.
+      # The qualification-specific prefix below is the one that works: it hits
+      # a re-run of this exact commit, where the fingerprint does match.
+      - name: Restore this commit's own mutation baseline, if it has one
+        uses: actions/cache/restore@v4
+        with:
+          path: /tmp/mutate-scratch/baseline.json
+          key: qualification-${{ matrix.component }}-baseline-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: qualification-${{ matrix.component }}-baseline-${{ github.sha }}-
       # A 124 on `curves` and a 124 on a cold memo look identical in the
       # evidence record, and they are not the same finding. This says which,
       # BEFORE the budget starts, in one line that costs nothing.
@@ -143,25 +201,98 @@ jobs:
           # "0\nN" in the first case and breaks whatever consumes it. `|| true`
           # plus a default expansion is one value in all three cases -- a
           # count, or nothing, or nothing.
+          # `mkdir -p` so the save at the foot of this job cannot fail on
+          # absence. actions/cache/save raises a Path Validation Error when NO
+          # listed path exists, and splitting one two-path save into two
+          # one-path saves turns "one of the two was there" into "this one
+          # must be". An EMPTY directory banks and restores harmlessly; the
+          # count below still reads 0, which is the honest answer.
+          mkdir -p ~/.cache/lyric-harness
           MEMO=~/.cache/lyric-harness/song_predictability_v1.tsv
           LINES=$(grep -c '' "$MEMO" 2>/dev/null || true)
           echo "predictability memo: ${LINES:-0} line(s) at $MEMO"
-          echo "  cold is 0; a memo covering the whole corpus is ~8,668 (8,667 items and a header)"
+          echo "  cold is 0; a memo covering the whole corpus is ~8,546 (8,545 items and a header)"
       - name: Complete the exact comparison within its existing command budget
         run: python3 scripts/production_qualification.py run '${{ matrix.component }}' --out=evidence/${{ matrix.component }}.json
+      # THE SAME COUNT AGAIN, AFTER. Two readings of one file bracket the
+      # component and turn its memo rate into a measurement; one reading only
+      # says where it started. Qualification run 34436960370 is why: `curves`
+      # started at 0 lines, spent 2,400 s, and the only surviving evidence of
+      # how far it got was the 8,865 compressed bytes its cache save reported
+      # against the nightly's 172,949 for 8,663 entries -- a RATIO OF TWO
+      # COMPRESSED SIZES, which is not a count of anything (doctrine 58). The
+      # log that held the real figure was inside an artifact, and the artifact
+      # store is not reachable from where the diagnosis happened.
+      #
+      # `if: always()` because the reading that matters most is the one after a
+      # 124: a component killed at its bound is exactly the case where "how
+      # many did it get through" decides whether the bound is too small or the
+      # work is too slow, and those are different repairs.
+      # THE PHASE COSTS THIS COMPONENT ACTUALLY PAID, LIFTED OUT OF A LOG
+      # NOBODY CAN REACH. `run_component` redirects the child's stdout to
+      # `evidence/<component>.json.log` and uploads it as an ARTIFACT, so the
+      # one number that sizes a mutation shard -- the unmutated baseline's
+      # share -- is invisible to anyone reading the job. M-266 had to measure
+      # it on a developer box instead and then argue the transfer.
+      # `test_mutation.py` already prints it ("a completed baseline hands the
+      # next person the baseline's share of the shard budget, which is what
+      # sizing N actually turns on"); this only puts it where it can be read.
+      # Bounded on purpose: matched lines only, never the whole log.
+      - name: What each phase of this component cost
+        if: always()
+        run: |
+          LOG=evidence/${{ matrix.component }}.json.log
+          if [ -f "$LOG" ]; then
+            grep -E 'phase 1 of 2|phase 2 of 2|baseline: (cached|running|[0-9])|CACHE |PHASE COST|TOTAL' "$LOG" | tail -40 || true
+          else
+            echo "no component log at $LOG"
+          fi
+      - name: Report the predictability memo this component ends with
+        if: always()
+        run: |
+          MEMO=~/.cache/lyric-harness/song_predictability_v1.tsv
+          LINES=$(grep -c '' "$MEMO" 2>/dev/null || true)
+          echo "predictability memo: ${LINES:-0} line(s) at $MEMO"
+          echo "  a memo covering the whole corpus is ~8,546 (8,545 items and a header)"
+          echo "  the flush interval is 200 puts, so this trails the true count by <200"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: qualification-${{ matrix.component }}-${{ github.run_attempt }}
           path: evidence/
           if-no-files-found: error
-      - uses: actions/cache/save@v4
+      # SPLIT TO MATCH THE SPLIT RESTORES ABOVE. A save's version is computed
+      # by the same `getCacheVersion(paths, ...)`, so a combined two-path save
+      # writes an entry that neither one-path restore can address. Both are
+      # `if: always()` for the reason ci.yml's own pair carries: a component
+      # that overran its budget still advances the resume point it reached.
+      - name: Bank the predictability memo — whatever this component's verdict was
+        uses: actions/cache/save@v4
         if: always()
         with:
-          path: |
-            ~/.cache/lyric-harness
-            /tmp/mutate-scratch/baseline.json
-          key: qualification-${{ matrix.component }}-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ~/.cache/lyric-harness
+          key: qualification-${{ matrix.component }}-memo-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+      # GUARDED ON EXISTENCE, unlike the memo above: nothing creates
+      # /tmp/mutate-scratch/baseline.json for `song`, `short` or `curves`, and
+      # an unguarded save would fail those three jobs on a Path Validation
+      # Error at the very end of a run that had already done its work. `-s`
+      # rather than `-e`: a zero-byte file would bank, restore, and then hand
+      # `mutate.baseline()` a JSON parse error instead of a cold start.
+      - name: Is there a mutation baseline to bank?
+        id: baseline
+        if: always()
+        run: |
+          if [ -s /tmp/mutate-scratch/baseline.json ]; then
+            echo "have=yes" >> "$GITHUB_OUTPUT"
+          else
+            echo "have=no" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Bank this commit's mutation baseline — whatever the verdict was
+        uses: actions/cache/save@v4
+        if: always() && steps.baseline.outputs.have == 'yes'
+        with:
+          path: /tmp/mutate-scratch/baseline.json
+          key: qualification-${{ matrix.component }}-baseline-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
 
   qualification-result:
     needs: [capacity-proof-result, component]

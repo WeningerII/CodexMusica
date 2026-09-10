@@ -4,6 +4,15 @@
 The deterministic receipt binds unchanged table bytes, the consumed judge,
 data, declarations and full Python runtime. No construction, sampling,
 provider calls, timestamps or renewal from a previous receipt occurs.
+
+--reuse-valid ADMITS a receipt already at --output instead of renewing it:
+if that receipt passes exactly the admission the server runs at boot
+(`require_current_proof`: same interpreter build, same source identity, same
+table bytes, every witness verdict complete), it is kept byte for byte and
+the measurement is skipped; otherwise it is removed and the measurement runs.
+Nothing is re-stamped, and no field of a receipt is a timing or a date, so an
+admitted receipt is the same bytes a fresh run would have written. A receipt
+this runtime would refuse at boot is refused here too, for the same reasons.
 """
 import argparse
 from concurrent.futures import ProcessPoolExecutor
@@ -90,6 +99,8 @@ def main(argv=None):
     parser.add_argument('--table', default=C.TABLE_PATH)
     parser.add_argument('--check', action='store_true', help='cheap strict validation of an existing actual all-family receipt')
     parser.add_argument('--workers', type=int, default=1, choices=range(1, 5))
+    parser.add_argument('--reuse-valid', action='store_true',
+                        help='keep an existing --output receipt that this runtime admits; measure only otherwise')
     args = parser.parse_args(argv)
     output = Path(args.output)
     if output.resolve() == Path(args.table).resolve():
@@ -103,6 +114,15 @@ def main(argv=None):
         print(f"CAPACITY RECEIPT VALID: {receipt['witnesses_verified']}/{receipt['witnesses_required']} "
               f"for actual runtime {sys.version.split()[0]}")
         return 0
+    if args.reuse_valid:
+        try:
+            receipt = C.require_current_proof(path=args.table, receipt_path=str(output))
+        except (ValueError, OSError) as exc:
+            print(f'CAPACITY RECEIPT NOT REUSED: {exc}; measuring', flush=True)
+        else:
+            print(f"CAPACITY RECEIPT REUSED: {receipt['witnesses_verified']}/{receipt['witnesses_required']} "
+                  f"admitted unchanged for actual runtime {sys.version.split()[0]}; receipt {output}")
+            return 0
     # A failed renewal must not leave an older successful receipt at this path.
     output.unlink(missing_ok=True)
     try:

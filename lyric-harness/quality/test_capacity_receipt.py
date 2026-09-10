@@ -64,11 +64,26 @@ class CapacityReceiptTests(unittest.TestCase):
             self.assertEqual(wire['summary']['chain_hi_at_least']['2'], 1)
             self.assertEqual(wire['witnesses'][0]['pairs_judged'], 1)
             self.assertEqual(verify_main([*argv, '--check']), 0)
+            # --reuse-valid ADMITS the receipt this runtime would admit at boot
+            # and does not measure again: the bytes stay, and verify_all is not
+            # reached. The same flag over a receipt the runtime would refuse
+            # measures, and what it writes is admitted afresh.
+            before = receipt.read_bytes()
+            import quality.verify_capacity as V
+            with patch.object(V, 'verify_all', side_effect=AssertionError('measured a receipt it should have admitted')):
+                self.assertEqual(verify_main([*argv, '--reuse-valid']), 0)
+            self.assertEqual(receipt.read_bytes(), before)
             for wrong in (True, 1.0):
                 changed = copy.deepcopy(wire)
                 changed['summary']['chain_hi_at_least']['2'] = wrong
                 receipt.write_text(json.dumps(changed))
                 self.assertEqual(verify_main([*argv, '--check']), 2)
+            self.assertEqual(verify_main([*argv, '--reuse-valid']), 0)
+            self.assertEqual(receipt.read_bytes(), before)
+            self.assertEqual(verify_main([*argv, '--check']), 0)
+            receipt.unlink()
+            self.assertEqual(verify_main([*argv, '--reuse-valid']), 0)
+            self.assertEqual(receipt.read_bytes(), before)
 
     def test_wrong_runtime_source_table_and_incomplete_records_refuse(self):
         for overrides in ({'python_version': 'another Python build'},

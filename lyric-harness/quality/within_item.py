@@ -76,6 +76,21 @@ class WithinItemFeatures(QualityFeatures):
         "wi_conc_spread": "higher",
     }
 
+    #: THE THREE OF THESE EIGHT THAT READ THE CONCRETENESS NORMS. The base
+    #: class loads the norms only when its `CONCRETENESS_FEATURES` meets the
+    #: requested names (features.py, M-188's refusal-first constructor), and
+    #: from 2026-09-08 (a75da39f) to 2026-09-10 this class inherited the
+    #: base's set -- three ABSOLUTE names, none of them above -- so the
+    #: intersection was empty, `self.conc` was `{}`, and these three came
+    #: back NaN on all 192 items while the extractor constructed and
+    #: extracted without a word. The nightly's within-item AUCs moved off
+    #: their pins (0.621 -> 0.654, 0.896 -> 0.877) on a joint fit over the
+    #: five survivors; splicing the norms back reproduces all four pins to
+    #: the digit. `MISSING.md` M-270. An extractor that overrides NAMES
+    #: declares which of ITS names need the norms, and the base refuses a
+    #: set that is not among its names.
+    CONCRETENESS_FEATURES = frozenset(("wi_concreteness_delta", "wi_abstract_delta", "wi_conc_spread"))
+
     #: permutation draws for the binding null; fixed seed for reproducibility
     N_PERM_BINDING = 400
     SEED = 20260809

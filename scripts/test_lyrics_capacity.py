@@ -2,8 +2,11 @@
 """Cheap adversarial checks for the production capacity qualification oracle."""
 import copy
 import hashlib
+from pathlib import Path
 from lyrics_capacity_runtime import runtime_evidence_failures, run_store_evidence_failures, queue_pressure_failures, ResidentRuntime
+import re
 import unittest
+from unittest.mock import patch
 from check_lyrics_capacity import validate_measurement, percentile, terminate_measurement, MeasurementProgress
 from measure_verb_memory import _checkpoint_valid, _machine_result, CONTROL_TOKEN, assessment_coverage_valid
 
@@ -305,6 +308,49 @@ class CapacityOracle(unittest.TestCase):
         self.assertTrue(validate_measurement(value))
 
 
+class ResidentMemoryReading(unittest.TestCase):
+    """The envelope is gated on what it has to HOLD, not on what the kernel
+    happens to be caching (M-269). The arithmetic is small and the failure
+    it prevents was a green commit going red on the next runner, so every
+    branch of it is pinned: the subtraction, the shmem add-back, the fallback
+    when memory.stat cannot say, and the absence of a reading at all."""
+
+    STAT = 'anon 700000000\nfile 900000000\nkernel 50000000\nshmem 100000000\nfile_mapped 1\n'
+
+    def test_reclaimable_file_cache_is_left_out_and_shmem_is_kept(self):
+        from check_lyrics_capacity import memory_stat, resident_bytes
+        stat = memory_stat(self.STAT)
+        self.assertEqual(stat['file'], 900000000)
+        self.assertEqual(stat['shmem'], 100000000)
+        resident, current, accounting = resident_bytes(current=1_800_000_000, stat=stat)
+        self.assertEqual(current, 1_800_000_000)
+        self.assertEqual(resident, 1_800_000_000 - (900000000 - 100000000))
+        self.assertEqual(accounting, 'current-minus-reclaimable-file')
+
+    def test_without_memory_stat_the_reading_is_the_raw_figure_and_says_so(self):
+        from check_lyrics_capacity import resident_bytes
+        resident, current, accounting = resident_bytes(current=1_800_000_000, stat={})
+        self.assertEqual((resident, current), (1_800_000_000, 1_800_000_000))
+        self.assertEqual(accounting, 'cgroup-current')
+        resident, current, accounting = resident_bytes(current=1_800_000_000, stat={'file': 5})
+        self.assertEqual(accounting, 'cgroup-current')
+
+    def test_no_cgroup_reading_is_none_not_zero(self):
+        from check_lyrics_capacity import resident_bytes
+        self.assertEqual(resident_bytes(current=None, stat={'file': 1, 'shmem': 0}), (None, None, 'unavailable'))
+
+    def test_the_progress_sampler_keeps_the_largest_resident_reading(self):
+        import check_lyrics_capacity as matrix
+        readings = iter([(500, 900), (800, 1500), (300, 700)])
+        with patch.object(matrix, 'resident_bytes', side_effect=lambda: (*next(readings), 'current-minus-reclaimable-file')):
+            progress = matrix.MeasurementProgress('t')
+            for _ in range(3):
+                progress.sample()
+        self.assertEqual(progress.resident_peak, 800)
+        self.assertEqual(progress.samples, 3)
+        self.assertEqual(progress.accounting, 'current-minus-reclaimable-file')
+
+
 class ShardedCapacityMerge(unittest.TestCase):
     """The merger must refuse every way three shards can fail to be one matrix.
 
@@ -314,79 +360,194 @@ class ShardedCapacityMerge(unittest.TestCase):
     while one of them never ran. So the interesting assertions here are the
     refusals, not the happy path -- a merger that only knows how to say yes
     would let CI go green on two thirds of its evidence.
+
+    SINCE 2026-09-10 THE UNIT DEALT IS THE (lines, seed) CELL, NOT THE SIZE
+    (M-268), so the fixtures below are shards of cells and the refusals
+    include the shapes only a cell deal can take: a cell measured twice by
+    two shards that each look complete, a shard measuring a cell it did not
+    declare, and a one-cell shard -- in which the leak signature, needing four
+    boundaries, never ran at all.
     """
 
     @staticmethod
-    def shard(size, **over):
-        from check_lyrics_capacity import LIMITS, SEEDS
+    def shard(cells, **over):
+        from check_lyrics_capacity import LIMITS, MODES, SEEDS
+        cells = [tuple(c) for c in cells]
         return {**{
             'version': 1, 'status': 'passed', 'production_qualified': False,
-            'local_supplement': False, 'sizes': [size], 'seeds': list(SEEDS),
+            'local_supplement': False, 'sizes': sorted({size for size, _ in cells}),
+            'seeds': list(SEEDS), 'cells': [list(c) for c in cells],
             'scope': 'resource capacity with explicit refusal accounting; not lyric-quality certification',
             'limits': LIMITS, 'isolation': {'production_limits_verified': True},
             'published_execution_limits': {'max_lines': 31},
             'measurements': [{'lines': size, 'seed': seed, 'mode': mode, 'rows': []}
-                             for seed in SEEDS for mode in ('cold', 'worker')],
+                             for size, seed in cells for mode in MODES],
             'memory_trace': [{'lines': size, 'seed': seed, 'mode': mode,
                               'peak_bytes': 1000, 'current_bytes': 900}
-                             for seed in SEEDS for mode in ('cold', 'worker')],
+                             for size, seed in cells for mode in MODES],
             'summaries': [], 'failures': [],
             'source_sha256': 'a' * 64, 'source_sha256_after': 'a' * 64,
         }, **over}
 
+    @staticmethod
+    def deal():
+        """The deal ci.yml runs, read from ci.yml -- so the fixture and the
+        workflow cannot drift apart (doctrine 1)."""
+        text = Path(__file__).resolve().parents[1].joinpath(
+            '.github', 'workflows', 'ci.yml').read_text(encoding='utf-8')
+        from check_lyrics_capacity import parse_cells
+        found = re.findall(r'^\s*shard\s+(\S+)\s+(\S+)\s+&', text, re.M)
+        return [(name, parse_cells(spec)) for spec, name in found]
+
     def complete(self):
-        from check_lyrics_capacity import SIZES
-        return [(f'capacity-{n}.json', self.shard(n)) for n in SIZES]
+        return [(f'capacity-{name}.json', self.shard(cells)) for name, cells in self.deal()]
+
+    def test_the_workflow_deals_every_cell_exactly_once_across_at_least_two_cells_each(self):
+        """ci.yml's own deal, before any run: nine cells, once each, no
+        one-cell shard. A deal that dropped a cell would still merge green
+        for every OTHER reason, so this is the check that reads the deal."""
+        from check_lyrics_capacity import CELLS
+        deal = self.deal()
+        self.assertGreaterEqual(len(deal), 2, 'ci.yml declares no `shard <cells> <name> &` lines')
+        dealt = [cell for _, cells in deal for cell in cells]
+        self.assertEqual(sorted(dealt), sorted(CELLS))
+        for name, cells in deal:
+            self.assertGreaterEqual(len(cells), 2, f'{name} measures one cell; the leak signature could not run')
+        self.assertEqual(len({name for name, _ in deal}), len(deal))
 
     def test_a_complete_consistent_matrix_qualifies(self):
         from merge_lyrics_capacity import merge
-        from check_lyrics_capacity import SIZES, SEEDS
+        from check_lyrics_capacity import CELLS, MODES
         report, failures = merge(self.complete())
         self.assertEqual(failures, [])
         self.assertTrue(report['production_qualified'])
         self.assertEqual(report['status'], 'passed')
-        self.assertEqual(len(report['measurements']), len(SIZES) * len(SEEDS) * 2)
+        self.assertEqual(len(report['measurements']), len(CELLS) * len(MODES))
+        self.assertEqual(sorted(map(tuple, report['cells'])), sorted(CELLS))
         # Never copied from a shard: no shard can be qualified alone, and each
         # one sets this False for exactly that reason.
         self.assertFalse(any(s['production_qualified'] for _, s in self.complete()))
 
-    def test_every_way_three_shards_fail_to_be_one_matrix_is_refused(self):
+    def test_summaries_are_derived_once_over_the_union(self):
+        """A size whose seeds sit in two shards gets ONE row per (mode, verb),
+        from the same function a single process uses -- not one partial row
+        per shard, which is what concatenating shard summaries would give."""
         from merge_lyrics_capacity import merge
-        from check_lyrics_capacity import SIZES
+        from check_lyrics_capacity import SIZES, MODES, summarize_measurements
+        report, failures = merge(self.complete())
+        self.assertEqual(failures, [])
+        keys = [(r['lines'], r['mode'], r['verb']) for r in report['summaries']]
+        self.assertEqual(len(keys), len(set(keys)))
+        self.assertEqual(sorted({k[0] for k in keys}), sorted(SIZES))
+        self.assertEqual(len(keys), len(SIZES) * len(MODES) * 2)
+        self.assertEqual(report['summaries'], summarize_measurements(report['measurements']))
+
+    def test_every_way_three_shards_fail_to_be_one_matrix_is_refused(self):
+        """Every case names the FAILURE it is refused for, and asserts that
+        one -- not merely "some failure". A case refused by an unrelated
+        check would otherwise pin nothing: the review of 2026-09-10 found
+        two of the merger's cell guards with no case that reached them,
+        because the coverage check fired first on the shape meant for them.
+        """
+        from merge_lyrics_capacity import merge
+        from check_lyrics_capacity import CELLS
+        first_cell = tuple(self.complete()[0][1]['cells'][0])
+
+        def relabel(s, **change):
+            """The last shard, cells intact, its FIRST measurement mislabelled."""
+            name, shard = s[-1]
+            measurements = [dict(m, **change) if i == 0 else m
+                            for i, m in enumerate(shard['measurements'])]
+            return s[:-1] + [(name, {**shard, 'measurements': measurements})]
+
+        def move_one(s):
+            """One execution (and its boundary) moved from the first shard to
+            the last: 18 executions overall, distinct, every cell covered --
+            and two shards whose counts do not match their cells."""
+            (a_name, a), (z_name, z) = s[0], s[-1]
+            moved, moved_trace = a['measurements'][0], a['memory_trace'][0]
+            a2 = {**a, 'measurements': a['measurements'][1:], 'memory_trace': a['memory_trace'][1:]}
+            z2 = {**z, 'measurements': z['measurements'] + [moved],
+                  'memory_trace': z['memory_trace'] + [moved_trace]}
+            return [(a_name, a2)] + s[1:-1] + [(z_name, z2)]
+
         cases = {
-            'a missing size': lambda s: s[:-1],
-            'a duplicated size': lambda s: s[:-1] + [(f'capacity-{SIZES[0]}-again.json',
-                                                      self.shard(SIZES[0]))],
-            'no shards at all': lambda s: [],
-            'a shard that did not pass': lambda s: s[:-1] + [
-                (s[-1][0], {**s[-1][1], 'status': 'failed'})],
-            'a shard carrying a failure': lambda s: s[:-1] + [
+            'a missing shard': (lambda s: s[:-1], 'each exactly once'),
+            'a duplicated shard': (lambda s: s + [(s[0][0].replace('.json', '-again.json'), s[0][1])],
+                                   'each exactly once'),
+            'a cell dealt to two shards': (lambda s: s[:-1] + [
+                (s[-1][0], self.shard(s[-1][1]['cells'] + [list(first_cell)]))], 'each exactly once'),
+            'a shard whose cells are not declared': (lambda s: s[:-1] + [
+                (s[-1][0], self.shard(s[-1][1]['cells'][:-1] + [[99, 20260908]]))],
+                'are not cells of the declared matrix'),
+            'a shard declaring no cells': (lambda s: s[:-1] + [
+                (s[-1][0], {**s[-1][1], 'cells': []})], 'declares no cells'),
+            'a shard without the cells field': (lambda s: s[:-1] + [
+                (s[-1][0], {k: v for k, v in s[-1][1].items() if k != 'cells'})], 'declares no cells'),
+            'a shard that declares fewer cells than it measured': (lambda s: s[:-1] + [
+                (s[-1][0], {**s[-1][1], 'cells': s[-1][1]['cells'][:-1]})],
+                'outside the cells it declares'),
+            'a measurement at a size outside its declared cells': (
+                lambda s: relabel(s, lines=99), 'outside the cells it declares'),
+            'a measurement at a seed outside its declared cells': (
+                lambda s: relabel(s, seed=1), 'outside the cells it declares'),
+            'a measurement in a mode nobody declared': (
+                lambda s: relabel(s, mode='hot'), 'outside the cells it declares'),
+            'two shards whose counts do not match their cells': (move_one, 'executions for'),
+            'shards agreeing on seeds nobody declared': (lambda s: [
+                (name, {**shard, 'seeds': [1, 2, 3]}) for name, shard in s], 'are not the declared'),
+            'a shard whose sizes do not describe its cells': (lambda s: s[:-1] + [
+                (s[-1][0], {**s[-1][1], 'sizes': [99]})], 'do not describe its cells'),
+            'a one-cell shard, in which the leak signature never ran': (lambda s: [
+                (f'capacity-{i}.json', self.shard([cell])) for i, cell in enumerate(CELLS)],
+                'could not have run'),
+            'no shards at all': (lambda s: [], 'no capacity shards'),
+            'a shard that did not pass': (lambda s: s[:-1] + [
+                (s[-1][0], {**s[-1][1], 'status': 'failed'})], "not 'passed'"),
+            'a shard carrying a failure': (lambda s: s[:-1] + [
                 (s[-1][0], {**s[-1][1], 'failures': ['excessive call latency']})],
-            'a --local supplement': lambda s: s[:-1] + [
-                (s[-1][0], {**s[-1][1], 'local_supplement': True})],
-            'unverified cgroup limits': lambda s: s[:-1] + [
+                'excessive call latency'),
+            'a --local supplement': (lambda s: s[:-1] + [
+                (s[-1][0], {**s[-1][1], 'local_supplement': True})], 'cannot qualify production'),
+            'unverified cgroup limits': (lambda s: s[:-1] + [
                 (s[-1][0], {**s[-1][1], 'isolation': {'production_limits_verified': False}})],
-            'a shard that measured a different tree': lambda s: s[:-1] + [
+                'cgroup limits'),
+            'a shard that measured a different tree': (lambda s: s[:-1] + [
                 (s[-1][0], {**s[-1][1], 'source_sha256': 'b' * 64,
-                            'source_sha256_after': 'b' * 64})],
-            'source that moved mid-shard': lambda s: s[:-1] + [
+                            'source_sha256_after': 'b' * 64})], 'did not measure one runtime'),
+            'source that moved mid-shard': (lambda s: s[:-1] + [
                 (s[-1][0], {**s[-1][1], 'source_sha256_after': 'c' * 64})],
-            'a shard that skipped executions': lambda s: s[:-1] + [
+                'changed during the shard'),
+            'a shard that skipped executions': (lambda s: s[:-1] + [
                 (s[-1][0], {**s[-1][1], 'measurements': s[-1][1]['measurements'][:1]})],
-            'a shard with no memory trace at all': lambda s: s[:-1] + [
-                (s[-1][0], {**s[-1][1], 'memory_trace': []})],
-            'a trace that misses a boundary': lambda s: s[:-1] + [
+                'executions across the shards'),
+            'a shard with no memory trace at all': (lambda s: s[:-1] + [
+                (s[-1][0], {**s[-1][1], 'memory_trace': []})], 'does not cover its own executions'),
+            'a trace that misses a boundary': (lambda s: s[:-1] + [
                 (s[-1][0], {**s[-1][1],
                             'memory_trace': s[-1][1]['memory_trace'][:-1]})],
-            'shards disagreeing about the declared limits': lambda s: s[:-1] + [
-                (s[-1][0], {**s[-1][1], 'limits': {'call_seconds': 9999}})],
+                'does not cover its own executions'),
+            'shards disagreeing about the declared limits': (lambda s: s[:-1] + [
+                (s[-1][0], {**s[-1][1], 'limits': {'call_seconds': 9999}})], 'limits differs from'),
         }
-        for label, break_it in cases.items():
+        for label, (break_it, needle) in cases.items():
             with self.subTest(label):
                 report, failures = merge(break_it(self.complete()))
                 self.assertTrue(failures, f'{label} was accepted')
+                self.assertTrue(any(needle in f for f in failures),
+                                f'{label} was refused, but not for {needle!r}: {failures}')
                 self.assertFalse(report.get('production_qualified'),
                                  f'{label} still reported production_qualified')
+
+    def test_the_cell_coordinate_refuses_what_is_not_a_declared_cell(self):
+        from check_lyrics_capacity import parse_cells, CELLS, SIZES, SEEDS
+        self.assertEqual(parse_cells('31:20260910,18:20260908'), ((31, 20260910), (18, 20260908)))
+        self.assertEqual(sorted(parse_cells(','.join(f'{a}:{b}' for a, b in CELLS))), sorted(CELLS))
+        for bad in ('', '31', '31:', ':20260910', '31:20260910,31:20260910', '32:20260910',
+                    f'{SIZES[0]}:1', '31-20260910', 'x:y'):
+            with self.subTest(bad=bad), self.assertRaises(ValueError):
+                parse_cells(bad)
+        self.assertEqual(len(CELLS), len(SIZES) * len(SEEDS))
 
     def test_the_merger_reads_the_population_from_where_it_is_declared(self):
         """Not a retyped 18,24,31 -- the matrix and its merger cannot disagree."""
@@ -394,6 +555,7 @@ class ShardedCapacityMerge(unittest.TestCase):
         import merge_lyrics_capacity as merger
         self.assertIs(merger.SIZES, matrix.SIZES)
         self.assertIs(merger.SEEDS, matrix.SEEDS)
+        self.assertIs(merger.CELLS, matrix.CELLS)
         self.assertIs(merger.LIMITS, matrix.LIMITS)
         self.assertEqual(merger.EXPECTED_EXECUTIONS,
                          len(matrix.SIZES) * len(matrix.SEEDS) * 2)

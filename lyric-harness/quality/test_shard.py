@@ -362,12 +362,289 @@ def test_each_ci_event_owns_completed_evidence():
           not all(guarded(planted[n]) for n in downstream), victim)
 
 
+CACHE_STEP = re.compile(r"uses:\s*actions/cache(/restore|/save)?@")
+FIELD = re.compile(r"^(path|key|restore-keys):\s*(.*)$")
+
+
+def _cache_steps():
+    """-> [(workflow, kind, paths, key, restore_keys)] over `.github/workflows`.
+
+    TEXT, not YAML, for the reason `_ci_jobs` gives one section up: the harness
+    declares no third-party package and `yaml` is not in the standard library.
+
+    `kind` is "restore", "save", or "both" for the combined `actions/cache@v4`,
+    which is a producer AND a consumer in one step.
+    """
+    steps = []
+    root = os.path.join(HERE, "..", "..", ".github", "workflows")
+    for name in sorted(os.listdir(root)):
+        if not name.endswith((".yml", ".yaml")):
+            continue
+        lines = open(os.path.join(root, name), encoding="utf-8").read().splitlines()
+        for i, ln in enumerate(lines):
+            m = CACHE_STEP.search(ln)
+            if not m:
+                continue
+            kind = (m.group(1) or "/both")[1:]
+            indent = len(ln) - len(ln.lstrip())
+            paths, key, restore, field = [], None, [], None
+            for nxt in lines[i + 1:]:
+                if not nxt.strip():
+                    continue
+                if len(nxt) - len(nxt.lstrip()) < indent or nxt.lstrip().startswith("- "):
+                    break
+                body = nxt.strip()
+                if body.startswith("#"):
+                    continue
+                got = FIELD.match(body)
+                if got:
+                    field, rest = got.group(1), got.group(2).strip()
+                    if rest in ("", "|", ">"):
+                        continue
+                    if field == "path":
+                        paths.append(rest)
+                    elif field == "key":
+                        key = rest
+                    else:
+                        restore.append(rest)
+                    field = None
+                elif field == "path":
+                    paths.append(body)
+                elif field == "restore-keys":
+                    restore.append(body)
+                elif re.match(r"^[a-z][a-z-]*:", body):
+                    field = None
+            steps.append((name, kind, tuple(paths), key, tuple(restore)))
+    return steps
+
+
+def _unreachable(steps):
+    """-> [(consumer, prefix, its paths, producer, its key, its paths)].
+
+    A restore-key names a producer it cannot reach whenever the two steps'
+    `path:` LISTS differ.  Pure, so the planted case below can be built by
+    editing a parsed list rather than by writing a workflow file.
+    """
+    savers = [(f, p, k) for (f, kind, p, k, _r) in steps if kind in ("save", "both")]
+    out = []
+    for consumer, kind, paths, key, restore in steps:
+        if kind not in ("restore", "both"):
+            continue
+        for prefix in restore:
+            for producer, spaths, skey in savers:
+                if not skey or not skey.startswith(prefix):
+                    continue
+                if (producer, spaths, skey) == (consumer, paths, key):
+                    continue  # the combined step is its own producer
+                if spaths != paths:
+                    out.append((consumer, prefix, paths, producer, skey, spaths))
+    return out
+
+
+def test_every_cache_restore_key_can_reach_its_producer():
+    print("\n7. every cache restore-key prefix names a producer whose `path:` "
+          "list is byte-identical, so the entry it names is reachable (M-264)")
+    # WHAT THIS PINS, AND WHY A KEY IS NOT AN ADDRESS. `actions/cache` does not
+    # look an entry up by its key alone. It computes
+    # `version = sha256(paths.join('|') + '|' + compressionMethod + '|1.0')`
+    # and sends that ONE version alongside the primary key AND every
+    # restore-key -- on the v1 REST path (`cache?keys=...&version=...`) and the
+    # v2 twirp path alike -- and there is no version-relaxed fallback. The
+    # strings hashed are the RAW `path:` lines: `resolvePaths()` output feeds
+    # only `createTar`. So a two-line `path:` is a different version from a
+    # one-line `path:` naming the same directory, and a restore-key that names
+    # a real, freshly written entry returns NOTHING.
+    #
+    # THE RUN THAT PAID FOR THIS. ci.yml's nightly banks the predictability
+    # memo under `path: ~/.cache/lyric-harness`; production-qualification.yml
+    # restored under a TWO-line list and named `lyric-harness-predictability-v1-`
+    # as a fallback. Nightly run 34413319893 banked 172,949 bytes at 01:32:47Z.
+    # Three hours later qualification run 34436960370 logged `Cache not found
+    # for input keys: ..., lyric-harness-predictability-v1-`, reported
+    # `predictability memo: 0 line(s)`, and burned its whole 2,400 s budget on
+    # a cold memo for exit 124. The comment above that restore had claimed the
+    # prefix fixed it; the prefix was never the part that was broken.
+    #
+    # THIS IS STRING EQUALITY OF THE LIST, NOT PATH EQUIVALENCE. `$HOME/.cache`
+    # for `~/.cache`, a trailing slash, or the same two entries in the other
+    # order would each still miss, and each would read as a fix.
+    steps = _cache_steps()
+    check("the sweep found the cache steps to check at all",
+          len(steps) >= 8 and any(k == "save" for _f, k, _p, _k, _r in steps),
+          f"{len(steps)} step(s): " + ", ".join(sorted({f for f, *_ in steps})))
+    bad = _unreachable(steps)
+    check("every named producer is reachable from the step that names it",
+          not bad,
+          "; ".join(f"{c} wants {pre!r} from {prod}: {list(cp)} != {list(pp)}"
+                    for c, pre, cp, prod, _sk, pp in bad))
+    # THE CHECK CAN FAIL, and the planted defect is the exact one that shipped:
+    # add a second path to a consumer and leave the prefix alone.
+    planted = []
+    for entry in steps:
+        name, kind, paths, key, restore = entry
+        if kind == "restore" and any(r.startswith("lyric-harness-") for r in restore):
+            entry = (name, kind, paths + ("/tmp/mutate-scratch/baseline.json",), key, restore)
+        planted.append(entry)
+    check("PLANTED: a consumer that grows a second `path:` entry IS caught",
+          bool(_unreachable(planted)) and planted != steps)
+
+
+RESULT_JOB = re.compile(r"^  ([a-z][a-z0-9-]*-result):\s*$")
+
+
+def _result_gates(text=None):
+    """-> `{job name: its `if:` line}` for every `*-result` job in ci.yml.
+
+    TEXT again, and `text=` so the planted case below can be built by editing
+    the file's STRING rather than the file.
+    """
+    if text is None:
+        path = os.path.join(HERE, "..", "..", ".github", "workflows", "ci.yml")
+        text = open(path, encoding="utf-8").read()
+    gates, name = {}, None
+    for ln in text.splitlines():
+        got = RESULT_JOB.match(ln)
+        if got:
+            name = got.group(1)
+            gates[name] = None
+            continue
+        if name is None:
+            continue
+        if ln and not ln.startswith("    "):
+            name = None
+            continue
+        body = ln.strip()
+        if body.startswith("if:") and gates.get(name) is None:
+            gates[name] = body
+    return gates
+
+
+def test_no_result_gate_calls_a_cancelled_run_a_failure():
+    print("\n8. every `*-result` fan-in gates on `!cancelled()`, so a run "
+          "somebody superseded is not reported as a defect")
+    # WHAT THIS PINS. `always()` INCLUDES THE CANCELLED STATE. A push to a
+    # branch with an open PR starts two runs and the concurrency group cancels
+    # one; a second push cancels the first. Either way `gate` is cancelled,
+    # every job that `needs:` it is SKIPPED, and an `always()` fan-in then runs
+    # anyway, reads `skipped`, and paints a RED X on a run that measured
+    # nothing. ci.yml's `catalog-result` block carries the original argument
+    # and the run that paid for it (#426, `c806457`, red seven seconds in).
+    #
+    # IT WAS FIXED ON 2026-08-16 AND ONE JOB WAS MISSED, WHICH IS WHY THIS IS A
+    # CHECK AND NOT A PARAGRAPH. `capacity-proof-result` kept `always()` for
+    # over three weeks, and it took runs 34442739821 and 34442779448 — both at
+    # `51de1726`, both cancelled at 05:58:15Z by the next push — to say so.
+    # Six jobs agreeing and a seventh not is exactly the shape a reader skims
+    # past (doctrine 48).
+    #
+    # `!cancelled()` AND NOT A NEW ARM, because the gate must not move: a
+    # FAILED proof still reports `failure` and a SKIPPED one still reports
+    # `skipped`, and both still fail `test "$RESULT" = success`. Only the
+    # cancelled case leaves.
+    gates = _result_gates()
+    check("the sweep found the fan-in jobs to check at all",
+          len(gates) >= 6, ", ".join(sorted(gates)))
+    missing = sorted(n for n, cond in gates.items() if not cond)
+    check("every `*-result` job carries an `if:` at all", not missing, str(missing))
+    bad = sorted(n for n, cond in gates.items()
+                 if cond and "!cancelled()" not in cond)
+    check("and none of them gates on `always()`, which includes cancelled",
+          not bad,
+          "; ".join(f"{n}: {gates[n]}" for n in bad))
+    # THE CHECK CAN FAIL, and the planted defect is the one that shipped:
+    # a single job put back on `always()`.
+    path = os.path.join(HERE, "..", "..", ".github", "workflows", "ci.yml")
+    planted = open(path, encoding="utf-8").read().replace(
+        "if: ${{ !cancelled() && needs.dup.outputs.already_covered != 'true' }}",
+        "if: always() && needs.dup.outputs.already_covered != 'true'", 1)
+    check("PLANTED: one job put back on `always()` IS caught",
+          any("!cancelled()" not in (c or "")
+              for c in _result_gates(planted).values()))
+
+
+def test_the_two_qualification_tables_cannot_drift_apart():
+    print("\n9. the Python and JavaScript qualification tables agree, "
+          "component for component and argument for argument")
+    # WHY THERE ARE TWO, AND WHY THAT IS NOT THE DEFECT. `scripts/
+    # verify_qualification.mjs` keeps its OWN copy of the component list and
+    # of what each component should have run, and re-derives it rather than
+    # trusting the receipt's word. That is a deliberate cross-check on the
+    # deploy path: a receipt that claims a reduced command is caught by an
+    # implementation that never read it.
+    #
+    # WHAT IS THE DEFECT IS THAT NOTHING COMPARED THEM. Change the shard count
+    # in one file and the other keeps the old table; the qualification then
+    # runs, passes, uploads, and `validateQualification` rejects it at DEPLOY
+    # time -- after four hours of runners, on the one path where a late no is
+    # most expensive. Found 2026-09-10 while moving the count 4 -> 8 (M-266),
+    # which is exactly the edit that would have caused it.
+    #
+    # READ FROM BOTH, RESTATED IN NEITHER (doctrine 1): this executes each side
+    # and compares, so it cannot go stale against a table it is describing.
+    import json
+    import subprocess
+    root = os.path.join(HERE, "..", "..")
+    scripts = os.path.join(root, "scripts")
+    sys.path.insert(0, scripts)
+    for name in ("production_qualification",):
+        sys.modules.pop(name, None)
+    import production_qualification as PQ
+    py = {"components": list(PQ.COMPONENTS),
+          "spec": {c: PQ.spec(c)[0] for c in PQ.COMPONENTS}}
+    node = subprocess.run(
+        ["node", "--input-type=module", "-e",
+         "import {COMPONENTS, expectedCommand} from "
+         "'./scripts/verify_qualification.mjs';"
+         "console.log(JSON.stringify({components: COMPONENTS,"
+         " spec: Object.fromEntries(COMPONENTS.map(c => [c, expectedCommand(c)]))}))"],
+        cwd=root, text=True, capture_output=True)
+    check("the JavaScript table can be read at all "
+          "(it must export COMPONENTS and expectedCommand)",
+          node.returncode == 0, (node.stderr or "").strip()[:300])
+    if node.returncode != 0:
+        return
+    js = json.loads(node.stdout)
+    check("both sides list the same components, in the same order",
+          py["components"] == js["components"],
+          f"py {py['components']} vs js {js['components']}")
+    differing = sorted(c for c in py["components"]
+                       if py["spec"].get(c) != js["spec"].get(c))
+    check("and both derive the same command for every one of them",
+          not differing,
+          "; ".join(f"{c}: py {py['spec'][c]} vs js {js['spec'].get(c)}"
+                    for c in differing))
+    # AND THE THIRD COPY IS THE WORKFLOW MATRIX, which is where the count is
+    # actually spelled out by hand. A matrix short of a component simply never
+    # runs it, and `aggregate` then refuses the whole run for a missing
+    # receipt -- four hours to learn that a list was edited in two places out
+    # of three.
+    path = os.path.join(root, ".github", "workflows",
+                        "production-qualification.yml")
+    matrix = re.search(r"^\s*component:\s*\[([^\]]*)\]\s*$",
+                       open(path, encoding="utf-8").read(), re.M)
+    check("the workflow declares its component matrix where this can read it",
+          matrix is not None)
+    if matrix:
+        listed = [x.strip() for x in matrix.group(1).split(",") if x.strip()]
+        check("and the matrix is exactly the components the table declares",
+              listed == py["components"],
+              f"matrix {listed} vs table {py['components']}")
+    # THE CHECK CAN FAIL, and the planted defect is the one this entry was
+    # written during: a shard count moved on one side only.
+    planted = dict(js, components=js["components"][:-1])
+    check("PLANTED: a table that lost a component IS caught",
+          py["components"] != planted["components"])
+
+
 if __name__ == "__main__":
     for fn in (test_the_deal_is_exactly_once, test_a_bad_coordinate_refuses,
                test_run_sections_times_and_gates,
                test_every_dealt_suite_calls_the_one_idiom,
                test_no_section_reads_what_another_section_wrote,
-               test_each_ci_event_owns_completed_evidence):
+               test_each_ci_event_owns_completed_evidence,
+               test_every_cache_restore_key_can_reach_its_producer,
+               test_no_result_gate_calls_a_cancelled_run_a_failure,
+               test_the_two_qualification_tables_cannot_drift_apart):
         fn()
     print("=" * 62)
     if FAILURES:

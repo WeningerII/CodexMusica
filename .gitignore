@@ -48,4 +48,4 @@ __pycache__/
 
 # These attest the actual assembled build/runtime, not a source checkout.
 /mcp/build_identity.json
-/mcp/capacity_verification.json
+/mcp/capacity_verification.json*

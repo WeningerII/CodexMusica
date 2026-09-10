@@ -19,7 +19,15 @@ silently not running. So this file exists to say that out loud.
 WHAT IT REFUSES. Every requirement below is a named failure, because a merge
 that quietly accepts two shards where three were declared is worth less than
 no merge at all:
-  * the shards must cover the declared sizes EXACTLY -- all of them, once each
+  * the shards must cover the declared CELLS exactly -- every (lines, seed)
+    of SIZES x SEEDS, once each. ~~the declared sizes~~ The coordinate moved
+    from the size to the cell on 2026-09-10 (M-268): the cost of the matrix
+    is not a function of the size, and a deal by size could not put the wall
+    below the one size that held half of it.
+  * every shard must have measured at least TWO cells: the leak signature in
+    `check_lyrics_capacity.py` needs four boundaries before it says anything,
+    so a one-cell shard is a shard in which that check could not run -- and
+    CANNOT RUN is not PASS
   * every shard must have PASSED with an empty failure list
   * no shard may be a `--local` supplement
   * every shard must have verified the real 1 CPU / 2 GiB cgroup limits
@@ -29,9 +37,9 @@ no merge at all:
   * the executions must add up to the declared total
 
 `production_qualified` is not copied from a shard. No shard can be qualified
-on its own -- each one measured a third of the matrix, and the script sets
-that field False whenever `sizes != SIZES` for exactly that reason. It is
-re-derived here, from all of the above, or it is False.
+on its own -- each one measured a part of the matrix, and the script sets
+that field False whenever its cells are not the whole of CELLS, for exactly
+that reason. It is re-derived here, from all of the above, or it is False.
 
 Usage:
   python3 scripts/merge_lyrics_capacity.py shard1.json shard2.json ... --out=capacity.json
@@ -47,10 +55,12 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 # The declared population, read from the ONE place that declares it (doctrine 1).
 # Retyping 18/24/31 here is how a merger and a matrix come to disagree about
 # what "complete" means.
-from check_lyrics_capacity import LIMITS, SEEDS, SIZES  # noqa: E402
+from check_lyrics_capacity import (CELLS, LIMITS, MODES, SEEDS, SIZES,  # noqa: E402
+                                   summarize_measurements)
 
-MODES = ('cold', 'worker')
-EXPECTED_EXECUTIONS = len(SIZES) * len(SEEDS) * len(MODES)
+EXPECTED_EXECUTIONS = len(CELLS) * len(MODES)
+#: Fewer boundaries than this and the leak signature never ran (doctrine 20).
+MIN_TRACE_PER_SHARD = 4
 
 #: Fields every shard must agree on. `source_sha256` is the load-bearing one:
 #: it is what makes three separate measurements evidence about ONE runtime.
@@ -72,15 +82,29 @@ def merge(shards):
         return {}, ['no capacity shards were supplied']
 
     covered = []
+    cells_of = {}
     for name, shard in shards:
-        sizes = shard.get('sizes')
-        if not isinstance(sizes, list) or not sizes:
-            failures.append(f'{name}: shard declares no sizes')
+        raw = shard.get('cells')
+        cells = [tuple(c) for c in raw if isinstance(c, list) and len(c) == 2] \
+            if isinstance(raw, list) else []
+        if not cells or len(cells) != len(raw):
+            failures.append(f'{name}: shard declares no cells')
             continue
-        covered.extend(sizes)
-    if sorted(covered) != sorted(SIZES):
+        undeclared = [c for c in cells if c not in CELLS]
+        if undeclared:
+            failures.append(f'{name}: {undeclared} are not cells of the declared matrix')
+        if len(cells) * len(MODES) < MIN_TRACE_PER_SHARD:
+            failures.append(f'{name}: measured {len(cells)} cell(s); the leak signature needs '
+                            f'{MIN_TRACE_PER_SHARD} boundaries and could not have run')
+        if shard.get('seeds') != list(SEEDS):
+            failures.append(f"{name}: seeds {shard.get('seeds')} are not the declared {list(SEEDS)}")
+        if shard.get('sizes') != sorted({size for size, _ in cells}):
+            failures.append(f"{name}: sizes {shard.get('sizes')} do not describe its cells")
+        cells_of[name] = cells
+        covered.extend(cells)
+    if sorted(covered) != sorted(CELLS):
         failures.append(f'shards cover {sorted(covered)}; the declared matrix is '
-                        f'{sorted(SIZES)}, each exactly once')
+                        f'{sorted(CELLS)}, each exactly once')
 
     for name, shard in shards:
         if shard.get('status') != 'passed':
@@ -101,6 +125,18 @@ def merge(shards):
                 failures.append(f'{name}: {field} differs from {first_name}; '
                                 f'the shards did not measure one runtime')
 
+    for name, shard in shards:
+        cells = cells_of.get(name)
+        if cells is None:
+            continue
+        own = shard.get('measurements') or []
+        if len(own) != len(cells) * len(MODES):
+            failures.append(f'{name}: {len(own)} executions for {len(cells)} cell(s); '
+                            f'each cell is {len(MODES)} executions')
+        stray = [(m.get('lines'), m.get('seed'), m.get('mode')) for m in own
+                 if (m.get('lines'), m.get('seed')) not in cells or m.get('mode') not in MODES]
+        if stray:
+            failures.append(f'{name}: measured {stray}, outside the cells it declares')
     measurements = [m for _, shard in shards for m in (shard.get('measurements') or [])]
     if len(measurements) != EXPECTED_EXECUTIONS:
         failures.append(f'{len(measurements)} executions across the shards; '
@@ -129,7 +165,9 @@ def merge(shards):
         'version': 1,
         'scope': first.get('scope'),
         'sharded': True,
-        'shards': [{'file': name, 'sizes': shard.get('sizes')} for name, shard in shards],
+        'shards': [{'file': name, 'cells': shard.get('cells'), 'sizes': shard.get('sizes')}
+                   for name, shard in shards],
+        'cells': [list(cell) for cell in CELLS],
         'sizes': list(SIZES),
         'seeds': list(SEEDS),
         'limits': LIMITS,
@@ -139,7 +177,9 @@ def merge(shards):
         'isolation': {name: shard.get('isolation') for name, shard in shards},
         'measurements': measurements,
         'memory_trace': trace,
-        'summaries': [s for _, shard in shards for s in (shard.get('summaries') or [])],
+        # Re-derived over the union, by the one function that derives them: a
+        # size whose seeds were dealt to two containers gets one row here.
+        'summaries': summarize_measurements(measurements),
         'cgroup_peak_bytes': {name: shard.get('cgroup_peak_bytes') for name, shard in shards},
         'whole_runtime_peak_bytes': {name: shard.get('whole_runtime_peak_bytes')
                                      for name, shard in shards},

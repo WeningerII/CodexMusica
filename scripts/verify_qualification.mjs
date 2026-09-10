@@ -4,18 +4,25 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
+// DELIBERATELY A SECOND, INDEPENDENT COPY of scripts/production_qualification
+// .py's table -- the deploy verifier re-derives what each component SHOULD have
+// run rather than trusting the receipt's own word for it. Two implementations
+// are the point; `quality/test_shard.py` §9 is what stops them drifting apart,
+// because a drift here fails at DEPLOY time, after a four-hour qualification.
+export const MUTATION_SHARDS = 8;
 export const COMPONENTS = Object.freeze([
-  'mutation-1',
-  'mutation-2',
-  'mutation-3',
-  'mutation-4',
+  ...Array.from({ length: MUTATION_SHARDS }, (_, i) => `mutation-${i + 1}`),
   'song',
   'short',
   'curves',
 ]);
+export function expectedCommand(component) {
+  return fullCommand(component);
+}
 function fullCommand(component) {
-  if (/^mutation-[1-4]$/.test(component))
-    return ['quality/test_mutation.py', `--shard=${component.at(-1)}/4`];
+  const shard = /^mutation-(\d+)$/.exec(component);
+  if (shard && Number(shard[1]) >= 1 && Number(shard[1]) <= MUTATION_SHARDS)
+    return ['quality/test_mutation.py', `--shard=${shard[1]}/${MUTATION_SHARDS}`];
   if (component === 'song' || component === 'short')
     return [
       'quality/song_profile_calibration.py',

@@ -479,7 +479,8 @@ test('production qualification requires each actual job in the exact trusted man
 });
 
 test('qualification artifact cannot cross source, attempt or incomplete calibration boundaries', async () => {
-  const { COMPONENTS, validateQualification } = await import('../scripts/verify_qualification.mjs');
+  const { COMPONENTS, expectedCommand, validateQualification } =
+    await import('../scripts/verify_qualification.mjs');
   const identity = { commit: sha, source_sha256: 'b'.repeat(64), inputs_sha256: 'c'.repeat(64) };
   const receipt = {
     version: 1,
@@ -493,17 +494,14 @@ test('qualification artifact cannot cross source, attempt or incomplete calibrat
     mutation_inventory: ['M1', 'M4', 'M5', 'M9', 'M11'],
     receipts: COMPONENTS.map((component) => ({
       component,
-      command: component.startsWith('mutation-')
-        ? ['quality/test_mutation.py', `--shard=${component.at(-1)}/4`]
-        : component === 'curves'
-          ? ['quality/length_curve_calibration.py', 'check']
-          : [
-              'quality/song_profile_calibration.py',
-              '--check',
-              `--profile=${component}`,
-              '--seeds=200',
-              '--draws=2000',
-            ],
+      // READ, NOT RESTATED. This fixture used to spell the command table out
+      // a fourth time -- after production_qualification.py, verify_
+      // qualification.mjs and the workflow matrix -- with `/4` hard-coded in
+      // it. Moving the shard count to 8 left this copy behind and the suite
+      // went red on a table that was correct everywhere it is USED. A fixture
+      // that restates the thing under test is not an independent check of it;
+      // it is a fourth place to forget (doctrine 1).
+      command: expectedCommand(component),
       inventory: ['M1', 'M4', 'M5', 'M9', 'M11'],
       status: 'completed',
       exit_code: 0,
@@ -526,7 +524,10 @@ test('qualification artifact cannot cross source, attempt or incomplete calibrat
     (r) => (r.receipts[0].exit_code = 124),
     (r) => (r.run_attempt = 1),
     (r) => r.components.pop(),
-    (r) => r.receipts[4].command.push('--without-predictability'),
+    // BY NAME, NOT BY INDEX: `receipts[4]` was `song` at seven components and
+    // is `mutation-5` at eleven. The case being planted is a REDUCED
+    // CALIBRATION SCOPE, so it has to land on a calibration component.
+    (r) => r.receipts.find((x) => x.component === 'song').command.push('--without-predictability'),
     (r) => (r.identity.source_sha256 = 'd'.repeat(64)),
     (r) => (r.completed = false),
   ]) {

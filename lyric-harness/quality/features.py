@@ -424,6 +424,18 @@ class QualityFeatures:
         unknown = self.requested_features - set(self.NAMES)
         if unknown:
             raise ValueError(f"unknown requested quality features: {sorted(unknown)}")
+        # THE NORM SET IS THE EXTRACTOR'S OWN NAMES OR NOTHING (M-270,
+        # 2026-09-10). A subclass that overrides NAMES and inherits this set
+        # meets it nowhere, loads no norms, and hands back NaN for every
+        # feature that reads them -- constructing and extracting without a
+        # word, which is what `WithinItemFeatures` did for two days after
+        # this gate was written. A set naming features the extractor does
+        # not declare is a gate that can never open, so it is refused here.
+        stray = self.CONCRETENESS_FEATURES - set(self.NAMES)
+        if stray:
+            raise ValueError(f"{type(self).__name__}.CONCRETENESS_FEATURES names features it does not "
+                             f"declare: {sorted(stray)}; an extractor that overrides NAMES must declare "
+                             "which of ITS names read the concreteness norms")
         needs_norms = bool(self.requested_features & self.CONCRETENESS_FEATURES)
         staged_resources_or_refuse(require_concreteness=needs_norms)
         self.lex = lex or Lexicon()

@@ -313,7 +313,28 @@ jobs:
 
   capacity-proof-result:
     needs: [dup, gate, capacity-proof]
-    if: always() && needs.dup.outputs.already_covered != 'true'
+    # ~~if: always()~~ — THE LAST `always()` RESULT GATE IN THIS FILE, AND IT
+    # WAS THE ONE THE 2026-08-16 REPLACEMENT MISSED. `catalog-result` (the
+    # block above carries the full argument), `suites-result`, `plan-result`,
+    # `capacity-result`, `revision-loop-result` and `verbs-result` all read
+    # `!cancelled()`; this one did not, and nothing said so out loud.
+    #
+    # `always()` INCLUDES THE CANCELLED STATE. MEASURED on this file's own
+    # branch: runs 34442739821 (push) and 34442779448 (pull_request), both at
+    # `51de1726`, were cancelled by the next push at 05:58:15Z. `gate` went
+    # with them, `capacity-proof` was therefore SKIPPED, and this job ran
+    # anyway under `always()`, read `RESULT: skipped`, and exited 1 — a RED X
+    # on a PR, seven minutes into a run that had proved nothing either way.
+    # That is the same shape run #426 (`c806457`) paid for at seven seconds.
+    #
+    # THE GATE IS UNCHANGED, AND THAT IS THE POINT OF USING `!cancelled()`
+    # RATHER THAN A NEW ARM. A capacity proof that FAILED still reports
+    # `failure` here; one that was SKIPPED because `gate` failed on a run
+    # nobody cancelled still reports `skipped`, and `test "$RESULT" = success`
+    # still refuses it. Only the cancelled case leaves — and a cancelled run
+    # has measured nothing, so calling it a failure is doctrine 20 upside
+    # down: CANNOT RUN is not a PASS, and it is not a FAIL either.
+    if: ${{ !cancelled() && needs.dup.outputs.already_covered != 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Require actual all-family proof from this workflow attempt
@@ -374,26 +395,116 @@ jobs:
       - name: High-severity production dependency advisories
         timeout-minutes: 2
         run: npm --prefix mcp audit --omit=dev --audit-level=high --package-lock-only --fetch-retries=0 --fetch-timeout=20000
+      # THE PROOF LAYER WAS 95% OF THE BUILD ON EVERY RUN, AND IT IS A PURE
+      # FUNCTION OF WHAT IT READS. MEASURED 2026-09-10 (M-267): the in-image
+      # `verify_capacity.py --workers=4` RUN was 619.5s of a 647s build on run
+      # 34466733505 and 418.3s of 450s on run 34436957228, and it sits below
+      # two per-run build ARGs, so no layer cache could ever reuse it. Its
+      # receipt binds source ASTs, lexical data, judge tables, declarations and
+      # the exact interpreter build (`certification_identity`) plus the table
+      # bytes, and carries no timing -- so a receipt that passes the admission
+      # the server runs at BOOT is the receipt this build would have written.
+      #
+      # So the build is SEEDED with the newest receipt banked on this branch or
+      # on main, at the path the Dockerfile's optional COPY reads, and the
+      # proof layer keeps it if and only if the image's OWN python admits it
+      # (`--reuse-valid`, mcp/Dockerfile). A seed the image refuses -- another
+      # Python build, a moved source, a changed table, no seed at all -- is
+      # measured exactly as before. The cache decides nothing; the check does
+      # (doctrine 48). A hit here is worth ~10 min of the critical path.
+      #
+      # THE PREFIX CARRIES THE LAYERS UNDER THE PROOF, AND THE EXACT KEY BELOW
+      # NEVER MATCHES, BY DESIGN. The identity the image checks covers the
+      # sources, the two lexical files, the judge tables, the declarations
+      # and the interpreter build; it does not cover the pinned wheels, the
+      # base image, or the other staged assets. Those are the layers BELOW the
+      # proof that the proof can READ, and the three files that define them
+      # are hashed into the prefix, so a seed is only ever restored from a
+      # build with the same base image and apt line, the same wheels and the
+      # same asset manifest -- the condition a BuildKit layer cache would have
+      # imposed, without BuildKit. Receipts are banked under that prefix plus
+      # the sha256 of their own bytes plus the run that measured them (the
+      # step after the build), so the prefix returns the NEWEST banked receipt
+      # from the same layers, and the image decides whether it is the right
+      # one. `path:` is byte-identical between this
+      # restore and that save, because the path list is hashed into the
+      # entry's version (M-264).
+      - name: Restore the newest capacity receipt banked on this branch or main
+        id: proof
+        uses: actions/cache/restore@v4
+        with:
+          path: mcp/capacity_verification.json
+          key: lyrics-proof-v1-${{ hashFiles('mcp/Dockerfile', 'mcp/requirements-runtime.txt', 'lyric-harness/data/runtime_assets.json') }}-${{ github.sha }}
+          restore-keys: |
+            lyrics-proof-v1-${{ hashFiles('mcp/Dockerfile', 'mcp/requirements-runtime.txt', 'lyric-harness/data/runtime_assets.json') }}-
       - name: Build the deployed lyrics runtime
         id: image
         timeout-minutes: 55
         env:
           TESTED_SHA: ${{ github.sha }}
+          SEED_KEY: ${{ steps.proof.outputs.cache-matched-key }}
         run: |
           repository_source=$(node --input-type=module -e 'import {runtimeSourceFingerprint} from "./mcp/build_identity.js"; console.log(runtimeSourceFingerprint());')
           echo "repository_source_sha256=$repository_source" >> "$GITHUB_OUTPUT"
           mkdir -p image-build-evidence
           printf '%s\n' '{"status":"running","budget_s":3300,"scope":"assembled-image-build-including-all81-runtime-proof"}' > image-build-evidence/build.json
+          if [ -s mcp/capacity_verification.json ]; then
+            echo "proof seed: restored from ${SEED_KEY:-?}; the image decides whether it is admitted"
+          else
+            echo "proof seed: none banked in scope; the build measures the proof"
+          fi
           started=$SECONDS
           set +e
-          docker build --platform=linux/amd64 --build-arg RENDER_GIT_COMMIT="$TESTED_SHA" --build-arg BUILD_RELEASE_ID="${{ github.repository_id }}:${{ github.run_id }}:${{ github.run_attempt }}:lyrics-image" -f mcp/Dockerfile -t codex-lyrics-ci .
-          rc=$?
+          docker build --platform=linux/amd64 --build-arg RENDER_GIT_COMMIT="$TESTED_SHA" --build-arg BUILD_RELEASE_ID="${{ github.repository_id }}:${{ github.run_id }}:${{ github.run_attempt }}:lyrics-image" -f mcp/Dockerfile -t codex-lyrics-ci . 2>&1 | tee image-build-evidence/build.log
+          rc=${PIPESTATUS[0]}
           set -e
-          printf '{"status":"completed","wall_s":%s,"exit_code":%s,"budget_s":3300,"scope":"assembled-image-build-including-all81-runtime-proof"}\n' "$((SECONDS-started))" "$rc" > image-build-evidence/build.json
+          # Which of the two the proof layer did, read from BuildKit's own log
+          # of it, so the artifact says what the cache was worth on this run.
+          proof=unknown
+          grep -q 'CAPACITY RECEIPT REUSED' image-build-evidence/build.log && proof=admitted
+          grep -q 'CAPACITY VERIFIED:' image-build-evidence/build.log && proof=measured
+          printf '{"status":"completed","wall_s":%s,"exit_code":%s,"budget_s":3300,"scope":"assembled-image-build-including-all81-runtime-proof","proof":"%s","seed_key":"%s"}\n' "$((SECONDS-started))" "$rc" "$proof" "${SEED_KEY:-}" > image-build-evidence/build.json
           cat image-build-evidence/build.json
           [ "$rc" = 0 ] || exit "$rc"
 
           echo "image_id=$(docker image inspect --format='{{.Id}}' codex-lyrics-ci)" >> "$GITHUB_OUTPUT"
+      # The receipt the build baked in, read back out of the tested image and
+      # banked under the sha256 of its OWN BYTES -- which is what makes the key
+      # change exactly when the receipt does. Not under `source_identity`: the
+      # admission also compares `table_sha256`, which the identity does not
+      # carry, so a table-only change would refuse the seed, re-measure, and
+      # then find the replacement already "banked" under the unchanged
+      # identity -- never saved, re-measured on every run after. The bytes
+      # are deterministic (sorted keys, no timing), so an admitted seed reads
+      # back byte-identical and is not re-sent; a re-measured one differs and
+      # is. AND THE RUN ID IS ON THE KEY, for the third door to the same
+      # stuck state: a tree that returns to bytes banked EARLIER in the scope
+      # (an edit on main, then its revert) would re-measure those bytes, find
+      # their key already taken, save nothing, and keep restoring the newer
+      # refused receipt for ever -- `actions/cache` never overwrites a key,
+      # and the prefix returns the newest entry. With the run on the key a
+      # measured receipt is always the newest under the prefix.
+      - name: Read the receipt the tested image carries
+        id: receipt
+        env:
+          SEED_KEY: ${{ steps.proof.outputs.cache-matched-key }}
+          LAYERS: ${{ hashFiles('mcp/Dockerfile', 'mcp/requirements-runtime.txt', 'lyric-harness/data/runtime_assets.json') }}
+        run: |
+          set -euo pipefail
+          docker run --rm --entrypoint cat "${{ steps.image.outputs.image_id }}" /app/mcp/capacity_verification.json > mcp/capacity_verification.json
+          identity=$(python3 -c 'import json; print(json.load(open("mcp/capacity_verification.json"))["source_identity"])')
+          digest=$(sha256sum mcp/capacity_verification.json | cut -c1-64)
+          [ "${#identity}" = 64 ] && [ "${#digest}" = 64 ]
+          save=yes
+          case "${SEED_KEY:-}" in "lyrics-proof-v1-$LAYERS-$digest-"*) save=no ;; esac
+          echo "receipt sha256 $digest (identity $identity); restored ${SEED_KEY:-nothing}; bank=$save"
+          printf 'digest=%s\nsave=%s\n' "$digest" "$save" >> "$GITHUB_OUTPUT"
+      - name: Bank the receipt under its own bytes
+        if: steps.receipt.outputs.save == 'yes'
+        uses: actions/cache/save@v4
+        with:
+          path: mcp/capacity_verification.json
+          key: lyrics-proof-v1-${{ hashFiles('mcp/Dockerfile', 'mcp/requirements-runtime.txt', 'lyric-harness/data/runtime_assets.json') }}-${{ steps.receipt.outputs.digest }}-${{ github.run_id }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -423,22 +534,69 @@ jobs:
       # of 16 -- the fourth core is left to the runner and the docker daemon
       # rather than sold to a fourth shard.
       #
-      # The split is by workload, because `--sizes` is the coordinate
+      # ~~The split is by workload, because `--sizes` is the coordinate
       # `check_lyrics_capacity.py` already declares and validates against
-      # 18,24,31.
+      # 18,24,31.~~ THE SPLIT IS BY (lines, seed) CELL SINCE 2026-09-10
+      # (M-268), through `--cells`, and the reason is the paragraph after
+      # next.
       #
-      # TWO SHARDS, NOT THREE, AND THAT IS A MEASUREMENT RATHER THAN A TASTE.
+      # ~~TWO SHARDS, NOT THREE, AND THAT IS A MEASUREMENT RATHER THAN A TASTE.~~
       # The per-size bodies, read off that run's log timestamps: 18 -> 455.29s,
       # 24 -> 578.52s, 31 -> 1042.56s, with a 50.80s prologue and a 9.94s
       # epilogue summing to the 2137.12s the step actually took. Size 31 is
-      # 50.2% of the body, so it is the pole under ANY split: three shards give
+      # 50.2% of the body, so it is the pole under ANY split ~~: three shards give
       # max(1103.30, 639.26, 516.03) and two give max(1103.30, 1094.55) -- the
       # same 1103.30s wall. A third shard would buy zero minutes and spend a
-      # third CPU to do it. Two declares 2 of 4 vCPUs and leaves two spare for
-      # the docker daemon and the runner agent. Going below ~18 min means
-      # splitting size 31 BY SEED, which needs a flag the script does not have
-      # and a balance fitted to one noisy observation -- the same cell holds a
-      # 252.2s revise and a 1.9s revise. Not attempted here.
+      # third CPU to do it~~ BY SIZE. ~~Two declares 2 of 4 vCPUs and leaves two
+      # spare for the docker daemon and the runner agent.~~ Three declare 3 of
+      # 4 and leave one. Going below ~18 min means splitting size 31 BY SEED,
+      # ~~which needs a flag the script does not have~~ which `--cells` now
+      # supplies, and a balance fitted to ~~one noisy observation~~ five runs
+      # that agree -- ~~the same cell holds a 252.2s revise and a 1.9s revise~~
+      # (that pair is the warm worker's round structure, round 1 expensive and
+      # rounds 2-3 always 2-4s, in every worker cell on every run, not noise).
+      # ~~Not attempted here.~~
+      #
+      # THE POLE IS A SEED, NOT A SIZE, AND FIVE RUNS AGREE TO THE PERCENT.
+      # MEASURED 2026-09-10 off the shards' own `elapsed=` lines on runs
+      # 34436957228, 34466733505, 34446079874 and two more: seed 20260910
+      # costs more than the other two seeds together at sizes 24 and 31 (its
+      # `revise` there is 231-381s where the other seeds' are 59-125s; at
+      # size 18 the expensive seed is 20260909), and the one cell 31/20260910
+      # is 27.1% of the whole matrix by itself. Mean share of each cell over
+      # the five runs, the balance is fitted to:
+      #   31/10 27.1%  24/10 15.5%  31/08 12.1%  18/09 11.0%  31/09 10.9%
+      #   24/08  7.7%  18/10  6.2%  18/08  5.0%  24/09  4.7%
+      # Runner speed moved 1.5x between runs; these SHARES did not. So the
+      # deal below is the best three-way partition of those shares with every
+      # shard holding at least two cells (four boundaries, so the leak
+      # signature can run in each): 33.3% / 33.9% / 32.8% against a 33.3%
+      # floor, where the by-size deal was 50.0%. ~~On the main-speed run that is
+      # ~690s where the pole shard took 1017s; on the PR-speed run ~1090s
+      # where it took 1609s.~~ MEASURED on its first run (34491693036, the
+      # slow runner class): shard bodies 1351 / 1358 / 1316 s and a 24.0-min
+      # step against 27.9 for two lanes on the same class. ~~Three lanes on a
+      # runner with two physical cores run every execution 1.19-1.27x slower
+      # than two did (the same cells, the same class), so the deal buys 14%,
+      # not the 32% the shares alone predicted (M-268's addendum).~~ AND
+      # THAT WAS ONE RUN. Four three-lane runs (34491693036, 34491700848,
+      # 34497097838, 34497106356) took 1021-1439 s where seventeen two-lane
+      # runs took 1080-1707; runner speed is a continuum, not two classes,
+      # and the reading that survives it is the step against the pole
+      # cell's own duration on the same run: 4.0x on two lanes, 2.7-2.85x
+      # on three -- a 30% saving relative to whatever the runner was doing.
+      # The price is on the pole cell itself: 31/20260910's cold revise ran
+      # 322-484 s on three lanes against 242-381 on two, the same cells on
+      # runners of overlapping speed, and 484 is 81% of the 600 s call limit.
+      # THE PRE-COMMITMENT: if the matrix ever fails on call latency at that
+      # cell, the answer is two lanes, one edit to the deal below, not a
+      # looser limit. THREE OF FOUR vCPUs, as the paragraph above already
+      # argued; a fourth shard would reach the 27.1% cell's own floor, pay
+      # that price again, and sell the core the daemon and the runner agent
+      # run on.
+      # `scripts/test_lyrics_capacity.py` reads the `shard` lines below and
+      # refuses a deal that drops a cell, deals one twice, or leaves a shard
+      # with one cell.
       #
       # AND DO NOT "IMPROVE" THIS WITH --cpuset-cpus. Pinning looks tidier and
       # is a trap: on a 4-vCPU hosted runner the vCPUs are two physical cores
@@ -456,13 +614,16 @@ jobs:
       # if this ever goes flaky.
       #
       # WHAT SHARDING GAVE AWAY, AND WHERE IT IS BOUGHT BACK: one process could
-      # not finish without covering every declared size. Three can, by one of
-      # them never running. `merge_lyrics_capacity.py` is where that is said out
-      # loud -- it refuses a missing size, a duplicated size, a shard that
-      # measured a different tree, and eight other shapes, and it re-derives
-      # `production_qualified` rather than copying it from any shard.
-      # `scripts/test_lyrics_capacity.py` pins all of them.
-      - name: Production CPU and memory capacity matrix (sharded by workload)
+      # not finish without covering every declared ~~size~~ cell. Three can, by
+      # one of them never running. `merge_lyrics_capacity.py` is where that is
+      # said out loud -- it refuses a missing ~~size~~ cell, a duplicated one, a
+      # shard measuring a cell it did not declare, a one-cell shard in which
+      # the leak signature could not run, a shard that measured a different
+      # tree, ~~and eight other shapes~~ and every other shape
+      # `scripts/test_lyrics_capacity.py`'s refusal list names, each by the
+      # failure it is refused for, and it re-derives `production_qualified`
+      # rather than copying it from any shard.
+      - name: Production CPU and memory capacity matrix (sharded by cell)
         timeout-minutes: 50
         env:
           TESTED_IMAGE: ${{ steps.image.outputs.image_id }}
@@ -474,19 +635,21 @@ jobs:
               --mount "type=bind,src=$GITHUB_WORKSPACE/scripts,dst=/app/scripts,readonly" \
               --mount "type=bind,src=$GITHUB_WORKSPACE/capacity-evidence,dst=/evidence" \
               --workdir=/app --entrypoint=python3 "$TESTED_IMAGE" \
-              /app/scripts/check_lyrics_capacity.py --sizes="$1" \
+              /app/scripts/check_lyrics_capacity.py --cells="$1" \
               --out="/evidence/capacity-$2.json" \
               > "capacity-evidence/shard-$2.log" 2>&1
           }
-          shard 31 pole & pole=$!
-          shard 18,24 rest & rest=$!
-          # BOTH statuses, not the first failure. Two shards that failed
-          # differently are two findings, and stopping at the first would throw
-          # away the second shard's evidence while it was still being written.
+          shard 31:20260910,18:20260910 pole & pole=$!
+          shard 31:20260908,31:20260909,18:20260909 middle & middle=$!
+          shard 24:20260910,24:20260908,24:20260909,18:20260908 rest & rest=$!
+          # EVERY status, not the first failure. Shards that failed
+          # differently are separate findings, and stopping at the first would
+          # throw away another shard's evidence while it was still being written.
           rc=0
           wait "$pole" || rc=1
+          wait "$middle" || rc=1
           wait "$rest" || rc=1
-          for name in pole rest; do
+          for name in pole middle rest; do
             echo "::group::capacity shard $name"
             cat "capacity-evidence/shard-$name.log" || true
             echo '::endgroup::'
@@ -494,6 +657,7 @@ jobs:
           [ "$rc" = 0 ] || exit "$rc"
           python3 scripts/merge_lyrics_capacity.py \
             capacity-evidence/capacity-pole.json \
+            capacity-evidence/capacity-middle.json \
             capacity-evidence/capacity-rest.json \
             --out=capacity-evidence/capacity.json
       - uses: actions/upload-artifact@v4
@@ -2027,7 +2191,7 @@ jobs:
       # caught `nc_census` on the run that added it — and `structures` on
       # the run that added THAT. `comm -23 <(ls quality/test_*.py | sed 's|quality/test_||;s|\.py$||'
       # | sort) <(the names in this file, sorted)` is that command.
-      - name: "The 88 cheap suites (floor_window, capacity_receipt and candidate_pair_projection joined 2026-09-08 for the per-line query cost regression; production_data, production_harness, production_journal, production_relations and production_revision joined 2026-09-08 for the production audit repairs; audit_regressions joined 2026-09-07 for verification identity, coverage and durable proposal replay; propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling and data_row_claims with the re-derived provenance numbers, 2026-08-21; pin_sweep + suite_sweep 2026-08-22 — both were ORPHANS, found by the very check in test_verbs.py that exists because a list that is short looks exactly like a list that is complete; mandate_relation + relation_shapes + relations_null 2026-08-22, the SAME check catching the same shape a second time in one day — three suites written during the relation-ladder work and never added here, so every one of them was green on a developer machine and unrun in CI; placement 2026-08-22 with the section-constraint layer, added in the same commit as the suite rather than after somebody noticed; section_marks the same day with the bracketed-mark triage, whose own `--check` is the gate that a corpus load printing a NEW mark turns red instead of joining the 62% that answered nothing; slots 2026-08-23 with the placement coordinate and recover the same day with the second door into the pipeline, each added in the same commit as the module it gates so neither joins the census below; capabilities 2026-08-23 — the SAME orphan census a third time, and this one had been unrun since the day it was written — `quality/test_capabilities.py` §8 is what pins the 77-of-77-askable claim CLAUDE.md leads with, 51 checks at 6.9s, named by nothing that gates; gate_census 2026-08-23 with the census of which findings can refuse anything, added in the same commit as the module it gates — and the instrument's own first run is why it is here rather than a sitting later: it named two constructors, measured 46 codes, and omitted `quality/grid.py`'s SHAPE layer entirely, which a census reports as fully gated; songs 2026-08-24 — the DELIVERED songs, which until that day nothing in this repository read at all: zero checks under quality/, zero mentions here, and two of the five had shipped with their section structure missing while every gate in the tree stayed green; render_form the same day — the check that reads a MESSAGE, which no other gate can, plus the Stop hook that hands it the transcript and BLOCKS a turn carrying a section bracket with its apparatus stripped; songs_record the same day — the SERIES, because every report about these songs had been a PASS/FAIL bit read aloud as a judgement, and its claim check is the one gate in this tree aimed at the narrator rather than the code; songs_log the same day — the PROCESS beside the product, because the series banks what a song IS and nothing banked how it got there, and the zero-ceiling rhyme families were a markdown table no command could re-derive; sentencehood 2026-08-25 with the M-110 noun-stack layer — the nightly gained `sentencehood.py --check` in the same commit as the module and its SUITE joined nothing, the census's own defect one more time, caught by the census; narrative 2026-08-25 — the paired blind experiment's own suite, written across the M-121 narrative-layer sittings and never added here, and the census's finding was MASKED for a day: the orphan check is test_verbs §24, shard 1 died at §20's M-116 breakage two sections in front of it, so a crash in one section hid an orphan in another — the fix that cleared the crash is what let the census speak; door_census 2026-08-26 with the M-139 census of which DOOR each pair-satisfaction site judges at, added in the same commit as the module it gates -- and this label went from 71 to 72 with it, which `test_verbs.py` §43's own check is what caught: the label a reader trusts must equal the list it labels, and a suite added without moving the number is a list that is short looking exactly like a list that is complete; chance_rate 2026-08-26 with M-138's strike and M-140 -- the chance-rate measurement had by then been improvised TWICE from uncommitted scripts, which standing rule 3 calls a defect report, and its suite is here in the same commit as the module so it never joins the orphan census above; verify_figures 2026-08-28 with M-33's live/history citation instrument, added the sitting after its module -- the orphan census caught it on the full test_verbs run, the same shape a fourth time, and the label moved 73 to 74 with it; replay_memo 2026-08-29 with M-167's deferred-replay grading memo — the warm worker's cross-request answer to the quadratic resume cost round 9 measured, added in the same commit as the module it gates, label 74 to 75; staging 2026-09-01 with the retried, atomic staged download -- run #1195 lost a whole CI run to one TLS reset in a step that had not begun any test, and the `suites` shard matrix in this same commit took the number of jobs performing that unretried download from 5 to 8 per run, so the sharding made the failure MORE likely and this is the cost being paid rather than deferred, label 75 to 76; ban_convergence 2026-09-02 with the ban-against-the-bank instrument (M-168, triage C18), added in the same commit as the module it gates — its 13 checks re-derive one song's README triple through `Reviser.inspect` and kill a one-word mutation, ~2 min, label 76 to 77; cross_song 2026-09-02 with the cross-song disclosure M-111's ruling built (triage C08), added in the same commit as the module it gates — the section that earns its place is the PREFIX PIN, which holds `screen` output as a byte prefix of `screen --bank` and so makes the GATE the ruling refused mechanically unreachable rather than merely discouraged; the null half of the pin costs ~60s of corpus tagging and is `cross_song.py --check`'s business, which pin_sweep discovers by itself, label 77 to 78; brief_provenance 2026-09-02 with the gate on WHETHER A REVISION WAS BRIEFED (M-200), added in the same commit as the module it gates — the loop had been computing a complete OFFERED field per bound position, excluding both ban tiers, and nothing required a writer to read it, so a session hand-guessed five replacement pairs across three `finish` runs and every one came back BANNED; the check that earns its place is the FINGERPRINT one, which makes a brief earned on one draft unable to launder a hand-edit made to another, label 78 to 79; plan + capacity OUT to their own dealt matrix jobs and shard IN — the one dealing-and-timing idiom every dealt suite now calls — 2026-09-05 (M-244), label 79 to 78; battery_rounds 2026-09-06 with the one-row-per-round battery table and its closed layer vocabulary (M-254 D), added in the same commit as the module it gates — six checks, under a second, label 78 to 79)"
+      - name: "The 89 cheap suites (within_item joined 2026-09-10 with M-270's subclass-aware concreteness-norm gate, in the same commit as the fix — the within-item extractor's three norm-backed features had been NaN on every item for two days behind a green tree, because the one suite that would have said so is cold and heavy and lives outside this job; floor_window, capacity_receipt and candidate_pair_projection joined 2026-09-08 for the per-line query cost regression; production_data, production_harness, production_journal, production_relations and production_revision joined 2026-09-08 for the production audit repairs; audit_regressions joined 2026-09-07 for verification identity, coverage and durable proposal replay; propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling and data_row_claims with the re-derived provenance numbers, 2026-08-21; pin_sweep + suite_sweep 2026-08-22 — both were ORPHANS, found by the very check in test_verbs.py that exists because a list that is short looks exactly like a list that is complete; mandate_relation + relation_shapes + relations_null 2026-08-22, the SAME check catching the same shape a second time in one day — three suites written during the relation-ladder work and never added here, so every one of them was green on a developer machine and unrun in CI; placement 2026-08-22 with the section-constraint layer, added in the same commit as the suite rather than after somebody noticed; section_marks the same day with the bracketed-mark triage, whose own `--check` is the gate that a corpus load printing a NEW mark turns red instead of joining the 62% that answered nothing; slots 2026-08-23 with the placement coordinate and recover the same day with the second door into the pipeline, each added in the same commit as the module it gates so neither joins the census below; capabilities 2026-08-23 — the SAME orphan census a third time, and this one had been unrun since the day it was written — `quality/test_capabilities.py` §8 is what pins the 77-of-77-askable claim CLAUDE.md leads with, 51 checks at 6.9s, named by nothing that gates; gate_census 2026-08-23 with the census of which findings can refuse anything, added in the same commit as the module it gates — and the instrument's own first run is why it is here rather than a sitting later: it named two constructors, measured 46 codes, and omitted `quality/grid.py`'s SHAPE layer entirely, which a census reports as fully gated; songs 2026-08-24 — the DELIVERED songs, which until that day nothing in this repository read at all: zero checks under quality/, zero mentions here, and two of the five had shipped with their section structure missing while every gate in the tree stayed green; render_form the same day — the check that reads a MESSAGE, which no other gate can, plus the Stop hook that hands it the transcript and BLOCKS a turn carrying a section bracket with its apparatus stripped; songs_record the same day — the SERIES, because every report about these songs had been a PASS/FAIL bit read aloud as a judgement, and its claim check is the one gate in this tree aimed at the narrator rather than the code; songs_log the same day — the PROCESS beside the product, because the series banks what a song IS and nothing banked how it got there, and the zero-ceiling rhyme families were a markdown table no command could re-derive; sentencehood 2026-08-25 with the M-110 noun-stack layer — the nightly gained `sentencehood.py --check` in the same commit as the module and its SUITE joined nothing, the census's own defect one more time, caught by the census; narrative 2026-08-25 — the paired blind experiment's own suite, written across the M-121 narrative-layer sittings and never added here, and the census's finding was MASKED for a day: the orphan check is test_verbs §24, shard 1 died at §20's M-116 breakage two sections in front of it, so a crash in one section hid an orphan in another — the fix that cleared the crash is what let the census speak; door_census 2026-08-26 with the M-139 census of which DOOR each pair-satisfaction site judges at, added in the same commit as the module it gates -- and this label went from 71 to 72 with it, which `test_verbs.py` §43's own check is what caught: the label a reader trusts must equal the list it labels, and a suite added without moving the number is a list that is short looking exactly like a list that is complete; chance_rate 2026-08-26 with M-138's strike and M-140 -- the chance-rate measurement had by then been improvised TWICE from uncommitted scripts, which standing rule 3 calls a defect report, and its suite is here in the same commit as the module so it never joins the orphan census above; verify_figures 2026-08-28 with M-33's live/history citation instrument, added the sitting after its module -- the orphan census caught it on the full test_verbs run, the same shape a fourth time, and the label moved 73 to 74 with it; replay_memo 2026-08-29 with M-167's deferred-replay grading memo — the warm worker's cross-request answer to the quadratic resume cost round 9 measured, added in the same commit as the module it gates, label 74 to 75; staging 2026-09-01 with the retried, atomic staged download -- run #1195 lost a whole CI run to one TLS reset in a step that had not begun any test, and the `suites` shard matrix in this same commit took the number of jobs performing that unretried download from 5 to 8 per run, so the sharding made the failure MORE likely and this is the cost being paid rather than deferred, label 75 to 76; ban_convergence 2026-09-02 with the ban-against-the-bank instrument (M-168, triage C18), added in the same commit as the module it gates — its 13 checks re-derive one song's README triple through `Reviser.inspect` and kill a one-word mutation, ~2 min, label 76 to 77; cross_song 2026-09-02 with the cross-song disclosure M-111's ruling built (triage C08), added in the same commit as the module it gates — the section that earns its place is the PREFIX PIN, which holds `screen` output as a byte prefix of `screen --bank` and so makes the GATE the ruling refused mechanically unreachable rather than merely discouraged; the null half of the pin costs ~60s of corpus tagging and is `cross_song.py --check`'s business, which pin_sweep discovers by itself, label 77 to 78; brief_provenance 2026-09-02 with the gate on WHETHER A REVISION WAS BRIEFED (M-200), added in the same commit as the module it gates — the loop had been computing a complete OFFERED field per bound position, excluding both ban tiers, and nothing required a writer to read it, so a session hand-guessed five replacement pairs across three `finish` runs and every one came back BANNED; the check that earns its place is the FINGERPRINT one, which makes a brief earned on one draft unable to launder a hand-edit made to another, label 78 to 79; plan + capacity OUT to their own dealt matrix jobs and shard IN — the one dealing-and-timing idiom every dealt suite now calls — 2026-09-05 (M-244), label 79 to 78; battery_rounds 2026-09-06 with the one-row-per-round battery table and its closed layer vocabulary (M-254 D), added in the same commit as the module it gates — six checks, under a second, label 78 to 79)"
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -2119,7 +2283,7 @@ jobs:
                    controls data_row_claims english_text meter verify_figures expected_drift \
                    ipa songs ban_convergence cross_song brief_provenance shard \
                    battery_rounds audit_regressions production_harness production_relations \
-                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window; do
+                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item; do
             # SHARDED ACROSS RUNNERS, 2026-09-01. The list above is already
             # run FOUR-WIDE on one runner (below), so this job was 5,612
             # CPU-s packed into 4 lanes = 1,403s wall — the measured
