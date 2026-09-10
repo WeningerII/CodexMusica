@@ -78,7 +78,7 @@
     "check:mobile": "node scripts/check_mobile_layout.js",
     "check:cli": "node scripts/check_cli_output.js",
     "check:differential": "node scripts/check_edit_differential.js",
-    "check:atlas": "node scripts/build_atlas_basemap.js --check && node scripts/build_atlas_geo.js --check && node scripts/build_atlas_tree.js --check",
+    "check:atlas": "node scripts/build_atlas_basemap.js --check && node scripts/build_atlas_geo.js --check && node scripts/build_atlas_tree.js --check && node scripts/check_atlas_publish.js && node scripts/check_atlas_publish.js --self-test",
     "check:closure": "node scripts/check_build_closure.js",
     "test:production:offline": "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_release_gates.mjs mcp/test_battery_repairs.mjs mcp/test_chat_production.mjs mcp/test_connector_contracts.mjs mcp/test_connector_http.mjs mcp/test_runtime_assets.mjs mcp/test_state_codec.mjs mcp/test_lyric_workflow.mjs mcp/test_session_repairs.mjs mcp/test_pronunciation_choices.mjs && python3 scripts/test_lyrics_capacity.py && python3 scripts/test_profile_lyrics_phase.py && python3 scripts/test_worker_measurement_capture.py && python3 scripts/test_production_qualification.py && python3 lyric-harness/quality/test_session_repairs.py && python3 lyric-harness/quality/test_pronunciation_choices.py",
     "test:pronunciations": "node --test mcp/test_pronunciation_choices.mjs mcp/test_lyric_workflow.mjs && python3 lyric-harness/quality/test_pronunciation_choices.py",
