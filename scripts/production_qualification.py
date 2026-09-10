@@ -41,8 +41,33 @@ def spec(component):
     # pays the whole-tree baseline.
     if component in COMPONENTS[:4]:
         return ["quality/test_mutation.py", f"--shard={component[-1]}/4"], 14400
-    if component in ("song", "short"):
-        return ["quality/song_profile_calibration.py", "--check", f"--profile={component}", "--seeds=200", "--draws=2000"], 9000
+    # `song` MOVED 9000 -> 14400 ON 2026-09-10 AND `short` DID NOT, because the
+    # two run the same command over different fractions of the corpus.
+    # `PROFILE_PRED_MAX` is `{"song": None, "short": 200}` -- song "caps
+    # nothing", in that table's own words, so it scores every item on the check
+    # the module says costs 96% of a cold run. The 8,758.6 CPU-s in
+    # ci.yml:3090-3099 was measured on THIS command (`song_profile_calibration
+    # .py --check`, run 33305249323, `hits 4, misses 8663`), so 9,000 was
+    # **1.03x a measured cost** -- and this file already rejected that shape
+    # twice, at "146 of 150 minutes is not headroom" and at the CI guard that
+    # fired on a fully green run. `short` stays at 9,000: MEASURED over the
+    # banked rows at quality/results/production_data_2026-09-08/, 5,432 of
+    # 8,545 items are <= 200 tokens, so its predictability arm is 63.6% of
+    # song's, ~5,570 s, and 9,000 is 1.62x -- the same headroom 14,400 gives
+    # the uncapped ones.
+    #
+    # NOT WAITING TO BE BITTEN, AND THAT IS A DEPARTURE WORTH NAMING. The
+    # mutation repin above moved only after a run hit 12,001 s, on the rule
+    # that a bound a run has hit is a measured floor. Nothing has yet hit
+    # 9,000 here. The measurement that matters already exists and was taken on
+    # this exact command; qualification run 34436960370 had `song` running on a
+    # provably cold memo (M-264) toward that bound while this was written, and
+    # a budget known to be 1.03x is a defect whether or not the next run is
+    # unlucky enough to prove it.
+    if component == "song":
+        return ["quality/song_profile_calibration.py", "--check", "--profile=song", "--seeds=200", "--draws=2000"], 14400
+    if component == "short":
+        return ["quality/song_profile_calibration.py", "--check", "--profile=short", "--seeds=200", "--draws=2000"], 9000
     # THE CURVES BUDGET MOVED 2400 -> 14400 ON 2026-09-10, AND 2,400 WAS NEVER
     # A BUDGET FOR THE WORK THIS COMPONENT DOES. production-qualification.yml
     # said so in its own words -- "THE BUDGETS BELOW ARE WARM-MEMO BUDGETS" --
