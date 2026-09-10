@@ -313,7 +313,28 @@ jobs:
 
   capacity-proof-result:
     needs: [dup, gate, capacity-proof]
-    if: always() && needs.dup.outputs.already_covered != 'true'
+    # ~~if: always()~~ — THE LAST `always()` RESULT GATE IN THIS FILE, AND IT
+    # WAS THE ONE THE 2026-08-16 REPLACEMENT MISSED. `catalog-result` (the
+    # block above carries the full argument), `suites-result`, `plan-result`,
+    # `capacity-result`, `revision-loop-result` and `verbs-result` all read
+    # `!cancelled()`; this one did not, and nothing said so out loud.
+    #
+    # `always()` INCLUDES THE CANCELLED STATE. MEASURED on this file's own
+    # branch: runs 34442739821 (push) and 34442779448 (pull_request), both at
+    # `51de1726`, were cancelled by the next push at 05:58:15Z. `gate` went
+    # with them, `capacity-proof` was therefore SKIPPED, and this job ran
+    # anyway under `always()`, read `RESULT: skipped`, and exited 1 — a RED X
+    # on a PR, seven minutes into a run that had proved nothing either way.
+    # That is the same shape run #426 (`c806457`) paid for at seven seconds.
+    #
+    # THE GATE IS UNCHANGED, AND THAT IS THE POINT OF USING `!cancelled()`
+    # RATHER THAN A NEW ARM. A capacity proof that FAILED still reports
+    # `failure` here; one that was SKIPPED because `gate` failed on a run
+    # nobody cancelled still reports `skipped`, and `test "$RESULT" = success`
+    # still refuses it. Only the cancelled case leaves — and a cancelled run
+    # has measured nothing, so calling it a failure is doctrine 20 upside
+    # down: CANNOT RUN is not a PASS, and it is not a FAIL either.
+    if: ${{ !cancelled() && needs.dup.outputs.already_covered != 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Require actual all-family proof from this workflow attempt

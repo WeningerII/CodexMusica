@@ -489,13 +489,87 @@ def test_every_cache_restore_key_can_reach_its_producer():
           bool(_unreachable(planted)) and planted != steps)
 
 
+RESULT_JOB = re.compile(r"^  ([a-z][a-z0-9-]*-result):\s*$")
+
+
+def _result_gates(text=None):
+    """-> `{job name: its `if:` line}` for every `*-result` job in ci.yml.
+
+    TEXT again, and `text=` so the planted case below can be built by editing
+    the file's STRING rather than the file.
+    """
+    if text is None:
+        path = os.path.join(HERE, "..", "..", ".github", "workflows", "ci.yml")
+        text = open(path, encoding="utf-8").read()
+    gates, name = {}, None
+    for ln in text.splitlines():
+        got = RESULT_JOB.match(ln)
+        if got:
+            name = got.group(1)
+            gates[name] = None
+            continue
+        if name is None:
+            continue
+        if ln and not ln.startswith("    "):
+            name = None
+            continue
+        body = ln.strip()
+        if body.startswith("if:") and gates.get(name) is None:
+            gates[name] = body
+    return gates
+
+
+def test_no_result_gate_calls_a_cancelled_run_a_failure():
+    print("\n8. every `*-result` fan-in gates on `!cancelled()`, so a run "
+          "somebody superseded is not reported as a defect")
+    # WHAT THIS PINS. `always()` INCLUDES THE CANCELLED STATE. A push to a
+    # branch with an open PR starts two runs and the concurrency group cancels
+    # one; a second push cancels the first. Either way `gate` is cancelled,
+    # every job that `needs:` it is SKIPPED, and an `always()` fan-in then runs
+    # anyway, reads `skipped`, and paints a RED X on a run that measured
+    # nothing. ci.yml's `catalog-result` block carries the original argument
+    # and the run that paid for it (#426, `c806457`, red seven seconds in).
+    #
+    # IT WAS FIXED ON 2026-08-16 AND ONE JOB WAS MISSED, WHICH IS WHY THIS IS A
+    # CHECK AND NOT A PARAGRAPH. `capacity-proof-result` kept `always()` for
+    # over three weeks, and it took runs 34442739821 and 34442779448 — both at
+    # `51de1726`, both cancelled at 05:58:15Z by the next push — to say so.
+    # Six jobs agreeing and a seventh not is exactly the shape a reader skims
+    # past (doctrine 48).
+    #
+    # `!cancelled()` AND NOT A NEW ARM, because the gate must not move: a
+    # FAILED proof still reports `failure` and a SKIPPED one still reports
+    # `skipped`, and both still fail `test "$RESULT" = success`. Only the
+    # cancelled case leaves.
+    gates = _result_gates()
+    check("the sweep found the fan-in jobs to check at all",
+          len(gates) >= 6, ", ".join(sorted(gates)))
+    missing = sorted(n for n, cond in gates.items() if not cond)
+    check("every `*-result` job carries an `if:` at all", not missing, str(missing))
+    bad = sorted(n for n, cond in gates.items()
+                 if cond and "!cancelled()" not in cond)
+    check("and none of them gates on `always()`, which includes cancelled",
+          not bad,
+          "; ".join(f"{n}: {gates[n]}" for n in bad))
+    # THE CHECK CAN FAIL, and the planted defect is the one that shipped:
+    # a single job put back on `always()`.
+    path = os.path.join(HERE, "..", "..", ".github", "workflows", "ci.yml")
+    planted = open(path, encoding="utf-8").read().replace(
+        "if: ${{ !cancelled() && needs.dup.outputs.already_covered != 'true' }}",
+        "if: always() && needs.dup.outputs.already_covered != 'true'", 1)
+    check("PLANTED: one job put back on `always()` IS caught",
+          any("!cancelled()" not in (c or "")
+              for c in _result_gates(planted).values()))
+
+
 if __name__ == "__main__":
     for fn in (test_the_deal_is_exactly_once, test_a_bad_coordinate_refuses,
                test_run_sections_times_and_gates,
                test_every_dealt_suite_calls_the_one_idiom,
                test_no_section_reads_what_another_section_wrote,
                test_each_ci_event_owns_completed_evidence,
-               test_every_cache_restore_key_can_reach_its_producer):
+               test_every_cache_restore_key_can_reach_its_producer,
+               test_no_result_gate_calls_a_cancelled_run_a_failure):
         fn()
     print("=" * 62)
     if FAILURES:
