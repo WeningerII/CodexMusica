@@ -17,7 +17,23 @@ import time
 
 ROOT = Path(__file__).resolve().parents[1]
 HARNESS = ROOT / "lyric-harness"
-COMPONENTS = tuple([f"mutation-{i}" for i in range(1, 5)] + ["song", "short", "curves"])
+#: MUTATION SHARDS: 4 -> 8 ON 2026-09-10, AND THE ARITHMETIC IS IN M-266.
+#: MEASURED: `qualification-mutation-1` COMPLETED in 12,072 s on CI (run
+#: 34436960370) while `qualification-mutation-4` was KILLED at 14,400 for the
+#: second run running -- the same shard both times, so the deal is uneven
+#: rather than unlucky. `--baseline-only` measured the whole-tree baseline
+#: every shard pays at **4,992 s** (95/98 green, 98 files), which is 41% of a
+#: shard and does not divide.
+#: So a shard is B + M/K with B ~= 4,992 fixed: at K=4 that is 4,992 + 7,080,
+#: and at K=8 it is 4,992 + 3,540 = 8,532 s, 1.69x inside the bound. THE
+#: CHOICE IS ROBUST RATHER THAN FITTED -- solving for K=8 across the whole
+#: plausible range of B gives 7,286 s (B=2,500), 8,532 (B=4,992) and 10,036
+#: (B=8,000), and every one of them clears 14,400 even with shard 4 carrying
+#: 1.5x the average slice. M-263's rule stands and is now quantified: no shard
+#: count goes below B, so 4,992 s is the floor and 8 is not a step toward 16.
+MUTATION_SHARDS = 8
+COMPONENTS = tuple([f"mutation-{i}" for i in range(1, MUTATION_SHARDS + 1)]
+                   + ["song", "short", "curves"])
 
 
 def spec(component):
@@ -40,8 +56,11 @@ def spec(component):
     # answer is not 16,000 -- it is that the shard is too big, and the sweep's
     # own comment already says a shard count cannot fix that while every shard
     # pays the whole-tree baseline.
-    if component in COMPONENTS[:4]:
-        return ["quality/test_mutation.py", f"--shard={component[-1]}/4"], 14400
+    if component.startswith("mutation-"):
+        # SPLIT, not `component[-1]`: that read the last CHARACTER and would
+        # deal `mutation-10` as shard 0 the day this count reaches two digits.
+        return ["quality/test_mutation.py",
+                f"--shard={component.split('-')[1]}/{MUTATION_SHARDS}"], 14400
     # `song` WAS MOVED 9000 -> 14400 ON 2026-09-10 AND MOVED STRAIGHT BACK THE
     # SAME MORNING, BECAUSE A RUN MEASURED IT WHILE THE CHANGE WAS IN FLIGHT.
     #
@@ -241,7 +260,7 @@ def run_component(component, out):
 
 def aggregate(receipts, *, commit, repository, run_id, run_attempt, names):
     if len(receipts) != len(COMPONENTS) or sorted(r.get("component", "") for r in receipts) != sorted(COMPONENTS):
-        raise ValueError("Every one of four unique mutation shards and all three full calibration comparisons is required")
+        raise ValueError(f"Every one of {MUTATION_SHARDS} unique mutation shards and all three full calibration comparisons is required")
     if not names or len(set(names)) != len(names):
         raise ValueError("Mutation inventory is missing or duplicated")
     common = receipts[0].get("identity")

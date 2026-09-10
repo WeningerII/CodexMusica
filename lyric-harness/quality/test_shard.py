@@ -562,6 +562,80 @@ def test_no_result_gate_calls_a_cancelled_run_a_failure():
               for c in _result_gates(planted).values()))
 
 
+def test_the_two_qualification_tables_cannot_drift_apart():
+    print("\n9. the Python and JavaScript qualification tables agree, "
+          "component for component and argument for argument")
+    # WHY THERE ARE TWO, AND WHY THAT IS NOT THE DEFECT. `scripts/
+    # verify_qualification.mjs` keeps its OWN copy of the component list and
+    # of what each component should have run, and re-derives it rather than
+    # trusting the receipt's word. That is a deliberate cross-check on the
+    # deploy path: a receipt that claims a reduced command is caught by an
+    # implementation that never read it.
+    #
+    # WHAT IS THE DEFECT IS THAT NOTHING COMPARED THEM. Change the shard count
+    # in one file and the other keeps the old table; the qualification then
+    # runs, passes, uploads, and `validateQualification` rejects it at DEPLOY
+    # time -- after four hours of runners, on the one path where a late no is
+    # most expensive. Found 2026-09-10 while moving the count 4 -> 8 (M-266),
+    # which is exactly the edit that would have caused it.
+    #
+    # READ FROM BOTH, RESTATED IN NEITHER (doctrine 1): this executes each side
+    # and compares, so it cannot go stale against a table it is describing.
+    import json
+    import subprocess
+    root = os.path.join(HERE, "..", "..")
+    scripts = os.path.join(root, "scripts")
+    sys.path.insert(0, scripts)
+    for name in ("production_qualification",):
+        sys.modules.pop(name, None)
+    import production_qualification as PQ
+    py = {"components": list(PQ.COMPONENTS),
+          "spec": {c: PQ.spec(c)[0] for c in PQ.COMPONENTS}}
+    node = subprocess.run(
+        ["node", "--input-type=module", "-e",
+         "import {COMPONENTS, expectedCommand} from "
+         "'./scripts/verify_qualification.mjs';"
+         "console.log(JSON.stringify({components: COMPONENTS,"
+         " spec: Object.fromEntries(COMPONENTS.map(c => [c, expectedCommand(c)]))}))"],
+        cwd=root, text=True, capture_output=True)
+    check("the JavaScript table can be read at all "
+          "(it must export COMPONENTS and expectedCommand)",
+          node.returncode == 0, (node.stderr or "").strip()[:300])
+    if node.returncode != 0:
+        return
+    js = json.loads(node.stdout)
+    check("both sides list the same components, in the same order",
+          py["components"] == js["components"],
+          f"py {py['components']} vs js {js['components']}")
+    differing = sorted(c for c in py["components"]
+                       if py["spec"].get(c) != js["spec"].get(c))
+    check("and both derive the same command for every one of them",
+          not differing,
+          "; ".join(f"{c}: py {py['spec'][c]} vs js {js['spec'].get(c)}"
+                    for c in differing))
+    # AND THE THIRD COPY IS THE WORKFLOW MATRIX, which is where the count is
+    # actually spelled out by hand. A matrix short of a component simply never
+    # runs it, and `aggregate` then refuses the whole run for a missing
+    # receipt -- four hours to learn that a list was edited in two places out
+    # of three.
+    path = os.path.join(root, ".github", "workflows",
+                        "production-qualification.yml")
+    matrix = re.search(r"^\s*component:\s*\[([^\]]*)\]\s*$",
+                       open(path, encoding="utf-8").read(), re.M)
+    check("the workflow declares its component matrix where this can read it",
+          matrix is not None)
+    if matrix:
+        listed = [x.strip() for x in matrix.group(1).split(",") if x.strip()]
+        check("and the matrix is exactly the components the table declares",
+              listed == py["components"],
+              f"matrix {listed} vs table {py['components']}")
+    # THE CHECK CAN FAIL, and the planted defect is the one this entry was
+    # written during: a shard count moved on one side only.
+    planted = dict(js, components=js["components"][:-1])
+    check("PLANTED: a table that lost a component IS caught",
+          py["components"] != planted["components"])
+
+
 if __name__ == "__main__":
     for fn in (test_the_deal_is_exactly_once, test_a_bad_coordinate_refuses,
                test_run_sections_times_and_gates,
@@ -569,7 +643,8 @@ if __name__ == "__main__":
                test_no_section_reads_what_another_section_wrote,
                test_each_ci_event_owns_completed_evidence,
                test_every_cache_restore_key_can_reach_its_producer,
-               test_no_result_gate_calls_a_cancelled_run_a_failure):
+               test_no_result_gate_calls_a_cancelled_run_a_failure,
+               test_the_two_qualification_tables_cannot_drift_apart):
         fn()
     print("=" * 62)
     if FAILURES:

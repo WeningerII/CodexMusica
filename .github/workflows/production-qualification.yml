@@ -68,7 +68,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        component: [mutation-1, mutation-2, mutation-3, mutation-4, song, short, curves]
+        component: [mutation-1, mutation-2, mutation-3, mutation-4, mutation-5, mutation-6, mutation-7, mutation-8, song, short, curves]
     env:
       OMP_NUM_THREADS: '1'
       MKL_NUM_THREADS: '1'
@@ -215,6 +215,25 @@ jobs:
       # 124: a component killed at its bound is exactly the case where "how
       # many did it get through" decides whether the bound is too small or the
       # work is too slow, and those are different repairs.
+      # THE PHASE COSTS THIS COMPONENT ACTUALLY PAID, LIFTED OUT OF A LOG
+      # NOBODY CAN REACH. `run_component` redirects the child's stdout to
+      # `evidence/<component>.json.log` and uploads it as an ARTIFACT, so the
+      # one number that sizes a mutation shard -- the unmutated baseline's
+      # share -- is invisible to anyone reading the job. M-266 had to measure
+      # it on a developer box instead and then argue the transfer.
+      # `test_mutation.py` already prints it ("a completed baseline hands the
+      # next person the baseline's share of the shard budget, which is what
+      # sizing N actually turns on"); this only puts it where it can be read.
+      # Bounded on purpose: matched lines only, never the whole log.
+      - name: What each phase of this component cost
+        if: always()
+        run: |
+          LOG=evidence/${{ matrix.component }}.json.log
+          if [ -f "$LOG" ]; then
+            grep -E 'phase 1 of 2|phase 2 of 2|baseline: (cached|running|[0-9])|CACHE |PHASE COST|TOTAL' "$LOG" | tail -40 || true
+          else
+            echo "no component log at $LOG"
+          fi
       - name: Report the predictability memo this component ends with
         if: always()
         run: |
