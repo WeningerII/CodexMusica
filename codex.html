@@ -178,6 +178,10 @@ ul { list-style: none; }
 
 /* Buttons */
 .btn {
+  /* `text-decoration: none` is here for the ANCHORS that wear this class --
+     #btn-atlas is one. A <button> never underlines; an <a> does, and without
+     this it would be the only underlined thing in the app bar. */
+  text-decoration: none;
   padding: 8px var(--s4);
   border-radius: var(--r2);
   border: 1px solid transparent;
@@ -1215,7 +1219,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
      into the pinned recipe bar. Each is re-exposed by a proxy control that
      forwards its click to the button hidden here, so there is still exactly
      one click handler per action. */
-  #btn-undo, #btn-redo, #btn-attributions, #btn-saved, #btn-save,
+  #btn-undo, #btn-redo, #btn-attributions, #btn-atlas, #btn-saved, #btn-save,
   .app-bar .actions-rule { display: none; }
   .app-bar .app-more-btn { display: inline-flex; }
 
@@ -1691,6 +1695,18 @@ body.is-dnd-active * { cursor: grabbing !important; }
     <button class="icon-btn" id="btn-attributions" data-tooltip="Image credits &amp; licenses" aria-label="Image credits"><span data-icon="info" data-size="14"></span></button>
     <span class="actions-rule" aria-hidden="true"></span>
     <button class="btn btn-tonal" id="btn-traditions"><span data-icon="library" data-size="14"></span><span class="btn-label"><span class="lbl-full">Traditions</span><span class="lbl-compact">Genre</span></span></button>
+    <!-- The atlas had no door. It ships at ./atlas.html and until now was
+         linked ONLY from index.html, so nobody who opened the app could reach
+         it. It sits beside Traditions because it is the same subject seen
+         geographically.
+         NEW TAB, DELIBERATELY. The canvas lives in memory and is only
+         persisted by Save, which is why there is a `beforeunload` warning in
+         app.js; a same-tab link would make "look at the map" cost either a
+         browser confirm or the session. It also lets the map be read BESIDE
+         the workspace, which is what a reference map is for. -->
+    <a class="btn btn-ghost" id="btn-atlas" href="./atlas.html" target="_blank" rel="noopener"
+       data-tooltip="Traditions atlas — the world map (opens in a new tab)"
+       aria-label="Traditions atlas — the world map (opens in a new tab)"><span data-icon="network" data-size="14"></span><span class="btn-label">Atlas</span></a>
     <button class="btn btn-ghost" id="btn-saved"><span data-icon="folder" data-size="14"></span><span class="btn-label">Saved</span></button>
     <button class="btn btn-secondary" id="btn-save"><span data-icon="save" data-size="14"></span><span class="btn-label"><span class="lbl-full">Save workspace</span><span class="lbl-compact">Save</span></span></button>
     <button class="btn btn-primary" id="btn-add"><span data-icon="plus" data-size="14"></span><span class="btn-label"><span class="lbl-full">Add instrument</span><span class="lbl-compact">Instrument</span></span></button>
@@ -1705,6 +1721,8 @@ body.is-dnd-active * { cursor: grabbing !important; }
      app bar, so there is exactly one handler per action and the compact bar
      can never drift out of parity with the desktop one. -->
 <div class="more-menu" id="app-more-menu" role="menu" aria-labelledby="btn-more" hidden>
+  <button class="more-menu-item" role="menuitem" data-proxy="btn-atlas"><span data-icon="network" data-size="15"></span>Traditions atlas</button>
+  <div class="more-menu-sep" role="separator"></div>
   <button class="more-menu-item" role="menuitem" data-proxy="btn-saved"><span data-icon="folder" data-size="15"></span>Saved workspaces</button>
   <button class="more-menu-item" role="menuitem" data-proxy="btn-save"><span data-icon="save" data-size="15"></span>Save workspace</button>
   <div class="more-menu-sep" role="separator"></div>
