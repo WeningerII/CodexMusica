@@ -198,7 +198,7 @@ jobs:
           MEMO=~/.cache/lyric-harness/song_predictability_v1.tsv
           LINES=$(grep -c '' "$MEMO" 2>/dev/null || true)
           echo "predictability memo: ${LINES:-0} line(s) at $MEMO"
-          echo "  cold is 0; a memo covering the whole corpus is ~8,668 (8,667 items and a header)"
+          echo "  cold is 0; a memo covering the whole corpus is ~8,546 (8,545 items and a header)"
       - name: Complete the exact comparison within its existing command budget
         run: python3 scripts/production_qualification.py run '${{ matrix.component }}' --out=evidence/${{ matrix.component }}.json
       # THE SAME COUNT AGAIN, AFTER. Two readings of one file bracket the
@@ -221,7 +221,7 @@ jobs:
           MEMO=~/.cache/lyric-harness/song_predictability_v1.tsv
           LINES=$(grep -c '' "$MEMO" 2>/dev/null || true)
           echo "predictability memo: ${LINES:-0} line(s) at $MEMO"
-          echo "  a memo covering the whole corpus is ~8,668 (8,667 items and a header)"
+          echo "  a memo covering the whole corpus is ~8,546 (8,545 items and a header)"
           echo "  the flush interval is 200 puts, so this trails the true count by <200"
       - uses: actions/upload-artifact@v4
         if: always()

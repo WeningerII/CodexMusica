@@ -88,13 +88,40 @@ def spec(component):
     # two flush intervals and multiplied out) are why this cites a run's table
     # rather than a rate.
     #
-    # THREE BANKED READINGS AGREE ON ~1.0 CPU-s PER ITEM, and they were taken
-    # by different instruments: ci.yml's TOTAL 8,758.6 above; the band cell's
-    # 9,072 CPU-s for its predictability arm in one process
-    # (`quality/RESULTS_SONG_FLOOR.md`); and the four-shard stage B, whose
-    # shards printed 4,854 + 5,892 + 4,348 + 5,229 = 20,323 CPU-s for the same
-    # population (`quality/RESULTS_LENGTH_CURVE.md` §8). Any of the three puts
-    # a cold one-process run near 9,000 s and none of them near 14,400.
+    # FOUR ONE-PROCESS COLD READINGS BRACKET 6,506-9,072 CPU-s, and 14,400 is
+    # 1.59x-2.21x that: ci.yml's TOTAL 8,758.6 above (run 33305249323); the
+    # band cell's 9,072 for the same arm (`quality/RESULTS_SONG_FLOOR.md`);
+    # ~8,450 (`quality/RESULTS_CACHE_IDENTITY.md`); and the most recent, CI run
+    # 34413319893's `population 6,505.6`.
+    #
+    # THAT LAST ONE LOOKS WARM AND IS NOT, WHICH IS THE WHOLE READING. Its step
+    # printed `memo: 8663 -> 8545 items (+-118 banked this run)`, and ci.yml's
+    # own shell is `"memo: $before -> $after items (+$((after - before)) ..."`,
+    # so that is a DECREASE of 118 and the `+-` is the format, not a typo. A
+    # memo cannot shrink: `PredictabilityCache.put` only assigns. It shrinks
+    # only when `open()` DISCARDED the file and `flush()` rewrote it with
+    # exactly what that run computed. So the nightly restored 8,663 accumulated
+    # entries, threw them away on a moved comparator fingerprint, and paid a
+    # full cold corpus -- which is this defect's twin sitting in the log that
+    # was supposed to be the remedy for it.
+    #
+    # DO NOT AVERAGE THE FOUR-SHARD FIGURE IN WITH THOSE. An earlier draft of
+    # this comment called stage B's 4,854 + 5,892 + 4,348 + 5,229 = 20,323
+    # CPU-s a third reading that "agrees on ~1.0 CPU-s per item". It does not:
+    # 20,323 over 8,545 items is 2.38, and §8 says why in the same sentence --
+    # "each shard warms its own end-word memo". It is a reading of a DIFFERENT
+    # workload and belongs only in the sharding argument below.
+    #
+    # AND THE COST UNIT IS NOT THE ITEM, WHICH IS WHY PER-ITEM RATES DISAGREE.
+    # `RhymeField.field()` memoises per distinct call word in `self._cache`
+    # (quality/features.py:277, 283-304), in-process, so the marginal cost of
+    # an item falls as the run saturates the vocabulary -- roughly 10.6 CPU-s
+    # per item over the first few dozen against ~0.76 averaged over the whole
+    # corpus. Any rate read off the FRONT of a cold run and multiplied out is
+    # high by several times, which is the 2026-08-20 mistake ci.yml records
+    # ("a RATE read over two flush intervals and multiplied out"). This is the
+    # same trap one axis over, and it is why the bound below is set from
+    # completed runs only.
     #
     # WHY NOT SHARD IT INSTEAD, AND THE ANSWER IS THAT SOMEBODY ALREADY DID.
     # `compute --shard i/K` + `check --rows` exists, and `read_rows(verify=
@@ -110,19 +137,29 @@ def spec(component):
     # shard, so curves at 14,400 does not extend this run's critical path by a
     # second, and that third of a wall is not spent anywhere.
     #
-    # WHAT THIS DOES NOT DECIDE, AND THERE ARE TWO READINGS THAT DISAGREE WITH
-    # THE THREE ABOVE. (1) M-260 measured a cold run ON THIS PROJECT'S DEV BOX
-    # cut at 3,000 s with 602 of ~8,667 items banked -- ~5 CPU-s per item, five
-    # times the runner figure. A 4-core box under other load is not a runner
-    # and the entry did not claim it was, but the gap is unexplained rather
-    # than dismissed. (2) Qualification run 34436960370 banked ~8.8 KB of memo
-    # in 2,400 s where ~1.0 CPU-s per item predicts nearer 48 KB. That one is
-    # A RATIO OF TWO COMPRESSED SIZES and so is not a count of anything
-    # (doctrine 58); the log holding the real figure is inside an artifact this
-    # network cannot reach. So production-qualification.yml now prints the memo
-    # line count AFTER the component as well as before. If 14,400 is not
-    # enough, that pair of readings is the measurement that says so, and the
-    # answer then is the shard above -- not 20,000.
+    # THE TWO READINGS THAT LOOKED LIKE CONTRADICTIONS ARE THE SATURATION CURVE
+    # SEEN FROM ITS EXPENSIVE END. M-260 measured a cold run on this project's
+    # dev box cut at 3,000 s with 602 items banked (~5 CPU-s each), and
+    # qualification run 34436960370 banked ~8.8 KB of memo in 2,400 s where a
+    # 0.76 CPU-s average predicts nearer 48 KB. Neither is a slower machine
+    # doing the same work: both are the FIRST few percent of a run, where the
+    # word cache is empty and almost every end word is a miss. In the invariant
+    # unit -- CPU-s per DISTINCT call word -- they agree with the completed
+    # runs. So the earlier note here calling that gap UNEXPLAINED is withdrawn;
+    # it is explained, and not by the bound being wrong.
+    #
+    # WHAT THIS STILL DOES NOT DECIDE. (1) Whether 14,400 holds on a slow
+    # runner: the four readings above span 1.4x between themselves, so a bad
+    # draw plus corpus growth could close 1.59x. production-qualification.yml
+    # now prints the memo line count AFTER the component as well as before, so
+    # the next run measures the rate rather than leaving it to a ratio of two
+    # compressed sizes (doctrine 58). If it is not enough the answer is the
+    # shard below, not 20,000. (2) `song_profile_calibration.py` pins "11,941
+    # distinct call words" and does arithmetic on it in the same docstring; a
+    # sweep during this work put the true count near 17,630. NOT REPINNED HERE
+    # and NOT independently confirmed: that is a set of derived figures across
+    # a docstring and two modules (doctrine 58), and it is not a change to make
+    # in the middle of a production drive.
     if component == "curves":
         return ["quality/length_curve_calibration.py", "check"], 14400
     raise ValueError("Unknown qualification component")
