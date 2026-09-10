@@ -166,6 +166,23 @@ jobs:
       # recomputed. Reaching the entry and being able to use it are two
       # different repairs; this is the first. The `curves` budget carries the
       # second.
+      #
+      # THE SHA IS NOT WHAT DECIDES WHETHER A MEMO IS USABLE; THE FINGERPRINT
+      # IS (M-273). `PredictabilityCache.open` keeps a file whose comparator
+      # fingerprint matches and discards one whose does not, and the
+      # fingerprint hashes `lyric_harness.py` and `quality/features.py` --
+      # not the commit. So a memo this component banked at the PREVIOUS SHA
+      # is fully usable at this one whenever the commits between touched
+      # neither file, which is most commits. Run 34509181078's `song` banked
+      # 8,003 fresh entries under the current fingerprint at 20:16Z, and the
+      # two prefixes above could not reach them from any later SHA: the first
+      # names this SHA, the second names the nightly, whose memo was banked
+      # under the fingerprint M-270 moved. The component prefix without a SHA
+      # is the third address, tried after this SHA's own and before the
+      # nightly's, and `actions/cache` returns the NEWEST entry under it.
+      # Reaching a memo the guard then discards costs one download and
+      # nothing else; not reaching one that the guard would keep cost `song`
+      # a full cold corpus on a slow runner.
       - name: Restore the predictability memo (ci.yml's path list, exactly)
         uses: actions/cache/restore@v4
         with:
@@ -173,6 +190,7 @@ jobs:
           key: qualification-${{ matrix.component }}-memo-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             qualification-${{ matrix.component }}-memo-${{ github.sha }}-
+            qualification-${{ matrix.component }}-memo-
             lyric-harness-predictability-v1-
       # NO `lyric-harness-mutation-baseline-v1-` PREFIX HERE, AND THAT IS THE
       # STRIKE STANDING, NOT AN OVERSIGHT. M-263 established that a baseline
