@@ -177,6 +177,41 @@ class ProductionDataTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "lack verified provenance"):
                 lc.read_rows([path], verify=True)
 
+    def test_the_tagger_prepends_its_directory_once_and_keeps_it_first(self):
+        """Two properties, and the second is why the obvious fix is wrong.
+
+        `_tagger` used to `insert(0, where)` unconditionally, appending a
+        duplicate on every call -- measured at 8 path entries becoming 11 over
+        three `row_provenance` calls. Bounded rather than hot, so it changed no
+        answer; M-259 adding a fourth call site is what made it worth fixing.
+
+        The tempting guard is `if where not in nltk.data.path`. It keeps the
+        list short and quietly loses the contract: a copy already sitting
+        further down STAYS there, and some earlier entry decides which model
+        loads. So this asserts BOTH that the list stops growing and that the
+        staged directory is still index 0 -- the second is the half a bare
+        membership guard fails.
+        """
+        import nltk
+        from quality.features import _tagger, nltk_data_dir
+
+        staged = nltk_data_dir()
+        _tagger()
+        settled = list(nltk.data.path)
+        for _ in range(5):
+            _tagger()
+        self.assertEqual(nltk.data.path, settled, 'the search path grew')
+        self.assertEqual(nltk.data.path.count(staged), 1)
+        self.assertEqual(nltk.data.path[0], staged)
+
+        # And it must reclaim first place from wherever it has drifted to,
+        # which is exactly what a membership guard would decline to do.
+        nltk.data.path.remove(staged)
+        nltk.data.path.insert(len(nltk.data.path), staged)
+        _tagger()
+        self.assertEqual(nltk.data.path[0], staged)
+        self.assertEqual(nltk.data.path.count(staged), 1)
+
     def test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer(self):
         """The model the sidecar names must be the model the tagging uses.
 

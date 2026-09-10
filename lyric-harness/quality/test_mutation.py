@@ -845,7 +845,35 @@ def test_the_run(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
     # ------------------------------------------------------------------
     print("\n5. blind spots, REPORTED (these are not assertions)")
     red = [t for t, r in bl.items() if r["status"] != "PASS"]
-    check("every baseline detector completed successfully", not red, str(red))
+    # THIS LINE USED TO CALL `check`, WHICH IS AN ASSERTION, INSIDE A SECTION
+    # WHOSE OWN HEADING AND THE PARAGRAPH ABOVE IT BOTH SAY IT IS NOT ONE --
+    # and the paragraph was right, in the exact words it used: "turning them
+    # into failures would make `test_mutation.py` permanently red for something
+    # another cell owns, which is how a useful signal gets muted."
+    #
+    # `bl` is the baseline over ALL of `mutate.discover_tests()` -- 98 files --
+    # not over the shard's own detectors. So ONE suite anywhere in the tree
+    # going red, or timing out on a loaded runner, failed EVERY shard, however
+    # cleanly that shard's own mutations were caught.
+    #
+    # MEASURED: production-qualification run 34404281269 (main a1666165, the
+    # first ever run of that workflow) failed mutation-1, -2 and -3 -- 2h44m,
+    # 2h06m and 2h21m against a 3h20m budget, so none of them a timeout, all
+    # exit 1. Shard 2/4's fifteen mutations were reproduced at that exact
+    # commit and every one was CAUGHT by its own declared detectors over a
+    # 16/16 green baseline, with no candidate survivors. Three shards failing
+    # together is a shared condition, and the only condition all four share is
+    # this 98-file baseline.
+    #
+    # THE ASSERTION BESIDE IT STAYS, AND IT IS THE ONE THAT MATTERS: "no
+    # survivor lost its baseline detector" (section 4) fires when a mutation
+    # SURVIVED and its own detector was among the excluded, which is the case
+    # where a red baseline really does hide a hole. That is a claim about this
+    # shard's evidence. "some file somewhere was red" is a claim about the
+    # runner, and doctrine 20 -- a refusal is not a grade -- is why it is
+    # reported at full volume and not scored.
+    print(f"  {'NOTE' if red else 'PASS'}  every baseline detector completed "
+          f"successfully: {'no' if not red else str(red)}")
     if red:
         print(f"  NOTE  {len(red)} test file(s) are RED at baseline and were "
               f"excluded from the detector set: {', '.join(red)}")
@@ -898,6 +926,56 @@ def test_release_oracle_rejects_incomplete_evidence():
     check("every positive control demands an actual catch",
           sum("CAUGHT" in name or "CONTROL" in name for name in failures) == len(CORE),
           str(failures))
+
+
+def test_a_red_baseline_reports_without_scoring_and_still_blocks_a_blind_survivor():
+    """The blind-spot section must not fail a shard for the runner's state.
+
+    Section 5 says in its own heading that its facts are not assertions, and
+    one of them was calling `check`. `bl` covers all ~98 discovered suites,
+    not the shard's own detectors, so any one of them red or timed out failed
+    every shard -- which is what production-qualification run 34404281269 did
+    to mutation-1, -2 and -3 while their own mutations were being caught.
+
+    BOTH DIRECTIONS, because demoting a check is exactly the change that can
+    quietly disarm a real one. A red baseline alone must NOT score; the same
+    red baseline WITH a survivor whose own detector it excluded must still
+    fail, because there the redness is hiding a hole rather than describing a
+    runner.
+    """
+    import contextlib
+    import io
+    from unittest.mock import patch
+
+    def run(rows, baseline, survivors):
+        assertions = []
+        with patch.dict(globals(), run_suite=lambda *a, **kw:
+                        (rows, baseline, survivors, [], [], [], 0.0),
+                        check=lambda name, condition, detail="":
+                        assertions.append((name, bool(condition)))), \
+                contextlib.redirect_stdout(io.StringIO()):
+            test_the_run("subset", [rows[0]["name"]], 1, 1, False)
+        return [name for name, ok in assertions if not ok]
+
+    caught = [dict(name="M1", file="quality/align.py", layer="anchor",
+                   survived=False, indeterminate=False, stale=False,
+                   caught_by={"quality/test_align.py": "RED"})]
+    red_baseline = {"quality/test_align.py": {"status": "PASS"},
+                    "quality/test_unrelated.py": {"status": "FAIL"}}
+
+    failed = run(caught, red_baseline, [])
+    check("a red baseline elsewhere in the tree does not fail a clean shard",
+          "every baseline detector completed successfully" not in failed,
+          str(failed))
+    check("and nothing else fails on it either", not failed, str(failed))
+
+    # The half that must still bite: the survivor's OWN detector is the red one.
+    blind = [dict(name="M1", file="quality/align.py", layer="anchor",
+                  survived=True, indeterminate=False, stale=False, caught_by={})]
+    own_detector_red = {"quality/test_align.py": {"status": "FAIL"}}
+    failed = run(blind, own_detector_red, ["M1"])
+    check("a survivor whose own detector was excluded still fails the shard",
+          "no survivor lost its baseline detector" in failed, str(failed))
 
 
 def test_baseline_fingerprint_includes_data_and_runtime():
@@ -1000,6 +1078,7 @@ if __name__ == "__main__":
     test_M1_is_declared_verbatim()
     test_the_three_way_outcome()
     test_release_oracle_rejects_incomplete_evidence()
+    test_a_red_baseline_reports_without_scoring_and_still_blocks_a_blind_survivor()
     test_baseline_fingerprint_includes_data_and_runtime()
     test_the_reported_cause_is_the_suites_own()
     test_the_bounds_are_declared_and_reachable()

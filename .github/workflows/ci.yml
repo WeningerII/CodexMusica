@@ -331,11 +331,20 @@ jobs:
     # Aggregate CPU is not a serial-wall measurement.
     #
     # ~~2m audit +55m build +5m image checks +65m matrix =127m; job 145m~~
-    # 2m audit +55m build +5m image checks +35m matrix =97m; job 115m reserves
-    # 18m for checkout/setup/oracles/uploads/image publication. The matrix bound
-    # moved because the matrix is sharded now (see the step); the build bound
-    # did NOT move, even though the build should fall sharply, because a bound
-    # lowered on a prediction is a flake waiting for a slow runner.
+    # ~~...+35m matrix =97m; job 115m~~ 2m audit +55m build +5m image checks
+    # +50m matrix =112m; job 130m reserves 18m for
+    # checkout/setup/oracles/uploads/image publication.
+    #
+    # AND 35 WAS THE MISTAKE THIS COMMENT WARNS ABOUT, MADE IN THE SAME BREATH
+    # AS THE WARNING. It was set from an ESTIMATE of 18.4 min. The step then
+    # MEASURED 27.3 min (run 34416677615), which 35 clears by 1.28x -- not a
+    # bound, a coin toss on a slow runner, and the sentence below about not
+    # lowering the build bound on a prediction applied word for word to the one
+    # being lowered beside it. 50 is 1.8x the measurement. Lower it after three
+    # measured green runs or not at all.
+    #
+    # The build bound did NOT move, even though the build MEASURED 10.7 min
+    # against its 55, for the same reason.
     #
     # AND THE TWO SENTENCES BELOW WERE TRUE WHEN WRITTEN AND ARE NOT NOW.
     # ~~These are explicit bounded allowances, not measured Docker Python 3.11
@@ -353,7 +362,7 @@ jobs:
     # in mcp/Dockerfile; what the change is worth is for the next run to say.
     # Keep evidence on failure. Operational 600s calls and 40m turn walls are
     # unchanged.
-    timeout-minutes: 115
+    timeout-minutes: 130
     permissions:
       contents: read
       packages: write
@@ -454,7 +463,7 @@ jobs:
       # `production_qualified` rather than copying it from any shard.
       # `scripts/test_lyrics_capacity.py` pins all of them.
       - name: Production CPU and memory capacity matrix (sharded by workload)
-        timeout-minutes: 35
+        timeout-minutes: 50
         env:
           TESTED_IMAGE: ${{ steps.image.outputs.image_id }}
         run: |
@@ -3254,11 +3263,38 @@ jobs:
       # say how many things were wrong with it.
       # This command actually calls capacity.check(), unlike record's static
       # argv/figure checks and test_capacity's independent sample witnesses.
+      # AND THE PARAGRAPH ABOVE HAD IT RIGHT WHILE THE TWO STEPS BELOW IT DID
+      # THE SAME THING ONE LEVEL UP. Neither carried an `if:`, so both default
+      # to `if: success()` and both are SKIPPED the moment anything earlier in
+      # this long job goes red. They are the only writers of
+      # mcp/capacity_verification.json (production_qualification.py's
+      # `capacity-accept`), which is gitignored and untracked -- so the
+      # adoption check below, which carries `if: always()` and therefore DOES
+      # run, met a workspace where the receipt had never been written.
+      #
+      # MEASURED, run 34413319893 on main a1666165: steps 9 and 10 (the two
+      # AUC checks) FAILED, 11 and 12 were skipped, and step 13 reported
+      # `DRIFT: CAPACITY_UNVERIFIED: actual-runtime all-family receipt is
+      # missing or unreadable` -- while tier 1 re-derived CLEAN over 12,387
+      # families and all six sample witnesses re-graded clean. Nothing had
+      # drifted. The proof itself was fine: artifact capacity-proof-1, 1,666
+      # bytes, uploaded at 23:00:24Z. This step was green on the last
+      # completed nightly (run 33736009987, 2026-09-03), where these two steps
+      # did not yet exist; they arrived with a75da39.
+      #
+      # `if: always()` on both, so a receipt that EXISTS is always staged and
+      # the adoption check below is answering its own question rather than an
+      # unrelated step's. What it cannot fix is the label: `capacity.py
+      # --check` still prints a missing receipt under the word DRIFT, and a
+      # missing receipt is CANNOT RUN, not a grade (doctrine 20). That is
+      # capacity.py's to say, not this file's.
       - uses: actions/download-artifact@v4
+        if: always()
         with:
           name: capacity-proof-${{ github.run_attempt }}
           path: capacity-proof
       - name: Validate this attempt's proof against the nightly runtime/table
+        if: always()
         run: python3 scripts/production_qualification.py capacity-accept capacity-proof
 
       - name: Rhyme capacity adoption check (tier 1 in full + every sample witness re-graded)
