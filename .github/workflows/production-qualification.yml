@@ -24,77 +24,41 @@ jobs:
           RESULT: ${{ needs.capacity-proof.result }}
         run: test "$RESULT" = success
 
-  # THE WHOLE-TREE BASELINE, COMPUTED ONCE INSTEAD OF FOUR TIMES.
+  # A `mutation-baseline` JOB STOOD HERE FROM 2026-09-10 UNTIL THE SAME DAY, and
+  # what removed it is the run it was written for. M-263 shipped it to compute
+  # the whole-tree baseline once instead of four times, on the argument that it
+  # carries no `needs:` and so finishes inside the window `capacity-proof`
+  # already holds every component behind. BOTH HALVES OF THAT WERE WRONG.
   #
-  # `test_mutation.py`'s `run_suite` baselines `mutate.discover_tests()` -- all
-  # 98 files -- whatever slice the shard was asked for, and its own comment
-  # says what that costs: "the unmutated baseline runs first and is the
-  # expensive phase", and a completed one "hands the next person the baseline's
-  # share of the shard budget, which is what sizing N actually turns on". Four
-  # shards paid the identical baseline four times, and no shard count could get
-  # the wall below one of them.
+  # (1) The artifact could never be accepted. `mutate.SIBLING_RULES` includes
+  # `("mcp", "tree")`, so `source_fingerprint()` walks all of `mcp/` -- and
+  # `mcp/capacity_verification.json` is gitignored, absent from a checkout, and
+  # INJECTED by `capacity-accept`, which every component job runs and the
+  # producer did not. MEASURED: `1ec63dc3...` without that file,
+  # `b53c13a6...` with it. `mutate.baseline` accepts a cached file only when the
+  # fingerprint matches and does not complain when it does not -- it recomputes.
+  # So every shard would have recomputed exactly what it was handed.
   #
-  # MEASURED, production-qualification run 34404281269 (main a1666165, the
-  # first ever): mutation-1 FAILED at 2h44m, mutation-2 at 2h06m, mutation-3 at
-  # 2h21m -- and mutation-4 was killed at 12,001 s against its 12,000 s budget,
-  # exit 124, the only one of the four that was a timeout. Locally the baseline
-  # alone was still running past 12 minutes at two workers.
+  # (2) It was not free, and it was not even neutral. In qualification run
+  # 34428160709 `capacity-proof` finished at 02:18:01 and this job was STILL
+  # RUNNING at 03:04 -- 57 minutes -- with all seven components blocked behind
+  # it, against a 90-minute cap whose expiry would have skipped every one of
+  # them and produced a run that measured nothing.
   #
-  # NO `needs:`, DELIBERATELY. This starts with the run and finishes inside the
-  # window `capacity-proof` already holds every component behind, so most of
-  # its cost is not added to the run at all -- it is spent in a gap that
-  # existed anyway. What it removes is real: one whole-tree baseline from each
-  # of four shards.
+  # AND THE WALL-CLOCK CASE WAS NEVER THERE. With C = capacity-proof, B = the
+  # baseline, M = the largest shard and S = the longest calibration component:
+  #     as it was   wall = C + max(B + M, S)
+  #     as shipped  wall = C + B + max(M, S)
+  # Sharing moves B from parallel-across-shards to serial-in-front. When S
+  # exceeds B + M -- and S is `song` at 1h55m -- it is strictly WORSE. The real
+  # saving was only ever COMPUTE, four baselines instead of one, and this file
+  # is charged for wall clock. That arithmetic was not done before it shipped.
   #
-  # THE ONE WAY THIS SILENTLY DOES NOTHING is a config or fingerprint mismatch:
-  # `mutate.baseline` accepts a cached file only when both match, and when they
-  # do not it does not complain, it recomputes. That is why the producer runs
-  # THIS FILE with `--baseline-only` rather than a python -c with the numbers
-  # retyped, and why the install and staging steps below are the component
-  # job's own, verbatim -- `source_fingerprint()` hashes the harness tree, the
-  # staged data, PYTHONHASHSEED, and the nltk/numpy/scikit-learn versions.
-  # `quality/test_mutation.py`'s own check pins that the producer's config is
-  # the config the sweep looks up. The shard's log says `baseline: cached` or
-  # `baseline: running 98 checks`, so a miss is visible rather than merely slow.
-  mutation-baseline:
-    name: qualification-mutation-baseline
-    runs-on: ubuntu-latest
-    timeout-minutes: 90
-    env:
-      OMP_NUM_THREADS: '1'
-      MKL_NUM_THREADS: '1'
-      OPENBLAS_NUM_THREADS: '1'
-      PYTHONHASHSEED: '0'
-      MUTATE_SCRATCH: /tmp/mutate-scratch
-    steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - uses: actions/setup-node@v5
-        with:
-          node-version: '22'
-      - name: Install the full detector environment
-        run: |
-          python3 -m pip install --disable-pip-version-check --require-hashes -r "$GITHUB_WORKSPACE/mcp/requirements-runtime.txt"
-          python3 -m pip install --disable-pip-version-check numpy scikit-learn PyYAML
-          npm --prefix mcp ci --no-audit --no-fund
-      - name: Stage every declared lexical input
-        working-directory: lyric-harness
-        run: |
-          python3 -c "import lyric_harness; lyric_harness.fetch_data()"
-          python3 quality/fetch_data.py --research
-      - name: Compute the unmutated baseline once, for all four shards
-        working-directory: lyric-harness
-        run: python3 quality/test_mutation.py --baseline-only
-      - uses: actions/upload-artifact@v4
-        with:
-          name: mutation-baseline-${{ github.run_attempt }}
-          path: /tmp/mutate-scratch/baseline.json
-          if-no-files-found: error
-
+  # `test_mutation.py --baseline-only` survives, with its config-match check: it
+  # is the producer half, and it is correct. What it needs before it can be used
+  # is a fingerprint that does not carry a per-run receipt -- see M-263.
   component:
-    needs: [capacity-proof, mutation-baseline]
+    needs: capacity-proof
     name: qualification-${{ matrix.component }}
     runs-on: ubuntu-latest
     # ~~240~~ 300 minutes: the mutation budget below moved to 14,400 s and a job
@@ -183,16 +147,6 @@ jobs:
           LINES=$(grep -c '' "$MEMO" 2>/dev/null || true)
           echo "predictability memo: ${LINES:-0} line(s) at $MEMO"
           echo "  cold is 0; a memo covering the whole corpus is ~8,668 (8,667 items and a header)"
-      # AFTER the cache restore above, so the shared baseline wins over
-      # whatever a same-SHA re-run happened to bank. Mutation shards only: the
-      # calibration components do not read it and downloading it for them would
-      # be a step that cannot fail usefully.
-      - name: Take the shared unmutated baseline
-        if: startsWith(matrix.component, 'mutation')
-        uses: actions/download-artifact@v4
-        with:
-          name: mutation-baseline-${{ github.run_attempt }}
-          path: /tmp/mutate-scratch
       - name: Complete the exact comparison within its existing command budget
         run: python3 scripts/production_qualification.py run '${{ matrix.component }}' --out=evidence/${{ matrix.component }}.json
       - uses: actions/upload-artifact@v4
