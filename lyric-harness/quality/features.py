@@ -142,8 +142,25 @@ def nltk_data_dir():
 
 
 def _tagger():
+    """-> `nltk.pos_tag`, with the staged directory first on the search path.
+
+    PREPEND, AND EXACTLY ONCE. A bare `insert` appended a duplicate on every
+    call: measured at three calls to `length_curve_calibration.row_provenance`
+    taking `nltk.data.path` from 8 entries to 11, the staged directory present
+    three times. Bounded rather than hot -- this is called once per
+    `QualityFeatures`, and once per use in `cross_song`, `narrative_bands` and
+    `phrase_commonplace` -- so it changed no answer, and M-259 adding a fourth
+    call site is what made it worth saying.
+
+    Remove-then-insert, NOT `if where not in nltk.data.path`. The bare guard
+    keeps the list short and quietly loses the contract: a copy already sitting
+    at index 5 stays at index 5, and some earlier entry decides which model
+    gets loaded. THIS DIRECTORY WINS is the whole point of the function.
+    """
     where = nltk_data_dir()
     import nltk
+    while where in nltk.data.path:
+        nltk.data.path.remove(where)
     nltk.data.path.insert(0, where)
     return nltk.pos_tag
 

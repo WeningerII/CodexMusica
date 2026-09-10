@@ -317,13 +317,26 @@
   }
 
   function renderProvenance() {
-    var verified = (S.meta.verified || []).length;
+    // Two counts, never added together. A model re-derived every coordinate
+    // blind and a person has checked none of them, and those are different
+    // claims — collapsing them into one "verified" number is the overclaim
+    // this line exists to avoid. See the note in data/geo-meta.json.
+    // Either shape: the live page fetches data/geo-meta.json and gets the id
+    // lists, the standalone build inlines the COUNTS instead — 2,503 ids is
+    // 42KB in every published artifact to read one `.length` from.
+    var count = function (v) {
+      return typeof v === 'number' ? v : (v || []).length;
+    };
+    var reviewed = count(S.meta.reviewed);
+    var verified = count(S.meta.verified);
     el.provenance.textContent =
       'Bubbles count documented scenes, not musical abundance · ' +
       S.pts.length.toLocaleString('en') +
       ' pins drafted · ' +
-      verified +
-      ' verified — corrections welcome';
+      reviewed.toLocaleString('en') +
+      ' model-reviewed · ' +
+      verified.toLocaleString('en') +
+      ' human-verified — corrections welcome';
   }
 
   // ── canvas ──

@@ -21,8 +21,26 @@ COMPONENTS = tuple([f"mutation-{i}" for i in range(1, 5)] + ["song", "short", "c
 
 
 def spec(component):
+    # THE MUTATION BUDGET MOVED 12000 -> 14400 ON 2026-09-10, AND IT IS THE ONE
+    # NUMBER HERE THAT A RUN HAS ACTUALLY DISPROVED. Production-qualification
+    # run 34404281269 killed `qualification-mutation-4` at 12,001 s against
+    # 12,000 -- `run_component` sets 124 on TimeoutExpired, and that shard is
+    # the only one of the four that got it. Its siblings finished inside the
+    # bound and failed for a different reason entirely (M-262). A bound a run
+    # has hit is not an allowance any more; it is a measured floor, and the
+    # floor is above 12,000.
+    #
+    # HOW MUCH ABOVE IS NOT KNOWN, WHICH IS WHAT A TIMEOUT COSTS YOU: a killed
+    # run reports where it stopped, never what it needed. So this is not a
+    # fitted number. It is the old one plus the 2,400 s that the shared
+    # baseline (see production-qualification.yml's `mutation-baseline` job)
+    # takes OUT of every shard, which is the change that should make the bound
+    # comfortable rather than the bound itself. If a shard hits 14,400 too, the
+    # answer is not 16,000 -- it is that the shard is too big, and the sweep's
+    # own comment already says a shard count cannot fix that while every shard
+    # pays the whole-tree baseline.
     if component in COMPONENTS[:4]:
-        return ["quality/test_mutation.py", f"--shard={component[-1]}/4"], 12000
+        return ["quality/test_mutation.py", f"--shard={component[-1]}/4"], 14400
     if component in ("song", "short"):
         return ["quality/song_profile_calibration.py", "--check", f"--profile={component}", "--seeds=200", "--draws=2000"], 9000
     if component == "curves":

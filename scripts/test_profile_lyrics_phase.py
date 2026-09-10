@@ -133,6 +133,48 @@ class FirstMenuProfileTests(unittest.TestCase):
                 self.assertEqual(report['profile_completed'], label == 'wall')
                 self.assertTrue(out.with_suffix('.cprof').exists())
 
+    def test_the_top_table_never_takes_the_runs_exit_code_with_it(self):
+        """The empty-profiler crash, pinned deterministically.
+
+        The runner writes its table from `main`'s `finally`, so a raise there
+        replaces the exit code the run already decided. CI run 1505 hit it:
+        a phase deadline fired before the profiler recorded a call, its stats
+        were empty, `pstats.Stats` raised TypeError, and the process exited 1
+        where `test_real_runner_...` above asserts 124. That test only catches
+        this when the timing happens to empty the profiler, which is a
+        coin-flip on a loaded runner — so the path is exercised directly here
+        instead, with no deadline and no subprocess.
+        """
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp) / 'top.txt'
+
+            # A profiler that started and recorded NOTHING — the shape the
+            # deadline produces. 3.11 and 3.12 disagree on whether this
+            # raises, so the assertion is on the CONTRACT, not on the raise.
+            empty = phase.cProfile.Profile()
+            empty.enable()
+            empty.disable()
+            note = phase.write_top(empty, out)
+            self.assertTrue(out.exists())
+            if note is not None:
+                self.assertIn('no profile table', out.read_text())
+
+            # And one that DID record: the table must actually be rendered.
+            live = phase.cProfile.Profile()
+            live.enable()
+            sum(range(1000))
+            live.disable()
+            out2 = Path(tmp) / 'top2.txt'
+            self.assertIsNone(phase.write_top(live, out2))
+            self.assertIn('cumulative', out2.read_text())
+
+            # THE POINT: a renderer that cannot render still returns, so the
+            # caller's own verdict survives. An object that is not a profiler
+            # at all is the strongest form of that.
+            out3 = Path(tmp) / 'top3.txt'
+            self.assertIsNotNone(phase.write_top(object(), out3))
+            self.assertIn('no profile table', out3.read_text())
+
     def test_initial_refusal_never_starts_menu_profile(self):
         profile = phase.FirstMenuProfile(lambda *_args, **_kw: None)
 

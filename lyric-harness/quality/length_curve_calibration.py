@@ -93,6 +93,20 @@ def row_provenance():
         corpus.update(b"\0")
         corpus.update(Path(path).read_bytes())
         corpus.update(b"\0")
+    # RESOLVE THE MODEL THE WAY THE TAGGER DOES, not the way nltk defaults to.
+    # `_tagger()` is the one place the staged directory is decided (doctrine 1,
+    # `features.nltk_data_dir`); it prepends that directory to `nltk.data.path`
+    # and hands back the very `pos_tag` every measurement in this cell runs
+    # through. Calling `nltk.data.find` WITHOUT it searched nltk's ambient path
+    # instead, which has two costs, and the cheap one is the one that bit:
+    # production-qualification run 1 staged the model under
+    # `lyric-harness/data/nltk`, exported no `NLTK_DATA`, and `check` refused in
+    # 1.8s against a 2400s budget. The expensive cost is worse and silent —
+    # where an ambient copy DOES exist, this fingerprinted a model the tagging
+    # never touched, so the provenance certified the wrong bytes. One
+    # resolution, or the sidecar is not evidence about this run.
+    from quality.features import _tagger
+    _tagger()
     try:
         tagger = Path(str(nltk.data.find("taggers/averaged_perceptron_tagger_eng/")))
     except LookupError:

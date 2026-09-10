@@ -63,6 +63,16 @@ for (const t of all.items) {
   detail[t.id] = [lineage, t.recipe || ''];
 }
 
+// The footer reads only two lengths off geo-meta.json, and the reviewed list is
+// 2,503 ids — 42KB of every published artifact spent on a number. Send the
+// counts; src/atlas.js takes either shape.
+function metaCounts() {
+  const meta = readJson('data/geo-meta.json');
+  const out = {};
+  for (const k of Object.keys(meta)) out[k] = Array.isArray(meta[k]) ? meta[k].length : meta[k];
+  return out;
+}
+
 const payload = {
   index,
   geo: readJson('data/atlas-geo.json'),
@@ -72,7 +82,7 @@ const payload = {
   nodes: readJson('data/tree-nodes.json'),
   routes: readJson('data/routes.json'),
   threads: readJson('data/threads.json'),
-  meta: readJson('data/geo-meta.json'),
+  meta: metaCounts(),
   detail,
   codexUrl: flags.artifact ? LIVE + 'codex.html' : 'codex.html',
 };

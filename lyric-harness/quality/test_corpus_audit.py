@@ -899,6 +899,49 @@ def test_item_level_near_duplication_series():
     check("4 CONTENTS pages, 11 RUN-ONs and 5 TITLE echoes remain, all named",
           shapes == {"CONTENTS": 4, "RUN-ON": 11, "TITLE": 5}, shapes)
 
+    # MISSING.md M-20 — poems staged TWICE in their own file, and every
+    # instrument reads both copies. What the entry owes is a RULING about
+    # which printing wins, so what is pinned is the population's EXISTENCE
+    # and the fact that its size is a coordinate of the fold, never a bare
+    # count: two spellings of "same title, same opening line" disagree, and
+    # a census whose number moves with its own normalisation is not a census
+    # (doctrine 58). Red the day the duplicate stagings are ruled on and
+    # deleted, which is the day this entry closes — the population empties
+    # and both halves fail together.
+    import unicodedata as _ud
+
+    def _dupe_pairs(ascii_only):
+        pairs = []
+        for rel, cf in files:
+            seen = set()
+            for title, body in AC._items(cf):
+                body = [l for l in body if l.strip()]
+                title = (title or "").strip()
+                if not title or not body:
+                    continue
+                fold = _ud.normalize("NFKC", (title + " | " + body[0]).lower())
+                fold = "".join(c for c in fold
+                               if (c.isalnum() or c == " ")
+                               and (c.isascii() if ascii_only else True))
+                fold = " ".join(fold.split())
+                if not fold:
+                    continue
+                if fold in seen:
+                    pairs.append((rel, fold[:40]))
+                seen.add(fold)
+        return pairs
+
+    files, _ = corpus()
+    _wide = _dupe_pairs(False)
+    _ascii = _dupe_pairs(True)
+    check("poems staged twice in their own file are still there, and the "
+          "census size is a coordinate of the fold rather than a fact "
+          "(MISSING.md M-20)",
+          len(_wide) > 0 and len(_ascii) != len(_wide),
+          f"{len(_wide)} same-file duplicate stagings under a script-wide "
+          f"fold, {len(_ascii)} under an ASCII-only fold — the two folds "
+          f"disagree, so the number is a reading and not a count")
+
 
 def test_check_C_can_actually_fire():
     """Doctrine 94 again, aimed at check C. Every hash on this corpus matches,

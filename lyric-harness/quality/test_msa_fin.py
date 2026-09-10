@@ -439,6 +439,39 @@ def test_fin_w_and_v_are_one_phoneme_in_the_rime():
     check("  while the folded reading is one argument away",
           F.alliterates("Wiipurin", "veti", fold_w=True) is True)
 
+    # MISSING.md M-5 — a printing can spell one sound two ways, and the
+    # pipeline has no question for it. Two halves, and the second is the gap:
+    #
+    #   (a) the MIXING is really in the staged corpus, not only in the prose:
+    #       named pairs, not a count, because a count of w-initial types is a
+    #       coordinate of whichever tokenizer reads the file (doctrine 58) and
+    #       would drift without the gap moving;
+    #   (b) `declared_inputs.Orthography` still carries "has this been
+    #       MODERNISED?" and no field asking whether a printing spells one
+    #       sound two ways. That absence is what M-5 owns.
+    #
+    # Red when a spelling/allograph field joins Orthography, which is the day
+    # the entry closes, and red if the staged Kanteletar is normalised so the
+    # pairs stop co-occurring.
+    import dataclasses as _dc
+    import re as _re
+    from quality import declared_inputs as _DI
+    _txt = open(os.path.join(HERE, "..", "corpus", "song",
+                             "fin_kanteletar.txt"), encoding="utf-8").read()
+    _toks = set(_re.findall(r"[a-zäöå]+", _txt.lower()))
+    _pairs = [("wenehen", "venehen"), ("wiipurista", "viipurista"),
+              ("wirossa", "virossa"), ("wiron", "viron")]
+    _both = [p for p in _pairs if p[0] in _toks and p[1] in _toks]
+    _fields = tuple(f.name for f in _dc.fields(_DI.Orthography))
+    check("the staged book really does spell one sound two ways, and "
+          "`Orthography` has no question for it (MISSING.md M-5)",
+          _both == _pairs
+          and _fields == ("system", "edition", "vowel_letters", "spellings",
+                          "token_is_printed", "modernised", "granularity",
+                          "source"),
+          f"{len(_both)} of {len(_pairs)} w/v pairs co-occur in "
+          f"fin_kanteletar.txt; Orthography fields {_fields}")
+
 
 def test_fin_relation_types_separate_grammar_from_choice():
     print("\n14. Finnish: agglutination gets its own type (doctrine 24)")

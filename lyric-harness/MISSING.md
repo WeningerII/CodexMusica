@@ -21,18 +21,65 @@ with the constraint named).
 
 ## A. Notation and scheme representation
 
-### A-1 · Capital/lowercase refrain notation `OPEN`
-**TESTED WHILE OPEN.** `test_english_text.py` and `test_song_function.py`
-name this entry to PIN THE GAP, not to guard a fix — the citation reads
-"the repo cannot represent it (MISSING.md A-1)". A test that asserts an
-absence is the correct shape for an open entry and must not be read as
-evidence it closed (`quality/triage.py`).
-**Now (verified 2026-08-10):** `quality/schemes.py` `parse()` handles `X` and
-`.` as unrhymed singletons and letters as rhyme classes. Nothing else.
-**Missing:** the standard prosodic convention where **capital = a line repeated
-verbatim**, **lowercase = rhyme only**, with superscripts for distinct refrains
-(`A¹`, `A²`). The villanelle is `A1bA2 abA1 abA2 abA1 abA2 abA1A2` and cannot
-be written down here.
+### A-1 · ~~Capital/lowercase refrain notation~~ — the NOTATION shipped; what stands is line identity BY REFERENCE `PARTIAL` 2026-09-09
+**REPINNED 2026-09-09, AND THE DECLARATION BELOW WAS FALSE.** Found by an
+audit of the DECLARED bucket — the one bucket nothing in CI re-examines —
+and upheld by two sceptics who were told to default to the register being
+right and could not refute it. One wrote: *"I could not save the headline."*
+This is the M-2 shape `quality/triage.py`'s docstring warns about, caught in
+the bucket that shape lives in.
+
+> **THE HEADLINE CLAUSE IS DEAD.** The notation shipped. `schemes.py` says so
+> in its own comment — *"and until now it could not be written down in this
+> repo at all"* — and the villanelle this entry says "cannot be written down
+> here" renders at head as `A1bA2abA1abA2abA1abA2abA1A2`, which is the exact
+> string below, character for character. `parse_refrain`, `REFRAIN_FORMS` (8
+> forms) and `refrain_form` are all live.
+>
+> **AND THE OLD DECLARATION CLAIMED THE OPPOSITE OF WHAT ITS TESTS DO.** It
+> said both suites "PIN THE GAP, not guard a fix" and that "a test that asserts
+> an absence is the correct shape for an open entry". `test_song_function.py`
+> section 5 is titled *"THE A-1 NOTATION — and the villanelle is now writable"*
+> and asserts a PRESENCE: it goes red if the notation is REMOVED and can never
+> go red on the day the gap closes. `test_english_text.py:50` carries the
+> citation in a COMMENT, above assertions that `is_chorus_stub` fires. A
+> declaration that describes its tests backwards is worse than none, because it
+> is the thing a reader checks instead of the code.
+>
+> **WHAT STANDS, RE-DERIVED AT HEAD.** The third form — line identity BY
+> REFERENCE — and it stands on the path that needs it:
+>
+> - `quality/grid.py:1932-1943` still short-circuits EVERY stubbed return with
+>   `Return(kind="STUB")` and a refusal whose own words are *"the stub must be
+>   RESOLVED against its target before any distance means anything, and only
+>   the exclusion is built (MISSING.md A-1)"*.
+> - A resolver DOES exist — `relations.py:3866 search_stub_resolution` — and
+>   this is where the audit went wrong and the sceptics went right: it has NO
+>   production caller. Every call site in the tree is a test.
+> - It could not close the position clause anyway. It searches `for j in
+>   range(i)` (`relations.py:3966`) — EARLIER LINES ONLY — so a chorus printed
+>   after the author attribution, which this entry says is in the corpus, is
+>   unreachable by construction. It also returns a one-line span
+>   `(hit, hit+1)`, not the chorus block.
+>
+> `PARTIAL` rather than `OPEN`, because half of what this entry asked for was
+> built and the register never heard.
+
+**TESTED WHILE OPEN.** `quality/test_song_function.py` section 5 and
+`quality/test_english_text.py` name this entry, and — stated correctly this
+time — they GUARD THE CLOSED HALF rather than pin the open one. Section 5
+asserts the villanelle IS writable, so it goes red if the notation regresses;
+`test_english_text.py` asserts `is_chorus_stub` fires, which is the EXCLUSION
+half. Nothing in the tree asserts the RESOLUTION half, which is the half that
+keeps this entry open, and that is stated here rather than left for a reader
+to infer from a green suite.
+
+~~**Now (verified 2026-08-10):** `quality/schemes.py` `parse()` handles `X` and
+`.` as unrhymed singletons and letters as rhyme classes. Nothing else.~~
+~~**Missing:** the standard prosodic convention where **capital = a line
+repeated verbatim**, **lowercase = rhyme only**, with superscripts for distinct
+refrains (`A¹`, `A²`). The villanelle is `A1bA2 abA1 abA2 abA1 abA2 abA1A2` and
+cannot be written down here.~~
 **Why it matters:** every refrain, burden, tag, hook-return and radif is line
 IDENTITY, not rhyme. `schemes.py` already admits this in a note on its own
 villanelle entry and did not act on it.
@@ -149,6 +196,13 @@ being distinguished from. `grid.Meter` delegates, so the assertion is gone
 there too.
 
 ### C-2 · No cyclic-metre systems `PARTIAL` — the container exists, the
+> **TESTED WHILE OPEN.** `quality/test_meter.py` section 8 names this entry and
+> PINS THE GAP: it requires `meter.CATALOGUE` to be EMPTY at import, requires
+> `get_named("teental")` to raise, and requires that refusal to still name the
+> scale of the unsourced data and cite `MISSING.md C-2` in full. It goes red the
+> day any sourced catalogue ships and registers — the day this entry closes —
+> and red the other way if the refusal renames its citation. A green run is the
+> catalogue still absent, not the catalogue built.
 catalogues do not `OPEN`
 **Now:** `Cycle` can hold every one of them — **typed groups** (a tāla's angas:
 laghu/drutam/anudrutam), **per-position labels** (an usul or īqāʿ is a LABELLED
@@ -205,8 +259,19 @@ measurement, the difference between a line that lands and one that drags.
 > so this entry reads as `CITED` (a module names it, no test guards it) when it
 > is `DECLARED` (a test names it and the entry says why). **Same class as the
 > `m_re` fix that moved D-1, one spelling further on**, and it inflates CITED
-> while emptying DECLARED. Recorded here, NOT fixed in this commit: widening
-> the scanner reshuffles all five triage counts, which is its own change.
+> while emptying DECLARED. ~~Recorded here, NOT fixed in this commit: widening
+> the scanner reshuffles all five triage counts, which is its own change.~~
+> **FIXED 2026-09-09, and the narrow way.** The scanner is untouched — the
+> reshuffle warning above still stands against widening it. What changed is
+> the SPELLING in `quality/test_fit.py` §12, from `"C-4" in whys` to
+> `"MISSING.md C-4" in whys`, which moves exactly this entry and C-5 and makes
+> the assertion stricter: a row that renames its citation now fails.
+>
+> **TESTED WHILE OPEN.** `quality/test_fit.py` §12 names this entry and PINS
+> THE GAP rather than guarding a fix — it requires `fit.UNANSWERABLE` to still
+> carry the row refusing beat placement by name. It goes RED on the day
+> syncopation-given-a-declared-grid is measured, which is the day this entry
+> closes. A green run here is the refusal still standing, not the gap filled.
 
 ### C-5 · Tempo is not represented `PARTIAL`
 **Now:** `Song` has bars and meters, no tempo, no tempo change. **That sentence
@@ -234,9 +299,20 @@ is TRUE at head** — `grep -n tempo quality/grid.py` returns nothing.
 > the class is `BeatGrid` (`declared_inputs.py:524`). A test pinning a
 > non-existent symbol name is a check that cannot notice the symbol moving.
 >
-> The triage blind spot recorded under C-4 applies here identically:
+> ~~The triage blind spot recorded under C-4 applies here identically:
 > `test_fit.py` asserts `"C-5" in whys` by bare key, so this entry also reads
-> `CITED` when it is `DECLARED`.
+> `CITED` when it is `DECLARED`.~~ **FIXED 2026-09-09** — the assertion now
+> pins `"MISSING.md C-5" in whys`, which `m_win` can see and which is the
+> stricter check besides: a row that renames its citation now fails.
+>
+> **TESTED WHILE OPEN.** `quality/test_fit.py` §12 and its `INERT` section
+> name this entry, and both PIN THE GAP rather than guard a fix. §12 requires
+> the per-second refusal to still carry `MISSING.md C-5`; the `INERT` section
+> re-derives that `fit._no_tempo` has no production caller and that
+> `declared_inputs.BeatGrid.tempo_bpm` is read by nothing. Those tests go RED
+> on the day tempo is wired — which is the day this entry closes — and red
+> again if the declaration outlives its subject. A passing regression here is
+> the gap holding still, not the gap being filled.
 
 ---
 
@@ -656,6 +732,14 @@ harmony (Turkish, Finnish, Hungarian) as a rhyme constraint; consonant mutation
 changes what rhyme even means.
 
 ### F-3 · Dialect orthography is a per-dialect SYSTEM, not a spelling quirk `OPEN`
+> **TESTED WHILE OPEN.** `quality/test_relations.py` P7b names this entry and
+> PINS THE LIVE HALF: on one staged Barnes line, `relations.tokenise` strips
+> every elision mark while `lyric_harness.line_tokens` keeps every one, and the
+> `build_stream(tokeniser=)` seam the remedy depends on is present with no
+> production caller overriding it. It deliberately does NOT assert the diaeresis
+> divergence, which closed with `F-4a` on 2026-08-21 — asserting a dead clause
+> would be a guard red on day one. Red the day a per-dialect tokeniser is wired
+> or either reader learns the apostrophe jobs.
 **Found in the corpus 2026-08-10, and it contradicts what is already built.**
 Three English dialects in the staged song corpus use the apostrophe and hyphen
 for four different jobs, and the existing modules would corrupt three of them:
@@ -685,21 +769,32 @@ declared, like everything else in `quality/phonology/`.
 > **THE LIVE DEFECT: the two readers fail on the SAME staged line in OPPOSITE
 > directions, and nothing discloses it.** Measured on one Barnes line —
 >
+> **THE TRANSCRIPT BELOW WAS HALF STALE WITHIN A DAY, AND IS RE-MEASURED HERE
+> 2026-09-09.** `line_tokens` stopped shredding the diaeresis on 2026-08-21,
+> when `LATIN_SCRIPT` widened — the change that closed `F-4a`. Both readers now
+> keep `greäve` and `Jeäne` whole, so the "opposite failures" framing has
+> collapsed to ONE direction. Measured at head on the same line:
+>
 > ```
 > relations.tokenise : ['The','greäve','wer','wide','my','Jeäne','an',
 >                       'a-vallen','o','the','sky',"i'th",'hall','ithin','twer']
-> lyric_harness.line_tokens : ['The','gre','ve','wer','wide','my','Je','ne',
+> lyric_harness.line_tokens : ['The','greäve','wer','wide','my','Jeäne',
 >                       "an'",'a-vallen',"o'",'the','sky',"i'th'",'hall',
 >                       "'ithin","'twer"]
 > ```
 >
-> `relations.tokenise` KEEPS the diaeresis and DROPS every elision mark
-> (`an'`→`an`, `o'`→`o`, `'ithin`→`ithin`, `'twer`→`twer`), erasing jobs (i)
-> and (ii) above. `line_tokens` KEEPS all four marks and SHREDS the diaeresis
-> into two fragments (`greäve` → `gre`, `ve`). **One file, two readers,
-> opposite failures.** That is doctrine 1 on the same reader pair `F-4a` is
-> filed against, and `F-4a`'s premise re-derives at head (**5,963 of the staged
-> Barnes lines carry a non-ASCII letter**). `line_tokens` does normalise U+2019
+> `relations.tokenise` DROPS every elision mark (`an'`→`an`, `o'`→`o`,
+> `'ithin`→`ithin`, `'twer`→`twer`), erasing jobs (i) and (ii) above.
+> `line_tokens` KEEPS all four. **One file, two readers, one live disagreement**
+> — about what a dialect elision mark IS, which is exactly the per-dialect
+> question this entry is filed on, and it is undisclosed. The diaeresis half of
+> the old transcript is struck below.
+>
+> ~~`line_tokens` SHREDS the diaeresis into two fragments (`greäve` → `gre`,
+> `ve`). One file, two readers, OPPOSITE failures. That is doctrine 1 on the
+> same reader pair `F-4a` is filed against, and `F-4a`'s premise re-derives at
+> head (5,963 of the staged Barnes lines carry a non-ASCII letter).~~ The count
+> still re-derives; what it counts is now lines the reader handles correctly. `line_tokens` does normalise U+2019
 > first (doctrine 26), so **the Lancashire half is safe and the Dorset half is
 > not** — Waugh's curly apostrophes survive and Barnes's vowels do not.
 >
@@ -736,8 +831,14 @@ declared, like everything else in `quality/phonology/`.
 > **So ORTHOGRAPHY is a BUILD with a seam already in place, and PHONOLOGY is a
 > built mechanism blocked on an OBTAINABLE source.** Two remedies, one entry.
 >
-> **DO NOT CLOSE THIS BY WIDENING `line_tokens`** — that is `F-4a`'s job and it
-> costs the `song_endword_en.tsv` / `song_rhymepair_en.tsv` repins. The
+> ~~**DO NOT CLOSE THIS BY WIDENING `line_tokens`** — that is `F-4a`'s job and
+> it costs the `song_endword_en.tsv` / `song_rhymepair_en.tsv` repins.~~
+> **STRUCK 2026-09-09: the widening happened on 2026-08-21, `F-4a` is CLOSED,
+> and the repins it priced never occurred — both tables rebuilt byte-identical
+> and neither holds a non-ASCII byte.** The warning is kept struck rather than
+> deleted because its REASONING was sound and only its premise expired: this
+> entry is still not closed by anything done to `line_tokens`, since what
+> remains is the elision disagreement above. The
 > orthography half belongs behind `build_stream(tokeniser=)`, where
 > `relations.py` imports nothing from `lyric_harness` (P10) and no shipped
 > table is derived, so the blast radius is zero.
@@ -835,12 +936,48 @@ entry and is not closed by this.
 **AND THE SAME DOCTRINE IS VIOLATED ONE LAYER DOWN, ON THIS VERY FILE — split
 out as F-4a** because it is a different actor with a different blast radius.
 
-### F-4a · The reader flattens the letter the transcription kept `OPEN`
-Found 2026-08-21 while verifying F-4. Staging the Latin-1 Barnes preserved
-`ä`; `lyric_harness.line_tokens` (`lyric_harness.py:1030`) matches
-`[A-Za-z'\-]+`, so the non-ASCII letter BREAKS THE TOKEN:
-`line_tokens('The greäve wer wide, my Jeäne')` →
-`['The', 'gre', 've', 'wer', 'wide', 'my', 'Je', 'ne']` — measured, at head.
+### F-4a · ~~The reader flattens the letter the transcription kept~~ `CLOSED` 2026-09-09
+**CLOSED BY A COMMIT THAT LANDED THE DAY AFTER THIS ENTRY WAS WRITTEN, and the
+entry never heard.** `lyric_harness.LATIN_SCRIPT` was widened to
+`[A-Za-zÀ-ɏḀ-ỿ]` on 2026-08-21 (`lyric_harness.py:2095`, `:2106`, with `:2099`
+recording the old class as historical). Every clause below is dead, re-derived
+at head 2026-09-09:
+>
+> - **The worked example returns the opposite of what it claims.**
+>   `line_tokens('The greäve wer wide, my Jeäne')` →
+>   `['The', 'greäve', 'wer', 'wide', 'my', 'Jeäne']`, and `raw_final_token` on
+>   that line returns `Jeäne`, not `ne`. The eight-token fragmentation quoted
+>   below as "measured, at head" cannot be reproduced.
+> - **The cited coordinate no longer holds a tokenizer.** `line_tokens` is at
+>   `lyric_harness.py:2130`; `:1030` is Lexicon g2p-fallback code.
+> - **The harm is structurally gone.** The 5,934/13,909 count still re-derives,
+>   but it now counts lines the reader handles CORRECTLY. With the final token
+>   whole there is no fragment to score and no `n ~ n` collision to report 1.0
+>   on. `build_song_frequency.py:72-84` strikes its own `accent_refusal`
+>   paragraph and measures the bucket falling **1,635 → 10**, the survivors
+>   itemised as 8 joiner-discipline cases and 2 Greek tokens — neither this.
+> - **The disclosure is no longer docstring-only.** `test_readability.py`
+>   §10 pins `LATIN_SCRIPT` as a compiled pattern and asserts every Latin-script
+>   letter the corpus prints is inside the class.
+> - **The ~1-day repin cost never materialised, and was MEASURED not argued.**
+>   `build_song_frequency.py:95-97` records both tables rebuilding
+>   BYTE-IDENTICAL across the fix; confirmed at head — `song_endword_en.tsv` and
+>   `song_rhymepair_en.tsv` each contain 0 lines with a non-ASCII byte.
+>
+> Found 2026-09-09 by a 16-agent sweep of the UNGUARDED bucket — open entries
+> that nothing in the tree names — asking the D-1 question of a bucket nobody
+> had asked it of. Ten staleness claims, eight refuted, two upheld. This is one;
+> `M-153` is the other. **The lesson is the bucket, not the entry:** an entry
+> nothing cites is an entry nobody rereads, so the register's own queue is where
+> staleness is least likely to be noticed.
+>
+> The original text follows, struck, per doctrine 17.
+>
+> ~~Found 2026-08-21 while verifying F-4. Staging the Latin-1 Barnes preserved
+> `ä`; `lyric_harness.line_tokens` (`lyric_harness.py:1030`) matches
+> `[A-Za-z'\-]+`, so the non-ASCII letter BREAKS THE TOKEN:
+> `line_tokens('The greäve wer wide, my Jeäne')` →
+> `['The', 'gre', 've', 'wer', 'wide', 'my', 'Je', 'ne']` — measured, at head.~~
 Over the staged file: **5,934 of 13,909 verse lines contain a non-ASCII
 letter; 1,515 carry it in the FINAL word**, the rhyme position, where the
 harness then scores the fragment (`n ~ n` reports `1.0 RHYME`).
@@ -868,6 +1005,12 @@ holds.
 fits, is crammed, or leaves the bar empty.
 
 ### G-2 · ~~No prosodic fit~~ — the METRIC half is delivered; melodic, vowel-length and the rest are the residue `PARTIAL`
+> **TESTED WHILE OPEN.** `quality/test_fit.py` section 12 names this entry and
+> PINS THE RESIDUE: exactly one `fit.UNANSWERABLE` row must carry
+> `MISSING.md G-2`, be SCHEDULED rather than permanent, name `MISSING.md F-2`
+> as its blocker, and still carry all three residue clauses — breath, a long
+> vowel on a long note, a word broken across a rest. Red the day the row is
+> promoted out of UNANSWERABLE, which is the day the residue ships.
 **Missing:** whether lyric stress agrees with melodic/metric accent, whether a
 long vowel sits on a long note, whether a phrase breathes, whether a word is
 broken across a rest. This is the thing that makes a lyric singable and
@@ -903,6 +1046,12 @@ broken across a rest. This is the thing that makes a lyric singable and
 > entry's coordinate rather than on work this entry names.
 
 ### G-3 · Meter templates are unconnected to the bar grid `PARTIAL`
+> **TESTED WHILE OPEN.** `quality/test_verbs.py` section 1 names this entry and
+> PINS THE DISCONNECTION as three facts, any of which the connecting commit
+> breaks: `meter (template)` still answers from the SPINE and not from
+> `quality/grid.py` or `quality/fit.py`; `check_meter`'s signature is still
+> `(lex, lines, template=None)` with nothing bar-shaped and no grid/fit symbol
+> in its body; and no non-test module under `quality/` calls it at all.
 **Now:** `lyric_harness.py meter TEMPLATE` checks a stress template on text.
 It has no relationship to `quality/grid.py`.
 
@@ -1349,6 +1498,14 @@ and dead" burden closing every stanza and our file records no refrain marking
 at all. That is a fact about Whitman, and Whitman is K-3's subject.
 
 ### K-3 · The Whitman negative control does not separate `OPEN`
+> **TESTED WHILE OPEN.** `quality/test_band.py` section 9 names this entry and
+> PINS THE ELIGIBILITY CLAUSE — the one no build can discharge, because it is a
+> fact about `corpus/whitman.txt` rather than about a separation better
+> calibration could fix. It requires the detected link population to be
+> non-empty (a majority over nothing is the empty-population pass doctrine 20
+> refuses) AND majority REPEAT on an identical token: 7 REPEAT / 2 RHYME of 9,
+> 7 on the same token. Deliberately null-free, so it costs seconds rather than
+> a replicate draw. Red the day the control stops carrying the property.
 **Now (verified):** all four recorded Whitman figures (18.0, 20.0, 21.3, 26.0%)
 fall inside one line-permutation null spanning 6.7–27.3%. Replacement is the
 corpus's own shuffled self, plus a multi-author positive spanning more than one
@@ -1984,6 +2141,15 @@ this half stays OPEN because the CAPABILITY — a false-event rate controlled at
 α — is exactly as missing as it was.
 
 ### L-2 · Real sonnets do not separate from scrambled text on event rate `OPEN` — EXPLAINED
+> **TESTED WHILE OPEN.** `quality/test_null_shapes.py` section 4 names this
+> entry and PINS WHY the separation fails: the admissible null preserves the
+> item's private rime inventory, so the quantity a rate comparison reads barely
+> moves under it. Pinned as RATIOS against the real arm and never as point
+> values — cross_item_redeal ~0.85x inside a declared 1.5x band, rime_pool mono
+> ~7.7x and dispersed ~0.35x both far outside — plus a roster clause naming the
+> seven public functions of `quality.controls`, so a new span-multiset null
+> cannot land unnoticed. Red when an admissible null actually destroys the
+> inventory.
 ~~10.9% observed vs 9.6% word-scramble (p=0.095).~~ Either the detector is
 broken or these sonnets carry no internal rhyme, and this event set cannot tell
 them apart — so any null placement result on it is uninterpretable.
@@ -2739,6 +2905,14 @@ the measurement that says so. It was stated in one absolute too many.
 against a HEAD containing the change — is about the AUDIT and is unaffected.
 
 ### M-5 · A printing can spell one sound two ways, and the modernisation check cannot see it `OPEN`
+> **TESTED WHILE OPEN.** `quality/test_msa_fin.py` section 13 names this entry
+> and PINS BOTH HALVES: that the mixing is really in the staged book — four
+> named w/v pairs co-occurring in `fin_kanteletar.txt`, named rather than
+> counted because a count of w-initial types is a coordinate of whichever
+> tokenizer reads the file — and that `declared_inputs.Orthography` still
+> carries "has this been modernised?" and no field asking whether a printing
+> spells one sound two ways. That absence is what this entry owns. Red when a
+> spelling or allograph field joins the roster.
 Every recorded instance of the orthography rule (doctrine 50, CHANNELS.md rule 4) is a MODERNISATION. The Kanteletar is not modernised at all and still carries
 a hazard: `w` and `v` are **allographs of one phoneme** and the printing MIXES
 them — `Väinämöisen` and `Wäinämöinen`, same name, same book. `fin.py` keys the
@@ -3697,6 +3871,14 @@ declared dialect, which this repository does not have.** Until it exists,
 obtain", not "hard to build".
 
 ### M-20 · Poems staged TWICE in their own file, and every instrument that could see it is looking somewhere else `OPEN`
+> **TESTED WHILE OPEN.** `quality/test_corpus_audit.py`'s near-duplication
+> series names this entry and PINS THE POPULATION'S EXISTENCE together with the
+> fact that its SIZE is a coordinate of the fold: two spellings of "same title,
+> same opening line" — script-wide and ASCII-only — return different numbers,
+> and a census whose number moves with its own normalisation is not a census
+> (doctrine 58). What this entry owes is a ruling about which printing wins, so
+> a bare count would pin the wrong thing. Red the day the duplicates are ruled
+> on and deleted: the population empties and both halves fail together.
 **Found 2026-08-21 while splitting the named air out of the title (§3.2), by
 the checker that was already looking.** `quality/audit_corpus.py`'s
 `false_unit_items` compares each item's body lines against the OTHER items'
@@ -9687,6 +9869,13 @@ purpose. But 47 is the real size of the owner's complaint, and it is a
 question for a person, per code, which is what this census exists to put.
 
 ### M-78 · the rule that decides note-vs-flag for 51 of 71 codes is not a doctrine, and has been cited as one 22 times `OPEN` — sized 2026-08-23
+> **TESTED WHILE OPEN.** `quality/test_gate_census.py` section 6 names this
+> entry and PINS THE ABSENCE: the `CONVENTION` disposition rules the largest
+> disclosed-only bucket, its own gloss states the note-vs-flag rule, and NO
+> doctrine title states it — searched over all 95. The search is proven ALIVE
+> against the gloss itself before its absence is read as a finding, because an
+> empty scan and a clean one look identical (doctrine 20). Red the day the rule
+> is minted as a doctrine or the citations are repointed.
 **Found by the owner asking a one-line question** while M-77's disposition
 table was being written: _"did you say that we have a doctrine contradicting
 the rest of them? are you saying that doctrine 6 says just wrote prose?"_ The
@@ -9769,6 +9958,14 @@ someone else's footnote. **Nothing is changed until that is ruled**, because a
 doctrine number is the owner's vocabulary and not a session's.
 
 ### M-79 · the first end-to-end run: the pipeline stops at WRITE, because nothing checks that a plan is writable `OPEN` — measured 2026-08-23
+> **TESTED WHILE OPEN.** `quality/test_plan.py` section 10 names this entry and
+> PINS FINDING 2 as an INEQUALITY, never as a count — that section struck a seed
+> list twice in one day (M-106, M-107) and says why, so recording a third would
+> be recording the same fragility again. Six undemanding predicates accept a
+> STRICT MINORITY of an arbitrary seed range and MORE THAN NONE, so whether a
+> plan is song-shaped is still answered by SEARCHING seeds rather than by the
+> draw. A shape-aware draw or a plan-time shape gate pushes the share past the
+> bound and fails it; a planner that stopped drawing them fails the other side.
 **The owner's instruction**, after asking what the shortest line to a finished
 song is: _"yes, run it."_ One song, end to end, through the real verbs, nothing
 done by hand. **It did not reach the WRITE step**, and the reason is
@@ -12830,6 +13027,12 @@ WRITING defect (no shared nucleus run) and correctly stays one.
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~176~~ -> **177**.
 
 ### M-120 · schema satisfaction and audible scheme are different coordinates, and nothing discloses the second `OPEN`
+> **TESTED WHILE OPEN.** `quality/test_plan.py` section 14 names this entry and
+> PINS THAT NOTHING RULES ON AUDIBILITY: the drawable pool is unfiltered (12 of
+> 18 schemas are inaudible at a line end), no `plan.JOINT_CODES` member can
+> refuse a plan for it, and no `plan.SWEEP_MEASURES` name lets a sweep select on
+> it. M-192 shipped the disclosure; this pins that the disclosure is all there
+> is. Red the day the ruling lands as a coordinate.
 Filed 2026-08-25 from panel run 5 (`quality/RESULTS_PANEL.md` §8), the
 first measurement of a song whose relations the planner DREW (M-117).
 Both weakest-of-set ballots against the suspect heard the drawn web as
@@ -13571,6 +13774,12 @@ to close, and it reappeared inside M-129's own repair — the same shape as
 M-133's vacuous first gate draft, in the neighbouring file, on the same day.
 
 ### M-135 · the comparator's span search has no null under the same search `OPEN`
+> **TESTED WHILE OPEN.** `quality/test_spans.py` section 3 names this entry and
+> PINS THE UNCORRECTED SEARCH: the k=6 span search beats its own k=1
+> restriction (0.579 against 0.272), yet `Declaration` carries no field naming a
+> search or a k, so the identical bare theta admits both — and
+> `search_null.CROSSOVER` (0.72) sits BELOW that theta (0.75), which is the one
+> state this entry's gate refuses. Red the day k enters the comparison.
 The audit the owner asked for, run against the site every rhyme number passes
 through. **DOCTRINE 56 IS HONOURED IN ONE LAYER AND RECORDED-BUT-UNAPPLIED IN
 THE OTHER, and the two layers are one screen apart.**
@@ -15051,6 +15260,13 @@ flipped — which is why it did not survive being named as owed.
 Attributed to a lane; the D1 table, the pool and the gate I re-derived myself.
 
 ### M-142 · the recovered cover could not be spelled as a mandate `OPEN`
+> **TESTED WHILE OPEN.** `quality/test_mandate_language.py` section 7 names this
+> entry and PINS THE MISSING SPELLING: a return class member carrying a
+> placement (`1.head`) is REFUSED BY NAME with its remedy stated, while the
+> bare-line spelling `returns="1,3"` in the same section is ACCEPTED — a placed
+> word-identity has no mandate spelling here, which is this entry's open half.
+> Red the day a Return can carry loci and a returns_check compares the words at
+> them.
 Opened and half-closed 2026-08-26, out of M-139's `recover` lane. **The module
 that structures a PASTED song makes one claim about itself and it was FALSE
 through the only handoff it documents.**
@@ -16098,8 +16314,35 @@ and Emmett's `[VERSE 1]` holds the attribution line "By DAN D. EMMETT."
 — editorial text under a verse mark, with no bracket for this convention
 to key on. That class is M-153.
 
-### M-153 · Editorial text staged under `[VERSE n]` marks: two measured instances, no bracket to key on `OPEN`
-Found 2026-08-28 adjudicating M-152's orbit, and it is the staging class
+### M-153 · ~~Editorial text staged under `[VERSE n]` marks: two measured instances, no bracket to key on~~ `CLOSED` 2026-09-09
+**BOTH MEASURED INSTANCES WERE RE-STAGED IN `a75da39` (2026-09-08), which is
+one of the two remedies this entry itself names.** Re-derived at head
+2026-09-09:
+>
+> - `corpus/song/eng_parlour_daniel_decatur_emmett.txt:12-16` — the Emmett
+>   attribution is now `# APPARATUS: [VERSE 1]` / `# APPARATUS: By DAN D.
+>   EMMETT.` and the orphan tail `# APPARATUS: [VERSE 2]` / `# APPARATUS:
+>   Mass.]`. The first SUNG stanza is `[VERSE 3]`. The header also carries the
+>   attribution, so both halves of the named remedy landed.
+> - `corpus/song/eng_british_richard_lovelace.txt:2772-2800` — the Hazlitt notes
+>   under `[VERSE 8..10]` and the later note blocks are all `# APPARATUS:` rows.
+>   `[VERSE 7]` still ends on its own anchor, so no sung text was disturbed.
+> - `lyric_harness.py:1151` — `is_apparatus_line` makes a `#` row apparatus and
+>   never sung, and the remedy reaches every reader rather than one:
+>   `readability.py:406`, `grid.py:3714`/`:3728`, `fin_rhyme_rate.py:138`,
+>   `audit_register.py:499` all drop those rows.
+> - `quality/test_readability.py:1419-1431` — the new staging is PINNED, not
+>   merely present: Emmett's `Mass.]` asserted absent from the sung lines,
+>   Lovelace's bibliography asserted present as an APPARATUS byte. It cannot
+>   silently regress.
+>
+> Found 2026-09-09 by the same UNGUARDED sweep that closed `F-4a`. The entry's
+> scope is explicitly closed-ended — "Measured instances, both read in place" —
+> so two fixed instances is the whole of it.
+>
+> The original text follows, struck, per doctrine 17.
+>
+> ~~Found 2026-08-28 adjudicating M-152's orbit,~~ and it is the staging class
 that convention CANNOT reach: text that is not sung, standing under a
 real verse mark, with no bracket for a declared span or block rule to
 key on. Measured instances, both read in place: (1)
@@ -22958,3 +23201,74 @@ delivered in silence, and the silence was ours.
 **WHAT SHIPS.** `LIMITS.maxTurnMs = 2_400_000` (`mcp/gemini_agent.js`): `runTurn` checks the wall BEFORE a hop starts — never mid-hop, so a tool already running finishes and its result is on the record — and past it ends the turn with `stopped: 'MAX_TURN_MS'` and `stoppedDetail {ms, cap, hops, maxSteps}`, its calls kept, so the next turn continues the carried run (M-237) instead of the whole hour vanishing. Forty minutes plus one tool budget in flight is fifty, under the edge with room. `scripts/flash_battery.mjs` derives its deadline from THAT: `maxTurnMs + CHAT_TOOL_TIMEOUT_MS`, both read from where they are declared (the M-160 discipline), no longer the product of the hop count; `mcp/test.mjs` pins the derivation, that wall + one budget < 6,000,000 ms, and that the wall still holds at least four full kitchen runs; and a stubbed turn under a one-millisecond wall makes exactly one hop and stops on the second with its call on the record.
 **WHAT THIS DOES NOT DECIDE.** (1) The malformed `draft_text`: M-248 added the `*_text` twins because ARRAYS were malformed nine of nine in round 22; a multi-line string with blank lines is malformed here three of three. The M-219/M-222 re-asks are the standing remedy and the turn was not lost to it; which shape the model can emit is round 26's to show, and a call that carries no draft at all once a run is carried (M-221/M-237) is the shape to prefer if it cannot. (2) Whether `KITCHEN_ATTEMPTS = 3` (M-257) is what filled the hour: the turn left no record, so it is unmeasured; a stub Gemini cannot measure it either (a constant line parks the loop at NO_PROGRESS in 47 s at either setting). Round 26's kitchen rows carry `proposer_calls` and `ms` per run and will say. (3) The `lyric_plan` narrative refusals are the model's own declarations, three cheap hops, recorded and not chased.
 **313** with this entry (2026-09-07).
+
+### M-259 · The first-ever production qualification refused in 1.8 seconds of a 2,400-second budget: the calibration's provenance looked the tagger up on nltk's ambient path instead of the ONE place the staged directory is decided, so it could not find a model the same job had just staged — and where an ambient copy exists it fingerprinted bytes no measurement touched `CLOSED` 2026-09-09 — under the owner's standing order: *"get us to production"* … *"please get us to green"*
+**THE RUN (34404281269, `production-qualification.yml` on main `a1666165`, dispatched 20:59Z — the FIRST execution of that workflow; `list_workflow_runs` for it returned `total_count: 0` before this one).** `capacity-proof / verify` passed on the full checkout — *"Verify all 81 current-runtime witnesses once"*, 20:59:25→21:27:31, twenty-eight minutes — and `qualification-capacity-proof` accepted it. `qualification-curves` FAILED at step 10 in three seconds. Its own evidence record is the whole diagnosis: `{"component": "curves", "command": ["quality/length_curve_calibration.py", "check"], "budget_s": 2400, "status": "incomplete", "exit_code": 2, "elapsed_s": 1.8238078229999957}`, with `identity` and `identity_after` identical — no source drift, no timeout, a refusal that never reached the question. Reproduced locally at the first attempt: `REFUSED — calibration provenance requires the staged English tagger; configure NLTK_DATA`, exit 2.
+**THE DEFECT.** `row_provenance` called `nltk.data.find("taggers/averaged_perceptron_tagger_eng/")` directly. `features.nltk_data_dir()` is the ONE place the staged directory is decided (doctrine 1, M-188), and its own comment names the three consumers that read it from there — `_tagger`, `staged_resources_or_refuse`, and `quality/fetch_data.py`. This was a fourth that did not, so it searched nltk's ambient path: `$NLTK_DATA`, `~/nltk_data`, `/usr/share/nltk_data`. The job stages the model into `lyric-harness/data/nltk` (*"Stage every declared lexical input"*, step 6, success) and exports no `NLTK_DATA` to later steps; `production_qualification.run_component` inherits the step environment. Nothing wrong was configured. The lookup was asking a different question than the staging answered.
+**THE LOUD HALF IS THE CHEAP HALF.** A refusal is at least a refusal (doctrine 20). The silent half is the one worth the entry: on any box that DOES carry an ambient copy, the old code returned a `tagger_sha256` of bytes the tagging never touched — and `verify_rows` compares that field to decide whether saved calibration rows are stale. A staleness check keyed to a model no measurement used cannot detect the drift it exists to detect; it would have gone on passing.
+**WHAT SHIPS.** Two lines: `from quality.features import _tagger` and a call to it, before the `find`. `_tagger()` resolves through `nltk_data_dir()` and prepends that directory to `nltk.data.path`, then hands back the very `pos_tag` every measurement in the cell runs through — so `find` now resolves exactly the model that tags. The workflow file is untouched on purpose: exporting `NLTK_DATA` in the job would have turned this green while leaving every other consumer of `check` dependent on its caller's environment.
+**THE GUARD** (`quality/test_production_data.py`, `test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer`) runs `row_provenance` in two scrubbed subprocesses — one told nothing, one told the staged path, `HOME` moved in both so a stray `~/nltk_data` cannot decide the answer — and asserts their `tagger_sha256` are EQUAL. Not "it did not raise": only equality catches the silent half, where the old code answered confidently and wrongly. A third case points `LYRIC_STAGED_DATA` and `NLTK_DATA` at an empty directory and requires the declared refusal, so the failing branch is still reachable (doctrine 48). Fault-injected: with the two added lines removed the scrubbed run exits 1 on `ValueError: calibration provenance requires the staged English tagger`, and the guard fails on that assertion.
+**WHAT THIS DOES NOT DECIDE.** (1) Whether the repo qualifies. Six components — `song`, `short`, `mutation-1..4` — were still running when this was written, each past staging and inside its own budget; `curves` was the only one that failed, and it failed before doing any work. (2) Whether the `check` PASSES once it can run: this entry fixes a lookup, not a curve. The drift verdict — HOLDS, MOVED, or cannot tell — is the next qualification run's to report. (3) Why the workflow had never been dispatched. It is `workflow_dispatch`-only by design, and `deploy-connector.yml` refuses without a trusted qualification at the SHA, which is how both prior deploy attempts (runs #63, #65) failed. Nothing was broken about that chain; nobody had started it.
+**314** with this entry (2026-09-09).
+
+### M-260 · The qualification's `curves` budget is a WARM-memo budget and its cache key could not reach the only cache that warms it — the nightly banks the predictability memo under a prefix this job never named, so the first attempt at any new commit was cold by construction `CLOSED` 2026-09-09 (built; qualification run 2 measures) — under the owner's standing order: *"get us to production"*
+**FOUND BEHIND M-259.** Fixing the tagger lookup let `quality/length_curve_calibration.py check` actually start, and starting is where the second defect lives. `check` is dispatched with no `--rows`, so it RE-DERIVES all ~8,667 corpus items from 1,297 files rather than trusting a saved TSV — deliberately, because a qualification gate that reads its own saved rows is checking its bookkeeping and not its corpus. Every item needs a predictability score, and that score's memo lives outside the repo at `~/.cache/lyric-harness/song_predictability_v1.tsv`. `spec('curves')` declares a 2,400 s budget and `production_qualification.run_component` enforces it with `proc.wait(timeout=budget)` -> exit 124. **Measured here, cold, on a 4-core box: the run was cut at 3,000 s — 600 PAST the budget — with the memo holding 602 of ~8,667 items and still climbing.** No rate is quoted from that and none should be (the 2026-08-20 figure in ci.yml was 7.5x too high by exactly that arithmetic); the floor is enough. ci.yml's own repinned cold figure, from run 33305249323's PHASE COST table, is 8,758 CPU-s.
+**THE DEFECT IS THE KEY, NOT THE BUDGET.** 2,400 s is the right bound for the comparison this job is supposed to be doing, and the nightly song-profile job already banks the memo `if: always()` under `lyric-harness-predictability-v1-<run_id>` — the deadlock-ending split M-187 shipped. Actions caches are shared across workflows in a repository. But `production-qualification.yml` restored with `restore-keys: qualification-<component>-<sha>-`, a prefix that can only hit a RE-RUN of a commit that already ran. The first attempt at any new SHA — which is every attempt that matters, since qualification binds to a commit — was cold with no way not to be. Run 1 never reached far enough to show it: `curves` refused in 1.8 s on M-259, and its `cache/save` banked three seconds of nothing. **AND THE HEADING NAMES `curves` BECAUSE THAT IS WHERE IT BIT, NOT BECAUSE IT IS THE ONLY COMPONENT AFFECTED.** `song` and `short` run `song_profile_calibration.py --check` over the same predictability memo; their budgets are 9,000 s, which is the difference between a component that can survive a cold memo and one that cannot, not a difference in what they read. The restore step is shared by the whole matrix, so the reach lands for all seven.
+**WHAT SHIPS.** `lyric-harness-predictability-v1-` is added as a SECOND restore-key, after the qualification-specific prefix so a genuine re-run still prefers its own banked state (which also carries `/tmp/mutate-scratch/baseline.json`; the nightly entry carries the memo alone). And a step that prints the memo's line count before the budget starts, because a 124 from a cold memo and a 124 from a check that genuinely overran are the same number in the evidence record and are not the same finding. Its shell takes the paragraph ci.yml wrote in blood: `grep -c` exits 1 on a zero count and 2 on an absent file, so a `|| echo N` fallback yields the two-line string `0` then `N`; `|| true` with a default expansion gives one value in all three cases, proven under `bash -e` for absent, empty and full before it shipped.
+**WHAT THIS DOES NOT DECIDE.** (1) Whether the cache is THERE. The last scheduled CI run was 2026-09-03 (run 1267, success), and not by accident: BOTH crons in ci.yml have been commented out since 2026-09-04 under M-227, the owner's order to *"suspend/cancel tonight's nightly, tandem, mutation"* for the duration of this same end-to-end drive. Actions evicts a cache after seven days without access, so the entry that run banked is on its sixth day — and a memo whose fingerprint has moved in the six days since is discarded on load whatever its age. The suspension was of the SCHEDULE; `workflow_dispatch` was left standing, and it is the lever. The new step is what turns that from a guess into a line in the log; if it reports 0, the remedy is a `workflow_dispatch` of ci.yml, whose song-profile job is a bounded resumable slice that banks whatever it reaches. (2) Whether a cold `curves` could EVER pass here. It is not simply a budget away: the job's own timeout is 240 minutes and ci.yml's measured cold slice was 146, before the fit and the held-out this check adds on top. Warming it is the affordable path, not raising the number. (3) The drift verdict itself — HOLDS, MOVED, or cannot tell. Nothing in M-259 or this entry touches a curve.
+**315** with this entry (2026-09-09).
+
+### M-261 · CI went from 19 minutes to 54 in one commit, and both halves of the cost were the same mistake twice: a pool asked for one worker, and a resource envelope mistaken for a queue `CLOSED` 2026-09-09 (built; the next run measures) — the owner's words, verbatim: *"our current CI and PR times have gotten wildly out of control in how long they're taking"*
+**THE MEASUREMENT FIRST, BECAUSE THE IMPRESSION WAS WRONG.** Recent main push runs, wall clock: 1441 **17.8 min**, 1446 **14.3**, 1452 **17.4**, 1456 **15.5**, 1464 **19.0** — then 1486 **68**, 1489 **80**, 1493 **54.5**. Not a creep. `a75da39` (PR #248, 2026-09-08) added `capacity-proof.yml`, `production-qualification.yml` and 357 lines of `ci.yml`, and CI tripled the same day. In run 1464 the `lyrics-image` build step took **0.3 min**; in run 1493 the same step took **16.1** and a capacity matrix that did not exist before took **35.6**.
+**AND ONE JOB WAS THE WHOLE RUN.** Per-job wall on run 34358366237 (main `a1666165`, green, 41 jobs, 54.5 min): `lyrics-image` **53.2**, `capacity-proof / verify` 25.4, `suites (shard 2/3)` 13.3, `verify` 11.1, everything else ≤ 8.7 — and every job except `lyrics-image` had FINISHED BY MINUTE 28. So the run's wall was one job, and any saving anywhere else was worth exactly zero minutes until that one moved. That is the trap this entry nearly fell into: the first fix measured — `--workers` on `capacity-proof` — is a 15-minute saving on a job that was already hidden inside another job's shadow.
+**BOTH HALVES OF THAT JOB WERE THE SAME SHAPE.** (a) BuildKit's own per-layer timings say the 968 s docker build is `quality/verify_capacity.py --workers=1` at **938.7 s — 97.0% of it**. apt is 10.3 s, `npm ci` 1.5 s, pip 2.3 s, the asset assembly 2.1 s. This build was never a caching problem and a build cache would have bought under 30 s. (b) The 35.6-minute matrix is 18 executions in series inside ONE container pinned to `--cpus=1`. `--cpus=1` declares the deployed service's envelope — `isolation()` reads only the container's own cgroup and refuses without it — and declaring an envelope is not asking for a queue. Two containers each pinned to 1 CPU on a 4-vCPU runner each still get the whole CPU they declare.
+**WHAT SHIPS.** `--workers=4` at both `verify_capacity.py` call sites, which is where `quality/test_capacity.py` had already put the same operation: `CAPACITY_WORKERS` defaults to `min(4, cpu_count)` there, with `=1` as the escape hatch. This was the odd one out, and nothing in the tree stated a reason for it. And the matrix splits into TWO concurrent shards on the `--sizes` coordinate the script already declares, reduced by `scripts/merge_lyrics_capacity.py`.
+**THE RECEIPT DOES NOT MOVE, AND THAT IS THE HALF THAT MATTERED.** `pool.map` preserves input order and `required` is sorted before the split, but the real question was `Reviser` state: serial reuses ONE instance across all 81 witnesses, the pool gives each process its own through `_init_worker`. Measured on the first 16 certified witnesses, both paths in one tree — **records byte-identical**. Full run at `--workers=4`: **9m58s wall against 25m57s CPU**, 81/81 verified. A speedup that moved a verdict would be a broken proof, not a faster one.
+**TWO SHARDS, NOT THREE, IS ALSO A MEASUREMENT.** Per-size bodies off the run's log timestamps: 18 → 455.29 s, 24 → 578.52 s, 31 → **1042.56 s**, plus a 50.80 s prologue and 9.94 s epilogue, summing to the 2137.12 s the step took. Size 31 is 50.2% of the body, so it is the pole under any split: three shards give max(1103.30, 639.26, 516.03) and two give max(1103.30, 1094.55) — **the same wall**. A third shard buys zero minutes and spends a third CPU to do it.
+**WHAT SHARDING WOULD HAVE COST, PAID BACK RATHER THAN ACCEPTED.** `whole_runtime_peak_bytes` was `/sys/fs/cgroup/memory.peak` read ONCE after all 18 executions — one number doing two jobs: bounding the peak, and standing in for *the runtime does not accumulate over a long run*. Only the first survives being read once, and splitting the container would have lost the second SILENTLY, with nothing else in the run measuring it. The matrix now samples `memory.peak` and `memory.current` at **every execution boundary**: 18 readings where there was 1, each bounded, plus a deliberately strict leak signature (memory up at every single boundary, never once falling back, minimum four boundaries) that a working set moving around cannot trip. The merger refuses a shard whose trace does not cover its own executions. That is strictly more evidence about accumulation than the number it replaces.
+**THE COMPLETENESS ONE PROCESS GOT FOR FREE.** A single run could not finish without covering every declared size; two shards can, by one of them never running. `merge_lyrics_capacity.py` says so out loud — it refuses a missing size, a duplicated size, a shard that did not pass, a shard carrying any failure, a `--local` supplement, unverified cgroup limits, a shard whose measured tree differs from its siblings', source that moved mid-shard, a short execution count, a missing or short memory trace, and shards that disagree about the declared limits. `production_qualified` is re-derived from all of that and never copied from a shard — no shard can be qualified alone, and each one sets that field False for exactly that reason. Thirteen refusal cases are pinned in `scripts/test_lyrics_capacity.py`.
+**WHAT THIS DOES NOT DECIDE.** (1) **What it is worth.** ESTIMATED from the measured inputs above: matrix 35.62 → 18.42 min, build 968 s → ~6 min at the 2.6x the full A/B measured, so `lyrics-image` ~53.2 → ~27 and the run ~54.5 → ~27. Every one of those is arithmetic on a measurement, not a measurement, and this repo has a 7.5x error on record from exactly that move. The next run says. (2) The tightest budget under contention is the 5-second queue-pressure phase, not the 600-second call ceiling — 40x headroom on the latter, far less on the former. Contention can only lengthen a wall and every latency assertion is an upper bound, so a pass while sharing a host is a pass alone; a FLAKE is the risk, not a wrong pass, and that phase is where to look first. (3) `--cpuset-cpus` is deliberately not used: on a 4-vCPU hosted runner the vCPUs are two physical cores with SMT siblings and the pairing is undocumented, so pinning could put both shards on one core and read as concurrency contention. (4) After this, the critical path is expected to be `lyrics-image` still, then `suites (shard 2/3)` at 14.7 min end-time. Nothing here touches those; they were never the problem.
+**ADDENDUM 2026-09-10 — MEASURED, AND MY ESTIMATE MISSED BY A FACTOR OF TWO ON THE HALF I WAS PROUDEST OF.** Run 34416677615 (PR #251 at `5d52028`), against run 34358366237's baseline:
+
+| | before | after | ESTIMATED |
+|---|---:|---:|---:|
+| `capacity-proof / verify`, the all-81 proof | 25.1 min | **12.9 min** | — |
+| docker build (97% of it the same proof) | 16.1 min | **10.7 min** | ~6 min |
+| capacity matrix | 35.6 min | **27.3 min** | 18.4 min |
+| `lyrics-image` (the critical path) | 53.2 min | **39.3 min** | ~27 min |
+
+The `--workers` half landed: **1.95x** on the standalone proof, and the sharded matrix PASSED with the merger accepting the union, so the evidence survived the split. The SHARDING half did not: 8.3 minutes where 17.2 were predicted, a speedup of **1.34x** from running two containers where the arithmetic assumed 2.0x.
+
+**AND THE TWO MISSES ARE THE SAME MISS, WHICH IS THE FINDING.** Four workers returned 1.95x, not ~4x. Two concurrent single-CPU containers returned 1.34x, not 2x. Both land where they would if `ubuntu-latest` were **two physical cores with their SMT siblings presented as four vCPUs** — a second runnable thread on a busy core is worth roughly two thirds of a core, not one. Every number above was computed as though four vCPUs were four cores. They are not, and the comment in `ci.yml` warning against `--cpuset-cpus` for exactly this reason had the mechanism right while the arithmetic beside it ignored it. Doctrine 58: a recorded count is a reading of whatever produced it, and 4 was a reading of `nproc`, not of the machine.
+
+**WHAT THAT MEANS FOR THE NEXT PERSON.** More shards on ONE runner buy nothing — 2 containers already saturate ~2 real cores, and a third would divide a term that is no longer binding. The remaining move is a DIFFERENT runner: shard `pole` and `rest` as two jobs on two machines, where each gets its own ~2 cores and the step's wall goes to the ~18.4 min a shard costs alone. That is not free either — the built image has to reach both, through `docker save` and an artifact, and that transfer is unmeasured. **It is unmeasured, so it is not claimed.**
+
+**THE RUN IS 54.5 -> ~40 MINUTES, A 26% CUT, NOT THE 50% THE ARITHMETIC PROMISED.** Recorded at what it is rather than at what was hoped for; the estimate was labelled an estimate when it was made, and this is what labelling it was for.
+**316** with this entry (2026-09-09; measured 2026-09-10).
+
+### M-262 · Three of four mutation shards failed the first production qualification while catching every mutation they were given — a blind-spot REPORT in a section headed "these are not assertions" was calling `check`, and it scored the whole tree's baseline against each shard `CLOSED` 2026-09-10 — under the owner's standing order: *"get us to production"*
+**THE SHAPE, AND IT IS THE SHAPE THAT NAMES THE CAUSE.** Production-qualification run 34404281269 (main `a1666165`, the first ever): `capacity-proof` PASSED, `qualification-song` PASSED in 1h55m, `qualification-short` PASSED in 1h20m, `curves` refused in 1.8 s (M-259), and **mutation-1, -2 and -3 all FAILED — 2h44m, 2h06m, 2h21m against 3h20m budgets, every one `exit_code: 1`**. Not 124: `run_component` sets 124 on `TimeoutExpired`, so none of them ran out of budget. Three of four failing together is not three findings, it is one condition they share.
+**AND THE SHARD ITSELF IS CLEAN.** Shard 2/4 is `names[1::4]` — fifteen mutations, M2 M6 M8 M12 M16 M20 M24 M26 QF1 QF5 QR4 QS1 QS5 QG4 QT4 — reproduced at that exact commit in a detached worktree under the job's own environment. Baseline over the sixteen files those fifteen declare as detectors: **16/16 green, 0 excluded**. Every one of the fifteen CAUGHT by its own declared subset, none needing escalation, `CANDIDATE SURVIVORS: []`. The static sections pass, so no mutation is STALE. Whatever failed the shard, it was not the shard's own evidence.
+**THE LINE.** `quality/test_mutation.py`, section 5, under a heading that reads *"blind spots, REPORTED (these are not assertions)"* and a paragraph that reads *"turning them into failures would make `test_mutation.py` permanently red for something another cell owns, which is how a useful signal gets muted"*:
+```
+red = [t for t, r in bl.items() if r["status"] != "PASS"]
+check("every baseline detector completed successfully", not red, str(red))
+```
+`check` appends to `FAILURES`, and `FAILURES` exits 1. **It is an assertion, in a section that says twice it contains none, and the paragraph saying so was right.** Worse than mislabelled: `bl` is the baseline over everything `mutate.discover_tests()` finds — about 98 files — not over the shard's sixteen. One suite anywhere in the tree going red, or hitting `SUITE_TIMEOUT` on a loaded runner, failed EVERY shard, however cleanly that shard's own mutations were caught.
+**AND M-261 EXPLAINS WHY IT FIRED NOW.** That entry measured `ubuntu-latest` behaving as two physical cores behind four vCPUs — four workers returning 1.95x, two concurrent single-CPU containers returning 1.34x. A 98-file baseline that a 4-core assumption prices as comfortable is not comfortable on two, and `SUITE_TIMEOUT` is the first thing that gives. The two entries are one machine, read twice.
+**WHAT SHIPS.** The line prints. **THE ASSERTION BESIDE IT DOES NOT MOVE, AND IT IS THE ONE THAT MATTERS**: section 4's `no survivor lost its baseline detector` fires when a mutation SURVIVED *and its own detector* was among the excluded — the case where a red baseline really is hiding a hole, and a claim about this shard's evidence. "Some file somewhere was red" is a claim about the runner. Doctrine 20: a refusal is not a grade, and it is reported at full volume rather than scored.
+**THE GUARD FAILS IN BOTH DIRECTIONS, WHICH IS THE ONLY WAY TO DEMOTE A CHECK SAFELY.** `test_a_red_baseline_reports_without_scoring_and_still_blocks_a_blind_survivor` runs `test_the_run` twice through the existing `check`-patching harness: a red baseline ELSEWHERE with every mutation caught must score nothing, and a survivor whose OWN detector is the red one must still fail. Fault-injected — with the `check` call restored the first half fails on exactly `['every baseline detector completed successfully']` and the second still fires. And it is in the dispatch list at the bottom of the file: that file's own family of orphan findings (a suite written, never named by anything that gates) is what this repo's census exists for, and a guard added without dispatching it would have been one.
+**WHAT THIS DOES NOT DECIDE, AND IT IS THE LOAD-BEARING CAVEAT.** **The CI log naming which check failed has not been read.** `production_qualification.run_component` sends the child's stdout and stderr to `evidence/mutation-N.json.log`, which lives only inside the run's artifact, and this session's egress denies Azure blob storage — so the diagnosis above is an INFERENCE from four facts (three of four shards failing together; `exit_code: 1` and not 124; shard 2/4 reproducing clean at the commit; and this being the only condition all four shards share), not a quotation. It made a prediction before the third shard's verdict was known — *if 1 and 3 also fail, it is the baseline condition* — and 1 and 3 then failed. That is a passed test of the hypothesis, not a reading of the log. Anyone with blob egress should pull `evidence/mutation-2.json.log` from run 34404281269 and grep for `BASELINE-RED`, `INDETERMINATE` and the final `N FAILING:` line, which names the check in one line. If it names something else, this entry is wrong and the change still is not: a section that says it holds no assertions should not hold one.
+**ALSO NOTED, NOT FIXED.** Each of the four shards independently recomputes the same ~98-file baseline, because the cache key embeds `run_id` and the restore-keys are per-component — so the first run at any commit pays it four times and no shard can ever reuse another's. That is M-260's shape a third time in the same workflow. Measured only as "a large share of 2h06m"; not repaired here.
+**317** with this entry (2026-09-10).
+
+### M-263 · Every mutation shard paid the identical whole-tree baseline, so no shard count could put the wall below one of them — and shard 4 was killed at 12,001 seconds against a 12,000-second budget `CLOSED` 2026-09-10 (built; the next qualification run measures) — under the owner's order: *"get us to production, do not prematurely stop"*
+**THE FOURTH SHARD FAILED DIFFERENTLY FROM THE OTHER THREE AND THAT IS THE FINDING.** M-262 read three failures as one condition and it was right about those three: mutation-1, -2 and -3 exited **1** at 2h44m, 2h06m and 2h21m, inside their budgets. `qualification-mutation-4` completed at **00:49:53 against a step that started at 21:29:52 — 12,001 seconds, the budget to the second.** `run_component` sets `code = 124` on `TimeoutExpired`, so that one is a TIMEOUT and nothing M-262 touches would have saved it. Two defects wearing one colour.
+**WHY IT CANNOT BE FIXED BY SHARDING, IN THE FILE'S OWN WORDS.** `run_suite` calls `mutate.discover_tests()` — **98 files** — and baselines all of them, whatever slice `--shard` asked for. Its comment states the consequence outright: *"the unmutated baseline runs first and is the expensive phase"*, and a completed one *"hands the next person the baseline's share of the shard budget, which is what sizing N actually turns on"*. So four shards paid four identical whole-tree baselines, and **a fifth shard would have paid a fifth**: the wall has a floor equal to one baseline and adding shards cannot go under it. Measured locally, that baseline was still running past **twelve minutes** at two workers.
+**AND THE CACHE THAT WAS SUPPOSED TO HELP COULD NOT.** `/tmp/mutate-scratch/baseline.json` is cached under `qualification-<component>-<sha>-<run_id>-<attempt>` with restore-keys `qualification-<component>-<sha>-`: per-component, so no shard can ever read another's, and embedding `run_id` means the first run at any commit misses. The four shards run concurrently, so even a shared key would miss. **This is M-260's shape a third time in the same workflow** — a cache whose key cannot hit on the run that needs it.
+**WHAT SHIPS.** A `mutation-baseline` job computes it ONCE and uploads it; the four shards download it into `MUTATE_SCRATCH` after their own cache restore, so the shared copy wins. The job carries **no `needs:`** on purpose: it starts with the run and finishes inside the window `capacity-proof` already holds every component behind, so most of its cost is spent in a gap that existed anyway, while what it removes — one whole-tree baseline from each of four shards — is real.
+**THE ONE WAY THIS SILENTLY DOES NOTHING, AND WHAT STOPS IT.** `mutate.baseline` accepts a cached file only when BOTH `fingerprint` and `config` `{jobs, confirm_all, timeout}` match, and when they do not **it does not complain — it recomputes**. A producer whose defaults had drifted would cost an extra baseline and report success. So the producer runs `test_mutation.py --baseline-only` rather than a `python -c` with the numbers retyped; the argparse was lifted into a single `_parser()` both paths read; the install and staging steps are the component job's verbatim, because `source_fingerprint()` hashes the harness tree, the staged data, `PYTHONHASHSEED` and the nltk/numpy/scikit-learn versions; and a check pins that the producer's config is the config the sweep looks up. The shard's own log prints `baseline: cached` or `baseline: running 98 checks`, so a miss is visible rather than merely slow.
+**A GUARD THAT MEASURED ITSELF, CORRECTED BEFORE IT SHIPPED.** The first draft of that check declared its own `--jobs` to compare against and then counted `ap.add_argument("--jobs"` occurrences in the source. It found two and failed — **one of them its own**. The population was wrong, not the property. It reads `_parser()` twice now and compares, which is why the parser was extracted at all.
+**THE BUDGET MOVES TOO, AND IT IS THE ONE NUMBER HERE A RUN HAS DISPROVED.** 12,000 → 14,400 s. A bound a run has hit is not an allowance any more; it is a measured floor, and the floor is above 12,000. **How far above is unknowable — that is what a timeout costs you: a killed run reports where it stopped, never what it needed.** So this is not a fitted number: it is the old one plus roughly what the shared baseline takes out of every shard, and the baseline is the change meant to make the bound comfortable rather than the bound itself. The component job's own `timeout-minutes` goes 240 → 300 so the bound that fires is the command's, not the job's — otherwise the evidence reads `cancelled` where it should read 124.
+**WHAT THIS DOES NOT DECIDE.** (1) Whether 14,400 is enough. Unknown by construction, per the paragraph above. If a shard hits it too, the answer is not 16,000 — it is that the shard is too big, and the file already says a shard count cannot fix that while every shard pays the whole-tree baseline. (2) Whether the shared baseline is ACCEPTED in CI. Every input to `source_fingerprint()` was matched deliberately, but it hashes a whole tree and two installs, and the failure is silent-and-slow rather than loud. The shard log's `baseline: cached` line is the reading to take on the next run. (3) M-262's own diagnosis, which remains an inference — the log naming the failing check is still behind blocked egress.
+**318** with this entry (2026-09-10).

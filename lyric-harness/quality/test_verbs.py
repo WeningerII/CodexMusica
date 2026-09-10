@@ -221,6 +221,31 @@ def test_the_map_is_not_stale():
         check(f"{verb!r} is on the map, answered by {mod}",
               rows.get(verb, ("", ""))[0] == mod, str(rows.get(verb)))
 
+    # MISSING.md G-3 — "meter templates are unconnected to the bar grid",
+    # pinned rather than cited. Three facts, each of which the CONNECTING
+    # commit would break: the template checker still answers from the SPINE
+    # and not from quality/grid.py or quality/fit.py; its signature takes a
+    # template and nothing bar-shaped; and no module under quality/ calls it
+    # at all. Wire a template to the grid and at least one of these fails.
+    import inspect as _inspect
+    meter_src = _inspect.getsource(lh.check_meter)
+    quality_callers = sorted(
+        os.path.basename(f) for f in glob.glob(os.path.join(HERE, "*.py"))
+        if not os.path.basename(f).startswith("test_")
+        and "check_meter" in open(f, encoding="utf-8").read())
+    check("the stress-template checker and the bar grid share no coordinate "
+          "and no caller (MISSING.md G-3)",
+          rows.get("meter (template)", ("", ""))[0] == "lyric_harness.py"
+          and str(_inspect.signature(lh.check_meter))
+          == "(lex, lines, template=None)"
+          and not any(k in meter_src for k in
+                      ("quality.grid", "quality.fit", "blueprint", "cycle",
+                       "subdivision"))
+          and quality_callers == [],
+          f"row {rows.get('meter (template)')}, "
+          f"sig {_inspect.signature(lh.check_meter)}, "
+          f"quality/ callers {quality_callers or 'none'}")
+
     rc, out, _ = run("wiring")
     check("`wiring` prints the coverage cross-check and it is clean",
           rc == 0 and "TABLE COVERAGE" in out

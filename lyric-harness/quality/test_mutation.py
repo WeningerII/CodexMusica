@@ -845,7 +845,35 @@ def test_the_run(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
     # ------------------------------------------------------------------
     print("\n5. blind spots, REPORTED (these are not assertions)")
     red = [t for t, r in bl.items() if r["status"] != "PASS"]
-    check("every baseline detector completed successfully", not red, str(red))
+    # THIS LINE USED TO CALL `check`, WHICH IS AN ASSERTION, INSIDE A SECTION
+    # WHOSE OWN HEADING AND THE PARAGRAPH ABOVE IT BOTH SAY IT IS NOT ONE --
+    # and the paragraph was right, in the exact words it used: "turning them
+    # into failures would make `test_mutation.py` permanently red for something
+    # another cell owns, which is how a useful signal gets muted."
+    #
+    # `bl` is the baseline over ALL of `mutate.discover_tests()` -- 98 files --
+    # not over the shard's own detectors. So ONE suite anywhere in the tree
+    # going red, or timing out on a loaded runner, failed EVERY shard, however
+    # cleanly that shard's own mutations were caught.
+    #
+    # MEASURED: production-qualification run 34404281269 (main a1666165, the
+    # first ever run of that workflow) failed mutation-1, -2 and -3 -- 2h44m,
+    # 2h06m and 2h21m against a 3h20m budget, so none of them a timeout, all
+    # exit 1. Shard 2/4's fifteen mutations were reproduced at that exact
+    # commit and every one was CAUGHT by its own declared detectors over a
+    # 16/16 green baseline, with no candidate survivors. Three shards failing
+    # together is a shared condition, and the only condition all four share is
+    # this 98-file baseline.
+    #
+    # THE ASSERTION BESIDE IT STAYS, AND IT IS THE ONE THAT MATTERS: "no
+    # survivor lost its baseline detector" (section 4) fires when a mutation
+    # SURVIVED and its own detector was among the excluded, which is the case
+    # where a red baseline really does hide a hole. That is a claim about this
+    # shard's evidence. "some file somewhere was red" is a claim about the
+    # runner, and doctrine 20 -- a refusal is not a grade -- is why it is
+    # reported at full volume and not scored.
+    print(f"  {'NOTE' if red else 'PASS'}  every baseline detector completed "
+          f"successfully: {'no' if not red else str(red)}")
     if red:
         print(f"  NOTE  {len(red)} test file(s) are RED at baseline and were "
               f"excluded from the detector set: {', '.join(red)}")
@@ -900,6 +928,82 @@ def test_release_oracle_rejects_incomplete_evidence():
           str(failures))
 
 
+def test_the_shared_baseline_is_accepted_by_the_sweep_that_reads_it():
+    """A producer whose config differs is a no-op nobody is told about.
+
+    `mutate.baseline` accepts a cached file only when BOTH the fingerprint and
+    the config {jobs, confirm_all, timeout} match; when they differ it does not
+    complain, it recomputes. So a `--baseline-only` job whose defaults had
+    drifted from the sweep's would cost a whole extra whole-tree baseline and
+    still report success -- the expensive failure is SILENT, which is why it
+    gets a check rather than a comment.
+
+    Read from `_parser()`, never restated: an earlier draft of this test
+    declared its own `--jobs` to compare against and then counted occurrences
+    in the source, which found two and failed -- one of them its own. A guard
+    that measures itself is measuring the wrong population.
+    """
+    producer = _parser().parse_args(["--baseline-only"])
+    consumer = _parser().parse_args(["--shard=2/4"])
+    fields = ("jobs", "confirm_all", "timeout")
+    produced = {k: getattr(producer, k) for k in fields}
+    consumed = {k: getattr(consumer, k) for k in fields}
+    check("the shared baseline's config is the config the sweep looks up",
+          produced == consumed, f"produced {produced} vs consumed {consumed}")
+    check("--baseline-only does not change the sweep's own knobs",
+          producer.mutation_jobs == consumer.mutation_jobs)
+
+
+def test_a_red_baseline_reports_without_scoring_and_still_blocks_a_blind_survivor():
+    """The blind-spot section must not fail a shard for the runner's state.
+
+    Section 5 says in its own heading that its facts are not assertions, and
+    one of them was calling `check`. `bl` covers all ~98 discovered suites,
+    not the shard's own detectors, so any one of them red or timed out failed
+    every shard -- which is what production-qualification run 34404281269 did
+    to mutation-1, -2 and -3 while their own mutations were being caught.
+
+    BOTH DIRECTIONS, because demoting a check is exactly the change that can
+    quietly disarm a real one. A red baseline alone must NOT score; the same
+    red baseline WITH a survivor whose own detector it excluded must still
+    fail, because there the redness is hiding a hole rather than describing a
+    runner.
+    """
+    import contextlib
+    import io
+    from unittest.mock import patch
+
+    def run(rows, baseline, survivors):
+        assertions = []
+        with patch.dict(globals(), run_suite=lambda *a, **kw:
+                        (rows, baseline, survivors, [], [], [], 0.0),
+                        check=lambda name, condition, detail="":
+                        assertions.append((name, bool(condition)))), \
+                contextlib.redirect_stdout(io.StringIO()):
+            test_the_run("subset", [rows[0]["name"]], 1, 1, False)
+        return [name for name, ok in assertions if not ok]
+
+    caught = [dict(name="M1", file="quality/align.py", layer="anchor",
+                   survived=False, indeterminate=False, stale=False,
+                   caught_by={"quality/test_align.py": "RED"})]
+    red_baseline = {"quality/test_align.py": {"status": "PASS"},
+                    "quality/test_unrelated.py": {"status": "FAIL"}}
+
+    failed = run(caught, red_baseline, [])
+    check("a red baseline elsewhere in the tree does not fail a clean shard",
+          "every baseline detector completed successfully" not in failed,
+          str(failed))
+    check("and nothing else fails on it either", not failed, str(failed))
+
+    # The half that must still bite: the survivor's OWN detector is the red one.
+    blind = [dict(name="M1", file="quality/align.py", layer="anchor",
+                  survived=True, indeterminate=False, stale=False, caught_by={})]
+    own_detector_red = {"quality/test_align.py": {"status": "FAIL"}}
+    failed = run(blind, own_detector_red, ["M1"])
+    check("a survivor whose own detector was excluded still fails the shard",
+          "no survivor lost its baseline detector" in failed, str(failed))
+
+
 def test_baseline_fingerprint_includes_data_and_runtime():
     import tempfile
     from unittest.mock import patch
@@ -920,11 +1024,18 @@ def test_baseline_fingerprint_includes_data_and_runtime():
     check("runtime changes invalidate the mutation baseline", changed != runtime)
 
 
-if __name__ == "__main__":
-    if os.environ.get("LYRIC_MUTATE_ACTIVE"):
-        print("test_mutation.py: refusing to run inside a mutation run "
-              "(recursion guard)")
-        sys.exit(0)
+def _parser():
+    """THE ONE PLACE THE SWEEP'S OPTIONS ARE DECLARED.
+
+    Lifted out of `__main__` so `--baseline-only` and the sweep read
+    the SAME defaults. `mutate.baseline` accepts a cached file only
+    when its stored config {jobs, confirm_all, timeout} matches the
+    caller's, and it does not complain when they differ -- it just
+    recomputes. A second copy of these defaults would therefore not
+    fail; it would quietly cost a whole extra whole-tree baseline.
+    So there is one copy, and a check below reads it rather than
+    restating it.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument("--static", action="store_true",
                     help="sections 1-3 only: the checks that read the list "
@@ -963,6 +1074,29 @@ if __name__ == "__main__":
                     help="run mutation slice I of N (1-based, round-robin "
                          "over the declared list). Full coverage takes N "
                          "runs; the verdict names the slice it asked about")
+    # COMPUTE THE BASELINE AND STOP. `run_suite` baselines
+    # `mutate.discover_tests()` -- the WHOLE tree, 98 files -- whatever slice
+    # the shard was asked for, and the comment inside it says why that matters:
+    # "the unmutated baseline runs first and is the expensive phase", and a
+    # completed one "hands the next person the baseline's share of the shard
+    # budget, which is what sizing N actually turns on". Four shards therefore
+    # paid the identical whole-tree baseline four times, and no shard count
+    # could ever get the wall below one of them.
+    #
+    # MEASURED: production-qualification run 34404281269 killed
+    # qualification-mutation-4 at 12,001 s against its 12,000 s budget --
+    # exit 124, the only one of the four that was a timeout.
+    #
+    # THIS MODE EXISTS SO THE CONFIG CANNOT DRIFT. `mutate.baseline` accepts a
+    # cached file only when `fingerprint` AND `config` both match, where config
+    # is {jobs, confirm_all, timeout}. Spelling those in a workflow's YAML
+    # would be retyping a value the argparse below already declares, and the
+    # failure mode of getting it wrong is SILENT: the shard simply recomputes
+    # what it was handed. So the producer runs this file, with these defaults.
+    ap.add_argument("--baseline-only", action="store_true",
+                    help="compute the unmutated baseline into MUTATE_SCRATCH "
+                         "and exit; the sweep shards then read it instead of "
+                         "each recomputing the whole tree")
     ap.add_argument("--jobs", type=int, default=max(1, (os.cpu_count() or 2)))
     ap.add_argument("--mutation-jobs", type=int, default=2)
     ap.add_argument("--confirm-all", action="store_true")
@@ -972,6 +1106,15 @@ if __name__ == "__main__":
                          "loaded machine buys INDETERMINATE results rather "
                          "than wrong ones -- raise it instead of trusting "
                          "them")
+    return ap
+
+
+if __name__ == "__main__":
+    if os.environ.get("LYRIC_MUTATE_ACTIVE"):
+        print("test_mutation.py: refusing to run inside a mutation run "
+              "(recursion guard)")
+        sys.exit(0)
+    ap = _parser()
     a = ap.parse_args()
 
     # THE SLICE IS RESOLVED BEFORE ANYTHING RUNS, so a malformed one costs a
@@ -995,11 +1138,36 @@ if __name__ == "__main__":
             sys.exit(2)
         shard = (_i, _n)
 
+    if a.baseline_only:
+        base = mutate._scratch_base()
+        os.makedirs(base, exist_ok=True)
+        path = os.path.join(base, "baseline.json")
+        started = time.time()
+        tests = mutate.discover_tests()
+        print(f"baseline-only: {len(tests)} test file(s) -> {path}", flush=True)
+        bl = mutate.baseline(tests, a.jobs, path, force=True,
+                             confirm_all=a.confirm_all, timeout=a.timeout)
+        red = sorted(t for t, r in bl.items() if r["status"] != "PASS")
+        print(f"baseline-only: {len(bl) - len(red)}/{len(bl)} green in "
+              f"{time.time() - started:.0f}s; fingerprint "
+              f"{mutate.source_fingerprint()}")
+        # A red is REPORTED and does not fail this job, for the same reason
+        # section 5 of the sweep reports it: it is a fact about the runner and
+        # the tree, not about any shard's mutations, and a producer that
+        # refuses to hand over a baseline because some unrelated suite is red
+        # would take every shard down with it.
+        if red:
+            print(f"baseline-only: {len(red)} red and excluded from the "
+                  f"detector set: {', '.join(red)}")
+        sys.exit(0)
+
     test_the_mutation_list_is_well_formed()
     test_every_mutation_still_applies()
     test_M1_is_declared_verbatim()
     test_the_three_way_outcome()
     test_release_oracle_rejects_incomplete_evidence()
+    test_a_red_baseline_reports_without_scoring_and_still_blocks_a_blind_survivor()
+    test_the_shared_baseline_is_accepted_by_the_sweep_that_reads_it()
     test_baseline_fingerprint_includes_data_and_runtime()
     test_the_reported_cause_is_the_suites_own()
     test_the_bounds_are_declared_and_reachable()

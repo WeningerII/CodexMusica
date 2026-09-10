@@ -11,11 +11,32 @@ jobs:
     name: verify
     runs-on: ubuntu-latest
     # 2026-09-08: observed local workers1 wall was 1600.725s; the later
-    # workers4 full proof consumed 2042.343s aggregate CPU. Proof 45m is
-    # 1.25 x max(those measured costs), rounded up to 5m; job 55m adds 10m
-    # for checkout/dependencies/staging/upload. Aggregate CPU is a conservative
-    # setup-cost input, not observed serial wall. These are allowances;
-    # actual CI Python3.11 completion remains required, not inferred.
+    # workers4 full proof consumed 2042.343s aggregate CPU.
+    #
+    # REPINNED 2026-09-09, AND THE WORKER COUNT MOVED WITH IT. At --workers=1
+    # this step MEASURED 25.1 min in CI (run 34358366237) and the same script
+    # inside mcp/Dockerfile measured 938.7s of that build's 968s -- 97% of it.
+    # The work is 81 independent witnesses and the pool has been in the script
+    # since it was written (`--workers`, choices 1..4); only the callers asked
+    # for one. `quality/test_capacity.py` had already settled the idiom for the
+    # same operation and DEFAULTS to `min(4, cpu_count)`, with `=1` as the
+    # escape hatch; this was the odd one out.
+    #
+    # THE RECEIPT DOES NOT MOVE, WHICH IS THE LOAD-BEARING HALF. `pool.map`
+    # preserves input order, `required` is sorted by family before the split,
+    # and no field of a witness record is a timing. The one real question was
+    # whether `Reviser` carries state across witnesses -- serial reuses ONE,
+    # the pool gives each process its own via `_init_worker`. MEASURED on the
+    # first 16 certified witnesses, both paths in one tree: records identical.
+    # Full 81-witness run at --workers=4: 9m58s wall against 25m57s CPU on a
+    # loaded 4-core box, verified 81/81. A speedup that moved a verdict would
+    # be a broken proof, not a faster one (M-244's rule, same measurement).
+    #
+    # The 45m proof bound and the 55m job bound are LEFT WHERE THEY ARE. They
+    # were set as allowances against the serial cost, they still bound the
+    # parallel one with room, and lowering a bound on the strength of one
+    # measurement is how a bound becomes a flake. Actual CI Python3.11
+    # completion remains required, not inferred.
     timeout-minutes: 55
     steps:
       - uses: actions/checkout@v5
@@ -35,7 +56,7 @@ jobs:
           mkdir -p "$GITHUB_WORKSPACE/capacity-proof"
           started=$SECONDS
           set +e
-          timeout 45m python3 quality/verify_capacity.py --output "$GITHUB_WORKSPACE/capacity-proof/capacity_verification.json" --workers=1
+          timeout 45m python3 quality/verify_capacity.py --output "$GITHUB_WORKSPACE/capacity-proof/capacity_verification.json" --workers=4
           rc=$?
           set -e
           echo "all81 runtime proof: $((SECONDS-started))s elapsed, exit=$rc, bound=2700s; a bound is not a completed measurement"

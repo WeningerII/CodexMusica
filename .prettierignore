@@ -72,9 +72,13 @@ lyric-harness/quality/matrix_eval.json
 #                      data/geo-meta.json's verified list produces readable
 #                      diffs. Reflowing it would collapse that.
 #
-# The remaining sidecars (countries.geo.json and the tree/route/thread tables)
-# are vendored or derived catalog data, not prose — the same rationale that
-# excludes references/ above.
+# countries.geo.json    generated output whose exact BYTES are the gate, same
+#                       class as atlas-geo.json above. scripts/build_atlas_basemap.js
+#                       --check re-derives it from references/_natural_earth_50m.json
+#                       and string-compares.
+#
+# The remaining sidecars (the tree/route/thread tables) are derived catalog
+# data, not prose — the same rationale that excludes references/ above.
 data
 
 # Measured audit evidence: preserve generator bytes and archived SHA256 identities.

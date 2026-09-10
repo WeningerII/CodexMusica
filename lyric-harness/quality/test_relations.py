@@ -432,6 +432,44 @@ def test_p7_project():
           any(v is not None for v in ok),
           f"{ok}")
 
+    # ── P7b. MISSING.md F-3 — dialect orthography is a per-dialect SYSTEM ──
+    # Pinned rather than cited. The two readers disagree on ONE staged line
+    # about what a dialect elision mark IS: relations.tokenise strips every
+    # one, lyric_harness.line_tokens keeps every one, and nothing discloses
+    # the divergence. (Until 2026-08-21 they ALSO disagreed on the diaeresis;
+    # that half closed with F-4a and the entry's transcript was corrected on
+    # 2026-09-09, so only the elision half is live — asserting the dead half
+    # would be a guard that is red on day one.) The seam the remedy needs
+    # exists and is unused: build_stream takes tokeniser=, and every
+    # occurrence in production is that DEFAULT, never a caller overriding it.
+    import glob as _glob
+    import os as _os
+    _dialect = ("The greäve wer wide my Jeäne an' a-vallen o' the sky "
+                "i'th' hall 'ithin 'twer")
+    _rel = R.tokenise(_dialect)
+    _lh = lh.line_tokens(_dialect)
+    _marks = ("an'", "o'", "i'th'", "'ithin", "'twer")
+    _root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+    _overrides = []
+    for _f in _glob.glob(_os.path.join(_root, "quality", "*.py")) + [
+            _os.path.join(_root, "lyric_harness.py")]:
+        if _os.path.basename(_f).startswith("test_"):
+            continue
+        for _n, _line in enumerate(open(_f, encoding="utf-8"), 1):
+            if "tokeniser=" in _line and "tokenise" not in _line.split(
+                    "tokeniser=", 1)[1][:20]:
+                _overrides.append(f"{_os.path.basename(_f)}:{_n}")
+    check("two readers, one staged line, opposite decisions about a dialect "
+          "elision mark — and the per-dialect seam is present and unused "
+          "(MISSING.md F-3)",
+          all(m not in _rel for m in _marks)
+          and all(m in _lh for m in _marks)
+          and "greäve" in _rel and "greäve" in _lh
+          and _overrides == [],
+          f"tokenise stripped {_marks}, line_tokens kept them; both keep "
+          f"'greäve'; tokeniser= overrides in production: "
+          f"{_overrides or 'none'}")
+
 
 # ---------------------------------------------------------------------------
 # P8. stanza

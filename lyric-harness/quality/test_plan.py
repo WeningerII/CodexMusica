@@ -2132,6 +2132,25 @@ def test_the_seed_sweep_is_a_verb():
                          "uses=verse,chorus", "before=verse,chorus",
                          "pins_per_line<=5")}
     res = PLN.sweep(_R, wants=wants)
+
+    # MISSING.md M-79 — Finding 2: whether a plan is song-shaped is still
+    # answered by SEARCHING seeds rather than by the draw. Pinned as an
+    # INEQUALITY and never as a count: this section struck a seed list twice
+    # in one day (M-106, M-107) and the comment above says why, so recording
+    # "5 of 160" here would be recording the same fragility a third time.
+    # The band is what M-79 claims and what the closing commit breaks: six
+    # undemanding predicates accept a STRICT MINORITY of an arbitrary range,
+    # and MORE THAN NONE — a shape-aware draw, a plan-time shape gate or a
+    # rate-matched order pushes the share past the minority bound and fails
+    # this, while a planner that stopped drawing them at all fails the other
+    # side. Reuses the sweep above rather than running a second one.
+    _share = len(res["accepted"]) / len(_R)
+    check("six undemanding criteria still accept a strict minority of an "
+          "arbitrary seed range, and more than none — so writability is "
+          "SEARCHED and not drawn (MISSING.md M-79)",
+          0 < _share < 0.5,
+          f"{len(res['accepted'])} of {len(_R)} = {_share:.1%} accepted")
+
     check("the conjunction accepts EXACTLY the intersection of the six "
           "predicates taken one at a time — the property a verb that ANDs "
           "correctly must have whatever the planner happens to draw",
@@ -3554,6 +3573,27 @@ def test_the_delegated_rulings(FAILURES=None):
           aud.get("perfect rhyme") is True and aud.get("rime riche") is True
           and aud.get("consonance") is False and aud.get("assonance") is False
           and aud.get("anaphora") is False, f"{aud}")
+    # MISSING.md M-120 — schema satisfaction and audible scheme are different
+    # things, and audibility is a RECORD rather than a coordinate of the draw.
+    # M-192 shipped the DISCLOSURE; what M-120 still owns is that nothing rules
+    # on it. Pinned as three facts: the drawable pool is unfiltered (12 of 18
+    # are inaudible at a line end), no member of JOINT_CODES can refuse a plan
+    # for it, and no SWEEP_MEASURES name lets a sweep select on it. Red the day
+    # the ruling lands as a coordinate — pool filtered or weighted, a joint code
+    # minted, or a sweep measure added — which is the day M-120 closes.
+    m120_inaudible = [n for n in RL.DRAWABLE_SCHEMAS
+                      if not RL.audible_as_end_rhyme(RL.REGISTRY[n])]
+    check("audibility is disclosed but never RULED ON: the pool is unfiltered "
+          "and neither a joint code nor a sweep measure reads it "
+          "(MISSING.md M-120)",
+          len(m120_inaudible) > 0
+          and len(m120_inaudible) < len(RL.DRAWABLE_SCHEMAS)
+          and not any("audib" in c.lower() for c in PLN.JOINT_CODES)
+          and not any("audib" in m.lower() for m in PLN.SWEEP_MEASURES),
+          f"{len(m120_inaudible)} of {len(RL.DRAWABLE_SCHEMAS)} drawable "
+          f"schemas inaudible at a line end; no JOINT_CODES or "
+          f"SWEEP_MEASURES member names audibility")
+
     drawable_aud = [n for n in RL.DRAWABLE_SCHEMAS
                     if RL.audible_as_end_rhyme(RL.REGISTRY[n])]
     check("...and the drawable pool holds BOTH kinds, which is why the "

@@ -231,6 +231,31 @@ def test_every_toothless_code_is_ruled():
           "question 'should this one gate?' must be asked of each code by a "
           "person; a list nobody answers is the same defect one level up",
           GC.unruled(c) == [], f"unruled: {GC.unruled(c)}")
+
+    # MISSING.md M-78 — the rule that rules the LARGEST disposition bucket is
+    # stated by no doctrine. CONVENTION covers 17 of the disclosed-only codes
+    # and its own gloss reads "a corollary of doctrines 6 and 7, not doctrine 6
+    # alone", which is a rule nobody minted a number for. The search is proven
+    # ALIVE against the gloss itself before its absence over the doctrines is
+    # read as a finding — an empty scan and a clean one look identical
+    # (doctrine 20). Red the day somebody mints the doctrine, or repoints the
+    # citation, which is the day M-78 closes.
+    import re as _re
+    import verify_doctrines as _VD
+    _rule = _re.compile(r"corollary of doctrines 6 and 7", _re.I)
+    _titles, _problems = _VD.def_titles()
+    _stating = [n for n, (_rel, _part, t) in _titles.items() if _rule.search(t)]
+    _bucket = [k for k in dis if GC.DISPOSITION.get(k) == "CONVENTION"]
+    check("the note-vs-flag rule rules the biggest bucket and NO doctrine "
+          "states it (MISSING.md M-78)",
+          len(_titles) > 50 and not _problems
+          and _rule.search(GC.DISPOSITIONS["CONVENTION"])
+          and _stating == []
+          and len(_bucket) == max(
+              len([k for k in dis if GC.DISPOSITION.get(k) == d])
+              for d in set(GC.DISPOSITION.get(k) for k in dis)),
+          f"{len(_titles)} doctrines searched, {len(_bucket)} codes on "
+          f"CONVENTION, doctrines stating it: {_stating or 'none'}")
     check("every ruling is inside the CLOSED vocabulary, so a new kind is "
           "added deliberately rather than by somebody typing a new string "
           "(doctrine 58)",

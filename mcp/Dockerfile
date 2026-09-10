@@ -36,9 +36,25 @@ RUN node -e 'const fs=require("fs"); const commit=process.env.RENDER_GIT_COMMIT,
 # A proof generated in another Python build cannot authorize this runtime.
 # Verify every reviewed witness against the final assembled source/data tree;
 # retain a separate deterministic receipt without restamping reviewed assets.
+#
+# --workers=4 SINCE 2026-09-09, AND THIS LAYER IS WHY IT MATTERS MOST.
+# MEASURED from CI run 34358366237's BuildKit step timings: this RUN was
+# 938.7s of a 968s build -- 97.0% of it. Every other layer combined is under
+# 30s (apt 10.3s, npm ci 1.5s, pip 2.3s, the asset assembly 2.1s), so this
+# build was never a caching problem and a build cache would have bought
+# nothing worth having. It was one serial pool.
+#
+# The 81 witnesses are independent, `pool.map` preserves the order they were
+# sorted into, and no witness record carries a timing -- so the receipt this
+# layer bakes in is the same receipt either way. Verified directly rather than
+# argued: the first 16 certified witnesses produce byte-identical records
+# serially and at 4 workers, and a full 81/81 run at --workers=4 completed in
+# 9m58s wall against 25m57s of CPU. The 45m bound stays: it bounded the serial
+# cost and it bounds this one with more room, and a bound lowered on a single
+# measurement is a flake waiting for a slow runner.
 RUN cd /app/lyric-harness \
  && timeout --signal=TERM --kill-after=15s 45m python3 quality/verify_capacity.py \
-      --output /app/mcp/capacity_verification.json --workers=1
+      --output /app/mcp/capacity_verification.json --workers=4
 ENV BUILD_GIT_COMMIT=$RENDER_GIT_COMMIT
 ENV RENDER_GIT_COMMIT=$RENDER_GIT_COMMIT
 ENV LYRIC_RELEASE_ASSETS_REQUIRED=1
