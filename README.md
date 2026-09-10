@@ -51,6 +51,7 @@ Every operation is an `npm run` script (see `package.json`):
 | `npm run reachability` | Drives every UI control in the built HTML (Playwright) |
 | `npm run check:mobile` | Mobile layout gate: on 7 viewports (360px→1280px) the layout viewport must equal the device width — no zoom-out blowout — with no horizontal overflow and every primary header control on-screen and tappable <!-- @promise: mobile-layout-usable --> |
 | `npm run check:names` | Name-isolation gate: renames every OTHER tradition with an adversarial era/gear payload and asserts the sampled tradition's compiled config is unchanged <!-- @promise: name-isolation --> |
+| `npm run check:atlas` | Atlas gate: basemap, coordinates and tree are fresh, and every sidecar the atlas fetches exists, is tracked, and is a path GitHub Pages will serve (the `.nojekyll` marker keeps Jekyll from dropping `references/_tradition_signatures.json`) |
 | `npm run check:publish` | Publish-guard gate: replays the sync-pages race in a synthetic repo and asserts a superseded build stands down while a legitimate one still publishes |
 | `npm run check:promises` | Promise→gate coverage: every documented promise has a gate and vice-versa (0 orphans) |
 | `npm run check:fresh` | Reproducibility gate: rebuilds `api/`+`codex.html` and byte-diffs vs the committed copy <!-- @promise: artifact-reproducible --> |

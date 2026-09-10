@@ -88,6 +88,10 @@ const INERT = [
   { re: /^eslint\.config\.js$/, why: 'lint config; not read by any builder' },
   { re: /^\.(gitignore|prettierrc|prettierignore|npmrc|nvmrc)/, why: 'tooling config' },
   { re: /^\.gitattributes$/, why: 'tooling config' },
+  {
+    re: /^\.nojekyll$/,
+    why: 'GitHub Pages serving marker (serve main verbatim, no Jekyll pass); read by no builder — see scripts/check_atlas_publish.js',
+  },
 ];
 
 // ── the derived half: transitive require() graph from each builder ──────────

@@ -570,7 +570,8 @@ jobs:
       # Runner speed moved 1.5x between runs; these SHARES did not. So the
       # deal below is the best three-way partition of those shares with every
       # shard holding at least two cells (four boundaries, so the leak
-      # signature can run in each): 33.3% / 33.9% / 32.8% against a 33.3%
+      # signature ~~can run in each~~ is recorded in each and judged over
+      # all three by the merger, M-272): 33.3% / 33.9% / 32.8% against a 33.3%
       # floor, where the by-size deal was 50.0%. ~~On the main-speed run that is
       # ~690s where the pole shard took 1017s; on the PR-speed run ~1090s
       # where it took 1609s.~~ MEASURED on its first run (34491693036, the
