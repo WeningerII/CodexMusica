@@ -571,10 +571,16 @@ jobs:
       # deal below is the best three-way partition of those shares with every
       # shard holding at least two cells (four boundaries, so the leak
       # signature can run in each): 33.3% / 33.9% / 32.8% against a 33.3%
-      # floor, where the by-size deal was 50.0%. On the main-speed run that is
+      # floor, where the by-size deal was 50.0%. ~~On the main-speed run that is
       # ~690s where the pole shard took 1017s; on the PR-speed run ~1090s
-      # where it took 1609s. THREE OF FOUR vCPUs, as the paragraph above
-      # already argued; a fourth shard would reach the 27.1% cell's own floor
+      # where it took 1609s.~~ MEASURED on its first run (34491693036, the
+      # slow runner class): shard bodies 1351 / 1358 / 1316 s and a 24.0-min
+      # step against 27.9 for two lanes on the same class. Three lanes on a
+      # runner with two physical cores run every execution 1.19-1.27x slower
+      # than two did (the same cells, the same class), so the deal buys 14%,
+      # not the 32% the shares alone predicted (M-268's addendum). THREE OF
+      # FOUR vCPUs, as the paragraph above already argued; a fourth shard
+      # would reach the 27.1% cell's own floor, pay that SMT price again,
       # and sell the core the daemon and the runner agent run on.
       # `scripts/test_lyrics_capacity.py` reads the `shard` lines below and
       # refuses a deal that drops a cell, deals one twice, or leaves a shard

@@ -6,6 +6,7 @@ from pathlib import Path
 from lyrics_capacity_runtime import runtime_evidence_failures, run_store_evidence_failures, queue_pressure_failures, ResidentRuntime
 import re
 import unittest
+from unittest.mock import patch
 from check_lyrics_capacity import validate_measurement, percentile, terminate_measurement, MeasurementProgress
 from measure_verb_memory import _checkpoint_valid, _machine_result, CONTROL_TOKEN, assessment_coverage_valid
 
@@ -305,6 +306,49 @@ class CapacityOracle(unittest.TestCase):
         value = measured('worker')
         value['rows'] = copy.deepcopy(value['rows'][:2])
         self.assertTrue(validate_measurement(value))
+
+
+class ResidentMemoryReading(unittest.TestCase):
+    """The envelope is gated on what it has to HOLD, not on what the kernel
+    happens to be caching (M-269). The arithmetic is small and the failure
+    it prevents was a green commit going red on the next runner, so every
+    branch of it is pinned: the subtraction, the shmem add-back, the fallback
+    when memory.stat cannot say, and the absence of a reading at all."""
+
+    STAT = 'anon 700000000\nfile 900000000\nkernel 50000000\nshmem 100000000\nfile_mapped 1\n'
+
+    def test_reclaimable_file_cache_is_left_out_and_shmem_is_kept(self):
+        from check_lyrics_capacity import memory_stat, resident_bytes
+        stat = memory_stat(self.STAT)
+        self.assertEqual(stat['file'], 900000000)
+        self.assertEqual(stat['shmem'], 100000000)
+        resident, current, accounting = resident_bytes(current=1_800_000_000, stat=stat)
+        self.assertEqual(current, 1_800_000_000)
+        self.assertEqual(resident, 1_800_000_000 - (900000000 - 100000000))
+        self.assertEqual(accounting, 'current-minus-reclaimable-file')
+
+    def test_without_memory_stat_the_reading_is_the_raw_figure_and_says_so(self):
+        from check_lyrics_capacity import resident_bytes
+        resident, current, accounting = resident_bytes(current=1_800_000_000, stat={})
+        self.assertEqual((resident, current), (1_800_000_000, 1_800_000_000))
+        self.assertEqual(accounting, 'cgroup-current')
+        resident, current, accounting = resident_bytes(current=1_800_000_000, stat={'file': 5})
+        self.assertEqual(accounting, 'cgroup-current')
+
+    def test_no_cgroup_reading_is_none_not_zero(self):
+        from check_lyrics_capacity import resident_bytes
+        self.assertEqual(resident_bytes(current=None, stat={'file': 1, 'shmem': 0}), (None, None, 'unavailable'))
+
+    def test_the_progress_sampler_keeps_the_largest_resident_reading(self):
+        import check_lyrics_capacity as matrix
+        readings = iter([(500, 900), (800, 1500), (300, 700)])
+        with patch.object(matrix, 'resident_bytes', side_effect=lambda: (*next(readings), 'current-minus-reclaimable-file')):
+            progress = matrix.MeasurementProgress('t')
+            for _ in range(3):
+                progress.sample()
+        self.assertEqual(progress.resident_peak, 800)
+        self.assertEqual(progress.samples, 3)
+        self.assertEqual(progress.accounting, 'current-minus-reclaimable-file')
 
 
 class ShardedCapacityMerge(unittest.TestCase):

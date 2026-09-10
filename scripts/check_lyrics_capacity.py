@@ -167,6 +167,49 @@ def cgroup_bytes(name):
     return int(value) if value and value.isdigit() else None
 
 
+def memory_stat(raw=None):
+    """-> {row: bytes} from this cgroup's memory.stat (cgroup v2), or {}."""
+    raw = read('/sys/fs/cgroup/memory.stat') if raw is None else raw
+    out = {}
+    for line in (raw or '').splitlines():
+        parts = line.split()
+        if len(parts) == 2 and parts[1].isdigit():
+            out[parts[0]] = int(parts[1])
+    return out
+
+
+def resident_bytes(current=None, stat=None):
+    """-> (resident, current, accounting) for this cgroup, now.
+
+    RESIDENT IS WHAT THE 2 GiB ENVELOPE HAS TO HOLD, AND memory.current IS
+    NOT IT. memory.current counts the page cache -- every file the harness
+    read and every JSON it wrote -- and under a 2 GiB limit the kernel does
+    not reclaim that cache until the limit is reached, so a container that
+    touched enough bytes reads 1.8 GiB while its processes hold 1.0. The
+    ceiling below is 1792 MiB, so that reading fails the matrix on I/O
+    volume, not on memory need. MEASURED 2026-09-10 (M-269): one commit,
+    two runs, the same three-cell shard -- passed on one runner, and on
+    the other sampled 1785 MiB of memory.current with the Python child at
+    689 MiB (its own rusage peak) and 0.89-0.95 GiB left at every boundary
+    after the child had exited.
+
+    So the number gated is memory.current minus the cache the kernel can
+    drop: `file` less `shmem` (tmpfs and shared memory sit inside `file`
+    in cgroup v2 and cannot be dropped without swap, and this container
+    has none). Anonymous memory, kernel memory and shared memory all stay
+    counted. When memory.stat cannot say, the reading falls back to
+    memory.current itself and SAYS SO in `accounting`, so the older, more
+    pessimistic number is never mistaken for this one.
+    """
+    current = cgroup_bytes('memory.current') if current is None else current
+    stat = memory_stat() if stat is None else stat
+    if current is None:
+        return None, None, 'unavailable'
+    if 'file' in stat and 'shmem' in stat:
+        return max(0, current - (stat['file'] - stat['shmem'])), current, 'current-minus-reclaimable-file'
+    return current, current, 'cgroup-current'
+
+
 def write_result(path, result):
     path.parent.mkdir(parents=True, exist_ok=True)
     temp = path.with_suffix(path.suffix + '.tmp')
@@ -229,14 +272,35 @@ def published_limits():
 
 
 class MeasurementProgress:
-    """Expose captured diagnostics without treating activity as a passing result."""
+    """Expose captured diagnostics without treating activity as a passing result.
+
+    Also the SAMPLER for this execution's resident-memory peak: every call
+    (the measurement loop makes one about once a second) reads the cgroup,
+    and `resident_peak` is the largest resident reading seen. The kernel's
+    own high-water mark, memory.peak, cannot be asked to leave the page
+    cache out (see `resident_bytes`), so the peak of what the envelope must
+    hold is a sampled quantity, at that cadence; the Python child's own
+    peak is measured exactly by its rusage and gated separately.
+    """
     def __init__(self, identity):
         self.identity = identity
         self.started = self.last = time.monotonic()
         self.output_bytes = 0
+        self.resident_peak = None
+        self.accounting = None
+        self.samples = 0
+
+    def sample(self):
+        resident, current, accounting = resident_bytes()
+        self.accounting = accounting
+        if resident is not None:
+            self.samples += 1
+            self.resident_peak = resident if self.resident_peak is None else max(self.resident_peak, resident)
+        return resident, current
 
     def emit(self, output, final=False):
         now = time.monotonic()
+        resident, current = self.sample()
         if not final and now - self.last < 30:
             return
         raw = output.encode('utf-8') if isinstance(output, str) else (output or b'')
@@ -247,9 +311,10 @@ class MeasurementProgress:
         cpu = read('/sys/fs/cgroup/cpu.stat') or ''
         usage = next((line.split()[1] for line in cpu.splitlines()
                       if line.startswith('usage_usec ')), 'unavailable')
-        memory = read('/sys/fs/cgroup/memory.current') or 'unavailable'
         print(f'Capacity activity {self.identity}: elapsed={now-self.started:.1f}s '
-              f'cgroup_cpu_usec={usage} cgroup_memory_bytes={memory} '
+              f'cgroup_cpu_usec={usage} cgroup_memory_bytes={current if current is not None else "unavailable"} '
+              f'resident_bytes={resident if resident is not None else "unavailable"} '
+              f'resident_peak_bytes={self.resident_peak if self.resident_peak is not None else "unavailable"} '
               f'measurement={"exited; validation pending" if final else "running"}', flush=True)
         self.last = now
 
@@ -347,7 +412,9 @@ def main():
                     process_deadline = time.monotonic() + min(remaining, 3600)
                     while True:
                         try:
-                            stdout, stderr = proc.communicate(timeout=min(5, max(.01, process_deadline - time.monotonic())))
+                            # One second, not five: each wait is also one
+                            # resident-memory sample (MeasurementProgress).
+                            stdout, stderr = proc.communicate(timeout=min(1, max(.01, process_deadline - time.monotonic())))
                             progress.emit(stdout, final=True)
                             break
                         except subprocess.TimeoutExpired as pending:
@@ -377,20 +444,33 @@ def main():
                     finally:
                         terminate_measurement(proc)
                 # A HIGH-WATER MARK READ ONCE AT THE END CANNOT SEE A CLIMB.
-                # `whole_runtime_peak_bytes` below is /sys/fs/cgroup/memory.peak
-                # read after the whole loop -- a max, and one number. It was
-                # doing double duty: bounding the peak AND standing in for
-                # "the resident server does not accumulate across a long
-                # run". Only the first of those survives being read once,
-                # and when this matrix was split across containers (ci.yml,
-                # 2026-09-09) the second would have been lost silently.
-                # Sampling at every execution boundary answers both, with
-                # one reading per execution instead of one per run, and it
-                # is the same 18 executions either way.
+                # `whole_runtime_peak_bytes` below ~~is /sys/fs/cgroup/memory.peak
+                # read after the whole loop~~ WAS memory.peak read once -- a
+                # max, and one number. It was doing double duty: bounding the
+                # peak AND standing in for "the resident server does not
+                # accumulate across a long run". Only the first of those
+                # survives being read once, and when this matrix was split
+                # across containers (ci.yml, 2026-09-09) the second would
+                # have been lost silently. Sampling at every execution
+                # boundary answers both, with one reading per execution
+                # instead of one per run, and it is the same 18 executions
+                # either way.
+                #
+                # AND memory.peak COUNTS THE PAGE CACHE (M-269, 2026-09-10),
+                # so since then `peak_bytes` is the peak RESIDENT reading
+                # sampled during this execution and `current_bytes` the
+                # resident reading at its boundary; the raw cgroup figures
+                # ride beside them, unjudged, so the record still shows
+                # what the kernel's own counter said.
+                boundary_resident, boundary_current = progress.sample()
                 report['memory_trace'].append({
                     'lines': size, 'seed': seed, 'mode': mode,
-                    'peak_bytes': cgroup_bytes('memory.peak'),
-                    'current_bytes': cgroup_bytes('memory.current')})
+                    'peak_bytes': progress.resident_peak,
+                    'current_bytes': boundary_resident,
+                    'samples': progress.samples,
+                    'accounting': progress.accounting,
+                    'cgroup_peak_bytes': cgroup_bytes('memory.peak'),
+                    'cgroup_current_bytes': boundary_current})
                 write_result(out, report)
         try:
             if report.get('resident_runtime', {}).get('startup_ok'):
@@ -420,7 +500,7 @@ def main():
             if sample['peak_bytes'] is None or sample['peak_bytes'] > ceiling:
                 report['failures'].append(
                     f"{sample['lines']}/{sample['seed']}/{sample['mode']}: missing or "
-                    f"excessive whole-cgroup peak at this boundary")
+                    f"excessive resident-memory peak during this execution")
         # THE LEAK SIGNATURE, AND DELIBERATELY A STRICT ONE. Resident memory
         # rising at EVERY boundary without once falling back is accumulation;
         # anything less than that is a working set moving around, and calling
@@ -432,11 +512,15 @@ def main():
             report['failures'].append(
                 'resident memory rose at every execution boundary; the runtime '
                 'accumulates across a long run')
-    whole_peak = read('/sys/fs/cgroup/memory.peak')
-    report['whole_runtime_peak_bytes'] = int(whole_peak) if whole_peak and whole_peak.isdigit() else None
+    # The whole-runtime peak is the largest resident reading over every
+    # execution's samples -- Node and Python together, page cache left out
+    # (M-269). The kernel's memory.peak is recorded beside it, unjudged.
+    peaks = [s.get('peak_bytes') for s in report['memory_trace']]
+    report['whole_runtime_peak_bytes'] = max(peaks) if peaks and all(isinstance(v, int) for v in peaks) else None
+    report['memory_accounting'] = sorted({s.get('accounting') for s in report['memory_trace'] if s.get('accounting')})
     if not args.local and (report['whole_runtime_peak_bytes'] is None or
             report['whole_runtime_peak_bytes'] > LIMITS['whole_runtime_peak_mib'] * 1024**2):
-        report['failures'].append('missing or excessive whole-cgroup peak with resident Node and Python')
+        report['failures'].append('missing or excessive resident-memory peak with resident Node and Python')
     report['source_sha256_after'] = source_identity()
     if report['source_sha256_after'] != report['source_sha256']:
         report['failures'].append('measured runtime source changed during the capacity matrix')
