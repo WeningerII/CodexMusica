@@ -55,12 +55,12 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 # The declared population, read from the ONE place that declares it (doctrine 1).
 # Retyping 18/24/31 here is how a merger and a matrix come to disagree about
 # what "complete" means.
-from check_lyrics_capacity import (CELLS, LIMITS, MODES, SEEDS, SIZES,  # noqa: E402
-                                   summarize_measurements)
+from check_lyrics_capacity import (CELLS, LEAK_MIN_BOUNDARIES, LIMITS, MODES,  # noqa: E402
+                                   SEEDS, SIZES, summarize_measurements)
 
 EXPECTED_EXECUTIONS = len(CELLS) * len(MODES)
 #: Fewer boundaries than this and the leak signature never ran (doctrine 20).
-MIN_TRACE_PER_SHARD = 4
+MIN_TRACE_PER_SHARD = LEAK_MIN_BOUNDARIES
 
 #: Fields every shard must agree on. `source_sha256` is the load-bearing one:
 #: it is what makes three separate measurements evidence about ONE runtime.
@@ -161,6 +161,32 @@ def merge(shards):
         if len(shard.get('memory_trace') or []) != len(shard.get('measurements') or []):
             failures.append(f'{name}: memory trace does not cover its own executions')
 
+    # THE LEAK SIGNATURE IS JUDGED HERE, OVER EVERY SHARD (M-272). The rule --
+    # resident memory rising at every boundary without once falling -- was
+    # written for one container's 18 boundaries. A shard has as few as four,
+    # and a working set that is only warming up rises through four before it
+    # first falls: run 34518177848 showed that climb in two shards of three,
+    # one of which then fell at its fifth and sixth boundaries. A leak is a
+    # property of the runtime, and every shard runs the runtime, so a leak
+    # shows in every shard; a climb in one shard and a fall in another is a
+    # working set moving around. A shard that did not record a signature over
+    # at least the minimum boundaries did not run the check (doctrine 20).
+    rising = []
+    for name, shard in shards:
+        signature = shard.get('leak_signature')
+        if not isinstance(signature, dict) \
+                or not isinstance(signature.get('rose_at_every_boundary'), bool) \
+                or not isinstance(signature.get('boundaries'), int) \
+                or signature['boundaries'] < MIN_TRACE_PER_SHARD:
+            failures.append(f'{name}: did not evaluate the leak signature over at least '
+                            f'{MIN_TRACE_PER_SHARD} boundaries')
+            continue
+        if signature['rose_at_every_boundary']:
+            rising.append(name)
+    if rising and len(rising) == len(shards):
+        failures.append('resident memory rose at every execution boundary in every shard; '
+                        'the runtime accumulates across a long run')
+
     report = {
         'version': 1,
         'scope': first.get('scope'),
@@ -183,6 +209,8 @@ def merge(shards):
         'cgroup_peak_bytes': {name: shard.get('cgroup_peak_bytes') for name, shard in shards},
         'whole_runtime_peak_bytes': {name: shard.get('whole_runtime_peak_bytes')
                                      for name, shard in shards},
+        'leak_signature': {name: shard.get('leak_signature') for name, shard in shards},
+        'leak_signature_rising_in': rising,
         'failures': failures,
     }
     report['status'] = 'failed' if failures else 'passed'

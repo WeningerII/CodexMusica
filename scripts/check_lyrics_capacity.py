@@ -244,6 +244,31 @@ def parse_cells(text):
     return tuple(cells)
 
 
+LEAK_SIGNATURE = ('resident memory rose at every execution boundary; the runtime '
+                  'accumulates across a long run')
+#: Fewer boundaries than this and the signature says nothing (recorded as not rising
+#: over that many boundaries; the merger refuses a shard with fewer).
+LEAK_MIN_BOUNDARIES = 4
+
+
+def leak_verdict(trace, whole_matrix):
+    """-> (signature, failure-or-None) for a memory trace's resident boundaries.
+
+    The signature is RECORDED for every run: how many boundaries it saw and
+    whether resident memory rose at every one of them. The failure is
+    returned only when this run measured the whole matrix -- one container,
+    every boundary -- because that is the evidence the strict rule was
+    written for. A shard's signature is judged by `merge_lyrics_capacity.py`
+    over every shard (M-272).
+    """
+    climb = [sample.get('current_bytes') for sample in trace]
+    rose = (len(climb) >= LEAK_MIN_BOUNDARIES and all(isinstance(v, int) for v in climb)
+            and all(b > a for a, b in zip(climb, climb[1:])))
+    signature = {'boundaries': len(climb), 'rose_at_every_boundary': rose,
+                 'judged_here': bool(whole_matrix)}
+    return signature, (LEAK_SIGNATURE if rose and whole_matrix else None)
+
+
 def summarize_measurements(measurements):
     """-> per (lines, mode, verb) p95 wall and peak over the executions supplied.
 
@@ -506,12 +531,21 @@ def main():
         # anything less than that is a working set moving around, and calling
         # it a leak would make this check a coin toss on a busy runner. Needs
         # at least four boundaries before it will say anything at all.
-        climb = [s['current_bytes'] for s in report['memory_trace']]
-        if len(climb) >= 4 and all(isinstance(v, int) for v in climb) and \
-                all(b > a for a, b in zip(climb, climb[1:])):
-            report['failures'].append(
-                'resident memory rose at every execution boundary; the runtime '
-                'accumulates across a long run')
+        #
+        # AND FOUR IS A COIN TOSS TOO, IN A SHARD (M-272, 2026-09-10). Written
+        # for one container's 18 boundaries, where a strict climb is evidence;
+        # dealt three ways (M-268), the pole shard has exactly four, and a
+        # working set that is merely warming up climbs through four boundaries
+        # before it first falls -- run 34518177848 showed it in two shards of
+        # three, one of which then fell twice. A leak is a property of the
+        # runtime, so every container running it would show it: a shard
+        # RECORDS its signature here and the merger judges over every shard.
+        # A run that measured the whole matrix in one container still judges
+        # itself, over the 18 boundaries the rule was written for.
+        report['leak_signature'], leak = leak_verdict(
+            report['memory_trace'], whole_matrix=sorted(cells) == sorted(CELLS))
+        if leak:
+            report['failures'].append(leak)
     # The whole-runtime peak is the largest resident reading over every
     # execution's samples -- Node and Python together, page cache left out
     # (M-269). The kernel's memory.peak is recorded beside it, unjudged.

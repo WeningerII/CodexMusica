@@ -351,6 +351,48 @@ class ResidentMemoryReading(unittest.TestCase):
         self.assertEqual(progress.accounting, 'current-minus-reclaimable-file')
 
 
+class LeakSignature(unittest.TestCase):
+    """`leak_verdict` records the signature for every run and fails only the
+    run that measured the whole matrix; the readings are run 34518177848's."""
+
+    @staticmethod
+    def trace(values):
+        return [{'current_bytes': v} for v in values]
+
+    POLE = [540499968, 541159424, 569827328, 628477952]
+    MIDDLE = [602054656, 613978112, 644837376, 675049472, 673619968, 657092608]
+
+    def test_a_shard_records_its_climb_and_does_not_judge_it(self):
+        from check_lyrics_capacity import leak_verdict
+        signature, failure = leak_verdict(self.trace(self.POLE), whole_matrix=False)
+        self.assertEqual(signature, {'boundaries': 4, 'rose_at_every_boundary': True,
+                                     'judged_here': False})
+        self.assertIsNone(failure)
+
+    def test_the_whole_matrix_in_one_container_still_judges_itself(self):
+        from check_lyrics_capacity import LEAK_SIGNATURE, leak_verdict
+        signature, failure = leak_verdict(self.trace(self.POLE), whole_matrix=True)
+        self.assertTrue(signature['judged_here'])
+        self.assertEqual(failure, LEAK_SIGNATURE)
+
+    def test_one_fall_is_a_working_set_moving_around(self):
+        from check_lyrics_capacity import leak_verdict
+        signature, failure = leak_verdict(self.trace(self.MIDDLE), whole_matrix=True)
+        self.assertFalse(signature['rose_at_every_boundary'])
+        self.assertIsNone(failure)
+        # ...and the same shard's first four boundaries, alone, would have
+        # been called a leak: the reading that made this a coin toss.
+        self.assertTrue(leak_verdict(self.trace(self.MIDDLE[:4]), whole_matrix=True)[0]
+                        ['rose_at_every_boundary'])
+
+    def test_too_few_or_missing_boundaries_say_nothing(self):
+        from check_lyrics_capacity import leak_verdict
+        for values in (self.POLE[:3], [1, None, 3, 4]):
+            signature, failure = leak_verdict(self.trace(values), whole_matrix=True)
+            self.assertFalse(signature['rose_at_every_boundary'])
+            self.assertIsNone(failure)
+
+
 class ShardedCapacityMerge(unittest.TestCase):
     """The merger must refuse every way three shards can fail to be one matrix.
 
@@ -386,6 +428,8 @@ class ShardedCapacityMerge(unittest.TestCase):
                               'peak_bytes': 1000, 'current_bytes': 900}
                              for size, seed in cells for mode in MODES],
             'summaries': [], 'failures': [],
+            'leak_signature': {'boundaries': len(cells) * len(MODES),
+                               'rose_at_every_boundary': False, 'judged_here': False},
             'source_sha256': 'a' * 64, 'source_sha256_after': 'a' * 64,
         }, **over}
 
@@ -529,6 +573,17 @@ class ShardedCapacityMerge(unittest.TestCase):
                 'does not cover its own executions'),
             'shards disagreeing about the declared limits': (lambda s: s[:-1] + [
                 (s[-1][0], {**s[-1][1], 'limits': {'call_seconds': 9999}})], 'limits differs from'),
+            'a shard that never recorded the leak signature': (lambda s: s[:-1] + [
+                (s[-1][0], {k: v for k, v in s[-1][1].items() if k != 'leak_signature'})],
+                'did not evaluate the leak signature'),
+            'a signature over fewer boundaries than the rule needs': (lambda s: s[:-1] + [
+                (s[-1][0], {**s[-1][1], 'leak_signature': {
+                    'boundaries': 3, 'rose_at_every_boundary': False, 'judged_here': False}})],
+                'did not evaluate the leak signature'),
+            'resident memory rising at every boundary in every shard': (lambda s: [
+                (name, {**shard, 'leak_signature': {**shard['leak_signature'],
+                                                    'rose_at_every_boundary': True}})
+                for name, shard in s], 'in every shard'),
         }
         for label, (break_it, needle) in cases.items():
             with self.subTest(label):
@@ -538,6 +593,24 @@ class ShardedCapacityMerge(unittest.TestCase):
                                 f'{label} was refused, but not for {needle!r}: {failures}')
                 self.assertFalse(report.get('production_qualified'),
                                  f'{label} still reported production_qualified')
+
+    def test_a_climb_in_one_shard_is_a_working_set_and_not_a_leak(self):
+        """M-272: the strict rule was written for 18 boundaries in one
+        container. A shard has as few as four, and run 34518177848's pole
+        shard rose through all four of them while its middle shard rose
+        through its first four and then fell twice. A leak is a property of
+        the runtime, so it shows in EVERY shard; one shard's climb, with
+        another shard falling, qualifies. Every shard climbing does not (the
+        refusal list holds that case)."""
+        from merge_lyrics_capacity import merge
+        shards = self.complete()
+        name, pole = shards[0]
+        shards[0] = (name, {**pole, 'leak_signature': {**pole['leak_signature'],
+                                                       'rose_at_every_boundary': True}})
+        report, failures = merge(shards)
+        self.assertEqual(failures, [])
+        self.assertTrue(report['production_qualified'])
+        self.assertEqual(report['leak_signature_rising_in'], [name])
 
     def test_the_cell_coordinate_refuses_what_is_not_a_declared_cell(self):
         from check_lyrics_capacity import parse_cells, CELLS, SIZES, SEEDS
