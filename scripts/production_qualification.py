@@ -41,125 +41,44 @@ def spec(component):
     # pays the whole-tree baseline.
     if component in COMPONENTS[:4]:
         return ["quality/test_mutation.py", f"--shard={component[-1]}/4"], 14400
-    # `song` MOVED 9000 -> 14400 ON 2026-09-10 AND `short` DID NOT, because the
-    # two run the same command over different fractions of the corpus.
-    # `PROFILE_PRED_MAX` is `{"song": None, "short": 200}` -- song "caps
-    # nothing", in that table's own words, so it scores every item on the check
-    # the module says costs 96% of a cold run. The 8,758.6 CPU-s in
-    # ci.yml:3090-3099 was measured on THIS command (`song_profile_calibration
-    # .py --check`, run 33305249323, `hits 4, misses 8663`), so 9,000 was
-    # **1.03x a measured cost** -- and this file already rejected that shape
-    # twice, at "146 of 150 minutes is not headroom" and at the CI guard that
-    # fired on a fully green run. `short` stays at 9,000: MEASURED over the
-    # banked rows at quality/results/production_data_2026-09-08/, 5,432 of
-    # 8,545 items are <= 200 tokens, so its predictability arm is 63.6% of
-    # song's, ~5,570 s, and 9,000 is 1.62x -- the same headroom 14,400 gives
-    # the uncapped ones.
+    # `song` WAS MOVED 9000 -> 14400 ON 2026-09-10 AND MOVED STRAIGHT BACK THE
+    # SAME MORNING, BECAUSE A RUN MEASURED IT WHILE THE CHANGE WAS IN FLIGHT.
     #
-    # NOT WAITING TO BE BITTEN, AND THAT IS A DEPARTURE WORTH NAMING. The
-    # mutation repin above moved only after a run hit 12,001 s, on the rule
-    # that a bound a run has hit is a measured floor. Nothing has yet hit
-    # 9,000 here. The measurement that matters already exists and was taken on
-    # this exact command; qualification run 34436960370 had `song` running on a
-    # provably cold memo (M-264) toward that bound while this was written, and
-    # a budget known to be 1.03x is a defect whether or not the next run is
-    # unlucky enough to prove it.
+    # ~~The argument was: `PROFILE_PRED_MAX` is `{"song": None, "short": 200}`,
+    # so song caps nothing and scores every item on the check the module says
+    # costs 96% of a cold run; ci.yml's 8,758.6 CPU-s was measured on
+    # `song_profile_calibration.py --check`; therefore 9,000 was 1.03x a
+    # measured cost.~~ The premise that the 8,758.6 s figure TRANSFERS to this
+    # invocation was an inference, and it is now falsified.
+    #
+    # MEASURED, qualification run 34436960370 at ab5db477, on a PROVABLY COLD
+    # memo (its restore missed -- that is M-264 -- and the job logged
+    # `predictability memo: 0 line(s)`): `qualification-song` COMPLETED in
+    # **4,847 s**, and `qualification-short` in **4,281 s**. So 9,000 was
+    # 1.86x, not 1.03x, and this file's own standard (it rejected 1.03x and
+    # 1.28x, and accepts ~1.6x) is comfortably met without moving anything.
+    #
+    # AND THE 1.13x RATIO BETWEEN THEM IS THE SATURATION CURVE AGAIN, not an
+    # anomaly. `short` scores 63.6% of the items and `song` 100%, so a
+    # per-item cost model predicts 1.57x. It came out 1.13x because the 36.4%
+    # of items `song` adds are the LONGEST ones, reached late, when the
+    # in-process word cache is already warm and their marginal cost is near
+    # the floor.
+    #
+    # `curves` DOES NOT GET THE SAME TREATMENT, AND THE ASYMMETRY IS THE POINT.
+    # `song` has now completed cold and reported a number. `curves` never has:
+    # every attempt was killed at 2,400 s mid-population. M-263 records what
+    # that costs -- "a killed run reports where it stopped, never what it
+    # needed" -- so its bound below is set GENEROUSLY ON PURPOSE, to buy a
+    # completed run and a real figure rather than a fourth reading of where a
+    # kill landed. `song`'s 4,847 s is the best available proxy for the
+    # population phase they share; the curve fit on top of it is unmeasured.
+    # When `curves` completes, that measurement is what should size it, and
+    # 14,400 should come down.
     if component == "song":
-        return ["quality/song_profile_calibration.py", "--check", "--profile=song", "--seeds=200", "--draws=2000"], 14400
+        return ["quality/song_profile_calibration.py", "--check", "--profile=song", "--seeds=200", "--draws=2000"], 9000
     if component == "short":
         return ["quality/song_profile_calibration.py", "--check", "--profile=short", "--seeds=200", "--draws=2000"], 9000
-    # THE CURVES BUDGET MOVED 2400 -> 14400 ON 2026-09-10, AND 2,400 WAS NEVER
-    # A BUDGET FOR THE WORK THIS COMPONENT DOES. production-qualification.yml
-    # said so in its own words -- "THE BUDGETS BELOW ARE WARM-MEMO BUDGETS" --
-    # and `curves` is the one component whose warm memo could not arrive: the
-    # nightly banks it under a one-entry `path:` list and the qualification
-    # restored under a two-entry one, which actions/cache hashes into a
-    # different cache VERSION (M-264). So every qualification of every new SHA
-    # ran this command cold against a bound sized for a hit.
-    #
-    # 14,400 IS THE MEASURED COLD COST PLUS HEADROOM, NOT A ROUND NUMBER.
-    # ci.yml:3090-3099 carries the measurement and the two times it was wrong
-    # before: the 2026-08-30 nightly (run 33305249323) DISCARDED its memo on a
-    # fingerprint move and recomputed the whole corpus, and its own PHASE COST
-    # table reads `hits 4, misses 8663`, population 8,718.7 CPU-s, TOTAL
-    # 8,758.6 CPU-s, with the step taking 8,764 s -- ~1.0 CPU-s per item over
-    # 8,667 items. 14,400 is 1.64x that. The two superseded figures (2.0-2.2
-    # CPU-hours over a 4,930-item corpus; ~18 CPU-hours from a rate read over
-    # two flush intervals and multiplied out) are why this cites a run's table
-    # rather than a rate.
-    #
-    # FOUR ONE-PROCESS COLD READINGS BRACKET 6,506-9,072 CPU-s, and 14,400 is
-    # 1.59x-2.21x that: ci.yml's TOTAL 8,758.6 above (run 33305249323); the
-    # band cell's 9,072 for the same arm (`quality/RESULTS_SONG_FLOOR.md`);
-    # ~8,450 (`quality/RESULTS_CACHE_IDENTITY.md`); and the most recent, CI run
-    # 34413319893's `population 6,505.6`.
-    #
-    # THAT LAST ONE LOOKS WARM AND IS NOT, WHICH IS THE WHOLE READING. Its step
-    # printed `memo: 8663 -> 8545 items (+-118 banked this run)`, and ci.yml's
-    # own shell is `"memo: $before -> $after items (+$((after - before)) ..."`,
-    # so that is a DECREASE of 118 and the `+-` is the format, not a typo. A
-    # memo cannot shrink: `PredictabilityCache.put` only assigns. It shrinks
-    # only when `open()` DISCARDED the file and `flush()` rewrote it with
-    # exactly what that run computed. So the nightly restored 8,663 accumulated
-    # entries, threw them away on a moved comparator fingerprint, and paid a
-    # full cold corpus -- which is this defect's twin sitting in the log that
-    # was supposed to be the remedy for it.
-    #
-    # DO NOT AVERAGE THE FOUR-SHARD FIGURE IN WITH THOSE. An earlier draft of
-    # this comment called stage B's 4,854 + 5,892 + 4,348 + 5,229 = 20,323
-    # CPU-s a third reading that "agrees on ~1.0 CPU-s per item". It does not:
-    # 20,323 over 8,545 items is 2.38, and §8 says why in the same sentence --
-    # "each shard warms its own end-word memo". It is a reading of a DIFFERENT
-    # workload and belongs only in the sharding argument below.
-    #
-    # AND THE COST UNIT IS NOT THE ITEM, WHICH IS WHY PER-ITEM RATES DISAGREE.
-    # `RhymeField.field()` memoises per distinct call word in `self._cache`
-    # (quality/features.py:277, 283-304), in-process, so the marginal cost of
-    # an item falls as the run saturates the vocabulary -- roughly 10.6 CPU-s
-    # per item over the first few dozen against ~0.76 averaged over the whole
-    # corpus. Any rate read off the FRONT of a cold run and multiplied out is
-    # high by several times, which is the 2026-08-20 mistake ci.yml records
-    # ("a RATE read over two flush intervals and multiplied out"). This is the
-    # same trap one axis over, and it is why the bound below is set from
-    # completed runs only.
-    #
-    # WHY NOT SHARD IT INSTEAD, AND THE ANSWER IS THAT SOMEBODY ALREADY DID.
-    # `compute --shard i/K` + `check --rows` exists, and `read_rows(verify=
-    # True)` refuses a missing, duplicated or mixed-K set by name, so a K-way
-    # cold population is buildable and was built. §8 above is what it cost:
-    # 20,323 CPU-s against ~9,000 for one process -- 2.3x the CPU, "because
-    # each shard warms its own end-word memo" -- for 7,276 s wall on four
-    # SHARED cores. On four separate runners the win is the largest shard,
-    # 5,892 s against 8,764: a third off the wall, for 2.3x the compute, a new
-    # job, an artifact per shard, and a reduction. And it would trade a check
-    # that re-derives all 8,667 items in one process for one that trusts K
-    # saved TSVs. The `component` matrix already budgets 14,400 s per mutation
-    # shard, so curves at 14,400 does not extend this run's critical path by a
-    # second, and that third of a wall is not spent anywhere.
-    #
-    # THE TWO READINGS THAT LOOKED LIKE CONTRADICTIONS ARE THE SATURATION CURVE
-    # SEEN FROM ITS EXPENSIVE END. M-260 measured a cold run on this project's
-    # dev box cut at 3,000 s with 602 items banked (~5 CPU-s each), and
-    # qualification run 34436960370 banked ~8.8 KB of memo in 2,400 s where a
-    # 0.76 CPU-s average predicts nearer 48 KB. Neither is a slower machine
-    # doing the same work: both are the FIRST few percent of a run, where the
-    # word cache is empty and almost every end word is a miss. In the invariant
-    # unit -- CPU-s per DISTINCT call word -- they agree with the completed
-    # runs. So the earlier note here calling that gap UNEXPLAINED is withdrawn;
-    # it is explained, and not by the bound being wrong.
-    #
-    # WHAT THIS STILL DOES NOT DECIDE. (1) Whether 14,400 holds on a slow
-    # runner: the four readings above span 1.4x between themselves, so a bad
-    # draw plus corpus growth could close 1.59x. production-qualification.yml
-    # now prints the memo line count AFTER the component as well as before, so
-    # the next run measures the rate rather than leaving it to a ratio of two
-    # compressed sizes (doctrine 58). If it is not enough the answer is the
-    # shard below, not 20,000. (2) `song_profile_calibration.py` pins "11,941
-    # distinct call words" and does arithmetic on it in the same docstring; a
-    # sweep during this work put the true count near 17,630. NOT REPINNED HERE
-    # and NOT independently confirmed: that is a set of derived figures across
-    # a docstring and two modules (doctrine 58), and it is not a change to make
-    # in the middle of a production drive.
     if component == "curves":
         return ["quality/length_curve_calibration.py", "check"], 14400
     raise ValueError("Unknown qualification component")
