@@ -43,8 +43,63 @@ def spec(component):
         return ["quality/test_mutation.py", f"--shard={component[-1]}/4"], 14400
     if component in ("song", "short"):
         return ["quality/song_profile_calibration.py", "--check", f"--profile={component}", "--seeds=200", "--draws=2000"], 9000
+    # THE CURVES BUDGET MOVED 2400 -> 14400 ON 2026-09-10, AND 2,400 WAS NEVER
+    # A BUDGET FOR THE WORK THIS COMPONENT DOES. production-qualification.yml
+    # said so in its own words -- "THE BUDGETS BELOW ARE WARM-MEMO BUDGETS" --
+    # and `curves` is the one component whose warm memo could not arrive: the
+    # nightly banks it under a one-entry `path:` list and the qualification
+    # restored under a two-entry one, which actions/cache hashes into a
+    # different cache VERSION (M-264). So every qualification of every new SHA
+    # ran this command cold against a bound sized for a hit.
+    #
+    # 14,400 IS THE MEASURED COLD COST PLUS HEADROOM, NOT A ROUND NUMBER.
+    # ci.yml:3090-3099 carries the measurement and the two times it was wrong
+    # before: the 2026-08-30 nightly (run 33305249323) DISCARDED its memo on a
+    # fingerprint move and recomputed the whole corpus, and its own PHASE COST
+    # table reads `hits 4, misses 8663`, population 8,718.7 CPU-s, TOTAL
+    # 8,758.6 CPU-s, with the step taking 8,764 s -- ~1.0 CPU-s per item over
+    # 8,667 items. 14,400 is 1.64x that. The two superseded figures (2.0-2.2
+    # CPU-hours over a 4,930-item corpus; ~18 CPU-hours from a rate read over
+    # two flush intervals and multiplied out) are why this cites a run's table
+    # rather than a rate.
+    #
+    # THREE BANKED READINGS AGREE ON ~1.0 CPU-s PER ITEM, and they were taken
+    # by different instruments: ci.yml's TOTAL 8,758.6 above; the band cell's
+    # 9,072 CPU-s for its predictability arm in one process
+    # (`quality/RESULTS_SONG_FLOOR.md`); and the four-shard stage B, whose
+    # shards printed 4,854 + 5,892 + 4,348 + 5,229 = 20,323 CPU-s for the same
+    # population (`quality/RESULTS_LENGTH_CURVE.md` §8). Any of the three puts
+    # a cold one-process run near 9,000 s and none of them near 14,400.
+    #
+    # WHY NOT SHARD IT INSTEAD, AND THE ANSWER IS THAT SOMEBODY ALREADY DID.
+    # `compute --shard i/K` + `check --rows` exists, and `read_rows(verify=
+    # True)` refuses a missing, duplicated or mixed-K set by name, so a K-way
+    # cold population is buildable and was built. §8 above is what it cost:
+    # 20,323 CPU-s against ~9,000 for one process -- 2.3x the CPU, "because
+    # each shard warms its own end-word memo" -- for 7,276 s wall on four
+    # SHARED cores. On four separate runners the win is the largest shard,
+    # 5,892 s against 8,764: a third off the wall, for 2.3x the compute, a new
+    # job, an artifact per shard, and a reduction. And it would trade a check
+    # that re-derives all 8,667 items in one process for one that trusts K
+    # saved TSVs. The `component` matrix already budgets 14,400 s per mutation
+    # shard, so curves at 14,400 does not extend this run's critical path by a
+    # second, and that third of a wall is not spent anywhere.
+    #
+    # WHAT THIS DOES NOT DECIDE, AND THERE ARE TWO READINGS THAT DISAGREE WITH
+    # THE THREE ABOVE. (1) M-260 measured a cold run ON THIS PROJECT'S DEV BOX
+    # cut at 3,000 s with 602 of ~8,667 items banked -- ~5 CPU-s per item, five
+    # times the runner figure. A 4-core box under other load is not a runner
+    # and the entry did not claim it was, but the gap is unexplained rather
+    # than dismissed. (2) Qualification run 34436960370 banked ~8.8 KB of memo
+    # in 2,400 s where ~1.0 CPU-s per item predicts nearer 48 KB. That one is
+    # A RATIO OF TWO COMPRESSED SIZES and so is not a count of anything
+    # (doctrine 58); the log holding the real figure is inside an artifact this
+    # network cannot reach. So production-qualification.yml now prints the memo
+    # line count AFTER the component as well as before. If 14,400 is not
+    # enough, that pair of readings is the measurement that says so, and the
+    # answer then is the shard above -- not 20,000.
     if component == "curves":
-        return ["quality/length_curve_calibration.py", "check"], 2400
+        return ["quality/length_curve_calibration.py", "check"], 14400
     raise ValueError("Unknown qualification component")
 
 

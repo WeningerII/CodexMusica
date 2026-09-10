@@ -362,12 +362,140 @@ def test_each_ci_event_owns_completed_evidence():
           not all(guarded(planted[n]) for n in downstream), victim)
 
 
+CACHE_STEP = re.compile(r"uses:\s*actions/cache(/restore|/save)?@")
+FIELD = re.compile(r"^(path|key|restore-keys):\s*(.*)$")
+
+
+def _cache_steps():
+    """-> [(workflow, kind, paths, key, restore_keys)] over `.github/workflows`.
+
+    TEXT, not YAML, for the reason `_ci_jobs` gives one section up: the harness
+    declares no third-party package and `yaml` is not in the standard library.
+
+    `kind` is "restore", "save", or "both" for the combined `actions/cache@v4`,
+    which is a producer AND a consumer in one step.
+    """
+    steps = []
+    root = os.path.join(HERE, "..", "..", ".github", "workflows")
+    for name in sorted(os.listdir(root)):
+        if not name.endswith((".yml", ".yaml")):
+            continue
+        lines = open(os.path.join(root, name), encoding="utf-8").read().splitlines()
+        for i, ln in enumerate(lines):
+            m = CACHE_STEP.search(ln)
+            if not m:
+                continue
+            kind = (m.group(1) or "/both")[1:]
+            indent = len(ln) - len(ln.lstrip())
+            paths, key, restore, field = [], None, [], None
+            for nxt in lines[i + 1:]:
+                if not nxt.strip():
+                    continue
+                if len(nxt) - len(nxt.lstrip()) < indent or nxt.lstrip().startswith("- "):
+                    break
+                body = nxt.strip()
+                if body.startswith("#"):
+                    continue
+                got = FIELD.match(body)
+                if got:
+                    field, rest = got.group(1), got.group(2).strip()
+                    if rest in ("", "|", ">"):
+                        continue
+                    if field == "path":
+                        paths.append(rest)
+                    elif field == "key":
+                        key = rest
+                    else:
+                        restore.append(rest)
+                    field = None
+                elif field == "path":
+                    paths.append(body)
+                elif field == "restore-keys":
+                    restore.append(body)
+                elif re.match(r"^[a-z][a-z-]*:", body):
+                    field = None
+            steps.append((name, kind, tuple(paths), key, tuple(restore)))
+    return steps
+
+
+def _unreachable(steps):
+    """-> [(consumer, prefix, its paths, producer, its key, its paths)].
+
+    A restore-key names a producer it cannot reach whenever the two steps'
+    `path:` LISTS differ.  Pure, so the planted case below can be built by
+    editing a parsed list rather than by writing a workflow file.
+    """
+    savers = [(f, p, k) for (f, kind, p, k, _r) in steps if kind in ("save", "both")]
+    out = []
+    for consumer, kind, paths, key, restore in steps:
+        if kind not in ("restore", "both"):
+            continue
+        for prefix in restore:
+            for producer, spaths, skey in savers:
+                if not skey or not skey.startswith(prefix):
+                    continue
+                if (producer, spaths, skey) == (consumer, paths, key):
+                    continue  # the combined step is its own producer
+                if spaths != paths:
+                    out.append((consumer, prefix, paths, producer, skey, spaths))
+    return out
+
+
+def test_every_cache_restore_key_can_reach_its_producer():
+    print("\n7. every cache restore-key prefix names a producer whose `path:` "
+          "list is byte-identical, so the entry it names is reachable (M-264)")
+    # WHAT THIS PINS, AND WHY A KEY IS NOT AN ADDRESS. `actions/cache` does not
+    # look an entry up by its key alone. It computes
+    # `version = sha256(paths.join('|') + '|' + compressionMethod + '|1.0')`
+    # and sends that ONE version alongside the primary key AND every
+    # restore-key -- on the v1 REST path (`cache?keys=...&version=...`) and the
+    # v2 twirp path alike -- and there is no version-relaxed fallback. The
+    # strings hashed are the RAW `path:` lines: `resolvePaths()` output feeds
+    # only `createTar`. So a two-line `path:` is a different version from a
+    # one-line `path:` naming the same directory, and a restore-key that names
+    # a real, freshly written entry returns NOTHING.
+    #
+    # THE RUN THAT PAID FOR THIS. ci.yml's nightly banks the predictability
+    # memo under `path: ~/.cache/lyric-harness`; production-qualification.yml
+    # restored under a TWO-line list and named `lyric-harness-predictability-v1-`
+    # as a fallback. Nightly run 34413319893 banked 172,949 bytes at 01:32:47Z.
+    # Three hours later qualification run 34436960370 logged `Cache not found
+    # for input keys: ..., lyric-harness-predictability-v1-`, reported
+    # `predictability memo: 0 line(s)`, and burned its whole 2,400 s budget on
+    # a cold memo for exit 124. The comment above that restore had claimed the
+    # prefix fixed it; the prefix was never the part that was broken.
+    #
+    # THIS IS STRING EQUALITY OF THE LIST, NOT PATH EQUIVALENCE. `$HOME/.cache`
+    # for `~/.cache`, a trailing slash, or the same two entries in the other
+    # order would each still miss, and each would read as a fix.
+    steps = _cache_steps()
+    check("the sweep found the cache steps to check at all",
+          len(steps) >= 8 and any(k == "save" for _f, k, _p, _k, _r in steps),
+          f"{len(steps)} step(s): " + ", ".join(sorted({f for f, *_ in steps})))
+    bad = _unreachable(steps)
+    check("every named producer is reachable from the step that names it",
+          not bad,
+          "; ".join(f"{c} wants {pre!r} from {prod}: {list(cp)} != {list(pp)}"
+                    for c, pre, cp, prod, _sk, pp in bad))
+    # THE CHECK CAN FAIL, and the planted defect is the exact one that shipped:
+    # add a second path to a consumer and leave the prefix alone.
+    planted = []
+    for entry in steps:
+        name, kind, paths, key, restore = entry
+        if kind == "restore" and any(r.startswith("lyric-harness-") for r in restore):
+            entry = (name, kind, paths + ("/tmp/mutate-scratch/baseline.json",), key, restore)
+        planted.append(entry)
+    check("PLANTED: a consumer that grows a second `path:` entry IS caught",
+          bool(_unreachable(planted)) and planted != steps)
+
+
 if __name__ == "__main__":
     for fn in (test_the_deal_is_exactly_once, test_a_bad_coordinate_refuses,
                test_run_sections_times_and_gates,
                test_every_dealt_suite_calls_the_one_idiom,
                test_no_section_reads_what_another_section_wrote,
-               test_each_ci_event_owns_completed_evidence):
+               test_each_ci_event_owns_completed_evidence,
+               test_every_cache_restore_key_can_reach_its_producer):
         fn()
     print("=" * 62)
     if FAILURES:
