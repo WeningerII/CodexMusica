@@ -33,7 +33,8 @@ def spec(component):
     # HOW MUCH ABOVE IS NOT KNOWN, WHICH IS WHAT A TIMEOUT COSTS YOU: a killed
     # run reports where it stopped, never what it needed. So this is not a
     # fitted number. It is the old one plus the 2,400 s that the shared
-    # baseline (see production-qualification.yml's `mutation-baseline` job)
+    # baseline (the `mutation-baseline` job -- STRUCK the same day it shipped,
+    # and production-qualification.yml's head comment carries the disproof)
     # takes OUT of every shard, which is the change that should make the bound
     # comfortable rather than the bound itself. If a shard hits 14,400 too, the
     # answer is not 16,000 -- it is that the shard is too big, and the sweep's
@@ -79,6 +80,93 @@ def spec(component):
         return ["quality/song_profile_calibration.py", "--check", "--profile=song", "--seeds=200", "--draws=2000"], 9000
     if component == "short":
         return ["quality/song_profile_calibration.py", "--check", "--profile=short", "--seeds=200", "--draws=2000"], 9000
+    # THE CURVES BUDGET MOVED 2400 -> 14400 ON 2026-09-10, AND 2,400 WAS NEVER
+    # A BUDGET FOR THE WORK THIS COMPONENT DOES. production-qualification.yml
+    # said so in its own words -- "THE BUDGETS BELOW ARE WARM-MEMO BUDGETS" --
+    # and `curves` is the one component whose warm memo could not arrive: the
+    # nightly banks it under a one-entry `path:` list and the qualification
+    # restored under a two-entry one, which actions/cache hashes into a
+    # different cache VERSION (M-264). So every qualification of every new SHA
+    # ran this command cold against a bound sized for a hit.
+    #
+    # THIS PARAGRAPH WAS DELETED BY ACCIDENT AND IS RESTORED (doctrine 17): the
+    # commit that withdrew the `song` repin replaced a text range that reached
+    # past its own subject and took the whole curves rationale with it, leaving
+    # a bound with no recorded reason in the file that decides it. MISSING.md
+    # M-264 kept the record; this is the file that has to carry it.
+    #
+    # FOUR ONE-PROCESS COLD READINGS BRACKET 6,506-9,072 CPU-s, and 14,400 is
+    # 1.59x-2.21x that: ci.yml:3090-3099's TOTAL 8,758.6 (run 33305249323);
+    # the band cell's 9,072 for the same arm (`quality/RESULTS_SONG_FLOOR.md`);
+    # ~8,450 (`quality/RESULTS_CACHE_IDENTITY.md`); and CI run 34413319893's
+    # `population 6,505.6`. `qualification-song` then completed cold in 4,847 s
+    # on a real runner, which is the lowest reading yet and the closest in
+    # shape -- it shares `population()` with this command.
+    #
+    # THAT NIGHTLY READING LOOKS WARM AND IS NOT, AND ITS LOG SAYS SO IN WORDS.
+    # It was first deduced from `memo: 8663 -> 8545 items (+-118 banked this
+    # run)` against ci.yml's shell `"memo: $before -> $after items ..."` -- a
+    # DECREASE, and a memo cannot shrink because `PredictabilityCache.put`
+    # only assigns. The deduction was right and it did not need to be one: job
+    # 102678019020 prints `DISCARDED: comparator fingerprint moved ...
+    # recomputing from scratch`, then `hits 0, misses 8545`, then `population
+    # 6505.6 6505.3 ... TOTAL 6538.0 6537.8`. The nightly restored 8,663
+    # accumulated entries, threw them away on a moved comparator fingerprint,
+    # and paid a full cold corpus -- M-264's twin defect, stated outright, in
+    # the log of the run that was supposed to be the remedy for it.
+    #
+    # DO NOT AVERAGE THE FOUR-SHARD FIGURE IN WITH THOSE. An earlier draft
+    # called stage B's 4,854 + 5,892 + 4,348 + 5,229 = 20,323 CPU-s a reading
+    # that "agrees on ~1.0 CPU-s per item". It does not: 20,323 over 8,545
+    # items is 2.38, and `RESULTS_LENGTH_CURVE.md` §8 says why in the same
+    # sentence -- "each shard warms its own end-word memo". It measures a
+    # DIFFERENT workload and belongs only in the sharding argument.
+    #
+    # WHY NOT SHARD IT, AND THE ANSWER IS THAT SOMEBODY ALREADY DID AND BANKED
+    # THE PRICE. `compute --shard i/K` exists and `read_rows(verify=True)`
+    # refuses a missing, duplicated or mixed-K set by name, so a K-way cold
+    # population is buildable -- §8 IS one. It cost 20,323 CPU-s against
+    # ~9,000 for one process. On four separate runners the win is the largest
+    # shard, 5,892 s against 8,764: about a third off a wall this run does not
+    # spend, for 2.3x the compute, a new job, an artifact per shard, a
+    # reduction, and a check that trusts K saved TSVs instead of re-deriving
+    # every item in one process. The `component` matrix already budgets 14,400
+    # per mutation shard, so curves at 14,400 does not extend the critical
+    # path by a second.
+    #
+    # AND THE COST UNIT IS THE DISTINCT CALL WORD, NOT THE ITEM, WHICH IS WHY
+    # PER-ITEM RATES DISAGREE. `RhymeField.field()` memoises per distinct call
+    # word in `self._cache` (`quality/features.py`:277, 283-304), in-process,
+    # so an item's marginal cost falls as the run saturates the vocabulary --
+    # roughly 10.6 CPU-s per item over the first few dozen against ~0.76
+    # averaged over the corpus. This project's dev box cut at 3,000 s with 602
+    # items, and run 34436960370's ~8.8 KB of memo in 2,400 s, are the FRONT of
+    # that curve, not slower machines doing the same work. A rate read off the
+    # front and multiplied out is high by several times -- the 2026-08-20
+    # mistake ci.yml records ("a RATE read over two flush intervals and
+    # multiplied out"), one axis over. The bound is set from COMPLETED runs.
+    #
+    # WHAT THIS DOES NOT DECIDE. (1) Whether 14,400 holds on a slow runner: the
+    # readings span 1.4x between themselves, so a bad draw plus corpus growth
+    # could close 1.59x. production-qualification.yml now prints the memo line
+    # count AFTER the component as well as before, so the next run measures the
+    # rate rather than leaving it to a ratio of two compressed sizes (doctrine
+    # 58); if it is not enough the answer is the shard above, not 20,000.
+    # (2) Whether `curves` PASSES. A budget buys it the chance to finish, and
+    # finishing may well report MOVED (exit 1) rather than HOLDS: `cmd_check`
+    # exits 1 when `len(rows)` differs from the profile's `n_human`, and the
+    # comparator fingerprint has moved more than once this week. That is a real
+    # answer and a different repair; `curves` has still never returned one.
+    # (3) NOTHING ABOUT THE 11,941 PIN, and the flag that stood here is
+    # WITHDRAWN. A sweep during this work put the distinct-call-word count at
+    # 17,630 against that pin and this comment carried it as stale. It is not:
+    # `quality/features.py`:532 gates the scan -- `if not self._pronounceable
+    # (call) or not self._pronounceable(answer): continue` -- so a word absent
+    # from the pronunciation lexicon never reaches `field()` and costs nothing.
+    # 6,251 of the 17,630 are in that class, so the COMPARABLE count is 11,379,
+    # 4.7% BELOW the pin rather than 48% above it. A raw total was measured
+    # against a gated one. Leaving the flag would have sent somebody to repin a
+    # figure that is very nearly right, which is worse than saying nothing.
     if component == "curves":
         return ["quality/length_curve_calibration.py", "check"], 14400
     raise ValueError("Unknown qualification component")
