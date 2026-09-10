@@ -63,6 +63,9 @@ def spec(component):
                 f"--shard={component.split('-')[1]}/{MUTATION_SHARDS}"], 14400
     # `song` WAS MOVED 9000 -> 14400 ON 2026-09-10 AND MOVED STRAIGHT BACK THE
     # SAME MORNING, BECAUSE A RUN MEASURED IT WHILE THE CHANGE WAS IN FLIGHT.
+    # AND MOVED TO 14400 AGAIN THE SAME EVENING, BECAUSE THE NEXT RUN HIT
+    # 9000 (M-273). Both histories stay here; the second is the one a run
+    # disproved.
     #
     # ~~The argument was: `PROFILE_PRED_MAX` is `{"song": None, "short": 200}`,
     # so song caps nothing and scores every item on the check the module says
@@ -74,9 +77,38 @@ def spec(component):
     # MEASURED, qualification run 34436960370 at ab5db477, on a PROVABLY COLD
     # memo (its restore missed -- that is M-264 -- and the job logged
     # `predictability memo: 0 line(s)`): `qualification-song` COMPLETED in
-    # **4,847 s**, and `qualification-short` in **4,281 s**. So 9,000 was
+    # **4,847 s**, and `qualification-short` in **4,281 s**. ~~So 9,000 was
     # 1.86x, not 1.03x, and this file's own standard (it rejected 1.03x and
-    # 1.28x, and accepts ~1.6x) is comfortably met without moving anything.
+    # 1.28x, and accepts ~1.6x) is comfortably met without moving anything.~~
+    #
+    # AND 1.86x OF ONE RUNNER IS NOT A BOUND, BECAUSE RUNNERS ARE NOT ONE
+    # SPEED (M-273). Qualification run 34509181078 at a92e1897, memo cold
+    # again (this time by the fingerprint guard: M-270 touched
+    # quality/features.py, so the 8,548 restored entries were discarded by
+    # name), KILLED `qualification-song` at **9,000.8 s** with 8,003 of 8,545
+    # items memoised -- 94% done, at 1.9x run 34436960370's per-item rate --
+    # while `qualification-short` completed in 5,144 s (1.20x). The same run
+    # measured what a runner is worth: eight mutation shards each ran the
+    # IDENTICAL unmutated baseline, and it took 3,564 / 6,008 / 6,049 / 6,835
+    # / 8,396 / 8,508 / 8,621 s on seven of them -- a 2.4x spread for the same
+    # work in the same hour. 1.9x sits inside it. So 9,000 was 1.86x the
+    # FASTEST runner's cold cost and 0.78x the slowest's, and a bound the
+    # slow tail crosses is a coin toss, not a budget. The four one-process
+    # cold readings the curves paragraph below cites (6,506-9,072 CPU-s)
+    # already bracketed 9,000 from both sides; that should have been read as
+    # the warning it was.
+    #
+    # 14,400 IS 2.97x THE FASTEST COLD READING AND 1.24x THE SLOWEST-RUNNER
+    # EXTRAPOLATION (4,847 x 2.4 = 11,630). It is also the one figure this
+    # file has never seen a completed component exceed, and the job's
+    # `timeout-minutes: 300` (18,000 s) is the hard ceiling above it. `short`
+    # moves with `song`: 4,281 x 2.4 = 10,274 crosses 9,000 the same way, and
+    # one bound for the two profiles of one command is one place deciding
+    # (doctrine 1). The premise this rests on -- that the 1.9x is runner
+    # speed and not a cost regression in a92e1897 -- is checked by `short`'s
+    # 1.20x on the same commit and by M-270's change (a norm table loaded
+    # once, not per item); the next completed `song` reading is what
+    # confirms it, and the M-273 entry says what to do if it does not.
     #
     # AND THE 1.13x RATIO BETWEEN THEM IS THE SATURATION CURVE AGAIN, not an
     # anomaly. `short` scores 63.6% of the items and `song` 100%, so a
@@ -86,19 +118,21 @@ def spec(component):
     # the floor.
     #
     # `curves` DOES NOT GET THE SAME TREATMENT, AND THE ASYMMETRY IS THE POINT.
-    # `song` has now completed cold and reported a number. `curves` never has:
-    # every attempt was killed at 2,400 s mid-population. M-263 records what
-    # that costs -- "a killed run reports where it stopped, never what it
-    # needed" -- so its bound below is set GENEROUSLY ON PURPOSE, to buy a
-    # completed run and a real figure rather than a fourth reading of where a
-    # kill landed. `song`'s 4,847 s is the best available proxy for the
-    # population phase they share; the curve fit on top of it is unmeasured.
-    # When `curves` completes, that measurement is what should size it, and
-    # 14,400 should come down.
+    # `song` has now completed cold and reported a number. ~~`curves` never
+    # has: every attempt was killed at 2,400 s mid-population.~~ `curves`
+    # COMPLETED for the first time on run 34509181078: **9,724 s**, cold, on a
+    # runner of unknown speed -- 14,400 is 1.48x that reading, and a slow
+    # runner's 2.4x would be 23,000 s, above the job ceiling. One reading
+    # cannot size it; the next completed reading on a different runner can.
+    # M-263 records what a kill costs -- "a killed run reports where it
+    # stopped, never what it needed" -- so its bound below stays GENEROUSLY
+    # ON PURPOSE. `song`'s 4,847 s is the best available proxy for the
+    # population phase they share; the curve fit on top of it is now
+    # measured once at 9,724 - population.
     if component == "song":
-        return ["quality/song_profile_calibration.py", "--check", "--profile=song", "--seeds=200", "--draws=2000"], 9000
+        return ["quality/song_profile_calibration.py", "--check", "--profile=song", "--seeds=200", "--draws=2000"], 14400
     if component == "short":
-        return ["quality/song_profile_calibration.py", "--check", "--profile=short", "--seeds=200", "--draws=2000"], 9000
+        return ["quality/song_profile_calibration.py", "--check", "--profile=short", "--seeds=200", "--draws=2000"], 14400
     # THE CURVES BUDGET MOVED 2400 -> 14400 ON 2026-09-10, AND 2,400 WAS NEVER
     # A BUDGET FOR THE WORK THIS COMPONENT DOES. production-qualification.yml
     # said so in its own words -- "THE BUDGETS BELOW ARE WARM-MEMO BUDGETS" --
