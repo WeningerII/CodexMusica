@@ -68,7 +68,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        component: [mutation-1, mutation-2, mutation-3, mutation-4, mutation-5, mutation-6, mutation-7, mutation-8, song, short, curves]
+        component:
+          [
+            mutation-1,
+            mutation-2,
+            mutation-3,
+            mutation-4,
+            mutation-5,
+            mutation-6,
+            mutation-7,
+            mutation-8,
+            song,
+            short,
+            curves,
+          ]
     env:
       OMP_NUM_THREADS: '1'
       MKL_NUM_THREADS: '1'
