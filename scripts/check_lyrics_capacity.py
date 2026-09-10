@@ -3,6 +3,17 @@
 
 Production: run inside the tested image with --cpus=1 --memory=2g --memory-swap=2g.
 --local records supplemental measurements without claiming production isolation.
+
+--cells picks which (lines:seed) cells of the declared SIZES x SEEDS matrix this
+process measures, so CI can deal the matrix across containers by MEASURED cost
+rather than by workload. The coordinate is the cell and not the size because
+the cost is not a function of the size alone: on every measured run, seed
+20260910 costs more than the other two seeds together at sizes 24 and 31
+(at 18 the expensive seed is 20260909), and one cell (31 lines, seed
+20260910) is 27% of the whole matrix by itself (ci.yml, the matrix step's
+comment, has the numbers). A partial process can
+never be production-qualified on its own; `merge_lyrics_capacity.py` re-derives
+that from every shard's cells, exactly once each.
 """
 import argparse
 import json
@@ -20,6 +31,9 @@ from lyrics_capacity_runtime import ResidentRuntime, runtime_evidence_failures
 ROOT = Path(__file__).resolve().parents[1]
 SIZES = (18, 24, 31)
 SEEDS = (20260908, 20260909, 20260910)
+#: The declared matrix, as the cells a shard is dealt from.
+CELLS = tuple((size, seed) for size in SIZES for seed in SEEDS)
+MODES = ('cold', 'worker')
 LIMITS = {"call_seconds": 600, "child_peak_mib": 1792, "warm_growth_mib": 128,
           "cpus": 1, "memory_bytes": 2 * 1024**3, "worker_rounds": 3,
           "whole_runtime_peak_mib": 1792}
@@ -165,6 +179,49 @@ def write_result(path, result):
     temp.replace(path)
 
 
+def parse_cells(text):
+    """'31:20260910,18:20260908' -> ((31, 20260910), (18, 20260908)).
+
+    Raises ValueError naming the defect for anything that is not a distinct
+    selection of declared cells. The order given is the order measured.
+    """
+    cells = []
+    for item in [piece.strip() for piece in text.split(',') if piece.strip()]:
+        lines, sep, seed = item.partition(':')
+        if not sep or not lines.isdigit() or not seed.isdigit():
+            raise ValueError(f'{item!r} is not lines:seed')
+        cell = (int(lines), int(seed))
+        if cell not in CELLS:
+            raise ValueError(f'{item!r} is not a declared cell of {SIZES} x {SEEDS}')
+        if cell in cells:
+            raise ValueError(f'{item!r} is selected twice')
+        cells.append(cell)
+    if not cells:
+        raise ValueError('no cells selected')
+    return tuple(cells)
+
+
+def summarize_measurements(measurements):
+    """-> per (lines, mode, verb) p95 wall and peak over the executions supplied.
+
+    ONE derivation for a shard and for the merged matrix. A shard summarises
+    the cells it measured; `merge_lyrics_capacity.py` calls this same function
+    over the union, so a size whose seeds were dealt to different containers
+    gets one row from all of its samples rather than two partial ones.
+    """
+    sizes = sorted({m.get('lines') for m in measurements if isinstance(m.get('lines'), int)})
+    summaries = []
+    for size in sizes:
+        for mode in MODES:
+            group = [m for m in measurements if m.get('lines') == size and m.get('mode') == mode]
+            for verb in ('grade', 'revise'):
+                rows = [r for m in group for r in m.get('rows', []) if r.get('verb') == verb]
+                summaries.append({"lines": size, "mode": mode, "verb": verb, "samples": len(rows),
+                    "p95_seconds": percentile([r['wall_s'] for r in rows if isinstance(r.get('wall_s'), (float, int))], .95),
+                    "peak_mib": max([r['peak_mb'] for r in rows if isinstance(r.get('peak_mb'), (float, int))], default=None)})
+    return summaries
+
+
 def published_limits():
     sys.path.insert(0, str(ROOT / 'lyric-harness'))
     from quality.plan import execution_limits
@@ -226,15 +283,24 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--out', required=True)
     ap.add_argument('--local', action='store_true')
-    ap.add_argument('--sizes', default=','.join(map(str, SIZES)))
+    ap.add_argument('--cells', default=','.join(f'{size}:{seed}' for size, seed in CELLS),
+                    help='the lines:seed cells of the declared matrix to measure, in order')
     args = ap.parse_args()
     signal.signal(signal.SIGTERM, lambda *_: (_ for _ in ()).throw(SystemExit(143)))
-    sizes = tuple(int(value) for value in args.sizes.split(','))
-    if not sizes or len(set(sizes)) != len(sizes) or any(value not in SIZES for value in sizes):
-        ap.error('--sizes must select distinct declared workloads: 18,24,31')
+    try:
+        cells = parse_cells(args.cells)
+    except ValueError as error:
+        ap.error(f'--cells: {error}')
+    sizes = tuple(sorted({size for size, _ in cells}))
     out = Path(args.out)
+    # `sizes` and `seeds` are the DECLARED matrix's coordinates as this shard
+    # touches them; `cells` is what it actually measured. The merger reads
+    # `cells` against CELLS, and refuses a shard whose `seeds` is not the
+    # declared population or whose `sizes` does not describe its cells, so no
+    # shard can quietly redefine the matrix.
     report = {"version": 1, "status": "running", "production_qualified": False,
               "local_supplement": args.local, "sizes": sizes, "seeds": SEEDS,
+              "cells": [list(cell) for cell in cells],
               "scope": "resource capacity with explicit refusal accounting; not lyric-quality certification",
               "limits": LIMITS, "isolation": isolation(), "measurements": [],
               "memory_trace": [], "failures": [],
@@ -259,74 +325,73 @@ def main():
                 report['resident_runtime'] = resident.start()
         except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as error:
             report['failures'].append(f'resident server startup: {error}')
-        for size in sizes:
-            for seed in SEEDS:
-                for mode in ('cold', 'worker'):
-                    if report['failures']:
-                        break
-                    target = Path(tmp) / f'{size}-{seed}-{mode}.json'
-                    command = [sys.executable, str(ROOT / 'scripts/measure_verb_memory.py'),
-                               f'--seed={seed}', f'--lines={size}', '--verb=both', f'--json={target}']
-                    if mode == 'worker':
-                        command += ['--worker', f"--rounds={LIMITS['worker_rounds']}"]
-                    print(f'Capacity lines={size} seed={seed} mode={mode}', flush=True)
-                    progress = MeasurementProgress(f'{size}/{seed}/{mode}')
-                    proc = None
-                    try:
-                        remaining = deadline - time.monotonic()
-                        if remaining <= 0:
-                            raise TimeoutError('capacity matrix exhausted its 60-minute total budget')
-                        proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                                                text=True, cwd=ROOT, start_new_session=True)
-                        resident.begin_measurement(f'{size}/{seed}/{mode}', proc)
-                        process_deadline = time.monotonic() + min(remaining, 3600)
-                        while True:
-                            try:
-                                stdout, stderr = proc.communicate(timeout=min(5, max(.01, process_deadline - time.monotonic())))
-                                progress.emit(stdout, final=True)
-                                break
-                            except subprocess.TimeoutExpired as pending:
-                                progress.emit(pending.output)
-                                runtime_failed = resident.record.get('errors') or resident.child.poll() is not None
-                                if time.monotonic() < process_deadline and not runtime_failed:
-                                    continue
-                                os.killpg(proc.pid, signal.SIGKILL)
-                                proc.communicate()
-                                if runtime_failed:
-                                    raise RuntimeError('actual resident server failed during the Python workload')
-                                raise
-                        result = json.loads(target.read_text())
-                        if proc.returncode:
-                            report['failures'].append(f'measurement exited {proc.returncode}: {stdout[-1500:]} {stderr[-1500:]}')
-                        report['failures'] += validate_measurement(result, {'seed':seed,'lines':size,'mode':mode})
-                        report['measurements'].append(result)
-                        if resident.record.get('errors'):
-                            report['failures'] += resident.record['errors']
-                    except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired, TimeoutError) as error:
-                        report['failures'].append(f'{size}/{seed}/{mode}: {error}')
-                    finally:
+        for size, seed in cells:
+            for mode in MODES:
+                if report['failures']:
+                    break
+                target = Path(tmp) / f'{size}-{seed}-{mode}.json'
+                command = [sys.executable, str(ROOT / 'scripts/measure_verb_memory.py'),
+                           f'--seed={seed}', f'--lines={size}', '--verb=both', f'--json={target}']
+                if mode == 'worker':
+                    command += ['--worker', f"--rounds={LIMITS['worker_rounds']}"]
+                print(f'Capacity lines={size} seed={seed} mode={mode}', flush=True)
+                progress = MeasurementProgress(f'{size}/{seed}/{mode}')
+                proc = None
+                try:
+                    remaining = deadline - time.monotonic()
+                    if remaining <= 0:
+                        raise TimeoutError('capacity matrix exhausted its 60-minute total budget')
+                    proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                            text=True, cwd=ROOT, start_new_session=True)
+                    resident.begin_measurement(f'{size}/{seed}/{mode}', proc)
+                    process_deadline = time.monotonic() + min(remaining, 3600)
+                    while True:
                         try:
-                            resident.end_measurement()
-                        except (OSError, ValueError, RuntimeError) as error:
-                            report['failures'].append(f'{size}/{seed}/{mode}: queue-pressure cleanup: {error}')
-                        finally:
-                            terminate_measurement(proc)
-                    # A HIGH-WATER MARK READ ONCE AT THE END CANNOT SEE A CLIMB.
-                    # `whole_runtime_peak_bytes` below is /sys/fs/cgroup/memory.peak
-                    # read after the whole loop -- a max, and one number. It was
-                    # doing double duty: bounding the peak AND standing in for
-                    # "the resident server does not accumulate across a long
-                    # run". Only the first of those survives being read once,
-                    # and when this matrix was split across containers (ci.yml,
-                    # 2026-09-09) the second would have been lost silently.
-                    # Sampling at every execution boundary answers both, with
-                    # one reading per execution instead of one per run, and it
-                    # is the same 18 executions either way.
-                    report['memory_trace'].append({
-                        'lines': size, 'seed': seed, 'mode': mode,
-                        'peak_bytes': cgroup_bytes('memory.peak'),
-                        'current_bytes': cgroup_bytes('memory.current')})
-                    write_result(out, report)
+                            stdout, stderr = proc.communicate(timeout=min(5, max(.01, process_deadline - time.monotonic())))
+                            progress.emit(stdout, final=True)
+                            break
+                        except subprocess.TimeoutExpired as pending:
+                            progress.emit(pending.output)
+                            runtime_failed = resident.record.get('errors') or resident.child.poll() is not None
+                            if time.monotonic() < process_deadline and not runtime_failed:
+                                continue
+                            os.killpg(proc.pid, signal.SIGKILL)
+                            proc.communicate()
+                            if runtime_failed:
+                                raise RuntimeError('actual resident server failed during the Python workload')
+                            raise
+                    result = json.loads(target.read_text())
+                    if proc.returncode:
+                        report['failures'].append(f'measurement exited {proc.returncode}: {stdout[-1500:]} {stderr[-1500:]}')
+                    report['failures'] += validate_measurement(result, {'seed':seed,'lines':size,'mode':mode})
+                    report['measurements'].append(result)
+                    if resident.record.get('errors'):
+                        report['failures'] += resident.record['errors']
+                except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired, TimeoutError) as error:
+                    report['failures'].append(f'{size}/{seed}/{mode}: {error}')
+                finally:
+                    try:
+                        resident.end_measurement()
+                    except (OSError, ValueError, RuntimeError) as error:
+                        report['failures'].append(f'{size}/{seed}/{mode}: queue-pressure cleanup: {error}')
+                    finally:
+                        terminate_measurement(proc)
+                # A HIGH-WATER MARK READ ONCE AT THE END CANNOT SEE A CLIMB.
+                # `whole_runtime_peak_bytes` below is /sys/fs/cgroup/memory.peak
+                # read after the whole loop -- a max, and one number. It was
+                # doing double duty: bounding the peak AND standing in for
+                # "the resident server does not accumulate across a long
+                # run". Only the first of those survives being read once,
+                # and when this matrix was split across containers (ci.yml,
+                # 2026-09-09) the second would have been lost silently.
+                # Sampling at every execution boundary answers both, with
+                # one reading per execution instead of one per run, and it
+                # is the same 18 executions either way.
+                report['memory_trace'].append({
+                    'lines': size, 'seed': seed, 'mode': mode,
+                    'peak_bytes': cgroup_bytes('memory.peak'),
+                    'current_bytes': cgroup_bytes('memory.current')})
+                write_result(out, report)
         try:
             if report.get('resident_runtime', {}).get('startup_ok'):
                 report['resident_runtime'] = resident.finish()
@@ -344,7 +409,7 @@ def main():
     after_events = memory_events()
     if after_events.get('oom_kill', 0) > before_events.get('oom_kill', 0):
         report['failures'].append('cgroup recorded an OOM kill during the matrix')
-    expected = len(sizes) * len(SEEDS) * 2
+    expected = len(cells) * len(MODES)
     if len(report['measurements']) != expected:
         report['failures'].append(f"completed {len(report['measurements'])}/{expected} declared measurements")
     ceiling = LIMITS['whole_runtime_peak_mib'] * 1024**2
@@ -375,19 +440,12 @@ def main():
     report['source_sha256_after'] = source_identity()
     if report['source_sha256_after'] != report['source_sha256']:
         report['failures'].append('measured runtime source changed during the capacity matrix')
-    summaries = []
-    for size in sizes:
-        for mode in ('cold', 'worker'):
-            group = [m for m in report['measurements'] if m.get('lines') == size and m.get('mode') == mode]
-            for verb in ('grade', 'revise'):
-                rows = [r for m in group for r in m.get('rows', []) if r.get('verb') == verb]
-                summaries.append({"lines": size, "mode": mode, "verb": verb, "samples": len(rows),
-                    "p95_seconds": percentile([r['wall_s'] for r in rows if isinstance(r.get('wall_s'), (float, int))], .95),
-                    "peak_mib": max([r['peak_mb'] for r in rows if isinstance(r.get('peak_mb'), (float, int))], default=None)})
-    report.update(status='failed' if report['failures'] else 'passed', summaries=summaries,
+    report.update(status='failed' if report['failures'] else 'passed',
+                  summaries=summarize_measurements(report['measurements']),
                   memory_events_before=before_events, memory_events_after=after_events,
                   cgroup_peak_bytes=read('/sys/fs/cgroup/memory.peak'),
-                  production_qualified=not report['failures'] and not args.local and sizes == SIZES)
+                  production_qualified=not report['failures'] and not args.local
+                                       and sorted(cells) == sorted(CELLS))
     write_result(out, report)
     print(json.dumps({k: report[k] for k in ('status','production_qualified','failures')}, sort_keys=True))
     return 1 if report['failures'] else 0

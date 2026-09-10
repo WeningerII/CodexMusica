@@ -19,3 +19,8 @@ lyric-harness/__pycache__
 lyric-harness/**/__pycache__
 lyric-harness/cmudict.dict
 lyric-harness/data/nltk
+
+# The proof layer's optional seed (mcp/Dockerfile): the exact file may enter
+# the context; a stray sibling (.part, .bak) must not, since the COPY glob
+# beside it would ship it.
+mcp/capacity_verification.json.*
