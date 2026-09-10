@@ -3322,7 +3322,13 @@ jobs:
       #
       # COST, MEASURED before it was added: **17.8s**, of which the artifact
       # arm is 0.26s.
+      # `if: always()` for the reason the paragraph above the proof-staging
+      # steps gives: an unrelated earlier failure must not turn this into a
+      # question nobody asked. MEASURED, run 34413319893: steps 9, 10, 13 and
+      # 14 failed and these three were SKIPPED, so a nightly that reported four
+      # problems was actually hiding an unknown number of them behind them.
       - name: The structure census, every recorded figure re-derived
+        if: always()
         working-directory: lyric-harness
         run: python3 quality/structure_census.py --check
 
@@ -3345,7 +3351,13 @@ jobs:
       # ITSELF ON: M-138's figures came from an uncommitted script and did not
       # reproduce. Recording these and gating them with nothing would be the
       # same lesson unlearned. ~15 minutes, which is why it is nightly.
+      # `if: always()` for the reason the paragraph above the proof-staging
+      # steps gives: an unrelated earlier failure must not turn this into a
+      # question nobody asked. MEASURED, run 34413319893: steps 9, 10, 13 and
+      # 14 failed and these three were SKIPPED, so a nightly that reported four
+      # problems was actually hiding an unknown number of them behind them.
       - name: The 77-schema door against its matched redeal
+        if: always()
         working-directory: lyric-harness
         run: python3 quality/chance_rate.py --null --check
 
@@ -3359,7 +3371,13 @@ jobs:
       # green. Exits 3 on a fresh move; a KNOWN move is adopted in
       # `REGRADE_MOVED` with its cause, never by editing the banked prose,
       # which `--verdicts` reads as history (doctrine 17).
+      # `if: always()` for the reason the paragraph above the proof-staging
+      # steps gives: an unrelated earlier failure must not turn this into a
+      # question nobody asked. MEASURED, run 34413319893: steps 9, 10, 13 and
+      # 14 failed and these three were SKIPPED, so a nightly that reported four
+      # problems was actually hiding an unknown number of them behind them.
       - name: Every banked song verdict, re-derived
+        if: always()
         working-directory: lyric-harness
         run: python3 quality/regrade_verdicts.py
 
