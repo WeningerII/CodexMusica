@@ -207,8 +207,16 @@ jobs:
           LATEST_SEAL_SUCCEEDED: ${{ steps.seal.outcome == 'success' }}
         run: |
           node -e 'const fs=require("fs"); const p="battery-sealed/manifest.json"; if(fs.existsSync(p)){const m=JSON.parse(fs.readFileSync(p,"utf8")); m.latest_seal_succeeded=process.env.LATEST_SEAL_SUCCEEDED==="true"; fs.writeFileSync(p,JSON.stringify(m,null,2)+"\n",{mode:0o600});}'
+      # ONLY WHEN THE DRIVER'S CODE IS ON DISK (M-277). This step is
+      # `always()`, and when the key check above refuses, checkout is SKIPPED
+      # -- so this ran `node scripts/battery_archive.mjs` on an empty
+      # workspace, died MODULE_NOT_FOUND, and became the step the run's
+      # failure summary pointed at. Measured on run 34562596600: the refusal
+      # ("Configure BATTERY_RECOVERY_KEY ...") was the second step; the
+      # failed-jobs view showed only this one's stack trace. A step that can
+      # only speak once the checkout happened is gated on the checkout.
       - name: Print only safe aggregate outcomes
-        if: always()
+        if: always() && hashFiles('scripts/battery_archive.mjs') != ''
         run: node scripts/battery_archive.mjs summary --source=battery-out
       - name: Upload only encrypted recovery data and its public manifest
         if: always() && hashFiles('battery-sealed/battery-recovery.enc') != ''
