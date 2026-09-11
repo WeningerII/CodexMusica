@@ -31,6 +31,19 @@ HARNESS = ROOT / "lyric-harness"
 #: (B=8,000), and every one of them clears 14,400 even with shard 4 carrying
 #: 1.5x the average slice. M-263's rule stands and is now quantified: no shard
 #: count goes below B, so 4,992 s is the floor and 8 is not a step toward 16.
+#:
+#: AND THE FLOOR MOVED ON 2026-09-11 (M-276), BECAUSE B STOPPED BEING PAID.
+#: ~~every shard pays the whole-tree baseline~~ -- a shard now baselines only
+#: the suites its own mutations DECLARE (the largest of 8 shards needs 14 of
+#: 99 files; `quality/test_mutation.py` section 3h pins it) and measures the
+#: rest at the moment a mutation escalates, which over a clean sweep is
+#: never. MEASURED before the change, run 34534436649 shard 1: 9,288 s, of
+#: which the 99-file baseline was 8,506 s and the eight mutations 782 s. So a
+#: shard is now b + M/K with b the declared suites' cost, not B the tree's;
+#: the 4,992 s floor above is struck, and K=8 stays because the deal was
+#: never the problem (M-275) and eight shards is what the workflow runs.
+#: The budget below is NOT resized here: a bound comes down on a measurement
+#: of the new cost, and no run has made one yet.
 MUTATION_SHARDS = 8
 COMPONENTS = tuple([f"mutation-{i}" for i in range(1, MUTATION_SHARDS + 1)]
                    + ["song", "short", "curves"])
@@ -56,6 +69,15 @@ def spec(component):
     # answer is not 16,000 -- it is that the shard is too big, and the sweep's
     # own comment already says a shard count cannot fix that while every shard
     # pays the whole-tree baseline.
+    #
+    # STILL 14,400 ON 2026-09-11 AFTER M-276 TOOK THE WHOLE-TREE BASELINE OUT
+    # OF THE SHARD, and the reason it is not lower yet is the rule two
+    # paragraphs up: a bound a run has hit is a floor, and a bound no run has
+    # measured is a guess. Shard 1 of run 34534436649 cost 9,288 s, 8,506 of
+    # them the baseline this change stops paying; the first completed run on
+    # the new shape is the measurement that sizes this number DOWN, and the
+    # kill it guards against is now one that has to be a real hang, not a
+    # slow runner paying for 99 suites.
     if component.startswith("mutation-"):
         # SPLIT, not `component[-1]`: that read the last CHARACTER and would
         # deal `mutation-10` as shard 0 the day this count reaches two digits.

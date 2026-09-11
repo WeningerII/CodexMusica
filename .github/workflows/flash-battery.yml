@@ -19,6 +19,11 @@ on:
         description: 'Seconds between requests (the site allows about 30/hr/IP)'
         default: '130'
         required: false
+      mode:
+        description: 'raw drives the plain ask "Write a song" with "keep going" as the only continuation — the honest measure of whether the product works for a person; probe drives the five feature briefs with process coaching (M-274)'
+        type: choice
+        options: [raw, probe]
+        default: raw
       expect:
         description: 'finished requires every song; turn-wall requires a signed wall checkpoint and successful continuation; survey records coverage only'
         type: choice
@@ -150,6 +155,7 @@ jobs:
           TURNS: ${{ inputs.turns }}
           PACE: ${{ inputs.pace }}
           EXPECT: ${{ inputs.expect }}
+          MODE: ${{ inputs.mode }}
           RESUME_RUN: ${{ inputs.resume_run }}
         run: |
           umask 077
@@ -160,6 +166,8 @@ jobs:
           fi
           resume=()
           if [ -n "$RESUME_RUN" ]; then resume=(--resume); fi
+          raw=()
+          if [ "$MODE" = "raw" ]; then raw=(--raw); fi
           set +e
           node scripts/flash_battery.mjs \
             --out=battery-out \
@@ -171,6 +179,7 @@ jobs:
             --pace="$PACE" \
             --expect="$EXPECT" \
             --max-runtime="$remaining" \
+            "${raw[@]}" \
             "${resume[@]}" >> battery-out/driver.log 2>&1
           rc=$?
           set -e

@@ -28,7 +28,7 @@
 //
 // Usage:
 //   node scripts/flash_battery.mjs --out=DIR [--base=URL] [--songs=N]
-//     [--turns=N] [--pace=SECONDS] [--brief=INDEX] [--smoke]
+//     [--turns=N] [--pace=SECONDS] [--brief=INDEX] [--raw] [--smoke]
 //     [--stop-on=malformed,idle|none]   (default for one song: malformed,idle)
 //     [--retry-after-cap=S]              (default 600; the longest Retry-After honoured)
 //     [--reask=N]                        (default for one song: 2)
@@ -37,6 +37,11 @@
 //     [--require-remote-recovery]          (Actions encrypted capability before every dispatch)
 //     [--max-runtime=SECONDS] [--delivery-reserve=SECONDS] (default 18000 / 30)
 //     [--resume]                         (same --out; reuse receipts and signed checkpoints)
+//   --raw: the brief is exactly "Write a song" and every continuation is
+//     exactly "keep going" — no length, no form, no "finish it", no process
+//     coaching. The plainest ask a person types is the honest test of whether
+//     the product works for a person; the five briefs below stay as feature
+//     PROBES and are never the pass/fail truth on their own (M-274).
 //
 // Output: song<i>.jsonl, summary.json, run.json, atomic song checkpoints and
 // fsynced attempt/receipt journals. The latter contain continuation capabilities;
@@ -244,6 +249,19 @@ const BRIEFS = [
   'Write a short song about rain on a tin roof, then revise it until every check passes. Show me the finished version only when it is actually finished.',
   'Write me a drinking song with a verbatim refrain that comes back three times. Take it through the whole process to a finished song.',
 ];
+// THE RAW ASK (M-274, owner's rule, 2026-09-11: "the prompt you give it
+// should be no more complicated than 'Write a song' ... does it not bias our
+// entire efforts if it's anything more than that?"). Every brief above tells
+// the model something a person would not: how long, what form, and above all
+// "finish it — do not stop at a draft". A pass rate measured on those is a
+// pass rate on the coaching as much as on the product. Under --raw the brief
+// is the plainest ask and the only continuation is the plainest nudge; if
+// the model stops at a draft without being told to finish, that is a finding
+// about the product, and the record shows it instead of the driver talking
+// the model past it. The probes above keep their job — a refrain, a rhyme
+// relation, a roster — and stop being the truth.
+const RAW_BRIEF = 'Write a song';
+const RAW_CONTINUE = 'keep going';
 // M-166's other half: rounds 8 and 9 both relapsed into ONE answered
 // question per turn (round 9 turns 1-5: one lyric_revise call each, the
 // answer spoken as a chat "LINE:" reply), and nine turns can never carry
@@ -463,8 +481,17 @@ function post(body, { path = '/chat', method = 'POST', timeoutMs = CLIENT_DEADLI
   });
 }
 
+const RAW = args.raw === true || args.raw === 'true';
+if (RAW && args.brief != null) {
+  throw new Error('--raw drives the plain ask and takes no --brief index');
+}
 const only = args.brief != null ? [parseInt(args.brief, 10)] : null;
-const indices = only ?? Array.from({ length: N_SONGS }, (_, i) => i % BRIEFS.length);
+// Under --raw every song is the same plain ask; the index is kept at 0 so the
+// resume and coverage checks that count songs by brief index still hold.
+const indices = RAW
+  ? Array.from({ length: N_SONGS }, () => 0)
+  : (only ?? Array.from({ length: N_SONGS }, (_, i) => i % BRIEFS.length));
+const MODE = RAW ? 'raw' : 'probe';
 for (const [name, value] of Object.entries({
   N_SONGS,
   MAX_TURNS,
@@ -514,7 +541,11 @@ if (manifest.base !== BASE || manifest.expected_commit !== EXPECTED_COMMIT) {
 if (manifest.brief_indices && JSON.stringify(manifest.brief_indices) !== JSON.stringify(indices)) {
   throw new Error('resume must retain the original songs and brief selection');
 }
+if (manifest.mode && manifest.mode !== MODE) {
+  throw new Error(`resume must retain the original mode (${manifest.mode})`);
+}
 manifest.brief_indices = indices;
+manifest.mode = MODE;
 manifest.options = args;
 atomicJSON(runFile, manifest);
 const summary = (args.resume ? readJSON(join(OUT, 'summary.json')) : null) ?? {
@@ -524,6 +555,7 @@ const summary = (args.resume ? readJSON(join(OUT, 'summary.json')) : null) ?? {
   songs: [],
 };
 summary.expect = EXPECT;
+summary.mode = MODE;
 summary.session_started = new Date().toISOString();
 summary.session_budget_ms = MAX_RUNTIME_MS;
 summary.delivery_reserve_ms = DELIVERY_RESERVE_MS;
@@ -531,7 +563,7 @@ delete summary.finished;
 atomicJSON(join(OUT, 'summary.json'), summary);
 
 for (const [songNo, briefIdx] of indices.entries()) {
-  const brief = BRIEFS[briefIdx];
+  const brief = RAW ? RAW_BRIEF : BRIEFS[briefIdx];
   const file = `${OUT}/song${songNo}.jsonl`;
   const checkpointFile = join(OUT, `song${songNo}.checkpoint.json`);
   const attemptsFile = join(OUT, `song${songNo}.attempts.jsonl`);
@@ -968,7 +1000,11 @@ for (const [songNo, briefIdx] of indices.entries()) {
         typeof cp.sig === 'string' &&
         cp.sig
       ) {
-        const continuation = continuationBody(CONTINUE, cp, existing.request_id);
+        const continuation = continuationBody(
+          RAW ? RAW_CONTINUE : CONTINUE,
+          cp,
+          existing.request_id
+        );
         appendAttempt({
           event: 'interrupted_resume',
           request_id: existing.request_id,
@@ -1197,7 +1233,11 @@ for (const [songNo, briefIdx] of indices.entries()) {
     nextTurn = t;
     attemptNo = 0;
     checkpoint();
-    const message = t === 0 ? brief : parkedLastTurn ? PARKED_CONTINUE : CONTINUE;
+    // Under --raw the parked case gets the same plain nudge: a person who
+    // sees a draft come back with flags says "keep going", not a paragraph
+    // about draft_text and seeds (M-274).
+    const message =
+      t === 0 ? brief : RAW ? RAW_CONTINUE : parkedLastTurn ? PARKED_CONTINUE : CONTINUE;
     let body = continuationBody(message, env);
     let r = await send(body, t);
     if (r.resume_body) body = r.resume_body;

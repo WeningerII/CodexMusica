@@ -86,6 +86,27 @@ ALLOWLIST = {
         "and M4 stops being equivalent."),
 }
 
+# THE PREMISED ENTRIES, AND WHAT THE PREMISE BUYS (M-275, 2026-09-11). An
+# allowlist entry is an argument, and M4's has a premise the sweep checks by
+# ANOTHER mutation: M4 is equivalent BECAUSE `cluster_sim` returns 1.0 for
+# two empty clusters, and M11 mutates exactly that line and is caught. An
+# entry that names its premise here earns one thing: when its declared
+# subset misses, the run does NOT escalate to the full green suite. The
+# escalation exists to check a FINDING against everything before it is
+# reported, and an equivalent mutant's survival is not a finding -- the full
+# pass could only repeat what the entry says, and it costs a second
+# whole-tree baseline in whichever shard holds the entry: MEASURED 7,412 s of
+# mutation-4's 13,300 s on production-qualification run 34509181078 (its
+# six sibling mutations cost ~300 s together), and the kill at 14,400 s on
+# run 34534436649 where the baseline alone took 8,348 s. A catch in the
+# subset still counts, still marks the entry dead below, and still fails the
+# sweep; the premise check below still runs in whichever shard holds the
+# premise mutation. An entry WITHOUT a premise here escalates exactly as
+# before -- the shortcut is earned by the argument, never by the listing.
+ALLOWLIST_PREMISE = {
+    "M4": "M11",
+}
+
 #: BACKLOG 1.1's acceptance triple: the mutation that survived, and the two
 #: controls that were caught on the same day. The controls are here so that a
 #: run in which everything passes is distinguishable from a run in which the
@@ -180,6 +201,14 @@ def check(name, cond, detail=""):
 # ---------------------------------------------------------------------------
 # Static checks — no subprocess, no runtime, and they catch list rot
 # ---------------------------------------------------------------------------
+
+def contextlib_silence():
+    """Swallow stdout inside a `with` -- `baseline()` narrates, and section
+    3h's own lines are the ones a reader should see."""
+    import contextlib
+    import io
+    return contextlib.redirect_stdout(io.StringIO())
+
 
 def test_the_mutation_list_is_well_formed():
     print("\n1. the mutation list itself")
@@ -291,6 +320,126 @@ def test_M1_is_declared_verbatim():
           f"{m.old.strip()}  ->  {m.new.strip()}")
     check("M1 targets the shipped comparator",
           m.file == "lyric_harness.py")
+
+
+def test_the_premised_allowlist_withholds_escalation_and_nothing_else():
+    """3g. THE SECOND BASELINE (M-275). A mutation whose declared subset
+    misses it escalates to the full green suite, and for an allowlisted
+    EQUIVALENT mutant that is a whole-tree baseline paid again for an answer
+    the allowlist already gives. `ALLOWLIST_PREMISE` names the entries that
+    carry a premise the sweep checks by another mutation, and only they are
+    run subset-only. Pinned here in microseconds, over `plan_for` (pure), so
+    the rule is never reasoned about instead of exercised (doctrine 48).
+    """
+    print("\n3g. the premised allowlist withholds escalation, and nothing else")
+    names = {m.name for m in mutate.MUTATIONS}
+    check("every premised entry is an allowlist entry -- the shortcut is "
+          "earned by the argument, never by the listing",
+          set(ALLOWLIST_PREMISE) <= set(ALLOWLIST),
+          str(set(ALLOWLIST_PREMISE) - set(ALLOWLIST)))
+    check("every premise names a declared mutation, distinct from its entry",
+          all(p in names and p != e for e, p in ALLOWLIST_PREMISE.items()),
+          str(ALLOWLIST_PREMISE))
+    m4 = next(m for m in mutate.MUTATIONS if m.name == "M4")
+    green = list(dict.fromkeys(m4.subset)) + ["quality/test_zzz_other.py",
+                                                "quality/test_zzz_more.py"]
+    withheld = mutate.plan_for(m4, green, "subset", escalate=False)
+    offered = mutate.plan_for(m4, green, "subset", escalate=True)
+    check("escalate=False runs the declared subset and NOTHING after it",
+          [l for l, _ in withheld] == ["subset"]
+          and withheld[0][1] == list(dict.fromkeys(m4.subset)), str(withheld))
+    check("escalate=True runs the subset and then the REST of the green suite",
+          [l for l, _ in offered] == ["subset", "escalated-full"]
+          and offered[1][1] == ["quality/test_zzz_other.py",
+                                "quality/test_zzz_more.py"], str(offered))
+    check("full mode is one batch either way -- the flag has no purchase there",
+          mutate.plan_for(m4, green, "full", escalate=False)
+          == mutate.plan_for(m4, green, "full", escalate=True)
+          == [("full", green)])
+    check("a subset that the baseline dropped is not on the plan under either flag",
+          mutate.plan_for(m4, ["quality/test_zzz_other.py"], "subset",
+                          escalate=False) == [("subset", [])])
+    # The population, so the section says how many entries take the shortcut
+    # rather than only that the shortcut exists (doctrine 20).
+    print(f"      {len(ALLOWLIST_PREMISE)} premised entr"
+          f"{'y' if len(ALLOWLIST_PREMISE) == 1 else 'ies'} of "
+          f"{len(ALLOWLIST)} allowlisted run subset-only: "
+          + ", ".join(f"{e} (premise {p})" for e, p in ALLOWLIST_PREMISE.items()))
+
+
+def test_the_baseline_is_the_declared_suites_and_the_cache_is_a_ledger():
+    """3h. THE WHOLE-TREE BASELINE IS NOT PAID UP FRONT (M-276). Pinned over
+    `needed_tests` (pure) and over `baseline`'s cache with the test runner
+    stubbed, so the two rules that take 8,506 s out of a 9,288 s shard are
+    exercised in milliseconds and never merely reasoned about (doctrine 48):
+    a sweep baselines the union of its mutations' declared subsets and
+    nothing else; a cache file holds what has been measured and a later
+    call runs only what it does not hold.
+    """
+    import json
+    import tempfile
+    from unittest.mock import patch
+    print("\n3h. the baseline is the declared suites; the cache is a ledger")
+    tests = mutate.discover_tests()
+    muts = list(mutate.MUTATIONS)
+    needed = mutate.needed_tests(muts, tests, "subset")
+    declared = set().union(*(m.subset for m in muts))
+    check("subset mode needs exactly the union of the declared subsets, in "
+          "inventory order",
+          needed == [t for t in tests if t in declared], str(needed))
+    check("that union is a fraction of the inventory -- the saving is real",
+          0 < len(needed) < len(tests) // 2,
+          f"{len(needed)} of {len(tests)}")
+    check("full mode needs the whole inventory",
+          mutate.needed_tests(muts, tests, "full") == list(tests))
+    # Every shard deal, so the claim covers the run the workflow makes.
+    names = [m.name for m in muts]
+    by_name = {m.name: m for m in muts}
+    n = 8
+    worst = max(len(mutate.needed_tests([by_name[x] for x in names[i::n]],
+                                        tests, "subset")) for i in range(n))
+    check(f"no shard of {n} needs more than a quarter of the inventory up front",
+          worst * 4 <= len(tests), f"largest shard needs {worst} of {len(tests)}")
+    print(f"      whole sweep needs {len(needed)} of {len(tests)}; the largest "
+          f"of {n} shards needs {worst}")
+
+    # The ledger. `run_test` and the shadow build are stubbed; what is under
+    # test is which files a call RUNS and what the file holds afterwards.
+    ran = []
+    def fake_run_test(tree, rel_path, timeout=None):
+        ran.append(rel_path)
+        return ("PASS", 0.0, "")
+    with tempfile.TemporaryDirectory() as d, \
+            patch.object(mutate, "run_test", fake_run_test), \
+            patch.object(mutate, "build_shadow", lambda base: d), \
+            patch.object(mutate, "shadow_root", lambda tree: os.path.join(d, "none")), \
+            patch.object(mutate, "source_fingerprint", lambda: "fp-static"), \
+            contextlib_silence():
+        cache = os.path.join(d, "baseline.json")
+        first = mutate.baseline(["a.py", "b.py"], 1, cache)
+        ran_first = list(ran); ran.clear()
+        second = mutate.baseline(["b.py", "c.py"], 1, cache)
+        ran_second = list(ran); ran.clear()
+        third = mutate.baseline(["a.py", "c.py"], 1, cache)
+        ran_third = list(ran); ran.clear()
+        held = json.load(open(cache))["results"]
+        forced = mutate.baseline(["a.py"], 1, cache, force=True)
+        ran_forced = list(ran); ran.clear()
+        held_after_force = json.load(open(cache))["results"]
+    check("a cold call runs what it is asked for",
+          sorted(ran_first) == ["a.py", "b.py"] and set(first) == {"a.py", "b.py"},
+          str(ran_first))
+    check("a later call runs ONLY what the ledger does not hold",
+          ran_second == ["c.py"] and set(second) == {"b.py", "c.py"},
+          str(ran_second))
+    check("a call the ledger covers runs nothing and answers over exactly "
+          "what was asked", ran_third == [] and set(third) == {"a.py", "c.py"},
+          str(ran_third))
+    check("the ledger holds everything measured so far",
+          set(held) == {"a.py", "b.py", "c.py"}, str(sorted(held)))
+    check("force discards the ledger and re-measures -- a rebaseline is a "
+          "rebaseline", ran_forced == ["a.py"] and set(held_after_force) == {"a.py"},
+          f"{ran_forced} {sorted(held_after_force)}")
 
 
 def test_the_three_way_outcome():
@@ -654,10 +803,24 @@ def run_suite(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
     # both flushed: a truncated log now names WHICH PHASE it died in, and a
     # completed baseline hands the next person the baseline's share of the
     # shard budget, which is what sizing N actually turns on.
-    print(f"   ... phase 1 of 2: unmutated baseline over {len(tests)} test "
-          f"file(s), 0 of {len(muts)} mutation(s) started", flush=True)
-    bl = mutate.baseline(tests, jobs, os.path.join(base, "baseline.json"),
-                         confirm_all=confirm_all, timeout=timeout)
+    # THE BASELINE IS THE DECLARED SUITES, NOT THE TREE (M-276). Every shard
+    # of production-qualification run 34534436649 measured all 99 test files
+    # unmutated before running its seven or eight mutations: 8,506 s of
+    # shard 1's 9,288 s, against 782 s for the mutations themselves. A
+    # mutation runs its declared subset first and escalates only when that
+    # misses, so the sweep needs the union of the declared subsets up front
+    # and nothing else; `LazyBaseline.full` measures the rest at the moment
+    # a mutation escalates, once, however many ask. Over a clean sweep the
+    # whole-tree baseline is never paid.
+    lazy = mutate.LazyBaseline(tests, jobs, os.path.join(base, "baseline.json"),
+                               confirm_all=confirm_all, timeout=timeout)
+    needed = mutate.needed_tests(muts, tests, mode)
+    print(f"   ... phase 1 of 2: unmutated baseline over {len(needed)} of "
+          f"{len(tests)} test file(s) -- the suites these {len(muts)} "
+          f"mutation(s) declare; the other {len(tests) - len(needed)} only "
+          f"if one escalates -- 0 of {len(muts)} mutation(s) started",
+          flush=True)
+    bl = lazy.ensure(needed)
     print(f"   ... phase 1 of 2 done ({time.time() - t0:.0f}s elapsed); "
           f"phase 2 is {len(muts)} mutation(s)", flush=True)
     green = [t for t, r in bl.items() if r["status"] == "PASS"]
@@ -665,7 +828,9 @@ def run_suite(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
     import concurrent.futures as futures
     with futures.ThreadPoolExecutor(max_workers=mutation_jobs) as ex:
         fs = {ex.submit(mutate.run_mutation, m, green, jobs, mode, base,
-                        confirm_all, timeout): m for m in muts}
+                        confirm_all, timeout,
+                        m.name not in ALLOWLIST_PREMISE, lazy.full): m
+              for m in muts}
         # A PROGRESS LINE, FLUSHED, SO A KILLED RUN STILL BOUNDS ITSELF.
         # `timeout Nm` leaves no verdict and no wall clock — the sweep banks
         # nothing, correctly (doctrine 20), but until 2026-08-26 it also SAID
@@ -691,7 +856,12 @@ def run_suite(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
     order = {m.name: i for i, m in enumerate(muts)}
     results.sort(key=lambda r: order[r["name"]])
     elapsed = time.time() - t0
-    survivors = mutate.report(results, bl, elapsed, mode)
+    bl = lazy.known()
+    print(f"   ... phase 2 of 2 done ({elapsed:.0f}s elapsed); the baseline "
+          f"covered {len(bl)} of {len(tests)} test file(s), "
+          f"{lazy.escalations} escalation(s)", flush=True)
+    survivors = mutate.report(results, bl, elapsed, mode,
+                              inventory=len(tests))
     problems, changed, stale_now = mutate.verify_pristine(
         muts, before, mutate.root_hashes())
     if mutate._SNAPSHOT.get("path"):
@@ -794,16 +964,23 @@ def test_the_run(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
     # clusters, which makes the band's duplicate clause unobservable. That
     # premise is itself a mutation -- M11 -- and if M11 ever stops being
     # caught, the property has NO detector anywhere and M4's excuse is void.
-    if "M4" in ALLOWLIST:
-        m11 = next((r for r in results if r["name"] == "M11"), None)
-        if m11 is not None:
-            check("M4's allowlist premise still holds: M11 is caught",
-                  bool(m11.get("caught_by")) and not m11.get("indeterminate") and not m11.get("stale"),
-                  "M4 is excused as an equivalent mutant BECAUSE cluster_sim "
-                  "carries the both-absent rule one layer down. If M11 "
-                  "survives, that layer is unprotected too and the "
-                  "both-absent predicate -- a quarter of the sonnets' "
-                  "mandated pairs -- has no detector at any level.")
+    # Generalised over ALLOWLIST_PREMISE (M-275): the premise is checked in
+    # whichever run holds the premise mutation, which under a sharded deal
+    # is not the run that holds the entry -- so the check keys on the
+    # premise's presence, not the entry's.
+    for entry, premise in ALLOWLIST_PREMISE.items():
+        if entry not in ALLOWLIST:
+            continue
+        pr = next((r for r in results if r["name"] == premise), None)
+        if pr is not None:
+            check(f"{entry}'s allowlist premise still holds: {premise} is caught",
+                  bool(pr.get("caught_by")) and not pr.get("indeterminate") and not pr.get("stale"),
+                  f"{entry} is excused as an equivalent mutant BECAUSE the "
+                  f"property it duplicates is carried one layer down, and "
+                  f"{premise} is the mutation of THAT layer. If {premise} "
+                  "survives, that layer is unprotected too and the property "
+                  "-- for M4, the both-absent predicate, a quarter of the "
+                  "sonnets' mandated pairs -- has no detector at any level.")
 
     # M1 by name, because it is the acceptance condition of BACKLOG 1.1 and a
     # generic assertion over a list is easy to satisfy by shortening the list.
@@ -1173,6 +1350,8 @@ if __name__ == "__main__":
     test_the_bounds_are_declared_and_reachable()
     test_the_shards_partition_the_list()
     test_the_shadow_reaches_what_the_suites_read()
+    test_the_premised_allowlist_withholds_escalation_and_nothing_else()
+    test_the_baseline_is_the_declared_suites_and_the_cache_is_a_ledger()
     if a.static:
         # 3f built a snapshot this exit path would otherwise strand on a
         # shared disk (the sweep path's own cleanup sits after section 4).
