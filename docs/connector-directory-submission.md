@@ -15,7 +15,7 @@ notes. Everything here reflects the deployed server (`mcp/` over Streamable HTTP
 |---|---|
 | **Server / endpoint URL** | `https://mcp.codexmusica.com/mcp` |
 | **Health check** | `https://mcp.codexmusica.com/health` |
-| **Website** | `https://weningerii.github.io/CodexMusica` |
+| **Website** | `https://codexmusica.com` |
 | **Documentation URL** | `https://github.com/WeningerII/CodexMusica/blob/main/docs/connector.md` |
 | **Privacy policy URL** | `https://github.com/WeningerII/CodexMusica/blob/main/PRIVACY.md` |
 | **Support URL** | `https://github.com/WeningerII/CodexMusica/blob/main/SUPPORT.md` (issues: `https://github.com/WeningerII/CodexMusica/issues`) |

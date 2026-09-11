@@ -4,7 +4,7 @@
   "title": "Codex Musica",
   "description": "Recording recipes over 2503 traditions and a separate lyrics planning, grading and revision pipeline. Recipe tools are deterministic. Lyrics revision stores private run state and optional kitchen writing makes paid external model calls.",
   "version": "3.1.0",
-  "websiteUrl": "https://weningerii.github.io/CodexMusica",
+  "websiteUrl": "https://codexmusica.com",
   "repository": {
     "url": "https://github.com/WeningerII/CodexMusica",
     "source": "github"

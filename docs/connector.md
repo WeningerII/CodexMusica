@@ -10,7 +10,7 @@ naming the instruments, materials, room, signal chain, and per-instrument
 
 - **Catalog:** 2503 traditions · 1406 instruments (with per-part variants) ·
   256 rooms · 120 tunings · 741 prefaces, placed in a 13-dimensional parameter space.
-- **Browser app:** <https://weningerii.github.io/CodexMusica/codex.html>
+- **Browser app:** <https://codexmusica.com/codex.html>
 - **Endpoint:** `https://mcp.codexmusica.com/mcp` · health: `/health`
 - **Auth:** public endpoint; run and request identifiers are private bearer capabilities.
 - **Task endpoints:** `/mcp/recipe` and `/mcp/lyrics`. `/health` reports liveness; `/ready` reports lyrics readiness.

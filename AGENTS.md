@@ -17,7 +17,7 @@ For any tradition, you get:
 
 ## How to use it (zero setup)
 
-Base URL: `https://weningerii.github.io/CodexMusica`
+Base URL: `https://codexmusica.com`
 
 **Fastest path — one fetch for everything:** `…/api/all.json` returns all 2503
 traditions with their `recipe` strings in a single file (~1.9 MB). Fetch it once and you

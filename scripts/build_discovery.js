@@ -11,7 +11,7 @@
 // Run AFTER build_static_api.js. Fast (no recompile).
 //
 // Usage:
-//   node scripts/build_discovery.js [--base=https://weningerii.github.io/CodexMusica]
+//   node scripts/build_discovery.js [--base=https://codexmusica.com]
 //   node scripts/build_discovery.js --api=_dist/api --out=_dist   # CI staging dir
 
 const fs = require('fs');
@@ -26,7 +26,7 @@ for (const a of process.argv.slice(2)) {
     else flags[a.slice(2)] = true;
   }
 }
-const BASE = (flags.base || 'https://weningerii.github.io/CodexMusica').replace(/\/$/, '');
+const BASE = (flags.base || 'https://codexmusica.com').replace(/\/$/, '');
 const API_DIR = flags.api ? path.resolve(ROOT, flags.api) : path.join(ROOT, 'api');
 const OUT_DIR = flags.out ? path.resolve(ROOT, flags.out) : ROOT;
 fs.mkdirSync(OUT_DIR, { recursive: true });

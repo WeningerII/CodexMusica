@@ -47,12 +47,12 @@ axis space, the connector's from seeding a workspace and rendering it, so the tw
 the same tradition in different words. If you need the string a user would see in the app,
 call the connector; if you need 2503 recipes in one fetch, this is the only thing that
 does that.
-- ALL default recipes in one fetch: https://weningerii.github.io/CodexMusica/api/all.json
-- List of traditions: https://weningerii.github.io/CodexMusica/api/traditions/index.json
-- One tradition (recipe + arrangement): https://weningerii.github.io/CodexMusica/api/traditions/{id}.json
-- List of instruments: https://weningerii.github.io/CodexMusica/api/instruments/index.json
-- One instrument: https://weningerii.github.io/CodexMusica/api/instruments/{id}.json
-- Catalog root / endpoint map: https://weningerii.github.io/CodexMusica/api/index.json
+- ALL default recipes in one fetch: https://codexmusica.com/api/all.json
+- List of traditions: https://codexmusica.com/api/traditions/index.json
+- One tradition (recipe + arrangement): https://codexmusica.com/api/traditions/{id}.json
+- List of instruments: https://codexmusica.com/api/instruments/index.json
+- One instrument: https://codexmusica.com/api/instruments/{id}.json
+- Catalog root / endpoint map: https://codexmusica.com/api/index.json
 
 Each tradition file has: id, name, family, lineage, recipe (string, <=1000 chars),
 recipe_chars, score, config (the structured arrangement), and source (the raw
@@ -76,10 +76,10 @@ validation). Source: https://github.com/WeningerII/CodexMusica
 ## Catalog
 - [Live editable engine — MCP endpoint, START HERE](https://mcp.codexmusica.com/mcp)
 - [Server card (capabilities)](https://mcp.codexmusica.com/.well-known/mcp.json)
-- [All default recipes (one file)](https://weningerii.github.io/CodexMusica/api/all.json)
-- [Catalog index](https://weningerii.github.io/CodexMusica/api/index.json)
-- [Traditions index](https://weningerii.github.io/CodexMusica/api/traditions/index.json)
-- [Instruments index](https://weningerii.github.io/CodexMusica/api/instruments/index.json)
-- [Agent guide](https://weningerii.github.io/CodexMusica/AGENTS.md)
-- [Complete contract (data model, flags, CRUD)](https://weningerii.github.io/CodexMusica/SKILL.md)
+- [All default recipes (one file)](https://codexmusica.com/api/all.json)
+- [Catalog index](https://codexmusica.com/api/index.json)
+- [Traditions index](https://codexmusica.com/api/traditions/index.json)
+- [Instruments index](https://codexmusica.com/api/instruments/index.json)
+- [Agent guide](https://codexmusica.com/AGENTS.md)
+- [Complete contract (data model, flags, CRUD)](https://codexmusica.com/SKILL.md)
 - [Full engine + skill (clone & run)](https://github.com/WeningerII/CodexMusica)

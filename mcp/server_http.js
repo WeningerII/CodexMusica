@@ -273,7 +273,7 @@ app.get('/', (_req, res) =>
     transport: 'streamable-http',
     endpoint: '/mcp',
     card: '/.well-known/mcp.json',
-    documentation: 'https://weningerii.github.io/CodexMusica/AGENTS.md',
+    documentation: 'https://codexmusica.com/AGENTS.md',
   })
 );
 
@@ -296,8 +296,8 @@ app.get('/.well-known/mcp.json', (_req, res) =>
     taskEndpoints: { recipe: PUBLIC_MCP_URL + '/recipe', lyrics: PUBLIC_MCP_URL + '/lyrics' },
     privacy:
       'Lyrics requests, accepted drafts, recovery receipts and accounting can be persisted. Kitchen writing sends its brief to the configured provider.',
-    documentation: 'https://weningerii.github.io/CodexMusica/AGENTS.md',
-    websiteUrl: 'https://weningerii.github.io/CodexMusica',
+    documentation: 'https://codexmusica.com/AGENTS.md',
+    websiteUrl: 'https://codexmusica.com',
     repository: 'https://github.com/WeningerII/CodexMusica',
   })
 );
