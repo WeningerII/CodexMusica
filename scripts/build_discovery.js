@@ -4,7 +4,7 @@
 // Reads the already-generated api/*/index.json and writes:
 //   llms.txt      (root)  — the agent-facing entry point, and the ONLY document
 //                           that bridges this origin to the MCP connector on
-//                           codex-musica-mcp.onrender.com (a sitemap cannot: see
+//                           mcp.codexmusica.com (a sitemap cannot: see
 //                           the cross-origin note above ENTRY_POINTS)
 //   sitemap.xml   (root)  — entry points + every static endpoint, for crawlers
 //
@@ -70,12 +70,12 @@ section is a SEPARATE read-only product — one pre-compiled recipe per traditio
 a different pipeline and worded differently. Use it for bulk reads; use the connector for
 anything you want to change, and do not expect the two strings to match.
 
-- Task endpoints (Streamable HTTP, no auth): https://codex-musica-mcp.onrender.com/mcp/recipe and https://codex-musica-mcp.onrender.com/mcp/lyrics
+- Task endpoints (Streamable HTTP, no auth): https://mcp.codexmusica.com/mcp/recipe and https://mcp.codexmusica.com/mcp/lyrics
 - Add in Claude: Settings -> Connectors -> Add custom connector -> paste the task URL.
 - Native clients must preserve initialization guidance, complete tool metadata,
   the host-selected task and exact returned artifacts; use the maintained adapter
   documented in docs/connector.md. Keep run and request capabilities private.
-- Server card (capabilities, for auto-discovery): https://codex-musica-mcp.onrender.com/.well-known/mcp.json
+- Server card (capabilities, for auto-discovery): https://mcp.codexmusica.com/.well-known/mcp.json
 - Tools: start_recipe, edit_recipe, render_recipe, search_catalog, search_prefaces, get_instrument, get_tradition, list_traditions, list_options.
 - Lyric tools (separate planning/grading/revision pipeline; kitchen writing is paid): lyric_screen, lyric_sweep, lyric_plan, lyric_grade, lyric_recover, lyric_check, lyric_verify, lyric_revise, lyric_types.
 
@@ -127,8 +127,8 @@ See SKILL.md in the repo for the complete contract (data model, all flags, CRUD,
 validation). Source: https://github.com/WeningerII/CodexMusica
 
 ## Catalog
-- [Live editable engine — MCP endpoint, START HERE](https://codex-musica-mcp.onrender.com/mcp)
-- [Server card (capabilities)](https://codex-musica-mcp.onrender.com/.well-known/mcp.json)
+- [Live editable engine — MCP endpoint, START HERE](https://mcp.codexmusica.com/mcp)
+- [Server card (capabilities)](https://mcp.codexmusica.com/.well-known/mcp.json)
 - [All default recipes (one file)](${BASE}/api/all.json)
 - [Catalog index](${BASE}/api/index.json)
 - [Traditions index](${BASE}/api/traditions/index.json)
@@ -162,7 +162,7 @@ fs.writeFileSync(path.join(OUT_DIR, 'llms.txt'), llms);
 //   • api/browse.json — the 2.4 MB Tier-1 boot payload for the lazy-loaded app.
 //     api/index.json lists it as an endpoint for the app's benefit; it is not a
 //     document anyone should be told to open cold.
-//   • anything on codex-musica-mcp.onrender.com — a sitemap may only declare URLs
+//   • anything on mcp.codexmusica.com — a sitemap may only declare URLs
 //     under its own origin, so cross-origin entries here would simply be dropped.
 //     llms.txt is the bridge that points at that host.
 //
@@ -262,7 +262,7 @@ const serverManifest = {
   remotes: [
     {
       type: 'streamable-http',
-      url: 'https://codex-musica-mcp.onrender.com/mcp',
+      url: 'https://mcp.codexmusica.com/mcp',
     },
   ],
 };

@@ -36,7 +36,7 @@ export async function connectConnector({ url, task, transport, session = null } 
   let continuation = session?.continuation ? structuredClone(session.continuation) : null;
   let inFlight = false;
   if (!transport) {
-    const endpoint = new URL(url || 'https://codex-musica-mcp.onrender.com/mcp');
+    const endpoint = new URL(url || 'https://mcp.codexmusica.com/mcp');
     endpoint.pathname = endpoint.pathname.replace(/\/$/, '');
     if (!endpoint.pathname.endsWith('/' + domain)) {
       if (/\/(recipe|lyrics)$/.test(endpoint.pathname))

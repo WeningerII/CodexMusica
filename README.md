@@ -87,8 +87,8 @@ app: seed a recipe, then edit prefaces / variants / room / chain / tuning, add/r
 instruments and traditions, and re-render. Streamable HTTP, no auth, read-only and
 deterministic.
 
-- Endpoint: `https://codex-musica-mcp.onrender.com/mcp`
-- Server card (zero-config discovery): `https://codex-musica-mcp.onrender.com/.well-known/mcp.json`
+- Endpoint: `https://mcp.codexmusica.com/mcp`
+- Server card (zero-config discovery): `https://mcp.codexmusica.com/.well-known/mcp.json`
 - Registry manifest: root `server.json` (publish to the official MCP registry with `mcp-publisher publish`)
 - Transport, privacy, and the tool contract: see `mcp/README.md` and `mcp/PRIVACY.md`.
 

@@ -13,8 +13,8 @@ notes. Everything here reflects the deployed server (`mcp/` over Streamable HTTP
 
 | Field | Value |
 |---|---|
-| **Server / endpoint URL** | `https://codex-musica-mcp.onrender.com/mcp` |
-| **Health check** | `https://codex-musica-mcp.onrender.com/health` |
+| **Server / endpoint URL** | `https://mcp.codexmusica.com/mcp` |
+| **Health check** | `https://mcp.codexmusica.com/health` |
 | **Website** | `https://weningerii.github.io/CodexMusica` |
 | **Documentation URL** | `https://github.com/WeningerII/CodexMusica/blob/main/docs/connector.md` |
 | **Privacy policy URL** | `https://github.com/WeningerII/CodexMusica/blob/main/PRIVACY.md` |
@@ -110,7 +110,7 @@ with a human-readable `title`.
 
 **No credentials are required** — the server is open, read-only, and stateless.
 
-1. Add `https://codex-musica-mcp.onrender.com/mcp` as a custom connector in Claude
+1. Add `https://mcp.codexmusica.com/mcp` as a custom connector in Claude
    (**Settings → Connectors → Add custom connector**), or point **MCP Inspector**
    (or any MCP client) at that URL. No sign-in, no API key.
 2. The endpoint is kept warm (no cold-start spin-down), so the handshake responds

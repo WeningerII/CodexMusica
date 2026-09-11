@@ -11,14 +11,14 @@ naming the instruments, materials, room, signal chain, and per-instrument
 - **Catalog:** 2503 traditions · 1406 instruments (with per-part variants) ·
   256 rooms · 120 tunings · 741 prefaces, placed in a 13-dimensional parameter space.
 - **Browser app:** <https://weningerii.github.io/CodexMusica/codex.html>
-- **Endpoint:** `https://codex-musica-mcp.onrender.com/mcp` · health: `/health`
+- **Endpoint:** `https://mcp.codexmusica.com/mcp` · health: `/health`
 - **Auth:** public endpoint; run and request identifiers are private bearer capabilities.
 - **Task endpoints:** `/mcp/recipe` and `/mcp/lyrics`. `/health` reports liveness; `/ready` reports lyrics readiness.
 
 ## Add it to Claude
 
 1. Claude → **Settings → Connectors → Add custom connector**.
-2. Paste `https://codex-musica-mcp.onrender.com/mcp/recipe` for recipe work, or use `/mcp/lyrics` for lyric work.
+2. Paste `https://mcp.codexmusica.com/mcp/recipe` for recipe work, or use `/mcp/lyrics` for lyric work.
 3. No sign-in. Keep returned run and request capabilities private.
 
 ## What is a "preface"?
@@ -108,7 +108,7 @@ compares the server version, complete tool set and initialization contract with
 the installed client and refuses incompatible surfaces:
 
 ```sh
-node scripts/connector_client.mjs --task=recipe --url=https://codex-musica-mcp.onrender.com/mcp
+node scripts/connector_client.mjs --task=recipe --url=https://mcp.codexmusica.com/mcp
 ```
 
 It prints the complete task surface. Add `--call=TOOL --args-file=FILE` to call

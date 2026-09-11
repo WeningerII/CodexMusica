@@ -9,8 +9,8 @@ project; response times are best-effort.
 
 ## Status & health
 
-- **Endpoint:** `https://codex-musica-mcp.onrender.com/mcp`
-- **Health check:** `https://codex-musica-mcp.onrender.com/health` → `{ "ok": true }`
+- **Endpoint:** `https://mcp.codexmusica.com/mcp`
+- **Health check:** `https://mcp.codexmusica.com/health` → `{ "ok": true }`
 
 If the connector seems unresponsive, the host may be cold-starting (it can sleep
 on idle) — retry after a few seconds.
