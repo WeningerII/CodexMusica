@@ -2008,11 +2008,43 @@ def apply_mutation(tree, mut):
     open(path, "w", encoding="utf-8").write(out)
 
 
+def plan_for(mut, green, mode, escalate=True):
+    """-> [(label, tests)]: the batches one mutation runs, in order.
+
+    Pure, so `quality/test_mutation.py` can pin the shape in microseconds
+    instead of an hour-long sweep (the `outcome` precedent, doctrine 48).
+
+    `full` mode runs every green test at once. Otherwise the DECLARED subset
+    runs first and, when it misses, the run ESCALATES to the rest of the
+    green suite -- a survivor is a finding and a finding is checked against
+    everything before it is reported. `escalate=False` withholds that second
+    batch: the caller has said this mutation's survival is NOT a finding --
+    an allowlisted EQUIVALENT mutant whose excuse rests on a premise the
+    suite checks by another mutation (`ALLOWLIST_PREMISE` in
+    test_mutation.py) -- so the full pass could only repeat what the
+    allowlist already says, at the price of a second whole-tree baseline in
+    the shard that holds it (M-275: 7,412 s of a 13,300 s shard on
+    production-qualification run 34509181078, and the kill at 14,400 s on
+    run 34534436649). A catch in the subset still counts, still marks the
+    allowlist entry dead, and still fails the sweep.
+    """
+    if mode == "full":
+        return [("full", list(green))]
+    # dict.fromkeys: subsets are concatenated tuples (T_STRUCT + T_INGEST),
+    # so a test can appear twice and would otherwise be run twice for nothing.
+    declared = [t for t in dict.fromkeys(mut.subset) if t in green]
+    plan = [("subset", declared)]
+    if escalate:
+        plan.append(("escalated-full", [t for t in green if t not in declared]))
+    return plan
+
+
 def run_mutation(mut, green, jobs, mode, base, confirm_all=False,
-                 timeout=None):
+                 timeout=None, escalate=True):
     """-> result dict. Runs the declared subset; escalates to the full green
     suite if the subset finds nothing, because a SURVIVOR is a finding and a
-    finding has to be checked against everything before it is reported."""
+    finding has to be checked against everything before it is reported.
+    `escalate=False` is the one exception, and `plan_for` says who earns it."""
     tree = build_shadow(base)
     try:
         try:
@@ -2029,15 +2061,7 @@ def run_mutation(mut, green, jobs, mode, base, confirm_all=False,
                     "tests_run": [], "caught_by": {}, "load_sensitive": {},
                     "refused_by": {}, "indeterminate": False,
                     "survived": False, "stale": str(e), "seconds": 0.0}
-        if mode == "full":
-            plan = [("full", list(green))]
-        else:
-            # dict.fromkeys: subsets are concatenated tuples (T_STRUCT +
-            # T_INGEST), so a test can appear twice and would otherwise be run
-            # twice for nothing.
-            declared = [t for t in dict.fromkeys(mut.subset) if t in green]
-            plan = [("subset", declared),
-                    ("escalated-full", [t for t in green if t not in declared])]
+        plan = plan_for(mut, green, mode, escalate)
         caught, flaky, refused, ran, timings, scope = {}, {}, {}, [], {}, None
         for label, batch in plan:
             if not batch:
@@ -2085,6 +2109,11 @@ def run_mutation(mut, green, jobs, mode, base, confirm_all=False,
             "subset_declared": list(mut.subset),
             "subset_missing_from_green": missing_from_green,
             "scope_run": scope or "none", "tests_run": sorted(ran),
+            # Whether the full-suite pass was on the plan at all. A reader of
+            # a `subset`-scoped SURVIVED line has to be able to tell "the
+            # subset missed and nothing escalated" from "escalation was never
+            # offered", and only this field says which.
+            "escalation": "declared" if escalate else "withheld (allowlisted, premised)",
             "caught_by": caught, "load_sensitive": flaky,
             "refused_by": refused,
             # Three outcomes, not two. A mutation nothing caught is a SURVIVOR
@@ -2225,7 +2254,9 @@ def report(results, baseline_results, elapsed, mode, bounded=None):
                 + " never finished")
         elif r["survived"]:
             survivors.append(r["name"])
-            who = "*** SURVIVED ***"
+            who = ("*** SURVIVED *** (allowlisted; escalation withheld on its premise)"
+                   if str(r.get("escalation", "")).startswith("withheld")
+                   else "*** SURVIVED ***")
         else:
             who = ", ".join(f"{os.path.basename(t)}[{d['status']}]"
                             for t, d in sorted(r["caught_by"].items()))

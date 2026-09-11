@@ -86,6 +86,27 @@ ALLOWLIST = {
         "and M4 stops being equivalent."),
 }
 
+# THE PREMISED ENTRIES, AND WHAT THE PREMISE BUYS (M-275, 2026-09-11). An
+# allowlist entry is an argument, and M4's has a premise the sweep checks by
+# ANOTHER mutation: M4 is equivalent BECAUSE `cluster_sim` returns 1.0 for
+# two empty clusters, and M11 mutates exactly that line and is caught. An
+# entry that names its premise here earns one thing: when its declared
+# subset misses, the run does NOT escalate to the full green suite. The
+# escalation exists to check a FINDING against everything before it is
+# reported, and an equivalent mutant's survival is not a finding -- the full
+# pass could only repeat what the entry says, and it costs a second
+# whole-tree baseline in whichever shard holds the entry: MEASURED 7,412 s of
+# mutation-4's 13,300 s on production-qualification run 34509181078 (its
+# six sibling mutations cost ~300 s together), and the kill at 14,400 s on
+# run 34534436649 where the baseline alone took 8,348 s. A catch in the
+# subset still counts, still marks the entry dead below, and still fails the
+# sweep; the premise check below still runs in whichever shard holds the
+# premise mutation. An entry WITHOUT a premise here escalates exactly as
+# before -- the shortcut is earned by the argument, never by the listing.
+ALLOWLIST_PREMISE = {
+    "M4": "M11",
+}
+
 #: BACKLOG 1.1's acceptance triple: the mutation that survived, and the two
 #: controls that were caught on the same day. The controls are here so that a
 #: run in which everything passes is distinguishable from a run in which the
@@ -291,6 +312,51 @@ def test_M1_is_declared_verbatim():
           f"{m.old.strip()}  ->  {m.new.strip()}")
     check("M1 targets the shipped comparator",
           m.file == "lyric_harness.py")
+
+
+def test_the_premised_allowlist_withholds_escalation_and_nothing_else():
+    """3g. THE SECOND BASELINE (M-275). A mutation whose declared subset
+    misses it escalates to the full green suite, and for an allowlisted
+    EQUIVALENT mutant that is a whole-tree baseline paid again for an answer
+    the allowlist already gives. `ALLOWLIST_PREMISE` names the entries that
+    carry a premise the sweep checks by another mutation, and only they are
+    run subset-only. Pinned here in microseconds, over `plan_for` (pure), so
+    the rule is never reasoned about instead of exercised (doctrine 48).
+    """
+    print("\n3g. the premised allowlist withholds escalation, and nothing else")
+    names = {m.name for m in mutate.MUTATIONS}
+    check("every premised entry is an allowlist entry -- the shortcut is "
+          "earned by the argument, never by the listing",
+          set(ALLOWLIST_PREMISE) <= set(ALLOWLIST),
+          str(set(ALLOWLIST_PREMISE) - set(ALLOWLIST)))
+    check("every premise names a declared mutation, distinct from its entry",
+          all(p in names and p != e for e, p in ALLOWLIST_PREMISE.items()),
+          str(ALLOWLIST_PREMISE))
+    m4 = next(m for m in mutate.MUTATIONS if m.name == "M4")
+    green = list(dict.fromkeys(m4.subset)) + ["quality/test_zzz_other.py",
+                                                "quality/test_zzz_more.py"]
+    withheld = mutate.plan_for(m4, green, "subset", escalate=False)
+    offered = mutate.plan_for(m4, green, "subset", escalate=True)
+    check("escalate=False runs the declared subset and NOTHING after it",
+          [l for l, _ in withheld] == ["subset"]
+          and withheld[0][1] == list(dict.fromkeys(m4.subset)), str(withheld))
+    check("escalate=True runs the subset and then the REST of the green suite",
+          [l for l, _ in offered] == ["subset", "escalated-full"]
+          and offered[1][1] == ["quality/test_zzz_other.py",
+                                "quality/test_zzz_more.py"], str(offered))
+    check("full mode is one batch either way -- the flag has no purchase there",
+          mutate.plan_for(m4, green, "full", escalate=False)
+          == mutate.plan_for(m4, green, "full", escalate=True)
+          == [("full", green)])
+    check("a subset that the baseline dropped is not on the plan under either flag",
+          mutate.plan_for(m4, ["quality/test_zzz_other.py"], "subset",
+                          escalate=False) == [("subset", [])])
+    # The population, so the section says how many entries take the shortcut
+    # rather than only that the shortcut exists (doctrine 20).
+    print(f"      {len(ALLOWLIST_PREMISE)} premised entr"
+          f"{'y' if len(ALLOWLIST_PREMISE) == 1 else 'ies'} of "
+          f"{len(ALLOWLIST)} allowlisted run subset-only: "
+          + ", ".join(f"{e} (premise {p})" for e, p in ALLOWLIST_PREMISE.items()))
 
 
 def test_the_three_way_outcome():
@@ -665,7 +731,8 @@ def run_suite(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
     import concurrent.futures as futures
     with futures.ThreadPoolExecutor(max_workers=mutation_jobs) as ex:
         fs = {ex.submit(mutate.run_mutation, m, green, jobs, mode, base,
-                        confirm_all, timeout): m for m in muts}
+                        confirm_all, timeout,
+                        m.name not in ALLOWLIST_PREMISE): m for m in muts}
         # A PROGRESS LINE, FLUSHED, SO A KILLED RUN STILL BOUNDS ITSELF.
         # `timeout Nm` leaves no verdict and no wall clock — the sweep banks
         # nothing, correctly (doctrine 20), but until 2026-08-26 it also SAID
@@ -794,16 +861,23 @@ def test_the_run(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
     # clusters, which makes the band's duplicate clause unobservable. That
     # premise is itself a mutation -- M11 -- and if M11 ever stops being
     # caught, the property has NO detector anywhere and M4's excuse is void.
-    if "M4" in ALLOWLIST:
-        m11 = next((r for r in results if r["name"] == "M11"), None)
-        if m11 is not None:
-            check("M4's allowlist premise still holds: M11 is caught",
-                  bool(m11.get("caught_by")) and not m11.get("indeterminate") and not m11.get("stale"),
-                  "M4 is excused as an equivalent mutant BECAUSE cluster_sim "
-                  "carries the both-absent rule one layer down. If M11 "
-                  "survives, that layer is unprotected too and the "
-                  "both-absent predicate -- a quarter of the sonnets' "
-                  "mandated pairs -- has no detector at any level.")
+    # Generalised over ALLOWLIST_PREMISE (M-275): the premise is checked in
+    # whichever run holds the premise mutation, which under a sharded deal
+    # is not the run that holds the entry -- so the check keys on the
+    # premise's presence, not the entry's.
+    for entry, premise in ALLOWLIST_PREMISE.items():
+        if entry not in ALLOWLIST:
+            continue
+        pr = next((r for r in results if r["name"] == premise), None)
+        if pr is not None:
+            check(f"{entry}'s allowlist premise still holds: {premise} is caught",
+                  bool(pr.get("caught_by")) and not pr.get("indeterminate") and not pr.get("stale"),
+                  f"{entry} is excused as an equivalent mutant BECAUSE the "
+                  f"property it duplicates is carried one layer down, and "
+                  f"{premise} is the mutation of THAT layer. If {premise} "
+                  "survives, that layer is unprotected too and the property "
+                  "-- for M4, the both-absent predicate, a quarter of the "
+                  "sonnets' mandated pairs -- has no detector at any level.")
 
     # M1 by name, because it is the acceptance condition of BACKLOG 1.1 and a
     # generic assertion over a list is easy to satisfy by shortening the list.
@@ -1173,6 +1247,7 @@ if __name__ == "__main__":
     test_the_bounds_are_declared_and_reachable()
     test_the_shards_partition_the_list()
     test_the_shadow_reaches_what_the_suites_read()
+    test_the_premised_allowlist_withholds_escalation_and_nothing_else()
     if a.static:
         # 3f built a snapshot this exit path would otherwise strand on a
         # shared disk (the sweep path's own cleanup sits after section 4).
