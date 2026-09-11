@@ -17,7 +17,7 @@ For any tradition, you get:
 
 ## How to use it (zero setup)
 
-Base URL: `https://weningerii.github.io/CodexMusica`
+Base URL: `https://codexmusica.com`
 
 **Fastest path — one fetch for everything:** `…/api/all.json` returns all 2503
 traditions with their `recipe` strings in a single file (~1.9 MB). Fetch it once and you
@@ -75,9 +75,9 @@ it (re-pick a preface, swap a part variant, override room/chain/tuning, add/remo
 instruments or traditions) and re-render. Recipe operations are deterministic and pass `workspace` in and out. Lyrics revision
 has a separate run lifecycle and can make paid external model calls.
 
-- **Endpoint** (Streamable HTTP, no auth): `https://codex-musica-mcp.onrender.com/mcp`
+- **Endpoint** (Streamable HTTP, no auth): `https://mcp.codexmusica.com/mcp`
 - **Add in Claude:** Settings → Connectors → Add custom connector → paste the URL.
-- **Server card** (capabilities, for clients that auto-discover): `https://codex-musica-mcp.onrender.com/.well-known/mcp.json`
+- **Server card** (capabilities, for clients that auto-discover): `https://mcp.codexmusica.com/.well-known/mcp.json`
 - **Tools:** `start_recipe`, `edit_recipe`, `render_recipe`, `search_catalog`, `search_prefaces`, `get_instrument`, `get_tradition`, `list_traditions`, `list_options`.
 - `render_recipe` takes `format`: `rich` (default), `tags`, `prose`, `compact`. Every one of
   them returns the byte-identical string the app shows for the same workspace.

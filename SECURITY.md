@@ -23,8 +23,8 @@ no paid bug-bounty program.
 
 In scope:
 
-- The MCP connector at `https://codex-musica-mcp.onrender.com/mcp`
-- The static site at `https://weningerii.github.io/CodexMusica`
+- The MCP connector at `https://mcp.codexmusica.com/mcp`
+- The static site at `https://codexmusica.com`
 - Source code in this repository
 
 Out of scope:

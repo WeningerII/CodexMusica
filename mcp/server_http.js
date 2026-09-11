@@ -164,7 +164,7 @@ app.use(express.json({ limit: HTTP_REQUEST_BYTES }));
 const allowedOrigins = new Set(
   (
     process.env.MCP_ALLOWED_ORIGINS ||
-    'https://weningerii.github.io,https://codex-musica-mcp.onrender.com'
+    'https://weningerii.github.io,https://codexmusica.com,https://www.codexmusica.com,https://mcp.codexmusica.com'
   )
     .split(',')
     .map((x) => x.trim())
@@ -273,7 +273,7 @@ app.get('/', (_req, res) =>
     transport: 'streamable-http',
     endpoint: '/mcp',
     card: '/.well-known/mcp.json',
-    documentation: 'https://weningerii.github.io/CodexMusica/AGENTS.md',
+    documentation: 'https://codexmusica.com/AGENTS.md',
   })
 );
 
@@ -281,7 +281,7 @@ app.get('/', (_req, res) =>
 // can learn identity / transport / auth before the MCP handshake (the SEP-1649/SEP-1960
 // /.well-known/mcp.json pattern, mirroring OAuth/OIDC well-known docs). The full tool list
 // still comes from the MCP initialize + tools/list handshake; this is the pre-connect hint.
-const PUBLIC_MCP_URL = process.env.MCP_PUBLIC_URL || 'https://codex-musica-mcp.onrender.com/mcp';
+const PUBLIC_MCP_URL = process.env.MCP_PUBLIC_URL || 'https://mcp.codexmusica.com/mcp';
 app.get('/.well-known/mcp.json', (_req, res) =>
   res.json({
     name: 'io.github.weningerii/codex-musica',
@@ -296,8 +296,8 @@ app.get('/.well-known/mcp.json', (_req, res) =>
     taskEndpoints: { recipe: PUBLIC_MCP_URL + '/recipe', lyrics: PUBLIC_MCP_URL + '/lyrics' },
     privacy:
       'Lyrics requests, accepted drafts, recovery receipts and accounting can be persisted. Kitchen writing sends its brief to the configured provider.',
-    documentation: 'https://weningerii.github.io/CodexMusica/AGENTS.md',
-    websiteUrl: 'https://weningerii.github.io/CodexMusica',
+    documentation: 'https://codexmusica.com/AGENTS.md',
+    websiteUrl: 'https://codexmusica.com',
     repository: 'https://github.com/WeningerII/CodexMusica',
   })
 );

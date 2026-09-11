@@ -29,7 +29,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const LIVE = 'https://weningerii.github.io/CodexMusica/';
+const LIVE = 'https://codexmusica.com/';
 
 const flags = {};
 for (const a of process.argv.slice(2)) {

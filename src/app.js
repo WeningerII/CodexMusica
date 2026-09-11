@@ -18895,7 +18895,7 @@ function wireSimilarEvents(container) {
 // without editing the shipped page.
 const CHAT_BACKEND =
   (typeof window !== 'undefined' && window.CODEX_CHAT_ENDPOINT) ||
-  'https://codex-musica-mcp.onrender.com';
+  'https://mcp.codexmusica.com';
 
 const CHAT_STORAGE_KEY = `codex-musica-chat-v2:${CHAT_BACKEND}`;
 const chatState = { history: null, workspace: null, lyric: null, task: null, sig: null, continuationId: null,

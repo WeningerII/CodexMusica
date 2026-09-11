@@ -49,7 +49,7 @@ import {
 export { canonical, surfaceDrift, initializationDrift } from './surface_contract.js';
 import { validateImageManifest, imageBuildDrift } from '../scripts/image_release.mjs';
 
-const DEFAULT_URL = 'https://codex-musica-mcp.onrender.com/mcp';
+const DEFAULT_URL = 'https://mcp.codexmusica.com/mcp';
 
 export function parseLiveArguments(argv) {
   const flags = {},

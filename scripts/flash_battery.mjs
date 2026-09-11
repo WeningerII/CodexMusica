@@ -164,7 +164,7 @@ if (
   throw new Error('runtime and delivery reserve must be finite nonnegative seconds (runtime > 0)');
 }
 const sessionDeadline = performance.now() + MAX_RUNTIME_MS;
-const BASE = args.base || 'https://codex-musica-mcp.onrender.com';
+const BASE = args.base || 'https://mcp.codexmusica.com';
 const OUT = args.out;
 if (!OUT) {
   console.error(

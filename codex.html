@@ -11,10 +11,10 @@
      most fetchers will truncate or refuse it. Everything you need is linked here, in the
      first kilobyte, so a truncated fetch still finds it:
        - Live EDITABLE engine, as an MCP connector (Streamable HTTP, no auth):
-         https://codex-musica-mcp.onrender.com/mcp
+         https://mcp.codexmusica.com/mcp
        - Agent instructions: llms.txt
        - Every recipe in one fetch: api/all.json -->
-<link rel="help" href="https://codex-musica-mcp.onrender.com/mcp" title="Live editable engine (MCP connector) — start here">
+<link rel="help" href="https://mcp.codexmusica.com/mcp" title="Live editable engine (MCP connector) — start here">
 <link rel="alternate" type="text/plain" href="llms.txt" title="Agent instructions (llms.txt)">
 <link rel="alternate" type="application/json" href="api/all.json" title="Every recipe in one fetch">
 <meta name="theme-color" content="#0f0f12">
@@ -66995,7 +66995,7 @@ function wireSimilarEvents(container) {
 // without editing the shipped page.
 const CHAT_BACKEND =
   (typeof window !== 'undefined' && window.CODEX_CHAT_ENDPOINT) ||
-  'https://codex-musica-mcp.onrender.com';
+  'https://mcp.codexmusica.com';
 
 const CHAT_STORAGE_KEY = `codex-musica-chat-v2:${CHAT_BACKEND}`;
 const chatState = { history: null, workspace: null, lyric: null, task: null, sig: null, continuationId: null,
