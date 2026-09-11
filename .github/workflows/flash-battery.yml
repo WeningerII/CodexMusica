@@ -99,10 +99,13 @@ jobs:
         env:
           BATTERY_RECOVERY_KEY: ${{ secrets.BATTERY_RECOVERY_KEY }}
         run: node scripts/battery_archive.mjs open --archive=battery-sealed-in/battery-recovery.enc --out=battery-out
+      # `vars.CONNECTOR_URL` names the service under test (M-278); unset, the
+      # check and the driver use the address the product documents.
       - name: Verify the live implementation
         env:
           LIVE_COMMIT: ${{ inputs.live_commit }}
           WAIT_FOR_LIVE: ${{ inputs.wait_for_live }}
+          MCP_LIVE_URL: ${{ vars.CONNECTOR_URL != '' && format('{0}/mcp', vars.CONNECTOR_URL) || '' }}
         run: |
           umask 077
           mkdir -p battery-out
@@ -157,6 +160,7 @@ jobs:
           EXPECT: ${{ inputs.expect }}
           MODE: ${{ inputs.mode }}
           RESUME_RUN: ${{ inputs.resume_run }}
+          CONNECTOR_URL: ${{ vars.CONNECTOR_URL }}
         run: |
           umask 077
           remaining=$((BATTERY_JOB_STARTED + 355 * 60 - $(date +%s) - 300))
@@ -168,9 +172,12 @@ jobs:
           if [ -n "$RESUME_RUN" ]; then resume=(--resume); fi
           raw=()
           if [ "$MODE" = "raw" ]; then raw=(--raw); fi
+          base=()
+          if [ -n "$CONNECTOR_URL" ]; then base=(--base="$CONNECTOR_URL"); fi
           set +e
           node scripts/flash_battery.mjs \
             --out=battery-out \
+            "${base[@]}" \
             --commit="$LIVE_COMMIT" \
             --require-recovery \
             --require-remote-recovery \
@@ -207,8 +214,16 @@ jobs:
           LATEST_SEAL_SUCCEEDED: ${{ steps.seal.outcome == 'success' }}
         run: |
           node -e 'const fs=require("fs"); const p="battery-sealed/manifest.json"; if(fs.existsSync(p)){const m=JSON.parse(fs.readFileSync(p,"utf8")); m.latest_seal_succeeded=process.env.LATEST_SEAL_SUCCEEDED==="true"; fs.writeFileSync(p,JSON.stringify(m,null,2)+"\n",{mode:0o600});}'
+      # ONLY WHEN THE DRIVER'S CODE IS ON DISK (M-277). This step is
+      # `always()`, and when the key check above refuses, checkout is SKIPPED
+      # -- so this ran `node scripts/battery_archive.mjs` on an empty
+      # workspace, died MODULE_NOT_FOUND, and became the step the run's
+      # failure summary pointed at. Measured on run 34562596600: the refusal
+      # ("Configure BATTERY_RECOVERY_KEY ...") was the second step; the
+      # failed-jobs view showed only this one's stack trace. A step that can
+      # only speak once the checkout happened is gated on the checkout.
       - name: Print only safe aggregate outcomes
-        if: always()
+        if: always() && hashFiles('scripts/battery_archive.mjs') != ''
         run: node scripts/battery_archive.mjs summary --source=battery-out
       - name: Upload only encrypted recovery data and its public manifest
         if: always() && hashFiles('battery-sealed/battery-recovery.enc') != ''

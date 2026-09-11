@@ -190,10 +190,19 @@ jobs:
           echo "Render accepted a deploy of $SHA."
           echo "Waiting for the live identity, readiness and configuration checks below."
 
+      # THE ADDRESS IS CONFIGURATION, NOT CODE (M-278). The image-backed
+      # service Render created on 2026-09-11 answers at
+      # codex-musica-mcp-tc72.onrender.com; the legacy Git-backed service kept
+      # codex-musica-mcp.onrender.com when it was renamed, because Render ties
+      # the subdomain to the service, not the name. Run 74 polled the old
+      # address for 30 minutes and read Render's HTML page instead of JSON.
+      # `vars.CONNECTOR_URL` names the service this workflow verifies; unset,
+      # check_live.mjs falls back to the address the product documents.
       - name: Verify the deployed runtime
         if: steps.guard.outputs.go == 'yes'
         env:
           TESTED_SHA: ${{ steps.sha.outputs.sha }}
+          MCP_LIVE_URL: ${{ vars.CONNECTOR_URL != '' && format('{0}/mcp', vars.CONNECTOR_URL) || '' }}
         run: |
           npm --prefix mcp ci --no-audit --no-fund
           deadline=$((SECONDS + 1800))

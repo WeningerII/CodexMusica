@@ -70,19 +70,25 @@ def spec(component):
     # own comment already says a shard count cannot fix that while every shard
     # pays the whole-tree baseline.
     #
-    # STILL 14,400 ON 2026-09-11 AFTER M-276 TOOK THE WHOLE-TREE BASELINE OUT
-    # OF THE SHARD, and the reason it is not lower yet is the rule two
-    # paragraphs up: a bound a run has hit is a floor, and a bound no run has
-    # measured is a guess. Shard 1 of run 34534436649 cost 9,288 s, 8,506 of
-    # them the baseline this change stops paying; the first completed run on
-    # the new shape is the measurement that sizes this number DOWN, and the
-    # kill it guards against is now one that has to be a real hang, not a
-    # slow runner paying for 99 suites.
+    # ~~STILL 14,400 ON 2026-09-11 AFTER M-276 TOOK THE WHOLE-TREE BASELINE
+    # OUT OF THE SHARD~~ -- 14,400 -> 7,200 THE SAME NIGHT, ON THE MEASUREMENT
+    # THAT PARAGRAPH SAID TO WAIT FOR. Production-qualification run 34556096487
+    # (3cd87d94, the first on the new shape) completed every shard: the
+    # comparison step cost 296 s (shard 6, no revise/loop mutation), 997 s
+    # (shard 5) and 1,420-1,551 s (shards 1, 2, 3, 4, 7, 8, one QR mutation
+    # each, so `test_revise` and `test_loop` run twice: once unmutated, once
+    # under the mutation). Slowest measured 1,551 s; M-273's runner spread is
+    # 2.4x, which puts the slow tail at 3,722 s; 7,200 is 1.9x THAT, and 4.6x
+    # the reading. A kill at 7,200 is a hang or an escalation on a slow runner
+    # (2B on that path, M-276), and both are reds a developer reproduces
+    # locally -- the point of halving the bound is that they are reported in
+    # two hours, not four. The job's `timeout-minutes` stays 300 because the
+    # song/short/curves budgets below still need it.
     if component.startswith("mutation-"):
         # SPLIT, not `component[-1]`: that read the last CHARACTER and would
         # deal `mutation-10` as shard 0 the day this count reaches two digits.
         return ["quality/test_mutation.py",
-                f"--shard={component.split('-')[1]}/{MUTATION_SHARDS}"], 14400
+                f"--shard={component.split('-')[1]}/{MUTATION_SHARDS}"], 7200
     # `song` WAS MOVED 9000 -> 14400 ON 2026-09-10 AND MOVED STRAIGHT BACK THE
     # SAME MORNING, BECAUSE A RUN MEASURED IT WHILE THE CHANGE WAS IN FLIGHT.
     # AND MOVED TO 14400 AGAIN THE SAME EVENING, BECAUSE THE NEXT RUN HIT
