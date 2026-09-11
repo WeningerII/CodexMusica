@@ -261,7 +261,7 @@ jobs:
         run: |
           LOG=evidence/${{ matrix.component }}.json.log
           if [ -f "$LOG" ]; then
-            grep -E 'phase 1 of 2|phase 2 of 2|baseline: (cached|running|[0-9])|CACHE |PHASE COST|TOTAL' "$LOG" | tail -40 || true
+            grep -E 'phase 1 of 2|phase 2 of 2|escalation baseline|baseline: (cached|running|[0-9])|CACHE |PHASE COST|TOTAL' "$LOG" | tail -40 || true
           else
             echo "no component log at $LOG"
           fi

@@ -1869,25 +1869,46 @@ def source_fingerprint():
 
 def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
              timeout=None):
-    """Which tests are GREEN right now. A test red at baseline is excluded
-    from the detector set: it fails either way, so it distinguishes nothing."""
+    """Which of `tests` are GREEN right now. A test red at baseline is
+    excluded from the detector set: it fails either way, so it distinguishes
+    nothing. Returns a dict over exactly `tests`.
+
+    THE CACHE IS A LEDGER, NOT A SNAPSHOT (M-276). Until 2026-09-11 a cached
+    file was accepted only when it covered every test asked for, and the
+    sweep asked for the whole tree in every shard: 99 files, 8,506 s of a
+    9,288 s shard on production-qualification run 34534436649, so a shard's
+    own mutations -- 782 s -- were 8% of what it paid. Now the file holds
+    whatever has been measured at this fingerprint and config, this call
+    runs only the tests it does not yet hold, and the merged file goes back
+    to disk. `needed_tests` says what a sweep asks for first (the suites its
+    mutations declare); `LazyBaseline` asks for the rest only when a mutation
+    escalates. A test measured twice at one fingerprint is the same
+    measurement, so merging is never a re-grade.
+    """
     fp = source_fingerprint()
     config = {"jobs": jobs, "confirm_all": confirm_all, "timeout": timeout}
+    have = {}
     if not force and cache_path and os.path.exists(cache_path):
         try:
             cached = json.load(open(cache_path))
-            if cached.get("fingerprint") == fp and cached.get("config") == config and \
-                    set(cached["results"]) >= set(tests):
-                print(f"baseline: cached ({fp})")
-                return cached["results"]
+            if cached.get("fingerprint") == fp and cached.get("config") == config:
+                have = dict(cached["results"])
         except Exception:
-            pass
-    print(f"baseline: running {len(tests)} checks unmutated ({fp}) ...")
+            have = {}
+    todo = [t for t in tests if t not in have]
+    if not todo:
+        print(f"baseline: cached ({fp}) -- {len(tests)} test file(s), all "
+              f"held at this fingerprint")
+        return {t: have[t] for t in tests}
+    if have:
+        print(f"baseline: {len(have)} test file(s) held at this fingerprint, "
+              f"{len(todo)} of the {len(tests)} asked for still to run")
+    print(f"baseline: running {len(todo)} checks unmutated ({fp}) ...")
     tree = build_shadow(_scratch_base())
     results = {}
     try:
         with futures.ThreadPoolExecutor(max_workers=jobs) as ex:
-            fs = {ex.submit(run_test, tree, t, timeout): t for t in tests}
+            fs = {ex.submit(run_test, tree, t, timeout): t for t in todo}
             for f in futures.as_completed(fs):
                 t = fs[f]
                 st, dt, tail = f.result()
@@ -1921,9 +1942,11 @@ def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
                     print(f"  BASELINE-RED  {t}  ({st})  {tail[:120]}")
     finally:
         shutil.rmtree(shadow_root(tree), ignore_errors=True)
+    have.update(results)
     if cache_path:
-        json.dump({"fingerprint": fp, "config": config, "results": results},
+        json.dump({"fingerprint": fp, "config": config, "results": have},
                   open(cache_path, "w"), indent=1)
+    results = {t: have[t] for t in tests}
     green = [t for t, r in results.items() if r["status"] == "PASS"]
     # TWO REASONS A SUITE LEAVES THE BASELINE, AND THEY ARE NEVER SUMMED
     # (doctrine 79/20). A suite with a red check IS already-red and the
@@ -1952,6 +1975,80 @@ def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
         print("  Every mutation only these could catch is UNGUARDED in this "
               "run. Raise --timeout; do not read this as a passing sweep.")
     return results
+
+
+def needed_tests(muts, tests, mode):
+    """-> the test files a sweep over `muts` must baseline BEFORE it starts.
+
+    Pure (the `plan_for` precedent), so `quality/test_mutation.py` pins it in
+    microseconds. `full` mode runs every green test under every mutation, so
+    it needs the whole inventory. Otherwise a mutation runs its DECLARED
+    subset first and escalates only when that misses, so what the sweep needs
+    up front is the union of the declared subsets, in inventory order and
+    restricted to it -- a subset naming a file outside the inventory is not
+    a test the sweep could run, and `subset_missing_from_green` already
+    reports that case per mutation. The rest of the inventory is asked for
+    by `LazyBaseline` at the moment a mutation escalates, and not before.
+    """
+    if mode == "full":
+        return list(tests)
+    declared = set()
+    for m in muts:
+        declared.update(m.subset)
+    return [t for t in tests if t in declared]
+
+
+class LazyBaseline:
+    """The whole-tree baseline, paid the first time a mutation escalates.
+
+    One instance per sweep. `ensure(tests)` measures what is not yet held
+    and returns the results over `tests`; `full()` is the zero-argument
+    callable `run_mutation` invokes for its escalated batch, and it measures
+    the whole inventory once, however many mutations in flight ask, under a
+    lock -- the second asker waits and reads the cache. `known()` is
+    everything measured so far, which is what the report and the blind-spot
+    section read: over a clean sweep that is the declared suites alone, and
+    over one that escalated it is the whole tree.
+    """
+
+    def __init__(self, tests, jobs, cache_path, force=False,
+                 confirm_all=False, timeout=None):
+        self.tests = list(tests)
+        self.jobs, self.cache_path = jobs, cache_path
+        self.force, self.confirm_all, self.timeout = force, confirm_all, timeout
+        self._results = {}
+        self._lock = __import__("threading").Lock()
+        self.escalations = 0
+
+    def ensure(self, tests):
+        with self._lock:
+            got = baseline(tests, self.jobs, self.cache_path,
+                           force=self.force and not self._results,
+                           confirm_all=self.confirm_all, timeout=self.timeout)
+            self._results.update(got)
+            return got
+
+    def full(self):
+        with self._lock:
+            self.escalations += 1
+            todo = [t for t in self.tests if t not in self._results]
+            if todo:
+                print(f"   ... escalation baseline: {len(todo)} test file(s) "
+                      f"not yet measured unmutated; measuring them now "
+                      f"(the whole inventory is {len(self.tests)})",
+                      flush=True)
+                t0 = time.time()
+                got = baseline(self.tests, self.jobs, self.cache_path,
+                               confirm_all=self.confirm_all,
+                               timeout=self.timeout)
+                self._results.update(got)
+                print(f"   ... escalation baseline done "
+                      f"({time.time() - t0:.0f}s)", flush=True)
+            return [t for t in self.tests
+                    if self._results[t]["status"] == "PASS"]
+
+    def known(self):
+        return dict(self._results)
 
 
 # ---------------------------------------------------------------------------
@@ -2040,11 +2137,18 @@ def plan_for(mut, green, mode, escalate=True):
 
 
 def run_mutation(mut, green, jobs, mode, base, confirm_all=False,
-                 timeout=None, escalate=True):
+                 timeout=None, escalate=True, full_green=None):
     """-> result dict. Runs the declared subset; escalates to the full green
     suite if the subset finds nothing, because a SURVIVOR is a finding and a
     finding has to be checked against everything before it is reported.
-    `escalate=False` is the one exception, and `plan_for` says who earns it."""
+    `escalate=False` is the one exception, and `plan_for` says who earns it.
+
+    `full_green`, when given, is a zero-argument callable returning the
+    whole inventory's green list, and it is invoked ONLY when the escalated
+    batch is reached (M-276): `green` may then be just the suites the sweep
+    baselined up front, and the rest of the tree is measured at the moment
+    a mutation actually needs it. Without it, `green` is the whole set and
+    the plan is exactly `plan_for`'s."""
     tree = build_shadow(base)
     try:
         try:
@@ -2063,7 +2167,10 @@ def run_mutation(mut, green, jobs, mode, base, confirm_all=False,
                     "survived": False, "stale": str(e), "seconds": 0.0}
         plan = plan_for(mut, green, mode, escalate)
         caught, flaky, refused, ran, timings, scope = {}, {}, {}, [], {}, None
+        declared = set(plan[0][1]) if plan and plan[0][0] == "subset" else set()
         for label, batch in plan:
+            if label == "escalated-full" and full_green is not None:
+                batch = [t for t in full_green() if t not in declared]
             if not batch:
                 continue
             scope = label if scope is None else f"{scope}+{label}"
@@ -2215,11 +2322,24 @@ def verify_pristine(muts, before, after):
 # Report
 # ---------------------------------------------------------------------------
 
-def report(results, baseline_results, elapsed, mode, bounded=None):
+def report(results, baseline_results, elapsed, mode, bounded=None,
+           inventory=None):
     print()
     print("=" * 78)
     print(f"MUTATION REPORT  ({mode} mode, seed {SEED})")
     print("=" * 78)
+    if inventory is not None:
+        # Which suites the unmutated baseline covered, said once at the top
+        # (M-276): the declared detectors alone over a sweep in which every
+        # subset caught its mutation, the whole inventory over one that
+        # escalated. A reader of the EXCLUDED block below has to know which
+        # population it was drawn from.
+        print(f"BASELINE over {len(baseline_results)} of {inventory} test "
+              f"file(s)"
+              + (" -- the whole inventory" if len(baseline_results) >= inventory
+                 else " -- the suites these mutations declare; the rest were "
+                      "never needed because no subset missed"))
+        print()
     if bounded:
         # Printed FIRST, above the excluded-at-baseline block, because it
         # changes what every line below it means. "SURVIVED" under a bounded
@@ -2453,11 +2573,20 @@ def main(argv=None):
                          "baseline-bounded-%s.json"
                          % hashlib.sha256(
                              "\n".join(sorted(tests)).encode()).hexdigest()[:8])
-    bl = baseline(tests, a.jobs, cache, force=a.rebaseline,
-                  confirm_all=a.confirm_all, timeout=a.timeout)
+    mode = "full" if a.full else "subset"
+    # The declared suites first; the rest of the tree only if a mutation
+    # escalates (M-276). `lazy.known()` after the sweep is the baseline the
+    # report reads -- the whole tree over a sweep that escalated, the
+    # declared suites over one that did not.
+    lazy = LazyBaseline(tests, a.jobs, cache, force=a.rebaseline,
+                        confirm_all=a.confirm_all, timeout=a.timeout)
+    needed = needed_tests(muts, tests, mode)
+    print(f"baseline: {len(needed)} of {len(tests)} test file(s) needed up "
+          f"front (the suites these {len(muts)} mutation(s) declare); the "
+          f"rest only if one escalates")
+    bl = lazy.ensure(needed)
     green = [t for t, r in bl.items() if r["status"] == "PASS"]
 
-    mode = "full" if a.full else "subset"
     results = []
     # Two axes of parallelism, because the suite's cost is one long pole: the
     # slowest single test file is ~40 s, so a mutation can never finish faster
@@ -2466,7 +2595,7 @@ def main(argv=None):
     # interfere; the trees are ~1.7 MB of copied .py over symlinked data.
     with futures.ThreadPoolExecutor(max_workers=max(1, a.mutation_jobs)) as ex:
         fs = {ex.submit(run_mutation, m, green, a.jobs, mode, base,
-                        a.confirm_all, a.timeout): m
+                        a.confirm_all, a.timeout, True, lazy.full): m
               for m in muts}
         for f in futures.as_completed(fs):
             r = f.result()
@@ -2482,8 +2611,10 @@ def main(argv=None):
     results.sort(key=lambda r: order[r["name"]])
 
     elapsed = time.time() - t0
+    bl = lazy.known()
     survivors = report(results, bl, elapsed, mode,
-                       bounded=tests if a.tests else None)
+                       bounded=tests if a.tests else None,
+                       inventory=len(tests))
 
     problems, changed, stale_now = verify_pristine(muts, before, root_hashes())
     print()
