@@ -6,20 +6,13 @@
 // tool call returned, why each turn stopped, what the loop ladder reached.
 // Nothing the model wrote and nothing a person wrote leaves the record.
 //
-// Usage: node scripts/battery_inspect.mjs --source=battery-out
-import { existsSync, readFileSync, readdirSync } from 'node:fs';
+// `battery_archive.mjs summary` attaches this projection as `inspection`;
+// standalone: node scripts/battery_inspect.mjs --source=battery-out
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { safeSummary } from './battery_archive.mjs';
+import { pathToFileURL } from 'node:url';
 
-const args = Object.fromEntries(
-  process.argv.slice(2).map((a) => {
-    const m = /^--([a-z-]+)=(.+)$/.exec(a);
-    if (!m) throw new Error(`unrecognised argument ${a}`);
-    return [m[1], m[2]];
-  })
-);
-if (!args.source) throw new Error('--source=DIR is required');
-const ROOT = resolve(args.source);
+const TRANSCRIPT_LIMIT_BYTES = 32 * 1024 * 1024;
 
 const IDENT = /^[A-Za-z0-9_.:/-]{1,64}$/;
 const ident = (v) => (typeof v === 'string' && IDENT.test(v) ? v : v == null ? null : 'other');
@@ -135,42 +128,56 @@ function projectCheckpoint(cp) {
   };
 }
 
-const manifest = readJSONSafe(join(ROOT, 'run.json'));
-const out = {
-  mode: ident(manifest?.mode),
-  started: typeof manifest?.started === 'string' ? manifest.started : null,
-  summary: safeSummary(readJSONSafe(join(ROOT, 'summary.json'))),
-  songs: [],
-};
-const files = existsSync(ROOT) ? readdirSync(ROOT) : [];
-for (const f of files.filter((n) => /^song\d+\.checkpoint\.json$/.test(n)).sort()) {
-  const n = /^song(\d+)/.exec(f)[1];
-  const transcript = join(ROOT, `song${n}.jsonl`);
-  const rows = existsSync(transcript)
-    ? readFileSync(transcript, 'utf8')
-        .split('\n')
-        .filter(Boolean)
-        .map((line) => {
-          try {
-            return JSON.parse(line);
-          } catch {
-            return null;
-          }
-        })
-        .filter((r) => r && typeof r === 'object' && Number.isFinite(r.turn))
-    : [];
-  out.songs.push({
-    checkpoint: projectCheckpoint(readJSONSafe(join(ROOT, f))),
-    turns: rows.map(projectRow),
-  });
+export function projectRecord(source) {
+  const ROOT = resolve(source);
+  const manifest = readJSONSafe(join(ROOT, 'run.json'));
+  const out = {
+    mode: ident(manifest?.mode),
+    started: typeof manifest?.started === 'string' ? manifest.started : null,
+    songs: [],
+  };
+  const files = existsSync(ROOT) ? readdirSync(ROOT) : [];
+  for (const f of files.filter((n) => /^song\d+\.checkpoint\.json$/.test(n)).sort()) {
+    const n = /^song(\d+)/.exec(f)[1];
+    const transcript = join(ROOT, `song${n}.jsonl`);
+    const tooLarge = existsSync(transcript) && statSync(transcript).size > TRANSCRIPT_LIMIT_BYTES;
+    const rows =
+      existsSync(transcript) && !tooLarge
+        ? readFileSync(transcript, 'utf8')
+            .split('\n')
+            .filter(Boolean)
+            .map((line) => {
+              try {
+                return JSON.parse(line);
+              } catch {
+                return null;
+              }
+            })
+            .filter((r) => r && typeof r === 'object' && Number.isFinite(r.turn))
+        : [];
+    out.songs.push({
+      checkpoint: projectCheckpoint(readJSONSafe(join(ROOT, f))),
+      transcript_too_large: tooLarge,
+      turns: rows.map(projectRow),
+    });
+  }
+  // The driver's own allowlisted rows (M-220): one notice per turn and the
+  // verdict, already written to carry no text of the model's or a person's.
+  const log = join(ROOT, 'driver.log');
+  out.driver_rows =
+    existsSync(log) && statSync(log).size <= TRANSCRIPT_LIMIT_BYTES
+      ? readFileSync(log, 'utf8')
+          .split('\n')
+          .filter((l) =>
+            /^::(notice|warning|error) title=battery (song \d+ turn \d+|verdict|partial turn)::/.test(l)
+          )
+          .map((l) => l.slice(0, 600))
+      : [];
+  return out;
 }
-// The driver's own allowlisted rows (M-220): one notice per turn and the
-// verdict, already written to carry no text of the model's or a person's.
-const log = join(ROOT, 'driver.log');
-out.driver_rows = existsSync(log)
-  ? readFileSync(log, 'utf8')
-      .split('\n')
-      .filter((l) => /^::(notice|warning|error) title=battery (song \d+ turn \d+|verdict|partial turn)::/.test(l))
-      .map((l) => l.slice(0, 600))
-  : [];
-console.log(JSON.stringify(out, null, 2));
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const source = process.argv.slice(2).find((a) => a.startsWith('--source='))?.slice(9);
+  if (!source) throw new Error('--source=DIR is required');
+  console.log(JSON.stringify(projectRecord(source), null, 2));
+}

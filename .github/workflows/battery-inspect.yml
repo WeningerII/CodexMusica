@@ -61,4 +61,4 @@ jobs:
           umask 077
           node scripts/battery_archive.mjs open --archive=battery-sealed-in/battery-recovery.enc --out=battery-out
           unset BATTERY_RECOVERY_KEY
-          node scripts/battery_inspect.mjs --source=battery-out
+          node scripts/battery_archive.mjs summary --source=battery-out
