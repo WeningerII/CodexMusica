@@ -99,10 +99,13 @@ jobs:
         env:
           BATTERY_RECOVERY_KEY: ${{ secrets.BATTERY_RECOVERY_KEY }}
         run: node scripts/battery_archive.mjs open --archive=battery-sealed-in/battery-recovery.enc --out=battery-out
+      # `vars.CONNECTOR_URL` names the service under test (M-278); unset, the
+      # check and the driver use the address the product documents.
       - name: Verify the live implementation
         env:
           LIVE_COMMIT: ${{ inputs.live_commit }}
           WAIT_FOR_LIVE: ${{ inputs.wait_for_live }}
+          MCP_LIVE_URL: ${{ vars.CONNECTOR_URL != '' && format('{0}/mcp', vars.CONNECTOR_URL) || '' }}
         run: |
           umask 077
           mkdir -p battery-out
@@ -157,6 +160,7 @@ jobs:
           EXPECT: ${{ inputs.expect }}
           MODE: ${{ inputs.mode }}
           RESUME_RUN: ${{ inputs.resume_run }}
+          CONNECTOR_URL: ${{ vars.CONNECTOR_URL }}
         run: |
           umask 077
           remaining=$((BATTERY_JOB_STARTED + 355 * 60 - $(date +%s) - 300))
@@ -168,9 +172,12 @@ jobs:
           if [ -n "$RESUME_RUN" ]; then resume=(--resume); fi
           raw=()
           if [ "$MODE" = "raw" ]; then raw=(--raw); fi
+          base=()
+          if [ -n "$CONNECTOR_URL" ]; then base=(--base="$CONNECTOR_URL"); fi
           set +e
           node scripts/flash_battery.mjs \
             --out=battery-out \
+            "${base[@]}" \
             --commit="$LIVE_COMMIT" \
             --require-recovery \
             --require-remote-recovery \
