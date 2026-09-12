@@ -73,9 +73,10 @@ function projectRow(row) {
     reply_chars: len(row.reply),
     completion: row.completion != null,
     tools: Array.isArray(row.tools) ? row.tools.map(projectTool) : [],
-    sizes: row.sizes && typeof row.sizes === 'object'
-      ? { history: num(row.sizes.history), lyric: num(row.sizes.lyric) }
-      : null,
+    sizes:
+      row.sizes && typeof row.sizes === 'object'
+        ? { history: num(row.sizes.history), lyric: num(row.sizes.lyric) }
+        : null,
   };
 }
 
@@ -169,7 +170,9 @@ export function projectRecord(source) {
       ? readFileSync(log, 'utf8')
           .split('\n')
           .filter((l) =>
-            /^::(notice|warning|error) title=battery (song \d+ turn \d+|verdict|partial turn)::/.test(l)
+            /^::(notice|warning|error) title=battery (song \d+ turn \d+|verdict|partial turn)::/.test(
+              l
+            )
           )
           .map((l) => l.slice(0, 600))
       : [];
@@ -177,7 +180,10 @@ export function projectRecord(source) {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const source = process.argv.slice(2).find((a) => a.startsWith('--source='))?.slice(9);
+  const source = process.argv
+    .slice(2)
+    .find((a) => a.startsWith('--source='))
+    ?.slice(9);
   if (!source) throw new Error('--source=DIR is required');
   console.log(JSON.stringify(projectRecord(source), null, 2));
 }
