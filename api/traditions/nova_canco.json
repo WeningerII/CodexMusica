@@ -1,11 +1,11 @@
 {
   "id": "nova_canco",
-  "name": "Nova Cançó (Els Setze Jutges movement)",
+  "name": "Nova Cançó (Catalan singer-songwriter movement, 1960s)",
   "family": "global",
   "lineage": "Catalan-language song movement launched in Barcelona in 1961 by the Els Setze Jutges collective around Miquel Porter, Josep Maria Espinàs and Delfí Abella, modelled on French chanson rive gauche and radicalized by Raimon's 'Al vent' (1963) — solo voice with nylon-string guitar or piano, later widened to string and wind arrangements, setting Catalan and Valencian poetry (Espriu, Estellés) in strophic through-built forms with declamatory, non-vibrato delivery and slow crescendo builds toward anthemic refrains.",
-  "recipe": "classic Western European early-1960s nova cançó, protest Song, iberian Latin branch, European protest song, chanson fado classic chanson, iberian functional song canción melódica. thick, breath veiled tone, slow rate, interlocked note trading. phosphor bronze bronze fingerpicked acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, French renaissance lyon twisted plain double bass, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, powell boston canonical American orchestral flute. intimate paris small studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 716,
-  "score": 211.335,
+  "recipe": "classic Western European nova cançó, protest Song, iberian Latin branch, European protest song, chanson fado classic chanson, iberian functional song canción melódica. thick, breath veiled tone, slow rate, interlocked note trading. phosphor bronze bronze fingerpicked acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, French renaissance lyon twisted plain double bass, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, powell boston canonical American orchestral flute. intimate paris small studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 704,
+  "score": 217.585,
   "config": {
     "traditions": [
       "nova_canco",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 7.325000000000001,
           "voice_pitch_organization": 2.600000000000001,
           "voice_processing_chain": 6.109999999999999,
-          "voice_multitrack_stack": 3.9000000000000004
+          "voice_multitrack_stack": 7.150000000000001
         }
       },
       {
@@ -66,7 +66,7 @@
           "top_wood": 0.195,
           "back_sides": 0.195,
           "string_acoustic": 1.6899999999999997,
-          "acoustic_om_technique": 5.99
+          "acoustic_om_technique": 7.490000000000001
         }
       },
       {
@@ -83,7 +83,7 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 3.325,
+          "keyboard_technique": 4.825,
           "grand_piano_size": 2.0999999999999996,
           "grand_piano_brand": 1.1949999999999998,
           "piano_hammer": 1.7224999999999997,

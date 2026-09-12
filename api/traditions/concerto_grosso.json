@@ -5,7 +5,7 @@
   "lineage": "Late-seventeenth-century Italian orchestral form opposing a small concertino of soloists to the full ripieno string body, codified by Corelli in Rome (Op. 6, published 1714) and carried into Northern Europe by Handel's Op. 6 and Bach's Brandenburg Concertos — multi-movement slow-fast alternation, ritornello construction, walking continuo bass under harpsichord and theorbo, terraced dynamics achieved by adding or dropping the ripieno, and brisk detached Baroque articulation at dance-derived tempi.",
   "recipe": "classic European mid-1710s concerto grosso, art Music, western early branch, western common practice art music, string drone modal chamber music french baroque. gut Italian alpine spruce val di fiemme European maple bosnian source violin orchestral, synthetic Italian alpine spruce val di fiemme European maple bosnian source cello, French blanchet taskin paris canonical late 18th century galant soft leather plectra canonical French 18th century alternative quarter comma meantone canonical renaissance early Baroque legato harpsichord, rosewood ribs premium late Baroque alpine spruce Italian pistoy bass gut plain gut treble historical canonical Baroque theorbo, venice catlin high twist renaissance bass Italian alpine spruce val di fiemme double bass, boxwood canonical Baroque classical pre 1850 marigaux French continuous-airflow legato oboe, trumpet Baroque natural trumpet, Italian alpine spruce val di fiemme European maple bosnian source flamed figure viola classical.",
   "recipe_chars": 980,
-  "score": 391.661,
+  "score": 393.661,
   "config": {
     "traditions": [
       "concerto_grosso",
@@ -180,7 +180,7 @@
           "viola_varnish": 8.17,
           "viola_setup_period": 8.24875,
           "viola_bow_stick": 8.5475,
-          "viola_rosin": 8.68
+          "viola_rosin": 10.68
         }
       },
       {

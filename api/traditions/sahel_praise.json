@@ -5,7 +5,7 @@
   "lineage": "Contemporary West African Sahel praise-music tradition that extends the Mande jeli vocal-and-praise lineage into the modern electric-band context — Salif Keita (Maninka noble-line singer who broke caste taboo by becoming a commercial musician, 1987 Soro album the Paris-recorded breakthrough), Youssou NDour (Senegalese Wolof, his 1984 Immigrés the Paris recording), Baaba Maal (Senegalese Fulani Pulaar-language), Mory Kanté (Guinean kora-virtuoso, 1987 Yé Ké Yé Ké), Ali Farka Touré, Toumani Diabaté, Khaira Arby, Oumou Sangaré",
   "recipe": "classic Western European late-1980s sahel praise music, functional Song, African pop branch, Sufi ritual devotional, west African griot ballad poetry sudanese aghani al-banat wassoulou. thick, declaimed, straight onset, interlocked note trading. open string slide resonance clean strummed single coil electric guitar, stainless steel roundwound sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, calabash nylon fishing line cowhide mande traditional kora, griot voice, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, donso ritual large calabash mande gut pre modern hunters donso ngoni. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 882,
-  "score": 292.96,
+  "score": 291.075,
   "config": {
     "traditions": [
       "sahel_praise",
@@ -135,7 +135,7 @@
           "kora_strings_mat": 2.6650000000000005,
           "kora_top_skin": 1.69,
           "kora_neck_wood": 1.69,
-          "kora_lineage": 3.575
+          "kora_lineage": 1.69
         }
       },
       {

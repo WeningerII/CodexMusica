@@ -3,9 +3,9 @@
   "name": "String band (Southern pre-war)",
   "family": "vernacular",
   "lineage": "Commercially recorded southern American ensemble format of the 1920s-30s in which fiddle carries melody, banjo and guitar supply the bum-ditty and bass-run rhythm, and mandolin or string bass fill out the middle — codified by the 1923-31 Okeh, Victor and Columbia field trips including Ralph Peer's 1927 Bristol sessions, with Gid Tanner's Skillet Lickers, Charlie Poole's North Carolina Ramblers and the Carter Family setting the templates of dance breakdowns, ballads and comic skits at steady 2/4 and 4/4 with heavy bass-string runs on guitar.",
-  "recipe": "classic Southern American mid-1920s string band, functional Song, pre commercial branch, bluegrass improv on frame, blues narrative jug band neo-traditional bluegrass reactionary bluegrass. plain gut sheep gut double stops fiddle, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, cedar martin lifespan sealed flatpicked dreadnought acoustic guitar, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, venice catlin high twist renaissance bass plywood laminate double bass, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. bristol sessions appalachian pre commercial. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 749,
-  "score": 304.336,
+  "recipe": "classic Southern American mid-1920s string band, functional Song, pre commercial branch, bluegrass improv on frame, blues narrative jug band neo-traditional bluegrass reactionary bluegrass. plain gut sheep gut double stops fiddle, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, cedar martin lifespan sealed flatpicked dreadnought acoustic guitar, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, venice catlin high twist renaissance bass plywood laminate double bass, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. bristol sessions appalachian pre commercial. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 753,
+  "score": 304.246,
   "config": {
     "traditions": [
       "string_band",
@@ -89,8 +89,8 @@
         "scores": {
           "acoustic_technique": 10.635,
           "mandolin_shape": 9.795,
-          "mandolin_top": 11.92,
-          "mandolin_back": 9.795,
+          "mandolin_top": 11.875,
+          "mandolin_back": 9.75,
           "mandolin_bracing": 9.945,
           "mandolin_strings": 4.9075,
           "mandolin_fingerboard": 0.975,

@@ -23,7 +23,7 @@
         {
           "id": "keyed_trumpet_viennese_weidinger",
           "default": true,
-          "name": "Viennese Weidinger concerto instrument (c. 1793–1820 — natural trumpet with five drilled keys)",
+          "name": "Viennese concerto instrument (c. 1793–1820 — natural trumpet with five drilled keys)",
           "descriptors": [
             "soloistic",
             "noble",
@@ -83,7 +83,7 @@
         {
           "id": "keyed_trumpet_eb",
           "default": true,
-          "name": "E♭ (the Haydn Hob. VIIe:1 instrument)",
+          "name": "E♭ (the 1796 Viennese concerto instrument)",
           "descriptors": [
             "brilliant",
             "standard",
@@ -251,7 +251,7 @@
         {
           "id": "keyed_trumpet_viennese_weidinger",
           "default": true,
-          "name": "Viennese Weidinger concerto instrument (c. 1793–1820 — natural trumpet with five drilled keys)",
+          "name": "Viennese concerto instrument (c. 1793–1820 — natural trumpet with five drilled keys)",
           "descriptors": [
             "soloistic",
             "noble",
@@ -311,7 +311,7 @@
         {
           "id": "keyed_trumpet_eb",
           "default": true,
-          "name": "E♭ (the Haydn Hob. VIIe:1 instrument)",
+          "name": "E♭ (the 1796 Viennese concerto instrument)",
           "descriptors": [
             "brilliant",
             "standard",

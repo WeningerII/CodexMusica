@@ -3,9 +3,9 @@
   "name": "Stomp and Holler",
   "family": "pop_rock",
   "lineage": "Anglo-American indie-folk revival style of roughly 2008-2015 — Mumford & Sons, The Lumineers, Of Monsters and Men, Edward Sharpe and The Head and the Heart — built on strummed dreadnought guitar and clawhammer or rolled banjo at 100-140 BPM, a kick-drum-and-tambourine floor pulse played by the singers themselves, communal 'hey!' shouts and massed unison choruses, and a soft-verse-to-full-band-crescendo dynamic arc borrowed from post-rock and applied to acoustic instrumentation.",
-  "recipe": "classic mid-2010s stomp and holler, ballad Poetry, indie folk branch, americana country, bluegrass improv on frame reactionary bluegrass neo-traditional bluegrass. thick, breath veiled tone, straight note core, interlocked note trading. bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, cedar koa phosphor bronze modern martin travis picked dreadnought acoustic guitar, upright bass, double bass rapid double strokes bass drum, snappy to palm hand clap, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, Hammond a 100 built in Leslie home spinet fast tremolo tonewheel organ, tambourine orch. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 834,
-  "score": 429.072,
+  "recipe": "classic mid-2010s stomp and holler, ballad Poetry, indie folk branch, americana country, bluegrass improv on frame reactionary bluegrass neo-traditional bluegrass. thick, breath veiled tone, straight note core, interlocked note trading. bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, cedar koa phosphor bronze modern martin travis picked dreadnought acoustic guitar, upright bass, double bass rapid double strokes bass drum, snappy to palm hand clap, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, Hammond a 100 built in Leslie home spinet fast tremolo tonewheel organ, tambourine orch. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 838,
+  "score": 428.682,
   "config": {
     "traditions": [
       "stomp_and_holler",
@@ -144,8 +144,8 @@
         "scores": {
           "acoustic_technique": 9.19,
           "mandolin_shape": 9.045,
-          "mandolin_top": 11.08,
-          "mandolin_back": 9.195,
+          "mandolin_top": 10.885,
+          "mandolin_back": 9,
           "mandolin_bracing": 9.195,
           "mandolin_strings": 2.8274999999999997,
           "mandolin_fingerboard": 0.585,

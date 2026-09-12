@@ -48,7 +48,7 @@
         {
           "id": "diyin_gehu_skin_lever",
           "default": true,
-          "name": "Skin-and-lever bass gehu (Yang Yusen, c.1956)",
+          "name": "Skin-and-lever bass gehu (original design, c.1956)",
           "descriptors": [
             "python-skin",
             "hide",
@@ -263,7 +263,7 @@
         {
           "id": "diyin_gehu_skin_lever",
           "default": true,
-          "name": "Skin-and-lever bass gehu (Yang Yusen, c.1956)",
+          "name": "Skin-and-lever bass gehu (original design, c.1956)",
           "descriptors": [
             "python-skin",
             "hide",

@@ -3,9 +3,9 @@
   "name": "Huayno peruano",
   "family": "global",
   "lineage": "Peruvian branch of the Andean huayno, documented on commercial 78s from the 1910s-20s in Lima and codified regionally through Ayacucho, Cusco and Ancash recording scenes from the 1950s onward by singers such as Pastorita Huaracina and Jilguero del Huascarán, built on an anhemitonic pentatonic melody in duple 2/4 with the short-short-long iambic cell, sung in a high nasal Quechua or Spanish voice over harp, violin, mandolin, charango and guitar, and closing with an accelerated fuga.",
-  "recipe": "classic Andean mid-1910s huayno peruano, carnival Processional, andean branch, andean field work, Latin am troubadour ballad poetry folklore ecuatoriano música andina. sygyt, forward-resonance, slow rate, interlocked note trading. harpa, plain gut sheep gut unsplit sitka spruce French Polish violin orchestral, naranjillo andean premium wood cedar andean andean classical charango, cedar plain gut sheep gut unsplit classical nylon-string guitar, adirondack red spruce loar canon parallel tone bars loar graduation mandolin, quena. bogota colombian andean studio. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
-  "recipe_chars": 710,
-  "score": 288.385,
+  "recipe": "classic Andean mid-1910s huayno peruano, carnival Processional, andean branch, andean field work, Latin am troubadour ballad poetry folklore ecuatoriano música andina. sygyt, forward-resonance, slow rate, interlocked note trading. harpa, plain gut sheep gut unsplit sitka spruce French Polish violin orchestral, naranjillo andean premium wood cedar andean andean classical charango, cedar plain gut sheep gut unsplit classical nylon-string guitar, adirondack red spruce parallel tone bars loar graduation k and k twin mandolin, quena. bogota colombian andean studio. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 712,
+  "score": 288.16,
   "config": {
     "traditions": [
       "huayno_peruano",
@@ -141,7 +141,7 @@
         "scores": {
           "acoustic_technique": 1.94,
           "mandolin_shape": 0.845,
-          "mandolin_top": 2.4699999999999998,
+          "mandolin_top": 2.245,
           "mandolin_back": 0,
           "mandolin_bracing": 1.6249999999999998,
           "mandolin_strings": 0.95,

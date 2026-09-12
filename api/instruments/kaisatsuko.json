@@ -48,7 +48,7 @@
         {
           "id": "kaisatsuko_bare_nylon",
           "default": true,
-          "name": "Bare nylon wheel (Yuichi Onoue's own build)",
+          "name": "Bare nylon wheel (inventor's own build)",
           "descriptors": [
             "nylon",
             "thin",
@@ -233,7 +233,7 @@
         {
           "id": "kaisatsuko_bare_nylon",
           "default": true,
-          "name": "Bare nylon wheel (Yuichi Onoue's own build)",
+          "name": "Bare nylon wheel (inventor's own build)",
           "descriptors": [
             "nylon",
             "thin",

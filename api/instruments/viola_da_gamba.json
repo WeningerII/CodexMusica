@@ -257,9 +257,8 @@
         {
           "id": "gamba_marais_french_baroque",
           "default": true,
-          "name": "Marais / French baroque (basse de viole canonical)",
+          "name": "French baroque (basse de viole canonical)",
           "descriptors": [
-            "marais-lineage",
             "french-baroque-basse-de-viole"
           ],
           "match_tokens": [
@@ -270,10 +269,8 @@
         },
         {
           "id": "gamba_sainte_colombe",
-          "name": "Sainte-Colombe (French baroque master)",
-          "descriptors": [
-            "sainte-colombe-lineage"
-          ],
+          "name": "French baroque master lineage (17th-century viol school)",
+          "descriptors": [],
           "match_tokens": [
             "bowed",
             "renaissance",
@@ -282,9 +279,8 @@
         },
         {
           "id": "gamba_william_lawes",
-          "name": "William Lawes (English consort)",
+          "name": "English consort (early-17th-century Caroline court)",
           "descriptors": [
-            "william-lawes-lineage",
             "english-consort"
           ],
           "match_tokens": [
@@ -294,10 +290,9 @@
         },
         {
           "id": "gamba_jordi_savall_modern_revival",
-          "name": "Modern revival (Jordi Savall / Hespèrion XX lineage)",
+          "name": "Modern revival (late-20th-century Catalan early-music lineage)",
           "descriptors": [
-            "modern-revival",
-            "savall-hesperion-lineage"
+            "modern-revival"
           ],
           "match_tokens": [
             "bowed",
@@ -524,9 +519,8 @@
         {
           "id": "gamba_marais_french_baroque",
           "default": true,
-          "name": "Marais / French baroque (basse de viole canonical)",
+          "name": "French baroque (basse de viole canonical)",
           "descriptors": [
-            "marais-lineage",
             "french-baroque-basse-de-viole"
           ],
           "match_tokens": [
@@ -537,10 +531,8 @@
         },
         {
           "id": "gamba_sainte_colombe",
-          "name": "Sainte-Colombe (French baroque master)",
-          "descriptors": [
-            "sainte-colombe-lineage"
-          ],
+          "name": "French baroque master lineage (17th-century viol school)",
+          "descriptors": [],
           "match_tokens": [
             "bowed",
             "renaissance",
@@ -549,9 +541,8 @@
         },
         {
           "id": "gamba_william_lawes",
-          "name": "William Lawes (English consort)",
+          "name": "English consort (early-17th-century Caroline court)",
           "descriptors": [
-            "william-lawes-lineage",
             "english-consort"
           ],
           "match_tokens": [
@@ -561,10 +552,9 @@
         },
         {
           "id": "gamba_jordi_savall_modern_revival",
-          "name": "Modern revival (Jordi Savall / Hespèrion XX lineage)",
+          "name": "Modern revival (late-20th-century Catalan early-music lineage)",
           "descriptors": [
-            "modern-revival",
-            "savall-hesperion-lineage"
+            "modern-revival"
           ],
           "match_tokens": [
             "bowed",

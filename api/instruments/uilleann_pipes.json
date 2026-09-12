@@ -284,9 +284,9 @@
         {
           "id": "uilleann_taylor_egan",
           "default": true,
-          "name": "Taylor-Egan Philadelphia tradition (canonical wide-bore Irish-American)",
+          "name": "Philadelphia tradition (canonical wide-bore Irish-American)",
           "descriptors": [
-            "taylor-egan-philadelphia-canonical-wide-bore-irish-american"
+            "philadelphia-canonical-wide-bore-irish-american"
           ],
           "match_tokens": [
             "wind-driven",
@@ -295,9 +295,9 @@
         },
         {
           "id": "uilleann_rowsome",
-          "name": "Rowsome Dublin tradition (Leo Rowsome / Liam O'Flynn lineage)",
+          "name": "Dublin pipemaking tradition (20th-century concert-pipes lineage)",
           "descriptors": [
-            "rowsome-dublin-tradition"
+            "dublin-tradition"
           ],
           "match_tokens": [
             "wind-driven",
@@ -499,9 +499,9 @@
         {
           "id": "uilleann_taylor_egan",
           "default": true,
-          "name": "Taylor-Egan Philadelphia tradition (canonical wide-bore Irish-American)",
+          "name": "Philadelphia tradition (canonical wide-bore Irish-American)",
           "descriptors": [
-            "taylor-egan-philadelphia-canonical-wide-bore-irish-american"
+            "philadelphia-canonical-wide-bore-irish-american"
           ],
           "match_tokens": [
             "wind-driven",
@@ -510,9 +510,9 @@
         },
         {
           "id": "uilleann_rowsome",
-          "name": "Rowsome Dublin tradition (Leo Rowsome / Liam O'Flynn lineage)",
+          "name": "Dublin pipemaking tradition (20th-century concert-pipes lineage)",
           "descriptors": [
-            "rowsome-dublin-tradition"
+            "dublin-tradition"
           ],
           "match_tokens": [
             "wind-driven",

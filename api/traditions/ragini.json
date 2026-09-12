@@ -5,7 +5,7 @@
   "lineage": "The feminine-consort modes of the North Indian ragamala system, systematised in the medieval raga-ragini classifications and painted in the Rajput and Pahari ragamala albums from the sixteenth century, and surviving in performance through gharana khayal and dhrupad treatments of Todi, Asavari, Bhairavi, Gauri and Malkauns's consorts — slow unmetered alap over tanpura drone, then a bandish in vilambit and drut laya on tabla, with sarangi or sitar shadowing a heavily meend- and gamak-inflected vocal line.",
   "recipe": "classic South Asian early-1950s ragini, art Music, south Asian branch, indian classical improv improv on frame, vocal drone modal këngë popullore e jugut naturjodel. vocal fry, breath veiled tone, slow rate, interlocked note trading. gut 3 main playing strings legato sarangi, maihar gharana instrumental concert lineage classical trained lineage drone like modal sitar, indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 557,
-  "score": 255.042,
+  "score": 254.642,
   "config": {
     "traditions": [
       "ragini",
@@ -82,7 +82,7 @@
           "sitar_frets": "fixed_metal",
           "sitar_pluck": "wire_mizrab",
           "sitar_main_strings": "sitar_bronze_steel_modern",
-          "sitar_jawari_style": "sitar_jawari_closed",
+          "sitar_jawari_style": "sitar_jawari_wide",
           "sitar_gharana": "sitar_maihar_gharana"
         },
         "scores": {
@@ -94,7 +94,7 @@
           "sitar_frets": 0.195,
           "sitar_pluck": 2.21,
           "sitar_main_strings": 0.345,
-          "sitar_jawari_style": 0.75,
+          "sitar_jawari_style": 0.35,
           "sitar_gharana": 3.5100000000000002
         }
       },

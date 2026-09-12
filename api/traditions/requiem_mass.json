@@ -3,9 +3,9 @@
   "name": "Requiem Mass",
   "family": "classical",
   "lineage": "Latin Mass for the Dead as an art-music genre, developing from the Gregorian Missa pro defunctis into large-scale concert settings between Ockeghem's 15th-century polyphonic Requiem and the 19th-century monuments of Mozart, Berlioz, Verdi, Faure and Durufle, built on a fixed liturgical text sequence (Introit, Kyrie, Dies irae, Offertorio, Sanctus, Agnus Dei, Lux aeterna, In paradisum), scored for SATB chorus, vocal soloists and orchestra, with the Dies irae typically the fastest and loudest movement and the Introit and In paradisum the quietest.",
-  "recipe": "classic European early-1950s requiem mass, art Music, western common practice branch, western early art music, European funeral lament cantata burgundian school. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ, norway spruce European alpine European maple bosnian source flamed figure violin orchestral, synthetic norway spruce European alpine European maple bosnian source cello, yellow brass canonical 70 30 bach 42 standard legato bass leaning trombone, timpani, glotin var French cane legato bassoon, yellow brass canonical 70 30 bach stradivarius legato heavy one piece matched to monette horn trumpet, concert harp. cathedral. blumlein stereo pair, ultra-clean solid-state pre.",
-  "recipe_chars": 989,
-  "score": 376.522,
+  "recipe": "classic European early-1950s requiem mass, art Music, western common practice branch, western early art music, European funeral lament cantata burgundian school. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ, norway spruce European alpine European maple bosnian source flamed figure violin orchestral, synthetic norway spruce European alpine European maple bosnian source cello, yellow brass canonical 70 30 bach 42 standard legato bass leaning trombone, timpani, glotin var French cane legato bassoon, yellow brass canonical 70 30 bach stradivarius legato heavy one piece matched to monette horn trumpet, concert harp. cathedral. blumlein stereo pair, ultra-clean solid-state pre.",
+  "recipe_chars": 980,
+  "score": 375.678,
   "config": {
     "traditions": [
       "requiem_mass",
@@ -78,7 +78,7 @@
           "keyboard_technique": 5,
           "pipe_organ_class": 0.65,
           "pipe_organ_context": 13.130000000000003,
-          "pipe_organ_voicing_school": 9.1,
+          "pipe_organ_voicing_school": 8.254999999999999,
           "pipe_organ_pipe_alloy": 7.084999999999999,
           "pipe_organ_temperament": 4.55,
           "pipe_organ_action": 5.3950000000000005

@@ -3,9 +3,9 @@
   "name": "Computer Music",
   "family": "classical",
   "lineage": "Institutional art-music practice begun at Bell Labs in 1957 with Max Mathews's MUSIC I and extended at Stanford CCRMA, IRCAM and CCRMA-adjacent centres by John Chowning, Jean-Claude Risset and Barry Truax — sound synthesised or algorithmically composed by computer, using FM and granular techniques, spectral analysis-resynthesis, non-tempered frequency structures and fixed-media multichannel diffusion rather than live instrumental performance.",
-  "recipe": "classic Asian late-1950s computer music, art Music, western modern branch, musique concrete experimental electric, ambient experimental electric compositional ambient dark ambient. thick, breath veiled tone, slow rate, interlocked note trading. yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity pad fm sustained pad granular sustained pad wavetable sustained pad modular synth, prepared piano. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 586,
-  "score": 214.729,
+  "recipe": "classic Asian late-1950s computer music, art Music, western modern branch, musique concrete experimental electric, ambient experimental electric compositional ambient dark ambient. thick, breath veiled tone, slow rate, interlocked note trading. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity pad fm sustained pad granular sustained pad wavetable sustained pad modular synth, prepared piano. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 577,
+  "score": 213.309,
   "config": {
     "traditions": [
       "computer_music",
@@ -27,7 +27,7 @@
           "fm_algorithm": 2.11,
           "fm_modulator_ratio": 0.8,
           "fm_polyphony": 0.31977272727272726,
-          "fm_model_lineage": 4.930000000000001
+          "fm_model_lineage": 3.5100000000000002
         }
       },
       {

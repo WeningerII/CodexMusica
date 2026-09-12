@@ -5,7 +5,7 @@
   "lineage": "Ligurian urban song tradition of Genoa's old-town caruggi and osterie, formalized in the 19th-century dialect songbook repertoire and revived from the 1970s by Fabrizio De André and Gilberto Coscia, marked by Genoese-dialect texts on port life and emigration, moderate duple ballad tempi, guitar and mandolin accompaniment, and melodic lines shadowed by the parallel-third habits of local choral singing.",
   "recipe": "classic Southern European mid-1970s canzone genovese, ballad Poetry, Mediterranean ballad branch, vocal drone modal, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, parallel tone bars loar graduation thomastik flatwound jazz mandolin mandolin, hohner gola canonical premium German concert accordion, European maple sycamore maple oil varnish amber tinted rockabilly double bass. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 727,
-  "score": 278.97,
+  "score": 278.345,
   "config": {
     "traditions": [
       "canzone_genovese",
@@ -77,7 +77,7 @@
           "acoustic_technique": "acoustic_drone_modal",
           "mandolin_shape": "flat_back",
           "mandolin_top": "italian_alpine_spruce_m",
-          "mandolin_back": "european_maple_loar",
+          "mandolin_back": "hard_rock_maple_mandolin",
           "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
           "mandolin_strings": "thomastik_jazz_mandolin_flat",
           "mandolin_fingerboard": "mandolin_ebony_fb",
@@ -87,7 +87,7 @@
           "acoustic_technique": 3.25,
           "mandolin_shape": 0.65,
           "mandolin_top": 0.78,
-          "mandolin_back": 0.7149999999999999,
+          "mandolin_back": 0.09,
           "mandolin_bracing": 2.335,
           "mandolin_strings": 1.25,
           "mandolin_fingerboard": 1.48,

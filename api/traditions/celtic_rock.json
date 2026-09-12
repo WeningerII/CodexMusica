@@ -3,9 +3,9 @@
   "name": "Celtic Rock",
   "family": "rock",
   "lineage": "Ireland and Scotland, 1970-1985, codified by Horslips, Moving Hearts, Runrig and the Pogues — traditional reel and jig melodies in Dorian and Mixolydian modes transferred to distorted twin electric guitars and uilleann pipes or fiddle in unison, bodhrán doubling a rock kit in cut-time 4/4 and 6/8 at 120-160 BPM, Hammond-style combo organ pads, and unornamented shouted-chorus singing of Irish- and Scots-language or ballad-derived texts.",
-  "recipe": "classic Northern European mid-1970s celtic rock, distorted Rock, regional branch, Celtic traditional improv on frame, pop rock folk rock, Celtic balladic ballad poetry asturian gaita. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp mahogany maple soft down tuning humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, drone like fiddle, cane arundo donax canonical Irish leather canonical Irish bellows fed taylor egan philadelphia canonical wide bore Irish American melodic uilleann pipes, goat skin canonical Irish ash pre modern traditional Irish bodhran, brass tube plastic fipple canonical generation feadog clarke melodic tin whistle, psychedelic foregrounded organ driven rock block chord combo organ, bowl back Italian redwood hard rock maple phosphor bronze bronze mandolin.",
-  "recipe_chars": 946,
-  "score": 583.482,
+  "recipe": "classic Northern European mid-1970s celtic rock, distorted Rock, regional branch, Celtic traditional improv on frame, pop rock folk rock, Celtic balladic ballad poetry asturian gaita. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp mahogany maple soft down tuning humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, drone like fiddle, cane arundo donax canonical Irish leather canonical Irish bellows fed philadelphia canonical wide bore Irish American melodic uilleann pipes, goat skin canonical Irish ash pre modern traditional Irish bodhran, brass tube plastic fipple canonical generation feadog clarke melodic tin whistle, psychedelic foregrounded organ driven rock block chord combo organ, bowl back Italian redwood hard rock maple phosphor bronze bronze mandolin.",
+  "recipe_chars": 934,
+  "score": 583.092,
   "config": {
     "traditions": [
       "celtic_rock",
@@ -154,7 +154,7 @@
           "uilleann_chanter_wood": 0.9749999999999996,
           "uilleann_reed": 2.9899999999999998,
           "uilleann_bag": 2.9899999999999998,
-          "uilleann_lineage": 3.5749999999999993
+          "uilleann_lineage": 3.1849999999999996
         }
       },
       {

@@ -3,9 +3,9 @@
   "name": "Persian Traditional Music (Radif)",
   "family": "global",
   "lineage": "Iranian classical system organized as the radif, a canonical body of some 250 gusheh melodic models distributed across seven dastgah and five avaz, assembled and taught in Qajar Tehran by Mirza Abdollah and Aqa Hoseinqoli around 1900 — an unmetred avaz section in which a solo voice and tar or santur trade phrases in strict heterophony, punctuated by metered tasnif songs and fast chaharmezrab etudes over tombak goblet-drum patterns.",
-  "recipe": "classic Middle Eastern early-1900s persian traditional music, art Music, middle eastern classical branch, Persian arab improv improv on frame, heterophonic drone modal oud taqsim tarab. vocal fry, breath veiled tone, slow rate, interlocked note trading. brass mulberry bowl canonical double bowl radif shahnazi lineage tar walnut bowl canonical Persian gut historical pre modern radif radif setar persian, santur, kayhan kalhor canon walnut canonical Persian legato kamancheh, arundo donax cane canonical Persian nine segment hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, walnut tombak, walnut bent frame canonical Persian fish skin iraqi variant brass rings canonical Iranian daf. tehran classical dastgah context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
-  "recipe_chars": 862,
-  "score": 481.468,
+  "recipe": "classic Middle Eastern early-1900s persian traditional music, art Music, middle eastern classical branch, Persian arab improv improv on frame, heterophonic drone modal oud taqsim tarab. vocal fry, breath veiled tone, slow rate, interlocked note trading. brass mulberry bowl canonical double bowl radif tar walnut bowl canonical Persian gut historical pre modern radif radif setar persian, santur, walnut canonical Persian legato kamancheh, arundo donax cane canonical Persian nine segment canonical 20th century Persian radif continuous-airflow legato ney, walnut tombak, walnut bent frame canonical Persian fish skin iraqi variant brass rings canonical Iranian daf. tehran classical dastgah context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe_chars": 811,
+  "score": 481.168,
   "config": {
     "traditions": [
       "persian_traditional",
@@ -61,7 +61,7 @@
           "setar_pluck": 8.385,
           "setar_body_wood": 5.46,
           "setar_string_material": 2.0149999999999997,
-          "setar_tradition": 7.285
+          "setar_tradition": 6.984999999999999
         }
       },
       {

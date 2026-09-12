@@ -5,7 +5,7 @@
   "lineage": "Late-1960s American reaction against psychedelia, formed around Woodstock and the Bay Area with The Band's Music from Big Pink (1968), Creedence Clearwater Revival and Bob Dylan's John Wesley Harding — moderate 90-120 BPM backbeats, unaffected guitar tones, piano and Hammond organ, gospel-derived group harmony and country, blues and R&B forms recorded with minimal overdubbing.",
   "recipe": "classic Southern American 1967-1969 roots rock, distorted Rock, classic branch, country rock country, blues electric functional song british blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric open e tuning steel silk travis picked dreadnought acoustic guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs fast tremolo tonewheel organ, upright piano, bowl back Italian hard rock maple thomastik flatwound jazz mandolin mandolin. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 979,
-  "score": 620.202,
+  "score": 620.09,
   "config": {
     "traditions": [
       "roots_rock",
@@ -181,7 +181,7 @@
         "scores": {
           "acoustic_technique": 2.8850000000000002,
           "mandolin_shape": 1.235,
-          "mandolin_top": 0.6824999999999999,
+          "mandolin_top": 0.57,
           "mandolin_back": 12.525,
           "mandolin_bracing": 0.6149999999999999,
           "mandolin_strings": 1.1374999999999997,

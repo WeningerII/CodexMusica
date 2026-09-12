@@ -3,9 +3,9 @@
   "name": "Lutheran chorale tradition",
   "family": "classical",
   "lineage": "German Protestant vernacular hymn tradition emerging from Martin Luther's liturgical reforms (1520s-1540s), in which sturdy German-language hymn-tunes (chorales) became the canonical sung-prayer of the Lutheran congregation. The seventeenth-century four-voice harmonization tradition (codified by Hans Leo Hassler, Michael Praetorius, and later Johann Sebastian Bach in his approximately 400 chorale harmonizations) constitutes the canonical compositional layer. Direct precursor to broader Lutheran cantata-and-passion compositional tradition.",
-  "recipe": "classic European mid-1520s lutheran chorale tradition, ritual Devotional, christian gospel branch, western common practice art music classical period anglican cathedral-choral recording tradition. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch legato pipe organ. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-  "recipe_chars": 779,
-  "score": 205.415,
+  "recipe": "classic European mid-1520s lutheran chorale tradition, ritual Devotional, christian gospel branch, western common practice art music classical period anglican cathedral-choral recording tradition. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch legato pipe organ. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 770,
+  "score": 204.025,
   "config": {
     "traditions": [
       "lutheran_chorale",
@@ -82,7 +82,7 @@
           "keyboard_technique": 7.375,
           "pipe_organ_class": 0.845,
           "pipe_organ_context": 17.095000000000002,
-          "pipe_organ_voicing_school": 12.634999999999998,
+          "pipe_organ_voicing_school": 11.245000000000001,
           "pipe_organ_pipe_alloy": 6.109999999999999,
           "pipe_organ_temperament": 5.9799999999999995,
           "pipe_organ_action": 6.174999999999999

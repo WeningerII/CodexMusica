@@ -3,9 +3,9 @@
   "name": "Choral (Western art choral singing)",
   "family": "classical",
   "lineage": "Western tradition of multi-voice ensemble singing on notated parts, running from Renaissance polyphony through Bach's motets and the nineteenth-century amateur choral society to the twentieth-century professional chamber choir — SATB and divisi scoring, a cappella or organ-accompanied, blend achieved through vibrato restraint and vowel matching, tuning pulled toward pure thirds and fifths in unaccompanied writing, tempi generally moderate, and a large resonant acoustic treated as part of the instrument.",
-  "recipe": "classic European early-1950s choral, art Music, western common practice branch, christian gospel anglican choral, western early art music, christian gospel Russian orthodox orthodox chant russian orthodox liturgical chant. thick, declaimed, slow rate, interlocked note trading. choir cathedral satb, a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ, choir russian orthodox. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-  "recipe_chars": 810,
-  "score": 265.731,
+  "recipe": "classic European early-1950s choral, art Music, western common practice branch, christian gospel anglican choral, western early art music, christian gospel Russian orthodox orthodox chant russian orthodox liturgical chant. thick, declaimed, slow rate, interlocked note trading. choir cathedral satb, a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ, choir russian orthodox. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 801,
+  "score": 264.041,
   "config": {
     "traditions": [
       "choral",
@@ -93,7 +93,7 @@
           "keyboard_technique": 4.9557142857142855,
           "pipe_organ_class": 1.4607142857142859,
           "pipe_organ_context": 12.284999999999998,
-          "pipe_organ_voicing_school": 8.84,
+          "pipe_organ_voicing_school": 7.15,
           "pipe_organ_pipe_alloy": 7.085,
           "pipe_organ_temperament": 2.6649999999999996,
           "pipe_organ_action": 5.785

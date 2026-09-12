@@ -60,10 +60,10 @@
         },
         {
           "id": "cristal_baschet_form_structures_sonores",
-          "name": "Lasry-Baschet Structures Sonores original (1950s experimental)",
+          "name": "Structures Sonores original (1950s experimental)",
           "descriptors": [
             "structures-sonores",
-            "lasry-baschet-original",
+            "original",
             "experimental-cristal"
           ],
           "match_tokens": [
@@ -247,10 +247,10 @@
         },
         {
           "id": "cristal_baschet_form_structures_sonores",
-          "name": "Lasry-Baschet Structures Sonores original (1950s experimental)",
+          "name": "Structures Sonores original (1950s experimental)",
           "descriptors": [
             "structures-sonores",
-            "lasry-baschet-original",
+            "original",
             "experimental-cristal"
           ],
           "match_tokens": [

@@ -3,9 +3,9 @@
   "name": "Bluegrass gospel",
   "family": "global",
   "lineage": "Bluegrass-derived sacred-song tradition that emerged alongside secular bluegrass through Bill Monroe (his early Blue Grass Boys gospel-quartet sections), the Stanley Brothers (whose sacred-song catalog includes O Death and Angel Band), Lester Flatt and Earl Scruggs (their gospel-song interludes within concert programs), Doyle Lawson and Quicksilver (the modern bluegrass-gospel quartet), Ricky Skaggs (his Bluegrass Rules and Soldier of the Cross gospel-bluegrass crossover work); preserves the high-lonesome harmony vocal aesthetic of bluegrass applied to Protestant Christian sacred-song repertoire",
-  "recipe": "classic Southern American mid-1950s bluegrass gospel, ritual Devotional, southern gospel branch, bluegrass improv on frame kentucky roots. thick, register break ornamental, wide pitch sway, multi note runs per syllable. bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, flatpicked acoustic guitar, magic rosin modern acrylic base double stops fiddle, upright bass. southern white church gospel quartet. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 603,
-  "score": 651.614,
+  "recipe": "classic Southern American mid-1950s bluegrass gospel, ritual Devotional, southern gospel branch, bluegrass improv on frame kentucky roots. thick, register break ornamental, wide pitch sway, multi note runs per syllable. bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, flatpicked acoustic guitar, magic rosin modern acrylic base double stops fiddle, upright bass. southern white church gospel quartet. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 607,
+  "score": 651.224,
   "config": {
     "traditions": [
       "bluegrass_gospel",
@@ -94,8 +94,8 @@
         "scores": {
           "acoustic_technique": 27.985,
           "mandolin_shape": 27.07,
-          "mandolin_top": 29.845,
-          "mandolin_back": 27.07,
+          "mandolin_top": 29.650000000000002,
+          "mandolin_back": 26.875,
           "mandolin_bracing": 26.92,
           "mandolin_strings": 0.975,
           "mandolin_fingerboard": 0.195,

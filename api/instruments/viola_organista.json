@@ -48,7 +48,7 @@
         {
           "id": "viola_organista_wheel_bank",
           "default": true,
-          "name": "Bank of rosined bow-wheels (Haiden Geigenwerk principle, Zubrzycki realisation)",
+          "name": "Bank of rosined bow-wheels (Geigenwerk principle, modern revival realisation)",
           "descriptors": [
             "great-wheel",
             "revival-build",
@@ -192,7 +192,7 @@
         },
         {
           "id": "viola_organista_art_song_obbligato",
-          "name": "Contemporary art-song obbligato (Bjork, 'Black Lake')",
+          "name": "Contemporary art-song obbligato (2010s art-pop)",
           "descriptors": [
             "vocal-accompaniment",
             "austere",
@@ -238,7 +238,7 @@
         {
           "id": "viola_organista_wheel_bank",
           "default": true,
-          "name": "Bank of rosined bow-wheels (Haiden Geigenwerk principle, Zubrzycki realisation)",
+          "name": "Bank of rosined bow-wheels (Geigenwerk principle, modern revival realisation)",
           "descriptors": [
             "great-wheel",
             "revival-build",
@@ -382,7 +382,7 @@
         },
         {
           "id": "viola_organista_art_song_obbligato",
-          "name": "Contemporary art-song obbligato (Bjork, 'Black Lake')",
+          "name": "Contemporary art-song obbligato (2010s art-pop)",
           "descriptors": [
             "vocal-accompaniment",
             "austere",

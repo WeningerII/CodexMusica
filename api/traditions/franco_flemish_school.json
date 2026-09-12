@@ -3,9 +3,9 @@
   "name": "Franco-Flemish School",
   "family": "classical",
   "lineage": "Sacred and secular polyphony of the Low Countries and northern France c.1450-1560, carried across Europe by Ockeghem, Josquin, Willaert and Lassus — four to six equal voices in continuous pervading imitation over cantus firmus or paraphrase tenors, mensural notation with proportional canons, long-breathed overlapping phrases avoiding cadential coincidence, and Latin mass and motet texts sung one or two per part in resonant chapel acoustics.",
-  "recipe": "classic European early-1450s franco-flemish school, art Music, western early branch, western common practice art music choral oratorio. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, great bass octav colla parte thin hammered brass sackbut, cornetto, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ, renaissance soloistic ayre and lieder lute renaissance. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-  "recipe_chars": 700,
-  "score": 225.935,
+  "recipe": "classic European early-1450s franco-flemish school, art Music, western early branch, western common practice art music choral oratorio. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, great bass octav colla parte thin hammered brass sackbut, cornetto, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ, renaissance soloistic ayre and lieder lute renaissance. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 691,
+  "score": 225.09,
   "config": {
     "traditions": [
       "franco_flemish_school",
@@ -102,7 +102,7 @@
           "keyboard_technique": 6.660714285714286,
           "pipe_organ_class": 1.8589285714285713,
           "pipe_organ_context": 12.480000000000002,
-          "pipe_organ_voicing_school": 5.005,
+          "pipe_organ_voicing_school": 4.16,
           "pipe_organ_pipe_alloy": 1.95,
           "pipe_organ_temperament": 3.5100000000000002,
           "pipe_organ_action": 1.3

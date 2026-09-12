@@ -3,9 +3,9 @@
   "name": "Indian Instrumental (raga instrumental recital)",
   "family": "global",
   "lineage": "The instrument-led branch of Hindustani and Carnatic performance codified on record from the 1950s through HMV Dum Dum and All India Radio, shaped by Ravi Shankar, Ali Akbar Khan, Vilayat Khan and Hariprasad Chaurasia: unmetered alap over a tanpura drone, then jod and jhala, then gat cycles in tintal or jhaptal with tabla, built on meend, gamak and sympathetic-string resonance rather than sung text.",
-  "recipe": "classic South Asian mid-1950s indian instrumental, improv On Frame, indian classical improv branch, south Asian art music carnatic kacheri hindustani vocal. calabash open jawari vilayat khan canon long sustain buzzing overtones sitar, gut 3 main playing strings legato sarangi, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, steel modern tun indian cedar alternative drone like modal santoor, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani bismillah khan banaras lineage canonical Hindustani shehnai, indian rosewood rosewood copper tabla, treble-extended vocal female harmonium indian, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 927,
-  "score": 234.789,
+  "recipe": "classic South Asian mid-1950s indian instrumental, improv On Frame, indian classical improv branch, south Asian art music carnatic kacheri hindustani vocal. calabash maihar gharana instrumental concert lineage classical trained lineage drone like sitar, gut 3 main playing strings legato sarangi, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, steel modern tun indian cedar alternative drone like modal santoor, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani banaras lineage canonical Hindustani shehnai, indian rosewood rosewood copper tabla, treble-extended vocal female harmonium indian, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 931,
+  "score": 228.231,
   "config": {
     "traditions": [
       "indian_instrumental",
@@ -36,7 +36,7 @@
           "sitar_frets": 0.3765,
           "sitar_pluck": 5.2,
           "sitar_main_strings": 0.21,
-          "sitar_jawari_style": 4.485,
+          "sitar_jawari_style": 0.5265,
           "sitar_gharana": 11.115
         }
       },
@@ -109,7 +109,7 @@
           "shehnai_use": 15.145,
           "shehnai_body_wood": 7.865,
           "shehnai_reed": 0.6164999999999999,
-          "shehnai_lineage": 4.9399999999999995
+          "shehnai_lineage": 2.34
         }
       },
       {

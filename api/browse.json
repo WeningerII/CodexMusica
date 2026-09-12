@@ -1,6 +1,6 @@
 {
   "name": "Codex Musica — browse index (Tier-1 data for the lazy-loaded app)",
-  "generated": "2026-08-08",
+  "generated": "2026-09-12",
   "axisKeys": [
     "harm",
     "pitch",
@@ -36979,7 +36979,7 @@
     },
     {
       "id": "egyptian_sayyed_darwish_sheikh_imam",
-      "name": "Egyptian Sayyed Darwish and Sheikh Imam political-vocal lineage",
+      "name": "Egyptian political-vocal lineage (nationalist to oud-protest song, 1910s–1980s)",
       "family": "global",
       "lineage": "Egyptian political-vocal tradition founded by Sayyed Darwish (1892-1923, the early-20th-century musical pioneer who composed in support of the 1919 Egyptian Revolution against British occupation including the song \"Bilady, Bilady, Bilady\" that became the Egyptian national anthem) continuous through Sheikh Imam Eissa (1918-1995) and the Ahmed Fouad Negm collaborative songbook of 1960s-1990s anti-Nasser-and-anti-Sadat political-protest",
       "parent": "protestSong.middleEastNAfrican",
@@ -76374,7 +76374,7 @@
     },
     {
       "id": "traditional_ska",
-      "name": "Traditional Ska (Skatalites-era instrumental)",
+      "name": "Traditional Ska (early-60s instrumental)",
       "family": "global",
       "lineage": "Jamaican style codified in Kingston between 1960 and 1966 by the Skatalites and the studio bands of Clement Dodd and Duke Reid, welding mento and American jump-blues shuffle into a fast 2/4 at 130-160 BPM with a walking upright or electric bass, a hard piano-and-guitar chop on the upbeat, a swinging shuffle kit, and long modal-jazz horn lines from Don Drummond's trombone and Tommy McCook's tenor.",
       "parent": "bassSystem.jamaican",
@@ -85872,7 +85872,7 @@
     },
     {
       "id": "nova_canco",
-      "name": "Nova Cançó (Els Setze Jutges movement)",
+      "name": "Nova Cançó (Catalan singer-songwriter movement, 1960s)",
       "family": "global",
       "lineage": "Catalan-language song movement launched in Barcelona in 1961 by the Els Setze Jutges collective around Miquel Porter, Josep Maria Espinàs and Delfí Abella, modelled on French chanson rive gauche and radicalized by Raimon's 'Al vent' (1963) — solo voice with nylon-string guitar or piano, later widened to string and wind arrangements, setting Catalan and Valencian poetry (Espriu, Estellés) in strophic through-built forms with declamatory, non-vibrato delivery and slow crescendo builds toward anthemic refrains.",
       "parent": "protestSong.iberianLatin",
@@ -93962,7 +93962,7 @@
     },
     {
       "id": "drain_rap",
-      "name": "Drain (Drain Gang rap)",
+      "name": "Drain (post-cloud rap)",
       "family": "hip_hop",
       "lineage": "Stockholm-based cloud-rap aesthetic formed 2012-2016 around the Drain Gang collective — Bladee, Ecco2k, Thaiboy Digital and producer Whitearmor, in the Sad Boys orbit of Yung Lean — characterised by heavily Auto-Tuned thin high vocals, reverb-drowned bell and pad textures, sparse trap hi-hat programming at 130-150 BPM half-time, and fragmentary aphoristic lyrics about dissociation and luxury.",
       "parent": "mcRhythm.intlHipHop",

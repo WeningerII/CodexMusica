@@ -23,7 +23,7 @@
         {
           "id": "mandole_chaabi",
           "default": true,
-          "name": "Chaabi mandole (Algiers, El Anka lineage)",
+          "name": "Chaabi mandole (Algiers, Casbah founding-school lineage)",
           "descriptors": [
             "urban",
             "ornamented",
@@ -43,7 +43,7 @@
         },
         {
           "id": "mandole_kabyle",
-          "name": "Kabyle mandole (Cherif Kheddam / Idir lineage)",
+          "name": "Kabyle mandole (modern Berber song lineage)",
           "descriptors": [
             "lyrical",
             "folk-song",
@@ -185,7 +185,7 @@
         {
           "id": "mandole_chaabi",
           "default": true,
-          "name": "Chaabi mandole (Algiers, El Anka lineage)",
+          "name": "Chaabi mandole (Algiers, Casbah founding-school lineage)",
           "descriptors": [
             "urban",
             "ornamented",
@@ -205,7 +205,7 @@
         },
         {
           "id": "mandole_kabyle",
-          "name": "Kabyle mandole (Cherif Kheddam / Idir lineage)",
+          "name": "Kabyle mandole (modern Berber song lineage)",
           "descriptors": [
             "lyrical",
             "folk-song",

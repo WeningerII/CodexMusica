@@ -148,7 +148,7 @@
         {
           "id": "chalumeau_context_vocal_obbligato",
           "default": true,
-          "name": "Obbligato shadowing a solo voice (Vivaldi Juditha triumphans, Fux)",
+          "name": "Obbligato shadowing a solo voice (Venetian and Viennese baroque oratorio)",
           "descriptors": [
             "aria-partner",
             "devotional",
@@ -400,7 +400,7 @@
         {
           "id": "chalumeau_context_vocal_obbligato",
           "default": true,
-          "name": "Obbligato shadowing a solo voice (Vivaldi Juditha triumphans, Fux)",
+          "name": "Obbligato shadowing a solo voice (Venetian and Viennese baroque oratorio)",
           "descriptors": [
             "aria-partner",
             "devotional",

@@ -5,7 +5,7 @@
   "lineage": "Fusion of Hindustani and Carnatic classical practice with modern jazz, formalized in London 1965-1968 by composer John Mayer and Jamaican altoist Joe Harriott on the Indo-Jazz Suite recordings and extended by John McLaughlin's Shakti from 1975 — raga-derived modal frames and tala cycles of 7, 10 and 16 beats, sitar, tabla and Carnatic violin scored against jazz reeds and rhythm section, alap-style rubato openings, and alternating written Indian-idiom passages with jazz solo choruses.",
   "recipe": "classic British 1965-1968 indo jazz, improv On Frame, fusion branch, indian classical improv improv on frame, south Asian art music carnatic kacheri telugu kirtana. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, cedar bone maihar gharana instrumental concert lineage classical trained lineage sitar, indian rosewood rosewood copper tabla, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, powell boston canonical American orchestral continuous-airflow legato flute, carpathian spruce European maple sycamore maple oil varnish amber tinted double bass, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 936,
-  "score": 428.87,
+  "score": 428.51,
   "config": {
     "traditions": [
       "indo_jazz",
@@ -45,7 +45,7 @@
           "sitar_frets": "tied_gut_parda",
           "sitar_pluck": "wire_mizrab",
           "sitar_main_strings": "sitar_bronze_steel_modern",
-          "sitar_jawari_style": "sitar_jawari_closed",
+          "sitar_jawari_style": "sitar_jawari_open",
           "sitar_gharana": "sitar_maihar_gharana"
         },
         "scores": {
@@ -57,7 +57,7 @@
           "sitar_frets": 0.045,
           "sitar_pluck": 5.784999999999999,
           "sitar_main_strings": -0.35,
-          "sitar_jawari_style": 0.75,
+          "sitar_jawari_style": 0.39,
           "sitar_gharana": 7.864999999999998
         }
       },

@@ -3,9 +3,9 @@
   "name": "Sabar drumming (Senegalese Wolof)",
   "family": "global",
   "lineage": "Senegalese Wolof sabar drumming tradition, the canonical drum-language and ceremonial-dance percussion-form of Senegal and The Gambia. The sabar ensemble centers on the open-bottomed wood-and-hide sabar drum played with curved stick in right hand and bare left hand, with several drum-types (nder lead, mbung-mbung mid, tugne low, gorong bottom) constructing polyrhythmic dialogue. The bakk drum-language is a quasi-linguistic communication system encoding named messages. Doudou N'Diaye Rose consolidated the contemporary repertoire and trained the largest performing ensemble.",
-  "recipe": "classic West African modern sabar drumming, groove Percussion, west African branch, Afro-diasporic MC rhythm merenrap kwaito. vocal fry, breath veiled tone, slow rate, interlocked note trading. iroko alternative west African antelope hide premium senegambian tama talking drum, mbalax dimba canonical Senegalese single hollowed trunk goat skin wooden pegs canonical wolof rose family canonical Senegalese mbalax sabar. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 571,
-  "score": 149.032,
+  "recipe": "classic West African modern sabar drumming, groove Percussion, west African branch, Afro-diasporic MC rhythm merenrap kwaito. vocal fry, breath veiled tone, slow rate, interlocked note trading. iroko alternative west African antelope hide premium senegambian tama talking drum, mbalax dimba canonical Senegalese single hollowed trunk goat skin wooden pegs canonical wolof family canonical Senegalese mbalax sabar. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 566,
+  "score": 147.732,
   "config": {
     "traditions": [
       "sabar_drumming_wolof",
@@ -81,7 +81,7 @@
           "sabar_articulation": -0.05,
           "sabar_shell_wood": 3.8099999999999996,
           "sabar_head": 3.768,
-          "sabar_lineage": 5.141500000000001
+          "sabar_lineage": 3.8414999999999995
         }
       }
     ],

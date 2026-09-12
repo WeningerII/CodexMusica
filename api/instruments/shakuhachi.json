@@ -260,9 +260,9 @@
         },
         {
           "id": "shakuhachi_tozan",
-          "name": "Tozan ryū (Nakao Tozan modern composed lineage, 1896 founding)",
+          "name": "Tozan ryū (modern composed lineage, 1896 founding)",
           "descriptors": [
-            "tozan-ryu-nakao-1896-modern-composed"
+            "tozan-ryu-1896-modern-composed"
           ],
           "match_tokens": [
             "wind-driven",
@@ -443,9 +443,9 @@
         },
         {
           "id": "shakuhachi_tozan",
-          "name": "Tozan ryū (Nakao Tozan modern composed lineage, 1896 founding)",
+          "name": "Tozan ryū (modern composed lineage, 1896 founding)",
           "descriptors": [
-            "tozan-ryu-nakao-1896-modern-composed"
+            "tozan-ryu-1896-modern-composed"
           ],
           "match_tokens": [
             "wind-driven",

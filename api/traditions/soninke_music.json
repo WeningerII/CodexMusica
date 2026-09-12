@@ -3,9 +3,9 @@
   "name": "Musique soninke (Soninke griot song)",
   "family": "global",
   "lineage": "Repertoire of the Soninke people of the upper Senegal River valley (Mali–Mauritania–Senegal border, heirs of the Wagadu/Ghana empire), carried by hereditary geseru griot lineages on the gambare lute and kora and codified commercially from the 1970s by Mauritanian and Malian cassette artists — long strophic praise texts declaimed in Soninke over a repeating pentatonic donkilo ostinato at moderate 12/8 or slow 4/4, with calabash and hand-clap accompaniment, ululation, and a hard nasal female lead over a men's responsorial ground.",
-  "recipe": "classic West African mid-1970s musique soninke, ballad Poetry, west African griot branch, African pop functional song, sub saharan African praise song sákárà apala. extended whistle, declaimed, slow rate, interlocked note trading. griot voice, calabash gourd canonical bambara call-and-response ngoni, calabash diabate lineage mali call-and-response kora, foundational low fundamental tuning deep calabash inverted calabash, snappy thin to palm hand clap, buzzy natural material resonance calabash gourd balafon. bamako griot jeli compound. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 603,
-  "score": 318.142,
+  "recipe": "classic West African mid-1970s musique soninke, ballad Poetry, west African griot branch, African pop functional song, sub saharan African praise song sákárà apala. extended whistle, declaimed, slow rate, interlocked note trading. griot voice, calabash gourd canonical bambara call-and-response ngoni, calabash mali call-and-response kora, foundational low fundamental tuning deep calabash inverted calabash, snappy thin to palm hand clap, buzzy natural material resonance calabash gourd balafon. bamako griot jeli compound. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 587,
+  "score": 317.947,
   "config": {
     "traditions": [
       "soninke_music",
@@ -61,7 +61,7 @@
           "kora_strings_mat": 0.585,
           "kora_top_skin": 0.6299999999999999,
           "kora_neck_wood": 0.285,
-          "kora_lineage": 1.885
+          "kora_lineage": 1.69
         }
       },
       {

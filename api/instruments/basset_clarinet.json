@@ -159,7 +159,7 @@
         {
           "id": "basset_clarinet_rep_concerto",
           "default": true,
-          "name": "Mozart Concerto K.622, restored basset text (Hacker 1967)",
+          "name": "Classical clarinet concerto in A, restored basset text (1967 edition)",
           "descriptors": [
             "virtuoso-solo",
             "singing",
@@ -178,7 +178,7 @@
         },
         {
           "id": "basset_clarinet_rep_quintet",
-          "name": "Mozart Quintet K.581 with string quartet (Kratochvil 1957 restoration)",
+          "name": "Classical clarinet quintet with string quartet (1957 restoration)",
           "descriptors": [
             "intimate-chamber",
             "blended",
@@ -380,7 +380,7 @@
         {
           "id": "basset_clarinet_rep_concerto",
           "default": true,
-          "name": "Mozart Concerto K.622, restored basset text (Hacker 1967)",
+          "name": "Classical clarinet concerto in A, restored basset text (1967 edition)",
           "descriptors": [
             "virtuoso-solo",
             "singing",
@@ -399,7 +399,7 @@
         },
         {
           "id": "basset_clarinet_rep_quintet",
-          "name": "Mozart Quintet K.581 with string quartet (Kratochvil 1957 restoration)",
+          "name": "Classical clarinet quintet with string quartet (1957 restoration)",
           "descriptors": [
             "intimate-chamber",
             "blended",

@@ -407,7 +407,7 @@
         {
           "id": "banjo_medium_bluegrass",
           "default": true,
-          "name": "Medium steel (bluegrass canon, GHS PF135 / J.D. Crowe)",
+          "name": "Medium steel (bluegrass canon, GHS PF135)",
           "descriptors": [
             "medium-steel",
             "bluegrass-canon",
@@ -997,7 +997,7 @@
         {
           "id": "banjo_medium_bluegrass",
           "default": true,
-          "name": "Medium steel (bluegrass canon, GHS PF135 / J.D. Crowe)",
+          "name": "Medium steel (bluegrass canon, GHS PF135)",
           "descriptors": [
             "medium-steel",
             "bluegrass-canon",

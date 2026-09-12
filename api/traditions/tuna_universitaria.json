@@ -3,9 +3,9 @@
   "name": "Tuna universitaria (Spanish student serenade troupe)",
   "family": "global",
   "lineage": "Iberian university student serenading tradition descended from the medieval sopistas of Salamanca and Coimbra and reorganized as faculty tunas from the late nineteenth century — plucked bandurria and laúd melody lines doubled in thirds above strummed guitars, pandereta and hand-clapping, sung in unison male chorus in cloaks and beribboned capes, repertoire of jotas, boleros, pasodobles and serenading coplas at brisk 3/4 or 2/4, performed outdoors in courtyards and beneath windows.",
-  "recipe": "classic Iberian modern tuna universitaria, drinking Song, European branch, iberian functional song, chanson fado fado coimbra catalan folk sevillanas. thick, breath veiled tone, straight onset, interlocked note trading. strummed chordal bandurria, cedar concert modern classical nylon-string guitar, bowl back Italian German spruce classical leaning European maple loar canon mandolin, tambourine orch, hand clap, castagnari Italian premium folk music accordion. coimbra university outdoor quad. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 558,
-  "score": 240.657,
+  "recipe": "classic Iberian modern tuna universitaria, drinking Song, European branch, iberian functional song, chanson fado fado coimbra catalan folk sevillanas. thick, breath veiled tone, straight onset, interlocked note trading. strummed chordal bandurria, cedar concert modern classical nylon-string guitar, bowl back Italian German spruce classical leaning European maple k and k twin mandolin, tambourine orch, hand clap, castagnari Italian premium folk music accordion. coimbra university outdoor quad. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 560,
+  "score": 240.507,
   "config": {
     "traditions": [
       "tuna_universitaria",
@@ -100,7 +100,7 @@
           "acoustic_technique": 2.3687500000000004,
           "mandolin_shape": 4.615,
           "mandolin_top": 3.25,
-          "mandolin_back": 3.113125,
+          "mandolin_back": 2.963125,
           "mandolin_bracing": 0.9,
           "mandolin_strings": 0.8400000000000001,
           "mandolin_fingerboard": 0,

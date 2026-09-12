@@ -3,9 +3,9 @@
   "name": "Kora Jaliya (Mandinka Harp-Lute Music)",
   "family": "global",
   "lineage": "Repertoire of the Mandinka jali harp-lute of the Gambia, Casamance, Guinea-Bissau and Mali, traced to seventeenth-century Kaabu and codified through the Diabaté, Suso and Konte lineages — 21 strings on a calabash-and-cowhide body tuned to one of four modes (sauta, tomora, hardino, silaba), a repeating bass-and-thumb kumbengo ostinato under improvised treble birimintingo runs, and pieces such as Kelefaba, Alalake and Kaira played solo or in duo at flexible tempo.",
-  "recipe": "classic West African modern kora jaliya, ballad Poetry, west African griot branch, string drone modal norwegian folk music nordic folk. calabash cowhide mande traditional konte lineage gambia casamance kora, griot voice, calabash gourd canonical bambara cowhide call-and-response ngoni, buzzy natural material resonance calabash gourd balafon, snappy to palm hand clap. bamako griot jeli compound. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 460,
-  "score": 88.205,
+  "recipe": "classic West African modern kora jaliya, ballad Poetry, west African griot branch, string drone modal norwegian folk music nordic folk. calabash cowhide mande traditional gambia modern revival call-and-response kora, griot voice, calabash gourd canonical bambara cowhide call-and-response ngoni, buzzy natural material resonance calabash gourd balafon, snappy to palm hand clap. bamako griot jeli compound. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 469,
+  "score": 86.765,
   "config": {
     "traditions": [
       "kora_jaliya",
@@ -22,7 +22,7 @@
           "kora_strings_mat": "kora_fishing_line",
           "kora_top_skin": "kora_cowhide_canonical",
           "kora_neck_wood": "kora_hardwood_local",
-          "kora_lineage": "kora_konte_lineage"
+          "kora_lineage": "kora_suso_lineage"
         },
         "scores": {
           "plucked_traditional_technique": 29.769999999999996,
@@ -31,7 +31,7 @@
           "kora_strings_mat": 0.585,
           "kora_top_skin": 2.145,
           "kora_neck_wood": 0.845,
-          "kora_lineage": 3.585
+          "kora_lineage": 2.145
         }
       },
       {

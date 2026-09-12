@@ -109,7 +109,7 @@
         {
           "id": "jing_erhu_role_qingyi",
           "default": true,
-          "name": "Qingyi (the original 1923-24 Mei Lanfang troupe use)",
+          "name": "Qingyi (the original 1923-24 Beijing-opera troupe use)",
           "descriptors": [
             "vocal-supportive",
             "lyrical",
@@ -294,7 +294,7 @@
         {
           "id": "jing_erhu_role_qingyi",
           "default": true,
-          "name": "Qingyi (the original 1923-24 Mei Lanfang troupe use)",
+          "name": "Qingyi (the original 1923-24 Beijing-opera troupe use)",
           "descriptors": [
             "vocal-supportive",
             "lyrical",

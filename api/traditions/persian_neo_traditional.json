@@ -3,9 +3,9 @@
   "name": "Persian Neo-Traditional",
   "family": "global",
   "lineage": "Iranian classical revival current formed in Tehran from the late 1960s around the Center for Preservation and Propagation of Traditional Music and the Chavosh collective, driven by Mohammad Reza Lotfi, Hossein Alizadeh, Parviz Meshkatian and Shajarian — enlarged unison ensembles of tar, setar, santur, kamancheh, ney and daf performing newly composed pieces in radif idiom, with arranged introductions, fixed metric sections and a concert-hall dynamic arc replacing the intimate solo-plus-voice format.",
-  "recipe": "classic 1967-1969 persian neo-traditional, improv On Frame, Persian arab improv branch, middle eastern classical art music, string improv improv on frame, Sufi ritual devotional türk sanat müziği uzbek traditional music. balanced, breath veiled tone, slow rate, interlocked note trading. brass mulberry bowl canonical double bowl steel bronze mix modern concert tar walnut bowl canonical Persian gut historical pre modern radif radif setar persian, santur, kayhan kalhor canon walnut canonical Persian steel modern legato kamancheh, Sufi mystical arundo donax cane canonical Persian nine segment hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, walnut tombak. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 932,
-  "score": 483.279,
+  "recipe": "classic 1967-1969 persian neo-traditional, improv On Frame, Persian arab improv branch, middle eastern classical art music, string improv improv on frame, Sufi ritual devotional türk sanat müziği uzbek traditional music. balanced, breath veiled tone, slow rate, interlocked note trading. brass mulberry bowl canonical double bowl steel bronze mix radif tar walnut bowl canonical Persian gut historical pre modern radif radif setar persian, santur, walnut canonical Persian steel modern legato kamancheh, Sufi mystical arundo donax cane canonical Persian nine segment canonical 20th century Persian radif continuous-airflow legato ney, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, walnut tombak. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 889,
+  "score": 480.256,
   "config": {
     "traditions": [
       "persian_neo_traditional",
@@ -21,7 +21,7 @@
           "tar_pick": "tar_brass_mizrab",
           "tar_body_wood": "tar_mulberry_body",
           "tar_string_material": "tar_steel_bronze",
-          "tar_tradition": "tar_modern_concert"
+          "tar_tradition": "tar_radif_canonical"
         },
         "scores": {
           "plucked_traditional_technique": 14.025000000000002,
@@ -29,7 +29,7 @@
           "tar_pick": 7.1825,
           "tar_body_wood": 1.425,
           "tar_string_material": 1.425,
-          "tar_tradition": 2.9899999999999998
+          "tar_tradition": 2.5675
         }
       },
       {
@@ -48,7 +48,7 @@
           "setar_pluck": 6.890000000000001,
           "setar_body_wood": 4.9399999999999995,
           "setar_string_material": 2.015,
-          "setar_tradition": 5.1675
+          "setar_tradition": 2.5675
         }
       },
       {

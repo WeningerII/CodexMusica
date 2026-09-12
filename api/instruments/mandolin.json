@@ -187,11 +187,10 @@
         {
           "id": "adirondack_m",
           "default": true,
-          "name": "Adirondack red spruce (Loar F-5 canon)",
+          "name": "Adirondack red spruce (golden-era F-5 canon)",
           "descriptors": [
             "adirondack",
             "red-spruce",
-            "loar-canon",
             "projecting-high-headroom"
           ],
           "match_tokens": [
@@ -286,11 +285,10 @@
         {
           "id": "european_maple_loar",
           "default": true,
-          "name": "European maple (Loar F-5 canon)",
+          "name": "European maple (golden-era F-5 canon)",
           "descriptors": [
             "european-maple",
-            "flamed",
-            "loar-canon"
+            "flamed"
           ],
           "match_tokens": [
             "plucked",
@@ -677,11 +675,10 @@
         {
           "id": "adirondack_m",
           "default": true,
-          "name": "Adirondack red spruce (Loar F-5 canon)",
+          "name": "Adirondack red spruce (golden-era F-5 canon)",
           "descriptors": [
             "adirondack",
             "red-spruce",
-            "loar-canon",
             "projecting-high-headroom"
           ],
           "match_tokens": [
@@ -776,11 +773,10 @@
         {
           "id": "european_maple_loar",
           "default": true,
-          "name": "European maple (Loar F-5 canon)",
+          "name": "European maple (golden-era F-5 canon)",
           "descriptors": [
             "european-maple",
-            "flamed",
-            "loar-canon"
+            "flamed"
           ],
           "match_tokens": [
             "plucked",

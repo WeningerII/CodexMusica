@@ -48,7 +48,7 @@
         {
           "id": "psalmodikon_form_dillner",
           "default": true,
-          "name": "Swedish Dillner form (fixed numbered frets, siffernoter hymnbook)",
+          "name": "Swedish 1820s form (fixed numbered frets, siffernoter hymnbook)",
           "descriptors": [
             "plain",
             "accessible",
@@ -66,7 +66,7 @@
         },
         {
           "id": "psalmodikon_form_roverud",
-          "name": "Norwegian Roverud form (C-major frets plus removable transposition sticks)",
+          "name": "Norwegian form (C-major frets plus removable transposition sticks)",
           "descriptors": [
             "historical",
             "regional",
@@ -275,7 +275,7 @@
         {
           "id": "psalmodikon_form_dillner",
           "default": true,
-          "name": "Swedish Dillner form (fixed numbered frets, siffernoter hymnbook)",
+          "name": "Swedish 1820s form (fixed numbered frets, siffernoter hymnbook)",
           "descriptors": [
             "plain",
             "accessible",
@@ -293,7 +293,7 @@
         },
         {
           "id": "psalmodikon_form_roverud",
-          "name": "Norwegian Roverud form (C-major frets plus removable transposition sticks)",
+          "name": "Norwegian form (C-major frets plus removable transposition sticks)",
           "descriptors": [
             "historical",
             "regional",

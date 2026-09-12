@@ -23,7 +23,7 @@
         {
           "id": "waterphone_standard",
           "default": true,
-          "name": "Standard (Richard Waters original AquaSonic)",
+          "name": "Standard (original AquaSonic)",
           "descriptors": [
             "keening",
             "shimmering",
@@ -235,7 +235,7 @@
         {
           "id": "waterphone_standard",
           "default": true,
-          "name": "Standard (Richard Waters original AquaSonic)",
+          "name": "Standard (original AquaSonic)",
           "descriptors": [
             "keening",
             "shimmering",

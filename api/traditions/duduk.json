@@ -3,9 +3,9 @@
   "name": "Duduk (Armenian Apricot-Wood Reed)",
   "family": "global",
   "lineage": "Armenian double-reed tradition centered on the apricot-wood duduk, formalized in the twentieth century by Vache Hovsepyan, Levon Madoyan and Djivan Gasparyan at the Yerevan conservatory, in which a lead player spins slow rubato modal laments and dance tunes over a second duduk sustaining an unbroken circular-breathed dam drone, with dense finger-slide ornament, breathy subtone attacks and a narrow one-and-a-half-octave nasal-warm range.",
-  "recipe": "classic Eastern European early-1940s duduk, drone Modal, wind pipe branch, middle eastern funeral lament, heterophonic drone modal armenian folk music mongolian long-song. sygyt, breath veiled tone, slow rate, interlocked note trading. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley djivan gasparyan canonical 20th century armenian drone like circular breathing duduk, mid register dance driving shvi, dhol, four string silk or steel canonical mugham trio Persian radif tradition tehran conservatory kamancha. yerevan armenian komitas studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-  "recipe_chars": 726,
-  "score": 271.333,
+  "recipe": "classic Eastern European early-1940s duduk, drone Modal, wind pipe branch, middle eastern funeral lament, heterophonic drone modal armenian folk music mongolian long-song. sygyt, breath veiled tone, slow rate, interlocked note trading. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley canonical 20th century armenian drone like circular breathing duduk, mid register dance driving shvi, dhol, four string silk or steel canonical mugham trio Persian radif tradition tehran conservatory kamancha. yerevan armenian komitas studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 709,
+  "score": 267.953,
   "config": {
     "traditions": [
       "duduk",
@@ -29,7 +29,7 @@
           "duduk_pitch": 1.7550000000000001,
           "duduk_body_wood": 7.01,
           "duduk_reed": 5.01,
-          "duduk_lineage": 9.749999999999998
+          "duduk_lineage": 6.369999999999999
         }
       },
       {

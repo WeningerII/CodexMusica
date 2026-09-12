@@ -293,9 +293,9 @@
         {
           "id": "fm_yamaha_dx7",
           "default": true,
-          "name": "Yamaha DX7 (canonical 1983-1989 — Chowning Stanford FM patent, 6-operator, mid-1980s pop ubiquity)",
+          "name": "Yamaha DX7 (canonical 1983-1989 — Stanford FM patent, 6-operator, mid-1980s pop ubiquity)",
           "descriptors": [
-            "yamaha-dx7-canonical-1983-1989-chowning-stanford-fm-patent-6-operator-mid-1980s-pop-ubiquity"
+            "yamaha-dx7-canonical-1983-1989-stanford-fm-patent-6-operator-mid-1980s-pop-ubiquity"
           ],
           "match_tokens": [
             "electronic",
@@ -479,9 +479,9 @@
         {
           "id": "fm_yamaha_dx7",
           "default": true,
-          "name": "Yamaha DX7 (canonical 1983-1989 — Chowning Stanford FM patent, 6-operator, mid-1980s pop ubiquity)",
+          "name": "Yamaha DX7 (canonical 1983-1989 — Stanford FM patent, 6-operator, mid-1980s pop ubiquity)",
           "descriptors": [
-            "yamaha-dx7-canonical-1983-1989-chowning-stanford-fm-patent-6-operator-mid-1980s-pop-ubiquity"
+            "yamaha-dx7-canonical-1983-1989-stanford-fm-patent-6-operator-mid-1980s-pop-ubiquity"
           ],
           "match_tokens": [
             "electronic",

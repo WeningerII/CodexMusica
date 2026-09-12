@@ -1,11 +1,11 @@
 {
   "id": "traditional_ska",
-  "name": "Traditional Ska (Skatalites-era instrumental)",
+  "name": "Traditional Ska (early-60s instrumental)",
   "family": "global",
   "lineage": "Jamaican style codified in Kingston between 1960 and 1966 by the Skatalites and the studio bands of Clement Dodd and Duke Reid, welding mento and American jump-blues shuffle into a fast 2/4 at 130-160 BPM with a walking upright or electric bass, a hard piano-and-guitar chop on the upbeat, a swinging shuffle kit, and long modal-jazz horn lines from Don Drummond's trombone and Tommy McCook's tenor.",
   "recipe": "classic Caribbean early-1960s traditional ska, bass System, Jamaican branch, American jazz hard bop, Caribbean carnival processional chicago bop. thick, breath veiled tone, straight onset, interlocked note trading. sterling silver rare premium bach 42 canonical American orchestral tenor ensemble student commercial trombone, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, sterling silver bell premium projecting bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, Fender blackface amp American 60s amp spring reverb bright ebony ceramic single coil electric guitar, vintage ambassador asymmetric brushes-and-sticks drum kit, gospel runs upright piano. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu.",
   "recipe_chars": 989,
-  "score": 591.985,
+  "score": 593.685,
   "config": {
     "traditions": [
       "traditional_ska",
@@ -88,7 +88,7 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "amp_make": 14.439999999999998,
+          "amp_make": 15.439999999999998,
           "body_wood": 1.435,
           "pickup_config": 1.24,
           "string_type": 27.340000000000007,
@@ -115,7 +115,7 @@
         },
         "scores": {
           "electric_technique": 3.26,
-          "amp_make": 11.625,
+          "amp_make": 12.625,
           "body_wood": 0.39,
           "neck_wood": 0.9500000000000001,
           "fretboard": 1.195,
@@ -137,7 +137,7 @@
         },
         "scores": {
           "drum_technique": 33.67,
-          "drumhead": 28.240000000000006,
+          "drumhead": 29.240000000000006,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -190,7 +190,7 @@
           "voice_ornament_system": 1.785,
           "voice_pitch_organization": 1.56,
           "voice_processing_chain": 5.785,
-          "voice_multitrack_stack": 5.070000000000002
+          "voice_multitrack_stack": 3.7700000000000005
         }
       }
     ],

@@ -138,10 +138,8 @@
         },
         {
           "id": "pakhawaj_kudau_singh",
-          "name": "Kudau Singh lineage",
-          "descriptors": [
-            "kudau-singh-lineage"
-          ],
+          "name": "Vigorous 19th-century court lineage",
+          "descriptors": [],
           "match_tokens": [
             "percussive-attack",
             "hands"
@@ -284,10 +282,8 @@
         },
         {
           "id": "pakhawaj_kudau_singh",
-          "name": "Kudau Singh lineage",
-          "descriptors": [
-            "kudau-singh-lineage"
-          ],
+          "name": "Vigorous 19th-century court lineage",
+          "descriptors": [],
           "match_tokens": [
             "percussive-attack",
             "hands"

@@ -149,9 +149,9 @@
         {
           "id": "sabar_rose_family",
           "default": true,
-          "name": "Rose family lineage (canonical Senegalese mbalax — Doudou Ndiaye Rose)",
+          "name": "Griot family lineage (canonical Senegalese mbalax)",
           "descriptors": [
-            "rose-family-canonical-senegalese-mbalax"
+            "family-canonical-senegalese-mbalax"
           ],
           "match_tokens": [
             "percussive-attack",
@@ -296,9 +296,9 @@
         {
           "id": "sabar_rose_family",
           "default": true,
-          "name": "Rose family lineage (canonical Senegalese mbalax — Doudou Ndiaye Rose)",
+          "name": "Griot family lineage (canonical Senegalese mbalax)",
           "descriptors": [
-            "rose-family-canonical-senegalese-mbalax"
+            "family-canonical-senegalese-mbalax"
           ],
           "match_tokens": [
             "percussive-attack",
