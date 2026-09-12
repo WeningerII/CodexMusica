@@ -146,7 +146,7 @@
         {
           "id": "vielle_medieval_bourdon_gut",
           "default": true,
-          "name": "Gut with off-board bourdon drone (Jerome of Moravia)",
+          "name": "Gut with off-board bourdon drone (13th-century treatise tuning)",
           "descriptors": [
             "gut-bourdon-drone-canonical"
           ],
@@ -279,7 +279,7 @@
         {
           "id": "vielle_medieval_bourdon_gut",
           "default": true,
-          "name": "Gut with off-board bourdon drone (Jerome of Moravia)",
+          "name": "Gut with off-board bourdon drone (13th-century treatise tuning)",
           "descriptors": [
             "gut-bourdon-drone-canonical"
           ],

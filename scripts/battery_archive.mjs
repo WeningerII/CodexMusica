@@ -19,6 +19,7 @@ import {
 import { dirname, isAbsolute, join, parse, relative, resolve, sep } from 'node:path';
 import { createCipheriv, createDecipheriv, randomBytes, randomUUID } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
+import { projectRecord } from './battery_inspect.mjs';
 
 const VERSION = 1;
 const CIPHER = 'AES-256-GCM';
@@ -497,7 +498,15 @@ function readSummary(source) {
     directoryChain(root);
     const file = join(root, 'summary.json');
     if (!optionalStat(file)) return { state: 'no_summary' };
-    return safeSummary(JSON.parse(boundedRead(file, ARCHIVE_LIMITS.fileBytes).toString('utf8')));
+    const summary = safeSummary(
+      JSON.parse(boundedRead(file, ARCHIVE_LIMITS.fileBytes).toString('utf8'))
+    );
+    // A song reaches `summary.json` only when it ends; a run that was
+    // cancelled or killed mid-song left nothing there. The projection reads
+    // the checkpoint and transcript for what the summary cannot yet say —
+    // counts, enums and timings only (battery_inspect.mjs).
+    summary.inspection = projectRecord(root);
+    return summary;
   });
 }
 

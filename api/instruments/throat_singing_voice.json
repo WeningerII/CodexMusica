@@ -40,7 +40,7 @@
         },
         {
           "id": "throat_mechanism_ventricular_subharmonic_70_100Hz",
-          "name": "Ventricular co-oscillation subharmonic — F0 70-100 Hz per Lindestad 2001 (kargyraa/Sardinian-bassu/Tibetan-deep mechanism)",
+          "name": "Ventricular co-oscillation subharmonic — F0 70-100 Hz (kargyraa/Sardinian-bassu/Tibetan-deep)",
           "descriptors": [
             "ventricular-co-oscillation-subharmonic",
             "false-fold-half-rate-coupling",
@@ -163,7 +163,7 @@
         {
           "id": "throat_singing_voice_central_asian_steppe",
           "default": true,
-          "name": "Central Asian steppe (canonical Roubeau/Lindestad mechanism-research site)",
+          "name": "Central Asian steppe (canonical mechanism-research site)",
           "descriptors": [
             "central-asian-steppe-canonical-research-site"
           ],
@@ -247,7 +247,7 @@
         },
         {
           "id": "throat_mechanism_ventricular_subharmonic_70_100Hz",
-          "name": "Ventricular co-oscillation subharmonic — F0 70-100 Hz per Lindestad 2001 (kargyraa/Sardinian-bassu/Tibetan-deep mechanism)",
+          "name": "Ventricular co-oscillation subharmonic — F0 70-100 Hz (kargyraa/Sardinian-bassu/Tibetan-deep)",
           "descriptors": [
             "ventricular-co-oscillation-subharmonic",
             "false-fold-half-rate-coupling",
@@ -370,7 +370,7 @@
         {
           "id": "throat_singing_voice_central_asian_steppe",
           "default": true,
-          "name": "Central Asian steppe (canonical Roubeau/Lindestad mechanism-research site)",
+          "name": "Central Asian steppe (canonical mechanism-research site)",
           "descriptors": [
             "central-asian-steppe-canonical-research-site"
           ],

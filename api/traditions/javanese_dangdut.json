@@ -5,7 +5,7 @@
   "lineage": "Central and East Javanese regional variant of Indonesian dangdut consolidated in Surabaya, Semarang and Kediri from the 1980s and codified as dangdut koplo through the 1990s-2000s live-orkes circuit and the electric organ-tunggal wedding trade — kendang played in double-time koplo strokes with a lurching pickup fill against 4/4 at 100-130 BPM, suling and mandolin doubling the vocal line in cengkok melisma, synth brass and electric bass replacing the Melayu string section, and a nasal, heavily ornamented female lead delivery over VCD-and-cassette distribution.",
   "recipe": "classic Southeast Asian mid-1980s javanese dangdut, functional Song, east Asian pop branch, south Asian pop functional song, southeast Asian art music, Afro-diasporic electric groove percussion saraiki pop baila. extended whistle, breath veiled tone, fast rate, interlocked note trading. paired gamelan javanese jackwood barrel canonical javanese balinese buffalo hide rattan lacing canonical javanese kendang indonesian, bamboo rattan band fipple canonical javanese balinese suling, bowl back Italian x brace modern mandolin thomastik flatwound mandolin, clean strummed single coil electric guitar, pyramid pure nickel bass British mid 60s era electric bass, singing lead analog poly synth, pre muffled edge muffled brushes-and-sticks drum kit. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 970,
-  "score": 332.063,
+  "score": 331.928,
   "config": {
     "traditions": [
       "javanese_dangdut",
@@ -97,7 +97,7 @@
         "scores": {
           "acoustic_technique": 10.825000000000001,
           "mandolin_shape": 2.37,
-          "mandolin_top": 0.585,
+          "mandolin_top": 0.45,
           "mandolin_back": 0.345,
           "mandolin_bracing": 1.645,
           "mandolin_strings": 1.25,

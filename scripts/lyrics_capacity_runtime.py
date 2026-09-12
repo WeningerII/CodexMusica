@@ -204,6 +204,20 @@ def runtime_evidence_failures(record, *, local=False, require_concurrent=True):
     return failures
 
 
+def queue_evidence_extends(evidence, recorded):
+    """True when `evidence` is `recorded` plus later rows from the same observed pid."""
+    if not isinstance(evidence, dict) or not isinstance(recorded, dict):
+        return False
+    old_rows, new_rows = recorded.get('rows'), evidence.get('rows')
+    pid = recorded.get('server_pid')
+    return (type(pid) is int and evidence.get('server_pid') == pid and
+            evidence.get('version') == recorded.get('version') and
+            set(evidence) == set(recorded) and
+            isinstance(old_rows, list) and isinstance(new_rows, list) and
+            len(new_rows) > len(old_rows) and new_rows[:len(old_rows)] == old_rows and
+            all(isinstance(row, dict) and row.get('server_pid') == pid for row in new_rows[len(old_rows):]))
+
+
 class ResidentRuntime:
     def __init__(self, directory):
         self.directory = Path(directory)
@@ -286,9 +300,21 @@ class ResidentRuntime:
         # Restart keeps the completed old process's private receipt. Do not
         # relabel it as load on the replacement process or silently discard it.
         if evidence.get('server_pid') != self.child.pid:
-            if evidence != self.record.get('queue_pressure'):
-                raise RuntimeError('queue-pressure evidence belongs to an unobserved server process')
-            return
+            recorded = self.record.get('queue_pressure')
+            if evidence == recorded:
+                return
+            # The server measures on a 250 ms tick and finishes the phase it
+            # is inside when the request goes inactive, so its last write can
+            # land after this side's last look and before its own exit (CI run
+            # 34645027230 at main dd316b1b: one 'full' row more than recorded,
+            # same pid, and the restart read it as a stranger's for thirty
+            # seconds). A receipt that extends exactly what was recorded, from
+            # the pid that was observed, is that process's own and is kept
+            # under its pid. Anything else is still refused.
+            if queue_evidence_extends(evidence, recorded):
+                self.record['queue_pressure'] = evidence
+                return
+            raise RuntimeError('queue-pressure evidence belongs to an unobserved server process')
         self.record['queue_pressure'] = evidence
 
     def begin_measurement(self, identity, proc):
@@ -454,6 +480,10 @@ class ResidentRuntime:
             self.thread.join(timeout=2 * REPLAY_SECONDS + HEALTH_SECONDS + 1)
             if self.thread.is_alive():
                 raise RuntimeError('resident HTTP monitor did not finish within its deadline')
+        # The last look at the old process's receipt, as late as it can be
+        # taken: a measurement still finishing when the monitor stopped may
+        # have written since the last sample.
+        self.collect_queue()
         self.stop_child()
         self._launch(recovery=True)
         if hashlib.sha256((self.directory / 'runtime/chat-secret.key').read_bytes()).digest() != self.key_digest:

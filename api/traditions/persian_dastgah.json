@@ -3,9 +3,9 @@
   "name": "Persian dastgāh",
   "family": "classical",
   "lineage": "Iranian classical-music tradition built on the radif (the repertoire body codified by the late-19th-century Mirza Abdollah and Aqa Hossein Qoli families) organized into 7 principal dastgāhs (Shur, Mahour, Homayoun, Segāh, Chahargāh, Rastpanjgāh, Nava) and 5 secondary avaz (subsidiary modal systems); 20th-century lineage: Ali-Naqi Vaziri, Ruhollah Khaleqi, Mohammad-Reza Shajarian (vocal), Hossein Alizadeh (tar), Kayhan Kalhor (kamancheh)",
-  "recipe": "classic Middle Eastern early-1940s persian dastgāh, art Music, middle eastern classical branch, Persian arab improv improv on frame, string drone modal tarab oud taqsim. vocal fry, breath veiled tone, slow rate, interlocked note trading. brass radif shahnazi lineage tar walnut bowl canonical Persian gut historical pre modern radif radif setar tanbur persian, santur, kayhan kalhor canon walnut canonical Persian legato kamancheh, walnut tombak, walnut bent frame canonical Persian fish skin iraqi variant brass rings canonical Iranian daf, walnut bent frame canonical Iranian tar frame drum. tehran classical dastgah context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
-  "recipe_chars": 738,
-  "score": 522.82,
+  "recipe": "classic Middle Eastern early-1940s persian dastgāh, art Music, middle eastern classical branch, Persian arab improv improv on frame, string drone modal tarab oud taqsim. vocal fry, breath veiled tone, slow rate, interlocked note trading. brass radif tar walnut bowl canonical Persian gut historical pre modern radif radif setar tanbur persian, santur, walnut canonical Persian legato kamancheh, walnut tombak, walnut bent frame canonical Persian fish skin iraqi variant brass rings canonical Iranian daf, walnut bent frame canonical Iranian tar frame drum. tehran classical dastgah context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe_chars": 701,
+  "score": 516.92,
   "config": {
     "traditions": [
       "persian_dastgah",
@@ -68,7 +68,7 @@
           "tar_pick": 8.665,
           "tar_body_wood": 0.15,
           "tar_string_material": -0.525,
-          "tar_tradition": 3.5850000000000004
+          "tar_tradition": 2.285
         }
       },
       {
@@ -87,7 +87,7 @@
           "setar_pluck": 8.774999999999999,
           "setar_body_wood": 5.719999999999999,
           "setar_string_material": 1.495,
-          "setar_tradition": 4.885000000000001
+          "setar_tradition": 2.285
         }
       },
       {
@@ -115,7 +115,7 @@
         "scores": {
           "bowed_technique": 17.115,
           "kamancheh_belly": 9.62,
-          "kamancheh_use": 17.229999999999997,
+          "kamancheh_use": 15.229999999999997,
           "kamancheh_body_wood": 5.719999999999999,
           "kamancheh_strings": -0.525
         }

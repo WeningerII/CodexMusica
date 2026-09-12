@@ -3,9 +3,9 @@
   "name": "Close Harmony (Country Brother Duet)",
   "family": "country",
   "lineage": "American Southeastern vocal-duet practice recorded intensively from the early 1930s by Bluebird and ARC — two voices, most often siblings, singing parallel thirds and sixths within a narrow tessitura with matched timbre and no vibrato, accompanied by mandolin and guitar at 80-120 BPM, a repertoire of sentimental ballads and hymns codified by the Monroe, Delmore and Bolick brothers.",
-  "recipe": "classic 1930-1933 close harmony, functional Song, pre commercial branch, bluegrass improv on frame, christian gospel southern gospel reactionary bluegrass neo-traditional bluegrass. thick, breath veiled tone, straight note core, interlocked note trading. Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, martin lifespan sealed travis picked dreadnought acoustic guitar, plain gut sheep gut double stops fiddle, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 648,
-  "score": 397.802,
+  "recipe": "classic 1930-1933 close harmony, functional Song, pre commercial branch, bluegrass improv on frame, christian gospel southern gospel reactionary bluegrass neo-traditional bluegrass. thick, breath veiled tone, straight note core, interlocked note trading. Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, martin lifespan sealed travis picked dreadnought acoustic guitar, plain gut sheep gut double stops fiddle, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 652,
+  "score": 397.712,
   "config": {
     "traditions": [
       "close_harmony",
@@ -67,8 +67,8 @@
         "scores": {
           "acoustic_technique": 9.684999999999999,
           "mandolin_shape": 9.045,
-          "mandolin_top": 11.064999999999998,
-          "mandolin_back": 9.045,
+          "mandolin_top": 11.02,
+          "mandolin_back": 9,
           "mandolin_bracing": 10.045,
           "mandolin_strings": 4.5175,
           "mandolin_fingerboard": 0.585,

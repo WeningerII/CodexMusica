@@ -3,9 +3,9 @@
   "name": "Qanun taqsim (Arab-Turkish plucked zither art music)",
   "family": "global",
   "lineage": "Trapezoidal 72-81-string plucked box zither central to the Arab takht and Ottoman fasil from the 19th century, standardized with the mandal lever system in early-20th-century Cairo and Istanbul workshops and codified by players such as Muhammad al-Aqqad, Abraham Salman and Ruhi Ayangil, marked by tortoise-shell plectrum rings, dense tremolo and rapid descending runs, mid-phrase mandal shifts that retune quarter-tone degrees for maqam modulation, and unmetered taqsim alternating with heterophonic ensemble accompaniment.",
-  "recipe": "classic North African early-1940s qanun taqsim, improv On Frame, Persian arab improv branch, middle eastern classical art music, med east poetic ballad poetry ghazal. vocal fry, breath veiled tone, slow rate, interlocked note trading. kanun drone like modal tortoiseshell traditional kanun, metal finger picks rosewood body arab premium drone like modal qanun, walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, arundo donax cane canonical Persian nine segment hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, rosewood mop inlay canonical Egyptian takht brass jingles canonical takht riq. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
-  "recipe_chars": 853,
-  "score": 323.732,
+  "recipe": "classic North African early-1940s qanun taqsim, improv On Frame, Persian arab improv branch, middle eastern classical art music, med east poetic ballad poetry ghazal. vocal fry, breath veiled tone, slow rate, interlocked note trading. kanun drone like modal tortoiseshell traditional kanun, metal finger picks rosewood body arab premium drone like modal qanun, walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, arundo donax cane canonical Persian nine segment canonical 20th century Persian radif continuous-airflow legato ney, rosewood mop inlay canonical Egyptian takht brass jingles canonical takht riq. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe_chars": 839,
+  "score": 323.082,
   "config": {
     "traditions": [
       "qanun_taqsim",
@@ -82,7 +82,7 @@
           "ney_use": 2.145,
           "ney_pitch": 3.705,
           "ney_body_material": 4.874999999999999,
-          "ney_lineage": 12.545
+          "ney_lineage": 11.895
         }
       },
       {

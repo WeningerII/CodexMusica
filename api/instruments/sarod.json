@@ -395,11 +395,10 @@
         {
           "id": "sarod_maihar_gharana",
           "default": true,
-          "name": "Maihar gharana (Ali Akbar Khan / Allauddin Khan)",
+          "name": "Maihar gharana (canonical 20th-century concert lineage)",
           "descriptors": [
             "maihar-gharana",
-            "ali-akbar-khan-lineage",
-            "allauddin-khan-lineage"
+            "canonical-20th-century-concert-lineage"
           ],
           "match_tokens": [
             "plucked",
@@ -408,10 +407,9 @@
         },
         {
           "id": "sarod_shahjahanpur_gharana",
-          "name": "Shahjahanpur / Bangash gharana (Amjad Ali Khan)",
+          "name": "Shahjahanpur gharana (modern concert lineage)",
           "descriptors": [
-            "shahjahanpur-bangash-gharana",
-            "amjad-ali-khan-lineage"
+            "shahjahanpur-gharana"
           ],
           "match_tokens": [
             "plucked",
@@ -676,11 +674,10 @@
         {
           "id": "sarod_maihar_gharana",
           "default": true,
-          "name": "Maihar gharana (Ali Akbar Khan / Allauddin Khan)",
+          "name": "Maihar gharana (canonical 20th-century concert lineage)",
           "descriptors": [
             "maihar-gharana",
-            "ali-akbar-khan-lineage",
-            "allauddin-khan-lineage"
+            "canonical-20th-century-concert-lineage"
           ],
           "match_tokens": [
             "plucked",
@@ -689,10 +686,9 @@
         },
         {
           "id": "sarod_shahjahanpur_gharana",
-          "name": "Shahjahanpur / Bangash gharana (Amjad Ali Khan)",
+          "name": "Shahjahanpur gharana (modern concert lineage)",
           "descriptors": [
-            "shahjahanpur-bangash-gharana",
-            "amjad-ali-khan-lineage"
+            "shahjahanpur-gharana"
           ],
           "match_tokens": [
             "plucked",

@@ -3,9 +3,9 @@
   "name": "Klapa",
   "family": "global",
   "lineage": "Dalmatian coastal a cappella harmony singing formalised at the Omiš festival from 1967 out of nineteenth-century church and confraternity practice — four to eight male voices in close homophonic chords, a high first tenor carrying the melody above two inner parts and a bass, with unmetered rubato opening lines, wide crescendos, and long fermatas at cadence, recognised by UNESCO in 2012",
-  "recipe": "classic Southern European late-1960s klapa, ballad Poetry, Mediterranean ballad branch, Mediterranean Southeast Asian shanty, vocal drone modal greek cretan tabachaniotika nisiótika. thick, breath veiled tone, straight onset, interlocked note trading. bowl back Italian adirondack red spruce loar canon x brace mandolin, cedar fingerpicked classical nylon-string guitar. dalmatian stone alley. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
-  "recipe_chars": 539,
-  "score": 177.057,
+  "recipe": "classic Southern European late-1960s klapa, ballad Poetry, Mediterranean ballad branch, Mediterranean Southeast Asian shanty, vocal drone modal greek cretan tabachaniotika nisiótika. thick, breath veiled tone, straight onset, interlocked note trading. bowl back Italian adirondack red spruce x brace modern mandolin mandolin, cedar fingerpicked classical nylon-string guitar. dalmatian stone alley. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
+  "recipe_chars": 544,
+  "score": 177.012,
   "config": {
     "traditions": [
       "klapa",
@@ -67,7 +67,7 @@
         "scores": {
           "acoustic_technique": 2.5349999999999997,
           "mandolin_shape": 1.7550000000000001,
-          "mandolin_top": 1.2349999999999999,
+          "mandolin_top": 1.19,
           "mandolin_back": 0.845,
           "mandolin_bracing": 1.2349999999999999,
           "mandolin_strings": 0.51,

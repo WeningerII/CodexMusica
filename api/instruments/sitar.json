@@ -455,10 +455,9 @@
         {
           "id": "sitar_jawari_open",
           "default": true,
-          "name": "Open jawari (Vilayat Khan canon — long sustain, buzzing overtones)",
+          "name": "Open jawari (Etawah canon — long sustain, buzzing overtones)",
           "descriptors": [
             "open-jawari",
-            "vilayat-khan-canon",
             "long-sustain",
             "buzzing-overtones"
           ],
@@ -469,10 +468,9 @@
         },
         {
           "id": "sitar_jawari_closed",
-          "name": "Closed jawari (Ravi Shankar canon — articulate, less buzz)",
+          "name": "Closed jawari (Maihar canon — articulate, less buzz)",
           "descriptors": [
             "closed-jawari",
-            "ravi-shankar-canon",
             "articulate-less-buzz"
           ],
           "match_tokens": [
@@ -528,11 +526,10 @@
         },
         {
           "id": "sitar_imdadkhani_gharana",
-          "name": "Imdadkhani / Etawah gharana (Vilayat Khan)",
+          "name": "Imdadkhani / Etawah gharana (gayaki ang vocal-style lineage)",
           "descriptors": [
             "imdadkhani-gharana",
             "etawah-gharana",
-            "vilayat-khan-lineage",
             "gayaki-ang"
           ],
           "match_tokens": [
@@ -555,7 +552,7 @@
         },
         {
           "id": "sitar_rampur_gharana",
-          "name": "Rampur / Sahaswan gharana (Ustad Rashid Khan lineage)",
+          "name": "Rampur / Sahaswan gharana (vocal-rooted lineage)",
           "descriptors": [
             "rampur-sahaswan-gharana"
           ],
@@ -871,10 +868,9 @@
         {
           "id": "sitar_jawari_open",
           "default": true,
-          "name": "Open jawari (Vilayat Khan canon — long sustain, buzzing overtones)",
+          "name": "Open jawari (Etawah canon — long sustain, buzzing overtones)",
           "descriptors": [
             "open-jawari",
-            "vilayat-khan-canon",
             "long-sustain",
             "buzzing-overtones"
           ],
@@ -885,10 +881,9 @@
         },
         {
           "id": "sitar_jawari_closed",
-          "name": "Closed jawari (Ravi Shankar canon — articulate, less buzz)",
+          "name": "Closed jawari (Maihar canon — articulate, less buzz)",
           "descriptors": [
             "closed-jawari",
-            "ravi-shankar-canon",
             "articulate-less-buzz"
           ],
           "match_tokens": [
@@ -944,11 +939,10 @@
         },
         {
           "id": "sitar_imdadkhani_gharana",
-          "name": "Imdadkhani / Etawah gharana (Vilayat Khan)",
+          "name": "Imdadkhani / Etawah gharana (gayaki ang vocal-style lineage)",
           "descriptors": [
             "imdadkhani-gharana",
             "etawah-gharana",
-            "vilayat-khan-lineage",
             "gayaki-ang"
           ],
           "match_tokens": [
@@ -971,7 +965,7 @@
         },
         {
           "id": "sitar_rampur_gharana",
-          "name": "Rampur / Sahaswan gharana (Ustad Rashid Khan lineage)",
+          "name": "Rampur / Sahaswan gharana (vocal-rooted lineage)",
           "descriptors": [
             "rampur-sahaswan-gharana"
           ],

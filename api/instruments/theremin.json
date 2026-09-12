@@ -58,7 +58,7 @@
         {
           "id": "theremin_rca",
           "default": true,
-          "name": "RCA / Lev Termen original",
+          "name": "RCA / original 1920s vacuum-tube design",
           "descriptors": [
             "historical",
             "analog-drift-character"
@@ -166,9 +166,9 @@
         {
           "id": "theremin_lev_termen_canonical",
           "default": true,
-          "name": "Lev Sergeyevich Termen Petrograd 1920 lineage (canonical Russian inventor)",
+          "name": "Petrograd 1920 lineage (canonical Russian inventor original)",
           "descriptors": [
-            "lev-sergeyevich-termen-petrograd-1920-lineage-canonical-russian-inventor"
+            "petrograd-1920-lineage-canonical-russian-inventor"
           ],
           "match_tokens": [
             "electronic",
@@ -177,9 +177,9 @@
         },
         {
           "id": "theremin_clara_rockmore",
-          "name": "Clara Rockmore concert lineage (canonical 1930s-1960s aerial-fingering virtuoso)",
+          "name": "Concert lineage (canonical 1930s-1960s aerial-fingering virtuoso)",
           "descriptors": [
-            "clara-rockmore-concert-lineage-canonical-1930s-1960s-aerial-fingering-virtuoso"
+            "concert-lineage-canonical-1930s-1960s-aerial-fingering-virtuoso"
           ],
           "match_tokens": [
             "electronic",
@@ -212,7 +212,7 @@
         {
           "id": "theremin_rca",
           "default": true,
-          "name": "RCA / Lev Termen original",
+          "name": "RCA / original 1920s vacuum-tube design",
           "descriptors": [
             "historical",
             "analog-drift-character"
@@ -320,9 +320,9 @@
         {
           "id": "theremin_lev_termen_canonical",
           "default": true,
-          "name": "Lev Sergeyevich Termen Petrograd 1920 lineage (canonical Russian inventor)",
+          "name": "Petrograd 1920 lineage (canonical Russian inventor original)",
           "descriptors": [
-            "lev-sergeyevich-termen-petrograd-1920-lineage-canonical-russian-inventor"
+            "petrograd-1920-lineage-canonical-russian-inventor"
           ],
           "match_tokens": [
             "electronic",
@@ -331,9 +331,9 @@
         },
         {
           "id": "theremin_clara_rockmore",
-          "name": "Clara Rockmore concert lineage (canonical 1930s-1960s aerial-fingering virtuoso)",
+          "name": "Concert lineage (canonical 1930s-1960s aerial-fingering virtuoso)",
           "descriptors": [
-            "clara-rockmore-concert-lineage-canonical-1930s-1960s-aerial-fingering-virtuoso"
+            "concert-lineage-canonical-1930s-1960s-aerial-fingering-virtuoso"
           ],
           "match_tokens": [
             "electronic",

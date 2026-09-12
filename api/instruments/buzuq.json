@@ -23,11 +23,10 @@
         {
           "id": "buzuq_lebanese",
           "default": true,
-          "name": "Lebanese buzuq (Rahbani-era)",
+          "name": "Lebanese buzuq (mid-20th-century golden era)",
           "descriptors": [
             "lyrical",
-            "bright",
-            "rahbani-era"
+            "bright"
           ],
           "match_tokens": [
             "plucked",
@@ -187,11 +186,10 @@
         {
           "id": "buzuq_lebanese",
           "default": true,
-          "name": "Lebanese buzuq (Rahbani-era)",
+          "name": "Lebanese buzuq (mid-20th-century golden era)",
           "descriptors": [
             "lyrical",
-            "bright",
-            "rahbani-era"
+            "bright"
           ],
           "match_tokens": [
             "plucked",

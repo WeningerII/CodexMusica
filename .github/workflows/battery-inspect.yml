@@ -1,0 +1,64 @@
+name: Battery inspect
+
+# Reads a finished or cancelled battery's encrypted record and prints an
+# allowlisted projection: turn timings, tool exit codes, stop reasons, the
+# loop ladder. No lyric, no model text, no capability leaves the archive.
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: 'Actions run ID of the flash battery to inspect'
+        required: true
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: battery-inspect
+  cancel-in-progress: false
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Validate the recovery key before touching the archive
+        env:
+          BATTERY_RECOVERY_KEY: ${{ secrets.BATTERY_RECOVERY_KEY }}
+        run: |
+          if ! [[ "$BATTERY_RECOVERY_KEY" =~ ^[0-9a-fA-F]{64}$ ]]; then
+            echo '::error::BATTERY_RECOVERY_KEY must be 32 random bytes encoded by 64 hexadecimal characters'
+            exit 1
+          fi
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Select the latest sealed record of the run
+        id: prior
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PRIOR_RUN: ${{ inputs.run_id }}
+        run: |
+          [[ "$PRIOR_RUN" =~ ^[0-9]+$ ]] || { echo 'Invalid run ID'; exit 1; }
+          id=$(gh api --paginate "repos/$GITHUB_REPOSITORY/actions/runs/$PRIOR_RUN/artifacts?per_page=100" \
+            --jq '.artifacts[] | select(.expired == false) | select(.name == "flash-battery-recovery" or (.name | startswith("flash-battery-checkpoint-"))) | .id' | sort -nr | head -1)
+          [ -n "$id" ] || { echo 'No retained encrypted record exists'; exit 1; }
+          echo "id=$id" >> "$GITHUB_OUTPUT"
+      - name: Download the sealed record
+        uses: actions/download-artifact@v4
+        with:
+          artifact-ids: ${{ steps.prior.outputs.id }}
+          merge-multiple: true
+          path: battery-sealed-in/
+          run-id: ${{ inputs.run_id }}
+          github-token: ${{ github.token }}
+      - name: Open the record privately and print only the allowlisted projection
+        env:
+          BATTERY_RECOVERY_KEY: ${{ secrets.BATTERY_RECOVERY_KEY }}
+        run: |
+          umask 077
+          node scripts/battery_archive.mjs open --archive=battery-sealed-in/battery-recovery.enc --out=battery-out
+          unset BATTERY_RECOVERY_KEY
+          node scripts/battery_archive.mjs summary --source=battery-out

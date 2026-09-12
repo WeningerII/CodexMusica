@@ -174,7 +174,13 @@ jobs:
           if [ "$MODE" = "raw" ]; then raw=(--raw); fi
           base=()
           if [ -n "$CONNECTOR_URL" ]; then base=(--base="$CONNECTOR_URL"); fi
+          # The driver's per-turn notice rows (M-220) are its allowlisted
+          # aggregate — status, seconds, call counts, stop reason, no text of
+          # the model's or a person's — and they are the one thing a reader
+          # can watch mid-run. They reach the job log; everything else the
+          # driver prints stays in the private log (M-279).
           set +e
+          set -o pipefail
           node scripts/flash_battery.mjs \
             --out=battery-out \
             "${base[@]}" \
@@ -187,8 +193,12 @@ jobs:
             --expect="$EXPECT" \
             --max-runtime="$remaining" \
             "${raw[@]}" \
-            "${resume[@]}" >> battery-out/driver.log 2>&1
-          rc=$?
+            "${resume[@]}" 2>&1 \
+            | tee -a battery-out/driver.log \
+            | grep --line-buffered -E '^::notice title=battery song [0-9]+ turn [0-9]+::|^::(notice|error) title=battery verdict::' \
+            | sed -u -E 's/ — last error: .*$//'
+          rc=${PIPESTATUS[0]}
+          set +o pipefail
           set -e
           echo "Battery process exited with status $rc; full details remain in the encrypted recovery artifact."
           exit "$rc"

@@ -5,7 +5,7 @@
   "lineage": "Developed in Lagos, Accra, Bamako and Dakar from the late 1950s through the 1970s in the dance-band highlife orbit — Fela Kuti's pre-Afrobeat Koola Lobitos, Guy Warren, Manu Dibango, the Bembeya and Rail Band circles — setting bebop and hard-bop horn language over highlife and Mande grooves: 4/4 or 12/8 clave-adjacent patterns, tenor and trumpet lead lines, clean single-coil guitar arpeggios, kora or balafon lines, and long vamp-based solo sections.",
   "recipe": "classic West African 1957-1959 west african jazz, functional Song, African pop branch, American jazz hard bop, west African groove percussion blue note. tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, sterling silver bell premium projecting bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, Fender blackface amp American 60s amp spring reverb bright open string slide resonance chicken-scratch single coil electric guitar, cowhide mande traditional mande hardwood local traditional call-and-response kora, balafon, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, iroko alternative west African talking drum, lead congas. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. passive ribbon, tube pre. direct-to-disc lacquer.",
   "recipe_chars": 950,
-  "score": 364.633,
+  "score": 364.288,
   "config": {
     "traditions": [
       "west_african_jazz",
@@ -104,7 +104,7 @@
           "kora_strings_mat": 0.12999999999999998,
           "kora_top_skin": 1.48,
           "kora_neck_wood": 1.8250000000000002,
-          "kora_lineage": 0.39
+          "kora_lineage": 0.045
         }
       },
       {

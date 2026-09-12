@@ -3,9 +3,9 @@
   "name": "Hindustani classical",
   "family": "classical",
   "lineage": "North Indian classical raga tradition organized through the gharana (lineage-school) transmission system across Gwalior, Agra, Patiala, Kirana, Atrauli-Jaipur, Indore, Mewati, Benares gharanas — codified through V.N. Bhatkhandes 10-thaat system in the early 20th century, 20th-century lineage Ustad Bismillah Khan (shehnai), Ravi Shankar (sitar), Vilayat Khan (sitar), Ali Akbar Khan (sarod), Pandit Bhimsen Joshi (Kirana vocal), Pandit Hariprasad Chaurasia (bansuri)",
-  "recipe": "classic South Asian early-1950s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal kutiyattam sanskrit recitation hindustani vocal. open jawari vilayat khan canon long sustain buzzing overtones maihar gharana sitar, indian rosewood rosewood copper tabla, silvery suited to female vocal tanpura, steel modern tun indian cedar alternative santoor canonical lineage santoor, steel coconut shell shell tun indian cedar sarod, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani bismillah khan banaras lineage canonical Hindustani shehnai. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 892,
-  "score": 354.62,
+  "recipe": "classic South Asian early-1950s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal kutiyattam sanskrit recitation hindustani vocal. maihar gharana instrumental concert lineage classical trained lineage sitar, indian rosewood rosewood copper tabla, silvery suited to female vocal tanpura, steel modern tun indian cedar alternative santoor canonical lineage santoor, steel coconut shell shell tun indian cedar sarod, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani banaras lineage canonical Hindustani shehnai. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 870,
+  "score": 349.553,
   "config": {
     "traditions": [
       "hindustani",
@@ -36,7 +36,7 @@
           "sitar_frets": 0.39,
           "sitar_pluck": 10.329999999999998,
           "sitar_main_strings": 0.3,
-          "sitar_jawari_style": 4.495,
+          "sitar_jawari_style": 0.195,
           "sitar_gharana": 17.224999999999998
         }
       },
@@ -111,7 +111,7 @@
           "sarod_taraf": 10.464999999999998,
           "sarod_body_wood": 5.1499999999999995,
           "sarod_strings": 0.3,
-          "sarod_gharana": 11.27142857142857
+          "sarod_gharana": 14.95
         }
       },
       {
@@ -145,7 +145,7 @@
           "shehnai_use": 18.005,
           "shehnai_body_wood": 7.15,
           "shehnai_reed": 0.735,
-          "shehnai_lineage": 9.970714285714285
+          "shehnai_lineage": 5.525
         }
       }
     ],

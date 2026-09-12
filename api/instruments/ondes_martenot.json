@@ -168,9 +168,9 @@
         {
           "id": "ondes_martenot_maurice_canonical",
           "default": true,
-          "name": "Maurice Martenot Paris 1928 lineage (canonical inventor — Conservatoire de Paris pedagogy)",
+          "name": "Paris 1928 inventor lineage (canonical — Conservatoire de Paris pedagogy)",
           "descriptors": [
-            "maurice-martenot-paris-1928-lineage-canonical-inventor-conservatoire-de-paris-pedagogy"
+            "paris-1928-lineage-canonical-inventor-conservatoire-de-paris-pedagogy"
           ],
           "match_tokens": [
             "classical",
@@ -181,9 +181,9 @@
         },
         {
           "id": "ondes_martenot_messiaen_repertoire",
-          "name": "Messiaen Turangalîla repertoire tradition (canonical mid-20th-century French)",
+          "name": "Turangalîla repertoire tradition (canonical mid-20th-century French)",
           "descriptors": [
-            "messiaen-turangalila-repertoire-canonical-mid-20th-century-french"
+            "turangalila-repertoire-canonical-mid-20th-century-french"
           ],
           "match_tokens": [
             "classical",
@@ -293,9 +293,9 @@
         {
           "id": "ondes_martenot_maurice_canonical",
           "default": true,
-          "name": "Maurice Martenot Paris 1928 lineage (canonical inventor — Conservatoire de Paris pedagogy)",
+          "name": "Paris 1928 inventor lineage (canonical — Conservatoire de Paris pedagogy)",
           "descriptors": [
-            "maurice-martenot-paris-1928-lineage-canonical-inventor-conservatoire-de-paris-pedagogy"
+            "paris-1928-lineage-canonical-inventor-conservatoire-de-paris-pedagogy"
           ],
           "match_tokens": [
             "classical",
@@ -306,9 +306,9 @@
         },
         {
           "id": "ondes_martenot_messiaen_repertoire",
-          "name": "Messiaen Turangalîla repertoire tradition (canonical mid-20th-century French)",
+          "name": "Turangalîla repertoire tradition (canonical mid-20th-century French)",
           "descriptors": [
-            "messiaen-turangalila-repertoire-canonical-mid-20th-century-french"
+            "turangalila-repertoire-canonical-mid-20th-century-french"
           ],
           "match_tokens": [
             "classical",

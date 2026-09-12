@@ -3,9 +3,9 @@
   "name": "Oratorio",
   "family": "classical",
   "lineage": "Unstaged sacred dramatic work for soloists, chorus and orchestra, originating in Filippo Neri's Roman oratory devotions around 1600 and codified by Carissimi, then transplanted to Protestant England by Handel from Esther (1732) through Messiah (1741) and to Vienna by Haydn, built from recitative-aria-chorus chains on a biblical libretto, with da capo arias, fugal choruses, continuo-supported secco recitative and no staging, costume or action.",
-  "recipe": "classic European early-1600s oratorio, art Music, western common practice branch, western early art music, christian gospel anglican choral cantata burgundian school. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, Italian alpine spruce val di fiemme European maple bosnian source flamed figure violin orchestral, flemish ruckers antwerp canonical late 16th 17th century bach era reference soft leather plectra canonical French 18th century alternative quarter comma meantone canonical renaissance early Baroque legato harpsichord, synthetic Italian alpine spruce val di fiemme European maple bosnian source cello, legato heavy one piece matched to monette horn trumpet, loree paris canonical American school legato oboe, glotin var French cane legato bassoon, timpani.",
-  "recipe_chars": 807,
-  "score": 364.192,
+  "recipe": "classic European early-1600s oratorio, art Music, western common practice branch, western early art music, christian gospel anglican choral cantata burgundian school. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, Italian alpine spruce val di fiemme European maple bosnian source flamed figure violin orchestral, English kirkman shudi canonical mid 18th century London soft leather plectra canonical French 18th century alternative quarter comma meantone canonical renaissance early Baroque legato harpsichord, synthetic Italian alpine spruce val di fiemme European maple bosnian source cello, legato heavy one piece matched to monette horn trumpet, loree paris canonical American school legato oboe, glotin var French cane legato bassoon, timpani.",
+  "recipe_chars": 787,
+  "score": 362.893,
   "config": {
     "traditions": [
       "oratorio",
@@ -96,7 +96,7 @@
           "keyboard_technique": "keyboard_classical_legato",
           "harpsichord_register": "harpsi_double_8",
           "harpsichord_context": "harpsichord_solo",
-          "harpsichord_maker_school": "harpsichord_flemish_ruckers",
+          "harpsichord_maker_school": "harpsichord_english_kirkman",
           "harpsichord_plectrum": "harpsichord_leather_french",
           "harpsichord_temperament": "harpsichord_meantone_quarter"
         },
@@ -104,7 +104,7 @@
           "keyboard_technique": 5,
           "harpsichord_register": 2.8600000000000003,
           "harpsichord_context": 10.530000000000001,
-          "harpsichord_maker_school": 3.1849999999999996,
+          "harpsichord_maker_school": 2.7299999999999995,
           "harpsichord_plectrum": 1.4949999999999999,
           "harpsichord_temperament": 4.16
         }
@@ -217,7 +217,7 @@
           "keyboard_technique": 5,
           "pipe_organ_class": 0.65,
           "pipe_organ_context": 10.530000000000001,
-          "pipe_organ_voicing_school": 6.5,
+          "pipe_organ_voicing_school": 5.654999999999999,
           "pipe_organ_pipe_alloy": 1.4949999999999999,
           "pipe_organ_temperament": 4.16,
           "pipe_organ_action": 1.4949999999999999

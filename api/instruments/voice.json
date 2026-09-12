@@ -2999,7 +2999,7 @@
         },
         {
           "id": "voice_mechanism_ventricular_subharmonic",
-          "name": "Ventricular co-oscillation subharmonic (false-folds at half true-fold rate, F0 70-100 Hz per Lindestad 2001)",
+          "name": "Ventricular co-oscillation subharmonic (false-folds at half true-fold rate, F0 70-100 Hz)",
           "descriptors": [
             "ventricular-co-oscillation-subharmonic",
             "false-fold-half-rate-coupling",
@@ -8499,7 +8499,7 @@
         },
         {
           "id": "voice_mechanism_ventricular_subharmonic",
-          "name": "Ventricular co-oscillation subharmonic (false-folds at half true-fold rate, F0 70-100 Hz per Lindestad 2001)",
+          "name": "Ventricular co-oscillation subharmonic (false-folds at half true-fold rate, F0 70-100 Hz)",
           "descriptors": [
             "ventricular-co-oscillation-subharmonic",
             "false-fold-half-rate-coupling",

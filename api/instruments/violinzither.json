@@ -148,7 +148,7 @@
         {
           "id": "violinzither_neuber_klingenthal",
           "default": true,
-          "name": "Neuber's 1925 Klingenthal violinzither (Hopf build, often Kalliope-branded)",
+          "name": "1925 Klingenthal violinzither (Hopf build, often Kalliope-branded)",
           "descriptors": [
             "mass-produced",
             "vintage",
@@ -166,7 +166,7 @@
         },
         {
           "id": "violinzither_lausmann_concert",
-          "name": "Max Lausmann concert violin harp",
+          "name": "Concert violin harp (larger-bodied German form)",
           "descriptors": [
             "concert",
             "larger-bodied",
@@ -336,7 +336,7 @@
         {
           "id": "violinzither_neuber_klingenthal",
           "default": true,
-          "name": "Neuber's 1925 Klingenthal violinzither (Hopf build, often Kalliope-branded)",
+          "name": "1925 Klingenthal violinzither (Hopf build, often Kalliope-branded)",
           "descriptors": [
             "mass-produced",
             "vintage",
@@ -354,7 +354,7 @@
         },
         {
           "id": "violinzither_lausmann_concert",
-          "name": "Max Lausmann concert violin harp",
+          "name": "Concert violin harp (larger-bodied German form)",
           "descriptors": [
             "concert",
             "larger-bodied",

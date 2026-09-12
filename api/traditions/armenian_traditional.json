@@ -3,9 +3,9 @@
   "name": "Armenian liturgical and folk",
   "family": "global",
   "lineage": "Armenian Apostolic Christian liturgical tradition (the sharakan hymn repertoire dating to the 5th-century Mesrop Mashtots alphabet creation) and Armenian folk-and-ashugh-poetry-song tradition — codified by Komitas (1869-1935, the founding ethnomusicologist of Armenian musical scholarship) and preserved through the Yerevan Komitas State Conservatory; signature instrument the duduk, modern voices Djivan Gasparyan and Tigran Hamasyan",
-  "recipe": "classic Eastern European early-1860s armenian liturgical and folk, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab malhun. thick, breath veiled tone, slow rate, interlocked note trading. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley djivan gasparyan canonical 20th century armenian continuous-airflow legato duduk, kanun synthetic kanun, padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud. yerevan armenian komitas studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-  "recipe_chars": 674,
-  "score": 318.563,
+  "recipe": "classic Eastern European early-1860s armenian liturgical and folk, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab malhun. thick, breath veiled tone, slow rate, interlocked note trading. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley canonical 20th century armenian continuous-airflow legato duduk, kanun synthetic kanun, padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud. yerevan armenian komitas studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 657,
+  "score": 316.563,
   "config": {
     "traditions": [
       "armenian_traditional",
@@ -68,7 +68,7 @@
           "duduk_pitch": 0.045,
           "duduk_body_wood": 5.949999999999999,
           "duduk_reed": 5.6499999999999995,
-          "duduk_lineage": 13.454999999999998
+          "duduk_lineage": 11.454999999999998
         }
       },
       {

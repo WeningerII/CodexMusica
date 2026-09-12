@@ -101,7 +101,7 @@
         {
           "id": "ophicleide_orchestral_low_brass",
           "default": true,
-          "name": "Orchestral / grand-opera bass doubling the trombones (Berlioz, Mendelssohn, Wagner Rienzi, early Verdi)",
+          "name": "Orchestral / grand-opera bass doubling the trombones (early Romantic, 1830s-1850s)",
           "descriptors": [
             "section-blend",
             "grave",
@@ -345,7 +345,7 @@
         {
           "id": "ophicleide_orchestral_low_brass",
           "default": true,
-          "name": "Orchestral / grand-opera bass doubling the trombones (Berlioz, Mendelssohn, Wagner Rienzi, early Verdi)",
+          "name": "Orchestral / grand-opera bass doubling the trombones (early Romantic, 1830s-1850s)",
           "descriptors": [
             "section-blend",
             "grave",

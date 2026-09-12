@@ -267,9 +267,9 @@
         },
         {
           "id": "bansuri_pannalal_ghosh",
-          "name": "Pannalal Ghosh lineage (foundational concert-bansuri tradition)",
+          "name": "Foundational concert-bansuri lineage (20th-century Hindustani)",
           "descriptors": [
-            "pannalal-ghosh-foundational-concert-bansuri"
+            "foundational-concert-bansuri"
           ],
           "match_tokens": [
             "classical",
@@ -438,9 +438,9 @@
         },
         {
           "id": "bansuri_pannalal_ghosh",
-          "name": "Pannalal Ghosh lineage (foundational concert-bansuri tradition)",
+          "name": "Foundational concert-bansuri lineage (20th-century Hindustani)",
           "descriptors": [
-            "pannalal-ghosh-foundational-concert-bansuri"
+            "foundational-concert-bansuri"
           ],
           "match_tokens": [
             "classical",

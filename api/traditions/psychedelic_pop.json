@@ -5,7 +5,7 @@
   "lineage": "Studio-centred pop written under the influence of 1966-1969 psychedelia in London and Los Angeles — the Beatles of Revolver, the Beach Boys of Smile, the Zombies, the Left Banke, the Small Faces and Curt Boettcher's productions — retaining two-to-three-minute verse-chorus forms and close vocal harmony while adding modal and chromatic mediant harmony, Mellotron, harpsichord and sitar colour, backwards and varispeed tape, and heavy artificial double-tracking and chamber reverb on the voice.",
   "recipe": "classic British 1966-1969 psychedelic pop, functional Song, pop rock branch, art rock distorted rock, pop rock folk rock bosstown sound. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron block chord mellotron, low mid rich spectrum traditional teak sitar, English kirkman shudi canonical mid 18th century London vallotti canonical late Baroque Italian well temperament block chord harpsichord, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, tambourine orch.",
   "recipe_chars": 943,
-  "score": 593.471,
+  "score": 593.051,
   "config": {
     "traditions": [
       "psychedelic_pop",
@@ -145,7 +145,7 @@
           "sitar_frets": "tied_gut_parda",
           "sitar_pluck": "wire_mizrab",
           "sitar_main_strings": "sitar_bronze_steel_modern",
-          "sitar_jawari_style": "sitar_jawari_open",
+          "sitar_jawari_style": "sitar_jawari_closed",
           "sitar_gharana": "sitar_maihar_gharana"
         },
         "scores": {
@@ -157,7 +157,7 @@
           "sitar_frets": 0.048749999999999995,
           "sitar_pluck": 0.38999999999999996,
           "sitar_main_strings": -0.8400000000000001,
-          "sitar_jawari_style": 0.615,
+          "sitar_jawari_style": 0.195,
           "sitar_gharana": 0.78
         }
       },

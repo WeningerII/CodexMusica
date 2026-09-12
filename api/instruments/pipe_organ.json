@@ -217,9 +217,9 @@
         },
         {
           "id": "pipe_organ_silbermann_saxon",
-          "name": "Silbermann Saxon (canonical Bach-era Central German baroque — early 18th-century)",
+          "name": "Silbermann Saxon (canonical Central German baroque — early 18th-century)",
           "descriptors": [
-            "silbermann-saxon-canonical-bach-era-central-german-baroque-early-18th-century"
+            "silbermann-saxon-canonical-central-german-baroque-early-18th-century"
           ],
           "match_tokens": [
             "baroque-leaning",
@@ -564,9 +564,9 @@
         },
         {
           "id": "pipe_organ_silbermann_saxon",
-          "name": "Silbermann Saxon (canonical Bach-era Central German baroque — early 18th-century)",
+          "name": "Silbermann Saxon (canonical Central German baroque — early 18th-century)",
           "descriptors": [
-            "silbermann-saxon-canonical-bach-era-central-german-baroque-early-18th-century"
+            "silbermann-saxon-canonical-central-german-baroque-early-18th-century"
           ],
           "match_tokens": [
             "baroque-leaning",

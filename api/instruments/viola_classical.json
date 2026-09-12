@@ -630,9 +630,8 @@
         },
         {
           "id": "viola_galeazzi_baroque_rosin",
-          "name": "Galeazzi 1791 Italian-recipe (Aquila baroque)",
+          "name": "Italian treatise recipe 1791 (Aquila baroque)",
           "descriptors": [
-            "galeazzi-1791",
             "period-rosin"
           ],
           "match_tokens": [
@@ -1144,9 +1143,8 @@
         },
         {
           "id": "viola_galeazzi_baroque_rosin",
-          "name": "Galeazzi 1791 Italian-recipe (Aquila baroque)",
+          "name": "Italian treatise recipe 1791 (Aquila baroque)",
           "descriptors": [
-            "galeazzi-1791",
             "period-rosin"
           ],
           "match_tokens": [

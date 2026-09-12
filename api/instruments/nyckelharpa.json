@@ -170,10 +170,10 @@
         {
           "id": "nyckel_3_row_chromatic",
           "default": true,
-          "name": "3-row chromatic (canonical Eric Sahlström modernized 1925)",
+          "name": "3-row chromatic (canonical modernized 1925)",
           "descriptors": [
             "3-row-chromatic",
-            "sahlstrom-modernized-1925"
+            "modernized-1925"
           ],
           "match_tokens": [
             "bowed",
@@ -326,10 +326,10 @@
         {
           "id": "nyckel_3_row_chromatic",
           "default": true,
-          "name": "3-row chromatic (canonical Eric Sahlström modernized 1925)",
+          "name": "3-row chromatic (canonical modernized 1925)",
           "descriptors": [
             "3-row-chromatic",
-            "sahlstrom-modernized-1925"
+            "modernized-1925"
           ],
           "match_tokens": [
             "bowed",

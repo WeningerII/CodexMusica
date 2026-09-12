@@ -3,9 +3,9 @@
   "name": "Jamgrass",
   "family": "country",
   "lineage": "American acoustic hybrid that emerged from the 1990s Colorado and southeastern festival circuit — Leftover Salmon, String Cheese Incident and later Yonder Mountain String Band and Greensky Bluegrass — applying jam-band structure to a bluegrass roster: open-ended modal vamps and extended round-robin solos over a bluegrass backbeat at 100-160 BPM, mandolin and banjo played through effects and amplification, drums or percussion added to the traditionally drumless lineup, and songs stretched from three minutes to fifteen with segues between them.",
-  "recipe": "classic mid-1990s jamgrass, improv On Frame, jam free branch, bluegrass improv on frame, americana country, southern rock distorted rock progressive bluegrass instrumental bluegrass. thick, register break ornamental, wide pitch sway, interlocked note trading. Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, sitka spruce spruce maple bronze flatpicked dreadnought acoustic wood body spider bridge aluminum resonator heavy gauge dobro canon resonator guitar, treble-extended sustaining steel upright bass, steel double stops fiddle, jazz-trained ride-driven brushes-and-sticks drum kit. festival stage. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA. Studer 30ips tape hall reverb.",
-  "recipe_chars": 804,
-  "score": 684.475,
+  "recipe": "classic mid-1990s jamgrass, improv On Frame, jam free branch, bluegrass improv on frame, americana country, southern rock distorted rock progressive bluegrass instrumental bluegrass. thick, register break ornamental, wide pitch sway, interlocked note trading. Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, sitka spruce spruce maple bronze flatpicked dreadnought acoustic wood body spider bridge aluminum resonator heavy gauge dobro canon resonator guitar, treble-extended sustaining steel upright bass, steel double stops fiddle, jazz-trained ride-driven brushes-and-sticks drum kit. festival stage. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA. Studer 30ips tape hall reverb.",
+  "recipe_chars": 808,
+  "score": 684.085,
   "config": {
     "traditions": [
       "jamgrass",
@@ -28,8 +28,8 @@
         "scores": {
           "acoustic_technique": 20.659999999999997,
           "mandolin_shape": 19.67,
-          "mandolin_top": 20.944999999999997,
-          "mandolin_back": 19.82,
+          "mandolin_top": 20.749999999999996,
+          "mandolin_back": 19.625,
           "mandolin_bracing": 19.82,
           "mandolin_strings": 5.46,
           "mandolin_fingerboard": 0.39,

@@ -3,9 +3,9 @@
   "name": "Neo-traditional bluegrass",
   "family": "country",
   "lineage": "Conservative revival strain that took shape in the mid-1970s and 1980s around the Johnson Mountain Boys, Larry Sparks and Del McCoury, deliberately restoring the 1946-48 Monroe-Flatt-Scruggs template — five-string banjo in Scruggs three-finger roll, chopping mandolin backbeat, walking upright bass, no drums, and tenor-above-lead trio harmony sung high and hard into a single central condenser at 130-180 BPM, with modern recording fidelity but period repertoire, tempos and vocal placement.",
-  "recipe": "classic 1974-1976 neo-traditional bluegrass, improv On Frame, bluegrass branch, neo trad country, christian gospel southern gospel classic texas country neotraditional country. thick, breath veiled tone, straight note core, interlocked note trading. Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, cedar phosphor bronze modern martin travis picked dreadnought acoustic wood body spider bridge aluminum resonator heavy gauge dobro canon resonator guitar, sustaining steel upright bass, steel magic rosin modern acrylic base double stops fiddle. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 789,
-  "score": 440.433,
+  "recipe": "classic 1974-1976 neo-traditional bluegrass, improv On Frame, bluegrass branch, neo trad country, christian gospel southern gospel classic texas country neotraditional country. thick, breath veiled tone, straight note core, interlocked note trading. Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, cedar phosphor bronze modern martin travis picked dreadnought acoustic wood body spider bridge aluminum resonator heavy gauge dobro canon resonator guitar, sustaining steel upright bass, steel magic rosin modern acrylic base double stops fiddle. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 793,
+  "score": 440.37,
   "config": {
     "traditions": [
       "neo_traditional_bluegrass",
@@ -28,8 +28,8 @@
         "scores": {
           "acoustic_technique": 7.699999999999999,
           "mandolin_shape": 8.2365,
-          "mandolin_top": 10.258249999999999,
-          "mandolin_back": 7.781499999999999,
+          "mandolin_top": 10.22675,
+          "mandolin_back": 7.749999999999999,
           "mandolin_bracing": 8.55,
           "mandolin_strings": 2.5026249999999997,
           "mandolin_fingerboard": 1.5999999999999999,

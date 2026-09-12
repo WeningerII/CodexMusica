@@ -48,7 +48,7 @@
         {
           "id": "violino_piccolo_tuning_minor_third",
           "default": true,
-          "name": "Minor third above the violin (c′–g′–d″–a″, Walther's Lexicon)",
+          "name": "Minor third above the violin (c′–g′–d″–a″, 18th-century lexicon)",
           "descriptors": [
             "silvery",
             "treble-extended",
@@ -147,7 +147,7 @@
         },
         {
           "id": "violino_piccolo_role_early_italian",
-          "name": "Early-Baroque theatre ritornello (Monteverdi Orfeo, Praetorius consort)",
+          "name": "Early-Baroque theatre ritornello (Mantuan opera, German consort)",
           "descriptors": [
             "early-baroque",
             "courtly",
@@ -277,7 +277,7 @@
         {
           "id": "violino_piccolo_tuning_minor_third",
           "default": true,
-          "name": "Minor third above the violin (c′–g′–d″–a″, Walther's Lexicon)",
+          "name": "Minor third above the violin (c′–g′–d″–a″, 18th-century lexicon)",
           "descriptors": [
             "silvery",
             "treble-extended",
@@ -376,7 +376,7 @@
         },
         {
           "id": "violino_piccolo_role_early_italian",
-          "name": "Early-Baroque theatre ritornello (Monteverdi Orfeo, Praetorius consort)",
+          "name": "Early-Baroque theatre ritornello (Mantuan opera, German consort)",
           "descriptors": [
             "early-baroque",
             "courtly",

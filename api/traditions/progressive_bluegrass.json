@@ -3,9 +3,9 @@
   "name": "Progressive Bluegrass",
   "family": "country",
   "lineage": "American acoustic string-band style that opened bluegrass instrumentation to jazz and rock materials from the late 1960s onward, driven by the Country Gentlemen, New Grass Revival with Sam Bush and Bela Fleck, David Grisman's 'Dawg' quintet and Tony Rice, retaining banjo, mandolin, fiddle, dreadnought guitar and upright bass while adding extended and modal harmony, long improvised solos over non-tonic vamps, rock and reggae backbeats, electric bass and amplification, odd-metre passages, and repertoire drawn from Beatles, Dylan and bebop sources.",
-  "recipe": "classic North American 1967-1969 progressive bluegrass, improv On Frame, bluegrass branch, americana country, jam free improv on frame jamgrass hellbilly music. thick, register break ornamental, straight note core, interlocked note trading. bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, steel double stops fiddle, sitka spruce spruce maple bronze flatpicked dreadnought acoustic wood body spider bridge aluminum resonator heavy gauge dobro canon resonator guitar, treble-extended sustaining steel upright Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 875,
-  "score": 638.87,
+  "recipe": "classic North American 1967-1969 progressive bluegrass, improv On Frame, bluegrass branch, americana country, jam free improv on frame jamgrass hellbilly music. thick, register break ornamental, straight note core, interlocked note trading. bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, steel double stops fiddle, sitka spruce spruce maple bronze flatpicked dreadnought acoustic wood body spider bridge aluminum resonator heavy gauge dobro canon resonator guitar, treble-extended sustaining steel upright Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 879,
+  "score": 638.57,
   "config": {
     "traditions": [
       "progressive_bluegrass",
@@ -55,8 +55,8 @@
         "scores": {
           "acoustic_technique": 16.325,
           "mandolin_shape": 16.375,
-          "mandolin_top": 16.72,
-          "mandolin_back": 16.72,
+          "mandolin_top": 16.57,
+          "mandolin_back": 16.57,
           "mandolin_bracing": 16.824999999999996,
           "mandolin_strings": 4.4350000000000005,
           "mandolin_fingerboard": 0.15,

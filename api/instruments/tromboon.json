@@ -1,6 +1,6 @@
 {
   "id": "tromboon",
-  "name": "Tromboon (P.D.Q. Bach bassoon-reed trombone hybrid)",
+  "name": "Tromboon (bassoon-reed trombone hybrid, musical-parody novelty)",
   "family": "wind",
   "class": "wind_blown",
   "axes": {
@@ -107,7 +107,7 @@
         {
           "id": "tromboon_pdq_feature",
           "default": true,
-          "name": "Solo comic feature in a P.D.Q. Bach score (The Seasonings, Serenude, Shepherd on the Rocks)",
+          "name": "Solo comic feature in a musical-parody concert score",
           "descriptors": [
             "comic",
             "featured",
@@ -273,7 +273,7 @@
         {
           "id": "tromboon_pdq_feature",
           "default": true,
-          "name": "Solo comic feature in a P.D.Q. Bach score (The Seasonings, Serenude, Shepherd on the Rocks)",
+          "name": "Solo comic feature in a musical-parody concert score",
           "descriptors": [
             "comic",
             "featured",

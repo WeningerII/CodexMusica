@@ -3,9 +3,9 @@
   "name": "Filmi (Indian film playback song)",
   "family": "pop",
   "lineage": "The song form of Indian commercial cinema, established in Bombay studios from the 1940s once playback recording separated singer from actor — codified by composers Naushad, S.D. Burman, Shankar-Jaikishan, R.D. Burman and Laxmikant-Pyarelal with singers Lata Mangeshkar, Mohammed Rafi and Kishore Kumar; mukhda-antara verse-refrain structure over dholak or tabla keherwa with a large mixed orchestra of massed violins, brass, accordion, sitar and santoor, recorded live to multitrack in one room with the vocal in a high, thin, vibrato-light register.",
-  "recipe": "classic South Asian mid-1940s filmi, functional Song, south Asian pop branch, south Asian art music, east Asian pop functional song enka sinhala vannama. thick, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood brass tabla, goat skin syahi rope laced steel ring dholak, brass castagnari Italian premium folk music accordion, teak calabash gut closed jawari ravi shankar canon sitar, walnut bronze tun indian cedar alternative santoor canonical lineage ornamented santoor, low overtone rich vocal male harmonium indian, yamaha modern Japanese mid to premium flute, venice catlin high twist renaissance bass carpathian spruce European maple double bass. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 882,
-  "score": 300.972,
+  "recipe": "classic South Asian mid-1940s filmi, functional Song, south Asian pop branch, south Asian art music, east Asian pop functional song enka sinhala vannama. thick, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood brass tabla, goat skin syahi rope laced steel ring dholak, brass castagnari Italian premium folk music accordion, teak calabash gut maihar gharana instrumental concert lineage sitar, walnut bronze tun indian cedar alternative santoor canonical lineage ornamented santoor, low overtone rich vocal male harmonium indian, yamaha modern Japanese mid to premium flute, venice catlin high twist renaissance bass carpathian spruce European maple double bass. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 893,
+  "score": 300.017,
   "config": {
     "traditions": [
       "filmi_playback",
@@ -112,7 +112,7 @@
           "sitar_frets": "tied_gut_parda",
           "sitar_pluck": "wire_mizrab",
           "sitar_main_strings": "sitar_bronze_steel_modern",
-          "sitar_jawari_style": "sitar_jawari_closed",
+          "sitar_jawari_style": "sitar_jawari_open",
           "sitar_gharana": "sitar_maihar_gharana"
         },
         "scores": {
@@ -124,7 +124,7 @@
           "sitar_frets": 1.295,
           "sitar_pluck": 1.4949999999999999,
           "sitar_main_strings": -0.5,
-          "sitar_jawari_style": 1,
+          "sitar_jawari_style": 0.045,
           "sitar_gharana": 2.0799999999999996
         }
       },

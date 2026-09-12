@@ -3,9 +3,9 @@
   "name": "Uilleann piping (Irish pipe tradition)",
   "family": "global",
   "lineage": "Irish bellows-blown pipe tradition developed from the union pipes of the late eighteenth century and codified by the Taylor and Rowsome making families and by Leo Rowsome, Willie Clancy and Séamus Ennis in the twentieth century — a two-octave chanter in D over three drones and three regulators, played seated on the knee with staccato 'tight' or legato 'open' fingering, crans and popping, supplying dance tunes at session tempo and free-time slow airs shaped to the sung Irish-language line.",
-  "recipe": "classic modern uilleann piping, drone Modal, wind pipe branch, Celtic traditional improv on frame, Celtic balladic sean nos sean-nós singing sean-nós solo singing. full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed taylor egan philadelphia canonical wide bore Irish American uilleann pipes, fiddle, melodic tin whistle, irish wooden flute, low mid rich spectrum traditional gut gut string celtic harp, modern Irish carroll suttner premium revival drone like concertina anglo. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 690,
-  "score": 156.03,
+  "recipe": "classic modern uilleann piping, drone Modal, wind pipe branch, Celtic traditional improv on frame, Celtic balladic sean nos sean-nós singing sean-nós solo singing. full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed philadelphia canonical wide bore Irish American uilleann pipes, fiddle, melodic tin whistle, irish wooden flute, low mid rich spectrum traditional gut gut string celtic harp, modern Irish carroll suttner premium revival drone like concertina anglo. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 678,
+  "score": 155.03,
   "config": {
     "traditions": [
       "uilleann_pipes",
@@ -31,7 +31,7 @@
           "uilleann_chanter_wood": 7.299999999999999,
           "uilleann_reed": 7.304999999999999,
           "uilleann_bag": 8.604999999999999,
-          "uilleann_lineage": 8.499999999999998
+          "uilleann_lineage": 7.499999999999999
         }
       },
       {

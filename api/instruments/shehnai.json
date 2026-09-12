@@ -133,9 +133,9 @@
         {
           "id": "shehnai_bismillah_khan_banaras",
           "default": true,
-          "name": "Bismillah Khan Banaras lineage (canonical Hindustani)",
+          "name": "Banaras lineage (canonical Hindustani)",
           "descriptors": [
-            "bismillah-khan-banaras-lineage-canonical-hindustani"
+            "banaras-lineage-canonical-hindustani"
           ],
           "match_tokens": [
             "wind",
@@ -263,9 +263,9 @@
         {
           "id": "shehnai_bismillah_khan_banaras",
           "default": true,
-          "name": "Bismillah Khan Banaras lineage (canonical Hindustani)",
+          "name": "Banaras lineage (canonical Hindustani)",
           "descriptors": [
-            "bismillah-khan-banaras-lineage-canonical-hindustani"
+            "banaras-lineage-canonical-hindustani"
           ],
           "match_tokens": [
             "wind",

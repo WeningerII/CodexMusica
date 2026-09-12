@@ -235,7 +235,17 @@ test('workflow validates the secret before paid work and uploads no plaintext pa
       workflow.indexOf('Prove archive encryption before paid work') <
         workflow.indexOf('Drive the battery')
     );
-    assert.match(workflow, /"\$\{resume\[@\]\}" >> battery-out\/driver\.log 2>&1/);
+    // The driver's whole output lands in the private log; only its per-turn
+    // notice rows and the verdict pass the allowlist to the job log, and the
+    // malformed-hop notice (which quotes the model) does not match it (M-279).
+    assert.match(workflow, /"\$\{resume\[@\]\}" 2>&1 \\\n\s+\| tee -a battery-out\/driver\.log \\\n\s+\| grep --line-buffered -E '([^']+)'/);
+    const allow = new RegExp(/\| grep --line-buffered -E '([^']+)'/.exec(workflow)[1]);
+    assert.match('::notice title=battery song 0 turn 3::status=200 ms=1705569 tools=14', allow);
+    assert.match('::error title=battery verdict::song 0: no_stop', allow);
+    assert.doesNotMatch('::notice title=battery malformed hop::song 0 turn 1 hop 2 not re-asked: call:lyric_revise{draft', allow);
+    assert.doesNotMatch('::notice title=battery partial turn::song 0 turn 1: the engine died', allow);
+    assert.match(workflow, /rc=\$\{PIPESTATUS\[0\]\}/);
+    assert.match(workflow, /set -o pipefail/);
     const upload = workflow.slice(workflow.indexOf('      - name: Upload only encrypted'));
     assert.match(
       upload,

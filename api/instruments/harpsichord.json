@@ -181,9 +181,9 @@
         {
           "id": "harpsichord_flemish_ruckers",
           "default": true,
-          "name": "Flemish Ruckers Antwerp (canonical late 16th-17th century — Bach-era reference)",
+          "name": "Flemish Ruckers Antwerp (canonical late 16th-17th century — high-baroque reference)",
           "descriptors": [
-            "flemish-ruckers-antwerp-canonical-late-16th-17th-century-bach-era-reference"
+            "flemish-ruckers-antwerp-canonical-late-16th-17th-century"
           ],
           "match_tokens": [
             "plucked",
@@ -428,9 +428,9 @@
         {
           "id": "harpsichord_flemish_ruckers",
           "default": true,
-          "name": "Flemish Ruckers Antwerp (canonical late 16th-17th century — Bach-era reference)",
+          "name": "Flemish Ruckers Antwerp (canonical late 16th-17th century — high-baroque reference)",
           "descriptors": [
-            "flemish-ruckers-antwerp-canonical-late-16th-17th-century-bach-era-reference"
+            "flemish-ruckers-antwerp-canonical-late-16th-17th-century"
           ],
           "match_tokens": [
             "plucked",

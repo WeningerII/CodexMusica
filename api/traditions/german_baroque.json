@@ -3,9 +3,9 @@
   "name": "German Baroque",
   "family": "classical",
   "lineage": "North- and central-German art music of roughly 1650-1750 codified by Buxtehude in Lübeck and brought to its summit by J.S. Bach in Weimar, Köthen and Leipzig alongside Telemann and Handel — dense contrapuntal writing over a continuo of organ or harpsichord with cello and violone, Lutheran chorale melodies as structural cantus firmus, dance-suite meters, terraced dynamics, and gut-strung violins, oboes, natural trumpets and recorders played in circulating well temperaments at low chamber pitch.",
-  "recipe": "classic European early-1650s german baroque, art Music, western early branch, western common practice art music, christian gospel anglican choral, western modern art music second viennese school french baroque. Baroque leaning silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ, French blanchet taskin paris canonical late 18th century galant soft leather plectra canonical French 18th century alternative vallotti canonical late Baroque Italian well temperament legato harpsichord, gut Italian alpine spruce val di fiemme bigleaf maple western maple violin orchestral, plain lamb gut canonical period performance gut tied frets movable canonical viol viola da gamba, synthetic Italian alpine spruce val di fiemme European maple bosnian source cello.",
-  "recipe_chars": 963,
-  "score": 331.699,
+  "recipe": "classic European early-1650s german baroque, art Music, western early branch, western common practice art music, christian gospel anglican choral, western modern art music second viennese school french baroque. Baroque leaning silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ, French blanchet taskin paris canonical late 18th century galant soft leather plectra canonical French 18th century alternative vallotti canonical late Baroque Italian well temperament legato harpsichord, gut Italian alpine spruce val di fiemme bigleaf maple western maple violin orchestral, plain lamb gut canonical period performance gut tied frets movable canonical viol viola da gamba, synthetic Italian alpine spruce val di fiemme European maple bosnian source cello.",
+  "recipe_chars": 954,
+  "score": 330.11,
   "config": {
     "traditions": [
       "german_baroque",
@@ -28,7 +28,7 @@
           "keyboard_technique": 5,
           "pipe_organ_class": 2.1925,
           "pipe_organ_context": 16.509999999999998,
-          "pipe_organ_voicing_school": 12.75625,
+          "pipe_organ_voicing_school": 11.366249999999999,
           "pipe_organ_pipe_alloy": 3.3149999999999995,
           "pipe_organ_temperament": 5.720000000000001,
           "pipe_organ_action": 3.2325000000000004
@@ -98,7 +98,7 @@
           "gamba_strings": 4.875,
           "gamba_frets": 2.2337499999999997,
           "gamba_bow_stick": 7.951250000000001,
-          "gamba_lineage": 4.811249999999999
+          "gamba_lineage": 4.6125
         }
       },
       {

@@ -272,10 +272,9 @@
         {
           "id": "setar_radif_canonical",
           "default": true,
-          "name": "Radif canonical (Mohammad Reza Lotfi / Hossein Alizadeh lineage)",
+          "name": "Radif canonical (late 20th-century master lineage)",
           "descriptors": [
-            "radif-canonical",
-            "lotfi-alizadeh-lineage"
+            "radif-canonical"
           ],
           "match_tokens": [
             "plucked",
@@ -287,10 +286,9 @@
         },
         {
           "id": "setar_sufi_meditative",
-          "name": "Sufi meditative (Nour Ali Boroumand lineage)",
+          "name": "Sufi meditative (contemplative radif lineage)",
           "descriptors": [
-            "sufi-meditative",
-            "boroumand-lineage"
+            "sufi-meditative"
           ],
           "match_tokens": [
             "plucked",
@@ -420,10 +418,9 @@
         {
           "id": "setar_radif_canonical",
           "default": true,
-          "name": "Radif canonical (Mohammad Reza Lotfi / Hossein Alizadeh lineage)",
+          "name": "Radif canonical (late 20th-century master lineage)",
           "descriptors": [
-            "radif-canonical",
-            "lotfi-alizadeh-lineage"
+            "radif-canonical"
           ],
           "match_tokens": [
             "plucked",
@@ -435,10 +432,9 @@
         },
         {
           "id": "setar_sufi_meditative",
-          "name": "Sufi meditative (Nour Ali Boroumand lineage)",
+          "name": "Sufi meditative (contemplative radif lineage)",
           "descriptors": [
-            "sufi-meditative",
-            "boroumand-lineage"
+            "sufi-meditative"
           ],
           "match_tokens": [
             "plucked",

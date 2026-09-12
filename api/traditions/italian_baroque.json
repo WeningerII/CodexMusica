@@ -3,9 +3,9 @@
   "name": "Italian Baroque",
   "family": "classical",
   "lineage": "Italy c.1600-1750 — Monteverdi's seconda pratica, then Corelli in Rome codifying the trio sonata and concerto grosso, Vivaldi in Venice fixing the ritornello concerto and Scarlatti-era opera seria — driven basso continuo of cello plus harpsichord or theorbo, sequential tonal harmony, terraced dynamics, motoric semiquaver figuration at brisk steady tempo, and violin-idiomatic solo writing with improvised cadential ornamentation.",
-  "recipe": "classic European early-1600s italian baroque, art Music, western common practice branch, western early art music concerto grosso baroque period-instrument. thick, breath veiled tone, slow rate, interlocked note trading. gut Italian alpine spruce val di fiemme European maple bosnian source violin orchestral, venice catlin high twist renaissance bass Italian alpine spruce val di fiemme cello, flemish ruckers antwerp canonical late 16th 17th century bach era reference soft leather plectra canonical French 18th century alternative quarter comma meantone canonical renaissance early Baroque legato harpsichord, yew ribs Italian Baroque alpine spruce Italian pistoy bass gut plain gut treble historical canonical Baroque theorbo, boxwood canonical renaissance Baroque continuous-airflow legato recorder, valveless trumpet Baroque natural trumpet, boxwood canonical Baroque classical pre 1850 legato oboe. shoebox concert hall. blumlein stereo pair, ultra-clean solid-state pre.",
-  "recipe_chars": 977,
-  "score": 465.505,
+  "recipe": "classic European early-1600s italian baroque, art Music, western common practice branch, western early art music concerto grosso baroque period-instrument. thick, breath veiled tone, slow rate, interlocked note trading. gut Italian alpine spruce val di fiemme European maple bosnian source violin orchestral, venice catlin high twist renaissance bass Italian alpine spruce val di fiemme cello, Italian cristofori grimaldi canonical late 16th 17th century single 8 foot soft leather plectra canonical French 18th century alternative quarter comma meantone canonical renaissance early Baroque legato harpsichord, yew ribs Italian Baroque alpine spruce Italian pistoy bass gut plain gut treble historical canonical Baroque theorbo, boxwood canonical renaissance Baroque continuous-airflow legato recorder, valveless trumpet Baroque natural trumpet, boxwood canonical Baroque classical pre 1850 legato oboe. shoebox concert hall. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 1000,
+  "score": 465.05,
   "config": {
     "traditions": [
       "italian_baroque",
@@ -71,7 +71,7 @@
           "keyboard_technique": "keyboard_classical_legato",
           "harpsichord_register": "harpsi_8_foot",
           "harpsichord_context": "harpsichord_solo",
-          "harpsichord_maker_school": "harpsichord_flemish_ruckers",
+          "harpsichord_maker_school": "harpsichord_italian_cristofori",
           "harpsichord_plectrum": "harpsichord_leather_french",
           "harpsichord_temperament": "harpsichord_meantone_quarter"
         },
@@ -79,7 +79,7 @@
           "keyboard_technique": 5.75,
           "harpsichord_register": 2.9899999999999998,
           "harpsichord_context": 13,
-          "harpsichord_maker_school": 4.485,
+          "harpsichord_maker_school": 4.03,
           "harpsichord_plectrum": 1.2349999999999999,
           "harpsichord_temperament": 7.41
         }

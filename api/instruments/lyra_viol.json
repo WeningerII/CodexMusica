@@ -202,7 +202,7 @@
         {
           "id": "lyra_viol_ensemble_solo_lessons",
           "default": true,
-          "name": "Solo lessons from tablature (Hume, Playford Musicks Recreation)",
+          "name": "Solo lessons from tablature (17th-century English printed collections)",
           "descriptors": [
             "intimate",
             "soloistic",
@@ -316,7 +316,7 @@
         },
         {
           "id": "lyra_viol_setup_farrant_sympathetic",
-          "name": "Daniel Farrant type with added sympathetic wires (baryton ancestor)",
+          "name": "Early 17th-century English type with added sympathetic wires (baryton ancestor)",
           "descriptors": [
             "sympathetic-strings",
             "silvery",
@@ -497,7 +497,7 @@
         {
           "id": "lyra_viol_ensemble_solo_lessons",
           "default": true,
-          "name": "Solo lessons from tablature (Hume, Playford Musicks Recreation)",
+          "name": "Solo lessons from tablature (17th-century English printed collections)",
           "descriptors": [
             "intimate",
             "soloistic",
@@ -611,7 +611,7 @@
         },
         {
           "id": "lyra_viol_setup_farrant_sympathetic",
-          "name": "Daniel Farrant type with added sympathetic wires (baryton ancestor)",
+          "name": "Early 17th-century English type with added sympathetic wires (baryton ancestor)",
           "descriptors": [
             "sympathetic-strings",
             "silvery",

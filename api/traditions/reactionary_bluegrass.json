@@ -3,9 +3,9 @@
   "name": "Reactionary Bluegrass",
   "family": "country",
   "lineage": "Late-1960s and 1970s US topical bluegrass strain in which the standard Monroe-derived instrumentation — banjo, fiddle, mandolin, guitar, upright bass at 130-160 BPM with driving offbeat mandolin chop and high-lonesome tenor stacked above the lead — carried explicitly conservative, pro-military, anti-counterculture lyrics, circulated on Rebel, County and Starday singles and at the emerging festival circuit.",
-  "recipe": "classic Southern American 1967-1969 reactionary bluegrass, improv On Frame, bluegrass branch, neo trad country, anglo American protest song classic texas country neotraditional country. thick, register break ornamental, wide pitch sway, interlocked note trading. bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, steel double stops fiddle, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, spruce steel silk travis picked dreadnought acoustic cutting steel steel resonator guitar, sustaining steel upright bass. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 763,
-  "score": 428.316,
+  "recipe": "classic Southern American 1967-1969 reactionary bluegrass, improv On Frame, bluegrass branch, neo trad country, anglo American protest song classic texas country neotraditional country. thick, register break ornamental, wide pitch sway, interlocked note trading. bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, steel double stops fiddle, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, spruce steel silk travis picked dreadnought acoustic cutting steel steel resonator guitar, sustaining steel upright bass. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 767,
+  "score": 428.253,
   "config": {
     "traditions": [
       "reactionary_bluegrass",
@@ -72,8 +72,8 @@
         "scores": {
           "acoustic_technique": 10.5045,
           "mandolin_shape": 10.743999999999998,
-          "mandolin_top": 12.363374999999998,
-          "mandolin_back": 10.3865,
+          "mandolin_top": 12.331874999999998,
+          "mandolin_back": 10.355,
           "mandolin_bracing": 11.089,
           "mandolin_strings": 2.925,
           "mandolin_fingerboard": 0.585,

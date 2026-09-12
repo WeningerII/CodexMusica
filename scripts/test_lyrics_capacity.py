@@ -150,6 +150,36 @@ class CapacityOracle(unittest.TestCase):
             with self.assertRaises(RuntimeError):
                 runtime.collect_queue()
 
+    def test_a_late_receipt_from_the_observed_process_is_kept_and_a_strangers_refused(self):
+        # CI run 34645027230: the old server finished the 'full' phase it was
+        # inside when the request went inactive and wrote one more row after
+        # the parent's last look; the restart then refused its own evidence.
+        import json, tempfile
+        from unittest.mock import Mock
+        with tempfile.TemporaryDirectory() as tmp:
+            runtime=ResidentRuntime.__new__(ResidentRuntime)
+            runtime.directory=Path(tmp); runtime.child=Mock(pid=123)
+            runtime.measurement_active=False; runtime.record={'queue_measurements':{}}
+            evidence=queue_rows()
+            (runtime.directory/'queue-pressure.json').write_text(json.dumps(evidence))
+            runtime.collect_queue()
+            runtime.child=Mock(pid=124)  # restarted; pid 123 is the observed one
+            late=copy.deepcopy(evidence)
+            late['rows'].append(copy.deepcopy(late['rows'][-1]))
+            (runtime.directory/'queue-pressure.json').write_text(json.dumps(late))
+            runtime.collect_queue()
+            self.assertEqual(runtime.record['queue_pressure'],late)
+            for tamper in (lambda e: e['rows'].__setitem__(0,{**e['rows'][0],'wall_ms':1.}),   # rewrites history
+                           lambda e: e.__setitem__('server_pid',999),                          # another process
+                           lambda e: e['rows'].append({**e['rows'][-1],'server_pid':999}),     # a stranger's row
+                           lambda e: e.__setitem__('extra',1),                                 # a new field
+                           lambda e: e['rows'].pop()):                                         # fewer rows
+                foreign=copy.deepcopy(late); tamper(foreign)
+                (runtime.directory/'queue-pressure.json').write_text(json.dumps(foreign))
+                with self.assertRaises(RuntimeError, msg=repr(foreign)[:80]):
+                    runtime.collect_queue()
+                self.assertEqual(runtime.record['queue_pressure'],late)
+
     def test_final_probe_after_instrument_exit_cannot_supply_overlap(self):
         good=queue_rows()
         final=copy.deepcopy(good['rows'][-1]); final['instrument_alive']=False

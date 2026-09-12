@@ -268,7 +268,7 @@
         {
           "id": "sho_bud_classic",
           "default": true,
-          "name": "Sho-Bud (classic Nashville, Buddy Emmons / Lloyd Green canon)",
+          "name": "Sho-Bud (classic Nashville canon)",
           "descriptors": [
             "sho-bud",
             "classic-nashville",
@@ -304,7 +304,7 @@
         },
         {
           "id": "msa_classic",
-          "name": "MSA Classic (Lloyd Green later, modernized)",
+          "name": "MSA Classic (later Nashville canon, modernized)",
           "descriptors": [
             "msa-classic",
             "modernized-action"
@@ -410,8 +410,7 @@
           "name": "Universal 12 (E9/B6 hybrid)",
           "descriptors": [
             "universal-12",
-            "e9-b6-hybrid",
-            "jeff-newman-canon"
+            "e9-b6-hybrid"
           ],
           "match_tokens": [
             "electric",
@@ -622,7 +621,7 @@
         {
           "id": "sho_bud_classic",
           "default": true,
-          "name": "Sho-Bud (classic Nashville, Buddy Emmons / Lloyd Green canon)",
+          "name": "Sho-Bud (classic Nashville canon)",
           "descriptors": [
             "sho-bud",
             "classic-nashville",
@@ -658,7 +657,7 @@
         },
         {
           "id": "msa_classic",
-          "name": "MSA Classic (Lloyd Green later, modernized)",
+          "name": "MSA Classic (later Nashville canon, modernized)",
           "descriptors": [
             "msa-classic",
             "modernized-action"
@@ -764,8 +763,7 @@
           "name": "Universal 12 (E9/B6 hybrid)",
           "descriptors": [
             "universal-12",
-            "e9-b6-hybrid",
-            "jeff-newman-canon"
+            "e9-b6-hybrid"
           ],
           "match_tokens": [
             "electric",
