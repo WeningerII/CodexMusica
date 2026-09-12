@@ -519,155 +519,16 @@ jobs:
 
       - name: Capacity acceptance oracle counterexamples
         run: python3 scripts/test_lyrics_capacity.py
-      # THE LARGEST SINGLE STEP IN CI, AND IT WAS A QUEUE RATHER THAN A LIMIT.
-      # MEASURED on run 34358366237 (main a1666165, green): this step took
-      # 35.6 min, `lyrics-image` took 53.2 min, and the whole run took 54.5 --
-      # so this job WAS the critical path and this step was two thirds of it.
-      # Every other job in that run had finished by minute 28.
-      #
-      # `--cpus=1 --memory=2g` DECLARES THE DEPLOYED SERVICE'S ENVELOPE. It is
-      # not a request to run the 18 executions one after another, and the
-      # difference is the whole saving: three containers each pinned to 1 CPU
-      # on a 4-vCPU runner each still get the entire CPU they declare, and each
-      # still reads `cpus == 1` out of its OWN cgroup, which is the thing
-      # `isolation()` verifies and refuses without. Three of four vCPUs, 6 GiB
-      # of 16 -- the fourth core is left to the runner and the docker daemon
-      # rather than sold to a fourth shard.
-      #
-      # ~~The split is by workload, because `--sizes` is the coordinate
-      # `check_lyrics_capacity.py` already declares and validates against
-      # 18,24,31.~~ THE SPLIT IS BY (lines, seed) CELL SINCE 2026-09-10
-      # (M-268), through `--cells`, and the reason is the paragraph after
-      # next.
-      #
-      # ~~TWO SHARDS, NOT THREE, AND THAT IS A MEASUREMENT RATHER THAN A TASTE.~~
-      # The per-size bodies, read off that run's log timestamps: 18 -> 455.29s,
-      # 24 -> 578.52s, 31 -> 1042.56s, with a 50.80s prologue and a 9.94s
-      # epilogue summing to the 2137.12s the step actually took. Size 31 is
-      # 50.2% of the body, so it is the pole under ANY split ~~: three shards give
-      # max(1103.30, 639.26, 516.03) and two give max(1103.30, 1094.55) -- the
-      # same 1103.30s wall. A third shard would buy zero minutes and spend a
-      # third CPU to do it~~ BY SIZE. ~~Two declares 2 of 4 vCPUs and leaves two
-      # spare for the docker daemon and the runner agent.~~ Three declare 3 of
-      # 4 and leave one. Going below ~18 min means splitting size 31 BY SEED,
-      # ~~which needs a flag the script does not have~~ which `--cells` now
-      # supplies, and a balance fitted to ~~one noisy observation~~ five runs
-      # that agree -- ~~the same cell holds a 252.2s revise and a 1.9s revise~~
-      # (that pair is the warm worker's round structure, round 1 expensive and
-      # rounds 2-3 always 2-4s, in every worker cell on every run, not noise).
-      # ~~Not attempted here.~~
-      #
-      # THE POLE IS A SEED, NOT A SIZE, AND FIVE RUNS AGREE TO THE PERCENT.
-      # MEASURED 2026-09-10 off the shards' own `elapsed=` lines on runs
-      # 34436957228, 34466733505, 34446079874 and two more: seed 20260910
-      # costs more than the other two seeds together at sizes 24 and 31 (its
-      # `revise` there is 231-381s where the other seeds' are 59-125s; at
-      # size 18 the expensive seed is 20260909), and the one cell 31/20260910
-      # is 27.1% of the whole matrix by itself. Mean share of each cell over
-      # the five runs, the balance is fitted to:
-      #   31/10 27.1%  24/10 15.5%  31/08 12.1%  18/09 11.0%  31/09 10.9%
-      #   24/08  7.7%  18/10  6.2%  18/08  5.0%  24/09  4.7%
-      # Runner speed moved 1.5x between runs; these SHARES did not. So the
-      # deal below is the best three-way partition of those shares with every
-      # shard holding at least two cells (four boundaries, so the leak
-      # signature ~~can run in each~~ is recorded in each and judged over
-      # all three by the merger, M-272): 33.3% / 33.9% / 32.8% against a 33.3%
-      # floor, where the by-size deal was 50.0%. ~~On the main-speed run that is
-      # ~690s where the pole shard took 1017s; on the PR-speed run ~1090s
-      # where it took 1609s.~~ MEASURED on its first run (34491693036, the
-      # slow runner class): shard bodies 1351 / 1358 / 1316 s and a 24.0-min
-      # step against 27.9 for two lanes on the same class. ~~Three lanes on a
-      # runner with two physical cores run every execution 1.19-1.27x slower
-      # than two did (the same cells, the same class), so the deal buys 14%,
-      # not the 32% the shares alone predicted (M-268's addendum).~~ AND
-      # THAT WAS ONE RUN. Four three-lane runs (34491693036, 34491700848,
-      # 34497097838, 34497106356) took 1021-1439 s where seventeen two-lane
-      # runs took 1080-1707; runner speed is a continuum, not two classes,
-      # and the reading that survives it is the step against the pole
-      # cell's own duration on the same run: 4.0x on two lanes, 2.7-2.85x
-      # on three -- a 30% saving relative to whatever the runner was doing.
-      # The price is on the pole cell itself: 31/20260910's cold revise ran
-      # 322-484 s on three lanes against 242-381 on two, the same cells on
-      # runners of overlapping speed, and 484 is 81% of the 600 s call limit.
-      # THE PRE-COMMITMENT: if the matrix ever fails on call latency at that
-      # cell, the answer is two lanes, one edit to the deal below, not a
-      # looser limit. THREE OF FOUR vCPUs, as the paragraph above already
-      # argued; a fourth shard would reach the 27.1% cell's own floor, pay
-      # that price again, and sell the core the daemon and the runner agent
-      # run on.
-      # `scripts/test_lyrics_capacity.py` reads the `shard` lines below and
-      # refuses a deal that drops a cell, deals one twice, or leaves a shard
-      # with one cell.
-      #
-      # AND DO NOT "IMPROVE" THIS WITH --cpuset-cpus. Pinning looks tidier and
-      # is a trap: on a 4-vCPU hosted runner the vCPUs are two physical cores
-      # with their SMT siblings, and the pairing is not documented. Pinning the
-      # two shards to a sibling pair would put both on one physical core --
-      # slower than the quota-only scheduling this uses, and slower in a way
-      # that looks like contention from concurrency rather than from the pin.
-      #
-      # CONTENTION CANNOT MANUFACTURE A PASS, WHICH IS WHY THE DIRECTION IS
-      # SAFE: every latency assertion here is an UPPER bound (600s per call,
-      # 30s startup/recovery, 5s queue-pressure phase), so a run that passes
-      # while sharing a host passes a fortiori alone. Memory assertions read
-      # this container's own cgroup and no neighbour can move them. The tightest
-      # budget is the 5s queue-pressure phase, and it is the one to watch first
-      # if this ever goes flaky.
-      #
-      # WHAT SHARDING GAVE AWAY, AND WHERE IT IS BOUGHT BACK: one process could
-      # not finish without covering every declared ~~size~~ cell. Three can, by
-      # one of them never running. `merge_lyrics_capacity.py` is where that is
-      # said out loud -- it refuses a missing ~~size~~ cell, a duplicated one, a
-      # shard measuring a cell it did not declare, a one-cell shard in which
-      # the leak signature could not run, a shard that measured a different
-      # tree, ~~and eight other shapes~~ and every other shape
-      # `scripts/test_lyrics_capacity.py`'s refusal list names, each by the
-      # failure it is refused for, and it re-derives `production_qualified`
-      # rather than copying it from any shard.
-      - name: Production CPU and memory capacity matrix (sharded by cell)
-        timeout-minutes: 50
-        env:
-          TESTED_IMAGE: ${{ steps.image.outputs.image_id }}
-        run: |
-          set -euo pipefail
-          mkdir -p capacity-evidence
-          shard() {
-            docker run --rm --network=none --cpus=1 --memory=2g --memory-swap=2g --pids-limit=256 \
-              --mount "type=bind,src=$GITHUB_WORKSPACE/scripts,dst=/app/scripts,readonly" \
-              --mount "type=bind,src=$GITHUB_WORKSPACE/capacity-evidence,dst=/evidence" \
-              --workdir=/app --entrypoint=python3 "$TESTED_IMAGE" \
-              /app/scripts/check_lyrics_capacity.py --cells="$1" \
-              --out="/evidence/capacity-$2.json" \
-              > "capacity-evidence/shard-$2.log" 2>&1
-          }
-          shard 31:20260910,18:20260910 pole & pole=$!
-          shard 31:20260908,31:20260909,18:20260909 middle & middle=$!
-          shard 24:20260910,24:20260908,24:20260909,18:20260908 rest & rest=$!
-          # EVERY status, not the first failure. Shards that failed
-          # differently are separate findings, and stopping at the first would
-          # throw away another shard's evidence while it was still being written.
-          rc=0
-          wait "$pole" || rc=1
-          wait "$middle" || rc=1
-          wait "$rest" || rc=1
-          for name in pole middle rest; do
-            echo "::group::capacity shard $name"
-            cat "capacity-evidence/shard-$name.log" || true
-            echo '::endgroup::'
-          done
-          [ "$rc" = 0 ] || exit "$rc"
-          python3 scripts/merge_lyrics_capacity.py \
-            capacity-evidence/capacity-pole.json \
-            capacity-evidence/capacity-middle.json \
-            capacity-evidence/capacity-rest.json \
-            --out=capacity-evidence/capacity.json
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: lyrics-capacity
-          path: capacity-evidence/
-          if-no-files-found: error
-          retention-days: 30
+      # THE CAPACITY MATRIX STOOD HERE FROM 2026-09-08 UNTIL 2026-09-12 and
+      # is now `.github/workflows/capacity-matrix.yml`, called by the
+      # `capacity-matrix` job below once this job has built the image and
+      # banked its receipt (M-282). MEASURED on run 34711856241: this job
+      # took 23.1 min of the run's 34.9 and was the critical path alone --
+      # build 0.5, offline pipeline 1.1, the matrix 20.9 -- and the matrix's
+      # pole lane, sharing a core with a sibling lane, was 1,169 s of that.
+      # The history of the step (why the envelope is `--cpus=1 --memory=2g`,
+      # why the deal is by cell, why a third lane on one runner cost 20% per
+      # execution, why never `--cpuset-cpus`) moved with it.
 
       - name: Preserve and publish the exact tested image
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -689,6 +550,27 @@ jobs:
           path: lyrics-image.json
           if-no-files-found: error
           retention-days: 30
+
+  # The 18-execution capacity matrix, one runner per dealt shard, over an
+  # image rebuilt from this tree with the receipt `lyrics-image` just banked.
+  # Needs `lyrics-image` so the cheap offline pipeline still gates the
+  # expensive matrix, exactly as it did when both were one job, and so the
+  # seed is always the one this run admitted (M-282).
+  capacity-matrix:
+    needs: [dup, gate, lyrics-image]
+    if: needs.dup.outputs.already_covered != 'true'
+    uses: ./.github/workflows/capacity-matrix.yml
+
+  capacity-matrix-result:
+    needs: [dup, gate, capacity-matrix]
+    if: ${{ !cancelled() && needs.dup.outputs.already_covered != 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Require the merged matrix from this workflow attempt
+        env:
+          RESULT: ${{ needs.capacity-matrix.result }}
+        run: test "$RESULT" = success
 
   verify:
     needs: [dup, gate]
@@ -810,8 +692,19 @@ jobs:
       # test:production:offline also executes quality/test_session_repairs.py
       # and quality/test_pronunciation_choices.py. Named here for the test
       # inventory census; both remain real executions in that npm gate.
-      - name: Regression (recipes, prefaces, slots, app)
-        run: npm run test
+      #
+      # AND THE THREE STEPS THAT USED TO FOLLOW THIS ONE RUN INSIDE IT (M-282).
+      # MEASURED on run 34711856241: this step 9.9 min, then locale invariance
+      # 1.3, the CLI pipe check 1.1 and the edit differential 0.2 -- 2.6 min in
+      # a queue behind a parallel run whose slowest leaf (mcp/test.mjs, 517 s)
+      # was the floor and whose 42 leaves summed to 2,193 s over 4 workers
+      # (587 s). `test:ci:serial` in package.json is `test:serial` plus those
+      # three checks, so `run_parallel` deals them as leaves 43-45 of the same
+      # pool and the job pays them inside the floor it was already paying.
+      # The doctrine-1 property holds: the chain is still ONE definition, read
+      # out of package.json, and `npm test` alone still means what it meant.
+      - name: Regression (recipes, prefaces, slots, app), locale invariance, edit differential and the CLI pipe -- every leaf concurrently
+        run: npm run test:ci
 
       # Locale invariance, tested rather than asserted.
       #
@@ -828,8 +721,10 @@ jobs:
       # Re-running existing fixtures under LANG=da_DK was tried first and is
       # VACUOUS for this bug class: 1149/1149 still pass with the comparator
       # reverted, because those fixtures do not exercise the affected sets.
-      - name: Locale invariance (recipe bytes identical under da-DK and C)
-        run: npm run check:locale
+      #
+      # `npm run check:locale` -- RUNS INSIDE the parallel regression step above
+      # since M-282 (a leaf of `test:ci:serial`); the paragraph above is
+      # still why it exists and what it catches.
 
       # Differential: the same seeded random edit script through both surfaces.
       #
@@ -841,8 +736,10 @@ jobs:
       # and the connector's ops in lockstep, byte-comparing all four formats
       # after every op, and refuses to report success unless the run actually
       # explored every op, multi-card rosters, and env-less-head states.
-      - name: Edit differential (random scripts, both surfaces, byte-compared)
-        run: npm run check:differential
+      #
+      # `npm run check:differential` -- RUNS INSIDE the parallel regression step above
+      # since M-282 (a leaf of `test:ci:serial`); the paragraph above is
+      # still why it exists and what it catches.
 
       # CLI output survives a pipe.
       #
@@ -855,8 +752,10 @@ jobs:
       # This runs the same invocation to a file and three times through a pipe
       # and requires identical digests. Three, because the failure is a race and
       # a single piped run can pass by luck.
-      - name: CLI output complete through a pipe
-        run: npm run check:cli
+      #
+      # `npm run check:cli` -- RUNS INSIDE the parallel regression step above
+      # since M-282 (a leaf of `test:ci:serial`); the paragraph above is
+      # still why it exists and what it catches.
 
       - name: Build codex.html (lazy shell + no-table-leak + byte-ceiling check)
         run: npm run build:html
@@ -2452,6 +2351,15 @@ jobs:
       # `always()` is kept in the conjunction. It is why a failing suite loop
       # does not hide these five, and gating on the shard must not quietly
       # take that back.
+      #
+      # NOT ALL ON ONE SHARD ANY MORE (M-282). MEASURED on run 34711856241:
+      # shard 2 took 13.1 min -- the 89-suite loop 6.2, then calibration 1.5,
+      # meter bands 2.5, span null 0.1, door census 0.1 and chance rate 2.5 --
+      # against 7.0 and 6.8 for shards 1 and 3, so the five fixed re-derivations
+      # made one shard the longest job in the run after `lyrics-image`. The
+      # two 2.5-minute ones now sit on the other two shards (meter bands on
+      # 3, chance rate on 1); each is still done exactly once, and the three
+      # shards are within a minute of each other on that run's numbers.
       - name: Song-profile calibration, against the drift that is RULED (not silenced)
         if: ${{ always() && matrix.shard == 2 }}
         working-directory: lyric-harness
@@ -2472,7 +2380,7 @@ jobs:
       # mutation set (test_meter_bands section 9 drives the comparison
       # logic; --check is this same comparison over the real sweep).
       - name: Meter-band adoption check, the shipped constants re-derived
-        if: ${{ always() && matrix.shard == 2 }}
+        if: ${{ always() && matrix.shard == 3 }}
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -2550,7 +2458,7 @@ jobs:
       # pairs, each judged at three doors. It is here rather than in the
       # cheap-suite pool for exactly that reason.
       - name: Chance rate, the shipped door against random pairs
-        if: ${{ always() && matrix.shard == 2 }}
+        if: ${{ always() && matrix.shard == 1 }}
         working-directory: lyric-harness
         run: python3 quality/chance_rate.py --check
 

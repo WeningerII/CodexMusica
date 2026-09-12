@@ -30,7 +30,7 @@ HARNESS = ROOT / "lyric-harness"
 #: plausible range of B gives 7,286 s (B=2,500), 8,532 (B=4,992) and 10,036
 #: (B=8,000), and every one of them clears 14,400 even with shard 4 carrying
 #: 1.5x the average slice. M-263's rule stands and is now quantified: no shard
-#: count goes below B, so 4,992 s is the floor and 8 is not a step toward 16.
+#: count goes below B, so 4,992 s is the floor and ~~8 is not a step toward 16~~.
 #:
 #: AND THE FLOOR MOVED ON 2026-09-11 (M-276), BECAUSE B STOPPED BEING PAID.
 #: ~~every shard pays the whole-tree baseline~~ -- a shard now baselines only
@@ -44,7 +44,16 @@ HARNESS = ROOT / "lyric-harness"
 #: never the problem (M-275) and eight shards is what the workflow runs.
 #: The budget below is NOT resized here: a bound comes down on a measurement
 #: of the new cost, and no run has made one yet.
-MUTATION_SHARDS = 8
+#:
+#: K=8 -> 16 ON 2026-09-12 (M-282), ON A MEASUREMENT OF THE NEW SHAPE:
+#: run 34711865788, shard 2: b = 805 s (14 declared suites), M/K = 823 s
+#: (8 mutations), 27.9 min for the shard with setup and queue. Under M-276
+#: b is the declared suites' cost, so it shrinks with K as well as M/K does;
+#: "8 is not a step toward 16" above was written when every shard paid B and
+#: is struck by the same entry that struck B. Sixteen shards plus the three
+#: calibration components and the proof are 20 jobs, the account's
+#: concurrent cap, when the workflow runs alone.
+MUTATION_SHARDS = 16
 COMPONENTS = tuple([f"mutation-{i}" for i in range(1, MUTATION_SHARDS + 1)]
                    + ["song", "short", "curves"])
 

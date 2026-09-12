@@ -36,7 +36,10 @@ jobs:
     # were set as allowances against the serial cost, they still bound the
     # parallel one with room, and lowering a bound on the strength of one
     # measurement is how a bound becomes a flake. Actual CI Python3.11
-    # completion remains required, not inferred.
+    # completion remains required, not inferred -- and since M-282 that
+    # completion may be an ADMISSION rather than a measurement: the receipt
+    # this runtime is handed is verified by the same `require_current_proof`
+    # the server runs at boot, on this interpreter, against this tree.
     timeout-minutes: 55
     steps:
       - uses: actions/checkout@v5
@@ -50,19 +53,89 @@ jobs:
         run: |
           python3 -c "import lyric_harness; lyric_harness.fetch_data()"
           python3 quality/fetch_data.py --runtime
-      - name: Verify all81 current-runtime witnesses once
+      # THE SAME ADMISSION THE IMAGE BUILD HAS MADE SINCE M-267, ON THE
+      # RUNNER'S OWN INTERPRETER (M-282). This job MEASURED 12.4-12.5 min on
+      # CI run 34711856241 and qualification run 34711865788 (2026-09-12),
+      # and in qualification every component job waits behind it, so those
+      # twelve minutes were the front of a 55-minute critical path. The
+      # receipt is a pure function of what `certification_identity` reads
+      # (source ASTs, the two lexical files, the judge tables, the
+      # declarations, the exact interpreter build) plus the table bytes, with
+      # no timing in any field; `--reuse-valid` keeps a seed if and only if
+      # `require_current_proof` -- the check the server runs at boot --
+      # admits it for THIS python and THIS tree, and measures otherwise. The
+      # cache decides nothing; the check does (doctrine 48).
+      #
+      # ITS OWN PREFIX, NOT THE IMAGE'S. M-267 established that the image's
+      # receipt (Debian's 3.11.2) is refused here (`actions/setup-python`'s
+      # 3.11.16): `validate_receipt` compares `sys.version` exactly. So this
+      # job banks what IT measured, under `runner-proof-v1-`, the hash of the
+      # runtime requirements and the asset manifest (the layers the identity
+      # does not read, M-267's argument), the sha256 of the receipt's own
+      # bytes and the run that measured it -- so the prefix returns the newest
+      # receipt from the same layers and an admitted seed is never re-banked.
+      # `path:` is byte-identical between the restore and the save below
+      # (M-264: the path list is hashed into the entry's version).
+      #
+      # `capacity-record` binds whichever receipt survives -- admitted or
+      # measured -- to this commit and attempt, exactly as before, and every
+      # consumer still runs `capacity-accept` on its own checkout. The
+      # `proof` line in the log and `proof.json` beside the receipt say which
+      # it was on this run (doctrine 58: a saving is a measurement).
+      - name: Restore the newest runner receipt banked on this branch or main
+        id: seed
+        uses: actions/cache/restore@v4
+        with:
+          path: capacity-proof/capacity_verification.json
+          key: runner-proof-v1-${{ hashFiles('mcp/requirements-runtime.txt', 'lyric-harness/data/runtime_assets.json') }}-${{ github.sha }}
+          restore-keys: |
+            runner-proof-v1-${{ hashFiles('mcp/requirements-runtime.txt', 'lyric-harness/data/runtime_assets.json') }}-
+      - name: Verify all81 current-runtime witnesses once, or admit a receipt this runtime verifies
+        id: proof
         working-directory: lyric-harness
+        env:
+          SEED_KEY: ${{ steps.seed.outputs.cache-matched-key }}
         run: |
           mkdir -p "$GITHUB_WORKSPACE/capacity-proof"
+          if [ -s "$GITHUB_WORKSPACE/capacity-proof/capacity_verification.json" ]; then
+            echo "proof seed: restored from ${SEED_KEY:-?}; this runtime decides whether it is admitted"
+          else
+            echo "proof seed: none banked in scope; this job measures the proof"
+          fi
           started=$SECONDS
           set +e
-          timeout 45m python3 quality/verify_capacity.py --output "$GITHUB_WORKSPACE/capacity-proof/capacity_verification.json" --workers=4
-          rc=$?
+          timeout 45m python3 quality/verify_capacity.py --output "$GITHUB_WORKSPACE/capacity-proof/capacity_verification.json" --workers=4 --reuse-valid 2>&1 | tee "$GITHUB_WORKSPACE/capacity-proof/verify.log"
+          rc=${PIPESTATUS[0]}
           set -e
-          echo "all81 runtime proof: $((SECONDS-started))s elapsed, exit=$rc, bound=2700s; a bound is not a completed measurement"
+          proof=unknown
+          grep -q 'CAPACITY RECEIPT REUSED' "$GITHUB_WORKSPACE/capacity-proof/verify.log" && proof=admitted
+          grep -q 'CAPACITY VERIFIED:' "$GITHUB_WORKSPACE/capacity-proof/verify.log" && proof=measured
+          rm -f "$GITHUB_WORKSPACE/capacity-proof/verify.log"
+          printf '{"version":1,"proof":"%s","wall_s":%s,"exit_code":%s,"budget_s":2700,"seed_key":"%s"}\n' "$proof" "$((SECONDS-started))" "$rc" "${SEED_KEY:-}" > "$GITHUB_WORKSPACE/capacity-proof/proof.json"
+          echo "all81 runtime proof: $proof, $((SECONDS-started))s elapsed, exit=$rc, bound=2700s; a bound is not a completed measurement"
+          echo "proof=$proof" >> "$GITHUB_OUTPUT"
           exit "$rc"
       - name: Bind verified proof to this commit and attempt
         run: python3 scripts/production_qualification.py capacity-record capacity-proof
+      - name: Read the receipt this attempt binds
+        id: receipt
+        env:
+          SEED_KEY: ${{ steps.seed.outputs.cache-matched-key }}
+          LAYERS: ${{ hashFiles('mcp/requirements-runtime.txt', 'lyric-harness/data/runtime_assets.json') }}
+        run: |
+          set -euo pipefail
+          digest=$(sha256sum capacity-proof/capacity_verification.json | cut -c1-64)
+          [ "${#digest}" = 64 ]
+          save=yes
+          case "${SEED_KEY:-}" in "runner-proof-v1-$LAYERS-$digest-"*) save=no ;; esac
+          echo "receipt sha256 $digest; restored ${SEED_KEY:-nothing}; proof ${{ steps.proof.outputs.proof }}; bank=$save"
+          printf 'digest=%s\nsave=%s\n' "$digest" "$save" >> "$GITHUB_OUTPUT"
+      - name: Bank the receipt under its own bytes
+        if: steps.receipt.outputs.save == 'yes'
+        uses: actions/cache/save@v4
+        with:
+          path: capacity-proof/capacity_verification.json
+          key: runner-proof-v1-${{ hashFiles('mcp/requirements-runtime.txt', 'lyric-harness/data/runtime_assets.json') }}-${{ steps.receipt.outputs.digest }}-${{ github.run_id }}
       - uses: actions/upload-artifact@v4
         with:
           name: capacity-proof-${{ github.run_attempt }}

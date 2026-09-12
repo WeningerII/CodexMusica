@@ -57,6 +57,17 @@ jobs:
   # `test_mutation.py --baseline-only` survives, with its config-match check: it
   # is the producer half, and it is correct. What it needs before it can be used
   # is a fingerprint that does not carry a per-run receipt -- see M-263.
+  # SIXTEEN MUTATION SHARDS, NOT EIGHT (M-282). MEASURED on run 34711865788
+  # (2026-09-12): the eight shards took 15.7-27.9 min each -- shard 2 paid
+  # 805 s for its 14-suite baseline and 823 s for its 8 mutations -- behind
+  # a 12.5-min `capacity-proof`, for a 55-min run. Since M-276 a shard's
+  # cost is b + M/K with b the DECLARED suites' baseline, and b shrinks with
+  # K too (fewer mutations declare fewer suites), so K=16 roughly halves both
+  # halves. Nineteen components and the proof fit inside the account's
+  # 20-concurrent-job cap when this workflow runs ALONE, which is the other
+  # half of the measurement: that run shared the cap with three CI runs
+  # (133 jobs) and its shards waited 10-15 min for a runner before they
+  # started. Dispatch qualification after CI has finished, not beside it.
   component:
     needs: capacity-proof
     name: qualification-${{ matrix.component }}
@@ -78,6 +89,14 @@ jobs:
             mutation-6,
             mutation-7,
             mutation-8,
+            mutation-9,
+            mutation-10,
+            mutation-11,
+            mutation-12,
+            mutation-13,
+            mutation-14,
+            mutation-15,
+            mutation-16,
             song,
             short,
             curves,
@@ -202,12 +221,29 @@ jobs:
       # reads, rejects and recomputes — the same nothing, one layer deeper.
       # The qualification-specific prefix below is the one that works: it hits
       # a re-run of this exact commit, where the fingerprint does match.
-      - name: Restore this commit's own mutation baseline, if it has one
+      #
+      # AND THIS COMPONENT'S OWN PREFIX WITHOUT THE SHA IS THE THIRD ADDRESS
+      # (M-282), for the same reason the memo above has one (M-273): the
+      # ledger is keyed on `source_fingerprint()` and its config, not on the
+      # commit. That fingerprint hashes the harness tree, `mcp/` (with the
+      # receipt `capacity-accept` installs, which is deterministic bytes,
+      # M-267), `.github/` and `.claude/`, the staged data and the runtime --
+      # so a baseline this shard banked at the PREVIOUS commit is fully
+      # usable at this one whenever the commits between touched none of
+      # those, which a catalog, docs or snapshot commit does not. MEASURED
+      # on run 34711865788, shard 2: phase 1 (the unmutated baseline over
+      # the 14 declared suites) 805 s of the shard's 1,628; a restored ledger
+      # that the fingerprint admits is those 805 s not paid. One a miss costs
+      # is a download `mutate.baseline()` reads, rejects and recomputes.
+      # Newest entry first: this SHA's own, then this component's newest.
+      - name: Restore this component's newest mutation baseline
         uses: actions/cache/restore@v4
         with:
           path: /tmp/mutate-scratch/baseline.json
           key: qualification-${{ matrix.component }}-baseline-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: qualification-${{ matrix.component }}-baseline-${{ github.sha }}-
+          restore-keys: |
+            qualification-${{ matrix.component }}-baseline-${{ github.sha }}-
+            qualification-${{ matrix.component }}-baseline-
       # A 124 on `curves` and a 124 on a cold memo look identical in the
       # evidence record, and they are not the same finding. This says which,
       # BEFORE the budget starts, in one line that costs nothing.
