@@ -2,7 +2,7 @@
 
 The single source of truth for every interactive surface in the codex. Read this before changing the UI. Update this in the same commit as any UI change. The build's reachability gate (`scripts/ui_reachability_check.js`) enforces that every `status: reachable` entry's selector resolves to at least one element under the entry's precondition. Surfaces that aren't catalogued here are invisible to the build gate, which is how the master-detail refactor silently dropped the stack signature panel, the tradition-group delete, and three drag-drop interactions.
 
-**Last verified:** UI Capability Inventory Plan complete (2026-05-27). All 6 phases shipped. Reachability gate enforced via `scripts/ui_reachability_check.js` on every `build.js` run. Total entries: 82 reachable, 0 pending, 1 retired.
+**Updated:** 2026-09-12 for the production shared workspace. Reachability is enforced by `scripts/ui_reachability_check.js`; this structural check proves selectors exist under stated preconditions, not that every workflow is usable. Browser mobile checks and `scripts/check_workbench.js` cover separate interaction and state boundaries.
 
 ---
 
@@ -146,8 +146,8 @@ precondition: empty
 ```yaml
 name: empty-starter-gallery
 kind: data-action
-selector: '#starter-gallery [data-starter-trad]'
-surface: empty state — curated starter-recipe buttons
+selector: '[data-ui="genre-add"]'
+surface: genre catalog — direct recipe addition
 implementation: renderEmpty populates STARTER_TRADITIONS; click calls importTraditionWithFeedback
 status: reachable
 precondition: empty
@@ -158,8 +158,8 @@ Loads a full curated tradition recipe onto the empty workbench.
 ```yaml
 name: empty-surprise
 kind: widget
-selector: '#empty-surprise'
-surface: empty state — "Surprise me" button
+selector: '[data-ui="surprise"]'
+surface: More menu — Surprise me
 implementation: renderEmpty wires click to surpriseTradition (random tradition with 2+ instruments)
 status: reachable
 precondition: empty
@@ -170,8 +170,8 @@ precondition: empty
 ```yaml
 name: empty-state-add-instrument
 kind: widget
-selector: '#empty-add'
-surface: empty state — primary "Add an instrument" button
+selector: '#btn-add'
+surface: shared recipe — Add instrument
 implementation: click handler proxies to btn-add click
 status: reachable
 precondition: empty
@@ -180,8 +180,8 @@ precondition: empty
 ```yaml
 name: empty-state-browse-traditions
 kind: widget
-selector: '#empty-add-genre, #quick-trad'
-surface: empty state — "Browse traditions" button
+selector: '[data-view="genre"]'
+surface: Genre navigation
 implementation: opens modal-trad via renderTradPicker
 status: reachable
 precondition: empty
@@ -190,11 +190,11 @@ precondition: empty
 ```yaml
 name: empty-state-quick-pick
 kind: widget
-selector: '#empty-state .quick-pick button'
-surface: empty state — 5 starter-instrument chips
+selector: '[data-ui="instrument-add"]'
+surface: Instrument catalog — Add
 implementation: click adds the chip's instrument as a card
 status: reachable
-precondition: empty
+precondition: instrument picker open
 notes: visible only when workspace is empty
 ```
 
@@ -633,95 +633,95 @@ precondition: drift active
 ```yaml
 name: modal-add
 kind: modal
-selector: '#modal-add.open'
-surface: instrument picker modal — search + family-grouped list
+selector: '#surface-instrument'
+surface: Instrument discovery surface
 implementation: openModal('modal-add'); renderInstPicker populates
 status: reachable
-precondition: 'modal open: modal-add'
+precondition: instrument picker open
 ```
 
 ```yaml
 name: modal-add-instrument-chip
 kind: data-action
-selector: '[data-add]'
-surface: instrument picker modal — per-instrument chip in the family-grouped list
+selector: '[data-ui="instrument-add"]'
+surface: Instrument catalog
 implementation: click handler calls addCard(instrumentId), closes modal, toasts confirmation, scrolls new card into view
 status: reachable
-precondition: 'instrument picker open'
+precondition: instrument picker open
 notes: Bare-frame `modal open: modal-add` does NOT surface these — renderInstPicker populates the chip list. The user-triggered paths (sidebar plus, empty-state add) always render the picker before opening the modal.
 ```
 
 ```yaml
 name: modal-add-axis-filter-toggle
 kind: data-action
-selector: '[data-filter-toggle]'
-surface: instrument picker modal — axis-filter pill (one per filter axis)
+selector: '[data-ui="instrument-filter"]'
+surface: Instrument filters
 implementation: click toggles the axis ID in app.instrumentAxisFilters set, re-renders picker with filter applied
 status: reachable
-precondition: 'instrument picker open'
+precondition: instrument picker open
 ```
 
 ```yaml
 name: modal-add-axis-filter-clear
 kind: data-action
-selector: '[data-filter-clear]'
-surface: instrument picker modal — "clear" button in the filter status row
+selector: '[data-ui="clear-filters"]'
+surface: Instrument filters
 implementation: click empties app.instrumentAxisFilters, re-renders picker
 status: reachable
-precondition: 'instrument picker open, filter active'
+precondition: instrument picker open, filter active
 notes: Only renders when ≥1 filter is active. The clear button appears alongside the "N of M match" count.
 ```
 
 ```yaml
 name: find-similar-instrument-add-to-canvas
 kind: data-action
-selector: '[data-add-inst]'
-surface: instrument picker modal — "Add to canvas" button on each similar-instrument card in the find-similar drill-down view
+selector: '#instrument-preview [data-ui="instrument-add"]'
+surface: Similar instruments
 implementation: click calls addCard(instrumentId), closes modal, toasts; reuses the same handler shape as modal-add-instrument-chip but renders inside the similar-instrument drill-down rather than the main picker
 status: reachable
-precondition: 'instrument picker open, similar drill-down active'
+precondition: instrument picker open, similar drill-down active
 notes: The drill-down mode is triggered when app.similarInstFor is set to a known instrument id, switching the picker render path from the family-grouped chip list to the similar-instruments cards view (per axes-distance ranking).
 ```
 
 ```yaml
 name: modal-trad
 kind: modal
-selector: '#modal-trad.open'
-surface: tradition picker modal — V5 tree picker + similarity view
+selector: '#surface-genre'
+surface: Genre discovery surface
 implementation: openModal('modal-trad'); renderTradPicker populates
 status: reachable
-precondition: 'modal open: modal-trad'
+precondition: tradition picker open
 ```
 
 ```yaml
 name: modal-trad-tree-node-toggle
 kind: data-action
-selector: '[data-toggle-tree]'
-surface: tradition picker modal — every tree row (branch and leaf)
+selector: '[data-ui="genre-branch"]'
+surface: Genre hierarchy
 implementation: click toggles node id in app.treeExpanded set, re-renders. Branch nodes show/hide children; leaf nodes expand to reveal Import + Find similar buttons.
 status: reachable
-precondition: 'tradition picker open'
+precondition: tradition picker open
 ```
 
 ```yaml
 name: modal-trad-leaf-import
 kind: data-action
-selector: '[data-import]'
-surface: tradition picker modal — "Import N" button on each expanded tradition leaf
+selector: '[data-ui="genre-add"]'
+surface: Genre catalog
 implementation: click calls importTradition(tradId) which seeds all canonical instruments as cards
 status: reachable
-precondition: 'tradition picker open, tree expanded'
+precondition: tradition picker open
 notes: Only renders under expanded leaf nodes. The tree-expanded precondition expands all visible nodes so every leaf's Import button surfaces.
 ```
 
 ```yaml
 name: modal-trad-leaf-find-similar
 kind: data-action
-selector: '[data-similar]'
-surface: tradition picker modal — "Find similar" button on each expanded tradition leaf with axis data
+selector: '[data-ui="genre-select"]'
+surface: Genre relationship web
 implementation: click sets app.similarFor = tradId, re-renders picker into similarity-view mode
 status: reachable
-precondition: 'tradition picker open, tree expanded'
+precondition: tradition picker open
 notes: Only renders when the tradition has axes (ext.axes is truthy). The tree-expanded precondition surfaces these on every qualifying leaf.
 ```
 
@@ -990,9 +990,133 @@ notes: Master-detail layout (2026-05) enforces single-active selection via app.s
 
 ## Counts (for the gate's preamble verification)
 
-- Reachable: 82
+- Reachable: 94
 - Pending: 0
 - Retired: 1
-- **Total tracked surfaces: 83**
+- **Total tracked surfaces: 95**
 
 When this count changes, update it here AND update the verification block in `scripts/ui_reachability_check.js`. Sanity match on every build.
+
+## Production shared workspace (2026-09-12)
+
+The former empty-state entry points now lead through the always-available Genre and Instrument catalogs. Surprise me is in More. The browse/import approval modals were replaced by direct additions and Undo. The tiny fingerprint visualizations are intentionally removed; axis search and similarity remain.
+
+```yaml
+name: navigation-genre
+kind: widget
+selector: '[data-view="genre"]'
+surface: shared workbench
+implementation: src/workbench.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: navigation-instrument
+kind: widget
+selector: '[data-view="instrument"]'
+surface: shared workbench
+implementation: src/workbench.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: navigation-map
+kind: widget
+selector: '[data-view="map"]'
+surface: shared workbench
+implementation: src/workbench.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: navigation-lyrics
+kind: widget
+selector: '[data-view="lyrics"]'
+surface: shared workbench
+implementation: src/workbench.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: recipe-assistant
+kind: widget
+selector: '[data-ui="ai"]'
+surface: shared workbench
+implementation: src/workbench.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: genre-listen
+kind: widget
+selector: '#surface-genre .listen'
+surface: shared workbench
+implementation: src/workbench.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: instrument-listen
+kind: widget
+selector: '#surface-instrument .listen'
+surface: shared workbench
+implementation: src/workbench.js
+status: reachable
+precondition: instrument picker open
+```
+
+```yaml
+name: session-export
+kind: widget
+selector: '[data-ui="export"]'
+surface: shared workbench
+implementation: src/workbench.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: session-import
+kind: widget
+selector: '[data-ui="import"]'
+surface: shared workbench
+implementation: src/workbench.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: lyrics-draft
+kind: widget
+selector: '#lyrics-draft'
+surface: shared workbench
+implementation: src/workbench.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: lyrics-use-recipe
+kind: widget
+selector: '[data-ui="attach-recipe"]'
+surface: shared workbench
+implementation: src/workbench.js
+status: reachable
+precondition: empty
+```
+
+```yaml
+name: map-workspace
+kind: widget
+selector: '#map-frame'
+surface: shared workbench
+implementation: src/workbench.js
+status: reachable
+precondition: empty
+```

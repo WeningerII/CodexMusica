@@ -26,7 +26,7 @@
     "test:recipes": "node scripts/regression_recipes.js",
     "test:prefaces": "node scripts/regression_prefaces.js",
     "test:slots": "node scripts/check_slot_picks.js",
-    "test:app": "node scripts/app_recipe_regression.js && node scripts/check_mobile_layout.js",
+    "test:app": "node scripts/check_workbench.js && node scripts/app_recipe_regression.js && node scripts/check_mobile_layout.js",
     "test:equiv": "node scripts/equivalence.js",
     "test:lazy": "node scripts/check_lazy_app.js",
     "test:connector": "npm run test:connector:gen && npm run test:connector:df && npm run test:connector:parity && npm run test:connector:workspace && npm run test:connector:app && npm run test:connector:edit && npm run test:connector:differential && npm run test:connector:contract && npm run test:connector:memory && npm run test:connector:live && npm run test:connector:names && npm run test:connector:publish",

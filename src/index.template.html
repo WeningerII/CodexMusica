@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Codex</title>
+<title>Codex Musica</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -17,10 +17,7 @@
 <link rel="help" href="https://mcp.codexmusica.com/mcp" title="Live editable engine (MCP connector) — start here">
 <link rel="alternate" type="text/plain" href="llms.txt" title="Agent instructions (llms.txt)">
 <link rel="alternate" type="application/json" href="api/all.json" title="Every recipe in one fetch">
-<meta name="theme-color" content="#0f0f12">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,30..100;1,9..144,400..700,30..100&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#ffffff">
 <style>
 :root {
   /* Spacing — 4px grid */
@@ -1678,6 +1675,9 @@ body.is-dnd-active * { cursor: grabbing !important; }
   .chat-panel { max-height: 50vh; }
 }
 </style>
+<style>
+<!--@WORKBENCH_STYLE-->
+</style>
 </head>
 <body>
 
@@ -1895,9 +1895,9 @@ body.is-dnd-active * { cursor: grabbing !important; }
          attribute is a courtesy that stops the field accepting text the server
          will refuse; the server bound is the real one, since nothing stops a
          caller posting to /chat directly. mcp/test.mjs asserts the two agree. -->
-    <input class="chat-input" id="chat-input" type="text" maxlength="5000"
+    <textarea class="chat-input" id="chat-input" rows="3" maxlength="5000"
            aria-label="Describe the recording you want"
-           placeholder="Describe a recording — “haunted Appalachian murder ballad, banjo like it’s underwater”">
+           placeholder="Describe the recording recipe you want…"></textarea>
     <button class="btn btn-primary chat-send" id="chat-send" type="submit"><span class="btn-label">Ask</span></button>
   </form>
 </section>

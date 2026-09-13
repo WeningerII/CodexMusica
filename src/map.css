@@ -1,0 +1,287 @@
+:root {
+  --font-display: Arial, sans-serif;
+  --font-body: Arial, sans-serif;
+  --accent: #e53935;
+  --muted: #3c4043;
+  --muted-2: #5f6368;
+}
+body,
+.shell {
+  background: #103557;
+}
+.shell {
+  height: 100dvh;
+}
+.topbar {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  right: auto;
+  z-index: 50;
+  height: auto !important;
+  border: 0 !important;
+  padding: 0 !important;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px #0003;
+  background: white;
+}
+.brand,
+.topbar-actions > .btn-ghost,
+#count {
+  display: none !important;
+}
+.topbar-actions {
+  padding: 4px;
+  gap: 3px !important;
+  flex-wrap: nowrap;
+}
+.searchwrap {
+  padding: 6px !important;
+}
+#search {
+  width: 250px !important;
+  height: 36px !important;
+  font-size: 16px !important;
+}
+.map-extra {
+  padding: 8px;
+  border: 0;
+  background: white;
+  min-height: 44px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.map-extra:hover {
+  background: #e8f0fe;
+}
+.body {
+  height: 100%;
+  width: 100%;
+}
+main {
+  width: 100%;
+  height: 100%;
+}
+#list {
+  display: none !important;
+}
+.list-open #list {
+  display: block !important;
+  position: absolute;
+  top: 76px;
+  left: 16px;
+  width: 320px;
+  max-height: calc(100% - 150px);
+  height: auto;
+  background: white;
+  z-index: 45;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px #0002;
+}
+#canvas-host {
+  inset: 0 !important;
+}
+.provenance {
+  display: none !important;
+}
+.show-provenance .provenance {
+  display: block !important;
+  z-index: 60;
+  bottom: 70px;
+  background: white;
+  padding: 12px;
+  max-width: 300px;
+}
+.card {
+  top: 80px !important;
+  right: 16px !important;
+  left: auto !important;
+  width: 350px !important;
+  max-height: calc(100% - 170px) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 3px 16px #0003;
+  background: white !important;
+  padding: 18px !important;
+}
+.card h2 {
+  font-family: Arial !important;
+  font-size: 20px !important;
+}
+.card button,
+.card a {
+  min-height: 36px;
+}
+.card .chip {
+  font-size: 13px !important;
+}
+.card .recipe {
+  font-size: 14px !important;
+}
+.closebtn {
+  width: 36px;
+  height: 36px;
+}
+.toggle {
+  background: white !important;
+  font-size: 14px !important;
+  min-height: 40px;
+  padding: 8px 12px !important;
+  border-color: #dadce0 !important;
+}
+.toggle.on {
+  background: #e8f0fe !important;
+  color: #174ea6 !important;
+}
+.zoomstack {
+  bottom: 16px !important;
+  right: 16px !important;
+  top: auto !important;
+}
+.zoombtn {
+  height: 44px !important;
+  width: 44px !important;
+  background: white !important;
+}
+#legend-panel,
+#threads-panel {
+  max-height: 55vh !important;
+  overflow: auto;
+  background: white !important;
+}
+.panel {
+  background: #fff !important;
+}
+#results {
+  top: 56px !important;
+  max-height: 65vh !important;
+  width: 360px !important;
+}
+.result,
+.result-item {
+  min-height: 44px;
+}
+.pill,
+.chip {
+  border-color: #dadce0 !important;
+}
+#legendwrap {
+  bottom: 16px !important;
+  max-width: calc(100% - 80px) !important;
+}
+#stack {
+  z-index: 55 !important;
+  background: white !important;
+  border-radius: 10px !important;
+}
+#stack button {
+  min-height: 44px;
+}
+.btn-primary {
+  background: #1a73e8 !important;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid #1a73e8;
+  outline-offset: 2px;
+}
+@media (max-width: 600px) {
+  .topbar {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+  }
+  .topbar-actions {
+    width: 100%;
+  }
+  .searchwrap {
+    flex: 1;
+    min-width: 0;
+  }
+  #search {
+    width: 100% !important;
+    min-width: 0;
+  }
+  .searchwrap > svg {
+    flex: none;
+  }
+  .map-extra {
+    white-space: nowrap;
+    font-size: 13px;
+    padding: 6px;
+  }
+  .list-open #list {
+    left: 10px;
+    right: 10px;
+    top: 68px;
+    width: auto;
+    max-height: 50dvh;
+  }
+  .card {
+    top: auto !important;
+    bottom: 70px !important;
+    left: 10px !important;
+    right: 10px !important;
+    width: auto !important;
+    max-height: 48dvh !important;
+    padding: 14px !important;
+  }
+  .card h2 {
+    font-size: 18px !important;
+  }
+  #results {
+    width: calc(100vw - 20px) !important;
+    left: -4px !important;
+    max-height: 60dvh !important;
+  }
+  #legendwrap {
+    left: 10px !important;
+    bottom: 12px !important;
+    max-width: calc(100% - 65px) !important;
+  }
+  .toggle {
+    font-size: 12px !important;
+    padding: 6px 8px !important;
+    min-height: 36px;
+    gap: 4px !important;
+  }
+  .toggle svg {
+    display: none;
+  }
+  .zoomstack {
+    right: 10px !important;
+    bottom: 12px !important;
+  }
+  .zoombtn {
+    width: 38px !important;
+    height: 38px !important;
+  }
+  #stack {
+    bottom: 60px !important;
+    max-height: 50dvh !important;
+  }
+  #legend-panel,
+  #threads-panel {
+    max-height: 50dvh !important;
+  }
+  #legendwrap > div:first-child {
+    gap: 4px !important;
+  }
+  .show-provenance .provenance {
+    left: 10px;
+    bottom: 62px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+.zoomstack {
+  left: auto !important;
+}
+.show-provenance .provenance::after {
+  content: ' · Satellite imagery: NASA Blue Marble. Equal Earth projection.';
+}

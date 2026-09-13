@@ -1,3 +1,4 @@
+/* global UI, UI_ICONS, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
 
 
 // ============================================================
@@ -2077,7 +2078,7 @@ function makeCard(instrumentId, opts) {
 // strips them when snapshotting for undo/redo (drift's apply closures don't
 // survive JSON). Single source of truth so a new transient field added later
 // picks up the reset semantics at all five sites by being added here once.
-const _CARD_TRANSIENTS = { drift: null, stackPanel: null, editingPart: null, editingEnv: null, editingChainStage: null, _materialsOpen: false };
+const _CARD_TRANSIENTS = { drift: null, stackPanel: null, editingPart: null, editingEnv: null, editingChainStage: null, _materialsOpen: false, _uiTab: 'preface' };
 
 // UI timing constants. Centralized so cross-call relationships (CSS
 // animation duration paired with the JS class-removal timeout, etc.)
@@ -2118,6 +2119,7 @@ function dupCard(id) {
     ...o,
     id: newId('card'),
     parts: { ...o.parts },
+    pinnedParts: [...(o.pinnedParts || [])],
     chain: { ...o.chain, fx: [...(o.chain.fx || [])] },
     ..._CARD_TRANSIENTS,
   };
@@ -12820,6 +12822,7 @@ const ICON_PATHS_LOCAL = {
 };
 
 function icon(name, size = 16) {
+  if (typeof UI_ICONS !== 'undefined' && UI_ICONS[name]) return UI_ICONS[name].replace(/width="20"/g, 'width="'+size+'"').replace(/height="20"/g, 'height="'+size+'"');
   const resolved = ICON_ALIASES[name] || name;
   const paths = ICON_PATHS[resolved] || ICON_PATHS_LOCAL[resolved];
   if (!paths) return '';
@@ -14359,15 +14362,16 @@ function compileRecipeStack(cards, format, options) {
   const fallback = makeFallback();
   let active = idb ? makeIdb() : fallback;
   const store = { _local_shim: true, backend: active.name };
+  let established=false;
   // Self-heal: if IndexedDB throws on first real use (Firefox private mode exposes
   // the API but forbids opening a DB), permanently switch to the fallback and retry
   // the call once. Nothing is lost — the switch only fires when IDB never worked.
   function guard(method) {
     return async function (...args) {
       try {
-        return await active[method](...args);
+        const result=await active[method](...args);established=true;return result;
       } catch (e) {
-        if (active !== fallback) {
+        if (active !== fallback && !established) {
           active = fallback;
           store.backend = fallback.name;
           return await fallback[method](...args);
@@ -14382,15 +14386,15 @@ function compileRecipeStack(cards, format, options) {
   store.list = guard('list');
   window.storage = store;
 })();
-async function safeGet(key) {
-  try { return window.storage ? await window.storage.get(key) : null; }
-  catch { return null; }
-}
-async function listSaved() {
-  try {
-    const r = await safeGet('codex:list');
-    return r ? JSON.parse(r.value) : [];
-  } catch { return []; }
+async function listSaved(){
+  if(!window.storage)throw Error('Saved sessions unavailable');
+  const r=await window.storage.get('codex:list');let index=[];
+  if(r){try{index=JSON.parse(r.value);if(!Array.isArray(index))index=[];}catch{index=[];}}
+  if(typeof window.storage.list!=='function')return index;
+  const listing=await window.storage.list('codex:ws:');const records=[];
+  for(const key of listing.keys||[]){const entry=await window.storage.get(key);if(!entry)continue;
+    try{const d=JSON.parse(entry.value);if(Array.isArray(d.cards))records.push({key,name:d.name||'Untitled session',saved_at:d.saved_at,count:d.cards.length});}catch{/* Keep malformed records available for external recovery. */}}
+  return records;
 }
 // Read the saved-workspace index for a read-MODIFY-write (save/delete),
 // distinguishing "genuinely empty/absent" from "read failed". listSaved()
@@ -14402,73 +14406,67 @@ async function readListStrict() {
   if (!window.storage) throw new Error('storage unavailable');
   const r = await window.storage.get('codex:list'); // throws on storage failure — intentional
   if (!r) return []; // key genuinely absent → empty list is correct
-  return JSON.parse(r.value); // throws on corruption — intentional
+  const list=JSON.parse(r.value);if(!Array.isArray(list))throw Error('Saved index is invalid');return list;
 }
 // Saved-workspace schema version: bump when the persisted card/chain shape changes
 // so an older app warns instead of silently mis-rendering a newer save.
-const WS_SCHEMA = 1;
+const WS_SCHEMA = 2;
+function normalizeWorkspaceCards(cards,freshIds=false){
+  if(!Array.isArray(cards)||cards.length>512)throw Error('Invalid session cards');
+  const ids=new Set();
+  return cards.map(raw=>{
+    if(!raw||typeof raw!=='object')throw Error('Invalid instrument');
+    const c=JSON.parse(JSON.stringify(raw)),inst=Inst(c.instrumentId);if(!inst)throw Error('Unknown instrument: '+c.instrumentId);
+    if(!c.parts||typeof c.parts!=='object'||Array.isArray(c.parts))throw Error('Invalid instrument settings');
+    for(const [part,value]of Object.entries(c.parts))if(!inst.parts.some(p=>p.id===part&&(value===null||p.variants.some(v=>v.id===value))))throw Error('Unknown instrument setting');
+    if(c.room&&!Room(c.room))throw Error('Unknown room');if(c.tuning&&!Tuning(c.tuning))throw Error('Unknown tuning');
+    if(c.traditionId&&!Tradition(c.traditionId))throw Error('Unknown genre');
+    const chain=c.chain||emptyChain();if(typeof chain!=='object'||Array.isArray(chain))throw Error('Invalid signal chain');
+    for(const [stage,value]of Object.entries(chain)){
+      if(!CHAIN_SECTIONS.some(x=>x.id===stage))throw Error('Unknown chain stage');
+      const values=stage==='fx'?value:[value];if(!Array.isArray(values)||values.some(v=>v&&!ChainItem(stage,v)))throw Error('Unknown signal chain setting');
+    }
+    if(c.pinnedParts!==undefined&&(!Array.isArray(c.pinnedParts)||c.pinnedParts.some(p=>!inst.parts.some(x=>x.id===p))))throw Error('Unknown pinned part');
+    if(freshIds||typeof c.id!=='string'||ids.has(c.id))c.id=newId('card');ids.add(c.id);
+    return {...c,chain,prefaceAuto:c.prefaceAuto===undefined?!c.preface:!!c.prefaceAuto,..._CARD_TRANSIENTS};
+  });
+}
+let _savedWriteQueue=Promise.resolve();
+function withSavedWrite(fn){
+  const run=()=>typeof navigator!=='undefined'&&navigator.locks?navigator.locks.request('codex-saved-workspaces',fn):fn();
+  const next=_savedWriteQueue.then(run,run);_savedWriteQueue=next.catch(()=>{});return next;
+}
 async function saveWS(name) {
-  if (!window.storage) { showToast('Save failed', 'error'); return; }
-  try {
-    const list = await readListStrict(); // abort (catch below) rather than overwrite a failed read
-    const key = 'codex:ws:' + newId('ws');
-    const data = { schema: WS_SCHEMA, key, name, saved_at: new Date().toISOString(), cards: app.cards.map(c => ({ ...c, ..._CARD_TRANSIENTS })) };
-    await window.storage.set(key, JSON.stringify(data));
-    list.push({ key, name, saved_at: data.saved_at, count: app.cards.length });
-    await window.storage.set('codex:list', JSON.stringify(list));
-    showToast(`Saved "${name}"`, 'success');
-  } catch (e) { console.error(e); showToast('Save failed', 'error'); }
+  const snapshot=JSON.parse(JSON.stringify(sessionSnapshot()));
+  if(!window.storage||window.storage.backend==='memory'){showToast('Permanent storage unavailable. Export your session.','error');return;}
+  try {await withSavedWrite(async()=>{
+    const list=await readListStrict();if(window.storage.backend==='memory')throw Error('Permanent storage unavailable');const key='codex:ws:'+newId('ws');
+    const data={schema:WS_SCHEMA,key,name,saved_at:new Date().toISOString(),cards:snapshot.cards,lyrics:snapshot.lyrics};
+    await window.storage.set(key,JSON.stringify(data));list.push({key,name,saved_at:data.saved_at,count:data.cards.length});
+    await window.storage.set('codex:list',JSON.stringify(list));
+  });showToast(`Saved "${name}"`,'success');
+  }catch(e){console.error(e);showToast('Save did not finish. Your session remains open; retry or export.','error');}
 }
-async function loadWS(key) {
-  try {
-    const r = await safeGet(key);
-    if (!r) { showToast('Not found', 'error'); return; }
-    const d = JSON.parse(r.value);
-    if (d.schema && d.schema > WS_SCHEMA) { showToast('Saved by a newer version — update to open it', 'error'); return; }
-    app.cards = (d.cards || []).map(c => {
-      const card = { ...c, chain: c.chain || emptyChain(), ..._CARD_TRANSIENTS };
-      if (card.prefaceAuto === undefined) card.prefaceAuto = !card.preface;
-      return card;
-    });
-    closeModal('modal-saved');
-    renderAll();
-    if (typeof pushHistory === 'function') pushHistory(); // parity with forkWS — one Ctrl+Z shouldn't discard the load
-    showToast(`Loaded "${d.name}"`, 'success');
-  } catch { showToast('Load failed', 'error'); }
+async function restoreSavedWorkspace(key,fork){
+  const r=await window.storage.get(key);if(!r)throw Error('Saved session not found');
+  const d=JSON.parse(r.value);if(d.schema>WS_SCHEMA)throw Error('Saved by a newer version — update to open it');
+  const cards=normalizeWorkspaceCards(d.cards||[],fork);
+  app.cards=cards;app.workspaceName=d.name||'Untitled session';
+  if(typeof d.lyrics==='string')app.lyrics=d.lyrics;
+  if(typeof UI!=='undefined')UI.lyricRevision++;
+  const draft=document.getElementById('lyrics-draft');if(draft)draft.value=app.lyrics||'';
+  closeModal('modal-saved');pushHistory();renderAll();
+  showToast(`${fork?'Copied':'Loaded'} "${app.workspaceName}"`,'success');
 }
-// Fork a saved workspace — same content as Load, but with fresh card IDs
-// generated for each card. Functionally identical to Load (since every save
-// creates a new key anyway, never overwriting), but the explicit Fork button
-// signals to the user "this is an independent copy, the original is safe."
-// The fresh card IDs also make any subsequent in-card actions (duplicate,
-// delete) refer to the fork's cards, not the originals — useful if the user
-// has the original loaded somewhere or shares the file across sessions.
-async function forkWS(key) {
-  try {
-    const r = await safeGet(key);
-    if (!r) { showToast('Not found', 'error'); return; }
-    const d = JSON.parse(r.value);
-    if (d.schema && d.schema > WS_SCHEMA) { showToast('Saved by a newer version — update to open it', 'error'); return; }
-    app.cards = (d.cards || []).map(c => {
-      const card = { ...c, id: newId('card'), chain: c.chain || emptyChain(), ..._CARD_TRANSIENTS };
-      if (card.prefaceAuto === undefined) card.prefaceAuto = !card.preface;
-      return card;
-    });
-    closeModal('modal-saved');
-    renderAll();
-    if (typeof pushHistory === 'function') pushHistory();
-    showToast(`Forked from "${d.name}" — original unchanged`, 'success');
-  } catch { showToast('Fork failed', 'error'); }
-}
-async function delWS(key) {
-  if (!window.storage) { showToast('Delete failed', 'error'); return; }
-  try {
-    await window.storage.delete(key);
-    const list = await readListStrict(); // abort (catch below) rather than overwrite a failed read
-    await window.storage.set('codex:list', JSON.stringify(list.filter(w => w.key !== key)));
-    renderSaved();
-    showToast('Deleted', 'success');
-  } catch { showToast('Delete failed', 'error'); }
+async function loadWS(key){try{await restoreSavedWorkspace(key,false);}catch(e){showToast(e.message||'Load failed','error');}}
+async function forkWS(key){try{await restoreSavedWorkspace(key,true);}catch(e){showToast(e.message||'Copy failed','error');}}
+async function delWS(key){
+ if(!window.storage){showToast('Delete failed','error');return;}
+ try{await withSavedWrite(async()=>{
+   const list=await readListStrict();
+   await window.storage.delete(key);
+   await window.storage.set('codex:list',JSON.stringify(list.filter(w=>w.key!==key)));
+ });renderSaved();showToast('Deleted','success');}catch(e){console.error(e);showToast('Deletion did not finish. Refresh Saved to check its state.','error');}
 }
 
 // ---- Modals ----
@@ -14489,6 +14487,7 @@ function _trapTab(e, modal) {
   else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
 }
 function openModal(id) {
+  if (typeof UI !== 'undefined' && UI.ready && uiOpenSurface(id)) return;
   const bg = document.getElementById(id);
   _modalReturnFocus = document.activeElement; // restore focus here on close
   bg.classList.add('open');
@@ -14500,13 +14499,14 @@ function openModal(id) {
   }, UI_TIMING_MS.MODAL_FOCUS_DELAY);
 }
 function closeModal(id) {
+  if (typeof UI !== 'undefined' && UI.ready && (id === 'modal-add' || id === 'modal-trad')) return;
   const bg = document.getElementById(id);
   if (!bg) return;
   bg.classList.remove('open');
   if (bg._trapHandler) { bg.removeEventListener('keydown', bg._trapHandler); bg._trapHandler = null; }
-  if (_modalReturnFocus && typeof _modalReturnFocus.focus === 'function' && document.contains(_modalReturnFocus)) {
+  if (_modalReturnFocus && typeof _modalReturnFocus.focus === 'function' && document.contains(_modalReturnFocus) && _modalReturnFocus.getClientRects().length) {
     _modalReturnFocus.focus();
-  }
+  }else if(typeof UI!=='undefined'&&UI.ready){document.querySelector('[data-ui="menu"]')?.focus();}
   _modalReturnFocus = null;
 }
 
@@ -14523,6 +14523,7 @@ function closeModal(id) {
 //   const ok = await confirmDialog({ title, message, confirmLabel, danger });
 //   if (!ok) return;
 function confirmDialog(opts) {
+  if (opts?.title === 'Remove tradition') return Promise.resolve(true);
   const {
     title = 'Confirm',
     message = '',
@@ -14662,6 +14663,7 @@ function renderAll() {
   // rebuilt, so renderSidebarTraditions() has already remounted it. Calling
   // again here would tear down and rebuild the same panel a second time.
   if (!isMobileLayout()) renderDetail();
+  if (typeof UI !== 'undefined' && UI.ready) uiSync();
 }
 
 // Curated starter recipes for the empty-state gallery — chosen to span the
@@ -14746,6 +14748,7 @@ function renderEmpty() {
 
 function renderMeta() {
   const m = document.getElementById('meta');
+  if(!m)return;
   if (app.cards.length === 0) m.textContent = '';
   else m.textContent = app.cards.length + ' instrument' + (app.cards.length === 1 ? '' : 's');
 }
@@ -14808,6 +14811,8 @@ function startRenameWorkspace() {
     const v = inp.value.trim();
     app.workspaceName = v || 'Untitled session';
     renderSidebarHeader();
+    pushHistory();
+    if(typeof UI !== 'undefined' && UI.ready)uiSync();
   };
   inp.addEventListener('keydown', e => {
     if (e.key === 'Enter') { e.preventDefault(); commit(); }
@@ -16105,34 +16110,43 @@ function renderDetailTabContent(card, inst) {
 // after an undo truncate the redo future (typical undo/redo semantics).
 //
 // What goes in history: add tradition (one entry for the whole batch), add
-// instrument (single card add), remove card, delete tradition group, drag-
-// reorder tradition. What does NOT go in history: variant picks within a
-// card, environment edits (tuning/room/chain), expand/collapse, group fold/
-// unfold. The line: structural changes to the workspace are undoable; in-
-// card refinement isn't. (Easy to add finer-grained undo later if needed.)
+// instrument, remove, reorder, variant/preface/environment refinements, title
+// and lyrics. Presentation-only changes preserve the current history position
+// and redo future. Lyrics typing is coalesced when the editor loses focus.
+function musicalWorkspaceKey(cards) {
+  return JSON.stringify(cards.map(c => ({id:c.id,instrumentId:c.instrumentId,traditionId:c.traditionId,
+    parts:c.parts,room:c.room,tuning:c.tuning,chain:c.chain,preface:c.preface,
+    prefaceAuto:c.prefaceAuto,pinned:c.pinned,pinnedParts:c.pinnedParts})));
+}
+function sessionSnapshot() {
+  return {cards:app.cards.map(c=>({...c,..._CARD_TRANSIENTS})),name:app.workspaceName||'Untitled session',lyrics:app.lyrics||''};
+}
+function sessionKey(value) {
+  const s=Array.isArray(value)?{cards:value,name:'Untitled session',lyrics:''}:value;
+  return JSON.stringify([musicalWorkspaceKey(s.cards),s.name,s.lyrics]);
+}
 function pushHistory() {
-  // If user undid some steps then did a new action, drop the redo future.
-  if (app.historyIndex < app.history.length - 1) {
-    app.history.length = app.historyIndex + 1;
-  }
-  // Strip session-only transient state before snapshotting (same single-source
-  // reset as save/load/fork/dup). Critically, `drift` holds candidate objects
-  // with live `apply` closures that JSON drops — restoring such a snapshot would
-  // leave a drift panel whose "Walk here" calls move.apply() → TypeError.
-  const snapshot = JSON.stringify(app.cards.map(c => ({ ...c, ..._CARD_TRANSIENTS })));
-  // Skip no-op pushes (mutation that left cards array structurally identical).
-  if (app.history.length > 0 && app.history[app.history.length - 1] === snapshot) return;
-  app.history.push(snapshot);
-  if (app.history.length > HISTORY_MAX) app.history.shift();
-  app.historyIndex = app.history.length - 1;
-  updateHistoryButtons();
+  if(typeof _applyRecipeDedup==='function')_applyRecipeDedup();
+  const snapshot=JSON.stringify(sessionSnapshot()),previous=app.history[app.historyIndex];
+  if(previous&&sessionKey(JSON.parse(previous))===sessionKey(JSON.parse(snapshot))){app.history[app.historyIndex]=snapshot;updateHistoryButtons();return;}
+  app.history=app.history.slice(0,app.historyIndex+1);app.history.push(snapshot);
+  if(app.history.length>HISTORY_MAX)app.history.shift();
+  app.historyIndex=app.history.length-1;updateHistoryButtons();
 }
 // Restore a history snapshot defensively — a corrupted entry must not blank the
 // canvas or desync historyIndex (snapshots are app-produced, so this is a belt for
 // memory pressure / any future external history store).
 function _restoreSnapshot(idx) {
-  try { app.cards = JSON.parse(app.history[idx]); return true; }
-  catch (e) { console.error('history restore failed', e); showToast('Undo unavailable — history entry corrupted', 'error'); return false; }
+  try {
+    const tabs=new Map(app.cards.map(c=>[c.id,c._uiTab]));
+    const snapshot=JSON.parse(app.history[idx]);
+    if(Array.isArray(snapshot))app.cards=snapshot;
+    else {app.cards=snapshot.cards;app.workspaceName=snapshot.name;app.lyrics=snapshot.lyrics||'';}
+    for(const c of app.cards)if(tabs.has(c.id))c._uiTab=tabs.get(c.id);
+    if(typeof UI!=='undefined')UI.lyricRevision++;
+    const draft=document.getElementById('lyrics-draft');if(draft)draft.value=app.lyrics||'';
+    return true;
+  }catch(e){console.error('history restore failed',e);showToast('Undo unavailable — history entry corrupted','error');return false;}
 }
 function undo() {
   if (app.historyIndex <= 0) return;
@@ -16153,6 +16167,8 @@ function updateHistoryButtons() {
   const redoBtn = document.getElementById('btn-redo');
   if (undoBtn) undoBtn.disabled = app.historyIndex <= 0;
   if (redoBtn) redoBtn.disabled = app.historyIndex >= app.history.length - 1;
+  document.querySelectorAll('[data-proxy="btn-undo"],[data-ui="undo"]').forEach(b=>{b.disabled=app.historyIndex<=0;});
+  document.querySelectorAll('[data-proxy="btn-redo"],[data-ui="redo"]').forEach(b=>{b.disabled=app.historyIndex>=app.history.length-1;});
 }
 
 function renderPartRow(card, inst, part) {
@@ -17100,6 +17116,7 @@ function handleAction(action, card, trigger) {
     openModal('modal-add');
   } else if (action === 'pin') {
     card.pinned = !card.pinned;
+    pushHistory();
     renderAll();
     showToast(card.pinned ? 'Pinned to top' : 'Unpinned', 'success');
   } else if (action === 'move-genre') {
@@ -17126,12 +17143,14 @@ function rerenderCard(_card) {
   renderMeta();
   renderDetail();
   renderSidebar();
+  pushHistory();
+  if (typeof UI !== 'undefined' && UI.ready) uiSync();
 }
 
 async function renderSaved() {
   const b = document.getElementById('saved-body');
   b.innerHTML = `<div class="empty-msg">Loading…</div>`;
-  const list = await listSaved();
+  let list;try{list=await listSaved();}catch{b.innerHTML='<p role="alert">Saved sessions could not be read. Close and reopen to retry.</p>';return;}
   if (!list.length) {
     b.innerHTML = renderEmptyModalState('No saved workspaces yet.', 'folder');
     return;
@@ -17576,7 +17595,7 @@ function _initApp() {
   // memory only (Save persists it), so a reload/close/crash would silently lose
   // it. Respects the explicit-save model — it warns, it never autosaves.
   window.addEventListener('beforeunload', (e) => {
-    if (app.cards && app.cards.length > 0) { e.preventDefault(); e.returnValue = ''; }
+    if (typeof UI !== 'undefined' && (UI.saveFailed || UI.storageConflict)) { e.preventDefault(); e.returnValue = ''; }
   });
   document.getElementById('btn-add').addEventListener('click', () => {
     app.pickerSearch = '';
@@ -17613,8 +17632,8 @@ function _initApp() {
     openModal('modal-trad');
   });
   document.getElementById('btn-save').addEventListener('click', () => {
-    if (!app.cards.length) { showToast('Nothing to save yet', 'error'); return; }
-    document.getElementById('save-name').value = '';
+    if (!app.cards.length && !app.lyrics) { showToast('Nothing to save yet', 'error'); return; }
+    document.getElementById('save-name').value = app.workspaceName || 'Untitled session';
     openModal('modal-save');
   });
   document.getElementById('save-confirm').addEventListener('click', () => {
@@ -17705,6 +17724,7 @@ function _initApp() {
   });
 
   renderAll();
+  if (typeof uiStart === 'function') uiStart();
 }
 
 // ============================================================
@@ -17925,6 +17945,7 @@ function axisLabel(axis, value) {
 
 // ---- AXIS FINGERPRINT MINI-CHART ----
 function renderFingerprint(idA) {
+  if (typeof UI !== 'undefined' && UI.ready) return '';
   const a = tradAxes(idA);
   if (!a) return '';
   let html = '<div class="fingerprint" aria-label="Axis fingerprint">';
@@ -17978,6 +17999,7 @@ function getMatchingInstrumentAxes(idA, idB, n) {
 }
 
 function renderInstrumentFingerprint(idA) {
+  if (typeof UI !== 'undefined' && UI.ready) return '';
   return renderAxisFingerprint(instAxes(idA));
 }
 
@@ -18900,9 +18922,12 @@ const CHAT_BACKEND =
 const CHAT_STORAGE_KEY = `codex-musica-chat-v2:${CHAT_BACKEND}`;
 const chatState = { history: null, workspace: null, lyric: null, task: null, sig: null, continuationId: null,
   busy: false, generation: 0, pending: null, archives: [], retryAt: 0, controller: null };
+function _chatPersistedState(state=chatState) {
+  const {history,workspace,lyric,task,sig,continuationId,generation,pending,archives,retryAt} = state;
+  return continuationId ? {continuationId,generation,pending,archives,retryAt,domain:task?.domain,phase:task?.phase} : {history,workspace,lyric,task,sig,generation,pending,archives,retryAt};
+}
 function _chatSave() {
-  const {history,workspace,lyric,task,sig,continuationId,generation,pending,archives,retryAt} = chatState;
-  localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(continuationId ? {continuationId,generation,pending,archives,retryAt,domain:task?.domain,phase:task?.phase} : {history,workspace,lyric,task,sig,generation,pending,archives,retryAt}));
+  localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(_chatPersistedState()));
 }
 function _chatLoad() {
   try {
@@ -18942,9 +18967,9 @@ function _chatReceive(payload, headers) {
   }
   if (payload?.error) {
     _chatAppend(`<div class="chat-msg chat-msg-error">${esc(payload.error)}</div>`);
-    if (payload.artifact) _chatRenderReply(payload);
+    if (payload.artifact) _chatRenderReply(payload,request);
   }
-  else _chatRenderReply(payload);
+  else _chatRenderReply(payload,request);
   if (chatState.retryAt > Date.now()) _chatAppend(`<div class="chat-msg chat-msg-note">Continue after ${new Date(chatState.retryAt).toLocaleTimeString()}.</div>`);
 }
 async function _chatRecover(generation = chatState.generation) {
@@ -19077,7 +19102,7 @@ function _chatStripRecipeCopy(reply, recipe) {
     .trim();
 }
 
-function _chatRenderReply(payload) {
+function _chatRenderReply(payload,request) {
   const recoveryExport = payload.stopped === 'RECOVERY_EXPORTED' && typeof payload.reply === 'string';
   const prose = payload.artifact || recoveryExport ? '' : _chatStripRecipeCopy(payload.reply, payload.recipe);
   const parts = [];
@@ -19161,6 +19186,7 @@ function _chatRenderReply(payload) {
     node.appendChild(note);
   }
   _chatScroll();
+  if (typeof uiReceiveReply === 'function') uiReceiveReply(payload,request);
 }
 
 function _chatSetBusy(busy) {
@@ -19227,6 +19253,7 @@ async function _chatSubmit(e) {
     _chatAppend('<div class="chat-msg chat-msg-error">This browser could not save the request for recovery. Free local storage before starting it.</div>');
     return;
   }
+  if(typeof UI!=='undefined'&&UI.ready&&domain==='lyrics')UI.lyricRequest={id:request_id,revision:UI.lyricRevision,text:app.lyrics||''};
   _chatOpenPanel();
   _chatAppend(`<div class="chat-msg chat-msg-you">${esc(message)}</div>`);
   if (input) input.value = '';
@@ -19292,16 +19319,7 @@ function initChatDock() {
   const reset = _chatEl('chat-reset');
   if (reset) reset.addEventListener('click', _chatReset);
 
-  fetch(`${CHAT_BACKEND}/chat/status`)
-    .then(r => (r.ok ? r.json() : null))
-    .then(status => {
-      if (!status || !status.ok || status.enabled === false) return;
-      dock.hidden = false;
-      const meta = _chatEl('chat-meta');
-      if (meta) meta.textContent = status.model ? `${status.model} · ${status.tools} tools` : '';
-    })
-    .catch(() => {
-      // Offline, blocked, or not deployed. Leave the dock hidden; the catalog
-      // app itself does not depend on any of this.
-    });
+  if(typeof UI==='undefined'){
+    fetch(`${CHAT_BACKEND}/chat/status`).then(r=>r.ok?r.json():null).then(status=>{if(status?.ok&&status.enabled!==false)dock.hidden=false;}).catch(()=>{});
+  }
 }

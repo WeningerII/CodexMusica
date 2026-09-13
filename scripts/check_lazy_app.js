@@ -151,7 +151,12 @@ function runProbe(dom, probeBody, timeoutMs = 15000) {
   const s = dom.window.document.createElement('script');
   s.textContent = `(async () => {
     try {
+      if (document.readyState === 'loading') await new Promise(resolve => document.addEventListener('DOMContentLoaded', resolve, {once:true}));
       if (typeof CATALOG_READY !== 'undefined' && CATALOG_READY) await CATALOG_READY;
+      if (typeof UI !== 'undefined') {
+        for (let i=0;i<100&&!UI.ready;i++) await new Promise(resolve=>setTimeout(resolve,10));
+        if (!UI.ready) throw Error('Workbench did not finish booting');
+      }
       window.__probe = await (async () => { ${probeBody} })();
     } catch (e) { window.__probe = { __err: String((e && e.stack) || e) }; }
   })();`;

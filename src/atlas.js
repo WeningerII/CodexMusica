@@ -26,32 +26,32 @@
   // Colours keyed to the catalog's own taxonomy roots (references/04_tree.js).
   // Sonic territories, not geography. 'unplaced' = no extras.parent yet.
   var ROOT_COLORS = {
-    droneModal: '#6d4fc4',
-    functionalSong: '#4a7dbb',
-    improvOnFrame: '#c08a1f',
-    distortedRock: '#cf4f45',
-    mcRhythm: '#e07b39',
-    groovePercussion: '#3f9084',
-    artMusic: '#5560b5',
-    balladPoetry: '#7d9440',
-    ritualDevotional: '#b0568c',
-    bassSystem: '#2f855a',
-    electronicDance: '#3d8fd1',
-    experimentalElec: '#2b8a99',
-    lullaby: '#c78aa8',
-    wedding: '#d9a021',
-    funeralLament: '#6e7b8b',
-    seaShanty: '#33698c',
-    fieldWork: '#71862f',
-    domesticRhythm: '#937b66',
-    huntingSong: '#55705a',
-    nurseryRhyme: '#d98a6a',
-    drinkingSong: '#a9713a',
-    carnivalProcessional: '#cc5f9e',
-    praiseSong: '#8a6d3b',
-    protestSong: '#b3402e',
-    spokenWord: '#5f6368',
-    unplaced: '#9aa0a6',
+    droneModal: '#8e24aa',
+    functionalSong: '#1a73e8',
+    improvOnFrame: '#fbbc04',
+    distortedRock: '#e53935',
+    mcRhythm: '#f4511e',
+    groovePercussion: '#159447',
+    artMusic: '#3949ab',
+    balladPoetry: '#008ca8',
+    ritualDevotional: '#d81b60',
+    bassSystem: '#00995e',
+    electronicDance: '#8e24aa',
+    experimentalElec: '#1a73e8',
+    lullaby: '#fbbc04',
+    wedding: '#e53935',
+    funeralLament: '#f4511e',
+    seaShanty: '#159447',
+    fieldWork: '#3949ab',
+    domesticRhythm: '#008ca8',
+    huntingSong: '#d81b60',
+    nurseryRhyme: '#00995e',
+    drinkingSong: '#8e24aa',
+    carnivalProcessional: '#1a73e8',
+    praiseSong: '#fbbc04',
+    protestSong: '#e53935',
+    spokenWord: '#f4511e',
+    unplaced: '#159447',
   };
 
   var CELL = 58; // cluster bin, px
@@ -87,7 +87,7 @@
     land: null,
     meta: { verified: [] },
     cache: {},
-    view: { cx: 0.35, cy: 0.25, scale: 0 },
+    view: { cx: 0, cy: 0, scale: 0 },
     baseScale: 0,
     focus: new Set(),
     qmatch: null,
@@ -105,6 +105,11 @@
     dpr: 1,
   };
 
+  var earth = new Image();
+  earth.src = 'assets/earth-equal.webp';
+  earth.onload = function () {
+    draw();
+  };
   var el = {};
   function $(id) {
     return document.getElementById(id);
@@ -461,7 +466,7 @@
       s: targetScale || Math.max(v.scale, S.baseScale * 10),
     };
     var t0 = performance.now(),
-      D = 550;
+      D = matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 420;
     var step = function () {
       var t = Math.min(1, (performance.now() - t0) / D);
       var e = 1 - Math.pow(1 - t, 3);
@@ -568,19 +573,23 @@
     var v = S.view;
     ctx.setTransform(S.dpr, 0, 0, S.dpr, 0, 0);
     ctx.clearRect(0, 0, S.w, S.h);
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = '#103557';
     ctx.fillRect(0, 0, S.w, S.h);
 
     ctx.save();
     ctx.translate(S.w / 2, S.h / 2);
     ctx.scale(v.scale, -v.scale);
     ctx.translate(-v.cx, -v.cy);
-    // land only — no national borders; traditions don't respect them
-    ctx.fillStyle = '#f1f3f4';
-    ctx.fill(S.land);
-    ctx.strokeStyle = '#f1f3f4';
-    ctx.lineWidth = 1.2 / v.scale;
-    ctx.stroke(S.land);
+    if (earth.complete && earth.naturalWidth) {
+      ctx.save();
+      ctx.translate(-2.70663, 1.317363);
+      ctx.scale(1, -1);
+      ctx.drawImage(earth, 0, 0, 5.41326, 2.634726);
+      ctx.restore();
+    } else {
+      ctx.fillStyle = '#c4d9bd';
+      ctx.fill(S.land);
+    }
     ctx.restore();
 
     if (S.routesOn) drawRoutes(ctx);
@@ -698,7 +707,7 @@
     ctx.strokeStyle = open ? '#c8504a' : '#ffffff';
     ctx.lineWidth = open ? 2.5 : 1.5;
     ctx.stroke();
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = '#103557';
     ctx.font = '600 ' + (c.pts.length > 999 ? 10 : 11) + 'px IBM Plex Sans, sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
@@ -770,7 +779,7 @@
       ctx.strokeStyle = '#ffffff';
       ctx.lineWidth = 1.5;
       ctx.stroke();
-      ctx.fillStyle = '#ffffff';
+      ctx.fillStyle = '#103557';
       ctx.font = '600 10px IBM Plex Sans, sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
@@ -1303,7 +1312,7 @@
       CODEX_URL +
       '?trad=' +
       encodeURIComponent(s.id) +
-      '">Open in Codex &#8599;</a>' +
+      '">Add genre</a>' +
       '<button class="btn-secondary" data-act="copy">' +
       esc(S.copyLabel || 'Copy recipe') +
       '</button></div>';
@@ -1629,7 +1638,7 @@
     });
     $('zoom-reset').addEventListener('click', function () {
       closeStack();
-      flyTo({ x: 0.35, y: 0.25 }, S.baseScale);
+      flyTo({ x: 0, y: 0 }, S.baseScale);
     });
 
     var tTerr = $('t-territories'),

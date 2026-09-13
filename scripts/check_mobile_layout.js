@@ -48,6 +48,7 @@
 // Exit 0 if every assertion passes, 1 otherwise.
 
 'use strict';
+/* global document */
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -84,10 +85,33 @@ const VIEWPORTS = [
 // `inOverflow` marks capabilities allowed to live behind the #btn-more sheet
 // below 900px — the gate opens it and checks the proxy is really tappable.
 const CAPABILITIES = [
+  // The four sections of the workbench header. They are what a header that
+  // stops fitting a phone loses first: below 900px the header is a grid whose
+  // overflow the page CLIPS (`body.workbench { overflow-x: hidden }`), so a nav
+  // demanding more width than the device never shows as document overflow and
+  // never blows the layout viewport open -- the rightmost tab simply leaves the
+  // screen. faults.js plants exactly that width demand and this is the row that
+  // has to catch it.
+  { id: 'view-genre', label: 'open the Genre section', sel: ['button[data-view="genre"]'] },
+  {
+    id: 'view-instrument',
+    label: 'open the Instrument section',
+    sel: ['button[data-view="instrument"]'],
+  },
+  { id: 'view-map', label: 'open the Map section', sel: ['button[data-view="map"]'] },
+  { id: 'view-lyrics', label: 'open the Lyrics section', sel: ['button[data-view="lyrics"]'] },
   { id: 'add-instrument', label: 'add an instrument', sel: ['#btn-add'] },
   { id: 'add-genre', label: 'add a genre', sel: ['#btn-traditions'] },
-  { id: 'undo', label: 'undo', sel: ['#btn-undo', '[data-proxy="btn-undo"]'] },
-  { id: 'redo', label: 'redo', sel: ['#btn-redo', '[data-proxy="btn-redo"]'] },
+  {
+    id: 'undo',
+    label: 'undo',
+    sel: ['#btn-undo', '[data-proxy="btn-undo"]', '#ui-menu [data-ui="undo"]'],
+  },
+  {
+    id: 'redo',
+    label: 'redo',
+    sel: ['#btn-redo', '[data-proxy="btn-redo"]', '#ui-menu [data-ui="redo"]'],
+  },
   { id: 'copy-recipe', label: 'copy the recipe', sel: ['#sb-recipe-copy'] },
   // A readout, not a target: it must be legible and on screen, but the 44px
   // touch minimum is about what a thumb has to hit, so it does not apply.
@@ -101,13 +125,13 @@ const CAPABILITIES = [
   {
     id: 'saved',
     label: 'open saved workspaces',
-    sel: ['#btn-saved', '[data-proxy="btn-saved"]'],
+    sel: ['#btn-saved', '#ui-menu [data-ui="saved"]'],
     inOverflow: true,
   },
   {
     id: 'credits',
     label: 'open image credits',
-    sel: ['#btn-attributions', '[data-proxy="btn-attributions"]'],
+    sel: ['#btn-attributions'],
     inOverflow: true,
   },
 ];
@@ -250,12 +274,30 @@ const DND_SETUP = `(() => {
 // so a source row and a target genre are both visible. Needed for the landscape
 // phone (844x390), where the tree is far taller than the viewport and the second
 // genre otherwise starts below the fold.
+//
+// `scrollIntoView`, not `window.scrollBy`: the tree scrolls inside
+// #sidebar-scroll (and, on a landscape phone, inside the recipe drawer), so a
+// window scroll cannot bring the boundary on screen; centring the anchor in
+// whichever ancestor scrolls does the same job for a page-scrolled tree.
+//
+// The anchor's BOTTOM sits at the scrollport's centre, not its middle: the
+// recipe bar rides the bottom edge of every scrolling layout, so a target
+// header centred below the anchor would otherwise start under that bar on
+// the 390px-tall landscape phone.
 const DND_FOCUS = `(() => {
   const groups = document.querySelectorAll('.sb-tradition-group');
   if (groups.length < 2) return false;
   const cards = groups[0].querySelectorAll('.sb-card');
   const anchor = cards[cards.length - 1] || groups[0];
-  window.scrollBy(0, anchor.getBoundingClientRect().top - window.innerHeight * 0.35);
+  anchor.scrollIntoView({ block: 'center', inline: 'nearest' });
+  let sc = anchor.parentElement;
+  while (sc && sc !== document.documentElement) {
+    const o = getComputedStyle(sc).overflowY;
+    if ((o === 'auto' || o === 'scroll') && sc.scrollHeight > sc.clientHeight) break;
+    sc = sc.parentElement;
+  }
+  if (sc && sc !== document.documentElement) sc.scrollTop += anchor.offsetHeight;
+  else window.scrollBy(0, anchor.offsetHeight);
   return true;
 })()`;
 
@@ -346,7 +388,7 @@ const PINNED_PROBE = `(() => {
 
     // Load a real workspace. Every assertion below is about editing a stack,
     // and the empty state has neither a tree nor a recipe bar to check.
-    const starter = await page.$('#starter-gallery .starter-trad');
+    const starter = await page.$('[data-ui="genre-add"][data-id="delta_blues"]');
     if (!starter) {
       fail(vp, 'no starter recipe in the empty state — cannot exercise the editor');
       await ctx.close();
@@ -367,7 +409,8 @@ const PINNED_PROBE = `(() => {
       await ctx.close();
       continue;
     }
-    await page.waitForTimeout(2000);
+    await page.waitForFunction(() => document.querySelectorAll('.sb-card').length > 0);
+    if (mobile) await page.click('[data-ui="session"]');
 
     let r = await page.evaluate(PROBE);
     assertViewport(r, 'with a workspace loaded');
@@ -382,9 +425,9 @@ const PINNED_PROBE = `(() => {
       unresolved.push(cap);
     }
     if (unresolved.length) {
-      const trigger = await page.evaluate(`(${CONTROL_FN})('#btn-more')`);
+      const trigger = await page.evaluate(`(${CONTROL_FN})('[data-ui="menu"]')`);
       if (trigger.inside && trigger.hittable) {
-        await page.click('#btn-more');
+        await page.click('[data-ui="menu"]');
         await page.waitForTimeout(350);
         const after = await page.evaluate(
           `(() => { const measure = ${CONTROL_FN};
@@ -394,6 +437,11 @@ const PINNED_PROBE = `(() => {
         );
         for (const cap of unresolved) r.caps[cap.id] = after[cap.id];
         await page.keyboard.press('Escape');
+        if (
+          mobile &&
+          !(await page.evaluate(() => document.body.classList.contains('session-open')))
+        )
+          await page.click('[data-ui="session"]');
         await page.waitForTimeout(250);
       }
     }
@@ -455,7 +503,7 @@ const PINNED_PROBE = `(() => {
     // ---- G. the layout model -----------------------------------------------
     checks++;
     if (mobile && !r.treeOnScreen) {
-      fail(vp, 'the genre tree is not on screen — it must be the page, not behind a drawer');
+      fail(vp, 'the shared recipe is not reachable after opening Recipe');
     }
 
     // Tapping an instrument must expand it in place on mobile, and fill the
