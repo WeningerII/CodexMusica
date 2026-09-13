@@ -85,6 +85,15 @@ const INERT = [
     why: 'a separate Python program with its own CI jobs; the three artifact builders are Node and none of them reads it',
   },
   { re: /^render\.yaml$/, why: 'deployment config for the connector; not a build input' },
+  {
+    // Added 2026-09-13 with the ChatGPT plugin (M-285). Its manifest, its
+    // .mcp.json and its skills' openai.yaml are read by the host that installs
+    // the plugin, never by a builder; deny-by-default was pricing a manifest
+    // edit at a full artifact rebuild. Proved, not asserted: the traced build
+    // below fails the moment a builder reads anything under it.
+    re: /^plugins\//,
+    why: 'ChatGPT/Codex plugin manifest and skills; read by the installing host, not by any artifact builder',
+  },
   { re: /^eslint\.config\.js$/, why: 'lint config; not read by any builder' },
   { re: /^\.(gitignore|prettierrc|prettierignore|npmrc|nvmrc)/, why: 'tooling config' },
   { re: /^\.gitattributes$/, why: 'tooling config' },
