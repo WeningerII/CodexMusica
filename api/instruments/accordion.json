@@ -531,6 +531,13 @@
             "bellows-driven",
             "reed-driven"
           ]
+        },
+        {
+          "id": "accordion_maker_unspecified",
+          "name": "Maker not specified by source",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     }
@@ -903,6 +910,13 @@
             "bellows-driven",
             "reed-driven"
           ]
+        },
+        {
+          "id": "accordion_maker_unspecified",
+          "name": "Maker not specified by source",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     }

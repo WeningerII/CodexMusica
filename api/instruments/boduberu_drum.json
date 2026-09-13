@@ -1,0 +1,200 @@
+{
+  "id": "boduberu_drum",
+  "name": "Boduberu (Maldivian coconut-wood drum)",
+  "short": "boduberu drum",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "boduberu_build",
+      "name": "Shell and head",
+      "variants": [
+        {
+          "id": "boduberu_build_goat",
+          "name": "Coconut-wood shell and goatskin",
+          "default": true,
+          "descriptors": [
+            "coconut-wood",
+            "goatskin",
+            "resonant"
+          ],
+          "match_tokens": [
+            "coconut-wood",
+            "goatskin",
+            "resonant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boduberu_stroke",
+      "name": "Hand strokes",
+      "variants": [
+        {
+          "id": "boduberu_stroke_open",
+          "name": "Open strokes",
+          "default": true,
+          "descriptors": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "boduberu_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boduberu_setup",
+      "name": "Drummer configuration",
+      "variants": [
+        {
+          "id": "boduberu_setup_three",
+          "name": "Three-drum group",
+          "default": true,
+          "descriptors": [
+            "three-drummers",
+            "layered",
+            "driving"
+          ],
+          "match_tokens": [
+            "three-drummers",
+            "layered",
+            "driving"
+          ]
+        },
+        {
+          "id": "boduberu_setup_one",
+          "name": "Single drum",
+          "descriptors": [
+            "single-drum",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "single-drum",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "boduberu_build",
+      "name": "Shell and head",
+      "variants": [
+        {
+          "id": "boduberu_build_goat",
+          "name": "Coconut-wood shell and goatskin",
+          "default": true,
+          "descriptors": [
+            "coconut-wood",
+            "goatskin",
+            "resonant"
+          ],
+          "match_tokens": [
+            "coconut-wood",
+            "goatskin",
+            "resonant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boduberu_stroke",
+      "name": "Hand strokes",
+      "variants": [
+        {
+          "id": "boduberu_stroke_open",
+          "name": "Open strokes",
+          "default": true,
+          "descriptors": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "boduberu_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boduberu_setup",
+      "name": "Drummer configuration",
+      "variants": [
+        {
+          "id": "boduberu_setup_three",
+          "name": "Three-drum group",
+          "default": true,
+          "descriptors": [
+            "three-drummers",
+            "layered",
+            "driving"
+          ],
+          "match_tokens": [
+            "three-drummers",
+            "layered",
+            "driving"
+          ]
+        },
+        {
+          "id": "boduberu_setup_one",
+          "name": "Single drum",
+          "descriptors": [
+            "single-drum",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "single-drum",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ]
+}

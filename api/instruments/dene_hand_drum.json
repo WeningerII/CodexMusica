@@ -1,0 +1,134 @@
+{
+  "id": "dene_hand_drum",
+  "name": "Dene hand drum",
+  "short": "Dene hand drum",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "dene_drum_build",
+      "name": "Frame and head",
+      "variants": [
+        {
+          "id": "dene_drum_build_hide",
+          "name": "Wooden frame with hide head",
+          "default": true,
+          "descriptors": [
+            "wooden-frame",
+            "hide-head",
+            "handheld"
+          ],
+          "match_tokens": [
+            "wooden-frame",
+            "hide-head",
+            "handheld"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dene_drum_stroke",
+      "name": "Stick strokes",
+      "variants": [
+        {
+          "id": "dene_drum_stroke_open",
+          "name": "Rebounding strokes",
+          "default": true,
+          "descriptors": [
+            "stick-struck",
+            "resonant",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "resonant",
+            "rhythmic"
+          ]
+        },
+        {
+          "id": "dene_drum_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "stick-struck",
+            "muted",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "muted",
+            "short-decay"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dene_drum_build",
+      "name": "Frame and head",
+      "variants": [
+        {
+          "id": "dene_drum_build_hide",
+          "name": "Wooden frame with hide head",
+          "default": true,
+          "descriptors": [
+            "wooden-frame",
+            "hide-head",
+            "handheld"
+          ],
+          "match_tokens": [
+            "wooden-frame",
+            "hide-head",
+            "handheld"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dene_drum_stroke",
+      "name": "Stick strokes",
+      "variants": [
+        {
+          "id": "dene_drum_stroke_open",
+          "name": "Rebounding strokes",
+          "default": true,
+          "descriptors": [
+            "stick-struck",
+            "resonant",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "resonant",
+            "rhythmic"
+          ]
+        },
+        {
+          "id": "dene_drum_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "stick-struck",
+            "muted",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "muted",
+            "short-decay"
+          ]
+        }
+      ]
+    }
+  ]
+}

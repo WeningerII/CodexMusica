@@ -5,7 +5,7 @@
   "lineage": "Créole ancestor-worship and protest music of Réunion, descended from Malagasy and East African slave servis kabaré rites and revived from 1970 by Firmin Viry, Granmoun Lélé and Danyèl Waro, driven by the low roulèr bass drum, rattling kayamb tray-shaker and triangle in a slow-building 6/8-into-4 pulse under a hoarse solo call and unison Creole chorus response that accelerates across a single trance-length cycle.",
   "recipe": "classic early-1970s maloya, ritual Devotional, Afro-diasporic branch, sub saharan African protest song, central east south African groove percussion south african freedom song liwa. vocal fry, breath veiled tone, slow rate, interlocked note trading. kayamba, double bass rapid double strokes bass drum, group massed hand clap, deep foundational bass rhythm calabash shekere. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 466,
-  "score": 172.395,
+  "score": 172.093,
   "config": {
     "traditions": [
       "maloya",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 3.6949999999999994,
+          "voice_register": 3.769999999999999,
           "voice_quality": 8.905000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -47,7 +47,7 @@
           "voice_speech_song": 24.83,
           "voice_ensemble_config": 20.864999999999995,
           "voice_ornament_system": 5.825,
-          "voice_pitch_organization": 4.326,
+          "voice_pitch_organization": 4.05,
           "voice_processing_chain": 6.109999999999999,
           "voice_multitrack_stack": 5.5575
         }
@@ -55,11 +55,11 @@
       {
         "id": "kayamba",
         "slots": {
-          "kayamba_fill": "kayamba_pebble",
+          "kayamba_fill": "kayamba_millet",
           "kayamba_technique": "kayamba_shake"
         },
         "scores": {
-          "kayamba_fill": 0.351,
+          "kayamba_fill": 0.3,
           "kayamba_technique": 0.845
         }
       },
@@ -71,7 +71,7 @@
         },
         "scores": {
           "bass_drum_size": 1.18,
-          "bass_drum_beater": 2.34
+          "bass_drum_beater": 2.325
         }
       },
       {
@@ -92,7 +92,7 @@
           "shekere_beads": "shekere_seed"
         },
         "scores": {
-          "shekere_size": 1.996,
+          "shekere_size": 1.96,
           "shekere_beads": 8.254999999999999
         }
       }

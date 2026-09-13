@@ -210,6 +210,16 @@ for (const t of C.TRADITIONS) {
   }
 }
 
+// ---- Opt-in authored part pinning ----
+for (const t of C.TRADITIONS) {
+  if (t.pin_parts !== undefined && typeof t.pin_parts !== 'boolean') {
+    errors.push(['BAD_TYPE', 'tradition.pin_parts', t.id, 'expected boolean']);
+  }
+  if (t.pin_parts === true && (!t.parts || Object.keys(t.parts).length === 0)) {
+    errors.push(['MISSING_PARTS', 'tradition.pin_parts', t.id, 'pinning requires parts']);
+  }
+}
+
 // ---- Tradition ID uniqueness ----
 // Duplicate IDs are a schema violation: id-based lookups silently return the
 // first match while the rest of the array is unreachable.

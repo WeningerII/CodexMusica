@@ -1,6 +1,6 @@
 {
   "name": "Codex Musica — browse index (Tier-1 data for the lazy-loaded app)",
-  "generated": "2026-09-12",
+  "generated": "2026-09-13",
   "axisKeys": [
     "harm",
     "pitch",
@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 2503,
+  "count": 2564,
   "items": [
     {
       "id": "honky_tonk",
@@ -21450,7 +21450,7 @@
       "id": "tongan_lakalaka",
       "name": "Tongan lakalaka sung-speech-dance",
       "family": "global",
-      "lineage": "Tongan lakalaka sung-poetry-and-choreographed-dance tradition. Lakalaka is the canonical ceremonial-public performance form of contemporary Tonga: large mixed-gender groups (up to several hundred performers) stand in two parallel rows facing the audience, with women on one side and men on the other, performing synchronized standing-arm-and-hand choreography (the women in characteristic graceful hand-gestures, the men in more vigorous percussive-stance) while singing the poetic verse-text in unison-and-octave choral configuration. Accompaniment by nafa wooden slit-drum (the canonical Tongan percussion instrument), with optional fakatangi vocal-buzz percussive ornament from the men's chorus. The poetic verse-form (also called lakalaka in Tongan usage) is composed by a punake poet-composer-choreographer for a specific occasion — coronation, royal birthday, opening of major public building, district-festival celebration — and the verse-text is occasion-specific historical-praise narrative tied to the immediate ceremonial context. Lakalaka thus functions as a fully-integrated occasion-specific genre, with each new commission producing a new lakalaka. Queen Sālote Tupou III (1900-1965, reigned 1918-1965) was the dominant twentieth-century lakalaka punake, composing over a hundred lakalaka still in active repertoire. Adrienne Kaeppler's 2012 monograph Lakalaka: A Tongan Masterpiece of Performing Arts is the canonical English-language scholarship. Distinguished from earlier Tongan ceremonial forms (me'etu'upaki, fakapale) by lakalaka's post-1850s synthesized-new-form status; distinguished from Samoan siva and Fijian meke by Tongan-specific poetic-and-choreographic vocabulary; distinguished from Hawaiian hula by lakalaka's very-large-group (vs solo-or-small-group) configuration.",
+      "lineage": "Tongan lakalaka combines occasion-specific sung poetry, choral polyphony and coordinated standing dance. A punake directs the words, music and movements. This seed uses the documented vocal-and-handclap configuration.",
       "parent": "ritualDevotional.indigenous",
       "axes": [
         0,
@@ -21469,15 +21469,14 @@
       ],
       "instruments": [
         "voice",
-        "nafa"
+        "hand_clap"
       ],
-      "description": "Tongan lakalaka sung-poetry-and-choreographed-dance tradition. Lakalaka is the canonical ceremonial-public performance form of contemporary Tonga: large mixed-gender groups (up to several hundred performers) stand in two parallel rows facing the audience, with women on one side and men on the other, performing synchronized standing-arm-and-hand choreography while singing the poetic verse-text in unison-and-octave choral configuration. Accompaniment by nafa wooden slit-drum. The poetic verse-form is composed by a punake poet-composer-choreographer for a specific occasion — coronation, royal birthday, opening of major public building, district-festival celebration.",
+      "description": "Tongan lakalaka combines occasion-specific sung poetry, choral polyphony and coordinated standing dance. A punake directs the words, music and movements. This seed uses the documented vocal-and-handclap configuration.",
       "exemplars": [
-        "Adrienne Kaeppler — Lakalaka: A Tongan Masterpiece of Performing Arts (2012)",
-        "Queen Salote (twentieth-century royal patronage 1918-1965)"
+        "UNESCO — Lakalaka, dances and sung speeches of Tonga"
       ],
       "crossRefs": [
-        "functionalSong.tropicalSong"
+        "functionalSong"
       ]
     },
     {
@@ -24526,10 +24525,10 @@
     },
     {
       "id": "vanuatu_water_drumming",
-      "name": "Vanuatu water drumming and sand drawing",
+      "name": "Vanuatu women’s water music",
       "family": "global",
-      "lineage": "Vanuatu water drumming tradition of the Ranmwat Bay and Hog Harbour communities of north-central Espiritu Santo island, in which women stand thigh-deep in the sea or in a freshwater pool and strike the water surface with cupped hands producing distinctive low-pitched rhythmic-percussive patterns. Performance contexts span entertainment, ceremonial-celebration, and tourism-circuit demonstrations. Parallel to the water-drumming, Vanuatu preserves the canonical sand-drawing tradition in which elaborate diagrammatic geometric-and-mythological drawings are produced in sand with continuous-line technique. Distinguished from neighboring Melanesian water-percussion variants by Vanuatu-specific Ranmwat-Hog-Harbour stylistic conventions.",
-      "parent": "ritualDevotional.indigenous",
+      "lineage": "Northern Vanuatu women create interlocking rhythms by striking and moving water with their hands. This seed selects the water-percussion portion of a performance; accompanying songs and other dances are separate configurations.",
+      "parent": "groovePercussion",
       "axes": [
         -1,
         0,
@@ -24537,26 +24536,21 @@
         1,
         1,
         2,
-        2,
+        1,
         -2,
         1,
-        2,
+        -2,
         1,
         2,
         1
       ],
       "instruments": [
-        "voice"
+        "water_percussion"
       ],
-      "description": "Vanuatu water drumming tradition of the Ranmwat Bay and Hog Harbour communities of north-central Espiritu Santo island, in which women stand thigh-deep in the sea or in a freshwater pool and strike the water surface with cupped hands producing distinctive low-pitched rhythmic-percussive patterns. Performance contexts span entertainment, ceremonial-celebration, and tourism-circuit demonstrations. Parallel to the water-drumming, Vanuatu preserves the canonical sand-drawing tradition in which elaborate diagrammatic geometric-and-mythological drawings are produced in sand with continuous-line technique. Distinguished from neighboring Melanesian water-percussion variants by Vanuatu-specific Ranmwat-Hog-Harbour stylistic conventions.",
+      "description": "Northern Vanuatu women create interlocking rhythms by striking and moving water with their hands. This seed selects the water-percussion portion of a performance; accompanying songs and other dances are separate configurations.",
       "exemplars": [
-        "Leweton Cultural Village",
-        "Vanuatu Cultural Centre",
-        "Ranmwat Bay village lineage",
-        "Hog Harbour village lineage"
-      ],
-      "crossRefs": [
-        "groovePercussion.westAfrican"
+        "Leweton — Vanuatu Women’s Water Music",
+        "Limerous Water Music, Gaua"
       ]
     },
     {
@@ -103113,6 +103107,1831 @@
       "crossRefs": [
         "functionalSong.popRock.yachtRock",
         "functionalSong.popRock.synthpop"
+      ]
+    },
+    {
+      "id": "salegy",
+      "name": "Salegy (northern Madagascar)",
+      "family": "global",
+      "lineage": "Northern Malagasy dance music with an electric rhythm section and overlapping vocal responses. This configuration follows the band sound documented around Jaojoby.",
+      "parent": "functionalSong.africanPop",
+      "axes": [
+        1,
+        -1,
+        0,
+        2,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "accordion"
+      ],
+      "description": "Northern Malagasy dance music with an electric rhythm section and overlapping vocal responses. This configuration follows the band sound documented around Jaojoby.",
+      "exemplars": [
+        "Jaojoby"
+      ]
+    },
+    {
+      "id": "tsapiky",
+      "name": "Tsapiky / tsapika (southwestern Madagascar)",
+      "family": "global",
+      "lineage": "Southwestern Malagasy dance music centered here on a fast electric-guitar band. Acoustic and ceremonial configurations also occur.",
+      "parent": "functionalSong.africanPop",
+      "axes": [
+        1,
+        -1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Southwestern Malagasy dance music centered here on a fast electric-guitar band. Acoustic and ceremonial configurations also occur.",
+      "exemplars": [
+        "UNESCO ICH — Tsapiky, rhythm and musical style of south-west Madagascar"
+      ]
+    },
+    {
+      "id": "hiragasy",
+      "name": "Hiragasy (Malagasy highland performance)",
+      "family": "global",
+      "lineage": "Malagasy highland performance combining song, oratory and dance. The selected troupe configuration uses singers, violins, trumpets and drums.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "fiddle",
+        "trumpet",
+        "hiragasy_drums"
+      ],
+      "description": "Malagasy highland performance combining song, oratory and dance. The selected troupe configuration uses singers, violins, trumpets and drums.",
+      "exemplars": [
+        "Kaompania Rasoalalao Kavia"
+      ]
+    },
+    {
+      "id": "vimbuza",
+      "name": "Vimbuza (Tumbuka healing dance)",
+      "family": "global",
+      "lineage": "Tumbuka healing performance in northern Malawi, with responsive singing and interlocking drums.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        1,
+        -2,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "vimbuza_drums",
+        "hand_clap"
+      ],
+      "description": "Tumbuka healing performance in northern Malawi, with responsive singing and interlocking drums.",
+      "exemplars": [
+        "UNESCO ICH — Vimbuza healing dance"
+      ]
+    },
+    {
+      "id": "tchopa",
+      "name": "Tchopa (Lhomwe ceremonial dance)",
+      "family": "global",
+      "lineage": "Lhomwe ceremonial dance of southern Malawi, accompanied by singing and three drums of different sizes.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        0,
+        0,
+        2,
+        1,
+        2,
+        1,
+        -2,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "tchopa_drums"
+      ],
+      "description": "Lhomwe ceremonial dance of southern Malawi, accompanied by singing and three drums of different sizes.",
+      "exemplars": [
+        "Malawi National Commission for UNESCO — Documentation of Intangible Cultural Heritage"
+      ]
+    },
+    {
+      "id": "mwinoghe",
+      "name": "Mwinoghe (northern Malawi instrumental dance)",
+      "family": "global",
+      "lineage": "Northern Malawian social dance with one large drum and two smaller drums. There is no singing; a whistle and spoken directions may supplement the drums.",
+      "parent": "groovePercussion.centralEastSouthAfrican",
+      "axes": [
+        0,
+        0,
+        -2,
+        2,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        -2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "ingina",
+        "twana_perekete"
+      ],
+      "description": "Northern Malawian social dance with one large drum and two smaller drums. There is no singing; a whistle and spoken directions may supplement the drums.",
+      "exemplars": [
+        "Malawi National Commission for UNESCO — Documentation of Intangible Cultural Heritage"
+      ]
+    },
+    {
+      "id": "kaligo_playing",
+      "name": "Kaligo playing (Chewa fiddle repertoire)",
+      "family": "global",
+      "lineage": "Chewa single-string fiddle playing documented in central and southern Malawi. This entry selects an instrumental solo configuration.",
+      "parent": "droneModal.string",
+      "axes": [
+        -1,
+        1,
+        1,
+        0,
+        -2,
+        2,
+        1,
+        -2,
+        0,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "kaligo"
+      ],
+      "description": "Chewa single-string fiddle playing documented in central and southern Malawi. This entry selects an instrumental solo configuration.",
+      "exemplars": [
+        "Malawi National Commission for UNESCO — Documentation of Intangible Cultural Heritage"
+      ]
+    },
+    {
+      "id": "malipenga",
+      "name": "Malipenga (Tonga singing-horn dance)",
+      "family": "global",
+      "lineage": "Tonga dance music using voice-driven singing horns and a pair of drums. The seed follows the sixteen-performer Muganda we Chitonga Banda recording.",
+      "parent": "groovePercussion.centralEastSouthAfrican",
+      "axes": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        2,
+        0,
+        -2,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "malipenga_singing_horn",
+        "malipenga_drums"
+      ],
+      "description": "Tonga dance music using voice-driven singing horns and a pair of drums. The seed follows the sixteen-performer Muganda we Chitonga Banda recording.",
+      "exemplars": [
+        "Group of sixteen Tonga men and boys — Muganda we Chitonga Banda (1957)"
+      ]
+    },
+    {
+      "id": "himmi",
+      "name": "Himmi (Tibesti women’s song)",
+      "family": "global",
+      "lineage": "Tibesti Teda song; the Sobotogué recording features a female soloist answered by a girls’ chorus without instruments.",
+      "parent": "balladPoetry",
+      "axes": [
+        -1,
+        1,
+        0,
+        0,
+        0,
+        2,
+        1,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Tibesti Teda song; the Sobotogué recording features a female soloist answered by a girls’ chorus without instruments.",
+      "exemplars": [
+        "Monique Brandily — CNRSMH_I_2009_001_008_01 (1965)"
+      ]
+    },
+    {
+      "id": "dobana_terkiya",
+      "name": "Dobana terkiya (Tibesti solo song)",
+      "family": "global",
+      "lineage": "Teda solo-song form documented in Tibesti. The Youbor example is an unaccompanied male performance.",
+      "parent": "balladPoetry",
+      "axes": [
+        -1,
+        1,
+        1,
+        -1,
+        -2,
+        2,
+        1,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Teda solo-song form documented in Tibesti. The Youbor example is an unaccompanied male performance.",
+      "exemplars": [
+        "Wiché Barkaimi — CNRSMH_I_2009_001_026_03 (1965)"
+      ]
+    },
+    {
+      "id": "terdegna",
+      "name": "Terdegna (Tibesti choral drum song)",
+      "family": "global",
+      "lineage": "Tibesti Teda repertoire documented as girls’ choral singing with drum accompaniment; separate lute realizations also appear in the archive.",
+      "parent": "balladPoetry",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_membrane_drum"
+      ],
+      "description": "Tibesti Teda repertoire documented as girls’ choral singing with drum accompaniment; separate lute realizations also appear in the archive.",
+      "exemplars": [
+        "CREM-CNRS / Monique Brandily — Tibesti field recording collection"
+      ]
+    },
+    {
+      "id": "dinka_song_traditions",
+      "name": "Dinka personal and praise-song traditions",
+      "family": "global",
+      "lineage": "Dinka song traditions include personally authored songs and praise. This seed selects solo singing from a corpus that also documents group performers.",
+      "parent": "praiseSong",
+      "axes": [
+        -1,
+        1,
+        0,
+        -1,
+        -2,
+        2,
+        2,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Dinka song traditions include personally authored songs and praise. This seed selects solo singing from a corpus that also documents group performers.",
+      "exemplars": [
+        "University of Edinburgh and SOAS research team — A Collection of Dinka Songs"
+      ]
+    },
+    {
+      "id": "fang_bwiti",
+      "name": "Fang Bwiti harp-song repertoire",
+      "family": "global",
+      "lineage": "Fang Bwiti ritual repertoire in Gabon. This configuration selects voice and ngombi harp from the recorded harp-song repertory.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        1,
+        1,
+        1,
+        0,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        0,
+        0,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "ngombi_harp"
+      ],
+      "description": "Fang Bwiti ritual repertoire in Gabon. This configuration selects voice and ngombi harp from the recorded harp-song repertory.",
+      "exemplars": [
+        "Mvomō Asumu André — harp songs (Folkways FE 4214)"
+      ]
+    },
+    {
+      "id": "mbiri",
+      "name": "Mbiri (Gabonese Fang ritual repertoire)",
+      "family": "global",
+      "lineage": "Fang Mbiri ritual music, documented alongside Bwiti in Gabon. The seed selects a harp-song configuration; percussion-led portions require a different ensemble.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        1,
+        1,
+        1,
+        0,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        0,
+        0,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "ngombi_harp"
+      ],
+      "description": "Fang Mbiri ritual music, documented alongside Bwiti in Gabon. The seed selects a harp-song configuration; percussion-led portions require a different ensemble.",
+      "exemplars": [
+        "Ele Amana Michel — Mbiri Harp Songs 1 and 2 (Folkways FE 4214)"
+      ]
+    },
+    {
+      "id": "banda_linda_polyphony",
+      "name": "Banda Linda horn polyphony",
+      "family": "global",
+      "lineage": "Linda ongo horn-ensemble music from the Central African Republic. Flute, slit-drum and vocal ensembles in the same archive are separate configurations.",
+      "parent": "groovePercussion.centralEastSouthAfrican",
+      "axes": [
+        -1,
+        0,
+        0,
+        2,
+        2,
+        2,
+        1,
+        -2,
+        1,
+        -2,
+        0,
+        0,
+        2
+      ],
+      "instruments": [
+        "ongo_horns"
+      ],
+      "description": "Linda ongo horn-ensemble music from the Central African Republic. Flute, slit-drum and vocal ensembles in the same archive are separate configurations.",
+      "exemplars": [
+        "Smithsonian Folkways / Simha Arom — Central African Republic: Banda Polyphony"
+      ]
+    },
+    {
+      "id": "banda_dakpa_polyphony",
+      "name": "Banda Dakpa horn polyphony",
+      "family": "global",
+      "lineage": "Dakpa ongo-ngala horn-ensemble repertoire from the Central African Republic, preserved separately from the Linda recordings.",
+      "parent": "groovePercussion.centralEastSouthAfrican",
+      "axes": [
+        -1,
+        0,
+        0,
+        2,
+        2,
+        2,
+        1,
+        -2,
+        1,
+        -2,
+        0,
+        0,
+        2
+      ],
+      "instruments": [
+        "ongo_horns"
+      ],
+      "description": "Dakpa ongo-ngala horn-ensemble repertoire from the Central African Republic, preserved separately from the Linda recordings.",
+      "exemplars": [
+        "Smithsonian Folkways / Simha Arom — Central African Republic: Banda Polyphony"
+      ]
+    },
+    {
+      "id": "budima",
+      "name": "Budima (Valley Tonga ceremonial dance)",
+      "family": "global",
+      "lineage": "Valley Tonga ceremonial performance associated with the Gwembe Valley. The ensemble combines nyele horn-flutes, differently sized drums and singers.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        0,
+        0,
+        2,
+        2,
+        2,
+        0,
+        -2,
+        2,
+        0,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "nyele_ensemble",
+        "budima_drums",
+        "voice"
+      ],
+      "description": "Valley Tonga ceremonial performance associated with the Gwembe Valley. The ensemble combines nyele horn-flutes, differently sized drums and singers.",
+      "exemplars": [
+        "Zambia Ministry of Tourism and Arts / UNESCO — Budima Dance"
+      ]
+    },
+    {
+      "id": "khanty_mansi_bear_festival",
+      "name": "Khanty–Mansi bear-festival song and zither",
+      "family": "global",
+      "lineage": "Ob-Ugric bear-festival repertoire with song and nars-yukh or sankvyltap zither. The secular nyn-yukh fiddle is not part of this default.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        1,
+        1,
+        0,
+        0,
+        2,
+        1,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "nars_yukh"
+      ],
+      "description": "Ob-Ugric bear-festival repertoire with song and nars-yukh or sankvyltap zither. The secular nyn-yukh fiddle is not part of this default.",
+      "exemplars": [
+        "Ugut Museum / Ministry of Culture of Russia — Musical instrument Narkas-yukh"
+      ]
+    },
+    {
+      "id": "khanty_personal_songs",
+      "name": "Khanty personal songs",
+      "family": "global",
+      "lineage": "Khanty personal songs, carried through individual melodic and verbal expression. This seed is unaccompanied.",
+      "parent": "balladPoetry",
+      "axes": [
+        -1,
+        1,
+        1,
+        -1,
+        -2,
+        2,
+        2,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Khanty personal songs, carried through individual melodic and verbal expression. This seed is unaccompanied.",
+      "exemplars": [
+        "Tobolsk Museum / Ministry of Culture of Russia — Musical instrument: zither"
+      ]
+    },
+    {
+      "id": "chukchi_personal_songs",
+      "name": "Chukchi personal songs",
+      "family": "global",
+      "lineage": "Chukchi personally associated melodies, documented through singers’ accounts and performances. This seed selects solo singing; some documented singers also drum.",
+      "parent": "balladPoetry",
+      "axes": [
+        -1,
+        1,
+        1,
+        -1,
+        -2,
+        2,
+        2,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Chukchi personally associated melodies, documented through singers’ accounts and performances. This seed selects solo singing; some documented singers also drum.",
+      "exemplars": [
+        "Pia Siirala — personal-song field research"
+      ]
+    },
+    {
+      "id": "koryak_personal_songs",
+      "name": "Koryak personal songs",
+      "family": "global",
+      "lineage": "Koryak personal-song practice documented among Chavchuv and Nymylan singers. The default is an unaccompanied individual song.",
+      "parent": "balladPoetry",
+      "axes": [
+        -1,
+        1,
+        1,
+        -1,
+        -2,
+        2,
+        2,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Koryak personal-song practice documented among Chavchuv and Nymylan singers. The default is an unaccompanied individual song.",
+      "exemplars": [
+        "Institute of Philology, Siberian Branch of RAS — Personal songs in Koryak culture"
+      ]
+    },
+    {
+      "id": "tebe_tebe",
+      "name": "Tebe / tebe-tebe (Timorese communal dance-song)",
+      "family": "global",
+      "lineage": "Timorese communal dance-song with linked dancers and repeated sung phrases. This configuration includes babadok accompaniment.",
+      "parent": "functionalSong",
+      "axes": [
+        -1,
+        1,
+        0,
+        2,
+        1,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "babadok"
+      ],
+      "description": "Timorese communal dance-song with linked dancers and repeated sung phrases. This configuration includes babadok accompaniment.",
+      "exemplars": [
+        "UNESCO / Timor-Leste ichLinks filmmakers — ichLinks Video Competition Winners (Timor-Leste)"
+      ]
+    },
+    {
+      "id": "zhungdra",
+      "name": "Zhungdra (Bhutanese long song)",
+      "family": "global",
+      "lineage": "Bhutanese song practice with extended melodic phrases. This seed follows an unaccompanied presentation.",
+      "parent": "balladPoetry",
+      "axes": [
+        -1,
+        1,
+        2,
+        -1,
+        -2,
+        2,
+        0,
+        -2,
+        -1,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Bhutanese song practice with extended melodic phrases. This seed follows an unaccompanied presentation.",
+      "exemplars": [
+        "College of Language and Culture Studies, Bhutan — Introduction to performing arts: popular songs and dances in Bhutan"
+      ]
+    },
+    {
+      "id": "boedra",
+      "name": "Boedra (Bhutanese song-dance)",
+      "family": "global",
+      "lineage": "Bhutanese song-dance repertoire. This recording model pairs group singing with chiwang and dranyen, instruments used in contemporary traditional-music teaching.",
+      "parent": "functionalSong",
+      "axes": [
+        -1,
+        1,
+        1,
+        1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "chiwang",
+        "dranyen"
+      ],
+      "description": "Bhutanese song-dance repertoire. This recording model pairs group singing with chiwang and dranyen, instruments used in contemporary traditional-music teaching.",
+      "exemplars": [
+        "College of Language and Culture Studies, Bhutan — Introduction to performing arts: popular songs and dances in Bhutan"
+      ]
+    },
+    {
+      "id": "boduberu",
+      "name": "Boduberu (Maldivian drum-song)",
+      "family": "global",
+      "lineage": "Maldivian drum-song with a lead singer, group responses and three drummers.",
+      "parent": "groovePercussion",
+      "axes": [
+        -1,
+        1,
+        0,
+        2,
+        1,
+        2,
+        1,
+        -2,
+        2,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "boduberu_drum"
+      ],
+      "description": "Maldivian drum-song with a lead singer, group responses and three drummers.",
+      "exemplars": [
+        "Visit Maldives — Journeying Through the Rhythm of the Islands"
+      ]
+    },
+    {
+      "id": "thaara_jehun",
+      "name": "Thaara jehun (Maldivian frame-drum song)",
+      "family": "global",
+      "lineage": "Maldivian men’s song and frame-drum performance, with singers arranged in opposing rows.",
+      "parent": "ritualDevotional.islamic",
+      "axes": [
+        -1,
+        1,
+        0,
+        2,
+        1,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "thaara_frame_drum"
+      ],
+      "description": "Maldivian men’s song and frame-drum performance, with singers arranged in opposing rows.",
+      "exemplars": [
+        "Visit Maldives — Journeying Through the Rhythm of the Islands"
+      ]
+    },
+    {
+      "id": "bandiyaa_jehun",
+      "name": "Bandiyaa jehun (Maldivian pot dance-song)",
+      "family": "global",
+      "lineage": "Maldivian women’s dance-song accompanied by fingertip rhythms on metal water pots.",
+      "parent": "functionalSong",
+      "axes": [
+        -1,
+        1,
+        0,
+        2,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "bandiyaa_pot"
+      ],
+      "description": "Maldivian women’s dance-song accompanied by fingertip rhythms on metal water pots.",
+      "exemplars": [
+        "Visit Maldives — Journeying Through the Rhythm of the Islands"
+      ]
+    },
+    {
+      "id": "dhandi_jehun",
+      "name": "Dhandi jehun (Maldivian stick dance-song)",
+      "family": "global",
+      "lineage": "Maldivian group song-dance in which neighbouring dancers strike their sticks together.",
+      "parent": "functionalSong",
+      "axes": [
+        -1,
+        1,
+        0,
+        2,
+        1,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "dhandi_sticks"
+      ],
+      "description": "Maldivian group song-dance in which neighbouring dancers strike their sticks together.",
+      "exemplars": [
+        "Visit Maldives — Journeying Through the Rhythm of the Islands"
+      ]
+    },
+    {
+      "id": "falak",
+      "name": "Falak (Tajik mountain song)",
+      "family": "global",
+      "lineage": "Tajik falak song expresses human longing and reflection through extended melodic delivery. This seed selects its documented unaccompanied form.",
+      "parent": "balladPoetry",
+      "axes": [
+        -1,
+        1,
+        2,
+        -1,
+        -2,
+        2,
+        2,
+        -2,
+        1,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Tajik falak song expresses human longing and reflection through extended melodic delivery. This seed selects its documented unaccompanied form.",
+      "exemplars": [
+        "UNESCO ICH — Falak"
+      ]
+    },
+    {
+      "id": "katta_ashula",
+      "name": "Katta ashula (Fergana vocal duet)",
+      "family": "global",
+      "lineage": "Fergana Valley vocal art. This seed selects the traditional unaccompanied duet rather than its later accompanied and instrumental arrangements.",
+      "parent": "artMusic",
+      "axes": [
+        -1,
+        1,
+        2,
+        -1,
+        0,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Fergana Valley vocal art. This seed selects the traditional unaccompanied duet rather than its later accompanied and instrumental arrangements.",
+      "exemplars": [
+        "UNESCO ICH — Katta Ashula"
+      ]
+    },
+    {
+      "id": "turkmen_bagshy",
+      "name": "Turkmen bagshy dutar song",
+      "family": "global",
+      "lineage": "Turkmen bagshy performance joins singing and dutar playing in orally transmitted song and narrative repertoire.",
+      "parent": "balladPoetry",
+      "axes": [
+        -1,
+        1,
+        1,
+        0,
+        -1,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "dutar"
+      ],
+      "description": "Turkmen bagshy performance joins singing and dutar playing in orally transmitted song and narrative repertoire.",
+      "exemplars": [
+        "Turkmenistan State News Agency — Çalsana, bagşy! competition"
+      ]
+    },
+    {
+      "id": "north_udmurt_krez",
+      "name": "North Udmurt krez (improvised vocal genre)",
+      "family": "global",
+      "lineage": "North Udmurt improvised singing with lament-like melodic models, documented outside ritual performance. Krez here names a vocal genre, not the zither.",
+      "parent": "funeralLament",
+      "axes": [
+        -1,
+        1,
+        1,
+        -1,
+        -2,
+        2,
+        2,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "North Udmurt improvised singing with lament-like melodic models, documented outside ritual performance. Krez here names a vocal genre, not the zither.",
+      "exemplars": [
+        "GRAMOTA / ethnomusicology research — Melodic improvisation in North-Udmurt krez’"
+      ]
+    },
+    {
+      "id": "mari_song_dance",
+      "name": "Mari song and dance repertoire",
+      "family": "global",
+      "lineage": "Mari repertoire documented by the Shuldyr ensemble. This seed selects a Meadow Mari wedding-song configuration with voice, shuvyr and tumyr.",
+      "parent": "functionalSong",
+      "axes": [
+        -1,
+        1,
+        0,
+        2,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        1,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "shuvyr",
+        "tumyr"
+      ],
+      "description": "Mari repertoire documented by the Shuldyr ensemble. This seed selects a Meadow Mari wedding-song configuration with voice, shuvyr and tumyr.",
+      "exemplars": [
+        "Shuldyr — Meadow Mari wedding song (2021, track 13)"
+      ]
+    },
+    {
+      "id": "maltese_ghana",
+      "name": "Għana (Maltese improvised song)",
+      "family": "global",
+      "lineage": "Maltese għana combines vocal expression and guitar accompaniment. This seed selects an improvised exchange between two singers.",
+      "parent": "balladPoetry.mediterraneanBallad",
+      "axes": [
+        1,
+        1,
+        2,
+        0,
+        0,
+        2,
+        2,
+        -2,
+        1,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "classical_nylon_string_guitar"
+      ],
+      "description": "Maltese għana combines vocal expression and guitar accompaniment. This seed selects an improvised exchange between two singers.",
+      "exemplars": [
+        "UNESCO ICH — L-Għana, a Maltese folksong tradition"
+      ]
+    },
+    {
+      "id": "yupik_yuraq",
+      "name": "Yuraq (Yup’ik drum-dance song)",
+      "family": "global",
+      "lineage": "Yup’ik dance-song joining sung stories, drumming and expressive gestures. This entry is anchored in Qanirtuuq community documentation.",
+      "parent": "functionalSong",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "cauyaq"
+      ],
+      "description": "Yup’ik dance-song joining sung stories, drumming and expressive gestures. This entry is anchored in Qanirtuuq community documentation.",
+      "exemplars": [
+        "Nunalleq Digital Museum / Native Village of Quinhagak — Community co-curated museum and catalog"
+      ]
+    },
+    {
+      "id": "greenlandic_drum_song",
+      "name": "Greenlandic drum song and dance",
+      "family": "global",
+      "lineage": "Greenlandic drum-song performance combines singing, movement and a qilaat struck on its rim. Regional repertoires and social uses vary.",
+      "parent": "functionalSong",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        -1,
+        2,
+        1,
+        -2,
+        0,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "qilaat"
+      ],
+      "description": "Greenlandic drum-song performance combines singing, movement and a qilaat struck on its rim. Regional repertoires and social uses vary.",
+      "exemplars": [
+        "Varna Marianne Nielsen / QILAAT — Centre for Greenlandic heritage"
+      ]
+    },
+    {
+      "id": "dene_handgame",
+      "name": "Dene handgame songs",
+      "family": "global",
+      "lineage": "Dene handgame singing and drumming accompany the competitive guessing game. This entry follows Dene Tha’ community-directed documentation.",
+      "parent": "functionalSong",
+      "axes": [
+        -1,
+        1,
+        0,
+        2,
+        1,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "dene_hand_drum"
+      ],
+      "description": "Dene handgame singing and drumming accompany the competitive guessing game. This entry follows Dene Tha’ community-directed documentation.",
+      "exemplars": [
+        "Roy Chambaud, Delbert Chambaud and Sidney Chambaud — Na’h e’tse’ah"
+      ]
+    },
+    {
+      "id": "awasa",
+      "name": "Awasa (Guianese Maroon drum-dance)",
+      "family": "global",
+      "lineage": "Guianese Maroon dance music in which a drum trio responds to movement. This configuration includes the vocal part documented in Aluku recordings.",
+      "parent": "groovePercussion.latinAm",
+      "axes": [
+        -1,
+        1,
+        0,
+        2,
+        1,
+        2,
+        2,
+        -2,
+        1,
+        1,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "awasa_drums"
+      ],
+      "description": "Guianese Maroon dance music in which a drum trio responds to movement. This configuration includes the vocal part documented in Aluku recordings.",
+      "exemplars": [
+        "Smithsonian Folkways / Kenneth Bilby — Awasa"
+      ]
+    },
+    {
+      "id": "aleke",
+      "name": "Aleke (Guianese Maroon popular music)",
+      "family": "global",
+      "lineage": "Guianese Maroon popular music. This seed selects the later three-tall-drum configuration with a bass-drum/cymbal part and singing.",
+      "parent": "groovePercussion.latinAm",
+      "axes": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        2,
+        1,
+        -2,
+        2,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "aleke_doon",
+        "dyas_tapu_patu"
+      ],
+      "description": "Guianese Maroon popular music. This seed selects the later three-tall-drum configuration with a bass-drum/cymbal part and singing.",
+      "exemplars": [
+        "Kenneth Bilby / OSO journal, DBNL — Aleke: nieuwe muziek en nieuwe identiteiten"
+      ]
+    },
+    {
+      "id": "kawina",
+      "name": "Kawina / kawna (Surinamese Creole song)",
+      "family": "global",
+      "lineage": "Surinamese Creole song tradition associated with the Commewijne region. The seed uses responsive singing and the characteristic small double-headed kawina drum.",
+      "parent": "groovePercussion.latinAm",
+      "axes": [
+        0,
+        1,
+        0,
+        2,
+        0,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "kawina_dron"
+      ],
+      "description": "Surinamese Creole song tradition associated with the Commewijne region. The seed uses responsive singing and the characteristic small double-headed kawina drum.",
+      "exemplars": [
+        "Kenneth Bilby / OSO journal, DBNL — Aleke: nieuwe muziek en nieuwe identiteiten"
+      ]
+    },
+    {
+      "id": "wayapi_tule",
+      "name": "Wayãpi tule ensemble suites",
+      "family": "global",
+      "lineage": "Wayãpi tule suites combine instrumental and vocal sections. This entry follows the 1977 Zidock recordings at Trois Sauts.",
+      "parent": "groovePercussion",
+      "axes": [
+        -1,
+        1,
+        0,
+        2,
+        2,
+        2,
+        0,
+        -2,
+        1,
+        0,
+        0,
+        -2,
+        2
+      ],
+      "instruments": [
+        "tule_clarinets",
+        "voice"
+      ],
+      "description": "Wayãpi tule suites combine instrumental and vocal sections. This entry follows the 1977 Zidock recordings at Trois Sauts.",
+      "exemplars": [
+        "CREM-CNRS / Jean-Michel Beaudet — Wayãpi instrumental and sung tule suites"
+      ]
+    },
+    {
+      "id": "parixara",
+      "name": "Parixara (Makushi–Wapichana song-dance)",
+      "family": "global",
+      "lineage": "Makushi and Wapichana parixara joins group song and dance with kewei rattles and ruwe flutes.",
+      "parent": "functionalSong",
+      "axes": [
+        -1,
+        1,
+        0,
+        2,
+        1,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "kewei",
+        "ruwe"
+      ],
+      "description": "Makushi and Wapichana parixara joins group song and dance with kewei rattles and ruwe flutes.",
+      "exemplars": [
+        "Cadernos de Linguística / Indigenous-language education researchers — Esenumenkanto Pata’se/Tamapykary"
+      ]
+    },
+    {
+      "id": "selknam_hain",
+      "name": "Selk’nam Hain ceremonial songs",
+      "family": "global",
+      "lineage": "Selk’nam Hain ceremonial song repertoire preserved in archival recordings. This is an unaccompanied archival reference configuration.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        1,
+        0,
+        0,
+        -2,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Selk’nam Hain ceremonial song repertoire preserved in archival recordings. This is an unaccompanied archival reference configuration.",
+      "exemplars": [
+        "Lola Kiepja — Anne Chapman recordings (1966)"
+      ]
+    },
+    {
+      "id": "selknam_shamanic_laments",
+      "name": "Selk’nam shamanic songs and laments",
+      "family": "global",
+      "lineage": "Selk’nam shamanic and lament repertoires represented by Lola Kiepja’s recordings. The seed contains a single unaccompanied voice.",
+      "parent": "funeralLament",
+      "axes": [
+        -1,
+        1,
+        1,
+        -1,
+        -2,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Selk’nam shamanic and lament repertoires represented by Lola Kiepja’s recordings. The seed contains a single unaccompanied voice.",
+      "exemplars": [
+        "Lola Kiepja — Anne Chapman recordings (1966)"
+      ]
+    },
+    {
+      "id": "kiribati_ruoia",
+      "name": "Ruoia (Kiribati dance-song)",
+      "family": "global",
+      "lineage": "Kiribati dance-song series documented on Tabiteuea in 1963. The selected configuration is group singing.",
+      "parent": "functionalSong",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        2
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Kiribati dance-song series documented on Tabiteuea in 1963. The selected configuration is group singing.",
+      "exemplars": [
+        "University of Göttingen / Gerd Koch collection — Gilbert Island films"
+      ]
+    },
+    {
+      "id": "kiribati_bino",
+      "name": "Bino (Kiribati dance-song)",
+      "family": "global",
+      "lineage": "Kiribati group dance-song documented in the Gerd Koch film collection, with voices carrying the musical part.",
+      "parent": "functionalSong",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        2
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Kiribati group dance-song documented in the Gerd Koch film collection, with voices carrying the musical part.",
+      "exemplars": [
+        "University of Göttingen / Gerd Koch collection — Gilbert Island films"
+      ]
+    },
+    {
+      "id": "kiribati_tirere",
+      "name": "Tirere (Kiribati seated rod dance-song)",
+      "family": "global",
+      "lineage": "Kiribati seated dance-song with paired rods striking neighbouring performers’ rods, documented at Routa on Nonouti.",
+      "parent": "functionalSong",
+      "axes": [
+        -1,
+        1,
+        0,
+        2,
+        1,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "tirere_rods"
+      ],
+      "description": "Kiribati seated dance-song with paired rods striking neighbouring performers’ rods, documented at Routa on Nonouti.",
+      "exemplars": [
+        "University of Göttingen / Gerd Koch collection — Gilbert Island films"
+      ]
+    },
+    {
+      "id": "kiribati_batere",
+      "name": "Batere (Kiribati choral drum dance)",
+      "family": "global",
+      "lineage": "Kiribati dance documented at Buariki on Onotoa in 1964, with a mixed chorus and drum accompanying the dancers.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_membrane_drum"
+      ],
+      "description": "Kiribati dance documented at Buariki on Onotoa in 1964, with a mixed chorus and drum accompanying the dancers.",
+      "exemplars": [
+        "University of Göttingen / Gerd Koch collection — Gilbert Island films"
+      ]
+    },
+    {
+      "id": "yap_churu",
+      "name": "Churu (Yap women’s dance-song)",
+      "family": "global",
+      "lineage": "Yap dance-song with a leader’s introduction, choral responses and repeated handclaps.",
+      "parent": "functionalSong",
+      "axes": [
+        -1,
+        1,
+        0,
+        2,
+        1,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "hand_clap"
+      ],
+      "description": "Yap dance-song with a leader’s introduction, choral responses and repeated handclaps.",
+      "exemplars": [
+        "Yap Visitors Bureau — Yap culture and traditions"
+      ]
+    },
+    {
+      "id": "tuvalu_fatele",
+      "name": "Fatele (Tuvalu communal dance-song)",
+      "family": "global",
+      "lineage": "Tuvalu communal dance-song with a song leader and chorus. This seed uses wooden-box and tin percussion; Niutao also preserves a mat-percussion configuration.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        0,
+        0,
+        2,
+        1,
+        2,
+        1,
+        -2,
+        2,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "pokisi",
+        "kaapa"
+      ],
+      "description": "Tuvalu communal dance-song with a song leader and chorus. This seed uses wooden-box and tin percussion; Niutao also preserves a mat-percussion configuration.",
+      "exemplars": [
+        "New Zealand Ministry for Pacific Peoples / Te Papa — Tuvalu Language Week Education Resource"
+      ]
+    },
+    {
+      "id": "bosavi_gisalo",
+      "name": "Gisalo (Bosavi ceremonial song)",
+      "family": "global",
+      "lineage": "Bosavi ceremonial song associated with spirit-medium performance and weeping responses.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        1,
+        1,
+        0,
+        0,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Bosavi ceremonial song associated with spirit-medium performance and weeping responses.",
+      "exemplars": [
+        "Steven Feld / Smithsonian Folkways — Bosavi: Rainforest Music from Papua New Guinea"
+      ]
+    },
+    {
+      "id": "bosavi_koluba",
+      "name": "Koluba (Bosavi duet and chorus)",
+      "family": "global",
+      "lineage": "Bosavi ceremonial repertoire performed by a duet and chorus.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        0,
+        -2,
+        2
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Bosavi ceremonial repertoire performed by a duet and chorus.",
+      "exemplars": [
+        "Steven Feld / Smithsonian Folkways — Bosavi: Rainforest Music from Papua New Guinea"
+      ]
+    },
+    {
+      "id": "bosavi_iwo",
+      "name": "Iwo (Bosavi song)",
+      "family": "global",
+      "lineage": "Bosavi song documented in male-solo and female-group performances. This seed selects the solo configuration.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        1,
+        1,
+        0,
+        -2,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Bosavi song documented in male-solo and female-group performances. This seed selects the solo configuration.",
+      "exemplars": [
+        "Steven Feld / Smithsonian Folkways — Bosavi: Rainforest Music from Papua New Guinea"
+      ]
+    },
+    {
+      "id": "bosavi_sabio",
+      "name": "Sabio (Bosavi small-ensemble song)",
+      "family": "global",
+      "lineage": "Bosavi repertoire documented in duet and quartet vocal configurations.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        1,
+        1,
+        1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        2
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Bosavi repertoire documented in duet and quartet vocal configurations.",
+      "exemplars": [
+        "Steven Feld / Smithsonian Folkways — Bosavi: Rainforest Music from Papua New Guinea"
+      ]
+    },
+    {
+      "id": "bosavi_ilib_kuwo",
+      "name": "Ilib kuwo (Bosavi ceremonial drumming)",
+      "family": "global",
+      "lineage": "Bosavi ceremonial group drumming. The seed is instrumental.",
+      "parent": "groovePercussion",
+      "axes": [
+        0,
+        0,
+        -2,
+        2,
+        1,
+        2,
+        1,
+        -2,
+        1,
+        -2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "kundu"
+      ],
+      "description": "Bosavi ceremonial group drumming. The seed is instrumental.",
+      "exemplars": [
+        "Steven Feld / Smithsonian Folkways — Bosavi: Rainforest Music from Papua New Guinea"
+      ]
+    },
+    {
+      "id": "bosavi_sung_weeping",
+      "name": "Bosavi sung weeping",
+      "family": "global",
+      "lineage": "Bosavi mourning practice intertwining melodic crying and sung expression.",
+      "parent": "funeralLament",
+      "axes": [
+        -1,
+        1,
+        1,
+        -2,
+        0,
+        2,
+        2,
+        -2,
+        1,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Bosavi mourning practice intertwining melodic crying and sung expression.",
+      "exemplars": [
+        "Steven Feld / Smithsonian Folkways — Bosavi: Rainforest Music from Papua New Guinea"
+      ]
+    },
+    {
+      "id": "bosavi_string_band",
+      "name": "Bosavi string-band songs",
+      "family": "global",
+      "lineage": "Bosavi guitar-band song documented alongside ceremonial repertoires. This is a minimal voice-and-guitar band configuration.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        -1,
+        0,
+        2,
+        0,
+        2,
+        1,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Bosavi guitar-band song documented alongside ceremonial repertoires. This is a minimal voice-and-guitar band configuration.",
+      "exemplars": [
+        "Steven Feld / Smithsonian Folkways — Bosavi: Rainforest Music from Papua New Guinea"
+      ]
+    },
+    {
+      "id": "wangga",
+      "name": "Wangga (northern Australian song-dance)",
+      "family": "global",
+      "lineage": "Northern Australian public song-dance combining singing, didjeridu and clapsticks.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "didgeridoo",
+        "clapsticks_bilma"
+      ],
+      "description": "Northern Australian public song-dance combining singing, didjeridu and clapsticks.",
+      "exemplars": [
+        "Sally Treloyn / ANU Press, Circulating Cultures — Cross and Square: Varieties of Song in Northern Australia"
+      ]
+    },
+    {
+      "id": "lirrga",
+      "name": "Lirrga (Daly region song-dance)",
+      "family": "global",
+      "lineage": "Daly region song-dance repertoire with didjeridu and clapstick accompaniment.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "didgeridoo",
+        "clapsticks_bilma"
+      ],
+      "description": "Daly region song-dance repertoire with didjeridu and clapstick accompaniment.",
+      "exemplars": [
+        "Sally Treloyn / ANU Press, Circulating Cultures — Cross and Square: Varieties of Song in Northern Australia"
+      ]
+    },
+    {
+      "id": "junba_balga",
+      "name": "Junba / balga (Kimberley song-dance)",
+      "family": "global",
+      "lineage": "Kimberley song-dance with repeating sung phrases and clapstick and handclap accompaniment.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "clapsticks_bilma",
+        "hand_clap"
+      ],
+      "description": "Kimberley song-dance with repeating sung phrases and clapstick and handclap accompaniment.",
+      "exemplars": [
+        "Sally Treloyn / ANU Press, Circulating Cultures — Cross and Square: Varieties of Song in Northern Australia"
+      ]
+    },
+    {
+      "id": "djanba",
+      "name": "Djanba (Wadeye choral song-dance)",
+      "family": "global",
+      "lineage": "Wadeye choral song-dance with clapsticks and handclaps. Djanba uses no didjeridu accompaniment.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "clapsticks_bilma",
+        "hand_clap"
+      ],
+      "description": "Wadeye choral song-dance with clapsticks and handclaps. Djanba uses no didjeridu accompaniment.",
+      "exemplars": [
+        "Sally Treloyn / ANU Press, Circulating Cultures — Cross and Square: Varieties of Song in Northern Australia"
       ]
     }
   ]

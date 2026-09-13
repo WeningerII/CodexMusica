@@ -5,7 +5,7 @@
   "lineage": "Cypriot tsiattista improvised-couplet poetic-dueling tradition of Cyprus (Greek-Cypriot communities), Performance: two poet-singers face off in extempore Greek-Cypriot-dialect rhymed-couplet exchange, each turn answering the previous while introducing new poetic-and-philosophical-and-humorous-and-mocking material, accompanied by violin and laouto. The genre is structurally parallel to other improvised-poetic-dueling Mediterranean traditions (Basque bertsolaritza, Italian stornelli, Sardinian gara poetica, Sicilian mottetto), but with Cypriot-Greek dialect register and tetraposyllabos-fifteen-syllable-line characteristic poetic-meter. Performance contexts: weddings, agricultural festivals, and the annual Tsiattistakia festivals in Cyprus.",
   "recipe": "classic Southern European modern cypriot tsiattista, ballad Poetry, med east poetic branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, straight note core, interlocked note trading. sitka spruce spirit varnish shellac alcohol violin orchestral, spruce face oud. athens major label 1955-1985 mid tier athens minos studios 60s 70s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 485,
-  "score": 234.27,
+  "score": 233.274,
   "config": {
     "traditions": [
       "cypriot_tsiattista",
@@ -43,11 +43,11 @@
           "voice_microtone": 22.684999999999995,
           "voice_tradition": 31.914999999999996,
           "voice_mechanism_compound": 10.770000000000001,
-          "voice_estill_quality": 11.765,
+          "voice_estill_quality": 11.195,
           "voice_speech_song": 24.569999999999997,
           "voice_ensemble_config": 23.659999999999993,
           "voice_ornament_system": 7.15,
-          "voice_pitch_organization": 4.355000000000001,
+          "voice_pitch_organization": 4.235000000000001,
           "voice_processing_chain": 13.844999999999999,
           "voice_multitrack_stack": 5.720000000000001
         }
@@ -71,7 +71,7 @@
           "orch_strings": 0,
           "orch_top_wood": 4.615,
           "orch_back_wood": 0.585,
-          "orch_varnish": 5.265,
+          "orch_varnish": 4.959375,
           "orch_setup_period": -0.07,
           "orch_bow": 1.17,
           "orch_bow_stick": -0.035,

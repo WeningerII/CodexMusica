@@ -1,6 +1,6 @@
 ---
 name: codex-music-tool
-description: Query, compose, validate, and mutate the Codex Musica dataset — 2503 recorded-music traditions (in a 317-node genre tree, 13-axis space), 1406 instruments across 11 families with shared parts/variants, 256 rooms, 84 chain archetypes, 21 production aesthetics, 120 tunings, and a 741-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
+description: Query, compose, validate, and mutate the Codex Musica dataset — 2564 recorded-music traditions (in a 317-node genre tree, 13-axis space), 1457 instruments across 11 families with shared parts/variants, 256 rooms, 84 chain archetypes, 21 production aesthetics, 122 tunings, and a 741-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
 license: UNLICENSED
 ---
 
@@ -49,16 +49,16 @@ Hard rule: **anything you emit (recipe or arrangement) MUST pass §6 before you 
 |---|---|---|---|
 | instrument families | 11 | bare slug: `bowed`,`percussion`,`wind`,… | `INSTRUMENT_FAMILIES` (array) |
 | family part-groups | 9 | keyed by family slug | `INSTRUMENT_FAMILY_PARTS` (object) |
-| instruments | 1406 | bare slug, e.g. `oud`, `electric_bass` | `INSTRUMENTS` (array) |
+| instruments | 1457 | bare slug, e.g. `oud`, `electric_bass` | `INSTRUMENTS` (array) |
 | rooms | 256 | bare slug, e.g. `parlor` | `ROOMS` (array) |
 | chain archetypes | 84 | `arch_<slug>` | `CHAIN_ARCHETYPES` (array) |
 | chain sections (UI menus) | 8 | `mic`/`pre`/`fx`/… | `CHAIN_SECTIONS` (array) |
 | production aesthetics | 21 | bare slug, e.g. `wall_of_sound` | `PRODUCTION_AESTHETICS` (array) |
 | arrangement templates | 5 | bare slug | `ARRANGEMENTS` (array) |
-| tunings | 120 | bare slug, e.g. `twelve_tet` | `TUNINGS` (array) |
+| tunings | 122 | bare slug, e.g. `twelve_tet` | `TUNINGS` (array) |
 | tree nodes | 317 | **full dotted path**, e.g. `groovePercussion.afroDiasporicElec` | `TREE_NODES` (array) |
-| traditions | 2503 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |
-| tradition extras | 2503 | keyed by tradition id | `TRADITION_EXTRAS` (object) |
+| traditions | 2564 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |
+| tradition extras | 2564 | keyed by tradition id | `TRADITION_EXTRAS` (object) |
 | voice/preface lexicon | 741 | bare slug, e.g. `sobbing` | `PREFACE_LEXICON` (array) |
 | axis definitions | 13 (trad) / 9 (inst) | bare slug, e.g. `harm` | `AXIS_DEFINITIONS`, `INSTRUMENT_AXIS_DEFINITIONS` |
 
@@ -90,7 +90,7 @@ tradition ─instruments[]─▶ instrument ─family─▶ family ; instrument 
     ├─tuning─▶ tuning
     ├─chain_archetype─▶ archetype   (archetype.components = {mic,pre,console?,comp,eq,medium})
     ├─chain_mic / chain_pre / chain_console / chain_comp / chain_eq / chain_medium / chain_amp*
-    │      = free-vocabulary component ids (NOT a lookup table; inline fallback when no archetype)
+    │      = registered component ids from CHAIN_SECTIONS (inline fallback when no archetype)
     └─production_aesthetic? ─▶ aesthetic
 extras[tradition] ─parent─▶ tree node id ; ─crossRefs[]─▶ tree node id (string OR {ref,voice_isolated|isolated_parts})
 tree node ─parent─▶ tree node id (root nodes have parent:null)
@@ -112,10 +112,11 @@ tuning      : {id, name, sub, descriptors[], note, pointer}            // "sub"/
 treeNode    : {id(=full dotted path), name, parent(id|null), description}
 tradition   : {id, name, family, lineage, instruments[], room, tuning, chain_archetype?,
                chain_mic, chain_pre, chain_console, chain_comp, chain_eq, chain_medium, chain_amp*, production_aesthetic?,
-               chain_status, parts?, chain_fx?, arrangement?}
-              // chain_status is on ALL 2503; parts on 1143 (per-instrument slot pins,
-              // {instrumentId: {partId: variantId}} — these OVERRIDE the instrument's
-              // defaults, so a reader that ignores them reads the wrong configuration);
+               chain_status, parts?, pin_parts?, chain_fx?, arrangement?}
+              // chain_status is on ALL 2564; parts on 1204 (per-instrument slot pins,
+              // flat {partId: variantId} — these OVERRIDE the instrument's
+              // defaults on browser/connector import. With pin_parts:true the CLI/static
+              // optimizer also preserves these choices; caller swaps take precedence);
               // chain_fx on 78; arrangement on 2
 extras[id]  : {parent(node id), axes{13 named keys, ints -2..+2}, description, exemplars[], status, crossRefs[]}
 preface     : {id, tokens[], note?}                                    // a named bundle of descriptor tokens
@@ -129,7 +130,7 @@ Facts that bite if you miss them:
 - **`instrument.family`** ∈ the 11-value `INSTRUMENT_FAMILIES` table (always resolves).
   **`tradition.family`** is a *different* 12-value vocabulary (`global, classical,
   rock_punk, electronic, hip_hop, vernacular, jazz, pop, blues_gospel, rock, country,
-  pop_rock`; `global` dominates at 1175/2503) — a top-level genre bucket, NOT an
+  pop_rock`; `global` dominates at 1236/2564) — a top-level genre bucket, NOT an
   instrument family.
 - **Tree-node ids are full dotted paths.** 292 of 317 ids contain dots
   (`functionalSong.country.honkyTonkEra`); `extras.parent`/`crossRefs` hold such ids and
@@ -178,7 +179,7 @@ module.exports = T;
 ```bash
 CODEX_REF="$PWD/references" node -e 'const T=require("./load.js");
 console.log("loaded:",T.INSTRUMENTS.length,"insts,",T.TRADITIONS.length,"trads")'
-# → loaded: 1406 insts, 2503 trads
+# → loaded: 1457 insts, 2564 trads
 ```
 
 ### B. `require` for the preface lexicon only (it has `module.exports`)
@@ -681,6 +682,11 @@ too. This is how `voice`'s `voice_effort` (subglottal-pressure / under-singing) 
 `tradition.instruments[]`, any family part's `applies_to[]`, any `EMOJI_REGISTRY` entry,
 and any arrangement `ensemble[]` pointing at it.
 
+**Reviewed source settings**: set `pin_parts: true` when the authored flat `parts` map
+should survive CLI/static recipe optimization. Only valid part/variant pairs apply
+to each instrument; explicit caller swaps still win. Older rows without this flag
+retain scored optimization. Browser and connector import always use `parts`.
+
 **Add/edit/delete a tradition**: a `TRADITIONS` entry **must** have a paired
 `TRADITION_EXTRAS["<id>"]` whose `parent` is a tree-node id, `axes` is a 13-key object
 of ints in −2..+2, plus `description`/`exemplars`/`status`/`crossRefs` (crossRefs are
@@ -837,7 +843,7 @@ name: Bill Monroe`, and the made-up archetype in `soft` (verified).
 - Load once with `q.js`; reuse `db.by*` and `db.partsFor`. Never re-parse the 1–2 MB
   bundles per query.
 - Project to `{id,name}` and `slice`/`head` before printing — never dump a full table
-  (1406 instruments / 2503 traditions — a lot of tokens).
+  (1457 instruments / 2564 traditions — a lot of tokens).
 - Prefer counts/samples while exploring; pull full records only for the few ids that
   land in the output.
 - For a single name lookup, `grep -oE "name: '…'"` beats spinning up node.

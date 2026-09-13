@@ -1,0 +1,158 @@
+{
+  "id": "uzy_gumy",
+  "name": "Uzy-gumy (Udmurt end-blown overtone flute)",
+  "short": "uzy gumy",
+  "family": "wind",
+  "class": "overtone_flute",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "uzy_gumy_excitation",
+      "name": "Register",
+      "variants": [
+        {
+          "id": "uzy_gumy_excitation_low",
+          "name": "Lower overtone register",
+          "default": true,
+          "descriptors": [
+            "end-blown",
+            "overtone-series",
+            "breathy"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "overtone-series",
+            "breathy"
+          ]
+        },
+        {
+          "id": "uzy_gumy_excitation_upper",
+          "name": "Overblown upper register",
+          "descriptors": [
+            "overblown",
+            "overtone-series",
+            "bright"
+          ],
+          "match_tokens": [
+            "overblown",
+            "overtone-series",
+            "bright"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uzy_gumy_phrasing",
+      "name": "Breath phrasing",
+      "variants": [
+        {
+          "id": "uzy_gumy_phrasing_sustained",
+          "name": "Sustained tones",
+          "default": true,
+          "descriptors": [
+            "sustained",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "sustained",
+            "breath-driven"
+          ]
+        },
+        {
+          "id": "uzy_gumy_phrasing_pulsed",
+          "name": "Pulsed tones",
+          "descriptors": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "uzy_gumy_excitation",
+      "name": "Register",
+      "variants": [
+        {
+          "id": "uzy_gumy_excitation_low",
+          "name": "Lower overtone register",
+          "default": true,
+          "descriptors": [
+            "end-blown",
+            "overtone-series",
+            "breathy"
+          ],
+          "match_tokens": [
+            "end-blown",
+            "overtone-series",
+            "breathy"
+          ]
+        },
+        {
+          "id": "uzy_gumy_excitation_upper",
+          "name": "Overblown upper register",
+          "descriptors": [
+            "overblown",
+            "overtone-series",
+            "bright"
+          ],
+          "match_tokens": [
+            "overblown",
+            "overtone-series",
+            "bright"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uzy_gumy_phrasing",
+      "name": "Breath phrasing",
+      "variants": [
+        {
+          "id": "uzy_gumy_phrasing_sustained",
+          "name": "Sustained tones",
+          "default": true,
+          "descriptors": [
+            "sustained",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "sustained",
+            "breath-driven"
+          ]
+        },
+        {
+          "id": "uzy_gumy_phrasing_pulsed",
+          "name": "Pulsed tones",
+          "descriptors": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

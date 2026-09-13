@@ -837,6 +837,9 @@ const TUNINGS = [
     note: 'Sámi narrow-range melodic vocabulary characteristic of yoik (luohti, leuʹdd, vuelie variants). Two-to-five pitches; pentatonic-leaning; characteristic fourth, fifth, and octave intervals. Pre-tempered system. Distinguished from related Karelian rune-singing by absence of strict alternation between text-bearing and answer voices.',
     pointer: 'Read on: Krister Stoor — Juoiganmuitalusat — Joiken Berättelser (Umeå 2007); Arnt Bakke field recordings UiT.'
   },
+
+  { id: 'aural_relative', name: 'Performer-relative intonation', sub: 'intonation by ear; no interval ratios asserted', descriptors: [ 'aurally-tuned' ], note: 'A recording-model option for oral practices when the cited source does not specify a measured pitch system. It asserts neither equal temperament nor just-intonation ratios; local melodic organization remains performer-dependent.', pointer: 'See the entry-specific sources in docs/geographic-catalog-expansion.json.' },
+  { id: 'unpitched_percussion', name: 'Unpitched percussion', sub: 'rhythmic sound without an assigned scale', descriptors: [], note: 'Use for percussion-only ensembles without a documented pitch scale. Relative drum register is controlled on each instrument, not represented as a Western temperament.', pointer: 'See the entry-specific sources in docs/geographic-catalog-expansion.json.' },
 ];
 
 const AXIS_DEFINITIONS = [

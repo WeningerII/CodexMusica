@@ -1,0 +1,158 @@
+{
+  "id": "ruwe",
+  "name": "Ruwe (Makushi–Wapichana flute)",
+  "short": "ruwe",
+  "family": "wind",
+  "class": "flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "ruwe_body",
+      "name": "Tube",
+      "variants": [
+        {
+          "id": "ruwe_body_wood",
+          "name": "Hollow wooden tube",
+          "default": true,
+          "descriptors": [
+            "wooden",
+            "hollow-tube",
+            "flute-tone"
+          ],
+          "match_tokens": [
+            "wooden",
+            "hollow-tube",
+            "flute-tone"
+          ]
+        },
+        {
+          "id": "ruwe_body_bone",
+          "name": "Bone tube",
+          "descriptors": [
+            "bone",
+            "hollow-tube",
+            "flute-tone"
+          ],
+          "match_tokens": [
+            "bone",
+            "hollow-tube",
+            "flute-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruwe_phrasing",
+      "name": "Breath phrasing",
+      "variants": [
+        {
+          "id": "ruwe_phrasing_sustained",
+          "name": "Sustained tones",
+          "default": true,
+          "descriptors": [
+            "sustained",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "sustained",
+            "breath-driven"
+          ]
+        },
+        {
+          "id": "ruwe_phrasing_pulsed",
+          "name": "Pulsed tones",
+          "descriptors": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ruwe_body",
+      "name": "Tube",
+      "variants": [
+        {
+          "id": "ruwe_body_wood",
+          "name": "Hollow wooden tube",
+          "default": true,
+          "descriptors": [
+            "wooden",
+            "hollow-tube",
+            "flute-tone"
+          ],
+          "match_tokens": [
+            "wooden",
+            "hollow-tube",
+            "flute-tone"
+          ]
+        },
+        {
+          "id": "ruwe_body_bone",
+          "name": "Bone tube",
+          "descriptors": [
+            "bone",
+            "hollow-tube",
+            "flute-tone"
+          ],
+          "match_tokens": [
+            "bone",
+            "hollow-tube",
+            "flute-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruwe_phrasing",
+      "name": "Breath phrasing",
+      "variants": [
+        {
+          "id": "ruwe_phrasing_sustained",
+          "name": "Sustained tones",
+          "default": true,
+          "descriptors": [
+            "sustained",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "sustained",
+            "breath-driven"
+          ]
+        },
+        {
+          "id": "ruwe_phrasing_pulsed",
+          "name": "Pulsed tones",
+          "descriptors": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

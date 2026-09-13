@@ -1,0 +1,80 @@
+{
+  "id": "mwinoghe",
+  "name": "Mwinoghe (northern Malawi instrumental dance)",
+  "family": "global",
+  "lineage": "Northern Malawian social dance with one large drum and two smaller drums. There is no singing; a whistle and spoken directions may supplement the drums.",
+  "recipe": "classic modern mwinoghe, groove Percussion, central east south African branch. drum pulse resonant ingina, paired drums resonant twana perekete. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 224,
+  "score": 10.527,
+  "config": {
+    "traditions": [
+      "mwinoghe"
+    ],
+    "instruments": [
+      {
+        "id": "ingina",
+        "slots": {
+          "ingina_role": "ingina_role_lead",
+          "ingina_gesture": "ingina_gesture_resonant"
+        },
+        "scores": {
+          "ingina_role": 2.9723333333333333,
+          "ingina_gesture": 1.69
+        }
+      },
+      {
+        "id": "twana_perekete",
+        "slots": {
+          "twana_perekete_setup": "twana_perekete_setup_pair",
+          "twana_perekete_gesture": "twana_perekete_gesture_resonant"
+        },
+        "scores": {
+          "twana_perekete_setup": 4.324833333333333,
+          "twana_perekete_gesture": 1.69
+        }
+      }
+    ],
+    "pinned": {
+      "ingina": [
+        "ingina_role",
+        "ingina_gesture"
+      ],
+      "twana_perekete": [
+        "twana_perekete_setup",
+        "twana_perekete_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "unpitched_percussion",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "unpitched_percussion",
+    "room": "field_recording",
+    "parts": {
+      "ingina_role": "ingina_role_lead",
+      "ingina_gesture": "ingina_gesture_resonant",
+      "twana_perekete_setup": "twana_perekete_setup_pair",
+      "twana_perekete_gesture": "twana_perekete_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

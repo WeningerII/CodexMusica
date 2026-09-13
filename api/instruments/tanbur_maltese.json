@@ -1,0 +1,134 @@
+{
+  "id": "tanbur_maltese",
+  "name": "Tanbur (Maltese jingle frame drum)",
+  "short": "Maltese tanbur drum",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "tanbur_maltese_build",
+      "name": "Frame",
+      "variants": [
+        {
+          "id": "tanbur_maltese_build_jingle",
+          "name": "Single membrane with frame jingles",
+          "default": true,
+          "descriptors": [
+            "single-head",
+            "frame-drum",
+            "jingles"
+          ],
+          "match_tokens": [
+            "single-head",
+            "frame-drum",
+            "jingles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanbur_maltese_stroke",
+      "name": "Hand strokes",
+      "variants": [
+        {
+          "id": "tanbur_maltese_stroke_open",
+          "name": "Open strokes",
+          "default": true,
+          "descriptors": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tanbur_maltese_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tanbur_maltese_build",
+      "name": "Frame",
+      "variants": [
+        {
+          "id": "tanbur_maltese_build_jingle",
+          "name": "Single membrane with frame jingles",
+          "default": true,
+          "descriptors": [
+            "single-head",
+            "frame-drum",
+            "jingles"
+          ],
+          "match_tokens": [
+            "single-head",
+            "frame-drum",
+            "jingles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanbur_maltese_stroke",
+      "name": "Hand strokes",
+      "variants": [
+        {
+          "id": "tanbur_maltese_stroke_open",
+          "name": "Open strokes",
+          "default": true,
+          "descriptors": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tanbur_maltese_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -5,7 +5,7 @@
   "lineage": "Balinese Hindu-syncretic bronze-percussion ensemble tradition descended from the same Javanese gamelan lineage but diverged sharply 14th-century onward into a faster-tempo brighter-tuned (panca-nada five-tone but at higher pitch register) more virtuosic-rhythmic ensemble idiom. The major sub-traditions: gamelan-gong-kebyar 1915-onward 20th-century innovation with explosive-tutti starts-and-stops, gamelan-semar-pegulingan slower-court-elegant-style, gamelan-gambuh oldest-court-dance-accompaniment, gamelan-angklung four-tone-bamboo-rattle ensemble for cremation-ceremonies, and gamelan-jegog deep-bass bamboo-xylophone West-Bali variant. The interlocking kotekan two-instrument-paired hocket-figuration creates the characteristic Balinese rhythmic-texture impossible in solo execution.",
   "recipe": "classic Southeast Asian modern balinese gamelan, art Music, southeast Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, slow rate, interlocked note trading. pentatonic slendro tuning saron gamelan, gender, bonang, gamelan balinese paired male female jackwood barrel canonical javanese balinese buffalo hide rattan lacing canonical javanese kendang indonesian, slendro tuning kenong, bamboo rattan band fipple canonical javanese balinese suling, gamelan balinese full. balinese banjar courtyard. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 670,
-  "score": 305.459,
+  "score": 303.517,
   "config": {
     "traditions": [
       "balinese_gamelan",
@@ -38,16 +38,16 @@
           "voice_quality": 37.44,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.0878125,
+          "voice_vibrato": 3.085,
           "voice_articulation": 18.785,
           "voice_microtone": 18.394999999999996,
           "voice_tradition": 20.019999999999996,
           "voice_mechanism_compound": 12.370000000000001,
-          "voice_estill_quality": 10.27,
+          "voice_estill_quality": 10.045,
           "voice_speech_song": 20.279999999999998,
-          "voice_ensemble_config": 27.314999999999994,
+          "voice_ensemble_config": 27.104999999999993,
           "voice_ornament_system": 7.15,
-          "voice_pitch_organization": 42.26781249999999,
+          "voice_pitch_organization": 42.114999999999995,
           "voice_processing_chain": 8.385000000000002,
           "voice_multitrack_stack": 4.810000000000001
         }
@@ -71,7 +71,7 @@
         },
         "scores": {
           "gender_use": 1,
-          "gender_tuning": 5.437812500000001
+          "gender_tuning": 5.135000000000001
         }
       },
       {
@@ -81,7 +81,7 @@
           "bonang_register": "bonang_barung"
         },
         "scores": {
-          "bonang_tuning": 5.140625,
+          "bonang_tuning": 5.00125,
           "bonang_register": 0.65
         }
       },
@@ -94,9 +94,9 @@
           "kendang_head": "kendang_buffalo_hide_canonical"
         },
         "scores": {
-          "kendang_size": 9.4790625,
-          "kendang_context": 18.2128125,
-          "kendang_shell_wood": 7.334999999999999,
+          "kendang_size": 9.315,
+          "kendang_context": 18.21,
+          "kendang_shell_wood": 7.184999999999999,
           "kendang_head": 2.34
         }
       },
@@ -118,10 +118,10 @@
           "suling_body_material": "suling_bamboo_canonical"
         },
         "scores": {
-          "wind_articulation": 2.4978125,
+          "wind_articulation": 2.495,
           "suling_use": 3.185,
-          "suling_tuning": 6.940625,
-          "suling_body_material": 9.53
+          "suling_tuning": 6.50125,
+          "suling_body_material": 9.379999999999999
         }
       },
       {

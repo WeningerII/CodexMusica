@@ -1,0 +1,202 @@
+{
+  "id": "hiragasy",
+  "name": "Hiragasy (Malagasy highland performance)",
+  "family": "global",
+  "lineage": "Malagasy highland performance combining song, oratory and dance. The selected troupe configuration uses singers, violins, trumpets and drums.",
+  "recipe": "classic modern hiragasy, functional Song. malagasy, group vocals. melodic bowed song accompaniment fiddle, trumpet, hiragasy drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 211,
+  "score": 6.774,
+  "config": {
+    "traditions": [
+      "hiragasy"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_malagasy",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_aural_relative",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": -0.2,
+          "voice_microtone": 0,
+          "voice_tradition": 2.3,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.546,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.1365
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 3.6399999999999997,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0,
+          "fiddle_articulation": 0
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "cornet",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "cup_mute",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "brass_size": 0,
+          "trumpet_mouthpiece": -0.07,
+          "brass_mute": 0,
+          "trumpet_technique": -0.05,
+          "trumpet_bell_metal": 0,
+          "trumpet_maker_school": 0
+        }
+      },
+      {
+        "id": "hiragasy_drums",
+        "slots": {
+          "hiragasy_drums_role": "hiragasy_drums_role_ensemble",
+          "hiragasy_drums_gesture": "hiragasy_drums_gesture_resonant"
+        },
+        "scores": {
+          "hiragasy_drums_role": 0.429,
+          "hiragasy_drums_gesture": 0.2925
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation"
+      ],
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
+      ],
+      "hiragasy_drums": [
+        "hiragasy_drums_role",
+        "hiragasy_drums_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "narrative_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_malagasy",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_aural_relative",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_strings": "synthetic_core",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "wind_articulation": "wind_continuous_legato",
+      "brass_size": "cornet",
+      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+      "brass_mute": "cup_mute",
+      "trumpet_technique": "trumpet_classical_legato",
+      "trumpet_bell_metal": "trumpet_yellow_brass",
+      "trumpet_maker_school": "trumpet_bach_stradivarius",
+      "hiragasy_drums_role": "hiragasy_drums_role_ensemble",
+      "hiragasy_drums_gesture": "hiragasy_drums_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "id": "udmurt_kubyz",
+  "name": "Kubyz (Udmurt three-string bowed instrument)",
+  "short": "Udmurt bowed kubyz",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "udmurt_kubyz_build",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "udmurt_kubyz_build_three",
+          "name": "Three-string acoustic form",
+          "default": true,
+          "descriptors": [
+            "three-string",
+            "bowed",
+            "acoustic"
+          ],
+          "match_tokens": [
+            "three-string",
+            "bowed",
+            "acoustic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bowed_technique",
+      "name": "Bowing",
+      "variants": [
+        {
+          "id": "bowed_technique_udmurt_kubyz_melody",
+          "name": "Sustained melody",
+          "default": true,
+          "descriptors": [
+            "bowed",
+            "sustained",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained",
+            "melodic"
+          ]
+        },
+        {
+          "id": "bowed_technique_udmurt_kubyz_pulse",
+          "name": "Separated bow strokes",
+          "descriptors": [
+            "bowed",
+            "separated-attacks",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "separated-attacks",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "udmurt_kubyz_build",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "udmurt_kubyz_build_three",
+          "name": "Three-string acoustic form",
+          "default": true,
+          "descriptors": [
+            "three-string",
+            "bowed",
+            "acoustic"
+          ],
+          "match_tokens": [
+            "three-string",
+            "bowed",
+            "acoustic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bowed_technique",
+      "name": "Bowing",
+      "variants": [
+        {
+          "id": "bowed_technique_udmurt_kubyz_melody",
+          "name": "Sustained melody",
+          "default": true,
+          "descriptors": [
+            "bowed",
+            "sustained",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained",
+            "melodic"
+          ]
+        },
+        {
+          "id": "bowed_technique_udmurt_kubyz_pulse",
+          "name": "Separated bow strokes",
+          "descriptors": [
+            "bowed",
+            "separated-attacks",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "separated-attacks",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ]
+}

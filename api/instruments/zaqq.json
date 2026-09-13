@@ -1,0 +1,134 @@
+{
+  "id": "zaqq",
+  "name": "Żaqq (Maltese bagpipe)",
+  "short": "zaqq",
+  "family": "wind",
+  "class": "bagpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "parts": [
+    {
+      "id": "zaqq_build",
+      "name": "Pipes and bell",
+      "variants": [
+        {
+          "id": "zaqq_build_paired",
+          "name": "Paired cane pipes with horn bell",
+          "default": true,
+          "descriptors": [
+            "paired-reeds",
+            "cane-pipes",
+            "horn-bell"
+          ],
+          "match_tokens": [
+            "paired-reeds",
+            "cane-pipes",
+            "horn-bell"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zaqq_texture",
+      "name": "Melody and drone",
+      "variants": [
+        {
+          "id": "zaqq_texture_drone",
+          "name": "Melody over companion-pipe drone",
+          "default": true,
+          "descriptors": [
+            "melody",
+            "continuous-drone",
+            "reedy"
+          ],
+          "match_tokens": [
+            "melody",
+            "continuous-drone",
+            "reedy"
+          ]
+        },
+        {
+          "id": "zaqq_texture_pulse",
+          "name": "Articulated melody over drone",
+          "descriptors": [
+            "articulated",
+            "drone",
+            "dance-pulse"
+          ],
+          "match_tokens": [
+            "articulated",
+            "drone",
+            "dance-pulse"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zaqq_build",
+      "name": "Pipes and bell",
+      "variants": [
+        {
+          "id": "zaqq_build_paired",
+          "name": "Paired cane pipes with horn bell",
+          "default": true,
+          "descriptors": [
+            "paired-reeds",
+            "cane-pipes",
+            "horn-bell"
+          ],
+          "match_tokens": [
+            "paired-reeds",
+            "cane-pipes",
+            "horn-bell"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zaqq_texture",
+      "name": "Melody and drone",
+      "variants": [
+        {
+          "id": "zaqq_texture_drone",
+          "name": "Melody over companion-pipe drone",
+          "default": true,
+          "descriptors": [
+            "melody",
+            "continuous-drone",
+            "reedy"
+          ],
+          "match_tokens": [
+            "melody",
+            "continuous-drone",
+            "reedy"
+          ]
+        },
+        {
+          "id": "zaqq_texture_pulse",
+          "name": "Articulated melody over drone",
+          "descriptors": [
+            "articulated",
+            "drone",
+            "dance-pulse"
+          ],
+          "match_tokens": [
+            "articulated",
+            "drone",
+            "dance-pulse"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "id": "lenga",
+  "name": "Lenga (Banda slit drum)",
+  "short": "lenga",
+  "family": "percussion",
+  "class": "slit_drum",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "lenga_setup",
+      "name": "Players",
+      "variants": [
+        {
+          "id": "lenga_setup_pair",
+          "name": "Paired slit-drum performance",
+          "default": true,
+          "descriptors": [
+            "paired",
+            "wooden",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "paired",
+            "wooden",
+            "interlocking"
+          ]
+        },
+        {
+          "id": "lenga_setup_solo",
+          "name": "Single slit-drum part",
+          "descriptors": [
+            "wooden",
+            "hollow",
+            "solo"
+          ],
+          "match_tokens": [
+            "wooden",
+            "hollow",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lenga_stroke",
+      "name": "Stick strokes",
+      "variants": [
+        {
+          "id": "lenga_stroke_open",
+          "name": "Rebounding strokes",
+          "default": true,
+          "descriptors": [
+            "stick-struck",
+            "resonant",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "resonant",
+            "rhythmic"
+          ]
+        },
+        {
+          "id": "lenga_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "stick-struck",
+            "muted",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "muted",
+            "short-decay"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lenga_setup",
+      "name": "Players",
+      "variants": [
+        {
+          "id": "lenga_setup_pair",
+          "name": "Paired slit-drum performance",
+          "default": true,
+          "descriptors": [
+            "paired",
+            "wooden",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "paired",
+            "wooden",
+            "interlocking"
+          ]
+        },
+        {
+          "id": "lenga_setup_solo",
+          "name": "Single slit-drum part",
+          "descriptors": [
+            "wooden",
+            "hollow",
+            "solo"
+          ],
+          "match_tokens": [
+            "wooden",
+            "hollow",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lenga_stroke",
+      "name": "Stick strokes",
+      "variants": [
+        {
+          "id": "lenga_stroke_open",
+          "name": "Rebounding strokes",
+          "default": true,
+          "descriptors": [
+            "stick-struck",
+            "resonant",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "resonant",
+            "rhythmic"
+          ]
+        },
+        {
+          "id": "lenga_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "stick-struck",
+            "muted",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "muted",
+            "short-decay"
+          ]
+        }
+      ]
+    }
+  ]
+}

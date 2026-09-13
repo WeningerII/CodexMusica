@@ -56,6 +56,21 @@
             "aboriginal-australian",
             "central-desert"
           ]
+        },
+        {
+          "id": "clapsticks_bilma_regional_pair",
+          "name": "Wooden clapstick pair; regional dimensions unspecified",
+          "auto": false,
+          "descriptors": [
+            "wooden",
+            "paired-sticks",
+            "resonant-clack"
+          ],
+          "match_tokens": [
+            "wooden",
+            "paired-sticks",
+            "resonant-clack"
+          ]
         }
       ]
     },
@@ -176,6 +191,13 @@
           "canonical_tags": [
             "hardwood"
           ]
+        },
+        {
+          "id": "clapsticks_bilma_wood_unspecified",
+          "name": "Wood species not specified by source",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     }
@@ -221,6 +243,21 @@
             "aboriginal-australian",
             "central-desert"
           ]
+        },
+        {
+          "id": "clapsticks_bilma_regional_pair",
+          "name": "Wooden clapstick pair; regional dimensions unspecified",
+          "auto": false,
+          "descriptors": [
+            "wooden",
+            "paired-sticks",
+            "resonant-clack"
+          ],
+          "match_tokens": [
+            "wooden",
+            "paired-sticks",
+            "resonant-clack"
+          ]
         }
       ]
     },
@@ -341,6 +378,13 @@
           "canonical_tags": [
             "hardwood"
           ]
+        },
+        {
+          "id": "clapsticks_bilma_wood_unspecified",
+          "name": "Wood species not specified by source",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     }

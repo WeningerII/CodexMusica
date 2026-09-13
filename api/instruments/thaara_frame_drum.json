@@ -1,0 +1,134 @@
+{
+  "id": "thaara_frame_drum",
+  "name": "Thaara (Maldivian frame drum)",
+  "short": "Thaara frame drum",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "thaara_frame",
+      "name": "Frame",
+      "variants": [
+        {
+          "id": "thaara_frame_membrane",
+          "name": "Membrane frame drum",
+          "default": true,
+          "descriptors": [
+            "frame-drum",
+            "membrane",
+            "resonant"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "membrane",
+            "resonant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thaara_stroke",
+      "name": "Hand strokes",
+      "variants": [
+        {
+          "id": "thaara_stroke_open",
+          "name": "Open strokes",
+          "default": true,
+          "descriptors": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "thaara_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "thaara_frame",
+      "name": "Frame",
+      "variants": [
+        {
+          "id": "thaara_frame_membrane",
+          "name": "Membrane frame drum",
+          "default": true,
+          "descriptors": [
+            "frame-drum",
+            "membrane",
+            "resonant"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "membrane",
+            "resonant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thaara_stroke",
+      "name": "Hand strokes",
+      "variants": [
+        {
+          "id": "thaara_stroke_open",
+          "name": "Open strokes",
+          "default": true,
+          "descriptors": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "thaara_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

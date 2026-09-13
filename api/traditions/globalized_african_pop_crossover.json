@@ -5,7 +5,7 @@
   "lineage": "2020s Africa-meets-Western-pop streaming-era hybrid tradition — codified through Wizkid (\"Essence\" featuring Tems 2020), Burna Boy (African Giant 2019, Twice as Tall 2020), Tems, Rema, Tiwa Savage, and the broader Afrobeats-to-international-mainstream wave; characterized by Afrobeats / amapiano rhythmic foundations under English-and-Pidgin vocals, major-label distribution, and feature collaborations with North American and European pop artists",
   "recipe": "classic mid-2020s globalized african-pop crossover, functional Song, African pop branch, central east south African groove percussion ndombolo chimurenga. extended whistle, breath veiled tone, breath pulsed, interlocked note trading. log drum, TR-808, singing lead analog poly synth, pyramid pure nickel bass British mid 60s era electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 537,
-  "score": 165.199,
+  "score": 163.84,
   "config": {
     "traditions": [
       "globalized_african_pop_crossover",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 15.938499999999998,
+          "voice_register": 15.309999999999997,
           "voice_quality": 9.035,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.387,
+          "voice_vibrato": 1.24,
           "voice_articulation": 9.23,
-          "voice_microtone": 16.079999999999995,
-          "voice_tradition": 29.412499999999994,
+          "voice_microtone": 15.974999999999994,
+          "voice_tradition": 29.014999999999993,
           "voice_mechanism_compound": 5.005,
           "voice_estill_quality": 3.315000000000001,
           "voice_speech_song": 11.764999999999997,
           "voice_ensemble_config": 9.360000000000001,
-          "voice_ornament_system": 1.45,
-          "voice_pitch_organization": 3.2760000000000007,
+          "voice_ornament_system": 1.645,
+          "voice_pitch_organization": 3.150000000000001,
           "voice_processing_chain": 5.915000000000001,
           "voice_multitrack_stack": 6.175000000000001
         }
@@ -55,11 +55,11 @@
       {
         "id": "log_drum",
         "slots": {
-          "log_drum_voice": "log_drum_sub",
+          "log_drum_voice": "log_drum_mid",
           "log_drum_context": "log_drum_amapiano"
         },
         "scores": {
-          "log_drum_voice": 2.0215,
+          "log_drum_voice": 1.885,
           "log_drum_context": 13.52
         }
       },
@@ -68,12 +68,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_miami",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
           "tr808_voice": 0.5199999999999999,
           "drum_machine_808_context": 1.17,
-          "tr808_production_origin": 0.4605
+          "tr808_production_origin": 0.195
         }
       },
       {
@@ -81,14 +81,14 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
+          "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 15.122499999999997,
+          "electronic_technique": 15.444999999999997,
           "poly_archetypes": 0.845,
-          "poly_voices": 0.21,
-          "poly_maker_lineage": -1.1420000000000001
+          "poly_voices": 0.045,
+          "poly_maker_lineage": -1.31
         }
       },
       {
@@ -98,17 +98,17 @@
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "pyramid_pure_nickel",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "amp_make": 2.0149999999999997,
+          "amp_make": 1.9549999999999996,
           "body_wood": 0.65,
           "pickup_config": 0.65,
           "string_type": 2.145,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0.06749999999999999,
+          "fretted_or_not": 0.39,
           "bass_technique": 0.585
         }
       }

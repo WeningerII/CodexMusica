@@ -1,0 +1,63 @@
+{
+  "id": "banda_linda_polyphony",
+  "name": "Banda Linda horn polyphony",
+  "family": "global",
+  "lineage": "Linda ongo horn-ensemble music from the Central African Republic. Flute, slit-drum and vocal ensembles in the same archive are separate configurations.",
+  "recipe": "classic modern banda linda horn polyphony, groove Percussion, central east south African branch. horn polyphony linda ongo horns. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 209,
+  "score": 6.331,
+  "config": {
+    "traditions": [
+      "banda_linda_polyphony"
+    ],
+    "instruments": [
+      {
+        "id": "ongo_horns",
+        "slots": {
+          "ongo_regional_form": "ongo_regional_form_linda",
+          "ongo_texture": "ongo_texture_interlock"
+        },
+        "scores": {
+          "ongo_regional_form": 6.480928571428571,
+          "ongo_texture": 0
+        }
+      }
+    ],
+    "pinned": {
+      "ongo_horns": [
+        "ongo_regional_form",
+        "ongo_texture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "ongo_regional_form": "ongo_regional_form_linda",
+      "ongo_texture": "ongo_texture_interlock"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

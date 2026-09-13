@@ -1,0 +1,157 @@
+{
+  "id": "aleke",
+  "name": "Aleke (Guianese Maroon popular music)",
+  "family": "global",
+  "lineage": "Guianese Maroon popular music. This seed selects the later three-tall-drum configuration with a bass-drum/cymbal part and singing.",
+  "recipe": "classic modern aleke, groove Percussion, Latin am branch. maroon, live take. tall shell three drummers aleke aleke doon, bass drum cymbal combined percussion dyas tapu patu. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 253,
+  "score": 17.74,
+  "config": {
+    "traditions": [
+      "aleke"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_maroon",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_aural_relative",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 2.9899999999999998,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": -0.10500000000000001,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.168,
+          "voice_multitrack_stack": 0.8294999999999999
+        }
+      },
+      {
+        "id": "aleke_doon",
+        "slots": {
+          "aleke_doon_form": "aleke_doon_form_tall",
+          "aleke_doon_stroke": "aleke_doon_stroke_open",
+          "aleke_doon_setup": "aleke_doon_setup_three"
+        },
+        "scores": {
+          "aleke_doon_form": 1.405,
+          "aleke_doon_stroke": 0.21,
+          "aleke_doon_setup": 2.9899999999999998
+        }
+      },
+      {
+        "id": "dyas_tapu_patu",
+        "slots": {
+          "dyas_setup": "dyas_setup_combined",
+          "dyas_pulse": "dyas_pulse_regular"
+        },
+        "scores": {
+          "dyas_setup": 8.709999999999999,
+          "dyas_pulse": 0.693
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "aleke_doon": [
+        "aleke_doon_form",
+        "aleke_doon_stroke",
+        "aleke_doon_setup"
+      ],
+      "dyas_tapu_patu": [
+        "dyas_setup",
+        "dyas_pulse"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_maroon",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_aural_relative",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "aleke_doon_form": "aleke_doon_form_tall",
+      "aleke_doon_stroke": "aleke_doon_stroke_open",
+      "aleke_doon_setup": "aleke_doon_setup_three",
+      "dyas_setup": "dyas_setup_combined",
+      "dyas_pulse": "dyas_pulse_regular"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

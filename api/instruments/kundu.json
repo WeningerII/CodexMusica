@@ -1,0 +1,200 @@
+{
+  "id": "kundu",
+  "name": "Kundu (Papua New Guinean hourglass drum)",
+  "short": "kundu",
+  "family": "percussion",
+  "class": "hourglass_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "kundu_build",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "kundu_build_skin",
+          "name": "Wooden hourglass shell with lizard-skin head",
+          "default": true,
+          "descriptors": [
+            "hourglass-shell",
+            "wooden",
+            "lizard-skin"
+          ],
+          "match_tokens": [
+            "hourglass-shell",
+            "wooden",
+            "lizard-skin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kundu_stroke",
+      "name": "Hand strokes",
+      "variants": [
+        {
+          "id": "kundu_stroke_open",
+          "name": "Open strokes",
+          "default": true,
+          "descriptors": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "kundu_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kundu_setup",
+      "name": "Players",
+      "variants": [
+        {
+          "id": "kundu_setup_solo",
+          "name": "Single drum",
+          "default": true,
+          "descriptors": [
+            "single-drum",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "single-drum",
+            "rhythmic"
+          ]
+        },
+        {
+          "id": "kundu_setup_group",
+          "name": "Group ceremonial drumming",
+          "descriptors": [
+            "drum-ensemble",
+            "overlapping",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "drum-ensemble",
+            "overlapping",
+            "cyclic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kundu_build",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "kundu_build_skin",
+          "name": "Wooden hourglass shell with lizard-skin head",
+          "default": true,
+          "descriptors": [
+            "hourglass-shell",
+            "wooden",
+            "lizard-skin"
+          ],
+          "match_tokens": [
+            "hourglass-shell",
+            "wooden",
+            "lizard-skin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kundu_stroke",
+      "name": "Hand strokes",
+      "variants": [
+        {
+          "id": "kundu_stroke_open",
+          "name": "Open strokes",
+          "default": true,
+          "descriptors": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "kundu_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kundu_setup",
+      "name": "Players",
+      "variants": [
+        {
+          "id": "kundu_setup_solo",
+          "name": "Single drum",
+          "default": true,
+          "descriptors": [
+            "single-drum",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "single-drum",
+            "rhythmic"
+          ]
+        },
+        {
+          "id": "kundu_setup_group",
+          "name": "Group ceremonial drumming",
+          "descriptors": [
+            "drum-ensemble",
+            "overlapping",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "drum-ensemble",
+            "overlapping",
+            "cyclic"
+          ]
+        }
+      ]
+    }
+  ]
+}

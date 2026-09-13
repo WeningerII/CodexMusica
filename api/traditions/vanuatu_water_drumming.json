@@ -1,94 +1,62 @@
 {
   "id": "vanuatu_water_drumming",
-  "name": "Vanuatu water drumming and sand drawing",
+  "name": "Vanuatu women’s water music",
   "family": "global",
-  "lineage": "Vanuatu water drumming tradition of the Ranmwat Bay and Hog Harbour communities of north-central Espiritu Santo island, in which women stand thigh-deep in the sea or in a freshwater pool and strike the water surface with cupped hands producing distinctive low-pitched rhythmic-percussive patterns. Performance contexts span entertainment, ceremonial-celebration, and tourism-circuit demonstrations. Parallel to the water-drumming, Vanuatu preserves the canonical sand-drawing tradition in which elaborate diagrammatic geometric-and-mythological drawings are produced in sand with continuous-line technique. Distinguished from neighboring Melanesian water-percussion variants by Vanuatu-specific Ranmwat-Hog-Harbour stylistic conventions.",
-  "recipe": "classic Southeast Asian modern vanuatu water drumming and sand drawing, ritual Devotional, indigenous branch, west African groove percussion yoruba dùndún surrogate speech fújì. vocal fry, breath veiled tone, slow rate, interlocked note trading. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 403,
-  "score": 156.1,
+  "lineage": "Northern Vanuatu women create interlocking rhythms by striking and moving water with their hands. This seed selects the water-percussion portion of a performance; accompanying songs and other dances are separate configurations.",
+  "recipe": "classic modern vanuatu women’s water music, groove Percussion. cupped hands water struck interlocking water percussion water percussion. beach. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 206,
+  "score": 13.153,
   "config": {
     "traditions": [
-      "vanuatu_water_drumming",
-      "yoruba_dundun_surrogate_speech",
-      "fuji"
+      "vanuatu_water_drumming"
     ],
     "instruments": [
       {
-        "id": "voice",
+        "id": "water_percussion",
         "slots": {
-          "voice_register": "vocal_fry",
-          "voice_quality": "aspirated_voice",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "water_percussion_gesture": "water_percussion_gesture_cup",
+          "water_percussion_texture": "water_percussion_texture_group"
         },
         "scores": {
-          "voice_register": 2.08,
-          "voice_quality": 22.749999999999996,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 1.625,
-          "voice_articulation": 14.039999999999994,
-          "voice_microtone": 13.844999999999992,
-          "voice_tradition": 34.97,
-          "voice_mechanism_compound": 4.225,
-          "voice_estill_quality": 6.76,
-          "voice_speech_song": 16.574999999999992,
-          "voice_ensemble_config": 13.974999999999993,
-          "voice_ornament_system": 5.004999999999999,
-          "voice_pitch_organization": 12.339999999999995,
-          "voice_processing_chain": 8.255,
-          "voice_multitrack_stack": 3.0550000000000006
+          "water_percussion_gesture": 4.8999999999999995,
+          "water_percussion_texture": 8.402857142857142
         }
       }
     ],
-    "room": "jakarta_bangkok_southeast_asian_studio",
+    "pinned": {
+      "water_percussion": [
+        "water_percussion_gesture",
+        "water_percussion_texture"
+      ]
+    },
+    "room": "beach",
     "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
-      "mic": "condenser_sdc",
+      "mic": "mic_pair_ortf",
       "pre": "pre_field_recorder_portable",
       "console": "clean",
-      "comp": null,
-      "eq": null,
+      "comp": "comp_none",
+      "eq": "eq_none",
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
+    "tuning": "unpitched_percussion",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "jakarta_bangkok_southeast_asian_studio",
+    "tuning": "unpitched_percussion",
+    "room": "beach",
     "parts": {
-      "voice_register": "chest_voice",
-      "voice_quality": "speech_voice",
-      "voice_speech_song": "voice_non_lexical_vocable",
-      "voice_tradition": "polynesian_oli_tradition",
-      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_microtone": "tempered_voice",
-      "voice_ornament_system": "voice_ornament_polynesian_falsetto",
-      "voice_estill_quality": "voice_estill_falsetto",
-      "voice_vibrato": "straight_tone",
-      "voice_mechanism_compound": "voice_mechanism_single_source"
+      "water_percussion_gesture": "water_percussion_gesture_cup",
+      "water_percussion_texture": "water_percussion_texture_group"
     },
-    "chain_mic": "condenser_sdc",
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
     "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
     "chain_medium": "digital_high",
     "chain_console": "clean"
   }

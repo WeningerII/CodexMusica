@@ -1,0 +1,162 @@
+{
+  "id": "tumran",
+  "name": "Tumran / tomra (Khanty pull-string mouth harp)",
+  "short": "tumran",
+  "family": "percussion",
+  "class": "jaw_harp",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "parts": [
+    {
+      "id": "tumran_body",
+      "name": "Reed plate",
+      "variants": [
+        {
+          "id": "tumran_body_bone",
+          "name": "Deer-bone plate",
+          "default": true,
+          "descriptors": [
+            "bone",
+            "integral-reed",
+            "soft"
+          ],
+          "match_tokens": [
+            "bone",
+            "integral-reed",
+            "soft"
+          ]
+        },
+        {
+          "id": "tumran_body_wood",
+          "name": "Wooden plate",
+          "descriptors": [
+            "wooden",
+            "integral-reed",
+            "soft"
+          ],
+          "match_tokens": [
+            "wooden",
+            "integral-reed",
+            "soft"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumran_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "tumran_excitation_pull",
+          "name": "Pull-string and mouth resonance",
+          "default": true,
+          "descriptors": [
+            "pull-string",
+            "mouth-resonated",
+            "overtone"
+          ],
+          "match_tokens": [
+            "pull-string",
+            "mouth-resonated",
+            "overtone"
+          ]
+        },
+        {
+          "id": "tumran_excitation_rhythmic",
+          "name": "Repeated pull-string pulses",
+          "descriptors": [
+            "pull-string",
+            "rhythmic",
+            "overtone"
+          ],
+          "match_tokens": [
+            "pull-string",
+            "rhythmic",
+            "overtone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tumran_body",
+      "name": "Reed plate",
+      "variants": [
+        {
+          "id": "tumran_body_bone",
+          "name": "Deer-bone plate",
+          "default": true,
+          "descriptors": [
+            "bone",
+            "integral-reed",
+            "soft"
+          ],
+          "match_tokens": [
+            "bone",
+            "integral-reed",
+            "soft"
+          ]
+        },
+        {
+          "id": "tumran_body_wood",
+          "name": "Wooden plate",
+          "descriptors": [
+            "wooden",
+            "integral-reed",
+            "soft"
+          ],
+          "match_tokens": [
+            "wooden",
+            "integral-reed",
+            "soft"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumran_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "tumran_excitation_pull",
+          "name": "Pull-string and mouth resonance",
+          "default": true,
+          "descriptors": [
+            "pull-string",
+            "mouth-resonated",
+            "overtone"
+          ],
+          "match_tokens": [
+            "pull-string",
+            "mouth-resonated",
+            "overtone"
+          ]
+        },
+        {
+          "id": "tumran_excitation_rhythmic",
+          "name": "Repeated pull-string pulses",
+          "descriptors": [
+            "pull-string",
+            "rhythmic",
+            "overtone"
+          ],
+          "match_tokens": [
+            "pull-string",
+            "rhythmic",
+            "overtone"
+          ]
+        }
+      ]
+    }
+  ]
+}

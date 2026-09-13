@@ -1,0 +1,134 @@
+{
+  "id": "apinti",
+  "name": "Apinti (Guianese Maroon drum)",
+  "short": "apinti",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "apinti_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "apinti_form_low",
+          "name": "Low compact drum",
+          "default": true,
+          "descriptors": [
+            "compact",
+            "hand-drum",
+            "seated-playing"
+          ],
+          "match_tokens": [
+            "compact",
+            "hand-drum",
+            "seated-playing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apinti_stroke",
+      "name": "Hand strokes",
+      "variants": [
+        {
+          "id": "apinti_stroke_open",
+          "name": "Open strokes",
+          "default": true,
+          "descriptors": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "apinti_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "apinti_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "apinti_form_low",
+          "name": "Low compact drum",
+          "default": true,
+          "descriptors": [
+            "compact",
+            "hand-drum",
+            "seated-playing"
+          ],
+          "match_tokens": [
+            "compact",
+            "hand-drum",
+            "seated-playing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apinti_stroke",
+      "name": "Hand strokes",
+      "variants": [
+        {
+          "id": "apinti_stroke_open",
+          "name": "Open strokes",
+          "default": true,
+          "descriptors": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "apinti_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

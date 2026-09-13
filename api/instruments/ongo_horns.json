@@ -1,0 +1,162 @@
+{
+  "id": "ongo_horns",
+  "name": "Ongo / ongo-ngala (Banda horn ensemble)",
+  "short": "Banda horn ensemble",
+  "family": "wind",
+  "class": "horn_ensemble",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "ongo_regional_form",
+      "name": "Regional ensemble",
+      "variants": [
+        {
+          "id": "ongo_regional_form_linda",
+          "name": "Linda ongo ensemble",
+          "default": true,
+          "descriptors": [
+            "linda",
+            "interlocking",
+            "horn-polyphony"
+          ],
+          "match_tokens": [
+            "linda",
+            "interlocking",
+            "horn-polyphony"
+          ]
+        },
+        {
+          "id": "ongo_regional_form_dakpa",
+          "name": "Dakpa ongo-ngala ensemble",
+          "descriptors": [
+            "dakpa",
+            "interlocking",
+            "horn-polyphony"
+          ],
+          "match_tokens": [
+            "dakpa",
+            "interlocking",
+            "horn-polyphony"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ongo_texture",
+      "name": "Texture",
+      "variants": [
+        {
+          "id": "ongo_texture_interlock",
+          "name": "Interlocking single-pitch entries",
+          "default": true,
+          "descriptors": [
+            "hocket",
+            "layered",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "hocket",
+            "layered",
+            "cyclic"
+          ]
+        },
+        {
+          "id": "ongo_texture_sustained",
+          "name": "Sustained horn entries",
+          "descriptors": [
+            "sustained",
+            "staggered",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "sustained",
+            "staggered",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ongo_regional_form",
+      "name": "Regional ensemble",
+      "variants": [
+        {
+          "id": "ongo_regional_form_linda",
+          "name": "Linda ongo ensemble",
+          "default": true,
+          "descriptors": [
+            "linda",
+            "interlocking",
+            "horn-polyphony"
+          ],
+          "match_tokens": [
+            "linda",
+            "interlocking",
+            "horn-polyphony"
+          ]
+        },
+        {
+          "id": "ongo_regional_form_dakpa",
+          "name": "Dakpa ongo-ngala ensemble",
+          "descriptors": [
+            "dakpa",
+            "interlocking",
+            "horn-polyphony"
+          ],
+          "match_tokens": [
+            "dakpa",
+            "interlocking",
+            "horn-polyphony"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ongo_texture",
+      "name": "Texture",
+      "variants": [
+        {
+          "id": "ongo_texture_interlock",
+          "name": "Interlocking single-pitch entries",
+          "default": true,
+          "descriptors": [
+            "hocket",
+            "layered",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "hocket",
+            "layered",
+            "cyclic"
+          ]
+        },
+        {
+          "id": "ongo_texture_sustained",
+          "name": "Sustained horn entries",
+          "descriptors": [
+            "sustained",
+            "staggered",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "sustained",
+            "staggered",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

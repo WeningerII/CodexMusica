@@ -1,0 +1,162 @@
+{
+  "id": "water_percussion",
+  "name": "Water percussion (Vanuatu women’s water music)",
+  "short": "water percussion",
+  "family": "percussion",
+  "class": "water_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "water_percussion_gesture",
+      "name": "Hand and water gesture",
+      "variants": [
+        {
+          "id": "water_percussion_gesture_cup",
+          "name": "Cupped-hand water strokes",
+          "default": true,
+          "descriptors": [
+            "cupped-hands",
+            "water-struck",
+            "low-thump"
+          ],
+          "match_tokens": [
+            "cupped-hands",
+            "water-struck",
+            "low-thump"
+          ]
+        },
+        {
+          "id": "water_percussion_gesture_slap",
+          "name": "Surface slaps and splashes",
+          "descriptors": [
+            "water-splash",
+            "hand-struck",
+            "bright-attacks"
+          ],
+          "match_tokens": [
+            "water-splash",
+            "hand-struck",
+            "bright-attacks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "water_percussion_texture",
+      "name": "Players",
+      "variants": [
+        {
+          "id": "water_percussion_texture_group",
+          "name": "Interlocking group water rhythms",
+          "default": true,
+          "descriptors": [
+            "interlocking",
+            "water-percussion",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "interlocking",
+            "water-percussion",
+            "cyclic"
+          ]
+        },
+        {
+          "id": "water_percussion_texture_single",
+          "name": "Single player’s water rhythm",
+          "descriptors": [
+            "single-player",
+            "water-percussion",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "single-player",
+            "water-percussion",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "water_percussion_gesture",
+      "name": "Hand and water gesture",
+      "variants": [
+        {
+          "id": "water_percussion_gesture_cup",
+          "name": "Cupped-hand water strokes",
+          "default": true,
+          "descriptors": [
+            "cupped-hands",
+            "water-struck",
+            "low-thump"
+          ],
+          "match_tokens": [
+            "cupped-hands",
+            "water-struck",
+            "low-thump"
+          ]
+        },
+        {
+          "id": "water_percussion_gesture_slap",
+          "name": "Surface slaps and splashes",
+          "descriptors": [
+            "water-splash",
+            "hand-struck",
+            "bright-attacks"
+          ],
+          "match_tokens": [
+            "water-splash",
+            "hand-struck",
+            "bright-attacks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "water_percussion_texture",
+      "name": "Players",
+      "variants": [
+        {
+          "id": "water_percussion_texture_group",
+          "name": "Interlocking group water rhythms",
+          "default": true,
+          "descriptors": [
+            "interlocking",
+            "water-percussion",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "interlocking",
+            "water-percussion",
+            "cyclic"
+          ]
+        },
+        {
+          "id": "water_percussion_texture_single",
+          "name": "Single player’s water rhythm",
+          "descriptors": [
+            "single-player",
+            "water-percussion",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "single-player",
+            "water-percussion",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ]
+}

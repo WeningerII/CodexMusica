@@ -1,0 +1,134 @@
+{
+  "id": "cauyaq",
+  "name": "Cauyaq (Yup’ik hand drum)",
+  "short": "cauyaq",
+  "family": "percussion",
+  "class": "handled_frame_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "cauyaq_build",
+      "name": "Frame and membrane",
+      "variants": [
+        {
+          "id": "cauyaq_build_gut",
+          "name": "Wooden frame with gut membrane",
+          "default": true,
+          "descriptors": [
+            "wooden-frame",
+            "gut-membrane",
+            "handheld"
+          ],
+          "match_tokens": [
+            "wooden-frame",
+            "gut-membrane",
+            "handheld"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cauyaq_stroke",
+      "name": "Playing gesture",
+      "variants": [
+        {
+          "id": "cauyaq_stroke_pulse",
+          "name": "Flexible-beater pulse",
+          "default": true,
+          "descriptors": [
+            "beater-struck",
+            "resonant",
+            "dance-pulse"
+          ],
+          "match_tokens": [
+            "beater-struck",
+            "resonant",
+            "dance-pulse"
+          ]
+        },
+        {
+          "id": "cauyaq_stroke_accent",
+          "name": "Accented drum strokes",
+          "descriptors": [
+            "accented",
+            "resonant",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "accented",
+            "resonant",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cauyaq_build",
+      "name": "Frame and membrane",
+      "variants": [
+        {
+          "id": "cauyaq_build_gut",
+          "name": "Wooden frame with gut membrane",
+          "default": true,
+          "descriptors": [
+            "wooden-frame",
+            "gut-membrane",
+            "handheld"
+          ],
+          "match_tokens": [
+            "wooden-frame",
+            "gut-membrane",
+            "handheld"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cauyaq_stroke",
+      "name": "Playing gesture",
+      "variants": [
+        {
+          "id": "cauyaq_stroke_pulse",
+          "name": "Flexible-beater pulse",
+          "default": true,
+          "descriptors": [
+            "beater-struck",
+            "resonant",
+            "dance-pulse"
+          ],
+          "match_tokens": [
+            "beater-struck",
+            "resonant",
+            "dance-pulse"
+          ]
+        },
+        {
+          "id": "cauyaq_stroke_accent",
+          "name": "Accented drum strokes",
+          "descriptors": [
+            "accented",
+            "resonant",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "accented",
+            "resonant",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ]
+}

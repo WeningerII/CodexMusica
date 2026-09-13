@@ -1,0 +1,126 @@
+{
+  "id": "vimbuza_drums",
+  "name": "Vimbuza drum ensemble",
+  "short": "Vimbuza drums",
+  "family": "percussion",
+  "class": "drum_ensemble",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "vimbuza_drums_role",
+      "name": "Ensemble",
+      "variants": [
+        {
+          "id": "vimbuza_drums_role_group",
+          "name": "Interlocking healing-dance drums",
+          "default": true,
+          "descriptors": [
+            "drum-ensemble",
+            "interlocking",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "drum-ensemble",
+            "interlocking",
+            "cyclic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vimbuza_drums_gesture",
+      "name": "Drum articulation",
+      "variants": [
+        {
+          "id": "vimbuza_drums_gesture_resonant",
+          "name": "Resonant strokes",
+          "default": true,
+          "descriptors": [
+            "resonant",
+            "drum-pulse"
+          ],
+          "match_tokens": [
+            "resonant",
+            "drum-pulse"
+          ]
+        },
+        {
+          "id": "vimbuza_drums_gesture_short",
+          "name": "Short strokes",
+          "descriptors": [
+            "short-decay",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "short-decay",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "vimbuza_drums_role",
+      "name": "Ensemble",
+      "variants": [
+        {
+          "id": "vimbuza_drums_role_group",
+          "name": "Interlocking healing-dance drums",
+          "default": true,
+          "descriptors": [
+            "drum-ensemble",
+            "interlocking",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "drum-ensemble",
+            "interlocking",
+            "cyclic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vimbuza_drums_gesture",
+      "name": "Drum articulation",
+      "variants": [
+        {
+          "id": "vimbuza_drums_gesture_resonant",
+          "name": "Resonant strokes",
+          "default": true,
+          "descriptors": [
+            "resonant",
+            "drum-pulse"
+          ],
+          "match_tokens": [
+            "resonant",
+            "drum-pulse"
+          ]
+        },
+        {
+          "id": "vimbuza_drums_gesture_short",
+          "name": "Short strokes",
+          "descriptors": [
+            "short-decay",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "short-decay",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ]
+}

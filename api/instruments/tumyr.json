@@ -1,0 +1,126 @@
+{
+  "id": "tumyr",
+  "name": "Tumyr (Mari drum)",
+  "short": "tumyr",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "tumyr_role",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tumyr_role_dance",
+          "name": "Mari song and dance accompaniment",
+          "default": true,
+          "descriptors": [
+            "drum-pulse",
+            "dance",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "drum-pulse",
+            "dance",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumyr_gesture",
+      "name": "Drum articulation",
+      "variants": [
+        {
+          "id": "tumyr_gesture_resonant",
+          "name": "Resonant strokes",
+          "default": true,
+          "descriptors": [
+            "resonant",
+            "drum-pulse"
+          ],
+          "match_tokens": [
+            "resonant",
+            "drum-pulse"
+          ]
+        },
+        {
+          "id": "tumyr_gesture_short",
+          "name": "Short strokes",
+          "descriptors": [
+            "short-decay",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "short-decay",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tumyr_role",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tumyr_role_dance",
+          "name": "Mari song and dance accompaniment",
+          "default": true,
+          "descriptors": [
+            "drum-pulse",
+            "dance",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "drum-pulse",
+            "dance",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumyr_gesture",
+      "name": "Drum articulation",
+      "variants": [
+        {
+          "id": "tumyr_gesture_resonant",
+          "name": "Resonant strokes",
+          "default": true,
+          "descriptors": [
+            "resonant",
+            "drum-pulse"
+          ],
+          "match_tokens": [
+            "resonant",
+            "drum-pulse"
+          ]
+        },
+        {
+          "id": "tumyr_gesture_short",
+          "name": "Short strokes",
+          "descriptors": [
+            "short-decay",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "short-decay",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ]
+}

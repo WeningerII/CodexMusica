@@ -5,7 +5,7 @@
   "lineage": "Luo dance music of Nyanza and Nairobi, Kenya, grown from village ohangla drum ensembles into an electrified nightclub form during the 1990s-2000s and codified by Tony Nyadundo, Osogo Winyo and Prince Indah — 130-160 BPM eight-beat hand-drum battery under fast benga-derived interlocking electric guitar arpeggios, walking bass, thin synth pads and hoarse call-and-response Dholuo praise vocals that name patrons mid-song.",
   "recipe": "classic West African mid-1990s ohangla, functional Song, African pop branch, central east south African groove percussion ndombolo séga. extended whistle, breath veiled tone, fast rate, interlocked note trading. orutu, mahogany ebony nitrocellulose clean strummed single coil electric guitar, alder pyramid pure nickel bass British mid 60s era electric bass, yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, lead cowhide mid tier siam oak mid tier modern open slap hand drum congas, snappy thin to palm hand clap. tin roofed shack. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
   "recipe_chars": 683,
-  "score": 197.064,
+  "score": 196.857,
   "config": {
     "traditions": [
       "ohangla",
@@ -31,10 +31,10 @@
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 5.785,
+          "voice_register": 5.1850000000000005,
           "voice_quality": 9.36,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -47,9 +47,9 @@
           "voice_speech_song": 19.304999999999993,
           "voice_ensemble_config": 15.209999999999994,
           "voice_ornament_system": 1.5749999999999997,
-          "voice_pitch_organization": 3.2760000000000007,
+          "voice_pitch_organization": 3.150000000000001,
           "voice_processing_chain": 5.460000000000001,
-          "voice_multitrack_stack": 4.758
+          "voice_multitrack_stack": 4.550000000000001
         }
       },
       {
@@ -111,11 +111,11 @@
         },
         "scores": {
           "amp_make": 1.9699999999999998,
-          "body_wood": 4.0365,
+          "body_wood": 4.005,
           "pickup_config": 2.75,
-          "string_type": 3.5100000000000002,
+          "string_type": 3.375,
           "scale_length_b": 1.4949999999999999,
-          "fretted_or_not": 0.0315,
+          "fretted_or_not": 0.39,
           "bass_technique": 0.95
         }
       },
@@ -129,8 +129,8 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 5.1115,
-          "fm_algorithm": 0.15,
+          "electronic_technique": 5.470000000000001,
+          "fm_algorithm": 0.045,
           "fm_modulator_ratio": 0.195,
           "fm_polyphony": 0.585,
           "fm_model_lineage": 1.6249999999999998
@@ -145,10 +145,10 @@
           "conga_shell_wood": "conga_siam_oak"
         },
         "scores": {
-          "percussion_technique": 5.8264999999999985,
+          "percussion_technique": 6.184999999999999,
           "conga_set": 1.125,
-          "conga_skin": 1.2865,
-          "conga_shell_wood": 1.3
+          "conga_skin": 1.255,
+          "conga_shell_wood": 1.255
         }
       },
       {

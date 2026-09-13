@@ -82,6 +82,13 @@
           "match_tokens": [
             "plucked"
           ]
+        },
+        {
+          "id": "dutar_strings_unspecified",
+          "name": "String material not specified by source",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -111,6 +118,21 @@
           "match_tokens": [
             "plucked",
             "shashmaqam-tradition"
+          ]
+        },
+        {
+          "id": "dutar_tradition_turkmen_bagshy",
+          "name": "Turkmen bagshy song accompaniment",
+          "auto": false,
+          "descriptors": [
+            "turkmen",
+            "bagshy",
+            "song-accompaniment"
+          ],
+          "match_tokens": [
+            "turkmen",
+            "bagshy",
+            "song-accompaniment"
           ]
         }
       ]
@@ -183,6 +205,13 @@
           "match_tokens": [
             "plucked"
           ]
+        },
+        {
+          "id": "dutar_strings_unspecified",
+          "name": "String material not specified by source",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -212,6 +241,21 @@
           "match_tokens": [
             "plucked",
             "shashmaqam-tradition"
+          ]
+        },
+        {
+          "id": "dutar_tradition_turkmen_bagshy",
+          "name": "Turkmen bagshy song accompaniment",
+          "auto": false,
+          "descriptors": [
+            "turkmen",
+            "bagshy",
+            "song-accompaniment"
+          ],
+          "match_tokens": [
+            "turkmen",
+            "bagshy",
+            "song-accompaniment"
           ]
         }
       ]

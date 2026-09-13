@@ -5,7 +5,7 @@
   "lineage": "Mauritian fusion of séga and Jamaican roots reggae created in the mid-1980s by Kaya (Joseph Reginald Topize) and developed by Ras Natty Baby, laying the ravanne's triplet séga pulse across a reggae one-drop at 70–90 BPM with skanking offbeat guitar, dubwise bass, organ bubble and Kreol lyrics of Rastafari and Creole social grievance.",
   "recipe": "classic Western European 1984-1986 seggae, bass System, reggae diaspora branch, central east south African groove percussion, sub saharan African protest song south african freedom song séga. vocal fry, breath veiled tone, slow rate, interlocked note trading. mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, ride-driven brushes-and-sticks drum kit, kayamba, Hammond a 100 built in Leslie home spinet tonewheel organ. brent black community studio london. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
   "recipe_chars": 653,
-  "score": 208.09,
+  "score": 204.745,
   "config": {
     "traditions": [
       "seggae",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 2.4699999999999998,
+          "voice_register": 2.4099999999999997,
           "voice_quality": 10.984999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -46,10 +46,10 @@
           "voice_estill_quality": 3.185,
           "voice_speech_song": 21.904999999999994,
           "voice_ensemble_config": 16.444999999999993,
-          "voice_ornament_system": 4.541500000000001,
+          "voice_ornament_system": 4.015000000000001,
           "voice_pitch_organization": 2.0250000000000004,
           "voice_processing_chain": 5.109999999999999,
-          "voice_multitrack_stack": 9.363
+          "voice_multitrack_stack": 8.655
         }
       },
       {
@@ -75,7 +75,7 @@
           "neck_wood": 1.3,
           "fretboard": 1.2349999999999999,
           "pickup_magnet": 0.09,
-          "string_material": 0.063,
+          "string_material": 0,
           "string_gauge": 1.3,
           "bridge": 0.65,
           "scale_length": 1.3,
@@ -95,10 +95,10 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "amp_make": 4.414000000000001,
+          "amp_make": 3.805,
           "body_wood": 1.95,
           "pickup_config": 0.65,
-          "string_type": 7.085,
+          "string_type": 6.125,
           "scale_length_b": 1.3,
           "fretted_or_not": 0.845,
           "bass_technique": 10.95
@@ -134,17 +134,17 @@
           "keyboard_technique": "keyboard_gospel_chord_runs",
           "drawbar_setting": "jazz_drawbars",
           "rotary_speed": "stopped_rotor",
-          "percussion_setting": "percussion_on_long",
+          "percussion_setting": "percussion_off",
           "tonewheel_model": "tonewheel_hammond_a100",
           "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "keyboard_technique": 0.9299999999999998,
+          "keyboard_technique": 0.8249999999999998,
           "drawbar_setting": 1.2349999999999999,
           "rotary_speed": 1.8850000000000002,
-          "percussion_setting": 0.3735,
+          "percussion_setting": 0.24,
           "tonewheel_model": 7.345000000000001,
-          "leslie_cabinet_model": 0.78
+          "leslie_cabinet_model": 0.6
         }
       }
     ],

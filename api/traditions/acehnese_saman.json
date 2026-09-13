@@ -5,7 +5,7 @@
   "lineage": "Acehnese saman seated-rhythmic-dance-and-song tradition of the Gayo people of central Aceh province, northern Sumatra, Indonesia. Performance configuration: a tightly packed row of 10-20 male dancers seated cross-legged on the floor, performing extremely fast and precise synchronized hand-clapping, chest-slapping, thigh-slapping, and arm-movement choreography while singing Islamic-devotional verse in the Gayo language. The form emerged in the thirteenth-fourteenth century with Islamic missionary activity in Aceh; the canonical genre features rapid acceleration through the performance and characteristic call-and-response between the leader-syech and the body of dancers.",
   "recipe": "classic Southeast Asian modern acehnese saman, ritual Devotional, islamic branch, west African groove percussion fújì sabar drumming. vocal fry, breath veiled tone, slow rate, interlocked note trading. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 359,
-  "score": 170.717,
+  "score": 170.707,
   "config": {
     "traditions": [
       "acehnese_saman",
@@ -47,7 +47,7 @@
           "voice_speech_song": 20.539999999999992,
           "voice_ensemble_config": 17.09499999999999,
           "voice_ornament_system": 7.7749999999999995,
-          "voice_pitch_organization": 9.424642857142857,
+          "voice_pitch_organization": 9.415,
           "voice_processing_chain": 9.295000000000002,
           "voice_multitrack_stack": 2.08
         }

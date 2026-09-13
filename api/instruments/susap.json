@@ -1,0 +1,134 @@
+{
+  "id": "susap",
+  "name": "Susap (Papua New Guinean bamboo mouth harp)",
+  "short": "susap",
+  "family": "percussion",
+  "class": "jaw_harp",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "parts": [
+    {
+      "id": "susap_body",
+      "name": "Sound generator",
+      "variants": [
+        {
+          "id": "susap_body_bamboo",
+          "name": "Integral bamboo tongue",
+          "default": true,
+          "descriptors": [
+            "bamboo",
+            "integral-reed",
+            "mouth-resonated"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "integral-reed",
+            "mouth-resonated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "susap_excitation",
+      "name": "Pull-string gesture",
+      "variants": [
+        {
+          "id": "susap_excitation_pulse",
+          "name": "Regular pull-string pulse",
+          "default": true,
+          "descriptors": [
+            "pull-string",
+            "overtone",
+            "soft"
+          ],
+          "match_tokens": [
+            "pull-string",
+            "overtone",
+            "soft"
+          ]
+        },
+        {
+          "id": "susap_excitation_varied",
+          "name": "Varied pull-string rhythm",
+          "descriptors": [
+            "pull-string",
+            "rhythmic",
+            "mouth-shaped"
+          ],
+          "match_tokens": [
+            "pull-string",
+            "rhythmic",
+            "mouth-shaped"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "susap_body",
+      "name": "Sound generator",
+      "variants": [
+        {
+          "id": "susap_body_bamboo",
+          "name": "Integral bamboo tongue",
+          "default": true,
+          "descriptors": [
+            "bamboo",
+            "integral-reed",
+            "mouth-resonated"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "integral-reed",
+            "mouth-resonated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "susap_excitation",
+      "name": "Pull-string gesture",
+      "variants": [
+        {
+          "id": "susap_excitation_pulse",
+          "name": "Regular pull-string pulse",
+          "default": true,
+          "descriptors": [
+            "pull-string",
+            "overtone",
+            "soft"
+          ],
+          "match_tokens": [
+            "pull-string",
+            "overtone",
+            "soft"
+          ]
+        },
+        {
+          "id": "susap_excitation_varied",
+          "name": "Varied pull-string rhythm",
+          "descriptors": [
+            "pull-string",
+            "rhythmic",
+            "mouth-shaped"
+          ],
+          "match_tokens": [
+            "pull-string",
+            "rhythmic",
+            "mouth-shaped"
+          ]
+        }
+      ]
+    }
+  ]
+}

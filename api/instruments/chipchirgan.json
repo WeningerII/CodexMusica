@@ -1,0 +1,130 @@
+{
+  "id": "chipchirgan",
+  "name": "Chipchirgan (Udmurt natural pipe)",
+  "short": "chipchirgan",
+  "family": "wind",
+  "class": "natural_pipe",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "chipchirgan_form",
+      "name": "Sound generator",
+      "variants": [
+        {
+          "id": "chipchirgan_form_natural",
+          "name": "Natural longitudinal pipe",
+          "default": true,
+          "descriptors": [
+            "longitudinal-pipe",
+            "natural-harmonics",
+            "open-tone"
+          ],
+          "match_tokens": [
+            "longitudinal-pipe",
+            "natural-harmonics",
+            "open-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chipchirgan_phrasing",
+      "name": "Breath phrasing",
+      "variants": [
+        {
+          "id": "chipchirgan_phrasing_sustained",
+          "name": "Sustained tones",
+          "default": true,
+          "descriptors": [
+            "sustained",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "sustained",
+            "breath-driven"
+          ]
+        },
+        {
+          "id": "chipchirgan_phrasing_pulsed",
+          "name": "Pulsed tones",
+          "descriptors": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chipchirgan_form",
+      "name": "Sound generator",
+      "variants": [
+        {
+          "id": "chipchirgan_form_natural",
+          "name": "Natural longitudinal pipe",
+          "default": true,
+          "descriptors": [
+            "longitudinal-pipe",
+            "natural-harmonics",
+            "open-tone"
+          ],
+          "match_tokens": [
+            "longitudinal-pipe",
+            "natural-harmonics",
+            "open-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chipchirgan_phrasing",
+      "name": "Breath phrasing",
+      "variants": [
+        {
+          "id": "chipchirgan_phrasing_sustained",
+          "name": "Sustained tones",
+          "default": true,
+          "descriptors": [
+            "sustained",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "sustained",
+            "breath-driven"
+          ]
+        },
+        {
+          "id": "chipchirgan_phrasing_pulsed",
+          "name": "Pulsed tones",
+          "descriptors": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

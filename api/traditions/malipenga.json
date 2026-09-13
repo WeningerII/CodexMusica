@@ -1,0 +1,80 @@
+{
+  "id": "malipenga",
+  "name": "Malipenga (Tonga singing-horn dance)",
+  "family": "global",
+  "lineage": "Tonga dance music using voice-driven singing horns and a pair of drums. The seed follows the sixteen-performer Muganda we Chitonga Banda recording.",
+  "recipe": "classic modern malipenga, groove Percussion, central east south African branch. sung buzzing membrane voice shaped pitch malipenga singing horn, large and small drums malipenga drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 263,
+  "score": 7.366,
+  "config": {
+    "traditions": [
+      "malipenga"
+    ],
+    "instruments": [
+      {
+        "id": "malipenga_singing_horn",
+        "slots": {
+          "malipenga_excitation": "malipenga_excitation_sung",
+          "malipenga_ensemble": "malipenga_ensemble_group"
+        },
+        "scores": {
+          "malipenga_excitation": 1.3,
+          "malipenga_ensemble": 0.8085
+        }
+      },
+      {
+        "id": "malipenga_drums",
+        "slots": {
+          "malipenga_drums_setup": "malipenga_drums_setup_pair",
+          "malipenga_drums_gesture": "malipenga_drums_gesture_resonant"
+        },
+        "scores": {
+          "malipenga_drums_setup": 3.38,
+          "malipenga_drums_gesture": 0.727875
+        }
+      }
+    ],
+    "pinned": {
+      "malipenga_singing_horn": [
+        "malipenga_excitation",
+        "malipenga_ensemble"
+      ],
+      "malipenga_drums": [
+        "malipenga_drums_setup",
+        "malipenga_drums_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "malipenga_excitation": "malipenga_excitation_sung",
+      "malipenga_ensemble": "malipenga_ensemble_group",
+      "malipenga_drums_setup": "malipenga_drums_setup_pair",
+      "malipenga_drums_gesture": "malipenga_drums_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

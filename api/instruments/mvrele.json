@@ -1,0 +1,158 @@
+{
+  "id": "mvrele",
+  "name": "Mvrele (Banda flute ensemble)",
+  "short": "mvrele flute ensemble",
+  "family": "wind",
+  "class": "flute_ensemble",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "mvrele_texture",
+      "name": "Ensemble texture",
+      "variants": [
+        {
+          "id": "mvrele_texture_interlocking",
+          "name": "Interlocking flute lines",
+          "default": true,
+          "descriptors": [
+            "flute-polyphony",
+            "interlocking",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "flute-polyphony",
+            "interlocking",
+            "breath-driven"
+          ]
+        },
+        {
+          "id": "mvrele_texture_voice",
+          "name": "Flute and vocal alternation",
+          "descriptors": [
+            "alternating",
+            "flute-and-voice",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "alternating",
+            "flute-and-voice",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mvrele_phrasing",
+      "name": "Breath phrasing",
+      "variants": [
+        {
+          "id": "mvrele_phrasing_sustained",
+          "name": "Sustained tones",
+          "default": true,
+          "descriptors": [
+            "sustained",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "sustained",
+            "breath-driven"
+          ]
+        },
+        {
+          "id": "mvrele_phrasing_pulsed",
+          "name": "Pulsed tones",
+          "descriptors": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mvrele_texture",
+      "name": "Ensemble texture",
+      "variants": [
+        {
+          "id": "mvrele_texture_interlocking",
+          "name": "Interlocking flute lines",
+          "default": true,
+          "descriptors": [
+            "flute-polyphony",
+            "interlocking",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "flute-polyphony",
+            "interlocking",
+            "breath-driven"
+          ]
+        },
+        {
+          "id": "mvrele_texture_voice",
+          "name": "Flute and vocal alternation",
+          "descriptors": [
+            "alternating",
+            "flute-and-voice",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "alternating",
+            "flute-and-voice",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mvrele_phrasing",
+      "name": "Breath phrasing",
+      "variants": [
+        {
+          "id": "mvrele_phrasing_sustained",
+          "name": "Sustained tones",
+          "default": true,
+          "descriptors": [
+            "sustained",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "sustained",
+            "breath-driven"
+          ]
+        },
+        {
+          "id": "mvrele_phrasing_pulsed",
+          "name": "Pulsed tones",
+          "descriptors": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

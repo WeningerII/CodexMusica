@@ -5,7 +5,7 @@
   "lineage": "Mozambican urban dance-song born in 1950s Lourenço Marques — the galloping majika rhythm born on homemade oil-can guitars and electrified across the 1960s-1970s into orchestra-scale dance bands, voiced in Ronga and Changana and canonized from Rádio Moçambique and the Gallo sessions by Fany Pfumo, Dilon Djindji and Orchestra Marrabenta Star",
   "recipe": "classic Southern African mid-1950s marrabenta, functional Song, African pop branch, central east south African groove percussion soukous ndombolo. extended whistle, breath veiled tone, slow rate, interlocked note trading. mahogany ebony clean strummed single coil electric cedar strummed open chord ringing overtones dreadnought acoustic guitar, alder la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
   "recipe_chars": 645,
-  "score": 159.14,
+  "score": 158.352,
   "config": {
     "traditions": [
       "marrabenta",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 6.9225,
+          "voice_register": 6.073125,
           "voice_quality": 10.919999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -46,10 +46,10 @@
           "voice_estill_quality": 1.4299999999999997,
           "voice_speech_song": 16.184999999999995,
           "voice_ensemble_config": 11.634999999999994,
-          "voice_ornament_system": 0.9099999999999997,
-          "voice_pitch_organization": 3.2760000000000007,
+          "voice_ornament_system": 0.8799999999999997,
+          "voice_pitch_organization": 3.150000000000001,
           "voice_processing_chain": 5.966875,
-          "voice_multitrack_stack": 5.42675
+          "voice_multitrack_stack": 5.34875
         }
       },
       {
@@ -89,15 +89,15 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
-          "back_sides": "maple_bs",
+          "back_sides": "mahogany_bs",
           "string_acoustic": "thomastik_flat_top"
         },
         "scores": {
           "acoustic_technique": 5.324999999999999,
           "string_tuning": 0,
           "top_wood": 1.04,
-          "back_sides": 0.147,
-          "string_acoustic": 0.975
+          "back_sides": 0,
+          "string_acoustic": 0.89625
         }
       },
       {
@@ -117,7 +117,7 @@
           "pickup_config": 1.3,
           "string_type": 1.56,
           "scale_length_b": 1.04,
-          "fretted_or_not": 0.0315,
+          "fretted_or_not": 0.39,
           "bass_technique": 0.585
         }
       },
@@ -130,7 +130,7 @@
         },
         "scores": {
           "drum_technique": 11.959999999999997,
-          "drumhead": 5.4014999999999995,
+          "drumhead": 5.5649999999999995,
           "drum_kit_kick_pedal": 0
         }
       }

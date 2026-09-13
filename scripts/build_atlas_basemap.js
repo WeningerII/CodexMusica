@@ -32,6 +32,7 @@
 // is reproducible offline and CI never depends on a third-party host.
 //
 // Reads:  references/_natural_earth_50m.json
+//         references/_natural_earth_10m_onotoa.json (public-domain v5.1.2 extract)
 // Writes: data/countries.geo.json
 //
 // Usage:
@@ -46,6 +47,7 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const SRC_FILE = path.join(ROOT, 'references', '_natural_earth_50m.json');
+const SUPPLEMENT_FILE = path.join(ROOT, 'references', '_natural_earth_10m_onotoa.json');
 const OUT_FILE = path.join(ROOT, 'data', 'countries.geo.json');
 
 // Douglas-Peucker tolerance in degrees, and the coordinate precision kept.
@@ -188,6 +190,21 @@ function main() {
   const wantStats = process.argv.includes('--stats');
 
   const src = JSON.parse(fs.readFileSync(SRC_FILE, 'utf8'));
+  // Onotoa is absent from the 1:50m tier. Preserve its documented location by
+  // adding the finer-tier land polygon, not by moving the musical tradition
+  // to another island or exempting it from the offshore-distance check.
+  const supplement = JSON.parse(fs.readFileSync(SUPPLEMENT_FILE, 'utf8'));
+  for (const f of supplement.features) {
+    const country = src.features.find((existing) => existing.id === f.id);
+    if (
+      !country ||
+      country.geometry.type !== 'MultiPolygon' ||
+      f.geometry.type !== 'MultiPolygon'
+    ) {
+      throw new Error('Basemap supplement must extend an existing MultiPolygon country: ' + f.id);
+    }
+    country.geometry.coordinates.push(...f.geometry.coordinates);
+  }
   const { world, dropped } = build(src);
 
   // Not a soft warning. Losing a polygon is the failure mode, so it fails.

@@ -1,0 +1,63 @@
+{
+  "id": "kaligo_playing",
+  "name": "Kaligo playing (Chewa fiddle repertoire)",
+  "family": "global",
+  "lineage": "Chewa single-string fiddle playing documented in central and southern Malawi. This entry selects an instrumental solo configuration.",
+  "recipe": "classic modern kaligo playing, drone Modal, string branch. single string drum resonator kaligo. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 175,
+  "score": 5.547,
+  "config": {
+    "traditions": [
+      "kaligo_playing"
+    ],
+    "instruments": [
+      {
+        "id": "kaligo",
+        "slots": {
+          "kaligo_build": "kaligo_build_single",
+          "bowed_technique": "bowed_technique_kaligo_melody"
+        },
+        "scores": {
+          "kaligo_build": 5.329999999999999,
+          "bowed_technique": 0.36664285714285716
+        }
+      }
+    ],
+    "pinned": {
+      "kaligo": [
+        "kaligo_build",
+        "bowed_technique"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "kaligo_build": "kaligo_build_single",
+      "bowed_technique": "bowed_technique_kaligo_melody"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

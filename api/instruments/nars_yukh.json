@@ -1,0 +1,200 @@
+{
+  "id": "nars_yukh",
+  "name": "Nars-yukh / sankvyltap (Ob-Ugric zither)",
+  "short": "nars yukh",
+  "family": "plucked_traditional",
+  "class": "board_zither",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "nars_yukh_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "nars_yukh_body_hollowed",
+          "name": "Hollowed conifer body",
+          "default": true,
+          "descriptors": [
+            "hollowed-wood",
+            "boat-shaped",
+            "five-string"
+          ],
+          "match_tokens": [
+            "hollowed-wood",
+            "boat-shaped",
+            "five-string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nars_yukh_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "nars_yukh_strings_wire",
+          "name": "Metal strings",
+          "default": true,
+          "descriptors": [
+            "metallic",
+            "ringing"
+          ],
+          "match_tokens": [
+            "metallic",
+            "ringing"
+          ]
+        },
+        {
+          "id": "nars_yukh_strings_sinew",
+          "name": "Sinew strings",
+          "descriptors": [
+            "sinew",
+            "soft",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "sinew",
+            "soft",
+            "short-decay"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nars_yukh_touch",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "nars_yukh_touch_damped",
+          "name": "Pluck with opposite-hand damping",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "damped",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "damped",
+            "rhythmic"
+          ]
+        },
+        {
+          "id": "nars_yukh_touch_melody",
+          "name": "Two-hand melodic plucking",
+          "descriptors": [
+            "plucked",
+            "two-handed",
+            "melodic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "two-handed",
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nars_yukh_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "nars_yukh_body_hollowed",
+          "name": "Hollowed conifer body",
+          "default": true,
+          "descriptors": [
+            "hollowed-wood",
+            "boat-shaped",
+            "five-string"
+          ],
+          "match_tokens": [
+            "hollowed-wood",
+            "boat-shaped",
+            "five-string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nars_yukh_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "nars_yukh_strings_wire",
+          "name": "Metal strings",
+          "default": true,
+          "descriptors": [
+            "metallic",
+            "ringing"
+          ],
+          "match_tokens": [
+            "metallic",
+            "ringing"
+          ]
+        },
+        {
+          "id": "nars_yukh_strings_sinew",
+          "name": "Sinew strings",
+          "descriptors": [
+            "sinew",
+            "soft",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "sinew",
+            "soft",
+            "short-decay"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nars_yukh_touch",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "nars_yukh_touch_damped",
+          "name": "Pluck with opposite-hand damping",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "damped",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "damped",
+            "rhythmic"
+          ]
+        },
+        {
+          "id": "nars_yukh_touch_melody",
+          "name": "Two-hand melodic plucking",
+          "descriptors": [
+            "plucked",
+            "two-handed",
+            "melodic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "two-handed",
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ]
+}
