@@ -5,7 +5,7 @@
   "lineage": "Karelian-Finnish epic-recitation tradition documented by Elias Lönnrot in compiling the Kalevala national epic (1835 first edition, 1849 expanded), paired with the lap-zither kantele (Finlands national instrument) — performed in Karelian, Ingrian, Estonian, and other Baltic-Finnic language traditions in pre-Christian rune-singing and folk-tale-singing contexts",
   "recipe": "classic Northern European mid-1830s finnish kantele folk and kalevala-recitation, ballad Poetry, Celtic balladic branch, Slavic bard ballad poetry icelandic kvæði / þula recitation serbian guslar epic recitation. thick, breath veiled tone, straight note core, interlocked note trading. birch alder karelian gut pre modern five string fingerpicked kantele. sapmi outdoor tundra yoik. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 445,
-  "score": 126.374,
+  "score": 126.162,
   "config": {
     "traditions": [
       "finnish_kantele_folk",
@@ -47,7 +47,7 @@
           "voice_speech_song": 9.945,
           "voice_ensemble_config": 9.879999999999999,
           "voice_ornament_system": 3.8450000000000006,
-          "voice_pitch_organization": 2.2862500000000003,
+          "voice_pitch_organization": 2.075,
           "voice_processing_chain": 8.645,
           "voice_multitrack_stack": 3.0550000000000015
         }

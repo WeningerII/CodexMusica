@@ -1,0 +1,92 @@
+{
+  "id": "tirere_rods",
+  "name": "Tirere (Kiribati paired dance rods)",
+  "short": "tirere rods",
+  "family": "percussion",
+  "class": "concussion_sticks",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "tirere_gesture",
+      "name": "Rod interaction",
+      "variants": [
+        {
+          "id": "tirere_gesture_paired",
+          "name": "Paired rods striking neighbours’ rods",
+          "default": true,
+          "descriptors": [
+            "paired-rods",
+            "wooden",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "paired-rods",
+            "wooden",
+            "interlocking"
+          ]
+        },
+        {
+          "id": "tirere_gesture_accent",
+          "name": "Accented paired-rod strikes",
+          "descriptors": [
+            "paired-rods",
+            "accented",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "paired-rods",
+            "accented",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tirere_gesture",
+      "name": "Rod interaction",
+      "variants": [
+        {
+          "id": "tirere_gesture_paired",
+          "name": "Paired rods striking neighbours’ rods",
+          "default": true,
+          "descriptors": [
+            "paired-rods",
+            "wooden",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "paired-rods",
+            "wooden",
+            "interlocking"
+          ]
+        },
+        {
+          "id": "tirere_gesture_accent",
+          "name": "Accented paired-rod strikes",
+          "descriptors": [
+            "paired-rods",
+            "accented",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "paired-rods",
+            "accented",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ]
+}

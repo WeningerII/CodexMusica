@@ -1,0 +1,134 @@
+{
+  "id": "dyas_tapu_patu",
+  "name": "Dyas / djaz and tapu patu (Maroon bass-drum and cymbal)",
+  "short": "dyas drum and cymbal",
+  "family": "percussion",
+  "class": "drum_cymbal_combination",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "dyas_setup",
+      "name": "Combined setup",
+      "variants": [
+        {
+          "id": "dyas_setup_combined",
+          "name": "Bass drum with cymbal part",
+          "default": true,
+          "descriptors": [
+            "bass-drum",
+            "cymbal",
+            "combined-percussion"
+          ],
+          "match_tokens": [
+            "bass-drum",
+            "cymbal",
+            "combined-percussion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dyas_pulse",
+      "name": "Pulse",
+      "variants": [
+        {
+          "id": "dyas_pulse_regular",
+          "name": "Regular drum and cymbal pulse",
+          "default": true,
+          "descriptors": [
+            "low-thump",
+            "metallic-accent",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "low-thump",
+            "metallic-accent",
+            "rhythmic"
+          ]
+        },
+        {
+          "id": "dyas_pulse_accent",
+          "name": "Accented drum and cymbal figures",
+          "descriptors": [
+            "accented",
+            "bass-drum",
+            "cymbal"
+          ],
+          "match_tokens": [
+            "accented",
+            "bass-drum",
+            "cymbal"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dyas_setup",
+      "name": "Combined setup",
+      "variants": [
+        {
+          "id": "dyas_setup_combined",
+          "name": "Bass drum with cymbal part",
+          "default": true,
+          "descriptors": [
+            "bass-drum",
+            "cymbal",
+            "combined-percussion"
+          ],
+          "match_tokens": [
+            "bass-drum",
+            "cymbal",
+            "combined-percussion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dyas_pulse",
+      "name": "Pulse",
+      "variants": [
+        {
+          "id": "dyas_pulse_regular",
+          "name": "Regular drum and cymbal pulse",
+          "default": true,
+          "descriptors": [
+            "low-thump",
+            "metallic-accent",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "low-thump",
+            "metallic-accent",
+            "rhythmic"
+          ]
+        },
+        {
+          "id": "dyas_pulse_accent",
+          "name": "Accented drum and cymbal figures",
+          "descriptors": [
+            "accented",
+            "bass-drum",
+            "cymbal"
+          ],
+          "match_tokens": [
+            "accented",
+            "bass-drum",
+            "cymbal"
+          ]
+        }
+      ]
+    }
+  ]
+}

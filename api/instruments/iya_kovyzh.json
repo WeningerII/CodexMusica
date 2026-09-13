@@ -1,0 +1,134 @@
+{
+  "id": "iya_kovyzh",
+  "name": "Iya-kovyzh (Mari bowed instrument)",
+  "short": "iya kovyzh",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "iya_kovyzh_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "iya_kovyzh_context_dance",
+          "name": "Mari dance melody",
+          "default": true,
+          "descriptors": [
+            "bowed",
+            "dance-tune",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-tune",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bowed_technique",
+      "name": "Bowing",
+      "variants": [
+        {
+          "id": "bowed_technique_iya_kovyzh_melody",
+          "name": "Sustained melody",
+          "default": true,
+          "descriptors": [
+            "bowed",
+            "sustained",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained",
+            "melodic"
+          ]
+        },
+        {
+          "id": "bowed_technique_iya_kovyzh_pulse",
+          "name": "Separated bow strokes",
+          "descriptors": [
+            "bowed",
+            "separated-attacks",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "separated-attacks",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "iya_kovyzh_context",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "iya_kovyzh_context_dance",
+          "name": "Mari dance melody",
+          "default": true,
+          "descriptors": [
+            "bowed",
+            "dance-tune",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-tune",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bowed_technique",
+      "name": "Bowing",
+      "variants": [
+        {
+          "id": "bowed_technique_iya_kovyzh_melody",
+          "name": "Sustained melody",
+          "default": true,
+          "descriptors": [
+            "bowed",
+            "sustained",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained",
+            "melodic"
+          ]
+        },
+        {
+          "id": "bowed_technique_iya_kovyzh_pulse",
+          "name": "Separated bow strokes",
+          "descriptors": [
+            "bowed",
+            "separated-attacks",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "separated-attacks",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ]
+}

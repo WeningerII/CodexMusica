@@ -171,6 +171,8 @@ const INSTRUMENT_FAMILY_PARTS = {
       { id: 'bowed_celtic_session', name: 'Celtic session-fiddle', applies_to: ['fiddle', 'violin_orchestral'], descriptors: ['ornamented'], match_tokens: ['bowed', 'sustained-tone'], canonical_tags: ['celtic', 'irish-trad'] },
       { id: 'bowed_rough_drone', name: 'Rough drone', applies_to: ['fiddle', 'gusle', 'kamancheh', 'rebab', 'morin_khuur', 'tagelharpa'], descriptors: ['drone-like', 'raspy'], match_tokens: ['bowed', 'sustained-tone', 'rough-tone', 'drone-foundation'], canonical_tags: ['folk', 'medieval'] },
       { id: 'bowed_microtonal_inflected', name: 'Microtonal-inflected', applies_to: ['kamancheh', 'rebab', 'sarangi', 'esraj', 'violin_carnatic', 'morin_khuur', 'erhu', 'jinghu', 'haegeum'], descriptors: ['microtonal'], match_tokens: ['bowed', 'sustained-tone', 'microtonal-bend', 'shruti-inflected'], canonical_tags: ['maqam', 'arabic', 'hindustani'] },
+
+      { id: 'bowed_local_song_melody', name: 'Bowed local song melody (school unspecified)', auto: false, descriptors: [ 'bowed', 'melodic', 'song-accompaniment' ], match_tokens: [ 'bowed', 'melodic', 'song-accompaniment' ] },
     ] },
   ],
 

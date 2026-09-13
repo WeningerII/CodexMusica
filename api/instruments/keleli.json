@@ -1,0 +1,162 @@
+{
+  "id": "keleli",
+  "name": "Keleli (Tibesti plucked lute)",
+  "short": "keleli",
+  "family": "plucked_traditional",
+  "class": "lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "keleli_strings",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "keleli_strings_two",
+          "name": "Two-string lute",
+          "default": true,
+          "descriptors": [
+            "two-string",
+            "plucked",
+            "dry"
+          ],
+          "match_tokens": [
+            "two-string",
+            "plucked",
+            "dry"
+          ]
+        },
+        {
+          "id": "keleli_strings_three",
+          "name": "Three-string lute",
+          "descriptors": [
+            "three-string",
+            "plucked",
+            "resonant"
+          ],
+          "match_tokens": [
+            "three-string",
+            "plucked",
+            "resonant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keleli_touch",
+      "name": "Plucking",
+      "variants": [
+        {
+          "id": "keleli_touch_ringing",
+          "name": "Ringing plucks",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "ringing",
+            "melodic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "melodic"
+          ]
+        },
+        {
+          "id": "keleli_touch_damped",
+          "name": "Damped plucks",
+          "descriptors": [
+            "plucked",
+            "muted",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "plucked",
+            "muted",
+            "short-decay"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "keleli_strings",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "keleli_strings_two",
+          "name": "Two-string lute",
+          "default": true,
+          "descriptors": [
+            "two-string",
+            "plucked",
+            "dry"
+          ],
+          "match_tokens": [
+            "two-string",
+            "plucked",
+            "dry"
+          ]
+        },
+        {
+          "id": "keleli_strings_three",
+          "name": "Three-string lute",
+          "descriptors": [
+            "three-string",
+            "plucked",
+            "resonant"
+          ],
+          "match_tokens": [
+            "three-string",
+            "plucked",
+            "resonant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keleli_touch",
+      "name": "Plucking",
+      "variants": [
+        {
+          "id": "keleli_touch_ringing",
+          "name": "Ringing plucks",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "ringing",
+            "melodic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "melodic"
+          ]
+        },
+        {
+          "id": "keleli_touch_damped",
+          "name": "Damped plucks",
+          "descriptors": [
+            "plucked",
+            "muted",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "plucked",
+            "muted",
+            "short-decay"
+          ]
+        }
+      ]
+    }
+  ]
+}

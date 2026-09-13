@@ -1,0 +1,134 @@
+{
+  "id": "awasa_drums",
+  "name": "Awasa drums (gaandoon, tundoon and pikiendoon)",
+  "short": "awasa drum trio",
+  "family": "percussion",
+  "class": "drum_ensemble",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "awasa_drums_setup",
+      "name": "Three roles",
+      "variants": [
+        {
+          "id": "awasa_drums_setup_trio",
+          "name": "Master, timekeeping and pattern drums",
+          "default": true,
+          "descriptors": [
+            "three-drums",
+            "interlocking",
+            "contrasting-registers"
+          ],
+          "match_tokens": [
+            "three-drums",
+            "interlocking",
+            "contrasting-registers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "awasa_drums_gesture",
+      "name": "Combined technique",
+      "variants": [
+        {
+          "id": "awasa_drums_gesture_mixed",
+          "name": "Hand drums with stick-played timekeeper",
+          "default": true,
+          "descriptors": [
+            "hand-struck",
+            "stick-timekeeper",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "stick-timekeeper",
+            "cyclic"
+          ]
+        },
+        {
+          "id": "awasa_drums_gesture_accent",
+          "name": "Accented ensemble phrases",
+          "descriptors": [
+            "ensemble",
+            "accented",
+            "responsive"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "accented",
+            "responsive"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "awasa_drums_setup",
+      "name": "Three roles",
+      "variants": [
+        {
+          "id": "awasa_drums_setup_trio",
+          "name": "Master, timekeeping and pattern drums",
+          "default": true,
+          "descriptors": [
+            "three-drums",
+            "interlocking",
+            "contrasting-registers"
+          ],
+          "match_tokens": [
+            "three-drums",
+            "interlocking",
+            "contrasting-registers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "awasa_drums_gesture",
+      "name": "Combined technique",
+      "variants": [
+        {
+          "id": "awasa_drums_gesture_mixed",
+          "name": "Hand drums with stick-played timekeeper",
+          "default": true,
+          "descriptors": [
+            "hand-struck",
+            "stick-timekeeper",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "stick-timekeeper",
+            "cyclic"
+          ]
+        },
+        {
+          "id": "awasa_drums_gesture_accent",
+          "name": "Accented ensemble phrases",
+          "descriptors": [
+            "ensemble",
+            "accented",
+            "responsive"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "accented",
+            "responsive"
+          ]
+        }
+      ]
+    }
+  ]
+}

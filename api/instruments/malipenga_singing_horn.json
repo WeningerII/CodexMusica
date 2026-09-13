@@ -1,0 +1,134 @@
+{
+  "id": "malipenga_singing_horn",
+  "name": "Malipenga singing horn (Tonga voice-driven mirliton)",
+  "short": "malipenga singing horn",
+  "family": "wind",
+  "class": "mirliton",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "malipenga_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "malipenga_excitation_sung",
+          "name": "Voice-driven buzzing membrane",
+          "default": true,
+          "descriptors": [
+            "sung",
+            "buzzing-membrane",
+            "voice-shaped-pitch"
+          ],
+          "match_tokens": [
+            "sung",
+            "buzzing-membrane",
+            "voice-shaped-pitch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "malipenga_ensemble",
+      "name": "Horn section",
+      "variants": [
+        {
+          "id": "malipenga_ensemble_group",
+          "name": "Group of singing horns",
+          "default": true,
+          "descriptors": [
+            "ensemble",
+            "march-pulse",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "march-pulse",
+            "interlocking"
+          ]
+        },
+        {
+          "id": "malipenga_ensemble_single",
+          "name": "Single singing horn",
+          "descriptors": [
+            "solo",
+            "buzzing",
+            "melodic"
+          ],
+          "match_tokens": [
+            "solo",
+            "buzzing",
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "malipenga_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "malipenga_excitation_sung",
+          "name": "Voice-driven buzzing membrane",
+          "default": true,
+          "descriptors": [
+            "sung",
+            "buzzing-membrane",
+            "voice-shaped-pitch"
+          ],
+          "match_tokens": [
+            "sung",
+            "buzzing-membrane",
+            "voice-shaped-pitch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "malipenga_ensemble",
+      "name": "Horn section",
+      "variants": [
+        {
+          "id": "malipenga_ensemble_group",
+          "name": "Group of singing horns",
+          "default": true,
+          "descriptors": [
+            "ensemble",
+            "march-pulse",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "march-pulse",
+            "interlocking"
+          ]
+        },
+        {
+          "id": "malipenga_ensemble_single",
+          "name": "Single singing horn",
+          "descriptors": [
+            "solo",
+            "buzzing",
+            "melodic"
+          ],
+          "match_tokens": [
+            "solo",
+            "buzzing",
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ]
+}

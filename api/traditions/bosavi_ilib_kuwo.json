@@ -1,0 +1,67 @@
+{
+  "id": "bosavi_ilib_kuwo",
+  "name": "Ilib kuwo (Bosavi ceremonial drumming)",
+  "family": "global",
+  "lineage": "Bosavi ceremonial group drumming. The seed is instrumental.",
+  "recipe": "classic modern ilib kuwo, groove Percussion. kundu. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 131,
+  "score": 0.31,
+  "config": {
+    "traditions": [
+      "bosavi_ilib_kuwo"
+    ],
+    "instruments": [
+      {
+        "id": "kundu",
+        "slots": {
+          "kundu_build": "kundu_build_skin",
+          "kundu_stroke": "kundu_stroke_open",
+          "kundu_setup": "kundu_setup_group"
+        },
+        "scores": {
+          "kundu_build": 0.0028125,
+          "kundu_stroke": 0.0315,
+          "kundu_setup": 0.4252857142857143
+        }
+      }
+    ],
+    "pinned": {
+      "kundu": [
+        "kundu_build",
+        "kundu_stroke",
+        "kundu_setup"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "unpitched_percussion",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "unpitched_percussion",
+    "room": "field_recording",
+    "parts": {
+      "kundu_setup": "kundu_setup_group",
+      "kundu_build": "kundu_build_skin",
+      "kundu_stroke": "kundu_stroke_open"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

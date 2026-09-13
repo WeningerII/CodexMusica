@@ -1,0 +1,134 @@
+{
+  "id": "kaligo",
+  "name": "Kaligo (Chewa single-string fiddle)",
+  "short": "kaligo",
+  "family": "bowed",
+  "class": "spike_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "kaligo_build",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "kaligo_build_single",
+          "name": "Single string over drum resonator",
+          "default": true,
+          "descriptors": [
+            "single-string",
+            "wooden-neck",
+            "drum-resonator"
+          ],
+          "match_tokens": [
+            "single-string",
+            "wooden-neck",
+            "drum-resonator"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bowed_technique",
+      "name": "Bowing",
+      "variants": [
+        {
+          "id": "bowed_technique_kaligo_melody",
+          "name": "Sustained melody",
+          "default": true,
+          "descriptors": [
+            "bowed",
+            "sustained",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained",
+            "melodic"
+          ]
+        },
+        {
+          "id": "bowed_technique_kaligo_pulse",
+          "name": "Separated bow strokes",
+          "descriptors": [
+            "bowed",
+            "separated-attacks",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "separated-attacks",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kaligo_build",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "kaligo_build_single",
+          "name": "Single string over drum resonator",
+          "default": true,
+          "descriptors": [
+            "single-string",
+            "wooden-neck",
+            "drum-resonator"
+          ],
+          "match_tokens": [
+            "single-string",
+            "wooden-neck",
+            "drum-resonator"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bowed_technique",
+      "name": "Bowing",
+      "variants": [
+        {
+          "id": "bowed_technique_kaligo_melody",
+          "name": "Sustained melody",
+          "default": true,
+          "descriptors": [
+            "bowed",
+            "sustained",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained",
+            "melodic"
+          ]
+        },
+        {
+          "id": "bowed_technique_kaligo_pulse",
+          "name": "Separated bow strokes",
+          "descriptors": [
+            "bowed",
+            "separated-attacks",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "separated-attacks",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ]
+}

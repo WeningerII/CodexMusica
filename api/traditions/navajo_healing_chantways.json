@@ -5,7 +5,7 @@
   "lineage": "Navajo (Diné) healing chantways tradition: the canonical body of Navajo ceremonial-healing rituals, each comprising multi-day complex ceremonies with hundreds of associated songs, sandpaintings, and prayer-recitations performed by trained hataalii (medicine-singer-priests). The major chantways include Blessingway (Hózhójí), Enemyway (Anaa'jí), Nightway (Tł'éé'jí), Mountainway (Dziłk'iji), Beautyway (Hózhóójí), and Flintway (Béésh Yikʼájí). Each ceremony involves specific song-cycles tied to specific mytho-cosmological narratives, with strictly canonical-fixed melodic content transmitted through hataalii apprenticeship. Distinguished from broader Native American liturgical traditions by Navajo-specific cosmology and the elaborate multi-night ceremonial-cycle structure.",
   "recipe": "classic Northeast Asian early-1890s navajo healing chantways, ritual Devotional, indigenous branch, amazonian indigenous shipibo-conibo icaros healing songs. vocal fry, breath veiled tone, straight note core, interlocked note trading. open steppe outdoor. acoustic horn. wax cylinder.",
   "recipe_chars": 284,
-  "score": 134.421,
+  "score": 133.938,
   "config": {
     "traditions": [
       "navajo_healing_chantways",
@@ -46,7 +46,7 @@
           "voice_speech_song": 14.299999999999995,
           "voice_ensemble_config": 12.349999999999994,
           "voice_ornament_system": 9.025,
-          "voice_pitch_organization": 5.3975,
+          "voice_pitch_organization": 4.9145,
           "voice_processing_chain": 7.995000000000004,
           "voice_multitrack_stack": 2.9899999999999998
         }

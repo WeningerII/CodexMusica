@@ -608,11 +608,31 @@ function seedFromTradition(tradId, stapleIds = [], opts = {}) {
     }
     return { id: iid, slots, scores };
   });
+  // Reviewed catalog rows can opt into pinning their authored flat part map.
+  // Legacy rows retain scored selection; explicit caller swaps still win.
+  // Match the browser's applicability filtering: a shared part id only applies
+  // where both the part and the selected variant exist on this instrument.
+  // Explicit-only (auto:false) settings are valid here. Pin these source choices
+  // so optimization cannot erase a documented regional form or vocal ensemble.
+  const pinned = {};
+  for (const instEntry of instruments) {
+    const instrument = C.INSTRUMENTS.find((i) => i.id === instEntry.id);
+    for (const part of instrument?.parts || []) {
+      const variantId = t.pin_parts === true ? t.parts?.[part.id] : undefined;
+      const variant = part.variants.find((v) => v.id === variantId);
+      if (!variant) continue;
+      instEntry.slots[part.id] = variantId;
+      instEntry.scores[part.id] = scoreVariant(variant, getCtxForPart(part.id), {
+        useNeighbors: true,
+        skipSignals: true,
+      }).score;
+      (pinned[instEntry.id] ||= []).push(part.id);
+    }
+  }
   // Apply --swap-variant overrides: for each (instrument, part, variant) triple,
   // override the auto-picked slot AND record (instId → [partId, ...]) in pinned so
   // the hill-climb search exempts these slots from its variantSwapMoves. Without
   // pinning, search would climb back to the higher-scoring canonical variant.
-  const pinned = {};
   for (const iid of Object.keys(swap)) {
     const instEntry = instruments.find((x) => x.id === iid);
     if (!instEntry) continue;

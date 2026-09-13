@@ -1,0 +1,68 @@
+{
+  "type": "FeatureCollection",
+  "source": {
+    "dataset": "Natural Earth 1:10m Admin 0 \u2014 Countries",
+    "version": "5.1.2",
+    "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_0_countries.geojson",
+    "license": "public domain",
+    "selection": "The Onotoa polygon within longitude 175.5\u2013175.7, latitude -2.0\u2013-1.7; omitted from the 1:50m tier. Coordinates are preserved from the source."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "KIR",
+      "properties": {
+        "name": "Kiribati"
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                175.591482,
+                -1.8742
+              ],
+              [
+                175.599946,
+                -1.895115
+              ],
+              [
+                175.586274,
+                -1.922459
+              ],
+              [
+                175.583263,
+                -1.911065
+              ],
+              [
+                175.586274,
+                -1.870782
+              ],
+              [
+                175.576182,
+                -1.856052
+              ],
+              [
+                175.559093,
+                -1.832289
+              ],
+              [
+                175.552257,
+                -1.819268
+              ],
+              [
+                175.559581,
+                -1.826104
+              ],
+              [
+                175.591482,
+                -1.8742
+              ]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

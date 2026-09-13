@@ -1,0 +1,134 @@
+{
+  "id": "qilaat",
+  "name": "Qilaat (Greenlandic frame drum)",
+  "short": "qilaat",
+  "family": "percussion",
+  "class": "handled_frame_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "qilaat_build",
+      "name": "Frame",
+      "variants": [
+        {
+          "id": "qilaat_build_handled",
+          "name": "Handled shallow frame drum",
+          "default": true,
+          "descriptors": [
+            "shallow-frame",
+            "membrane",
+            "handheld"
+          ],
+          "match_tokens": [
+            "shallow-frame",
+            "membrane",
+            "handheld"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qilaat_stroke",
+      "name": "Rim strokes",
+      "variants": [
+        {
+          "id": "qilaat_stroke_regular",
+          "name": "Regular rim-struck pulse",
+          "default": true,
+          "descriptors": [
+            "rim-struck",
+            "wooden-click",
+            "membrane-resonance"
+          ],
+          "match_tokens": [
+            "rim-struck",
+            "wooden-click",
+            "membrane-resonance"
+          ]
+        },
+        {
+          "id": "qilaat_stroke_accented",
+          "name": "Accented rim strokes",
+          "descriptors": [
+            "rim-struck",
+            "accented",
+            "dance-pulse"
+          ],
+          "match_tokens": [
+            "rim-struck",
+            "accented",
+            "dance-pulse"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "qilaat_build",
+      "name": "Frame",
+      "variants": [
+        {
+          "id": "qilaat_build_handled",
+          "name": "Handled shallow frame drum",
+          "default": true,
+          "descriptors": [
+            "shallow-frame",
+            "membrane",
+            "handheld"
+          ],
+          "match_tokens": [
+            "shallow-frame",
+            "membrane",
+            "handheld"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qilaat_stroke",
+      "name": "Rim strokes",
+      "variants": [
+        {
+          "id": "qilaat_stroke_regular",
+          "name": "Regular rim-struck pulse",
+          "default": true,
+          "descriptors": [
+            "rim-struck",
+            "wooden-click",
+            "membrane-resonance"
+          ],
+          "match_tokens": [
+            "rim-struck",
+            "wooden-click",
+            "membrane-resonance"
+          ]
+        },
+        {
+          "id": "qilaat_stroke_accented",
+          "name": "Accented rim strokes",
+          "descriptors": [
+            "rim-struck",
+            "accented",
+            "dance-pulse"
+          ],
+          "match_tokens": [
+            "rim-struck",
+            "accented",
+            "dance-pulse"
+          ]
+        }
+      ]
+    }
+  ]
+}

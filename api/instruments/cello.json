@@ -123,6 +123,21 @@
           "canonical_tags": [
             "classical"
           ]
+        },
+        {
+          "id": "bowed_local_song_melody",
+          "name": "Bowed local song melody (school unspecified)",
+          "auto": false,
+          "descriptors": [
+            "bowed",
+            "melodic",
+            "song-accompaniment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "song-accompaniment"
+          ]
         }
       ],
       "_fromFamily": true

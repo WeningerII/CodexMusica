@@ -1,0 +1,126 @@
+{
+  "id": "budima_drums",
+  "name": "Budima (Valley Tonga ceremonial drum ensemble)",
+  "short": "Budima drums",
+  "family": "percussion",
+  "class": "drum_ensemble",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "budima_drums_form",
+      "name": "Drums",
+      "variants": [
+        {
+          "id": "budima_drums_form_goblet",
+          "name": "Graduated goblet-shaped drums",
+          "default": true,
+          "descriptors": [
+            "goblet-shells",
+            "skin-heads",
+            "contrasting-registers"
+          ],
+          "match_tokens": [
+            "goblet-shells",
+            "skin-heads",
+            "contrasting-registers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budima_drums_gesture",
+      "name": "Drum articulation",
+      "variants": [
+        {
+          "id": "budima_drums_gesture_resonant",
+          "name": "Resonant strokes",
+          "default": true,
+          "descriptors": [
+            "resonant",
+            "drum-pulse"
+          ],
+          "match_tokens": [
+            "resonant",
+            "drum-pulse"
+          ]
+        },
+        {
+          "id": "budima_drums_gesture_short",
+          "name": "Short strokes",
+          "descriptors": [
+            "short-decay",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "short-decay",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "budima_drums_form",
+      "name": "Drums",
+      "variants": [
+        {
+          "id": "budima_drums_form_goblet",
+          "name": "Graduated goblet-shaped drums",
+          "default": true,
+          "descriptors": [
+            "goblet-shells",
+            "skin-heads",
+            "contrasting-registers"
+          ],
+          "match_tokens": [
+            "goblet-shells",
+            "skin-heads",
+            "contrasting-registers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budima_drums_gesture",
+      "name": "Drum articulation",
+      "variants": [
+        {
+          "id": "budima_drums_gesture_resonant",
+          "name": "Resonant strokes",
+          "default": true,
+          "descriptors": [
+            "resonant",
+            "drum-pulse"
+          ],
+          "match_tokens": [
+            "resonant",
+            "drum-pulse"
+          ]
+        },
+        {
+          "id": "budima_drums_gesture_short",
+          "name": "Short strokes",
+          "descriptors": [
+            "short-decay",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "short-decay",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ]
+}

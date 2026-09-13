@@ -1,0 +1,134 @@
+{
+  "id": "krez_zither",
+  "name": "Krez (Udmurt helmet-shaped psaltery)",
+  "short": "krez zither",
+  "family": "plucked_traditional",
+  "class": "psaltery",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "krez_build",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "krez_build_helmet",
+          "name": "Helmet-shaped wooden psaltery",
+          "default": true,
+          "descriptors": [
+            "helmet-shaped",
+            "open-strings",
+            "wooden"
+          ],
+          "match_tokens": [
+            "helmet-shaped",
+            "open-strings",
+            "wooden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krez_touch",
+      "name": "Plucking",
+      "variants": [
+        {
+          "id": "krez_touch_ringing",
+          "name": "Ringing plucks",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "ringing",
+            "melodic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "melodic"
+          ]
+        },
+        {
+          "id": "krez_touch_damped",
+          "name": "Damped plucks",
+          "descriptors": [
+            "plucked",
+            "muted",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "plucked",
+            "muted",
+            "short-decay"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "krez_build",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "krez_build_helmet",
+          "name": "Helmet-shaped wooden psaltery",
+          "default": true,
+          "descriptors": [
+            "helmet-shaped",
+            "open-strings",
+            "wooden"
+          ],
+          "match_tokens": [
+            "helmet-shaped",
+            "open-strings",
+            "wooden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krez_touch",
+      "name": "Plucking",
+      "variants": [
+        {
+          "id": "krez_touch_ringing",
+          "name": "Ringing plucks",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "ringing",
+            "melodic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "melodic"
+          ]
+        },
+        {
+          "id": "krez_touch_damped",
+          "name": "Damped plucks",
+          "descriptors": [
+            "plucked",
+            "muted",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "plucked",
+            "muted",
+            "short-decay"
+          ]
+        }
+      ]
+    }
+  ]
+}

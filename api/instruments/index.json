@@ -1,5 +1,5 @@
 {
-  "count": 1406,
+  "count": 1457,
   "items": [
     {
       "id": "choir_ensemble",
@@ -8436,6 +8436,312 @@
       "name": "T'rung (Vietnamese Central Highlands bamboo tube xylophone)",
       "family": "percussion",
       "href": "instruments/trung_bamboo_xylophone.json"
+    },
+    {
+      "id": "kaligo",
+      "name": "Kaligo (Chewa single-string fiddle)",
+      "family": "bowed",
+      "href": "instruments/kaligo.json"
+    },
+    {
+      "id": "ingina",
+      "name": "Ing’ina (Mwinoghe large drum)",
+      "family": "percussion",
+      "href": "instruments/ingina.json"
+    },
+    {
+      "id": "twana_perekete",
+      "name": "Twana / perekete (Mwinoghe small-drum pair)",
+      "family": "percussion",
+      "href": "instruments/twana_perekete.json"
+    },
+    {
+      "id": "malipenga_singing_horn",
+      "name": "Malipenga singing horn (Tonga voice-driven mirliton)",
+      "family": "wind",
+      "href": "instruments/malipenga_singing_horn.json"
+    },
+    {
+      "id": "keleli",
+      "name": "Keleli (Tibesti plucked lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/keleli.json"
+    },
+    {
+      "id": "bilil",
+      "name": "Bilil (Tibesti idioglot clarinet)",
+      "family": "wind",
+      "href": "instruments/bilil.json"
+    },
+    {
+      "id": "ongo_horns",
+      "name": "Ongo / ongo-ngala (Banda horn ensemble)",
+      "family": "wind",
+      "href": "instruments/ongo_horns.json"
+    },
+    {
+      "id": "lenga",
+      "name": "Lenga (Banda slit drum)",
+      "family": "percussion",
+      "href": "instruments/lenga.json"
+    },
+    {
+      "id": "mvrele",
+      "name": "Mvrele (Banda flute ensemble)",
+      "family": "wind",
+      "href": "instruments/mvrele.json"
+    },
+    {
+      "id": "nars_yukh",
+      "name": "Nars-yukh / sankvyltap (Ob-Ugric zither)",
+      "family": "plucked_traditional",
+      "href": "instruments/nars_yukh.json"
+    },
+    {
+      "id": "tor_sapl_yukh",
+      "name": "Tor-sapl-yukh / toorsapt-yuh (Ob-Ugric angular harp)",
+      "family": "plucked_traditional",
+      "href": "instruments/tor_sapl_yukh.json"
+    },
+    {
+      "id": "nyn_yukh",
+      "name": "Nyn-yukh (Khanty / Mansi bowed instrument)",
+      "family": "bowed",
+      "href": "instruments/nyn_yukh.json"
+    },
+    {
+      "id": "tumran",
+      "name": "Tumran / tomra (Khanty pull-string mouth harp)",
+      "family": "percussion",
+      "href": "instruments/tumran.json"
+    },
+    {
+      "id": "babadok",
+      "name": "Babadok (Timorese hand drum)",
+      "family": "percussion",
+      "href": "instruments/babadok.json"
+    },
+    {
+      "id": "boduberu_drum",
+      "name": "Boduberu (Maldivian coconut-wood drum)",
+      "family": "percussion",
+      "href": "instruments/boduberu_drum.json"
+    },
+    {
+      "id": "krez_zither",
+      "name": "Krez (Udmurt helmet-shaped psaltery)",
+      "family": "plucked_traditional",
+      "href": "instruments/krez_zither.json"
+    },
+    {
+      "id": "udmurt_kubyz",
+      "name": "Kubyz (Udmurt three-string bowed instrument)",
+      "family": "bowed",
+      "href": "instruments/udmurt_kubyz.json"
+    },
+    {
+      "id": "uzy_gumy",
+      "name": "Uzy-gumy (Udmurt end-blown overtone flute)",
+      "family": "wind",
+      "href": "instruments/uzy_gumy.json"
+    },
+    {
+      "id": "chipchirgan",
+      "name": "Chipchirgan (Udmurt natural pipe)",
+      "family": "wind",
+      "href": "instruments/chipchirgan.json"
+    },
+    {
+      "id": "shuvyr",
+      "name": "Shuvyr (Mari bagpipe)",
+      "family": "wind",
+      "href": "instruments/shuvyr.json"
+    },
+    {
+      "id": "tumyr",
+      "name": "Tumyr (Mari drum)",
+      "family": "percussion",
+      "href": "instruments/tumyr.json"
+    },
+    {
+      "id": "iya_kovyzh",
+      "name": "Iya-kovyzh (Mari bowed instrument)",
+      "family": "bowed",
+      "href": "instruments/iya_kovyzh.json"
+    },
+    {
+      "id": "zaqq",
+      "name": "Żaqq (Maltese bagpipe)",
+      "family": "wind",
+      "href": "instruments/zaqq.json"
+    },
+    {
+      "id": "tanbur_maltese",
+      "name": "Tanbur (Maltese jingle frame drum)",
+      "family": "percussion",
+      "href": "instruments/tanbur_maltese.json"
+    },
+    {
+      "id": "cauyaq",
+      "name": "Cauyaq (Yup’ik hand drum)",
+      "family": "percussion",
+      "href": "instruments/cauyaq.json"
+    },
+    {
+      "id": "qilaat",
+      "name": "Qilaat (Greenlandic frame drum)",
+      "family": "percussion",
+      "href": "instruments/qilaat.json"
+    },
+    {
+      "id": "apinti",
+      "name": "Apinti (Guianese Maroon drum)",
+      "family": "percussion",
+      "href": "instruments/apinti.json"
+    },
+    {
+      "id": "aleke_doon",
+      "name": "Aleke doon (Surinamese tall hand drum)",
+      "family": "percussion",
+      "href": "instruments/aleke_doon.json"
+    },
+    {
+      "id": "tule_clarinets",
+      "name": "Tule (Wayãpi clarinet ensemble)",
+      "family": "wind",
+      "href": "instruments/tule_clarinets.json"
+    },
+    {
+      "id": "kewei",
+      "name": "Kewei (Makushi–Wapichana rattle)",
+      "family": "percussion",
+      "href": "instruments/kewei.json"
+    },
+    {
+      "id": "ruwe",
+      "name": "Ruwe (Makushi–Wapichana flute)",
+      "family": "wind",
+      "href": "instruments/ruwe.json"
+    },
+    {
+      "id": "pokisi",
+      "name": "Pokisi (Tuvaluan wooden percussion box)",
+      "family": "percussion",
+      "href": "instruments/pokisi.json"
+    },
+    {
+      "id": "kaapa",
+      "name": "Kaapa (Tuvaluan tin percussion)",
+      "family": "percussion",
+      "href": "instruments/kaapa.json"
+    },
+    {
+      "id": "kundu",
+      "name": "Kundu (Papua New Guinean hourglass drum)",
+      "family": "percussion",
+      "href": "instruments/kundu.json"
+    },
+    {
+      "id": "susap",
+      "name": "Susap (Papua New Guinean bamboo mouth harp)",
+      "family": "percussion",
+      "href": "instruments/susap.json"
+    },
+    {
+      "id": "vimbuza_drums",
+      "name": "Vimbuza drum ensemble",
+      "family": "percussion",
+      "href": "instruments/vimbuza_drums.json"
+    },
+    {
+      "id": "tchopa_drums",
+      "name": "Tchopa three-drum ensemble",
+      "family": "percussion",
+      "href": "instruments/tchopa_drums.json"
+    },
+    {
+      "id": "malipenga_drums",
+      "name": "Muganda and chandi (Tonga malipenga drum pair)",
+      "family": "percussion",
+      "href": "instruments/malipenga_drums.json"
+    },
+    {
+      "id": "acoustic_membrane_drum",
+      "name": "Acoustic membrane drum (unspecified regional form)",
+      "family": "percussion",
+      "href": "instruments/acoustic_membrane_drum.json"
+    },
+    {
+      "id": "nyele_ensemble",
+      "name": "Nyele (Valley Tonga horn-flute ensemble)",
+      "family": "wind",
+      "href": "instruments/nyele_ensemble.json"
+    },
+    {
+      "id": "budima_drums",
+      "name": "Budima (Valley Tonga ceremonial drum ensemble)",
+      "family": "percussion",
+      "href": "instruments/budima_drums.json"
+    },
+    {
+      "id": "thaara_frame_drum",
+      "name": "Thaara (Maldivian frame drum)",
+      "family": "percussion",
+      "href": "instruments/thaara_frame_drum.json"
+    },
+    {
+      "id": "bandiyaa_pot",
+      "name": "Bandiyaa (Maldivian struck metal water pot)",
+      "family": "percussion",
+      "href": "instruments/bandiyaa_pot.json"
+    },
+    {
+      "id": "dhandi_sticks",
+      "name": "Dhandi (Maldivian dance sticks)",
+      "family": "percussion",
+      "href": "instruments/dhandi_sticks.json"
+    },
+    {
+      "id": "dene_hand_drum",
+      "name": "Dene hand drum",
+      "family": "percussion",
+      "href": "instruments/dene_hand_drum.json"
+    },
+    {
+      "id": "kawina_dron",
+      "name": "Kawina dron (Surinamese double-headed drum)",
+      "family": "percussion",
+      "href": "instruments/kawina_dron.json"
+    },
+    {
+      "id": "tirere_rods",
+      "name": "Tirere (Kiribati paired dance rods)",
+      "family": "percussion",
+      "href": "instruments/tirere_rods.json"
+    },
+    {
+      "id": "water_percussion",
+      "name": "Water percussion (Vanuatu women’s water music)",
+      "family": "percussion",
+      "href": "instruments/water_percussion.json"
+    },
+    {
+      "id": "hiragasy_drums",
+      "name": "Hiragasy drum section",
+      "family": "percussion",
+      "href": "instruments/hiragasy_drums.json"
+    },
+    {
+      "id": "awasa_drums",
+      "name": "Awasa drums (gaandoon, tundoon and pikiendoon)",
+      "family": "percussion",
+      "href": "instruments/awasa_drums.json"
+    },
+    {
+      "id": "dyas_tapu_patu",
+      "name": "Dyas / djaz and tapu patu (Maroon bass-drum and cymbal)",
+      "family": "percussion",
+      "href": "instruments/dyas_tapu_patu.json"
     }
   ]
 }

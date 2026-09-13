@@ -1,0 +1,158 @@
+{
+  "id": "tule_clarinets",
+  "name": "Tule (Wayãpi clarinet ensemble)",
+  "short": "tule clarinet ensemble",
+  "family": "wind",
+  "class": "clarinet_ensemble",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "tule_texture",
+      "name": "Texture",
+      "variants": [
+        {
+          "id": "tule_texture_interlock",
+          "name": "Interlocking clarinet parts",
+          "default": true,
+          "descriptors": [
+            "interlocking",
+            "reed-ensemble",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "interlocking",
+            "reed-ensemble",
+            "cyclic"
+          ]
+        },
+        {
+          "id": "tule_texture_sustain",
+          "name": "Sustained interleaved tones",
+          "descriptors": [
+            "sustained",
+            "staggered",
+            "reed-tone"
+          ],
+          "match_tokens": [
+            "sustained",
+            "staggered",
+            "reed-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tule_phrasing",
+      "name": "Breath phrasing",
+      "variants": [
+        {
+          "id": "tule_phrasing_sustained",
+          "name": "Sustained tones",
+          "default": true,
+          "descriptors": [
+            "sustained",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "sustained",
+            "breath-driven"
+          ]
+        },
+        {
+          "id": "tule_phrasing_pulsed",
+          "name": "Pulsed tones",
+          "descriptors": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tule_texture",
+      "name": "Texture",
+      "variants": [
+        {
+          "id": "tule_texture_interlock",
+          "name": "Interlocking clarinet parts",
+          "default": true,
+          "descriptors": [
+            "interlocking",
+            "reed-ensemble",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "interlocking",
+            "reed-ensemble",
+            "cyclic"
+          ]
+        },
+        {
+          "id": "tule_texture_sustain",
+          "name": "Sustained interleaved tones",
+          "descriptors": [
+            "sustained",
+            "staggered",
+            "reed-tone"
+          ],
+          "match_tokens": [
+            "sustained",
+            "staggered",
+            "reed-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tule_phrasing",
+      "name": "Breath phrasing",
+      "variants": [
+        {
+          "id": "tule_phrasing_sustained",
+          "name": "Sustained tones",
+          "default": true,
+          "descriptors": [
+            "sustained",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "sustained",
+            "breath-driven"
+          ]
+        },
+        {
+          "id": "tule_phrasing_pulsed",
+          "name": "Pulsed tones",
+          "descriptors": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

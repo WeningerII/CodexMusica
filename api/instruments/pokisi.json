@@ -1,0 +1,134 @@
+{
+  "id": "pokisi",
+  "name": "Pokisi (Tuvaluan wooden percussion box)",
+  "short": "pokisi",
+  "family": "percussion",
+  "class": "struck_box",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "pokisi_build",
+      "name": "Sounding body",
+      "variants": [
+        {
+          "id": "pokisi_build_box",
+          "name": "Wooden box",
+          "default": true,
+          "descriptors": [
+            "wooden-box",
+            "hollow",
+            "low-thump"
+          ],
+          "match_tokens": [
+            "wooden-box",
+            "hollow",
+            "low-thump"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pokisi_stroke",
+      "name": "Hand strokes",
+      "variants": [
+        {
+          "id": "pokisi_stroke_open",
+          "name": "Open strokes",
+          "default": true,
+          "descriptors": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "pokisi_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pokisi_build",
+      "name": "Sounding body",
+      "variants": [
+        {
+          "id": "pokisi_build_box",
+          "name": "Wooden box",
+          "default": true,
+          "descriptors": [
+            "wooden-box",
+            "hollow",
+            "low-thump"
+          ],
+          "match_tokens": [
+            "wooden-box",
+            "hollow",
+            "low-thump"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pokisi_stroke",
+      "name": "Hand strokes",
+      "variants": [
+        {
+          "id": "pokisi_stroke_open",
+          "name": "Open strokes",
+          "default": true,
+          "descriptors": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "pokisi_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

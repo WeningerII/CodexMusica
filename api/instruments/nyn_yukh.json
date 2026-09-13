@@ -1,0 +1,220 @@
+{
+  "id": "nyn_yukh",
+  "name": "Nyn-yukh (Khanty / Mansi bowed instrument)",
+  "short": "nyn yukh",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "nyn_yukh_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "nyn_yukh_form_khanty",
+          "name": "Eastern Khanty two-string form",
+          "default": true,
+          "descriptors": [
+            "two-string",
+            "hollowed-wood",
+            "bowed"
+          ],
+          "match_tokens": [
+            "two-string",
+            "hollowed-wood",
+            "bowed"
+          ]
+        },
+        {
+          "id": "nyn_yukh_form_mansi",
+          "name": "Sosva Mansi one-string form",
+          "descriptors": [
+            "single-string",
+            "bowed"
+          ],
+          "match_tokens": [
+            "single-string",
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyn_yukh_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "nyn_yukh_strings_horsehair",
+          "name": "Horsehair or sinew strings",
+          "default": true,
+          "descriptors": [
+            "natural-fibre",
+            "soft"
+          ],
+          "match_tokens": [
+            "natural-fibre",
+            "soft"
+          ]
+        },
+        {
+          "id": "nyn_yukh_strings_line",
+          "name": "Fishing-line strings",
+          "descriptors": [
+            "fishing-line",
+            "smooth"
+          ],
+          "match_tokens": [
+            "fishing-line",
+            "smooth"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bowed_technique",
+      "name": "Bowing",
+      "variants": [
+        {
+          "id": "bowed_technique_nyn_yukh_melody",
+          "name": "Sustained melody",
+          "default": true,
+          "descriptors": [
+            "bowed",
+            "sustained",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained",
+            "melodic"
+          ]
+        },
+        {
+          "id": "bowed_technique_nyn_yukh_pulse",
+          "name": "Separated bow strokes",
+          "descriptors": [
+            "bowed",
+            "separated-attacks",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "separated-attacks",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nyn_yukh_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "nyn_yukh_form_khanty",
+          "name": "Eastern Khanty two-string form",
+          "default": true,
+          "descriptors": [
+            "two-string",
+            "hollowed-wood",
+            "bowed"
+          ],
+          "match_tokens": [
+            "two-string",
+            "hollowed-wood",
+            "bowed"
+          ]
+        },
+        {
+          "id": "nyn_yukh_form_mansi",
+          "name": "Sosva Mansi one-string form",
+          "descriptors": [
+            "single-string",
+            "bowed"
+          ],
+          "match_tokens": [
+            "single-string",
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyn_yukh_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "nyn_yukh_strings_horsehair",
+          "name": "Horsehair or sinew strings",
+          "default": true,
+          "descriptors": [
+            "natural-fibre",
+            "soft"
+          ],
+          "match_tokens": [
+            "natural-fibre",
+            "soft"
+          ]
+        },
+        {
+          "id": "nyn_yukh_strings_line",
+          "name": "Fishing-line strings",
+          "descriptors": [
+            "fishing-line",
+            "smooth"
+          ],
+          "match_tokens": [
+            "fishing-line",
+            "smooth"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bowed_technique",
+      "name": "Bowing",
+      "variants": [
+        {
+          "id": "bowed_technique_nyn_yukh_melody",
+          "name": "Sustained melody",
+          "default": true,
+          "descriptors": [
+            "bowed",
+            "sustained",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained",
+            "melodic"
+          ]
+        },
+        {
+          "id": "bowed_technique_nyn_yukh_pulse",
+          "name": "Separated bow strokes",
+          "descriptors": [
+            "bowed",
+            "separated-attacks",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "separated-attacks",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ]
+}

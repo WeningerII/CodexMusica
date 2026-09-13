@@ -8,8 +8,8 @@ an instrument — and Claude returns a compact **recipe**: a descriptor stack
 naming the instruments, materials, room, signal chain, and per-instrument
 *prefaces* that tell you how to record it.
 
-- **Catalog:** 2503 traditions · 1406 instruments (with per-part variants) ·
-  256 rooms · 120 tunings · 741 prefaces, placed in a 13-dimensional parameter space.
+- **Catalog:** 2564 traditions · 1457 instruments (with per-part variants) ·
+  256 rooms · 122 tunings · 741 prefaces, placed in a 13-dimensional parameter space.
 - **Browser app:** <https://codexmusica.com/codex.html>
 - **Endpoint:** `https://mcp.codexmusica.com/mcp` · health: `/health`
 - **Auth:** public endpoint; run and request identifiers are private bearer capabilities.

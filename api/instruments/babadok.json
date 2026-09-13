@@ -1,0 +1,134 @@
+{
+  "id": "babadok",
+  "name": "Babadok (Timorese hand drum)",
+  "short": "babadok",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "babadok_build",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "babadok_build_skin",
+          "name": "Wooden shell with skin head",
+          "default": true,
+          "descriptors": [
+            "wooden-shell",
+            "skin-head",
+            "rope-tension"
+          ],
+          "match_tokens": [
+            "wooden-shell",
+            "skin-head",
+            "rope-tension"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "babadok_stroke",
+      "name": "Hand strokes",
+      "variants": [
+        {
+          "id": "babadok_stroke_open",
+          "name": "Open strokes",
+          "default": true,
+          "descriptors": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "babadok_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "babadok_build",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "babadok_build_skin",
+          "name": "Wooden shell with skin head",
+          "default": true,
+          "descriptors": [
+            "wooden-shell",
+            "skin-head",
+            "rope-tension"
+          ],
+          "match_tokens": [
+            "wooden-shell",
+            "skin-head",
+            "rope-tension"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "babadok_stroke",
+      "name": "Hand strokes",
+      "variants": [
+        {
+          "id": "babadok_stroke_open",
+          "name": "Open strokes",
+          "default": true,
+          "descriptors": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "babadok_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

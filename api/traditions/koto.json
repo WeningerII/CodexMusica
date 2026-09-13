@@ -3,14 +3,12 @@
   "name": "Koto",
   "family": "classical",
   "lineage": "Japanese koto thirteen-string movable-bridge zither tradition with the sankyoku chamber-trio canonical-ensemble configuration (koto-shakuhachi-shamisen). Imported from Tang-dynasty Chinese guzheng via 8th-century Japanese-court transmission, refined through Edo-period (1603-1868) school-lineage codification by the Ikuta and Yamada schools, and modernized 20th-century-onward through Miyagi-school-and-Sawai-school neoclassical compositional expansion (including the seventeen-string bass-koto innovation). Repertoire layers honkyoku solo-canonical pieces, jiuta-sankyoku chamber-trio works with shamisen-derived song-lyrics, and 20th-century-onward shin-nihon-ongaku modern-Japanese-music compositions.",
-  "recipe": "classic East Asian early-1600s koto, art Music, east Asian branch, string drone modal kazakh traditional music polish village fiddle. koto, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi, cat skin ivory red sandalwood premium silk shamisen. tatami parlor japanese. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 469,
-  "score": 58.752,
+  "recipe": "classic East Asian early-1600s koto, art Music, east Asian branch, string drone modal. koto, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi, cat skin ivory red sandalwood premium silk shamisen. tatami parlor japanese. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 422,
+  "score": 50.765,
   "config": {
     "traditions": [
-      "koto",
-      "kazakh_traditional",
-      "polish_village_fiddle"
+      "koto"
     ],
     "instruments": [
       {
@@ -20,16 +18,16 @@
           "koto_strings": "koto_17",
           "koto_picks": "koto_yamada",
           "koto_body_wood": "koto_aizu_paulownia",
-          "koto_strings_material": "koto_silk_historical",
+          "koto_strings_material": "koto_nylon_tetron",
           "koto_bridge_material": "koto_ivory_bridges_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 4.319999999999999,
-          "koto_strings": 3.3149999999999995,
-          "koto_picks": 3.185,
-          "koto_body_wood": 0.65,
-          "koto_strings_material": 0.975,
-          "koto_bridge_material": 0.7149999999999999
+          "plucked_traditional_technique": 3.295,
+          "koto_strings": 2.7299999999999995,
+          "koto_picks": 2.08,
+          "koto_body_wood": 0.7200000000000001,
+          "koto_strings_material": 0.5200000000000001,
+          "koto_bridge_material": 0.325
         }
       },
       {
@@ -42,9 +40,9 @@
           "shakuhachi_lineage": "shakuhachi_kinko"
         },
         "scores": {
-          "wind_articulation": 5.204999999999999,
+          "wind_articulation": 3.68,
           "shaku_length": 2.545,
-          "shaku_technique": 5.654999999999999,
+          "shaku_technique": 2.8600000000000003,
           "shakuhachi_body_material": 6.499999999999999,
           "shakuhachi_lineage": 5.545
         }
@@ -61,13 +59,13 @@
           "shamisen_tradition": "shamisen_nagauta"
         },
         "scores": {
-          "plucked_traditional_technique": 4.319999999999999,
-          "shamisen_size": 1.845,
-          "shamisen_skin": 1.89,
-          "shamisen_pick": 2.49,
+          "plucked_traditional_technique": 3.295,
+          "shamisen_size": 1.495,
+          "shamisen_skin": 1.54,
+          "shamisen_pick": 1.625,
           "shamisen_neck_wood": 2.535,
           "shamisen_strings": 3.9,
-          "shamisen_tradition": 6.3999999999999995
+          "shamisen_tradition": 5.2250000000000005
         }
       }
     ],

@@ -1,0 +1,92 @@
+{
+  "id": "dhandi_sticks",
+  "name": "Dhandi (Maldivian dance sticks)",
+  "short": "dhandi sticks",
+  "family": "percussion",
+  "class": "concussion_sticks",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "dhandi_gesture",
+      "name": "Partner gesture",
+      "variants": [
+        {
+          "id": "dhandi_gesture_partner",
+          "name": "Strike a neighbouring dancer’s stick",
+          "default": true,
+          "descriptors": [
+            "wooden",
+            "partner-struck",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "wooden",
+            "partner-struck",
+            "cyclic"
+          ]
+        },
+        {
+          "id": "dhandi_gesture_accent",
+          "name": "Accented partner strikes",
+          "descriptors": [
+            "wooden",
+            "partner-struck",
+            "accented"
+          ],
+          "match_tokens": [
+            "wooden",
+            "partner-struck",
+            "accented"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dhandi_gesture",
+      "name": "Partner gesture",
+      "variants": [
+        {
+          "id": "dhandi_gesture_partner",
+          "name": "Strike a neighbouring dancer’s stick",
+          "default": true,
+          "descriptors": [
+            "wooden",
+            "partner-struck",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "wooden",
+            "partner-struck",
+            "cyclic"
+          ]
+        },
+        {
+          "id": "dhandi_gesture_accent",
+          "name": "Accented partner strikes",
+          "descriptors": [
+            "wooden",
+            "partner-struck",
+            "accented"
+          ],
+          "match_tokens": [
+            "wooden",
+            "partner-struck",
+            "accented"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -26,6 +26,7 @@ const TRADITION_SOURCE_KEYS = [
   'tuning',
   'room',
   'parts',
+  'pin_parts',
   'chain_mic',
   'chain_pre',
   'chain_comp',

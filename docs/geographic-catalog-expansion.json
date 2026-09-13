@@ -1,0 +1,1550 @@
+{
+  "date": "2026-09-13",
+  "base_commit": "7cebdf247e755da529b17261420c813ad6a789aa",
+  "scope": {
+    "researched_traditions": 61,
+    "researched_instruments": 35,
+    "supporting_instruments": 16,
+    "repaired_traditions": 2
+  },
+  "method": "The 96 candidate IDs are reconciled against the current catalog, including aliases and instrument parts. Entries describe selected configurations, not exhaustive cultural inventories. Sources establish repertoire, instruments and performance context. Numeric axes, optional sound controls and the contemporary field-recording chain are authored recording-model choices. Performer-relative tuning records missing interval evidence without asserting 12-TET or just intonation. Coordinates are approximate cultural or documentation anchors and have not received the separate human atlas audit.",
+  "entries": [
+    {
+      "candidate": "I001",
+      "kind": "instrument",
+      "id": "kaligo",
+      "sources": ["S5"],
+      "notes": "",
+      "research_area": "Malawi"
+    },
+    {
+      "candidate": "I002",
+      "kind": "instrument",
+      "id": "ingina",
+      "sources": ["S5"],
+      "notes": "Relative size and ensemble role are documented; precise shell species and tuning are not asserted.",
+      "research_area": "Malawi"
+    },
+    {
+      "candidate": "I003",
+      "kind": "instrument",
+      "id": "twana_perekete",
+      "sources": ["S5"],
+      "notes": "One selectable instrument represents the documented pair, preserving the three-drum total with ingina.",
+      "research_area": "Malawi"
+    },
+    {
+      "candidate": "I004",
+      "kind": "instrument",
+      "id": "malipenga_singing_horn",
+      "sources": ["S6"],
+      "notes": "",
+      "research_area": "Malawi"
+    },
+    {
+      "candidate": "I005",
+      "kind": "instrument",
+      "id": "keleli",
+      "sources": ["S7"],
+      "notes": "Two- and three-string lute recordings are separately catalogued by CREM; string material is left unspecified.",
+      "research_area": "Chad / Tibesti"
+    },
+    {
+      "candidate": "I006",
+      "kind": "instrument",
+      "id": "bilil",
+      "sources": ["S7"],
+      "notes": "",
+      "research_area": "Chad / Tibesti"
+    },
+    {
+      "candidate": "I007",
+      "kind": "instrument",
+      "id": "ongo_horns",
+      "sources": ["S10"],
+      "notes": "",
+      "research_area": "Central African Republic"
+    },
+    {
+      "candidate": "I008",
+      "kind": "instrument",
+      "id": "lenga",
+      "sources": ["S10"],
+      "notes": "",
+      "research_area": "Central African Republic"
+    },
+    {
+      "candidate": "I009",
+      "kind": "instrument",
+      "id": "mvrele",
+      "sources": ["S10"],
+      "notes": "",
+      "research_area": "Central African Republic"
+    },
+    {
+      "candidate": "I010",
+      "kind": "instrument",
+      "id": "nars_yukh",
+      "sources": ["S12"],
+      "notes": "",
+      "research_area": "Western Siberia / Ob-Ugric"
+    },
+    {
+      "candidate": "I011",
+      "kind": "instrument",
+      "id": "tor_sapl_yukh",
+      "sources": ["S14"],
+      "notes": "",
+      "research_area": "Western Siberia / Ob-Ugric"
+    },
+    {
+      "candidate": "I012",
+      "kind": "instrument",
+      "id": "nyn_yukh",
+      "sources": ["S15"],
+      "notes": "Museum distinguishes secular tune-playing from sacred harp and zither uses; do not automatically place this fiddle in the bear-festival roster.",
+      "research_area": "Western Siberia / Ob-Ugric"
+    },
+    {
+      "candidate": "I013",
+      "kind": "instrument",
+      "id": "tumran",
+      "sources": ["S16"],
+      "notes": "",
+      "research_area": "Western Siberia / Ob-Ugric"
+    },
+    {
+      "candidate": "I014",
+      "kind": "instrument",
+      "id": "babadok",
+      "sources": ["S19"],
+      "notes": "",
+      "research_area": "Timor-Leste"
+    },
+    {
+      "candidate": "I015",
+      "kind": "instrument",
+      "id": "boduberu_drum",
+      "sources": ["S21"],
+      "notes": "Default represents the documented three-drum group; goatskin is the contemporary head choice.",
+      "research_area": "Maldives"
+    },
+    {
+      "candidate": "I016",
+      "kind": "instrument",
+      "id": "krez_zither",
+      "sources": ["S27"],
+      "notes": "",
+      "research_area": "Volga–Ural / Udmurtia"
+    },
+    {
+      "candidate": "I017",
+      "kind": "instrument",
+      "id": "udmurt_kubyz",
+      "sources": ["S27"],
+      "notes": "Distinct from the Bashkir mouth harp sharing the name kubyz.",
+      "research_area": "Volga–Ural / Udmurtia"
+    },
+    {
+      "candidate": "I018",
+      "kind": "instrument",
+      "id": "uzy_gumy",
+      "sources": ["S27"],
+      "notes": "",
+      "research_area": "Volga–Ural / Udmurtia"
+    },
+    {
+      "candidate": "I019",
+      "kind": "instrument",
+      "id": "chipchirgan",
+      "sources": ["S27"],
+      "notes": "",
+      "research_area": "Volga–Ural / Udmurtia"
+    },
+    {
+      "candidate": "I020",
+      "kind": "instrument",
+      "id": "shuvyr",
+      "sources": ["S26"],
+      "notes": "",
+      "research_area": "Volga–Ural / Mari lands"
+    },
+    {
+      "candidate": "I021",
+      "kind": "instrument",
+      "id": "tumyr",
+      "sources": ["S26"],
+      "notes": "The documented ensemble credits establish this drum; unspecified material and tuning remain unspecified.",
+      "research_area": "Volga–Ural / Mari lands"
+    },
+    {
+      "candidate": "I022",
+      "kind": "instrument",
+      "id": "iya_kovyzh",
+      "sources": ["S26"],
+      "notes": "",
+      "research_area": "Volga–Ural / Mari lands"
+    },
+    {
+      "candidate": "I023",
+      "kind": "instrument",
+      "id": "zaqq",
+      "sources": ["S29"],
+      "notes": "",
+      "research_area": "Malta"
+    },
+    {
+      "candidate": "I024",
+      "kind": "instrument",
+      "id": "tanbur_maltese",
+      "sources": ["S29"],
+      "notes": "Separate from the plucked lute called tanbur.",
+      "research_area": "Malta"
+    },
+    {
+      "candidate": "I025",
+      "kind": "instrument",
+      "id": "cauyaq",
+      "sources": ["S31"],
+      "notes": "Construction follows NMAI object 275934; precise drum dimensions vary among makers.",
+      "research_area": "Alaska / Yup’ik lands"
+    },
+    {
+      "candidate": "I026",
+      "kind": "instrument",
+      "id": "qilaat",
+      "sources": ["S32"],
+      "notes": "",
+      "research_area": "Greenland"
+    },
+    {
+      "candidate": "I027",
+      "kind": "instrument",
+      "id": "apinti",
+      "sources": ["S34"],
+      "notes": "",
+      "research_area": "Guianas / Maroon river communities"
+    },
+    {
+      "candidate": "I028",
+      "kind": "instrument",
+      "id": "aleke_doon",
+      "sources": ["S34"],
+      "notes": "",
+      "research_area": "Guianas / Maroon river communities"
+    },
+    {
+      "candidate": "I029",
+      "kind": "instrument",
+      "id": "tule_clarinets",
+      "sources": ["S37"],
+      "notes": "",
+      "research_area": "Guianas / upper Oyapock"
+    },
+    {
+      "candidate": "I030",
+      "kind": "instrument",
+      "id": "kewei",
+      "sources": ["S38"],
+      "notes": "",
+      "research_area": "Guiana Shield / Makushi–Wapichana"
+    },
+    {
+      "candidate": "I031",
+      "kind": "instrument",
+      "id": "ruwe",
+      "sources": ["S38"],
+      "notes": "",
+      "research_area": "Guiana Shield / Makushi–Wapichana"
+    },
+    {
+      "candidate": "I032",
+      "kind": "instrument",
+      "id": "pokisi",
+      "sources": ["S42"],
+      "notes": "",
+      "research_area": "Tuvalu"
+    },
+    {
+      "candidate": "I033",
+      "kind": "instrument",
+      "id": "kaapa",
+      "sources": ["S42"],
+      "notes": "",
+      "research_area": "Tuvalu"
+    },
+    {
+      "candidate": "I034",
+      "kind": "instrument",
+      "id": "kundu",
+      "sources": ["S44"],
+      "notes": "",
+      "research_area": "Papua New Guinea"
+    },
+    {
+      "candidate": "I035",
+      "kind": "instrument",
+      "id": "susap",
+      "sources": ["S45"],
+      "notes": "",
+      "research_area": "Papua New Guinea"
+    },
+    {
+      "candidate": "D001",
+      "kind": "instrument",
+      "id": "vimbuza_drums",
+      "sources": ["S4"],
+      "notes": ""
+    },
+    {
+      "candidate": "D002",
+      "kind": "instrument",
+      "id": "tchopa_drums",
+      "sources": ["X13"],
+      "notes": ""
+    },
+    {
+      "candidate": "D003",
+      "kind": "instrument",
+      "id": "malipenga_drums",
+      "sources": ["S6"],
+      "notes": "The album identifies muganda and chandi; the selected track documents a bass and cylindrical drum alongside twelve singing horns."
+    },
+    {
+      "candidate": "D004",
+      "kind": "instrument",
+      "id": "acoustic_membrane_drum",
+      "sources": ["S7"],
+      "notes": "Neutral drum abstraction for archival credits that do not identify a local type. Used for Tibesti terdegna and Kiribati batere, not a claim that their drums are identical."
+    },
+    {
+      "candidate": "D005",
+      "kind": "instrument",
+      "id": "nyele_ensemble",
+      "sources": ["X4"],
+      "notes": "Nyele are edge-blown flutes made from horns, not lip-vibrated brass. The museum attribution of its individual object is tentative."
+    },
+    {
+      "candidate": "D006",
+      "kind": "instrument",
+      "id": "budima_drums",
+      "sources": ["X5"],
+      "notes": ""
+    },
+    {
+      "candidate": "D007",
+      "kind": "instrument",
+      "id": "thaara_frame_drum",
+      "sources": ["S21"],
+      "notes": ""
+    },
+    {
+      "candidate": "D008",
+      "kind": "instrument",
+      "id": "bandiyaa_pot",
+      "sources": ["S21"],
+      "notes": ""
+    },
+    {
+      "candidate": "D009",
+      "kind": "instrument",
+      "id": "dhandi_sticks",
+      "sources": ["S21"],
+      "notes": ""
+    },
+    {
+      "candidate": "D010",
+      "kind": "instrument",
+      "id": "dene_hand_drum",
+      "sources": ["X6"],
+      "notes": "Community film S33 anchors handgame use; X6 documents Dene drum-making without generalizing one maker’s wood or hide species to all Dene drums."
+    },
+    {
+      "candidate": "D011",
+      "kind": "instrument",
+      "id": "kawina_dron",
+      "sources": ["X7"],
+      "notes": ""
+    },
+    {
+      "candidate": "D012",
+      "kind": "instrument",
+      "id": "tirere_rods",
+      "sources": ["S40"],
+      "notes": ""
+    },
+    {
+      "candidate": "D013",
+      "kind": "instrument",
+      "id": "water_percussion",
+      "sources": ["X12", "X20", "X21"],
+      "notes": ""
+    },
+    {
+      "candidate": "D014",
+      "kind": "instrument",
+      "id": "hiragasy_drums",
+      "sources": ["X2"],
+      "notes": "Two drummers are credited in the documented troupe; precise drum subtype is not inferred from a generic credit."
+    },
+    {
+      "candidate": "D015",
+      "kind": "instrument",
+      "id": "awasa_drums",
+      "sources": ["X8"],
+      "notes": ""
+    },
+    {
+      "candidate": "T001",
+      "kind": "tradition",
+      "id": "salegy",
+      "sources": ["S1", "X1"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Madagascar",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T002",
+      "kind": "tradition",
+      "id": "tsapiky",
+      "sources": ["S2"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Madagascar",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T003",
+      "kind": "tradition",
+      "id": "hiragasy",
+      "sources": ["S3", "X2"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Madagascar",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T004",
+      "kind": "tradition",
+      "id": "vimbuza",
+      "sources": ["S4"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Malawi",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T005",
+      "kind": "tradition",
+      "id": "tchopa",
+      "sources": ["S5", "X13"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Malawi",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T006",
+      "kind": "tradition",
+      "id": "mwinoghe",
+      "sources": ["S5", "X3"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Malawi",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T007",
+      "kind": "tradition",
+      "id": "kaligo_playing",
+      "sources": ["S5"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Malawi",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T008",
+      "kind": "tradition",
+      "id": "malipenga",
+      "sources": ["S6", "X10"],
+      "notes": "Voice is generated through the malipenga instruments; no separate unaccompanied voice card is added. Chintheche is the performers’ home-region anchor, not the mining-compound recording location.",
+      "research_area": "Malawi",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T009",
+      "kind": "tradition",
+      "id": "himmi",
+      "sources": ["S7", "X14"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Chad / Tibesti",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T010",
+      "kind": "tradition",
+      "id": "dobana_terkiya",
+      "sources": ["S7", "X15"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Chad / Tibesti",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T011",
+      "kind": "tradition",
+      "id": "terdegna",
+      "sources": ["S7"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Chad / Tibesti",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T012",
+      "kind": "tradition",
+      "id": "dinka_song_traditions",
+      "sources": ["S8"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "South Sudan",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T013",
+      "kind": "tradition",
+      "id": "fang_bwiti",
+      "sources": ["S9"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Gabon",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T014",
+      "kind": "tradition",
+      "id": "mbiri",
+      "sources": ["S9"],
+      "notes": "Named separately from Bwiti; the album includes multiple ritual textures, so the seed represents harp songs rather than every ritual phase.",
+      "research_area": "Gabon",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T015",
+      "kind": "tradition",
+      "id": "banda_linda_polyphony",
+      "sources": ["S10"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Central African Republic",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T016",
+      "kind": "tradition",
+      "id": "banda_dakpa_polyphony",
+      "sources": ["S10"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Central African Republic",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T017",
+      "kind": "tradition",
+      "id": "budima",
+      "sources": ["S11", "X4", "X5"],
+      "notes": "The regional voice setting is replaced below by a dedicated Valley Tonga option; Zambian Tonga and Malawian Tonga traditions remain distinct.",
+      "research_area": "Zambia",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T018",
+      "kind": "tradition",
+      "id": "khanty_mansi_bear_festival",
+      "sources": ["S12", "S15"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Western Siberia / Ob-Ugric",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T019",
+      "kind": "tradition",
+      "id": "khanty_personal_songs",
+      "sources": ["S13"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Western Siberia / Ob-Ugric",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T020",
+      "kind": "tradition",
+      "id": "chukchi_personal_songs",
+      "sources": ["S17"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Chukotka",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T021",
+      "kind": "tradition",
+      "id": "koryak_personal_songs",
+      "sources": ["S18"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Kamchatka / Koryak lands",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T022",
+      "kind": "tradition",
+      "id": "tebe_tebe",
+      "sources": ["S19"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Timor-Leste",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T023",
+      "kind": "tradition",
+      "id": "zhungdra",
+      "sources": ["S20", "X18"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Bhutan",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T024",
+      "kind": "tradition",
+      "id": "boedra",
+      "sources": ["S20", "X18", "X19"],
+      "notes": "The editorial in X18 distinguishes accompanied boedra from a cappella zhungdra. X19 documents chiwang and dramnyen in training for these repertoires; this roster is an authored traditional-instrument selection, not a transcription of one 1995 performance.",
+      "research_area": "Bhutan",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T025",
+      "kind": "tradition",
+      "id": "boduberu",
+      "sources": ["S21"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Maldives",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T026",
+      "kind": "tradition",
+      "id": "thaara_jehun",
+      "sources": ["S21"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Maldives",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T027",
+      "kind": "tradition",
+      "id": "bandiyaa_jehun",
+      "sources": ["S21"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Maldives",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T028",
+      "kind": "tradition",
+      "id": "dhandi_jehun",
+      "sources": ["S21"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Maldives",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T029",
+      "kind": "tradition",
+      "id": "falak",
+      "sources": ["S22"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Tajikistan",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T030",
+      "kind": "tradition",
+      "id": "katta_ashula",
+      "sources": ["S23", "X17"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Fergana Valley / Uzbekistan",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T031",
+      "kind": "tradition",
+      "id": "turkmen_bagshy",
+      "sources": ["S24"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Turkmenistan",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T032",
+      "kind": "tradition",
+      "id": "north_udmurt_krez",
+      "sources": ["S25"],
+      "notes": "Parent groups the lament-like musical character, not a claim that every krez performance is a funeral rite.",
+      "research_area": "Volga–Ural / Udmurtia",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T033",
+      "kind": "tradition",
+      "id": "mari_song_dance",
+      "sources": ["S26"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Volga–Ural / Mari lands",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T034",
+      "kind": "tradition",
+      "id": "maltese_ghana",
+      "sources": ["S28"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Malta",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T035",
+      "kind": "tradition",
+      "id": "yupik_yuraq",
+      "sources": ["S30", "S31"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Alaska / Yup’ik lands",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T036",
+      "kind": "tradition",
+      "id": "greenlandic_drum_song",
+      "sources": ["S32", "X9"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Greenland",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T037",
+      "kind": "tradition",
+      "id": "dene_handgame",
+      "sources": ["S33", "X6"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Northwestern Canada / Dene lands",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T038",
+      "kind": "tradition",
+      "id": "awasa",
+      "sources": ["S35", "X8", "X16"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Guianas / Maroon river communities",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T039",
+      "kind": "tradition",
+      "id": "aleke",
+      "sources": ["S34", "X16"],
+      "notes": "Later three-tall-drum ensemble; dyas/tapu-patu is modeled as one bass-drum-and-cymbal card, distinct from earlier seated apinti-based aleke.",
+      "research_area": "Guianas / Maroon river communities",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T040",
+      "kind": "tradition",
+      "id": "kawina",
+      "sources": ["S34", "X7"],
+      "notes": "Minimal drum-and-voice configuration. Kawina ensembles can include additional idiophones; this entry does not substitute the ritual apinti drum for kawina dron.",
+      "research_area": "Suriname / Creole communities",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T041",
+      "kind": "tradition",
+      "id": "wayapi_tule",
+      "sources": ["S36", "S37"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Guianas / upper Oyapock",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T042",
+      "kind": "tradition",
+      "id": "parixara",
+      "sources": ["S38"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Guiana Shield / Makushi–Wapichana",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T043",
+      "kind": "tradition",
+      "id": "selknam_hain",
+      "sources": ["S39"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Tierra del Fuego / Selk’nam",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T044",
+      "kind": "tradition",
+      "id": "selknam_shamanic_laments",
+      "sources": ["S39"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Tierra del Fuego / Selk’nam",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T045",
+      "kind": "tradition",
+      "id": "kiribati_ruoia",
+      "sources": ["S40"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Micronesia / Kiribati",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T046",
+      "kind": "tradition",
+      "id": "kiribati_bino",
+      "sources": ["S40"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Micronesia / Kiribati",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T047",
+      "kind": "tradition",
+      "id": "kiribati_tirere",
+      "sources": ["S40"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Micronesia / Kiribati",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T048",
+      "kind": "tradition",
+      "id": "kiribati_batere",
+      "sources": ["S40"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Micronesia / Kiribati",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T049",
+      "kind": "tradition",
+      "id": "yap_churu",
+      "sources": ["S41"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Micronesia / Yap",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T050",
+      "kind": "tradition",
+      "id": "tuvalu_fatele",
+      "sources": ["S42"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Tuvalu",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T051",
+      "kind": "tradition",
+      "id": "bosavi_gisalo",
+      "sources": ["S43"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Papua New Guinea / Bosavi",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T052",
+      "kind": "tradition",
+      "id": "bosavi_koluba",
+      "sources": ["S43"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Papua New Guinea / Bosavi",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T053",
+      "kind": "tradition",
+      "id": "bosavi_iwo",
+      "sources": ["S43"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Papua New Guinea / Bosavi",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T054",
+      "kind": "tradition",
+      "id": "bosavi_sabio",
+      "sources": ["S43"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Papua New Guinea / Bosavi",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T055",
+      "kind": "tradition",
+      "id": "bosavi_ilib_kuwo",
+      "sources": ["S43", "S44"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Papua New Guinea / Bosavi",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T056",
+      "kind": "tradition",
+      "id": "bosavi_sung_weeping",
+      "sources": ["S43"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Papua New Guinea / Bosavi",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T057",
+      "kind": "tradition",
+      "id": "bosavi_string_band",
+      "sources": ["S43"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Papua New Guinea / Bosavi",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T058",
+      "kind": "tradition",
+      "id": "wangga",
+      "sources": ["S46"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Northern Australia / Daly region",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T059",
+      "kind": "tradition",
+      "id": "lirrga",
+      "sources": ["S46"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Northern Australia / Daly region",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T060",
+      "kind": "tradition",
+      "id": "junba_balga",
+      "sources": ["S46"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Northwestern Australia / Kimberley",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "T061",
+      "kind": "tradition",
+      "id": "djanba",
+      "sources": ["S46"],
+      "notes": "Ensemble is a selected documented performance configuration; numeric axes and a contemporary field-recording chain are authored modeling choices, not measured historical recording specifications.",
+      "research_area": "Northern Australia / Wadeye",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "D016",
+      "kind": "instrument",
+      "id": "dyas_tapu_patu",
+      "sources": ["X16"],
+      "notes": ""
+    },
+    {
+      "candidate": "R001",
+      "kind": "repair",
+      "id": "vanuatu_water_drumming",
+      "sources": ["X12", "X20", "X21"],
+      "notes": "Removes unrelated sand drawing, the voice-only roster, Polynesian oli/falsetto settings, and a Southeast Asian studio. Gaua anchors the documented water-music practice; no claim of a single exclusive origin.",
+      "coordinate_basis": "Approximate named locality or regional anchor; not a unique origin claim."
+    },
+    {
+      "candidate": "R002",
+      "kind": "repair",
+      "id": "tongan_lakalaka",
+      "sources": ["X11"],
+      "notes": "Replaces solo/vocable/Polynesian-oli settings with Tongan poetic choral singing. Uses documented singing and handclaps instead of asserting obligatory nafa; leaves nafa available as a separate instrument."
+    }
+  ],
+  "sources": [
+    {
+      "id": "C1",
+      "publisher": "Codex Musica / WeningerII",
+      "title": "Pinned repository snapshot",
+      "url": "https://github.com/WeningerII/CodexMusica/tree/2cfe01d0db5101c1cf89661d85022f2a1c9fb37c",
+      "scope": "All catalog absence findings and coverage calculations. api/, data/ and references/ verified against the pinned Git tree.",
+      "date": "2026-09-12 catalog generation",
+      "access": "GitHub connector and matching local files"
+    },
+    {
+      "id": "S1",
+      "publisher": "University of Southampton / Jenny Fuhr",
+      "title": "Experiencing rhythm: contemporary Malagasy music and identity",
+      "url": "https://eprints.soton.ac.uk/344774/1/thesis_Jenny_Fuhr.pdf",
+      "scope": "Field research on Malagasy music; salegy.",
+      "date": "2012 thesis",
+      "access": "Indexed PDF passages; direct PDF blocked"
+    },
+    {
+      "id": "S2",
+      "publisher": "UNESCO ICH",
+      "title": "Tsapiky, rhythm and musical style of south-west Madagascar",
+      "url": "https://ich.unesco.org/en/RL/tsapiky-rhythm-and-musical-style-characteristic-of-the-south-west-region-of-madagascar-02272",
+      "scope": "Tsapiky identity and location.",
+      "date": "2025 inscription",
+      "access": "Indexed official description; direct page challenge"
+    },
+    {
+      "id": "S3",
+      "publisher": "UNESCO ICH",
+      "title": "Hiragasy, a performing art of the central highlands of Madagascar",
+      "url": "https://ich.unesco.org/en/RL/hiragasy-a-performing-art-of-the-central-highlands-of-madagascar-01740?RL=01740",
+      "scope": "Hiragasy: song, dance and speech.",
+      "date": "2023 inscription",
+      "access": "Indexed official description; direct page challenge"
+    },
+    {
+      "id": "S4",
+      "publisher": "UNESCO ICH",
+      "title": "Vimbuza healing dance",
+      "url": "https://ich.unesco.org/en/RL/vimbuza-healing-dance-00158",
+      "scope": "Tumbuka song, dance and drumming.",
+      "date": "2008 inscription",
+      "access": "Indexed official description; direct page challenge"
+    },
+    {
+      "id": "S5",
+      "publisher": "Malawi National Commission for UNESCO",
+      "title": "Documentation of Intangible Cultural Heritage",
+      "url": "https://www.malawinatcom.mw/documentation-of-intangible-cultural-heritage/",
+      "scope": "Tchopa; Mwinoghe and its three drums; Kaligo playing and instrument.",
+      "date": "Discusses 2014–2017 documentation",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S6",
+      "publisher": "Smithsonian Folkways / ILAM",
+      "title": "Muganda we Chitonga Banda",
+      "url": "https://folkways.si.edu/group-of-sixteen-tonga-men-and-boys/muganda-we-chitonga-banda/track/smithsonian",
+      "scope": "Tonga malipenga recording: singing horns and drums.",
+      "date": "1957 release",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S7",
+      "publisher": "CREM-CNRS / Monique Brandily",
+      "title": "Tibesti field recording collection",
+      "url": "https://archives.crem-cnrs.fr/archives/collections/CNRSMH_I_2009_001/",
+      "scope": "Himmi, Dobana terkiya, Terdégna, keleli and bilil.",
+      "date": "1965 recordings",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S8",
+      "publisher": "University of Edinburgh and SOAS research team",
+      "title": "A Collection of Dinka Songs",
+      "url": "https://www.research.ed.ac.uk/en/datasets/a-collection-of-dinka-songs/",
+      "scope": "Annotated songs from 36 singers/groups across South Sudan.",
+      "date": "2009–2012 recordings; 2012 release",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S9",
+      "publisher": "Smithsonian Folkways / James W. Fernandez",
+      "title": "Music from an Equatorial Microcosm: Fang Bwiti … with Mbiri Selections",
+      "url": "https://folkways.si.edu/music-from-an-equatorial-microcosm-fang-bwiti-from-gabon-republic-africa-with-mbiri-selections/world/album/smithsonian",
+      "scope": "Fang Bwiti and Mbiri recordings from Gabon.",
+      "date": "1973 release",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S10",
+      "publisher": "Smithsonian Folkways / Simha Arom",
+      "title": "Central African Republic: Banda Polyphony",
+      "url": "https://folkways.si.edu/central-african-republic-banda-polyphony/world/music/album/smithsonian",
+      "scope": "Linda and Dakpa music; ongo/ongo-ngala horns, lenga slit drums and mvrele flutes.",
+      "date": "1976 release",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S11",
+      "publisher": "Zambia Ministry of Tourism and Arts / UNESCO",
+      "title": "Budima Dance",
+      "url": "https://www.unesco.org/archives/multimedia/document-5332",
+      "scope": "Wee ceremonial dance and musical performance.",
+      "date": "2019 film",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S12",
+      "publisher": "Ugut Museum / Ministry of Culture of Russia",
+      "title": "Musical instrument Narkas-yukh",
+      "url": "https://ar.culture.ru/en/subject/muzykalnyy-instrument-narkas-yuh",
+      "scope": "Ob-Ugric zither family and bear-festival music.",
+      "date": "20th-century object",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S13",
+      "publisher": "Tobolsk Museum / Ministry of Culture of Russia",
+      "title": "Musical instrument: zither",
+      "url": "https://ar.culture.ru/en/subject/muzykalnyy-instrument-2",
+      "scope": "Khanty personal songs and instrumental context.",
+      "date": "Not stated",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S14",
+      "publisher": "Tobolsk Museum / Ministry of Culture of Russia",
+      "title": "Corner harp, a plucked musical instrument",
+      "url": "https://ar.culture.ru/en/subject/muzykalnyy-instrument-1",
+      "scope": "Khanty/Mansi angular harp; regional names.",
+      "date": "Object acquired 1905",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S15",
+      "publisher": "Ugut Museum / Ministry of Culture of Russia",
+      "title": "Musical instrument Nyn-yukh",
+      "url": "https://ar.culture.ru/en/subject/buben-shamana-4",
+      "scope": "Khanty/Mansi bowed instrument.",
+      "date": "1975 object",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S16",
+      "publisher": "Ugut Museum / Ministry of Culture of Russia",
+      "title": "Musical instrument Tomra",
+      "url": "https://ar.culture.ru/en/subject/muzykalnyy-instrument-tomra",
+      "scope": "Tumran/tomra, bone mouth harp.",
+      "date": "Late 20th–early 21st-century object",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S17",
+      "publisher": "Pia Siirala / Research Catalogue",
+      "title": "Aspects of hearing the Chukchi Personal Song",
+      "url": "https://www.researchcatalogue.net/view/2043895/2697782",
+      "scope": "Firsthand Chukchi personal-song research and terminology.",
+      "date": "Not stated",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S18",
+      "publisher": "Institute of Philology, Siberian Branch of RAS",
+      "title": "Personal songs in Koryak culture",
+      "url": "https://www.philology.nsc.ru/journals/spj_en/article.php?id=1744",
+      "scope": "Author field research on Koryak personal songs.",
+      "date": "Not stated",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S19",
+      "publisher": "UNESCO / Timor-Leste ichLinks filmmakers",
+      "title": "ichLinks Video Competition Winners (Timor-Leste)",
+      "url": "https://www.unesco.org/en/articles/ichlinks-video-competition-winners-timor-leste?hub=80094",
+      "scope": "Tebe-tebe and babadok craft documentation.",
+      "date": "2026 article",
+      "access": "Indexed official text; direct fetch unavailable"
+    },
+    {
+      "id": "S20",
+      "publisher": "College of Language and Culture Studies, Bhutan",
+      "title": "Introduction to performing arts: popular songs and dances in Bhutan",
+      "url": "https://bca.clcs.edu.bt/2010/04/introduction-to-performing-arts-popular-songs-dances-in-bhutan/",
+      "scope": "Zhungdra and boedra traditional forms.",
+      "date": "2010",
+      "access": "Indexed institutional text; direct fetch unavailable"
+    },
+    {
+      "id": "S21",
+      "publisher": "Visit Maldives",
+      "title": "Journeying Through the Rhythm of the Islands",
+      "url": "https://visitmaldives.com/en/experience/journeying-through-the-rhythm-of-the-islands-maldives-dance-and-musical-traditions",
+      "scope": "Boduberu, thaara jehun, bandiyaa jehun, dhandi jehun and instruments.",
+      "date": "2023-11-02",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S22",
+      "publisher": "UNESCO ICH",
+      "title": "Falak",
+      "url": "https://ich.unesco.org/en/RL/falak-01725?RL=01725",
+      "scope": "Tajik mountain singing tradition.",
+      "date": "2021 inscription",
+      "access": "Indexed official description; direct page challenge"
+    },
+    {
+      "id": "S23",
+      "publisher": "UNESCO ICH",
+      "title": "Katta Ashula",
+      "url": "https://ich.unesco.org/en/RL/katta-ashula-00288",
+      "scope": "Fergana Valley vocal tradition.",
+      "date": "2009 inscription",
+      "access": "Indexed official description"
+    },
+    {
+      "id": "S24",
+      "publisher": "Turkmenistan State News Agency",
+      "title": "Çalsana, bagşy! competition",
+      "url": "https://tdh.gov.tm/en/post/30095/calsana-bagsy-contest-announced-among-dutar-players-musicians-bakhshi",
+      "scope": "Dutar performance and bagşy/bakhshi art.",
+      "date": "2022-01-28",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S25",
+      "publisher": "GRAMOTA / ethnomusicology research",
+      "title": "Melodic improvisation in North-Udmurt krez’",
+      "url": "https://www.gramota.net/en/article/hss20121235/fulltext",
+      "scope": "Analysis of performed North-Udmurt krez’ melodies.",
+      "date": "2012",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S26",
+      "publisher": "Shuldyr Ensemble / Antonovka Records",
+      "title": "Shuldyrte: Udmurt, Mari and Karelian Music",
+      "url": "https://antonovkarecords.bandcamp.com/album/shuldyrte-udmurt-mari-and-karelian-music",
+      "scope": "Performer credits and recorded Mari/Udmurt repertoire.",
+      "date": "Recorded 2021-03-21",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S27",
+      "publisher": "I. V. Pchelovodova / Petrozavodsk State University journal",
+      "title": "Traditional Musical Instruments of the Udmurts",
+      "url": "https://journals.rcsi.science/2542-1077/article/view/403217",
+      "scope": "Krez, bowed kubyz, uzygumy, chipchirgan.",
+      "date": "2025",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S28",
+      "publisher": "UNESCO ICH",
+      "title": "L-Għana, a Maltese folksong tradition",
+      "url": "https://ich.unesco.org/en/RL/l-gana-a-maltese-folksong-tradition-01681?RL=01681",
+      "scope": "Maltese traditional singing.",
+      "date": "2021 inscription",
+      "access": "Indexed official description; direct page challenge"
+    },
+    {
+      "id": "S29",
+      "publisher": "Metropolitan Museum / Anna Borg Cardona",
+      "title": "Żaqq",
+      "url": "https://www.metmuseum.org/art/collection/search/502739",
+      "scope": "Maltese bagpipe and accompanying tanbur frame drum.",
+      "date": "2023 object essay",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S30",
+      "publisher": "Nunalleq Digital Museum / Native Village of Quinhagak",
+      "title": "Community co-curated museum and catalog",
+      "url": "https://nunalleq.org/",
+      "scope": "Yuarutet songs and yuraq dance in Yup’ik ceremonial life.",
+      "date": "Not stated",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S31",
+      "publisher": "National Museum of the American Indian",
+      "title": "Hand drum with seal handle, NMAI_275934",
+      "url": "https://americanindian.si.edu/collections-search/object/NMAI_275934",
+      "scope": "Yup’ik cauyaq made by Tom Sunny, Nightmute.",
+      "date": "1962 object",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S32",
+      "publisher": "Varna Marianne Nielsen / QILAAT",
+      "title": "Centre for Greenlandic heritage",
+      "url": "https://www.qilaat.org/",
+      "scope": "Practitioner account of Greenlandic drum singing, dance and qilaat.",
+      "date": "Not stated",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S33",
+      "publisher": "Royal Alberta Museum / Dene Tha’ participants",
+      "title": "Na’h e’tse’ah: Dene Hand Game",
+      "url": "https://royalalbertamuseum.ca/blog/nah-etseah-dene-hand-game",
+      "scope": "Community-directed handgame film and handmade drums.",
+      "date": "Not stated",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S34",
+      "publisher": "Kenneth Bilby / OSO journal, DBNL",
+      "title": "Aleke: nieuwe muziek en nieuwe identiteiten",
+      "url": "https://www.dbnl.org/tekst/_oso001200001_01/_oso001200001_01_0005.php",
+      "scope": "Field research on aleke, kawina, apinti and aleke doon.",
+      "date": "2000",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S35",
+      "publisher": "Smithsonian Folkways / Kenneth Bilby",
+      "title": "Awasa",
+      "url": "https://folkways.si.edu/awasa/world/music/track/smithsonian",
+      "scope": "Aluku awasa recorded in Suriname/French Guiana.",
+      "date": "1993 release",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S36",
+      "publisher": "CREM-CNRS / Jean-Michel Beaudet",
+      "title": "Wayãpi instrumental and sung tule suites",
+      "url": "https://archives.crem-cnrs.fr/archives/items/CNRSMH_I_2011_004_042_01/",
+      "scope": "Village Zidock, upper Oyapock, named tule suites.",
+      "date": "1977-09-05 recording",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S37",
+      "publisher": "CREM-CNRS / Jean-Michel Beaudet",
+      "title": "Souffles d’Amazonie recording collection",
+      "url": "https://archives.crem-cnrs.fr/archives/collections/CNRSMH_E_1997_027_001/",
+      "scope": "Wayãpi tule bamboo clarinets.",
+      "date": "1997 publication",
+      "access": "Indexed archive description"
+    },
+    {
+      "id": "S38",
+      "publisher": "Cadernos de Linguística / Indigenous-language education researchers",
+      "title": "Esenumenkanto Pata’se/Tamapykary",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/article/view/226",
+      "scope": "Makushi/Wapichana Parixara song-dance; kewei rattles and ruwe flutes.",
+      "date": "2021",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S39",
+      "publisher": "Biblioteca Nacional de Chile / Memoria Chilena",
+      "title": "Rito, chamanismo y música Selknam",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-3687.html",
+      "scope": "Lola Kiepja recordings: Hain chants and shamanic songs/laments.",
+      "date": "1972 and 1977 album editions",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S40",
+      "publisher": "University of Göttingen / Gerd Koch collection",
+      "title": "Gilbert Island films",
+      "url": "https://oceania.uni-goettingen.de/repatriation-of-film-documents/gilbert-island-films-by-dr-gerd-koch/",
+      "scope": "Ruoia, bino, tirere and batere recorded performances.",
+      "date": "1963–1964 filming",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S41",
+      "publisher": "Yap Visitors Bureau",
+      "title": "Yap culture and traditions",
+      "url": "https://visityap.com/yap_culture_tradition.php",
+      "scope": "Churu chant and dance forms.",
+      "date": "Not stated",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S42",
+      "publisher": "New Zealand Ministry for Pacific Peoples / Te Papa",
+      "title": "Tuvalu Language Week Education Resource",
+      "url": "https://blog.tepapa.govt.nz/wp-content/uploads/2017/10/Tuvalu-Language-Week-Education-Resource-2016-FINAL.pdf",
+      "scope": "Pages 14–17: fatele; pokisi wooden box and kaapa tin percussion.",
+      "date": "2016",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S43",
+      "publisher": "Steven Feld / Smithsonian Folkways",
+      "title": "Bosavi: Rainforest Music from Papua New Guinea",
+      "url": "https://folkways.si.edu/bosavi-rainforest-music-from-papua-new-guinea/world/album/smithsonian",
+      "scope": "Named ceremonial genres, sung-weeping, ilib kuwo and string bands.",
+      "date": "Recordings span 25 years; 2001 release",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S44",
+      "publisher": "Te Papa Tongarewa",
+      "title": "Kundu (Drum), FE001198",
+      "url": "https://collections.tepapa.govt.nz/object/163996",
+      "scope": "Hourglass drum, Central Province, Papua New Guinea.",
+      "date": "Purchased 1916",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S45",
+      "publisher": "Soinuenea instrument museum",
+      "title": "Susap",
+      "url": "https://www.soinuenea.eus/en/soinu-tresnak/susap-jew-039s-harp/er-30136/",
+      "scope": "Bamboo mouth harp cataloged to Papua New Guinea.",
+      "date": "Not stated",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "S46",
+      "publisher": "Sally Treloyn / ANU Press, Circulating Cultures",
+      "title": "Cross and Square: Varieties of Song in Northern Australia",
+      "url": "https://press-files.anu.edu.au/downloads/press/p303791/html/ch08.xhtml?page=14&referer=",
+      "scope": "Field research on junba/balga, wangga, lirrga and djanba.",
+      "date": "2014 book",
+      "access": "Page text reviewed"
+    },
+    {
+      "id": "X1",
+      "publisher": "Afropop / Banning Eyre",
+      "title": "Salegy field reporting and Jaojoby interview",
+      "url": "https://www.seattlestar.net/2015/01/go-inside-salegy-the-music-of-madagascar/",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X2",
+      "publisher": "Musée du quai Branly",
+      "title": "Hira Gasy: Kaompania Rasoalalao Kavia, 2018 performance credits",
+      "url": "https://m.quaibranly.fr/en/exhibitions-and-events/at-the-museum/shows-festivals-and-events/shows/event-details/e/hira-gasy",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X3",
+      "publisher": "UNESCO",
+      "title": "Mwinoghe, joyous dance",
+      "url": "https://ich.unesco.org/en/RL/mwinoghe-joyous-dance-01293",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X4",
+      "publisher": "Hartenberger World Musical Instrument Collection",
+      "title": "Tonga nyele and Budima accompaniment",
+      "url": "https://wmic.net/tonga-nyele-flute/",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X5",
+      "publisher": "Hartenberger World Musical Instrument Collection",
+      "title": "Tonga Budima drum, AF-MBST-098-14",
+      "url": "https://wmic.net/tonga-budima-drum/",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X6",
+      "publisher": "University of British Columbia / Liidlii Kue First Nation collaboration",
+      "title": "Dehcho: A musical journey along the Mackenzie River",
+      "url": "https://music.ubc.ca/news/dehcho-a-musical-journey-along-the-mackenzie-river/",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X7",
+      "publisher": "Jan IJzermans / OSO",
+      "title": "Creole popular music in Suriname, 1800–1940",
+      "url": "https://www.dbnl.org/tekst/_oso001198701_01/_oso001198701_01_0007.php",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X8",
+      "publisher": "Kenniscentrum Immaterieel Erfgoed Nederland / practitioners",
+      "title": "Songe, Awasa en Mato",
+      "url": "https://www.immaterieelerfgoed.nl/nl/songe-awasa-en-mato",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X9",
+      "publisher": "Andreas Otte",
+      "title": "Qilaat: The Greenlandic frame drum",
+      "url": "https://greenlandicpopularmusic.com/en/qilaaat-the-greenlandic-frame-drum/",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X10",
+      "publisher": "Smithsonian Folkways / Hugh Tracey",
+      "title": "Muganda we Chitonga Banda, 1957",
+      "url": "https://folkways.si.edu/group-of-sixteen-tonga-men-and-boys/muganda-we-chitonga-banda/track/smithsonian",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X11",
+      "publisher": "UNESCO",
+      "title": "Lakalaka, dances and sung speeches of Tonga",
+      "url": "https://ich.unesco.org/en/RL/lakalaka-dances-and-sung-speeches-of-tonga-00072",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X12",
+      "publisher": "Wantok Musik / Leweton performers",
+      "title": "Vanuatu Women’s Water Music",
+      "url": "https://www.wantokmusik.org/vanuatuwomenswatermusic",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X13",
+      "publisher": "UNESCO",
+      "title": "Tchopa, sacrificial dance of the Lhomwe",
+      "url": "https://ich.unesco.org/en/RL/tchopa-sacrificial-dance-of-the-lhomwe-people-of-southern-malawi-00999",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X14",
+      "publisher": "CREM / Monique Brandily",
+      "title": "Himmi: Sobotogué, Tibesti, 1965",
+      "url": "https://archives.crem-cnrs.fr/archives/items/CNRSMH_I_2009_001_008_01/",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X15",
+      "publisher": "CREM / Monique Brandily",
+      "title": "Dobana terkiya: Youbor, 1965",
+      "url": "https://archives.crem-cnrs.fr/archives/items/CNRSMH_I_2009_001_026_03/",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X16",
+      "publisher": "Smithsonian Folkways / Kenneth Bilby",
+      "title": "The Spirit Cries, liner notes",
+      "url": "https://folkways-media.si.edu/docs/folkways/artwork/HRT15012.pdf",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X17",
+      "publisher": "Uzbekistan ICH national inventory",
+      "title": "Katta ashula performance forms",
+      "url": "https://www.ich.uz/en/ich-of-uzbekistan/national-list/domain-2/270-katta-ashula",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X18",
+      "publisher": "European Bulletin of Himalayan Research",
+      "title": "Bhutanese archives and the 1995 song competition",
+      "url": "https://d1i1jdw69xsqx0.cloudfront.net/digitalhimalaya/collections/journals/ebhr/pdf/EBHR_12%2613_15.pdf",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X19",
+      "publisher": "Royal University of Bhutan",
+      "title": "RUB Connection, vol. 4 no. 1: Aa-Yang music training",
+      "url": "https://www.rub.edu.bt/wp-content/uploads/2022/06/RUB_Connection_Vol-4_No-1.pdf",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X20",
+      "publisher": "American Physical Society / research collaborators",
+      "title": "Water music of Vanuatu: air, hand and water interactions",
+      "url": "https://gfm.aps.org/meetings/dfd-2017/59bb3950b8ac316d38841f04",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "X21",
+      "publisher": "Vanuatu Tourism Office / Limerous performers",
+      "title": "Limerous Water Music, Gaua",
+      "url": "https://www.vanuatu.travel/en/limerous-water-music",
+      "accessed": "2026-09-13"
+    },
+    {
+      "id": "G1",
+      "publisher": "Natural Earth",
+      "title": "1:10m Admin 0 — Countries, v5.1.2: Onotoa polygon",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_0_countries.geojson",
+      "accessed": "2026-09-13",
+      "license": "public domain"
+    }
+  ],
+  "geography_note": "The Onotoa land polygon is vendored from Natural Earth v5.1.2 at 1:10m because the atlas 1:50m tier omits the atoll. Its source coordinates remain unchanged; the ordinary 15 km offshore gate still applies to every pin."
+}

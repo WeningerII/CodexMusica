@@ -1,0 +1,130 @@
+{
+  "id": "bilil",
+  "name": "Bilil (Tibesti idioglot clarinet)",
+  "short": "bilil",
+  "family": "wind",
+  "class": "single_reed_pipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "bilil_reed",
+      "name": "Sound generator",
+      "variants": [
+        {
+          "id": "bilil_reed_idioglot",
+          "name": "Idioglot single reed",
+          "default": true,
+          "descriptors": [
+            "single-reed",
+            "buzzing",
+            "pipe-tone"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "buzzing",
+            "pipe-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bilil_phrasing",
+      "name": "Breath phrasing",
+      "variants": [
+        {
+          "id": "bilil_phrasing_sustained",
+          "name": "Sustained tones",
+          "default": true,
+          "descriptors": [
+            "sustained",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "sustained",
+            "breath-driven"
+          ]
+        },
+        {
+          "id": "bilil_phrasing_pulsed",
+          "name": "Pulsed tones",
+          "descriptors": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bilil_reed",
+      "name": "Sound generator",
+      "variants": [
+        {
+          "id": "bilil_reed_idioglot",
+          "name": "Idioglot single reed",
+          "default": true,
+          "descriptors": [
+            "single-reed",
+            "buzzing",
+            "pipe-tone"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "buzzing",
+            "pipe-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bilil_phrasing",
+      "name": "Breath phrasing",
+      "variants": [
+        {
+          "id": "bilil_phrasing_sustained",
+          "name": "Sustained tones",
+          "default": true,
+          "descriptors": [
+            "sustained",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "sustained",
+            "breath-driven"
+          ]
+        },
+        {
+          "id": "bilil_phrasing_pulsed",
+          "name": "Pulsed tones",
+          "descriptors": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ],
+          "match_tokens": [
+            "pulsed",
+            "separated-attacks",
+            "breath-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

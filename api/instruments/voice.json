@@ -303,6 +303,13 @@
             "basso-profondo",
             "barbershop"
           ]
+        },
+        {
+          "id": "voice_register_source_unspecified",
+          "name": "Register unspecified",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -874,6 +881,13 @@
             "blues-rock",
             "soul"
           ]
+        },
+        {
+          "id": "voice_quality_source_unspecified",
+          "name": "Vocal setting unspecified",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -1610,6 +1624,13 @@
             "blues",
             "soul"
           ]
+        },
+        {
+          "id": "voice_vibrato_local_unspecified",
+          "name": "Vibrato not specified by source",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -1922,6 +1943,13 @@
             "r&b-ballad",
             "indie"
           ]
+        },
+        {
+          "id": "voice_articulation_source_unspecified",
+          "name": "Articulation unspecified",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -2216,6 +2244,13 @@
             "avant-garde-vocal",
             "r&b-run"
           ]
+        },
+        {
+          "id": "voice_microtone_local_unspecified",
+          "name": "Local inflection; measurements unspecified",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -2956,6 +2991,422 @@
             "french",
             "cabaret"
           ]
+        },
+        {
+          "id": "voice_tradition_malagasy",
+          "name": "Malagasy song practice",
+          "auto": false,
+          "descriptors": [
+            "malagasy",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "malagasy",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_malawi",
+          "name": "Malawian communal singing",
+          "auto": false,
+          "descriptors": [
+            "malawi",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "malawi",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_tibesti",
+          "name": "Tibesti Teda song practice",
+          "auto": false,
+          "descriptors": [
+            "tibesti",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "tibesti",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_dinka",
+          "name": "Dinka personal and praise song",
+          "auto": false,
+          "descriptors": [
+            "dinka",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "dinka",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_fang",
+          "name": "Fang ritual singing",
+          "auto": false,
+          "descriptors": [
+            "fang",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "fang",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_ob_ugric",
+          "name": "Khanty and Mansi song practice",
+          "auto": false,
+          "descriptors": [
+            "ob-ugric",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "ob-ugric",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_chukchi",
+          "name": "Chukchi personal-song practice",
+          "auto": false,
+          "descriptors": [
+            "chukchi",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "chukchi",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_koryak",
+          "name": "Koryak personal-song practice",
+          "auto": false,
+          "descriptors": [
+            "koryak",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "koryak",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_timorese",
+          "name": "Timorese tebe song",
+          "auto": false,
+          "descriptors": [
+            "timorese",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "timorese",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_bhutanese",
+          "name": "Bhutanese zhungdra and boedra singing",
+          "auto": false,
+          "descriptors": [
+            "bhutanese",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "bhutanese",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_maldivian",
+          "name": "Maldivian dance-song practice",
+          "auto": false,
+          "descriptors": [
+            "maldivian",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "maldivian",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_tajik_falak",
+          "name": "Tajik falak singing",
+          "auto": false,
+          "descriptors": [
+            "tajik-falak",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "tajik-falak",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_katta_ashula",
+          "name": "Fergana katta ashula singing",
+          "auto": false,
+          "descriptors": [
+            "katta-ashula",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "katta-ashula",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_turkmen_bagshy",
+          "name": "Turkmen bagshy singing",
+          "auto": false,
+          "descriptors": [
+            "turkmen-bagshy",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "turkmen-bagshy",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_udmurt_krez",
+          "name": "North Udmurt krez vocal practice",
+          "auto": false,
+          "descriptors": [
+            "udmurt-krez",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "udmurt-krez",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_mari",
+          "name": "Mari song practice",
+          "auto": false,
+          "descriptors": [
+            "mari",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "mari",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_maltese_ghana",
+          "name": "Maltese għana singing",
+          "auto": false,
+          "descriptors": [
+            "maltese-ghana",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "maltese-ghana",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_yupik",
+          "name": "Yup’ik yuraq singing",
+          "auto": false,
+          "descriptors": [
+            "yupik",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "yupik",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_greenlandic",
+          "name": "Greenlandic drum-song practice",
+          "auto": false,
+          "descriptors": [
+            "greenlandic",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "greenlandic",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_dene",
+          "name": "Dene handgame singing",
+          "auto": false,
+          "descriptors": [
+            "dene",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "dene",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_maroon",
+          "name": "Guianese Maroon song practice",
+          "auto": false,
+          "descriptors": [
+            "maroon",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "maroon",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_kawina",
+          "name": "Surinamese kawina singing",
+          "auto": false,
+          "descriptors": [
+            "kawina",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "kawina",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_wayapi",
+          "name": "Wayãpi tule song practice",
+          "auto": false,
+          "descriptors": [
+            "wayapi",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "wayapi",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_parixara",
+          "name": "Makushi–Wapichana parixara singing",
+          "auto": false,
+          "descriptors": [
+            "parixara",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "parixara",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_selknam",
+          "name": "Selk’nam song practice",
+          "auto": false,
+          "descriptors": [
+            "selknam",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "selknam",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_kiribati",
+          "name": "Kiribati dance-song practice",
+          "auto": false,
+          "descriptors": [
+            "kiribati",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "kiribati",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_yap",
+          "name": "Yap churu singing",
+          "auto": false,
+          "descriptors": [
+            "yap",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "yap",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_tuvalu",
+          "name": "Tuvalu fatele singing",
+          "auto": false,
+          "descriptors": [
+            "tuvalu",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "tuvalu",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_bosavi",
+          "name": "Bosavi song practice",
+          "auto": false,
+          "descriptors": [
+            "bosavi",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "bosavi",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_north_australia",
+          "name": "Northern Australian song practice",
+          "auto": false,
+          "descriptors": [
+            "north-australia",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "north-australia",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_lakalaka",
+          "name": "Tongan lakalaka sung poetry",
+          "auto": false,
+          "descriptors": [
+            "lakalaka",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "lakalaka",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_valley_tonga",
+          "name": "Valley Tonga ceremonial singing",
+          "auto": false,
+          "descriptors": [
+            "valley-tonga",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "valley-tonga",
+            "oral-tradition"
+          ]
         }
       ]
     },
@@ -3142,6 +3593,13 @@
             "avant-garde-vocal",
             "biphonic"
           ]
+        },
+        {
+          "id": "voice_mechanism_compound_source_unspecified",
+          "name": "Phonation mechanism unspecified",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -3413,6 +3871,13 @@
             "metal",
             "blues-growl"
           ]
+        },
+        {
+          "id": "voice_estill_quality_source_unspecified",
+          "name": "Laryngeal setting unspecified",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -3637,6 +4102,13 @@
             "dancehall",
             "1970s-onward"
           ]
+        },
+        {
+          "id": "voice_speech_song_local_unspecified",
+          "name": "Text-setting not specified by source",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -4007,6 +4479,84 @@
             "english-catch",
             "campfire-round"
           ]
+        },
+        {
+          "id": "voice_ensemble_live_group",
+          "name": "Live singing group; voicing unspecified",
+          "auto": false,
+          "descriptors": [
+            "group-vocals",
+            "live-ensemble"
+          ],
+          "match_tokens": [
+            "group-vocals",
+            "live-ensemble"
+          ]
+        },
+        {
+          "id": "voice_ensemble_live_duet",
+          "name": "Two live singers; interval relationship unspecified",
+          "auto": false,
+          "descriptors": [
+            "duet",
+            "live-ensemble"
+          ],
+          "match_tokens": [
+            "duet",
+            "live-ensemble"
+          ]
+        },
+        {
+          "id": "voice_ensemble_unison_octaves",
+          "name": "Group melody in unison and octaves",
+          "auto": false,
+          "descriptors": [
+            "choral",
+            "unison-octaves"
+          ],
+          "match_tokens": [
+            "choral",
+            "unison-octaves"
+          ]
+        },
+        {
+          "id": "voice_ensemble_duet_chorus",
+          "name": "Lead duet with answering chorus",
+          "auto": false,
+          "descriptors": [
+            "duet",
+            "choral-response"
+          ],
+          "match_tokens": [
+            "duet",
+            "choral-response"
+          ]
+        },
+        {
+          "id": "voice_ensemble_duet_quartet",
+          "name": "Two- or four-singer ensemble",
+          "auto": false,
+          "descriptors": [
+            "small-vocal-ensemble",
+            "live-ensemble"
+          ],
+          "match_tokens": [
+            "small-vocal-ensemble",
+            "live-ensemble"
+          ]
+        },
+        {
+          "id": "voice_ensemble_polyphonic_chorus",
+          "name": "Polyphonic chorus; voice-leading unspecified",
+          "auto": false,
+          "descriptors": [
+            "choral",
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "choral",
+            "polyphonic"
+          ]
         }
       ]
     },
@@ -4354,6 +4904,13 @@
             "soul",
             "r-and-b"
           ]
+        },
+        {
+          "id": "voice_ornament_system_source_unspecified",
+          "name": "Ornament system unspecified",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -4733,6 +5290,17 @@
             "georgian",
             "caucasus",
             "polyphonic-folk-chant"
+          ]
+        },
+        {
+          "id": "voice_pitch_aural_relative",
+          "name": "Performer-relative oral intonation",
+          "auto": false,
+          "descriptors": [
+            "aurally-tuned"
+          ],
+          "match_tokens": [
+            "aurally-tuned"
           ]
         }
       ]
@@ -5510,6 +6078,19 @@
             "hip-hop",
             "trap",
             "dancehall"
+          ]
+        },
+        {
+          "id": "voice_multitrack_live_ensemble",
+          "name": "Live ensemble in one take; no overdub stack",
+          "auto": false,
+          "descriptors": [
+            "live-take",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "live-take",
+            "ensemble"
           ]
         }
       ]
@@ -5803,6 +6384,13 @@
             "basso-profondo",
             "barbershop"
           ]
+        },
+        {
+          "id": "voice_register_source_unspecified",
+          "name": "Register unspecified",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -6374,6 +6962,13 @@
             "blues-rock",
             "soul"
           ]
+        },
+        {
+          "id": "voice_quality_source_unspecified",
+          "name": "Vocal setting unspecified",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -7110,6 +7705,13 @@
             "blues",
             "soul"
           ]
+        },
+        {
+          "id": "voice_vibrato_local_unspecified",
+          "name": "Vibrato not specified by source",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -7422,6 +8024,13 @@
             "r&b-ballad",
             "indie"
           ]
+        },
+        {
+          "id": "voice_articulation_source_unspecified",
+          "name": "Articulation unspecified",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -7716,6 +8325,13 @@
             "avant-garde-vocal",
             "r&b-run"
           ]
+        },
+        {
+          "id": "voice_microtone_local_unspecified",
+          "name": "Local inflection; measurements unspecified",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -8456,6 +9072,422 @@
             "french",
             "cabaret"
           ]
+        },
+        {
+          "id": "voice_tradition_malagasy",
+          "name": "Malagasy song practice",
+          "auto": false,
+          "descriptors": [
+            "malagasy",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "malagasy",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_malawi",
+          "name": "Malawian communal singing",
+          "auto": false,
+          "descriptors": [
+            "malawi",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "malawi",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_tibesti",
+          "name": "Tibesti Teda song practice",
+          "auto": false,
+          "descriptors": [
+            "tibesti",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "tibesti",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_dinka",
+          "name": "Dinka personal and praise song",
+          "auto": false,
+          "descriptors": [
+            "dinka",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "dinka",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_fang",
+          "name": "Fang ritual singing",
+          "auto": false,
+          "descriptors": [
+            "fang",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "fang",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_ob_ugric",
+          "name": "Khanty and Mansi song practice",
+          "auto": false,
+          "descriptors": [
+            "ob-ugric",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "ob-ugric",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_chukchi",
+          "name": "Chukchi personal-song practice",
+          "auto": false,
+          "descriptors": [
+            "chukchi",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "chukchi",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_koryak",
+          "name": "Koryak personal-song practice",
+          "auto": false,
+          "descriptors": [
+            "koryak",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "koryak",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_timorese",
+          "name": "Timorese tebe song",
+          "auto": false,
+          "descriptors": [
+            "timorese",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "timorese",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_bhutanese",
+          "name": "Bhutanese zhungdra and boedra singing",
+          "auto": false,
+          "descriptors": [
+            "bhutanese",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "bhutanese",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_maldivian",
+          "name": "Maldivian dance-song practice",
+          "auto": false,
+          "descriptors": [
+            "maldivian",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "maldivian",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_tajik_falak",
+          "name": "Tajik falak singing",
+          "auto": false,
+          "descriptors": [
+            "tajik-falak",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "tajik-falak",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_katta_ashula",
+          "name": "Fergana katta ashula singing",
+          "auto": false,
+          "descriptors": [
+            "katta-ashula",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "katta-ashula",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_turkmen_bagshy",
+          "name": "Turkmen bagshy singing",
+          "auto": false,
+          "descriptors": [
+            "turkmen-bagshy",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "turkmen-bagshy",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_udmurt_krez",
+          "name": "North Udmurt krez vocal practice",
+          "auto": false,
+          "descriptors": [
+            "udmurt-krez",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "udmurt-krez",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_mari",
+          "name": "Mari song practice",
+          "auto": false,
+          "descriptors": [
+            "mari",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "mari",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_maltese_ghana",
+          "name": "Maltese għana singing",
+          "auto": false,
+          "descriptors": [
+            "maltese-ghana",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "maltese-ghana",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_yupik",
+          "name": "Yup’ik yuraq singing",
+          "auto": false,
+          "descriptors": [
+            "yupik",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "yupik",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_greenlandic",
+          "name": "Greenlandic drum-song practice",
+          "auto": false,
+          "descriptors": [
+            "greenlandic",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "greenlandic",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_dene",
+          "name": "Dene handgame singing",
+          "auto": false,
+          "descriptors": [
+            "dene",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "dene",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_maroon",
+          "name": "Guianese Maroon song practice",
+          "auto": false,
+          "descriptors": [
+            "maroon",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "maroon",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_kawina",
+          "name": "Surinamese kawina singing",
+          "auto": false,
+          "descriptors": [
+            "kawina",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "kawina",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_wayapi",
+          "name": "Wayãpi tule song practice",
+          "auto": false,
+          "descriptors": [
+            "wayapi",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "wayapi",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_parixara",
+          "name": "Makushi–Wapichana parixara singing",
+          "auto": false,
+          "descriptors": [
+            "parixara",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "parixara",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_selknam",
+          "name": "Selk’nam song practice",
+          "auto": false,
+          "descriptors": [
+            "selknam",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "selknam",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_kiribati",
+          "name": "Kiribati dance-song practice",
+          "auto": false,
+          "descriptors": [
+            "kiribati",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "kiribati",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_yap",
+          "name": "Yap churu singing",
+          "auto": false,
+          "descriptors": [
+            "yap",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "yap",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_tuvalu",
+          "name": "Tuvalu fatele singing",
+          "auto": false,
+          "descriptors": [
+            "tuvalu",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "tuvalu",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_bosavi",
+          "name": "Bosavi song practice",
+          "auto": false,
+          "descriptors": [
+            "bosavi",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "bosavi",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_north_australia",
+          "name": "Northern Australian song practice",
+          "auto": false,
+          "descriptors": [
+            "north-australia",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "north-australia",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_lakalaka",
+          "name": "Tongan lakalaka sung poetry",
+          "auto": false,
+          "descriptors": [
+            "lakalaka",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "lakalaka",
+            "oral-tradition"
+          ]
+        },
+        {
+          "id": "voice_tradition_valley_tonga",
+          "name": "Valley Tonga ceremonial singing",
+          "auto": false,
+          "descriptors": [
+            "valley-tonga",
+            "oral-tradition"
+          ],
+          "match_tokens": [
+            "valley-tonga",
+            "oral-tradition"
+          ]
         }
       ]
     },
@@ -8642,6 +9674,13 @@
             "avant-garde-vocal",
             "biphonic"
           ]
+        },
+        {
+          "id": "voice_mechanism_compound_source_unspecified",
+          "name": "Phonation mechanism unspecified",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -8913,6 +9952,13 @@
             "metal",
             "blues-growl"
           ]
+        },
+        {
+          "id": "voice_estill_quality_source_unspecified",
+          "name": "Laryngeal setting unspecified",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -9137,6 +10183,13 @@
             "dancehall",
             "1970s-onward"
           ]
+        },
+        {
+          "id": "voice_speech_song_local_unspecified",
+          "name": "Text-setting not specified by source",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -9507,6 +10560,84 @@
             "english-catch",
             "campfire-round"
           ]
+        },
+        {
+          "id": "voice_ensemble_live_group",
+          "name": "Live singing group; voicing unspecified",
+          "auto": false,
+          "descriptors": [
+            "group-vocals",
+            "live-ensemble"
+          ],
+          "match_tokens": [
+            "group-vocals",
+            "live-ensemble"
+          ]
+        },
+        {
+          "id": "voice_ensemble_live_duet",
+          "name": "Two live singers; interval relationship unspecified",
+          "auto": false,
+          "descriptors": [
+            "duet",
+            "live-ensemble"
+          ],
+          "match_tokens": [
+            "duet",
+            "live-ensemble"
+          ]
+        },
+        {
+          "id": "voice_ensemble_unison_octaves",
+          "name": "Group melody in unison and octaves",
+          "auto": false,
+          "descriptors": [
+            "choral",
+            "unison-octaves"
+          ],
+          "match_tokens": [
+            "choral",
+            "unison-octaves"
+          ]
+        },
+        {
+          "id": "voice_ensemble_duet_chorus",
+          "name": "Lead duet with answering chorus",
+          "auto": false,
+          "descriptors": [
+            "duet",
+            "choral-response"
+          ],
+          "match_tokens": [
+            "duet",
+            "choral-response"
+          ]
+        },
+        {
+          "id": "voice_ensemble_duet_quartet",
+          "name": "Two- or four-singer ensemble",
+          "auto": false,
+          "descriptors": [
+            "small-vocal-ensemble",
+            "live-ensemble"
+          ],
+          "match_tokens": [
+            "small-vocal-ensemble",
+            "live-ensemble"
+          ]
+        },
+        {
+          "id": "voice_ensemble_polyphonic_chorus",
+          "name": "Polyphonic chorus; voice-leading unspecified",
+          "auto": false,
+          "descriptors": [
+            "choral",
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "choral",
+            "polyphonic"
+          ]
         }
       ]
     },
@@ -9854,6 +10985,13 @@
             "soul",
             "r-and-b"
           ]
+        },
+        {
+          "id": "voice_ornament_system_source_unspecified",
+          "name": "Ornament system unspecified",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -10233,6 +11371,17 @@
             "georgian",
             "caucasus",
             "polyphonic-folk-chant"
+          ]
+        },
+        {
+          "id": "voice_pitch_aural_relative",
+          "name": "Performer-relative oral intonation",
+          "auto": false,
+          "descriptors": [
+            "aurally-tuned"
+          ],
+          "match_tokens": [
+            "aurally-tuned"
           ]
         }
       ]
@@ -11010,6 +12159,19 @@
             "hip-hop",
             "trap",
             "dancehall"
+          ]
+        },
+        {
+          "id": "voice_multitrack_live_ensemble",
+          "name": "Live ensemble in one take; no overdub stack",
+          "auto": false,
+          "descriptors": [
+            "live-take",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "live-take",
+            "ensemble"
           ]
         }
       ]

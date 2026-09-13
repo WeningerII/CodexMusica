@@ -1,0 +1,200 @@
+{
+  "id": "aleke_doon",
+  "name": "Aleke doon (Surinamese tall hand drum)",
+  "short": "aleke doon",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "aleke_doon_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "aleke_doon_form_tall",
+          "name": "Tall drum on stand",
+          "default": true,
+          "descriptors": [
+            "tall-shell",
+            "standing-player",
+            "conga-influenced"
+          ],
+          "match_tokens": [
+            "tall-shell",
+            "standing-player",
+            "conga-influenced"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aleke_doon_stroke",
+      "name": "Hand strokes",
+      "variants": [
+        {
+          "id": "aleke_doon_stroke_open",
+          "name": "Open strokes",
+          "default": true,
+          "descriptors": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "aleke_doon_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aleke_doon_setup",
+      "name": "Ensemble",
+      "variants": [
+        {
+          "id": "aleke_doon_setup_three",
+          "name": "Three-drum section",
+          "default": true,
+          "descriptors": [
+            "three-drummers",
+            "interlocking",
+            "aleke"
+          ],
+          "match_tokens": [
+            "three-drummers",
+            "interlocking",
+            "aleke"
+          ]
+        },
+        {
+          "id": "aleke_doon_setup_single",
+          "name": "Single drum part",
+          "descriptors": [
+            "single-drum",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "single-drum",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "aleke_doon_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "aleke_doon_form_tall",
+          "name": "Tall drum on stand",
+          "default": true,
+          "descriptors": [
+            "tall-shell",
+            "standing-player",
+            "conga-influenced"
+          ],
+          "match_tokens": [
+            "tall-shell",
+            "standing-player",
+            "conga-influenced"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aleke_doon_stroke",
+      "name": "Hand strokes",
+      "variants": [
+        {
+          "id": "aleke_doon_stroke_open",
+          "name": "Open strokes",
+          "default": true,
+          "descriptors": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "open-tone",
+            "resonant",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "aleke_doon_stroke_damped",
+          "name": "Damped strokes",
+          "descriptors": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "muted",
+            "short-decay",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aleke_doon_setup",
+      "name": "Ensemble",
+      "variants": [
+        {
+          "id": "aleke_doon_setup_three",
+          "name": "Three-drum section",
+          "default": true,
+          "descriptors": [
+            "three-drummers",
+            "interlocking",
+            "aleke"
+          ],
+          "match_tokens": [
+            "three-drummers",
+            "interlocking",
+            "aleke"
+          ]
+        },
+        {
+          "id": "aleke_doon_setup_single",
+          "name": "Single drum part",
+          "descriptors": [
+            "single-drum",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "single-drum",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ]
+}

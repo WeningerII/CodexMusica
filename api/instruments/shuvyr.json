@@ -1,0 +1,130 @@
+{
+  "id": "shuvyr",
+  "name": "Shuvyr (Mari bagpipe)",
+  "short": "shuvyr",
+  "family": "wind",
+  "class": "bagpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "parts": [
+    {
+      "id": "shuvyr_excitation",
+      "name": "Air supply",
+      "variants": [
+        {
+          "id": "shuvyr_excitation_bag",
+          "name": "Bag-fed reed pipes",
+          "default": true,
+          "descriptors": [
+            "bag-fed",
+            "reed-tone",
+            "continuous-air"
+          ],
+          "match_tokens": [
+            "bag-fed",
+            "reed-tone",
+            "continuous-air"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shuvyr_phrasing",
+      "name": "Melodic phrasing",
+      "variants": [
+        {
+          "id": "shuvyr_phrasing_flow",
+          "name": "Flowing melody",
+          "default": true,
+          "descriptors": [
+            "sustained",
+            "melodic"
+          ],
+          "match_tokens": [
+            "sustained",
+            "melodic"
+          ]
+        },
+        {
+          "id": "shuvyr_phrasing_dance",
+          "name": "Articulated dance melody",
+          "descriptors": [
+            "articulated",
+            "rhythmic",
+            "dance"
+          ],
+          "match_tokens": [
+            "articulated",
+            "rhythmic",
+            "dance"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shuvyr_excitation",
+      "name": "Air supply",
+      "variants": [
+        {
+          "id": "shuvyr_excitation_bag",
+          "name": "Bag-fed reed pipes",
+          "default": true,
+          "descriptors": [
+            "bag-fed",
+            "reed-tone",
+            "continuous-air"
+          ],
+          "match_tokens": [
+            "bag-fed",
+            "reed-tone",
+            "continuous-air"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shuvyr_phrasing",
+      "name": "Melodic phrasing",
+      "variants": [
+        {
+          "id": "shuvyr_phrasing_flow",
+          "name": "Flowing melody",
+          "default": true,
+          "descriptors": [
+            "sustained",
+            "melodic"
+          ],
+          "match_tokens": [
+            "sustained",
+            "melodic"
+          ]
+        },
+        {
+          "id": "shuvyr_phrasing_dance",
+          "name": "Articulated dance melody",
+          "descriptors": [
+            "articulated",
+            "rhythmic",
+            "dance"
+          ],
+          "match_tokens": [
+            "articulated",
+            "rhythmic",
+            "dance"
+          ]
+        }
+      ]
+    }
+  ]
+}

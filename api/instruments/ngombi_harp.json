@@ -135,6 +135,21 @@
             "fusion",
             "studio"
           ]
+        },
+        {
+          "id": "ngombi_harp_setting_sung",
+          "name": "Harp accompaniment to singing",
+          "auto": false,
+          "descriptors": [
+            "harp-song",
+            "cyclic",
+            "plucked"
+          ],
+          "match_tokens": [
+            "harp-song",
+            "cyclic",
+            "plucked"
+          ]
         }
       ]
     },
@@ -178,6 +193,13 @@
             "nylon",
             "gut"
           ]
+        },
+        {
+          "id": "ngombi_harp_build_unspecified",
+          "name": "String material not specified by source",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     }
@@ -302,6 +324,21 @@
             "fusion",
             "studio"
           ]
+        },
+        {
+          "id": "ngombi_harp_setting_sung",
+          "name": "Harp accompaniment to singing",
+          "auto": false,
+          "descriptors": [
+            "harp-song",
+            "cyclic",
+            "plucked"
+          ],
+          "match_tokens": [
+            "harp-song",
+            "cyclic",
+            "plucked"
+          ]
         }
       ]
     },
@@ -345,6 +382,13 @@
             "nylon",
             "gut"
           ]
+        },
+        {
+          "id": "ngombi_harp_build_unspecified",
+          "name": "String material not specified by source",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     }

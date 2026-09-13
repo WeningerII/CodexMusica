@@ -1,0 +1,134 @@
+{
+  "id": "nyele_ensemble",
+  "name": "Nyele (Valley Tonga horn-flute ensemble)",
+  "short": "nyele ensemble",
+  "family": "wind",
+  "class": "edge_blown_horn_ensemble",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "nyele_excitation",
+      "name": "Sound generator",
+      "variants": [
+        {
+          "id": "nyele_excitation_edge",
+          "name": "Edge-blown animal-horn flutes",
+          "default": true,
+          "descriptors": [
+            "edge-blown",
+            "horn-flutes",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "edge-blown",
+            "horn-flutes",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyele_texture",
+      "name": "Texture",
+      "variants": [
+        {
+          "id": "nyele_texture_interlock",
+          "name": "Interlocking ensemble entries",
+          "default": true,
+          "descriptors": [
+            "interlocking",
+            "staggered",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "interlocking",
+            "staggered",
+            "cyclic"
+          ]
+        },
+        {
+          "id": "nyele_texture_unison",
+          "name": "Coincident ensemble accents",
+          "descriptors": [
+            "accented",
+            "ensemble",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "accented",
+            "ensemble",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nyele_excitation",
+      "name": "Sound generator",
+      "variants": [
+        {
+          "id": "nyele_excitation_edge",
+          "name": "Edge-blown animal-horn flutes",
+          "default": true,
+          "descriptors": [
+            "edge-blown",
+            "horn-flutes",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "edge-blown",
+            "horn-flutes",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyele_texture",
+      "name": "Texture",
+      "variants": [
+        {
+          "id": "nyele_texture_interlock",
+          "name": "Interlocking ensemble entries",
+          "default": true,
+          "descriptors": [
+            "interlocking",
+            "staggered",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "interlocking",
+            "staggered",
+            "cyclic"
+          ]
+        },
+        {
+          "id": "nyele_texture_unison",
+          "name": "Coincident ensemble accents",
+          "descriptors": [
+            "accented",
+            "ensemble",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "accented",
+            "ensemble",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ]
+}

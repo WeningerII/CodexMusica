@@ -1,0 +1,196 @@
+{
+  "id": "tor_sapl_yukh",
+  "name": "Tor-sapl-yukh / toorsapt-yuh (Ob-Ugric angular harp)",
+  "short": "tor sapl yukh harp",
+  "family": "plucked_traditional",
+  "class": "angular_harp",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "tor_sapl_yukh_body",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "tor_sapl_yukh_body_angular",
+          "name": "Angular wooden harp",
+          "default": true,
+          "descriptors": [
+            "angular-harp",
+            "wooden",
+            "open-strings"
+          ],
+          "match_tokens": [
+            "angular-harp",
+            "wooden",
+            "open-strings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tor_sapl_yukh_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "tor_sapl_yukh_strings_metal",
+          "name": "Copper or bronze strings",
+          "default": true,
+          "descriptors": [
+            "metallic",
+            "ringing"
+          ],
+          "match_tokens": [
+            "metallic",
+            "ringing"
+          ]
+        },
+        {
+          "id": "tor_sapl_yukh_strings_sinew",
+          "name": "Animal-sinew strings",
+          "descriptors": [
+            "sinew",
+            "soft"
+          ],
+          "match_tokens": [
+            "sinew",
+            "soft"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tor_sapl_yukh_texture",
+      "name": "Texture",
+      "variants": [
+        {
+          "id": "tor_sapl_yukh_texture_drone",
+          "name": "Melody against repeated low string",
+          "default": true,
+          "descriptors": [
+            "melody",
+            "bass-drone",
+            "plucked"
+          ],
+          "match_tokens": [
+            "melody",
+            "bass-drone",
+            "plucked"
+          ]
+        },
+        {
+          "id": "tor_sapl_yukh_texture_single",
+          "name": "Single melodic line",
+          "descriptors": [
+            "melodic",
+            "plucked",
+            "sparse"
+          ],
+          "match_tokens": [
+            "melodic",
+            "plucked",
+            "sparse"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tor_sapl_yukh_body",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "tor_sapl_yukh_body_angular",
+          "name": "Angular wooden harp",
+          "default": true,
+          "descriptors": [
+            "angular-harp",
+            "wooden",
+            "open-strings"
+          ],
+          "match_tokens": [
+            "angular-harp",
+            "wooden",
+            "open-strings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tor_sapl_yukh_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "tor_sapl_yukh_strings_metal",
+          "name": "Copper or bronze strings",
+          "default": true,
+          "descriptors": [
+            "metallic",
+            "ringing"
+          ],
+          "match_tokens": [
+            "metallic",
+            "ringing"
+          ]
+        },
+        {
+          "id": "tor_sapl_yukh_strings_sinew",
+          "name": "Animal-sinew strings",
+          "descriptors": [
+            "sinew",
+            "soft"
+          ],
+          "match_tokens": [
+            "sinew",
+            "soft"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tor_sapl_yukh_texture",
+      "name": "Texture",
+      "variants": [
+        {
+          "id": "tor_sapl_yukh_texture_drone",
+          "name": "Melody against repeated low string",
+          "default": true,
+          "descriptors": [
+            "melody",
+            "bass-drone",
+            "plucked"
+          ],
+          "match_tokens": [
+            "melody",
+            "bass-drone",
+            "plucked"
+          ]
+        },
+        {
+          "id": "tor_sapl_yukh_texture_single",
+          "name": "Single melodic line",
+          "descriptors": [
+            "melodic",
+            "plucked",
+            "sparse"
+          ],
+          "match_tokens": [
+            "melodic",
+            "plucked",
+            "sparse"
+          ]
+        }
+      ]
+    }
+  ]
+}
