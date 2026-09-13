@@ -2,10 +2,12 @@
 // push run at the exact SHA and require the release's actual jobs to pass.
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
+import { MUTATION_SHARDS } from './verify_qualification.mjs';
 
 export const REQUIRED_JOBS = Object.freeze([
   'gate',
   'lyrics-image',
+  'capacity-matrix-result',
   'capacity-proof-result',
   'verify',
   'freshness',
@@ -18,12 +20,13 @@ export const REQUIRED_JOBS = Object.freeze([
   'verbs-result',
 ]);
 
+// EVERY mutation shard, derived from the same count the deploy verifier
+// re-derives commands from -- until 2026-09-12 this list named shards 1-4 by
+// hand while the workflow ran eight, so a run whose shard 5 had been skipped
+// would have passed this check (M-282).
 export const QUALIFICATION_JOBS = Object.freeze([
   'qualification-capacity-proof',
-  'qualification-mutation-1',
-  'qualification-mutation-2',
-  'qualification-mutation-3',
-  'qualification-mutation-4',
+  ...Array.from({ length: MUTATION_SHARDS }, (_, i) => `qualification-mutation-${i + 1}`),
   'qualification-song',
   'qualification-short',
   'qualification-curves',

@@ -395,7 +395,7 @@ def test_the_baseline_is_the_declared_suites_and_the_cache_is_a_ledger():
     # Every shard deal, so the claim covers the run the workflow makes.
     names = [m.name for m in muts]
     by_name = {m.name: m for m in muts}
-    n = 8
+    n = 16  # the workflow's K (scripts/production_qualification.py, M-282)
     worst = max(len(mutate.needed_tests([by_name[x] for x in names[i::n]],
                                         tests, "subset")) for i in range(n))
     check(f"no shard of {n} needs more than a quarter of the inventory up front",
