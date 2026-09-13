@@ -95,6 +95,11 @@ npm run inspect   # opens the MCP Inspector against the stdio server
 
 ### Hosted use (the Connectors menu)
 
+For ChatGPT, use the [session-aware integration](../docs/chatgpt.md). It adds
+separate recipe and lyrics endpoints, persisted workflow state, background lyric
+operations and bundled skills. Those routes must be deployed before connecting
+the plugin; see the setup and acceptance steps in that guide.
+
 This is what makes "CodexMusica" appear in Claude's **Connectors** list with its own
 toggle. Deploy `server_http.js` to any Node host (Render, Fly, Railway, a VPS):
 

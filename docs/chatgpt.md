@@ -1,0 +1,127 @@
+# Codex Musica in ChatGPT
+
+The ChatGPT integration reuses the maintained connector, recipe engine, lyric
+graders and kitchen writer. Its extra layer stores exact workspaces and lyric
+workflow receipts, so ChatGPT carries short session capabilities between calls.
+Long lyric calls run as operations that can be read after the MCP connection closes.
+
+This is a source implementation and acceptance plan. Merging the code does not
+deploy the routes, register a ChatGPT connection or publish a plugin. Local MCP
+tests do not establish native ChatGPT behavior or a successful live kitchen run.
+
+## Endpoints and contracts
+
+| Endpoint | Tools | State and results |
+| --- | --- | --- |
+| `https://mcp.codexmusica.com/mcp/chatgpt/recipe` | Nine recipe tools plus `get_operation` and `resume_operation` | Discovery stays stateless. Start, edit and render return the next `session_id`; the workspace stays on the service. |
+| `https://mcp.codexmusica.com/mcp/chatgpt/lyrics` | Nine lyric tools plus `begin_lyrics`, `get_operation` and `resume_operation` | Begin fixes create/edit phase and writer. Each lyric tool returns an `operation_id` immediately; poll for its result and next session. |
+
+The raw `/mcp`, `/mcp/recipe` and `/mcp/lyrics` surfaces retain their existing
+workspace and continuation contracts. Task-scoped raw HTTP now honors all four
+advertised recipe formats. Native clients can still pin their own task format.
+
+Stateful tools return a typed `structuredContent` envelope. `tool_result` contains
+the underlying output with private workspace/state fields removed; its text
+blocks are also delivered as MCP content. The actual recipe and song text and
+grader qualifications remain the output authority. `completed` means the call
+returned, not that a song is certified. The envelope's `resumable` describes an
+interrupted operation; a completed lyric tool's own verdict describes whether its
+revision can continue through `lyric_revise`.
+
+Creation executes sweep → screen → plan → exact-draft grade → revise through
+the maintained client. The server persists executed receipts and rejects skipped
+steps or fabricated state. Edit phase is for user-supplied existing lyrics.
+Kitchen is the default writer, matching the website; interview remains an
+explicit alternative. ChatGPT handles conversation and initial drafting, while
+kitchen repairs use the service's configured Gemini model and accounting.
+
+## Recovery and runtime
+
+- Use the newest session ID. The same parent and identical arguments return its
+  existing operation. Different arguments against an advanced session refuse;
+  read the parent's `successor_id` and follow it. A session has one successor.
+- Poll pending operations with `get_operation`, respecting `retry_after_seconds`.
+  Disconnecting the MCP request does not cancel admitted work. A process restart
+  marks unfinished work interrupted and does not automatically redispatch it.
+- Explicit `resume_operation` is allowed only with a safe retained checkpoint.
+  Original replay input stays distinct from accepted lyrics. Unknown provider
+  outcomes, changed scoring semantics, finished journals and exhausted journal
+  capacity cannot replay a proposal. Recover the accepted draft and disclose the
+  stop. Regrading a changed draft and starting a new run is a separate action.
+- Sessions use the existing private `JobStore` and share its storage limits with
+  `/chat`: by default 8,192 metadata records, 128 retained payloads and 256 MB.
+  Completed/interrupted metadata expires after 24 hours without a work update;
+  full payloads can retire sooner. A session is temporary working state, not a
+  permanent song archive. IDs grant access to that state without an account login.
+- The adapter admits at most 16 active operations across its endpoints. The
+  existing serialized Python queue and tool deadlines still apply. Each operation
+  uses the existing shared paid ledger, with `CHAT_MAX_TURN_USD` and
+  `CHAT_DAILY_USD` allowances. Unknown usage remains charged. Kitchen sessions
+  refuse without durable recovery storage; beginning a session makes no paid call.
+- Keep one Node process on one instance with the mounted runtime directory and
+  stable signing key. Multiple replicas require a transactional shared store.
+  See [runtime requirements](../mcp/LYRICS_RUNTIME.md) and
+  [privacy policy](../mcp/PRIVACY.md).
+
+Deploy the changed service through the repository's existing tested-image release
+and production qualification workflow. Preserve its runtime assets, persistent
+mount, signing material, provider configuration and ledger. This change needs no
+new dependency or hosting service. Do not apply the legacy Blueprint as a shortcut
+around the image promotion checks. After deployment, verify the served commit,
+`/ready`, and initialization/tools on both new routes. The server card lists them
+under `chatgptEndpoints`.
+
+## Register and package
+
+OpenAI's [connection guide](https://developers.openai.com/plugins/deploy/connect-chatgpt)
+documents the current developer-mode flow (checked September 13, 2026):
+
+1. Enable Developer mode under ChatGPT Settings → Security and login, subject to
+   account and workspace policy.
+2. At [ChatGPT Plugins](https://chatgpt.com/plugins), use the plus button to register
+   each public HTTPS endpoint above. Use distinct recipe/lyrics names and no
+   authentication, matching this service's current policy.
+3. Inspect the discovered tools, schemas and annotations. Test each connection in
+   a new conversation. Refresh the connection metadata after endpoint changes.
+
+The source package is `plugins/codex-musica/`. It contains a supported
+`.codex-plugin/plugin.json` manifest, `.mcp.json` HTTP definitions and two skills:
+`recording-recipes` and `lyric-workflows`. No UI widget is needed for this tool-use
+scope. No production connection IDs are invented in source.
+
+For ChatGPT Work's installed plugin, register both endpoints first and obtain their
+actual `plugin_asdk_app...` technical IDs. In the installed copy, use plugin-creator
+to link those registrations through `.app.json` and the manifest's `apps` field,
+then install the package with its skills from the available local/team source.
+The `.mcp.json` file supports hosts accepting direct MCP configuration; it alone
+does not establish a registered ChatGPT connection. Follow OpenAI's
+[packaging guide](https://developers.openai.com/plugins/build/plugins) for the
+host-specific binding and installation. Test the complete installed plugin after
+testing its MCP connections. Public directory submission is a later step under
+the [submission process](https://developers.openai.com/plugins/deploy/submission).
+
+## Acceptance
+
+Run `npm run test:chatgpt` after installing root/MCP dependencies and staging the
+same lyric runtime assets used by CI. The new suite is also part of
+`test:production:offline`. The HTTP contract test exercises the actual new routes,
+raw-format regression and a lyric operation retrieved through a fresh connection.
+Other session tests cover exact engine output, stored creation receipts, stale
+submissions, safe resume, uncertain spend and storage failures without provider calls.
+
+Before claiming native ChatGPT parity, record results from the deployed,
+installed plugin for these conversations:
+
+| Request or event | Acceptance evidence |
+| --- | --- |
+| “Blend delta blues with dream pop; give the voice a worn sound.” | Catalog IDs resolved; both traditions retained; requested voice edits appear in the exact engine recipe and warnings are read. |
+| “Make that prose,” then change the shared room or move the primary instrument. | Same session/workspace continues; explicit view and edits match the browser engine; output stays at most 1,000 characters in all four formats. |
+| Create a new song with stated structural wants. | Actual sweep, successful screen, plan, exact-draft grade and revision receipts; declarations preserved across calls. |
+| Check/revise supplied existing lyrics. | Edit phase; actual coverage and stop/certification reported; the chosen writer remains fixed. |
+| Disconnect while lyric work is pending, then reconnect. | Poll retrieves the same operation without repeating a paid proposal; latest session continues the task. |
+| Restart after a safe checkpoint or an unknown provider outcome. | Safe explicit resume preserves accepted work; unknown outcome exports the draft and blocks replay. |
+| Indirect recipe wording and a request that needs neither tool family. | Appropriate tool selection and skill triggering; recipe requests do not start lyrics. |
+
+Paid kitchen acceptance should use the established bounded qualification setup.
+Record actual tool traces and delivered artifacts; a text claim by the model or
+a passing local transport test is not evidence that the deployed workflow passed.
