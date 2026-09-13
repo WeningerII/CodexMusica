@@ -27,8 +27,8 @@
 //
 // So the probe forces the condition instead of hoping for it. It spawns the
 // command with stdout on a pipe and then does not read that pipe at all. With
-// no reader, the OS pipe buffer (64KB) fills and the writer's remaining output
-// backs up inside libuv. Two things can happen next, and they are exactly the
+// no reader, the OS buffer (a socketpair's ~208KB, not a pipe's 64KB -- see
+// PIPE_CERTAIN) fills and the writer's remaining output backs up inside libuv. Two things can happen next, and they are exactly the
 // two states worth distinguishing:
 //
 //   • the child calls process.exit() → it dies at once, its queued bytes are
@@ -64,9 +64,21 @@ const ONLY = (process.argv.find((a) => a.startsWith('--only=')) || '').slice(7);
 // cases that reach the strict probe.
 const HOLD_MS = 2500;
 // Above this, a child that has exited before we read anything MUST have dropped
-// output, whatever the platform's pipe capacity is (64KB on Linux and macOS).
-// Comfortably clear of it so the witness never misfires on a small answer.
-const PIPE_CERTAIN = 128 * 1024;
+// output, whatever the platform's pipe capacity is. ~~(64KB on Linux and
+// macOS)~~ IT IS NOT A PIPE, AND IT IS NOT 64KB (M-282 addendum, 2026-09-13).
+// Node's child stdio is a socketpair, and an AF_UNIX stream holds up to the
+// sender's `net.core.wmem_default` (212,992 bytes on Linux, GitHub's runners
+// included) less per-chunk accounting: MEASURED 151,552 bytes queued in an
+// unread stdout before a 4KB-chunk writer blocked, on Node 22 in the sandbox,
+// and more with larger writes. So a 227,230-byte answer can fit entirely and
+// the child can exit before the drain having dropped NOTHING -- which is
+// exactly what CI runs 34767770965 and 34767805356 reported for
+// `list.js --traditions`, bytes identical, `[held FAILED]`: the witness
+// misfiring, not the defect returning. 512KB is 2.4x the socket buffer, so a
+// child that exits before the drain above it has thrown output away on any
+// default kernel; the cases between 128KB and 512KB keep their byte-for-byte
+// comparison and lose only the witness, and four cases still carry it.
+const PIPE_CERTAIN = 512 * 1024;
 
 // Each case: argv after `node`, and the exit code it must end with.
 const CASES = [
@@ -159,7 +171,7 @@ function runHeldPipe(argv) {
     };
 
     // Never touch c.stdout before this: a paused stream is never read from, so
-    // the kernel pipe is the only sink and it fills at 64KB.
+    // the kernel socket buffer is the only sink and it fills (see PIPE_CERTAIN).
     const timer = setTimeout(() => drain(false), HOLD_MS);
     c.on('exit', () => drain(true));
     c.on('close', (code) => {

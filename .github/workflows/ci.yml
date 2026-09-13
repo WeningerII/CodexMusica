@@ -698,9 +698,11 @@ jobs:
       # 1.3, the CLI pipe check 1.1 and the edit differential 0.2 -- 2.6 min in
       # a queue behind a parallel run whose slowest leaf (mcp/test.mjs, 517 s)
       # was the floor and whose 42 leaves summed to 2,193 s over 4 workers
-      # (587 s). `test:ci:serial` in package.json is `test:serial` plus those
-      # three checks, so `run_parallel` deals them as leaves 43-45 of the same
-      # pool and the job pays them inside the floor it was already paying.
+      # (587 s). `test:ci:serial` in package.json is `test:serial` plus locale
+      # and the CLI pipe (the differential was already a leaf, as
+      # `test:connector:differential`; naming it again ran it twice), so
+      # `run_parallel` deals them as leaves of the same pool and the job pays
+      # them inside the floor it was already paying.
       # The doctrine-1 property holds: the chain is still ONE definition, read
       # out of package.json, and `npm test` alone still means what it meant.
       - name: Regression (recipes, prefaces, slots, app), locale invariance, edit differential and the CLI pipe -- every leaf concurrently
@@ -738,7 +740,7 @@ jobs:
       # explored every op, multi-card rosters, and env-less-head states.
       #
       # `npm run check:differential` -- RUNS INSIDE the parallel regression step above
-      # since M-282 (a leaf of `test:ci:serial`); the paragraph above is
+      # since M-282 (a leaf of `test:connector`); the paragraph above is
       # still why it exists and what it catches.
 
       # CLI output survives a pipe.
