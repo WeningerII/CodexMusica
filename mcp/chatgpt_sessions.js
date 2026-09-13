@@ -21,6 +21,17 @@ const capability = () => randomBytes(32).toString('hex');
 const clone = (value) => structuredClone(value);
 const fail = (code, message) =>
   Object.assign(new Error(`${code}: ${message}`), { code, beforeDispatch: true });
+// A closed budget settles every pending reservation as unknown. When the
+// ledger cannot record that, the caller must treat the spend as unknown too;
+// it must never be asked twice.
+function closeBudget(budget) {
+  try {
+    budget?.close();
+    return null;
+  } catch (error) {
+    return error;
+  }
+}
 const privateFields = new Set([
   'workspace',
   'state',
@@ -252,19 +263,29 @@ export class ChatGPTSessions {
         },
         () => this.execute(session, name, args)
       );
-      budget.close();
-      if (budget.snapshot().unknownUsd > 0) out.session.uncertain = true;
+      // Settling the budget can itself fail (the paid-call ledger refusing to
+      // persist). That is an accounting fact about THIS operation, not a
+      // storage fault: the finished result is kept, the session is marked
+      // uncertain so it cannot be advanced, and the store stays healthy.
+      const accountingError = closeBudget(budget);
+      if (accountingError || budget.snapshot().unknownUsd > 0) out.session.uncertain = true;
+      if (accountingError)
+        this.store.proposerUsage(id, {
+          ...this.store.get(id)?.proposer_usage,
+          accounting_unknown: true,
+        });
       this.store.complete(id, 200, { ...out, accounting: budget.snapshot() });
     } catch (error) {
       try {
-        budget?.close();
+        const accountingError = closeBudget(budget);
         // Tool refusals from the maintained client occur before dispatch.
         // Once a provider/checkpoint was recorded, preserve that journal and
         // uncertainty instead of replacing it with an ordinary error response.
         const record = this.store.get(id);
-        if (budget?.snapshot().unknownUsd > 0)
+        if (accountingError || budget?.snapshot().unknownUsd > 0)
           this.store.proposerUsage(id, { ...record?.proposer_usage, accounting_unknown: true });
         if (
+          accountingError ||
           record?.progress ||
           record?.proposer_usage ||
           budget?.snapshot().events.length ||
@@ -278,7 +299,18 @@ export class ChatGPTSessions {
             accounting: budget?.snapshot() || null,
           });
       } catch (storageError) {
-        this.store.failedCompletion(id, storageError);
+        try {
+          this.store.failedCompletion(id, storageError);
+        } catch (fatal) {
+          // A capacity refusal that cannot even record its own interruption is
+          // a persistence failure. Latch it in memory (that path never writes)
+          // so the receipt reads interrupted and no new work is admitted. This
+          // promise is nobody's to await on the lyrics path; it must not reject.
+          this.store.failedCompletion(
+            id,
+            Object.assign(new Error(fatal.message), { code: 'JOB_PERSISTENCE' })
+          );
+        }
       }
     }
   }

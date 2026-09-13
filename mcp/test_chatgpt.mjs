@@ -474,3 +474,105 @@ test('failed completion preserves accepted lyrics and closes recovery admission'
   assert.equal(r.resumable, false);
   assert.throws(() => sessions.resume(q.operation_id, 'lyrics'), /disk unavailable|Recovery store/);
 });
+
+test('an accounting settlement failure marks the operation uncertain without latching the store', async (t) => {
+  const { store } = storeFor(t);
+  const unwritableLedger = () => ({
+    reserve() {},
+    settle() {},
+    snapshot: () => ({ usd: 0, reservedUsd: 0, unknownUsd: 0, maxUsd: 1, events: [] }),
+    close() {
+      throw Object.assign(new Error('ACCOUNTING_UNAVAILABLE: ledger unwritable'), {
+        code: 'ACCOUNTING_UNAVAILABLE',
+      });
+    },
+  });
+  for (const interrupted of [false, true]) {
+    const sessions = new ChatGPTSessions({
+      store,
+      createBudget: unwritableLedger,
+      execute: async (session) => {
+        requestContext().onCheckpoint(checkpoint());
+        if (interrupted) throw new Error('response lost');
+        return { session, result: { content: [{ type: 'text', text: '{"exit_code":0}' }] } };
+      },
+    });
+    const opened = sessions.open('lyrics');
+    const q = sessions.submit(opened.session_id, 'lyrics', 'lyric_revise', {});
+    await sessions.wait(q.operation_id);
+    const r = sessions.status(q.operation_id, 'lyrics');
+    assert.equal(r.status, interrupted ? 'interrupted' : 'completed');
+    assert.equal(r.uncertain_proposal, true);
+    assert.equal(r.resumable, false);
+    // A finished result is kept, not discarded with the settlement.
+    if (!interrupted) assert.deepEqual(value(r), { exit_code: 0 });
+    else assert.deepEqual(r.accepted_draft, ['accepted']);
+    assert.throws(
+      () =>
+        interrupted
+          ? sessions.resume(q.operation_id, 'lyrics')
+          : sessions.submit(q.operation_id, 'lyrics', 'lyric_revise', {}),
+      /CONTINUATION_UNCERTAIN/
+    );
+    // The fault was the ledger's, not the receipt store's: other sessions go on.
+    assert.equal(store.failure, null);
+    assert.equal(sessions.open('lyrics').status, 'completed');
+  }
+});
+
+test('a store that cannot record its own capacity refusal latches instead of rejecting the operation', async (t) => {
+  const { store } = storeFor(t);
+  const capacity = () => {
+    throw Object.assign(new Error('capacity again'), { code: 'JOB_CAPACITY', status: 503 });
+  };
+  const sessions = new ChatGPTSessions({
+    store,
+    execute: async () => {
+      requestContext().onCheckpoint(checkpoint());
+      store.complete = capacity;
+      store.interrupt = capacity;
+      throw new Error('response lost');
+    },
+  });
+  const opened = sessions.open('lyrics');
+  const q = sessions.submit(opened.session_id, 'lyrics', 'lyric_revise', {});
+  // Nobody awaits a lyric operation in production; a rejection here would be
+  // an unhandled one and would end the process.
+  await sessions.wait(q.operation_id);
+  const r = sessions.status(q.operation_id, 'lyrics');
+  assert.equal(r.status, 'interrupted');
+  assert.deepEqual(r.accepted_draft, ['accepted']);
+  assert.equal(r.resumable, false);
+  assert.match(String(store.failure), /capacity again/);
+});
+
+test('cheap unrelated sessions cannot retire an interrupted operation holding accepted lyrics', async (t) => {
+  const { directory } = storeFor(t);
+  const store = new JobStore(directory, { maxPayloadRecords: 8 });
+  const sessions = new ChatGPTSessions({
+    store,
+    execute: async (session, name) => {
+      if (name === 'lyric_revise') {
+        requestContext().onCheckpoint(checkpoint());
+        throw new Error('response lost');
+      }
+      return { session, result: { content: [{ type: 'text', text: '{}' }] } };
+    },
+  });
+  const opened = sessions.open('lyrics');
+  const held = sessions.submit(opened.session_id, 'lyrics', 'lyric_revise', {});
+  await sessions.wait(held.operation_id);
+  assert.equal(sessions.status(held.operation_id, 'lyrics').status, 'interrupted');
+  // Three times the payload cap in recipe sessions, each two receipts.
+  for (let i = 0; i < 12; i++) {
+    const recipe = sessions.open('recipe');
+    const op = sessions.submit(recipe.session_id, 'recipe', 'start_recipe', { tradition: 'x' });
+    await sessions.wait(op.operation_id);
+  }
+  const r = sessions.status(held.operation_id, 'lyrics');
+  assert.equal(r.status, 'interrupted');
+  assert.deepEqual(r.accepted_draft, ['accepted']);
+  assert.equal(r.resumable, true);
+  // Its superseded parent was the cheapest loss and went first.
+  assert.equal(store.get(opened.session_id).state, 'retired');
+});

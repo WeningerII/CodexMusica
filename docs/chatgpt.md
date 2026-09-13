@@ -51,8 +51,10 @@ kitchen repairs use the service's configured Gemini model and accounting.
 - Sessions use the existing private `JobStore` and share its storage limits with
   `/chat`: by default 8,192 metadata records, 128 retained payloads and 256 MB.
   Completed/interrupted metadata expires after 24 hours without a work update;
-  full payloads can retire sooner. A session is temporary working state, not a
-  permanent song archive. IDs grant access to that state without an account login.
+  full payloads can retire sooner, superseded and completed receipts first. An
+  interrupted operation that holds accepted lyrics is never retired for space,
+  only by expiry. A session is temporary working state, not a permanent song
+  archive. IDs grant access to that state without an account login.
 - The adapter admits at most 16 active operations across its endpoints. The
   existing serialized Python queue and tool deadlines still apply. Each operation
   uses the existing shared paid ledger, with `CHAT_MAX_TURN_USD` and
