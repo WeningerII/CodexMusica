@@ -1680,6 +1680,12 @@ body.workbench {
   .workbench .ui-header .ui-brand {
     font-size: 17px;
   }
+  /* The template's compact tier hides #btn-save below 900px and re-exposes
+     it through the overflow sheet the workbench removes; here the button
+     stays in the header, icon only, 44px square. */
+  .workbench .ui-header #btn-save {
+    display: inline-flex !important;
+  }
   .workbench .ui-header #btn-save span,
   .workbench .ui-header #btn-saved span {
     display: none;
@@ -1809,4 +1815,32 @@ body.workbench {
 .branch-key button[aria-pressed='true'] {
   background: #e8f0fe;
   border-color: #1a73e8;
+}
+
+/* Landscape phones (844x390): the recipe drawer is 282px tall, and its fixed
+   chrome (session actions, name, filter) plus the recipe bar left the tree a
+   16px strip and pushed the bar 22px below the viewport. At short heights the
+   whole drawer scrolls and the recipe bar rides its bottom edge instead. */
+@media (max-width: 899px) and (max-height: 500px) {
+  .session-open .workspace #workspace-sidebar,
+  .workbench[data-view='map'].session-open #workspace-sidebar {
+    display: block !important;
+    overflow-y: auto !important;
+  }
+  .session-open #sidebar-scroll {
+    flex: none;
+    min-height: 0;
+    overflow: visible !important;
+  }
+  .session-open #sidebar-recipe-preview {
+    position: sticky !important;
+    bottom: 0 !important;
+    max-height: none;
+    z-index: 2;
+    padding-top: 4px !important;
+    gap: 4px !important;
+  }
+  .session-open #sidebar-recipe-preview .rp-head {
+    padding: 0 12px !important;
+  }
 }

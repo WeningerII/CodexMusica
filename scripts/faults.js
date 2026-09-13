@@ -559,13 +559,19 @@ record(
 //     document overflow: the browser opens the LAYOUT VIEWPORT to fit and scales the
 //     whole app down, so every scrollWidth-based check stays green. Re-plant that
 //     width demand on the same container the regression lived in.)
+//     SINCE THE WORKBENCH HEADER, ALSO ON ITS TWO CLUSTERS. `.app-bar .actions`
+//     is the old header, which the workbench removes from the DOM at boot, so a
+//     plant on it alone matched nothing and ESCAPED. The new header is a grid
+//     below 900px and the page clips its overflow, so the same width demand on
+//     its nav pushes the rightmost section tab off screen without any document
+//     overflow: the gate catches it through the four section capabilities.
 {
   const d = mkenv(['scripts', 'codex.html', 'api']);
   const f = path.join(d, 'codex.html');
   const before = fs.readFileSync(f, 'utf8');
   const after = before.replace(
     '</body>',
-    '<style>/* __MOBILE_FAULT__ */ .app-bar .actions { min-width: 720px !important; }</style>\n</body>'
+    '<style>/* __MOBILE_FAULT__ */ .app-bar .actions, .app-bar nav, .app-bar .ui-tools { min-width: 720px !important; }</style>\n</body>'
   );
   if (after === before) throw new Error('mobile fault: could not inject into codex.html');
   fs.writeFileSync(f, after);

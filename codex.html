@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Codex</title>
+<title>Codex Musica</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -17,10 +17,7 @@
 <link rel="help" href="https://mcp.codexmusica.com/mcp" title="Live editable engine (MCP connector) — start here">
 <link rel="alternate" type="text/plain" href="llms.txt" title="Agent instructions (llms.txt)">
 <link rel="alternate" type="application/json" href="api/all.json" title="Every recipe in one fetch">
-<meta name="theme-color" content="#0f0f12">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,30..100;1,9..144,400..700,30..100&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#ffffff">
 <style>
 :root {
   /* Spacing — 4px grid */
@@ -1678,6 +1675,1855 @@ body.is-dnd-active * { cursor: grabbing !important; }
   .chat-panel { max-height: 50vh; }
 }
 </style>
+<style>
+:root {
+  --font-display: Arial, Helvetica, sans-serif;
+  --font-body: Arial, Helvetica, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --surface: #fff;
+  --surface-1: #fff;
+  --surface-2: #f8f9fa;
+  --surface-3: #f1f3f4;
+  --bg: #fff;
+  --text: #202124;
+  --text-2: #3c4043;
+  --text-3: #5f6368;
+  --accent: #e53935;
+  --color-blue: #1a73e8;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-micro: 0.8125rem;
+}
+html,
+body.workbench {
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #202124;
+}
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  touch-action: manipulation;
+}
+button:focus-visible,
+a:focus-visible,
+[role='button']:focus-visible {
+  outline: 3px solid #1a73e8;
+  outline-offset: 2px;
+}
+button,
+a {
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+button:hover {
+  background: #f1f3f4;
+}
+button svg,
+a svg {
+  flex-shrink: 0;
+}
+h1,
+h2,
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: normal;
+}
+h2 {
+  font-size: 20px;
+  line-height: 1.3;
+}
+h3 {
+  font-size: 16px;
+}
+.native-header {
+  display: none !important;
+}
+.ui-header {
+  height: 64px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid #dadce0;
+  background: white;
+  position: relative;
+  z-index: 60;
+}
+.ui-brand {
+  font-size: 20px;
+  color: #202124;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.ui-header nav {
+  display: flex;
+  align-self: stretch;
+  gap: 4px;
+  margin: auto;
+}
+.ui-header button,
+.session-actions button,
+.discovery-toolbar button,
+.ui-detail-tools button,
+.lyrics-toolbar button,
+.assistant-toolbar button,
+#ui-menu button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  background: none;
+  min-height: 44px;
+  padding: 8px 12px;
+  font: 500 14px Arial;
+  border-radius: 6px;
+  color: #3c4043;
+  cursor: pointer;
+}
+.ui-header nav button {
+  border-radius: 0;
+  border-bottom: 3px solid transparent;
+  padding: 0 14px;
+}
+.ui-header nav button.active {
+  color: #1a73e8;
+  border-bottom-color: #1a73e8;
+  background: #e8f0fe;
+}
+.ui-tools {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.ui-tools button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+#ui-count {
+  font-size: 12px;
+  color: #5f6368;
+  margin-left: -8px;
+}
+#ui-menu {
+  position: absolute;
+  top: 58px;
+  right: 12px;
+  background: white;
+  border: 1px solid #dadce0;
+  border-radius: 10px;
+  padding: 8px;
+  box-shadow: 0 4px 15px #20212426;
+  min-width: 190px;
+}
+#ui-menu:not([hidden]) {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+#ui-menu button {
+  justify-content: start;
+}
+.workspace {
+  display: grid !important;
+  grid-template-columns: 300px minmax(0, 1fr);
+  height: calc(100dvh - 64px) !important;
+  min-height: 0 !important;
+  max-width: none !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  overflow: hidden !important;
+}
+.workspace #workspace-sidebar {
+  width: auto !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  position: relative !important;
+  top: auto !important;
+  border-right: 1px solid #dadce0;
+  background: #fff !important;
+  overflow: hidden;
+  display: flex !important;
+  flex-direction: column;
+}
+.session-actions {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8px;
+  border-bottom: 1px solid #e8eaed;
+  gap: 2px;
+}
+.session-actions button:first-child {
+  color: #1a73e8;
+  background: #e8f0fe;
+}
+.session-actions button {
+  font-size: 13px;
+  min-height: 38px;
+  padding: 6px 8px;
+}
+.session-actions [data-ui='close-session'] {
+  display: none;
+}
+#sidebar-header {
+  padding: 18px 18px 8px !important;
+}
+#sidebar-filter {
+  padding: 8px 16px !important;
+}
+#sidebar-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto !important;
+  padding: 8px 12px !important;
+}
+#sidebar-recipe-preview {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  flex: none;
+  max-height: 32vh;
+  overflow: auto;
+  background: white !important;
+}
+.rp-text {
+  font-family: Arial, sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  max-height: 140px;
+}
+.rp-head {
+  padding: 10px 12px !important;
+  gap: 6px !important;
+}
+.rp-label {
+  font-size: 12px !important;
+}
+.rp-count {
+  font-size: 12px !important;
+}
+.sb-card {
+  padding: 10px 6px !important;
+  min-height: 64px;
+}
+.sb-card-thumb {
+  width: 36px !important;
+  height: 36px !important;
+}
+.sb-card-line2 {
+  font-size: 12px !important;
+}
+.sb-preface {
+  color: #d93025 !important;
+}
+.sb-name {
+  font-size: 15px !important;
+}
+.sb-card.is-selected {
+  background: #e8f0fe !important;
+}
+.sb-staple {
+  padding: 12px !important;
+}
+#discovery {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+}
+.ui-surface {
+  height: 100%;
+  overflow: auto;
+  background: #fff;
+}
+.ui-surface[hidden] {
+  display: none !important;
+}
+.discovery-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  border-bottom: 1px solid #e8eaed;
+}
+.ui-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  background: #f1f3f4;
+  border-radius: 24px;
+  padding: 0 16px;
+  min-width: 120px;
+  height: 48px;
+}
+.ui-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0 !important;
+  background: transparent !important;
+  font-size: 16px;
+  outline: none;
+  padding: 10px 0 !important;
+}
+.ui-search:focus-within {
+  box-shadow: 0 0 0 2px #1a73e8;
+}
+.destination {
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.destination select {
+  max-width: 220px;
+  height: 32px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  background: #fff;
+}
+.discovery-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(290px, 1fr);
+  align-items: start;
+  gap: 20px;
+  padding: 16px 24px;
+}
+.ui-wheel {
+  width: 100%;
+  max-width: 580px;
+  display: block;
+  margin: auto;
+  overflow: visible;
+}
+.ui-wheel [role='button'] {
+  cursor: pointer;
+}
+.ui-wheel [role='button']:hover path {
+  filter: brightness(1.13);
+}
+.ui-wheel text {
+  font: 500 12px Arial;
+  pointer-events: none;
+}
+.ui-wheel .wheel-center-label {
+  font-weight: 600;
+  font-size: 17px;
+  fill: #202124;
+}
+.ui-wheel .wheel-center-back {
+  font-size: 13px;
+  fill: #5f6368;
+}
+.branch-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 24px;
+}
+.branch-key button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #e8eaed;
+  border-radius: 6px;
+  background: #fff;
+  padding: 7px 9px;
+  font: 14px Arial;
+  cursor: pointer;
+  min-height: 40px;
+}
+.key-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex: none;
+}
+.catalog-count {
+  font-size: 13px;
+  color: #5f6368;
+  padding: 8px 0;
+}
+.catalog-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 62px;
+  border-bottom: 1px solid #e8eaed;
+}
+.catalog-row button {
+  border: 0;
+  background: none;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 44px;
+  padding: 6px;
+  font: 14px Arial;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.catalog-row button:hover {
+  background: #e8f0fe;
+}
+.catalog-name {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  color: #202124 !important;
+}
+.catalog-name > span:last-child {
+  flex: 1;
+}
+.catalog-name svg,
+.catalog-name img {
+  flex-shrink: 0;
+}
+.catalog-row > button:last-child {
+  color: #1a73e8;
+}
+.listen {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 6px;
+  color: #1a73e8;
+  text-decoration: none;
+  font: 13px Arial;
+  white-space: nowrap;
+  border-radius: 5px;
+}
+.listen:hover {
+  background: #e8f0fe;
+}
+.searching {
+  grid-template-columns: 1fr;
+}
+.searching .discovery-chart {
+  display: none;
+}
+.catalog-list > [data-ui='more'] {
+  margin: 16px auto;
+  display: flex;
+  padding: 10px 20px;
+  border: 1px solid #dadce0;
+  border-radius: 20px;
+  background: #fff;
+  cursor: pointer;
+}
+.genre-selected {
+  padding: 12px 24px 24px;
+}
+.selected-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.selected-head h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+.selected-head button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #e8f0fe;
+  color: #1a73e8;
+  border: 0;
+  border-radius: 5px;
+  min-height: 44px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.selected-head button[data-ui='genre-close'] {
+  background: transparent;
+  color: #3c4043;
+}
+.genre-web {
+  position: relative;
+  height: 430px;
+  max-width: 1100px;
+  margin: 12px auto 20px;
+}
+.genre-web > svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.genre-web line {
+  stroke: #a8c7fa;
+  stroke-width: 0.35;
+}
+.web-node,
+.web-center {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 180px;
+  max-width: 27%;
+  padding: 12px;
+  background: white;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  text-align: left;
+  font: 14px Arial;
+  box-shadow: 0 2px 5px #2021240c;
+}
+.web-node {
+  min-height: 54px;
+  cursor: pointer;
+}
+.web-node:hover {
+  border-color: #1a73e8;
+  background: #e8f0fe;
+}
+.web-center {
+  left: 50%;
+  top: 48%;
+  background: #e8f0fe;
+  border-color: #1a73e8;
+  min-height: 72px;
+  color: #174ea6;
+}
+.genre-facts details,
+.part-preview details {
+  border-top: 1px solid #e8eaed;
+  padding: 12px 0;
+}
+.genre-facts summary,
+.part-preview summary {
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 30px;
+}
+.genre-facts p {
+  font: 15px/1.6 Arial;
+  margin: 12px 0;
+  color: #3c4043;
+}
+.genre-instruments > div,
+.related-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 50px;
+  border-bottom: 1px solid #f1f3f4;
+}
+.genre-instruments button,
+.related-row button {
+  border: 0;
+  background: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 14px Arial;
+  min-height: 44px;
+  cursor: pointer;
+  color: #1a73e8;
+}
+.genre-instruments > div > button:first-of-type,
+.related-row > button:first-child {
+  flex: 1;
+  text-align: left;
+  color: #202124;
+}
+.related-row > span {
+  font-size: 12px;
+  color: #5f6368;
+  max-width: 35%;
+}
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 7px 0;
+  font-size: 14px;
+}
+.axis-filter-pills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 12px 20px;
+}
+.axis-filter-pills button {
+  padding: 7px 12px;
+  border: 1px solid #dadce0;
+  border-radius: 20px;
+  background: #fff;
+  font: 13px Arial;
+  min-height: 36px;
+  cursor: pointer;
+}
+.axis-filter-pills button.active {
+  color: #174ea6;
+  background: #e8f0fe;
+  border-color: #1a73e8;
+}
+#instrument-preview {
+  padding: 16px 24px;
+  border-bottom: 1px solid #dadce0;
+}
+#instrument-preview > p {
+  margin: 12px 0;
+  font-size: 14px;
+  color: #5f6368;
+}
+#instrument-preview h3 {
+  margin-top: 16px;
+}
+.part-preview {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 20px;
+}
+.part-preview p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+#workspace-detail {
+  display: none !important;
+  min-width: 0 !important;
+  background: #fff;
+  border-left: 1px solid #dadce0;
+  height: 100%;
+  overflow: auto !important;
+}
+.editor-open .workspace {
+  grid-template-columns: 280px minmax(280px, 1fr) minmax(380px, 440px);
+}
+.editor-open #workspace-detail {
+  display: block !important;
+}
+.editor-open .discovery-grid {
+  grid-template-columns: 1fr;
+}
+.editor-open .discovery-chart {
+  max-width: 460px;
+  margin: auto;
+}
+.editor-open .genre-web {
+  height: 500px;
+}
+.editor-open .web-node,
+.editor-open .web-center {
+  font-size: 12px;
+  padding: 7px;
+  gap: 3px;
+}
+.editor-open .web-node svg,
+.editor-open .web-center svg {
+  display: none;
+}
+.ui-detail-tools {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 5;
+  border-bottom: 1px solid #e8eaed;
+}
+.detail-view {
+  padding: 0 !important;
+}
+.detail-header {
+  padding: 16px !important;
+}
+.detail-title {
+  font-size: 21px !important;
+}
+.detail-tab-bar {
+  position: sticky;
+  top: 61px;
+  background: white;
+  z-index: 4;
+  overflow: auto;
+  flex-wrap: nowrap !important;
+  padding: 0 8px !important;
+}
+.detail-tab {
+  min-height: 44px !important;
+  padding: 8px !important;
+  font-size: 13px !important;
+  white-space: nowrap;
+}
+.detail-tab-status {
+  display: none;
+}
+.detail-tab-content {
+  padding: 16px !important;
+}
+.detail-breadcrumb {
+  padding: 12px !important;
+  flex-wrap: wrap !important;
+}
+.detail-fingerprint-panel,
+.fingerprint {
+  display: none !important;
+}
+.detail-stack-signature {
+  font-size: 13px;
+}
+.part-row-grid {
+  min-width: 0;
+}
+.detail-trait-pills {
+  padding: 0 16px !important;
+}
+.ui-header ~ .workspace #empty-state {
+  display: none !important;
+}
+.modal-bg.inline-tree {
+  display: block !important;
+  position: static !important;
+  background: white !important;
+  padding: 0 !important;
+  backdrop-filter: none !important;
+}
+.inline-tree > .modal {
+  max-width: none !important;
+  width: 100% !important;
+  max-height: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+.inline-tree .modal-body {
+  max-height: none !important;
+}
+.inline-tree .modal-head {
+  padding: 12px 20px !important;
+}
+.inline-tree .modal-head h2 {
+  font-size: 18px;
+}
+.tree-row {
+  min-height: 46px;
+}
+.tree-row-name {
+  font-size: 16px;
+}
+.trad-leaf-desc {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.trad-leaf-actions {
+  min-width: 90px;
+}
+.modal {
+  background: white !important;
+}
+.modal h2 {
+  font-family: Arial !important;
+}
+.modal-bg {
+  backdrop-filter: none !important;
+  background: #20212438 !important;
+}
+.modal-bg .modal {
+  border-radius: 12px !important;
+}
+.modal .btn {
+  min-height: 44px;
+}
+.btn-primary {
+  background: #1a73e8 !important;
+  color: #fff !important;
+}
+.btn-tonal {
+  background: #e8f0fe !important;
+  color: #174ea6 !important;
+}
+#surface-map {
+  overflow: hidden;
+}
+#map-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.workbench[data-view='map'] .workspace {
+  grid-template-columns: 1fr;
+}
+.workbench[data-view='map'] #workspace-sidebar {
+  display: none !important;
+}
+.workbench[data-view='map'].session-open #workspace-sidebar {
+  display: flex !important;
+  position: absolute !important;
+  top: 64px !important;
+  right: 0;
+  width: 330px !important;
+  height: calc(100dvh - 64px) !important;
+  z-index: 35;
+  box-shadow: -4px 0 16px #20212420;
+}
+.workbench[data-view='map'] #workspace-detail {
+  display: none !important;
+}
+.lyrics-toolbar {
+  padding: 12px 20px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #dadce0;
+}
+.lyrics-toolbar button:first-child {
+  background: #1a73e8;
+  color: white;
+}
+.lyrics-workspace {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: calc(100% - 70px);
+}
+.lyrics-editor {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  min-height: 350px;
+  min-width: 0;
+}
+.lyrics-editor label {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.lyrics-editor textarea {
+  flex: 1;
+  resize: none;
+  border: 0;
+  outline-color: #1a73e8;
+  font: 16px/1.8 Arial;
+  padding: 12px;
+  min-height: 300px;
+  color: #202124;
+  background: #fff;
+}
+#lyrics-chat {
+  border-left: 1px solid #dadce0;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+}
+.workbench[data-view='lyrics'] #workspace-detail {
+  display: none !important;
+}
+.workbench[data-view='lyrics'] .workspace {
+  grid-template-columns: 300px minmax(0, 1fr);
+}
+#assistant-slot {
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 64px;
+  bottom: 0;
+  width: min(480px, 100%);
+  background: white;
+  border-left: 1px solid #dadce0;
+  z-index: 55;
+  box-shadow: -4px 0 18px #2021241a;
+  flex-direction: column;
+}
+.assistant-open:not([data-view='lyrics']) #assistant-slot {
+  display: flex;
+}
+.assistant-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-bottom: 1px solid #dadce0;
+}
+.assistant-toolbar strong {
+  flex: 1;
+}
+.chat-dock {
+  position: static !important;
+  width: 100% !important;
+  max-width: none !important;
+  transform: none !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0;
+  flex: 1;
+  gap: 0 !important;
+  background: white;
+}
+.chat-panel {
+  flex: 1;
+  min-height: 0;
+  max-height: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  display: flex !important;
+  flex-direction: column;
+}
+.chat-panel-head {
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 12px !important;
+  min-height: 52px;
+}
+.chat-panel-title,
+.chat-panel-meta,
+#chat-collapse {
+  display: none !important;
+}
+.chat-log {
+  flex: 1;
+  min-height: 80px;
+  padding: 16px !important;
+  font-size: 15px;
+  overflow: auto;
+}
+.chat-msg {
+  font-size: 15px !important;
+  line-height: 1.6;
+}
+.chat-msg-you {
+  background: #e8f0fe !important;
+}
+.chat-bar {
+  border-radius: 0 !important;
+  border: 0 !important;
+  border-top: 1px solid #dadce0 !important;
+  padding: 12px !important;
+  box-shadow: none !important;
+  align-items: flex-end;
+}
+.chat-input {
+  font: 16px/1.5 Arial !important;
+  border: 1px solid #dadce0 !important;
+  border-radius: 8px !important;
+  padding: 10px !important;
+  min-width: 0;
+  resize: vertical;
+  min-height: 75px;
+  max-height: 220px;
+  background: white !important;
+}
+.chat-send {
+  min-height: 44px;
+}
+.chat-recipe-text {
+  font: 14px/1.6 Arial !important;
+  max-height: none !important;
+}
+.chat-recipe-foot {
+  font-size: 13px !important;
+}
+.chat-tool {
+  font-size: 12px !important;
+}
+.chat-tools {
+  max-height: 120px;
+  overflow: auto;
+}
+#ai-status:empty {
+  display: none;
+}
+#ai-status {
+  font-size: 13px;
+  color: #b3261e;
+  padding: 8px 12px;
+}
+#chat-domain {
+  max-width: 100%;
+  font-size: 14px;
+  min-height: 36px;
+}
+#chat-reset,
+#chat-recover {
+  font-size: 13px;
+  min-height: 36px;
+}
+.toast {
+  z-index: 1000 !important;
+  bottom: 20px !important;
+  max-width: calc(100vw - 32px);
+}
+@media (min-width: 900px) and (max-width: 1250px) {
+  .ui-brand {
+    font-size: 17px;
+  }
+  .ui-header {
+    gap: 8px;
+    padding: 0 12px;
+  }
+  .ui-header nav button {
+    padding: 0 10px;
+  }
+  .ui-tools [data-ui='saved'] span,
+  .ui-tools [data-ui='menu'] span {
+    display: none;
+  }
+  .workspace {
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+  .discovery-grid {
+    grid-template-columns: 1fr;
+  }
+  .discovery-chart {
+    max-width: 520px;
+    margin: auto;
+  }
+  .editor-open .workspace {
+    grid-template-columns: 240px minmax(230px, 1fr) 380px;
+  }
+  .lyrics-workspace {
+    grid-template-columns: 1fr;
+    overflow: auto;
+    height: auto;
+  }
+  .lyrics-editor {
+    min-height: 400px;
+  }
+  #lyrics-chat {
+    min-height: 500px;
+  }
+  .workbench[data-view='lyrics'] .workspace {
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+}
+@media (max-width: 899px) {
+  .ui-header {
+    height: 108px;
+    padding: 8px 12px 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 42px 50px;
+    gap: 4px;
+  }
+  .ui-brand {
+    font-size: 18px;
+  }
+  .ui-header nav {
+    grid-row: 2;
+    grid-column: 1/-1;
+    width: 100%;
+    justify-content: space-around;
+    gap: 0;
+  }
+  .ui-header nav button {
+    flex: 1;
+    font-size: 14px;
+    padding: 0 8px;
+  }
+  .ui-header nav button svg {
+    width: 18px;
+  }
+  .ui-tools {
+    gap: 0;
+  }
+  .ui-tools button {
+    min-height: 40px;
+    padding: 6px 9px;
+  }
+  .ui-tools [data-ui='undo'],
+  .ui-tools [data-ui='redo'],
+  .ui-tools [data-ui='saved'] {
+    display: none;
+  }
+  .ui-tools [data-ui='menu'] span {
+    display: none;
+  }
+  .ui-tools [data-ui='save'] span {
+    display: none;
+  }
+  .workspace,
+  .editor-open .workspace,
+  .workbench[data-view='lyrics'] .workspace {
+    height: calc(100dvh - 108px) !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .workspace #workspace-sidebar {
+    display: none !important;
+  }
+  .workspace #workspace-detail {
+    display: none !important;
+  }
+  .session-open .workspace #workspace-sidebar,
+  .workbench[data-view='map'].session-open #workspace-sidebar {
+    display: flex !important;
+    position: fixed !important;
+    inset: 108px 0 0 !important;
+    width: 100% !important;
+    height: calc(100dvh - 108px) !important;
+    z-index: 45;
+    box-shadow: none !important;
+  }
+  .session-actions {
+    padding: 8px 12px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .session-actions [data-ui='close-session'] {
+    display: flex;
+    font-size: 0;
+    padding: 8px;
+  }
+  .session-actions [data-ui='close-session'] svg {
+    width: 20px;
+  }
+  .session-actions button {
+    font-size: 13px;
+  }
+  .session-open #sidebar-header {
+    padding: 12px 16px 4px !important;
+  }
+  .session-open #sidebar-scroll {
+    padding: 8px 16px !important;
+  }
+  .session-open #sidebar-recipe-preview {
+    position: relative !important;
+    max-height: 40vh;
+    flex-shrink: 0;
+  }
+  .session-open #sidebar-recipe-preview .rp-text {
+    max-height: 180px;
+  }
+  .sb-card {
+    width: 100%;
+  }
+  .detail-view {
+    margin: 0 !important;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+  }
+  .detail-tab-bar {
+    top: 0 !important;
+  }
+  .ui-detail-tools {
+    position: static;
+  }
+  .discovery-toolbar {
+    padding: 12px;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .ui-search {
+    flex-basis: calc(100% - 150px);
+    height: 44px;
+  }
+  .discovery-toolbar button {
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+  .discovery-toolbar [data-ui='genre-tree'] span {
+    display: none;
+  }
+  .destination {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    font-size: 13px;
+  }
+  .destination select {
+    max-width: none;
+    flex: 1;
+    height: 36px;
+  }
+  .discovery-grid {
+    grid-template-columns: 1fr !important;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+  .discovery-chart {
+    max-width: 480px;
+    margin: auto;
+    width: 100%;
+  }
+  .branch-key {
+    gap: 5px;
+  }
+  .branch-key button {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+  .catalog-row {
+    gap: 3px;
+  }
+  .catalog-row .catalog-name {
+    font-size: 15px;
+  }
+  .catalog-row .listen {
+    font-size: 12px;
+    gap: 3px;
+    padding: 4px;
+  }
+  .catalog-row > button:last-child {
+    font-size: 13px;
+  }
+  .catalog-row .catalog-name > svg,
+  .catalog-row .catalog-name > img {
+    width: 26px;
+    height: 26px;
+  }
+  .genre-selected {
+    padding: 12px;
+  }
+  .selected-head {
+    gap: 8px;
+  }
+  .selected-head h2 {
+    flex-basis: calc(100% - 90px);
+    font-size: 18px;
+    order: 0;
+  }
+  .selected-head > [data-ui='genre-close'] {
+    font-size: 13px;
+    padding: 6px;
+    order: 0;
+  }
+  .selected-head > .listen,
+  .selected-head > [data-ui='genre-add'] {
+    order: 1;
+  }
+  .genre-web {
+    height: 380px;
+    margin: 10px 0;
+  }
+  .web-node,
+  .web-center {
+    width: 115px;
+    max-width: 31%;
+    font-size: 12px;
+    padding: 8px 5px;
+    gap: 3px;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: none;
+  }
+  .web-node svg {
+    width: 20px;
+    height: 20px;
+  }
+  .web-center {
+    max-width: 29%;
+    font-size: 13px;
+  }
+  .related-row {
+    flex-wrap: wrap;
+  }
+  .related-row > span {
+    max-width: none;
+    flex-basis: 100%;
+    order: 2;
+    padding: 0 0 8px 30px;
+  }
+  .genre-instruments > div {
+    gap: 4px;
+  }
+  .genre-instruments button {
+    font-size: 13px;
+  }
+  .part-preview {
+    grid-template-columns: 1fr;
+  }
+  #instrument-preview {
+    padding: 12px;
+  }
+  #instrument-preview .selected-head {
+    gap: 6px;
+  }
+  #instrument-preview h2 {
+    flex-basis: auto;
+  }
+  .lyrics-toolbar {
+    padding: 8px;
+    gap: 2px;
+  }
+  .lyrics-toolbar button {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+  .lyrics-workspace {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+  .lyrics-editor {
+    min-height: 340px;
+    padding: 12px;
+  }
+  .lyrics-editor textarea {
+    min-height: 300px;
+  }
+  .lyrics-toolbar [data-ui='attach-recipe'] {
+    flex: 1;
+  }
+  #lyrics-chat {
+    min-height: 520px;
+    height: 70dvh;
+    border-left: 0;
+    border-top: 1px solid #dadce0;
+  }
+  .workbench[data-view='lyrics'] .ui-surface {
+    overflow: auto;
+  }
+  #assistant-slot {
+    top: 108px;
+    bottom: 0;
+    width: 100%;
+  }
+  .chat-panel-head {
+    padding: 8px !important;
+  }
+  .chat-log {
+    padding: 12px !important;
+  }
+  .chat-bar {
+    padding: 8px !important;
+  }
+  #ui-menu {
+    top: 52px;
+    z-index: 70;
+  }
+  .modal-bg {
+    padding: 12px !important;
+  }
+  .modal {
+    max-height: calc(100dvh - 24px) !important;
+  }
+  .modal-head {
+    padding: 12px !important;
+  }
+  .modal-head h2 {
+    font-size: 18px !important;
+  }
+  .modal-body {
+    padding: 12px !important;
+  }
+  .genre-facts summary {
+    font-size: 14px;
+  }
+  .toast {
+    bottom: 12px !important;
+  }
+  .ui-wheel text {
+    font-size: 12px;
+  }
+  .rp-tool {
+    display: inline-flex !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+.workspace #workspace-sidebar {
+  padding: 0 !important;
+  gap: 0 !important;
+}
+#sidebar-scroll {
+  margin: 0 !important;
+  overflow-x: hidden !important;
+}
+.sb-card-line1 {
+  white-space: normal !important;
+}
+.ui-header ~ .workspace #workspace-detail {
+  padding: 0 !important;
+}
+.detail-stack-signature {
+  margin: 8px 12px !important;
+}
+.sb-card-text {
+  min-width: 0;
+}
+.sb-trad-header {
+  min-height: 50px;
+}
+#sidebar-recipe-preview .rp-label {
+  white-space: nowrap;
+}
+.ui-header ~ .workspace #sidebar-header h2 {
+  font-size: 18px !important;
+}
+.ui-header nav svg {
+  display: block;
+}
+body.workbench {
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.workbench .workspace {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+.workbench .ui-header {
+  max-width: 100%;
+}
+.workbench #sidebar-scroll {
+  width: 100%;
+  margin: 0 !important;
+}
+.workbench #sidebar-recipe-preview {
+  width: 100%;
+}
+.workbench .sb-trad-header {
+  min-width: 0;
+}
+.chat-bar {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  gap: 8px !important;
+}
+.chat-input {
+  grid-column: 1/-1;
+  grid-row: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+.chat-bar #chat-domain {
+  grid-row: 2;
+  grid-column: 1;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+.chat-send {
+  grid-row: 2;
+  grid-column: 2;
+}
+.ui-wheel,
+.genre-web {
+  animation: ui-appear 0.18s ease-out;
+}
+@keyframes ui-appear {
+  from {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (max-width: 899px) {
+  .workbench #sidebar-scroll {
+    overflow-x: hidden !important;
+  }
+  .workbench .part-row-grid {
+    grid-template-columns: 1fr auto !important;
+    gap: 6px !important;
+    padding: 12px !important;
+  }
+  .workbench .part-label-cell {
+    grid-column: 1 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+  }
+  .workbench .part-variant-cell {
+    grid-column: 1/-1 !important;
+    display: block !important;
+    white-space: normal !important;
+    overflow: visible !important;
+  }
+  .workbench .part-descriptors-cell {
+    grid-column: 1/-1 !important;
+    display: block !important;
+    white-space: normal !important;
+  }
+  .workbench .part-row-grid > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .lyrics-editor {
+    min-height: 300px;
+  }
+  .lyrics-editor textarea {
+    min-height: 240px;
+  }
+  #lyrics-chat {
+    height: 520px;
+    min-height: 520px;
+  }
+  .chat-log {
+    min-height: 120px;
+  }
+  .chat-input {
+    min-height: 90px;
+    max-height: 180px;
+  }
+  .ui-surface,
+  .lyrics-workspace {
+    max-width: 100%;
+  }
+  .workbench #workspace-sidebar {
+    max-width: 100vw !important;
+  }
+  .workbench .detail-view {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 899px) {
+  .lyrics-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: #fff;
+  }
+  #lyrics-chat {
+    order: -1;
+    height: auto;
+    min-height: 0;
+    border-left: 0;
+    border-bottom: 1px solid #dadce0;
+  }
+  #lyrics-chat .chat-panel {
+    flex: none;
+  }
+  #lyrics-chat .chat-log {
+    flex: none;
+    min-height: 0;
+    max-height: 40dvh;
+  }
+  #lyrics-chat .chat-log:empty {
+    display: none;
+  }
+  .lyrics-editor {
+    min-height: 300px;
+  }
+  .part-thumb-cell {
+    display: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ui-wheel,
+  .genre-web {
+    animation: none !important;
+  }
+  * {
+    scroll-behavior: auto !important;
+  }
+}
+
+.workbench .ui-header {
+  box-shadow: none;
+  border-radius: 0;
+  flex-wrap: nowrap;
+  min-height: 64px;
+  max-height: 64px;
+  inset: auto;
+  position: relative;
+  gap: 18px;
+}
+.workbench .ui-header button,
+.workbench .ui-header a {
+  flex-shrink: 0;
+}
+.workbench .session-actions button {
+  min-height: 44px;
+}
+.workbench .rp-text {
+  padding: 12px 14px !important;
+}
+.workbench .ui-surface {
+  scrollbar-gutter: stable;
+}
+.workbench .sidebar-trad-name {
+  overflow-wrap: anywhere;
+}
+.workbench .genre-web {
+  animation: none;
+}
+#ai-status:not(:empty) {
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #3c4043;
+  background: #f8f9fa;
+}
+#ai-status button {
+  border: 0;
+  background: transparent;
+  min-height: 44px;
+  color: #1a73e8;
+  font-weight: 600;
+  padding: 8px;
+}
+#storage-conflict {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: calc(100vw - 24px);
+  z-index: 100;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 14px;
+  background: #fff;
+  border: 1px solid #fbbc04;
+  border-radius: 8px;
+  box-shadow: 0 3px 16px #0002;
+}
+#storage-conflict button {
+  background: #e8f0fe;
+  color: #1a73e8;
+  border: 0;
+  min-height: 44px;
+  border-radius: 4px;
+  padding: 8px;
+}
+#lyrics-wait {
+  padding: 16px;
+  font-size: 14px;
+}
+#lyrics-wait button {
+  min-height: 44px;
+  color: #1a73e8;
+  background: #e8f0fe;
+  border: 0;
+  border-radius: 5px;
+  padding: 8px 12px;
+}
+@media (max-width: 899px) {
+  .workbench .ui-header {
+    height: 108px;
+    min-height: 108px;
+    max-height: 108px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 56px 52px;
+    padding: 0 10px;
+    gap: 0;
+  }
+  .workbench .ui-header nav {
+    grid-row: 2;
+    grid-column: 1/-1;
+    width: 100%;
+    justify-content: space-around;
+    gap: 0;
+  }
+  .workbench .ui-header nav button {
+    min-width: 0;
+    flex: 1;
+    font-size: 13px;
+    gap: 6px;
+    padding: 0 5px;
+    min-height: 48px;
+  }
+  .workbench .ui-header .ui-tools {
+    gap: 0;
+  }
+  .workbench .ui-header .ui-tools button {
+    padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .workbench .ui-header .ui-brand {
+    font-size: 17px;
+  }
+  /* The template's compact tier hides #btn-save below 900px and re-exposes
+     it through the overflow sheet the workbench removes; here the button
+     stays in the header, icon only, 44px square. */
+  .workbench .ui-header #btn-save {
+    display: inline-flex !important;
+  }
+  .workbench .ui-header #btn-save span,
+  .workbench .ui-header #btn-saved span {
+    display: none;
+  }
+  .workbench .ui-header #btn-saved {
+    display: none;
+  }
+  .workbench .ui-header #btn-undo,
+  .workbench .ui-header #btn-redo {
+    display: none;
+  }
+  .workbench .ui-header .ui-tools [data-ui='session'] span {
+    display: none;
+  }
+  .workbench .ui-header #ui-count {
+    margin: 0;
+    font-size: 12px;
+  }
+  .workbench .ui-header .ui-tools [data-ui='menu'] span {
+    display: none;
+  }
+  .workbench .branch-key button,
+  .workbench .axis-filter-pills button {
+    min-height: 44px;
+  }
+  .workbench .part-options-cell {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .workbench .part-variant-cell {
+    grid-column: 1/-1;
+    font-size: 15px;
+    color: #202124;
+  }
+  .workbench .part-descriptors-cell {
+    grid-column: 1/-1;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  #storage-conflict {
+    flex-wrap: wrap;
+    min-width: 300px;
+  }
+}
+@media (max-width: 899px) {
+  .workbench .sb-tradition-header {
+    position: static !important;
+    top: auto !important;
+  }
+  .workbench .detail-subtitle,
+  .workbench .detail-header-name,
+  .workbench .detail-title {
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .workbench .detail-header > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .workbench .rp-head button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .workbench .rp-label {
+    display: none;
+  }
+  .workbench .rp-head {
+    padding: 6px !important;
+    gap: 2px !important;
+  }
+}
+
+/* Keep every editor destination visible in narrow detail panes. */
+.detail-tab-bar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  overflow: visible;
+}
+.detail-tab {
+  justify-content: center;
+  min-width: 0;
+  gap: 4px;
+}
+.detail-tab span {
+  white-space: normal;
+}
+
+/* Category controls keep browsing compact and leave room for catalog results. */
+.workbench .discovery-grid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+}
+.catalog-categories:empty {
+  display: none;
+}
+.catalog-categories .branch-key {
+  margin: 0 0 8px;
+}
+.category-heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+.category-heading button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 6px 10px;
+  color: #1a73e8;
+  background: #fff;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  font: inherit;
+  cursor: pointer;
+}
+.category-count {
+  color: #5f6368;
+  font-size: 12px;
+  margin-left: 4px;
+}
+.branch-key button[aria-pressed='true'] {
+  background: #e8f0fe;
+  border-color: #1a73e8;
+}
+
+/* Landscape phones (844x390): the recipe drawer is 282px tall, and its fixed
+   chrome (session actions, name, filter) plus the recipe bar left the tree a
+   16px strip and pushed the bar 22px below the viewport. At short heights the
+   whole drawer scrolls and the recipe bar rides its bottom edge instead. */
+@media (max-width: 899px) and (max-height: 500px) {
+  .session-open .workspace #workspace-sidebar,
+  .workbench[data-view='map'].session-open #workspace-sidebar {
+    display: block !important;
+    overflow-y: auto !important;
+  }
+  .session-open #sidebar-scroll {
+    flex: none;
+    min-height: 0;
+    overflow: visible !important;
+  }
+  .session-open #sidebar-recipe-preview {
+    position: sticky !important;
+    bottom: 0 !important;
+    max-height: none;
+    z-index: 2;
+    padding-top: 4px !important;
+    gap: 4px !important;
+  }
+  .session-open #sidebar-recipe-preview .rp-head {
+    padding: 0 12px !important;
+  }
+}
+
+</style>
 </head>
 <body>
 
@@ -1895,9 +3741,9 @@ body.is-dnd-active * { cursor: grabbing !important; }
          attribute is a courtesy that stops the field accepting text the server
          will refuse; the server bound is the real one, since nothing stops a
          caller posting to /chat directly. mcp/test.mjs asserts the two agree. -->
-    <input class="chat-input" id="chat-input" type="text" maxlength="5000"
+    <textarea class="chat-input" id="chat-input" rows="3" maxlength="5000"
            aria-label="Describe the recording you want"
-           placeholder="Describe a recording — “haunted Appalachian murder ballad, banjo like it’s underwater”">
+           placeholder="Describe the recording recipe you want…"></textarea>
     <button class="btn btn-primary chat-send" id="chat-send" type="submit"><span class="btn-label">Ask</span></button>
   </form>
 </section>
@@ -48098,6 +49944,7 @@ function _cardDescriptorSet(card) {
     signature: (tradId) => _traditionSignatureFor(tradId),
   });
 }
+/* global UI, UI_ICONS, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
 
 
 // ============================================================
@@ -50177,7 +52024,7 @@ function makeCard(instrumentId, opts) {
 // strips them when snapshotting for undo/redo (drift's apply closures don't
 // survive JSON). Single source of truth so a new transient field added later
 // picks up the reset semantics at all five sites by being added here once.
-const _CARD_TRANSIENTS = { drift: null, stackPanel: null, editingPart: null, editingEnv: null, editingChainStage: null, _materialsOpen: false };
+const _CARD_TRANSIENTS = { drift: null, stackPanel: null, editingPart: null, editingEnv: null, editingChainStage: null, _materialsOpen: false, _uiTab: 'preface' };
 
 // UI timing constants. Centralized so cross-call relationships (CSS
 // animation duration paired with the JS class-removal timeout, etc.)
@@ -50218,6 +52065,7 @@ function dupCard(id) {
     ...o,
     id: newId('card'),
     parts: { ...o.parts },
+    pinnedParts: [...(o.pinnedParts || [])],
     chain: { ...o.chain, fx: [...(o.chain.fx || [])] },
     ..._CARD_TRANSIENTS,
   };
@@ -60920,6 +62768,7 @@ const ICON_PATHS_LOCAL = {
 };
 
 function icon(name, size = 16) {
+  if (typeof UI_ICONS !== 'undefined' && UI_ICONS[name]) return UI_ICONS[name].replace(/width="20"/g, 'width="'+size+'"').replace(/height="20"/g, 'height="'+size+'"');
   const resolved = ICON_ALIASES[name] || name;
   const paths = ICON_PATHS[resolved] || ICON_PATHS_LOCAL[resolved];
   if (!paths) return '';
@@ -62459,15 +64308,16 @@ function compileRecipeStack(cards, format, options) {
   const fallback = makeFallback();
   let active = idb ? makeIdb() : fallback;
   const store = { _local_shim: true, backend: active.name };
+  let established=false;
   // Self-heal: if IndexedDB throws on first real use (Firefox private mode exposes
   // the API but forbids opening a DB), permanently switch to the fallback and retry
   // the call once. Nothing is lost — the switch only fires when IDB never worked.
   function guard(method) {
     return async function (...args) {
       try {
-        return await active[method](...args);
+        const result=await active[method](...args);established=true;return result;
       } catch (e) {
-        if (active !== fallback) {
+        if (active !== fallback && !established) {
           active = fallback;
           store.backend = fallback.name;
           return await fallback[method](...args);
@@ -62482,15 +64332,15 @@ function compileRecipeStack(cards, format, options) {
   store.list = guard('list');
   window.storage = store;
 })();
-async function safeGet(key) {
-  try { return window.storage ? await window.storage.get(key) : null; }
-  catch { return null; }
-}
-async function listSaved() {
-  try {
-    const r = await safeGet('codex:list');
-    return r ? JSON.parse(r.value) : [];
-  } catch { return []; }
+async function listSaved(){
+  if(!window.storage)throw Error('Saved sessions unavailable');
+  const r=await window.storage.get('codex:list');let index=[];
+  if(r){try{index=JSON.parse(r.value);if(!Array.isArray(index))index=[];}catch{index=[];}}
+  if(typeof window.storage.list!=='function')return index;
+  const listing=await window.storage.list('codex:ws:');const records=[];
+  for(const key of listing.keys||[]){const entry=await window.storage.get(key);if(!entry)continue;
+    try{const d=JSON.parse(entry.value);if(Array.isArray(d.cards))records.push({key,name:d.name||'Untitled session',saved_at:d.saved_at,count:d.cards.length});}catch{/* Keep malformed records available for external recovery. */}}
+  return records;
 }
 // Read the saved-workspace index for a read-MODIFY-write (save/delete),
 // distinguishing "genuinely empty/absent" from "read failed". listSaved()
@@ -62502,73 +64352,67 @@ async function readListStrict() {
   if (!window.storage) throw new Error('storage unavailable');
   const r = await window.storage.get('codex:list'); // throws on storage failure — intentional
   if (!r) return []; // key genuinely absent → empty list is correct
-  return JSON.parse(r.value); // throws on corruption — intentional
+  const list=JSON.parse(r.value);if(!Array.isArray(list))throw Error('Saved index is invalid');return list;
 }
 // Saved-workspace schema version: bump when the persisted card/chain shape changes
 // so an older app warns instead of silently mis-rendering a newer save.
-const WS_SCHEMA = 1;
+const WS_SCHEMA = 2;
+function normalizeWorkspaceCards(cards,freshIds=false){
+  if(!Array.isArray(cards)||cards.length>512)throw Error('Invalid session cards');
+  const ids=new Set();
+  return cards.map(raw=>{
+    if(!raw||typeof raw!=='object')throw Error('Invalid instrument');
+    const c=JSON.parse(JSON.stringify(raw)),inst=Inst(c.instrumentId);if(!inst)throw Error('Unknown instrument: '+c.instrumentId);
+    if(!c.parts||typeof c.parts!=='object'||Array.isArray(c.parts))throw Error('Invalid instrument settings');
+    for(const [part,value]of Object.entries(c.parts))if(!inst.parts.some(p=>p.id===part&&(value===null||p.variants.some(v=>v.id===value))))throw Error('Unknown instrument setting');
+    if(c.room&&!Room(c.room))throw Error('Unknown room');if(c.tuning&&!Tuning(c.tuning))throw Error('Unknown tuning');
+    if(c.traditionId&&!Tradition(c.traditionId))throw Error('Unknown genre');
+    const chain=c.chain||emptyChain();if(typeof chain!=='object'||Array.isArray(chain))throw Error('Invalid signal chain');
+    for(const [stage,value]of Object.entries(chain)){
+      if(!CHAIN_SECTIONS.some(x=>x.id===stage))throw Error('Unknown chain stage');
+      const values=stage==='fx'?value:[value];if(!Array.isArray(values)||values.some(v=>v&&!ChainItem(stage,v)))throw Error('Unknown signal chain setting');
+    }
+    if(c.pinnedParts!==undefined&&(!Array.isArray(c.pinnedParts)||c.pinnedParts.some(p=>!inst.parts.some(x=>x.id===p))))throw Error('Unknown pinned part');
+    if(freshIds||typeof c.id!=='string'||ids.has(c.id))c.id=newId('card');ids.add(c.id);
+    return {...c,chain,prefaceAuto:c.prefaceAuto===undefined?!c.preface:!!c.prefaceAuto,..._CARD_TRANSIENTS};
+  });
+}
+let _savedWriteQueue=Promise.resolve();
+function withSavedWrite(fn){
+  const run=()=>typeof navigator!=='undefined'&&navigator.locks?navigator.locks.request('codex-saved-workspaces',fn):fn();
+  const next=_savedWriteQueue.then(run,run);_savedWriteQueue=next.catch(()=>{});return next;
+}
 async function saveWS(name) {
-  if (!window.storage) { showToast('Save failed', 'error'); return; }
-  try {
-    const list = await readListStrict(); // abort (catch below) rather than overwrite a failed read
-    const key = 'codex:ws:' + newId('ws');
-    const data = { schema: WS_SCHEMA, key, name, saved_at: new Date().toISOString(), cards: app.cards.map(c => ({ ...c, ..._CARD_TRANSIENTS })) };
-    await window.storage.set(key, JSON.stringify(data));
-    list.push({ key, name, saved_at: data.saved_at, count: app.cards.length });
-    await window.storage.set('codex:list', JSON.stringify(list));
-    showToast(`Saved "${name}"`, 'success');
-  } catch (e) { console.error(e); showToast('Save failed', 'error'); }
+  const snapshot=JSON.parse(JSON.stringify(sessionSnapshot()));
+  if(!window.storage||window.storage.backend==='memory'){showToast('Permanent storage unavailable. Export your session.','error');return;}
+  try {await withSavedWrite(async()=>{
+    const list=await readListStrict();if(window.storage.backend==='memory')throw Error('Permanent storage unavailable');const key='codex:ws:'+newId('ws');
+    const data={schema:WS_SCHEMA,key,name,saved_at:new Date().toISOString(),cards:snapshot.cards,lyrics:snapshot.lyrics};
+    await window.storage.set(key,JSON.stringify(data));list.push({key,name,saved_at:data.saved_at,count:data.cards.length});
+    await window.storage.set('codex:list',JSON.stringify(list));
+  });showToast(`Saved "${name}"`,'success');
+  }catch(e){console.error(e);showToast('Save did not finish. Your session remains open; retry or export.','error');}
 }
-async function loadWS(key) {
-  try {
-    const r = await safeGet(key);
-    if (!r) { showToast('Not found', 'error'); return; }
-    const d = JSON.parse(r.value);
-    if (d.schema && d.schema > WS_SCHEMA) { showToast('Saved by a newer version — update to open it', 'error'); return; }
-    app.cards = (d.cards || []).map(c => {
-      const card = { ...c, chain: c.chain || emptyChain(), ..._CARD_TRANSIENTS };
-      if (card.prefaceAuto === undefined) card.prefaceAuto = !card.preface;
-      return card;
-    });
-    closeModal('modal-saved');
-    renderAll();
-    if (typeof pushHistory === 'function') pushHistory(); // parity with forkWS — one Ctrl+Z shouldn't discard the load
-    showToast(`Loaded "${d.name}"`, 'success');
-  } catch { showToast('Load failed', 'error'); }
+async function restoreSavedWorkspace(key,fork){
+  const r=await window.storage.get(key);if(!r)throw Error('Saved session not found');
+  const d=JSON.parse(r.value);if(d.schema>WS_SCHEMA)throw Error('Saved by a newer version — update to open it');
+  const cards=normalizeWorkspaceCards(d.cards||[],fork);
+  app.cards=cards;app.workspaceName=d.name||'Untitled session';
+  if(typeof d.lyrics==='string')app.lyrics=d.lyrics;
+  if(typeof UI!=='undefined')UI.lyricRevision++;
+  const draft=document.getElementById('lyrics-draft');if(draft)draft.value=app.lyrics||'';
+  closeModal('modal-saved');pushHistory();renderAll();
+  showToast(`${fork?'Copied':'Loaded'} "${app.workspaceName}"`,'success');
 }
-// Fork a saved workspace — same content as Load, but with fresh card IDs
-// generated for each card. Functionally identical to Load (since every save
-// creates a new key anyway, never overwriting), but the explicit Fork button
-// signals to the user "this is an independent copy, the original is safe."
-// The fresh card IDs also make any subsequent in-card actions (duplicate,
-// delete) refer to the fork's cards, not the originals — useful if the user
-// has the original loaded somewhere or shares the file across sessions.
-async function forkWS(key) {
-  try {
-    const r = await safeGet(key);
-    if (!r) { showToast('Not found', 'error'); return; }
-    const d = JSON.parse(r.value);
-    if (d.schema && d.schema > WS_SCHEMA) { showToast('Saved by a newer version — update to open it', 'error'); return; }
-    app.cards = (d.cards || []).map(c => {
-      const card = { ...c, id: newId('card'), chain: c.chain || emptyChain(), ..._CARD_TRANSIENTS };
-      if (card.prefaceAuto === undefined) card.prefaceAuto = !card.preface;
-      return card;
-    });
-    closeModal('modal-saved');
-    renderAll();
-    if (typeof pushHistory === 'function') pushHistory();
-    showToast(`Forked from "${d.name}" — original unchanged`, 'success');
-  } catch { showToast('Fork failed', 'error'); }
-}
-async function delWS(key) {
-  if (!window.storage) { showToast('Delete failed', 'error'); return; }
-  try {
-    await window.storage.delete(key);
-    const list = await readListStrict(); // abort (catch below) rather than overwrite a failed read
-    await window.storage.set('codex:list', JSON.stringify(list.filter(w => w.key !== key)));
-    renderSaved();
-    showToast('Deleted', 'success');
-  } catch { showToast('Delete failed', 'error'); }
+async function loadWS(key){try{await restoreSavedWorkspace(key,false);}catch(e){showToast(e.message||'Load failed','error');}}
+async function forkWS(key){try{await restoreSavedWorkspace(key,true);}catch(e){showToast(e.message||'Copy failed','error');}}
+async function delWS(key){
+ if(!window.storage){showToast('Delete failed','error');return;}
+ try{await withSavedWrite(async()=>{
+   const list=await readListStrict();
+   await window.storage.delete(key);
+   await window.storage.set('codex:list',JSON.stringify(list.filter(w=>w.key!==key)));
+ });renderSaved();showToast('Deleted','success');}catch(e){console.error(e);showToast('Deletion did not finish. Refresh Saved to check its state.','error');}
 }
 
 // ---- Modals ----
@@ -62589,6 +64433,7 @@ function _trapTab(e, modal) {
   else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
 }
 function openModal(id) {
+  if (typeof UI !== 'undefined' && UI.ready && uiOpenSurface(id)) return;
   const bg = document.getElementById(id);
   _modalReturnFocus = document.activeElement; // restore focus here on close
   bg.classList.add('open');
@@ -62600,13 +64445,14 @@ function openModal(id) {
   }, UI_TIMING_MS.MODAL_FOCUS_DELAY);
 }
 function closeModal(id) {
+  if (typeof UI !== 'undefined' && UI.ready && (id === 'modal-add' || id === 'modal-trad')) return;
   const bg = document.getElementById(id);
   if (!bg) return;
   bg.classList.remove('open');
   if (bg._trapHandler) { bg.removeEventListener('keydown', bg._trapHandler); bg._trapHandler = null; }
-  if (_modalReturnFocus && typeof _modalReturnFocus.focus === 'function' && document.contains(_modalReturnFocus)) {
+  if (_modalReturnFocus && typeof _modalReturnFocus.focus === 'function' && document.contains(_modalReturnFocus) && _modalReturnFocus.getClientRects().length) {
     _modalReturnFocus.focus();
-  }
+  }else if(typeof UI!=='undefined'&&UI.ready){document.querySelector('[data-ui="menu"]')?.focus();}
   _modalReturnFocus = null;
 }
 
@@ -62623,6 +64469,7 @@ function closeModal(id) {
 //   const ok = await confirmDialog({ title, message, confirmLabel, danger });
 //   if (!ok) return;
 function confirmDialog(opts) {
+  if (opts?.title === 'Remove tradition') return Promise.resolve(true);
   const {
     title = 'Confirm',
     message = '',
@@ -62762,6 +64609,7 @@ function renderAll() {
   // rebuilt, so renderSidebarTraditions() has already remounted it. Calling
   // again here would tear down and rebuild the same panel a second time.
   if (!isMobileLayout()) renderDetail();
+  if (typeof UI !== 'undefined' && UI.ready) uiSync();
 }
 
 // Curated starter recipes for the empty-state gallery — chosen to span the
@@ -62846,6 +64694,7 @@ function renderEmpty() {
 
 function renderMeta() {
   const m = document.getElementById('meta');
+  if(!m)return;
   if (app.cards.length === 0) m.textContent = '';
   else m.textContent = app.cards.length + ' instrument' + (app.cards.length === 1 ? '' : 's');
 }
@@ -62908,6 +64757,8 @@ function startRenameWorkspace() {
     const v = inp.value.trim();
     app.workspaceName = v || 'Untitled session';
     renderSidebarHeader();
+    pushHistory();
+    if(typeof UI !== 'undefined' && UI.ready)uiSync();
   };
   inp.addEventListener('keydown', e => {
     if (e.key === 'Enter') { e.preventDefault(); commit(); }
@@ -64205,34 +66056,43 @@ function renderDetailTabContent(card, inst) {
 // after an undo truncate the redo future (typical undo/redo semantics).
 //
 // What goes in history: add tradition (one entry for the whole batch), add
-// instrument (single card add), remove card, delete tradition group, drag-
-// reorder tradition. What does NOT go in history: variant picks within a
-// card, environment edits (tuning/room/chain), expand/collapse, group fold/
-// unfold. The line: structural changes to the workspace are undoable; in-
-// card refinement isn't. (Easy to add finer-grained undo later if needed.)
+// instrument, remove, reorder, variant/preface/environment refinements, title
+// and lyrics. Presentation-only changes preserve the current history position
+// and redo future. Lyrics typing is coalesced when the editor loses focus.
+function musicalWorkspaceKey(cards) {
+  return JSON.stringify(cards.map(c => ({id:c.id,instrumentId:c.instrumentId,traditionId:c.traditionId,
+    parts:c.parts,room:c.room,tuning:c.tuning,chain:c.chain,preface:c.preface,
+    prefaceAuto:c.prefaceAuto,pinned:c.pinned,pinnedParts:c.pinnedParts})));
+}
+function sessionSnapshot() {
+  return {cards:app.cards.map(c=>({...c,..._CARD_TRANSIENTS})),name:app.workspaceName||'Untitled session',lyrics:app.lyrics||''};
+}
+function sessionKey(value) {
+  const s=Array.isArray(value)?{cards:value,name:'Untitled session',lyrics:''}:value;
+  return JSON.stringify([musicalWorkspaceKey(s.cards),s.name,s.lyrics]);
+}
 function pushHistory() {
-  // If user undid some steps then did a new action, drop the redo future.
-  if (app.historyIndex < app.history.length - 1) {
-    app.history.length = app.historyIndex + 1;
-  }
-  // Strip session-only transient state before snapshotting (same single-source
-  // reset as save/load/fork/dup). Critically, `drift` holds candidate objects
-  // with live `apply` closures that JSON drops — restoring such a snapshot would
-  // leave a drift panel whose "Walk here" calls move.apply() → TypeError.
-  const snapshot = JSON.stringify(app.cards.map(c => ({ ...c, ..._CARD_TRANSIENTS })));
-  // Skip no-op pushes (mutation that left cards array structurally identical).
-  if (app.history.length > 0 && app.history[app.history.length - 1] === snapshot) return;
-  app.history.push(snapshot);
-  if (app.history.length > HISTORY_MAX) app.history.shift();
-  app.historyIndex = app.history.length - 1;
-  updateHistoryButtons();
+  if(typeof _applyRecipeDedup==='function')_applyRecipeDedup();
+  const snapshot=JSON.stringify(sessionSnapshot()),previous=app.history[app.historyIndex];
+  if(previous&&sessionKey(JSON.parse(previous))===sessionKey(JSON.parse(snapshot))){app.history[app.historyIndex]=snapshot;updateHistoryButtons();return;}
+  app.history=app.history.slice(0,app.historyIndex+1);app.history.push(snapshot);
+  if(app.history.length>HISTORY_MAX)app.history.shift();
+  app.historyIndex=app.history.length-1;updateHistoryButtons();
 }
 // Restore a history snapshot defensively — a corrupted entry must not blank the
 // canvas or desync historyIndex (snapshots are app-produced, so this is a belt for
 // memory pressure / any future external history store).
 function _restoreSnapshot(idx) {
-  try { app.cards = JSON.parse(app.history[idx]); return true; }
-  catch (e) { console.error('history restore failed', e); showToast('Undo unavailable — history entry corrupted', 'error'); return false; }
+  try {
+    const tabs=new Map(app.cards.map(c=>[c.id,c._uiTab]));
+    const snapshot=JSON.parse(app.history[idx]);
+    if(Array.isArray(snapshot))app.cards=snapshot;
+    else {app.cards=snapshot.cards;app.workspaceName=snapshot.name;app.lyrics=snapshot.lyrics||'';}
+    for(const c of app.cards)if(tabs.has(c.id))c._uiTab=tabs.get(c.id);
+    if(typeof UI!=='undefined')UI.lyricRevision++;
+    const draft=document.getElementById('lyrics-draft');if(draft)draft.value=app.lyrics||'';
+    return true;
+  }catch(e){console.error('history restore failed',e);showToast('Undo unavailable — history entry corrupted','error');return false;}
 }
 function undo() {
   if (app.historyIndex <= 0) return;
@@ -64253,6 +66113,8 @@ function updateHistoryButtons() {
   const redoBtn = document.getElementById('btn-redo');
   if (undoBtn) undoBtn.disabled = app.historyIndex <= 0;
   if (redoBtn) redoBtn.disabled = app.historyIndex >= app.history.length - 1;
+  document.querySelectorAll('[data-proxy="btn-undo"],[data-ui="undo"]').forEach(b=>{b.disabled=app.historyIndex<=0;});
+  document.querySelectorAll('[data-proxy="btn-redo"],[data-ui="redo"]').forEach(b=>{b.disabled=app.historyIndex>=app.history.length-1;});
 }
 
 function renderPartRow(card, inst, part) {
@@ -65200,6 +67062,7 @@ function handleAction(action, card, trigger) {
     openModal('modal-add');
   } else if (action === 'pin') {
     card.pinned = !card.pinned;
+    pushHistory();
     renderAll();
     showToast(card.pinned ? 'Pinned to top' : 'Unpinned', 'success');
   } else if (action === 'move-genre') {
@@ -65226,12 +67089,14 @@ function rerenderCard(_card) {
   renderMeta();
   renderDetail();
   renderSidebar();
+  pushHistory();
+  if (typeof UI !== 'undefined' && UI.ready) uiSync();
 }
 
 async function renderSaved() {
   const b = document.getElementById('saved-body');
   b.innerHTML = `<div class="empty-msg">Loading…</div>`;
-  const list = await listSaved();
+  let list;try{list=await listSaved();}catch{b.innerHTML='<p role="alert">Saved sessions could not be read. Close and reopen to retry.</p>';return;}
   if (!list.length) {
     b.innerHTML = renderEmptyModalState('No saved workspaces yet.', 'folder');
     return;
@@ -65676,7 +67541,7 @@ function _initApp() {
   // memory only (Save persists it), so a reload/close/crash would silently lose
   // it. Respects the explicit-save model — it warns, it never autosaves.
   window.addEventListener('beforeunload', (e) => {
-    if (app.cards && app.cards.length > 0) { e.preventDefault(); e.returnValue = ''; }
+    if (typeof UI !== 'undefined' && (UI.saveFailed || UI.storageConflict)) { e.preventDefault(); e.returnValue = ''; }
   });
   document.getElementById('btn-add').addEventListener('click', () => {
     app.pickerSearch = '';
@@ -65713,8 +67578,8 @@ function _initApp() {
     openModal('modal-trad');
   });
   document.getElementById('btn-save').addEventListener('click', () => {
-    if (!app.cards.length) { showToast('Nothing to save yet', 'error'); return; }
-    document.getElementById('save-name').value = '';
+    if (!app.cards.length && !app.lyrics) { showToast('Nothing to save yet', 'error'); return; }
+    document.getElementById('save-name').value = app.workspaceName || 'Untitled session';
     openModal('modal-save');
   });
   document.getElementById('save-confirm').addEventListener('click', () => {
@@ -65805,6 +67670,7 @@ function _initApp() {
   });
 
   renderAll();
+  if (typeof uiStart === 'function') uiStart();
 }
 
 // ============================================================
@@ -66025,6 +67891,7 @@ function axisLabel(axis, value) {
 
 // ---- AXIS FINGERPRINT MINI-CHART ----
 function renderFingerprint(idA) {
+  if (typeof UI !== 'undefined' && UI.ready) return '';
   const a = tradAxes(idA);
   if (!a) return '';
   let html = '<div class="fingerprint" aria-label="Axis fingerprint">';
@@ -66078,6 +67945,7 @@ function getMatchingInstrumentAxes(idA, idB, n) {
 }
 
 function renderInstrumentFingerprint(idA) {
+  if (typeof UI !== 'undefined' && UI.ready) return '';
   return renderAxisFingerprint(instAxes(idA));
 }
 
@@ -67000,9 +68868,12 @@ const CHAT_BACKEND =
 const CHAT_STORAGE_KEY = `codex-musica-chat-v2:${CHAT_BACKEND}`;
 const chatState = { history: null, workspace: null, lyric: null, task: null, sig: null, continuationId: null,
   busy: false, generation: 0, pending: null, archives: [], retryAt: 0, controller: null };
+function _chatPersistedState(state=chatState) {
+  const {history,workspace,lyric,task,sig,continuationId,generation,pending,archives,retryAt} = state;
+  return continuationId ? {continuationId,generation,pending,archives,retryAt,domain:task?.domain,phase:task?.phase} : {history,workspace,lyric,task,sig,generation,pending,archives,retryAt};
+}
 function _chatSave() {
-  const {history,workspace,lyric,task,sig,continuationId,generation,pending,archives,retryAt} = chatState;
-  localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(continuationId ? {continuationId,generation,pending,archives,retryAt,domain:task?.domain,phase:task?.phase} : {history,workspace,lyric,task,sig,generation,pending,archives,retryAt}));
+  localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(_chatPersistedState()));
 }
 function _chatLoad() {
   try {
@@ -67042,9 +68913,9 @@ function _chatReceive(payload, headers) {
   }
   if (payload?.error) {
     _chatAppend(`<div class="chat-msg chat-msg-error">${esc(payload.error)}</div>`);
-    if (payload.artifact) _chatRenderReply(payload);
+    if (payload.artifact) _chatRenderReply(payload,request);
   }
-  else _chatRenderReply(payload);
+  else _chatRenderReply(payload,request);
   if (chatState.retryAt > Date.now()) _chatAppend(`<div class="chat-msg chat-msg-note">Continue after ${new Date(chatState.retryAt).toLocaleTimeString()}.</div>`);
 }
 async function _chatRecover(generation = chatState.generation) {
@@ -67177,7 +69048,7 @@ function _chatStripRecipeCopy(reply, recipe) {
     .trim();
 }
 
-function _chatRenderReply(payload) {
+function _chatRenderReply(payload,request) {
   const recoveryExport = payload.stopped === 'RECOVERY_EXPORTED' && typeof payload.reply === 'string';
   const prose = payload.artifact || recoveryExport ? '' : _chatStripRecipeCopy(payload.reply, payload.recipe);
   const parts = [];
@@ -67261,6 +69132,7 @@ function _chatRenderReply(payload) {
     node.appendChild(note);
   }
   _chatScroll();
+  if (typeof uiReceiveReply === 'function') uiReceiveReply(payload,request);
 }
 
 function _chatSetBusy(busy) {
@@ -67327,6 +69199,7 @@ async function _chatSubmit(e) {
     _chatAppend('<div class="chat-msg chat-msg-error">This browser could not save the request for recovery. Free local storage before starting it.</div>');
     return;
   }
+  if(typeof UI!=='undefined'&&UI.ready&&domain==='lyrics')UI.lyricRequest={id:request_id,revision:UI.lyricRevision,text:app.lyrics||''};
   _chatOpenPanel();
   _chatAppend(`<div class="chat-msg chat-msg-you">${esc(message)}</div>`);
   if (input) input.value = '';
@@ -67392,18 +69265,982 @@ function initChatDock() {
   const reset = _chatEl('chat-reset');
   if (reset) reset.addEventListener('click', _chatReset);
 
-  fetch(`${CHAT_BACKEND}/chat/status`)
-    .then(r => (r.ok ? r.json() : null))
-    .then(status => {
-      if (!status || !status.ok || status.enabled === false) return;
+  if(typeof UI==='undefined'){
+    fetch(`${CHAT_BACKEND}/chat/status`).then(r=>r.ok?r.json():null).then(status=>{if(status?.ok&&status.enabled!==false)dock.hidden=false;}).catch(()=>{});
+  }
+}
+
+/* exported UI, UI_ICONS, uiStart, uiReceiveReply, uiOpenSurface, uiSync */
+/* global _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, Catalog, FamName, INSTRUMENT_FILTER_PILLS, Inst, Tradition, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, addInstrumentFromPicker, app, axisLabel, chatState, compileRecipeStack, copyToClipboard, countDescendantLeaves, esc, familyImage, findSimilar, findSimilarInstruments, getChildren, getMatchingAxes, getRoots, getTreeNode, icon, image, importTraditionWithFeedback, isMobileLayout, normalizeSearch, normalizeWorkspaceCards, passesInstrumentFilter, pushHistory, redo, renderAll, renderDetail, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, undo */
+/* Shared discovery and writing workspace. Built alongside the canonical app and catalog. */
+'use strict';
+const UI = {
+  lyricRevision: 0,
+  lyricRequest: null,
+  lastSaved: null,
+  storageConflict: false,
+  saveFailed: false,
+  view: 'genre',
+  genreNode: '',
+  genre: null,
+  instrumentFamily: '',
+  instrumentClass: '',
+  limit: 50,
+  busy: false,
+  editor: false,
+  ready: false,
+};
+const $ui = (id) => document.getElementById(id);
+const uiButton = (act, label, ic = 'plus', extra = '') =>
+  `<button type="button" data-ui="${act}" ${extra.includes('aria-label=') ? '' : `aria-label="${esc(label)}"`} ${extra}>${icon(ic, 18)}<span>${esc(label)}</span></button>`;
+const listenLink = (name, instrument = false) =>
+  `<a class="listen" href="https://www.youtube.com/results?search_query=${encodeURIComponent(name + (instrument ? ' musical instrument solo demonstration' : ' music'))}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${esc(name)} on YouTube">${icon('play', 16)}<span>Listen</span></a>`;
+function uiNavigate(view) {
+  if (!['genre', 'instrument', 'map', 'lyrics'].includes(view)) return;
+  UI.view = view;
+  document.body.dataset.view = view;
+  if (/^https?:$/.test(location.protocol) && location.hash !== '#' + view)
+    history.replaceState(null, '', '#' + view);
+  document.querySelectorAll('button[data-view]').forEach((b) => {
+    b.classList.toggle('active', b.dataset.view === view);
+    b.setAttribute('aria-current', b.dataset.view === view ? 'page' : 'false');
+  });
+  document.querySelectorAll('.ui-surface').forEach((el) => {
+    el.hidden = el.id !== 'surface-' + view;
+  });
+  if (view === 'genre') renderGenreDiscovery();
+  if (view === 'instrument') renderInstrumentDiscovery();
+  if (view === 'map' && !$ui('map-frame').src) $ui('map-frame').src = 'atlas.html?embedded=1';
+  const dock = $ui('chat-dock');
+  if (view === 'lyrics') {
+    if (uiSwitchChat('lyrics')) {
+      $ui('lyrics-chat').append(dock);
       dock.hidden = false;
-      const meta = _chatEl('chat-meta');
-      if (meta) meta.textContent = status.model ? `${status.model} · ${status.tools} tools` : '';
-    })
-    .catch(() => {
-      // Offline, blocked, or not deployed. Leave the dock hidden; the catalog
-      // app itself does not depend on any of this.
+      $ui('chat-panel').hidden = false;
+      $ui('lyrics-wait')?.remove();
+    } else {
+      $ui('assistant-slot').append(dock);
+      uiLyricsWaiting();
+    }
+  } else {
+    $ui('assistant-slot').append(dock);
+    if (!chatState.busy) uiSwitchChat('recipe');
+  }
+  document.body.classList.remove('session-open');
+  document.querySelector(`[data-view="${view}"]`)?.focus({ preventScroll: true });
+}
+function uiListen() {
+  const c = app.cards.find((c) => c.id === app.selected);
+  return c ? listenLink(Inst(c.instrumentId).name, true) : '';
+}
+function uiSync() {
+  if (!UI.ready) return;
+  document.body.classList.toggle(
+    'editor-open',
+    UI.editor && !!app.selected && app.cards.length > 0
+  );
+  $ui('ui-count').textContent = String(app.cards.length);
+  const detail = $ui('detail-view');
+  if (detail && !detail.querySelector('.ui-detail-tools')) {
+    const bar = document.createElement('div');
+    bar.className = 'ui-detail-tools';
+    bar.innerHTML = uiListen() + uiButton('close-editor', 'Close', 'x');
+    detail.prepend(bar);
+  }
+  $ui('btn-undo').disabled = app.historyIndex <= 0;
+  $ui('btn-redo').disabled = app.historyIndex >= app.history.length - 1;
+  uiAutosave();
+}
+function uiOpenEditor(id) {
+  app.selected = id;
+  UI.editor = true;
+  renderDetail();
+  uiSync();
+  if (isMobileLayout()) document.body.classList.add('session-open');
+}
+async function uiAddGenre(id) {
+  if (UI.busy) {
+    showToast('An addition is already in progress.', 'error');
+    return false;
+  }
+  UI.busy = true;
+  try {
+    const added = await importTraditionWithFeedback(id);
+    UI.editor = false;
+    uiSync();
+    renderGenreDiscovery();
+    return added.length > 0;
+  } catch (e) {
+    showToast(e.message || 'Could not add genre', 'error');
+  } finally {
+    UI.busy = false;
+  }
+}
+async function uiAddInstrument(id) {
+  if (UI.busy) return;
+  UI.busy = true;
+  try {
+    const destination = $ui('instrument-destination')?.value;
+    app._addToTradition = destination || null;
+    const c = await addInstrumentFromPicker(id);
+    if (!c) throw Error('Instrument unavailable');
+    renderAll();
+    uiOpenEditor(c.id);
+    showToast(_addedInstrumentMessage(id, c), 'success');
+  } catch (e) {
+    showToast(e.message, 'error');
+  } finally {
+    UI.busy = false;
+  }
+}
+function uiGenreRows(list) {
+  return (
+    list
+      .slice(0, UI.limit)
+      .map(
+        (t) =>
+          `<div class="catalog-row"><button class="catalog-name" data-ui="genre-select" data-id="${esc(t.id)}">${traditionGlyphsHTML(t.id, 30)}<span>${esc(t.name)}</span></button>${listenLink(t.name)}${uiButton('genre-add', 'Add', 'plus', `data-id="${esc(t.id)}" aria-label="Add ${esc(t.name)}"`)}</div>`
+      )
+      .join('') + (list.length > UI.limit ? uiButton('more', 'Show more', 'chevron-down') : '')
+  );
+}
+function uiDetachTree() {
+  const t = $ui('modal-trad');
+  if (t && t.parentElement === $ui('genre-body')) {
+    document.body.append(t);
+    t.classList.remove('inline-tree');
+  }
+}
+function renderGenreDiscovery() {
+  uiDetachTree();
+  if (!$ui('genre-body')) return;
+  const q = normalizeSearch($ui('genre-search').value),
+    roots = getRoots();
+  const node = UI.genreNode ? getTreeNode(UI.genreNode) : null;
+  let children = node ? getChildren(node.id) : roots;
+  let all = Catalog.all();
+  if (q)
+    all = all
+      .filter((t) =>
+        normalizeSearch(
+          t.name + ' ' + (t.lineage || '') + ' ' + (Catalog.ext(t.id)?.description || '')
+        ).includes(q)
+      )
+      .sort((a, b) =>
+        normalizeSearch(a.name) === q
+          ? -1
+          : normalizeSearch(b.name) === q
+            ? 1
+            : a.name.localeCompare(b.name, 'en')
+      );
+  else if (node) {
+    const under = (id) => {
+      let p = tradParent(id);
+      while (p) {
+        if (p === node.id) return true;
+        p = getTreeNode(p)?.parent;
+      }
+      return false;
+    };
+    all = all.filter((t) => under(t.id) || (Catalog.ext(t.id)?.crossRefs || []).includes(node.id));
+  }
+  if (UI.genre) {
+    renderGenreWeb(UI.genre);
+    return;
+  }
+  const branches = children.filter((c) => TREE_NODES.some((n) => n.id === c.id));
+  $ui('genre-body').innerHTML =
+    `<div class="discovery-grid"><nav class="catalog-categories" aria-label="Genre categories">${node ? `<div class="category-heading">${uiButton('genre-back', 'Back to ' + (getTreeNode(node.parent)?.name || 'all genres'), 'arrow-left')}<strong>${esc(node.name)}</strong></div>` : ''}${!q && branches.length ? `<div class="branch-key">${branches.map((n) => `<button data-ui="genre-branch" data-id="${esc(n.id)}">${traditionGlyphsHTML(n.id, 22)}<span>${esc(n.name)}</span><span class="category-count">${countDescendantLeaves(n.id)}</span></button>`).join('')}</div>` : ''}</nav><div class="catalog-list"><div class="catalog-count">${all.length.toLocaleString()} genres</div>${uiGenreRows(all)}${!all.length ? '<p>No genres match your search.</p>' : ''}</div></div>`;
+}
+function renderGenreWeb(id) {
+  uiDetachTree();
+  const t = Tradition(id);
+  if (!t) return;
+  const ext = Catalog.ext(id) || {},
+    near = findSimilar(id, 8),
+    added = app.cards.some((c) => c.traditionId === id);
+  $ui('genre-body').innerHTML =
+    `<div class="genre-selected"><div class="selected-head">${uiButton('genre-close', 'Back', 'arrow-left')}<h2>${traditionGlyphsHTML(id, 32)}${esc(t.name)}</h2>${listenLink(t.name)}${uiButton('genre-add', added ? 'Add again' : 'Add genre', 'plus', `data-id="${esc(id)}"`)}</div><div class="genre-facts"><details><summary>About ${esc(t.name)}</summary><p>${esc(ext.description || t.lineage || '')}</p></details><details><summary>Sound profile</summary>${AXIS_DEFINITIONS.map((ax) => `<div class="profile-row"><span>${esc(ax.name)}</span><span>${esc(axisLabel(ax, ext.axes?.[ax.id] || 0))}</span></div>`).join('')}</details><details open><summary>Instruments</summary><div class="genre-instruments">${(t.instruments || []).map((i) => `<div>${image(i, 26)}<button data-ui="instrument-inspect" data-id="${esc(i)}">${esc(Inst(i)?.name || i)}</button>${listenLink(Inst(i)?.name || i, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(i)}"`)}</div>`).join('')}</div></details><details><summary>Related genres · sound similarity</summary>${near
+      .map((n) => {
+        const other = Tradition(n.id);
+        return `<div class="related-row"><button data-ui="genre-select" data-id="${esc(n.id)}">${traditionGlyphsHTML(n.id, 24)}${esc(other.name)}</button><span>${getMatchingAxes(
+          id,
+          n.id,
+          3
+        )
+          .map((m) => esc(m.axis.name))
+          .join(
+            ' · '
+          )}</span>${uiButton('genre-add', 'Add', 'plus', `data-id="${esc(n.id)}"`)}</div>`;
+      })
+      .join(
+        ''
+      )}</details>${(ext.crossRefs || []).length ? `<details><summary>Also belongs to</summary>${ext.crossRefs.map((id) => uiButton('genre-branch', getTreeNode(id)?.name || id, 'layers', `data-id="${esc(id)}"`)).join('')}</details>` : ''}</div></div>`;
+}
+function renderInstrumentDiscovery() {
+  const host = $ui('instrument-body');
+  if (!host) return;
+  const q = normalizeSearch($ui('instrument-search').value),
+    fam = INSTRUMENT_FAMILIES.find((f) => f.id === UI.instrumentFamily);
+  const filtered = INSTRUMENTS.filter(
+    (i) =>
+      (!UI.instrumentFamily || i.family === UI.instrumentFamily) &&
+      (!UI.instrumentClass || i.class === UI.instrumentClass) &&
+      (!q || normalizeSearch(i.name + ' ' + i.short).includes(q)) &&
+      passesInstrumentFilter(i, app.instrumentAxisFilters)
+  );
+  const classes = fam
+    ? [...new Set(INSTRUMENTS.filter((i) => i.family === fam.id).map((i) => i.class))]
+    : [];
+  const sectors = fam
+    ? classes.map((c) => ({
+        id: c,
+        name: c.replaceAll('_', ' '),
+      }))
+    : INSTRUMENT_FAMILIES.map((f) => ({
+        id: f.id,
+        name: f.name,
+      }));
+  const dest = $ui('instrument-destination'),
+    old = app._addToTradition || dest.value;
+  dest.innerHTML =
+    '<option value="">Independent instrument</option>' +
+    [...new Set(app.cards.map((c) => c.traditionId).filter(Boolean))]
+      .map((id) => `<option value="${esc(id)}">${esc(Tradition(id)?.name || id)}</option>`)
+      .join('');
+  dest.value = old || '';
+  host.innerHTML = `<div class="axis-filter-pills">${INSTRUMENT_FILTER_PILLS.map((p) => `<button class="${app.instrumentAxisFilters.has(p.id) ? 'active' : ''}" data-ui="instrument-filter" data-id="${esc(p.id)}" aria-pressed="${app.instrumentAxisFilters.has(p.id)}">${esc(p.label)}</button>`).join('')}${app.instrumentAxisFilters.size ? uiButton('clear-filters', 'Clear filters', 'x') : ''}</div><div class="discovery-grid"><nav class="catalog-categories" aria-label="Instrument categories">${fam ? `<div class="category-heading">${uiButton('instrument-back', UI.instrumentClass ? 'Back to ' + fam.name : 'All instruments', 'arrow-left')}<strong>${esc(UI.instrumentClass ? UI.instrumentClass.replaceAll('_', ' ') : fam.name)}</strong></div>` : ''}<div class="branch-key">${sectors.map((s) => `<button data-ui="${fam ? 'instrument-class' : 'instrument-family'}" data-id="${esc(s.id)}"${fam ? ` aria-pressed="${UI.instrumentClass === s.id}"` : ''}>${!fam ? familyImage(s.id, 24) : ''}<span>${esc(s.name)}</span></button>`).join('')}</div></nav><div class="catalog-list"><div class="catalog-count">${filtered.length} instruments${UI.instrumentClass ? ' · ' + esc(UI.instrumentClass.replaceAll('_', ' ')) : ''}</div>${filtered
+    .slice(0, UI.limit)
+    .map(
+      (i) =>
+        `<div class="catalog-row"><button class="catalog-name" data-ui="instrument-inspect" data-id="${esc(i.id)}">${image(i.id, 30)}<span>${esc(i.name)}</span></button>${listenLink(i.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(i.id)}" aria-label="Add ${esc(i.name)}"`)}</div>`
+    )
+    .join(
+      ''
+    )}${filtered.length > UI.limit ? uiButton('more', 'Show more', 'chevron-down') : ''}${!filtered.length ? '<p>No instruments match these filters.</p>' : ''}</div></div>`;
+}
+function uiInspectInstrument(id) {
+  const i = Inst(id);
+  if (!i) return;
+  $ui('instrument-preview').hidden = false;
+  $ui('instrument-preview').innerHTML =
+    `<div class="selected-head">${image(id, 36)}<h2>${esc(i.name)}</h2>${listenLink(i.name, true)}${uiButton('instrument-add', 'Add instrument', 'plus', `data-id="${esc(id)}"`)}${uiButton('close-preview', 'Close', 'x')}</div><p>${esc(FamName(i.family))} · ${(i.parts || []).length} customizable parts</p><div class="part-preview">${(
+      i.parts || []
+    )
+      .map(
+        (p) =>
+          `<details><summary>${esc(p.name || p.id)} · ${p.variants.length} options</summary><p>${p.variants
+            .slice(0, 20)
+            .map((v) => esc(v.name || v.id))
+            .join(' · ')}</p></details>`
+      )
+      .join('')}</div><h3>Similar instruments</h3>${findSimilarInstruments(id, 8)
+      .map(
+        (n) =>
+          `<div class="catalog-row"><button data-ui="instrument-inspect" data-id="${esc(n.id)}">${image(n.id, 24)}${esc(n.name)}</button>${listenLink(n.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(n.id)}"`)}</div>`
+      )
+      .join('')}`;
+  uiNavigate('instrument');
+  $ui('instrument-preview').scrollIntoView({ block: 'start', behavior: 'smooth' });
+}
+function uiExport() {
+  const p = {
+    version: 3,
+    name: app.workspaceName,
+    cards: app.cards.map((c) => ({ ...c, ..._CARD_TRANSIENTS })),
+    lyrics: $ui('lyrics-draft').value,
+  };
+  const blob = new Blob([JSON.stringify(p, null, 2)], { type: 'application/json' }),
+    a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'codex-musica-session.json';
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+async function uiImport(file) {
+  try {
+    const s = JSON.parse(await file.text()),
+      cards = s.cards || s.workspace?.cards;
+    if (!Array.isArray(cards)) throw Error('No workspace in this file');
+    const validated = normalizeWorkspaceCards(cards, true);
+    app.cards = validated;
+    app.workspaceName = s.name || s.title || 'Imported session';
+    // A legacy recipe-only file is a complete session with no lyrics. Never
+    // attach the previous session's writing to the imported arrangement.
+    app.lyrics = typeof s.lyrics === 'string' ? s.lyrics : '';
+    $ui('lyrics-draft').value = app.lyrics;
+    uiSaveLyrics();
+    pushHistory();
+    renderAll();
+    showToast('Session imported', 'success');
+  } catch (e) {
+    showToast('Import failed: ' + e.message, 'error');
+  }
+}
+function uiSaveLyrics() {
+  app.lyrics = $ui('lyrics-draft').value;
+  UI.lyricRevision++;
+  uiAutosave();
+}
+const uiChatSessions = new Map();
+function uiUpdatePrompt() {
+  const input = $ui('chat-input'),
+    domain = $ui('chat-domain');
+  if (!input || !domain) return;
+  const lyric = domain.value.startsWith('lyrics');
+  input.placeholder = lyric
+    ? 'Describe the song, or paste lyrics to edit…'
+    : 'Describe the recording recipe you want…';
+  input.setAttribute('aria-label', lyric ? 'Lyrics request' : 'Recipe request');
+}
+function uiSwitchChat(target) {
+  const current =
+    chatState.task?.domain ||
+    ($ui('chat-domain')?.value.startsWith('lyrics') ? 'lyrics' : 'recipe');
+  if (current === target) {
+    if (!chatState.sig && !chatState.continuationId) $ui('chat-domain').value = target;
+    uiUpdatePrompt();
+    return true;
+  }
+  if (chatState.busy) {
+    uiUpdatePrompt();
+    return false;
+  }
+  const keys = [
+    'history',
+    'workspace',
+    'lyric',
+    'task',
+    'sig',
+    'continuationId',
+    'pending',
+    'archives',
+    'retryAt',
+  ];
+  const stored = Object.fromEntries(keys.map((k) => [k, chatState[k]]));
+  try {
+    localStorage.setItem(CHAT_STORAGE_KEY + ':' + current, JSON.stringify(_chatPersistedState()));
+  } catch {
+    showToast('Conversation could not be saved. Free storage before switching writers.', 'error');
+    return false;
+  }
+  let next = uiChatSessions.get(target);
+  if (!next) {
+    try {
+      const state = JSON.parse(localStorage.getItem(CHAT_STORAGE_KEY + ':' + target) || 'null');
+      if (state?.domain && !state.task) state.task = { domain: state.domain, phase: state.phase };
+      if (state) next = { state };
+    } catch {}
+  }
+  const nextState = Object.assign(
+    {},
+    {
+      history: null,
+      workspace: null,
+      lyric: null,
+      task: null,
+      sig: null,
+      continuationId: null,
+      pending: null,
+      archives: [],
+      retryAt: 0,
+    },
+    next?.state || {}
+  );
+  nextState.generation = chatState.generation + 1;
+  try {
+    localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(_chatPersistedState(nextState)));
+  } catch {
+    showToast('Conversation could not be saved. Free storage before switching writers.', 'error');
+    return false;
+  }
+  const log = document.createDocumentFragment();
+  while ($ui('chat-log').firstChild) log.append($ui('chat-log').firstChild);
+  uiChatSessions.set(current, { state: stored, log, input: $ui('chat-input').value });
+  Object.assign(chatState, nextState);
+  $ui('chat-domain').value = chatState.task?.domain
+    ? chatState.task.domain +
+      (chatState.task.phase === 'edit'
+        ? '-edit'
+        : chatState.task.phase === 'browse'
+          ? '-browse'
+          : '')
+    : target;
+  if (next?.log) $ui('chat-log').append(next.log);
+  $ui('chat-input').value = next?.input || '';
+  _chatSetBusy(false);
+  uiUpdatePrompt();
+  if (!next?.log && (chatState.pending || chatState.continuationId)) {
+    chatState.pending = chatState.pending || {
+      request_id: chatState.continuationId,
+      message: '',
+      domain: target,
+    };
+    _chatRecover();
+  }
+  return true;
+}
+function uiChatOpen() {
+  if (!uiSwitchChat(UI.view === 'lyrics' ? 'lyrics' : 'recipe')) {
+    showToast('A request is running in the other writer.', 'error');
+    return false;
+  }
+  document.body.classList.add('assistant-open');
+  $ui('chat-dock').hidden = false;
+  $ui('chat-panel').hidden = false;
+  $ui('chat-input').focus();
+  return true;
+}
+function uiNewTask(domain) {
+  if (chatState.busy) {
+    showToast('A request is running. Its progress remains in the conversation.', 'error');
+    uiChatOpen();
+    return false;
+  }
+  if (domain.startsWith('lyrics')) uiNavigate('lyrics');
+  else if (UI.view === 'lyrics') uiNavigate('genre');
+  if (!uiSwitchChat(domain.startsWith('lyrics') ? 'lyrics' : 'recipe')) return false;
+  _chatReset();
+  $ui('chat-domain').value = domain;
+  uiUpdatePrompt();
+  uiChatOpen();
+  return true;
+}
+function uiStart() {
+  document.body.classList.add('workbench');
+  const oldHeader = document.querySelector('.app-bar');
+  oldHeader.classList.add('native-header');
+  const header = document.createElement('header');
+  header.className = 'app-bar ui-header';
+  header.innerHTML = `<a class="ui-brand" href="codex.html">Codex Musica</a><nav aria-label="Main sections">${[
+    ['genre', 'Genre', 'library'],
+    ['instrument', 'Instrument', 'music'],
+    ['map', 'Map', 'globe'],
+    ['lyrics', 'Lyrics', 'edit-3'],
+  ]
+    .map(([v, l, i]) => `<button data-view="${v}">${icon(i, 20)}<span>${l}</span></button>`)
+    .join(
+      ''
+    )}</nav><div class="ui-tools"><button id="ui-undo" data-ui="undo" aria-label="Undo">${icon('undo', 18)}</button><button id="ui-redo" data-ui="redo" aria-label="Redo">${icon('redo', 18)}</button>${uiButton('save', 'Save', 'save')}${uiButton('saved', 'Saved', 'folder')}${uiButton('session', 'Recipe', 'layers', 'aria-expanded="false" aria-controls="workspace-sidebar"')}<span id="ui-count">0</span>${uiButton('menu', 'More', 'more-horizontal')}</div>`;
+  document.body.prepend(header);
+  const more = document.createElement('div');
+  more.id = 'ui-menu';
+  more.hidden = true;
+  more.innerHTML =
+    uiButton('surprise', 'Surprise me', 'shuffle') +
+    uiButton('saved', 'Saved sessions', 'folder') +
+    uiButton('undo', 'Undo', 'undo') +
+    uiButton('redo', 'Redo', 'redo') +
+    uiButton('export', 'Export session', 'download') +
+    uiButton('import', 'Import session', 'upload') +
+    uiButton('credits', 'Credits', 'info') +
+    '<input type="file" id="ui-file" accept="application/json" hidden>';
+  header.append(more);
+  const discovery = document.createElement('section');
+  discovery.id = 'discovery';
+  discovery.innerHTML = `<section class="ui-surface" id="surface-genre"><div class="discovery-toolbar"><label class="ui-search">${icon('search', 20)}<input id="genre-search" type="search" placeholder="Search genres" aria-label="Search genres"></label>${uiButton('genre-tree', 'Browse tree', 'list')}${uiButton('ai', 'AI recipe', 'message-circle')}</div><div id="genre-body"></div></section><section class="ui-surface" id="surface-instrument" hidden><div class="discovery-toolbar"><label class="ui-search">${icon('search', 20)}<input id="instrument-search" type="search" placeholder="Search instruments" aria-label="Search instruments"></label><label class="destination">Add to<select id="instrument-destination" aria-label="Add instrument to"></select></label></div><div id="instrument-preview" hidden></div><div id="instrument-body"></div></section><section class="ui-surface" id="surface-map" hidden><iframe id="map-frame" title="World music map"></iframe></section><section class="ui-surface" id="surface-lyrics" hidden><div class="lyrics-toolbar">${uiButton('new-lyrics', 'New lyrics', 'edit-3')}${uiButton('edit-lyrics', 'Edit lyrics', 'edit-3')}${uiButton('attach-recipe', 'Use current recipe', 'layers')}${uiButton('copy-lyrics', 'Copy lyrics', 'copy')}</div><div class="lyrics-workspace"><div class="lyrics-editor"><label for="lyrics-draft">Lyrics</label><textarea id="lyrics-draft" placeholder="Write here, or ask the lyrics writer." spellcheck="true"></textarea></div><div id="lyrics-chat"></div></div></section>`;
+  const workspace = document.querySelector('main.workspace');
+  workspace.insertBefore(discovery, $ui('workspace-detail'));
+  const assistant = document.createElement('aside');
+  assistant.id = 'assistant-slot';
+  assistant.setAttribute('aria-label', 'AI recipe writer');
+  assistant.innerHTML = `<div class="assistant-toolbar"><strong>AI recipe</strong>${uiButton('new-recipe', 'New recipe', 'plus')}${uiButton('close-ai', 'Close', 'x')}</div>`;
+  assistant.append($ui('chat-dock'));
+  document.body.append(assistant);
+  const quick = document.createElement('div');
+  quick.className = 'session-actions';
+  quick.innerHTML =
+    uiButton('ai', 'AI recipe', 'message-circle') +
+    uiButton('genre-nav', 'Add genre', 'plus') +
+    uiButton('instrument-nav', 'Add instrument', 'plus') +
+    uiButton('close-session', 'Close recipe', 'x');
+  $ui('workspace-sidebar').prepend(quick);
+  // Keep native action nodes, so save, keyboard proxies and assistive labels share one implementation.
+  for (const [id, target, label] of [
+    ['btn-undo', '#ui-undo', 'Undo'],
+    ['btn-redo', '#ui-redo', 'Redo'],
+    ['btn-save', '[data-ui="save"]', 'Save'],
+    ['btn-saved', '[data-ui="saved"]', 'Saved'],
+    ['btn-add', '[data-ui="instrument-nav"]', 'Add instrument'],
+    ['btn-traditions', '[data-ui="genre-nav"]', 'Add genre'],
+    ['btn-attributions', '[data-ui="credits"]', 'Credits'],
+  ]) {
+    const node = $ui(id),
+      placeholder = document.querySelector(target);
+    node.className = '';
+    node.removeAttribute('data-tooltip');
+    node.setAttribute('aria-label', label);
+    node.innerHTML = placeholder.innerHTML;
+    placeholder.replaceWith(node);
+  }
+  oldHeader.remove();
+  $ui('app-more-menu')?.remove();
+  // Preserve the original browse tree, filters, editor and save controls. Browsing
+  // opens in an inline surface rather than a modal with a focus trap.
+  // A row selection opens the editor beside discovery (inside the recipe sheet on phones).
+  $ui('workspace-sidebar').addEventListener('click', (e) => {
+    if (e.target.closest('.sb-card')) {
+      UI.editor = true;
+      uiSync();
+    }
+  });
+  document.addEventListener('click', async (e) => {
+    const nav = e.target.closest('button[data-view]');
+    if (nav) {
+      uiNavigate(nav.dataset.view);
+      return;
+    }
+    if (!e.target.closest('#ui-menu,[data-ui=menu]')) uiSetMenu(false);
+    const b = e.target.closest('[data-ui]');
+    if (!b) return;
+    const a = b.dataset.ui,
+      id = b.dataset.id;
+    switch (a) {
+      case 'genre-branch':
+        UI.genre = null;
+        UI.genreNode = id;
+        UI.limit = 50;
+        $ui('genre-search').value = '';
+        renderGenreDiscovery();
+        break;
+      case 'genre-back':
+        UI.genreNode = getTreeNode(UI.genreNode)?.parent || '';
+        renderGenreDiscovery();
+        break;
+      case 'genre-select':
+        UI.genre = id;
+        renderGenreWeb(id);
+        $ui('surface-genre').scrollTop = 0;
+        break;
+      case 'genre-close':
+        UI.genre = null;
+        renderGenreDiscovery();
+        break;
+      case 'genre-add':
+        await uiAddGenre(id);
+        break;
+      case 'genre-nav':
+        UI.genre = null;
+        uiNavigate('genre');
+        break;
+      case 'instrument-nav':
+        app._addToTradition = null;
+        uiNavigate('instrument');
+        break;
+      case 'instrument-family':
+        UI.instrumentFamily = id;
+        UI.instrumentClass = '';
+        UI.limit = 50;
+        renderInstrumentDiscovery();
+        break;
+      case 'instrument-class':
+        UI.instrumentClass = id;
+        UI.limit = 50;
+        renderInstrumentDiscovery();
+        break;
+      case 'instrument-back':
+        if (UI.instrumentClass) UI.instrumentClass = '';
+        else UI.instrumentFamily = '';
+        renderInstrumentDiscovery();
+        break;
+      case 'instrument-filter':
+        app.instrumentAxisFilters.has(id)
+          ? app.instrumentAxisFilters.delete(id)
+          : app.instrumentAxisFilters.add(id);
+        renderInstrumentDiscovery();
+        break;
+      case 'clear-filters':
+        app.instrumentAxisFilters.clear();
+        renderInstrumentDiscovery();
+        break;
+      case 'instrument-add':
+        await uiAddInstrument(id);
+        break;
+      case 'instrument-inspect':
+        uiInspectInstrument(id);
+        break;
+      case 'close-preview':
+        $ui('instrument-preview').hidden = true;
+        break;
+      case 'more':
+        UI.limit += 50;
+        UI.view === 'genre' ? renderGenreDiscovery() : renderInstrumentDiscovery();
+        break;
+      case 'genre-tree': {
+        const tree = $ui('modal-trad');
+        if (tree.parentElement !== $ui('genre-body')) $ui('genre-body').replaceChildren(tree);
+        tree.classList.add('inline-tree');
+        tree.querySelector('.modal').removeAttribute('aria-modal');
+        tree.querySelector('.modal').setAttribute('role', 'region');
+        tree.querySelector('h2').textContent = 'Genres';
+        tree.querySelector('[data-close]').onclick = () => {
+          tree.classList.remove('inline-tree');
+          document.body.append(tree);
+          renderGenreDiscovery();
+        };
+        renderTradPicker();
+        break;
+      }
+      case 'undo':
+        undo();
+        uiSync();
+        break;
+      case 'redo':
+        redo();
+        uiSync();
+        break;
+      case 'close-editor':
+        UI.editor = false;
+        uiSync();
+        break;
+      case 'save':
+        $ui('btn-save').click();
+        break;
+      case 'saved':
+        $ui('btn-saved').click();
+        uiSetMenu(false);
+        break;
+      case 'session':
+        document.body.classList.toggle('session-open');
+        document
+          .querySelector('[data-ui="session"]')
+          .setAttribute('aria-expanded', String(document.body.classList.contains('session-open')));
+        break;
+      case 'close-session':
+        document.body.classList.remove('session-open');
+        document.querySelector('[data-ui="session"]').setAttribute('aria-expanded', 'false');
+        document.querySelector('[data-ui="session"]').focus({ preventScroll: true });
+        break;
+      case 'menu':
+        $ui('ui-menu').hidden = !$ui('ui-menu').hidden;
+        b.setAttribute('aria-expanded', String(!$ui('ui-menu').hidden));
+        if (!$ui('ui-menu').hidden) $ui('ui-menu').querySelector('button')?.focus();
+        break;
+      case 'surprise':
+        surpriseTradition();
+        uiSetMenu(false);
+        break;
+      case 'view-running':
+        uiNavigate('genre');
+        document.body.classList.add('assistant-open');
+        break;
+      case 'keep-session':
+        UI.storageConflict = false;
+        $ui('storage-conflict')?.remove();
+        UI.lastSaved = null;
+        uiAutosave();
+        break;
+      case 'export':
+        uiExport();
+        uiSetMenu(false);
+        break;
+      case 'import':
+        $ui('ui-file').click();
+        break;
+      case 'credits':
+        $ui('btn-attributions').click();
+        uiSetMenu(false);
+        break;
+      case 'ai':
+        uiChatOpen();
+        break;
+      case 'close-ai':
+        document.body.classList.remove('assistant-open');
+        break;
+      case 'new-recipe':
+        uiNewTask('recipe');
+        break;
+      case 'new-lyrics':
+        uiNewTask('lyrics');
+        break;
+      case 'edit-lyrics':
+        if (!uiNewTask('lyrics-edit')) break;
+        $ui('chat-input').value = 'Edit these lyrics:\n' + $ui('lyrics-draft').value;
+        break;
+      case 'attach-recipe':
+        if (!uiSwitchChat('lyrics')) {
+          showToast('Wait for the active recipe request to finish.', 'error');
+          break;
+        }
+        $ui('chat-input').value =
+          'Write lyrics for this recording recipe:\n' +
+          compileRecipeStack(app.cards, 'rich', { ceiling: 1000 });
+        $ui('chat-input').focus();
+        break;
+      case 'copy-lyrics':
+        copyToClipboard($ui('lyrics-draft').value, 'Lyrics copied', 'Could not copy');
+        break;
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('svg [role="button"]')) {
+      e.preventDefault();
+      e.target.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    }
+    if (e.key === 'Escape') {
+      const wasSessionOpen = document.body.classList.contains('session-open');
+      const wasMenuOpen = !$ui('ui-menu').hidden;
+      document.body.classList.remove('session-open', 'assistant-open');
+      UI.editor = false;
+      uiSync();
+      uiSetMenu(false);
+      document.querySelector('[data-ui="session"]').setAttribute('aria-expanded', 'false');
+      if (wasMenuOpen) document.querySelector('[data-ui="menu"]').focus({ preventScroll: true });
+      else if (wasSessionOpen)
+        document.querySelector('[data-ui="session"]').focus({ preventScroll: true });
+    }
+  });
+  $ui('genre-search').addEventListener('input', () => {
+    UI.genre = null;
+    UI.limit = 50;
+    renderGenreDiscovery();
+  });
+  $ui('instrument-search').addEventListener('input', () => {
+    UI.limit = 50;
+    renderInstrumentDiscovery();
+  });
+  $ui('ui-file').addEventListener('change', (e) => {
+    if (e.target.files[0]) uiImport(e.target.files[0]);
+    e.target.value = '';
+  });
+  $ui('lyrics-draft').addEventListener('input', uiSaveLyrics);
+  $ui('lyrics-draft').addEventListener('blur', () => pushHistory());
+  uiRestoreSession();
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'codex-workbench-v1' && e.newValue !== UI.lastSaved) {
+      UI.storageConflict = true;
+      uiShowStorageConflict();
+    }
+  });
+  // Never hide AI on an offline or unavailable status response.
+  $ui('chat-dock').hidden = false;
+  const status = document.createElement('div');
+  status.id = 'ai-status';
+  status.setAttribute('role', 'status');
+  status.textContent = 'Connecting…';
+  $ui('chat-form').before(status);
+  uiCheckAI();
+
+  const domain = $ui('chat-domain');
+  domain.addEventListener('change', uiUpdatePrompt);
+  uiUpdatePrompt();
+  window.addEventListener('message', async (e) => {
+    if (e.origin !== location.origin || e.source !== $ui('map-frame').contentWindow) return;
+    if (e.data?.type === 'add-genre' && typeof e.data.id === 'string') {
+      const ok = await uiAddGenre(e.data.id);
+      e.source.postMessage({ type: 'genre-added', id: e.data.id, ok: !!ok }, location.origin);
+    }
+    if (e.data?.type === 'genre-web' && typeof e.data.id === 'string') {
+      UI.genre = e.data.id;
+      uiNavigate('genre');
+    }
+  });
+  UI.ready = true;
+  renderAll();
+  uiNavigate(location.hash.slice(1) || 'genre');
+}
+
+function uiReceiveReply(payload, request) {
+  if (!UI.ready) return;
+  const node = $ui('chat-log').lastElementChild;
+  if (!node) return;
+  if (payload.artifact) {
+    const artifact = payload.artifact;
+    const text =
+      typeof artifact.text === 'string'
+        ? artifact.text
+        : Array.isArray(artifact.final_draft)
+          ? artifact.final_draft.join('\n')
+          : null;
+    if (text !== null) {
+      const apply = () => {
+        app.lyrics = text;
+        $ui('lyrics-draft').value = text;
+        uiSaveLyrics();
+        pushHistory();
+        showToast('Lyrics loaded. Undo restores your draft.', 'success');
+      };
+      if (
+        request?.request_id === UI.lyricRequest?.id &&
+        UI.lyricRequest?.revision === UI.lyricRevision &&
+        UI.lyricRequest?.text === (app.lyrics || '')
+      ) {
+        apply();
+      } else {
+        const use = document.createElement('button');
+        use.className = 'btn btn-primary';
+        use.textContent = 'Use these lyrics';
+        use.onclick = apply;
+        node.append(use);
+      }
+    }
+  }
+  if (payload.recipe && payload.workspace?.cards) {
+    const source = JSON.parse(JSON.stringify(payload.workspace.cards));
+    const use = document.createElement('button');
+    use.className = 'btn btn-primary';
+    use.innerHTML = icon('plus', 16) + ' Use recipe';
+    use.onclick = () => {
+      try {
+        app.cards = normalizeWorkspaceCards(source, true);
+        pushHistory();
+        renderAll();
+        showToast('Recipe loaded. Undo restores your previous recipe.', 'success');
+      } catch (e) {
+        showToast(e.message, 'error');
+      }
+    };
+    node.append(use);
+  }
+}
+
+const UI_ICONS = {
+  globe:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-earth" aria-hidden="true"><path d="M21.54 15H17a2 2 0 0 0-2 2v4.54"></path><path d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17"></path><path d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05"></path><circle cx="12" cy="12" r="10"></circle></svg>',
+  layers:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layers" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg>',
+  'message-circle':
+    '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path></svg>',
+  'edit-3':
+    '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pen-line" aria-hidden="true"><path d="M13 21h8"></path><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path></svg>',
+  library:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-library-big" aria-hidden="true"><rect width="8" height="18" x="3" y="3" rx="1"></rect><path d="M7 3v18"></path><path d="M20.4 18.9c.2.5-.1 1.1-.6 1.3l-1.9.7c-.5.2-1.1-.1-1.3-.6L11.1 5.1c-.2-.5.1-1.1.6-1.3l1.9-.7c.5-.2 1.1.1 1.3.6Z"></path></svg>',
+};
+
+function uiOpenSurface(id) {
+  if (id === 'modal-add') {
+    if (app.similarInstFor) {
+      const target = app.similarInstFor;
+      app.similarInstFor = null;
+      uiInspectInstrument(target);
+      return true;
+    }
+    UI.instrumentFamily = '';
+    UI.instrumentClass = '';
+    $ui('instrument-search').value = '';
+    uiNavigate('instrument');
+    $ui('instrument-search').focus();
+    return true;
+  }
+  if (id === 'modal-trad') {
+    UI.genre = app.similarFor || null;
+    app.similarFor = null;
+    uiNavigate('genre');
+    return true;
+  }
+  return false;
+}
+
+function uiRestoreSession() {
+  try {
+    const shared = localStorage.getItem('codex-workbench-v1');
+    const recovery = sessionStorage.getItem('codex-workbench-recovery');
+    if (recovery && shared && recovery !== shared) UI.storageConflict = true;
+    const saved = JSON.parse(
+      recovery ||
+        shared ||
+        localStorage.getItem('musica-workbench-v3') ||
+        localStorage.getItem('musica-study-v1') ||
+        'null'
+    );
+    app.lyrics =
+      typeof saved?.lyrics === 'string'
+        ? saved.lyrics
+        : (localStorage.getItem('musica-lyrics-v3') ??
+          JSON.parse(localStorage.getItem('musica-writing-v1') || '{}').lyrics ??
+          '');
+    $ui('lyrics-draft').value = app.lyrics;
+    if (saved && !app.cards.length) {
+      app.cards = normalizeWorkspaceCards(saved.cards || saved.workspace?.cards);
+      app.workspaceName = saved.name || saved.title || 'Untitled session';
+    }
+    app.history = [];
+    app.historyIndex = -1;
+    pushHistory();
+  } catch {
+    UI.storageConflict = true;
+    showToast('Saved session needs recovery. Export this session before replacing it.', 'error');
+  }
+}
+function uiAutosave() {
+  if (!UI.ready) return;
+  const data = JSON.stringify({
+    version: 1,
+    name: app.workspaceName,
+    cards: app.cards.map((c) => ({ ...c, ..._CARD_TRANSIENTS })),
+    lyrics: app.lyrics || '',
+  });
+  if (data === UI.lastSaved) return;
+  try {
+    sessionStorage.setItem('codex-workbench-recovery', data);
+    if (UI.storageConflict) {
+      uiShowStorageConflict();
+      return;
+    }
+    localStorage.setItem('codex-workbench-v1', data);
+    UI.lastSaved = data;
+    UI.saveFailed = false;
+  } catch {
+    UI.saveFailed = true;
+    showToast('Autosave failed. Export your session to keep it.', 'error');
+  }
+}
+function uiShowStorageConflict() {
+  if ($ui('storage-conflict')) return;
+  const note = document.createElement('div');
+  note.id = 'storage-conflict';
+  note.setAttribute('role', 'status');
+  note.innerHTML =
+    '<span>A newer session is open in another tab.</span>' +
+    uiButton('keep-session', 'Keep this session', 'save') +
+    uiButton('export', 'Export this session', 'download');
+  document.querySelector('.ui-header').after(note);
+}
+function uiLyricsWaiting() {
+  if ($ui('lyrics-wait')) return;
+  const note = document.createElement('div');
+  note.id = 'lyrics-wait';
+  note.innerHTML =
+    '<p>Your recipe request is still running.</p>' +
+    uiButton('view-running', 'View request', 'message-circle');
+  $ui('lyrics-chat').append(note);
+}
+async function uiCheckAI() {
+  const status = $ui('ai-status');
+  if (!status) return;
+  status.textContent = 'Connecting…';
+  try {
+    const response = await fetch(CHAT_BACKEND + '/chat/status', {
+      signal: AbortSignal.timeout(15000),
     });
+    const info = await response.json();
+    if (!response.ok)
+      throw Error(
+        response.status === 403
+          ? 'This address is not enabled by the AI service.'
+          : 'The AI service is temporarily unavailable.'
+      );
+    if (!info.ok || info.enabled === false)
+      throw Error('The AI service is temporarily unavailable.');
+    status.textContent = '';
+  } catch (e) {
+    status.textContent =
+      e.name === 'TypeError'
+        ? 'Cannot connect to the AI service. Check your connection.'
+        : e.message;
+    const retry = document.createElement('button');
+    retry.type = 'button';
+    retry.textContent = 'Retry';
+    retry.onclick = uiCheckAI;
+    status.append(retry);
+  }
+}
+
+function uiSetMenu(open) {
+  const menu = $ui('ui-menu'),
+    trigger = document.querySelector('[data-ui="menu"]');
+  if (menu) menu.hidden = !open;
+  if (trigger) trigger.setAttribute('aria-expanded', String(open));
 }
 </script>
 </body>
