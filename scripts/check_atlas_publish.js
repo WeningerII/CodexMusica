@@ -90,6 +90,12 @@ function audit(root) {
   }
 
   const js = fs.readFileSync(path.join(root, 'src', 'atlas.js'), 'utf8');
+  // Image.src is a runtime asset request just like fetch; missing imagery
+  // must not pass because the base-map data still happens to load.
+  for (const m of js.matchAll(/\.src\s*=\s*['"]([^'"]+)['"]/g)) {
+    const p = localPath(m[1]);
+    if (p && !refs.has(p)) refs.set(p, 'src/atlas.js (image)');
+  }
   let fetched = 0;
   // Only the network branch's sidecar list: `get(...)` is also the name of
   // URLSearchParams' accessor further down, and that one takes a query key.
@@ -187,6 +193,14 @@ function selfTest() {
     ok: withMarker.length === 0,
     got: withMarker,
   });
+  fs.appendFileSync(path.join(dir, 'src/atlas.js'), "earth.src='assets/earth.webp';\n");
+  const missingImage = audit(dir).failures;
+  cases.push({
+    name: 'runtime image missing → refused',
+    ok: missingImage.length === 1 && /assets\/earth.webp.*missing/.test(missingImage[0]),
+    got: missingImage,
+  });
+  write('assets/earth.webp', 'image fixture');
   fs.rmSync(path.join(dir, 'references', '_sigs.json'));
   const missing = audit(dir).failures;
   cases.push({

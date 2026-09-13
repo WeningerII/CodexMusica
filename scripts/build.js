@@ -108,6 +108,7 @@ if (!flags['skip-anti-drift']) {
   run('regression_prefaces.js');
   run('check_slot_picks.js');
   run('app_recipe_regression.js');
+  run('check_workbench.js');
   // Behavioral browser↔node equivalence — asserts the shipped HTML and the CLI
   // primitives produce identical descriptor sets + preface picks on shared
   // fixtures (textual parity checks in tandem.js can't catch output drift).

@@ -48,6 +48,7 @@
 // Exit 0 if every assertion passes, 1 otherwise.
 
 'use strict';
+/* global document */
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -86,8 +87,16 @@ const VIEWPORTS = [
 const CAPABILITIES = [
   { id: 'add-instrument', label: 'add an instrument', sel: ['#btn-add'] },
   { id: 'add-genre', label: 'add a genre', sel: ['#btn-traditions'] },
-  { id: 'undo', label: 'undo', sel: ['#btn-undo', '[data-proxy="btn-undo"]'] },
-  { id: 'redo', label: 'redo', sel: ['#btn-redo', '[data-proxy="btn-redo"]'] },
+  {
+    id: 'undo',
+    label: 'undo',
+    sel: ['#btn-undo', '[data-proxy="btn-undo"]', '#ui-menu [data-ui="undo"]'],
+  },
+  {
+    id: 'redo',
+    label: 'redo',
+    sel: ['#btn-redo', '[data-proxy="btn-redo"]', '#ui-menu [data-ui="redo"]'],
+  },
   { id: 'copy-recipe', label: 'copy the recipe', sel: ['#sb-recipe-copy'] },
   // A readout, not a target: it must be legible and on screen, but the 44px
   // touch minimum is about what a thumb has to hit, so it does not apply.
@@ -101,13 +110,13 @@ const CAPABILITIES = [
   {
     id: 'saved',
     label: 'open saved workspaces',
-    sel: ['#btn-saved', '[data-proxy="btn-saved"]'],
+    sel: ['#btn-saved', '#ui-menu [data-ui="saved"]'],
     inOverflow: true,
   },
   {
     id: 'credits',
     label: 'open image credits',
-    sel: ['#btn-attributions', '[data-proxy="btn-attributions"]'],
+    sel: ['#btn-attributions'],
     inOverflow: true,
   },
 ];
@@ -346,7 +355,7 @@ const PINNED_PROBE = `(() => {
 
     // Load a real workspace. Every assertion below is about editing a stack,
     // and the empty state has neither a tree nor a recipe bar to check.
-    const starter = await page.$('#starter-gallery .starter-trad');
+    const starter = await page.$('[data-ui="genre-add"][data-id="delta_blues"]');
     if (!starter) {
       fail(vp, 'no starter recipe in the empty state — cannot exercise the editor');
       await ctx.close();
@@ -367,7 +376,8 @@ const PINNED_PROBE = `(() => {
       await ctx.close();
       continue;
     }
-    await page.waitForTimeout(2000);
+    await page.waitForFunction(() => document.querySelectorAll('.sb-card').length > 0);
+    if (mobile) await page.click('[data-ui="session"]');
 
     let r = await page.evaluate(PROBE);
     assertViewport(r, 'with a workspace loaded');
@@ -382,9 +392,9 @@ const PINNED_PROBE = `(() => {
       unresolved.push(cap);
     }
     if (unresolved.length) {
-      const trigger = await page.evaluate(`(${CONTROL_FN})('#btn-more')`);
+      const trigger = await page.evaluate(`(${CONTROL_FN})('[data-ui="menu"]')`);
       if (trigger.inside && trigger.hittable) {
-        await page.click('#btn-more');
+        await page.click('[data-ui="menu"]');
         await page.waitForTimeout(350);
         const after = await page.evaluate(
           `(() => { const measure = ${CONTROL_FN};
@@ -394,6 +404,11 @@ const PINNED_PROBE = `(() => {
         );
         for (const cap of unresolved) r.caps[cap.id] = after[cap.id];
         await page.keyboard.press('Escape');
+        if (
+          mobile &&
+          !(await page.evaluate(() => document.body.classList.contains('session-open')))
+        )
+          await page.click('[data-ui="session"]');
         await page.waitForTimeout(250);
       }
     }
@@ -455,7 +470,7 @@ const PINNED_PROBE = `(() => {
     // ---- G. the layout model -----------------------------------------------
     checks++;
     if (mobile && !r.treeOnScreen) {
-      fail(vp, 'the genre tree is not on screen — it must be the page, not behind a drawer');
+      fail(vp, 'the shared recipe is not reachable after opening Recipe');
     }
 
     // Tapping an instrument must expand it in place on mobile, and fill the

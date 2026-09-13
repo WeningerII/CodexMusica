@@ -194,6 +194,7 @@ const PRECONDITIONS = {
     // empty-state Browse) always call renderInstPicker first.
     if (typeof renderInstPicker === 'function') renderInstPicker();
     openModal('modal-add');
+    if(typeof renderInstrumentDiscovery === 'function')renderInstrumentDiscovery();
   `,
   'instrument picker open, filter active': `
     if (typeof renderInstPicker === 'function') renderInstPicker();
@@ -206,6 +207,7 @@ const PRECONDITIONS = {
     }
     if (typeof renderInstPicker === 'function') renderInstPicker();
     openModal('modal-add');
+    if(typeof renderInstrumentDiscovery === 'function')renderInstrumentDiscovery();
   `,
   'tradition picker open': `
     if (typeof renderTradPicker === 'function') renderTradPicker();
@@ -245,6 +247,7 @@ const PRECONDITIONS = {
     app.similarInstFor = 'voice';
     if (typeof renderInstPicker === 'function') renderInstPicker();
     openModal('modal-add');
+    if(typeof renderInstrumentDiscovery === 'function')renderInstrumentDiscovery();
   `,
   'saved workspaces list open': `
     // Seed one fixture workspace into the storage mock (installed by RESET
