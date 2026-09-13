@@ -465,24 +465,26 @@ class ShardedCapacityMerge(unittest.TestCase):
 
     @staticmethod
     def deal():
-        """The deal ci.yml runs, read from ci.yml -- so the fixture and the
-        workflow cannot drift apart (doctrine 1)."""
+        """The deal the workflow runs, read from the workflow -- so the
+        fixture and the deal cannot drift apart (doctrine 1). Since M-282 the
+        deal is `capacity-matrix.yml`'s job matrix, one runner per shard,
+        each `- name:` line followed by its `cells:` line."""
         text = Path(__file__).resolve().parents[1].joinpath(
-            '.github', 'workflows', 'ci.yml').read_text(encoding='utf-8')
+            '.github', 'workflows', 'capacity-matrix.yml').read_text(encoding='utf-8')
         from check_lyrics_capacity import parse_cells
-        found = re.findall(r'^\s*shard\s+(\S+)\s+(\S+)\s+&', text, re.M)
-        return [(name, parse_cells(spec)) for spec, name in found]
+        found = re.findall(r'^\s*-\s*name:\s*(\S+)\s*\n\s*cells:\s*(\S+)\s*$', text, re.M)
+        return [(name, parse_cells(spec)) for name, spec in found]
 
     def complete(self):
         return [(f'capacity-{name}.json', self.shard(cells)) for name, cells in self.deal()]
 
     def test_the_workflow_deals_every_cell_exactly_once_across_at_least_two_cells_each(self):
-        """ci.yml's own deal, before any run: nine cells, once each, no
+        """The workflow's own deal, before any run: nine cells, once each, no
         one-cell shard. A deal that dropped a cell would still merge green
         for every OTHER reason, so this is the check that reads the deal."""
         from check_lyrics_capacity import CELLS
         deal = self.deal()
-        self.assertGreaterEqual(len(deal), 2, 'ci.yml declares no `shard <cells> <name> &` lines')
+        self.assertGreaterEqual(len(deal), 2, 'capacity-matrix.yml declares no `- name:` / `cells:` shard pairs')
         dealt = [cell for _, cells in deal for cell in cells]
         self.assertEqual(sorted(dealt), sorted(CELLS))
         for name, cells in deal:

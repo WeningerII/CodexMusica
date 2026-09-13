@@ -9,7 +9,7 @@ import { pathToFileURL } from 'node:url';
 // run rather than trusting the receipt's own word for it. Two implementations
 // are the point; `quality/test_shard.py` §9 is what stops them drifting apart,
 // because a drift here fails at DEPLOY time, after a four-hour qualification.
-export const MUTATION_SHARDS = 8;
+export const MUTATION_SHARDS = 16;
 export const COMPONENTS = Object.freeze([
   ...Array.from({ length: MUTATION_SHARDS }, (_, i) => `mutation-${i + 1}`),
   'song',

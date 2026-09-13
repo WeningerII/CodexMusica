@@ -1,0 +1,179 @@
+name: Production capacity matrix
+
+# The 18-execution CPU/memory capacity matrix over the tested lyrics image,
+# dealt by (lines, seed) cell across runners instead of across three 1-CPU
+# lanes on one runner (M-282). Called by ci.yml after `lyrics-image` has built
+# and banked the receipt; every shard rebuilds the same image from the same
+# tree and the merger requires every shard's `source_sha256` to agree, so the
+# four measurements are evidence about ONE runtime.
+#
+# WHY THIS LEFT `lyrics-image`, MEASURED. CI run 34711856241 (main 87480ab7,
+# 2026-09-12): the job took 23.1 min of the run's 34.9 -- build 0.5 (admitted
+# seed), offline pipeline 1.1, THIS MATRIX 20.9 -- and was the critical path
+# alone. Inside the matrix, the per-cell bodies (cold + worker) on three
+# 1-CPU lanes sharing a 4-vCPU runner were 953 / 548 / 424 / 385 / 372 / 276
+# / 216 / 172 / 165 s (31/20260910 first; the pole cell is 27% of the matrix
+# by itself, M-268), 3,509 s in all, and the pole lane was 1,169 s of the
+# 1,254-s step. M-268's addendum priced the third lane: every execution ran
+# 1.19-1.27x slower than on two lanes, because four vCPUs are two cores with
+# their SMT siblings. A shard on its own runner declares 1 of 4 vCPUs and
+# shares a core with nothing but the daemon.
+#
+# THE DEAL, and its floor. `merge_lyrics_capacity.py` refuses a shard of one
+# cell (the leak signature needs four boundaries, doctrine 20), so the pole
+# cell always travels with a partner: pole + the cheapest cell is 1,118 s at
+# three-lane speed, and that is the floor of this workflow's wall however
+# many shards are dealt. The other three shards are balanced under it (936,
+# 809, 760 s). `scripts/test_lyrics_capacity.py` reads the `cells:` lines
+# below and refuses a deal that drops a cell, deals one twice, or leaves a
+# shard with one cell.
+#
+# `--cpus=1 --memory=2g` DECLARES THE DEPLOYED SERVICE'S ENVELOPE; each
+# container reads `cpus == 1` out of its OWN cgroup, which `isolation()`
+# verifies and refuses without. DO NOT "IMPROVE" THIS WITH --cpuset-cpus: on a
+# hosted runner the vCPU/core pairing is undocumented, and a pin can land on
+# a sibling pair. CONTENTION CANNOT MANUFACTURE A PASS: every latency
+# assertion is an UPPER bound (600 s per call, 30 s startup/recovery, 5 s
+# queue-pressure phase), so a run that passes while sharing a host passes a
+# fortiori alone, and memory assertions read this container's own cgroup.
+#
+# WHAT SHARDING GAVE AWAY, AND WHERE IT IS BOUGHT BACK: one process could not
+# finish without covering every declared cell. Four can, by one of them never
+# running. The merger is where that is said out loud -- it refuses a missing
+# cell, a duplicated one, a shard measuring a cell it did not declare, a
+# one-cell shard, a shard that measured a different tree, and every other
+# shape `scripts/test_lyrics_capacity.py`'s refusal list names, and it
+# re-derives `production_qualified` rather than copying it from any shard.
+#
+# THE IMAGE IS REBUILT PER SHARD, NOT PULLED. `lyrics-image` publishes the
+# tested image only on a main push and only after its own checks; a pull
+# would make this workflow's shape depend on the event. A rebuild from the
+# same tree with the seed `lyrics-image` banked seconds earlier is ~40 s
+# (M-267); the merger's `source_sha256` equality is what makes four builds
+# one runtime, and `BUILD_RELEASE_ID` is the same string in every shard so
+# the four images carry one release identity.
+on:
+  workflow_call: {}
+permissions:
+  contents: read
+
+jobs:
+  shard:
+    name: cells ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    # The pole shard MEASURED ~19 min at three-lane speed and should be under
+    # that alone; an unseeded rebuild adds the ~10-min proof (M-267). 50 is
+    # the old single-job step bound; lower it after three measured green runs
+    # of this shape or not at all.
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: pole
+            cells: 31:20260910,24:20260909
+          - name: upper
+            cells: 24:20260910,24:20260908
+          - name: middle
+            cells: 31:20260908,18:20260909
+          - name: rest
+            cells: 31:20260909,18:20260910,18:20260908
+    steps:
+      - uses: actions/checkout@v5
+      # The same seed `lyrics-image` restores, from the same prefix; this run
+      # banked its receipt under that prefix before this job could start, so
+      # the prefix returns it and the image's own python admits it.
+      - name: Restore the newest capacity receipt banked on this branch or main
+        id: proof
+        uses: actions/cache/restore@v4
+        with:
+          path: mcp/capacity_verification.json
+          key: lyrics-proof-v1-${{ hashFiles('mcp/Dockerfile', 'mcp/requirements-runtime.txt', 'lyric-harness/data/runtime_assets.json') }}-${{ github.sha }}
+          restore-keys: |
+            lyrics-proof-v1-${{ hashFiles('mcp/Dockerfile', 'mcp/requirements-runtime.txt', 'lyric-harness/data/runtime_assets.json') }}-
+      - name: Build the tested lyrics runtime for this shard
+        id: image
+        timeout-minutes: 30
+        env:
+          TESTED_SHA: ${{ github.sha }}
+          SEED_KEY: ${{ steps.proof.outputs.cache-matched-key }}
+        run: |
+          set -euo pipefail
+          if [ -s mcp/capacity_verification.json ]; then
+            echo "proof seed: restored from ${SEED_KEY:-?}; the image decides whether it is admitted"
+          else
+            echo "proof seed: none banked in scope; this shard measures the proof"
+          fi
+          docker build --platform=linux/amd64 --build-arg RENDER_GIT_COMMIT="$TESTED_SHA" --build-arg BUILD_RELEASE_ID="${{ github.repository_id }}:${{ github.run_id }}:${{ github.run_attempt }}:capacity-matrix" -f mcp/Dockerfile -t codex-lyrics-capacity . 2>&1 | tee build.log
+          rc=${PIPESTATUS[0]}
+          proof=unknown
+          grep -q 'CAPACITY RECEIPT REUSED' build.log && proof=admitted
+          grep -q 'CAPACITY VERIFIED:' build.log && proof=measured
+          echo "proof: $proof"
+          [ "$rc" = 0 ] || exit "$rc"
+          echo "image_id=$(docker image inspect --format='{{.Id}}' codex-lyrics-capacity)" >> "$GITHUB_OUTPUT"
+      - name: Measure this shard's cells at the deployed envelope
+        timeout-minutes: 40
+        env:
+          TESTED_IMAGE: ${{ steps.image.outputs.image_id }}
+          CELLS: ${{ matrix.cells }}
+          NAME: ${{ matrix.name }}
+        run: |
+          set -euo pipefail
+          mkdir -p capacity-evidence
+          set +e
+          docker run --rm --network=none --cpus=1 --memory=2g --memory-swap=2g --pids-limit=256 \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/scripts,dst=/app/scripts,readonly" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/capacity-evidence,dst=/evidence" \
+            --workdir=/app --entrypoint=python3 "$TESTED_IMAGE" \
+            /app/scripts/check_lyrics_capacity.py --cells="$CELLS" \
+            --out="/evidence/capacity-$NAME.json" \
+            > "capacity-evidence/shard-$NAME.log" 2>&1
+          rc=$?
+          set -e
+          echo "::group::capacity shard $NAME"
+          cat "capacity-evidence/shard-$NAME.log" || true
+          echo '::endgroup::'
+          exit "$rc"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lyrics-capacity-${{ matrix.name }}-${{ github.run_attempt }}
+          path: capacity-evidence/
+          if-no-files-found: error
+          retention-days: 30
+
+  merge:
+    needs: shard
+    # `!cancelled()` and not `always()`: a shard killed at its bound reports
+    # here as a failure with a name; a run somebody superseded does not.
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: lyrics-capacity-*-${{ github.run_attempt }}
+          path: capacity-evidence
+          merge-multiple: true
+      - name: One matrix out of every shard, or a refusal that names the shard
+        run: |
+          set -euo pipefail
+          ls -l capacity-evidence
+          python3 scripts/merge_lyrics_capacity.py \
+            capacity-evidence/capacity-pole.json \
+            capacity-evidence/capacity-upper.json \
+            capacity-evidence/capacity-middle.json \
+            capacity-evidence/capacity-rest.json \
+            --out=capacity-evidence/capacity.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lyrics-capacity
+          path: capacity-evidence/
+          if-no-files-found: error
+          retention-days: 30
