@@ -7,7 +7,7 @@ import { LYRIC_TOOL_SCHEMAS } from './lyric_tools.js';
 import { expectedSurface } from './surface_contract.js';
 import { executeNative, publicToolResult } from './chatgpt_sessions.js';
 
-export const CHATGPT_CONNECTOR_VERSION = '1.0.0';
+export const CHATGPT_CONNECTOR_VERSION = '1.1.0';
 const id = z
   .string()
   .regex(/^[a-f0-9]{64}$/)
@@ -63,15 +63,37 @@ function response(value) {
   };
 }
 
-export async function buildChatGPTServer({ domain, sessions }) {
-  if (!['recipe', 'lyrics'].includes(domain)) throw new Error('Select a ChatGPT task endpoint.');
-  const raw = await surface(domain);
+const recipeInstructions =
+  'Recipe session contract: start_recipe returns session_id. Pass the latest session_id to edit_recipe/render_recipe; the server carries the workspace. Each call returns the next session_id. Resolve catalog IDs, realize requested preferences through edits, and present the final recipe verbatim. Rich is the default; format may explicitly select tags, prose or compact. Recipes stay within 1000 characters. Do not start lyrics for a recipe-only request.';
+const lyricInstructions =
+  'Lyrics session contract: begin_lyrics selects create or edit and the writer. Tools submit work and return operation_id. Poll get_operation until completed, then use its session_id for the next step. Never submit another operation while one is pending. Creation requires sweep → screen → plan → exact-draft grade → revise; receipts and continuations are stored by the server. Resume interrupted operations only when resumable is true. Never treat a finished call as proof of certification.';
+export async function buildChatGPTServer({ domain = null, sessions }) {
+  if (domain !== null && !['recipe', 'lyrics'].includes(domain))
+    throw new Error('Unknown ChatGPT task endpoint.');
+  const domains = domain ? [domain] : ['recipe', 'lyrics'];
+  const tools = (
+    await Promise.all(
+      domains.map(async (taskDomain) =>
+        (await surface(taskDomain)).tools.map((tool) => ({ tool, taskDomain }))
+      )
+    )
+  ).flat();
   const instructions =
     domain === 'recipe'
-      ? 'Recipe session contract: start_recipe returns session_id. Pass the latest session_id to edit_recipe/render_recipe; the server carries the workspace. Each call returns the next session_id. Resolve catalog IDs, realize requested preferences through edits, and present the final recipe verbatim. Rich is the default; format may explicitly select tags, prose or compact. Recipes stay within 1000 characters. Never start lyrics for a recipe request.'
-      : 'Lyrics session contract: begin_lyrics selects create or edit and the writer. Tools submit work and return operation_id. Poll get_operation until completed, then use its session_id for the next step. Never submit another operation while one is pending. Creation requires sweep → screen → plan → exact-draft grade → revise; receipts and continuations are stored by the server. Resume interrupted operations only when resumable is true. Never treat a finished call as proof of certification.';
+      ? recipeInstructions
+      : domain === 'lyrics'
+        ? lyricInstructions
+        : 'Codex Musica provides both recording recipes and lyrics in this connection. Select the appropriate tools from the user request; a combined request can use both workflows. Keep each workflow’s latest session_id separately. ' +
+          recipeInstructions +
+          ' ' +
+          lyricInstructions;
+  const operationDomain = (operationId) =>
+    domain ?? sessions.record(operationId).session.task.domain;
   const server = new McpServer(
-    { name: `codex-musica-chatgpt-${domain}`, version: CHATGPT_CONNECTOR_VERSION },
+    {
+      name: domain ? `codex-musica-chatgpt-${domain}` : 'codex-musica',
+      version: CHATGPT_CONNECTOR_VERSION,
+    },
     { instructions }
   );
   const register = (name, config, handler) =>
@@ -93,7 +115,7 @@ export async function buildChatGPTServer({ domain, sessions }) {
       outputSchema: resultShape,
       annotations: readOnly,
     },
-    ({ operation_id }) => response(sessions.status(operation_id, domain))
+    ({ operation_id }) => response(sessions.status(operation_id, operationDomain(operation_id)))
   );
 
   register(
@@ -104,17 +126,18 @@ export async function buildChatGPTServer({ domain, sessions }) {
         'Explicitly continue an interrupted operation after get_operation reports resumable:true. Preserves its exact workspace or lyric declarations and accepted checkpoint. Unknown provider outcomes cannot resume. Repeating this request returns its existing successor rather than spending again.',
       inputSchema: z.object({ operation_id: id }).strict(),
       outputSchema: resultShape,
-      annotations: { ...stateful, openWorldHint: domain === 'lyrics' },
+      annotations: { ...stateful, openWorldHint: domain !== 'recipe' },
     },
     async ({ operation_id }) => {
-      const operation = sessions.resume(operation_id, domain);
-      if (domain === 'lyrics') return response(operation);
+      const taskDomain = operationDomain(operation_id);
+      const operation = sessions.resume(operation_id, taskDomain);
+      if (taskDomain === 'lyrics') return response(operation);
       await sessions.wait(operation.operation_id);
-      return response(sessions.status(operation.operation_id, domain));
+      return response(sessions.status(operation.operation_id, taskDomain));
     }
   );
 
-  if (domain === 'lyrics') {
+  if (domains.includes('lyrics')) {
     register(
       'begin_lyrics',
       {
@@ -130,11 +153,11 @@ export async function buildChatGPTServer({ domain, sessions }) {
         outputSchema: resultShape,
         annotations: { ...stateful, idempotentHint: false },
       },
-      (args) => response(sessions.open(domain, args))
+      (args) => response(sessions.open('lyrics', args))
     );
   }
 
-  for (const tool of raw.tools) {
+  for (const { tool, taskDomain: domain } of tools) {
     const recipeState = ['start_recipe', 'edit_recipe', 'render_recipe'].includes(tool.name);
     if (domain === 'recipe' && !recipeState) {
       register(

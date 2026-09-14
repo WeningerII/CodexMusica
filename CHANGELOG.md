@@ -12,12 +12,20 @@ Two delivery changes, neither touching the catalog, the engine, or any gate that
 decides correctness.
 
 **The connector compresses its responses.** `mcp/server_http.js` sent everything
-uncompressed, and the largest response is the one every client fetches first:
-`tools/list` on the recipe surface is 76,378 bytes, and 16,194 on the wire once
-gzipped — 79% of the handshake was padding, paid once per connection by every
-connector pointed at the URL. `list_traditions` goes 3,919 -> 945,
-`search_catalog` 3,308 -> 801. A client that does not offer gzip is still served
-the identical frame uncompressed.
+uncompressed, and the largest response is the one every client fetches first.
+`tools/list`, plain vs gzipped, per surface:
+
+| surface | plain | gzipped | |
+|---|---|---|---|
+| `/mcp/chatgpt` | 100,470 | 16,626 | 83% off |
+| `/mcp` | 76,378 | 16,194 | 79% off |
+| `/mcp/lyrics` | 63,298 | 12,984 | 79% off |
+| `/mcp/recipe` | 13,148 | 3,784 | 71% off |
+
+Four fifths of every handshake was padding, paid once per connection by every
+connector pointed at the URL. Tool results compress about as well:
+`list_traditions` 3,919 → 939, `search_catalog` 3,308 → 788. A client that does
+not offer gzip is still served the identical frame uncompressed.
 
 Compression middleware buffers, so it is only safe where nothing is a long-lived
 stream, and here nothing is: `GET` on an MCP path — the Streamable HTTP spec's

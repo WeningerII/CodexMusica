@@ -163,11 +163,18 @@ app.use((req, res, next) => {
 // ─────────────────────── response compression ───────────────────────
 //
 // WHY THIS EXISTS. Every response this service sent went out uncompressed, and
-// the largest one is the one every client fetches first: `tools/list` on the
-// recipe surface is 76,378 bytes and 16,131 gzipped. 79% of the handshake was
-// padding, paid once per connection by every connector pointed at this URL.
-// Measured on this tree: list_traditions 3,919 -> 945, search_catalog 3,308 ->
-// 801. The engine is unchanged; only the bytes on the wire move.
+// the largest one is the one every client fetches first. Measured on this tree
+// (2026-09-14), `tools/list` plain vs gzipped, per surface:
+//
+//   /mcp/chatgpt    100,470 -> 16,626   (83% off)
+//   /mcp             76,378 -> 16,194   (79% off)
+//   /mcp/lyrics      63,298 -> 12,984   (79% off)
+//   /mcp/recipe      13,148 ->  3,784   (71% off)
+//
+// Four fifths of every handshake was padding, paid once per connection by every
+// connector pointed at this URL. Tool results compress about as well:
+// list_traditions 3,919 -> 939, search_catalog 3,308 -> 788. The engine is
+// unchanged; only the bytes on the wire move.
 //
 // WHY IT IS SAFE HERE is the half worth checking before copying this line into
 // another service. `compression` buffers, and buffering a long-lived stream
@@ -329,6 +336,7 @@ app.get('/.well-known/mcp.json', (_req, res) =>
     authentication: 'none',
     taskEndpoints: { recipe: PUBLIC_MCP_URL + '/recipe', lyrics: PUBLIC_MCP_URL + '/lyrics' },
     chatgptEndpoints: {
+      combined: PUBLIC_MCP_URL + '/chatgpt',
       recipe: PUBLIC_MCP_URL + '/chatgpt/recipe',
       lyrics: PUBLIC_MCP_URL + '/chatgpt/lyrics',
     },
@@ -363,6 +371,7 @@ const mcpPaths = [
   MCP_PATH,
   MCP_PATH + '/recipe',
   MCP_PATH + '/lyrics',
+  MCP_PATH + '/chatgpt',
   MCP_PATH + '/chatgpt/recipe',
   MCP_PATH + '/chatgpt/lyrics',
 ];
@@ -383,7 +392,7 @@ app.post(mcpPaths, async (req, res) => {
   console.error(`[mcp] ${describe(req.body)}`);
   // Stateless: brand-new server + transport for this single request.
   const controller = new AbortController();
-  const chatgpt = req.path.startsWith(MCP_PATH + '/chatgpt/');
+  const chatgpt = req.path === MCP_PATH + '/chatgpt' || req.path.startsWith(MCP_PATH + '/chatgpt/');
   const domain = req.path.endsWith('/recipe')
     ? 'recipe'
     : req.path.endsWith('/lyrics')
