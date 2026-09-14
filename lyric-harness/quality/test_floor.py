@@ -828,14 +828,14 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
     # `expected_drift.py`, which re-DERIVES. A pin and a re-derivation are
     # different instruments and this file holds the first kind.
     check("the five song thresholds are the recorded corpus percentiles",
-          song.percentiles == {"mattr_min": 0.7182405540134821,
-                               "function_word_ratio_max": 0.47850980862679227,
+          song.percentiles == {"mattr_min": 0.717809720727355,
+                               "function_word_ratio_max": 0.47871873227323464,
                                "anaphora_max": 0.3000,
-                               "line_length_cv_min": 0.11159567903159137,
-                               "predictable_pair_fraction_max": 0.9230769230769231}
-          and (song.lo, song.hi, song.n_human) == (200, 450, 2438),
-          "RE-ADOPTED 2026-09-08 after canonical work/edition and shared-reader "
-          "corrections: full 200-seed derivation, 200-450 tokens, 2,438 items, "
+                               "line_length_cv_min": 0.11089061090642224,
+                               "predictable_pair_fraction_max": 0.9285714285714286}
+          and (song.lo, song.hi, song.n_human) == (200, 400, 2231),
+          "RE-ADOPTED 2026-09-14 after Unicode/apostrophe normalization: "
+          "full 200-seed derivation, 200-400 tokens, 2,231 items, "
           "MATTR window50. The preceding August history describes the prior "
           "population. This pins the independently recorded current tuple; "
           "the flagship-example flag above is the control against tuning it "
@@ -1297,10 +1297,11 @@ def test_the_two_mutants_this_suite_could_not_see():
     # 3,245 is exact under `lyric` for a text that is not a quatrain or a
     # sonnet by line count. The old seams are named so the record shows
     # what closed them.
-    seams = (127, 138, 150, 163, 175, 176, 199, 4, 21, 3245)
+    lyric_profile = next(p for p in PROFILES if p.name == "lyric")
+    seams = (127, 138, 150, 163, 175, 176, 199, 21, lyric_profile.lo, lyric_profile.hi)
     got_seams = {n: declaration_for(n, 20) for n in seams}
     check("every former seam — 127, 138, 150, 163, 175, 176, 199, and the "
-          "limits 4 and 3,245 — is EXACT under `lyric` for a twenty-line "
+          f"measured limits {lyric_profile.lo} and {lyric_profile.hi} — is EXACT under `lyric` for a twenty-line "
           "text; the handoffs between `short`, `sonnet` and `song` that "
           "M-132/M-193 pinned are closed by one profile, not by three "
           "abutting bands",
@@ -1309,8 +1310,9 @@ def test_the_two_mutants_this_suite_could_not_see():
           ", ".join(f"{n} -> {p.name if p else None}/{e}"
                     for n, (p, e) in got_seams.items()))
 
-    for n, want in ((200, "lyric"), (400, "lyric"), (37, "section"),
-                    (126, "sonnet")):
+    for n, want in ((200, "lyric"), (400, "lyric"),
+                    (next(p.hi for p in PROFILES if p.name == "section"), "section"),
+                    (next(p.hi for p in PROFILES if p.name == "sonnet"), "sonnet")):
         got, exact = declaration_for(n)
         check(f"...and at {n} tokens it is `{want}`, EXACT",
               got.name == want and exact, f"got {got.name!r}, exact={exact}")
@@ -1701,10 +1703,10 @@ def test_a_declared_threshold_is_not_a_corpus_percentile():
     # ONLY because a declaration supplied the cut — and the finding printed
     # `> 0.8333 (human 95th percentile, section profile)` for a percentile
     # that profile never took.
-    s11 = ["The candle burned and set the room on fire",
-           "And all night long she nursed a small desire",
-           "He said the word and then he turned to go",
-           "She never asked the thing she had to know"]
+    s11 = ["The candle burned and set it on fire",
+           "All night she nursed her small desire",
+           "He said the word and turned to go",
+           "She never asked what she had to know"]
     p11, _ = declaration_for(sum(len(FLOOR.qf._tokens(l)) for l in s11),
                              len(s11))
     check("PREMISE: `section` declares no `predictable_pair_fraction_max`, "

@@ -1,0 +1,48 @@
+{
+  "tests": 22,
+  "failures": [
+    "test_recovery_uses_the_same_normalized_sung_rows_as_grading (quality.test_computational_audit.RecoveryHandoffs.test_recovery_uses_the_same_normalized_sung_rows_as_grading)",
+    "test_unreadable_words_are_not_reported_as_exact_zero_syllables (quality.test_computational_audit.RecoveryHandoffs.test_unreadable_words_are_not_reported_as_exact_zero_syllables)",
+    "test_canonically_equivalent_latin_text_has_identical_tokens (quality.test_computational_audit.RuntimeArithmetic.test_canonically_equivalent_latin_text_has_identical_tokens)",
+    "test_invalid_mattr_windows_are_refused (quality.test_computational_audit.RuntimeArithmetic.test_invalid_mattr_windows_are_refused) (value=-1)",
+    "test_invalid_mattr_windows_are_refused (quality.test_computational_audit.RuntimeArithmetic.test_invalid_mattr_windows_are_refused) (value=True)",
+    "test_invalid_mattr_windows_are_refused (quality.test_computational_audit.RuntimeArithmetic.test_invalid_mattr_windows_are_refused) (value=2.5)",
+    "test_subdivision_never_truncates_a_declared_coordinate (quality.test_computational_audit.RuntimeArithmetic.test_subdivision_never_truncates_a_declared_coordinate) (value=1.9)",
+    "test_subdivision_never_truncates_a_declared_coordinate (quality.test_computational_audit.RuntimeArithmetic.test_subdivision_never_truncates_a_declared_coordinate) (value=Fraction(3, 2))",
+    "test_subdivision_never_truncates_a_declared_coordinate (quality.test_computational_audit.RuntimeArithmetic.test_subdivision_never_truncates_a_declared_coordinate) (value=True)",
+    "test_typographic_apostrophes_keep_the_same_words (quality.test_computational_audit.RuntimeArithmetic.test_typographic_apostrophes_keep_the_same_words)",
+    "test_bh_can_discover_a_group_without_singleton_resolution (quality.test_computational_audit.StatisticalCounterexamples.test_bh_can_discover_a_group_without_singleton_resolution)",
+    "test_bounded_search_matches_an_exhaustive_occurrence_oracle (quality.test_computational_audit.StatisticalCounterexamples.test_bounded_search_matches_an_exhaustive_occurrence_oracle)",
+    "test_different_lines_do_not_share_word_occurrences (quality.test_computational_audit.StatisticalCounterexamples.test_different_lines_do_not_share_word_occurrences)",
+    "test_invalid_time_declarations_refuse_before_calculation (quality.test_computational_audit.StatisticalCounterexamples.test_invalid_time_declarations_refuse_before_calculation) (kw={'n_perm': 0})",
+    "test_invalid_time_declarations_refuse_before_calculation (quality.test_computational_audit.StatisticalCounterexamples.test_invalid_time_declarations_refuse_before_calculation) (kw={'null_samples': 0})",
+    "test_invalid_time_declarations_refuse_before_calculation (quality.test_computational_audit.StatisticalCounterexamples.test_invalid_time_declarations_refuse_before_calculation) (kw={'periods': ()})",
+    "test_invalid_time_declarations_refuse_before_calculation (quality.test_computational_audit.StatisticalCounterexamples.test_invalid_time_declarations_refuse_before_calculation) (kw={'periods': (0,)})",
+    "test_invalid_time_declarations_refuse_before_calculation (quality.test_computational_audit.StatisticalCounterexamples.test_invalid_time_declarations_refuse_before_calculation) (kw={'grid_unit': 'typo'})",
+    "test_invalid_time_declarations_refuse_before_calculation (quality.test_computational_audit.StatisticalCounterexamples.test_invalid_time_declarations_refuse_before_calculation) (kw={'correction': 'typo'})",
+    "test_invalid_time_declarations_refuse_before_calculation (quality.test_computational_audit.StatisticalCounterexamples.test_invalid_time_declarations_refuse_before_calculation) (kw={'family': 'typo'})",
+    "test_invalid_time_declarations_refuse_before_calculation (quality.test_computational_audit.StatisticalCounterexamples.test_invalid_time_declarations_refuse_before_calculation) (kw={'alpha': nan})",
+    "test_invalid_time_declarations_refuse_before_calculation (quality.test_computational_audit.StatisticalCounterexamples.test_invalid_time_declarations_refuse_before_calculation) (kw={'q': 0})",
+    "test_invalid_time_declarations_refuse_before_calculation (quality.test_computational_audit.StatisticalCounterexamples.test_invalid_time_declarations_refuse_before_calculation) (kw={'window': -1})",
+    "test_invalid_time_declarations_refuse_before_calculation (quality.test_computational_audit.StatisticalCounterexamples.test_invalid_time_declarations_refuse_before_calculation) (kw={'max_span': True})",
+    "test_sidak_equality_and_small_probabilities (quality.test_computational_audit.StatisticalCounterexamples.test_sidak_equality_and_small_probabilities)"
+  ],
+  "errors": [
+    {
+      "test": "test_empty_chain_input_has_no_invented_first_line (quality.test_computational_audit.RuntimeArithmetic.test_empty_chain_input_has_no_invented_first_line)",
+      "trace": "Traceback (most recent call last):\n  File \"/workspace/scratch/77e7bedd20ba/audit-baseline/lyric-harness/quality/test_computational_audit.py\", line 221, in test_empty_chain_input_has_no_invented_first_line\n    self.assertEqual(LH.infer_chains(None, [], LH.Declaration()), [])\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/77e7bedd20ba/audit-baseline/lyric-harness/lyric_harness.py\", line 4452, in infer_chains\n    ends = [data[m][\"endword\"].lower() for m in members]\n            ~~~~^^^\nIndexError: list index out of range\n"
+    },
+    {
+      "test": "test_invalid_mattr_windows_are_refused (quality.test_computational_audit.RuntimeArithmetic.test_invalid_mattr_windows_are_refused) (value=0)",
+      "trace": "Traceback (most recent call last):\n  File \"/workspace/scratch/77e7bedd20ba/audit-baseline/lyric-harness/quality/test_computational_audit.py\", line 210, in test_invalid_mattr_windows_are_refused\n    QualityFeatures._mattr(['cat', 'bat'], value)\n  File \"/workspace/scratch/77e7bedd20ba/audit-baseline/lyric-harness/quality/features.py\", line 807, in _mattr\n    ratios = [len(set(words[i:i + window])) / window\n              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~\nZeroDivisionError: division by zero\n"
+    },
+    {
+      "test": "test_invalid_mattr_windows_are_refused (quality.test_computational_audit.RuntimeArithmetic.test_invalid_mattr_windows_are_refused) (value='2')",
+      "trace": "Traceback (most recent call last):\n  File \"/workspace/scratch/77e7bedd20ba/audit-baseline/lyric-harness/quality/test_computational_audit.py\", line 210, in test_invalid_mattr_windows_are_refused\n    QualityFeatures._mattr(['cat', 'bat'], value)\n  File \"/workspace/scratch/77e7bedd20ba/audit-baseline/lyric-harness/quality/features.py\", line 805, in _mattr\n    if len(words) <= window:\n       ^^^^^^^^^^^^^^^^^^^^\nTypeError: '<=' not supported between instances of 'int' and 'str'\n"
+    },
+    {
+      "test": "test_subdivision_never_truncates_a_declared_coordinate (quality.test_computational_audit.RuntimeArithmetic.test_subdivision_never_truncates_a_declared_coordinate) (value=inf)",
+      "trace": "Traceback (most recent call last):\n  File \"/workspace/scratch/77e7bedd20ba/audit-baseline/lyric-harness/quality/test_computational_audit.py\", line 193, in test_subdivision_never_truncates_a_declared_coordinate\n    FT.Subdivision(value, source='audit')\n  File \"<string>\", line 5, in __init__\n  File \"/workspace/scratch/77e7bedd20ba/audit-baseline/lyric-harness/quality/fit.py\", line 938, in __post_init__\n    if int(self.slots_per_pulse) < 1:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^\nOverflowError: cannot convert float infinity to integer\n"
+    }
+  ]
+}

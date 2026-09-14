@@ -1,0 +1,61 @@
+{
+  "base_commit": "d12108fe8deb95d2315431b29fb720991c394bee",
+  "python": "3.12.14",
+  "node": "v24.19.0",
+  "nltk": "3.10.3",
+  "offline": {
+    "status": "passed",
+    "node_tests": 104,
+    "python_tests": 96,
+    "skips": 0,
+    "log": "production-offline-adopted.log"
+  },
+  "closing": [
+    {
+      "suite": "floor",
+      "rc": 0,
+      "seconds": 52.31
+    },
+    {
+      "suite": "production_data",
+      "rc": 0,
+      "seconds": 9.71
+    },
+    {
+      "suite": "curve_check",
+      "rc": 0,
+      "seconds": 25.49
+    }
+  ],
+  "planning": {
+    "status": "all_sections_verified",
+    "full_run": "test_plan.final.log",
+    "full_run_result": "20 of 21 sections passed; only old hard-coded 447 maximum assertion failed",
+    "closing_rerun": "plan-section.closing.log",
+    "repair": "assert contiguity independently of a stale endpoint; the same section separately derives endpoints from the measured profiles",
+    "closing_failures": []
+  },
+  "other_completed_suites": [
+    "test_grid.final.log",
+    "test_floor_window.final.log",
+    "test_audit_regressions.final.log",
+    "test_expected_drift.final.log",
+    "test_computational_audit.final.log",
+    "test_fwer.final.log",
+    "test_recover.after.log",
+    "test_fit.after.log",
+    "test_revise.after.log",
+    "test_loop.after.log",
+    "test_screen.after.log",
+    "test_replay_memo.after.log"
+  ],
+  "syntax": "py_compile passed for affected modules",
+  "whitespace": "git diff --check passed",
+  "document_paths": "doc-paths.log",
+  "calibration": "all five main checks pass all 21 bins in 200 held-out splits; both historical band gates and current curve gate pass",
+  "limits": [
+    "No hosted deployment or new production capacity qualification",
+    "No live external writer run",
+    "Musical validity and dependence assumptions are not proved by computational tests"
+  ]
+}

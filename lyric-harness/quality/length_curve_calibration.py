@@ -954,7 +954,7 @@ def cmd_fit(a):
 # capacity / song_profile_calibration --check pattern, M-239)
 # ---------------------------------------------------------------------------
 
-SHIPPED_MODEL = {"mattr": "C1", "fwr": "C2", "anaphora": "C2", "cv": "CK",
+SHIPPED_MODEL = {"mattr": "C1", "fwr": "C1", "anaphora": "C2", "cv": "CK",
                  "predictability": "CK"}
 KEY_OF = {"mattr": "mattr_min", "fwr": "function_word_ratio_max",
           "anaphora": "anaphora_max", "cv": "line_length_cv_min",
@@ -992,6 +992,11 @@ def cmd_check(a):
               "population moved, so every curve is a different population's "
               "(doctrine 58); re-run the cell and re-adopt as a set"
               % (len(rows), prof.n_human))
+        sys.exit(1)
+    measured_range = (rows[0]["n_tokens"], rows[-1]["n_tokens"])
+    if (prof.lo, prof.hi) != measured_range:
+        print("MOVED: the lyric range was %r, measured %r; do not extrapolate a stale boundary"
+              % ((prof.lo, prof.hi), measured_range))
         sys.exit(1)
     ttr_population = {"window": C.MATTR_WINDOW,
                       "items": sum(row["n_tokens"] <= C.MATTR_WINDOW for row in rows)}

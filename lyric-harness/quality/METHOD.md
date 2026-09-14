@@ -626,7 +626,19 @@ without them.
    anchors are comparable, and putting it in a likelihood ratio whose
    background treats it as independent is a modelling error.
 
-29. **BH and FWER have different resolution requirements, and BH's is brutal.**
+29. **A correction must resolve the threshold it actually uses.**
+   **CORRECTED 2026-09-14:** BH is step-up: rank k uses k*q/n, so q/n
+   is sufficient for singleton resolution but is NOT necessary for any
+   discovery. For example, p=(0.03,0.03), q=0.05 passes at rank two.
+   The runtime now refuses for resolution only if even all scored pairs
+   at the empirical floor cannot cross their largest rank's cut, and
+   reports BH's ranked cut rather than a Sidak family limit. FWER retains
+   its per-position family calculation. This corrects the blanket BH
+   requirement in the historical account below; it does not establish
+   dependence assumptions or musical discrimination for either procedure.
+   The following measurements describe earlier candidate populations:
+
+   **Historical account (superseded where corrected above):**
    Benjamini-Hochberg's cut for the top-ranked p is q/n; at n ~ 10^4 candidate
    pairs that needs a tail resolved to ~1e-5, and a 20000-draw null resolves to
    5e-5. Whether anything is discovered then depends on how many p-values pile

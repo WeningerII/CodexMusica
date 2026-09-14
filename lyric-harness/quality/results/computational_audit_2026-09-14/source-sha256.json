@@ -1,0 +1,22 @@
+{
+  "base_commit": "d12108fe8deb95d2315431b29fb720991c394bee",
+  "files": {
+    "lyric-harness/lyric_harness.py": "15f40566e7899cee91603f4926344a662d5993d62102d028d5d21463dc828bbb",
+    "lyric-harness/quality/METHOD.md": "a14468ebf962739de2687d14baa659bcbc89e9650ecac5b58dccfe5de0a5cfa8",
+    "lyric-harness/quality/features.py": "905ed414f459bd2fb405d7e0cb732ab909ed03883bfac00b854c4bf64b86e365",
+    "lyric-harness/quality/fit.py": "07e465c8a467ee960852a238b951074e3587f968f1203ab99afbc80a420afad5",
+    "lyric-harness/quality/floor.py": "e2637c3d6b7e2210aa5fcd9c673b0dcb66c87a112a0e10ad3bc5ec2c6ed2b596",
+    "lyric-harness/quality/length_curve_calibration.py": "db3dbbc9bd3d705407fdde3b744bdabd5a8dc493bde22981289e9c477a0f8910",
+    "lyric-harness/quality/recover.py": "936d65d5e338208787c256f0924d1104710438358b41702c111221fbda44d02a",
+    "lyric-harness/quality/song_profile_calibration.py": "00ac672b47c6b86095697efd7f36bb763516abb4912a57c3e27d3ac49536d7e6",
+    "lyric-harness/quality/test_floor.py": "e73c2ddb7137266ab8a5313c78a4e6b56aaed309444328eb06ccd81015e9559f",
+    "lyric-harness/quality/test_fwer.py": "1114303a238c8c297e5649a0e8ef6d6059883fbb30ea7649590bf04fca37e344",
+    "lyric-harness/quality/test_plan.py": "ea7a6cd166e7c0aca546ffd6c12444e0857c57058f7c953ce4444098be8b6e43",
+    "lyric-harness/quality/test_production_data.py": "c2e9f587d187d93e79a65fcdc39a0217fa57016a21e80fa61b4f595991b75661",
+    "lyric-harness/quality/time_attainable.py": "76479bb7ec181f6e35710e8ca3a37b05b0f30259d55d1d6d2cfb965c84175f7d",
+    "lyric-harness/quality/time_layer.py": "fcf45456100ca2b0b5f54831e5b969eb1942645765332a1762c674ce5395bad3",
+    "package.json": "49efcd2f19bc57505eff1d583f9801cbeacc63a9a6cf503868ec0ddc8cacf714",
+    "scripts/test_lyrics_capacity.py": "46c1b22f547bfdb429998d87a14ba88a5c3e83572444bd00ba8a89299a7819a8",
+    "lyric-harness/quality/test_computational_audit.py": "bb774ae9b41f66d3f1564af143a799e4d5c34a8db131375bf8439860abb80f12"
+  }
+}

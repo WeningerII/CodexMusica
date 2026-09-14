@@ -20,8 +20,9 @@ for them. Nothing here may hard-code an English answer as a universal.
 import os
 import re
 import sys
+import unicodedata
 from bisect import bisect_left
-from collections import defaultdict
+from collections import Counter, defaultdict
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
@@ -465,6 +466,11 @@ class QualityFeatures:
         # MEASURED on `corpus/song/eng_*`: 6,856 lines of 283,506 (2.42%) move
         # and the token total falls 1,873,325 -> 1,865,465, **-0.420%** — the
         # fall is fragments merging back into the words they came from.
+        # Match the pronunciation reader's apostrophe convention and treat
+        # canonically equivalent Latin spellings alike. Without this,
+        # don't/don’t had different token counts and prepar’d ended in "d".
+        from lyric_harness import fold_apostrophes
+        line = unicodedata.normalize("NFC", fold_apostrophes(line))
         return [t for t in re.findall(r"(?:[A-Za-zÀ-ɏḀ-ỿ]|['\-])+", line)
                 if re.search(r"[A-Za-zÀ-ɏḀ-ỿ]", t)]
 
@@ -795,6 +801,8 @@ class QualityFeatures:
         priced, and left where it is. A future move must be argued, must be
         repinned with its date, and must land inside [1, 22] or [40, 93].
         """
+        if type(window) is not int or window < 1:
+            raise ValueError("MATTR window must be a positive integer")
         if not words:
             return float("nan")
         # THE FALLBACK IS A DIFFERENT STATISTIC, not a degraded one. Every
@@ -804,9 +812,24 @@ class QualityFeatures:
         # 40 tokens, reports a plain-TTR number under a MATTR name.
         if len(words) <= window:
             return len(set(words)) / len(words)
-        ratios = [len(set(words[i:i + window])) / window
-                  for i in range(len(words) - window + 1)]
-        return sum(ratios) / len(ratios)
+        # Update only the word leaving and entering the window. Keep the
+        # same division and summation order as the original computation,
+        # so calibrated values remain bit-identical (not just close).
+        counts = Counter(words[:window])
+
+        def ratios():
+            yield len(counts) / window
+            for i in range(window, len(words)):
+                old = words[i - window]
+                counts[old] -= 1
+                if counts[old] == 0:
+                    del counts[old]
+                counts[words[i]] += 1
+                yield len(counts) / window
+
+        # Use sum(), including its compensated float implementation on
+        # supported Python versions; repeated += is not bit-equivalent.
+        return sum(ratios()) / (len(words) - window + 1)
 
     @staticmethod
     def _inversions(tagged_line):

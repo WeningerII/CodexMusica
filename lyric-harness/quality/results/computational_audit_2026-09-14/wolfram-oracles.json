@@ -1,0 +1,49 @@
+{
+  "engine": "Wolfram Language via selected Wolfram connector",
+  "results": {
+    "BellNumbers0to12": [
+      1,
+      1,
+      2,
+      5,
+      15,
+      52,
+      203,
+      877,
+      4140,
+      21147,
+      115975,
+      678570,
+      4213597
+    ],
+    "Compositions2and3_0to20": [
+      1,
+      0,
+      1,
+      1,
+      1,
+      2,
+      2,
+      3,
+      4,
+      5,
+      7,
+      9,
+      12,
+      16,
+      21,
+      28,
+      37,
+      49,
+      65,
+      86,
+      114
+    ],
+    "RGSCompletionMatchesBell": true,
+    "SidakFamilyAtEquality": 1,
+    "BHQualifyingRanks": [
+      2
+    ]
+  },
+  "equivalent_reproduction_code": "c[n_] := SeriesCoefficient[1/(1-x^2-x^3), {x,0,n}]; r[0,m_] := 1; r[n_,m_] := r[n,m] = m r[n-1,m]+r[n-1,m+1]; Table[BellB[n],{n,0,12}]; Table[c[n],{n,0,20}]; And@@Table[r[n,0]==BellB[n],{n,0,12}]; Floor[Log[1-1/20]/Log[1-1/20]]; Select[Range[2],{3/100,3/100}[[#]]<=# (1/20)/2&]"
+}

@@ -1,0 +1,25 @@
+{
+  "operation": "Strip trailing whitespace and ensure one final newline; values and message text preserved.",
+  "files": {
+    "floor.closing.log": {
+      "original_sha256": "93d0c936c64823f26f213d8004925e4fcd8cade80add2bf265dbf1dff3b0a8e7",
+      "archived_sha256": "6f1aa6f38bdc4add3d614f499594fd8724f8efc78b392c656cc2e9b7bdcccb42"
+    },
+    "test_revise.after.log": {
+      "original_sha256": "95568ec3ef42bbf182a75d991b382b0f5b97fa76e32c4e65b66d8205b8f851e9",
+      "archived_sha256": "df15260d3b8d44e3e1251a17879640898743ab0bda543714da787e4779dfb472"
+    },
+    "test_plan.final.log": {
+      "original_sha256": "0937acd1b19d86ade2c99e0f0c17db0b73cbb47d3c444149374f0283a2b2c39e",
+      "archived_sha256": "a786c5ecd9370bc1ac05999d953d3af864dd7052f5ba7ae84924d4c8ddbb3089"
+    },
+    "test_grid.final.log": {
+      "original_sha256": "8f636d13f4fa337552414a92893bad39cdfc34cf378fe12a03094f2cb4e3d1de",
+      "archived_sha256": "c0f55c664a247a5966e7638c7add6649b8ff8349df5cfd395bc6d539c9dfc3bc"
+    },
+    "curve-fit.log": {
+      "original_sha256": "d9006db8359a0de462005a307dbf48266ffe3be2536ab2a72a57d02e0912dd48",
+      "archived_sha256": "dad61c5a1fd73670ec23f827cb551ba1433170e469fd12b2d64c28d0ed7a0b3b"
+    }
+  }
+}

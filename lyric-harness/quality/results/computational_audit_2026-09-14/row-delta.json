@@ -1,0 +1,17 @@
+{
+  "items": 8545,
+  "identity": "file/title/n_lines and occurrence order, checked one-to-one; repeated titles retained",
+  "changed_cells_per_field": {
+    "file": 0,
+    "author": 0,
+    "title": 0,
+    "n_lines": 0,
+    "n_tokens": 1230,
+    "mattr": 1249,
+    "fwr": 1254,
+    "anaphora": 0,
+    "cv": 0,
+    "predictability": 257
+  },
+  "ttr_at_window_50": 540
+}

@@ -2404,7 +2404,7 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     check("and there is NO hole at all — every former seam (6-11, 18-21, "
           "21) was the space between two calibrated bands, and the "
           "length-curve profile has none",
-          song == set(range(1, 448)) and _PL.line_count_gaps(song) == []
+          song == set(range(1, max(song) + 1)) and _PL.line_count_gaps(song) == []
           and _PL.line_count_gaps(union) == [],
           f"song {min(song)}..{max(song)} gaps {_PL.line_count_gaps(song)}, "
           f"union gaps {_PL.line_count_gaps(union)}")

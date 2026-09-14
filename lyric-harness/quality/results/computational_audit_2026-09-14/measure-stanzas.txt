@@ -1,0 +1,49 @@
+import argparse,ast,hashlib,json,math,re,sqlite3,sys
+from collections import ChainMap
+from pathlib import Path
+from unittest.mock import patch
+ROOT = Path.cwd() if (Path.cwd()/'lyric-harness').is_dir() else Path.cwd().parent
+sys.path.insert(0,str(ROOT/'lyric-harness'))
+from quality.features import QualityFeatures
+from quality.floor import SlopFloor
+from quality.corpus import load_sonnets,load_generated
+from quality import song_profile_calibration as C, calibration_rebuild as R
+from quality import length_curve_calibration as LC
+parser=argparse.ArgumentParser(description='Remeasure the registered stanza profiles; run from the repository root or lyric-harness.')
+parser.add_argument('--field-cache',required=True)
+parser.add_argument('--baseline-features',required=True)
+parser.add_argument('--report',required=True)
+a=parser.parse_args()
+qf=QualityFeatures(features={'mattr','function_word_ratio'})
+db=sqlite3.connect('file:'+str(Path(a.field_cache).resolve())+'?mode=ro', uri=True)
+fp=db.execute('SELECT DISTINCT fingerprint FROM fields').fetchone()[0]
+assert fp == R.field_fingerprint(), 'field inputs moved; rebuild exact fields'
+# Bounded exact reads; stanza-only fields are computed into the local overlay.
+qf.field._cache=ChainMap({},R.SQLiteFields(db,fp,32))
+old=ast.parse(Path(a.baseline_features).read_text());cls=next(x for x in old.body if isinstance(x,ast.ClassDef) and x.name=='QualityFeatures');fn=next(x for x in cls.body if isinstance(x,ast.FunctionDef) and x.name=='_tokens');fn.decorator_list=[]
+ns={'re':re};exec(compile(ast.fix_missing_locations(ast.Module(body=[fn],type_ignores=[])),'baseline_tokens','exec'),ns)
+h=list(load_sonnets().items());g=load_generated();new_tokens=QualityFeatures._tokens
+out={'provenance':LC.row_provenance(),'scheme':'ABABCDCDEFEFGG','window':50,'quantiles':{'lower':.05,'upper':.95},'populations':{}}
+out['stanza_input_sha256']={str(p):hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in (Path('lyric-harness/corpus/sonnets.txt'),Path('lyric-harness/corpus/generated/sonnets_generated.txt'))}
+for label,tokenizer in [('before',ns['_tokens']),('after',new_tokens)]:
+ with patch.object(QualityFeatures,'_tokens',staticmethod(tokenizer)):
+  for profile in ('sonnet','section'):
+   cohorts=[]
+   for items in (h,g):
+    rows=[]
+    for ident,lines in items:
+     parts=[lines] if profile=='sonnet' else [lines[i:i+4] for i in (0,4,8)]
+     for part in parts:
+      f=qf.extract(part)
+      row={'mattr':f['mattr'],'fwr':f['function_word_ratio'],'anaphora':SlopFloor._anaphora(None,part)[0],'cv':C.line_cv(part),'n_tokens':sum(len(tokenizer(l)) for l in part)}
+      if profile=='sonnet':
+       vals=[v for i,j,v in qf._predictability(part,qf.pairs_from_scheme('ABABCDCDEFEFGG'))]
+       row['predictability']=sum(v>.9 for v in vals)/len(vals) if vals else math.nan
+      rows.append(row)
+    cohorts.append(rows)
+   human,generated=cohorts
+   thresholds={f:C.q([r[f] for r in human if math.isfinite(r[f])],.05 if f in ('mattr','cv') else .95) for f in human[0] if f!='n_tokens'}
+   auc={f:sum((a[f]>b[f])+.5*(a[f]==b[f]) for a in human for b in generated if math.isfinite(a[f]) and math.isfinite(b[f]))/sum(math.isfinite(a[f]) and math.isfinite(b[f]) for a in human for b in generated) for f in thresholds}
+   out['populations'][label+'_'+profile]={'n_human':len(human),'n_generated':len(generated),'thresholds':thresholds,'auc':auc,'human_tokens':[r['n_tokens'] for r in human]}
+   print(label,profile,thresholds,auc,flush=True)
+Path(a.report).write_text(json.dumps(out,indent=2)+'\n')
