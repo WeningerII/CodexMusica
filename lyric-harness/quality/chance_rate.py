@@ -416,9 +416,28 @@ NULL_LINES = 14
 #: that quote 69.05%/71.02%/p 0.9048 (M-140's table, M-145's reasons in
 #: `door_census.py` and `recover.py`) are the measurements those rulings
 #: rested on and are left as quoted.
+#: REPINNED 2026-09-14 from ~~all 0.6946/0.7127/0.7271, mandated
+#: 0.9643/0.7887/0.8393~~ (doctrine 17; `MISSING.md` M-288), AND IT IS THE
+#: M-177 MISS A SECOND TIME. Commit a75da39f (2026-09-08) stopped counting a
+#: pair whose relation differs across unresolved pronunciation readings, or
+#: whose default relation the schemas leave unresolved, as a successful pair;
+#: that sitting repinned this file's `schema` chance band (`--check`, the
+#: cheap job's gate: 957..987 -> 889..914, recorded above) and never ran
+#: `--null --check` (this arm, the nightly's), so the separation pins stayed
+#: at the pre-contract comparator's figures until the crons were restored
+#: (M-287) and the first scheduled nightly went red here, run 34830504888 on
+#: d12108fe. The door answers FEWER pairs in both the observation and the
+#: redeal null: `all` 69.46% -> 48.12% against a null median 71.27% ->
+#: 51.26%, `mandated` 96.43% -> 86.31% against 78.87% -> 50.89%. BOTH
+#: VERDICTS HELD, and the mandated separation WIDENED: +35.42 pp over the
+#: median and +32.74 pp over the MAX (from +17.56 / +12.50), while `all`
+#: still sits at or below its own null (-3.14 pp over the median). Measured
+#: identically at d12108fe (CI) and 38c8f331 (locally), so #269 moved none
+#: of it. The M-140/M-145 quotations of 69.05%/71.02% stay as quoted, for the
+#: reason the 2026-08-30 paragraph gives.
 ADOPTED_SEPARATION = {
-    "all": {"r_obs": 0.6946, "median": 0.7127, "max": 0.7271},
-    "mandated": {"r_obs": 0.9643, "median": 0.7887, "max": 0.8393},
+    "all": {"r_obs": 0.4812, "median": 0.5126, "max": 0.5330},
+    "mandated": {"r_obs": 0.8631, "median": 0.5089, "max": 0.5357},
 }
 
 #: How far a re-derivation may sit from the pin before it is DRIFT. The figures

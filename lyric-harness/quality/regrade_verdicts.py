@@ -76,13 +76,44 @@ _RETURNS = re.compile(r"'--returns=(.*?)'", re.S)
 #: it that way (doctrine 17). This table is the other question. A song here
 #: must measure its recorded NEW triple exactly; a song absent must still
 #: measure its README triple. Either way a FRESH move is red.
+#: ADOPTED 2026-09-14 (M-288), five songs, ONE cause — commit a75da39f
+#: (2026-09-08, the explicit pronunciation contracts): a coarse mandate on an
+#: end word with more than one lexicon reading is judged by CONSENSUS across
+#: the readings (`rhyme_types.coarse_relation_consensus`), and a pair whose
+#: relation differs across them is REFUSED rather than judged on whichever
+#: reading came first; the same commit refuses a default-relation pair the
+#: candidate schemas leave unresolved. Every moved pair is one of those:
+#: tower/sour and ember/summer, prayer/mare, Winds/skinned, pear/Prayer/heir/
+#: flair and grace/Bass/vase, wide/Pylons. Found by the nightly's first
+#: scheduled run after the crons were restored (M-287); identical at d12108fe
+#: and 38c8f331, so not moved by #269. The banked README triples stay as
+#: written (doctrine 17).
 REGRADE_MOVED = {
+    "stay_awake.txt": (
+        (16, 14, 2),
+        "a75da39f, 2026-09-08: tower/sour differ across unresolved "
+        "pronunciation readings; ember/summer's default relation stays "
+        "unresolved in four schemas"),
+    "long_bridge.txt": (
+        (46, 45, 1),
+        "a75da39f, 2026-09-08: prayer/mare differ across unresolved "
+        "pronunciation readings"),
+    "wheat_mane.txt": (
+        (42, 41, 1),
+        "a75da39f, 2026-09-08: Winds/skinned differ across unresolved "
+        "pronunciation readings"),
+    "matinee.txt": (
+        (116, 111, 5),
+        "a75da39f, 2026-09-08: pear/Prayer/heir/flair and grace/Bass/vase "
+        "differ across unresolved pronunciation readings"),
     "crooked_waltz.txt": (
-        (47, 25, 22),
+        (47, 24, 23),
         "M-144, 2026-08-26: a declared slot resolving to NO ANCHOR is a "
         "REFUSAL and was counted as JUDGED. 12 of this song's 45 binding "
         "sites resolve to nothing the phonology can anchor (L1 `T5` is "
-        "`by`) and 22 of its 47 mandated pairs touch one"),
+        "`by`) and 22 of its 47 mandated pairs touch one. MOVED AGAIN "
+        "2026-09-14 from ~~(47, 25, 22)~~: wide/Pylons' default relation "
+        "stays unresolved in schema(s) (a75da39f, 2026-09-08)"),
     "the_frost_ledger.txt": (
         (71, 36, 35),
         "M-144, same cause and the larger share: 35 of 71 mandated pairs "

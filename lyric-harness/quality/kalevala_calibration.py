@@ -213,9 +213,21 @@ def tier2_conditional(pairs, n_items, seed=SEED):
 #: meter_bands' adoption check does. RESULTS_KALEVALA_ALLITERATION.md is
 #: the record; every count here is exact and every rate derived from the
 #: exact counts beside it.
+#: REPINNED 2026-09-14, `incidental` ONLY (M-288). Commit a75da39f
+#: (2026-09-08) replaced `structure_census.items_of`'s reader with
+#: `lyric_reader.calibration_items`, which drops bracketed editorial and
+#: apparatus lines the old `--- TITLE:` reader kept: 20 lines across three
+#: incidental files (fin_paavo_cajander 17, fin_wahanen_laulukirja 2,
+#: fin_eino_leino 1; the constrained arm's three files carry none), so the
+#: incidental arm lost 542 pairs and the nightly's first run after the crons
+#: were restored (run 34830504888, on d12108fe) went red here. Measured
+#: identically at d12108fe and at 38c8f331. E1 holds unmoved: constrained
+#: 0.3249 against null-A max 0.1225 and incidental ~~0.1446~~ 0.1448.
+#: Superseded value, kept visible (doctrine 17): ~~(135292, 19426, 114899,
+#: 967)~~.
 ADOPTED = {
     "constrained": (152917, 49649, 103186, 82),
-    "incidental": (135292, 19426, 114899, 967),
+    "incidental": (134750, 19387, 114461, 902),
     "true_pairs": 49649,
     "table_rows": 37587,
     "blocked_k6": (4891, 24116),
