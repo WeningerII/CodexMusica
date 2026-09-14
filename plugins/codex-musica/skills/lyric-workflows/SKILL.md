@@ -3,7 +3,7 @@ name: lyric-workflows
 description: Use Codex Musica to plan, grade, check or revise song lyrics, including rhyme and meter checks and continuing interrupted lyric work. Use for new songwriting or supplied existing lyrics, separately from recording recipes and public-domain corpus maintenance.
 ---
 
-Use the Codex Musica MCP connection. Explicit user choices take priority over defaults.
+Use the single Codex Musica MCP connection at `https://mcp.codexmusica.com/mcp` for both recipes and lyrics. Explicit user choices take priority over defaults.
 
 ## Begin the requested task
 

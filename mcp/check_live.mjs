@@ -49,6 +49,8 @@ import {
 export { canonical, surfaceDrift, initializationDrift } from './surface_contract.js';
 import { validateImageManifest, imageBuildDrift } from '../scripts/image_release.mjs';
 
+import { expectedSharedSurface } from './workflow_tools.js';
+
 const DEFAULT_URL = 'https://mcp.codexmusica.com/mcp';
 
 export function parseLiveArguments(argv) {
@@ -155,7 +157,7 @@ async function main() {
   const imageFlag = args['image-manifest'];
   if (imageFlag && !expectCommit) throw new Error('An image manifest requires an expected commit.');
   const task = /\/(recipe|lyrics)\/?$/.exec(new URL(url).pathname)?.[1] || null;
-  const expected = await expectedSurface(task);
+  const expected = task ? await expectedSurface(task) : await expectedSharedSurface();
 
   let live;
   try {

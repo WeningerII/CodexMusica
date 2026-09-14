@@ -101,9 +101,9 @@ has a separate run lifecycle and can make paid external model calls.
   when durable storage is configured. Preserve `run_id` and `run_revision` for direct
   continuations, and `request_id` for chat recovery. See `mcp/LYRICS_RUNTIME.md`.
   <!-- @promise: connector-tools-read-only -->
-- Select `/mcp/recipe` or `/mcp/lyrics` explicitly. Consume initialization instructions and
-  full tool descriptions/schemas. The legacy `/mcp` endpoint exposes both families and
-  cannot infer an external host's task. Recipes default to Rich with a 1,000-character
+- Use `/mcp` for one shared connection. Consume initialization instructions and
+  full tool descriptions/schemas. The shared `/mcp` endpoint exposes both families and
+  cannot infer an external host's task. Use session IDs for saved recipe workspaces and background lyrics; caller-managed state remains supported. Recipes default to Rich with a 1,000-character
   ceiling. A recipe request does not authorize lyric work.
 - Published tool schemas stay inside the shape a restricted function-calling client can represent:
   no `additionalProperties`, `propertyNames`, `anyOf`/`oneOf`/`allOf`, `$ref` or empty schema nodes,

@@ -38,8 +38,8 @@ import { lyricCapacity } from './lyric_tools.js';
 import { createOperationBudget } from './paid_budget.js';
 import { effectiveConfiguration } from './runtime_config.js';
 import { runtimeAssets } from './runtime_assets.js';
-import { ChatGPTSessions } from './chatgpt_sessions.js';
-import { buildChatGPTServer } from './chatgpt_tools.js';
+import { WorkflowSessions } from './workflow_sessions.js';
+import { buildWorkflowServer } from './workflow_tools.js';
 
 const PORT = process.env.PORT || 3000;
 const MCP_PATH = process.env.MCP_PATH || '/mcp';
@@ -210,7 +210,7 @@ try {
   jobStore.failure = err.message;
 }
 let chatRouter;
-const chatgptSessions = new ChatGPTSessions({ store: jobStore, build: buildIdentity });
+const workflowSessions = new WorkflowSessions({ store: jobStore, build: buildIdentity });
 app.use(
   createJobRouter({
     store: jobStore,
@@ -297,13 +297,9 @@ app.get('/.well-known/mcp.json', (_req, res) =>
     endpoint: PUBLIC_MCP_URL,
     authentication: 'none',
     taskEndpoints: { recipe: PUBLIC_MCP_URL + '/recipe', lyrics: PUBLIC_MCP_URL + '/lyrics' },
-    chatgptEndpoints: {
-      combined: PUBLIC_MCP_URL + '/chatgpt',
-      recipe: PUBLIC_MCP_URL + '/chatgpt/recipe',
-      lyrics: PUBLIC_MCP_URL + '/chatgpt/lyrics',
-    },
+    workflowControls: ['begin_lyrics', 'get_operation', 'resume_operation'],
     privacy:
-      'ChatGPT sessions, lyrics requests, accepted drafts, recovery receipts and accounting can be persisted. Kitchen writing sends its brief to the configured provider.',
+      'Workflow sessions, lyrics requests, accepted drafts, recovery receipts and accounting can be persisted. Kitchen writing sends its brief to the configured provider.',
     documentation: 'https://codexmusica.com/AGENTS.md',
     websiteUrl: 'https://codexmusica.com',
     repository: 'https://github.com/WeningerII/CodexMusica',
@@ -354,10 +350,14 @@ app.post(mcpPaths, async (req, res) => {
   console.error(`[mcp] ${describe(req.body)}`);
   // Stateless: brand-new server + transport for this single request.
   const controller = new AbortController();
-  const chatgpt = req.path === MCP_PATH + '/chatgpt' || req.path.startsWith(MCP_PATH + '/chatgpt/');
-  const domain = req.path.endsWith('/recipe')
+  const requestPath = req.path.replace(/\/$/, '');
+  const compatibilityAlias =
+    requestPath === MCP_PATH + '/chatgpt' || requestPath.startsWith(MCP_PATH + '/chatgpt/');
+  const shared = requestPath === MCP_PATH;
+  if (compatibilityAlias) res.setHeader('Link', `<${PUBLIC_MCP_URL}>; rel="canonical"`);
+  const domain = requestPath.endsWith('/recipe')
     ? 'recipe'
-    : req.path.endsWith('/lyrics')
+    : requestPath.endsWith('/lyrics')
       ? 'lyrics'
       : null;
   // Task-scoped raw HTTP supports the same explicit views its schema advertises.
@@ -380,9 +380,10 @@ app.post(mcpPaths, async (req, res) => {
     server?.close();
   });
   try {
-    server = chatgpt
-      ? await buildChatGPTServer({ domain, sessions: chatgptSessions })
-      : buildServer(task ? { task } : {});
+    server =
+      shared || compatibilityAlias
+        ? await buildWorkflowServer({ domain, sessions: workflowSessions, compatibility: shared })
+        : buildServer(task ? { task } : {});
     await server.connect(transport);
     await withExecutionContext(context, () => transport.handleRequest(req, res, req.body));
   } catch (err) {

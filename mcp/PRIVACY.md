@@ -26,8 +26,7 @@ drive the tools.
   results and signed continuation envelopes. The configured runtime directory
   stores them on the server; without durable storage, they remain process-local.
   A request without `request_id` has no recoverable request receipt.
-- **ChatGPT sessions.** The `/mcp/chatgpt/recipe` and `/mcp/chatgpt/lyrics`
-  endpoints automatically issue session and operation identifiers and retain
+- **Workflow sessions.** The shared `/mcp` endpoint and its compatibility aliases automatically issue session and operation identifiers and retain
   their requests and results in the same recovery store. Recipe workspaces,
   lyric workflow receipts and private continuation state remain on the service.
   These sessions follow the receipt retention policy below. Kitchen sessions
@@ -54,7 +53,7 @@ drive the tools.
   logs are not used to build user profiles and are not sold or shared for
   advertising.
 
-Raw recipe tools pass workspaces through the caller. The ChatGPT recipe endpoint
+Raw recipe tools pass workspaces through the caller. The shared recipe endpoint
 retains sessions; recipes used through `/chat` can also appear in the conversation
 and its recovery receipt.
 
@@ -65,7 +64,7 @@ retained receipt. A lyric `run_id` grants access to the corresponding cached run
 and signed envelopes authorize continuation of the state they carry. These are
 not account identities. Keep them private, along with draft content.
 
-ChatGPT `session_id` and `operation_id` values are also bearer capabilities. Anyone
+Workflow `session_id` and `operation_id` values are also bearer capabilities. Anyone
 with one can read its retained result and, where permitted, advance that session.
 They are not bound to a ChatGPT account. Do not put them in public transcripts.
 

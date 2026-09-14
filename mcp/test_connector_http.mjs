@@ -86,6 +86,7 @@ test(
       const status = await (await fetch(`${base}/chat/status`)).json();
       assert.equal(status.enabled, false);
       for (const endpoint of [
+        '/mcp',
         '/mcp/recipe',
         '/mcp/chatgpt',
         '/mcp/chatgpt/recipe',
@@ -139,34 +140,34 @@ test(
       } finally {
         await client.close();
       }
-      const connectChatGPT = async (domain) => {
+      const connectWorkflow = async (domain) => {
         const connection = new Client(
-          { name: 'chatgpt-http-contract', version: '1' },
+          { name: 'shared-http-contract', version: '1' },
           { capabilities: {} }
         );
         await connection.connect(
           new StreamableHTTPClientTransport(
-            new URL(`${base}/mcp/chatgpt${domain ? `/${domain}` : ''}`)
+            new URL(`${base}/mcp${domain ? `/chatgpt/${domain}` : ''}`)
           )
         );
         return connection;
       };
-      let chatgpt = await connectChatGPT();
+      let shared = await connectWorkflow();
       let session_id;
       try {
-        assert.equal((await chatgpt.listTools()).tools.length, 21);
-        const initial = await chatgpt.callTool({
+        assert.equal((await shared.listTools()).tools.length, 21);
+        const initial = await shared.callTool({
           name: 'start_recipe',
           arguments: { traditions: ['delta_blues'] },
         });
         session_id = initial.structuredContent.session_id;
-        assert(!JSON.parse(initial.content[0].text).workspace);
+        assert(JSON.parse(initial.content[0].text).workspace);
       } finally {
-        await chatgpt.close();
+        await shared.close();
       }
-      chatgpt = await connectChatGPT();
+      shared = await connectWorkflow();
       try {
-        const rendered = await chatgpt.callTool({
+        const rendered = await shared.callTool({
           name: 'render_recipe',
           arguments: { session_id, format: 'prose' },
         });
@@ -174,16 +175,16 @@ test(
         assert.equal(rendered.structuredContent.status, 'completed');
         assert.notEqual(rendered.structuredContent.session_id, session_id);
       } finally {
-        await chatgpt.close();
+        await shared.close();
       }
-      chatgpt = await connectChatGPT();
+      shared = await connectWorkflow();
       let operation_id;
       try {
-        const initial = await chatgpt.callTool({
+        const initial = await shared.callTool({
           name: 'begin_lyrics',
           arguments: { writer: 'interview' },
         });
-        const queued = await chatgpt.callTool({
+        const queued = await shared.callTool({
           name: 'lyric_sweep',
           arguments: {
             session_id: initial.structuredContent.session_id,
@@ -195,14 +196,14 @@ test(
         assert.equal(queued.structuredContent.status, 'pending');
         operation_id = queued.structuredContent.operation_id;
       } finally {
-        await chatgpt.close();
+        await shared.close();
       }
-      chatgpt = await connectChatGPT();
+      shared = await connectWorkflow();
       try {
         let operation;
         const deadline = Date.now() + 10_000;
         do {
-          const read = await chatgpt.callTool({
+          const read = await shared.callTool({
             name: 'get_operation',
             arguments: { operation_id },
           });
@@ -214,7 +215,29 @@ test(
         assert(!operation.tool_result.isError);
         assert.equal(JSON.parse(operation.tool_result.content[0].text).exit_code, 0);
       } finally {
-        await chatgpt.close();
+        await shared.close();
+      }
+      // Alias capabilities and canonical capabilities belong to the same store.
+      const alias = await connectWorkflow('recipe');
+      try {
+        const read = await alias.callTool({
+          name: 'get_operation',
+          arguments: { operation_id: session_id },
+        });
+        assert.equal(read.structuredContent.status, 'completed');
+      } finally {
+        await alias.close();
+      }
+      const { expectedSharedSurface } = await import('./workflow_tools.js');
+      const { surfaceDrift, initializationDrift, initialization } =
+        await import('./surface_contract.js');
+      const canonical = await connectWorkflow();
+      try {
+        const expected = await expectedSharedSurface();
+        assert.deepEqual(surfaceDrift(expected.tools, (await canonical.listTools()).tools), []);
+        assert.deepEqual(initializationDrift(expected.init, initialization(canonical)), []);
+      } finally {
+        await canonical.close();
       }
       const checker = spawn(
         process.execPath,
