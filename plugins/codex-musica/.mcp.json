@@ -1,12 +1,8 @@
 {
   "mcpServers": {
-    "codex-musica-recipes": {
+    "codex-musica": {
       "type": "http",
-      "url": "https://mcp.codexmusica.com/mcp/chatgpt/recipe"
-    },
-    "codex-musica-lyrics": {
-      "type": "http",
-      "url": "https://mcp.codexmusica.com/mcp/chatgpt/lyrics"
+      "url": "https://mcp.codexmusica.com/mcp/chatgpt"
     }
   }
 }

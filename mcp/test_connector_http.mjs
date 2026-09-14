@@ -85,7 +85,12 @@ test(
       assert.equal(ready.configuration.maxTurns, 50);
       const status = await (await fetch(`${base}/chat/status`)).json();
       assert.equal(status.enabled, false);
-      for (const endpoint of ['/mcp/recipe', '/mcp/chatgpt/recipe', '/mcp/chatgpt/lyrics']) {
+      for (const endpoint of [
+        '/mcp/recipe',
+        '/mcp/chatgpt',
+        '/mcp/chatgpt/recipe',
+        '/mcp/chatgpt/lyrics',
+      ]) {
         for (const method of ['GET', 'OPTIONS', 'POST']) {
           const rejected = await fetch(`${base}${endpoint}`, {
             method,
@@ -140,14 +145,16 @@ test(
           { capabilities: {} }
         );
         await connection.connect(
-          new StreamableHTTPClientTransport(new URL(`${base}/mcp/chatgpt/${domain}`))
+          new StreamableHTTPClientTransport(
+            new URL(`${base}/mcp/chatgpt${domain ? `/${domain}` : ''}`)
+          )
         );
         return connection;
       };
-      let chatgpt = await connectChatGPT('recipe');
+      let chatgpt = await connectChatGPT();
       let session_id;
       try {
-        assert.equal((await chatgpt.listTools()).tools.length, 11);
+        assert.equal((await chatgpt.listTools()).tools.length, 21);
         const initial = await chatgpt.callTool({
           name: 'start_recipe',
           arguments: { traditions: ['delta_blues'] },
@@ -157,7 +164,7 @@ test(
       } finally {
         await chatgpt.close();
       }
-      chatgpt = await connectChatGPT('recipe');
+      chatgpt = await connectChatGPT();
       try {
         const rendered = await chatgpt.callTool({
           name: 'render_recipe',
@@ -169,7 +176,7 @@ test(
       } finally {
         await chatgpt.close();
       }
-      chatgpt = await connectChatGPT('lyrics');
+      chatgpt = await connectChatGPT();
       let operation_id;
       try {
         const initial = await chatgpt.callTool({
@@ -190,7 +197,7 @@ test(
       } finally {
         await chatgpt.close();
       }
-      chatgpt = await connectChatGPT('lyrics');
+      chatgpt = await connectChatGPT();
       try {
         let operation;
         const deadline = Date.now() + 10_000;

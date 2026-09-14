@@ -3,7 +3,7 @@ name: lyric-workflows
 description: Use Codex Musica to plan, grade, check or revise song lyrics, including rhyme and meter checks and continuing interrupted lyric work. Use for new songwriting or supplied existing lyrics, separately from recording recipes and public-domain corpus maintenance.
 ---
 
-Use the Codex Musica lyrics MCP connection. Explicit user choices take priority over defaults.
+Use the Codex Musica MCP connection. Explicit user choices take priority over defaults.
 
 ## Begin the requested task
 
@@ -30,3 +30,5 @@ If a completed revision is resumable, continue `lyric_revise` with its session I
 For an interrupted operation, inspect `get_operation`. Call `resume_operation` only when `resumable` is true and continuing the requested work is appropriate. Unknown provider outcomes, changed scoring semantics or exhausted journal capacity require recovering the accepted draft and reporting the limitation. Never automatically retry those proposals. Follow `successor_id` when the operation has already advanced.
 
 Session and operation IDs are private capabilities with bounded retention. Keep them out of the song and user-facing prose; retain them in tool context. Do not derive lyric declarations from a recording recipe or start a separate recipe task unless requested.
+
+The same connection exposes recipes and lyrics. For a combined user request, use both tool families and keep their latest session IDs separately.
