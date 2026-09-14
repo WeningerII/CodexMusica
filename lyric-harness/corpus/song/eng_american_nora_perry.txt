@@ -1,7 +1,7 @@
 # author: Nora Perry (1831-1896)
 # region: american
 # source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f
-# licence: public domain - Project Gutenberg; Home Book of Verse first published 1912; edition published 1912 -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# licence: public domain -- existing author-route ruling retained (author died 1896); the cited PG text does not identify its exact source impression. The collection's first-publication year, 1912, is not an edition date for these bytes. Earlier 'edition published 1912' attribution withdrawn; see data/sources.tsv -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (filename corrected 2026-08-19: the repo ships 47476-8.txt; bytes verified identical)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.

@@ -1,7 +1,7 @@
 # author: Alice Cary (1820-1871)
 # region: american
 # source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f
-# licence: public domain - Project Gutenberg; Home Book of Verse first published 1912; edition published 1912 -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# licence: public domain -- existing author-route ruling retained (author died 1871); the cited PG text does not identify its exact source impression. The collection's first-publication year, 1912, is not an edition date for these bytes. Earlier 'edition published 1912' attribution withdrawn; see data/sources.tsv -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
