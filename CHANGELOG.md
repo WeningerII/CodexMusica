@@ -6,6 +6,38 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — the mark is green on black, and its source is now a raster
+
+The owner delivered a new icon as a favicon package: a 1254px master plus the
+per-platform cuts a generator makes from it (16/32/48/64/96/128/256, a 180
+apple-touch, 192/512 android-chrome, a 150 tile, and a six-size `.ico`). The
+mark is the same slash and eighth note, redrawn — green on black inside a white
+frame — not a recolor of the old paths.
+
+That broke the one-source rule in the form it had. `favicon.svg` was the source
+and `build_favicon.js` rendered every raster from it, with `--check` failing on
+any drift. There is no vector of the new artwork, and hand-tracing one would
+have shipped an approximation of the owner's art while claiming to be its
+source. So the source of record is `assets/icon-master.png`, and the set splits:
+
+- **Supplied** — the owner's own files, byte-for-byte, re-rendered by nothing.
+  Pinned by SHA-256 in `build_favicon.js`, with their dimensions asserted beside
+  the hash, so a silent edit or a file copied into the wrong slot still fails.
+- **Derived** — what the package does not contain: `assets/icon-1024.png` and
+  the mark inside `assets/og-image.png`. Rendered from the master and
+  byte-compared, exactly as before.
+
+`favicon.svg` and `assets/icon.svg` are deleted rather than left behind: both
+drew the retired red mark, and `/favicon.svg` would still have been served to
+any browser that prefers SVG. The fault-injection case that proved the gate now
+repaints the master instead of recoloring the SVG, and still catches it.
+
+The pages gain the rest of the package: `favicon.ico`, `site.webmanifest` (which
+is what makes the 192/512 icons reachable on Android) and `browserconfig.xml`
+for the Windows tile. The page-level `theme-color` stays `#ffffff` — the icon
+changed, the browser chrome did not.
+
+
 ### Changed — `set_environment` without a `card` targets the primary card
 
 The rendered recipe takes its tuning, room and signal chain from `cards[0]` and

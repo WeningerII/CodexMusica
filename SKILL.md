@@ -113,7 +113,7 @@ treeNode    : {id(=full dotted path), name, parent(id|null), description}
 tradition   : {id, name, family, lineage, instruments[], room, tuning, chain_archetype?,
                chain_mic, chain_pre, chain_console, chain_comp, chain_eq, chain_medium, chain_amp*, production_aesthetic?,
                chain_status, parts?, pin_parts?, chain_fx?, arrangement?}
-              // chain_status is on ALL 2564; parts on 1204 (per-instrument slot pins,
+              // chain_status is on ALL 2588; parts on 1204 (per-instrument slot pins,
               // flat {partId: variantId} — these OVERRIDE the instrument's
               // defaults on browser/connector import. With pin_parts:true the CLI/static
               // optimizer also preserves these choices; caller swaps take precedence);

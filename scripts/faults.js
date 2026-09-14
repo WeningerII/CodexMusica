@@ -891,22 +891,26 @@ record(
   );
 }
 
-// icon rasters drift from favicon.svg -> build_favicon.js --check
+// the icon set drifts from its declared source -> build_favicon.js --check
 //
 // The defect this catches is the one the repo shipped for real until the
-// generator existed: edit the mark, and the six PNGs beside it still show the
-// old one, because nothing derived them and nothing compared them. Recoloring
-// the SVG stands in for any edit — every raster is a pure function of it.
+// generator existed: edit the mark, and the PNGs beside it still show the old
+// one, because nothing derived them and nothing compared them. The source is
+// assets/icon-master.png since 2026-09-14, so repainting the master stands in
+// for any edit: it must fail twice over — the master's own pinned hash, and the
+// derived rasters that are a pure function of it.
 {
-  const d = mkenv(['scripts', 'assets', 'favicon.svg', 'package.json']);
-  const f = path.join(d, 'favicon.svg');
-  const src = fs.readFileSync(f, 'utf8');
-  if (!src.includes('#ee1111')) throw new Error('faults: favicon fill missing');
-  fs.writeFileSync(f, src.replace(/#ee1111/g, '#00aa00'));
+  const d = mkenv(['scripts', 'assets', 'favicon.ico', 'package.json']);
+  const f = path.join(d, 'assets', 'icon-master.png');
+  const before = fs.readFileSync(f);
+  // A DIFFERENT valid image, not a corrupted one: a torn PNG would fail the
+  // renderer and prove nothing about the comparison this gate exists to make.
+  fs.copyFileSync(path.join(d, 'assets', 'icon-512.png'), f);
+  if (fs.readFileSync(f).equals(before)) throw new Error('faults: icon master unchanged');
   record(
     'favicon-raster-drift -> build_favicon.js',
     gate(d, ['scripts/build_favicon.js', '--check']),
-    /do not match favicon\.svg|assets:favicon/i
+    /not what this script declares|assets:favicon/i
   );
 }
 
