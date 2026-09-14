@@ -707,8 +707,11 @@ def test_predictability_is_demoted():
           "doctrine 7 -- a floor may not order the region it already passed. "
           "This is the reason it may not reject, and it does not depend on "
           "the AUC: the severity is unchanged by the 2026-08-14 repin below")
+    # REPINNED 2026-09-14: 0.648 -> 0.638 with the tokenizer normalization
+    # (`test_discriminate.PINNED["abs_exp2"]["joint_solo"]` moved with every
+    # other pin that day); the string and this check move together.
     check("its evidence carries the COLD predictability-only AUC",
-          all("0.648" in f.evidence for f in fs) and bool(fs),
+          all("0.638" in f.evidence for f in fs) and bool(fs),
           "predictability-only joint, Exp 2, absolute feature set, cold "
           "(quality/test_discriminate.py PINNED abs_exp2.joint_solo)")
     check("and does not still carry the superseded warm figure",
@@ -716,11 +719,12 @@ def test_predictability_is_demoted():
           "REPINNED 2026-08-14: 0.560 was a warm reading and 'which is "
           "chance' was arithmetic on it. This pin required 0.560 until then, "
           "so the string and the test moved together or not at all")
-    # REPINNED 2026-08-22 with the ten-feature joint: 0.964 -> 0.960
+    # REPINNED 2026-09-14 with the ten-feature joint: 0.960 -> 0.967 (the
+    # tokenizer normalization), and 2026-08-22 before that: 0.964 -> 0.960
     # (`MISSING.md` M-31). The pin and the string move together or not at
     # all, which is the same discipline the 0.560 check two above records.
     check("it names what the number is a coordinate of",
-          all("0.960" in f.evidence for f in fs) and bool(fs),
+          all("0.967" in f.evidence for f in fs) and bool(fs),
           "doctrine 58: 0.648 is only readable against the ten-feature "
           "joint on the SAME human-vs-generated split")
 
@@ -1025,7 +1029,7 @@ def test_the_song_profile_makes_no_separation_claim():
         # "AUC" would pass on the disclaimer and fail on the honest text. What
         # must not appear is a NUMBER after it — UNLESS the number is
         # attributed to the arm that produced it. PREDICTABLE_RHYME
-        # legitimately cites the sonnet arm's 0.648/0.710/0.960; what it may
+        # legitimately cites the sonnet arm's 0.638/0.737/0.967; what it may
         # not do is print them bare, where a reader takes them for this
         # profile's separation (doctrine 58).
         for f in fs:

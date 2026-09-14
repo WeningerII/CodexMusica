@@ -14,8 +14,27 @@
 > "Cold repin — 2026-08-13" at the foot of this file.**~~ *THIRD: the cold
 > reading was itself superseded on 2026-08-22 by `MISSING.md` M-31 (a frequency
 > sentinel left pointing at the old 20k list), which moved the joints again to
-> 0.723 and 0.960. The current numbers are in "The joint held-out AUCs, cold" at
-> the foot of this file.*
+> 0.723 and 0.960. ~~The current numbers are in "The joint held-out AUCs, cold" at
+> the foot of this file.~~* *FOURTH: superseded again on 2026-09-14 by the
+> tokenizer normalization of the lyrics computational audit (every line is
+> NFC-normalized and its apostrophes folded before it is tokenized, so
+> don't/don’t stop being two words). Every feature reads the token stream, so
+> ALL FORTY-FOUR pinned AUCs moved — there is no unmoved control this time,
+> which is what a change to the tokens themselves predicts — and the joints
+> went to **0.758** and **0.967**; the predictability-only joints, unmoved by
+> M-31, went 0.710/0.648 → **0.737**/**0.638**; the within-item joints
+> 0.621/0.896 → **0.621**/**0.894**. The Experiment 1 hit count goes 2/10 →
+> **4/10** (`concreteness_mean` and `abstract_noun_ratio` join
+> `rhyme_predictability_mean` and `_min`); Experiment 2 stays 5/10 with the
+> same four wrong-sign features. The current numbers are in "The joint
+> held-out AUCs, cold" at the foot of this file, and the per-feature tables
+> in "The ten features, cold" carry the 2026-09-14 column beside the earlier
+> ones. Measured cold on Python 3.11 at features.py ast:6c13752dbbb959c8;
+> `origin/main` passes the previous pins 69/69 on the same box. The
+> interpretive prose below this note is the 2026-08-22 reading and is NOT
+> rewritten here: where it quotes a figure this note supersedes, the figure
+> is struck or the new one is set beside it, and the sentences about which
+> features moved under M-31 remain true of M-31.*
 >
 > Every superseded reading is kept with the date it was superseded rather than
 > overwritten, so both corrections are auditable (doctrine 17).
@@ -37,10 +56,11 @@ wrong sign below is a failed prediction and is reported as one.
 |---|---|---|
 | contrast | anthologized vs not, within Shakespeare | Shakespeare vs model-generated |
 | n | 15 vs 117 | 152 vs 40 |
-| pre-registered hits | 2/10 | ~~4/10~~ **5/10** |
+| pre-registered hits | ~~2/10~~ **4/10** | ~~4/10~~ **5/10** |
 | wrong-sign features | 0 | ~~5~~ **4** |
-| **joint held-out AUC** — pre-fix, 2026-08-09, **SUPERSEDED** twice | **0.709** | **0.971** |
-| **joint held-out AUC** — cold, current, measured 2026-08-22 | **0.723** | **0.960** |
+| **joint held-out AUC** — pre-fix, 2026-08-09, **SUPERSEDED** three times | **0.709** | **0.971** |
+| **joint held-out AUC** — cold, current, measured 2026-09-14 (tokenizer normalized) | **0.758** | **0.967** |
+| ~~joint held-out AUC — cold, measured 2026-08-22, M-31~~ | ~~0.723~~ | ~~0.960~~ |
 | ~~joint held-out AUC — cold, measured 2026-08-13~~ | ~~0.717~~ | ~~0.964~~ |
 
 **AMENDED 2026-08-22 — `MISSING.md` M-32, BY OWNER RULING.** The Experiment 2
@@ -49,7 +69,8 @@ committed feature 10 with a boldface **LOWER** and a gloss reading *rarer
 words*; those two disagree, because a lower rank IS a commoner word. The
 owner ruled that the gloss was the commitment, so the declaration now reads
 **HIGHER**, and `content_word_freq_mean` in Experiment 2 — AUC 0.707, p 0.0001,
-unchanged to the digit — stops being a WRONG SIGN and is recorded as a HIT.
+unchanged to the digit (0.874, p .0000 at the 2026-09-14 tokenizer reading)
+— stops being a WRONG SIGN and is recorded as a HIT.
 Experiment 1 is untouched: at p 0.7788 the feature is not FDR-significant, and
 `WRONG SIGN` is only ever printed for a significant result, so it read *null*
 before the ruling and reads *null* after — only its `dir` column moves. **DOCTRINE 19 WARNING: this amendment runs in the
@@ -73,7 +94,11 @@ anything else drifted, the fix would have touched more than it should.
 
 **THE TWO LARGE FALLS ARE A DOWNGRADE AND ARE RECORDED AS ONE.**
 `content_word_freq_mean` on human-vs-generated falls ~~0.807~~ **0.707**, and
-`wi_freq_delta` falls ~~0.639~~ **0.544** — barely above chance. Under the
+`wi_freq_delta` falls ~~0.639~~ **0.544** — barely above chance. *(2026-09-14,
+tokenizer normalized: 0.874 and 0.497 — the first rises most of the way back
+and the second falls to chance; see the note at the head of this file. Why the
+frequency feature moved that far under a token change is a hypothesis in
+`test_discriminate.py`, not a measurement.)* Under the
 stale sentinel this feature was partly measuring whether a text contains words
 outside a 20,000-word list — an out-of-vocabulary RATE, which tracks the label
 — rather than the rarity it names. Removing that removes real discriminative
@@ -81,9 +106,11 @@ power, and the power was spurious. Nothing was tuned to recover it.
 
 **Detecting bad writing works. Ranking good writing barely does.** That gap —
 0.971 against 0.709 on the pre-fix reading, ~~**0.964 against 0.717 cold**~~
-**0.960 against 0.723 cold** — is the whole argument in two numbers. A floor is
+~~**0.960 against 0.723 cold**~~ **0.967 against 0.758 cold** — is the whole
+argument in two numbers. A floor is
 objectively enforceable; a ceiling is not. Build the rejection gate. The gap is
-**0.262 pre-fix and ~~0.247~~ 0.237 cold, so it narrowed by ~~0.015~~ 0.025**,
+**0.262 pre-fix and ~~0.247~~ ~~0.237~~ 0.209 cold, so it narrowed by ~~0.015~~
+~~0.025~~ 0.053** (2026-09-14; the 0.025 was the M-31 reading),
 and the argument did not change. ~~doctrine 7 is still stated in the pre-fix
 pair, which is a repin someone owning `CLAUDE.md` has to make.~~ *Doctrine 7 was
 repinned to the current cold pair on 2026-08-22 and no longer states the pre-fix
@@ -376,8 +403,9 @@ is which numbers the fix was measured against.
 | joint held-out AUC | 0.709 | **0.659** | 0.971 | **0.975** |
 | predictability-only AUC | 0.670 | **0.676** | 0.617 | **0.560** |
 
-Cold, the last two rows read ~~**0.717** / **0.964**~~ **0.723** / **0.960** and
-**0.710** / **0.648**. The full cold table is at the foot of this file.
+Cold, the last two rows read ~~**0.717** / **0.964**~~ ~~**0.723** / **0.960**~~
+**0.758** / **0.967** and ~~**0.710** / **0.648**~~ **0.737** / **0.638**
+(repinned 2026-09-14). The full cold table is at the foot of this file.
 
 *(The first pair is repinned 2026-08-22 — `MISSING.md` M-31's cold re-run moved
 both joints and this line was missed in that pass, which is what a second reader
@@ -453,10 +481,12 @@ project had designated its candidate universal.
   and the five wrong-sign features** — that is, by register and period, not by
   quality. It is a very good Shakespeare-vs-contemporary classifier. It is not
   demonstrated to be a slop detector. *(0.975 is the WARM figure and is
-  SUPERSEDED 2026-08-13; cold it is ~~0.964~~ **0.960** — repinned 2026-08-22,
-  M-31. The sentence is unaffected — ~~all five wrong-sign features are~~ **the
+  SUPERSEDED 2026-08-13; cold it is ~~0.964~~ ~~0.960~~ **0.967** — repinned
+  2026-09-14 for the tokenizer normalization, 2026-08-22 for M-31. The
+  sentence is unaffected — ~~all five wrong-sign features are~~ **the
   four remaining wrong-sign features are** still wrong-signed cold, `mattr` and
-  `function_word_ratio` are unmoved at 0.870 and 0.135, and the fifth left the
+  `function_word_ratio` are unmoved at 0.870 and 0.135 under M-31 (0.884 and
+  0.171 at the 2026-09-14 reading, both still hits), and the fifth left the
   set by M-32's amendment rather than by moving. The sentence's claim is that
   Experiment 2 is carried by register and period rather than quality: feature 10
   joining the hit column does not soften it, because a human/generated split on
@@ -464,8 +494,8 @@ project had designated its candidate universal.
 - **Experiment 1's joint AUC fell from 0.709 to 0.659**, so the survival
   result is weaker overall even as individual features got cleaner. At n=15
   it does not exclude chance. *(Both endpoints are WARM, and the post-fix one
-  is **SUPERSEDED 2026-08-13**: cold, that fit reads ~~**0.717**~~ **0.723**
-  (repinned 2026-08-22, M-31). The FALL
+  is **SUPERSEDED 2026-08-13**: cold, that fit reads ~~**0.717**~~ ~~**0.723**~~
+  **0.758** (repinned 2026-09-14; 2026-08-22, M-31). The FALL
   cannot be recomputed — the pre-fix code has never been run cold, so there is
   no cold 0.709 to subtract from — and what can be said is only that the cold
   post-fix figure sits above the warm pre-fix one rather than below it, which
@@ -515,18 +545,22 @@ mismatch discards the cache and prints the coordinate that moved.
 
 | feature set | Exp 1 | Exp 2 | reading |
 |---|---|---|---|
-| ABSOLUTE, all 10 features | **0.723** | **0.960** | COLD, current, 2026-08-22 |
-| ABSOLUTE, predictability only | **0.710** | **0.648** | COLD, current, 2026-08-22 |
+| ABSOLUTE, all 10 features | **0.758** | **0.967** | COLD, current, 2026-09-14 (tokenizer normalized) |
+| ABSOLUTE, predictability only | **0.737** | **0.638** | COLD, current, 2026-09-14 (tokenizer normalized) |
+| ~~ABSOLUTE, all 10 features~~ | ~~0.723~~ | ~~0.960~~ | ~~cold 2026-08-22, M-31~~, **SUPERSEDED** 2026-09-14 |
+| ~~ABSOLUTE, predictability only~~ | ~~0.710~~ | ~~0.648~~ | ~~cold 2026-08-22, M-31~~, **SUPERSEDED** 2026-09-14 |
 | ~~ABSOLUTE, all 10 features~~ | ~~0.717~~ | ~~0.964~~ | ~~cold 2026-08-13~~, **SUPERSEDED** by M-31 |
 | ABSOLUTE, all 10 features | 0.659 | 0.975 | warm 2026-08-09, **SUPERSEDED** |
 | ABSOLUTE, predictability only | 0.676 | 0.560 | warm 2026-08-09, **SUPERSEDED** |
 
 Over 200 cross-validation seeds rather than the one hard-coded seed every
 figure above is a single draw from (`audit_joint_auc_null.PINNED`, 2026-08-13):
-Exp 1 median ~~0.638~~ **0.635**, Exp 2 median ~~0.967~~ **0.961**. The
-recorded Exp 1 draw of ~~0.717~~ **0.723** sits well above its own median
-(**+0.088**), which is doctrine 73's point and is why the seed distribution is
-pinned separately from the headline.
+Exp 1 median ~~0.638~~ ~~0.635~~ **0.665**, Exp 2 median ~~0.967~~ ~~0.961~~
+**0.968** (repinned 2026-09-14 with the tokenizer normalization; the struck
+pairs are 2026-08-13 and 2026-08-22). The recorded Exp 1 draw of ~~0.717~~
+~~0.723~~ **0.758** sits well above its own median (~~+0.088~~ **+0.093**),
+which is doctrine 73's point and is why the seed distribution is pinned
+separately from the headline.
 
 **REPINNED 2026-08-22 — MEDIANS AND DRAW TOGETHER (`MISSING.md` M-31, M-33).**
 An earlier note here said the medians were "not re-measured against the
@@ -543,7 +577,11 @@ watching only the headline, and it overturns a conclusion in
 ## The ten features, cold
 
 Cold AUCs pinned in `quality/test_discriminate.py` and graded there at a
-tolerance of 0.0005, **repinned 2026-08-22** for M-31's sentinel fix.
+tolerance of 0.0005, **repinned 2026-09-14** for the tokenizer normalization
+(the new first column pair; every row moved, and the p column is the same
+20,000-shuffle permutation test re-run cold that day, 1,181 s) and before that
+**2026-08-22** for M-31's sentinel fix (the second pair, kept). The paragraphs
+below the tables describe the M-31 repin and remain true of it.
 
 **THE COLD p COLUMN IS NEW AS OF 2026-08-22 AND DISCHARGES A STANDING CAVEAT.**
 This section used to read "every p-value below is the 2026-08-09 warm reading and
@@ -571,33 +609,33 @@ Experiment 1 — survived vs forgotten, n = 15 vs 117:
 strikethrough where the owner's 2026-08-22 ruling replaced it (M-32). The nine
 others are the original commitments, unchanged.*
 
-| feature | predicted | **cold AUC** | **cold p / verdict** | warm AUC | warm p / verdict |
-|---|---|---|---|---|---|
-| `rhyme_predictability_mean` | lower | **0.262** | **.0018 HIT (FDR)** | 0.304 | .0117 HIT (FDR) |
-| `rhyme_predictability_min` | lower | **0.350** | **.0572 null** | 0.337 | .0386 HIT (FDR) |
-| `concreteness_mean` | higher | **0.673** | **.0303 uncorrected only** | 0.673 | HIT (FDR) |
-| `concreteness_p90` | higher | **0.635** | **.0897 null** | 0.635 | .0897 null |
-| `abstract_noun_ratio` | lower | **0.315** | **.0191 HIT (FDR)** | 0.315 | .0191 HIT (FDR) |
-| `pos_binding_diversity` | higher | **0.461** | **.6171 null** | 0.461 | .6171 null |
-| `mattr` | higher | **0.366** | **.0940 null** | 0.366 | .0940 null |
-| `function_word_ratio` | lower | **0.536** | **.6542 null** | 0.536 | .6542 null |
-| `syntactic_inversion_rate` | lower | **0.583** | **.3044 null** | 0.583 | .3044 null |
-| `content_word_freq_mean` | ~~lower~~ **higher** | ~~0.518~~ **0.523** | **.7788 null** | 0.488 | .8837 null |
+| feature | predicted | **AUC, 2026-09-14** | **p / verdict, 2026-09-14** | cold AUC, 2026-08-22 | cold p / verdict, 2026-08-22 | warm AUC | warm p / verdict |
+|---|---|---|---|---|---|---|---|
+| `rhyme_predictability_mean` | lower | **0.244** | **.0008 HIT (FDR)** | 0.262 | .0018 HIT (FDR) | 0.304 | .0117 HIT (FDR) |
+| `rhyme_predictability_min` | lower | **0.333** | **.0332 HIT (FDR)** | 0.350 | .0572 null | 0.337 | .0386 HIT (FDR) |
+| `concreteness_mean` | higher | **0.670** | **.0340 HIT (FDR)** | 0.673 | .0303 uncorrected only | 0.673 | HIT (FDR) |
+| `concreteness_p90` | higher | **0.602** | **.2035 null** | 0.635 | .0897 null | 0.635 | .0897 null |
+| `abstract_noun_ratio` | lower | **0.324** | **.0256 HIT (FDR)** | 0.315 | .0191 HIT (FDR) | 0.315 | .0191 HIT (FDR) |
+| `pos_binding_diversity` | higher | **0.423** | **.3188 null** | 0.461 | .6171 null | 0.461 | .6171 null |
+| `mattr` | higher | **0.410** | **.2653 null** | 0.366 | .0940 null | 0.366 | .0940 null |
+| `function_word_ratio` | lower | **0.563** | **.4316 null** | 0.536 | .6542 null | 0.536 | .6542 null |
+| `syntactic_inversion_rate` | lower | **0.561** | **.4355 null** | 0.583 | .3044 null | 0.583 | .3044 null |
+| `content_word_freq_mean` | ~~lower~~ **higher** | **0.583** | **.2989 null** | ~~0.518~~ 0.523 | .7788 null | 0.488 | .8837 null |
 
 Experiment 2 — human vs generated, n = 152 vs 40:
 
-| feature | predicted | **cold AUC** | **cold p / verdict** | warm AUC | warm p / verdict |
-|---|---|---|---|---|---|
-| `rhyme_predictability_mean` | lower | **0.340** | **.0015 HIT (FDR)** | 0.422 | .13 null |
-| `rhyme_predictability_min` | lower | **0.336** | **.0010 HIT (FDR)** | 0.494 | .92 null |
-| `concreteness_mean` | higher | **0.271** | **.0000 WRONG SIGN** | 0.271 | .0000 WRONG SIGN |
-| `concreteness_p90` | higher | **0.229** | **.0000 WRONG SIGN** | 0.229 | .0000 WRONG SIGN |
-| `abstract_noun_ratio` | lower | **0.792** | **.0000 WRONG SIGN** | 0.792 | .0000 WRONG SIGN |
-| `pos_binding_diversity` | higher | **0.492** | **.8735 null** | 0.492 | .8735 null |
-| `mattr` | higher | **0.870** | **.0000 HIT (FDR)** | 0.870 | .0000 HIT (FDR) |
-| `function_word_ratio` | lower | **0.135** | **.0000 HIT (FDR)** | 0.135 | .0000 HIT (FDR) |
-| `syntactic_inversion_rate` | lower | **0.833** | **.0000 WRONG SIGN** | 0.833 | .0000 WRONG SIGN |
-| `content_word_freq_mean` | ~~lower~~ **higher** | ~~0.807~~ **0.707** | **.0001 HIT (FDR)** | 0.887 | .0000 WRONG SIGN |
+| feature | predicted | **AUC, 2026-09-14** | **p / verdict, 2026-09-14** | cold AUC, 2026-08-22 | cold p / verdict, 2026-08-22 | warm AUC | warm p / verdict |
+|---|---|---|---|---|---|---|---|
+| `rhyme_predictability_mean` | lower | **0.348** | **.0025 HIT (FDR)** | 0.340 | .0015 HIT (FDR) | 0.422 | .13 null |
+| `rhyme_predictability_min` | lower | **0.348** | **.0025 HIT (FDR)** | 0.336 | .0010 HIT (FDR) | 0.494 | .92 null |
+| `concreteness_mean` | higher | **0.246** | **.0000 WRONG SIGN** | 0.271 | .0000 WRONG SIGN | 0.271 | .0000 WRONG SIGN |
+| `concreteness_p90` | higher | **0.207** | **.0000 WRONG SIGN** | 0.229 | .0000 WRONG SIGN | 0.229 | .0000 WRONG SIGN |
+| `abstract_noun_ratio` | lower | **0.808** | **.0000 WRONG SIGN** | 0.792 | .0000 WRONG SIGN | 0.792 | .0000 WRONG SIGN |
+| `pos_binding_diversity` | higher | **0.506** | **.9179 null** | 0.492 | .8735 null | 0.492 | .8735 null |
+| `mattr` | higher | **0.884** | **.0000 HIT (FDR)** | 0.870 | .0000 HIT (FDR) | 0.870 | .0000 HIT (FDR) |
+| `function_word_ratio` | lower | **0.171** | **.0000 HIT (FDR)** | 0.135 | .0000 HIT (FDR) | 0.135 | .0000 HIT (FDR) |
+| `syntactic_inversion_rate` | lower | **0.780** | **.0000 WRONG SIGN** | 0.833 | .0000 WRONG SIGN | 0.833 | .0000 WRONG SIGN |
+| `content_word_freq_mean` | ~~lower~~ **higher** | **0.874** | **.0000 HIT (FDR)** | ~~0.807~~ 0.707 | .0001 HIT (FDR) | 0.887 | .0000 WRONG SIGN |
 
 **Exactly three features moved, and they are the three that rank a word against
 a lexicon**: the two predictability variants and `content_word_freq_mean`. The
@@ -611,7 +649,8 @@ barely moved. Nothing in this repin softens the register-and-period reading of
 Experiment 2.~~
 **AMENDED 2026-08-22 (`MISSING.md` M-32): FOUR, not five.** Feature 10 left the
 set — not by moving, but because the direction it is graded against was amended
-by owner ruling. Its AUC is 0.707 either way. The other four are still wrong-sign
+by owner ruling. Its AUC is 0.707 either way (0.874 at the 2026-09-14 tokenizer
+reading, still a hit). The other four are still wrong-sign
 cold at magnitudes that barely moved, and nothing in this repin or that amendment
 softens the register-and-period reading of Experiment 2 — the amendment removes
 one row from the wrong-sign column and adds it to the hit column, and touches no
@@ -692,7 +731,8 @@ demonstrated cross-design signal", supported by "1/8 hits in each experiment,
 Exp 1 at 0.604 (n=15, does not exclude chance), Exp 2 still 0.877."
 
 - The two AUCs are warm. Cold they are ~~**0.638** and **0.891**~~ **0.621** and
-  **0.896** (repinned 2026-08-22, M-31). They need a repin in `METHOD.md`,
+  ~~**0.896**~~ **0.894** (repinned 2026-08-22, M-31, and 2026-09-14 for the
+  tokenizer normalization). They need a repin in `METHOD.md`,
   which this document does not own.
 - ~~"1/8 hits in each experiment" is a tally over permutation p-values, and no p
   has been re-run cold. It is not re-verified, and two of the eight within-item
@@ -700,10 +740,14 @@ Exp 1 at 0.604 (n=15, does not exclude chance), Exp 2 still 0.877."
   both feature sets was measured in the 1,108s full run. The within-item tally
   is **1/8** in Experiment 1 and **2/8** in Experiment 2 — so the doctrine's
   "1/8 in each experiment" is now wrong in one half, and the extra hit is
-  `wi_predictability_advantage`, which the cold reading reinstated.
+  `wi_predictability_advantage`, which the cold reading reinstated. *(At the
+  2026-09-14 tokenizer reading the tally is 1/8 and 1/8 again — `wi_freq_delta`
+  falls out of the Experiment 2 hit column, p .3444 — so that half of the
+  doctrine's sentence is right once more, for a different reason than it was
+  written.)*
 - The layer-level claim survives, on numbers that did not move in its favour:
   Experiment 1's joint AUC is ~~0.638~~ **0.621** within-item and ~~0.717~~
-  **0.723** absolute at n = 15;
+  ~~0.723~~ **0.758** absolute at n = 15 (repinned 2026-09-14);
   `quality/NULL_AUDIT.md` §1.3 measured that neither beats its own
   label-permutation null's MAXIMUM, and the within-item one is not separated
   from that null at all (p = 0.13). That audit is warm and has not been re-run

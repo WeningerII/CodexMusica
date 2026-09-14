@@ -1,6 +1,23 @@
 # Results — within-item respecification
 
-> **WRITTEN 2026-08-09. REPINNED COLD 2026-08-13. REPINNED AGAIN 2026-08-22.**
+> **WRITTEN 2026-08-09. REPINNED COLD 2026-08-13. REPINNED AGAIN 2026-08-22.
+> REPINNED A FOURTH TIME 2026-09-14.**
+>
+> **THE 2026-09-14 REPIN is the tokenizer normalization of the lyrics
+> computational audit** (every line NFC-normalized and its apostrophes folded
+> before tokenizing). Every feature reads the token stream, so all four joints
+> and all sixteen within-item per-feature AUCs moved, and there is no unmoved
+> control this time: ABSOLUTE **0.723 → 0.758** and **0.960 → 0.967**;
+> WITHIN-ITEM **0.621 → 0.621** (−0.0006, under the printed digit, over the
+> pin's tolerance) and **0.896 → 0.894**; predictability-only ABSOLUTE
+> 0.710/0.648 → **0.737/0.638**, WITHIN-ITEM 0.719/0.652 → **0.742/0.644**.
+> The within-item hit tally is **1/8 and 1/8** (`wi_freq_delta` leaves the
+> Experiment 2 hit column, p .3444) and the wrong-sign count in Experiment 2
+> goes 4 → **3** (`wi_concreteness_delta` at p .0720 is no longer
+> significant). The tables carry the 2026-09-14 column beside the earlier
+> ones; the prose below is the 2026-08-22 reading, with each figure it quotes
+> struck or accompanied where this note supersedes it, and the paragraphs
+> about which features moved under M-31 remain true of M-31.
 >
 > **THE 2026-08-22 REPIN (`MISSING.md` M-31, M-33) IS THE ONE THIS DOCUMENT
 > NEARLY MISSED.** M-31 — a frequency sentinel left pointing at a replaced word
@@ -75,8 +92,10 @@ with the coordinate that moved printed by name.
 
 | feature set | Exp 1 AUC | Exp 2 AUC | reading |
 |---|---|---|---|
-| ABSOLUTE (original ten) | **0.723** | **0.960** | COLD — current, measured 2026-08-22 |
-| WITHIN-ITEM (respecified eight) | **0.621** | **0.896** | COLD — current, measured 2026-08-22 |
+| ABSOLUTE (original ten) | **0.758** | **0.967** | COLD — current, measured 2026-09-14 (tokenizer normalized) |
+| WITHIN-ITEM (respecified eight) | **0.621** | **0.894** | COLD — current, measured 2026-09-14 (tokenizer normalized) |
+| ~~ABSOLUTE (original ten)~~ | ~~0.723~~ | ~~0.960~~ | cold 2026-08-22, M-31, **SUPERSEDED** 2026-09-14 |
+| ~~WITHIN-ITEM (respecified eight)~~ | ~~0.621~~ | ~~0.896~~ | cold 2026-08-22, M-31, **SUPERSEDED** 2026-09-14 |
 | ~~ABSOLUTE (original ten)~~ | ~~0.717~~ | ~~0.964~~ | cold 2026-08-13, **SUPERSEDED** by M-31 |
 | ~~WITHIN-ITEM (respecified eight)~~ | ~~0.638~~ | ~~0.891~~ | cold 2026-08-13, **SUPERSEDED** by M-31 |
 | ABSOLUTE (original ten) | 0.659 | 0.975 | warm — stated here from 2026-08-09, **SUPERSEDED** 2026-08-13 |
@@ -89,8 +108,13 @@ column before `test_discriminate.py` existed:
 
 | feature set | Exp 1 | Exp 2 |
 |---|---|---|
-| ABSOLUTE — `rhyme_predictability_mean` + `_min` | 0.710 | 0.648 |
-| WITHIN-ITEM — `wi_predictability_advantage` | 0.719 | 0.652 |
+| ABSOLUTE — `rhyme_predictability_mean` + `_min` | ~~0.710~~ **0.737** | ~~0.648~~ **0.638** |
+| WITHIN-ITEM — `wi_predictability_advantage` | ~~0.719~~ **0.742** | ~~0.652~~ **0.644** |
+
+*(Struck values are the 2026-08-22 reading; the bold ones are 2026-09-14, when
+the tokenizer normalization moved this column for the first time — it contains
+no frequency feature, so M-31 left it alone, but every feature reads the
+tokens.)*
 
 And the same four fits taken over **200 cross-validation seeds** instead of the
 one hard-coded seed every figure above is a single draw from
@@ -98,8 +122,10 @@ one hard-coded seed every figure above is a single draw from
 
 | feature set | Exp 1 median | Exp 2 median | reading |
 |---|---|---|---|
-| ABSOLUTE | **0.635** | **0.961** | cold 2026-08-22, M-31 |
-| WITHIN-ITEM | **0.623** | **0.906** | cold 2026-08-22, M-31 |
+| ABSOLUTE | **0.665** | **0.968** | cold 2026-09-14, tokenizer normalized |
+| WITHIN-ITEM | **0.621** | **0.899** | cold 2026-09-14, tokenizer normalized |
+| ~~ABSOLUTE~~ | ~~0.635~~ | ~~0.961~~ | cold 2026-08-22, M-31, **SUPERSEDED** 2026-09-14 |
+| ~~WITHIN-ITEM~~ | ~~0.623~~ | ~~0.906~~ | cold 2026-08-22, M-31, **SUPERSEDED** 2026-09-14 |
 | ~~ABSOLUTE~~ | ~~0.638~~ | ~~0.967~~ | cold 2026-08-13, **SUPERSEDED** |
 | ~~WITHIN-ITEM~~ | ~~0.640~~ | ~~0.900~~ | cold 2026-08-13, **SUPERSEDED** |
 
@@ -198,10 +224,11 @@ every time anyone checked.
 **P1 — Exp 2 AUC must fall substantially. PARTIALLY MET, and by less than was
 claimed.**
 
-Cold, repinned 2026-08-22 (M-31): **0.960 → 0.896.** In error terms that is
-0.040 → 0.104, i.e. **~2.6x the error**. It is a substantial fall and 0.896 is
-still a strong classifier; within-item normalization removed a large part of
-what the 0.960 was made of, and what remains is still not quality.
+Cold, repinned 2026-09-14 (tokenizer normalized): **0.967 → 0.894.** In error
+terms that is 0.033 → 0.106, i.e. **~3.2x the error**. *(2026-08-22, M-31:
+~~0.960 → 0.896~~, 0.040 → 0.104, ~2.6x.)* It is a substantial fall and 0.894
+is still a strong classifier; within-item normalization removed a large part
+of what the 0.967 was made of, and what remains is still not quality.
 
 > ~~**Cold: 0.964 → 0.891.** In error terms 0.036 → 0.109, i.e. ~3.1x the
 > error.~~ **SUPERSEDED 2026-08-22 by M-31.** The verdict is unchanged and the
@@ -221,17 +248,20 @@ what the 0.960 was made of, and what remains is still not quality.
 The verdict does not rest on the single seed either, which is the check
 doctrine 73 requires and which P1 passes: at the median of 200 CV seeds the
 same comparison is ~~**0.967 → 0.900**, an error ratio of 3.03x~~
-**0.961 → 0.906, an error ratio of 2.41x** (repinned 2026-08-22, M-31).
-*The seed check and the single seed now AGREE again — 2.41x at the median
-against 2.58x at the recorded seed — where before the repin they read 3.03x
-against 2.58x. The disagreement was the stale median, not the statistic.*
+~~**0.961 → 0.906, an error ratio of 2.41x**~~ **0.968 → 0.899, an error ratio
+of 3.16x** (repinned 2026-09-14 with the tokenizer normalization; 2026-08-22,
+M-31, before that). *The seed check and the single seed agree — 3.16x at the
+median against 3.2x at the recorded seed (2.41x against 2.58x under M-31) —
+where before the M-31 repin they read 3.03x against 2.58x. The disagreement
+was the stale median, not the statistic.*
 
 **P2 — Exp 1 AUC must hold or improve on 0.659. The scored verdict was FAILED;
 it is an artifact of the cross-validation seed, cold as well as warm.**
 
-Cold, at the recorded seed, repinned 2026-08-22 (M-31): **0.723 → 0.621.** It
-fell, and it fell *further* again — **0.102**, against 0.079 at the 2026-08-13
-cold reading and 0.055 warm. Against the literal pre-registered constant it also
+Cold, at the recorded seed, repinned 2026-09-14 (tokenizer normalized):
+**0.758 → 0.621.** It fell, and it fell *further* again — **0.137**, against
+~~0.102~~ at the 2026-08-22 M-31 reading (~~0.723 → 0.621~~), 0.079 at the
+2026-08-13 cold reading and 0.055 warm. Against the literal pre-registered constant it also
 fails: 0.621 is below 0.659. On this seed, by either comparator, P2 does not
 hold, and each repin has made the failure larger rather than smaller.
 
@@ -252,7 +282,8 @@ the minority class one seed is a coin flip. Over 200 seeds:
 |---|---|---|---|
 | warm (NULL_AUDIT §1.3, 2026-08-13, warm cache) | 0.603 | 0.606 | **holds** (+0.003) |
 | cold (`audit_joint_auc_null.PINNED`, 2026-08-13) | 0.638 | 0.640 | **holds** (+0.002) |
-| **cold, M-31 sentinel corrected (2026-08-22)** | **0.635** | **0.623** | **FAILS (−0.012)** |
+| ~~cold, M-31 sentinel corrected (2026-08-22)~~ | ~~0.635~~ | ~~0.623~~ | ~~FAILS (−0.012)~~ |
+| **cold, tokenizer normalized (2026-09-14)** | **0.665** | **0.621** | **FAILS (−0.044)** |
 
 ~~**Doctrine 73 replicates cold.** Both levels moved by ~0.035 and the sign of
 the difference did not: at the median seed the within-item set is marginally
@@ -267,6 +298,9 @@ sentinel it is **−0.012**. The within-item Exp 1 median fell 0.640 → 0.623
 while the absolute one barely moved, 0.638 → 0.635, because M-31's defect lived
 in a frequency feature and `wi_freq_delta` carries more of the within-item
 set's weight than `content_word_freq_mean` carries of the absolute set's.
+*(2026-09-14, tokenizer normalized: **−0.044** — the absolute median rose
+0.635 → 0.665 and the within-item one fell 0.623 → 0.621, so the sign is the
+same and the gap is larger. Which features carry that is not decomposed here.)*
 
 **So P2 now fails at the median as well as at the recorded seed, and the
 doctrine-73 rescue of it is withdrawn.** What survives is the narrower claim
@@ -287,9 +321,11 @@ On the warm reading NULL_AUDIT could say why: the recorded 0.659 was an
 comparison was scored between a lucky draw and an average one. **Those two
 percentiles are warm and are not restated cold** — only the medians are pinned
 cold, not the full seed distributions — so what can be said cold is the
-weaker and sufficient thing: the recorded absolute draw (0.717) sits well
-above its own seed median (**0.635**, **+0.088**), the recorded within-item draw
-(**0.621**) sits essentially *at* its own (**0.623**, **−0.002**), and the
+weaker and sufficient thing: the recorded absolute draw (~~0.717~~ ~~0.723~~
+**0.758**) sits well above its own seed median (~~**0.635**, **+0.088**~~
+**0.665**, **+0.093** at the 2026-09-14 reading), the recorded within-item draw
+(**0.621**) sits essentially *at* its own (~~**0.623**, **−0.002**~~ **0.621**,
+**≈0.000**), and the
 difference between the two recorded draws is therefore not a difference between
 the two feature sets.
 
@@ -317,9 +353,11 @@ stronger rather than weaker. On the warm reading NULL_AUDIT measured that
 **maximum** (0.659 against a null max of 0.751; 0.604 against 0.750), and that
 the within-item one is not separated from that null at all (p = 0.13). That
 audit has not been re-run cold, so the nulls themselves are warm figures — but
-the cold observations sit in the same place relative to them (**0.723** and
-**0.621** against warm null maxima of 0.751 and 0.750 — repinned 2026-08-22,
-and still both below), so nothing in either repin points the other way. This document's own caution — that Experiment 1 at n=15 does not
+the cold observations sit in the same place relative to them (~~**0.723**~~
+**0.758** and **0.621** against warm null maxima of 0.751 and 0.750 — repinned
+2026-09-14, and the absolute draw is now ABOVE its warm null maximum by 0.007
+while the within-item one is still below; a warm null against a cold draw is
+the cross-state comparison doctrine 58 refuses, so that is noted, not scored), so nothing in either repin points the other way. This document's own caution — that Experiment 1 at n=15 does not
 come close to excluding chance — is measured rather than asserted, at both
 readings.
 
@@ -376,13 +414,14 @@ But the feature set was not rescued. After respecification, cold:
 - **Experiment 1 sits at ~~0.638~~ 0.621** at n=15, which does not come close
   to excluding chance — and at the median seed the two feature sets are
   ~~indistinguishable (0.638 vs 0.640)~~ **separated the WRONG WAY for P2
-  (0.635 absolute vs 0.623 within-item)**. Repinned 2026-08-22 (M-31). The
+  (~~0.635 absolute vs 0.623 within-item~~ 0.665 absolute vs 0.621 within-item,
+  −0.044)**. Repinned 2026-09-14 (tokenizer normalized); 2026-08-22 (M-31). The
   conclusion is unchanged and one of its two supports is not: "does not come
   close to excluding chance" stands; "indistinguishable at the median" does
   not, and the direction of the difference now runs against the
   respecification. See P2 above.
-- **Experiment 2 remains at ~~0.891~~ 0.896**, so the within-item features
-  still carry substantial style signal that is not quality.
+- **Experiment 2 remains at ~~0.891~~ ~~0.896~~ 0.894**, so the within-item
+  features still carry substantial style signal that is not quality.
 - ~~**The hit counts are 1/8 in each experiment on the warm reading and have
   not been re-derived cold.**~~ **RE-DERIVED COLD 2026-08-22**: Experiment 1 is
   **1/8**, Experiment 2 is **2/8** — `wi_predictability_advantage` joins
@@ -483,29 +522,29 @@ only four whose p changed.
 
 Experiment 1 — survived vs forgotten, n = 15 vs 117:
 
-| feature | predicted | **cold AUC** | **cold p / verdict** | warm AUC | warm p / verdict |
-|---|---|---|---|---|---|
-| `wi_predictability_advantage` | lower | **0.262** | **.0018 HIT (FDR)** | 0.304 | 0.0117 HIT (FDR) |
-| `wi_concreteness_delta` | higher | **0.509** | **.9095 null** | 0.509 | 0.9095 null |
-| `wi_abstract_delta` | lower | **0.582** | **.3053 null** | 0.582 | 0.3053 null |
-| `wi_freq_delta` | higher | ~~0.639~~ **0.544** | **.5805 null** | 0.579 | 0.3290 null |
-| `wi_function_delta` | lower | **0.394** | **.1840 null** | 0.394 | 0.1840 null |
-| `wi_binding_excess` | higher | **0.533** | **.6775 null** | 0.533 | 0.6775 null |
-| `wi_type_ratio` | higher | **0.657** | **.0502 null** | 0.657 | 0.0502 null |
-| `wi_conc_spread` | higher | **0.520** | **.8030 null** | 0.520 | 0.8030 null |
+| feature | predicted | **AUC, 2026-09-14** | **p / verdict, 2026-09-14** | cold AUC, 2026-08-22 | cold p / verdict, 2026-08-22 | warm AUC | warm p / verdict |
+|---|---|---|---|---|---|---|---|
+| `wi_predictability_advantage` | lower | **0.244** | **.0008 HIT (FDR)** | 0.262 | .0018 HIT (FDR) | 0.304 | 0.0117 HIT (FDR) |
+| `wi_concreteness_delta` | higher | **0.517** | **.8384 null** | 0.509 | .9095 null | 0.509 | 0.9095 null |
+| `wi_abstract_delta` | lower | **0.566** | **.4127 null** | 0.582 | .3053 null | 0.582 | 0.3053 null |
+| `wi_freq_delta` | higher | **0.497** | **.9788 null** | ~~0.639~~ 0.544 | .5805 null | 0.579 | 0.3290 null |
+| `wi_function_delta` | lower | **0.390** | **.1711 null** | 0.394 | .1840 null | 0.394 | 0.1840 null |
+| `wi_binding_excess` | higher | **0.482** | **.8208 null** | 0.533 | .6775 null | 0.533 | 0.6775 null |
+| `wi_type_ratio` | higher | **0.620** | **.1366 null** | 0.657 | .0502 null | 0.657 | 0.0502 null |
+| `wi_conc_spread` | higher | **0.485** | **.8492 null** | 0.520 | .8030 null | 0.520 | 0.8030 null |
 
 Experiment 2 — human vs generated, n = 152 vs 40:
 
-| feature | predicted | **cold AUC** | **cold p / verdict** | warm AUC | warm p / verdict |
-|---|---|---|---|---|---|
-| `wi_predictability_advantage` | lower | **0.340** | **.0015 HIT (FDR)** | 0.422 | 0.1304 null |
-| `wi_concreteness_delta` | higher | **0.382** | **.0222 WRONG SIGN** | 0.382 | 0.0222 WRONG SIGN |
-| `wi_abstract_delta` | lower | **0.431** | **.1826 null** | 0.431 | 0.1826 null |
-| `wi_freq_delta` | higher | ~~0.600~~ **0.634** | **.0078 HIT (FDR)** | 0.614 | 0.0262 HIT (FDR) |
-| `wi_function_delta` | lower | **0.680** | **.0005 WRONG SIGN** | 0.680 | 0.0005 WRONG SIGN |
-| `wi_binding_excess` | higher | **0.580** | **.1245 null** | 0.580 | 0.1245 null |
-| `wi_type_ratio` | higher | **0.103** | **.0000 WRONG SIGN** | 0.103 | 0.0000 WRONG SIGN |
-| `wi_conc_spread` | higher | **0.367** | **.0097 WRONG SIGN** | 0.367 | 0.0097 WRONG SIGN |
+| feature | predicted | **AUC, 2026-09-14** | **p / verdict, 2026-09-14** | cold AUC, 2026-08-22 | cold p / verdict, 2026-08-22 | warm AUC | warm p / verdict |
+|---|---|---|---|---|---|---|---|
+| `wi_predictability_advantage` | lower | **0.348** | **.0025 HIT (FDR)** | 0.340 | .0015 HIT (FDR) | 0.422 | 0.1304 null |
+| `wi_concreteness_delta` | higher | **0.407** | **.0720 null** | 0.382 | .0222 WRONG SIGN | 0.382 | 0.0222 WRONG SIGN |
+| `wi_abstract_delta` | lower | **0.418** | **.1097 null** | 0.431 | .1826 null | 0.431 | 0.1826 null |
+| `wi_freq_delta` | higher | **0.549** | **.3444 null** | ~~0.600~~ 0.634 | .0078 HIT (FDR) | 0.614 | 0.0262 HIT (FDR) |
+| `wi_function_delta` | lower | **0.635** | **.0084 WRONG SIGN** | 0.680 | .0005 WRONG SIGN | 0.680 | 0.0005 WRONG SIGN |
+| `wi_binding_excess` | higher | **0.584** | **.1084 null** | 0.580 | .1245 null | 0.580 | 0.1245 null |
+| `wi_type_ratio` | higher | **0.099** | **.0000 WRONG SIGN** | 0.103 | .0000 WRONG SIGN | 0.103 | 0.0000 WRONG SIGN |
+| `wi_conc_spread` | higher | **0.356** | **.0049 WRONG SIGN** | 0.367 | .0097 WRONG SIGN | 0.367 | 0.0097 WRONG SIGN |
 
 **Exactly two features moved, in each experiment, and they are the same two in
 both: the two that rank a word against a lexicon.**
@@ -520,7 +559,10 @@ precisely the ones whose warm FDR verdicts could not be carried forward.
 **AND THE SAME TWO MOVED AGAIN AT THE 2026-08-22 M-31 REPIN, FOR THE SAME
 REASON.** `wi_freq_delta` fell 0.639 → **0.544** in Experiment 1 and rose 0.600 →
 **0.634** in Experiment 2; `wi_predictability_advantage` did not move at either
-figure. That the frequency feature moved and the rhyme-predictability one did
+figure. *(At the 2026-09-14 tokenizer reading every one of the sixteen moved —
+`wi_freq_delta` to 0.497 and 0.549, `wi_predictability_advantage` to 0.244 and
+0.348 — which is the opposite signature and the expected one for a change to
+the token stream rather than to one feature's lexicon.)* That the frequency feature moved and the rhyme-predictability one did
 not is the expected signature of a fix to the frequency sentinel specifically,
 and it is the control on that repin in this document exactly as it is in
 `RESULTS.md`. The six lexicon-free features are bit-identical across all three
