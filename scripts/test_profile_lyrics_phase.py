@@ -115,21 +115,52 @@ class FirstMenuProfileTests(unittest.TestCase):
                 '  return 0\n'
                 ' r=Reviser()\n r.brief([],include_offers=False)\n'
                 ' r.brief([],include_offers=True,target_lines=[1])\n'
-                ' time.sleep(.4)\n return 4\n')
+                ' time.sleep(10)\n return 4\n')
             (root / 'draft.txt').write_text('exact input')
             (root / 'plan.json').write_text('{}')
+            # THE TWO BUDGETS ARE MEASURED FROM DIFFERENT ZEROS, and that is the
+            # whole reason these numbers are what they are. The wall budget runs
+            # from the RUNNER's start; the phase budget only begins at
+            # `profile_started`, once the run has imported the harness, chdir'd,
+            # and made the un-profiled first menu call. So every second of
+            # interpreter startup is spent out of the wall budget and none of it
+            # out of the phase budget, and a wall budget close to startup cost
+            # decides the outcome instead of the behaviour under test.
+            #
+            # It shipped at wall=.2 against phase=.05, leaving 0.15s for all of
+            # that startup. CI run 1689 (main, ab2bf837) spent more than that --
+            # 48 leaves, 4 at a time -- and this test reported
+            # `'wall_deadline' != 'phase_deadline'` on code identical to a green
+            # main. MEASURED by standing in for startup with a sleep before the
+            # harness import, both cases break at +0.20s and hold at +0.10s.
+            #
+            # wall=2 moves that cliff past 1.5s of startup (measured at +0.0,
+            # +0.2, +0.5, +1.0 and +1.5s, both cases correct at every point),
+            # and the post-profile sleep goes to 10s so the wall case still
+            # expires DURING it rather than after the run would have ended.
+            # Neither budget's meaning changes: the phase case's menu still
+            # overruns its phase budget 4x, the wall case's still finishes far
+            # inside it.
             for label, delay, expected in [('phase', '.2', 'phase_deadline'), ('wall', '.001', 'wall_deadline')]:
                 out = root / label
                 command = [sys.executable, str(MODULE), '--repo-root=' + str(root),
                            '--seed=1', '--lines=1', '--draft=' + str(root / 'draft.txt'),
                            '--plan=' + str(root / 'plan.json'), '--out=' + str(out),
-                           '--phase-seconds=.05', '--wall-seconds=.2']
+                           '--phase-seconds=.05', '--wall-seconds=2']
                 result = subprocess.run(command, env=dict(os.environ, FAKE_MENU_DELAY=delay),
-                                        capture_output=True, text=True, timeout=5)
+                                        capture_output=True, text=True, timeout=60)
                 self.assertEqual(result.returncode, 124, result.stderr)
                 report = json.loads(out.with_suffix('.json').read_text())
+                # ASSERTED FIRST, because it is the precondition for the stop
+                # reason meaning anything. When the budget above is exhausted by
+                # startup the run never reaches the profiled call at all, and
+                # checking `stop_reason` first reported that as a bare label
+                # mismatch -- which is how the CI failure above read, and why it
+                # looked like a behaviour change rather than a starved run.
+                self.assertTrue(report['profile_started'],
+                                f'{label}: the run never reached the profiled call; '
+                                f'--wall-seconds was spent on startup, not on the phase')
                 self.assertEqual(report['stop_reason'], expected)
-                self.assertTrue(report['profile_started'])
                 self.assertEqual(report['profile_completed'], label == 'wall')
                 self.assertTrue(out.with_suffix('.cprof').exists())
 
