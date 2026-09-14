@@ -142,8 +142,22 @@ def check(name, cond, detail=""):
         FAILURES.append(name)
 
 
+#: 36 TOKENS SINCE 2026-09-14, from 37. The section profile's measured range
+#: is the 5th/95th percentile of human quatrain token counts, and the
+#: computational audit's tokenizer correction (apostrophes fold, fragments
+#: merge) moved it from 29-37 to 28-36. At 37 this draft was one token PAST
+#: the range: by the floor's own rule an extrapolated length may not
+#: reject, so CLICHE_PAIR became a NOTE, no line opened on it, and every
+#: section that reads this draft's flags measured something else. L2 loses
+#: "then" -- a word that occurs ONCE, chosen by trying every one-word cut:
+#: cutting a repeated function word (he, the, and, to) raises the draft's
+#: type-token ratio past the monotony floor and loses the whole-draft
+#: LEXICAL_MONOTONY flag that §1 and §14 pin, while cutting any unique
+#: content word keeps every pair, every flag and every measured value
+#: below (fixed [1, 2], L4 closed by those moves, round-limit fixed [1, 4]).
+#: Verified on both trees before the edit.
 CLICHE = ["The candle burned and set the room on fire",
-          "He said the word and then he turned to go",
+          "He said the word and he turned to go",
           "And all night long she nursed a small desire",
           "She never asked the thing she had to know"]
 
@@ -933,11 +947,23 @@ def test_group_brief_carries_the_situation():
     # spelled here because this suite owns no copy of it and a second copy
     # of a context manager is a second thing to keep in step (doctrine 1 is
     # why it is three lines rather than an import of a private name).
+    # REPINNED 2026-09-14: the perturbation now lifts the `section` row's
+    # floor too. The computational audit's tokenizer correction remeasured
+    # `section` from 29-37 to 28-36 tokens, and this draft IS 28 tokens --
+    # so with only the sheet row narrowed, `declaration_for(28, 5)` finds
+    # `section` COVERING it and returns it EXACT, and nothing is
+    # extrapolated. Lifting `section.lo` to 29, its pre-audit value, puts
+    # the draft between profiles again, which is the shape this mutation
+    # exists to produce; both rows are restored, and the check below reads
+    # both.
     _sheet = [x for x in FL.PROFILES if not x.n_lines and not x.superseded_by][0]
-    _keep = (_sheet.lo, _sheet.hi, _sheet.tolerance)
+    _sec = [x for x in FL.PROFILES if x.n_lines == len(SILVER_NIGHT_LOCKED) - 1
+            and not x.superseded_by][0]
+    _keep = (_sheet.lo, _sheet.hi, _sheet.tolerance, _sec.lo)
     narrowed = []
     try:
         _sheet.lo, _sheet.hi, _sheet.tolerance = 200, 400, 1.25
+        _sec.lo = 29
         R2 = Reviser(lex=R.lex, decl=R.decl, floor=R.floor,
                      rdecl=ReviseDeclaration(backtrack_width=2))
         revise_loop(R2, SILVER_NIGHT_LOCKED, mandate,
@@ -945,7 +971,7 @@ def test_group_brief_carries_the_situation():
                     propose_group=lambda gb: (narrowed.append(gb),
                                               _no_op_group(gb))[1])
     finally:
-        _sheet.lo, _sheet.hi, _sheet.tolerance = _keep
+        _sheet.lo, _sheet.hi, _sheet.tolerance, _sec.lo = _keep
     check("MUTATION -- narrow the sheet row to the band it superseded and "
           "this same draft is extrapolated again: the whole-draft finding "
           "comes back AND tier 2 carries it, so the check above is an "
@@ -955,11 +981,13 @@ def test_group_brief_carries_the_situation():
           and {f.code for pb in narrowed for f in pb.whole}
           == {"EXTRAPOLATED_LENGTH"},
           sorted({f.code for pb in narrowed for f in pb.whole}))
+    # ~~(4, 3245)~~ -> (4, 3244), REPINNED 2026-09-14: the longest measured
+    # lyric is 3,244 tokens under the corrected tokenizer.
     check("...and the perturbation is restored, so no later section "
           "inherits a narrowed floor",
           [x for x in FL.PROFILES if not x.n_lines and not x.superseded_by][0]
-          .band() == (4, 3245),
-          _sheet.band())
+          .band() == (4, 3244) and _sec.lo == 28,
+          (_sheet.band(), _sec.lo))
     check("8 groups proposed = 2 two-line group(s) x width 2 x width 2",
           len(seen) == 8 == 2 * R.rdecl.backtrack_width ** 2, len(seen))
     # Test 16 re-measures this same width-2 run itself and compares it to
