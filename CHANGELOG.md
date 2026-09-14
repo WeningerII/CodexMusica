@@ -6,6 +6,72 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — the page ships minified, and the connector compresses what it sends
+
+Two delivery changes, neither touching the catalog, the engine, or any gate that
+decides correctness.
+
+**The connector compresses its responses.** `mcp/server_http.js` sent everything
+uncompressed, and the largest response is the one every client fetches first:
+`tools/list` on the recipe surface is 76,378 bytes, and 16,194 on the wire once
+gzipped — 79% of the handshake was padding, paid once per connection by every
+connector pointed at the URL. `list_traditions` goes 3,919 -> 945,
+`search_catalog` 3,308 -> 801. A client that does not offer gzip is still served
+the identical frame uncompressed.
+
+Compression middleware buffers, so it is only safe where nothing is a long-lived
+stream, and here nothing is: `GET` on an MCP path — the Streamable HTTP spec's
+server-initiated SSE channel — is refused 405, `/chat` answers with one buffered
+body and reports progress through polled receipts, and the `text/event-stream`
+bodies the POST handler does emit carry a Content-Length and close.
+`test_connector_http.mjs` asserts both halves in one place, so the change that
+would quietly break this — enabling that GET channel — fails a test rather than
+delaying events in production.
+
+**codex.html is minified.** 97.7% of the 6.30 MB page was JavaScript printed the
+way its sources are written, one property per line. Minified:
+
+| | before | after | |
+|---|---|---|---|
+| raw | 6,300,610 | 5,430,553 | 13.8% off |
+| gzipped | 1,512,024 | 1,414,973 | 6.4% off |
+
+Those rows say different things and the order matters. Pages compresses text on
+the wire, so the bandwidth win is the 6.4%. The 13.8% is the row worth more: it
+is text the browser must parse and hold afterwards, and it is why the data is
+chunked across nineteen `<script>` tags at all — a renderer was being OOM-killed
+on one monolithic parse. The largest emitted block falls from 995 KiB to 749 KiB
+against a 1024 KiB ceiling.
+
+Nothing is renamed or rewritten. Measured at three settings, full compression and
+mangling buy 8,097 more gzipped bytes — 0.6% of an already-compressed page —
+against a mangler asked to rename cross-block globals it cannot see all uses of,
+a catalog whose keys are reached dynamically, and a `compress` pass that would
+merge away the literal `const CODEX_LAZY_API` that `ui_reachability_check.js`
+reads to tell the two build variants apart. So: parse, reprint without whitespace
+or comments, change nothing else. Two builds are byte-identical, which
+`check_artifact_fresh.js` requires.
+
+**Two things it broke on the way in, both now gated.**
+
+`--check` read the catalog back by rewriting `^const (\w+) =` to
+`globalThis.$1 =`, which depended on each declaration starting a line and putting
+a space before its `=`. Minified output has neither, so the rewrite began
+matching nothing — and failed in the worst available direction: the block still
+parsed, the gate still printed PASS, every count silently vanished, and the
+lazy-leak guard compared `undefined` against `undefined` and waved through
+whatever it was handed. It now evaluates in the vm context instead, which has
+nothing to match, and a table that does not read back is a build failure.
+
+Worse: the whole application shipped commented out. Every block is introduced by
+a `// ─── label ───` line, minifying stripped the newline that used to separate
+that label from the runtime, and `//` ate 766 KB of app in one bite. The page was
+well-formed, all 32 `<script>` tags parsed, the catalog still loaded, and only
+the app was gone. Byte ceilings and parse checks are both blind to this —
+commented-out code is valid and correctly sized. `--check` now fails if any
+labelled block contains no executable code, verified two-sided by reintroducing
+the defect.
+
 ### Changed — the mark is green on black, and its source is now a raster
 
 The owner delivered a new icon as a favicon package: a 1254px master plus the

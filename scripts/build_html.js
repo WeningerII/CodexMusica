@@ -30,16 +30,17 @@
 //   node scripts/build_html.js --embedded         # fully-embedded single-file variant (all tables in the page; no api/ needed)
 //   node scripts/build_html.js --lazy             # explicit lazy shell (same as the default; kept for back-compat)
 //   node scripts/build_html.js --validate         # run validate.js first; abort on failure
-//   node scripts/build_html.js --check            # post-build: eval data block + assert <script> byte ceiling
+//   node scripts/build_html.js --check            # post-build: eval data block, assert no block is all-comment, assert <script> byte ceiling
 //   node scripts/build_html.js --strict           # --validate + --check, both run
 //   node scripts/build_html.js --quiet            # suppress per-source-file size summary
+//   node scripts/build_html.js --no-minify        # skip minification (reading the artifact by hand; never used by CI or publish)
 //
 // EXIT CODES
 //   0  success
 //   2  missing required source (src/index.template.html or src/app.js)
-//   4  embedded data block failed to parse (--check)
+//   4  embedded data block failed to parse, or a table did not read back (--check)
 //   5  template is missing the <!--@CODEX_BODY--> marker
-//   6  an emitted <script> exceeds the hard byte ceiling (--check)
+//   6  an emitted <script> is all comment, or exceeds the hard byte ceiling (--check)
 
 const fs = require('fs');
 const path = require('path');
@@ -161,6 +162,29 @@ const { splitFileIntoChunks } = require('./_split_data.js');
 const MAX_SCRIPT_CHARS = 600 * 1024; // per-<script> chunk budget (UTF-16 chars; a fast proxy)
 const MAX_SCRIPT_BYTES = 1024 * 1024; // hard ceiling on actual emitted UTF-8 bytes, enforced by --check
 
+// Every piece of JavaScript this build emits goes through here. Options and the
+// measurements behind them live in _minify.js; this file only decides WHAT is
+// squeezed, never HOW.
+//
+// It is applied to the SOURCES, before they are wrapped in <script> tags, rather
+// than to the finished HTML: a regex over the assembled page would have to trust
+// that no string literal in a megabyte of catalog data contains `</script>`, and
+// a parse failure there could only report an offset into the whole document
+// instead of naming the file that broke.
+//
+// NOTE ON CHUNK SIZES. MAX_SCRIPT_CHARS budgets the split on the source, so
+// after minification each emitted block lands ~14% under its budget rather than
+// on it. That is left alone on purpose: the budget exists to stay below a
+// renderer's parse-memory limit, and this only adds headroom. Retuning it would
+// move every chunk boundary, which is a separate change with its own risk.
+const { minifyJs } = require('./_minify.js');
+// Escape hatch for reading the shipped artifact by hand. NOT used by CI and not
+// used by sync-pages.yml, and it cannot leak into the committed page: that file
+// is byte-compared against a default build by check_artifact_fresh.js, so an
+// unminified codex.html fails the freshness gate on the next run.
+const MINIFY = !flags['no-minify'];
+const squeeze = (code, label) => (MINIFY ? minifyJs(code, label) : code);
+
 const dataParts = [];
 const sourceSizes = [];
 for (const f of SOURCE_FILES) {
@@ -174,8 +198,10 @@ for (const f of SOURCE_FILES) {
     if (!chunks[i].trim()) continue; // skip empty splits
     const label = chunks.length === 1 ? f : `${f} [${i + 1}/${chunks.length}]`;
     dataParts.push(`</script>`);
+    // The label comment is emitted OUTSIDE the minified body, so it survives:
+    // the shipped page still says which source each block came from.
     dataParts.push(`<script>// ─── ${label} ───`);
-    dataParts.push(chunks[i].trimEnd());
+    dataParts.push(squeeze(chunks[i].trimEnd(), label));
   }
 }
 // Open a final script tag — the family-parts merge + the app (src/app.js) write
@@ -186,6 +212,11 @@ if (LAZY) {
   // The lazy-shell switch. src/app.js sees this const, skips the (absent)
   // embedded tables, and resolves its CATALOG_READY boot promise by fetching
   // `${CODEX_LAZY_API}browse.json` before any UI init runs.
+  // Emitted verbatim, NOT through squeeze(). It is already one short line, so
+  // there is nothing to save, and ui_reachability_check.js tells the lazy shell
+  // from the embedded build by looking for this exact substring — keeping the
+  // builder the only thing that spells it means no minifier setting can rewrite
+  // the detector out from under that gate.
   dataParts.push(`const CODEX_LAZY_API = 'api/';`);
 }
 const dataBlock = dataParts.join('\n');
@@ -246,7 +277,22 @@ const html = template
   .replace(
     CODEX_BODY_MARKER,
     () =>
-      dataBlock + FAMILY_PARTS_MERGE_SNIPPET + CARD_DESCRIPTORS_SNIPPET + appJs + '\n' + workbenchJs
+      // THE '\n' IS LOAD-BEARING, and it cost an afternoon to learn why.
+      // dataBlock ends with the line `<script>// ─── runtime ───`, a label
+      // comment with no terminator but the newline that used to follow it —
+      // FAMILY_PARTS_MERGE_SNIPPET began with one. Minifying strips leading
+      // whitespace, so the runtime arrived glued to the end of that `//` line
+      // and the ENTIRE application was commented out. It failed silently in the
+      // worst way available: the page still parsed, every <script> tag was
+      // well-formed, the catalog tables still loaded, and only the app was gone.
+      // Emit the separator here instead of inheriting it from whatever the first
+      // snippet happens to start with.
+      dataBlock +
+      '\n' +
+      squeeze(
+        FAMILY_PARTS_MERGE_SNIPPET + CARD_DESCRIPTORS_SNIPPET + appJs + '\n' + workbenchJs,
+        'runtime (merge + descriptors + app.js + workbench.js)'
+      )
   );
 
 // Write
@@ -303,17 +349,14 @@ if (runCheck) {
   // The assembled dataBlock interleaves literal </script>/<script> markers (the
   // per-file tag splitting that fixes the renderer OOM). Those are HTML, not JS,
   // so eval-ing dataBlock verbatim always throws "Unexpected token '<'". Strip the
-  // marker lines to recover a pure-JS concatenation. Additionally, the data files
-  // declare tables with top-level `const`, which in a vm context do NOT attach to
-  // the sandbox global — promote `const X =` to `globalThis.X =` (mirrors
-  // _loader.js) so the post-eval size assertions can actually read the tables.
+  // marker lines to recover a pure-JS concatenation. What runs below is otherwise
+  // the emitted bytes EXACTLY — minified, if this build minified — because the
+  // point of this gate is to parse what ships, not a tidier cousin of it.
   const checkJs = dataBlock
     .split('\n')
     .filter((line) => line !== '</script>' && !line.startsWith('<script>'))
-    .join('\n')
-    .replace(/^const (\w+) =/gm, 'globalThis.$1 =');
-  const sandbox = {};
-  const ctx = vm.createContext(sandbox);
+    .join('\n');
+  const ctx = vm.createContext({});
   try {
     vm.runInContext(checkJs, ctx, { filename: 'data-block.js', timeout: 5000 });
   } catch (e) {
@@ -321,31 +364,63 @@ if (runCheck) {
     console.error('  ' + e.message);
     process.exit(4);
   }
+  // READING THE TABLES BACK. The data files declare with top-level `const`, which
+  // in a vm context binds in the global LEXICAL environment and never becomes a
+  // property of the sandbox object — so the values have to be fetched by
+  // evaluating in the same context. A second script in one context sees the first
+  // script's lexical bindings, which is what makes this work.
+  //
+  // It used to be done by rewriting `^const (\w+) =` to `globalThis.$1 =` before
+  // running the block. That was a dependency on how the SOURCE happened to be
+  // formatted — it needed every declaration to begin a line AND to put a space
+  // before its `=` — and minified output has neither, so on 2026-09-14 the
+  // rewrite began matching nothing. The failure was silent in the worst
+  // direction: the block still parsed, so this gate still printed PASS, while
+  // every count below vanished and the leak guard compared undefined against
+  // undefined and waved through whatever it was handed. Evaluating in the context
+  // has nothing to match and cannot come loose that way.
+  const probe = (expr) => vm.runInContext(expr, ctx, { timeout: 5000 });
+  const declared = (name) => probe(`typeof ${name} !== 'undefined'`);
+  const countOf = (name) =>
+    probe(`typeof ${name} === 'undefined' ? -1 : Array.isArray(${name}) ? ${name}.length : -1`);
   // In a lazy build the tradition tables must NOT be in the page — that
   // absence IS the property the build exists for. Leaking them (e.g. a
   // future edit to LAZY_OMIT) would silently re-ship the 3.7 MB embed.
-  if (LAZY && (sandbox.TRADITIONS !== undefined || sandbox.TRADITION_EXTRAS !== undefined)) {
+  if (LAZY && (declared('TRADITIONS') || declared('TRADITION_EXTRAS'))) {
     console.error('check: FAIL — lazy build leaked embedded tradition tables into the page');
+    process.exit(4);
+  }
+  // The reverse of the leak guard, and the assertion that would have caught the
+  // silent rewrite above: an EMBEDDED build must be able to read its tables back,
+  // and every build must be able to read the ones it always carries. A table that
+  // reads as absent here is either missing from the page or unreadable by this
+  // gate, and both are build failures.
+  const REQUIRED = LAZY
+    ? ['INSTRUMENTS', 'ROOMS', 'TUNINGS', 'CHAIN_ARCHETYPES', 'PREFACE_LEXICON']
+    : ['TRADITIONS', 'INSTRUMENTS', 'ROOMS', 'TUNINGS', 'CHAIN_ARCHETYPES', 'PREFACE_LEXICON'];
+  const unreadable = REQUIRED.filter((name) => countOf(name) <= 0);
+  if (unreadable.length) {
+    console.error(
+      `check: FAIL — ${unreadable.join(', ')} did not read back from the emitted data block`
+    );
     process.exit(4);
   }
   const checks = [];
   if (LAZY) checks.push(`mode:              lazy shell (traditions/extras via api/)`);
-  if (Array.isArray(sandbox.TRADITIONS))
-    checks.push(`TRADITIONS:        ${sandbox.TRADITIONS.length}`);
-  if (Array.isArray(sandbox.INSTRUMENTS))
-    checks.push(`INSTRUMENTS:       ${sandbox.INSTRUMENTS.length}`);
-  if (Array.isArray(sandbox.ROOMS)) checks.push(`ROOMS:             ${sandbox.ROOMS.length}`);
-  if (Array.isArray(sandbox.TUNINGS)) checks.push(`TUNINGS:           ${sandbox.TUNINGS.length}`);
-  if (Array.isArray(sandbox.CHAIN_ARCHETYPES))
-    checks.push(`CHAIN_ARCHETYPES:  ${sandbox.CHAIN_ARCHETYPES.length}`);
-  if (Array.isArray(sandbox.CHAIN_SECTIONS))
-    checks.push(`CHAIN_SECTIONS:    ${sandbox.CHAIN_SECTIONS.length}`);
-  if (Array.isArray(sandbox.PRODUCTION_AESTHETICS))
-    checks.push(`PROD_AESTHETICS:   ${sandbox.PRODUCTION_AESTHETICS.length}`);
-  if (Array.isArray(sandbox.PREFACE_LEXICON))
-    checks.push(`PREFACE_LEXICON:   ${sandbox.PREFACE_LEXICON.length}`);
-  if (sandbox.TRADITION_EXTRAS && typeof sandbox.TRADITION_EXTRAS === 'object') {
-    checks.push(`TRADITION_EXTRAS:  ${Object.keys(sandbox.TRADITION_EXTRAS).length}`);
+  const report = (label, name) => {
+    const n = countOf(name);
+    if (n >= 0) checks.push(`${(label + ':').padEnd(18)} ${n}`);
+  };
+  report('TRADITIONS', 'TRADITIONS');
+  report('INSTRUMENTS', 'INSTRUMENTS');
+  report('ROOMS', 'ROOMS');
+  report('TUNINGS', 'TUNINGS');
+  report('CHAIN_ARCHETYPES', 'CHAIN_ARCHETYPES');
+  report('CHAIN_SECTIONS', 'CHAIN_SECTIONS');
+  report('PROD_AESTHETICS', 'PRODUCTION_AESTHETICS');
+  report('PREFACE_LEXICON', 'PREFACE_LEXICON');
+  if (probe(`typeof TRADITION_EXTRAS === 'object' && TRADITION_EXTRAS !== null`)) {
+    checks.push(`TRADITION_EXTRAS:  ${probe('Object.keys(TRADITION_EXTRAS).length')}`);
   }
   console.error('check: PASS — data block parses cleanly');
   for (const c of checks) console.error('    ' + c);
@@ -355,6 +430,44 @@ if (runCheck) {
   // data that inflates a chunk past the renderer's safe parse-memory limit
   // fails the build instead of shipping silently.
   const scriptBlocks = html.match(/<script\b[^>]*>[\s\S]*?<\/script>/gi) || [];
+
+  // NO EMITTED BLOCK MAY BE ALL COMMENT. This exists because on 2026-09-14 the
+  // whole application shipped commented out: every block is introduced by a
+  // `// ─── label ───` line, the minified runtime lost the newline that used to
+  // separate it from that label, and `//` ate 766 KB of app in one bite. Nothing
+  // upstream noticed — the page was well-formed, all 32 <script> tags parsed, the
+  // catalog still loaded, and only the app was missing. Byte ceilings and parse
+  // checks are both blind to it: commented-out code is perfectly valid and
+  // perfectly sized.
+  //
+  // Minifying a block that is nothing but comments yields the empty string, so
+  // that is the test — asked of the ASSEMBLED page, after every transformation,
+  // rather than of any intermediate the builder still holds in a variable.
+  //
+  // SCOPED TO THE BLOCKS THIS BUILDER LABELS, which is exactly the set at risk:
+  // a `// ─── … ───` line is the only comment here that ever sits directly above
+  // injected source, so it is the only one that can swallow any. The template's
+  // own <script> opens with a hand-written banner and carries the CODEX_BODY
+  // marker, but the first thing substituted at that marker is a `</script>` —
+  // the banner block is closed before a byte of source reaches it, and flagging
+  // it would be flagging the template for containing a comment.
+  const LABEL = /^\s*\/\/ ─── /;
+  const hollow = [];
+  for (const block of scriptBlocks) {
+    const body = block.replace(/^<script\b[^>]*>/i, '').replace(/<\/script>$/i, '');
+    if (!LABEL.test(body)) continue;
+    if (!minifyJs(body, 'emitted <script>').trim())
+      hollow.push(body.trim().split('\n')[0].slice(0, 60));
+  }
+  if (hollow.length) {
+    console.error(
+      `check: FAIL — ${hollow.length} <script> block(s) contain no executable code:\n` +
+        hollow.map((h) => `  ${h}`).join('\n') +
+        '\n  A label comment with no newline after it swallows the block that follows.'
+    );
+    process.exit(6);
+  }
+
   let maxScriptBytes = 0;
   let overCeiling = 0;
   for (const block of scriptBlocks) {

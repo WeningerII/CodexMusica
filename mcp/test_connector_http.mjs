@@ -85,6 +85,52 @@ test(
       assert.equal(ready.configuration.maxTurns, 50);
       const status = await (await fetch(`${base}/chat/status`)).json();
       assert.equal(status.enabled, false);
+
+      // Compression, and the precondition that makes it safe, asserted in one
+      // place. `tools/list` is the largest response every client fetches and
+      // the reason the middleware is mounted at all: 76,378 bytes here, 16,194
+      // on the wire gzipped. undici reports `content-encoding` as the server
+      // sent it and decompresses underneath, so the same response proves both
+      // that the bytes were compressed and that what arrives is still the
+      // exact JSON-RPC frame an uncompressed client would have read.
+      const handshake = await fetch(`${base}/mcp/recipe`, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          accept: 'application/json, text/event-stream',
+          'accept-encoding': 'gzip',
+        },
+        body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/list' }),
+      });
+      assert.equal(handshake.headers.get('content-encoding'), 'gzip');
+      const framed = await handshake.text();
+      assert(framed.startsWith('event: message\n'), framed.slice(0, 80));
+      assert.equal(
+        JSON.parse(framed.slice(framed.indexOf('data: ') + 6)).result.tools.length,
+        9,
+        'the decompressed frame is the same tool list an uncompressed client reads'
+      );
+      // A client that does not offer gzip must still be served, uncompressed.
+      const plain = await fetch(`${base}/mcp/recipe`, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          accept: 'application/json, text/event-stream',
+          'accept-encoding': 'identity',
+        },
+        body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/list' }),
+      });
+      assert.equal(plain.headers.get('content-encoding'), null);
+      assert.equal(await plain.text(), framed, 'both encodings deliver the same frame');
+      // THE PRECONDITION. `compression` buffers, so it is safe here only
+      // because no response is a long-lived stream. Enabling the Streamable
+      // HTTP GET channel would introduce one and turn delivered events into
+      // events held until the stream ended; this is the assertion that would
+      // fail first if someone did.
+      for (const method of ['GET', 'DELETE']) {
+        const refused = await fetch(`${base}/mcp/recipe`, { method });
+        assert.equal(refused.status, 405, `${method} must stay refused: compression buffers`);
+      }
       for (const endpoint of ['/mcp/recipe', '/mcp/chatgpt/recipe', '/mcp/chatgpt/lyrics']) {
         for (const method of ['GET', 'OPTIONS', 'POST']) {
           const rejected = await fetch(`${base}${endpoint}`, {
