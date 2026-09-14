@@ -3,7 +3,7 @@ name: recording-recipes
 description: Use Codex Musica to search musical traditions and instruments, compose recording recipes, blend genres, or edit an existing recipe's sound, instrumentation, room, chain, and tuning. Use for recording recipe requests, separately from lyric writing or catalog maintenance.
 ---
 
-Use the Codex Musica recipes MCP connection. Explicit user choices take priority over defaults.
+Use the Codex Musica MCP connection. Explicit user choices take priority over defaults.
 
 1. Resolve tradition and instrument names with `search_catalog`. Use `search_prefaces` for mood and feel; use `get_instrument` to find exact material or technique variants.
 2. Call `start_recipe` with the resolved traditions, in the requested primary order. Rich is the default; use Tags, Prose or Compact when requested. Every format has a 1,000-character ceiling.
@@ -18,3 +18,5 @@ Use `get_operation` to recover a result after a lost response. Repeating an edit
 If an operation was interrupted, call `resume_operation` only when `get_operation` reports `resumable: true`. It restores the exact workspace and repeats the recorded deterministic edit. Changed engine semantics or unavailable storage can prevent continuation.
 
 A recipe is a text description for recording or audio generation. It does not establish a rendered recording or measured acoustic result. A recipe request does not start lyric work.
+
+The same connection exposes recipes and lyrics. For a combined user request, use both tool families and keep their latest session IDs separately.

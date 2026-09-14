@@ -12,8 +12,8 @@ tests do not establish native ChatGPT behavior or a successful live kitchen run.
 ## Access policy
 
 Sign-in is optional for Codex Musica. The website, its built-in Gemini chat and
-all public MCP endpoints work without a user account, including both ChatGPT
-routes below. Users can choose the website, a compatible MCP client or an
+all public MCP endpoints work without a user account, including the unified ChatGPT
+route below. Users can choose the website, a compatible MCP client or an
 optional host integration. No OpenAI account is required to use the service.
 
 There is currently no Codex Musica account system. Any future account features
@@ -23,15 +23,18 @@ do not enroll the user in an account or select an identity provider.
 
 The registration instructions below concern the optional connection inside a
 ChatGPT account. That host's sign-in and workspace policies do not introduce a
-login requirement for Codex Musica. Configure both connections with no endpoint
+login requirement for Codex Musica. Configure the connection with no endpoint
 authentication; do not add an OpenAI login gate to the website or MCP service.
 
 ## Endpoints and contracts
 
 | Endpoint | Tools | State and results |
 | --- | --- | --- |
-| `https://mcp.codexmusica.com/mcp/chatgpt/recipe` | Nine recipe tools plus `get_operation` and `resume_operation` | Discovery stays stateless. Start, edit and render return the next `session_id`; the workspace stays on the service. |
-| `https://mcp.codexmusica.com/mcp/chatgpt/lyrics` | Nine lyric tools plus `begin_lyrics`, `get_operation` and `resume_operation` | Begin fixes create/edit phase and writer. Each lyric tool returns an `operation_id` immediately; poll for its result and next session. |
+| `https://mcp.codexmusica.com/mcp/chatgpt` | All 18 music tools plus `begin_lyrics`, `get_operation` and `resume_operation` | One connection handles both workflows. Each keeps its own latest session ID; shared recovery tools resolve the saved task automatically. |
+
+The earlier `/mcp/chatgpt/recipe` and `/mcp/chatgpt/lyrics` routes remain compatible,
+but new ChatGPT installations use the single combined endpoint. The model selects
+which tools the request needs; users do not select a recipe or lyrics connection.
 
 The raw `/mcp`, `/mcp/recipe` and `/mcp/lyrics` surfaces retain their existing
 workspace and continuation contracts. Task-scoped raw HTTP now honors all four
@@ -87,7 +90,7 @@ and production qualification workflow. Preserve its runtime assets, persistent
 mount, signing material, provider configuration and ledger. This change needs no
 new dependency or hosting service. Do not apply the legacy Blueprint as a shortcut
 around the image promotion checks. After deployment, verify the served commit,
-`/ready`, and initialization/tools on both new routes. The server card lists them
+`/ready`, and initialization/tools on the unified route. The server card lists them
 under `chatgptEndpoints`.
 
 ## Register and package
@@ -98,7 +101,7 @@ documents the current developer-mode flow (checked September 13, 2026):
 1. Enable Developer mode under ChatGPT Settings → Security and login, subject to
    account and workspace policy.
 2. At [ChatGPT Plugins](https://chatgpt.com/plugins), use the plus button to register
-   each public HTTPS endpoint above. Use distinct recipe/lyrics names and no
+   the public HTTPS endpoint above. Name it Codex Musica and use no
    authentication, matching this service's current policy.
 3. Inspect the discovered tools, schemas and annotations. Test each connection in
    a new conversation. Refresh the connection metadata after endpoint changes.
@@ -108,15 +111,15 @@ The source package is `plugins/codex-musica/`. It contains a supported
 `recording-recipes` and `lyric-workflows`. No UI widget is needed for this tool-use
 scope. No production connection IDs are invented in source.
 
-For ChatGPT Work's installed plugin, register both endpoints first and obtain their
-actual `plugin_asdk_app...` technical IDs. In the installed copy, use plugin-creator
-to link those registrations through `.app.json` and the manifest's `apps` field,
+For ChatGPT Work's installed plugin, register the unified endpoint first and obtain its
+actual `plugin_asdk_app...` technical ID. In the installed copy, use plugin-creator
+to link that registration through `.app.json` and the manifest's `apps` field,
 then install the package with its skills from the available local/team source.
 The `.mcp.json` file supports hosts accepting direct MCP configuration; it alone
 does not establish a registered ChatGPT connection. Follow OpenAI's
 [packaging guide](https://developers.openai.com/plugins/build/plugins) for the
 host-specific binding and installation. Test the complete installed plugin after
-testing its MCP connections. Public directory submission is a later step under
+testing its MCP connection. Public directory submission is a later step under
 the [submission process](https://developers.openai.com/plugins/deploy/submission).
 
 ## Acceptance
@@ -161,3 +164,11 @@ installed plugin for these conversations:
 Paid kitchen acceptance should use the established bounded qualification setup.
 Record actual tool traces and delivered artifacts; a text claim by the model or
 a passing local transport test is not evidence that the deployed workflow passed.
+
+
+## Unified connection rollout
+
+The unified endpoint and source plugin replace the two-connection installation
+plan. Earlier live acceptance above tested the split endpoints only and does not
+establish deployment or native acceptance of this combined endpoint. Refresh the
+installed connection after deployment and verify both workflows in one conversation.

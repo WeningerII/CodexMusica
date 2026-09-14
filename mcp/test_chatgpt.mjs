@@ -118,7 +118,7 @@ test('same parent and input dispatch once; stale input and cross-task capabiliti
 test('recipe operation interrupted after durable admission resumes once through MCP', async (t) => {
   const { store, directory } = storeFor(t);
   let sessions = new ChatGPTSessions({ store });
-  let client = await connect(t, 'recipe', sessions);
+  let client = await connect(t, null, sessions);
   const initial = data(await call(client, 'start_recipe', { traditions: ['delta_blues'] }));
   const parent = store.get(initial.session_id);
   const edits = [{ action: 'set_preface', card: 'voice', preface: 'worn' }];
@@ -137,7 +137,7 @@ test('recipe operation interrupted after durable admission resumes once through 
   );
   await client.close();
   sessions = new ChatGPTSessions({ store: new JobStore(directory) });
-  client = await connect(t, 'recipe', sessions);
+  client = await connect(t, null, sessions);
   const interrupted = data(await call(client, 'get_operation', { operation_id }));
   assert.equal(interrupted.status, 'interrupted');
   assert.equal(interrupted.resumable, true);
@@ -575,4 +575,47 @@ test('cheap unrelated sessions cannot retire an interrupted operation holding ac
   assert.equal(r.resumable, true);
   // Its superseded parent was the cheapest loss and went first.
   assert.equal(store.get(opened.session_id).state, 'retired');
+});
+
+test('one connection exposes both workflows, preserving independent sessions across reconnects', async (t) => {
+  const { store } = storeFor(t);
+  const sessions = new ChatGPTSessions({ store });
+  let client = await connect(t, null, sessions);
+  const tools = (await client.listTools()).tools;
+  assert.equal(tools.length, 21);
+  assert.equal(new Set(tools.map((tool) => tool.name)).size, 21);
+  assert.match(client.getInstructions(), /Recipe session contract/);
+  assert.match(client.getInstructions(), /Lyrics session contract/);
+  const recipe = data(await call(client, 'start_recipe', { traditions: ['delta_blues'] }));
+  const lyrics = data(await call(client, 'begin_lyrics', { writer: 'interview' }));
+  const wrong = await call(client, 'render_recipe', { session_id: lyrics.session_id });
+  assert.equal(wrong.isError, true);
+  const wrongLyrics = await call(client, 'lyric_sweep', {
+    session_id: recipe.session_id,
+    seed_from: 31,
+    count: 1,
+    lines: 12,
+  });
+  assert.equal(wrongLyrics.isError, true);
+  await client.close();
+  client = await connect(t, null, sessions);
+  for (const session of [recipe, lyrics]) {
+    const saved = data(await call(client, 'get_operation', { operation_id: session.operation_id }));
+    assert.equal(saved.session_id, session.session_id);
+  }
+  const rendered = data(
+    await call(client, 'render_recipe', { session_id: recipe.session_id, format: 'prose' })
+  );
+  assert.equal(
+    value(rendered).recipe,
+    renderRecipe({
+      workspace: startRecipe({ traditions: ['delta_blues'] }).workspace,
+      format: 'prose',
+    }).recipe
+  );
+  const scoped = await connect(t, 'recipe', sessions);
+  assert.equal(
+    (await call(scoped, 'get_operation', { operation_id: lyrics.operation_id })).isError,
+    true
+  );
 });

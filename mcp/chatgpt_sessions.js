@@ -164,7 +164,7 @@ export class ChatGPTSessions {
         'No retained session receipt. Do not recreate uncertain work.'
       );
     const session = record.response?.body?.session || record.checkpoint?.session;
-    if (!session || session.task.domain !== domain)
+    if (!session || (domain !== undefined && session.task.domain !== domain))
       throw fail('SESSION_SCOPE', 'This capability belongs to a different task.');
     return { record, session };
   }

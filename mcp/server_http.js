@@ -298,6 +298,7 @@ app.get('/.well-known/mcp.json', (_req, res) =>
     authentication: 'none',
     taskEndpoints: { recipe: PUBLIC_MCP_URL + '/recipe', lyrics: PUBLIC_MCP_URL + '/lyrics' },
     chatgptEndpoints: {
+      combined: PUBLIC_MCP_URL + '/chatgpt',
       recipe: PUBLIC_MCP_URL + '/chatgpt/recipe',
       lyrics: PUBLIC_MCP_URL + '/chatgpt/lyrics',
     },
@@ -332,6 +333,7 @@ const mcpPaths = [
   MCP_PATH,
   MCP_PATH + '/recipe',
   MCP_PATH + '/lyrics',
+  MCP_PATH + '/chatgpt',
   MCP_PATH + '/chatgpt/recipe',
   MCP_PATH + '/chatgpt/lyrics',
 ];
@@ -352,7 +354,7 @@ app.post(mcpPaths, async (req, res) => {
   console.error(`[mcp] ${describe(req.body)}`);
   // Stateless: brand-new server + transport for this single request.
   const controller = new AbortController();
-  const chatgpt = req.path.startsWith(MCP_PATH + '/chatgpt/');
+  const chatgpt = req.path === MCP_PATH + '/chatgpt' || req.path.startsWith(MCP_PATH + '/chatgpt/');
   const domain = req.path.endsWith('/recipe')
     ? 'recipe'
     : req.path.endsWith('/lyrics')
