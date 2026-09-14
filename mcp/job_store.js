@@ -274,9 +274,30 @@ export class JobStore {
 
   reclaim(protectedId, additionalBytes = 0, newPayload = false) {
     const payloads = () => [...this.records.values()].filter((r) => r.state !== 'retired').length;
+    // Eviction order, cheapest loss first: a completed receipt that a later
+    // operation already superseded (its only remaining use is a duplicate
+    // submission's answer), then any other completed receipt, then an
+    // interrupted receipt holding no accepted work. An interrupted receipt
+    // that carries accepted lines is never evicted for space: it is the only
+    // copy of paid work the caller has not yet recovered, and a burst of cheap
+    // unrelated requests must not be able to retire it. TTL expiry, which the
+    // caller can read from the receipt, is what bounds it.
+    const rank = (r) =>
+      r.state === 'completed'
+        ? r.successor_id
+          ? 0
+          : 1
+        : r.progress?.accepted_lines?.length
+          ? 3
+          : 2;
     const terminal = [...this.records.values()]
-      .filter((r) => r.request_id !== protectedId && ['completed', 'interrupted'].includes(r.state))
-      .sort((a, b) => a.updated_at - b.updated_at);
+      .filter(
+        (r) =>
+          r.request_id !== protectedId &&
+          ['completed', 'interrupted'].includes(r.state) &&
+          rank(r) < 3
+      )
+      .sort((a, b) => rank(a) - rank(b) || a.updated_at - b.updated_at);
     while (
       this.bytes + additionalBytes > this.maxBytes ||
       payloads() + Number(newPayload) > this.maxPayloadRecords

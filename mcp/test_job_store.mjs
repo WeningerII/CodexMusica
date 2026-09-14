@@ -429,6 +429,45 @@ test('terminal payload eviction retains a durable tombstone so its identifier ca
   }
 });
 
+test('payload eviction retires superseded, then completed receipts, and never an interrupted receipt holding accepted lines', () => {
+  const dir = temp();
+  try {
+    const store = new JobStore(dir, { maxPayloadRecords: 3, maxRecords: 16 });
+    const held = id();
+    store.begin(held, { request_id: held, message: 'held' }, {});
+    store.checkpoint(held, { version: 1, status: 'accepted', accepted_lines: ['kept'] });
+    store.interrupt(held, 'operation_interrupted');
+    const superseded = id();
+    store.begin(superseded, { request_id: superseded, message: 'a' }, {});
+    store.complete(superseded, 200, { ok: 1 });
+    const head = id();
+    store.begin(head, { request_id: head, continuation_id: superseded, message: 'b' }, {});
+    store.complete(head, 200, { ok: 2 });
+    assert.equal(store.get(superseded).successor_id, head);
+    // The oldest receipt is the interrupted one; the superseded one goes first.
+    const next = id();
+    store.begin(next, { request_id: next, message: 'c' }, {});
+    assert.equal(store.get(superseded).state, 'retired');
+    assert.equal(store.get(held).state, 'interrupted');
+    assert.equal(store.get(head).state, 'completed');
+    // Then the remaining completed receipt, still never the held one.
+    const more = id();
+    store.begin(more, { request_id: more, message: 'd' }, {});
+    assert.equal(store.get(head).state, 'retired');
+    assert.equal(store.get(held).state, 'interrupted');
+    // With only pending work and the held receipt left, admission refuses
+    // rather than retiring accepted lines.
+    const last = id();
+    assert.throws(
+      () => store.begin(last, { request_id: last, message: 'e' }, {}),
+      (e) => e.code === 'JOB_CAPACITY'
+    );
+    assert.deepEqual(store.get(held).progress.accepted_lines, ['kept']);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
 test('SIGKILL after a budgeted provider dispatch retains uncertainty and cannot replay the request', async () => {
   const dir = temp();
   const jobs = path.join(dir, 'jobs');

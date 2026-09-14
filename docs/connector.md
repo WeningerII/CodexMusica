@@ -21,6 +21,12 @@ naming the instruments, materials, room, signal chain, and per-instrument
 2. Paste `https://mcp.codexmusica.com/mcp/recipe` for recipe work, or use `/mcp/lyrics` for lyric work.
 3. No sign-in. Keep returned run and request capabilities private.
 
+## ChatGPT integration
+
+See [ChatGPT setup and acceptance](./chatgpt.md) for the session-aware endpoints,
+bundled plugin skills, deployment requirements and native ChatGPT acceptance
+checks. The ChatGPT surface stores workspaces and workflow receipts on the server.
+
 ## What is a "preface"?
 
 A preface is the heart of the engine: a **named aesthetic / technique / delivery

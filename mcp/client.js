@@ -76,26 +76,33 @@ export async function connectConnector({ url, task, transport, session = null } 
           continuation,
         }),
       async call(name, args = {}, options = {}) {
-        if (inFlight)
-          throw new Error('A connector session must execute its workflow calls sequentially.');
-        args = structuredClone(args);
-        assertToolTask(selected, name, args);
-        if (!scoped.some((t) => t.name === name)) throw new Error('Unknown task tool: ' + name);
-        if (name === 'lyric_revise' && selected.phase === 'create' && !args.recover_only) {
-          if (continuation && !args.new_run) {
-            for (const [key, value] of Object.entries(continuation.args)) {
-              if (args[key] !== undefined && JSON.stringify(args[key]) !== JSON.stringify(value))
-                throw new Error(
-                  'CREATION_CONTINUATION: ' + key + ' differs from the recorded run.'
-                );
-              args[key] = structuredClone(value);
+        try {
+          if (inFlight)
+            throw new Error('A connector session must execute its workflow calls sequentially.');
+          args = structuredClone(args);
+          assertToolTask(selected, name, args);
+          if (!scoped.some((t) => t.name === name)) throw new Error('Unknown task tool: ' + name);
+          if (name === 'lyric_revise' && selected.phase === 'create' && !args.recover_only) {
+            if (continuation && !args.new_run) {
+              for (const [key, value] of Object.entries(continuation.args)) {
+                if (args[key] !== undefined && JSON.stringify(args[key]) !== JSON.stringify(value))
+                  throw new Error(
+                    'CREATION_CONTINUATION: ' + key + ' differs from the recorded run.'
+                  );
+                args[key] = structuredClone(value);
+              }
+            } else if (args.state || args.checkpoint) {
+              throw new Error('CREATION_CONTINUATION: this session has no receipt for that run.');
             }
-          } else if (args.state || args.checkpoint) {
-            throw new Error('CREATION_CONTINUATION: this session has no receipt for that run.');
           }
+          const refusal = creationRefusal(workflowTask, name, args, continuation);
+          if (refusal) throw new Error(refusal);
+        } catch (error) {
+          // Durable hosts can distinguish a rejected request from an unknown
+          // outcome after dispatch. This flag never comes from model arguments.
+          error.beforeDispatch = true;
+          throw error;
         }
-        const refusal = creationRefusal(workflowTask, name, args, continuation);
-        if (refusal) throw new Error(refusal);
         inFlight = true;
         try {
           const result = await client.callTool({ name, arguments: args }, undefined, {

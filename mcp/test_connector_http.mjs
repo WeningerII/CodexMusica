@@ -9,6 +9,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
+import { renderRecipe } from './engine.js';
 
 async function freePort() {
   const listener = createServer();
@@ -84,16 +85,20 @@ test(
       assert.equal(ready.configuration.maxTurns, 50);
       const status = await (await fetch(`${base}/chat/status`)).json();
       assert.equal(status.enabled, false);
-      for (const method of ['GET', 'OPTIONS', 'POST']) {
-        const rejected = await fetch(`${base}/mcp/recipe`, {
-          method,
-          headers: { origin: 'https://evil.example', 'content-type': 'application/json' },
-          ...(method === 'POST'
-            ? { body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'initialize', params: {} }) }
-            : {}),
-        });
-        assert.equal(rejected.status, 403, method);
-        assert.equal(rejected.headers.get('access-control-allow-origin'), null);
+      for (const endpoint of ['/mcp/recipe', '/mcp/chatgpt/recipe', '/mcp/chatgpt/lyrics']) {
+        for (const method of ['GET', 'OPTIONS', 'POST']) {
+          const rejected = await fetch(`${base}${endpoint}`, {
+            method,
+            headers: { origin: 'https://evil.example', 'content-type': 'application/json' },
+            ...(method === 'POST'
+              ? {
+                  body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'initialize', params: {} }),
+                }
+              : {}),
+          });
+          assert.equal(rejected.status, 403, method);
+          assert.equal(rejected.headers.get('access-control-allow-origin'), null);
+        }
       }
       const allowed = await fetch(`${base}/mcp/recipe`, { method: 'OPTIONS', headers: { origin } });
       assert.equal(allowed.status, 204);
@@ -110,8 +115,99 @@ test(
           arguments: { seed_from: 1, count: 1 },
         });
         assert.equal(refused.isError, true);
+        const initial = await client.callTool({
+          name: 'start_recipe',
+          arguments: { traditions: ['delta_blues'] },
+        });
+        const { workspace } = JSON.parse(initial.content[0].text);
+        for (const format of ['rich', 'tags', 'prose', 'compact']) {
+          const rendered = await client.callTool({
+            name: 'render_recipe',
+            arguments: { workspace, format },
+          });
+          assert(!rendered.isError, JSON.stringify(rendered));
+          assert.equal(
+            JSON.parse(rendered.content[0].text).recipe,
+            renderRecipe({ workspace, format }).recipe
+          );
+        }
       } finally {
         await client.close();
+      }
+      const connectChatGPT = async (domain) => {
+        const connection = new Client(
+          { name: 'chatgpt-http-contract', version: '1' },
+          { capabilities: {} }
+        );
+        await connection.connect(
+          new StreamableHTTPClientTransport(new URL(`${base}/mcp/chatgpt/${domain}`))
+        );
+        return connection;
+      };
+      let chatgpt = await connectChatGPT('recipe');
+      let session_id;
+      try {
+        assert.equal((await chatgpt.listTools()).tools.length, 11);
+        const initial = await chatgpt.callTool({
+          name: 'start_recipe',
+          arguments: { traditions: ['delta_blues'] },
+        });
+        session_id = initial.structuredContent.session_id;
+        assert(!JSON.parse(initial.content[0].text).workspace);
+      } finally {
+        await chatgpt.close();
+      }
+      chatgpt = await connectChatGPT('recipe');
+      try {
+        const rendered = await chatgpt.callTool({
+          name: 'render_recipe',
+          arguments: { session_id, format: 'prose' },
+        });
+        assert(!rendered.isError, JSON.stringify(rendered));
+        assert.equal(rendered.structuredContent.status, 'completed');
+        assert.notEqual(rendered.structuredContent.session_id, session_id);
+      } finally {
+        await chatgpt.close();
+      }
+      chatgpt = await connectChatGPT('lyrics');
+      let operation_id;
+      try {
+        const initial = await chatgpt.callTool({
+          name: 'begin_lyrics',
+          arguments: { writer: 'interview' },
+        });
+        const queued = await chatgpt.callTool({
+          name: 'lyric_sweep',
+          arguments: {
+            session_id: initial.structuredContent.session_id,
+            seed_from: 31,
+            count: 1,
+            lines: 12,
+          },
+        });
+        assert.equal(queued.structuredContent.status, 'pending');
+        operation_id = queued.structuredContent.operation_id;
+      } finally {
+        await chatgpt.close();
+      }
+      chatgpt = await connectChatGPT('lyrics');
+      try {
+        let operation;
+        const deadline = Date.now() + 10_000;
+        do {
+          const read = await chatgpt.callTool({
+            name: 'get_operation',
+            arguments: { operation_id },
+          });
+          operation = read.structuredContent;
+          if (operation.status !== 'pending') break;
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+        } while (Date.now() < deadline);
+        assert.equal(operation.status, 'completed', JSON.stringify(operation));
+        assert(!operation.tool_result.isError);
+        assert.equal(JSON.parse(operation.tool_result.content[0].text).exit_code, 0);
+      } finally {
+        await chatgpt.close();
       }
       const checker = spawn(
         process.execPath,
