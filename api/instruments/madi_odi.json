@@ -1,0 +1,68 @@
+{
+  "id": "madi_odi",
+  "name": "O’di (Ma’di five-string bowl lyre)",
+  "short": "madi bowl lyre",
+  "family": "plucked_traditional",
+  "class": "lyre",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "madi_odi_form",
+      "name": "Documented form",
+      "variants": [
+        {
+          "id": "madi_odi_documented",
+          "name": "Documented configuration",
+          "default": true,
+          "descriptors": [
+            "five-strings",
+            "bowl-resonator",
+            "plucked",
+            "pentatonic"
+          ],
+          "match_tokens": [
+            "five-strings",
+            "bowl-resonator",
+            "plucked",
+            "pentatonic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "madi_odi_form",
+      "name": "Documented form",
+      "variants": [
+        {
+          "id": "madi_odi_documented",
+          "name": "Documented configuration",
+          "default": true,
+          "descriptors": [
+            "five-strings",
+            "bowl-resonator",
+            "plucked",
+            "pentatonic"
+          ],
+          "match_tokens": [
+            "five-strings",
+            "bowl-resonator",
+            "plucked",
+            "pentatonic"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -3,20 +3,20 @@
   "name": "Estonian Setu leelo polyphonic song",
   "family": "global",
   "lineage": "Estonian Setu leelo polyphonic women's-song tradition of the Setu region (southeast Estonia and adjacent Pechory district of Russia). The Setu are a distinct Estonian-and-Russian-borderland Finno-Ugric ethnic group whose linguistic-cultural identity preserves archaic Finno-Ugric features lost in mainstream Estonian. Leelo is performed by a women's group with the lead singer (sõnoline, \"the word-singer\") improvising the verse text and melodic line, answered by the choral group (torrõ, \"the resonators\") in unison or in a sustained drone-bourdon below the melodic line. The drone configuration distinguishes leelo from neighboring Baltic polyphonic traditions: the torrõ chorus holds a sustained pedal-tone while the sõnoline elaborates above, producing a drone-and-melodic-elaboration register more akin to certain Slavic and Central-Asian traditions than to the parallel-second sutartinė style. Vocabulary draws on a regional Estonian-Setu pentatonic-leaning modal system. Verse-form is Kalevala-meter (the canonical Finno-Ugric four-stress eight-syllable line shared with the Finnish-Karelian Kalevala epic). Repertoire spans calendar-rite celebrations, wedding-cycle songs (Setu weddings featured the most elaborated leelo repertoire, with sung-confrontation-and-praise sequences between bride-and-groom parties), funeral-lament cycles, and the contemporary Värska-Obinitsa Setu cultural-festival circuit. Mipu Music MIPUCD 104 — Setusongs (1991, recorded May 1990) provides the canonical Western-distributed documentation. Distinguished from Lithuanian sutartinės by Setu leelo's drone-and-melody (vs Lithuanian parallel-seconds) configuration; distinguished from Karelian rune-singing by Setu's antiphonal-with-drone (vs Karelian's strict-alternation) architecture; distinguished from mainland Estonian regilaul by Setu-dialect-specific vocabulary and Estonian-Russian-borderland regional context.",
-  "recipe": "classic Northern European early-1990s estonian setu leelo polyphonic song, drone Modal, vocal branch, indigenous ritual devotional mapuche tayil genealogical chant shipibo-conibo icaros healing songs. vocal fry, breath veiled tone, straight note core, interlocked note trading. setu farmhouse wood. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 361,
-  "score": 292.375,
+  "recipe": "classic Northern European early-1990s estonian setu leelo polyphonic song, drone Modal, vocal branch, indigenous ritual devotional mapuche tayil genealogical chant hudhud chants of the ifugao. extended whistle, breath veiled tone, straight note core, interlocked note trading. setu farmhouse wood. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 360,
+  "score": 274.12,
   "config": {
     "traditions": [
       "estonian_setu_leelo",
       "mapuche_tayil_ritual",
-      "shipibo_icaros"
+      "ifugao_hudhud_chants"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.25,
-          "voice_quality": 55.38000000000004,
+          "voice_register": 3.5100000000000002,
+          "voice_quality": 48.750000000000036,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.630000000000001,
-          "voice_articulation": 29.705,
-          "voice_microtone": 31.264999999999997,
-          "voice_tradition": 33.8,
-          "voice_mechanism_compound": 15.015,
-          "voice_estill_quality": 11.764999999999997,
-          "voice_speech_song": 35.49,
-          "voice_ensemble_config": 31.72,
-          "voice_ornament_system": 7.15,
+          "voice_vibrato": 7.475000000000001,
+          "voice_articulation": 28.34,
+          "voice_microtone": 29.9,
+          "voice_tradition": 32.11,
+          "voice_mechanism_compound": 14.17,
+          "voice_estill_quality": 10.464999999999996,
+          "voice_speech_song": 33.93,
+          "voice_ensemble_config": 29.705000000000002,
+          "voice_ornament_system": 5.4,
           "voice_pitch_organization": 7.535,
-          "voice_processing_chain": 15.534999999999998,
-          "voice_multitrack_stack": 11.309999999999997
+          "voice_processing_chain": 12.22,
+          "voice_multitrack_stack": 11.959999999999997
         }
       }
     ],

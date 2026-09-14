@@ -3,14 +3,14 @@
   "name": "Karelian rune-singing (Kalevala-meter)",
   "family": "global",
   "lineage": "Karelian rune-singing tradition of the Karelian (Karjala) ethno-linguistic region straddling the Finnish-Russian border (eastern Finland, Russian Karelia), comprising the canonical Finno-Karelian narrative-and-magical-incantation oral-poetic corpus from which Elias Lönnrot compiled the Kalevala national-epic (first edition 1835, expanded second edition 1849). Performance: solo or duo unaccompanied voice in strict Kalevala-meter (four-stress eight-syllable trochaic line), often performed antiphonally with one singer providing a low-register drone or echo to the other's melodic line. The Karelian-Finnish runo-singer historical tradition was nearly extinguished by twentieth-century Soviet-and-Finnish modernization; documentary collection by Lönnrot and subsequent collectors preserved approximately 200,000 verses. Distinguished from broader Finnic vocal-music by rune-singing's strict Kalevala-meter and oral-epic-narrative orientation.",
-  "recipe": "classic mid-1830s karelian rune-singing, ballad Poetry, Slavic bard branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. birch alder karelian kantele. mountain valley. acoustic horn. wax cylinder.",
-  "recipe_chars": 327,
-  "score": 213.013,
+  "recipe": "classic mid-1830s karelian rune-singing, ballad Poetry, Slavic bard branch, indigenous ritual devotional mapuche tayil genealogical chant hudhud chants of the ifugao. vocal fry, breath veiled tone, straight note core, interlocked note trading. birch alder karelian kantele. mountain valley. acoustic horn. wax cylinder.",
+  "recipe_chars": 319,
+  "score": 196.77,
   "config": {
     "traditions": [
       "karelian_rune_singing",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "mapuche_tayil_ritual",
+      "ifugao_hudhud_chants"
     ],
     "instruments": [
       {
@@ -23,8 +23,8 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "polynesian_oli_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 4.68,
-          "voice_quality": 38.61,
+          "voice_quality": 31.98,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.640000000000001,
-          "voice_articulation": 19.694999999999997,
-          "voice_microtone": 19.304999999999993,
-          "voice_tradition": 24.309999999999995,
-          "voice_mechanism_compound": 10.7895,
-          "voice_estill_quality": 12.544999999999996,
-          "voice_speech_song": 21.189999999999998,
-          "voice_ensemble_config": 23.66,
-          "voice_ornament_system": 7.15,
-          "voice_pitch_organization": 4.355000000000001,
-          "voice_processing_chain": 9.36,
-          "voice_multitrack_stack": 6.175
+          "voice_vibrato": 4.485000000000001,
+          "voice_articulation": 18.33,
+          "voice_microtone": 17.939999999999994,
+          "voice_tradition": 21.319999999999997,
+          "voice_mechanism_compound": 7.0200000000000005,
+          "voice_estill_quality": 11.244999999999996,
+          "voice_speech_song": 19.629999999999995,
+          "voice_ensemble_config": 22.685,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 4.160000000000001,
+          "voice_processing_chain": 10.009999999999998,
+          "voice_multitrack_stack": 7.0200000000000005
         }
       },
       {
@@ -59,14 +59,14 @@
           "kantele_strings": "kantele_5",
           "kantele_context": "kantele_art",
           "kantele_body_wood": "kantele_birch_alder",
-          "kantele_string_material": "kantele_bronze_traditional"
+          "kantele_string_material": "kantele_steel_modern"
         },
         "scores": {
           "plucked_traditional_technique": -0.05,
-          "kantele_strings": 0.16874999999999998,
+          "kantele_strings": 0.65,
           "kantele_context": 3.38,
           "kantele_body_wood": 6.199999999999999,
-          "kantele_string_material": 0.65
+          "kantele_string_material": 0.5850000000000002
         }
       }
     ],

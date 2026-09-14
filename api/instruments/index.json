@@ -1,5 +1,5 @@
 {
-  "count": 1457,
+  "count": 1467,
   "items": [
     {
       "id": "choir_ensemble",
@@ -8742,6 +8742,66 @@
       "name": "Dyas / djaz and tapu patu (Maroon bass-drum and cymbal)",
       "family": "percussion",
       "href": "instruments/dyas_tapu_patu.json"
+    },
+    {
+      "id": "sekupu_litolobonya",
+      "name": "Sekupu (Litolobonya tin drum)",
+      "family": "percussion",
+      "href": "instruments/sekupu_litolobonya.json"
+    },
+    {
+      "id": "signal_whistle",
+      "name": "Signal whistle (dance cue)",
+      "family": "wind",
+      "href": "instruments/signal_whistle.json"
+    },
+    {
+      "id": "burundi_royal_drums",
+      "name": "Ingoma (Burundi royal drum ensemble)",
+      "family": "percussion",
+      "href": "instruments/burundi_royal_drums.json"
+    },
+    {
+      "id": "moutya_drum_trio",
+      "name": "Moutya drum trio (Seychelles)",
+      "family": "percussion",
+      "href": "instruments/moutya_drum_trio.json"
+    },
+    {
+      "id": "tchiloli_bamboo_flute",
+      "name": "Tchiloli bamboo flute (São Tomé)",
+      "family": "wind",
+      "href": "instruments/tchiloli_bamboo_flute.json"
+    },
+    {
+      "id": "sucalo",
+      "name": "Sucalo (São Tomé seed-basket rattle)",
+      "family": "percussion",
+      "href": "instruments/sucalo.json"
+    },
+    {
+      "id": "terchova_two_string_bass",
+      "name": "Terchová small two-string bass",
+      "family": "bowed",
+      "href": "instruments/terchova_two_string_bass.json"
+    },
+    {
+      "id": "bigwala_trumpets",
+      "name": "Bigwala (Busoga gourd-trumpet ensemble)",
+      "family": "wind",
+      "href": "instruments/bigwala_trumpets.json"
+    },
+    {
+      "id": "madi_odi",
+      "name": "O’di (Ma’di five-string bowl lyre)",
+      "family": "plucked_traditional",
+      "href": "instruments/madi_odi.json"
+    },
+    {
+      "id": "ayyala_percussion",
+      "name": "Al-Ayyala percussion section",
+      "family": "percussion",
+      "href": "instruments/ayyala_percussion.json"
     }
   ]
 }

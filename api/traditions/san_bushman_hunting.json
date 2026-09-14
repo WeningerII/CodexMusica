@@ -3,14 +3,14 @@
   "name": "San (Khoisan) hunting and trance song",
   "family": "global",
   "lineage": "San (Khoisan) hunting-and-trance song tradition continuous from premodern Kalahari-Desert hunter-gatherer practice through 20th-21st century continuous performance into modern San practice across Botswana, Namibia, and South Africa",
-  "recipe": "classic Southern African early-1940s san (khoisan) hunting and trance song, hunting Song, sub saharan African branch, arctic hunting song, indigenous ritual devotional, central Asian hunting song shipibo-conibo icaros healing songs sami yoik. vocal fry, breath veiled tone, fast rate, interlocked note trading. outdoor kalahari fire circle. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 415,
-  "score": 160.115,
+  "recipe": "classic Southern African early-1940s san (khoisan) hunting and trance song, hunting Song, sub saharan African branch, arctic hunting song, indigenous ritual devotional, central Asian hunting song sami yoik ainu upopo and rimse. vocal fry, breath veiled tone, fast rate, interlocked note trading. outdoor kalahari fire circle. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 400,
+  "score": 136.86,
   "config": {
     "traditions": [
       "san_bushman_hunting",
-      "shipibo_icaros",
-      "sami_yoik_tradition"
+      "sami_yoik_tradition",
+      "ainu_upopo"
     ],
     "instruments": [
       {
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sami_yoik",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.73,
-          "voice_quality": 22.425,
+          "voice_register": 2.08,
+          "voice_quality": 9.165,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8850000000000002,
-          "voice_articulation": 16.964999999999996,
-          "voice_microtone": 17.224999999999994,
-          "voice_tradition": 18.970000000000002,
-          "voice_mechanism_compound": 15.135000000000002,
-          "voice_estill_quality": 4.550000000000001,
-          "voice_speech_song": 25.61,
-          "voice_ensemble_config": 18.199999999999996,
-          "voice_ornament_system": 7.895,
+          "voice_vibrato": 1.4299999999999997,
+          "voice_articulation": 15.404999999999994,
+          "voice_microtone": 15.664999999999992,
+          "voice_tradition": 17.92,
+          "voice_mechanism_compound": 14.885000000000002,
+          "voice_estill_quality": 3.0550000000000006,
+          "voice_speech_song": 24.309999999999995,
+          "voice_ensemble_config": 17.029999999999994,
+          "voice_ornament_system": 10.72,
           "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 4.550000000000003,
-          "voice_multitrack_stack": 4.42
+          "voice_processing_chain": 1.95,
+          "voice_multitrack_stack": 3.3150000000000004
         }
       }
     ],

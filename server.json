@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.weningerii/codex-musica",
   "title": "Codex Musica",
-  "description": "Recording recipes over 2564 traditions and a separate lyrics planning, grading and revision pipeline. Recipe tools are deterministic. Lyrics revision stores private run state and optional kitchen writing makes paid external model calls.",
+  "description": "Recording recipes over 2588 traditions and a separate lyrics planning, grading and revision pipeline. Recipe tools are deterministic. Lyrics revision stores private run state and optional kitchen writing makes paid external model calls.",
   "version": "3.1.0",
   "websiteUrl": "https://codexmusica.com",
   "repository": {

@@ -5,7 +5,7 @@
   "lineage": "Bosavi ceremonial group drumming. The seed is instrumental.",
   "recipe": "classic modern ilib kuwo, groove Percussion. kundu. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 131,
-  "score": 0.31,
+  "score": 0.583,
   "config": {
     "traditions": [
       "bosavi_ilib_kuwo"
@@ -21,7 +21,7 @@
         "scores": {
           "kundu_build": 0.0028125,
           "kundu_stroke": 0.0315,
-          "kundu_setup": 0.4252857142857143
+          "kundu_setup": 0.6982857142857142
         }
       }
     ],

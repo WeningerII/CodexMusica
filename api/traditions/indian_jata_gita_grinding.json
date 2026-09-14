@@ -5,7 +5,7 @@
   "lineage": "Bengali jata gita (grinding-mill song) and broader Indian-subcontinent grinding-and-millstone song tradition continuous from premodern South-Asian domestic-grain-processing labor practice through 19th-20th century continuous performance into modern Bengali-Bangladeshi-and-broader-Indian continuous practice",
   "recipe": "classic South Asian modern bengali jata gita / indian grinding-mill song, domestic Rhythm, south Asian branch, sub saharan African domestic rhythm, south Asian lullaby, south Asian field work bengali bhatiali bengali folk. thick, breath veiled tone, straight onset, interlocked note trading. manganiyar haveli courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 383,
-  "score": 136.252,
+  "score": 135.804,
   "config": {
     "traditions": [
       "indian_jata_gita_grinding",
@@ -28,7 +28,7 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
@@ -41,13 +41,13 @@
           "voice_vibrato": 2.4050000000000002,
           "voice_articulation": 14.299999999999997,
           "voice_microtone": 14.689999999999994,
-          "voice_tradition": 25.381999999999998,
+          "voice_tradition": 24.9725,
           "voice_mechanism_compound": 1.8199999999999998,
           "voice_estill_quality": 1.6899999999999997,
           "voice_speech_song": 22.879999999999995,
           "voice_ensemble_config": 14.819999999999999,
-          "voice_ornament_system": 11.454,
-          "voice_pitch_organization": 9.7115,
+          "voice_ornament_system": 11.4465,
+          "voice_pitch_organization": 9.68,
           "voice_processing_chain": 4.68,
           "voice_multitrack_stack": 1.6249999999999998
         }

@@ -1,8 +1,8 @@
 {
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
-  "generated": "2026-09-13",
-  "count": 2564,
+  "generated": "2026-09-14",
+  "count": 2588,
   "items": [
     {
       "id": "honky_tonk",
@@ -687,8 +687,8 @@
       "id": "qawwali",
       "name": "Qawwali",
       "family": "global",
-      "recipe": "classic South Asian mid-1980s qawwali, ritual Devotional, Sufi branch, vocal drone modal, indian classical improv improv on frame, med east poetic ballad poetry, middle east n African praise song thumrī sufi munajat and naat. weltmeister east German mid tier vintage volk ensemble accordion, indian rosewood rosewood copper tabla, qawwal voice, vocal female harmonium indian. karachi lahore naat devotional majlis. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
-      "recipe_chars": 532
+      "recipe": "classic South Asian mid-1980s qawwali, ritual Devotional, Sufi branch, vocal drone modal, indian classical improv improv on frame, med east poetic ballad poetry, middle east n African praise song thumrī carnatic vocal. weltmeister east German mid tier vintage volk ensemble accordion, indian rosewood rosewood copper tabla, qawwal voice, treble-extended vocal female harmonium indian. karachi lahore naat devotional majlis. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+      "recipe_chars": 541
     },
     {
       "id": "fado",
@@ -3445,7 +3445,7 @@
       "id": "sfyria_antia",
       "name": "Sfyria whistled language (Antia, Greece)",
       "family": "global",
-      "recipe": "classic modern sfyria whistled language, drone Modal, vocal branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. lip aperture turbulent source whistled language signal communication whistled voice. canyon. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe": "classic modern sfyria whistled language, drone Modal, vocal branch, indigenous ritual devotional mapuche tayil genealogical chant old norse seiðr ritual vocalization. vocal fry, breath veiled tone, straight note core, interlocked note trading. lip aperture turbulent source whistled language signal communication whistled voice. canyon. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
       "recipe_chars": 399
     },
     {
@@ -3620,8 +3620,8 @@
       "id": "vietnamese_quan_ho",
       "name": "Vietnamese quan họ Bắc Ninh",
       "family": "global",
-      "recipe": "classic modern vietnamese quan họ bắc ninh, art Music, southeast Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 334
+      "recipe": "classic modern vietnamese quan họ bắc ninh, art Music, southeast Asian branch, indigenous ritual devotional mapuche tayil genealogical chant vietnamese hát xoan. vocal fry, breath veiled tone, straight note core, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 318
     },
     {
       "id": "vietnamese_hat_xoan",
@@ -3725,15 +3725,15 @@
       "id": "lithuanian_sutartines",
       "name": "Lithuanian sutartinės multipart",
       "family": "global",
-      "recipe": "classic Northern European 1958-1959 lithuanian sutartinės multipart, drone Modal, vocal branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. board zither finger plucked canonical lithuanian instrumental sutartines canonical lithuanian kankles, multiple tube pipes hocketed canonical lithuanian instrumental sutartines hocketed canonical lithuanian skuduciai. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 576
+      "recipe": "classic Northern European 1958-1959 lithuanian sutartinės multipart, drone Modal, vocal branch, indigenous ritual devotional mapuche tayil genealogical chant hudhud chants of the ifugao. vocal fry, breath veiled tone, straight note core, interlocked note trading. board zither finger plucked canonical lithuanian instrumental sutartines canonical lithuanian kankles, multiple tube pipes hocketed canonical lithuanian instrumental sutartines hocketed canonical lithuanian skuduciai. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 568
     },
     {
       "id": "estonian_setu_leelo",
       "name": "Estonian Setu leelo polyphonic song",
       "family": "global",
-      "recipe": "classic Northern European early-1990s estonian setu leelo polyphonic song, drone Modal, vocal branch, indigenous ritual devotional mapuche tayil genealogical chant shipibo-conibo icaros healing songs. vocal fry, breath veiled tone, straight note core, interlocked note trading. setu farmhouse wood. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 361
+      "recipe": "classic Northern European early-1990s estonian setu leelo polyphonic song, drone Modal, vocal branch, indigenous ritual devotional mapuche tayil genealogical chant hudhud chants of the ifugao. extended whistle, breath veiled tone, straight note core, interlocked note trading. setu farmhouse wood. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 360
     },
     {
       "id": "swedish_kulning",
@@ -4068,8 +4068,8 @@
       "id": "borgeet_assamese",
       "name": "Borgeet (Assamese Neo-Vaishnavite devotional)",
       "family": "global",
-      "recipe": "classic South Asian early-1440s borgeet, ritual Devotional, hindu branch, indigenous ritual devotional shipibo-conibo icaros healing songs mongolian böö shamanic invocation. vocal fry, breath veiled tone, straight note core, interlocked note trading. goat skin syahi rope laced steel ring dholak, liturgical khol. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 456
+      "recipe": "classic South Asian early-1440s borgeet, ritual Devotional, hindu branch, indigenous ritual devotional mongolian böö shamanic invocation mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. goat skin syahi rope laced steel ring dholak, liturgical khol. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 453
     },
     {
       "id": "divya_prabandham_tamil_vaishnav",
@@ -4194,8 +4194,8 @@
       "id": "korean_chongmyo_jeryeak",
       "name": "Chongmyo jeryeak (royal ancestral shrine music)",
       "family": "classical",
-      "recipe": "classic East Asian mid-1460s chongmyo jeryeak, art Music, east Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs māori waiata + taonga pūoro. extended whistle, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu. korean gugak hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 590
+      "recipe": "classic East Asian mid-1460s chongmyo jeryeak, art Music, east Asian branch, indigenous ritual devotional mongolian böö shamanic invocation māori waiata + taonga pūoro. extended whistle, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu. korean gugak hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 604
     },
     {
       "id": "korean_trot",
@@ -4383,8 +4383,8 @@
       "id": "navajo_healing_chantways",
       "name": "Navajo healing chantways",
       "family": "global",
-      "recipe": "classic Northeast Asian early-1890s navajo healing chantways, ritual Devotional, indigenous branch, amazonian indigenous shipibo-conibo icaros healing songs. vocal fry, breath veiled tone, straight note core, interlocked note trading. open steppe outdoor. acoustic horn. wax cylinder.",
-      "recipe_chars": 284
+      "recipe": "classic Northeast Asian early-1890s navajo healing chantways, ritual Devotional, indigenous branch, amazonian indigenous shipibo-conibo icaros healing songs shuar anent. vocal fry, breath veiled tone, straight note core, interlocked note trading. open steppe outdoor. acoustic horn. wax cylinder.",
+      "recipe_chars": 296
     },
     {
       "id": "apache_crown_dance",
@@ -4607,8 +4607,8 @@
       "id": "karelian_rune_singing",
       "name": "Karelian rune-singing (Kalevala-meter)",
       "family": "global",
-      "recipe": "classic mid-1830s karelian rune-singing, ballad Poetry, Slavic bard branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. birch alder karelian kantele. mountain valley. acoustic horn. wax cylinder.",
-      "recipe_chars": 327
+      "recipe": "classic mid-1830s karelian rune-singing, ballad Poetry, Slavic bard branch, indigenous ritual devotional mapuche tayil genealogical chant hudhud chants of the ifugao. vocal fry, breath veiled tone, straight note core, interlocked note trading. birch alder karelian kantele. mountain valley. acoustic horn. wax cylinder.",
+      "recipe_chars": 319
     },
     {
       "id": "faroese_kvaedi",
@@ -6427,8 +6427,8 @@
       "id": "maori_waiata_tangi",
       "name": "Māori waiata tangi (mourning-song)",
       "family": "global",
-      "recipe": "classic Oceanian modern māori waiata tangi, funeral Lament, oceania pacific branch, indigenous ritual devotional, vocal drone modal, Celtic balladic ballad poetry shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight onset, interlocked note trading. maori marae carved wharenui. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 397
+      "recipe": "classic Oceanian modern māori waiata tangi, funeral Lament, oceania pacific branch, indigenous ritual devotional, vocal drone modal, Celtic balladic ballad poetry mapuche tayil genealogical chant scottish gaelic folk song. vocal fry, breath veiled tone, fast rate, interlocked note trading. maori marae carved wharenui. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 382
     },
     {
       "id": "yiddish_wedding_bulgar",
@@ -6658,8 +6658,8 @@
       "id": "shona_mbira_praise",
       "name": "Shona mbira praise music (Zimbabwe)",
       "family": "global",
-      "recipe": "classic Southern African modern shona mbira praise music, praise Song, sub saharan African branch, indigenous ritual devotional, string drone modal, central east south African groove percussion shipibo-conibo icaros healing songs kantele music. vocal fry, breath veiled tone, straight note core, interlocked note trading. steel maple mbira, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 503
+      "recipe": "classic Southern African modern shona mbira praise music, praise Song, sub saharan African branch, indigenous ritual devotional, string drone modal, central east south African groove percussion kantele music kazakh traditional music. sygyt, declaimed, straight note core, interlocked note trading. steel maple mbira, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 479
     },
     {
       "id": "hindu_stuti_bhajan",
@@ -6700,8 +6700,8 @@
       "id": "hawaiian_mele_inoa",
       "name": "Hawaiian mele inoa (name-song / praise-chant)",
       "family": "global",
-      "recipe": "classic Oceanian modern hawaiian mele inoa, praise Song, oceania pacific branch, oceania pacific funeral lament, indigenous ritual devotional, indian bard ballad poetry shipibo-conibo icaros healing songs druidic / neo-druid ritual invocation. vocal fry, breath veiled tone, straight onset, interlocked note trading. hawaiian heiau outdoor lava stone temple. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 421
+      "recipe": "classic Oceanian modern hawaiian mele inoa, praise Song, oceania pacific branch, oceania pacific funeral lament, indigenous ritual devotional, indian bard ballad poetry druidic / neo-druid ritual invocation mapuche tayil genealogical chant. extended whistle, breath veiled tone, straight note core, interlocked note trading. hawaiian heiau outdoor lava stone temple. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 429
     },
     {
       "id": "maori_waiata_moteatea_patere",
@@ -7183,8 +7183,8 @@
       "id": "san_bushman_hunting",
       "name": "San (Khoisan) hunting and trance song",
       "family": "global",
-      "recipe": "classic Southern African early-1940s san (khoisan) hunting and trance song, hunting Song, sub saharan African branch, arctic hunting song, indigenous ritual devotional, central Asian hunting song shipibo-conibo icaros healing songs sami yoik. vocal fry, breath veiled tone, fast rate, interlocked note trading. outdoor kalahari fire circle. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-      "recipe_chars": 415
+      "recipe": "classic Southern African early-1940s san (khoisan) hunting and trance song, hunting Song, sub saharan African branch, arctic hunting song, indigenous ritual devotional, central Asian hunting song sami yoik ainu upopo and rimse. vocal fry, breath veiled tone, fast rate, interlocked note trading. outdoor kalahari fire circle. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+      "recipe_chars": 400
     },
     {
       "id": "mongolian_hunting_khoomei",
@@ -7211,8 +7211,8 @@
       "id": "apache_hunting_medicine",
       "name": "Apache hunting-medicine song (Native American)",
       "family": "global",
-      "recipe": "classic Midwestern American early-1890s apache hunting-medicine song, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, indigenous ritual devotional shipibo-conibo icaros healing songs música indígena mexicana. extended whistle, breath veiled tone, fast rate, interlocked note trading. powwow drum circle. plains northern powwow drum circle outdoor. acoustic horn. wax cylinder.",
-      "recipe_chars": 416
+      "recipe": "classic Midwestern American early-1890s apache hunting-medicine song, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, indigenous ritual devotional música indígena mexicana ainu upopo and rimse. extended whistle, breath veiled tone, fast rate, interlocked note trading. powwow drum circle. plains northern powwow drum circle outdoor. acoustic horn. wax cylinder.",
+      "recipe_chars": 401
     },
     {
       "id": "hebridean_waulking",
@@ -7645,15 +7645,15 @@
       "id": "druidic_invocation",
       "name": "Druidic / neo-druid ritual invocation",
       "family": "global",
-      "recipe": "classic early-1790s druidic / neo-druid ritual invocation, ritual Devotional, indigenous branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. balanced, breath veiled tone, straight onset, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 317
+      "recipe": "classic early-1790s druidic / neo-druid ritual invocation, ritual Devotional, indigenous branch ethiopian debtera liturgical incantation mapuche tayil genealogical chant. thick, breath veiled tone, breath pulsed, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 318
     },
     {
       "id": "wiccan_chant_circle",
       "name": "Wiccan chant-circle incantation",
       "family": "global",
-      "recipe": "classic mid-1950s wiccan chant-circle incantation, ritual Devotional, indigenous branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, straight onset, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 317
+      "recipe": "classic mid-1950s wiccan chant-circle incantation, ritual Devotional, indigenous branch mapuche tayil genealogical chant ethiopian debtera liturgical incantation. thick, breath veiled tone, straight onset, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 311
     },
     {
       "id": "shinto_norito",
@@ -7673,15 +7673,15 @@
       "id": "zoroastrian_avestan_recitation",
       "name": "Zoroastrian Avestan liturgical recitation",
       "family": "global",
-      "recipe": "classic modern zoroastrian avestan liturgical recitation, ritual Devotional, hindu branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, fast rate, interlocked note trading. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 307
+      "recipe": "classic modern zoroastrian avestan liturgical recitation, ritual Devotional, hindu branch mapuche tayil genealogical chant ethiopian debtera liturgical incantation. thick, breath veiled tone, fast rate, interlocked note trading. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 308
     },
     {
       "id": "jewish_kaddish",
       "name": "Jewish Kaddish mourner recitation",
       "family": "global",
-      "recipe": "classic Middle Eastern modern jewish kaddish mourner recitation, ritual Devotional, Jewish branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. mediterranean sephardi synagogue. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 341
+      "recipe": "classic Middle Eastern modern jewish kaddish mourner recitation, ritual Devotional, Jewish branch mapuche tayil genealogical chant islamic khutbah sermon. vocal fry, breath veiled tone, straight note core, interlocked note trading. mediterranean sephardi synagogue. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 328
     },
     {
       "id": "latin_exorcism_rite",
@@ -7876,8 +7876,8 @@
       "id": "hawaiian_haa_ancestral_chant",
       "name": "Hawaiian haʻa ancestral chant",
       "family": "global",
-      "recipe": "classic Oceanian late-1900s hawaiian haʻa ancestral chant, praise Song, oceania pacific branch māori whaikōrero oratory xhosa iimbongi praise oratory. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. hawaiian heiau outdoor lava stone temple. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 327
+      "recipe": "classic Oceanian late-1900s hawaiian haʻa ancestral chant, praise Song, oceania pacific branch māori whaikōrero oratory hawaiian mele inoa. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. hawaiian heiau outdoor lava stone temple. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 316
     },
     {
       "id": "audiobook_narration",
@@ -12139,8 +12139,8 @@
       "id": "fann_at_tanbura",
       "name": "Fann at-Tanbura",
       "family": "global",
-      "recipe": "classic early-1940s fann at-tanbura, ritual Devotional, Afro-diasporic branch, Sufi ritual devotional, middle east n African praise song shailat sufi munajat and naat. thick, declaimed, slow rate, interlocked note trading. diaspora strum and damp call-and-response tanbura kisir, continuous mangour hoof rattle, walnut bent frame canonical Iranian goat skin canonical Sufi hands layered tar frame drum, hand clap. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-      "recipe_chars": 505
+      "recipe": "classic early-1940s fann at-tanbura, ritual Devotional, Afro-diasporic branch, Sufi ritual devotional, middle east n African praise song sufi zikr chant sindhi. extended whistle, declaimed, slow rate, interlocked note trading. six string strum and damp call-and-response tanbura kisir, mangour hoof rattle, walnut bent frame canonical Iranian goat skin canonical Sufi hands layered tar frame drum, snappy to palm hand clap. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+      "recipe_chars": 515
     },
     {
       "id": "fijiri",
@@ -13070,8 +13070,8 @@
       "id": "musica_purepecha",
       "name": "Música Purépecha",
       "family": "global",
-      "recipe": "classic early-2010s música purépecha, functional Song, Mexican branch, indigenous ritual devotional, Latin am troubadour ballad poetry shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, slow rate, interlocked note trading. cedar nylon classical nylon-string guitar, mahogany canonical mariachi nylon octave doubled canonical mariachi vihuela mexicana, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn ensemble trumpet, ebonite hard rubber klezmer tradition clarinet. adobe room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 722
+      "recipe": "classic early-2010s música purépecha, functional Song, Mexican branch, indigenous ritual devotional, Latin am troubadour ballad poetry mapuche tayil genealogical chant ainu upopo and rimse. kargyraa, breath veiled tone, slow rate, interlocked note trading. cedar nylon classical nylon-string guitar, nylon octave doubled canonical mariachi vihuela mexicana, mixed string set nylon treble steel bass guitarron mexicano, heavy one piece matched to monette horn ensemble trumpet, ebonite hard rubber klezmer tradition clarinet. adobe room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 599
     },
     {
       "id": "musica_mixteca",
@@ -13532,8 +13532,8 @@
       "id": "chaabi_marocain",
       "name": "Chaabi marocain (Moroccan wedding chaabi)",
       "family": "global",
-      "recipe": "classic North African mid-1960s chaabi marocain, functional Song, mid east n African pop branch, middle eastern wedding, middle east n African praise song dabke shailat. thick, breath veiled tone, slow rate, interlocked note trading. chaabi melodic single line mandole, walnut warmer than maple mid tier scruggs stelling bluegrass setup banjo 5 string, goat skin tacked canonical Sufi bendir, Egyptian sombaty canonical mid east darbuka, hand clap, carpathian spruce hard rock maple acer saccharum oil varnish amber tinted violin orchestral, guembri. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
-      "recipe_chars": 731
+      "recipe": "classic North African mid-1960s chaabi marocain, functional Song, mid east n African pop branch, middle eastern wedding, middle east n African praise song dabke lezginka. thick, breath veiled tone, slow rate, interlocked note trading. chaabi melodic single line mandole, walnut warmer than maple mid tier scruggs stelling bluegrass setup banjo 5 string, goat skin tacked canonical Sufi bendir, Egyptian sombaty canonical mid east darbuka, hand clap, carpathian spruce hard rock maple acer saccharum oil varnish amber tinted violin orchestral, guembri. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+      "recipe_chars": 732
     },
     {
       "id": "chaabi_algerien",
@@ -14995,8 +14995,8 @@
       "id": "muzica_populara",
       "name": "Muzică populară",
       "family": "global",
-      "recipe": "classic Central European 1947-1949 muzică populară, functional Song, europop branch, Slavic balkan field work, European wedding, Mediterranean ballad ballad poetry bulgarian folk hungarian folk. thick, breath veiled tone, breath pulsed, interlocked note trading. curved raft rubato glissando nai romanian, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, carpathian spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, castagnari Italian premium folk music straight accordion, clarinet, venice catlin high twist renaissance bass carpathian spruce European maple double bass. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 851
+      "recipe": "classic Central European 1947-1949 muzică populară, functional Song, europop branch, Slavic balkan field work, European wedding, Mediterranean ballad ballad poetry bulgarian folk kabyle music. thick, breath veiled tone, slow rate, interlocked note trading. curved raft rubato glissando nai romanian, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, castagnari Italian premium folk music straight accordion, composite resin blackwood dust clarinet, venice catlin high twist renaissance bass carpathian spruce European maple double bass. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 876
     },
     {
       "id": "muzica_etno",
@@ -15233,8 +15233,8 @@
       "id": "balalaika_orchestra",
       "name": "Russian balalaika orchestra",
       "family": "vernacular",
-      "recipe": "classic Eastern European mid-1890s russian balalaika orchestra, domestic Rhythm, Slavic baltic branch, Slavic balkan field work, string drone modal, europop functional song huayno bulgarian folk. thick, breath veiled tone, breath pulsed, interlocked note trading. prima andreyev concert orchestra canonical revival strummed balalaika, orchestral bass rare spruce maple andreyev gut pre andreyev historical strummed domra, b system buttons stradella bass Russian tradition song accompaniment chastushka dance bayan russian, silver wound lamb gut core Baroque setup lighter bass bar no endpin double bass. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-      "recipe_chars": 808
+      "recipe": "classic Eastern European mid-1890s russian balalaika orchestra, domestic Rhythm, Slavic baltic branch, Slavic balkan field work, string drone modal, europop functional song huayno finnish tango. thick, breath veiled tone, breath pulsed, interlocked note trading. prima andreyev concert orchestra canonical revival strummed balalaika, orchestral bass rare spruce maple andreyev gut pre andreyev historical strummed domra, b system buttons stradella bass Russian tradition song accompaniment chastushka dance bayan russian, silver wound lamb gut core Baroque setup lighter bass bar no endpin double bass. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+      "recipe_chars": 807
     },
     {
       "id": "sutartines",
@@ -17951,6 +17951,174 @@
       "family": "global",
       "recipe": "classic modern djanba, ritual Devotional, indigenous branch. north australia, group vocals. clapsticks bilma, hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
       "recipe_chars": 200
+    },
+    {
+      "id": "famo",
+      "name": "Famo (Basotho accordion song)",
+      "family": "global",
+      "recipe": "classic modern famo, functional Song. solo with instrumental accompaniment. accordion, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 219
+    },
+    {
+      "id": "mohobelo",
+      "name": "Mohobelo (Basotho men’s dance song)",
+      "family": "global",
+      "recipe": "classic modern mohobelo, praise Song, sub saharan African branch. group vocals, live take. hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 181
+    },
+    {
+      "id": "litolobonya",
+      "name": "Litolobonya (Basotho women’s song and dance)",
+      "family": "global",
+      "recipe": "classic modern litolobonya, domestic Rhythm, sub saharan African branch. group vocals. sekupu litolobonya, signal whistle. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 202
+    },
+    {
+      "id": "intore_music",
+      "name": "Intore (Rwandan musical performance)",
+      "family": "global",
+      "recipe": "classic modern intore, praise Song, sub saharan African branch. group vocals, live take. membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 221
+    },
+    {
+      "id": "burundi_royal_drum_ritual",
+      "name": "Burundi royal drum ritual repertoire",
+      "family": "global",
+      "recipe": "classic modern burundi royal drum ritual repertoire, ritual Devotional, indigenous branch. group vocals. burundi royal drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 205
+    },
+    {
+      "id": "moutya",
+      "name": "Moutya (Seychelles)",
+      "family": "global",
+      "recipe": "classic modern moutya, groove Percussion, central east south African branch. moutya drum trio. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 174
+    },
+    {
+      "id": "tchiloli_music",
+      "name": "Tchiloli (instrumental theatre repertoire)",
+      "family": "global",
+      "recipe": "classic modern tchiloli, carnival Processional. melodic bamboo tchiloli bamboo flute, acoustic membrane drum, sucalo. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 197
+    },
+    {
+      "id": "nenets_syudbabc",
+      "name": "Nenets syudbabc (heroic narrative song)",
+      "family": "global",
+      "recipe": "classic modern nenets syudbabc, ballad Poetry. sung narration. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 142
+    },
+    {
+      "id": "nenets_yarabc",
+      "name": "Nenets yarabc (first-person narrative song)",
+      "family": "global",
+      "recipe": "classic modern nenets yarabc, ballad Poetry. sung narration. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 140
+    },
+    {
+      "id": "nenets_personal_song",
+      "name": "Nenets personal song repertoire",
+      "family": "global",
+      "recipe": "classic modern nenets personal song repertoire, ballad Poetry. solo unaccompanied. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 162
+    },
+    {
+      "id": "nganasan_personal_song",
+      "name": "Nganasan personal songs (hankudya baly)",
+      "family": "global",
+      "recipe": "classic modern nganasan personal songs, ballad Poetry. solo unaccompanied. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 154
+    },
+    {
+      "id": "nganasan_keingeirsya",
+      "name": "Nganasan keingeirsya (sung dialogue)",
+      "family": "global",
+      "recipe": "classic modern nganasan keingeirsya, ballad Poetry. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 131
+    },
+    {
+      "id": "palauan_chesols",
+      "name": "Palauan chesóls (solo chant)",
+      "family": "global",
+      "recipe": "classic modern palauan chesóls, ballad Poetry. solo unaccompanied. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 146
+    },
+    {
+      "id": "palauan_ruk",
+      "name": "Palauan ruk performance repertoire",
+      "family": "global",
+      "recipe": "classic modern palauan ruk performance repertoire, praise Song, oceania pacific branch. group vocals. group massed hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 205
+    },
+    {
+      "id": "terchova_music",
+      "name": "Music of Terchová (string ensemble)",
+      "family": "global",
+      "recipe": "classic modern music of terchová, groove Percussion. group vocals, live take. double stops fiddle, small body bowed two strings terchova two string bass. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 233
+    },
+    {
+      "id": "horehronie_multipart_singing",
+      "name": "Horehronie multipart singing",
+      "family": "global",
+      "recipe": "classic modern horehronie multipart singing, field Work, Slavic balkan branch. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 158
+    },
+    {
+      "id": "bigwala_music",
+      "name": "Bigwala (Busoga trumpet music and dance)",
+      "family": "global",
+      "recipe": "classic modern bigwala, groove Percussion, central east south African branch. group vocals, live take. single tone per player gourd trumpets bigwala trumpets, acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 262
+    },
+    {
+      "id": "madi_bowl_lyre_music",
+      "name": "Ma’di bowl-lyre music and dance",
+      "family": "global",
+      "recipe": "classic modern ma’di bowl-lyre music and dance, ballad Poetry. solo with instrumental accompaniment. madi odi. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 190
+    },
+    {
+      "id": "chopi_timbila_music",
+      "name": "Chopi timbila orchestral music",
+      "family": "global",
+      "recipe": "classic modern chopi timbila orchestral music, groove Percussion, central east south African branch. graduated registers timbila. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 209
+    },
+    {
+      "id": "gule_wamkulu_music",
+      "name": "Gule Wamkulu (Chewa musical repertoire)",
+      "family": "global",
+      "recipe": "classic modern gule wamkulu, ritual Devotional, indigenous branch. group vocals. membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 213
+    },
+    {
+      "id": "haida_welcome_song",
+      "name": "Haida welcome-song repertoire (archive recital)",
+      "family": "global",
+      "recipe": "classic modern haida welcome-song repertoire, praise Song. solo unaccompanied. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 158
+    },
+    {
+      "id": "shuar_anent",
+      "name": "Shuar anent",
+      "family": "global",
+      "recipe": "classic modern shuar anent, ritual Devotional, amazonian branch. solo unaccompanied. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 164
+    },
+    {
+      "id": "shuar_nampet",
+      "name": "Shuar nampet",
+      "family": "global",
+      "recipe": "classic modern shuar nampet, ballad Poetry. solo unaccompanied. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 143
+    },
+    {
+      "id": "al_ayyala",
+      "name": "Al-Ayyala (Oman and UAE)",
+      "family": "global",
+      "recipe": "classic modern al-ayyala, praise Song, middle east n African branch. ayyala percussion. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 167
     }
   ]
 }
