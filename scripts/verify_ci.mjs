@@ -33,6 +33,27 @@ export const QUALIFICATION_JOBS = Object.freeze([
   'qualification-result',
 ]);
 
+// THE QUALIFICATION IS ABSENT AT EVERY MERGE, BY DESIGN (M-287). It is a
+// manual dispatch a person runs AFTER CI, so at the moment a merge's CI
+// completes there is normally no qualification at that SHA, and six deploy runs
+// in a row (80, 83, 84, 85, 87, 88) went red on exactly that sentence while
+// nothing was wrong. Absent is a stand-down, not a failure: the deploy runs
+// again by itself when the qualification workflow completes. A qualification
+// that EXISTS and did not succeed is still a failure, and stays red.
+export const QUALIFICATION_ABSENT = 'No trusted main production qualification exists at this SHA.';
+
+export async function productionEvidence(sha, options = {}) {
+  const result = await verifyCI(sha, options);
+  try {
+    result.qualification = await verifyCI(sha, { ...options, qualification: true });
+  } catch (error) {
+    if (error.message !== QUALIFICATION_ABSENT) throw error;
+    result.qualification = null;
+    result.stand_down = QUALIFICATION_ABSENT;
+  }
+  return result;
+}
+
 export function validateCI(run, jobs, { repository, sha, qualification = false }) {
   const requiredJobs = qualification ? QUALIFICATION_JOBS : REQUIRED_JOBS;
   if (
@@ -117,9 +138,7 @@ export async function verifyCI(
     .sort((a, b) => b.id - a.id)[0];
   if (!run)
     throw new Error(
-      qualification
-        ? 'No trusted main production qualification exists at this SHA.'
-        : 'No trusted main push CI run exists at this SHA.'
+      qualification ? QUALIFICATION_ABSENT : 'No trusted main push CI run exists at this SHA.'
     );
   if (!Number.isSafeInteger(run.run_attempt) || run.run_attempt < 1)
     throw new Error('The CI run has no verified attempt identity.');
@@ -138,10 +157,17 @@ export async function verifyCI(
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   try {
-    const result = await verifyCI(process.argv[2]);
-    if (process.argv.includes('--production'))
-      result.qualification = await verifyCI(process.argv[2], { qualification: true });
+    // Three answers, never collapsed (the deploy guard's own shape): 0 with
+    // the evidence, 10 with the CI evidence and no qualification yet -- a
+    // stand-down the caller must not paint red -- and 1 for anything wrong.
+    const result = process.argv.includes('--production')
+      ? await productionEvidence(process.argv[2])
+      : await verifyCI(process.argv[2]);
     console.log(JSON.stringify(result));
+    if (result.stand_down) {
+      console.error(result.stand_down);
+      process.exitCode = 10;
+    }
   } catch (error) {
     console.error(error.message);
     process.exitCode = 1;

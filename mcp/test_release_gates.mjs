@@ -478,6 +478,51 @@ test('production qualification requires each actual job in the exact trusted man
   assert.match(urls[1], /attempts\/2\/jobs/);
 });
 
+test('an absent qualification is a stand-down with CI evidence kept; a failed one is still a failure', async () => {
+  const { productionEvidence, QUALIFICATION_ABSENT } = await import('../scripts/verify_ci.mjs');
+  const ciJobs = REQUIRED_JOBS.map((name) => ({
+    name,
+    status: 'completed',
+    conclusion: 'success',
+  }));
+  const fetchFor = (qualificationRuns) => async (url) => ({
+    ok: true,
+    json: async () =>
+      url.includes('/runs?')
+        ? { workflow_runs: url.includes('production-qualification') ? qualificationRuns : [run] }
+        : { jobs: ciJobs, total_count: ciJobs.length },
+  });
+  const absent = await productionEvidence(sha, {
+    repository,
+    token: 'fixture',
+    fetchImpl: fetchFor([]),
+  });
+  assert.equal(absent.run_id, run.id);
+  assert.equal(absent.qualification, null);
+  assert.equal(absent.stand_down, QUALIFICATION_ABSENT);
+  // Exists and did not succeed: red, never a stand-down.
+  await assert.rejects(
+    productionEvidence(sha, {
+      repository,
+      token: 'fixture',
+      fetchImpl: fetchFor([{ ...run, event: 'workflow_dispatch', conclusion: 'failure' }]),
+    }),
+    /has not succeeded|did not complete/
+  );
+  // And CI missing is never masked by the qualification question.
+  await assert.rejects(
+    productionEvidence(sha, {
+      repository,
+      token: 'fixture',
+      fetchImpl: async (url) => ({
+        ok: true,
+        json: async () => (url.includes('/runs?') ? { workflow_runs: [] } : { jobs: [] }),
+      }),
+    }),
+    /No trusted main push CI run/
+  );
+});
+
 test('qualification artifact cannot cross source, attempt or incomplete calibration boundaries', async () => {
   const { COMPONENTS, expectedCommand, validateQualification } =
     await import('../scripts/verify_qualification.mjs');
