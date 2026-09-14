@@ -1,0 +1,68 @@
+{
+  "id": "burundi_royal_drums",
+  "name": "Ingoma (Burundi royal drum ensemble)",
+  "short": "royal drum ensemble",
+  "family": "percussion",
+  "class": "drum_ensemble",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "burundi_royal_drums_form",
+      "name": "Documented form",
+      "variants": [
+        {
+          "id": "burundi_royal_drums_documented",
+          "name": "Documented configuration",
+          "default": true,
+          "descriptors": [
+            "skin-heads",
+            "stick-struck",
+            "synchronized",
+            "contrasting-drum-roles"
+          ],
+          "match_tokens": [
+            "skin-heads",
+            "stick-struck",
+            "synchronized",
+            "contrasting-drum-roles"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "burundi_royal_drums_form",
+      "name": "Documented form",
+      "variants": [
+        {
+          "id": "burundi_royal_drums_documented",
+          "name": "Documented configuration",
+          "default": true,
+          "descriptors": [
+            "skin-heads",
+            "stick-struck",
+            "synchronized",
+            "contrasting-drum-roles"
+          ],
+          "match_tokens": [
+            "skin-heads",
+            "stick-struck",
+            "synchronized",
+            "contrasting-drum-roles"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -5,7 +5,7 @@
   "lineage": "Bhutanese song practice with extended melodic phrases. This seed follows an unaccompanied presentation.",
   "recipe": "classic modern zhungdra, ballad Poetry. bhutanese, many notes per syllable, solo unaccompanied. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 175,
-  "score": 5.499,
+  "score": 5.46,
   "config": {
     "traditions": [
       "zhungdra"
@@ -39,7 +39,7 @@
           "voice_vibrato": 0,
           "voice_articulation": -0.07,
           "voice_microtone": 0,
-          "voice_tradition": 2.339,
+          "voice_tradition": 2.3,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.69,

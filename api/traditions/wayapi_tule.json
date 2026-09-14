@@ -5,7 +5,7 @@
   "lineage": "Wayãpi tule suites combine instrumental and vocal sections. This entry follows the 1977 Zidock recordings at Trois Sauts.",
   "recipe": "classic late-1970s wayãpi tule ensemble suites, groove Percussion. group vocals, live take. reed ensemble interlocking tule clarinets. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 214,
-  "score": 3.814,
+  "score": 3.918,
   "config": {
     "traditions": [
       "wayapi_tule"
@@ -58,7 +58,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.195857142857143
+          "voice_multitrack_stack": 1.3
         }
       }
     ],

@@ -3407,6 +3407,13 @@
             "valley-tonga",
             "oral-tradition"
           ]
+        },
+        {
+          "id": "voice_tradition_source_unspecified",
+          "name": "Local vocal tradition (technique unspecified)",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -4556,6 +4563,21 @@
           "match_tokens": [
             "choral",
             "polyphonic"
+          ]
+        },
+        {
+          "id": "voice_ensemble_nenets_narrator_assistant",
+          "name": "Nenets narrator with repeating assistant",
+          "auto": false,
+          "descriptors": [
+            "sung-narration",
+            "answering-assistant",
+            "line-repetition"
+          ],
+          "match_tokens": [
+            "sung-narration",
+            "answering-assistant",
+            "line-repetition"
           ]
         }
       ]
@@ -9488,6 +9510,13 @@
             "valley-tonga",
             "oral-tradition"
           ]
+        },
+        {
+          "id": "voice_tradition_source_unspecified",
+          "name": "Local vocal tradition (technique unspecified)",
+          "auto": false,
+          "descriptors": [],
+          "match_tokens": []
         }
       ]
     },
@@ -10637,6 +10666,21 @@
           "match_tokens": [
             "choral",
             "polyphonic"
+          ]
+        },
+        {
+          "id": "voice_ensemble_nenets_narrator_assistant",
+          "name": "Nenets narrator with repeating assistant",
+          "auto": false,
+          "descriptors": [
+            "sung-narration",
+            "answering-assistant",
+            "line-repetition"
+          ],
+          "match_tokens": [
+            "sung-narration",
+            "answering-assistant",
+            "line-repetition"
           ]
         }
       ]

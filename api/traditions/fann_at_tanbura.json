@@ -3,68 +3,68 @@
   "name": "Fann at-Tanbura",
   "family": "global",
   "lineage": "Afro-Gulf ritual and entertainment music of Bahrain, Kuwait and the Saudi Eastern Province, carried by communities descended from East African and Sudanese people from the nineteenth century, centred on the six-string tanbura lyre played over a slow-building 6/8 or compound cycle, the mangūr goat-hoof rattle belt shaken by a dancer, tār frame drums, hand clapping and a leader's call answered by a heavy unison male chorus.",
-  "recipe": "classic early-1940s fann at-tanbura, ritual Devotional, Afro-diasporic branch, Sufi ritual devotional, middle east n African praise song shailat sufi munajat and naat. thick, declaimed, slow rate, interlocked note trading. diaspora strum and damp call-and-response tanbura kisir, continuous mangour hoof rattle, walnut bent frame canonical Iranian goat skin canonical Sufi hands layered tar frame drum, hand clap. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 505,
-  "score": 223.25,
+  "recipe": "classic early-1940s fann at-tanbura, ritual Devotional, Afro-diasporic branch, Sufi ritual devotional, middle east n African praise song sufi zikr chant sindhi. extended whistle, declaimed, slow rate, interlocked note trading. six string strum and damp call-and-response tanbura kisir, mangour hoof rattle, walnut bent frame canonical Iranian goat skin canonical Sufi hands layered tar frame drum, snappy to palm hand clap. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 515,
+  "score": 195.28,
   "config": {
     "traditions": [
       "fann_at_tanbura",
-      "shailat",
-      "sufi_munajat_naat"
+      "sufi_zikr_chant",
+      "sindhi"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_tradition": "qawwali_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.1949999999999994,
-          "voice_quality": 23.694999999999997,
+          "voice_register": 1.1049999999999998,
+          "voice_quality": 15.944999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.38,
-          "voice_articulation": 13.454999999999995,
-          "voice_microtone": 17.744999999999997,
-          "voice_tradition": 24.7,
-          "voice_mechanism_compound": 6.025,
-          "voice_estill_quality": 2.34,
-          "voice_speech_song": 21.514999999999997,
-          "voice_ensemble_config": 14.234999999999994,
-          "voice_ornament_system": 11.15,
-          "voice_pitch_organization": 7.5,
-          "voice_processing_chain": 6.825,
-          "voice_multitrack_stack": 4.875
+          "voice_articulation": 15.599999999999994,
+          "voice_microtone": 18.71999999999999,
+          "voice_tradition": 17.6475,
+          "voice_mechanism_compound": 2.145,
+          "voice_estill_quality": 2.7950000000000004,
+          "voice_speech_song": 20.214999999999996,
+          "voice_ensemble_config": 16.184999999999995,
+          "voice_ornament_system": 11.575000000000003,
+          "voice_pitch_organization": 3.870000000000001,
+          "voice_processing_chain": 8.59,
+          "voice_multitrack_stack": 4.745
         }
       },
       {
         "id": "tanbura_kisir",
         "slots": {
-          "tanbura_kisir_form": "tanbura_kisir_gulf_fann",
+          "tanbura_kisir_form": "tanbura_kisir_sudanese_zar",
           "tanbura_kisir_context": "tanbura_kisir_song_strum",
-          "tanbura_kisir_strings": "tanbura_kisir_strings_nylon",
-          "tanbura_kisir_bowl": "tanbura_kisir_bowl_metal_basin"
+          "tanbura_kisir_strings": "tanbura_kisir_strings_gut",
+          "tanbura_kisir_bowl": "tanbura_kisir_bowl_wood_hide"
         },
         "scores": {
-          "tanbura_kisir_form": 7.590000000000001,
-          "tanbura_kisir_context": 27.95,
-          "tanbura_kisir_strings": 0.6500000000000002,
-          "tanbura_kisir_bowl": 0.6500000000000002
+          "tanbura_kisir_form": 5.335,
+          "tanbura_kisir_context": 23.107499999999998,
+          "tanbura_kisir_strings": -0.035,
+          "tanbura_kisir_bowl": -0.05
         }
       },
       {
@@ -75,7 +75,7 @@
         },
         "scores": {
           "mangour_material": 1.6,
-          "mangour_motion": 2.0799999999999996
+          "mangour_motion": 0.39
         }
       },
       {
@@ -89,10 +89,10 @@
         },
         "scores": {
           "percussion_technique": 6.949999999999999,
-          "tar_size": 5.134999999999999,
-          "tar_frame_drum_context": 4.615,
-          "tar_frame_shell_wood": 3.38,
-          "tar_frame_head": 7.669999999999999
+          "tar_size": 3.7049999999999996,
+          "tar_frame_drum_context": 6.565000000000001,
+          "tar_frame_shell_wood": 2.535,
+          "tar_frame_head": 5.395
         }
       },
       {
@@ -102,7 +102,7 @@
           "clap_capture": "clap_close_dry"
         },
         "scores": {
-          "clap_technique": 0.845,
+          "clap_technique": 2.34,
           "clap_capture": 0.3
         }
       }

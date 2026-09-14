@@ -5,7 +5,7 @@
   "lineage": "Yoruba Muslim percussion-and-praise genre of southwestern Nigeria, developed in the 1930s-40s to rouse the faithful after Ramadan fasting and codified commercially by Haruna Ishola and Ayinla Omowura from the 1950s onward — a talking-drum ensemble of omele and sakara frame drums with agidigbo thumb-piano bass, agogo bell and shekere, moving in fast Yoruba dance metre under a lead praise-singer and chorus trading proverb-laden call-and-response in tonal Yoruba.",
   "recipe": "classic West African mid-1930s apala, praise Song, sub saharan African branch, middle east n African praise song, west African groove percussion balafon music shailat. thick, declaimed, fast rate, interlocked note trading. deep toned lead voice pitch bending talking bent pitch sakara dundun talking drum, deep box apala foundation responsorial melodic bass found metal agidigbo, foundational gourd bass rhythm calabash shekere, agogo, goje. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. passive ribbon, tube pre. direct-to-disc lacquer.",
   "recipe_chars": 572,
-  "score": 312.055,
+  "score": 311.335,
   "config": {
     "traditions": [
       "apala",
@@ -21,7 +21,7 @@
           "sakara_frame": "sakara_frame_clay"
         },
         "scores": {
-          "sakara_form": 15.295,
+          "sakara_form": 15.25,
           "sakara_stroke": 11.459999999999999,
           "sakara_frame": 8.625
         }
@@ -35,7 +35,7 @@
         },
         "scores": {
           "agidigbo_tradition": 12.485,
-          "agidigbo_playing": 11.37,
+          "agidigbo_playing": 11.145,
           "agidigbo_lamella": 8.399999999999999
         }
       },
@@ -57,8 +57,8 @@
           "shekere_beads": "shekere_cowrie"
         },
         "scores": {
-          "shekere_size": 3.38,
-          "shekere_beads": 8.639999999999999
+          "shekere_size": 3.125,
+          "shekere_beads": 8.489999999999998
         }
       },
       {
@@ -121,7 +121,7 @@
           "voice_speech_song": 28.665,
           "voice_ensemble_config": 24.635000000000005,
           "voice_ornament_system": 10.559999999999999,
-          "voice_pitch_organization": 9.859999999999998,
+          "voice_pitch_organization": 9.814999999999998,
           "voice_processing_chain": 5.07,
           "voice_multitrack_stack": 3.932500000000002
         }

@@ -44,14 +44,14 @@ CodexMusica turns a plain-language musical request — a genre, an era, a mood, 
 instrument — into a precise, structured recording recipe: the instruments,
 materials, room, signal chain, and per-instrument *prefaces* (named
 aesthetic/technique signatures) that define how to record it. Backed by a
-structured catalog spanning 2564 traditions and 1457 instruments. Read-only and
+structured catalog spanning 2588 traditions and 1467 instruments. Read-only and
 stateless; no account or personal data.
 
 ### Long description (≈120 words)
 
 CodexMusica is a recording-arrangement engine exposed as read-only tools. Its
-catalog places **2564 recorded-music traditions** in a 13-dimensional parameter
-space alongside **1457 instruments** (decomposed into per-part variants), **256
+catalog places **2588 recorded-music traditions** in a 13-dimensional parameter
+space alongside **1467 instruments** (decomposed into per-part variants), **256
 rooms**, **122 tunings**, and **741 "prefaces"** — named aesthetic/technique/
 delivery signatures (e.g. `satirical`, `keening`, `jhala-cascading`) that map
 *intent → physical settings*.

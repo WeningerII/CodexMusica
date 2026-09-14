@@ -5,7 +5,7 @@
   "lineage": "Dinka song traditions include personally authored songs and praise. This seed selects solo singing from a corpus that also documents group performers.",
   "recipe": "classic modern dinka personal and praise-song traditions, praise Song. dinka, solo unaccompanied. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 177,
-  "score": 3.461,
+  "score": 3.598,
   "config": {
     "traditions": [
       "dinka_song_traditions"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.51125,
+          "voice_ensemble_config": 1.64775,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

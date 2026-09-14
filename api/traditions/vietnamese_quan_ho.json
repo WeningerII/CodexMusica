@@ -3,14 +3,14 @@
   "name": "Vietnamese quan họ Bắc Ninh",
   "family": "global",
   "lineage": "Vietnamese quan họ Bắc Ninh antiphonal courtship-song tradition of the Bắc Ninh province, the Red River Delta region north of Hanoi. Performance involves paired female-and-male choral groups (liền chị women, liền anh men) from neighboring villages who exchange improvised verse-and-response over the course of a year of festival visits, with the courtship-exchange the formal narrative-arc of the repertoire. Vocal style features unaccompanied (originally — modern stage performance often adds chamber-ensemble accompaniment) two-or-three-voice female and male chorus in heterophonic-melodic-elaboration register, with characteristic Vietnamese pentatonic-modal vocabulary and the distinctive vibrato-ornament called nẩy hột (\"rice-grain vibrato,\" a precisely-articulated rapid pitch-and-amplitude wobble unique to quan họ vocal-aesthetic). Verse-forms draw on canonical four-line, six-eight-line, and seven-seven-six-eight Vietnamese poetic-meter structures. The forty-nine documented \"kết-chạ\" (sworn-sister-village) pair-relationships constitute the social-structural infrastructure of the tradition. Documentation records two hundred and forty-nine quan họ villages across the region. Distinguished from ca trù by quan họ's village-festival-collective (vs chamber-literary) functional context; distinguished from xoan (the adjacent ritual-village tradition) by quan họ's courtship-exchange (vs ancestor-veneration) functional framing; distinguished from southern Vietnamese đờn ca tài tử by northern Red-River-Delta dialect-specific cadential conventions.",
-  "recipe": "classic modern vietnamese quan họ bắc ninh, art Music, southeast Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 334,
-  "score": 261.39,
+  "recipe": "classic modern vietnamese quan họ bắc ninh, art Music, southeast Asian branch, indigenous ritual devotional mapuche tayil genealogical chant vietnamese hát xoan. vocal fry, breath veiled tone, straight note core, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 318,
+  "score": 236.7,
   "config": {
     "traditions": [
       "vietnamese_quan_ho",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "mapuche_tayil_ritual",
+      "vietnamese_hat_xoan"
     ],
     "instruments": [
       {
@@ -24,7 +24,7 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.29,
-          "voice_quality": 46.800000000000026,
+          "voice_register": 3.6399999999999997,
+          "voice_quality": 34.84,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.640000000000001,
-          "voice_articulation": 23.59499999999999,
-          "voice_microtone": 24.894999999999992,
-          "voice_tradition": 29.9,
-          "voice_mechanism_compound": 12.07,
-          "voice_estill_quality": 8.319999999999999,
-          "voice_speech_song": 28.08,
-          "voice_ensemble_config": 28.209999999999994,
-          "voice_ornament_system": 7.15,
-          "voice_pitch_organization": 17.33,
-          "voice_processing_chain": 21.904999999999998,
-          "voice_multitrack_stack": 7.9300000000000015
+          "voice_vibrato": 2.990000000000001,
+          "voice_articulation": 20.539999999999996,
+          "voice_microtone": 23.139999999999993,
+          "voice_tradition": 28.21,
+          "voice_mechanism_compound": 10.465,
+          "voice_estill_quality": 7.280000000000001,
+          "voice_speech_song": 25.024999999999995,
+          "voice_ensemble_config": 27.104999999999993,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 20.68,
+          "voice_processing_chain": 19.174999999999997,
+          "voice_multitrack_stack": 8.385000000000002
         }
       }
     ],

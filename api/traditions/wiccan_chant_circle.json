@@ -3,20 +3,20 @@
   "name": "Wiccan chant-circle incantation",
   "family": "global",
   "lineage": "Wiccan chant-circle incantation is the communal vocal practice of modern Wicca, the initiatory witchcraft religion codified by Gerald Gardner in England in the 1950s (Gardnerian tradition) and expanded through Alexandrian, Dianic, and later Reclaiming lineages. In circle, participants raise energy through repeated metrical chants — 'The Witches' Rune,' goddess-name chants such as the 'Isis Astarte' chant, and Reclaiming/Starhawk material like 'We Are a Circle' — sung in unison and accelerating toward a peak ('raising the cone of power'). Delivery is rhythmic, mantra-like, and group-based rather than soloistic, drawing on ceremonial-magic invocation and folk-revival song. The repertoire is documented in Gardner's Book of Shadows tradition and later published Wiccan liturgies.",
-  "recipe": "classic mid-1950s wiccan chant-circle incantation, ritual Devotional, indigenous branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, straight onset, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 317,
-  "score": 229.286,
+  "recipe": "classic mid-1950s wiccan chant-circle incantation, ritual Devotional, indigenous branch mapuche tayil genealogical chant ethiopian debtera liturgical incantation. thick, breath veiled tone, straight onset, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 311,
+  "score": 211.054,
   "config": {
     "traditions": [
       "wiccan_chant_circle",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "mapuche_tayil_ritual",
+      "ethiopian_debtera_incantation"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -25,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 4.745,
-          "voice_quality": 40.300000000000004,
+          "voice_register": 6.3500000000000005,
+          "voice_quality": 32.305,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4050000000000002,
-          "voice_articulation": 24.374999999999996,
-          "voice_microtone": 23.984999999999992,
-          "voice_tradition": 28.599999999999994,
-          "voice_mechanism_compound": 12.926000000000002,
-          "voice_estill_quality": 5.785,
-          "voice_speech_song": 27.56,
-          "voice_ensemble_config": 24.959999999999994,
-          "voice_ornament_system": 10.900000000000002,
-          "voice_pitch_organization": 2.665000000000001,
-          "voice_processing_chain": 16.835,
-          "voice_multitrack_stack": 5.720000000000001
+          "voice_vibrato": 1.56,
+          "voice_articulation": 23.399999999999995,
+          "voice_microtone": 25.544999999999995,
+          "voice_tradition": 25.805,
+          "voice_mechanism_compound": 7.126,
+          "voice_estill_quality": 4.160000000000001,
+          "voice_speech_song": 25.739999999999995,
+          "voice_ensemble_config": 24.179999999999996,
+          "voice_ornament_system": 10.025000000000002,
+          "voice_pitch_organization": 7.303,
+          "voice_processing_chain": 15.924999999999997,
+          "voice_multitrack_stack": 4.03
         }
       }
     ],

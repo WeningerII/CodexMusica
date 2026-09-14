@@ -3,24 +3,24 @@
   "name": "Druidic / neo-druid ritual invocation",
   "family": "global",
   "lineage": "Neo-druidic ritual invocation is a modern revival practice descending from the eighteenth- and nineteenth-century Druid revival, notably Iolo Morganwg's Barddas and the Gorsedd of Bards founded in 1792, and organized today through bodies such as the Ancient Order of Druids and the Order of Bards, Ovates and Druids. Ritual centers on spoken invocation of the quarters, the Druid's Prayer, and the sustained chanting of Awen (the three-syllable 'aah-ee-en' inspiration-sound) in an open-air ceremonial circle. While the ancient Iron-Age druids left no liturgical texts (their teaching being oral, per Caesar's Gallic War), the contemporary tradition draws on Welsh and Brythonic bardic material and eisteddfod ceremony. Delivery is declamatory heightened speech in English or Welsh, often responsorial with a group.",
-  "recipe": "classic early-1790s druidic / neo-druid ritual invocation, ritual Devotional, indigenous branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. balanced, breath veiled tone, straight onset, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 317,
-  "score": 240.041,
+  "recipe": "classic early-1790s druidic / neo-druid ritual invocation, ritual Devotional, indigenous branch ethiopian debtera liturgical incantation mapuche tayil genealogical chant. thick, breath veiled tone, breath pulsed, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 318,
+  "score": 220.63,
   "config": {
     "traditions": [
       "druidic_invocation",
-      "shipibo_icaros",
+      "ethiopian_debtera_incantation",
       "mapuche_tayil_ritual"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "mix_voice",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 1.6315,
-          "voice_quality": 47.06000000000003,
+          "voice_register": 4.050000000000001,
+          "voice_quality": 39.06500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4050000000000002,
-          "voice_articulation": 26.455000000000005,
-          "voice_microtone": 26.065000000000005,
-          "voice_tradition": 20.929999999999996,
-          "voice_mechanism_compound": 12.906500000000001,
-          "voice_estill_quality": 8.32,
-          "voice_speech_song": 29.250000000000007,
-          "voice_ensemble_config": 27.040000000000006,
-          "voice_ornament_system": 10.900000000000002,
-          "voice_pitch_organization": 4.268000000000001,
-          "voice_processing_chain": 20.604999999999997,
-          "voice_multitrack_stack": 4.030000000000001
+          "voice_vibrato": 1.69,
+          "voice_articulation": 25.480000000000008,
+          "voice_microtone": 27.625000000000004,
+          "voice_tradition": 18.134999999999998,
+          "voice_mechanism_compound": 7.1065000000000005,
+          "voice_estill_quality": 5.98,
+          "voice_speech_song": 27.430000000000007,
+          "voice_ensemble_config": 26.26000000000001,
+          "voice_ornament_system": 10.025000000000002,
+          "voice_pitch_organization": 7.303,
+          "voice_processing_chain": 19.694999999999997,
+          "voice_multitrack_stack": 2.535
         }
       }
     ],

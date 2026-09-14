@@ -2573,6 +2573,30 @@
   <url><loc>https://codexmusica.com/api/traditions/lirrga.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/junba_balga.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/djanba.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/famo.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/mohobelo.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/litolobonya.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/intore_music.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/burundi_royal_drum_ritual.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/moutya.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/tchiloli_music.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/nenets_syudbabc.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/nenets_yarabc.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/nenets_personal_song.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/nganasan_personal_song.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/nganasan_keingeirsya.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/palauan_chesols.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/palauan_ruk.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/terchova_music.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/horehronie_multipart_singing.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/bigwala_music.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/madi_bowl_lyre_music.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/chopi_timbila_music.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/gule_wamkulu_music.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/haida_welcome_song.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/shuar_anent.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/shuar_nampet.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/al_ayyala.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/choir_ensemble.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/griot_voice.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/pansori_voice.json</loc></url>
@@ -4030,4 +4054,14 @@
   <url><loc>https://codexmusica.com/api/instruments/hiragasy_drums.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/awasa_drums.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/dyas_tapu_patu.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/sekupu_litolobonya.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/signal_whistle.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/burundi_royal_drums.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/moutya_drum_trio.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/tchiloli_bamboo_flute.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/sucalo.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/terchova_two_string_bass.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/bigwala_trumpets.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/madi_odi.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/ayyala_percussion.json</loc></url>
 </urlset>

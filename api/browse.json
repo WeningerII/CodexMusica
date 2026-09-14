@@ -1,6 +1,6 @@
 {
   "name": "Codex Musica — browse index (Tier-1 data for the lazy-loaded app)",
-  "generated": "2026-09-13",
+  "generated": "2026-09-14",
   "axisKeys": [
     "harm",
     "pitch",
@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 2564,
+  "count": 2588,
   "items": [
     {
       "id": "honky_tonk",
@@ -104932,6 +104932,726 @@
       "description": "Wadeye choral song-dance with clapsticks and handclaps. Djanba uses no didjeridu accompaniment.",
       "exemplars": [
         "Sally Treloyn / ANU Press, Circulating Cultures — Cross and Square: Varieties of Song in Northern Australia"
+      ]
+    },
+    {
+      "id": "famo",
+      "name": "Famo (Basotho accordion song)",
+      "family": "global",
+      "lineage": "Basotho famo; a selected voice, accordion and drum arrangement of Lesotho’s popular song tradition.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        1,
+        0,
+        -1,
+        1,
+        2,
+        0,
+        0,
+        0,
+        2,
+        0,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "accordion",
+        "acoustic_membrane_drum"
+      ],
+      "description": "Basotho famo; a selected voice, accordion and drum arrangement of Lesotho’s popular song tradition.",
+      "exemplars": [
+        "Mpho Molikeng — Traditional music in Lesotho"
+      ]
+    },
+    {
+      "id": "mohobelo",
+      "name": "Mohobelo (Basotho men’s dance song)",
+      "family": "global",
+      "lineage": "Basotho men’s mohobelo dance song; a selected communal singing and clapping arrangement, with movement-led rhythm.",
+      "parent": "praiseSong.subSaharanAfrican",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "hand_clap"
+      ],
+      "description": "Basotho men’s mohobelo dance song; a selected communal singing and clapping arrangement, with movement-led rhythm.",
+      "exemplars": [
+        "Mpho Molikeng — Traditional music in Lesotho"
+      ]
+    },
+    {
+      "id": "litolobonya",
+      "name": "Litolobonya (Basotho women’s song and dance)",
+      "family": "global",
+      "lineage": "Basotho women’s and girls’ litolobonya; group singing with sekupu tin drum and whistle cues.",
+      "parent": "domesticRhythm.subSaharanAfrican",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "sekupu_litolobonya",
+        "signal_whistle"
+      ],
+      "description": "Basotho women’s and girls’ litolobonya; group singing with sekupu tin drum and whistle cues.",
+      "exemplars": [
+        "Malefetsane Soai — Litolobonya music in Lesotho"
+      ]
+    },
+    {
+      "id": "intore_music",
+      "name": "Intore (Rwandan musical performance)",
+      "family": "global",
+      "lineage": "Rwandan Intore performance music; drums support sung praise and poetry with coordinated dance. Drum construction and ensemble count are unspecified.",
+      "parent": "praiseSong.subSaharanAfrican",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_membrane_drum"
+      ],
+      "description": "Rwandan Intore performance music; drums support sung praise and poetry with coordinated dance. Drum construction and ensemble count are unspecified.",
+      "exemplars": [
+        "UNESCO — Intore"
+      ]
+    },
+    {
+      "id": "burundi_royal_drum_ritual",
+      "name": "Burundi royal drum ritual repertoire",
+      "family": "global",
+      "lineage": "Burundian royal-drum ritual performance combines synchronized drum patterns, dance, heroic poetry and traditional songs.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        -2,
+        2,
+        2,
+        0,
+        2,
+        1
+      ],
+      "instruments": [
+        "burundi_royal_drums",
+        "voice"
+      ],
+      "description": "Burundian royal-drum ritual performance combines synchronized drum patterns, dance, heroic poetry and traditional songs.",
+      "exemplars": [
+        "UNESCO — Ritual dance of the royal drum"
+      ]
+    },
+    {
+      "id": "moutya",
+      "name": "Moutya (Seychelles)",
+      "family": "global",
+      "lineage": "Seychellois Moutya; men introduce topical verses and women answer over three goat-hide drums in a communal dance setting.",
+      "parent": "groovePercussion.centralEastSouthAfrican",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "moutya_drum_trio"
+      ],
+      "description": "Seychellois Moutya; men introduce topical verses and women answer over three goat-hide drums in a communal dance setting.",
+      "exemplars": [
+        "UNESCO — Moutya",
+        "UNESCO — Decision 14.COM 10.b.32 (Moutya drums)"
+      ]
+    },
+    {
+      "id": "tchiloli_music",
+      "name": "Tchiloli (instrumental theatre repertoire)",
+      "family": "global",
+      "lineage": "São Tomé Tchiloli theatre music; selected instrumental scene accompaniment with bamboo flutes, drums and seed-basket sucalos. Spoken dramatic dialogue is outside this configuration.",
+      "parent": "carnivalProcessional",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        -2,
+        0,
+        -2,
+        0,
+        2,
+        1
+      ],
+      "instruments": [
+        "tchiloli_bamboo_flute",
+        "acoustic_membrane_drum",
+        "sucalo"
+      ],
+      "description": "São Tomé Tchiloli theatre music; selected instrumental scene accompaniment with bamboo flutes, drums and seed-basket sucalos. Spoken dramatic dialogue is outside this configuration.",
+      "exemplars": [
+        "Marta Lança — Solemn Gestures on the Sandy Ground",
+        "BUALA — Tchiloli of S.Tomé or Charlemagne in Africa"
+      ]
+    },
+    {
+      "id": "nenets_syudbabc",
+      "name": "Nenets syudbabc (heroic narrative song)",
+      "family": "global",
+      "lineage": "Tundra Nenets syudbabc heroic narrative; selected sung narrator with a repeating or commenting assistant. Epic performance roles are distinct from personal song.",
+      "parent": "balladPoetry",
+      "axes": [
+        -1,
+        1,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Tundra Nenets syudbabc heroic narrative; selected sung narrator with a repeating or commenting assistant. Epic performance roles are distinct from personal song.",
+      "exemplars": [
+        "Karina Lukin — Matthias Alexander Castrén’s notes on Nenets folklore (2017), pp. 181–183, 199–201"
+      ]
+    },
+    {
+      "id": "nenets_yarabc",
+      "name": "Nenets yarabc (first-person narrative song)",
+      "family": "global",
+      "lineage": "Tundra Nenets yarabc; first-person narrative song, modeled with sung narration and an answering assistant. Genre boundaries vary between performers and collectors.",
+      "parent": "balladPoetry",
+      "axes": [
+        -1,
+        1,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Tundra Nenets yarabc; first-person narrative song, modeled with sung narration and an answering assistant. Genre boundaries vary between performers and collectors.",
+      "exemplars": [
+        "Karina Lukin — Matthias Alexander Castrén’s notes on Nenets folklore (2017), pp. 181–183, 199–201"
+      ]
+    },
+    {
+      "id": "nenets_personal_song",
+      "name": "Nenets personal song repertoire",
+      "family": "global",
+      "lineage": "Nenets individual song; selected unaccompanied voice carrying a personal melody and text, distinct from the heroic narrative genres.",
+      "parent": "balladPoetry",
+      "axes": [
+        -1,
+        1,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Nenets individual song; selected unaccompanied voice carrying a personal melody and text, distinct from the heroic narrative genres.",
+      "exemplars": [
+        "Karina Lukin — Matthias Alexander Castrén’s notes on Nenets folklore (2017), pp. 181–183, 199–201"
+      ]
+    },
+    {
+      "id": "nganasan_personal_song",
+      "name": "Nganasan personal songs (hankudya baly)",
+      "family": "global",
+      "lineage": "Nganasan autobiographical hankudya baly; a selected solo personal song anchored to documented performance in Ust-Avam.",
+      "parent": "balladPoetry",
+      "axes": [
+        -1,
+        1,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Nganasan autobiographical hankudya baly; a selected solo personal song anchored to documented performance in Ust-Avam.",
+      "exemplars": [
+        "Triinu Ojamaa — The Story of Life in Music: Autobiographical Songs of the Nganasans"
+      ]
+    },
+    {
+      "id": "nganasan_keingeirsya",
+      "name": "Nganasan keingeirsya (sung dialogue)",
+      "family": "global",
+      "lineage": "Nganasan keingeirsya; selected two-person sung dialogue from the documented genre, which also includes monologue performances.",
+      "parent": "balladPoetry",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Nganasan keingeirsya; selected two-person sung dialogue from the documented genre, which also includes monologue performances.",
+      "exemplars": [
+        "University of Hamburg INEL — Keingeirsya, a unique genre of Nganasan folklore"
+      ]
+    },
+    {
+      "id": "palauan_chesols",
+      "name": "Palauan chesóls (solo chant)",
+      "family": "global",
+      "lineage": "Palauan chesóls; a selected unaccompanied solo chant configuration documented in the study Music Worlding in Palau.",
+      "parent": "balladPoetry",
+      "axes": [
+        -1,
+        1,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Palauan chesóls; a selected unaccompanied solo chant configuration documented in the study Music Worlding in Palau.",
+      "exemplars": [
+        "Birgit Abels — Music Worlding in Palau, Introduction",
+        "Birgit Abels — Music Worlding in Palau (2022)"
+      ]
+    },
+    {
+      "id": "palauan_ruk",
+      "name": "Palauan ruk performance repertoire",
+      "family": "global",
+      "lineage": "Palauan ruk; selected group vocal calls and hand percussion illustrating the documented layered vocal and bodily rhythms. The clapping card is a limited selection from the wider body-percussion practice.",
+      "parent": "praiseSong.oceaniaPacific",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "hand_clap"
+      ],
+      "description": "Palauan ruk; selected group vocal calls and hand percussion illustrating the documented layered vocal and bodily rhythms. The clapping card is a limited selection from the wider body-percussion practice.",
+      "exemplars": [
+        "Birgit Abels — Music Worlding in Palau (2022)"
+      ]
+    },
+    {
+      "id": "terchova_music",
+      "name": "Music of Terchová (string ensemble)",
+      "family": "global",
+      "lineage": "Terchová music; selected small bowed-string ensemble and group singing, retaining the distinctive small two-string bass. The fiddle card represents the upper-string section; the alternative accordion ensemble is not combined here.",
+      "parent": "groovePercussion",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "fiddle",
+        "terchova_two_string_bass",
+        "voice"
+      ],
+      "description": "Terchová music; selected small bowed-string ensemble and group singing, retaining the distinctive small two-string bass. The fiddle card represents the upper-string section; the alternative accordion ensemble is not combined here.",
+      "exemplars": [
+        "UNESCO — Music of Terchová"
+      ]
+    },
+    {
+      "id": "horehronie_multipart_singing",
+      "name": "Horehronie multipart singing",
+      "family": "global",
+      "lineage": "Horehronie unaccompanied multipart singing; a leader introduces changing melodic material and a chorus answers with relatively stable parts.",
+      "parent": "fieldWork.slavicBalkan",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Horehronie unaccompanied multipart singing; a leader introduces changing melodic material and a chorus answers with relatively stable parts.",
+      "exemplars": [
+        "UNESCO — Multipart singing of Horehronie"
+      ]
+    },
+    {
+      "id": "bigwala_music",
+      "name": "Bigwala (Busoga trumpet music and dance)",
+      "family": "global",
+      "lineage": "Busoga Bigwala; five or more single-tone gourd trumpets interlock into a melody with accompanying drums, singing and dance. The trumpet card represents the ensemble.",
+      "parent": "groovePercussion.centralEastSouthAfrican",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        2,
+        1
+      ],
+      "instruments": [
+        "bigwala_trumpets",
+        "acoustic_membrane_drum",
+        "voice"
+      ],
+      "description": "Busoga Bigwala; five or more single-tone gourd trumpets interlock into a melody with accompanying drums, singing and dance. The trumpet card represents the ensemble.",
+      "exemplars": [
+        "UNESCO — Bigwala, gourd trumpet music and dance of the Busoga Kingdom in Uganda"
+      ]
+    },
+    {
+      "id": "madi_bowl_lyre_music",
+      "name": "Ma’di bowl-lyre music and dance",
+      "family": "global",
+      "lineage": "Ma’di O’di song and dance repertoire; selected voice with the five-string plucked bowl lyre, used across social and ceremonial occasions.",
+      "parent": "balladPoetry",
+      "axes": [
+        -1,
+        1,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "madi_odi"
+      ],
+      "description": "Ma’di O’di song and dance repertoire; selected voice with the five-string plucked bowl lyre, used across social and ceremonial occasions.",
+      "exemplars": [
+        "UNESCO — Ma’di bowl lyre music and dance",
+        "Uganda inventory — O’di (five-stringed bowl lyre)"
+      ]
+    },
+    {
+      "id": "chopi_timbila_music",
+      "name": "Chopi timbila orchestral music",
+      "family": "global",
+      "lineage": "Chopi timbila orchestral repertoire; graduated-register wooden xylophones interlock over buzzing gourd resonators. This selected configuration includes the sung m’zeno section within the wider performance.",
+      "parent": "groovePercussion.centralEastSouthAfrican",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        2,
+        1
+      ],
+      "instruments": [
+        "timbila",
+        "voice"
+      ],
+      "description": "Chopi timbila orchestral repertoire; graduated-register wooden xylophones interlock over buzzing gourd resonators. This selected configuration includes the sung m’zeno section within the wider performance.",
+      "exemplars": [
+        "UNESCO — Chopi timbila"
+      ]
+    },
+    {
+      "id": "gule_wamkulu_music",
+      "name": "Gule Wamkulu (Chewa musical repertoire)",
+      "family": "global",
+      "lineage": "Chewa Gule Wamkulu performance music; selected singing and drum accompaniment for masked dance. The practice extends across Malawi, Zambia and Mozambique; this anchor is not an exclusive origin claim.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_membrane_drum"
+      ],
+      "description": "Chewa Gule Wamkulu performance music; selected singing and drum accompaniment for masked dance. The practice extends across Malawi, Zambia and Mozambique; this anchor is not an exclusive origin claim.",
+      "exemplars": [
+        "UNESCO — Gule Wamkulu"
+      ]
+    },
+    {
+      "id": "haida_welcome_song",
+      "name": "Haida welcome-song repertoire (archive recital)",
+      "family": "global",
+      "lineage": "Haida welcome-song repertoire; selected solo archive recital represented by the Folkways recording of a welcome dance for Edenshaw’s potlatch. This does not prescribe the full ceremonial ensemble.",
+      "parent": "praiseSong",
+      "axes": [
+        -1,
+        1,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Haida welcome-song repertoire; selected solo archive recital represented by the Folkways recording of a welcome dance for Edenshaw’s potlatch. This does not prescribe the full ceremonial ensemble.",
+      "exemplars": [
+        "Smithsonian Folkways — Florence Davidson, FD 6: Welcome dance for Edenshaw’s potlatch"
+      ]
+    },
+    {
+      "id": "shuar_anent",
+      "name": "Shuar anent",
+      "family": "global",
+      "lineage": "Shuar anent; selected unaccompanied intimate ritual song, distinguished from the festive nampet repertoire. This models vocal delivery and does not reproduce restricted texts or claim ritual efficacy.",
+      "parent": "ritualDevotional.indigenous.amazonian",
+      "axes": [
+        -1,
+        1,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Shuar anent; selected unaccompanied intimate ritual song, distinguished from the festive nampet repertoire. This models vocal delivery and does not reproduce restricted texts or claim ritual efficacy.",
+      "exemplars": [
+        "Raquel Antun Tsamaraint — Chicham, Sabiduría, Arte y Voz desde la Nacionalidad Shuar"
+      ]
+    },
+    {
+      "id": "shuar_nampet",
+      "name": "Shuar nampet",
+      "family": "global",
+      "lineage": "Shuar nampet; selected vocal-only festive song recital. Instruments documented elsewhere in Shuar culture are not automatically assigned to this performance.",
+      "parent": "balladPoetry",
+      "axes": [
+        -1,
+        1,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Shuar nampet; selected vocal-only festive song recital. Instruments documented elsewhere in Shuar culture are not automatically assigned to this performance.",
+      "exemplars": [
+        "Raquel Antun Tsamaraint — Chicham, Sabiduría, Arte y Voz desde la Nacionalidad Shuar"
+      ]
+    },
+    {
+      "id": "al_ayyala",
+      "name": "Al-Ayyala (Oman and UAE)",
+      "family": "global",
+      "lineage": "Al-Ayyala of Oman and the UAE; facing rows chant poetry to large and small drums, tambourines and brass cymbals. The anchor represents a shared cross-border practice.",
+      "parent": "praiseSong.middleEastNAfrican",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "ayyala_percussion"
+      ],
+      "description": "Al-Ayyala of Oman and the UAE; facing rows chant poetry to large and small drums, tambourines and brass cymbals. The anchor represents a shared cross-border practice.",
+      "exemplars": [
+        "UNESCO — Al-Ayyala, a traditional performing art of Oman and the UAE",
+        "Sharjah Institute for Heritage — About Al-Ayyala"
       ]
     }
   ]

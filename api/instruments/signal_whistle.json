@@ -1,0 +1,64 @@
+{
+  "id": "signal_whistle",
+  "name": "Signal whistle (dance cue)",
+  "short": "signal whistle",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 2,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "signal_whistle_form",
+      "name": "Documented form",
+      "variants": [
+        {
+          "id": "signal_whistle_documented",
+          "name": "Documented configuration",
+          "default": true,
+          "descriptors": [
+            "blown",
+            "high-pitched",
+            "short-signals"
+          ],
+          "match_tokens": [
+            "blown",
+            "high-pitched",
+            "short-signals"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "signal_whistle_form",
+      "name": "Documented form",
+      "variants": [
+        {
+          "id": "signal_whistle_documented",
+          "name": "Documented configuration",
+          "default": true,
+          "descriptors": [
+            "blown",
+            "high-pitched",
+            "short-signals"
+          ],
+          "match_tokens": [
+            "blown",
+            "high-pitched",
+            "short-signals"
+          ]
+        }
+      ]
+    }
+  ]
+}

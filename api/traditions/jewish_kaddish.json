@@ -3,14 +3,14 @@
   "name": "Jewish Kaddish mourner recitation",
   "family": "global",
   "lineage": "The Kaddish is a doxology in Aramaic and Hebrew central to Jewish liturgy, its best-known form the Mourner's Kaddish (Kaddish Yatom) recited by the bereaved during the eleven months of mourning and on the yahrzeit. The text sanctifies God's name and, notably, contains no mention of death; it is delivered by the mourner in a rapid, low, rhythmic spoken flow, with the congregation answering the responsorial refrain 'Yehei shmei rabba mevarach.' Its melodic contours vary by rite (Ashkenazi, Sephardi, Yemenite) but the mourner's form leans toward recitation rather than song. The tradition is documented across the siddur manuscript tradition and centuries of synagogue practice.",
-  "recipe": "classic Middle Eastern modern jewish kaddish mourner recitation, ritual Devotional, Jewish branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. mediterranean sephardi synagogue. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 341,
-  "score": 215.135,
+  "recipe": "classic Middle Eastern modern jewish kaddish mourner recitation, ritual Devotional, Jewish branch mapuche tayil genealogical chant islamic khutbah sermon. vocal fry, breath veiled tone, straight note core, interlocked note trading. mediterranean sephardi synagogue. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 328,
+  "score": 188.688,
   "config": {
     "traditions": [
       "jewish_kaddish",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "mapuche_tayil_ritual",
+      "islamic_khutbah_sermon"
     ],
     "instruments": [
       {
@@ -24,32 +24,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.9899999999999998,
-          "voice_quality": 48.75000000000004,
+          "voice_register": 3.185,
+          "voice_quality": 38.22000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.5803750000000005,
-          "voice_articulation": 19.694999999999997,
-          "voice_microtone": 19.304999999999993,
-          "voice_tradition": 23.009999999999994,
-          "voice_mechanism_compound": 8.825000000000001,
-          "voice_estill_quality": 9.165,
-          "voice_speech_song": 22.879999999999995,
-          "voice_ensemble_config": 20.279999999999998,
-          "voice_ornament_system": 10.900000000000002,
-          "voice_pitch_organization": 2.665000000000001,
-          "voice_processing_chain": 17.224999999999998,
-          "voice_multitrack_stack": 8.989375
+          "voice_vibrato": 3.7303750000000004,
+          "voice_articulation": 18.72,
+          "voice_microtone": 22.685,
+          "voice_tradition": 20.214999999999996,
+          "voice_mechanism_compound": 5.525,
+          "voice_estill_quality": 6.175,
+          "voice_speech_song": 21.904999999999998,
+          "voice_ensemble_config": 18.654999999999998,
+          "voice_ornament_system": 12.350000000000001,
+          "voice_pitch_organization": 2.827500000000001,
+          "voice_processing_chain": 11.244999999999996,
+          "voice_multitrack_stack": 7.8
         }
       }
     ],

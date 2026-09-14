@@ -5,7 +5,7 @@
   "lineage": "The slow, measured style of Qur'anic recitation codified in the tajwīd manuals of the classical era and standardized through 20th-century Egyptian and Saudi broadcast and cassette masters such as Mahmoud Khalil Al-Husary and Abdul Basit — unaccompanied solo male voice at roughly 40-60 syllables per minute, strict elongation (madd) rules governing duration, restrained maqam contour, and long breath-defined phrases separated by silence.",
   "recipe": "classic North African early-1940s qur'an murattal, ritual Devotional, islamic branch, intimate voice spoken word, middle east n African praise song arabic madh and qasida sufi munajat and naat. extended whistle, declaimed, slow rate, interlocked note trading. three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. stone plaster medina room. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
   "recipe_chars": 523,
-  "score": 225.246,
+  "score": 225.826,
   "config": {
     "traditions": [
       "quran_murattal",
@@ -40,10 +40,10 @@
           "voice_effort": 0,
           "voice_vibrato": 11.8285,
           "voice_articulation": 13.194999999999997,
-          "voice_microtone": 29.194999999999993,
+          "voice_microtone": 29.611999999999995,
           "voice_tradition": 20.539999999999996,
           "voice_mechanism_compound": 12.425,
-          "voice_estill_quality": 9.717499999999998,
+          "voice_estill_quality": 9.880999999999997,
           "voice_speech_song": 21.644999999999992,
           "voice_ensemble_config": 16.314999999999994,
           "voice_ornament_system": 18.362999999999996,

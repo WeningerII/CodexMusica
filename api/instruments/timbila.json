@@ -56,6 +56,21 @@
             "xylophone",
             "bass"
           ]
+        },
+        {
+          "id": "timbila_orchestra_registers",
+          "name": "Graduated-register Chopi timbila orchestra",
+          "auto": false,
+          "descriptors": [
+            "graduated-registers",
+            "interlocking",
+            "xylophone-ensemble"
+          ],
+          "match_tokens": [
+            "graduated-registers",
+            "interlocking",
+            "xylophone-ensemble"
+          ]
         }
       ]
     },
@@ -160,6 +175,21 @@
           "match_tokens": [
             "xylophone",
             "bass"
+          ]
+        },
+        {
+          "id": "timbila_orchestra_registers",
+          "name": "Graduated-register Chopi timbila orchestra",
+          "auto": false,
+          "descriptors": [
+            "graduated-registers",
+            "interlocking",
+            "xylophone-ensemble"
+          ],
+          "match_tokens": [
+            "graduated-registers",
+            "interlocking",
+            "xylophone-ensemble"
           ]
         }
       ]

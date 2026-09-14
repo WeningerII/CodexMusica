@@ -5,7 +5,7 @@
   "lineage": "Northern Malawian social dance with one large drum and two smaller drums. There is no singing; a whistle and spoken directions may supplement the drums.",
   "recipe": "classic modern mwinoghe, groove Percussion, central east south African branch. drum pulse resonant ingina, paired drums resonant twana perekete. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 224,
-  "score": 10.527,
+  "score": 10.664,
   "config": {
     "traditions": [
       "mwinoghe"
@@ -29,7 +29,7 @@
           "twana_perekete_gesture": "twana_perekete_gesture_resonant"
         },
         "scores": {
-          "twana_perekete_setup": 4.324833333333333,
+          "twana_perekete_setup": 4.461333333333333,
           "twana_perekete_gesture": 1.69
         }
       }
