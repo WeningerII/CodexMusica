@@ -41,6 +41,7 @@ import math
 import os
 import random
 import sys
+from bisect import bisect_right
 from collections import Counter
 from dataclasses import dataclass, field
 
@@ -153,24 +154,20 @@ class TimeDeclaration:
     #: theta_coda 0.80) the SAME two measurements are 0.055 and 0.226, so 0.25
     #: silently stopped firing and doctrine 28's tripwire was dead.
     #:
-    #: RE-MEASURED 2026-08-11 on 30 Shakespeare sonnets, tail-aligned,
-    #: theta_coda=0.80, theta=0.80, window=32, null_samples=20000
-    #: (`python3 quality/fwer_family.py --calibrate`):
-    #:     band-pass  min 0.042  p50 0.055  p95 0.073  max 0.076
-    #: The rule, stated so the next band change is a re-run and not a guess:
-    #: **twice the measured maximum over real verse**, 2 x 0.076 = 0.152.
-    #: It is derived from the real-verse distribution ALONE -- the degenerate
-    #: fixture's 0.226 clearing it is a result of the calibration, not an input
-    #: to it, which is the difference between calibrating and tuning.
-    max_null_band_pass: float = 0.152
-    #: CALIBRATION PROVENANCE for the line above, so it is never again quoted
-    #: without its setting.
+    #: RE-MEASURED 2026-09-14 after correcting cross-line word occurrence
+    #: identity, using the unchanged rule: twice the maximum null band-pass
+    #: rate over the first 30 Shakespeare sonnets. Tail alignment,
+    #: theta_coda=0.80, theta=0.80, window=32, null_samples=20000,
+    #: seed=20260810. Observed min=0.0231, max=0.0562; 2*max=0.1124.
+    #: The saturated control is an evaluation, never a calibration input.
+    #: Previous 0.152 described the earlier occurrence predicate.
+    max_null_band_pass: float = 0.1124
     max_null_band_pass_basis: str = (
-        "2 x max over 30 Shakespeare sonnets = 2 x 0.076, measured 2026-08-11 "
-        "at alignment=tail, theta_coda=0.80, theta=0.80, window=32, "
-        "null_samples=20000. Re-run quality/fwer_family.py --calibrate after "
-        "ANY change to the band; the previous value 0.25 was the same "
-        "quantity measured at alignment=head, theta_coda=0.60.")
+        "2 x max over 30 Shakespeare sonnets = 2 x 0.0562, measured 2026-09-14 "
+        "with word identity=(line,widx), alignment=tail, theta_coda=0.80, "
+        "theta=0.80, window=32, null_samples=20000, seed=20260810. "
+        "Re-run quality/fwer_family.py --calibrate after ANY change to the "
+        "band or candidate/null population. Previous value: 0.152.")
     n_perm: int = 2000
     seed: int = 20260810
     isochrony: str = ("ASSUMED, not measured. Grid positions are evenly "
@@ -178,6 +175,28 @@ class TimeDeclaration:
                       "the stress grid than the syllable grid, and less wrong "
                       "for rap over short spans than for sung verse over long "
                       "ones. Every result below is conditional on it.")
+
+    def __post_init__(self):
+        for name, choices in (("grid_unit", ("stress", "syllable")),
+                              ("correction", ("none", "sidak", "bonferroni", "bh")),
+                              ("family", ("candidate", "scored"))):
+            if getattr(self, name) not in choices:
+                raise ValueError(f"{name} must be one of {choices}")
+        for name, minimum in (("max_span", 1), ("window", 0),
+                              ("null_samples", 1), ("n_perm", 1)):
+            value = getattr(self, name)
+            if type(value) is not int or value < minimum:
+                raise ValueError(f"{name} must be an integer >= {minimum}")
+        if not self.periods or any(type(p) is not int or p < 1 for p in self.periods):
+            raise ValueError("periods must be nonempty positive integers")
+        for name in ("alpha", "q", "theta", "max_saturation", "max_null_band_pass"):
+            value = getattr(self, name)
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+                raise ValueError(f"{name} must be finite")
+        if not 0 < self.alpha < 1 or not 0 < self.q < 1:
+            raise ValueError("alpha and q must lie strictly between 0 and 1")
+        if self.max_saturation <= 0 or self.max_null_band_pass < 0:
+            raise ValueError("saturation ceiling must be positive and null ceiling nonnegative")
 
 
 # ---------------------------------------------------------------------------
@@ -236,18 +255,27 @@ def _candidate_pairs(stream, tdecl):
     for a, b in spans:
         by_start.setdefault(a, []).append((a, b))
     out = []
+    owners = {span: _word_occurrences(stream, span) for span in spans}
     for a, b in spans:
-        for c in starts:
-            if c <= a or c - a > tdecl.window:
-                continue
+        for c in starts[bisect_right(starts, a):
+                        bisect_right(starts, a + tdecl.window)]:
             for (c2, d) in by_start.get(c, ()):
                 if c2 < b:
                     continue          # overlapping spans are not a relation
-                if {x["widx"] for x in stream[a:b]} & \
-                        {x["widx"] for x in stream[c2:d]}:
+                if owners[a, b] & owners[c2, d]:
                     continue          # a word cannot rhyme with itself
                 out.append(((a, b), (c2, d)))
     return out
+
+
+def _word_occurrences(stream, span):
+    """Word indices are local to a line; identity needs both coordinates.
+
+    A caller's single-line stream may omit `line`. The same occurrence
+    test must constrain the observed candidates and the shuffled null.
+    """
+    return frozenset((s.get("line", 0), s["widx"])
+                     for s in stream[span[0]:span[1]])
 
 
 def _raw_score(stream, sa, sb, decl, comparator):
@@ -282,6 +310,8 @@ def null_scores(stream, pairs, decl, tdecl, comparator=None):
         return [], 0
     left = [p[0] for p in pairs]
     right = [p[1] for p in pairs]
+    owners = {span: _word_occurrences(stream, span)
+              for span in set(left) | set(right)}
     rng = random.Random(tdecl.seed ^ 0x5EED)
     out, n_valid, tries = [], 0, 0
     limit = tdecl.null_samples * 20
@@ -291,8 +321,7 @@ def null_scores(stream, pairs, decl, tdecl, comparator=None):
         sb = right[rng.randrange(len(right))]
         if sa == sb or max(sa[0], sb[0]) < min(sa[1], sb[1]):
             continue                      # not a valid pair at all: redraw
-        if {x["widx"] for x in stream[sa[0]:sa[1]]} & \
-                {x["widx"] for x in stream[sb[0]:sb[1]]}:
+        if owners[sa] & owners[sb]:
             continue
         n_valid += 1
         v = _raw_score(stream, sa, sb, decl, comparator)
@@ -342,11 +371,29 @@ def _m_needed(min_p, alpha, correction="sidak"):
     """
     if min_p >= 1.0 or min_p <= 0.0:
         return 0
-    if correction == "bonferroni":
-        return int(alpha / min_p)
-    if min_p >= alpha:
+    if min_p > alpha:
         return 0
-    return int(math.log(1.0 - alpha) / math.log(1.0 - min_p))
+    ratio = (alpha / min_p if correction == "bonferroni" else
+             math.log1p(-alpha) / math.log1p(-min_p))
+    # The logarithmic inverse can round just below an integer (91 ->
+    # 90.99999999999999). Resolve the integer boundary using the SAME
+    # forward inequality that admits an event. Binary search also avoids
+    # a linear walk through float plateaus at very large family sizes.
+    lo, hi = 0, math.ceil(ratio) + 1
+    while _fwer_cut(alpha, hi, correction) >= min_p:
+        hi *= 2
+    while lo + 1 < hi:
+        mid = (lo + hi) // 2
+        if _fwer_cut(alpha, mid, correction) >= min_p:
+            lo = mid
+        else:
+            hi = mid
+    return lo
+
+
+def _fwer_cut(alpha, m, correction):
+    """Stable Sidak subtraction, also at tiny declared alpha or large m."""
+    return alpha / m if correction == "bonferroni" else -math.expm1(math.log1p(-alpha) / m)
 
 
 def _bh(pvals, q, n=None):
@@ -452,48 +499,26 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
 
     events = set()
     if tdecl.correction == "bh":
-        # RESOLUTION GUARD. BH's threshold for the top-ranked p-value is
-        # q/n, and n here is ~10^4 candidate pairs, so it needs a tail
-        # resolved to ~1e-5. The empirical null resolves to 1/(N+1) = 5e-5,
-        # which is coarser -- so whether anything is discovered depends on
-        # how many pairs happen to pile up on the resolution floor, not on
-        # the evidence. Measured: 63% saturation on one sonnet and 0% on the
-        # next three, from that alone.
-        #
-        # AMENDED 2026-08-11 -- THE ORDERING SURVIVES, THE FREE PASS DOES NOT.
-        # This comment used to end "FWER needs no such resolution because its
-        # cut is alpha/m with m ~ 15, not q/n with n ~ 10^4". That `m ~ 15`
-        # was measured on the SCORED family -- the pairs that survived the
-        # band -- which is the very defect `family="candidate"` above exists
-        # to fix, so the sentence contradicted the field forty lines up. The
-        # family is the comparisons MADE: re-measured, the median CANDIDATE
-        # family is 156-282 across 24 sonnets (203 on sonnet 1), against a
-        # median scored family of 6-13 on the same items, so FWER's required
-        # resolution is ~13x finer than this file claimed -- alpha/203, not
-        # alpha/15. At `null_samples=2000` the Sidak cut on sonnet 1 is
-        # 2.53e-4 and the p-value floor is 5.00e-4: THE CUT SITS BELOW THE
-        # FLOOR and FWER cannot resolve its own threshold either.
-        #
-        # What stands is the ORDERING, which is all this branch needs: q/n on
-        # the same sonnet is 1.37e-5, so BH would want 73,030 draws where the
-        # default `null_samples=20000` already gives FWER about 5x of
-        # headroom. So the guard below is still BH's and not FWER's -- but
-        # `null_samples` is load-bearing for BOTH, exactly where this comment
-        # said it was not, and doctrine 29's closing rule ("check that a
-        # correction can resolve its own threshold before using it") applies
-        # to the `else:` branch as much as to this one. See doctrine 29's
-        # amendment, `quality/fwer_family.py` (which re-measures the family)
-        # and `quality/test_fwer.py` test 7.
+        # RESOLUTION GUARD (corrected 2026-09-14). q/n is only the
+        # first rank's cut. Requiring singleton resolution incorrectly
+        # refuses valid collective discoveries, e.g. p=(.03,.03), q=.05.
+        # Discrete ties are handled by the ordinary step-up calculation;
+        # resolution alone neither invalidates nor establishes its model's
+        # dependence assumptions. FWER uses its own per-position cut below.
         floor_p = 1.0 / (n_valid + 1) if n_valid else 1.0
         n_hyp = len(pairs) if tdecl.family == "candidate" else len(scored)
-        if scored and floor_p > tdecl.q / n_hyp:
+        # BH is step-up: k discoveries use k*q/n, not always q/n.
+        # Refuse only if even ALL scored hypotheses at the resolution
+        # floor could not cross their rank's cut.
+        resolvable_cut = len(scored) * tdecl.q / n_hyp if n_hyp else 0.0
+        if scored and floor_p > resolvable_cut:
             if detail is not None:
                 detail["bh_unresolvable"] = (
-                    f"BH needs a p-value resolution finer than "
-                    f"q/n = {tdecl.q / n_hyp:.2e}; this null resolves "
+                    f"BH cannot resolve even its largest scored rank's cut "
+                    f"k*q/n = {resolvable_cut:.2e}; this null resolves "
                     f"to {floor_p:.2e}. Raise null_samples to at least "
-                    f"{int(n_hyp / tdecl.q)} or use a FWER correction, "
-                    f"whose cut does not scale with the number of pairs.")
+                    f"{math.ceil(1 / resolvable_cut) - 1}. This is a "
+                    f"resolution limit, not evidence that no pairs rhyme.")
             return set()
         cut = _bh([p for _, _, p in scored], tdecl.q, n_hyp)
         keep = {k for k, (_a, _b, p) in enumerate(scored)
@@ -505,10 +530,7 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
     else:
         for pos, ks in family.items():
             m = len(ks)
-            if tdecl.correction == "bonferroni":
-                cut = tdecl.alpha / m
-            else:                                  # sidak
-                cut = 1.0 - (1.0 - tdecl.alpha) ** (1.0 / m)
+            cut = _fwer_cut(tdecl.alpha, m, tdecl.correction)
             if any(pv.get(k, 1.0) <= cut for k in ks):
                 events.add(pos)
 
@@ -521,9 +543,7 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
     # could have been declared, and 0 events is arithmetic rather than evidence.
     min_p = min(pv.values()) if pv else 1.0
     sizes = [len(v) for v in family.values()]
-    loosest = (tdecl.alpha / min(sizes) if tdecl.correction == "bonferroni"
-               else 1.0 - (1.0 - tdecl.alpha) ** (1.0 / min(sizes))) \
-        if sizes else 1.0
+    loosest = _fwer_cut(tdecl.alpha, min(sizes), tdecl.correction) if sizes else 1.0
     attainable = bool(pv) and min_p <= loosest
     # M_NEEDED -- the largest family at which this item's own best pair still
     # clears its cut, i.e. `min_p <= 1-(1-alpha)^(1/m)` solved for m. This is
@@ -534,6 +554,10 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
     # That is why the recorded gap reads 1.4-1.8x while the gap at a typical
     # position is ~10x. Both are reported; `share_firable` is the honest one.
     m_need = _m_needed(min_p, tdecl.alpha, tdecl.correction)
+    if tdecl.correction == "bh":
+        # BH has ranked, global cuts. Per-position Sidak family limits
+        # would describe a different calculation beside its verdict.
+        loosest, attainable, m_need = resolvable_cut, bool(events), None
     if detail is not None:
         detail.update(
             n_candidate_pairs=len(pairs), n_scored=len(scored),
@@ -546,8 +570,8 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
             correction=tdecl.correction, alpha=tdecl.alpha,
             min_attainable_p=min_p, loosest_cut=loosest,
             m_needed=m_need,
-            share_firable=(sum(1 for v in sizes if v <= m_need) / len(sizes))
-            if sizes else 0.0,
+            share_firable=((sum(1 for v in sizes if v <= m_need) / len(sizes))
+                           if sizes else 0.0) if m_need is not None else None,
             best_score=best_score,
             # How many null draws are STRICTLY above the best observed pair.
             # Zero means min_p is a TIE COUNT: the comparator saturates at
@@ -558,11 +582,11 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
                 sum(1 for v in null if v > best_score + 1e-12)
                 if best_score is not None else 0),
             attainable=attainable)
-        if family:
+        if tdecl.correction == "bh":
+            detail.update(q=tdecl.q, bh_cut=cut, per_pair_cut=None)
+        elif family:
             mm = sorted(len(v) for v in family.values())[len(family) // 2]
-            detail["per_pair_cut"] = (
-                tdecl.alpha / mm if tdecl.correction == "bonferroni"
-                else 1.0 - (1.0 - tdecl.alpha) ** (1.0 / mm))
+            detail["per_pair_cut"] = _fwer_cut(tdecl.alpha, mm, tdecl.correction)
     if not events and not attainable and tdecl.correction != "bh":
         if detail is not None:
             strict = detail.get("null_strictly_above_best", 0)

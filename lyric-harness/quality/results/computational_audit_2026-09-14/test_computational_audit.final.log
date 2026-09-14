@@ -1,0 +1,29 @@
+test_stanza_thresholds_and_ranges_rederive_after_token_normalization (__main__.CalibrationHandoffs.test_stanza_thresholds_and_ranges_rederive_after_token_normalization) ... ok
+test_beat_composition_counts_against_generating_function (__main__.CombinatorialOracles.test_beat_composition_counts_against_generating_function) ... ok
+test_bell_numbers_and_completion_counts_against_wolfram (__main__.CombinatorialOracles.test_bell_numbers_and_completion_counts_against_wolfram) ... ok
+test_consonant_alignment_against_all_subsequence_pairings (__main__.CombinatorialOracles.test_consonant_alignment_against_all_subsequence_pairings) ... ok
+test_prominence_dp_against_every_order_preserving_setting (__main__.CombinatorialOracles.test_prominence_dp_against_every_order_preserving_setting) ... ok
+test_section_partition_counts_by_exhaustive_assignments (__main__.CombinatorialOracles.test_section_partition_counts_by_exhaustive_assignments) ... ok
+test_recovery_uses_the_same_normalized_sung_rows_as_grading (__main__.RecoveryHandoffs.test_recovery_uses_the_same_normalized_sung_rows_as_grading) ... ok
+test_unreadable_words_are_not_reported_as_exact_zero_syllables (__main__.RecoveryHandoffs.test_unreadable_words_are_not_reported_as_exact_zero_syllables) ... ok
+test_anaphora_keeps_first_occurrence_ties (__main__.RuntimeArithmetic.test_anaphora_keeps_first_occurrence_ties) ... ok
+test_canonically_equivalent_latin_text_has_identical_tokens (__main__.RuntimeArithmetic.test_canonically_equivalent_latin_text_has_identical_tokens) ... ok
+test_empty_chain_input_has_no_invented_first_line (__main__.RuntimeArithmetic.test_empty_chain_input_has_no_invented_first_line) ... ok
+test_invalid_mattr_windows_are_refused (__main__.RuntimeArithmetic.test_invalid_mattr_windows_are_refused) ... ok
+test_mattr_optimization_is_bit_identical_to_all_window_sets (__main__.RuntimeArithmetic.test_mattr_optimization_is_bit_identical_to_all_window_sets) ... ok
+test_subdivision_never_truncates_a_declared_coordinate (__main__.RuntimeArithmetic.test_subdivision_never_truncates_a_declared_coordinate) ... ok
+test_typographic_apostrophes_keep_the_same_words (__main__.RuntimeArithmetic.test_typographic_apostrophes_keep_the_same_words) ... ok
+test_bh_can_discover_a_group_without_singleton_resolution (__main__.StatisticalCounterexamples.test_bh_can_discover_a_group_without_singleton_resolution) ... ok
+test_bh_unresolvable_group_remains_an_explicit_refusal (__main__.StatisticalCounterexamples.test_bh_unresolvable_group_remains_an_explicit_refusal) ... ok
+test_bounded_search_matches_an_exhaustive_occurrence_oracle (__main__.StatisticalCounterexamples.test_bounded_search_matches_an_exhaustive_occurrence_oracle) ... ok
+test_diagnostic_uses_the_same_occurrences_and_family_boundary (__main__.StatisticalCounterexamples.test_diagnostic_uses_the_same_occurrences_and_family_boundary) ... ok
+test_different_lines_do_not_share_word_occurrences (__main__.StatisticalCounterexamples.test_different_lines_do_not_share_word_occurrences) ... ok
+test_disjoint_syllables_in_the_same_word_are_still_excluded (__main__.StatisticalCounterexamples.test_disjoint_syllables_in_the_same_word_are_still_excluded) ... ok
+test_empirical_tail_includes_ties_and_failed_band_draws (__main__.StatisticalCounterexamples.test_empirical_tail_includes_ties_and_failed_band_draws) ... ok
+test_invalid_time_declarations_refuse_before_calculation (__main__.StatisticalCounterexamples.test_invalid_time_declarations_refuse_before_calculation) ... ok
+test_sidak_equality_and_small_probabilities (__main__.StatisticalCounterexamples.test_sidak_equality_and_small_probabilities) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 6.447s
+
+OK

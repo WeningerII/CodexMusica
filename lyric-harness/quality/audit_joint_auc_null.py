@@ -231,15 +231,23 @@ def main(n_perm=200, n_seeds=200, strict=False, cache_path=CACHE):
             # the feature cache happened to be warm -- see the note on
             # `test_pin_sweep.py`'s arm for why a COLD cache hides it.
             #
-            # THE SEED MEDIANS IN `PINNED` ARE **NOT** REPINNED and are still
-            # the 2026-08-13 measurement against the uncorrected sentinel.
-            # Re-running them is 200 cross-validation fits per cell. Until
-            # that is done, every comparison of one of these observed AUCs
-            # against its `seed_median` is a CURRENT DRAW AGAINST A STALE
-            # NULL, and both RESULTS documents say so where they make it.
-            ("ABSOLUTE (original ten)", QualityFeatures, "0.723", "0.960"),
+            # ~~THE SEED MEDIANS IN `PINNED` ARE **NOT** REPINNED and are still
+            # the 2026-08-13 measurement against the uncorrected sentinel.~~
+            # (They were repinned for M-31 on 2026-08-22, and again on
+            # 2026-09-14 with the tokenizer normalization -- see `PINNED`.)
+            #
+            # REPINNED 2026-09-14 -- ~~0.723~~/~~0.960~~ and ~~0.621~~/~~0.896~~
+            # -> 0.758/0.967 and 0.621/0.894, for the tokenizer normalization
+            # (NFC + apostrophe folding in `features.QualityFeatures._tokens`,
+            # the lyrics computational audit). Every feature reads the token
+            # stream, so all four moved, and so did the two predictability-
+            # only joints this time (0.710/0.648 -> 0.737/0.638): the control
+            # the M-31 repin had does not apply to a change in the tokens
+            # themselves. The seed medians in `PINNED` are re-measured the
+            # same day, 200 CVs per cell, on the warm cache this run builds.
+            ("ABSOLUTE (original ten)", QualityFeatures, "0.758", "0.967"),
             ("WITHIN-ITEM (respecified eight)", WithinItemFeatures,
-             "0.621", "0.896")):
+             "0.621", "0.894")):
         qf = feats()
         pfx = "abs" if feats is QualityFeatures else "wi"
         print(f"\n### {tag}\n")
@@ -337,16 +345,23 @@ def main(n_perm=200, n_seeds=200, strict=False, cache_path=CACHE):
 #: COLD cache, where the 384 feature extractions dominate; warm, the fits are
 #: the whole cost. The warning was a statement about a cache state, mistaken
 #: for a statement about the measurement.
+#: REPINNED 2026-09-14 -- the four seed medians, for the tokenizer
+#: normalization (see the RECORDED strings in `main`): ~~0.635~~ 0.665,
+#: ~~0.961~~ 0.968, ~~0.623~~ 0.621, ~~0.906~~ 0.899, each 200 CVs on the
+#: cache `discriminate.py` warmed the same day. The absolute Exp 1 median
+#: moved most (+0.030) and now sits 0.044 ABOVE the within-item one, so the
+#: P2-at-the-median comparison RESULTS_WITHIN_ITEM.md scores runs further
+#: the wrong way than it did under M-31 (-0.012 there).
 PINNED = {
     "cache_entries": 384,
     "abs_exp1": {"n_pos": 15, "n_neg": 117, "n_features": 10,
-                 "seed_median": 0.635},
+                 "seed_median": 0.665},
     "abs_exp2": {"n_pos": 152, "n_neg": 40, "n_features": 10,
-                 "seed_median": 0.961},
+                 "seed_median": 0.968},
     "wi_exp1": {"n_pos": 15, "n_neg": 117, "n_features": 8,
-                "seed_median": 0.623},
+                "seed_median": 0.621},
     "wi_exp2": {"n_pos": 152, "n_neg": 40, "n_features": 8,
-                "seed_median": 0.906},
+                "seed_median": 0.899},
 }
 
 #: The observed AUCs are NOT repeated here. They are checked against the

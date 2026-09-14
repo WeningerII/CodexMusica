@@ -153,7 +153,7 @@ amendment moves no measurement:
 | Exp 2, wrong-sign | 5 | **4** |
 | Exp 1, feature 10 | `0.523 0.7788 lower null` | `0.523 0.7788 higher null` — only `dir` moves |
 | Exp 1, hits at q=0.10 | 2/10 | 2/10 |
-| joint held-out, Exp 1 / Exp 2 | 0.723 / 0.960 | 0.723 / 0.960 |
+| joint held-out, Exp 1 / Exp 2 | ~~0.723 / 0.960~~ 0.758 / 0.967 (tokenizer normalized 2026-09-14) | ~~0.723 / 0.960~~ 0.758 / 0.967 |
 | within-item, all eight | unchanged | unchanged |
 
 **Experiment 1 is NOT rescued by the amendment.** Feature 10 there is 0.523,

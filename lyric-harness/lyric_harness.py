@@ -4378,6 +4378,8 @@ def infer_chains(lex, lines, decl, theta_chain=None, comparator=None):
     `oov` now covers fillers too, and `unreadable` names, per chain, which of
     its lines the harness could not read and why.
     """
+    if not lines:
+        return []
     if theta_chain is None:
         theta_chain = decl.theta_rhyme
     data = []

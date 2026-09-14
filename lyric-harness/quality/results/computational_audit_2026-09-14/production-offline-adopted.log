@@ -1,0 +1,192 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> codex-music-tool@2.0.0 test:production:offline
+> node --test --test-concurrency=1 --test-timeout=120000 mcp/test_release_gates.mjs mcp/test_battery_repairs.mjs mcp/test_chat_production.mjs mcp/test_connector_contracts.mjs mcp/test_connector_http.mjs mcp/test_chatgpt.mjs mcp/test_runtime_assets.mjs mcp/test_state_codec.mjs mcp/test_lyric_workflow.mjs mcp/test_session_repairs.mjs mcp/test_pronunciation_choices.mjs && python3 scripts/test_lyrics_capacity.py && python3 scripts/test_profile_lyrics_phase.py && python3 scripts/test_worker_measurement_capture.py && python3 scripts/test_production_qualification.py && python3 lyric-harness/quality/test_session_repairs.py && python3 lyric-harness/quality/test_pronunciation_choices.py && npm run test:lyrics:math
+
+✔ actual application identities count once across repeated calls and durable ledger restore (2.06322ms)
+✔ verified but unapplied, rejected, and unchanged proposals do not prove an applied repair (0.846019ms)
+✔ missing or malformed kitchen evidence refuses instead of being reported as zero (0.775372ms)
+✔ conflicting reused outcome IDs cannot inflate or overwrite accepted evidence (0.344591ms)
+✔ interview outcomes remain separate; unvisited, inferred and unexecuted answers are not accepted (0.451903ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ verified application evidence stays distinct from missing, rejected and unapplied proposals (3.983184ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ actual chat tool rows preserve compact verifier/application and exact checkpoint replay receipts (376.111639ms)
+✔ maximum recovery exports complete through actual HTTP and durable receipts within existing byte caps (701.108719ms)
+ℹ all: HTTP 2364010 bytes; durable receipt 2364517 bytes; exact export 525192 bytes
+ℹ journal: HTTP 3151199 bytes; durable receipt 3151764 bytes; exact export 525009 bytes
+✔ recipe task excludes lyric instructions and declarations and rejects wrong-family dispatch (1.353437ms)
+✔ certified delivery uses the exact authoritative artifact and binds full draft digest (0.919851ms)
+✔ parked verdict defeats a later model finished claim and a later request cannot reuse an old pass (1.082236ms)
+✔ missing, blocked, empty and malformed candidates never persist an empty model turn (0.991059ms)
+✔ canonical brief, accepted instructions, current plan and step history survive pruning (0.961544ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ quota retries do not consume transient retries in a mixed response sequence (6.925032ms)
+✔ per-run admission lock and revisions reject simultaneous and stale operations; input identity is immutable (0.762904ms)
+✔ run cache pressure cannot evict an active record or reuse an earlier revision (0.46974ms)
+✔ run TTL cannot erase an in-flight revision but still expires released records (0.168965ms)
+✔ largest carried ASCII, escaped and multibyte receipts complete durably without a global latch (602.611511ms)
+✔ shipped UI exposes explicit lyric creation and pasted-edit task phases (9.618093ms)
+✔ shipped UI stores a request capability before dispatch, recovers a lost response and preserves signed errors and pacing (15.556985ms)
+✔ shipped UI reload recovers pending work and Reset cannot resurrect a discarded conversation (7.889751ms)
+✔ shipped lyric display and Copy preserve the authoritative performance text and unfinished verdict (3.245628ms)
+✔ shipped recovery display and Copy preserve the exact export while retaining the live artifact (6.15685ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ actual chat admission keeps a signed turn counter even when history is pruned (266.441381ms)
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+✔ signed lyrics with missing or changed semantic identity refuse before any provider call (135.93869ms)
+✔ lyric output allowance is reserved at 32768 and truncation cannot certify a song (0.749393ms)
+✔ recipe creation needs a successful customization; explicit browse can return a stock recipe (0.733349ms)
+[chat]  Gemini 400: HTTP 400
+✔ durable continuation bypasses wire-size limits and admits exactly one successor (642.805296ms)
+✔ recipe MCP carries exact workspaces through reconnects and all four formats (511.706239ms)
+✔ same parent and input dispatch once; stale input and cross-task capabilities refuse (13.419572ms)
+✔ recipe operation interrupted after durable admission resumes once through MCP (80.618487ms)
+✔ lyrics run independently of the submitting MCP connection (15.080003ms)
+✔ creation receipts cannot be fabricated through MCP input or skipped (57.108517ms)
+✔ real lyric sweep, screen and plan receipts persist between operations (10367.105408ms)
+✔ restart marks admitted work interrupted and never automatically executes it (4.726147ms)
+✔ real edit revision restores a question across reconnect and rejects changed replay input without losing the session (8507.11285ms)
+✔ safe resume carries original replay input and accepted journal, and deduplicates (4.937787ms)
+✔ unknown provider outcome blocks resume while retaining accepted lyrics (2.807425ms)
+✔ private result envelopes are hidden without changing the song or verdict (0.321416ms)
+✔ kitchen admission requires durable storage (0.313734ms)
+✔ unsettled operation budget blocks replay even without a proposer usage callback (5.388869ms)
+✔ failed completion preserves accepted lyrics and closes recovery admission (3.500213ms)
+✔ an accounting settlement failure marks the operation uncertain without latching the store (6.017028ms)
+✔ a store that cannot record its own capacity refusal latches instead of rejecting the operation (2.065363ms)
+✔ cheap unrelated sessions cannot retire an interrupted operation holding accepted lyrics (21.548624ms)
+✔ host-selected recipe endpoint exposes only recipe tools and retains full guidance (30.287919ms)
+✔ unscoped in-memory registration still enforces inherited trusted task at dispatch (4.909584ms)
+✔ initialization omissions fail explicitly (0.545024ms)
+✔ native client refuses real discovery and initialization drift before offering tools (54.283534ms)
+✔ native client gives the real tool budget a response margin and honors a shorter caller deadline (28.467596ms)
+✔ connector discovery rejects a looping pagination cursor without looping indefinitely (0.280044ms)
+✔ private CLI output atomically replaces public files and argument typos fail before connecting (51.266522ms)
+✔ image identity requires valid baked bytes and source fingerprint covers recipe runtime dependencies (35.136722ms)
+✔ the production build reader ignores runtime identity overrides and refuses a missing baked file (4.306682ms)
+✔ recover string input preserves the same section information as its array twin (1.305454ms)
+✔ actual revision dispatch refuses conflicting draft and proposal representations (287.466378ms)
+✔ quoted lyrics cannot create findings or finish metadata (1.188958ms)
+✔ live surface comparison detects annotations, output schema, titles and duplicate names (0.379203ms)
+✔ initialization compares full guidance and capabilities, including omission (0.296779ms)
+✔ live qualification options cannot silently drop a misspelled release gate (0.362758ms)
+✔ production readiness refuses disabled, transient, corrupt or stale configuration (0.805388ms)
+✔ recipe acceptance measures exact delivered rich artifact and real declared edits (0.723354ms)
+✔ image promotion binds exact verified commit, repository and immutable tested build (0.624624ms)
+✔ candidate build repository bytes must remain unchanged through image recording (0.194725ms)
+✔ production contract matches the legacy service during migration and binds source identity (4.538282ms)
+✔ public HTTP rejects untrusted Origin before dispatch and reports disabled lyrics honestly (5490.09983ms)
+✔ completedSteps and model-supplied fake workflow do not establish creation receipts (1.111421ms)
+✔ only accepted sweep seeds and unchanged declared structural predicates reach plan (0.521388ms)
+✔ a failed, forged, stale or unadmitted plan cannot establish creation qualification (1.256319ms)
+✔ grade receipt binds the exact canonical plan and exact draft (1.425285ms)
+✔ explicit edit tasks retain independent pasted-song grading and revision (0.14561ms)
+✔ an authenticated uncertain assessment permits repair but a pre-assessment refusal does not (0.37688ms)
+✔ actual graded projection requires coherent requested obligations while permitting zero rhyme pairs (0.776655ms)
+✔ explicit narrative survives canonical plan receipts and omitted continuation arguments (0.482099ms)
+✔ actual driver refuses reordered creation before calling any tool (2.827476ms)
+✔ actual kitchen driver exports the explicit original envelope without resuming its carried run (16.389975ms)
+✔ kitchen declarations retain the recovery export door during suspended and parked runs (0.539105ms)
+✔ actual driver qualifies only successful sweep-screen-program-plan-exact-grade-revise sequence (3.018264ms)
+✔ grade receipt binds pronunciation, fallback and voices; omitted readings are restored (0.559967ms)
+✔ connector exposes the same bounded occurrence declaration on all draft readers (12.539583ms)
+✔ argv preserves exact JSON; continuation rejects altered declarations (0.332092ms)
+✔ choices and options come from the authenticated result (0.855764ms)
+✔ crashes retain bounded diagnostics instead of promising omitted stderr (0.382969ms)
+✔ release CI requires actual successful jobs at the exact trusted main push (4.784695ms)
+✔ CI evidence addresses the actual attempt and refuses a missing attempt before job lookup (1.362711ms)
+✔ a newer failed CI run cannot be replaced by an older success (0.42305ms)
+✔ song coverage rejects sparse arrays, omitted verdicts and naked exit reasons (0.394346ms)
+✔ remote pre-dispatch archive retains the capability after complete local loss (8.626205ms)
+✔ live qualification oracle rejects missing repairs, corrupt delivery and mismatched wall build (11.212195ms)
+✔ production qualification requires each actual job in the exact trusted manual attempt (2.134258ms)
+✔ an absent qualification is a stand-down with CI evidence kept; a failed one is still a failure (0.853391ms)
+✔ qualification artifact cannot cross source, attempt or incomplete calibration boundaries (1.453808ms)
+✔ required readiness rejects a missing proof and invokes current-runtime validation for stale proofs (18.923726ms)
+✔ previous ready result is invalidated when proof bytes or source change (24.000464ms)
+✔ cached readiness notices an undeclared file in an existing unlisted nested directory (7.657069ms)
+✔ production cannot execute an NLTK override outside the model tree whose bytes were approved (12.61037ms)
+✔ required production mode exports exact recovery without Python or assets while retaining all task/input guards (707.976428ms)
+✔ native creation blocks bypass, records real sweep/screen/plan, survives reconnect (9624.99499ms)
+✔ moving a card changes primary order without rebuilding or mutating any card (57.197571ms)
+✔ explicit part descriptors survive before stock descriptors; losses are disclosed (42.515569ms)
+✔ partial authenticated measurement is not labelled as no harness answer (0.408157ms)
+✔ actual explicit-blueprint connector revision retains meter headers (3277.84348ms)
+✔ every public recipe format obeys limits smaller than its genre header (204.448398ms)
+recovery boundary: legacy-json drafts=1049503 journal=1049320 bytes; exact artifacts preserved
+recovery boundary: gzip+base64 drafts=1049561 journal=1049378 bytes; exact artifacts preserved
+state codec: lossless journal, UTF-8 wire bound, migration and bounded decompression passed
+✔ mcp/test_state_codec.mjs (632.349683ms)
+ℹ tests 104
+ℹ suites 0
+ℹ pass 104
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 48261.963999
+.................................
+----------------------------------------------------------------------
+Ran 33 tests in 0.032s
+
+OK
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.378s
+
+OK
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.007s
+
+OK
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.124s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 13.218s
+
+OK
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 22.676s
+
+OK
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> codex-music-tool@2.0.0 test:lyrics:math
+> python3 lyric-harness/quality/test_computational_audit.py
+
+test_stanza_thresholds_and_ranges_rederive_after_token_normalization (__main__.CalibrationHandoffs.test_stanza_thresholds_and_ranges_rederive_after_token_normalization) ... ok
+test_beat_composition_counts_against_generating_function (__main__.CombinatorialOracles.test_beat_composition_counts_against_generating_function) ... ok
+test_bell_numbers_and_completion_counts_against_wolfram (__main__.CombinatorialOracles.test_bell_numbers_and_completion_counts_against_wolfram) ... ok
+test_consonant_alignment_against_all_subsequence_pairings (__main__.CombinatorialOracles.test_consonant_alignment_against_all_subsequence_pairings) ... ok
+test_prominence_dp_against_every_order_preserving_setting (__main__.CombinatorialOracles.test_prominence_dp_against_every_order_preserving_setting) ... ok
+test_section_partition_counts_by_exhaustive_assignments (__main__.CombinatorialOracles.test_section_partition_counts_by_exhaustive_assignments) ... ok
+test_recovery_uses_the_same_normalized_sung_rows_as_grading (__main__.RecoveryHandoffs.test_recovery_uses_the_same_normalized_sung_rows_as_grading) ... ok
+test_unreadable_words_are_not_reported_as_exact_zero_syllables (__main__.RecoveryHandoffs.test_unreadable_words_are_not_reported_as_exact_zero_syllables) ... ok
+test_anaphora_keeps_first_occurrence_ties (__main__.RuntimeArithmetic.test_anaphora_keeps_first_occurrence_ties) ... ok
+test_canonically_equivalent_latin_text_has_identical_tokens (__main__.RuntimeArithmetic.test_canonically_equivalent_latin_text_has_identical_tokens) ... ok
+test_empty_chain_input_has_no_invented_first_line (__main__.RuntimeArithmetic.test_empty_chain_input_has_no_invented_first_line) ... ok
+test_invalid_mattr_windows_are_refused (__main__.RuntimeArithmetic.test_invalid_mattr_windows_are_refused) ... ok
+test_mattr_optimization_is_bit_identical_to_all_window_sets (__main__.RuntimeArithmetic.test_mattr_optimization_is_bit_identical_to_all_window_sets) ... ok
+test_subdivision_never_truncates_a_declared_coordinate (__main__.RuntimeArithmetic.test_subdivision_never_truncates_a_declared_coordinate) ... ok
+test_typographic_apostrophes_keep_the_same_words (__main__.RuntimeArithmetic.test_typographic_apostrophes_keep_the_same_words) ... ok
+test_bh_can_discover_a_group_without_singleton_resolution (__main__.StatisticalCounterexamples.test_bh_can_discover_a_group_without_singleton_resolution) ... ok
+test_bh_unresolvable_group_remains_an_explicit_refusal (__main__.StatisticalCounterexamples.test_bh_unresolvable_group_remains_an_explicit_refusal) ... ok
+test_bounded_search_matches_an_exhaustive_occurrence_oracle (__main__.StatisticalCounterexamples.test_bounded_search_matches_an_exhaustive_occurrence_oracle) ... ok
+test_diagnostic_uses_the_same_occurrences_and_family_boundary (__main__.StatisticalCounterexamples.test_diagnostic_uses_the_same_occurrences_and_family_boundary) ... ok
+test_different_lines_do_not_share_word_occurrences (__main__.StatisticalCounterexamples.test_different_lines_do_not_share_word_occurrences) ... ok
+test_disjoint_syllables_in_the_same_word_are_still_excluded (__main__.StatisticalCounterexamples.test_disjoint_syllables_in_the_same_word_are_still_excluded) ... ok
+test_empirical_tail_includes_ties_and_failed_band_draws (__main__.StatisticalCounterexamples.test_empirical_tail_includes_ties_and_failed_band_draws) ... ok
+test_invalid_time_declarations_refuse_before_calculation (__main__.StatisticalCounterexamples.test_invalid_time_declarations_refuse_before_calculation) ... ok
+test_sidak_equality_and_small_probabilities (__main__.StatisticalCounterexamples.test_sidak_equality_and_small_probabilities) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 5.997s
+
+OK

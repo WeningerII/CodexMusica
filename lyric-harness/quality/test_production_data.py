@@ -349,7 +349,7 @@ class ProductionDataTests(unittest.TestCase):
         from contextlib import redirect_stdout
         import io
         rows = [{"n_tokens": n} for n in (49, 50, 51)]
-        profile = SimpleNamespace(n_lines=0, curves={"fixture": True}, n_human=3,
+        profile = SimpleNamespace(n_lines=0, curves={"fixture": True}, n_human=3, lo=49, hi=51,
                                   mattr_ttr_population={"window": 50, "items": 2})
         args = SimpleNamespace(rows=["fixture.tsv"])
         with patch.object(floor, "PROFILES", [profile]), patch.object(curve, "read_rows", return_value=rows), \
@@ -359,6 +359,12 @@ class ProductionDataTests(unittest.TestCase):
                 curve.cmd_check(args)
             for stale in ({"window": 50, "items": 1}, {"window": 49, "items": 2}, {}):
                 profile.mattr_ttr_population = stale
+                with self.assertRaises(SystemExit) as refused:
+                    curve.cmd_check(args)
+                self.assertEqual(refused.exception.code, 1)
+
+            profile.mattr_ttr_population = {"window": 50, "items": 2}
+            for profile.lo, profile.hi in ((48, 51), (49, 52), (50, 51)):
                 with self.assertRaises(SystemExit) as refused:
                     curve.cmd_check(args)
                 self.assertEqual(refused.exception.code, 1)

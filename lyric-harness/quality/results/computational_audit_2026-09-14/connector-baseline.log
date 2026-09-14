@@ -1,0 +1,72 @@
+deferred continuation: exact accepted prefix, declaration carry and state-only restart passed
+✔ mcp/test_deferred_continuation.mjs (23303.036482ms)
+lyric state: capability isolation, same-seed coexistence, validation safety, annotations and verify grid contract passed
+✔ mcp/test_lyric_state.mjs (976.704761ms)
+✔ completedSteps and model-supplied fake workflow do not establish creation receipts (1.608641ms)
+✔ only accepted sweep seeds and unchanged declared structural predicates reach plan (0.51614ms)
+✔ a failed, forged, stale or unadmitted plan cannot establish creation qualification (1.067864ms)
+✔ grade receipt binds the exact canonical plan and exact draft (1.391193ms)
+✔ explicit edit tasks retain independent pasted-song grading and revision (0.181775ms)
+✔ an authenticated uncertain assessment permits repair but a pre-assessment refusal does not (0.447006ms)
+✔ actual graded projection requires coherent requested obligations while permitting zero rhyme pairs (0.735391ms)
+✔ explicit narrative survives canonical plan receipts and omitted continuation arguments (0.492213ms)
+✔ actual driver refuses reordered creation before calling any tool (2.935025ms)
+✔ actual kitchen driver exports the explicit original envelope without resuming its carried run (3.442863ms)
+✔ kitchen declarations retain the recovery export door during suspended and parked runs (0.325162ms)
+✔ actual driver qualifies only successful sweep-screen-program-plan-exact-grade-revise sequence (1.896276ms)
+✔ grade receipt binds pronunciation, fallback and voices; omitted readings are restored (0.369538ms)
+✔ connector exposes the same bounded occurrence declaration on all draft readers (12.274099ms)
+✔ argv preserves exact JSON; continuation rejects altered declarations (0.397451ms)
+✔ choices and options come from the authenticated result (0.967803ms)
+✔ crashes retain bounded diagnostics instead of promising omitted stderr (0.31741ms)
+✔ queue deadline includes waiting and expired work never starts (725.459339ms)
+✔ cancellation removes queued work and stops an active worker (25.056592ms)
+✔ warm and cold kills retain the same checkpoint and completed usage (2004.859936ms)
+[lyric] warm worker exited {"event":"worker_exit","code":9,"signal":null,"active":true}
+✔ active kitchen crash does not transparently replay paid work (123.183414ms)
+[lyric] warm worker exited {"event":"worker_exit","code":9,"signal":null,"active":true}
+[lyric] warm worker unavailable; deterministic cold fallback {"event":"worker_cold_fallback","remaining_ms":1876}
+✔ deterministic crash fallback has only the remaining admission budget (2024.534357ms)
+✔ warm and cold count UTF-8 report bytes with identical output ceilings (126.588984ms)
+✔ checkpoint controls do not consume the verbose report cap (28.749902ms)
+✔ MCP cancellation notification reaches a running bridge job (45.148493ms)
+✔ real Python proposer shares admission and full usage with the Node budget broker (81.501603ms)
+✔ kitchen budget refuses before provider HTTP and an interrupted request holds unknown usage (63.21706ms)
+✔ ordinary lyric text cannot impersonate a checkpoint control record (23.094952ms)
+[lyric] warm worker exited {"event":"worker_exit","code":9,"signal":null,"active":true}
+✔ a crash between atomic checkpoint write and stdout is recovered from its trusted file (27.394493ms)
+✔ budget-close failure refuses while preserving accepted state and known usage (34.89187ms)
+✔ a queued job cannot spawn until the killed worker emits close (58.531425ms)
+✔ unexpected worker death and deterministic fallback are logged without lyric content (160.484597ms)
+✔ temporary cleanup waits for reap without holding the failure response open (28.385411ms)
+✔ known billed response remains uncertain until the answer journal is written (2007.566471ms)
+✔ standalone Node CLI survives idle worker kill and awaited respawn (96.226255ms)
+✔ monotonic contexts ignore wall-clock steps on warm and cold paths (133.784115ms)
+✔ either inherited or explicit cancellation prevents spawn and cancels active work (52.003182ms)
+✔ global admission bounds jobs and bytes and cancellation promptly frees queue capacity (237.783043ms)
+✔ preparation admission spans sequential verbs and releases safely in finally (49.829291ms)
+✔ real warm/cold CLI refuses invalid usage and truncated candidates with authoritative accounting (33228.107988ms)
+PASS real MCP + real Python: immutable defaults/input; one concurrent continuation; stale revision refused; capacity stop preserves exact artifact and journal and refuses replay.
+{"split_continuation":1,"question_kind":"propose","asked":[1],"answered":[1,5,6,14,15,17,19],"rejected_first_subset":[1],"unvisited_first_subset":[5,6,14,15,17,19],"omitted_tail_folded":[],"accepted_draft_sha256":"dcddfc39f9270faab7c5a011604fdd45523b50fdd8392bd6c195f398db20e667"}
+{"split_continuation":2,"question_kind":"propose","asked":[1],"answered":[1,5,6,14,15,17,19,1],"rejected_first_subset":[1],"unvisited_first_subset":[5,6,14,15,17,19],"omitted_tail_folded":[],"accepted_draft_sha256":"dcddfc39f9270faab7c5a011604fdd45523b50fdd8392bd6c195f398db20e667"}
+{"split_continuation":3,"question_kind":"propose_group","asked":[1,8,9,10,11],"answered":[1,5,6,14,15,17,19,1,1],"rejected_first_subset":[1],"unvisited_first_subset":[5,6,14,15,17,19],"omitted_tail_folded":[],"accepted_draft_sha256":"dcddfc39f9270faab7c5a011604fdd45523b50fdd8392bd6c195f398db20e667"}
+{"split_continuation":4,"question_kind":"propose_batch","asked":[2,7,16,18,20,21,23],"answered":[1,5,6,14,15,17,19,1,1],"rejected_first_subset":[1],"unvisited_first_subset":[5,6,14,15,17,19],"omitted_tail_folded":[],"accepted_draft_sha256":"dcddfc39f9270faab7c5a011604fdd45523b50fdd8392bd6c195f398db20e667"}
+{"split_continuation":5,"question_kind":"propose","asked":[2],"answered":[1,5,6,14,15,17,19,1,1,2,7,16,18,20,21,23],"rejected_first_subset":[1],"unvisited_first_subset":[5,6,14,15,17,19],"omitted_tail_folded":[21,23],"accepted_draft_sha256":"dcddfc39f9270faab7c5a011604fdd45523b50fdd8392bd6c195f398db20e667"}
+PASS actual seed1/24 split liveness at attempts3: first [1,5,6,14,15,17,19] retained, pivot rejected, omitted [21,23] reasked and folded after 5 continuation(s); exact draft preserved; actual batch results keep future unvisited answers unknown.
+✔ mcp/test_run_continuation.mjs (76359.997319ms)
+✔ native creation blocks bypass, records real sweep/screen/plan, survives reconnect (8940.282364ms)
+✔ moving a card changes primary order without rebuilding or mutating any card (35.503683ms)
+✔ explicit part descriptors survive before stock descriptors; losses are disclosed (35.364497ms)
+✔ partial authenticated measurement is not labelled as no harness answer (0.310579ms)
+✔ actual explicit-blueprint connector revision retains meter headers (3163.954283ms)
+✔ every public recipe format obeys limits smaller than its genre header (160.108904ms)
+writer work budget: admitted line count with 199-character overfull lines refused before provider, exact draft preserved
+✔ mcp/test_writer_work_budget.mjs (4319.575642ms)
+ℹ tests 50
+ℹ suites 0
+ℹ pass 50
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 159884.645392

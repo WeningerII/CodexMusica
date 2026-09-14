@@ -3063,9 +3063,18 @@ from the first run — do not drift from these either:**, merged into one run.)
    exchange rate between surprise and clarity is not derivable; it is a
    genre's answer, so it belongs in a declaration, not in a constant.
 
-7. **Rejection, not selection.** Detecting bad writing held-out at AUC **0.960**;
-   ranking good writing at **0.723**. Enforce a floor, do not order the permitted
-   region. REPINNED 2026-08-22 from ~~0.964~~ / ~~0.717~~ — `MISSING.md` M-31,
+7. **Rejection, not selection.** Detecting bad writing held-out at AUC **0.967**;
+   ranking good writing at **0.758**. Enforce a floor, do not order the permitted
+   region. REPINNED 2026-09-14 from ~~0.960~~ / ~~0.723~~ for the tokenizer
+   normalization (NFC + apostrophe folding in `features.QualityFeatures._tokens`,
+   the lyrics computational audit): every feature reads the token stream, so all
+   44 pinned AUCs moved, the gap goes ~~0.237~~ **0.209**, and the argument is
+   untouched — rejection still beats selection by a fifth of an AUC. The
+   within-item pair goes 0.621/0.896 → 0.621/0.894. `content_word_freq_mean`
+   on human-vs-generated rises ~~0.707~~ 0.874, partly reversing the DOWNGRADE
+   below by a correction to its input, not by tuning; why it moved that far is
+   carried as a hypothesis in `quality/test_discriminate.py`, not measured.
+   Previously REPINNED 2026-08-22 from ~~0.964~~ / ~~0.717~~ — `MISSING.md` M-31,
    a stale out-of-vocabulary sentinel left behind by the frequency-source swap,
    which had feature 10 scoring an unknown word as commoner than 60% of
    English. The gap goes ~~0.247~~ **0.237** and the argument is untouched.
@@ -3076,11 +3085,13 @@ from the first run — do not drift from these either:**, merged into one run.)
    label, rather than the rarity it names. Also REPINNED 2026-08-14 from
    ~~0.971~~ / ~~0.709~~, which were the
    PRE-OOV-FIX reading of 2026-08-09 and have been superseded TWICE: pre-fix
-   0.709/0.971, warm post-fix 0.659/0.975, cold 0.717/0.964, and cold with the
-   sentinel corrected 0.723/0.960. The pair is
+   0.709/0.971, warm post-fix 0.659/0.975, cold 0.717/0.964, cold with the
+   sentinel corrected 0.723/0.960, and cold with the tokenizer normalized
+   0.758/0.967. The pair is
    `quality/test_discriminate.py`'s `abs_exp1`/`abs_exp2` joint AUCs. **The
-   argument is unchanged and the gap is what carries it** — 0.237 today, 0.247
-   before the sentinel fix, 0.262 pre-fix, so rejection
+   argument is unchanged and the gap is what carries it** — 0.209 today, 0.237
+   before the tokenizer normalization, 0.247 before the sentinel fix, 0.262
+   pre-fix, so rejection
    still beats selection by a quarter of an AUC and this doctrine never rested
    on the third decimal.
    **AMENDED 2026-08-22 — `MISSING.md` M-32, by owner ruling, and it moves
@@ -3091,8 +3102,8 @@ from the first run — do not drift from these either:**, merged into one run.)
    Experiment 2 verdict goes `WRONG SIGN` → **HIT (FDR)**, the headline hit
    count 4/10 → **5/10** and the wrong-sign count 5 → **4**. No AUC moves —
    the permutation test is direction-free and the joint classifier fits on raw
-   values — so 0.960 / 0.723 and the 0.237 gap are the same figures either
-   side of the ruling. The DOWNGRADE above is unaffected and stands: the AUC
+   values — so the pair and the gap are the same figures either side of the
+   ruling (0.960 / 0.723 and 0.237 on that day). The DOWNGRADE above is unaffected and stands: the AUC
    did fall from 0.807, and a feature can be a hit and a weaker one at once.
 
 9. **Optimizing toward the phonetic maximum is the slop direction.** Handing a
@@ -4217,7 +4228,7 @@ cannot be renumbered — only added.
 | 26 | `F` | Normalize U+2019 anywhere a word is extracted from text |
 | 27 | `A` | A null must not be conditioned on the filter it is calibrating |
 | 28 | `A` | Distinguish "none" from "cannot tell", mechanically |
-| 29 | `B` | BH and FWER have different resolution requirements, and BH's is brutal |
+| 29 | `B` | A correction must resolve the threshold it actually uses |
 | 30 | `A` | A powered null is a different claim from an unpowered one |
 | 31 | `A` | Run the positive control before believing any null |
 | 32 | `W` | A corpus is defined by the property under test, not by a genre or a language |

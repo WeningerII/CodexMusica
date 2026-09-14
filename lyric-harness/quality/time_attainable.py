@@ -68,7 +68,8 @@ sys.path.insert(0, os.path.join(HERE, "..", ".."))
 from lyric_harness import Declaration, Lexicon                   # noqa: E402
 from quality.fwer_family import REAL, SATURATED                  # noqa: E402
 from quality.time_layer import (TimeDeclaration,                 # noqa: E402
-                                _candidate_pairs, _raw_score,
+                                _candidate_pairs, _raw_score, _word_occurrences,
+                                _m_needed, _fwer_cut,
                                 grid_index, rhyme_events,
                                 syllable_stream)
 
@@ -85,13 +86,7 @@ def m_needed(min_p, alpha=0.05, correction="sidak"):
     This is the whole question in one number. Invert the Sidak cut:
         min_p <= 1 - (1-alpha)^(1/m)   <=>   m <= ln(1-alpha)/ln(1-min_p)
     """
-    if min_p >= 1.0 or min_p <= 0.0:
-        return 0
-    if correction == "bonferroni":
-        return int(alpha / min_p)
-    if min_p >= alpha:
-        return 0
-    return int(math.log(1.0 - alpha) / math.log(1.0 - min_p))
+    return _m_needed(min_p, alpha, correction)
 
 
 def probe(lines, tdecl, decl=DECL, stream=None):
@@ -131,8 +126,7 @@ def probe(lines, tdecl, decl=DECL, stream=None):
             sb = right[rng.randrange(nr)]
             if sa == sb or max(sa[0], sb[0]) < min(sa[1], sb[1]):
                 continue
-            if {x["widx"] for x in st[sa[0]:sa[1]]} & \
-                    {x["widx"] for x in st[sb[0]:sb[1]]}:
+            if _word_occurrences(st, sa) & _word_occurrences(st, sb):
                 continue
             n_valid += 1
             v = sc(sa, sb)
@@ -176,8 +170,7 @@ def probe(lines, tdecl, decl=DECL, stream=None):
     def cut(m):
         if not m:
             return 1.0
-        return (a / m if tdecl.correction == "bonferroni"
-                else 1.0 - (1.0 - a) ** (1.0 / m))
+        return _fwer_cut(a, m, tdecl.correction)
 
     events = set()
     for pos, ks in fam.items():
@@ -516,8 +509,7 @@ def _beat_pairs(stream, tdecl, beat=None, phase=0):
             for (c2, d) in by_start.get(c, ()):
                 if c2 < b:
                     continue
-                if {x["widx"] for x in stream[a:b]} & \
-                        {x["widx"] for x in stream[c2:d]}:
+                if _word_occurrences(stream, (a, b)) & _word_occurrences(stream, (c2, d)):
                     continue
                 out.append(((a, b), (c2, d)))
     return out
@@ -659,8 +651,7 @@ def _probe_with_pairs(st, tdecl, pairs, gi):
         sb = right[rng.randrange(len(right))]
         if sa == sb or max(sa[0], sb[0]) < min(sa[1], sb[1]):
             continue
-        if {x["widx"] for x in st[sa[0]:sa[1]]} & \
-                {x["widx"] for x in st[sb[0]:sb[1]]}:
+        if _word_occurrences(st, sa) & _word_occurrences(st, sb):
             continue
         n_valid += 1
         v = sc(sa, sb)

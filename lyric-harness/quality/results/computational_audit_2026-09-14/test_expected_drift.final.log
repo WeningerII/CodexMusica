@@ -1,0 +1,35 @@
+
+1. the allowlist fails in BOTH directions
+  PASS  the fixture's declared set is non-empty — with an empty one every check below would pass on two empty sets
+          ['alpha', 'beta', 'gamma']
+PASS — the drift is exactly what is ruled, and every reason is dated with the sitting that ends it.
+  PASS  observed == declared -> PASS
+
+FAIL — 1 value(s) drifted with no ruling. Either argue and declare it here, or repin the constant. A drift nobody wrote down is the reason a red job stops being read.
+  PASS  an UNDECLARED drift -> FAIL (something new moved)
+
+FAIL — 1 declared drift(s) no longer occur. The ruling is SPENT and must be deleted: an allowlist that outlives its reason is the staleness it was built to catch.
+  PASS  a declared drift that NO LONGER occurs -> FAIL (the ruling is spent, and an allowlist outliving its reason is the staleness it was built to catch)
+
+FAIL — 3 declared drift(s) no longer occur. The ruling is SPENT and must be deleted: an allowlist that outlives its reason is the staleness it was built to catch.
+  PASS  NOTHING drifts -> FAIL, not PASS — every ruling is spent and the constants should be repinned
+
+2. a ruling states a reason, a date and what ends it
+  PASS  the ruling loop below has something to iterate — a register with no instruments prints no checks and reads as green, so the count is asserted here rather than left to a silent loop (doctrine 20)
+          0 ruling(s) declared across 1 instrument(s)
+  PASS  __fixture__ / alpha carries all three
+          because=83 chars, since='2026-08-21', closed_by=41 chars
+  PASS  __fixture__ / beta carries all three
+          because=83 chars, since='2026-08-21', closed_by=41 chars
+  PASS  __fixture__ / gamma carries all three
+          because=83 chars, since='2026-08-21', closed_by=41 chars
+
+3. the drift parser reads its instrument, and REFUSES when it cannot
+  PASS  the shipped pattern reads a real DRIFTED line whole
+          ['anaphora period slope p_perm', 'anaphora period slope rho', 'threshold cv', 'threshold fwr', 'threshold mattr']
+  PASS  ...and one drifted value parses as one, not as its substring
+  PASS  a non-zero exit with NO readable drift list RAISES rather than reporting an empty set — a parser that stopped matching its instrument is not an absence of drift (doctrine 20)
+  PASS  but a CLEAN exit with no drift list is an honest empty set
+
+==============================================================
+declared drift is a ruling with a date and an end, and the allowlist fails in both directions

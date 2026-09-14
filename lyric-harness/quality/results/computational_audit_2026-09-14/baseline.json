@@ -1,0 +1,112 @@
+[
+  {
+    "suite": "test_align.py",
+    "rc": 0,
+    "seconds": 6.39
+  },
+  {
+    "suite": "test_grid.py",
+    "rc": 0,
+    "seconds": 50.91
+  },
+  {
+    "suite": "test_fit.py",
+    "rc": 0,
+    "seconds": 10.65
+  },
+  {
+    "suite": "test_meter.py",
+    "rc": 0,
+    "seconds": 0.06
+  },
+  {
+    "suite": "test_slots.py",
+    "rc": 0,
+    "seconds": 9.46
+  },
+  {
+    "suite": "test_spans.py",
+    "rc": 0,
+    "seconds": 51.01
+  },
+  {
+    "suite": "test_nucleus.py",
+    "rc": 0,
+    "seconds": 1.22
+  },
+  {
+    "suite": "test_coda.py",
+    "rc": 0,
+    "seconds": 0.62
+  },
+  {
+    "suite": "test_phonology.py",
+    "rc": 0,
+    "seconds": 1.57
+  },
+  {
+    "suite": "test_readings_seam.py",
+    "rc": 0,
+    "seconds": 3.03
+  },
+  {
+    "suite": "test_pronunciation_choices.py",
+    "rc": 0,
+    "seconds": 22.14
+  },
+  {
+    "suite": "test_declared_inputs.py",
+    "rc": 0,
+    "seconds": 7.33
+  },
+  {
+    "suite": "test_time_layer.py",
+    "rc": 0,
+    "seconds": 2.62
+  },
+  {
+    "suite": "test_fwer.py",
+    "rc": 0,
+    "seconds": 30.37
+  },
+  {
+    "suite": "test_plan.py",
+    "rc": 0,
+    "seconds": 143.77
+  },
+  {
+    "suite": "test_screen.py",
+    "rc": 0,
+    "seconds": 236.31
+  },
+  {
+    "suite": "test_band.py",
+    "rc": 0,
+    "seconds": 0.77
+  },
+  {
+    "suite": "test_recover.py",
+    "rc": 0,
+    "seconds": 31.41
+  },
+  {
+    "suite": "test_audit_regressions.py",
+    "rc": 0,
+    "seconds": 51.09
+  },
+  {
+    "suite": "test_session_repairs.py",
+    "rc": 0,
+    "seconds": 12.86
+  },
+  {
+    "suite": "test_expected_drift.py",
+    "rc": 0,
+    "seconds": 0.03
+  },
+  {
+    "suite": "test_replay_memo.py",
+    "rc": 0,
+    "seconds": 79.41
+  }
+]

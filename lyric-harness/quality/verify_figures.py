@@ -80,23 +80,25 @@ def _pinned():
 #: the same commit: current -> superseded (now policed), superseded ->
 #: retired, the new spelling in.  The derivation check below goes red until
 #: it does, which is the relation M-33 found missing.
+#: WALKED 2026-09-14 for the tokenizer-normalization repin: 0.723/0.960/0.237
+#: -> superseded (policed), 0.717/0.964/0.247 -> retired, 0.758/0.967/0.209 in.
 TRACKED = (
     {"name": "joint held-out AUC, Exp 1 (selection)",
      "derive": lambda p: p["abs_exp1"]["joint_all"],
-     "precision": 3, "current_spelling": "0.723",
-     "superseded": ("0.717",),
-     "retired": ("0.716809", "0.659", "0.709")},
+     "precision": 3, "current_spelling": "0.758",
+     "superseded": ("0.723",),
+     "retired": ("0.717", "0.716809", "0.659", "0.709")},
     {"name": "joint held-out AUC, Exp 2 (rejection)",
      "derive": lambda p: p["abs_exp2"]["joint_all"],
-     "precision": 3, "current_spelling": "0.960",
-     "superseded": ("0.964",),
-     "retired": ("0.975", "0.971")},
+     "precision": 3, "current_spelling": "0.967",
+     "superseded": ("0.960",),
+     "retired": ("0.964", "0.975", "0.971")},
     {"name": "the gap, rejection minus selection",
      "derive": lambda p: (p["abs_exp2"]["joint_all"]
                           - p["abs_exp1"]["joint_all"]),
-     "precision": 3, "current_spelling": "0.237",
-     "superseded": ("0.247",),
-     "retired": ("0.262", "0.015", "0.025")},
+     "precision": 3, "current_spelling": "0.209",
+     "superseded": ("0.237",),
+     "retired": ("0.247", "0.262", "0.015", "0.025")},
 )
 
 #: The documents in scope.  Per-document, declared, extendable.

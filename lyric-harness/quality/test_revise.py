@@ -195,8 +195,13 @@ R = Reviser()
 #: stale claim doctrine 58 warns about. History: quality/RESULTS_CODA_SHAPE.md
 #: and quality/RESULTS_COLLISION_PARTITION.md §9.
 
+#: 36 TOKENS SINCE 2026-09-14, from 37 -- the same one-word cut as
+#: test_loop.py's CLICHE ("then", which occurs once), for the same reason:
+#: the section profile's measured range moved to 28-36 with the tokenizer
+#: correction, and at 37 this draft sat one token past it, so its cliche
+#: pairs were NOTES and no line opened. See test_loop.py for why THAT word.
 CLICHE = ["The candle burned and set the room on fire",
-          "He said the word and then he turned to go",
+          "He said the word and he turned to go",
           "And all night long she nursed a small desire",
           "She never asked the thing she had to know"]
 

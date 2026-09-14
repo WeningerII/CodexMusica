@@ -58,7 +58,7 @@ if os.path.dirname(HERE) not in sys.path:
     sys.path.insert(0, os.path.dirname(HERE))
 
 from lyric_harness import (Declaration, Lexicon, is_apparatus_line,  # noqa: E402
-                           read_lyric_text, word_syllable_map)
+                           word_syllable_map, readability_records)
 from quality import slots as SL                                     # noqa: E402
 
 __all__ = ["Recovered", "recover", "recover_file", "PROVENANCE",
@@ -147,7 +147,7 @@ class Recovered(dict):
                 if how == "REFUSED"}
 
 
-def _sections_from_marks(raw_lines):
+def _sections_from_marks(raw_lines, lyric_indices=None):
     """-> [(name, [0-based line indices])] from `[SECTION]` marks, or None.
 
     Reads the marks with `is_apparatus_line`'s own predicate — the ONE
@@ -159,12 +159,14 @@ def _sections_from_marks(raw_lines):
     out, cur, name = [], [], None
     for i, raw in enumerate(raw_lines):
         s = raw.strip()
-        if s.startswith("[") and s.endswith("]") and len(s) > 2:
+        if (s.startswith("[") and s.endswith("]") and len(s) > 2
+                and (lyric_indices is None or i not in lyric_indices)):
             if name is not None or cur:
                 out.append((name, cur))
             name, cur = s[1:-1].strip(), []
             continue
-        if is_apparatus_line(raw) or not s:
+        if not s or (i not in lyric_indices if lyric_indices is not None
+                     else is_apparatus_line(raw)):
             continue
         cur.append(i)
     if name is not None:
@@ -172,7 +174,7 @@ def _sections_from_marks(raw_lines):
     return out or None
 
 
-def _sections_from_blanks(raw_lines):
+def _sections_from_blanks(raw_lines, lyric_indices=None):
     """-> [(name, [0-based indices])] from blank-line blocks.
 
     DERIVED, not declared: a blank line is a printer's convention and this
@@ -182,7 +184,9 @@ def _sections_from_blanks(raw_lines):
     """
     out, cur = [], []
     for i, raw in enumerate(raw_lines):
-        if is_apparatus_line(raw):
+        apparatus = (bool(raw.strip()) and i not in lyric_indices
+                     if lyric_indices is not None else is_apparatus_line(raw))
+        if apparatus:
             continue
         if not raw.strip():
             if cur:
@@ -217,7 +221,7 @@ def _slot_words(lex, line, placements):
 
 
 def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
-            theta=None, max_pairs=200_000):
+            theta=None, max_pairs=200_000, lyric_indices=None):
     """Text in, a recovered plan out. -> `Recovered`.
 
     `lines` is the sung text (apparatus already dropped); `raw_lines` is the
@@ -263,7 +267,7 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
     #    blank line, and a text with neither is REFUSED rather than sectioned
     #    by a rule this module invented (doctrine 20).
     raw = raw_lines if raw_lines is not None else list(lines)
-    marked = _sections_from_marks(raw) if raw_lines is not None else None
+    marked = _sections_from_marks(raw, lyric_indices) if raw_lines is not None else None
     if marked:
         missing = [i + 1 for n, ix in marked if n is None for i in ix]
         r.put("sections", [{"name": n, "lines": len(ix),
@@ -273,7 +277,7 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
               (f"unclassified sung prefix at raw lines {missing}; mark its section"
                if missing else "[SECTION] marks the writer wrote"))
     else:
-        blocks = _sections_from_blanks(raw) if raw_lines is not None else None
+        blocks = _sections_from_blanks(raw, lyric_indices) if raw_lines is not None else None
         if blocks and len(blocks) > 1:
             r.put("sections",
                   [{"name": n, "lines": len(ix)} for n, ix in blocks],
@@ -289,8 +293,17 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
 
     # 3. SYLLABLES PER LINE. Counted — this project's own instrument.
     syl = [len(word_syllable_map(lex, l)) for l in lines]
-    r.put("syllables_per_line", syl, "counted",
-          "word_syllable_map, the same reader the in-line span layer uses")
+    records = readability_records(lex, lines)
+    uncertain = [record["line"] for record, count in zip(records, syl)
+                 if record["unreadable"] or not count]
+    r.put("syllables_per_line", syl, "REFUSED" if uncertain else "counted",
+          (f"exact counts refused at lines {uncertain}; displayed counts are "
+           "LOWER BOUNDS on readable syllables, not zero-syllable claims. "
+           "See syllable_readability for the unrecognized words."
+           if uncertain else
+           "word_syllable_map, the same reader the in-line span layer uses"))
+    r.put("syllable_readability", records, "counted",
+          "per-line reader coverage; unreadable words are not zero syllables")
 
     # 4. METER. Refused, with the remedy named. See the module docstring:
     #    counting gives syllables, and a BAR GRID needs a declared meter.
@@ -445,11 +458,13 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
 
 
 def recover_file(path, **kw):
-    """A file in, a recovered plan out. Reads it ONCE, through the one
-    decoder (`read_lyric_text`), and hands both views to `recover`."""
-    raw = read_lyric_text(path).splitlines()
-    sung = [l for l in raw if l.strip() and not is_apparatus_line(l)]
-    return recover(sung, raw_lines=raw, **kw)
+    """Use the grader's normalized reader and retain physical row positions."""
+    from quality.lyric_reader import normalized_rows
+    rows = list(normalized_rows(path))
+    indices = {i for i, row in enumerate(rows) if row.kind == "lyric"}
+    return recover([row.text for row in rows if row.kind == "lyric"],
+                   raw_lines=[row.text for row in rows],
+                   lyric_indices=indices, **kw)
 
 
 def render(r):

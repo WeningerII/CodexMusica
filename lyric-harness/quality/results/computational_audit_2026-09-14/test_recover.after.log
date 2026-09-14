@@ -1,0 +1,87 @@
+
+1. the four provenances are CLOSED and every coordinate has one
+  PASS  every coordinate the recovery emits carries a provenance — a value with no account of how it was obtained is the thing this module exists to stop emitting
+          []
+  PASS  and every provenance is one of the four declared — a fifth cannot appear by someone writing a new string
+          ('counted', 'declared', 'derived', 'REFUSED')
+  PASS  an undeclared provenance REFUSES at the put, not at the reader
+
+2. sections: declared beats derived beats REFUSED
+  PASS  a [SECTION] mark is DECLARED — the writer said so, and that outranks anything the harness can infer
+          [{'name': 'VERSE 1', 'lines': 4, 'raw_lines': [2, 3, 4, 5], 'classified': True}, {'name': 'CHORUS', 'lines': 2, 'raw_lines': [8, 9], 'classified': True}]
+  PASS  blank-line blocks are DERIVED, not declared: a blank line is a printer's convention and the provenance says so rather than a comment nobody reads
+          [{'name': 'BLOCK1', 'lines': 2}, {'name': 'BLOCK2', 'lines': 2}]
+  PASS  a text with NEITHER is REFUSED, not sectioned by a rule this module invented — a sectioning invented here would be graded as though the writer had asked for it (doctrine 20)
+  PASS  and the refusal names the remedy, so it is a work order
+          the text carries no [SECTION] mark and no blank-line block, so its sectioning ca
+
+3. what is COUNTED is arithmetic nobody can disagree with
+  PASS  the line count is counted and is the sung lines, not the printed ones — the marks and the blank line are apparatus
+          6 from 9 printed lines
+  PASS  syllables per line are COUNTED, one per sung line, through the same reader the in-line span layer uses
+          [9, 7, 9, 8, 7, 9]
+  PASS  binding sites are counted, and there are MORE of them than there are lines — which is the whole point of recovering a web rather than a list of end words
+          21 sites over 6 lines
+
+4. the meter is REFUSED and the refusal names its remedy
+  PASS  a bar grid is not inferred from syllable counts — it is a DECLARED coordinate, and inferring one would be the harness declaring a meter on the writer's behalf and then grading them against it
+  PASS  and the refusal names the remedy (declare one) rather than stating a limitation
+          a bar grid is a DECLARED coordinate (doctrine 4, as amended 2026-08-23). Counting gives th
+  PASS  the refusal does NOT reach for audio — counting is this project's instrument and the owner's ban on the other is standing
+
+5. the web is a cover over PLACEMENTS, not over line ends
+  PASS  the web is derived and non-empty on a text with rhyme in it
+          14 edges
+  PASS  and it carries edges at placements OTHER than the line end — an end-anchored recovery could not have found these at all
+          13 of 14 edges name a placement
+  PASS  every edge names both its sites in the mandate's own spelling, so a recovered cover can be handed straight to `--groups=`
+  PASS  SAME-LINE pairs are excluded: a group is a set of lines and a relation whose members share a line has one member, which is the refusal `quality/slots.py` already makes
+
+6. the derived cover says it is NOT independent of the grader
+  PASS  doctrine 14 is stated in the coordinate itself, not left to a reader: every edge is a band-passing pair BY CONSTRUCTION, so grading this cover against the same band cannot produce a violation
+  PASS  ...and it says what such a cover CAN say non-trivially, so the disclosure is a bound on the claim rather than a disclaimer that voids it
+  PASS  the theta it was derived at is named — a cover derived at one theta is an ordinary independent mandate at another
+          every admitted pair over 21 binding sites at 4 placements per line, at the cut the grader judges eac
+
+7. the bound is declared, and a truncation would be LOUD
+  PASS  past the declared pair bound the web REFUSES rather than returning a truncated one — a silently truncated web reads as a song with fewer relations in it (no silent caps)
+  PASS  and the refusal quotes the bound it hit and the population it would have compared, so the remedy is computable
+          21 binding sites over 6 lines is 210 pairs, past the declared bound 3. Recover a section at a time, or raise t
+
+8. the doctrine-14 claim is GRADED, not grepped
+  PASS  the cover is offered as the CLI's OWN two mandate flags, because it holds two DIFFERENT demands and `--groups=` can state only one
+          ['--groups=', '--returns=']
+  PASS  the fixture HAS both kinds — a section that graded a REPEAT-free cover would pass against the defect and prove nothing
+          4 REPEAT, 10 band
+  PASS  the WHOLE web DOES charge violations — this is the defect, measured, and it is the control that makes the next check non-vacuous
+          4 SCHEME_VIOLATION
+  PASS  and `mandate_spelling['--groups=']` charges NONE, which is the doctrine-14 sentence made TRUE rather than asserted
+          0 SCHEME_VIOLATION
+  PASS  a REPEAT edge binding at a PLACEMENT is REFUSED and names its remedy — no mandate spelling in this harness can hold one, and flattening it to line numbers would declare an identity between two line ENDS this module never measured
+          4 placed REPEAT edge(s)
+
+9. the placement set is the CALLER'S, and it is reachable
+  PASS  the default is this module's own constant, IMPORTED from `slots` rather than respelled, so the two cannot drift (doctrine 1)
+          ('end', 'endword', 'head', 'headrime')
+  PASS  ...and it is BYTE-IDENTICAL in value to what this function already searched, so the ruling moves no recovered cover
+          ['end', 'endword', 'head', 'headrime']
+  PASS  a declared `T<n>` set is READ — the two covers DISAGREE, which a dropped flag could not do
+          default 21 sites / 14 edges -> declared 36 / 32
+  PASS  ...and the added edges NAME the placement, so a recovered `T<n>` binding is spellable and not merely counted
+          18 of 32 declared-run edges name a T<n>, against 0 of 14 by default
+  PASS  the coordinate is RECORDED on the result with its provenance — `declared` when the caller said so, `derived` when it is this module's default and not a fact about the text
+          derived / declared
+  PASS  ...and RENDERED, because a placement not searched is not a placement the text lacks (doctrine 20)
+          render() names the set it swept
+  PASS  an unresolvable placement 'T4x' REFUSES by name
+          --placements names 'T4x', which this module cannot resolve to a span of a line: '1.T4x' na
+  PASS  an unresolvable placement 'endwrod' REFUSES by name
+          --placements names 'endwrod', which this module cannot resolve to a span of a line: '1.end
+  PASS  an unresolvable placement '' REFUSES by name
+          --placements was declared and names no placement. An empty declaration is not the default;
+  PASS  ...and a resolvable one does NOT refuse — the guard is not refusing everything
+          whitespace tolerated, order kept
+  PASS  `line` stays DECLARABLE, which is `PLANNABLE_PLACEMENTS`' own word for it — its exclusion is about volunteering a holorhyme, not about a reader being unable to name one
+          declarable, never volunteered
+
+ALL PASS
