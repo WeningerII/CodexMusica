@@ -22,8 +22,23 @@ tokenizer's fingerprint is in the refusals: 82,712 constrained refusals
 | arm | pairs | true | false | refused | judged-base rate |
 |---|---|---|---|---|---|
 | CONSTRAINED (Kalevala + both Kanteletar volumes) | 152,917 | 49,649 | 103,186 | 82 | **0.3249** |
-| INCIDENTAL (nine later-Finnish files, null B) | 135,292 | 19,426 | 114,899 | 967 | 0.1446 |
+| INCIDENTAL (nine later-Finnish files, null B) | 134,750 | 19,387 | 114,461 | 902 | 0.1448 |
+| ~~INCIDENTAL (nine later-Finnish files, null B)~~ | ~~135,292~~ | ~~19,426~~ | ~~114,899~~ | ~~967~~ | ~~0.1446~~ |
 | NULL A (within-item random pairing, 200 resamples, seed 20260818) | — | — | — | — | median 0.1203, max 0.1225 |
+
+> **INCIDENTAL REPINNED 2026-09-14 (M-288).** The struck row is the
+> 2026-08-18 reading. On 2026-09-08 (commit a75da39f) the item reader every
+> arm goes through, `structure_census.items_of`, became
+> `lyric_reader.calibration_items`, which drops bracketed editorial and
+> apparatus lines the old `--- TITLE:` reader kept — 20 lines across three of
+> the nine incidental files (Cajander 17, Wähänen 2, Leino 1), none in the
+> constrained arm's three. The incidental arm lost 542 pairs, 39 true and 65
+> refused among them, and its rate moved 0.1446 → 0.1448; the constrained
+> arm, null A and E1 are unmoved. Found by the nightly's first scheduled run
+> after the crons were restored (M-287), measured identically at d12108fe
+> and 38c8f331, and adopted as the reader's correction rather than repaired
+> by restoring the lines: they are apparatus, and the constrained arm was
+> never carrying any.
 
 ## E1 — the constraint is visible: PASS
 
