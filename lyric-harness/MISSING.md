@@ -23519,6 +23519,6 @@ check("every baseline detector completed successfully", not red, str(red))
 
 **WHAT THIS DOES NOT DECIDE.** (1) Whether the nightly should fail on the calibration slice's exit 124: that step's own text says a bounded slice cannot qualify calibration, and #269 has since re-derived the whole calibration in-tree, so the memo starts over on the next run either way. (2) Whether a75da39f's contracts are right — this entry adopts what they measure and changes no gate. (3) Whether a nightly-only instrument should also run on the PR that moves it; three of them moved behind a green tree for six days, the shape M-177 recorded once already.
 
-**VERIFIED:** `verify_entries`, `counters --check`, `verify_doctrines`, `check_docs` PASS at this commit; the three instruments' own re-runs against these pins (`kalevala_calibration.py --check`, `regrade_verdicts.py`, `chance_rate.py --null --check` on `38c8f331`) were running when this was written and their verdicts are recorded in the commit that follows, not here.
+**VERIFIED:** on `38c8f331` with these pins, `kalevala_calibration.py --check` PASS (the adopted counts re-derive exactly, E1 PASS), `regrade_verdicts.py` HOLDS 11 / MOVED 0 / CANNOT RUN 0, `chance_rate.py --null --check` PASS (all six figures HOLD, both verdicts HOLD); `verify_entries`, `counters --check`, `verify_doctrines`, `check_docs` PASS. The commit before this one carried the pins with the re-runs still in flight and said so; this line replaces that sentence with the measurements.
 
 **343** with this entry (2026-09-14).
