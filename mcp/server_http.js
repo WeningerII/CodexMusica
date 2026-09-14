@@ -17,6 +17,7 @@ import { CONNECTOR_VERSION } from './contract_version.js';
 // dropped sessions on every redeploy, which surfaced as "execution errors" on
 // calls made after a deploy.) Each tool call is self-contained.
 
+import compression from 'compression';
 import express from 'express';
 import path from 'node:path';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
@@ -158,6 +159,43 @@ app.use((req, res, next) => {
   res.on('close', emit);
   next();
 });
+
+// ─────────────────────── response compression ───────────────────────
+//
+// WHY THIS EXISTS. Every response this service sent went out uncompressed, and
+// the largest one is the one every client fetches first. Measured on this tree
+// (2026-09-14), `tools/list` plain vs gzipped, per surface:
+//
+//   /mcp/chatgpt    100,470 -> 16,626   (83% off)
+//   /mcp             76,378 -> 16,194   (79% off)
+//   /mcp/lyrics      63,298 -> 12,984   (79% off)
+//   /mcp/recipe      13,148 ->  3,784   (71% off)
+//
+// Four fifths of every handshake was padding, paid once per connection by every
+// connector pointed at this URL. Tool results compress about as well:
+// list_traditions 3,919 -> 939, search_catalog 3,308 -> 788. The engine is
+// unchanged; only the bytes on the wire move.
+//
+// WHY IT IS SAFE HERE is the half worth checking before copying this line into
+// another service. `compression` buffers, and buffering a long-lived stream
+// delays every event on it. This server has no long-lived stream to delay:
+// `GET` on an MCP path -- the Streamable HTTP spec's server-initiated SSE
+// channel -- is refused 405 below, /chat answers with a single buffered body
+// and reports progress through polled receipts, and everything else is
+// res.json(). The `text/event-stream` bodies the POST handler does emit are
+// complete when written: they carry a Content-Length and close.
+//
+// So the precondition is "no open streams", NOT "no SSE" -- and the change
+// that would quietly break it is enabling that GET channel, which would turn
+// a delivered event into one held until the stream ended. The two facts are
+// asserted together in test_connector_http.mjs for exactly that reason: that a
+// large body comes back gzipped, and that the GET stream is still refused.
+//
+// Mounted after the request log so a compressed response is still logged, and
+// before every route so there is no surface it does not cover. The default
+// 1 KB threshold is kept: /health and /ready are smaller than their own gzip
+// headers would be, and compressing them would make them bigger.
+app.use(compression());
 
 app.use(express.json({ limit: HTTP_REQUEST_BYTES }));
 
