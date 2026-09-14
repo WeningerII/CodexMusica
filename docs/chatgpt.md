@@ -9,6 +9,23 @@ This is a source implementation and acceptance plan. Merging the code does not
 deploy the routes, register a ChatGPT connection or publish a plugin. Local MCP
 tests do not establish native ChatGPT behavior or a successful live kitchen run.
 
+## Access policy
+
+Sign-in is optional for Codex Musica. The website, its built-in Gemini chat and
+all public MCP endpoints work without a user account, including both ChatGPT
+routes below. Users can choose the website, a compatible MCP client or an
+optional host integration. No OpenAI account is required to use the service.
+
+There is currently no Codex Musica account system. Any future account features
+must retain guest access and provide a sign-in method independent of OpenAI.
+Session and operation IDs are temporary capabilities for recovering work; they
+do not enroll the user in an account or select an identity provider.
+
+The registration instructions below concern the optional connection inside a
+ChatGPT account. That host's sign-in and workspace policies do not introduce a
+login requirement for Codex Musica. Configure both connections with no endpoint
+authentication; do not add an OpenAI login gate to the website or MCP service.
+
 ## Endpoints and contracts
 
 | Endpoint | Tools | State and results |
@@ -103,6 +120,23 @@ testing its MCP connections. Public directory submission is a later step under
 the [submission process](https://developers.openai.com/plugins/deploy/submission).
 
 ## Acceptance
+
+Live endpoint acceptance passed on September 14, 2026 against deployed commit
+`42f020e6831581bd24235a4887e00b0910430d0d` (PR #266). All calls used the public
+endpoints without user credentials. Eleven checks covered readiness, recipe
+edits after reconnect, duplicate/stale submissions, exact engine output in all
+four formats, lyric creation order, declared pronunciation, interview continuation
+and a bounded kitchen operation. The interview continuation finished with exit
+code 0. The kitchen check used one round and one attempt, recorded two provider
+calls costing USD 0.0008405 with no unknown spend, and stopped with open lines
+(exit code 3); it verifies dispatch, recovery and accounting, not a finished song.
+Final health and readiness checks reported the same deployed commit and healthy
+durable storage.
+
+ChatGPT account registration, installation of the bundled skills and native
+conversation acceptance remain unverified. These live SDK checks establish
+endpoint behavior only. Registration was paused when the browser required a
+ChatGPT sign-in; the public website and endpoints remain usable without it.
 
 Run `npm run test:chatgpt` after installing root/MCP dependencies and staging the
 same lyric runtime assets used by CI. The new suite is also part of
