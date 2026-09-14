@@ -46,7 +46,10 @@ Render migration or a paid long-song run. Those remain release qualification ste
 
 
 Production promotion also requires the latest **Production qualification** manual
-workflow at the exact main commit and verified run attempt to succeed. It intentionally
+workflow at the exact main commit and verified run attempt to succeed. Dispatch it
+after the commit's CI has finished; its completion re-enters the deploy workflow,
+which promotes the image by itself. The deploy run that CI's own completion starts
+stands down (green) until that qualification exists. It intentionally
 executes all four mutation shards, full song and short-song band comparisons
 (200 seeds, 2,000 draws), and the five adopted lyric curves. Each command has its
 existing bound: mutation 200 minutes, each band 150 minutes, curves 40 minutes.
@@ -57,7 +60,9 @@ deployment compares qualification to that value. The installed runtime fingerpri
 remains separate because the assembled image deliberately excludes research files. A timeout,
 partial comparison, missing shard, stale source, or successful older attempt cannot
 qualify. Cached progress is retained under failure. Candidate images remain
-buildable before this production gate passes. Both automated schedules stay disabled.
+buildable before this production gate passes. CI's nightly and weekly schedules are
+on again since 2026-09-14; a scheduled run never deploys (the deploy trusts only
+a push's CI run and a dispatched qualification).
 
 The historical nightly estimate did not count the newer 40-minute curve step:
 77.4 minutes of older measured other work + 150-minute song bound + 40-minute curve
