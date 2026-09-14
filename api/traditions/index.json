@@ -1,5 +1,5 @@
 {
-  "count": 2564,
+  "count": 2588,
   "items": [
     {
       "id": "honky_tonk",
@@ -15384,6 +15384,150 @@
       "name": "Djanba (Wadeye choral song-dance)",
       "family": "global",
       "href": "traditions/djanba.json"
+    },
+    {
+      "id": "famo",
+      "name": "Famo (Basotho accordion song)",
+      "family": "global",
+      "href": "traditions/famo.json"
+    },
+    {
+      "id": "mohobelo",
+      "name": "Mohobelo (Basotho men’s dance song)",
+      "family": "global",
+      "href": "traditions/mohobelo.json"
+    },
+    {
+      "id": "litolobonya",
+      "name": "Litolobonya (Basotho women’s song and dance)",
+      "family": "global",
+      "href": "traditions/litolobonya.json"
+    },
+    {
+      "id": "intore_music",
+      "name": "Intore (Rwandan musical performance)",
+      "family": "global",
+      "href": "traditions/intore_music.json"
+    },
+    {
+      "id": "burundi_royal_drum_ritual",
+      "name": "Burundi royal drum ritual repertoire",
+      "family": "global",
+      "href": "traditions/burundi_royal_drum_ritual.json"
+    },
+    {
+      "id": "moutya",
+      "name": "Moutya (Seychelles)",
+      "family": "global",
+      "href": "traditions/moutya.json"
+    },
+    {
+      "id": "tchiloli_music",
+      "name": "Tchiloli (instrumental theatre repertoire)",
+      "family": "global",
+      "href": "traditions/tchiloli_music.json"
+    },
+    {
+      "id": "nenets_syudbabc",
+      "name": "Nenets syudbabc (heroic narrative song)",
+      "family": "global",
+      "href": "traditions/nenets_syudbabc.json"
+    },
+    {
+      "id": "nenets_yarabc",
+      "name": "Nenets yarabc (first-person narrative song)",
+      "family": "global",
+      "href": "traditions/nenets_yarabc.json"
+    },
+    {
+      "id": "nenets_personal_song",
+      "name": "Nenets personal song repertoire",
+      "family": "global",
+      "href": "traditions/nenets_personal_song.json"
+    },
+    {
+      "id": "nganasan_personal_song",
+      "name": "Nganasan personal songs (hankudya baly)",
+      "family": "global",
+      "href": "traditions/nganasan_personal_song.json"
+    },
+    {
+      "id": "nganasan_keingeirsya",
+      "name": "Nganasan keingeirsya (sung dialogue)",
+      "family": "global",
+      "href": "traditions/nganasan_keingeirsya.json"
+    },
+    {
+      "id": "palauan_chesols",
+      "name": "Palauan chesóls (solo chant)",
+      "family": "global",
+      "href": "traditions/palauan_chesols.json"
+    },
+    {
+      "id": "palauan_ruk",
+      "name": "Palauan ruk performance repertoire",
+      "family": "global",
+      "href": "traditions/palauan_ruk.json"
+    },
+    {
+      "id": "terchova_music",
+      "name": "Music of Terchová (string ensemble)",
+      "family": "global",
+      "href": "traditions/terchova_music.json"
+    },
+    {
+      "id": "horehronie_multipart_singing",
+      "name": "Horehronie multipart singing",
+      "family": "global",
+      "href": "traditions/horehronie_multipart_singing.json"
+    },
+    {
+      "id": "bigwala_music",
+      "name": "Bigwala (Busoga trumpet music and dance)",
+      "family": "global",
+      "href": "traditions/bigwala_music.json"
+    },
+    {
+      "id": "madi_bowl_lyre_music",
+      "name": "Ma’di bowl-lyre music and dance",
+      "family": "global",
+      "href": "traditions/madi_bowl_lyre_music.json"
+    },
+    {
+      "id": "chopi_timbila_music",
+      "name": "Chopi timbila orchestral music",
+      "family": "global",
+      "href": "traditions/chopi_timbila_music.json"
+    },
+    {
+      "id": "gule_wamkulu_music",
+      "name": "Gule Wamkulu (Chewa musical repertoire)",
+      "family": "global",
+      "href": "traditions/gule_wamkulu_music.json"
+    },
+    {
+      "id": "haida_welcome_song",
+      "name": "Haida welcome-song repertoire (archive recital)",
+      "family": "global",
+      "href": "traditions/haida_welcome_song.json"
+    },
+    {
+      "id": "shuar_anent",
+      "name": "Shuar anent",
+      "family": "global",
+      "href": "traditions/shuar_anent.json"
+    },
+    {
+      "id": "shuar_nampet",
+      "name": "Shuar nampet",
+      "family": "global",
+      "href": "traditions/shuar_nampet.json"
+    },
+    {
+      "id": "al_ayyala",
+      "name": "Al-Ayyala (Oman and UAE)",
+      "family": "global",
+      "href": "traditions/al_ayyala.json"
     }
   ]
 }

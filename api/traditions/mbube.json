@@ -5,7 +5,7 @@
   "lineage": "Zulu male-choral style named for Solomon Linda's 1939 Gallo recording 'Mbube', formed among Natal migrant workers in Johannesburg hostels — a loud, full-throated four-part bass-led homophonic choir with a soaring solo falsetto or high tenor over cycling I-IV-I-V harmony, sung in isiZulu at moderate walking tempo and staged in all-night competitive hostel contests.",
   "recipe": "classic Southern African late-1930s mbube, functional Song, isicathamiya branch, sub saharan African praise song, christian gospel jubilee quartet apala. thick, declaimed, fast rate, interlocked note trading. choir isicathamiya, a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
   "recipe_chars": 571,
-  "score": 192.972,
+  "score": 191.817,
   "config": {
     "traditions": [
       "mbube",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 15.409999999999998,
+          "voice_register": 15.364999999999998,
           "voice_quality": 23.289999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 8.6125,
           "voice_pitch_organization": 5.25,
           "voice_processing_chain": 2.7950000000000004,
-          "voice_multitrack_stack": 5.550000000000001
+          "voice_multitrack_stack": 5.175000000000001
         }
       },
       {
@@ -60,9 +60,9 @@
           "choir_isicathamiya_setting": "choir_isicathamiya_hostel_competition"
         },
         "scores": {
-          "choir_isicathamiya_lineup": 4.86,
-          "choir_isicathamiya_style": 2.7950000000000004,
-          "choir_isicathamiya_setting": 2.8699999999999997
+          "choir_isicathamiya_lineup": 4.575,
+          "choir_isicathamiya_style": 2.5700000000000003,
+          "choir_isicathamiya_setting": 2.78
         }
       },
       {
@@ -75,7 +75,7 @@
         },
         "scores": {
           "choir_size": 9.229999999999999,
-          "choir_polyphonic_configuration": 3.25,
+          "choir_polyphonic_configuration": 3.115,
           "choir_regional_canonical_configuration": 6.174999999999999,
           "choir_ensemble_repertoire": 2.795
         }

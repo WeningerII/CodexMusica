@@ -1,0 +1,68 @@
+{
+  "id": "moutya_drum_trio",
+  "name": "Moutya drum trio (Seychelles)",
+  "short": "moutya drum trio",
+  "family": "percussion",
+  "class": "drum_ensemble",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "moutya_drum_trio_form",
+      "name": "Documented form",
+      "variants": [
+        {
+          "id": "moutya_drum_trio_documented",
+          "name": "Documented configuration",
+          "default": true,
+          "descriptors": [
+            "three-drums",
+            "goatskin",
+            "narrow-rims",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "three-drums",
+            "goatskin",
+            "narrow-rims",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "moutya_drum_trio_form",
+      "name": "Documented form",
+      "variants": [
+        {
+          "id": "moutya_drum_trio_documented",
+          "name": "Documented configuration",
+          "default": true,
+          "descriptors": [
+            "three-drums",
+            "goatskin",
+            "narrow-rims",
+            "hand-struck"
+          ],
+          "match_tokens": [
+            "three-drums",
+            "goatskin",
+            "narrow-rims",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

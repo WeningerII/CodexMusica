@@ -3,7 +3,7 @@
 A structured catalog of recorded-music traditions in 13-dimensional parameter space,
 and an engine that turns a song specification into a tightly compressed structural
 **recipe** — a descriptor stack that tells you how to record it. The catalog spans
-**2,564 traditions** and **1457 instruments** (with per-part variant decomposition),
+**2,588 traditions** and **1467 instruments** (with per-part variant decomposition),
 **256 rooms**, **84 chain archetypes**, and **122 tunings**.
 
 The headline operation is recipe generation; the same catalog also supports tradition
@@ -12,6 +12,19 @@ browser app builds into a dependency-free `codex.html` — a **lazy shell** that
 the catalog on demand from the static `api/` served beside it, scaling past the
 single-file memory ceiling. A fully-embedded single-file variant (`--embedded`) still
 builds, and a gate proves the shell behaves identically to it. <!-- @promise: lazy-shell-parity -->
+
+## Access and optional integrations
+
+Use [Codex Musica](https://codexmusica.com) without signing in. The browser app,
+its built-in Gemini chat and the public MCP endpoints require no user account.
+Claude, Gemini and ChatGPT integrations are optional ways to use the same engine;
+an OpenAI account is not a prerequisite for Codex Musica.
+
+The application currently has no account system. Any future account features must
+preserve guest access and offer a sign-in method independent of OpenAI. A host's
+own account requirements apply only when choosing to use that host. In particular,
+registering the optional ChatGPT connection happens inside ChatGPT; the Codex
+Musica endpoints themselves use no authentication. See [ChatGPT setup](docs/chatgpt.md).
 
 ## Quick start
 

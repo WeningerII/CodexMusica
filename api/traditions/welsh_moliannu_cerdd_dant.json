@@ -5,7 +5,7 @@
   "lineage": "Welsh medieval praise-poetry tradition continuous from 6th-7th-century Taliesin-and-Aneirin foundational era (the Cynfeirdd \"early-poets\") through 12th-13th century Gogynfeirdd \"poets-of-the-princes\" era of court-praise-poetry through continuous-Welsh-bardic transmission into modern penillion-singing and cerdd dant (\"string-craft\") harp-and-voice tradition",
   "recipe": "classic Northern European modern welsh moliannu and cerdd dant, praise Song, Celtic British branch, sub saharan African praise song, Celtic balladic ballad poetry, string drone modal welsh folk welsh hymn-balladry. thick, declaimed, straight onset, interlocked note trading. cerdd dant nylon strung welsh triple harp, choir welsh male, drone under song bardic crwth. uk folk revival club 60s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 455,
-  "score": 321.828,
+  "score": 319.15,
   "config": {
     "traditions": [
       "welsh_moliannu_cerdd_dant",
@@ -35,18 +35,18 @@
         },
         "scores": {
           "voice_register": 3.765,
-          "voice_quality": 19.734999999999992,
+          "voice_quality": 19.539999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.56,
           "voice_articulation": 14.884999999999996,
           "voice_microtone": 15.859999999999994,
-          "voice_tradition": 29.3475,
+          "voice_tradition": 28.02,
           "voice_mechanism_compound": 2.5999999999999996,
           "voice_estill_quality": 2.0149999999999997,
           "voice_speech_song": 19.044999999999998,
           "voice_ensemble_config": 20.279999999999998,
-          "voice_ornament_system": 13.749999999999998,
+          "voice_ornament_system": 12.894999999999998,
           "voice_pitch_organization": 5.175000000000001,
           "voice_processing_chain": 7.41,
           "voice_multitrack_stack": 4.485
@@ -60,8 +60,8 @@
           "welsh_triple_harp_stringing": "welsh_triple_harp_nylon"
         },
         "scores": {
-          "welsh_triple_harp_form": 31.550000000000004,
-          "welsh_triple_harp_repertoire": 42.24000000000001,
+          "welsh_triple_harp_form": 31.400000000000002,
+          "welsh_triple_harp_repertoire": 42.19500000000001,
           "welsh_triple_harp_stringing": 4.225
         }
       },
@@ -73,7 +73,7 @@
         },
         "scores": {
           "voicing": 1.45,
-          "context": 1.73
+          "context": 1.5499999999999998
         }
       },
       {
@@ -86,8 +86,8 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "crwth_form": 33.795,
-          "crwth_playing": 49.685,
+          "crwth_form": 33.645,
+          "crwth_playing": 49.910000000000004,
           "crwth_strings": 3.575
         }
       }

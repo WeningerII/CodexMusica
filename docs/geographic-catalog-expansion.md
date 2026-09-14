@@ -1,6 +1,6 @@
 # Geographic catalog expansion — September 2026
 
-This change implements the 96 candidates from the geographic coverage review: 61 tradition additions and 35 named instruments. Sixteen supporting instruments make the selected ensembles usable, and two existing traditions are repaired. The resulting catalog has 2564 traditions and 1457 instruments.
+This change implements the 96 candidates from the geographic coverage review: 61 tradition additions and 35 named instruments. Sixteen supporting instruments make the selected ensembles usable, and two existing traditions are repaired. At the end of that round, the catalog had 2564 traditions and 1457 instruments. <!-- check_docs:ignore -->
 
 The entry-by-entry source ledger is [geographic-catalog-expansion.json](geographic-catalog-expansion.json). It retains every research candidate ID and distinguishes the supporting instruments and repairs. All 69 source records are listed there.
 

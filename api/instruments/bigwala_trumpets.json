@@ -1,0 +1,68 @@
+{
+  "id": "bigwala_trumpets",
+  "name": "Bigwala (Busoga gourd-trumpet ensemble)",
+  "short": "bigwala gourd trumpets",
+  "family": "wind",
+  "class": "natural_trumpet_ensemble",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "bigwala_trumpets_form",
+      "name": "Documented form",
+      "variants": [
+        {
+          "id": "bigwala_trumpets_documented",
+          "name": "Documented configuration",
+          "default": true,
+          "descriptors": [
+            "gourd-trumpets",
+            "single-tone-per-player",
+            "hocket",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "gourd-trumpets",
+            "single-tone-per-player",
+            "hocket",
+            "interlocking"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bigwala_trumpets_form",
+      "name": "Documented form",
+      "variants": [
+        {
+          "id": "bigwala_trumpets_documented",
+          "name": "Documented configuration",
+          "default": true,
+          "descriptors": [
+            "gourd-trumpets",
+            "single-tone-per-player",
+            "hocket",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "gourd-trumpets",
+            "single-tone-per-player",
+            "hocket",
+            "interlocking"
+          ]
+        }
+      ]
+    }
+  ]
+}

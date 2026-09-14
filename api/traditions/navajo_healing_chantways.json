@@ -3,13 +3,14 @@
   "name": "Navajo healing chantways",
   "family": "global",
   "lineage": "Navajo (Diné) healing chantways tradition: the canonical body of Navajo ceremonial-healing rituals, each comprising multi-day complex ceremonies with hundreds of associated songs, sandpaintings, and prayer-recitations performed by trained hataalii (medicine-singer-priests). The major chantways include Blessingway (Hózhójí), Enemyway (Anaa'jí), Nightway (Tł'éé'jí), Mountainway (Dziłk'iji), Beautyway (Hózhóójí), and Flintway (Béésh Yikʼájí). Each ceremony involves specific song-cycles tied to specific mytho-cosmological narratives, with strictly canonical-fixed melodic content transmitted through hataalii apprenticeship. Distinguished from broader Native American liturgical traditions by Navajo-specific cosmology and the elaborate multi-night ceremonial-cycle structure.",
-  "recipe": "classic Northeast Asian early-1890s navajo healing chantways, ritual Devotional, indigenous branch, amazonian indigenous shipibo-conibo icaros healing songs. vocal fry, breath veiled tone, straight note core, interlocked note trading. open steppe outdoor. acoustic horn. wax cylinder.",
-  "recipe_chars": 284,
-  "score": 133.938,
+  "recipe": "classic Northeast Asian early-1890s navajo healing chantways, ritual Devotional, indigenous branch, amazonian indigenous shipibo-conibo icaros healing songs shuar anent. vocal fry, breath veiled tone, straight note core, interlocked note trading. open steppe outdoor. acoustic horn. wax cylinder.",
+  "recipe_chars": 296,
+  "score": 146.176,
   "config": {
     "traditions": [
       "navajo_healing_chantways",
-      "shipibo_icaros"
+      "shipibo_icaros",
+      "shuar_anent"
     ],
     "instruments": [
       {
@@ -33,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 0.65,
-          "voice_quality": 21.97,
+          "voice_register": 1.4949999999999999,
+          "voice_quality": 23.659999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.145,
-          "voice_articulation": 11.764999999999997,
-          "voice_microtone": 13.259999999999994,
-          "voice_tradition": 16.4125,
-          "voice_mechanism_compound": 11.336500000000001,
+          "voice_articulation": 12.609999999999996,
+          "voice_microtone": 14.104999999999995,
+          "voice_tradition": 18.85,
+          "voice_mechanism_compound": 13.211500000000001,
           "voice_estill_quality": 6.175,
-          "voice_speech_song": 14.299999999999995,
-          "voice_ensemble_config": 12.349999999999994,
-          "voice_ornament_system": 9.025,
+          "voice_speech_song": 16.834999999999997,
+          "voice_ensemble_config": 13.194999999999997,
+          "voice_ornament_system": 10.900000000000002,
           "voice_pitch_organization": 4.9145,
           "voice_processing_chain": 7.995000000000004,
-          "voice_multitrack_stack": 2.9899999999999998
+          "voice_multitrack_stack": 3.835
         }
       }
     ],

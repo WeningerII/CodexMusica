@@ -1,0 +1,108 @@
+{
+  "id": "terchova_two_string_bass",
+  "name": "Terchová small two-string bass",
+  "short": "two-string bass",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": -2,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_local_song_melody",
+          "name": "Bowed local song melody (school unspecified)",
+          "auto": false,
+          "descriptors": [
+            "bowed",
+            "melodic",
+            "song-accompaniment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "song-accompaniment"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "terchova_two_string_bass_form",
+      "name": "Documented form",
+      "variants": [
+        {
+          "id": "terchova_two_string_bass_documented",
+          "name": "Documented configuration",
+          "default": true,
+          "descriptors": [
+            "small-body",
+            "two-strings",
+            "bowed",
+            "low-register"
+          ],
+          "match_tokens": [
+            "small-body",
+            "two-strings",
+            "bowed",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "terchova_two_string_bass_form",
+      "name": "Documented form",
+      "variants": [
+        {
+          "id": "terchova_two_string_bass_documented",
+          "name": "Documented configuration",
+          "default": true,
+          "descriptors": [
+            "small-body",
+            "two-strings",
+            "bowed",
+            "low-register"
+          ],
+          "match_tokens": [
+            "small-body",
+            "two-strings",
+            "bowed",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

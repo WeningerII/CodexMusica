@@ -5,7 +5,7 @@
   "lineage": "Kelantanese Malay competitive group-singing form consolidated in the mid-20th century on the Malaysia-Thailand border and popularized nationally from the 1980s, in which a tukang karut improvises rhyming pantun verse and a juara leads while a seated awok-awok chorus of twenty or more answers in unison with synchronized hand-clapping and body movement, driven by rebana and kompang frame drums, canang kettle gongs and a gong, accelerating from a slow declamatory opening to a fast interlocked chant.",
   "recipe": "classic mid-1980s dikir barat, groove Percussion, east Asian branch, middle east n African praise song, islamic ritual devotional shailat zikir. extended whistle, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, rebana ubi, kompang frame drum, canang kettle gong, gong chau hard beater gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 530,
-  "score": 160.417,
+  "score": 159.937,
   "config": {
     "traditions": [
       "dikir_barat",
@@ -46,10 +46,10 @@
           "voice_estill_quality": 2.405,
           "voice_speech_song": 20.409999999999997,
           "voice_ensemble_config": 17.224999999999994,
-          "voice_ornament_system": 5.305000000000001,
+          "voice_ornament_system": 5.11,
           "voice_pitch_organization": 4.685000000000001,
           "voice_processing_chain": 5.6875,
-          "voice_multitrack_stack": 6.795
+          "voice_multitrack_stack": 6.6
         }
       },
       {
@@ -63,7 +63,7 @@
         "scores": {
           "choir_size": 15.54,
           "choir_polyphonic_configuration": 1.6899999999999997,
-          "choir_regional_canonical_configuration": 12.034999999999997,
+          "choir_regional_canonical_configuration": 11.839999999999996,
           "choir_ensemble_repertoire": 3.445
         }
       },
@@ -108,7 +108,7 @@
         },
         "scores": {
           "gong_type": 1,
-          "gong_striker": 1.5499999999999998
+          "gong_striker": 1.6549999999999998
         }
       }
     ],

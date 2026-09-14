@@ -1,0 +1,64 @@
+{
+  "id": "tchiloli_bamboo_flute",
+  "name": "Tchiloli bamboo flute (São Tomé)",
+  "short": "tchiloli bamboo flute",
+  "family": "wind",
+  "class": "transverse_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "tchiloli_bamboo_flute_form",
+      "name": "Documented form",
+      "variants": [
+        {
+          "id": "tchiloli_bamboo_flute_documented",
+          "name": "Documented configuration",
+          "default": true,
+          "descriptors": [
+            "bamboo",
+            "side-blown",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "side-blown",
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tchiloli_bamboo_flute_form",
+      "name": "Documented form",
+      "variants": [
+        {
+          "id": "tchiloli_bamboo_flute_documented",
+          "name": "Documented configuration",
+          "default": true,
+          "descriptors": [
+            "bamboo",
+            "side-blown",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "side-blown",
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ]
+}

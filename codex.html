@@ -4505,6 +4505,7 @@ INSTRUMENTS.push({
         { id: 'voice_tradition_north_australia', name: 'Northern Australian song practice', auto: false, descriptors: [ 'north-australia', 'oral-tradition' ], match_tokens: [ 'north-australia', 'oral-tradition' ] },
         { id: 'voice_tradition_lakalaka', name: 'Tongan lakalaka sung poetry', auto: false, descriptors: [ 'lakalaka', 'oral-tradition' ], match_tokens: [ 'lakalaka', 'oral-tradition' ] },
         { id: 'voice_tradition_valley_tonga', name: 'Valley Tonga ceremonial singing', auto: false, descriptors: [ 'valley-tonga', 'oral-tradition' ], match_tokens: [ 'valley-tonga', 'oral-tradition' ] },
+        { id: 'voice_tradition_source_unspecified', name: 'Local vocal tradition (technique unspecified)', auto: false, descriptors: [], match_tokens: [] },
       ] },
       { id: 'voice_mechanism_compound', surface: false, name: 'Compound mechanism (multi-source phonation)', variants: [
         { id: 'voice_mechanism_single_source', default: true, name: 'Single-source phonation (standard fold vibration)', descriptors: ['single-source-phonation', 'standard-fold-vibration'], match_tokens: ['speech-derived', 'breathing'] },
@@ -4588,6 +4589,7 @@ INSTRUMENTS.push({
         { id: 'voice_ensemble_duet_chorus', name: 'Lead duet with answering chorus', auto: false, descriptors: [ 'duet', 'choral-response' ], match_tokens: [ 'duet', 'choral-response' ] },
         { id: 'voice_ensemble_duet_quartet', name: 'Two- or four-singer ensemble', auto: false, descriptors: [ 'small-vocal-ensemble', 'live-ensemble' ], match_tokens: [ 'small-vocal-ensemble', 'live-ensemble' ] },
         { id: 'voice_ensemble_polyphonic_chorus', name: 'Polyphonic chorus; voice-leading unspecified', auto: false, descriptors: [ 'choral', 'polyphonic' ], match_tokens: [ 'choral', 'polyphonic' ] },
+        { id: 'voice_ensemble_nenets_narrator_assistant', name: 'Nenets narrator with repeating assistant', auto: false, descriptors: [ 'sung-narration', 'answering-assistant', 'line-repetition' ], match_tokens: [ 'sung-narration', 'answering-assistant', 'line-repetition' ] },
       ] },
       { id: 'voice_ornament_system', surface: false, name: 'Ornament-system (cross-cultural ornament catalog)', variants: [
         { id: 'voice_ornament_none', default: true, name: 'No specific ornament system', descriptors: ['no-specific-ornament-system'], match_tokens: ['speech-derived', 'breathing'] },
@@ -9542,8 +9544,10 @@ INSTRUMENTS.push({
         { id: 'mridangam_umayalpuram', name: 'Umayalpuram lineage', descriptors: ['umayalpuram-lineage'], match_tokens: ['percussive-attack', 'hands', 'classical-trained'] },
       ] },
     ]
-  },
-  {
+  });
+</script>
+<script>// ─── 02_instruments.js [4/8] ───
+INSTRUMENTS.push({
     id: 'pakhawaj',
     name: 'Pakhawaj (Hindustani barrel drum)',
     family: 'percussion',
@@ -9569,10 +9573,8 @@ INSTRUMENTS.push({
         { id: 'pakhawaj_nathdwara', name: 'Nathdwara temple tradition', descriptors: ['nathdwara-temple-tradition'], match_tokens: ['percussive-attack', 'hands'] },
       ] },
     ]
-  });
-</script>
-<script>// ─── 02_instruments.js [4/8] ───
-INSTRUMENTS.push({
+  },
+  {
     id: 'pandeiro',
     name: 'Pandeiro (Brazilian frame drum)',
     family: 'percussion',
@@ -20358,8 +20360,10 @@ INSTRUMENTS.push({
         ]
       }
     ]
-  },
-  {
+  });
+</script>
+<script>// ─── 02_instruments.js [5/8] ───
+INSTRUMENTS.push({
     "id": "threshing_flail",
     "name": "Threshing flail",
     "family": "percussion",
@@ -20462,10 +20466,8 @@ INSTRUMENTS.push({
         ]
       }
     ]
-  });
-</script>
-<script>// ─── 02_instruments.js [5/8] ───
-INSTRUMENTS.push({
+  },
+  {
     "id": "butter_churn",
     "name": "Butter churn",
     "family": "percussion",
@@ -34237,6 +34239,7 @@ INSTRUMENTS.push({
         { id: 'timbila_sanje', default: true, name: 'Sanje (lead treble timbila)', descriptors: ['bright-attack', 'virtuosic'], match_tokens: ['xylophone', 'chopi'] },
         { id: 'timbila_dole', name: 'Dole (tenor/bass timbila)', descriptors: ['deep-toned', 'grounding'], match_tokens: ['xylophone', 'low-register'] },
         { id: 'timbila_chinzumana', name: 'Chinzumana (contrabass timbila)', descriptors: ['subsonic', 'booming'], match_tokens: ['xylophone', 'bass'] },
+        { id: 'timbila_orchestra_registers', name: 'Graduated-register Chopi timbila orchestra', auto: false, descriptors: [ 'graduated-registers', 'interlocking', 'xylophone-ensemble' ], match_tokens: [ 'graduated-registers', 'interlocking', 'xylophone-ensemble' ] },
       ] },
       { id: 'timbila_resonator', name: 'Gourd resonator membranes', variants: [
         { id: 'timbila_mirliton', default: true, name: 'Gourd resonators with spider-nest mirliton membranes', descriptors: ['buzzing-timbre', 'nasal-buzz'], match_tokens: ['gourd-resonator', 'buzz-timbre'] },
@@ -42807,7 +42810,17 @@ INSTRUMENTS.push({
   { id: 'water_percussion', name: 'Water percussion (Vanuatu women’s water music)', short: 'water percussion', family: 'percussion', class: 'water_percussion', axes: { pitchFix: 2, sustain: -2, polyphony: -2, harmonicity: -1, register: -1, range: -2, articulation: 2, transduction: -2, dynamics: 1 }, parts: [ { id: 'water_percussion_gesture', name: 'Hand and water gesture', variants: [ { id: 'water_percussion_gesture_cup', name: 'Cupped-hand water strokes', default: true, descriptors: [ 'cupped-hands', 'water-struck', 'low-thump' ], match_tokens: [ 'cupped-hands', 'water-struck', 'low-thump' ] }, { id: 'water_percussion_gesture_slap', name: 'Surface slaps and splashes', descriptors: [ 'water-splash', 'hand-struck', 'bright-attacks' ], match_tokens: [ 'water-splash', 'hand-struck', 'bright-attacks' ] } ] }, { id: 'water_percussion_texture', name: 'Players', variants: [ { id: 'water_percussion_texture_group', name: 'Interlocking group water rhythms', default: true, descriptors: [ 'interlocking', 'water-percussion', 'cyclic' ], match_tokens: [ 'interlocking', 'water-percussion', 'cyclic' ] }, { id: 'water_percussion_texture_single', name: 'Single player’s water rhythm', descriptors: [ 'single-player', 'water-percussion', 'rhythmic' ], match_tokens: [ 'single-player', 'water-percussion', 'rhythmic' ] } ] } ] },
   { id: 'hiragasy_drums', name: 'Hiragasy drum section', short: 'hiragasy drums', family: 'percussion', class: 'drum_ensemble', axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: -1, register: -1, range: -2, articulation: 2, transduction: -2, dynamics: 1 }, parts: [ { id: 'hiragasy_drums_role', name: 'Role', variants: [ { id: 'hiragasy_drums_role_ensemble', name: 'Outdoor performance drum section', default: true, descriptors: [ 'drum-ensemble', 'processional', 'rhythmic' ], match_tokens: [ 'drum-ensemble', 'processional', 'rhythmic' ] } ] }, { id: 'hiragasy_drums_gesture', name: 'Drum articulation', variants: [ { id: 'hiragasy_drums_gesture_resonant', name: 'Resonant strokes', default: true, descriptors: [ 'resonant', 'drum-pulse' ], match_tokens: [ 'resonant', 'drum-pulse' ] }, { id: 'hiragasy_drums_gesture_short', name: 'Short strokes', descriptors: [ 'short-decay', 'rhythmic' ], match_tokens: [ 'short-decay', 'rhythmic' ] } ] } ] },
   { id: 'awasa_drums', name: 'Awasa drums (gaandoon, tundoon and pikiendoon)', short: 'awasa drum trio', family: 'percussion', class: 'drum_ensemble', axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: -1, register: -1, range: -2, articulation: 2, transduction: -2, dynamics: 1 }, parts: [ { id: 'awasa_drums_setup', name: 'Three roles', variants: [ { id: 'awasa_drums_setup_trio', name: 'Master, timekeeping and pattern drums', default: true, descriptors: [ 'three-drums', 'interlocking', 'contrasting-registers' ], match_tokens: [ 'three-drums', 'interlocking', 'contrasting-registers' ] } ] }, { id: 'awasa_drums_gesture', name: 'Combined technique', variants: [ { id: 'awasa_drums_gesture_mixed', name: 'Hand drums with stick-played timekeeper', default: true, descriptors: [ 'hand-struck', 'stick-timekeeper', 'cyclic' ], match_tokens: [ 'hand-struck', 'stick-timekeeper', 'cyclic' ] }, { id: 'awasa_drums_gesture_accent', name: 'Accented ensemble phrases', descriptors: [ 'ensemble', 'accented', 'responsive' ], match_tokens: [ 'ensemble', 'accented', 'responsive' ] } ] } ] },
-  { id: 'dyas_tapu_patu', name: 'Dyas / djaz and tapu patu (Maroon bass-drum and cymbal)', short: 'dyas drum and cymbal', family: 'percussion', class: 'drum_cymbal_combination', axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: -1, register: -1, range: -2, articulation: 2, transduction: -2, dynamics: 1 }, parts: [ { id: 'dyas_setup', name: 'Combined setup', variants: [ { id: 'dyas_setup_combined', name: 'Bass drum with cymbal part', default: true, descriptors: [ 'bass-drum', 'cymbal', 'combined-percussion' ], match_tokens: [ 'bass-drum', 'cymbal', 'combined-percussion' ] } ] }, { id: 'dyas_pulse', name: 'Pulse', variants: [ { id: 'dyas_pulse_regular', name: 'Regular drum and cymbal pulse', default: true, descriptors: [ 'low-thump', 'metallic-accent', 'rhythmic' ], match_tokens: [ 'low-thump', 'metallic-accent', 'rhythmic' ] }, { id: 'dyas_pulse_accent', name: 'Accented drum and cymbal figures', descriptors: [ 'accented', 'bass-drum', 'cymbal' ], match_tokens: [ 'accented', 'bass-drum', 'cymbal' ] } ] } ] });
+  { id: 'dyas_tapu_patu', name: 'Dyas / djaz and tapu patu (Maroon bass-drum and cymbal)', short: 'dyas drum and cymbal', family: 'percussion', class: 'drum_cymbal_combination', axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: -1, register: -1, range: -2, articulation: 2, transduction: -2, dynamics: 1 }, parts: [ { id: 'dyas_setup', name: 'Combined setup', variants: [ { id: 'dyas_setup_combined', name: 'Bass drum with cymbal part', default: true, descriptors: [ 'bass-drum', 'cymbal', 'combined-percussion' ], match_tokens: [ 'bass-drum', 'cymbal', 'combined-percussion' ] } ] }, { id: 'dyas_pulse', name: 'Pulse', variants: [ { id: 'dyas_pulse_regular', name: 'Regular drum and cymbal pulse', default: true, descriptors: [ 'low-thump', 'metallic-accent', 'rhythmic' ], match_tokens: [ 'low-thump', 'metallic-accent', 'rhythmic' ] }, { id: 'dyas_pulse_accent', name: 'Accented drum and cymbal figures', descriptors: [ 'accented', 'bass-drum', 'cymbal' ], match_tokens: [ 'accented', 'bass-drum', 'cymbal' ] } ] } ] },
+  { id: 'sekupu_litolobonya', name: 'Sekupu (Litolobonya tin drum)', short: 'sekupu tin drum', family: 'percussion', class: 'membranophone', axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: -1, register: -1, range: -2, articulation: 2, transduction: -2, dynamics: 1 }, parts: [ { id: 'sekupu_litolobonya_form', name: 'Documented form', variants: [ { id: 'sekupu_litolobonya_documented', name: 'Documented configuration', default: true, descriptors: [ 'cowhide-head', 'tin-container', 'drum-pulse' ], match_tokens: [ 'cowhide-head', 'tin-container', 'drum-pulse' ] } ] } ] },
+  { id: 'signal_whistle', name: 'Signal whistle (dance cue)', short: 'signal whistle', family: 'wind', class: 'duct_flute', axes: { pitchFix: 2, sustain: 0, polyphony: -2, harmonicity: 1, register: 2, range: -2, articulation: 1, transduction: -2, dynamics: 0 }, parts: [ { id: 'signal_whistle_form', name: 'Documented form', variants: [ { id: 'signal_whistle_documented', name: 'Documented configuration', default: true, descriptors: [ 'blown', 'high-pitched', 'short-signals' ], match_tokens: [ 'blown', 'high-pitched', 'short-signals' ] } ] } ] },
+  { id: 'burundi_royal_drums', name: 'Ingoma (Burundi royal drum ensemble)', short: 'royal drum ensemble', family: 'percussion', class: 'drum_ensemble', axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: -1, register: -1, range: -2, articulation: 2, transduction: -2, dynamics: 1 }, parts: [ { id: 'burundi_royal_drums_form', name: 'Documented form', variants: [ { id: 'burundi_royal_drums_documented', name: 'Documented configuration', default: true, descriptors: [ 'skin-heads', 'stick-struck', 'synchronized', 'contrasting-drum-roles' ], match_tokens: [ 'skin-heads', 'stick-struck', 'synchronized', 'contrasting-drum-roles' ] } ] } ] },
+  { id: 'moutya_drum_trio', name: 'Moutya drum trio (Seychelles)', short: 'moutya drum trio', family: 'percussion', class: 'drum_ensemble', axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: -1, register: -1, range: -2, articulation: 2, transduction: -2, dynamics: 1 }, parts: [ { id: 'moutya_drum_trio_form', name: 'Documented form', variants: [ { id: 'moutya_drum_trio_documented', name: 'Documented configuration', default: true, descriptors: [ 'three-drums', 'goatskin', 'narrow-rims', 'hand-struck' ], match_tokens: [ 'three-drums', 'goatskin', 'narrow-rims', 'hand-struck' ] } ] } ] },
+  { id: 'tchiloli_bamboo_flute', name: 'Tchiloli bamboo flute (São Tomé)', short: 'tchiloli bamboo flute', family: 'wind', class: 'transverse_flute', axes: { pitchFix: 0, sustain: 0, polyphony: -2, harmonicity: 1, register: 1, range: 0, articulation: 1, transduction: -2, dynamics: 0 }, parts: [ { id: 'tchiloli_bamboo_flute_form', name: 'Documented form', variants: [ { id: 'tchiloli_bamboo_flute_documented', name: 'Documented configuration', default: true, descriptors: [ 'bamboo', 'side-blown', 'melodic' ], match_tokens: [ 'bamboo', 'side-blown', 'melodic' ] } ] } ] },
+  { id: 'sucalo', name: 'Sucalo (São Tomé seed-basket rattle)', short: 'sucalo basket rattle', family: 'percussion', class: 'shaken_idiophone', axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: -1, register: -1, range: -2, articulation: 2, transduction: -2, dynamics: 1 }, parts: [ { id: 'sucalo_form', name: 'Documented form', variants: [ { id: 'sucalo_documented', name: 'Documented configuration', default: true, descriptors: [ 'basket', 'seed-filled', 'shaken', 'dry-rattle' ], match_tokens: [ 'basket', 'seed-filled', 'shaken', 'dry-rattle' ] } ] } ] },
+  { id: 'terchova_two_string_bass', name: 'Terchová small two-string bass', short: 'two-string bass', family: 'bowed', class: 'bowed_lute', axes: { pitchFix: -1, sustain: 1, polyphony: -1, harmonicity: 1, register: -2, range: -1, articulation: 0, transduction: -2, dynamics: 1 }, parts: [ { id: 'terchova_two_string_bass_form', name: 'Documented form', variants: [ { id: 'terchova_two_string_bass_documented', name: 'Documented configuration', default: true, descriptors: [ 'small-body', 'two-strings', 'bowed', 'low-register' ], match_tokens: [ 'small-body', 'two-strings', 'bowed', 'low-register' ] } ] } ] },
+  { id: 'bigwala_trumpets', name: 'Bigwala (Busoga gourd-trumpet ensemble)', short: 'bigwala gourd trumpets', family: 'wind', class: 'natural_trumpet_ensemble', axes: { pitchFix: 2, sustain: 0, polyphony: 1, harmonicity: 0, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: 1 }, parts: [ { id: 'bigwala_trumpets_form', name: 'Documented form', variants: [ { id: 'bigwala_trumpets_documented', name: 'Documented configuration', default: true, descriptors: [ 'gourd-trumpets', 'single-tone-per-player', 'hocket', 'interlocking' ], match_tokens: [ 'gourd-trumpets', 'single-tone-per-player', 'hocket', 'interlocking' ] } ] } ] },
+  { id: 'madi_odi', name: 'O’di (Ma’di five-string bowl lyre)', short: 'madi bowl lyre', family: 'plucked_traditional', class: 'lyre', axes: { pitchFix: 1, sustain: 0, polyphony: 1, harmonicity: 1, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: 0 }, parts: [ { id: 'madi_odi_form', name: 'Documented form', variants: [ { id: 'madi_odi_documented', name: 'Documented configuration', default: true, descriptors: [ 'five-strings', 'bowl-resonator', 'plucked', 'pentatonic' ], match_tokens: [ 'five-strings', 'bowl-resonator', 'plucked', 'pentatonic' ] } ] } ] },
+  { id: 'ayyala_percussion', name: 'Al-Ayyala percussion section', short: 'ayyala percussion', family: 'percussion', class: 'mixed_percussion_ensemble', axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: -1, register: -1, range: -2, articulation: 2, transduction: -2, dynamics: 1 }, parts: [ { id: 'ayyala_percussion_form', name: 'Documented form', variants: [ { id: 'ayyala_percussion_documented', name: 'Documented configuration', default: true, descriptors: [ 'large-and-small-drums', 'tambourines', 'brass-cymbals', 'cyclic' ], match_tokens: [ 'large-and-small-drums', 'tambourines', 'brass-cymbals', 'cyclic' ] } ] } ] });
 </script>
 <script>// ─── 03_rooms_chains_tunings.js ───
 // ============================================================
@@ -50688,6 +50701,30 @@ const TRADITION_SIGNATURES = {
   'djanba': ['north-australia', 'oral-tradition', 'group-vocals', 'live-ensemble', 'aurally-tuned', 'speech-derived', 'breathing', 'live-take', 'ensemble', 'wooden', 'paired-sticks', 'resonant-clack', 'struck', 'concussion-idiophone', 'sparse', 'percussive-attack', 'hand-percussion', 'room-forward'],
   'vanuatu_water_drumming': ['cupped-hands', 'water-struck', 'low-thump', 'interlocking', 'water-percussion', 'cyclic'],
   'tongan_lakalaka': ['speech-derived', 'breathing', 'articulated', 'lakalaka', 'oral-tradition', 'sustained-tone', 'choral', 'polyphonic', 'aurally-tuned', 'live-take', 'ensemble', 'percussive-attack', 'hand-percussion', 'room-forward'],
+  'famo': ['basotho', 'accordion', 'song', 'drum-pulse'],
+  'mohobelo': ['basotho', 'dance-song', 'group-singing', 'hand-claps'],
+  'litolobonya': ['basotho', 'women-singing', 'tin-drum', 'whistle', 'dance-song'],
+  'intore_music': ['rwandan', 'praise-poetry', 'drumming', 'dance', 'group-singing'],
+  'burundi_royal_drum_ritual': ['burundian', 'royal-drums', 'synchronized', 'heroic-poetry', 'ritual'],
+  'moutya': ['seychellois', 'call-response', 'three-drums', 'hand-struck', 'dance'],
+  'tchiloli_music': ['sao-tome', 'theatre', 'bamboo-flutes', 'drums', 'seed-rattles'],
+  'nenets_syudbabc': ['nenets', 'heroic-narrative', 'sung-narration', 'answering-assistant', 'oral-tradition'],
+  'nenets_yarabc': ['nenets', 'first-person-narrative', 'sung-narration', 'answering-assistant'],
+  'nenets_personal_song': ['nenets', 'personal-song', 'solo', 'oral-tradition'],
+  'nganasan_personal_song': ['nganasan', 'autobiographical', 'personal-song', 'solo', 'oral-tradition'],
+  'nganasan_keingeirsya': ['nganasan', 'sung-dialogue', 'live-duet', 'oral-tradition'],
+  'palauan_chesols': ['palauan', 'chesols', 'solo-chant', 'oral-tradition'],
+  'palauan_ruk': ['palauan', 'group-shouts', 'hand-percussion', 'layered-rhythm'],
+  'terchova_music': ['slovak', 'bowed-strings', 'two-string-bass', 'group-singing', 'dance'],
+  'horehronie_multipart_singing': ['slovak', 'multipart', 'unaccompanied', 'leader-and-chorus'],
+  'bigwala_music': ['busoga', 'gourd-trumpets', 'hocket', 'interlocking', 'drums'],
+  'madi_bowl_lyre_music': ['madi', 'five-strings', 'bowl-lyre', 'pentatonic', 'song'],
+  'chopi_timbila_music': ['chopi', 'xylophone-ensemble', 'graduated-registers', 'interlocking', 'buzzing-resonators'],
+  'gule_wamkulu_music': ['chewa', 'masked-dance', 'drumming', 'group-singing', 'ritual'],
+  'haida_welcome_song': ['haida', 'welcome-song', 'solo', 'archive-recital'],
+  'shuar_anent': ['shuar', 'anent', 'intimate', 'solo', 'ritual-song'],
+  'shuar_nampet': ['shuar', 'nampet', 'festive', 'song', 'solo'],
+  'al_ayyala': ['gulf', 'facing-rows', 'chanted-poetry', 'drums', 'brass-cymbals'],
 };
 
 // ---- Catalog: the tradition data layer ----

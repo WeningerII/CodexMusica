@@ -5,7 +5,7 @@
   "lineage": "Tonga dance music using voice-driven singing horns and a pair of drums. The seed follows the sixteen-performer Muganda we Chitonga Banda recording.",
   "recipe": "classic modern malipenga, groove Percussion, central east south African branch. sung buzzing membrane voice shaped pitch malipenga singing horn, large and small drums malipenga drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 263,
-  "score": 7.366,
+  "score": 7.342,
   "config": {
     "traditions": [
       "malipenga"
@@ -30,7 +30,7 @@
         },
         "scores": {
           "malipenga_drums_setup": 3.38,
-          "malipenga_drums_gesture": 0.727875
+          "malipenga_drums_gesture": 0.7035
         }
       }
     ],

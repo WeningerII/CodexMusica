@@ -1,0 +1,563 @@
+{
+  "date": "2026-09-14",
+  "base_commit": "cac9cb8e145a028aea82abe5423e03af383d3ad1",
+  "method": "A second pass over catalog names and geographic anchors. Blank map space is a discovery cue, not evidence that a culture lacks music. Selected configurations are scoped to the cited evidence; numeric axes, recording chain and optional instrument controls are authored models. Approximate cultural/documentation anchors are not territorial boundaries or claims of unique origin.",
+  "entries": [
+    {
+      "kind": "tradition",
+      "id": "famo",
+      "name": "Famo (Basotho accordion song)",
+      "area": "Maseru, Lesotho",
+      "sources": ["lesotho"],
+      "configuration": "Basotho famo; a selected voice, accordion and drum arrangement of Lesotho’s popular song tradition.",
+      "anchor": {
+        "latitude": -29.31,
+        "longitude": 27.49,
+        "label": "Maseru",
+        "region": "Africa"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "mohobelo",
+      "name": "Mohobelo (Basotho men’s dance song)",
+      "area": "Thaba Bosiu, Lesotho",
+      "sources": ["lesotho"],
+      "configuration": "Basotho men’s mohobelo dance song; a selected communal singing and clapping arrangement, with movement-led rhythm.",
+      "anchor": {
+        "latitude": -29.36,
+        "longitude": 27.67,
+        "label": "Thaba Bosiu",
+        "region": "Africa"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "litolobonya",
+      "name": "Litolobonya (Basotho women’s song and dance)",
+      "area": "Morija, Lesotho",
+      "sources": ["litolobonya"],
+      "configuration": "Basotho women’s and girls’ litolobonya; group singing with sekupu tin drum and whistle cues.",
+      "anchor": {
+        "latitude": -29.48,
+        "longitude": 27.67,
+        "label": "Morija",
+        "region": "Africa"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "intore_music",
+      "name": "Intore (Rwandan musical performance)",
+      "area": "Nyanza, Rwanda",
+      "sources": ["intore"],
+      "configuration": "Rwandan Intore performance music; drums support sung praise and poetry with coordinated dance. Drum construction and ensemble count are unspecified.",
+      "anchor": {
+        "latitude": -2.35,
+        "longitude": 29.75,
+        "label": "Nyanza",
+        "region": "Africa"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "burundi_royal_drum_ritual",
+      "name": "Burundi royal drum ritual repertoire",
+      "area": "Gishora, Burundi",
+      "sources": ["burundi"],
+      "configuration": "Burundian royal-drum ritual performance combines synchronized drum patterns, dance, heroic poetry and traditional songs.",
+      "anchor": {
+        "latitude": -3.37,
+        "longitude": 29.95,
+        "label": "Gishora",
+        "region": "Africa"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "moutya",
+      "name": "Moutya (Seychelles)",
+      "area": "Mahé, Seychelles",
+      "sources": ["moutya", "moutya_drums"],
+      "configuration": "Seychellois Moutya; men introduce topical verses and women answer over three goat-hide drums in a communal dance setting.",
+      "anchor": {
+        "latitude": -4.65,
+        "longitude": 55.46,
+        "label": "Mahé",
+        "region": "Africa"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "tchiloli_music",
+      "name": "Tchiloli (instrumental theatre repertoire)",
+      "area": "São Tomé, São Tomé and Príncipe",
+      "sources": ["tchiloli", "tchiloli_form"],
+      "configuration": "São Tomé Tchiloli theatre music; selected instrumental scene accompaniment with bamboo flutes, drums and seed-basket sucalos. Spoken dramatic dialogue is outside this configuration.",
+      "anchor": {
+        "latitude": 0.33,
+        "longitude": 6.72,
+        "label": "São Tomé",
+        "region": "Africa"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "nenets_syudbabc",
+      "name": "Nenets syudbabc (heroic narrative song)",
+      "area": "Yamal, Nenets territory",
+      "sources": ["nenets"],
+      "configuration": "Tundra Nenets syudbabc heroic narrative; selected sung narrator with a repeating or commenting assistant. Epic performance roles are distinct from personal song.",
+      "anchor": {
+        "latitude": 67,
+        "longitude": 70.8,
+        "label": "Yamal",
+        "region": "Mongolia & Siberia"
+      },
+      "notes": "Lukin describes an ideal narrator-and-assistant performance and also solo self-repetition; this seed chooses the former, without instrumental accompaniment."
+    },
+    {
+      "kind": "tradition",
+      "id": "nenets_yarabc",
+      "name": "Nenets yarabc (first-person narrative song)",
+      "area": "Yamal, Nenets territory",
+      "sources": ["nenets"],
+      "configuration": "Tundra Nenets yarabc; first-person narrative song, modeled with sung narration and an answering assistant. Genre boundaries vary between performers and collectors.",
+      "anchor": {
+        "latitude": 67,
+        "longitude": 70.8,
+        "label": "Yamal",
+        "region": "Mongolia & Siberia"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "nenets_personal_song",
+      "name": "Nenets personal song repertoire",
+      "area": "Yamal, Nenets territory",
+      "sources": ["nenets"],
+      "configuration": "Nenets individual song; selected unaccompanied voice carrying a personal melody and text, distinct from the heroic narrative genres.",
+      "anchor": {
+        "latitude": 67,
+        "longitude": 70.8,
+        "label": "Yamal",
+        "region": "Mongolia & Siberia"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "nganasan_personal_song",
+      "name": "Nganasan personal songs (hankudya baly)",
+      "area": "Ust-Avam, Taymyr",
+      "sources": ["nganasan"],
+      "configuration": "Nganasan autobiographical hankudya baly; a selected solo personal song anchored to documented performance in Ust-Avam.",
+      "anchor": {
+        "latitude": 71.67,
+        "longitude": 92.82,
+        "label": "Ust-Avam",
+        "region": "Mongolia & Siberia"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "nganasan_keingeirsya",
+      "name": "Nganasan keingeirsya (sung dialogue)",
+      "area": "Ust-Avam, Taymyr",
+      "sources": ["keingeirsya"],
+      "configuration": "Nganasan keingeirsya; selected two-person sung dialogue from the documented genre, which also includes monologue performances.",
+      "anchor": {
+        "latitude": 71.67,
+        "longitude": 92.82,
+        "label": "Ust-Avam",
+        "region": "Mongolia & Siberia"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "palauan_chesols",
+      "name": "Palauan chesóls (solo chant)",
+      "area": "Koror, Palau",
+      "sources": ["chesols", "palau"],
+      "configuration": "Palauan chesóls; a selected unaccompanied solo chant configuration documented in the study Music Worlding in Palau.",
+      "anchor": {
+        "latitude": 7.34,
+        "longitude": 134.48,
+        "label": "Koror",
+        "region": "Oceania & Pacific"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "palauan_ruk",
+      "name": "Palauan ruk performance repertoire",
+      "area": "Koror, Palau",
+      "sources": ["palau"],
+      "configuration": "Palauan ruk; selected group vocal calls and hand percussion illustrating the documented layered vocal and bodily rhythms. The clapping card is a limited selection from the wider body-percussion practice.",
+      "anchor": {
+        "latitude": 7.34,
+        "longitude": 134.48,
+        "label": "Koror",
+        "region": "Oceania & Pacific"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "terchova_music",
+      "name": "Music of Terchová (string ensemble)",
+      "area": "Terchová, Slovakia",
+      "sources": ["terchova"],
+      "configuration": "Terchová music; selected small bowed-string ensemble and group singing, retaining the distinctive small two-string bass. The fiddle card represents the upper-string section; the alternative accordion ensemble is not combined here.",
+      "anchor": {
+        "latitude": 49.258,
+        "longitude": 19.03,
+        "label": "Terchová",
+        "region": "Europe"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "horehronie_multipart_singing",
+      "name": "Horehronie multipart singing",
+      "area": "Telgárt, Horehronie, Slovakia",
+      "sources": ["horehronie"],
+      "configuration": "Horehronie unaccompanied multipart singing; a leader introduces changing melodic material and a chorus answers with relatively stable parts.",
+      "anchor": {
+        "latitude": 48.86,
+        "longitude": 20.19,
+        "label": "Telgárt",
+        "region": "Europe"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "bigwala_music",
+      "name": "Bigwala (Busoga trumpet music and dance)",
+      "area": "Iganga, Busoga, Uganda",
+      "sources": ["bigwala"],
+      "configuration": "Busoga Bigwala; five or more single-tone gourd trumpets interlock into a melody with accompanying drums, singing and dance. The trumpet card represents the ensemble.",
+      "anchor": {
+        "latitude": 0.68,
+        "longitude": 33.59,
+        "label": "Iganga",
+        "region": "Africa"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "madi_bowl_lyre_music",
+      "name": "Ma’di bowl-lyre music and dance",
+      "area": "Moyo, Uganda",
+      "sources": ["madi", "madi_form"],
+      "configuration": "Ma’di O’di song and dance repertoire; selected voice with the five-string plucked bowl lyre, used across social and ceremonial occasions.",
+      "anchor": {
+        "latitude": 3.65,
+        "longitude": 31.72,
+        "label": "Moyo",
+        "region": "Africa"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "chopi_timbila_music",
+      "name": "Chopi timbila orchestral music",
+      "area": "Zavala, Inhambane, Mozambique",
+      "sources": ["chopi"],
+      "configuration": "Chopi timbila orchestral repertoire; graduated-register wooden xylophones interlock over buzzing gourd resonators. This selected configuration includes the sung m’zeno section within the wider performance.",
+      "anchor": {
+        "latitude": -24.72,
+        "longitude": 34.28,
+        "label": "Zavala",
+        "region": "Africa"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "gule_wamkulu_music",
+      "name": "Gule Wamkulu (Chewa musical repertoire)",
+      "area": "Dedza, Chewa region, Malawi",
+      "sources": ["gule"],
+      "configuration": "Chewa Gule Wamkulu performance music; selected singing and drum accompaniment for masked dance. The practice extends across Malawi, Zambia and Mozambique; this anchor is not an exclusive origin claim.",
+      "anchor": {
+        "latitude": -14.25,
+        "longitude": 34.32,
+        "label": "Dedza",
+        "region": "Africa"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "haida_welcome_song",
+      "name": "Haida welcome-song repertoire (archive recital)",
+      "area": "Old Massett, Haida Gwaii",
+      "sources": ["haida"],
+      "configuration": "Haida welcome-song repertoire; selected solo archive recital represented by the Folkways recording of a welcome dance for Edenshaw’s potlatch. This does not prescribe the full ceremonial ensemble.",
+      "anchor": {
+        "latitude": 54,
+        "longitude": -132.14,
+        "label": "Old Massett",
+        "region": "North America"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "shuar_anent",
+      "name": "Shuar anent",
+      "area": "Morona Santiago, Shuar region, Ecuador",
+      "sources": ["shuar"],
+      "configuration": "Shuar anent; selected unaccompanied intimate ritual song, distinguished from the festive nampet repertoire. This models vocal delivery and does not reproduce restricted texts or claim ritual efficacy.",
+      "anchor": {
+        "latitude": -2.3,
+        "longitude": -78.12,
+        "label": "Morona Santiago",
+        "region": "Latin America & Caribbean"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "shuar_nampet",
+      "name": "Shuar nampet",
+      "area": "Morona Santiago, Shuar region, Ecuador",
+      "sources": ["shuar"],
+      "configuration": "Shuar nampet; selected vocal-only festive song recital. Instruments documented elsewhere in Shuar culture are not automatically assigned to this performance.",
+      "anchor": {
+        "latitude": -2.3,
+        "longitude": -78.12,
+        "label": "Morona Santiago",
+        "region": "Latin America & Caribbean"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "tradition",
+      "id": "al_ayyala",
+      "name": "Al-Ayyala (Oman and UAE)",
+      "area": "Al Buraimi–Al Ain cultural region, Oman / UAE",
+      "sources": ["ayyala", "ayyala_form"],
+      "configuration": "Al-Ayyala of Oman and the UAE; facing rows chant poetry to large and small drums, tambourines and brass cymbals. The anchor represents a shared cross-border practice.",
+      "anchor": {
+        "latitude": 24.23,
+        "longitude": 55.76,
+        "label": "Al Buraimi–Al Ain cultural region",
+        "region": "Middle East"
+      },
+      "notes": "Selected arrangement; contemporary field-recording chain and numeric axes are authored modeling choices."
+    },
+    {
+      "kind": "instrument",
+      "id": "sekupu_litolobonya",
+      "sources": ["litolobonya"]
+    },
+    {
+      "kind": "instrument",
+      "id": "signal_whistle",
+      "sources": ["litolobonya"]
+    },
+    {
+      "kind": "instrument",
+      "id": "burundi_royal_drums",
+      "sources": ["burundi"]
+    },
+    {
+      "kind": "instrument",
+      "id": "moutya_drum_trio",
+      "sources": ["moutya_drums"]
+    },
+    {
+      "kind": "instrument",
+      "id": "tchiloli_bamboo_flute",
+      "sources": ["tchiloli_form"]
+    },
+    {
+      "kind": "instrument",
+      "id": "sucalo",
+      "sources": ["tchiloli"]
+    },
+    {
+      "kind": "instrument",
+      "id": "terchova_two_string_bass",
+      "sources": ["terchova"]
+    },
+    {
+      "kind": "instrument",
+      "id": "bigwala_trumpets",
+      "sources": ["bigwala"]
+    },
+    {
+      "kind": "instrument",
+      "id": "madi_odi",
+      "sources": ["madi", "madi_form"]
+    },
+    {
+      "kind": "instrument",
+      "id": "ayyala_percussion",
+      "sources": ["ayyala", "ayyala_form"]
+    }
+  ],
+  "sources": [
+    {
+      "id": "lesotho",
+      "title": "Mpho Molikeng — Traditional music in Lesotho",
+      "url": "https://musicinafrica.net/magazine/traditional-music-lesotho/",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "litolobonya",
+      "title": "Malefetsane Soai — Litolobonya music in Lesotho",
+      "url": "https://musicinafrica.net/magazine/litolobonya-music-lesotho/",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "intore",
+      "title": "UNESCO — Intore",
+      "url": "https://ich.unesco.org/en/RL/intore-02129",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "burundi",
+      "title": "UNESCO — Ritual dance of the royal drum",
+      "url": "https://ich.unesco.org/en/RL/ritual-dance-of-the-royal-drum-00989",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "moutya",
+      "title": "UNESCO — Moutya",
+      "url": "https://ich.unesco.org/en/RL/moutya-01690",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "moutya_drums",
+      "title": "UNESCO — Decision 14.COM 10.b.32 (Moutya drums)",
+      "url": "https://ich.unesco.org/en/Decisions/14.COM/10.b.32",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "tchiloli",
+      "title": "Marta Lança — Solemn Gestures on the Sandy Ground",
+      "url": "https://www.buala.org/en/stages/solemn-gestures-on-the-sandy-ground-tchiloli-in-sao-tome-and-principe",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "tchiloli_form",
+      "title": "BUALA — Tchiloli of S.Tomé or Charlemagne in Africa",
+      "url": "https://www.buala.org/en/stages/tchiloli-of-stome-or-charlemagne-in-africa",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "nenets",
+      "title": "Karina Lukin — Matthias Alexander Castrén’s notes on Nenets folklore (2017), pp. 181–183, 199–201",
+      "url": "https://www.sgr.fi/susa/96/susa96lukin.pdf",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "nganasan",
+      "title": "Triinu Ojamaa — The Story of Life in Music: Autobiographical Songs of the Nganasans",
+      "url": "https://www.folklore.ee/folklore/vol21/songs.pdf",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "keingeirsya",
+      "title": "University of Hamburg INEL — Keingeirsya, a unique genre of Nganasan folklore",
+      "url": "https://www.slm.uni-hamburg.de/en/inel/wissenswertes/keingeirsya.html",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "palau",
+      "title": "Birgit Abels — Music Worlding in Palau (2022)",
+      "url": "https://www.aup.nl/en/book/9789048550517/music-worlding-in-palau",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "chesols",
+      "title": "Birgit Abels — Music Worlding in Palau, Introduction",
+      "url": "https://www.degruyterbrill.com/document/doi/10.1515/9789048550517-002/pdf?licenseType=open-access",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "terchova",
+      "title": "UNESCO — Music of Terchová",
+      "url": "https://ich.unesco.org/en/RL/music-of-terchova-00877",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "horehronie",
+      "title": "UNESCO — Multipart singing of Horehronie",
+      "url": "https://ich.unesco.org/en/RL/multipart-singing-of-horehronie-01266",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "bigwala",
+      "title": "UNESCO — Bigwala, gourd trumpet music and dance of the Busoga Kingdom in Uganda",
+      "url": "https://ich.unesco.org/en/USL/bigwala-gourd-trumpet-music-and-dance-of-the-busoga-kingdom-in-uganda-00749",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "madi",
+      "title": "UNESCO — Ma’di bowl lyre music and dance",
+      "url": "https://ich.unesco.org/en/USL/ma-di-bowl-lyre-music-and-dance-01187",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "madi_form",
+      "title": "Uganda inventory — O’di (five-stringed bowl lyre)",
+      "url": "https://ich.unesco.org/doc/src/32226-EN.pdf",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "chopi",
+      "title": "UNESCO — Chopi timbila",
+      "url": "https://ich.unesco.org/en/RL/chopi-timbila-00133",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "gule",
+      "title": "UNESCO — Gule Wamkulu",
+      "url": "https://ich.unesco.org/en/RL/gule-wamkulu-00142",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "haida",
+      "title": "Smithsonian Folkways — Florence Davidson, FD 6: Welcome dance for Edenshaw’s potlatch",
+      "url": "https://folkways.si.edu/florence-davidson/fd-6-welcome-dance-for-edenshaws-potlatch/american-indian/music/track/smithsonian",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "shuar",
+      "title": "Raquel Antun Tsamaraint — Chicham, Sabiduría, Arte y Voz desde la Nacionalidad Shuar",
+      "url": "https://uhediciones.uhemisferios.edu.ec/index.php/editorial/en/catalog/book/17",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "ayyala",
+      "title": "UNESCO — Al-Ayyala, a traditional performing art of Oman and the UAE",
+      "url": "https://ich.unesco.org/en/RL/al-ayyala-a-traditional-performing-art-of-the-sultanate-of-oman-and-the-united-arab-emirates-01012",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "ayyala_form",
+      "title": "Sharjah Institute for Heritage — About Al-Ayyala",
+      "url": "https://alayyala.sih.gov.ae/en/about-al-ayyala",
+      "accessed": "2026-09-14"
+    }
+  ]
+}

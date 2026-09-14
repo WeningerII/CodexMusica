@@ -5,7 +5,7 @@
   "lineage": "Dakpa ongo-ngala horn-ensemble repertoire from the Central African Republic, preserved separately from the Linda recordings.",
   "recipe": "classic modern banda dakpa horn polyphony, groove Percussion, central east south African branch. horn polyphony dakpa ongo horns. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 209,
-  "score": 6.097,
+  "score": 6.083,
   "config": {
     "traditions": [
       "banda_dakpa_polyphony"
@@ -18,7 +18,7 @@
           "ongo_texture": "ongo_texture_interlock"
         },
         "scores": {
-          "ongo_regional_form": 6.246928571428571,
+          "ongo_regional_form": 6.233,
           "ongo_texture": 0
         }
       }

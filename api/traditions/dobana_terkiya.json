@@ -5,7 +5,7 @@
   "lineage": "Teda solo-song form documented in Tibesti. The Youbor example is an unaccompanied male performance.",
   "recipe": "classic modern dobana terkiya, ballad Poetry. tibesti, solo unaccompanied. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 154,
-  "score": 6.884,
+  "score": 6.852,
   "config": {
     "traditions": [
       "dobana_terkiya"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 4.46125,
+          "voice_ensemble_config": 4.42875,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
