@@ -1,0 +1,20 @@
+
+=== THE MEMOISED PROBE AGREES WITH THE SHIPPED rhyme_events ===
+Every sweep below runs through the cache, so the agreement is checked rather than assumed.
+
+  window=32  null_samples=20000  sonnet 1    events 0/0  min_p 2.6999e-03/2.6999e-03  m_med 292/292  OK
+  window=32  null_samples=20000  sonnet 2    events 0/0  min_p 1.2999e-03/1.2999e-03  m_med 370/370  OK
+  window=32  null_samples=20000  scramble 1  events 0/0  min_p 2.7999e-03/2.7999e-03  m_med 281/281  OK
+  window=32  null_samples=20000  REAL        events 0/0  min_p 4.1498e-03/4.1498e-03  m_med 114/114  OK
+  window=8   null_samples=20000  sonnet 1    events 0/0  min_p 3.2998e-03/3.2998e-03  m_med 74/74  OK
+  window=8   null_samples=20000  sonnet 2    events 0/0  min_p 2.1999e-03/2.1999e-03  m_med 96/96  OK
+  window=8   null_samples=20000  scramble 1  events 0/0  min_p 4.3998e-03/4.3998e-03  m_med 66/66  OK
+  window=8   null_samples=20000  REAL        events 0/0  min_p 6.8497e-03/6.8497e-03  m_med 30/30  OK
+  window=32  null_samples=2000   sonnet 1    events 0/0  min_p 2.9985e-03/2.9985e-03  m_med 292/292  OK
+  window=32  null_samples=2000   sonnet 2    events 0/0  min_p 2.4988e-03/2.4988e-03  m_med 370/370  OK
+  window=32  null_samples=2000   scramble 1  events 0/0  min_p 3.4983e-03/3.4983e-03  m_med 281/281  OK
+  window=32  null_samples=2000   REAL        events 0/0  min_p 3.4983e-03/3.4983e-03  m_med 114/114  OK
+
+  all agree
+
+total 16s

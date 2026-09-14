@@ -1,0 +1,21 @@
+import argparse,json,sys
+from pathlib import Path
+ROOT = Path.cwd() if (Path.cwd()/'lyric-harness').is_dir() else Path.cwd().parent
+sys.path.insert(0,str(ROOT/'lyric-harness'))
+from quality import song_profile_calibration as C,length_curve_calibration as LC
+parser=argparse.ArgumentParser(description='Remeasure historical bands; run from the repository root or lyric-harness.')
+parser.add_argument('--cache',required=True)
+parser.add_argument('--report',required=True)
+a=parser.parse_args()
+cache=C.PredictabilityCache(a.cache).open()
+rows,scorer=C.population(scorer=C.Scorer(cache))
+assert cache.misses==0,cache.misses
+out={'provenance':LC.row_provenance(),'profiles':{}}
+for name in ('song','short'):
+ C.EDGES=list(C.PROFILE_EDGES[name])
+ lo,hi=C.pick_band(rows,profile=name)
+ th,held=C.report_fpr(rows,lo,hi,200)
+ slopes=C.report_period(rows,lo,hi,2000)
+ items=C.band(rows,lo,hi)
+ out['profiles'][name]={'lo':lo,'hi':hi,'n_human':len(items),'files':len({r['file'] for r in items}),'thresholds':th,'held_out_fpr':held,'period':slopes,'seeds':200}
+ Path(a.report).write_text(json.dumps(out,indent=2)+'\n')

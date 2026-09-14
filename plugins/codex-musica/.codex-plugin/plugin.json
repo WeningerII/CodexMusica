@@ -1,0 +1,28 @@
+{
+  "name": "codex-musica",
+  "version": "1.0.0",
+  "description": "Compose recording recipes and run planned, graded lyric workflows with persistent continuations.",
+  "author": {
+    "name": "Codex Musica"
+  },
+  "homepage": "https://codexmusica.com",
+  "repository": "https://github.com/WeningerII/CodexMusica",
+  "license": "UNLICENSED",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Codex Musica",
+    "shortDescription": "Recording recipes and verified lyric workflows.",
+    "longDescription": "Search musical traditions and instruments, edit recording recipes, and plan, grade or revise lyrics with saved sessions and recoverable operations.",
+    "developerName": "Codex Musica",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://codexmusica.com",
+    "privacyPolicyURL": "https://github.com/WeningerII/CodexMusica/blob/main/mcp/PRIVACY.md",
+    "defaultPrompt": [
+      "Blend delta blues with dream pop and give the voice a worn sound.",
+      "Plan and grade a new song with a verse, chorus and bridge.",
+      "Check the rhyme and meter of these existing lyrics."
+    ]
+  }
+}

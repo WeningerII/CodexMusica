@@ -31,9 +31,16 @@ def check(name, ok, note=""):
         print(f"          {note}")
 
 
+#: The shipped pin's two joints, copied so §2 and §3 do not depend on the
+#: live module's values moving under them. WALKED 2026-09-14 with the
+#: tokenizer-normalization repin: ~~0.7230769230769231 / 0.959703947368421~~
+#: -> 0.7578347578347578 / 0.9669407894736842, and the planted document
+#: below moves one rung with it — the leak is now 0.960 (the POLICED
+#: superseded rung), 0.964 has retired, 0.723 is the struck value and
+#: 0.758 / 0.967 the current pair.
 FAKE_PIN = {
-    "abs_exp1": {"joint_all": 0.7230769230769231},
-    "abs_exp2": {"joint_all": 0.959703947368421},
+    "abs_exp1": {"joint_all": 0.7578347578347578},
+    "abs_exp2": {"joint_all": 0.9669407894736842},
 }
 
 
@@ -69,12 +76,12 @@ def s2_the_declared_form_is_the_whole_rule(tmp):
             # entry's table), which is the measured reason keyword marking
             # is refused: the word is about a DIFFERENT figure's
             # supersession and must not rescue this one.
-            "SUPERSEDED 2026-08-13; cold it is 0.964 today.\n"
+            "SUPERSEDED 2026-08-22; cold it is 0.960 today.\n"
             # the two declared history forms
-            "The cold reading was ~~0.717~~ before the sentinel fix.\n"
-            "> cold 0.964 against 0.717, recorded as history.\n"
+            "The cold reading was ~~0.723~~ before the tokenizer fix.\n"
+            "> cold 0.960 against 0.723, recorded as history.\n"
             # the current value, quotable anywhere
-            "The standing pair is 0.723 / 0.960.\n"
+            "The standing pair is 0.758 / 0.967.\n"
             # a retired value in labelled narrative — listed, never policed
             "pre-fix it read 0.971 against 0.709.\n"
             # the standalone-decimal guard: a longer number must not match
@@ -83,28 +90,28 @@ def s2_the_declared_form_is_the_whole_rule(tmp):
             # an apostrophe is not a digit, so that mention MATCHES, and
             # correctly: the guard is against longer NUMBERS, not against
             # possessives)
-            "an unrelated 0.9640 in a run id draws no row at all\n")
+            "an unrelated 0.9600 in a run id draws no row at all\n")
     rows, _d = VF.survey(root=tmp, pinned=FAKE_PIN, docs=("planted.md",))
     by = {}
     for _doc, _name, sp, ln, cls in rows:
         by.setdefault((ln, cls), []).append(sp)
     check("§2 the live leak is a VIOLATION — the word SUPERSEDED beside it "
-          "rescues nothing", "0.964" in by.get((1, "VIOLATION"), []),
+          "rescues nothing", "0.960" in by.get((1, "VIOLATION"), []),
           str(sorted(by)))
     check("§2 a struck value is HISTORY",
-          "0.717" in by.get((2, "history"), []))
+          "0.723" in by.get((2, "history"), []))
     check("§2 a blockquote line is HISTORY for every value on it",
-          "0.964" in by.get((3, "history"), [])
-          and "0.717" in by.get((3, "history"), []))
+          "0.960" in by.get((3, "history"), [])
+          and "0.723" in by.get((3, "history"), []))
     check("§2 the current pair is counted as current, never charged",
-          "0.723" in by.get((4, "current"), [])
-          and "0.960" in by.get((4, "current"), []))
+          "0.758" in by.get((4, "current"), [])
+          and "0.967" in by.get((4, "current"), []))
     check("§2 a RETIRED value in labelled narrative is listed and not a "
           "violation — the lifecycle's unpoliced tier",
           "0.971" in by.get((5, "retired"), [])
           and "0.709" in by.get((5, "retired"), [])
           and not any(c == "VIOLATION" for (l, c) in by if l == 5))
-    check("§2 a longer decimal does not match a tracked spelling — 0.9640 "
+    check("§2 a longer decimal does not match a tracked spelling — 0.9600 "
           "yields no row for line 6",
           not any(l == 6 for (l, _c) in by), str(sorted(by)))
 
@@ -113,7 +120,7 @@ def s3_the_relation_to_the_pin_is_load_bearing():
     print("\n§3 the derivation check IS the relation to the pin (the half "
           "M-33 found missing)")
     moved = {"abs_exp1": {"joint_all": 0.750},
-             "abs_exp2": {"joint_all": 0.959703947368421}}
+             "abs_exp2": {"joint_all": 0.9669407894736842}}
     _rows, deriv = VF.survey(pinned=moved)
     check("§3 a moved measurement reds the derivation for the moved "
           "quantity AND the gap it feeds — the prose cannot stay quiet "

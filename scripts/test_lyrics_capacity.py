@@ -367,7 +367,10 @@ class ResidentMemoryReading(unittest.TestCase):
 
     def test_no_cgroup_reading_is_none_not_zero(self):
         from check_lyrics_capacity import resident_bytes
-        self.assertEqual(resident_bytes(current=None, stat={'file': 1, 'shmem': 0}), (None, None, 'unavailable'))
+        # None requests a live read; isolate the unavailable-reading case
+        # from whether this test runner itself has a readable cgroup.
+        with patch('check_lyrics_capacity.cgroup_bytes', return_value=None):
+            self.assertEqual(resident_bytes(current=None, stat={'file': 1, 'shmem': 0}), (None, None, 'unavailable'))
 
     def test_the_progress_sampler_keeps_the_largest_resident_reading(self):
         import check_lyrics_capacity as matrix

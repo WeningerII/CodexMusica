@@ -7,7 +7,15 @@ name: Deploy connector to Render
 
 on:
   workflow_run:
-    workflows: ['CI']
+    # TWO PRODUCERS OF EVIDENCE, AND THE DEPLOY LISTENS TO BOTH (M-287). CI's
+    # push run is the first half; the manual Production qualification is the
+    # second, dispatched by a person after CI has finished. Listening only to
+    # CI meant every merge's deploy run fired before the qualification could
+    # exist and went red on its absence -- six in a row, 2026-09-12 to 09-14 --
+    # and the real deploy was always a manual dispatch afterwards. Now the
+    # CI-completion run stands down (green, saying what it waits for) and the
+    # qualification's completion is what deploys.
+    workflows: ['CI', 'Production qualification']
     types: [completed]
     branches: [main] # only qualified main commits can be promoted
   workflow_dispatch: {}
@@ -53,11 +61,19 @@ jobs:
     # Each verified CI attempt can produce a distinct tested image for the same
     # commit. A same-SHA receipt cannot stand down that immutable promotion;
     # serialization and the main-tip ordering guard remain authoritative.
+    #
+    # The qualification workflow only ever runs by manual dispatch, so for it
+    # `event == 'workflow_dispatch'` is the trust condition CI's `push` is; the
+    # evidence step below still resolves the PUSH CI run at the same SHA, so a
+    # qualification cannot promote a commit whose CI never ran.
     if: >-
       ${{ github.event_name == 'workflow_dispatch' ||
           (github.event.workflow_run.conclusion == 'success' &&
-           github.event.workflow_run.event == 'push' &&
-           github.event.workflow_run.head_repository.full_name == github.repository) }}
+           github.event.workflow_run.head_repository.full_name == github.repository &&
+           ((github.event.workflow_run.name == 'CI' &&
+             github.event.workflow_run.event == 'push') ||
+            (github.event.workflow_run.name == 'Production qualification' &&
+             github.event.workflow_run.event == 'workflow_dispatch'))) }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -76,26 +92,48 @@ jobs:
             echo "manual dispatch — using checked-out HEAD"
           else
             SHA="${{ github.event.workflow_run.head_sha }}"
-            echo "CI run ${{ github.event.workflow_run.id }} succeeded on $SHA"
+            echo "${{ github.event.workflow_run.name }} run ${{ github.event.workflow_run.id }} succeeded on $SHA"
           fi
           echo "sha=$SHA" >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-node@v5
         with:
           node-version: '22'
+      # THREE ANSWERS HERE TOO: 0 with both halves of the evidence, 10 with
+      # CI's half and no qualification at this SHA yet (qualified=no, a clean
+      # stand-down -- the qualification's own completion re-enters this
+      # workflow), anything else a real error. A qualification that exists
+      # and failed is the third case, and it is red on purpose.
       - name: Require exact trusted CI evidence, including manual dispatch
         env:
           GH_TOKEN: ${{ github.token }}
           TESTED_SHA: ${{ steps.sha.outputs.sha }}
         id: evidence
         run: |
+          set +e
           node scripts/verify_ci.mjs "$TESTED_SHA" --production > verified-ci.json
-          echo "run_id=$(node -p 'JSON.parse(require("fs").readFileSync("verified-ci.json")).run_id')" >> "$GITHUB_OUTPUT"
-          echo "qualification_run_id=$(node -p 'JSON.parse(require("fs").readFileSync("verified-ci.json")).qualification.run_id')" >> "$GITHUB_OUTPUT"
-          echo "qualification_attempt=$(node -p 'JSON.parse(require("fs").readFileSync("verified-ci.json")).qualification.run_attempt')" >> "$GITHUB_OUTPUT"
-          echo "release_id=${{ github.repository_id }}:$(node -p 'JSON.parse(require("fs").readFileSync("verified-ci.json")).run_id'):$(node -p 'JSON.parse(require("fs").readFileSync("verified-ci.json")).run_attempt'):lyrics-image" >> "$GITHUB_OUTPUT"
+          rc=$?
+          set -e
+          case $rc in
+            0)
+              echo "qualified=yes" >> "$GITHUB_OUTPUT"
+              echo "run_id=$(node -p 'JSON.parse(require("fs").readFileSync("verified-ci.json")).run_id')" >> "$GITHUB_OUTPUT"
+              echo "qualification_run_id=$(node -p 'JSON.parse(require("fs").readFileSync("verified-ci.json")).qualification.run_id')" >> "$GITHUB_OUTPUT"
+              echo "qualification_attempt=$(node -p 'JSON.parse(require("fs").readFileSync("verified-ci.json")).qualification.run_attempt')" >> "$GITHUB_OUTPUT"
+              echo "release_id=${{ github.repository_id }}:$(node -p 'JSON.parse(require("fs").readFileSync("verified-ci.json")).run_id'):$(node -p 'JSON.parse(require("fs").readFileSync("verified-ci.json")).run_attempt'):lyrics-image" >> "$GITHUB_OUTPUT"
+              ;;
+            10)
+              echo "qualified=no" >> "$GITHUB_OUTPUT"
+              echo "why=STAND DOWN — CI is green at $TESTED_SHA but no Production qualification exists there yet. Dispatch 'Production qualification' on main; its completion deploys by itself." >> "$GITHUB_OUTPUT"
+              ;;
+            *)
+              echo "verify_ci.mjs failed with $rc"
+              exit $rc
+              ;;
+          esac
 
       - name: Download the exact verified run's image manifest
+        if: steps.evidence.outputs.qualified == 'yes'
         uses: actions/download-artifact@v4
         with:
           name: lyrics-image
@@ -104,6 +142,7 @@ jobs:
           path: verified-image
 
       - name: Download the complete qualification from its verified attempt
+        if: steps.evidence.outputs.qualified == 'yes'
         uses: actions/download-artifact@v4
         with:
           name: production-qualification-${{ steps.evidence.outputs.qualification_attempt }}
@@ -112,9 +151,11 @@ jobs:
           path: verified-qualification
 
       - name: Bind complete qualification to the tested image source
+        if: steps.evidence.outputs.qualified == 'yes'
         run: node scripts/verify_qualification.mjs verified-qualification/qualification.json verified-image/lyrics-image.json verified-ci.json
 
       - name: Require immutable image promotion configuration
+        if: steps.evidence.outputs.qualified == 'yes'
         env:
           IMAGE_REPOSITORY: ${{ vars.RENDER_IMAGE_REPOSITORY }}
           TESTED_SHA: ${{ steps.sha.outputs.sha }}
@@ -129,6 +170,7 @@ jobs:
       # is carried to the Stood down step so the reason is the guard's, not a
       # paraphrase.
       - name: May this verified image be deployed? (the main ordering guard)
+        if: steps.evidence.outputs.qualified == 'yes'
         id: guard
         run: |
           set +e
@@ -215,11 +257,13 @@ jobs:
           done
 
       - name: Stood down
-        if: steps.guard.outputs.go == 'no'
+        if: steps.evidence.outputs.qualified == 'no' || steps.guard.outputs.go == 'no'
         env:
-          WHY: ${{ steps.guard.outputs.why }}
+          WHY: ${{ steps.evidence.outputs.why || steps.guard.outputs.why }}
         run: |
           echo "No deploy. ${WHY}"
-          echo "Either main has moved past the commit this run validated (the newer"
-          echo "commit's own CI run deploys it), or Render was already asked to build"
+          echo "Either no Production qualification exists yet at this commit (dispatch"
+          echo "it; its completion re-enters this workflow and deploys), or main has"
+          echo "moved past the commit this run validated (the newer commit's own"
+          echo "qualification deploys it), or Render was already asked to build"
           echo "exactly this sha (a re-run of a push's CI run — M-187 (b))."

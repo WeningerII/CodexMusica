@@ -314,18 +314,96 @@ def close(name, got, want, note=""):
 #: feature was recomputed). Every value here is an exact concordant-pair
 #: fraction: 1269/1755, 918/1755, 5835/6080, 4297/6080, 1090/1755, 955/1755,
 #: 5448/6080, 3853/6080.
+#: REPINNED 2026-09-14 — ALL FORTY-FOUR FIGURES, for the tokenizer
+#: normalization in `features.QualityFeatures._tokens` (the lyrics
+#: computational audit of that date): every line is NFC-normalized and its
+#: apostrophes folded to the pronunciation reader's convention before it is
+#: tokenized, so don't/don’t stop being two words and prepar’d stops
+#: ending in "d". Every feature reads those tokens, so every AUC moved —
+#: unlike the 2026-08-22 repin above, whose pattern was the control, the
+#: signature here is that NOTHING is exempt, which is what a change to the
+#: token stream itself predicts. Measured cold on CI's interpreter (Python
+#: 3.11), features.py ast:6c13752dbbb959c8, and identical at the two heads
+#: 4e98d937 and 40fe943d; `origin/main` at d12108fe passes the previous pins
+#: 69/69 on the same box, which locates the move in this change alone.
+#:
+#: The headline pair goes 0.723/0.960 -> 0.758/0.967 and the gap
+#: rejection-minus-selection ~~0.237~~ 0.209; the within-item pair goes
+#: 0.621/0.896 -> 0.621/0.894 (Exp 1 moved -5.7e-04, under the printed
+#: digit and over the tolerance). Doctrine 7 still holds and still does
+#: not rest on the third decimal. The largest single move is
+#: `content_word_freq_mean` on human-vs-generated, 0.707 -> 0.874. WHY it
+#: moved that far is NOT measured here: the audit's own note says the old
+#: tokenizer gave don't/don’t different token counts, and a token the
+#: frequency list cannot find is scored at the out-of-vocabulary sentinel
+#: (M-31's shape), which would fit a spelling convention that tracks the
+#: label — but no per-token count of that has been taken, so it is carried
+#: as a hypothesis, not a finding (doctrine 58). What IS established is
+#: only that the 2026-08-22 DOWNGRADE of that feature is partly reversed by
+#: a correction to its input, not by tuning. Superseded values, to the digit
+#: (doctrine 17):
+#:
+#:   abs_exp1 joint_all                  ~~0.723077~~ 0.757835   +3.48e-02
+#:   abs_exp1 joint_solo                 ~~0.709972~~ 0.736752   +2.68e-02
+#:   abs_exp1 rhyme_predictability_mean  ~~0.261538~~ 0.244444   -1.71e-02
+#:   abs_exp1 rhyme_predictability_min   ~~0.350142~~ 0.333048   -1.71e-02
+#:   abs_exp1 concreteness_mean          ~~0.672934~~ 0.669516   -3.42e-03
+#:   abs_exp1 concreteness_p90           ~~0.635328~~ 0.601709   -3.36e-02
+#:   abs_exp1 abstract_noun_ratio        ~~0.314815~~ 0.323647   +8.83e-03
+#:   abs_exp1 pos_binding_diversity      ~~0.460969~~ 0.422507   -3.85e-02
+#:   abs_exp1 mattr                      ~~0.365812~~ 0.410256   +4.44e-02
+#:   abs_exp1 function_word_ratio        ~~0.535897~~ 0.563248   +2.74e-02
+#:   abs_exp1 syntactic_inversion_rate   ~~0.582906~~ 0.561254   -2.17e-02
+#:   abs_exp1 content_word_freq_mean     ~~0.523077~~ 0.583476   +6.04e-02
+#:   abs_exp2 joint_all                  ~~0.959704~~ 0.966941   +7.24e-03
+#:   abs_exp2 joint_solo                 ~~0.647697~~ 0.637829   -9.87e-03
+#:   abs_exp2 rhyme_predictability_mean  ~~0.339638~~ 0.348026   +8.39e-03
+#:   abs_exp2 rhyme_predictability_min   ~~0.335526~~ 0.347533   +1.20e-02
+#:   abs_exp2 concreteness_mean          ~~0.271217~~ 0.246382   -2.48e-02
+#:   abs_exp2 concreteness_p90           ~~0.229112~~ 0.207484   -2.16e-02
+#:   abs_exp2 abstract_noun_ratio        ~~0.792188~~ 0.807813   +1.56e-02
+#:   abs_exp2 pos_binding_diversity      ~~0.491530~~ 0.505592   +1.41e-02
+#:   abs_exp2 mattr                      ~~0.869572~~ 0.884375   +1.48e-02
+#:   abs_exp2 function_word_ratio        ~~0.135197~~ 0.171053   +3.59e-02
+#:   abs_exp2 syntactic_inversion_rate   ~~0.833059~~ 0.780016   -5.30e-02
+#:   abs_exp2 content_word_freq_mean     ~~0.706743~~ 0.873849   +1.67e-01
+#:   wi_exp1  joint_all                  ~~0.621083~~ 0.620513   -5.70e-04
+#:   wi_exp1  joint_solo                 ~~0.718519~~ 0.741880   +2.34e-02
+#:   wi_exp1  wi_predictability_advantage ~~0.261538~~ 0.244444   -1.71e-02
+#:   wi_exp1  wi_concreteness_delta      ~~0.509402~~ 0.516809   +7.41e-03
+#:   wi_exp1  wi_abstract_delta          ~~0.581766~~ 0.565527   -1.62e-02
+#:   wi_exp1  wi_freq_delta              ~~0.544160~~ 0.497436   -4.67e-02
+#:   wi_exp1  wi_function_delta          ~~0.393732~~ 0.390313   -3.42e-03
+#:   wi_exp1  wi_binding_excess          ~~0.533333~~ 0.482051   -5.13e-02
+#:   wi_exp1  wi_type_ratio              ~~0.656980~~ 0.619943   -3.70e-02
+#:   wi_exp1  wi_conc_spread             ~~0.519943~~ 0.484615   -3.53e-02
+#:   wi_exp2  joint_all                  ~~0.896053~~ 0.893914   -2.14e-03
+#:   wi_exp2  joint_solo                 ~~0.652303~~ 0.643750   -8.55e-03
+#:   wi_exp2  wi_predictability_advantage ~~0.339638~~ 0.348026   +8.39e-03
+#:   wi_exp2  wi_concreteness_delta      ~~0.381743~~ 0.407237   +2.55e-02
+#:   wi_exp2  wi_abstract_delta          ~~0.431332~~ 0.417681   -1.37e-02
+#:   wi_exp2  wi_freq_delta              ~~0.633717~~ 0.549342   -8.44e-02
+#:   wi_exp2  wi_function_delta          ~~0.679934~~ 0.634786   -4.51e-02
+#:   wi_exp2  wi_binding_excess          ~~0.579605~~ 0.583553   +3.95e-03
+#:   wi_exp2  wi_type_ratio              ~~0.103125~~ 0.098849   -4.28e-03
+#:   wi_exp2  wi_conc_spread             ~~0.367270~~ 0.355592   -1.17e-02
+#:
+#: The prose that quotes these is repinned the same day in RESULTS.md,
+#: RESULTS_WITHIN_ITEM.md and PREREGISTRATION.md, and `verify_figures.py`'s
+#: TRACKED ladder walks 0.723/0.960/0.237 into the policed SUPERSEDED slot.
+
 PINNED = {
     "abs_exp1": {
         "label": "ABSOLUTE (original ten) / Exp 1  survived vs forgotten",
         "n_pos": 15, "n_neg": 117, "n_features": 10,
-        "joint_all": 0.7230769230769231, "joint_solo": 0.70997150997151,
+        "joint_all": 0.7578347578347578, "joint_solo": 0.7367521367521368,
         "features": {
-            "rhyme_predictability_mean": 0.26153846153846155,
-            "rhyme_predictability_min": 0.35014245014245016,
-            "concreteness_mean": 0.672934472934473,
-            "concreteness_p90": 0.6353276353276354,
-            "abstract_noun_ratio": 0.3148148148148148,
-            "pos_binding_diversity": 0.46096866096866096,
+            "rhyme_predictability_mean": 0.24444444444444444,
+            "rhyme_predictability_min": 0.33304843304843307,
+            "concreteness_mean": 0.6695156695156695,
+            "concreteness_p90": 0.6017094017094017,
+            "abstract_noun_ratio": 0.32364672364672364,
+            "pos_binding_diversity": 0.4225071225071225,
             # THE COORDINATE THIS PINS IS THE WINDOW, and it took until
             # 2026-08-14 for anything to say so. `mattr` is a moving average
             # over `FloorDeclaration.mattr_window` tokens (50), so this
@@ -333,29 +411,32 @@ PINNED = {
             # feature -- move the window and it moves, monotonically and by
             # far more than any tolerance here. The sweep and the admissible
             # range are `quality.floor.CALIBRATION["mattr_window"]`.
-            "mattr": 0.3658119658119658,
-            "function_word_ratio": 0.5358974358974359,
-            "syntactic_inversion_rate": 0.582905982905983,
-            "content_word_freq_mean": 0.5230769230769231,
+            "mattr": 0.41025641025641024,
+            "function_word_ratio": 0.5632478632478632,
+            "syntactic_inversion_rate": 0.5612535612535613,
+            "content_word_freq_mean": 0.5834757834757834,
         },
     },
     "abs_exp2": {
         "label": "ABSOLUTE (original ten) / Exp 2  human vs generated",
         "n_pos": 152, "n_neg": 40, "n_features": 10,
-        "joint_all": 0.959703947368421, "joint_solo": 0.6476973684210526,
+        "joint_all": 0.9669407894736842, "joint_solo": 0.6378289473684211,
         "features": {
-            "rhyme_predictability_mean": 0.33963815789473684,
-            "rhyme_predictability_min": 0.3355263157894737,
-            "concreteness_mean": 0.2712171052631579,
-            "concreteness_p90": 0.22911184210526317,
-            "abstract_noun_ratio": 0.7921875,
-            "pos_binding_diversity": 0.4915296052631579,
+            "rhyme_predictability_mean": 0.3480263157894737,
+            "rhyme_predictability_min": 0.3475328947368421,
+            "concreteness_mean": 0.24638157894736842,
+            "concreteness_p90": 0.20748355263157894,
+            "abstract_noun_ratio": 0.8078125,
+            "pos_binding_diversity": 0.5055921052631579,
             # SAME COORDINATE, and this is the cell the 2026-08-14 window
             # sweep was run against: `mattr` alone, Exp 2, at each window.
             #     window   20     25     30     40     50     60     80   100
             #     AUC     .928   .915   .907   .891   .870   .850   .811  .750
-            # 0.8695723684210527 is the window-50 entry, reproduced to the
-            # last digit by an independent instrument. The column is
+            # 0.8695723684210527 was the window-50 entry, reproduced to the
+            # last digit by an independent instrument; that sweep was run on
+            # the pre-normalization token stream and has NOT been re-run, so
+            # at the 2026-09-14 tokenizer the window-50 reading is 0.884375
+            # and the other seven columns are unmeasured. The column is
             # MONOTONE, so this pin sits on a slope: the shipped window costs
             # ~0.06 AUC against the sweep's best and is kept because an
             # in-sample argmax over the same 152-vs-40 corpus is not a
@@ -363,41 +444,41 @@ PINNED = {
             # [1,22] u [40,93] -- outside that a profile's calibration set
             # straddles `_mattr`'s plain-TTR fallback. Do not tune the window
             # to move this number; repin it with a date and an argument.
-            "mattr": 0.8695723684210527,
-            "function_word_ratio": 0.13519736842105262,
-            "syntactic_inversion_rate": 0.8330592105263158,
-            "content_word_freq_mean": 0.7067434210526315,
+            "mattr": 0.884375,
+            "function_word_ratio": 0.17105263157894737,
+            "syntactic_inversion_rate": 0.780016447368421,
+            "content_word_freq_mean": 0.8738486842105263,
         },
     },
     "wi_exp1": {
         "label": "WITHIN-ITEM (respecified eight) / Exp 1  survived vs "
                  "forgotten",
         "n_pos": 15, "n_neg": 117, "n_features": 8,
-        "joint_all": 0.6210826210826211, "joint_solo": 0.7185185185185186,
+        "joint_all": 0.6205128205128205, "joint_solo": 0.7418803418803419,
         "features": {
-            "wi_predictability_advantage": 0.26153846153846155,
-            "wi_concreteness_delta": 0.5094017094017094,
-            "wi_abstract_delta": 0.5817663817663817,
-            "wi_freq_delta": 0.5441595441595442,
-            "wi_function_delta": 0.39373219373219376,
-            "wi_binding_excess": 0.5333333333333333,
-            "wi_type_ratio": 0.656980056980057,
-            "wi_conc_spread": 0.51994301994302,
+            "wi_predictability_advantage": 0.24444444444444444,
+            "wi_concreteness_delta": 0.5168091168091168,
+            "wi_abstract_delta": 0.5655270655270656,
+            "wi_freq_delta": 0.49743589743589745,
+            "wi_function_delta": 0.3903133903133903,
+            "wi_binding_excess": 0.48205128205128206,
+            "wi_type_ratio": 0.6199430199430199,
+            "wi_conc_spread": 0.4846153846153846,
         },
     },
     "wi_exp2": {
         "label": "WITHIN-ITEM (respecified eight) / Exp 2  human vs generated",
         "n_pos": 152, "n_neg": 40, "n_features": 8,
-        "joint_all": 0.8960526315789473, "joint_solo": 0.6523026315789475,
+        "joint_all": 0.8939144736842106, "joint_solo": 0.6437499999999999,
         "features": {
-            "wi_predictability_advantage": 0.33963815789473684,
-            "wi_concreteness_delta": 0.3817434210526316,
-            "wi_abstract_delta": 0.43133223684210525,
-            "wi_freq_delta": 0.6337171052631579,
-            "wi_function_delta": 0.6799342105263158,
-            "wi_binding_excess": 0.5796052631578947,
-            "wi_type_ratio": 0.103125,
-            "wi_conc_spread": 0.3672697368421053,
+            "wi_predictability_advantage": 0.3480263157894737,
+            "wi_concreteness_delta": 0.4072368421052632,
+            "wi_abstract_delta": 0.4176809210526316,
+            "wi_freq_delta": 0.5493421052631579,
+            "wi_function_delta": 0.6347861842105263,
+            "wi_binding_excess": 0.5835526315789473,
+            "wi_type_ratio": 0.09884868421052631,
+            "wi_conc_spread": 0.3555921052631579,
         },
     },
 }

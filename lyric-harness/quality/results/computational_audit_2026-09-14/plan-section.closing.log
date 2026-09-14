@@ -1,0 +1,27 @@
+
+12. the SONG's length comes from the profile that grades a SONG — not from the union of three kinds of text
+  PASS  the SONG band is contained in the union of every live profile's reach — this never widens what the planner volunteers past what the floor can grade; since M-239 the two coincide, because the lyric-sheet profile's range contains the quatrain's and the sonnet's
+          song 463 of union 463
+  PASS  and there is NO hole at all — every former seam (6-11, 18-21, 21) was the space between two calibrated bands, and the length-curve profile has none
+          song 1..463 gaps [], union gaps []
+  PASS  ...and the union has NO hole because one reach CONTAINS every other — the lyric-sheet reach, which is the only live `n_lines == 0` row's, so the union IS that reach; the end-to-end seam identity the two readings above pinned does not describe this arrangement and was struck rather than re-fitted
+          0 hole(s) []; widest lyric 1..463 contains ['sonnet', 'section'] of ['sonnet', 'section']; reaches {'lyric': (1, 463), 'section': (4, 5), 'sonnet': (12, 17)}; min-ordered touching [('lyric', 'section')]
+  PASS  MUTATION — narrow the live sheet row back to a 200-400-token BAND and the containment breaks: its reach no longer covers the stanza reaches, the union re-opens holes, and the perturbation is restored
+          2 hole(s) under the narrowed row [(6, 11), (18, 22)], 0 restored
+  PASS  the band is the reach of exactly the LIVE profile(s) declaring `n_lines == 0` — ONE since M-239 (the two band rows are superseded and read by nothing), and the set is its reach: a lyric sheet has no fixed line count, which is the coordinate, not the string 'song'
+          ['lyric'], 1..463
+  PASS  MUTATION — widening the LIVE lyric-sheet profile's measured token band (`lyric` since M-239, not the superseded `song` row) widens the SONG line band with it, and the perturbation is restored
+          463 -> 492 values
+  PASS  MUTATION — the stanza floor is READ from the calibrated stanza's own token range: triple it and the floor rises, and the perturbation is restored
+          4 -> 10
+  PASS  the SECTION ceiling is that floor divided into the song, never the song's line count itself — a sound bound is not a uniform draw (the M-81(A) error one layer over)
+          sections (1, 115) against song max 463
+  PASS  no seed is lost to the narrower band — 120 of 120 still plan
+          120 plans
+  PASS  every drawn total is INSIDE the lyric-sheet profile's own band (`lyric` since M-239, repinned 2026-09-05), so the planner volunteers no length that profile cannot hold to anything
+          [12, 31] against [1, 463]
+  PASS  ONE-LINE sung sections are a minority — well under the 39.4% this instrument measured before the band and the section ceiling were re-derived
+          28.5% of 853 sung sections, median 3 lines
+  PASS  and the section COUNT no longer runs to the song's line count: its tail sits inside the ceiling the stanza floor derives
+          max 11 sections against derived ceiling 115 (song max 463), median 7.0
+FAILURES []

@@ -1,6 +1,6 @@
 # Privacy Policy — CodexMusica MCP server
 
-_Last updated: 2026-09-07_
+_Last updated: 2026-09-13_
 
 CodexMusica provides deterministic recording-recipe tools and a separate lyrics
 pipeline. Lyrics revision and chat can call an external model and retain working
@@ -26,6 +26,12 @@ drive the tools.
   results and signed continuation envelopes. The configured runtime directory
   stores them on the server; without durable storage, they remain process-local.
   A request without `request_id` has no recoverable request receipt.
+- **ChatGPT sessions.** The `/mcp/chatgpt/recipe` and `/mcp/chatgpt/lyrics`
+  endpoints automatically issue session and operation identifiers and retain
+  their requests and results in the same recovery store. Recipe workspaces,
+  lyric workflow receipts and private continuation state remain on the service.
+  These sessions follow the receipt retention policy below. Kitchen sessions
+  require durable storage; local recipe and interview sessions can be transient.
 - **Retention.** Completed or interrupted receipt metadata becomes eligible for
   expiration 24 hours after its last work update and is removed when store cleanup
   runs. Full request/response payloads may be retired sooner to
@@ -48,9 +54,9 @@ drive the tools.
   logs are not used to build user profiles and are not sold or shared for
   advertising.
 
-Recipe tools themselves do not retain a recipe session. If used through chat,
-their inputs or outputs can still appear in the conversation and its recovery
-receipt.
+Raw recipe tools pass workspaces through the caller. The ChatGPT recipe endpoint
+retains sessions; recipes used through `/chat` can also appear in the conversation
+and its recovery receipt.
 
 ## Access to retained state
 
@@ -58,6 +64,10 @@ A `request_id` is a bearer capability: anyone who possesses it can retrieve its
 retained receipt. A lyric `run_id` grants access to the corresponding cached run,
 and signed envelopes authorize continuation of the state they carry. These are
 not account identities. Keep them private, along with draft content.
+
+ChatGPT `session_id` and `operation_id` values are also bearer capabilities. Anyone
+with one can read its retained result and, where permitted, advance that session.
+They are not bound to a ChatGPT account. Do not put them in public transcripts.
 
 The manual battery workflow encrypts transcripts, request journals, signed
 checkpoints and full driver logs with a dedicated `BATTERY_RECOVERY_KEY` before

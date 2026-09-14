@@ -295,16 +295,26 @@ def test_null_must_not_be_conditioned_on_the_band():
 
 
 def test_bh_resolution_guard():
-    print("\n7. BH needs a finer tail than FWER and says so when it lacks one")
+    print("\n7. BH resolution uses its largest available rank, not only q/n")
     from quality.corpus import load_sonnets
     son = [l for _, l in sorted(load_sonnets().items())][0]
     sat, n, slots, det = run(son, correction="bh", null_samples=2000)
-    check("BH refuses when its own threshold is below the p-value floor",
-          "bh_unresolvable" in det and n == 0,
-          (det.get("bh_unresolvable") or "(guard did not fire)")[:130])
+    # The old singleton guard refused this whole sonnet whenever q/n was
+    # below the floor. Rank k has cut k*q/n; assert the actual reachable
+    # rank's resolution. Exact collective counterexamples live in the
+    # independent computational audit suite.
+    from quality.time_layer import _candidate_pairs
+    st = syllable_stream(LEX, son)
+    pairs = _candidate_pairs(st, TimeDeclaration(correction="bh", null_samples=2000))
+    from quality.time_layer import _raw_score
+    k = sum(_raw_score(st, a, b, DECL, None) is not None for a, b in pairs)
+    expected_refusal = bool(k) and 1 / 2001 > k * TimeDeclaration().q / len(pairs)
+    check("BH refuses exactly when no scored rank can resolve its cut",
+          ("bh_unresolvable" in det) == expected_refusal,
+          det.get("bh_unresolvable", "the step-up calculation is resolvable"))
     sat2, n2, _s, det2 = run(son, correction="sidak", null_samples=2000)
     m2, n_pairs = det2["median_family_size"], det2["n_candidate_pairs"]
-    check("FWER's threshold is orders of magnitude coarser than BH's",
+    check("FWER's threshold exceeds BH's singleton threshold",
           det2["per_pair_cut"] > 10 * (TimeDeclaration().q / n_pairs),
           f"alpha/m with m = {m2} is {det2['per_pair_cut']:.1e}; q/n with "
           f"n = {n_pairs} is {TimeDeclaration().q / n_pairs:.1e}. That "
@@ -327,7 +337,7 @@ def test_bh_resolution_guard():
           f"cut {det3['per_pair_cut']:.1e} against resolution "
           f"{det3['p_resolution']:.1e} at null_samples={d.null_samples} — "
           f"{det3['per_pair_cut'] / det3['p_resolution']:.0f}x of headroom, "
-          f"where BH would need {int(n_pairs / d.q)} draws")
+          f"where a BH singleton would need {int(n_pairs / d.q)} draws")
 
 
 def test_bh_is_a_step_up():

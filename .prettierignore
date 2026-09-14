@@ -84,6 +84,9 @@ data
 # Measured audit evidence: preserve generator bytes and archived SHA256 identities.
 lyric-harness/quality/RESULTS_CAPACITY_PRODUCTION_2026-09-08.json
 lyric-harness/quality/results/production_data_2026-09-08
+# Same class: the computational audit's artifact-index.json names every file in
+# the directory by its SHA256, so a reflow would falsify the index it ships with.
+lyric-harness/quality/results/computational_audit_2026-09-14
 
 # Raw audit regression receipts/logs: SHA-indexed evidence, not authored inputs.
 docs/production-audit-evidence

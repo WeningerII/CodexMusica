@@ -1,0 +1,19 @@
+
+CALIBRATION. alignment=tail, theta_coda=0.8, theta=0.8, window=32, null_samples=20000
+n = 30 Shakespeare sonnets.
+
+  null band-pass rate   min 0.023  p50 0.036  p95 0.055  max 0.056
+  -> max_null_band_pass = 2 x max = 0.112   (TimeDeclaration ships 0.152)
+  min attainable p / loosest cut   min 0.7x  p50 1.8x  max 4.7x
+     every value above 1.0 is an item in which NO event was attainable at all,
+     and this ratio is an UPPER BOUND on attainability, not an estimate of it:
+     `loosest_cut` is the cut at the SMALLEST family in the item. Against the
+     family a typical position has, the gap is 9.4x and 0.0% of positions can
+     fire. See `python3 quality/time_attainable.py --corpus`.
+  REAL (one planted rhyme)   band-pass 0.080   min_p/cut 3.1x
+  SATURATED (one class)      band-pass 0.215   min_p/cut 14.7x
+
+  The old 0.25 was this same quantity measured flush-LEFT at theta_coda 0.60,
+  where real verse read ~0.10 and the degenerate fixture 0.43. Both halves of
+  that sentence moved when the band moved, and nothing said so.
+{"band_pass": [0.04285, 0.0348, 0.0465, 0.0562, 0.0522, 0.05195, 0.05335, 0.03715, 0.0368, 0.0508, 0.0279, 0.0347, 0.0346, 0.0301, 0.0281, 0.03815, 0.0231, 0.03215, 0.0354, 0.05095, 0.02875, 0.0359, 0.02325, 0.03015, 0.0338, 0.04875, 0.04585, 0.0552, 0.02695, 0.029], "ratio": [2.7910490195881787, 2.129476843797503, 2.496328212682284, 2.791024012848208, 1.863698580227972, 1.4373131920144773, 1.9397281024913353, 3.100990532910738, 1.4423619223653519, 4.685938729555133, 1.3260680927545105, 2.652136185509021, 1.6413083944157452, 1.0240995239160564, 1.1792328295993746, 1.7905182484535402, 1.8871923105549113, 0.7372516260353758, 1.8957898955195376, 2.8258394987445623, 1.7614511811356173, 1.757327160481446, 0.8952591242267701, 1.912385439347456, 1.0542663678523867, 1.1849812182554096, 1.4455112104766528, 2.4788079432801955, 1.3575597630727572, 0.9890339861156046], "threshold": 0.1124}

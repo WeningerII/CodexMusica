@@ -935,12 +935,13 @@ class Subdivision(_Sourced):
 
     def __post_init__(self):
         self._check_source()
-        if int(self.slots_per_pulse) < 1:
-            raise ValueError("slots_per_pulse must be >= 1")
+        object.__setattr__(self, "slots_per_pulse",
+                           exact_integer(self.slots_per_pulse,
+                                         "slots_per_pulse", 1))
 
     @property
     def s(self):
-        return int(self.slots_per_pulse)
+        return self.slots_per_pulse
 
 
 @dataclass(frozen=True)

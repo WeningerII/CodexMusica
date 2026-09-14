@@ -38,6 +38,8 @@ import { lyricCapacity } from './lyric_tools.js';
 import { createOperationBudget } from './paid_budget.js';
 import { effectiveConfiguration } from './runtime_config.js';
 import { runtimeAssets } from './runtime_assets.js';
+import { ChatGPTSessions } from './chatgpt_sessions.js';
+import { buildChatGPTServer } from './chatgpt_tools.js';
 
 const PORT = process.env.PORT || 3000;
 const MCP_PATH = process.env.MCP_PATH || '/mcp';
@@ -208,6 +210,7 @@ try {
   jobStore.failure = err.message;
 }
 let chatRouter;
+const chatgptSessions = new ChatGPTSessions({ store: jobStore, build: buildIdentity });
 app.use(
   createJobRouter({
     store: jobStore,
@@ -294,8 +297,12 @@ app.get('/.well-known/mcp.json', (_req, res) =>
     endpoint: PUBLIC_MCP_URL,
     authentication: 'none',
     taskEndpoints: { recipe: PUBLIC_MCP_URL + '/recipe', lyrics: PUBLIC_MCP_URL + '/lyrics' },
+    chatgptEndpoints: {
+      recipe: PUBLIC_MCP_URL + '/chatgpt/recipe',
+      lyrics: PUBLIC_MCP_URL + '/chatgpt/lyrics',
+    },
     privacy:
-      'Lyrics requests, accepted drafts, recovery receipts and accounting can be persisted. Kitchen writing sends its brief to the configured provider.',
+      'ChatGPT sessions, lyrics requests, accepted drafts, recovery receipts and accounting can be persisted. Kitchen writing sends its brief to the configured provider.',
     documentation: 'https://codexmusica.com/AGENTS.md',
     websiteUrl: 'https://codexmusica.com',
     repository: 'https://github.com/WeningerII/CodexMusica',
@@ -321,7 +328,13 @@ function tooMany(res, retryAfterMs) {
   });
 }
 
-const mcpPaths = [MCP_PATH, MCP_PATH + '/recipe', MCP_PATH + '/lyrics'];
+const mcpPaths = [
+  MCP_PATH,
+  MCP_PATH + '/recipe',
+  MCP_PATH + '/lyrics',
+  MCP_PATH + '/chatgpt/recipe',
+  MCP_PATH + '/chatgpt/lyrics',
+];
 app.post(mcpPaths, async (req, res) => {
   const ip = clientIp(req);
   const now = Date.now();
@@ -339,13 +352,16 @@ app.post(mcpPaths, async (req, res) => {
   console.error(`[mcp] ${describe(req.body)}`);
   // Stateless: brand-new server + transport for this single request.
   const controller = new AbortController();
-  const domain =
-    req.path === MCP_PATH + '/recipe'
-      ? 'recipe'
-      : req.path === MCP_PATH + '/lyrics'
-        ? 'lyrics'
-        : null;
-  const task = domain ? { domain, format: 'rich', maxChars: 1000 } : null;
+  const chatgpt = req.path.startsWith(MCP_PATH + '/chatgpt/');
+  const domain = req.path.endsWith('/recipe')
+    ? 'recipe'
+    : req.path.endsWith('/lyrics')
+      ? 'lyrics'
+      : null;
+  // Task-scoped raw HTTP supports the same explicit views its schema advertises.
+  // Native hosts still pin their own task.format through the maintained client.
+  const format = req.body?.method === 'tools/call' ? req.body.params?.arguments?.format : null;
+  const task = domain ? { domain, format: format ?? 'rich', maxChars: 1000 } : null;
   const context = {
     task,
     signal: controller.signal,
@@ -354,14 +370,17 @@ app.post(mcpPaths, async (req, res) => {
       dailyUsd: Number(process.env.CHAT_DAILY_USD) || 25,
     }),
   };
-  const server = buildServer(task ? { task } : {});
   const transport = new StreamableHTTPServerTransport({ sessionIdGenerator: undefined });
+  let server;
   res.on('close', () => {
     controller.abort(new Error('MCP client disconnected'));
     transport.close();
-    server.close();
+    server?.close();
   });
   try {
+    server = chatgpt
+      ? await buildChatGPTServer({ domain, sessions: chatgptSessions })
+      : buildServer(task ? { task } : {});
     await server.connect(transport);
     await withExecutionContext(context, () => transport.handleRequest(req, res, req.body));
   } catch (err) {
