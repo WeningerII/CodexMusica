@@ -207,7 +207,7 @@ class RuntimeArithmetic(unittest.TestCase):
             words = [rng.randrange(31) for _ in range(n)]
             for w in (1, 2, 7, 50, 150, 4000):
                 expected = (len(set(words)) / n if n <= w else
-                            sum(len(set(words[i:i+w])) / w for i in range(n-w+1)) / (n-w+1))
+                            math.fsum(len(set(words[i:i+w])) / w for i in range(n-w+1)) / (n-w+1))
                 self.assertEqual(QualityFeatures._mattr(words, w), expected)
         self.assertTrue(math.isnan(QualityFeatures._mattr([])))
 

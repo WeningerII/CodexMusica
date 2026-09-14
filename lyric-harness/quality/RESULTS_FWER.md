@@ -276,27 +276,45 @@ zero** — `attainable = True`, 0 events — which is the "none" half. An 18/0/2
 that became 20/0/0 would leave the printed rate, the empirical p and every
 "mute" total untouched and **is a different finding**.
 
+**AND IT MOVED, 2026-09-14 — to 19 / 0 / 1, which is the row this section
+said a moved count would need.** The computational audit of that date found the
+time layer's candidate identity was the word index alone, which restarts on
+every line, so different words on different lines had been folded into one
+candidate and every family was undercounted; the identity is now
+`(line, word index)`. Under the corrected identity one of the two `answered`
+items grew a family too large for its own best pair to clear the Šidák cut and
+crossed from "none" to "cannot tell". `--check` went red on exactly the five
+figures the identity touches — the two family rows and the three doctrine-28
+counts — and stayed green on the PREDICATE line: **19 of 19** mute items are
+mute *because the family is too large* and for no other reason, so this is the
+same finding at a corrected family size, not the "mute for a different reason"
+case doctrine 20 names. The one remaining `answered` item is still an observed
+zero. No floor moved; every measurement moved AWAY from its floor.
+
 ### What is measured, and what is only bounded
 
-| pinned EXACTLY (no draw enters) | measured 2026-08-14, n = 20 sonnets |
-|---|---|
-| θ, window, correction, family, α | 0.80 / 32 / Šidák / **candidate** / 0.05 |
-| candidate pairs per item (min, max) | **5,519 – 9,778** |
-| each item's median family (min, med, max) | **156 – 198 – 282** |
-| REAL `cannot_tell` / `refused` / `answered` | **18 / 0 / 2** |
+| pinned EXACTLY (no draw enters) | measured 2026-09-14, n = 20 sonnets, `(line, word index)` identity | ~~measured 2026-08-14~~, word-index identity, superseded |
+|---|---|---|
+| θ, window, correction, family, α | 0.80 / 32 / Šidák / **candidate** / 0.05 | 0.80 / 32 / Šidák / **candidate** / 0.05 |
+| candidate pairs per item (min, max) | **7,665 – 13,466** | ~~5,519 – 9,778~~ |
+| each item's median family (min, med, max) | **218 – 295 – 390** | ~~156 – 198 – 282~~ |
+| REAL `cannot_tell` / `refused` / `answered` | **19 / 0 / 1** | ~~18 / 0 / 2~~ |
 
-The family row is this document's own published **156–282 across 24 sonnets**,
-reproduced to the integer over the first 20. The **203** this document and
-`CLAUDE.md` doctrine 4 both quote is *sonnet 1's* median family and is item 0
-here; **198** is the median over the twenty per-item medians — the same
-measurement rendered differently (doctrine 91), and both appear so neither can
-be mistaken for the other.
+The superseded family row was this document's own published **156–282 across
+24 sonnets**, reproduced to the integer over the first 20, and `CLAUDE.md`
+doctrine 4 still carries that pair with its 2026-08-13 date: it is what the
+defective identity measured, kept as history (doctrine 17), not a live figure.
+The **203** both documents quote was *sonnet 1's* median family under that
+identity; item 0 here now measures **292**. **295** is the median over the
+twenty per-item medians — the same measurement rendered differently (doctrine
+91), and both appear so neither can be mistaken for the other.
 
 **NOT pinned, on doctrine 57:** `min_p`, `m_needed`'s value, the null medians,
 and the empirical p. Those ride the 20,000-draw within-item null. What is pinned
 about them is a DIRECTION with a declared tolerance — `m_needed >= 1` (measured
-11–37), median family / `m_needed` `>= 3×` (measured **5.5× – 21.3×**, and the
-record's own 9.4× sits inside it), candidate pairs `>= 3,000` (measured ≥ 5,519).
+18–60 on 2026-09-14; ~~11–37~~ to then), median family / `m_needed` `>= 3×`
+(measured **5.3× – 19.1×**; ~~5.5× – 21.3×~~ to then, and the record's own 9.4×
+sits inside both), candidate pairs `>= 3,000` (measured ≥ 7,665; ~~≥ 5,519~~).
 Each floor is a round number set an order of magnitude off the measurement it
 guards, and set to fail on a change of KIND rather than a change of draw.
 

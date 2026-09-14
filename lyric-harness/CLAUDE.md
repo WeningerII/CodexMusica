@@ -4217,7 +4217,7 @@ cannot be renumbered — only added.
 | 26 | `F` | Normalize U+2019 anywhere a word is extracted from text |
 | 27 | `A` | A null must not be conditioned on the filter it is calibrating |
 | 28 | `A` | Distinguish "none" from "cannot tell", mechanically |
-| 29 | `B` | BH and FWER have different resolution requirements, and BH's is brutal |
+| 29 | `B` | A correction must resolve the threshold it actually uses |
 | 30 | `A` | A powered null is a different claim from an unpowered one |
 | 31 | `A` | Run the positive control before believing any null |
 | 32 | `W` | A corpus is defined by the property under test, not by a genre or a language |

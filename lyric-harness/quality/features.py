@@ -17,6 +17,7 @@ pointed at Arabic, Persian, Finnish or Welsh once a transcription layer exists
 for them. Nothing here may hard-code an English answer as a universal.
 """
 
+import math
 import os
 import re
 import sys
@@ -827,9 +828,15 @@ class QualityFeatures:
                 counts[words[i]] += 1
                 yield len(counts) / window
 
-        # Use sum(), including its compensated float implementation on
-        # supported Python versions; repeated += is not bit-equivalent.
-        return sum(ratios()) / (len(words) - window + 1)
+        # `math.fsum`, NOT `sum()`: the shipped thresholds were measured on
+        # Python 3.12, whose `sum()` of floats is compensated, and CI runs
+        # 3.11, whose `sum()` is a plain left fold -- the two differ in the
+        # last bit and the sonnet profile's `mattr_min` did not re-derive on
+        # 2026-09-14 (0.7614869281045752 measured against ...753 in CI).
+        # `fsum` is the exactly rounded sum on every interpreter, so the
+        # value is the same wherever it is measured; repeated += is not
+        # bit-equivalent to either.
+        return math.fsum(ratios()) / (len(words) - window + 1)
 
     @staticmethod
     def _inversions(tagged_line):

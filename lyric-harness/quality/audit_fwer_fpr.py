@@ -473,24 +473,38 @@ PINNED = {
     #    draw enters either, so they are pinnable to the integer.
     "n_items": CHECK_ITEMS,
     #    (min, max) of the candidate-pair count over the 20 items. The record's
-    #    own row for sonnets 1-8 is 6.2k-9.8k, which this straddles.
-    "candidate_pairs": (5519, 9778),
-    #    (min, median, max) of each item's MEDIAN family size. The min and max
-    #    are RESULTS_FWER.md's own published "156-282 across 24 sonnets", to
-    #    the integer, and doctrine 4 in CLAUDE.md carries the same pair. The
-    #    203 both documents also quote is SONNET 1's median family, which is
-    #    item 0 here; 198 is the median OVER the twenty per-item medians and is
-    #    a different statistic of the same measurement (doctrine 91).
-    "median_family": (156, 198, 282),
+    #    own row for sonnets 1-8 is 6.2k-9.8k, which the 2026-08-14 pin
+    #    straddled. REPINNED 2026-09-14: candidate identity became
+    #    (line, word index) -- word indices restart on every line, and the
+    #    old identity had been folding different words on different lines
+    #    into one candidate, so every family was undercounted. Superseded
+    #    pin, kept visible (doctrine 17): ~~(5519, 9778)~~.
+    "candidate_pairs": (7665, 13466),
+    #    (min, median, max) of each item's MEDIAN family size. To 2026-09-14
+    #    the min and max were RESULTS_FWER.md's own published "156-282 across
+    #    24 sonnets", to the integer, and doctrine 4 in CLAUDE.md still
+    #    carries that dated pair; the 203 both documents quote was SONNET 1's
+    #    median family under the old identity, item 0 here, which now
+    #    measures 292. 295 is the median OVER the twenty per-item medians and
+    #    is a different statistic of the same measurement (doctrine 91).
+    #    Superseded pin, kept visible (doctrine 17): ~~(156, 198, 282)~~.
+    "median_family": (218, 295, 390),
 
     # -- DOCTRINE 28, MECHANICALLY. Three states on the REAL arm, pinned as
     #    THREE NUMBERS. They are never summed and no pin below reads their
     #    total: an 18/0/2 that becomes 20/0/0 leaves every "mute" total and
     #    every printed rate untouched and IS a different finding.
-    "real_cannot_tell": 18,
+    #    REPINNED 2026-09-14 from ~~18 / 0 / 2~~: under the corrected candidate
+    #    identity one of the two answered items grew a family too large for
+    #    its best pair to clear the Sidak cut, and it crossed from "none" to
+    #    "cannot tell". The predicate below still holds on all 19: mute
+    #    because the family is too large, and for no other reason. Recorded
+    #    as its own dated row in RESULTS_FWER.md, as this file's own FAIL
+    #    text requires of a moved REAL-arm count.
+    "real_cannot_tell": 19,
     "real_refused": 0,
-    "real_answered": 2,
-    #    ... and what the 2 answered items are: an OBSERVED ZERO, which is the
+    "real_answered": 1,
+    #    ... and what the answered item is: an OBSERVED ZERO, which is the
     #    "none" half of doctrine 28. `attainable` True, `n_events` 0.
     "real_answered_events": 0,
 
@@ -504,10 +518,17 @@ PINNED = {
 #: every value measured on 2026-08-14 with room to spare, and to fail on a
 #: change of KIND rather than a change of draw. They are not tuned: each is a
 #: round number an order of magnitude away from the measurement it guards.
-MIN_CANDIDATE_PAIRS = 3000   #: measured 5,519-9,778 over the twenty items
-MIN_M_NEEDED = 1             #: measured 11-37. 0 means "no evidence at all"
-MIN_FAMILY_GAP = 3.0         #: median_family / m_needed; measured 5.5x-21.3x
-MIN_NULL_CANNOT_TELL = 0.50  #: share of a null arm's items; measured 82%-85%
+#: The 2026-09-14 identity repin above moved every measurement AWAY from its
+#: floor (the families grew) and moved no floor: a widened tolerance on this
+#: arm would be a claim that the time layer works, and none was needed.
+MIN_CANDIDATE_PAIRS = 3000   #: measured 7,665-13,466 over the twenty items
+                             #: (2026-09-14; ~~5,519-9,778~~ to then)
+MIN_M_NEEDED = 1             #: measured 18-60 (2026-09-14; ~~11-37~~ to then).
+                             #: 0 means "no evidence at all"
+MIN_FAMILY_GAP = 3.0         #: median_family / m_needed; measured 5.3x-19.1x
+                             #: (2026-09-14; ~~5.5x-21.3x~~ to then)
+MIN_NULL_CANNOT_TELL = 0.50  #: share of a null arm's items; measured 95%
+                             #: (2026-09-14; ~~82%-85%~~ to then)
 
 
 def why_mute(rec, theta):
