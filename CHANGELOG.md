@@ -33,8 +33,8 @@ way its sources are written, one property per line. Minified:
 
 | | before | after | |
 |---|---|---|---|
-| raw | 6,300,610 | 5,430,553 | 13.8% off |
-| gzipped | 1,512,024 | 1,414,973 | 6.4% off |
+| raw | 6,300,611 | 5,430,553 | 13.8% off |
+| gzipped | 1,512,024 | 1,415,498 | 6.4% off |
 
 Those rows say different things and the order matters. Pages compresses text on
 the wire, so the bandwidth win is the 6.4%. The 13.8% is the row worth more: it
@@ -44,7 +44,7 @@ on one monolithic parse. The largest emitted block falls from 995 KiB to 749 KiB
 against a 1024 KiB ceiling.
 
 Nothing is renamed or rewritten. Measured at three settings, full compression and
-mangling buy 8,097 more gzipped bytes — 0.6% of an already-compressed page —
+mangling buy 8,003 more gzipped bytes — 0.6% of an already-compressed page —
 against a mangler asked to rename cross-block globals it cannot see all uses of,
 a catalog whose keys are reached dynamically, and a `compress` pass that would
 merge away the literal `const CODEX_LAZY_API` that `ui_reachability_check.js`

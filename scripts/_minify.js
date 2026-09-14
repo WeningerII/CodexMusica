@@ -6,11 +6,13 @@
 // — so a large fraction of what every visitor downloads and every renderer
 // parses is leading spaces.
 //
-// WHAT IT BUYS, measured on this tree (2026-09-14) rather than assumed:
+// WHAT IT BUYS, measured on this tree (2026-09-14) by building the page both
+// ways through this very pipeline -- not by squeezing an already-built file,
+// which is a different number:
 //
-//   raw       6,300,610 -> 5,429,468   (13.8% off)
-//   gzipped   1,512,024 -> 1,414,973   ( 6.4% off)
-//   brotli    1,148,547 -> 1,071,611   ( 6.7% off)
+//   raw       6,300,611 -> 5,430,553   (13.8% off)
+//   gzipped   1,512,024 -> 1,415,498   ( 6.4% off)
+//   brotli    1,148,518 -> 1,071,764   ( 6.7% off)
 //
 // READ THOSE TWO ROWS IN THAT ORDER, because they do not say the same thing.
 // GitHub Pages compresses text on the wire, and gzip already encodes a run of
@@ -25,9 +27,9 @@
 // WHY NOTHING IS RENAMED OR REWRITTEN, which is the decision this file exists to
 // record. The same measurement, run at three settings:
 //
-//   whitespace only        gzip 1,414,973
-//   + compress             gzip 1,413,629   (1,344 bytes better)
-//   + compress + mangle    gzip 1,406,876   (8,097 bytes better)
+//   whitespace only        gzip 1,415,498
+//   + compress             gzip 1,414,263   (1,235 bytes better)
+//   + compress + mangle    gzip 1,407,495   (8,003 bytes better)
 //
 // Full compression and mangling buy 0.6% more of an already-compressed page.
 // Against that: this page's nineteen <script> tags share one global scope on
