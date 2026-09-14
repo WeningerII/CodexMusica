@@ -1,8 +1,8 @@
 # Codex Musica in ChatGPT
 
 The ChatGPT integration reuses the maintained connector, recipe engine, lyric
-graders and kitchen writer. Its extra layer stores exact workspaces and lyric
-workflow receipts, so ChatGPT carries short session capabilities between calls.
+graders and kitchen writer. The shared interface stores exact workspaces and lyric
+workflow receipts, so clients carry short session capabilities between calls.
 Long lyric calls run as operations that can be read after the MCP connection closes.
 
 This is a source implementation and acceptance plan. Merging the code does not
@@ -12,8 +12,8 @@ tests do not establish native ChatGPT behavior or a successful live kitchen run.
 ## Access policy
 
 Sign-in is optional for Codex Musica. The website, its built-in Gemini chat and
-all public MCP endpoints work without a user account, including the unified ChatGPT
-route below. Users can choose the website, a compatible MCP client or an
+all public MCP endpoints work without a user account, including the shared
+endpoint below. Users can choose the website, a compatible MCP client or an
 optional host integration. No OpenAI account is required to use the service.
 
 There is currently no Codex Musica account system. Any future account features
@@ -30,19 +30,24 @@ authentication; do not add an OpenAI login gate to the website or MCP service.
 
 | Endpoint | Tools | State and results |
 | --- | --- | --- |
-| `https://mcp.codexmusica.com/mcp/chatgpt` | All 18 music tools plus `begin_lyrics`, `get_operation` and `resume_operation` | One connection handles both workflows. Each keeps its own latest session ID; shared recovery tools resolve the saved task automatically. |
+| `https://mcp.codexmusica.com/mcp` | All 18 music tools plus `begin_lyrics`, `get_operation` and `resume_operation` | One connection handles both workflows. Each keeps its own latest session ID; shared recovery tools resolve the saved task automatically. |
 
-The earlier `/mcp/chatgpt/recipe` and `/mcp/chatgpt/lyrics` routes remain compatible,
-but new ChatGPT installations use the single combined endpoint. The model selects
-which tools the request needs; users do not select a recipe or lyrics connection.
+All clients use `/mcp`; there is no provider-specific requirement for another URL.
+The former `/mcp/chatgpt`, `/mcp/chatgpt/recipe` and `/mcp/chatgpt/lyrics` routes are
+compatibility aliases for installed consumers and use the same workflow implementation.
+Remove them only after those consumers have migrated and retained sessions have expired.
+The durable record namespace is preserved so migration does not invalidate capabilities.
 
-The raw `/mcp`, `/mcp/recipe` and `/mcp/lyrics` surfaces retain their existing
-workspace and continuation contracts. Task-scoped raw HTTP now honors all four
-advertised recipe formats. Native clients can still pin their own task format.
+Existing caller-managed integrations remain supported on `/mcp`: `start_recipe`
+retains its top-level recipe/workspace payload and adds session/operation IDs;
+`edit_recipe` and `render_recipe` accept either that workspace or a session ID.
+Lyric calls without a session ID retain their original synchronous state/run contract.
+Caller state and session IDs cannot be mixed. New hosts should use saved sessions,
+background lyric operations and the shared recovery controls. The older task views
+`/mcp/recipe` and `/mcp/lyrics` remain for strict maintained SDK consumers during migration.
 
 Stateful tools return a typed `structuredContent` envelope. `tool_result` contains
-the underlying output with private workspace/state fields removed; its text
-blocks are also delivered as MCP content. The actual recipe and song text and
+the underlying output with private workspace/state fields removed; the envelope is also delivered as MCP text, including recovery IDs. The actual recipe and song text and
 grader qualifications remain the output authority. `completed` means the call
 returned, not that a song is certified. The envelope's `resumable` describes an
 interrupted operation; a completed lyric tool's own verdict describes whether its
@@ -75,7 +80,7 @@ kitchen repairs use the service's configured Gemini model and accounting.
   interrupted operation that holds accepted lyrics is never retired for space,
   only by expiry. A session is temporary working state, not a permanent song
   archive. IDs grant access to that state without an account login.
-- The adapter admits at most 16 active operations across its endpoints. The
+- The shared workflow store admits at most 16 active operations across its endpoints. The
   existing serialized Python queue and tool deadlines still apply. Each operation
   uses the existing shared paid ledger, with `CHAT_MAX_TURN_USD` and
   `CHAT_DAILY_USD` allowances. Unknown usage remains charged. Kitchen sessions
@@ -91,7 +96,7 @@ mount, signing material, provider configuration and ledger. This change needs no
 new dependency or hosting service. Do not apply the legacy Blueprint as a shortcut
 around the image promotion checks. After deployment, verify the served commit,
 `/ready`, and initialization/tools on the unified route. The server card lists them
-under `chatgptEndpoints`.
+at `endpoint`, with `workflowControls`.
 
 ## Register and package
 

@@ -6,8 +6,8 @@ import { join } from 'node:path';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { JobStore } from './job_store.js';
-import { ChatGPTSessions, publicToolResult, verdictOf } from './chatgpt_sessions.js';
-import { buildChatGPTServer } from './chatgpt_tools.js';
+import { WorkflowSessions, publicToolResult, verdictOf } from './workflow_sessions.js';
+import { buildWorkflowServer } from './workflow_tools.js';
 import { startRecipe, editRecipe, renderRecipe } from './engine.js';
 import { requestContext } from './execution_context.js';
 import { continuationSemanticIdentity, decodeState } from './state_codec.js';
@@ -20,7 +20,7 @@ function storeFor(t) {
 }
 
 async function connect(t, domain, sessions) {
-  const server = await buildChatGPTServer({ domain, sessions });
+  const server = await buildWorkflowServer({ domain, sessions });
   const [a, b] = InMemoryTransport.createLinkedPair();
   const client = new Client({ name: 'chatgpt-contract-test', version: '1' }, { capabilities: {} });
   await server.connect(a);
@@ -40,14 +40,14 @@ const call = (client, name, args) => client.callTool({ name, arguments: args });
 
 test('recipe MCP carries exact workspaces through reconnects and all four formats', async (t) => {
   const { store, directory } = storeFor(t);
-  let sessions = new ChatGPTSessions({ store });
+  let sessions = new WorkflowSessions({ store });
   let client = await connect(t, 'recipe', sessions);
   const initial = data(await call(client, 'start_recipe', { traditions: ['delta_blues'] }));
   const original = startRecipe({ traditions: ['delta_blues'] });
   assert.equal(value(initial).recipe, original.recipe);
   assert(!('workspace' in value(initial)));
   await client.close();
-  sessions = new ChatGPTSessions({ store: new JobStore(directory) });
+  sessions = new WorkflowSessions({ store: new JobStore(directory) });
   client = await connect(t, 'recipe', sessions);
   const edits = [{ action: 'set_preface', card: 'voice', preface: 'worn' }];
   const edited = data(await call(client, 'edit_recipe', { session_id: initial.session_id, edits }));
@@ -81,7 +81,7 @@ test('same parent and input dispatch once; stale input and cross-task capabiliti
   const gate = new Promise((resolve) => {
     release = resolve;
   });
-  const sessions = new ChatGPTSessions({
+  const sessions = new WorkflowSessions({
     store,
     execute: async (session) => {
       dispatches++;
@@ -117,7 +117,7 @@ test('same parent and input dispatch once; stale input and cross-task capabiliti
 
 test('recipe operation interrupted after durable admission resumes once through MCP', async (t) => {
   const { store, directory } = storeFor(t);
-  let sessions = new ChatGPTSessions({ store });
+  let sessions = new WorkflowSessions({ store });
   let client = await connect(t, null, sessions);
   const initial = data(await call(client, 'start_recipe', { traditions: ['delta_blues'] }));
   const parent = store.get(initial.session_id);
@@ -136,7 +136,7 @@ test('recipe operation interrupted after durable admission resumes once through 
     { session: parent.response.body.session }
   );
   await client.close();
-  sessions = new ChatGPTSessions({ store: new JobStore(directory) });
+  sessions = new WorkflowSessions({ store: new JobStore(directory) });
   client = await connect(t, null, sessions);
   const interrupted = data(await call(client, 'get_operation', { operation_id }));
   assert.equal(interrupted.status, 'interrupted');
@@ -159,7 +159,7 @@ test('lyrics run independently of the submitting MCP connection', async (t) => {
   const gate = new Promise((resolve) => {
     release = resolve;
   });
-  const sessions = new ChatGPTSessions({
+  const sessions = new WorkflowSessions({
     store,
     execute: async (session) => {
       await gate;
@@ -188,7 +188,7 @@ test('lyrics run independently of the submitting MCP connection', async (t) => {
 
 test('creation receipts cannot be fabricated through MCP input or skipped', async (t) => {
   const { store } = storeFor(t);
-  const sessions = new ChatGPTSessions({ store });
+  const sessions = new WorkflowSessions({ store });
   const client = await connect(t, 'lyrics', sessions);
   const initial = data(await call(client, 'begin_lyrics', { writer: 'interview' }));
   const forged = await call(client, 'lyric_plan', {
@@ -219,7 +219,7 @@ test('creation receipts cannot be fabricated through MCP input or skipped', asyn
 
 test('real lyric sweep, screen and plan receipts persist between operations', async (t) => {
   const { store, directory } = storeFor(t);
-  let sessions = new ChatGPTSessions({ store });
+  let sessions = new WorkflowSessions({ store });
   let session_id = sessions.open('lyrics', { writer: 'interview' }).session_id;
   const run = async (name, args) => {
     const q = sessions.submit(session_id, 'lyrics', name, args);
@@ -238,7 +238,7 @@ test('real lyric sweep, screen and plan receipts persist between operations', as
     relation: 'class:ASSONANCE',
   });
   assert.equal(screened.exit_code, 0, JSON.stringify(screened));
-  sessions = new ChatGPTSessions({ store: new JobStore(directory) });
+  sessions = new WorkflowSessions({ store: new JobStore(directory) });
   const planned = await run('lyric_plan', { seed, lines: 12 });
   assert.equal(planned.exit_code, 0);
   assert(sessions.store.get(session_id).response.body.session.native.task.workflow.plan);
@@ -259,7 +259,7 @@ test('restart marks admitted work interrupted and never automatically executes i
   const gate = new Promise((resolve) => {
     release = resolve;
   });
-  const sessions = new ChatGPTSessions({
+  const sessions = new WorkflowSessions({
     store,
     execute: async (session) => {
       await gate;
@@ -269,7 +269,7 @@ test('restart marks admitted work interrupted and never automatically executes i
   const opened = sessions.open('lyrics', { writer: 'interview' });
   const q = sessions.submit(opened.session_id, 'lyrics', 'lyric_revise', {});
   // A fresh process sees the durable intent before any worker response.
-  const recovered = new ChatGPTSessions({
+  const recovered = new WorkflowSessions({
     store: new JobStore(directory),
     execute: () => assert.fail('automatic replay'),
   });
@@ -283,7 +283,7 @@ test('restart marks admitted work interrupted and never automatically executes i
 
 test('real edit revision restores a question across reconnect and rejects changed replay input without losing the session', async (t) => {
   const { store, directory } = storeFor(t);
-  let sessions = new ChatGPTSessions({ store });
+  let sessions = new WorkflowSessions({ store });
   let session_id = sessions.open('lyrics', { phase: 'edit', writer: 'interview' }).session_id;
   const run = async (args) => {
     const q = sessions.submit(session_id, 'lyrics', 'lyric_revise', args);
@@ -302,7 +302,7 @@ test('real edit revision restores a question across reconnect and rejects change
   });
   assert.equal(verdictOf(initial).exit_code, 4);
   assert(!/run_[a-f0-9]{64}/.test(JSON.stringify(initial)));
-  sessions = new ChatGPTSessions({ store: new JobStore(directory) });
+  sessions = new WorkflowSessions({ store: new JobStore(directory) });
   const changed = await run({
     draft: ['Different song', 'Entirely replaced'],
     answer: 'I hold you.',
@@ -330,7 +330,7 @@ function checkpoint(overrides = {}) {
 test('safe resume carries original replay input and accepted journal, and deduplicates', async (t) => {
   const { store } = storeFor(t);
   let executions = 0;
-  const sessions = new ChatGPTSessions({
+  const sessions = new WorkflowSessions({
     store,
     execute: async (session) => {
       executions++;
@@ -363,7 +363,7 @@ test('safe resume carries original replay input and accepted journal, and dedupl
 
 test('unknown provider outcome blocks resume while retaining accepted lyrics', async (t) => {
   const { store } = storeFor(t);
-  const sessions = new ChatGPTSessions({
+  const sessions = new WorkflowSessions({
     store,
     execute: async () => {
       requestContext().onCheckpoint(checkpoint({ status: 'proposing' }));
@@ -408,7 +408,7 @@ test('private result envelopes are hidden without changing the song or verdict',
 });
 
 test('kitchen admission requires durable storage', () => {
-  const sessions = new ChatGPTSessions({ store: new JobStore() });
+  const sessions = new WorkflowSessions({ store: new JobStore() });
   assert.throws(() => sessions.open('lyrics'), /DURABLE_STORAGE_REQUIRED/);
   assert.equal(sessions.open('recipe').durable, false);
 });
@@ -417,7 +417,7 @@ test('unsettled operation budget blocks replay even without a proposer usage cal
   const { store } = storeFor(t);
   const ledger = new PaidLedger({ pricing: () => ({ input: 1, output: 1 }) });
   for (const interrupted of [false, true]) {
-    const sessions = new ChatGPTSessions({
+    const sessions = new WorkflowSessions({
       store,
       createBudget: (options) => createOperationBudget({ ...options, ledger }),
       execute: async (session) => {
@@ -452,7 +452,7 @@ test('unsettled operation budget blocks replay even without a proposer usage cal
 
 test('failed completion preserves accepted lyrics and closes recovery admission', async (t) => {
   const { store } = storeFor(t);
-  const sessions = new ChatGPTSessions({
+  const sessions = new WorkflowSessions({
     store,
     execute: async () => {
       requestContext().onCheckpoint(checkpoint());
@@ -488,7 +488,7 @@ test('an accounting settlement failure marks the operation uncertain without lat
     },
   });
   for (const interrupted of [false, true]) {
-    const sessions = new ChatGPTSessions({
+    const sessions = new WorkflowSessions({
       store,
       createBudget: unwritableLedger,
       execute: async (session) => {
@@ -525,7 +525,7 @@ test('a store that cannot record its own capacity refusal latches instead of rej
   const capacity = () => {
     throw Object.assign(new Error('capacity again'), { code: 'JOB_CAPACITY', status: 503 });
   };
-  const sessions = new ChatGPTSessions({
+  const sessions = new WorkflowSessions({
     store,
     execute: async () => {
       requestContext().onCheckpoint(checkpoint());
@@ -549,7 +549,7 @@ test('a store that cannot record its own capacity refusal latches instead of rej
 test('cheap unrelated sessions cannot retire an interrupted operation holding accepted lyrics', async (t) => {
   const { directory } = storeFor(t);
   const store = new JobStore(directory, { maxPayloadRecords: 8 });
-  const sessions = new ChatGPTSessions({
+  const sessions = new WorkflowSessions({
     store,
     execute: async (session, name) => {
       if (name === 'lyric_revise') {
@@ -579,7 +579,7 @@ test('cheap unrelated sessions cannot retire an interrupted operation holding ac
 
 test('one connection exposes both workflows, preserving independent sessions across reconnects', async (t) => {
   const { store } = storeFor(t);
-  const sessions = new ChatGPTSessions({ store });
+  const sessions = new WorkflowSessions({ store });
   let client = await connect(t, null, sessions);
   const tools = (await client.listTools()).tools;
   assert.equal(tools.length, 21);
@@ -618,4 +618,62 @@ test('one connection exposes both workflows, preserving independent sessions acr
     (await call(scoped, 'get_operation', { operation_id: lyrics.operation_id })).isError,
     true
   );
+});
+
+test('shared surface preserves raw consumers and carries text-only session capabilities', async (t) => {
+  const { store } = storeFor(t);
+  const sessions = new WorkflowSessions({ store });
+  const server = await buildWorkflowServer({ sessions, compatibility: true });
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  const client = new Client({ name: 'shared-client', version: '1' });
+  await server.connect(a);
+  await client.connect(b);
+  t.after(async () => {
+    await client.close();
+    await server.close();
+  });
+  assert.equal((await client.listTools()).tools.length, 21);
+  const initial = await call(client, 'start_recipe', { traditions: ['delta_blues'] });
+  const raw = JSON.parse(initial.content[0].text);
+  assert(raw.workspace);
+  assert.equal(raw.session_id, initial.structuredContent.session_id);
+  const edits = [{ action: 'set_preface', card: 'voice', preface: 'worn' }];
+  const legacy = JSON.parse(
+    (await call(client, 'edit_recipe', { workspace: raw.workspace, edits })).content[0].text
+  );
+  const saved = await call(client, 'edit_recipe', { session_id: raw.session_id, edits });
+  const envelope = JSON.parse(saved.content[0].text);
+  assert.equal(envelope.session_id, saved.structuredContent.session_id);
+  assert.equal(value(envelope).recipe, legacy.recipe);
+  assert(!saved.isError);
+  const mixed = await call(client, 'edit_recipe', {
+    session_id: envelope.session_id,
+    workspace: legacy.workspace,
+    edits,
+  });
+  assert(mixed.isError);
+  const moved = data(
+    await call(client, 'edit_recipe', {
+      session_id: envelope.session_id,
+      edits: [{ action: 'move_instrument', card: 'harmonica' }],
+    })
+  );
+  const expected = editRecipe({
+    workspace: legacy.workspace,
+    edits: [{ action: 'move_instrument', card: 'harmonica' }],
+  });
+  const rendered = data(
+    await call(client, 'render_recipe', { session_id: moved.session_id, format: 'compact' })
+  );
+  assert.equal(
+    value(rendered).recipe,
+    renderRecipe({ workspace: expected.workspace, format: 'compact' }).recipe
+  );
+  const retried = data(await call(client, 'edit_recipe', { session_id: raw.session_id, edits }));
+  assert.equal(retried.operation_id, envelope.operation_id);
+  const legacyLyrics = await call(client, 'lyric_types', { word_a: 'cat', word_b: 'hat' });
+  assert(!legacyLyrics.isError, JSON.stringify(legacyLyrics));
+  assert.equal(legacyLyrics.structuredContent, undefined);
+  const missing = await call(client, 'render_recipe', {});
+  assert(missing.isError);
 });

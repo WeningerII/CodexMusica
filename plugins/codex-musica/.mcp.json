@@ -2,7 +2,7 @@
   "mcpServers": {
     "codex-musica": {
       "type": "http",
-      "url": "https://mcp.codexmusica.com/mcp/chatgpt"
+      "url": "https://mcp.codexmusica.com/mcp"
     }
   }
 }

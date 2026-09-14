@@ -62,16 +62,19 @@ const llms = `# Codex Musica
 ## START HERE — the live EDITABLE engine (MCP connector)
 The full editable engine is a Model Context Protocol server: seed a recipe from any
 tradition, then re-pick prefaces, swap part variants, override room/chain/tuning, and
-add/remove instruments or traditions. Recipe tools are deterministic; thread the
-returned workspace into the next call. Lyrics revision retains private run state,
+add/remove instruments or traditions. Recipe tools are deterministic; use the returned session_id for saved workspaces
+or retain the original caller-managed workspace contract. Lyrics revision retains private run state,
 and optional kitchen writing sends briefs and drafts to a paid external provider.
 The chat surface supports durable request receipts. Everything below this
 section is a SEPARATE read-only product — one pre-compiled recipe per tradition, built by
 a different pipeline and worded differently. Use it for bulk reads; use the connector for
 anything you want to change, and do not expect the two strings to match.
 
-- Task endpoints (Streamable HTTP, no auth): https://mcp.codexmusica.com/mcp/recipe and https://mcp.codexmusica.com/mcp/lyrics
-- Add in Claude: Settings -> Connectors -> Add custom connector -> paste the task URL.
+- Shared endpoint (Streamable HTTP, no auth): https://mcp.codexmusica.com/mcp
+- One Codex Musica connection exposes all 18 music tools to any compatible MCP client.
+- Shared workflow controls: begin_lyrics, get_operation, resume_operation.
+- Saved sessions retain exact state and recover background lyric operations after disconnects.
+- Existing /mcp/recipe and /mcp/lyrics task views remain compatible during migration.
 - Native clients must preserve initialization guidance, complete tool metadata,
   the host-selected task and exact returned artifacts; use the maintained adapter
   documented in docs/connector.md. Keep run and request capabilities private.
