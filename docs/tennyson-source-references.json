@@ -1,0 +1,356 @@
+{
+  "date": "2026-09-15",
+  "file": "corpus/song/eng_british_alfred_tennyson.txt",
+  "baseline_commit": "d532a0dc9b42346bddb8af10df26cafc7256f4f5",
+  "matching_coordinate": "Complete NFC-normalized casefolded Unicode-word body; punctuation, underscore emphasis and layout removed. Every complete body checked against all eight checksum-pinned cited sources. The Charge Of The Light Brigade additionally excludes exactly the five recorded numbered stanza headings, 2. through 6., inside the source passage. No lyric word is omitted or substituted. A unique textual witness among the declared sources does not settle printed-song eligibility or introduce an edition or rights ruling.",
+  "sources": [
+    {
+      "repository": "GITenberg/The-Princess_791",
+      "file": "791-8.txt",
+      "encoding": "latin-1",
+      "url": "https://raw.githubusercontent.com/GITenberg/The-Princess_791/master/791-8.txt",
+      "md5": "6107cce200518a3205bedd6e63bbf545",
+      "sha256": "c51f86d4ece3bbcabe4eb90de8687cb67d49218321fa50915c9eb18d4228c3ee",
+      "bytes": 180456
+    },
+    {
+      "repository": "GITenberg/Maud-and-Other-Poems_56913",
+      "file": "56913-0.txt",
+      "encoding": "utf-8-sig",
+      "url": "https://raw.githubusercontent.com/GITenberg/Maud-and-Other-Poems_56913/master/56913-0.txt",
+      "md5": "551fbdce3b0cf16366af83cf48e65e17",
+      "sha256": "3241d6b04cd1114132a6f5facdd3f8413103054e6f7bd52100f1f7dabf70e5f6",
+      "bytes": 104648
+    },
+    {
+      "repository": "GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619",
+      "file": "66619-0.txt",
+      "encoding": "utf-8-sig",
+      "url": "https://raw.githubusercontent.com/GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619/master/66619-0.txt",
+      "md5": "8452deb48555b64dde8df60ddfa3a2bd",
+      "sha256": "f8fb283da3a44d81fe164af03701b451094703ad9d2cccb9dabf02bd572e9490",
+      "bytes": 1365155
+    },
+    {
+      "repository": "GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715",
+      "file": "26715-8.txt",
+      "encoding": "latin-1",
+      "url": "https://raw.githubusercontent.com/GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715/master/26715-8.txt",
+      "md5": "581b19667a6a120d8f336a3c4f206734",
+      "sha256": "96cfa58285720226dfa5ff970055f3a800f116e4207eb4151e9c7afeee6b61de",
+      "bytes": 180228
+    },
+    {
+      "repository": "GITenberg/Poems-of-American-History_47476",
+      "file": "47476-8.txt",
+      "encoding": "latin-1",
+      "url": "https://raw.githubusercontent.com/GITenberg/Poems-of-American-History_47476/master/47476-8.txt",
+      "md5": "8066e20ffa0ea5545750e0c8b92a34ac",
+      "sha256": "e3c5846e4a9d64d606d59cf2f65a5a50a5a5a8767690996fd39c0d7130132f99",
+      "bytes": 2623671
+    },
+    {
+      "repository": "GITenberg/The-Home-Book-of-Verse---Volume-1_2619",
+      "file": "2619.txt",
+      "encoding": "utf-8-sig",
+      "url": "https://raw.githubusercontent.com/GITenberg/The-Home-Book-of-Verse---Volume-1_2619/master/2619.txt",
+      "md5": "cc5e9f7b88436840e62b5ae53ca193e8",
+      "sha256": "92ed11615f9d1d3861f0fda5cef379f9ce3160e85eee7e13d6eea6b632ed5149",
+      "bytes": 706648
+    },
+    {
+      "repository": "GITenberg/The-Home-Book-of-Verse---Volume-2_2620",
+      "file": "2620.txt",
+      "encoding": "utf-8-sig",
+      "url": "https://raw.githubusercontent.com/GITenberg/The-Home-Book-of-Verse---Volume-2_2620/master/2620.txt",
+      "md5": "2ebb72a03c928eacc355203b2386597f",
+      "sha256": "e068f002563368e7a50f2b588faa00bfdf0fb8b637695a08617fb0b4dbab0488",
+      "bytes": 1007438
+    },
+    {
+      "repository": "GITenberg/The-Home-Book-of-Verse---Volume-3_2621",
+      "file": "2621.txt",
+      "encoding": "utf-8-sig",
+      "url": "https://raw.githubusercontent.com/GITenberg/The-Home-Book-of-Verse---Volume-3_2621/master/2621.txt",
+      "md5": "eb6c09aaf19652a5a3947ad98a6a88cc",
+      "sha256": "c6e2df99123d8362cc0f3f0f49cb11611e1e3d26a784d27002510d7d1e68588b",
+      "bytes": 649888
+    }
+  ],
+  "before_sha256": "9992608656ba5918022a0af86501f1e87fbb04a1de0686caa5c0712cd9b547aa",
+  "after_sha256": "b59ef7215e2e8da54d0521648060abfcc69aeb3d9ebce6c503aa5f532d47452d",
+  "conservation": {
+    "source_insertions": 6,
+    "all_original_bytes_preserved": true,
+    "existing_source_references_preserved": 32,
+    "raw_items": 42,
+    "weighted_items": 42,
+    "raw_lyric_rows": 1771,
+    "weighted_lyric_rows": 1771,
+    "normalized_text_and_indentation_unchanged": true,
+    "every_physical_coordinate_shift_explained_by_insertions": true,
+    "weights_unchanged": true,
+    "reader_fingerprint_unchanged": "08584341b359c2b7ae51528b523a3b436e6791b83eb3e77e736378b83f3867b7",
+    "no_edition_or_apparatus_coordinate_migrations_required": true
+  },
+  "runtime_asset_rebindings": ["data/sources.tsv"],
+  "assignments": [
+    {
+      "title": "Thy voice is heard through rolling drums",
+      "previous_title_line": 83,
+      "lyric_rows": 8,
+      "body_sha256": "ba55c1233f6860fec308b12ae410b7bc819e0ecd5ed6e8d121f055f0bd518dca",
+      "normalized_word_sha256": "082213909e9985a8329861f10a76680097286b3f0d058db66a10d8b1d2d94aa0",
+      "word_count": 56,
+      "matches": [
+        {
+          "source_file": "791-8.txt",
+          "first_source_line": 2085,
+          "last_source_line": 2092,
+          "source_numbered_headings": []
+        }
+      ],
+      "source": "PG791",
+      "current_title_line": 83
+    },
+    {
+      "title": "Home they brought her warrior dead",
+      "previous_title_line": 94,
+      "lyric_rows": 16,
+      "body_sha256": "75956c85063ac7e225cac6504dc0c3a8cab41a6fa239962d9bc8c8ae356d892a",
+      "normalized_word_sha256": "e9629619ff6ad22933584c073719eb241ce4688129ea083f6d8f6aa4594bd3a9",
+      "word_count": 97,
+      "matches": [
+        {
+          "source_file": "791-8.txt",
+          "first_source_line": 2680,
+          "last_source_line": 2698,
+          "source_numbered_headings": []
+        }
+      ],
+      "source": "PG791",
+      "current_title_line": 95
+    },
+    {
+      "title": "Now sleeps the crimson petal, now the white",
+      "previous_title_line": 139,
+      "lyric_rows": 14,
+      "body_sha256": "8495a415923d5ee488c8b1305f0acc5bd4dd6719c2052274a4465ac77a240f02",
+      "normalized_word_sha256": "bc1ab7f9cac640f000564ba781127679d645e22026401d7dbb2729e081755de8",
+      "word_count": 115,
+      "matches": [
+        {
+          "source_file": "791-8.txt",
+          "first_source_line": 3296,
+          "last_source_line": 3313,
+          "source_numbered_headings": []
+        }
+      ],
+      "source": "PG791",
+      "current_title_line": 141
+    },
+    {
+      "title": "The Daisy. Written At Edinburgh",
+      "previous_title_line": 160,
+      "lyric_rows": 108,
+      "body_sha256": "7b35a3b95640ac65c486d6462b9c16835c79a022f5872264dee7990fce27ecf9",
+      "normalized_word_sha256": "1839a62cc9ee3af7c7a9cbd17eafd2f5995fc695087e9bc5b1ec52ae71ad154c",
+      "word_count": 714,
+      "matches": [
+        {
+          "source_file": "56913-0.txt",
+          "first_source_line": 2413,
+          "last_source_line": 2546,
+          "source_numbered_headings": []
+        }
+      ],
+      "source": "PG56913",
+      "current_title_line": 163
+    },
+    {
+      "title": "To The Rev. F. D. Maurice",
+      "previous_title_line": 297,
+      "lyric_rows": 48,
+      "body_sha256": "4482cba5734ddf50ab3d265dfd934b2034290775bd471bf9a3007625b5c1d8c6",
+      "normalized_word_sha256": "11769d9faab1b204bfe12bdf6545819f901aba2c4c765bb13ec2d8998f3b49dc",
+      "word_count": 321,
+      "matches": [
+        {
+          "source_file": "56913-0.txt",
+          "first_source_line": 2552,
+          "last_source_line": 2610,
+          "source_numbered_headings": []
+        }
+      ],
+      "source": "PG56913",
+      "current_title_line": 301
+    },
+    {
+      "title": "The Charge Of The Light Brigade",
+      "previous_title_line": 359,
+      "lyric_rows": 55,
+      "body_sha256": "7edaecaea8a9ab565c5234c2db10988204b883bbfb55cf533a3193f3b76ad7ef",
+      "normalized_word_sha256": "ebe55f48ebd8321e697b72a3246498361fa6bb7eb3178cef3f2c64f8d92402be",
+      "word_count": 281,
+      "matches": [
+        {
+          "source_file": "56913-0.txt",
+          "first_source_line": 2648,
+          "last_source_line": 2712,
+          "source_numbered_headings": [
+            {
+              "line": 2657,
+              "text": "2."
+            },
+            {
+              "line": 2668,
+              "text": "3."
+            },
+            {
+              "line": 2679,
+              "text": "4."
+            },
+            {
+              "line": 2693,
+              "text": "5."
+            },
+            {
+              "line": 2706,
+              "text": "6."
+            }
+          ]
+        }
+      ],
+      "source": "PG56913",
+      "current_title_line": 364
+    }
+  ],
+  "remaining": [
+    {
+      "title": "As through the land at eve we went",
+      "previous_title_line": 21,
+      "lyric_rows": 14,
+      "body_sha256": "ceff4ec66f82c0bf808ea17c2bd3763b8e3428efa37b4e5af69fcb58f1cac33b",
+      "normalized_word_sha256": "5b3a9c43295e718d0df808e2b2ae1b3ed071e97483eea9483209904df4f8025c",
+      "word_count": 86,
+      "matches": [
+        {
+          "source_file": "791-8.txt",
+          "first_source_line": 568,
+          "last_source_line": 581,
+          "source_numbered_headings": []
+        },
+        {
+          "source_file": "2620.txt",
+          "first_source_line": 30049,
+          "last_source_line": 30064,
+          "source_numbered_headings": []
+        }
+      ],
+      "status": "ambiguous",
+      "current_title_line": 21
+    },
+    {
+      "title": "Sweet and low, sweet and low",
+      "previous_title_line": 38,
+      "lyric_rows": 16,
+      "body_sha256": "99169fe62f137b7cee3680f8bc13b3331e87509b28e1caf77eaba29b156cef71",
+      "normalized_word_sha256": "fe957f5fce7d9798fd48d9a2578e8c8de976a3a90ed147de4b0f7ba1f2631da1",
+      "word_count": 100,
+      "matches": [
+        {
+          "source_file": "791-8.txt",
+          "first_source_line": 1066,
+          "last_source_line": 1082,
+          "source_numbered_headings": []
+        },
+        {
+          "source_file": "26715-8.txt",
+          "first_source_line": 5124,
+          "last_source_line": 5140,
+          "source_numbered_headings": []
+        },
+        {
+          "source_file": "2619.txt",
+          "first_source_line": 6406,
+          "last_source_line": 6422,
+          "source_numbered_headings": []
+        }
+      ],
+      "status": "ambiguous",
+      "current_title_line": 38
+    },
+    {
+      "title": "The splendour falls on castle walls",
+      "previous_title_line": 58,
+      "lyric_rows": 18,
+      "body_sha256": "ab7c7e075405a602133d06d4fb2453149280906d7140cb4a2eb200e40c4d4c74",
+      "normalized_word_sha256": "ad6552f0886864086f038d1a4ced490fed86185bdb3289153d14aaca9e787884",
+      "word_count": 128,
+      "matches": [
+        {
+          "source_file": "791-8.txt",
+          "first_source_line": 1458,
+          "last_source_line": 1477,
+          "source_numbered_headings": []
+        },
+        {
+          "source_file": "66619-0.txt",
+          "first_source_line": 31594,
+          "last_source_line": 31614,
+          "source_numbered_headings": []
+        },
+        {
+          "source_file": "26715-8.txt",
+          "first_source_line": 5039,
+          "last_source_line": 5058,
+          "source_numbered_headings": []
+        }
+      ],
+      "status": "ambiguous",
+      "current_title_line": 58
+    },
+    {
+      "title": "Ask me no more:  the moon may draw the sea",
+      "previous_title_line": 116,
+      "lyric_rows": 15,
+      "body_sha256": "fd81525f1e34c17ddcea7093f8a8953ec735c38b601c43a7b0285160ce439a04",
+      "normalized_word_sha256": "45a1ab058b3b640af79fa3e58489c17c5d25f647af0cb8f5d7f465fbc5c93414",
+      "word_count": 125,
+      "matches": [
+        {
+          "source_file": "791-8.txt",
+          "first_source_line": 3098,
+          "last_source_line": 3114,
+          "source_numbered_headings": []
+        },
+        {
+          "source_file": "2620.txt",
+          "first_source_line": 17549,
+          "last_source_line": 17565,
+          "source_numbered_headings": []
+        }
+      ],
+      "status": "ambiguous",
+      "current_title_line": 118
+    }
+  ],
+  "validation": {
+    "production_data_tests": 36,
+    "production_data_result": "PASS",
+    "corpus_manifest_files": 1430,
+    "corpus_manifest_result": "PASS",
+    "taxonomy_and_audit_regressions": "PASS",
+    "runtime_asset_integrity": "PASS",
+    "documentation_and_build_closure": "PASS",
+    "full_audit_before_and_after_identical": true,
+    "full_audit_findings": 1298,
+    "full_audit_severity_counts": {
+      "NOTE": 1200,
+      "WARN": 97,
+      "FAIL": 1
+    },
+    "full_audit_exit_code": 1,
+    "standing_failure": "fas_hafez.LICENSE.txt is treated as Persian verse on the baseline; the separate PR #287 addresses it. This source-reference batch leaves that finding unchanged."
+  }
+}
