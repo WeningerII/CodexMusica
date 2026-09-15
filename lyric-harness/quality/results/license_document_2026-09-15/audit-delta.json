@@ -1,0 +1,74 @@
+{
+  "base_commit": "10f452b115ae9fc0a09f6a9f3f6182e9fcb81c8f",
+  "before": {
+    "files": 1430,
+    "FAIL": 1,
+    "WARN": 97,
+    "NOTE": 1200
+  },
+  "after": {
+    "files": 1430,
+    "FAIL": 0,
+    "WARN": 95,
+    "NOTE": 1200
+  },
+  "license": {
+    "path": "corpus/fas_hafez.LICENSE.txt",
+    "bytes": 4373,
+    "sha256": "f06049fb672e40844e65f1ace580c7890e965710a427adab39014b591dfe7c6a",
+    "raw_text_preserved": true,
+    "audit_verse_lines_before": 74,
+    "audit_verse_lines_after": 0
+  },
+  "removed_findings": [
+    {
+      "check": "B",
+      "severity": "WARN",
+      "path": "corpus/fas_hafez.LICENSE.txt",
+      "what": "no `#` header at all",
+      "measured": "4373 bytes, 74 verse lines",
+      "mechanism": "the header is where the edition, the orthography and the extraction rule live; without it the row is the only witness",
+      "doctrine": "34"
+    },
+    {
+      "check": "D",
+      "severity": "FAIL",
+      "path": "corpus/fas_hafez.LICENSE.txt",
+      "what": "declared fas and unreadable under it",
+      "measured": "1.0% of 626 sampled tokens (rule: fas.in_inventory (script test); stride 1)",
+      "mechanism": "script census: Basic Latin letters 2894, Arabic 27, Latin Extended Additional 1, Latin-1/Extended 1",
+      "doctrine": "50"
+    },
+    {
+      "check": "F",
+      "severity": "WARN",
+      "path": "corpus/fas_hafez.LICENSE.txt",
+      "what": "fas channel is thin: 6.3 per 1000 chars, floor 300.0",
+      "measured": "27 occurrences in 4319 chars (known good: 763.7 on fas_hafez_ganjoor.txt)",
+      "mechanism": "a transliterated Persian text cannot be matched against a Perso-Arabic radif at all",
+      "doctrine": "52"
+    },
+    {
+      "check": "G",
+      "severity": "NOTE",
+      "path": "corpus/fas_hafez.LICENSE.txt",
+      "what": "Arabic ي ك against Persian ی ک: ZERO destroying spellings — and the zero belongs to a POPULATION",
+      "measured": "0 destroying vs 3 preserving over 74 verse lines / 619 tokens of corpus/fas_hafez.LICENSE.txt | rule: character count over the verse text",
+      "mechanism": "doctrine 79: `-uk` is 0 on the 513-line Malay extract and 2 on the 330 blocks it was cut from. Say the population next to the zero, or the next reader inherits a zero that is true of a one-seventh extract",
+      "doctrine": "50"
+    }
+  ],
+  "added_findings": [
+    {
+      "check": "A",
+      "severity": "NOTE",
+      "path": "corpus/fas_hafez.LICENSE.txt",
+      "what": "licence sidecar retained as a document, not verse",
+      "measured": "4373 bytes; filename rule: .LICENSE.txt; 0 verse lines",
+      "mechanism": "source declarations and byte-integrity checks still apply; the work's language prefix does not describe its licence",
+      "doctrine": "34"
+    }
+  ],
+  "unchanged_findings": 1294,
+  "all_other_findings_unchanged": true
+}

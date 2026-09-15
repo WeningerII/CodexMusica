@@ -987,6 +987,83 @@ def test_check_D_can_actually_fire():
           [(f.severity, f.measured) for f in fs])
 
 
+def test_license_sidecar_is_preserved_without_becoming_verse():
+    """The Hafez notice is a document about Persian verse, not Persian verse."""
+    rel = "corpus/fas_hafez.LICENSE.txt"
+    path = os.path.join(AC.ROOT, rel)
+    cf = AC.CorpusFile(path)
+    src = AC.Sources()
+    files = [(rel, cf)]
+    with open(path, "rb") as fh:
+        raw = fh.read()
+    check("the licence retains its complete bytes and readable notice",
+          cf.raw == raw and cf.text.encode("utf-8") == raw
+          and "MIT License" in cf.text)
+    check("the licence remains in the audited file population",
+          rel in {r for r, _ in AC.load()})
+    check("the licence has no verse lines, items, stanzas or verse language",
+          not cf.verse_lines and not cf.verse_text and not cf.titles
+          and not AC._items(cf) and not AC.one_line_verse_blocks(cf)
+          and AC.declared_language(cf, rel) == (None, "license-sidecar"))
+    check("D/F/G do not interpret the notice as Persian verse",
+          not AC.check_language(files, src)
+          and not AC.check_channel(files, src)
+          and not AC.check_orthography(files, src))
+    check("B does not require a verse-extraction header on the licence",
+          not AC.check_header(files, src))
+    check("A explicitly reports the retained document and its source route",
+          any("licence sidecar retained" in f.what
+              for f in AC.check_row(files, src))
+          and src.route(cf, rel)[0] != AC.ROUTE_NONE)
+    check("C still verifies the notice against the corpus snapshot",
+          not AC.check_hash(files, src))
+
+
+def test_license_suffix_does_not_hide_ordinary_text():
+    """Only the exact sidecar suffix declares a document; words do not."""
+    with tempfile.TemporaryDirectory(prefix="audit_license_suffix_") as tmp:
+        for name in ("fas_license_song.txt", "fas_song.LICENSE.txt.poem.txt"):
+            p = os.path.join(tmp, name)
+            with open(p, "w", encoding="utf-8") as fh:
+                fh.write("MIT License\nThis English text is not Persian verse.\n")
+            cf = AC.CorpusFile(p)
+            fs = AC.check_language([(AC.display_path(p), cf)], AC.Sources())
+            check("%s still receives the Persian language check" % name,
+                  not cf.is_license and bool(cf.verse_lines)
+                  and AC.declared_language(cf, name) == ("fas", "filename-prefix")
+                  and any(f.severity == AC.FAIL for f in fs))
+
+
+def test_license_sidecar_still_owes_sources_and_byte_integrity():
+    """Document classification cannot excuse absent provenance or changed bytes."""
+    with tempfile.TemporaryDirectory(prefix="audit_license_integrity_") as tmp:
+        p = os.path.join(tmp, "fas_fixture.LICENSE.txt")
+        with open(p, "w", encoding="utf-8") as fh:
+            fh.write("# source: missing/edition\n# lang: fas\n"
+                     "--- TITLE: quoted example\n[VERSE 1]\nEnglish notice.\n")
+        src = AC.Sources(os.path.join(tmp, "absent.tsv"))
+        files, fs = AC.audit(tmp, checks=["A"], src=src)
+        rel, cf = files[0]
+        check("the audit loads an undeclared licence and fails its source route",
+              len(files) == 1 and any(f.severity == AC.FAIL
+                                     and "no data/sources.tsv row" in f.what
+                                     for f in fs))
+        check("source declarations inside a licence still need to resolve",
+              cf.source_declarations() == ["missing/edition"]
+              and any(f.severity == AC.FAIL
+                      and "header declares a source" in f.what for f in fs))
+        check("quoted title/stanza markers and language headers do not create verse",
+              not AC._items(cf) and not AC.one_line_verse_blocks(cf)
+              and not cf.verse_lines and AC.declared_language(cf, rel)[0] is None)
+        snapshot = {rel: (cf.md5, len(cf.raw), "licence fixture")}
+        check("the recorded licence bytes pass C", not AC.check_hash(files, src, snapshot))
+        with open(p, "a", encoding="utf-8") as fh:
+            fh.write("Changed permission notice.\n")
+        fs = AC.check_hash([(rel, AC.CorpusFile(p))], src, snapshot)
+        check("C fails changed licence bytes against the same snapshot",
+              any(f.severity == AC.FAIL and "md5 drift" in f.what for f in fs))
+
+
 def test_cross_language_baseline_is_what_makes_check_D_weak():
     """The number the module docstring rests on. English reads at 95.8% under
     Welsh, so a high readability rate is NOT evidence that a label is right.

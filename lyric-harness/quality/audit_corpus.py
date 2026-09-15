@@ -298,8 +298,14 @@ class CorpusFile:
         self.md5 = hashlib.md5(self.raw).hexdigest()
         self.sha256 = hashlib.sha256(self.raw).hexdigest()
         self.text = self.raw.decode("utf-8", errors="replace")
-        self._lines = self.text.split("\n")
-        self.header_lines = [l for l in self._lines if l.startswith("#")]
+        # The exact .LICENSE.txt suffix declares an accompanying document.
+        # Keep its bytes, hashes and source declarations in the audit, but
+        # give verse readers an empty view. A language prefix on this name
+        # identifies the licensed work, not the language of the notice.
+        self.is_license = os.path.basename(path).endswith(".LICENSE.txt")
+        raw_lines = self.text.split("\n")
+        self.header_lines = [l for l in raw_lines if l.startswith("#")]
+        self._lines = [] if self.is_license else raw_lines
         self.header = "\n".join(self.header_lines)
         self.verse_lines = [l for l in self._lines
                             if l.strip() and not _MARKER.match(l)]
@@ -550,7 +556,9 @@ _ROW_LANG = re.compile(r"^([a-z]{2,3})(?:-[A-Za-z]+)?;\s")
 
 
 def declared_language(cf, rel):
-    """-> (lang, how).  `how` is `filename-prefix`, `header`, `row` or None."""
+    """-> verse (lang, how); licence documents have no verse language."""
+    if cf.is_license:
+        return None, "license-sidecar"
     fields = cf.header_fields()
     for key in ("lang", "language"):
         v = fields.get(key)
@@ -1026,6 +1034,12 @@ def check_row(files, src):
     """A · doctrine 34, in both directions."""
     out = []
     for rel, cf in files:
+        if cf.is_license:
+            out.append(Finding(
+                "A", NOTE, rel, "licence sidecar retained as a document, not verse",
+                "%d bytes; filename rule: .LICENSE.txt; 0 verse lines" % len(cf.raw),
+                "source declarations and byte-integrity checks still apply; "
+                "the work's language prefix does not describe its licence", "34"))
         route, sid = src.route(cf, rel)
         if route == ROUTE_NONE:
             out.append(Finding(
@@ -1148,7 +1162,7 @@ def check_header(files, src):
         row = src.by_id.get(sid) if sid else None
         fields = cf.header_fields()
         headless = not cf.header_lines
-        if headless:
+        if headless and not cf.is_license:
             out.append(Finding(
                 "B", WARN, rel, "no `#` header at all",
                 "%d bytes, %d verse lines" % (len(cf.raw), len(cf.verse_lines)),
@@ -1212,7 +1226,7 @@ def check_header(files, src):
                 "the two are not the same namespace: the table carries `en` "
                 "beside `eng`, `fi` beside `fin`, `lzh` beside `ltc`",
                 "34"))
-        if lang is None:
+        if lang is None and not cf.is_license:
             out.append(Finding(
                 "B", NOTE, rel, "no declared language",
                 "no `# lang:` header and the filename prefix %r is not a "
@@ -2316,6 +2330,8 @@ def check_encoding(files, src):
     """
     out = []
     for rel, cf in files:
+        if cf.is_license:
+            continue
         decl = [l for l in cf.text.split("\n")
                 if l.startswith("#") and "orthography" in l.lower()
                 and ("latin-1" in l.lower() or "iso-8859" in l.lower())]
@@ -2977,8 +2993,8 @@ def main(argv=None):
     return 1 if any(f.severity == FAIL for f in findings) else 0
 
 
-#: THE COMMITTED SHAPE, so `--check` can go red on DRIFT rather than on the
-#: standing FAIL. Measured 2026-08-13 and repinned in RESULTS_CORPUS_AUDIT.md
+#: THE COMMITTED SHAPE, so `--verify-shape` goes red on any finding-count
+#: drift. Measured 2026-08-13 and repinned in RESULTS_CORPUS_AUDIT.md
 #: the same day from 423/3/227/193 -- two of the three FAILs had been fixed and
 #: this file's record was never told, because NOTHING RUNS THIS AUDIT. An audit
 #: of all eight adversaries found this one (adversary 5, "the CORPUS") had zero
@@ -2986,13 +3002,12 @@ def main(argv=None):
 #: committed output drifted for as long as nobody typed the command.
 #:
 #: WHY A PIN AND NOT A PLAIN GATE. `main()` already exits 1 on any FAIL, which
-#: is the right default for a human running it. But one FAIL is STANDING and
-#: TRUE -- `corpus/fas_hafez.LICENSE.txt` is an English licence document under
-#: `corpus/`, so the D check is correct to call it declared `fas` and
-#: unreadable. Gating CI on that would paint the job permanently red on a
-#: finding nobody intends to "fix", and a permanently red gate is one nobody
-#: reads. So `--verify-shape` asks the question CI can actually answer: has anything
-#: MOVED since the record was written?
+#: is the right default for a human running it. The original pin tolerated
+#: the Hafez licence's Persian-prefix finding. That classification is corrected
+#: on 2026-09-15: .LICENSE.txt declares an accompanying document, whose bytes
+#: and source declarations remain audited but whose text is not verse.
+#: `--verify-shape` still detects changes in WARN and NOTE counts as well as
+#: FAIL counts: has anything moved since the record was written?
 #:
 #: Doctrine 58: these are counts nobody wrote down until now. Argue them and
 #: repin; do not quiet a finding to meet them. A FAIL count that FALLS is still
@@ -3184,7 +3199,11 @@ def main(argv=None):
 #: following preserved English nonlyric apparatus and intervening main edits.
 #: The archived run measures 97 WARN / 1200 NOTE; files and the known
 #: Persian-license FAIL remain unchanged. No finding is suppressed.
-PINNED_SHAPE = {"files": 1430, "FAIL": 1, "WARN": 97, "NOTE": 1200}
+#: REPINNED 2026-09-15 (licence document classification): the same 1430
+#: files and bytes; D loses the notice's false FAIL, B/F lose its two verse
+#: warnings, and G's Persian-orthography NOTE becomes A's document-scope NOTE.
+#: All other findings are unchanged; source and hash checks retain the notice.
+PINNED_SHAPE = {"files": 1430, "FAIL": 0, "WARN": 95, "NOTE": 1200}
 
 
 def _verify_shape(files, findings):
