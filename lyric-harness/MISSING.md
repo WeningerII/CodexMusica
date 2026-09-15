@@ -4837,7 +4837,9 @@ row looks like a clean null, `local_fraction@0` on `both_line_final` schemas
 with no `_GAP_FORCED` row — is untouched and still owed its own sitting
 (the frozen `EXTENSION_LEDGER` reads `forced_gap`).
 
-### M-46 · `local_fraction@0` runs on 20 of 77 schemas where it cannot move, and looks like a clean null `OPEN`
+### M-46 · `local_fraction@0` runs on 20 of 77 schemas where it cannot move, and looks like a clean null ~~`OPEN`~~ `CLOSED` 2026-09-15 — endpoint span rules establish the bound; the proposed blanket placement row was false
+
+**Historical finding and proposed remedy; corrected by the measurement below.**
 **Found by the re-null agent. `_GAP_FORCED` (`relations_null.py:950-958`) has
 no row for `both_line_final`.**
 
@@ -4855,6 +4857,25 @@ schemas were swept.
 **Remedy is one row in the table**, and it is not applied here because
 `EXTENSION_LEDGER` reads `forced_gap` and a repin of a frozen ledger is its own
 sitting.
+
+**Closed 2026-09-15.** The required enumeration check disproved the blanket
+remedy: the actual mosaic-rhyme judge accepts `door` against `the door` on the
+same line. `both_line_final` therefore remains absent from `_GAP_FORCED`.
+The narrower proof is in the span rules: when both members use the identical,
+unsearched line-final or line-initial token rule, each line produces at most
+one span, and candidate enumeration excludes a span paired with itself.
+`forced_gap` now derives a minimum gap of one for that case. Searched,
+asymmetric and multiword rules retain their possible gap of zero.
+
+The complete 77-schema ledger census was remeasured. Twenty-two derived menus
+lose their constant `local_fraction@0` question; every schema verdict and every
+confirmed/unresolved instance count is unchanged. The previous and current
+menu sizes are preserved in `docs/null-endpoint-gap.json` (repository root).
+The seven M-46 controls in `quality/test_null_shapes.py` exercise the actual
+judge and sweep. Two failed before the repair, and all seven pass after it;
+the mosaic, searched and asymmetric controls guard against an overbroad fix.
+The historical deep null panel is not requalified by this census. M-42 remains
+separate; no corpus, calibration or relation definition changes here.
 
 ### M-44 · The named-relation judge reached 4 of 80 names, because it STAMPED a position instead of judging at the name's own coordinate `PARTIAL`
 **Raised by an agent's M-35 work, and the diagnosis below is the third one I
