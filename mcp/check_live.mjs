@@ -62,10 +62,11 @@ export function parseLiveArguments(argv) {
       continue;
     }
     const match = /^--(commit|config|image-manifest)=(.+)$/.exec(arg);
-    const key = arg === '--ready' ? 'ready' : match?.[1];
+    const key =
+      arg === '--ready' ? 'ready' : arg === '--print-commit' ? 'print-commit' : match?.[1];
     if (!key || key in flags)
       throw new Error(`Unknown, empty or duplicate live-check option: ${arg}`);
-    flags[key] = key === 'ready' ? true : match[2];
+    flags[key] = key === 'ready' || key === 'print-commit' ? true : match[2];
   }
   if (positional.length > 1) throw new Error('Supply at most one live endpoint URL.');
   if (flags.config && flags.config !== 'render') throw new Error('Unknown configuration profile');
@@ -151,6 +152,33 @@ export function readinessDrift(ready, { expected = null, status = null } = {}) {
 async function main() {
   const args = parseLiveArguments(process.argv.slice(2));
   const url = args.url || process.env.MCP_LIVE_URL || DEFAULT_URL;
+
+  // ASK THE RUNNING PROCESS WHAT IT IS, and print nothing else. This is the
+  // one instrument that knows, and scripts/deploy_guard.sh needs the answer to
+  // decide whether a promotion ADVANCES the connector or rolls it backwards
+  // (`MISSING.md` M-289). It is deliberately not folded into the drift report:
+  // a caller that wants a sha wants a sha on stdout and a non-zero exit when
+  // there is not one, not a paragraph it has to parse.
+  //
+  // A server that cannot be asked, or that answers without a commit, is NOT an
+  // answer of "unknown is fine" — it exits 3, and the guard's own doctrine-20
+  // fallback is what decides what to do with a live commit it never received.
+  if (args['print-commit']) {
+    let got;
+    try {
+      got = await liveCommit(url);
+    } catch (e) {
+      console.error(`REFUSED — could not ask the live server at ${url}: ${e.message}`);
+      process.exit(3);
+    }
+    if (!got) {
+      console.error(`REFUSED — ${url} does not report a commit at /health.`);
+      process.exit(3);
+    }
+    console.log(String(got).trim());
+    return;
+  }
+
   const expectCommit = args.commit || process.env.EXPECT_COMMIT || '';
   const requireReady = args.ready;
   const configFlag = args.config;

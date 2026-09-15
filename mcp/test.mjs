@@ -5396,6 +5396,7 @@ await check('validation: actionable errors', () => {
     delete e.GIT_DIR;
     delete e.GIT_WORK_TREE;
     delete e.LAST_DEPLOYED_SHA;
+    delete e.LIVE_SHA;
     return e;
   };
 
@@ -5424,10 +5425,13 @@ await check('validation: actionable errors', () => {
   // `bash scripts/deploy_guard.sh --verbose` is the exact invocation in
   // deploy-connector.yml, and --verbose is load-bearing here: the sentence
   // saying the same-sha check DID NOT RUN only prints under it.
-  const runGuard = (dir, built, last, script = GUARD) => {
+  const runGuard = (dir, built, last, script = GUARD, live) => {
     const env = cleanEnv();
     env.BUILT_SHA = built;
     if (last !== undefined) env.LAST_DEPLOYED_SHA = last;
+    // M-289: the live commit is the new input, and it is OPTIONAL on purpose —
+    // every case above this line passes none and must keep its old answer.
+    if (live !== undefined) env.LIVE_SHA = live;
     try {
       // stderr is CAPTURED, not inherited: a case that deliberately drives a
       // refusal would otherwise print the refusal into the suite's own log and
@@ -5593,6 +5597,156 @@ if (/\\/actions\\/workflows\\/[^/]+\\/runs\\?/.test(url)) {
         !/last accepted/.test(res.out),
         'and the ordering answer must not arrive wearing the same-sha reason'
       );
+    }
+  );
+
+  // ───────────────────────────────────────────────────────────────────────
+  // M-289 — THE GUARD WAS ENFORCING THE WRONG INVARIANT.
+  //
+  // What it wants is that the connector never goes BACKWARDS. What it asked
+  // was that the commit being promoted is EXACTLY the tip of main, which is a
+  // far stronger thing and, on a tree that merges faster than a qualification
+  // runs, an unsatisfiable one. Measured: qualification #14 ran 2 h 44 m over
+  // 9384e76a, #279 merged 59 minutes before it finished, and deploy run #104
+  // downloaded the image, bound the qualification, resolved the release URL
+  // and was then refused by this guard. Live stayed on 42f020e6 for 33 h while
+  // main reached 64d32b20 — six connector-touching commits, including the
+  // surface consolidation that moved three session tools onto /mcp — with
+  // every workflow in the repository green.
+  //
+  // The cases below drive the rule that replaces it: an advance ships, a
+  // rollback does not, and NOTHING changes when the live commit is unknown.
+  // ───────────────────────────────────────────────────────────────────────
+
+  await check(
+    'deploy guard: a tree BEHIND the tip but AHEAD of live deploys — the case that was refused',
+    () => {
+      // Deploy run #104 in miniature, and the whole point of M-289. The
+      // qualified commit is no longer the tip, so the old rule refused it;
+      // it is a strict descendant of what is running, so promoting it can
+      // only move the connector forwards.
+      const r = makeRepo();
+      const built = r.commit('the qualified merge', 'v2\n');
+      r.setOrigin();
+      r.commit('a merge that landed DURING the qualification', 'v3\n');
+      r.setOrigin();
+      const res = runGuard(r.dir, built, undefined, GUARD, r.base);
+      assert.equal(res.code, DEPLOY, `an advance on live must deploy: ${res.out}`);
+      assert.match(res.out, /advances the live connector by 1 commit/, res.out);
+      // and it must SAY it is not reaching the tip, so nobody reads a deploy
+      // as "the connector is now current" when one commit still separates them
+      assert.match(res.out, /does not reach it/, res.out);
+    }
+  );
+
+  await check(
+    'deploy guard: a tree BEHIND live is refused as a ROLLBACK, and says so in those terms',
+    () => {
+      // The hazard the file exists for, now asked directly instead of being
+      // implied by tip-equality. A later-finishing older run is exactly how a
+      // live service goes back in time.
+      const r = makeRepo();
+      const built = r.base;
+      const live = r.commit('what is already running', 'v2\n');
+      r.setOrigin();
+      const res = runGuard(r.dir, built, undefined, GUARD, live);
+      assert.equal(res.code, STAND_DOWN, `a rollback must stand down: ${res.out}`);
+      assert.match(res.out, /BEHIND the live connector by 1 commit/, res.out);
+      assert.match(res.out, /BACKWARDS/, 'the refusal names the hazard, not just the ordering');
+      assert.ok(res.out.includes(live), 'and names the live commit being protected');
+    }
+  );
+
+  await check(
+    'deploy guard: the tree ALREADY LIVE stands down without claiming an ordering problem',
+    () => {
+      const r = makeRepo();
+      r.setOrigin();
+      const res = runGuard(r.dir, r.base, undefined, GUARD, r.base);
+      assert.equal(res.code, STAND_DOWN, `re-serving the same tree must stand down: ${res.out}`);
+      assert.match(res.out, /already serves/, res.out);
+      assert.ok(
+        !/behind main's tip/.test(res.out),
+        'an already-live tree is not an ordering refusal and must not borrow that reason'
+      );
+    }
+  );
+
+  await check(
+    'deploy guard: an UNKNOWN live commit changes nothing — the tip rule still decides',
+    () => {
+      // Doctrine 20 at the new input. Three shapes of "unknown" are driven —
+      // unset, empty, and a sha this repository has never heard of — and all
+      // three must land on the pre-M-289 answer, because a guard that cannot
+      // see the live process must be no weaker than it was before it could.
+      const r = makeRepo();
+      const behind = r.base;
+      const tip = r.commit('main moves on', 'v2\n');
+      r.setOrigin();
+      const absent = 'e'.repeat(40);
+      for (const [label, live] of [
+        ['unset', undefined],
+        ['empty', ''],
+        ['not a commit here', absent],
+      ]) {
+        const superseded = runGuard(r.dir, behind, undefined, GUARD, live);
+        assert.equal(
+          superseded.code,
+          STAND_DOWN,
+          `${label}: a superseded tree must still stand down — ${superseded.out}`
+        );
+        assert.match(
+          superseded.out,
+          /behind main's tip by 1 commit/,
+          `${label}: ${superseded.out}`
+        );
+        const atTip = runGuard(r.dir, tip, undefined, GUARD, live);
+        assert.equal(atTip.code, DEPLOY, `${label}: the tip must still deploy — ${atTip.out}`);
+      }
+      // ...and the unreadable sha must SAY it was discarded rather than be
+      // quietly treated as an answer.
+      const noisy = runGuard(r.dir, tip, undefined, GUARD, absent);
+      assert.match(noisy.out, /is not a commit in this repo/, noisy.out);
+    }
+  );
+
+  await check(
+    'deploy guard: a live commit on a DIVERGENT history is refused, not guessed at',
+    () => {
+      // Neither contains the other, so there is no advance to make and no way
+      // to tell which is newer. Shipping on a coin flip here is the rollback
+      // this guard refuses, arriving with a reason that sounds fine.
+      const r = makeRepo();
+      const tip = r.commit('main', 'v2\n');
+      r.setOrigin();
+      r.git('checkout', '-q', '--detach', r.base);
+      const orphan = r.commit('a tree that never landed on main', 'sideways\n');
+      r.git('checkout', '-q', 'main');
+      const res = runGuard(r.dir, tip, undefined, GUARD, orphan);
+      assert.equal(res.code, STAND_DOWN, `divergent histories must stand down: ${res.out}`);
+      assert.match(res.out, /DIVERGENT histories/, res.out);
+    }
+  );
+
+  await check(
+    'deploy guard: an off-main tree is still refused even when it would advance live',
+    () => {
+      // The monotonic rule must not become a way around "this ref is not on
+      // main": being newer than the live commit is not the same as being a
+      // commit this branch is entitled to ship.
+      //
+      // THIS ONE IS A CONSERVATION CHECK AND PASSES BOTH BEFORE AND AFTER
+      // M-289, which is the point: the other five cases here fail against the
+      // guard as it stood, and this is the assertion that the relaxation did
+      // not take a refusal away with it.
+      const r = makeRepo();
+      r.setOrigin();
+      r.git('checkout', '-q', '--detach', r.base);
+      const orphan = r.commit('newer than live, but not on main', 'sideways\n');
+      r.git('checkout', '-q', 'main');
+      const res = runGuard(r.dir, orphan, undefined, GUARD, r.base);
+      assert.equal(res.code, STAND_DOWN, `an off-main tree must stand down: ${res.out}`);
+      assert.match(res.out, /NOT an ancestor of main's tip/, res.out);
     }
   );
 
