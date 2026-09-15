@@ -1,5 +1,33 @@
 # RESULTS — the corpus audit (adversary 5)
 
+Current result, 2026-09-15: **1,430 files, 0 FAIL, 95 WARN, 1,200 NOTE**.
+The Hafez licence is now classified as an accompanying document. Its complete
+4,373 bytes remain under source and hash checks; its filename's `fas_` prefix
+no longer sends the English notice through Persian verse checks. The exact
+`.LICENSE.txt` suffix declares this document type. Ordinary corpus text still
+receives the existing checks, including files with `license` elsewhere in the name.
+
+This closes the standing failure disclosed by the English apparatus repair.
+No corpus bytes, source rulings, production readers, frequency tables or
+calibration values change. The audit's verse view of this notice changes from
+74 lines to zero. Compared with main at `10f452b1`, D loses one false FAIL,
+B and F lose one WARN each, and G's inapplicable Persian-orthography NOTE is
+replaced by A's explicit document classification. Its existing source-route
+NOTE remains. Every finding for every other file is unchanged.
+
+The measured comparison is recorded in
+`results/license_document_2026-09-15/audit-delta.json`. Regression tests cover
+the real notice, ordinary text whose name mentions a licence, missing source
+rows, unresolved source declarations and changed licence bytes. The corpus
+still has 95 warnings and unresolved editorial questions; zero FAIL describes
+this audit's checks, not complete corpus clearance. Earlier measurements below
+remain as history.
+
+Validation: all 126 assertions in `quality/test_corpus_audit.py` pass.
+`quality/audit_corpus.py --verify-shape --severity FAIL` passes on the full
+1,430-file population, and `quality/corpus_manifest.py --check` confirms every
+corpus file remains byte-identical to the recorded calibration set.
+
 `quality/audit_corpus.py`, run 2026-08-11 over `corpus/` at 269 files.
 Pins: `quality/test_corpus_audit.py`, 33 assertions, all holding.
 

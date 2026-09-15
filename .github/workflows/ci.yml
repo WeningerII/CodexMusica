@@ -1442,15 +1442,12 @@ jobs:
       # 429 / 1 FAIL, because two of the three FAILs were fixed and the record
       # was never told. Repinned in RESULTS_CORPUS_AUDIT.md the same day.
       #
-      # `--verify-shape`, NOT the raw exit code, and the distinction is the
-      # point. `main()` exits 1 on any FAIL, which is right for a human. But
-      # one FAIL is standing and TRUE -- corpus/fas_hafez.LICENSE.txt is an
-      # English licence document under corpus/, so the D check is correct to
-      # call it declared `fas` and unreadable. Gating on that paints the job
-      # permanently red on a finding nobody intends to close, and a
-      # permanently red gate is one nobody reads. `--verify-shape` asks what
-      # CI can actually answer: has the shape MOVED since the record was
-      # written? Proven red on injected drift before this step was added.
+      # `main()` exits 1 on any FAIL. `--verify-shape` also detects movement
+      # in WARN and NOTE counts, including improvements that need a recorded
+      # explanation. The Hafez licence's former Persian-prefix FAIL closed
+      # on 2026-09-15 through document classification; its bytes and source
+      # declarations remain audited. The current pin expects zero FAIL.
+      # Proven red on injected drift before this step was added.
       # ~3 minutes over 26 MB.
       - name: Corpus audit against RESULTS_CORPUS_AUDIT.md's committed shape
         if: always()
