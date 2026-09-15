@@ -563,22 +563,6 @@ def verify_cache(scorer, bodies, n, seed=SAMPLE_SEED):
 # the population
 # ---------------------------------------------------------------------------
 
-def historical_items_in(path):
-    cur, body, out = None, [], []
-    with open(path, encoding="utf-8", errors="replace") as fh:
-        for l in fh:
-            s = l.rstrip()
-            if s.startswith("--- TITLE:"):
-                if cur is not None:
-                    out.append((cur, body))
-                cur, body = s[10:].strip(), []
-            elif cur is not None and s.strip() and not _MARKER.match(s):
-                body.append(s.strip())
-    if cur is not None:
-        out.append((cur, body))
-    return out
-
-
 def items_in(path):
     """Current population uses the runtime reader, retaining item boundaries."""
     from quality.lyric_reader import calibration_items
