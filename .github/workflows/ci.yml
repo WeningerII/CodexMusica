@@ -2059,6 +2059,25 @@ jobs:
       - name: Install nltk (five suites reach the POS tagger through features.py)
         run: python3 -m pip install --disable-pip-version-check --require-hashes -r "$GITHUB_WORKSPACE/mcp/requirements-runtime.txt"
 
+      # AND NOW A RESEARCH INSTRUMENT IS IN THIS JOB TOO. `record` carries the
+      # same step for `kalevala_rate.py` and states the rule: an instrument is
+      # not the harness, so vectorising one is allowed and the job that runs it
+      # declares the dependency. `quality/rhyme_organization.py` and its suite
+      # both `import numpy as np` at MODULE level, so without this the suite
+      # does not fail a check -- it dies at import, and `suites` reports a
+      # missing dependency in the shape of a failed test (doctrine 20: a
+      # crash is not a measurement).
+      #
+      # FOURTH instance of this defect, and the count is kept because the
+      # shape never varies: numpy/sklearn in `nightly`, nltk in `suites`, nltk
+      # in `record`, now numpy here. Every one was a module-level or lazy
+      # import in a file added to a job that did not install what it needs,
+      # and every one was found by RUNNING CI rather than by reading it. The
+      # stdlib boundary that `record` guards is untouched: it covers
+      # lyric_harness, floor, revise and propose, and none of them import this.
+      - name: Install numpy (rhyme_organization's conditional nulls are vectorised)
+        run: python3 -m pip install --disable-pip-version-check numpy
+
       - name: Stage the tagger model and the concreteness norms
         working-directory: lyric-harness
         run: python3 quality/fetch_data.py --research
