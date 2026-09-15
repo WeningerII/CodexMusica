@@ -595,7 +595,8 @@ LAYER.declare(FrequencySource(
     #: 5 in, all verified by re-running distinct0 at each of the three
     #: commits (13990 -> 13952 -> 13948). The check below is what caught it.
     # 2026-09-08: shared normalized reader, explicit one-work population; full rebuild.
-    n_types=13856,
+    # 2026-09-15 apparatus annotations: 13856 -> 13836 measured endword types.
+    n_types=13836,
     n_types_from="distinct0:data/song_endword_en.tsv",
     pool="corpus/song/eng_*",
     loo_unit="author",

@@ -588,6 +588,17 @@ FAILs — E's two duplications (§0) and D's one mislabelled file. The audit tak
 19 seconds over 26 MB; the calibration takes half a second, with the real
 trees present or absent, so there is no excuse for skipping it.
 
+> **REPINNED 2026-09-15: 1,298 findings — 1 FAIL, 97 WARN, 1,200 NOTE**,
+> over **1,430 files**, after preserved English nonlyric apparatus annotations.
+> A complete audit of main at `64d32b2` reproduces the preceding counts.
+> The exact delta is E: five fewer WARN and one fewer NOTE; H: 39 fewer WARN
+> and six more NOTE. All other checks are unchanged. The before/after counts
+> are in `results/english_nonlyric_2026-09-15/audit-delta.json`; the final
+> audit retains its exact counts in
+> `results/english_nonlyric_2026-09-15/audit-summary.json`.
+> The standing Persian license-text FAIL remains visible; no finding was
+> suppressed to meet the shape check. The preceding counts remain below.
+>
 > **REPINNED 2026-09-08: 1,337 findings — 1 FAIL, 141 WARN, 1,195 NOTE**,
 > over **1,430 files**. The prior 340 WARN / 1,228 NOTE remain below.
 > The complete staged-file snapshot now independently binds all source bytes,

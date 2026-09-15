@@ -252,7 +252,9 @@ PINNED = {
     #: under explicit apparatus declarations, and no refused-mark decision
     #: or vocabulary changed. Both checkout measurements are archived in
     #: results/production_data_2026-09-08/mark-bucket-delta.json.
-    "typed": 77052, "decided": 125501, "undecided": 32, "apparatus": 1,
+    # 2026-09-15: 136 labels attached only to nonlyric material are now
+    # preserved as apparatus (101 VERSE, 33 CHORUS, 2 REFRAIN); 77052 -> 76916.
+    "typed": 76916, "decided": 125501, "undecided": 32, "apparatus": 1,
     "declared_functions": 22, "witnessed": 5,
 }
 

@@ -1,0 +1,51 @@
+
+6. WHAT floor.py SHIPS, against what the corpus says today (profile `song`)
+   band lo (tokens)                   shipped 200.0000   measured 200.0000   ok
+   band hi (tokens)                   shipped 400.0000   measured 400.0000   ok
+   MATTR window admissibility         shipped lo 200 >= window 50 (this run's band lo 200): every item is a moving average, and at exactly 50 tokens the one window IS the TTR
+   threshold mattr                    shipped 0.7178     measured 0.7178     ok
+   threshold fwr                      shipped 0.4787     measured 0.4787     ok
+   threshold anaphora                 shipped 0.3000     measured 0.3000     ok
+   threshold cv                       shipped 0.1108     measured 0.1108     ok
+   threshold predictability           shipped 0.9286     measured 0.9286     ok
+   held-out FPR mattr (%)             shipped 5.0500     measured 5.0500     ok
+   held-out FPR function_word_ratio (%) shipped 5.1300     measured 5.1300     ok
+   held-out FPR anaphora (%)          shipped 4.8300     measured 4.8300     ok
+   held-out FPR line_length_cv (%)    shipped 5.1000     measured 5.1000     ok
+   held-out FPR predictability (%)    shipped 5.0500     measured 5.0500     ok
+   held-out FPR ANY (%)               shipped 20.1300    measured 20.1300    ok
+   held-out FPR cliche (%)            shipped 7.6200     measured 7.6200     ok
+   profile n_human                    shipped 2231.0000  measured 2231.0000  ok
+   profile n_generated                shipped 0.0000     measured 0.0000     ok
+   anaphora period slope rho          shipped -0.0210    measured -0.0210    ok
+   anaphora period slope p_perm       shipped 0.7097     measured 0.7097     ok
+
+   asked 21, answered 21, refused 0 (doctrine 79)
+   every shipped constant reproduces.
+song exit 0
+
+6. WHAT floor.py SHIPS, against what the corpus says today (profile `short`)
+   band lo (tokens)                   shipped 50.0000    measured 50.0000    ok
+   band hi (tokens)                   shipped 150.0000   measured 150.0000   ok
+   MATTR window admissibility         shipped lo 50 >= window 50 (this run's band lo 50): every item is a moving average, and at exactly 50 tokens the one window IS the TTR
+   threshold mattr                    shipped 0.6687     measured 0.6687     ok
+   threshold fwr                      shipped 0.4942     measured 0.4942     ok
+   threshold anaphora                 shipped 0.3750     measured 0.3750     ok
+   threshold cv                       shipped 0.0960     measured 0.0960     ok
+   short predictability disposition   HOLDS — explicitly unadopted at the measured ceiling
+   held-out FPR mattr (%)             shipped 5.4000     measured 5.4000     ok
+   held-out FPR function_word_ratio (%) shipped 5.1600     measured 5.1600     ok
+   held-out FPR anaphora (%)          shipped 3.8300     measured 3.8300     ok
+   held-out FPR line_length_cv (%)    shipped 5.4200     measured 5.4200     ok
+   short predictability resolution    HOLDS — all recorded held-out rates are zero
+   held-out FPR ANY (%)               shipped 16.3100    measured 16.3100    ok
+   held-out FPR cliche (%)            shipped 3.9800     measured 3.9800     ok
+   profile n_human                    shipped 3650.0000  measured 3650.0000  ok
+   profile n_generated                shipped 0.0000     measured 0.0000     ok
+   anaphora period slope rho          shipped 0.1660     measured 0.1660     ok
+   anaphora period slope p_perm       shipped 0.0012     measured 0.0012     ok
+   profile note quotes rho             nothing struck for this profile yet; its live rho is judged above
+
+   asked 21, answered 21, refused 0 (doctrine 79)
+   every shipped constant reproduces.
+short exit 0

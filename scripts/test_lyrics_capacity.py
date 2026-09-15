@@ -122,6 +122,57 @@ class CapacityOracle(unittest.TestCase):
                 row['instrument_children']=children
             self.assertTrue(queue_pressure_failures(broken,queue_measurements()),children)
 
+    def test_a_child_that_died_mid_sample_cannot_void_the_lyric_child_it_ran_beside(self):
+        # M-290. /proc is not atomic: a process that exits between the cmdline
+        # read, the cwd readlink and the status read leaves an entry the
+        # sampler cannot identify. Measured on this box: a zombie is still
+        # listed in task/<pid>/children, its cmdline reads empty, the cwd
+        # readlink throws ENOENT, and its status exists with no VmRSS line.
+        # The sampler records that as kind None / rss None, and the capacity
+        # matrix must read it as one unidentified process standing next to the
+        # lyric child -- not as a malformed record that voids the whole row.
+        good=dict(pid=789,kind='cli-song',rss=700000000)
+        unmeasured=dict(pid=790,kind=None,rss=None)
+        record=queue_rows()
+        for row in record['rows']:
+            row['instrument_children']=[good.copy(),unmeasured.copy()]
+        self.assertEqual(queue_pressure_failures(record,queue_measurements()),[])
+
+        # ...AND IT CANNOT SATISFY THE PROOF EITHER, which is the half that
+        # keeps this from being a loosened detector. Alone, the unidentified
+        # child leaves the RSS overlap unproved, and the refusal says so in
+        # those terms rather than calling the measurement invalid.
+        alone=queue_rows()
+        for row in alone['rows']:
+            row['instrument_children']=[unmeasured.copy()]
+        problems=queue_pressure_failures(alone,queue_measurements())
+        self.assertTrue(any('RSS overlap' in problem for problem in problems),problems)
+        self.assertFalse([p for p in problems if 'measurements are invalid' in p],problems)
+
+        # A DYING LYRIC CHILD IS NOT A MEASUREMENT. Zero resident bytes cannot
+        # evidence memory overlap, and a half-declared child -- a kind without
+        # an rss, or an rss without a kind -- is malformed, not 'unidentified'.
+        for children in ([dict(pid=789,kind='cli-song',rss=0)],
+                         [dict(pid=789,kind='cli-song',rss=None)],
+                         [dict(pid=789,kind=None,rss=700000000)],
+                         [dict(pid=789,kind='cli-song',rss=-1)],
+                         [dict(pid=789,kind='cli-song',rss=True)],
+                         [dict(pid=789,kind='cli-song',rss='700000000')],
+                         [dict(pid=0,kind=None,rss=None)]):
+            broken=queue_rows()
+            for row in broken['rows']:
+                row['instrument_children']=children
+            self.assertTrue(queue_pressure_failures(broken,queue_measurements()),children)
+
+        # And two measured lyric children still collide, so excluding the
+        # unidentified ones did not take the duplicate check away with it.
+        duplicate=queue_rows()
+        for row in duplicate['rows']:
+            row['instrument_children']=[good.copy(),dict(pid=790,kind='worker',rss=700000000),
+                                        unmeasured.copy()]
+        problems=queue_pressure_failures(duplicate,queue_measurements())
+        self.assertTrue(any('duplicate heavy lyric processes' in p for p in problems),problems)
+
     def test_queue_control_uses_parent_owned_process_and_preserves_restart_evidence(self):
         import json, tempfile
         from pathlib import Path
