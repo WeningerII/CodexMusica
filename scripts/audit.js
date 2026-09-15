@@ -2156,15 +2156,31 @@ if (shouldRun('function_branch_shape')) {
 // ─────────────── Report ───────────────
 const totalIssues = errors.length + warnings.length;
 
+// NOTHING BELOW MAY CALL process.exit(), for the reason scripts/list.js
+// records in full at its head: Node writes to a PIPE asynchronously, so
+// console.log only queues, and process.exit() tears the process down and
+// discards whatever has not drained. To a file or a TTY the write is
+// synchronous, which is why this is invisible interactively and in any
+// `> file` run -- and why it reads as a flake instead of a bug.
+//
+// MEASURED, not inferred: CI run 35007130075 lost 900 of this command's 17549
+// bytes through a held pipe, exit code 0, while the same command redirected to
+// a file was whole. Under 64KB is no defence -- the loss is Node's own queue,
+// not the pipe's capacity.
+//
+// So: set process.exitCode and `return` (legal at CommonJS module top level).
+// The module ends, the event loop drains stdout, and Node exits with that code.
+const failing = () => errors.length > 0 || (flags.strict && warnings.length > 0);
+
 if (flags.quiet) {
-  if (errors.length > 0) process.exit(1);
-  if (flags.strict && warnings.length > 0) process.exit(1);
-  process.exit(0);
+  process.exitCode = failing() ? 1 : 0;
+  return;
 }
 
 if (totalIssues === 0) {
   console.log('AUDIT CLEAN — no data-quality issues found.');
-  process.exit(0);
+  process.exitCode = 0;
+  return;
 }
 
 // Group by section
@@ -2209,6 +2225,4 @@ if (warnings.length > 0) {
   }
 }
 
-if (errors.length > 0) process.exit(1);
-if (flags.strict && warnings.length > 0) process.exit(1);
-process.exit(0);
+process.exitCode = failing() ? 1 : 0;
