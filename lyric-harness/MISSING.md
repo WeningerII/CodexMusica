@@ -2078,6 +2078,20 @@ exactly` is a measurement claim, not an emphasis, and it was the one figure
 ## L. Known instrument defects
 
 ### L-1 · The false-event rate is not controlled at α `OPEN` — and it was never a rate
+**REDESIGNED 2026-09-15, WITH THE UNIT STATED.**
+`quality/rhyme_organization.py` now tests item/stratum organization with
+conditional word-placement permutations and a full-family Bonferroni bound.
+Its two independently seeded synthetic H0 runs yield 16/1000 and 10/1000
+false stratum discoveries at alpha 0.05, with 100/100 planted detections in
+each stratum at both seeds. Exact-orbit controls and the repeated-spacing
+search are tested in `quality/test_rhyme_organization.py` and wired into CI.
+The first registered design's failed power gate is preserved; the second
+design passes its frozen gates. See `quality/RESULTS_RHYME_ORGANIZATION.md`.
+**This entry remains OPEN for individual-position event error control with
+power.** The replacement exports no certified positions, and automatic legacy
+time inference now refuses instead of treating its paired events as independent
+random slots. An item-level discovery is not certification of its members.
+
 ~~"5.4% against 5.0%" is n=6; at n=20 the same construction gives 9.6%. The
 guarding test runs three sonnets and asserts only `mean < 0.20`.~~
 
@@ -2141,6 +2155,19 @@ this half stays OPEN because the CAPABILITY — a false-event rate controlled at
 α — is exactly as missing as it was.
 
 ### L-2 · Real sonnets do not separate from scrambled text on event rate `OPEN` — EXPLAINED
+**REPLACEMENT MEASURED 2026-09-15.** The second preregistered organization
+design detects **end** organization in 102/122 real sonnets versus 2/488
+role-preserving scrambles, with separate-author replication in Burns (4/20
+versus 0/80) and Moore (17/20 versus 0/80). All frozen v2 gates pass; the
+first design's 54/122 result failed its 50% target and remains recorded.
+The sonnets are development evidence for v2, not unseen validation data.
+**Internal organization remains 1/122 real versus 14/488 scrambled; this
+entry stays OPEN for its original internal-event claim.** The new end result
+does not resolve internal periodicity or individual-event localization.
+Full populations, controls, limitations and commands:
+`quality/RESULTS_RHYME_ORGANIZATION.md`. The historical findings below remain
+findings about the old statistic, not descriptions of the new one.
+
 > **TESTED WHILE OPEN.** `quality/test_null_shapes.py` section 4 names this
 > entry and PINS WHY the separation fails: the admissible null preserves the
 > item's private rime inventory, so the quantity a rate comparison reads barely

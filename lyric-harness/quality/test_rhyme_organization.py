@@ -2,6 +2,7 @@
 """Exact-orbit, power, refusal, text-path and temporal-consumer regressions."""
 
 import io
+import copy
 import itertools
 import json
 import os
@@ -19,7 +20,7 @@ import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from lyric_harness import Lexicon  # noqa: E402
-from quality.audit_rhyme_organization import synthetic  # noqa: E402
+from quality.audit_rhyme_organization import gates, synthetic  # noqa: E402
 from quality.rhyme_organization import (OrganizationDeclaration, STRATA,  # noqa: E402
                                         WordGraph, analyze_graph, layout,
                                         main, summarize, tail_p)
@@ -105,6 +106,41 @@ class OrganizationTests(unittest.TestCase):
         self.assertEqual(original["strata"]["internal"], changed["strata"]["internal"])
         self.assertFalse(changed["strata"]["end"]["discovery"])
 
+    def test_spacing_search_is_repeated_inside_the_null(self):
+        a = np.zeros((6, 6), dtype=np.int8)
+        for x, y in ((0, 1), (2, 3), (4, 5)):
+            a[x, y] = a[y, x] = 1
+        permutations = list(itertools.permutations(range(6)))
+
+        def oracle(order):
+            return max(sum(int(a[order[i], order[i + lag]]) for i in range(6 - lag))
+                       for lag in range(1, 5))
+
+        values = [oracle(order) for order in permutations]
+        expected = sum(v >= values[0] for v in values) / len(values)
+        draws = iter(permutations[1:])
+
+        class Exhaustive:
+            def shuffle(self, draw):
+                draw[:] = next(draws)
+
+        with patch("quality.rhyme_organization.random.Random", return_value=Exhaustive()):
+            res = analyze_graph(a, [1] * 6, OrganizationDeclaration(n_perm=719))
+        self.assertEqual(res["strata"]["end"]["p"], expected)
+        self.assertEqual(res["strata"]["end"]["null_mean"], sum(values[1:]) / 719)
+        self.assertEqual(res["strata"]["end"]["p_adjusted"], min(1, 2 * expected))
+        self.assertEqual(res["strata"]["end"]["statistic"], "max_edges_at_one_line_distance")
+
+    def test_end_inventory_alone_cannot_be_a_discovery(self):
+        a, lengths = synthetic()
+        _, pools = layout(lengths)
+        a[:] = 0
+        a[np.ix_(pools["end"], pools["end"])] = 1
+        np.fill_diagonal(a, 0)
+        res = analyze_graph(a, lengths)
+        self.assertFalse(res["any_discovery"])
+        self.assertEqual(res["strata"]["end"]["status"], "cannot_tell")
+
     def test_unknown_repetition_and_pronunciation_consensus(self):
         graph = WordGraph(self.lex)
         self.assertEqual(graph.relation("cat", "bat"), 1)
@@ -128,6 +164,30 @@ class OrganizationTests(unittest.TestCase):
                                 ([[1]], [1]), ([[0]], [0]), ([[0]], [2])):
             with self.assertRaises(ValueError):
                 analyze_graph(matrix, lengths)
+
+    def test_acceptance_gates_keep_the_failed_design_failed(self):
+        here = os.path.dirname(__file__)
+        with open(os.path.join(here, "results", "rhyme_organization_2026-09-15.json")) as f:
+            first = json.load(f)
+        self.assertEqual(gates(first), ["real-versus-scrambled end organization separation"])
+        with open(os.path.join(here, "results", "rhyme_organization_v2_2026-09-15.json")) as f:
+            second = json.load(f)
+        self.assertEqual(gates(second), [])
+        # A receipt cannot pass merely because its stored failures say [].
+        for path, value in (
+            (("synthetic", 0, "null", "null_excess_tail"), 0.001),
+            (("synthetic", 0, "positive", "strata", "internal", "detection_rate"), 0),
+            (("corpus", "real", "strata", "end", "detection_rate"), 0.49),
+            (("corpus", "scrambled", "null_excess_tail"), 0.001),
+            (("replication", "scrambled", "null_excess_tail"), 0.001),
+            (("replication", "separation", "p"), 0.02),
+        ):
+            mutated = copy.deepcopy(second)
+            target = mutated
+            for key in path[:-1]:
+                target = target[key]
+            target[path[-1]] = value
+            self.assertTrue(gates(mutated), path)
 
     def test_legacy_detected_events_cannot_license_timing(self):
         lines = ["cat bat stone road", "dog log chair tree"] * 4

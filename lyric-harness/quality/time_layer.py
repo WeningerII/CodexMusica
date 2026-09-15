@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """The time layer — rhyme placement against a metric period.
 
+L-1/L-2, 2026-09-15: automatic inference from the legacy detected events is
+unsupported and refuses. Caller-supplied exchangeable-slot research controls
+remain available. `quality/rhyme_organization.py` tests item/stratum rhyme
+organization with paired relationships preserved; it certifies no positions.
+
 Built to `quality/TIME_PREREGISTRATION.md`, which was committed first. Read it
 before reading this; the predictions and the two tripwires are there, not here.
 
@@ -59,6 +64,8 @@ class TimeDeclaration:
 
     A disagreement about this layer lands in one of these fields (doctrine 1).
     `isochrony` is the load-bearing one and it is an assumption, not a finding.
+    The event corrections below are historical experiments, not validated
+    per-position false-event guarantees with power. Automatic inference refuses.
     """
     #: "stress" counts only stressed syllables when indexing; "syllable"
     #: counts all of them. English is stress-timed, so "stress" is primary.

@@ -33,8 +33,11 @@ class OrganizationDeclaration:
     seed: int = 20260915
     end_window: int = 4
     theta: float = 0.80
+    end_statistic: str = "lag_max"
 
     def __post_init__(self):
+        if self.end_statistic not in ("edge_count", "lag_max"):
+            raise ValueError("end_statistic must be edge_count or lag_max")
         for name in ("alpha", "theta"):
             v = getattr(self, name)
             if isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v):
@@ -72,11 +75,12 @@ def tail_p(observed, null):
     return (1 + sum(v >= observed for v in null)) / (len(null) + 1)
 
 
-def summarize(observed, null, opportunities, unknown, declaration):
+def summarize(observed, null, opportunities, unknown, declaration, raw_edges=None):
     """Keep descriptive edges, stratum discoveries and refusals distinct."""
     family = len(STRATA)  # never shrink this after seeing/refusing a stratum
     mean = sum(null) / len(null) if null else None
-    out = dict(opportunities=opportunities, affirmed_edges=observed,
+    out = dict(opportunities=opportunities, observed_statistic=observed,
+               affirmed_edges=observed if raw_edges is None else raw_edges,
                unresolved_pairs=unknown, null_mean=mean,
                excess=observed - mean if mean is not None else None,
                null_min=min(null) if null else None,
@@ -118,7 +122,20 @@ def analyze_graph(matrix, lengths, declaration=None):
     for index, name in enumerate(STRATA):
         edge = np.asarray(pairs[name], dtype=int).reshape((-1, 2))
         left, right = edge[:, 0], edge[:, 1]
-        observed = int(affirmed[left, right].sum())
+        lag_masks = []
+        if name == "end" and d.end_statistic == "lag_max":
+            final_line = {pos: i for i, pos in enumerate(pools["end"])}
+            distances = np.array([final_line[y] - final_line[x] for x, y in edge])
+            lag_masks = [distances == lag for lag in range(1, d.end_window + 1)]
+
+        def statistic(values):
+            # The identical search is inside every permutation. A maximum
+            # compared to the null for ONE lag would manufacture discoveries.
+            return (max(int(values[mask].sum()) for mask in lag_masks)
+                    if lag_masks else int(values.sum()))
+
+        raw_edges = int(affirmed[left, right].sum())
+        observed = statistic(affirmed[left, right])
         unknown = int((a[left, right] == -1).sum())
         null = []
         if len(edge) and len(STRATA) / (d.n_perm + 1) <= d.alpha:
@@ -129,10 +146,11 @@ def analyze_graph(matrix, lengths, declaration=None):
                 rng.shuffle(draw)  # independent uniform permutation; identity allowed
                 order = np.arange(n)
                 order[pool] = draw
-                null.append(int(affirmed[order[left], order[right]].sum()))
-        results[name] = summarize(observed, null, len(edge), unknown, d)
+                null.append(statistic(affirmed[order[left], order[right]]))
+        results[name] = summarize(observed, null, len(edge), unknown, d, raw_edges)
+        results[name]["statistic"] = "max_edges_at_one_line_distance" if lag_masks else "edge_count"
     return {
-        "method": "conditional-rhyme-organization-v1",
+        "method": "conditional-rhyme-organization-v2" if d.end_statistic == "lag_max" else "conditional-rhyme-organization-v1",
         "unit": "item/stratum; individual rhyme edges are descriptive only",
         "error_control": "Bonferroni FWER per item under the declared exchangeability nulls",
         "family_size": len(STRATA), "declaration": asdict(d),
@@ -206,10 +224,12 @@ def main(argv=None):
     parser.add_argument("--permutations", type=int, default=999)
     parser.add_argument("--seed", type=int, default=20260915)
     parser.add_argument("--alpha", type=float, default=0.05)
+    parser.add_argument("--end-statistic", choices=("edge_count", "lag_max"), default="lag_max")
     parser.add_argument("--voices", action="store_true", help="retain parenthetical sung words")
     args = parser.parse_args(argv)
     try:
-        d = OrganizationDeclaration(n_perm=args.permutations, seed=args.seed, alpha=args.alpha)
+        d = OrganizationDeclaration(n_perm=args.permutations, seed=args.seed, alpha=args.alpha,
+                                    end_statistic=args.end_statistic)
         items = list(lyric_items(args.file))
         if len(items) != 1:
             raise ValueError("supply exactly one lyric item; family control is per item")
