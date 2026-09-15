@@ -104,7 +104,37 @@ some books and after the AUTHOR ATTRIBUTION at the end in others (the "sung
 after every verse" convention). Both are in the corpus, source order preserved.
 It broke the hymn cell's first parser.
 
-### A-2 · Repetition-with-variation `PARTIAL` 2026-08-21
+### A-2 · Repetition-with-variation `CLOSED` 2026-09-15
+
+**CLOSED — answer lines and call-and-response now have a directed representation.**
+`quality/line_relations.py` supplies `LineRelation` and `LINE_RELATIONS`:
+`answer` and `call_and_response`, with 1-based call/response line coordinates,
+declaration source, and optional voice labels. These are discourse roles,
+kept separate from `relations.py`'s phonological `REGISTRY`: a reply need not
+rhyme, repeat, or preserve a tune slot. No semantic reply is inferred from
+words or from a repeated phrase. The shared blueprint validator rejects
+malformed, reversed, duplicate, out-of-range and cross-block links, including
+links across two sections with the same name. Nonadjacent links and multiple
+responses to one call (or multiple calls to one response) are representable.
+
+`grid.song_from_blueprint` retains the declarations; `song_function_report`
+reports their direction, roles, source, and CURRENT draft words under
+`line_relations`; the existing `function` verb renders them. Absent declarations
+remain `undeclared`, an explicit empty array is `empty`, and populated links
+are `present`. These are declaration states, not certification of semantic
+answers, and do not alter rhyme verdicts or the return-question denominator.
+Automatic corpus annotation and automatic composition of these roles are not
+claimed by this representation change.
+
+**VERIFICATION:** `quality/test_song_function.py`'s A-2 regression reads all
+eight printed Quest./Ans. pairs in the staged Herrick *Upon Love, By Way Of
+Question And Answer*, then exercises blueprint ingestion, current-text reports,
+voice-labelled responses, both blueprint readers' refusal paths, repeated
+section names, and the real `function` CLI. Implementation commit: `d1404cc6`.
+The full song-function, grid, fit and meter regression suites pass; the
+gap-register verifier and documentation/path checks pass.
+
+**Historical audit (superseded by the closure above):**
 **VERIFIED CLAUSE BY CLAUSE 2026-08-21 — the pass this entry's own
 declaration promised.** Two clauses are FALSE at head; two are the entry.
 
