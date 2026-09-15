@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "date": "2026-09-15",
+  "base_commit": "64d32b204f493790a9c98f74f68f8ffb242cdb23",
+  "annotation_code_commit": "9b23cdee3575e04b56de4dd26eda69fc23703054",
+  "readability": {
+    "population": "Raw source reader over all editions, separate from weighted calibration.",
+    "before": {
+      "lines_countable": 281903,
+      "non_substitutions": 989,
+      "substituted_end_word": 16652,
+      "unreadable_final": 17641,
+      "unreadable_final_piece": 428,
+      "unreadable_final_token": 17213,
+      "substituted_flagged": 16652,
+      "substituted_silent": 0
+    },
+    "after": {
+      "lines_countable": 281764,
+      "non_substitutions": 980,
+      "substituted_end_word": 16650,
+      "unreadable_final": 17630,
+      "unreadable_final_piece": 428,
+      "unreadable_final_token": 17202,
+      "substituted_flagged": 16650,
+      "substituted_silent": 0
+    },
+    "base_suite_exit": 0,
+    "pre_repin_suite_exit": 1,
+    "pre_repin_failed_pins": 7,
+    "post_repin_suite_exit": 0
+  },
+  "repeat_blocks": {
+    "population": "Marked source blocks; whole-corpus and English scopes reported separately.",
+    "before": {
+      "burden": 1772,
+      "chorus": 290,
+      "cross_pairs": 896,
+      "cross_shared": 61,
+      "eng_total": 2470,
+      "refrain": 709,
+      "rep_total": 2771
+    },
+    "after": {
+      "burden": 1772,
+      "chorus": 257,
+      "cross_pairs": 888,
+      "cross_shared": 61,
+      "eng_total": 2435,
+      "refrain": 707,
+      "rep_total": 2736
+    },
+    "base_suite_exit": 0,
+    "pre_repin_suite_exit": 1,
+    "pre_repin_failed_pins": 3,
+    "post_repin_suite_exit": 0
+  },
+  "notes": [
+    "All source text and physical coordinates remain preserved as apparatus.",
+    "These are measured census updates; no reader, calibration rule, or test invariant is relaxed.",
+    "The 33 chorus and two refrain apparatus labels account for the 35-repeat-block decrease."
+  ]
+}

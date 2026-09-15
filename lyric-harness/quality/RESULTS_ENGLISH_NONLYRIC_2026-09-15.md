@@ -99,6 +99,28 @@ mapping were also corrected before final adoption. Those initial failed attempts
 are not counted as successful checks. Full-precision reports, the corrected
 reproduction helpers and final adoption receipts are retained with the rows.
 
+The closing suites also found source-census expectations outside the calibration
+registry. Complete runs against main at `64d32b2` and the annotated corpus
+establish these additional changes. These populations are distinct from the
+weighted calibration population above.
+
+| Source census | Before | After |
+|---|---:|---:|
+| Countable source lines | 281,903 | 281,764 |
+| Unreadable final words or pieces | 17,641 | 17,630 |
+| Earlier-word substitutions | 16,652 | 16,650 |
+| Chorus/burden/refrain blocks, all languages | 2,771 | 2,736 |
+| English repeat blocks, including patter | 2,470 | 2,435 |
+| Cross-function pairs | 896 | 888 |
+
+The repeat-block decrease is exactly the 33 chorus and two refrain labels
+preserved as apparatus. Piece refusals remain 428, silent substitutions remain
+zero, and all 61 shared-line cross-function pairs remain. The source-reader
+partition checks still hold. Full before/after runs, corrected test results,
+and exact counts are retained in `census-deltas.json` and the neighboring
+readability and song-function receipts. Both complete suites pass after their
+measured count assertions are updated; no reader or grading rule changes.
+
 ## Integration and verification
 
 Current main at `64d32b204f493790a9c98f74f68f8ffb242cdb23` is merged. Both
