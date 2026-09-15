@@ -249,12 +249,12 @@
         {
           "path": "data/rhyme_capacity_eng.tsv",
           "bytes": 524281,
-          "sha256": "f1aaeb13fc34462c09808eb0698dd8e6c90ed7782f1388861218c23eb4e7a560"
+          "sha256": "7b6a74f94884819ccfce859526fbfa8d7f9385f71ff4ee07bca8a3de33aa9b72"
         },
         {
           "path": "data/section_marks.tsv",
-          "bytes": 7378,
-          "sha256": "6cd1faa93f8b53d3dd360ff66ed6c59ed3a988d9ce5bdb2a2a7604bb40d36c7b"
+          "bytes": 7658,
+          "sha256": "40616127f90033f89658974f059ce7c4df2ff7b3cb8d47d020a20782ea0b894f"
         },
         {
           "path": "data/siku_orthography.tsv",
@@ -263,8 +263,8 @@
         },
         {
           "path": "data/song_endword_en.tsv",
-          "bytes": 4743860,
-          "sha256": "2552af747a104b9eda001dd0da660437f7551d8f724a6fcea5e0a390e9618201"
+          "bytes": 4740984,
+          "sha256": "ddd2622931e0c470bc7fefbb633a6427c6ca6f77553803e416c5c4d9310a6f28"
         },
         {
           "path": "data/song_functions_eng.tsv",
@@ -278,13 +278,13 @@
         },
         {
           "path": "data/song_rhymepair_en.tsv",
-          "bytes": 3991365,
-          "sha256": "b8e6f88a7bb46a4f8682779c983df172759f7819464a1855c0479f166b717de1"
+          "bytes": 3991331,
+          "sha256": "66f0cfecf880ce8677872e3494adc736fb43f04aa09ebd753a08e2f9e57dae68"
         },
         {
           "path": "data/sources.tsv",
-          "bytes": 1588679,
-          "sha256": "9295cbd4f065b3de9837cb2e871d302b46b44526e6257a8fc0bba656bee9075b"
+          "bytes": 1596285,
+          "sha256": "26a587cc3ca4443f0d26a6f40e95c19bc507bf6a318b6000049b6438930825cf"
         },
         {
           "path": "data/structure_canon.tsv",

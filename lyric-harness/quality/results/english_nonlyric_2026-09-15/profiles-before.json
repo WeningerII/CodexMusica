@@ -1,0 +1,363 @@
+{
+  "song": {
+    "name": "song",
+    "unit": "whole lyric sheet, 200-400 tokens",
+    "lo": 200,
+    "hi": 400,
+    "n_lines": 0,
+    "n_human": 2231,
+    "n_generated": 0,
+    "percentiles": {
+      "mattr_min": 0.717809720727355,
+      "function_word_ratio_max": 0.47871873227323464,
+      "anaphora_max": 0.3,
+      "line_length_cv_min": 0.11089061090642224,
+      "predictable_pair_fraction_max": 0.9285714285714286
+    },
+    "measured_auc": {},
+    "note": "CURRENT 2026-09-14 remeasurement after Unicode/apostrophe normalization: 2231 works over 663 files, 200-400 tokens. The unchanged five-check band rule, 200 author-held-out splits, and period controls were rerun together; full-precision thresholds and instrument-precision rates are archived in results/computational_audit_2026-09-14/current-band-adoption.json. This profile remains superseded by lyric. Historical notes: CURRENT 2026-09-08 ADOPTION: the active coordinates and held-out tuples above describe the corrected population. All following notes and previous source metadata describe historical measurements, not the current band. Previous source registration: corpus/song/eng_*.txt: 1,297 files, 1,294 distinct authors, 8,667 `--- TITLE:` items, 283,520 sung lines (~~283,534~~ -- the sung-line total drifted by fourteen and nothing gated it, because it is quoted here and re-derived by no check). Restricted to items of 200-400 tokens: 2,261 items over 663 authors (~~150-400: 3,571 items over 879 authors~~, and the shipped `n_human` had ALREADY drifted 3,571 -> 3,575 against that band before this re-adoption -- also ungated, for the same reason). Thresholds are the 5th/95th percentile of that human class, held out BY AUTHOR (50/50, 200 seeds). RE-ADOPTED 2026-08-26 on the band rule's own answer; ADOPTED 2026-08-21, superseding ~~143 files, 4,930 items, 152,325 sung lines, 1,859 items over 108 authors~~ (2026-08-11). THE SET WAS ADOPTED TOGETHER, AND THAT IS WHY IT WAITED: three thresholds moved and two did not, and the two that did not are the ones that made it safe -- `predictable_pair_fraction_max` re-derives to 0.9286 against a shipped 0.9286, and `anaphora_max` to 0.3000 against 0.3000. Repinning the three while the fifth still described the 143-file corpus would have made this profile half a description of one corpus and half of another (doctrine 1), which is exactly why the closing sitting was deferred until the predictability arm was banked rather than skipped.\nHistorical notes: READ THIS BEFORE QUOTING ANY NUMBER FROM IT.\n  * It is NOT a separation. The other two profiles separate 152 Shakespeare sonnets from 40 model sonnets and can quote an AUC. This one has no generated song class, so it has no AUC and makes no claim to catch generated text. It only says how often it interrupts a human songwriter: per check 4.85-5.18% median, and 20.22% for the UNION of the five (5th-95th percentile of seeds 15.33-24.55%). One human song in five trips something. THE FOUR-CHECK UNION IS NOT RESTATED FOR THIS BAND: the runner does not emit one, so the struck figure below is left naming the population it was measured on rather than carried across (doctrine 20). REPINNED 2026-08-26 from ~~4.89-5.11% per check, 19.71% union [15.03-25.05], four-check 16.81% [12.86-21.47]~~, and 2026-08-21 from ~~4.8-5.4% per check, 20.79% union [12.57-29.43], four-check 17.66% [10.78-25.58]~~.\n  * The band was chosen by a rule declared before it was read off: the widest contiguous token range in which every 50-token sub-bin holds >=100 items and every sub-bin threshold sits within its check's own tolerance of the band-wide one -- mattr, fwr and cv 0.02, anaphora 0.03 (one line's worth on a 33-line item), predictability 0.05 (a fraction of an item's PAIRS, not of its lines, and a typical item carries 7-12 of them, so one pair's worth of movement is already 0.08-0.14). ~~0.02 (0.03 for anaphora)~~ is how this bullet stated the rule until 2026-08-26, which is the FOUR-check version from before `predictable_pair_fraction_max` joined on 2026-08-13 -- it named no tolerance for the fifth check at all, and the fifth check is the one that moved the band. **200-400 is what the rule returns**, superseding ~~150-400~~. It was not narrowed to exclude any particular lyric: every candidate is refused by a NAMED sub-bin (150-400 and 150-450 on predictability at 150-200, 1.0000 against 0.9375; 100-400 on anaphora at 100-150; 50-400, 200-500 and 100-800 on mattr), and mattr's 5th percentile still runs 0.6442 at 50-80 tokens to 0.7579 at 700-1200.\n  * PERIOD, REPINNED 2026-08-26. The corpus is pre-1931 by construction; over the 200-400 band's 663 authors, 312 carry printed dates (born 1340-1887, median 1809, latest death 1928) and 351 are UNDATED and dropped from this check alone, counted apart and never as a zero. **THE PERIOD SIGNAL HAS RELOCATED AGAIN AND IT IS `mattr` THAT SURVIVES NOW**: rho -0.177, p_perm 0.0029 over 10,000 label permutations, clearing Bonferroni over the five checks (0.0100). `fwr` +0.125 (p 0.0265), `cv` +0.068 (p 0.2226) and `predictability` +0.083 (p 0.1497) do not. ANAPHORA IS DEAD HERE: rho -0.025, p_perm 0.6605 (~~-0.008, 0.8695~~ on the 150-400 band). NONE OF IT IS ADOPTED AS A CAUTION, for the reason the withdrawal below already gives: 351 of 663 in-band authors are dropped as undated and they are not missing at random, so a surviving correlation on a 47% subsample is not a clean finding either. Cross-cohort transfer at the median birth year 1809 keeps its asymmetry -- fitted on earlier-born authors the gate over-flags later-born ones (fwr 10.79% against a cohort-permutation null median of 5.85%, p 0.0035, the only one of twelve to clear Bonferroni at 0.00417; mattr 10.18% against 7.06%), and the reverse direction sits at or below nominal. A 2026 lyric is further along that axis than any author here.\n  * PERIOD, THE SUPERSEDED READING, kept legible (doctrine 17). Latest birth 1872, latest death 1929 in the 108-author calibration population. THIS BULLET USED TO READ that ANAPHORA has a real period slope inside that window -- author-level Spearman +0.275 against birth year, p_perm 0.0042 over 10,000 label permutations at seed 20260811, surviving Bonferroni over the five checks (cuts at 0.0100) -- and that this is a THIRD feature caught reading period rather than quality (doctrine 11). WITHDRAWN 2026-08-20: re-derived over 407 dated authors against the original 108 it is rho -0.008, p_perm 0.8695. ABSENT and sign-flipped, not weaker, so the caution is withdrawn rather than softened, and the struck figure is kept legible rather than deleted (doctrine 17). NEITHER OF THESE IS CLAIMED: the re-derivation drops 472 of 879 in-band authors as UNDATED and they are not missing at random, so it is a failure to reproduce on a biased 46% subsample and not a clean bill; and `mattr` (-0.228 -> -0.125) and `fwr` (+0.090 -> +0.144) DO survive Bonferroni now, so the period reading relocated rather than left -- and the same caveat is why they are not adopted either. PREDICTABLE_RHYME is not a fourth: rho -0.018, p_perm 0.8572, does not survive, so the fifth check reads no period signal at all in this band. Cross-cohort threshold transfer fails asymmetrically: fitted on earlier-born authors it over-flags later-born ones (function-word ratio 12.39% against a cohort-permutation null median of 5.17%, mattr 10.62% against 4.92%), and the reverse direction sits at or below nominal. Neither survives Bonferroni over the eight cross-cohort comparisons, so it is a direction and not a finding -- but a 2026 lyric is further along that axis than any author here, and the only measured gradient points at a HIGHER false-positive rate there.\n  * The unit is the WHOLE SHEET with any [VERSE n] / [CHORUS] marker line removed, which is how the corpus items were counted. A refrain printed twice is INSIDE the calibration, so a chorus that repeats does not by itself cost anything here. That also means these thresholds may not be applied to one section of a sheet: for that, the section profile, at its own length.\n  * PREDICTABLE_RHYME NOW RUNS AT SONG LENGTH, calibrated 2026-08-13 against the frequency source this project swapped to on 2026-08-11 (data/opensubtitles_en_50k.tsv, via `lyric_harness.Lexicon.freq_rank`) -- the gap this profile used to carry, closed rather than left absent (doctrine 58 the other direction). Threshold 0.9333 (human 95th percentile of the obvious-pair fraction, ~~0.9286~~ on the 150-400 band), held-out FPR 5.14% median [2.64-7.47%] (~~4.81% [2.52-7.43%]~~, ~~4.93% [3.26-6.46%]~~). It shows no period slope in this band (rho +0.083, p_perm 0.1497, does not survive Bonferroni; ~~-0.018, 0.8572~~) -- and on this band it is `mattr` rather than anaphora that survives, so the sentence this bullet used to make about being the second feature reading period is now about a different check entirely. **AND IT IS THIS CHECK THAT MOVED THE BAND**: its sub-bin homogeneity at 150-200 is what 150-400 fails on, which is the fifth check finally being READ by the rule that always claimed to consult every check. Still absent from the section profile, which never measured a threshold at that length and is a different cell's to move.\n  * The 5th/95th percentiles are ITEM-weighted, and the band is not evenly authored -- but MUCH less unevenly than it was. The top five authors are 27.1% of the 200-400 band (Barnes 170, Hemans 163, Watts 102, Burns 92, Durfey 86) and the median author contributes ONE item; ~~Watts is 15.3% of it, and the top five authors are 51.7%~~ described the 108-author population. Leave-one-author-out moves the thresholds by at most 0.0017 (mattr), 0.0022 (fwr), 0.0083 (anaphora), 0.0007 (cv), 0.0103 (predictability) -- every one of them smaller than on the old band (~~0.0052 / 0.0018 / 0.0172 / 0.0013~~), which is the narrower band being better authored rather than merely smaller. An author-weighted alternative -- one median per author, n=663 (~~n=108~~) -- gives 0.7214 / 0.4786 / 0.2799 / 0.1134 / 0.8750, so the two still disagree most on anaphora and now also on predictability. Item-weighted ships because the rate the gate delivers is an item rate.",
+    "tolerance": 1.25,
+    "source": "CURRENT 2026-09-14 remeasurement after Unicode/apostrophe normalization: 2231 works over 663 files, 200-400 tokens. The unchanged five-check band rule, 200 author-held-out splits, and period controls were rerun together; full-precision thresholds and instrument-precision rates are archived in results/computational_audit_2026-09-14/current-band-adoption.json. This profile remains superseded by lyric. Historical source: Re-adopted 2026-09-08 after normalized-reader/editorial and canonical-work corrections. Population: 8,546 total works / 8,545 nonempty English works; selected band 200-450 tokens, 2438 items, 690 author files. Full existing five-coordinate band selection and 200 author-held-out splits were measured; short-band predictability remains unadopted at the statistic ceiling 1.0. Reproduce with quality/song_profile_calibration.py --profile song --check.",
+    "held_out_fpr": {
+      "mattr": [
+        5.05,
+        2.75,
+        7.95
+      ],
+      "function_word_ratio": [
+        5.13,
+        3.23,
+        8.43
+      ],
+      "anaphora": [
+        4.83,
+        2.94,
+        7.82
+      ],
+      "line_length_cv": [
+        5.09,
+        3.34,
+        7.04
+      ],
+      "predictability": [
+        5.03,
+        2.57,
+        7.49
+      ],
+      "ANY": [
+        20.13,
+        15.43,
+        24.57
+      ],
+      "cliche": [
+        7.62,
+        6.05,
+        9.05
+      ]
+    },
+    "held_out_scope": {},
+    "curves": {},
+    "mattr_ttr_population": {},
+    "superseded_by": "lyric"
+  },
+  "short": {
+    "name": "short",
+    "unit": "whole lyric sheet, 50-150 tokens",
+    "lo": 50,
+    "hi": 150,
+    "n_lines": 0,
+    "n_human": 3650,
+    "n_generated": 0,
+    "percentiles": {
+      "mattr_min": 0.6686815789473685,
+      "function_word_ratio_max": 0.4941992689860565,
+      "anaphora_max": 0.375,
+      "line_length_cv_min": 0.09603236703696856
+    },
+    "measured_auc": {},
+    "note": "CURRENT 2026-09-14 remeasurement after Unicode/apostrophe normalization: 3650 works over 693 files, 50-150 tokens. The unchanged five-check band rule, 200 author-held-out splits, and period controls were rerun together; full-precision thresholds and instrument-precision rates are archived in results/computational_audit_2026-09-14/current-band-adoption.json. This profile remains superseded by lyric. Historical notes: CURRENT 2026-09-08 ADOPTION: the active coordinates and held-out tuples above describe the corrected population. All following notes and previous source metadata describe historical measurements, not the current band. Previous source registration: corpus/song/eng_*.txt: 1,297 files, 1,294 distinct authors, 8,667 `--- TITLE:` items, 283,520 sung lines. Restricted to items of 50-150 tokens: 3,703 items over 690 authors. Thresholds are the 5th/95th percentile of that human class; median items per author 1; top five authors 35.4% of the band (Watts 421, Herrick 348, Burns 262, Durfey 171, Hemans); leave-one-author-out moves the thresholds by at most 0.0115 (mattr), 0.0026 (fwr), 0.0000 (anaphora), 0.0020 (cv). Author-weighted alternative 0.6893 / 0.4882 / 0.3559 / 0.1011; item-weighted ships because the rate the gate delivers is an item rate. Re-derived by `python3 quality/song_profile_calibration.py --profile short --check --without-predictability` (~150 CPU-s cold).\nHistorical notes: THE TOLERANCE RUNS THE OTHER WAY HERE, AND IT IS SAID RATHER THAN COPIED: carrying these thresholds out by 1.10 / 1.25 / 1.50 / 2.00 / 3.00 takes the union held-out FPR 16.18% -> 15.76 / 15.19 / 14.22 / 13.62 / 12.69%, FALLING, because a floor calibrated on short sheets rarely fires on longer ones (the mattr floor is the lowest of the ~~three~~ two BAND lyric-sheet profiles, before M-239). So 1.25 is not the cheap point of a rising cost, as it is for `song`; it is DECLARED to match that profile so the two reaches meet (40-187 against 160-500) and the nearest-measured-edge rule ~~decides~~ decided between them until 2026-09-04, when the `lyric` row superseded both. PERIOD (doctrine 11): 381 of 690 authors are dated, 309 are not; mattr rho -0.226 (p_perm 0.0001), fwr +0.143 (0.0052) and anaphora +0.164 (0.0022) SURVIVE Bonferroni at 0.0125, cv does not; thresholds fitted on earlier-born authors over-flag later-born ones (EARLY->LATE union 26.10% against a null median 16.15%, p 0.0075) and the reverse runs at or below the null. A stronger period reading than `song`'s, on the same 45%-undated subsample, and NOT adopted as a caution for the same reason (doctrine 20) — recorded here so the next reader of this band knows which way it leans. No generated class exists at this length; the evidence is the held-out FPR. The tie with `sonnet` over 108-150 tokens is broken by the text's LINE COUNT (`declaration_for`, preregistration §4). STAGE B (2026-09-02) REFUSED THE FIFTH THRESHOLD: the 95th percentile of predictable_pair_fraction over this band is 1.0000, the statistic's own ceiling, at a held-out FPR of 0.00% on 200 of 200 seeds -- a check that could not fail (doctrine 48); an item this short carries one or two rhyme pairs, so the fraction is 0/1-valued and piles at 1. PREDICTABLE_RHYME is silent on this band until a pair-count floor is preregistered (RESULTS_SHORT_SONG_FLOOR.md 7).",
+    "tolerance": 1.25,
+    "source": "CURRENT 2026-09-14 remeasurement after Unicode/apostrophe normalization: 3650 works over 693 files, 50-150 tokens. The unchanged five-check band rule, 200 author-held-out splits, and period controls were rerun together; full-precision thresholds and instrument-precision rates are archived in results/computational_audit_2026-09-14/current-band-adoption.json. This profile remains superseded by lyric. Historical source: Re-adopted 2026-09-08 after normalized-reader/editorial and canonical-work corrections. Population: 8,546 total works / 8,545 nonempty English works; selected band 50-150 tokens, 3641 items, 690 author files. Full existing five-coordinate band selection and 200 author-held-out splits were measured; short-band predictability remains unadopted at the statistic ceiling 1.0. Reproduce with quality/song_profile_calibration.py --profile short --check.",
+    "held_out_fpr": {
+      "mattr": [
+        5.4,
+        1.9,
+        10.41
+      ],
+      "function_word_ratio": [
+        5.16,
+        3.0,
+        8.2
+      ],
+      "anaphora": [
+        3.83,
+        3.1,
+        7.57
+      ],
+      "line_length_cv": [
+        5.42,
+        3.52,
+        7.21
+      ],
+      "ANY": [
+        16.31,
+        11.27,
+        22.92
+      ],
+      "cliche": [
+        3.98,
+        3.36,
+        4.73
+      ]
+    },
+    "held_out_scope": {},
+    "curves": {},
+    "mattr_ttr_population": {},
+    "superseded_by": "lyric"
+  },
+  "lyric": {
+    "name": "lyric",
+    "unit": "whole lyric sheet, 4-3244 tokens, thresholds a function of ln N",
+    "lo": 4,
+    "hi": 3244,
+    "n_lines": 0,
+    "n_human": 8545,
+    "n_generated": 0,
+    "percentiles": {},
+    "measured_auc": {},
+    "note": "CURRENT 2026-09-14 adoption supersedes every older value in the following historical note. CURRENT 2026-09-08 adoption above supersedes the 2026-09-04 coefficients and denominators. The generic knot evaluator serves CV and predictability identically. Historical source registration: corpus/song/eng_*.txt, every `--- TITLE:` item (8,667 over 1,297 files, 4-3,245 tokens), no sample; thresholds fit by the pinball loss in ln N over the whole corpus and held out AUTHOR-wise on 200 file-level 50/50 splits, the rate tested in 22 fixed bins of ~400 items, the last 267 (RESULTS_LENGTH_CURVE.md §5). predictable_pair_fraction_max is a knot table (§9) that fires only from 164 tokens: through 163 a one- or two-pair song makes the fraction 0/1-valued and the human 95th percentile IS the ceiling, so PREDICTABLE_RHYME is silent there by resolution, not by choice — the `short` profile's stage B refusal, carried as a disclosed under-resolved run rather than as an absent threshold. Historical note: Supersedes `song` (200-400) and `short` (50-150), which stay above for their own drift checks. A finding under this row names the threshold EVALUATED AT THIS TEXT'S LENGTH beside the formula, because the number differs at every N.",
+    "tolerance": 1.0,
+    "source": "Re-adopted 2026-09-14 after Unicode/apostrophe normalization: 8545 nonempty works over 1296 files, 4-3244 tokens. Full 200 author-held-out 50/50 splits, all five checks pass all 21 length bins. The preregistered rule chooses MATTR C1, function-word ratio C1, anaphora C2, CV CK. Predictability CK retains the previously adopted anti-vacuity exception to C0; the held-out protocol was rerun and every bin passed. Its threshold is 1.0 through 165 tokens and begins to fall at 166. All coefficients, knots and held-out percentages retain full precision. See results/computational_audit_2026-09-14/current-curve-adoption.json and the verified calibration rows.",
+    "held_out_fpr": {
+      "ANY": [
+        18.606230954544515,
+        14.687780939676726,
+        23.827975077972827
+      ],
+      "anaphora": [
+        5.07605302485194,
+        3.416815248735455,
+        7.180968462370302
+      ],
+      "line_length_cv": [
+        5.339649969959775,
+        4.286831817710738,
+        6.737629748685296
+      ],
+      "function_word_ratio": [
+        5.14310582627359,
+        3.1901989278311955,
+        7.744422133930816
+      ],
+      "mattr": [
+        4.85567265305959,
+        2.93649309788923,
+        7.907153633346033
+      ],
+      "predictability": [
+        2.637653035785275,
+        1.3292908919993986,
+        4.465166379430106
+      ]
+    },
+    "held_out_scope": {
+      "predictability": ". This rate pools all 4-3244-token works, including lengths through 165 where the threshold equals 1.0 and cannot fire. It is not conditional on lengths where the check can fire."
+    },
+    "curves": {
+      "anaphora_max": [
+        1.1410264490269637,
+        -0.24192225650780994,
+        0.016089470087265554
+      ],
+      "line_length_cv_min": {
+        "knots": [
+          [
+            3.5553480614894135,
+            0.0642758144161543
+          ],
+          [
+            3.9512437185814275,
+            0.07687396557320486
+          ],
+          [
+            4.23410650459726,
+            0.08939000052740793
+          ],
+          [
+            4.418840607796598,
+            0.10126582278481014
+          ],
+          [
+            4.543294782270004,
+            0.1082168607854236
+          ],
+          [
+            4.634728988229636,
+            0.10505215778924569
+          ],
+          [
+            4.709530201312334,
+            0.09485293865439588
+          ],
+          [
+            4.787491742782046,
+            0.09118241674784329
+          ],
+          [
+            4.882801922586371,
+            0.0986031908999799
+          ],
+          [
+            4.955827057601261,
+            0.10157929403030734
+          ],
+          [
+            5.0238805208462765,
+            0.10451121708338629
+          ],
+          [
+            5.10594547390058,
+            0.10739549071589934
+          ],
+          [
+            5.198497031265826,
+            0.11043838037447044
+          ],
+          [
+            5.288267030694535,
+            0.11059542136738493
+          ],
+          [
+            5.384495062789089,
+            0.10637480114125696
+          ],
+          [
+            5.493061443340548,
+            0.10995489690875815
+          ],
+          [
+            5.598421958998375,
+            0.11208072349964783
+          ],
+          [
+            5.723585101952381,
+            0.10945371091569346
+          ],
+          [
+            5.872117789475416,
+            0.1178199701019257
+          ],
+          [
+            6.07073772800249,
+            0.12176047102421393
+          ],
+          [
+            6.519147287940395,
+            0.12865487185334548
+          ]
+        ]
+      },
+      "function_word_ratio_max": [
+        0.5601541346316956,
+        -0.014256259671846554
+      ],
+      "mattr_min": [
+        0.5028330910295854,
+        0.037016354139316636
+      ],
+      "predictable_pair_fraction_max": {
+        "knots": [
+          [
+            3.5553480614894135,
+            1.0
+          ],
+          [
+            3.9512437185814275,
+            1.0
+          ],
+          [
+            4.23410650459726,
+            1.0
+          ],
+          [
+            4.418840607796598,
+            1.0
+          ],
+          [
+            4.543294782270004,
+            1.0
+          ],
+          [
+            4.634728988229636,
+            1.0
+          ],
+          [
+            4.709530201312334,
+            1.0
+          ],
+          [
+            4.787491742782046,
+            1.0
+          ],
+          [
+            4.882801922586371,
+            1.0
+          ],
+          [
+            4.955827057601261,
+            1.0
+          ],
+          [
+            5.0238805208462765,
+            1.0
+          ],
+          [
+            5.10594547390058,
+            1.0
+          ],
+          [
+            5.198497031265826,
+            0.9375
+          ],
+          [
+            5.288267030694535,
+            0.9285714285714286
+          ],
+          [
+            5.384495062789089,
+            0.9335416666666665
+          ],
+          [
+            5.493061443340548,
+            0.9333333333333333
+          ],
+          [
+            5.598421958998375,
+            0.9378676470588234
+          ],
+          [
+            5.723585101952381,
+            0.9090909090909091
+          ],
+          [
+            5.872117789475416,
+            0.9166666666666666
+          ],
+          [
+            6.07073772800249,
+            0.8826797385620911
+          ],
+          [
+            6.519147287940395,
+            0.8571428571428571
+          ]
+        ]
+      }
+    },
+    "mattr_ttr_population": {
+      "window": 50,
+      "items": 540
+    },
+    "superseded_by": ""
+  }
+}

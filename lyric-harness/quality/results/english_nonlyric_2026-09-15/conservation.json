@@ -1,0 +1,30 @@
+{
+  "annotations": {
+    "files": 55,
+    "nonlyric_rows_classified": 253,
+    "apparatus_only_titles_classified": 9,
+    "apparatus_only_section_labels_classified": 136,
+    "deleted_physical_lines": 0,
+    "lyric_lines_changed": 0,
+    "reasons": {
+      "printed-separator-or-omission-mark": 111,
+      "printed-author-credit": 8,
+      "ode-section-number": 10,
+      "title-page": 9,
+      "title-page-and-dedication": 15,
+      "contents-list": 87,
+      "title-page-and-dedication-prose": 13
+    }
+  },
+  "current_population": {
+    "files": 1297,
+    "raw_titles": 8652,
+    "weighted_titles": 8537,
+    "nonempty": 8536,
+    "normalized_lines": 279502
+  },
+  "calibration_lines_no_longer_counted": 251,
+  "zero_weight_edition_rows_no_longer_counted": 2,
+  "physical_text_preserved": true,
+  "source_reference_assignments_added": 0
+}

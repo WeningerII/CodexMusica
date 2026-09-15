@@ -2096,7 +2096,8 @@ _SONG_GLOB = os.path.join(os.path.dirname(os.path.abspath(__file__)),
 #: correction (Whittier -1, Read -1, Hemans -5, Lovelace -1; restored work
 #: boundaries Blake +1, D'Urfey +1). This retains every source edition;
 #: it is not the separately weighted/nonempty 8545-item calibration set.
-_AIR_EXPECT = {"cym": (391, 13), "eng": (8661, 539), "fas": (8350, 0),
+# 2026-09-15: nine apparatus-only titles annotated; named airs unchanged.
+_AIR_EXPECT = {"cym": (391, 13), "eng": (8652, 539), "fas": (8350, 0),
                "fin": (962, 18), "ltc": (10529, 0), "msa": (129, 0),
                # ADDED 2026-08-22 with the K-4 Old Norse staging: 160 vísur,
                # ZERO named airs, and the zero is a reading rather than an

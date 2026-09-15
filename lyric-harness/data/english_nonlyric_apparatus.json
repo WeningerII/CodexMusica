@@ -1,0 +1,2537 @@
+{
+  "version": 1,
+  "date": "2026-09-15",
+  "baseline_commit": "40a28ddcd72be417b3d4d08b08580eb0aecc0f4a",
+  "recovered_review_baseline": "2cfe01d0db5101c1cf89661d85022f2a1c9fb37c",
+  "operation": "Prefix reviewed nonlyric material with the existing # APPARATUS: convention; preserve original text and physical lines.",
+  "files": [
+    {
+      "file": "eng_american_a_f_leonard.txt",
+      "before_sha256": "4cb4f3e6e950907e8434957bdb1bded21509e68b109e3a98f3606d12dcac65ba",
+      "after_sha256": "6cd1a784215e1e07bb7ee649fd32af07fd60086d0da559e629a7c49455bd4d15",
+      "replacements": {
+        "21": {
+          "before": "[VERSE 2]",
+          "after": "# APPARATUS: [VERSE 2]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "22": {
+          "before": "    *       *       *       *       *",
+          "after": "# APPARATUS:     *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 10,
+      "before_body_sha256": "ffd9c2a38129ba976fd081fdb708853c9752956596247abfc2000b83a7b0d4f5"
+    },
+    {
+      "file": "eng_american_a_m_hobby.txt",
+      "before_sha256": "162468f59b1c2e71cb6f432b6dfe489cc68406ba1cf372fd81d3832b8671a0b9",
+      "after_sha256": "0447a9c700021ca185b9f72643654320a422e338844f1a6a85fc2047d52f453a",
+      "replacements": {
+        "77": {
+          "before": "[VERSE 11]",
+          "after": "# APPARATUS: [VERSE 11]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "78": {
+          "before": "    *       *       *       *       *",
+          "after": "# APPARATUS:     *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 10,
+      "before_body_sha256": "d0ce897492056df6c7c725a285b42a2add614c4ed99f31591b8f459b1f6eeae9"
+    },
+    {
+      "file": "eng_american_abram_joseph_ryan.txt",
+      "before_sha256": "413303e3d3cf96d8f3a2fe420218e8656e5535905aa8d76ffe6242937f5ef5f9",
+      "after_sha256": "4aa92eea529e3d14e2823ebf7ba5ab7df206932e8d94c06b7b8f3cfd951c6750",
+      "replacements": {
+        "319": {
+          "before": "[VERSE 11]",
+          "after": "# APPARATUS: [VERSE 11]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "320": {
+          "before": "     *    *    *    *    *",
+          "after": "# APPARATUS:      *    *    *    *    *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "346": {
+          "before": "[VERSE 16]",
+          "after": "# APPARATUS: [VERSE 16]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "347": {
+          "before": "     *    *    *    *    *",
+          "after": "# APPARATUS:      *    *    *    *    *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "385": {
+          "before": "[VERSE 23]",
+          "after": "# APPARATUS: [VERSE 23]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "386": {
+          "before": "     *    *    *    *    *",
+          "after": "# APPARATUS:      *    *    *    *    *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "502": {
+          "before": "[VERSE 43]",
+          "after": "# APPARATUS: [VERSE 43]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "503": {
+          "before": "     *    *    *    *    *",
+          "after": "# APPARATUS:      *    *    *    *    *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 11,
+      "before_body_sha256": "6d8553135c506edd2ec7b5f212d7515ee3f9a716212b406cc84189fb45ae3f71"
+    },
+    {
+      "file": "eng_american_bayard_taylor.txt",
+      "before_sha256": "7faeb3a0212548f1742495b47027324b82985b901460d412dab415af6f82591d",
+      "after_sha256": "831f4680ccce1e71dd975a8c65559d5e61e1c0c7df2f02dd41788e0c0c0dcac2",
+      "replacements": {
+        "58": {
+          "before": "[VERSE 4]",
+          "after": "# APPARATUS: [VERSE 4]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "59": {
+          "before": "B. TAYLOR.",
+          "after": "# APPARATUS: B. TAYLOR.",
+          "reason": "printed-author-credit"
+        },
+        "325": {
+          "before": "[VERSE 2]",
+          "after": "# APPARATUS: [VERSE 2]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "326": {
+          "before": "II-1",
+          "after": "# APPARATUS: II-1",
+          "reason": "ode-section-number"
+        },
+        "353": {
+          "before": "[VERSE 4]",
+          "after": "# APPARATUS: [VERSE 4]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "354": {
+          "before": "I-2",
+          "after": "# APPARATUS: I-2",
+          "reason": "ode-section-number"
+        },
+        "382": {
+          "before": "[VERSE 6]",
+          "after": "# APPARATUS: [VERSE 6]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "383": {
+          "before": "II-2",
+          "after": "# APPARATUS: II-2",
+          "reason": "ode-section-number"
+        },
+        "407": {
+          "before": "[VERSE 8]",
+          "after": "# APPARATUS: [VERSE 8]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "408": {
+          "before": "I-3",
+          "after": "# APPARATUS: I-3",
+          "reason": "ode-section-number"
+        },
+        "449": {
+          "before": "[VERSE 10]",
+          "after": "# APPARATUS: [VERSE 10]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "450": {
+          "before": "II-3",
+          "after": "# APPARATUS: II-3",
+          "reason": "ode-section-number"
+        },
+        "474": {
+          "before": "[VERSE 12]",
+          "after": "# APPARATUS: [VERSE 12]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "475": {
+          "before": "I-4",
+          "after": "# APPARATUS: I-4",
+          "reason": "ode-section-number"
+        },
+        "508": {
+          "before": "[VERSE 14]",
+          "after": "# APPARATUS: [VERSE 14]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "509": {
+          "before": "II-4",
+          "after": "# APPARATUS: II-4",
+          "reason": "ode-section-number"
+        },
+        "536": {
+          "before": "[VERSE 16]",
+          "after": "# APPARATUS: [VERSE 16]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "537": {
+          "before": "III-1",
+          "after": "# APPARATUS: III-1",
+          "reason": "ode-section-number"
+        },
+        "563": {
+          "before": "[VERSE 18]",
+          "after": "# APPARATUS: [VERSE 18]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "564": {
+          "before": "III-2",
+          "after": "# APPARATUS: III-2",
+          "reason": "ode-section-number"
+        },
+        "592": {
+          "before": "[VERSE 20]",
+          "after": "# APPARATUS: [VERSE 20]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "593": {
+          "before": "III-3",
+          "after": "# APPARATUS: III-3",
+          "reason": "ode-section-number"
+        }
+      },
+      "source_start_line": 17,
+      "before_body_sha256": "b74f40e416f4e2fb1f196549bd45ac1b92accd551e786d55cc9bdaab1cc64082"
+    },
+    {
+      "file": "eng_american_c_g_forshey.txt",
+      "before_sha256": "73b65c797546ff2acc4d9c4cf834aaf75b121e341e3b28c21e823662ec6ee8ae",
+      "after_sha256": "84c56704dfe7679303a4b693c51829b7fe7f767f7e58b8051f2960444138b000",
+      "replacements": {
+        "48": {
+          "before": "[VERSE 7]",
+          "after": "# APPARATUS: [VERSE 7]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "49": {
+          "before": "    *       *       *       *       *",
+          "after": "# APPARATUS:     *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "68": {
+          "before": "[VERSE 11]",
+          "after": "# APPARATUS: [VERSE 11]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "69": {
+          "before": "    *       *       *       *       *",
+          "after": "# APPARATUS:     *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "76": {
+          "before": "[VERSE 13]",
+          "after": "# APPARATUS: [VERSE 13]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "77": {
+          "before": "    *       *       *       *       *",
+          "after": "# APPARATUS:     *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 10,
+      "before_body_sha256": "b3113958176d45176558ad2c1182d53b3f3d41d8a953548b2111eac40d2e319f"
+    },
+    {
+      "file": "eng_american_charles_fenno_hoffman.txt",
+      "before_sha256": "bbcf915517a73d8f8abea36f585ee0f3a0ac833d7918f413988ea48f63296dfd",
+      "after_sha256": "f0927ad9290de9633b232116c0ce98fd97119a19acd0e91000d7c0e818bd8042",
+      "replacements": {
+        "87": {
+          "before": "[VERSE 4]",
+          "after": "# APPARATUS: [VERSE 4]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "88": {
+          "before": "C.F. HOFFMAN.",
+          "after": "# APPARATUS: C.F. HOFFMAN.",
+          "reason": "printed-author-credit"
+        }
+      },
+      "source_start_line": 11,
+      "before_body_sha256": "c4cc928ea23be38629dbde24fbc038950fec6c1b77c93717d0c11651b4b0c81a"
+    },
+    {
+      "file": "eng_american_ethelinda_beers.txt",
+      "before_sha256": "28a30154a687a3f3220fe4b7f35778610c41054b3a8f74f68c839f458a482d9c",
+      "after_sha256": "283006bc6defd7ec249487dd09b8b8870dae0eb5098818d87df900454229ae3b",
+      "replacements": {
+        "15": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "16": {
+          "before": "ETHEL LYNN BEERS",
+          "after": "# APPARATUS: ETHEL LYNN BEERS",
+          "reason": "printed-author-credit"
+        }
+      },
+      "source_start_line": 13,
+      "before_body_sha256": "0f61d728631244db276a5e0f7b0a55214287100e7ca0ffd79c60a468df70add9"
+    },
+    {
+      "file": "eng_american_henry_cuyler_bunner.txt",
+      "before_sha256": "c7c0be34b8a01c39264ac4410945d4b11004035c5032e336d5d8436c290b96a0",
+      "after_sha256": "1d5895993cc3cdbcf8c874846e698a9609abe9df4acccec11620f82476bb7013",
+      "replacements": {
+        "270": {
+          "before": "[VERSE 5]",
+          "after": "# APPARATUS: [VERSE 5]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "271": {
+          "before": ". . . . . . . . . . .",
+          "after": "# APPARATUS: . . . . . . . . . . .",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 14,
+      "before_body_sha256": "8425187bc3d3f732dbeb6d6d81e27f2554f5db92fd8c3204433bcbe4ba11d107"
+    },
+    {
+      "file": "eng_american_henry_howard_brownell.txt",
+      "before_sha256": "b1c4d86a0d8fb4a1bb8fb1afab398bc701c466dd2ade2312b8e0e3d3e9aa1241",
+      "after_sha256": "9c74022e32e21ea86a6acf0a84eab19994f5c560de053eaae4e653b9349e5f90",
+      "replacements": {
+        "117": {
+          "before": "[VERSE 11]",
+          "after": "# APPARATUS: [VERSE 11]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "118": {
+          "before": "   *       *       *       *       *",
+          "after": "# APPARATUS:    *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "966": {
+          "before": "[VERSE 78]",
+          "after": "# APPARATUS: [VERSE 78]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "967": {
+          "before": "   *       *       *       *       *",
+          "after": "# APPARATUS:    *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 14,
+      "before_body_sha256": "430f067212119f6064dd47f2762988f5bbaa75781bcd22ea8fd29a2538d6e5cf"
+    },
+    {
+      "file": "eng_american_henry_timrod.txt",
+      "before_sha256": "8cf5adb8899779f99b4f693ff0e681ca763eed60f7b6ca1774673ee8231601e1",
+      "after_sha256": "f8b88e1bf09bb7bbae6a6edd8b240e5121636d418ffe34b95a534135dc979deb",
+      "replacements": {
+        "62": {
+          "before": "[VERSE 4]",
+          "after": "# APPARATUS: [VERSE 4]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "63": {
+          "before": "H. TIMROD.",
+          "after": "# APPARATUS: H. TIMROD.",
+          "reason": "printed-author-credit"
+        }
+      },
+      "source_start_line": 17,
+      "before_body_sha256": "61407d2846bc1494285887fec3bee4ca2b9a47e6743d01931af7754459a747d4"
+    },
+    {
+      "file": "eng_american_james_russell_lowell.txt",
+      "before_sha256": "b2855618b82b49031e267682c4e3d1c061aca64f5fa95e7a454b4be2b666212a",
+      "after_sha256": "36f5365fc709506f37c580c80a12b862a7e2481aaaba7762fe687a2c6503d047",
+      "replacements": {
+        "528": {
+          "before": "[VERSE 4]",
+          "after": "# APPARATUS: [VERSE 4]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "529": {
+          "before": "       *       *       *       *       *",
+          "after": "# APPARATUS:        *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 23,
+      "before_body_sha256": "3f59c7f02adbe5e3bb5c187df57b7c1b22bc1c4446a0a659360363905a951cdb"
+    },
+    {
+      "file": "eng_american_john_pierpont.txt",
+      "before_sha256": "969795a03814ceb166d575bfd415472f0713a97b17c5465bad73b7b388080acf",
+      "after_sha256": "b752d6a5e8076a542d9ee8af2192e23264f4882e8418622be9973eee2e031a5e",
+      "replacements": {
+        "15": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "16": {
+          "before": "JOHN PIERPONT",
+          "after": "# APPARATUS: JOHN PIERPONT",
+          "reason": "printed-author-credit"
+        }
+      },
+      "source_start_line": 13,
+      "before_body_sha256": "fa94f079a79a7fa5effa8e1b28a8d07e02525ca536d27a416ac20536c81f8a3f"
+    },
+    {
+      "file": "eng_american_joseph_rodman_drake.txt",
+      "before_sha256": "44f9f75acda693f116b923ac513cda62fab91223c702a24be95b78ecfaf4d150",
+      "after_sha256": "ee6798f6cb759a6899811cfadf230c229f7511de594f4e150b6af93598faa771",
+      "replacements": {
+        "15": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "16": {
+          "before": "JOSEPH RODMAN DRAKE",
+          "after": "# APPARATUS: JOSEPH RODMAN DRAKE",
+          "reason": "printed-author-credit"
+        }
+      },
+      "source_start_line": 13,
+      "before_body_sha256": "021161517f506f8c6181612f98fb4fa15158ce2a49dcc1479f5dc229767e3378"
+    },
+    {
+      "file": "eng_american_julia_ward_howe.txt",
+      "before_sha256": "9bafb1e3aafa25004fb2879c33054273719736216b5f661042c09660ec6c53e8",
+      "after_sha256": "5d6119581b91746e870f7e2f15c35e93c751caf8073442bf88fce55504e74586",
+      "replacements": {
+        "82": {
+          "before": "[VERSE 6]",
+          "after": "# APPARATUS: [VERSE 6]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "83": {
+          "before": "J.W. HOWE.",
+          "after": "# APPARATUS: J.W. HOWE.",
+          "reason": "printed-author-credit"
+        },
+        "87": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "88": {
+          "before": "JULIA WARD HOWE",
+          "after": "# APPARATUS: JULIA WARD HOWE",
+          "reason": "printed-author-credit"
+        }
+      },
+      "source_start_line": 18,
+      "before_body_sha256": "8e335d6ec0b070c5d08f69e0c119e430bb2ec0f96e4de960930458ddfc3c24e2"
+    },
+    {
+      "file": "eng_american_mary_l_wilson.txt",
+      "before_sha256": "65b2066aee53206ff2af3b00afb065ef3f8d3ca78258a2b8a1f15e1639f266b4",
+      "after_sha256": "1ae360bf94315e30703dae0fdb495aeb7fc0493ddf29a095286c02f94f010f6c",
+      "replacements": {
+        "34": {
+          "before": "[VERSE 4]",
+          "after": "# APPARATUS: [VERSE 4]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "35": {
+          "before": "    *       *       *       *       *",
+          "after": "# APPARATUS:     *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 10,
+      "before_body_sha256": "e7ef5c9dba4991c4f1feff9e68c598983e2697decdd79929f4ec597de526ed10"
+    },
+    {
+      "file": "eng_american_s_r_ezzell.txt",
+      "before_sha256": "18436e8fc35a2659a15bc97ad5f706a6ca380a08ef455e429db5f101946e2d10",
+      "after_sha256": "59484670803d5a21c5016ab5baf250f591cc5de8b6bc356f3265b8436d94110e",
+      "replacements": {
+        "35": {
+          "before": "[VERSE 6]",
+          "after": "# APPARATUS: [VERSE 6]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "36": {
+          "before": "    *       *       *       *       *",
+          "after": "# APPARATUS:     *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "55": {
+          "before": "[VERSE 11]",
+          "after": "# APPARATUS: [VERSE 11]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "56": {
+          "before": "    *       *       *       *       *",
+          "after": "# APPARATUS:     *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 10,
+      "before_body_sha256": "cb8cee70cbcff283e311c6ca5565a9909c28261960688054b31b3bc0d6a9e8ee"
+    },
+    {
+      "file": "eng_american_sarah_t_bolton.txt",
+      "before_sha256": "02fa2336e84fa816e86db20393b9446a030d7ea7582ba1c4031d0f75b15d3ec8",
+      "after_sha256": "00a653361df324d79ef7c184b6228367e8d2e46ddf4f9ab0540dd35808a5d8fc",
+      "replacements": {
+        "57": {
+          "before": "[VERSE 10]",
+          "after": "# APPARATUS: [VERSE 10]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "58": {
+          "before": "   *       *       *       *       *",
+          "after": "# APPARATUS:    *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 10,
+      "before_body_sha256": "a3b4ad1fa11b01bdfe31e5565fc65034d169be2272472514b91855b2300b32ef"
+    },
+    {
+      "file": "eng_american_w_s_hawkins.txt",
+      "before_sha256": "20119caa662d4207be3a0fa280b004d2421e6bf21097c58b62c783b0111e94ee",
+      "after_sha256": "15ab957286d24ae42385c71535199fcab2dcdba7d17ea93dc75a73ddcdd4190f",
+      "replacements": {
+        "27": {
+          "before": "[VERSE 4]",
+          "after": "# APPARATUS: [VERSE 4]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "28": {
+          "before": "    *       *       *       *       *",
+          "after": "# APPARATUS:     *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 10,
+      "before_body_sha256": "ce4bfc92612c22645ab7481efdea02c14dc46aa60f8f23c2154b31927860dfd1"
+    },
+    {
+      "file": "eng_british_adelaide_anne_procter.txt",
+      "before_sha256": "a2260667f0a2a9764389108a9fd2e064a3298e8573972181628c8ab8402026ac",
+      "after_sha256": "8e91762df9b172f1c57e86e72f3c85b858fcdd81619b84c4361c7bbe29326d89",
+      "replacements": {
+        "1061": {
+          "before": "[VERSE 9]",
+          "after": "# APPARATUS: [VERSE 9]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1062": {
+          "before": "* * *",
+          "after": "# APPARATUS: * * *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "2447": {
+          "before": "[VERSE 8]",
+          "after": "# APPARATUS: [VERSE 8]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "2448": {
+          "before": "* * *",
+          "after": "# APPARATUS: * * *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "6284": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "6285": {
+          "before": "* * *",
+          "after": "# APPARATUS: * * *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "6307": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "6308": {
+          "before": "* * *",
+          "after": "# APPARATUS: * * *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "6316": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "6317": {
+          "before": "* * *",
+          "after": "# APPARATUS: * * *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 32,
+      "before_body_sha256": "30486bc225be0b61122fb6bbfb6417fe5749b7ed6d3ba569fc3ec7a9b4636d68"
+    },
+    {
+      "file": "eng_british_arthur_hugh_clough.txt",
+      "before_sha256": "4e294dcb35259cca90308fe9e0bedf87464100ea2c66861e805525eec28f8b12",
+      "after_sha256": "6acf6d79bf16cc4c24c30fec7113d6de5472ec38839f32d4d5b20e1c2bac5d8b",
+      "replacements": {
+        "13": {
+          "before": "--- TITLE: Sometime Fellow Of Oriel College Oxford",
+          "after": "# APPARATUS: --- TITLE: Sometime Fellow Of Oriel College Oxford",
+          "reason": "title-page"
+        },
+        "14": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "15": {
+          "before": "London",
+          "after": "# APPARATUS: London",
+          "reason": "title-page"
+        },
+        "16": {
+          "before": "MACMILLAN AND CO., LIMITED",
+          "after": "# APPARATUS: MACMILLAN AND CO., LIMITED",
+          "reason": "title-page"
+        },
+        "17": {
+          "before": "NEW YORK: THE MACMILLAN COMPANY",
+          "after": "# APPARATUS: NEW YORK: THE MACMILLAN COMPANY",
+          "reason": "title-page"
+        },
+        "18": {
+          "before": "1898",
+          "after": "# APPARATUS: 1898",
+          "reason": "title-page"
+        },
+        "19": {
+          "before": "[VERSE 2]",
+          "after": "# APPARATUS: [VERSE 2]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "20": {
+          "before": "First published elsewhere. First printed for MACMILLAN & CO.",
+          "after": "# APPARATUS: First published elsewhere. First printed for MACMILLAN & CO.",
+          "reason": "title-page"
+        },
+        "21": {
+          "before": "1891. Reprinted 1895, 1898.",
+          "after": "# APPARATUS: 1891. Reprinted 1895, 1898.",
+          "reason": "title-page"
+        },
+        "1027": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1028": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "1037": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1038": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "1049": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1050": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "1061": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1062": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "1073": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1074": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 13,
+      "before_body_sha256": "0245ebce65c004c84b35d63af108fbed5f6da47bed9fae4490677dda7e8cd747"
+    },
+    {
+      "file": "eng_british_charles_kingsley.txt",
+      "before_sha256": "2753dadc4e00a195dc763263fdbd22fc01ca575c0de4025c56da09a40255c3bc",
+      "after_sha256": "ac26fb6d9b778ebd306457dfbb2ff1ab5ca610649f3213eb697bdfc5d3a6b4bc",
+      "replacements": {
+        "1225": {
+          "before": ". . . . .",
+          "after": "# APPARATUS: . . . . .",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "1228": {
+          "before": ". . . . . .",
+          "after": "# APPARATUS: . . . . . .",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "1231": {
+          "before": ". . . . .",
+          "after": "# APPARATUS: . . . . .",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 42,
+      "before_body_sha256": "0fabe00ac2be5be9999760008bbda850a8bda73aeaeefc0fa8d39f9eaa022443"
+    },
+    {
+      "file": "eng_british_christina_rossetti.txt",
+      "before_sha256": "f05262e37b2b3aead66806fb8996faf847d33bf862e6530ff7f7043220d7ad01",
+      "after_sha256": "d2c3369747057e58ceb7ebcb91df2bdc9856d0067a1352cca70422a2ffdb6b0a",
+      "replacements": {
+        "6660": {
+          "before": "[VERSE 6]",
+          "after": "# APPARATUS: [VERSE 6]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "6661": {
+          "before": "*  *  *  *  *  *  *",
+          "after": "# APPARATUS: *  *  *  *  *  *  *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 15,
+      "before_body_sha256": "2c4019b682513d1feb33244d399576a4378daa701599716856c015819346baeb"
+    },
+    {
+      "file": "eng_british_edward_lear.txt",
+      "before_sha256": "8a3b73ccca92a9b1929e7b3cc189e2ac7225d0e4c38ff765754a93b9a1f9f102",
+      "after_sha256": "e0fbac660eae18a54994d0e8af631d213fe8ef6eb82875a3a6eb224a387df4a6",
+      "replacements": {
+        "578": {
+          "before": "[VERSE 6]",
+          "after": "# APPARATUS: [VERSE 6]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "579": {
+          "before": "*        *        *        *        *",
+          "after": "# APPARATUS: *        *        *        *        *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "1310": {
+          "before": "[VERSE 24]",
+          "after": "# APPARATUS: [VERSE 24]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1311": {
+          "before": "*        *        *        *        *",
+          "after": "# APPARATUS: *        *        *        *        *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 16,
+      "before_body_sha256": "5eb61969c8d1acda54dbdf4e12081faba471366a28fad30b05a9871b710b7ffe"
+    },
+    {
+      "file": "eng_british_elizabeth_barrett_browning.txt",
+      "before_sha256": "df54c18b6bb8c620744eded5a9558ea3ac747182c4e658c1997d4eb91f4a12c3",
+      "after_sha256": "fd487047ae09bb3e8c778fceda51dca0c3833aadf943c2789f439988c672e12a",
+      "replacements": {
+        "573": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "574": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "607": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "608": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "622": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "623": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "647": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "648": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "2538": {
+          "before": "--- TITLE: Sonnets From The Portuguese",
+          "after": "# APPARATUS: --- TITLE: Sonnets From The Portuguese",
+          "reason": "title-page"
+        },
+        "2539": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "2540": {
+          "before": "* * * * *",
+          "after": "# APPARATUS: * * * * *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "2541": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "2542": {
+          "before": "BY",
+          "after": "# APPARATUS: BY",
+          "reason": "title-page"
+        },
+        "2543": {
+          "before": "ELIZABETH",
+          "after": "# APPARATUS: ELIZABETH",
+          "reason": "title-page"
+        },
+        "2544": {
+          "before": "BARRETT BROWNING",
+          "after": "# APPARATUS: BARRETT BROWNING",
+          "reason": "title-page"
+        },
+        "2545": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "2546": {
+          "before": "* * * * *",
+          "after": "# APPARATUS: * * * * *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 21,
+      "before_body_sha256": "5206ab4c916f151f16921eb86055a20a5fcb9b29a8c8e56e573d9ec5ac40ec1c"
+    },
+    {
+      "file": "eng_british_emily_bronte.txt",
+      "before_sha256": "02c0f0f6b8b33da42fe2ec3bcbb3ed2ef7d7766fd5855dcdea27913252c2de34",
+      "after_sha256": "ed4a85752fb09cda4eb8f5c2c3ccd175c618893bafd38981298785011554e0a0",
+      "replacements": {
+        "1087": {
+          "before": "[VERSE 4]",
+          "after": "# APPARATUS: [VERSE 4]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1088": {
+          "before": "*****",
+          "after": "# APPARATUS: *****",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 12,
+      "before_body_sha256": "fffe6a28f5805cbf14239b84b1ac77cd3ae230776524e23f256a34a0ee9a5426"
+    },
+    {
+      "file": "eng_british_felicia_hemans.txt",
+      "before_sha256": "7d9e64b17c7b60d4ed8cf28a0c07ea6d3dca9a59ed7b4af495e68b8986488ba5",
+      "after_sha256": "f946e4042b01d663596c4716a619f501e5297cb869bef70e2e81e6acd3ce1c1f",
+      "replacements": {
+        "727": {
+          "before": "[VERSE 7]",
+          "after": "# APPARATUS: [VERSE 7]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "728": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "2107": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "2108": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "2152": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "2153": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "7137": {
+          "before": "...",
+          "after": "# APPARATUS: ...",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "10972": {
+          "before": "...",
+          "after": "# APPARATUS: ...",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "16266": {
+          "before": "...",
+          "after": "# APPARATUS: ...",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "16295": {
+          "before": "...",
+          "after": "# APPARATUS: ...",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 11,
+      "before_body_sha256": "4de213c051b918c91df5c2895e175e2b079900bb1fc8ac9c0040b98b57444ae8"
+    },
+    {
+      "file": "eng_british_frances_anne_kemble.txt",
+      "before_sha256": "57a8ab0b08f2edd3d145b82b5c31c42681143f177a2e2c7bc2257de211176208",
+      "after_sha256": "f8806783a7693800bd52f34b34cdacee025357b78170cec84edccc0a06dabaa5",
+      "replacements": {
+        "14": {
+          "before": "--- TITLE: (Late Fanny Kemble.)",
+          "after": "# APPARATUS: --- TITLE: (Late Fanny Kemble.)",
+          "reason": "title-page-and-dedication"
+        },
+        "15": {
+          "before": "[REFRAIN]",
+          "after": "# APPARATUS: [REFRAIN]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "16": {
+          "before": "LONDON:",
+          "after": "# APPARATUS: LONDON:",
+          "reason": "title-page-and-dedication"
+        },
+        "17": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "18": {
+          "before": "(REPRINTED FROM THE AMERICAN EDITION.)",
+          "after": "# APPARATUS: (REPRINTED FROM THE AMERICAN EDITION.)",
+          "reason": "title-page-and-dedication"
+        },
+        "19": {
+          "before": "HENRY WASHBOURNE, NEW BRIDGE STREET,",
+          "after": "# APPARATUS: HENRY WASHBOURNE, NEW BRIDGE STREET,",
+          "reason": "title-page-and-dedication"
+        },
+        "20": {
+          "before": "BLACKFRIARS.",
+          "after": "# APPARATUS: BLACKFRIARS.",
+          "reason": "title-page-and-dedication"
+        },
+        "21": {
+          "before": "OLIVER & BOYD, EDINBURGH, MACHEN & CO. DUBLIN.",
+          "after": "# APPARATUS: OLIVER & BOYD, EDINBURGH, MACHEN & CO. DUBLIN.",
+          "reason": "title-page-and-dedication"
+        },
+        "22": {
+          "before": "[REFRAIN]",
+          "after": "# APPARATUS: [REFRAIN]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "23": {
+          "before": "LONDON:",
+          "after": "# APPARATUS: LONDON:",
+          "reason": "title-page-and-dedication"
+        },
+        "24": {
+          "before": "[VERSE 2]",
+          "after": "# APPARATUS: [VERSE 2]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "25": {
+          "before": "Printed by STEWART and MURRAY,",
+          "after": "# APPARATUS: Printed by STEWART and MURRAY,",
+          "reason": "title-page-and-dedication"
+        },
+        "26": {
+          "before": "Old Bailey.",
+          "after": "# APPARATUS: Old Bailey.",
+          "reason": "title-page-and-dedication"
+        },
+        "27": {
+          "before": "[VERSE 3]",
+          "after": "# APPARATUS: [VERSE 3]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "28": {
+          "before": "TO",
+          "after": "# APPARATUS: TO",
+          "reason": "title-page-and-dedication"
+        },
+        "29": {
+          "before": "KATHARINE SEDGWICK,",
+          "after": "# APPARATUS: KATHARINE SEDGWICK,",
+          "reason": "title-page-and-dedication"
+        },
+        "30": {
+          "before": "THIS LITTLE VOLUME",
+          "after": "# APPARATUS: THIS LITTLE VOLUME",
+          "reason": "title-page-and-dedication"
+        },
+        "31": {
+          "before": "IS",
+          "after": "# APPARATUS: IS",
+          "reason": "title-page-and-dedication"
+        },
+        "32": {
+          "before": "MOST RESPECTFULLY, GRATEFULLY,",
+          "after": "# APPARATUS: MOST RESPECTFULLY, GRATEFULLY,",
+          "reason": "title-page-and-dedication"
+        },
+        "33": {
+          "before": "AND AFFECTIONATELY",
+          "after": "# APPARATUS: AND AFFECTIONATELY",
+          "reason": "title-page-and-dedication"
+        },
+        "34": {
+          "before": "INSCRIBED.",
+          "after": "# APPARATUS: INSCRIBED.",
+          "reason": "title-page-and-dedication"
+        }
+      },
+      "source_start_line": 14,
+      "before_body_sha256": "2d13426ebcdbd968f069fab420b418a888aa201fb1e3fbc9b807128ed74fd316"
+    },
+    {
+      "file": "eng_british_jean_ingelow.txt",
+      "before_sha256": "efddbe391e8674d28e5c930b2826cdb7385ef26e87ef9f538a0eead156c70ea2",
+      "after_sha256": "2e11da26419d2eebdfc3a2fb6d46fca8665c3f1a4be0d58c3d1fedd2b5bac760",
+      "replacements": {
+        "99": {
+          "before": "--- TITLE: Laurance",
+          "after": "# APPARATUS: --- TITLE: Laurance",
+          "reason": "contents-list"
+        },
+        "100": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "101": {
+          "before": "SONGS OF THE NIGHT WATCHES.",
+          "after": "# APPARATUS: SONGS OF THE NIGHT WATCHES.",
+          "reason": "contents-list"
+        },
+        "102": {
+          "before": "INTRODUCTORY.--EVENING",
+          "after": "# APPARATUS: INTRODUCTORY.--EVENING",
+          "reason": "contents-list"
+        },
+        "103": {
+          "before": "THE FIRST WATCH.--TIRED",
+          "after": "# APPARATUS: THE FIRST WATCH.--TIRED",
+          "reason": "contents-list"
+        },
+        "104": {
+          "before": "THE MIDDLE WATCH",
+          "after": "# APPARATUS: THE MIDDLE WATCH",
+          "reason": "contents-list"
+        },
+        "105": {
+          "before": "THE MORNING WATCH",
+          "after": "# APPARATUS: THE MORNING WATCH",
+          "reason": "contents-list"
+        },
+        "106": {
+          "before": "CONCLUDING.--EARLY DAWN",
+          "after": "# APPARATUS: CONCLUDING.--EARLY DAWN",
+          "reason": "contents-list"
+        },
+        "107": {
+          "before": "[VERSE 2]",
+          "after": "# APPARATUS: [VERSE 2]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "108": {
+          "before": "CONTRASTED SONGS.",
+          "after": "# APPARATUS: CONTRASTED SONGS.",
+          "reason": "contents-list"
+        },
+        "109": {
+          "before": "SAILING BEYOND SEAS",
+          "after": "# APPARATUS: SAILING BEYOND SEAS",
+          "reason": "contents-list"
+        },
+        "110": {
+          "before": "REMONSTRANCE",
+          "after": "# APPARATUS: REMONSTRANCE",
+          "reason": "contents-list"
+        },
+        "111": {
+          "before": "SONG FOR THE NIGHT OF CHRIST'S RESURRECTION",
+          "after": "# APPARATUS: SONG FOR THE NIGHT OF CHRIST'S RESURRECTION",
+          "reason": "contents-list"
+        },
+        "112": {
+          "before": "SONG OF MARGARET",
+          "after": "# APPARATUS: SONG OF MARGARET",
+          "reason": "contents-list"
+        },
+        "113": {
+          "before": "SONG OF THE GOING AWAY",
+          "after": "# APPARATUS: SONG OF THE GOING AWAY",
+          "reason": "contents-list"
+        },
+        "114": {
+          "before": "A LILY AND A LUTE",
+          "after": "# APPARATUS: A LILY AND A LUTE",
+          "reason": "contents-list"
+        },
+        "1632": {
+          "before": "--- TITLE: Serious Poems, And Songs And Poems Of Love And Childhood",
+          "after": "# APPARATUS: --- TITLE: Serious Poems, And Songs And Poems Of Love And Childhood",
+          "reason": "contents-list"
+        },
+        "1633": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1634": {
+          "before": "LETTERS ON LIFE AND THE MORNING",
+          "after": "# APPARATUS: LETTERS ON LIFE AND THE MORNING",
+          "reason": "contents-list"
+        },
+        "1635": {
+          "before": "THE MONITIONS OF THE UNSEEN",
+          "after": "# APPARATUS: THE MONITIONS OF THE UNSEEN",
+          "reason": "contents-list"
+        },
+        "1636": {
+          "before": "THE SHEPHERD LADY",
+          "after": "# APPARATUS: THE SHEPHERD LADY",
+          "reason": "contents-list"
+        },
+        "1637": {
+          "before": "[VERSE 2]",
+          "after": "# APPARATUS: [VERSE 2]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1638": {
+          "before": "POEMS ON THE DEATHS OF THREE CHILDREN.",
+          "after": "# APPARATUS: POEMS ON THE DEATHS OF THREE CHILDREN.",
+          "reason": "contents-list"
+        },
+        "1639": {
+          "before": "HENRY",
+          "after": "# APPARATUS: HENRY",
+          "reason": "contents-list"
+        },
+        "1640": {
+          "before": "SAMUEL",
+          "after": "# APPARATUS: SAMUEL",
+          "reason": "contents-list"
+        },
+        "1641": {
+          "before": "KATIE",
+          "after": "# APPARATUS: KATIE",
+          "reason": "contents-list"
+        }
+      },
+      "source_start_line": 17,
+      "before_body_sha256": "605a6031842f941cc23f89c9b1d3c8b6ac976cd4b1600bb4790b920bbdcb3e03"
+    },
+    {
+      "file": "eng_british_lewis_carroll.txt",
+      "before_sha256": "25168bba909258e87d65817b57af42bcc81cdfc40160c757dbec90a4582ea091",
+      "after_sha256": "b00f280e47488024d0d7454b131d62b16fc4d1fc82c6dfad2030d24fc0ef96c9",
+      "replacements": {
+        "1330": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1331": {
+          "before": "* * * * *",
+          "after": "# APPARATUS: * * * * *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "1332": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1333": {
+          "before": "_WITH ILLUSTRATIONS_",
+          "after": "# APPARATUS: _WITH ILLUSTRATIONS_",
+          "reason": "title-page-and-dedication-prose"
+        },
+        "1334": {
+          "before": "BY",
+          "after": "# APPARATUS: BY",
+          "reason": "title-page-and-dedication-prose"
+        },
+        "1335": {
+          "before": "ARTHUR B. FROST",
+          "after": "# APPARATUS: ARTHUR B. FROST",
+          "reason": "title-page-and-dedication-prose"
+        },
+        "1336": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1337": {
+          "before": "* * * * *",
+          "after": "# APPARATUS: * * * * *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "1338": {
+          "before": "[VERSE 2]",
+          "after": "# APPARATUS: [VERSE 2]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1339": {
+          "before": "MACMILLAN AND CO., LIMITED",
+          "after": "# APPARATUS: MACMILLAN AND CO., LIMITED",
+          "reason": "title-page-and-dedication-prose"
+        },
+        "1340": {
+          "before": "ST. MARTIN’S STREET, LONDON",
+          "after": "# APPARATUS: ST. MARTIN’S STREET, LONDON",
+          "reason": "title-page-and-dedication-prose"
+        },
+        "1341": {
+          "before": "1911",
+          "after": "# APPARATUS: 1911",
+          "reason": "title-page-and-dedication-prose"
+        },
+        "1342": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1343": {
+          "before": "* * * * *",
+          "after": "# APPARATUS: * * * * *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "1344": {
+          "before": "[VERSE 3]",
+          "after": "# APPARATUS: [VERSE 3]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1345": {
+          "before": "RICHARD CLAY AND SONS, LIMITED",
+          "after": "# APPARATUS: RICHARD CLAY AND SONS, LIMITED",
+          "reason": "title-page-and-dedication-prose"
+        },
+        "1346": {
+          "before": "BRUNSWICK STREET, STAMFORD STREET, S.E.,",
+          "after": "# APPARATUS: BRUNSWICK STREET, STAMFORD STREET, S.E.,",
+          "reason": "title-page-and-dedication-prose"
+        },
+        "1347": {
+          "before": "AND BUNGAY, SUFFOLK.",
+          "after": "# APPARATUS: AND BUNGAY, SUFFOLK.",
+          "reason": "title-page-and-dedication-prose"
+        },
+        "1348": {
+          "before": "[VERSE 4]",
+          "after": "# APPARATUS: [VERSE 4]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1349": {
+          "before": "_First published in_ 1869.",
+          "after": "# APPARATUS: _First published in_ 1869.",
+          "reason": "title-page-and-dedication-prose"
+        },
+        "1350": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1351": {
+          "before": "* * * * *",
+          "after": "# APPARATUS: * * * * *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "1352": {
+          "before": "[VERSE 5]",
+          "after": "# APPARATUS: [VERSE 5]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1353": {
+          "before": "Inscribed to a dear Child:",
+          "after": "# APPARATUS: Inscribed to a dear Child:",
+          "reason": "title-page-and-dedication-prose"
+        },
+        "1354": {
+          "before": "in memory of golden summer hours",
+          "after": "# APPARATUS: in memory of golden summer hours",
+          "reason": "title-page-and-dedication-prose"
+        },
+        "1355": {
+          "before": "and whispers of a summer sea.",
+          "after": "# APPARATUS: and whispers of a summer sea.",
+          "reason": "title-page-and-dedication-prose"
+        },
+        "1356": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1357": {
+          "before": "* * * * *",
+          "after": "# APPARATUS: * * * * *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "3005": {
+          "before": "[VERSE 8]",
+          "after": "# APPARATUS: [VERSE 8]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "3006": {
+          "before": "* * * *",
+          "after": "# APPARATUS: * * * *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 20,
+      "before_body_sha256": "d79c89c72c2658a26d39d42dc86b55c857ad4362f821aa655deded13307f1132"
+    },
+    {
+      "file": "eng_british_matthew_arnold.txt",
+      "before_sha256": "5f0e76c74e9d2d5fb69888c24b5a80266e33adf0312d9e8a05f44f6d1aafffb3",
+      "after_sha256": "f7c196dfc8177420ee181ba69044dba323076298a1fc35587525c8870e90d3bb",
+      "replacements": {
+        "1049": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1050": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "1128": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1129": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 16,
+      "before_body_sha256": "bddff7abd6e54882cea8df6e962ff2301d295841dc84a0ae2aee5611474ea632"
+    },
+    {
+      "file": "eng_british_mortimer_collins.txt",
+      "before_sha256": "a67ee7b9d05f17de852ed3102f4e24946f5f9e9198ed65a4c26b0808b2d35875",
+      "after_sha256": "3929443df49cc4f0487f4e8ab6bfb7770239dec21f549bdef94dbf12afff2578",
+      "replacements": {
+        "101": {
+          "before": "[VERSE 3]",
+          "after": "# APPARATUS: [VERSE 3]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "102": {
+          "before": "·     ·     ·     ·     ·     ·     ·",
+          "after": "# APPARATUS: ·     ·     ·     ·     ·     ·     ·",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 14,
+      "before_body_sha256": "e508791ba303841f30d5d59d0acd238f91ee38e0ebd4bd8e510c57893422f471"
+    },
+    {
+      "file": "eng_british_percy_bysshe_shelley.txt",
+      "before_sha256": "5e552654c54d5b78f1205a6a7595ab06b252ef61b47d5601a440ee16ed2ad218",
+      "after_sha256": "14467605bdb1c5833186989434e6a79719c2af774bfb7da7bdb3ce3d46455973",
+      "replacements": {
+        "82": {
+          "before": "[VERSE 6]",
+          "after": "# APPARATUS: [VERSE 6]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "83": {
+          "before": "***",
+          "after": "# APPARATUS: ***",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "115": {
+          "before": "[VERSE 4]",
+          "after": "# APPARATUS: [VERSE 4]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "116": {
+          "before": "***",
+          "after": "# APPARATUS: ***",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "153": {
+          "before": "[VERSE 5]",
+          "after": "# APPARATUS: [VERSE 5]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "154": {
+          "before": "***",
+          "after": "# APPARATUS: ***",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "181": {
+          "before": "[VERSE 3]",
+          "after": "# APPARATUS: [VERSE 3]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "182": {
+          "before": "***",
+          "after": "# APPARATUS: ***",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "225": {
+          "before": "...",
+          "after": "# APPARATUS: ...",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "356": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "357": {
+          "before": "...",
+          "after": "# APPARATUS: ...",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "361": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "362": {
+          "before": "***",
+          "after": "# APPARATUS: ***",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "1178": {
+          "before": "[VERSE 6]",
+          "after": "# APPARATUS: [VERSE 6]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1179": {
+          "before": "***",
+          "after": "# APPARATUS: ***",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "1980": {
+          "before": "[VERSE 3]",
+          "after": "# APPARATUS: [VERSE 3]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1981": {
+          "before": "***",
+          "after": "# APPARATUS: ***",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "2074": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "2075": {
+          "before": "...",
+          "after": "# APPARATUS: ...",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "2080": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "2081": {
+          "before": "***",
+          "after": "# APPARATUS: ***",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "2117": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "2118": {
+          "before": "...",
+          "after": "# APPARATUS: ...",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "2119": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "2120": {
+          "before": "***",
+          "after": "# APPARATUS: ***",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "2126": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "2127": {
+          "before": "...",
+          "after": "# APPARATUS: ...",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "2138": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "2139": {
+          "before": "***",
+          "after": "# APPARATUS: ***",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "2175": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "2176": {
+          "before": "...",
+          "after": "# APPARATUS: ...",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "2187": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "2188": {
+          "before": "***",
+          "after": "# APPARATUS: ***",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "2202": {
+          "before": "[VERSE 3]",
+          "after": "# APPARATUS: [VERSE 3]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "2203": {
+          "before": "***",
+          "after": "# APPARATUS: ***",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "2254": {
+          "before": "[VERSE 8]",
+          "after": "# APPARATUS: [VERSE 8]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "2255": {
+          "before": "***",
+          "after": "# APPARATUS: ***",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 17,
+      "before_body_sha256": "ff30860bb8163defdc4a8d18bb1dd66d24e85eefed4138ba10395b001053a0d5"
+    },
+    {
+      "file": "eng_british_robert_browning.txt",
+      "before_sha256": "d3be1bfdb166f4fba91e4eaeb7203d98fb76c3ad4034a26077d42494c59657b4",
+      "after_sha256": "646047964cc5ceea110d458421dd3a675e60deee4dee7db8cad2095b641f42d3",
+      "replacements": {
+        "80": {
+          "before": "[VERSE 6]",
+          "after": "# APPARATUS: [VERSE 6]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "81": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "133": {
+          "before": "[VERSE 6]",
+          "after": "# APPARATUS: [VERSE 6]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "134": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 26,
+      "before_body_sha256": "727c52febf7b132123861aa93784ac4f9cdb8e63fe119ea58af7a1943d642cfc"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "before_sha256": "b2f64a3767855f721e2755cf33d5f07ddf9c910ac687a0e07b8345bf2952686b",
+      "after_sha256": "cbcfc5298a5e58b5ac51fed82e3ba69026f9e3b705a638b54218d6338e1a3de3",
+      "replacements": {
+        "5042": {
+          "before": "...       ...       ...       ...",
+          "after": "# APPARATUS: ...       ...       ...       ...",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 40,
+      "before_body_sha256": "edfa68f2cba0c1c03b25b542fc500ba75d064e88a79058594c1b9dcf8e309ac9"
+    },
+    {
+      "file": "eng_british_robert_louis_stevenson.txt",
+      "before_sha256": "50752532fb305a9281a1e63a517bffc0605173908379bb4f8dda815856d7979f",
+      "after_sha256": "0c06c69a22f7891505b4f5dedc14de80ea38857b04d6fd8301ec7f2ac8abeac3",
+      "replacements": {
+        "39": {
+          "before": "--- TITLE: To Alison Cunningham",
+          "after": "# APPARATUS: --- TITLE: To Alison Cunningham",
+          "reason": "contents-list"
+        },
+        "40": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "41": {
+          "before": "I   Bed in Summer",
+          "after": "# APPARATUS: I   Bed in Summer",
+          "reason": "contents-list"
+        },
+        "42": {
+          "before": "II   A Thought",
+          "after": "# APPARATUS: II   A Thought",
+          "reason": "contents-list"
+        },
+        "43": {
+          "before": "III   At the Sea-Side",
+          "after": "# APPARATUS: III   At the Sea-Side",
+          "reason": "contents-list"
+        },
+        "44": {
+          "before": "IV   Young Night-Thought",
+          "after": "# APPARATUS: IV   Young Night-Thought",
+          "reason": "contents-list"
+        },
+        "45": {
+          "before": "V   Whole Duty of Children",
+          "after": "# APPARATUS: V   Whole Duty of Children",
+          "reason": "contents-list"
+        },
+        "46": {
+          "before": "VI   Rain",
+          "after": "# APPARATUS: VI   Rain",
+          "reason": "contents-list"
+        },
+        "47": {
+          "before": "VII   Pirate Story",
+          "after": "# APPARATUS: VII   Pirate Story",
+          "reason": "contents-list"
+        },
+        "48": {
+          "before": "VIII   Foreign Lands",
+          "after": "# APPARATUS: VIII   Foreign Lands",
+          "reason": "contents-list"
+        },
+        "49": {
+          "before": "IX   Windy Nights",
+          "after": "# APPARATUS: IX   Windy Nights",
+          "reason": "contents-list"
+        },
+        "50": {
+          "before": "X   Travel",
+          "after": "# APPARATUS: X   Travel",
+          "reason": "contents-list"
+        },
+        "51": {
+          "before": "XI   Singing",
+          "after": "# APPARATUS: XI   Singing",
+          "reason": "contents-list"
+        },
+        "52": {
+          "before": "XII   Looking Forward",
+          "after": "# APPARATUS: XII   Looking Forward",
+          "reason": "contents-list"
+        },
+        "53": {
+          "before": "XIII   A Good Play",
+          "after": "# APPARATUS: XIII   A Good Play",
+          "reason": "contents-list"
+        },
+        "54": {
+          "before": "XIV   Where Go the Boats?",
+          "after": "# APPARATUS: XIV   Where Go the Boats?",
+          "reason": "contents-list"
+        },
+        "55": {
+          "before": "XV   Auntie's Skirts",
+          "after": "# APPARATUS: XV   Auntie's Skirts",
+          "reason": "contents-list"
+        },
+        "56": {
+          "before": "XVI   The Land of Counterpane",
+          "after": "# APPARATUS: XVI   The Land of Counterpane",
+          "reason": "contents-list"
+        },
+        "57": {
+          "before": "XVII   The Land of Nod",
+          "after": "# APPARATUS: XVII   The Land of Nod",
+          "reason": "contents-list"
+        },
+        "58": {
+          "before": "XVIII   My Shadow",
+          "after": "# APPARATUS: XVIII   My Shadow",
+          "reason": "contents-list"
+        },
+        "59": {
+          "before": "XIX   System",
+          "after": "# APPARATUS: XIX   System",
+          "reason": "contents-list"
+        },
+        "60": {
+          "before": "XX   A Good Boy",
+          "after": "# APPARATUS: XX   A Good Boy",
+          "reason": "contents-list"
+        },
+        "61": {
+          "before": "XXI   Escape at Bedtime",
+          "after": "# APPARATUS: XXI   Escape at Bedtime",
+          "reason": "contents-list"
+        },
+        "62": {
+          "before": "XXII   Marching Song",
+          "after": "# APPARATUS: XXII   Marching Song",
+          "reason": "contents-list"
+        },
+        "63": {
+          "before": "XXIII   The Cow",
+          "after": "# APPARATUS: XXIII   The Cow",
+          "reason": "contents-list"
+        },
+        "64": {
+          "before": "XXIV   The Happy Thought",
+          "after": "# APPARATUS: XXIV   The Happy Thought",
+          "reason": "contents-list"
+        },
+        "65": {
+          "before": "XXV   The Wind",
+          "after": "# APPARATUS: XXV   The Wind",
+          "reason": "contents-list"
+        },
+        "66": {
+          "before": "XXVI   Keepsake Mill",
+          "after": "# APPARATUS: XXVI   Keepsake Mill",
+          "reason": "contents-list"
+        },
+        "67": {
+          "before": "XXVII   Good and Bad Children",
+          "after": "# APPARATUS: XXVII   Good and Bad Children",
+          "reason": "contents-list"
+        },
+        "68": {
+          "before": "XXVIII   Foreign Children",
+          "after": "# APPARATUS: XXVIII   Foreign Children",
+          "reason": "contents-list"
+        },
+        "69": {
+          "before": "XXIX   The Sun Travels",
+          "after": "# APPARATUS: XXIX   The Sun Travels",
+          "reason": "contents-list"
+        },
+        "70": {
+          "before": "XXX   The Lamplighter",
+          "after": "# APPARATUS: XXX   The Lamplighter",
+          "reason": "contents-list"
+        },
+        "71": {
+          "before": "XXXI   My Bed is a Boat",
+          "after": "# APPARATUS: XXXI   My Bed is a Boat",
+          "reason": "contents-list"
+        },
+        "72": {
+          "before": "XXXII   The Moon",
+          "after": "# APPARATUS: XXXII   The Moon",
+          "reason": "contents-list"
+        },
+        "73": {
+          "before": "XXXIII   The Swing",
+          "after": "# APPARATUS: XXXIII   The Swing",
+          "reason": "contents-list"
+        },
+        "74": {
+          "before": "XXXIV   Time to Rise",
+          "after": "# APPARATUS: XXXIV   Time to Rise",
+          "reason": "contents-list"
+        },
+        "75": {
+          "before": "XXXV   Looking-Glass River",
+          "after": "# APPARATUS: XXXV   Looking-Glass River",
+          "reason": "contents-list"
+        },
+        "76": {
+          "before": "XXXVI   Fairy Bread",
+          "after": "# APPARATUS: XXXVI   Fairy Bread",
+          "reason": "contents-list"
+        },
+        "77": {
+          "before": "XXXVII   From a Railway Carriage",
+          "after": "# APPARATUS: XXXVII   From a Railway Carriage",
+          "reason": "contents-list"
+        },
+        "78": {
+          "before": "XXXVIII   Winter-Time",
+          "after": "# APPARATUS: XXXVIII   Winter-Time",
+          "reason": "contents-list"
+        },
+        "79": {
+          "before": "XXXIX   The Hayloft",
+          "after": "# APPARATUS: XXXIX   The Hayloft",
+          "reason": "contents-list"
+        },
+        "80": {
+          "before": "XL   Farewell to the Farm",
+          "after": "# APPARATUS: XL   Farewell to the Farm",
+          "reason": "contents-list"
+        },
+        "81": {
+          "before": "XLI   North-West Passage",
+          "after": "# APPARATUS: XLI   North-West Passage",
+          "reason": "contents-list"
+        },
+        "82": {
+          "before": "1.  Good-Night",
+          "after": "# APPARATUS: 1.  Good-Night",
+          "reason": "contents-list"
+        },
+        "83": {
+          "before": "2.  Shadow March",
+          "after": "# APPARATUS: 2.  Shadow March",
+          "reason": "contents-list"
+        },
+        "84": {
+          "before": "3.  In Port",
+          "after": "# APPARATUS: 3.  In Port",
+          "reason": "contents-list"
+        },
+        "86": {
+          "before": "--- TITLE: The Child Alone",
+          "after": "# APPARATUS: --- TITLE: The Child Alone",
+          "reason": "contents-list"
+        },
+        "87": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "88": {
+          "before": "I   The Unseen Playmate",
+          "after": "# APPARATUS: I   The Unseen Playmate",
+          "reason": "contents-list"
+        },
+        "89": {
+          "before": "II   My Ship and I",
+          "after": "# APPARATUS: II   My Ship and I",
+          "reason": "contents-list"
+        },
+        "90": {
+          "before": "III   My Kingdom",
+          "after": "# APPARATUS: III   My Kingdom",
+          "reason": "contents-list"
+        },
+        "91": {
+          "before": "IV   Picture-Books in Winter",
+          "after": "# APPARATUS: IV   Picture-Books in Winter",
+          "reason": "contents-list"
+        },
+        "92": {
+          "before": "V   My Treasures",
+          "after": "# APPARATUS: V   My Treasures",
+          "reason": "contents-list"
+        },
+        "93": {
+          "before": "VI   Block City",
+          "after": "# APPARATUS: VI   Block City",
+          "reason": "contents-list"
+        },
+        "94": {
+          "before": "VII   The Land of Story-Books",
+          "after": "# APPARATUS: VII   The Land of Story-Books",
+          "reason": "contents-list"
+        },
+        "95": {
+          "before": "VIII   Armies in the Fire",
+          "after": "# APPARATUS: VIII   Armies in the Fire",
+          "reason": "contents-list"
+        },
+        "96": {
+          "before": "IX   The Little Land",
+          "after": "# APPARATUS: IX   The Little Land",
+          "reason": "contents-list"
+        },
+        "98": {
+          "before": "--- TITLE: Garden Days",
+          "after": "# APPARATUS: --- TITLE: Garden Days",
+          "reason": "contents-list"
+        },
+        "99": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "100": {
+          "before": "I   Night and Day",
+          "after": "# APPARATUS: I   Night and Day",
+          "reason": "contents-list"
+        },
+        "101": {
+          "before": "II   Nest Eggs",
+          "after": "# APPARATUS: II   Nest Eggs",
+          "reason": "contents-list"
+        },
+        "102": {
+          "before": "III   The Flowers",
+          "after": "# APPARATUS: III   The Flowers",
+          "reason": "contents-list"
+        },
+        "103": {
+          "before": "IV   Summer Sun",
+          "after": "# APPARATUS: IV   Summer Sun",
+          "reason": "contents-list"
+        },
+        "104": {
+          "before": "V   The Dumb Soldier",
+          "after": "# APPARATUS: V   The Dumb Soldier",
+          "reason": "contents-list"
+        },
+        "105": {
+          "before": "VI   Autumn Fires",
+          "after": "# APPARATUS: VI   Autumn Fires",
+          "reason": "contents-list"
+        },
+        "106": {
+          "before": "VII   The Gardener",
+          "after": "# APPARATUS: VII   The Gardener",
+          "reason": "contents-list"
+        },
+        "107": {
+          "before": "VIII   Historical Associations",
+          "after": "# APPARATUS: VIII   Historical Associations",
+          "reason": "contents-list"
+        },
+        "109": {
+          "before": "--- TITLE: Envoys",
+          "after": "# APPARATUS: --- TITLE: Envoys",
+          "reason": "contents-list"
+        },
+        "110": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "111": {
+          "before": "I   To Willie and Henrietta",
+          "after": "# APPARATUS: I   To Willie and Henrietta",
+          "reason": "contents-list"
+        },
+        "112": {
+          "before": "II   To My Mother",
+          "after": "# APPARATUS: II   To My Mother",
+          "reason": "contents-list"
+        },
+        "113": {
+          "before": "III   To Auntie",
+          "after": "# APPARATUS: III   To Auntie",
+          "reason": "contents-list"
+        },
+        "114": {
+          "before": "IV   To Minnie",
+          "after": "# APPARATUS: IV   To Minnie",
+          "reason": "contents-list"
+        },
+        "115": {
+          "before": "V   To My Name-Child",
+          "after": "# APPARATUS: V   To My Name-Child",
+          "reason": "contents-list"
+        },
+        "116": {
+          "before": "VI   To Any Reader",
+          "after": "# APPARATUS: VI   To Any Reader",
+          "reason": "contents-list"
+        }
+      },
+      "source_start_line": 16,
+      "before_body_sha256": "1ca181bd488311bbd77136a9f1904e2b1885605552d4eb6311094fa8c91a84c4"
+    },
+    {
+      "file": "eng_celtic_carolina_oliphant_lady_nairne.txt",
+      "before_sha256": "f8ee2e68e5dfcc76e455ddafe22bcf9a90eed8e6c4f6f4419c35a522cd2d45e5",
+      "after_sha256": "a3cee1d8d06928269c3924e9d7681b7a0289e378e12981723ef8c72d34735000",
+      "replacements": {
+        "629": {
+          "before": "[VERSE 6]",
+          "after": "# APPARATUS: [VERSE 6]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "630": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "876": {
+          "before": "[VERSE 5]",
+          "after": "# APPARATUS: [VERSE 5]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "877": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 18,
+      "before_body_sha256": "da739d0ed54f4d443cc04fbba2a184210991425ed4d8dbe5ed14fa576c64c148"
+    },
+    {
+      "file": "eng_celtic_msm_alexander_macdonald.txt",
+      "before_sha256": "84d43e6672c4456cb58c13e591cd96fc4a5df26ef27812d947d12a083eac4d9b",
+      "after_sha256": "8e8af9087886357bf9538def4a05b7f9234dc03499f7666036bf35604cda8e96",
+      "replacements": {
+        "188": {
+          "before": "[VERSE 5]",
+          "after": "# APPARATUS: [VERSE 5]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "189": {
+          "before": "       *       *       *       *       *",
+          "after": "# APPARATUS:        *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 12,
+      "before_body_sha256": "d392819be70ebd89de7a086b88fbb8d8d4a9aac22b4780b30767bc00b4cb1b56"
+    },
+    {
+      "file": "eng_celtic_msm_david_macbeth_moir.txt",
+      "before_sha256": "466320aef07f7781c7c2a69f53c530f844eca08ea6f1f5f408c0860fdb08a5da",
+      "after_sha256": "f00adbfe892cbd60a0e16c213e636c8e4b40f099f7cdc46b076986cf0bdd1456",
+      "replacements": {
+        "68": {
+          "before": "[VERSE 7]",
+          "after": "# APPARATUS: [VERSE 7]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "69": {
+          "before": "       *       *       *       *       *",
+          "after": "# APPARATUS:        *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "79": {
+          "before": "[VERSE 9]",
+          "after": "# APPARATUS: [VERSE 9]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "80": {
+          "before": "       *       *       *       *       *",
+          "after": "# APPARATUS:        *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "90": {
+          "before": "[VERSE 11]",
+          "after": "# APPARATUS: [VERSE 11]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "91": {
+          "before": "       *       *       *       *       *",
+          "after": "# APPARATUS:        *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 12,
+      "before_body_sha256": "aa4df5d06ba56145889be7a248cfb4938703df98200e2193a9ea62709d2a7887"
+    },
+    {
+      "file": "eng_celtic_msm_dougal_buchanan.txt",
+      "before_sha256": "dc4bf1d58c1bd4598a93dee914227f1c7f5a72277da2a63ed306b9eab6d26299",
+      "after_sha256": "9a73fcdd461c26c688fee2c43d11e78c04711d06389a87022031b4b5cf93ba21",
+      "replacements": {
+        "80": {
+          "before": "[VERSE 2]",
+          "after": "# APPARATUS: [VERSE 2]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "81": {
+          "before": "       *       *       *       *       *",
+          "after": "# APPARATUS:        *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "99": {
+          "before": "[VERSE 4]",
+          "after": "# APPARATUS: [VERSE 4]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "100": {
+          "before": "       *       *       *       *       *",
+          "after": "# APPARATUS:        *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "122": {
+          "before": "[VERSE 6]",
+          "after": "# APPARATUS: [VERSE 6]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "123": {
+          "before": "       *       *       *       *       *",
+          "after": "# APPARATUS:        *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "150": {
+          "before": "[VERSE 3]",
+          "after": "# APPARATUS: [VERSE 3]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "151": {
+          "before": "       *       *       *       *       *",
+          "after": "# APPARATUS:        *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 13,
+      "before_body_sha256": "14efe02271dd2c277b43600d3d41101a4a5298427e9d924ba73bd2df62ece75e"
+    },
+    {
+      "file": "eng_celtic_msm_duncan_macintyre.txt",
+      "before_sha256": "77598077d0f76142ca3895a7884af6fb6fbc20a8c3ea68eaada19892559cbc20",
+      "after_sha256": "0cee3e8f7b3fc618fff485b956e947ab4af989a2e1f689f3560f68cbddbc269d",
+      "replacements": {
+        "24": {
+          "before": "[VERSE 2]",
+          "after": "# APPARATUS: [VERSE 2]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "25": {
+          "before": "       *       *       *       *       *",
+          "after": "# APPARATUS:        *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "35": {
+          "before": "[VERSE 4]",
+          "after": "# APPARATUS: [VERSE 4]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "36": {
+          "before": "       *       *       *       *       *",
+          "after": "# APPARATUS:        *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "42": {
+          "before": "[VERSE 6]",
+          "after": "# APPARATUS: [VERSE 6]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "43": {
+          "before": "       *       *       *       *       *",
+          "after": "# APPARATUS:        *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 13,
+      "before_body_sha256": "fbab412400baa9028306cd3b4b2d8e8e42263e3b7dce0bc577fec421a13847fd"
+    },
+    {
+      "file": "eng_celtic_msm_evan_maclachlan.txt",
+      "before_sha256": "388b4cb39a9ae87237d8230661fcefc7d22e7e88e1f2f61f25cf199b148d6776",
+      "after_sha256": "d9ea8e6315c42e299dbc339f05e7c051926eda8a51d27af7931b20185abe67c0",
+      "replacements": {
+        "122": {
+          "before": "[VERSE 8]",
+          "after": "# APPARATUS: [VERSE 8]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "123": {
+          "before": "   *       *       *       *       *",
+          "after": "# APPARATUS:    *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 13,
+      "before_body_sha256": "24002f98670953609eb0fecb673541e3e7b3888a92c2ad97b03a9bed918f0fbc"
+    },
+    {
+      "file": "eng_celtic_msm_george_outram.txt",
+      "before_sha256": "b4d4efeefea659a4030550ee0c1245f97b500f931d3e8c6105830c36eb3b123f",
+      "after_sha256": "2e94efb7d5c2b25b23f4e45c009a72f5a069db977fffa1d921cc7fbf229ae0d5",
+      "replacements": {
+        "69": {
+          "before": "[VERSE 7]",
+          "after": "# APPARATUS: [VERSE 7]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "70": {
+          "before": "       *       *       *       *       *",
+          "after": "# APPARATUS:        *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "107": {
+          "before": "[VERSE 12]",
+          "after": "# APPARATUS: [VERSE 12]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "108": {
+          "before": "       *       *       *       *       *",
+          "after": "# APPARATUS:        *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 13,
+      "before_body_sha256": "c786974f8567b0c808925d6fef9abef5ebda12caa6141172f239ff9c64beb387"
+    },
+    {
+      "file": "eng_celtic_msm_hamilton_paul.txt",
+      "before_sha256": "02f51eacfb368900c5a53635cb3593d13ad25785c6a0a9f3b9b436996165b43d",
+      "after_sha256": "2b667780e8d1e98bf3c8f64f529c09b0365663270f028984e905a0b5493a7b02",
+      "replacements": {
+        "42": {
+          "before": "[VERSE 4]",
+          "after": "# APPARATUS: [VERSE 4]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "43": {
+          "before": "       *       *       *       *       *",
+          "after": "# APPARATUS:        *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 13,
+      "before_body_sha256": "be3969fe633ae88bead01c2bfc76e502ac6c05dffa42003dca0f98fe4ce3d075"
+    },
+    {
+      "file": "eng_celtic_msm_james_m_gregor_d_d.txt",
+      "before_sha256": "6a01b24f24f72903e19e2acb8993d4d8c29224ef2355a3f1399390ef784c6cd2",
+      "after_sha256": "ceb64665650f689d0415e765339044580ca4a1d87ac6e1ff8502e46638941c2f",
+      "replacements": {
+        "22": {
+          "before": "[VERSE 2]",
+          "after": "# APPARATUS: [VERSE 2]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "23": {
+          "before": "       *       *       *       *       *",
+          "after": "# APPARATUS:        *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 13,
+      "before_body_sha256": "b1565845e5b1893583ee803b2c9172647e7051da8d78aa2050c2d082d2e5901a"
+    },
+    {
+      "file": "eng_celtic_msm_john_bethune.txt",
+      "before_sha256": "2e2fb3d6de86aeece8fcb975e9128578e863f6ae65d3fe18c36d0571525f8612",
+      "after_sha256": "e4b001423ebb394a0e5981cf864a72611eb8f6dcbf46b07dbc4d8b741c9eb1b8",
+      "replacements": {
+        "33": {
+          "before": "[VERSE 3]",
+          "after": "# APPARATUS: [VERSE 3]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "34": {
+          "before": "   *       *       *       *       *",
+          "after": "# APPARATUS:    *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "45": {
+          "before": "   *       *       *       *       *",
+          "after": "# APPARATUS:    *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 13,
+      "before_body_sha256": "e7da5f2971e1a5c8130534d8dcdb0b420e5238a53d76e33896333c3e805016f9"
+    },
+    {
+      "file": "eng_celtic_msm_john_gibson_lockhart.txt",
+      "before_sha256": "18bdcb55b91ce79c7d907836cf48cac161fde164f20f70d21e65dc8f20eafe39",
+      "after_sha256": "738a28df9a52b91de50a99ec3e4b00807b49c58bd83438681ffdefd730a05599",
+      "replacements": {
+        "197": {
+          "before": "[VERSE 4]",
+          "after": "# APPARATUS: [VERSE 4]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "198": {
+          "before": "       *       *       *       *       *",
+          "after": "# APPARATUS:        *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 15,
+      "before_body_sha256": "0fc4af20db83eabd4d8e37b0c5b6783bf23f2f2541e5c60705c6466feb5794d7"
+    },
+    {
+      "file": "eng_celtic_msm_lady_anne_barnard.txt",
+      "before_sha256": "e43eecaa5eeb3c0bc94a857218370b381e7d41a583170d3620b6c2a06f0bbc6f",
+      "after_sha256": "e303a43f285d36ac848f55c9c054b60e36ae9ac448037356c1e163514d94f237",
+      "replacements": {
+        "122": {
+          "before": "[VERSE 23]",
+          "after": "# APPARATUS: [VERSE 23]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "123": {
+          "before": "           *       *       *       *       *",
+          "after": "# APPARATUS:            *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 13,
+      "before_body_sha256": "3d2a0ed5be1c204aa24e09b12daabd107f68f8c89f03a361d0b6f1ad8a6ec488"
+    },
+    {
+      "file": "eng_celtic_msm_robert_pollok.txt",
+      "before_sha256": "83457ca56ed56717873b2e57c6d3da4ca84860fb96e886f13ab54be01eea5b54",
+      "after_sha256": "409811dc66b64ffcab48813389c109ab1ebe3cd44b5f4875eb075ea5df171c99",
+      "replacements": {
+        "35": {
+          "before": "[VERSE 5]",
+          "after": "# APPARATUS: [VERSE 5]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "36": {
+          "before": "   *       *       *       *       *",
+          "after": "# APPARATUS:    *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 13,
+      "before_body_sha256": "b4bb34b31c8fc4138e27cac10e347191b1c4d73313304b6cabf13d786a1d169e"
+    },
+    {
+      "file": "eng_celtic_msm_william_ross.txt",
+      "before_sha256": "8dfd376f9f9ba42ed6537e14b783ec829b46504c25ab2952d2dc6553c8ccfd31",
+      "after_sha256": "abc67ba1b70718d21fdf53b38ab1c1078d62e30f87e3994405dec3b1e1b5b559",
+      "replacements": {
+        "24": {
+          "before": "           *       *       *       *       *",
+          "after": "# APPARATUS:            *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "77": {
+          "before": "[VERSE 10]",
+          "after": "# APPARATUS: [VERSE 10]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "78": {
+          "before": "           *       *       *       *       *",
+          "after": "# APPARATUS:            *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 13,
+      "before_body_sha256": "034c574a2127b36f9c6a6ca5af753117334a2031ddd36fb44573e79f41f977ad"
+    },
+    {
+      "file": "eng_celtic_msm_william_stirling_m_p.txt",
+      "before_sha256": "16d7f41db3c019eed6ed9b4044a79b305adfcc64ada46f41199f3bba50158098",
+      "after_sha256": "6e12cf473430cd57623a1d86cff5dc9beb3773b52c26c1d7404d83d05dae3111",
+      "replacements": {
+        "82": {
+          "before": "[VERSE 5]",
+          "after": "# APPARATUS: [VERSE 5]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "83": {
+          "before": "       *       *       *       *       *",
+          "after": "# APPARATUS:        *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 12,
+      "before_body_sha256": "fb9358bdbf0367cae12c97cc66fe19ef6f6162125f07092e65598d29fe49f59e"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "before_sha256": "c5e63041cc9be878f235595201e0a619e30006ffb095a002f17642963b088b29",
+      "after_sha256": "a9ff4a4281ea8b5838cfa3aea2bea86c582f518fc1f5c6121cbb19c575a755db",
+      "replacements": {
+        "2985": {
+          "before": ". . . . . . .",
+          "after": "# APPARATUS: . . . . . . .",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "2997": {
+          "before": ". . . . . . .",
+          "after": "# APPARATUS: . . . . . . .",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 22,
+      "before_body_sha256": "3df20d346f070ef413d3c1f83a6218876c1607a04ae097f7d26a448347e2525a"
+    },
+    {
+      "file": "eng_celtic_walter_scott.txt",
+      "before_sha256": "40baee4e8fd3c7f1d80ed296a8b708ce5c809195d220c3fc4b63705cb0f55cb6",
+      "after_sha256": "5a2504cc63f39c378c3d57c13762ac5ee8eebb779a9fc6baf7a8052d86094d57",
+      "replacements": {
+        "551": {
+          "before": "[VERSE 5]",
+          "after": "# APPARATUS: [VERSE 5]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "552": {
+          "before": "*       *       *       *       *",
+          "after": "# APPARATUS: *       *       *       *       *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 28,
+      "before_body_sha256": "ba769576261538afe3e7212f5934509ee2ae896e79e242c74e27081963d0456e"
+    },
+    {
+      "file": "eng_hbv_frank_l_stanton.txt",
+      "before_sha256": "86bc8709fce3512f38e93d4c8d0db9f91963b986093c5b660ffbbcf0d5d31235",
+      "after_sha256": "0a5369a70c67259b5fa892cc31106c56501341d2f053d2754bcc2307aec482b3",
+      "replacements": {
+        "55": {
+          "before": "[VERSE 7]",
+          "after": "# APPARATUS: [VERSE 7]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "56": {
+          "before": ". . . . . . . . .",
+          "after": "# APPARATUS: . . . . . . . . .",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 11,
+      "before_body_sha256": "d0f6a553f72374c877992926e31c82387a87dc4706ae965df717dd7209216217"
+    },
+    {
+      "file": "eng_hymn_watts.txt",
+      "before_sha256": "faf599d73d517ae1870d018ed8ae8c4fb4232e7911c3e5f5f0fed5b2ff77c681",
+      "after_sha256": "32a0678a87f823b0715406e7e4a76704edc24e056141a89368b34bbf3f9db63b",
+      "replacements": {
+        "11495": {
+          "before": "******",
+          "after": "# APPARATUS: ******",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 223,
+      "before_body_sha256": "f3662cdb9d1ae1fdfd2bc15ae721f4e5fca8e66d4837f766c4a61e5432236374"
+    },
+    {
+      "file": "eng_pah_james_jeffrey_roche.txt",
+      "before_sha256": "12046ecea146caecda0bec30c5f556a754847fd91a7b1fb8263acbdbe7772887",
+      "after_sha256": "addd82d9aaac7adca4fc5d1235e253c40a19c7db158de86bc69ed91fe39ce36d",
+      "replacements": {
+        "842": {
+          "before": "[VERSE 6]",
+          "after": "# APPARATUS: [VERSE 6]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "843": {
+          "before": "......",
+          "after": "# APPARATUS: ......",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 15,
+      "before_body_sha256": "0c2a81015ce4b94e6e4180a9202d72555f8a500d10ae405d1f4f690a93b2e86f"
+    }
+  ],
+  "summary": {
+    "files": 55,
+    "nonlyric_rows_classified": 253,
+    "apparatus_only_titles_classified": 9,
+    "apparatus_only_section_labels_classified": 136,
+    "deleted_physical_lines": 0,
+    "lyric_lines_changed": 0,
+    "reasons": {
+      "printed-separator-or-omission-mark": 111,
+      "printed-author-credit": 8,
+      "ode-section-number": 10,
+      "title-page": 9,
+      "title-page-and-dedication": 15,
+      "contents-list": 87,
+      "title-page-and-dedication-prose": 13
+    }
+  },
+  "work_identity_updates": [
+    {
+      "file": "corpus/song/eng_american_ethelinda_beers.txt",
+      "title_line": 13,
+      "title": "The Picket Guard ('All quiet along the Potomac')",
+      "weight": 1,
+      "before_body_sha256": "2b598ca52631599e1932de55113068a57ecb17c81b69f04b0184b3d81e2763f4",
+      "after_body_sha256": "dbdc52c86d5dc7df8f4908ca80cc88b8990617f9cc415d3c2e0fc1a54e6fc80a"
+    },
+    {
+      "file": "corpus/song/eng_american_julia_ward_howe.txt",
+      "title_line": 50,
+      "title": "Battle-hymn of the Republic (Golden Treasury text)",
+      "weight": 0,
+      "before_body_sha256": "8afb61a52745c2a56042703fa1e8f68408f2f0c1a54f268eb50a97953fe5597b",
+      "after_body_sha256": "ccea2301660c4b52fb5f6f557b517b82440872751ceb9d8ac262fa08e2d7f893"
+    },
+    {
+      "file": "corpus/song/eng_american_julia_ward_howe.txt",
+      "title_line": 85,
+      "title": "Battle Hymn of the Republic",
+      "weight": 0,
+      "before_body_sha256": "7ce9c0c15747ba3bbd661c4ea3f63f4a6684a6a7528b39da0c0069549816fc1c",
+      "after_body_sha256": "5a7687268f4b2957455eff123973d187d51fedcda28772c3df7f28176c688035"
+    }
+  ]
+}

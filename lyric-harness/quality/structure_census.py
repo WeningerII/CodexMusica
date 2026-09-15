@@ -178,7 +178,7 @@ D1_2026_08_26 = {
 # Re-adopted as a set after the shared reader, editorial corrections and
 # explicit work-edition population landed. The historical artifact arm above
 # remains a dated145-file table; it is not silently called the current tree.
-D1_RECORDED = {
+D1_2026_09_08 = {
     "pool": 4392354,
     "measured": "2026-09-08",
     "population": "1297 English files; normalized-lyrics-v1, 106 explicit work groups",
@@ -186,6 +186,18 @@ D1_RECORDED = {
               ("false", "admits"): 10, ("false", "rejects"): 663,
               ("refused", "admits"): 3, ("refused", "rejects"): 315},
     "agree": (667, 682),
+}
+
+# 2026-09-15: nonlyric material retained as explicit apparatus. The live
+# diagnostic was measured before adoption; its former table remains above.
+D1_RECORDED = {
+    "pool": 4390056,
+    "measured": "2026-09-15",
+    "population": "1297 English files; normalized-lyrics-v1, 106 explicit work groups; nonlyric apparatus annotated",
+    "table": {("true", "admits"): 4, ("true", "rejects"): 5,
+              ("false", "admits"): 9, ("false", "rejects"): 671,
+              ("refused", "admits"): 7, ("refused", "rejects"): 304},
+    "agree": (675, 689),
 }
 
 #: HISTORICAL, and unreachable from this tree by any population.

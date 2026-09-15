@@ -10,12 +10,12 @@
 # `lines` and `files` are MEASURED, not typed; --check re-derives both.
 # RE-ADOPTED 2026-09-08: VERSE 74319 -> 74278; 41 reviewed apparatus marks preserved as comments. Kind/mapping/file counts unchanged; exact per-file delta in quality/results/production_data_2026-09-08/data-final-census-attribution.json.
 mark	kind	maps_to	lines	files	note
-VERSE	function	verse	74278	1388	the narrative section; `grid.MARK_FUNCTION` has read it since that table was written
+VERSE	function	verse	74177	1388	the narrative section; `grid.MARK_FUNCTION` has read it since that table was written; remeasured 2026-09-15 after nonlyric apparatus annotations (previous 74278 lines / 1388 files)
 BAYT	form		70866	31	Persian/Arabic couplet -- the ghazal's prosodic unit, not a section
 RADIF	form		54193	30	the ghazal's repeated post-rhyme element. RETURNING material, and `refrain` is the function it is closest to -- see M-52
 BURDEN	function	burden	1753	35	a refrain sung by all; MEASURED 1,580 of 1,580 staged instances follow a verse block. Kept separate from refrain because the corpus marks the two differently
-REFRAIN	function	refrain	709	40	a returning line or couplet -- its own gloss says NOT a standalone section (M-56), so the function it maps to is a sub-section object
-CHORUS	function	chorus	267	64	the returning section; a mark that also OPENS songs, unlike burden
+REFRAIN	function	refrain	707	40	a returning line or couplet -- its own gloss says NOT a standalone section (M-56), so the function it maps to is a sub-section object; remeasured 2026-09-15 after nonlyric apparatus annotations (previous 709 lines / 40 files)
+CHORUS	function	chorus	234	62	the returning section; a mark that also OPENS songs, unlike burden; remeasured 2026-09-15 after nonlyric apparatus annotations (previous 267 lines / 64 files)
 SLOKA	form		144	1	Sanskrit two-line stanza -- a prosodic unit
 PANTUN ABAB	form		88	1	Malay quatrain form, naming its own rhyme scheme
 QUATRAIN AAAA	form		41	1	a four-line stanza naming its own rhyme scheme
