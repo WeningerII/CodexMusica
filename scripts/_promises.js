@@ -89,6 +89,12 @@ module.exports = [
     claim: 'the shipped lazy shell behaves identically to the embedded build',
   },
   {
+    id: 'minified-equivalence',
+    doc: 'README.md',
+    gate: 'check_minified_equivalence.js',
+    claim: 'the minified page behaves identically to the unminified build of the same source',
+  },
+  {
     id: 'chain-stage-validated',
     doc: 'AGENTS.md',
     gate: 'check_workspace_ops.js',

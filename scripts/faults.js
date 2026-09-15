@@ -301,6 +301,31 @@ record(
   );
 }
 
+// 9b. minification changes behaviour -> check_minified_equivalence.js
+//     The gate builds the embedded app BOTH ways from one source and compares
+//     them, so the defect to plant is in the transformer itself: _minify.js is
+//     patched to reprint one value differently. That is the SUBTLE class the
+//     gate exists for — the page still boots and renders, and exactly one
+//     string in one table is wrong, which no byte ceiling or parse check can
+//     see. (A total break, like enabling top-level mangling, is caught by the
+//     behavioural harnesses too; this one is not.)
+{
+  const d = mkenv(['scripts', 'references', 'src']);
+  const f = path.join(d, 'scripts/_minify.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const patched = src.replace(
+    '  return result.code;\n}',
+    "  return result.code.replace('guitar', '__FAULT__');\n}"
+  );
+  if (patched === src) throw new Error('faults: could not plant the minifier defect');
+  fs.writeFileSync(f, patched);
+  record(
+    'minifier-changes-behaviour -> check_minified_equivalence.js',
+    gate(d, ['scripts/check_minified_equivalence.js']),
+    /__FAULT__|differs at offset|MINIFIED EQUIVALENCE: FAIL/i
+  );
+}
+
 // 10. doc count drift -> check_docs.js  (a canonical count in the docs no longer
 //     matches the live catalog — the class that shipped stale AGENTS/SKILL counts)
 {

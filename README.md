@@ -11,7 +11,10 @@ blending, axis-profile matching, structural diffing, and catalog introspection. 
 browser app builds into a dependency-free `codex.html` — a **lazy shell** that loads
 the catalog on demand from the static `api/` served beside it, scaling past the
 single-file memory ceiling. A fully-embedded single-file variant (`--embedded`) still
-builds, and a gate proves the shell behaves identically to it. <!-- @promise: lazy-shell-parity -->
+builds, and a gate proves the shell behaves identically to it. <!-- @promise: lazy-shell-parity --> The page
+ships minified, and a second gate proves that reprinting it changed no behaviour —
+both builds are made from the same source in one run and compared.
+<!-- @promise: minified-equivalence -->
 
 ## Access and optional integrations
 
