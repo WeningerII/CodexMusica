@@ -13,17 +13,21 @@ out=ROOT/'quality/results/english_nonlyric_2026-09-15'
 rowsfile=out/'current-calibration-rows.tsv'
 provenance=LC.row_provenance();LC.verify_rows(rowsfile,provenance)
 rows=LC.read_rows([str(rowsfile)],verify=True)
-from collections import defaultdict,deque
-bodies=defaultdict(deque)
+bodies=[]
 for path in C.corpus_files():
  author,born,died=C.author_of(path)
  for title,body in C.items_in(path):
-  if body:bodies[(Path(path).name,title)].append((body,author,born,died))
-for row in rows:
- body,author,born,died=bodies[(row['file'],row['title'])].popleft()
+  if body:
+   n_tokens=sum(len(C.QualityFeatures._tokens(line)) for line in body)
+   if n_tokens:bodies.append((n_tokens,Path(path).name,title,body,author,born,died))
+# read_rows sorts by length, filename and title. Match that stable order:
+# repeated titles (e.g. Lovelace's "In English") are not unique work keys.
+bodies.sort(key=lambda entry:entry[:3])
+assert len(bodies)==len(rows)
+for row,(n_tokens,filename,title,body,author,born,died) in zip(rows,bodies):
+ assert (n_tokens,filename,title)==(row['n_tokens'],row['file'],row['title'])
  assert len(body)==row['n_lines'] and author==row['author']
  row.update(_body=body,born=born,died=died)
-assert not any(bodies.values())
 C.EDGES=list(C.PROFILE_EDGES[a.profile])
 lo,hi=C.pick_band(rows,verbose=True,profile=a.profile)
 full,fprs=C.report_fpr(rows,lo,hi,200)

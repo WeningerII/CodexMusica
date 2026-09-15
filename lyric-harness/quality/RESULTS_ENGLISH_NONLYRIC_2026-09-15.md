@@ -57,30 +57,70 @@ September 8 table is retained by date. Structural coverage changes only in the
 136 apparatus-only marks: 101 VERSE, 33 CHORUS and two REFRAIN labels. The
 vocabulary and decided/undecided classifications do not change.
 
-## Verification and draft status
+## Calibration closure — 2026-09-15
 
-Published as a draft at the owner's request to open the PR now. The apparatus
-annotations and the completed measurements are reviewable; this is not a
-completed calibration adoption or a merge-ready corpus snapshot.
+The fresh rebuild completed all 8,536 nonempty weighted works across 1,296
+populated files and 279,502 sung lines in 1,402 seconds. It rebuilt all 11,429
+exact pronunciation fields with a bounded decoded cache; peak parent memory
+was 778,592,256 bytes. The earlier corrupt checkpoints were not reused.
+The saved row TSV and its sidecar bind the exact corpus, reader, comparator,
+question and staged tagger used for this measurement.
 
-Completed checks: the preservation regression; frequency-table derivations;
-meter bands; section marks; the updated D1 structure census; all 81 existing
-rhyme-capacity witnesses against the rebuilt tables; documentation commands,
-paths and behavior checks. The capacity receipt is included alongside this report.
+The two historical bands still resolve to 200–400 tokens (2,231 items) and
+50–150 tokens (3,650 items). Each was remeasured with 200 author-held-out
+splits and 2,000 period-bootstrap draws; the period permutation arm uses its
+registered 10,000 draws. Both adoption checks answer all 21 constants with
+zero refusals. The song line-length-CV minimum changes from
+0.11089061090642224 to 0.11080070804250827; its other four cuts hold.
 
-The first full calibration-row rebuild failed because its temporary SQLite
-checkpoint became corrupt. A clean retry started with a new temporary cache but
-was interrupted before completion. No new band or length-curve thresholds are
-claimed or adopted. The previous floor declarations remain in force and are
-also archived here. The corpus manifest has deliberately not been rewritten.
+All five active length curves pass every one of the 21 length bins over
+200 author-held-out splits. The selected models remain C1 for MATTR and
+function-word ratio, C2 for anaphora, and CK for line-length CV. Predictability
+retains the existing, explicitly reported CK exception to the passing C0=1
+model; it first becomes informative at 166 tokens. The measured lyric range
+is now 10–3,244 tokens, previously 4–3,244, and the MATTR/TTR population is
+532 works at or below 50 tokens, previously 540. The prior minimum came from
+apparatus-only material. The curve adoption check re-derives all five curves.
+These are calibrations against historical human text, not a generated-song
+separation or a claim of musical validity.
 
-Before merge, finish the current-input row rebuild, the registered 200-seed band
-and length-curve fits, their adoption and checks, the manifest/population snapshot,
-the final audit and all required closing suites. Existing corpus-shape regression
-pins have been updated only where the actual completed measurement established
-the new count; the complete suite sweep is still pending. The earlier corpus
-audit also retains its existing Persian source-language failure, outside this
-English annotation batch. This PR does not claim that the whole audit is clean.
+The corpus manifest and six population bindings were refreshed together on
+2026-09-15. All 1,430 corpus files now match that snapshot. The taxonomy census
+is 8,652 raw English title records: 845 American, 4,495 English, 205 Irish,
+1,569 Scottish, and 1,538 with an undeclared region. The nine-record decrease
+is exactly five English title/contents records and four Scottish Stevenson
+contents records. Their text remains in place as apparatus.
+
+The band-report helper initially refused because it dequeued duplicate titles
+in source order after the measured rows had been sorted by length. It now
+matches the same stable length/file/title order and checks every row's identity,
+line count and author. The adoption helper's numeric lookup and feature-key
+mapping were also corrected before final adoption. Those initial failed attempts
+are not counted as successful checks. Full-precision reports, the corrected
+reproduction helpers and final adoption receipts are retained with the rows.
+
+## Integration and verification
+
+Current main at `64d32b204f493790a9c98f74f68f8ffb242cdb23` is merged. Both
+source-ledger conflicts are resolved, retaining the twelve Oxford 1931 header
+corrections and all prior source evidence. The three files touched by both
+changes retain their lyric bodies and physical line coordinates. No admission
+fields changed. The merged tree was verified against the published tree, and
+GitHub reported the PR mergeable at `c54d95101b12d8f9ad5b82a3bc663a78ac515f78`.
+
+Completed checks: all 36 production-data tests, the preservation regression,
+frequency derivations, meter bands, section marks, D1 structure census, mark
+coverage, taxonomy, runtime asset integrity, build closure, both historical
+band adoptions, all five length curves, the refreshed manifest, and all 81
+existing rhyme-capacity witnesses. The historical profile archive's formatting
+was corrected without changing any values. The full closing test sweep is
+in progress; draft status remains until its results are reviewed.
+
+The original publication was a draft with unfinished calibration and merge
+conflicts. This closure supersedes that calibration status. The full corpus
+audit still includes its pre-existing Persian source-language finding for
+`corpus/fas_hafez.LICENSE.txt`; that issue is outside this English batch and
+is not described as a clean audit.
 
 ## Scope and follow-up
 
@@ -103,7 +143,8 @@ python3 quality/test_production_data.py
 python3 quality/calibration_rebuild.py --output-dir quality/results/english_nonlyric_2026-09-15 --field-cache /tmp/nonlyric-fields.sqlite --workers 6
 python3 quality/results/english_nonlyric_2026-09-15/measure-bands.txt song
 python3 quality/results/english_nonlyric_2026-09-15/measure-bands.txt short
-python3 quality/length_curve_calibration.py fit quality/results/english_nonlyric_2026-09-15/current-calibration-rows.tsv --seeds 200 --workers 6 --picks predictability=CK --report /tmp/nonlyric-curves.json
+python3 quality/length_curve_calibration.py fit quality/results/english_nonlyric_2026-09-15/current-calibration-rows.tsv --seeds 200 --workers 6 --picks predictability=CK --report quality/results/english_nonlyric_2026-09-15/curve-adoption.json
+python3 quality/results/english_nonlyric_2026-09-15/adopt-profiles.txt
 python3 quality/length_curve_calibration.py check --rows quality/results/english_nonlyric_2026-09-15/current-calibration-rows.tsv
 python3 quality/meter_bands.py --check
 python3 quality/frequency.py --check

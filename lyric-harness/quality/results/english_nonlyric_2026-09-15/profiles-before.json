@@ -19,41 +19,13 @@
     "tolerance": 1.25,
     "source": "CURRENT 2026-09-14 remeasurement after Unicode/apostrophe normalization: 2231 works over 663 files, 200-400 tokens. The unchanged five-check band rule, 200 author-held-out splits, and period controls were rerun together; full-precision thresholds and instrument-precision rates are archived in results/computational_audit_2026-09-14/current-band-adoption.json. This profile remains superseded by lyric. Historical source: Re-adopted 2026-09-08 after normalized-reader/editorial and canonical-work corrections. Population: 8,546 total works / 8,545 nonempty English works; selected band 200-450 tokens, 2438 items, 690 author files. Full existing five-coordinate band selection and 200 author-held-out splits were measured; short-band predictability remains unadopted at the statistic ceiling 1.0. Reproduce with quality/song_profile_calibration.py --profile song --check.",
     "held_out_fpr": {
-      "mattr": [
-        5.05,
-        2.75,
-        7.95
-      ],
-      "function_word_ratio": [
-        5.13,
-        3.23,
-        8.43
-      ],
-      "anaphora": [
-        4.83,
-        2.94,
-        7.82
-      ],
-      "line_length_cv": [
-        5.09,
-        3.34,
-        7.04
-      ],
-      "predictability": [
-        5.03,
-        2.57,
-        7.49
-      ],
-      "ANY": [
-        20.13,
-        15.43,
-        24.57
-      ],
-      "cliche": [
-        7.62,
-        6.05,
-        9.05
-      ]
+      "mattr": [5.05, 2.75, 7.95],
+      "function_word_ratio": [5.13, 3.23, 8.43],
+      "anaphora": [4.83, 2.94, 7.82],
+      "line_length_cv": [5.09, 3.34, 7.04],
+      "predictability": [5.03, 2.57, 7.49],
+      "ANY": [20.13, 15.43, 24.57],
+      "cliche": [7.62, 6.05, 9.05]
     },
     "held_out_scope": {},
     "curves": {},
@@ -79,36 +51,12 @@
     "tolerance": 1.25,
     "source": "CURRENT 2026-09-14 remeasurement after Unicode/apostrophe normalization: 3650 works over 693 files, 50-150 tokens. The unchanged five-check band rule, 200 author-held-out splits, and period controls were rerun together; full-precision thresholds and instrument-precision rates are archived in results/computational_audit_2026-09-14/current-band-adoption.json. This profile remains superseded by lyric. Historical source: Re-adopted 2026-09-08 after normalized-reader/editorial and canonical-work corrections. Population: 8,546 total works / 8,545 nonempty English works; selected band 50-150 tokens, 3641 items, 690 author files. Full existing five-coordinate band selection and 200 author-held-out splits were measured; short-band predictability remains unadopted at the statistic ceiling 1.0. Reproduce with quality/song_profile_calibration.py --profile short --check.",
     "held_out_fpr": {
-      "mattr": [
-        5.4,
-        1.9,
-        10.41
-      ],
-      "function_word_ratio": [
-        5.16,
-        3.0,
-        8.2
-      ],
-      "anaphora": [
-        3.83,
-        3.1,
-        7.57
-      ],
-      "line_length_cv": [
-        5.42,
-        3.52,
-        7.21
-      ],
-      "ANY": [
-        16.31,
-        11.27,
-        22.92
-      ],
-      "cliche": [
-        3.98,
-        3.36,
-        4.73
-      ]
+      "mattr": [5.4, 1.9, 10.41],
+      "function_word_ratio": [5.16, 3.0, 8.2],
+      "anaphora": [3.83, 3.1, 7.57],
+      "line_length_cv": [5.42, 3.52, 7.21],
+      "ANY": [16.31, 11.27, 22.92],
+      "cliche": [3.98, 3.36, 4.73]
     },
     "held_out_scope": {},
     "curves": {},
@@ -129,228 +77,68 @@
     "tolerance": 1.0,
     "source": "Re-adopted 2026-09-14 after Unicode/apostrophe normalization: 8545 nonempty works over 1296 files, 4-3244 tokens. Full 200 author-held-out 50/50 splits, all five checks pass all 21 length bins. The preregistered rule chooses MATTR C1, function-word ratio C1, anaphora C2, CV CK. Predictability CK retains the previously adopted anti-vacuity exception to C0; the held-out protocol was rerun and every bin passed. Its threshold is 1.0 through 165 tokens and begins to fall at 166. All coefficients, knots and held-out percentages retain full precision. See results/computational_audit_2026-09-14/current-curve-adoption.json and the verified calibration rows.",
     "held_out_fpr": {
-      "ANY": [
-        18.606230954544515,
-        14.687780939676726,
-        23.827975077972827
-      ],
-      "anaphora": [
-        5.07605302485194,
-        3.416815248735455,
-        7.180968462370302
-      ],
-      "line_length_cv": [
-        5.339649969959775,
-        4.286831817710738,
-        6.737629748685296
-      ],
-      "function_word_ratio": [
-        5.14310582627359,
-        3.1901989278311955,
-        7.744422133930816
-      ],
-      "mattr": [
-        4.85567265305959,
-        2.93649309788923,
-        7.907153633346033
-      ],
-      "predictability": [
-        2.637653035785275,
-        1.3292908919993986,
-        4.465166379430106
-      ]
+      "ANY": [18.606230954544515, 14.687780939676726, 23.827975077972827],
+      "anaphora": [5.07605302485194, 3.416815248735455, 7.180968462370302],
+      "line_length_cv": [5.339649969959775, 4.286831817710738, 6.737629748685296],
+      "function_word_ratio": [5.14310582627359, 3.1901989278311955, 7.744422133930816],
+      "mattr": [4.85567265305959, 2.93649309788923, 7.907153633346033],
+      "predictability": [2.637653035785275, 1.3292908919993986, 4.465166379430106]
     },
     "held_out_scope": {
       "predictability": ". This rate pools all 4-3244-token works, including lengths through 165 where the threshold equals 1.0 and cannot fire. It is not conditional on lengths where the check can fire."
     },
     "curves": {
-      "anaphora_max": [
-        1.1410264490269637,
-        -0.24192225650780994,
-        0.016089470087265554
-      ],
+      "anaphora_max": [1.1410264490269637, -0.24192225650780994, 0.016089470087265554],
       "line_length_cv_min": {
         "knots": [
-          [
-            3.5553480614894135,
-            0.0642758144161543
-          ],
-          [
-            3.9512437185814275,
-            0.07687396557320486
-          ],
-          [
-            4.23410650459726,
-            0.08939000052740793
-          ],
-          [
-            4.418840607796598,
-            0.10126582278481014
-          ],
-          [
-            4.543294782270004,
-            0.1082168607854236
-          ],
-          [
-            4.634728988229636,
-            0.10505215778924569
-          ],
-          [
-            4.709530201312334,
-            0.09485293865439588
-          ],
-          [
-            4.787491742782046,
-            0.09118241674784329
-          ],
-          [
-            4.882801922586371,
-            0.0986031908999799
-          ],
-          [
-            4.955827057601261,
-            0.10157929403030734
-          ],
-          [
-            5.0238805208462765,
-            0.10451121708338629
-          ],
-          [
-            5.10594547390058,
-            0.10739549071589934
-          ],
-          [
-            5.198497031265826,
-            0.11043838037447044
-          ],
-          [
-            5.288267030694535,
-            0.11059542136738493
-          ],
-          [
-            5.384495062789089,
-            0.10637480114125696
-          ],
-          [
-            5.493061443340548,
-            0.10995489690875815
-          ],
-          [
-            5.598421958998375,
-            0.11208072349964783
-          ],
-          [
-            5.723585101952381,
-            0.10945371091569346
-          ],
-          [
-            5.872117789475416,
-            0.1178199701019257
-          ],
-          [
-            6.07073772800249,
-            0.12176047102421393
-          ],
-          [
-            6.519147287940395,
-            0.12865487185334548
-          ]
+          [3.5553480614894135, 0.0642758144161543],
+          [3.9512437185814275, 0.07687396557320486],
+          [4.23410650459726, 0.08939000052740793],
+          [4.418840607796598, 0.10126582278481014],
+          [4.543294782270004, 0.1082168607854236],
+          [4.634728988229636, 0.10505215778924569],
+          [4.709530201312334, 0.09485293865439588],
+          [4.787491742782046, 0.09118241674784329],
+          [4.882801922586371, 0.0986031908999799],
+          [4.955827057601261, 0.10157929403030734],
+          [5.0238805208462765, 0.10451121708338629],
+          [5.10594547390058, 0.10739549071589934],
+          [5.198497031265826, 0.11043838037447044],
+          [5.288267030694535, 0.11059542136738493],
+          [5.384495062789089, 0.10637480114125696],
+          [5.493061443340548, 0.10995489690875815],
+          [5.598421958998375, 0.11208072349964783],
+          [5.723585101952381, 0.10945371091569346],
+          [5.872117789475416, 0.1178199701019257],
+          [6.07073772800249, 0.12176047102421393],
+          [6.519147287940395, 0.12865487185334548]
         ]
       },
-      "function_word_ratio_max": [
-        0.5601541346316956,
-        -0.014256259671846554
-      ],
-      "mattr_min": [
-        0.5028330910295854,
-        0.037016354139316636
-      ],
+      "function_word_ratio_max": [0.5601541346316956, -0.014256259671846554],
+      "mattr_min": [0.5028330910295854, 0.037016354139316636],
       "predictable_pair_fraction_max": {
         "knots": [
-          [
-            3.5553480614894135,
-            1.0
-          ],
-          [
-            3.9512437185814275,
-            1.0
-          ],
-          [
-            4.23410650459726,
-            1.0
-          ],
-          [
-            4.418840607796598,
-            1.0
-          ],
-          [
-            4.543294782270004,
-            1.0
-          ],
-          [
-            4.634728988229636,
-            1.0
-          ],
-          [
-            4.709530201312334,
-            1.0
-          ],
-          [
-            4.787491742782046,
-            1.0
-          ],
-          [
-            4.882801922586371,
-            1.0
-          ],
-          [
-            4.955827057601261,
-            1.0
-          ],
-          [
-            5.0238805208462765,
-            1.0
-          ],
-          [
-            5.10594547390058,
-            1.0
-          ],
-          [
-            5.198497031265826,
-            0.9375
-          ],
-          [
-            5.288267030694535,
-            0.9285714285714286
-          ],
-          [
-            5.384495062789089,
-            0.9335416666666665
-          ],
-          [
-            5.493061443340548,
-            0.9333333333333333
-          ],
-          [
-            5.598421958998375,
-            0.9378676470588234
-          ],
-          [
-            5.723585101952381,
-            0.9090909090909091
-          ],
-          [
-            5.872117789475416,
-            0.9166666666666666
-          ],
-          [
-            6.07073772800249,
-            0.8826797385620911
-          ],
-          [
-            6.519147287940395,
-            0.8571428571428571
-          ]
+          [3.5553480614894135, 1.0],
+          [3.9512437185814275, 1.0],
+          [4.23410650459726, 1.0],
+          [4.418840607796598, 1.0],
+          [4.543294782270004, 1.0],
+          [4.634728988229636, 1.0],
+          [4.709530201312334, 1.0],
+          [4.787491742782046, 1.0],
+          [4.882801922586371, 1.0],
+          [4.955827057601261, 1.0],
+          [5.0238805208462765, 1.0],
+          [5.10594547390058, 1.0],
+          [5.198497031265826, 0.9375],
+          [5.288267030694535, 0.9285714285714286],
+          [5.384495062789089, 0.9335416666666665],
+          [5.493061443340548, 0.9333333333333333],
+          [5.598421958998375, 0.9378676470588234],
+          [5.723585101952381, 0.9090909090909091],
+          [5.872117789475416, 0.9166666666666666],
+          [6.07073772800249, 0.8826797385620911],
+          [6.519147287940395, 0.8571428571428571]
         ]
       }
     },

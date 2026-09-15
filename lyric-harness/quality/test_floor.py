@@ -835,12 +835,14 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
           song.percentiles == {"mattr_min": 0.717809720727355,
                                "function_word_ratio_max": 0.47871873227323464,
                                "anaphora_max": 0.3000,
-                               "line_length_cv_min": 0.11089061090642224,
+                               "line_length_cv_min": 0.11080070804250827,
                                "predictable_pair_fraction_max": 0.9285714285714286}
           and (song.lo, song.hi, song.n_human) == (200, 400, 2231),
-          "RE-ADOPTED 2026-09-14 after Unicode/apostrophe normalization: "
+          "RE-ADOPTED 2026-09-15 after preserved apparatus annotations: "
           "full 200-seed derivation, 200-400 tokens, 2,231 items, "
-          "MATTR window50. The preceding August history describes the prior "
+          "MATTR window50. The 2026-09-14 CV minimum was "
+          "0.11089061090642224; the other four cuts and the band still hold. "
+          "The preceding August history describes the prior "
           "population. This pins the independently recorded current tuple; "
           "the flagship-example flag above is the control against tuning it "
           "to make the repository's examples pass.")
@@ -1514,11 +1516,14 @@ def test_the_length_gate_is_a_gate():
     # 0.4% — the three lengths 1-3, under the profile's own lower limit,
     # which is the corpus's shortest item. The hole this check was written
     # to measure is closed, and the check now measures that it stays closed.
+    # 2026-09-15: the shortest actual lyric is 10 tokens after preserving
+    # apparatus-only material. The former 696/3 partition becomes 690/9;
+    # no extrapolation is introduced to conceal that measured loss of reach.
     check("AND THE SIZE OF THE HOLE IS MEASURED, not asserted: over 1-699 "
-          "tokens the floor can FLAG at 99.6% of lengths and reaches no "
-          "profile at all at 0.4% — the hole the band rows left is closed "
-          "by the length curves (M-239)",
-          exact_n == 696 and none_n == 3,
+          "tokens the floor can FLAG at 98.7% of lengths and reaches no "
+          "profile at all at 1.3% — lengths 1-9 are below the measured "
+          "lyric range after apparatus annotations",
+          exact_n == 690 and none_n == 9,
           f"flaggable {exact_n / 699:.1%}, no profile {none_n / 699:.1%}")
 
 
