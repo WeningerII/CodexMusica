@@ -1,0 +1,477 @@
+{
+  "date": "2026-09-15",
+  "baseline_commit": "edbd2a8ba5a661a72556b57b9916268513b0ac53",
+  "file": "corpus/song/eng_british_adelaide_anne_procter.txt",
+  "previous_receipt": "docs/procter-source-references.json",
+  "scope": "Complete the five unmatched bodies left by the initial 136-reference batch; the earlier receipt retains its historical coordinates and results.",
+  "matching_coordinate": "Complete NFC-normalized casefolded Unicode words, punctuation/underscore emphasis/layout removed. For each full source passage, exclude ONLY the exact standalone, blank-separated Roman-numeral lines recorded below. Every remaining word equals the complete corpus body in order. All three pinned sources were checked; each new assignment has exactly one matching witness. No fuzzy substitutions, lyric deletions, new edition admission or printed-song eligibility decision.",
+  "sources": [
+    {
+      "repository": "GITenberg/Legends-and-Lyrics.-Part-1_2303",
+      "file": "2303.txt",
+      "url": "https://raw.githubusercontent.com/GITenberg/Legends-and-Lyrics.-Part-1_2303/master/2303.txt",
+      "md5": "569c328e15f454db8473099ee1aae270",
+      "sha256": "b0ecc1ec62cdc88e4bfc9fb4854bc65e5ae1552ca1e778391a67a99c38dc1936",
+      "bytes": 208892
+    },
+    {
+      "repository": "GITenberg/Legends-and-Lyrics.-Part-2_2304",
+      "file": "2304.txt",
+      "url": "https://raw.githubusercontent.com/GITenberg/Legends-and-Lyrics.-Part-2_2304/master/2304.txt",
+      "md5": "cc4bac04fc5ac545a0b01731df394404",
+      "sha256": "a02e5306b5aa8e69a4638b1b8569be7fd6e65385d3eb87a0d856cd74764014d4",
+      "bytes": 155684
+    },
+    {
+      "repository": "GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715",
+      "file": "26715-8.txt",
+      "url": "https://raw.githubusercontent.com/GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715/master/26715-8.txt",
+      "md5": "581b19667a6a120d8f336a3c4f206734",
+      "sha256": "96cfa58285720226dfa5ff970055f3a800f116e4207eb4151e9c7afeee6b61de",
+      "bytes": 180228
+    }
+  ],
+  "before_sha256": "0f5a8385b046c1367c961bc1cedef945bcf1ce1d29dfc48dc7107468a017d20e",
+  "after_sha256": "2cd339afbb366c73e317a2ae90b5a8662f7bc7b78e10f628ee6ebd2f6d2d70a2",
+  "conservation": {
+    "new_source_insertions": 5,
+    "total_source_references": 141,
+    "all_previous_bytes_preserved": true,
+    "raw_items": 143,
+    "raw_lyric_rows": 5538,
+    "weighted_items": 142,
+    "weighted_lyric_rows": 5486,
+    "normalized_text_and_indentation_unchanged": true,
+    "weights_unchanged": true,
+    "source_numeral_headings_excluded_from_comparison": 36
+  },
+  "edition_coordinate_migrations": [
+    {
+      "title": "Verse: Sent To Heaven",
+      "previous_title_line": 5218,
+      "current_title_line": 5221,
+      "body_sha256": "9e7d95f2f26aee53f23a92dcb86e72491f8aa3724cbe12010febffe56610afb9",
+      "weight": 0
+    }
+  ],
+  "runtime_asset_rebindings": ["data/sources.tsv"],
+  "assignments": [
+    {
+      "title": "Verse: Life In Death And Death In Life",
+      "previous_title_line": 3006,
+      "source": "PG2303",
+      "source_file": "2303.txt",
+      "body_sha256": "8761973489d1c5e4c0096a33aa51ed3a289f8b139ea01ccbead10c7107eca658",
+      "normalized_word_sha256": "b21796587dcee7ad015b93f95b7cd2ebeba1382beb7fda3cf5ebcbe41421ff6a",
+      "lyric_rows": 100,
+      "word_count": 695,
+      "first_source_line": 5471,
+      "last_source_line": 5591,
+      "source_numeral_headings": [
+        {
+          "line": 5531,
+          "text": "II.",
+          "after_body_word": 347
+        }
+      ],
+      "current_title_line": 3006
+    },
+    {
+      "title": "Verse: A Chant",
+      "previous_title_line": 4816,
+      "source": "PG2304",
+      "source_file": "2304.txt",
+      "body_sha256": "cd1ffbba964f4dba577259cd3b2eec298fbea93d99e8ec432c3a9831258bfc1c",
+      "normalized_word_sha256": "083afbf27c6011b4234eac531e67e640f582cf569c375cbceb8a1ecf784119b4",
+      "lyric_rows": 60,
+      "word_count": 337,
+      "first_source_line": 1610,
+      "last_source_line": 1678,
+      "source_numeral_headings": [
+        {
+          "line": 1626,
+          "text": "II.",
+          "after_body_word": 83
+        },
+        {
+          "line": 1644,
+          "text": "III.",
+          "after_body_word": 165
+        },
+        {
+          "line": 1662,
+          "text": "IV.",
+          "after_body_word": 250
+        }
+      ],
+      "current_title_line": 4817
+    },
+    {
+      "title": "Verse: My Picture Gallery",
+      "previous_title_line": 5141,
+      "source": "PG2304",
+      "source_file": "2304.txt",
+      "body_sha256": "fe05cb16457d4e76e2b3941e6e99492fc7c149e1ac0ded83d3cd4a98dd84b485",
+      "normalized_word_sha256": "42c4bc249698201ac6ca631ed208ae80d4a91c695777e10f92c8e495d2fc5f0b",
+      "lyric_rows": 60,
+      "word_count": 506,
+      "first_source_line": 1956,
+      "last_source_line": 2057,
+      "source_numeral_headings": [
+        {
+          "line": 1961,
+          "text": "II.",
+          "after_body_word": 37
+        },
+        {
+          "line": 1968,
+          "text": "III.",
+          "after_body_word": 73
+        },
+        {
+          "line": 1975,
+          "text": "IV.",
+          "after_body_word": 107
+        },
+        {
+          "line": 1982,
+          "text": "V.",
+          "after_body_word": 141
+        },
+        {
+          "line": 1989,
+          "text": "VI.",
+          "after_body_word": 174
+        },
+        {
+          "line": 1996,
+          "text": "VII.",
+          "after_body_word": 208
+        },
+        {
+          "line": 2003,
+          "text": "VIII.",
+          "after_body_word": 243
+        },
+        {
+          "line": 2010,
+          "text": "IX.",
+          "after_body_word": 277
+        },
+        {
+          "line": 2017,
+          "text": "X.",
+          "after_body_word": 309
+        },
+        {
+          "line": 2024,
+          "text": "XI.",
+          "after_body_word": 342
+        },
+        {
+          "line": 2031,
+          "text": "XII.",
+          "after_body_word": 375
+        },
+        {
+          "line": 2038,
+          "text": "XIII.",
+          "after_body_word": 406
+        },
+        {
+          "line": 2045,
+          "text": "XIV.",
+          "after_body_word": 440
+        },
+        {
+          "line": 2052,
+          "text": "XV.",
+          "after_body_word": 475
+        }
+      ],
+      "current_title_line": 5143
+    },
+    {
+      "title": "Verse: A Comforter",
+      "previous_title_line": 5929,
+      "source": "PG2304",
+      "source_file": "2304.txt",
+      "body_sha256": "99854e8fb1afdfae30060e050de5c18466e644e4a5a0ba2fed8c21dfdf8bf370",
+      "normalized_word_sha256": "5642c61079642694d094ddc316705a9b889e4a93a19a4a752343d3130a6000c1",
+      "lyric_rows": 72,
+      "word_count": 502,
+      "first_source_line": 3054,
+      "last_source_line": 3174,
+      "source_numeral_headings": [
+        {
+          "line": 3059,
+          "text": "II.",
+          "after_body_word": 30
+        },
+        {
+          "line": 3066,
+          "text": "III.",
+          "after_body_word": 57
+        },
+        {
+          "line": 3073,
+          "text": "IV.",
+          "after_body_word": 84
+        },
+        {
+          "line": 3080,
+          "text": "V.",
+          "after_body_word": 114
+        },
+        {
+          "line": 3087,
+          "text": "VI.",
+          "after_body_word": 143
+        },
+        {
+          "line": 3094,
+          "text": "VII.",
+          "after_body_word": 170
+        },
+        {
+          "line": 3101,
+          "text": "VIII.",
+          "after_body_word": 198
+        },
+        {
+          "line": 3108,
+          "text": "IX.",
+          "after_body_word": 229
+        },
+        {
+          "line": 3115,
+          "text": "X.",
+          "after_body_word": 258
+        },
+        {
+          "line": 3122,
+          "text": "XI.",
+          "after_body_word": 285
+        },
+        {
+          "line": 3129,
+          "text": "XII.",
+          "after_body_word": 314
+        },
+        {
+          "line": 3141,
+          "text": "XIV.",
+          "after_body_word": 367
+        },
+        {
+          "line": 3148,
+          "text": "XV.",
+          "after_body_word": 395
+        },
+        {
+          "line": 3155,
+          "text": "XVI.",
+          "after_body_word": 419
+        },
+        {
+          "line": 3162,
+          "text": "XVII.",
+          "after_body_word": 448
+        },
+        {
+          "line": 3169,
+          "text": "XVIII.",
+          "after_body_word": 475
+        }
+      ],
+      "current_title_line": 5932
+    },
+    {
+      "title": "Verse: Hearts",
+      "previous_title_line": 6826,
+      "source": "PG2304",
+      "source_file": "2304.txt",
+      "body_sha256": "9db562f63d6764163935395d3c180db426fad494d6ed78f9b94693adb0317613",
+      "normalized_word_sha256": "32ab4d389eeb08abead564169000e5e0c47ed8f1affff411e2f7f3b140c8df53",
+      "lyric_rows": 66,
+      "word_count": 373,
+      "first_source_line": 4569,
+      "last_source_line": 4650,
+      "source_numeral_headings": [
+        {
+          "line": 4599,
+          "text": "II.",
+          "after_body_word": 144
+        },
+        {
+          "line": 4629,
+          "text": "III.",
+          "after_body_word": 274
+        }
+      ],
+      "current_title_line": 6830
+    }
+  ],
+  "remaining": [
+    {
+      "title": "Sent To Heaven",
+      "reason": "Complete body still matches both PG2304 and PG26715; exact source not assigned.",
+      "current_title_line": 32
+    },
+    {
+      "title": "Verse: Sent To Heaven",
+      "reason": "Complete body still matches both PG2304 and PG26715; exact source not assigned.",
+      "current_title_line": 5221
+    }
+  ],
+  "apparatus_coordinate_remeasurement": {
+    "file": "data/english_nonlyric_apparatus.json",
+    "previous_record": {
+      "file": "eng_british_adelaide_anne_procter.txt",
+      "before_sha256": "c29d89f1d926a489ae4d557606fab3053b63f803ffb4e92ddf2fd8783fda5a49",
+      "after_sha256": "0f5a8385b046c1367c961bc1cedef945bcf1ce1d29dfc48dc7107468a017d20e",
+      "replacements": {
+        "1084": {
+          "before": "[VERSE 9]",
+          "after": "# APPARATUS: [VERSE 9]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1085": {
+          "before": "* * *",
+          "after": "# APPARATUS: * * *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "2509": {
+          "before": "[VERSE 8]",
+          "after": "# APPARATUS: [VERSE 8]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "2510": {
+          "before": "* * *",
+          "after": "# APPARATUS: * * *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "6410": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "6411": {
+          "before": "* * *",
+          "after": "# APPARATUS: * * *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "6433": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "6434": {
+          "before": "* * *",
+          "after": "# APPARATUS: * * *",
+          "reason": "printed-separator-or-omission-mark"
+        },
+        "6442": {
+          "before": "[CHORUS]",
+          "after": "# APPARATUS: [CHORUS]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "6443": {
+          "before": "* * *",
+          "after": "# APPARATUS: * * *",
+          "reason": "printed-separator-or-omission-mark"
+        }
+      },
+      "source_start_line": 32,
+      "before_body_sha256": "25d09d38b10ce36ef01f5184f7ab6171e280f7eda1ba28f199766e5a1c76b903",
+      "superseded_2026-09-15": {
+        "why": "PR #285 inserted 136 verified per-item source references into this file, purely as new lines: every one of main's 6926 lines maps into the merged file unchanged, so no lyric text, apparatus marker or item boundary was rewritten -- only their physical coordinates moved. The receipt below was measured against the file BEFORE those insertions (baseline 40a28ddcd72b); the values above are the same operation re-measured against the merged file, with each of the ten markers relocated by diff alignment and then VERIFIED to sit at its new line. The header-tolerant before_body_sha256 could not absorb this because the insertions are in the BODY, not the header.",
+        "replacements": {
+          "1061": {
+            "before": "[VERSE 9]",
+            "after": "# APPARATUS: [VERSE 9]",
+            "reason": "stanza-label-attached-only-to-apparatus"
+          },
+          "1062": {
+            "before": "* * *",
+            "after": "# APPARATUS: * * *",
+            "reason": "printed-separator-or-omission-mark"
+          },
+          "2447": {
+            "before": "[VERSE 8]",
+            "after": "# APPARATUS: [VERSE 8]",
+            "reason": "stanza-label-attached-only-to-apparatus"
+          },
+          "2448": {
+            "before": "* * *",
+            "after": "# APPARATUS: * * *",
+            "reason": "printed-separator-or-omission-mark"
+          },
+          "6284": {
+            "before": "[CHORUS]",
+            "after": "# APPARATUS: [CHORUS]",
+            "reason": "stanza-label-attached-only-to-apparatus"
+          },
+          "6285": {
+            "before": "* * *",
+            "after": "# APPARATUS: * * *",
+            "reason": "printed-separator-or-omission-mark"
+          },
+          "6307": {
+            "before": "[CHORUS]",
+            "after": "# APPARATUS: [CHORUS]",
+            "reason": "stanza-label-attached-only-to-apparatus"
+          },
+          "6308": {
+            "before": "* * *",
+            "after": "# APPARATUS: * * *",
+            "reason": "printed-separator-or-omission-mark"
+          },
+          "6316": {
+            "before": "[CHORUS]",
+            "after": "# APPARATUS: [CHORUS]",
+            "reason": "stanza-label-attached-only-to-apparatus"
+          },
+          "6317": {
+            "before": "* * *",
+            "after": "# APPARATUS: * * *",
+            "reason": "printed-separator-or-omission-mark"
+          }
+        },
+        "before_sha256": "a2260667f0a2a9764389108a9fd2e064a3298e8573972181628c8ab8402026ac",
+        "after_sha256": "8e91762df9b172f1c57e86e72f3c85b858fcdd81619b84c4361c7bbe29326d89",
+        "before_body_sha256": "30486bc225be0b61122fb6bbfb6417fe5749b7ed6d3ba569fc3ec7a9b4636d68"
+      }
+    },
+    "all_previous_physical_lines_preserved": true,
+    "migrations": [
+      {
+        "previous_line": 6410,
+        "current_line": 6414
+      },
+      {
+        "previous_line": 6411,
+        "current_line": 6415
+      },
+      {
+        "previous_line": 6433,
+        "current_line": 6437
+      },
+      {
+        "previous_line": 6434,
+        "current_line": 6438
+      },
+      {
+        "previous_line": 6442,
+        "current_line": 6446
+      },
+      {
+        "previous_line": 6443,
+        "current_line": 6447
+      }
+    ],
+    "before_sha256": "68af2fe2fba1417a91a08c733a74979c0a86f28884f1501392f04ce71cfc8ad6",
+    "after_sha256": "2cd339afbb366c73e317a2ae90b5a8662f7bc7b78e10f628ee6ebd2f6d2d70a2",
+    "before_body_sha256": "d44b09ea3bf89784ba3f7392bf638a5152f94e583bd98227b0c974e7da74a861"
+  }
+}
