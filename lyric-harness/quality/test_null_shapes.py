@@ -59,6 +59,7 @@ Run: python3 quality/test_null_shapes.py
 import os
 import subprocess
 import sys
+from dataclasses import replace
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -250,6 +251,7 @@ def main():
           % (_real, _xi, _xi / _real, _mono, _mono / _real,
              _disp, _disp / _real))
 
+    forced_gap_sections()
     relations_sections()
 
     # 9. THE LEDGER RUNS IN THE SUITE, not only from the CLI. `--verify` is a
@@ -392,6 +394,58 @@ RECORDED_PAIRS = (
     ("perfect rhyme", "local_fraction@2"),
     ("Kalevala alliteration (weak)", "line_fraction"),
 )
+
+
+def forced_gap_sections():
+    """M-46: distinguish one endpoint span per line from overlapping spans."""
+    from quality.phonology import get as get_phonology
+    phon = get_phonology("eng")
+    schema = R.REGISTRY["semirhyme"]
+    lines = ["bend", "ending"]
+    stream = R.build_stream(lines, phon, declaration={"language": "eng"})
+    measured, refusal = N._measure(stream, schema,
+                                   [N.STATISTICS["local_fraction@0"]])
+    check("M-46 endpoint-token pairs have an observed same-line fraction of zero",
+          refusal is None and measured == [0.0], str((measured, refusal)))
+    check("M-46 the endpoint span rule proves that statistic constant",
+          N.forced_gap(schema) == (1, None)
+          and bool(N.statistic_degeneracy(schema, "local_fraction@0")))
+    results, _ = N.sweep(lines, phon, "eng", n=1, budget=None,
+                         schemas={schema.name: schema})
+    ran = {r.statistic for r in results if not isinstance(r, R.Refusal)}
+    check("M-46 the sweep omits the dead statistic and retains live questions",
+          "local_fraction@0" not in ran
+          and {"count", "local_fraction@2"} <= ran, str(sorted(ran)))
+
+    # The original proposed table row is false at the actual enumeration
+    # boundary: mosaic rhyme can accept two different spans on one line.
+    overlap = R.build_stream(["door the door"], phon,
+                             declaration={"language": "eng"})
+    mosaic = R.REGISTRY["mosaic rhyme"]
+    found = R.realise(mosaic, overlap)
+    check("M-46 the actual mosaic judge admits overlapping line-final spans",
+          not isinstance(found, R.Refusal)
+          and any(i.verdict is True and i.a.idx != i.b.idx
+                  and i.a.tail() == i.b.tail() for i in found))
+    check("M-46 multiword schemas keep their same-line statistic",
+          all(N.forced_gap(R.REGISTRY[name]) == (0, None)
+              and N.statistic_degeneracy(R.REGISTRY[name], "local_fraction@0") is None
+              for name in ("mosaic rhyme", "compound / phrasal rhyme")))
+
+    # Even one endpoint TOKEN can yield several spans when the rule searches,
+    # or when the two members use different deterministic anchors.
+    for name, spans in (
+        ("searched", (R.SpanRule("line_final_token", "searched", 1, (1, 3)),) * 2),
+        ("asymmetric", (R.END_WORD, R.END_LAST)),
+    ):
+        candidate = replace(schema, spans=spans, channels=(), identity=(),
+                            unmatched="exclude")
+        poly = R.build_stream(["meadow"], phon, declaration={"language": "eng"})
+        instances = R.realise(candidate, poly)
+        check(f"M-46 {name} endpoint spans can share a line and remain eligible",
+              N.forced_gap(candidate) == (0, None)
+              and not isinstance(instances, R.Refusal)
+              and any(i.verdict is True for i in instances))
 
 
 def relations_sections():
