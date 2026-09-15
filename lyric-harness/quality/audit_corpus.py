@@ -100,7 +100,9 @@ WHAT IT CHECKS, in the order the errors were actually found
                    `-ong`/`-ok` is one row of this table, not a special case.
                    Every probe also carries the POPULATION its counts were
                    measured over, because a zero measured on a one-seventh
-                   extract is not a zero about the source.
+                   extract is not a zero about the source. Finnish allographs
+                   are checked separately: co-occurring w/v yields a NOTE,
+                   while uniform use of either spelling is harmless.
 
   H · STAGING      Doctrine 93 read the other way round.  A `[VERSE n]` mark
                    declares a STANZA; this reports every `[VERSE]` block
@@ -187,6 +189,7 @@ if ROOT not in sys.path:
 # traceback, and this file's ordinary exit code is ALSO 1 (it exits 1 when it
 # has findings), so the crash was indistinguishable from a normal run until the
 # outputs were diffed.
+from quality.declared_inputs import Orthography                 # noqa: E402
 from quality.grid import split_named_air                       # noqa: E402
 
 SOURCES_TSV = os.path.join(ROOT, "data", "sources.tsv")
@@ -823,13 +826,6 @@ PROBE = {
         "cynghanedd reads the digraphs as single consonants; an edition that "
         "writes `dh` for `dd` is legible and unreadable to the constraint",
         "50"),
-    "fin": Probe(
-        "<w> for <v> — one phoneme, two glyphs, MIXED inside one book (M-5)",
-        ("w",), ("v",),
-        "Finnish alliteration is onset identity; a book that writes both `w` "
-        "and `v` for /v/ makes two alliterating onsets look like one that "
-        "does not",
-        "50", rule="word-INITIAL glyph"),
     "san": SubstringProbe(
         "Harvard-Kyoto / Velthuis doubling against IAST macrons",
         ("aa", "ii", "uu", "~n", "\"n", ".r", ".t", ".d", "sh"),
@@ -858,23 +854,20 @@ PROBE = {
         mode=HABIT, whole_token=True),
 }
 
-#: `fin`'s probe is word-INITIAL, not word-final; declared here rather than
-#: bolted into `Probe` so the exception is visible.
-_INITIAL_PROBES = {"fin"}
+# Allographs are not destroying/preserving alternatives. Consistent use of
+# either glyph is harmless; co-occurrence is the hazard, with no majority cut.
+# Authority: Finnish phonology's documented w/v identity and the preserved
+# Kanteletar printing. No normalisation or calibrated default changes here.
+ALLOGRAPH_PROBES = {
+    "fin": {"groups": (("w", "v"),), "vowels": "aeiouyäöå",
+            "position": "initial",
+            "source": "quality/phonology/fin.py FOLD_W_TO_V; "
+                      "corpus/song/fin_kanteletar.txt",
+            "why": "Finnish onset identity splits one /v/ class when the "
+                   "printing mixes w and v. fold_w=True is explicit; the "
+                   "adopted unfolded calibration remains unchanged."},
+}
 
-
-def _measure_probe(probe, lang, toks):
-    if lang in _INITIAL_PROBES:
-        d = {s: [w for w in toks if w.startswith(s)] for s in probe.destroys}
-        p = {s: [w for w in toks if w.startswith(s)] for s in probe.preserves}
-        return {
-            "destroys": {k: (len(v), len(set(v))) for k, v in d.items()},
-            "preserves": {k: (len(v), len(set(v))) for k, v in p.items()},
-            "destroys_total": sum(len(v) for v in d.values()),
-            "preserves_total": sum(len(v) for v in p.values()),
-            "destroys_types": sorted(set(w for v in d.values() for w in v))[:8],
-        }
-    return probe.measure(toks)
 
 
 # ---------------------------------------------------------------------------
@@ -1791,10 +1784,30 @@ def check_channel(files, src):
 
 
 def check_orthography(files, src):
-    """G · doctrines 50 and 70 — the modernisation that destroys the channel."""
+    """G · modernisation and mixed allographs are separate questions."""
     out = []
     for rel, cf in files:
         lang, _ = declared_language(cf, rel)
+        allograph = ALLOGRAPH_PROBES.get(lang)
+        if allograph is not None:
+            toks = cf.tokens(lang=lang)
+            orth = Orthography(
+                system=lang, edition=rel, vowel_letters=allograph["vowels"],
+                token_is_printed=True, allographs=allograph["groups"],
+                source=allograph["source"])
+            for census in orth.allograph_census(toks, allograph["position"]):
+                if not census["mixed"]:
+                    continue
+                out.append(Finding(
+                    "G", NOTE, rel,
+                    "%s: mixed allographs for one sound (%s)" % (
+                        lang, "/".join(census["allographs"])),
+                    "%s over %d verse lines / %d tokens of %s | "
+                    "rule: %s glyph position, CorpusFile.tokens over verse "
+                    "only | examples: %s | source: %s" % (
+                        census["counts"], len(cf.verse_lines), len(toks), rel,
+                        census["position"], census["examples"], orth.source),
+                    allograph["why"], "50; M-5"))
         probe = PROBE.get(lang)
         if probe is None:
             continue
@@ -1805,7 +1818,7 @@ def check_orthography(files, src):
             toks = cf.tokens(lang=lang)
         if not toks:
             continue
-        m = _measure_probe(probe, lang, toks)
+        m = probe.measure(toks)
         dt, pt = m["destroys_total"], m["preserves_total"]
         pop = "%d verse lines / %d tokens of %s" % (
             len(cf.verse_lines), len(toks), rel)
@@ -2473,7 +2486,7 @@ CHECKS = collections.OrderedDict([
     ("D", ("LANGUAGE — the declared phonology's readable fraction", check_language)),
     ("E", ("DISTINCT — doctrine 51, count distinct BYTES", check_distinct)),
     ("F", ("CHANNEL — doctrine 52, the channel not the legibility", check_channel)),
-    ("G", ("ORTHOGRAPHY — doctrines 50/70, the destroying alternant", check_orthography)),
+    ("G", ("ORTHOGRAPHY — doctrines 50/70, alternants and mixed allographs", check_orthography)),
     ("H", ("STAGING — a `[VERSE]` mark on something that is not a stanza", check_staging)),
     ("I", ("INDENT — doctrine 14, the printing as an independent witness", check_indent)),
     ("J", ("ENCLITIC — F-5, which convention the edition sets", check_enclitic_convention)),
@@ -3203,7 +3216,10 @@ def main(argv=None):
 #: files and bytes; D loses the notice's false FAIL, B/F lose its two verse
 #: warnings, and G's Persian-orthography NOTE becomes A's document-scope NOTE.
 #: All other findings are unchanged; source and hash checks retain the notice.
-PINNED_SHAPE = {"files": 1430, "FAIL": 0, "WARN": 95, "NOTE": 1200}
+#: REPINNED 2026-09-15 (M-5): NOTE 1200 -> 1193. Five Finnish mixed
+#: w/v notes now report the actual allograph census; seven uniform-v files
+#: lose inapplicable "ZERO destroying" notes. No other finding changes.
+PINNED_SHAPE = {"files": 1430, "FAIL": 0, "WARN": 95, "NOTE": 1193}
 
 
 def _verify_shape(files, findings):

@@ -1601,7 +1601,8 @@ until ruled.
 14. **M-5 — may the Kanteletar's `w`→`v` allograph FOLD?** The fold
     moves the ADOPTED Kalevala-alliteration calibration (0.3249,
     re-derived nightly), so it re-opens an adoption; the detector that
-    charges nothing can ship without the ruling.
+    charges nothing shipped 2026-09-15 (M-5 CLOSED); adopting a folded
+    calibration remains a separate question.
 15. **M-46 / M-42 — the frozen null panel's two repairs** (historical proposal: a
     `both_line_final` forced-gap row; the second refused-replicate
     counter): both move recorded panel rows and `EXTENSION_LEDGER`, and
@@ -1881,7 +1882,7 @@ by the residue below: A-1, M-54, M-79, M-120, M-139, K-6.
 | A-2 | PARTIAL | BUILD · M | grade, write | Answer lines and call-and-response are one leader/response relation the registry has no axis for. | 2 of 4 clauses false and the return ladder shipped; one axis is left. |
 | A-3 | PARTIAL | BUILD · S | plan, grade, CI | Scheme round-trip is tested to 30 sounds; nothing exercises `label()`'s fallthrough at song length. | A cheap test extension, not on the song path today. |
 | F-3 | OPEN | BUILD · M | corpus, phonology, grade | (i) no dialect tokeniser behind `build_stream(tokeniser=)` reading the `# orthography:` headers three dialect files carry; (ii) a sourced dialect phonology the repo lacks. | The orthography half has a seam and zero blast radius, against 8,008/553/1,666 dialect marks read two opposite wrong ways. |
-| M-5 | OPEN | BUILD · M | corpus, phonology | No check answers "does this printing spell one sound two ways?" — the Kanteletar mixes `w`/`v`. | The measurement is in hand (folding moves weak 81.84 → 82.15%); belongs beside the other corpus checks. |
+| M-5 | CLOSED | DONE | corpus, phonology | `Orthography.allograph_census` and corpus check G detect mixed `w`/`v`, with population counts and no text rewriting. | Closed 2026-09-15; the calibrated alliteration default is unchanged. |
 | K-1 | PARTIAL | BUILD · M | corpus | Tin Pan Alley and music-hall unstaged (egress-blocked); three on-disk bodies unmined (~250 Rogers Scots songwriters, ~86 Otterbein hymns, 14 G&S libretti with ~349 headings). | The on-disk headings are a staging sitting; the broadsides are a channel problem. |
 
 ### 3 · ASK-OWNER — 22 entries whose only blocker is a ruling

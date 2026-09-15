@@ -829,7 +829,10 @@ def test_the_refrain_stub_is_not_english():
           lh.chorus_stub_match("dan lain-lain d. s. b.") == (
               "msa", "d. s. b. (dan sebagainya)"),
           "MEASURED 2026-08-11: corpus/song/msa_skeat_pantun.txt contains "
-          "ZERO instances, against the ~100 recorded in MISSING.md M-4")
+          "ZERO instances; M-4 records 108 in the larger SOURCE population")
+    check("Malay compact spelling is the same declared pointer",
+          lh.chorus_stub_match("dan lain-lain d.s.b.", language="msa")
+          == ("msa", "d. s. b. (dan sebagainya)"))
     for line in ("Farewell to the old Kentucky shore.",
                  "And I'll never see my darling any more,",
                  "The spacious firmament on high,",
