@@ -35,11 +35,36 @@ function alive(pid) {
     return false;
   }
 }
-function instrumentChildren(pid) {
+// Exported for scripts/test_capacity_children.mjs, which drives it against a
+// REAL dying process. Until M-290 nothing in this repository read this function
+// at all: it ran only inside a live capacity shard, so the one defect it had —
+// a single ENOENT nulling the entire inventory — could only ever be found by a
+// red matrix in CI, and was.
+export function instrumentChildren(pid) {
   if (!Number.isSafeInteger(pid) || pid < 1) return null;
+  let ids;
   try {
-    const ids = fs.readFileSync(`/proc/${pid}/task/${pid}/children`, 'utf8').trim();
-    return (ids ? ids.split(/\s+/).map(Number) : []).map((child) => {
+    ids = fs.readFileSync(`/proc/${pid}/task/${pid}/children`, 'utf8').trim();
+  } catch {
+    // The children file itself is the whole inventory: unreadable means we do
+    // not know what the instrument was running, and that is not a fact to
+    // guess at. Missing proc evidence must remain missing.
+    return null;
+  }
+  return (ids ? ids.split(/\s+/).map(Number) : []).map((child) => {
+    // ONE DYING CHILD MUST NOT ERASE THE OTHERS (`MISSING.md` M-290). This
+    // sample reads three /proc files per child and they are not atomic: a
+    // process that exits between them leaves `cmdline` empty, makes the `cwd`
+    // readlink throw ENOENT, and drops `VmRSS` from a `status` that still
+    // exists. Until 2026-09-15 a single ENOENT anywhere in this loop was
+    // caught OUTSIDE it and nulled the ENTIRE list, so one incidental
+    // short-lived process could destroy the evidence for the long-running
+    // lyric child the proof is actually about — and the capacity matrix went
+    // red naming neither the child nor the reason. Each child is now sampled
+    // under its own guard and an unsampleable one is recorded as PRESENT AND
+    // UNIDENTIFIED rather than dropped, invented, or allowed to poison its
+    // siblings.
+    try {
       const argv = fs.readFileSync(`/proc/${child}/cmdline`, 'utf8').split('\0');
       const cwd = fs.readlinkSync(`/proc/${child}/cwd`);
       const status = fs.readFileSync(`/proc/${child}/status`, 'utf8');
@@ -53,12 +78,18 @@ function instrumentChildren(pid) {
           : argv.some((arg, index) => index > 0 && path.resolve(cwd, arg) === worker)
             ? 'worker'
             : 'other';
-      return { pid: child, kind, rss: rss ? Number(rss[1]) * 1024 : null };
-    });
-  } catch {
-    // Missing proc evidence must remain missing, never infer child memory.
-    return null;
-  }
+      // A RESIDENT SET OF ZERO IS NOT A MEASUREMENT. `VmRSS: 0 kB` is a
+      // process that has released every page — it cannot evidence the memory
+      // overlap this record exists to prove, and recording it as 0 would let a
+      // process that is gone in all but name satisfy that proof. Unknown is
+      // the conservative direction: it makes the overlap harder to show, never
+      // easier.
+      const bytes = rss ? Number(rss[1]) * 1024 : 0;
+      return { pid: child, kind, rss: bytes > 0 ? bytes : null };
+    } catch {
+      return { pid: child, kind: null, rss: null };
+    }
+  });
 }
 function payload(bytes, index) {
   const overhead = Buffer.byteLength(JSON.stringify(['--help', '']));
