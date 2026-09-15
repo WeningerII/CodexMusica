@@ -73,11 +73,17 @@ kitchen repairs use the service's configured Gemini model and accounting.
   outcomes, changed scoring semantics, finished journals and exhausted journal
   capacity cannot replay a proposal. Recover the accepted draft and disclose the
   stop. Regrading a changed draft and starting a new run is a separate action.
+- A resumed lyric operation retains the last accepted draft before dispatch.
+  If it is interrupted again before saving new progress, `get_operation` still
+  exports those exact lyrics, including after restart. This inherited text is
+  recovery data only: it does not make the new operation safe to replay. New
+  worker progress takes precedence. See [the repeated-interruption repair](workflow-recovery.md).
 - Sessions use the existing private `JobStore` and share its storage limits with
   `/chat`: by default 8,192 metadata records, 128 retained payloads and 256 MB.
   Completed/interrupted metadata expires after 24 hours without a work update;
   full payloads can retire sooner, superseded and completed receipts first. An
-  interrupted operation that holds accepted lyrics is never retired for space,
+  interrupted operation that holds accepted lyrics, including an inherited
+  draft from a safe resume, is never retired for space,
   only by expiry. A session is temporary working state, not a permanent song
   archive. IDs grant access to that state without an account login.
 - The shared workflow store admits at most 16 active operations across its endpoints. The
