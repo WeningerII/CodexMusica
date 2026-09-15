@@ -9856,6 +9856,11 @@ def main():
                  "NONE DECLARED — 'did the rhyme scheme survive the return' "
                  "stays CANNOT TELL (use --rhyme-key=cmudict)"))
         print(f"  form: {' -> '.join(x or 'UNDECLARED' for x in p['form'])}")
+        for named in p.get("function_names", []):
+            print(f"  function name: section {named['section_index'] + 1} "
+                  f"{named['section']!r}: {named['tradition']}::{named['name']} "
+                  f"-> {named['function']}"
+                  + (f" ({named['specialised_as']})" if named['specialised_as'] else ""))
         print(f"  declared {p['declared']}/{len(song.sections)} sections   "
               f"bars until first chorus: {p['bars_until_first_chorus']}")
         print(f"  convention: {rep['convention']}")
