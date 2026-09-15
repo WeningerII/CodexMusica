@@ -20,6 +20,8 @@ failure guarded here renders as a clean report:
 Run: python3 quality/test_brief_provenance.py
 """
 
+import contextlib
+import io
 import json
 import os
 import sys
@@ -138,11 +140,17 @@ with tempfile.TemporaryDirectory() as td:
     none = _state(os.path.join(td, "n.json"), [])
     check("exit 0 when every revised line was briefed",
           BP.main([b, a, full, "--check"]) == 0)
+    # These are deliberately rejected fixtures. Their CLI prints "  FAIL",
+    # which suite_sweep correctly treats as a failed assertion when leaked
+    # into this suite's output. Capture fixture output; keep both exit gates.
+    with contextlib.redirect_stdout(io.StringIO()):
+        unbriefed_exit = BP.main([b, a, none, "--check"])
+        no_state_exit = BP.main([b, a, "--check"])
     check("exit 3 when a revised line was not",
-          BP.main([b, a, none, "--check"]) == 3)
+          unbriefed_exit == 3)
     check("exit 3 with NO state file at all — a hand-edited draft is the "
           "case this gate exists for",
-          BP.main([b, a, "--check"]) == 3)
+          no_state_exit == 3)
     check("without --check it REPORTS and does not gate (exit 0)",
           BP.main([b, a, none]) == 0)
     check("a missing draft REFUSES at 2 rather than raising",
