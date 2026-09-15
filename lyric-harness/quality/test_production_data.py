@@ -607,8 +607,13 @@ class ProductionDataTests(unittest.TestCase):
             "mostly_attached": "There's joy. We'll sing. They 're here.",
             "neither": "'twas 'ithin o' a' 'oman",
         }
+        # is_license mirrors CorpusFile's own rule -- `basename.endswith(
+        # ".LICENSE.txt")` -- and every path here is ordinary verse, so it is
+        # False. The stand-in must carry it because declared_language() reads
+        # it before anything else; without it this suite dies on an
+        # AttributeError rather than measuring the enclitic census.
         files = [("corpus/song/eng_" + name + ".txt",
-                  SimpleNamespace(text=value, header_fields=lambda: {}))
+                  SimpleNamespace(text=value, header_fields=lambda: {}, is_license=False))
                  for name, value in texts.items()]
         findings = audit.check_enclitic_convention(files, None)
         self.assertEqual(len(findings), 2)
