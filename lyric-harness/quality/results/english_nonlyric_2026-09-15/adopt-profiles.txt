@@ -1,0 +1,57 @@
+"""Adopt measured outputs for the selected apparatus batch; never fit or relax a rule."""
+import ast,dataclasses,json,pprint,sys
+from pathlib import Path
+ROOT=Path.cwd();sys.path.insert(0,str(ROOT))
+from quality import floor, length_curve_calibration as LC, song_profile_calibration as C
+out=ROOT/'quality/results/english_nonlyric_2026-09-15'
+rowpath=out/'current-calibration-rows.tsv';provenance=LC.row_provenance();LC.verify_rows(rowpath,provenance)
+reports={name:json.loads((out/(name+'-adoption.json')).read_text()) for name in ('song','short','curve')}
+before=json.loads((out/'profiles-before.json').read_text())
+for name,r in reports.items():
+ assert r['provenance']==provenance and r['seeds']==200,name
+assert all(not p['partial'] for p in reports['curve']['picks'].values())
+rows=LC.read_rows([str(rowpath)],verify=True)
+path=ROOT/'quality/floor.py';source=path.read_text();lines=source.splitlines(keepends=True)
+def span(node):
+ # AST columns are UTF-8 byte offsets, even when the source contains Unicode.
+ start=sum(len(l.encode()) for l in lines[:node.lineno-1])+node.col_offset
+ end=sum(len(l.encode()) for l in lines[:node.end_lineno-1])+node.end_col_offset
+ return start,end
+updates={}
+fprkeys={'mattr':'mattr','fwr':'function_word_ratio','anaphora':'anaphora','cv':'line_length_cv','predictability':'predictability','ANY':'ANY','cliche':'cliche'}
+for name in ('song','short'):
+ r=reports[name];old=floor.Profile(**before[name])
+ thresholds={C.FLOOR_KEY[k]:v for k,v in r['thresholds'].items() if C.FLOOR_KEY[k] in old.percentiles}
+ updates[name]={'lo':r['lo'],'hi':r['hi'],'n_human':r['items'],'percentiles':thresholds,
+ 'held_out_fpr':{fprkeys[k]:tuple(v) for k,v in r['held_out_fpr'].items() if fprkeys[k] in old.held_out_fpr},
+ 'source':f"Re-adopted 2026-09-15 after annotating 253 nonlyric rows as preserved apparatus, using the current tokenizer: {r['items']} items / {r['files']} author files, {r['lo']}-{r['hi']} tokens. Full 200 author-held-out splits and 2000 period draws; unchanged registered band selection. See quality/RESULTS_ENGLISH_NONLYRIC_2026-09-15.md.",
+ 'note':'CURRENT 2026-09-15 measurements supersede the historical values below; prior full declarations are in quality/results/english_nonlyric_2026-09-15/profiles-before.json. '+old.note}
+r=reports['curve'];old=floor.Profile(**before['lyric'])
+curves={C.FLOOR_KEY[k]:tuple(v['coef']) if 'coef' in v else {'knots':[tuple(t) for t in v['knots']]} for k,v in r['curves'].items()}
+fprkeys={'mattr':'mattr','fwr':'function_word_ratio','anaphora':'anaphora','cv':'line_length_cv','predictability':'predictability','ANY':'ANY'}
+from dataclasses import replace
+preview=replace(old,curves=curves,lo=r['lo'],hi=r['hi'])
+active=next(n for n in range(r['lo'],r['hi']+1) if preview.threshold('predictable_pair_fraction_max',n)<1.0)
+updates['lyric']={'unit':f"whole lyric sheet, {r['lo']}-{r['hi']} tokens, thresholds a function of ln N",'lo':r['lo'],'hi':r['hi'],'n_human':r['items'],'curves':curves,
+ 'mattr_ttr_population':{'window':50,'items':sum(row['n_tokens']<=50 for row in rows)},
+ 'held_out_fpr':{fprkeys[k]:tuple(v) for k,v in r['held_out_fpr'].items()},
+ 'held_out_scope':{'predictability':f". This rate pools all {r['lo']}-{r['hi']}-token works, including lengths through {active-1} where the threshold equals 1.0 and cannot fire. It is not conditional on lengths where the check can fire."},
+ 'source':f"Re-adopted 2026-09-15 after nonlyric apparatus annotations: {r['items']} nonempty works / {r['files']} files, {r['lo']}-{r['hi']} tokens. All five checks pass every length bin over 200 author-held-out splits. Preregistered model choices: "+', '.join(k+' '+v['model'] for k,v in r['picks'].items())+f". Predictability CK retains the existing anti-vacuity exception to C0 and first falls below 1.0 at {active} tokens. Full precision and input provenance in quality/results/english_nonlyric_2026-09-15/curve-adoption.json.",
+ 'note':'CURRENT 2026-09-15 measurements supersede the historical values below; prior full declarations are in quality/results/english_nonlyric_2026-09-15/profiles-before.json. '+old.note}
+replacements=[]
+for node in ast.walk(ast.parse(source)):
+ if not isinstance(node,ast.Call) or not isinstance(node.func,ast.Name) or node.func.id!='Profile':continue
+ kw={k.arg:k.value for k in node.keywords};name=ast.literal_eval(kw['name'])
+ if name not in updates:continue
+ for key,value in updates[name].items():
+  assert key in kw,(name,key)
+  a,b=span(kw[key]);replacements.append((a,b,pprint.pformat(value,width=100,sort_dicts=False).encode()))
+raw=source.encode()
+for a,b,replacement in sorted(replacements,reverse=True):raw=raw[:a]+replacement+raw[b:]
+ast.parse(raw.decode());path.write_bytes(raw)
+# The existing band-check gate also binds the measured anaphora-period coordinate.
+path=ROOT/'quality/song_profile_calibration.py';source=path.read_text();lines=source.splitlines(keepends=True)
+node=next(n for n in ast.parse(source).body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='PROFILE_PERIOD' for t in n.targets))
+a,b=span(node.value);raw=source.encode();period={name:tuple(reports[name]['period']['anaphora']) for name in ('song','short')};raw=raw[:a]+repr(period).encode()+raw[b:];path.write_bytes(raw)
+(out/'adopted-profiles.json').write_text(json.dumps({'version':1,'date':'2026-09-15','provenance':provenance,'updates':updates,'period':period,'predictability_first_informative_token':active},indent=2,ensure_ascii=False)+'\n')
+print(json.dumps({'profiles':{k:{n:v[n] for n in ('lo','hi','n_human')} for k,v in updates.items()},'predictability_first_informative_token':active},indent=2))

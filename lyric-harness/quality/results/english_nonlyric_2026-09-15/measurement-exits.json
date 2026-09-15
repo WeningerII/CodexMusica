@@ -1,0 +1,18 @@
+{
+  "initial_band_helper": {
+    "song": 1,
+    "short": 1,
+    "reason": "Duplicate titles were dequeued in source order after rows were sorted by length; stopped before band measurement."
+  },
+  "completed_measurements": {
+    "row_rebuild": 0,
+    "song": 0,
+    "short": 0,
+    "curves": 0
+  },
+  "adoption_checks": {
+    "song": 0,
+    "short": 0,
+    "curves": 0
+  }
+}

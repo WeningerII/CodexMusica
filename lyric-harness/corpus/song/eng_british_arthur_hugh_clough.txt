@@ -10,15 +10,15 @@
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
 #            [CHORUS] a whole stanza repeated verbatim, [REFRAIN] a repeated stanza head.
 #--------------------------------------------------------------------------
---- TITLE: Sometime Fellow Of Oriel College Oxford
-[VERSE 1]
-London
-MACMILLAN AND CO., LIMITED
-NEW YORK: THE MACMILLAN COMPANY
-1898
-[VERSE 2]
-First published elsewhere. First printed for MACMILLAN & CO.
-1891. Reprinted 1895, 1898.
+# APPARATUS: --- TITLE: Sometime Fellow Of Oriel College Oxford
+# APPARATUS: [VERSE 1]
+# APPARATUS: London
+# APPARATUS: MACMILLAN AND CO., LIMITED
+# APPARATUS: NEW YORK: THE MACMILLAN COMPANY
+# APPARATUS: 1898
+# APPARATUS: [VERSE 2]
+# APPARATUS: First published elsewhere. First printed for MACMILLAN & CO.
+# APPARATUS: 1891. Reprinted 1895, 1898.
 
 --- TITLE: The Higher Courage._[1]
 [REFRAIN]
@@ -1024,8 +1024,8 @@ I, who refused to enfasten the roots of my floating existence
 In the rich earth, cling now to the hard, naked rock that is left me,—
 Ah! she was worthy, Eustace,—and that, indeed, is my comfort,—
 Worthy a nobler heart than a fool such as I could have given her.
-[CHORUS]
-*       *       *       *       *
+# APPARATUS: [CHORUS]
+# APPARATUS: *       *       *       *       *
 [VERSE 2]
 Yes, it relieves me to write, though I do not send, and the chance that
 Takes may destroy my fragments. But as men pray, without asking
@@ -1034,8 +1034,8 @@ Simply impelled by the need of the moment to turn to a Being
 In a conception of whom there is freedom from all limitation,—
 So in your image I turn to an _ens rationis_ of friendship,
 Even so write in your name I know not to whom nor in what wise.
-[CHORUS]
-*       *       *       *       *
+# APPARATUS: [CHORUS]
+# APPARATUS: *       *       *       *       *
 [VERSE 3]
 There was a time, methought it was but lately departed,
 When, if a thing was denied me, I felt I was bound to attempt it.
@@ -1046,8 +1046,8 @@ But it is over, all that! I have slunk from the perilous field in
 Whose wild struggle of forces the prizes of life are contested.
 It is over, all that! I am a coward, and know it.
 Courage in me could be only factitious, unnatural, useless.
-[CHORUS]
-*       *       *       *       *
+# APPARATUS: [CHORUS]
+# APPARATUS: *       *       *       *       *
 [VERSE 4]
 Comfort has come to me here in the dreary streets of the city,
 Comfort—how do you think?—with a barrel-organ to bring it.
@@ -1058,8 +1058,8 @@ Ah, there is some great truth, partial, very likely, but needful,
 Lodged, I am strangely sure, in the tones of the English psalm-tune:
 Comfort it was at least; and I must take without question
 Comfort, however it come, in the dreary streets of the city.
-[CHORUS]
-*       *       *       *       *
+# APPARATUS: [CHORUS]
+# APPARATUS: *       *       *       *       *
 [VERSE 5]
 What with trusting myself, and seeking support from within me,
 Almost I could believe I had gained a religious assurance,
@@ -1070,8 +1070,8 @@ I will look straight out, see things, not try to evade them;
 Fact shall be fact for me, and the Truth the Truth as ever,
 Flexible, changeable, vague, and multiform, and doubtful.—
 Off, and depart to the void, thou subtle, fanatical tempter!
-[CHORUS]
-*       *       *       *       *
+# APPARATUS: [CHORUS]
+# APPARATUS: *       *       *       *       *
 [VERSE 6]
 I shall behold thee again (is it so?) at a new visitation,
 O ill genius thou! I shall at my life’s dissolution

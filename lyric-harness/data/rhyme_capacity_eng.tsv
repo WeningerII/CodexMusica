@@ -1,5 +1,5 @@
-#judge	data/song_endword_en.tsv=ff38ec1fecfbb5d82ab616a80a6c1c29	data/song_rhymepair_en.tsv=d4b3cfeb9d4572086d64df57ce496788
-#certification-source	9f841da1f34d70e270869b8f81cea04ba84265c548e6cb0cace03469582e086f
+#judge	data/song_endword_en.tsv=0906ad17076873a6ee76224c948f3e05	data/song_rhymepair_en.tsv=30a12ca3281295353e8720504b4e75e6
+#certification-source	1d1221f2f35dd9bda55beddeee10e9e77fa9af5ef1e2b2e1ffb7ae818353a8bd
 relation	family	words	classes	chain_hi	certified	chain_lo	witness	examples
 RHYME	IY	342	228	228	1	22	ze fee probably company key plea agree reality maggie library marie jeremy apology li yi cd dvd dc oui crappy nypd debris	we see probably nobody company tv key sea
 RHYME	EY-T	259	192	192	1	14	plait hate weight appreciate concentrate investigate roommate communicate eliminate congratulate hesitate participate demonstrate activate	wait great late straight eight appreciate create celebrate

@@ -1,0 +1,42 @@
+[
+  {
+    "check": "meter_bands",
+    "exit": 0,
+    "seconds": 118.14
+  },
+  {
+    "check": "frequency",
+    "exit": 0,
+    "seconds": 0.11
+  },
+  {
+    "check": "structure_census",
+    "exit": 0,
+    "seconds": 42.82
+  },
+  {
+    "check": "mark_coverage",
+    "exit": 0,
+    "seconds": 31.88
+  },
+  {
+    "check": "section_marks",
+    "exit": 0,
+    "seconds": 1.53
+  },
+  {
+    "check": "capacity",
+    "exit": 0,
+    "seconds": 114.59
+  },
+  {
+    "check": "corpus_taxonomy",
+    "exit": 0,
+    "seconds": 0.22
+  },
+  {
+    "check": "release_assets",
+    "exit": 0,
+    "seconds": 0.19
+  }
+]

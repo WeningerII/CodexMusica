@@ -836,8 +836,9 @@ def test_item_level_near_duplication_series():
     # corrections: Whittier -1, Lovelace -2, Herrick -10, Blake +1 and
     # D'Urfey +1. This instrument's minimum-signature population is distinct
     # from 8661 raw TITLEs and 8545 nonempty weighted calibration works.
-    check("1297 eng_* files and 8,247 items meet the signature rule",
-          len({r for r, _ in eng}) == 1297 and len(recs) == 8247,
+    # 2026-09-15: four apparatus-only entries no longer meet the signature rule.
+    check("1297 eng_* files and 8,243 items meet the signature rule",
+          len({r for r, _ in eng}) == 1297 and len(recs) == 8243,
           (len({r for r, _ in eng}), len(recs)))
     series = {}
     for cut in (0.30, 0.50, 0.60, 0.80, 1.00):
@@ -896,8 +897,9 @@ def test_item_level_near_duplication_series():
     # deep in the body, which is what that shape keys on) and the finding is
     # filed as `M-20` rather than silently relabelled here. Nothing was lost:
     # 19 -> 21 corpus-wide, gained 2, lost 0.
-    check("4 CONTENTS pages, 11 RUN-ONs and 5 TITLE echoes remain, all named",
-          shapes == {"CONTENTS": 4, "RUN-ON": 11, "TITLE": 5}, shapes)
+    # 2026-09-15: contents/title-page text retained as apparatus; prior 4/11/5.
+    check("No CONTENTS pages; 10 RUN-ONs and 4 TITLE echoes remain, all named",
+          shapes == {"RUN-ON": 10, "TITLE": 4}, shapes)
 
     # MISSING.md M-20 — poems staged TWICE in their own file, and every
     # instrument reads both copies. What the entry owes is a RULING about
@@ -1177,20 +1179,23 @@ def test_check_H_on_the_real_corpus():
     # to preserved editorial matter (Herrick -63, Lovelace -9, Read -7,
     # Hemans -5, Byron -5, Emmett -2, D'Urfey -1). Only Read's numeral and
     # allcaps title-page rows were in the matched half (-2); residue -90.
-    check("2,458 one-line `[VERSE]` blocks under corpus/song/", one == 2458,
+    # 2026-09-15: 82 one-line VERSE blocks relabelled as apparatus: eight
+    # bylines, ten section numbers, 64 separators. Prior one/matched 2458/1043.
+    check("2,376 one-line `[VERSE]` blocks under corpus/song/", one == 2376,
           one)
-    check("1,043 of them carry a declared apparatus shape", matched == 1043,
+    check("961 of them carry a declared apparatus shape", matched == 961,
           matched)
     check("the shape split reproduces",
-          shapes == {"allcaps-label": 511, "numeral": 444, "ornament": 72,
+          shapes == {"allcaps-label": 503, "numeral": 434, "ornament": 8,
                      "heading-word": 16}, shapes)
     check("the residue is 1,415 and is NOT claimed to be clean",
           one - matched == 1415, one - matched)
     fs = AC.check_staging(files, AC.Sources())
     warn = sum(1 for f in fs if f.severity == AC.WARN)
     note = sum(1 for f in fs if f.severity == AC.NOTE)
-    check("104 files carry raw apparatus-shaped blocks, 48 carry residue only",
-          (warn, note) == (104, 48), (warn, note))
+    # Previous warning/note split 104/48; now measured 65/54.
+    check("65 files carry raw apparatus-shaped blocks, 54 carry residue only",
+          (warn, note) == (65, 54), (warn, note))
 
 
 # ---------------------------------------------------------------------------

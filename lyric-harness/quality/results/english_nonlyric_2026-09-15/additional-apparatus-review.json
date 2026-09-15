@@ -1,0 +1,151 @@
+{
+  "scope": "Additional cases encountered while checking this batch; examples, not an exhaustive census or a song-admission decision.",
+  "cases": [
+    {
+      "file": "corpus/song/eng_american_henry_wadsworth_longfellow.txt",
+      "kind": "Speaker labels and stage directions",
+      "status": "follow-up; not changed in this batch",
+      "examples": [
+        {
+          "line": 1083,
+          "text": "MERRY (_within_)"
+        },
+        {
+          "line": 1087,
+          "text": "KEMPTHORN"
+        },
+        {
+          "line": 1094,
+          "text": "COLE"
+        },
+        {
+          "line": 1098,
+          "text": "  _Enter the_ MARSHAL, _with a proclamation; and_ MERRY, _with a"
+        },
+        {
+          "line": 1099,
+          "text": "  halberd. They are preceded by a drummer, and followed by the"
+        },
+        {
+          "line": 1100,
+          "text": "  hangman, with an armful of books, and a crowd of people, among"
+        },
+        {
+          "line": 1101,
+          "text": "  whom are_ UPSALL _and_ JOHN ENDICOTT. _A pile is made of the"
+        },
+        {
+          "line": 1102,
+          "text": "  books._"
+        },
+        {
+          "line": 1104,
+          "text": "MERRY"
+        }
+      ]
+    },
+    {
+      "file": "corpus/song/eng_american_j_s_thovington.txt",
+      "kind": "Speaker labels",
+      "status": "follow-up; not changed in this batch",
+      "examples": [
+        {
+          "line": 13,
+          "text": "SOLDIER."
+        },
+        {
+          "line": 20,
+          "text": "LADY."
+        },
+        {
+          "line": 27,
+          "text": "SOLDIER."
+        },
+        {
+          "line": 31,
+          "text": "LADY."
+        },
+        {
+          "line": 35,
+          "text": "BOTH."
+        },
+        {
+          "line": 42,
+          "text": "SOLDIER."
+        },
+        {
+          "line": 46,
+          "text": "LADY."
+        }
+      ]
+    },
+    {
+      "file": "corpus/song/eng_british_lord_byron.txt",
+      "kind": "Byline and editorial drafting notes",
+      "status": "follow-up; not changed in this batch",
+      "examples": [
+        {
+          "line": 754,
+          "text": "MOORE."
+        },
+        {
+          "line": 759,
+          "text": "3. Seven sheets, Canto I. stanzas i.-v., being the commencement of the"
+        },
+        {
+          "line": 760,
+          "text": "Fair Copy in the bound volume."
+        }
+      ]
+    },
+    {
+      "file": "corpus/song/eng_british_thomas_campion.txt",
+      "kind": "Author credit and author-date heading",
+      "status": "follow-up; not changed in this batch",
+      "examples": [
+        {
+          "line": 1168,
+          "text": "JOHN REYNOLDS"
+        },
+        {
+          "line": 1170,
+          "text": "16th Cent."
+        }
+      ]
+    },
+    {
+      "file": "corpus/song/eng_celtic_robert_burns.txt",
+      "kind": "Printed author signatures",
+      "status": "follow-up; not changed in this batch",
+      "examples": [
+        {
+          "line": 8314,
+          "text": "R.B."
+        },
+        {
+          "line": 21548,
+          "text": "R.B."
+        }
+      ]
+    },
+    {
+      "file": "corpus/song/eng_hymn_watts.txt",
+      "kind": "PAUSE performance directions",
+      "status": "follow-up; not changed in this batch",
+      "examples": [
+        {
+          "line": 1719,
+          "text": "PAUSE."
+        },
+        {
+          "line": 11806,
+          "text": "PAUSE."
+        },
+        {
+          "line": 11871,
+          "text": "PAUSE."
+        }
+      ]
+    }
+  ]
+}

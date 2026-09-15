@@ -1,0 +1,14 @@
+=== n_types, re-derived where the derivation is declared ===
+  [not asked] ar            619906  — no derivation declared (counts live inside the wordfreq library, which this repo does not vendor)
+  [not asked] ces           605550  — no derivation declared (counts live inside the wordfreq library, which this repo does not vendor)
+  [ok       ] eng-song       13836  == distinct0:data/song_endword_en.tsv
+  [ok       ] eng-spoken     50000  == rows:data/opensubtitles_en_50k.tsv
+  [not asked] eng-web        20000  — no derivation declared (no in-repo file to derive from)
+  [not asked] fi            733683  — no derivation declared (counts live inside the wordfreq library, which this repo does not vendor)
+  [not asked] he            591598  — no derivation declared (counts live inside the wordfreq library, which this repo does not vendor)
+  [not asked] ja            214936  — no derivation declared (counts live inside the wordfreq library, which this repo does not vendor)
+  [not asked] nl            310781  — no derivation declared (counts live inside the wordfreq library, which this repo does not vendor)
+  [not asked] spa           341461  — no derivation declared (counts live inside the wordfreq library, which this repo does not vendor)
+  [not asked] ta             68414  — no derivation declared (counts live inside the wordfreq library, which this repo does not vendor)
+  re-derived 2, not asked 9, DRIFTED 0
+PASS — every declared derivation reproduces its integer.

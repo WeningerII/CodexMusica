@@ -235,14 +235,15 @@ first full run, through `expected_drift.py`, which RE-DERIVES. A pin and a
 re-derivation are different instruments, and only the second can see a
 constant that has stopped describing its corpus.
 
-The unstruck `song profile` row is the stored 2026-09-14 re-adoption
-(200–450 tokens, remeasured after the tokenizer correction of the
-computational audit), retained for drift checks and superseded by `lyric`.
+The unstruck `song profile` row is the stored 2026-09-15 re-adoption
+(200–400 tokens, remeasured after preserved nonlyric apparatus annotations),
+retained for drift checks and superseded by `lyric`.
 The struck rows retain the prior measured tuples.
 
 | | `mattr_min` | `function_word_ratio_max` | `anaphora_max` | `line_length_cv_min` | `predictable_pair_fraction_max` |
 |---|---:|---:|---:|---:|---:|
-| song profile | 0.7178 | 0.4787 | 0.3000 | 0.1109 | 0.9286 |
+| song profile | 0.7178 | 0.4787 | 0.3000 | 0.1108 | 0.9286 |
+| ~~song profile, to 2026-09-15~~ | 0.7178 | 0.4787 | 0.3000 | ~~0.1109~~ | 0.9286 |
 | ~~song profile, to 2026-09-14~~ | ~~0.7182~~ | ~~0.4785~~ | 0.3000 | ~~0.1116~~ | ~~0.9231~~ |
 | ~~song profile, to 2026-09-08~~ | ~~0.7172~~ | ~~0.4783~~ | ~~0.3000~~ | ~~0.1111~~ | ~~0.9333~~ |
 | ~~song profile, to 2026-08-26~~ | ~~0.7118~~ | ~~0.4773~~ | 0.3000 | ~~0.1094~~ | ~~0.9286~~ |

@@ -1,0 +1,20 @@
+{
+  "files": 1430,
+  "counts": {
+    "FAIL": 1,
+    "WARN": 97,
+    "NOTE": 1200
+  },
+  "failures": [
+    {
+      "check": "D",
+      "severity": "FAIL",
+      "path": "corpus/fas_hafez.LICENSE.txt",
+      "what": "declared fas and unreadable under it",
+      "measured": "1.0% of 626 sampled tokens (rule: fas.in_inventory (script test); stride 1)",
+      "mechanism": "script census: Basic Latin letters 2894, Arabic 27, Latin Extended Additional 1, Latin-1/Extended 1",
+      "doctrine": "50"
+    }
+  ],
+  "scope": "Full corpus audit after refreshed snapshot; the remaining Persian license-text finding predates this English batch."
+}

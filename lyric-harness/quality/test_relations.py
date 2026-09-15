@@ -2865,9 +2865,12 @@ def test_frequency_refusal_is_measured_against_the_shipped_tables():
     # 2026-09-08: current corpus curation and work deduplication measure
     # me=2907 across 482 authors and thee=2016. Literal `word` rows are data:
     # the old prefix-header test silently excluded all 407 occurrences.
+    # 2026-09-15: apparatus annotations move the complete table from
+    # 13856 types / 248628 tokens to 13836 / 248513. All 407 literal
+    # `word` occurrences remain; the header regression still pins those.
     check("the exact TSV header does not consume literal `word` entries",
-          tot["word"] == 407 and len(tot) == 13856
-          and sum(tot.values()) == 248628,
+          tot["word"] == 407 and len(tot) == 13836
+          and sum(tot.values()) == 248513,
           f"literal word={tot['word']}; {len(tot)} types / {sum(tot.values())} tokens")
     check("the ONLY line-final source is pre-1931 and its head is `me` and "
           "`thee`",
