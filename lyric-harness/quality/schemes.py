@@ -121,13 +121,23 @@ def rgs(n, max_blocks=None):
 
 
 def label(code, alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
-    """(0,1,0,1) -> 'ABAB'. Beyond 26 sounds, letters become A1 B1 ..."""
+    """(0,1,0,1) -> 'ABAB'. Beyond 26 sounds, letters become A1 B1 ...
+
+    A repeated bare X is spelled X0: parse() reserves X for a free line,
+    so XX would split one rhyme class into two singletons (MISSING.md A-3).
+    A lone X already round-trips as a singleton and keeps its spelling,
+    including label((23,)) used as an existing mandate group identifier.
+    Numbered classes such as X1 are unambiguous and stay unchanged.
+    """
     out = []
     for v in code:
         if v < len(alphabet):
             out.append(alphabet[v])
         else:
             out.append(f"{alphabet[v % len(alphabet)]}{v // len(alphabet)}")
+    for reserved in ("X", "x"):
+        if out.count(reserved) > 1:
+            out = [token + "0" if token == reserved else token for token in out]
     return "".join(out)
 
 
@@ -2192,6 +2202,10 @@ class Mandate:
         out = ["X"] * self.n_lines
         for k, g in enumerate(groups):
             lab = self.labels[k] if k < len(self.labels) else label((k,))
+            # X is a valid stored group ID, but bare X in this serialized
+            # scheme means FREE. Escape the group, not the free-line slots.
+            if lab.upper() == "X":
+                lab += "0"
             for i in g:
                 out[i - 1] = lab
         return "".join(out)
