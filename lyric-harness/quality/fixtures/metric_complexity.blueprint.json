@@ -1,0 +1,18 @@
+{
+  "sections": [{
+    "name": "instrumental",
+    "function": "interlude",
+    "bars": 4,
+    "meter": {"beats": 4, "unit": 4, "groups": [2, 2]},
+    "metric_complexity": [
+      {"kind": "metric_modulation", "at": 8, "old_pivot": "3/8", "new_pivot": "1/4", "old_beat": "1/4", "new_beat": "1/4", "old_bpm": 120},
+      {"kind": "tuplet", "count": 3, "normal": 2, "note_pulses": "1/2"},
+      {"kind": "hemiola", "start": 2, "span": 6},
+      {"kind": "swing", "start": 8, "ratio": "1.37", "pair_span": 1, "pairs": 4},
+      {"kind": "rubato", "start": 12, "span": 4, "anchors": [[0, 0], [2, 3], [4, 4]]},
+      {"kind": "hypermeter", "groups": [2, 2]},
+      {"kind": "metric_dissonance", "reference_period": 2, "competing_period": 2, "competing_phase": 1, "span": 8}
+    ]
+  }],
+  "lines": []
+}
