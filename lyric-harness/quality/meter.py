@@ -58,6 +58,10 @@ a barline), `Density` (irama — a ratio between layers over a fixed frame, whic
 is not a meter change and must not be stored as one), and `MeterMap` (meter as
 a function of bar index — mixed meter).
 
+`quality.metric_complexity` adds declared modulation, hemiola, tuplets, swing,
+rubato/senza misura, hypermeter and accent-layer dissonance. Blueprint sections
+carry `metric_complexity`; the fit report computes and displays the results.
+
 WHAT IS DELIBERATELY ABSENT
 
 The CATALOGUES. There are 35 Carnatic tālas, 100+ usuls, ~100 īqāʿāt, the
@@ -153,6 +157,11 @@ def validate_blueprint(obj):
                 raise ValueError("every meter group must be positive")
             if parts and pulses is not None and sum(parts) != pulses:
                 raise ValueError("meter groups must sum to the declared beats")
+        if "metric_complexity" in section:
+            from quality.metric_complexity import read_complexity
+            if pulses is None or "unit" not in md:
+                raise ValueError("metric_complexity requires a declared section meter")
+            read_complexity(section["metric_complexity"], bars, pulses)
         spans.append((name, start, start + bars))
         cursor = start + bars
     for i, line in enumerate(lines):
