@@ -201,8 +201,67 @@ const run = (code) => dom.window.eval(code);
   );
   await run("saveWS('Must not report saved')");
   assert.equal(run('window.writes'), 0);
+  // ── Enter commits the preface you typed, not the one before it ──
+  //
+  // The preface search input is debounced at 30 ms, and its Enter handler
+  // commits whatever `.preface-pick` is FIRST in the rendered list. Those two
+  // facts together are a bug unless Enter flushes the pending render: between
+  // the last keystroke and the render there is a window where the list still
+  // belongs to the PREVIOUS query, and typing a name then pressing Enter is
+  // the ordinary way to use this input, so that window is the common path.
+  //
+  // Caught live when the debounce landed (2026-09-15): after typing `bright`
+  // the top match was still `bittersweet` until the flush ran. This asserts the
+  // flush, because without it the regression is silent — the modal closes, a
+  // preface is applied, and it is simply the wrong one.
+  run('app.cards=[];');
+  await run(
+    "(async()=>{ await Catalog.ensureFull('delta_blues'); importTradition('delta_blues'); })()"
+  );
+  assert.ok(run('app.cards.length') > 0, 'need a card to open the preface modal against');
+  run('openPrefaceModal(app.cards[0]);');
+  const typeInto = (q) =>
+    run(
+      `(() => { const el = document.getElementById('search-preface');
+                el.value = ${JSON.stringify(q)};
+                el.dispatchEvent(new Event('input', { bubbles: true })); })()`
+    );
+  const topMatch = () =>
+    run("document.querySelector('#preface-modal-body .preface-pick')?.dataset.prefId || null");
+
+  // Settle on the first query so the list genuinely belongs to it.
+  typeInto('warm');
+  await new Promise((r) => setTimeout(r, 80));
+  const warmTop = topMatch();
+  assert.ok(warmTop, 'the first query should match at least one preface');
+
+  // Learn what the SECOND query settles to, from a clean modal, so the
+  // assertion compares against a real expectation rather than "not the first".
+  run('openPrefaceModal(app.cards[0]);');
+  typeInto('bright');
+  await new Promise((r) => setTimeout(r, 80));
+  const brightTop = topMatch();
+  assert.ok(brightTop, 'the second query should match at least one preface');
+  assert.notEqual(brightTop, warmTop, 'the two queries must differ for this test to mean anything');
+
+  // Now the real path: settle on the first query, retype the second, and press
+  // Enter INSIDE the debounce window with no settle in between.
+  run('openPrefaceModal(app.cards[0]);');
+  typeInto('warm');
+  await new Promise((r) => setTimeout(r, 80));
+  typeInto('bright');
+  run(
+    `document.getElementById('search-preface')
+       .dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true }))`
+  );
+  assert.equal(
+    run('app.cards[0].preface'),
+    brightTop,
+    'Enter inside the debounce window must commit the typed query’s top match, not the previous query’s'
+  );
+
   console.log(
-    'PASS workbench integration: boot, partial import, isolated transfers, Undo, full sessions, concurrent save recovery, chat routing, late lyrics, conflict protection'
+    'PASS workbench integration: boot, partial import, isolated transfers, Undo, full sessions, concurrent save recovery, chat routing, late lyrics, conflict protection, preface Enter flush'
   );
   dom.window.close();
 })().catch((e) => {
