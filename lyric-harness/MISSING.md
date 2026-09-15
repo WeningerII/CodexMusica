@@ -570,7 +570,41 @@ not.
 **Missing:** rhyme rate per bar, acceleration into a hook, thinning in a
 bridge — rhyme as a rhythmic parameter rather than a per-pair verdict.
 
-### E-5 · The empty/empty coda gift `OPEN` — sized 2026-08-21: the fix has a cheap half and an expensive half, and they are different claims
+### E-5 · The empty/empty coda gift ~~`OPEN`~~ `CLOSED` 2026-09-15 — absent coda evidence omitted from the default scalar
+
+**CLOSED 2026-09-15 under the owner's explicit E-5 implementation request.**
+`Declaration.coda_empty_evidence` now defaults to `cannot_tell`; `gift` remains
+an explicit historical replay setting. Empty/empty coda AGREEMENT is unchanged.
+`now/why` is **0.850 RHYME**, down from **0.902**; `see/free` and `cat/hat`
+remain **1.000 RHYME**. The disclosure names the historical contribution rather
+than claiming that it still enters the default total.
+
+The revised compatibility policy and its disclosed instrument correction are
+in `quality/E5_CODA_ADOPTION.md`; the reproducible runner is
+`quality/e5_coda_adoption.py`, also run in CI. One of 947 legacy scalar-admitted
+mandated pairs leaves admission (**0.106%**, budget **0.5%**): sonnet 1 L2/L4,
+`die/memory`, **0.773 -> 0.697 CONSONANCE**. The production battery remains
+**1064 mandated, 967 judged, 97 refused, 4 violations**. Schema rescue is counted
+separately; the admission loss is not hidden behind the unchanged headline.
+The four 4,000-pair random sampler cells move **173..193 -> 118..134** scalar
+admissions and **36..46 -> 33..40** narrow admissions; schema **889..914** is
+unchanged. These are the existing English sampler's scope, not a claim of
+cross-language calibration or production-consensus false-positive control.
+
+The fixed-span typing invariant is guarded; the first experiment's stronger
+aggregate-label invariant failed on eye/majesty because a different span wins
+when the bonus is removed. That failed claim is recorded, not called a passed
+preregistration. No admission threshold was loosened: the original pricing
+sweep is replayed with explicit `gift`, and its retained cuts must also meet
+the target under the new scalar. FWER regressions and the 30-sonnet calibration
+hold without changing the safety limit; the held-out matrix comparator's
+measured changes are recorded in `quality/RESULTS_MATRIX.md`. D18, readability
+controls and chance-rate bands are repinned from their own instruments.
+`quality/door_census.py` records one additional ARGUED measurement site
+(29 sites, 14 argued); no production satisfaction door changes.
+
+**Historical record follows; default-score and OPEN statements below describe
+the dated, superseded state.**
 **Now (verified by using it):** `now ~ why` scores 0.902 and types RHYME,
 because two vowel-final words get a free 1.0 on the coda channel. The fitted
 matrix takes this to −0.000 and is not shipped.

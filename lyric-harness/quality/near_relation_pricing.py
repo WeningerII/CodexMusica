@@ -373,7 +373,8 @@ def _print_sweep(arms, relation):
 
 def check(lex, decl):
     """-> exit code. Re-derive the RANDOM half of the pricing and require the
-    adopted cuts to still fall out of it. Exits 3 on drift.
+    historical cuts to reproduce and remain safe under the current scalar.
+    Exits 3 on drift. E-5 deliberately retains the stricter historical cuts.
 
     **WHAT THIS DOES NOT RE-RUN, STATED RATHER THAN IMPLIED (doctrine 20).**
     The CANON arm costs eleven minutes, nearly all of it in
@@ -395,7 +396,13 @@ def check(lex, decl):
     else:
         print(f"  HOLDS  ceiling {VIOL_MAX} = the 95% upper edge on "
               f"{iv['k']}/{iv['n']}")
-    arms = [random_arm(s, lex, decl) for s in CR.GRID]
+    # E-5 changes the evidence scalar, not the adopted cuts. Preserve the
+    # original sweep's derivation explicitly and check the current scalar at
+    # those same cuts; never loosen them just because the minimum moved.
+    from dataclasses import replace
+    historical = replace(decl, coda_empty_evidence="gift")
+    arms = [random_arm(s, lex, historical) for s in CR.GRID]
+    current = [random_arm(s, lex, decl) for s in CR.GRID]
     for rel, want in sorted(ADOPTED_CUTS.items()):
         got = cut_for(rel, arms)
         if got != want:
@@ -407,6 +414,14 @@ def check(lex, decl):
             print(f"  HOLDS  t*({rel}) = {want}   "
                   f"{min(rs):.2f}x..{max(rs):.2f}x, under {TARGET_RATIO}x "
                   f"on all {len(arms)} cells")
+    for rel, cut in sorted(ADOPTED_CUTS.items()):
+        ratios = [ratio_of(a, rel, cut) for a in current]
+        if any(r is None or r >= TARGET_RATIO for r in ratios):
+            bad.append(f"current scalar at {rel}={cut} exceeds target: {ratios}")
+        else:
+            print(f"  HOLDS  current {rel}={cut}: "
+                  f"{min(ratios):.2f}x..{max(ratios):.2f}x; "
+                  f"sweep minimum {cut_for(rel, current)} (cut not loosened)")
     # THE SHIPPED DECLARATION MUST BE THE ADOPTED ONE. A results document
     # and a `Declaration` that disagree is the defect this whole sitting is
     # about, one layer out.
@@ -423,7 +438,7 @@ def check(lex, decl):
             print(f"  - {b}")
         return 3
     print()
-    print("the pricing holds, and the cut still falls out of the sweep")
+    print("the historical pricing reproduces; current cuts remain under target")
     return 0
 
 
@@ -581,9 +596,15 @@ def main(argv):
     print("    schema door catches has still left the admitted set, and")
     print("    reading only the second number would let an unpriced door")
     print("    launder the rate this sitting exists to price.")
+    # This is the historical zero-loss E2, not the E-5 adoption policy.
+    # Freeze its baseline explicitly now that gift is no longer the default.
+    from dataclasses import replace
+    decl = replace(decl, coda_empty_evidence="gift")
+    recs = canon_records(lex, decl)
+    base_s = reprice(recs, {}, decl, rescue=False)
     base = reprice(recs, {}, decl)
     adm0 = _admitted_set(recs, decl)
-    print(f"    gift (shipped)      admitted {len(adm0)} of "
+    print(f"    gift (historical)   admitted {len(adm0)} of "
           f"{base['judged']} judged; violations {len(base['violations'])}")
     for rule in ("zero", "cannot_tell"):
         d2 = L.Declaration(coda_empty_evidence=rule)

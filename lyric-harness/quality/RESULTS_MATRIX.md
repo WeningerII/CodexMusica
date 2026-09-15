@@ -221,3 +221,16 @@ matrix should calibrate on the population it will actually score.
    arriving in a fourth place.
 3. **Family-wise error control in the time layer**, not a better per-pair
    score. That is the real blocker there, and it is now quantified.
+
+
+## E-5 recalibration, 2026-09-15
+
+`python3 quality/eval_matrix.py` was rerun after defaulting empty-coda evidence
+to `cannot_tell`. The fitted comparator is unchanged: P3 empty-coda evidence
+remains -0.0. The hand-set comparator's held-out AUC changes from
+0.9146153846153846 to 0.9127274543343363, and its held-out violation fraction
+from 0.19504950495049506 to 0.201980198019802 (1010 pairs, the matrix experiment's
+own population and calibration, not the production battery). `eye/memory`'s
+hand-set score changes 0.492 -> 0.381. These are costs of removing unsupported
+evidence, not evidence for adopting the fitted matrix; that matrix remains
+unshipped. `matrix_eval.json` records the new measured comparator values.

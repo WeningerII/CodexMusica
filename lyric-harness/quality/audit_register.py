@@ -1194,10 +1194,10 @@ def _cli_score(a, b):
 
 def _d_now_why():
     tot, rel, nuc, _ = _cli_score("now", "why")
-    ok = _tol(0.902, tot, abs_=0.0005) and rel == "RHYME"
+    ok = _tol(0.850, tot, abs_=0.0005) and rel == "RHYME"
     return (CONFIRMED if ok else MOVED), \
-        "now ~ why total %s relation %s (coda channel 1.0 on two vowel-final words)" % (tot, rel), \
-        "now ~ why scores 0.902 and types RHYME"
+        "now ~ why total %s relation %s (empty coda omitted from evidence; agreement unchanged)" % (tot, rel), \
+        "now ~ why scores 0.850 and types RHYME (historical gift: 0.902)"
 
 
 def _d_five_of():
@@ -1625,7 +1625,7 @@ DERIVATIONS = [
     Claim("D15", "M-2", "orphaned group names", 5, _d_legacy_groups, "quality/audit_register.py"),
     Claim("D16", "E-1", "ternary cell space", 27, _d_cell_space, "quality/audit_register.py"),
     Claim("D17", "C-1", "meter compositions", 64, _d_compositions, "quality/audit_register.py"),
-    Claim("D18", "E-5", "now ~ why", 0.902, _d_now_why, "python3 lyric_harness.py score now -- why"),
+    Claim("D18", "E-5", "now ~ why", 0.850, _d_now_why, "python3 lyric_harness.py score now -- why"),
     Claim("D19", "L-1/dctr 94", "five ~ of nucleus", 0.603, _d_five_of,
           "python3 lyric_harness.py score five -- of"),
     # `stated=None` on these three, like D3/D10 above: their register side is
