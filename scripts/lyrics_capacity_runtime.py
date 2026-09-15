@@ -113,13 +113,32 @@ def queue_pressure_failures(record, expected, *, local=False, isolated=False):
             found.add((identity, phase))
         children = row.get('instrument_children')
         if children is not None:
+            # A CHILD THE SAMPLER COULD NOT IDENTIFY IS `kind: None, rss: None`
+            # — present, unidentified, memory unknown (`MISSING.md` M-290). It
+            # is a DECLARED absence, not a malformed row: /proc is not atomic
+            # and a process that exits mid-sample leaves exactly this. It stays
+            # in the inventory, because pretending we saw nothing there would
+            # be the inference this file refuses; and it is excluded from
+            # `lyric_children` below, because a process whose command line and
+            # resident set we never read cannot evidence anything. So an
+            # unidentified child can only ever make the overlap proof HARDER:
+            # it never satisfies it, and it can no longer void it either.
+            def unmeasured(child):
+                return child.get('kind') is None and child.get('rss') is None
+
             if (not isinstance(children, list) or any(not isinstance(child, dict) or
-                    not integer(child.get('pid'), 1) or not number(child.get('rss'), 1) or
-                    child.get('kind') not in ('cli-song', 'cli-finish', 'worker', 'other')
+                    not integer(child.get('pid'), 1) or
+                    not (unmeasured(child) or
+                         (number(child.get('rss'), 1) and
+                          child.get('kind') in ('cli-song', 'cli-finish', 'worker', 'other')))
                     for child in children)):
-                failures.append('instrument child process measurements are invalid')
+                failures.append('instrument child process measurements are invalid: ' + repr(children))
             else:
-                lyric_children = [child for child in children if child['kind'] != 'other']
+                # An identified child only. `unmeasured` ones are not lyric
+                # children — the RSS overlap below is a claim about measured
+                # memory and must not be satisfied by a process we could not read.
+                lyric_children = [child for child in children
+                                  if not unmeasured(child) and child['kind'] != 'other']
                 if len(lyric_children) > 1:
                     failures.append('queue pressure overlapped duplicate heavy lyric processes')
                 if phase == 'full' and row.get('instrument_alive') is True and len(lyric_children) == 1:
