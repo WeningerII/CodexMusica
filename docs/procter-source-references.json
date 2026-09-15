@@ -52,9 +52,7 @@
       "weight": 0
     }
   ],
-  "runtime_asset_rebindings": [
-    "data/sources.tsv"
-  ],
+  "runtime_asset_rebindings": ["data/sources.tsv"],
   "assignments": [
     {
       "title": "Verse: Echoes",
@@ -62,9 +60,7 @@
       "body_sha256": "4e083b88376e78e971fcb9859a5b472191a341f002193adfc382091ecfaa60ff",
       "word_count": 126,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 101
     },
@@ -74,9 +70,7 @@
       "body_sha256": "5596620f0cb0f68992abef3ba288b435a70c52e6fb15a1337874e730db350e73",
       "word_count": 185,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 132
     },
@@ -86,9 +80,7 @@
       "body_sha256": "54e2d88a55f23fab5949537abe882db07152f697f707d1855c951bcc3e3daf7f",
       "word_count": 280,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 179
     },
@@ -98,9 +90,7 @@
       "body_sha256": "4b55154128defda65ba09c38ac761c7775cb12e7016dad8bc83dcdd003b96aa0",
       "word_count": 166,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 237
     },
@@ -110,9 +100,7 @@
       "body_sha256": "a06d89bac64fc74e65cfc3421e1e2fcee4aab3ebeeb86eaa7cc090743d8fe634",
       "word_count": 125,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 268
     },
@@ -122,9 +110,7 @@
       "body_sha256": "9fc5883ca487f83b35cb5e96a085d098d680f04896f9ec3c200f23ec4b6df0bf",
       "word_count": 199,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 298
     },
@@ -134,9 +120,7 @@
       "body_sha256": "2f075c0a7110c90e476d02027719a250b89b4c150ebcf637db73688765d9dd14",
       "word_count": 295,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 341
     },
@@ -146,9 +130,7 @@
       "body_sha256": "da7a1c997211cbda1ac91365d9d25446a890059b1350dfaa1a044869277c60b2",
       "word_count": 121,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 393
     },
@@ -158,9 +140,7 @@
       "body_sha256": "3f94bfebab1bba2626f8aa4fae29ae0a89ff67391933bf0462b4e2a804ff3083",
       "word_count": 215,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 417
     },
@@ -170,9 +150,7 @@
       "body_sha256": "17f93f64e43593defc1c95ec1d4b9f4fc556fb9c6def54b37e7f203cbaf7a258",
       "word_count": 166,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 450
     },
@@ -182,9 +160,7 @@
       "body_sha256": "8c2f618be8d09fb2fbc494e4d3389bcf3b1e013905ad10ad097942a1f63fac8b",
       "word_count": 273,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 489
     },
@@ -194,9 +170,7 @@
       "body_sha256": "dee2f993de91bf884b15562d36c3a314b0bf487eee8d53b930cc04f47c7fef91",
       "word_count": 286,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 542
     },
@@ -206,9 +180,7 @@
       "body_sha256": "36af9e525c0aaa39170faddaf5e9dd26626be7e12623c7db5ffe05b9dfd5263a",
       "word_count": 116,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 605
     },
@@ -218,9 +190,7 @@
       "body_sha256": "cd39e64c16d9074d5e84550eee239a0b211d3f15857cd147b24de6186c64d7d3",
       "word_count": 167,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 632
     },
@@ -230,9 +200,7 @@
       "body_sha256": "92a1cb1d53bc99d2752e0b02af1095fa63db5fed3f228ae673520566c3aaa30d",
       "word_count": 204,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 665
     },
@@ -242,9 +210,7 @@
       "body_sha256": "be26bc6355bc2075b8ad382d982551d9c8db4486ac2bccc49859b5d3e13178cc",
       "word_count": 160,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 706
     },
@@ -254,9 +220,7 @@
       "body_sha256": "0060e86ebc4b56993ccd77e4f836f36b61207e764c68f33dd4406282d8df1959",
       "word_count": 429,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 736
     },
@@ -266,9 +230,7 @@
       "body_sha256": "239b2bf932ae3cd54cb0f3e4e2aa159eece0e375d67d1df85958fdc5f015849b",
       "word_count": 127,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 816
     },
@@ -278,9 +240,7 @@
       "body_sha256": "f37444e9b841226016bf474f5036995bd86c6087c93187da0798c99f6ff473b2",
       "word_count": 137,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 854
     },
@@ -290,9 +250,7 @@
       "body_sha256": "ba1322a0d27045c216adb698a485e5f438687673e03b17b662708d4b7b17e44c",
       "word_count": 285,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 897
     },
@@ -302,9 +260,7 @@
       "body_sha256": "96f33d871f5b8e10eb62d68c8efd6cc2bc1c94d3044026515c514ddf8e9fd5f1",
       "word_count": 315,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 960
     },
@@ -314,9 +270,7 @@
       "body_sha256": "c2c3f142d9861e99f375f1f7e25123ef3d5581f9af606cdb032c847103837ce4",
       "word_count": 85,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1022
     },
@@ -326,9 +280,7 @@
       "body_sha256": "be3cc7f2d9d3bc5474b2333069b98b00581710be94d6e10d259997ad1e47df4d",
       "word_count": 358,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1046
     },
@@ -338,9 +290,7 @@
       "body_sha256": "31701d14ceab46d5e4dba86cb30c9654f4914852927b67c0e48e4b67cc708c56",
       "word_count": 201,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1123
     },
@@ -350,9 +300,7 @@
       "body_sha256": "64a49298caff2de4c6b3ed3df448a89e957164f44de35319d9c7a6e9097f62f4",
       "word_count": 177,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1156
     },
@@ -362,9 +310,7 @@
       "body_sha256": "07a7c91572472971bba522eec41936dc8091e6c401223c13660a5985380baa7e",
       "word_count": 200,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1194
     },
@@ -374,9 +320,7 @@
       "body_sha256": "ae2c1e2fc2007903cf003f6f255c4b4465c22fe548f72ca2fa68cb319fe5ff2e",
       "word_count": 88,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1233
     },
@@ -386,9 +330,7 @@
       "body_sha256": "bb5d04def9a9b6e472764b1d78ffae35792e385b6be6038615f4dcbf7c6763ea",
       "word_count": 152,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1258
     },
@@ -398,9 +340,7 @@
       "body_sha256": "25e244124dc59d18033678d2fb393e012a2113c51df7e818af912369ff5b7b15",
       "word_count": 130,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1288
     },
@@ -410,9 +350,7 @@
       "body_sha256": "f8128e84e1809a67e3059868c25debefa2060aa3edad57c33bf715bf2ebe2cb6",
       "word_count": 172,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1319
     },
@@ -422,9 +360,7 @@
       "body_sha256": "0e812425fa315210ef32e721aa4b7cb5be2fc863d8f42c59e3be85e58711ad13",
       "word_count": 493,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1364
     },
@@ -434,9 +370,7 @@
       "body_sha256": "70de5d1ec7f3fa0464b0b590373bb65d24723f2be8d4abc85d6d0e6e55eeb218",
       "word_count": 188,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1461
     },
@@ -446,9 +380,7 @@
       "body_sha256": "f2aa4333cbae83f424dc37c07a2320a26b6e1bf9a52d4464edcf95b8015983f5",
       "word_count": 245,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1499
     },
@@ -458,9 +390,7 @@
       "body_sha256": "83bd1b77e59172c9c2c98f2e124749a563b8322852f376665422498ef5ca5a59",
       "word_count": 158,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1556
     },
@@ -470,9 +400,7 @@
       "body_sha256": "2032509047205ae65eb71aeade62af374ed2d0c4c1d8c8ea1e4025ede65443ff",
       "word_count": 196,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1604
     },
@@ -482,9 +410,7 @@
       "body_sha256": "0b4755cd01af1be58f971b196304eda446f778fd714c725fd4a0f48807e9fe91",
       "word_count": 105,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1652
     },
@@ -494,9 +420,7 @@
       "body_sha256": "79ceac594a69ff14fbcd44ee07aa22321c5a6b529046a4aa219d59c48a09453f",
       "word_count": 441,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1682
     },
@@ -506,9 +430,7 @@
       "body_sha256": "ca56a043abfb8e1232d366aa1e5888e71f601cf61a158a1cf251b558308e3553",
       "word_count": 326,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1785
     },
@@ -518,9 +440,7 @@
       "body_sha256": "212615e9d0e2247ccb44e8721750ce91598a8b13caa9da1347fb526a051a843b",
       "word_count": 149,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1842
     },
@@ -530,9 +450,7 @@
       "body_sha256": "e61408835dcc362fe0753b373ae212657a692ca2ad11e7d5e0f16b316538c876",
       "word_count": 208,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1877
     },
@@ -542,9 +460,7 @@
       "body_sha256": "fb3cebe267950937a742e3672e8a39053935cf2ca49f20af7b57f1b843df9783",
       "word_count": 98,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1915
     },
@@ -554,9 +470,7 @@
       "body_sha256": "3a29baba5adf791dbdbe2f2dd5f15467c353109e32773c0498cebc2194c75491",
       "word_count": 191,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1945
     },
@@ -566,9 +480,7 @@
       "body_sha256": "9f57a315b87c0c225ffe0306be26aaf49f3b92021875ec37e9c6c1f9112486f0",
       "word_count": 156,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 1983
     },
@@ -578,9 +490,7 @@
       "body_sha256": "d41fa815db34e64ade7d9b021d74595c92c37b82269011f7f7795ece68e7b552",
       "word_count": 281,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2027
     },
@@ -590,9 +500,7 @@
       "body_sha256": "55051410407b1a5f1a0f9667803be4980870fab6d595226d9ae682b242f7e569",
       "word_count": 134,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2084
     },
@@ -602,9 +510,7 @@
       "body_sha256": "6817eb3f17a8655a5366a5429101de8d476737f9927cef1875511aa03a3b4daa",
       "word_count": 220,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2117
     },
@@ -614,9 +520,7 @@
       "body_sha256": "ae8157deed89d4fea37608561b857787a257ba30afc1672bcf3e77aae01405e8",
       "word_count": 261,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2160
     },
@@ -626,9 +530,7 @@
       "body_sha256": "1638138ad61bc8731b955c89f93c9ec7b6cc074e356f487618ee194fa43b5e65",
       "word_count": 124,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2208
     },
@@ -638,9 +540,7 @@
       "body_sha256": "2a3b8fa90056947c97afd7c45ccb7b0f8e02237814a5e983fc4b01cb667e13ee",
       "word_count": 96,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2238
     },
@@ -650,9 +550,7 @@
       "body_sha256": "8aed3dfdad06534b02a430dc3ffdf3b9092e471de2bce34dc336796e8c54019f",
       "word_count": 319,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2261
     },
@@ -662,9 +560,7 @@
       "body_sha256": "28ff2cddcfa6bd52c548ac23f4a9d2c228372f658a4294961586e4500a6d8f5b",
       "word_count": 48,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2331
     },
@@ -674,9 +570,7 @@
       "body_sha256": "4b8f4683c46aed7268cdf1adc136f0e5930c2be340bec296146d73d7502bb4fb",
       "word_count": 42,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2341
     },
@@ -686,9 +580,7 @@
       "body_sha256": "66ab3f8f9f15e79f814044627fc1cde32e1f19d222668337162e36f65cc5aa61",
       "word_count": 46,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2353
     },
@@ -698,9 +590,7 @@
       "body_sha256": "4133eff49d96377fc78febd479e374194a521e9ff1ba2050b0e862d7ea3a9a47",
       "word_count": 41,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2365
     },
@@ -710,9 +600,7 @@
       "body_sha256": "6c3a1e3a12c9ab86307bf16970ddf70cb72bea6359e49c3836fae33c6457b3b8",
       "word_count": 42,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2377
     },
@@ -722,9 +610,7 @@
       "body_sha256": "769242aacd447891ab498625b5729ba8b85275a000845137d73fdaacfc86c27d",
       "word_count": 39,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2389
     },
@@ -734,9 +620,7 @@
       "body_sha256": "55046be90fba39cb72b1366517278e32c2c372f3474eef1d6475a1c43c1b1f41",
       "word_count": 44,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2401
     },
@@ -746,9 +630,7 @@
       "body_sha256": "7f095ff4868cf23f51a3ca5413cc9b77457095428e5bac7d3e0c17a7a2485e6c",
       "word_count": 43,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2413
     },
@@ -758,9 +640,7 @@
       "body_sha256": "da44271f2dea0617278782d0ad895ec317beb3fe11164c78357a9d2473f8f880",
       "word_count": 44,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2425
     },
@@ -770,9 +650,7 @@
       "body_sha256": "8a34eb2b56f63efc65b5311a419d1de58c125eb639b3178f9147fed54ecef8b2",
       "word_count": 43,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2437
     },
@@ -782,9 +660,7 @@
       "body_sha256": "647fb81301690f6b1b10b6ef93be98300fcffb1f95bf47599c852750c15b9b3f",
       "word_count": 74,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2449
     },
@@ -794,9 +670,7 @@
       "body_sha256": "b6f75952c4404ac948899643f5fb3058eaf2a0f88bd773a5ab62cf8409166ba3",
       "word_count": 388,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2466
     },
@@ -806,9 +680,7 @@
       "body_sha256": "9898482651f73cae5c007babd2e120716f789f7af5555c0c755519c3bc8e51d6",
       "word_count": 641,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2537
     },
@@ -818,9 +690,7 @@
       "body_sha256": "021c460367b551c4a03364fed65adf7bd7ace6585346c5600366d2d823e4b717",
       "word_count": 152,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2657
     },
@@ -830,9 +700,7 @@
       "body_sha256": "285a7816ef5c938a4f5dca4390949b95e91106aee7132c8b0493aa1cc3b6d777",
       "word_count": 364,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2690
     },
@@ -842,9 +710,7 @@
       "body_sha256": "fb1cc12005ad33a801ebe5ea8af8a9b269a820a00cf04e2b715f237e2d1ed92e",
       "word_count": 222,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2748
     },
@@ -854,9 +720,7 @@
       "body_sha256": "469574eb91d34afe731c8752b6d3989f4c472c8588a33fcbbe85bde7d8b8a126",
       "word_count": 188,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2796
     },
@@ -866,9 +730,7 @@
       "body_sha256": "be9db457d28e65bd2c72498d57bc34cfba9691ae87c42cfc30ad80dd8cf3ed8b",
       "word_count": 272,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2841
     },
@@ -878,9 +740,7 @@
       "body_sha256": "33f8855c5016cf1b17ebd156ab83120883e8d204ce9f6d3d746f9c298de805d3",
       "word_count": 205,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2904
     },
@@ -890,9 +750,7 @@
       "body_sha256": "8882a555b6b2502b34e08280adbaf33eac6a4c60880785e17c37cc6a9aa41b9c",
       "word_count": 194,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 2961
     },
@@ -902,9 +760,7 @@
       "body_sha256": "2eed61c64da40cfea3123def3d4096c091fe935b7e3807cea796bf643a639e42",
       "word_count": 322,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 3128
     },
@@ -914,9 +770,7 @@
       "body_sha256": "f657bc847dc5e53d182529d3881497562d49d6a5ffa725eee6df21f609072b20",
       "word_count": 220,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 3194
     },
@@ -926,9 +780,7 @@
       "body_sha256": "289d601c770e3008a23f6b5a71069819a3228b343e8232889db01e6b8cd7b70d",
       "word_count": 321,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 3244
     },
@@ -938,9 +790,7 @@
       "body_sha256": "c65362a2efb176dee55e5490682d4849e9d13eb021207b1b99549d705dffded3",
       "word_count": 330,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 3308
     },
@@ -950,9 +800,7 @@
       "body_sha256": "4c95d6b35340a64fe573ada4fe955ea3793282732560a32b83c6e3b188d109c7",
       "word_count": 312,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 3381
     },
@@ -962,9 +810,7 @@
       "body_sha256": "b3c150c50245f92ce6fe339db6044d771c8354ad70f4c82ac8adcf2776c0b079",
       "word_count": 202,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 3442
     },
@@ -974,9 +820,7 @@
       "body_sha256": "774fb0e1b981c260fffb8de93205899f2b6293cb1baf013ccebcfbb325f50f92",
       "word_count": 355,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 3481
     },
@@ -986,9 +830,7 @@
       "body_sha256": "13d1b5d6b58ec725d7f6c2b82bcd9f515b10c1bdc2d85dacfc463daa974a4d02",
       "word_count": 322,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 3559
     },
@@ -998,9 +840,7 @@
       "body_sha256": "8b5fb4718fe67590111f8a5071a79c196657de40b1ce24e52fd68b00a69cc878",
       "word_count": 254,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 3624
     },
@@ -1010,9 +850,7 @@
       "body_sha256": "0e9c8894892effb2812b42f8b78eed540e421532e5dbfe53ed3bdd12fb8c04cc",
       "word_count": 169,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 3676
     },
@@ -1022,9 +860,7 @@
       "body_sha256": "48ef89ad592ffca806cbb539514f44298374705715bb043daffd45fab942c5ea",
       "word_count": 254,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 3715
     },
@@ -1034,9 +870,7 @@
       "body_sha256": "ed568a9e99c8859a6f131eaa27ded0fb97286110a4e6099f25c12c2c41793ed7",
       "word_count": 192,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 3763
     },
@@ -1046,9 +880,7 @@
       "body_sha256": "cb12f8f72f73629f9973a0e13500981c7a574c8aeec470a657df2fa5441785b0",
       "word_count": 231,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 3802
     },
@@ -1058,9 +890,7 @@
       "body_sha256": "d03b41b9ce61743c508acad04b78b9daf68c980c885f986ee9c562bcec865b90",
       "word_count": 301,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 3840
     },
@@ -1070,9 +900,7 @@
       "body_sha256": "88eb25337bb7415bb87ad219d1a5158633902799d1b841f94b6a042877a357d8",
       "word_count": 438,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 3892
     },
@@ -1082,9 +910,7 @@
       "body_sha256": "d8fb12ba5bab267f9af229fbb07a2e85f1c522975391f38eb119b1950a2394a2",
       "word_count": 339,
       "state": "unique",
-      "matches": [
-        "2303.txt"
-      ],
+      "matches": ["2303.txt"],
       "source": "PG2303",
       "current_title_line": 3988
     },
@@ -1094,9 +920,7 @@
       "body_sha256": "7d8c7fe748245a25472eab78e1218a5a12a8b504a2b87a897fbe6498f19ef15f",
       "word_count": 139,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 4066
     },
@@ -1106,9 +930,7 @@
       "body_sha256": "032aef35802a248bafef748d8a4bcc061dc1fa3210483aea0ef1bbb3404fa208",
       "word_count": 237,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 4097
     },
@@ -1118,9 +940,7 @@
       "body_sha256": "b114310ec78ff3dc6445550bd0792e9bc64044208125b35d7d54d6fd29eeed02",
       "word_count": 209,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 4154
     },
@@ -1130,9 +950,7 @@
       "body_sha256": "f6a9c9b8723d3705b4b88445cc485e2882555c48c78703c65d81459d1092190e",
       "word_count": 216,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 4212
     },
@@ -1142,9 +960,7 @@
       "body_sha256": "c23796b837fd8f1b13a2a4355786579c7dc9bcc46e193e1559c8a5274f8b1f7e",
       "word_count": 349,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 4255
     },
@@ -1154,9 +970,7 @@
       "body_sha256": "c666656dfed2b9a375bc16d2103ea8c40931ec39800060896d8636be8806b40b",
       "word_count": 167,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 4323
     },
@@ -1166,9 +980,7 @@
       "body_sha256": "d9c05aa7e3babe0879835dfad43760eade6dff3113c460479590ed62363bbe5e",
       "word_count": 278,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 4361
     },
@@ -1178,9 +990,7 @@
       "body_sha256": "17cb916c13291962ba2b57515425b125a1fba396b2983fe6e999d39f6f7600c8",
       "word_count": 238,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 4439
     },
@@ -1190,9 +1000,7 @@
       "body_sha256": "4be94b924eb604e7bfecce931ee8bbf1794a2f2a922708d41496434540396d86",
       "word_count": 265,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 4512
     },
@@ -1202,9 +1010,7 @@
       "body_sha256": "253d00ef21b0394d7a58b93d66592eea7be07f38b58bfa8503d92213955edf8b",
       "word_count": 146,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 4571
     },
@@ -1214,9 +1020,7 @@
       "body_sha256": "fbc41bc4527b01b79b42e9586e8b5e10f2b95c554872d0377b719c0307b101ac",
       "word_count": 379,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 4602
     },
@@ -1226,9 +1030,7 @@
       "body_sha256": "2758ee320c08a6cdf53159a3414e882a72408b228195f5a9a2147a24bfd0b4af",
       "word_count": 109,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 4682
     },
@@ -1238,9 +1040,7 @@
       "body_sha256": "544c07139ec2b2da75c4f903991ea976d6666b4a2288447c51f15393fcfa911d",
       "word_count": 413,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 4713
     },
@@ -1250,9 +1050,7 @@
       "body_sha256": "9e543bba0c10277da7762f5b33c716371221e7410fdbe4c2d285d8065cdcf757",
       "word_count": 110,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 4786
     },
@@ -1262,9 +1060,7 @@
       "body_sha256": "2f42b1fe6b7bd7b7d634f95e6d2ddecbf62bc848dca67ec5a175e01ad8943def",
       "word_count": 175,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 4886
     },
@@ -1274,9 +1070,7 @@
       "body_sha256": "ef2b0ce08a6500afc66eae14cba84a058a0aa4f52a552d7695cde878d437c72c",
       "word_count": 378,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 4924
     },
@@ -1286,9 +1080,7 @@
       "body_sha256": "ddef50229765ce018a98020471f495bd4b9e15d3fc72d3f003bb278729efb23a",
       "word_count": 351,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 4990
     },
@@ -1298,9 +1090,7 @@
       "body_sha256": "c98bc79e778aa92be2837a0caafea2027ae99c36346ac0ffa2ada37f7c74b24e",
       "word_count": 300,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 5056
     },
@@ -1310,9 +1100,7 @@
       "body_sha256": "b7f2966db2c164e1f6d914670bc3839a3f1d1cea05b79550b587194c4bf67cdc",
       "word_count": 152,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 5109
     },
@@ -1322,9 +1110,7 @@
       "body_sha256": "5c4f1ebe2f029df3c1f17956e8c0bf94e4241e3beb8c0616121600b2525e9b7c",
       "word_count": 216,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 5287
     },
@@ -1334,9 +1120,7 @@
       "body_sha256": "b22dd6c0a75dea2418afe246d0621c65a069bcfe35fa5559c3067172fdeae50b",
       "word_count": 237,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 5325
     },
@@ -1346,9 +1130,7 @@
       "body_sha256": "106fcb9bf173942b332668216fd8f71bafb65e7c8364fa3f4ca2de5d37738190",
       "word_count": 155,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 5383
     },
@@ -1358,9 +1140,7 @@
       "body_sha256": "e83ee77fdaaf686daecac8092b924806aafc53084d9c9821938d27e340f01181",
       "word_count": 72,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 5426
     },
@@ -1370,9 +1150,7 @@
       "body_sha256": "5618dc755bde26654126d5c4fc7d2f87a5ebb0a6c58616b62d5e29a6a9dd8606",
       "word_count": 178,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 5444
     },
@@ -1382,9 +1160,7 @@
       "body_sha256": "b549292ae56f70523ad4c0537ebef765d722cb8c05270b99019a8f854bb51857",
       "word_count": 127,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 5477
     },
@@ -1394,9 +1170,7 @@
       "body_sha256": "3ccfe854931996027760e1aa0001084913af529ac9a38208bd48b66217ca5dad",
       "word_count": 186,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 5504
     },
@@ -1406,9 +1180,7 @@
       "body_sha256": "85575538bc1312eaee4ecc436b91dccf18eed51f31bd45d1fcc47657b899d8e1",
       "word_count": 495,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 5542
     },
@@ -1418,9 +1190,7 @@
       "body_sha256": "339a3852a02846d84b1e6781226c14ff40fbaa1bc0c58a42d37748b5504515d3",
       "word_count": 219,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 5645
     },
@@ -1430,9 +1200,7 @@
       "body_sha256": "dcd9fd344309913c8c4273a0191f5c3b1f1aa94aee534c7dce7d911a39cead04",
       "word_count": 350,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 5698
     },
@@ -1442,9 +1210,7 @@
       "body_sha256": "695cd34034f0a8e7d90c0628af975b3079c1468f5c0e8fb3ab6a332043106811",
       "word_count": 140,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 5781
     },
@@ -1454,9 +1220,7 @@
       "body_sha256": "9aac926b5ed485557bc187cca93b59ab90a8d60cc3b99eec81e7ee4c6b8b9619",
       "word_count": 221,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 5811
     },
@@ -1466,9 +1230,7 @@
       "body_sha256": "00fcc0fb4fe58a08df8f5b6215608768008b67330e099f1f3022eca16bc5be52",
       "word_count": 422,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 5856
     },
@@ -1478,9 +1240,7 @@
       "body_sha256": "60bf6a65e9120d0860ba0512d9ca57bd88e679711d10a218debe43e0359a1108",
       "word_count": 157,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 6021
     },
@@ -1490,9 +1250,7 @@
       "body_sha256": "271b93fcbc2f3ab57a0da20f55d563bc537a22de3ea5ab79512512f3e5da2f1d",
       "word_count": 179,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 6049
     },
@@ -1502,9 +1260,7 @@
       "body_sha256": "72c150243ccf51701667ee32bf6cc8b5a020776a0ed321220092a9794d94a0f2",
       "word_count": 178,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 6082
     },
@@ -1514,9 +1270,7 @@
       "body_sha256": "78c7ad119b1b832a99ccfa680faeaf8a62983c0178668ca759b0f30cd33dbd36",
       "word_count": 200,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 6121
     },
@@ -1526,9 +1280,7 @@
       "body_sha256": "4ed612dea70e74f928108f590c3e30df755f82980e7562f636984bf6f16d97e5",
       "word_count": 299,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 6156
     },
@@ -1538,9 +1290,7 @@
       "body_sha256": "f72969b97c33293d30bc1c85bc9a5d87b204e5cc3aebd4f698597d5dfabf1bc4",
       "word_count": 301,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 6215
     },
@@ -1550,9 +1300,7 @@
       "body_sha256": "a1888320c8a547652f9ca1a3f884a215941fa28c912870d852d0dcb70c192808",
       "word_count": 405,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 6268
     },
@@ -1562,9 +1310,7 @@
       "body_sha256": "a316583cd664b80c7ba51015ef10f2c48d5d9187b348c17ae3c518d2b6092681",
       "word_count": 509,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 6331
     },
@@ -1574,9 +1320,7 @@
       "body_sha256": "696b40ab9aa38d195171df071f361121c7a57497d5503c7922159454e43877dc",
       "word_count": 436,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 6452
     },
@@ -1586,9 +1330,7 @@
       "body_sha256": "b317b0d42394edaa0660341a4fb7dac96f54dde394d9f8e90607d1d8bf2b06ae",
       "word_count": 246,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 6540
     },
@@ -1598,9 +1340,7 @@
       "body_sha256": "5de19d3d386abbb4e72f39daebd2bfd82a6a420b21de3658d38de1ad144f79dd",
       "word_count": 387,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 6608
     },
@@ -1610,9 +1350,7 @@
       "body_sha256": "dbbd1086f8ee713bdb1f999177a43a8e86e09c566e673a240cc4f5eb80888335",
       "word_count": 313,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 6673
     },
@@ -1622,9 +1360,7 @@
       "body_sha256": "1cfff49dd485c52639f007758d8bacbfc9f46a61eb0fa3369813035dd28ce5e3",
       "word_count": 184,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 6739
     },
@@ -1634,9 +1370,7 @@
       "body_sha256": "6b781c7d693fb90c99d51321c50e671f18ae46c80e6685834b067bc03221a8e8",
       "word_count": 234,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 6778
     },
@@ -1646,9 +1380,7 @@
       "body_sha256": "30e716a11d91ccdcbb47211546e33fb956f547c4c199852698d4bae6c44cb5ae",
       "word_count": 191,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 6907
     },
@@ -1658,9 +1390,7 @@
       "body_sha256": "d17780487f2cfe2268f56728ffede8c8fef9999859a4bc6a1caa112004d9a662",
       "word_count": 152,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 6952
     },
@@ -1670,9 +1400,7 @@
       "body_sha256": "ecb0b0a2c7f89dad3fa0ccd0e6045d8a100fa90629c427dbb9125a03c756d848",
       "word_count": 135,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 6999
     },
@@ -1682,9 +1410,7 @@
       "body_sha256": "215e718a7c3940e6321ba26fd26a1a8eea6dfa2b317867011cd762cbd39bc335",
       "word_count": 245,
       "state": "unique",
-      "matches": [
-        "2304.txt"
-      ],
+      "matches": ["2304.txt"],
       "source": "PG2304",
       "current_title_line": 7022
     }
@@ -1696,10 +1422,7 @@
       "body_sha256": "39a889724ad4cf688fac1f72a2a46a697906f0df1ff6a314ca33b16fcbe7913d",
       "word_count": 340,
       "state": "multiple",
-      "matches": [
-        "2304.txt",
-        "26715-8.txt"
-      ]
+      "matches": ["2304.txt", "26715-8.txt"]
     },
     {
       "title": "Verse: Life In Death And Death In Life",
@@ -1731,10 +1454,7 @@
       "body_sha256": "9e7d95f2f26aee53f23a92dcb86e72491f8aa3724cbe12010febffe56610afb9",
       "word_count": 340,
       "state": "multiple",
-      "matches": [
-        "2304.txt",
-        "26715-8.txt"
-      ]
+      "matches": ["2304.txt", "26715-8.txt"]
     },
     {
       "title": "Verse: A Comforter",
