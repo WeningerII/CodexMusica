@@ -529,8 +529,8 @@
     },
     {
       "file": "eng_british_adelaide_anne_procter.txt",
-      "before_sha256": "c29d89f1d926a489ae4d557606fab3053b63f803ffb4e92ddf2fd8783fda5a49",
-      "after_sha256": "0f5a8385b046c1367c961bc1cedef945bcf1ce1d29dfc48dc7107468a017d20e",
+      "before_sha256": "68af2fe2fba1417a91a08c733a74979c0a86f28884f1501392f04ce71cfc8ad6",
+      "after_sha256": "2cd339afbb366c73e317a2ae90b5a8662f7bc7b78e10f628ee6ebd2f6d2d70a2",
       "replacements": {
         "1084": {
           "before": "[VERSE 9]",
@@ -552,39 +552,39 @@
           "after": "# APPARATUS: * * *",
           "reason": "printed-separator-or-omission-mark"
         },
-        "6410": {
+        "6414": {
           "before": "[CHORUS]",
           "after": "# APPARATUS: [CHORUS]",
           "reason": "stanza-label-attached-only-to-apparatus"
         },
-        "6411": {
+        "6415": {
           "before": "* * *",
           "after": "# APPARATUS: * * *",
           "reason": "printed-separator-or-omission-mark"
         },
-        "6433": {
+        "6437": {
           "before": "[CHORUS]",
           "after": "# APPARATUS: [CHORUS]",
           "reason": "stanza-label-attached-only-to-apparatus"
         },
-        "6434": {
+        "6438": {
           "before": "* * *",
           "after": "# APPARATUS: * * *",
           "reason": "printed-separator-or-omission-mark"
         },
-        "6442": {
+        "6446": {
           "before": "[CHORUS]",
           "after": "# APPARATUS: [CHORUS]",
           "reason": "stanza-label-attached-only-to-apparatus"
         },
-        "6443": {
+        "6447": {
           "before": "* * *",
           "after": "# APPARATUS: * * *",
           "reason": "printed-separator-or-omission-mark"
         }
       },
       "source_start_line": 32,
-      "before_body_sha256": "25d09d38b10ce36ef01f5184f7ab6171e280f7eda1ba28f199766e5a1c76b903",
+      "before_body_sha256": "d44b09ea3bf89784ba3f7392bf638a5152f94e583bd98227b0c974e7da74a861",
       "superseded_2026-09-15": {
         "why": "PR #285 inserted 136 verified per-item source references into this file, purely as new lines: every one of main's 6926 lines maps into the merged file unchanged, so no lyric text, apparatus marker or item boundary was rewritten -- only their physical coordinates moved. The receipt below was measured against the file BEFORE those insertions (baseline 40a28ddcd72b); the values above are the same operation re-measured against the merged file, with each of the ten markers relocated by diff alignment and then VERIFIED to sit at its new line. The header-tolerant before_body_sha256 could not absorb this because the insertions are in the BODY, not the header.",
         "replacements": {
@@ -642,6 +642,10 @@
         "before_sha256": "a2260667f0a2a9764389108a9fd2e064a3298e8573972181628c8ab8402026ac",
         "after_sha256": "8e91762df9b172f1c57e86e72f3c85b858fcdd81619b84c4361c7bbe29326d89",
         "before_body_sha256": "30486bc225be0b61122fb6bbfb6417fe5749b7ed6d3ba569fc3ec7a9b4636d68"
+      },
+      "followup_remeasurement": {
+        "why": "Five further verified source-reference lines move six existing apparatus coordinates by four lines. All 7062 baseline lines are preserved; no apparatus or lyric is changed. Original formulas were reproduced against the prior record before remeasurement. Full prior record retained in docs/procter-source-followup.json.",
+        "evidence": "docs/procter-source-followup.json"
       }
     },
     {

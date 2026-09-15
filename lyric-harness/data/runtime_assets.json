@@ -283,8 +283,8 @@
         },
         {
           "path": "data/sources.tsv",
-          "bytes": 1600400,
-          "sha256": "5e9128beffe558c2bb9837920af389320988e4056f3b0ab501cc094fd085154b"
+          "bytes": 1600740,
+          "sha256": "044c7e2650477db613a32b5299bb496eb4da1816930f85048127bd36275a177f"
         },
         {
           "path": "data/structure_canon.tsv",

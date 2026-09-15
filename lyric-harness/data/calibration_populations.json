@@ -1,8 +1,8 @@
 {
   "version": 2,
   "snapshot": "2026-09-15",
-  "manifest_sha256": "0ce7a9c1b247cb2a749a31df8be5b97c8669822a63c889559af9d3f007393b83",
-  "reader_fingerprint": "4a46306113cd503840e7a0a166a10a4e908985ce843f32a4054f933ad567fca9",
+  "manifest_sha256": "4ca17b44269173947106cf5da00db7f5987b91eed133038d9d0a8c72035603ff",
+  "reader_fingerprint": "08584341b359c2b7ae51528b523a3b436e6791b83eb3e77e736378b83f3867b7",
   "populations": {
     "quality.meter_bands": [
       "corpus/song/eng_american_a_b_cunningham.txt",
