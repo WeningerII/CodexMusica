@@ -23540,4 +23540,6 @@ check("every baseline detector completed successfully", not red, str(red))
 
 **VERIFIED:** `mcp/test.mjs` 106 checks PASS with six new deploy-guard cases, and **five of the six FAIL against `deploy_guard.sh` as it stood on `64d32b20`** (advance-on-live refused, rollback unnamed, already-live borrowing the ordering reason, the unknown-live fallback unannounced, divergence unhandled); the sixth is a conservation check that passes on both trees by design, proving the relaxation took no refusal away. All four pre-existing guard cases are unchanged and green, the ordering-message case among them. Nine guard branches driven directly in a throwaway repository (advance-to-tip, advance-behind-tip, already-live, rollback, divergent, off-main, and unknown-live in three shapes). `deploy-connector.yml` parses; `bash -n` on the guard; `parseLiveArguments` accepts `--print-commit`, refuses it twice. `mcp/check_live.mjs --print-commit` was NOT exercised against the live host: this sandbox's egress allowlist refuses `mcp.codexmusica.com`, so the guard is tested through its `LIVE_SHA` seam and the workflow's own next run is what measures the resolution step.
 
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~343~~ -> **344**.
+
 **344** with this entry (2026-09-15).
