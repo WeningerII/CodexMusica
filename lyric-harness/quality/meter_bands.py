@@ -108,18 +108,6 @@ class Calibration:
         return len(self.excluded) / self.lyric_lines if self.lyric_lines else 0.0
 
 
-def historical_lyric_lines(path):
-    """The original marker-only registration reader, for historical reproduction."""
-    out = []
-    with open(path, encoding="utf-8") as fh:
-        for i, raw in enumerate(fh, 1):
-            s = raw.strip()
-            if not s or s.startswith(STRUCTURAL_PREFIXES):
-                continue
-            out.append((i, s))
-    return out
-
-
 def lyric_lines(path):
     """Current calibration rows, identical to runtime normalization."""
     from quality.lyric_reader import calibration_items
