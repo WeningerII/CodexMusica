@@ -12,10 +12,34 @@
 # schema was found by a person reading it rather than by anything that gates
 # (`MISSING.md` M-127), and a rollback is the same defect arriving on purpose.
 #
-# THE RULE. Deploy only if the commit CI validated is STILL the tip of main.
-# If main has moved on, that newer commit has its own CI run, and that run
-# deploys it — so the correct move is to stand down rather than ship a tree
-# somebody has already superseded.
+# THE RULE, AND IT WAS THE WRONG ONE FOR FOURTEEN MONTHS OF TREE TIME
+# (`MISSING.md` M-289). What this guard wants is that the connector never goes
+# BACKWARDS. What it asked until 2026-09-15 is that the commit being deployed
+# is exactly the tip of main — a far stronger thing, and on a moving tree an
+# unsatisfiable one. It stood down saying "the newer commit has its own CI run,
+# and that run deploys it", which was true while CI's push run was the trigger
+# and STOPPED being true at M-287, when the deploy moved to the manually
+# dispatched Production qualification. After that nothing qualified the newer
+# commit unless a person did, so the sentence promised a deploy that nothing
+# was going to perform, and the connector silently stopped tracking main:
+# live sat on 42f020e6 for 33 h while main reached 64d32b20 six
+# connector-touching commits later, every workflow green the whole time. That
+# is M-127's invisibility arriving through the guard built to prevent it.
+#
+# SO THE QUESTION IS ASKED DIRECTLY. Given LIVE_SHA — what the running process
+# reports at /health, which is ground truth about the deployed bytes rather
+# than an inference from CI records — deploy when BUILT is a strict DESCENDANT
+# of it. That advances the connector and cannot roll it back, which is the
+# whole of the hazard. Equal means Render already serves this tree; an
+# ancestor means the deploy would move the connector BACKWARDS, and that is
+# the case this file exists to refuse.
+#
+# WITHOUT LIVE_SHA NOTHING CHANGES. An unset or unreadable live commit is
+# UNKNOWN, and an unknown must never be read as a match (doctrine 20) — so the
+# guard falls back to exactly the tip-of-main test it has always applied. The
+# monotonic rule only ever RELAXES the answer, and only on positive evidence
+# about what is actually running. A guard that cannot see the live process is
+# no weaker than it was before it could.
 #
 # WHY SHA EQUALITY HERE AND SOURCE COMPARISON THERE. `publish_guard.sh` cannot
 # compare shas: sync-pages.yml PUBLISHES ONTO main, so main's tip is usually an
@@ -42,7 +66,7 @@
 #
 # Exits 0 to deploy, 10 to stand down. Any other non-zero is a real error.
 #
-# Usage: BUILT_SHA=<sha> [LAST_DEPLOYED_SHA=<sha>] scripts/deploy_guard.sh [--verbose]
+# Usage: BUILT_SHA=<sha> [LIVE_SHA=<sha>] [LAST_DEPLOYED_SHA=<sha>] scripts/deploy_guard.sh [--verbose]
 
 set -euo pipefail
 
@@ -64,6 +88,67 @@ fi
 
 BUILT=$(git rev-parse "$BUILT_SHA^{commit}")
 TIP=$(git rev-parse "origin/main^{commit}")
+
+# WHAT IS ACTUALLY RUNNING, if the caller could find out. Resolved to a full
+# sha here so every comparison below is between two commits this repository
+# knows; a live commit that is not in the tree at all (a force-push took it
+# away, or the process is serving something that never landed) is UNKNOWN
+# rather than an answer, because ancestry against it cannot be computed and a
+# guess in either direction is the rollback this file refuses.
+LIVE=""
+if [ -n "${LIVE_SHA:-}" ]; then
+  if LIVE=$(git rev-parse --verify --quiet "$LIVE_SHA^{commit}"); then
+    :
+  else
+    LIVE=""
+    [ "$VERBOSE" = 1 ] && echo "deploy_guard: LIVE_SHA '$LIVE_SHA' is not a commit in this repo — treating the live commit as UNKNOWN."
+  fi
+fi
+
+# THE MONOTONIC RULE, and it runs BEFORE the tip test so that a tree main has
+# moved past can still deploy when it is a genuine advance on what is live.
+# Every answer here requires BUILT to be on main: a qualified commit that is
+# not an ancestor of the tip is not this branch's to ship, and that case falls
+# through to the ordering message below, which names it.
+if [ -n "$LIVE" ] && git merge-base --is-ancestor "$BUILT" "$TIP"; then
+  if [ "$BUILT" = "$LIVE" ]; then
+    echo "deploy_guard: STAND DOWN — the live connector already serves $BUILT."
+    echo "  Asking again would rebuild and restart the live process to serve the tree"
+    echo "  it is already serving (and reset the in-memory spend counter with it)."
+    echo "  built: $BUILT"
+    echo "  live:  $LIVE"
+    exit 10
+  fi
+  if git merge-base --is-ancestor "$LIVE" "$BUILT"; then
+    if [ "$VERBOSE" = 1 ]; then
+      echo "deploy_guard: $BUILT advances the live connector by $(git rev-list --count "$LIVE..$BUILT") commit(s) — deploying."
+      echo "  live: $LIVE"
+      if [ "$BUILT" != "$TIP" ]; then
+        echo "  (main's tip is $TIP, $(git rev-list --count "$BUILT..$TIP") commit(s) further on; this deploy"
+        echo "   does not reach it, and the tip's own qualification is what closes that gap.)"
+      fi
+    fi
+    exit 0
+  fi
+  if git merge-base --is-ancestor "$BUILT" "$LIVE"; then
+    echo "deploy_guard: STAND DOWN — $BUILT is BEHIND the live connector by $(git rev-list --count "$BUILT..$LIVE") commit(s)."
+    echo "  Deploying it would move the live service BACKWARDS, which is the hazard"
+    echo "  this guard exists for: live code going back in time with nothing red"
+    echo "  anywhere, because every gate here asks about the TREE and none asks"
+    echo "  what the deployed process is serving."
+    echo "  built: $BUILT"
+    echo "  live:  $LIVE"
+    exit 10
+  fi
+  echo "deploy_guard: STAND DOWN — $BUILT and the live commit $LIVE are on DIVERGENT histories."
+  echo "  Neither contains the other, so there is no advance to make and no way to"
+  echo "  tell which is newer. This is a real anomaly, not an ordinary supersede:"
+  echo "  the live process is serving a tree that is not an ancestor of the commit"
+  echo "  being promoted."
+  echo "  built: $BUILT"
+  echo "  live:  $LIVE"
+  exit 10
+fi
 
 if [ "$BUILT" = "$TIP" ]; then
   if [ -n "${LAST_DEPLOYED_SHA:-}" ] && [ "$BUILT" = "$LAST_DEPLOYED_SHA" ]; then
@@ -99,7 +184,12 @@ fi
 echo "deploy_guard: STAND DOWN — $BUILT is $WHERE."
 echo "  Deploying now would put the connector on a tree main has moved past,"
 echo "  and a later-finishing older run is how a live service rolls backwards."
-echo "  The newer commit has its own CI run, and that run deploys it."
+echo "  This is the FALLBACK answer, reached only because the live commit was"
+echo "  UNKNOWN to this run (M-289): with LIVE_SHA set, a tree behind the tip"
+echo "  still deploys when it ADVANCES the live one, and only a tree behind"
+echo "  LIVE is refused. Do not read this as a promise that something else"
+echo "  will deploy the newer commit — since M-287 the qualification is"
+echo "  dispatched by a person, and main advancing does not produce one."
 echo "  built: $BUILT"
 echo "  tip:   $TIP"
 exit 10
