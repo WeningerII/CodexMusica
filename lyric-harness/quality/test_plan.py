@@ -2401,10 +2401,12 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # 4-3,245 tokens has no seam. This docstring's own diagnosis — every
     # hole was a fact about which bands were unioned, never about songs —
     # is what the closure confirms.
-    check("and there is NO hole at all — every former seam (6-11, 18-21, "
-          "21) was the space between two calibrated bands, and the "
-          "length-curve profile has none",
-          song == set(range(1, max(song) + 1)) and _PL.line_count_gaps(song) == []
+    # 2026-09-15: the measured lyric minimum is 10 tokens after apparatus
+    # annotations, so the former one-line lower endpoint becomes two.
+    # Interior continuity still holds; the unmeasured endpoint is not filled.
+    check("the measured song span starts at two lines and has no interior "
+          "hole — the former seams between calibrated bands stay closed",
+          song == set(range(2, max(song) + 1)) and _PL.line_count_gaps(song) == []
           and _PL.line_count_gaps(union) == [],
           f"song {min(song)}..{max(song)} gaps {_PL.line_count_gaps(song)}, "
           f"union gaps {_PL.line_count_gaps(union)}")
@@ -3675,10 +3677,11 @@ def test_the_delegated_rulings(FAILURES=None):
           "to totals whose stanza-sized cell ceiling can hold that many "
           "sections, so a total the pattern draw would reject on every "
           "attempt is never drawn: ~~the short profile (M-193) took the "
-          "gradeable set to 6 lines~~ the length-curve profile (M-239) takes "
-          "it to 1 line (4 tokens at the band's highest tokens-per-line) "
+          "gradeable set to 6 lines~~ the 2026-09-15 length-curve profile "
+          "starts at 2 lines (10 tokens at the band's highest tokens-per-line) "
           "and the fillable floor is 12",
-          fill <= grade and min(fill) == 12 and min(grade) == 1
+          # The 2026-09-14 lower endpoint was one line / four tokens.
+          fill <= grade and min(fill) == 12 and min(grade) == 2
           and all(max(1, t // _PL.stanza_line_floor()) >= need for t in fill)
           and ENVELOPE["total_lines"] == (min(fill), max(fill)),
           f"gradeable {min(grade)}..{max(grade)}, fillable {min(fill)}.."

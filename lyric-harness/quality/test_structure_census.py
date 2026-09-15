@@ -122,15 +122,17 @@ def test_item_readers():
     # Re-adopted 2026-09-08 after explicit work-edition deduplication and
     # apparatus curation: 8,546 weighted items, of which Sawyer's note-only
     # source has no lyric lines. The builder discloses both denominators.
-    check("the shared work reader yields exactly 8,545 nonempty items "
+    # 2026-09-15: 8545 -> 8536 nonempty / 8546 -> 8537 total after
+    # nine apparatus-only title headings were preserved outside the lyric set.
+    check("the shared work reader yields exactly 8,536 nonempty items "
           "over the 1297 files",
-          n_items == 8545, n_items)
+          n_items == 8536, n_items)
     from quality.lyric_reader import calibration_items
     all_items = [(os.path.basename(f), title, body) for f in files
                  if os.path.basename(f).startswith("eng_")
                  for title, _at, body in calibration_items(f)]
     check("item exclusion is the one note-only Sawyer source, not lost verse",
-          len(all_items) == 8546 and [(name, title) for name, title, body in all_items if not body]
+          len(all_items) == 8537 and [(name, title) for name, title, body in all_items if not body]
           == [("eng_parlour_charles_carroll_sawyer.txt", "WHEN THIS CRUEL WAR IS OVER")])
     son = CEN.items_of(os.path.join(HERE, "..", "corpus", "sonnets.txt"))
     check("sonnets.txt reads through battery.parse_sonnets: 152 items "

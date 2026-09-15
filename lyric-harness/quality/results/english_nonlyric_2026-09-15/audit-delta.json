@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "base_commit": "64d32b204f493790a9c98f74f68f8ffb242cdb23",
+  "files": 1430,
+  "before": {
+    "NOTE": 1195,
+    "WARN": 141,
+    "FAIL": 1
+  },
+  "after": {
+    "NOTE": 1200,
+    "WARN": 97,
+    "FAIL": 1
+  },
+  "changes": [
+    {
+      "check": "E",
+      "severity": "NOTE",
+      "before": 5,
+      "after": 4,
+      "delta": -1
+    },
+    {
+      "check": "E",
+      "severity": "WARN",
+      "before": 27,
+      "after": 22,
+      "delta": -5
+    },
+    {
+      "check": "H",
+      "severity": "NOTE",
+      "before": 48,
+      "after": 54,
+      "delta": 6
+    },
+    {
+      "check": "H",
+      "severity": "WARN",
+      "before": 104,
+      "after": 65,
+      "delta": -39
+    }
+  ],
+  "unchanged_checks": ["A", "B", "D", "F", "G", "I", "J"]
+}

@@ -3180,7 +3180,11 @@ def main(argv=None):
 #: J now measures 1048 attached-only, 0 spaced-only, 245 both; 26 dominant.
 #: H is explicitly a raw-staging census, not a claim about reader retention.
 #: The standing Persian-prefix LICENSE language FAIL remains disclosed.
-PINNED_SHAPE = {"files": 1430, "FAIL": 1, "WARN": 141, "NOTE": 1195}
+#: REPINNED 2026-09-15 from WARN 141 / NOTE 1195 after the full audit
+#: following preserved English nonlyric apparatus and intervening main edits.
+#: The archived run measures 97 WARN / 1200 NOTE; files and the known
+#: Persian-license FAIL remain unchanged. No finding is suppressed.
+PINNED_SHAPE = {"files": 1430, "FAIL": 1, "WARN": 97, "NOTE": 1200}
 
 
 def _verify_shape(files, findings):
