@@ -986,8 +986,10 @@ ARM_SCHEMAS = frozenset(a[3] for a in ARMS)
 #: can share it -- `door` and `the door` end on the same line-final unit --
 #: so the pair is at gap 0 and the reflex is wrong for exactly the multiword
 #: schemas (`mosaic rhyme`, `compound / phrasal rhyme`) where it would have
-#: mattered.  Being absent costs nothing: it makes the derivation say "cannot
-#: tell" where it cannot tell (doctrine 28), and `sweep()` then MEASURES.
+#: mattered. `forced_gap` separately reads identical, unsearched endpoint-token
+#: rules: each emits at most one span per line, and candidate enumeration
+#: excludes a span paired with itself. That narrower case forces different
+#: lines without making the false claim about all line-final spans (M-46).
 _GAP_FORCED = {
     "same_line": (0, 0),
     "spans_overlap": (0, 0),
@@ -1001,8 +1003,15 @@ _GAP_FORCED = {
 
 def forced_gap(schema):
     """(lo, hi) bounds on the line distance between a schema's two members,
-    derived from its own placement tuple.  hi=None means unbounded."""
+    derived from its span rules and placement. hi=None means unbounded."""
     lo, hi = 0, None
+    a, b = schema.spans
+    if (a == b and a.locus in ("line_final_token", "line_initial_token")
+            and a.anchor != "searched"):
+        # One identical span per endpoint token; the producer rejects a.idx ==
+        # b.idx. Searched or asymmetric rules can emit distinct overlapping
+        # spans on that same token and must retain the possibility of gap 0.
+        lo = 1
     for p in schema.placement:
         if not p.polarity:
             continue
@@ -1022,7 +1031,7 @@ def statistic_degeneracy(schema, statistic):
     -> None where it can vary, else the reason it cannot.  DOCTRINE 20, one
     layer below where that doctrine was first written: the time layer refused
     when its EVENTS saturated, and this refuses when the STATISTIC is pinned
-    by the schema's own placement tuple before any text is read.  A statistic
+    by the schema's span and placement rules before any text is read. A statistic
     the observation and every replicate must return the same value for cannot
     fail, so a null hung on it is a p-value with no experiment under it — and
     it will print `p=1.0000, 0% differing` and look exactly like a real null
@@ -1039,12 +1048,12 @@ def statistic_degeneracy(schema, statistic):
     if name.startswith("local_fraction@"):
         k = int(name.split("@", 1)[1])
         if hi is not None and hi <= k:
-            return (f"constant 1.0: the schema's own placement forces a line "
+            return (f"constant 1.0: the schema's span/placement rules force a line "
                     f"gap of at most {hi}, so every instance it can find is "
                     f"already inside the @{k} window, on the observation and "
                     f"on every replicate alike")
         if lo > k:
-            return (f"constant 0.0: the schema's own placement forces a line "
+            return (f"constant 0.0: the schema's span/placement rules force a line "
                     f"gap of at least {lo}, so no instance it can find is "
                     f"ever inside the @{k} window")
         return None
@@ -1782,6 +1791,11 @@ def menu_pairs(cov):
 # respectively: their former NO_INSTANCE was not a measured absence.
 # Historic deeper null sweeps above and below have NOT been requalified by
 # this cheap current-source coverage census.
+# 2026-09-15 (M-46): remeasured all 77 schemas after recognising identical,
+# unsearched endpoint-token spans. Twenty-two menus lose local_fraction@0;
+# verdicts and confirmed/unresolved instance counts are unchanged. Previous
+# and current menu sizes are retained in docs/null-endpoint-gap.json. The
+# deeper historical null tables are not new-source qualification evidence.
 EXTENSION_LEDGER = (
     ('perfect rhyme',                           'controlled',      6,  4),
     ('rime riche',                              'extendable',      6,  0),
@@ -1789,7 +1803,7 @@ EXTENSION_LEDGER = (
     ('antanaclasis',                            'cannot_obtain',   4,  0),
     ('assonance',                               'extendable',      6,  0),
     ('consonance',                              'extendable',      6,  0),
-    ('cluster consonance / skothending span',   'extendable',      4,  0),
+    ('cluster consonance / skothending span',   'extendable',      3,  0),
     ('parechesis / general consonance',         'cannot_obtain',   2,  0),
     ('pararhyme',                               'extendable',      6,  0),
     ('reverse rhyme',                           'extendable',      6,  0),
@@ -1797,19 +1811,19 @@ EXTENSION_LEDGER = (
     ('Kalevala alliteration (weak)',            'controlled',      2,  3),
     ('Kalevala alliteration (strong)',          'extendable',      2,  0),
     ('paroemion',                               'extendable',      2,  0),
-    ('family rhyme',                            'extendable',      8,  0),
-    ('additive rhyme',                          'no_instance',     8,  0),
-    ('subtractive rhyme',                       'extendable',      8,  0),
-    ('semirhyme',                               'extendable',      8,  0),
-    ('apocopated rhyme',                        'no_instance',     8,  0),
-    ('light rhyme',                             'no_instance',     8,  0),
-    ('wrenched rhyme',                          'cannot_obtain',   8,  0),
-    ('syllabic rhyme',                          'extendable',      8,  0),
+    ('family rhyme',                            'extendable',      6,  0),
+    ('additive rhyme',                          'no_instance',     6,  0),
+    ('subtractive rhyme',                       'extendable',      6,  0),
+    ('semirhyme',                               'extendable',      6,  0),
+    ('apocopated rhyme',                        'no_instance',     6,  0),
+    ('light rhyme',                             'no_instance',     6,  0),
+    ('wrenched rhyme',                          'cannot_obtain',   6,  0),
+    ('syllabic rhyme',                          'extendable',      6,  0),
     ('amphisbaenic rhyme',                      'cannot_obtain',   6,  0),
-    ('eye rhyme',                               'cannot_obtain',   8,  0),
-    ('historical rhyme',                        'cannot_obtain',   8,  0),
-    ('dialect rhyme',                           'cannot_obtain',   8,  0),
-    ('homoioteleuton',                          'extendable',      8,  0),
+    ('eye rhyme',                               'cannot_obtain',   6,  0),
+    ('historical rhyme',                        'cannot_obtain',   6,  0),
+    ('dialect rhyme',                           'cannot_obtain',   6,  0),
+    ('homoioteleuton',                          'extendable',      6,  0),
     ('polyptoton',                              'extendable',      4,  0),
     ('multisyllabic rhyme',                     'extendable',      6,  0),
     ('mosaic rhyme',                            'extendable',      8,  0),
@@ -1832,8 +1846,8 @@ EXTENSION_LEDGER = (
     ('symploce',                                'extendable',      6,  0),
     ('anadiplosis',                             'no_instance',     2,  0),
     ('epanalepsis',                             'extendable',      1,  0),
-    ('analysed rhyme',                          'cannot_obtain',  10,  0),
-    ('monorhyme / leash',                       'cannot_obtain',  13,  0),
+    ('analysed rhyme',                          'cannot_obtain',   7,  0),
+    ('monorhyme / leash',                       'cannot_obtain', 10,  0),
     ('chain rhyme (rap)',                       'extendable',     12,  0),
     ('alliterative long line',                  'cannot_obtain',   2,  0),
     ('fourth lift must not alliterate',         'cannot_obtain',   1,  0),
@@ -1847,19 +1861,19 @@ EXTENSION_LEDGER = (
     ('cynghanedd sain lafarog',                 'cannot_obtain',   1,  0),
     ('cynghanedd sain drosgl',                  'extendable',      1,  0),
     ('cynghanedd lusg',                         'extendable',      1,  0),
-    ('proest',                                  'cannot_obtain',   8,  0),
-    ("Scots vowel-length rhyme (Aitken's Law)", 'extendable',      8,  0),
-    ('Middle Chinese end rhyme (同用 group)',     'cannot_obtain',   8,  0),
+    ('proest',                                  'cannot_obtain',   6,  0),
+    ("Scots vowel-length rhyme (Aitken's Law)", 'extendable',      6,  0),
+    ('Middle Chinese end rhyme (同用 group)',     'cannot_obtain',   6,  0),
     ('平仄 tonal template',                       'cannot_obtain',   5,  0),
     ('pantun ABAB',                             'extendable',      4,  0),
     ('blues AAB stanza',                        'cannot_obtain',   2,  0),
     ('offbeat internal rhyme',                  'cannot_obtain',   4,  0),
-    ('rhyming slang',                           'cannot_obtain',   4,  0),
-    ('transformative / bent rhyme',             'cannot_obtain',   4,  0),
-    ('sung-delivery rhyme',                     'cannot_obtain',   4,  0),
+    ('rhyming slang',                           'cannot_obtain',   3,  0),
+    ('transformative / bent rhyme',             'cannot_obtain',   3,  0),
+    ('sung-delivery rhyme',                     'cannot_obtain',   3,  0),
     ('refrain by reference',                    'cannot_obtain',   4,  0),
     ('incremental repetition',                  'no_instance',     5,  0),
-    ('trite rhyme',                             'no_instance',     8,  0),
+    ('trite rhyme',                             'no_instance',     6,  0),
 )
 
 #: THE DERIVATION'S OWN ERROR, FROZEN — DIRECTION ONE.  Pairs the census
@@ -1898,11 +1912,10 @@ EXTENSION_LEDGER = (
 #: silent rows between them, and a derivation looks more reliable when the
 #: rows it was wrong about stop being reachable.  Doctrine 27's shape, one
 #: layer out.
+# 2026-09-15 (M-46): eight historical local_fraction@0 rows are no longer
+# eligible questions and are retained in docs/null-endpoint-gap.json. Removing
+# them from this comparison does not requalify the other historical readings.
 MENU_SILENT = (
-    ("Scots vowel-length rhyme (Aitken's Law)",
-     'local_fraction@0', 'global_redeal'),
-    ("Scots vowel-length rhyme (Aitken's Law)",
-     'local_fraction@0', 'within_line_shuffle'),
     ('anaphora', 'local_fraction@2', 'line_final_permutation'),
     ('chain rhyme (rap)', 'line_fraction', 'global_redeal'),
     ('chain rhyme (rap)', 'line_fraction', 'line_final_permutation'),
@@ -1911,14 +1924,8 @@ MENU_SILENT = (
     ('head rhyme (positional)', 'local_fraction@2', 'line_final_permutation'),
     ('rime riche', 'local_fraction@2', 'global_redeal'),
     ('rime riche', 'local_fraction@2', 'within_line_shuffle'),
-    ('semirhyme', 'local_fraction@0', 'global_redeal'),
-    ('semirhyme', 'local_fraction@0', 'within_line_shuffle'),
     ('semirhyme', 'local_fraction@2', 'line_final_permutation'),
     ('semirhyme', 'local_fraction@2', 'line_permutation'),
-    ('subtractive rhyme', 'local_fraction@0', 'global_redeal'),
-    ('subtractive rhyme', 'local_fraction@0', 'within_line_shuffle'),
-    ('syllabic rhyme', 'local_fraction@0', 'global_redeal'),
-    ('syllabic rhyme', 'local_fraction@0', 'within_line_shuffle'),
     ('symploce', 'local_fraction@2', 'global_redeal'),
     ('symploce', 'local_fraction@2', 'line_final_permutation'),
     ('symploce', 'local_fraction@2', 'line_permutation'),
@@ -3566,13 +3573,11 @@ def _report_sensitivity(lines, phon, language, results, census):
     genuinely moved and the plant still could not beat chance IS a failed
     floor, and the null printed beside it means nothing.
 
-    This is also where the derivation deliberately left a gap gets closed by
-    measurement.  `_GAP_FORCED` declines to read `both_line_final` as "two
-    different lines", because two distinct spans can share one line-final
-    unit; so `local_fraction@0` on those schemas is NOT derived constant, and
-    every one of them lands in this CONSTANT column instead, demonstrated
-    rather than assumed (doctrine 28's third answer, then doctrine 68's
-    authority).
+    Placement alone cannot read `both_line_final` as "two different lines":
+    distinct multiword spans can share a line-final unit. Identical unsearched
+    endpoint-token rules are handled before the sweep by `forced_gap` (M-46).
+    The remaining shapes still require measurement; a constant observed panel
+    row is reported in its own column, never as a clean null result.
     """
     live = {c.schema for c in census
             if c.verdict in ("controlled", "extendable", "cannot_fail")}
