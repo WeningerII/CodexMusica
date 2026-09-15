@@ -1,0 +1,244 @@
+{
+  "date": "2026-09-15",
+  "baseline_commit": "d532a0dc9b42346bddb8af10df26cafc7256f4f5",
+  "scope": "M-46: identical unsearched endpoint-token spans only; no global both_line_final bound",
+  "schema_count": 77,
+  "changed_menus": 22,
+  "removed_derived_menu_pairs": 42,
+  "conservation": "Every schema verdict, confirmed and unresolved instance count, missing capability, refusal kind and vacuity record is identical. Remaining statistic/null pairs are identical. No corpus, calibration, named-relation definition or candidate enumeration changes.",
+  "baseline_coverage_sha256": "0c617c1ede2ee49aba5fe8bb3e8e83a33291f26202353ffaef9a890757fdb9ba",
+  "current_coverage_sha256": "ba108367eb5f2a57393088881f1b61a43da88678048ac11b03b8b204704225de",
+  "changes": [
+    {
+      "schema": "cluster consonance / skothending span",
+      "verdict": "extendable",
+      "confirmed_instances": 54,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 4,
+      "current_menu_pairs": 3,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["global_redeal"]
+    },
+    {
+      "schema": "family rhyme",
+      "verdict": "extendable",
+      "confirmed_instances": 243,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 8,
+      "current_menu_pairs": 6,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["within_line_shuffle", "global_redeal"]
+    },
+    {
+      "schema": "additive rhyme",
+      "verdict": "no_instance",
+      "confirmed_instances": 0,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 8,
+      "current_menu_pairs": 6,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["within_line_shuffle", "global_redeal"]
+    },
+    {
+      "schema": "subtractive rhyme",
+      "verdict": "extendable",
+      "confirmed_instances": 1,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 8,
+      "current_menu_pairs": 6,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["within_line_shuffle", "global_redeal"]
+    },
+    {
+      "schema": "semirhyme",
+      "verdict": "extendable",
+      "confirmed_instances": 1,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 8,
+      "current_menu_pairs": 6,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["within_line_shuffle", "global_redeal"]
+    },
+    {
+      "schema": "apocopated rhyme",
+      "verdict": "no_instance",
+      "confirmed_instances": 0,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 8,
+      "current_menu_pairs": 6,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["within_line_shuffle", "global_redeal"]
+    },
+    {
+      "schema": "light rhyme",
+      "verdict": "no_instance",
+      "confirmed_instances": 0,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 8,
+      "current_menu_pairs": 6,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["within_line_shuffle", "global_redeal"]
+    },
+    {
+      "schema": "wrenched rhyme",
+      "verdict": "cannot_obtain",
+      "confirmed_instances": -1,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 8,
+      "current_menu_pairs": 6,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["within_line_shuffle", "global_redeal"]
+    },
+    {
+      "schema": "syllabic rhyme",
+      "verdict": "extendable",
+      "confirmed_instances": 21,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 8,
+      "current_menu_pairs": 6,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["within_line_shuffle", "global_redeal"]
+    },
+    {
+      "schema": "eye rhyme",
+      "verdict": "cannot_obtain",
+      "confirmed_instances": -1,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 8,
+      "current_menu_pairs": 6,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["within_line_shuffle", "global_redeal"]
+    },
+    {
+      "schema": "historical rhyme",
+      "verdict": "cannot_obtain",
+      "confirmed_instances": -1,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 8,
+      "current_menu_pairs": 6,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["within_line_shuffle", "global_redeal"]
+    },
+    {
+      "schema": "dialect rhyme",
+      "verdict": "cannot_obtain",
+      "confirmed_instances": -1,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 8,
+      "current_menu_pairs": 6,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["within_line_shuffle", "global_redeal"]
+    },
+    {
+      "schema": "homoioteleuton",
+      "verdict": "extendable",
+      "confirmed_instances": 260,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 8,
+      "current_menu_pairs": 6,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["within_line_shuffle", "global_redeal"]
+    },
+    {
+      "schema": "analysed rhyme",
+      "verdict": "cannot_obtain",
+      "confirmed_instances": -1,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 10,
+      "current_menu_pairs": 7,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["line_permutation", "within_line_shuffle", "global_redeal"]
+    },
+    {
+      "schema": "monorhyme / leash",
+      "verdict": "cannot_obtain",
+      "confirmed_instances": -1,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 13,
+      "current_menu_pairs": 10,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["line_permutation", "within_line_shuffle", "global_redeal"]
+    },
+    {
+      "schema": "proest",
+      "verdict": "cannot_obtain",
+      "confirmed_instances": -1,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 8,
+      "current_menu_pairs": 6,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["within_line_shuffle", "global_redeal"]
+    },
+    {
+      "schema": "Scots vowel-length rhyme (Aitken's Law)",
+      "verdict": "extendable",
+      "confirmed_instances": 243,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 8,
+      "current_menu_pairs": 6,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["within_line_shuffle", "global_redeal"]
+    },
+    {
+      "schema": "Middle Chinese end rhyme (同用 group)",
+      "verdict": "cannot_obtain",
+      "confirmed_instances": -1,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 8,
+      "current_menu_pairs": 6,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["within_line_shuffle", "global_redeal"]
+    },
+    {
+      "schema": "rhyming slang",
+      "verdict": "cannot_obtain",
+      "confirmed_instances": -1,
+      "unresolved_instances": 741,
+      "previous_menu_pairs": 4,
+      "current_menu_pairs": 3,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["global_redeal"]
+    },
+    {
+      "schema": "transformative / bent rhyme",
+      "verdict": "cannot_obtain",
+      "confirmed_instances": -1,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 4,
+      "current_menu_pairs": 3,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["global_redeal"]
+    },
+    {
+      "schema": "sung-delivery rhyme",
+      "verdict": "cannot_obtain",
+      "confirmed_instances": -1,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 4,
+      "current_menu_pairs": 3,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["global_redeal"]
+    },
+    {
+      "schema": "trite rhyme",
+      "verdict": "no_instance",
+      "confirmed_instances": 0,
+      "unresolved_instances": 0,
+      "previous_menu_pairs": 8,
+      "current_menu_pairs": 6,
+      "removed_statistic": "local_fraction@0",
+      "removed_nulls": ["within_line_shuffle", "global_redeal"]
+    }
+  ],
+  "deep_null_sweep": "Not requalified. Eight previously recorded silent rows for the now-excluded statistic are retained here and removed from the active MENU_SILENT comparison. All other historical MENU_SILENT and OFF_MENU_MOVERS rows retain their earlier measurement scope.",
+  "retired_historical_menu_silent": [
+    ["Scots vowel-length rhyme (Aitken's Law)", "local_fraction@0", "global_redeal"],
+    ["Scots vowel-length rhyme (Aitken's Law)", "local_fraction@0", "within_line_shuffle"],
+    ["semirhyme", "local_fraction@0", "global_redeal"],
+    ["semirhyme", "local_fraction@0", "within_line_shuffle"],
+    ["subtractive rhyme", "local_fraction@0", "global_redeal"],
+    ["subtractive rhyme", "local_fraction@0", "within_line_shuffle"],
+    ["syllabic rhyme", "local_fraction@0", "global_redeal"],
+    ["syllabic rhyme", "local_fraction@0", "within_line_shuffle"]
+  ]
+}
