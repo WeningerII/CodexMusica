@@ -1927,7 +1927,13 @@ names); and whether the `SCHEME_VIOLATION` evidence line may print the
 scalar's mosaic attribution under a verdict the token judge made (what the
 friend read as "the scorer reads the whole phrase").
 
-### 4 · PARK — 39 entries that are real and not on the song path
+### 4 · PARK — remaining entries off the song path
+
+**E-2 removed from this queue, CLOSED 2026-09-15.** The declared and
+default grading routes already consult the relation registry, named types
+already reach `classify_pair`, and alternate-surface constructors exist.
+`MISSING.md` E-2 records the verification and the remaining requirement for
+explicit spelling or sourced historical evidence.
 
 Absent layers (B, C, D, G, most of E and F), long corpus judgement passes,
 and the time-layer redesign. Each stays open by its own argument; none is
@@ -1944,7 +1950,6 @@ picked up before the tiers above are empty.
 | C-4 | PARTIAL | BUILD · M | grade, CI, record | Syncopation as displacement off a declared `BeatGrid`; separately the triage scanner reads this entry CITED when it is DECLARED. | The groove questions are permanently refused by name; the residue is narrow. |
 | C-5 | PARTIAL | BUILD · S | grade, plan | `BeatGrid.tempo_bpm` has no reader and `fit._no_tempo` no caller — both inert. | Activates the first time a per-second question is asked; declared INERT. |
 | D-4 | OPEN | BUILD · L | plan | No arc across the form. | A performance/arrangement layer this harness does not model. |
-| E-2 | PARTIAL | BUILD · L | grade, screen | The scalar grading path is still five-valued and consults neither the 77-schema registry nor `rhyme_types`; `Stream.alt` has no producer. | Multi-sitting by the entry's own words; the `ALT_SURFACES` reader is a separable smaller build. |
 | E-4 | OPEN | BUILD · M | grade | No rhyme rate per bar, no acceleration into a hook. | "Per bar" needs the syllable-to-beat mapping G-1 refuses without a setting. |
 | F-1 | PARTIAL | BUILD · L | phonology, corpus | ~38 further phonologies undeclared; the roster is nine. | Each language is its own sitting. |
 | F-2 | OPEN | BUILD · L | phonology, grade | Tone-contour rhyme, pitch accent, vowel harmony, mutation, root-and-pattern morphology unrepresented as rhyme mechanisms. | Each redefines what rhyme means in its family. |
