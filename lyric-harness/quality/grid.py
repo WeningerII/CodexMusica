@@ -86,6 +86,8 @@ from collections import Counter
 from dataclasses import dataclass, field
 from fractions import Fraction
 
+from quality.tempo import TempoMap
+
 # ---------------------------------------------------------------------------
 
 
@@ -916,6 +918,19 @@ class Song:
     #: can be ASKED; absent, that question is refused rather than answered.
     title: str = ""
 
+    tempo: TempoMap = field(default_factory=TempoMap)
+
+    def seconds_between(self, start_bar, start_beat, end_bar, end_beat):
+        """Declared elapsed seconds; absent tempo returns a typed refusal."""
+        from quality.tempo import song_position
+        return self.tempo.seconds_between(
+            song_position(self, start_bar, start_beat),
+            song_position(self, end_bar, end_beat))
+
+    def line_seconds(self, line):
+        from quality.tempo import line_end
+        return self.tempo.seconds_between(*line_end(self, line))
+
     def layout(self):
         """Assign section start bars in order. Sections are laid end to end;
         their LENGTHS are whatever they are."""
@@ -1140,7 +1155,9 @@ def song_from_blueprint(obj, assume_meter=None):
                           beat=_frac(l.get("beat", 1)),
                           duration=_frac(l.get("duration", 4)),
                           section=s.name if s else ""))
-    return Song(sections=secs, lines=lines, title=obj.get("title", "")), \
+    from quality.tempo import from_blueprint as read_tempo
+    return Song(sections=secs, lines=lines, title=obj.get("title", ""),
+                tempo=read_tempo(obj)), \
         list(obj.get("hooks", []))
 
 

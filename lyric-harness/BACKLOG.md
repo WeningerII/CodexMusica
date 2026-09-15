@@ -1398,21 +1398,11 @@ merely had no test, now `quality/test_grid.py` §30. The last two are doctrine
 48 — a check that cannot fail is decoration — and they are unreachable for
 DIFFERENT reasons, which is why they are two entries and not one.
 
-**(a) `NO_TEMPO` is never called.** `quality/fit.py:184` builds a PERMANENT
-`FitRefusal` for want of a tempo. A repo-wide grep finds exactly one caller:
-`quality/test_fit.py`, which asserts its `status`, `missing` and `detail`
-strings and that it raises rather than answering. **No production path
-constructs it**, so no run of the harness can ever emit it. The module's own
-docstring explains why — it never asks a per-second question, so "syllables
-per second", "too fast to sing" and "the pickup is 200 ms" are refused by NOT
-BEING ASKED rather than by refusing. That is a defensible design; what is not
-defensible is a refusal object plus a test that reads as if the guard were
-live. **AND THE OTHER HALF IS UNWIRED TOO:** `quality/declared_inputs.py:546`
-declares `tempo_bpm`, and a grep finds NO reader anywhere. A caller can
-declare a tempo and nothing will use it, while the refusal that exists for its
-absence can never fire. Both halves of the tempo story are scaffolding.
-**Decide:** either delete both and let `MISSING.md` C-5 carry the gap alone,
-or wire one real per-second question so the refusal guards something.
+**(a) CLOSED 2026-09-15 — MISSING.md C-5.** Declared tempo now drives
+bar-span and line seconds through `quality/tempo.py`, `Song`, and the `grid`
+verb. `BeatGrid.seconds_between` consumes `tempo_bpm`. Missing tempo calls the
+live `NO_TEMPO` refusal; the obsolete inert entry is removed. See
+`quality/test_tempo.py` and the updated `quality/test_nc_census.py`.
 
 **(b) `PROMINENCE_UNDECIDED` has a working branch and no producer.**
 `quality/fit.py:1227` refuses when `units.prominence_undecided` is non-empty,
@@ -1942,7 +1932,7 @@ picked up before the tiers above are empty.
 | C-2 | PARTIAL | CANNOT-OBTAIN · L | plan, corpus | The `Cycle` container exists; the catalogue DATA (tālas, usuls, īqāʿāt, gamelan forms, compases, timelines) is absent. | Sourced data entry (`register_named()` refuses an entry without a source), off the English song path. |
 | C-3 | PARTIAL | BUILD · L | plan, grade | Metric modulation, hemiola, tuplets, swing, rubato, hypermeter, metric dissonance unrepresented. | Seven separate mechanisms; the bar and polymeter shipped. |
 | C-4 | PARTIAL | BUILD · M | grade, CI, record | Syncopation as displacement off a declared `BeatGrid`; separately the triage scanner reads this entry CITED when it is DECLARED. | The groove questions are permanently refused by name; the residue is narrow. |
-| C-5 | PARTIAL | BUILD · S | grade, plan | `BeatGrid.tempo_bpm` has no reader and `fit._no_tempo` no caller — both inert. | Activates the first time a per-second question is asked; declared INERT. |
+| C-5 | CLOSED | — | grid | Sourced tempo maps drive seconds; BeatGrid BPM is consumed. | Missing tempo now emits a live refusal; tested in `quality/test_tempo.py`. |
 | D-4 | OPEN | BUILD · L | plan | No arc across the form. | A performance/arrangement layer this harness does not model. |
 | E-2 | PARTIAL | BUILD · L | grade, screen | The scalar grading path is still five-valued and consults neither the 77-schema registry nor `rhyme_types`; `Stream.alt` has no producer. | Multi-sitting by the entry's own words; the `ALT_SURFACES` reader is a separable smaller build. |
 | E-4 | OPEN | BUILD · M | grade | No rhyme rate per bar, no acceleration into a hook. | "Per bar" needs the syllable-to-beat mapping G-1 refuses without a setting. |

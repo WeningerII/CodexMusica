@@ -173,6 +173,8 @@ def validate_blueprint(obj):
             owners = [s for s in hits if s[1] <= bar < s[2]]
             if len(owners) != 1:
                 raise ValueError(f"line {i + 1} has no unique section at bar {bar}")
+    from quality.tempo import from_blueprint as read_tempo
+    read_tempo(obj)
     return obj
 
 
@@ -409,10 +411,9 @@ class Cycle:
     def note_value(self, pulses=1):
         """The length of `pulses` pulses in WHOLE NOTES, exact.
 
-        This is available because `unit` is declared. What is NOT available is
-        the length in SECONDS: `Song` has no tempo and no tempo change
-        (MISSING.md C-5), so a note value is a ratio and never a duration.
-        Callers that need seconds must be refused, not approximated.
+        This is available because `unit` is declared. Seconds additionally
+        require a declared `quality.tempo.TempoMap` (MISSING.md C-5);
+        absent tempo is refused rather than approximated.
         """
         return Fraction(pulses, self.unit)
 
