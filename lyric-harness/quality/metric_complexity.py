@@ -221,6 +221,7 @@ class Hypermeter:
         object.__setattr__(self, "phase", phase)
 
     def result(self, bars):
+        bars = exact_integer(bars, "hypermeter bars", 1)
         period, offset, heads = sum(self.groups), 0, []
         guard_expansion(bars, "hypermeter bars")
         for group in self.groups:

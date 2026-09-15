@@ -1936,6 +1936,10 @@ def from_song(song):
         if cyc is None or not hasattr(cyc, "group_starts"):
             cyc = Cycle(pulses=m.beats, unit=m.unit,
                         groups=tuple(getattr(m, "groups", ()) or ()))
+        complexity = getattr(s, "metric_complexity", [])
+        if complexity != []:
+            from quality.metric_complexity import read_complexity
+            read_complexity(complexity, s.bars, cyc.pulses)
         start = exact_integer(getattr(s, "start_bar", bar), "section start_bar", 1)
         # `getattr` with True, duck-typed like everything else here: a Song
         # predating `grid.Meter.declared` reports declared, which is the same
@@ -1944,7 +1948,7 @@ def from_song(song):
                      "start_bar": start,
                      "meter_declared": bool(getattr(m, "declared", True)),
                      "meter_assumed": str(getattr(m, "assumed", "") or ""),
-                     "metric_complexity": getattr(s, "metric_complexity", [])})
+                     "metric_complexity": complexity})
         bar = start + exact_integer(s.bars, "section bars", 1)
     places = []
     for l in song.lines:
