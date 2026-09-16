@@ -3202,6 +3202,22 @@ def panel_census(rows, per_slice):
     return out
 
 
+def named_null_clears(rows, schema):
+    """Algorithm names with a clear, per slice; NOT independent controls.
+
+    Multiple statistics under one algorithm count once. Shared seeds couple
+    algorithms, and identical endpoint projections need not imply identical
+    multiword spans (M-42). Do not infer independence from names or placement.
+    """
+    by_slice = {}
+    for slice_name, result in rows:
+        if (not isinstance(result, R.Refusal) and result.schema == schema
+                and cleared(result)):
+            by_slice.setdefault(slice_name, set()).add(result.null)
+    return {name: tuple(sorted(nulls))
+            for name, nulls in sorted(by_slice.items())}
+
+
 def report_panel(rows, per_slice, cens, n):
     """Print the panel: the slices, the eight-way split, and the ADMISSIBLE
     SET with the statistic, the null and the lift each schema cleared on."""
@@ -3223,6 +3239,9 @@ def report_panel(rows, per_slice, cens, n):
         for d in sl.declare:
             print(f"  {'':15} DECLARED {d}: {DECLARATIONS[d][2]}")
         print(f"  {'':15} {sl.note}")
+    print("\n  Null names identify algorithms, NOT independent controls (M-42).")
+    print("  Replicate seeds are shared; line and line-final permutations "
+          "can have identical endpoint projections. Multiword spans can differ.")
     by = {v: [c for c in cens if c.verdict == v] for v in PANEL_VERDICTS}
     total_rows = sum(c.rows for c in cens)
     moved_rows = sum(c.moved_rows for c in cens)
@@ -3261,6 +3280,9 @@ def report_panel(rows, per_slice, cens, n):
                       f"{b.differing * 100:.0f}% differing, scope {b.scope}")
                 print(f"        {c.cleared_rows} of {c.moved_rows} moved rows "
                       f"(of {c.rows}) clear")
+                for slice_name, names in named_null_clears(rows, c.schema).items():
+                    print(f"        named nulls cleared on {slice_name}: "
+                          + ", ".join(names))
             elif c.capability:
                 print(f"     {c.schema}: needs {c.capability!r}")
                 print(f"        {c.detail}")

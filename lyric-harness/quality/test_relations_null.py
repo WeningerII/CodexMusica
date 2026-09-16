@@ -715,6 +715,54 @@ def s14_the_void_replicate_is_its_own_count():
           f"void={m.void_replicates}")
 
 
+def s15_named_nulls_are_not_independent_evidence():
+    import contextlib
+    import io
+    import random
+
+    print("\n§15 M-42 named algorithms are not independent controls")
+    lines = ["the door", "a floor", "we adore", "I see more", "the night", "a light"]
+    toks = [R.tokenise(line) for line in lines]
+    pairs = [(N.NULLS["line_permutation"].fn(toks, random.Random(N.SEED + 1 + k)),
+              N.NULLS["line_final_permutation"].fn(toks, random.Random(N.SEED + 1 + k)))
+             for k in range(200)]
+    check("§15 200 paired draws have identical final-token projections",
+          all([line[-1] for line in a] == [line[-1] for line in b]
+              for a, b in pairs))
+    check("§15 equal final tokens do not imply equal token grids",
+          any(a != b for a, b in pairs))
+    runs = [N.run(lines, get_phonology("eng"), "mosaic rhyme", n=12,
+                  language="eng", null=name)
+            for name in ("line_permutation", "line_final_permutation")]
+    check("§15 actual mosaic judge disproves blanket both_line_final collapse",
+          all(isinstance(r, N.Result) for r in runs)
+          and runs[0].values != runs[1].values)
+
+    def row(null, statistic="count", observed=3, schema="perfect rhyme"):
+        return N.Result(schema, statistic, null, "eng", 6, 2, N.SEED,
+                        observed, values=[0, 1])
+
+    rows = [("eng", row("line_permutation")),
+            ("eng", row("line_permutation", "local_fraction@2")),
+            ("eng", row("line_final_permutation")),
+            ("eng", row("global_redeal", observed=1)),
+            ("eng", row("within_line_shuffle", schema="mosaic rhyme")),
+            ("non", row("global_redeal")),
+            ("eng", R.Refusal("perfect rhyme", "test", "unavailable"))]
+    check("§15 names deduplicate statistics, separate slices, exclude non-clears/refusals",
+          N.named_null_clears(rows, "perfect rhyme") == {
+              "eng": ("line_final_permutation", "line_permutation"),
+              "non": ("global_redeal",)})
+    check("§15 no clear is an empty mapping", N.named_null_clears([], "perfect rhyme") == {})
+    out = io.StringIO()
+    with contextlib.redirect_stdout(out):
+        N.report_panel(rows, {}, N.panel_census(rows, {}), 2)
+    check("§15 public report discloses dependence and names the cleared algorithms",
+          "NOT independent controls" in out.getvalue()
+          and "named nulls cleared on eng: line_final_permutation, line_permutation"
+          in out.getvalue())
+
+
 def main():
     print("=" * 74)
     print("RELATIONS NULLS · SECTION 9 (THE PANEL) — regressions")
@@ -733,6 +781,7 @@ def main():
     s12_the_page_derivation_never_runs_on_a_token_join()
     s13_the_census_keeps_the_refusal_kind()
     s14_the_void_replicate_is_its_own_count()
+    s15_named_nulls_are_not_independent_evidence()
     print("\n" + "=" * 74)
     print(f"  {len(PASS)} passed, {len(FAIL)} failed")
     if FAIL:

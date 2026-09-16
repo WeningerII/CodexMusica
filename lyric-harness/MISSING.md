@@ -4851,8 +4851,9 @@ menu sizes are preserved in `docs/null-endpoint-gap.json` (repository root).
 The seven M-46 controls in `quality/test_null_shapes.py` exercise the actual
 judge and sweep. Two failed before the repair, and all seven pass after it;
 the mosaic, searched and asymmetric controls guard against an overbroad fix.
-The historical deep null panel is not requalified by this census. M-42 remains
-separate; no corpus, calibration or relation definition changes here.
+The historical deep null panel is not requalified by this census. M-42's
+reporting correction was completed separately on 2026-09-16; no corpus,
+calibration or relation definition changes here.
 
 ### M-44 · The named-relation judge reached 4 of 80 names, because it STAMPED a position instead of judging at the name's own coordinate `PARTIAL`
 **Raised by an agent's M-35 work, and the diagnosis below is the third one I
@@ -4991,7 +4992,25 @@ its own sitting. The agent also notes the pin `(29, 2)` is safe only because
 on the ledger slice — safe by accident of the harness rather than by
 construction, and worth knowing.
 
-### M-42 · Two of the four nulls are ONE randomisation for 28 of the 77 schemas `OPEN`
+### M-42 · Coupled null algorithms were reported as independent controls `CLOSED` 2026-09-16
+**Closed by correcting the reporting, without changing the recorded instrument.**
+The original diagnosis below is retained as history, with its blanket inference
+withdrawn: `both_line_final` does not mean “reads only the final token”. The
+actual mosaic judge produces different count distributions under the two nulls
+on a six-line fixture, even though all 200 paired draws have equal final-token
+projections. Changing a seed would not establish distinct null hypotheses either.
+
+`RESULTS_RELATIONS_NULL.md` §A.1 now labels its figures as named algorithm
+counts, strikes the former fractions, and withdraws the unsupported `/3`
+inference and independent-robustness prose. The live `report_panel` lists the
+cleared algorithm names per schema and slice, deduplicates statistics, and
+explicitly discloses dependence. `quality/test_relations_null.py` §15 covers
+the coupled projection, the actual mosaic counterexample, per-slice reporting,
+refusals and non-clears. No random stream, calibration, historical clear decision,
+or admissibility classification changed; this does not requalify the old panel.
+
+**Historical diagnosis and proposed remedies (superseded where noted above):**
+
 **Found 2026-08-22 by an agent re-running the stanza-framed schemas, and
 verified here independently before filing. It qualifies the published
 admissible set directly and it is the sharpest instrument defect on the
