@@ -348,9 +348,12 @@ CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 # Exact same seed/4,000-pair grid in CI run 34266064026 measured schema
 # 889..914 (previously 957..987); the admit and narrow arms held exactly.
 # This records the instrument's new result, not a relaxed acceptance band.
+# E-5, 2026-09-15: `cannot_tell` omits empty-coda evidence. Re-derived via
+# python3 quality/chance_rate.py --check and quality/e5_coda_adoption.py.
+# Historical gift bands: admit 173..193, narrow 36..46; schema unchanged.
 ADOPTED = {
-    "admit": (173, 193),
-    "narrow": (36, 46),
+    "admit": (118, 134),
+    "narrow": (33, 40),
     "schema": (889, 914),
 }
 

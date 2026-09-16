@@ -1398,21 +1398,11 @@ merely had no test, now `quality/test_grid.py` §30. The last two are doctrine
 48 — a check that cannot fail is decoration — and they are unreachable for
 DIFFERENT reasons, which is why they are two entries and not one.
 
-**(a) `NO_TEMPO` is never called.** `quality/fit.py:184` builds a PERMANENT
-`FitRefusal` for want of a tempo. A repo-wide grep finds exactly one caller:
-`quality/test_fit.py`, which asserts its `status`, `missing` and `detail`
-strings and that it raises rather than answering. **No production path
-constructs it**, so no run of the harness can ever emit it. The module's own
-docstring explains why — it never asks a per-second question, so "syllables
-per second", "too fast to sing" and "the pickup is 200 ms" are refused by NOT
-BEING ASKED rather than by refusing. That is a defensible design; what is not
-defensible is a refusal object plus a test that reads as if the guard were
-live. **AND THE OTHER HALF IS UNWIRED TOO:** `quality/declared_inputs.py:546`
-declares `tempo_bpm`, and a grep finds NO reader anywhere. A caller can
-declare a tempo and nothing will use it, while the refusal that exists for its
-absence can never fire. Both halves of the tempo story are scaffolding.
-**Decide:** either delete both and let `MISSING.md` C-5 carry the gap alone,
-or wire one real per-second question so the refusal guards something.
+**(a) CLOSED 2026-09-15 — MISSING.md C-5.** Declared tempo now drives
+bar-span and line seconds through `quality/tempo.py`, `Song`, and the `grid`
+verb. `BeatGrid.seconds_between` consumes `tempo_bpm`. Missing tempo calls the
+live `NO_TEMPO` refusal; the obsolete inert entry is removed. See
+`quality/test_tempo.py` and the updated `quality/test_nc_census.py`.
 
 **(b) `PROMINENCE_UNDECIDED` has a working branch and no producer.**
 `quality/fit.py:1227` refuses when `units.prominence_undecided` is non-empty,
@@ -1612,7 +1602,11 @@ until ruled.
     sweep's pair enumeration can produce that gap-0 case at all.
     **M-46 closed 2026-09-15:** the actual mosaic judge produces that case;
     identical unsearched endpoint-token rules instead supply the narrower
-    bound. The 77-schema ledger census was remeasured; M-42 remains separate.
+    bound. The 77-schema ledger census was remeasured.
+    **M-42 closed 2026-09-16:** reporting now distinguishes named algorithms
+    from independent controls and withdraws the blanket `/3` inference, which
+    the actual mosaic judge disproves. The recorded random streams and panel
+    measurements were preserved; no adoption ruling was needed.
 16. **M-41 — which relations deserve a CERTIFIED capacity table?** The
     relation coordinate is carried since 2026-08-28 (the family counts
     for all four of `ADMITTABLE_RELATIONS` are
@@ -1947,9 +1941,9 @@ picked up before the tiers above are empty.
 | B-3 | OPEN | BUILD · L | plan | No scale or mode systems. | Downstream of B-1 and B-2. |
 | B-4 | OPEN | BUILD · L | plan, grade | No melodic shape. | Nothing to describe until B-1 lands. |
 | C-2 | PARTIAL | CANNOT-OBTAIN · L | plan, corpus | The `Cycle` container exists; the catalogue DATA (tālas, usuls, īqāʿāt, gamelan forms, compases, timelines) is absent. | Sourced data entry (`register_named()` refuses an entry without a source), off the English song path. |
-| C-3 | PARTIAL | BUILD · L | plan, grade | Metric modulation, hemiola, tuplets, swing, rubato, hypermeter, metric dissonance unrepresented. | Seven separate mechanisms; the bar and polymeter shipped. |
+| C-3 | CLOSED | — | declaration, fit report | All seven metric-complexity mechanisms represented and computed from explicit blueprint declarations. | `046e726c`; score-pulse grading remains separate from performed timing; see `quality/METRIC_COMPLEXITY.md`. |
 | C-4 | PARTIAL | BUILD · M | grade, CI, record | Syncopation as displacement off a declared `BeatGrid`; separately the triage scanner reads this entry CITED when it is DECLARED. | The groove questions are permanently refused by name; the residue is narrow. |
-| C-5 | PARTIAL | BUILD · S | grade, plan | `BeatGrid.tempo_bpm` has no reader and `fit._no_tempo` no caller — both inert. | Activates the first time a per-second question is asked; declared INERT. |
+| C-5 | CLOSED | — | grid | Sourced tempo maps drive seconds; BeatGrid BPM is consumed. | Missing tempo now emits a live refusal; tested in `quality/test_tempo.py`. |
 | D-4 | OPEN | BUILD · L | plan | No arc across the form. | A performance/arrangement layer this harness does not model. |
 | E-4 | OPEN | BUILD · M | grade | No rhyme rate per bar, no acceleration into a hook. | "Per bar" needs the syllable-to-beat mapping G-1 refuses without a setting. |
 | F-1 | PARTIAL | BUILD · L | phonology, corpus | ~38 further phonologies undeclared; the roster is nine. | Each language is its own sitting. |
@@ -1966,7 +1960,7 @@ picked up before the tiers above are empty.
 | L-3 | PARTIAL | MEASURE · L | grade, corpus | The slop floor is calibrated on 152 sonnets vs 40 model sonnets — one form, one language, one generator. | Needs a second form and a second language's generated arm before any run. |
 | K-7 | PARTIAL | BUILD · L | corpus, phonology | A third orthography witness for 441 unreached 異體字 types (7,646 tokens) and declaring the entity/placeholder marks in headers — a 66-file re-stage. | 52.8% covered by two witnesses; the rest needs a source plus a re-stage, off the song path. |
 | M-10 | OPEN | RECORD · S | corpus | No single GITenberg enumeration finds all 9 Welsh holdings; 5 `cym_` files staged. | A confirmed acquisition fact with nothing owed in-tree. |
-| M-21 | OPEN | MEASURE · L | record, CI | Re-running `phrase_commonplace.py`'s study over a corpus nine times larger, plus prose drift beside green pins in 8 RESULTS documents. | A research sitting, not bookkeeping. |
+| M-21 | CLOSED | BUILD · S | record, CI | The pin sweep is implemented and validated, including argv refusal, incomplete-run exits and interrupted evidence retention. Historical study/prose drift remains recorded in MISSING; the phrase study belongs to H-1. | Closure reconciled 2026-09-16 with the existing 2026-08-28 implementation. |
 | M-48 | OPEN | BUILD · L | corpus, plan | `same_object_as` is one prose column: 622/623 populated, 381 long prose, 5 typed relations, 111 naming no known term. | A multi-sitting judgement pass, not the current song path. |
 | M-38 | PARTIAL | BUILD · M | grade | `_select()` counts figures where `assemble()` counts members under one name; coincide at k=2 and the untested branch refuses. | Nothing owed until step 4 asks for k ≥ 3. |
 | M-30 | PARTIAL | RULING · M | CI | The mutation baseline's time bound: `DEFAULT_TIMEOUT` is 600, which still excludes `test_discriminate` (890 s) and `test_verbs` (1,469 s). | Whole-tree coverage is a baseline measured in hours; the exclusion is loud. |
@@ -2087,10 +2081,10 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 54 OPEN / 29 PARTIAL / 2 BLOCKED / 246 CLOSED / 14 RESOLVED = 345 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 49 OPEN / 27 PARTIAL / 1 BLOCKED / 255 CLOSED / 15 RESOLVED = 347 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
-| stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 3 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1536** DECLARED-public top-level functions/classes under `quality/` and the root — **321** named by another production module, **466** by tests only, **627** only inside their own module, **14** by nothing anywhere, **108** REFUSED (67 ambiguous, 31 dynamic, 10 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **88** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 4 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`, `span_rules.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
+| public symbols by where they are referenced | **1574** DECLARED-public top-level functions/classes under `quality/` and the root — **340** named by another production module, **478** by tests only, **632** only inside their own module, **11** by nothing anywhere, **113** REFUSED (71 ambiguous, 32 dynamic, 10 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **88** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |

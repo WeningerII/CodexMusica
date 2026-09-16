@@ -317,13 +317,44 @@ def main(n=200):
 #: (theta 0.82), of the RENDERING, and -- as this arm has now demonstrated
 #: three times -- of the COMPARATOR. Argue them and repin with the superseded
 #: value visible and dated; do NOT tune `captured_lines` or theta to meet them.
+#: REPINNED 2026-09-16 (E-5). THREE COUNTS MOVED AND THE FOURTH DID NOT, which
+#: is the part worth reading. E-5 removes the empty-coda evidence bonus and
+#: renormalises the remaining evidence, so `now/why` goes 0.902 -> 0.850; the
+#: superseded values are struck below and kept (doctrine 17).
+#:
+#:   whitman_captured_off   ~~39~~ 37    26.0% -> 24.7%
+#:   sonnet_captured_off    ~~449~~ 441  53.5% -> 52.5%
+#:   sonnet_captured_on     ~~411~~ 406  48.9% -> 48.3%
+#:   whitman_captured_on      16 (UNMOVED)
+#:
+#: THE BAND-OFF ROWS MOVED, AND THE COMMENT ABOVE SAYS THAT MEANS THE INGESTION
+#: OR THE NULL MOVED. It is neither, and the localiser is not wrong -- it is
+#: two-valued and this is a third case it was never given. `captured_lines`
+#: calls `infer_chains`, which reaches the SCALAR SCORER on both arms;
+#: `Declaration(conjunctive_band=False)` turns off the band's own comparator and
+#: nothing below it. So a change to the evidence rule ITSELF, which is what E-5
+#: is, moves both arms, while the ingestion and the null machinery are untouched.
+#: The three-way reading the comment above offers -- ingestion, null, or the
+#: band's comparator -- has no cell for the scorer underneath all three.
+#:
+#: WHAT THIS COSTS, stated rather than absorbed: the two OFF counts had
+#: reproduced EXACTLY across four datings, and that invariance is what made a
+#: future red attributable instead of merely alarming. This repin ends that run.
+#: The OFF rows keep their localising job going forward -- from this dating on,
+#: an OFF move still means ingestion, null OR scorer -- but the four-dating
+#: streak that made them persuasive is spent, and no repin can give it back.
+#:
+#: NOT TUNED. `captured_lines`, theta (0.82) and the declarations are untouched
+#: by this lot; only the recorded counts move, which is the remedy this file's
+#: own doctrine-58 note prescribes -- "argue them and repin with the superseded
+#: value visible and dated; do NOT tune `captured_lines` or theta to meet them."
 PINNED = {"whitman_lines": 150,
-          "whitman_captured_off": 39,
+          "whitman_captured_off": 37,   # REPINNED 2026-09-16 from ~~39~~ (E-5)
           "whitman_captured_on": 16,
           "sonnet_items": 60,
           "sonnet_lines": 840,
-          "sonnet_captured_off": 449,
-          "sonnet_captured_on": 411}
+          "sonnet_captured_off": 441,   # REPINNED 2026-09-16 from ~~449~~ (E-5)
+          "sonnet_captured_on": 406}    # REPINNED 2026-09-16 from ~~411~~ (E-5)
 
 #: READING ORDER for the check's report only -- shape first, then the two arms
 #: per corpus, so the band-OFF control sits next to the band-ON figure it

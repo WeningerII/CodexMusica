@@ -905,3 +905,12 @@ Three places where I could be wrong, stated so the next adversary starts there:
   under the register's, because the register states none. If a rule is recovered
   that reproduces 154,346 or 941 or 155, those rows should be re-verdicted —
   and the rule written down beside the number, which is the point.
+
+
+## E-5 scalar adoption, 2026-09-15
+
+D18 is repinned from the historical **0.902 RHYME** to **0.850 RHYME**.
+`python3 lyric_harness.py score now -- why` now omits absent coda evidence;
+explicit `Declaration(coda_empty_evidence="gift")` reproduces the historical
+value. Agreement typing is unchanged for fixed spans. The dated rows above
+remain the record of their original measurements. See `E5_CODA_ADOPTION.md`.

@@ -131,10 +131,12 @@ def main():
     # 0.670 NO_RELATION against 0.108 ASSONANCE), and exactly ONE of those
     # 69 straddles the old flat 0.75 — which is why the ADMIT counts used to
     # differ and no longer do. The coordinate is pinned where it lives now.
-    check("3", "the two readers disagree on 69 of the 300 pairs' SCORE or "
+    # E-5, 2026-09-15: python3 quality/test_chance_rate.py measured 71,
+    # previously 69, after empty-coda evidence was omitted. Same draw.
+    check("3", "the two readers disagree on 71 of the 300 pairs' SCORE or "
           "RELATION — the reader is a real coordinate, measured on the "
           "judgement and not on a count that happens to coincide",
-          _reader_disagreements(lex, shipped) == 69,
+          _reader_disagreements(lex, shipped) == 71,
           f"{_reader_disagreements(lex, shipped)} of {N}")
     check("3", "...and at the ADOPTED cut those disagreements no longer "
           "move the ADMIT count, which is a fact about this draw and NOT "

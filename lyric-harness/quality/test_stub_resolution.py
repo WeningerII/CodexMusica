@@ -88,6 +88,59 @@ class StubResolutionTest(unittest.TestCase):
             self.assertEqual(report['marks']['CHORUS']['ladder'],
                              {'VERBATIM': 1, 'STUB': 1})
             self.assertEqual(p.read_bytes(), before)
+            remaining = report['unresolved_references']
+            self.assertEqual(len(remaining), 2)
+            self.assertTrue(all(row['title'] == 'second' for row in remaining))
+            self.assertTrue(all(row['printed'] == self.stub[0] for row in remaining))
+
+    def test_italic_pointer_is_not_a_complete_target(self):
+        for text in ('The Muses now, _&c._', '_The Muses now, &c._',
+                     '_The Muses now_, &c.', 'The Muses now, _&c._ [41]'):
+            self.assertTrue(LH.is_chorus_stub(text, 'eng'))
+            self.assertEqual(LH.chorus_stub_incipit(text, 'eng'), 'The Muses now,')
+            self.assertEqual(LH.chorus_stub_languages(text), ('eng', 'cym'))
+            self.assertFalse(LH.is_chorus_stub(text, 'fin'))
+        full = ['With a Fa la la la la']
+        incomplete = full + ['The Muses now, _&c._']
+        self.assertEqual(self.compare(['With a Fa la, &c.'], full,
+                                      [incomplete, full]).kind, 'VERBATIM')
+        self.assertEqual(self.compare(['With a Fa la, &c.'], full,
+                                      [incomplete]).kind, 'STUB')
+        self.assertFalse(LH.is_chorus_stub('_Sing_ the song', 'eng'))
+
+    def test_burns_printed_labels_resolve_without_singing_the_label(self):
+        path = Path(__file__).resolve().parents[1] / 'corpus/song/eng_celtic_robert_burns.txt'
+        original = path.read_bytes()
+        songs = G.read_marked_songs(str(path))
+        self.assertEqual(path.read_bytes(), original)
+        for title in ('Song--O Tibbie, I Hae Seen The Day',
+                      'Song--Bonie Peggy Alison', 'Song--For A\' That',
+                      'O Can Ye Labour Lea?'):
+            song = next(s for s in songs if s.title == title)
+            report = G.resolve_marked_references(song)
+            self.assertGreater(report['stubs'], 0)
+            self.assertEqual(report['stubs'], report['found'], title)
+            self.assertFalse(any(line.startswith(('Chorus', 'Choir.', 'Chor.'))
+                                 for line in report['expanded_lines']))
+
+    def test_printed_label_scope_and_source_coordinates(self):
+        raw = ['--- TITLE: example', '[VERSE 1]', 'Chor.--Sing with me',
+               'Home again', '[REFRAIN]', 'Sing, &c.']
+        with tempfile.TemporaryDirectory() as tmp:
+            for filename, found in [('eng_celtic_robert_burns.txt', 1),
+                                    ('eng_other.txt', 0)]:
+                path = Path(tmp) / filename
+                path.write_text('\n'.join(raw) + '\n')
+                before = path.read_bytes()
+                song = G.read_marked_songs(str(path))[0]
+                self.assertEqual(G.resolve_marked_references(song)['found'], found)
+                self.assertEqual(song.blocks[0].source_line, 2)
+                self.assertEqual(song.blocks[1].source_line, 5)
+                self.assertEqual(path.read_bytes(), before)
+            # A literal label inside a stanza is not a new section.
+            raw.insert(2, 'Opening lyric')
+            edits, drops = G._printed_chorus_labels(raw, 'eng_celtic_robert_burns.txt')
+            self.assertEqual((edits, drops), ({}, set()))
 
     def test_production_grid_later_chorus(self):
         song = G.Song(sections=[G.Section('c1', 8, G.Meter(4, 4), function='chorus'),

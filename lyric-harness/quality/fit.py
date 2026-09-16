@@ -23,11 +23,11 @@ arithmetic or they raise.
 
 THE CONSTRAINT, WHICH IS THE INTERESTING PART
 
-**There is no audio and no tempo.** Doctrine 4 is explicit that isochrony is an
+**There is no audio.** Doctrine 4 is explicit that isochrony is an
 ASSUMED coordinate here, not a measurement, and that "on the beat" is not a
-claim this project can make; MISSING.md C-5 records that `Song` has bars and
-meters and no tempo. So this module is not a beat detector and contains no
-onset analysis. It answers one shape of question:
+claim this project can make. MISSING.md C-5 now supplies declared tempo
+through `quality.tempo`; that conversion is not a performance measurement.
+This module is not a beat detector and contains no onset analysis. It answers one shape of question:
 
     GIVEN a line, a declared cycle, and a declared placement — how many grid
     units must be accommodated, over how many pulses, at what density, and
@@ -88,12 +88,10 @@ the correct output, not a shortfall.
 
 WHAT REMAINS IMPOSSIBLE HERE
 
-Anything per SECOND. A note VALUE is declared — `Cycle.note_value` is exact
-because `unit` is — and a note DURATION is not, because there is no tempo. So
-"syllables per second", "too fast to sing", "the pickup is 200 ms" and every
-groove question in MISSING.md C-4 (pushes, pulls, laid-back placement,
-syncopation as a measurement rather than as a declared offset) are refused
-permanently and by name, not approximated.
+Seconds are available conditionally from a declared tempo (`quality.tempo`,
+MISSING.md C-5). Whether a line is too fast to sing still needs a performance
+model. Groove questions in MISSING.md C-4 (pushes, pulls, laid-back placement,
+syncopation as a measurement rather than as a declared offset) remain refused.
 
 Run: python3 quality/fit.py quality/fixtures/mandate_song.blueprint.json
 """
@@ -186,18 +184,15 @@ class FitRefusal:
 
 
 def _no_tempo(question):
-    """The one refusal that is PERMANENT for every caller and every language."""
+    """A per-second question without its declared tempo (MISSING.md C-5)."""
     return FitRefusal(
         "NO_TEMPO", question,
         missing="a tempo, and a tempo map for any change in it",
-        detail=("MISSING.md C-5: `Song` carries bars and meters and no tempo. "
-                "A note VALUE is declared here and exact — `Cycle.note_value` "
-                "reads the declared `unit` — but a note DURATION is a value "
-                "times a tempo, and there is none. There is also no audio, so "
-                "the tempo cannot be recovered: doctrine 4 records that "
-                "isochrony is an assumed coordinate here and 'on the beat' is "
-                "not a claim this project can make."),
-        status="PERMANENT")
+        detail=("No tempo was declared for this span. Supply BPM, its beat "
+                "value and source; seconds then follow conditionally from "
+                "that declaration. There is no audio inference here."),
+        status="SCHEDULED",
+        ends_with="Declare a quality.tempo.TempoMap or blueprint tempo.")
 
 
 # ---------------------------------------------------------------------------
@@ -320,9 +315,9 @@ _WORDISH = re.compile(r"[^\W\d_]+(?:['’‑-][^\W\d_]+)*", re.UNICODE)
 #: or KEEP IT AND DECLARE IT — and taking the third in prose alone is how a
 #: reader ends up believing a dead guard is live.
 #:
-#: Both entries below were found on 2026-08-17 by sweeping the finding codes no
+#: These coordinates were found on 2026-08-17 by sweeping the finding codes no
 #: coverage rung had reached (`quality/COVERAGE_PREREGISTRATION.md` §E3b).
-#: `quality/test_fit.py` re-derives both and fails in BOTH directions.
+#: Tempo was wired for C-5; only the prominence coordinate remains inert.
 class InertCoordinate:
     """field, why it is inert, what would activate it, and what BLOCKS it.
 
@@ -341,34 +336,6 @@ class InertCoordinate:
 
 
 INERT = (
-    InertCoordinate(
-        # `TimeGrid` until 2026-08-21, and there has never been a class of that
-        # name in this tree -- the field is `declared_inputs.BeatGrid.tempo_bpm`
-        # (`declared_inputs.py:546`).  This entry's whole job is to name a dead
-        # coordinate so it cannot be renamed out from under the record, and it
-        # named one that does not exist; `test_fit.py` pinned the wrong string
-        # beside a comment about entries outliving their subjects.
-        field="fit.NO_TEMPO / declared_inputs.BeatGrid.tempo_bpm",
-        reason=(
-            "BOTH HALVES OF THE TEMPO STORY ARE UNWIRED, and each is dead in "
-            "its own direction. `_no_tempo` builds a PERMANENT refusal for "
-            "want of a tempo and no production path constructs it -- a "
-            "repo-wide grep finds exactly one caller and it is this module's "
-            "own test, which asserts the refusal's strings and that it raises. "
-            "`declared_inputs` declares `tempo_bpm` and NOTHING anywhere reads "
-            "it, so a caller can declare a tempo that no code will use while "
-            "the refusal for its absence can never fire. This module's own "
-            "docstring is why: it never asks a per-second question, so "
-            "'syllables per second', 'too fast to sing' and 'the pickup is "
-            "200 ms' are refused by NOT BEING ASKED rather than by refusing."),
-        activates_when=(
-            "one real per-second question is asked of this module. Then "
-            "`tempo_bpm` has a reader and `_no_tempo` guards it. Wiring "
-            "either half alone closes nothing: a declared tempo nobody reads "
-            "is the same constant one step over, and a refusal with no "
-            "question to refuse is this entry again."),
-        blocker="build",
-        measured="grep -rn '_no_tempo(\\|tempo_bpm' --include='*.py' ."),
     InertCoordinate(
         field="fit.PROMINENCE_UNDECIDED",
         reason=(
@@ -1618,7 +1585,7 @@ _NOTE_NAMES = {1: "whole", 2: "half", 4: "quarter", 8: "eighth",
 
 def _frac_value_name(v):
     """A note VALUE named, never a duration. `1/16 whole note` is declared;
-    `125 ms` needs a tempo and there is none."""
+    `125 ms` additionally needs a declared tempo."""
     v = Fraction(v)
     if v.numerator == 1 and v.denominator in _NOTE_NAMES:
         return f"{_NOTE_NAMES[v.denominator]}-note"
@@ -1662,6 +1629,7 @@ class SectionFit:
     bars: int
     start_bar: int
     lines: list = field(default_factory=list)
+    metric_complexity: list = field(default_factory=list)
 
     @property
     def units(self):
@@ -1773,6 +1741,10 @@ class SongFit:
                 "uncovered_bars": s.uncovered_bars(),
                 "refusals": s.refusal_codes(),
             })
+            if s.metric_complexity:
+                from quality.metric_complexity import complexity_report
+                rows[-1]["metric_complexity"] = complexity_report(
+                    s.metric_complexity, s.bars, s.cycle.pulses)
         return rows
 
     def findings(self):
@@ -1892,7 +1864,8 @@ def from_blueprint(obj, assume_meter=None):
         start = int(s.get("start_bar", bar))
         secs.append({"name": s["name"], "cycle": cyc,
                      "bars": int(s["bars"]), "start_bar": start,
-                     "meter_declared": declared, "meter_assumed": assumed})
+                     "meter_declared": declared, "meter_assumed": assumed,
+                     "metric_complexity": s.get("metric_complexity", [])})
         bar = start + int(s["bars"])
 
     def owner(l):
@@ -1930,6 +1903,10 @@ def from_song(song):
         if cyc is None or not hasattr(cyc, "group_starts"):
             cyc = Cycle(pulses=m.beats, unit=m.unit,
                         groups=tuple(getattr(m, "groups", ()) or ()))
+        complexity = getattr(s, "metric_complexity", [])
+        if complexity != []:
+            from quality.metric_complexity import read_complexity
+            read_complexity(complexity, s.bars, cyc.pulses)
         start = exact_integer(getattr(s, "start_bar", bar), "section start_bar", 1)
         # `getattr` with True, duck-typed like everything else here: a Song
         # predating `grid.Meter.declared` reports declared, which is the same
@@ -1937,7 +1914,8 @@ def from_song(song):
         secs.append({"name": s.name, "cycle": cyc, "bars": exact_integer(s.bars, "section bars", 1),
                      "start_bar": start,
                      "meter_declared": bool(getattr(m, "declared", True)),
-                     "meter_assumed": str(getattr(m, "assumed", "") or "")})
+                     "meter_assumed": str(getattr(m, "assumed", "") or ""),
+                     "metric_complexity": complexity})
         bar = start + exact_integer(s.bars, "section bars", 1)
     places = []
     for l in song.lines:
@@ -2145,7 +2123,8 @@ def fit_song(obj, phon=None, subdivision=None, assume=None,
                 dp_work += (len(reading.units) + 1) * (slots + 1)
         guard_expansion(dp_work, "song prominence DP cells", MAX_FIT_DP_CELLS)
     out = SongFit(sections=[SectionFit(name=s["name"], cycle=s["cycle"],
-                                       bars=s["bars"], start_bar=s["start_bar"])
+                                       bars=s["bars"], start_bar=s["start_bar"],
+                                       metric_complexity=s.get("metric_complexity", []))
                             for s in secs])
     # KEYED ON THE SECTION, NOT ON ITS NAME. `{s.name: s for s in
     # out.sections}` kept the last of two same-named sections, so every line
@@ -2203,10 +2182,9 @@ ANSWERABLE = (
 )
 
 UNANSWERABLE = (
-    ("anything per second -- syllables per second, whether a line is too fast "
-     "to sing, how long the pickup is",
-     "PERMANENT: there is no tempo (MISSING.md C-5) and no audio, so a note "
-     "value cannot become a duration"),
+    ("whether a line is too fast to sing",
+     "PERMANENT without a performance model: declared seconds are available "
+     "(MISSING.md C-5), but tempo alone does not establish singability"),
     ("whether the singer LANDS on the beat, ahead of it or behind it",
      "PERMANENT: MISSING.md C-4 -- pushes, pulls and laid-back placement are "
      "a performance channel no text carries, and doctrine 4 says 'on the "
@@ -2256,6 +2234,10 @@ def report(fit, verbose=False):
                    f"{r['bars']:>5}  {r['lines']:>4}  {r['units']:>4}{exact:1} "
                    f"{pb:>7}  {r['unsatisfiable']:>5}  {r['crowded']:>5}  "
                    f"{r['fighting']:>5}  {r['overlaps']:>4}  {ubs}")
+        if r.get("metric_complexity"):
+            out.append("    METRIC COMPLEXITY — declared intent; score-pulse fit above "
+                       "does not assign syllables to these events or measure performance")
+            out.append("    " + json.dumps(r["metric_complexity"], ensure_ascii=False))
     tot = sum(r["units"] for r in rows)
     bars = sum(r["bars"] for r in rows)
     out.append(f"  {'TOTAL'.ljust(w)}  {'':>5}  {'':<6} {bars:>5}  "

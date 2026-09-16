@@ -123,6 +123,26 @@ lyric's own `[Section]` markers against the blueprint's sections
 (`quality/fit.py`) and song function (`quality/grid.py`) joining the rhyme and
 slop-floor findings.
 
+Section function IDs and tradition-specific names are separate. Bare `bridge`
+retains the harness's existing pop-bridge contract. For a tradition's name,
+write a qualified declaration such as `"function": "popular_song::bridge"`
+or `"function": "english_song::break"` (the instrumental interlude reading).
+The same strings work in `--functions` and in `--function=SECTION:FUNCTION`.
+`popular_song::middle-eight` still requires eight bars and is refused by the
+planner, which cannot promise that specialisation's length.
+
+`quality.grid.SECTION_FUNCTION_NAMES` is the enumerable name table;
+`resolve_function_name(name, tradition)` returns its target or written refusal,
+and `as_function(name, tradition=...)` requires a supported grading contract.
+Unknown names or traditions never borrow another scope's meaning. In particular,
+`sonata::bridge`, the two traditions' `exposition` readings, fugal `stretto`,
+operatic `stretta`, and `haitian_drumming::break` have their own explicit refusal
+records: the lyric vocabulary does not yet grade those functions. The sonata
+transition's distinct role is described in [Open Music Theory's Sonata Form](https://viva.pressbooks.pub/openmusictheory/chapter/sonata-form/).
+This adds no new generator functions or recipe dependencies. Blueprint loading
+preserves resolved name records on sections, and function profiles disclose them
+in `function_names`. A section's display `name` is never evidence for its function.
+
 The MANDATE is required and is not optional politeness — with nothing declared
 to check against, the verb REFUSES and exits 2 rather than passing vacuously
 (doctrine 20). `--returns=` is the spelling for a VERBATIM chorus: identity is
@@ -143,3 +163,26 @@ the command line above used to name it.
 Wrap these six functions as MCP tools (mcp-builder pattern) and point the
 model at them: draft -> check_scheme + check_meter -> revise flagged lines
 only -> re-check.
+
+### Declared tempo and seconds
+
+The `grid` verb reports elapsed time when the blueprint supplies tempo:
+
+```json
+{
+  "tempo": {"bpm": 120, "beat_value": "1/4", "source": "writer declaration"},
+  "tempo_changes": [
+    {"at": "1/2", "bpm": 60, "beat_value": "1/4", "source": "writer declaration"}
+  ]
+}
+```
+
+Add these fields alongside the blueprint's sections and lines. `beat_value`
+is the metronome beat in whole notes (`3/8` for a dotted quarter); `at` is the
+whole-note offset from bar 1, beat 1. Changes are ordered, instantaneous steps.
+The example takes three seconds per whole note across its first whole-note
+span: one second before the change, two after it. The initial rate applies to
+pickups before zero, and the final rate continues. No tempo means `NO_TEMPO`,
+not a guessed BPM. Line durations consume local meter pulses across barlines;
+timing refuses section gaps and lines extending beyond the declared bars.
+Results describe the declaration, not a measured performance or singability.

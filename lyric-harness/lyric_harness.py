@@ -597,15 +597,16 @@ class Declaration:
     # instead of argued (standing rule 3: a claim about an alternative nobody
     # can run is a memory, not a measurement).
     #
-    #   "gift"         the shipped scalar: `cluster_sim` answers 1.0 and it is
-    #                  weighted like evidence. THE DEFAULT, byte-identical to
+    #   "gift"         the historical scalar: `cluster_sim` answers 1.0 and it is
+    #                  weighted like evidence. Explicit replay, byte-identical to
     #                  every run before this field existed.
     #   "zero"         absence scored as DISAGREEMENT. `now`/`why` and
     #                  `see`/`free` both lose 0.35 of `total` outright.
     #   "cannot_tell"  absence scored as NOTHING: the coda channel is dropped
     #                  from that syllable's weighted mean and the remaining
     #                  weights are renormalised. The doctrine-20 shape, and the
-    #                  same shape the cheap half's flag already prints.
+    #                  same shape the cheap half's flag already prints. DEFAULT
+    #                  since E5_CODA_ADOPTION.md (2026-09-15).
     #
     # THIS FIELD REACHES `total` AND NOTHING ELSE. `channel_agreement`'s own
     # `1.0 if (not ca and not cb)` branch and `coda_agrees` are the AGREEMENT
@@ -613,7 +614,7 @@ class Declaration:
     # rhyme -- and they are deliberately NOT parameterised here. Priced in
     # `quality/NEAR_RELATION_PRICING_PREREGISTRATION.md` (falsifier E2) and
     # answered in `quality/RESULTS_NEAR_RELATION_PRICING.md`.
-    coda_empty_evidence: str = "gift"
+    coda_empty_evidence: str = "cannot_tell"
     # --- THE SHAPE OF THE CODA QUESTION (doctrine 1, 84, 94) ----------------
     # DECLARED 2026-08-11. `theta_coda` above is a cut on `cluster_sim`, and
     # NO VALUE OF IT REACHES `wall`/`floor`: `cons_sim('R','L')` is 0.9875 and
@@ -3557,8 +3558,8 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
         st = 1.0 if (sa["stress"] > 0) == (sb["stress"] > 0) else 0.0
         # THE EMPTY/EMPTY CODA, AS A DECLARED COORDINATE AND NOT A CONSTANT
         # (`Declaration.coda_empty_evidence`, `MISSING.md` E-5). The default
-        # "gift" leaves `cs` exactly as `cluster_sim` returned it, so this
-        # block is a no-op on every undeclared run and `_drop` stays 0.0.
+        # removes an absent coda from the evidence mean. Explicit "gift"
+        # retains the historical scalar for reproducible comparisons.
         # It reaches `total` ONLY — `channel_agreement` keeps its own
         # empty/empty branch, because the AGREEMENT side is what carries
         # `see`/`free` and E-5 records it as correct.
@@ -3590,23 +3591,8 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
         })
     total /= n
     total -= decl.trailing_syllable_penalty * extra
-    # THE EMPTY/EMPTY CODA GIFT, DISCLOSED AND NOT MOVED (2026-09-02,
-    # `MISSING.md` E-5, the CHEAP half as that entry defines it, RESTORED
-    # the same day on the owner's *"finish the rest of the work"* after
-    # being built, measured and stripped once — the 2026-08-21 deferral it
-    # waited on is theirs and they lifted it). Two vowel-final syllables
-    # score 1.0 on the coda channel because `cluster_sim([], [])` is 1.0 —
-    # agreement by ABSENCE, not by sound — and that 1.0 is weighted like a
-    # heard consonant: `now`/`why` = 0.5x0.805 + 0.35x1.0 + 0.15x1.0 =
-    # 0.902 RHYME. The AGREEMENT side (`coda_agrees` on empty/empty) is
-    # CORRECT and untouched — it is what keeps `see`/`free` a rhyme. Here
-    # the channel is reported as cannot-tell, with the share of `total`
-    # that rests on it, and `total` and `relation` are left exactly where
-    # they were: moving the scalar is the entry's EXPENSIVE half
-    # (M-4a-class, drags `test_fwer`, the band's FPR and the D18 pin) and
-    # waits for its own calibration sitting (doctrine 58). A
-    # refusal-shaped disclosure, the `identity: not asked` shape below
-    # (doctrine 20).
+    # E-5: disclose missing coda evidence under every rule. Agreement remains
+    # untouched; only explicit historical `gift` adds absence to the scalar.
     _gift = sum((w0 if i == 0 else wi)["coda"]
                 for i in range(n)
                 if not anc_a[i]["coda"] and not anc_b[i]["coda"]) / n
@@ -3625,7 +3611,7 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
             # is a stale claim (doctrine 17).
             out["flags"].append(
                 f"coda: no evidence (both codas empty on {_k} of {n} "
-                f"syllable(s); {_gift:.3f} of the default total was "
+                f"syllable(s); {_gift:.3f} of the historical gift total was "
                 f"agreement by absence and is NOT scored here — "
                 f"coda_empty_evidence={decl.coda_empty_evidence!r}, E-5)")
     if prof and prof.get("require_final_consonant"):
@@ -4889,13 +4875,24 @@ CHORUS_STUB = re.compile(
     "|".join(f"(?:{p.pattern})" for _, _, p in CHORUS_STUB_FORMS), re.I)
 
 
+def _chorus_stub_text(line):
+    """Ignore paired Gutenberg italic delimiters, not the words they enclose.
+
+    D'Urfey prints `The Muses now, _&c._`; treating that line as complete
+    admits a pointer-containing block as a target. Share this preparation
+    across the detector, language reporter and incipit extractor.
+    """
+    return _STUB_EDITORIAL_TAIL.sub(
+        "", re.sub(r"_([^_\n]+)_", r"\1", line.strip()))
+
+
 def chorus_stub_incipit(line, language=None):
     """Printed words before the declared pointer; None means not a stub.
 
     Uses the detector's own forms and editorial-tail rule. An empty string
     means a bare pointer, which cannot identify a target by its words.
     """
-    s = _STUB_EDITORIAL_TAIL.sub("", line.strip())
+    s = _chorus_stub_text(line)
     for langs, _, pat in CHORUS_STUB_FORMS:
         if language is not None and language not in langs:
             continue
@@ -4913,7 +4910,7 @@ def chorus_stub_languages(line):
     and `cym` -- and therefore that the line alone cannot say which tradition
     printed it. A caller that needs one answer must supply the language.
     """
-    s = _STUB_EDITORIAL_TAIL.sub("", line.strip())
+    s = _chorus_stub_text(line)
     for langs, _, pat in CHORUS_STUB_FORMS:
         if pat.search(s):
             return tuple(langs)
@@ -4939,7 +4936,7 @@ def chorus_stub_match(line, language=None):
     `is_chorus_stub` and every caller that only asks IS IT A POINTER are
     unaffected.
     """
-    s = _STUB_EDITORIAL_TAIL.sub("", line.strip())
+    s = _chorus_stub_text(line)
     for langs, gloss, pat in CHORUS_STUB_FORMS:
         if language is not None and language not in langs:
             continue
@@ -5997,7 +5994,7 @@ the quality layer (each says which module answered):
                           contract is a printed refusal, never a traceback
                           and never a silent downgrade to the stub
   plan --seed=N [--form=verse-chorus] [--lines=N] [--relation=NAME]
-       [--functions=a,b,c] [--title=TEXT] [--fill=DRAFT]
+       [--functions=a,b,c] [--title=TEXT] [--melody=JSON] [--fill=DRAFT]
        [--want=PRED;PRED] [--inspection-only] [--out=PATH]
                         the PLANNING phase: a request in, a blueprint and
                           a mandate out (quality/plan.py). Structure from a
@@ -7895,6 +7892,16 @@ def _grid_song(GR, bp):
     return song
 
 
+def _parse_melody_flag(raw):
+    if raw is None:
+        return None
+    from quality.melody import validate_melody
+    try:
+        return validate_melody(json.loads(raw))
+    except (ValueError, TypeError) as exc:
+        _refuse(f"--melody requires a valid phrase JSON object: {exc}")
+
+
 def _parse_narrative_flag(raw):
     """`--narrative=`'s value -> what `make_plan(narrative=)` accepts.
 
@@ -9089,6 +9096,8 @@ def main():
         # pointed at rhyme. What it does is CARRY what the writer declared
         # into the plan artifact and into the GRADE IT line.
         relation = _flag_value(rest, "--relation")
+        melody_raw = _flag_value(rest, "--melody")
+        rest = _strip_flag(rest, "--melody")
         funcs_raw = _flag_value(rest, "--functions")
         # THE TITLE, SAME STANDING, A FLAG SINCE 2026-08-24. `grid.py` asks
         # "is the title in the hook?" and refuses on an empty `Song.title`;
@@ -9131,7 +9140,7 @@ def main():
                             "[--lines=N] [--relation=NAME] "
                             "[--functions=a,b,c] [--title=TEXT] "
                             "[--narrative=off|ATOM,ATOM/JUNCTION,...] "
-                            "[--want=PRED;PRED] [--inspection-only] "
+                            "[--want=PRED;PRED] [--melody=JSON] [--inspection-only] "
                             "[--fill=DRAFT] [--out=PATH]",
                             "   or: plan --sweep=LO-HI [--want=PRED;PRED] "
                             "[the same declarations]",
@@ -9153,6 +9162,7 @@ def main():
             relation=relation,
             title=title,
             narrative=narrative,
+            melody=_parse_melody_flag(melody_raw),
             inspection_only=inspection_only,
             functions=[x for x in (funcs_raw or "").split(",") if x.strip()]
             or None)
@@ -9393,6 +9403,8 @@ def main():
                 _refill.append(_shlex.quote(f"--functions={funcs_raw}"))
             if title:
                 _refill.append(_shlex.quote(f"--title={title}"))
+            if melody_raw:
+                _refill.append(_shlex.quote(f"--melody={melody_raw}"))
             if narrative_raw:
                 _refill.append(_shlex.quote(f"--narrative={narrative_raw}"))
             if want_raw:
@@ -9727,6 +9739,8 @@ def main():
                 print(f"      {f.evidence}")
         pp = GR.phrase_profile(song)
         print(f"  phrase profile: {pp}")
+        from quality.tempo import report as timing_report
+        print(_blueprint_or_refuse(timing_report, song))
 
     elif cmd == "fit":
         # `grid` says how many BARS a section has. This says whether the WORDS
@@ -9870,6 +9884,11 @@ def main():
                  "NONE DECLARED — 'did the rhyme scheme survive the return' "
                  "stays CANNOT TELL (use --rhyme-key=cmudict)"))
         print(f"  form: {' -> '.join(x or 'UNDECLARED' for x in p['form'])}")
+        for named in p.get("function_names", []):
+            print(f"  function name: section {named['section_index'] + 1} "
+                  f"{named['section']!r}: {named['tradition']}::{named['name']} "
+                  f"-> {named['function']}"
+                  + (f" ({named['specialised_as']})" if named['specialised_as'] else ""))
         print(f"  declared {p['declared']}/{len(song.sections)} sections   "
               f"bars until first chorus: {p['bars_until_first_chorus']}")
         print(f"  convention: {rep['convention']}")
@@ -10098,6 +10117,8 @@ def main():
             _frel = _flag_value(args, "--relation", eq_only=True)
             _ffuncs = _flag_value(args, "--functions")
             _ftitle = _flag_value(args, "--title")
+            _fmelody = _flag_value(args, "--melody")
+            args = _strip_flag(args, "--melody")
             _fnarr = _flag_value(args, "--narrative")
             _fwant = _flag_value(args, "--want")
             for _f in ("--seed", "--form", "--lines", "--relation",
@@ -10128,6 +10149,7 @@ def main():
                     relation=_frel,
                     title=_ftitle,
                     narrative=_parse_narrative_flag(_fnarr),
+                    melody=_parse_melody_flag(_fmelody),
                     wants=[w for w in str(_fwant or "").split(";") if w.strip()],
                     functions=[x for x in (_ffuncs or "").split(",")
                                if x.strip()] or None)

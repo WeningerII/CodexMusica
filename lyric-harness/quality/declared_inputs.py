@@ -597,6 +597,9 @@ class BeatGrid(_Sourced):
     derived_from: str = "asserted"
     tempo_bpm: object = None
     source: str = ""
+    # Legacy BPM is explicitly quarter-note BPM, independent of cycle.unit.
+    # Callers may declare another beat (e.g. 3/8 for dotted-quarter BPM).
+    tempo_beat_value: object = Fraction(1, 4)
     family_code = "R5"
 
     DERIVATIONS = ("audio", "notation", "asserted")
@@ -613,6 +616,27 @@ class BeatGrid(_Sourced):
                 "BeatGrid.cycle must be a quality.meter.Cycle — the period AND "
                 "its ordered grouping. A bare time signature does not say "
                 "which pulses are beats.")
+
+        self.tempo_map()  # Validate an explicitly supplied BPM immediately.
+
+    def tempo_map(self):
+        from quality.tempo import Tempo, TempoMap
+        if self.tempo_bpm is None:
+            return TempoMap()
+        return TempoMap(((0, Tempo(self.tempo_bpm, self.tempo_beat_value,
+                                   self.source)),))
+
+    def seconds_between(self, start, end):
+        """Elapsed seconds between two declared syllable loci, or refusal.
+
+        Conditional on this grid's source/derived_from and declared tempo;
+        positions remain in cycle pulses, not metronome beats.
+        """
+        a, b = self.at(start), self.at(end)
+        if a is None or b is None:
+            raise ValueError("seconds require both declared syllable positions")
+        return self.tempo_map().seconds_between(
+            a / self.cycle.unit, b / self.cycle.unit)
 
     @property
     def measured(self):
