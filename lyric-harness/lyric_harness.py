@@ -9897,6 +9897,15 @@ def main():
                 print(f"  -- {fn}: {a.name} -> {b.name}")
                 for row in ret.describe().splitlines():
                     print(f"     {row}")
+        links = rep["line_relations"]
+        print(f"  line relations: {links['state']} ({links['count']}); {links['basis']}")
+        for link in links["rows"]:
+            print(f"    {link['kind']}: L{link['call']} -> L{link['response']} "
+                  f"[source: {link['source']}]")
+            for role in ("call", "response"):
+                voice = link[role + "_voice"]
+                print(f"      {link[role + '_role']}" + (f" ({voice})" if voice else "")
+                      + f": {link[role + '_text']}")
 
     elif cmd == "refrain":
         # The A-1 notation: a CAPITAL is a line that must come back VERBATIM,
