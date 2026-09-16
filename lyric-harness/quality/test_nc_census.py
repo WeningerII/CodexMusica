@@ -21,12 +21,8 @@ the evidence, the counts and the negative direction, and they stay where they
 are. If one of them is deleted, this file still fails, which is the point: the
 question "is the NC set exercised at all" now has ONE place that answers it.
 
-`NO_TEMPO` IS THE EIGHTH AND IT CANNOT FIRE. It is declared inert in
-`quality/fit.py`'s `INERT` (`BACKLOG.md` §4.10) — no production path
-constructs it, and `declared_inputs.tempo_bpm` is declared with no reader. It
-is asserted here as INERT rather than omitted, because a census that quietly
-drops the member it cannot produce is how a set of eight becomes a set of
-seven nobody notices (doctrine 79: refused and fired are different counts).
+`NO_TEMPO` was originally inert. MISSING.md C-5 wires it through declared
+tempo conversion and the grid CLI; this census now drives that path too.
 
 Run: python3 quality/test_nc_census.py
 """
@@ -138,8 +134,8 @@ def test_the_mandate_layer_three():
     fired["RETURN_OUT_OF_RANGE"] = "test-only corrupted Return(1,9); both supported constructors refuse"
 
 
-def test_the_meter_layer_three_and_the_one_that_cannot_fire():
-    print("\n2. the three the METER layer owns, and the one that cannot fire")
+def test_the_meter_layer_and_live_tempo_refusal():
+    print("\n2. the three the METER layer owns, and the live tempo refusal")
     place = Placement(cycle=SEVEN, bar=1, beat=F(1), duration=F(7),
                       section="demo", section_start_bar=1, section_bars=14)
 
@@ -188,15 +184,13 @@ def test_the_meter_layer_three_and_the_one_that_cannot_fire():
           f"{len(got)} refusal(s)")
     fired["ASSUMED_METER"] = "a section declaring no meter + AssumedMeter"
 
-    # NO_TEMPO -- the eighth, and it CANNOT fire. Asserted as inert rather
-    # than omitted.
-    entry = [e for e in FIT.INERT if "NO_TEMPO" in e.field]
-    check("NO_TEMPO is the one member of the set that cannot fire, and it is "
-          "DECLARED inert rather than quietly dropped from the census",
-          len(entry) == 1 and entry[0].blocker == "build"
-          and hasattr(FIT, "_no_tempo"),
-          entry[0].field if entry else "no INERT entry")
-    fired["NO_TEMPO"] = "INERT (blocker=build) — asserted, never fired"
+    # MISSING.md C-5: a real per-second question with absent tempo.
+    from quality.tempo import TempoMap
+    refusal = TempoMap().seconds_between(0, 1)
+    check("NO_TEMPO fires through the production conversion path",
+          refusal.code == "NO_TEMPO"
+          and not any("NO_TEMPO" in e.field for e in FIT.INERT))
+    fired["NO_TEMPO"] = "elapsed seconds with no declared tempo"
 
 
 def test_the_song_structure_one():
@@ -226,15 +220,15 @@ def test_every_member_of_the_set_is_accounted_for():
           set(fired) == set(NC),
           f"missing {sorted(set(NC) - set(fired))}; "
           f"extra {sorted(set(fired) - set(NC))}")
-    check("...and exactly ONE of them is accounted for as INERT rather than "
-          "fired — the other seven were driven to fire in this file",
-          sum(1 for v in fired.values() if v.startswith("INERT")) == 1,
+    check("...and none is accounted for as INERT rather than "
+          "fired — all eight were driven to fire in this file",
+          sum(1 for v in fired.values() if v.startswith("INERT")) == 0,
           {k: v for k, v in sorted(fired.items())})
 
 
 if __name__ == "__main__":
     for fn in (test_the_mandate_layer_three,
-               test_the_meter_layer_three_and_the_one_that_cannot_fire,
+               test_the_meter_layer_and_live_tempo_refusal,
                test_the_song_structure_one,
                test_every_member_of_the_set_is_accounted_for):
         fn()
@@ -242,4 +236,4 @@ if __name__ == "__main__":
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
         sys.exit(1)
-    print("the NC set is exercised: 7 fired here, 1 declared inert")
+    print("the NC set is exercised: 8 fired here, none declared inert")

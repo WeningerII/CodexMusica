@@ -9729,6 +9729,8 @@ def main():
                 print(f"      {f.evidence}")
         pp = GR.phrase_profile(song)
         print(f"  phrase profile: {pp}")
+        from quality.tempo import report as timing_report
+        print(_blueprint_or_refuse(timing_report, song))
 
     elif cmd == "fit":
         # `grid` says how many BARS a section has. This says whether the WORDS
