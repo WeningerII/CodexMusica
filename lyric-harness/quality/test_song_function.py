@@ -633,10 +633,12 @@ def test_the_corpus_holds():
     # REPINNED 2026-09-15 after preserving apparatus-only marks: chorus
     # 290 -> 257 and refrain 709 -> 707, so total 2771 -> 2736. Burden
     # stays 1772. The 33 chorus and two refrain labels remain in the sources.
+    # 2026-09-16: explicit Burns labels recover three VERSE blocks and
+    # reclassify one REFRAIN: chorus +4, refrain -1, repeat total +3.
     check("the repeat-block families are all expressible, none collapsed",
-          rep_total == 2736 and c["functions"]["chorus"] == 257
+          rep_total == 2739 and c["functions"]["chorus"] == 261
           and c["functions"]["burden"] == 1772
-          and c["functions"]["refrain"] == 707,
+          and c["functions"]["refrain"] == 706,
           f"{rep_total:,} repeat blocks held, and BURDEN is kept SEPARATE "
           f"from REFRAIN because the corpus marks them differently "
           f"(doctrine 24). BURDEN was 1,795 until 2026-08-11, then 1,784: the "
@@ -650,9 +652,9 @@ def test_the_corpus_holds():
     # total above holds because its family list predates patter, which
     # this dict-rendered detail names rather than hides.
     # The same 35 marks leave the English repeat census: 2470 -> 2435.
-    check("the current English repeat-block census is 2,435, with its "
+    check("the current English repeat-block census is 2,438, with its "
           "LANGUAGE SCOPE explicit",
-          eng_total == 2435 and c["eng_repeat"]["chorus"] == 257
+          eng_total == 2438 and c["eng_repeat"]["chorus"] == 261
           and c["eng_repeat"].get("patter") == 3,
           f"eng_* only gives {eng_total:,} "
           f"({dict(c['eng_repeat'])}); the recorded 1,603/604/247 is the "
@@ -1061,9 +1063,11 @@ def test_which_pairs_may_be_asked_is_the_whole_design():
     # exactly the pairs that were never songs.
     # REPINNED 2026-09-15: 896 -> 888 after apparatus-only mark removal.
     # The 61 shared-line pairs remain, so their rate is now 6.9% (was 6.8%).
+    # 2026-09-16: Burns printed-label recovery: 888 -> 896 pairs;
+    # 61 -> 60 shared lines after the mislabeled first verse becomes chorus.
     check("the corpus can supply cross-function pairs at all — four "
           "functions, so six possible pairings",
-          c["cross_pairs"] == 888 and len(c["cross_by_pair"]) == 5,
+          c["cross_pairs"] == 896 and len(c["cross_by_pair"]) == 5,
           f"{c['cross_pairs']:,} pairs over {len(c['cross_by_pair'])} of the "
           f"6 possible pairings ({sorted(c['cross_by_pair'])}); "
           f"burden/refrain never co-occur in one song, which is itself the "
@@ -1074,9 +1078,9 @@ def test_which_pairs_may_be_asked_is_the_whole_design():
     # the check below this one still holds: none lands in the asked set.
     # REPINNED 2026-08-28: 61 of ~~922 (6.6%)~~ 896 (6.8%) — the shared
     # count is UNMOVED and only the denominator fell (M-47's follow rule).
-    check("ASKING EVERY PAIR WOULD BE WRONG 6.9% OF THE TIME — this is the "
+    check("ASKING EVERY PAIR WOULD BE WRONG 6.7% OF THE TIME — this is the "
           "number the declared asked set exists for",
-          c["cross_shared"] == 61 and abs(rate - 0.0681) < 0.001,
+          c["cross_shared"] == 60 and abs(rate - 0.0670) < 0.001,
           f"{c['cross_shared']} of {c['cross_pairs']:,} pairs share a whole "
           f"line under the declared normalisation, and NOT ONE is a reprise: "
           f"they are refrain lines a printer set inside the verse, or a "
