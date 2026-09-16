@@ -1601,11 +1601,7 @@ until ruled.
     sweep's pair enumeration can produce that gap-0 case at all.
     **M-46 closed 2026-09-15:** the actual mosaic judge produces that case;
     identical unsearched endpoint-token rules instead supply the narrower
-    bound. The 77-schema ledger census was remeasured.
-    **M-42 closed 2026-09-16:** reporting now distinguishes named algorithms
-    from independent controls and withdraws the blanket `/3` inference, which
-    the actual mosaic judge disproves. The recorded random streams and panel
-    measurements were preserved; no adoption ruling was needed.
+    bound. The 77-schema ledger census was remeasured; M-42 remains separate.
 16. **M-41 — which relations deserve a CERTIFIED capacity table?** The
     relation coordinate is carried since 2026-08-28 (the family counts
     for all four of `ADMITTABLE_RELATIONS` are
@@ -2080,10 +2076,10 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 51 OPEN / 28 PARTIAL / 1 BLOCKED / 250 CLOSED / 15 RESOLVED = 345 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 51 OPEN / 28 PARTIAL / 1 BLOCKED / 252 CLOSED / 15 RESOLVED = 347 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 4 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`, `span_rules.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1556** DECLARED-public top-level functions/classes under `quality/` and the root — **332** named by another production module, **474** by tests only, **625** only inside their own module, **14** by nothing anywhere, **111** REFUSED (69 ambiguous, 32 dynamic, 10 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **88** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **1553** DECLARED-public top-level functions/classes under `quality/` and the root — **332** named by another production module, **474** by tests only, **625** only inside their own module, **11** by nothing anywhere, **111** REFUSED (69 ambiguous, 32 dynamic, 10 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **88** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
