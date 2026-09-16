@@ -381,6 +381,102 @@ test('unknown provider outcome blocks resume while retaining accepted lyrics', a
   assert.throws(() => sessions.resume(q.operation_id, 'lyrics'), /CONTINUATION_UNCERTAIN/);
 });
 
+test('a second interruption exports inherited accepted lyrics without authorizing replay', async (t) => {
+  for (const providerStarted of [false, true]) {
+    const { store, directory } = storeFor(t);
+    const accepted = ['I kept the café open.', '', 'You’d left your coat behind.'];
+    let executions = 0;
+    const sessions = new WorkflowSessions({
+      store,
+      execute: async () => {
+        executions++;
+        if (executions === 1)
+          requestContext().onCheckpoint(checkpoint({ accepted_lines: accepted }));
+        else if (providerStarted) requestContext().onProposerUsage({ in_flight: true });
+        throw new Error('connection lost before the next checkpoint');
+      },
+    });
+    const initial = sessions.open('lyrics');
+    const first = sessions.submit(initial.session_id, 'lyrics', 'lyric_revise', {});
+    await sessions.wait(first.operation_id);
+    const second = sessions.resume(first.operation_id, 'lyrics');
+    await sessions.wait(second.operation_id);
+    const recovered = new WorkflowSessions({
+      store: new JobStore(directory),
+      execute: () => assert.fail('recovery must not dispatch'),
+    });
+    const client = await connect(t, null, recovered);
+    const result = data(await call(client, 'get_operation', { operation_id: second.operation_id }));
+    assert.equal(result.status, 'interrupted');
+    assert.deepEqual(result.accepted_draft, accepted);
+    assert.equal(result.resumable, false);
+    assert.equal(result.uncertain_proposal, providerStarted);
+    assert.equal(recovered.store.get(second.operation_id).progress, null);
+    assert.throws(() => recovered.resume(second.operation_id, 'lyrics'), /CONTINUATION_UNCERTAIN/);
+    assert.equal(executions, 2);
+  }
+});
+
+test('inherited accepted lyrics survive payload pressure until their own receipt expires', async (t) => {
+  const { directory } = storeFor(t);
+  let now = 1000;
+  const store = new JobStore(directory, { maxPayloadRecords: 4, ttlMs: 100, now: () => now });
+  let executions = 0;
+  const sessions = new WorkflowSessions({
+    store,
+    execute: async () => {
+      if (++executions === 1) requestContext().onCheckpoint(checkpoint());
+      throw new Error('response lost');
+    },
+  });
+  const initial = sessions.open('lyrics');
+  const first = sessions.submit(initial.session_id, 'lyrics', 'lyric_revise', {});
+  await sessions.wait(first.operation_id);
+  now = 1050;
+  const second = sessions.resume(first.operation_id, 'lyrics');
+  await sessions.wait(second.operation_id);
+  now = 1101; // The earlier receipt expires; this operation is the only remaining copy.
+  for (let i = 0; i < 12; i++) sessions.open('recipe');
+  assert.equal(store.get(first.operation_id), null);
+  for (let i = 1; i <= 3; i++) {
+    const request_id = i.toString(16).padStart(64, '0');
+    store.begin(request_id, { request_id });
+  }
+  const request_id = '4'.padStart(64, '0');
+  assert.throws(() => store.begin(request_id, { request_id }), { code: 'JOB_CAPACITY' });
+  assert.equal(store.get(second.operation_id).state, 'interrupted');
+  assert.deepEqual(sessions.status(second.operation_id, 'lyrics').accepted_draft, ['accepted']);
+  now = 1151;
+  assert.equal(store.get(second.operation_id), null);
+  assert.equal(executions, 2);
+});
+
+test('fresh progress supersedes the inherited draft and retains its own replay decision', async (t) => {
+  for (const accepted_lines of [['newly accepted'], []]) {
+    const { store } = storeFor(t);
+    let executions = 0;
+    const sessions = new WorkflowSessions({
+      store,
+      execute: async () => {
+        requestContext().onCheckpoint(
+          ++executions === 1 ? checkpoint() : checkpoint({ accepted_lines, status: 'proposing' })
+        );
+        throw new Error('response lost');
+      },
+    });
+    const initial = sessions.open('lyrics');
+    const first = sessions.submit(initial.session_id, 'lyrics', 'lyric_revise', {});
+    await sessions.wait(first.operation_id);
+    const second = sessions.resume(first.operation_id, 'lyrics');
+    await sessions.wait(second.operation_id);
+    const result = sessions.status(second.operation_id, 'lyrics');
+    assert.deepEqual(result.accepted_draft, accepted_lines);
+    assert.equal(result.uncertain_proposal, true);
+    assert.equal(result.resumable, false);
+    assert.throws(() => sessions.resume(second.operation_id, 'lyrics'), /CONTINUATION_UNCERTAIN/);
+  }
+});
+
 test('private result envelopes are hidden without changing the song or verdict', () => {
   const song = '[VERSE]\nThe kettle whistles by the stove';
   const raw = {
