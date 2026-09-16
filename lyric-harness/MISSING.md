@@ -5891,65 +5891,29 @@ with both prefixed forms in the message, prefixed resolution in all three,
 bare resolution still working for the unambiguous, the exact-before-case
 ordering, an undeclared namespace refusing, and the `schema:` judge refusal.
 
-### M-36 · 17 of the 77 relations can never be nulled, and the reasons are twelve declared capabilities `BLOCKED`
-**Filed 2026-08-22 as step 7 of the owner's relation ladder: declare what
-cannot be done, with the constraint named, rather than leaving it looking
-like unfinished work.**
+### M-36 · Relation-null blocker classifications drifted behind their mechanisms `RESOLVED` 2026-09-16
 
-`quality/relations_null.BLOCKERS` names **12 capabilities** that no run can
-supply, and between them they block **17 of the 77 schemas** from ever being
-measured against a null. **THIS ENTRY POINTS AT THAT TABLE AND DOES NOT COPY
-IT** (doctrine 1) — a second list of blockers here is the copy that goes
-stale, and the proof is one paragraph below.
+The classification repair is complete; the underlying evidence limitations
+remain explicit. `quality/relations_null.BLOCKER_RECORDS` is the single typed
+source of kind, reason, and existing declaration constructor. `BLOCKERS` is
+its derived string view, preserving the panel report interface. Counts and
+schema eligibility must come from the current panel, not the historical
+"12 capabilities / 17 schemas" snapshot that used to head this entry.
 
-| blocker kind | capabilities | what it means                                                                                      |
-| ------------ | -----------: | -------------------------------------------------------------------------------------------------- |
-| `obtain`     |        **6** | the evidence does not exist here and cannot be made to                                             |
-| `build`      |        **4** | derivable in principle, and a heuristic written now would decide the verdict and report it as data |
-| `disjoint`   |        **1** | declared inert ON PURPOSE (`frames.beat`, doctrine 4)                                              |
-| unstated     |        **1** | the table gives a reason but no kind — a gap in the table's own shape                              |
+`orthography`, `lifts`, and `beat` now say `declare`: all three have working
+constructors, but the panel lacks the caller's spelling rule, scansion, or
+beat coordinates. The previous `build` / `disjoint` claims were stale.
+`sense` says `validate`: the inventory and opt-in derivation exist; the
+recorded error rate prevents default panel use. Other missing sourced inputs
+retain `obtain`. Every active record has an explicit kind.
 
-Which schemas, counted apart and never summed with the swept ones:
-
-| capability                                                                              | blocks                                                                                                              |
-| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `morphology`                                                                            | homoioteleuton, polyptoton                                                                                          |
-| `lexicon`                                                                               | holorhyme, rhyming slang                                                                                            |
-| `quotient:manner`                                                                       | family rhyme, multisyllabic rhyme                                                                                   |
-| `delivered`                                                                             | transformative / bent rhyme, wrenched rhyme                                                                         |
-| `lifts`                                                                                 | alliterative long line, fourth lift must not alliterate                                                             |
-| `sense` · `quotient:vowel_class` · `earlier` · `poet` · `sung` · `beat` · `orthography` | antanaclasis · proest · historical rhyme · dialect rhyme · sung-delivery rhyme · offbeat internal rhyme · eye rhyme |
-
-**A BLOCKED SCHEMA IS NOT A SCHEMA THAT FOUND NOTHING**, and the whole
-purpose of counting these apart is that the two are otherwise identical in
-the output. 17 unmeasurable is a fact about this repository's evidence;
-"swept and did not clear" is a fact about the relation. Reporting them as one
-number would be the shape doctrine 20 exists to forbid.
-
-**AND ONE OF THE TWELVE WENT STALE INSIDE THE SAME DAY IT WAS WRITTEN, which
-is why this entry points rather than copies.** `BLOCKERS['orthography']` reads
-_"Blocker: build — a second stream under the `orthography` surface"_. That was
-true when written and is not true now: `quality/relations.declare_orthography`
-exists as of 2026-08-22 (verified: `hasattr(R,'declare_orthography')` is True),
-so the mechanism is built and the blocker moved from **build** to **declare** —
-the caller must supply the rime rule, which the module deliberately does not
-ship because y-as-vowel and silent-final-e are English facts and the module
-serves nine languages (doctrine 45/65). `eye rhyme` still refuses on a plain
-stream, so the SCHEMA is still blocked for the sweep; the REASON recorded for
-it is wrong. Had this entry re-typed the table, there would now be two wrong
-copies instead of one.
-
-**Missing:** `BLOCKERS['orthography']`'s kind repinned from `build` to a
-`declare` kind the table does not yet have; a stated kind for the one entry
-that has none; and — the general remedy — a check that the blocker kinds stay
-true, since nothing today would have caught this one moving.
-**Why it matters:** the admissible set the ladder is being planned against is
-a set over the schemas that CAN be swept. If 17 are unmeasurable, then "N of
-77 clear their null" is the wrong denominator and the honest one is N of 60.
-**BLOCKED, and the constraint is named per row rather than in general:** six
-want evidence that does not exist under this repo's provenance gate, four want
-a resource whose naive version would answer the question it was supposed to
-measure, one is inert by declaration, and one is now mis-filed.
+`test_relations_null.py` §15 checks classification shape, invalid and
+contradictory records, constructor existence, and capability absence before
+and presence after the three declaration calls. §9 continues to check actual
+panel coverage, blocker/retirement disjointness, and missing records. No
+capability is promoted to measured by this documentation repair, and blocked
+schemas remain separate from measured zeroes. No new heuristic or panel
+coordinate is invented to clear a blocker.
 
 ### M-35 · A pair can stand in many relations at once, and the mandate can hold one per group — with identical groups silently deduped `OPEN`
 **Filed 2026-08-22 at the owner's observation, mid-build of the declared
@@ -8797,10 +8761,11 @@ is a defect in the `type:` namespace's 49 named keys and does not touch the
 77 at all. It was worth saying explicitly because it is the gap most likely
 to be assumed to cover everything.
 
-**ALSO STILL OPEN:** M-36's 12 blocker capabilities still block 17 schemas
-from ever being NULLED, which is a SEPARATE question from being declared —
-that entry governs what the harness may assert, this one governs what a
-writer may ask for. And `plan._CELLS` reaches 11 of `grid`'s 21 section
+**NULL COVERAGE REMAINS SEPARATE:** M-36's classification repair is resolved
+(2026-09-16); its historical 12-capability / 17-schema count is not a current
+panel census. The remaining blockers are recorded in `relations_null` and
+govern what the harness may assert, not what a writer may declare.
+And `plan._CELLS` reaches 11 of `grid`'s 21 section
 functions (M-54 item 2), which is this same shape one layer up.
 
 ### M-58 · the named-relation judge is MONOSYLLABLE-ONLY — 69 of 76 names are reachable at a 1-syllable key and nowhere else, so every polysyllabic pair that stands in the declared relation is graded a VIOLATION `RESOLVED` 2026-08-28
