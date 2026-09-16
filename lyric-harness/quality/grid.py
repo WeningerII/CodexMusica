@@ -589,7 +589,7 @@ SECTION_FUNCTIONS = {s.name: s for s in (
 
 #: The alias map, derived from the rows' own declarations — never written
 #: by hand here, so a claim cannot exist in the map without living on its
-#: row (doctrine 1). First declaration wins, and a collision with a real
+#: row (doctrine 1). Duplicate claims fail, and a collision with a real
 #: function name is refused at import: an alias that shadows a row would
 #: silently retype every blueprint using the shadowed name.
 _FUNCTION_ALIASES = {}
@@ -598,7 +598,9 @@ for _s in SECTION_FUNCTIONS.values():
         if _a in SECTION_FUNCTIONS:
             raise UnknownFunction(
                 f"alias {_a!r} on {_s.name!r} shadows a declared function")
-        _FUNCTION_ALIASES.setdefault(_a, _s.name)
+        if _a in _FUNCTION_ALIASES:
+            raise UnknownFunction(f"duplicate function alias {_a!r}")
+        _FUNCTION_ALIASES[_a] = _s.name
 
 #: The specialisation map, derived from the rows' own `narrower` records the
 #: same way `_FUNCTION_ALIASES` is derived from `aliases` — never written by
@@ -629,7 +631,7 @@ def specialisation_of(name):
     cannot promise `bars == 8`, so accepting `middle-eight` there would be
     the door-accepts-and-discards defect one layer out.
     """
-    v = str(name).strip().lower()
+    v, _ = _function_name_target(name)
     v = _FUNCTION_SPELLINGS.get(v, v)
     return _SPECIALISATIONS.get(v)
 
@@ -807,8 +809,125 @@ _FUNCTION_SPELLINGS = {
 }
 
 
-def as_function(value):
-    """-> a vocabulary key, or UNDECLARED. Anything else RAISES.
+@dataclass(frozen=True)
+class FunctionName:
+    """A tradition's NAME, distinct from the closed grading function IDs.
+
+    A row either names an existing contract (possibly a specialisation), or
+    explains why none represents it. A refusal is not an alias to a nearby
+    function. Evidence is a declaration source, not a frequency claim.
+    """
+    tradition: str
+    name: str
+    function: str = ""
+    refusal: str = ""
+    evidence: str = ""
+
+
+def _index_function_names(rows):
+    out = {}
+    targets = set(SECTION_FUNCTIONS) | set(_SPECIALISATIONS)
+    for row in rows:
+        key = (row.tradition, row.name)
+        if (not all(isinstance(v, str) and v and v == v.strip().lower()
+                    and "::" not in v for v in key)
+                or not row.evidence or bool(row.function) == bool(row.refusal)):
+            raise UnknownFunction(f"invalid section-function name row {key!r}")
+        if row.function and row.function not in targets:
+            raise UnknownFunction(f"{key!r} targets unknown function {row.function!r}")
+        if key in out:
+            raise UnknownFunction(f"duplicate section-function name {key!r}")
+        out[key] = row
+    return out
+
+
+# Existing contracts and their explicit spellings live in a named scope.
+# Derive these rows; do not copy the alias/specialisation tables. A bare value
+# remains a canonical harness ID for backwards compatibility, NOT a claim
+# about what every tradition means by that English word.
+_popular_names = {name: name for name in SECTION_FUNCTIONS}
+_popular_names.update(_FUNCTION_ALIASES)
+_popular_names.update({name: name for name in _SPECIALISATIONS})
+_popular_names.update(_FUNCTION_SPELLINGS)
+SECTION_FUNCTION_NAMES = _index_function_names([
+    *(FunctionName("popular_song", name, function=target,
+                   evidence="quality.grid.SECTION_FUNCTIONS: existing lyric contracts")
+      for name, target in _popular_names.items()),
+    FunctionName("english_song", "break", function="interlude",
+                 evidence="MISSING.md M-24: English instrumental gap; "
+                          "SECTION_FUNCTIONS interlude instrumental-break alias"),
+    # M-24's counterexamples are decisions, not guessed extensions of the
+    # lyric contracts. In particular, turnaround requires verbatim returns;
+    # calling a sonata transition that would merely move the false friend.
+    FunctionName("sonata", "bridge", refusal=
+                 "a connective transition that can recur, not the once-only "
+                 "contrasting pop bridge; no connective contract is declared",
+                 evidence="MISSING.md M-24; Open Music Theory, Sonata Form"),
+    FunctionName("sonata", "exposition", refusal=
+                 "the sonata's thematic and tonal exposition; no sonata "
+                 "exposition contract is declared",
+                 evidence="MISSING.md M-24; Open Music Theory, Sonata Form"),
+    FunctionName("fugue", "exposition", refusal=
+                 "a fugal exposition, not a sonata exposition; no fugal "
+                 "exposition contract is declared", evidence="MISSING.md M-24"),
+    FunctionName("fugue", "stretto", refusal=
+                 "fugal stretto, not operatic stretta; no stretto contract "
+                 "is declared", evidence="MISSING.md M-24"),
+    FunctionName("opera", "stretta", refusal=
+                 "operatic stretta, not fugal stretto; no stretta contract "
+                 "is declared", evidence="MISSING.md M-24"),
+    FunctionName("haitian_drumming", "break", refusal=
+                 "an ensemble start/stop cue, not an English instrumental "
+                 "gap or a lyric section", evidence="MISSING.md M-24"),
+])
+
+
+def resolve_function_name(name, tradition):
+    """Return the scoped name record, including an explicit unsupported reading.
+
+    Exact declared names only (case/outer whitespace ignored). No language,
+    filename, recipe, display-name or neighbouring tradition inference.
+    """
+    if not isinstance(name, str) or not isinstance(tradition, str):
+        raise UnknownFunction("a function name and its tradition must be strings")
+    key = (tradition.strip().lower(), name.strip().lower())
+    if not all(key):
+        raise UnknownFunction("a function name requires a nonempty tradition and name")
+    try:
+        return SECTION_FUNCTION_NAMES[key]
+    except KeyError:
+        raise UnknownFunction(
+            f"no section-function name {key[1]!r} is declared in tradition "
+            f"{key[0]!r}; no cross-tradition or canonical-ID fallback") from None
+
+
+def _function_name_target(value, tradition=None):
+    if value is None:
+        value = ""
+    if isinstance(value, FunctionSpec):
+        value = value.name
+    v = str(value).strip().lower()
+    if "::" in v:
+        scope, v = v.split("::", 1)
+        if tradition is not None and (not isinstance(tradition, str)
+                                     or tradition.strip().lower() != scope):
+            raise UnknownFunction("conflicting function-name traditions")
+        tradition = scope
+    if tradition is None:
+        return v, None
+    row = resolve_function_name(v, tradition)
+    if row.refusal:
+        raise UnknownFunction(f"{row.tradition}::{row.name}: {row.refusal}. "
+                              "REFUSED rather than mapped to another tradition.")
+    return row.function, row
+
+
+def as_function(value, tradition=None):
+    """-> a canonical ID, or UNDECLARED. Anything else RAISES.
+
+    Local names require ``tradition::name`` or the explicit ``tradition``
+    argument. Bare legacy values retain their documented harness contracts.
+    A scoped name NEVER falls back to a bare ID or another tradition.
 
     `None`, `""` and UNDECLARED all mean NOBODY HAS SAID. They do not mean
     verse. A function-dependent check handed an undeclared section records a
@@ -816,11 +935,7 @@ def as_function(value):
     charges the wrong layer, and a song reported "clean" because nothing
     declared a chorus is a vacuous pass (doctrine 20).
     """
-    if value is None:
-        return UNDECLARED
-    if isinstance(value, FunctionSpec):
-        value = value.name
-    v = str(value).strip().lower()
+    v, _ = _function_name_target(value, tradition)
     if not v:
         return UNDECLARED
     v = _FUNCTION_SPELLINGS.get(v, v)
@@ -866,13 +981,14 @@ class Section:
     #: the alias route discarded the claim. `""` means the function was
     #: declared as itself or not at all.
     specialised_as: str = ""
+    function_name: FunctionName = field(default=None, init=False)
     metric_complexity: list = field(default_factory=list)
 
     def __post_init__(self):
         if self.metric_complexity != []:
             from quality.metric_complexity import read_complexity
             read_complexity(self.metric_complexity, self.bars, self.meter.beats)
-        raw = self.function
+        raw, self.function_name = _function_name_target(self.function)
         self.function = as_function(raw)
         self.specialised_as = ""
         if raw is not None and not isinstance(raw, FunctionSpec):
@@ -2545,6 +2661,13 @@ def function_profile(song):
         "undeclared": len(song.undeclared_sections()),
         "total_bars": song.total_bars,
     }
+    named = [{"section_index": i, "section": s.name,
+              "tradition": s.function_name.tradition,
+              "name": s.function_name.name, "function": s.function,
+              "specialised_as": s.specialised_as}
+             for i, s in enumerate(song.sections) if s.function_name is not None]
+    if named:
+        prof["function_names"] = named
     for fn in ("chorus", "prechorus", "bridge", "hook"):
         bars, sec = song.bars_until(fn)
         prof[f"bars_until_first_{fn}"] = bars
@@ -3362,7 +3485,8 @@ MARK_FUNCTION = {
 #: shared, so keying it per language would manufacture five rows saying one
 #: thing. M-24's other half — `SECTION_FUNCTIONS`' bare names, where the pop
 #: `bridge` and the sonata `bridge` are different objects — is a claim about
-#: the FUNCTION vocabulary rather than the MARK vocabulary, and it stays open.
+#: the FUNCTION vocabulary rather than the MARK vocabulary; it is now
+#: handled by SECTION_FUNCTION_NAMES and qualified declarations (M-24).
 MARK_REFUSED = {
     ("fas", "BAYT"): "a bayt is the couplet-unit of a ghazal. A ghazal has no chorus "
             "and no verse; calling it `verse` would be this vocabulary "
@@ -4215,7 +4339,8 @@ __all__ = ["Meter", "Line", "Section", "Song", "GridFinding",
            "uniformity", "stanza_lock", "phrase_profile", "line_pickup",
            # section function -- MISSING.md D-1
            "UNDECLARED", "UnknownFunction", "FunctionSpec",
-           "SECTION_FUNCTIONS", "as_function", "FormConvention",
+           "SECTION_FUNCTIONS", "SECTION_FUNCTION_NAMES", "FunctionName",
+           "resolve_function_name", "as_function", "FormConvention",
            "POPULAR_SONG", "function_profile", "return_findings",
            "reprise_findings",
            "bridge_contrast", "song_function_report", "Refusal",

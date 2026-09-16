@@ -6920,7 +6920,36 @@ sections: restoring the two-state tag reds 4, restoring the
 truthy, so every cell would tag `yes` and no example-based check would catch
 it), and emptying the void table reds 2.
 
-### M-24 · The section vocabulary is keyed on a bare token, so a mark means whatever the first tradition to claim it meant `PARTIAL`
+### M-24 · The section vocabulary is keyed on a bare token, so a mark means whatever the first tradition to claim it meant `CLOSED` 2026-09-15 — tradition-qualified names and explicit unsupported readings
+
+**FUNCTION-NAME COORDINATE CLOSED 2026-09-15.** `quality/grid.py` now separates
+canonical grading IDs from `SECTION_FUNCTION_NAMES`, keyed by `(tradition, name)`.
+`resolve_function_name` returns a target or that tradition's written refusal;
+`as_function` accepts `tradition::name` (also an explicit Python `tradition=`).
+Qualified names never fall back to another tradition or the bare-ID namespace.
+Duplicate names within one tradition and undeclared targets fail on table build.
+Bare legacy IDs keep their documented contracts, not a claim of universal meaning.
+
+The existing lyric names are derived under `popular_song`; `english_song::break`
+resolves to the instrumental interlude contract. The counterexamples below have
+separate refusal records: sonata bridge/exposition, fugal exposition/stretto,
+operatic stretta, and the Haitian ensemble cue. This closes the naming collision,
+**not support for grading sonata, fugue, opera or drum cues**: none is silently
+substituted for a lyric contract, and no new generator function is invented.
+
+Blueprints and CLI declarations use the same resolver. Sections retain the name
+record, reports disclose `function_names`, and qualified specialisations preserve
+and check their differentiae. The planner still refuses a middle-eight length
+promise and now preserves a scoped refusal's reason as `PlanRefused`.
+`quality/test_grid.py` tests the scoped resolver, collision rejection, every
+supported name, the false friends, blueprint/CLI loading, and specialisation
+refusals. The existing language-aware mark handling is unchanged.
+
+**VALIDATED:** the complete grid and song-function regression suites pass.
+A planted sonata-to-pop fallback fails the new regression. Documentation paths
+and the register check pass; M-24 is reported as GUARDED.
+
+**HISTORICAL FINDING AND THE EARLIER PARTIAL IMPLEMENTATION FOLLOW.**
 **Found 2026-08-21 by sixteen concurrent tradition-family surveys, and three
 of them hit the same wall independently.**
 
@@ -7022,7 +7051,7 @@ limits (`gle` does not derive; the language vocabulary is typed twice) as
 checks rather than as prose. It tests nothing about the FUNCTION half below,
 and the entry stays open on that.
 
-**STILL OPEN, AND IT IS THE HALF WITH THE FALSE FRIENDS IN IT:**
+**HISTORICAL REMAINING HALF (closed by the coordinate above):**
 `SECTION_FUNCTIONS`' 21 functions are still declared on bare names, so the pop
 `bridge` and the sonata `bridge` are one row that cannot mean both, and fugal
 vs sonata _exposition_ and _stretto_ vs _stretta_ are unaddressed. That is a
