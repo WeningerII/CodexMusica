@@ -1927,7 +1927,13 @@ names); and whether the `SCHEME_VIOLATION` evidence line may print the
 scalar's mosaic attribution under a verdict the token judge made (what the
 friend read as "the scorer reads the whole phrase").
 
-### 4 · PARK — 39 entries that are real and not on the song path
+### 4 · PARK — remaining entries off the song path
+
+**E-2 removed from this queue, CLOSED 2026-09-15.** The declared and
+default grading routes already consult the relation registry, named types
+already reach `classify_pair`, and alternate-surface constructors exist.
+`MISSING.md` E-2 records the verification and the remaining requirement for
+explicit spelling or sourced historical evidence.
 
 Absent layers (B, C, D, G, most of E and F), long corpus judgement passes,
 and the time-layer redesign. Each stays open by its own argument; none is
@@ -1944,7 +1950,6 @@ picked up before the tiers above are empty.
 | C-4 | PARTIAL | BUILD · M | grade, CI, record | Syncopation as displacement off a declared `BeatGrid`; separately the triage scanner reads this entry CITED when it is DECLARED. | The groove questions are permanently refused by name; the residue is narrow. |
 | C-5 | PARTIAL | BUILD · S | grade, plan | `BeatGrid.tempo_bpm` has no reader and `fit._no_tempo` no caller — both inert. | Activates the first time a per-second question is asked; declared INERT. |
 | D-4 | OPEN | BUILD · L | plan | No arc across the form. | A performance/arrangement layer this harness does not model. |
-| E-2 | PARTIAL | BUILD · L | grade, screen | The scalar grading path is still five-valued and consults neither the 77-schema registry nor `rhyme_types`; `Stream.alt` has no producer. | Multi-sitting by the entry's own words; the `ALT_SURFACES` reader is a separable smaller build. |
 | E-4 | OPEN | BUILD · M | grade | No rhyme rate per bar, no acceleration into a hook. | "Per bar" needs the syllable-to-beat mapping G-1 refuses without a setting. |
 | F-1 | PARTIAL | BUILD · L | phonology, corpus | ~38 further phonologies undeclared; the roster is nine. | Each language is its own sitting. |
 | F-2 | OPEN | BUILD · L | phonology, grade | Tone-contour rhyme, pitch accent, vowel harmony, mutation, root-and-pattern morphology unrepresented as rhyme mechanisms. | Each redefines what rhyme means in its family. |
@@ -2081,10 +2086,10 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 55 OPEN / 32 PARTIAL / 1 BLOCKED / 242 CLOSED / 15 RESOLVED = 345 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 55 OPEN / 30 PARTIAL / 1 BLOCKED / 244 CLOSED / 15 RESOLVED = 345 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 3 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1534** DECLARED-public top-level functions/classes under `quality/` and the root — **318** named by another production module, **467** by tests only, **626** only inside their own module, **14** by nothing anywhere, **109** REFUSED (67 ambiguous, 32 dynamic, 10 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **88** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **1537** DECLARED-public top-level functions/classes under `quality/` and the root — **320** named by another production module, **467** by tests only, **627** only inside their own module, **14** by nothing anywhere, **109** REFUSED (67 ambiguous, 32 dynamic, 10 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **88** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
