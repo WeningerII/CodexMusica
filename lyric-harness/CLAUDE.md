@@ -3667,6 +3667,15 @@ rather than this paragraph — a roster copied into two files drifts in both.
    | **CONFIRMED** — types as ASSONANCE`), and doctrines 3 and 24 in this
    file, which describe the rule as shipped. Only the gap list was never told.
 3. **Time layer.** Placement half built, and **MUTE**.
+   **2026-09-15:** `quality/rhyme_organization.py` adds a separately
+   preregistered item/stratum organization test, with synthetic error/power
+   controls and real-versus-scrambled end-rhyme separation replicated in two
+   authors. It certifies no individual events or periods. Automatic legacy
+   time inference now refuses; caller-supplied slot controls remain explicitly
+   conditional research controls. L-1/L-2 remain OPEN for individual-event
+   control and internal-sonnet separation. See
+   `quality/RESULTS_RHYME_ORGANIZATION.md` for both designs, including the first
+   design's failed gate. This offline runner adds no lyric-pipeline work.
    ~~POWERED and null. The blocker was never the comparator: it was
    multiplicity, and family-wise error control fixed it (RESULTS_FWER.md).~~
    **REPINNED 2026-08-13, and this was the live claim.** That sentence is this

@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """The time layer — rhyme placement against a metric period.
 
+L-1/L-2, 2026-09-15: automatic inference from the legacy detected events is
+unsupported and refuses. Caller-supplied exchangeable-slot research controls
+remain available. `quality/rhyme_organization.py` tests item/stratum rhyme
+organization with paired relationships preserved; it certifies no positions.
+
 Built to `quality/TIME_PREREGISTRATION.md`, which was committed first. Read it
 before reading this; the predictions and the two tripwires are there, not here.
 
@@ -59,6 +64,8 @@ class TimeDeclaration:
 
     A disagreement about this layer lands in one of these fields (doctrine 1).
     `isochrony` is the load-bearing one and it is an assumption, not a finding.
+    The event corrections below are historical experiments, not validated
+    per-position false-event guarantees with power. Automatic inference refuses.
     """
     #: "stress" counts only stressed syllables when indexing; "syllable"
     #: counts all of them. English is stress-timed, so "stress" is primary.
@@ -444,6 +451,12 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
        evidence. Reporting it as "no rhyme events" would be doctrine 20's
        error -- inconclusive by construction collapsed into null.
     """
+    # L-1/L-2: retained for historical experiments, never a certified event
+    # detector. The replacement tests item/stratum organization and does not
+    # license significance for individual positions (see rhyme_organization).
+    if detail is not None:
+        detail.update(inference_supported=False,
+                      inference_scope="legacy descriptive positions; no validated event error control with power")
     pairs = _candidate_pairs(stream, tdecl)
     if tdecl.correction == "none":
         events = set()
@@ -656,7 +669,8 @@ def phase_statistic(coords, event_coords, periods):
 
 
 def analyse(lex, lines, decl=None, tdecl=None, events=None,
-            eligible_filter=None, comparator=None, stream=None):
+            eligible_filter=None, comparator=None, stream=None,
+            legacy_detected=False):
     """Run the layer on one item.
 
     Returns a dict with the observed statistic, its permutation null, the
@@ -693,6 +707,7 @@ def analyse(lex, lines, decl=None, tdecl=None, events=None,
     # the "too few events" branch below, which names the ITEM. Two different
     # refusals were being reported as one, and the one that survived blamed the
     # wrong layer (doctrine 20).
+    automatic_events = events is None or legacy_detected
     edetail = {}
     if events is None:
         events = rhyme_events(lex, stream, decl, tdecl, comparator, edetail)
@@ -707,6 +722,8 @@ def analyse(lex, lines, decl=None, tdecl=None, events=None,
         "saturation": saturation,
         "periods": list(tdecl.periods),
         "isochrony": tdecl.isochrony,
+        "inference_scope": ("unsupported automatic event inference" if automatic_events else
+                            "research control conditional on caller-supplied exchangeable slots"),
     }
     if edetail:
         result["event_detail"] = edetail
@@ -736,6 +753,16 @@ def analyse(lex, lines, decl=None, tdecl=None, events=None,
                     f"2) puts unrelated pairs above theta, and a 32-syllable "
                     f"window multiplies that by roughly 135 comparisons per "
                     f"stressed syllable")
+        return result
+
+    if automatic_events:
+        result.update(
+            kl=None, period=None, p=None,
+            refused_by="analyse:unsupported_event_inference",
+            refused="L-1/L-2: the legacy detector has no validated false-event "
+                    "control with power, and independent random slots do not "
+                    "preserve its paired events. Use rhyme_organization for "
+                    "item/stratum organization; it certifies no positions or periods.")
         return result
 
     slot_coords = [gidx[i] for i in slots]
@@ -813,7 +840,7 @@ def line_final_control(lex, lines, decl=None, tdecl=None, mode="within"):
         # no saturation guard: the whole point is to expose that it saturates
         t2 = TimeDeclaration(**{**tdecl.__dict__, "max_saturation": 1.01})
         res = analyse(lex, lines, decl, t2, events=finals,
-                      eligible_filter=lambda s: s["line_final"])
+                      eligible_filter=lambda s: s["line_final"], legacy_detected=True)
         res["control_mode"] = "within (as registered)"
         if res.get("saturation", 0) >= 0.999:
             res["degenerate"] = (
@@ -824,7 +851,7 @@ def line_final_control(lex, lines, decl=None, tdecl=None, mode="within"):
     t2 = TimeDeclaration(**{**tdecl.__dict__, "exclude_line_final": False,
                             "max_saturation": 1.01})
     res = analyse(lex, lines, decl, t2, events=finals,
-                  eligible_filter=lambda s: True)
+                  eligible_filter=lambda s: True, legacy_detected=True)
     res["control_mode"] = "against_all (POST-HOC, expected to FIRE)"
     return res
 
