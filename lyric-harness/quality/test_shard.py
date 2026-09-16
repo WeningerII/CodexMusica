@@ -321,34 +321,157 @@ def test_each_ci_event_owns_completed_evidence():
             continue
         check(f"{n} needs no guard because it cannot run on a push",
               "workflow_dispatch" in t and "schedule" in t)
-    # 2026-09-08 BCI-07: the earlier open-PR/green-push inference was
+    # ~~2026-09-08 BCI-07: the earlier open-PR/green-push inference was
     # unsafe: event ordering could leave only the run that skipped its work.
     # Every event now owns its evidence, and event-specific concurrency keeps
     # the push and PR runs from cancelling one another. Exercise the real
-    # output command; a PR's existence cannot stand in for completed checks.
+    # output command; a PR's existence cannot stand in for completed checks.~~
+    #
+    # STRUCK 2026-09-16 (doctrine 17) AND KEPT. THE BASIS IS THE OWNER'S
+    # RULING of that date, given on a pull-request list carrying a red X on
+    # every open PR, verbatim: "land the dup fix". MISSING.md had reserved
+    # this call for them in as many words -- "whether the pull-request run
+    # should be the only run on such a branch is the owner's call" -- and
+    # they made it. The argument beneath the ruling is that the reasoning
+    # struck above is right and its premise stopped being true IN THE SAME
+    # COMMIT. BCI-07's hazard needs the push and PR runs to be able to
+    # cancel one another; a75da39f put `github.event_name` into the
+    # concurrency group key, so they cannot.
+    # MEASURED 2026-09-16 on `1f6e987c`: push run 35068060877 (35 jobs) and
+    # pull_request run 35068064645 (39 jobs) BOTH ran to completion on the one
+    # sha, and the PR run's job-name set is a strict superset of the push
+    # run's. The struck paragraph's own last clause is the proof: "event-
+    # specific concurrency keeps the push and PR runs from cancelling one
+    # another" is exactly the condition under which deferring is safe.
+    #
+    # WHAT THIS SECTION NOW PINS, and it is a different claim from the one it
+    # replaced. Not "no lookup happens" -- that pinned the STUB, and a stub is
+    # what M-250/M-251/M-252 spent three entries proving was not a fix -- but
+    # THE SHAPE OF THE ANSWER: exactly one question, about pull requests;
+    # deny-by-default on every other path. The transport is stubbed (`gh` on
+    # PATH) and the FILTER is run for real when `jq` is installed, which is
+    # the same division M-250 used. `jq`'s absence is reported, never skipped
+    # (doctrine 20: cannot run is not pass).
     import subprocess
     import tempfile
 
-    command = re.search(r"^        run: (.*)$", dup, re.M)
-    check("coverage is produced by an explicit local command", command is not None)
-    if command is not None:
-        def owns_evidence(script):
-            with tempfile.TemporaryDirectory() as temporary:
-                output = os.path.join(temporary, "output")
-                run = subprocess.run(["bash", "-e", "-c", script],
-                                     env={**os.environ, "GITHUB_OUTPUT": output},
-                                     capture_output=True, text=True, timeout=5)
-                value = open(output).read().splitlines() if os.path.exists(output) else []
-                return run.returncode == 0 and value == ["already_covered=false"]
+    body = re.search(r"^        run: \|\n((?:(?: {10}.*)?\n)+)", dup, re.M)
+    check("coverage is produced by an explicit local command", body is not None)
+    script = ""
+    if body is not None:
+        script = "\n".join(l[10:] for l in body.group(1).splitlines())
 
-        check("the actual command assigns this event its own work",
-              owns_evidence(command.group(1)))
-        check("PLANTED: claiming another run covers this event is rejected",
-              not owns_evidence("echo 'already_covered=true' >> \"$GITHUB_OUTPUT\""))
-        check("PLANTED: missing or failed output cannot prove coverage",
-              not owns_evidence("true") and not owns_evidence("exit 1"))
-    check("the coverage job performs no PR/run API lookup",
-          not any(word in dup for word in ("gh api", "curl ", "pull_request", "workflow_runs")))
+    # ONE QUESTION, AND IT IS THE PULL-REQUEST ONE. Pinned on the endpoint and
+    # on both halves of the filter: an ancestor commit of an open PR is NOT
+    # its head, and a closed PR is not an open one.
+    check("`dup` asks the pull-request question, by endpoint",
+          "/pulls" in script and "commits/$GITHUB_SHA" in script)
+    check("...filtered to OPEN pull requests whose HEAD is this exact commit",
+          '.state == "open"' in script and ".head.sha == $ENV.GITHUB_SHA" in script)
+    check("...and asks nothing else: no workflow-runs question (M-251 is not "
+          "restored, and a run can conclude success having skipped every job)",
+          "workflow_runs" not in script and "/actions/" not in script)
+
+    def answer(stub, event="push", branch="fix/x", default="trunk"):
+        """-> (rc, GITHUB_OUTPUT lines) for the real script over a stubbed `gh`.
+
+        The fixture's default branch is NOT called `main`, on purpose and
+        twice over. It proves the script COMPARES `$BRANCH` with
+        `$DEFAULT_BRANCH` rather than matching a hard-coded name -- and a bare
+        `"main"` string constant in this file would make `shard.main`
+        REFUSED (dynamic) in `quality/counters.py`'s reach analysis, moving a
+        counter this change has no business moving.
+        """
+        with tempfile.TemporaryDirectory() as temporary:
+            bindir = os.path.join(temporary, "bin")
+            os.makedirs(bindir)
+            fake = os.path.join(bindir, "gh")
+            io.open(fake, "w", encoding="utf-8").write(stub)
+            os.chmod(fake, 0o755)
+            output = os.path.join(temporary, "output")
+            io.open(output, "w", encoding="utf-8").write("")
+            run = subprocess.run(
+                ["bash", "-e", "-c", script],
+                env={"PATH": bindir + os.pathsep + os.environ.get("PATH", ""),
+                     "GITHUB_OUTPUT": output, "GH_TOKEN": "t",
+                     "GITHUB_REPOSITORY": "o/r", "GITHUB_SHA": "a" * 40,
+                     "EVENT_NAME": event, "BRANCH": branch,
+                     "DEFAULT_BRANCH": default},
+                capture_output=True, text=True, timeout=60)
+            got = [l for l in io.open(output, encoding="utf-8").read().splitlines() if l]
+            return run.returncode, got
+
+    def says(stub, want, **kw):
+        rc, got = answer(stub, **kw)
+        # THE EXIT CODE IS PART OF THE ANSWER. `dup` is the root of the graph;
+        # a non-zero exit here fails every job that `needs:` it, which is
+        # deny-by-default inverted -- an unanswerable question would STOP CI.
+        return rc == 0 and got == ["already_covered=%s" % want]
+
+    def const(text, rc=0):
+        return "#!/bin/bash\nprintf '%%s\\n' %r\nexit %d\n" % (text, rc)
+
+    if script:
+        # ONE CASE SAYS YES.
+        check("an OPEN pull request whose head IS this commit -> true",
+              says(const("1"), "true"))
+        # AND EVERY OTHER PATH SAYS RUN IT. This is the 2026-08-14 lesson --
+        # six commits with no CI at all -- held as a property of the script.
+        for name, stub, kw in [
+            ("no open pull request has this head", const("0"), {}),
+            ("HTTP 403 (the permission is missing)", const("", 1), {}),
+            ("the network failed (rc 7)", const("", 7), {}),
+            ("`gh` is not installed (rc 127)", "#!/bin/bash\nexit 127\n", {}),
+            ("the body does not parse as a count", const("<html>502</html>"), {}),
+            ("the body is empty", const(""), {}),
+            ("the event is a pull_request", const("1"), {"event": "pull_request"}),
+            ("the event is a workflow_dispatch", const("1"), {"event": "workflow_dispatch"}),
+            ("the event is a schedule", const("1"), {"event": "schedule"}),
+            ("the push is to the default branch", const("1"), {"branch": "trunk"}),
+        ]:
+            check("deny-by-default: %s -> false" % name, says(stub, "false", **kw))
+
+        # THE FILTER ITSELF, run for real. The four cases that separate a head
+        # from an ancestor and an open PR from a closed one cannot be asked of
+        # a stub that returns a number someone else computed.
+        have_jq = subprocess.run(["bash", "-c", "command -v jq"],
+                                 capture_output=True).returncode == 0
+        check("`jq` is REACHABLE, so the filter cases below are ASKED rather "
+              "than skipped (`apt-get install jq`)", have_jq,
+              "jq present" if have_jq else "jq missing")
+        if have_jq:
+            def over(rows):
+                fd, path = tempfile.mkstemp(suffix=".json")
+                with io.open(fd, "w", encoding="utf-8") as fh:
+                    fh.write(rows)
+                return ('#!/bin/bash\nf=""\np=""\nfor a in "$@"; do\n'
+                        '  if [ "$p" = "--jq" ]; then f="$a"; fi\n  p="$a"\n'
+                        'done\njq "$f" < %s\n' % path)
+            HEAD = "a" * 40
+            check("REAL jq: an open PR at THIS sha -> true",
+                  says(over('[{"state":"open","head":{"sha":"%s"}}]' % HEAD), "true"))
+            check("REAL jq: an open PR at a DIFFERENT sha -> false",
+                  says(over('[{"state":"open","head":{"sha":"deadbeef"}}]'), "false"))
+            check("REAL jq: a CLOSED PR at this sha -> false",
+                  says(over('[{"state":"closed","head":{"sha":"%s"}}]' % HEAD), "false"))
+            check("REAL jq: no pull request at all -> false",
+                  says(over("[]"), "false"))
+
+        # THE CHECK CAN FAIL, and the two planted defects are the two ways
+        # this job has actually been wrong: a stub that never asks (BCI-07's,
+        # which this section used to REQUIRE), and an answer that starts at
+        # `true` so an unanswered question reads as a yes (the inversion of
+        # deny-by-default, which is the six-uncovered-commits defect).
+        real = script
+        try:
+            script = "echo 'already_covered=false' >> \"$GITHUB_OUTPUT\""
+            check("PLANTED: the stub that never asks IS caught",
+                  not says(const("1"), "true"))
+            script = real.replace("covered=false", "covered=true", 1)
+            check("PLANTED: deny-by-default inverted IS caught",
+                  not says(const("", 1), "false"))
+        finally:
+            script = real
     check("push and PR concurrency groups include the event coordinate",
           "format('{0}@{1}@{2}'," in ci and
           "github.ref_name, github.event_name)" in ci)
