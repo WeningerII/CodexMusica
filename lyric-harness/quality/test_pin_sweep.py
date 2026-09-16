@@ -466,8 +466,86 @@ def test_the_argv_consumption_is_proven_not_assumed():
               and row["evidence_kind"] == "silent exit 0", row)
 
 
+def test_cli_preserves_results_and_refuses_unmeasured_runs():
+    """Exercise the real CLI against a small, isolated instrument population."""
+    import json
+    import shutil
+    import signal
+    import subprocess
+    import tempfile
+    from pathlib import Path
+
+    with tempfile.TemporaryDirectory() as tmp:
+        quality = Path(tmp) / "quality"
+        quality.mkdir()
+        runner = quality / "pin_sweep.py"
+        shutil.copyfile(PS.__file__, runner)
+
+        def run(*args):
+            result = subprocess.run([sys.executable, str(runner), *args],
+                                    capture_output=True, text=True, timeout=20)
+            return result.returncode, json.loads(result.stdout)
+
+        (quality / "a_hold.py").write_text(
+            'import sys\nif "--check" in sys.argv: print("RESULT: PASS")\n')
+        (quality / "b_move.py").write_text(
+            'import sys\nif "--check" in sys.argv:\n'
+            '    print("[FAIL] committed 1 measured 2")\n    sys.exit(1)\n')
+        # Prints a plausible success but never consumes the requested flag.
+        (quality / "c_unconsumed.py").write_text(
+            '\'"--check"\'\nprint("RESULT: PASS")\n')
+        code, report = run("--json")
+        check("normal sweep retains every result once and refuses an unconsumed flag",
+              code == 1 and report["counts"] ==
+              {"HOLDS": 1, "MOVED": 1, "CANNOT RUN": 1}
+              and report["rows"][-1]["evidence_kind"] == "argv not certified",
+              report)
+        code, _ = run("--json", "--only", "c_unconsumed.py")
+        check("an entirely inconclusive sweep exits 2", code == 2, code)
+        code, report = run("--json", "--only", "absent.py")
+        check("an empty selection refuses instead of certifying zero pins",
+              code == 2 and report.get("error") == "no instruments matched")
+        code, report = run("--json", "--only", "a_hold.py")
+        check("an actually measured clean selection still passes",
+              code == 0 and report["counts"]["HOLDS"] == 1)
+
+        # Signal only after the third child announces readiness on disk, so
+        # both completed rows must already be available to the signal handler.
+        (quality / "c_unconsumed.py").unlink()
+        ready = Path(tmp) / "ready"
+        (quality / "c_wait.py").write_text(
+            'import sys, time\nfrom pathlib import Path\n'
+            'if "--check" in sys.argv:\n'
+            '    Path("ready").touch()\n    time.sleep(5)\n')
+        with tempfile.TemporaryFile(mode="w+") as output:
+            process = subprocess.Popen([sys.executable, str(runner), "--json"],
+                                       stdout=output, stderr=subprocess.PIPE)
+            try:
+                deadline = time.monotonic() + 10
+                while not ready.exists() and process.poll() is None:
+                    if time.monotonic() >= deadline:
+                        break
+                    time.sleep(0.02)
+                assert ready.exists(), "third instrument never started"
+                process.send_signal(signal.SIGTERM)
+                process.communicate(timeout=10)
+                output.seek(0)
+                report = json.load(output)
+                check("interruption preserves completed holds AND moved evidence",
+                      process.returncode == 2 and report["partial"]
+                      and report["counts"] ==
+                      {"HOLDS": 1, "MOVED": 1, "CANNOT RUN": 0}
+                      and report["rows"][1]["evidence"]
+                      and report["not_reached"] == ["quality/c_wait.py"], report)
+            finally:
+                if process.poll() is None:
+                    process.kill()
+                    process.communicate()
+
+
 if __name__ == "__main__":
-    for fn in (test_the_sweep_cannot_repair,
+    for fn in (test_cli_preserves_results_and_refuses_unmeasured_runs,
+               test_the_sweep_cannot_repair,
                test_discovery_is_mechanical_and_the_exclusions_are_declared,
                test_the_exit_vocabulary_is_per_instrument,
                test_evidence_is_never_empty_under_a_moved_verdict,

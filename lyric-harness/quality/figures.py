@@ -131,47 +131,7 @@ def _origin_line(span):
     return int(head) + 1 if head.isdigit() else None
 
 
-def findings(stream, names=None):
-    """The per-line figures as (line_no, code, message, evidence) tuples, in
-    the shape `quality/revise.Finding` is built from.
-
-    ONE FINDING PER (LINE, SCHEMA), carrying the instance COUNT, rather than
-    one per instance. A line of four alliterating words yields six pairs and
-    printing six identical notes under one line is the duplicate-findings
-    shape BACKLOG 1.5 was about: it does not hide a finding, it hides the
-    OTHER findings underneath it.
-    """
-    rep = line_figures(stream, names)
-    out = []
-    for line_no in sorted(rep["lines"]):
-        per = {}
-        for f in rep["lines"][line_no]:
-            per.setdefault(f["schema"], []).append(f)
-        for name in sorted(per):
-            n = len(per[name])
-            out.append((
-                line_no, "LINE_FIGURE",
-                f"L{line_no} carries {name!r} "
-                f"({n} instance{'s' if n != 1 else ''})",
-                f"an INTRA-LINE figure (placement "
-                f"{', '.join(_placements_of(name)) or 'unplaced'}), reported "
-                f"because it is a fact about this line and not because it is "
-                f"a defect — whether the figure is wanted is the writer's "
-                f"call (doctrine 7: a floor, not a ranking). No pair of lines "
-                f"can stand in it, which is why the mandate layer refuses it "
-                f"and this layer reads it."))
-    for r in rep["refused"]:
-        out.append((
-            None, "LINE_FIGURE_REFUSED",
-            f"{r['schema']!r} could not be looked for on this draft",
-            f"{r.get('detail', '')} — REFUSED, not measured as zero "
-            f"(doctrine 20): a figure nothing could look for and a figure "
-            f"that is absent are different answers."))
-    return out
-
-
-__all__ = ["INTRA_LINE_PLACEMENTS", "intra_line_schemas", "line_figures",
-           "findings"]
+__all__ = ["INTRA_LINE_PLACEMENTS", "intra_line_schemas", "line_figures"]
 
 
 if __name__ == "__main__":

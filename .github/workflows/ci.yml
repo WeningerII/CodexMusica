@@ -13,6 +13,14 @@ permissions:
   # endpoint answers 403 -- deny-by-default would keep that safe and keep the
   # duplicate, so the permission is the difference between the fix working and
   # the fix being decorative. Read-only; nothing here may start or cancel a run.
+  #
+  # ADDENDUM 2026-09-16: `dup` asks question 1 ONLY, which needs
+  # `pull-requests: read` and nothing else, and no job in this file reads the
+  # Actions API — so `actions: read` is currently unused. It is KEPT, not
+  # deleted: the paragraph above is the argument for it, M-251's question is a
+  # decision that can come back, and `quality/test_shard.py` §6 pins the
+  # permission's presence. A read-only scope nothing calls costs nothing. What
+  # would be false is calling it load-bearing TODAY.
   actions: read
 
 on:
@@ -129,18 +137,132 @@ concurrency:
   cancel-in-progress: ${{ (github.head_ref || github.ref_name) != 'main' }}
 
 jobs:
-  # Every event executes its own gates. A PR's existence is not proof that
+  # ── Is this exact commit already covered by an open pull request? ─────
+  #
+  # ~~Every event executes its own gates. A PR's existence is not proof that
   # another run exists, completed, or tested its merge tree. Keep this output
-  # explicit because downstream jobs use it; never infer coverage from a PR.
+  # explicit because downstream jobs use it; never infer coverage from a PR.~~
+  #
+  # STRUCK 2026-09-16 (doctrine 17) AND KEPT, because one clause of it is the
+  # residual this job now accepts on purpose — see THE RESIDUAL below. This is
+  # the third time the question has changed hands: M-250/M-251 built it
+  # (2026-09-06), M-252 moved it into its own job the same day, and BCI-07
+  # (a75da39f, 2026-09-08) struck it and left the stub the struck lines
+  # describe. MISSING.md's own note on BCI-07 says what was left open:
+  # "whether the pull-request run should be the only run on such a branch is
+  # the owner's call." THIS FILE DOES NOT SETTLE THAT; it restores the
+  # mechanism so the answer is a switch rather than a rewrite.
+  #
+  # WHAT IS NEW SINCE BCI-07, AND IT IS THE REASON THIS CAN WORK NOW. BCI-07's
+  # stated reason was that event ordering could leave only the run that
+  # skipped its work: the push run defers to a pull_request run that is then
+  # cancelled, and the commit ends with no CI at all. That was true of the
+  # concurrency key of the day, under which push and pull_request shared one
+  # group and the newer killed the older — and it is what made M-252 PARTIAL,
+  # since a twin was never once observed SKIPPING rather than being cancelled.
+  # BCI-07 ITSELF REMOVED THAT RACE, in the same commit, by putting
+  # `github.event_name` into the group key (see `concurrency:` above). The
+  # twins no longer cancel each other; both now run to completion. The cost
+  # BCI-07 could not have measured is the cost it had just created.
+  #
+  # MEASURED 2026-09-16 on `1f6e987c` (PR #305): push run 35068060877 (35
+  # jobs) and pull_request run 35068064645 (39 jobs), both live, both stamped
+  # on that one sha, both with `dup` concluding "This event owns its CI
+  # evidence". The pull_request run's job-name set is a STRICT SUPERSET of the
+  # push run's — nothing is push-only; the PR run adds the four
+  # `capacity-matrix / cells` jobs. Twelve such duplicate push runs were
+  # cancelled by hand that morning, freeing ~420 jobs from a queue whose
+  # oldest entry had been waiting since 01:46Z — against the account's 20-job
+  # concurrent cap, which M-244 and M-287 both measured binding.
+  #
+  # THE RESIDUAL, NAMED RATHER THAN HIDDEN, and it is the struck sentence's
+  # one true clause. The pull_request run checks out `refs/pull/N/merge`
+  # — nothing in this file overrides `actions/checkout`'s default `ref` — so
+  # it tests THIS BRANCH MERGED INTO ITS BASE, while the push run tests this
+  # commit's tree alone. When the base has moved they are not the same bytes,
+  # and `github.sha` differs with them (`lyrics-image`'s `TESTED_SHA`). So
+  # deferring keeps the answer that decides the merge and drops the answer
+  # about a tree nobody ships. That is a trade, not a free win. It is
+  # bounded: the two paths that consume a sha — `lyrics-image`'s publish step
+  # and deploy-connector.yml's `workflow_run` — are both already restricted
+  # to pushes on the default branch, which this question never touches.
+  #
+  # DENY BY DEFAULT, which is the half that keeps the 2026-08-14 lesson. A
+  # push to a branch with NO open pull request is that branch's ONLY CI — the
+  # six uncovered commits the `on: push` filter above exists to prevent — so
+  # `covered` starts `false` and ONLY a positive, parsed count moves it. A
+  # non-push event, a push to the default branch, a 403, a network failure, a
+  # body that does not parse as a count, a missing token, a missing `gh`:
+  # every one of them leaves it `false` and the run does the work. An
+  # unanswered question is not a yes.
+  #
+  # THE QUESTION IS ITS OWN JOB (M-252) and must stay one: a job's outputs
+  # land when the JOB ends, `gate` measured 57 s publishing this answer from
+  # inside itself, and everything downstream waits on it. No `needs:`, no
+  # checkout, no toolchain — one HTTP question, capped at 30 s inside a
+  # two-minute job.
+  #
+  # ONE QUESTION, NOT TWO. M-251's second question — has the default branch
+  # already run this exact sha green — is NOT restored here. It reads workflow
+  # RUNS, and a run can conclude `success` having SKIPPED every job, which is
+  # precisely what this question now makes the twin do; deriving "green" from
+  # such a run is a claim this job could not make honestly. The merge mirror
+  # it caught is avoidable with no code at all (MISSING.md: fast-forward the
+  # branch locally and push it only with the next real commit).
   dup:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     outputs:
       already_covered: ${{ steps.ask.outputs.already_covered }}
     steps:
-      - name: This event owns its CI evidence
+      - name: Does an open pull request already own this commit's CI?
         id: ask
-        run: echo 'already_covered=false' >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+          BRANCH: ${{ github.ref_name }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        # NOTHING IN THIS SCRIPT MAY EXIT NON-ZERO. The default shell is
+        # `bash -e`, and a failing command here fails `dup`, which every job
+        # `needs:` — so an unanswerable question would STOP CI rather than
+        # run it, which is deny-by-default inverted. The one command that can
+        # fail is therefore the condition of an `elif` and is negated with
+        # `!`, two places `-e` does not reach, and its failure IS the answer
+        # `false`.
+        run: |
+          covered=false
+
+          if [ "$EVENT_NAME" != 'push' ]; then
+            why="a '$EVENT_NAME' run is never the duplicate — it is the run a pull request's checks are read from"
+          elif [ "$BRANCH" = "$DEFAULT_BRANCH" ]; then
+            why="a push to '$DEFAULT_BRANCH' is the one run nothing may silently drop"
+          elif ! answer="$(timeout 30 gh api \
+                -H 'Accept: application/vnd.github+json' \
+                -H 'X-GitHub-Api-Version: 2022-11-28' \
+                "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/pulls?per_page=100" \
+                --jq '[.[] | select(.state == "open" and .head.sha == $ENV.GITHUB_SHA)] | length' 2>&1)"; then
+            why="the question could not be asked ($answer) — an unanswered question is not a yes"
+          else
+            case "$answer" in
+              '' | *[!0-9]*)
+                why="the answer did not parse as a count ($answer) — an unanswered question is not a yes"
+                ;;
+              0)
+                why="no OPEN pull request has this commit at its head — this push is this branch's only CI"
+                ;;
+              *)
+                covered=true
+                why="$answer open pull request(s) have this commit at their head"
+                ;;
+            esac
+          fi
+
+          echo "already_covered=$covered" >> "$GITHUB_OUTPUT"
+          if [ "$covered" = 'true' ]; then
+            echo "::notice title=CI duplicate::$why ($GITHUB_SHA) — every job below that can run on a push SKIPS (M-250) -- 21 of the 25, the other three being unable to run on a push at all. Skipped is neutral where cancelled is not, and the pull_request run carries the verdict."
+          else
+            echo "already_covered=false — $why"
+          fi
 
   # Cheap, fast-failing gates, run FIRST and alone so an expensive job never
   # burns a runner proving something that is about to be thrown away.
@@ -167,9 +289,23 @@ jobs:
       # Whether this diff can possibly change api/ or codex.html. Consumed by the
       # two jobs whose cost is linear in catalog size. See the step that sets it.
       artifacts_affected: ${{ steps.scope.outputs.artifacts_affected }}
-      # Whether another run has already tested this exact commit — a
+      # ~~Whether another run has already tested this exact commit — a
       # pull_request run now, or the default branch earlier — so this push run
-      # is a duplicate. Consumed by EVERY job below. See the step.
+      # is a duplicate. Consumed by EVERY job below. See the step.~~
+      #
+      # STRUCK 2026-09-16 (doctrine 17). It describes an output `gate` does
+      # not have and is wrong three ways, each kept rather than deleted:
+      # the output moved OUT of `gate` and into `dup` with M-252 (2026-09-06)
+      # and `gate` has published no such output since; "or the default branch
+      # earlier" was M-251's second question, which `dup` does not restore;
+      # and "EVERY job below" is not what this file does. COUNTED off this
+      # file 2026-09-16: 25 jobs — `dup` publishes the answer, 21 consume it
+      # with `needs: [dup, ...]` plus the guard, and three do not (`tandem`,
+      # `mutation`, `nightly`). Those three are not omissions wearing an
+      # exemption's coat: each is gated to `workflow_dispatch` or a NAMED
+      # cron, so none can run on a push at all, and `quality/test_shard.py`
+      # §6 proves that FROM THE FILE rather than from a list. The claim that
+      # is true is: every job that can run on a push consumes the answer.
     steps:
       - uses: actions/checkout@v5
         with:
@@ -2059,6 +2195,25 @@ jobs:
       - name: Install nltk (five suites reach the POS tagger through features.py)
         run: python3 -m pip install --disable-pip-version-check --require-hashes -r "$GITHUB_WORKSPACE/mcp/requirements-runtime.txt"
 
+      # AND NOW A RESEARCH INSTRUMENT IS IN THIS JOB TOO. `record` carries the
+      # same step for `kalevala_rate.py` and states the rule: an instrument is
+      # not the harness, so vectorising one is allowed and the job that runs it
+      # declares the dependency. `quality/rhyme_organization.py` and its suite
+      # both `import numpy as np` at MODULE level, so without this the suite
+      # does not fail a check -- it dies at import, and `suites` reports a
+      # missing dependency in the shape of a failed test (doctrine 20: a
+      # crash is not a measurement).
+      #
+      # FOURTH instance of this defect, and the count is kept because the
+      # shape never varies: numpy/sklearn in `nightly`, nltk in `suites`, nltk
+      # in `record`, now numpy here. Every one was a module-level or lazy
+      # import in a file added to a job that did not install what it needs,
+      # and every one was found by RUNNING CI rather than by reading it. The
+      # stdlib boundary that `record` guards is untouched: it covers
+      # lyric_harness, floor, revise and propose, and none of them import this.
+      - name: Install numpy (rhyme_organization's conditional nulls are vectorised)
+        run: python3 -m pip install --disable-pip-version-check numpy
+
       - name: Stage the tagger model and the concreteness norms
         working-directory: lyric-harness
         run: python3 quality/fetch_data.py --research
@@ -2094,7 +2249,7 @@ jobs:
       # caught `nc_census` on the run that added it — and `structures` on
       # the run that added THAT. `comm -23 <(ls quality/test_*.py | sed 's|quality/test_||;s|\.py$||'
       # | sort) <(the names in this file, sorted)` is that command.
-      - name: "The 93 cheap suites (melody joined 2026-09-16 with I-1's melody-first entrance -- the suite shipped in that lot WITHOUT this line, and test_verbs 24's orphan census caught it in CI rather than anybody reading the diff, which is the same shape it has caught every other time a suite arrived without its ci.yml line; label 92 to 93; stub_resolution joined 2026-09-15 for A-1 full chorus blocks; tempo joined 2026-09-15 for C-5 declared elapsed-time conversion; computational_audit joined 2026-09-14 with the lyrics computational audit -- 24 unittest cases over the corrected occurrence, boundary and Sidak arithmetic, 6.4 s -- caught by test_verbs §24's orphan census on the audit's own PR, the same shape it has caught every time a suite arrived without its ci.yml line, label 89 to 90; within_item joined 2026-09-10 with M-270's subclass-aware concreteness-norm gate, in the same commit as the fix — the within-item extractor's three norm-backed features had been NaN on every item for two days behind a green tree, because the one suite that would have said so is cold and heavy and lives outside this job; floor_window, capacity_receipt and candidate_pair_projection joined 2026-09-08 for the per-line query cost regression; production_data, production_harness, production_journal, production_relations and production_revision joined 2026-09-08 for the production audit repairs; audit_regressions joined 2026-09-07 for verification identity, coverage and durable proposal replay; propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling and data_row_claims with the re-derived provenance numbers, 2026-08-21; pin_sweep + suite_sweep 2026-08-22 — both were ORPHANS, found by the very check in test_verbs.py that exists because a list that is short looks exactly like a list that is complete; mandate_relation + relation_shapes + relations_null 2026-08-22, the SAME check catching the same shape a second time in one day — three suites written during the relation-ladder work and never added here, so every one of them was green on a developer machine and unrun in CI; placement 2026-08-22 with the section-constraint layer, added in the same commit as the suite rather than after somebody noticed; section_marks the same day with the bracketed-mark triage, whose own `--check` is the gate that a corpus load printing a NEW mark turns red instead of joining the 62% that answered nothing; slots 2026-08-23 with the placement coordinate and recover the same day with the second door into the pipeline, each added in the same commit as the module it gates so neither joins the census below; capabilities 2026-08-23 — the SAME orphan census a third time, and this one had been unrun since the day it was written — `quality/test_capabilities.py` §8 is what pins the 77-of-77-askable claim CLAUDE.md leads with, 51 checks at 6.9s, named by nothing that gates; gate_census 2026-08-23 with the census of which findings can refuse anything, added in the same commit as the module it gates — and the instrument's own first run is why it is here rather than a sitting later: it named two constructors, measured 46 codes, and omitted `quality/grid.py`'s SHAPE layer entirely, which a census reports as fully gated; songs 2026-08-24 — the DELIVERED songs, which until that day nothing in this repository read at all: zero checks under quality/, zero mentions here, and two of the five had shipped with their section structure missing while every gate in the tree stayed green; render_form the same day — the check that reads a MESSAGE, which no other gate can, plus the Stop hook that hands it the transcript and BLOCKS a turn carrying a section bracket with its apparatus stripped; songs_record the same day — the SERIES, because every report about these songs had been a PASS/FAIL bit read aloud as a judgement, and its claim check is the one gate in this tree aimed at the narrator rather than the code; songs_log the same day — the PROCESS beside the product, because the series banks what a song IS and nothing banked how it got there, and the zero-ceiling rhyme families were a markdown table no command could re-derive; sentencehood 2026-08-25 with the M-110 noun-stack layer — the nightly gained `sentencehood.py --check` in the same commit as the module and its SUITE joined nothing, the census's own defect one more time, caught by the census; narrative 2026-08-25 — the paired blind experiment's own suite, written across the M-121 narrative-layer sittings and never added here, and the census's finding was MASKED for a day: the orphan check is test_verbs §24, shard 1 died at §20's M-116 breakage two sections in front of it, so a crash in one section hid an orphan in another — the fix that cleared the crash is what let the census speak; door_census 2026-08-26 with the M-139 census of which DOOR each pair-satisfaction site judges at, added in the same commit as the module it gates -- and this label went from 71 to 72 with it, which `test_verbs.py` §43's own check is what caught: the label a reader trusts must equal the list it labels, and a suite added without moving the number is a list that is short looking exactly like a list that is complete; chance_rate 2026-08-26 with M-138's strike and M-140 -- the chance-rate measurement had by then been improvised TWICE from uncommitted scripts, which standing rule 3 calls a defect report, and its suite is here in the same commit as the module so it never joins the orphan census above; verify_figures 2026-08-28 with M-33's live/history citation instrument, added the sitting after its module -- the orphan census caught it on the full test_verbs run, the same shape a fourth time, and the label moved 73 to 74 with it; replay_memo 2026-08-29 with M-167's deferred-replay grading memo — the warm worker's cross-request answer to the quadratic resume cost round 9 measured, added in the same commit as the module it gates, label 74 to 75; staging 2026-09-01 with the retried, atomic staged download -- run #1195 lost a whole CI run to one TLS reset in a step that had not begun any test, and the `suites` shard matrix in this same commit took the number of jobs performing that unretried download from 5 to 8 per run, so the sharding made the failure MORE likely and this is the cost being paid rather than deferred, label 75 to 76; ban_convergence 2026-09-02 with the ban-against-the-bank instrument (M-168, triage C18), added in the same commit as the module it gates — its 13 checks re-derive one song's README triple through `Reviser.inspect` and kill a one-word mutation, ~2 min, label 76 to 77; cross_song 2026-09-02 with the cross-song disclosure M-111's ruling built (triage C08), added in the same commit as the module it gates — the section that earns its place is the PREFIX PIN, which holds `screen` output as a byte prefix of `screen --bank` and so makes the GATE the ruling refused mechanically unreachable rather than merely discouraged; the null half of the pin costs ~60s of corpus tagging and is `cross_song.py --check`'s business, which pin_sweep discovers by itself, label 77 to 78; brief_provenance 2026-09-02 with the gate on WHETHER A REVISION WAS BRIEFED (M-200), added in the same commit as the module it gates — the loop had been computing a complete OFFERED field per bound position, excluding both ban tiers, and nothing required a writer to read it, so a session hand-guessed five replacement pairs across three `finish` runs and every one came back BANNED; the check that earns its place is the FINGERPRINT one, which makes a brief earned on one draft unable to launder a hand-edit made to another, label 78 to 79; plan + capacity OUT to their own dealt matrix jobs and shard IN — the one dealing-and-timing idiom every dealt suite now calls — 2026-09-05 (M-244), label 79 to 78; battery_rounds 2026-09-06 with the one-row-per-round battery table and its closed layer vocabulary (M-254 D), added in the same commit as the module it gates — six checks, under a second, label 78 to 79)"
+      - name: "The 94 cheap suites (melody joined 2026-09-16 with I-1's melody-first entrance -- the suite shipped in that lot WITHOUT this line, and test_verbs 24's orphan census caught it in CI rather than anybody reading the diff, which is the same shape it has caught every other time a suite arrived without its ci.yml line; rhyme_organization joined 2026-09-15 with the L-1/L-2 conditional-null redesign, exact orbits and unsupported timing refusal; stub_resolution joined 2026-09-15 for A-1 full chorus blocks; tempo joined 2026-09-15 for C-5 declared elapsed-time conversion; computational_audit joined 2026-09-14 with the lyrics computational audit -- 24 unittest cases over the corrected occurrence, boundary and Sidak arithmetic, 6.4 s -- caught by test_verbs §24's orphan census on the audit's own PR, the same shape it has caught every time a suite arrived without its ci.yml line, label 89 to 90; within_item joined 2026-09-10 with M-270's subclass-aware concreteness-norm gate, in the same commit as the fix — the within-item extractor's three norm-backed features had been NaN on every item for two days behind a green tree, because the one suite that would have said so is cold and heavy and lives outside this job; floor_window, capacity_receipt and candidate_pair_projection joined 2026-09-08 for the per-line query cost regression; production_data, production_harness, production_journal, production_relations and production_revision joined 2026-09-08 for the production audit repairs; audit_regressions joined 2026-09-07 for verification identity, coverage and durable proposal replay; propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling and data_row_claims with the re-derived provenance numbers, 2026-08-21; pin_sweep + suite_sweep 2026-08-22 — both were ORPHANS, found by the very check in test_verbs.py that exists because a list that is short looks exactly like a list that is complete; mandate_relation + relation_shapes + relations_null 2026-08-22, the SAME check catching the same shape a second time in one day — three suites written during the relation-ladder work and never added here, so every one of them was green on a developer machine and unrun in CI; placement 2026-08-22 with the section-constraint layer, added in the same commit as the suite rather than after somebody noticed; section_marks the same day with the bracketed-mark triage, whose own `--check` is the gate that a corpus load printing a NEW mark turns red instead of joining the 62% that answered nothing; slots 2026-08-23 with the placement coordinate and recover the same day with the second door into the pipeline, each added in the same commit as the module it gates so neither joins the census below; capabilities 2026-08-23 — the SAME orphan census a third time, and this one had been unrun since the day it was written — `quality/test_capabilities.py` §8 is what pins the 77-of-77-askable claim CLAUDE.md leads with, 51 checks at 6.9s, named by nothing that gates; gate_census 2026-08-23 with the census of which findings can refuse anything, added in the same commit as the module it gates — and the instrument's own first run is why it is here rather than a sitting later: it named two constructors, measured 46 codes, and omitted `quality/grid.py`'s SHAPE layer entirely, which a census reports as fully gated; songs 2026-08-24 — the DELIVERED songs, which until that day nothing in this repository read at all: zero checks under quality/, zero mentions here, and two of the five had shipped with their section structure missing while every gate in the tree stayed green; render_form the same day — the check that reads a MESSAGE, which no other gate can, plus the Stop hook that hands it the transcript and BLOCKS a turn carrying a section bracket with its apparatus stripped; songs_record the same day — the SERIES, because every report about these songs had been a PASS/FAIL bit read aloud as a judgement, and its claim check is the one gate in this tree aimed at the narrator rather than the code; songs_log the same day — the PROCESS beside the product, because the series banks what a song IS and nothing banked how it got there, and the zero-ceiling rhyme families were a markdown table no command could re-derive; sentencehood 2026-08-25 with the M-110 noun-stack layer — the nightly gained `sentencehood.py --check` in the same commit as the module and its SUITE joined nothing, the census's own defect one more time, caught by the census; narrative 2026-08-25 — the paired blind experiment's own suite, written across the M-121 narrative-layer sittings and never added here, and the census's finding was MASKED for a day: the orphan check is test_verbs §24, shard 1 died at §20's M-116 breakage two sections in front of it, so a crash in one section hid an orphan in another — the fix that cleared the crash is what let the census speak; door_census 2026-08-26 with the M-139 census of which DOOR each pair-satisfaction site judges at, added in the same commit as the module it gates -- and this label went from 71 to 72 with it, which `test_verbs.py` §43's own check is what caught: the label a reader trusts must equal the list it labels, and a suite added without moving the number is a list that is short looking exactly like a list that is complete; chance_rate 2026-08-26 with M-138's strike and M-140 -- the chance-rate measurement had by then been improvised TWICE from uncommitted scripts, which standing rule 3 calls a defect report, and its suite is here in the same commit as the module so it never joins the orphan census above; verify_figures 2026-08-28 with M-33's live/history citation instrument, added the sitting after its module -- the orphan census caught it on the full test_verbs run, the same shape a fourth time, and the label moved 73 to 74 with it; replay_memo 2026-08-29 with M-167's deferred-replay grading memo — the warm worker's cross-request answer to the quadratic resume cost round 9 measured, added in the same commit as the module it gates, label 74 to 75; staging 2026-09-01 with the retried, atomic staged download -- run #1195 lost a whole CI run to one TLS reset in a step that had not begun any test, and the `suites` shard matrix in this same commit took the number of jobs performing that unretried download from 5 to 8 per run, so the sharding made the failure MORE likely and this is the cost being paid rather than deferred, label 75 to 76; ban_convergence 2026-09-02 with the ban-against-the-bank instrument (M-168, triage C18), added in the same commit as the module it gates — its 13 checks re-derive one song's README triple through `Reviser.inspect` and kill a one-word mutation, ~2 min, label 76 to 77; cross_song 2026-09-02 with the cross-song disclosure M-111's ruling built (triage C08), added in the same commit as the module it gates — the section that earns its place is the PREFIX PIN, which holds `screen` output as a byte prefix of `screen --bank` and so makes the GATE the ruling refused mechanically unreachable rather than merely discouraged; the null half of the pin costs ~60s of corpus tagging and is `cross_song.py --check`'s business, which pin_sweep discovers by itself, label 77 to 78; brief_provenance 2026-09-02 with the gate on WHETHER A REVISION WAS BRIEFED (M-200), added in the same commit as the module it gates — the loop had been computing a complete OFFERED field per bound position, excluding both ban tiers, and nothing required a writer to read it, so a session hand-guessed five replacement pairs across three `finish` runs and every one came back BANNED; the check that earns its place is the FINGERPRINT one, which makes a brief earned on one draft unable to launder a hand-edit made to another, label 78 to 79; plan + capacity OUT to their own dealt matrix jobs and shard IN — the one dealing-and-timing idiom every dealt suite now calls — 2026-09-05 (M-244), label 79 to 78; battery_rounds 2026-09-06 with the one-row-per-round battery table and its closed layer vocabulary (M-254 D), added in the same commit as the module it gates — six checks, under a second, label 78 to 79)"
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -2179,7 +2334,7 @@ jobs:
                    fit nc_census structure_census placement structures align slots \
                    relations crosslinguistic capabilities declared_inputs door_census \
                    suite_sweep ltc songs_log cym positive_control song_function \
-                   chance_rate time_layer readings_seam narrative pin_sweep taxonomy \
+                   chance_rate time_layer rhyme_organization readings_seam narrative pin_sweep taxonomy \
                    section_marks phonology nucleus corpus_taxonomy mut_band coda \
                    band relation_shapes matrix render_form verify_entries register_audit \
                    phon_msa mandate_language phon_fas phon_non phon_san staging \
@@ -2464,6 +2619,11 @@ jobs:
         if: ${{ always() && matrix.shard == 1 }}
         working-directory: lyric-harness
         run: python3 quality/chance_rate.py --check
+
+      - name: E-5 empty-coda evidence compatibility
+        if: ${{ always() && matrix.shard == 3 }}
+        working-directory: lyric-harness
+        run: python3 quality/e5_coda_adoption.py
 
       # The revision loop itself. 374.87 CPU-s for the pair, MEASURED, both
       # green -- against the "15+ minutes each" that kept them out until today.

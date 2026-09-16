@@ -3405,8 +3405,128 @@ def test_the_voice_is_a_carried_coordinate():
           f"{[(b.function, len(b.lines)) for b in pat]}")
 
 
+def test_tradition_scoped_function_names():
+    """M-24: names resolve only inside the declared tradition, end to end."""
+    import copy
+    from dataclasses import asdict
+    from quality import plan as P
+
+    check("qualified and explicit tradition resolution agree",
+          _G.as_function(" POPULAR_SONG::BRIDGE ") == "bridge"
+          and _G.as_function("bridge", tradition="popular_song") == "bridge")
+    check("the break name has a scoped instrumental reading",
+          _G.as_function("english_song::break") == "interlude")
+    for value, reason in (("sonata::bridge", "connective"),
+                          ("sonata::exposition", "tonal"),
+                          ("fugue::exposition", "fugal"),
+                          ("fugue::stretto", "stretto"),
+                          ("opera::stretta", "stretta"),
+                          ("haitian_drumming::break", "start/stop")):
+        try:
+            _G.as_function(value)
+        except UnknownFunction as e:
+            check(f"{value} gets its OWN reason", reason in str(e))
+        else:
+            check(f"{value} cannot borrow a lyric function", False)
+    for name, tradition in (("bridge", "sonatta"), ("bridge", "fugue"),
+                            ("middle-eight", "sonata"), ("stretta", "fugue"),
+                            ("stretto", "opera"), ("bridge", ""),
+                            ("", "popular_song"), ("bridge", None)):
+        check(f"undeclared scoped pair {(tradition, name)} refuses",
+              _raises(lambda: _G.resolve_function_name(name, tradition)))
+    check("a qualified name cannot contradict an explicit tradition",
+          _raises(lambda: _G.as_function("popular_song::bridge", "sonata")))
+    check("malformed qualifications cannot turn into bare IDs",
+          all(_raises(lambda v=v: _G.as_function(v))
+              for v in ("::bridge", "popular_song::", "popular_song::x::bridge")))
+    # Reject duplicate (tradition, name), even when the target is unchanged.
+    row = _G.FunctionName("test_a", "bridge", "bridge", evidence="test")
+    other = _G.FunctionName("test_b", "bridge", "interlude", evidence="test")
+    rows = _G._index_function_names([row, other])
+    check("identical names in different traditions keep distinct targets",
+          rows[("test_a", "bridge")].function == "bridge"
+          and rows[("test_b", "bridge")].function == "interlude")
+    check("duplicate names cannot win by insertion order",
+          _raises(lambda: _G._index_function_names([row, row])))
+    check("unsupported targets and ungrounded rows cannot enter the table",
+          _raises(lambda: _G._index_function_names([
+              _G.FunctionName("test", "x", "invented", evidence="test")]))
+          and _raises(lambda: _G._index_function_names([
+              _G.FunctionName("test", "x", "bridge")])))
+    # Preserve ALL existing aliases and differentiae in the qualified path.
+    for (tradition, name), row in _G.SECTION_FUNCTION_NAMES.items():
+        if row.function:
+            check(f"scoped row {tradition}::{name} retains its contract",
+                  _G.as_function(f"{tradition}::{name}")
+                  == _G.as_function(row.function))
+    qualified = Section("display only", 8,
+                        function="popular_song::middle-eight")
+    check("qualified specialisation retains and enforces its bar claim",
+          qualified.function == "bridge"
+          and qualified.specialised_as == "middle-eight"
+          and qualified.function_name.tradition == "popular_song"
+          and _raises(lambda: Section("x", 9,
+                      function="popular_song::middle-eight")))
+    check("planner sees the qualified specialisation rather than widening it",
+          _G.specialisation_of("popular_song::middle-eight")
+          == _G.specialisation_of("middle-eight"))
+    for value, reason in (("popular_song::middle-eight", "specialisation"),
+                          ("sonata::bridge", "connective")):
+        try:
+            P.make_plan(0, functions=[value])
+        except P.PlanRefused as e:
+            check(f"planner refuses {value} with the relevant reason",
+                  reason in str(e))
+        else:
+            check(f"planner must refuse {value}", False)
+    bp = {"sections": [{"name": "unrelated", "bars": 8,
+                        "function": "popular_song::middle-eight",
+                        "meter": {"beats": 4, "unit": 4}}], "lines": []}
+    before = copy.deepcopy(bp)
+    song, _ = song_from_blueprint(bp)
+    profile = _G.function_profile(song)
+    check("blueprint keeps input and discloses the resolved name coordinate",
+          bp == before and profile["counts"] == {"bridge": 1}
+          and profile["function_names"] == [{"section_index": 0,
+              "section": "unrelated", "tradition": "popular_song",
+              "name": "middle-eight", "function": "bridge",
+              "specialised_as": "middle-eight"}])
+    # The actual report and CLI use this loader, not a parallel resolver.
+    from lyric_harness import _grid_song
+    loaded = _grid_song(_G, bp)
+    check("the CLI loader carries the same resolution and specialisation",
+          asdict(loaded.sections[0]) == asdict(song.sections[0]))
+    import json
+    import subprocess
+    with tempfile.TemporaryDirectory() as tmp:
+        path = os.path.join(tmp, "qualified.json")
+        with open(path, "w", encoding="utf-8") as fh:
+            json.dump(bp, fh)
+        cli = [sys.executable, os.path.join(HERE, "..", "lyric_harness.py"),
+               "function", path]
+        result = subprocess.run(cli, capture_output=True, text=True)
+        check("the actual function CLI discloses the name resolution",
+              result.returncode == 0
+              and "popular_song::middle-eight -> bridge (middle-eight)" in result.stdout,
+              result.stderr)
+        result = subprocess.run(cli + ["--function=unrelated:sonata::bridge"],
+                                capture_output=True, text=True)
+        check("CLI override refuses the sonata reading with exit 2 and its reason",
+              result.returncode == 2 and "connective" in result.stdout
+              and "Traceback" not in result.stderr, result.stderr)
+    bp["sections"][0]["function"] = "sonata::bridge"
+    check("blueprint loading blocks the historical false pop-bridge reading",
+          _raises(lambda: song_from_blueprint(bp)))
+    del bp["sections"][0]["function"]
+    bp["sections"][0]["name"] = "popular_song::bridge"
+    song, _ = song_from_blueprint(bp)
+    check("even a qualified DISPLAY name is never inferred as a function",
+          song.sections[0].function == UNDECLARED)
+
+
 if __name__ == "__main__":
-    for fn in (test_the_model_cannot_express_a_stanza,
+    for fn in (test_tradition_scoped_function_names,
+               test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
                test_lines_key_on_bar_range_not_name,
                test_stanza_lock_fires_on_the_default,

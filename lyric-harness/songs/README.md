@@ -492,9 +492,34 @@ rhyme predictability — pre-registered as LOWER —
 ~~`keep_the_light.txt` sits lowest at 0.816206~~ [RESULTS: rhyme_predictability_mean keep_the_light.txt]
 (SUPERSEDED 2026-08-25: it held that floor among the six then banked;
 `wheat_mane.txt` now sits lowest at 0.609665 [RESULTS: rhyme_predictability_mean wheat_mane.txt],
-and keep_the_light's own reading has not moved).
+and keep_the_light's own reading ~~has not moved~~ moved on 2026-09-16, see
+below).
 Both readings ran against the story I had been telling, which is the point of
 writing the numbers down before making the claim.
+
+**THE SERIES MOVED 2026-09-16, AND E-5 IS WHY.** Withdrawing the empty/empty
+coda evidence bonus (`MISSING.md` E-5) changed the scalar every rhyme pair is
+scored on, so `rhyme_predictability_mean` and `_min` moved on 15 rows across 13
+songs. The songs' bytes are untouched, so THE TREE MOVED -- which is the event
+this series exists to catch, and `--check` is what caught it, going red on its
+own before anybody looked.
+
+The movement is in the fourth decimal and runs in BOTH directions, which is the
+part worth reading: withdrawing evidence changes WHICH span wins as often as it
+changes what a pair scores, so a song can come out less predictable OR more.
+`crooked_waltz.txt` rose furthest, 0.718198 -> 0.724473
+[RESULTS: rhyme_predictability_mean crooked_waltz.txt]; `the_long_way_back.txt`
+fell furthest, 0.915147 -> 0.914237
+[RESULTS: rhyme_predictability_mean the_long_way_back.txt].
+
+NO OTHER PRE-REGISTERED FEATURE MOVED. Concreteness, mattr, the function-word
+ratio and the rest re-derive byte-identical -- `turn_the_wheel.txt` still reads
+3.909818 [RESULTS: concreteness_mean turn_the_wheel.txt] and
+`carry_it_over.txt` still reads 3.043667
+[RESULTS: concreteness_mean carry_it_over.txt]. That is what says the cause is
+the rhyme scalar rather than a corpus load, a tokeniser or a staging
+difference, and it is why the rows could be re-banked rather than argued about.
+Re-banked with `--write` on a clean tree, never by editing a number.
 
 A comparison in this file must carry a `[RESULTS: <column> <song>]` citation
 that resolves, or `--claims` fails. That check is aimed at the narrator.

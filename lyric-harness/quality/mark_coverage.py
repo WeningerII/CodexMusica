@@ -113,6 +113,7 @@ def scan(root=SONG_DIR):
     #: module already gives: a second sweep would derive the population from a
     #: second definition of what a block is (doctrine 1).
     references = collections.Counter()
+    unresolved_references = []
     elab = collections.Counter()
     elab_findings = []
 
@@ -124,6 +125,17 @@ def scan(root=SONG_DIR):
                 references[key] += resolution[key]
             for key in ("ambiguous", "unmatched", "no_incipit"):
                 references[key] += len(resolution[key])
+            lines = [line for block in song.blocks for line in block.lines]
+            for status in ("ambiguous", "unmatched", "no_incipit"):
+                for entry in resolution[status]:
+                    i, hits = entry if status == "ambiguous" else (entry, ())
+                    unresolved_references.append({
+                        "file": os.path.basename(path), "title": song.title,
+                        "language": lang, "line_index": i,
+                        "printed": lines[i], "status": status,
+                        "candidates": [{"span": [a, b], "lines": lines[a:b]}
+                                       for a, b in hits],
+                    })
             _ef, _ec = GR.elaboration_findings(song)
             for _k, _v in _ec.items():
                 elab[_k] += _v
@@ -191,6 +203,7 @@ def scan(root=SONG_DIR):
                         if m["function"]})
     return {
         "stub_references": dict(references),
+        "unresolved_references": unresolved_references,
         "marks": out_marks,
         "buckets": dict(buckets),
         "by_language": {k: dict(v) for k, v in by_lang_bucket.items()},
@@ -264,7 +277,8 @@ PINNED = {
     #: results/production_data_2026-09-08/mark-bucket-delta.json.
     # 2026-09-15: 136 labels attached only to nonlyric material are now
     # preserved as apparatus (101 VERSE, 33 CHORUS, 2 REFRAIN); 77052 -> 76916.
-    "typed": 76916, "decided": 125501, "undecided": 32, "apparatus": 1,
+    # 2026-09-16: seven Burns standalone chorus labels rejoin their stanza.
+    "typed": 76909, "decided": 125501, "undecided": 32, "apparatus": 1,
     "declared_functions": 22, "witnessed": 5,
 }
 

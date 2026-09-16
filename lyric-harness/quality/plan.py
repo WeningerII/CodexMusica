@@ -2514,7 +2514,10 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
             # coordinate exists to end, one layer out. The planner cannot
             # promise a differentia its own draw does not read, so it says
             # so instead of silently widening to the genus.
-            _sp = _GR.specialisation_of(f)
+            try:
+                _sp = _GR.specialisation_of(f)
+            except _GR.UnknownFunction as e:
+                raise PlanRefused(f"--functions names {f!r}: {e}") from e
             if _sp is not None:
                 rec, genus = _sp
                 raise PlanRefused(

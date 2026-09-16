@@ -86,7 +86,7 @@ always one of them rather than a judgement about the job.
     suites-result
     verbs-result
     record
-    revision-loop
+    revision-loop-result
 
 **Wall clock, MEASURED on run #1216 (`33559152222`, 2026-09-01, sha `54650e5`),
 a fully green post-sharding run.** These are per-job wall clocks from the
@@ -103,11 +103,12 @@ minutes is a real cost and is stated here rather than discovered:
 | `suites-result` | **0m03s** (shards max 9m22s) | The 75-suite pool. **Was "a policy call…not made here"; it is ruled IN**: #1090 and #1155 were red in nothing else. Required through the aggregator by rule 2. Its `skipped` arm FAILS (`suites` has no `if:`, so a skip means `gate` did not succeed and no suite ran). |
 | `verbs-result` | **0m03s** (shards max 11m42s) | `test_verbs`, the longest suite here and the one holding the checks aimed at CI itself (§43 parses this workflow; §24 catches suites that are named by nothing). Required through an aggregator **added to `ci.yml` by this ruling** — rule 2 left `verbs` with no fixed name, which is the same debt sharding incurred for `catalog` and `suites`, noticed twice and never generalised. |
 | `record` | **6m28s** | The register against the code: doctrine numbering, entry claims in `MISSING.md`/`BACKLOG.md`, committed counters re-measured, `data/sources.tsv` rows against their files. **#1125's only red job.** This repository's central discipline is that the record does not lie about the code; a merge that may break the record and not the code is exactly the merge this check exists for. |
-| `revision-loop` | **10m24s** | `test_revise` + `test_loop` — the writer's revision path. It was PART of `suites` until 2026-08-18 and left for wall clock, not because its content stopped mattering. A job may not lose required status by a scheduling move. |
+| `revision-loop-result` | ~~**10m24s**~~ (that figure is the job as ONE runner; dealt four ways since 2026-09-05, shard wall not re-measured here) | `test_revise` + `test_loop` — the writer's revision path. It was PART of `suites` until 2026-08-18 and left for wall clock, not because its content stopped mattering. A job may not lose required status by a scheduling move. **Required through the aggregator by rule 2 since M-244 dealt it four ways** — the shards publish as `revision-loop (1/4)`, so the bare name this file used to list names no check that is ever reported. That is the third time sharding orphaned a required name, after `catalog` and `suites`; rule 2 is the generalisation, and this row is it being applied rather than noticed again. |
 
 **Adding the four new checks costs ZERO wall clock.** The run's critical path is
 `freshness` at 16m26s, and every addition — `suites-result` (its slowest shard
-9m22s), `verbs-result` (11m42s), `record` (6m28s), `revision-loop` (10m24s) —
+9m22s), `verbs-result` (11m42s), `record` (6m28s), `revision-loop-result` (10m24s
+as one runner, since dealt four ways) —
 finishes inside it. Whole-run wall on #1216 was **18m16s**. So the merge waits
 about 18 minutes either way, and the four-check set was not buying speed; it was
 only declining to look.
@@ -304,7 +305,7 @@ list after creating**, because a wrong id there silently grants nothing and the
               { "context": "suites-result" },
               { "context": "verbs-result" },
               { "context": "record" },
-              { "context": "revision-loop" }
+              { "context": "revision-loop-result" }
             ]
           }
         }
