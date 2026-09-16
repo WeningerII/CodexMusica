@@ -371,46 +371,34 @@ measurement, the difference between a line that lands and one that drags.
 > syncopation-given-a-declared-grid is measured, which is the day this entry
 > closes. A green run here is the refusal still standing, not the gap filled.
 
-### C-5 · Tempo is not represented `PARTIAL`
-**Now:** `Song` has bars and meters, no tempo, no tempo change. **That sentence
-is TRUE at head** — `grep -n tempo quality/grid.py` returns nothing.
+### C-5 · Tempo and tempo changes drive elapsed seconds `CLOSED` 2026-09-15
 
-> **REPINNED 2026-08-21 — AND THE HEADLINE IS THE WRONG SHAPE OF CLAIM.** A
-> tempo field **does** exist: `declared_inputs.BeatGrid.tempo_bpm` (`:546`),
-> read by nothing anywhere in the tree. Beside it sits `fit._no_tempo`
-> (`:184`), a `PERMANENT` refusal whose detail opens _"MISSING.md C-5: `Song`
-> carries bars and meters and no tempo"_ — constructed by nothing.
-> `quality/meter.py`'s `note_value` docstring refuses seconds by name for the
-> same reason. **`fit.INERT` (`:313`) already declares both dead and says why**:
-> _"BOTH HALVES OF THE TEMPO STORY ARE UNWIRED, and each is dead in its own
-> direction"_ — a declaration with no reader, and a guard with no question.
-> `test_fit.py` re-derives both directions and passes.
->
-> So this is **not an unrepresented coordinate; it is a declared one with no
-> reader beside a refusal with no caller**, and wiring either half alone closes
-> nothing — it activates the moment one per-second question is asked. `PARTIAL`
-> on `blocker="build"`, not `OPEN`.
->
-> **A NAME SLIP FOUND ON THE WAY IN, AND FIXED IN THIS COMMIT.** The `INERT`
-> row's `field` read `fit.NO_TEMPO / declared_inputs.TimeGrid.tempo_bpm` and
-> `test_fit.py` PINNED that string — **there is no `TimeGrid` in this tree**;
-> the class is `BeatGrid` (`declared_inputs.py:524`). A test pinning a
-> non-existent symbol name is a check that cannot notice the symbol moving.
->
-> ~~The triage blind spot recorded under C-4 applies here identically:
-> `test_fit.py` asserts `"C-5" in whys` by bare key, so this entry also reads
-> `CITED` when it is `DECLARED`.~~ **FIXED 2026-09-09** — the assertion now
-> pins `"MISSING.md C-5" in whys`, which `m_win` can see and which is the
-> stricter check besides: a row that renames its citation now fails.
->
-> **TESTED WHILE OPEN.** `quality/test_fit.py` §12 and its `INERT` section
-> name this entry, and both PIN THE GAP rather than guard a fix. §12 requires
-> the per-second refusal to still carry `MISSING.md C-5`; the `INERT` section
-> re-derives that `fit._no_tempo` has no production caller and that
-> `declared_inputs.BeatGrid.tempo_bpm` is read by nothing. Those tests go RED
-> on the day tempo is wired — which is the day this entry closes — and red
-> again if the declaration outlives its subject. A passing regression here is
-> the gap holding still, not the gap being filled.
+`quality/tempo.py` represents sourced BPM with an explicit metronome beat value,
+plus an ordered, piecewise-constant tempo map in whole-note coordinates.
+`Song.tempo`, `Song.seconds_between` and `Song.line_seconds` consume it;
+`grid` prints the declared bar-span and line durations. Tempo changes and meter
+changes are independent, and a line crossing either uses each span's own rate.
+The initial tempo governs pickups before the first downbeat.
+
+Blueprints declare `tempo: {bpm, beat_value, source}` and optional
+`tempo_changes: [{at, bpm, beat_value, source}]`; `at` and `beat_value` are exact
+whole-note fractions. No initial BPM or beat unit is guessed. Shared blueprint
+validation rejects malformed, nonpositive, unordered or duplicate declarations.
+`BeatGrid.seconds_between` now reads the existing `tempo_bpm` coordinate;
+its documented default beat is a quarter note, with `tempo_beat_value` available
+for other metronome units.
+
+An absent tempo emits the live `NO_TEMPO` refusal, now resolved by declaring the
+input rather than described as a permanent impossibility. The obsolete tempo
+`INERT` entry and tests pinning the gap have been replaced by working-path tests.
+These seconds are conditional on declared tempo, not measured performance or a
+singability judgement. Continuous tempo ramps, expressive rubato and detected
+audio timing are not claimed by this step-tempo representation.
+
+**Regression:** `quality/test_tempo.py` covers exact durations, compound-meter
+beat units, changes, pickups, mixed-meter lines, BeatGrid use, absent inputs,
+malformed declarations through all blueprint readers, and the actual `grid` CLI.
+The suite is registered in CI.
 
 ---
 
