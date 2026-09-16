@@ -11,6 +11,7 @@ Run: python3 quality/test_taxonomy.py
 """
 
 import os
+import random
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -64,6 +65,103 @@ def test_canonical_form():
     check("round-trips", S.label(S.parse("ABBACC")) == "ABBACC")
     check("beyond 26 sounds it keeps going",
           len(S.label(tuple(range(30)))) > 30)
+
+
+def test_song_length_scheme_round_trips():
+    """A-3: read the labels back, including a REPEATED reserved X class."""
+    print("\n2a. A-3: scheme serialization preserves the whole partition")
+    code = tuple(range(24)) + (23,)
+    check("the 24th class survives its second occurrence",
+          S.parse(S.label(code)) == code)
+    check("only the repeated reserved token needs escaping",
+          S.label(code) == "ABCDEFGHIJKLMNOPQRSTUVWX0X0"
+          and S.label(tuple(range(30))) ==
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZA1B1C1D1")
+    check("explicit free lines stay distinct, including lowercase and dots",
+          all(S.parse(text) == (0, 1, 2, 0)
+              for text in ("AXXA", "axxa", "A..A")))
+    check("numbered X classes are ordinary classes, not free lines",
+          S.parse("X0X0X1X1X10X10") == (0, 0, 1, 1, 2, 2))
+
+    # Exhaust all small partitions, rather than sampling only named forms.
+    bad, count = [], 0
+    for n in range(1, 9):
+        for part in S.rgs(n):
+            count += 1
+            if S.parse(S.label(part)) != part:
+                bad.append(part)
+    check("every partition through eight lines round-trips",
+          count == 5295 and not bad, f"{count} partitions; failures={bad[:3]}")
+
+    # Derive the tested song lengths from the live planner, so a wider
+    # calibration envelope cannot silently outgrow this check. These are
+    # four families per length, NOT an exhaustive Bell(n) census.
+    from quality import plan as PLN
+    lengths = sorted(PLN.gradeable_line_counts())
+    rng = random.Random(20260915)
+    bad, count = [], 0
+    for n in lengths:
+        k = (n + 1) // 2
+        first = tuple(range(k))
+        random_part = [0]
+        high = 0
+        for _ in range(1, n):
+            value = rng.randrange(high + 2)
+            random_part.append(value)
+            high = max(high, value)
+        families = (tuple(range(n)), first + tuple(range(n - k)),
+                    first + tuple(reversed(range(n - k))), tuple(random_part))
+        for part in families:
+            count += 1
+            if S.parse(S.label(part)) != part:
+                bad.append((n, part))
+    check("four partition families at every gradeable song length round-trip",
+          bool(lengths) and max(lengths) >= 30 and not bad,
+          f"{len(lengths)} lengths, {count} cases, max={max(lengths)}; "
+          f"failures={bad[:1]}")
+
+    # Decimal suffix transitions live beyond some song envelopes. Repeat
+    # EVERY class here: an all-singleton input hid the original defect.
+    bad = []
+    for classes in (26, 27, 30, 260, 261, 2600, 2601):
+        part = tuple(range(classes)) * 2
+        if S.parse(S.label(part)) != part:
+            bad.append(classes)
+    check("repeated classes survive one-, two- and three-digit suffixes",
+          not bad, f"failing class counts={bad}")
+
+    # Exercise the consumer that carries a scheme into grading. A group
+    # identifier is also produced by label((k,)); those existing identifiers
+    # (including X) must stay valid for saved per-group relation declarations.
+    bad = []
+    for classes in (24, 30, 131):
+        part = tuple(range(classes)) * 2
+        direct = S.mandate(part, relations={"X": "type:qafiya"})
+        try:
+            restored = S.mandate(S.label(part), n_lines=len(part),
+                                 relations={"X": "type:qafiya"})
+        except S.NoMandate:
+            bad.append(classes)
+            continue
+        expected = tuple((i + 1, i + classes + 1) for i in range(classes))
+        if not (direct.groups == restored.groups == expected
+                and direct.free == restored.free == ()
+                and direct.labels == restored.labels
+                and direct.relations == restored.relations
+                and restored.relations[23] == "type:qafiya"
+                and restored.labels[23] == "X"):
+            bad.append(classes)
+    check("the grading mandate retains every pair and its existing group ID",
+          not bad, f"failing class counts={bad}")
+    groups = tuple((i + 2, i + 32) for i in range(30))
+    m = S.mandate(groups, n_lines=62)
+    check("the mandate's own projection preserves rhyme groups and free lines",
+          m.to_code() == (0,) + tuple(range(1, 31)) * 2 + (31,)
+          and S.mandate(m.to_letters()).groups == groups
+          and S.mandate(m.to_letters()).free == (1, 62))
+    check("empty schemes and single group identifiers retain their spelling",
+          S.label(()) == "" and S.parse("") == ()
+          and S.label((23,)) == "X" and S.label((26,)) == "A1")
 
 
 def test_coordinates_separate_forms_the_letters_hide():
@@ -807,6 +905,7 @@ def test_registry_reachability():
 if __name__ == "__main__":
     for fn in (test_the_space_is_the_bell_numbers,
                test_canonical_form,
+               test_song_length_scheme_round_trips,
                test_coordinates_separate_forms_the_letters_hide,
                test_sections_annotate_they_do_not_chunk,
                test_named_forms_are_coordinates_not_the_taxonomy,
