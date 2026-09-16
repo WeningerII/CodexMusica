@@ -65,6 +65,27 @@ cross-song isolation, the production corpus and grid callers, and timing
 refusal. The suite is registered in CI alongside the existing grid, relation,
 capability, song-function and English-text guards.
 
+**Edition follow-up, 2026-09-16.** The marked-song reader now interprets
+PG 1279's explicit Burns labels (`Choir.--`, `Chor.--`, `Chorus.--`,
+`Chorus--`, standalone `Chorus`) at their staged block openings. It recovers
+78 inline labels and joins seven standalone labels to their following stanza.
+The rule is edition-scoped; source bytes and source-line coordinates are
+preserved. No full chorus is inferred from a verse's resemblance to a cue.
+The shared pointer detector also removes paired Gutenberg italic delimiters,
+so `_&c._` is a pointer rather than a supposedly complete target line.
+
+The same census now reads **1,163 pointers; 442 resolved; 35 ambiguous;
+686 unmatched; 0 bare**. This is **270 more resolved references**, with
+**133 newly detected pointers** included in the denominator. **721 remain
+unresolved**; this follow-up does not close the edition questions. In
+particular, different complete endings still refuse resolution, as do
+abbreviated variants whose full text is absent. The JSON census now includes
+`unresolved_references`: filename, song title, language, zero-based parsed
+line index, printed cue, status, and competing target spans/text. These are
+reviewable source cases, not invented expansions. Regression coverage includes
+italic pointers, edition scope, original source coordinates and representative
+Burns choruses. The corpus manifest remains byte-identical.
+
 **Historical diagnosis follows, retained as the record of the open gap:**
 
 **REPINNED 2026-09-09, AND THE DECLARATION BELOW WAS FALSE.** Found by an

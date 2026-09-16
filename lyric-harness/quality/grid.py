@@ -3753,6 +3753,35 @@ def named_air_census(paths):
     return out
 
 
+def _printed_chorus_labels(raw_lines, path):
+    """Read Burns's explicit printed labels without rewriting the edition.
+
+    PG 1279 (the staged file's cited source) prints Choir.--, Chor.--,
+    Chorus.--, Chorus-- and standalone Chorus. The staging sometimes put
+    those labels inside VERSE blocks or gave a standalone label a block
+    separate from its stanza. Only these attested labels, at a marked block
+    opening in this edition, declare a chorus; text resemblance never does.
+    Returns edits/drops indexed in the original source, preserving receipts.
+    """
+    if os.path.basename(path) != "eng_celtic_robert_burns.txt":
+        return {}, set()
+    edits, drops = {}, set()
+    for i, line in enumerate(raw_lines):
+        if i == 0:
+            continue
+        previous = raw_lines[i - 1].strip()
+        match = re.fullmatch(r"((?:Choir|Chor|Chorus)\.--|Chorus--)(.+)", line)
+        if match and re.fullmatch(r"\[(?:VERSE \d+|CHORUS|REFRAIN)\]", previous):
+            edits[i - 1] = "[CHORUS] " + match[1]
+            edits[i] = match[2]
+        elif (line == "Chorus" and previous == "[CHORUS]"
+              and i + 1 < len(raw_lines)
+              and re.fullmatch(r"\[VERSE \d+\]", raw_lines[i + 1])):
+            edits[i - 1] = "[CHORUS] Chorus"
+            drops.update((i, i + 1))
+    return edits, drops
+
+
 def read_marked_songs(path, language=""):
     """-> [MarkedSong] from one `corpus/song/*.txt` file.
 
@@ -3815,6 +3844,9 @@ def read_marked_songs(path, language=""):
     _bracket_drops = LH.wrapped_apparatus_drops(raw_lines, path)
     _vdrops, _vedits = LH.bracketed_verse_edits(raw_lines, path)
     _bracket_drops |= _vdrops
+    _chorus_edits, _chorus_drops = _printed_chorus_labels(raw_lines, path)
+    _bracket_drops |= _chorus_drops
+    _vedits.update(_chorus_edits)
     for idx0, line in enumerate(raw_lines):
         n = idx0 + 1
         if idx0 in _bracket_drops:

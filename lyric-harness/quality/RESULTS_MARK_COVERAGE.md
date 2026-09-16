@@ -1,6 +1,24 @@
 # RESULTS — mark coverage: what the section vocabulary cannot type
 
-## Current measurement, 2026-09-08
+## Current measurement, 2026-09-16
+
+The census has **76,909 typed blocks**, 125,501 decided refusals, 32
+undecided marks and one numeral-apparatus block. Seven Burns standalone
+chorus labels now join their following stanza in the marked-song reader;
+76,916 typed blocks become 76,909. The 78 inline labels also recover their
+printed chorus identity. Source files remain byte-identical. The vocabulary
+still has 22 declared functions and five witnessed functions.
+
+Chorus pointers: **1,163 total; 442 resolved; 35 ambiguous; 686 unmatched;
+0 without an incipit**. The previous A-1 census was 1,030 / 172 / 25 / 833 / 0.
+Paired Gutenberg italics expose 133 additional pointers, including incomplete
+blocks previously accepted as candidate targets. The 721 unresolved cases
+are available as `unresolved_references` in `mark_coverage.py --json`, with
+printed cues and candidate text; indices refer to parsed lines within a song,
+not physical source lines. Full incipits and complete target blocks remain
+required. No nearest-target or fuzzy matching was added.
+
+## Previous measurement, 2026-09-08
 
 The complete current census has 77,052 typed blocks, 125,501 decided refusals,
 32 undecided marks and one numeral-apparatus block. The vocabulary still has
@@ -18,7 +36,7 @@ per-file counts and reader identities, are retained in
 `mark-buckets-before.json` / `mark-buckets-current.json` companions.
 
 The dated notes and tables below record earlier populations. The current
-executable pin and `--check` refer to the measurement above.
+executable pin and `--check` refer to the 2026-09-16 measurement above.
 
 ## Historical measurements
 
