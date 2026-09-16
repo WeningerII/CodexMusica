@@ -14034,13 +14034,25 @@ struck above on their 2026-08-26 dating, and the permutation-null arm — the on
 that IS instrumented — carries the current answer in **B** below.
 
 **THREE QUARTERS OF THE SEARCH'S LIFT ON REAL VERSE IS REPRODUCED BY THE NULL
-(75.8%)**, and the real arm's lift (+5.42 pp) barely clears the null's own
+(75.8%)**, and the real arm's lift (~~+5.42 pp~~) barely clears the null's own
 replicate MAXIMUM (+5.14 pp, range +3.07 to +5.14). Doctrine 71's sentence,
 pointed at a search instead of a corpus: a lift that does not separate from its
 own null is not a lift.
 
-**WHAT THIS IS NOT, AND THE DISTINCTION IS LOAD-BEARING.** 41.88% is the
-SCALAR gate alone (`total >= theta_rhyme`), NOT this harness's verdict.
+**THAT COMPARISON IS SUSPENDED, NOT RESTATED (2026-09-16, E-5).** The real
+arm's lift is now **+4.96 pp**, which is BELOW the re-pairing null's 2026-08-26
+replicate maximum of +5.14 pp — so the sentence above would read "does not
+clear" rather than "barely clears". **IT IS NOT REWRITTEN THAT WAY, because the
+null side was not re-run under E-5 and a comparison with one side re-measured
+is not a comparison** (doctrine 20). E-5 removes evidence from BOTH arms and
+there is no reason to expect the null's maximum to have held still. What can be
+said is that the margin this paragraph called thin was thinner than the change
+E-5 makes, and re-running the re-pairing null is now the work this sub-finding
+needs. The instrumented permutation arm in **B** is unaffected by this: it was
+re-run on both sides.
+
+**WHAT THIS IS NOT, AND THE DISTINCTION IS LOAD-BEARING.** ~~41.88%~~ 41.34%
+(2026-09-16, E-5) is the SCALAR gate alone (`total >= theta_rhyme`), NOT this harness's verdict.
 `admits()` types the relation and, since M-59/M-116, accepts ASSONANCE,
 CONSONANCE and the whole-vocabulary schema default — which is why the battery
 reports **1.2% violations of judged pairs** and not 58%. Nothing here restates
