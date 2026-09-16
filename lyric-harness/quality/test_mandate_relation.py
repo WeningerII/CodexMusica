@@ -1090,6 +1090,38 @@ def test_every_drawable_schema_answers_its_own_example():
 
 
 
+def test_e2_default_grade_reaches_the_registry():
+    """E-2: a scalar failure can satisfy an actual registry relation.
+
+    Existing sections cover declared types, schemas and their counterexamples.
+    This witness guards the remaining closure claim at the default grade door,
+    where the end words disagree but the internal cat/hat pair rhymes.
+    """
+    from unittest.mock import patch
+    from quality import relations as RL
+
+    print("\n14. E-2 — the default grader consults the registry")
+    rv = Reviser()
+    lines = ["cat spoon", "hat orange"]
+    m = mandate("AA")
+    graded = rv.grade(lines, m)
+    v = graded["verdicts"][0]
+    check("a scalar NO_RELATION is satisfied by the internal-rhyme schema",
+          v["relation"] == "NO_RELATION" and v["why"] is None
+          and "internal rhyme" in v.get("satisfied_by", ())
+          and not graded["violations"] and not graded["refusals"])
+
+    narrowed = rv.grade(lines, mandate("AA", default_relation="class:RHYME"))
+    check("an explicit class requirement still rejects those end words",
+          len(narrowed["violations"]) == 1 and not narrowed["refusals"])
+
+    with patch.object(RL, "whole_vocabulary_pairs", return_value={}) as route:
+        disconnected = rv.grade(lines, m)
+    check("disconnecting the registry changes the default verdict to a violation",
+          route.call_count == 1 and len(disconnected["violations"]) == 1
+          and not disconnected["refusals"])
+
+
 if __name__ == "__main__":
     for fn in (test_vocabulary, test_judge, test_mandate_coordinate,
                test_grade_routing, test_position_is_declared,
@@ -1100,7 +1132,8 @@ if __name__ == "__main__":
                test_the_drawable_pool_holds_through_the_grade_route,
                test_the_type_judge_past_one_syllable,
                test_the_default_door_reads_normative,
-               test_every_drawable_schema_answers_its_own_example):
+               test_every_drawable_schema_answers_its_own_example,
+               test_e2_default_grade_reaches_the_registry):
         fn()
     print("=" * 62)
     if FAILURES:
