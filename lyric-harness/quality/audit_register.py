@@ -2017,14 +2017,16 @@ PINNED = {
     "entries_none_external": 1,
     "entries_cites_nothing": 0,
     # -- quality/relations.py -----------------------------------------------
-    "schemas": 77,
-    "schemas_with_traditions": 75,
+    # M-40 (2026-09-16): 77/75/298/319/60 -> 78/76/299/320/61.
+    # E44 is survey-scoped; its external witness remains unrecorded.
+    "schemas": 78,
+    "schemas_with_traditions": 76,
     "schemas_no_tradition": 2,
-    "traditions_distinct": 298,
-    "traditions_attachments": 319,
+    "traditions_distinct": 299,
+    "traditions_attachments": 320,
     "traditions_external": 212,
     "traditions_project": 26,
-    "traditions_cannot_tell": 60,
+    "traditions_cannot_tell": 61,
     # -- the two phonology censuses, THREE COUNTS EACH, never summed --------
     #    (doctrine 79. `cym_refused: 0` is pinned BECAUSE it is zero: if a
     #    re-ingestion starts refusing Welsh tokens the read rate would slide

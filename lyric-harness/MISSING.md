@@ -5482,7 +5482,21 @@ a CEILING's raw material, never a count of usable partners — the ban,
 the modal tier and the judge all still cut it, and none of that has
 been run under a non-RHYME relation.
 
-### M-40 · Eight admissible-set failures are eight facts about the TEXT, and the survey already names a chain rhyme nobody built `OPEN`
+### M-40 · Eight admissible-set failures are eight facts about the TEXT, and the survey already names a chain rhyme nobody built `PARTIAL`
+
+**UPDATE 2026-09-16:** E44's cross-stanza link is now implemented as
+`chain rhyme (interlocking scheme)`, with a placement-derived stanza gate.
+Registry 77 → 78; the unchanged ledger refuses this schema for missing
+stanza ground. Eight predeclared available poet cells were measured at
+n=200 using the current normalized reader, bounded to the first work.
+The full-file normalized census also remeasures Byron and Mynyddog after
+the apparatus repair. See `quality/RESULTS_M40.md` and
+`quality/results/m40_poet_cells.json` for exact scope, inputs and results.
+Ceiriog’s first poem was acquired from Gutenberg 3500 (1902 edition;
+author/editor both before the cutoff). No historical null qualification
+was overwritten. Tudur edition acquisition, the radif null, and the unresolved rule-versus-text question
+remain open. The original findings below are retained as history.
+
 **Raised 2026-08-22 by the owner, reading the n=200 admissible set and asking
 where the missing corpora would come from. Two separable findings; the second
 was found while checking the first and is the sharper of the two.**
