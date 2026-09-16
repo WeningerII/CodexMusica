@@ -20,6 +20,7 @@ Sections:
 """
 
 import os
+import subprocess
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
@@ -486,6 +487,46 @@ def test_the_span_kind_is_disclosed():
           [lab for lab, _ in m.mixed_span_groups()] == ["A"])
 
 
+
+def test_import_boundary():
+    """M-74: inspect a fresh interpreter, not this suite's loaded registry."""
+    print("\n13. mandate placement does not import the relation registry")
+    probe = r"""
+import sys
+from quality import schemes as SC
+assert 'quality.relations' not in sys.modules
+from quality import slots as SL, span_rules as SR
+assert SC.SlotRefused is SL.SlotUnsupported
+for spec in ('ABAB', [[1, 2]], [['1.head', '2.T2']]):
+    SC.mandate(spec, n_lines=4)
+assert 'quality.relations' not in sys.modules
+try:
+    SC.mandate([['1.not_a_slot', 2]], n_lines=2)
+except SL.SlotUnsupported:
+    pass
+else:
+    raise AssertionError('placement refusal was lost or wrapped')
+assert 'quality.relations' not in sys.modules
+from quality import relations as REL
+assert REL.SpanRule is SR.SpanRule
+for name in ('END_ANCHOR', 'END_WORD', 'END_LAST', 'END_PENULT',
+             'END_UNSTRESSED', 'HEAD_ANY', 'HEAD_LINE', 'WHOLE_LINE',
+             'HALF_A', 'HALF_B', 'FREE_MULTI'):
+    assert getattr(REL, name) is getattr(SR, name), name
+assert SL.DEFAULT_RULE is REL.END_ANCHOR
+assert isinstance(SL.parse_slot('1.head').rule, REL.SpanRule)
+assert REL.HALF_A.caps() == ('caesura',)
+assert REL.END_ANCHOR.caps() == ('prominence',)
+SC.mandate([[1, 2]], n_lines=2, relations={'A': 'schema:perfect rhyme'})
+print('plain and placed mandates stay lazy; schema declaration still resolves')
+"""
+    result = subprocess.run([sys.executable, '-c', probe],
+                            cwd=os.path.join(os.path.dirname(__file__), '..'),
+                            capture_output=True, text=True, timeout=30)
+    check("fresh-process import boundary, refusal identity and schema route",
+          result.returncode == 0, result.stdout + result.stderr)
+
+
 def main():
     for fn in (test_default_is_line_anchors, test_spelling_round_trips,
                test_anchor_with_no_referent, test_refusals,
@@ -493,7 +534,7 @@ def main():
                test_grade_reads_the_slot, test_untouched_path,
                test_provenance_guard, test_which_word_a_placement_binds,
                test_the_writer_facing_spelling,
-               test_the_span_kind_is_disclosed):
+               test_the_span_kind_is_disclosed, test_import_boundary):
         fn()
     print(f"\n{'ALL PASS' if not FAILURES else 'FAILURES: ' + str(FAILURES)}")
     return 1 if FAILURES else 0

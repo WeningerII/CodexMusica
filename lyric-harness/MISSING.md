@@ -65,6 +65,27 @@ cross-song isolation, the production corpus and grid callers, and timing
 refusal. The suite is registered in CI alongside the existing grid, relation,
 capability, song-function and English-text guards.
 
+**Edition follow-up, 2026-09-16.** The marked-song reader now interprets
+PG 1279's explicit Burns labels (`Choir.--`, `Chor.--`, `Chorus.--`,
+`Chorus--`, standalone `Chorus`) at their staged block openings. It recovers
+78 inline labels and joins seven standalone labels to their following stanza.
+The rule is edition-scoped; source bytes and source-line coordinates are
+preserved. No full chorus is inferred from a verse's resemblance to a cue.
+The shared pointer detector also removes paired Gutenberg italic delimiters,
+so `_&c._` is a pointer rather than a supposedly complete target line.
+
+The same census now reads **1,163 pointers; 442 resolved; 35 ambiguous;
+686 unmatched; 0 bare**. This is **270 more resolved references**, with
+**133 newly detected pointers** included in the denominator. **721 remain
+unresolved**; this follow-up does not close the edition questions. In
+particular, different complete endings still refuse resolution, as do
+abbreviated variants whose full text is absent. The JSON census now includes
+`unresolved_references`: filename, song title, language, zero-based parsed
+line index, printed cue, status, and competing target spans/text. These are
+reviewable source cases, not invented expansions. Regression coverage includes
+italic pointers, edition scope, original source coordinates and representative
+Burns choruses. The corpus manifest remains byte-identical.
+
 **Historical diagnosis follows, retained as the record of the open gap:**
 
 **REPINNED 2026-09-09, AND THE DECLARATION BELOW WAS FALSE.** Found by an
@@ -292,7 +313,7 @@ ladrang, gendhing), flamenco compases, West African timelines.
 without a `source`, because a catalogue written from memory is unsourced data
 in the evidence base.
 
-### C-3 · No metric complexity `PARTIAL` — structure built 2026-08-10
+### C-3 · Metric complexity `CLOSED` 2026-09-15 — `046e726c` (declaration and reporting layer)
 **Now:** bar duration is an exact `Fraction`, so **.125/1 through 64/32**,
 fractional numerators and non-power-of-two denominators (4/3, 5/6) are one
 object with no special cases; `irrational` is a declared property.
@@ -300,8 +321,30 @@ object with no special cases; `irrational` is a declared property.
 3/4 against 4/4 realigns at 3 whole-notes), `Polyrhythm` (n against m in ONE
 span, 3:2 resolving at 1/6), `MeterMap` (meter per BAR, not per section), and
 `Density` for irama, deliberately not a Cycle because the frame does not move.
-**Still missing:** metric modulation, hemiola, tuplets, swing ratio as a
-continuous value, rubato/senza misura, hypermeter, metric dissonance.
+**Previously missing:** metric modulation, hemiola, tuplets, continuous swing,
+rubato/senza misura, hypermeter and metric dissonance.
+**Now:** `quality/metric_complexity.py` represents all seven with exact rational
+calculations and strict validation. Optional section `metric_complexity`
+declarations pass through the shared blueprint validator, `grid.Section`,
+`fit.from_blueprint`/`from_song`, and the public fit table and CLI report.
+Modulation computes the pivot/beat-unit tempo ratio (and new BPM only when old
+BPM is declared); tuplets support enclosing duration scales; hemiola exposes
+two/three-group reinterpretation or simultaneous layers; swing accepts any
+positive rational ratio; rubato supports a monotonic relative timing map or
+unknown timing, including senza misura; hypermeter groups bars with phase;
+metric dissonance distinguishes non-nesting periods from phase displacement.
+Unknown fields, malformed values, outside-section events and excessive
+expansions refuse through the existing error path.
+**Scope:** these are declared rhythmic layers, not audio measurements or
+inferred syllable settings. Fit continues to judge score-pulse placement;
+annotations do not silently change its subdivision/isochrony assumptions or
+the planner's sampling space. Senza misura retains score addresses without
+claiming a performed pulse. Local modulation BPM does not provide a song tempo
+map or close C-5. See `quality/METRIC_COMPLEXITY.md` for units and full schema.
+**Verified:** `quality/test_meter.py` adds 11 tests covering all seven mechanisms,
+invalid declarations and expansion bounds, repeated section names, unchanged
+sung-line grading, both readers, the Song round trip and the actual `fit` CLI.
+The existing metric-cycle, fit and song-function regressions pass.
 
 ### C-4 · ~~No groove or microtiming~~ — the groove questions are DECLARED and PERMANENTLY REFUSED BY NAME `PARTIAL`
 **Missing:** pushes, pulls, laid-back and ahead-of-beat placement, syncopation
@@ -325,7 +368,8 @@ measurement, the difference between a line that lands and one that drags.
 > **WHAT IS TRULY MISSING IS NARROWER: syncopation as a measurable quantity
 > GIVEN a declared grid.** R5 accepts a `BeatGrid` and nothing computes
 > displacement off one; no `groove`/`syncopat` symbol exists in `meter.py` or
-> `grid.py`. C-3's _"swing ratio as a continuous value"_ is the live neighbour.
+> `grid.py`. C-3 now supplies declared continuous swing ratios; syncopation
+> measurement remains this entry's separate gap.
 >
 > **AND A TEST GUARDS THIS ENTRY THAT TRIAGE CANNOT SEE** —
 > `quality/test_fit.py` asserts `"C-4" in whys` over `fit.UNANSWERABLE` and
@@ -669,7 +713,81 @@ not.
 **Missing:** rhyme rate per bar, acceleration into a hook, thinning in a
 bridge — rhyme as a rhythmic parameter rather than a per-pair verdict.
 
-### E-5 · The empty/empty coda gift `OPEN` — sized 2026-08-21: the fix has a cheap half and an expensive half, and they are different claims
+### E-5 · The empty/empty coda gift ~~`OPEN`~~ `CLOSED` 2026-09-15 — absent coda evidence omitted from the default scalar
+
+**CLOSED 2026-09-15 under the owner's explicit E-5 implementation request.**
+`Declaration.coda_empty_evidence` now defaults to `cannot_tell`; `gift` remains
+an explicit historical replay setting. Empty/empty coda AGREEMENT is unchanged.
+`now/why` is **0.850 RHYME**, down from **0.902**; `see/free` and `cat/hat`
+remain **1.000 RHYME**. The disclosure names the historical contribution rather
+than claiming that it still enters the default total.
+
+The revised compatibility policy and its disclosed instrument correction are
+in `quality/E5_CODA_ADOPTION.md`; the reproducible runner is
+`quality/e5_coda_adoption.py`, also run in CI. One of 947 legacy scalar-admitted
+mandated pairs leaves admission (**0.106%**, budget **0.5%**): sonnet 1 L2/L4,
+`die/memory`, **0.773 -> 0.697 CONSONANCE**. The production battery remains
+**1064 mandated, 967 judged, 97 refused, 4 violations**. Schema rescue is counted
+separately; the admission loss is not hidden behind the unchanged headline.
+The four 4,000-pair random sampler cells move **173..193 -> 118..134** scalar
+admissions and **36..46 -> 33..40** narrow admissions; schema **889..914** is
+unchanged. These are the existing English sampler's scope, not a claim of
+cross-language calibration or production-consensus false-positive control.
+
+The fixed-span typing invariant is guarded; the first experiment's stronger
+aggregate-label invariant failed on eye/majesty because a different span wins
+when the bonus is removed. That failed claim is recorded, not called a passed
+preregistration. No admission threshold was loosened: the original pricing
+sweep is replayed with explicit `gift`, and its retained cuts must also meet
+the target under the new scalar. FWER regressions and the 30-sonnet calibration
+hold without changing the safety limit; the held-out matrix comparator's
+measured changes are recorded in `quality/RESULTS_MATRIX.md`. D18, readability
+controls and chance-rate bands are repinned from their own instruments.
+`quality/door_census.py` records one additional ARGUED measurement site
+(29 sites, 14 argued); no production satisfaction door changes.
+
+**AND THE CERTIFIED CAPACITY ARTIFACT MOVED WITH THE BAN (2026-09-16), which
+is the part the first pass missed.** `data/rhyme_capacity_eng.tsv` stores
+witness cliques that were certified ONCE and are RE-GRADED at every check, so a
+ban that moves turns committed witnesses dirty without a byte of the artifact
+changing: this branch touches neither the table nor `quality/capacity.py`'s
+measurement, and the failure is entirely the judge moving underneath an
+unchanged artifact. `verify_capacity.verify_all` raises on the FIRST dirty
+family, so CI could only ever name `AY`. Sweeping all 81 by hand found three:
+
+| family | what the current ban says about the committed witness | chain_lo |
+|---|---|---|
+| `AY` | 11 banned pairs, every one of them an edge on `why` (MODAL_RHYME — `why` is among the most predictable answers to its partners, not a score failure) | ~~19~~ 18 |
+| `EY` | 14 banned, 2 incompatible, 2 refused | ~~19~~ 21 |
+| `IY-Z` | 1 incompatible and 1 VIOLATED | ~~23~~ 22 |
+
+THE THREE ARE ONE BAN LANDING ON THREE FAMILIES AND ARE NOT SUMMED (doctrine
+79). Each was rebuilt with the repo's own `certify()` under the current ban and
+now answers every declared pair cleanly — banned, incompatible, refused and
+violated all zero, verified across the complete 81-family population, not just
+the three. The depths moved in BOTH directions, which is what a re-construction
+does and a filter could not: `EY` came back DEEPER, because removing the coda
+gift makes a different chain legal rather than only making chains shorter.
+
+`ADOPTED["max_chain_lo"]` therefore falls ~~23~~ 22 and `ADOPTED_MAX_GROUP`
+falls with it. That constant is not decoration: `quality/plan.py` reads it to
+refuse a rhyme group larger than the lexicon is MEASURED to sustain, so the
+planner now volunteers at most 22 members. It only ever tightens here, so the
+move fails safe. `max_chain_lo_family` becomes ~~`IY-Z`~~ `IY`, and that is a
+TIE-BREAK RATHER THAN A MARGIN: `IY` and `IY-Z` both witness 22 and
+`summarize` takes the first maximal row in table order, so re-sorting the
+artifact would move the name with no measurement having changed.
+
+**AND THE REFUSAL REPORTS HALF OF WHAT IT TESTS, which is why this cost a
+sweep.** `verify_capacity.verify_witness` refuses on EIGHT disjuncts —
+`chain_lo`, `pairs_mandated`, `pairs_judged`, `pairs_refused`, `violations`,
+`refusals`, `banned`, `incompatible` — and its message prints FOUR. `IY-Z`
+failed on `incompatible`, so its line read judged=253/253, refused=0, banned=0,
+violated=0: a refusal that names none of its own causes. Recorded here and
+left as found rather than widened into this commit.
+
+**Historical record follows; default-score and OPEN statements below describe
+the dated, superseded state.**
 **Now (verified by using it):** `now ~ why` scores 0.902 and types RHYME,
 because two vowel-final words get a free 1.0 on the coda channel. The fitted
 matrix takes this to −0.000 and is not shipped.
@@ -4069,7 +4187,21 @@ without anyone judging a text. Recorded as the route; NOT taken here, because
 it moves `RUN-ON 11`, `test_corpus_audit.py:890`'s `shapes` dict and the
 counters/`PINNED` pair in one commit, and the repin is the half going stale.
 
-### M-21 · One fact about the registers is pinned in two media, and no instrument can be asked which pins a change moves `OPEN`
+### M-21 · One fact about the registers is pinned in two media, and no instrument can be asked which pins a change moves `CLOSED`
+**Closure reconciled 2026-09-16.** The implementation and 2026-08-28 closure
+below were present while the heading still advertised OPEN. The normal sweep
+now enforces the existing argv-consumption check before launching each check;
+an unconsumed flag is CANNOT RUN and cannot print a false HOLDS. Completed
+rows are retained as each child finishes, so interruption preserves earlier
+MOVED evidence in both text and JSON summaries. An empty selection refuses,
+and an inconclusive sweep exits 2 (MOVED still exits 1; a fully measured clean
+sweep exits 0). No pin is automatically repaired. The existing
+`quality/test_pin_sweep.py` CI suite exercises these cases through an isolated
+real CLI run, including a signal sent only after two checks finish. The
+whole-population argv check certifies 50 discovered files on this checkout.
+This closes the sweep capability, not the historical research findings below: the
+phrase-commonplace study (H-1) and prose drift are retained, not rebaselined.
+
 **Found 2026-08-21 by paying the cost twice in one sitting, on consecutive CI
 rounds.** Filing `M-20` moved the number of entries in `MISSING.md` from 75 to 76. That single fact is pinned in **two places, in two different media**:
 
@@ -4950,8 +5082,9 @@ menu sizes are preserved in `docs/null-endpoint-gap.json` (repository root).
 The seven M-46 controls in `quality/test_null_shapes.py` exercise the actual
 judge and sweep. Two failed before the repair, and all seven pass after it;
 the mosaic, searched and asymmetric controls guard against an overbroad fix.
-The historical deep null panel is not requalified by this census. M-42 remains
-separate; no corpus, calibration or relation definition changes here.
+The historical deep null panel is not requalified by this census. M-42's
+reporting correction was completed separately on 2026-09-16; no corpus,
+calibration or relation definition changes here.
 
 ### M-44 · The named-relation judge reached 4 of 80 names, because it STAMPED a position instead of judging at the name's own coordinate `PARTIAL`
 **Raised by an agent's M-35 work, and the diagnosis below is the third one I
@@ -5090,7 +5223,25 @@ its own sitting. The agent also notes the pin `(29, 2)` is safe only because
 on the ledger slice — safe by accident of the harness rather than by
 construction, and worth knowing.
 
-### M-42 · Two of the four nulls are ONE randomisation for 28 of the 77 schemas `OPEN`
+### M-42 · Coupled null algorithms were reported as independent controls `CLOSED` 2026-09-16
+**Closed by correcting the reporting, without changing the recorded instrument.**
+The original diagnosis below is retained as history, with its blanket inference
+withdrawn: `both_line_final` does not mean “reads only the final token”. The
+actual mosaic judge produces different count distributions under the two nulls
+on a six-line fixture, even though all 200 paired draws have equal final-token
+projections. Changing a seed would not establish distinct null hypotheses either.
+
+`RESULTS_RELATIONS_NULL.md` §A.1 now labels its figures as named algorithm
+counts, strikes the former fractions, and withdraws the unsupported `/3`
+inference and independent-robustness prose. The live `report_panel` lists the
+cleared algorithm names per schema and slice, deduplicates statistics, and
+explicitly discloses dependence. `quality/test_relations_null.py` §15 covers
+the coupled projection, the actual mosaic counterexample, per-slice reporting,
+refusals and non-clears. No random stream, calibration, historical clear decision,
+or admissibility classification changed; this does not requalify the old panel.
+
+**Historical diagnosis and proposed remedies (superseded where noted above):**
+
 **Found 2026-08-22 by an agent re-running the stanza-framed schemas, and
 verified here independently before filing. It qualifies the published
 admissible set directly and it is the sharpest instrument defect on the
@@ -9607,7 +9758,7 @@ would make every new finding a merge conflict rather than a question.
 a finding added without a gate MOVES A NUMBER instead of joining a list nobody
 reads.
 
-### M-74 · the placement work made every mandate import `relations`, and the sentence promising it would not was left standing `OPEN` — sized 2026-08-23
+### M-74 · the placement work made every mandate import `relations`, and the sentence promising it would not was left standing `CLOSED` — sized 2026-08-23
 **Found while closing M-73**, by asking `quality/counters.py` which public
 symbols nothing references and then chasing the one it named in
 `quality/slots.py`. Not a correctness defect and not a gate: a documented
@@ -9662,6 +9813,25 @@ function (`slot.line` on the dotted branch, `int(x)` on the other), which is
 doctrine 1 inside eight lines. Both branches call `slot_line` now. It costs
 nothing precisely BECAUSE of the finding above: the import this call needs was
 already being paid on every mandate.
+
+**CLOSED 2026-09-16.** The sizing above records the pre-fix tree.
+`quality/span_rules.py` now owns the shared span-rule dataclass and constants;
+`relations` re-exports the same objects, and `slots` imports only that leaf.
+No refusal class moved and no exception discrimination changed. Plain and
+placement-based mandates leave `quality.relations` unloaded; schema
+relations still resolve normally. `quality/test_slots.py` checks these
+boundaries in a fresh interpreter and pins the shared object identities.
+
+**RE-MEASURED**, five fresh processes per state on this checkout: the first
+import took 247.57 ms before and 43.51 ms after; the four subsequent imports
+were **82.15–92.48 ms before, 39.06–51.22 ms after**. The old 17.7 ms baseline
+was measured on another environment and is not an absolute performance gate.
+The import boundary itself is the deterministic regression check. Reproduce
+from `lyric-harness` in fresh Python processes with:
+
+```sh
+python3 -c 'import time, sys; t=time.perf_counter(); import quality.schemes; print((time.perf_counter()-t)*1000, "quality.relations" in sys.modules)'
+```
 
 ### M-75 · the shape locks are silenced by appending ONE short section, which is the cheat they were written to catch `CLOSED` — sized and closed 2026-08-23
 **The owner's anecdote, verbatim:** _"I've seen this system say something to
@@ -13887,23 +14057,51 @@ replicates (random end-word pairs from the same sonnets — matched vocabulary,
 same reader, the `audit_band_control.py` null design).** The no-search arm
 restricts both sides to the `endword_only` span, i.e. k=1.
 
+**THE REAL ROW MOVED UNDER E-5 (2026-09-16) AND THE NULL ROW WAS NOT RE-RUN.**
+The 2026-08-26 table is kept in history form (doctrine 17); what could be
+re-measured is restated under it, and what could not is named as such.
+
+> | arm | full k-search | endword-only | the search's lift |
+> |---|---|---|---|
+> | REAL | ~~41.88%~~ | ~~36.46%~~ | ~~**+5.42 pp**~~ |
+> | NULL (median of 10) | 14.85% | 10.79% | **+4.11 pp** |
+>
+>   excess over null, full search : ~~**+27.03 pp**~~
+>   excess over null, no search   : ~~**+25.68 pp**~~
+>   what the search BUYS          : ~~**+1.35 pp**~~
+
 | arm | full k-search | endword-only | the search's lift |
 |---|---|---|---|
-| REAL | 41.88% | 36.46% | **+5.42 pp** |
-| NULL (median of 10) | 14.85% | 10.79% | **+4.11 pp** |
+| REAL, re-measured 2026-09-16 under E-5 | 41.34% (458/1108) | 36.37% (403/1108) | **+4.96 pp** |
 
-  excess over null, full search : **+27.03 pp**
-  excess over null, no search   : **+25.68 pp**
-  what the search BUYS          : **+1.35 pp**
+The REAL row is a property of the comparator and not of the null design, so it
+is restated here from the E-5 run. **The three excess figures and the NULL row
+are NOT restated**: they are differences against the RE-PAIRING null, which
+this lot did not re-run, and a figure whose minuend has moved while its
+subtrahend has not been re-measured is not a figure (doctrine 20). They stand
+struck above on their 2026-08-26 dating, and the permutation-null arm — the one
+that IS instrumented — carries the current answer in **B** below.
 
 **THREE QUARTERS OF THE SEARCH'S LIFT ON REAL VERSE IS REPRODUCED BY THE NULL
-(75.8%)**, and the real arm's lift (+5.42 pp) barely clears the null's own
+(75.8%)**, and the real arm's lift (~~+5.42 pp~~) barely clears the null's own
 replicate MAXIMUM (+5.14 pp, range +3.07 to +5.14). Doctrine 71's sentence,
 pointed at a search instead of a corpus: a lift that does not separate from its
 own null is not a lift.
 
-**WHAT THIS IS NOT, AND THE DISTINCTION IS LOAD-BEARING.** 41.88% is the
-SCALAR gate alone (`total >= theta_rhyme`), NOT this harness's verdict.
+**THAT COMPARISON IS SUSPENDED, NOT RESTATED (2026-09-16, E-5).** The real
+arm's lift is now **+4.96 pp**, which is BELOW the re-pairing null's 2026-08-26
+replicate maximum of +5.14 pp — so the sentence above would read "does not
+clear" rather than "barely clears". **IT IS NOT REWRITTEN THAT WAY, because the
+null side was not re-run under E-5 and a comparison with one side re-measured
+is not a comparison** (doctrine 20). E-5 removes evidence from BOTH arms and
+there is no reason to expect the null's maximum to have held still. What can be
+said is that the margin this paragraph called thin was thinner than the change
+E-5 makes, and re-running the re-pairing null is now the work this sub-finding
+needs. The instrumented permutation arm in **B** is unaffected by this: it was
+re-run on both sides.
+
+**WHAT THIS IS NOT, AND THE DISTINCTION IS LOAD-BEARING.** ~~41.88%~~ 41.34%
+(2026-09-16, E-5) is the SCALAR gate alone (`total >= theta_rhyme`), NOT this harness's verdict.
 `admits()` types the relation and, since M-59/M-116, accepts ASSONANCE,
 CONSONANCE and the whole-vocabulary schema default — which is why the battery
 reports **1.2% violations of judged pairs** and not 58%. Nothing here restates
@@ -13937,24 +14135,121 @@ shipped theta sits just above its break-even point.**
 **A — the null design was not carrying the result.** Under a WITHIN-SONNET LINE
 PERMUTATION null (the repo's own design; controls for poem and author
 vocabulary, which random re-pairing does not) the finding STRENGTHENS: the
-share of the search's lift reproduced by chance goes **75.8% -> 83.4%** and
-what it buys falls **+1.35 -> +1.26 pp**.
+share of the search's lift reproduced by chance goes **75.8% -> ~~83.4%~~** and
+what it buys falls **+1.35 -> ~~+1.26 pp~~**. **REPINNED 2026-09-16 (E-5): the
+permutation arm at the shipped theta now reports 79.2% reproduced by chance and
++1.03 pp bought.** The finding still STRENGTHENS against the re-pairing null
+and the direction of this paragraph is unchanged; only the two permutation
+figures moved, and the 75.8% / +1.35 pp re-pairing pair was not re-run and
+keeps its 2026-08-26 dating.
 
-**B — THE THRESHOLD SWEEP IS THE REAL FINDING.** Sonnets, permutation null:
+**B — THE THRESHOLD SWEEP IS THE REAL FINDING.** Sonnets, permutation null.
+**SUPERSEDED 2026-09-16 BY E-5 — the 2026-08-26 sweep is kept below in history
+form (doctrine 17) and the current sweep follows it.**
+
+> | theta | REAL lift | NULL lift | search buys | reproduced by chance |
+> |---|---|---|---|---|
+> | 0.60 | ~~+14.98~~ | ~~+18.30~~ | ~~**-3.32**~~ | ~~122.1%~~ |
+> | 0.65 | ~~+10.65~~ | ~~+13.09~~ | ~~**-2.46**~~ | ~~122.9%~~ |
+> | 0.70 | ~~+7.40~~ | ~~+8.51~~ | ~~**-0.85**~~ | ~~115.0%~~ |
+> | **0.75 (SHIPPED)** | ~~+5.42~~ | ~~+4.53~~ | ~~**+1.14**~~ | ~~83.6%~~ |
+> | 0.80 | ~~+4.33~~ | ~~+2.49~~ | ~~+1.85~~ | ~~57.5%~~ |
+> | 0.85 | ~~+3.43~~ | ~~+1.18~~ | ~~+2.13~~ | ~~34.3%~~ |
+> | 0.90 | ~~+2.89~~ | ~~+0.50~~ | ~~+2.30~~ | ~~17.3%~~ |
+
+**CURRENT, re-measured 2026-09-16 under E-5** (`coda_empty_evidence` default
+`"gift"` -> `"cannot_tell"`; 187 sonnet windows, 1,108 mandated pairs, 10
+within-sonnet line-permutation replicates, seed 4242):
 
 | theta | REAL lift | NULL lift | search buys | reproduced by chance |
 |---|---|---|---|---|
-| 0.60 | +14.98 | +18.30 | **-3.32** | 122.1% |
-| 0.65 | +10.65 | +13.09 | **-2.46** | 122.9% |
-| 0.70 | +7.40 | +8.51 | **-0.85** | 115.0% |
-| **0.75 (SHIPPED)** | +5.42 | +4.53 | **+1.14** | 83.6% |
-| 0.80 | +4.33 | +2.49 | +1.85 | 57.5% |
-| 0.85 | +3.43 | +1.18 | +2.13 | 34.3% |
-| 0.90 | +2.89 | +0.50 | +2.30 | 17.3% |
+| 0.60 | +12.55 | +15.31 | **-2.77** | 122.1% |
+| 0.65 | +8.75 | +10.51 | **-1.76** | 120.1% |
+| 0.70 | +6.14 | +7.06 | **-0.92** | 115.0% |
+| **0.75 (SHIPPED)** | +4.96 | +3.93 | **+1.03** | 79.2% |
+| 0.80 | +3.88 | +2.12 | +1.76 | 54.8% |
+| 0.85 | +3.34 | +1.22 | +2.12 | 36.6% |
+| 0.90 | +2.89 | +0.54 | +2.34 | 18.8% |
 
 **BELOW theta ~ 0.72 THE SEARCH IS NET HARMFUL** — it lifts the null MORE than
 it lifts the signal, so a looser band is made looser still by a mechanism
-nobody declared. The shipped 0.75 is roughly the break-even point.
+nobody declared. The shipped 0.75 is roughly the break-even point. **THAT
+SENTENCE IS UNCHANGED BY THE REPIN, AND THAT IS THE POINT OF READING THE TWO
+TABLES TOGETHER**: the sign of what the search buys still flips between 0.70
+(**-0.92**, was -0.85) and 0.75 (**+1.03**, was +1.14), the same bracket as
+before. E-5 moved the MAGNITUDES of this sweep and left the crossover where it
+was, so the gate `search_null.py` enforces — `theta_rhyme` above the crossover
+— is untouched, margin still **+0.03**.
+
+**WHY THE SWEEP MOVED, AND IT WAS MEASURED RATHER THAN INFERRED (2026-09-16,
+`MISSING.md` E-5).** `quality/search_null.py --check` went to exit 3 on two
+figures — theta 0.60 real lift and null lift, the only two of the ten pins to
+break the 1.5 pp tolerance. A drift confined to the LOOSEST band is the
+signature of a change to MARGINAL pairs, but a signature is not an
+attribution, so the attribution was settled by a CONTROLLED A/B rather than by
+the coincidence:
+
+- **THE DRIFT DOES NOT REPRODUCE ON `origin/main`.** The same instrument run on
+  a clean `9d9df09` worktree passes all ten pins, with every REAL-lift figure
+  reproducing the 2026-08-26 sitting EXACTLY. The drift is not pre-existing.
+- **THE COORDINATE ALONE REPRODUCES IT.** On that same `origin/main` tree, with
+  `coda_empty_evidence` toggled `"gift"` -> `"cannot_tell"` and NOTHING else
+  varied, the real arm moves at every theta to within 0.01 pp of the move
+  observed across the two commits (theta 0.60: **-2.44** measured against the
+  **-2.43** observed). E-5 accounts for the drift on its own.
+
+**THE MECHANISM IS THE SEARCH'S OWN SELECTION BIAS, and it is the sharpest
+thing this entry has yet said about k.** E-5 stops scoring an empty/empty coda
+as agreement and renormalises the remaining evidence, so a pair resting on an
+absent coda loses `total` (`now`/`why` 0.902 -> 0.850). The two arms do not
+lose equally. Over the 1,108 mandated pairs the removal moves
+
+    FULL k-search arm    274 / 1108  (24.7%)
+    `endword_only` k=1   98 / 1108   (8.8%)
+
+— **the max over k span readings was PREFERENTIALLY SELECTING readings that
+carried the gift**, three times as often as the single unsearched reading. The
+lift is full minus k=1, so it must fall. At theta 0.60 the full arm loses 50
+pairs and the k=1 arm 23, a net -27 pairs = **-2.44 pp**; at 0.90 each loses 2
+and the lift does not move at all, because a pair clearing 0.90 is carried by
+heard consonants and never needed the gift. This is the coupling this entry
+already names, caught from a new direction: a search whose winner was partly
+chosen by an undeclared evidence rule is a search whose value depends on that
+rule, and E-5 is the first change to move one and let the other be watched.
+
+**NOT ALL OF THE 0.60 NULL MOVE IS E-5's — the decomposition, because a repin
+that over-claims its cause is worse than one that does not name it.** The
+committed +18.30 is the 2026-08-26 figure; `origin/main` measures **+17.96**
+today. So -0.34 of the -2.99 was ALREADY THERE and the 1.5 pp band was
+absorbing it; E-5 is the other **-2.65**. The same residual is why theta 0.90's
+null repins +0.50 -> +0.54 although E-5 does not move it at all. The REAL
+column reproduces 2026-08-26 exactly at every theta while the NULL column does
+not, and the reason is visible in the header: this run reads **187** sonnet
+windows where that sitting recorded **152**, at the same 1,108 pairs. The real
+arm is invariant to how the windows are cut; the permutation null shuffles
+WITHIN a window and is not. **That is PRE-EXISTING — it reproduces on
+`origin/main` — it is not E-5's, it is not repaired here, and it is stated
+rather than resolved.**
+
+**NOT TUNED, AND THE LINE IS WORTH NAMING.** `theta_rhyme` (0.75),
+`search_null.CROSSOVER` (0.72), `TOLERANCE_PP` (1.5) and every declared
+coordinate are untouched by this lot. Only the recorded figures move. Doctrine
+58 says a drift is a QUESTION and forbids tuning a figure to pin; it does not
+forbid answering the question. The question has been answered with a name and a
+mechanism, and the answer is banked with the superseded values visible
+(doctrine 17) in `PINNED_SONNET` and in the struck table above.
+
+**WHAT WAS NOT RE-RUN, DECLARED (doctrine 20).** Only the SONNET arm under the
+PERMUTATION null — the arm `search_null.py` instruments and pins — was
+re-measured, plus the REAL row above, which belongs to the comparator and not
+to any null. The RE-PAIRING null (14.85% / 10.79% / +4.11 pp, the 75.8% share,
+the three excess figures) and the song-corpus sweep in **C** below are all from
+the 2026-08-26 sitting, stand on that dating, and are NOT claimed to reproduce
+under E-5. No instrument holds them, which is why the gate did not catch them
+and why nothing here is corrected on their behalf. **C's crossover is the load-
+bearing claim in it, and the crossover is exactly what E-5 did not move on the
+arm that WAS re-run** — so the replication C reports is not contradicted by
+this repin, merely un-refreshed.
 
 **C — THE CROSSOVER REPLICATES; THE HIGH-THETA TREND DOES NOT.** Second corpus:
 12 `corpus/song/eng_*` files, 172 printed blocks, **708 ADJACENT-line pairs** —

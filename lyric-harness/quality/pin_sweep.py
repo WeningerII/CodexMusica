@@ -16,6 +16,11 @@ This is the question, not the answer.
     python3 quality/pin_sweep.py --only 'audit*' a subset, by filename glob
     python3 quality/pin_sweep.py --json          machine-readable
 
+Exit 0 means every selected check HOLDS; 1 means at least one MOVED;
+2 means an interrupted or empty run, or CANNOT RUN without any MOVED. The separate
+--verify-argv mode exits 3 on an uncertified invocation. Normal runs enforce
+that same check per instrument and retain completed evidence on interruption.
+
 IT TAKES OVER AN HOUR AND THAT IS A PROPERTY, NOT A BUG -- SAID HERE SO
 NOBODY DISCOVERS IT BY WAITING.  MEASURED 2026-08-22 on the first full run:
 29 of the 30 instruments in 3,600s, killed by its own outer bound before the
@@ -384,8 +389,14 @@ def evidence(out, cap=4):
 def run_one(rel, root=ROOT, timeout=DEFAULT_TIMEOUT):
     """-> dict.  Runs ONE instrument's own `--check` and reads its answer.
 
-    `--check` is the ONLY argument passed.  Nothing here may add `--write`.
+    The declared check invocation is validated before starting a subprocess.
+    Nothing here may add `--write`.
     """
+    complaints = verify_argv(root, only=rel)
+    if complaints:
+        return {"instrument": rel, "exit": None, "verdict": "CANNOT RUN",
+                "seconds": 0, "evidence": complaints,
+                "evidence_kind": "argv not certified"}
     argv = [sys.executable, rel] + CHECK_ARGV.get(rel, ["--check"])
     t0 = time.time()
     try:
@@ -484,10 +495,23 @@ def main(argv=None):
                          "consumable (M-21's close): no run, seconds not "
                          "hours, exit 3 on any refusal")
     a = ap.parse_args(argv)
+    if a.timeout <= 0:
+        ap.error("--timeout must be positive")
+
+    found = discover(ROOT, a.only)
+    if not found:
+        if a.json:
+            print(json.dumps({"counts": {"HOLDS": 0, "MOVED": 0,
+                                         "CANNOT RUN": 0},
+                              "rows": [], "partial": False,
+                              "not_reached": [],
+                              "error": "no instruments matched"}))
+        else:
+            print("CANNOT RUN: no instruments matched; no pins were checked")
+        return 2
 
     if a.verify_argv:
         complaints = verify_argv(ROOT, a.only)
-        found = discover(ROOT, a.only)
         print("ARGV-CONSUMPTION PROOF — %d instrument(s), classified on the "
               "AST (M-21)" % len(found))
         print("  certified: %d   refused: %d"
@@ -496,7 +520,6 @@ def main(argv=None):
             print("  REFUSED  %s" % c)
         return 3 if complaints else 0
 
-    found = discover(ROOT, a.only)
     if not a.json:
         print("PIN SWEEP -- %d instrument(s), each answering its own "
               "`--check`" % len(found))
@@ -504,6 +527,8 @@ def main(argv=None):
               "with the reason)\n")
 
     def note(i, n, rel, row=None):
+        if row is not None:
+            rows.append(row)
         if a.json:
             return
         if row is None:
@@ -561,12 +586,12 @@ def main(argv=None):
         except (ValueError, OSError):        # not the main thread
             pass
 
-    rows.extend(sweep(ROOT, only=a.only, timeout=a.timeout, progress=note))
+    sweep(ROOT, only=a.only, timeout=a.timeout, progress=note)
 
     counts = {k: sum(1 for r in rows if r["verdict"] == k)
               for k in ("HOLDS", "MOVED", "CANNOT RUN")}
     _summarise(partial=False)
-    return 1 if counts["MOVED"] else 0
+    return 1 if counts["MOVED"] else 2 if counts["CANNOT RUN"] else 0
 
 
 if __name__ == "__main__":

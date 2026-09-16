@@ -35,8 +35,8 @@ split between reading from the FRONT of a word and reading from the BACK, and
 8 schemas are MIXED — one member anchored at each end, which no global
 alignment setting can express (amphisbaenic rhyme is `word_start` against
 `word_end`; linked rhyme is a line-final against a line-INITIAL).  This module
-imports `SpanRule` and the named rule constants from there rather than
-spelling a second copy, so the two layers cannot drift (doctrine 1) and a rule
+imports the named rule constants from `quality/span_rules.py`, the leaf
+shared with `relations`, rather than spelling a second copy, so the two layers cannot drift (doctrine 1) and a rule
 added there is declarable here the same day.
 
 WHERE A SLOT LIVES, AND WHY NOT IN `groups`.  A `Mandate` group is a tuple of
@@ -91,7 +91,7 @@ Test: python3 quality/test_slots.py
 
 from dataclasses import dataclass, replace
 
-from quality import relations as REL
+from quality import span_rules as REL
 
 __all__ = ["Slot", "SlotUnsupported", "DEFAULT_RULE", "GRADEABLE_LOCI",
            "PLANNABLE_PLACEMENTS", "LAST_WORD", "placement_word",

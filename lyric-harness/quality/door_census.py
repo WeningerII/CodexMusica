@@ -119,6 +119,12 @@ ARGUED = "ARGUED"
 #: Every ruling states the QUESTION the site asks, because the disposition
 #: follows from the question and not from the door it happens to spell.
 RULINGS = {
+    ("quality/e5_coda_adoption.py", "admitted"): (
+        ARGUED,
+        "E-5 measures scalar admission separately from schema rescue, at "
+        "theta_for and the declared relation set. Adding schema rescue here "
+        "would hide the admission loss the experiment exists to count. "
+        "The same runner reports check_scheme's post-rescue violations separately."),
     ("quality/rhyme_types.py", "coarse_relation_consensus"): (
         ARGUED,
         "The all-pronunciation scalar subquestion: each permitted endpoint "
@@ -552,8 +558,9 @@ _BY_DOOR = {
 #: M-185, M-189).
 # 2026-09-08: pronunciation-consensus helper adds one deliberately scalar
 # site; check_scheme's all-readings-false branch adds one existing FULL site.
-PINNED = {"sites": 28, "full": 5, "incomplete": 0, "per_word": 3,
-          "rendering": 6, "validation": 1, "argued": 13}
+# E-5, 2026-09-15: one argued measurement site; production doors unchanged.
+PINNED = {"sites": 29, "full": 5, "incomplete": 0, "per_word": 3,
+          "rendering": 6, "validation": 1, "argued": 14}
 
 
 def _innermost(tree):

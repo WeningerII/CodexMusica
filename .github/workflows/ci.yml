@@ -2601,6 +2601,11 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/chance_rate.py --check
 
+      - name: E-5 empty-coda evidence compatibility
+        if: ${{ always() && matrix.shard == 3 }}
+        working-directory: lyric-harness
+        run: python3 quality/e5_coda_adoption.py
+
       # The revision loop itself. 374.87 CPU-s for the pair, MEASURED, both
       # green -- against the "15+ minutes each" that kept them out until today.
   # An always-reporting summary over the `suites` shards, so the largest test
