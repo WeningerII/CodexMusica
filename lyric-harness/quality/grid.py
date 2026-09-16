@@ -866,8 +866,12 @@ class Section:
     #: the alias route discarded the claim. `""` means the function was
     #: declared as itself or not at all.
     specialised_as: str = ""
+    metric_complexity: list = field(default_factory=list)
 
     def __post_init__(self):
+        if self.metric_complexity != []:
+            from quality.metric_complexity import read_complexity
+            read_complexity(self.metric_complexity, self.bars, self.meter.beats)
         raw = self.function
         self.function = as_function(raw)
         self.specialised_as = ""
@@ -1128,7 +1132,8 @@ def song_from_blueprint(obj, assume_meter=None):
         start = int(s.get("start_bar", bar))
         secs.append(Section(name=s["name"], bars=int(s["bars"]), meter=meter,
                             start_bar=start,
-                            function=s.get("function", UNDECLARED)))
+                            function=s.get("function", UNDECLARED),
+                            metric_complexity=s.get("metric_complexity", [])))
         bar = start + int(s["bars"])
 
     def owner(l):

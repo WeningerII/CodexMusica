@@ -313,7 +313,7 @@ ladrang, gendhing), flamenco compases, West African timelines.
 without a `source`, because a catalogue written from memory is unsourced data
 in the evidence base.
 
-### C-3 · No metric complexity `PARTIAL` — structure built 2026-08-10
+### C-3 · Metric complexity `CLOSED` 2026-09-15 — `046e726c` (declaration and reporting layer)
 **Now:** bar duration is an exact `Fraction`, so **.125/1 through 64/32**,
 fractional numerators and non-power-of-two denominators (4/3, 5/6) are one
 object with no special cases; `irrational` is a declared property.
@@ -321,8 +321,30 @@ object with no special cases; `irrational` is a declared property.
 3/4 against 4/4 realigns at 3 whole-notes), `Polyrhythm` (n against m in ONE
 span, 3:2 resolving at 1/6), `MeterMap` (meter per BAR, not per section), and
 `Density` for irama, deliberately not a Cycle because the frame does not move.
-**Still missing:** metric modulation, hemiola, tuplets, swing ratio as a
-continuous value, rubato/senza misura, hypermeter, metric dissonance.
+**Previously missing:** metric modulation, hemiola, tuplets, continuous swing,
+rubato/senza misura, hypermeter and metric dissonance.
+**Now:** `quality/metric_complexity.py` represents all seven with exact rational
+calculations and strict validation. Optional section `metric_complexity`
+declarations pass through the shared blueprint validator, `grid.Section`,
+`fit.from_blueprint`/`from_song`, and the public fit table and CLI report.
+Modulation computes the pivot/beat-unit tempo ratio (and new BPM only when old
+BPM is declared); tuplets support enclosing duration scales; hemiola exposes
+two/three-group reinterpretation or simultaneous layers; swing accepts any
+positive rational ratio; rubato supports a monotonic relative timing map or
+unknown timing, including senza misura; hypermeter groups bars with phase;
+metric dissonance distinguishes non-nesting periods from phase displacement.
+Unknown fields, malformed values, outside-section events and excessive
+expansions refuse through the existing error path.
+**Scope:** these are declared rhythmic layers, not audio measurements or
+inferred syllable settings. Fit continues to judge score-pulse placement;
+annotations do not silently change its subdivision/isochrony assumptions or
+the planner's sampling space. Senza misura retains score addresses without
+claiming a performed pulse. Local modulation BPM does not provide a song tempo
+map or close C-5. See `quality/METRIC_COMPLEXITY.md` for units and full schema.
+**Verified:** `quality/test_meter.py` adds 11 tests covering all seven mechanisms,
+invalid declarations and expansion bounds, repeated section names, unchanged
+sung-line grading, both readers, the Song round trip and the actual `fit` CLI.
+The existing metric-cycle, fit and song-function regressions pass.
 
 ### C-4 · ~~No groove or microtiming~~ — the groove questions are DECLARED and PERMANENTLY REFUSED BY NAME `PARTIAL`
 **Missing:** pushes, pulls, laid-back and ahead-of-beat placement, syncopation
@@ -346,7 +368,8 @@ measurement, the difference between a line that lands and one that drags.
 > **WHAT IS TRULY MISSING IS NARROWER: syncopation as a measurable quantity
 > GIVEN a declared grid.** R5 accepts a `BeatGrid` and nothing computes
 > displacement off one; no `groove`/`syncopat` symbol exists in `meter.py` or
-> `grid.py`. C-3's _"swing ratio as a continuous value"_ is the live neighbour.
+> `grid.py`. C-3 now supplies declared continuous swing ratios; syncopation
+> measurement remains this entry's separate gap.
 >
 > **AND A TEST GUARDS THIS ENTRY THAT TRIAGE CANNOT SEE** —
 > `quality/test_fit.py` asserts `"C-4" in whys` over `fit.UNANSWERABLE` and
