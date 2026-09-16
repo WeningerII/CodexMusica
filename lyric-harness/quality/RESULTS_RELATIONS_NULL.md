@@ -152,50 +152,57 @@ restated.
 
 ## A.1 ADMISSIBLE — in tradition (17)
 
-`nulls` is how many of the four randomisations the schema cleared under on
-that slice; `rows` is cleared / moved over the whole panel.
+`named clears` counts named null algorithms with a clear on that slice;
+`rows` is cleared / moved over the whole panel. **Neither counts independent
+controls.** The former `nulls` fractions are retained struck beside their
+replacement counts (M-42, corrected 2026-09-16). The algorithms share replicate
+seeds. Equal final-token permutations are coupled evidence for a final-token
+measurement, but multiword spans can differ; `both_line_final` alone cannot
+justify a denominator of three. No effective independent-control count has
+been established for these historical rows.
 
-| schema | statistic | null | slice | observed | null max | gap | lift | nulls | rows |
+| schema | statistic | null | slice | observed | null max | gap | lift | named clears (formerly `nulls`) | rows |
 |---|---|---|---|---:|---:|---:|---:|---:|---|
-| `perfect rhyme` | count | within_line_shuffle | eng | 261 | 30 | **+231** | 32.62× | 4/4 | 6/36 |
-| ~~`monorhyme / leash`~~ | ~~count~~ | ~~global_redeal~~ | ~~eng~~ | ~~268~~ | ~~41~~ | ~~**+227**~~ | ~~17.87×~~ | ~~4/4~~ | ~~6/42~~ |
-| `alliteration` | count | global_redeal | fin | 45 | 19 | +26 | 5.00× | 2/4 | 5/18 |
-| `Kalevala alliteration (weak)` | count | global_redeal | fin | 45 | 19 | +26 | 5.00× | 2/4 | 11/36 |
-| `mosaic rhyme` | count | within_line_shuffle | eng | 53 | 33 | +20 | 6.62× | 2/4 | 2/60 |
-| `cynghanedd sain drosgl` | count | line_final_permutation | cym | 95 | 78 | +17 | 1.38× | 2/4 | 5/14 |
-| `cynghanedd sain lafarog` | count | line_final_permutation | cym | 77 | 61 | +16 | 1.40× | 2/4 | 5/18 |
-| `repetition` | count | within_line_shuffle | eng | 35 | 24 | +11 | 5.00× | 2/4 | 7/42 |
-| `light rhyme` | count | within_line_shuffle | cym_cynghanedd | 23 | 12 | +11 | 5.75× | 4/4 | 8/29 |
-| `Kalevala alliteration (strong)` | count | global_redeal | fin | 15 | 5 | +10 | 15.00× | 2/4 | 4/28 |
-| `compound / phrasal rhyme` | count | within_line_shuffle | eng | 23 | 17 | +6 | 2.88× | 2/4 | 5/75 |
-| `cynghanedd sain gadwynog` | count | global_redeal | cym | 20 | 15 | +5 | 2.86× | 1/4 | 6/18 |
-| `cynghanedd sain` | count | global_redeal | cym | 17 | 14 | +3 | 3.40× | 1/4 | 6/18 |
-| `rime riche` | count | within_line_shuffle | eng | 5 | 3 | +2 | ∞ | 2/4 | 4/23 |
-| `pantun ABAB` | count | global_redeal | msa | 17 | 15 | +2 | 2.43× | 1/4 | 19/32 |
-| `chain rhyme (rap)` | local_fraction@2 | global_redeal | eng | 0.696093 | 0.610169 | +0.0859 | 1.34× | 2/4 | 2/72 |
-| `internal rhyme` | local_fraction@2 | within_line_shuffle | eng | 0.141139 | 0.134550 | +0.0066 | 1.07× | 2/4 | 7/62 |
+| `perfect rhyme` | count | within_line_shuffle | eng | 261 | 30 | **+231** | 32.62× | 4 (~~4/4~~) | 6/36 |
+| ~~`monorhyme / leash`~~ | ~~count~~ | ~~global_redeal~~ | ~~eng~~ | ~~268~~ | ~~41~~ | ~~**+227**~~ | ~~17.87×~~ | ~~4 named (4/4)~~ | ~~6/42~~ |
+| `alliteration` | count | global_redeal | fin | 45 | 19 | +26 | 5.00× | 2 (~~2/4~~) | 5/18 |
+| `Kalevala alliteration (weak)` | count | global_redeal | fin | 45 | 19 | +26 | 5.00× | 2 (~~2/4~~) | 11/36 |
+| `mosaic rhyme` | count | within_line_shuffle | eng | 53 | 33 | +20 | 6.62× | 2 (~~2/4~~) | 2/60 |
+| `cynghanedd sain drosgl` | count | line_final_permutation | cym | 95 | 78 | +17 | 1.38× | 2 (~~2/4~~) | 5/14 |
+| `cynghanedd sain lafarog` | count | line_final_permutation | cym | 77 | 61 | +16 | 1.40× | 2 (~~2/4~~) | 5/18 |
+| `repetition` | count | within_line_shuffle | eng | 35 | 24 | +11 | 5.00× | 2 (~~2/4~~) | 7/42 |
+| `light rhyme` | count | within_line_shuffle | cym_cynghanedd | 23 | 12 | +11 | 5.75× | 4 (~~4/4~~) | 8/29 |
+| `Kalevala alliteration (strong)` | count | global_redeal | fin | 15 | 5 | +10 | 15.00× | 2 (~~2/4~~) | 4/28 |
+| `compound / phrasal rhyme` | count | within_line_shuffle | eng | 23 | 17 | +6 | 2.88× | 2 (~~2/4~~) | 5/75 |
+| `cynghanedd sain gadwynog` | count | global_redeal | cym | 20 | 15 | +5 | 2.86× | 1 (~~1/4~~) | 6/18 |
+| `cynghanedd sain` | count | global_redeal | cym | 17 | 14 | +3 | 3.40× | 1 (~~1/4~~) | 6/18 |
+| `rime riche` | count | within_line_shuffle | eng | 5 | 3 | +2 | ∞ | 2 (~~2/4~~) | 4/23 |
+| `pantun ABAB` | count | global_redeal | msa | 17 | 15 | +2 | 2.43× | 1 (~~1/4~~) | 19/32 |
+| `chain rhyme (rap)` | local_fraction@2 | global_redeal | eng | 0.696093 | 0.610169 | +0.0859 | 1.34× | 2 (~~2/4~~) | 2/72 |
+| `internal rhyme` | local_fraction@2 | within_line_shuffle | eng | 0.141139 | 0.134550 | +0.0066 | 1.07× | 2 (~~2/4~~) | 7/62 |
 
 `lift = observed / null MEDIAN`; `∞` means the median was zero, which says the
 relation is rare under the null and NOT that the effect is large — read the
 gap, which for `rime riche` is two instances.
 
-> **THE `nulls` COLUMN IS OVER-COUNTED FOR SEVEN OF THESE ROWS (`MISSING.md`
-> M-42, 2026-08-22).** `line_permutation` and `line_final_permutation` each
-> shuffle once off the same `random.Random(seed + 1 + k)`, so they draw the
-> same permutation. Measured over 200 replicates: **200 of 200 place the same
-> line-final token in the same line**, while 0 of 200 produce identical token
-> grids. For a schema declaring `both_line_final` — 28 of the 77 — the two are
-> ONE randomisation, so the denominator is **3, not 4**. Affected here:
-> `perfect rhyme`, `monorhyme / leash`, `mosaic rhyme`, `light rhyme`,
-> `compound / phrasal rhyme`, `rime riche`, `pantun ABAB`.
+> **M-42 CORRECTION, 2026-09-16.** The earlier caveat asserted that all
+> 28 `both_line_final` schemas, including seven rows here, had exactly three
+> distinct controls. **That assertion is withdrawn.** The 200 paired shuffles
+> do share final-token projections on a nonempty-line fixture. But mosaic
+> and compound rhyme read material before the final token as well. The actual
+> mosaic judge on the six-line fixture in `quality/test_relations_null.py`
+> §15 gives different count distributions for these two algorithms at the same
+> seed. Endpoint placement is not a complete description of what a schema reads.
 >
-> **This does not say those seven are wrong.** `perfect rhyme` clears at +231
-> against a null max of 30; a gap that size is not manufactured by counting a
-> randomisation twice. What is wrong is the robustness figure beside it — and
-> for the rows that cleared under exactly one of four, "one of four" and "one
-> of three" are different sentences about how hard the row tried. The column
-> is left as recorded and flagged rather than re-typed, because fixing it
-> properly means giving the second null its own stream and re-running.
+> The original seven-name warning was `perfect rhyme`, `monorhyme / leash`,
+> `mosaic rhyme`, `light rhyme`, `compound / phrasal rhyme`, `rime riche`,
+> `pantun ABAB`. The table now reports algorithm counts explicitly, with no
+> independence denominator. Giving one algorithm a new seed would change the
+> Monte Carlo draws but would not by itself establish different null hypotheses.
+> This is a reporting correction: the historical observations, null maxima,
+> clear decisions, and admissibility classifications have not been remeasured.
+> The live panel report lists the names that clear per schema and slice and
+> discloses their shared seeds. A new qualified panel remains a separate run.
 
 > **`monorhyme / leash` IS STRUCK, 2026-08-22, and the row is the second in
 > this table.** Both §A and §B measured it — and the four other
@@ -240,28 +247,31 @@ gap, which for `rime riche` is two instances.
 >
 > **THE COLLIDED-NULL CAVEAT APPLIES HERE TOO (M-42).** Four of the sixteen
 > clears are `line_final_permutation` **and** `line_permutation` on the same
-> schema and slice — one randomisation counted twice — and the affected rows
-> are marked as such below rather than counted as two.
+> schema and slice. These are named algorithm clears, not a count of independent
+> controls. The original “one randomisation counted twice” inference from
+> placement alone is withdrawn by the correction above.
 >
 > **`analysed rhyme` is NOT banked, on the re-run agent's own advice and mine.**
-> Its single clear is that collided pair; its observation is **1.0**, the
+> Its clears were attributed to that paired set of algorithms; this does not
+> establish an independent-control count. Its observation is **1.0**, the
 > statistic's CEILING; and its denominator is **3 instances**. It clears
-> nothing in its own tradition (eng: 4 against a null max of 15). A clear that
-> is one randomisation, at a ceiling, over three instances is not a finding.
+> nothing in its own tradition (eng: 4 against a null max of 15). The historical
+> decision not to bank it remains; independence was not established.
 >
 > `monai` restates at **exactly** +4 / 2.31× — unchanged, because
 > `cym_cynghanedd`'s printed ground is one group, so its frame never varied
 > either way. What moved is its provenance, from a laundered `declared` to a
 > measured `printed_breaks, n=1`.
 
-**Three cleared under all four randomisations** — `perfect rhyme`,
-~~`monorhyme / leash`~~ (struck above), `light rhyme` — and fourteen of the
-seventeen under two
-or more nulls that destroy different coordinates. **Three cleared under
-exactly one of four** (`cynghanedd sain`, `cynghanedd sain gadwynog`,
-`pantun ABAB`) and three have gaps of two or three instances (`cynghanedd
-sain` +3, `rime riche` +2, `pantun ABAB` +2). Those are where the ~8 free
-clears sit if they sit anywhere.
+**The historical table records all four algorithm names clearing** for
+`perfect rhyme`, the struck `monorhyme / leash` row, and `light rhyme`.
+Fourteen of its seventeen rows record two or more names; this is not evidence
+of fourteen schemas clearing multiple independent controls. Three record one
+name (`cynghanedd sain`, `cynghanedd sain gadwynog`, `pantun ABAB`). Three have
+gaps of two or three instances (`cynghanedd sain` +3, `rime riche` +2,
+`pantun ABAB` +2). The expected-false-clear calculation counts tested rows;
+linearity of expectation does not require those rows to be independent, and
+it does not identify which particular clears are false.
 
 **EIGHT OF §B's 25 ARE NOT HERE**, and each is a row whose clear did not
 survive n=200: `semirhyme`, `cross rhyme`, `interlaced rhyme`, `linked rhyme`,

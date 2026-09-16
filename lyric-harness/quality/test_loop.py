@@ -91,7 +91,7 @@ from lyric_harness import (line_tokens, raw_final_token,  # noqa: E402
 import dataclasses as _dc  # noqa: E402
 
 
-def perfect_rhyme_reviser():
+def perfect_rhyme_reviser(coda_empty_evidence=None):
     """A `Reviser` whose mandate DECLARES it wants perfect rhyme only.
 
     ADDED 2026-08-26 (`MISSING.md` M-139), and it restores a comparator
@@ -113,11 +113,18 @@ def perfect_rhyme_reviser():
     imported rather than spelled, so this cannot drift from the constant it
     names (doctrine 1) — the same treatment `test_revise.py` §18's
     demonstration arm already takes.
+
+    `coda_empty_evidence` IS THE SECOND COMPARATOR THIS HELPER CAN DECLARE,
+    added 2026-09-16 and used by §6 ALONE — see the argument at its call
+    site. It stays None here, so every other caller keeps whatever
+    `Declaration` currently defaults to, and a section that needs the
+    historical scorer has to say so in its own text rather than inherit it.
     """
     R = Reviser()
-    return Reviser(lex=R.lex,
-                   decl=_dc.replace(R.decl,
-                                    admit=tuple(sorted(RHYME_RELATIONS))),
+    fields = dict(admit=tuple(sorted(RHYME_RELATIONS)))
+    if coda_empty_evidence is not None:
+        fields["coda_empty_evidence"] = coda_empty_evidence
+    return Reviser(lex=R.lex, decl=_dc.replace(R.decl, **fields),
                    floor=R.floor, rdecl=R.rdecl)
 
 FAILURES = []
@@ -540,7 +547,34 @@ def test_tier2_rewrites_a_group_of_three_or_more():
     # THE COMPARATOR IS DECLARED SINCE 2026-08-26 (`MISSING.md` M-139) —
     # see `perfect_rhyme_reviser`. The premise below is a claim about an
     # EMPTY conjunction and that was a property of the two-name field.
-    R = perfect_rhyme_reviser()
+    #
+    # AND THE SECOND HALF OF THE COMPARATOR IS DECLARED 2026-09-16, ON THE
+    # SAME ARGUMENT AND FOR THE SECOND TIME (`MISSING.md` E-5). E-5 moved
+    # `Declaration.coda_empty_evidence` from `gift` to `cannot_tell`, so the
+    # scorer stopped handing a free 1.0 on the coda channel to two
+    # vowel-final words. This section went red in exactly M-139's shape: the
+    # PREMISE still holds -- the fixture still has two coupled 3-member
+    # groups with an unsatisfied obligation, and that check still passes --
+    # but the candidate field narrowed until tier 2 could search, try and
+    # NEVER accept. MEASURED: tried [1, 1, 2] and nothing accepted, stop
+    # `no_progress`; under `gift`, tried [1, 1, 4] and the joint backtrack
+    # over group B fires, `L3 -> 'i', L4 -> 'they' so L5 could take 'nigh'`
+    # -- three vowel-final words, which is precisely the evidence E-5
+    # withdrew. So the finding under test never moved; the words that could
+    # witness it did.
+    #
+    # DECLARED RATHER THAN REPINNED, because repinning here means choosing
+    # new draft lines until the loop accepts, which is tuning the instrument
+    # to meet the pin. E-5 keeps `gift` as an explicit historical replay
+    # setting for exactly this, and CLAUDE.md's rule that a cell wanting the
+    # old behaviour says so is the same rule M-139 already invoked.
+    #
+    # AND THE COST IS NAMED RATHER THAN HIDDEN: with this declaration the
+    # only LIVE witness of M-105's joint backtrack runs under a scorer no
+    # production path now uses. A fixture that forces a joint rewrite under
+    # the DEFAULT comparator is owed, and is a question for whoever owns
+    # M-105 rather than a repair the gate can make for them.
+    R = perfect_rhyme_reviser(coda_empty_evidence="gift")
     mandate = SC.mandate([[1, 2, 5], [3, 4, 5]], n_lines=5,
                          default_relation="RHYME")
     before = R.brief(TOO_LARGE, mandate)
@@ -598,7 +632,10 @@ def test_tier2_rewrites_a_group_of_three_or_more():
     # under test is that members assigned IN ORDER against every sibling
     # already placed come out MUTUALLY rhyming, and a greedy assignment that
     # only answered the pivot would fail exactly here.
-    R2 = perfect_rhyme_reviser()
+    # The SAME declared comparator as the loop above: a fresh grader asking
+    # a different question would not be re-deriving this claim, it would be
+    # answering another one.
+    R2 = perfect_rhyme_reviser(coda_empty_evidence="gift")
     after = R2.brief(res.lines, mandate)
     flags = [(b.line_no, f.code) for b in after for f in b.findings
              if f.severity == "flag"]

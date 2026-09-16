@@ -123,6 +123,26 @@ lyric's own `[Section]` markers against the blueprint's sections
 (`quality/fit.py`) and song function (`quality/grid.py`) joining the rhyme and
 slop-floor findings.
 
+Section function IDs and tradition-specific names are separate. Bare `bridge`
+retains the harness's existing pop-bridge contract. For a tradition's name,
+write a qualified declaration such as `"function": "popular_song::bridge"`
+or `"function": "english_song::break"` (the instrumental interlude reading).
+The same strings work in `--functions` and in `--function=SECTION:FUNCTION`.
+`popular_song::middle-eight` still requires eight bars and is refused by the
+planner, which cannot promise that specialisation's length.
+
+`quality.grid.SECTION_FUNCTION_NAMES` is the enumerable name table;
+`resolve_function_name(name, tradition)` returns its target or written refusal,
+and `as_function(name, tradition=...)` requires a supported grading contract.
+Unknown names or traditions never borrow another scope's meaning. In particular,
+`sonata::bridge`, the two traditions' `exposition` readings, fugal `stretto`,
+operatic `stretta`, and `haitian_drumming::break` have their own explicit refusal
+records: the lyric vocabulary does not yet grade those functions. The sonata
+transition's distinct role is described in [Open Music Theory's Sonata Form](https://viva.pressbooks.pub/openmusictheory/chapter/sonata-form/).
+This adds no new generator functions or recipe dependencies. Blueprint loading
+preserves resolved name records on sections, and function profiles disclose them
+in `function_names`. A section's display `name` is never evidence for its function.
+
 The MANDATE is required and is not optional politeness — with nothing declared
 to check against, the verb REFUSES and exits 2 rather than passing vacuously
 (doctrine 20). `--returns=` is the spelling for a VERBATIM chorus: identity is
