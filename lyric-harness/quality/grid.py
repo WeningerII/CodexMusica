@@ -1840,6 +1840,7 @@ class Return:
     declaration: VariationDeclaration = field(
         default_factory=VariationDeclaration)
     refusals: tuple = ()
+    stub_resolutions: tuple = ()  # (side, printed line, target block, full text)
 
     @property
     def gloss(self):
@@ -1876,13 +1877,17 @@ class Return:
                         f"   ({v[4]} word edits"
                         + (f"; head {hr}, tail {tr})" if hr is not None
                            else ")"))
+        for side, line, block, full in self.stub_resolutions:
+            rows.append(f"  {side} L{line}: reference to block {block} "
+                        f"({len(full)} lines), resolved before comparison")
         for r in self.refusals:
             rows.append(f"  {r}")
         return "\n".join(rows)
 
 
 def compare_returns(first, again, decl=None, rhyme_key=None,
-                    first_slot=None, again_slot=None, stub_test=None):
+                    first_slot=None, again_slot=None, stub_test=None,
+                    reference_blocks=None, language=None):
     """Two returns of one section -> a `Return`. Never "same" or "different".
 
     `first` and `again` are LINE LISTS -- the object is deliberately not a
@@ -1891,6 +1896,12 @@ def compare_returns(first, again, decl=None, rhyme_key=None,
     `Song.slot_profile`) when the song IS placed and the tune-slot flag becomes
     answerable; leave them off and it stays None, which is "cannot tell" and
     not "no".
+
+    `reference_blocks` supplies complete blocks from this same song. With
+    that context, printed pointers are expanded before measuring distance.
+    Missing/ambiguous/bare pointers still refuse, and `stub_resolutions`
+    records each successful expansion. No timing is inferred for expanded
+    words. `language` selects the edition's pointer convention.
 
     THE PAIRING RULE, DECLARED. Equal line counts align POSITIONALLY: line k
     of the return answers line k of the first, because that is what occupying
@@ -1915,9 +1926,51 @@ def compare_returns(first, again, decl=None, rhyme_key=None,
     if stub_test is None:
         try:
             import lyric_harness as LH
-            stub_test = LH.is_chorus_stub
+            stub_test = lambda line: LH.is_chorus_stub(line, language)
         except Exception:
             stub_test = lambda _l: False          # noqa: E731
+    if reference_blocks is not None and any(stub_test(l) for l in a + b):
+        from types import SimpleNamespace
+        from quality.relations import search_stub_resolution
+        import lyric_harness as LH
+        context, spans = [], []
+        for block in reference_blocks:
+            block = [l for l in block if normalise_line(l)]
+            if block:
+                start = len(context)
+                context.extend(block)
+                spans.append((start, len(context)))
+        start_a = len(context)
+        context.extend(a)
+        start_b = len(context)
+        context.extend(b)
+        report = search_stub_resolution(
+            SimpleNamespace(text_lines=context), block_spans=spans,
+            stub_incipit=lambda line, lang: (LH.chorus_stub_incipit(line, lang)
+                                            if stub_test(line) else None),
+            language=language)
+        receipts = []
+        def expand(lines, offset, side):
+            out = []
+            for i, line in enumerate(lines):
+                target = report["resolved"].get(offset + i)
+                if target is None:
+                    out.append(line)
+                else:
+                    lo, hi = target
+                    out.extend(context[lo:hi])
+                    receipts.append((side, i + 1, spans.index(target) + 1,
+                                     tuple(context[lo:hi])))
+            return out
+        expanded_a = expand(a, start_a, "first")
+        expanded_b = expand(b, start_b, "again")
+        result = compare_returns(
+            expanded_a, expanded_b, decl=decl, rhyme_key=rhyme_key,
+            # A printed pointer has no timing for its expanded lines.
+            first_slot=None, again_slot=None, stub_test=stub_test)
+        result.stub_resolutions = tuple(receipts)
+        return result
+
     stubbed = [l for l in a + b if stub_test(l)]
     if stubbed:
         # EITHER SIDE. Two abbreviated returns are two POINTERS, and their
@@ -1939,7 +1992,8 @@ def compare_returns(first, again, decl=None, rhyme_key=None,
                 f"Reporting an edit distance here would charge the PRINTER's "
                 f"space-saving convention to the writer (doctrine 79); the "
                 f"stub must be RESOLVED against its target before any "
-                f"distance means anything, and only the exclusion is built "
+                f"distance means anything. Supply complete reference_blocks; "
+                f"missing, bare or ambiguous pointers remain unresolved "
                 f"(MISSING.md A-1)."),))
 
     if len(na) == len(nb):
@@ -2518,7 +2572,17 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
             f"{[str(s.meter) for s in inst]}"))
 
     slots = [song.slot_profile(s) for s in inst]
-    if len({tuple(x) for x in slots}) > 1:
+    reference_blocks = [[l.text for l in song.lines_in(s)] for s in inst]
+    import lyric_harness as LH
+    has_pointer = any(LH.is_chorus_stub(line)
+                      for block in reference_blocks for line in block)
+    if has_pointer:
+        refusals.append(Refusal(
+            "RETURN_SLOTS_UNRESOLVED",
+            "printed references do not place their expanded lines on the grid",
+            "Text resolution supplies words, not beats or durations. "
+            "Return slot drift was not measured for abbreviated sections."))
+    if not has_pointer and len({tuple(x) for x in slots}) > 1:
         first_diff = None
         for k in range(max(len(x) for x in slots)):
             vals = {x[k] if k < len(x) else None for x in slots}
@@ -2538,7 +2602,8 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
             [l.text for l in song.lines_in(inst[0])],
             [l.text for l in song.lines_in(inst[k])],
             decl=decl, rhyme_key=rhyme_key,
-            first_slot=slots[0], again_slot=slots[k])
+            first_slot=slots[0], again_slot=slots[k],
+            reference_blocks=reference_blocks)
         rets.append((inst[0], inst[k], r))
 
     # THE RETURN'S OWN REFUSALS, COLLECTED 2026-08-14. `compare_returns`
@@ -2846,7 +2911,9 @@ def reprise_findings(song, later="outro", earlier="intro",
         r = compare_returns(src_lines, dst_lines, decl=decl,
                             rhyme_key=rhyme_key,
                             first_slot=song.slot_profile(src),
-                            again_slot=song.slot_profile(dst))
+                            again_slot=song.slot_profile(dst),
+                            reference_blocks=[[l.text for l in song.lines_in(s)]
+                                              for s in e_inst])
         out.append((src, dst, r))
         if r.kind == "STUB":
             refusals.append(Refusal(
@@ -2868,7 +2935,11 @@ def reprise_findings(song, later="outro", earlier="intro",
         # shown to be the thing doing the work. A declared value must not be
         # able to make this raise, so the quote is conditional rather than
         # indexed blind.
-        kept = [src_lines[i - 1] for i in r.invariant_lines]
+        expanded_src = list(src_lines)
+        for side, line, _block, full in reversed(r.stub_resolutions):
+            if side == "first":
+                expanded_src[line - 1:line] = full
+        kept = [expanded_src[i - 1] for i in r.invariant_lines]
         findings.append(GridFinding(
             "CROSS_FUNCTION_REPRISE",
             f"the {ln} reprises the {en}: {len(r.invariant_lines)} line(s) "
@@ -3731,6 +3802,37 @@ def read_marked_songs(path, language=""):
                 cur.blocks[-1].lines.append(s2)
                 cur.blocks[-1].indents.append(LH.line_indent(line))
     return songs
+
+
+def resolve_marked_references(song):
+    """A-1 census/edition view: references within ONE song, source unchanged.
+
+    Spans are the parser's marked chorus/refrain/burden/etc. boundaries,
+    never guessed stanza lengths. Indices address the flattened printed
+    lines, zero-based and end-exclusive. Expanded text is an optional view;
+    unresolved pointers stay printed and are reported separately.
+    """
+    from types import SimpleNamespace
+    from quality.relations import search_stub_resolution
+    import lyric_harness as LH
+    lines, spans = [], []
+    for block in song.blocks:
+        start = len(lines)
+        lines.extend(block.lines)
+        if block.lines and block.function in POPULAR_SONG.fixed_return:
+            spans.append((start, len(lines)))
+    report = search_stub_resolution(
+        SimpleNamespace(text_lines=lines), block_spans=spans,
+        stub_incipit=LH.chorus_stub_incipit, language=song.language or None)
+    expanded = []
+    for i, line in enumerate(lines):
+        if i in report["resolved"]:
+            a, b = report["resolved"][i]
+            expanded.extend(lines[a:b])
+        else:
+            expanded.append(line)
+    report["expanded_lines"] = expanded
+    return report
 
 
 def indent_partition(block):
