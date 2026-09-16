@@ -278,8 +278,9 @@ export class JobStore {
     // operation already superseded (its only remaining use is a duplicate
     // submission's answer), then any other completed receipt, then an
     // interrupted receipt holding no accepted work. An interrupted receipt
-    // that carries accepted lines is never evicted for space: it is the only
-    // copy of paid work the caller has not yet recovered, and a burst of cheap
+    // that carries accepted lines (including an inherited export when a
+    // resumed worker has not checkpointed yet) is never evicted for space:
+    // it is the only copy of paid work the caller has not yet recovered, and a burst of cheap
     // unrelated requests must not be able to retire it. TTL expiry, which the
     // caller can read from the receipt, is what bounds it.
     const rank = (r) =>
@@ -287,7 +288,7 @@ export class JobStore {
         ? r.successor_id
           ? 0
           : 1
-        : r.progress?.accepted_lines?.length
+        : (r.progress?.accepted_lines ?? r.checkpoint?.accepted_lines)?.length
           ? 3
           : 2;
     const terminal = [...this.records.values()]
