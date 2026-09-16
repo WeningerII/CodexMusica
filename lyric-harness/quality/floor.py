@@ -1126,9 +1126,24 @@ PROFILES.append(
 #: C1 for MATTR/function-word ratio, C2 for anaphora and CK for line-length
 #: CV. Predictability CK retains the anti-vacuity exception to C0=1.0,
 #: silent through 165 tokens. Historical studies remain in RESULTS_LENGTH_CURVE.md
-#: and RESULTS_PRODUCTION_DATA_2026-09-08.md; current provenance and deltas
-#: are in RESULTS_ENGLISH_NONLYRIC_2026-09-15.md. All five checks remain
+#: and RESULTS_PRODUCTION_DATA_2026-09-08.md; ~~current provenance and deltas
+#: are in RESULTS_ENGLISH_NONLYRIC_2026-09-15.md~~ that adoption remains the
+#: provenance for FOUR of the five checks, and predictability's knot table was
+#: REPINNED 2026-09-16 under a moved comparator fingerprint
+#: (RESULTS_COMPARATOR_REPIN_2026-09-16.md). All five checks remain
 #: mandatory, tolerance 1.0, with no extrapolation beyond 10-3,244 tokens.
+#:
+#: WHAT MOVED, AND WHAT DID NOT (2026-09-16). `comparator_fingerprint()` moved,
+#: which discards the predictability memo and re-derives the fifth check from
+#: scratch. Re-computed over the same 8,536 items: `mattr`, `fwr`, `anaphora`
+#: and `cv` re-derive BIT-FOR-BIT -- identical to 16 significant figures, curves
+#: and held-out rates alike -- and n_human, lo/hi and the MATTR/TTR population
+#: are unchanged. Five of predictability's 21 knots moved, all at N >= 182
+#: tokens; the twelve knots through N=165 stay at 1.0, where the check cannot
+#: fire. The knot ABSCISSAE are unchanged, because the bins are a function of
+#: token counts and the corpus is byte-identical. Adopted as a SET, not tuned
+#: (doctrine 58): the moves run in BOTH directions, so no threshold was
+#: loosened to make a check pass.
 PROFILES.append(
     Profile(
         name="lyric", unit='whole lyric sheet, 10-3244 tokens, thresholds a function of ln N',
@@ -1172,22 +1187,22 @@ PROFILES.append(
                                              (4.955827057601261, 1.0),
                                              (5.0238805208462765, 1.0),
                                              (5.10594547390058, 1.0),
-                                             (5.204006687076795, 0.9375),
+                                             (5.204006687076795, 0.9406249999999972),
                                              (5.293304824724492, 0.9285714285714286),
                                              (5.389071729816501, 0.9335416666666665),
                                              (5.493061443340548, 0.9333333333333333),
-                                             (5.598421958998375, 0.9415032679738561),
+                                             (5.598421958998375, 0.9378676470588234),
                                              (5.726847747587197, 0.9049783549783548),
-                                             (5.877735781779639, 0.9169871794871791),
-                                             (6.077642243349034, 0.8801176470588234),
-                                             (6.52649485957079, 0.8579734219269103)]}},
+                                             (5.877735781779639, 0.9049783549783548),
+                                             (6.077642243349034, 0.8858730158730157),
+                                             (6.52649485957079, 0.8615196078431373)]}},
         measured_auc={},
-        held_out_fpr={'ANY': (18.638548276741034, 14.766464569096149, 23.727633931930747),
+        held_out_fpr={'ANY': (18.66401571335758, 14.773583045954593, 23.80195610554051),
  'anaphora': (5.073459809061301, 3.398645369121104, 7.195041533385808),
  'line_length_cv': (5.38784457868143, 4.335087108973651, 6.712013944745906),
  'function_word_ratio': (5.127842004244493, 3.1918900906069143, 7.7374183014857785),
  'mattr': (4.862200557796703, 2.9214234943210267, 7.861976917583954),
- 'predictability': (2.7697793778004396, 1.3676267986428985, 4.480757867165703)},
+ 'predictability': (2.849061513501891, 1.4088818988668295, 4.509241769270793)},
         held_out_scope={'predictability': '. This rate pools all 10-3244-token works, including lengths through 165 where '
                    'the threshold equals 1.0 and cannot fire. It is not conditional on lengths '
                    'where the check can fire.'},
@@ -1195,8 +1210,12 @@ PROFILES.append(
  '10-3244 tokens. All five checks pass every length bin over 200 author-held-out splits. '
  'Preregistered model choices: anaphora C2, cv CK, fwr C1, mattr C1, predictability CK. '
  'Predictability CK retains the existing anti-vacuity exception to C0 and first falls below 1.0 at '
- '166 tokens. Full precision and input provenance in '
- 'quality/results/english_nonlyric_2026-09-15/curve-adoption.json.'))),
+ '166 tokens. Full precision and input provenance for mattr, fwr, anaphora and cv in '
+ 'quality/results/english_nonlyric_2026-09-15/curve-adoption.json; those four re-derive BIT-FOR-BIT '
+ 'from the 2026-09-16 recomputation. ~~and for predictability in that same file~~ PREDICTABILITY '
+ 'REPINNED 2026-09-16 under a moved comparator fingerprint, full precision in '
+ 'quality/results/comparator_repin_2026-09-16/curve-adoption.json; five of its 21 knots moved, all '
+ 'at 182 tokens and above, held-out rate 2.7698% -> 2.8491%.'))),
         note=((('CURRENT 2026-09-15 measurements supersede the historical values below; prior full declarations '
  'are in quality/results/english_nonlyric_2026-09-15/profiles-before.json. CURRENT 2026-09-14 '
  'adoption supersedes every older value in the following historical note. CURRENT 2026-09-08 '
