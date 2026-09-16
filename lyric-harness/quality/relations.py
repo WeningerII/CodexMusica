@@ -3863,8 +3863,17 @@ def declare_senses(stream, mapping):
 STUB_INCIPIT_LENGTHS = (5, 4, 3, 2)
 
 
-def search_stub_resolution(stream, is_stub=None, language=None, incipit=None):
+def search_stub_resolution(stream, is_stub=None, language=None, incipit=None,
+                           block_spans=None, stub_incipit=None):
     """Resolve the stubs that resolve UNIQUELY, and refuse the rest. -> dict.
+
+    With `block_spans` and `stub_incipit`, resolve the COMPLETE printed
+    incipit against the openings of complete declared blocks anywhere in the
+    song. Return full spans, including targets printed later. Identical whole
+    printings collapse to one reading; conflicting endings stay ambiguous.
+    Blocks containing pointers cannot themselves be targets. No shorter
+    prefix fallback is used. Without these arguments the historical
+    line-only probe described below is retained for compatibility.
 
     WHICH LINES ARE STUBS IS NOT THIS MODULE'S QUESTION (P10, and this
     function violated it from 2026-08-23 until the same day's audit). The
@@ -3910,6 +3919,49 @@ def search_stub_resolution(stream, is_stub=None, language=None, incipit=None):
     it to "probably four lines" would be inventing the chorus's length, which
     is the edition-level judgement `BLOCKERS` says this cannot make.
     """
+    # A-1: block mode requires edition-declared boundaries and the edition's
+    # pointer parser. The older line-only probe below remains available.
+    if block_spans is not None:
+        if not callable(stub_incipit):
+            raise NoReferent("block resolution requires stub_incipit")
+        lines = list(stream.text_lines)
+        spans = tuple(block_spans)
+        for a, b in spans:
+            if not 0 <= a < b <= len(lines):
+                raise NoReferent(f"invalid chorus block span {(a, b)!r}")
+        prefixes = [stub_incipit(line, language) for line in lines]
+        candidates = [(a, b) for a, b in spans
+                      if all(prefixes[j] is None for j in range(a, b))]
+        resolved, ambiguous, unmatched, no_incipit, evidence = {}, [], [], [], {}
+        for i, prefix in enumerate(prefixes):
+            if prefix is None:
+                continue
+            key = tuple(t.lower() for t in tokenise(prefix))
+            if not key:
+                no_incipit.append(i)
+                continue
+            hits = [(a, b) for a, b in candidates if not a <= i < b
+                    and tuple(t.lower() for t in tokenise(lines[a]))[:len(key)] == key]
+            # Repeated printings are one target only when the WHOLE blocks
+            # agree. Identical opening lines alone cannot settle a variant.
+            readings = {}
+            for a, b in hits:
+                reading = tuple(tuple(t.lower() for t in tokenise(line))
+                                for line in lines[a:b])
+                readings.setdefault(reading, (a, b))
+            if len(readings) == 1:
+                resolved[i] = next(iter(readings.values()))
+                evidence[i] = len(key)
+            elif readings:
+                ambiguous.append((i, tuple(hits)))
+            else:
+                unmatched.append(i)
+        return {"stubs": sum(p is not None for p in prefixes),
+                "resolved": resolved, "found": len(resolved),
+                "ambiguous": ambiguous, "unmatched": unmatched,
+                "no_incipit": no_incipit, "evidence": evidence,
+                "source": "whole_incipit_unique_block_any_position"}
+
     status = tuple(getattr(stream, "line_status", ()) or ())
     if status:
         def _is_stub(text, _lang, _i=None):
