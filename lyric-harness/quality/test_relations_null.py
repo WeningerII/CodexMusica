@@ -61,6 +61,9 @@ each section states the two directions it can fail in.
      other direction is asserted too: at least one null must actually destroy
      the frame, or the counter is decoration.
 
+ 15. BLOCKER KINDS match existing declaration mechanisms; invalid records
+     refuse and declared capabilities are tested absent-before/present-after.
+
 Run: python3 quality/test_relations_null.py
 """
 
@@ -715,6 +718,42 @@ def s14_the_void_replicate_is_its_own_count():
           f"void={m.void_replicates}")
 
 
+def s15_blocker_kinds():
+    print("\n§15 blocker classifications follow existing mechanisms (M-36)")
+    check("§15 report strings derive from the typed records",
+          N.BLOCKERS == {c: b.describe() for c, b in N.BLOCKER_RECORDS.items()})
+    for args in [("unknown", "reason"), ("obtain", ""),
+                 ("declare", "reason"),
+                 ("declare", "reason", "missing_constructor"),
+                 ("build", "reason", "declare_lifts"),
+                 ("disjoint", "reason", "declare_beat")]:
+        try:
+            N.Blocker(*args)
+        except ValueError:
+            refused = True
+        else:
+            refused = False
+        check(f"§15 malformed or contradictory blocker refuses: {args}", refused)
+    # Behavior, not just hasattr: these constructors actually change supply.
+    fixtures = {
+        "orthography": (lambda word: word[-2:],),
+        "lifts": ({0: (0, 2), 1: (0, 2)},),
+        "beat": ({0: (0, 2), 1: (0, 2)},),
+    }
+    declared = {c for c, b in N.BLOCKER_RECORDS.items() if b.kind == "declare"}
+    check("§15 every declare blocker has a behavioral witness", declared == set(fixtures))
+    for cap, args in fixtures.items():
+        st = stream_of(FIXTURE)
+        check(f"§15 {cap} absent without caller coordinates", not st.provides(cap))
+        record = N.BLOCKER_RECORDS[cap]
+        getattr(R, record.declaration)(st, *args)
+        check(f"§15 {cap} supplied by its recorded constructor", st.provides(cap))
+        check(f"§15 {cap} requires declaration, not construction or disjointness",
+              record.kind == "declare")
+    check("§15 sense derivation awaits validation, not a missing inventory",
+          N.BLOCKER_RECORDS["sense"].kind == "validate")
+
+
 def s15_named_nulls_are_not_independent_evidence():
     import contextlib
     import io
@@ -781,6 +820,7 @@ def main():
     s12_the_page_derivation_never_runs_on_a_token_join()
     s13_the_census_keeps_the_refusal_kind()
     s14_the_void_replicate_is_its_own_count()
+    s15_blocker_kinds()
     s15_named_nulls_are_not_independent_evidence()
     print("\n" + "=" * 74)
     print(f"  {len(PASS)} passed, {len(FAIL)} failed")
