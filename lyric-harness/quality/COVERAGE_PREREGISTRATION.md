@@ -1,5 +1,13 @@
 # Pre-registration — does writing a song actually reach what we built?
 
+> **C-5 update, 2026-09-15:** the historical `NO_TEMPO` inert findings below
+> are superseded. `quality/tempo.py` now calls the refusal for missing tempo;
+> `grid` exposes declared durations, and `BeatGrid.seconds_between` reads BPM.
+> `quality/test_tempo.py` exercises both outcomes; `quality/test_nc_census.py`
+> now fires all eight members of its historical set. No historical coverage
+> denominator or experiment result is retroactively changed.
+
+
 Committed **before** the draft exists and **before** the denominator is
 derived. `git log` proves the order, and the order is the whole method: a
 coverage claim written after the run is a description of what happened, not a
