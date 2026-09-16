@@ -1134,6 +1134,86 @@ def test_which_pairs_may_be_asked_is_the_whole_design():
           f"runs on same-function returns, on pairs it was never handed")
 
 
+def test_answer_and_call_response_relations():
+    """A-2: real printed answers survive the blueprint/report/CLI path."""
+    import copy
+    import subprocess
+    import tempfile
+    from quality.line_relations import read_line_relations
+    from quality.meter import validate_blueprint
+    from quality.fit import from_blueprint
+
+    print("\n11. A-2 directed answer and call-and-response declarations")
+    path = os.path.join(CORPUS, "eng_british_robert_herrick.txt")
+    with open(path) as fh:
+        block = fh.read().split("--- TITLE: Upon Love, By Way Of Question And Answer\n", 1)[1]
+    texts = [s for s in block.split("--- TITLE:", 1)[0].splitlines()
+             if s and not s.startswith("[")]
+    check("printed question/answer exemplar has eight pairs",
+          len(texts) == 16 and all("What will love do?" in t for t in texts[::2])
+          and all("Ans." in t for t in texts[1::2]))
+    bp = {"sections": [{"name": "verse", "function": "verse", "bars": 16,
+                        "meter": {"beats": 4, "unit": 4}}],
+          "lines": [{"text": t, "bar": i + 1, "section": "verse"}
+                    for i, t in enumerate(texts)],
+          "line_relations": [{"kind": "answer", "call": i + 1, "response": i + 2,
+                              "source": "Herrick: printed Quest./Ans. labels"}
+                             for i in range(0, 16, 2)]}
+    snapshot = copy.deepcopy(bp)
+    song, _ = G.song_from_blueprint(bp)
+    report = G.song_function_report(song)["line_relations"]
+    check("reader preserves source, direction, role and all corpus words",
+          bp == snapshot and report["count"] == 8 and report["state"] == "present"
+          and [(r["call_text"], r["response_text"]) for r in report["rows"]]
+          == list(zip(texts[::2], texts[1::2]))
+          and all(r["response_role"] == "answer" and r["source"]
+                  for r in report["rows"]))
+    song.lines[1].text = "The revised answer"
+    check("report reads current draft words rather than a stored snapshot",
+          song.line_relation_report()["rows"][0]["response_text"] == "The revised answer")
+    blind = copy.deepcopy(bp)
+    del blind["line_relations"]
+    empty = dict(blind, line_relations=[])
+    check("printed labels and repeated calls do not infer relationships",
+          G.song_from_blueprint(blind)[0].line_relation_report()["state"] == "undeclared"
+          and G.song_from_blueprint(empty)[0].line_relation_report()["state"] == "empty")
+    pair = dict(kind="call_and_response", call=1, response=4,
+                source="writer declaration", call_voice="leader", response_voice="group")
+    voices = dict(blind, line_relations=[pair, dict(pair, response=2), dict(pair, call=3)])
+    rows = G.song_function_report(G.song_from_blueprint(voices)[0])["line_relations"]["rows"]
+    check("nonadjacent, shared-call and shared-response links keep voice roles",
+          len(rows) == 3 and rows[0]["call_voice"] == "leader"
+          and rows[0]["response_voice"] == "group" and rows[0]["response_role"] == "response"
+          and rows[0]["response"] == 4)
+    malformed = [None, {}, [dict(pair, kind="rhyme")], [dict(pair, kind=[])],
+                 [dict(pair, call=True)], [dict(pair, call=1.0)], [dict(pair, call=0)],
+                 [dict(pair, response=17)], [dict(pair, response=1)],
+                 [dict(pair, call=5)], [dict(pair, source=" ")],
+                 [dict(pair, response_voice=[])], [dict(pair, typo=True)], [pair, pair]]
+    check("shared validator and both blueprint readers refuse malformed links",
+          all(_raises(lambda reader=reader, rows=rows: reader(dict(blind, line_relations=rows)),
+                      ValueError)
+              for rows in malformed
+              for reader in (validate_blueprint, G.song_from_blueprint, from_blueprint)))
+    repeated = copy.deepcopy(voices)
+    repeated["sections"] = [dict(bp["sections"][0], bars=2),
+                             dict(bp["sections"][0], bars=14)]
+    check("repeated section names do not permit links across block instances",
+          _raises(lambda: G.song_from_blueprint(repeated), ValueError)
+          and _raises(lambda: read_line_relations([pair], [None] * 16), ValueError))
+    # CLI must print the actual link and words, not merely static explanation.
+    with tempfile.TemporaryDirectory() as tmp:
+        file = os.path.join(tmp, "blueprint.json")
+        with open(file, "w") as fh:
+            json.dump(voices, fh)
+        proc = subprocess.run([sys.executable, os.path.join(ROOT, "lyric_harness.py"),
+                               "function", file], capture_output=True, text=True)
+    check("function CLI consumes and renders the declared directed relationship",
+          proc.returncode == 0 and "call_and_response: L1 -> L4" in proc.stdout
+          and "response (group): " + texts[3] in proc.stdout,
+          proc.stderr[-1000:])
+
+
 if __name__ == "__main__":
     for fn in (test_function_is_declared_and_never_inferred,
                test_the_questions_that_needed_a_function,
@@ -1144,7 +1224,8 @@ if __name__ == "__main__":
                test_the_two_songs_the_gap_register_named,
                test_the_report_prints_three_counts,
                test_the_apparatus_rule_is_the_centres_and_its_price_is_named,
-               test_which_pairs_may_be_asked_is_the_whole_design):
+               test_which_pairs_may_be_asked_is_the_whole_design,
+               test_answer_and_call_response_relations):
         fn()
     print("=" * 70)
     if FAILURES:

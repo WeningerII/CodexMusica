@@ -164,6 +164,8 @@ def validate_blueprint(obj):
             read_complexity(section["metric_complexity"], bars, pulses)
         spans.append((name, start, start + bars))
         cursor = start + bars
+    has_line_relations = "line_relations" in obj
+    line_blocks = []
     for i, line in enumerate(lines):
         if "bar" not in line:
             raise ValueError(f"line {i + 1} requires a bar")
@@ -182,6 +184,16 @@ def validate_blueprint(obj):
             owners = [s for s in hits if s[1] <= bar < s[2]]
             if len(owners) != 1:
                 raise ValueError(f"line {i + 1} has no unique section at bar {bar}")
+            if has_line_relations:
+                line_blocks.append(spans.index(owners[0]))
+        elif has_line_relations:
+            line_blocks.append(spans.index(hits[0]))
+    if has_line_relations:
+        from quality.line_relations import read_line_relations
+        if not isinstance(obj["line_relations"], list):
+            raise ValueError("blueprint line_relations must be an array")
+        guard_expansion(len(obj["line_relations"]), "blueprint line_relations", MAX_BLUEPRINT_ITEMS)
+        read_line_relations(obj["line_relations"], line_blocks)
     return obj
 
 
