@@ -49,7 +49,11 @@ const ordered = (value) =>
   Array.isArray(value)
     ? value.map(ordered)
     : value && typeof value === 'object'
-      ? Object.fromEntries(Object.keys(value).sort().map((k) => [k, ordered(value[k])]))
+      ? Object.fromEntries(
+          Object.keys(value)
+            .sort()
+            .map((k) => [k, ordered(value[k])])
+        )
       : value;
 const melodyValue = (value) => {
   if (typeof value !== 'string') return ordered(value ?? null);
@@ -136,7 +140,9 @@ function sweepFor(w, args) {
     .find(
       (s) =>
         s.accepted.includes(args.seed) &&
-        ['form', 'lines', 'functions', 'melody'].every((k) => same(norm(k, args[k]), norm(k, s.args[k]))) &&
+        ['form', 'lines', 'functions', 'melody'].every((k) =>
+          same(norm(k, args[k]), norm(k, s.args[k]))
+        ) &&
         same(list(args.wants), list(s.args.want))
     );
 }
