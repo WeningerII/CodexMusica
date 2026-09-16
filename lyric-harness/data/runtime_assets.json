@@ -248,8 +248,8 @@
         },
         {
           "path": "data/rhyme_capacity_eng.tsv",
-          "bytes": 524281,
-          "sha256": "7b6a74f94884819ccfce859526fbfa8d7f9385f71ff4ee07bca8a3de33aa9b72"
+          "bytes": 524284,
+          "sha256": "838e2a00376e451371f2ef648530f5cabfc83ac002d6ba958303cdc30eab2317"
         },
         {
           "path": "data/section_marks.tsv",
@@ -283,8 +283,8 @@
         },
         {
           "path": "data/sources.tsv",
-          "bytes": 1602184,
-          "sha256": "b5887ca412975657eb6f7e5b8d52d7d9e0929997177b107f16e7f76f8997e8da"
+          "bytes": 1602703,
+          "sha256": "7ba55640b9fba615c7ea91d38d90acc6b4090d274694b1d7e2e0e459858a32af"
         },
         {
           "path": "data/structure_canon.tsv",

@@ -105,19 +105,43 @@ MAX_REPAIR_ROUNDS = 12
 #: constant, which the record and the verb's wording both carry.
 CERTIFY_ATTEMPT_CAP = 40
 
-#: Re-adopted2026-09-08 after all81 published witnesses failed the
+#: Re-adopted 2026-09-08 after all 81 published witnesses failed the
 #: explicitly declared class:RHYME oracle (old construction used default
-#: relation rescue). All81 rebuilt at the same attempt cap40 and reverified,
+#: relation rescue). All 81 rebuilt at the same attempt cap 40 and reverified,
 #: including pronunciation uncertainty and the unchanged two-tier ban.
 #: These are witnessed lower bounds, not maximum-clique proofs.
+#:
+#: REPINNED 2026-09-16, for THREE families and not the one CI named. E-5
+#: (empty-coda evidence) moved the JUDGE underneath an artifact none of whose
+#: bytes had changed: a witness is certified once and then re-graded against
+#: the ban in force at every `--check`, so a ban that widens can turn a
+#: published witness dirty without anyone editing it.
+#: `verify_capacity.verify_all` raises on the FIRST dirty family, so CI could
+#: only ever report AY. Sweeping all 81 by hand found three:
+#:   AY     11 banned pairs
+#:   EY     14 banned, 2 incompatible, 2 refused
+#:   IY-Z   1 incompatible, 1 VIOLATED
+#: Each was rebuilt with the repo's own `certify()` under the current ban and
+#: now answers every declared pair cleanly (banned/incompatible/refused/
+#: violated all 0). The witnessed depths moved in BOTH directions, which is
+#: what a re-construction does and a filter could not:
+#:   AY     chain_lo ~~19~~ -> 18
+#:   EY     chain_lo ~~19~~ -> 21   (deeper: a different chain is now legal)
+#:   IY-Z   chain_lo ~~23~~ -> 22
+#: So `max_chain_lo` falls ~~23~~ -> 22 and the family carrying it is
+#: ~~"IY-Z"~~ -> "IY". THAT NAME IS A TIE-BREAK, NOT A MARGIN: IY and IY-Z
+#: both witness 22, and `summarize` takes the first maximal row in table
+#: order, so re-sorting the artifact would flip this string with no
+#: measurement having changed. `validate_rows` re-derives both from the table
+#: on every check, which is what keeps the tie honest rather than remembered.
 ADOPTED = {
     "population": 39969,
     "families": 12387,
     "chain_hi_at_least": {2: 2817, 5: 593, 8: 272, 12: 162, 16: 106,
                           20: 81},
     "certified": 81,
-    "max_chain_lo": 23,
-    "max_chain_lo_family": "IY-Z",
+    "max_chain_lo": 22,            # REPINNED 2026-09-16 from ~~23~~ (E-5)
+    "max_chain_lo_family": "IY",   # REPINNED 2026-09-16 from ~~"IY-Z"~~ (E-5)
 }
 
 #: Families the per-push crown re-certifies (test_capacity §3) — the
@@ -128,15 +152,23 @@ _PAIR_RE = re.compile(r"L(\d+)/L(\d+)")
 
 
 #: Largest actually witnessed class:RHYME group in the current artifact.
-#: Re-adopted2026-09-08:23 words in IY-Z, after all81 families were rebuilt
-#: at construction attempt cap40 and regraded with the actual current ban.
-#: The former40 was not valid under the artifact's declared strict relation;
+#: Re-adopted 2026-09-08: 23 words in IY-Z, after all 81 families were rebuilt
+#: at construction attempt cap 40 and regraded with the actual current ban.
+#: The former 40 was not valid under the artifact's declared strict relation;
 #: rich-rime/default rescue and ambiguous readings had been admitted.
-#: Neither23 nor the first-reading spelling-class ceiling proves a maximum.
+#: Neither 23 nor the first-reading spelling-class ceiling proves a maximum.
 #: This generator rhyme-group bound is separate from writer workload limits.
 #: `plan.py` reads this adopted measurement; production admission additionally
 #: requires an all-family proof bound to the actual installed runtime.
-ADOPTED_MAX_GROUP = 23
+#:
+#: REPINNED 2026-09-16: ~~23~~ -> 22 words, now witnessed by IY (tied with
+#: the re-certified IY-Z). See ADOPTED above for the three families E-5's
+#: ban turned dirty. This constant only ever TIGHTENS here, so the move fails
+#: safe in the direction that matters: a planner that used to volunteer a
+#: group of 23 now volunteers at most 22, and under the ban actually in force
+#: no family has been measured to fill 23. Do not restore 23 without a
+#: witness that survives `verify_capacity` at the current ban.
+ADOPTED_MAX_GROUP = 22
 
 
 def _rime_key(phones):

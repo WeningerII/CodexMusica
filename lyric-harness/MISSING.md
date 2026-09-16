@@ -65,6 +65,27 @@ cross-song isolation, the production corpus and grid callers, and timing
 refusal. The suite is registered in CI alongside the existing grid, relation,
 capability, song-function and English-text guards.
 
+**Edition follow-up, 2026-09-16.** The marked-song reader now interprets
+PG 1279's explicit Burns labels (`Choir.--`, `Chor.--`, `Chorus.--`,
+`Chorus--`, standalone `Chorus`) at their staged block openings. It recovers
+78 inline labels and joins seven standalone labels to their following stanza.
+The rule is edition-scoped; source bytes and source-line coordinates are
+preserved. No full chorus is inferred from a verse's resemblance to a cue.
+The shared pointer detector also removes paired Gutenberg italic delimiters,
+so `_&c._` is a pointer rather than a supposedly complete target line.
+
+The same census now reads **1,163 pointers; 442 resolved; 35 ambiguous;
+686 unmatched; 0 bare**. This is **270 more resolved references**, with
+**133 newly detected pointers** included in the denominator. **721 remain
+unresolved**; this follow-up does not close the edition questions. In
+particular, different complete endings still refuse resolution, as do
+abbreviated variants whose full text is absent. The JSON census now includes
+`unresolved_references`: filename, song title, language, zero-based parsed
+line index, printed cue, status, and competing target spans/text. These are
+reviewable source cases, not invented expansions. Regression coverage includes
+italic pointers, edition scope, original source coordinates and representative
+Burns choruses. The corpus manifest remains byte-identical.
+
 **Historical diagnosis follows, retained as the record of the open gap:**
 
 **REPINNED 2026-09-09, AND THE DECLARATION BELOW WAS FALSE.** Found by an
@@ -226,10 +247,10 @@ the interior lines and keeps the first and last. Staged under
 
 ## B. Pitch, harmony, melody — ABSENT
 
-### B-1 · No pitch layer at all `OPEN`
-**Now (verified):** no module in the repo represents pitch. The grep hits for
-"pitch/interval/scale" are Somali pitch ACCENT, statistical confidence
-INTERVALS, and rescaling.
+### B-1 · Pitch theory and harmony `PARTIAL` 2026-09-15
+**Now:** I-1 adds a minimal symbolic melody phrase with explicit frequencies
+in `quality/melody.py`. The earlier claim that no pitch object exists is
+superseded; the theory and harmony capabilities below remain unimplemented.
 **Missing:** pitch classes, intervals, the 12 ordered interval classes and 6
 unordered ICs, the **66 unordered dyads of 12-TET**, the 208 Forte set classes,
 interval vectors, Z-relations, chords, voicings, inversions, extensions,
@@ -292,7 +313,7 @@ ladrang, gendhing), flamenco compases, West African timelines.
 without a `source`, because a catalogue written from memory is unsourced data
 in the evidence base.
 
-### C-3 · No metric complexity `PARTIAL` — structure built 2026-08-10
+### C-3 · Metric complexity `CLOSED` 2026-09-15 — `046e726c` (declaration and reporting layer)
 **Now:** bar duration is an exact `Fraction`, so **.125/1 through 64/32**,
 fractional numerators and non-power-of-two denominators (4/3, 5/6) are one
 object with no special cases; `irrational` is a declared property.
@@ -300,8 +321,30 @@ object with no special cases; `irrational` is a declared property.
 3/4 against 4/4 realigns at 3 whole-notes), `Polyrhythm` (n against m in ONE
 span, 3:2 resolving at 1/6), `MeterMap` (meter per BAR, not per section), and
 `Density` for irama, deliberately not a Cycle because the frame does not move.
-**Still missing:** metric modulation, hemiola, tuplets, swing ratio as a
-continuous value, rubato/senza misura, hypermeter, metric dissonance.
+**Previously missing:** metric modulation, hemiola, tuplets, continuous swing,
+rubato/senza misura, hypermeter and metric dissonance.
+**Now:** `quality/metric_complexity.py` represents all seven with exact rational
+calculations and strict validation. Optional section `metric_complexity`
+declarations pass through the shared blueprint validator, `grid.Section`,
+`fit.from_blueprint`/`from_song`, and the public fit table and CLI report.
+Modulation computes the pivot/beat-unit tempo ratio (and new BPM only when old
+BPM is declared); tuplets support enclosing duration scales; hemiola exposes
+two/three-group reinterpretation or simultaneous layers; swing accepts any
+positive rational ratio; rubato supports a monotonic relative timing map or
+unknown timing, including senza misura; hypermeter groups bars with phase;
+metric dissonance distinguishes non-nesting periods from phase displacement.
+Unknown fields, malformed values, outside-section events and excessive
+expansions refuse through the existing error path.
+**Scope:** these are declared rhythmic layers, not audio measurements or
+inferred syllable settings. Fit continues to judge score-pulse placement;
+annotations do not silently change its subdivision/isochrony assumptions or
+the planner's sampling space. Senza misura retains score addresses without
+claiming a performed pulse. Local modulation BPM does not provide a song tempo
+map or close C-5. See `quality/METRIC_COMPLEXITY.md` for units and full schema.
+**Verified:** `quality/test_meter.py` adds 11 tests covering all seven mechanisms,
+invalid declarations and expansion bounds, repeated section names, unchanged
+sung-line grading, both readers, the Song round trip and the actual `fit` CLI.
+The existing metric-cycle, fit and song-function regressions pass.
 
 ### C-4 · ~~No groove or microtiming~~ — the groove questions are DECLARED and PERMANENTLY REFUSED BY NAME `PARTIAL`
 **Missing:** pushes, pulls, laid-back and ahead-of-beat placement, syncopation
@@ -325,7 +368,8 @@ measurement, the difference between a line that lands and one that drags.
 > **WHAT IS TRULY MISSING IS NARROWER: syncopation as a measurable quantity
 > GIVEN a declared grid.** R5 accepts a `BeatGrid` and nothing computes
 > displacement off one; no `groove`/`syncopat` symbol exists in `meter.py` or
-> `grid.py`. C-3's _"swing ratio as a continuous value"_ is the live neighbour.
+> `grid.py`. C-3 now supplies declared continuous swing ratios; syncopation
+> measurement remains this entry's separate gap.
 >
 > **AND A TEST GUARDS THIS ENTRY THAT TRIAGE CANNOT SEE** —
 > `quality/test_fit.py` asserts `"C-4" in whys` over `fit.UNANSWERABLE` and
@@ -669,7 +713,81 @@ not.
 **Missing:** rhyme rate per bar, acceleration into a hook, thinning in a
 bridge — rhyme as a rhythmic parameter rather than a per-pair verdict.
 
-### E-5 · The empty/empty coda gift `OPEN` — sized 2026-08-21: the fix has a cheap half and an expensive half, and they are different claims
+### E-5 · The empty/empty coda gift ~~`OPEN`~~ `CLOSED` 2026-09-15 — absent coda evidence omitted from the default scalar
+
+**CLOSED 2026-09-15 under the owner's explicit E-5 implementation request.**
+`Declaration.coda_empty_evidence` now defaults to `cannot_tell`; `gift` remains
+an explicit historical replay setting. Empty/empty coda AGREEMENT is unchanged.
+`now/why` is **0.850 RHYME**, down from **0.902**; `see/free` and `cat/hat`
+remain **1.000 RHYME**. The disclosure names the historical contribution rather
+than claiming that it still enters the default total.
+
+The revised compatibility policy and its disclosed instrument correction are
+in `quality/E5_CODA_ADOPTION.md`; the reproducible runner is
+`quality/e5_coda_adoption.py`, also run in CI. One of 947 legacy scalar-admitted
+mandated pairs leaves admission (**0.106%**, budget **0.5%**): sonnet 1 L2/L4,
+`die/memory`, **0.773 -> 0.697 CONSONANCE**. The production battery remains
+**1064 mandated, 967 judged, 97 refused, 4 violations**. Schema rescue is counted
+separately; the admission loss is not hidden behind the unchanged headline.
+The four 4,000-pair random sampler cells move **173..193 -> 118..134** scalar
+admissions and **36..46 -> 33..40** narrow admissions; schema **889..914** is
+unchanged. These are the existing English sampler's scope, not a claim of
+cross-language calibration or production-consensus false-positive control.
+
+The fixed-span typing invariant is guarded; the first experiment's stronger
+aggregate-label invariant failed on eye/majesty because a different span wins
+when the bonus is removed. That failed claim is recorded, not called a passed
+preregistration. No admission threshold was loosened: the original pricing
+sweep is replayed with explicit `gift`, and its retained cuts must also meet
+the target under the new scalar. FWER regressions and the 30-sonnet calibration
+hold without changing the safety limit; the held-out matrix comparator's
+measured changes are recorded in `quality/RESULTS_MATRIX.md`. D18, readability
+controls and chance-rate bands are repinned from their own instruments.
+`quality/door_census.py` records one additional ARGUED measurement site
+(29 sites, 14 argued); no production satisfaction door changes.
+
+**AND THE CERTIFIED CAPACITY ARTIFACT MOVED WITH THE BAN (2026-09-16), which
+is the part the first pass missed.** `data/rhyme_capacity_eng.tsv` stores
+witness cliques that were certified ONCE and are RE-GRADED at every check, so a
+ban that moves turns committed witnesses dirty without a byte of the artifact
+changing: this branch touches neither the table nor `quality/capacity.py`'s
+measurement, and the failure is entirely the judge moving underneath an
+unchanged artifact. `verify_capacity.verify_all` raises on the FIRST dirty
+family, so CI could only ever name `AY`. Sweeping all 81 by hand found three:
+
+| family | what the current ban says about the committed witness | chain_lo |
+|---|---|---|
+| `AY` | 11 banned pairs, every one of them an edge on `why` (MODAL_RHYME — `why` is among the most predictable answers to its partners, not a score failure) | ~~19~~ 18 |
+| `EY` | 14 banned, 2 incompatible, 2 refused | ~~19~~ 21 |
+| `IY-Z` | 1 incompatible and 1 VIOLATED | ~~23~~ 22 |
+
+THE THREE ARE ONE BAN LANDING ON THREE FAMILIES AND ARE NOT SUMMED (doctrine
+79). Each was rebuilt with the repo's own `certify()` under the current ban and
+now answers every declared pair cleanly — banned, incompatible, refused and
+violated all zero, verified across the complete 81-family population, not just
+the three. The depths moved in BOTH directions, which is what a re-construction
+does and a filter could not: `EY` came back DEEPER, because removing the coda
+gift makes a different chain legal rather than only making chains shorter.
+
+`ADOPTED["max_chain_lo"]` therefore falls ~~23~~ 22 and `ADOPTED_MAX_GROUP`
+falls with it. That constant is not decoration: `quality/plan.py` reads it to
+refuse a rhyme group larger than the lexicon is MEASURED to sustain, so the
+planner now volunteers at most 22 members. It only ever tightens here, so the
+move fails safe. `max_chain_lo_family` becomes ~~`IY-Z`~~ `IY`, and that is a
+TIE-BREAK RATHER THAN A MARGIN: `IY` and `IY-Z` both witness 22 and
+`summarize` takes the first maximal row in table order, so re-sorting the
+artifact would move the name with no measurement having changed.
+
+**AND THE REFUSAL REPORTS HALF OF WHAT IT TESTS, which is why this cost a
+sweep.** `verify_capacity.verify_witness` refuses on EIGHT disjuncts —
+`chain_lo`, `pairs_mandated`, `pairs_judged`, `pairs_refused`, `violations`,
+`refusals`, `banned`, `incompatible` — and its message prints FOUR. `IY-Z`
+failed on `incompatible`, so its line read judged=253/253, refused=0, banned=0,
+violated=0: a refusal that names none of its own causes. Recorded here and
+left as found rather than widened into this commit.
+
+**Historical record follows; default-score and OPEN statements below describe
+the dated, superseded state.**
 **Now (verified by using it):** `now ~ why` scores 0.902 and types RHYME,
 because two vowel-final words get a free 1.0 on the coda channel. The fitted
 matrix takes this to −0.000 and is not shipped.
@@ -1259,7 +1377,7 @@ verse-chorus-bridge sequence, clichéd rhyme-scheme choice itself.
 
 ## I. Generation and workflow
 
-### I-1 · ~~Nothing generates~~ — the harness does not WRITE, and that is a DECISION `PARTIAL` 2026-08-21
+### I-1 · Melody-first entrance alongside the external writing loop `CLOSED` 2026-09-15
 **Now:** `quality/revise.py` returns line-scoped briefs; the harness grades.
 ~~**Missing:** any writing loop, melody-first or lyric-first workflow, or way to
 sample a structure from the scheme/grid spaces and write into it.~~
@@ -1282,12 +1400,25 @@ docstring says "It writes NO WORDS: the writer is outside the harness" and
 a stated design decision is a category error**, and this one has invited a
 session to fix a thing the rules forbid for eleven days.
 
-The accurate sentence is not _the harness writes_ — it is **the harness plans,
-grades, and drives a writing loop whose writer is external**. This entry stays
-PARTIAL on exactly one surviving clause: **melody-first**. Nothing in the tree
-can take a tune as input, because there is no pitch or tune object at all
-(B-1, re-verified absent 2026-08-21). "Nothing generates" was true of the tree
-and false of the SYSTEM from the day `plan.py` v2 landed.
+The harness plans, grades, and drives a writing loop whose writer is external.
+**CLOSED 2026-09-15:** the surviving melody-first entrance now accepts a
+caller-declared monophonic phrase through `make_plan(melody=...)`, CLI
+`plan` / `finish --melody=JSON`, and `lyric_sweep`, `lyric_plan`,
+`lyric_grade`, `lyric_revise`. The phrase repeats once per lyric line;
+its meter, bar length and subdivision replace the meter draw, with no sampled
+pickup. Frequencies in Hz and explicit rest events preserve the supplied tune
+without assuming 12-TET. Notes reach the writer brief and saved plan/blueprint;
+request receipts and continuation declarations carry the same tune.
+
+**Scope:** symbolic phrase input, not audio/MIDI transcription, whole-song
+melody arrangement, exact syllable-to-note underlay, or pitch-performance
+certification. The existing timing grader checks the line grid; the brief
+explicitly discloses those ungraded axes. B-1's harmony/set-theory work and
+G's underlay work remain separate. No recipe-engine dependency or model calls
+were added. `quality/test_melody.py` covers deterministic planning, declaration
+refusals, grid constraints, preservation and the real CLI plan/fill path;
+`mcp/test.mjs` and `mcp/test_lyric_workflow.mjs` cover connector argument and
+receipt continuity.
 
 ### I-2 · No way to sample the space under constraints `PARTIAL` 2026-08-21 — the SAMPLER shipped; ~~the PREDICATE is ruled on hold~~ the PREDICATE shipped as `plan --sweep` (M-82, 2026-08-23) and the residue is three scheme coordinates it cannot yet name (repinned 2026-09-06)
 **REPINNED 2026-09-06 — THE BLOCKER THIS ENTRY RESTS ON WAS SPENT SIXTEEN DAYS AGO.** The last paragraph below says the filter is *"RULED ON HOLD, by name"* and must not be built as a favour. The ruling came on 2026-08-23 — *"make it a verb"* — and it is `plan --sweep=LO-HI [--want=PRED;PRED]` (M-82, `CLAUDE.md` standing rule 3): a closed predicate vocabulary over coordinates the plan already discloses, rejection-sampled from the uniform proposal, ranking nothing. So the PREDICATE exists. **What is still missing is narrower than the entry's own example and is a residue, not a blocker**: this entry asks for *3 sounds, no adjacencies, at least 2 section-crossings*, and `plan.SWEEP_MEASURES` at HEAD names 13 measures — `bars_per_line beats_per_line binding_cap bound_words_per_line group hook lines lines_per_section pins_per_line returns sections slots_per_line story_lineups` — none of which is `n_sounds`, `adjacencies` or `crossings`, though `schemes.SchemeCoordinates` computes all three for every drawn scheme. Adding the three is a build of the M-82 shape (a measure reads a disclosed coordinate; the sweep's own test pins the vocabulary), and it is not taken in a record-only sitting. Status stays PARTIAL on that residue and on nothing else.
@@ -2177,6 +2308,20 @@ exactly` is a measurement claim, not an emphasis, and it was the one figure
 ## L. Known instrument defects
 
 ### L-1 · The false-event rate is not controlled at α `OPEN` — and it was never a rate
+**REDESIGNED 2026-09-15, WITH THE UNIT STATED.**
+`quality/rhyme_organization.py` now tests item/stratum organization with
+conditional word-placement permutations and a full-family Bonferroni bound.
+Its two independently seeded synthetic H0 runs yield 16/1000 and 10/1000
+false stratum discoveries at alpha 0.05, with 100/100 planted detections in
+each stratum at both seeds. Exact-orbit controls and the repeated-spacing
+search are tested in `quality/test_rhyme_organization.py` and wired into CI.
+The first registered design's failed power gate is preserved; the second
+design passes its frozen gates. See `quality/RESULTS_RHYME_ORGANIZATION.md`.
+**This entry remains OPEN for individual-position event error control with
+power.** The replacement exports no certified positions, and automatic legacy
+time inference now refuses instead of treating its paired events as independent
+random slots. An item-level discovery is not certification of its members.
+
 ~~"5.4% against 5.0%" is n=6; at n=20 the same construction gives 9.6%. The
 guarding test runs three sonnets and asserts only `mean < 0.20`.~~
 
@@ -2240,6 +2385,19 @@ this half stays OPEN because the CAPABILITY — a false-event rate controlled at
 α — is exactly as missing as it was.
 
 ### L-2 · Real sonnets do not separate from scrambled text on event rate `OPEN` — EXPLAINED
+**REPLACEMENT MEASURED 2026-09-15.** The second preregistered organization
+design detects **end** organization in 102/122 real sonnets versus 2/488
+role-preserving scrambles, with separate-author replication in Burns (4/20
+versus 0/80) and Moore (17/20 versus 0/80). All frozen v2 gates pass; the
+first design's 54/122 result failed its 50% target and remains recorded.
+The sonnets are development evidence for v2, not unseen validation data.
+**Internal organization remains 1/122 real versus 14/488 scrambled; this
+entry stays OPEN for its original internal-event claim.** The new end result
+does not resolve internal periodicity or individual-event localization.
+Full populations, controls, limitations and commands:
+`quality/RESULTS_RHYME_ORGANIZATION.md`. The historical findings below remain
+findings about the old statistic, not descriptions of the new one.
+
 > **TESTED WHILE OPEN.** `quality/test_null_shapes.py` section 4 names this
 > entry and PINS WHY the separation fails: the admissible null preserves the
 > item's private rime inventory, so the quantity a rate comparison reads barely
@@ -4069,7 +4227,21 @@ without anyone judging a text. Recorded as the route; NOT taken here, because
 it moves `RUN-ON 11`, `test_corpus_audit.py:890`'s `shapes` dict and the
 counters/`PINNED` pair in one commit, and the repin is the half going stale.
 
-### M-21 · One fact about the registers is pinned in two media, and no instrument can be asked which pins a change moves `OPEN`
+### M-21 · One fact about the registers is pinned in two media, and no instrument can be asked which pins a change moves `CLOSED`
+**Closure reconciled 2026-09-16.** The implementation and 2026-08-28 closure
+below were present while the heading still advertised OPEN. The normal sweep
+now enforces the existing argv-consumption check before launching each check;
+an unconsumed flag is CANNOT RUN and cannot print a false HOLDS. Completed
+rows are retained as each child finishes, so interruption preserves earlier
+MOVED evidence in both text and JSON summaries. An empty selection refuses,
+and an inconclusive sweep exits 2 (MOVED still exits 1; a fully measured clean
+sweep exits 0). No pin is automatically repaired. The existing
+`quality/test_pin_sweep.py` CI suite exercises these cases through an isolated
+real CLI run, including a signal sent only after two checks finish. The
+whole-population argv check certifies 50 discovered files on this checkout.
+This closes the sweep capability, not the historical research findings below: the
+phrase-commonplace study (H-1) and prose drift are retained, not rebaselined.
+
 **Found 2026-08-21 by paying the cost twice in one sitting, on consecutive CI
 rounds.** Filing `M-20` moved the number of entries in `MISSING.md` from 75 to 76. That single fact is pinned in **two places, in two different media**:
 
@@ -4950,8 +5122,9 @@ menu sizes are preserved in `docs/null-endpoint-gap.json` (repository root).
 The seven M-46 controls in `quality/test_null_shapes.py` exercise the actual
 judge and sweep. Two failed before the repair, and all seven pass after it;
 the mosaic, searched and asymmetric controls guard against an overbroad fix.
-The historical deep null panel is not requalified by this census. M-42 remains
-separate; no corpus, calibration or relation definition changes here.
+The historical deep null panel is not requalified by this census. M-42's
+reporting correction was completed separately on 2026-09-16; no corpus,
+calibration or relation definition changes here.
 
 ### M-44 · The named-relation judge reached 4 of 80 names, because it STAMPED a position instead of judging at the name's own coordinate `PARTIAL`
 **Raised by an agent's M-35 work, and the diagnosis below is the third one I
@@ -5090,7 +5263,25 @@ its own sitting. The agent also notes the pin `(29, 2)` is safe only because
 on the ledger slice — safe by accident of the harness rather than by
 construction, and worth knowing.
 
-### M-42 · Two of the four nulls are ONE randomisation for 28 of the 77 schemas `OPEN`
+### M-42 · Coupled null algorithms were reported as independent controls `CLOSED` 2026-09-16
+**Closed by correcting the reporting, without changing the recorded instrument.**
+The original diagnosis below is retained as history, with its blanket inference
+withdrawn: `both_line_final` does not mean “reads only the final token”. The
+actual mosaic judge produces different count distributions under the two nulls
+on a six-line fixture, even though all 200 paired draws have equal final-token
+projections. Changing a seed would not establish distinct null hypotheses either.
+
+`RESULTS_RELATIONS_NULL.md` §A.1 now labels its figures as named algorithm
+counts, strikes the former fractions, and withdraws the unsupported `/3`
+inference and independent-robustness prose. The live `report_panel` lists the
+cleared algorithm names per schema and slice, deduplicates statistics, and
+explicitly discloses dependence. `quality/test_relations_null.py` §15 covers
+the coupled projection, the actual mosaic counterexample, per-slice reporting,
+refusals and non-clears. No random stream, calibration, historical clear decision,
+or admissibility classification changed; this does not requalify the old panel.
+
+**Historical diagnosis and proposed remedies (superseded where noted above):**
+
 **Found 2026-08-22 by an agent re-running the stanza-framed schemas, and
 verified here independently before filing. It qualifies the published
 admissible set directly and it is the sharpest instrument defect on the
@@ -6783,7 +6974,36 @@ sections: restoring the two-state tag reds 4, restoring the
 truthy, so every cell would tag `yes` and no example-based check would catch
 it), and emptying the void table reds 2.
 
-### M-24 · The section vocabulary is keyed on a bare token, so a mark means whatever the first tradition to claim it meant `PARTIAL`
+### M-24 · The section vocabulary is keyed on a bare token, so a mark means whatever the first tradition to claim it meant `CLOSED` 2026-09-15 — tradition-qualified names and explicit unsupported readings
+
+**FUNCTION-NAME COORDINATE CLOSED 2026-09-15.** `quality/grid.py` now separates
+canonical grading IDs from `SECTION_FUNCTION_NAMES`, keyed by `(tradition, name)`.
+`resolve_function_name` returns a target or that tradition's written refusal;
+`as_function` accepts `tradition::name` (also an explicit Python `tradition=`).
+Qualified names never fall back to another tradition or the bare-ID namespace.
+Duplicate names within one tradition and undeclared targets fail on table build.
+Bare legacy IDs keep their documented contracts, not a claim of universal meaning.
+
+The existing lyric names are derived under `popular_song`; `english_song::break`
+resolves to the instrumental interlude contract. The counterexamples below have
+separate refusal records: sonata bridge/exposition, fugal exposition/stretto,
+operatic stretta, and the Haitian ensemble cue. This closes the naming collision,
+**not support for grading sonata, fugue, opera or drum cues**: none is silently
+substituted for a lyric contract, and no new generator function is invented.
+
+Blueprints and CLI declarations use the same resolver. Sections retain the name
+record, reports disclose `function_names`, and qualified specialisations preserve
+and check their differentiae. The planner still refuses a middle-eight length
+promise and now preserves a scoped refusal's reason as `PlanRefused`.
+`quality/test_grid.py` tests the scoped resolver, collision rejection, every
+supported name, the false friends, blueprint/CLI loading, and specialisation
+refusals. The existing language-aware mark handling is unchanged.
+
+**VALIDATED:** the complete grid and song-function regression suites pass.
+A planted sonata-to-pop fallback fails the new regression. Documentation paths
+and the register check pass; M-24 is reported as GUARDED.
+
+**HISTORICAL FINDING AND THE EARLIER PARTIAL IMPLEMENTATION FOLLOW.**
 **Found 2026-08-21 by sixteen concurrent tradition-family surveys, and three
 of them hit the same wall independently.**
 
@@ -6885,7 +7105,7 @@ limits (`gle` does not derive; the language vocabulary is typed twice) as
 checks rather than as prose. It tests nothing about the FUNCTION half below,
 and the entry stays open on that.
 
-**STILL OPEN, AND IT IS THE HALF WITH THE FALSE FRIENDS IN IT:**
+**HISTORICAL REMAINING HALF (closed by the coordinate above):**
 `SECTION_FUNCTIONS`' 21 functions are still declared on bare names, so the pop
 `bridge` and the sonata `bridge` are one row that cannot mean both, and fugal
 vs sonata _exposition_ and _stretto_ vs _stretta_ are unaddressed. That is a
@@ -9621,7 +9841,7 @@ would make every new finding a merge conflict rather than a question.
 a finding added without a gate MOVES A NUMBER instead of joining a list nobody
 reads.
 
-### M-74 · the placement work made every mandate import `relations`, and the sentence promising it would not was left standing `OPEN` — sized 2026-08-23
+### M-74 · the placement work made every mandate import `relations`, and the sentence promising it would not was left standing `CLOSED` — sized 2026-08-23
 **Found while closing M-73**, by asking `quality/counters.py` which public
 symbols nothing references and then chasing the one it named in
 `quality/slots.py`. Not a correctness defect and not a gate: a documented
@@ -9676,6 +9896,25 @@ function (`slot.line` on the dotted branch, `int(x)` on the other), which is
 doctrine 1 inside eight lines. Both branches call `slot_line` now. It costs
 nothing precisely BECAUSE of the finding above: the import this call needs was
 already being paid on every mandate.
+
+**CLOSED 2026-09-16.** The sizing above records the pre-fix tree.
+`quality/span_rules.py` now owns the shared span-rule dataclass and constants;
+`relations` re-exports the same objects, and `slots` imports only that leaf.
+No refusal class moved and no exception discrimination changed. Plain and
+placement-based mandates leave `quality.relations` unloaded; schema
+relations still resolve normally. `quality/test_slots.py` checks these
+boundaries in a fresh interpreter and pins the shared object identities.
+
+**RE-MEASURED**, five fresh processes per state on this checkout: the first
+import took 247.57 ms before and 43.51 ms after; the four subsequent imports
+were **82.15–92.48 ms before, 39.06–51.22 ms after**. The old 17.7 ms baseline
+was measured on another environment and is not an absolute performance gate.
+The import boundary itself is the deterministic regression check. Reproduce
+from `lyric-harness` in fresh Python processes with:
+
+```sh
+python3 -c 'import time, sys; t=time.perf_counter(); import quality.schemes; print((time.perf_counter()-t)*1000, "quality.relations" in sys.modules)'
+```
 
 ### M-75 · the shape locks are silenced by appending ONE short section, which is the cheat they were written to catch `CLOSED` — sized and closed 2026-08-23
 **The owner's anecdote, verbatim:** _"I've seen this system say something to
@@ -13901,23 +14140,51 @@ replicates (random end-word pairs from the same sonnets — matched vocabulary,
 same reader, the `audit_band_control.py` null design).** The no-search arm
 restricts both sides to the `endword_only` span, i.e. k=1.
 
+**THE REAL ROW MOVED UNDER E-5 (2026-09-16) AND THE NULL ROW WAS NOT RE-RUN.**
+The 2026-08-26 table is kept in history form (doctrine 17); what could be
+re-measured is restated under it, and what could not is named as such.
+
+> | arm | full k-search | endword-only | the search's lift |
+> |---|---|---|---|
+> | REAL | ~~41.88%~~ | ~~36.46%~~ | ~~**+5.42 pp**~~ |
+> | NULL (median of 10) | 14.85% | 10.79% | **+4.11 pp** |
+>
+>   excess over null, full search : ~~**+27.03 pp**~~
+>   excess over null, no search   : ~~**+25.68 pp**~~
+>   what the search BUYS          : ~~**+1.35 pp**~~
+
 | arm | full k-search | endword-only | the search's lift |
 |---|---|---|---|
-| REAL | 41.88% | 36.46% | **+5.42 pp** |
-| NULL (median of 10) | 14.85% | 10.79% | **+4.11 pp** |
+| REAL, re-measured 2026-09-16 under E-5 | 41.34% (458/1108) | 36.37% (403/1108) | **+4.96 pp** |
 
-  excess over null, full search : **+27.03 pp**
-  excess over null, no search   : **+25.68 pp**
-  what the search BUYS          : **+1.35 pp**
+The REAL row is a property of the comparator and not of the null design, so it
+is restated here from the E-5 run. **The three excess figures and the NULL row
+are NOT restated**: they are differences against the RE-PAIRING null, which
+this lot did not re-run, and a figure whose minuend has moved while its
+subtrahend has not been re-measured is not a figure (doctrine 20). They stand
+struck above on their 2026-08-26 dating, and the permutation-null arm — the one
+that IS instrumented — carries the current answer in **B** below.
 
 **THREE QUARTERS OF THE SEARCH'S LIFT ON REAL VERSE IS REPRODUCED BY THE NULL
-(75.8%)**, and the real arm's lift (+5.42 pp) barely clears the null's own
+(75.8%)**, and the real arm's lift (~~+5.42 pp~~) barely clears the null's own
 replicate MAXIMUM (+5.14 pp, range +3.07 to +5.14). Doctrine 71's sentence,
 pointed at a search instead of a corpus: a lift that does not separate from its
 own null is not a lift.
 
-**WHAT THIS IS NOT, AND THE DISTINCTION IS LOAD-BEARING.** 41.88% is the
-SCALAR gate alone (`total >= theta_rhyme`), NOT this harness's verdict.
+**THAT COMPARISON IS SUSPENDED, NOT RESTATED (2026-09-16, E-5).** The real
+arm's lift is now **+4.96 pp**, which is BELOW the re-pairing null's 2026-08-26
+replicate maximum of +5.14 pp — so the sentence above would read "does not
+clear" rather than "barely clears". **IT IS NOT REWRITTEN THAT WAY, because the
+null side was not re-run under E-5 and a comparison with one side re-measured
+is not a comparison** (doctrine 20). E-5 removes evidence from BOTH arms and
+there is no reason to expect the null's maximum to have held still. What can be
+said is that the margin this paragraph called thin was thinner than the change
+E-5 makes, and re-running the re-pairing null is now the work this sub-finding
+needs. The instrumented permutation arm in **B** is unaffected by this: it was
+re-run on both sides.
+
+**WHAT THIS IS NOT, AND THE DISTINCTION IS LOAD-BEARING.** ~~41.88%~~ 41.34%
+(2026-09-16, E-5) is the SCALAR gate alone (`total >= theta_rhyme`), NOT this harness's verdict.
 `admits()` types the relation and, since M-59/M-116, accepts ASSONANCE,
 CONSONANCE and the whole-vocabulary schema default — which is why the battery
 reports **1.2% violations of judged pairs** and not 58%. Nothing here restates
@@ -13951,24 +14218,121 @@ shipped theta sits just above its break-even point.**
 **A — the null design was not carrying the result.** Under a WITHIN-SONNET LINE
 PERMUTATION null (the repo's own design; controls for poem and author
 vocabulary, which random re-pairing does not) the finding STRENGTHENS: the
-share of the search's lift reproduced by chance goes **75.8% -> 83.4%** and
-what it buys falls **+1.35 -> +1.26 pp**.
+share of the search's lift reproduced by chance goes **75.8% -> ~~83.4%~~** and
+what it buys falls **+1.35 -> ~~+1.26 pp~~**. **REPINNED 2026-09-16 (E-5): the
+permutation arm at the shipped theta now reports 79.2% reproduced by chance and
++1.03 pp bought.** The finding still STRENGTHENS against the re-pairing null
+and the direction of this paragraph is unchanged; only the two permutation
+figures moved, and the 75.8% / +1.35 pp re-pairing pair was not re-run and
+keeps its 2026-08-26 dating.
 
-**B — THE THRESHOLD SWEEP IS THE REAL FINDING.** Sonnets, permutation null:
+**B — THE THRESHOLD SWEEP IS THE REAL FINDING.** Sonnets, permutation null.
+**SUPERSEDED 2026-09-16 BY E-5 — the 2026-08-26 sweep is kept below in history
+form (doctrine 17) and the current sweep follows it.**
+
+> | theta | REAL lift | NULL lift | search buys | reproduced by chance |
+> |---|---|---|---|---|
+> | 0.60 | ~~+14.98~~ | ~~+18.30~~ | ~~**-3.32**~~ | ~~122.1%~~ |
+> | 0.65 | ~~+10.65~~ | ~~+13.09~~ | ~~**-2.46**~~ | ~~122.9%~~ |
+> | 0.70 | ~~+7.40~~ | ~~+8.51~~ | ~~**-0.85**~~ | ~~115.0%~~ |
+> | **0.75 (SHIPPED)** | ~~+5.42~~ | ~~+4.53~~ | ~~**+1.14**~~ | ~~83.6%~~ |
+> | 0.80 | ~~+4.33~~ | ~~+2.49~~ | ~~+1.85~~ | ~~57.5%~~ |
+> | 0.85 | ~~+3.43~~ | ~~+1.18~~ | ~~+2.13~~ | ~~34.3%~~ |
+> | 0.90 | ~~+2.89~~ | ~~+0.50~~ | ~~+2.30~~ | ~~17.3%~~ |
+
+**CURRENT, re-measured 2026-09-16 under E-5** (`coda_empty_evidence` default
+`"gift"` -> `"cannot_tell"`; 187 sonnet windows, 1,108 mandated pairs, 10
+within-sonnet line-permutation replicates, seed 4242):
 
 | theta | REAL lift | NULL lift | search buys | reproduced by chance |
 |---|---|---|---|---|
-| 0.60 | +14.98 | +18.30 | **-3.32** | 122.1% |
-| 0.65 | +10.65 | +13.09 | **-2.46** | 122.9% |
-| 0.70 | +7.40 | +8.51 | **-0.85** | 115.0% |
-| **0.75 (SHIPPED)** | +5.42 | +4.53 | **+1.14** | 83.6% |
-| 0.80 | +4.33 | +2.49 | +1.85 | 57.5% |
-| 0.85 | +3.43 | +1.18 | +2.13 | 34.3% |
-| 0.90 | +2.89 | +0.50 | +2.30 | 17.3% |
+| 0.60 | +12.55 | +15.31 | **-2.77** | 122.1% |
+| 0.65 | +8.75 | +10.51 | **-1.76** | 120.1% |
+| 0.70 | +6.14 | +7.06 | **-0.92** | 115.0% |
+| **0.75 (SHIPPED)** | +4.96 | +3.93 | **+1.03** | 79.2% |
+| 0.80 | +3.88 | +2.12 | +1.76 | 54.8% |
+| 0.85 | +3.34 | +1.22 | +2.12 | 36.6% |
+| 0.90 | +2.89 | +0.54 | +2.34 | 18.8% |
 
 **BELOW theta ~ 0.72 THE SEARCH IS NET HARMFUL** — it lifts the null MORE than
 it lifts the signal, so a looser band is made looser still by a mechanism
-nobody declared. The shipped 0.75 is roughly the break-even point.
+nobody declared. The shipped 0.75 is roughly the break-even point. **THAT
+SENTENCE IS UNCHANGED BY THE REPIN, AND THAT IS THE POINT OF READING THE TWO
+TABLES TOGETHER**: the sign of what the search buys still flips between 0.70
+(**-0.92**, was -0.85) and 0.75 (**+1.03**, was +1.14), the same bracket as
+before. E-5 moved the MAGNITUDES of this sweep and left the crossover where it
+was, so the gate `search_null.py` enforces — `theta_rhyme` above the crossover
+— is untouched, margin still **+0.03**.
+
+**WHY THE SWEEP MOVED, AND IT WAS MEASURED RATHER THAN INFERRED (2026-09-16,
+`MISSING.md` E-5).** `quality/search_null.py --check` went to exit 3 on two
+figures — theta 0.60 real lift and null lift, the only two of the ten pins to
+break the 1.5 pp tolerance. A drift confined to the LOOSEST band is the
+signature of a change to MARGINAL pairs, but a signature is not an
+attribution, so the attribution was settled by a CONTROLLED A/B rather than by
+the coincidence:
+
+- **THE DRIFT DOES NOT REPRODUCE ON `origin/main`.** The same instrument run on
+  a clean `9d9df09` worktree passes all ten pins, with every REAL-lift figure
+  reproducing the 2026-08-26 sitting EXACTLY. The drift is not pre-existing.
+- **THE COORDINATE ALONE REPRODUCES IT.** On that same `origin/main` tree, with
+  `coda_empty_evidence` toggled `"gift"` -> `"cannot_tell"` and NOTHING else
+  varied, the real arm moves at every theta to within 0.01 pp of the move
+  observed across the two commits (theta 0.60: **-2.44** measured against the
+  **-2.43** observed). E-5 accounts for the drift on its own.
+
+**THE MECHANISM IS THE SEARCH'S OWN SELECTION BIAS, and it is the sharpest
+thing this entry has yet said about k.** E-5 stops scoring an empty/empty coda
+as agreement and renormalises the remaining evidence, so a pair resting on an
+absent coda loses `total` (`now`/`why` 0.902 -> 0.850). The two arms do not
+lose equally. Over the 1,108 mandated pairs the removal moves
+
+    FULL k-search arm    274 / 1108  (24.7%)
+    `endword_only` k=1   98 / 1108   (8.8%)
+
+— **the max over k span readings was PREFERENTIALLY SELECTING readings that
+carried the gift**, three times as often as the single unsearched reading. The
+lift is full minus k=1, so it must fall. At theta 0.60 the full arm loses 50
+pairs and the k=1 arm 23, a net -27 pairs = **-2.44 pp**; at 0.90 each loses 2
+and the lift does not move at all, because a pair clearing 0.90 is carried by
+heard consonants and never needed the gift. This is the coupling this entry
+already names, caught from a new direction: a search whose winner was partly
+chosen by an undeclared evidence rule is a search whose value depends on that
+rule, and E-5 is the first change to move one and let the other be watched.
+
+**NOT ALL OF THE 0.60 NULL MOVE IS E-5's — the decomposition, because a repin
+that over-claims its cause is worse than one that does not name it.** The
+committed +18.30 is the 2026-08-26 figure; `origin/main` measures **+17.96**
+today. So -0.34 of the -2.99 was ALREADY THERE and the 1.5 pp band was
+absorbing it; E-5 is the other **-2.65**. The same residual is why theta 0.90's
+null repins +0.50 -> +0.54 although E-5 does not move it at all. The REAL
+column reproduces 2026-08-26 exactly at every theta while the NULL column does
+not, and the reason is visible in the header: this run reads **187** sonnet
+windows where that sitting recorded **152**, at the same 1,108 pairs. The real
+arm is invariant to how the windows are cut; the permutation null shuffles
+WITHIN a window and is not. **That is PRE-EXISTING — it reproduces on
+`origin/main` — it is not E-5's, it is not repaired here, and it is stated
+rather than resolved.**
+
+**NOT TUNED, AND THE LINE IS WORTH NAMING.** `theta_rhyme` (0.75),
+`search_null.CROSSOVER` (0.72), `TOLERANCE_PP` (1.5) and every declared
+coordinate are untouched by this lot. Only the recorded figures move. Doctrine
+58 says a drift is a QUESTION and forbids tuning a figure to pin; it does not
+forbid answering the question. The question has been answered with a name and a
+mechanism, and the answer is banked with the superseded values visible
+(doctrine 17) in `PINNED_SONNET` and in the struck table above.
+
+**WHAT WAS NOT RE-RUN, DECLARED (doctrine 20).** Only the SONNET arm under the
+PERMUTATION null — the arm `search_null.py` instruments and pins — was
+re-measured, plus the REAL row above, which belongs to the comparator and not
+to any null. The RE-PAIRING null (14.85% / 10.79% / +4.11 pp, the 75.8% share,
+the three excess figures) and the song-corpus sweep in **C** below are all from
+the 2026-08-26 sitting, stand on that dating, and are NOT claimed to reproduce
+under E-5. No instrument holds them, which is why the gate did not catch them
+and why nothing here is corrected on their behalf. **C's crossover is the load-
+bearing claim in it, and the crossover is exactly what E-5 did not move on the
+arm that WAS re-run** — so the replication C reports is not contradicted by
+this repin, merely un-refreshed.
 
 **C — THE CROSSOVER REPLICATES; THE HIGH-THETA TREND DOES NOT.** Second corpus:
 12 `corpus/song/eng_*` files, 172 printed blocks, **708 ADJACENT-line pairs** —
@@ -23555,7 +23919,7 @@ check("every baseline detector completed successfully", not red, str(red))
 
 **WHAT IT IS WORTH, PREDICTED AND TO BE MEASURED.** Main CI alone: the matrix's pole shard is now the pole of the run — `lyrics-image` ~3 min, then ~1.5 min of checkout and seeded build, then the pole pair at one-lane speed (1,118 s at three-lane speed; M-268 measured the third lane at 1.19–1.27x, so ~15 min) — roughly **17–19 min** against 34.9, with `verify` at ~11.5 and every suites shard under 10. Qualification alone: ~2 min of proof, then 16 shards of roughly 8 (baseline restored) to 15 min (baseline recomputed), plus a minute to aggregate — **~12–20 min** against 55. Neither is ten. The two things that would get CI there are not this entry's to decide and are listed below.
 
-**WHAT THIS DOES NOT DECIDE.** (1) **Where the matrix runs.** Calling `capacity-matrix.yml` from `production-qualification.yml` instead of `ci.yml` is a five-line move and would take main CI to `verify`'s ~11.5 min, with the matrix still measured before any deploy (the deploy requires qualification at the exact SHA and never reads the CI matrix evidence: neither `image_release.mjs` nor `verify_qualification.mjs` names it). The audit commit a75da39f placed the matrix in CI, and moving a release gate off the pull-request path is the owner's call. (2) **The push/pull_request twin.** Every push to a branch with an open PR runs 74 jobs; under a 20-job cap that is a 15-min floor before any critical path. BCI-07 (a75da39f) ruled that every event owns its evidence and struck the `dup` questions of M-250 and M-251; whether the pull-request run should be the only run on such a branch is the owner's call. (3) **The merge mirror** is avoidable without any code: after a merge, fast-forward the branch locally and push it only with the next real commit. This session had been pushing the bare fast-forward, and each one cost a 45-job run. (4) **Dispatching qualification beside CI** puts 14–20 jobs into the same cap; dispatch it when CI has finished. (5) **The cap itself** is the plan's (20 concurrent jobs); a paid plan doubles it, and that is a purchase, not a change to this repository.
+**WHAT THIS DOES NOT DECIDE.** (1) **Where the matrix runs.** Calling `capacity-matrix.yml` from `production-qualification.yml` instead of `ci.yml` is a five-line move and would take main CI to `verify`'s ~11.5 min, with the matrix still measured before any deploy (the deploy requires qualification at the exact SHA and never reads the CI matrix evidence: neither `image_release.mjs` nor `verify_qualification.mjs` names it). The audit commit a75da39f placed the matrix in CI, and moving a release gate off the pull-request path is the owner's call. (2) **The push/pull_request twin.** Every push to a branch with an open PR runs 74 jobs; under a 20-job cap that is a 15-min floor before any critical path. ~~BCI-07 (a75da39f) ruled that every event owns its evidence and struck the `dup` questions of M-250 and M-251; whether the pull-request run should be the only run on such a branch is the owner's call.~~ **STRUCK 2026-09-16 (doctrine 17) AND KEPT, BECAUSE THE OWNER MADE THE CALL THIS SENTENCE RESERVED FOR THEM.** Shown the open pull requests with a red X on every one of them, the order was verbatim: *"land the dup fix"*. `dup` therefore stops being an `echo false` stub and asks the pull-request question again — question 1 ONLY, at `repos/{repo}/commits/{sha}/pulls` filtered on BOTH `state == "open"` AND `head.sha == $GITHUB_SHA`, because that endpoint also returns pull requests whose branch merely CONTAINS the commit. The basis, in four parts. **(a) BCI-07's premise was removed by BCI-07.** Its stated reason was that event ordering could leave only the run that skipped its work — which requires the push and pull_request runs to be able to CANCEL one another, and the same commit put `github.event_name` into the concurrency group key and ended that race. **(b) Measured 2026-09-16 on head `1f6e987c` (PR #305):** push run 35068060877 (35 jobs) and pull_request run 35068064645 (39 jobs) BOTH ran to completion on the one sha, neither cancelling the other, and the pull_request run's job-name set is a strict SUPERSET of the push run's — nothing is push-only. **(c) The cost BCI-07 could not have measured is the cost it created.** The duplicate runs drove a queue **25 runs deep** whose oldest entry had been waiting six hours; cancelling twelve twins by hand freed roughly **420 jobs**. But cancelling leaves `cancelled` check runs and GitHub renders those as a red X, so every open pull request then carried one except #309, the only PR never pushed to during that session. M-250 recorded this exact damage when it broke PRs #236 and #237: each was *"cleared only by RE-RUNNING THE DEAD TWIN BY HAND."* **(d) A job-level `if:` skip publishes conclusion `skipped`, which is NEUTRAL** — and that is the whole point: it dedupes without painting the board red, which neither running the twin nor cancelling it can do. (A *workflow*-level skip would never create the check run at all and would block a required check forever; this fix is entirely job-level and cannot take that shape.) **WHAT THIS DOES TO THE THREE ENTRIES, stated rather than assumed.** M-250 `CLOSED` is true of the file again: the question it built is back, deny-by-default and all, and re-pinned in `quality/test_shard.py` §6 — which until today pinned the STUB by forbidding the very words this fix needs. M-251 `CLOSED` is **NOT** made true again and I will not say it is: its second question reads workflow RUNS, and a run can conclude `success` having SKIPPED every job, which is precisely what this question now makes the twin do — so `dup` does not restore it, and M-251's merge mirror stays covered by the no-code remedy in (3) below. `actions: read` is kept unused rather than deleted, for the same reason a struck value is kept. M-252 stays **PARTIAL** and must: its gap is an OUTCOME nobody has observed — a twin actually SKIPPING rather than being cancelled — and that cannot be known before this lands. It is reachable now, where in September the concurrency key made it unreachable, but reachable is not observed. (3) **The merge mirror** is avoidable without any code: after a merge, fast-forward the branch locally and push it only with the next real commit. This session had been pushing the bare fast-forward, and each one cost a 45-job run. (4) **Dispatching qualification beside CI** puts 14–20 jobs into the same cap; dispatch it when CI has finished. (5) **The cap itself** is the plan's (20 concurrent jobs); a paid plan doubles it, and that is a purchase, not a change to this repository.
 **MEASURED THE SAME EVENING (addendum 2026-09-12), the first run of this shape, branch push run 34719451654 (e2ebd76b), green.** Wall **24.6 min** against 34.9 (main) and 39.3 (the branch mirror) that afternoon, and this run was ALONE on the cap. The critical path was exactly the one predicted, and slower than predicted at its end: `gate` 1.3 → `lyrics-image` 1.8 (build 28 s on the admitted seed, offline pipeline, no matrix) → the `pole` shard, which waited **3.0 min** for a runner because 51 jobs went to a 20-job cap (the `catalog` matrix ran this time, 8 more jobs than the afternoon's 37) and then measured **1,032 s** — 17.8 min for the job — where the entry above predicted ~15 from M-268's lane pricing. The other shards: `upper` 545 s, `middle` 746, `rest` 720, every build 28–30 s admitted, merge 0.2 min. `verify` **12.1 min** (the folded regression step 635 s against 9.9 + 2.6 min of queue before). The suites: **10.0 / 8.2 / 8.8** against 7.0 / 13.1 / 6.8. `capacity-proof / verify` **12.3 min and MEASURED**, as it had to be: no runner receipt was banked under `runner-proof-v1-` before this run; it banked one, and the next run on this branch or main is the reading of whether the admission is worth what M-267's was. So the honest arithmetic now: main CI alone ≈ **22–25 min** with the pole shard on the path, ≈ **13** without it (decision 1 above); a shard's queue is the cap's, not the deal's.
 **AND THE FOLD FOUND A WITNESS THAT WAS NEVER SOUND (addendum 2, 2026-09-13).** The first two runs after this entry merged went red on `scripts/check_cli_output.js` — pull-request run 34767770965 and main run 34767805356, the same case both times: `list.js --traditions`, **227,230 bytes identical** between the file and the pipe, `[held FAILED]`, "child EXITED while its output was still unread". The witness is "a child that exits before anyone reads and had more than 128 KB to say must have dropped some", on the stated premise that a pipe holds 64 KB. Node's child stdio is a socketpair, and an AF_UNIX stream holds up to the sender's `net.core.wmem_default`, 212,992 bytes on Linux and on GitHub's runners, less per-chunk accounting: MEASURED in the sandbox, 151,552 bytes queued in an unread stdout before a 4 KB-chunk writer blocked. So a 227 KB answer can fit whole, the child exits before the drain having dropped nothing, and whether it fits on a given run turns on how the kernel accounted the chunks — which is why the same case passed on the three branch runs before and failed on two after, with no code between them touching it. `PIPE_CERTAIN` is now 512 KB, 2.4x the socket buffer, and the header says what the buffer is; four cases still carry the witness, the rest keep the byte comparison. The fold also named `check:differential` twice (it was already `test:connector:differential`), so the leaf ran twice per job; once now.
 **337** with this entry (2026-09-12).
@@ -23588,7 +23952,7 @@ check("every baseline detector completed successfully", not red, str(red))
 **340** with this entry (2026-09-13).
 
 ### M-286 · The ChatGPT session adapter could lose a caller's accepted lyrics to seventy cheap requests from a stranger, latch every endpoint on a ledger that would not settle, and end the process on a store that could not record its own refusal — three defects in a review of #266, each reproduced before it was fixed `CLOSED` 2026-09-13 (built; pinned by four tests that fail on the code as submitted) — under the owner's order, verbatim: *"work on this please"*
-**WHAT #266 IS.** A session-aware MCP surface for ChatGPT over the existing connector: `mcp/chatgpt_sessions.js` keeps recipe workspaces and lyric workflow receipts on the server as `JobStore` records, hands the host short capabilities (session and operation ids, 32 random bytes each), and admits one successor per session so a retried submission observes the same operation; `mcp/chatgpt_tools.js` registers the tools; `mcp/server_http.js` mounts the two routes. The suite `mcp/test_chatgpt.mjs` passed 14/14 on the submitted head in a fresh worktree (once the gitignored staged data was linked in — M-285). A reader was then asked to refute it, with the store, the budget and the client in hand, and came back with three defects it had reproduced with scripts.
+**WHAT #266 IS.** A session-aware MCP surface for ChatGPT over the existing connector: `mcp/chatgpt_sessions.js` no longer exists (renamed to `mcp/workflow_sessions.js` by #276; the compatibility shim left behind under the old name was removed by M-291) and kept recipe workspaces and lyric workflow receipts on the server as `JobStore` records, hands the host short capabilities (session and operation ids, 32 random bytes each), and admits one successor per session so a retried submission observes the same operation; `mcp/chatgpt_tools.js` no longer exists either, for the same reason, and registered the tools; `mcp/server_http.js` mounts the two routes. The suite `mcp/test_chatgpt.mjs` passed 14/14 on the submitted head in a fresh worktree (once the gitignored staged data was linked in — M-285). A reader was then asked to refute it, with the store, the budget and the client in hand, and came back with three defects it had reproduced with scripts.
 **ONE: PAYLOAD EVICTION WAS BLIND TO WHAT IT EVICTED.** `JobStore` holds at most 128 full-payload records store-wide and, to admit a new one, retires the OLDEST completed-or-interrupted record, whoever's it is. Every ChatGPT session is such a record and `start_recipe` costs two (open, then submit). Seventy `start_recipe` calls on the public recipe route — no account, inside the per-IP rate limit in about a minute — retired an unrelated interrupted `lyric_revise` that was resumable and held accepted lines: its receipt became `retired`, `get_operation` answered `SESSION_UNAVAILABLE`, the paid work and the whole chain were gone. The 24-hour retention the PR documents was not what governed; the 128 cap was. **Fix:** eviction now has an order and a floor. Cheapest loss first — a completed record a later operation already superseded (its only remaining use is answering a duplicate submission), then any other completed record, then an interrupted record holding no accepted work; an interrupted record that carries accepted lines is never retired for space, only by TTL expiry, and admission refuses (`JOB_CAPACITY`) sooner than retire it. What bounds the protected set is the paid ledger: producing an interrupted receipt with accepted lines costs kitchen spend a stranger cannot make. `docs/chatgpt.md`'s retention paragraph says so.
 **TWO: A LEDGER THAT WOULD NOT SETTLE READ AS A DEAD DISK.** After a successful execution `run()` called `budget.close()`, which settles every pending reservation; when the paid-call ledger refuses to persist that (`ACCOUNTING_UNAVAILABLE`, a real path in `paid_budget.js`), the throw landed in the catch block, whose first act was `budget.close()` again — the `closed` flag had never been set — which re-threw into the storage-error handler, and `failedCompletion` latched `JobStore.failure`. From then on both ChatGPT routes and `/chat` answered *Job persistence unavailable* until a restart, and the finished result had been discarded on the way. **Fix:** settlement closes under its own guard. Its failure is an accounting fact about that operation: the operation is marked uncertain (`accounting_unknown`, so no replay), the finished result is kept, and the receipt store — which was never the thing that failed — stays healthy.
 **THREE: THE ONE PROMISE NOBODY AWAITS COULD REJECT.** On the lyrics route an operation is fire-and-forget; the caller polls. If the fallback write in `run()`'s catch itself hit capacity, `failedCompletion` tried to record the refusal with another write, which could throw again, and nothing caught it: an unhandled rejection, which ends the process. Reproduced by stubbing the two store writes. **Fix:** the last resort latches the store in memory through the non-capacity path of `failedCompletion` (that path never writes) and returns; the receipt reads interrupted, no new work is admitted, and the promise resolves.
@@ -23662,3 +24026,43 @@ A second, narrower path reaches the same refusal without any exception: a child 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~344~~ -> **345**.
 
 **345** with this entry (2026-09-15).
+
+### M-291 · A repository-wide dead-code sweep: three unreferenced symbols and two rename shims removed, TWO CANDIDATES DECLINED because the record conditions their removal on work that has not landed — and one bucket entry that a static sweep calls dead is reached by name through `hasattr` `CLOSED` 2026-09-15 (built; `counters.py --check` and the gate set measure) — under the owner's order, verbatim: *"fix whatever the hunts turn up"*
+
+**WHAT THE SWEEP WAS.** Three concurrent hunts, eighteen readers, across `scripts/`, `src/references`, `mcp/` and `lyric-harness/quality/`. **The honest ratio is the most useful thing it produced: most candidates did not survive refutation.** `scripts/` returned five and lost all five — hiding each file and running `scripts/check_docs.js` showed the gate naming them. `src/references` returned three and lost all three to `_loader.js`'s globals. The npm aliases were already graded nits by this repository's own `AUDIT.md` F152. A hunt that reports what it failed to kill is worth more than one that reports only its kills, so the non-findings are written here rather than dropped.
+
+**THE PYTHON HUNT REDISCOVERED A BUCKET THIS REPOSITORY ALREADY COUNTS, and that is a pass for the instrument, not a finding.** Its four function results are, in order, the top four entries of `counters.py`'s own `named by nothing, longest first` list — the NOWHERE bucket that `BACKLOG.md` commits as a number and describes in the cell as *a queue under active repair, not a settled property*. `counters.py` states the sanction directly: *NOWHERE IS A QUEUE, NOT A VERDICT ... each one closed moves the figure.* So closing entries is declared work here, and three are closed.
+
+**WHAT WAS REMOVED.** (1) `quality/figures.findings` (37 lines, and its `__all__` entry) — it built `LINE_FIGURE` and `LINE_FIGURE_REFUSED` tuples in the shape `quality/revise.Finding` takes, and **`LINE_FIGURE` appears nowhere else in the repository**: a producer of a code nothing reads. Nothing in `MISSING.md` or `BACKLOG.md` names it as pending work, so no future was invented for it either (doctrine 20). (2) `quality/song_profile_calibration.historical_items_in` (14 lines) and (3) `quality/meter_bands.historical_lyric_lines` (10 lines) — each sits directly beside its live successor (`items_in`, `lyric_lines`) and claims historical reproduction; **no pinned figure names either one, no test exercises either one, and the record mentions neither**, so the reproduction claim had no consumer and no check. Git history holds them. (4) `mcp/chatgpt_sessions.js` no longer exists and `mcp/chatgpt_tools.js` no longer exists: the 7- and 5-line `Temporary import compatibility` shims from #276's rename, `workflow_sessions.js` and `workflow_tools.js` export every name they re-exported, and **nothing in the tree imports either shim** — `mcp/test_chatgpt.mjs` imports the successors directly, and `server_http.js`'s `/mcp/chatgpt` strings are route paths, not module paths.
+
+**TWO CANDIDATES WERE DECLINED, on the record's own terms rather than on taste.** `quality/internal_rhyme_rate.py` (406 lines) reads as a whole dead module, and its own preregistration says it is *retired as a standalone instrument **in the same commit that lands its successor***. The successor — the web-wide placement work — has not landed. Deleting it now would make that sentence false and would strand five frozen evidence manifests that record the file's sha256. `quality/coverage_log.inspect_codes` (25 lines) is named twice by `quality/COVERAGE_PREREGISTRATION.md`, once as *until the measurement is rebuilt on `inspect_codes()`* — it is the declared basis of a rebuild that is owed, which is a different thing from unused.
+
+**THE FALSE POSITIVE, AND IT WOULD HAVE BROKEN SOMETHING.** `quality.capacity.corpus_files` sits in the same NOWHERE bucket and **is live**: `quality/corpus_manifest.py` imports `quality.capacity` by module name and reaches the function through `hasattr(mod, "corpus_files")`, a declared protocol hook no static sweep can see. `counters.py` warns about exactly this — *a NOWHERE symbol may still be reached by a `getattr` this sweep refused* — and the warning is not decorative. **The bucket is a queue of questions, not a delete list**, and the difference is one `hasattr` that a confident reader would have stepped straight past. Every symbol removed above was checked against the dynamic-dispatch sites and against the bare identifier repo-wide before it was cut.
+
+**TWO DOCUMENTED NAMES WERE WRONG, and one of them would have blocked every merge.** `docs/branch-protection.md` still required the bare check `revision-loop` in four places. M-244 dealt that job four ways on 2026-09-05; the shards publish as `revision-loop (1/4)`, so **the bare name names no check that is ever reported**. Three of the four were prose. The fourth is the ruleset API payload the file tells a reader to POST — and with `strict_required_status_checks_policy: true`, requiring a context that is never published blocks every pull request in the repository, permanently. That is the third time sharding has orphaned a required name, after `catalog` and `suites`; rule 2 is the generalisation and this is it being applied rather than noticed again. The measured `10m24s` is kept and struck rather than overwritten (doctrine 17): it is the job as ONE runner, and the shard wall is not re-measured here. Separately, `lyric-harness/CLAUDE.md`'s §12 census sentence had gone quietly out of date — `data/` grew by ten tracked tables while §12 stayed green the whole time, **because the census REPORTS its four counts rather than asserting them**. Repinned against the instrument's own output: row ~~11~~ **16** · prose-only ~~3~~ **10** · declared-not-data ~~11~~ **12** · orphan **0**.
+
+**VERIFIED.** `quality/counters.py --check` moved exactly one row and exactly as the cell predicts: **1532 -> 1529** total, NOWHERE **14 -> 11**, with PRODUCTION 316, TESTS 466, OWN 629 and REFUSED 107 all unchanged — so the three removals came out of the NOWHERE bucket and nothing else moved. `test_meter_bands`, `test_production_relations`, `test_verify_figures`, `test_slots` and `test_structure_census` pass; `quality/test_provenance.py` §12 prints the four census counts this entry pins, verbatim; `quality/verify_entries.py`, `quality/verify_doctrines.py`, `quality/audit_register.py` and `lyric_harness.py wiring` are green. On the JavaScript side `mcp` npm test is green twice over, `npm run lint`, `npm run format:check`, `scripts/check_docs.js` (all four sections), `check:promises` 24/24, `check:closure` and `check_connector_contract.js` all pass. **`check_docs.js` was tested two-sidedly and does NOT cover this deletion**: its `SCRIPT_REF_RE` matches `scripts/<name>.js` only, so a planted dangling `mcp/` reference passes it clean. Saying so is the point — a gate quoted as evidence for something it never looked at is worse than no gate, and this one was very nearly quoted that way here. **The gate that DOES cover it is `quality/verify_entries.py`, and it went red**: `REPO_PATH_EXISTS` named both M-286 and this entry for asserting two files present that the same lot had just deleted. M-286 is the older cost — a CLOSED entry describing #266 in the present tense becomes false the moment the code moves under it. Both are amended rather than emptied, each path now carrying the disclaimer the shape requires and the reason it is gone, so the record says what happened instead of falling silent about it (doctrine 17).
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~345~~ -> **346**.
+
+**346** with this entry (2026-09-15).
+
+### M-292 · The production qualification could only be produced by a person pressing a button, so the live connector tracked main exactly as often as somebody remembered to — and the evidence check would not have seen a scheduled one anyway `CLOSED` 2026-09-16 (built; tonight's 01:23Z run measures) — under the owner's order, verbatim: *"I'd like you to make sure 'Production Qualification' gets done every night. I think we have Nightly, Tandem, and Mutations, running every night already so if I'm not mistaken, you already know how to get it done."*
+
+**WHAT WAS THERE.** `.github/workflows/production-qualification.yml` was `workflow_dispatch: {}` and nothing else, under a header that called it deliberate: *"Intentional, complete coverage. No paid calls, no schedule and no date rotation."* That clause is STRUCK rather than deleted (doctrine 17) — it recorded a real decision and the owner's order is what overrode it, not a discovery that it had been wrong.
+
+**AND THE OWNER'S PREMISE NEEDED CORRECTING BEFORE THE ORDER COULD BE FILLED.** The order says *"we have Nightly, Tandem, and Mutations, running every night already"*. There are no such workflows. They are JOBS inside `ci.yml`, gated on that file's two crons by `github.event.schedule`: `nightly` and `mutation` on `17 4 * * *`, `tandem` on `0 6 * * 1` — so tandem is WEEKLY, not nightly. The qualification is a separate workflow, so it gets its own `schedule:` rather than a job gate, and the shape the order pointed at is not the shape that fits.
+
+**WHY IT IS WORTH DOING AT ALL, which is not the same as being told to.** `deploy-connector.yml` deploys on this workflow's completion (M-287). While the only producer was a person, the connector tracked main exactly as often as somebody remembered to press the button — and it stopped tracking for 33 hours behind a wholly green repository, which is what M-289 recorded. M-289 fixed the guard that REFUSED the deploy; this fixes how often the deploy is offered anything to refuse. The two halves are the same defect seen from either end.
+
+**THE HALF THAT WOULD HAVE MADE THE CRON A NO-OP, and it was nearly shipped.** `scripts/verify_ci.mjs` looked up the qualification with `event=workflow_dispatch` in the query string AND re-checked `run.event !== 'workflow_dispatch'` in `validateCI`. A scheduled run carries `event: schedule`. So the cron would have produced a qualification every night and the evidence check would have reported `No trusted main production qualification exists at this SHA` every night — a deploy standing down on evidence that exists and is not being looked for, which is M-287's shape exactly, reintroduced by the fix for M-289's. **Found by grepping for what reads the workflow before adding the trigger, not by running it.**
+
+**WHAT SHIPS.** (1) `schedule: - cron: '23 1 * * *'` beside the existing dispatch. The minute follows `ci.yml`'s own stated rule — never `:00`, because GitHub queues cron runs globally and the top of the hour is the most contended minute there is. The HOUR keeps the run clear of the other two schedules rather than racing them for runners: a qualification is `capacity-proof` plus its slowest component, and the slowest is `song` at about 1 h 55 m, so 01:23 lands near 03:30 and is done before `ci.yml`'s 04:17 nightly starts. (2) `QUALIFICATION_EVENTS` is declared ONCE in `verify_ci.mjs` and read by both the run lookup and `validateCI`, because those two must never disagree — and they did disagree, for the length of one commit, while this was being written. (3) GitHub's `event=` query takes one value, so the server-side narrowing is dropped for qualifications and the predicate carries it; the predicate was always the authoritative half, re-checking sha, branch and head repository. A `schedule` run can only come from the default branch of this repository, so it is no weaker a witness than a dispatch.
+
+**VERIFIED.** `mcp/test_release_gates.mjs` gains `a SCHEDULED qualification is trusted exactly as a dispatched one is`, which **fails against `verify_ci.mjs` as it stood** — measured, by reverting the file and re-running: 9 pass, 1 fail — and passes here, 10 of 10. It is two assertions against one fixture because the old code rejected a scheduled run in two places and one assertion would have proven only half a fix; it also asserts a `push` run is STILL not a qualification, so dropping the URL filter did not drop the requirement. `mcp` npm test 110/110 and 67/67; `lint`, `format:check`, `check_docs`, `check:closure`, `check:promises` all pass; `test_verbs`' workflow-parse section reads the edited file as parseable YAML declaring at least one job.
+
+**NOT CLAIMED.** That tonight's run goes green — the first scheduled qualification at 01:23Z is what measures that. Nineteen component jobs is a real nightly cost and the order is what buys it; the 300-minute per-job bound is the cap on a hung fork, not the expected spend.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~346~~ -> **347**.
+
+**347** with this entry (2026-09-16).

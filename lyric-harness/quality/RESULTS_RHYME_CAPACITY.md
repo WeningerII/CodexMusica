@@ -57,7 +57,10 @@ families. The tier 1 counts remain 2,817 pools with at least 2 spelling classes,
 upper bounds, not proof of earned chains. All 81 required families were
 reconstructed and actually reverified under explicit class:RHYME, including
 pronunciation uncertainty and the unchanged ban. The deepest verified chain
-is **23**, held by **ONE** family, `IY-Z`. The construction cap remains 40;
+is **22**, held by **TWO** families, `IY` and `IY-Z`. REPINNED 2026-09-16
+with E-5, superseding a 23 that IY-Z witnessed alone; the entry names the
+three families whose committed witnesses the new ban turned dirty.
+The construction cap remains 40;
 the largest witnessed group is a lower bound, not a proven maximum.
 See [the complete re-adoption](RESULTS_CAPACITY_PRODUCTION_2026-09-08.md).
 
@@ -144,9 +147,14 @@ of 64 (22%). A deeper family has more pairs for the ban to land on. The three
 families this document quotes by name all moved: `AY-ER` (fire's) 28 → **27**,
 `IY` 37 → **34**, `EH-R` 33 → **31**.
 
-**Now, 2026-09-08:** `max_chain_lo_family` is `IY-Z`; the 23-word bound is
-held by `IY-Z` alone. It is the largest actual witness from bounded
-construction, not an upper bound on the language. The old 40-word groups
+**Now, 2026-09-16 (E-5):** `max_chain_lo_family` is `IY`, superseding IY-Z;
+the 22-word bound is held by `IY` and `IY-Z` together. It is the largest
+actual witness from bounded construction, not an upper bound on the language.
+AND THE NAME IS NOW A TIE-BREAK RATHER THAN A MARGIN: `summarize` takes the
+first maximal row in table order, so re-sorting the artifact would move this
+string with no measurement having changed. `validate_rows` re-derives both the
+depth and the name from the table on every check, which is what keeps the tie
+honest instead of remembered. The old 40-word groups
 below were not valid under the artifact's explicitly declared class:RHYME.
 
 **Was:** Historical tie before the corrected relation/reading audit. **AND `max_chain_lo_family` NAMES ONE OF ~~NINE~~ TWELVE.** 40 is held by

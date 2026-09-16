@@ -228,18 +228,18 @@ def test_readable_pairs_are_untouched():
               for r in res["readability"]))
 
     # The demo's planted-failure block. These six numbers are the shipped
-    # behaviour of the comparator and the band, and this change may not touch
-    # any of them.
+    # behaviour of the comparator and the band. E-5 removes empty-coda
+    # evidence: dawn/silt changed from 0.620 to 0.576 on 2026-09-15.
     demo = ["The river took the bridge at dawn",
             "and no one saw the water again",
             "the cattle waded through the silt",
             "past every fence the county rebuilt"]
     d = check_scheme(LEX, demo, "AABB", DECL)
     got = [(p["lines"], p["score"], p["relation"]) for p in d["pair_scores"]]
-    want = [((1, 2), 0.729, "CONSONANCE"), ((1, 3), 0.62, "NO_RELATION"),
+    want = [((1, 2), 0.729, "CONSONANCE"), ((1, 3), 0.576, "NO_RELATION"),
             ((1, 4), 0.477, "NO_RELATION"), ((2, 3), 0.748, "ASSONANCE"),
             ((2, 4), 0.748, "ASSONANCE"), ((3, 4), 1.0, "RHYME")]
-    check("the demo's six pair scores are unchanged", got == want, f"{got}")
+    check("the demo scores reproduce (E-5: dawn/silt 0.620 -> 0.576)", got == want, f"{got}")
     # RESTATED 2026-08-18: the refusal now NAMES the declared door — the
     # admit set (`Declaration.admit`) a near relation could have entered
     # through. Same verdict, same score, same relation; only the sentence
@@ -1567,29 +1567,26 @@ def test_a_wordless_score_says_identity_was_not_asked():
           s2["total"] == 1.0 and s2["relation"] == "RHYME" and s2["flags"] == [])
 
 
-def test_the_empty_coda_gift_is_disclosed_and_not_moved():
-    print("\n14. `score()` DISCLOSES the empty/empty coda gift and moves "
-          "nothing (`MISSING.md` E-5, the cheap half, 2026-09-02)")
-    # Two vowel-final words score 1.0 on the coda channel by ABSENCE
-    # (`cluster_sim([], [])`), weighted like a heard consonant: `now`/`why`
-    # = 0.5*0.805 + 0.35*1.0 + 0.15*1.0 = 0.902 RHYME. The scalar and the
-    # relation stay EXACTLY where E-5 pinned them — moving them is the
-    # entry's expensive half and a calibration sitting — and the channel is
-    # reported as cannot-tell with the share of `total` that rests on it.
+def test_empty_coda_evidence_is_omitted():
+    print("\n14. E-5: absent coda evidence is omitted; agreement survives")
+    # Historical gift=0.902 is retained as an explicit replay coordinate.
     import lyric_harness as _LH
 
     def _w(x):
         p, _, _ = LEX.transcribe(x)
         return _LH.anchor(_LH.syllabify(p))
     s = _LH.score(_w("now"), _w("why"), DECL, "now", "why")
-    check("now/why still scores 0.902 RHYME — the verdict E-5 records, "
-          "not moved by a disclosure",
-          s["total"] == 0.902 and s["relation"] == "RHYME",
+    check("now/why scores 0.850 RHYME with absent coda evidence omitted",
+          s["total"] == 0.850 and s["relation"] == "RHYME",
           f"{s['total']} {s['relation']}")
+    legacy = _LH.score(_w("now"), _w("why"),
+                       _LH.Declaration(coda_empty_evidence="gift"), "now", "why")
+    check("explicit gift reproduces historical 0.902",
+          legacy["total"] == 0.902 and legacy["relation"] == s["relation"], legacy)
     _cf = [f for f in s["flags"] if f.startswith("coda: no evidence")]
-    check("...and says on its flags that the coda channel had no evidence, "
-          "with the 0.350 of the total that is agreement by absence",
-          len(_cf) == 1 and "0.350 of the total" in _cf[0]
+    check("disclosure names historical contribution and the adopted rule",
+          len(_cf) == 1 and "0.350 of the historical gift total" in _cf[0]
+          and "NOT scored here" in _cf[0] and "cannot_tell" in _cf[0]
           and "1 of 1 syllable" in _cf[0], s["flags"])
     c = _LH.score(_w("cat"), _w("hat"), DECL, "cat", "hat")
     check("control: cat/hat — codas heard on both sides — carries no such "
@@ -1765,7 +1762,7 @@ if __name__ == "__main__":
                # section listed there and dropped here printed the same
                # `all pass` as one that ran. Listed here now.
                test_a_wordless_score_says_identity_was_not_asked,
-               test_the_empty_coda_gift_is_disclosed_and_not_moved,
+               test_empty_coda_evidence_is_omitted,
                test_the_assonance_profile_says_the_band_is_off,
                test_the_default_doors_are_priced_where_they_answer):
         fn()
@@ -1780,7 +1777,7 @@ if __name__ == "__main__":
         test_the_bracket_rules_are_declared_and_read,
         test_the_bracketed_verse_convention_keeps_the_body,
         test_a_wordless_score_says_identity_was_not_asked,
-        test_the_empty_coda_gift_is_disclosed_and_not_moved,
+        test_empty_coda_evidence_is_omitted,
         test_the_assonance_profile_says_the_band_is_off,
         test_the_default_doors_are_priced_where_they_answer))
     print("=" * 68)

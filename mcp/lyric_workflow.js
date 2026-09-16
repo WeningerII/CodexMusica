@@ -17,6 +17,7 @@ const PLAN_FIELDS = [
   'functions',
   'title',
   'narrative',
+  'melody',
   'wants',
 ];
 const READING_FIELDS = ['pronunciations', 'fallback', 'voices'];
@@ -44,16 +45,36 @@ const narrativeArgument = (value) => {
     ? n.atoms.map((atom, i) => (i ? `${atom}/${n.junctions[i - 1]}` : atom)).join(',')
     : n;
 };
+const ordered = (value) =>
+  Array.isArray(value)
+    ? value.map(ordered)
+    : value && typeof value === 'object'
+      ? Object.fromEntries(
+          Object.keys(value)
+            .sort()
+            .map((k) => [k, ordered(value[k])])
+        )
+      : value;
+const melodyValue = (value) => {
+  if (typeof value !== 'string') return ordered(value ?? null);
+  try {
+    return ordered(JSON.parse(value));
+  } catch {
+    return value;
+  }
+};
 const norm = (key, value) =>
-  key === 'functions' || key === 'wants'
-    ? list(value)
-    : key === 'form'
-      ? value || 'verse-chorus'
-      : key === 'narrative'
-        ? narrative(value)
-        : value === ''
-          ? null
-          : (value ?? null);
+  key === 'melody'
+    ? melodyValue(value)
+    : key === 'functions' || key === 'wants'
+      ? list(value)
+      : key === 'form'
+        ? value || 'verse-chorus'
+        : key === 'narrative'
+          ? narrative(value)
+          : value === ''
+            ? null
+            : (value ?? null);
 const create = (task) => task?.domain === 'lyrics' && task.phase !== 'edit';
 const answered = (v) => v && Number.isInteger(v.exit_code) && [0, 3].includes(v.exit_code);
 // The handler validates the original envelope and forbids all execution fields.
@@ -119,7 +140,9 @@ function sweepFor(w, args) {
     .find(
       (s) =>
         s.accepted.includes(args.seed) &&
-        ['form', 'lines', 'functions'].every((k) => same(norm(k, args[k]), norm(k, s.args[k]))) &&
+        ['form', 'lines', 'functions', 'melody'].every((k) =>
+          same(norm(k, args[k]), norm(k, s.args[k]))
+        ) &&
         same(list(args.wants), list(s.args.want))
     );
 }
@@ -169,7 +192,9 @@ export function creationRefusal(task, name, args, lyric = null) {
           ? request[key].join(',')
           : key === 'narrative'
             ? narrativeArgument(request[key])
-            : structuredClone(request[key]);
+            : key === 'melody'
+              ? JSON.stringify(request[key])
+              : structuredClone(request[key]);
     }
   }
   if (!Array.isArray(args.draft) || !args.draft.length)

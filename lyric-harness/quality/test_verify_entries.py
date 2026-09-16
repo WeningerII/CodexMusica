@@ -332,6 +332,7 @@ _CAP_HOLDERS = sorted(f for f, row in _CAP_ROWS.items()
 _CAP_COUNT = next(word.upper() for word, n in VE._WORDNUM.items()
                   if n == len(_CAP_HOLDERS))
 _CAP_WRONG_COUNT = "TWO" if _CAP_COUNT == "ONE" else "ONE"
+_CAP_NOUN = "y" if len(_CAP_HOLDERS) == 1 else "ies"
 _CAP_WRONG_FAMILY = next(f for f in _CAP_ROWS if f not in _CAP_HOLDERS)
 _CAP_ATTEMPTS = VE._cap_attempts(_CAP_IY)
 _CAP_CLIQUE = len(str(_CAP_AY["witness"]).split())
@@ -355,13 +356,34 @@ CAPACITY_MUTANTS = [
     ("quality/RESULTS_RHYME_CAPACITY.md",
      f"IY: {_CAP_IY['chain_hi']} classes", f"IY: {_CAP_IY['chain_hi'] + 1} classes",
      "the second family of a semicolon list, which is the elliptical form"),
+    #: THE DEEPEST CHAIN IS NOT ALWAYS HELD ALONE — 2026-09-16 (`MISSING.md`
+    #: E-5). This row spelled `held by `X` alone` unconditionally, which made
+    #: it UNSATISFIABLE the day the artifact first carried a tie: E-5's ban
+    #: re-certified IY-Z from 23 to 22, where IY already stood, so no honest
+    #: sentence in that document says any family holds the depth alone and the
+    #: anchor could never be found. The row did not go FALSE — it reported
+    #: that it had proved nothing, which is the right refusal and the reason
+    #: this is repaired rather than deleted. Both arms are derived, so a later
+    #: re-adoption that restores a singleton restores the singleton sentence.
     ("quality/RESULTS_RHYME_CAPACITY.md",
-     f"held by `{_CAP_HOLDERS[0]}` alone",
-     f"held by `{_CAP_WRONG_FAMILY}` alone",
-     "the singleton deepest holder replaced by a wrong known family"),
+     (f"held by `{_CAP_HOLDERS[0]}` alone" if len(_CAP_HOLDERS) == 1 else
+      "held by " + " and ".join(f"`{h}`" for h in _CAP_HOLDERS) + " together"),
+     (f"held by `{_CAP_WRONG_FAMILY}` alone" if len(_CAP_HOLDERS) == 1 else
+      "held by " + " and ".join(f"`{_CAP_WRONG_FAMILY if i == 0 else h}`"
+                                for i, h in enumerate(_CAP_HOLDERS)) + " together"),
+     "the deepest holder(s) with one name replaced by a wrong known family"),
+    #: THE NOUN AGREES WITH THE COUNT — 2026-09-16 (`MISSING.md` E-5). This
+    #: anchor spelled `famil` + `y` unconditionally, so it too assumed a
+    #: singleton: the day the artifact carried a tie the document correctly
+    #: read `held by **TWO** families` and the anchor went looking for
+    #: `**TWO** family`, which no honest sentence contains. Same `"y" if 1
+    #: else "ies"` agreement `verify_entries.py` already uses in its own
+    #: message for the same reason. The MUTANT is left ungrammatical on
+    #: purpose — it is a synthetic string that is never committed, and
+    #: `CAP_COUNTWORD_RE` reads `(word)\s+famil`, so it still lands.
     ("quality/RESULTS_RHYME_CAPACITY.md",
-     f"is **{_CAP_DEPTH}**, held by **{_CAP_COUNT}** family",
-     f"is **{_CAP_DEPTH}**, held by **{_CAP_WRONG_COUNT}** family",
+     f"is **{_CAP_DEPTH}**, held by **{_CAP_COUNT}** famil" + _CAP_NOUN,
+     f"is **{_CAP_DEPTH}**, held by **{_CAP_WRONG_COUNT}** famil" + _CAP_NOUN,
      "the spelled holder count wrong while its named holder stays right"),
     ("CLAUDE.md",
      f"chain is {_CAP_DEPTH}, held by {_CAP_COUNT}",
