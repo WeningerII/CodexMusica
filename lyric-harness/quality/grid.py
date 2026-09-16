@@ -86,6 +86,8 @@ from collections import Counter
 from dataclasses import dataclass, field
 from fractions import Fraction
 
+from quality.tempo import TempoMap
+
 # ---------------------------------------------------------------------------
 
 
@@ -1048,6 +1050,19 @@ class Song:
         return line_relation_report(self.line_relations,
                                     [line.text for line in self.lines], blocks)
 
+    tempo: TempoMap = field(default_factory=TempoMap)
+
+    def seconds_between(self, start_bar, start_beat, end_bar, end_beat):
+        """Declared elapsed seconds; absent tempo returns a typed refusal."""
+        from quality.tempo import song_position
+        return self.tempo.seconds_between(
+            song_position(self, start_bar, start_beat),
+            song_position(self, end_bar, end_beat))
+
+    def line_seconds(self, line):
+        from quality.tempo import line_end
+        return self.tempo.seconds_between(*line_end(self, line))
+
     def layout(self):
         """Assign section start bars in order. Sections are laid end to end;
         their LENGTHS are whatever they are."""
@@ -1273,11 +1288,13 @@ def song_from_blueprint(obj, assume_meter=None):
                           duration=_frac(l.get("duration", 4)),
                           section=s.name if s else ""))
     from quality.line_relations import read_line_relations
+    from quality.tempo import from_blueprint as read_tempo
     section_indices = {id(sec): i for i, sec in enumerate(secs)}
     block_ids = ([section_indices[id(owner(l))]
                   for l in obj.get("lines", [])] if obj.get("line_relations") else [])
     return Song(sections=secs, lines=lines, title=obj.get("title", ""),
-                line_relations=read_line_relations(obj.get("line_relations"), block_ids)), \
+                line_relations=read_line_relations(obj.get("line_relations"), block_ids),
+                tempo=read_tempo(obj)), \
         list(obj.get("hooks", []))
 
 
