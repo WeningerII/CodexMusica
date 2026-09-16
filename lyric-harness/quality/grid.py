@@ -917,6 +917,22 @@ class Song:
     #: The song's title, as declared. Needed so "is the title in the hook?"
     #: can be ASKED; absent, that question is refused rather than answered.
     title: str = ""
+    #: Directed discourse links; None is undeclared, () explicitly empty.
+    line_relations: object = None
+
+    def line_relation_report(self):
+        from quality.line_relations import line_relation_report
+        if not self.line_relations:
+            return line_relation_report(self.line_relations, [], [])
+        blocks = []
+        for line in self.lines:
+            hits = [i for i, s in enumerate(self.sections) if s.name == line.section]
+            if len(hits) != 1:
+                hits = [i for i in (hits or range(len(self.sections)))
+                        if self.sections[i].start_bar <= line.bar <= self.sections[i].end_bar]
+            blocks.append(hits[0] if len(hits) == 1 else None)
+        return line_relation_report(self.line_relations,
+                                    [line.text for line in self.lines], blocks)
 
     tempo: TempoMap = field(default_factory=TempoMap)
 
@@ -1155,8 +1171,13 @@ def song_from_blueprint(obj, assume_meter=None):
                           beat=_frac(l.get("beat", 1)),
                           duration=_frac(l.get("duration", 4)),
                           section=s.name if s else ""))
+    from quality.line_relations import read_line_relations
     from quality.tempo import from_blueprint as read_tempo
+    section_indices = {id(sec): i for i, sec in enumerate(secs)}
+    block_ids = ([section_indices[id(owner(l))]
+                  for l in obj.get("lines", [])] if obj.get("line_relations") else [])
     return Song(sections=secs, lines=lines, title=obj.get("title", ""),
+                line_relations=read_line_relations(obj.get("line_relations"), block_ids),
                 tempo=read_tempo(obj)), \
         list(obj.get("hooks", []))
 
@@ -3261,6 +3282,7 @@ def song_function_report(song, hooks=(), rhyme_key=None,
     ask_one(f, r)
     return {"profile": prof, "findings": findings, "refusals": refusals,
             "returns": detail,
+            "line_relations": song.line_relation_report(),
             #: {(later, earlier): [(earlier_section, later_section, Return)]}
             #: -- a SEPARATE key from `returns`, which is keyed by one
             #: function and holds that function's agreement with itself. The
