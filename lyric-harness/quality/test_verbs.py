@@ -308,7 +308,7 @@ def test_fit_answers_whether_the_words_fit_the_bars():
           "LOWER BOUND" in out and "COUNT_IS_A_LOWER_BOUND" in out)
     check("the boundary is printed with the answer, not filed elsewhere",
           "WHAT THIS LAYER CANNOT BE ASKED" in out
-          and "there is no tempo" in out)
+          and "tempo alone does not establish singability" in out)
 
 
 def test_fit_refuses_the_undeclared_subdivision():
