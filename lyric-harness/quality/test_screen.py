@@ -140,10 +140,43 @@ def test_no_drift():
 def test_the_scaffold():
     print("\n4. the carrier lines are scaffolding — readable, and never "
           "the finding")
-    rows = rows_for("piano", "below", "though")
+    # THE DETERMINATE CONTROL MOVED OFF `piano`, 2026-09-16 (`MISSING.md`
+    # E-5), and the reason is a finding rather than a fixture repair.
+    #
+    # This control needs a trio whose readings are UNAMBIGUOUS, so that a
+    # refusal here can only ever be the carriers' fault — that is the whole
+    # claim. `piano` stopped being that word, and CMUdict says exactly why:
+    #
+    #   piano     P IY0 AE1 N OW0        <- rhymes with below/though
+    #   piano(2)  P IY0 AE1 N AH0        <- does NOT
+    #
+    # Two readings that disagree, so the harness refuses rather than guessing
+    # one (doctrine 20). MEASURED both ways: under `coda_empty_evidence=
+    # "gift"` all three pairs come back RHYME 1.0 and clean; under the
+    # adopted `cannot_tell` the two `piano` pairs refuse with "the declared
+    # relation differs across unresolved pronunciation readings". So the old
+    # green was the coda gift papering over a real pronunciation
+    # disagreement, and the refusal is E-5 working, not E-5 breaking.
+    #
+    # `banjo` (B AE1 N JH OW2) is the replacement and is chosen rather than
+    # found: ONE reading, polysyllabic, AE1-stressed and `-N`+OW-final, which
+    # is `piano`'s own shape minus the ambiguity. MEASURED: all three pairs
+    # RHYME 1.0, zero refusals, zero codes. `ago` was rejected for this even
+    # though it also reads once — it earns MODAL_RHYME, and a control that
+    # carries a ban code is not a clean scaffold control.
+    #
+    # NOT CHANGED, AND FLAGGED FOR THE AUTHOR: §1 above screens the same trio
+    # as "the other Count to Five group" — a rhyme group from a DELIVERED
+    # song — and asserts it is "all clean". That check still passes, because
+    # a refusal carries no codes and no `why`, so its predicate cannot tell a
+    # clean answer from a refused one. The sentence is now wrong about a
+    # shipped song even though the check is green. Whether E-5 should refuse
+    # a delivered song's own group is the author's call, not the gate's.
+    rows = rows_for("banjo", "below", "though")
     check("the determinate rhyme controls screen with zero refusals — "
           "the carriers never fail to read",
-          all(not r["refused"] for r in rows))
+          all(not r["refused"] for r in rows),
+          [(r["a"], r["b"], r["refused"]) for r in rows])
     carriers = LH._SCREEN_CARRIERS
     check("the two carrier lines DIFFER — identical carriers let the "
           "mosaic scorer find the shared span and inflate a non-rhyme's "

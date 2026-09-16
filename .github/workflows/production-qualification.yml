@@ -1,8 +1,38 @@
 name: Production qualification
 
-# Intentional, complete coverage. No paid calls, no schedule and no date rotation.
+# Intentional, complete coverage. No paid calls and no date rotation.
+#
+# ~~AND NO SCHEDULE.~~ SCHEDULED 2026-09-16 BY THE OWNER'S ORDER, verbatim:
+# "I'd like you to make sure 'Production Qualification' gets done every night.
+# I think we have Nightly, Tandem, and Mutations, running every night already
+# so if I'm not mistaken, you already know how to get it done." The struck
+# clause is kept rather than deleted (doctrine 17) because it was a real
+# decision and this is what overrode it, not a discovery that it was wrong.
+#
+# WHAT A DISPATCH-ONLY QUALIFICATION COST, and why the order is the right call
+# rather than merely an instruction: `deploy-connector.yml` deploys on THIS
+# workflow's completion (M-287), so while the only way to produce a
+# qualification was for a person to press a button, the live connector tracked
+# main exactly as often as somebody remembered to. It stopped tracking for 33
+# hours behind a wholly green repository, which is the drift M-289 recorded.
+# A nightly qualification makes the evidence arrive on its own, which is the
+# structural half of that fix -- M-289 corrected the guard that REFUSED the
+# deploy; this corrects how often the deploy is offered anything to refuse.
+#
+# 01:23 UTC, AND THE MINUTE IS NOT ARBITRARY. `ci.yml` states the rule this
+# follows: never :00, because GitHub queues cron runs globally and the top of
+# the hour is the most contended minute there is. The HOUR keeps this run
+# clear of the other two schedules rather than racing them for runners --
+# `ci.yml`'s nightly is 04:17 (nightly + mutation, the latter capped at 240
+# minutes) and its tandem is 06:00 Monday. Measured, a qualification is
+# capacity-proof plus the slowest component, and the slowest is `song` at
+# about 1 h 55 m, so a 01:23 start lands near 03:30 and finishes before the
+# nightly begins. The 19 component jobs each carry a 300-minute bound, which
+# is the cap on a hung fork and not the expected cost.
 on:
   workflow_dispatch: {}
+  schedule:
+    - cron: '23 1 * * *'
 permissions:
   contents: read
 concurrency:

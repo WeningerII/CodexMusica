@@ -57,6 +57,34 @@ def test_tripwire_open_syllables_stay_rhyme():
           "the predicate the band asks is agreement, not evidence")
 
 
+def test_empty_coda_evidence_scalar():
+    """E-5: remove absent evidence, retain agreement and explicit replay."""
+    print("\nE-5. Missing coda evidence is omitted from the scalar")
+    from dataclasses import replace
+    from lyric_harness import score
+    legacy = replace(DECL, coda_empty_evidence="gift")
+    check("cannot_tell is the default", DECL.coda_empty_evidence == "cannot_tell")
+    # Exhaust the vowel inventory rather than only the motivating pair.
+    from lyric_harness import VOWELS
+    count = 0
+    for a in sorted(VOWELS):
+        for b in sorted(VOWELS):
+            def syllable(v, coda):
+                return {"nucleus": v, "onset": [], "coda": coda, "stress": 1}
+            left, right = [syllable(a, [])], [syllable(b, [])]
+            old = score(left, right, legacy)
+            new = score(left, right, DECL)
+            assert new["relation"] == old["relation"], (a, b, old, new)
+            assert new["total"] <= old["total"], (a, b, old, new)
+            assert new["syllables"][0]["coda"] == 0.0
+            # A sounded coda must not move under any vowel combination.
+            left[0]["coda"] = right[0]["coda"] = ["T"]
+            assert score(left, right, DECL) == score(left, right, legacy)
+            count += 1
+    check("all vowel pairs retain typing, lose no sounded-coda evidence",
+          count > 0, f"{count} vowel pairs")
+
+
 def test_the_leak_closes_by_naming():
     print("\n2. P1 — sun/much is assonance, not a non-relation")
     r, t = rel("sun", "much")
@@ -266,6 +294,7 @@ def test_the_negative_control_carries_the_property():
 
 if __name__ == "__main__":
     for fn in (test_tripwire_open_syllables_stay_rhyme,
+               test_empty_coda_evidence_scalar,
                test_the_leak_closes_by_naming,
                test_consonance_is_named_too,
                test_real_rhymes_survive,

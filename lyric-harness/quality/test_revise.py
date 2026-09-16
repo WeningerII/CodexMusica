@@ -3941,6 +3941,17 @@ def test_a_return_is_not_rendered_as_a_rhyme():
 #: this section reads. This spelling is MEASURED to stand in no schema
 #: (relations.whole_vocabulary_pairs) while keeping the mosaic attribution
 #: the section is about.
+#: AND THE WINNER IS NO LONGER A MOSAIC, 2026-09-16 (`MISSING.md` E-5).
+#: Withdrawing the empty/empty coda evidence changed WHICH span pair wins on
+#: this fixture: ~~`let it go` ~ `folded receipt`~~, two multi-word spans, is
+#: now `go` ~ `-receipt [last 1 of 2 syllables of 'receipt']`. The claim this
+#: section makes is untouched -- the winner still is NOT the named pair, so
+#: the report still owes the sentence, and the section's first check proves
+#: that premise from the harness before the report is read. What is LOST is
+#: that this fixture used to exhibit a MOSAIC reaching back past both end
+#: words; it now exhibits a sub-word span. A fixture carrying a multi-word
+#: mosaic under the CURRENT comparator is owed and is not supplied here,
+#: because choosing new lines until a span wins is tuning the instrument.
 GO_RECEIPT = ["i never got the chance to let it go",
               "her pen was scratching at the folded receipt"]
 #: The control: both winners are whole end words, so the ordinary sentence is
@@ -3984,12 +3995,24 @@ def test_a_report_says_when_the_named_pair_is_not_the_evidence():
           f"named {e[0]!r} ~ {e[1]!r}; scored on "
           f"{_LH.span_label(s.spans['a'])} ~ {_LH.span_label(s.spans['b'])}")
 
+    # THE WINNING SPANS ARE DERIVED, NOT SPELLED — REPINNED 2026-09-16 with
+    # E-5, and the repin makes this check STRONGER rather than looser. It
+    # used to name `let it go` and `folded receipt` as string literals, which
+    # is a second copy of a fact the harness already holds (doctrine 1), and
+    # it went red the moment E-5's scorer picked a different winner on the
+    # same draft — a report change measured by a pin that was really
+    # measuring the comparator. Read off `s.spans` instead, and the check
+    # asks what it always meant to ask: does the sentence a WRITER is handed
+    # name the pair that was actually scored, whatever that pair is today?
+    # The check above has already established that this pair is NOT the two
+    # end words, so this cannot pass vacuously.
+    won_a, won_b = _LH.span_label(s.spans['a']), _LH.span_label(s.spans['b'])
     ev = [f.evidence for b in R2.brief(GO_RECEIPT, mandate)
           for f in b.findings if f.code == "SCHEME_VIOLATION"]
     check("...and the finding a WRITER is handed now says so, in the same "
           "string that makes the claim",
           ev and "NAMED PAIR IS NOT THE EVIDENCE" in ev[0]
-          and "let it go" in ev[0] and "folded receipt" in ev[0],
+          and won_a in ev[0] and won_b in ev[0],
           ev[0] if ev else "no SCHEME_VIOLATION")
 
     # THE GATE. The same code path on a pair whose end words ARE the winners

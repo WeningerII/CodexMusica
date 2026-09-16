@@ -478,6 +478,58 @@ test('production qualification requires each actual job in the exact trusted man
   assert.match(urls[1], /attempts\/2\/jobs/);
 });
 
+test('a SCHEDULED qualification is trusted exactly as a dispatched one is', async () => {
+  // The nightly schedule (2026-09-16) emits `event: schedule`. Before that day
+  // both the run lookup and the acceptance demanded `workflow_dispatch`, so a
+  // scheduled qualification would have been reported ABSENT and every nightly
+  // deploy would have stood down on evidence that existed -- M-287's shape.
+  // This check fails on that code in BOTH halves, which is why it is two
+  // assertions against one fixture and not one.
+  const { validateCI, verifyCI, QUALIFICATION_JOBS, QUALIFICATION_EVENTS } =
+    await import('../scripts/verify_ci.mjs');
+  assert.deepEqual(QUALIFICATION_EVENTS, ['workflow_dispatch', 'schedule']);
+  const scheduled = { ...run, event: 'schedule' };
+  const jobs = QUALIFICATION_JOBS.map((name) => ({
+    name,
+    status: 'completed',
+    conclusion: 'success',
+  }));
+
+  // (1) ACCEPTANCE: the scheduled run is a valid qualification.
+  assert.equal(
+    validateCI(scheduled, jobs, { repository, sha, qualification: true }).run_attempt,
+    2
+  );
+
+  // (2) LOOKUP: the run query must not narrow to one event server-side, or the
+  //     scheduled run never reaches the predicate above.
+  const urls = [];
+  const found = await verifyCI(sha, {
+    repository,
+    token: 'fixture',
+    qualification: true,
+    fetchImpl: async (url) => {
+      urls.push(url);
+      return {
+        ok: true,
+        json: async () =>
+          url.includes('/runs?')
+            ? { workflow_runs: [scheduled] }
+            : { jobs, total_count: jobs.length },
+      };
+    },
+  });
+  assert.equal(found.run_id, run.id);
+  assert.match(urls[0], /production-qualification\.yml/);
+  assert.doesNotMatch(urls[0], /event=/);
+
+  // AND THE NARROWING IS NOT SIMPLY GONE: a push run is still not a
+  // qualification, so dropping the URL filter did not drop the requirement.
+  assert.throws(() =>
+    validateCI({ ...run, event: 'push' }, jobs, { repository, sha, qualification: true })
+  );
+});
+
 test('an absent qualification is a stand-down with CI evidence kept; a failed one is still a failure', async () => {
   const { productionEvidence, QUALIFICATION_ABSENT } = await import('../scripts/verify_ci.mjs');
   const ciJobs = REQUIRED_JOBS.map((name) => ({

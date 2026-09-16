@@ -1629,6 +1629,7 @@ class SectionFit:
     bars: int
     start_bar: int
     lines: list = field(default_factory=list)
+    metric_complexity: list = field(default_factory=list)
 
     @property
     def units(self):
@@ -1740,6 +1741,10 @@ class SongFit:
                 "uncovered_bars": s.uncovered_bars(),
                 "refusals": s.refusal_codes(),
             })
+            if s.metric_complexity:
+                from quality.metric_complexity import complexity_report
+                rows[-1]["metric_complexity"] = complexity_report(
+                    s.metric_complexity, s.bars, s.cycle.pulses)
         return rows
 
     def findings(self):
@@ -1859,7 +1864,8 @@ def from_blueprint(obj, assume_meter=None):
         start = int(s.get("start_bar", bar))
         secs.append({"name": s["name"], "cycle": cyc,
                      "bars": int(s["bars"]), "start_bar": start,
-                     "meter_declared": declared, "meter_assumed": assumed})
+                     "meter_declared": declared, "meter_assumed": assumed,
+                     "metric_complexity": s.get("metric_complexity", [])})
         bar = start + int(s["bars"])
 
     def owner(l):
@@ -1897,6 +1903,10 @@ def from_song(song):
         if cyc is None or not hasattr(cyc, "group_starts"):
             cyc = Cycle(pulses=m.beats, unit=m.unit,
                         groups=tuple(getattr(m, "groups", ()) or ()))
+        complexity = getattr(s, "metric_complexity", [])
+        if complexity != []:
+            from quality.metric_complexity import read_complexity
+            read_complexity(complexity, s.bars, cyc.pulses)
         start = exact_integer(getattr(s, "start_bar", bar), "section start_bar", 1)
         # `getattr` with True, duck-typed like everything else here: a Song
         # predating `grid.Meter.declared` reports declared, which is the same
@@ -1904,7 +1914,8 @@ def from_song(song):
         secs.append({"name": s.name, "cycle": cyc, "bars": exact_integer(s.bars, "section bars", 1),
                      "start_bar": start,
                      "meter_declared": bool(getattr(m, "declared", True)),
-                     "meter_assumed": str(getattr(m, "assumed", "") or "")})
+                     "meter_assumed": str(getattr(m, "assumed", "") or ""),
+                     "metric_complexity": complexity})
         bar = start + exact_integer(s.bars, "section bars", 1)
     places = []
     for l in song.lines:
@@ -2112,7 +2123,8 @@ def fit_song(obj, phon=None, subdivision=None, assume=None,
                 dp_work += (len(reading.units) + 1) * (slots + 1)
         guard_expansion(dp_work, "song prominence DP cells", MAX_FIT_DP_CELLS)
     out = SongFit(sections=[SectionFit(name=s["name"], cycle=s["cycle"],
-                                       bars=s["bars"], start_bar=s["start_bar"])
+                                       bars=s["bars"], start_bar=s["start_bar"],
+                                       metric_complexity=s.get("metric_complexity", []))
                             for s in secs])
     # KEYED ON THE SECTION, NOT ON ITS NAME. `{s.name: s for s in
     # out.sections}` kept the last of two same-named sections, so every line
@@ -2222,6 +2234,10 @@ def report(fit, verbose=False):
                    f"{r['bars']:>5}  {r['lines']:>4}  {r['units']:>4}{exact:1} "
                    f"{pb:>7}  {r['unsatisfiable']:>5}  {r['crowded']:>5}  "
                    f"{r['fighting']:>5}  {r['overlaps']:>4}  {ubs}")
+        if r.get("metric_complexity"):
+            out.append("    METRIC COMPLEXITY — declared intent; score-pulse fit above "
+                       "does not assign syllables to these events or measure performance")
+            out.append("    " + json.dumps(r["metric_complexity"], ensure_ascii=False))
     tot = sum(r["units"] for r in rows)
     bars = sum(r["bars"] for r in rows)
     out.append(f"  {'TOTAL'.ljust(w)}  {'':>5}  {'':<6} {bars:>5}  "

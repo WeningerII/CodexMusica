@@ -13,6 +13,14 @@ permissions:
   # endpoint answers 403 -- deny-by-default would keep that safe and keep the
   # duplicate, so the permission is the difference between the fix working and
   # the fix being decorative. Read-only; nothing here may start or cancel a run.
+  #
+  # ADDENDUM 2026-09-16: `dup` asks question 1 ONLY, which needs
+  # `pull-requests: read` and nothing else, and no job in this file reads the
+  # Actions API — so `actions: read` is currently unused. It is KEPT, not
+  # deleted: the paragraph above is the argument for it, M-251's question is a
+  # decision that can come back, and `quality/test_shard.py` §6 pins the
+  # permission's presence. A read-only scope nothing calls costs nothing. What
+  # would be false is calling it load-bearing TODAY.
   actions: read
 
 on:
@@ -129,18 +137,132 @@ concurrency:
   cancel-in-progress: ${{ (github.head_ref || github.ref_name) != 'main' }}
 
 jobs:
-  # Every event executes its own gates. A PR's existence is not proof that
+  # ── Is this exact commit already covered by an open pull request? ─────
+  #
+  # ~~Every event executes its own gates. A PR's existence is not proof that
   # another run exists, completed, or tested its merge tree. Keep this output
-  # explicit because downstream jobs use it; never infer coverage from a PR.
+  # explicit because downstream jobs use it; never infer coverage from a PR.~~
+  #
+  # STRUCK 2026-09-16 (doctrine 17) AND KEPT, because one clause of it is the
+  # residual this job now accepts on purpose — see THE RESIDUAL below. This is
+  # the third time the question has changed hands: M-250/M-251 built it
+  # (2026-09-06), M-252 moved it into its own job the same day, and BCI-07
+  # (a75da39f, 2026-09-08) struck it and left the stub the struck lines
+  # describe. MISSING.md's own note on BCI-07 says what was left open:
+  # "whether the pull-request run should be the only run on such a branch is
+  # the owner's call." THIS FILE DOES NOT SETTLE THAT; it restores the
+  # mechanism so the answer is a switch rather than a rewrite.
+  #
+  # WHAT IS NEW SINCE BCI-07, AND IT IS THE REASON THIS CAN WORK NOW. BCI-07's
+  # stated reason was that event ordering could leave only the run that
+  # skipped its work: the push run defers to a pull_request run that is then
+  # cancelled, and the commit ends with no CI at all. That was true of the
+  # concurrency key of the day, under which push and pull_request shared one
+  # group and the newer killed the older — and it is what made M-252 PARTIAL,
+  # since a twin was never once observed SKIPPING rather than being cancelled.
+  # BCI-07 ITSELF REMOVED THAT RACE, in the same commit, by putting
+  # `github.event_name` into the group key (see `concurrency:` above). The
+  # twins no longer cancel each other; both now run to completion. The cost
+  # BCI-07 could not have measured is the cost it had just created.
+  #
+  # MEASURED 2026-09-16 on `1f6e987c` (PR #305): push run 35068060877 (35
+  # jobs) and pull_request run 35068064645 (39 jobs), both live, both stamped
+  # on that one sha, both with `dup` concluding "This event owns its CI
+  # evidence". The pull_request run's job-name set is a STRICT SUPERSET of the
+  # push run's — nothing is push-only; the PR run adds the four
+  # `capacity-matrix / cells` jobs. Twelve such duplicate push runs were
+  # cancelled by hand that morning, freeing ~420 jobs from a queue whose
+  # oldest entry had been waiting since 01:46Z — against the account's 20-job
+  # concurrent cap, which M-244 and M-287 both measured binding.
+  #
+  # THE RESIDUAL, NAMED RATHER THAN HIDDEN, and it is the struck sentence's
+  # one true clause. The pull_request run checks out `refs/pull/N/merge`
+  # — nothing in this file overrides `actions/checkout`'s default `ref` — so
+  # it tests THIS BRANCH MERGED INTO ITS BASE, while the push run tests this
+  # commit's tree alone. When the base has moved they are not the same bytes,
+  # and `github.sha` differs with them (`lyrics-image`'s `TESTED_SHA`). So
+  # deferring keeps the answer that decides the merge and drops the answer
+  # about a tree nobody ships. That is a trade, not a free win. It is
+  # bounded: the two paths that consume a sha — `lyrics-image`'s publish step
+  # and deploy-connector.yml's `workflow_run` — are both already restricted
+  # to pushes on the default branch, which this question never touches.
+  #
+  # DENY BY DEFAULT, which is the half that keeps the 2026-08-14 lesson. A
+  # push to a branch with NO open pull request is that branch's ONLY CI — the
+  # six uncovered commits the `on: push` filter above exists to prevent — so
+  # `covered` starts `false` and ONLY a positive, parsed count moves it. A
+  # non-push event, a push to the default branch, a 403, a network failure, a
+  # body that does not parse as a count, a missing token, a missing `gh`:
+  # every one of them leaves it `false` and the run does the work. An
+  # unanswered question is not a yes.
+  #
+  # THE QUESTION IS ITS OWN JOB (M-252) and must stay one: a job's outputs
+  # land when the JOB ends, `gate` measured 57 s publishing this answer from
+  # inside itself, and everything downstream waits on it. No `needs:`, no
+  # checkout, no toolchain — one HTTP question, capped at 30 s inside a
+  # two-minute job.
+  #
+  # ONE QUESTION, NOT TWO. M-251's second question — has the default branch
+  # already run this exact sha green — is NOT restored here. It reads workflow
+  # RUNS, and a run can conclude `success` having SKIPPED every job, which is
+  # precisely what this question now makes the twin do; deriving "green" from
+  # such a run is a claim this job could not make honestly. The merge mirror
+  # it caught is avoidable with no code at all (MISSING.md: fast-forward the
+  # branch locally and push it only with the next real commit).
   dup:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     outputs:
       already_covered: ${{ steps.ask.outputs.already_covered }}
     steps:
-      - name: This event owns its CI evidence
+      - name: Does an open pull request already own this commit's CI?
         id: ask
-        run: echo 'already_covered=false' >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+          BRANCH: ${{ github.ref_name }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        # NOTHING IN THIS SCRIPT MAY EXIT NON-ZERO. The default shell is
+        # `bash -e`, and a failing command here fails `dup`, which every job
+        # `needs:` — so an unanswerable question would STOP CI rather than
+        # run it, which is deny-by-default inverted. The one command that can
+        # fail is therefore the condition of an `elif` and is negated with
+        # `!`, two places `-e` does not reach, and its failure IS the answer
+        # `false`.
+        run: |
+          covered=false
+
+          if [ "$EVENT_NAME" != 'push' ]; then
+            why="a '$EVENT_NAME' run is never the duplicate — it is the run a pull request's checks are read from"
+          elif [ "$BRANCH" = "$DEFAULT_BRANCH" ]; then
+            why="a push to '$DEFAULT_BRANCH' is the one run nothing may silently drop"
+          elif ! answer="$(timeout 30 gh api \
+                -H 'Accept: application/vnd.github+json' \
+                -H 'X-GitHub-Api-Version: 2022-11-28' \
+                "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/pulls?per_page=100" \
+                --jq '[.[] | select(.state == "open" and .head.sha == $ENV.GITHUB_SHA)] | length' 2>&1)"; then
+            why="the question could not be asked ($answer) — an unanswered question is not a yes"
+          else
+            case "$answer" in
+              '' | *[!0-9]*)
+                why="the answer did not parse as a count ($answer) — an unanswered question is not a yes"
+                ;;
+              0)
+                why="no OPEN pull request has this commit at its head — this push is this branch's only CI"
+                ;;
+              *)
+                covered=true
+                why="$answer open pull request(s) have this commit at their head"
+                ;;
+            esac
+          fi
+
+          echo "already_covered=$covered" >> "$GITHUB_OUTPUT"
+          if [ "$covered" = 'true' ]; then
+            echo "::notice title=CI duplicate::$why ($GITHUB_SHA) — every job below that can run on a push SKIPS (M-250) -- 21 of the 25, the other three being unable to run on a push at all. Skipped is neutral where cancelled is not, and the pull_request run carries the verdict."
+          else
+            echo "already_covered=false — $why"
+          fi
 
   # Cheap, fast-failing gates, run FIRST and alone so an expensive job never
   # burns a runner proving something that is about to be thrown away.
@@ -167,9 +289,23 @@ jobs:
       # Whether this diff can possibly change api/ or codex.html. Consumed by the
       # two jobs whose cost is linear in catalog size. See the step that sets it.
       artifacts_affected: ${{ steps.scope.outputs.artifacts_affected }}
-      # Whether another run has already tested this exact commit — a
+      # ~~Whether another run has already tested this exact commit — a
       # pull_request run now, or the default branch earlier — so this push run
-      # is a duplicate. Consumed by EVERY job below. See the step.
+      # is a duplicate. Consumed by EVERY job below. See the step.~~
+      #
+      # STRUCK 2026-09-16 (doctrine 17). It describes an output `gate` does
+      # not have and is wrong three ways, each kept rather than deleted:
+      # the output moved OUT of `gate` and into `dup` with M-252 (2026-09-06)
+      # and `gate` has published no such output since; "or the default branch
+      # earlier" was M-251's second question, which `dup` does not restore;
+      # and "EVERY job below" is not what this file does. COUNTED off this
+      # file 2026-09-16: 25 jobs — `dup` publishes the answer, 21 consume it
+      # with `needs: [dup, ...]` plus the guard, and three do not (`tandem`,
+      # `mutation`, `nightly`). Those three are not omissions wearing an
+      # exemption's coat: each is gated to `workflow_dispatch` or a NAMED
+      # cron, so none can run on a push at all, and `quality/test_shard.py`
+      # §6 proves that FROM THE FILE rather than from a list. The claim that
+      # is true is: every job that can run on a push consumes the answer.
     steps:
       - uses: actions/checkout@v5
         with:
@@ -2464,6 +2600,11 @@ jobs:
         if: ${{ always() && matrix.shard == 1 }}
         working-directory: lyric-harness
         run: python3 quality/chance_rate.py --check
+
+      - name: E-5 empty-coda evidence compatibility
+        if: ${{ always() && matrix.shard == 3 }}
+        working-directory: lyric-harness
+        run: python3 quality/e5_coda_adoption.py
 
       # The revision loop itself. 374.87 CPU-s for the pair, MEASURED, both
       # green -- against the "15+ minutes each" that kept them out until today.
