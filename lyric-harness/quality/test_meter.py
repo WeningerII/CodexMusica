@@ -11,6 +11,7 @@ Run: python3 quality/test_meter.py
 
 import os
 import sys
+import unittest
 from fractions import Fraction as F
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -210,6 +211,160 @@ def test_the_catalogue_is_empty_and_refuses():
     CATALOGUE.clear()
 
 
+
+class MetricComplexityTests(unittest.TestCase):
+    """MISSING.md C-3: declarations compute results through production readers."""
+
+    def test_modulation_direction_and_beat_units(self):
+        from quality.metric_complexity import MetricModulation
+        # Old dotted quarter = new quarter: quarter BPM slows from 120 to 80.
+        m = MetricModulation('3/8', '1/4', '1/4', '1/4', old_bpm=120)
+        self.assertEqual(m.result(), {'tempo_multiplier': F(2, 3), 'new_bpm': 80})
+        # Same old pivot now counted as the new dotted-quarter beat.
+        self.assertEqual(MetricModulation('3/8', '3/8', '1/4', '3/8').multiplier, F(2, 3))
+        self.assertIsNone(MetricModulation('1/4', '3/8', '1/4', '1/4').result()['new_bpm'])
+
+    def test_nested_tuplets_conserve_duration(self):
+        from quality.metric_complexity import Tuplet
+        t = Tuplet(3, 2, '1/2')
+        self.assertEqual(t.result()['onsets'], (0, F(1, 3), F(2, 3)))
+        self.assertEqual(t.span, 1)
+        nested = Tuplet(5, 4, '1/4', parent_scale=t.result()['scale'])
+        self.assertEqual(nested.result()['note_duration'], F(2, 15))
+        self.assertEqual(nested.span, F(2, 3))
+
+    def test_hemiola_directions_and_modes(self):
+        from quality.metric_complexity import Hemiola
+        h = Hemiola(6, start=2)
+        self.assertEqual(h.result(), {'reference_onsets': (2, 5), 'target_onsets': (2, 4, 6)})
+        self.assertEqual(Hemiola(6, target_groups=2, mode='simultaneous').result()['target_onsets'], (0, 3))
+
+    def test_continuous_swing_exact_pair_conservation(self):
+        from quality.metric_complexity import Swing
+        for ratio in ('1', '2', '1.37', '1/3', '200.001'):
+            s = Swing(ratio, 1, 3, start='1/4')
+            a, b = s.result()['durations']
+            self.assertEqual(a / b, F(ratio))
+            self.assertEqual(a + b, 1)
+            self.assertEqual(s.result()['onsets'][2], F(5, 4))
+        self.assertEqual(Swing('1.37', 1, 1).result()['onsets'][1], F(137, 237))
+
+    def test_rubato_is_monotonic_relative_time_not_tempo(self):
+        from quality.metric_complexity import Rubato
+        r = Rubato(4, anchors=((0, 0), (2, 3), (4, 4)))
+        self.assertEqual(r.performed_at(1), F(3, 2))
+        self.assertEqual(r.performed_at(3), F(7, 2))
+        self.assertEqual(r.performed_at(4), 4)
+        self.assertIsNone(Rubato(4, mode='senza_misura').performed_at(1))
+        self.assertEqual(Rubato(4).result()['timing'], 'unknown')
+        with self.assertRaises(ValueError):
+            r.performed_at(5)
+
+    def test_hypermeter_uses_bars_and_wraps_phase(self):
+        from quality.metric_complexity import Hypermeter
+        h = Hypermeter((2, 3), phase=1).result(12)
+        self.assertEqual(h['period_bars'], 5)
+        self.assertEqual(h['cycle_heads'], (1, 6, 11))
+        self.assertEqual(h['group_heads'], (1, 3, 6, 8, 11))
+        self.assertEqual(Hypermeter((2, 2), phase=3).result(5)['group_heads'], (1, 3))
+
+    def test_metric_dissonance_distinguishes_layers(self):
+        from quality.metric_complexity import MetricDissonance
+        g = MetricDissonance(3, 2, 12).result()
+        self.assertTrue(g['grouping'])
+        self.assertFalse(g['displacement'])
+        self.assertEqual(g['composite_period'], 6)
+        self.assertEqual(set(g['reference_onsets']) & set(g['competing_onsets']), {0, 6})
+        d = MetricDissonance(2, 2, 8, competing_phase=1).result()
+        self.assertTrue(d['displacement'])
+        self.assertFalse(d['grouping'])
+        nested = MetricDissonance(2, 4, 8).result()
+        self.assertFalse(nested['grouping'] or nested['displacement'])
+        both = MetricDissonance(3, 2, 8, competing_phase='1/2').result()
+        self.assertTrue(both['grouping'] and both['displacement'])
+
+    def test_invalid_values_and_resource_limits_are_refused(self):
+        from quality.metric_complexity import read_complexity
+        bad = [None, {}, [{'kind': 'swign'}], [{'kind': 'swing', 'ratio': 2}],
+               [{'kind': 'swing', 'ratio': 2, 'pair_span': 1, 'pairs': True}],
+               [{'kind': 'tuplet', 'count': 3.5, 'normal': 2, 'note_pulses': 1}],
+               [{'kind': 'tuplet', 'count': 100001, 'normal': 2, 'note_pulses': 1}],
+               [{'kind': 'rubato', 'span': 4, 'anchors': [[0, 0], [2, 3], [4, 2]]}],
+               [{'kind': 'rubato', 'span': 4, 'anchors': [[0, 0], [3, 4]]}],
+               [{'kind': 'hypermeter', 'groups': [2, 2], 'phase': 4}],
+               [{'kind': 'hemiola', 'span': 6, 'target_groups': 4}],
+               [{'kind': 'metric_dissonance', 'reference_period': 2, 'competing_period': 3,
+                 'span': 4, 'reference_phase': 2}],
+               [{'kind': 'metric_modulation', 'old_pivot': 0, 'new_pivot': 1,
+                 'old_beat': 1, 'new_beat': 1}],
+               [{'kind': 'rubato', 'span': 4, 'typo': 1}],
+               [{'kind': 'swing', 'ratio': 'NaN', 'pair_span': 1, 'pairs': 2}],
+               [{'kind': 'rubato', 'span': 9}]]
+        for raw in bad:
+            with self.subTest(raw=raw), self.assertRaises(ValueError):
+                read_complexity(raw, 2, 4)
+        with self.assertRaisesRegex(ValueError, 'RESOURCE_LIMIT'):
+            read_complexity([{'kind': 'tuplet', 'count': 60000, 'normal': 2,
+                              'note_pulses': 1}] * 2, 2, 4)
+
+    def test_blueprint_song_fit_and_cli_keep_all_seven(self):
+        import json
+        import subprocess
+        from quality import fit, grid
+        path = os.path.join(HERE, 'fixtures', 'metric_complexity.blueprint.json')
+        with open(path) as fh:
+            bp = json.load(fh)
+        before = json.dumps(bp, sort_keys=True)
+        song, _ = grid.song_from_blueprint(bp)
+        direct = fit.fit_song(bp)
+        via_song = fit.fit_song(song)
+        rows = direct.table()
+        self.assertEqual(rows, via_song.table())
+        events = rows[0]['metric_complexity']
+        self.assertEqual(len(events), 7)
+        self.assertEqual(events[0]['result']['new_bpm'], '80')
+        self.assertEqual(events[3]['result']['durations'], ['137/237', '100/237'])
+        self.assertIn('METRIC COMPLEXITY', fit.report(direct))
+        self.assertEqual(json.dumps(bp, sort_keys=True), before)
+        cli = subprocess.run([sys.executable, os.path.join(HERE, '..', 'lyric_harness.py'),
+                              'fit', path], capture_output=True, text=True)
+        self.assertEqual(cli.returncode, 0, cli.stderr + cli.stdout)
+        for event in events:
+            self.assertIn(event['kind'], cli.stdout)
+        # Repeated names retain distinct declarations; absent stays absent.
+        bp['sections'].append({'name': bp['sections'][0]['name'], 'bars': 2,
+                               'meter': {'beats': 3, 'unit': 4}})
+        self.assertNotIn('metric_complexity', fit.fit_song(bp).table()[1])
+
+    def test_annotations_preserve_existing_score_fit_for_sung_lines(self):
+        import copy
+        from quality import fit
+        bp = {'sections': [{'name': 'verse', 'bars': 2,
+                            'meter': {'beats': 4, 'unit': 4, 'groups': [2, 2]}}],
+              'lines': [{'bar': 1, 'beat': 1, 'duration': 4, 'text': 'the rain is falling'}]}
+        baseline = fit.fit_song(bp)
+        annotated = copy.deepcopy(bp)
+        annotated['sections'][0]['metric_complexity'] = [
+            {'kind': 'swing', 'ratio': '1.37', 'pair_span': 1, 'pairs': 4}]
+        measured = fit.fit_song(annotated)
+        self.assertEqual(baseline.lines[0].count, measured.lines[0].count)
+        self.assertEqual(baseline.lines[0].findings, measured.lines[0].findings)
+        self.assertEqual(baseline.lines[0].refusals, measured.lines[0].refusals)
+        row = measured.table()[0]
+        row.pop('metric_complexity')
+        self.assertEqual(baseline.table()[0], row)
+
+    def test_all_readers_refuse_malformed_complexity(self):
+        from quality import fit, grid
+        from quality.meter import validate_blueprint
+        for raw in (None, [{'kind': 'swing'}], [{'kind': 'hemiola', 'span': 10}]):
+            bp = {'sections': [{'name': 'a', 'bars': 1, 'meter': {'beats': 4, 'unit': 4},
+                                'metric_complexity': raw}], 'lines': []}
+            for reader in (validate_blueprint, fit.from_blueprint, grid.song_from_blueprint):
+                with self.subTest(reader=reader, raw=raw), self.assertRaises(ValueError):
+                    reader(bp)
+
+
 if __name__ == "__main__":
     for fn in (test_duration_is_an_exact_rational,
                test_the_grouping_space_is_compositions,
@@ -225,3 +380,5 @@ if __name__ == "__main__":
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
         sys.exit(1)
     print("all metric-cycle regressions pass")
+    result = unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromTestCase(MetricComplexityTests))
+    sys.exit(0 if result.wasSuccessful() else 1)

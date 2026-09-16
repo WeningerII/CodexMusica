@@ -65,6 +65,27 @@ cross-song isolation, the production corpus and grid callers, and timing
 refusal. The suite is registered in CI alongside the existing grid, relation,
 capability, song-function and English-text guards.
 
+**Edition follow-up, 2026-09-16.** The marked-song reader now interprets
+PG 1279's explicit Burns labels (`Choir.--`, `Chor.--`, `Chorus.--`,
+`Chorus--`, standalone `Chorus`) at their staged block openings. It recovers
+78 inline labels and joins seven standalone labels to their following stanza.
+The rule is edition-scoped; source bytes and source-line coordinates are
+preserved. No full chorus is inferred from a verse's resemblance to a cue.
+The shared pointer detector also removes paired Gutenberg italic delimiters,
+so `_&c._` is a pointer rather than a supposedly complete target line.
+
+The same census now reads **1,163 pointers; 442 resolved; 35 ambiguous;
+686 unmatched; 0 bare**. This is **270 more resolved references**, with
+**133 newly detected pointers** included in the denominator. **721 remain
+unresolved**; this follow-up does not close the edition questions. In
+particular, different complete endings still refuse resolution, as do
+abbreviated variants whose full text is absent. The JSON census now includes
+`unresolved_references`: filename, song title, language, zero-based parsed
+line index, printed cue, status, and competing target spans/text. These are
+reviewable source cases, not invented expansions. Regression coverage includes
+italic pointers, edition scope, original source coordinates and representative
+Burns choruses. The corpus manifest remains byte-identical.
+
 **Historical diagnosis follows, retained as the record of the open gap:**
 
 **REPINNED 2026-09-09, AND THE DECLARATION BELOW WAS FALSE.** Found by an
@@ -292,7 +313,7 @@ ladrang, gendhing), flamenco compases, West African timelines.
 without a `source`, because a catalogue written from memory is unsourced data
 in the evidence base.
 
-### C-3 · No metric complexity `PARTIAL` — structure built 2026-08-10
+### C-3 · Metric complexity `CLOSED` 2026-09-15 — `046e726c` (declaration and reporting layer)
 **Now:** bar duration is an exact `Fraction`, so **.125/1 through 64/32**,
 fractional numerators and non-power-of-two denominators (4/3, 5/6) are one
 object with no special cases; `irrational` is a declared property.
@@ -300,8 +321,30 @@ object with no special cases; `irrational` is a declared property.
 3/4 against 4/4 realigns at 3 whole-notes), `Polyrhythm` (n against m in ONE
 span, 3:2 resolving at 1/6), `MeterMap` (meter per BAR, not per section), and
 `Density` for irama, deliberately not a Cycle because the frame does not move.
-**Still missing:** metric modulation, hemiola, tuplets, swing ratio as a
-continuous value, rubato/senza misura, hypermeter, metric dissonance.
+**Previously missing:** metric modulation, hemiola, tuplets, continuous swing,
+rubato/senza misura, hypermeter and metric dissonance.
+**Now:** `quality/metric_complexity.py` represents all seven with exact rational
+calculations and strict validation. Optional section `metric_complexity`
+declarations pass through the shared blueprint validator, `grid.Section`,
+`fit.from_blueprint`/`from_song`, and the public fit table and CLI report.
+Modulation computes the pivot/beat-unit tempo ratio (and new BPM only when old
+BPM is declared); tuplets support enclosing duration scales; hemiola exposes
+two/three-group reinterpretation or simultaneous layers; swing accepts any
+positive rational ratio; rubato supports a monotonic relative timing map or
+unknown timing, including senza misura; hypermeter groups bars with phase;
+metric dissonance distinguishes non-nesting periods from phase displacement.
+Unknown fields, malformed values, outside-section events and excessive
+expansions refuse through the existing error path.
+**Scope:** these are declared rhythmic layers, not audio measurements or
+inferred syllable settings. Fit continues to judge score-pulse placement;
+annotations do not silently change its subdivision/isochrony assumptions or
+the planner's sampling space. Senza misura retains score addresses without
+claiming a performed pulse. Local modulation BPM does not provide a song tempo
+map or close C-5. See `quality/METRIC_COMPLEXITY.md` for units and full schema.
+**Verified:** `quality/test_meter.py` adds 11 tests covering all seven mechanisms,
+invalid declarations and expansion bounds, repeated section names, unchanged
+sung-line grading, both readers, the Song round trip and the actual `fit` CLI.
+The existing metric-cycle, fit and song-function regressions pass.
 
 ### C-4 · ~~No groove or microtiming~~ — the groove questions are DECLARED and PERMANENTLY REFUSED BY NAME `PARTIAL`
 **Missing:** pushes, pulls, laid-back and ahead-of-beat placement, syncopation
@@ -325,7 +368,8 @@ measurement, the difference between a line that lands and one that drags.
 > **WHAT IS TRULY MISSING IS NARROWER: syncopation as a measurable quantity
 > GIVEN a declared grid.** R5 accepts a `BeatGrid` and nothing computes
 > displacement off one; no `groove`/`syncopat` symbol exists in `meter.py` or
-> `grid.py`. C-3's _"swing ratio as a continuous value"_ is the live neighbour.
+> `grid.py`. C-3 now supplies declared continuous swing ratios; syncopation
+> measurement remains this entry's separate gap.
 >
 > **AND A TEST GUARDS THIS ENTRY THAT TRIAGE CANNOT SEE** —
 > `quality/test_fit.py` asserts `"C-4" in whys` over `fit.UNANSWERABLE` and
@@ -4069,7 +4113,21 @@ without anyone judging a text. Recorded as the route; NOT taken here, because
 it moves `RUN-ON 11`, `test_corpus_audit.py:890`'s `shapes` dict and the
 counters/`PINNED` pair in one commit, and the repin is the half going stale.
 
-### M-21 · One fact about the registers is pinned in two media, and no instrument can be asked which pins a change moves `OPEN`
+### M-21 · One fact about the registers is pinned in two media, and no instrument can be asked which pins a change moves `CLOSED`
+**Closure reconciled 2026-09-16.** The implementation and 2026-08-28 closure
+below were present while the heading still advertised OPEN. The normal sweep
+now enforces the existing argv-consumption check before launching each check;
+an unconsumed flag is CANNOT RUN and cannot print a false HOLDS. Completed
+rows are retained as each child finishes, so interruption preserves earlier
+MOVED evidence in both text and JSON summaries. An empty selection refuses,
+and an inconclusive sweep exits 2 (MOVED still exits 1; a fully measured clean
+sweep exits 0). No pin is automatically repaired. The existing
+`quality/test_pin_sweep.py` CI suite exercises these cases through an isolated
+real CLI run, including a signal sent only after two checks finish. The
+whole-population argv check certifies 50 discovered files on this checkout.
+This closes the sweep capability, not the historical research findings below: the
+phrase-commonplace study (H-1) and prose drift are retained, not rebaselined.
+
 **Found 2026-08-21 by paying the cost twice in one sitting, on consecutive CI
 rounds.** Filing `M-20` moved the number of entries in `MISSING.md` from 75 to 76. That single fact is pinned in **two places, in two different media**:
 
@@ -9626,7 +9684,7 @@ would make every new finding a merge conflict rather than a question.
 a finding added without a gate MOVES A NUMBER instead of joining a list nobody
 reads.
 
-### M-74 · the placement work made every mandate import `relations`, and the sentence promising it would not was left standing `OPEN` — sized 2026-08-23
+### M-74 · the placement work made every mandate import `relations`, and the sentence promising it would not was left standing `CLOSED` — sized 2026-08-23
 **Found while closing M-73**, by asking `quality/counters.py` which public
 symbols nothing references and then chasing the one it named in
 `quality/slots.py`. Not a correctness defect and not a gate: a documented
@@ -9681,6 +9739,25 @@ function (`slot.line` on the dotted branch, `int(x)` on the other), which is
 doctrine 1 inside eight lines. Both branches call `slot_line` now. It costs
 nothing precisely BECAUSE of the finding above: the import this call needs was
 already being paid on every mandate.
+
+**CLOSED 2026-09-16.** The sizing above records the pre-fix tree.
+`quality/span_rules.py` now owns the shared span-rule dataclass and constants;
+`relations` re-exports the same objects, and `slots` imports only that leaf.
+No refusal class moved and no exception discrimination changed. Plain and
+placement-based mandates leave `quality.relations` unloaded; schema
+relations still resolve normally. `quality/test_slots.py` checks these
+boundaries in a fresh interpreter and pins the shared object identities.
+
+**RE-MEASURED**, five fresh processes per state on this checkout: the first
+import took 247.57 ms before and 43.51 ms after; the four subsequent imports
+were **82.15–92.48 ms before, 39.06–51.22 ms after**. The old 17.7 ms baseline
+was measured on another environment and is not an absolute performance gate.
+The import boundary itself is the deterministic regression check. Reproduce
+from `lyric-harness` in fresh Python processes with:
+
+```sh
+python3 -c 'import time, sys; t=time.perf_counter(); import quality.schemes; print((time.perf_counter()-t)*1000, "quality.relations" in sys.modules)'
+```
 
 ### M-75 · the shape locks are silenced by appending ONE short section, which is the cheat they were written to catch `CLOSED` — sized and closed 2026-08-23
 **The owner's anecdote, verbatim:** _"I've seen this system say something to
