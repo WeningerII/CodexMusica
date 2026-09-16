@@ -21,7 +21,52 @@ with the constraint named).
 
 ## A. Notation and scheme representation
 
-### A-1 · ~~Capital/lowercase refrain notation~~ — the NOTATION shipped; what stands is line identity BY REFERENCE `PARTIAL` 2026-09-09
+### A-1 · Capital/lowercase notation and full-block refrain references `CLOSED` 2026-09-15
+
+**CLOSED by `ca02b1e4`.** The notation was already present; the remaining
+implementation now resolves abbreviated references against **complete declared
+blocks in the same song, before or after the pointer**. The edition's existing
+abbreviation forms and editorial-tail rule supply the incipit. Every printed
+incipit word must match the target's opening; the resolver does not shorten
+an unsuccessful incipit until something matches. Repeated printings collapse
+only when their entire token-normalised blocks agree. Conflicting endings,
+missing targets and bare pointers remain explicitly unresolved. A target
+containing another pointer is not treated as a complete block.
+
+`quality/relations.py:search_stub_resolution` now has a full-block mode taking
+`block_spans` and `stub_incipit`. Its older line-only probe remains available
+for compatibility, but is not the production block resolver.
+`quality/grid.py:compare_returns`, `return_findings`, `reprise_findings`, and
+`resolve_marked_references` consume complete spans. Resolved comparisons
+carry the printed-line/target/full-text receipts in `stub_resolutions` and
+show the resolution in `describe()`. The corpus reader preserves source text;
+`resolve_marked_references` supplies a separate expanded view. Text expansion
+does not invent meter placement: abbreviated sections cannot be charged with
+slot drift, and their timing comparison is reported as unavailable.
+
+**Reproducible census, 2026-09-15:** run
+`python3 lyric-harness/quality/mark_coverage.py --json` and read
+`stub_references`. Population: all songs returned by `read_marked_songs` over
+`corpus/song/*.txt`, parsed lyric lines only, using the filename's declared
+language; candidate targets are marked blocks whose function belongs to
+`POPULAR_SONG.fixed_return`, scoped to the same song. At the implementation
+commit: **1,030 pointers; 172 resolved; 25 ambiguous; 833 unmatched; 0 bare**.
+These categories partition the population. This is the stated rule for this
+count; the older raw-line counts below describe different historical reads.
+The **858 unresolved references remain edition/source work**, not asserted
+full choruses. Closing the resolver does not claim those source questions
+have been settled, and no corpus text or provenance records were rewritten.
+
+**Regression guard:** `quality/test_stub_resolution.py` covers earlier/later
+blocks, both comparison sides, complete multi-line expansion, identical
+printings versus conflicting endings, missing/bare/chained pointers, full
+incipit matching, editorial tails and language scope, source immutability,
+cross-song isolation, the production corpus and grid callers, and timing
+refusal. The suite is registered in CI alongside the existing grid, relation,
+capability, song-function and English-text guards.
+
+**Historical diagnosis follows, retained as the record of the open gap:**
+
 **REPINNED 2026-09-09, AND THE DECLARATION BELOW WAS FALSE.** Found by an
 audit of the DECLARED bucket — the one bucket nothing in CI re-examines —
 and upheld by two sceptics who were told to default to the register being
