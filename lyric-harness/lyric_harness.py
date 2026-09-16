@@ -4889,6 +4889,22 @@ CHORUS_STUB = re.compile(
     "|".join(f"(?:{p.pattern})" for _, _, p in CHORUS_STUB_FORMS), re.I)
 
 
+def chorus_stub_incipit(line, language=None):
+    """Printed words before the declared pointer; None means not a stub.
+
+    Uses the detector's own forms and editorial-tail rule. An empty string
+    means a bare pointer, which cannot identify a target by its words.
+    """
+    s = _STUB_EDITORIAL_TAIL.sub("", line.strip())
+    for langs, _, pat in CHORUS_STUB_FORMS:
+        if language is not None and language not in langs:
+            continue
+        match = pat.search(s)
+        if match:
+            return s[:match.start()].strip()
+    return None
+
+
 def chorus_stub_languages(line):
     """-> the tuple of languages whose printing attests the pointer on this
     line, `()` if the line carries no declared pointer.
