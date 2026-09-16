@@ -603,6 +603,46 @@ controls and chance-rate bands are repinned from their own instruments.
 `quality/door_census.py` records one additional ARGUED measurement site
 (29 sites, 14 argued); no production satisfaction door changes.
 
+**AND THE CERTIFIED CAPACITY ARTIFACT MOVED WITH THE BAN (2026-09-16), which
+is the part the first pass missed.** `data/rhyme_capacity_eng.tsv` stores
+witness cliques that were certified ONCE and are RE-GRADED at every check, so a
+ban that moves turns committed witnesses dirty without a byte of the artifact
+changing: this branch touches neither the table nor `quality/capacity.py`'s
+measurement, and the failure is entirely the judge moving underneath an
+unchanged artifact. `verify_capacity.verify_all` raises on the FIRST dirty
+family, so CI could only ever name `AY`. Sweeping all 81 by hand found three:
+
+| family | what the current ban says about the committed witness | chain_lo |
+|---|---|---|
+| `AY` | 11 banned pairs, every one of them an edge on `why` (MODAL_RHYME — `why` is among the most predictable answers to its partners, not a score failure) | ~~19~~ 18 |
+| `EY` | 14 banned, 2 incompatible, 2 refused | ~~19~~ 21 |
+| `IY-Z` | 1 incompatible and 1 VIOLATED | ~~23~~ 22 |
+
+THE THREE ARE ONE BAN LANDING ON THREE FAMILIES AND ARE NOT SUMMED (doctrine
+79). Each was rebuilt with the repo's own `certify()` under the current ban and
+now answers every declared pair cleanly — banned, incompatible, refused and
+violated all zero, verified across the complete 81-family population, not just
+the three. The depths moved in BOTH directions, which is what a re-construction
+does and a filter could not: `EY` came back DEEPER, because removing the coda
+gift makes a different chain legal rather than only making chains shorter.
+
+`ADOPTED["max_chain_lo"]` therefore falls ~~23~~ 22 and `ADOPTED_MAX_GROUP`
+falls with it. That constant is not decoration: `quality/plan.py` reads it to
+refuse a rhyme group larger than the lexicon is MEASURED to sustain, so the
+planner now volunteers at most 22 members. It only ever tightens here, so the
+move fails safe. `max_chain_lo_family` becomes ~~`IY-Z`~~ `IY`, and that is a
+TIE-BREAK RATHER THAN A MARGIN: `IY` and `IY-Z` both witness 22 and
+`summarize` takes the first maximal row in table order, so re-sorting the
+artifact would move the name with no measurement having changed.
+
+**AND THE REFUSAL REPORTS HALF OF WHAT IT TESTS, which is why this cost a
+sweep.** `verify_capacity.verify_witness` refuses on EIGHT disjuncts —
+`chain_lo`, `pairs_mandated`, `pairs_judged`, `pairs_refused`, `violations`,
+`refusals`, `banned`, `incompatible` — and its message prints FOUR. `IY-Z`
+failed on `incompatible`, so its line read judged=253/253, refused=0, banned=0,
+violated=0: a refusal that names none of its own causes. Recorded here and
+left as found rather than widened into this commit.
+
 **Historical record follows; default-score and OPEN statements below describe
 the dated, superseded state.**
 **Now (verified by using it):** `now ~ why` scores 0.902 and types RHYME,

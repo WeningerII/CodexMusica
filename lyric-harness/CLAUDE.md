@@ -539,7 +539,7 @@ draws its own participation uniform over what a band-legal line can CARRY: the
 calibrated density band's FLOOR, since distinct bindings need distinct spans.
 Measured after: participation uniform over 1–5, median 26 groups a song.
 **AND THE LEXICON'S CEILING IS A PLAN-TIME GATE**: `capacity.ADOPTED_MAX_GROUP`
-adopts the deepest CERTIFIED chain (40, a witness clique graded through
+adopts the deepest CERTIFIED chain (~~40~~ ~~23~~ **22**, a witness clique graded through
 `Reviser.inspect`; the tier-1 ceiling reaches 228 and is ungraded), so a plan
 never asks for a rhyme family no family can fill. Re-derived by
 `capacity.py --check` nightly.
@@ -675,8 +675,16 @@ readable words into 12,387 first-reading construction families. Spelling-class
 counts are upper bounds for those pools, not earned-chain witnesses.
 All 81 families at the 20-class certification floor have rebuilt witnesses
 under explicit class:RHYME and the unchanged two-tier ban. The deepest
-certified chain is 23, held by ONE family, `IY-Z`; 23 is a witnessed lower
-bound, not a maximum-clique proof. The construction attempt cap remains 40,
+certified chain is ~~23~~ **22**, held by ~~ONE~~ **TWO** families, `IY` and
+`IY-Z`; 22 is a witnessed lower bound, not a maximum-clique proof.
+**REPINNED 2026-09-16 with E-5.** Removing the empty-coda evidence bonus moved
+the two-tier ban, and three already-published witnesses stopped answering their
+own declared pairs cleanly: `AY` ~~19~~ 18, `EY` ~~19~~ 21, `IY-Z` ~~23~~ 22.
+Nothing in the artifact had been edited — a witness is certified once and
+re-graded at every check, so a ban that moves can turn a committed witness
+dirty. `verify_capacity.verify_all` raises on the FIRST dirty family, so CI
+could only name `AY`; the other two were found by sweeping all 81 by hand.
+The construction attempt cap remains 40,
 and the separate writer workload limit remains 31 lines. The former 40-word
 claims failed the declared relation: default rescue and ambiguous readings
 had certified groups the narrower class does not accept. Current evidence:
