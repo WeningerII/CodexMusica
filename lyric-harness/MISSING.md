@@ -9543,7 +9543,7 @@ would make every new finding a merge conflict rather than a question.
 a finding added without a gate MOVES A NUMBER instead of joining a list nobody
 reads.
 
-### M-74 · the placement work made every mandate import `relations`, and the sentence promising it would not was left standing `OPEN` — sized 2026-08-23
+### M-74 · the placement work made every mandate import `relations`, and the sentence promising it would not was left standing `CLOSED` — sized 2026-08-23
 **Found while closing M-73**, by asking `quality/counters.py` which public
 symbols nothing references and then chasing the one it named in
 `quality/slots.py`. Not a correctness defect and not a gate: a documented
@@ -9598,6 +9598,25 @@ function (`slot.line` on the dotted branch, `int(x)` on the other), which is
 doctrine 1 inside eight lines. Both branches call `slot_line` now. It costs
 nothing precisely BECAUSE of the finding above: the import this call needs was
 already being paid on every mandate.
+
+**CLOSED 2026-09-16.** The sizing above records the pre-fix tree.
+`quality/span_rules.py` now owns the shared span-rule dataclass and constants;
+`relations` re-exports the same objects, and `slots` imports only that leaf.
+No refusal class moved and no exception discrimination changed. Plain and
+placement-based mandates leave `quality.relations` unloaded; schema
+relations still resolve normally. `quality/test_slots.py` checks these
+boundaries in a fresh interpreter and pins the shared object identities.
+
+**RE-MEASURED**, five fresh processes per state on this checkout: the first
+import took 247.57 ms before and 43.51 ms after; the four subsequent imports
+were **82.15–92.48 ms before, 39.06–51.22 ms after**. The old 17.7 ms baseline
+was measured on another environment and is not an absolute performance gate.
+The import boundary itself is the deterministic regression check. Reproduce
+from `lyric-harness` in fresh Python processes with:
+
+```sh
+python3 -c 'import time, sys; t=time.perf_counter(); import quality.schemes; print((time.perf_counter()-t)*1000, "quality.relations" in sys.modules)'
+```
 
 ### M-75 · the shape locks are silenced by appending ONE short section, which is the cheat they were written to catch `CLOSED` — sized and closed 2026-08-23
 **The owner's anecdote, verbatim:** _"I've seen this system say something to
