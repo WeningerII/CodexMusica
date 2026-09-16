@@ -143,3 +143,26 @@ the command line above used to name it.
 Wrap these six functions as MCP tools (mcp-builder pattern) and point the
 model at them: draft -> check_scheme + check_meter -> revise flagged lines
 only -> re-check.
+
+### Declared tempo and seconds
+
+The `grid` verb reports elapsed time when the blueprint supplies tempo:
+
+```json
+{
+  "tempo": {"bpm": 120, "beat_value": "1/4", "source": "writer declaration"},
+  "tempo_changes": [
+    {"at": "1/2", "bpm": 60, "beat_value": "1/4", "source": "writer declaration"}
+  ]
+}
+```
+
+Add these fields alongside the blueprint's sections and lines. `beat_value`
+is the metronome beat in whole notes (`3/8` for a dotted quarter); `at` is the
+whole-note offset from bar 1, beat 1. Changes are ordered, instantaneous steps.
+The example takes three seconds per whole note across its first whole-note
+span: one second before the change, two after it. The initial rate applies to
+pickups before zero, and the final rate continues. No tempo means `NO_TEMPO`,
+not a guessed BPM. Line durations consume local meter pulses across barlines;
+timing refuses section gaps and lines extending beyond the declared bars.
+Results describe the declaration, not a measured performance or singability.
