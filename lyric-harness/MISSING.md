@@ -3970,7 +3970,21 @@ without anyone judging a text. Recorded as the route; NOT taken here, because
 it moves `RUN-ON 11`, `test_corpus_audit.py:890`'s `shapes` dict and the
 counters/`PINNED` pair in one commit, and the repin is the half going stale.
 
-### M-21 · One fact about the registers is pinned in two media, and no instrument can be asked which pins a change moves `OPEN`
+### M-21 · One fact about the registers is pinned in two media, and no instrument can be asked which pins a change moves `CLOSED`
+**Closure reconciled 2026-09-16.** The implementation and 2026-08-28 closure
+below were present while the heading still advertised OPEN. The normal sweep
+now enforces the existing argv-consumption check before launching each check;
+an unconsumed flag is CANNOT RUN and cannot print a false HOLDS. Completed
+rows are retained as each child finishes, so interruption preserves earlier
+MOVED evidence in both text and JSON summaries. An empty selection refuses,
+and an inconclusive sweep exits 2 (MOVED still exits 1; a fully measured clean
+sweep exits 0). No pin is automatically repaired. The existing
+`quality/test_pin_sweep.py` CI suite exercises these cases through an isolated
+real CLI run, including a signal sent only after two checks finish. The
+whole-population argv check certifies 50 discovered files on this checkout.
+This closes the sweep capability, not the historical research findings below: the
+phrase-commonplace study (H-1) and prose drift are retained, not rebaselined.
+
 **Found 2026-08-21 by paying the cost twice in one sitting, on consecutive CI
 rounds.** Filing `M-20` moved the number of entries in `MISSING.md` from 75 to 76. That single fact is pinned in **two places, in two different media**:
 
