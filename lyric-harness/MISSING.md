@@ -247,10 +247,10 @@ the interior lines and keeps the first and last. Staged under
 
 ## B. Pitch, harmony, melody — ABSENT
 
-### B-1 · No pitch layer at all `OPEN`
-**Now (verified):** no module in the repo represents pitch. The grep hits for
-"pitch/interval/scale" are Somali pitch ACCENT, statistical confidence
-INTERVALS, and rescaling.
+### B-1 · Pitch theory and harmony `PARTIAL` 2026-09-15
+**Now:** I-1 adds a minimal symbolic melody phrase with explicit frequencies
+in `quality/melody.py`. The earlier claim that no pitch object exists is
+superseded; the theory and harmony capabilities below remain unimplemented.
 **Missing:** pitch classes, intervals, the 12 ordered interval classes and 6
 unordered ICs, the **66 unordered dyads of 12-TET**, the 208 Forte set classes,
 interval vectors, Z-relations, chords, voicings, inversions, extensions,
@@ -1377,7 +1377,7 @@ verse-chorus-bridge sequence, clichéd rhyme-scheme choice itself.
 
 ## I. Generation and workflow
 
-### I-1 · ~~Nothing generates~~ — the harness does not WRITE, and that is a DECISION `PARTIAL` 2026-08-21
+### I-1 · Melody-first entrance alongside the external writing loop `CLOSED` 2026-09-15
 **Now:** `quality/revise.py` returns line-scoped briefs; the harness grades.
 ~~**Missing:** any writing loop, melody-first or lyric-first workflow, or way to
 sample a structure from the scheme/grid spaces and write into it.~~
@@ -1400,12 +1400,25 @@ docstring says "It writes NO WORDS: the writer is outside the harness" and
 a stated design decision is a category error**, and this one has invited a
 session to fix a thing the rules forbid for eleven days.
 
-The accurate sentence is not _the harness writes_ — it is **the harness plans,
-grades, and drives a writing loop whose writer is external**. This entry stays
-PARTIAL on exactly one surviving clause: **melody-first**. Nothing in the tree
-can take a tune as input, because there is no pitch or tune object at all
-(B-1, re-verified absent 2026-08-21). "Nothing generates" was true of the tree
-and false of the SYSTEM from the day `plan.py` v2 landed.
+The harness plans, grades, and drives a writing loop whose writer is external.
+**CLOSED 2026-09-15:** the surviving melody-first entrance now accepts a
+caller-declared monophonic phrase through `make_plan(melody=...)`, CLI
+`plan` / `finish --melody=JSON`, and `lyric_sweep`, `lyric_plan`,
+`lyric_grade`, `lyric_revise`. The phrase repeats once per lyric line;
+its meter, bar length and subdivision replace the meter draw, with no sampled
+pickup. Frequencies in Hz and explicit rest events preserve the supplied tune
+without assuming 12-TET. Notes reach the writer brief and saved plan/blueprint;
+request receipts and continuation declarations carry the same tune.
+
+**Scope:** symbolic phrase input, not audio/MIDI transcription, whole-song
+melody arrangement, exact syllable-to-note underlay, or pitch-performance
+certification. The existing timing grader checks the line grid; the brief
+explicitly discloses those ungraded axes. B-1's harmony/set-theory work and
+G's underlay work remain separate. No recipe-engine dependency or model calls
+were added. `quality/test_melody.py` covers deterministic planning, declaration
+refusals, grid constraints, preservation and the real CLI plan/fill path;
+`mcp/test.mjs` and `mcp/test_lyric_workflow.mjs` cover connector argument and
+receipt continuity.
 
 ### I-2 · No way to sample the space under constraints `PARTIAL` 2026-08-21 — the SAMPLER shipped; ~~the PREDICATE is ruled on hold~~ the PREDICATE shipped as `plan --sweep` (M-82, 2026-08-23) and the residue is three scheme coordinates it cannot yet name (repinned 2026-09-06)
 **REPINNED 2026-09-06 — THE BLOCKER THIS ENTRY RESTS ON WAS SPENT SIXTEEN DAYS AGO.** The last paragraph below says the filter is *"RULED ON HOLD, by name"* and must not be built as a favour. The ruling came on 2026-08-23 — *"make it a verb"* — and it is `plan --sweep=LO-HI [--want=PRED;PRED]` (M-82, `CLAUDE.md` standing rule 3): a closed predicate vocabulary over coordinates the plan already discloses, rejection-sampled from the uniform proposal, ranking nothing. So the PREDICATE exists. **What is still missing is narrower than the entry's own example and is a residue, not a blocker**: this entry asks for *3 sounds, no adjacencies, at least 2 section-crossings*, and `plan.SWEEP_MEASURES` at HEAD names 13 measures — `bars_per_line beats_per_line binding_cap bound_words_per_line group hook lines lines_per_section pins_per_line returns sections slots_per_line story_lineups` — none of which is `n_sounds`, `adjacencies` or `crossings`, though `schemes.SchemeCoordinates` computes all three for every drawn scheme. Adding the three is a build of the M-82 shape (a measure reads a disclosed coordinate; the sweep's own test pins the vocabulary), and it is not taken in a record-only sitting. Status stays PARTIAL on that residue and on nothing else.

@@ -135,6 +135,7 @@ Run:  python3 lyric_harness.py plan --seed=N [--form=verse-chorus]
 Test: python3 quality/test_plan.py
 """
 
+from copy import deepcopy
 import os
 import json
 import shlex
@@ -2371,7 +2372,7 @@ def execution_limits():
 
 
 def make_plan(seed, form="verse-chorus", lines=None, relation=None,
-              functions=None, title=None, narrative=None, wants=(), inspection_only=False):
+              functions=None, title=None, narrative=None, wants=(), inspection_only=False, melody=None):
     """Plan under explicit brief predicates; never supply aesthetic defaults.
 
     The existing closed sweep vocabulary is also accepted at the generation
@@ -2393,7 +2394,7 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     parsed = [parse_sweep_want(w) if isinstance(w, str) else
               parse_sweep_want("".join(w)) for w in wants]
     kw = dict(form=form, lines=lines, relation=relation, functions=functions,
-              title=title, narrative=narrative, _wants=parsed, inspection_only=inspection_only)
+              title=title, narrative=narrative, _wants=parsed, inspection_only=inspection_only, melody=melody)
     if not parsed:
         return _make_plan_candidate(seed, **kw)
     rng = random.Random(seed)
@@ -2424,7 +2425,7 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
 
 
 def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
-                         functions=None, title=None, narrative=None, _wants=(), inspection_only=False):
+                         functions=None, title=None, narrative=None, _wants=(), inspection_only=False, melody=None):
     """A request -> the plan dict. Refuses rather than guessing.
 
     `relation`, `functions` and `title` are THE WRITER'S DECLARATION
@@ -2759,10 +2760,26 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
             f"— try another seed, drop --lines, or declare the shape by "
             f"hand.")
 
-    bars, sub, beats, groups_m, (n_beats, n_fact, beats_pl) = \
-        _sample_meter(rng)
+    if melody is not None:
+        from quality.melody import validate_melody
+        try:
+            melody = validate_melody(melody)
+        except ValueError as exc:
+            raise PlanRefused(str(exc)) from exc
+        bars, sub = melody["bars"], melody["subdivision"]
+        beats, groups_m = melody["meter"]["beats"], melody["meter"]["groups"]
+        beats_pl = bars * beats
+        lo, hi = ENVELOPE["beats_per_line"]
+        if not lo <= beats_pl <= hi or beats_pl * sub < ENVELOPE["slots_per_line"][0]:
+            raise PlanRefused("melody: phrase is outside the planner's declared beat/slot envelope")
+        n_beats = n_fact = 1
+    else:
+        bars, sub, beats, groups_m, (n_beats, n_fact, beats_pl) = \
+            _sample_meter(rng)
     meter = {"beats": beats, "unit": _unit_for(groups_m),
              "groups": list(groups_m)}
+    if melody is not None:
+        meter = dict(melody["meter"])
 
     # Schemes per function kind (one tune per kind — new words, same
     # shape), and a per-section anacrusis in beats.
@@ -2807,9 +2824,9 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
     # THE FILTERED SET CANNOT BE EMPTY: `_anacrusis_choices` always contains
     # 0.0, and the envelope has already cleared the un-pickedup span.
     _floor = MB.ADOPTED["DENSITY"][0]
-    ana_choices = [a for a in _anacrusis_choices(sub)
+    ana_choices = [a for a in ([0.0] if melody is not None else _anacrusis_choices(sub))
                    if (bars * beats - a) * sub >= _floor]
-    anacrusis = {fn: rng.choice(ana_choices)
+    anacrusis = {fn: (0.0 if melody is not None else rng.choice(ana_choices))
                  for fn in dict.fromkeys(funcs) if ks[fn] > 0}
 
     # THE WORD INDEX A PLACEMENT MAY NAME. Two bounds, and the second is this
@@ -3657,6 +3674,12 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                                     inspection_only=bool(inspection_only),
                                     candidate_upper_bound=work_bound["max_candidate_pairs"])
     plan["choices"]["execution"] = dict(plan["execution_limits"])
+    if melody is not None:
+        plan["melody"] = melody
+        plan["request"]["melody"] = deepcopy(melody)
+        plan["choices"]["meter"]["chosen_from"] = "declared melody; no meter draw"
+        plan["choices"]["melody"] = {"mode": "declared", "repeat": "each lyric line",
+                                      "underlay_certified": False, "pitch_certified": False}
     plan["writer_brief"] = writer_brief(plan)
     return plan
 
@@ -3685,6 +3708,7 @@ def fill_plan(plan, lines):
         # the verbs (see `make_plan`). A plan with no declared title still
         # writes `""` here, so the finding is unchanged for anyone who does
         # not declare one.
+        **({"melody": deepcopy(plan["melody"])} if "melody" in plan else {}),
         "title": plan.get("title") or "",
         "hooks": hooks,
         # THE HOOK IS A SLOT, AND THE TEXT ABOVE IS WHAT THE SLOT HOLDS NOW
@@ -3873,6 +3897,9 @@ def writer_brief(plan):
                        f"{MB.ADOPTED['DENSITY'][0]}")
     out.append(f"Feel: {m['beats']}/{m['unit']} grouped "
                f"{'+'.join(str(g) for g in m['groups'])}.")
+    if plan.get("melody"):
+        from quality.melody import melody_brief
+        out.extend(melody_brief(plan["melody"]))
     if plan["groups"]:
         rels = plan.get("relations") or {}
         out.append("Rhyme plan (line numbers over the whole song):")

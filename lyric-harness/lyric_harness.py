@@ -5996,7 +5996,7 @@ the quality layer (each says which module answered):
                           contract is a printed refusal, never a traceback
                           and never a silent downgrade to the stub
   plan --seed=N [--form=verse-chorus] [--lines=N] [--relation=NAME]
-       [--functions=a,b,c] [--title=TEXT] [--fill=DRAFT]
+       [--functions=a,b,c] [--title=TEXT] [--melody=JSON] [--fill=DRAFT]
        [--want=PRED;PRED] [--inspection-only] [--out=PATH]
                         the PLANNING phase: a request in, a blueprint and
                           a mandate out (quality/plan.py). Structure from a
@@ -7894,6 +7894,16 @@ def _grid_song(GR, bp):
     return song
 
 
+def _parse_melody_flag(raw):
+    if raw is None:
+        return None
+    from quality.melody import validate_melody
+    try:
+        return validate_melody(json.loads(raw))
+    except (ValueError, TypeError) as exc:
+        _refuse(f"--melody requires a valid phrase JSON object: {exc}")
+
+
 def _parse_narrative_flag(raw):
     """`--narrative=`'s value -> what `make_plan(narrative=)` accepts.
 
@@ -9088,6 +9098,8 @@ def main():
         # pointed at rhyme. What it does is CARRY what the writer declared
         # into the plan artifact and into the GRADE IT line.
         relation = _flag_value(rest, "--relation")
+        melody_raw = _flag_value(rest, "--melody")
+        rest = _strip_flag(rest, "--melody")
         funcs_raw = _flag_value(rest, "--functions")
         # THE TITLE, SAME STANDING, A FLAG SINCE 2026-08-24. `grid.py` asks
         # "is the title in the hook?" and refuses on an empty `Song.title`;
@@ -9130,7 +9142,7 @@ def main():
                             "[--lines=N] [--relation=NAME] "
                             "[--functions=a,b,c] [--title=TEXT] "
                             "[--narrative=off|ATOM,ATOM/JUNCTION,...] "
-                            "[--want=PRED;PRED] [--inspection-only] "
+                            "[--want=PRED;PRED] [--melody=JSON] [--inspection-only] "
                             "[--fill=DRAFT] [--out=PATH]",
                             "   or: plan --sweep=LO-HI [--want=PRED;PRED] "
                             "[the same declarations]",
@@ -9152,6 +9164,7 @@ def main():
             relation=relation,
             title=title,
             narrative=narrative,
+            melody=_parse_melody_flag(melody_raw),
             inspection_only=inspection_only,
             functions=[x for x in (funcs_raw or "").split(",") if x.strip()]
             or None)
@@ -9392,6 +9405,8 @@ def main():
                 _refill.append(_shlex.quote(f"--functions={funcs_raw}"))
             if title:
                 _refill.append(_shlex.quote(f"--title={title}"))
+            if melody_raw:
+                _refill.append(_shlex.quote(f"--melody={melody_raw}"))
             if narrative_raw:
                 _refill.append(_shlex.quote(f"--narrative={narrative_raw}"))
             if want_raw:
@@ -10104,6 +10119,8 @@ def main():
             _frel = _flag_value(args, "--relation", eq_only=True)
             _ffuncs = _flag_value(args, "--functions")
             _ftitle = _flag_value(args, "--title")
+            _fmelody = _flag_value(args, "--melody")
+            args = _strip_flag(args, "--melody")
             _fnarr = _flag_value(args, "--narrative")
             _fwant = _flag_value(args, "--want")
             for _f in ("--seed", "--form", "--lines", "--relation",
@@ -10134,6 +10151,7 @@ def main():
                     relation=_frel,
                     title=_ftitle,
                     narrative=_parse_narrative_flag(_fnarr),
+                    melody=_parse_melody_flag(_fmelody),
                     wants=[w for w in str(_fwant or "").split(";") if w.strip()],
                     functions=[x for x in (_ffuncs or "").split(",")
                                if x.strip()] or None)
