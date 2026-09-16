@@ -2963,12 +2963,10 @@ class PanelRow:
     detail: str = ""
 
 
-#: WHY A DECLARABLE CAPABILITY IS STILL NOT DECLARED, one line per capability,
-#: and the line is the whole content of the verdict.  `Stream.provides` has a
-#: branch for every one of these, so none is a `NEVER_PROVIDED` build — the
-#: blocker is that supplying it HONESTLY needs an input this repo does not
-#: have, and supplying it dishonestly is the move `relations.UNPROVIDABLE`
-#: measured and refused for `frequency`.
+#: WHY A CAPABILITY IS STILL ABSENT FROM THE PANEL. Stream.provides has a
+#: branch for each active blocker, unlike NEVER_PROVIDED. The typed records
+#: below distinguish missing evidence, caller declarations, and validation;
+#: an available constructor alone does not make a panel observation measured.
 #: BLOCKERS WHOSE BLOCKER WAS LIFTED, kept whole (2026-08-23, doctrines
 #: 3/24 and 17). Symmetric with `relations.RETIRED_UNPROVIDABLE`, and added
 #: for the same reason: three rows below had become FALSE and nothing said
@@ -3033,67 +3031,100 @@ def structural(capability):
     return capability in BLOCKERS or capability in LIFTED
 
 
-BLOCKERS = {
-    "sense": "a sense inventory. `antanaclasis` is one word in two SENSES; "
-             "with any resource that keys on the token it degenerates to "
-             "`repetition`, which is a different schema already in this "
-             "registry. Blocker: obtain. THE PARENTHESIS HERE READ 'no "
-             "sense resource here; `data/nltk/` carries taggers and "
-             "tokenizers, not WordNet' and expired on 2026-08-22 (doctrine "
-             "17): `data/nltk/corpora/wordnet` is staged, and "
-             "`quality/senses.py` reads it with a POS-constrained simplified "
-             "Lesk keyed on the lexicographer file. It is NOT in LIFTED, and "
-             "the reason is a measurement rather than a preference: the "
-             "derivation false-fires on 9.42% of pairs, so it is OPT-IN "
-             "(`declaration['derive_senses']`) and a default panel slice "
-             "still supplies nothing. The blocker is now the RATE, not the "
-             "resource.",
-    "quotient:vowel_class": "a Welsh vowel-class partition for `proest`. "
-                            "`quality/phonology/cym.py` declares no "
-                            "`quotients` — true again since 2026-08-23, "
-                            "false for one day before that. Welsh length is "
-                            "largely a function of the following consonant "
-                            "and the to bach DISAMBIGUATES rather than marks "
-                            "it, so the circumflex rule that briefly shipped "
-                            "answered `short` for every unmarked long vowel: "
-                            "a wrong answer, not a missing one, and it "
-                            "silently disabled the refusal P14 pins. NOT the "
-                            "same blocker as `quotient:manner`, which is the "
-                            "comparison this row used to make: manner is "
-                            "BUILDABLE from sourced articulatory phonetics "
-                            "and now is built; Welsh quantity needs a table "
-                            "this repo does not have. Blocker: obtain "
-                            "(doctrine 44) — RHYME_CANON R11 names quantity "
-                            "as part of the requirement and supplies no "
-                            "membership.",
-    "orthography": "a second stream under the `orthography` surface. `eye "
-                   "rhyme` compares SPELLINGS, so the surface has to be a "
-                   "declaration and not the phonemic stream wearing a label. "
-                   "Blocker: build.",
-    "earlier": "a SOURCED earlier-period phonology. "
-               "`declared_inputs.PeriodPhonology` refuses to construct "
-               "without a named reconstruction, which is the correct "
-               "refusal. Blocker: obtain.",
-    "poet": "a SOURCED dialect phonology, the same family as `earlier`. The "
-            "surface itself is reachable (`poet` joined `ALT_SURFACES` "
-            "2026-08-13); the data is not. Blocker: obtain.",
-    "delivered": "a DELIVERED surface — what the singer actually sang, "
-                 "against what the page prints. `wrenched rhyme` and "
-                 "`transformative / bent rhyme` are defined by the "
-                 "difference between the two. Blocker: obtain.",
-    "sung": "a sung surface, same family as `delivered`. Blocker: obtain.",
-    "lifts": "a metrical LIFT map. `Stream.provides('lifts')` reads "
-             "`frames.lift_source`, and MEASURED over this repository "
-             "NOTHING assigns it: there is no scanner, no declarer and no "
-             "caller, so `alliterative long line` and `fourth lift must not "
-             "alliterate` refuse on every stream anything here can build. "
-             "Blocker: build — and unlike `caesura` and `refrain_tail`, "
-             "which this panel supplies from `search_caesura` and "
-             "`mark_refrain_tail`, there is no function to call.",
-    "beat": "a beat grid. `frames.beat` is doctrine 4's declared-inert field "
-            "and stays None ON PURPOSE, so `offbeat internal rhyme` refuses "
-            "by design rather than by omission. Blocker: disjoint.",
+# M-36: one typed record owns both the classification and its explanation.
+# BLOCKERS remains the string view consumed by panel reports and older callers.
+BLOCKER_KINDS = frozenset({"obtain", "build", "declare", "validate", "disjoint"})
+
+
+@dataclass(frozen=True)
+class Blocker:
+    kind: str
+    reason: str
+    declaration: str = ""
+
+    def __post_init__(self):
+        if self.kind not in BLOCKER_KINDS or not self.reason.strip():
+            raise ValueError("a blocker needs a known kind and a reason")
+        if self.kind == "declare" and not self.declaration:
+            raise ValueError("a declare blocker needs its existing constructor")
+        if self.declaration and not callable(getattr(R, self.declaration, None)):
+            raise ValueError(f"missing blocker constructor: {self.declaration}")
+        if self.kind in {"build", "disjoint"} and self.declaration:
+            raise ValueError("an existing constructor contradicts build/disjoint")
+
+    def describe(self):
+        return f"Blocker: {self.kind}. {self.reason}"
+
+
+# obtain = missing sourced input; build = missing mechanism; declare = existing
+# mechanism awaiting caller coordinates; validate = available derivation lacks
+# evidence for default use; disjoint = intentionally unsupported capability.
+BLOCKER_RECORDS = {
+    'sense': Blocker('validate',
+        'a sense inventory. `antanaclasis` is one word in two SENSES; with any '
+        'resource that keys on the token it degenerates to `repetition`, which is a '
+        "different schema already in this registry. THE PARENTHESIS HERE READ 'no "
+        'sense resource here; `data/nltk/` carries taggers and tokenizers, not '
+        "WordNet' and expired on 2026-08-22 (doctrine 17): "
+        '`data/nltk/corpora/wordnet` is staged, and `quality/senses.py` reads it with '
+        'a POS-constrained simplified Lesk keyed on the lexicographer file. It is NOT '
+        'in LIFTED, and the reason is a measurement rather than a preference: the '
+        'derivation false-fires on 9.42% of pairs, so it is OPT-IN '
+        "(`declaration['derive_senses']`) and a default panel slice still supplies "
+        'nothing. The blocker is now the RATE, not the resource.',
+        'declare_senses'),
+    'quotient:vowel_class': Blocker('obtain',
+        'a Welsh vowel-class partition for `proest`. `quality/phonology/cym.py` '
+        'declares no `quotients` — true again since 2026-08-23, false for one day '
+        'before that. Welsh length is largely a function of the following consonant '
+        'and the to bach DISAMBIGUATES rather than marks it, so the circumflex rule '
+        'that briefly shipped answered `short` for every unmarked long vowel: a wrong '
+        'answer, not a missing one, and it silently disabled the refusal P14 pins. '
+        'NOT the same blocker as `quotient:manner`, which is the comparison this row '
+        'used to make: manner is BUILDABLE from sourced articulatory phonetics and '
+        'now is built; Welsh quantity needs a table this repo does not have. '
+        '(doctrine 44) — RHYME_CANON R11 names quantity as part of the requirement '
+        'and supplies no membership.',
+        ''),
+    'orthography': Blocker('declare',
+        'The surface constructor exists (`relations.declare_orthography`). The panel '
+        'still needs a caller-declared spelling-system rime rule, including its '
+        'anchor; no language-independent rule is supplied. Previously classified as '
+        'build, which became stale when the constructor shipped.',
+        'declare_orthography'),
+    'earlier': Blocker('obtain',
+        'a SOURCED earlier-period phonology. `declared_inputs.PeriodPhonology` '
+        'refuses to construct without a named reconstruction, which is the correct '
+        'refusal.',
+        'declare_period_surface'),
+    'poet': Blocker('obtain',
+        'a SOURCED dialect phonology, the same family as `earlier`. The surface '
+        'itself is reachable (`poet` joined `ALT_SURFACES` 2026-08-13); the data is '
+        'not.',
+        'declare_period_surface'),
+    'delivered': Blocker('obtain',
+        'a DELIVERED surface — what the singer actually sang, against what the page '
+        'prints. `wrenched rhyme` and `transformative / bent rhyme` are defined by '
+        'the difference between the two.',
+        'declare_delivery'),
+    'sung': Blocker('obtain',
+        'a sung surface, same family as `delivered`.',
+        'declare_delivery'),
+    'lifts': Blocker('declare',
+        'Both `relations.declare_lifts` and `derive_lifts` exist. The panel still '
+        'needs a declared scansion or explicit form conventions for the derivation, '
+        'applied consistently to observation and null replicates. Previously '
+        'classified as build with no callable mechanism; that claim is obsolete.',
+        'declare_lifts'),
+    'beat': Blocker('declare',
+        '`relations.declare_beat` accepts a stated map or BeatGrid. Doctrine 4 '
+        'refuses an inferred grid, not a declared one. The panel has no declared beat '
+        'mapping for these texts and their null replicates. Previously classified as '
+        'disjoint; the field is no longer unconditionally inert.',
+        'declare_beat'),
 }
+
+BLOCKERS = {cap: record.describe() for cap, record in BLOCKER_RECORDS.items()}
 
 
 def panel_sweep(root=None, n=25, budget=None, panel=None, progress=None,
