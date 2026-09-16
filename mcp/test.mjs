@@ -677,6 +677,11 @@ await check('validation: actionable errors', () => {
         'an undeclared value is not passed through'
       );
     });
+    await check('melody declaration reaches plan, grade and finish argv unchanged', () => {
+      const melody = JSON.stringify({meter: {beats: 4, unit: 4, groups: [2, 2]},
+        bars: 2, subdivision: 1, notes: [{pitch_hz: 432.5, ticks: 8}]});
+      assert.ok(AV.planArgs({seed: 3, melody}).includes(`--melody=${melody}`));
+    });
     await check('planArgs carries --narrative= exactly as it carries --title=', () => {
       assert.deepEqual(AV.planArgs({ seed: 7 }), ['--seed=7']);
       assert.deepEqual(AV.planArgs({ seed: 7, narrative: 'off' }), ['--seed=7', '--narrative=off']);

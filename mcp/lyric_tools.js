@@ -1176,6 +1176,7 @@ function planArgs(a) {
   if (a.title) args.push(`--title=${a.title}`);
   // `--narrative=` mirrors `--title=`: guarded on truthiness, and `off` is
   // a legal value the CLI reads as "silence the layer" (M-189).
+  if (a.melody !== undefined) args.push(`--melody=${a.melody}`);
   if (a.narrative) args.push(`--narrative=${a.narrative}`);
   if (a.wants?.length) args.push(`--want=${a.wants.join(';')}`);
   if (a.inspection_only === true) args.push('--inspection-only');
@@ -1378,6 +1379,14 @@ const pronunciationField = z
     'Explicit occurrence pronunciations, selected from pronunciation_options returned by grade/check, or supplied with a stated source. Rerun grade after choosing; the choice resolves a reading, not a pass. Carry unchanged through a revision run; regrade and start a new run to change declarations.'
   );
 
+const melodyField = z
+  .string()
+  .max(65536)
+  .optional()
+  .describe(
+    'Declared repeating monophonic phrase as JSON: {meter:{beats:4,unit:4,groups:[2,2]},bars:2,subdivision:1,notes:[{pitch_hz:440,ticks:8}]}. Repeat once per lyric line. Hz permits any tuning; null pitch is a rest. Carry unchanged to grade and revise. Underlay and pitch performance are not certified.'
+  );
+
 const narrativeField = z
   .string()
   .max(200)
@@ -1564,6 +1573,7 @@ export const LYRIC_TOOL_SCHEMAS = {
     functions: functionsField,
     title: titleField,
     narrative: narrativeField,
+    melody: melodyField,
   },
   lyric_grade: {
     wants: z
@@ -1578,6 +1588,7 @@ export const LYRIC_TOOL_SCHEMAS = {
     functions: functionsField,
     title: titleField,
     narrative: narrativeField,
+    melody: melodyField,
     draft: draftField.optional(),
     draft_text: textTwinOf('draft').optional(),
     voices: voicesField,
@@ -1634,6 +1645,7 @@ export const LYRIC_TOOL_SCHEMAS = {
     functions: functionsField,
     title: titleField,
     narrative: narrativeField,
+    melody: melodyField,
     // OPTIONAL ON A CONTINUING CALL (M-221): the chat connector carries the
     // draft of the previous call beside the state, so a fold need not re-emit
     // every quoted line. A first call, or any client that carries nothing,
@@ -1759,6 +1771,7 @@ export const LYRIC_TOOL_SCHEMAS = {
     form: formField,
     lines: linesField,
     functions: functionsField,
+    melody: melodyField,
   },
   lyric_verify: {
     before: draftField.optional(),
@@ -2809,6 +2822,7 @@ export function registerLyricTools(server, tool) {
       if (a.form) args.push(`--form=${a.form}`);
       if (a.lines != null) args.push(`--lines=${a.lines}`);
       if (a.functions) args.push(`--functions=${a.functions}`);
+      if (a.melody !== undefined) args.push(`--melody=${a.melody}`);
       const r = await runVerb(args);
       const v = verdictOf(r);
       const counts = extractSweep(r.stdout);

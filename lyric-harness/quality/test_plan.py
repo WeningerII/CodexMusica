@@ -1120,13 +1120,26 @@ def test_the_measure():
             elif n.value.id in ("_NV", "NV"):
                 nar_names.add(n.attr)
     check("plan.py imports exactly {schemes, meter_bands, structures, grid, "
-          "floor, capacity, slots, relations, narrative} from quality and "
+          "floor, capacity, slots, relations, narrative, melody} from quality and "
           "opens NO file — the corpus cannot reach the dice (the owner's "
           "move-37 rule)",
           subs == {"schemes", "meter_bands", "structures", "grid", "floor",
-                   "capacity", "slots", "relations", "narrative"}
+                   "capacity", "slots", "relations", "narrative", "melody"}
           and opens == 0,
           f"imports {sorted(subs)}, open() calls {opens}")
+    # Melody is a pure declaration reader/formatter. Guard the admitted
+    # module itself so this cannot become a route from the corpus to dice.
+    import inspect
+    from quality import melody as _melody
+    melody_tree = ast.parse(inspect.getsource(_melody))
+    melody_imports = {a.name for n in ast.walk(melody_tree)
+                      if isinstance(n, ast.Import) for a in n.names}
+    check("melody imports only math, has no relative imports or file readers",
+          melody_imports == {"math"}
+          and not any(isinstance(n, ast.ImportFrom) for n in ast.walk(melody_tree))
+          and not any(isinstance(n, ast.Call) and isinstance(n.func, ast.Name)
+                      and n.func.id in {"open", "eval", "exec", "__import__"}
+                      for n in ast.walk(melody_tree)))
     check("...and from `narrative` ONLY the counter, the draw, the "
           "validator and the refusal — the module itself imports nothing "
           "from quality and opens no file, which is why it is the "

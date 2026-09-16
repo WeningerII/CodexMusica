@@ -531,3 +531,23 @@ test('grade receipt binds pronunciation, fallback and voices; omitted readings a
   args.pronunciations[0].phones[0] = 'Z';
   assert.equal(t.workflow.grade.readings.pronunciations[0].phones[0], 'K');
 });
+
+
+test('creation carries melody and refuses a changed tune', () => {
+  const t = fresh();
+  const melody = {meter: {beats: 4, unit: 4, groups: [2, 2]}, bars: 2,
+    subdivision: 1, notes: [{pitch_hz: 432.5, ticks: 8}]};
+  recordCreation(t, 'lyric_sweep', {...sweepArgs, melody: JSON.stringify(melody)},
+    {exit_code: 0, accepted_shown: [16]});
+  recordCreation(t, 'lyric_screen', {words: ['stove', 'coat']}, {exit_code: 0});
+  const p = canonical();
+  p.plan.request.melody = melody;
+  p.plan_sha256 = sha(p.plan);
+  recordCreation(t, 'lyric_plan', {...planArgs, melody: JSON.stringify(melody)}, p);
+  const args = {...planArgs, draft};
+  creationRefusal(t, 'lyric_grade', args);
+  assert.deepEqual(JSON.parse(args.melody), melody);
+  const reordered = JSON.stringify({notes: melody.notes, subdivision: 1, bars: 2, meter: melody.meter});
+  assert.equal(creationRefusal(t, 'lyric_grade', {...args, melody: reordered}), null);
+  assert.match(creationRefusal(t, 'lyric_grade', {...args, melody: '{}'}), /melody differs/);
+});
