@@ -4877,13 +4877,24 @@ CHORUS_STUB = re.compile(
     "|".join(f"(?:{p.pattern})" for _, _, p in CHORUS_STUB_FORMS), re.I)
 
 
+def _chorus_stub_text(line):
+    """Ignore paired Gutenberg italic delimiters, not the words they enclose.
+
+    D'Urfey prints `The Muses now, _&c._`; treating that line as complete
+    admits a pointer-containing block as a target. Share this preparation
+    across the detector, language reporter and incipit extractor.
+    """
+    return _STUB_EDITORIAL_TAIL.sub(
+        "", re.sub(r"_([^_\n]+)_", r"\1", line.strip()))
+
+
 def chorus_stub_incipit(line, language=None):
     """Printed words before the declared pointer; None means not a stub.
 
     Uses the detector's own forms and editorial-tail rule. An empty string
     means a bare pointer, which cannot identify a target by its words.
     """
-    s = _STUB_EDITORIAL_TAIL.sub("", line.strip())
+    s = _chorus_stub_text(line)
     for langs, _, pat in CHORUS_STUB_FORMS:
         if language is not None and language not in langs:
             continue
@@ -4901,7 +4912,7 @@ def chorus_stub_languages(line):
     and `cym` -- and therefore that the line alone cannot say which tradition
     printed it. A caller that needs one answer must supply the language.
     """
-    s = _STUB_EDITORIAL_TAIL.sub("", line.strip())
+    s = _chorus_stub_text(line)
     for langs, _, pat in CHORUS_STUB_FORMS:
         if pat.search(s):
             return tuple(langs)
@@ -4927,7 +4938,7 @@ def chorus_stub_match(line, language=None):
     `is_chorus_stub` and every caller that only asks IS IT A POINTER are
     unaffected.
     """
-    s = _STUB_EDITORIAL_TAIL.sub("", line.strip())
+    s = _chorus_stub_text(line)
     for langs, gloss, pat in CHORUS_STUB_FORMS:
         if language is not None and language not in langs:
             continue

@@ -1052,24 +1052,22 @@ the same pair — the schema route is STRICTER, not another way to pass),
 refused-for-placement (`schema:alliteration`) and refused-for-evidence
 (`schema:holorhyme` needs `lexicon`). ~~The cost is lazy: a mandate that never
 says `schema:` never imports `relations` and never builds a stream.~~
-**HALF STRUCK 2026-08-23 — THE PLACEMENT WORK FALSIFIED IT AND MEASURED THE
-COST (`MISSING.md` M-74).** The second clause HOLDS and is the expensive half:
-a mandate that never says `schema:` still builds NO stream, and `realise()` is
-never called. The first clause is now FALSE. `quality/schemes.py` imports
-`SlotUnsupported` from `quality/slots.py` at MODULE level — correctly, as the
-one definition of the placement refusal — and `slots.py` imports
-`quality/relations.py` at module level for `SpanRule`, so **every mandate
-imports `relations` now, `schema:` or none.** MEASURED, warm, five runs each,
-against `9ad2dad^`: `import quality.schemes` was **17.7–18.2 ms** with
-`quality.relations` NOT in `sys.modules`, and is **132.8–177.2 ms** with it
-loaded — roughly 7x, paid once per process. It is a COST and not a defect: the
-alias is doctrine 1 working (two exception classes for one refusal is how a
-caller catches the wrong one), and restoring the laziness means making
-`_normalise_groups`' `except` clause discriminate a `ValueError` subclass
-without naming its module, which is a real restructure of the one function
-every mandate passes through and is NOT taken here on the strength of 115 ms.
-What is not tolerated is the sentence: a claim about laziness that the tree
-stopped satisfying, left standing, is doctrine 17's own subject.
+**RESTORED 2026-09-16 (M-74).** Placement had made `schemes` import
+`relations` through `slots`, costing 132.8–177.2 ms in the original
+2026-08-23 measurement. `quality/span_rules.py` now owns the shared `SpanRule`
+and named constants; `relations` re-exports those same objects and `slots`
+imports the leaf. Plain and placement-based mandates no longer load the
+registry. The refusal alias and `_normalise_groups` are unchanged, and a
+schema declaration still resolves through the registry. Non-schema grading
+still builds no relation stream.
+
+On this checkout, fresh-process import measurements after the first run went
+from **82.15–92.48 ms to 39.06–51.22 ms** (four runs per state). The first
+runs were 247.57 ms and 43.51 ms respectively; these are environment-specific
+measurements, not a claim to reproduce the older machine's 17.7 ms baseline.
+`quality/test_slots.py` checks the boundary in a fresh subprocess, plus
+shared rule identity and unwrapped placement refusals. It gates the import
+boundary rather than a machine-dependent millisecond ceiling.
 
 **FOUR DEFECTS FELL OUT OF WIRING IT AND THREE WERE LIVE.** (1) `MISSING.md`
 M-49 — the store held a relation's BARE canonical name and `grade()`
