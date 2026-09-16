@@ -1601,7 +1601,11 @@ until ruled.
     sweep's pair enumeration can produce that gap-0 case at all.
     **M-46 closed 2026-09-15:** the actual mosaic judge produces that case;
     identical unsearched endpoint-token rules instead supply the narrower
-    bound. The 77-schema ledger census was remeasured; M-42 remains separate.
+    bound. The 77-schema ledger census was remeasured.
+    **M-42 closed 2026-09-16:** reporting now distinguishes named algorithms
+    from independent controls and withdraws the blanket `/3` inference, which
+    the actual mosaic judge disproves. The recorded random streams and panel
+    measurements were preserved; no adoption ruling was needed.
 16. **M-41 — which relations deserve a CERTIFIED capacity table?** The
     relation coordinate is carried since 2026-08-28 (the family counts
     for all four of `ADMITTABLE_RELATIONS` are
