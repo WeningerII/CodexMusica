@@ -1591,7 +1591,8 @@ until ruled.
 14. **M-5 — may the Kanteletar's `w`→`v` allograph FOLD?** The fold
     moves the ADOPTED Kalevala-alliteration calibration (0.3249,
     re-derived nightly), so it re-opens an adoption; the detector that
-    charges nothing can ship without the ruling.
+    charges nothing shipped 2026-09-15 (M-5 CLOSED); adopting a folded
+    calibration remains a separate question.
 15. **M-46 / M-42 — the frozen null panel's two repairs** (historical proposal: a
     `both_line_final` forced-gap row; the second refused-replicate
     counter): both move recorded panel rows and `EXTENSION_LEDGER`, and
@@ -1875,7 +1876,7 @@ by the residue below: A-1, M-54, M-79, M-120, M-139, K-6.
 | A-2 | PARTIAL | BUILD · M | grade, write | Answer lines and call-and-response are one leader/response relation the registry has no axis for. | 2 of 4 clauses false and the return ladder shipped; one axis is left. |
 | A-3 | PARTIAL | BUILD · S | plan, grade, CI | Scheme round-trip is tested to 30 sounds; nothing exercises `label()`'s fallthrough at song length. | A cheap test extension, not on the song path today. |
 | F-3 | OPEN | BUILD · M | corpus, phonology, grade | (i) no dialect tokeniser behind `build_stream(tokeniser=)` reading the `# orthography:` headers three dialect files carry; (ii) a sourced dialect phonology the repo lacks. | The orthography half has a seam and zero blast radius, against 8,008/553/1,666 dialect marks read two opposite wrong ways. |
-| M-5 | OPEN | BUILD · M | corpus, phonology | No check answers "does this printing spell one sound two ways?" — the Kanteletar mixes `w`/`v`. | The measurement is in hand (folding moves weak 81.84 → 82.15%); belongs beside the other corpus checks. |
+| M-5 | CLOSED | DONE | corpus, phonology | `Orthography.allograph_census` and corpus check G detect mixed `w`/`v`, with population counts and no text rewriting. | Closed 2026-09-15; the calibrated alliteration default is unchanged. |
 | K-1 | PARTIAL | BUILD · M | corpus | Tin Pan Alley and music-hall unstaged (egress-blocked); three on-disk bodies unmined (~250 Rogers Scots songwriters, ~86 Otterbein hymns, 14 G&S libretti with ~349 headings). | The on-disk headings are a staging sitting; the broadsides are a channel problem. |
 
 ### 3 · ASK-OWNER — 22 entries whose only blocker is a ruling
@@ -2080,10 +2081,10 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 49 OPEN / 28 PARTIAL / 1 BLOCKED / 254 CLOSED / 15 RESOLVED = 347 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 48 OPEN / 28 PARTIAL / 1 BLOCKED / 255 CLOSED / 15 RESOLVED = 347 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 4 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`, `span_rules.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1575** DECLARED-public top-level functions/classes under `quality/` and the root — **345** named by another production module, **472** by tests only, **633** only inside their own module, **11** by nothing anywhere, **114** REFUSED (72 ambiguous, 32 dynamic, 10 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **88** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **1575** DECLARED-public top-level functions/classes under `quality/` and the root — **346** named by another production module, **471** by tests only, **633** only inside their own module, **11** by nothing anywhere, **114** REFUSED (72 ambiguous, 32 dynamic, 10 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **88** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |

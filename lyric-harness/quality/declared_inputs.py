@@ -343,6 +343,11 @@ class Orthography(_Sourced):
     is an orthographic rule and every writing system draws its vowels
     differently — English needs `y`, Welsh needs `w` and `y`, and nothing here
     may assume the Latin five.
+
+    `allographs` declares equivalent single letters in this printing, e.g.
+    (("w", "v"),) for Finnish. `allograph_census` detects their mixing in
+    supplied printed tokens; it neither rewrites `of()` nor folds eye-rimes.
+    Equivalence comes from the declaration's source, never from co-occurrence.
     """
     system: str                       # 'English, printed'
     edition: str                      # WHICH printing, exactly
@@ -353,6 +358,9 @@ class Orthography(_Sourced):
     modernised: bool = False
     granularity: str = "word"         # 'word' | 'syllable'
     source: str = ""
+    # Sourced equivalence classes of single printed letters, not a rewrite map.
+    # Empty means undeclared, never proof that the edition has no allographs.
+    allographs: tuple = ()
     family_code = "R1"
 
     def __post_init__(self):
@@ -369,6 +377,50 @@ class Orthography(_Sourced):
                 "an Orthography must name its edition. Two printings of one "
                 "poem are two different declared inputs here (MISSING.md F-4: "
                 "one Gutenberg encoding of Barnes invents a letter).")
+
+        seen = set()
+        if not isinstance(self.allographs, tuple):
+            raise ValueError("allographs must be a tuple of letter tuples")
+        for group in self.allographs:
+            if (not isinstance(group, tuple) or len(group) < 2
+                    or any(not isinstance(c, str) or len(c) != 1
+                           or not c.isalpha() or c != c.lower() for c in group)
+                    or len(set(group)) != len(group)
+                    or seen.intersection(group)):
+                raise ValueError("allographs must be disjoint groups of at least "
+                                 "two distinct lowercase single letters")
+            seen.update(group)
+
+    def allograph_census(self, tokens, position="any"):
+        """Count declared glyphs in caller-tokenised printed text, without folding.
+
+        `initial` measures the onset hazard; `any` measures the whole spelling.
+        Counts are glyph occurrences; examples are sorted distinct token types.
+        Only co-occurrence of variants in a declared class reports `mixed`.
+        Modernised text cannot answer a question about the original printing.
+        """
+        if position not in ("initial", "any"):
+            raise ValueError("allograph position is 'initial' or 'any'")
+        if self.modernised:
+            raise ValueError("allograph census requires an unmodernised printing")
+        words = [str(w).lower() for w in tokens]
+        result = []
+        for group in self.allographs:
+            counts = dict.fromkeys(group, 0)
+            examples = {c: set() for c in group}
+            for word in words:
+                sample = word[:1] if position == "initial" else word
+                for c in group:
+                    n = sample.count(c)
+                    counts[c] += n
+                    if n:
+                        examples[c].add(word)
+            result.append({"allographs": group, "position": position,
+                           "counts": counts,
+                           "mixed": sum(n > 0 for n in counts.values()) > 1,
+                           "examples": {c: sorted(ws)[:8]
+                                        for c, ws in examples.items()}})
+        return tuple(result)
 
     def of(self, word):
         """-> the printed form, or a refusal naming the word."""

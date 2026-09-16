@@ -1,6 +1,31 @@
 # RESULTS — the corpus audit (adversary 5)
 
-Current result, 2026-09-15: **1,430 files, 0 FAIL, 95 WARN, 1,200 NOTE**.
+Current result, 2026-09-15 (M-5): **1,430 files, 0 FAIL, 95 WARN, 1,193 NOTE**.
+The allograph census replaces Finnish's destroying/preserving spelling probe.
+Five mixed-printing notes remain, now with the two glyph counts and the
+explicit unchanged `fold_w=False` calibration. Seven uniform-v files lose
+irrelevant "ZERO destroying spellings" notes. No non-Finnish finding changes.
+Uniform-w controls also produce no hazard; either majority in a mixed printing
+produces a NOTE, never an automatic corpus failure or text rewrite.
+
+Counts below use `CorpusFile.tokens(lang="fin")`, word-initial glyphs, over
+verse text only. They are a printing hazard census, not measured changes in
+alliteration or claims that foreign names share Finnish pronunciation.
+
+| Staged file | w-initial | v-initial |
+| --- | ---: | ---: |
+| `fin_kaarlo_kramsu.txt` | 2 | 263 |
+| `fin_kanteletar.txt` | 102 | 5589 |
+| `fin_kanteletar_uudempia.txt` | 1 | 254 |
+| `fin_paavo_cajander.txt` | 7 | 1068 |
+| `fin_wahanen_laulukirja.txt` | 175 | 326 |
+
+Run `python3 quality/audit_corpus.py --check G --only 'fin*' --json` to
+reproduce the per-file counts, examples and populations; `--verify-shape`
+checks the complete corpus. `quality/test_msa_fin.py` section 13 exercises
+the same check and its uniform, mixed, header-only and language controls.
+
+Previous result, 2026-09-15: **1,430 files, 0 FAIL, 95 WARN, 1,200 NOTE**.
 The Hafez licence is now classified as an accompanying document. Its complete
 4,373 bytes remain under source and hash checks; its filename's `fas_` prefix
 no longer sends the English notice through Persian verse checks. The exact

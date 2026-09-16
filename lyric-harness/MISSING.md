@@ -2957,10 +2957,19 @@ population next to the zero, or the next reader inherits a "0" that is true of a
 one-seventh extract.**
 
 ### M-4 · The `&c.` refrain stub is not an English printing convention `PARTIAL`
-**TESTED WHILE OPEN, and the remainder is NAMED: WELSH.** Three of the four
-languages ship in `CHORUS_STUB_FORMS` and return their language as a
-coordinate; `ac ati` matches nothing (measured 2026-08-21). `BACKLOG.md`
-§2.4 carries the same finding (`quality/triage.py`).
+**The partial status was stale.** All four traditions are supported by three
+forms: English/Welsh `&c.` or `etc.`, Finnish `j. n. e.`, Malay `d. s. b.`.
+`quality/test_spans.py` §8/8b pins language attribution, shared-form ambiguity,
+editorial tails and exclusion of mid-line abbreviations. `BACKLOG.md` §2.4
+already closed the Welsh issue on 2026-08-21. No invented `ac ati` pattern is
+needed: the staged Welsh uses `&c.`, as the measurements below explain.
+Historical unavailable-source counts remain qualified below; closing the
+recognition defect does not recover their missing evidence. A-1 separately
+owns resolving a pointer to its full chorus.
+
+~~TESTED WHILE OPEN, and the remainder is NAMED: WELSH. Three of the four
+languages ship in `CHORUS_STUB_FORMS`; `ac ati` matches nothing.~~ Superseded
+by the Welsh attestation already described in this entry.
 A-1 frames its 941 instances around English songsters. The same mechanism does
 the same job in the same position in other languages, and the code that handles
 the English case knew none of them.
@@ -3161,15 +3170,31 @@ the measurement that says so. It was stated in one absolute too many.
 `M-18`'s instance list item 2 — this entry's _"confirmed at clean HEAD"_
 against a HEAD containing the change — is about the AUDIT and is unaffected.
 
-### M-5 · A printing can spell one sound two ways, and the modernisation check cannot see it `OPEN`
-> **TESTED WHILE OPEN.** `quality/test_msa_fin.py` section 13 names this entry
-> and PINS BOTH HALVES: that the mixing is really in the staged book — four
-> named w/v pairs co-occurring in `fin_kanteletar.txt`, named rather than
-> counted because a count of w-initial types is a coordinate of whichever
-> tokenizer reads the file — and that `declared_inputs.Orthography` still
-> carries "has this been modernised?" and no field asking whether a printing
-> spells one sound two ways. That absence is what this entry owns. Red when a
-> spelling or allograph field joins the roster.
+### M-5 · A printing can spell one sound two ways, and the modernisation check cannot see it `CLOSED` 2026-09-15
+**The declaration and the corpus detector now answer the missing question.**
+`Orthography.allographs` holds sourced, disjoint groups of printed letters;
+`allograph_census(tokens, position=...)` counts their occurrences and reports
+whether more than one spelling occurs. It preserves the printed text and
+refuses modernised text. An empty declaration makes no inference about sound.
+
+Corpus audit check G uses that census for Finnish word-initial `w`/`v` over
+`CorpusFile.tokens` from verse lines only. It reports a NOTE with both counts,
+the population, examples and source whenever both occur, regardless of their
+ratio. Uniform `w` and uniform `v` are not hazards. The previous generic
+modernisation probe could FAIL a consistent `w` printing merely because `w`
+outnumbered `v`; this was a different question and is replaced, not tuned.
+Run `python3 quality/audit_corpus.py --check G --only 'fin_kanteletar.txt'`.
+
+`quality/test_msa_fin.py` §13 retains the four same-book spelling pairs and
+checks the real audit path, both majority directions, uniform spellings,
+header-only and medial-only controls, declaration validation and preservation
+of the original text. **No calibration or default alliteration fold changes:**
+`fold_w=True` remains explicit; the separate adoption question in BACKLOG #14
+is not claimed resolved. The historical rates below are not re-measured here.
+
+~~The test pinned the absence of an allograph field in `Orthography`.~~ It now
+pins the working declaration and detector rather than requiring the gap.
+
 Every recorded instance of the orthography rule (doctrine 50, CHANNELS.md rule 4) is a MODERNISATION. The Kanteletar is not modernised at all and still carries
 a hazard: `w` and `v` are **allographs of one phoneme** and the printing MIXES
 them — `Väinämöisen` and `Wäinämöinen`, same name, same book. `fin.py` keys the

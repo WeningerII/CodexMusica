@@ -439,38 +439,74 @@ def test_fin_w_and_v_are_one_phoneme_in_the_rime():
     check("  while the folded reading is one argument away",
           F.alliterates("Wiipurin", "veti", fold_w=True) is True)
 
-    # MISSING.md M-5 — a printing can spell one sound two ways, and the
-    # pipeline has no question for it. Two halves, and the second is the gap:
-    #
-    #   (a) the MIXING is really in the staged corpus, not only in the prose:
-    #       named pairs, not a count, because a count of w-initial types is a
-    #       coordinate of whichever tokenizer reads the file (doctrine 58) and
-    #       would drift without the gap moving;
-    #   (b) `declared_inputs.Orthography` still carries "has this been
-    #       MODERNISED?" and no field asking whether a printing spells one
-    #       sound two ways. That absence is what M-5 owns.
-    #
-    # Red when a spelling/allograph field joins Orthography, which is the day
-    # the entry closes, and red if the staged Kanteletar is normalised so the
-    # pairs stop co-occurring.
-    import dataclasses as _dc
-    import re as _re
-    from quality import declared_inputs as _DI
-    _txt = open(os.path.join(HERE, "..", "corpus", "song",
-                             "fin_kanteletar.txt"), encoding="utf-8").read()
-    _toks = set(_re.findall(r"[a-zäöå]+", _txt.lower()))
-    _pairs = [("wenehen", "venehen"), ("wiipurista", "viipurista"),
-              ("wirossa", "virossa"), ("wiron", "viron")]
-    _both = [p for p in _pairs if p[0] in _toks and p[1] in _toks]
-    _fields = tuple(f.name for f in _dc.fields(_DI.Orthography))
-    check("the staged book really does spell one sound two ways, and "
-          "`Orthography` has no question for it (MISSING.md M-5)",
-          _both == _pairs
-          and _fields == ("system", "edition", "vowel_letters", "spellings",
-                          "token_is_printed", "modernised", "granularity",
-                          "source"),
-          f"{len(_both)} of {len(_pairs)} w/v pairs co-occur in "
-          f"fin_kanteletar.txt; Orthography fields {_fields}")
+    # The same-book evidence is retained; the former missing-field assertion
+    # now exercises the declaration and the real corpus audit consumer.
+    import tempfile
+    from pathlib import Path
+    from quality import declared_inputs as DI, audit_corpus as AC
+    path = os.path.join(SONG, "fin_kanteletar.txt")
+    cf = AC.CorpusFile(path)
+    toks = cf.tokens(lang="fin")
+    pairs = [("wenehen", "venehen"), ("wiipurista", "viipurista"),
+             ("wirossa", "virossa"), ("wiron", "viron")]
+    check("four attested w/v pairs still co-occur in the printed verse",
+          all(a in toks and b in toks for a, b in pairs))
+    args = dict(system="Finnish", edition=path, vowel_letters="aeiouyäöå",
+                token_is_printed=True, source="Kanteletar; fin.py FOLD_W_TO_V")
+    orth = DI.Orthography(**args, allographs=(("w", "v"),))
+    census, = orth.allograph_census(toks, position="initial")
+    check("the edition declares and detects mixed allographs with exact counts",
+          census["mixed"] and census["counts"] == {
+              c: sum(w.startswith(c) for w in toks) for c in ("w", "v")},
+          str(census))
+    check("allograph declaration never rewrites the printed or eye-rhyme form",
+          orth.of("Wäinämöisen") == "Wäinämöisen"
+          and orth.eye_rime("aw") == "aw")
+    check("undeclared allographs return no census, not an inferred equivalence",
+          DI.Orthography(**args).allograph_census(toks) == ())
+    for groups in ("wv", (("w",),), (("w", "w"),), (("W", "v"),),
+                   (("ww", "v"),), (("w", "v"), ("v", "f")),
+                   (("1", "v"),), (["w", "v"],)):
+        check(f"invalid allograph classes refuse: {groups!r}",
+              _raises(lambda: DI.Orthography(**args, allographs=groups)))
+    check("modernised text and an unknown position refuse",
+          _raises(lambda: DI.Orthography(**args, modernised=True,
+                        allographs=(("w", "v"),)).allograph_census(toks))
+          and _raises(lambda: orth.allograph_census(toks, position="last")))
+    check("any-position occurrence counts differ from initial-only counts",
+          orth.allograph_census(["awwv"], "any")[0]["counts"]
+          == {"w": 2, "v": 1}
+          and not orth.allograph_census(["awwv"], "initial")[0]["mixed"])
+    findings = AC.check_orthography([(cf.rel, cf)], None)
+    check("check G exposes the real mixed printing as a NOTE with its population",
+          len(findings) == 1 and findings[0].severity == AC.NOTE
+          and "mixed allographs" in findings[0].what
+          and str(len(toks)) in findings[0].measured,
+          str(findings))
+    # Positive/negative controls: either majority must be detected, while
+    # uniform spelling, headers, stanza labels and unrelated languages cannot
+    # manufacture a hazard. The detector must leave phonology untouched.
+    with tempfile.TemporaryDirectory() as d:
+        for name, text, mixed in (
+                ("fin_only_w", "Wenehen Wirossa Wiron", False),
+                ("fin_only_v", "Venehen Virossa Viron", False),
+                ("fin_w_majority", "Wenehen Wirossa Wiron venehen", True),
+                ("fin_v_majority", "Venehen Virossa Viron wenehen", True),
+                ("fin_header", "# venehen\n[VERSE v]\nWenehen", False),
+                ("fin_medial", "aw av", False),
+                ("fin_empty", "# Wenehen Venehen", False),
+                ("eng_control", "Wenehen Venehen", False)):
+            fixture = Path(d) / (name + ".txt")
+            fixture.write_text(text, encoding="utf-8")
+            control = AC.CorpusFile(str(fixture))
+            hits = AC.check_orthography([(name + ".txt", control)], None)
+            mixed_hits = [f for f in hits if "mixed allographs" in f.what]
+            check(f"corpus allograph control {name}",
+                  bool(mixed_hits) == mixed
+                  and not any(f.severity == AC.FAIL for f in hits))
+    check("audit leaves the adopted alliteration reading unchanged",
+          F.alliterates("Wiipurin", "veti") is False
+          and F.alliterates("Wiipurin", "veti", fold_w=True) is True)
 
 
 def test_fin_relation_types_separate_grammar_from_choice():

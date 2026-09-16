@@ -4845,12 +4845,10 @@ CHORUS_STUB_FORMS = (
     # the two failures because it is silent.
     (("fin",), "j. n. e. (ja niin edelleen)",
      re.compile(r"\bj\.\s*n\.\s*e\.?$", re.I)),
-    # `d. s. b.` = dan sebagainya. Recorded in MISSING.md M-4 as ~100
-    # instances in the Malay corpus; measured 2026-08-11, this corpus contains
-    # ZERO -- see that cell's report. The pattern ships anyway because the
-    # convention is real in Malay printing and costs nothing while it matches
-    # nothing; it is declared here so the next Malay text is read correctly,
-    # and it is NOT evidence that the recorded count was right.
+    # `d. s. b.` = dan sebagainya. M-4 records 108 in PG47873's SOURCE
+    # (100 unspaced, eight spaced), but zero in the staged pantun extract.
+    # These are different populations; the extract's zero never invalidated
+    # the source convention. Both forms are recognised without rewriting text.
     (("msa",), "d. s. b. (dan sebagainya)",
      re.compile(r"\bd\.\s*s\.\s*b\.?$", re.I)),
 )
