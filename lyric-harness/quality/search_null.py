@@ -32,7 +32,11 @@ It holds the poem, the author and the vocabulary fixed and moves only which
 lines are asked to rhyme, so a lift it reproduces is a lift the SEARCH found in
 material that has no rhyme to find. Random re-pairing was tried first and is
 the WEAKER null: it reported 75.8% of the lift as chance where the permutation
-reports 83.4%, because re-pairing across poems also varies the vocabulary.
+reports ~~83.4%~~ 79.2% at the shipped theta, because re-pairing across
+poems also varies the vocabulary. (Both shares are from the 2026-08-26
+sitting; the permutation share was repinned to 79.2% on 2026-09-16 when E-5
+removed the empty-coda evidence bonus -- see `PINNED_SONNET` below. The
+re-pairing null has not been re-run under E-5, so 75.8% keeps its own dating.)
 
 WHAT IT DOES NOT DO. It measures the SCALAR gate (`total >= theta`), not this
 harness's verdict: `admits()` types the relation and, since M-59/M-116, accepts
@@ -77,16 +81,71 @@ SONNET_SCHEME = "ABABCDCDEFEFGG"
 #: because below it the comparator's own search is working against the band.
 CROSSOVER = 0.72
 
-#: The figures `--check` holds, from the run recorded in M-135. Keyed by theta;
-#: each value is (real_lift_pp, null_lift_pp) on the sonnet arm. Held to a
-#: tolerance rather than exactly: the null is a Monte Carlo median and doctrine
-#: 57 says a figure fed by a draw is pinned as a band, not a point.
+#: The figures `--check` holds. Keyed by theta; each value is
+#: (real_lift_pp, null_lift_pp) on the sonnet arm. Held to a tolerance rather
+#: than exactly: the null is a Monte Carlo median and doctrine 57 says a figure
+#: fed by a draw is pinned as a band, not a point.
+#:
+#: REPINNED 2026-09-16 (E-5), superseded values struck and kept (doctrine 17).
+#: The whole dict is re-banked from ONE run rather than patched figure by
+#: figure, because these five rows are a single sweep and a dict half from
+#: 2026-08-26 and half from today would be a chimera no reader could date.
+#:
+#:             REAL lift                    NULL lift
+#:   0.60   ~~+14.98~~ +12.55          ~~+18.30~~ +15.31   BOTH BEYOND TOL
+#:   0.70    ~~+7.40~~  +6.14           ~~+8.51~~  +7.06
+#:   0.75    ~~+5.42~~  +4.96           ~~+4.53~~  +3.93
+#:   0.80    ~~+4.33~~  +3.88           ~~+2.49~~  +2.12
+#:   0.90      +2.89 (UNMOVED)          ~~+0.50~~  +0.54
+#:
+#: WHY, AND IT WAS MEASURED RATHER THAN INFERRED. Only theta 0.60 broke the
+#: 1.5 pp tolerance, and a drift confined to the LOOSEST band is the signature
+#: of a change to MARGINAL pairs. The attribution was settled by a CONTROLLED
+#: A/B, not by the coincidence: the sweep was run on `origin/main`'s own tree
+#: (9d9df09) with `coda_empty_evidence` toggled between "gift" and
+#: "cannot_tell" and NOTHING else varied. The toggle alone reproduces the real
+#: arm's move at every theta to 0.01 pp (0.60: -2.44 measured against the
+#: -2.43 observed across the two commits). The delta is E-5's; it is not
+#: pre-existing, and `origin/main` passes this check with all ten pins green.
+#:
+#: THE MECHANISM, and it is the search's own selection bias. E-5 stops
+#: scoring an empty/empty coda as agreement and renormalises the remaining
+#: evidence, so any pair resting on an absent coda loses `total` (`now`/`why`
+#: 0.902 -> 0.850). The two arms are NOT touched equally: on the 1,108
+#: mandated pairs the removal moves 274 (24.7%) on the FULL k-search arm and
+#: only 98 (8.8%) on the `endword_only` k=1 arm. The max over k span readings
+#: was PREFERENTIALLY PICKING readings that had the gift, which is why the arm
+#: that searches loses nearly three times as many pairs as the arm that does
+#: not -- and the lift is full minus k=1, so it must fall. At theta 0.60 the
+#: full arm loses 50 pairs and the k=1 arm 23, a net -27 = -2.44 pp; at 0.90
+#: each loses 2 and the lift does not move at all, because pairs clearing 0.90
+#: are carried by heard consonants and never needed the gift.
+#:
+#: NOT ALL OF THE 0.60 NULL MOVE IS E-5's, and the decomposition is the point.
+#: The committed +18.30 is M-135's 2026-08-26 figure; `origin/main` measures
+#: +17.96 TODAY, so -0.34 of the -2.99 was already there and the band was
+#: absorbing it. E-5 is the other -2.65. The same residual is why 0.90's null
+#: repins +0.50 -> +0.54 although E-5 does not move it: the real column
+#: reproduces 2026-08-26 EXACTLY at every theta while the null column does not,
+#: because the permutation shuffles within sonnet units and the unit reader now
+#: returns 187 windows where that sitting recorded 152. That is pre-existing,
+#: it reproduces on `origin/main`, and it is stated here rather than fixed.
+#:
+#: NOTHING WAS TUNED. `CROSSOVER` (0.72), `theta_rhyme` (0.75), `TOLERANCE_PP`
+#: and every declared coordinate are untouched by this lot, and the gate below
+#: -- the only thing this module enforces -- did not move: the sign of what the
+#: search buys still flips between 0.70 (-0.92) and 0.75 (+1.03), exactly the
+#: bracket it flipped in before (-1.11 / +0.90). E-5 moved the MAGNITUDES and
+#: left the crossover where it was. Only the recorded figures move, which is
+#: the remedy doctrine 58 prescribes once the question has been argued: the
+#: drift was a QUESTION, the question has an answer with a name on it, and the
+#: answer is banked with the superseded values visible.
 PINNED_SONNET = {
-    0.60: (+14.98, +18.30),
-    0.70: (+7.40, +8.51),
-    0.75: (+5.42, +4.53),
-    0.80: (+4.33, +2.49),
-    0.90: (+2.89, +0.50),
+    0.60: (+12.55, +15.31),  # REPINNED 2026-09-16 from ~~(+14.98, +18.30)~~
+    0.70: (+6.14, +7.06),    # REPINNED 2026-09-16 from ~~(+7.40, +8.51)~~
+    0.75: (+4.96, +3.93),    # REPINNED 2026-09-16 from ~~(+5.42, +4.53)~~
+    0.80: (+3.88, +2.12),    # REPINNED 2026-09-16 from ~~(+4.33, +2.49)~~
+    0.90: (+2.89, +0.54),    # real UNMOVED; null from ~~+0.50~~ (not E-5)
 }
 TOLERANCE_PP = 1.5
 
