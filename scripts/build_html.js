@@ -142,6 +142,8 @@ const template = fs.readFileSync(TEMPLATE, 'utf8');
 const appJs = fs.readFileSync(APP, 'utf8');
 const workbenchJs = fs.readFileSync(path.join(SRC, 'workbench.js'), 'utf8');
 const workbenchCss = fs.readFileSync(path.join(SRC, 'workbench.css'), 'utf8');
+const layoutJs = fs.readFileSync(path.join(SRC, 'layout.js'), 'utf8');
+const layoutCss = fs.readFileSync(path.join(SRC, 'layout.css'), 'utf8');
 if (!template.includes(CODEX_BODY_MARKER)) {
   console.error(`build_html: template is missing the ${CODEX_BODY_MARKER} marker — ${TEMPLATE}`);
   process.exit(5);
@@ -273,7 +275,7 @@ function _cardDescriptorSet(card) {
 // (template literals, regex) that String.replace would special-case — a
 // function replacement returns the string verbatim.
 const html = template
-  .replace('<!--@WORKBENCH_STYLE-->', () => workbenchCss)
+  .replace('<!--@WORKBENCH_STYLE-->', () => workbenchCss + '\n' + layoutCss)
   .replace(
     CODEX_BODY_MARKER,
     () =>
@@ -290,7 +292,13 @@ const html = template
       dataBlock +
       '\n' +
       squeeze(
-        FAMILY_PARTS_MERGE_SNIPPET + CARD_DESCRIPTORS_SNIPPET + appJs + '\n' + workbenchJs,
+        FAMILY_PARTS_MERGE_SNIPPET +
+          CARD_DESCRIPTORS_SNIPPET +
+          layoutJs +
+          '\n' +
+          appJs +
+          '\n' +
+          workbenchJs,
         'runtime (merge + descriptors + app.js + workbench.js)'
       )
   );

@@ -1,0 +1,112 @@
+/* Positioning is shared by the embedded workbench and the standalone atlas. */
+.workbench [data-tooltip]::after {
+  content: none;
+}
+.layout-tooltip {
+  z-index: 300;
+  width: max-content;
+  max-width: min(320px, calc(100vw - 16px));
+  padding: 6px 9px;
+  border-radius: 4px;
+  background: #3c4043;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  pointer-events: none;
+}
+.layout-anchored {
+  position: fixed !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  overflow: auto;
+  overscroll-behavior: contain;
+  box-sizing: border-box;
+}
+.layout-adjusted {
+  position: fixed !important;
+  inset: auto !important;
+  left: var(--panel-x) !important;
+  top: var(--panel-y) !important;
+  width: var(--panel-width) !important;
+  height: var(--panel-height) !important;
+  max-width: calc(100vw - 16px) !important;
+  max-height: calc(100dvh - 16px) !important;
+  transform: none !important;
+  box-sizing: border-box;
+  overflow: auto !important;
+  overscroll-behavior: contain;
+}
+.layout-adjusted[hidden] {
+  display: none !important;
+}
+.layout-panel-tools {
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px 0;
+  margin-left: auto;
+}
+.layout-panel-tools button {
+  min-height: 32px;
+  padding: 4px 8px;
+  border: 1px solid #dadce0;
+  border-radius: 5px;
+  background: #fff;
+  color: #3c4043;
+  font:
+    12px Arial,
+    sans-serif;
+}
+.layout-move {
+  cursor: move;
+  touch-action: none;
+}
+.layout-resize {
+  cursor: nwse-resize;
+  touch-action: none;
+}
+.layout-splitter {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  z-index: 20;
+  cursor: col-resize;
+  touch-action: none;
+}
+.layout-splitter::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #dadce0;
+}
+.layout-splitter:hover::after,
+.layout-splitter:focus-visible::after {
+  background: #1a73e8;
+}
+.layout-splitter:focus-visible,
+.layout-panel-tools button:focus-visible {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+}
+.layout-splitter[hidden] {
+  display: none !important;
+}
+.layout-dragging {
+  user-select: none;
+}
+.layout-dragging iframe {
+  pointer-events: none;
+}
+@media (max-width: 899px) {
+  .layout-panel-tools {
+    display: none;
+  }
+}

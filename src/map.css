@@ -17,13 +17,16 @@ body,
   left: 16px;
   top: 16px;
   right: auto;
-  z-index: 50;
+  z-index: 80;
   height: auto !important;
   border: 0 !important;
   padding: 0 !important;
   border-radius: 8px;
   box-shadow: 0 2px 12px #0003;
   background: white;
+  /* A backdrop filter makes fixed descendants relative to this bar instead
+     of the viewport, offsetting and clipping the anchored search results. */
+  backdrop-filter: none;
 }
 .brand,
 .topbar-actions > .btn-ghost,
@@ -157,11 +160,6 @@ main {
 .panel {
   background: #fff !important;
 }
-#results {
-  top: 56px !important;
-  max-height: 65vh !important;
-  width: 360px !important;
-}
 .result,
 .result-item {
   min-height: 44px;
@@ -235,11 +233,6 @@ input:focus-visible {
   .card h2 {
     font-size: 18px !important;
   }
-  #results {
-    width: calc(100vw - 20px) !important;
-    left: -4px !important;
-    max-height: 60dvh !important;
-  }
   #legendwrap {
     left: 10px !important;
     bottom: 12px !important;
@@ -289,4 +282,54 @@ input:focus-visible {
 }
 .show-provenance .provenance::after {
   content: ' · Satellite imagery: NASA Blue Marble. Equal Earth projection.';
+}
+
+/* Search results are anchored to the field in viewport coordinates. */
+#results {
+  width: min(420px, calc(100vw - 16px)) !important;
+  z-index: 80;
+}
+.rowname,
+.rowplace {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+}
+.rowbtn {
+  padding-block: 8px;
+}
+.card,
+#stack,
+.list-open #list,
+.show-provenance .provenance,
+#legend-panel,
+#threads-panel {
+  max-width: calc(100vw - 20px);
+  overflow-wrap: anywhere;
+  overscroll-behavior: contain;
+}
+.card h2 {
+  padding-right: 28px;
+}
+.card > .layout-panel-tools,
+#stack > .layout-panel-tools {
+  padding-right: 30px;
+  margin-bottom: 8px;
+}
+#stack.layout-adjusted {
+  display: flex;
+  flex-direction: column;
+}
+#stack-list {
+  min-height: 0;
+}
+#legend-panel,
+#threads-panel {
+  max-height: min(55dvh, calc(100dvh - 150px)) !important;
+}
+#legend-panel.layout-adjusted,
+#threads-panel.layout-adjusted {
+  max-height: calc(100dvh - 16px) !important;
 }
