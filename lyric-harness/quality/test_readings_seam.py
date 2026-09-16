@@ -526,7 +526,7 @@ def test_the_guards_now_fire():
 #    test is the fourth inert coordinate wearing a fix
 # ---------------------------------------------------------------------------
 
-#: the 63 of 77 schemas whose channel map touches a patched reader.  Measured
+#: the 64 of 78 schemas whose channel map touches a patched reader.  Measured
 #: rather than listed, so a new schema is covered the day it lands.
 AFFECTED = sorted(n for n, s in R.REGISTRY.items()
                   if {cr.channel for cr in s.channels} &
@@ -558,8 +558,15 @@ def _instance_moves(lines, phon):
 def test_end_to_end():
     print("\n7. end to end through realise(), over all "
           f"{len(AFFECTED)} schemas that read a patched channel")
+    # MOVED 63 -> 64 when `chain rhyme (interlocking scheme)` was declared
+    # for M-40, taking the registry 77 -> 78. AFFECTED is MEASURED from the
+    # channel maps, so the new schema joined the end-to-end sweep by itself;
+    # this number is the CENSUS beside it, and it is pinned for the same
+    # reason the cheap-suite label is: a count that moves silently cannot
+    # tell a schema that joined from a schema that stopped reading a patched
+    # channel. The chain schema reads `coda`, so the seam covers it.
     check(f"{len(AFFECTED)} of {len(R.REGISTRY)} schemas read onset / coda / "
-          f"consonants / phones", len(AFFECTED) == 63,
+          f"consonants / phones", len(AFFECTED) == 64,
           "the seam is not a corner of the module: it is two thirds of the "
           "declared inventory.")
     for lines in (["he counts the years", "she hides her tears"],
@@ -646,8 +653,12 @@ def test_end_to_end():
 #     nucleus          432           0            0       3732  (was right)
 #     prominence       838           0            0       3732  (was right)
 #
-# AND THE SAME THING AT THE INSTANCE LEVEL, through realise(), over the 63 of
-# 77 schemas whose channel map touches onset/coda/consonants/phones. Keyed on
+# AND THE SAME THING AT THE INSTANCE LEVEL, through realise(), over the
+# schemas whose channel map touches onset/coda/consonants/phones -- 63 of the
+# 77 declared WHEN THIS RUN WAS TAKEN, 64 of 78 since M-40 declared the
+# interlocking chain schema. The figures below are that recorded run and are
+# NOT re-derived here, so they are quoted with the inventory they were
+# measured over rather than the inventory of the day. Keyed on
 # (schema, a.idx, b.idx) per ITEM — a sonnet, a 花間集 song — so the columns
 # are per-instance and not per-corpus:
 #
