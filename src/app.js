@@ -1,4 +1,4 @@
-/* global UI, UI_ICONS, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
+/* global UI, UI_ICONS, UILayout, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
 
 
 // ============================================================
@@ -15006,6 +15006,7 @@ function renderSidebarTraditions() {
           // Meta cluster wraps to its own line beneath the name (see the
           // .sb-tradition-meta rule) so the controls never crowd the name out.
           '<span class="sb-tradition-meta">' +
+            (tradId !== '__ungrouped__' ? '<span class="sb-drag-hint" title="Drag to reorder genres; use the arrow buttons with a keyboard" aria-hidden="true">' + icon('grip-vertical', 14) + '</span>' : '') +
             (tradId !== '__ungrouped__' ? '<span class="sb-status-pill ' + (isPrimary ? 'primary' : 'secondary') + '">' + (isPrimary ? 'PRIMARY' : 'SECONDARY') + '</span>' : '') +
             '<span class="sb-tradition-count">' + cards.length + '</span>' +
             moverButtons +
@@ -15210,7 +15211,8 @@ function renderSidebarCard(card) {
 
   return (
     '<button class="sb-card' + (isSelected ? ' is-selected' : '') + (card.pinned ? ' is-pinned' : '') + '" data-card-id="' + esc(card.id) + '" ' +
-      'style="--family-tint: ' + familyTint + '; --family-color: ' + familyColor + ';">' +
+      'title="Click to edit; drag to move between genres (hold first on touch)" style="--family-tint: ' + familyTint + '; --family-color: ' + familyColor + ';">' +
+      '<span class="sb-drag-hint" aria-hidden="true">' + icon('grip-vertical', 14) + '</span>' +
       '<div class="sb-card-thumb">' + thumb + '</div>' +
       '<div class="sb-card-text">' +
         '<div class="sb-card-line1">' +
@@ -15649,17 +15651,10 @@ function openMoveToGenreMenu(card, anchor) {
   backdrop.className = 'more-menu-backdrop';
   document.body.appendChild(backdrop);
 
-  // Same clamped placement the overflow sheet uses: hung under the trigger,
-  // right edges aligned, nudged back inside the viewport at either margin.
-  const r = anchor.getBoundingClientRect();
-  const w = menu.offsetWidth;
-  menu.style.top = r.bottom + 6 + 'px';
-  menu.style.left = Math.max(8, Math.min(r.right - w, window.innerWidth - w - 8)) + 'px';
-  // A long roster would otherwise run off the bottom of the screen.
-  menu.style.maxHeight = Math.max(120, window.innerHeight - r.bottom - 16) + 'px';
-  menu.style.overflowY = 'auto';
+  const stopPositioning = UILayout.anchor(menu, anchor, { align: 'end' });
 
   const close = () => {
+    stopPositioning();
     menu.remove();
     backdrop.remove();
     document.removeEventListener('keydown', onKey, true);
@@ -17573,6 +17568,7 @@ function wireOverflowMenu() {
   const menu = document.getElementById('app-more-menu');
   if (!btn || !menu) return;
   let backdrop = null;
+  const stopPositioning = UILayout.anchor(menu, btn, { align: 'end' });
 
   const close = () => {
     menu.hidden = true;
@@ -17586,10 +17582,7 @@ function wireOverflowMenu() {
     });
     menu.hidden = false;             // must be laid out before it can be measured
     btn.setAttribute('aria-expanded', 'true');
-    const r = btn.getBoundingClientRect();
-    const w = menu.offsetWidth;
-    menu.style.top = (r.bottom + 6) + 'px';
-    menu.style.left = Math.max(8, Math.min(r.right - w, window.innerWidth - w - 8)) + 'px';
+    UILayout.refresh();
     backdrop = document.createElement('div');
     backdrop.className = 'more-menu-backdrop';
     backdrop.addEventListener('click', close);
@@ -17599,6 +17592,10 @@ function wireOverflowMenu() {
   };
 
   btn.addEventListener('click', () => (menu.hidden ? open() : close()));
+  // The workbench replaces this legacy header after boot.
+  new MutationObserver((_, observer) => {
+    if (!menu.isConnected) { stopPositioning(); observer.disconnect(); }
+  }).observe(document.body, { childList: true });
   menu.addEventListener('click', e => {
     const item = e.target.closest('[data-proxy]');
     if (!item || item.disabled) return;

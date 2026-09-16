@@ -1,4 +1,5 @@
 /* exported UI, UI_ICONS, uiStart, uiReceiveReply, uiOpenSurface, uiSync */
+/* global UILayout */
 /* global _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, Catalog, FamName, INSTRUMENT_FILTER_PILLS, Inst, Tradition, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, addInstrumentFromPicker, app, axisLabel, chatState, compileRecipeStack, copyToClipboard, countDescendantLeaves, esc, familyImage, findSimilar, findSimilarInstruments, getChildren, getMatchingAxes, getRoots, getTreeNode, icon, image, importTraditionWithFeedback, isMobileLayout, normalizeSearch, normalizeWorkspaceCards, passesInstrumentFilter, pushHistory, redo, renderAll, renderDetail, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, undo */
 /* Shared discovery and writing workspace. Built alongside the canonical app and catalog. */
 'use strict';
@@ -55,6 +56,7 @@ function uiNavigate(view) {
     if (!chatState.busy) uiSwitchChat('recipe');
   }
   document.body.classList.remove('session-open');
+  UILayout.refresh();
   document.querySelector(`[data-view="${view}"]`)?.focus({ preventScroll: true });
 }
 function uiListen() {
@@ -78,6 +80,7 @@ function uiSync() {
   $ui('btn-undo').disabled = app.historyIndex <= 0;
   $ui('btn-redo').disabled = app.historyIndex >= app.history.length - 1;
   uiAutosave();
+  UILayout.refresh();
 }
 function uiOpenEditor(id) {
   app.selected = id;
@@ -462,6 +465,7 @@ function uiStart() {
     uiButton('export', 'Export session', 'download') +
     uiButton('import', 'Import session', 'upload') +
     uiButton('credits', 'Credits', 'info') +
+    uiButton('reset-layout', 'Reset layout', 'refresh-cw') +
     '<input type="file" id="ui-file" accept="application/json" hidden>';
   header.append(more);
   const discovery = document.createElement('section');
@@ -642,7 +646,14 @@ function uiStart() {
       case 'menu':
         $ui('ui-menu').hidden = !$ui('ui-menu').hidden;
         b.setAttribute('aria-expanded', String(!$ui('ui-menu').hidden));
+        UILayout.refresh();
         if (!$ui('ui-menu').hidden) $ui('ui-menu').querySelector('button')?.focus();
+        break;
+      case 'reset-layout':
+        UILayout.reset();
+        $ui('map-frame').contentWindow?.postMessage({ type: 'reset-layout' }, location.origin);
+        uiSetMenu(false);
+        showToast('Layout reset', 'success');
         break;
       case 'surprise':
         surpriseTradition();
@@ -764,8 +775,62 @@ function uiStart() {
     }
   });
   UI.ready = true;
+  uiLayoutControls();
   renderAll();
   uiNavigate(location.hash.slice(1) || 'genre');
+}
+
+function uiLayoutControls() {
+  UILayout.tooltips();
+  const workspace = document.querySelector('.workspace');
+  const sidebar = $ui('workspace-sidebar'),
+    detail = $ui('workspace-detail');
+  UILayout.anchor($ui('ui-menu'), document.querySelector('[data-ui="menu"]'), { align: 'end' });
+  UILayout.splitter({
+    container: workspace,
+    panel: sidebar,
+    key: 'sidebar',
+    property: '--sidebar-width',
+    title: 'Resize recipe sidebar',
+    limits: () => [220, Math.min(520, innerWidth * 0.35)],
+    enabled: () => innerWidth >= 900 && UI.view !== 'map',
+  });
+  UILayout.splitter({
+    container: workspace,
+    panel: detail,
+    key: 'detail',
+    property: '--detail-width',
+    title: 'Resize instrument editor',
+    side: 'left',
+    limits: () => [320, Math.min(700, innerWidth * 0.45)],
+    enabled: () => innerWidth >= 900 && UI.editor && !['map', 'lyrics'].includes(UI.view),
+  });
+  const lyrics = document.querySelector('.lyrics-workspace');
+  const editor = document.querySelector('.lyrics-editor');
+  editor.id = 'lyrics-editor';
+  UILayout.splitter({
+    container: lyrics,
+    panel: editor,
+    key: 'lyrics',
+    property: '--lyrics-width',
+    title: 'Resize lyrics editor',
+    limits: () => [260, Math.max(260, lyrics.clientWidth - 300)],
+    enabled: () => innerWidth >= 900 && lyrics.clientWidth > 680,
+  });
+  UILayout.floating($ui('assistant-slot'), {
+    key: 'assistant',
+    title: 'AI recipe panel',
+    header: '.assistant-toolbar',
+    onChange: (floating) => document.body.classList.toggle('assistant-floating', floating),
+  });
+  document.querySelectorAll('.modal-bg > .modal').forEach((panel) => {
+    if (['modal-add', 'modal-trad', 'modal-confirm'].includes(panel.parentElement.id)) return;
+    UILayout.floating(panel, {
+      key: panel.parentElement.id,
+      title: panel.querySelector('h2')?.textContent || 'dialog',
+      header: '.modal-head',
+    });
+  });
 }
 
 function uiReceiveReply(payload, request) {

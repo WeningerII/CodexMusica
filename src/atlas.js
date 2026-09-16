@@ -1475,8 +1475,6 @@
       .join('');
     el.results.innerHTML = h;
     el.results.hidden = !ql || (!all.length && !tokenHit);
-    el.results.style.cssText =
-      'position:absolute;top:calc(100% + 6px);right:0;width:320px;max-height:380px;overflow-y:auto;z-index:60';
     draw();
     scheduleListSync();
   }

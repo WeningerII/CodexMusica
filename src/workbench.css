@@ -157,8 +157,9 @@ h3 {
   justify-content: start;
 }
 .workspace {
+  position: relative;
   display: grid !important;
-  grid-template-columns: 300px minmax(0, 1fr);
+  grid-template-columns: clamp(220px, var(--sidebar-width, 300px), 35vw) minmax(0, 1fr);
   height: calc(100dvh - 64px) !important;
   min-height: 0 !important;
   max-width: none !important;
@@ -260,6 +261,8 @@ h3 {
   padding: 12px !important;
 }
 #discovery {
+  container-type: inline-size;
+  container-name: discovery;
   min-width: 0;
   min-height: 0;
   overflow: hidden;
@@ -274,6 +277,7 @@ h3 {
   display: none !important;
 }
 .discovery-toolbar {
+  flex-wrap: wrap;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -322,7 +326,7 @@ h3 {
 }
 .discovery-grid {
   display: grid;
-  grid-template-columns: minmax(280px, 1fr) minmax(290px, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
   gap: 20px;
   padding: 16px 24px;
@@ -638,7 +642,11 @@ h3 {
   overflow: auto !important;
 }
 .editor-open .workspace {
-  grid-template-columns: 280px minmax(280px, 1fr) minmax(380px, 440px);
+  grid-template-columns: clamp(220px, var(--sidebar-width, 300px), 35vw) minmax(0, 1fr) clamp(
+      320px,
+      var(--detail-width, 440px),
+      45vw
+    );
 }
 .editor-open #workspace-detail {
   display: block !important;
@@ -677,7 +685,29 @@ h3 {
   padding: 0 !important;
 }
 .detail-header {
+  grid-template-columns: 80px minmax(0, 1fr);
   padding: 16px !important;
+}
+.detail-header > *,
+.detail-subtitle > * {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.detail-subtitle,
+.detail-breadcrumb-row,
+.detail-actions {
+  flex-wrap: wrap;
+}
+.detail-stack-signature {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+.detail-stack-signature .dss-trad {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.detail-stack-signature .dss-fingerprint {
+  display: none;
 }
 .detail-title {
   font-size: 21px !important;
@@ -731,6 +761,8 @@ h3 {
   backdrop-filter: none !important;
 }
 .inline-tree > .modal {
+  opacity: 1 !important;
+  transform: none !important;
   max-width: none !important;
   width: 100% !important;
   max-height: none !important;
@@ -822,8 +854,12 @@ h3 {
   color: white;
 }
 .lyrics-workspace {
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: clamp(260px, var(--lyrics-width, 50%), calc(100% - 300px)) minmax(
+      300px,
+      1fr
+    );
   height: calc(100% - 70px);
 }
 .lyrics-editor {
@@ -840,7 +876,7 @@ h3 {
 }
 .lyrics-editor textarea {
   flex: 1;
-  resize: none;
+  resize: vertical;
   border: 0;
   outline-color: #1a73e8;
   font: 16px/1.8 Arial;
@@ -859,7 +895,7 @@ h3 {
   display: none !important;
 }
 .workbench[data-view='lyrics'] .workspace {
-  grid-template-columns: 300px minmax(0, 1fr);
+  grid-template-columns: clamp(220px, var(--sidebar-width, 300px), 35vw) minmax(0, 1fr);
 }
 #assistant-slot {
   display: none;
@@ -1010,7 +1046,7 @@ h3 {
     display: none;
   }
   .workspace {
-    grid-template-columns: 260px minmax(0, 1fr);
+    grid-template-columns: clamp(220px, var(--sidebar-width, 260px), 35vw) minmax(0, 1fr);
   }
   .discovery-grid {
     grid-template-columns: 1fr;
@@ -1020,12 +1056,21 @@ h3 {
     margin: auto;
   }
   .editor-open .workspace {
-    grid-template-columns: 240px minmax(230px, 1fr) 380px;
+    grid-template-columns: clamp(220px, var(--sidebar-width, 260px), 35vw) minmax(0, 1fr);
+  }
+  .editor-open #workspace-detail {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: clamp(320px, var(--detail-width, 440px), 45vw);
+    z-index: 15;
+    box-shadow: -4px 0 16px #20212420;
   }
   .lyrics-workspace {
-    grid-template-columns: 1fr;
-    overflow: auto;
-    height: auto;
+    grid-template-columns: clamp(260px, var(--lyrics-width, 50%), calc(100% - 300px)) minmax(
+        300px,
+        1fr
+      );
   }
   .lyrics-editor {
     min-height: 400px;
@@ -1034,7 +1079,7 @@ h3 {
     min-height: 500px;
   }
   .workbench[data-view='lyrics'] .workspace {
-    grid-template-columns: 260px minmax(0, 1fr);
+    grid-template-columns: clamp(220px, var(--sidebar-width, 260px), 35vw) minmax(0, 1fr);
   }
 }
 @media (max-width: 899px) {
@@ -1875,15 +1920,189 @@ body.workbench {
    discovery surface makes way for it instead of being covered (the search
    field was cut mid-word and every row's Listen and Add sat under the panel). */
 @media (min-width: 1100px) {
-  .workbench.assistant-open:not([data-view='lyrics']) .workspace {
-    grid-template-columns: 300px minmax(0, 1fr) min(480px, 40vw);
+  .workbench.assistant-open:not(.assistant-floating):not([data-view='lyrics']) .workspace {
+    grid-template-columns: clamp(220px, var(--sidebar-width, 300px), 30vw) minmax(0, 1fr) 480px;
   }
 }
 /* With the editor open as well, four columns fit only on a wide screen; on
    a 1366px laptop the genre list narrowed until names overlapped their
    Listen links, so below this the panel overlays the editor instead. */
 @media (min-width: 1500px) {
-  .workbench.assistant-open.editor-open:not([data-view='lyrics']) .workspace {
-    grid-template-columns: 240px minmax(230px, 1fr) 380px min(480px, 40vw);
+  .workbench.assistant-open.editor-open:not(.assistant-floating):not([data-view='lyrics'])
+    .workspace {
+    grid-template-columns:
+      clamp(220px, var(--sidebar-width, 300px), 20vw) minmax(0, 1fr) clamp(
+        320px,
+        var(--detail-width, 440px),
+        30vw
+      )
+      480px;
   }
+}
+
+/* Labels are content, not single-line badges. Keep action buttons separate. */
+.workbench .ws-name,
+.workbench .sb-tradition-name,
+.workbench .sb-card-line1,
+.workbench .sb-card-line2,
+.workbench .part-label-cell,
+.workbench .part-variant-cell,
+.workbench .part-descriptors-cell,
+.workbench .chain-stage-value,
+.workbench .detail-title,
+.workbench .detail-stack-signature,
+.workbench .saved-name {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  overflow-wrap: anywhere;
+  -webkit-line-clamp: unset;
+  max-width: 100%;
+}
+.catalog-categories,
+.catalog-list,
+.catalog-name > span,
+.branch-key button > span,
+.genre-instruments button,
+.related-row button,
+.selected-head h2,
+.profile-row > span,
+.modal-head h2 {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.catalog-row > .listen,
+.catalog-row > button:last-child {
+  flex-shrink: 0;
+}
+.branch-key button {
+  max-width: 100%;
+  text-align: left;
+}
+.workbench .part-row-grid {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px;
+}
+.workbench .part-variant-cell,
+.workbench .part-descriptors-cell {
+  grid-column: 1 / -1;
+  text-align: left;
+}
+.workbench .part-label-cell {
+  grid-column: 1;
+}
+.workbench .part-thumb-cell {
+  display: none;
+}
+.workbench .part-options-cell {
+  grid-column: 2;
+  grid-row: 1;
+}
+.modal-head,
+.assistant-toolbar {
+  flex-wrap: wrap;
+}
+.modal-body {
+  min-height: 0;
+  overscroll-behavior: contain;
+}
+.more-menu {
+  max-width: calc(100vw - 16px);
+}
+.more-menu-item {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  flex-shrink: 0;
+  padding-block: 8px;
+}
+#ui-menu {
+  z-index: 120;
+}
+#surface-lyrics {
+  display: flex;
+  flex-direction: column;
+}
+.lyrics-toolbar {
+  flex: none;
+}
+.lyrics-workspace {
+  flex: 1;
+  min-height: 0;
+  height: auto;
+}
+.lyrics-editor textarea {
+  max-width: 100%;
+}
+@container discovery (max-width: 680px) {
+  .discovery-grid {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 12px;
+    gap: 12px;
+  }
+  .part-preview {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .lyrics-workspace {
+    display: flex;
+    flex-direction: column;
+    flex: none;
+  }
+  #lyrics-chat {
+    min-height: 400px;
+    border-left: 0;
+    border-top: 1px solid #dadce0;
+  }
+  .lyrics-workspace > .layout-splitter {
+    display: none;
+  }
+  .related-row {
+    flex-wrap: wrap;
+  }
+  .related-row > span {
+    flex-basis: 100%;
+    max-width: none;
+  }
+  .genre-instruments > div {
+    flex-wrap: wrap;
+  }
+  .discovery-toolbar {
+    padding: 12px;
+    gap: 6px;
+  }
+  .destination {
+    max-width: 100%;
+  }
+}
+@media (max-width: 899px) {
+  .lyrics-workspace {
+    flex: none;
+  }
+  #lyrics-chat {
+    min-height: 0;
+  }
+}
+@media (max-width: 380px) {
+  .ui-header {
+    padding-inline: 8px;
+  }
+  .ui-brand {
+    font-size: 16px;
+  }
+  .ui-tools button {
+    padding-inline: 6px;
+  }
+  .ui-header nav button {
+    padding-inline: 4px;
+    gap: 4px;
+    font-size: 13px;
+  }
+}
+.sb-drag-hint {
+  display: inline-flex;
+  flex: none;
+  color: #5f6368;
+  cursor: grab;
+}
+.sb-card.is-dragging .sb-drag-hint {
+  cursor: grabbing;
 }

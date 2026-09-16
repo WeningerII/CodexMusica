@@ -26,7 +26,7 @@
     "test:recipes": "node scripts/regression_recipes.js",
     "test:prefaces": "node scripts/regression_prefaces.js",
     "test:slots": "node scripts/check_slot_picks.js",
-    "test:app": "node scripts/check_workbench.js && node scripts/app_recipe_regression.js && node scripts/check_mobile_layout.js",
+    "test:app": "node scripts/check_layout_geometry.js && node scripts/check_workbench.js && node scripts/app_recipe_regression.js && node scripts/check_mobile_layout.js && node scripts/check_layout_usability.js",
     "test:equiv": "node scripts/equivalence.js",
     "test:lazy": "node scripts/check_lazy_app.js",
     "test:minified": "node scripts/check_minified_equivalence.js",

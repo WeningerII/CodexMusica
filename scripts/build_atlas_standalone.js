@@ -90,6 +90,11 @@ const payload = {
 // ── the page ──
 const html = fs.readFileSync(path.join(ROOT, 'atlas.html'), 'utf8');
 const appJs = fs.readFileSync(path.join(ROOT, 'src', 'atlas.js'), 'utf8');
+const layoutJs = fs.readFileSync(path.join(ROOT, 'src', 'layout.js'), 'utf8');
+const mapUiJs = fs.readFileSync(path.join(ROOT, 'src', 'map-ui.js'), 'utf8');
+const mapCss = ['map.css', 'layout.css']
+  .map((name) => fs.readFileSync(path.join(ROOT, 'src', name), 'utf8'))
+  .join('\n');
 
 // `</script>` inside a JSON string would close the tag early; the JSON-escaped
 // form parses identically. U+2028/9 are literal line terminators in JS source.
@@ -105,10 +110,10 @@ const between = (open, close) => {
   return html.slice(i, j + close.length);
 };
 
-const styleBlock = between('<style>', '</style>');
+const styleBlock = between('<style>', '</style>') + '\n<style>' + mapCss + '</style>';
 const fontLink = html.match(/<link\s+href="https:\/\/fonts\.googleapis\.com[^>]*>/)[0];
 let bodyInner = html
-  .slice(html.indexOf('<div class="shell">'), html.indexOf('<script src="src/atlas.js">'))
+  .slice(html.indexOf('<div class="shell">'), html.indexOf('<script src="src/layout.js">'))
   .replace(/\s*$/, '');
 // A published page has no codex.html or api/ beside it, so in-page links to the
 // app and the raw catalog have to point back at the live site.
@@ -140,10 +145,18 @@ if (flags.artifact) {
     '\n<script>window.__ATLAS_DATA__=' +
     safeJson +
     ';</script>\n<script>\n' +
+    layoutJs +
+    '\n' +
     appJs +
+    '\n' +
+    mapUiJs +
     '\n</script>\n';
 } else {
   out = html
+    .replace(/<link rel="stylesheet" href="src\/(?:map|layout)\.css"\s*\/?\s*>/g, '')
+    .replace('</head>', () => '<style>' + mapCss + '</style></head>')
+    .replace('<script src="src/layout.js"></script>', () => '<script>' + layoutJs + '</script>')
+    .replace('<script src="src/map-ui.js"></script>', () => '<script>' + mapUiJs + '</script>')
     .replace(
       '<script src="src/atlas.js"></script>',
       '<script>window.__ATLAS_DATA__=' +

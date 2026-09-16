@@ -72,6 +72,15 @@ const run = (code) => dom.window.eval(code);
   assert.equal(doc.querySelector('.genre-web'), null);
   assert.ok(doc.querySelector('.related-row [data-ui="genre-select"]'));
   click('[data-ui="genre-close"]');
+  click('[data-ui="genre-tree"]');
+  assert.equal(
+    dom.window.getComputedStyle(doc.querySelector('.inline-tree > .modal')).opacity,
+    '1',
+    'embedded tree must not inherit the closed modal animation'
+  );
+  assert.ok(doc.querySelector('#genre-body .tree-row'), 'Browse tree must render its categories');
+  click('#genre-body [data-close]');
+  assert.ok(doc.querySelector('#genre-body .catalog-row'), 'closing tree restores the genre list');
   run("uiNavigate('instrument')");
   click('#instrument-body [data-ui="instrument-family"]');
   click('#instrument-body [data-ui="instrument-class"]');
