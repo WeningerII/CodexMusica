@@ -1160,7 +1160,7 @@ verse-chorus-bridge sequence, clichéd rhyme-scheme choice itself.
 
 ## I. Generation and workflow
 
-### I-1 · Melody-first entrance alongside the external writing loop `DONE` 2026-09-15
+### I-1 · Melody-first entrance alongside the external writing loop `CLOSED` 2026-09-15
 **Now:** `quality/revise.py` returns line-scoped briefs; the harness grades.
 ~~**Missing:** any writing loop, melody-first or lyric-first workflow, or way to
 sample a structure from the scheme/grid spaces and write into it.~~
