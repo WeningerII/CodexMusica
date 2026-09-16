@@ -14008,14 +14008,30 @@ replicates (random end-word pairs from the same sonnets — matched vocabulary,
 same reader, the `audit_band_control.py` null design).** The no-search arm
 restricts both sides to the `endword_only` span, i.e. k=1.
 
+**THE REAL ROW MOVED UNDER E-5 (2026-09-16) AND THE NULL ROW WAS NOT RE-RUN.**
+The 2026-08-26 table is kept in history form (doctrine 17); what could be
+re-measured is restated under it, and what could not is named as such.
+
+> | arm | full k-search | endword-only | the search's lift |
+> |---|---|---|---|
+> | REAL | ~~41.88%~~ | ~~36.46%~~ | ~~**+5.42 pp**~~ |
+> | NULL (median of 10) | 14.85% | 10.79% | **+4.11 pp** |
+>
+>   excess over null, full search : ~~**+27.03 pp**~~
+>   excess over null, no search   : ~~**+25.68 pp**~~
+>   what the search BUYS          : ~~**+1.35 pp**~~
+
 | arm | full k-search | endword-only | the search's lift |
 |---|---|---|---|
-| REAL | 41.88% | 36.46% | **+5.42 pp** |
-| NULL (median of 10) | 14.85% | 10.79% | **+4.11 pp** |
+| REAL, re-measured 2026-09-16 under E-5 | 41.34% (458/1108) | 36.37% (403/1108) | **+4.96 pp** |
 
-  excess over null, full search : **+27.03 pp**
-  excess over null, no search   : **+25.68 pp**
-  what the search BUYS          : **+1.35 pp**
+The REAL row is a property of the comparator and not of the null design, so it
+is restated here from the E-5 run. **The three excess figures and the NULL row
+are NOT restated**: they are differences against the RE-PAIRING null, which
+this lot did not re-run, and a figure whose minuend has moved while its
+subtrahend has not been re-measured is not a figure (doctrine 20). They stand
+struck above on their 2026-08-26 dating, and the permutation-null arm — the one
+that IS instrumented — carries the current answer in **B** below.
 
 **THREE QUARTERS OF THE SEARCH'S LIFT ON REAL VERSE IS REPRODUCED BY THE NULL
 (75.8%)**, and the real arm's lift (+5.42 pp) barely clears the null's own
@@ -14058,24 +14074,121 @@ shipped theta sits just above its break-even point.**
 **A — the null design was not carrying the result.** Under a WITHIN-SONNET LINE
 PERMUTATION null (the repo's own design; controls for poem and author
 vocabulary, which random re-pairing does not) the finding STRENGTHENS: the
-share of the search's lift reproduced by chance goes **75.8% -> 83.4%** and
-what it buys falls **+1.35 -> +1.26 pp**.
+share of the search's lift reproduced by chance goes **75.8% -> ~~83.4%~~** and
+what it buys falls **+1.35 -> ~~+1.26 pp~~**. **REPINNED 2026-09-16 (E-5): the
+permutation arm at the shipped theta now reports 79.2% reproduced by chance and
++1.03 pp bought.** The finding still STRENGTHENS against the re-pairing null
+and the direction of this paragraph is unchanged; only the two permutation
+figures moved, and the 75.8% / +1.35 pp re-pairing pair was not re-run and
+keeps its 2026-08-26 dating.
 
-**B — THE THRESHOLD SWEEP IS THE REAL FINDING.** Sonnets, permutation null:
+**B — THE THRESHOLD SWEEP IS THE REAL FINDING.** Sonnets, permutation null.
+**SUPERSEDED 2026-09-16 BY E-5 — the 2026-08-26 sweep is kept below in history
+form (doctrine 17) and the current sweep follows it.**
+
+> | theta | REAL lift | NULL lift | search buys | reproduced by chance |
+> |---|---|---|---|---|
+> | 0.60 | ~~+14.98~~ | ~~+18.30~~ | ~~**-3.32**~~ | ~~122.1%~~ |
+> | 0.65 | ~~+10.65~~ | ~~+13.09~~ | ~~**-2.46**~~ | ~~122.9%~~ |
+> | 0.70 | ~~+7.40~~ | ~~+8.51~~ | ~~**-0.85**~~ | ~~115.0%~~ |
+> | **0.75 (SHIPPED)** | ~~+5.42~~ | ~~+4.53~~ | ~~**+1.14**~~ | ~~83.6%~~ |
+> | 0.80 | ~~+4.33~~ | ~~+2.49~~ | ~~+1.85~~ | ~~57.5%~~ |
+> | 0.85 | ~~+3.43~~ | ~~+1.18~~ | ~~+2.13~~ | ~~34.3%~~ |
+> | 0.90 | ~~+2.89~~ | ~~+0.50~~ | ~~+2.30~~ | ~~17.3%~~ |
+
+**CURRENT, re-measured 2026-09-16 under E-5** (`coda_empty_evidence` default
+`"gift"` -> `"cannot_tell"`; 187 sonnet windows, 1,108 mandated pairs, 10
+within-sonnet line-permutation replicates, seed 4242):
 
 | theta | REAL lift | NULL lift | search buys | reproduced by chance |
 |---|---|---|---|---|
-| 0.60 | +14.98 | +18.30 | **-3.32** | 122.1% |
-| 0.65 | +10.65 | +13.09 | **-2.46** | 122.9% |
-| 0.70 | +7.40 | +8.51 | **-0.85** | 115.0% |
-| **0.75 (SHIPPED)** | +5.42 | +4.53 | **+1.14** | 83.6% |
-| 0.80 | +4.33 | +2.49 | +1.85 | 57.5% |
-| 0.85 | +3.43 | +1.18 | +2.13 | 34.3% |
-| 0.90 | +2.89 | +0.50 | +2.30 | 17.3% |
+| 0.60 | +12.55 | +15.31 | **-2.77** | 122.1% |
+| 0.65 | +8.75 | +10.51 | **-1.76** | 120.1% |
+| 0.70 | +6.14 | +7.06 | **-0.92** | 115.0% |
+| **0.75 (SHIPPED)** | +4.96 | +3.93 | **+1.03** | 79.2% |
+| 0.80 | +3.88 | +2.12 | +1.76 | 54.8% |
+| 0.85 | +3.34 | +1.22 | +2.12 | 36.6% |
+| 0.90 | +2.89 | +0.54 | +2.34 | 18.8% |
 
 **BELOW theta ~ 0.72 THE SEARCH IS NET HARMFUL** — it lifts the null MORE than
 it lifts the signal, so a looser band is made looser still by a mechanism
-nobody declared. The shipped 0.75 is roughly the break-even point.
+nobody declared. The shipped 0.75 is roughly the break-even point. **THAT
+SENTENCE IS UNCHANGED BY THE REPIN, AND THAT IS THE POINT OF READING THE TWO
+TABLES TOGETHER**: the sign of what the search buys still flips between 0.70
+(**-0.92**, was -0.85) and 0.75 (**+1.03**, was +1.14), the same bracket as
+before. E-5 moved the MAGNITUDES of this sweep and left the crossover where it
+was, so the gate `search_null.py` enforces — `theta_rhyme` above the crossover
+— is untouched, margin still **+0.03**.
+
+**WHY THE SWEEP MOVED, AND IT WAS MEASURED RATHER THAN INFERRED (2026-09-16,
+`MISSING.md` E-5).** `quality/search_null.py --check` went to exit 3 on two
+figures — theta 0.60 real lift and null lift, the only two of the ten pins to
+break the 1.5 pp tolerance. A drift confined to the LOOSEST band is the
+signature of a change to MARGINAL pairs, but a signature is not an
+attribution, so the attribution was settled by a CONTROLLED A/B rather than by
+the coincidence:
+
+- **THE DRIFT DOES NOT REPRODUCE ON `origin/main`.** The same instrument run on
+  a clean `9d9df09` worktree passes all ten pins, with every REAL-lift figure
+  reproducing the 2026-08-26 sitting EXACTLY. The drift is not pre-existing.
+- **THE COORDINATE ALONE REPRODUCES IT.** On that same `origin/main` tree, with
+  `coda_empty_evidence` toggled `"gift"` -> `"cannot_tell"` and NOTHING else
+  varied, the real arm moves at every theta to within 0.01 pp of the move
+  observed across the two commits (theta 0.60: **-2.44** measured against the
+  **-2.43** observed). E-5 accounts for the drift on its own.
+
+**THE MECHANISM IS THE SEARCH'S OWN SELECTION BIAS, and it is the sharpest
+thing this entry has yet said about k.** E-5 stops scoring an empty/empty coda
+as agreement and renormalises the remaining evidence, so a pair resting on an
+absent coda loses `total` (`now`/`why` 0.902 -> 0.850). The two arms do not
+lose equally. Over the 1,108 mandated pairs the removal moves
+
+    FULL k-search arm    274 / 1108  (24.7%)
+    `endword_only` k=1   98 / 1108   (8.8%)
+
+— **the max over k span readings was PREFERENTIALLY SELECTING readings that
+carried the gift**, three times as often as the single unsearched reading. The
+lift is full minus k=1, so it must fall. At theta 0.60 the full arm loses 50
+pairs and the k=1 arm 23, a net -27 pairs = **-2.44 pp**; at 0.90 each loses 2
+and the lift does not move at all, because a pair clearing 0.90 is carried by
+heard consonants and never needed the gift. This is the coupling this entry
+already names, caught from a new direction: a search whose winner was partly
+chosen by an undeclared evidence rule is a search whose value depends on that
+rule, and E-5 is the first change to move one and let the other be watched.
+
+**NOT ALL OF THE 0.60 NULL MOVE IS E-5's — the decomposition, because a repin
+that over-claims its cause is worse than one that does not name it.** The
+committed +18.30 is the 2026-08-26 figure; `origin/main` measures **+17.96**
+today. So -0.34 of the -2.99 was ALREADY THERE and the 1.5 pp band was
+absorbing it; E-5 is the other **-2.65**. The same residual is why theta 0.90's
+null repins +0.50 -> +0.54 although E-5 does not move it at all. The REAL
+column reproduces 2026-08-26 exactly at every theta while the NULL column does
+not, and the reason is visible in the header: this run reads **187** sonnet
+windows where that sitting recorded **152**, at the same 1,108 pairs. The real
+arm is invariant to how the windows are cut; the permutation null shuffles
+WITHIN a window and is not. **That is PRE-EXISTING — it reproduces on
+`origin/main` — it is not E-5's, it is not repaired here, and it is stated
+rather than resolved.**
+
+**NOT TUNED, AND THE LINE IS WORTH NAMING.** `theta_rhyme` (0.75),
+`search_null.CROSSOVER` (0.72), `TOLERANCE_PP` (1.5) and every declared
+coordinate are untouched by this lot. Only the recorded figures move. Doctrine
+58 says a drift is a QUESTION and forbids tuning a figure to pin; it does not
+forbid answering the question. The question has been answered with a name and a
+mechanism, and the answer is banked with the superseded values visible
+(doctrine 17) in `PINNED_SONNET` and in the struck table above.
+
+**WHAT WAS NOT RE-RUN, DECLARED (doctrine 20).** Only the SONNET arm under the
+PERMUTATION null — the arm `search_null.py` instruments and pins — was
+re-measured, plus the REAL row above, which belongs to the comparator and not
+to any null. The RE-PAIRING null (14.85% / 10.79% / +4.11 pp, the 75.8% share,
+the three excess figures) and the song-corpus sweep in **C** below are all from
+the 2026-08-26 sitting, stand on that dating, and are NOT claimed to reproduce
+under E-5. No instrument holds them, which is why the gate did not catch them
+and why nothing here is corrected on their behalf. **C's crossover is the load-
+bearing claim in it, and the crossover is exactly what E-5 did not move on the
+arm that WAS re-run** — so the replication C reports is not contradicted by
+this repin, merely un-refreshed.
 
 **C — THE CROSSOVER REPLICATES; THE HIGH-THETA TREND DOES NOT.** Second corpus:
 12 `corpus/song/eng_*` files, 172 printed blocks, **708 ADJACENT-line pairs** —
