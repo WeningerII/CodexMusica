@@ -215,7 +215,7 @@ def test_gate_goes_red():
     txt = buf.getvalue()
     check("a schema whose FIGURE moves turns --check red", codeb == 1)
     check("...and the report names the moved figure and its measured value",
-          "committed 25, measured 24" in txt,
+          "committed 26, measured 25" in txt,
           [l for l in txt.splitlines() if "pair_shaped" in l])
     check("...and names the schema that left the pair-shaped membership",
           "perfect rhyme" in txt,
@@ -256,8 +256,8 @@ def test_gate_goes_red():
                        capture_output=True, text=True)
     check("a moved SCALAR pin exits 1 through the CLI", p.returncode == 1,
           p.stdout.strip().splitlines()[-1:])
-    check("...and prints `committed 999, measured 25`",
-          "committed 999, measured 25" in p.stdout)
+    check("...and prints `committed 999, measured 26`",
+          "committed 999, measured 26" in p.stdout)
 
     prog = ("import sys; sys.path.insert(0, %r);"
             "from quality import relation_shapes as RS;"

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""WHICH OF THE 77 DECLARED RELATIONS FIT A WORD-PAIR MANDATE, AND WHICH ONES
+"""WHICH OF THE 78 DECLARED RELATIONS FIT A WORD-PAIR MANDATE, AND WHICH ONES
 STRUCTURALLY CANNOT?  --  the classification, as an instrument.
 
-`quality/relations.py` declares 77 `RelationSchema`s.  A consumer building the
+`quality/relations.py` declares 78 `RelationSchema`s.  A consumer building the
 next mandate layer needs to know, per schema, what SHAPE it has: how many
 members its figure spans, under which quantifier, where its two `SpanRule`s
 look, what its `Placement`s demand, what capabilities it needs, and -- the
@@ -678,17 +678,19 @@ def report(registry=None, out=None):
 #: whose SPANS AND PLACEMENT read pair-shaped.  The difference is `analysed
 #: rhyme`, a 4-node figure, and the hand count listed that same schema in its
 #: own arity-extension bucket, so the two hand figures contradicted each other.
+# M-40, 2026-09-16: +1 pair schema, +2 span/placement slots; E44 now cited.
+# Supersedes pair=25, spans=154, placements=93, covered=375/uncited=226.
 PINNED = {
     # -- the three buckets --------------------------------------------------
-    "pair_shaped": 25,
+    "pair_shaped": 26,
     "not_pair_shaped": 52,
     "arity_extension": 12,
     # -- the figure-blind reading, and the two disagreements ----------------
-    "span_shaped": 26,
+    "span_shaped": 27,
     "n_span_not_pair": 1,
     "n_pair_and_arity": 1,
     # -- slot totals --------------------------------------------------------
-    "span_slots": 154,
+    "span_slots": 156,
     #: REPINNED 2026-08-23 from ~~91~~ (doctrine 17). ONE slot, and it is
     #: `off_beat` on `offbeat internal rhyme`: the schema kept its `beat`
     #: capability gate AND gained the placement, because the gate is what
@@ -696,19 +698,19 @@ PINNED = {
     #: declared one selective, and either alone is one of the two defects
     #: that schema has had. The gate-only version fired on every internal
     #: rhyme and called it off-beat.
-    "placement_slots": 93,
+    "placement_slots": 95,
     # -- the survey ---------------------------------------------------------
     #    `survey_rows` is NOT here: `audit_register.PINNED["index_rows"]` owns
     #    it (exclusion 1).
-    "survey_covered": 375,
-    "survey_uncited": 226,
+    "survey_covered": 376,
+    "survey_uncited": 225,
     "n_schemas_citing_nothing": 2,
     "n_cited_off_index": 0,
 }
 
 #: The 13 span loci over 154 slots, as ((locus, n), ...) descending.
 PINNED_LOCUS_PROFILE = (
-    ("line_final_token", 71), ("any_token", 28), ("line", 12),
+    ("line_final_token", 73), ("any_token", 28), ("line", 12),
     ("line_initial_token", 9), ("free_run", 8), ("half_line_a", 4),
     ("half_line_b", 4), ("lift", 4), ("line_head_index", 4),
     ("token_first_half", 3), ("token_second_half", 3),
@@ -725,10 +727,10 @@ PINNED_LOCUS_PROFILE = (
 #: two different demands and are counted apart. A profile that summed them
 #: would read 29 and hide the only negated placement in the registry.
 PINNED_PLACEMENT_PROFILE = (
-    ("both_line_final", 28), ("different_lines", 16), ("same_line", 16),
+    ("both_line_final", 29), ("different_lines", 16), ("same_line", 16),
     ("adjacent_lines", 5), ("line_gap_at_most", 5), ("across_line_break", 3),
     ("at_caesura", 3), ("both_line_initial", 3), ("same_token", 3),
-    ("a_is_split_token", 1), ("a_line_final", 1), ("at_lift", 1),
+    ("a_is_split_token", 1), ("a_line_final", 1), ("adjacent_stanzas", 1), ("at_lift", 1),
     ("both_line_final (forbidden)", 1), ("both_multiword", 1),
     ("exactly_one_line_final", 1), ("lift_index", 1),
     ("neither_line_final", 1), ("off_beat", 1), ("spans_overlap", 1),
@@ -750,7 +752,7 @@ PINNED_PLACEMENT_PROFILE = (
 #: bucket: change `frame` from `song` to `stanza` on a pair-shaped schema and
 #: every count, membership and locus profile above is unchanged.
 PINNED_FIGURE_PROFILE = (
-    ((('frame', 'song'), ('nodes', 2), ('quantifier', 'exists')), 58),
+    ((('frame', 'song'), ('nodes', 2), ('quantifier', 'exists')), 59),
     ((('frame', 'line'), ('k', 2), ('nodes', 2), ('quantifier', 'exists_k')), 3),
     ((('frame', 'stanza'), ('nodes', 2), ('quantifier', 'forall')), 3),
     ((('frame', 'token'), ('nodes', 2), ('quantifier', 'exists')), 3),
@@ -769,7 +771,7 @@ PINNED_FIGURE_PROFILE = (
 
 #: The uncited half of the survey, by inventory cell.
 PINNED_UNCITED_BY_CELL = (("X", 84), ("S", 50), ("G", 32), ("C", 27),
-                          ("I", 20), ("E", 13))
+                          ("I", 20), ("E", 12))
 
 #: THE BUCKET THE NEXT CONSUMER HAS TO BUILD FOR: 12 schemas whose figure is
 #: not a 2-node exists/exists_k pair.  Pinned by NAME, not by count -- a swap
@@ -791,6 +793,7 @@ PINNED_ARITY = (
 
 #: THE 25 THE EXISTING MACHINERY REACHES UNCHANGED.
 PINNED_PAIR_SHAPED = (
+    "chain rhyme (interlocking scheme)",
     "Middle Chinese end rhyme (同用 group)",
     "Scots vowel-length rhyme (Aitken's Law)",
     "additive rhyme",

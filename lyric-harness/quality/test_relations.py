@@ -145,7 +145,7 @@ QUATRAIN = ["The cat sat on the mat", "He wore a funny hat",
 def test_inventory():
     print("\n0. the inventory — DECLARED, REACHABLE and RUNNING are three "
           "different numbers")
-    check("77 schemas are declared", len(R.REGISTRY) == 77,
+    check("78 schemas are declared", len(R.REGISTRY) == 78,
           f"{len(R.REGISTRY)} in REGISTRY; all_schemas() is the accessor. "
           f"There is no SCHEMAS attribute and never was.")
     check("4 named QUERIES are recorded as NOT types", len(R.QUERIES) == 4)
@@ -170,8 +170,8 @@ def test_inventory():
             findings[name] = len(res)
     check("nothing raises on a plain English quatrain", raised == 0,
           f"ran={ran} refused={refused} raised={raised}")
-    check("45 of 77 run; four unsupported complete shapes now refuse alongside capabilities "
-          "and spans", ran == 45 and refused == 32,
+    check("46 of 78 run; four unsupported complete shapes now refuse alongside capabilities "
+          "and spans", ran == 46 and refused == 32,
           f"ran={ran} refused={refused}; capability_report says "
           f"{len(rep['reachable'])} reachable "
           f"(2 of those refuse at the SPAN, which is correct: 'penult' and "
@@ -1271,7 +1271,7 @@ def test_traditions():
     sourced = [n for n, s in R.REGISTRY.items() if s.traditions]
     check("every one of the 77 schemas is either SOURCED or listed in "
           "UNSOURCED with a reason",
-          len(sourced) + len(R.UNSOURCED) == 77
+          len(sourced) + len(R.UNSOURCED) == 78
           and not (set(sourced) & set(R.UNSOURCED))
           and all(R.UNSOURCED.values()),
           f"{len(sourced)} sourced, {len(R.UNSOURCED)} honestly empty "
@@ -1635,7 +1635,7 @@ def test_known_open_defects():
     check("P2 CLOSED by DELETION: SpanRule has no `terminator`, and nothing "
           "in the registry lost a distinction",
           "terminator" not in R.SpanRule.__dataclass_fields__
-          and len(_rules) == 154
+          and len(_rules) == 156
           and all(len(v) == 1 for v in _mags.values())
           and "terminator" not in R.__dict__["_spans_at"].__code__.co_names,
           f"{len(_rules)} member rules over {len(R.REGISTRY)} schemas. Before "
@@ -2101,7 +2101,7 @@ def test_relation_report_renderer_runs():
     rc, out = _capture(R.main, [METIDJA])
     check("`python3 quality/relations.py metidja.txt` RUNS end to end and "
           "exits 0",
-          rc == 0 and "phonology eng   schemas declared 77" in out
+          rc == 0 and "phonology eng   schemas declared 78" in out
           and "RAN AND FIRED 20" in out,
           "REFUSED 24 · RAN AND FOUND NOTHING 29 · RAN AND FIRED 24. "
           "REPINNED 2026-08-23 from ~~31 · 26 · 20~~ (2026-08-22, M-39) and "
@@ -2494,7 +2494,7 @@ def test_vacuous_frame_is_not_a_null():
     check("the staged item reproduces the measured split 31 FIRED / 26 "
           "REFUSED / 20 RAN AND FOUND NOTHING (repinned from 30/26/21 at "
           "M-148: the repaired skothending schema now fires here)",
-          before == (28, 30, 19),
+          before == (28, 30, 20),
           f"{before} on corpus/{VACUITY_ITEM}: {len(raw)} raw lines, "
           f"{len(st.units)} units. PREMISE — it must hold on both trees.")
 
@@ -2543,7 +2543,7 @@ def test_vacuous_frame_is_not_a_null():
     after = _split(st)
     check("...so calling both markers moves NOTHING: the split is still "
           "31/26/20, where it used to become 31/20/26",
-          after == before == (28, 30, 19),
+          after == before == (28, 30, 20),
           f"before {before} after {after}. Six schemas crossing from REFUSED "
           f"to RAN AND FOUND NOTHING is the collapse; the counts are the "
           f"cheapest place to see it.")
@@ -2556,7 +2556,7 @@ def test_vacuous_frame_is_not_a_null():
           and rep["refused_other"] == 4
           and rep["refused"] == 30
           and (rep["refused"] + rep["ran_found_nothing"]
-               + rep["ran_and_fired"]) == rep["declared"] == 77
+               + rep["ran_and_fired"]) == rep["declared"] == 78
           and {r[0] for r in rep["vacuous_refusals"]} == set(VACUOUS_SIX)
           and all(len(r) == 4 for r in rep["refusals"]),
           f"refused {rep['refused']} = capability "
@@ -2641,7 +2641,7 @@ def test_vacuous_frame_is_not_a_null():
           "and the fourth count goes to zero",
           all(not isinstance(o, R.Refusal) and len(o) == 0
               for o in mut_outs.values())
-          and mut_split == (28, 24, 25) and mut_rep["refused_vacuous"] == 0
+          and mut_split == (28, 24, 26) and mut_rep["refused_vacuous"] == 0
           and mut_state == "present",
           f"{mut_split} under the mutant against {after} at head; "
           f"{ {n: len(o) for n, o in mut_outs.items()} }. Six schemas, six "
