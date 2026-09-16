@@ -149,7 +149,37 @@ some books and after the AUTHOR ATTRIBUTION at the end in others (the "sung
 after every verse" convention). Both are in the corpus, source order preserved.
 It broke the hymn cell's first parser.
 
-### A-2 · Repetition-with-variation `PARTIAL` 2026-08-21
+### A-2 · Repetition-with-variation `CLOSED` 2026-09-15
+
+**CLOSED — answer lines and call-and-response now have a directed representation.**
+`quality/line_relations.py` supplies `LineRelation` and `LINE_RELATIONS`:
+`answer` and `call_and_response`, with 1-based call/response line coordinates,
+declaration source, and optional voice labels. These are discourse roles,
+kept separate from `relations.py`'s phonological `REGISTRY`: a reply need not
+rhyme, repeat, or preserve a tune slot. No semantic reply is inferred from
+words or from a repeated phrase. The shared blueprint validator rejects
+malformed, reversed, duplicate, out-of-range and cross-block links, including
+links across two sections with the same name. Nonadjacent links and multiple
+responses to one call (or multiple calls to one response) are representable.
+
+`grid.song_from_blueprint` retains the declarations; `song_function_report`
+reports their direction, roles, source, and CURRENT draft words under
+`line_relations`; the existing `function` verb renders them. Absent declarations
+remain `undeclared`, an explicit empty array is `empty`, and populated links
+are `present`. These are declaration states, not certification of semantic
+answers, and do not alter rhyme verdicts or the return-question denominator.
+Automatic corpus annotation and automatic composition of these roles are not
+claimed by this representation change.
+
+**VERIFICATION:** `quality/test_song_function.py`'s A-2 regression reads all
+eight printed Quest./Ans. pairs in the staged Herrick *Upon Love, By Way Of
+Question And Answer*, then exercises blueprint ingestion, current-text reports,
+voice-labelled responses, both blueprint readers' refusal paths, repeated
+section names, and the real `function` CLI. Implementation commit: `d1404cc6`.
+The full song-function, grid, fit and meter regression suites pass; the
+gap-register verifier and documentation/path checks pass.
+
+**Historical audit (superseded by the closure above):**
 **VERIFIED CLAUSE BY CLAUSE 2026-08-21 — the pass this entry's own
 declaration promised.** Two clauses are FALSE at head; two are the entry.
 
@@ -490,7 +520,43 @@ generic path and `fas.rhymes()` independently return None.
 where the phonology carries no prominence — som, msa and fas all decline a
 stress grid — because the anchor rule is a coordinate, not a universal.
 
-### E-2 · ~~English still has five relations~~ — the five-relation path is the GRADER's, and it is not the tree's `PARTIAL`
+### E-2 · Grading reaches named rhyme types and relation schemas `CLOSED` 2026-09-15
+
+**CLOSED after rechecking the existing implementation.** The 2026-08-21
+account below predates the relation-ladder integration and remained open after
+its stated closure condition had been met. This closure changes the record
+and adds a regression; it does not introduce another grading implementation.
+
+- `quality/revise.py` routes declared types through
+  `rhyme_types.satisfies_relation` / `classify_pair`, and declared schemas
+  through `relations.line_pairs_for` or `pair_satisfies` at declared slots.
+  A named requirement can satisfy, violate, or refuse for missing evidence.
+- The default grader also reaches `relations.whole_vocabulary_pairs` when
+  the scalar door does not satisfy a pair. The scalar helpers retain their
+  coarse categories; those categories no longer bound the grader's vocabulary.
+  An explicit narrower declaration remains binding.
+- `Stream.alt` has producers: `declare_orthography`, `declare_delivery`, and
+  `declare_period_surface`. The last requires a sourced period phonology;
+  an absent or empty surface remains a refusal. These are explicit stream
+  declarations, not automatic guesses from modern English spelling. The
+  ordinary grade stream does not automatically supply historical or spelling
+  evidence, and this closure does not claim those requirements pass without it.
+- `classify_pair` still accepts boundary and realisation coordinates. The
+  schema engine handles token boundaries; making the word-pair classifier
+  infer every schema's context is not the integration this entry required.
+
+**Regression evidence:** `quality/test_mandate_relation.py` covers declared
+named types, schema positives and contrasts, missing-capability refusals,
+and the default route. Its E-2 regression grades `cat spoon` / `hat orange`:
+the scalar says `NO_RELATION`, the registry supplies `internal rhyme`, and
+removing that registry call changes the result to a violation. Declaring
+`class:RHYME` also violates. `quality/test_screen.py` checks the public pair
+screening route; `quality/test_relations.py`'s orthography-surface test proves
+that declaring the spelling rule changes eye rhyme from refusal to a real
+love/move instance while leaving the phonemic reading intact.
+
+**Historical account (superseded by the closure above):**
+
 **Now:** `lyric_harness.py`'s own `score()`/`admits()` band recognises RHYME,
 REPEAT, RIME_RICHE, ASSONANCE, CONSONANCE — **and that is a statement about
 ONE layer, not about English in this repository.** `quality/relations.py`'s
@@ -551,7 +617,7 @@ five-relation path and does not call this.~~
 > `admits`, `rhyme_density`, the chains — is five-valued and consults neither.**
 > A CLI verb reaching the 77 schemas is not the grader reaching them.
 
-**TESTED WHILE OPEN.** `quality/test_relations.py` names this entry while it
+**Historical test scope, superseded above.** `quality/test_relations.py` names this entry while it
 stays PARTIAL, and the two halves do not overlap. What the suite guards is the
 TREE's side — that `REGISTRY` holds 77 schemas, that 58 declare an English
 tradition, that `classify_pair` reads the axes the heading said were missing.
