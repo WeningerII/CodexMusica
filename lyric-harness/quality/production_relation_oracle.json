@@ -892,7 +892,7 @@
     ]
   },
   "span_attribution": {
-    "date": "2026-09-08",
+    "date": "2026-09-16",
     "meaning": "Attribution is measured over the corrected judged denominator; refusing uncertain pairs is reduced coverage, not better rhyme or a rendering change.",
     "current": {
       "claimed": 605,
@@ -909,11 +909,11 @@
       },
       {
         "kinds": ["exact", "part"],
-        "n": 273
+        "n": 271
       },
       {
         "kinds": ["exact", "reach"],
-        "n": 1
+        "n": 3
       },
       {
         "kinds": ["exact", "substituted"],
@@ -1592,7 +1592,39 @@
       "previous_claimed": 632,
       "previous_tied": 121,
       "previous_mosaic_violations": 4,
-      "newly_refused_mosaic_violation": [33, 2, 4]
+      "newly_refused_mosaic_violation": [33, 2, 4],
+      "e5_span_kind_move": {
+        "date": "2026-09-16",
+        "entry": "E-5",
+        "previous": {
+          "exact+part": 273,
+          "exact+reach": 1
+        },
+        "current": {
+          "exact+part": 271,
+          "exact+reach": 3
+        },
+        "judged_unchanged": 967,
+        "claimed_unchanged": 605,
+        "why": "Withdrawing the empty/empty coda evidence changed WHICH span pair wins, not whether a pair is judged. Nothing entered or left the judged population, every other cell of the partition is unchanged, and exactly two pairs moved bucket. Both are a vowel-final monosyllable against a -y polysyllable, which is the empty-coda case the change is about.",
+        "pairs": [
+          {
+            "sonnet": 7,
+            "lines": [2, 4],
+            "endwords": ["eye", "majesty"],
+            "from": ["exact", "part"],
+            "to": ["exact", "reach"]
+          },
+          {
+            "sonnet": 61,
+            "lines": [6, 8],
+            "endwords": ["pry", "jealousy"],
+            "from": ["exact", "part"],
+            "to": ["exact", "reach"]
+          }
+        ],
+        "measured": "Classified twice over the same 152-sonnet battery, once with coda_empty_evidence=gift and once with the adopted cannot_tell; these two pairs are the ONLY difference. MISSING.md's E-5 entry already records eye/majesty as a span that moves when the bonus is removed, so this is that same finding reaching the oracle; sonnet 61 pry/jealousy is a second instance the entry does not name."
+      }
     }
   }
 }

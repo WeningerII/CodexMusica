@@ -183,8 +183,20 @@ def main():
     check("4", "every ARGUED ruling carries a MEASUREMENT — the narrowness is "
           "argued with numbers, never talked into",
           not unmeasured, f"{unmeasured or 'all measured'}")
+    # THE COORDINATE, NOT THE PREFIX — REPINNED 2026-09-16 (`MISSING.md` E-5).
+    # This read `M-\d+`, and the register's entries are not all `M`: its
+    # headings also carry K, F, L, N, E, C, D, B and H coordinates. E-5 is the
+    # first non-`M` entry to own a door-census site, and its ruling OPENS with
+    # the words "E-5 measures scalar admission separately from schema rescue"
+    # — a citation this check could not see, so it reported a ruling that
+    # cites its entry as one that does not. The failure was in the pattern,
+    # not in the ruling, and it was latent from the day the check was written.
+    # Widened to the register's own coordinate shape. NOT a loosening: every
+    # ruling that passed before still passes (`M-\d+` is a subset of this),
+    # and a ruling carrying no coordinate at all still fails, which is the
+    # thing the check exists for.
     uncited = [k for k in arg
-               if not re.search(r"M-\d+", DC.RULINGS[k][1])]
+               if not re.search(r"\b[A-Z]{1,2}-\d+", DC.RULINGS[k][1])]
     check("4", "...and cites the register entry the argument lives in",
           not uncited, f"{uncited or 'all cited'}")
     check("4", "the census may never report every site FULL — a tree where "

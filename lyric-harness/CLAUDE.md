@@ -675,9 +675,12 @@ readable words into 12,387 first-reading construction families. Spelling-class
 counts are upper bounds for those pools, not earned-chain witnesses.
 All 81 families at the 20-class certification floor have rebuilt witnesses
 under explicit class:RHYME and the unchanged two-tier ban. The deepest
-certified chain is ~~23~~ **22**, held by ~~ONE~~ **TWO** families, `IY` and
-`IY-Z`; 22 is a witnessed lower bound, not a maximum-clique proof.
-**REPINNED 2026-09-16 with E-5.** Removing the empty-coda evidence bonus moved
+certified chain is 22, held by TWO families, `IY` and `IY-Z`; 22 is a
+witnessed lower bound, not a maximum-clique proof. **REPINNED 2026-09-16 with
+E-5, superseding a 23 that IY-Z witnessed alone** — struck here rather than
+inline, because `test_verify_entries.py` §8 mutates this exact sentence to
+prove the claim is re-derived from the artifact and not retyped, and a strike
+inside it breaks the anchor it mutates. Removing the empty-coda evidence bonus moved
 the two-tier ban, and three already-published witnesses stopped answering their
 own declared pairs cleanly: `AY` ~~19~~ 18, `EY` ~~19~~ 21, `IY-Z` ~~23~~ 22.
 Nothing in the artifact had been edited — a witness is certified once and
