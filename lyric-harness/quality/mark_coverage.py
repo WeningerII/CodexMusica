@@ -112,12 +112,18 @@ def scan(root=SONG_DIR):
     #: THE ELABORATION POINTER, counted in the SAME pass for the reason this
     #: module already gives: a second sweep would derive the population from a
     #: second definition of what a block is (doctrine 1).
+    references = collections.Counter()
     elab = collections.Counter()
     elab_findings = []
 
     for path in sorted(glob.glob(os.path.join(root, "*.txt"))):
         lang = _lang(path)
         for song in GR.read_marked_songs(path, language=lang):
+            resolution = GR.resolve_marked_references(song)
+            for key in ("stubs", "found"):
+                references[key] += resolution[key]
+            for key in ("ambiguous", "unmatched", "no_incipit"):
+                references[key] += len(resolution[key])
             _ef, _ec = GR.elaboration_findings(song)
             for _k, _v in _ec.items():
                 elab[_k] += _v
@@ -162,7 +168,10 @@ def scan(root=SONG_DIR):
                     for a, b2 in zip(blocks, blocks[1:]):
                         if not a.lines or not b2.lines:
                             continue
-                        r = GR.compare_returns(a.lines, b2.lines)
+                        r = GR.compare_returns(
+                            a.lines, b2.lines, language=lang,
+                            reference_blocks=[block.lines for block in song.blocks
+                                              if block.function in GR.POPULAR_SONG.fixed_return])
                         ladder[base][r.kind] += 1
                         rhyme_told[
                             "told" if r.rhyme_scheme_preserved is not None
@@ -181,6 +190,7 @@ def scan(root=SONG_DIR):
     witnessed = sorted({m["function"] for m in out_marks.values()
                         if m["function"]})
     return {
+        "stub_references": dict(references),
         "marks": out_marks,
         "buckets": dict(buckets),
         "by_language": {k: dict(v) for k, v in by_lang_bucket.items()},
@@ -273,6 +283,9 @@ def report(root=SONG_DIR):
     print("=" * 74)
     print(f"\n{_fmt(total)} marked blocks over {len(s['marks'])} "
           f"distinct marks\n")
+    print("  CHORUS REFERENCES (whole incipit, marked blocks, same song)")
+    for key, value in s["stub_references"].items():
+        print(f"    {key:<12} {_fmt(value):>9}")
     print("  FOUR COUNTS, NEVER SUMMED (doctrine 79)")
     for k in ("typed", "decided", "undecided", "apparatus"):
         n = b.get(k, 0)
