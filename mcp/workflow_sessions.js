@@ -239,7 +239,15 @@ export class WorkflowSessions {
         action,
       },
       this.build,
-      { session }
+      {
+        session,
+        // The resumed worker may stop before emitting its first checkpoint.
+        // Preserve the parent's accepted words for export and retention only;
+        // they are not progress from this operation and cannot authorize replay.
+        ...(resumed && tool === 'lyric_revise'
+          ? { accepted_lines: clone(parent.progress.accepted_lines) }
+          : {}),
+      }
     );
     const promise = new Promise((resolve) => setImmediate(resolve))
       .then(() => this.run(id, session, tool, args))
@@ -365,6 +373,7 @@ export class WorkflowSessions {
   status(id, domain) {
     const { record, session } = this.record(id, domain);
     const result = record.response?.body?.result;
+    const accepted = record.progress?.accepted_lines ?? record.checkpoint?.accepted_lines;
     let resumable = false;
     if (record.state === 'interrupted' && !this.store.failure) {
       try {
@@ -381,9 +390,7 @@ export class WorkflowSessions {
       ...(record.successor_id ? { successor_id: record.successor_id } : {}),
       ...(record.intent.action?.tool ? { tool: record.intent.action.tool } : {}),
       ...(result ? { tool_result: publicToolResult(result) } : {}),
-      ...(record.progress?.accepted_lines
-        ? { accepted_draft: record.progress.accepted_lines }
-        : {}),
+      ...(accepted ? { accepted_draft: accepted } : {}),
       ...(record.interruption ? { interruption: record.interruption } : {}),
       ...(record.state === 'pending' ? { retry_after_seconds: 5 } : {}),
       resumable,
