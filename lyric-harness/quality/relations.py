@@ -1967,6 +1967,10 @@ class Placement:
             return U[a.head()].line == U[b.head()].line
         if k == "different_lines":
             return U[a.head()].line != U[b.head()].line
+        if k == "adjacent_stanzas":
+            if not stream.provides("stanza"):
+                return None
+            return U[b.head()].stanza - U[a.head()].stanza == 1
         if k == "adjacent_lines":
             return U[b.head()].line - U[a.head()].line == 1
         if k == "line_gap_at_most":
@@ -2188,6 +2192,9 @@ class RelationSchema:
             need |= set(r.caps())
         for p in self.placement:
             need |= set(p.requires)
+            # M-40: the coordinate is required by the predicate itself.
+            if p.kind == "adjacent_stanzas":
+                need.add("stanza")
         for c in self.channels:
             if c.surface != "phonemic":
                 need.add(c.surface)
@@ -4885,6 +4892,20 @@ declare(RelationSchema(
          "status, which is why normative status is structural."))
 
 declare(RelationSchema(
+    name="chain rhyme (interlocking scheme)",
+    spans=(END_ANCHOR, END_ANCHOR), align="anchor",
+    channels=(ChannelRule("nucleus", AGREE, "each"),
+              ChannelRule("coda", AGREE, "each")),
+    placement=(Placement("both_line_final"), Placement("adjacent_stanzas")),
+    identity=(DISTINCT,),
+    figure=Figure(frame="song"),
+    note="E44: an end-rhyme sound carried into the next stanza. This is the "
+         "cross-stanza link, not certification of a complete terza-rima "
+         "aba bcb cdc template. Unlike linked rhyme it does not require "
+         "a line-initial member; unlike rap chain rhyme it reads stanza "
+         "boundaries. Refuses when those boundaries have no ground."))
+
+declare(RelationSchema(
     name="chain rhyme (rap)",
     spans=(FREE_MULTI, FREE_MULTI), align="flush_right",
     channels=(ChannelRule("nucleus", AGREE, "each"),),
@@ -6300,6 +6321,8 @@ _SOURCED = {
         ("Old Norse samhenda / stafhenda", "non"),
         ("German Haufenreim", "deu"),
         ("Vietnamese Đường luật độc vận", "vie"))),
+    "chain rhyme (interlocking scheme)": (("R105",), (
+        ("English literary interlocking chain rhyme", "eng"),)),
     "chain rhyme (rap)": (("R90", "R6"), (
         ("English rap chain rhyme", "eng"),)),
     "alliterative long line": (("R29",), (

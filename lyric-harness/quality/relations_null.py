@@ -454,6 +454,7 @@ STATISTICS = {
 
 #: which coordinate each Placement rule of relations.py actually reads.
 _PLACEMENT_READS = {
+    "adjacent_stanzas": "stanza",
     "adjacent_lines": "line_distance",
     "line_gap_at_most": "line_distance",
     # `same_line` is distance ZERO, which is MEMBERSHIP and not distance --
@@ -1672,7 +1673,7 @@ LEDGER_BUDGET = None
 # they do not become executable by declaring a stream capability. The
 # previous (23,1) remains historical above. Five additional rows have only
 # unresolved witnesses: they need readings, not a false zero observation.
-LEDGER_CANNOT_OBTAIN = (28, 5)
+LEDGER_CANNOT_OBTAIN = (29, 5)  # M-40: was (28, 5); stanza input missing on ledger slice.
 
 
 def ledger_slice(root=None):
@@ -1797,6 +1798,8 @@ def menu_pairs(cov):
 # and current menu sizes are retained in docs/null-endpoint-gap.json. The
 # deeper historical null tables are not new-source qualification evidence.
 EXTENSION_LEDGER = (
+    # M-40: measured on the unchanged ledger slice, 2026-09-16.
+    ('chain rhyme (interlocking scheme)',         'cannot_obtain',   7,  0),
     ('perfect rhyme',                           'controlled',      6,  4),
     ('rime riche',                              'extendable',      6,  0),
     ('repetition',                              'extendable',      3,  0),
@@ -2596,7 +2599,43 @@ def _read_one_song_grounded(path, limit=None, language=""):
     return _grounded(out, groups, opened, refused)
 
 
-READERS = {"plain": _read_slice, "dcs_tsv": _read_dcs,
+def _read_normalized_one_song_grounded(path, limit=None, language=""):
+    """Current reader, first work only; never connect rhymes across songs.
+
+    Preserve printed blank/section boundaries while applying the runtime's
+    wrapped-apparatus and footnote repairs. Historical panel readers stay fixed.
+    """
+    from quality.lyric_reader import normalized_rows
+    import lyric_harness as lh
+    raw, count = [], 0
+    for row in normalized_rows(path):
+        if row.kind == "title" and count:
+            break
+        if row.kind == "lyric":
+            raw.append(row.text)
+            count += 1
+            if limit and count >= limit:
+                break
+        elif row.kind == "blank" or _GRID.SECTION_MARK.match(row.text):
+            raw.append(row.text)
+    ground = lh.relation_ground(raw, language)
+    keep = [i for i, (line, status) in enumerate(zip(ground.lines, ground.line_status))
+            if line.strip() and not status]
+    groups = ground.stanzas
+    source = ground.stanza_source
+    if groups is None and not source:
+        groups = R.stanzas_from_blank_lines(ground.lines)
+        source = "blank_lines" if any(not l.strip() for l in ground.lines) else "none"
+    return ([ground.lines[i] for i in keep],
+            [groups[i] for i in keep] if groups is not None else None,
+            source, ground.refused_marks)
+
+
+def _read_normalized_one_song(path, limit=None):
+    return _read_normalized_one_song_grounded(path, limit)[0]
+
+
+READERS = {"normalized_one_song": _read_normalized_one_song, "plain": _read_slice, "dcs_tsv": _read_dcs,
            "one_song": _read_one_song}
 
 #: THE SAME THREE READERS, EACH RETURNING ITS GROUND (M-39).  Keyed
@@ -2604,7 +2643,8 @@ READERS = {"plain": _read_slice, "dcs_tsv": _read_dcs,
 #: stanza vector came from another is the alignment defect doctrine 66 is
 #: about, and `quality/test_relations_null.py` pins that every key here has a
 #: `READERS` twin returning byte-identical lines.
-GROUNDED_READERS = {"plain": _read_slice_grounded,
+GROUNDED_READERS = {"normalized_one_song": _read_normalized_one_song_grounded,
+                   "plain": _read_slice_grounded,
                     "dcs_tsv": _read_dcs_grounded,
                     "one_song": _read_one_song_grounded}
 
