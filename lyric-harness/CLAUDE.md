@@ -9,10 +9,12 @@ Declaration-driven rhyme, meter, and song-structure engine. The model
 proposes; these tools grade. Target: MCP server beside Codex Musica —
 Codex Musica describes the recording, this disciplines the words.
 
-## TWO STANDING RULES FROM THE OWNER — read before proposing any architecture
+## THREE STANDING RULES FROM THE OWNER — read before proposing any architecture
 
-Recorded 2026-08-17, verbatim intent, after both were violated in one session.
-These outrank any inference a session draws from the code.
+Recorded 2026-08-17, verbatim intent, after ~~both~~ THE FIRST TWO were violated
+in one session. These outrank any inference a session draws from the code.
+**Rule 3 was added 2026-09-16**, from the owner's instruction during the
+length-curve repin; it was not violated first, it was anticipated.
 
 1. **THE RECIPE ENGINE AND THE LYRICS DO NOT TOUCH. EVER.** "Beside" above
    means beside: two separate instruments for two separate questions. No
@@ -147,6 +149,27 @@ These outrank any inference a session draws from the code.
    plan (`--fill`/`--out` refused with it), since a plan is a pure function
    of its seed. `test_plan.py` §10 holds the API and `test_verbs.py` §40
    holds the half this rule is actually about — that a person can RUN it.
+
+3. **BATCH THE COMPARATOR CHANGES.** Owner, 2026-09-16, verbatim: *"batch the
+   comparator changes going forward."* `comparator_fingerprint()` in
+   `quality/song_profile_calibration.py` hashes SEVEN inputs — the WHOLE of
+   `lyric_harness.py`, the WHOLE of `quality/features.py`, `cmudict.dict`,
+   `data/opensubtitles_en_50k.tsv`, `repr(Declaration())`, and the source of
+   `predictability_frac` and of `_couplet_pairs`. A change to ANY of them
+   moves the fingerprint and DISCARDS the predictability memo — and a comment
+   in either of the two whole-file inputs counts, because the guard is
+   over-inclusive by construction. Rebuilding that memo costs ~2.1 CPU-hours
+   over the corpus's 11,941 distinct end words, so a session does not land
+   such changes one at a time: it COLLECTS them and lands them together,
+   paying the recomputation once instead of once per PR.
+
+   The rule is about WHEN you pay. It is **not** licence to narrow what the
+   fingerprint covers, to reuse a memo whose fingerprint has moved, or to
+   defer a correctness fix because a batch is open — a stale hit is a wrong
+   number wearing a measurement's clothes, which is the defect the guard
+   exists to remove (doctrine 16, and `comparator_fingerprint`'s own
+   docstring on the Whitman figures). Batch the cheap edits; never batch a
+   fix that makes a shipped number wrong in the meantime.
 
 **Read this file before you write. Read `quality/METHOD.md` when you are about
 to MEASURE** — a rate, a null, a threshold, a refusal, a provenance claim. One
