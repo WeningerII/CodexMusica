@@ -1,0 +1,17 @@
+SUITE SWEEP -- 1 suite(s), each running its own default arm
+  (this repairs nothing; a FAIL is read and fixed by hand)
+
+  [ 1/ 1] test_narrative.py                        PASS           28s   total     28s
+
+======================================================================
+  PASS         1   the suite ran and every check passed
+  FAIL         0   the suite ran and something is red -- read it and fix it
+  CANNOT RUN   0   inconclusive by construction, NOT a pass (doctrine 20)
+  three counts, never summed (doctrine 79)
+
+  tree: fcebe706 throughout
+
+  WHERE THE TIME WENT (slowest 5 of 1):
+    test_narrative.py                           28s
+
+  NOT IN THIS POPULATION (3), each with its reason in `EXCLUDED`: battery.py, quality/negative_control.py, quality/pin_sweep.py

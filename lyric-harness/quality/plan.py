@@ -1158,7 +1158,8 @@ WORDS_LEFT_FREE = 1
 JOINT_CODES = ("SPAN_BELOW_DENSITY_FLOOR", "TOKEN_INDEX_UNREACHABLE",
                "WORDS_EXCEED_SPAN", "TWO_GROUPS_ONE_WORD", "NO_FREE_WORD",
                "HOOK_IN_NONRECURRING_SECTION", "GROUP_CONTRADICTS_ITSELF",
-               "IDENTITY_AT_TWO_LINE_ENDS", "PLACEMENT_CONTRADICTS_SCHEMA")
+               "IDENTITY_AT_TWO_LINE_ENDS", "PLACEMENT_CONTRADICTS_SCHEMA",
+               "OVERHANG_EXCEEDS_SPAN")
 
 
 def line_syllable_ceiling(slots):
@@ -1179,6 +1180,42 @@ def line_syllable_ceiling(slots):
     the unsatisfiable ones are elsewhere (see this module's own gate below).
     """
     return min(slots, MB.ADOPTED["DENSITY"][1])
+
+
+def _overhang_binding(schema, members):
+    """The (line, word) that a pair requires to carry an extra syllable.
+
+    Member order is TEXT order, as in schemes.mandate, not declaration
+    order. Larger groups are refused separately by group_satisfiable.
+    The schema supplies the direction; placement_word supplies the token.
+    """
+    side = _RL.overhang_member(schema)
+    if side is None or len(members) != 2:
+        return None
+    ordered = sorted((_SL.parse_slot(str(m)) for m in members),
+                     key=lambda s: s.line)
+    slot = ordered[side - 1]
+    _, _, place = _SL.spell_slot(slot).partition(".")
+    return slot.line, placement_word(place or "end")
+
+
+def _overhang_budget(places, overhang_words, slots):
+    """(minimum syllables, ceiling, fits) for all demands on ONE line.
+
+    Each required token costs at least one syllable; each distinct token
+    required to overhang costs at least one MORE. A T4 needs the three
+    preceding words too, and an end binding needs a separate final word.
+    Aliases of one token never buy or charge a second syllable. This is a
+    necessary lower bound, not a lexical witness or a promise of a writable
+    song: longer anchors and other schemas can require additional material.
+    Both the relation draw and joint_findings ask this same predicate.
+    """
+    words = {placement_word(p) for p in places}
+    top = max((w for w in words if w != LAST_WORD), default=0)
+    tokens = top + (1 if LAST_WORD in words else 0)
+    need = tokens + len(set(overhang_words))
+    ceiling = line_syllable_ceiling(slots)
+    return need, ceiling, need <= ceiling
 
 
 def line_binding_ceiling(max_token):
@@ -1627,6 +1664,7 @@ def joint_findings(plan):
     # names every member, since the impossibility is a fact about the set.
     _rel = plan.get("relations") or {}
     _groups = [g for g in str(plan.get("groups") or "").split(";") if g.strip()]
+    _overhangs = {}
     for _gi, _g in enumerate(_groups):
         _name = _rel.get(SC.label((_gi,))) or plan.get("relation") or ""
         if not _name.startswith("schema:"):
@@ -1635,6 +1673,11 @@ def joint_findings(plan):
         if _s is None:
             continue
         _mem = [m.strip() for m in _g.split(",") if m.strip()]
+        _binding = _overhang_binding(_s, _mem)
+        if _binding is not None:
+            _ln, _word = _binding
+            _overhangs.setdefault(_ln, {}).setdefault(_word, []).append(
+                SC.label((_gi,)))
         _ends = [m for m in _mem
                  if (str(m).split(".", 1)[1] if "." in str(m) else "end")
                  in ("end", "endword")]
@@ -1698,6 +1741,19 @@ def joint_findings(plan):
             f"length and no vocabulary closes them. The schema is exactly "
             f"the figure it is named for on a PAIR; it is the group SIZE "
             f"that is impossible."))
+    for _ln, _words in sorted(_overhangs.items()):
+        _need, _ceiling, _fits = _overhang_budget(
+            at.get(_ln, []), _words, span.get(_ln, 0))
+        if not _fits:
+            _labels = sorted({label for labels in _words.values()
+                              for label in labels})
+            out.append((
+                "OVERHANG_EXCEEDS_SPAN", _ln,
+                f"group(s) {', '.join(_labels)} require an extra syllable "
+                f"on {len(_words)} distinct bound word(s). Together with "
+                f"this line's other placements they need at least {_need} "
+                f"syllables, but its grid and density band permit at most "
+                f"{_ceiling:g}. The required overhang cannot fit."))
     return out
 
 
@@ -3382,6 +3438,10 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
         _pairc = {}
         _eqp = {}
         _nep = {}
+        _bound = bound_placements(plan)
+        _spans_by_line = {s["line"]: float(s["duration"]) * plan["subdivision"]
+                          for s in plan["line_slots"]}
+        _overhangs = {}
 
         def _pfind(par, x):
             p = 0
@@ -3465,6 +3525,17 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                 if not _RL.group_satisfiable(
                         _RL.REGISTRY[_cand], len(_lines)):
                     continue
+                # M-174's remaining half: reserve the extra syllable before
+                # drawing the relation. Previously accepted groups spend
+                # the SAME line budget, so checking each pair alone fails.
+                _binding = _overhang_binding(_RL.REGISTRY[_cand], groups[_gi])
+                if _binding is not None:
+                    _ln, _word = _binding
+                    if not _overhang_budget(
+                            _bound.get(_ln, []),
+                            _overhangs.get(_ln, set()) | {_word},
+                            _spans_by_line.get(_ln, 0))[2]:
+                        continue
                 # M-175: AND A SCHEMA WHOSE IDENTITY RULE DEMANDS THE SAME
                 # TOKEN MAY NOT BIND TWO LINE ENDS. `anaphora` is the one
                 # drawable schema that does, and satisfying it at two
@@ -3561,6 +3632,10 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                     "plan's placement, cardinality and channel constraints")
             _pick = _ok[0] if relation else _ok[rng.randrange(len(_ok))]
             if _pick:
+                _binding = _overhang_binding(_RL.REGISTRY[_pick], groups[_gi])
+                if _binding is not None:
+                    _ln, _word = _binding
+                    _overhangs.setdefault(_ln, set()).add(_word)
                 if not relation:
                     drawn_relations[SC.label((_gi,))] = "schema:" + _pick
                 for _ch, _co, _pr in _traits[_pick]["claims"]:
