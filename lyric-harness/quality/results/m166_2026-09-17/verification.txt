@@ -1,0 +1,527 @@
+M-166 reconciliation verification — 2026-09-17
+Base: fcebe7066b44943ccc199760b0471e7d2ae4b437
+Runtime and comparator sources unchanged by this correction.
+
+Preparation: initial focused runs refused because this fresh checkout lacked the staged NLTK model. No pass was claimed. Staged the existing assets, ran quality/fetch_data.py --runtime and quality/release_assets.py --integrity (ok=true, errors=[]), then reran the suites.
+
+M-170 archive: all 206 RAW_SHA256SUMS entries verify. The established summarize_lyric_continuations.py reader reproduces the committed summary.json exactly. 22-line comparison complete/equal=true; 28-line comparison complete/equal=false because the cold arm times out at continuation 2. Completed continuations: cold22=11, warm22=11, cold28=1, warm28=11. This is a reread of retained measurements, not a fresh timing experiment.
+
+Deployed cache engagement and Render memory are not established by these local checks; M-187 owns that remaining measurement. No live request or deployment was made.
+
+COMMAND: node --test --test-concurrency=1 mcp/test_connector_contracts.mjs mcp/test_python_bridge.mjs mcp/test_turn_lifecycle.mjs
+EXIT: 0
+✔ host-selected recipe endpoint exposes only recipe tools and retains full guidance (61.471568ms)
+✔ unscoped in-memory registration still enforces inherited trusted task at dispatch (11.504207ms)
+✔ initialization omissions fail explicitly (0.42704ms)
+✔ native client refuses real discovery and initialization drift before offering tools (113.365276ms)
+✔ native client gives the real tool budget a response margin and honors a shorter caller deadline (28.817593ms)
+✔ connector discovery rejects a looping pagination cursor without looping indefinitely (0.390865ms)
+✔ private CLI output atomically replaces public files and argument typos fail before connecting (56.861628ms)
+✔ image identity requires valid baked bytes and source fingerprint covers recipe runtime dependencies (17.038016ms)
+✔ the production build reader ignores runtime identity overrides and refuses a missing baked file (4.84518ms)
+✔ recover string input preserves the same section information as its array twin (1.910944ms)
+✔ actual revision dispatch refuses conflicting draft and proposal representations (430.405905ms)
+✔ quoted lyrics cannot create findings or finish metadata (1.26693ms)
+✔ live surface comparison detects annotations, output schema, titles and duplicate names (0.500087ms)
+✔ initialization compares full guidance and capabilities, including omission (0.209793ms)
+✔ live qualification options cannot silently drop a misspelled release gate (0.731889ms)
+✔ production readiness refuses disabled, transient, corrupt or stale configuration (1.227215ms)
+✔ recipe acceptance measures exact delivered rich artifact and real declared edits (0.792515ms)
+✔ image promotion binds exact verified commit, repository and immutable tested build (0.770575ms)
+✔ candidate build repository bytes must remain unchanged through image recording (0.15645ms)
+✔ production contract matches the legacy service during migration and binds source identity (5.907385ms)
+✔ queue deadline includes waiting and expired work never starts (759.41859ms)
+✔ cancellation removes queued work and stops an active worker (46.182708ms)
+✔ warm and cold kills retain the same checkpoint and completed usage (2031.313802ms)
+[lyric] warm worker exited {"event":"worker_exit","code":9,"signal":null,"active":true}
+✔ active kitchen crash does not transparently replay paid work (137.087372ms)
+[lyric] warm worker exited {"event":"worker_exit","code":9,"signal":null,"active":true}
+[lyric] warm worker unavailable; deterministic cold fallback {"event":"worker_cold_fallback","remaining_ms":1835}
+✔ deterministic crash fallback has only the remaining admission budget (2053.500659ms)
+✔ warm and cold count UTF-8 report bytes with identical output ceilings (200.096267ms)
+✔ checkpoint controls do not consume the verbose report cap (88.33637ms)
+✔ MCP cancellation notification reaches a running bridge job (107.619846ms)
+✔ real Python proposer shares admission and full usage with the Node budget broker (109.947398ms)
+✔ kitchen budget refuses before provider HTTP and an interrupted request holds unknown usage (115.879029ms)
+✔ ordinary lyric text cannot impersonate a checkpoint control record (58.425182ms)
+[lyric] warm worker exited {"event":"worker_exit","code":9,"signal":null,"active":true}
+✔ a crash between atomic checkpoint write and stdout is recovered from its trusted file (36.127383ms)
+✔ budget-close failure refuses while preserving accepted state and known usage (41.646748ms)
+✔ a queued job cannot spawn until the killed worker emits close (93.160377ms)
+✔ unexpected worker death and deterministic fallback are logged without lyric content (184.301051ms)
+✔ temporary cleanup waits for reap without holding the failure response open (50.206488ms)
+✔ known billed response remains uncertain until the answer journal is written (2009.293698ms)
+✔ standalone Node CLI survives idle worker kill and awaited respawn (449.377853ms)
+✔ monotonic contexts ignore wall-clock steps on warm and cold paths (247.175574ms)
+✔ either inherited or explicit cancellation prevents spawn and cancels active work (109.635864ms)
+✔ global admission bounds jobs and bytes and cancellation promptly frees queue capacity (261.10761ms)
+✔ preparation admission spans sequential verbs and releases safely in finally (77.676958ms)
+✔ real warm/cold CLI refuses invalid usage and truncated candidates with authoritative accounting (58107.020092ms)
+PASS chat price overrides cannot price an unrelated unknown kitchen model
+PASS each emitted call is paired; expired later calls never start
+PASS each completed tool has a signed-ready recovery transcript before the next starts
+PASS model latency uses the same deadline as tool admission
+PASS a stalled fetch ends without any tool call
+PASS a stalled body ends without any tool call
+PASS large retry hints are clamped and waits cancel at the deadline
+PASS cancelled tools return their exact checkpoint before the paired result is recorded
+PASS an uncertain paid proposal stops automatic replay and preserves accepted work
+PASS an explicit fresh run bypasses the old parked record without injecting its capability
+PASS uncertified completion keeps the exact draft and coverage for continuation
+PASS reported kitchen thinking cost stops admission inside a multi-call hop
+PASS each model attempt reserves before dispatch and settles unknown cancellation
+PASS a budget refusal before a model fetch yields a recoverable stopped turn
+PASS already-cancelled work is never dispatched, including inside admission
+PASS rate limiting after completed work preserves the envelope and pacing hint
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+PASS actual HTTP and SDK preserve signed continuation and stop on disconnect
+17 turn lifecycle regressions passed
+✔ mcp/test_turn_lifecycle.mjs (2003.85625ms)
+ℹ tests 44
+ℹ suites 0
+ℹ pass 44
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 71872.250196
+
+COMMAND: cd lyric-harness && python3 quality/test_replay_memo.py
+EXIT: 0
+test_replay_memo — the deferred-replay memo (M-167)
+
+1. warm-in-one-process == cold-subprocess-per-step, byte for byte outside the memo's own disclosure
+  PASS  both arms walk the same number of resumes
+  PASS  both arms end at the same stop
+  PASS  every resume prints identical bytes modulo paths and the memo line
+  PASS  the final draft line the answer wrote appears in both arms
+  PASS  the warm arm's later resumes HIT the memo — the equivalence above examined a live memo, not two cold arms
+  PASS  warm resumes inherit more cached grading answers than fresh subprocesses; within-call assessment/menu hits are legitimate in both arms
+
+2. the run's store holds the calls this module claims to memoise
+  PASS  at least one `brief` result is in the store
+  PASS  at least one `verify` result is in the store
+
+3. LYRIC_REPLAY_MEMO=0 hands back the bare reviser and says so
+  PASS  the disabled arm reaches the same stop
+  PASS  the disabled arm discloses OFF on every resume, never warmth
+  PASS  disabled output equals the cold arm's, byte for byte outside the memo line
+  PASS  the original default-reading fixture explicitly refuses its unjudged obligation without inventing a repair request
+
+4. one changed input is a different run
+  PASS  the same inputs freeze to the same key
+  PASS  a draft differing in content is a different run
+  PASS  a mandate differing in one character is a different run
+  PASS  the growing --propose state is NOT part of the identity
+  PASS  an unreadable input yields no key (no memo, never a guess)
+
+5. LRU at the derived bound; an unrecognised shape is bypassed
+  PASS  the registry never holds more runs than its derived bound
+  PASS  eviction is LRU — the oldest unit keys are gone, the newest stay
+  PASS  an unsortable targeted set is BYPASSED (counted, not keyed, and the real method still answered)
+
+ALL PASS
+
+6. THE PROCESS-LEVEL FIELD MEMO (M-217) — a second Reviser in the same process is served the first one's fields on an IDENTICAL key, a different declaration is a miss, and LYRIC_FIELD_MEMO=0 bypasses it
+  PASS  the first Reviser MISSES and stores (one miss, one held)
+  PASS  a SECOND Reviser, same lexicon and declaration, HITS — and the field is the same list, not a recomputation
+  PASS  a Reviser with a DIFFERENT declaration (theta 0.9) misses — the declaration is in the key
+  PASS  a Reviser over a lexicon with a different aside rule misses — the lexicon's identity is in the key
+  PASS  LYRIC_FIELD_MEMO=0 bypasses the store: two Revisers, zero hits, zero misses, nothing held
+  PASS  the cap is ~~the planner's own envelope (55 lines x 4 places x 2 bands, rounded)~~ 64 lines x 4 places x 2 bands: sized 2026-09-02 to the 55-line envelope of that day, a BOUND with LRU eviction since the envelope went to 447 (M-239), scaling filed under M-240 — stated once
+
+7. THE PER-PAIR SCHEMA MEMO (M-217's remainder) — a candidate draft that differs by ONE line re-judges only the pairs that touch it, the verdicts are byte-identical to the memo-off judge, a hyphen-continued neighbour is part of the line, and LYRIC_PAIR_MEMO=0 bypasses it
+  PASS  LYRIC_PAIR_MEMO=0 bypasses the store: nothing held, nothing hit
+  PASS  six schemas, two drafts: every verdict set is byte-identical to the memo-off judge
+  PASS  the first draft of each schema is all misses (15 pairs judged, 0 hits)
+  PASS  the one-line variant hits the 10 pairs that do not touch the changed line and judges only the 5 that do — on every schema
+  PASS  a stream under a different declaration misses on every pair — the declaration is in the key
+  PASS  a change to a hyphen-cut line also re-judges the line it continues into: pairs touching L1 or L2 miss (5 of 6), the one pair that touches neither hits
+  PASS  the cut rule the signature quotes is build_stream's own
+  PASS  a stream that cannot spell per-line signatures (no text lines) bypasses the memo instead of collapsing every line onto one key
+  PASS  the two caps are stated once, and the row cap holds a 55-line draft's 1,485 pairs plus 48 one-line folds — ~~which is the planner's longest~~ a 55-line draft being the 2026-09-02 envelope's longest; the cap holds a whole draft to 91 lines and is a BOUND with LRU eviction past it (M-239; scaling filed under M-240)
+
+ALL PASS
+
+8. THE PAIR-SCORE AND RANKING MEMOS (M-217's remainder, levers 2 and 3) — a second Reviser is served the first one's pair scores and rankings on an identical key, a different profile or declaration misses, the served objects are the same verdicts, and the two kill switches bypass them
+  PASS  the first draft scores all 6 pairs and records them (6 misses, 0 hits)
+  PASS  a SECOND Reviser grading the one-line variant is served the 3 pairs that do not touch the changed line and scores the 3 that do
+  PASS  a served score IS the recorded verdict: L1~L2 identical across the two Revisers, total and relation
+  PASS  a different comparator profile misses on every pair — the profile is in the key
+  PASS  a different declaration misses on every pair — the declaration is in the key
+  PASS  the first ranking misses and is recorded; a second Reviser's identical ask is served (one miss, one hit) and the forbidden head is the same list
+  PASS  a different declaration's ranking misses — the declaration is in the key
+  PASS  the spelled-rime memo holds every word the rankings read, and the same word asked twice reads once
+  PASS  LYRIC_SCORE_MEMO=0 bypasses its store: two Revisers, zero hits, zero misses, nothing held
+  PASS  LYRIC_RANK_MEMO=0 bypasses its store: two Revisers, zero hits, zero misses, nothing held
+  PASS  the caps are stated once and the score cap holds a 55-line draft's 1,485 pairs plus every one-line fold of a long run — a 55-line draft being the 2026-09-02 envelope's longest, not ~~the planner's~~ today's (12..447 since M-239); whole drafts to 128 lines, a BOUND with LRU eviction past that, scaling filed under M-240
+  PASS  the disclosure names both memos and says served and judged apart
+
+ALL PASS
+
+COMMAND: cd lyric-harness && python3 quality/check_comparator_pin.py
+EXIT: 0
+PIN      14821a50f63e8ffd3565ba36f1446117b4a6670bb42cc6c7f53970af02bed431
+MEASURED 14821a50f63e8ffd3565ba36f1446117b4a6670bb42cc6c7f53970af02bed431
+  backed by quality/results/comparator_repin_2026-09-16/curve-check.txt
+RESULT: HOLDS — the comparator is what it was when the calibrations were last verified.
+
+COMMAND: cd lyric-harness && python3 quality/verify_entries.py
+EXIT: 0
+/workspace/scratch/8bad729d3506/CodexMusica-M-166-work/lyric-harness/quality/counters.py:550: SyntaxWarning: invalid escape sequence '\`'
+  text kept          -> `D-3`'s heading is `~~\`PARTIAL\`~~ \`CLOSED\``,
+==============================================================================
+ENTRY CLAIMS — MISSING.md and BACKLOG.md, checked at fcebe70+dirty
+==============================================================================
+  383 entries: 35 BACKLOG.md, 348 MISSING.md
+
+  asked 10618, answered 957, refused 9661
+      asked    = every claim drawn from every segment, headings included;
+                 a segment no shape recognises still counts as one asked claim
+      answered = a declared shape resolved it against the repo
+      refused  = no shape, or a shape with no coordinate to work from
+
+  ANSWERED, by shape:
+    SYMBOL_ABSENT            0 true    0 FALSE
+    HASATTR                  0 true    0 FALSE
+    REPO_PATH_EXISTS       921 true    0 FALSE
+    STAGED_FILE_COUNT       10 true    0 FALSE   [VOLATILE, measured at fcebe70+dirty]
+    MODULE_LINE_COUNT        4 true    0 FALSE
+    CORPUS_MARKER_ABSENT     3 true    0 FALSE   [VOLATILE, measured at fcebe70+dirty]
+    CORPUS_TABLE_ROW         9 true    0 FALSE   [VOLATILE, measured at fcebe70+dirty]
+    STATUS_XREF              7 true    0 FALSE
+    SCRATCH_NAMESPACED       3 true    0 FALSE
+    CAPACITY_FIGURE          0 true    0 FALSE
+    FLOOR_THRESHOLD          0 true    0 FALSE
+
+    [dead] SYMBOL_ABSENT, HASATTR, CAPACITY_FIGURE, FLOOR_THRESHOLD matched no segment in this run — a shape with no live instance
+           proves nothing about the register; see the positive control below.
+
+  REFUSED, by kind — the honest size of the unchecked remainder:
+    NO_SHAPE               9641
+    AMBIGUOUS_SCOPE          14
+    DISCHARGED                5
+    NO_INSTRUMENT             1
+
+==============================================================================
+FALSE CLAIMS — none
+==============================================================================
+
+STATUS vs CONTENT
+------------------------------------------------------------------------------
+  [ok  ] no OPEN/PARTIAL/BLOCKED entry has all its absence-claims already filled
+  [note] MISSING.md K-2 is CLOSED and its absence-claim is still TRUE (allowed: a shut entry may record a residue, and N-2 does)
+         no `--- X:` in corpus/song/ -> MEASURED 0 occurrences at fcebe70+dirty
+  [note] BACKLOG.md 3.2 is CLOSED and its absence-claim is still TRUE (allowed: a shut entry may record a residue, and N-2 does)
+         no `--- AIR:` in corpus/song/ -> MEASURED 0 occurrences at fcebe70+dirty
+
+CLAIMS IN PROSE — CAPACITY_FIGURE, FLOOR_THRESHOLD, REPO_PATH_EXISTS, over CLAUDE.md, README.md, quality/METHOD.md, quality/RESULTS_RHYME_CAPACITY.md, quality/RESULTS_SONG_FLOOR.md
+------------------------------------------------------------------------------
+  a backticked repo path must exist unless the sentence says it does not; a
+  per-family capacity figure must re-derive from data/rhyme_capacity_eng.tsv; a
+  shipped floor threshold must re-derive from quality/floor.py. Counted apart
+  from the register's triple above: these are not claims drawn from an entry.
+  CAPACITY_FIGURE   15 citation(s) in 15 segment(s): 8 true, 0 FALSE, 7 refused.
+  FLOOR_THRESHOLD   3 citation(s) in 3 segment(s): 3 true, 0 FALSE, 0 refused.
+  REPO_PATH_EXISTS  252 citation(s) in 208 segment(s): 206 true, 0 FALSE, 2 refused.
+
+PIN SUPERSESSION — doctrine 17, over quality/audit_*.py
+------------------------------------------------------------------------------
+  a check may be kept after its premise is falsified, but never quoted as if
+  it were not. IF a pin moved, its documents must still carry the old value.
+  132 pins in 11 files; 0 moved.
+    [dead] no pin has ever changed value in this history — so nothing here
+           proves the record keeps what it supersedes; see the probes below.
+
+DERIVATIONS — 26, owned by `quality/audit_register.py`, NOT re-derived here
+------------------------------------------------------------------------------
+  CONFIRMED 11, MOVED 6, SKIPPED 8, UNVERIFIABLE 1
+  Their verdicts do NOT move this file's exit code: that instrument owns its own
+  exit policy, and D8/D9 are a deliberate FALSE calibration pair. Two exit
+  policies over one instrument's output is the disagreement this file removes.
+
+  [UNVERIFIABLE] D8  Malay d. s. b.  (M-4)
+      entry says : d. s. b. occurs 108 times in the SOURCE, per M-4's live table
+      repo says  : PG47873 is not staged; the extract's count (0) cannot verify the source. Set MSA_SOURCE to the original 47873-8.txt.
+
+  [MOVED] D11  Somali gate outcomes  (K-5)
+      entry says : 18 Somali poets, 13 fail the date gate, 5 BLOCKED_ORTHOGRAPHY
+      repo says  : 18 som rows: {'BLOCKED_ORTHOGRAPHY': 4, 'REFUSED_DATE': 14}
+
+  [MOVED] D12  non-English lyricist table  (K-6)
+      entry says : 297 non-English lyricists, per-language table, every row PENDING_TEXT
+      repo says  : total non-eng 331; rows that moved {'ltc': (59, 76), 'cym': (35, 40), 'fin': (14, 26)}; the entry's 'every row is PENDING_TEXT, never SOURCED' is now 33 PENDING_TEXT and 70 SOURCED
+
+  [MOVED] D13  century-only bounds  (K-6)
+      entry says : 18 rows across cym/som/san are on a century-only bound
+      repo says  : 68 rows across {'cym': 2, 'fas': 1, 'msa': 1, 'non': 13, 'san': 36, 'som': 15}
+
+  [MOVED] D21  traditions populated  (M-15)
+      entry says : M-15: 75 of 77 schemas populated, 298 distinct Tradition rows over 319 attachments, and EVERY Tradition.source an R<n> pointer into RHYME_CANON.md -- which is the gap this entry stays open on, not the
+      repo says  : 78 schemas, 76 with traditions populated, 299 distinct Tradition rows over 320 attachments; 0 of them cite a source that is not an R<n> pointer into RHYME_CANON.md
+
+  [MOVED] D22  rhyme_constraints  (M-16)
+      entry says : 1,325 lines, no caller and no __main__
+      repo says  : 1739 lines, __main__ present, callers: ['test_relations.py', 'relation_shapes.py', 'span_rules.py', 'gate_census.py', 'test_relation_shapes.py', 'relations.py', 'test_production_relations.py', 'test_d
+
+  [MOVED] D26  70 Malay -ong/-ok inventory  (M-3)
+      entry says : doctrine 70 / M-3: -ung 0, -uk 0 against -ong and -ok
+      repo says  : -ong 38 tokens / 26 types, -ok 28 tokens / 15 types, -ung 0, -uk 0. The ZEROS reproduce and they carry doctrine 70's whole argument. The comparison figures match none of the three values on record (CL
+
+  8 derivations were SKIPPED for cost; `--slow` pays for them.
+
+POSITIVE CONTROL — can each shape still fire?
+------------------------------------------------------------------------------
+  [ok  ] SYMBOL_ABSENT
+  [ok  ] HASATTR
+  [ok  ] REPO_PATH_EXISTS
+  [ok  ] STAGED_FILE_COUNT
+  [ok  ] MODULE_LINE_COUNT
+  [ok  ] CORPUS_MARKER_ABSENT
+  [ok  ] CORPUS_TABLE_ROW
+  [ok  ] STATUS_XREF
+  [ok  ] SCRATCH_NAMESPACED
+  [ok  ] CAPACITY_FIGURE
+  [ok  ] FLOOR_THRESHOLD
+  [ok  ] prose STALE probe
+  [ok  ] prose DISCLAIMED probe
+  [ok  ] prose STRUCK probe
+  [ok  ] prose SUBJECT probe
+  [ok  ] pin extractor
+  [ok  ] pin VANISHED probe
+  [ok  ] pin UNMARKED probe
+  [ok  ] pin ok probe
+  [ok  ] pin ok probe
+  [ok  ] pin history VANISHED probe
+  [ok  ] pin history NEVER_QUOTED probe
+  [ok  ] pin history REFUSED probe
+  (STATUS_XREF is exercised by the sweep itself: 12 live cross-reference(s) resolved — 7 true, 0 FALSE, 5 discharged.)
+
+RESULT: PASS
+
+COMMAND: cd lyric-harness && python3 quality/verify_doctrines.py
+EXIT: 0
+/workspace/scratch/8bad729d3506/CodexMusica-M-166-work/lyric-harness/quality/verify_doctrines.py:97: SyntaxWarning: invalid escape sequence '\|'
+  dash, en dash and `--` fold together); and an ESCAPED PIPE (`\|`, the one
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+==========================================================================
+DOCTRINE CROSS-REFERENCE VERIFICATION
+==========================================================================
+  defined in CLAUDE.md               20  1-7, 9, 24, 32, 34, 37, 44-48, 62, 85, 92
+  defined in quality/METHOD.md       75  8, 10-23, 25-31, 33, 35-36, 38-43, 49-61, 63-84, 86-91, 93-95
+  TOTAL DEFINED                      95
+
+[ok  ] no number is defined twice
+[ok  ] every referenced number resolves  (7890 reference sites, 94 distinct numbers)
+[ok  ] nothing defined before the split has been lost  (baseline 95, from 9b5f7c9)
+[refu] the baseline's own derivation could not be re-run (history not reachable — a shallow clone). The check above still ran; this line is the corroboration, not the check.
+[ok  ] the definition set is a contiguous run 1..95
+[ok  ] every `known gap N` resolves against CLAUDE.md's own 1-10 list  (cited: [1, 2, 3, 4, 6, 7, 8, 9])
+[ok  ] every index row's TITLE agrees with its definition's title  (95 rows: 93 identical after normalisation, 2 carrying a trailing annotation)
+[note] rows that NEED each fold: wrap 37, period 95, emphasis 0, struck 0, dash 0, pipe 0  (a fold at 0 is unexercised — declared, not doing work)
+[ok  ] every doctrine carries a registry row that names a real check or a declared refusal
+[note] 1 doctrines are cited nowhere but this file pair: [23]
+
+THE DOCTRINE -> CHECK REGISTRY
+  ASKED            95
+  MECHANICAL       75
+  ASSERTED          6
+  PROSE            11
+  N-A               3
+  the 20 without a command, by number: [8, 10, 12, 23, 31, 32, 33, 38, 39, 40, 42, 49, 67, 69, 73, 77, 78, 86, 87, 93]
+  33 distinct commands stand behind the 75 mechanical rows
+
+MOST-CITED DOCTRINES (reference sites across the whole repo)
+  doctrine 79   805 sites  in 211 files   home: quality/METHOD.md
+  doctrine 20   800 sites  in 181 files   home: quality/METHOD.md
+  doctrine 1    595 sites  in 156 files   home: CLAUDE.md
+  doctrine 58   457 sites  in 154 files   home: quality/METHOD.md
+  doctrine 17   423 sites  in 136 files   home: quality/METHOD.md
+  doctrine 48   259 sites  in 112 files   home: CLAUDE.md
+  doctrine 54   240 sites  in 119 files   home: quality/METHOD.md
+  doctrine 28   170 sites  in 67 files   home: quality/METHOD.md
+  doctrine 80   155 sites  in 50 files   home: quality/METHOD.md
+  doctrine 45   147 sites  in 55 files   home: CLAUDE.md
+  doctrine 3    142 sites  in 57 files   home: CLAUDE.md
+  doctrine 9    124 sites  in 27 files   home: CLAUDE.md
+
+REFUSED (counted, not passed): 1
+RESULT: PASS
+
+COMMAND: cd lyric-harness && python3 quality/verify_figures.py --check
+EXIT: 0
+verify_figures — the prose answers to the pin (M-33)
+  documents in scope: quality/RESULTS.md
+  occurrences quoting the CURRENT value: 22
+  superseded values in HISTORY form (struck or blockquote — doctrine 17 working): 19
+  RETIRED values, listed and policed by nothing (labelled narrative is the record): 85
+  VIOLATIONS — a superseded value quoted live: 0
+
+COMMAND: cd lyric-harness && python3 quality/audit_register.py --coverage --check
+EXIT: 0
+
+==========================================================================
+CHECK -- the committed register-audit figures against this run
+==========================================================================
+  [ok  ] canon_distinct_indices   committed 555
+  [ok  ] canon_entries            committed 117
+  [ok  ] canon_refs_multiline     committed 654
+  [ok  ] canon_refs_singleline    committed 611
+  [ok  ] canon_unsourced          committed 113
+  [ok  ] canon_year_tokens        committed 23
+  [ok  ] coverage_audited         committed 19
+  [ok  ] coverage_entries         committed 348
+  [ok  ] cym_defective            committed 126
+  [ok  ] cym_read                 committed 29443
+  [ok  ] cym_refused              committed 0
+  [ok  ] cym_total                committed 29569
+  [ok  ] entries_cites_nothing    committed 0
+  [ok  ] entries_external         committed 116
+  [ok  ] entries_none_external    committed 1
+  [ok  ] fin_defective            committed 151
+  [ok  ] fin_read                 committed 144562
+  [ok  ] fin_refused              committed 567
+  [ok  ] fin_total                committed 145280
+  [ok  ] index_external           committed 501
+  [ok  ] index_project            committed 68
+  [ok  ] index_rows               committed 601
+  [ok  ] index_unrecorded         committed 32
+  [ok  ] schemas                  committed 78
+  [ok  ] schemas_no_tradition     committed 2
+  [ok  ] schemas_with_traditions  committed 76
+  [ok  ] traditions_attachments   committed 320
+  [ok  ] traditions_cannot_tell   committed 61
+  [ok  ] traditions_distinct      committed 299
+  [ok  ] traditions_external      committed 212
+  [ok  ] traditions_project       committed 26
+  [ok  ] consistency C1           committed ok
+  [ok  ] consistency C2           committed ok
+  [ok  ] consistency C3           committed ok
+  [ok  ] consistency C4           committed ok
+  [ok  ] consistency C5           committed ok
+  [ok  ] consistency C6           committed ok
+  [ok  ] consistency C7           committed ok
+  [ok  ] consistency C8           committed n/a
+  [ok  ] consistency C9           committed ok
+  [ok  ] consistency C10          committed ok
+
+RESULT: PASS
+
+Receipt formatting: trailing whitespace removed from captured console lines.
+
+COMMAND: npm run lint
+EXIT: 0
+ESLint completed without errors.
+
+COMMAND: node_modules/.bin/prettier --check lyric-harness/MISSING.md lyric-harness/BACKLOG.md
+EXIT: 0
+All matched files use Prettier code style.
+
+COMMAND: npm run check-docs
+EXIT: 0
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> codex-music-tool@2.0.0 check-docs
+> node scripts/check_docs.js && node scripts/check_doc_commands.js && node scripts/check_doc_paths.js && node scripts/check_doc_behaviors.js
+
+=== Documentation verification ===
+(148 active docs scanned: *.md + llms.txt + index.html + atlas.html; CHANGELOG/tests + codex.html excluded)
+
+[NUMERIC CLAIMS]  (22 count types)
+  ✓ All canonical counts match current catalog state.
+
+[SCRIPT REFERENCES]  (82 unique refs across active docs)
+  ✓ All script refs resolve to existing files.
+
+PASS — no drift detected.
+(Run with --with-audits for fast audit-count checks, or --all for full sweep.)
+=== Documented command execution (13 concrete commands) ===
+PASS — all 13 documented script commands exit 0.
+=== Documented path existence ===
+  present 244   ignored 0   declared-unreproducible 8   MISSING 0
+  (four counts, never summed — doctrine 79)
+PASS — every documented path is present, git-ignored, or declared unreproducible.
+=== Documented behavior assertions (8) ===
+PASS — all 8 documented behaviors hold.
+
+COMMAND: cd lyric-harness && python3 quality/counters.py --write
+EXIT: 0
+/workspace/scratch/8bad729d3506/CodexMusica-M-166-work/lyric-harness/quality/counters.py:550: SyntaxWarning: invalid escape sequence '\`'
+  text kept          -> `D-3`'s heading is `~~\`PARTIAL\`~~ \`CLOSED\``,
+/workspace/scratch/8bad729d3506/CodexMusica-M-166-work/lyric-harness/quality/counters.py:550: SyntaxWarning: invalid escape sequence '\`'
+  text kept          -> `D-3`'s heading is `~~\`PARTIAL\`~~ \`CLOSED\``,
+/workspace/scratch/8bad729d3506/CodexMusica-M-166-work/lyric-harness/quality/test_triage.py:104: SyntaxWarning: invalid escape sequence '\`'
+  `~~\`PARTIAL\`~~ \`CLOSED\`` -- and BOTH shipped readers took the first
+/workspace/scratch/8bad729d3506/CodexMusica-M-166-work/lyric-harness/quality/test_verify_entries.py:263: SyntaxWarning: invalid escape sequence '\d'
+  """`\b\d+` reads "1,297 English files" as 297 — the word boundary sits
+/workspace/scratch/8bad729d3506/CodexMusica-M-166-work/lyric-harness/quality/verify_doctrines.py:97: SyntaxWarning: invalid escape sequence '\|'
+  dash, en dash and `--` fold together); and an ESCAPED PIPE (`\|`, the one
+==============================================================================
+COUNTERS — measured on the cheap path
+==============================================================================
+  [ok      ] MISSING entries by status
+      44 OPEN / 28 PARTIAL / 1 BLOCKED / 260 CLOSED / 15 RESOLVED = 348 entries
+      audit_register's independent parser agrees: 348 entries
+      derived by: python3 quality/counters.py
+  [ok      ] doctrines
+      **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`)
+      `known gap N` is a SEPARATE numbering, 1–10, 10 items — not part of the run. CLAUDE.md's bare `^N. **` count is 34 = 20 doctrines + 14 known gaps, which is where the recorded 27 (and so 102) came from.
+      derived by: python3 quality/verify_doctrines.py
+  [ok      ] stranded modules
+      **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 4 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`, `span_rules.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed
+      61 one-shot runners have a `__main__`; rhyme_constraints test callers: test_declared_inputs.py, test_production_relations.py, test_relation_shapes.py, test_relations.py
+      derived by: python3 lyric_harness.py wiring
+  [ok      ] public symbols by where they are referenced
+      **1581** DECLARED-public top-level functions/classes under `quality/` and the root — **347** named by another production module, **477** by tests only, **630** only inside their own module, **11** by nothing anywhere, **116** REFUSED (73 ambiguous, 33 dynamic, 10 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **88** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them
+      named by nothing, longest first: quality.coverage_log.inspect_codes (def, 25 lines); quality.build_ci_corpus.load_orthography (def, 10 lines); quality.rhyme_constraints.scan (def, 9 lines); quality.hafez_rate.qafiya_words (def, 9 lines); quality.relations.tri_or (def, 7 lines); quality.audit_hafez_radif.has_radif (def, 6 lines); quality.capacity.corpus_files (def, 4 lines); lyric_harness.join_spaced_enclitics (def, 3 lines); quality.rhyme_constraints.DIRECTED_DIFFER (def, 2 lines); quality.rhyme_constraints.CLASS_EQUAL (def, 2 lines); +1 more
+      that list is THIS run's, and cells are closing entries in it now — re-run rather than quoting it
+      OUT OF SCOPE and unmeasured: 544 public methods on those classes — a dead method on a live class is invisible to a top-level sweep
+      OUTSIDE THE POPULATION, public at the top level and omitted by their own module's `__all__`: quality.fit.AssumedMeter; quality.fit.InertCoordinate; quality.fit.main; quality.fit.section_key; quality.gate_census.by_disposition; quality.gate_census.main; quality.gate_census.severity_fields; quality.gate_census.unruled; quality.graph_probe.indexed; quality.graph_probe.main; quality.grid.Specialisation; quality.grid.SpecialisationMismatch; quality.grid.placement_findings; quality.grid.placement_of; quality.grid.resolve_marked_references; quality.grid.severity_of; quality.grid.specialisation_of; quality.loop.swap_at_slot; quality.meter.exact_integer; quality.meter.exact_number; quality.meter.guard_expansion; quality.meter.validate_blueprint; quality.plan.audible_share; quality.plan.brief_legend; quality.plan.draft_execution_bound; quality.plan.fillable_line_counts; quality.plan.form_min_sections; quality.plan.line_binding_ceiling; quality.plan.place_gloss; quality.plan.plan_max_token; quality.plan.render_blueprint_song; quality.plan.schema_asks; quality.propose.ProposerUnavailable; quality.propose.UnorderableMember; quality.propose.parse_batch; quality.propose.render_batch; quality.propose.slot_phrase; quality.relations.Alternatives; quality.relations.FigureMembers; quality.relations.LinePairResults; quality.relations.NativeRhyme; quality.relations.PrefixAgree; quality.relations.VocabularyPairResults; quality.relations.align_anchor; quality.relations.align_flush_left; quality.relations.align_flush_right; quality.relations.align_none; quality.relations.audible_as_end_rhyme; quality.relations.declare_beat; quality.relations.derive_drawable_schemas; quality.relations.drawable_traits; quality.relations.figure_pair_representable; quality.relations.inert_census; quality.relations.line_status_from; quality.relations.main; quality.relations.pair_memo_clear; quality.relations.pair_memo_disclosure; quality.relations.pair_memo_tally; quality.relations.pair_scope_representable; quality.relations.placement_bindable; quality.relations.planning_work_bound; quality.relations.print_inert_report; quality.relations.quantifier_table; quality.relations.stanzas_from_sections; quality.relations.tradition_provenance; quality.relations.uncertain; quality.relations.whole_vocabulary_pairs; quality.revise.SlotField; quality.revise.ban_emptied_note; quality.revise.field_memo_clear; quality.revise.field_memo_tally; quality.revise.memo_disclosure; quality.revise.rank_memo_tally; quality.revise.schema_route_lines; quality.revise.score_memo_tally; quality.revise.score_rank_memo_clear; quality.rhyme_constraints.Extent; quality.rhyme_constraints.QuantifierRefused; quality.rhyme_constraints.apply_pred; quality.rhyme_constraints.canonical_quantifier; quality.rhyme_constraints.demo_type; quality.rhyme_types.coarse_relation_consensus; quality.rhyme_types.name; quality.rhyme_types.namespaced_vocabulary; quality.rhyme_types.relation_ambiguities; quality.rhyme_types.schema_relation_names; quality.schemes.name; quality.slots.span_kind — each is invisible to every bucket above, so adding or stranding one moves no figure here
+      derived by: python3 quality/counters.py
+  [ok      ] mutations declared
+      **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test)
+      all 58 apply cleanly to the current source
+      derived by: python3 quality/counters.py
+  [REFUSED ] mutations caught
+      REFUSED (cost) — not measured on the cheap path
+      not measured on the cheap path
+      remedy: python3 quality/counters.py --slow
+      derived by: python3 quality/test_mutation.py
+  [VOLATILE] `corpus/song/` files
+      1421 files   (not written to the table)
+      counted in /workspace/scratch/8bad729d3506/CodexMusica-M-166-work/lyric-harness/corpus/song at run time
+      derived by: python3 quality/counters.py
+  [VOLATILE] `corpus/song/eng_*` — K-1's own quantities
+      1297 files, 8,652 songs, 282,745 sung lines; 2,432 repeat blocks (1,580 BURDEN / 595 REFRAIN / 257 CHORUS); CONCENTRATION (K-1a): top files eng_hall_thomas_durfey.txt 567 (23.3%), eng_celtic_robert_burns.txt 369 (15.2%), eng_british_felicia_hemans.txt 278 (11.4%) of 2432 blocks in 101 carrying files   (not written to the table)
+      rule: a song is a `--- TITLE:` line; a sung line is non-blank and does not begin `#`, `---` or `[`; a repeat block is a `[TAG` line with its trailing index stripped; the concentration rides the cell because the total alone is the biased number (K-1a)
+      derived by: python3 quality/counters.py
+  [VOLATILE] `data/sources.tsv` rows
+      1626 rows   (not written to the table)
+      1626 data rows + 1 header; physical lines 1627
+      derived by: python3 quality/counters.py
+  [VOLATILE] `data/lyricists.tsv` rows
+      551 rows   (not written to the table)
+      551 data rows + 1 header; physical lines 552
+      derived by: python3 quality/counters.py
+  [ok      ] sonnet battery
+      4/967 = 0.4% violations (`mandated 1064, judged 967, refused 97`)
+      judged + refused = mandated, so no refusal is in the numerator
+      derived by: python3 battery.py
+  [ok      ] band FPR on random pairs
+      **2.10%** (84 of 4,000 at seed 20260810, the runner's own default n; 2.00% = 60 of 3,000 at n=3,000 — the population size is a coordinate)
+      n=4,000: 4000 judged, 0 refused by CMUdict
+      derived by: python3 quality/redteam_band.py
+  [ok      ] register-audit findings
+      **0** — FALSE derivations: none
+      audit_register exit code 0
+      derived by: python3 quality/audit_register.py
+  [REFUSED ] adversaries built, of 8
+      REFUSED (judgement) — `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them (the INSTRUMENT column is checkable and `quality/verify_entries.py` checks it)
+      `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them (the INSTRUMENT column is checkable and `quality/verify_entries.py` checks it)
+      remedy: read §0 and decide; do not let this file guess
+      derived by: read BACKLOG.md §0
+
+  asked 14, answered 12, refused 2  (refusals by kind: COST 1, JUDGEMENT 1)
+
+BACKLOG.md's counters table rewritten between the <!-- COUNTERS --> markers.
