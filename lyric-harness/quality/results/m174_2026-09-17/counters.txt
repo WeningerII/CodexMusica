@@ -1,0 +1,93 @@
+/workspace/scratch/258213b7312c/CodexMusica-M-174/lyric-harness/quality/counters.py:550: SyntaxWarning: invalid escape sequence '\`'
+  text kept          -> `D-3`'s heading is `~~\`PARTIAL\`~~ \`CLOSED\``,
+/workspace/scratch/258213b7312c/CodexMusica-M-174/lyric-harness/quality/counters.py:550: SyntaxWarning: invalid escape sequence '\`'
+  text kept          -> `D-3`'s heading is `~~\`PARTIAL\`~~ \`CLOSED\``,
+/workspace/scratch/258213b7312c/CodexMusica-M-174/lyric-harness/quality/test_triage.py:104: SyntaxWarning: invalid escape sequence '\`'
+  `~~\`PARTIAL\`~~ \`CLOSED\`` -- and BOTH shipped readers took the first
+/workspace/scratch/258213b7312c/CodexMusica-M-174/lyric-harness/quality/test_verify_entries.py:263: SyntaxWarning: invalid escape sequence '\d'
+  """`\b\d+` reads "1,297 English files" as 297 — the word boundary sits
+/workspace/scratch/258213b7312c/CodexMusica-M-174/lyric-harness/quality/verify_doctrines.py:97: SyntaxWarning: invalid escape sequence '\|'
+  dash, en dash and `--` fold together); and an ESCAPED PIPE (`\|`, the one
+==============================================================================
+COUNTERS — measured on the cheap path
+==============================================================================
+  [ok      ] MISSING entries by status
+      45 OPEN / 27 PARTIAL / 1 BLOCKED / 260 CLOSED / 15 RESOLVED = 348 entries
+      audit_register's independent parser agrees: 348 entries
+      derived by: python3 quality/counters.py
+  [ok      ] doctrines
+      **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`)
+      `known gap N` is a SEPARATE numbering, 1–10, 10 items — not part of the run. CLAUDE.md's bare `^N. **` count is 34 = 20 doctrines + 14 known gaps, which is where the recorded 27 (and so 102) came from.
+      derived by: python3 quality/verify_doctrines.py
+  [ok      ] stranded modules
+      **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 4 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`, `span_rules.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed
+      61 one-shot runners have a `__main__`; rhyme_constraints test callers: test_declared_inputs.py, test_production_relations.py, test_relation_shapes.py, test_relations.py
+      derived by: python3 lyric_harness.py wiring
+  [ok      ] public symbols by where they are referenced
+      **1581** DECLARED-public top-level functions/classes under `quality/` and the root — **347** named by another production module, **477** by tests only, **630** only inside their own module, **11** by nothing anywhere, **116** REFUSED (73 ambiguous, 33 dynamic, 10 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **88** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them
+      named by nothing, longest first: quality.coverage_log.inspect_codes (def, 25 lines); quality.build_ci_corpus.load_orthography (def, 10 lines); quality.rhyme_constraints.scan (def, 9 lines); quality.hafez_rate.qafiya_words (def, 9 lines); quality.relations.tri_or (def, 7 lines); quality.audit_hafez_radif.has_radif (def, 6 lines); quality.capacity.corpus_files (def, 4 lines); lyric_harness.join_spaced_enclitics (def, 3 lines); quality.rhyme_constraints.DIRECTED_DIFFER (def, 2 lines); quality.rhyme_constraints.CLASS_EQUAL (def, 2 lines); +1 more
+      that list is THIS run's, and cells are closing entries in it now — re-run rather than quoting it
+      OUT OF SCOPE and unmeasured: 544 public methods on those classes — a dead method on a live class is invisible to a top-level sweep
+      OUTSIDE THE POPULATION, public at the top level and omitted by their own module's `__all__`: quality.fit.AssumedMeter; quality.fit.InertCoordinate; quality.fit.main; quality.fit.section_key; quality.gate_census.by_disposition; quality.gate_census.main; quality.gate_census.severity_fields; quality.gate_census.unruled; quality.graph_probe.indexed; quality.graph_probe.main; quality.grid.Specialisation; quality.grid.SpecialisationMismatch; quality.grid.placement_findings; quality.grid.placement_of; quality.grid.resolve_marked_references; quality.grid.severity_of; quality.grid.specialisation_of; quality.loop.swap_at_slot; quality.meter.exact_integer; quality.meter.exact_number; quality.meter.guard_expansion; quality.meter.validate_blueprint; quality.plan.audible_share; quality.plan.brief_legend; quality.plan.draft_execution_bound; quality.plan.fillable_line_counts; quality.plan.form_min_sections; quality.plan.line_binding_ceiling; quality.plan.place_gloss; quality.plan.plan_max_token; quality.plan.render_blueprint_song; quality.plan.schema_asks; quality.propose.ProposerUnavailable; quality.propose.UnorderableMember; quality.propose.parse_batch; quality.propose.render_batch; quality.propose.slot_phrase; quality.relations.Alternatives; quality.relations.FigureMembers; quality.relations.LinePairResults; quality.relations.NativeRhyme; quality.relations.PrefixAgree; quality.relations.VocabularyPairResults; quality.relations.align_anchor; quality.relations.align_flush_left; quality.relations.align_flush_right; quality.relations.align_none; quality.relations.audible_as_end_rhyme; quality.relations.declare_beat; quality.relations.derive_drawable_schemas; quality.relations.drawable_traits; quality.relations.figure_pair_representable; quality.relations.inert_census; quality.relations.line_status_from; quality.relations.main; quality.relations.pair_memo_clear; quality.relations.pair_memo_disclosure; quality.relations.pair_memo_tally; quality.relations.pair_scope_representable; quality.relations.placement_bindable; quality.relations.planning_work_bound; quality.relations.print_inert_report; quality.relations.quantifier_table; quality.relations.stanzas_from_sections; quality.relations.tradition_provenance; quality.relations.uncertain; quality.relations.whole_vocabulary_pairs; quality.revise.SlotField; quality.revise.ban_emptied_note; quality.revise.field_memo_clear; quality.revise.field_memo_tally; quality.revise.memo_disclosure; quality.revise.rank_memo_tally; quality.revise.schema_route_lines; quality.revise.score_memo_tally; quality.revise.score_rank_memo_clear; quality.rhyme_constraints.Extent; quality.rhyme_constraints.QuantifierRefused; quality.rhyme_constraints.apply_pred; quality.rhyme_constraints.canonical_quantifier; quality.rhyme_constraints.demo_type; quality.rhyme_types.coarse_relation_consensus; quality.rhyme_types.name; quality.rhyme_types.namespaced_vocabulary; quality.rhyme_types.relation_ambiguities; quality.rhyme_types.schema_relation_names; quality.schemes.name; quality.slots.span_kind — each is invisible to every bucket above, so adding or stranding one moves no figure here
+      derived by: python3 quality/counters.py
+  [ok      ] mutations declared
+      **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test)
+      all 58 apply cleanly to the current source
+      derived by: python3 quality/counters.py
+  [REFUSED ] mutations caught
+      REFUSED (cost) — not measured on the cheap path
+      not measured on the cheap path
+      remedy: python3 quality/counters.py --slow
+      derived by: python3 quality/test_mutation.py
+  [VOLATILE] `corpus/song/` files
+      1421 files   (not written to the table)
+      counted in /workspace/scratch/258213b7312c/CodexMusica-M-174/lyric-harness/corpus/song at run time
+      derived by: python3 quality/counters.py
+  [VOLATILE] `corpus/song/eng_*` — K-1's own quantities
+      1297 files, 8,652 songs, 282,745 sung lines; 2,432 repeat blocks (1,580 BURDEN / 595 REFRAIN / 257 CHORUS); CONCENTRATION (K-1a): top files eng_hall_thomas_durfey.txt 567 (23.3%), eng_celtic_robert_burns.txt 369 (15.2%), eng_british_felicia_hemans.txt 278 (11.4%) of 2432 blocks in 101 carrying files   (not written to the table)
+      rule: a song is a `--- TITLE:` line; a sung line is non-blank and does not begin `#`, `---` or `[`; a repeat block is a `[TAG` line with its trailing index stripped; the concentration rides the cell because the total alone is the biased number (K-1a)
+      derived by: python3 quality/counters.py
+  [VOLATILE] `data/sources.tsv` rows
+      1626 rows   (not written to the table)
+      1626 data rows + 1 header; physical lines 1627
+      derived by: python3 quality/counters.py
+  [VOLATILE] `data/lyricists.tsv` rows
+      551 rows   (not written to the table)
+      551 data rows + 1 header; physical lines 552
+      derived by: python3 quality/counters.py
+  [ok      ] sonnet battery
+      4/967 = 0.4% violations (`mandated 1064, judged 967, refused 97`)
+      judged + refused = mandated, so no refusal is in the numerator
+      derived by: python3 battery.py
+  [ok      ] band FPR on random pairs
+      **2.10%** (84 of 4,000 at seed 20260810, the runner's own default n; 2.00% = 60 of 3,000 at n=3,000 — the population size is a coordinate)
+      n=4,000: 4000 judged, 0 refused by CMUdict
+      derived by: python3 quality/redteam_band.py
+  [ok      ] register-audit findings
+      **0** — FALSE derivations: none
+      audit_register exit code 0
+      derived by: python3 quality/audit_register.py
+  [REFUSED ] adversaries built, of 8
+      REFUSED (judgement) — `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them (the INSTRUMENT column is checkable and `quality/verify_entries.py` checks it)
+      `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them (the INSTRUMENT column is checkable and `quality/verify_entries.py` checks it)
+      remedy: read §0 and decide; do not let this file guess
+      derived by: read BACKLOG.md §0
+
+  asked 14, answered 12, refused 2  (refusals by kind: COST 1, JUDGEMENT 1)
+
+==============================================================================
+CHECK — BACKLOG.md's committed counters table against the measurement
+==============================================================================
+  scope: the 14 row(s) between <!-- COUNTERS --> and <!-- /COUNTERS --> — value AND `measured by` cell. Prose elsewhere in BACKLOG.md is NOT a row and is not checked.
+  [not checked] mutations caught — refused for COST on this run; re-run with --slow
+  [reported, not asserted] BACKLOG.md:2071 restates `mutations declared` in prose
+         prose    : **24 of the 57 then declared**
+         measured : **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test)
+         Compare them by eye. This does NOT set the exit code: the remedy is to rewrite the sentence, which `--write` cannot do and no other cell should be held red for.
+  [reported, not asserted] BACKLOG.md:2058 restates `sonnet battery` in prose
+         prose    : `81/1014` as measured on 2026-08-11
+         measured : 4/967 = 0.4% violations (`mandated 1064, judged 967, refused 97`)
+         Compare them by eye. This does NOT set the exit code: the remedy is to rewrite the sentence, which `--write` cannot do and no other cell should be held red for.
+  [ok  ] every committed counter equals its measurement
+
+RESULT: PASS

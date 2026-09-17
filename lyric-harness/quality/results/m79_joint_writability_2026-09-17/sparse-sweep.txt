@@ -1,0 +1,6 @@
+  SWEEP: seeds 0..199 (200), form=verse-chorus
+    WANT bound_words_per_line<=1.5 — the MEAN words bound per line, over every line — the density coordinate, where `pins_per_line` is the per-line cap
+    swept 200  planned 200  REFUSED by the planner 0  accepted 78 (39.0% of the planned)
+    ACCEPTED (in seed order — this does NOT rank them; doctrine 7 enforces a floor and does not order the permitted region, and an argmax over a swept parameter is doctrine 19's own bias):
+      0, 1, 9, 10, 12, 13, 16, 19, 21, 22, 23, 25, 26, 27, 28, 30, 31, 36, 37, 43, 49, 57, 71, 76, 80, 84, 87, 88, 89, 90, 94, 95, 97, 99, 100, 101, 102, 103, 104, 105 ... and 38 more
+    NEXT: python3 lyric_harness.py plan --seed=0

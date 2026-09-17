@@ -1,0 +1,6 @@
+  SWEEP: seeds 0..199 (200), form=verse-chorus
+    WANT pins_per_line<=4 — the most words any one line is bound at — the coordinate `M-79`'s Finding 3 says has none
+    swept 200  planned 200  REFUSED by the planner 0  accepted 200 (100.0% of the planned)
+    ACCEPTED (in seed order — this does NOT rank them; doctrine 7 enforces a floor and does not order the permitted region, and an argmax over a swept parameter is doctrine 19's own bias):
+      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39 ... and 160 more
+    NEXT: python3 lyric_harness.py plan --seed=0

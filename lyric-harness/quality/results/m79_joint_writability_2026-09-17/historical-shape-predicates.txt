@@ -1,0 +1,11 @@
+  SWEEP: seeds 1..399 (399), form=verse-chorus
+    WANT slots_per_line>=5 — the widest line's slot capacity
+    WANT slots_per_line<=12 — the widest line's slot capacity
+    WANT group<=4 — the deepest rhyme group's member count
+    WANT before=verse,chorus — the first instance of A precedes the first instance of B
+    WANT lines>=8 — the song's total line count
+    WANT lines<=24 — the song's total line count
+    swept 399  planned 399  REFUSED by the planner 0  accepted 23 (5.8% of the planned)
+    ACCEPTED (in seed order — this does NOT rank them; doctrine 7 enforces a floor and does not order the permitted region, and an argmax over a swept parameter is doctrine 19's own bias):
+      1, 7, 16, 19, 22, 23, 29, 35, 76, 104, 140, 152, 159, 183, 198, 231, 241, 336, 344, 353, 354, 367, 397
+    NEXT: python3 lyric_harness.py plan --seed=1

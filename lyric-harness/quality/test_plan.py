@@ -1045,7 +1045,11 @@ def test_the_measure():
     # the adopted bound. Its result cannot become a generative coordinate.
     ALLOWED_FROM_CAPACITY = {"ADOPTED_MAX_GROUP", "require_current_proof"}
     ALLOWED_FROM_SLOTS = {"PLANNABLE_PLACEMENTS", "placement_word",
-                          "LAST_WORD", "is_default_spelling"}
+                          "LAST_WORD", "is_default_spelling",
+                          "parse_slot", "spell_slot"}
+    # M-174: these two convert declared placements without reading words,
+    # a lexicon or a corpus. The capacity check must order members by line
+    # and keep aliases on their shared token, using the slot grammar itself.
     # `is_default_spelling` joined 2026-09-03 (M-206). It is a PURE PREDICATE
     # over a member's own spelling — `is_default(parse_slot(text))`, in the
     # module that owns the spelling — and it resolves nothing: no lexicon, no
@@ -1916,7 +1920,7 @@ def test_the_joint_gate():
     plans = [make_plan(seed=k) for k in range(JOINT_SWEEP)]
     check("the sweep produced plans to ask the question of",
           len(plans) == JOINT_SWEEP, f"{len(plans)} plans")
-    check("NO plan in the sweep asks for a conjunction it cannot have — the "
+    check("NO plan in the sweep has a contradiction detected by this gate — the "
           "gate is satisfied BY CONSTRUCTION, which is the relationship "
           "`ADOPTED_MAX_GROUP` already has to the scheme sampler and is why "
           "the mutations below are the only way to fire it",
@@ -2181,21 +2185,19 @@ def test_the_seed_sweep_is_a_verb():
                          "pins_per_line<=5")}
     res = PLN.sweep(_R, wants=wants)
 
-    # MISSING.md M-79 — Finding 2: whether a plan is song-shaped is still
-    # answered by SEARCHING seeds rather than by the draw. Pinned as an
+    # MISSING.md M-79 — Finding 2: these six caller preferences still
+    # select a minority of UNCONDITIONED draws. Pinned as an
     # INEQUALITY and never as a count: this section struck a seed list twice
     # in one day (M-106, M-107) and the comment above says why, so recording
     # "5 of 160" here would be recording the same fragility a third time.
-    # The band is what M-79 claims and what the closing commit breaks: six
-    # undemanding predicates accept a STRICT MINORITY of an arbitrary range,
-    # and MORE THAN NONE — a shape-aware draw, a plan-time shape gate or a
-    # rate-matched order pushes the share past the minority bound and fails
-    # this, while a planner that stopped drawing them at all fails the other
-    # side. Reuses the sweep above rather than running a second one.
+    # This is not a writability rate. Explicit `make_plan(wants=...)` now
+    # conditions candidates at the entrance (test_production_harness covers
+    # the same conjunction). The raw draw continues to permit other shapes;
+    # a chorus-first plan is not thereby impossible. Reuses the sweep above.
     _share = len(res["accepted"]) / len(_R)
-    check("six undemanding criteria still accept a strict minority of an "
-          "arbitrary seed range, and more than none — so writability is "
-          "SEARCHED and not drawn (MISSING.md M-79)",
+    check("six declared preferences still accept a strict minority of an "
+          "unconditioned seed range, and more than none — this measures "
+          "preference selection, not writability (MISSING.md M-79)",
           0 < _share < 0.5,
           f"{len(res['accepted'])} of {len(_R)} = {_share:.1%} accepted")
 
@@ -3268,6 +3270,92 @@ def test_the_overhang_group():
     print("\n17. M-174 — an overhang schema on 3+ members contradicts "
           "itself, and the draw may not reach one")
     SEMI = RL.REGISTRY["semirhyme"]
+    # The remaining M-174 question is per-LINE syllable capacity. These
+    # plans isolate it from the separate size, identity and placement gates.
+    def budget_plan(groups, relations=None, slots=5, relation=""):
+        lines = sorted({SL.parse_slot(m).line
+                        for g in groups.split(";") for m in g.split(",")})
+        return {"groups": groups, "relations": relations or {},
+                "relation": relation, "subdivision": 1, "sections": [],
+                "line_slots": [{"line": ln, "duration": slots}
+                               for ln in lines]}
+
+    def overflows(pl):
+        return [f for f in PLN.joint_findings(pl)
+                if f[0] == "OVERHANG_EXCEEDS_SPAN"]
+
+    narrow = budget_plan("1.T1,2.T4;2.end,3.T1",
+                         {"A": "schema:semirhyme"})
+    fired_budget = overflows(narrow)
+    check("a pair's fourth-word overhang plus a separate end needs SIX "
+          "syllables, not five; the finding names its line and demand",
+          len(fired_budget) == 1 and fired_budget[0][1] == 2
+          and "at least 6" in fired_budget[0][2]
+          and "at most 5" in fired_budget[0][2], fired_budget)
+    wider = dict(narrow, line_slots=[dict(s, duration=6)
+                                   for s in narrow["line_slots"]])
+    check("the exact six-syllable boundary passes, as does extra room",
+          not PLN.joint_findings(wider)
+          and not overflows(dict(wider, line_slots=[dict(s, duration=7)
+                                      for s in wider["line_slots"]])))
+    check("removing the directed demand preserves the old word budget",
+          not PLN.joint_findings(dict(narrow, relations={
+              "A": "schema:consonance"})))
+    check("require_b follows TEXT order even when the pair is reversed",
+          overflows(dict(narrow, groups="2.T4,1.T1;2.end,3.T1"))
+          == fired_budget)
+    reverse = budget_plan("2.T1,1.T4;1.end,3.T1",
+                          {"A": "schema:apocopated rhyme"})
+    check("require_a charges the earlier member, including a declared "
+          "schema outside the drawable pool",
+          [f[1] for f in overflows(reverse)] == [1])
+    for end in ("2", "2.end", "2.endword"):
+        pl_budget = budget_plan(f"1,{end};2.T4,3.T1",
+                               relation="schema:semirhyme")
+        check(f"{end} charges the same last-word syllable with a default "
+              "relation and accounts for the other binding on its line",
+              [f[1] for f in overflows(pl_budget)] == [2])
+    cumulative = budget_plan("1.head,3.headrime;2.head,3.T2;3.T4,4.head",
+                             {"A": "schema:semirhyme",
+                              "B": "schema:semirhyme"})
+    check("two overhanging words share one budget: each alone fits five, "
+          "together they require six",
+          [f[1] for f in overflows(cumulative)] == [3]
+          and all(not overflows(dict(cumulative, relations={
+              label: "schema:semirhyme"})) for label in ("A", "B")))
+    check("aliases of one word do not double-charge its extra syllable",
+          PLN._overhang_budget(["head", "T1", "T4"], [1, 1], 5)
+          == (5, 5, True))
+    wide_grid = budget_plan("1,2;2.T11,3.T1",
+                           {"A": "schema:semirhyme"}, slots=20)
+    check("surplus grid slots cannot evade the calibrated density ceiling",
+          [f[1] for f in overflows(wide_grid)] == [2]
+          and "at most 12" in overflows(wide_grid)[0][2])
+    check("the new refusal belongs to the declared joint-gate vocabulary",
+          "OVERHANG_EXCEEDS_SPAN" in PLN.JOINT_CODES)
+    # A real pair through the schema judge and the independent meter fitter:
+    # the overhang is syllabic material, not another coda consonant.
+    from quality import fit as FIT
+    from quality.phonology import get as get_phonology
+    from fractions import Fraction
+    lines = ["grow", "we see it growing tall"]
+    stream = RL.build_stream(lines, get_phonology("eng"))
+    check("the real schema judge accepts grow/growing at the declared T4",
+          RL.pair_satisfies(SEMI, stream, (0, 0), (1, 3)) is True)
+    fits = []
+    for slots in (5, 6):
+        placement = FIT.Placement(
+            cycle=FIT.Cycle(pulses=slots, unit=4,
+                            groups=(3, 2) if slots == 5 else (3, 3)),
+            bar=1, beat=Fraction(1), duration=Fraction(slots),
+            section="test", section_start_bar=1, section_bars=1)
+        fits.append(FIT.fit_line(lines[1], placement,
+                    subdivision=FIT.Subdivision(1, source="M-174 fixture")))
+    check("that accepted pair exceeds five slots and fits six on the "
+          "meter fitter, independently of the plan's budget arithmetic",
+          all(f.count == 6 for f in fits)
+          and "SLOTS_EXCEEDED" in {f.code for f in fits[0].findings}
+          and not fits[0].satisfiable and fits[1].satisfiable)
     check("the registry's own coordinate is what says so — semirhyme "
           "demands member 2 overhang, and it is the ONE drawable schema "
           "that demands an overhang at all",

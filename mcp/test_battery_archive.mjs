@@ -16,6 +16,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { sealArchive, openArchive, safeSummary } from '../scripts/battery_archive.mjs';
+import { projectRecord } from '../scripts/battery_inspect.mjs';
 
 const withDir = async (fn) => {
   const dir = mkdtempSync(join(tmpdir(), 'battery-seal-test-'));
@@ -36,6 +37,207 @@ const source = (dir) => {
   writeFileSync(join(src, 'nested', 'draft.txt'), 'Private accepted lyric\n');
   return src;
 };
+
+test('inspection classifies the real plan count refusal and groups exact repeated headlines', () =>
+  withDir((dir) => {
+    const emitted = spawnSync(
+      process.env.PYTHON || 'python3',
+      [
+        '-c',
+        'from quality.plan import fill_plan, PlanRefused\ntry:\n fill_plan({"total_lines": 22}, ["private lyric"] * 20)\nexcept PlanRefused as e:\n print(e)',
+      ],
+      { cwd: new URL('../lyric-harness/', import.meta.url), encoding: 'utf8' }
+    );
+    assert.equal(emitted.status, 0, emitted.stderr);
+    const refusal = emitted.stdout.trim();
+    const call = { name: 'lyric_grade', exit_code: 2, refusal };
+    writeFileSync(join(dir, 'song0.checkpoint.json'), '{}');
+    writeFileSync(
+      join(dir, 'song0.jsonl'),
+      [
+        { turn: 0, tools: [call, { ...call, refusal: 'private-title-never-publish' }] },
+        {
+          turn: 1,
+          tools: [
+            call,
+            { ...call, refusal: 'private-title-never-publish' },
+            { ...call, refusal: null },
+          ],
+        },
+      ]
+        .map(JSON.stringify)
+        .join('\n')
+    );
+    const inspection = projectRecord(dir);
+    const first = inspection.songs[0].turns[0].tools;
+    const next = inspection.songs[0].turns[1].tools;
+    assert.deepEqual(first[0].refusal, {
+      source: 'harness',
+      group: 1,
+      category: 'PLAN_DRAFT_LINE_COUNT',
+      expected_lines: 22,
+      actual_lines: 20,
+    });
+    assert.deepEqual(next[0].refusal, first[0].refusal);
+    assert.deepEqual(next[1].refusal, first[1].refusal);
+    assert.equal(first[1].refusal.category, 'unclassified');
+    assert.equal(first[1].refusal.group, 2);
+    assert.equal(next[2].refusal, null, 'missing cause is never inferred from exit 2');
+    assert.ok(!JSON.stringify(inspection).includes('private-title-never-publish'));
+    assert.equal(next[2].proposer_calls, null, 'missing provider record is not zero');
+  }));
+
+test('inspection keeps kitchen clocks, recovery phase and unknown spend without private payloads', () =>
+  withDir((dir) => {
+    const secret = 'private-lyric-and-capability';
+    writeFileSync(join(dir, 'song0.checkpoint.json'), '{}');
+    writeFileSync(
+      join(dir, 'song0.jsonl'),
+      JSON.stringify({
+        turn: 0,
+        tools: [
+          {
+            name: 'lyric_revise',
+            exit_code: -1,
+            writer: 'kitchen',
+            status: 'interrupted',
+            ms: 599000,
+            proposer_calls: 3,
+            proposer_ms: 210000,
+            proposer_ms_max: 90000,
+            proposer_retries: 2,
+            proposer_wait_s: 31,
+            proposer_empty: 0,
+            proposer_cost_usd: 0.01,
+            memo_hit: 4,
+            memo_asked: 7,
+            plan_lines: 22,
+            checkpoint: secret,
+            final_draft: [secret],
+          },
+        ],
+      })
+    );
+    writeFileSync(
+      join(dir, 'song0.recovery.json'),
+      JSON.stringify({
+        state: 'interrupted',
+        request_id: secret,
+        checkpoint: secret,
+        uncertain_proposal: true,
+        progress: {
+          status: 'proposing',
+          round: 2,
+          accepted_lines: [secret, secret],
+          proposals: [{ answer: secret }],
+        },
+        proposer_usage: {
+          in_flight: true,
+          usage_unknown: true,
+          unknown_attempts: 1,
+          model: secret,
+        },
+      })
+    );
+    const out = projectRecord(dir);
+    const c = out.songs[0].turns[0].tools[0];
+    assert.equal(c.proposer_seconds, 210);
+    assert.equal(c.proposer_max_seconds, 90);
+    assert.equal(c.proposer_wait_seconds, 31);
+    assert.equal(c.proposer_retries, 2);
+    assert.equal(c.proposer_empty, 0);
+    assert.equal(c.loop_rounds, null, 'a killed call has no invented completed ladder row');
+    assert.equal(out.songs[0].recovery.phase, 'proposing');
+    assert.equal(out.songs[0].recovery.completed_proposals, 1);
+    assert.equal(out.songs[0].recovery.accepted_lines, 2);
+    assert.equal(out.songs[0].recovery.provider_unknown_attempts, 1);
+    assert.equal(out.songs[0].recovery.uncertain_proposal, true);
+    assert.ok(!JSON.stringify(out).includes(secret));
+  }));
+
+test('inspection distinguishes corrupt or missing evidence and strips private driver tails', () =>
+  withDir((dir) => {
+    const secret = 'DO_NOT_PUBLISH';
+    writeFileSync(join(dir, 'song0.checkpoint.json'), '{}');
+    writeFileSync(join(dir, 'song0.recovery.json'), '{bad');
+    writeFileSync(
+      join(dir, 'song0.jsonl'),
+      '{bad\nnull\n{}\n' +
+        JSON.stringify({
+          turn: 1,
+          tools: [
+            {
+              name: 'lyric_grade',
+              exit_code: 2,
+              status: secret,
+              writer: secret,
+              refused_by_connector: true,
+              error: `CREATION_PLAN: title differs ${secret}`,
+            },
+          ],
+        })
+    );
+    writeFileSync(
+      join(dir, 'driver.log'),
+      [
+        `::error title=battery verdict::song 0: no_stop — last error: ${secret}`,
+        `::notice title=battery partial turn::song 0 turn 0: ${secret}`,
+        `::notice title=battery malformed hop::${secret}`,
+      ].join('\n')
+    );
+    const out = projectRecord(dir);
+    assert.equal(out.songs[0].unreadable_rows, 3);
+    assert.deepEqual(out.songs[0].recovery, { unreadable: true });
+    assert.equal(out.songs[0].turns[0].tools[0].refusal.category, 'CREATION_PLAN');
+    assert.equal(out.songs[0].turns[0].tools[0].refusal.source, 'connector');
+    assert.equal(out.songs[0].turns[0].tools[0].status, 'other');
+    assert.deepEqual(out.driver_rows, ['::error title=battery verdict::song 0: no_stop']);
+    assert.ok(!JSON.stringify(out).includes(secret));
+    rmSync(join(dir, 'song0.jsonl'));
+    rmSync(join(dir, 'song0.recovery.json'));
+    const missing = projectRecord(dir).songs[0];
+    assert.equal(missing.transcript_present, false);
+    assert.equal(missing.recovery, null);
+  }));
+
+test('the archive summary CLI exposes diagnostics after encrypted restore without running a battery', () =>
+  withDir((dir) => {
+    const src = source(dir);
+    writeFileSync(join(src, 'song0.checkpoint.json'), '{}');
+    writeFileSync(
+      join(src, 'song0.jsonl'),
+      JSON.stringify({
+        turn: 0,
+        tools: [
+          {
+            name: 'lyric_grade',
+            exit_code: 2,
+            refusal: 'private unknown refusal',
+          },
+        ],
+      })
+    );
+    const archive = join(dir, 'sealed.enc');
+    const secret = key();
+    sealArchive({ source: src, out: archive, key: secret });
+    const restored = join(dir, 'restored');
+    openArchive({ archive, out: restored, key: secret });
+    const result = spawnSync(
+      process.execPath,
+      [
+        new URL('../scripts/battery_archive.mjs', import.meta.url).pathname,
+        'summary',
+        `--source=${restored}`,
+      ],
+      { encoding: 'utf8' }
+    );
+    assert.equal(result.status, 0, result.stderr);
+    const report = JSON.parse(result.stdout);
+    assert.equal(report.inspection.version, 2);
+    assert.equal(report.inspection.songs[0].turns[0].tools[0].refusal.category, 'unclassified');
+    assert.ok(!result.stdout.includes('private unknown refusal'));
+    assert.ok(!result.stdout.includes('Private accepted lyric'));
+  }));
 
 test('archive round trip preserves every byte and restores private permissions', () =>
   withDir((dir) => {

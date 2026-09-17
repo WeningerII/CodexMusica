@@ -1,0 +1,7 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> codex-music-tool@2.0.0 check:promises
+> node scripts/check_promises.js
+
+=== Promise->gate coverage (bijection across docs / registry / gates) ===
+PASS — all 24 promises are documented AND gated; 0 orphans on any side.

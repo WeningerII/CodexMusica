@@ -1,0 +1,33 @@
+FFF
+======================================================================
+FAIL: test_joint_gate_preserves_a_free_word (quality.test_production_harness.HarnessProduction.test_joint_gate_preserves_a_free_word)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/44ce5d0eaed8/CodexMusica-M-79-work/lyric-harness/quality/test_production_harness.py", line 29, in test_joint_gate_preserves_a_free_word
+    self.assertEqual({(code, line) for code, line, _ in findings},
+AssertionError: Items in the second set but not the first:
+('NO_FREE_WORD', 1)
+('NO_FREE_WORD', 2)
+
+======================================================================
+FAIL: test_joint_free_word_check_obeys_density_ceiling (quality.test_production_harness.HarnessProduction.test_joint_free_word_check_obeys_density_ceiling)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/44ce5d0eaed8/CodexMusica-M-79-work/lyric-harness/quality/test_production_harness.py", line 57, in test_joint_free_word_check_obeys_density_ceiling
+    self.assertEqual({c for c, _, _ in plan.joint_findings(p)},
+AssertionError: Items in the second set but not the first:
+'NO_FREE_WORD'
+
+======================================================================
+FAIL: test_joint_free_word_check_runs_before_writer_brief (quality.test_production_harness.HarnessProduction.test_joint_free_word_check_runs_before_writer_brief)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/44ce5d0eaed8/CodexMusica-M-79-work/lyric-harness/quality/test_production_harness.py", line 75, in test_joint_free_word_check_runs_before_writer_brief
+    with self.assertRaisesRegex(plan.PlanRefused, "NO_FREE_WORD"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PlanRefused not raised
+
+----------------------------------------------------------------------
+Ran 3 tests in 2.413s
+
+FAILED (failures=3)

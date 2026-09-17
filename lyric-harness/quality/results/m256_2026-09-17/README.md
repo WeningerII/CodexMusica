@@ -148,3 +148,17 @@ Main advanced during PR verification: PR #324 merged at
 all five tested M-256 source hashes remain unchanged. The combined-tree
 [record checks](integration-e31e30e7.json) preserve the M-146 work and
 regenerate shared counters before current-head CI.
+
+The next integration includes PR #326 (M-279) and #325 (M-79), through
+main `b61df9b75e1ee515e9fb6b6b77b70b39a8b27612`. Their diagnostic and
+planning changes are retained; M-256's implementation files still match their
+recorded hashes. [Combined record and lifecycle checks](integration-b61df9b7.json)
+cover this integration. Open PR #328 (M-168) touches the same battery files in
+different sections: its connection timeout and identity-probe controls must be
+preserved together with these parked-run controls if it merges first.
+
+PR #327 (M-174) then merged before publication of the combined update.
+Main `fe9181f7319869ea44a7a1540b95b495705d3b81` is integrated cleanly;
+its planner fix is retained. The [integration receipt](integration-fe9181f7.json)
+records counter regeneration, comparator/triage checks, and exact equality of
+the five M-256 source hashes. Fresh CI qualifies this combined head.
