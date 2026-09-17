@@ -10372,8 +10372,67 @@ number; (b) is cheaper and leaves the strongest rule in the taxonomy as
 someone else's footnote. **Nothing is changed until that is ruled**, because a
 doctrine number is the owner's vocabulary and not a session's.
 
-### M-79 · the first end-to-end run: the pipeline stops at WRITE, because nothing checks that a plan is writable `OPEN` — measured 2026-08-23
-> **TESTED WHILE OPEN.** `quality/test_plan.py` section 10 names this entry and
+### M-79 · the first end-to-end run: joint plan-writability checks beyond individually legal constraints `PARTIAL` — measured 2026-08-23; updated 2026-09-17
+**CURRENT DISPOSITION, 2026-09-17.** The original heading, *"the pipeline
+stops at WRITE, because nothing checks that a plan is writable"*, is
+superseded. M-80 built the joint gate; M-82 made the seed search a verb;
+M-112, M-171 and M-191 supplied binding disclosures, a free-word reserve and
+a plan-level density draw. The production repair merged in PR #248 also
+made explicit `--want` predicates condition generation itself. None of
+these is a proof that every emitted mandate admits coherent lyrics.
+
+**THE REMAINING INDEPENDENT CHECK IS NOW BUILT.** M-171's reserve was held
+by the sampler but not by the final gate. A plan binding `head`, `T2`, `T3`,
+`T4` and `end` on a five-slot line passed `joint_findings`: every position
+was reachable, all five words fit, and no free word remained. The gate now
+emits `NO_FREE_WORD` when distinct bound words plus the existing
+`WORDS_LEFT_FREE` reserve exceed the integer capacity of this line, bounded
+by both its grid and the density ceiling. Aliases count once; returns add
+no new binding; roomy sparse lines remain permitted. This enforces the
+declared writing reserve, not a claim that fully bound words cannot form
+a sentence. It does not replace the sampler's conservative band-floor cap
+with a new distribution or retune any calibration.
+
+Three regressions in `quality/test_production_harness.py` fail on the
+original implementation and pass with this repair: the saturated line,
+the density ceiling despite surplus slots, and refusal before the writer's
+brief. Contrasts cover a spare word, fractional slots, subdivision, alias
+collisions and a reachable high token index with few actual bindings.
+The explicit-brief test now includes section use, order and participation
+alongside length, stanza size and group size, and checks the joint gate.
+**TESTED WHILE OPEN.** These regressions guard the repaired arithmetic
+reserve and explicit preference selection. They do not establish the
+complete mandate's simultaneous lexical feasibility or grammatical lyrics;
+that precise remainder below keeps this entry PARTIAL despite passing tests.
+
+**THE HISTORICAL FIGURES ARE NOT CURRENT WRITABILITY RATES.** Receipts and
+exact commands are in `quality/results/m79_joint_writability_2026-09-17/README.md`.
+At base `fcebe706` with this repair, the current CLI's transcription of
+Finding 2's shape predicates accepts **23 of 399** seeds (1–399), with
+399 planned and zero refused. Its slots predicate reads the widest line;
+the joint gate separately checks every line's lower bound. This is a new,
+fully specified reading, not a reproduction of the old private script.
+`quality/test_plan.py` section 10's six-preference sweep accepts **5 of 160**
+unconditioned seeds; its intersection and minority assertions are retained,
+with the wording corrected to describe preferences rather than writability.
+Over seeds 0–199, **200 of 200** meet `pins_per_line<=4`, **78 of 200** meet
+`bound_words_per_line<=1.5`, and **132 of 200** place the chorus first;
+all 200 contain both verse and chorus, and all 200 plan without refusal.
+The old 3.3%, five-pin and 56% claims remain historical below. No new
+corpus-order measurement or rate-matched default is claimed: order is a
+caller declaration, not an impossibility when the other order is drawn.
+
+**PRECISE REMAINDER.** Word-dependent feasibility of the complete coupled
+mandate within its syllable budgets is still not established. M-174's
+two-member overhang budget is one separately assigned part of that problem;
+a family-size certificate, free-word reserve or empty joint-finding list
+does not provide a simultaneous lexical witness, still less grammatical
+lyrics. This entry stays PARTIAL on that requirement. No draft was written
+or graded as a completion witness in this repair. The independent reserve
+check can merge without waiting for that separate implementation; no
+comparator input changed and the comparator gate HOLDS without a repin.
+
+> **HISTORICAL TEST DISPOSITION (superseded above).** `quality/test_plan.py` section 10 names this entry and
 > PINS FINDING 2 as an INEQUALITY, never as a count — that section struck a seed
 > list twice in one day (M-106, M-107) and says why, so recording a third would
 > be recording the same fragility again. Six undemanding predicates accept a

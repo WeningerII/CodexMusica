@@ -1,0 +1,172 @@
+
+0. the register scan answered, or this run says it did not
+  PASS  the scan answered, so the sections below read a real register
+          377 entr(ies)
+======================================================================
+REGISTER TRIAGE — quality/triage.py
+======================================================================
+
+1. the registers are read, and an empty read REFUSES
+  PASS  both registers parse into a real population
+          377 entries: 348 from MISSING.md, 29 from BACKLOG.md
+  PASS  heading shape parses: 'a probe `CLOSED` 2026-08-11' -> CLOSED
+          got CLOSED
+  PASS  heading shape parses: 'a probe `PARTIAL` — the container ' -> PARTIAL
+          got PARTIAL
+  PASS  heading shape parses: 'a probe `BLOCKED` (doctrine 44)' -> BLOCKED
+          got BLOCKED
+  PASS  heading shape parses: 'a probe with no status token' -> OPEN
+          got OPEN
+  PASS  a reader that matches NOTHING raises rather than reporting a clean register (doctrine 20)
+
+1b. a struck status token is history, never the status
+  PASS  struck shape parses: 'closed by strike ~~`PARTIAL`~~ `CLOSED` ' -> CLOSED
+          got CLOSED
+  PASS  struck shape parses: 'closed by strike ~~`OPEN`~~ `CLOSED` 202' -> CLOSED
+          got CLOSED
+  PASS  struck shape parses: 'reopened by strike ~~`CLOSED`~~ `PARTIAL' -> PARTIAL
+          got PARTIAL
+  PASS  struck shape parses: 'only a struck token ~~`CLOSED`~~' -> OPEN
+          got OPEN
+  PASS  ...and the pre-fix first-token rule reads the STRUCK token on that shape, so the repair is load-bearing
+  PASS  D-3 reads CLOSED (it was struck-closed 2026-09-01)
+          got CLOSED
+  PASS  M-85 reads CLOSED (it was struck-closed 2026-09-01)
+          got CLOSED
+  PASS  M-94 reads CLOSED (it was struck-closed 2026-09-01)
+          got CLOSED
+  PASS  L-3 reads PARTIAL from this reader AND from counters' -- one register, one answer
+          got PARTIAL
+  PASS  every MISSING status triage reports is counters' at that line (348 of 348)
+          0 disagree
+  PASS  triage carries no status regex of its own
+
+2. every closed marker this repo actually writes is read
+  PASS  BACKLOG 3.6 reads closed
+          status=CLOSED title='Corpus adversary (adversary 5)'
+  PASS  BACKLOG 4.4 reads closed
+          status=CLOSED title='~~`rhyme_constraints.py` — 1,325 stranded li'
+  PASS  BACKLOG 1.5 reads closed
+          status=CLOSED title='Duplicate findings in the brief'
+  PASS  BACKLOG 2.1 reads closed
+          status=CLOSED title='`ltc.rhymes` uses the 詩 standard on 詞'
+  PASS  ...and the OPEN side is asserted as a population, not per key — some BACKLOG entry still reads open
+          1 open: 3.3
+  PASS  a heading's own code spans survive into the title — stripping from the first backtick turned 2.4's title into the word 'The'
+          '`qieyun_mc.tsv` is keyed on one orthographic norm'
+
+3. the scan finds real citations and refuses lookalikes
+  PASS  some entries are named by a test, and not all of them
+          121 of 377 entries are named by at least one test
+  PASS  a bare `[A-1]` in a scheme string is NOT read as citing A-1
+  PASS  ...while a real citation IS read
+  PASS  ...and the window is bounded, so a MISSING far above an unrelated id does not capture it
+  PASS  `BACKLOG 2.6` is read
+  PASS  ...and so is `BACKLOG §2.6`, the spelling that hid a built entry at the head of the queue
+  PASS  ...and a bare decimal near the word is NOT read as a citation
+  PASS  a multi-key citation yields EVERY key in the window
+          ['A-1', 'A-2', 'D-1', 'D-2', 'D-3']
+  PASS  ...and the live scan agrees: D-2 and D-3 are named by test_song_function.py
+          D-2 tests=['quality/test_song_function.py']
+
+4. the three entries that went stale on 2026-08-21 are the ones this instrument would have caught
+  PASS  1.5 is named by a regression, so it would have been CONTESTED while it read OPEN
+          quality/test_revise.py, quality/test_spans.py
+  PASS  2.4 is named by a regression, so it would have been CONTESTED while it read OPEN
+          quality/test_relations.py, quality/test_spans.py
+  PASS  M-1 is named by a regression, so it would have been CONTESTED while it read OPEN
+          quality/test_ltc.py
+  PASS  `BACKLOG 2.1` itself is named by nothing, and this instrument would have reached it only through M-1
+          2.1 tests=none | M-1 tests=quality/test_ltc.py
+  PASS  neither this file nor triage.py is counted as evidence about any entry
+          offenders: []
+
+5. a declaration moves an entry out of CONTESTED, and only a declaration does
+  PASS  the population is non-empty — with no open-and-tested entry every check below would pass on an empty set (doctrine 20)
+          34 entr(ies)
+  PASS  C-2 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  C-4 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  D-2 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  F-1 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  F-2 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  F-3 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  G-1 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  G-2 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  G-3 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  H-1 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  K-6 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  L-2 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-11 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-20 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-22 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-39 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-38 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-30 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-23 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-25 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-26 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-54 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-78 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-79 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-120 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-135 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-136 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-139 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-140 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-142 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-168 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-241 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-240 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  M-244 is DECLARED, not CONTESTED
+          bucket=DECLARED
+  PASS  ...and with the marker removed it CONTESTS — so the bucket is the declaration's doing and not an accident of the scan
+          bucket=CONTESTED
+
+6. the queue answers the question it is named for
+  PASS  UNGUARDED is non-empty — an empty queue after the 2026-08-21 sweep is more likely a broken scan than an empty backlog
+          34 entr(ies)
+  PASS  BACKLOG entries sort ahead of MISSING ones, and by tier
+          head: 3.3, B-1, B-2, B-3, B-4
+  PASS  every queued entry really is open, and nothing names it at all
+          offenders: []
+  PASS  CITED is non-empty — a population, not a pinned founding case
+          6 cited: A-3, H-2, K-1, K-4, K-5, M-4
+  PASS  ...and D-1, its founding case, is CLOSED and still cited by production code — the history that motivated the bucket
+          status=CLOSED code=['quality/grid.py']
+  PASS  ...and no CITED entry is in the queue
+
+======================================================================
+the register can be asked what is next, and says so in five counts

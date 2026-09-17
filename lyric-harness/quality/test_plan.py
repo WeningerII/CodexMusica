@@ -1916,7 +1916,7 @@ def test_the_joint_gate():
     plans = [make_plan(seed=k) for k in range(JOINT_SWEEP)]
     check("the sweep produced plans to ask the question of",
           len(plans) == JOINT_SWEEP, f"{len(plans)} plans")
-    check("NO plan in the sweep asks for a conjunction it cannot have — the "
+    check("NO plan in the sweep has a contradiction detected by this gate — the "
           "gate is satisfied BY CONSTRUCTION, which is the relationship "
           "`ADOPTED_MAX_GROUP` already has to the scheme sampler and is why "
           "the mutations below are the only way to fire it",
@@ -2181,21 +2181,19 @@ def test_the_seed_sweep_is_a_verb():
                          "pins_per_line<=5")}
     res = PLN.sweep(_R, wants=wants)
 
-    # MISSING.md M-79 — Finding 2: whether a plan is song-shaped is still
-    # answered by SEARCHING seeds rather than by the draw. Pinned as an
+    # MISSING.md M-79 — Finding 2: these six caller preferences still
+    # select a minority of UNCONDITIONED draws. Pinned as an
     # INEQUALITY and never as a count: this section struck a seed list twice
     # in one day (M-106, M-107) and the comment above says why, so recording
     # "5 of 160" here would be recording the same fragility a third time.
-    # The band is what M-79 claims and what the closing commit breaks: six
-    # undemanding predicates accept a STRICT MINORITY of an arbitrary range,
-    # and MORE THAN NONE — a shape-aware draw, a plan-time shape gate or a
-    # rate-matched order pushes the share past the minority bound and fails
-    # this, while a planner that stopped drawing them at all fails the other
-    # side. Reuses the sweep above rather than running a second one.
+    # This is not a writability rate. Explicit `make_plan(wants=...)` now
+    # conditions candidates at the entrance (test_production_harness covers
+    # the same conjunction). The raw draw continues to permit other shapes;
+    # a chorus-first plan is not thereby impossible. Reuses the sweep above.
     _share = len(res["accepted"]) / len(_R)
-    check("six undemanding criteria still accept a strict minority of an "
-          "arbitrary seed range, and more than none — so writability is "
-          "SEARCHED and not drawn (MISSING.md M-79)",
+    check("six declared preferences still accept a strict minority of an "
+          "unconditioned seed range, and more than none — this measures "
+          "preference selection, not writability (MISSING.md M-79)",
           0 < _share < 0.5,
           f"{len(res['accepted'])} of {len(_R)} = {_share:.1%} accepted")
 

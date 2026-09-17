@@ -1,0 +1,30 @@
+{
+  "counts": {
+    "PASS": 1,
+    "FAIL": 0,
+    "CANNOT RUN": 0
+  },
+  "rows": [
+    {
+      "suite": "quality/test_production_harness.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 40.0,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    }
+  ],
+  "partial": false,
+  "not_reached": [],
+  "appeared_during_run": [],
+  "head_at_start": "fcebe706",
+  "head_at_end": "fcebe706",
+  "tree_moved_during_run": false,
+  "excluded": {
+    "battery.py": "the sonnet/limerick ORACLE, not a suite. It prints measurements (mandated/judged/refused/violations) that a reader compares against the pinned baseline by hand; it has no pass/fail of its own to read, so a verdict here would be this module inventing one.",
+    "quality/negative_control.py": "the negative control. Same shape as the battery: it reports a rate against a null, and a rate is not a verdict.",
+    "quality/pin_sweep.py": "the OTHER sweep, and it asks a different question -- which committed FIGURES moved, not which CHECKS are red. It takes over an hour of its own and running it inside this one would hide two hours behind one progress line. `quality/test_pin_sweep.py` IS in this population; the hour-long sweep it tests is not."
+  }
+}

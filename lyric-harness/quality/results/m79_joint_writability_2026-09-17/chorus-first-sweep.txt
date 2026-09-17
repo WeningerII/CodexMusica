@@ -1,0 +1,6 @@
+  SWEEP: seeds 0..199 (200), form=verse-chorus
+    WANT before=chorus,verse — the first instance of A precedes the first instance of B
+    swept 200  planned 200  REFUSED by the planner 0  accepted 132 (66.0% of the planned)
+    ACCEPTED (in seed order — this does NOT rank them; doctrine 7 enforces a floor and does not order the permitted region, and an argmax over a swept parameter is doctrine 19's own bias):
+      0, 2, 3, 5, 6, 8, 9, 11, 13, 14, 15, 17, 18, 20, 21, 24, 25, 26, 27, 28, 31, 32, 34, 36, 38, 39, 41, 42, 43, 46, 47, 48, 49, 50, 51, 52, 54, 55, 57, 58 ... and 92 more
+    NEXT: python3 lyric_harness.py plan --seed=0
