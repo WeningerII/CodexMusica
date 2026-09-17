@@ -67,3 +67,13 @@ rerun locally; unchanged matrix semantics are covered by the oracle suite, and a
 future production qualification must produce its actual matrix before deployment.
 PR CI and post-merge CI outcomes are reported on the pull request after observing
 the published and merged commits; local tests alone are not those outcomes.
+
+## Integration of current main
+
+Merged main `95c80efb2adb9198cf74630f106733f910721f53` (PR #330, M-294)
+into the isolated branch. Its MISSING, BACKLOG and audit-register changes are
+preserved. The M-282 workflow and release-gate implementation is byte-identical
+to published head `bc333960f13e341650efa78312ac2c144f52d551`.
+`integration.json` records counter regeneration and focused verification on this
+combined tree. The replacement published head requires its own CI; the prior
+head's run does not qualify the integration.
