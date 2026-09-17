@@ -50,6 +50,11 @@
       "command": "npm run check:promises",
       "exit_code": 0,
       "receipt": "promises.txt"
+    },
+    {
+      "command": "npm run format:check (complete final file set after CI correction)",
+      "exit_code": 0,
+      "receipt": "final-format.txt"
     }
   ],
   "raw_receipts": {
@@ -68,7 +73,6 @@
     "lint.txt": "ef11d31c254e7adcb216a05575838c4b3d847c27befb58028ed1d1b6c58522ba",
     "pin_sweep.txt": "5e1f4c2a405137ec48e308ba0cb2eb3817c51dfa77de1b96b56b54116c150ab1",
     "promises.txt": "cd41f4e57be7206fe3cb9d791270cc19b9096d206881a75d4ed93fd4172a9aa9",
-    "record-gates.json": "ad180c3a8ff4a5e659b28f20369b6dc679b110d649addee8fc391fd6394511f2",
     "slots.txt": "aced3fe7f559a2d9a208bfb1c95ea0a2bc0743ca98f3d093c33e69af231d4add",
     "verify_doctrines.txt": "7a7f92931eb8687ec3247803994da2999af7f1bde8560691d0797f78571ea28c",
     "verify_entries.txt": "f549a548b4ee9850033baeb2150bc149f0a925a6857fa764ccf886c2e5d6e34b",
@@ -86,16 +90,25 @@
     "counters.txt": "436f1f95635de4374e98b59ec4b3fcab2efdbba7304f4d73bf9ec591e0f3070a",
     "docs.txt": "70013330a56b2657febfdaa40266717fe9cca7a7758939b41ff0e4b68f825092",
     "entry-final.txt": "ac4277b55f93816ef1bb49a34690d55d4eeaef13f1f134bb300e42502c95a20c",
+    "final-format.txt": "23d4d3e85336664b2389f0b0a669aa717b75722e1dc4300719c3fafb352112b7",
     "format.txt": "23d4d3e85336664b2389f0b0a669aa717b75722e1dc4300719c3fafb352112b7",
     "gate_census.txt": "6cc9674fcbb3dce5f8e413e7aa6b51f6721c2992d2a7b9f376aff65c97f4a92e",
+    "initial-ci-gate.json": "739adafb4807b82f6da89cdc6dcae819fe99bbdbb2cbb0a29c7b250b5118a46f",
     "lint.txt": "bb4bd7e298bae6956d59c814561cee6d691c0fdfad11f36ed44dae6169edf44e",
     "pin_sweep.txt": "5e1f4c2a405137ec48e308ba0cb2eb3817c51dfa77de1b96b56b54116c150ab1",
     "promises.txt": "cd41f4e57be7206fe3cb9d791270cc19b9096d206881a75d4ed93fd4172a9aa9",
     "raw-stdout.zip": "01661e1c6412651bb7a6615f7db95a7b4655f78d77ff292b9c5fae6336549c1e",
-    "record-gates.json": "ad180c3a8ff4a5e659b28f20369b6dc679b110d649addee8fc391fd6394511f2",
+    "record-gates.json": "2a8b01291df24cb43924c4ab11d2183f41269466edb36d731484b99d98727176",
     "slots.txt": "aced3fe7f559a2d9a208bfb1c95ea0a2bc0743ca98f3d093c33e69af231d4add",
     "verify_doctrines.txt": "7a7f92931eb8687ec3247803994da2999af7f1bde8560691d0797f78571ea28c",
     "verify_entries.txt": "f549a548b4ee9850033baeb2150bc149f0a925a6857fa764ccf886c2e5d6e34b",
     "verify_figures.txt": "d72c07933c7ac88ee42e2e97a7069422487c8c38cedf158ebd92016299ace45b"
+  },
+  "publication_correction": {
+    "initial_head": "f8a4db7545394291dcf0376a5372e8ed37927e42",
+    "initial_ci_run": 35243843654,
+    "initial_conclusion": "failure",
+    "failed_step": "Formatting (prettier --check)",
+    "repair": "Format the generated record-gates.json index; no source behavior changed."
   }
 }

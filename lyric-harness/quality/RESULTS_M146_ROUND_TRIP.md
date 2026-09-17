@@ -90,6 +90,12 @@ was based on main `fcebe7066b44943ccc199760b0471e7d2ae4b437`, still current at
 that refresh. GitHub CI and the confirmed merge are recorded on the PR;
 these local receipts alone do not certify a published or merged commit.
 
+The initial published-head CI failed formatting on `record-gates.json`, which
+was generated after the earlier local format run. The index was formatted,
+and the complete final file set was checked again. The original failure log
+is retained in [initial-ci-gate.json](results/m146_round_trip_2026-09-17/initial-ci-gate.json).
+No test or production behavior changed in this publication correction.
+
 ## Scope
 
 This is a fixture-coverage improvement. It neither estimates production
