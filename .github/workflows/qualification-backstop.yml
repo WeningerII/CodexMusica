@@ -1,0 +1,248 @@
+name: Qualification backstop
+
+# ONE JOB, ONE QUESTION: did a Production qualification start tonight? If none
+# did, this dispatches one. That is the whole workflow.
+#
+# WHY IT EXISTS, and it is not a hypothetical. On 2026-09-17 the 01:23 UTC
+# schedule in `production-qualification.yml` DID NOT FIRE. Checked on main at
+# `26975204`: the `schedule: - cron: '23 1 * * *'` stanza was intact, no recent
+# commit had touched the file, and the workflow's run list contained no
+# `schedule`-event run AT ALL -- the newest entry was run 18, a
+# `workflow_dispatch` at 23:59Z the evening before. Nothing in this repository
+# was wrong. GitHub simply dropped the run, which its own documentation allows:
+# scheduled runs may be delayed during periods of high load, and a delayed run
+# can be dropped rather than queued. The night was recovered only because a
+# person was watching and dispatched one by hand at 02:22Z.
+#
+# WHAT THAT COSTS, stated rather than assumed. `deploy-connector.yml` deploys
+# on the qualification's completion (M-287), and the deploy gate requires a
+# green qualification AND a green main push CI run AT THE SAME SHA
+# (`scripts/verify_ci.mjs`). A dropped night is therefore not merely a missing
+# measurement: it is a night on which the live connector cannot advance to
+# main no matter how green the repository is. M-289 recorded the 33-hour
+# version of that drift back when the qualification was dispatch-only.
+#
+# THE HONEST LIMIT, FIRST, because a backstop that is trusted further than it
+# reaches is worse than none. THIS WORKFLOW IS ALSO A SCHEDULED WORKFLOW. The
+# same GitHub behaviour that dropped the 01:23 run can drop the 02:47 one. Two
+# independent cron firings make a missed night much less likely; they do not
+# make it impossible, and nothing inside a repository can. What this does buy
+# is that a single dropped schedule -- the failure actually observed -- no
+# longer costs the night. (GitHub also disables scheduled workflows in a
+# repository with no activity for 60 days. That is a third way for both crons
+# to stop at once, and it is equally outside this file's reach.)
+#
+# 02:47, AND NEITHER FIELD IS ARBITRARY.
+#   * NOT :00 -- `ci.yml` states the rule this follows: GitHub queues cron runs
+#     globally and the top of the hour is the most contended minute there is.
+#     A backstop that is itself delayed by contention is self-defeating.
+#   * 84 MINUTES AFTER 01:23. This is the one genuine judgment call in the
+#     file, and it trades two errors against each other. Too early and a merely
+#     DELAYED primary looks dropped, so this dispatches a second qualification
+#     the night did not need. Too late and the recovery run collides with
+#     `ci.yml`'s 04:17 nightly for the plan's 20-job concurrency cap. 84
+#     minutes is past any scheduling delay observed here (on the night this was
+#     written the 01:23 run had still not appeared 59 minutes later, when it
+#     was checked), and leaves a warm qualification -- measured at 26 minutes
+#     on run 18, 23:59:27Z to 00:25:29Z -- finishing well before 04:17.
+#   * AND THE DUPLICATE IS CHEAP ANYWAY. `production-qualification.yml` sets
+#     `concurrency: production-qualification-${{ github.ref }}` with
+#     `cancel-in-progress: false`, so a dispatch that races a delayed primary
+#     QUEUES BEHIND IT rather than running beside it. The cost of guessing
+#     "dropped" wrongly is one serialized re-run, not two qualifications
+#     fighting for the same cap.
+#
+# WHAT THIS DELIBERATELY DOES NOT DO.
+#   * It does not re-dispatch on a FAILED qualification. A run that happened
+#     and failed is a finding for a person to read; dispatching over it would
+#     bury the finding under a fresh run. This workflow's question is whether
+#     the night HAPPENED, not whether it passed -- so a failure is reported as
+#     a warning in the summary and stands down.
+#   * It does not consider main's head sha. Keeping the qualification aligned
+#     with main's tip is the deploy gate's concern and it changes through the
+#     day; this file answers the owner's standing order, which is temporal:
+#     make sure Production Qualification gets done every night.
+#   * It does not check whether CI is running first. MISSING.md's note (4)
+#     says to dispatch a qualification when CI has finished, because the two
+#     share the 20-job cap -- but that note is addressed to a person choosing a
+#     moment, and 02:47 is not a moment when main CI is typically live. Adding
+#     a wait here would mean a backstop that can decline to do the one thing it
+#     exists to do.
+#
+# PERMISSION. `actions: write` is what dispatching a workflow requires, and it
+# is the only elevated scope here. There is no checkout: this workflow runs no
+# repository code, reads no tree, and touches no branch, so the pwn-request
+# shape `sync-pages.yml` documents at length has no surface here at all.
+
+on:
+  workflow_dispatch:
+    inputs:
+      lookback_hours:
+        description: 'How far back a qualification still counts as this night.'
+        default: '6'
+        required: false
+  schedule:
+    - cron: '47 2 * * *'
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: qualification-backstop
+  cancel-in-progress: false
+
+jobs:
+  backstop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Dispatch a qualification unless the night already has one
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LOOKBACK_HOURS: ${{ inputs.lookback_hours || '6' }}
+          TARGET: production-qualification.yml
+        # NO `set -e`, AND THE OMISSION IS THE DESIGN. `dup` in ci.yml runs the
+        # same kind of one-HTTP-question script and must never exit non-zero,
+        # because every job needs it and an unanswerable question there would
+        # STOP CI -- deny-by-default inverted. THIS JOB'S POLARITY IS THE
+        # OPPOSITE ONE and it is worth naming, because copying `dup`'s shape
+        # without copying its reasoning is how a guard ends up pointing the
+        # wrong way. Here an unanswerable question must not be read as "a
+        # qualification exists": the safe direction is to DISPATCH, because the
+        # worst case of a needless dispatch is one serialized re-run (the
+        # concurrency group above), while the worst case of a wrong stand-down
+        # is the dropped night this file exists to prevent. So every command
+        # that can fail has its status captured explicitly and steers the
+        # decision, and the only things that turn this job RED are the two
+        # failures that mean the backstop did not do its job: a dispatch that
+        # was refused, and a dispatch that produced no run.
+        run: |
+          set -uo pipefail
+
+          API=(gh api
+            -H 'Accept: application/vnd.github+json'
+            -H 'X-GitHub-Api-Version: 2022-11-28')
+
+          # LEXICOGRAPHIC COMPARISON IS CORRECT HERE, AND ONLY HERE. Both sides
+          # are fixed-width, Z-suffixed, second-resolution UTC
+          # (`2026-09-17T02:22:41Z`), so string order IS time order. That stops
+          # being true the moment either side carries an offset, fractional
+          # seconds, or a different width -- which is why the cutoff is built
+          # with an explicit format string rather than a default `date` output.
+          CUTOFF="$(date -u -d "-${LOOKBACK_HOURS} hours" +%Y-%m-%dT%H:%M:%SZ)"
+          export CUTOFF
+          echo "Counting '$TARGET' runs on main created after $CUTOFF (lookback ${LOOKBACK_HOURS}h)."
+
+          # `branch=main` is asked of the server AND re-checked in the filter
+          # below, for the reason scripts/verify_ci.mjs gives where it does the
+          # same: a URL filter is a narrowing, not a guarantee, and the caller
+          # re-checks the coordinates it actually depends on.
+          FILTER='[.workflow_runs[]
+                   | select(.head_branch == "main" and .created_at > $ENV.CUTOFF)]'
+
+          # `.[-1:] | .[]` rather than `last`, in both programs below: on an
+          # EMPTY array `last` is `null` and every downstream field access then
+          # yields the string "null" instead of nothing. A one-element slice
+          # emits one line or no lines, which is the distinction the callers
+          # actually test with `-n` / `-z`.
+          NEWEST_FIELDS='[(.id|tostring), .status, (.conclusion // "in flight"), .html_url] | join("|")'
+
+          need=false
+          if ! recent="$(timeout 30 "${API[@]}" \
+                "repos/$GITHUB_REPOSITORY/actions/workflows/$TARGET/runs?branch=main&per_page=100" \
+                --jq "$FILTER | length" 2>&1)"; then
+            need=true
+            why="the question could not be asked ($recent) -- an unanswered question is not a night that happened"
+          else
+            case "$recent" in
+              '' | *[!0-9]*)
+                need=true
+                why="the answer did not parse as a count ($recent) -- an unanswered question is not a night that happened"
+                ;;
+              0)
+                need=true
+                why="no qualification has started on main since $CUTOFF"
+                ;;
+              *)
+                why="$recent qualification run(s) already started on main since $CUTOFF"
+                ;;
+            esac
+          fi
+
+          {
+            echo "## Qualification backstop"
+            echo
+            echo "- cutoff: \`$CUTOFF\` (lookback ${LOOKBACK_HOURS}h)"
+            echo "- finding: $why"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$need" = false ]; then
+            # Name the newest one, and say plainly if it FAILED. A stand-down
+            # that does not identify what it stood down on is indistinguishable
+            # from a stand-down that never looked.
+            newest="$(timeout 30 "${API[@]}" \
+                "repos/$GITHUB_REPOSITORY/actions/workflows/$TARGET/runs?branch=main&per_page=100" \
+                --jq "$FILTER | sort_by(.created_at) | .[-1:] | .[] | $NEWEST_FIELDS" 2>&1)" \
+              || newest="could not be read: $newest"
+            echo "- newest: $newest" >> "$GITHUB_STEP_SUMMARY"
+            echo "Standing down -- $why (newest: $newest)"
+            case "$newest" in
+              *'|failure|'* | *'|timed_out|'* | *'|cancelled|'*)
+                echo "::warning title=Qualification backstop::the night's qualification ran and did NOT succeed ($newest). This job stands down deliberately -- re-dispatching would bury the finding under a fresh run -- but the night's evidence is red and nothing will deploy from it."
+                ;;
+            esac
+            exit 0
+          fi
+
+          echo "Dispatching '$TARGET' at ref main -- $why"
+          # Recorded BEFORE the dispatch: the verification below asks whether a
+          # run appeared after this instant, so reading the clock afterwards
+          # could accept a run that already existed.
+          BEFORE="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          export BEFORE
+
+          if ! out="$(timeout 30 "${API[@]}" --method POST \
+                "repos/$GITHUB_REPOSITORY/actions/workflows/$TARGET/dispatches" \
+                -f ref=main 2>&1)"; then
+            echo "- dispatch: REFUSED ($out)" >> "$GITHUB_STEP_SUMMARY"
+            echo "::error title=Qualification backstop::the dispatch was refused ($out) -- tonight has no qualification and this workflow could not create one."
+            exit 1
+          fi
+
+          # THE DISPATCH IS NOT THE OUTCOME. `POST .../dispatches` answers 204
+          # No Content: it acknowledges the request and says nothing about
+          # whether a run exists. Treating that 204 as success would be exactly
+          # the check that cannot fail (doctrine 48) -- it would report a green
+          # night on any evening GitHub accepted the request and then dropped
+          # it, which is the very failure this file was written for. So the
+          # claim this job makes is the one it can actually verify: a run,
+          # created after BEFORE, on main.
+          created=""
+          for _ in 1 2 3 4 5 6 7 8 9 10 11 12; do
+            sleep 5
+            created="$(timeout 30 "${API[@]}" \
+                "repos/$GITHUB_REPOSITORY/actions/workflows/$TARGET/runs?branch=main&per_page=20" \
+                --jq "[.workflow_runs[]
+                       | select(.head_branch == \"main\" and .created_at >= \$ENV.BEFORE)]
+                      | sort_by(.created_at) | .[-1:] | .[] | $NEWEST_FIELDS" 2>/dev/null)" || created=""
+            [ -n "$created" ] && break
+          done
+
+          # A RUN ID, not merely a non-empty string. `created` is only ever the
+          # joined line the jq program builds or nothing at all, so through the
+          # real API this can add nothing -- but "non-empty" and "a run exists"
+          # are different claims, and the one this job prints is the second. A
+          # shape test makes them the same claim.
+          case "$created" in
+            '' | [!0-9]*) created="" ;;
+          esac
+
+          if [ -z "$created" ]; then
+            echo "- dispatch: ACCEPTED but no run appeared within 60s" >> "$GITHUB_STEP_SUMMARY"
+            echo "::error title=Qualification backstop::the dispatch was accepted (204) but no qualification run appeared on main within 60 seconds. A 204 is an acknowledgement, not a run -- tonight is still missing its qualification."
+            exit 1
+          fi
+
+          echo "- dispatch: $created" >> "$GITHUB_STEP_SUMMARY"
+          echo "Dispatched and verified: $created"
