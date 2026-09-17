@@ -16221,7 +16221,35 @@ with this entry (doctrine 17, the superseded value kept visible): the
 register grew by one because M-145 is one more entry, which is what that
 counter counts.
 
-### M-146 · the round trip pinned the miscount M-144 repaired `CLOSED` — the fixture half is a separate finding and stays open
+### M-146 · Round-trip fixtures grade every mandated obligation `CLOSED` 2026-09-17
+
+**The remaining fixture work is complete.** `quality/test_plan.py` now fills
+lines with `birds carry bright morning bells strike {BANK}`. Both fixture
+modes preserve the old seven-token layout and each token's syllable count,
+and continue to copy the plan's declared returns verbatim. Every token and
+every named planner placement is checked across the whole bank for a real
+anchor. Pronunciation choices remain explicit on the full round trip.
+
+The sweep now requires `mandated == judged > 0` and `refused == 0`, plus an
+exact match between the mandate's pair/group obligations and actual verdict
+records. This is earned by the new fixture, not by counting a refusal as
+judged: the guard rejects the old filler, forged judged/refused counters,
+and a deleted verdict. Head-bound repeats are actually judged and violate;
+the fixture is not required to pass rhyme or quality findings. The existing
+shape, verbatim-return and schema-pair-wall checks remain enforced.
+
+On the same twenty default plans (seeds 0–19, 17–31 lines), the measured
+mandated/judged/refused triple moves **749/311/438 → 749/749/0**. Every
+obligation now has a verdict; neither arm hits the schema pair guard.
+Validation and the bounded before/after comparison are recorded in
+`quality/RESULTS_M146_ROUND_TRIP.md`. No production comparator, threshold,
+planner distribution, corpus text or provenance input changes. No M-146
+requirement remains; these synthetic fixtures certify coverage and shape,
+not lyric quality or all possible planner seeds.
+
+**Historical account (2026-08-27):** the counting repair below was complete;
+the fixture work it explicitly left open is superseded by the closure above.
+
 Found 2026-08-27 by CI going red on `quality/test_plan.py` one commit after
 M-144 shipped, and it is **my own defect from the previous sitting**: the fix
 was measured, mutation-tested and committed without running the suite that

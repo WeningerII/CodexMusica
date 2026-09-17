@@ -159,6 +159,12 @@ BANK = ("stone rain door light road name fire glass train hill salt wire "
         "pocket river saddle shovel silver summer thunder valley wagon "
         "willow yellow amber basket corner").split()
 
+# M-146: seven token positions, with the same per-token syllable counts
+# as the old filler (1, 2, 1, 2, 1, 1, plus the bank word). Every position
+# now carries a content word. These are readable placeholders, not lyrics
+# required to satisfy the drawn relations or the quality floor.
+DUMMY_PREFIX = "birds carry bright morning bells strike "
+
 
 def dummy_draft(plan, unambiguous=False):
     """The plan's own contract realised in placeholder words: one readable
@@ -183,8 +189,7 @@ def dummy_draft(plan, unambiguous=False):
         if i in rets:
             lines.append(lines[rets[i] - 1])
         else:
-            lines.append("we carry the morning to the "
-                         f"{bank[(i - 1) % len(bank)]}")
+            lines.append(DUMMY_PREFIX + bank[(i - 1) % len(bank)])
     return lines
 
 
@@ -232,6 +237,90 @@ def _round_trip_reviser():
     return _RT_REVISER
 
 
+def _round_trip_grade_errors(grade, mandate):
+    """Require a real verdict for every (pair, group), including violations.
+
+    Count equality alone once hid M-144's unjudged slots. Read the verdict
+    identities and both refusal records too, so laundering a refusal into
+    the judged count cannot certify this fixture (M-146).
+    """
+    expected = Counter(mandate.pairs())
+    actual = Counter((*v["lines"], v["group"]) for v in grade["verdicts"])
+    errors = []
+    if not (grade["pairs_mandated"] == sum(expected.values())
+            == grade["pairs_judged"] > 0 and grade["pairs_refused"] == 0):
+        errors.append(f"counts m{grade['pairs_mandated']} "
+                      f"j{grade['pairs_judged']} r{grade['pairs_refused']}")
+    if actual != expected:
+        errors.append(f"verdict obligations missing {list((expected - actual).elements())} "
+                      f"extra {list((actual - expected).elements())}")
+    if grade["refusals"] or grade["refused_obligations"]:
+        errors.append("refusals on the content-word fixture: "
+                      + repr(grade["refusals"]))
+    return errors
+
+
+def _round_trip_fixture_checks(R):
+    """Exercise every filler position, independently of which seeds draw it."""
+    legacy_prefix = "we carry the morning to the "
+    fixture = {"total_lines": len(BANK) + 1, "returns": f"1,{len(BANK) + 1}"}
+    drafts = [dummy_draft(fixture, unambiguous=mode) for mode in (False, True)]
+    bad_shape, unanchored = [], []
+    for draft in drafts:
+        for line in dict.fromkeys(draft):
+            words = LH.line_tokens(line)
+            old = legacy_prefix + words[-1]
+            new_map, old_map = (LH.word_syllable_map(R.lex, s) for s in (line, old))
+            if (len(words) != 7 or Counter(s["widx"] for s in new_map)
+                    != Counter(s["widx"] for s in old_map)):
+                bad_shape.append(line)
+            for place in (*SL.PLANNABLE_PLACEMENTS,
+                          *(f"T{t}" for t in range(1, len(words) + 1))):
+                anchors, label, oov = SL.resolve(R.lex, line, SL.parse_slot(f"1.{place}"))
+                if not anchors or not label or oov:
+                    unanchored.append((line, place))
+    check("M-146: both dummy-draft modes preserve every token's syllable "
+          "count across the whole bank", not bad_shape, repr(bad_shape))
+    check("M-146: every named planner placement and every token anchors "
+          "across the whole filler bank", not unanchored, repr(unanchored))
+    check("M-146: filler changes preserve verbatim return copying",
+          all(draft[-1] == draft[0] for draft in drafts))
+
+    draft = dummy_draft({"total_lines": 2, "returns": ""}, unambiguous=True)
+    places = (*SL.PLANNABLE_PLACEMENTS, *(f"T{t}" for t in range(1, 8)))
+    for place in places:
+        mandate = SC.mandate([[f"1.{place}", f"2.{place}"]], n_lines=2,
+                             default_relation="class:RHYME")
+        grade = R.grade(draft, mandate)
+        errors = _round_trip_grade_errors(grade, mandate)
+        check(f"M-146: {place} receives an actual grade", not errors, repr(errors))
+        if place in ("head", "headrime", "T1"):
+            check(f"M-146: repeated {place} is judged and violates, not refused",
+                  bool(grade["violations"])
+                  and grade["verdicts"][0]["relation"] == "REPEAT")
+
+    # The old fixture is an adversary, not an alternative accepted input.
+    # Its same-length function words must still refuse; the phonology's
+    # weak-word rule stays intact. The round-trip guard must reject it even
+    # when the counters are forged to mimic the original M-144 miscount.
+    mandate = SC.mandate([["1.T1", "2.T1"]], n_lines=2,
+                         default_relation="class:RHYME")
+    legacy = [legacy_prefix + LH.line_tokens(line)[-1] for line in draft]
+    refused = R.grade(legacy, mandate)
+    check("M-146: restoring the old filler is rejected by the sweep's own guard",
+          bool(_round_trip_grade_errors(refused, mandate))
+          and (refused["pairs_mandated"], refused["pairs_judged"],
+               refused["pairs_refused"]) == (1, 0, 1)
+          and any(r.get("slot_refusal") for r in refused["refusals"]))
+    forged = dict(refused, pairs_judged=1, pairs_refused=0)
+    check("M-146: laundering a slot refusal into judged counts still fails",
+          bool(_round_trip_grade_errors(forged, mandate)))
+    good = R.grade(draft, mandate)
+    check("M-146: dropping a verdict while retaining green counters fails",
+          not _round_trip_grade_errors(good, mandate)
+          and bool(_round_trip_grade_errors(dict(good, verdicts=[]), mandate)))
+
+
 def _timed_round_trip(seed):
     """-> (seconds, _round_trip_one(seed)). The worker's own tuple is
     untouched; the driver prints the seconds beside each seed so a shard's
@@ -270,7 +359,7 @@ def _round_trip_one(seed):
     draft = dummy_draft(plan, unambiguous=True)
     # A free-run schema reads interior tokens too. Fix the fixture's
     # performance readings there as well as choosing unambiguous end words;
-    # otherwise carry/the/to introduce lexical uncertainty into a shape test.
+    # otherwise carry introduces lexical uncertainty into a shape test.
     import copy
     from quality.pronunciation import validate_choices
     from quality.revise import Reviser
@@ -325,46 +414,12 @@ def _round_trip_one(seed):
         codes = {f.code for f in found["whole"]}
         for _ln, fs in found["per_line"].items():
             codes |= {f.code for f in fs}
-        # THREE COUNTS, NEVER SUMMED — and the assertion is the
-        # PARTITION plus a CAUSE, not `refused == 0`.
-        # ~~`pairs_refused == 0`~~ STRUCK 2026-08-27: that spelling was
-        # true only until M-144 stopped counting a declared slot that
-        # resolves to NO ANCHOR as JUDGED. It resolves against the
-        # DRAFT's words, and the draft here is `dummy_draft` — so a
-        # refusal at a declared slot is a fact about this file's filler
-        # vocabulary and NOT about the planner's shape, which is what
-        # this section is for. Keeping `== 0` would have made the
-        # round trip pin the very miscount M-144 repaired (doctrine 17).
-        # WHAT STILL BITES, and it is stricter than a count: every
-        # refusal must BE that kind. Any OTHER refusal — an unreadable
-        # end word, a schema the judge cannot read — IS the planner
-        # emitting something the graders cannot take, and that is
-        # exactly the failure this section exists to catch.
+        # M-146: the content-word fixture must make every obligation
+        # gradeable. A violation is a verdict; a refusal is missing coverage.
         judged_total += g["pairs_judged"]
         refused_total += g["pairs_refused"]
-        def explained_by_words(refusal):
-            if refusal.get("slot_refusal"):
-                return True
-            # A real pronunciation disagreement is a property of this
-            # placeholder draft, not an intrinsically unreadable plan. Verify
-            # the claimed ambiguity against the lexicon rather than accepting
-            # every newly worded refusal as success.
-            return (refusal.get("reason") ==
-                    "the declared relation differs across unresolved pronunciation readings"
-                    and any(len(R.lex.entries.get(str(w).lower(), ())) > 1
-                            for w in refusal.get("endwords", ())))
-        unexplained = [r for r in g["refusals"] if not explained_by_words(r)]
-        if not (g["pairs_mandated"] == g["pairs_judged"]
-                + g["pairs_refused"] and g["pairs_judged"] > 0):
-            bad.append((seed, f"counts m{g['pairs_mandated']} "
-                              f"j{g['pairs_judged']} "
-                              f"r{g['pairs_refused']}"))
-        elif unexplained:
-            bad.append((seed, "refusal(s) the DRAFT's words do not "
-                              "explain: " + str(sorted(
-                                  {r.get("reason", "?")[:44]
-                                   for r in unexplained}))))
-        elif codes & FORBIDDEN:
+        bad.extend((seed, error) for error in _round_trip_grade_errors(g, m))
+        if codes & FORBIDDEN:
             bad.append((seed, sorted(codes & FORBIDDEN)))
         for s in plan["sections"]:
             n = sum(1 for ls in plan["line_slots"]
@@ -415,6 +470,7 @@ def test_the_round_trip():
     from quality.revise import Reviser
 
     R = Reviser()
+    _round_trip_fixture_checks(R)
     bad = []
     judged_total = refused_total = 0
     # FOUR WORKERS, THE SAME WIDTH THE CI SUITE LOOP USES and for the same
@@ -456,6 +512,8 @@ def test_the_round_trip():
     else:
         _timed = [_timed_round_trip(_s) for _s in seeds]
     _results = [r for _, r in _timed]
+    print("   per-seed coverage (seed, judged, refused): "
+          + repr([(r[0], r[2], r[3]) for r in _results]))
     print("   per-seed cost, slowest first (the pool's wall is the top line): "
           + ", ".join(f"seed {r[0]} {dt:.0f}s"
                       for dt, r in sorted(_timed, key=lambda t: -t[0])))
@@ -482,15 +540,14 @@ def test_the_round_trip():
         refused_total += _r
         (walled if _wall else graded).append((_seed, _tot))
     check(f"{len(seeds)} seed(s) {seeds}: blueprint READS, mandate PARSES, "
-          "mandated == judged + REFUSED with judged > 0 (three counts, "
-          "never summed: doctrine 79), every refusal is a NO-ANCHOR slot "
-          "on the dummy draft's own words rather than a shape the graders "
-          "cannot take, and no verbatim/drift finding stands on a planner "
+          "every mandated obligation has a verdict, mandated == judged > 0 "
+          "and refused == 0 (three counts: doctrine 79), and no "
+          "verbatim/drift finding stands on a planner "
           "shape — a seed past the schema door's pair guard (M-240) is a "
           "FOURTH count, the grader's own wall; no default plan may hit it",
           not bad and judged_total > 0 and not walled,
           f"held {seeds}; bad: {bad or 'none'}; "
-          f"judged {judged_total}, slot-refused {refused_total}, "
+          f"judged {judged_total}, refused {refused_total}, "
           f"walled at the schema door {len(walled)} seed(s) as "
           f"(seed, total_lines) {walled}"
           + (f", walled totals {min(t for _, t in walled)}.."
@@ -498,37 +555,6 @@ def test_the_round_trip():
           + (f"; graded totals {min(t for _, t in graded)}.."
              f"{max(t for _, t in graded)}" if graded else
              "; nothing graded"))
-
-    # AND THE SECTION'S GRADING POWER HAS A FLOOR IT DERIVES FROM ITS OWN
-    # FIXTURE, so `judged > 0` cannot decay to "one pair answered".
-    # MEASURED: `dummy_draft`'s filler line anchors at 3 of its 7 token
-    # positions — `we`, `the`, `to`, `the` are function words the phonology
-    # will not anchor (doctrine 46's list doing its job), so `head` reads
-    # `we` and refuses, and so does every `T<n>` landing on an article.
-    # A pair needs BOTH its slots to anchor, so if placements were uniform
-    # over token positions the judged share would be that fraction SQUARED.
-    # It is a LOWER BOUND and deliberately loose: the planner also draws
-    # `end`/`endword`, which do anchor, so the observed share sits well
-    # above it. What it catches is the direction that matters — the GRADER
-    # starting to refuse pairs it should judge — and it carries no literal,
-    # because a filler that changes moves its own prediction with it.
-    lex = R.lex
-    filler = "we carry the morning to the " + BANK[0]
-    ntok = len(filler.split())
-    anchored = 0
-    for t in range(1, ntok + 1):
-        a, lab, _ = SL.resolve(lex, filler, SL.parse_slot(f"1.T{t}"))
-        anchored += bool(a and lab)
-    floor = (anchored / ntok) ** 2
-    share = judged_total / max(1, judged_total + refused_total)
-    check("...and the section's grading POWER clears the floor its own "
-          "fixture predicts — the filler's anchorable-position share, "
-          "squared, because a pair needs both ends. No literal: a weaker "
-          "filler moves the prediction with it, and what this catches is "
-          "the GRADER refusing what it ought to judge",
-          share >= floor,
-          f"judged share {share:.1%} against a derived floor {floor:.1%} "
-          f"({anchored} of {ntok} token positions anchor on the filler)")
 
     # One EXACT-length request rides the same rails.
     plan = make_plan(seed=7, lines=22)
