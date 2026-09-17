@@ -102,6 +102,17 @@ report. [second-ci-gate.json](results/m146_round_trip_2026-09-17/second-ci-gate.
 preserves this failure. The tracked final document set passes the path check.
 No test or production behavior changed in either publication correction.
 
+## Integration with M-166
+
+Main advanced to `4faac4e175a644e68066c3cbcf899845d5e52941` when PR #323
+merged. Both MISSING entries and its generated counter change are preserved.
+The combined tree was regenerated with `counters.py --write` and checked
+again through all eight record gates and the comparator gate; complete
+command outputs are in [integration.json](results/m146_round_trip_2026-09-17/integration.json).
+The test source is byte-identical to the fully exercised source above.
+Fresh CI on the integrated PR head is required; the earlier green planning
+shards alone do not certify this merge.
+
 ## Scope
 
 This is a fixture-coverage improvement. It neither estimates production
