@@ -1,0 +1,194 @@
+{
+  "entry": "M-277",
+  "reviewed_on": "2026-09-17",
+  "baseline_commit": "269752040aa3c9890876bc2f6a535607876d74f6",
+  "scope": "Historical Actions API job and selected-step receipts establishing that the deployment-settings blocker was resolved. Step conclusions do not override an overall failed or cancelled run. No secret values or private song records were accessed.",
+  "records": [
+    {
+      "source": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/34623705863/jobs?per_page=100",
+      "run_id": 34623705863,
+      "run_attempt": 1,
+      "job_id": 103343577900,
+      "workflow_name": "Deploy connector to Render",
+      "head_sha": "72d2b86cfd5e624710c64c2c811080a9a78f0f2d",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/34623705863/job/103343577900",
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-11T16:44:19Z",
+      "completed_at": "2026-09-11T17:15:00Z",
+      "steps": [
+        {
+          "name": "Require immutable image promotion configuration",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-09-11T16:44:35Z",
+          "completed_at": "2026-09-11T16:44:36Z"
+        },
+        {
+          "name": "The deploy hook must be configured",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-09-11T16:44:36Z",
+          "completed_at": "2026-09-11T16:44:36Z"
+        },
+        {
+          "name": "Deploy",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-09-11T16:44:36Z",
+          "completed_at": "2026-09-11T16:44:38Z"
+        },
+        {
+          "name": "Verify the deployed runtime",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 13,
+          "started_at": "2026-09-11T16:44:38Z",
+          "completed_at": "2026-09-11T17:14:59Z"
+        }
+      ]
+    },
+    {
+      "source": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/34626453606/jobs?per_page=100",
+      "run_id": 34626453606,
+      "run_attempt": 1,
+      "job_id": 103352629285,
+      "workflow_name": "Flash battery",
+      "head_sha": "0bb22092badf0a327f061b1f11a1f192fdf2fc41",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/34626453606/job/103352629285",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-11T17:13:27Z",
+      "completed_at": "2026-09-11T21:21:45Z",
+      "steps": [
+        {
+          "name": "Validate recovery encryption before any paid request",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-09-11T17:13:30Z",
+          "completed_at": "2026-09-11T17:13:30Z"
+        },
+        {
+          "name": "Verify the live implementation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-09-11T17:13:38Z",
+          "completed_at": "2026-09-11T17:13:44Z"
+        },
+        {
+          "name": "Prove archive encryption before paid work and retain a sealed baseline",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-09-11T17:13:47Z",
+          "completed_at": "2026-09-11T17:13:47Z"
+        },
+        {
+          "name": "Retain the encrypted baseline remotely before paid work",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-09-11T17:13:47Z",
+          "completed_at": "2026-09-11T17:13:48Z"
+        },
+        {
+          "name": "Drive the battery against the pinned deployment",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "number": 13,
+          "started_at": "2026-09-11T17:13:48Z",
+          "completed_at": "2026-09-11T21:21:41Z"
+        },
+        {
+          "name": "Print only safe aggregate outcomes",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-09-11T21:21:42Z",
+          "completed_at": "2026-09-11T21:21:42Z"
+        },
+        {
+          "name": "Upload only encrypted recovery data and its public manifest",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-09-11T21:21:42Z",
+          "completed_at": "2026-09-11T21:21:44Z"
+        }
+      ]
+    },
+    {
+      "source": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/35166501842/jobs?per_page=100",
+      "run_id": 35166501842,
+      "run_attempt": 1,
+      "job_id": 105028667585,
+      "workflow_name": "Deploy connector to Render",
+      "head_sha": "b09192271e3222866d9d556410c57bc5a72cc6ff",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35166501842/job/105028667585",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T00:25:34Z",
+      "completed_at": "2026-09-17T00:26:59Z",
+      "steps": [
+        {
+          "name": "Require exact trusted CI evidence, including manual dispatch",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-09-17T00:25:43Z",
+          "completed_at": "2026-09-17T00:25:46Z"
+        },
+        {
+          "name": "Bind complete qualification to the tested image source",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-09-17T00:25:48Z",
+          "completed_at": "2026-09-17T00:25:48Z"
+        },
+        {
+          "name": "Require immutable image promotion configuration",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-09-17T00:25:48Z",
+          "completed_at": "2026-09-17T00:25:48Z"
+        },
+        {
+          "name": "The deploy hook must be configured",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-09-17T00:25:51Z",
+          "completed_at": "2026-09-17T00:25:51Z"
+        },
+        {
+          "name": "Deploy",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-09-17T00:25:51Z",
+          "completed_at": "2026-09-17T00:25:52Z"
+        },
+        {
+          "name": "Verify the deployed runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-09-17T00:25:52Z",
+          "completed_at": "2026-09-17T00:26:56Z"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "The September 11 deployment passed promotion but failed runtime verification; M-278 records the address repair.",
+    "The one-song battery reached paid execution but was cancelled without finishing; M-279 retains that independent product failure.",
+    "The September 17 successful deployment verifies its own b0919227 commit, not the later main baseline or this documentation change."
+  ]
+}
