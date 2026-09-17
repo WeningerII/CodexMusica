@@ -1,0 +1,6 @@
+..
+----------------------------------------------------------------------
+Ran 2 tests in 98.512s
+
+OK
+M-256 round-24 G/H/N replay: {'pairs_mandated': 9, 'pairs_judged': 2, 'pairs_refused': 7} L7-independent; historical all-cleared claim not reproduced

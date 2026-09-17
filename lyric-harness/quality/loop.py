@@ -21,7 +21,12 @@ TWO TIERS, matching what a person backspacing through a draft actually does.
   `Reviser.brief`/`verify` were already built for; this module only adds the
   repetition.
 
-  TIER 2 — BACKTRACK. Some pivot lines are not hard, they are IMPOSSIBLE:
+  TIER 2 — BACKTRACK. M-256, 2026-09-17: an empty bounded candidate
+  pool is guidance, not an impossibility proof. Try the group first; after
+  an unaccepted group attempt, offer the line its ordinary verified attempt.
+  A partial repair may help while other obligations remain open.
+
+  HISTORICAL ARGUMENT (superseded): Some pivot lines are not hard, they are IMPOSSIBLE:
   `Brief.joint_conflict` means `joint_field` already searched the complete
   candidate pool and nothing in it answers every group the line is in at
   once. Retrying tier 1 there is not "try harder" — it is re-running a
@@ -621,8 +626,9 @@ class GroupBrief:
 
     The tier-1 counterpart is `quality/revise.py`'s `Brief`, and this is
     deliberately NOT one. A `Brief` is per-LINE — one line, its findings, its
-    candidate field — and a backtrack is a statement about a GROUP: the pivot
-    cannot be fixed on its own, so every line it has to match moves with it.
+    candidate field — and a backtrack is a statement about a GROUP: offer
+    to move its members together. An empty bounded pool does not prove that
+    the pivot cannot improve on its own (M-256).
 
     ~~`PairBrief`, and TWO coupled lines.~~ **SUPERSEDED 2026-08-24, AND THE
     PAIR WAS THE WHOLE LIMITATION (`MISSING.md` M-105).** This tier was
@@ -1220,8 +1226,12 @@ def _anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line,
         k_rw = mandate.labels.index(rewriting_label)
     # THE WORD THE REWRITE MOVES: the anchor's word at its slot in the group
     # being rewritten (the end word when no group is named).
-    moved = reviser._incumbent(
-        lines, anchor_line, _slot_for(mandate, k_rw, anchor_line))
+    def token_index(slot):
+        token = _SL.token_of(anchor_line if slot is None else slot)
+        if token == -1:
+            return len(line_tokens(lines[anchor_line - 1])) - 1
+        return token
+    moved = token_index(_slot_for(mandate, k_rw, anchor_line))
     calls, rets = [], []
     for k, mates in mandate.partners(anchor_line):
         if k_rw is not None:
@@ -1235,9 +1245,12 @@ def _anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line,
             continue
         # A GROUP THAT BINDS THE ANCHOR AT ANOTHER WORD HOLDS AFTER THE
         # REWRITE UNTOUCHED, so it is no call on the new word.
-        here = reviser._incumbent(
-            lines, anchor_line, _slot_for(mandate, k, anchor_line))
-        if here != moved:
+        # Equal spellings at different occurrences impose no constraint on
+        # this swap. Conversely, end/T<n> aliases bind the same occurrence.
+        # A whole-line span (None) overlaps any moved token; keep its calls
+        # and let the complete verifier decide the actual proposal.
+        here = token_index(_slot_for(mandate, k, anchor_line))
+        if here is not None and moved is not None and here != moved:
             continue
         for x in mates:
             w = reviser._incumbent(lines, x, _slot_for(mandate, k, x))
@@ -2085,16 +2098,14 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                 attempt, lines = _try_tier2(
                     reviser, b, lines, mandate, rdecl, blueprint,
                     subdivision, assume, profile, propose_group, whole)
-                if not attempt.accepted and not attempt.asked:
-                    # THE FALL-THROUGH (M-185, 2026-09-01). Tier 2 consumed
-                    # this line's turn without putting anything to a
-                    # proposer, so the line would reach NO_PROGRESS never
-                    # having been asked (M-173(e): "11 never asked"). The
-                    # tier-2 record is KEPT — its own count, doctrine 79 —
-                    # and tier 1 asks the pivot for one line in the same
-                    # round, with whatever field the brief holds (an empty
-                    # one is a real question to a writer and the stub's own
-                    # "no candidate field" answer).
+                if not attempt.accepted:
+                    # M-256: an empty bounded menu does not prove a line
+                    # unrepairable. A declined/rejected group cannot consume
+                    # the line's attempt either: verify may accept a partial
+                    # repair while other existing obligations remain open.
+                    # Keep both records and the unchanged tier-1 budget.
+                    _group_outcome = ("NOT ASKED" if not attempt.asked
+                                      else "unaccepted")
                     attempts.append(attempt)
                     attempt, lines = _try_tier1(
                         reviser, b, lines, mandate, rdecl, blueprint,
@@ -2102,7 +2113,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                     attempt = LineAttempt(
                         attempt.line_no, attempt.tier, attempt.accepted,
                         attempt.tried,
-                        "after tier 2 NOT ASKED, fell through to tier 1: "
+                        f"after tier 2 {_group_outcome}, fell through to tier 1: "
                         + attempt.reason, attempt.touched,
                         asked=attempt.asked)
             else:

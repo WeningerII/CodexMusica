@@ -1,0 +1,14 @@
+F
+======================================================================
+FAIL: test_round24_l19_verdict_is_independent_of_unrelated_l7_edit (__main__.ProductionRevisionTests.test_round24_l19_verdict_is_independent_of_unrelated_l7_edit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e66437fb1b49/CodexMusica-M-256/lyric-harness/quality/test_production_revision.py", line 92, in test_round24_l19_verdict_is_independent_of_unrelated_l7_edit
+    self.assertEqual(readings[0], readings[1])
+AssertionError: {'man[4485 chars]e', 'agree', 'sea', 'be', 'agree', 'owe', 'glo[42316 chars]: []} != {'man[4485 chars]e', 'memory', 'sea', 'be', 'memory', 'owe', 'g[42680 chars]: []}
+Diff is 157828 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 1 test in 10.781s
+
+FAILED (failures=1)

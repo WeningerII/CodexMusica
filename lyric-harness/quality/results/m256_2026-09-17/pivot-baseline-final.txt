@@ -1,0 +1,36 @@
+FFF
+======================================================================
+FAIL: test_empty_pivot_menu_does_not_suppress_verified_partial_repair (quality.test_production_revision.ProductionRevisionTests.test_empty_pivot_menu_does_not_suppress_verified_partial_repair) (decline=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e66437fb1b49/m256-baseline/lyric-harness/quality/test_production_revision.py", line 57, in test_empty_pivot_menu_does_not_suppress_verified_partial_repair
+    self.assertIn(3, asked)
+AssertionError: 3 not found in [4]
+
+======================================================================
+FAIL: test_empty_pivot_menu_does_not_suppress_verified_partial_repair (quality.test_production_revision.ProductionRevisionTests.test_empty_pivot_menu_does_not_suppress_verified_partial_repair) (decline=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e66437fb1b49/m256-baseline/lyric-harness/quality/test_production_revision.py", line 57, in test_empty_pivot_menu_does_not_suppress_verified_partial_repair
+    self.assertIn(3, asked)
+AssertionError: 3 not found in [4]
+
+======================================================================
+FAIL: test_backtrack_obligations_follow_token_occurrence_not_spelling (quality.test_production_revision.ProductionRevisionTests.test_backtrack_obligations_follow_token_occurrence_not_spelling) (outside='1.head')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e66437fb1b49/m256-baseline/lyric-harness/quality/test_production_revision.py", line 76, in test_backtrack_obligations_follow_token_occurrence_not_spelling
+    self.assertEqual(calls, expected)
+AssertionError: Lists differ: ['dog'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'dog'
+
+- ['dog']
++ []
+
+----------------------------------------------------------------------
+Ran 2 tests in 71.323s
+
+FAILED (failures=3)

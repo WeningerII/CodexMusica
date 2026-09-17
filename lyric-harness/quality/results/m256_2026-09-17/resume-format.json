@@ -1,0 +1,5 @@
+{
+  "argv": ["npm", "run", "format:check"],
+  "exit_code": 0,
+  "output": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> codex-music-tool@2.0.0 format:check\n> prettier --check .\n\nChecking formatting...\nAll matched files use Prettier code style!\n"
+}

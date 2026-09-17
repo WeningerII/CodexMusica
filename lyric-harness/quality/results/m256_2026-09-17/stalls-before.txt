@@ -1,0 +1,35 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: turn deadline: 3000000 ms (maxTurnMs 2400000 + CHAT_TOOL_TIMEOUT_MS 600000 ms, both read from source; maxSteps 14)
+::notice title=battery cycle::song 0 cycle 1 (turns 0-0): stop=NO_PROGRESS rounds=1 open=5 whole=none answers=null accepted=0 rejected=0 unknown=0
+::notice title=battery cycle::song 0 cycle 2 (turns 1-0): stop=NO_PROGRESS rounds=1 open=5 whole=none answers=null accepted=0 rejected=0 unknown=0
+::notice title=battery cycle::song 0 cycle 3 (turns 1-0): stop=NO_PROGRESS rounds=1 open=5 whole=none answers=null accepted=0 rejected=0 unknown=0
+::notice title=battery song 0 turn 0::status=200 ms=175.77406100000002 tools=3 answers_on_record=none stopped=none user_reasks=0 malformed_hops=unrecorded draft_carried=0/3 proposals=0/0/0 paths=unrecorded
+::notice title=battery cycle::song 0 cycle 4 (turns 1-1): stop=null rounds=null open=null whole=none answers=null accepted=0 rejected=0 unknown=0
+::notice title=battery song 0 turn 1::status=200 ms=8.317147999999975 tools=1 answers_on_record=none stopped=none user_reasks=0 malformed_hops=unrecorded draft_carried=0/1 proposals=0/0/0 paths=unrecorded
+::notice title=battery verdict::song 0: finished
+song 0: 2 turn(s), stop=exit 0, flags=0
+  loop ladder: t0:NO_PROGRESS/1r/5open t0:NO_PROGRESS/1r/5open t0:NO_PROGRESS/1r/5open
+
+recorded to /tmp/battery-lifecycle-SDGIxf — the transcript is the deliverable; the leak charging happens off it.
+
+
+0 !== 1
+
+    at file:///workspace/scratch/e66437fb1b49/CodexMusica-M-256/mcp/test_battery_lifecycle.mjs:141:16
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async fixture (file:///workspace/scratch/e66437fb1b49/CodexMusica-M-256/mcp/test_battery_lifecycle.mjs:102:5)
+    at async file:///workspace/scratch/e66437fb1b49/CodexMusica-M-256/mcp/test_battery_lifecycle.mjs:125:5
+    at async test (file:///workspace/scratch/e66437fb1b49/CodexMusica-M-256/mcp/test_battery_lifecycle.mjs:111:3)
+    at async file:///workspace/scratch/e66437fb1b49/CodexMusica-M-256/mcp/test_battery_lifecycle.mjs:123:3 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 0,
+  expected: 1,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

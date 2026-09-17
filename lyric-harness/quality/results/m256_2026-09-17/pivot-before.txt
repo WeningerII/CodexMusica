@@ -1,0 +1,50 @@
+EEF
+======================================================================
+ERROR: test_empty_pivot_menu_does_not_suppress_verified_partial_repair (__main__.ProductionRevisionTests.test_empty_pivot_menu_does_not_suppress_verified_partial_repair) (decline=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e66437fb1b49/CodexMusica-M-256/lyric-harness/quality/test_production_revision.py", line 52, in test_empty_pivot_menu_does_not_suppress_verified_partial_repair
+    result = revise_loop(r, lines, m, propose=line, propose_group=group)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/e66437fb1b49/CodexMusica-M-256/lyric-harness/quality/loop.py", line 2109, in revise_loop
+    attempt, lines = _try_tier1(
+                     ^^^^^^^^^^^
+  File "/workspace/scratch/e66437fb1b49/CodexMusica-M-256/lyric-harness/quality/loop.py", line 1062, in _try_tier1
+    candidate = propose(b, lines, attempt, reasons, whole)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ProductionRevisionTests.test_empty_pivot_menu_does_not_suppress_verified_partial_repair.<locals>.line() takes 3 positional arguments but 5 were given
+
+======================================================================
+ERROR: test_empty_pivot_menu_does_not_suppress_verified_partial_repair (__main__.ProductionRevisionTests.test_empty_pivot_menu_does_not_suppress_verified_partial_repair) (decline=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e66437fb1b49/CodexMusica-M-256/lyric-harness/quality/test_production_revision.py", line 52, in test_empty_pivot_menu_does_not_suppress_verified_partial_repair
+    result = revise_loop(r, lines, m, propose=line, propose_group=group)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/e66437fb1b49/CodexMusica-M-256/lyric-harness/quality/loop.py", line 2109, in revise_loop
+    attempt, lines = _try_tier1(
+                     ^^^^^^^^^^^
+  File "/workspace/scratch/e66437fb1b49/CodexMusica-M-256/lyric-harness/quality/loop.py", line 1062, in _try_tier1
+    candidate = propose(b, lines, attempt, reasons, whole)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ProductionRevisionTests.test_empty_pivot_menu_does_not_suppress_verified_partial_repair.<locals>.line() takes 3 positional arguments but 5 were given
+
+======================================================================
+FAIL: test_backtrack_obligations_follow_token_occurrence_not_spelling (__main__.ProductionRevisionTests.test_backtrack_obligations_follow_token_occurrence_not_spelling) (outside='1.head')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e66437fb1b49/CodexMusica-M-256/lyric-harness/quality/test_production_revision.py", line 71, in test_backtrack_obligations_follow_token_occurrence_not_spelling
+    self.assertEqual(calls, expected)
+AssertionError: Lists differ: ['dog'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'dog'
+
+- ['dog']
++ []
+
+----------------------------------------------------------------------
+Ran 2 tests in 83.200s
+
+FAILED (failures=1, errors=2)
