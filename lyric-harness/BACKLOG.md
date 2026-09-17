@@ -330,12 +330,19 @@ and this heading did not say so, so the two files disagreed about whether a TIER
 
 ### 2.4 · ~~The `&c.` refrain stub is not an English convention~~ — **four traditions, three forms, and the Welsh one was `&c.` all along** `M-4` — `CLOSED 2026-08-21`
 **TASK DISCHARGED — `M-4` STAYS OPEN.** The task this entry set was *read the
-Welsh refrain pointer as Welsh*, and it is done and guarded. M-4 stays PARTIAL
-on a different clause entirely: the Malay `d. s. b.` row's count is
+Welsh refrain pointer as Welsh*, and it is done and guarded. **UPDATED
+2026-09-17:** M-4 stays PARTIAL for the Finnish `155 → 139` counting rule,
+which M-18 still cannot identify. The Malay source was recovered byte-for-byte;
+the auditor reproduces 108 source abbreviations / 99 in indented lines / 95
+line-final, against zero in the staged extract. D7/D8 now compare to M-4's
+live table and are guarded against changed or missing claims. Source identity,
+reproduction and receipts: `quality/RESULTS_REGISTER_AUDIT.md`, M-4 recovery.
+The previous blocker was **superseded by that source recovery**:
+~~on a different clause entirely: the Malay `d. s. b.` row's count is
 `UNVERIFIABLE` because PG47873 — the 705-block source it was measured against —
 is not on disk here, and the staged 129-block extract is a different population
-(M-18). No amount of work on the Welsh pointer closes that, and marking M-4
-CLOSED to make the two files agree would erase a real gap.
+(M-18).~~ Source staging still has to be explicit on a fresh checkout. Closing
+the Welsh task never supplied the missing historical Finnish rule.
 
 **WHAT THE ENTRY EXPECTED WAS NOT WHAT THE CORPUS HAD.**
 `lyric_harness.CHORUS_STUB_FORMS` declares `eng` (`&c.`/`etc.`), `fin`
@@ -714,11 +721,15 @@ a different order of cost from what this heading claims. The next attempt
 should ask for those two hosts by name.
 
 ### 3.5 · ~~The negative control is still Whitman alone~~ — **replaced 2026-08-11; the entry was ten days stale** `K-2, K-3` — `CLOSED 2026-08-21`
-**TASK DISCHARGED — `K-3` STAYS OPEN.** The task was *build the replacement*,
+**TASK DISCHARGED — `K-3` CLOSED 2026-09-17; FINDING RETAINED.** The task was *build the replacement*,
 and it was built the same day this entry was last touched — the entry simply
-never said so. `K-3` stays OPEN because it is a FINDING about Whitman, not a
-task: the Whitman negative control does not separate, and building a better
-control does not make that stop being true. It reproduces and WORSENS under
+never said so. The former instruction, ~~`K-3` stays OPEN because it is a
+FINDING about Whitman, not a task~~, kept completed work in the open queue.
+At the owner's request the task status and standing finding are now separate:
+the replacement is complete, while Whitman's ineligibility remains documented
+and guarded by `quality/test_band.py` section 9. The historical comparison
+below is preserved; no null draw was recomputed for this status correction.
+It reproduces and WORSENS under
 power — Whitman P3 = 0.1733 against a null max of 0.1800 at n=200.
 
 ~~All four recorded Whitman figures sit inside one line-permutation null. The
@@ -767,7 +778,8 @@ independent reduction of the same null is worth having, and deleting it would
 erase the question — but the present-tense claim that a failing stratum EXISTS
 is struck rather than carried (doctrine 17). And Whitman's P3 gap went −0.0067
 to **−0.0333**: `K-3` does not merely reproduce under more power, it gets five
-times worse, which is why that half stays open.
+times worse. ~~That is why that half stays open.~~ **The finding is retained;
+the replacement task is CLOSED as of 2026-09-17.**
 
 ### 3.6 · Corpus adversary (adversary 5) `BUILT 2026-08-11`
 Systematise doctrines 50/52/53: a runner that checks every `corpus/` file
@@ -1954,7 +1966,7 @@ picked up before the tiers above are empty.
 | G-2 | PARTIAL | RECORD · S | grade, write, record | Three residue clauses belong to B-1 and F-2 or are permanent; the prominence band runs on every `inspect()` with no blueprint. | The metric half is delivered. |
 | G-3 | PARTIAL | BUILD · M | plan, grade | The `meter TEMPLATE` verb and the bar grid are two unconnected layers. | Connecting them is the mapping G-1 refuses. |
 | I-1 | PARTIAL | RECORD · S | record, plan | One clause: melody-first, which needs a tune object. | A category error for a stated design decision; the last clause is B-1's. |
-| K-3 | OPEN | RECORD · S | corpus, record | A standing FINDING: the Whitman text carries the property under test as a burden. | The replacement control is built; the entry stays open as a finding by its own words. |
+| K-3 | CLOSED 2026-09-17 | — | corpus, record | No actionable replacement work remains; Whitman's ineligibility is a retained finding. | Replacement built in `3e0b8068`; eligibility guard remains in `quality/test_band.py` section 9. |
 | L-1 | OPEN | BUILD · L | grade, CI | A false-event rate controlled at α is absent: `M_NEEDED` 18–28 against a median family of 198–217. | "Closing it is a redesign of the layer, not a measurement." |
 | L-2 | OPEN | BUILD · L | grade, CI | Real sonnets still do not separate from scrambled text (29.1% vs 29.0%). | Needs a null that moves the perfect-pair rate ~10×, i.e. L-1's redesign. |
 | L-3 | PARTIAL | MEASURE · L | grade, corpus | The slop floor is calibrated on 152 sonnets vs 40 model sonnets — one form, one language, one generator. | Needs a second form and a second language's generated arm before any run. |
@@ -2081,7 +2093,7 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 48 OPEN / 27 PARTIAL / 1 BLOCKED / 256 CLOSED / 15 RESOLVED = 347 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 47 OPEN / 27 PARTIAL / 1 BLOCKED / 257 CLOSED / 15 RESOLVED = 347 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 4 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`, `span_rules.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
 | public symbols by where they are referenced | **1579** DECLARED-public top-level functions/classes under `quality/` and the root — **347** named by another production module, **474** by tests only, **633** only inside their own module, **11** by nothing anywhere, **114** REFUSED (72 ambiguous, 32 dynamic, 10 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **88** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |

@@ -97,8 +97,9 @@ population). A check that CANNOT PASS is the mirror of doctrine 48's check that
 cannot fail: both teach a reader to skip the column. D9, D20 and D21 now READ
 their claim out of the entry, the way `_k1_claims` has since it was written and
 `quality/verify_doctrines.py` does for the doctrine run and the known-gaps list;
-`PINNED` exclusion 1 had already stated the rule as policy. D7 and D8 are the
-same shape and are NOT fixed here — see `_d_jne`.
+`PINNED` exclusion 1 had already stated the rule as policy. D7 and D8 had the
+same shape; repaired together with their regression controls on 2026-09-17
+(M-4). They now read the live stub table and refuse absent or ambiguous claims.
 """
 
 from __future__ import annotations
@@ -873,75 +874,70 @@ def _d_chorus_stubs():
         "941 stub instances in the staged corpus"
 
 
-def _d_jne():
-    """THIS ROW CARRIES THE SAME DEFECT D9/D20/D21 WERE JUST FIXED FOR, AND IT
-    IS DELIBERATELY LEFT STANDING. Recorded here so the next session does not
-    have to re-find it.
+def _m4_stub_count(language):
+    """Read one live stub-count cell; missing/duplicate/unparsed is unknown.
 
-    The register-side literal below is `Finnish j. n. e. on 8 stub lines, 16
-    unreadable tokens`. M-4 NO LONGER SAYS THAT: its table row reads `~~8~~
-    **9 at debf64e**` and its prose states `9 occurrences ... that is 18
-    tokens`, naming the same three files this function measures. Re-derived
-    2026-08-14 and the repo agrees with the entry exactly -- 9 stubs, 18
-    tokens, `fin_kanteletar` 7 / `fin_kanteletar_uudempia` 1 /
-    `fin_wahanen_laulukirja` 1. So the honest verdict against the CURRENT M-4
-    is CONFIRMED, and the MOVED this prints is measured against a sentence the
-    register struck three days ago -- the same permanently-MOVED shape as D20
-    and D21.
-
-    NOT CHANGED HERE, because the change is not this file's alone to make.
-    `quality/test_register_audit.py::test_calibration_finnish_arithmetic`
-    ASSERTS `verdict == "MOVED"`, with a docstring reading *"MOVED is the
-    honest verdict here ... The register's own owner moves the 8/16; this file
-    only asserts that the auditor still measures correctly."* The register's
-    owner HAS moved it, so that test's premise is now false and the pin must
-    move in the same commit as this function. Deriving it here alone would
-    turn a green suite red and leave a session unable to tell a real
-    regression from this repair. THE OWED EDIT, precisely: drop that check's
-    `verdict == "MOVED"` assertion to `verdict in ("CONFIRMED", "MOVED")`, or
-    repin it to CONFIRMED -- the sibling check above it (`9 occurrences` /
-    `18 tokens` in the detail) is the one that pins the MEASUREMENT and needs
-    no change either way. Then this function becomes `_claim_or_unverifiable`
-    against M-4's own `9`/`18`.
-
-    D8 is the third member of the family and is left for the same reason:
-    its literal `d. s. b. occurs ZERO times` is the WITHDRAWN M-4's sentence,
-    and `test_calibration_malay_withdrawal` pins `verdict in (FALSE,
-    UNVERIFIABLE)`, which a derived reading would break wherever `MSA_SOURCE`
-    is set.
+    The Finnish cell qualifies its count by commit, and the Malay cell by
+    SOURCE. Do not search the surrounding historical prose for a convenient
+    number, or silently revive a struck count when its replacement disappears.
     """
+    rows = []
+    for line in entry_text(read_entries(), "M-4").splitlines():
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if not line.startswith("|") or len(cells) < 3:
+            continue
+        if cells[0] != language:
+            continue
+        live = re.sub(r"~~[^~]*~~", "", cells[2]).replace("**", "").strip()
+        suffix = (r"(?:\s+at\s+`[0-9a-f]+`)?" if language == "Finnish"
+                  else r"\s+in the SOURCE")
+        match = re.fullmatch(r"([\d,]+)" + suffix, live)
+        rows.append(int(match[1].replace(",", "")) if match else None)
+    return rows[0] if len(rows) == 1 else None
+
+
+def _d_jne():
+    """D7: the current Finnish row, not its withdrawn 8/16 predecessor."""
     tot = collections.Counter()
     for f in _song_files("fin_"):
         n = len(re.findall(r"\bj\.\s*n\.\s*e\.", open(f, encoding="utf-8", errors="replace").read()))
         if n:
             tot[os.path.basename(f)] = n
     n = sum(tot.values())
-    return (CONFIRMED if n == 8 else MOVED), \
-        "%d occurrences: %s; at 2 vowelless tokens each (j, n -- e is readable) that is %d tokens" \
-        % (n, dict(tot), 2 * n), \
-        "Finnish j. n. e. on 8 stub lines, 16 unreadable tokens"
+    got = ("%d occurrences: %s; at 2 vowelless tokens each (j, n -- e is readable) "
+           "that is %d tokens" % (n, dict(tot), 2 * n))
+    want = _m4_stub_count("Finnish")
+    if want is None:
+        return UNVERIFIABLE, got, "M-4 has no unique readable Finnish stub count"
+    return (CONFIRMED if n == want else MOVED), got, \
+        "Finnish j. n. e. on %d stub lines, per M-4's live table" % want
 
 
 def _d_dsb():
-    """The withdrawal that this instrument exists to re-open."""
+    """D8: compare the live SOURCE count to the source, never its extract."""
     staged = _msa_staged_population()
     src = _msa_source_population()
-    if staged is None:
-        return UNVERIFIABLE, "staged Malay file absent", "d. s. b. occurs ZERO times"
+    want = _m4_stub_count("Malay")
+    if want is None:
+        return UNVERIFIABLE, "no comparison made", \
+            "M-4 has no unique readable Malay SOURCE stub count"
+    stated = "d. s. b. occurs %d times in the SOURCE, per M-4's live table" % want
     if src is None:
-        return UNVERIFIABLE, ("`d. s. b.` occurs %d times in the staged extract, "
-                              "which is true and is not the population M-3/M-4 "
-                              "measured; PG47873 itself is not on disk here"
-                              % staged["d_s_b"]), "d. s. b. occurs ZERO times"
-    return FALSE, ("0 in the staged 129-block extract, but %d in PG47873 -- the "
+        return UNVERIFIABLE, ("PG47873 is not staged; the extract's count (%s) "
+                              "cannot verify the source. Set MSA_SOURCE to "
+                              "the original 47873-8.txt."
+                              % (staged["d_s_b"] if staged else "absent")), stated
+    return (CONFIRMED if src["d_s_b_all"] == want else MOVED), \
+        ("%s in the staged extract; %d in PG47873 -- the "
                    "file the extract was cut from and the population M-3 names "
                    "(%d in indented verse lines, %d of them line-final). Single-"
                    "letter verse tokens there: b %d, d %d, s %d."
-                   % (src["d_s_b_all"], src["d_s_b_in_verse"], src["d_s_b_line_final"],
+                   % (staged["d_s_b"] if staged else "absent",
+                      src["d_s_b_all"], src["d_s_b_in_verse"], src["d_s_b_line_final"],
                       src["single_bds_apostrophe_kept"][0],
                       src["single_bds_apostrophe_kept"][1],
                       src["single_bds_apostrophe_kept"][2])), \
-        "d. s. b. occurs ZERO times in the only Malay file"
+        stated
 
 
 def _m4_stub_rows(entries):
@@ -1510,12 +1506,12 @@ def _d_fin_census():
     """
     c = _fin_census()
     return UNVERIFIABLE, \
-        ("all ten fin_* files under the module's own tokenizer and census: "
+        ("all staged fin_* song files under the module's own tokenizer and census: "
          "total %d, read %d, REFUSED %d, DEFECTIVE %d -- three counts, never "
          "summed (doctrine 79; this row used to print refused+defective as one "
-         "'unreadable' figure). Two orders off the entry's 155 either way, and "
-         "the entry states no tokenizer and no reason-code filter, so which of "
-         "the three it meant cannot be recovered"
+         "'unreadable' figure). These are current counts, not a reconstruction "
+         "of the historical 155 -> 139. The entry states no tokenizer and no "
+         "reason-code filter, so which of the three it meant cannot be recovered"
          % (c["total"], c["read"], c["refused"], c["defective"])), \
         "all ten fin_* 155 -> 139 unreadable tokens"
 
@@ -1613,9 +1609,9 @@ DERIVATIONS = [
     Claim("D4", "K-1", "authors", 143, _d_authors, "quality/audit_register.py --slow", slow=True),
     Claim("D5", "K-1/M-11", "named airs", 331, _d_named_airs, "quality/audit_register.py --slow", slow=True),
     Claim("D6", "A-1", "chorus stubs", 941, _d_chorus_stubs, "quality/audit_register.py --slow", slow=True),
-    Claim("D7", "M-4", "Finnish j. n. e.", 8, _d_jne, "quality/audit_register.py"),
-    Claim("D8", "M-4", "Malay d. s. b.", 0, _d_dsb, "quality/audit_register.py",
-          note="the withdrawal this instrument exists to re-open"),
+    Claim("D7", "M-4", "Finnish j. n. e.", None, _d_jne, "quality/audit_register.py"),
+    Claim("D8", "M-4", "Malay d. s. b.", None, _d_dsb, "quality/audit_register.py",
+          note="live SOURCE count; MSA_SOURCE stages the original file"),
     Claim("D9", "M-4", "CHORUS_STUB_FORMS", None, _d_stub_forms, "quality/audit_register.py"),
     Claim("D10", "K-1", "eng lyricist statuses", None, _d_eng_status, "quality/audit_register.py"),
     Claim("D11", "K-5", "Somali gate outcomes", 18, _d_somali, "quality/audit_register.py"),

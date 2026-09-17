@@ -1727,8 +1727,24 @@ structurally impoverished — "O Captain! My Captain!" carries the "Fallen cold
 and dead" burden closing every stanza and our file records no refrain marking
 at all. That is a fact about Whitman, and Whitman is K-3's subject.
 
-### K-3 · The Whitman negative control does not separate `OPEN`
-> **TESTED WHILE OPEN.** `quality/test_band.py` section 9 names this entry and
+### K-3 · Replace the Whitman negative control; retain the finding `CLOSED` 2026-09-17
+
+**ACTIONABLE WORK — COMPLETE.** The replacement is the positive corpus's own
+line-permuted quatrains, matched by construction, against a multi-author,
+multi-scheme positive. It shipped in `3e0b8068` as
+`quality/negative_control.py`; `BACKLOG.md` §3.5 recorded the task discharged
+in `b844cd6f`. No replacement implementation remains to build.
+
+**FINDING — RETAINED.** Whitman carries the property under test as repetition
+and remains ineligible as the negative control. It stays available as the
+legacy comparison. Closing the replacement task preserves that finding and
+the corpus's printed text, provenance and existing annotation limitations.
+The former `OPEN` status mixed this standing finding into the work queue.
+Separated at the owner's request, 2026-09-17: the status now describes the
+actionable task; the finding and its regression remain below.
+
+> **REGRESSION GUARD — originally TESTED WHILE OPEN.** `quality/test_band.py`
+> section 9 names this entry and
 > PINS THE ELIGIBILITY CLAUSE — the one no build can discharge, because it is a
 > fact about `corpus/whitman.txt` rather than about a separation better
 > calibration could fix. It requires the detected link population to be
@@ -1736,7 +1752,13 @@ at all. That is a fact about Whitman, and Whitman is K-3's subject.
 > refuses) AND majority REPEAT on an identical token: 7 REPEAT / 2 RHYME of 9,
 > 7 on the same token. Deliberately null-free, so it costs seconds rather than
 > a replicate draw. Red the day the control stops carrying the property.
-**Now (verified):** all four recorded Whitman figures (18.0, 20.0, 21.3, 26.0%)
+
+**Reverified 2026-09-17 at `50e4de44`:** section 9 still measures 7 REPEAT and
+2 RHYME links, with 7 of 9 on the same token. The band regression suite and
+all 50 null-shape checks pass. This verifies the retained eligibility finding;
+the historical null draws below were not recomputed in this status correction.
+
+**Historical measurements:** all four recorded Whitman figures (18.0, 20.0, 21.3, 26.0%)
 fall inside one line-permutation null spanning 6.7–27.3%. Replacement is the
 corpus's own shuffled self, plus a multi-author positive spanning more than one
 scheme — BUILT, and it is `quality/negative_control.py` (2026-08-11).
@@ -1744,8 +1766,8 @@ scheme — BUILT, and it is `quality/negative_control.py` (2026-08-11).
 it is a fact about Whitman rather than about the control's authorship:
 `corpus/whitman.txt` is itself structurally impoverished — "O Captain! My
 Captain!" carries the "Fallen cold and dead" burden closing every stanza and
-our file records no refrain marking at all. **This entry stays OPEN as a
-FINDING and not as a task** — the replacement was built; what does not go away
+our file records no refrain marking at all. **~~This entry stays OPEN as a
+FINDING and not as a task~~ — status superseded 2026-09-17**: the replacement was built; what does not go away
 is that the text this project used as its negative control carries the property
 under test.
 
@@ -2957,15 +2979,45 @@ population next to the zero, or the next reader inherits a "0" that is true of a
 one-seventh extract.**
 
 ### M-4 · The `&c.` refrain stub is not an English printing convention `PARTIAL`
-**The partial status was stale.** All four traditions are supported by three
+**Recognition is complete; the historical Finnish counting rule is still
+missing.** All four traditions are supported by three
 forms: English/Welsh `&c.` or `etc.`, Finnish `j. n. e.`, Malay `d. s. b.`.
 `quality/test_spans.py` §8/8b pins language attribution, shared-form ambiguity,
 editorial tails and exclusion of mid-line abbreviations. `BACKLOG.md` §2.4
 already closed the Welsh issue on 2026-08-21. No invented `ac ati` pattern is
 needed: the staged Welsh uses `&c.`, as the measurements below explain.
-Historical unavailable-source counts remain qualified below; closing the
-recognition defect does not recover their missing evidence. A-1 separately
-owns resolving a pointer to its full chorus.
+Historical counts remain qualified below. A-1 separately owns resolving a
+pointer to its full chorus.
+
+**RECONCILED 2026-09-17, still PARTIAL.** PR #302's title claimed closure,
+but its final repair `af634ba4` restored this heading to PARTIAL; the opening
+sentence above had not been told. The original Malay source is now recovered
+at its recorded bytes: upstream commit
+`f5dd00edd79cdf6e5eed40635d38d6feb71cb2c8`, MD5
+`19e717af1a18fbc845e5c6a386fdaa4d`. The existing auditor reproduces **108**
+abbreviations in the whole source, **99** in indented lines, **95** of those
+line-final, and **0** in the staged extract. These are different populations;
+none is substituted for the unknown Malay-language subset behind the old
+single-letter totals. `quality/RESULTS_REGISTER_AUDIT.md`'s M-4 recovery
+section gives the immutable source, exact rules and executable reproduction;
+`quality/results/m4_evidence_2026-09-17/after.txt` is the receipt.
+
+D7 and D8 now read this entry's live table instead of hardcoded withdrawn
+claims (Finnish 8 and Malay zero). Changed, missing and duplicate claims,
+source/extract substitution and absent source input are regression-covered in
+`quality/test_register_audit.py`. With the source staged, D7/D8/D9 are
+CONFIRMED; D24 remains UNVERIFIABLE. Without it, D8 remains UNVERIFIABLE.
+No corpus text, pronunciation, comparator input or calibration changed.
+
+**PRECISE REMAINDER (M-18):** recover contemporaneous evidence for the
+population, tokeniser and refusal-category filter that produced the Finnish
+`155 → 139`, or explicitly decide its disposition as an unrecoverable
+historical claim. The introducing commit `f94383c1` records the numbers but
+not that rule. The current census is **145,280 total / 144,562 read / 567
+refused / 151 defective**, using `fin._tokens(_verse_body(file))` and
+`fin.readability_census(Finnish(), tokens)` over staged `fin_*` song files.
+It is not a reconstruction of the old experiment, and its three outcomes
+are not pooled into an "unreadable" replacement.
 
 ~~TESTED WHILE OPEN, and the remainder is NAMED: WELSH. Three of the four
 languages ship in `CHORUS_STUB_FORMS`; `ac ati` matches nothing.~~ Superseded
@@ -3083,7 +3135,7 @@ time by `python3 quality/verify_entries.py` rather than written down here.
 readable, so on `Härkä ei juo vettä j. n. e.` `fin.line_alliteration` returns
 (2 alliterating, 7 words) against (1, 4) for the real line — three phantom
 words and one phantom alliteration, in the numerator _and_ the denominator.
-`CHORUS_STUB_FORMS` is now a declared table of `(language, gloss, pattern)` and
+`CHORUS_STUB_FORMS` is now a declared table of `(languages, gloss, pattern)` and
 `chorus_stub_match` reports WHICH convention fired (doctrine 45).
 
 ### M-4a · A tighter rhyme band LOOSENS the time layer's correction `CLOSED`

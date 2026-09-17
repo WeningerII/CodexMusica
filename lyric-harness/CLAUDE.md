@@ -3381,7 +3381,8 @@ the repaired check now fails and the old one did not.
   of the 1,297 `eng_*` files across 9 tradition groups. **Whitman is retained
   as a LEGACY arm and is explicitly not the control**, because
   `corpus/whitman.txt` carries the property under test as epistrophe and was
-  never eligible for the role (`K-3`, still OPEN as a finding).
+  never eligible for the role (`K-3`: replacement task CLOSED 2026-09-17;
+  eligibility finding retained and guarded by `quality/test_band.py` section 9).
 - Current baselines: sonnets **1.4% violations (14/1014 JUDGED pairs)** —
   MEASURED 2026-09-02, not recalled: `python3 battery.py` prints
   `mandated 1064, judged 1014, refused 50` and `violations 14`.

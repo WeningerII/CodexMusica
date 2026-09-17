@@ -86,10 +86,14 @@ supersedes it.
 
 ## Scope and verification ownership
 
-No open PR was returned by the repository's pulls endpoint during the
-2026-09-17 overlap check. This documentation change owns no comparator input
-and joins no comparator batch. The staged-input comparator check must still
-be run on the final tree; historical green runs cannot substitute for it.
+No open PR was returned by the repository's pulls endpoint during the first
+2026-09-17 overlap check. PRs #313 (K-3) and #314 (M-4) subsequently changed the
+shared registers and merged before final integration. This branch integrates
+their main commit `d44a13cc7af164fe8852d538dce082fc84523284`, preserves both
+entries, and regenerates the combined status counter. Neither integration
+changes comparator inputs. This documentation change owns no comparator
+input and joins no comparator batch. The staged-input comparator check must
+still be run on the final tree; historical green runs cannot substitute for it.
 
 The run heads above precede current main. Their success resolves the
 historical incident, not a claim that all current calibrations were rerun
