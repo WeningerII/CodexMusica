@@ -1,0 +1,38 @@
+BAN CONVERGENCE — the two-tier ban against the bank (C18 / M-168)
+  per song: screened pool (homeo/modal/clean/refused/other, from the log's `screen` rows) | final (mandated/judged/refused; ban findings; eligible pairs; HEAD/TAIL/OUTSIDE partner ranks)
+  carry_it_over.txt                screen 35H/25M/33C/5R/0?     [readme] 11/11/0 flags=0 ban=0 elig=9 head=0 tail=7 outside=2 tail-rank median 29 min 11 max 288
+  crooked_waltz.txt                screen 11H/42M/103C/0R/0?    [readme] 47/21/26 flags=11 ban=0 elig=10 head=0 tail=1 outside=9 tail-rank median 44 min 44 max 44
+  i_am_not_leaving.txt             screen 0H/0M/53C/0R/1?       [log] 65/45/20 flags=0 ban=2 elig=42 head=2 tail=4 outside=36 tail-rank median 21.0 min 18 max 47
+  keep_the_light.txt               screen 0H/0M/0C/0R/0?        [readme] 16/16/0 flags=0 ban=0 elig=14 head=0 tail=8 outside=6 tail-rank median 25.0 min 11 max 33
+  long_bridge.txt                  screen 0H/0M/0C/0R/0?        [readme] 46/45/1 flags=0 ban=0 elig=45 head=0 tail=31 outside=14 tail-rank median 28 min 8 max 335
+  matinee.txt                      screen 17H/46M/248C/0R/0?    [readme] 116/111/5 flags=0 ban=0 elig=111 head=0 tail=36 outside=75 tail-rank median 24.5 min 7 max 158
+  oar_lair.txt                     screen 0H/0M/0C/0R/0?        REFUSED — no `song` command in songs/README.md and no `plan` row with a `groups` fact in the log
+  one_more.txt                     screen 0H/0M/0C/0R/0?        [readme] 11/11/0 flags=0 ban=0 elig=10 head=0 tail=6 outside=4 tail-rank median 25.0 min 11 max 28
+  stay_awake.txt                   screen 15H/0M/7C/0R/0?       [readme] 16/14/2 flags=0 ban=0 elig=13 head=0 tail=5 outside=8 tail-rank median 15 min 13 max 24
+  taught_me_time.txt               screen 239H/201M/186C/0R/0?  [readme] 46/46/0 flags=0 ban=0 elig=46 head=0 tail=37 outside=9 tail-rank median 33 min 7 max 194
+  the_frost_ledger.txt             screen 0H/0M/0C/0R/0?        [readme] 71/25/46 flags=22 ban=1 elig=3 head=1 tail=0 outside=2 tail-rank median 31 min 31 max 31
+  the_long_way_back.txt            screen 0H/0M/0C/0R/0?        [log] 75/35/40 flags=3 ban=1 elig=22 head=1 tail=6 outside=15 tail-rank median 27 min 1 max 32
+  the_river_keeps_the_score.txt    screen 0H/0M/0C/0R/0?        [log] 71/43/28 flags=0 ban=4 elig=43 head=4 tail=0 outside=39 tail-rank median 14.0 min 13 max 24
+  till_the_light_comes_home.txt    screen 8H/0M/54C/0R/0?       [log] 76/43/33 flags=0 ban=1 elig=42 head=1 tail=3 outside=38 tail-rank median 24.5 min 4 max 45
+  turn_the_wheel.txt               screen 0H/0M/0C/0R/0?        [readme] 10/10/0 flags=0 ban=0 elig=6 head=0 tail=4 outside=2 tail-rank median 19.0 min 11 max 28
+  wheat_mane.txt                   screen 41H/81M/108C/6R/0?    [readme] 42/41/1 flags=0 ban=0 elig=41 head=0 tail=14 outside=27 tail-rank median 32.0 min 6 max 52
+BANK:
+  songs              16
+  mandate_readme     11
+  mandate_log        4
+  mandate_refused    1
+  screen_homeo       366
+  screen_modal       395
+  screen_clean       792
+  screen_refused     11
+  screen_other       1
+  pairs_mandated     719
+  pairs_judged       517
+  pairs_refused      202
+  eligible           457
+  banned_in_final    9
+  rank_head          9
+  rank_tail          162
+  rank_outside       286
+  tail ranks: median 26 min 1 max 335 over 171 ranked pairs (HEAD would be < len(forbidden); every ranked partner sits past the ban's own head)
+  --check: MOVED pairs_judged pinned 549 got 517, pairs_refused pinned 170 got 202, eligible pinned 487 got 457, banned_in_final pinned 7 got 9, rank_head pinned 7 got 9, rank_tail pinned 155 got 162, rank_outside pinned 325 got 286

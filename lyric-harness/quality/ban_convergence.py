@@ -12,18 +12,22 @@ converge until it leaves the family. The register (M-168) said the ban's
 effect on convergence and on end-word rarity was measured nowhere. This
 file measures what the bank can answer.
 
-WHAT THE BANK CANNOT ANSWER, AND WHY THIS FILE DOES NOT PRETEND TO. The
+HISTORICAL LIMIT (2026-09-02), AND WHY THIS FILE DOES NOT PRETEND TO. The
 measurement the triage asked for — the sixteen songs' FIRST drafts screened
-against their exit-0 versions — is not constructible: no verb banks draft
-bytes. The logs carry an md5 per `song`/`revise` step (`song_log.py`), so a
+against their exit-0 versions — is not constructible: those runs predate
+draft banking. The logs carry an md5 per `song`/`revise` step (`song_log.py`), so a
 draft that differed from its final is PROVABLE (crooked_waltz step 19,
-matinee steps 54/55, the_long_way_back step 2 all graded md5s the bank does
-not hold) but not READABLE; git holds a distinct earlier version for two
+matinee steps 54/55, the_long_way_back step 2 all graded md5s the bank
+did not then hold) but not READABLE; git holds a distinct earlier version for two
 songs only (carry_it_over @35f3e8af, the_long_way_back @8d7b3f18), and both
 were already screened, exit-0 drafts, not pre-ban first drafts. Every
 banked `revise` row has md5_in == md5_out: the loop never rewrote a banked
 line, so the ban did its work BEFORE writing, at the screen. That is where
 the bank can be read, and this file reads it there.
+MISSING.md M-196 subsequently built draft/invocation banking and recovered the earlier
+the_long_way_back draft. Three historical drafts remain lost. Since
+2026-09-17 this reader consumes the recorded mandate for matching input
+bytes; it cannot supply invocation facts the historical bank never recorded.
 
 THREE INSTRUMENTS, ONE GRADER. Per song:
 
@@ -32,9 +36,10 @@ THREE INSTRUMENTS, ONE GRADER. Per song:
       writing: banned HOMEOTELEUTON / banned MODAL_RHYME / clean / refused /
       other, five counts, never summed (doctrine 79).
   (2) THE FINAL SONG — the banked bytes graded by `Reviser.inspect` under the
-      song's own mandate (the `song` command in its `songs/README.md`
+      song's recorded mandate, matched by input fingerprint and step. With
+      no invocation facts, use the `song` command in its `songs/README.md`
       section, else the newest `plan` row's `groups`/`returns` facts, else
-      REFUSED by name — the mandate is not invented). The harness's own
+      REFUSED by name — the mandate is not invented. The harness's own
       three counts (mandated / judged / refused) and the ban's own two codes
       read off `per_line`; nothing here re-implements a tier.
   (3) END-WORD RARITY — for every ban-eligible rhyming pair (the same
@@ -59,6 +64,7 @@ import os
 import re
 import shlex
 import sys
+from typing import NamedTuple
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -84,15 +90,18 @@ BAN_CODES = ("HOMEOTELEUTON", "MODAL_RHYME")
 PINNED = {
     "songs": 16,
     "mandate_readme": 11, "mandate_log": 4, "mandate_refused": 1,
+    # M-196, 2026-09-17: no invocation facts in the historical bank. Adding
+    # the reader does not manufacture the two missing graded mandates.
+    "mandate_banked": 0,
     "screen_homeo": 366, "screen_modal": 395, "screen_clean": 792,
     "screen_refused": 11, "screen_other": 1,
-    # PINNED 2026-09-02 on a quiet box, the whole bank in one process (the
-    # `Reviser`'s caches warm across songs, which is what brought the run
-    # inside its budget where a shared box could not). Read off the `BANK:`
-    # block of `python3 quality/ban_convergence.py`.
-    "pairs_mandated": 719, "pairs_judged": 549, "pairs_refused": 170,
-    "eligible": 487, "banned_in_final": 7,
-    "rank_head": 7, "rank_tail": 155, "rank_outside": 325,
+    # REPINNED AS A SET 2026-09-17, RESULTS_M196_BANKED_MANDATE.md.
+    # The unchanged main reader and the M-196 reader independently returned
+    # these same totals. September 2's 719/549/170, 487, 7, 7/155/325 were
+    # already stale on main; the new reader changes no historical mandate.
+    "pairs_mandated": 719, "pairs_judged": 517, "pairs_refused": 202,
+    "eligible": 457, "banned_in_final": 9,
+    "rank_head": 9, "rank_tail": 162, "rank_outside": 286,
 }
 
 
@@ -116,15 +125,94 @@ def _split_groups(raw):
             for g in raw.split(";") if g.strip()]
 
 
-def mandate_spec(song):
-    """-> (source, groups, returns, relations, structures) or (None, reason).
+class _MandateSpec(NamedTuple):
+    source: str
+    groups: object
+    returns: list
+    relations: object = None
+    structures: object = None
+    default_relation: object = None
+    step: object = None
+    md5: object = None
 
-    Source is `readme` (the `song` command the README section records —
-    the command that graded the banked bytes), `log` (the newest `plan`
+
+def _banked_spec(song, rows):
+    """Newest invocation for these INPUT bytes; None means legacy history.
+
+    Never combine facts across steps, use a different draft's mandate, or
+    reconstruct a historical --cliques graph with today's comparator.
+    A recorded but unreadable declaration refuses instead of falling back.
+    """
+    import lyric_harness as LH
+    from quality.revise import draft_fingerprint
+    from quality.song_log import DRAFT_FACT, MANDATE_FLAGS
+    names = {name for _, name in MANDATE_FLAGS} | {
+        "mandate_scheme_text", "mandate_cliques"}
+    steps = {}
+    for row in rows:
+        if row["verb"] in DRAFT_FACT:
+            steps.setdefault(int(row["step"]), []).append(row)
+    steps = {step: rs for step, rs in steps.items()
+             if any(r["fact"] in names | {"command"} for r in rs)}
+    if not steps:
+        return None
+    md5 = draft_fingerprint(LH.load_lyric_lines(os.path.join(SONGS, song)))
+    for step, rs in sorted(steps.items(), reverse=True):
+        verbs = {r["verb"] for r in rs}
+        if len(verbs) != 1:
+            return (None, f"banked step {step} has conflicting verbs")
+        fingerprint_fact = DRAFT_FACT[next(iter(verbs))]
+        fingerprints = [r["value"] for r in rs
+                        if r["fact"] == fingerprint_fact]
+        if md5 not in fingerprints:
+            continue
+        by = {}
+        for row in rs:
+            fact = row["fact"]
+            if fact not in names | {fingerprint_fact}:
+                continue
+            if fact in by:
+                return (None, f"banked step {step} duplicates {fact}")
+            by[fact] = row["value"]
+        if "mandate_cliques" in by:
+            return (None, f"banked step {step} declares --cliques; its "
+                          "historical derived groups are not banked")
+        groups = by.get("mandate_groups_text")
+        returns = by.get("mandate_returns_text")
+        scheme = by.get("mandate_scheme_text")
+        if scheme and (groups or returns):
+            return (None, f"banked step {step} combines a scheme with "
+                          "groups/returns")
+        if not (scheme or groups or returns):
+            return (None, f"banked step {step} has no declared groups, "
+                          "returns or scheme")
+        parsed_groups = scheme or _split_groups(groups or "")
+        parsed_returns = _split_groups(returns or "")
+        if not (any(parsed_groups) or any(parsed_returns)):
+            return (None, f"banked step {step} has an empty mandate")
+        return _MandateSpec(
+            "banked", parsed_groups, parsed_returns, by.get("mandate_relations_text"),
+            by.get("mandate_structures_text"),
+            by.get("mandate_relation_text"), step, md5)
+    return (None, f"no banked invocation matches input draft {md5}")
+
+
+def mandate_spec(song):
+    """-> _MandateSpec or (None, reason).
+
+    Source is `banked` for the newest recorded grading invocation whose
+    INPUT fingerprint matches the song. It outranks reconstructions. With
+    no recorded invocations, source is `readme` (the `song` command recorded
+    in the README), `log` (the newest `plan`
     row's `groups`/`returns` facts — the mandate as planned, which the
     README's command outranks where both exist because two songs' commands
     were edited after planning), or None with the reason (doctrine 20: a
     song whose mandate is banked nowhere is REFUSED, not graded free)."""
+    from quality.song_log import read_log
+    log = read_log(song)
+    banked = _banked_spec(song, log)
+    if banked is not None:
+        return banked
     sec = _readme_sections().get(song)
     if sec:
         # Continuation lines are joined; the command is the first `song`
@@ -144,11 +232,10 @@ def mandate_spec(song):
                     if a.startswith(flag):
                         by[flag] = a[len(flag):]
             if "--groups=" in by:
-                return ("readme", _split_groups(by["--groups="]),
+                return _MandateSpec("readme", _split_groups(by["--groups="]),
                         _split_groups(by.get("--returns=", "")),
                         by.get("--relations="), by.get("--structures="))
-    from quality.song_log import read_log
-    rows = [r for r in read_log(song)
+    rows = [r for r in log
             if r["verb"] == "plan" and r["fact"] in ("groups", "returns")]
     if rows:
         last = max(int(r["step"]) for r in rows)
@@ -156,7 +243,7 @@ def mandate_spec(song):
         g = facts.get("groups", "")
         r = facts.get("returns", "")
         if g and g != "(none)":
-            return ("log", _split_groups(g),
+            return _MandateSpec("log", _split_groups(g),
                     _split_groups("" if r == "(none)" else r), None, None)
     return (None, "no `song` command in songs/README.md and no `plan` row "
                   "with a `groups` fact in the log")
@@ -164,8 +251,10 @@ def mandate_spec(song):
 
 def build_mandate(spec, n_lines):
     from quality import schemes as SC
-    _, g, r, rel, st = spec
+    g, r, rel, st = spec.groups, spec.returns, spec.relations, spec.structures
     kw = {}
+    if spec.default_relation:
+        kw["default_relation"] = spec.default_relation
     if rel:
         kw["relations"] = _rels(rel)
     if st:
@@ -180,17 +269,26 @@ def build_mandate(spec, n_lines):
 def _rels(raw):
     # `A:schema:anaphora,B:type:…` — label, colon, catalog name (which may
     # itself carry colons and commas inside a name are not used in the bank).
+    return _labelled(raw.split(","))
+
+
+def _labelled(parts):
+    from quality.schemes import NoMandate
     out = {}
-    for part in raw.split(","):
-        if ":" not in part:
+    for part in parts:
+        if not part.strip():
             continue
+        if ":" not in part:
+            raise NoMandate(f"mandate entry {part!r} needs LABEL:NAME")
         lab, name = part.split(":", 1)
-        out[lab.strip()] = name.strip()
+        lab = lab.strip()
+        out[int(lab) - 1 if lab.isdigit() else lab] = name.strip()
     return out
 
 
 def _structs(raw):
-    return _rels(raw)
+    # Same entry boundary as the CLI: catalog names can contain commas.
+    return _labelled(re.split(r",(?=[A-Za-z0-9]{1,3}:)", raw))
 
 
 # ------------------------------------------------------------ the screen
@@ -235,8 +333,8 @@ def measure_lines(rv, lines, mandate):
            "banned_in_final": sum(1 for fs in found["per_line"].values()
                                   for f in fs if f.code in BAN_CODES),
            # Per-line FLAGS under the recovered mandate. Disclosed, not
-           # pinned: a banked exit-0 song that shows flags here is a song
-           # whose recovered mandate is NOT the one that graded it (the
+           # pinned: flags here may reflect a changed comparator as well as
+           # a reconstructed mandate. They do not replay the old grade (the
            # `log` source is the mandate as PLANNED), and the number says so
            # rather than the counts above pretending to be about the bank's
            # own grade (doctrine 20). Measured 2026-09-02: the_long_way_back
@@ -279,6 +377,7 @@ def _pos_key(pos):
 
 def measure_song(rv, song):
     import lyric_harness as LH
+    from quality.schemes import NoMandate
     row = {"song": song}
     row.update(screened_pool(song))
     spec = mandate_spec(song)
@@ -288,7 +387,16 @@ def measure_song(rv, song):
         return row
     row["mandate_source"] = spec[0]
     lines = LH.load_lyric_lines(os.path.join(SONGS, song))
-    row.update(measure_lines(rv, lines, build_mandate(spec, len(lines))))
+    try:
+        mandate = build_mandate(spec, len(lines))
+    except (NoMandate, ValueError) as exc:
+        row["mandate_source"] = "REFUSED"
+        row["refusal"] = f"{spec.source} mandate: {exc}"
+        return row
+    if spec.source == "banked":
+        row["mandate_step"] = spec.step
+        row["mandate_md5"] = spec.md5
+    row.update(measure_lines(rv, lines, mandate))
     return row
 
 
@@ -334,13 +442,16 @@ def report(rows, stream=sys.stdout):
             p(f"  {r['song']:<32} {pool:<28} REFUSED — {r['refusal']}")
             continue
         med = _median(r["ranks"])
-        p(f"  {r['song']:<32} {pool:<28} [{r['mandate_source']}] "
+        source = r["mandate_source"]
+        if source == "banked":
+            source += f" step={r['mandate_step']} md5={r['mandate_md5']}"
+        p(f"  {r['song']:<32} {pool:<28} [{source}] "
           f"{r['pairs_mandated']}/{r['pairs_judged']}/{r['pairs_refused']} "
           f"flags={r['flags']} ban={r['banned_in_final']} "
           f"elig={r['eligible']} "
           f"head={r['rank_head']} tail={r['rank_tail']} "
           f"outside={r['rank_outside']}"
-          + (f" tail-rank median {med} min {min(r['ranks'])} "
+          + (f" partner-rank median {med} min {min(r['ranks'])} "
              f"max {max(r['ranks'])}" if r["ranks"] else ""))
     t = totals(rows)
     all_ranks = [x for r in rows for x in r.get("ranks", [])]
@@ -348,10 +459,9 @@ def report(rows, stream=sys.stdout):
     for k in PINNED:
         p(f"  {k:<18} {t[k]}")
     if all_ranks:
-        p(f"  tail ranks: median {_median(all_ranks)} min {min(all_ranks)} "
+        p(f"  partner ranks: median {_median(all_ranks)} min {min(all_ranks)} "
           f"max {max(all_ranks)} over {len(all_ranks)} ranked pairs "
-          f"(HEAD would be < len(forbidden); every ranked partner sits past "
-          f"the ban's own head)")
+          f"(HEAD + TAIL; OUTSIDE pairs have no rank)")
     return t
 
 
