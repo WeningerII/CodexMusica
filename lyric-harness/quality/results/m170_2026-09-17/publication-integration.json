@@ -1,0 +1,29 @@
+{
+  "base": "51bc7c4af00fa4bf4e111141b018b0ccf3993307",
+  "source_commit": "25d8cf498367d8eb1ce8461584e022086c317b19",
+  "scope": "Output parity after completion-count correction; no new headline timings",
+  "checks": [
+    {
+      "lines": 22,
+      "source_unchanged": true,
+      "exit_code": 4,
+      "completed_resumes": 0,
+      "last_attempted_resume": 0,
+      "stdout_equal": true,
+      "stderr_equal": true,
+      "journal_equal": true
+    },
+    {
+      "lines": 28,
+      "source_unchanged": true,
+      "exit_code": 4,
+      "completed_resumes": 0,
+      "last_attempted_resume": 0,
+      "stdout_equal": true,
+      "stderr_equal": true,
+      "journal_equal": true
+    }
+  ],
+  "summary_reproduces_from_original_and_relocated": true,
+  "measurement_archive_sha256": "7aba6d72e185ca1743fbc2dc49e7c69f67ccbd69481d9cdfde25fd20c2a10d1f"
+}

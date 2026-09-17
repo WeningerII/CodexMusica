@@ -1,0 +1,289 @@
+{
+  "source": "https://github.com/WeningerII/CodexMusica/actions/runs/33266613606/job/99137676797",
+  "retrieved_on": "2026-09-17",
+  "method": "Select each logged JSONL turn row; retain measured transport fields, tool objects and key inventories. Model-authored reply text is not a LoopResult receipt.",
+  "turns": [
+    {
+      "timestamp": "2026-08-29T18:11:29.5329197Z",
+      "keys": [
+        "turn",
+        "message",
+        "status",
+        "ms",
+        "transport",
+        "reply",
+        "tools",
+        "stopped",
+        "error",
+        "sizes"
+      ],
+      "turn": 0,
+      "status": 200,
+      "ms": 502401,
+      "stopped": "MAX_TURN_COST",
+      "tools": [
+        {
+          "name": "lyric_plan",
+          "error": null,
+          "exit_code": 0,
+          "banned_pairs": null
+        },
+        {
+          "name": "lyric_grade",
+          "error": null,
+          "exit_code": 3,
+          "banned_pairs": null
+        },
+        {
+          "name": "lyric_revise",
+          "error": null,
+          "exit_code": 4,
+          "banned_pairs": null
+        },
+        {
+          "name": "lyric_revise",
+          "error": null,
+          "exit_code": 4,
+          "banned_pairs": null
+        },
+        {
+          "name": "lyric_revise",
+          "error": null,
+          "exit_code": 4,
+          "banned_pairs": null
+        },
+        {
+          "name": "lyric_revise",
+          "error": null,
+          "exit_code": 4,
+          "banned_pairs": null
+        },
+        {
+          "name": "lyric_revise",
+          "error": null,
+          "exit_code": 4,
+          "banned_pairs": null
+        },
+        {
+          "name": "lyric_revise",
+          "error": null,
+          "exit_code": 4,
+          "banned_pairs": null
+        }
+      ],
+      "sizes": {
+        "history": 235339,
+        "lyric": 17858
+      }
+    },
+    {
+      "timestamp": "2026-08-29T18:11:29.5342508Z",
+      "keys": [
+        "turn",
+        "message",
+        "status",
+        "ms",
+        "transport",
+        "reply",
+        "tools",
+        "stopped",
+        "error",
+        "sizes"
+      ],
+      "turn": 1,
+      "status": 200,
+      "ms": 301918,
+      "stopped": null,
+      "tools": [
+        {
+          "name": "lyric_revise",
+          "error": null,
+          "exit_code": 4,
+          "banned_pairs": null
+        },
+        {
+          "name": "lyric_revise",
+          "error": null,
+          "exit_code": 4,
+          "banned_pairs": null
+        },
+        {
+          "name": "lyric_revise",
+          "error": null,
+          "exit_code": 3,
+          "banned_pairs": null
+        }
+      ],
+      "sizes": {
+        "history": 312051,
+        "lyric": 756
+      }
+    },
+    {
+      "timestamp": "2026-08-29T18:11:29.5359600Z",
+      "keys": [
+        "turn",
+        "message",
+        "status",
+        "ms",
+        "transport",
+        "reply",
+        "tools",
+        "stopped",
+        "error",
+        "sizes"
+      ],
+      "turn": 2,
+      "status": 200,
+      "ms": 133055,
+      "stopped": null,
+      "tools": [
+        {
+          "name": "lyric_revise",
+          "error": null,
+          "exit_code": 3,
+          "banned_pairs": null
+        }
+      ],
+      "sizes": {
+        "history": 360740,
+        "lyric": 756
+      }
+    },
+    {
+      "timestamp": "2026-08-29T18:11:29.5376898Z",
+      "keys": [
+        "turn",
+        "message",
+        "status",
+        "ms",
+        "transport",
+        "reply",
+        "tools",
+        "stopped",
+        "error",
+        "sizes"
+      ],
+      "turn": 3,
+      "status": 200,
+      "ms": 80780,
+      "stopped": null,
+      "tools": [
+        {
+          "name": "lyric_revise",
+          "error": null,
+          "exit_code": 3,
+          "banned_pairs": null
+        }
+      ],
+      "sizes": {
+        "history": 380530,
+        "lyric": 756
+      }
+    },
+    {
+      "timestamp": "2026-08-29T18:11:29.5383622Z",
+      "keys": ["turn", "retry", "status"],
+      "turn": 4,
+      "retry": 1,
+      "status": 429
+    },
+    {
+      "timestamp": "2026-08-29T18:11:29.5383963Z",
+      "keys": ["turn", "retry", "status"],
+      "turn": 4,
+      "retry": 2,
+      "status": 429
+    },
+    {
+      "timestamp": "2026-08-29T18:11:29.5384261Z",
+      "keys": ["turn", "retry", "status"],
+      "turn": 4,
+      "retry": 3,
+      "status": 429
+    },
+    {
+      "timestamp": "2026-08-29T18:11:29.5384835Z",
+      "keys": ["turn", "retry", "status"],
+      "turn": 4,
+      "retry": 4,
+      "status": 429
+    },
+    {
+      "timestamp": "2026-08-29T18:11:29.5387882Z",
+      "keys": [
+        "turn",
+        "message",
+        "status",
+        "ms",
+        "transport",
+        "reply",
+        "tools",
+        "stopped",
+        "error",
+        "sizes"
+      ],
+      "turn": 4,
+      "status": 200,
+      "ms": 15195,
+      "stopped": "MAX_TURN_COST",
+      "tools": [
+        {
+          "name": "lyric_sweep",
+          "error": null,
+          "exit_code": 2,
+          "banned_pairs": null
+        },
+        {
+          "name": "lyric_sweep",
+          "error": null,
+          "exit_code": 2,
+          "banned_pairs": null
+        },
+        {
+          "name": "lyric_plan",
+          "error": null,
+          "exit_code": 2,
+          "banned_pairs": null
+        },
+        {
+          "name": "lyric_plan",
+          "error": null,
+          "exit_code": 0,
+          "banned_pairs": null
+        }
+      ],
+      "sizes": {
+        "history": 394922,
+        "lyric": 756
+      }
+    },
+    {
+      "timestamp": "2026-08-29T18:11:29.5391765Z",
+      "keys": [
+        "turn",
+        "message",
+        "status",
+        "ms",
+        "transport",
+        "reply",
+        "tools",
+        "stopped",
+        "error",
+        "sizes"
+      ],
+      "turn": 5,
+      "status": 429,
+      "ms": 389,
+      "stopped": null,
+      "tools": [],
+      "sizes": {
+        "history": 0,
+        "lyric": 0
+      }
+    }
+  ],
+  "missing": "No per-tool duration, harness/Gemini split, LoopResult round records, tier2 tried counts or accepted-attempt reasons are present in these logged rows. Archived artifact contains only summary.json and song0.jsonl (job reports two uploaded files).",
+  "job_log_file": "round10-job.log.gz",
+  "job_log_sha256": "8cc8610bd70cfe52b1a4fa323db183b17b45d0633091f2dbee1295e2dd3c4574"
+}

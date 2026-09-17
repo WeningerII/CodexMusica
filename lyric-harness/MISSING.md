@@ -18110,7 +18110,7 @@ next dispatch to speak. It is also server-side, so it binds only at
 the next merge and deploy. The register pin:
 `audit_register.coverage_entries` ~~226~~ -> 227 (2026-08-29).
 
-### M-170 · The time audit: the bill for one song, measured — and the project's own story about it was wrong in both directions `OPEN` 2026-08-29 — the owner ordered the audit over this session's own confident plan, and the audit refuted the plan
+### M-170 · The time audit: the bill for one song, measured — and the project's own story about it was wrong in both directions `PARTIAL` 2026-08-29 — the owner ordered the audit over this session's own confident plan, and the audit refuted the plan
 **WHY IT RAN AT ALL, recorded because the ruling is the finding.** This
 session had a ranked plan for the pipeline's cost and called it nearly
 airtight. The owner refused it — *"I think that we've built up so much
@@ -18250,6 +18250,47 @@ field empty) asks NOTHING and costs the clean price, 52.2 s bare and
 (`runs held: 1 of 4` is per process), so M-187's 6.4 → 4.3 s is the
 worker's reading and does not apply to a CLI fold. Item 3 leaves the
 unmeasured list; items 1 and 4–10 stand.
+
+
+**ADDENDUM 2026-09-17 — CURRENT ATTRIBUTION AND CONTINUATION RECEIPTS;
+THE HISTORICAL GAPS ARE STILL GAPS.** The current disposition of all ten
+section-5 items is banked in `quality/RESULTS_M170_2026-09-17.md`, with
+source/input hashes, full output and journal receipts, and a reproducible
+reader. The frozen protocol uses the shipped `worker.run_one` handler,
+seed 16, explicit 22- and 28-line plans, the existing filler/answer pool,
+and cold versus retained processes. Its report records actual completed
+continuations, exit codes, memory and limits. This is a local handler
+experiment, not deployed-worker qualification or evidence of convergence.
+The current 22-line mandate has seven groups/nine within-group pair
+occurrences; August's 24-group/60-pair workload is not a speedup baseline.
+
+The established `quality/fold_series.py` driver now forwards the line-count
+override to its planner, keeps its own interpreter, answers the current
+single/group/batch question protocols in order, refuses old draft/journal
+paths, and reports a refused fold as failure. Eleven focused controls also
+check the new clock and equality reader; empty or interrupted arms cannot
+be called equivalent. The current coarse attribution distinguishes the
+cheap extra `group_merges` grade from the expensive separate schema search.
+The proposed floor/revision field sharing is refuted by three fixed-word
+counterexamples, and changing a held Reviser's declaration reproduces a
+stale matrix. No unsafe held-instance optimization is introduced: M-217's
+bounded process memos remain the shipped design.
+
+**PRECISE REMAINDER.** Item 6 completes eleven continuations at 22 lines
+in both arms and at 28 lines warm, but the 28-line cold arm reaches the
+existing 600-second bound at continuation 2 (exit 124). Its later cold
+continuations and full-arm equivalence remain unmeasured; neither a longer
+budget nor a different seed is silently substituted. All twelve 22-line
+call pairs and the first two 28-line pairs match in output and journal state.
+Items 7 and 10 cannot be reconstructed from round
+10's available Actions record. Its turn rows have no per-tool/hop timing,
+no machine `LoopResult` blocks, no tier-2 tried counts, and no accepted-attempt
+reasons. `quality/results/m170_2026-09-17/round10-log-selection.json` banks
+the actual key inventories and tool objects. Model-authored stop stamps
+cannot fill those missing fields. Item 9's local sequence readings do not
+close M-187's deployed engagement/memory requirement. M-170 therefore moves
+from OPEN to **PARTIAL**, not CLOSED. Corpus text, comparator predicates,
+thresholds, memo capacities and deployment settings are unchanged.
 
 ### M-171 · The participation bound protected the line's LENGTH and not the writer's FREEDOM — 15.9% of drawn lines had every word bound `CLOSED` 2026-08-29 — found by asking why round 10's rounds bought nothing, fixed and re-measured the same sitting
 **THE QUESTION THAT FOUND IT.** M-168 left the standing wall as "the

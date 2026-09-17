@@ -1,0 +1,32 @@
+[
+  {
+    "argv": [
+      "/workspace/scratch/93824deb9e20/m170-venv/bin/python",
+      "scripts/test_lyric_continuations.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "argv": [
+      "/workspace/scratch/93824deb9e20/m170-venv/bin/python",
+      "quality/check_comparator_pin.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "argv": ["/workspace/scratch/93824deb9e20/m170-venv/bin/python", "quality/verify_entries.py"],
+    "exit_code": 0
+  },
+  {
+    "argv": ["npm", "run", "format:check"],
+    "exit_code": 0
+  },
+  {
+    "argv": ["npm", "run", "check-docs"],
+    "exit_code": 0
+  },
+  {
+    "argv": ["git", "diff", "--check"],
+    "exit_code": 0
+  }
+]
