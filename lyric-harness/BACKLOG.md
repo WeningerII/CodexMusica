@@ -1514,10 +1514,13 @@ until ruled.
 2. **M-18 — which reading did the Finnish 155→139 row mean?** Read,
    refused, or defective — the three candidates D24 computes; the row
    cannot be repaired without the pick.
-3. **M-78 — implemented 2026-09-17 under the owner's completion assignment.**
+3. ~~**M-78 — implemented 2026-09-17 under the owner's completion assignment.**
    Doctrine 96 now owns the convention rule, its registry check and corrected
    citations. Comparator re-verification remains pending; the historical
-   22-site question is superseded by the current MISSING entry.
+   22-site question is superseded by the current MISSING entry.~~
+   CLOSED 2026-09-17: the comparator was re-verified cold on the merged tree
+   (HOLDS, rows byte-identical to the 2026-09-16 repin) and the pin advanced
+   in `8e589b4e`; nothing here awaits a ruling.
 4. **M-101 — which section functions may a CONVENTION profile ask
    about?** Derive from recurrence contracts, measure from the marked
    corpus, or name them by hand — the current four are hardcoded with no
@@ -1909,7 +1912,7 @@ number there is the same question.
 | M-136 | OPEN | RULING · M | grade, phonology | Two verdict-moving halves parked: required `word_a`/`word_b` at 48 wordless call sites, and whether `profile="assonance"` may emit ASSONANCE. | Both move recorded verdicts and were explicitly not taken under the delegation; a preregistration outline is banked. |
 | M-120 | OPEN | RULING · S | plan, grade | LIKELY STALE on the measurable half (`audible_share` ships, M-192); the ruling is untaken: must the draw say aloud that a plan's ends are organised by relations a listener will not hear as rhyme. | Which of the 22 drawable schemas count as audible at a line end is a declaration only the owner makes. |
 | M-101 | OPEN | RULING · S | grade, plan | `grid.py` loops a hand-written tuple of 4 of 21 section functions for the convention profile. | Membership is a ruling among three honest options; picking one silently is how the four got there. |
-| M-78 | PARTIAL | VERIFY · S | record | Doctrine 96 states and mechanically guards the convention rule; citations corrected by meaning. | Comparator re-verification remains pending after the whole-file citation edit. |
+| M-78 | CLOSED 2026-09-17 | — | record | Doctrine 96 states and mechanically guards the convention rule; citations corrected by meaning. | Comparator re-verified cold on the merged tree (HOLDS) and the pin advanced in `8e589b4e`; receipts under `quality/results/m78_2026-09-17/`. |
 | M-54 | PARTIAL | RULING · S | plan, grade | LIKELY STALE on items 2–3 (cells derived, `placement_findings` read by the grader); what remains is the outro/coda mutual exclusion and M-56's kinds on `refrain`/`hook`. | Lifting the exclusion changes the planner's distribution over 84 of 84 outro plans. |
 | E-5 | OPEN | RULING · S | grade, screen, CI | The `cannot_tell` arm was built, measured and REFUSED because ONE pair of 979 left the admitted set against a registration that said ANY; a preregistered TOLERANCE is what is missing. | A number nobody has earned the right to choose (doctrine 58). |
 | D-2 | PARTIAL | RULING · S | grade, plan | Hook DENSITY has no declared coordinate and no band; hook-as-melody is B-1's. | Picking the density coordinate by fiat is doctrine 19's error. |
@@ -2093,7 +2096,7 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 41 OPEN / 32 PARTIAL / 1 BLOCKED / 260 CLOSED / 15 RESOLVED = 349 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 41 OPEN / 31 PARTIAL / 1 BLOCKED / 261 CLOSED / 15 RESOLVED = 349 entries | `python3 quality/counters.py` |
 | doctrines | **96**, a contiguous run 1–96 with no number in both files (21 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 4 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`, `span_rules.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
 | public symbols by where they are referenced | **1582** DECLARED-public top-level functions/classes under `quality/` and the root — **347** named by another production module, **477** by tests only, **629** only inside their own module, **11** by nothing anywhere, **118** REFUSED (74 ambiguous, 34 dynamic, 10 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **89** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
