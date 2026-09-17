@@ -18567,7 +18567,8 @@ ones are asked for both at once and C(3,2) = 3 pairs fail at any line
 length in any language. The named next gate was therefore aimed one
 coordinate to the side — a b-line SLOT BUDGET check would have passed
 group F's (5,9) and (7,9) and still shipped the other four. The
-budget question is real and stays open, named at the end of M-174;
+budget question was left open here, named at the end of M-174 and
+closed by that entry's 2026-09-17 follow-up;
 what closed the group is the ordering.
 **WHAT SATISFYING 53 SCHEMA PAIRS ACTUALLY TOOK, banked for the
 writer-wall ladder (M-166/M-168).** (a) Names lie: `head rhyme
@@ -18601,6 +18602,29 @@ location, and one gate to grow. The register pin:
 `audit_register.coverage_entries` ~~230~~ -> 231 (2026-08-30).
 
 ### M-174 · A schema that demands an overhang ORDERS its whole group, so on three members it contradicts itself at every line length — 38.3% of seeds drew one `CLOSED` 2026-08-30 — the gate M-173 named, built after its own stated cause was measured wrong
+**REMAINING BUDGET CHECK CLOSED 2026-09-17.** The ordering repair below
+was already present; its two-member syllable-capacity follow-up was not.
+`quality/plan.py` now derives the overhanging member from the schema's own
+`unmatched` coordinate, in text order, and charges one additional syllable
+per distinct required word. The shared budget predicate is used before a
+relation is drawn and by `joint_findings` on the finished plan. Demands from
+several groups on one line accumulate; aliases of one token do not charge
+twice. Numbered placements include their preceding words, a separate end
+binding includes its final word, and the available capacity is the lesser of
+the line's slots after pickup and the calibrated density ceiling.
+`OVERHANG_EXCEEDS_SPAN` refuses an impossible line with its groups, minimum
+syllable demand and actual ceiling. The existing group-size gate remains.
+`quality/test_plan.py` section 17 holds both directions, reversed member
+spelling, default and per-group relations, token aliases, cumulative demands,
+and the exact capacity boundary. The real schema judge accepts
+`grow`/`growing` at the declared fourth word in `we see it growing tall`;
+the independent meter fitter counts six syllables, refuses five slots and
+accepts six. This is a necessary syllable lower bound, not a lexical
+feasibility certificate or a claim that a complete song was written.
+The historical account follows; its statements that this budget check is
+open are superseded by this update. Verification receipts are in
+`quality/results/m174_2026-09-17/`.
+
 **THE OWNER ASKED WHETHER WE HAD ACTUALLY SUCCEEDED, AND WE HAD NOT.**
 The banked song re-grades at **exit 3** with six `SCHEME_VIOLATION`
 lines, so the governing order — a clean exit 0 song — is not met, and
@@ -18750,7 +18774,8 @@ different group E, so that draft is a measurement rather than a
 deliverable — presented as exit 3, which is what it is. Two of the
 five swept seeds (67, 69) were already clean on this axis before the
 gate existed, so the next write starts there. And the BUDGET question
-M-174 named is still open and untouched: a k=2 overhang group still
+M-174 named was still open and untouched **at this sitting (closed
+2026-09-17 by M-174's follow-up above)**: a k=2 overhang group still
 needs a b-line that can afford the longer word. The register pin:
 `audit_register.coverage_entries` ~~232~~ -> 233 (2026-08-30).
 
