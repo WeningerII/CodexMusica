@@ -1,0 +1,17 @@
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+FINDING CODES: 76
+  GATED             25  something can refuse on it
+  DISCLOSED-ONLY    51  emitted, and unable to stop anything
+  UNDECIDABLE        0  (0 computed at the call site, 0 with NO severity field on the constructor at all); NOT counted as gated — this census does not answer its own question in the flattering direction
+  three counts, never summed (doctrine 79)
+
+CHECK PASSED — the census is where it was pinned

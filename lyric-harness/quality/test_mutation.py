@@ -2,7 +2,7 @@
 """The regression that makes M1 impossible to repeat SILENTLY.
 
     python3 quality/test_mutation.py            # every mutation, declared subsets
-    python3 quality/test_mutation.py --static   # the list and the anchors, ~0.3s
+    python3 quality/test_mutation.py --static   # list, anchors, bounded runner controls
     python3 quality/test_mutation.py --core     # M1 and the two controls only
     python3 quality/test_mutation.py --full     # every mutation vs every green test
     python3 quality/test_mutation.py --shard=2/4  # one rotation slice of the list
@@ -199,7 +199,7 @@ def check(name, cond, detail=""):
 
 
 # ---------------------------------------------------------------------------
-# Static checks — no subprocess, no runtime, and they catch list rot
+# Static and bounded runner checks — no mutation sweep
 # ---------------------------------------------------------------------------
 
 def contextlib_silence():
@@ -440,6 +440,115 @@ def test_the_baseline_is_the_declared_suites_and_the_cache_is_a_ledger():
     check("force discards the ledger and re-measures -- a rebaseline is a "
           "rebaseline", ran_forced == ["a.py"] and set(held_after_force) == {"a.py"},
           f"{ran_forced} {sorted(held_after_force)}")
+
+
+def test_baseline_reporting_and_confirmed_health():
+    """M-30: run real children, including both timeout/failed-check transitions.
+
+    The short bound belongs only to these sleeping controls. Production
+    limits are untouched. The same cached receipt must keep the exclusions
+    visible without running a child again.
+    """
+    import contextlib
+    import io
+    import json
+    import tempfile
+    from pathlib import Path
+    from unittest.mock import patch
+    print("\n3i. M-30 baseline scope, exclusions and confirmation receipts")
+    with tempfile.TemporaryDirectory() as d:
+        scripts = {
+            "pass.py": "print('passed')\n",
+            "fail.py": "print('1 FAILING: real check'); raise SystemExit(1)\n",
+            "error.py": "raise RuntimeError('crashed control')\n",
+            "timeout.py": "import time; time.sleep(5)\n",
+        }
+        counter = ("from pathlib import Path\nimport time\n"
+                   "p = Path(__file__).with_suffix('.count')\n"
+                   "n = int(p.read_text()) if p.exists() else 0\n"
+                   "p.write_text(str(n + 1))\n")
+        scripts["timeout_then_fail.py"] = counter + (
+            "if n == 0: time.sleep(5)\n"
+            "import sys\nprint('incidental stderr', file=sys.stderr)\n"
+            "print('1 FAILING: confirmed check'); raise SystemExit(1)\n")
+        scripts["fail_then_timeout.py"] = counter + (
+            "if n > 0: time.sleep(5)\n"
+            "print('1 FAILING: initial check'); raise SystemExit(1)\n")
+        for name, src in scripts.items():
+            Path(d, name).write_text(src)
+        cache = str(Path(d, "baseline.json"))
+        cold, warm, final = io.StringIO(), io.StringIO(), io.StringIO()
+        with patch.object(mutate, "build_shadow", return_value=d), \
+                patch.object(mutate, "shadow_root", return_value=str(Path(d, "none"))), \
+                patch.object(mutate, "source_fingerprint", return_value="m30-control"), \
+                patch.object(mutate, "SUITE_TIMEOUT", {}):
+            with contextlib.redirect_stdout(cold):
+                rows = mutate.baseline(list(scripts), 1, cache, timeout=0.5)
+            with patch.object(mutate, "run_test", side_effect=AssertionError("cached child")), \
+                    contextlib.redirect_stdout(warm):
+                cached = mutate.baseline(list(scripts), 1, cache, timeout=0.5)
+            with contextlib.redirect_stdout(final):
+                mutate.report([], cached, 0, "subset", inventory=10)
+        check("M-30: isolated health replaces the initial status in both directions",
+              {t: r["status"] for t, r in rows.items()} == {
+                  "pass.py": "PASS", "fail.py": "FAIL", "error.py": "ERROR",
+                  "timeout.py": "TIMEOUT", "timeout_then_fail.py": "FAIL",
+                  "fail_then_timeout.py": "TIMEOUT"})
+        check("M-30: a confirmed check reports its roll-up, not incidental stderr",
+              rows["timeout_then_fail.py"]["detail"] == "1 FAILING: confirmed check")
+        check("M-30: every initial and isolated attempt retains its status and cost",
+              [a["status"] for a in rows["timeout_then_fail.py"].get("attempts", [])]
+              == ["TIMEOUT", "FAIL"]
+              and [a["status"] for a in rows["fail_then_timeout.py"].get("attempts", [])]
+              == ["FAIL", "TIMEOUT", "TIMEOUT", "TIMEOUT"]
+              and all(a["seconds"] >= 0 for r in rows.values() for a in r.get("attempts", []))
+              and all(r.get("bound_seconds") == 0.5 for r in rows.values()))
+        check("M-30: cache preserves the complete receipt and runs no child",
+              cached == rows == json.loads(Path(cache).read_text())["results"])
+        for label, output in (("cold", cold), ("cached", warm), ("final", final)):
+            out = output.getvalue()
+            check(f"M-30: {label} report separates failed checks, crashes and timeouts",
+                  "1 PASS, 2 FAIL, 1 ERROR, 2 TIMEOUT" in out
+                  and "EXCLUDED FAIL: 2 already-red checks" in out
+                  and "EXCLUDED ERROR: 1 crashed" in out
+                  and "EXCLUDED TIMEOUT: 2 UNRUNNABLE" in out)
+        check("M-30: unmeasured suites are disclosed separately from exclusions",
+              "NOT MEASURED: 4 test file(s)" in final.getvalue()
+              and "the whole suite" not in final.getvalue())
+        import runpy
+        cli = io.StringIO()
+        with patch.object(mutate, "baseline", return_value=rows), \
+                patch.object(mutate, "discover_tests", return_value=list(rows)), \
+                patch.object(mutate, "_scratch_base", return_value=d), \
+                patch.object(mutate, "source_fingerprint", return_value="m30-control"), \
+                patch.object(sys, "argv", [__file__, "--baseline-only"]), \
+                contextlib.redirect_stdout(cli):
+            try:
+                runpy.run_path(__file__, run_name="__main__")
+            except SystemExit as e:
+                rc = e.code
+        check("M-30: baseline-only CLI keeps the exclusions and its memo-only scope",
+              rc == 0 and "1 PASS, 2 FAIL, 1 ERROR, 2 TIMEOUT" in cli.getvalue()
+              and "no mutation sweep was run" in cli.getvalue())
+
+    # A scheduler wait is not time spent running the suite. Use a controlled
+    # clock rather than a machine-speed threshold, with the real run_test path.
+    import subprocess
+    from types import SimpleNamespace
+    clock = [0.0]
+    def acquire():
+        clock[0] += 90
+    def child(*args, **kwargs):
+        clock[0] += 2
+        return subprocess.CompletedProcess(args, 0, b"", b"")
+    gate = SimpleNamespace(acquire_shared=acquire, release_shared=lambda: None)
+    with patch.object(mutate, "GATE", gate), \
+            patch.object(mutate.time, "time", side_effect=lambda: clock[0]), \
+            patch.object(mutate.time, "monotonic", side_effect=lambda: clock[0]), \
+            patch.object(mutate.subprocess, "run", side_effect=child):
+        status, seconds, _ = mutate.run_test("unused", "test.py")
+    check("M-30: reported execution cost excludes the runner's gate wait",
+          status == "PASS" and seconds == 2, str(seconds))
 
 
 def test_the_three_way_outcome():
@@ -1021,45 +1130,9 @@ def test_the_run(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
     # another cell owns, which is how a useful signal gets muted.
     # ------------------------------------------------------------------
     print("\n5. blind spots, REPORTED (these are not assertions)")
-    red = [t for t, r in bl.items() if r["status"] != "PASS"]
-    # THIS LINE USED TO CALL `check`, WHICH IS AN ASSERTION, INSIDE A SECTION
-    # WHOSE OWN HEADING AND THE PARAGRAPH ABOVE IT BOTH SAY IT IS NOT ONE --
-    # and the paragraph was right, in the exact words it used: "turning them
-    # into failures would make `test_mutation.py` permanently red for something
-    # another cell owns, which is how a useful signal gets muted."
-    #
-    # `bl` is the baseline over ALL of `mutate.discover_tests()` -- 98 files --
-    # not over the shard's own detectors. So ONE suite anywhere in the tree
-    # going red, or timing out on a loaded runner, failed EVERY shard, however
-    # cleanly that shard's own mutations were caught.
-    #
-    # MEASURED: production-qualification run 34404281269 (main a1666165, the
-    # first ever run of that workflow) failed mutation-1, -2 and -3 -- 2h44m,
-    # 2h06m and 2h21m against a 3h20m budget, so none of them a timeout, all
-    # exit 1. Shard 2/4's fifteen mutations were reproduced at that exact
-    # commit and every one was CAUGHT by its own declared detectors over a
-    # 16/16 green baseline, with no candidate survivors. Three shards failing
-    # together is a shared condition, and the only condition all four share is
-    # this 98-file baseline.
-    #
-    # THE ASSERTION BESIDE IT STAYS, AND IT IS THE ONE THAT MATTERS: "no
-    # survivor lost its baseline detector" (section 4) fires when a mutation
-    # SURVIVED and its own detector was among the excluded, which is the case
-    # where a red baseline really does hide a hole. That is a claim about this
-    # shard's evidence. "some file somewhere was red" is a claim about the
-    # runner, and doctrine 20 -- a refusal is not a grade -- is why it is
-    # reported at full volume and not scored.
-    print(f"  {'NOTE' if red else 'PASS'}  every baseline detector completed "
-          f"successfully: {'no' if not red else str(red)}")
-    if red:
-        print(f"  NOTE  {len(red)} test file(s) are RED at baseline and were "
-              f"excluded from the detector set: {', '.join(red)}")
-        print("        A test that fails either way distinguishes nothing, so "
-              "whatever it would have caught is undetected for as long as it "
-              "stays red. Every 'caught' above was measured WITHOUT them.")
-    else:
-        print("  NOTE  every test file is green at baseline; the detector set "
-              "is the whole suite")
+    # The baseline may contain only a shard's declared subsets (M-276).
+    # Do not relabel unavailable evidence as red or call that subset the tree.
+    mutate.report_baseline(bl, inventory=len(mutate.discover_tests()))
     bat = sum(1 for r in results if "battery.py" in r["caught_by"])
     print(f"  NOTE  battery.py caught {bat} of {len(results)} mutations, AND "
           f"THAT NUMBER MEANS ALMOST NOTHING -- read the next two sentences "
@@ -1215,8 +1288,8 @@ def _parser():
     """
     ap = argparse.ArgumentParser()
     ap.add_argument("--static", action="store_true",
-                    help="sections 1-3 only: the checks that read the list "
-                         "and the source and fork nothing. ~0.3 s, no sweep")
+                    help="sections 1-3 only: list, source and bounded runner "
+                         "controls; no mutation sweep")
     ap.add_argument("--core", action="store_true",
                     help=f"only {', '.join(CORE)} -- the acceptance triple")
     ap.add_argument("--full", action="store_true",
@@ -1324,18 +1397,11 @@ if __name__ == "__main__":
         print(f"baseline-only: {len(tests)} test file(s) -> {path}", flush=True)
         bl = mutate.baseline(tests, a.jobs, path, force=True,
                              confirm_all=a.confirm_all, timeout=a.timeout)
-        red = sorted(t for t, r in bl.items() if r["status"] != "PASS")
-        print(f"baseline-only: {len(bl) - len(red)}/{len(bl)} green in "
-              f"{time.time() - started:.0f}s; fingerprint "
-              f"{mutate.source_fingerprint()}")
-        # A red is REPORTED and does not fail this job, for the same reason
-        # section 5 of the sweep reports it: it is a fact about the runner and
-        # the tree, not about any shard's mutations, and a producer that
-        # refuses to hand over a baseline because some unrelated suite is red
-        # would take every shard down with it.
-        if red:
-            print(f"baseline-only: {len(red)} red and excluded from the "
-                  f"detector set: {', '.join(red)}")
+        print(f"baseline-only: completed in {time.time() - started:.1f}s; "
+              f"fingerprint {mutate.source_fingerprint()}")
+        mutate.report_baseline(bl, inventory=len(tests))
+        # This command produces a memo; it does not qualify any mutation.
+        print("baseline-only: memo produced; no mutation sweep was run")
         sys.exit(0)
 
     test_the_mutation_list_is_well_formed()
@@ -1352,6 +1418,7 @@ if __name__ == "__main__":
     test_the_shadow_reaches_what_the_suites_read()
     test_the_premised_allowlist_withholds_escalation_and_nothing_else()
     test_the_baseline_is_the_declared_suites_and_the_cache_is_a_ledger()
+    test_baseline_reporting_and_confirmed_health()
     if a.static:
         # 3f built a snapshot this exit path would otherwise strand on a
         # shared disk (the sweep path's own cleanup sits after section 4).
@@ -1411,5 +1478,8 @@ if __name__ == "__main__":
         # and a line that overclaims is worse than one that reports less.
         print(f"adversary 4 holds ON SHARD {shard[0]}/{shard[1]}: every "
               f"mutation in this slice is caught or explicitly allowlisted. The slice is the claim.")
+    elif a.core:
+        print(f"adversary 4 holds ON CORE: {', '.join(CORE)}. "
+              "The other declared mutations were not run.")
     else:
         print("adversary 4 holds: every declared mutation is caught or explicitly allowlisted")

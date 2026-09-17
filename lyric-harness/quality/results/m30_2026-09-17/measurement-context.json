@@ -1,0 +1,42 @@
+{
+  "baseline_source_commit": "e31e30e73d2c7d517efbe6cb0fbce8babbb11b82",
+  "baseline_initial_fingerprint": "406491ce363474bc8b731ddc26329531cd36d846d460b7aaea0e60fe924f40cc",
+  "baseline_command": ["python3", "quality/test_mutation.py", "--baseline-only", "--jobs", "4"],
+  "timeout_override": null,
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "packages": {
+    "numpy": "2.3.5",
+    "scikit-learn": "1.8.0",
+    "nltk": "3.10.3",
+    "PyYAML": "6.0.3"
+  },
+  "snapshot_sha256": {
+    "lyric-harness/quality/mutate.py": "dd7af48d1a708868a7d3de73351cb0d94d9cea442e86ae96d96695e14cca9953",
+    "lyric-harness/quality/test_mutation.py": "e4113ff9034b5b65b571e712cf59487d07b450257c2f191243913f164d8c1e45",
+    "lyric-harness/quality/plan.py": "c948a6379ece2137135917efc1ed0c269ae0b398adbafa8bf11bd8f7acb24997",
+    "lyric-harness/quality/test_plan.py": "8effad1e7fdae51764735d5169f84b63543958949086cac4a4b161dd12e45621",
+    "lyric-harness/lyric_harness.py": "c2f92b69e0551b8f5785228a6835bbc2b5d6904ad5e9cea5759bb0d1928c1e1b"
+  },
+  "nightly": {
+    "run_id": 35205355952,
+    "job_id": 105149669582,
+    "head_sha": "bf48281d5a3d5f810d3be472feebaa6131795662",
+    "url": "https://github.com/WeningerII/CodexMusica/actions/runs/35205355952/job/105149669582",
+    "scope": "shard 1/4: 15 mutations; 17 of 106 baseline suites; no escalation",
+    "baseline_wall_seconds": 670,
+    "total_wall_seconds": 1844.2
+  },
+  "relevant_environment": {
+    "TEST_PLAN_SHARD": null,
+    "TEST_REVISE_SHARD": null,
+    "TEST_LOOP_SHARD": null,
+    "TEST_CAPACITY_SHARD": null,
+    "TEST_VERBS_SHARD": null,
+    "OPENBLAS_NUM_THREADS": null,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "LYRIC_STAGED_DATA": null,
+    "NLTK_DATA": null
+  }
+}
