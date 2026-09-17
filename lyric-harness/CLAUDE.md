@@ -9,12 +9,25 @@ Declaration-driven rhyme, meter, and song-structure engine. The model
 proposes; these tools grade. Target: MCP server beside Codex Musica —
 Codex Musica describes the recording, this disciplines the words.
 
-## THREE STANDING RULES FROM THE OWNER — read before proposing any architecture
+## FOUR STANDING RULES FROM THE OWNER — read before proposing any architecture
 
 Recorded 2026-08-17, verbatim intent, after ~~both~~ THE FIRST TWO were violated
 in one session. These outrank any inference a session draws from the code.
-**Rule 3 was added 2026-09-16**, from the owner's instruction during the
+**Rule 4 was added 2026-09-16**, from the owner's instruction during the
 length-curve repin; it was not violated first, it was anticipated.
+
+**THE COUNT IN THIS HEADING WAS WRONG TWICE, AND BOTH ARE RECORDED RATHER THAN
+QUIETLY CORRECTED (doctrine 58: a recorded COUNT is a threshold nobody wrote
+down).** It read ~~TWO~~ from 2026-08-17 until 2026-09-16 while carrying
+THREE rules — `NO PRIVATE INSTRUMENTS` was added 2026-08-18, one day after the
+first two were recorded, and the heading was never told. The session adding
+rule 4 then read that stale heading, anchored on the END of rule 3 believing it
+was the end of rule 2, and shipped a SECOND item numbered `3.` — so the file
+briefly said THREE over four rules numbered 1, 2, 3, 3. Both were corrected
+together on 2026-09-17. The lesson is the cheap check that was skipped: before
+adding to a numbered list, ENUMERATE the list (`awk '/^[0-9]+\. \*\*/'`), never
+infer its length from a heading that is itself the thing most likely to be
+stale.
 
 1. **THE RECIPE ENGINE AND THE LYRICS DO NOT TOUCH. EVER.** "Beside" above
    means beside: two separate instruments for two separate questions. No
@@ -150,7 +163,7 @@ length-curve repin; it was not violated first, it was anticipated.
    of its seed. `test_plan.py` §10 holds the API and `test_verbs.py` §40
    holds the half this rule is actually about — that a person can RUN it.
 
-3. **BATCH THE COMPARATOR CHANGES.** Owner, 2026-09-16, verbatim: *"batch the
+4. **BATCH THE COMPARATOR CHANGES.** Owner, 2026-09-16, verbatim: *"batch the
    comparator changes going forward."* `comparator_fingerprint()` in
    `quality/song_profile_calibration.py` hashes SEVEN inputs — the WHOLE of
    `lyric_harness.py`, the WHOLE of `quality/features.py`, `cmudict.dict`,

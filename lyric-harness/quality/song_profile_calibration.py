@@ -371,22 +371,37 @@ def comparator_fingerprint():
     invalidating on one would make the cache useless in a file under active
     edit, which is doctrine 48's failure mode wearing a different hat.
     """
+    return _sha256(*[value for _label, value in comparator_fingerprint_parts()])
+
+
+def comparator_fingerprint_parts():
+    """-> [(label, value)], the SEVEN inputs in the order the hash folds them.
+
+    `comparator_fingerprint` IS this function folded, so the two cannot
+    disagree about what the comparator is -- the split exists so a checker can
+    say WHICH input moved instead of only that something did, and a caller that
+    wanted the list would otherwise have to restate it (doctrine 1).
+
+    The labels are NOT hashed. Only the values are, in this order, exactly as
+    they were before this function was split out.
+    """
     parts = []
     for p in (lyric_harness.__file__, quality.features.__file__,
               lyric_harness.CMUDICT_PATH, lyric_harness.FREQ_PATH):
         try:
             with open(p, "rb") as fh:
-                parts.append(os.path.basename(p) + ":"
-                             + hashlib.sha256(fh.read()).hexdigest())
+                parts.append((os.path.basename(p),
+                              os.path.basename(p) + ":"
+                              + hashlib.sha256(fh.read()).hexdigest()))
         except OSError:
             # A missing input is a real state (no cmudict yet) and it must
             # hash DIFFERENTLY from a present one, not crash the fingerprint.
-            parts.append("ABSENT:" + os.path.basename(p))
-    parts.append(repr(lyric_harness.Declaration()))
+            parts.append((os.path.basename(p), "ABSENT:" + os.path.basename(p)))
+    parts.append(("Declaration()", repr(lyric_harness.Declaration())))
     from quality.source_identity import definition_source
-    parts.append(definition_source(predictability_frac))
-    parts.append(definition_source(_couplet_pairs))
-    return _sha256(*parts)
+    parts.append(("predictability_frac", definition_source(predictability_frac)))
+    parts.append(("_couplet_pairs", definition_source(_couplet_pairs)))
+    return parts
 
 
 def item_key(body):
