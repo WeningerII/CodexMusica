@@ -1,0 +1,1159 @@
+{
+  "retrieved_on": "2026-09-17",
+  "repository": "WeningerII/CodexMusica",
+  "inspected_main": "269752040aa3c9890876bc2f6a535607876d74f6",
+  "scope": "Selected existing push/PR twins after b823ff28. Observed skips, not a success-rate estimate or verification of this documentation change.",
+  "pull_requests": [
+    {
+      "number": 314,
+      "html_url": "https://github.com/WeningerII/CodexMusica/pull/314",
+      "created_at": "2026-09-17T01:44:57Z",
+      "merged_at": "2026-09-17T02:14:29Z",
+      "merge_commit_sha": "d44a13cc7af164fe8852d538dce082fc84523284"
+    },
+    {
+      "number": 315,
+      "html_url": "https://github.com/WeningerII/CodexMusica/pull/315",
+      "created_at": "2026-09-17T01:48:03Z",
+      "merged_at": "2026-09-17T02:28:10Z",
+      "merge_commit_sha": "269752040aa3c9890876bc2f6a535607876d74f6"
+    }
+  ],
+  "runs": [
+    {
+      "id": 35171749828,
+      "name": "CI",
+      "path": ".github/workflows/ci.yml",
+      "run_number": 2006,
+      "run_attempt": 1,
+      "head_sha": "d4df5657ef56baae3b06efb741b2b75f89736de3",
+      "head_branch": "codex/M-4-state-audit-20260917-eeaf902a",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-09-17T01:44:58Z",
+      "run_started_at": "2026-09-17T01:44:58Z",
+      "updated_at": "2026-09-17T01:45:07Z",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828",
+      "run_api": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/35171749828",
+      "jobs_api": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/35171749828/jobs?per_page=100",
+      "total_count": 25,
+      "jobs": [
+        {
+          "id": 105044695364,
+          "name": "dup",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044695364"
+        },
+        {
+          "id": 105044696038,
+          "name": "tandem",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044696038"
+        },
+        {
+          "id": 105044696286,
+          "name": "mutation",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044696286"
+        },
+        {
+          "id": 105044718708,
+          "name": "gate",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044718708"
+        },
+        {
+          "id": 105044719177,
+          "name": "verbs",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044719177"
+        },
+        {
+          "id": 105044719212,
+          "name": "capacity-proof",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044719212"
+        },
+        {
+          "id": 105044719298,
+          "name": "verify",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044719298"
+        },
+        {
+          "id": 105044719309,
+          "name": "catalog (shard ${{ matrix.shard }}/8)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044719309"
+        },
+        {
+          "id": 105044719336,
+          "name": "record",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044719336"
+        },
+        {
+          "id": 105044719384,
+          "name": "suites (shard ${{ matrix.shard }}/3)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044719384"
+        },
+        {
+          "id": 105044719400,
+          "name": "plan (${{ matrix.shard }}/5)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044719400"
+        },
+        {
+          "id": 105044719426,
+          "name": "lyrics-image",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044719426"
+        },
+        {
+          "id": 105044719492,
+          "name": "revision-loop (${{ matrix.shard }}/4)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044719492"
+        },
+        {
+          "id": 105044719592,
+          "name": "freshness",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044719592"
+        },
+        {
+          "id": 105044719671,
+          "name": "verbs-result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044719671"
+        },
+        {
+          "id": 105044719696,
+          "name": "capacity-proof-result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044719696"
+        },
+        {
+          "id": 105044719756,
+          "name": "capacity (${{ matrix.shard }}/3)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044719756"
+        },
+        {
+          "id": 105044719771,
+          "name": "suites-result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044719771"
+        },
+        {
+          "id": 105044719780,
+          "name": "capacity-matrix",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044719780"
+        },
+        {
+          "id": 105044719845,
+          "name": "capacity-result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044719845"
+        },
+        {
+          "id": 105044719855,
+          "name": "plan-result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044719855"
+        },
+        {
+          "id": 105044720088,
+          "name": "catalog-result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044720088"
+        },
+        {
+          "id": 105044720336,
+          "name": "revision-loop-result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044720336"
+        },
+        {
+          "id": 105044720462,
+          "name": "nightly",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044720462"
+        },
+        {
+          "id": 105044720613,
+          "name": "capacity-matrix-result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171749828/job/105044720613"
+        }
+      ],
+      "dup_log_excerpt": [
+        {
+          "job_id": 105044695364,
+          "log_api": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/105044695364/logs",
+          "lines": [
+            "2026-09-17T01:45:03.1696818Z Complete job name: dup",
+            "2026-09-17T01:45:03.2996039Z   EVENT_NAME: push",
+            "2026-09-17T01:45:03.2996823Z   BRANCH: codex/M-4-state-audit-20260917-eeaf902a",
+            "2026-09-17T01:45:03.2997546Z   DEFAULT_BRANCH: main",
+            "2026-09-17T01:45:04.0097445Z ##[notice]1 open pull request(s) have this commit at their head (d4df5657ef56baae3b06efb741b2b75f89736de3) — every job below that can run on a push SKIPS (M-250) -- 21 of the 25, the other three being unable to run on a push at all. Skipped is neutral where cancelled is not, and the pull_request run carries the verdict.",
+            "2026-09-17T01:45:04.0307972Z Set output 'already_covered'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 35171752534,
+      "name": "CI",
+      "path": ".github/workflows/ci.yml",
+      "run_number": 2007,
+      "run_attempt": 1,
+      "head_sha": "d4df5657ef56baae3b06efb741b2b75f89736de3",
+      "head_branch": "codex/M-4-state-audit-20260917-eeaf902a",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-09-17T01:45:01Z",
+      "run_started_at": "2026-09-17T01:45:01Z",
+      "updated_at": "2026-09-17T02:04:22Z",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534",
+      "run_api": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/35171752534",
+      "jobs_api": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/35171752534/jobs?per_page=100",
+      "total_count": 47,
+      "jobs": [
+        {
+          "id": 105044703006,
+          "name": "dup",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044703006"
+        },
+        {
+          "id": 105044703756,
+          "name": "mutation",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044703756"
+        },
+        {
+          "id": 105044703824,
+          "name": "tandem",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044703824"
+        },
+        {
+          "id": 105044742407,
+          "name": "gate",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044742407"
+        },
+        {
+          "id": 105044978095,
+          "name": "lyrics-image",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978095"
+        },
+        {
+          "id": 105044978096,
+          "name": "verify",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978096"
+        },
+        {
+          "id": 105044978118,
+          "name": "freshness",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978118"
+        },
+        {
+          "id": 105044978137,
+          "name": "suites (shard 1/3)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978137"
+        },
+        {
+          "id": 105044978157,
+          "name": "suites (shard 2/3)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978157"
+        },
+        {
+          "id": 105044978161,
+          "name": "plan (2/5)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978161"
+        },
+        {
+          "id": 105044978179,
+          "name": "revision-loop (1/4)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978179"
+        },
+        {
+          "id": 105044978184,
+          "name": "capacity (1/3)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978184"
+        },
+        {
+          "id": 105044978185,
+          "name": "plan (4/5)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978185"
+        },
+        {
+          "id": 105044978189,
+          "name": "verbs (5)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978189"
+        },
+        {
+          "id": 105044978197,
+          "name": "record",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978197"
+        },
+        {
+          "id": 105044978201,
+          "name": "revision-loop (4/4)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978201"
+        },
+        {
+          "id": 105044978206,
+          "name": "revision-loop (2/4)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978206"
+        },
+        {
+          "id": 105044978209,
+          "name": "plan (1/5)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978209"
+        },
+        {
+          "id": 105044978219,
+          "name": "suites (shard 3/3)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978219"
+        },
+        {
+          "id": 105044978228,
+          "name": "verbs (1)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978228"
+        },
+        {
+          "id": 105044978233,
+          "name": "capacity (2/3)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978233"
+        },
+        {
+          "id": 105044978236,
+          "name": "verbs (7)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978236"
+        },
+        {
+          "id": 105044978237,
+          "name": "revision-loop (3/4)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978237"
+        },
+        {
+          "id": 105044978255,
+          "name": "verbs (6)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978255"
+        },
+        {
+          "id": 105044978257,
+          "name": "verbs (8)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978257"
+        },
+        {
+          "id": 105044978259,
+          "name": "verbs (2)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978259"
+        },
+        {
+          "id": 105044978260,
+          "name": "capacity-proof / verify",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978260"
+        },
+        {
+          "id": 105044978276,
+          "name": "plan (3/5)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978276"
+        },
+        {
+          "id": 105044978293,
+          "name": "plan (5/5)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978293"
+        },
+        {
+          "id": 105044978294,
+          "name": "verbs (3)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978294"
+        },
+        {
+          "id": 105044978299,
+          "name": "capacity (3/3)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978299"
+        },
+        {
+          "id": 105044978307,
+          "name": "verbs (4)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978307"
+        },
+        {
+          "id": 105044978383,
+          "name": "catalog-result",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978383"
+        },
+        {
+          "id": 105044978871,
+          "name": "catalog (shard ${{ matrix.shard }}/8)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105044978871"
+        },
+        {
+          "id": 105045056033,
+          "name": "capacity-proof-result",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105045056033"
+        },
+        {
+          "id": 105045275763,
+          "name": "capacity-matrix / cells rest",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105045275763"
+        },
+        {
+          "id": 105045275796,
+          "name": "capacity-matrix / cells pole",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105045275796"
+        },
+        {
+          "id": 105045275821,
+          "name": "capacity-matrix / cells middle",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105045275821"
+        },
+        {
+          "id": 105045275846,
+          "name": "capacity-matrix / cells upper",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105045275846"
+        },
+        {
+          "id": 105045335607,
+          "name": "nightly",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105045335607"
+        },
+        {
+          "id": 105045459852,
+          "name": "capacity-result",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105045459852"
+        },
+        {
+          "id": 105045584903,
+          "name": "plan-result",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105045584903"
+        },
+        {
+          "id": 105045959840,
+          "name": "revision-loop-result",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105045959840"
+        },
+        {
+          "id": 105046603541,
+          "name": "verbs-result",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105046603541"
+        },
+        {
+          "id": 105048159907,
+          "name": "suites-result",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105048159907"
+        },
+        {
+          "id": 105048376399,
+          "name": "capacity-matrix / merge",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105048376399"
+        },
+        {
+          "id": 105048422967,
+          "name": "capacity-matrix-result",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35171752534/job/105048422967"
+        }
+      ],
+      "dup_log_excerpt": [
+        {
+          "job_id": 105044703006,
+          "log_api": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/105044703006/logs",
+          "lines": [
+            "2026-09-17T01:45:10.0523145Z Complete job name: dup",
+            "2026-09-17T01:45:10.2106803Z   EVENT_NAME: pull_request",
+            "2026-09-17T01:45:10.2107365Z   BRANCH: 314/merge",
+            "2026-09-17T01:45:10.2107825Z   DEFAULT_BRANCH: main",
+            "2026-09-17T01:45:10.2529953Z already_covered=false — a 'pull_request' run is never the duplicate — it is the run a pull request's checks are read from",
+            "2026-09-17T01:45:10.2778823Z Set output 'already_covered'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 35174057450,
+      "name": "CI",
+      "path": ".github/workflows/ci.yml",
+      "run_number": 2012,
+      "run_attempt": 1,
+      "head_sha": "9d7414a7f0b9eba2a77b0f32cfee1a3d43562651",
+      "head_branch": "codex/M-95-nightly-reconciliation-20260917",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-09-17T02:20:47Z",
+      "run_started_at": "2026-09-17T02:20:47Z",
+      "updated_at": "2026-09-17T02:20:56Z",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450",
+      "run_api": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/35174057450",
+      "jobs_api": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/35174057450/jobs?per_page=100",
+      "total_count": 25,
+      "jobs": [
+        {
+          "id": 105051738523,
+          "name": "dup",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051738523"
+        },
+        {
+          "id": 105051739544,
+          "name": "mutation",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051739544"
+        },
+        {
+          "id": 105051739646,
+          "name": "tandem",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051739646"
+        },
+        {
+          "id": 105051762398,
+          "name": "suites (shard ${{ matrix.shard }}/3)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051762398"
+        },
+        {
+          "id": 105051762676,
+          "name": "revision-loop (${{ matrix.shard }}/4)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051762676"
+        },
+        {
+          "id": 105051762692,
+          "name": "catalog (shard ${{ matrix.shard }}/8)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051762692"
+        },
+        {
+          "id": 105051762704,
+          "name": "capacity (${{ matrix.shard }}/3)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051762704"
+        },
+        {
+          "id": 105051762726,
+          "name": "freshness",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051762726"
+        },
+        {
+          "id": 105051762755,
+          "name": "gate",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051762755"
+        },
+        {
+          "id": 105051762835,
+          "name": "plan (${{ matrix.shard }}/5)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051762835"
+        },
+        {
+          "id": 105051762858,
+          "name": "record",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051762858"
+        },
+        {
+          "id": 105051762878,
+          "name": "lyrics-image",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051762878"
+        },
+        {
+          "id": 105051762892,
+          "name": "verbs",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051762892"
+        },
+        {
+          "id": 105051762917,
+          "name": "verify",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051762917"
+        },
+        {
+          "id": 105051762940,
+          "name": "plan-result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051762940"
+        },
+        {
+          "id": 105051762946,
+          "name": "catalog-result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051762946"
+        },
+        {
+          "id": 105051762967,
+          "name": "capacity-proof",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051762967"
+        },
+        {
+          "id": 105051762986,
+          "name": "capacity-result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051762986"
+        },
+        {
+          "id": 105051763000,
+          "name": "capacity-proof-result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051763000"
+        },
+        {
+          "id": 105051763126,
+          "name": "suites-result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051763126"
+        },
+        {
+          "id": 105051763325,
+          "name": "nightly",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051763325"
+        },
+        {
+          "id": 105051763364,
+          "name": "capacity-matrix",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051763364"
+        },
+        {
+          "id": 105051763517,
+          "name": "verbs-result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051763517"
+        },
+        {
+          "id": 105051763719,
+          "name": "capacity-matrix-result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051763719"
+        },
+        {
+          "id": 105051763774,
+          "name": "revision-loop-result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174057450/job/105051763774"
+        }
+      ],
+      "dup_log_excerpt": [
+        {
+          "job_id": 105051738523,
+          "log_api": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/105051738523/logs",
+          "lines": [
+            "2026-09-17T02:20:51.8936089Z Complete job name: dup",
+            "2026-09-17T02:20:52.0584201Z   EVENT_NAME: push",
+            "2026-09-17T02:20:52.0584953Z   BRANCH: codex/M-95-nightly-reconciliation-20260917",
+            "2026-09-17T02:20:52.0585932Z   DEFAULT_BRANCH: main",
+            "2026-09-17T02:20:52.9086317Z ##[notice]1 open pull request(s) have this commit at their head (9d7414a7f0b9eba2a77b0f32cfee1a3d43562651) — every job below that can run on a push SKIPS (M-250) -- 21 of the 25, the other three being unable to run on a push at all. Skipped is neutral where cancelled is not, and the pull_request run carries the verdict.",
+            "2026-09-17T02:20:52.9252137Z Set output 'already_covered'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 35174061541,
+      "name": "CI",
+      "path": ".github/workflows/ci.yml",
+      "run_number": 2013,
+      "run_attempt": 1,
+      "head_sha": "9d7414a7f0b9eba2a77b0f32cfee1a3d43562651",
+      "head_branch": "codex/M-95-nightly-reconciliation-20260917",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "created_at": "2026-09-17T02:20:51Z",
+      "run_started_at": "2026-09-17T02:20:51Z",
+      "updated_at": "2026-09-17T02:32:45Z",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541",
+      "run_api": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/35174061541",
+      "jobs_api": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/35174061541/jobs?per_page=100",
+      "total_count": 47,
+      "jobs": [
+        {
+          "id": 105051750747,
+          "name": "dup",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105051750747"
+        },
+        {
+          "id": 105051751233,
+          "name": "tandem",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105051751233"
+        },
+        {
+          "id": 105051751523,
+          "name": "mutation",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105051751523"
+        },
+        {
+          "id": 105051767730,
+          "name": "gate",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105051767730"
+        },
+        {
+          "id": 105052032351,
+          "name": "lyrics-image",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032351"
+        },
+        {
+          "id": 105052032401,
+          "name": "freshness",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032401"
+        },
+        {
+          "id": 105052032403,
+          "name": "verify",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032403"
+        },
+        {
+          "id": 105052032463,
+          "name": "record",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032463"
+        },
+        {
+          "id": 105052032464,
+          "name": "capacity (2/3)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032464"
+        },
+        {
+          "id": 105052032488,
+          "name": "plan (1/5)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032488"
+        },
+        {
+          "id": 105052032497,
+          "name": "revision-loop (3/4)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032497"
+        },
+        {
+          "id": 105052032508,
+          "name": "plan (4/5)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032508"
+        },
+        {
+          "id": 105052032520,
+          "name": "plan (3/5)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032520"
+        },
+        {
+          "id": 105052032529,
+          "name": "suites (shard 3/3)",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032529"
+        },
+        {
+          "id": 105052032532,
+          "name": "capacity (3/3)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032532"
+        },
+        {
+          "id": 105052032536,
+          "name": "suites (shard 2/3)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032536"
+        },
+        {
+          "id": 105052032553,
+          "name": "revision-loop (2/4)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032553"
+        },
+        {
+          "id": 105052032556,
+          "name": "verbs (6)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032556"
+        },
+        {
+          "id": 105052032567,
+          "name": "suites (shard 1/3)",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032567"
+        },
+        {
+          "id": 105052032568,
+          "name": "capacity (1/3)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032568"
+        },
+        {
+          "id": 105052032572,
+          "name": "verbs (1)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032572"
+        },
+        {
+          "id": 105052032573,
+          "name": "verbs (3)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032573"
+        },
+        {
+          "id": 105052032577,
+          "name": "revision-loop (4/4)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032577"
+        },
+        {
+          "id": 105052032579,
+          "name": "capacity-proof / verify",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032579"
+        },
+        {
+          "id": 105052032585,
+          "name": "plan (5/5)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032585"
+        },
+        {
+          "id": 105052032601,
+          "name": "verbs (7)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032601"
+        },
+        {
+          "id": 105052032602,
+          "name": "verbs (8)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032602"
+        },
+        {
+          "id": 105052032618,
+          "name": "revision-loop (1/4)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032618"
+        },
+        {
+          "id": 105052032619,
+          "name": "plan (2/5)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032619"
+        },
+        {
+          "id": 105052032629,
+          "name": "verbs (2)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032629"
+        },
+        {
+          "id": 105052032638,
+          "name": "verbs (5)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032638"
+        },
+        {
+          "id": 105052032640,
+          "name": "verbs (4)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032640"
+        },
+        {
+          "id": 105052032791,
+          "name": "catalog-result",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052032791"
+        },
+        {
+          "id": 105052033706,
+          "name": "catalog (shard ${{ matrix.shard }}/8)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052033706"
+        },
+        {
+          "id": 105052125116,
+          "name": "capacity-proof-result",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052125116"
+        },
+        {
+          "id": 105052150703,
+          "name": "nightly",
+          "status": "completed",
+          "conclusion": "skipped",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052150703"
+        },
+        {
+          "id": 105052314566,
+          "name": "capacity-result",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052314566"
+        },
+        {
+          "id": 105052332434,
+          "name": "plan-result",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052332434"
+        },
+        {
+          "id": 105052403952,
+          "name": "capacity-matrix / cells middle",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052403952"
+        },
+        {
+          "id": 105052403959,
+          "name": "capacity-matrix / cells upper",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052403959"
+        },
+        {
+          "id": 105052403969,
+          "name": "capacity-matrix / cells rest",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052403969"
+        },
+        {
+          "id": 105052403976,
+          "name": "capacity-matrix / cells pole",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105052403976"
+        },
+        {
+          "id": 105053036267,
+          "name": "revision-loop-result",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105053036267"
+        },
+        {
+          "id": 105053278234,
+          "name": "verbs-result",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105053278234"
+        },
+        {
+          "id": 105053598930,
+          "name": "capacity-matrix / merge",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105053598930"
+        },
+        {
+          "id": 105053599873,
+          "name": "capacity-matrix-result",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105053599873"
+        },
+        {
+          "id": 105054084307,
+          "name": "suites-result",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/35174061541/job/105054084307"
+        }
+      ],
+      "dup_log_excerpt": []
+    }
+  ]
+}
