@@ -1,8 +1,10 @@
 {
   "arms": {
     "bare22-1": {
+      "collector_reported_completed_resumes": 0,
       "completed_resumes": 0,
       "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_attempted_resume": 0,
       "last_exit_code": 4,
       "lines": 22,
       "requested_resumes": 0,
@@ -51,8 +53,10 @@
       "source_unchanged": true
     },
     "bare22-2": {
+      "collector_reported_completed_resumes": 0,
       "completed_resumes": 0,
       "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_attempted_resume": 0,
       "last_exit_code": 4,
       "lines": 22,
       "requested_resumes": 0,
@@ -101,8 +105,10 @@
       "source_unchanged": true
     },
     "bare22-3": {
+      "collector_reported_completed_resumes": 0,
       "completed_resumes": 0,
       "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_attempted_resume": 0,
       "last_exit_code": 4,
       "lines": 22,
       "requested_resumes": 0,
@@ -151,8 +157,10 @@
       "source_unchanged": true
     },
     "series-cold-22": {
+      "collector_reported_completed_resumes": 11,
       "completed_resumes": 11,
       "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_attempted_resume": 11,
       "last_exit_code": 4,
       "lines": 22,
       "requested_resumes": 11,
@@ -641,8 +649,10 @@
       "source_unchanged": true
     },
     "series-cold-28": {
-      "completed_resumes": 2,
+      "collector_reported_completed_resumes": 2,
+      "completed_resumes": 1,
       "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_attempted_resume": 2,
       "last_exit_code": 124,
       "lines": 28,
       "requested_resumes": 11,
@@ -738,8 +748,10 @@
       "source_unchanged": true
     },
     "series-warm-22": {
+      "collector_reported_completed_resumes": 11,
       "completed_resumes": 11,
       "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_attempted_resume": 11,
       "last_exit_code": 4,
       "lines": 22,
       "requested_resumes": 11,
@@ -1228,8 +1240,10 @@
       "source_unchanged": true
     },
     "series-warm-28": {
+      "collector_reported_completed_resumes": 11,
       "completed_resumes": 11,
       "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_attempted_resume": 11,
       "last_exit_code": 4,
       "lines": 28,
       "requested_resumes": 11,
@@ -1718,8 +1732,10 @@
       "source_unchanged": true
     },
     "timed22-1": {
+      "collector_reported_completed_resumes": 0,
       "completed_resumes": 0,
       "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_attempted_resume": 0,
       "last_exit_code": 4,
       "lines": 22,
       "requested_resumes": 0,
@@ -1768,8 +1784,10 @@
       "source_unchanged": true
     },
     "timed22-2": {
+      "collector_reported_completed_resumes": 0,
       "completed_resumes": 0,
       "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_attempted_resume": 0,
       "last_exit_code": 4,
       "lines": 22,
       "requested_resumes": 0,
@@ -1818,8 +1836,10 @@
       "source_unchanged": true
     },
     "timed22-3": {
+      "collector_reported_completed_resumes": 0,
       "completed_resumes": 0,
       "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_attempted_resume": 0,
       "last_exit_code": 4,
       "lines": 22,
       "requested_resumes": 0,

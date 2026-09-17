@@ -18267,7 +18267,7 @@ occurrences; August's 24-group/60-pair workload is not a speedup baseline.
 The established `quality/fold_series.py` driver now forwards the line-count
 override to its planner, keeps its own interpreter, answers the current
 single/group/batch question protocols in order, refuses old draft/journal
-paths, and reports a refused fold as failure. Ten focused controls also
+paths, and reports a refused fold as failure. Eleven focused controls also
 check the new clock and equality reader; empty or interrupted arms cannot
 be called equivalent. The current coarse attribution distinguishes the
 cheap extra `group_merges` grade from the expensive separate schema search.

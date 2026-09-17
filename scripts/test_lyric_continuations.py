@@ -4,6 +4,7 @@ import io
 import json
 from pathlib import Path
 import sys
+import tarfile
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -16,6 +17,23 @@ import summarize_lyric_continuations as summary
 
 
 class ContinuationMeasurementTests(unittest.TestCase):
+    def test_banked_timeout_is_an_attempt_and_not_a_completed_resume(self):
+        archive = ROOT / 'lyric-harness/quality/results/m170_2026-09-17/measurements.tar.gz'
+        with tempfile.TemporaryDirectory() as tmp, tarfile.open(archive) as tar:
+            root = Path(tmp)
+            for member in tar.getmembers():
+                if member.isfile():
+                    path = root / member.name
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.write_bytes(tar.extractfile(member).read())
+            result = summary.summarise(root)
+            cold = result['arms']['series-cold-28']
+            self.assertEqual(cold['collector_reported_completed_resumes'], 2)
+            self.assertEqual(cold['last_attempted_resume'], 2)
+            self.assertEqual(cold['completed_resumes'], 1)
+            self.assertFalse(result['comparisons']['28']['complete'])
+            self.assertTrue(result['comparisons']['22']['equal'])
+
     def test_line_override_reaches_the_planner_but_finish_flags_do_not(self):
         with patch.object(fold_series.subprocess, 'run') as run:
             run.return_value.stdout = 'Write a song: 28 lines'

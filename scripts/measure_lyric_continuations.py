@@ -244,7 +244,9 @@ def main():
             row['pending'] = ({k: v for k, v in pending.items() if k in ('kind', 'record')}
                               if pending else None)
             report['rows'].append(row)
-            report['completed_resumes'] = fold
+            report['last_attempted_resume'] = fold
+            report['completed_resumes'] = (fold if result['code'] in (0, 3, 4)
+                                           and not result.get('partial') else max(0, fold-1))
             report['last_exit_code'] = result['code']
             (a.out / 'report.json').write_text(json.dumps(report, indent=2)+'\n')
             print(f'{a.mode} {a.fixture} n={n} fold={fold} rc={result["code"]} wall={wall:.3f} answers={on_record}', flush=True)

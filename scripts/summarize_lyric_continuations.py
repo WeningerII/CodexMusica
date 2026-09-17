@@ -43,7 +43,11 @@ def summarise(root):
                       'memory', 'caches', 'partial')
             rows.append({key: row[key] for key in fields if key in row})
         result['arms'][name] = dict(head=report['head'], lines=report['lines'],
-                completed_resumes=report['completed_resumes'], requested_resumes=report['requested_resumes'],
+                completed_resumes=sum(row['fold'] > 0 and row['code'] in (0, 3, 4)
+                                      and not row.get('partial') for row in report['rows']),
+                last_attempted_resume=max((row['fold'] for row in report['rows']), default=0),
+                collector_reported_completed_resumes=report['completed_resumes'],
+                requested_resumes=report['requested_resumes'],
                 last_exit_code=report['last_exit_code'], rows=rows,
                 source_unchanged=True)
         if name.startswith('timed22-'):
