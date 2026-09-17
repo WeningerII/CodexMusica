@@ -17982,7 +17982,7 @@ one-answer-per-turn pace, is untouched by construction: this memo
 makes each fold cheap and compels nobody to fold faster. The register
 pin: `audit_register.coverage_entries` ~~224~~ -> 225 (2026-08-29).
 
-### M-168 · Round 10: the batching remedy landed and the kills stayed gone — the standing wall is the WRITER against the drawn mandate, and the parked push made it start over `OPEN` 2026-08-29 — the same-song clause shipped the sitting the round landed
+### M-168 · Round 10: the batching remedy landed and the kills stayed gone — the standing wall is the WRITER against the drawn mandate, and the parked push made it start over `PARTIAL` 2026-08-29 — current measurement and prerequisite repairs recorded 2026-09-17 below
 **THE ROUND, in its own numbers.** Run 33266613606, dispatched 17:49Z
 on 644bfc3 (the M-166 driver: short-song brief, batching CONTINUE),
 finished 18:11Z — **22.5 minutes against round 9's 151**. Six turns,
@@ -18191,6 +18191,50 @@ count 0 → 1 with `eligible` unchanged. One observation not measured
 further: `modal_field`'s forbidden set for common calls (`dust`, `drop`,
 `strait`) carries `'s`, `that`, `what`, `up` — the `freq_rank` fallback's
 function-word head reaching the tier-2 ban.
+
+**ADDENDUM 2026-09-17 — A CURRENT RAW MEASUREMENT, THREE MEASURED REPAIRS,
+AND NO COMPLETED-SONG CLAIM.** The owner's current assignment authorizes
+the paid workflow measurement and integration; the September 2 statement
+that only the owner may dispatch is historical. Main already contains the
+gated creation workflow and kitchen revision path. M-166's current account
+in PR #323 distinguishes its delivered timeout repair and local memo proof
+from the still-open deployed cache measurement.
+
+The current run uses `scripts/flash_battery.mjs --raw --expect=finished`
+against pinned deployed commit `bf48281d5a3d5f810d3be472feebaa6131795662`,
+with durable recovery required and complete build/source/configuration/asset
+identity recorded. The ask is exactly **Write a song**, continued only with
+**keep going**. No operator-authored plan or lyric is supplied. Exact commands,
+identity, outcome and validation are banked in
+`quality/RESULTS_M168_2026-09-17.md`.
+
+The measurement exposed three necessary repairs: (1) Node's proxy agent could
+end connection setup after 5 seconds despite the driver's declared 10-second
+identity budget; the HTTP request now explicitly receives its existing
+budget, and private identity records preserve the actual failure cause;
+(2) `lyric_sweep` advertised `sections.verse=2` but refused the dot before
+calling Python. The charset now admits dotted names while the bounded schema
+and Python's closed vocabulary remain authoritative; (3) cancelled kitchen
+continuations could repeat only old verified outcomes without tripping the
+interview-only idle counter. The existing idle policy now uses the validated
+outcome ledger for that case, preserving new rejections, application progress
+and missing-evidence refusals. Real-socket and real connector/harness controls
+pass and fail when their corresponding repairs are removed. No comparator
+input, grading threshold, corpus, or budget changes.
+
+**TESTED WHILE OPEN.** The battery-lifecycle and connector-contract tests
+establish these transport and predicate repairs, not a finished model song.
+The six-turn live run ended at `aggregate_deadline`, exit 1: seven applied
+repairs and ten rejected outcomes, five recovered cancellations near the
+270-second HTTP cutoff, then `LYRICS_UNFINISHED` with creation-grade and
+recovery-contract refusals. Zero certified songs out of one requested song.
+The cutoff's cause is unestablished; connected Render log access requires an
+explicitly confirmed workspace. The private record is retained, and the public
+projection and archive identity are linked in the report. M-168 remains
+**PARTIAL** until the latest successful revision certifies the exact delivered
+song on the current model-driven path. These observations do not close
+M-187's deployed memo/cache requirement or the stricter `MAX_TURN_MS` replay
+canary. The comparator fingerprint HOLDS; no repin is made.
 
 ### M-169 · The loop told the record what it did and every layer above dropped it — the run's own account reaches the transcript now `CLOSED` 2026-08-29 — built the sitting M-170's audit named it the cheapest high-value change on the table
 **THE DEFECT, and it is a RECORD defect rather than a code one.**

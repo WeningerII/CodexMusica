@@ -194,7 +194,10 @@ const MANDATE_RE = new RegExp(`^${MEMBER_RE}(,${MEMBER_RE})*(;${MEMBER_RE}(,${ME
 // table, and a second copy of a closed vocabulary in JS is the copy that goes
 // stale (doctrine 1). This is charset only, and the first character is pinned
 // to a letter so nothing input-shaped can grow into a flag.
-const WANT_RE = /^[a-z][a-z_]{0,23}(<=|>=|=)[A-Za-z0-9_.,-]{1,48}$/;
+// Function-specific coordinates contain a dot (e.g. sections.verse). The
+// schema bounds the whole declaration with MAX_WANT_CHARS; a second name
+// length cap would silently exclude longer names from the harness vocabulary.
+const WANT_RE = /^[a-z][a-z_.]*(<=|>=|=)[A-Za-z0-9_.,-]+$/;
 const STRUCTURES_RE =
   /^[A-Za-z0-9]{1,3}:[A-Za-z0-9()',. /-]{1,64}(,[A-Za-z0-9]{1,3}:[A-Za-z0-9()',. /-]{1,64})*$/;
 const RETURNS_RE = /^[0-9]+(,[0-9]+)*(;[0-9]+(,[0-9]+)*)*$/;

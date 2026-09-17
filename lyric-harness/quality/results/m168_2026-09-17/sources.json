@@ -1,0 +1,12 @@
+{
+  "integration_base": "fe9181f7319869ea44a7a1540b95b495705d3b81",
+  "files": {
+    "scripts/flash_battery.mjs": "8a61ca673c3003fc3463da891ab0d6489f6904cbb8b36b227485c73272dc71ae",
+    "mcp/test_battery_lifecycle.mjs": "615a604eab64af08f80657fde421c1e5b26e7c70b19aac5f5cf107dfce822402",
+    "mcp/lyric_tools.js": "0a8a2d9fdb6579a6c974c8b93fac6048355b5d036e2e58c6d2a9655044b06493",
+    "mcp/test_connector_contracts.mjs": "f1fbd01dadb207e2dca34a549ff3575f5631b2d05e2c268826da531ec367955f",
+    "mcp/production-config.json": "7c6678d18ce7c44602dab8a335f7f3c35036a5c41a799138d8ccaeab82c5f167"
+  },
+  "live_driver_commit": "7009607c32dea9bea1d0553341a9f9db381a8f72",
+  "live_driver_sha256": "3c86c2078e10d2bf1f48e74e7dc492180ea02faf14283938376d14f64280b6b9"
+}

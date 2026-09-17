@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""`quality/battery_rounds.py --check` cannot pass on a broken table — three
+"""`quality/battery_rounds.py --check` cannot pass on a broken table — four
 mutations in memory, the committed table as the control (M-254 D)."""
 import os
 import sys
@@ -23,8 +23,10 @@ def main():
     check("the committed table passes", BR.problems(head, rows, known) == [],
           BR.problems(head, rows, known))
     # REPINNED 2026-09-07 from ~~23~~: round 24 (M-256) joined the table.
-    check("...and it is not vacuous: 25 rounds, 0 at exit 0, every layer in the vocabulary",
-          len(rows) == 25 and all(r["exit0"] == "no" for r in rows)
+    # REPINNED 2026-09-17 from ~~25~~: M-168's local raw run is round 26;
+    # it adds one recorded attempt and no certified exit-0 song.
+    check("...and it is not vacuous: 26 rounds, 0 at exit 0, every layer in the vocabulary",
+          len(rows) == 26 and all(r["exit0"] == "no" for r in rows)
           and {r["layer"] for r in rows} <= set(BR.LAYERS), len(rows))
     m = [dict(r) for r in rows]
     m[2]["layer"] = "model-vibes"
