@@ -1,0 +1,11 @@
+{
+  "base": "fcebe7066b44943ccc199760b0471e7d2ae4b437",
+  "modified_tree": true,
+  "sha256": {
+    "quality/plan.py": "981a4c984bcac454fb2d2aa05dcc0e04fd7dd625d139354562b83bed91984f35",
+    "quality/test_plan.py": "680c88c096a62fc20015c820c22baacdded3101691c2cdfb0500b59cab69d9fe",
+    "quality/test_production_harness.py": "4f9b4c1331383b451fd227757a6daf73328b8ec8f68f279c773f75471a3d5141",
+    "quality/slots.py": "6d6931653508113e4ef935e6b7dba345408aad26ed50f4bb7cb4016ffb7264e3",
+    "quality/meter_bands.py": "88b9180478e138b5c76b3f6ec59a79d126a58d90f6bd3279fa35911489b9ee9f"
+  }
+}

@@ -1156,7 +1156,7 @@ placement_word = _SL.placement_word
 WORDS_LEFT_FREE = 1
 
 JOINT_CODES = ("SPAN_BELOW_DENSITY_FLOOR", "TOKEN_INDEX_UNREACHABLE",
-               "WORDS_EXCEED_SPAN", "TWO_GROUPS_ONE_WORD",
+               "WORDS_EXCEED_SPAN", "TWO_GROUPS_ONE_WORD", "NO_FREE_WORD",
                "HOOK_IN_NONRECURRING_SECTION", "GROUP_CONTRADICTS_ITSELF",
                "IDENTITY_AT_TWO_LINE_ENDS", "PLACEMENT_CONTRADICTS_SCHEMA")
 
@@ -1491,13 +1491,19 @@ def joint_findings(plan):
     construction, which is what makes a mutation the only way to fire it —
     the same relationship `ADOPTED_MAX_GROUP` has to the scheme sampler.
 
-    THE FOUR CAUSES ARE REPORTED APART AND NEVER SUMMED (doctrine 79). They
+    THE CAUSES ARE REPORTED APART AND NEVER SUMMED (doctrine 79). They
     ask different things of whoever closes them: the first is a meter that
     left no room after its own pickup, the second and third are a placement
     reaching past what the line can hold, and the fourth is two declared rhyme
     groups landing on ONE word — which is not an arithmetic impossibility at
     all but the joint question `joint_field` answers WITH WORDS, and a plan
     has none.
+
+    M-79 also checks M-171's existing free-word reserve on the emitted plan.
+    This is a declared writing constraint, not a proof that fully bound words
+    cannot form a sentence. It uses this line's own maximum capacity, not the
+    sampler's more conservative band-floor cap. A clear result is necessary,
+    not sufficient, for lexical or grammatical writability.
 
     IT READS `groups` AND NOT `returns`, and that is a fact about the shape
     rather than an omission. A return class demands the later instance be the
@@ -1569,6 +1575,22 @@ def joint_findings(plan):
                 f"({slots:g} slot(s) against a band ceiling of "
                 f"{MB.ADOPTED['DENSITY'][1]}); a word is at least one "
                 f"syllable."))
+        else:
+            # Positions are individually reachable and distinct words fit;
+            # their conjunction can still leave no word for the writer.
+            # Count word identities, not placement aliases (M-80). A fraction
+            # of a slot cannot hold another word, and surplus slots do not
+            # lift the density ceiling. Returns add no new word bindings.
+            bound = len(set(words))
+            capacity = math.floor(ceiling)
+            if bound + WORDS_LEFT_FREE > capacity:
+                out.append((
+                    "NO_FREE_WORD", ln,
+                    f"{bound} distinct words are bound in a line that may "
+                    f"carry at most {capacity} words ({slots:g} slot(s) "
+                    f"against a density ceiling of {MB.ADOPTED['DENSITY'][1]} "
+                    f"syllables). The declared reserve is {WORDS_LEFT_FREE} "
+                    f"free word(s); no line within both limits can keep it."))
 
     # THE FIFTH CAUSE, and it is not per-word at all — it is the one
     # conjunction on this list a writer cannot answer BY WRITING (2026-08-23,

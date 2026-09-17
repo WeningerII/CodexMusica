@@ -1,0 +1,257 @@
+
+7. the JOINT gate — every constraint legal, the conjunction checked
+  PASS  the sweep produced plans to ask the question of
+          40 plans
+  PASS  NO plan in the sweep has a contradiction detected by this gate — the gate is satisfied BY CONSTRUCTION, which is the relationship `ADOPTED_MAX_GROUP` already has to the scheme sampler and is why the mutations below are the only way to fire it
+          0 findings over 40 plans
+  PASS  plans that DO declare a hook declare it in a function this plan drew MORE THAN ONCE — a hook is defined by RETURN, so a slot in a section heard once is a requirement no writer can meet
+          40 of 40 plans declare a hook
+  PASS  ...and a plan that declares NONE says WHY rather than going silent, because a shape with nothing recurring and a shape nobody asked about a hook look identical in an empty field (doctrine 20)
+          0 plans declare no hook, each with a stated reason
+  PASS  the codes are a DECLARED closed set, so a new one is added deliberately rather than by somebody typing a new string (doctrine 58)
+          ['SPAN_BELOW_DENSITY_FLOOR', 'TOKEN_INDEX_UNREACHABLE', 'WORDS_EXCEED_SPAN', 'TWO_GROUPS_ONE_WORD', 'NO_FREE_WORD', 'HOOK_IN_NONRECURRING_SECTION', 'GROUP_CONTRADICTS_ITSELF', 'IDENTITY_AT_TWO_LINE_ENDS', 'PLACEMENT_CONTRADICTS_SCHEMA']
+  PASS  two declared groups landing on ONE WORD by two different NAMES fires — `head` and `T1` are both the first word, which is the coordinate `_place_group` was missing
+          ['TWO_GROUPS_ONE_WORD']
+  PASS  a placement naming a word past what the line can carry fires — a line has no more words than syllables, and no more syllables than the smaller of its slots and the band's ceiling
+          ['TOKEN_INDEX_UNREACHABLE']
+  PASS  a line whose span falls under the calibrated density FLOOR fires — below the floor the band flags it and at or above it `fit.SLOTS_EXCEEDED` does, so no draft clears both
+          ['SPAN_BELOW_DENSITY_FLOOR']
+  PASS  a line asked for more DISTINCT words than it can carry fires, and it is its own code — the last word must differ from every numbered one or the two groups binding them meet
+          ['WORDS_EXCEED_SPAN']
+  PASS  a plan with a joint finding is REFUSED by `make_plan`, and the refusal names the code
+          this seed's constraints cannot be satisfied together — 1 finding(s) over 1 line(
+  PASS  ...and the restoration held, so no later check inherits a mutated gate
+  PASS  keying the collision test on the placement NAME instead of the WORD makes `make_plan` REFUSE most seeds whose lines draw MORE THAN ONE web binding — so the repair is READ and the sweep's 0 above is an answer, not a check that stopped checking
+          20/40 seeds refused when the word is spelled as a placement name: 20/28 of the seeds with cap >= 2, 0/12 with cap 1 (refused, planned by cap: {1: [0, 12], 2: [8, 6], 3: [5, 2], 4: [7, 0]})
+  PASS  ...and NO cap-1 seed is refused by the mutation — one binding a line cannot meet another, which is what the density coordinate's cap of 1 says a line draws
+          cap-1 refused 0
+  PASS  ...and the cause it names is the collision, not something the mutation broke sideways
+          ['TWO_GROUPS_ONE_WORD']
+  PASS  ...and the restoration held: the clean sweep is clean again
+  PASS  a line with far MORE slots than the density ceiling produces NO joint finding — slots are a capacity, not a requirement, and M-79's Finding 1 read 78% of plans as impossible on exactly this confusion
+          []
+  PASS  `line_syllable_ceiling` is the CONJUNCTION of the two layers — the band's ceiling where the bar is roomy, the bar where it is not — so neither layer answers for the other
+          99 slots -> 12, 3 slots -> 3
+  PASS  `placement_word` REFUSES a locus it cannot resolve to one word, naming it
+          the placement 'line' resolves to locus 'line', and this module cannot
+  PASS  ...and it is DERIVED from `quality/slots.py`'s own loci, not a second table here: every plannable placement resolves, and the four names the pool draws denote only two words at the ends
+          [('1', 'head'), ('1', 'headrime'), ('last', 'end'), ('last', 'endword')]
+
+10. THE SEED SWEEP — the last private instrument, made a verb (`MISSING.md` M-82)
+  PASS  the predicate vocabulary is CLOSED and every name reads a coordinate the plan already DISCLOSES — a sweep that invented a measurement would be a second planner (doctrine 58)
+          ['bars_per_line', 'beats_per_line', 'before', 'binding_cap', 'bound_words_per_line', 'group', 'hook', 'lines', 'lines_per_section', 'max_lines.breakdown', 'max_lines.bridge', 'max_lines.build', 'max_lines.chorus', 'max_lines.coda', 'max_lines.drop', 'max_lines.false_ending', 'max_lines.hook', 'max_lines.interlude', 'max_lines.intro', 'max_lines.outro', 'max_lines.patter', 'max_lines.postchorus', 'max_lines.prechorus', 'max_lines.reprise', 'max_lines.solo', 'max_lines.tag', 'max_lines.turnaround', 'max_lines.vamp', 'max_lines.verse', 'min_lines.breakdown', 'min_lines.bridge', 'min_lines.build', 'min_lines.chorus', 'min_lines.coda', 'min_lines.drop', 'min_lines.false_ending', 'min_lines.hook', 'min_lines.interlude', 'min_lines.intro', 'min_lines.outro', 'min_lines.patter', 'min_lines.postchorus', 'min_lines.prechorus', 'min_lines.reprise', 'min_lines.solo', 'min_lines.tag', 'min_lines.turnaround', 'min_lines.vamp', 'min_lines.verse', 'pins_per_line', 'returns', 'sections', 'sections.breakdown', 'sections.bridge', 'sections.build', 'sections.chorus', 'sections.coda', 'sections.drop', 'sections.false_ending', 'sections.hook', 'sections.interlude', 'sections.intro', 'sections.outro', 'sections.patter', 'sections.postchorus', 'sections.prechorus', 'sections.reprise', 'sections.solo', 'sections.tag', 'sections.turnaround', 'sections.vamp', 'sections.verse', 'slots_per_line', 'story_lineups', 'uses']
+  PASS  `story_lineups` reads off a real plan without inventing anything
+          story_lineups = 14976
+  PASS  `lines` reads off a real plan without inventing anything
+          lines = 16
+  PASS  `sections` reads off a real plan without inventing anything
+          sections = 6
+  PASS  `lines_per_section` reads off a real plan without inventing anything
+          lines_per_section = 1
+  PASS  `group` reads off a real plan without inventing anything
+          group = 4
+  PASS  `bars_per_line` reads off a real plan without inventing anything
+          bars_per_line = 1
+  PASS  `beats_per_line` reads off a real plan without inventing anything
+          beats_per_line = 10
+  PASS  `slots_per_line` reads off a real plan without inventing anything
+          slots_per_line = 20.0
+  PASS  `hook` reads off a real plan without inventing anything
+          hook = 4
+  PASS  `returns` reads off a real plan without inventing anything
+          returns = 2
+  PASS  `binding_cap` reads off a real plan without inventing anything
+          binding_cap = 4
+  PASS  `pins_per_line` reads off a real plan without inventing anything
+          pins_per_line = 4
+  PASS  `bound_words_per_line` reads off a real plan without inventing anything
+          bound_words_per_line = 2.25
+  PASS  `sections.breakdown` reads off a real plan without inventing anything
+          sections.breakdown = 0
+  PASS  `min_lines.breakdown` reads off a real plan without inventing anything
+          min_lines.breakdown = 0
+  PASS  `max_lines.breakdown` reads off a real plan without inventing anything
+          max_lines.breakdown = 0
+  PASS  `sections.bridge` reads off a real plan without inventing anything
+          sections.bridge = 0
+  PASS  `min_lines.bridge` reads off a real plan without inventing anything
+          min_lines.bridge = 0
+  PASS  `max_lines.bridge` reads off a real plan without inventing anything
+          max_lines.bridge = 0
+  PASS  `sections.build` reads off a real plan without inventing anything
+          sections.build = 0
+  PASS  `min_lines.build` reads off a real plan without inventing anything
+          min_lines.build = 0
+  PASS  `max_lines.build` reads off a real plan without inventing anything
+          max_lines.build = 0
+  PASS  `sections.chorus` reads off a real plan without inventing anything
+          sections.chorus = 2
+  PASS  `min_lines.chorus` reads off a real plan without inventing anything
+          min_lines.chorus = 2
+  PASS  `max_lines.chorus` reads off a real plan without inventing anything
+          max_lines.chorus = 2
+  PASS  `sections.coda` reads off a real plan without inventing anything
+          sections.coda = 0
+  PASS  `min_lines.coda` reads off a real plan without inventing anything
+          min_lines.coda = 0
+  PASS  `max_lines.coda` reads off a real plan without inventing anything
+          max_lines.coda = 0
+  PASS  `sections.drop` reads off a real plan without inventing anything
+          sections.drop = 0
+  PASS  `min_lines.drop` reads off a real plan without inventing anything
+          min_lines.drop = 0
+  PASS  `max_lines.drop` reads off a real plan without inventing anything
+          max_lines.drop = 0
+  PASS  `sections.false_ending` reads off a real plan without inventing anything
+          sections.false_ending = 0
+  PASS  `min_lines.false_ending` reads off a real plan without inventing anything
+          min_lines.false_ending = 0
+  PASS  `max_lines.false_ending` reads off a real plan without inventing anything
+          max_lines.false_ending = 0
+  PASS  `sections.hook` reads off a real plan without inventing anything
+          sections.hook = 0
+  PASS  `min_lines.hook` reads off a real plan without inventing anything
+          min_lines.hook = 0
+  PASS  `max_lines.hook` reads off a real plan without inventing anything
+          max_lines.hook = 0
+  PASS  `sections.interlude` reads off a real plan without inventing anything
+          sections.interlude = 0
+  PASS  `min_lines.interlude` reads off a real plan without inventing anything
+          min_lines.interlude = 0
+  PASS  `max_lines.interlude` reads off a real plan without inventing anything
+          max_lines.interlude = 0
+  PASS  `sections.intro` reads off a real plan without inventing anything
+          sections.intro = 1
+  PASS  `min_lines.intro` reads off a real plan without inventing anything
+          min_lines.intro = 1
+  PASS  `max_lines.intro` reads off a real plan without inventing anything
+          max_lines.intro = 1
+  PASS  `sections.outro` reads off a real plan without inventing anything
+          sections.outro = 0
+  PASS  `min_lines.outro` reads off a real plan without inventing anything
+          min_lines.outro = 0
+  PASS  `max_lines.outro` reads off a real plan without inventing anything
+          max_lines.outro = 0
+  PASS  `sections.patter` reads off a real plan without inventing anything
+          sections.patter = 0
+  PASS  `min_lines.patter` reads off a real plan without inventing anything
+          min_lines.patter = 0
+  PASS  `max_lines.patter` reads off a real plan without inventing anything
+          max_lines.patter = 0
+  PASS  `sections.postchorus` reads off a real plan without inventing anything
+          sections.postchorus = 1
+  PASS  `min_lines.postchorus` reads off a real plan without inventing anything
+          min_lines.postchorus = 7
+  PASS  `max_lines.postchorus` reads off a real plan without inventing anything
+          max_lines.postchorus = 7
+  PASS  `sections.prechorus` reads off a real plan without inventing anything
+          sections.prechorus = 1
+  PASS  `min_lines.prechorus` reads off a real plan without inventing anything
+          min_lines.prechorus = 2
+  PASS  `max_lines.prechorus` reads off a real plan without inventing anything
+          max_lines.prechorus = 2
+  PASS  `sections.reprise` reads off a real plan without inventing anything
+          sections.reprise = 0
+  PASS  `min_lines.reprise` reads off a real plan without inventing anything
+          min_lines.reprise = 0
+  PASS  `max_lines.reprise` reads off a real plan without inventing anything
+          max_lines.reprise = 0
+  PASS  `sections.solo` reads off a real plan without inventing anything
+          sections.solo = 0
+  PASS  `min_lines.solo` reads off a real plan without inventing anything
+          min_lines.solo = 0
+  PASS  `max_lines.solo` reads off a real plan without inventing anything
+          max_lines.solo = 0
+  PASS  `sections.tag` reads off a real plan without inventing anything
+          sections.tag = 0
+  PASS  `min_lines.tag` reads off a real plan without inventing anything
+          min_lines.tag = 0
+  PASS  `max_lines.tag` reads off a real plan without inventing anything
+          max_lines.tag = 0
+  PASS  `sections.turnaround` reads off a real plan without inventing anything
+          sections.turnaround = 0
+  PASS  `min_lines.turnaround` reads off a real plan without inventing anything
+          min_lines.turnaround = 0
+  PASS  `max_lines.turnaround` reads off a real plan without inventing anything
+          max_lines.turnaround = 0
+  PASS  `sections.vamp` reads off a real plan without inventing anything
+          sections.vamp = 0
+  PASS  `min_lines.vamp` reads off a real plan without inventing anything
+          min_lines.vamp = 0
+  PASS  `max_lines.vamp` reads off a real plan without inventing anything
+          max_lines.vamp = 0
+  PASS  `sections.verse` reads off a real plan without inventing anything
+          sections.verse = 1
+  PASS  `min_lines.verse` reads off a real plan without inventing anything
+          min_lines.verse = 2
+  PASS  `max_lines.verse` reads off a real plan without inventing anything
+          max_lines.verse = 2
+  PASS  six declared preferences still accept a strict minority of an unconditioned seed range, and more than none — this measures preference selection, not writability (MISSING.md M-79)
+          5 of 160 = 3.1% accepted
+  PASS  the conjunction accepts EXACTLY the intersection of the six predicates taken one at a time — the property a verb that ANDs correctly must have whatever the planner happens to draw
+          conjunction [7, 29, 35, 96, 152], intersection [7, 29, 35, 96, 152]
+  PASS  ...and the invariant is examined rather than satisfied by vacuity: predicates that genuinely cut, and a conjunction strictly smaller than the loosest of them
+          4 of 6 predicates cut; 5 accepted against a loosest single of 160
+
+10b. the density coordinate is a MEAN, and a real one
+  PASS  `bound_words_per_line` is declared real-valued, and it is the only measure that is
+          ('bound_words_per_line',)
+  PASS  ...and it reads the MEAN over EVERY line, which is strictly below the per-line maximum on a real plan — the two are different questions, and `pins_per_line` could not express a density preference
+          mean 2.370 against max 4 over 27 line(s)
+  PASS  ...a fractional threshold PARSES rather than refusing as a non-integer — the band this coordinate separates the songs on lies between two integers
+          ('bound_words_per_line', '<=', '1.5')
+  PASS  ...and it is not truncated on the way to the comparison: a mean of 1.2 passes `<=1.5` and fails `<=1`, which a floor to int could not distinguish
+          mean 1.20
+  PASS  THREE COUNTS, NEVER SUMMED (doctrine 79): swept, planned, and REFUSED-by-the-planner. A refusal is the envelope turning a request down and charging it to the predicates would blame the declaration for the planner
+          160 = 160 + 0
+  PASS  NO DEFAULT PREDICATE — a sweep with none accepts every seed that plans at all, which is honest and useless. A default would be the sweep deciding what the caller wants
+          [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+  PASS  the accepted set is in SEED order and carries no score — a sweep that returned 'the best seed' would be doctrine 19's own argmax, and whatever it ranked by would be the weighted quality score doctrine 6 forbids
+          17 accepted, keys ['accepted', 'planned', 'refused', 'seeds', 'wants']
+  PASS  an undeclared coordinate REFUSES and prints the vocabulary — a predicate silently matching nothing and one that refuses look identical in the accepted set, and the first has a caller believe their declaration was applied (doctrine 20)
+          'vibes<=3' asks about 'vibes', which is not a coordinate a sweep can r
+  PASS  ...and so does a predicate with no operator this vocabulary declares
+          'sections<3' carries none of <=, >=, =. A predicate is NAME<
+  PASS  ...and a count compared against a non-integer
+          'sections<=lots': 'sections' is a count and 'lots' is not an
+  PASS  ...and a FUNCTION name compared with an inequality, because functions do not compare
+          'uses>=chorus': 'uses' answers '=' and nothing else — it nam
+  PASS  an unreachable declaration accepts NOTHING, and the verb turns that into a refusal at exit 2 rather than an empty list — unreachable and merely rare are different answers and the acceptance rate is what separates them
+          planned 20, accepted 0
+
+15. M-112 — the bound-token share is a pure disclosure
+  PASS  every sung section instance appears exactly once, in plan order
+          8 section(s)
+  PASS  the numerators sum to the plan's own word-keyed binding count — the same `bound_placements` + `placement_word` reading every other consumer of the groups string uses (doctrine 1)
+          total 59
+  PASS  each denominator is the sum of its lines' syllable ceilings — capacity, never a requirement (a sparse line is a slower line)
+  PASS  the numerator counts WORDS and not placement names — end+endword is one word, head+headrime+T1 is one word (M-80), so the toy reads 2/12 and 1/6 and a name-counting mutant reads 3 and 3
+          [(2, 12), (1, 6)]
+  PASS  `make_plan` does not consult `bound_token_share` — the share gates nothing, by design, until a calibration exists (the entry's own accounting; doctrine 22 for the future gate)
+
+. the planner binds WHERE, not only at the ends — and draws overlapping covers, which an RGS partition cannot express
+  PASS  every plan's groups PARSE back into a Mandate — the spelling the planner emits is the spelling the declaration layer reads, which is the only shape that proves the coordinate crossed the seam
+          60 plans, 60 mandates
+  PASS  placements other than the line's end are DRAWN, not merely declarable: the head, the whole end word, the head read as a rhyme span, and indexed words all appear
+          {'end': 684, 'T3': 208, 'T4': 205, 'T2': 204, 'headrime': 190, 'endword': 186}
+  PASS  and `end` is ONE placement among them rather than the axis everything is measured against — the WEB DRAW's own share is near the uniform share of the pool, which is the correction stated as a measure; the end-rhyme pass then binds free ends ON TOP and is counted apart
+          web draw: end at 9.8% of its members; with the end-rhyme pass's additions 28.7%, over 60 plans
+  PASS  OVERLAPPING covers are reached by the DRAW. Doctrine 2 says maximal cliques may overlap and the mandate layer has always accepted them; the generator could not produce one, so that class of song had probability exactly zero from the front door
+          60/60 plans put some line in >1 group
+  PASS  a line's participation leaves the writer at least 1 word of their own: it is bounded by what a band-legal line can CARRY — the calibrated density band's floor — MINUS the reserve, so no plan hands back a line whose every word is dictated by some rhyme family
+          max participation 4, density floor 5 less reserve 1
+  PASS  ...and that is the property, stated without reference to the constant: NO line in any drawn plan is bound at every word
+          participation {0: 275, 1: 314, 2: 535, 3: 231, 4: 77} against floor 5
+  PASS  ...and it is not pinned at either extreme: lines carrying ONE binding and lines carrying several are both ordinary
+          participation {0: 275, 1: 314, 2: 535, 3: 231, 4: 77}
+  PASS  no group exceeds what the LEXICON is measured to sustain — the capacity layer's deepest CERTIFIED chain, so a plan never asks for a rhyme family no family can fill
+          ceiling 22
+==============================================================
+SECTION COST, slowest first — the top line is the floor a shard count cannot beat:
+      93.2s  test_the_seed_sweep_is_a_verb
+      20.2s  test_the_joint_gate
+      14.3s  test_the_planner_plans_the_whole_line
+       0.3s  test_the_bound_share
+     128.0s  TOTAL, this shard (4 of 4 sections)
+==============================================================
+M-79 focused planning sections

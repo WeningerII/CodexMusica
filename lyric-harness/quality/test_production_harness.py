@@ -6,6 +6,7 @@ import sys
 import unittest
 import unicodedata
 from fractions import Fraction
+from unittest.mock import patch
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from quality import fit, grid, meter, phonology, plan, schemes
 
@@ -18,6 +19,63 @@ def blueprint():
 
 
 class HarnessProduction(unittest.TestCase):
+    def test_joint_gate_preserves_a_free_word(self):
+        # M-79: five individually reachable, distinct positions consume all
+        # five possible words. The final gate must not rely on the sampler.
+        p = {"subdivision": 1, "line_slots": [
+            {"line": 1, "duration": 5}, {"line": 2, "duration": 5}],
+            "groups": "1.head,2.head;1.T2,2.T2;1.T3,2.T3;1.T4,2.T4;1,2"}
+        findings = plan.joint_findings(p)
+        self.assertEqual({(code, line) for code, line, _ in findings},
+                         {("NO_FREE_WORD", 1), ("NO_FREE_WORD", 2)})
+        self.assertIn("NO_FREE_WORD", plan.JOINT_CODES)
+        # The duration, subdivision and density ceiling must meet here.
+        for duration, subdivision in ((5.5, 1), (2.75, 2)):
+            with self.subTest(duration=duration, subdivision=subdivision):
+                q = copy.deepcopy(p)
+                q["subdivision"] = subdivision
+                for row in q["line_slots"]:
+                    row["duration"] = duration
+                self.assertEqual({c for c, _, _ in plan.joint_findings(q)},
+                                 {"NO_FREE_WORD"})
+        q = copy.deepcopy(p)
+        for row in q["line_slots"]:
+            row["duration"] = 6
+        self.assertEqual(plan.joint_findings(q), [])
+        # One fewer pin fits even though the numbered position still reaches
+        # the last possible word; reach and participation are different.
+        p["groups"] = "1.T5,2.T5"
+        self.assertEqual(plan.joint_findings(p), [])
+        p["groups"] = "1.head,2.head;1.T1,2.T1;1.T2,2.T2;1.T3,2.T3;1,2"
+        self.assertEqual({c for c, _, _ in plan.joint_findings(p)},
+                         {"TWO_GROUPS_ONE_WORD"})
+
+    def test_joint_free_word_check_obeys_density_ceiling(self):
+        p = {"subdivision": 4, "line_slots": [
+            {"line": 1, "duration": 99}, {"line": 2, "duration": 99}],
+            "groups": ";".join(f"1.T{i},2.T{i}" for i in range(1, 13))}
+        self.assertEqual({c for c, _, _ in plan.joint_findings(p)},
+                         {"NO_FREE_WORD"})
+        p["groups"] = ";".join(f"1.T{i},2.T{i}" for i in range(1, 12))
+        self.assertEqual(plan.joint_findings(p), [])
+
+    def test_joint_free_word_check_runs_before_writer_brief(self):
+        original = plan.bound_placements
+
+        def exhaust_final_plan(p):
+            # Only a finished plan carries the drawn relation disclosure;
+            # earlier additive passes still see the actual bindings.
+            if "relations" in p:
+                return {s["line"]: [f"T{i}" for i in range(1, 13)]
+                        for s in p["line_slots"]}
+            return original(p)
+
+        with patch.object(plan, "bound_placements", side_effect=exhaust_final_plan), \
+                patch.object(plan, "writer_brief") as brief:
+            with self.assertRaisesRegex(plan.PlanRefused, "NO_FREE_WORD"):
+                plan.make_plan(0, lines=24)
+            brief.assert_not_called()
+
     def test_global_relation_feasibility(self):
         for relation in ("schema:semirhyme", "schema:internal rhyme", "schema:anaphora"):
             with self.subTest(relation=relation), self.assertRaises(plan.PlanRefused):
@@ -173,10 +231,12 @@ class HarnessProduction(unittest.TestCase):
         self.assertEqual(plan.draft_execution_bound(["love qzxqzx"])["observed_line_units"], [2])
 
     def test_explicit_briefs_are_reproducible_and_satisfied(self):
-        wants = ["lines<=60", "sections<=6", "lines_per_section>=2", "group<=4"]
+        wants = ["lines<=60", "sections<=6", "lines_per_section>=2", "group<=4",
+                 "uses=verse,chorus", "before=verse,chorus", "pins_per_line<=5"]
         for seed in range(10):
             p = plan.make_plan(seed, wants=wants)
             self.assertTrue(all(plan.sweep_holds(p, plan.parse_sweep_want(w)) for w in wants))
+            self.assertEqual(plan.joint_findings(p), [])
             selection = p["choices"]["brief_selection"]
             self.assertEqual(selection["attempts"][-1]["status"], "accepted")
             self.assertLessEqual(len(selection["attempts"]), 64)
