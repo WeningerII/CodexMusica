@@ -17717,7 +17717,7 @@ that deploy still runs against the 240s/180s clocks, so the round
 after this entry waits on the merge. The register pin:
 `audit_register.coverage_entries` ~~222~~ -> 223 (2026-08-29).
 
-### M-166 · Round 9 under the shared budget: the kills are gone, and the two walls left standing are the model's pace and the shape's replay slope `OPEN` 2026-08-29 — the driver-side remedies shipped the sitting the round landed
+### M-166 · Round 9 under the shared budget: the kills are gone, and the two walls left standing are the model's pace and the shape's replay slope `PARTIAL` 2026-08-29 — the driver-side remedies shipped the sitting the round landed; current disposition recorded 2026-09-17 below
 **M-165'S CLAIM IS CONFIRMED AND THE WALL MOVED RATHER THAN
 VANISHED.** Round 9 (run 33259376754, 151 minutes, the first with the
 600s budget live server-side) recorded ZERO exit -1 rows — the
@@ -17778,6 +17778,59 @@ entry banks recurrence #3 as the evidence that ladder feeds on. The
 M-164 backoff worked as built: one 429 and two 502s retried, all
 three recovered, every retry a row. The register pin:
 `audit_register.coverage_entries` ~~223~~ -> 224 (2026-08-29).
+
+**ADDENDUM 2026-09-17 — THE TIMEOUT REPAIR ALREADY LANDED; LOCAL CACHE
+EVIDENCE IS NOT DEPLOYED QUALIFICATION.** Reconciled against main
+`fcebe7066b44943ccc199760b0471e7d2ae4b437`, including merged
+[PR #248](https://github.com/WeningerII/CodexMusica/pull/248) and
+[PR #321](https://github.com/WeningerII/CodexMusica/pull/321). The August
+account above is retained as history; its claim that (a) still needs a
+server implementation is superseded.
+
+- **(a) BUILT AND LOCALLY VERIFIED.** `mcp/chat.js` gives its MCP reader
+  the remaining computation budget plus `cancelGraceMs` (1,000 ms by
+  default), while passing the computation deadline separately through
+  `mcp/execution_context.js`. `mcp/python_bridge.js` charges queue wait to
+  that deadline, reserves up to 1,000 ms (5% for short deadlines) for
+  delivery, and bounds the warm-worker reap wait at 750 ms before returning
+  an explicit termination-pending result. Expired queued work never starts;
+  deterministic crash fallback receives only the original remaining budget;
+  cancellation and uncertain paid work are not replayed. The maintained
+  native client in `mcp/client.js` separately uses the shared tool budget
+  plus `TOOL_DELIVERY_MARGIN_MS` (30,000 ms). These are delivery allowances,
+  not extra computation. The connector-contract, Python-bridge and turn-
+  lifecycle suites exercise these paths, including returning an accepted
+  draft through the real router/SDK after the turn deadline.
+- **(b) IMPLEMENTED, WITH CURRENT LOCAL RECEIPTS; DEPLOYED HALF OPEN.**
+  M-167's per-run grading memo and M-217's bounded process memos already
+  ship. `quality/RESULTS_M170_2026-09-17.md` supplies the current continuation
+  experiment; re-reading its retained raw archive with
+  `scripts/summarize_lyric_continuations.py` reproduces its complete summary.
+  At 22 lines, the initial call and eleven continuations agree between
+  retained and cold handlers in output and journal state. At 28 lines,
+  the retained handler completes eleven continuations, but the cold arm
+  completes only one continuation before continuation 2 reaches the existing
+  600-second bound. Full 28-line equivalence and later cold costs remain
+  unestablished. These are the recorded experiment's measurements, not new
+  timings of this documentation change, a latency percentile, or a reason
+  to raise the budget. Neither unrestricted Reviser reuse nor substitution
+  of the floor and revision fields is justified: M-170 records counterexamples
+  to both. **M-187 still owns the deployed worker/cache engagement and Render
+  memory reading.** Local memo hits and a checked image do not close that
+  requirement.
+- **(c) THE DEFAULT PATH CHANGED; CONVERGENCE IS NOT CLAIMED.** M-254 moved
+  the default chat revision path to the kitchen writer, so the old outer
+  model's one-answer-per-turn interview is no longer the default protocol.
+  The interview remains selectable. That architecture change does not prove
+  a successful autonomous song or cure every provider refusal; the fresh
+  production outcome remains M-279's separate requirement.
+
+**DISPOSITION: PARTIAL.** This correction records existing repairs and the
+limits of the measured evidence. No timeout, cache capacity, comparator,
+corpus, or deployment setting is changed. The remaining M-166(b) deployed
+measurement is shared with M-187; M-170 retains the incomplete cold arm.
+Verification receipts for this reconciliation are in
+`quality/results/m166_2026-09-17/verification.txt`.
 
 ### M-167 · The deferred replay re-grades every draft it has already graded — a per-run memo over the four grading calls, behind a proxy that moves the loop by zero bytes `CLOSED` 2026-08-29 — built the sitting the owner ruled "build the replay cache"
 **THE COST WAS MEASURED BEFORE THE DESIGN WAS CHOSEN.**
