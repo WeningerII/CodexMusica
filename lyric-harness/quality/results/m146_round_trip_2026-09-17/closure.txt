@@ -1,0 +1,13 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> codex-music-tool@2.0.0 check:closure
+> node scripts/check_build_closure.js
+
+=== Build closure is sound ===
+
+  ✓ all 7871 tracked files classified — 4822 in closure, 3049 inert
+  ✓ all 32 file(s) read by a real build of all three artifacts are in the closure
+  ✓ all 3 artifact builders actually ran under the tracer
+
+BUILD CLOSURE: PASS — every tracked file is classified, and every file a real build
+of api/ + codex.html + the discovery files reads is inside the closure.
