@@ -1,0 +1,7 @@
+  REFUSED — the slop floor needs 3 staged resources and 1 of them is missing
+    MISSING     data/concreteness.txt (the Brysbaert norms) -- nothing at /workspace/scratch/e66437fb1b49/CodexMusica-M-256/lyric-harness/data/concreteness.txt
+    PRESENT     the `nltk` package, version 3.10.3
+    PRESENT     the tagger model (nltk taggers/averaged_perceptron_tagger_eng) under NLTK_DATA=/workspace/scratch/e66437fb1b49/CodexMusica-M-256/lyric-harness/data/nltk
+    stage them: python3 -m pip install nltk && python3 quality/fetch_data.py
+    read from /workspace/scratch/e66437fb1b49/CodexMusica-M-256/lyric-harness/data (LYRIC_STAGED_DATA overrides that directory; NLTK_DATA overrides the model's)
+    doctrine 20: a refusal, not a grade -- this verb did not answer; the verbs that never reach the floor still do

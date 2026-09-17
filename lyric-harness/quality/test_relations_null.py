@@ -802,33 +802,92 @@ def s15_named_nulls_are_not_independent_evidence():
           in out.getvalue())
 
 
+def s16_observation_is_shared_but_every_null_is_measured():
+    """M-244: the unchanged observation is work, not another null draw."""
+    from collections import Counter
+    from dataclasses import asdict
+    from unittest.mock import patch
+    print("\n§16 one observation per schema/statistic set, every replicate retained")
+    schemas = {name: R.REGISTRY[name] for name in ("perfect rhyme", "assonance")}
+    phon = get_phonology("eng")
+    lines = ["we saw the cat", "he wore a hat", "she held a bat", "we found a mat"]
+    calls = []
+    original = N._measure
+
+    def measured(stream, schema, statistics, *args):
+        calls.append((stream, schema.name, tuple(s.name for s in statistics)))
+        return original(stream, schema, statistics, *args)
+
+    for derived in (False, True):
+        calls.clear()
+        with patch.object(N, "_measure", measured):
+            together, census = N.sweep(lines, phon, "eng", schemas=schemas,
+                                      n=2, budget=None, derived_only=derived)
+        check(f"§16 derived_only={derived}: the positive fixture reaches observation and null judges",
+              bool(calls) and bool(together))
+        if not calls:
+            continue
+        observation = calls[0][0]
+        observed_calls = Counter((name, stats) for stream, name, stats in calls
+                                 if stream is observation)
+        check(f"§16 derived_only={derived}: each observation coordinate measured once",
+              bool(observed_calls) and all(v == 1 for v in observed_calls.values()),
+              str(observed_calls))
+        separate = []
+        null_names = sorted({row.null for row in together if not isinstance(row, R.Refusal)})
+        coordinates = {(r.null, r.schema, r.statistic) for r in together
+                       if not isinstance(r, R.Refusal)}
+        for null in null_names:
+            rows, _ = N.sweep(lines, phon, "eng", schemas=schemas, n=2,
+                              budget=None, nulls=[null])
+            separate.extend(r for r in rows if not isinstance(r, R.Refusal)
+                            and (r.null, r.schema, r.statistic) in coordinates)
+        check(f"§16 derived_only={derived}: complete rows equal independently recomputed null arms",
+              len(null_names) > 1 and [asdict(r) for r in together]
+              == [asdict(r) for r in separate])
+        expected = {(row.null, row.schema) for row in together
+                    if not isinstance(row, R.Refusal)}
+        check(f"§16 derived_only={derived}: every requested replicate still reaches the judge",
+              sum(stream is not observation for stream, _, _ in calls) == 2 * len(expected))
+        check(f"§16 derived_only={derived}: every schema remains in the census",
+              {row.schema for row in census} == set(schemas))
+
+
+_SECTIONS = (
+    s1_partition,
+    s2_reader,
+    s3_declarations,
+    s4_prepare_per_replicate,
+    s5_cleared,
+    s6_false_clears,
+    s7_unknown_step,
+    s8_missing_corpus,
+    s9_blockers,
+    s10_missing_complete,
+    s11_refused_replicates,
+    s12_the_page_derivation_never_runs_on_a_token_join,
+    s13_the_census_keeps_the_refusal_kind,
+    s14_the_void_replicate_is_its_own_count,
+    s15_blocker_kinds,
+    s15_named_nulls_are_not_independent_evidence,
+    s16_observation_is_shared_but_every_null_is_measured,
+)
+
+
 def main():
     print("=" * 74)
     print("RELATIONS NULLS · SECTION 9 (THE PANEL) — regressions")
     print("=" * 74)
-    s1_partition()
-    s2_reader()
-    s3_declarations()
-    s4_prepare_per_replicate()
-    s5_cleared()
-    s6_false_clears()
-    s7_unknown_step()
-    s8_missing_corpus()
-    s9_blockers()
-    s10_missing_complete()
-    s11_refused_replicates()
-    s12_the_page_derivation_never_runs_on_a_token_join()
-    s13_the_census_keeps_the_refusal_kind()
-    s14_the_void_replicate_is_its_own_count()
-    s15_blocker_kinds()
-    s15_named_nulls_are_not_independent_evidence()
+    from quality.shard import run_sections
+    result = run_sections(_SECTIONS, "TEST_RELATIONS_NULL_SHARD", FAIL,
+                          footer="all relations-null regressions pass")
     print("\n" + "=" * 74)
     print(f"  {len(PASS)} passed, {len(FAIL)} failed")
     if FAIL:
         for f in FAIL:
             print(f"    FAILED: {f}")
     print("=" * 74)
-    return 1 if FAIL else 0
+    return result
 
 
 if __name__ == "__main__":

@@ -1816,13 +1816,25 @@ for (const [songNo, briefIdx] of indices.entries()) {
     )
       reasons.push(`no new answer folded (${answersNow} on record, was ${lastAnswers})`);
     if (parkedRows.length) {
-      const open = Math.min(
-        ...parkedRows.map((c) => (typeof c.loop_unresolved === 'number' ? c.loop_unresolved : 0))
-      );
-      parkStreak = lastOpen != null && open >= lastOpen ? parkStreak + 1 : 1;
-      lastOpen = open;
+      // M-256: count completed runs, not returned turns. A turn can carry
+      // fourteen parks; its minimum hides both later regressions and stalls.
+      // Admission stops at the next turn boundary, after retaining all calls.
+      for (const row of parkedRows) {
+        const open = row.loop_unresolved;
+        if (!Number.isSafeInteger(open) || open < 0) {
+          if (STOP_ON.has('idle'))
+            reasons.push('parked run has no valid open-line count; stall evidence unavailable');
+          parkStreak = 0;
+          lastOpen = null;
+          continue;
+        }
+        parkStreak = lastOpen != null && open >= lastOpen ? parkStreak + 1 : 1;
+        lastOpen = open;
+      }
       if (STOP_ON.has('idle') && parkStreak >= PARK_STREAK_CAP)
-        reasons.push(`parked ${parkStreak} times in a row without fewer open lines (${open} open)`);
+        reasons.push(
+          `parked ${parkStreak} times in a row without fewer open lines (${lastOpen} open)`
+        );
     } else if (answersNow > lastAnswers) {
       parkStreak = 0;
     }

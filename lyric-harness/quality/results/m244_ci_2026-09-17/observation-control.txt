@@ -1,0 +1,29 @@
+
+§16 one observation per schema/statistic set, every replicate retained
+  PASS  §16 derived_only=False: the positive fixture reaches observation and null judges
+  PASS  §16 derived_only=False: each observation coordinate measured once
+          Counter({('perfect rhyme', ('count', 'local_fraction@2')): 1})
+  PASS  §16 derived_only=False: complete rows equal independently recomputed null arms
+  PASS  §16 derived_only=False: every requested replicate still reaches the judge
+  PASS  §16 derived_only=False: every schema remains in the census
+  PASS  §16 derived_only=True: the positive fixture reaches observation and null judges
+  PASS  §16 derived_only=True: each observation coordinate measured once
+          Counter({('perfect rhyme', ('count', 'local_fraction@2')): 1, ('perfect rhyme', ('local_fraction@2',)): 1})
+  PASS  §16 derived_only=True: complete rows equal independently recomputed null arms
+  PASS  §16 derived_only=True: every requested replicate still reaches the judge
+  PASS  §16 derived_only=True: every schema remains in the census
+
+§16 one observation per schema/statistic set, every replicate retained
+  PASS  §16 derived_only=False: the positive fixture reaches observation and null judges
+  FAIL  §16 derived_only=False: each observation coordinate measured once
+          Counter({('perfect rhyme', ('count', 'local_fraction@2')): 4})
+  PASS  §16 derived_only=False: complete rows equal independently recomputed null arms
+  PASS  §16 derived_only=False: every requested replicate still reaches the judge
+  PASS  §16 derived_only=False: every schema remains in the census
+  PASS  §16 derived_only=True: the positive fixture reaches observation and null judges
+  FAIL  §16 derived_only=True: each observation coordinate measured once
+          Counter({('perfect rhyme', ('count', 'local_fraction@2')): 2, ('perfect rhyme', ('local_fraction@2',)): 2})
+  PASS  §16 derived_only=True: complete rows equal independently recomputed null arms
+  PASS  §16 derived_only=True: every requested replicate still reaches the judge
+  PASS  §16 derived_only=True: every schema remains in the census
+CONTROL: original sweep failed 2 checks

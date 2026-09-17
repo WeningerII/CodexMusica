@@ -23251,6 +23251,69 @@ levers — the field memo, the `freshness` rebuild that is now the wall, the
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~298~~
 **299** with this entry (2026-09-05).
 
+
+**FOLLOW-UP 2026-09-17 — the old four-lever list is historical, not the
+current implementation inventory.** M-282 already pooled the trailing verify
+checks and split the capacity matrix; M-252 records observed push/PR duplicate
+skips. A bare post-merge branch mirror is avoided by not pushing main back to
+the working branch. Neither saving is newly claimed here. On the latest green
+PR run inspected, [run 2081](https://github.com/WeningerII/CodexMusica/actions/runs/35247512389)
+for #327, the full wall was 25.9 minutes, `verify` 9.6 minutes,
+`suites (shard 1/3)` 16.4 minutes, and the capacity pole job 16.1 minutes.
+The relations-null child occupied about 818 seconds of that suites job;
+`verify` waited 11.3 minutes after the gate completed. Job elapsed time, queue
+wait and individual leaf elapsed times are different quantities. The source
+run/job identities and local receipts are retained in
+`quality/results/m244_ci_2026-09-17/`.
+
+**BUILT HERE.** `relations_null.sweep` shares each unchanged observation
+across null algorithms within that call, keyed by schema and statistic tuple;
+it still measures every randomized replicate. The regression compares every
+result row with separate per-null recomputation, checks the full census and
+replicate counts, and detects the old redundant observation work in both
+ordinary and derived-only mode. The panel suite now uses the existing timed
+section idiom across the same three suites jobs. The actual CI shell is
+exercised with success and planted child failure; every other pooled suite
+still runs once and the panel's sections partition exactly once.
+
+The other implementation is an exact artifact **build** cache over the
+existing conservative build closure, the build invocation, cache admission
+code and Node runtime. It records the complete generated-file inventory only
+after the normal freshness comparison, and refuses changed inputs, a changed
+runtime, missing/extra/corrupt files, symlinks, truncated receipts, and inputs
+moving during a build. A cache miss rebuilds. An admitted build still goes
+through the normal freshness comparison and fault injections. Scheduled runs
+build cold. No cached pass verdict replaces a gate, and no prefix cache can
+substitute for the exact input identity.
+
+**STILL PARTIAL.** The persistent floor field memo and the site-only
+`harness_affected` scope with correct skipped-result semantics remain unbuilt.
+This change does not remove the measured capacity floor or the account's job
+queue, and does not establish a ten-minute end-to-end wall. The historical
+field profile is not a new measurement of today's critical path. Current
+hosted cold/warm cache observations and the final verification boundary are
+reported with the PR; local timings are explicitly local, not a prediction of
+GitHub's loaded runners. No corpus, threshold or comparator input is changed.
+
+**INTEGRATED 2026-09-17:** #332 subsequently moved the full capacity matrix
+into production qualification (`d2541f44`), preserving its deployment gate.
+That baseline capacity job is therefore no longer a PR-CI floor on the
+combined workflow. M-244 does not claim that placement change as its own,
+and the ten-minute target remains unproved until the combined workflow is
+measured. The exact artifact key changes with this workflow integration;
+the earlier cache receipt is rejected and the combined head rebuilds cold.
+
+**FIRST HOSTED JOB OBSERVATION** — on the initial published head
+`00949e99`, [run 2111's suites shard 1](https://github.com/WeningerII/CodexMusica/actions/runs/35256583195/job/105322087361)
+passed in **568 seconds (9.5 minutes)**. Its panel partition measured
+`s1_partition` at **417.0 seconds** and passed all 36 checks; the other
+partitions passed their separate checks. The earlier baseline suites job
+was 984 seconds (16.4 minutes). These are two observed job durations under
+different loads, not a controlled speed ratio or a whole-workflow result.
+The source API metadata and exact section-cost log excerpt are retained in
+the dated evidence directory. This precedes the M-282 integration and does
+not substitute for that combined head's CI.
+
 ### M-245 · The `schema:semirhyme` judge refused the schema's own example — bend~ending read the coda off the stressed SYLLABLE of a maximal-onset syllabification, and every drawable schema is now pinned to the pair its definition names `CLOSED` 2026-09-05 — found by a connector user's seed-33 song grading exit 3 on one flag, and the flag being ours
 
 **THE FINDING.** The owner forwarded a friend's session: seed 33 at 20
@@ -24096,12 +24159,18 @@ delivered in silence, and the silence was ours.
 **310** with this entry (2026-09-06).
 
 
-### M-256 · Round 24, the first kitchen round: the pipes held for eighty-one minutes and 809 cook calls, the song closed from six open lines to one, and it parked forty-three times on two lines — one of which the brief itself called unanswerable while it was not `OPEN` 2026-09-07 — the owner's order, verbatim: *"run a smoke round and then report back"* … *"proceed"*
+### M-256 · Round 24, the first kitchen round: the pipes held for eighty-one minutes and 809 cook calls, the song closed from six open lines to one, and it parked forty-three times on two lines — one of which the brief itself called unanswerable while it was not `PARTIAL` 2026-09-07 — the owner's order, verbatim: *"run a smoke round and then report back"* … *"proceed"*
 **THE ROUND (run 34116990907, main `8bf7362f`, dispatched 11:30Z, first turn 11:34Z, stopped 13:24Z; songs=1 turns=25 pace=130, the lighthouse brief).** Seven turns, 4,839 s of connector time. Turn 0: `lyric_sweep` 0, `lyric_plan` seed 1000 (22 lines, VAMP/PRECHORUS/CHORUS×2/POSTCHORUS/VERSE/BRIDGE/CODA in 12/8 — the same shape `plan --seed=1000 --lines=22` draws on the CLI, so the round is reproducible here), `lyric_screen` ×2, `lyric_check` 0, two `lyric_revise` calls refused for carrying a blueprint beside the seed, then the kitchen. **Forty-three kitchen runs, all exit 3 NO_PROGRESS; 809 cook calls (`gemini-3.5-flash-lite`, the cook M-255's smoke run chose and PR #244 pinned), 2,873,847 prompt tokens in, 16,812 out, 547 s of Gemini time inside 4,519 s of tool time (longest run 356 s, inside the 600 s budget), 0 empty, 0 retries, 0 seconds waited on 429s; every call on the warm path; 1 malformed hop re-asked and recovered, 1 user re-ask, 0 truncated turns.** The chat model called `lyric_revise` up to fourteen times in one turn and ran into `MAX_TOKENS` twice and `MAX_STEPS` twice. **Open lines by kitchen run: 6 6 6 6 5 6 4 5 5 5 5 5 5 5 5 4 2 2 1 2 1 1 2 1 1 1 2 2 2 4 3 3 3 3 2 2 2 2 2 2 2 2 2** — a real descent to ONE open line by turn 4, then the chat model's own whole-song rewrites (the M-232 parked-run note asks for them) pushed it back to four, and the last fourteen runs sat at two: L7 and L19. The driver's idle rule (M-233: three parks in a row without fewer open lines) ended the round at turn 6 of 25 as `failed_fast`. Cost of the round's cooking at the pinned price: about $0.90. The build served turn 0 already reported `8bf7362f` although the deploy hook fired nine minutes later (11:43Z) — Render built the push itself, and the hook's deploy of the same sha restarted the service between turns without a transport failure on the record; a redundant restart, banked here and not chased.
 **WHAT THE TWO LINES CARRIED, read off the rows (the `standing` field PR #244 added did its job).** L7 binds at THREE places: group C [5, 7] at its word 2 under `schema:analysed rhyme` against L5's end word `sea`; group B [6, 7] at word 7 under family rhyme and group L [6, 7] at the end word under light rhyme, both against L6's `be`; and group Q [7, 10] is a RETURN. L19 is a PIVOT in three groups: G [16, 17, 19] at word 5 (consonance), H [16, 18, 19] at its first word (anaphora against L18's word 2, `waters`), N [16, 17, 19] at the end (cluster consonance against `palm`/`qualm`). The cook tried `set` (19 runs), `find` (12), `dream` (6), `close` (3), `see` (2) at L7's word 2 and never held all three places at once — `dream` answers group C and the line it sat in broke the end.
 **THE DEFECT, reproduced on the CLI.** `finish` on the round's last draft at `--seed=1000 --lines=22 --propose=defer:` renders L7's brief with **an EMPTY offered field** for word 2 and says so in the harness's own words: *"30 rhyming word(s) are NOT offered: the call word sits in their own modal head … 44 word(s) the band admitted are NOT offered: this place is judged by its group's declared relation, and they do not satisfy it (company, ye, degree, …) … no candidate field was offered for this line — either no rhyme finding is what flagged it, or nothing in the lexicon answers its groups."* That last clause is FALSE for this relation. `analysed rhyme` (`quality/relations.py`) is `nucleus AGREE, coda DIFFER` at the anchor: the partner must share `sea`'s vowel and NOT its (empty) coda — `seem`, `dream`, `need`, `feel`. The candidate field is seeded from the RHYME band of the call word, every member of which shares the coda by construction, and M-185's symmetric screen then correctly rejects all of them — so a relation that demands a DIFFERENT coda can never be offered a word from a band built on the SAME one. Measured: replacing L7 with *"I seem to drift on memory"* (word 2 `seem`; end `memory`, an unstressed /i/ that is both family and light rhyme with `be`) clears every L7 finding on the next `finish` — the loop moves on to L19. The cook was told there was nothing to find, found `dream` anyway, and could not also hold the end; a writer that believes its brief cannot close this line. (L19 by hand: *"Waters lap the shore in calm"* cleared all three groups on the round's final draft; on the draft with L7 also fixed the loop instead reports L19 a pivot whose complete pool is empty and asks a three-line backtrack of L16/L17/L19 — the two verdicts disagree and that disagreement is NOT diagnosed here.)
 **WHAT THIS ENTRY DOES NOT DECIDE, said so it is not read as decided.** (1) The offer for a DIFFER-coda relation (the fix: seed the field from the nucleus band when the group's declared relation differs on the coda, then screen as M-185 does) is the next build, not this entry's. (2) Whether the idle rule should count parks under the kitchen the way it counted interview parks — fourteen cheap parks at two open lines in one turn are not three idle turns — is a driver question, priced by this round. (3) The cook: 3.5 Flash-Lite closed 20 of 22 lines against named relations and failed the two three-place lines; a stronger cook is the owner's call and needs a model id this repository does not know. **The ladder row: 24 · `instrument` · exit 0 no.**
 **311** with this entry (2026-09-07).
+
+**CURRENT DISPOSITION — 2026-09-17, M-256 repair on main `fcebe7066b44943ccc199760b0471e7d2ae4b437`.** The September 7 account above is historical. M-257's offer repair and the later production relation/coverage repairs already shipped (PRs #245 and #247); they are not reimplemented here. The driver now consumes each parked kitchen run's open-line count in order, instead of one minimum per returned turn. With the existing cap, the archived sequence stops further turns after turn 2; improvements later in the same returned turn reset the streak. A missing count is unavailable stall evidence, never zero. This is a turn-boundary admission rule: it cannot cancel runs already returned inside that turn.
+
+**TESTED WHILE OPEN — PIVOT REPAIRS.** An unsuccessful tier-2 group attempt no longer suppresses the pivot's ordinary tier-1 attempt. Both records remain, the existing attempt budget applies, and the existing full verifier alone accepts a repair. A real-grader regression accepts a single-line partial repair after either a declined or rejected group, while retaining the unresolved obligations and refusing success. Backtracking's outside-group calls now compare token occurrences: the head and end of `cat cat` are different places; endword and the last explicit token are aliases. Whole-line bindings remain constraints. Both defects are reproduced against unmodified main; no threshold, comparator input, or corpus changed.
+
+**SOURCE-BOUND RECHECK AND REMAINING LIMIT.** The recovered round-24 artifact, frozen plan from source `8bf7362f54f67c686347b5356b52f73491c808d2`, commands, hashes, failure controls and verification receipts are in [the M-256 evidence record](quality/results/m256_2026-09-17/README.md). On the current grader, the historical L19 hand edit has identical G/H/N verdicts with or without the L7/return edit: 9 mandated pairs, 2 judged, 7 refused, with the L16/L19 cluster-consonance violation still standing. It does not establish the old “all three groups cleared” claim. **PARTIAL** preserves the remaining requirement: demonstrate the recovered multi-place case through the complete live kitchen/finish path with the repaired build; these offline controls do not establish end-to-end convergence or adjudicate the seven refused pairs. A stronger cook remains an owner choice, not an implementation requirement silently adopted here. The original round remains an instrument failure; its ladder row is unchanged.
 
 
 ### M-257 · The offer told the cook a lie on round 24's L7: the screen that judges an offered word probed the relation on two unframed lines, so every `frame="stanza"` schema REFUSED every word and the refusal emptied the offer — and even judged, a relation that demands a DIFFERENT coda can never be answered from a rhyme band `CLOSED` 2026-09-07 — the owner's order, verbatim: *"if you think we need to do this then please do it"*

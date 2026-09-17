@@ -168,6 +168,52 @@ http.globalAgent = new ShortAgent({ keepAlive: true, timeout: 20 });
   });
 }
 
+// M-256: one returned turn can contain many completed kitchen runs.
+for (const [counts, cap, stopped, reason] of [
+  [[5, 5, 5], 3, true, /parked 3 times.*5 open/],
+  [[5, 5, 4], 3, false, null],
+  [[5, 4, 5], 2, true, /parked 2 times.*5 open/],
+  [[null, null, null], 3, true, /open-line count.*unavailable/],
+]) {
+  await test(`park history follows every call in order: ${JSON.stringify(counts)}`, async () => {
+    let posts = 0;
+    await fixture(
+      (req, res) => {
+        posts++;
+        json(
+          res,
+          200,
+          posts === 1
+            ? {
+                ...checkpoint,
+                tools: counts.map((open) => ({
+                  name: 'lyric_revise',
+                  writer: 'kitchen',
+                  exit_code: 3,
+                  loop_stop_reason: 'NO_PROGRESS',
+                  loop_rounds: 1,
+                  loop_unresolved: open,
+                  journal_id: 'a'.repeat(32),
+                  final_draft: ['unchanged'],
+                  verified_outcomes: [],
+                  verified_outcomes_draft_sha256: sha256(JSON.stringify(['unchanged'])),
+                })),
+              }
+            : finished
+        );
+      },
+      async ({ out, run }) => {
+        const result = await run([`--park-streak-cap=${cap}`]);
+        assert.equal(result.status, stopped ? 1 : 0, result.stdout + result.stderr);
+        assert.equal(posts, stopped ? 1 : 2);
+        const song = summary(out).songs[0];
+        assert.equal(song.exit_reason, stopped ? 'failed_fast' : 'finished');
+        if (reason) assert.match(JSON.stringify(song.flags), reason);
+      }
+    );
+  });
+}
+
 await test('failed identity probe preserves the cause and never sends paid work', async () => {
   let posts = 0;
   await fixture(
@@ -186,6 +232,43 @@ await test('failed identity probe preserves the cause and never sends paid work'
       assert.equal(identity.phase, 'protocol');
       assert.match(identity.transport, /invalid JSON response \(HTTP 502\)/);
       assert.ok(!attempts.some((row) => row.event === 'request_dispatched'));
+    }
+  );
+});
+
+await test('round-24 archived park sequence stops at the next boundary after turn 2', async () => {
+  const archived = JSON.parse(
+    readFileSync(
+      new URL('../lyric-harness/quality/results/m256_2026-09-17/round24.json', import.meta.url),
+      'utf8'
+    )
+  );
+  let posts = 0;
+  await fixture(
+    (req, res) => {
+      const turn = archived.parks[posts++];
+      json(res, 200, {
+        ...checkpoint,
+        tools: turn.open.map((open) => ({
+          name: 'lyric_revise',
+          writer: 'kitchen',
+          exit_code: 3,
+          loop_stop_reason: 'NO_PROGRESS',
+          loop_rounds: 1,
+          loop_unresolved: open,
+          journal_id: 'a'.repeat(32),
+          final_draft: ['unchanged'],
+          verified_outcomes: [],
+          verified_outcomes_draft_sha256: sha256(JSON.stringify(['unchanged'])),
+        })),
+      });
+    },
+    async ({ out, run }) => {
+      const result = await run(['--turns=7', '--park-streak-cap=3']);
+      assert.equal(result.status, 1, result.stdout + result.stderr);
+      assert.equal(posts, 3);
+      assert.equal(summary(out).songs[0].exit_reason, 'failed_fast');
+      assert.match(JSON.stringify(summary(out).songs[0].flags), /parked 4 times.*5 open/);
     }
   );
 });
