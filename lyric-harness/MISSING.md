@@ -2957,15 +2957,45 @@ population next to the zero, or the next reader inherits a "0" that is true of a
 one-seventh extract.**
 
 ### M-4 · The `&c.` refrain stub is not an English printing convention `PARTIAL`
-**The partial status was stale.** All four traditions are supported by three
+**Recognition is complete; the historical Finnish counting rule is still
+missing.** All four traditions are supported by three
 forms: English/Welsh `&c.` or `etc.`, Finnish `j. n. e.`, Malay `d. s. b.`.
 `quality/test_spans.py` §8/8b pins language attribution, shared-form ambiguity,
 editorial tails and exclusion of mid-line abbreviations. `BACKLOG.md` §2.4
 already closed the Welsh issue on 2026-08-21. No invented `ac ati` pattern is
 needed: the staged Welsh uses `&c.`, as the measurements below explain.
-Historical unavailable-source counts remain qualified below; closing the
-recognition defect does not recover their missing evidence. A-1 separately
-owns resolving a pointer to its full chorus.
+Historical counts remain qualified below. A-1 separately owns resolving a
+pointer to its full chorus.
+
+**RECONCILED 2026-09-17, still PARTIAL.** PR #302's title claimed closure,
+but its final repair `af634ba4` restored this heading to PARTIAL; the opening
+sentence above had not been told. The original Malay source is now recovered
+at its recorded bytes: upstream commit
+`f5dd00edd79cdf6e5eed40635d38d6feb71cb2c8`, MD5
+`19e717af1a18fbc845e5c6a386fdaa4d`. The existing auditor reproduces **108**
+abbreviations in the whole source, **99** in indented lines, **95** of those
+line-final, and **0** in the staged extract. These are different populations;
+none is substituted for the unknown Malay-language subset behind the old
+single-letter totals. `quality/RESULTS_REGISTER_AUDIT.md`'s M-4 recovery
+section gives the immutable source, exact rules and executable reproduction;
+`quality/results/m4_evidence_2026-09-17/after.txt` is the receipt.
+
+D7 and D8 now read this entry's live table instead of hardcoded withdrawn
+claims (Finnish 8 and Malay zero). Changed, missing and duplicate claims,
+source/extract substitution and absent source input are regression-covered in
+`quality/test_register_audit.py`. With the source staged, D7/D8/D9 are
+CONFIRMED; D24 remains UNVERIFIABLE. Without it, D8 remains UNVERIFIABLE.
+No corpus text, pronunciation, comparator input or calibration changed.
+
+**PRECISE REMAINDER (M-18):** recover contemporaneous evidence for the
+population, tokeniser and refusal-category filter that produced the Finnish
+`155 → 139`, or explicitly decide its disposition as an unrecoverable
+historical claim. The introducing commit `f94383c1` records the numbers but
+not that rule. The current census is **145,280 total / 144,562 read / 567
+refused / 151 defective**, using `fin._tokens(_verse_body(file))` and
+`fin.readability_census(Finnish(), tokens)` over staged `fin_*` song files.
+It is not a reconstruction of the old experiment, and its three outcomes
+are not pooled into an "unreadable" replacement.
 
 ~~TESTED WHILE OPEN, and the remainder is NAMED: WELSH. Three of the four
 languages ship in `CHORUS_STUB_FORMS`; `ac ati` matches nothing.~~ Superseded
@@ -3083,7 +3113,7 @@ time by `python3 quality/verify_entries.py` rather than written down here.
 readable, so on `Härkä ei juo vettä j. n. e.` `fin.line_alliteration` returns
 (2 alliterating, 7 words) against (1, 4) for the real line — three phantom
 words and one phantom alliteration, in the numerator _and_ the denominator.
-`CHORUS_STUB_FORMS` is now a declared table of `(language, gloss, pattern)` and
+`CHORUS_STUB_FORMS` is now a declared table of `(languages, gloss, pattern)` and
 `chorus_stub_match` reports WHICH convention fired (doctrine 45).
 
 ### M-4a · A tighter rhyme band LOOSENS the time layer's correction `CLOSED`

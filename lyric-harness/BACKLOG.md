@@ -330,12 +330,19 @@ and this heading did not say so, so the two files disagreed about whether a TIER
 
 ### 2.4 · ~~The `&c.` refrain stub is not an English convention~~ — **four traditions, three forms, and the Welsh one was `&c.` all along** `M-4` — `CLOSED 2026-08-21`
 **TASK DISCHARGED — `M-4` STAYS OPEN.** The task this entry set was *read the
-Welsh refrain pointer as Welsh*, and it is done and guarded. M-4 stays PARTIAL
-on a different clause entirely: the Malay `d. s. b.` row's count is
+Welsh refrain pointer as Welsh*, and it is done and guarded. **UPDATED
+2026-09-17:** M-4 stays PARTIAL for the Finnish `155 → 139` counting rule,
+which M-18 still cannot identify. The Malay source was recovered byte-for-byte;
+the auditor reproduces 108 source abbreviations / 99 in indented lines / 95
+line-final, against zero in the staged extract. D7/D8 now compare to M-4's
+live table and are guarded against changed or missing claims. Source identity,
+reproduction and receipts: `quality/RESULTS_REGISTER_AUDIT.md`, M-4 recovery.
+The previous blocker was **superseded by that source recovery**:
+~~on a different clause entirely: the Malay `d. s. b.` row's count is
 `UNVERIFIABLE` because PG47873 — the 705-block source it was measured against —
 is not on disk here, and the staged 129-block extract is a different population
-(M-18). No amount of work on the Welsh pointer closes that, and marking M-4
-CLOSED to make the two files agree would erase a real gap.
+(M-18).~~ Source staging still has to be explicit on a fresh checkout. Closing
+the Welsh task never supplied the missing historical Finnish rule.
 
 **WHAT THE ENTRY EXPECTED WAS NOT WHAT THE CORPUS HAD.**
 `lyric_harness.CHORUS_STUB_FORMS` declares `eng` (`&c.`/`etc.`), `fin`

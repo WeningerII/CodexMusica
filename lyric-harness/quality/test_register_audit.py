@@ -16,6 +16,8 @@ Runs in about a second so there is no excuse for skipping it.
 
 import os
 import sys
+import tempfile
+from unittest.mock import patch
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -116,30 +118,58 @@ def test_calibration_finnish_arithmetic():
     check("D7 measures Finnish j. n. e. at 9 stubs / 18 tokens, 2 per stub",
           "9 occurrences" in got and "18 tokens" in got,
           "%s   (register still claims: %s)" % (got, why))
-    check("...and it reports MOVED rather than CONFIRMED, because the "
-          "REGISTER is what is now stale — not the derivation",
-          verdict == "MOVED",
-          "verdict %r. MOVED is the honest verdict here and repinning it to "
-          "CONFIRMED would mean editing MISSING.md's claim from inside a "
-          "test. The register's own owner moves the 8/16; this file only "
-          "asserts that the auditor still measures correctly." % verdict)
+    check("D7 confirms the live 9-stub claim, not its struck 8-stub predecessor",
+          verdict == AR.CONFIRMED and "9 stub lines" in why, why)
+    # Change only the claim. A transcribed 9 would miss this just as the old
+    # transcribed 8 missed the register's actual repair.
+    for cell, expected in (("8", AR.MOVED), ("~~8~~ **9 at `debf64e`**", AR.CONFIRMED),
+                           ("~~8~~", AR.UNVERIFIABLE), ("unknown", AR.UNVERIFIABLE)):
+        entries = _plant(("M-4", "| Finnish | `j. n. e.` | %s |\n" % cell))
+        with patch.object(AR, "read_entries", return_value=entries):
+            check("D7 reads the changed claim %s" % cell, AR._d_jne()[0] == expected)
 
 
 def test_calibration_malay_withdrawal():
-    """The fourth known-false entry, and the one whose verdict this round
-    REVERSED: the withdrawal of M-4's Malay row is itself false.
+    """Both populations, real source parsing, and the withdrawn ZERO claim.
 
-    Guarded, not asserted: PG47873 is not in the repository. If it is absent
-    the honest answer is UNVERIFIABLE, and this test accepts that — what it
-    refuses is a silent CONFIRMED, which would mean the auditor had accepted
-    a population substitution as a refutation.
+    The source fixture is synthetic apparatus, not a new corpus witness.
+    Two verse pointers and one prose abbreviation must remain different
+    populations. None of the cases needs PG47873 or network access.
     """
-    verdict, got, _ = AR._d_dsb()
-    check("D8 does not confirm the withdrawal",
-          verdict in (AR.FALSE, AR.UNVERIFIABLE), "%s: %s" % (verdict, got))
-    if verdict == AR.FALSE:
-        check("D8 names the count and the line-final position",
-              "108" in got and "line-final" in got, got)
+    with tempfile.TemporaryDirectory() as tmp:
+        source = os.path.join(tmp, "47873-8.txt")
+        with open(source, "wb") as stream:
+            stream.write(b"Prose d.s.b.\r\n    Verse d. s. b.\r\n"
+                         b"    Verse d.s.b. continues\r\n")
+        with patch.dict(os.environ, {"MSA_SOURCE": source}):
+            for cell, expected in (("3", AR.CONFIRMED), ("0", AR.MOVED),
+                                   ("2", AR.MOVED), ("~~0~~ **3**", AR.CONFIRMED),
+                                   ("unknown", AR.UNVERIFIABLE)):
+                entries = _plant(("M-4", "| Malay | `d.s.b.` | %s in the SOURCE |\n" % cell))
+                with patch.object(AR, "read_entries", return_value=entries):
+                    verdict, got, _ = AR._d_dsb()
+                    check("D8 reads SOURCE claim %s" % cell, verdict == expected, got)
+                    if expected != AR.UNVERIFIABLE:
+                        check("D8 separates all / indented / line-final counts",
+                              "3 in PG47873" in got and "2 in indented" in got
+                              and "1 of them line-final" in got, got)
+            entries = _plant(("M-4", "| Malay | `d.s.b.` | 3 in the SOURCE |\n" * 2))
+            with patch.object(AR, "read_entries", return_value=entries):
+                check("D8 refuses duplicate claims", AR._d_dsb()[0] == AR.UNVERIFIABLE)
+            with patch.object(AR, "_msa_source_population", return_value=None):
+                verdict, got, _ = AR._d_dsb()
+                check("D8 cannot substitute the staged extract for an absent source",
+                      verdict == AR.UNVERIFIABLE and "cannot verify the source" in got, got)
+
+
+def test_finnish_missing_rule_stays_unknown():
+    """Matching a historical number cannot recover an unstated counting rule."""
+    counts = {"total": 1000, "read": 706, "refused": 139, "defective": 155}
+    with patch.object(AR, "_fin_census", return_value=counts):
+        verdict, got, _ = AR._d_fin_census()
+        check("D24 refuses even when current categories match both old numbers",
+              verdict == AR.UNVERIFIABLE and "REFUSED 139" in got
+              and "DEFECTIVE 155" in got and "no tokenizer" in got, got)
 
 
 # ---------------------------------------------------------------------------
@@ -225,6 +255,7 @@ def main():
     test_calibration_m3_after_column()
     test_calibration_finnish_arithmetic()
     test_calibration_malay_withdrawal()
+    test_finnish_missing_rule_stays_unknown()
     print("\nTHE INSTRUMENT:")
     test_passing_checks_still_pass()
     test_provenance_finds_no_external_citation()

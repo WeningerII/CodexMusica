@@ -914,3 +914,96 @@ D18 is repinned from the historical **0.902 RHYME** to **0.850 RHYME**.
 explicit `Declaration(coda_empty_evidence="gift")` reproduces the historical
 value. Agreement typing is unchanged for fixed spans. The dated rows above
 remain the record of their original measurements. See `E5_CODA_ADOPTION.md`.
+
+## M-4 source recovery and live-claim repair, 2026-09-17
+
+M-4 remains PARTIAL for the missing Finnish `155 → 139` counting rule.
+PR #302's final commits restored that status; its title and M-4's first
+sentence still claimed closure. Recognition across English, Welsh, Finnish
+and Malay already shipped. This change repairs the evidence checks and the
+record, with no comparator or corpus change.
+
+### The recovered source
+
+The original [GITenberg plain text at commit f5dd00ed](https://github.com/GITenberg/Malay-Magic-Being-an-introduction-to-the-folklore-and-popular-religion-of-the-Malay-Peninsula_47873/blob/f5dd00edd79cdf6e5eed40635d38d6feb71cb2c8/47873-8.txt)
+matches the existing `data/sources.tsv` parent and staged-extract records:
+1,422,204 bytes, MD5 `19e717af1a18fbc845e5c6a386fdaa4d`, SHA-256
+`149a2b77a583981c8a9115e715ba79a952dd7b937d2888833efaacf745f037d8`.
+The title page prints Macmillan, London/New York, 1900; upstream metadata
+states public domain in the USA. This is the already-admitted source, not
+a new edition or an additional song-corpus file.
+
+`audit_register._msa_source_population` decodes Latin-1, folds CRLF to LF,
+and counts `\bd\.\s*s\.\s*b\.` in the whole file. Its indented population
+contains nonblank lines starting with at least four spaces. The terminal
+count asks `d\.\s*s\.\s*b\.\s*$` of each stripped indented line.
+No Malay-language classifier is applied to these populations.
+
+| Population | Abbreviations |
+|---|---:|
+| Whole original source | 108 |
+| Indented source lines | 99 |
+| Indented lines ending in the abbreviation | 95 |
+| Staged 129-block extract | 0 |
+
+The source's 705 indented blocks and 5,555 indented lines reproduce too.
+The source reader also reports single-letter `b/d/s` counts of **107/102/108**
+when apostrophes are kept. Those are over **all indented lines**, not the
+unrecovered Malay-language selection behind the historical **101/100/99**.
+Recovering the source does not recover that selection rule or turn those
+different counts into a refutation. No new claim is made about the old
+305/471 unreadability share.
+
+From the harness directory, reproduce using an external temporary checkout
+(the original source text is not committed to this repository):
+
+```sh
+M4_SOURCE_DIR=$(mktemp -d)
+git clone https://github.com/GITenberg/Malay-Magic-Being-an-introduction-to-the-folklore-and-popular-religion-of-the-Malay-Peninsula_47873.git "$M4_SOURCE_DIR"
+git -C "$M4_SOURCE_DIR" checkout --detach f5dd00edd79cdf6e5eed40635d38d6feb71cb2c8
+sha256sum "$M4_SOURCE_DIR/47873-8.txt"
+MSA_SOURCE="$M4_SOURCE_DIR/47873-8.txt" python3 quality/audit_register.py --only M-4 --slow --json
+```
+
+The SHA-256 must match the value above before treating the result as a
+reproduction. The temporary checkout is retained for inspection. The source
+is supplied through the auditor's existing `MSA_SOURCE` override; the
+default absence verdict remains UNVERIFIABLE.
+
+### What the checks now establish
+
+Before/after stdout is banked verbatim in
+`results/m4_evidence_2026-09-17/before.txt` and
+`results/m4_evidence_2026-09-17/after.txt`; `receipt.json` records the source
+identity, commands, code hashes and exit codes. These are complete auditor
+reports; only their M-4 derivations are claimed here.
+
+| Check | Before | After | Meaning |
+|---|---|---|---|
+| D7 | MOVED against a hardcoded 8 | CONFIRMED against live 9 | Nine Finnish abbreviations, two vowelless letters each |
+| D8, source supplied | FALSE against a hardcoded zero | CONFIRMED against live 108 | Whole-source count agrees with M-4 |
+| D8, source absent | UNVERIFIABLE | UNVERIFIABLE | The staged extract cannot stand in for the source |
+| D9 | CONFIRMED | CONFIRMED | All four declared traditions match the existing forms |
+| D24 | UNVERIFIABLE | UNVERIFIABLE | Historical Finnish population/tokeniser/category unknown |
+
+The source-supplied audit exits 1 before and 0 after. D7 and D8 now read one
+live count from the appropriate table cell; struck counts do not supply a
+fallback, and missing, unparseable or duplicate claims refuse. Changed
+counts report MOVED. Regression controls change the claim independently of
+the source, restore the withdrawn zero, separate whole/indented/terminal
+populations, and remove the source. D24 still refuses even when a synthetic
+current census happens to contain both historical numbers.
+
+The current Finnish census is **145,280 total / 144,562 read / 567 refused /
+151 defective**. Its explicit rule is `fin._tokens(_verse_body(file))`, then
+`fin.readability_census(Finnish(), tokens)`, over staged `fin_*` song files.
+The introducing commit `f94383c1` states `155 → 139` but supplies neither its
+tokeniser nor its category filter. These current categories cannot recover
+that missing historical rule; their outcomes stay separate. The auditor's
+old claim that each count was "two orders off" is also removed: 151 is not
+two orders away from 155.
+
+**Still owed:** contemporaneous evidence for the original Finnish rule, or
+an explicit disposition of that unrecoverable historical claim under M-18.
+The original Malay-language subset and its single-letter/error-share totals
+also remain qualified historical observations, not newly verified counts.

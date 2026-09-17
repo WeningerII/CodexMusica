@@ -1,0 +1,6307 @@
+{
+ "consistency": [
+  {
+   "id": "C1",
+   "entry": "M-3/M-4",
+   "ok": true,
+   "question": "do two figures sharing a denominator exceed it?",
+   "detail": "no two n-of-N figures in M-3/M-4 now exceed a shared denominator (the 384/471 claim has been withdrawn in place)",
+   "why": "the check that would have caught the biggest error in the file"
+  },
+  {
+   "id": "C2",
+   "entry": "M-3",
+   "ok": true,
+   "question": "does the corrected table sum to its own corrected total?",
+   "detail": "components before 471 vs stated total 471; components after 394 vs stated total 394",
+   "why": "the correction introduced a smaller error of the same kind"
+  },
+  {
+   "id": "C3",
+   "entry": "M-2",
+   "ok": true,
+   "question": "does the enumeration have the length its summary claims?",
+   "detail": "claims 19 of 24 recoverable and lists 19 arrow pairs; 19 + 5 = 24 against a population of 24",
+   "why": "23 + 5 > 24, one section before 384 + 300 > 471"
+  },
+  {
+   "id": "C4",
+   "entry": "K-1",
+   "ok": true,
+   "question": "do the quoted statuses partition the stated population?",
+   "detail": "141 SOURCED + 70 NOT_FOUND = 211 against a stated population of 211 (0 rows carry a third status)",
+   "why": "two of five statuses quoted as if they were all of them"
+  },
+  {
+   "id": "C5",
+   "entry": "K-1",
+   "ok": true,
+   "question": "do the repeat-block components sum to their total?",
+   "detail": "1592 + 604 + 247 = 2443 against a stated 2443",
+   "why": ""
+  },
+  {
+   "id": "C6",
+   "entry": "K-6",
+   "ok": true,
+   "question": "does the language table sum to the total above it?",
+   "detail": "staged 331 + refused 83 + blocked 17 = 431 against a stated None",
+   "why": ""
+  },
+  {
+   "id": "C7",
+   "entry": "K-6",
+   "ok": true,
+   "question": "are as many files named as counted?",
+   "detail": "says 5 text files, names 5 distinct filenames",
+   "why": ""
+  },
+  {
+   "id": "C8",
+   "entry": "M-1",
+   "ok": null,
+   "question": "is the false-verdict denominator inside its population?",
+   "detail": "M-1's verdict counts not found in their current form",
+   "why": ""
+  },
+  {
+   "id": "C9",
+   "entry": "N-1",
+   "ok": true,
+   "question": "does the excess column equal observed minus null max?",
+   "detail": "7 rows, every excess equals observed minus null max",
+   "why": ""
+  },
+  {
+   "id": "C10",
+   "entry": "N-1",
+   "ok": true,
+   "question": "does any row report a negative excess with p<0.05?",
+   "detail": "no row reports a negative excess alongside p<0.05",
+   "why": "excess-over-max and p-from-distribution are different questions"
+  }
+ ],
+ "derivations": [
+  {
+   "id": "D7",
+   "entry": "M-4",
+   "what": "Finnish j. n. e.",
+   "verdict": "CONFIRMED",
+   "detail": "9 occurrences: {'fin_kanteletar.txt': 7, 'fin_kanteletar_uudempia.txt': 1, 'fin_wahanen_laulukirja.txt': 1}; at 2 vowelless tokens each (j, n -- e is readable) that is 18 tokens",
+   "stated": "Finnish j. n. e. on 9 stub lines, per M-4's live table",
+   "command": "quality/audit_register.py",
+   "note": ""
+  },
+  {
+   "id": "D8",
+   "entry": "M-4",
+   "what": "Malay d. s. b.",
+   "verdict": "CONFIRMED",
+   "detail": "0 in the staged extract; 108 in PG47873 -- the file the extract was cut from and the population M-3 names (99 in indented verse lines, 95 of them line-final). Single-letter verse tokens there: b 107, d 102, s 108.",
+   "stated": "d. s. b. occurs 108 times in the SOURCE, per M-4's live table",
+   "command": "quality/audit_register.py",
+   "note": "live SOURCE count; MSA_SOURCE stages the original file"
+  },
+  {
+   "id": "D9",
+   "entry": "M-4",
+   "what": "CHORUS_STUB_FORMS",
+   "verdict": "CONFIRMED",
+   "detail": "CHORUS_STUB_FORMS declares [(('eng', 'cym'), '&c. / etc. (et cetera)'), (('fin',), 'j. n. e. (ja niin edelleen)'), (('msa',), 'd. s. b. (dan sebagainya)')]; M-4's rows answered: English &c./etc. -> cym/eng; Finnish j. n. e. -> fin; Welsh &c. -> cym/eng; Malay d. s. b./d.s.b. -> msa",
+   "stated": "M-4's stub table names 4 conventions -- English &c./etc.; Finnish j. n. e.; Welsh &c.; Malay d. s. b./d.s.b. -- and none is withdrawn",
+   "command": "quality/audit_register.py",
+   "note": ""
+  },
+  {
+   "id": "D24",
+   "entry": "M-4",
+   "what": "Finnish unreadable census",
+   "verdict": "UNVERIFIABLE",
+   "detail": "all staged fin_* song files under the module's own tokenizer and census: total 145280, read 144562, REFUSED 567, DEFECTIVE 151 -- three counts, never summed (doctrine 79; this row used to print refused+defective as one 'unreadable' figure). These are current counts, not a reconstruction of the historical 155 -> 139. The entry states no tokenizer and no reason-code filter, so which of the three it meant cannot be recovered",
+   "stated": "all ten fin_* 155 -> 139 unreadable tokens",
+   "command": "quality/audit_register.py --slow",
+   "note": ""
+  }
+ ],
+ "population": {
+  "malay": {
+   "staged": {
+    "file": "corpus/song/msa_skeat_pantun.txt",
+    "blocks": 129,
+    "verse_lines": 513,
+    "tokens": 2113,
+    "d_s_b": 0
+   },
+   "source": {
+    "file": "/workspace/scratch/eeaf902a4721/Malay-Magic-M-4/47873-8.txt",
+    "in_repo": false,
+    "blocks": 705,
+    "indented_verse_lines": 5555,
+    "tokens": 31884,
+    "d_s_b_all": 108,
+    "d_s_b_in_verse": 99,
+    "d_s_b_line_final": 95,
+    "single_bds_split_on_apostrophe": [
+     135,
+     104,
+     210
+    ],
+    "single_bds_apostrophe_kept": [
+     107,
+     102,
+     108
+    ],
+    "stub_tokens_if_3_each": 297
+   }
+  },
+  "quoted_sizes": [
+   [
+    "M-3",
+    "blocks",
+    705.0
+   ],
+   [
+    "M-3",
+    "blocks",
+    330.0
+   ],
+   [
+    "M-3",
+    "lines",
+    31086.0
+   ],
+   [
+    "M-3",
+    "lines",
+    5555.0
+   ],
+   [
+    "M-3",
+    "lines",
+    3442.0
+   ],
+   [
+    "M-3",
+    "blocks",
+    330.0
+   ],
+   [
+    "M-3",
+    "lines",
+    3415.0
+   ],
+   [
+    "M-3",
+    "lines",
+    3442.0
+   ],
+   [
+    "M-3",
+    "lines",
+    513.0
+   ],
+   [
+    "M-3",
+    "tokens",
+    2111.0
+   ],
+   [
+    "M-3",
+    "blocks",
+    330.0
+   ],
+   [
+    "M-3",
+    "blocks",
+    705.0
+   ],
+   [
+    "M-4",
+    "blocks",
+    129.0
+   ],
+   [
+    "M-4",
+    "blocks",
+    330.0
+   ],
+   [
+    "M-4",
+    "lines",
+    3415.0
+   ],
+   [
+    "N-3",
+    "blocks",
+    705.0
+   ],
+   [
+    "N-3",
+    "lines",
+    5555.0
+   ]
+  ],
+  "incompatible": {
+   "blocks": [
+    129.0,
+    330.0,
+    705.0
+   ],
+   "lines": [
+    513.0,
+    3415.0,
+    3442.0,
+    5555.0,
+    31086.0
+   ]
+  }
+ },
+ "provenance": {
+  "canon_entries": [
+   {
+    "id": "R1",
+    "name": "tail-rime",
+    "line": 80,
+    "from": "✓E1 ✓E10(as its commonest reading) C22 G22 G32 G33 G44 G52 G53 G86 X37 X55 X64 X89 X110 I3",
+    "external": false
+   },
+   {
+    "id": "R2",
+    "name": "leftward-extended rime",
+    "line": 101,
+    "from": "✓E2 X131 X70 X157 G56 G59 S35 S112",
+    "external": false
+   },
+   {
+    "id": "R3",
+    "name": "whole-final-unit agreement, onset included by definition",
+    "line": 111,
+    "from": "I6 I20 S111",
+    "external": false
+   },
+   {
+    "id": "R4",
+    "name": "count-graded tail agreement",
+    "line": 125,
+    "from": "X129 X130 X131 S110 S111 S112",
+    "external": false
+   },
+   {
+    "id": "R5",
+    "name": "assonance",
+    "line": 133,
+    "from": "✓E4 C45 C58 G54 G89 X78 X90(see R7) X111 X152 S123 X127",
+    "external": false
+   },
+   {
+    "id": "R6",
+    "name": "run assonance",
+    "line": 144,
+    "from": "✓E29 ✓E71 X38 X63",
+    "external": false
+   },
+   {
+    "id": "R7",
+    "name": "gapped-projection assonance",
+    "line": 154,
+    "from": "X90 X93",
+    "external": false
+   },
+   {
+    "id": "R8",
+    "name": "vowel-vector over a whole line",
+    "line": 164,
+    "from": "C54 (with C60, C61 as its reduced within-line and cadence forms) ✓E51(Hopkins's vowelling ",
+    "external": false
+   },
+   {
+    "id": "R9",
+    "name": "consonance",
+    "line": 175,
+    "from": "✓E5 G55 X79",
+    "external": false
+   },
+   {
+    "id": "R10",
+    "name": "cluster consonance across the syllable boundary",
+    "line": 180,
+    "from": "G1 ✓E5(as an unmeasured English variant)",
+    "external": true
+   },
+   {
+    "id": "R11",
+    "name": "consonance with a class requirement on the differing channel",
+    "line": 189,
+    "from": "C23 C46 (and C24 supplies the partition; see D-grain)",
+    "external": false
+   },
+   {
+    "id": "R12",
+    "name": "pararhyme / frame rhyme",
+    "line": 201,
+    "from": "✓E7 ✓E72 S46(*jinās muḥarraf*: the whole consonant skeleton agrees in identity, count and",
+    "external": false
+   },
+   {
+    "id": "R13",
+    "name": "directional-difference pararhyme",
+    "line": 207,
+    "from": "✓E69 X59 X159",
+    "external": false
+   },
+   {
+    "id": "R14",
+    "name": "reverse rhyme / strong alliteration",
+    "line": 219,
+    "from": "✓E8 G83 G84 G87 X36",
+    "external": false
+   },
+   {
+    "id": "R15",
+    "name": "unanchored consonant set",
+    "line": 228,
+    "from": "✓E6 S123 X101 X127 I3 I45(*pembayang↔maksud*: the same unanchored predicate between two",
+    "external": false
+   },
+   {
+    "id": "R16",
+    "name": "homorganic / place-class agreement",
+    "line": 237,
+    "from": "I4 ✓E11(manner-class twin)",
+    "external": false
+   },
+   {
+    "id": "R17",
+    "name": "masculine cadence",
+    "line": 247,
+    "from": "✓E26 G52 X66 X91 X112 X133 X156 C49(rinn)",
+    "external": false
+   },
+   {
+    "id": "R18",
+    "name": "feminine cadence",
+    "line": 250,
+    "from": "✓E27 G52 X65 X92 X112 X134 X156 G80 I44",
+    "external": false
+   },
+   {
+    "id": "R19",
+    "name": "dactylic cadence",
+    "line": 253,
+    "from": "✓E28 G52 X67 X93 X112",
+    "external": false
+   },
+   {
+    "id": "R20",
+    "name": "quadrisyllabic cadence",
+    "line": 256,
+    "from": "X68",
+    "external": false
+   },
+   {
+    "id": "R21",
+    "name": "unmatched trailing material EXCLUDED",
+    "line": 267,
+    "from": "✓E14 ✓E15 X69 C13",
+    "external": false
+   },
+   {
+    "id": "R22",
+    "name": "containment",
+    "line": 275,
+    "from": "S113 X71",
+    "external": false
+   },
+   {
+    "id": "R23",
+    "name": "additive / subtractive",
+    "line": 281,
+    "from": "✓E12 ✓E13 S47 S48",
+    "external": false
+   },
+   {
+    "id": "R24",
+    "name": "medial insertion",
+    "line": 289,
+    "from": "S49",
+    "external": false
+   },
+   {
+    "id": "R25",
+    "name": "one-segment substitution, graded by articulatory distance",
+    "line": 296,
+    "from": "S50 S51 S27 S28 X103",
+    "external": false
+   },
+   {
+    "id": "R26",
+    "name": "prominence MUST DIFFER",
+    "line": 306,
+    "from": "✓E16 C26 C49",
+    "external": false
+   },
+   {
+    "id": "R27",
+    "name": "prominence coerced by the delivered surface",
+    "line": 318,
+    "from": "✓E17 ✓E25 ✓E74 (see also R70, transform layer)",
+    "external": false
+   },
+   {
+    "id": "R28",
+    "name": "anchor rule DISABLED, both anchors unstressed",
+    "line": 323,
+    "from": "✓E18",
+    "external": false
+   },
+   {
+    "id": "R29",
+    "name": "alliteration",
+    "line": 329,
+    "from": "✓E9 ✓E48 C1(as the 2-3 link) C29 C47 G6 G7 G8 G9 G28 G29 G36 G37 G38 G43 G45 G49 G50 G79",
+    "external": true
+   },
+   {
+    "id": "R30",
+    "name": "fixed-index-from-the-head agreement",
+    "line": 348,
+    "from": "I7 I8 I9 I10 I11 I18 I19",
+    "external": false
+   },
+   {
+    "id": "R31",
+    "name": "head-to-index within one line",
+    "line": 363,
+    "from": "I10 I11",
+    "external": false
+   },
+   {
+    "id": "R32",
+    "name": "offset-from-an-anchor-segment slot system",
+    "line": 371,
+    "from": "S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15 S16 S17 S74 S75 S76 S77 S78 S79 S80 S81",
+    "external": false
+   },
+   {
+    "id": "R33",
+    "name": "span-shape classification of the rhyme domain",
+    "line": 395,
+    "from": "S18 S19 S20 S21 S22",
+    "external": false
+   },
+   {
+    "id": "R34",
+    "name": "line-head rhyme",
+    "line": 403,
+    "from": "✓E41 G66 C29",
+    "external": false
+   },
+   {
+    "id": "R35",
+    "name": "exhaustive ordered consonant skeleton across a caesura",
+    "line": 412,
+    "from": "✓C1 ✓C2 ✓E50",
+    "external": false
+   },
+   {
+    "id": "R36",
+    "name": "skeleton with an unanswered bridge",
+    "line": 420,
+    "from": "✓C5 ✓C6 C16 C17 (C16, C17 invisible)",
+    "external": false
+   },
+   {
+    "id": "R37",
+    "name": "skeleton whose split point falls inside a cluster",
+    "line": 428,
+    "from": "✓C3",
+    "external": false
+   },
+   {
+    "id": "R38",
+    "name": "skeleton whose answering consonant is generated by sandhi",
+    "line": 432,
+    "from": "✓C4",
+    "external": false
+   },
+   {
+    "id": "R39",
+    "name": "discontinuous root-consonant skeleton",
+    "line": 438,
+    "from": "S53 S54 S69 S108 S97",
+    "external": false
+   },
+   {
+    "id": "R40",
+    "name": "prosodic-template agreement with the root free",
+    "line": 448,
+    "from": "S70 S63 S61 S62",
+    "external": false
+   },
+   {
+    "id": "R41",
+    "name": "word-by-word index correspondence across two cola",
+    "line": 456,
+    "from": "S62",
+    "external": false
+   },
+   {
+    "id": "R42",
+    "name": "colon-final rhyme in prose",
+    "line": 463,
+    "from": "S60",
+    "external": false
+   },
+   {
+    "id": "R43",
+    "name": "tone-class agreement at the rhyme",
+    "line": 473,
+    "from": "X1 X2 X3 X29 X62 I65 I70 I72",
+    "external": false
+   },
+   {
+    "id": "R44",
+    "name": "tone-class template over a line",
+    "line": 482,
+    "from": "X14 I71 I60 I61 X31 X51 X52 I63",
+    "external": false
+   },
+   {
+    "id": "R45",
+    "name": "required tonal OPPOSITION across a line pair",
+    "line": 491,
+    "from": "X15 X20 I71",
+    "external": false
+   },
+   {
+    "id": "R46",
+    "name": "required tonal ADHESION across a couplet seam",
+    "line": 498,
+    "from": "X16",
+    "external": false
+   },
+   {
+    "id": "R47",
+    "name": "tonal compensation",
+    "line": 505,
+    "from": "X19",
+    "external": false
+   },
+   {
+    "id": "R48",
+    "name": "agree-in-class and differ-in-value simultaneously",
+    "line": 512,
+    "from": "I68",
+    "external": false
+   },
+   {
+    "id": "R49",
+    "name": "nasality as a channel",
+    "line": 522,
+    "from": "X115",
+    "external": false
+   },
+   {
+    "id": "R50",
+    "name": "vowel length / quantity as a channel",
+    "line": 527,
+    "from": "C34 ✓E24 S5 I22 I52 G53",
+    "external": false
+   },
+   {
+    "id": "R51",
+    "name": "palatalisation (caol/leathan) as a channel",
+    "line": 532,
+    "from": "C43",
+    "external": false
+   },
+   {
+    "id": "R52",
+    "name": "syllable count as a channel of the rhyme",
+    "line": 538,
+    "from": "C42 C49",
+    "external": false
+   },
+   {
+    "id": "R53",
+    "name": "grapheme channel",
+    "line": 544,
+    "from": "✓E20 G70 X83 X136 X137 S58 S59",
+    "external": false
+   },
+   {
+    "id": "R54",
+    "name": "morphological-affix rhyme",
+    "line": 555,
+    "from": "✓E63 G58 G86 X75 X102 S71 S96 S98 S85 S86 S87 S115 X55",
+    "external": false
+   },
+   {
+    "id": "R55",
+    "name": "shared-root, differing-inflection",
+    "line": 565,
+    "from": "✓E64 G58 X74 X105 X122 X146 X159 S53",
+    "external": false
+   },
+   {
+    "id": "R56",
+    "name": "same form, different sense",
+    "line": 575,
+    "from": "✓E65 G57 X72 X138 X160 S114 S45 S55 S66 I12 I13 I14 I26 I5 I15 I41 I16 S24 S108 X34 X45",
+    "external": false
+   },
+   {
+    "id": "R57",
+    "name": "semantic-category correspondence with no sound channel",
+    "line": 592,
+    "from": "X20 X39 X58 S95 I21 G85",
+    "external": false
+   },
+   {
+    "id": "R58",
+    "name": "associative (non-phonological, non-positional) linkage",
+    "line": 601,
+    "from": "X35 X32 X33",
+    "external": false
+   },
+   {
+    "id": "R59",
+    "name": "candidate-field scarcity as the defining property",
+    "line": 609,
+    "from": "✓E66 X114 X158 S119 X95 X113 X87(*rima aspra*: a claim about the phonotactic texture of th",
+    "external": false
+   },
+   {
+    "id": "R60",
+    "name": "verbatim span returning at scheduled positions",
+    "line": 625,
+    "from": "✓E3 ✓E54 ✓E55 C62 C64 G14 G26 G27 G75 G77 G88 S67 S90 S91 S122 X24 X44 X53 X118 X125 X154",
+    "external": false
+   },
+   {
+    "id": "R61",
+    "name": "verbatim span at the line tail, after the rhyme",
+    "line": 645,
+    "from": "S72 S73 S115 S116 I28 ✓E59 X107 S92",
+    "external": false
+   },
+   {
+    "id": "R62",
+    "name": "anadiplosis / tail-to-head across a seam",
+    "line": 657,
+    "from": "✓E61 ✓E40 C33 C27 C51 C52 C53 G11 G34 G47 G67 G76 X25 X143 X144 X167 X168 X119 I46 I25 X46",
+    "external": false
+   },
+   {
+    "id": "R63",
+    "name": "poem-closing return",
+    "line": 673,
+    "from": "C50 C33 G47 I46",
+    "external": false
+   },
+   {
+    "id": "R64",
+    "name": "anaphora / head-to-head identity",
+    "line": 680,
+    "from": "✓E58 C30 X107 X169 X57",
+    "external": false
+   },
+   {
+    "id": "R65",
+    "name": "epanalepsis / symploce / double-edge identity",
+    "line": 685,
+    "from": "✓E60 ✓E62 S64 X141 X142",
+    "external": false
+   },
+   {
+    "id": "R66b",
+    "name": "echo verse",
+    "line": 693,
+    "from": "X86 X97 X117 X151",
+    "external": false
+   },
+   {
+    "id": "R66",
+    "name": "reduplication inside one token",
+    "line": 703,
+    "from": "✓E68 ✓E70 I27 I51 X23 X60 G48",
+    "external": false
+   },
+   {
+    "id": "R67",
+    "name": "repetition-with-one-controlled substitution",
+    "line": 710,
+    "from": "✓E56 G30 G85 X120 X119",
+    "external": false
+   },
+   {
+    "id": "R68",
+    "name": "identity against an EXTERNAL constant",
+    "line": 720,
+    "from": "S104 S105 S106 S89 X27 X40 X41 X109 X49 S109 X43 X28 X42 X61 X32 S43 S103",
+    "external": false
+   },
+   {
+    "id": "R69",
+    "name": "forbidden repetition inside a moving window",
+    "line": 736,
+    "from": "X48 C40 S23 S24 X13 X96 X147 I74 I64 I37 S74",
+    "external": false
+   },
+   {
+    "id": "R70",
+    "name": "end rhyme",
+    "line": 756,
+    "from": "✓E35 X1 X88 X126 X153 S125 I73",
+    "external": false
+   },
+   {
+    "id": "R71",
+    "name": "internal rhyme",
+    "line": 758,
+    "from": "✓E36 G63 X82 X116 X149 S117 I55 X56",
+    "external": false
+   },
+   {
+    "id": "R72",
+    "name": "leonine / caesura-to-line-end within one line",
+    "line": 760,
+    "from": "✓E37 G65 G51 X132 S36 S88 S101 S39",
+    "external": false
+   },
+   {
+    "id": "R73",
+    "name": "line-end into next-line interior",
+    "line": 766,
+    "from": "✓E38 C28 C48 X81 X139 I66 I54 I56 I62",
+    "external": false
+   },
+   {
+    "id": "R74",
+    "name": "interior-to-interior across lines",
+    "line": 769,
+    "from": "✓E39 G64 X56",
+    "external": false
+   },
+   {
+    "id": "R75",
+    "name": "adjacent-word rhyme at zero distance",
+    "line": 771,
+    "from": "G62 X21 X22",
+    "external": false
+   },
+   {
+    "id": "R76",
+    "name": "internal member fixed by metrical index, the other floating",
+    "line": 774,
+    "from": "G3 G4 G5 G16 G17 G31 G23 G24 G25",
+    "external": true
+   },
+   {
+    "id": "R77",
+    "name": "beat-grid placement",
+    "line": 778,
+    "from": "✓E42",
+    "external": false
+   },
+   {
+    "id": "R78",
+    "name": "stanza-position placement",
+    "line": 780,
+    "from": "✓E46 G72 G71 X85 X161 X124 X150 X108 X128",
+    "external": false
+   },
+   {
+    "id": "R79",
+    "name": "rhyme across a language or script boundary",
+    "line": 784,
+    "from": "S43 S103",
+    "external": false
+   },
+   {
+    "id": "R80",
+    "name": "chained pivot: two different relations sharing one member",
+    "line": 792,
+    "from": "✓C8",
+    "external": false
+   },
+   {
+    "id": "R81",
+    "name": "interleaved two-relation figure at stride 2",
+    "line": 795,
+    "from": "✓C9",
+    "external": false
+   },
+   {
+    "id": "R82",
+    "name": "sain with a zero-onset pivot",
+    "line": 797,
+    "from": "✓C10",
+    "external": false
+   },
+   {
+    "id": "R83",
+    "name": "sain with anchor-mismatched members",
+    "line": 799,
+    "from": "✓C11",
+    "external": false
+   },
+   {
+    "id": "R84",
+    "name": "sain with a doubled rhyme link",
+    "line": 802,
+    "from": "C12",
+    "external": false
+   },
+   {
+    "id": "R85",
+    "name": "four-place grid",
+    "line": 805,
+    "from": "✓E52",
+    "external": false
+   },
+   {
+    "id": "R86",
+    "name": "channel-dependent permutation",
+    "line": 807,
+    "from": "G61",
+    "external": false
+   },
+   {
+    "id": "R87",
+    "name": "two independent pairings inside one line",
+    "line": 811,
+    "from": "G13 G39 G60 X140",
+    "external": false
+   },
+   {
+    "id": "R88",
+    "name": "two coexisting regimes in one stanza",
+    "line": 815,
+    "from": "✓E47 ✓E57 G46 G31 G12 S41 S42 S44 S102 S40 S92 S84 X98 I42",
+    "external": false
+   },
+   {
+    "id": "R89",
+    "name": "one line read two ways under two metre+rhyme systems",
+    "line": 820,
+    "from": "S68",
+    "external": false
+   },
+   {
+    "id": "R90",
+    "name": "n-ary class over a run",
+    "line": 825,
+    "from": "✓E43 ✓E45 S38 X5 I47 G33 G73 I70 S118 X152 X99",
+    "external": false
+   },
+   {
+    "id": "R91",
+    "name": "∀-members-of-a-frame",
+    "line": 830,
+    "from": "✓E49 X145 I17 S59",
+    "external": false
+   },
+   {
+    "id": "R92",
+    "name": "self-relation under an involution",
+    "line": 835,
+    "from": "✓E19 S52 X26 X47 G35 X155 X106 G40 I17",
+    "external": false
+   },
+   {
+    "id": "R93",
+    "name": "self-relation under a declared non-involutive permutation",
+    "line": 843,
+    "from": "X174 X84 X170 X121",
+    "external": false
+   },
+   {
+    "id": "R94",
+    "name": "one form carrying three different alignments at once",
+    "line": 852,
+    "from": "I56 I69 I59 I67 I57 I62 I58",
+    "external": false
+   },
+   {
+    "id": "R95",
+    "name": "overlapping members",
+    "line": 858,
+    "from": "✓C3 C14",
+    "external": false
+   },
+   {
+    "id": "R96",
+    "name": "rhyme member assembled across a word boundary (mosaic)",
+    "line": 861,
+    "from": "✓E30 ✓E31 C44 C14 G69 X76 S56 S57 X160",
+    "external": false
+   },
+   {
+    "id": "R97",
+    "name": "whole-line phonetic identity with different segmentation",
+    "line": 868,
+    "from": "✓E34 X148 I14 X104 X45",
+    "external": false
+   },
+   {
+    "id": "R98",
+    "name": "member split by the line break",
+    "line": 874,
+    "from": "✓E32 ✓E33 G68 G81 S37 X94",
+    "external": false
+   },
+   {
+    "id": "R99",
+    "name": "block inventory identical across stanzas",
+    "line": 883,
+    "from": "X162",
+    "external": false
+   },
+   {
+    "id": "R100",
+    "name": "block inventory required to DIFFER across stanzas",
+    "line": 885,
+    "from": "X163 X164 X165 X166 X6 C59",
+    "external": false
+   },
+   {
+    "id": "R101",
+    "name": "partition-shape isomorphism with the sounds free",
+    "line": 894,
+    "from": "G74",
+    "external": false
+   },
+   {
+    "id": "R102",
+    "name": "a block PROPERTY required to alternate",
+    "line": 899,
+    "from": "X135",
+    "external": false
+   },
+   {
+    "id": "R103",
+    "name": "one channel held constant while another alternates on a schedule",
+    "line": 904,
+    "from": "X7",
+    "external": false
+   },
+   {
+    "id": "R104",
+    "name": "block inheritance by a closing unit",
+    "line": 908,
+    "from": "X173 X123",
+    "external": false
+   },
+   {
+    "id": "R105",
+    "name": "scheme declarations as set partitions over line indices",
+    "line": 913,
+    "from": "✓E44 G73 X88 X153 X126 S125 I73 C25 S93 S121 I43 I49 X100 X99 G81 X125",
+    "external": false
+   },
+   {
+    "id": "R106",
+    "name": "every-line-rhymes density as a distinguishing coordinate",
+    "line": 922,
+    "from": "X29",
+    "external": false
+   },
+   {
+    "id": "R107",
+    "name": "initial mutation",
+    "line": 930,
+    "from": "C55 C47",
+    "external": false
+   },
+   {
+    "id": "R108",
+    "name": "sandhi/provection generating material present in neither member",
+    "line": 935,
+    "from": "✓C4",
+    "external": false
+   },
+   {
+    "id": "R109",
+    "name": "resyllabification / liaison creating a non-lexical member",
+    "line": 938,
+    "from": "C14",
+    "external": false
+   },
+   {
+    "id": "R110",
+    "name": "destructive truncation applied to both members",
+    "line": 941,
+    "from": "X94",
+    "external": false
+   },
+   {
+    "id": "R111",
+    "name": "reading tradition as a transform",
+    "line": 945,
+    "from": "S107 X62 ✓E21 ✓E22 ✓E23 X137",
+    "external": false
+   },
+   {
+    "id": "R112",
+    "name": "relaxation of a channel in a declared direction",
+    "line": 952,
+    "from": "C15",
+    "external": false
+   },
+   {
+    "id": "R113",
+    "name": "required difference at a NON-rhyming position",
+    "line": 1046,
+    "from": "X10 X11 G41 C36",
+    "external": false
+   },
+   {
+    "id": "R114",
+    "name": "constraints on the correspondence map itself, stated as faults",
+    "line": 1060,
+    "from": "C37 C38 C39",
+    "external": false
+   },
+   {
+    "id": "R115",
+    "name": "rhyme licensing a lexical substitution and then deleted from the surfa",
+    "line": 1071,
+    "from": "✓E67",
+    "external": false
+   },
+   {
+    "id": "R116",
+    "name": "a constraint on the BEARER of the relation rather than on the relation",
+    "line": 1084,
+    "from": "G15 G20 G21 S120 I59",
+    "external": true
+   }
+  ],
+  "canon_unsourced": [
+   {
+    "id": "R1",
+    "name": "tail-rime",
+    "line": 80,
+    "from": "✓E1 ✓E10(as its commonest reading) C22 G22 G32 G33 G44 G52 G53 G86 X37 X55 X64 X89 X110 I3",
+    "external": false
+   },
+   {
+    "id": "R2",
+    "name": "leftward-extended rime",
+    "line": 101,
+    "from": "✓E2 X131 X70 X157 G56 G59 S35 S112",
+    "external": false
+   },
+   {
+    "id": "R3",
+    "name": "whole-final-unit agreement, onset included by definition",
+    "line": 111,
+    "from": "I6 I20 S111",
+    "external": false
+   },
+   {
+    "id": "R4",
+    "name": "count-graded tail agreement",
+    "line": 125,
+    "from": "X129 X130 X131 S110 S111 S112",
+    "external": false
+   },
+   {
+    "id": "R5",
+    "name": "assonance",
+    "line": 133,
+    "from": "✓E4 C45 C58 G54 G89 X78 X90(see R7) X111 X152 S123 X127",
+    "external": false
+   },
+   {
+    "id": "R6",
+    "name": "run assonance",
+    "line": 144,
+    "from": "✓E29 ✓E71 X38 X63",
+    "external": false
+   },
+   {
+    "id": "R7",
+    "name": "gapped-projection assonance",
+    "line": 154,
+    "from": "X90 X93",
+    "external": false
+   },
+   {
+    "id": "R8",
+    "name": "vowel-vector over a whole line",
+    "line": 164,
+    "from": "C54 (with C60, C61 as its reduced within-line and cadence forms) ✓E51(Hopkins's vowelling ",
+    "external": false
+   },
+   {
+    "id": "R9",
+    "name": "consonance",
+    "line": 175,
+    "from": "✓E5 G55 X79",
+    "external": false
+   },
+   {
+    "id": "R11",
+    "name": "consonance with a class requirement on the differing channel",
+    "line": 189,
+    "from": "C23 C46 (and C24 supplies the partition; see D-grain)",
+    "external": false
+   },
+   {
+    "id": "R12",
+    "name": "pararhyme / frame rhyme",
+    "line": 201,
+    "from": "✓E7 ✓E72 S46(*jinās muḥarraf*: the whole consonant skeleton agrees in identity, count and",
+    "external": false
+   },
+   {
+    "id": "R13",
+    "name": "directional-difference pararhyme",
+    "line": 207,
+    "from": "✓E69 X59 X159",
+    "external": false
+   },
+   {
+    "id": "R14",
+    "name": "reverse rhyme / strong alliteration",
+    "line": 219,
+    "from": "✓E8 G83 G84 G87 X36",
+    "external": false
+   },
+   {
+    "id": "R15",
+    "name": "unanchored consonant set",
+    "line": 228,
+    "from": "✓E6 S123 X101 X127 I3 I45(*pembayang↔maksud*: the same unanchored predicate between two",
+    "external": false
+   },
+   {
+    "id": "R16",
+    "name": "homorganic / place-class agreement",
+    "line": 237,
+    "from": "I4 ✓E11(manner-class twin)",
+    "external": false
+   },
+   {
+    "id": "R17",
+    "name": "masculine cadence",
+    "line": 247,
+    "from": "✓E26 G52 X66 X91 X112 X133 X156 C49(rinn)",
+    "external": false
+   },
+   {
+    "id": "R18",
+    "name": "feminine cadence",
+    "line": 250,
+    "from": "✓E27 G52 X65 X92 X112 X134 X156 G80 I44",
+    "external": false
+   },
+   {
+    "id": "R19",
+    "name": "dactylic cadence",
+    "line": 253,
+    "from": "✓E28 G52 X67 X93 X112",
+    "external": false
+   },
+   {
+    "id": "R20",
+    "name": "quadrisyllabic cadence",
+    "line": 256,
+    "from": "X68",
+    "external": false
+   },
+   {
+    "id": "R21",
+    "name": "unmatched trailing material EXCLUDED",
+    "line": 267,
+    "from": "✓E14 ✓E15 X69 C13",
+    "external": false
+   },
+   {
+    "id": "R22",
+    "name": "containment",
+    "line": 275,
+    "from": "S113 X71",
+    "external": false
+   },
+   {
+    "id": "R23",
+    "name": "additive / subtractive",
+    "line": 281,
+    "from": "✓E12 ✓E13 S47 S48",
+    "external": false
+   },
+   {
+    "id": "R24",
+    "name": "medial insertion",
+    "line": 289,
+    "from": "S49",
+    "external": false
+   },
+   {
+    "id": "R25",
+    "name": "one-segment substitution, graded by articulatory distance",
+    "line": 296,
+    "from": "S50 S51 S27 S28 X103",
+    "external": false
+   },
+   {
+    "id": "R26",
+    "name": "prominence MUST DIFFER",
+    "line": 306,
+    "from": "✓E16 C26 C49",
+    "external": false
+   },
+   {
+    "id": "R27",
+    "name": "prominence coerced by the delivered surface",
+    "line": 318,
+    "from": "✓E17 ✓E25 ✓E74 (see also R70, transform layer)",
+    "external": false
+   },
+   {
+    "id": "R28",
+    "name": "anchor rule DISABLED, both anchors unstressed",
+    "line": 323,
+    "from": "✓E18",
+    "external": false
+   },
+   {
+    "id": "R30",
+    "name": "fixed-index-from-the-head agreement",
+    "line": 348,
+    "from": "I7 I8 I9 I10 I11 I18 I19",
+    "external": false
+   },
+   {
+    "id": "R31",
+    "name": "head-to-index within one line",
+    "line": 363,
+    "from": "I10 I11",
+    "external": false
+   },
+   {
+    "id": "R32",
+    "name": "offset-from-an-anchor-segment slot system",
+    "line": 371,
+    "from": "S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15 S16 S17 S74 S75 S76 S77 S78 S79 S80 S81",
+    "external": false
+   },
+   {
+    "id": "R33",
+    "name": "span-shape classification of the rhyme domain",
+    "line": 395,
+    "from": "S18 S19 S20 S21 S22",
+    "external": false
+   },
+   {
+    "id": "R34",
+    "name": "line-head rhyme",
+    "line": 403,
+    "from": "✓E41 G66 C29",
+    "external": false
+   },
+   {
+    "id": "R35",
+    "name": "exhaustive ordered consonant skeleton across a caesura",
+    "line": 412,
+    "from": "✓C1 ✓C2 ✓E50",
+    "external": false
+   },
+   {
+    "id": "R36",
+    "name": "skeleton with an unanswered bridge",
+    "line": 420,
+    "from": "✓C5 ✓C6 C16 C17 (C16, C17 invisible)",
+    "external": false
+   },
+   {
+    "id": "R37",
+    "name": "skeleton whose split point falls inside a cluster",
+    "line": 428,
+    "from": "✓C3",
+    "external": false
+   },
+   {
+    "id": "R38",
+    "name": "skeleton whose answering consonant is generated by sandhi",
+    "line": 432,
+    "from": "✓C4",
+    "external": false
+   },
+   {
+    "id": "R39",
+    "name": "discontinuous root-consonant skeleton",
+    "line": 438,
+    "from": "S53 S54 S69 S108 S97",
+    "external": false
+   },
+   {
+    "id": "R40",
+    "name": "prosodic-template agreement with the root free",
+    "line": 448,
+    "from": "S70 S63 S61 S62",
+    "external": false
+   },
+   {
+    "id": "R41",
+    "name": "word-by-word index correspondence across two cola",
+    "line": 456,
+    "from": "S62",
+    "external": false
+   },
+   {
+    "id": "R42",
+    "name": "colon-final rhyme in prose",
+    "line": 463,
+    "from": "S60",
+    "external": false
+   },
+   {
+    "id": "R43",
+    "name": "tone-class agreement at the rhyme",
+    "line": 473,
+    "from": "X1 X2 X3 X29 X62 I65 I70 I72",
+    "external": false
+   },
+   {
+    "id": "R44",
+    "name": "tone-class template over a line",
+    "line": 482,
+    "from": "X14 I71 I60 I61 X31 X51 X52 I63",
+    "external": false
+   },
+   {
+    "id": "R45",
+    "name": "required tonal OPPOSITION across a line pair",
+    "line": 491,
+    "from": "X15 X20 I71",
+    "external": false
+   },
+   {
+    "id": "R46",
+    "name": "required tonal ADHESION across a couplet seam",
+    "line": 498,
+    "from": "X16",
+    "external": false
+   },
+   {
+    "id": "R47",
+    "name": "tonal compensation",
+    "line": 505,
+    "from": "X19",
+    "external": false
+   },
+   {
+    "id": "R48",
+    "name": "agree-in-class and differ-in-value simultaneously",
+    "line": 512,
+    "from": "I68",
+    "external": false
+   },
+   {
+    "id": "R49",
+    "name": "nasality as a channel",
+    "line": 522,
+    "from": "X115",
+    "external": false
+   },
+   {
+    "id": "R50",
+    "name": "vowel length / quantity as a channel",
+    "line": 527,
+    "from": "C34 ✓E24 S5 I22 I52 G53",
+    "external": false
+   },
+   {
+    "id": "R51",
+    "name": "palatalisation (caol/leathan) as a channel",
+    "line": 532,
+    "from": "C43",
+    "external": false
+   },
+   {
+    "id": "R52",
+    "name": "syllable count as a channel of the rhyme",
+    "line": 538,
+    "from": "C42 C49",
+    "external": false
+   },
+   {
+    "id": "R53",
+    "name": "grapheme channel",
+    "line": 544,
+    "from": "✓E20 G70 X83 X136 X137 S58 S59",
+    "external": false
+   },
+   {
+    "id": "R54",
+    "name": "morphological-affix rhyme",
+    "line": 555,
+    "from": "✓E63 G58 G86 X75 X102 S71 S96 S98 S85 S86 S87 S115 X55",
+    "external": false
+   },
+   {
+    "id": "R55",
+    "name": "shared-root, differing-inflection",
+    "line": 565,
+    "from": "✓E64 G58 X74 X105 X122 X146 X159 S53",
+    "external": false
+   },
+   {
+    "id": "R56",
+    "name": "same form, different sense",
+    "line": 575,
+    "from": "✓E65 G57 X72 X138 X160 S114 S45 S55 S66 I12 I13 I14 I26 I5 I15 I41 I16 S24 S108 X34 X45",
+    "external": false
+   },
+   {
+    "id": "R57",
+    "name": "semantic-category correspondence with no sound channel",
+    "line": 592,
+    "from": "X20 X39 X58 S95 I21 G85",
+    "external": false
+   },
+   {
+    "id": "R58",
+    "name": "associative (non-phonological, non-positional) linkage",
+    "line": 601,
+    "from": "X35 X32 X33",
+    "external": false
+   },
+   {
+    "id": "R59",
+    "name": "candidate-field scarcity as the defining property",
+    "line": 609,
+    "from": "✓E66 X114 X158 S119 X95 X113 X87(*rima aspra*: a claim about the phonotactic texture of th",
+    "external": false
+   },
+   {
+    "id": "R60",
+    "name": "verbatim span returning at scheduled positions",
+    "line": 625,
+    "from": "✓E3 ✓E54 ✓E55 C62 C64 G14 G26 G27 G75 G77 G88 S67 S90 S91 S122 X24 X44 X53 X118 X125 X154",
+    "external": false
+   },
+   {
+    "id": "R61",
+    "name": "verbatim span at the line tail, after the rhyme",
+    "line": 645,
+    "from": "S72 S73 S115 S116 I28 ✓E59 X107 S92",
+    "external": false
+   },
+   {
+    "id": "R62",
+    "name": "anadiplosis / tail-to-head across a seam",
+    "line": 657,
+    "from": "✓E61 ✓E40 C33 C27 C51 C52 C53 G11 G34 G47 G67 G76 X25 X143 X144 X167 X168 X119 I46 I25 X46",
+    "external": false
+   },
+   {
+    "id": "R63",
+    "name": "poem-closing return",
+    "line": 673,
+    "from": "C50 C33 G47 I46",
+    "external": false
+   },
+   {
+    "id": "R64",
+    "name": "anaphora / head-to-head identity",
+    "line": 680,
+    "from": "✓E58 C30 X107 X169 X57",
+    "external": false
+   },
+   {
+    "id": "R65",
+    "name": "epanalepsis / symploce / double-edge identity",
+    "line": 685,
+    "from": "✓E60 ✓E62 S64 X141 X142",
+    "external": false
+   },
+   {
+    "id": "R66b",
+    "name": "echo verse",
+    "line": 693,
+    "from": "X86 X97 X117 X151",
+    "external": false
+   },
+   {
+    "id": "R66",
+    "name": "reduplication inside one token",
+    "line": 703,
+    "from": "✓E68 ✓E70 I27 I51 X23 X60 G48",
+    "external": false
+   },
+   {
+    "id": "R67",
+    "name": "repetition-with-one-controlled substitution",
+    "line": 710,
+    "from": "✓E56 G30 G85 X120 X119",
+    "external": false
+   },
+   {
+    "id": "R68",
+    "name": "identity against an EXTERNAL constant",
+    "line": 720,
+    "from": "S104 S105 S106 S89 X27 X40 X41 X109 X49 S109 X43 X28 X42 X61 X32 S43 S103",
+    "external": false
+   },
+   {
+    "id": "R69",
+    "name": "forbidden repetition inside a moving window",
+    "line": 736,
+    "from": "X48 C40 S23 S24 X13 X96 X147 I74 I64 I37 S74",
+    "external": false
+   },
+   {
+    "id": "R70",
+    "name": "end rhyme",
+    "line": 756,
+    "from": "✓E35 X1 X88 X126 X153 S125 I73",
+    "external": false
+   },
+   {
+    "id": "R71",
+    "name": "internal rhyme",
+    "line": 758,
+    "from": "✓E36 G63 X82 X116 X149 S117 I55 X56",
+    "external": false
+   },
+   {
+    "id": "R72",
+    "name": "leonine / caesura-to-line-end within one line",
+    "line": 760,
+    "from": "✓E37 G65 G51 X132 S36 S88 S101 S39",
+    "external": false
+   },
+   {
+    "id": "R73",
+    "name": "line-end into next-line interior",
+    "line": 766,
+    "from": "✓E38 C28 C48 X81 X139 I66 I54 I56 I62",
+    "external": false
+   },
+   {
+    "id": "R74",
+    "name": "interior-to-interior across lines",
+    "line": 769,
+    "from": "✓E39 G64 X56",
+    "external": false
+   },
+   {
+    "id": "R75",
+    "name": "adjacent-word rhyme at zero distance",
+    "line": 771,
+    "from": "G62 X21 X22",
+    "external": false
+   },
+   {
+    "id": "R77",
+    "name": "beat-grid placement",
+    "line": 778,
+    "from": "✓E42",
+    "external": false
+   },
+   {
+    "id": "R78",
+    "name": "stanza-position placement",
+    "line": 780,
+    "from": "✓E46 G72 G71 X85 X161 X124 X150 X108 X128",
+    "external": false
+   },
+   {
+    "id": "R79",
+    "name": "rhyme across a language or script boundary",
+    "line": 784,
+    "from": "S43 S103",
+    "external": false
+   },
+   {
+    "id": "R80",
+    "name": "chained pivot: two different relations sharing one member",
+    "line": 792,
+    "from": "✓C8",
+    "external": false
+   },
+   {
+    "id": "R81",
+    "name": "interleaved two-relation figure at stride 2",
+    "line": 795,
+    "from": "✓C9",
+    "external": false
+   },
+   {
+    "id": "R82",
+    "name": "sain with a zero-onset pivot",
+    "line": 797,
+    "from": "✓C10",
+    "external": false
+   },
+   {
+    "id": "R83",
+    "name": "sain with anchor-mismatched members",
+    "line": 799,
+    "from": "✓C11",
+    "external": false
+   },
+   {
+    "id": "R84",
+    "name": "sain with a doubled rhyme link",
+    "line": 802,
+    "from": "C12",
+    "external": false
+   },
+   {
+    "id": "R85",
+    "name": "four-place grid",
+    "line": 805,
+    "from": "✓E52",
+    "external": false
+   },
+   {
+    "id": "R86",
+    "name": "channel-dependent permutation",
+    "line": 807,
+    "from": "G61",
+    "external": false
+   },
+   {
+    "id": "R87",
+    "name": "two independent pairings inside one line",
+    "line": 811,
+    "from": "G13 G39 G60 X140",
+    "external": false
+   },
+   {
+    "id": "R88",
+    "name": "two coexisting regimes in one stanza",
+    "line": 815,
+    "from": "✓E47 ✓E57 G46 G31 G12 S41 S42 S44 S102 S40 S92 S84 X98 I42",
+    "external": false
+   },
+   {
+    "id": "R89",
+    "name": "one line read two ways under two metre+rhyme systems",
+    "line": 820,
+    "from": "S68",
+    "external": false
+   },
+   {
+    "id": "R90",
+    "name": "n-ary class over a run",
+    "line": 825,
+    "from": "✓E43 ✓E45 S38 X5 I47 G33 G73 I70 S118 X152 X99",
+    "external": false
+   },
+   {
+    "id": "R91",
+    "name": "∀-members-of-a-frame",
+    "line": 830,
+    "from": "✓E49 X145 I17 S59",
+    "external": false
+   },
+   {
+    "id": "R92",
+    "name": "self-relation under an involution",
+    "line": 835,
+    "from": "✓E19 S52 X26 X47 G35 X155 X106 G40 I17",
+    "external": false
+   },
+   {
+    "id": "R93",
+    "name": "self-relation under a declared non-involutive permutation",
+    "line": 843,
+    "from": "X174 X84 X170 X121",
+    "external": false
+   },
+   {
+    "id": "R94",
+    "name": "one form carrying three different alignments at once",
+    "line": 852,
+    "from": "I56 I69 I59 I67 I57 I62 I58",
+    "external": false
+   },
+   {
+    "id": "R95",
+    "name": "overlapping members",
+    "line": 858,
+    "from": "✓C3 C14",
+    "external": false
+   },
+   {
+    "id": "R96",
+    "name": "rhyme member assembled across a word boundary (mosaic)",
+    "line": 861,
+    "from": "✓E30 ✓E31 C44 C14 G69 X76 S56 S57 X160",
+    "external": false
+   },
+   {
+    "id": "R97",
+    "name": "whole-line phonetic identity with different segmentation",
+    "line": 868,
+    "from": "✓E34 X148 I14 X104 X45",
+    "external": false
+   },
+   {
+    "id": "R98",
+    "name": "member split by the line break",
+    "line": 874,
+    "from": "✓E32 ✓E33 G68 G81 S37 X94",
+    "external": false
+   },
+   {
+    "id": "R99",
+    "name": "block inventory identical across stanzas",
+    "line": 883,
+    "from": "X162",
+    "external": false
+   },
+   {
+    "id": "R100",
+    "name": "block inventory required to DIFFER across stanzas",
+    "line": 885,
+    "from": "X163 X164 X165 X166 X6 C59",
+    "external": false
+   },
+   {
+    "id": "R101",
+    "name": "partition-shape isomorphism with the sounds free",
+    "line": 894,
+    "from": "G74",
+    "external": false
+   },
+   {
+    "id": "R102",
+    "name": "a block PROPERTY required to alternate",
+    "line": 899,
+    "from": "X135",
+    "external": false
+   },
+   {
+    "id": "R103",
+    "name": "one channel held constant while another alternates on a schedule",
+    "line": 904,
+    "from": "X7",
+    "external": false
+   },
+   {
+    "id": "R104",
+    "name": "block inheritance by a closing unit",
+    "line": 908,
+    "from": "X173 X123",
+    "external": false
+   },
+   {
+    "id": "R105",
+    "name": "scheme declarations as set partitions over line indices",
+    "line": 913,
+    "from": "✓E44 G73 X88 X153 X126 S125 I73 C25 S93 S121 I43 I49 X100 X99 G81 X125",
+    "external": false
+   },
+   {
+    "id": "R106",
+    "name": "every-line-rhymes density as a distinguishing coordinate",
+    "line": 922,
+    "from": "X29",
+    "external": false
+   },
+   {
+    "id": "R107",
+    "name": "initial mutation",
+    "line": 930,
+    "from": "C55 C47",
+    "external": false
+   },
+   {
+    "id": "R108",
+    "name": "sandhi/provection generating material present in neither member",
+    "line": 935,
+    "from": "✓C4",
+    "external": false
+   },
+   {
+    "id": "R109",
+    "name": "resyllabification / liaison creating a non-lexical member",
+    "line": 938,
+    "from": "C14",
+    "external": false
+   },
+   {
+    "id": "R110",
+    "name": "destructive truncation applied to both members",
+    "line": 941,
+    "from": "X94",
+    "external": false
+   },
+   {
+    "id": "R111",
+    "name": "reading tradition as a transform",
+    "line": 945,
+    "from": "S107 X62 ✓E21 ✓E22 ✓E23 X137",
+    "external": false
+   },
+   {
+    "id": "R112",
+    "name": "relaxation of a channel in a declared direction",
+    "line": 952,
+    "from": "C15",
+    "external": false
+   },
+   {
+    "id": "R113",
+    "name": "required difference at a NON-rhyming position",
+    "line": 1046,
+    "from": "X10 X11 G41 C36",
+    "external": false
+   },
+   {
+    "id": "R114",
+    "name": "constraints on the correspondence map itself, stated as faults",
+    "line": 1060,
+    "from": "C37 C38 C39",
+    "external": false
+   },
+   {
+    "id": "R115",
+    "name": "rhyme licensing a lexical substitution and then deleted from the surfa",
+    "line": 1071,
+    "from": "✓E67",
+    "external": false
+   }
+  ],
+  "canon_year_tokens": 23,
+  "canon_cell_refs": {
+   "E": 73,
+   "C": 64,
+   "G": 94,
+   "X": 187,
+   "I": 68,
+   "S": 125
+  },
+  "canon_cell_ref_total_singleline": 611,
+  "canon_cell_ref_total": 611,
+  "survey_array_on_disk": {
+   "workflow": "wf_c1e2a9c5-60b",
+   "in_repo": false,
+   "transcript_dirs": [],
+   "entries_recovered": 0,
+   "entries_sourced_only_to_this_project": [],
+   "verdict": "NOT ON DISK ANYWHERE"
+  },
+  "schemas": [
+   {
+    "name": "perfect rhyme",
+    "n_traditions": 16,
+    "sources": [
+     "R1"
+    ],
+    "external": false
+   },
+   {
+    "name": "rime riche",
+    "n_traditions": 8,
+    "sources": [
+     "R2"
+    ],
+    "external": false
+   },
+   {
+    "name": "repetition",
+    "n_traditions": 17,
+    "sources": [
+     "R60+R69"
+    ],
+    "external": false
+   },
+   {
+    "name": "antanaclasis",
+    "n_traditions": 10,
+    "sources": [
+     "R56"
+    ],
+    "external": false
+   },
+   {
+    "name": "assonance",
+    "n_traditions": 9,
+    "sources": [
+     "R5"
+    ],
+    "external": false
+   },
+   {
+    "name": "consonance",
+    "n_traditions": 5,
+    "sources": [
+     "R9"
+    ],
+    "external": false
+   },
+   {
+    "name": "cluster consonance / skothending span",
+    "n_traditions": 2,
+    "sources": [
+     "R10"
+    ],
+    "external": false
+   },
+   {
+    "name": "parechesis / general consonance",
+    "n_traditions": 5,
+    "sources": [
+     "R15"
+    ],
+    "external": false
+   },
+   {
+    "name": "pararhyme",
+    "n_traditions": 2,
+    "sources": [
+     "R12"
+    ],
+    "external": false
+   },
+   {
+    "name": "reverse rhyme",
+    "n_traditions": 3,
+    "sources": [
+     "R14"
+    ],
+    "external": false
+   },
+   {
+    "name": "alliteration",
+    "n_traditions": 18,
+    "sources": [
+     "R29"
+    ],
+    "external": false
+   },
+   {
+    "name": "Kalevala alliteration (weak)",
+    "n_traditions": 1,
+    "sources": [
+     "R29"
+    ],
+    "external": false
+   },
+   {
+    "name": "Kalevala alliteration (strong)",
+    "n_traditions": 2,
+    "sources": [
+     "R14+R29"
+    ],
+    "external": false
+   },
+   {
+    "name": "paroemion",
+    "n_traditions": 4,
+    "sources": [
+     "R91"
+    ],
+    "external": false
+   },
+   {
+    "name": "family rhyme",
+    "n_traditions": 2,
+    "sources": [
+     "R1+R16"
+    ],
+    "external": false
+   },
+   {
+    "name": "additive rhyme",
+    "n_traditions": 2,
+    "sources": [
+     "R23"
+    ],
+    "external": false
+   },
+   {
+    "name": "subtractive rhyme",
+    "n_traditions": 2,
+    "sources": [
+     "R23"
+    ],
+    "external": false
+   },
+   {
+    "name": "semirhyme",
+    "n_traditions": 3,
+    "sources": [
+     "R21"
+    ],
+    "external": false
+   },
+   {
+    "name": "apocopated rhyme",
+    "n_traditions": 3,
+    "sources": [
+     "R21"
+    ],
+    "external": false
+   },
+   {
+    "name": "light rhyme",
+    "n_traditions": 3,
+    "sources": [
+     "R26"
+    ],
+    "external": false
+   },
+   {
+    "name": "wrenched rhyme",
+    "n_traditions": 1,
+    "sources": [
+     "R27"
+    ],
+    "external": false
+   },
+   {
+    "name": "syllabic rhyme",
+    "n_traditions": 1,
+    "sources": [
+     "R28"
+    ],
+    "external": false
+   },
+   {
+    "name": "amphisbaenic rhyme",
+    "n_traditions": 8,
+    "sources": [
+     "R92"
+    ],
+    "external": false
+   },
+   {
+    "name": "eye rhyme",
+    "n_traditions": 6,
+    "sources": [
+     "R53"
+    ],
+    "external": false
+   },
+   {
+    "name": "historical rhyme",
+    "n_traditions": 4,
+    "sources": [
+     "R111"
+    ],
+    "external": false
+   },
+   {
+    "name": "dialect rhyme",
+    "n_traditions": 3,
+    "sources": [
+     "R111"
+    ],
+    "external": false
+   },
+   {
+    "name": "homoioteleuton",
+    "n_traditions": 9,
+    "sources": [
+     "R54"
+    ],
+    "external": false
+   },
+   {
+    "name": "polyptoton",
+    "n_traditions": 8,
+    "sources": [
+     "R55"
+    ],
+    "external": false
+   },
+   {
+    "name": "multisyllabic rhyme",
+    "n_traditions": 3,
+    "sources": [
+     "R6"
+    ],
+    "external": false
+   },
+   {
+    "name": "mosaic rhyme",
+    "n_traditions": 7,
+    "sources": [
+     "R96"
+    ],
+    "external": false
+   },
+   {
+    "name": "compound / phrasal rhyme",
+    "n_traditions": 5,
+    "sources": [
+     "R96"
+    ],
+    "external": false
+   },
+   {
+    "name": "holorhyme",
+    "n_traditions": 5,
+    "sources": [
+     "R97"
+    ],
+    "external": false
+   },
+   {
+    "name": "broken rhyme",
+    "n_traditions": 4,
+    "sources": [
+     "R98"
+    ],
+    "external": false
+   },
+   {
+    "name": "enjambed rhyme",
+    "n_traditions": 3,
+    "sources": [
+     "R98"
+    ],
+    "external": false
+   },
+   {
+    "name": "rhyming reduplication",
+    "n_traditions": 6,
+    "sources": [
+     "R66"
+    ],
+    "external": false
+   },
+   {
+    "name": "ablaut reduplication",
+    "n_traditions": 3,
+    "sources": [
+     "R13"
+    ],
+    "external": false
+   },
+   {
+    "name": "exact reduplication",
+    "n_traditions": 5,
+    "sources": [
+     "R66"
+    ],
+    "external": false
+   },
+   {
+    "name": "internal rhyme",
+    "n_traditions": 1,
+    "sources": [
+     "R71"
+    ],
+    "external": false
+   },
+   {
+    "name": "leonine rhyme",
+    "n_traditions": 5,
+    "sources": [
+     "R72"
+    ],
+    "external": false
+   },
+   {
+    "name": "cross rhyme",
+    "n_traditions": 7,
+    "sources": [
+     "R73"
+    ],
+    "external": false
+   },
+   {
+    "name": "interlaced rhyme",
+    "n_traditions": 3,
+    "sources": [
+     "R74"
+    ],
+    "external": false
+   },
+   {
+    "name": "linked rhyme",
+    "n_traditions": 14,
+    "sources": [
+     "R62"
+    ],
+    "external": false
+   },
+   {
+    "name": "head rhyme (positional)",
+    "n_traditions": 4,
+    "sources": [
+     "R34"
+    ],
+    "external": false
+   },
+   {
+    "name": "anaphora",
+    "n_traditions": 5,
+    "sources": [
+     "R64"
+    ],
+    "external": false
+   },
+   {
+    "name": "epistrophe / radif",
+    "n_traditions": 5,
+    "sources": [
+     "R61"
+    ],
+    "external": false
+   },
+   {
+    "name": "qafiya (before the radif)",
+    "n_traditions": 3,
+    "sources": [
+     "R32+R61"
+    ],
+    "external": false
+   },
+   {
+    "name": "symploce",
+    "n_traditions": 3,
+    "sources": [
+     "R65"
+    ],
+    "external": false
+   },
+   {
+    "name": "anadiplosis",
+    "n_traditions": 7,
+    "sources": [
+     "R62"
+    ],
+    "external": false
+   },
+   {
+    "name": "epanalepsis",
+    "n_traditions": 3,
+    "sources": [
+     "R65"
+    ],
+    "external": false
+   },
+   {
+    "name": "analysed rhyme",
+    "n_traditions": 1,
+    "sources": [
+     "R85"
+    ],
+    "external": false
+   },
+   {
+    "name": "monorhyme / leash",
+    "n_traditions": 9,
+    "sources": [
+     "R90"
+    ],
+    "external": false
+   },
+   {
+    "name": "chain rhyme (interlocking scheme)",
+    "n_traditions": 1,
+    "sources": [
+     "R105"
+    ],
+    "external": false
+   },
+   {
+    "name": "chain rhyme (rap)",
+    "n_traditions": 1,
+    "sources": [
+     "R90+R6"
+    ],
+    "external": false
+   },
+   {
+    "name": "alliterative long line",
+    "n_traditions": 4,
+    "sources": [
+     "R29"
+    ],
+    "external": false
+   },
+   {
+    "name": "fourth lift must not alliterate",
+    "n_traditions": 3,
+    "sources": [
+     "R113"
+    ],
+    "external": false
+   },
+   {
+    "name": "dvitiyakshara-prasa",
+    "n_traditions": 4,
+    "sources": [
+     "R30"
+    ],
+    "external": false
+   },
+   {
+    "name": "monai",
+    "n_traditions": 1,
+    "sources": [
+     "R29+R30"
+    ],
+    "external": false
+   },
+   {
+    "name": "cynghanedd groes",
+    "n_traditions": 2,
+    "sources": [
+     "R35"
+    ],
+    "external": false
+   },
+   {
+    "name": "cynghanedd draws",
+    "n_traditions": 1,
+    "sources": [
+     "R36"
+    ],
+    "external": false
+   },
+   {
+    "name": "cynghanedd groes o gyswllt",
+    "n_traditions": 1,
+    "sources": [
+     "R37"
+    ],
+    "external": false
+   },
+   {
+    "name": "cynghanedd sain",
+    "n_traditions": 1,
+    "sources": [
+     "R80"
+    ],
+    "external": false
+   },
+   {
+    "name": "cynghanedd sain gadwynog",
+    "n_traditions": 1,
+    "sources": [
+     "R81"
+    ],
+    "external": false
+   },
+   {
+    "name": "cynghanedd sain lafarog",
+    "n_traditions": 1,
+    "sources": [
+     "R82"
+    ],
+    "external": false
+   },
+   {
+    "name": "cynghanedd sain drosgl",
+    "n_traditions": 1,
+    "sources": [
+     "R83"
+    ],
+    "external": false
+   },
+   {
+    "name": "cynghanedd lusg",
+    "n_traditions": 1,
+    "sources": [
+     "R21"
+    ],
+    "external": false
+   },
+   {
+    "name": "proest",
+    "n_traditions": 2,
+    "sources": [
+     "R11"
+    ],
+    "external": false
+   },
+   {
+    "name": "Scots vowel-length rhyme (Aitken's Law)",
+    "n_traditions": 6,
+    "sources": [
+     "R50"
+    ],
+    "external": false
+   },
+   {
+    "name": "Middle Chinese end rhyme (同用 group)",
+    "n_traditions": 2,
+    "sources": [
+     "R1+R43"
+    ],
+    "external": false
+   },
+   {
+    "name": "平仄 tonal template",
+    "n_traditions": 5,
+    "sources": [
+     "R44"
+    ],
+    "external": false
+   },
+   {
+    "name": "pantun ABAB",
+    "n_traditions": 1,
+    "sources": [
+     "R105+R1"
+    ],
+    "external": false
+   },
+   {
+    "name": "blues AAB stanza",
+    "n_traditions": 0,
+    "sources": [],
+    "external": false
+   },
+   {
+    "name": "offbeat internal rhyme",
+    "n_traditions": 1,
+    "sources": [
+     "R77"
+    ],
+    "external": false
+   },
+   {
+    "name": "rhyming slang",
+    "n_traditions": 1,
+    "sources": [
+     "R115"
+    ],
+    "external": false
+   },
+   {
+    "name": "transformative / bent rhyme",
+    "n_traditions": 1,
+    "sources": [
+     "R27"
+    ],
+    "external": false
+   },
+   {
+    "name": "sung-delivery rhyme",
+    "n_traditions": 1,
+    "sources": [
+     "R27"
+    ],
+    "external": false
+   },
+   {
+    "name": "refrain by reference",
+    "n_traditions": 0,
+    "sources": [],
+    "external": false
+   },
+   {
+    "name": "incremental repetition",
+    "n_traditions": 4,
+    "sources": [
+     "R67"
+    ],
+    "external": false
+   },
+   {
+    "name": "trite rhyme",
+    "n_traditions": 5,
+    "sources": [
+     "R59"
+    ],
+    "external": false
+   }
+  ],
+  "schemas_unsourced": [
+   {
+    "name": "perfect rhyme",
+    "n_traditions": 16,
+    "sources": [
+     "R1"
+    ],
+    "external": false
+   },
+   {
+    "name": "rime riche",
+    "n_traditions": 8,
+    "sources": [
+     "R2"
+    ],
+    "external": false
+   },
+   {
+    "name": "repetition",
+    "n_traditions": 17,
+    "sources": [
+     "R60+R69"
+    ],
+    "external": false
+   },
+   {
+    "name": "antanaclasis",
+    "n_traditions": 10,
+    "sources": [
+     "R56"
+    ],
+    "external": false
+   },
+   {
+    "name": "assonance",
+    "n_traditions": 9,
+    "sources": [
+     "R5"
+    ],
+    "external": false
+   },
+   {
+    "name": "consonance",
+    "n_traditions": 5,
+    "sources": [
+     "R9"
+    ],
+    "external": false
+   },
+   {
+    "name": "cluster consonance / skothending span",
+    "n_traditions": 2,
+    "sources": [
+     "R10"
+    ],
+    "external": false
+   },
+   {
+    "name": "parechesis / general consonance",
+    "n_traditions": 5,
+    "sources": [
+     "R15"
+    ],
+    "external": false
+   },
+   {
+    "name": "pararhyme",
+    "n_traditions": 2,
+    "sources": [
+     "R12"
+    ],
+    "external": false
+   },
+   {
+    "name": "reverse rhyme",
+    "n_traditions": 3,
+    "sources": [
+     "R14"
+    ],
+    "external": false
+   },
+   {
+    "name": "alliteration",
+    "n_traditions": 18,
+    "sources": [
+     "R29"
+    ],
+    "external": false
+   },
+   {
+    "name": "Kalevala alliteration (weak)",
+    "n_traditions": 1,
+    "sources": [
+     "R29"
+    ],
+    "external": false
+   },
+   {
+    "name": "Kalevala alliteration (strong)",
+    "n_traditions": 2,
+    "sources": [
+     "R14+R29"
+    ],
+    "external": false
+   },
+   {
+    "name": "paroemion",
+    "n_traditions": 4,
+    "sources": [
+     "R91"
+    ],
+    "external": false
+   },
+   {
+    "name": "family rhyme",
+    "n_traditions": 2,
+    "sources": [
+     "R1+R16"
+    ],
+    "external": false
+   },
+   {
+    "name": "additive rhyme",
+    "n_traditions": 2,
+    "sources": [
+     "R23"
+    ],
+    "external": false
+   },
+   {
+    "name": "subtractive rhyme",
+    "n_traditions": 2,
+    "sources": [
+     "R23"
+    ],
+    "external": false
+   },
+   {
+    "name": "semirhyme",
+    "n_traditions": 3,
+    "sources": [
+     "R21"
+    ],
+    "external": false
+   },
+   {
+    "name": "apocopated rhyme",
+    "n_traditions": 3,
+    "sources": [
+     "R21"
+    ],
+    "external": false
+   },
+   {
+    "name": "light rhyme",
+    "n_traditions": 3,
+    "sources": [
+     "R26"
+    ],
+    "external": false
+   },
+   {
+    "name": "wrenched rhyme",
+    "n_traditions": 1,
+    "sources": [
+     "R27"
+    ],
+    "external": false
+   },
+   {
+    "name": "syllabic rhyme",
+    "n_traditions": 1,
+    "sources": [
+     "R28"
+    ],
+    "external": false
+   },
+   {
+    "name": "amphisbaenic rhyme",
+    "n_traditions": 8,
+    "sources": [
+     "R92"
+    ],
+    "external": false
+   },
+   {
+    "name": "eye rhyme",
+    "n_traditions": 6,
+    "sources": [
+     "R53"
+    ],
+    "external": false
+   },
+   {
+    "name": "historical rhyme",
+    "n_traditions": 4,
+    "sources": [
+     "R111"
+    ],
+    "external": false
+   },
+   {
+    "name": "dialect rhyme",
+    "n_traditions": 3,
+    "sources": [
+     "R111"
+    ],
+    "external": false
+   },
+   {
+    "name": "homoioteleuton",
+    "n_traditions": 9,
+    "sources": [
+     "R54"
+    ],
+    "external": false
+   },
+   {
+    "name": "polyptoton",
+    "n_traditions": 8,
+    "sources": [
+     "R55"
+    ],
+    "external": false
+   },
+   {
+    "name": "multisyllabic rhyme",
+    "n_traditions": 3,
+    "sources": [
+     "R6"
+    ],
+    "external": false
+   },
+   {
+    "name": "mosaic rhyme",
+    "n_traditions": 7,
+    "sources": [
+     "R96"
+    ],
+    "external": false
+   },
+   {
+    "name": "compound / phrasal rhyme",
+    "n_traditions": 5,
+    "sources": [
+     "R96"
+    ],
+    "external": false
+   },
+   {
+    "name": "holorhyme",
+    "n_traditions": 5,
+    "sources": [
+     "R97"
+    ],
+    "external": false
+   },
+   {
+    "name": "broken rhyme",
+    "n_traditions": 4,
+    "sources": [
+     "R98"
+    ],
+    "external": false
+   },
+   {
+    "name": "enjambed rhyme",
+    "n_traditions": 3,
+    "sources": [
+     "R98"
+    ],
+    "external": false
+   },
+   {
+    "name": "rhyming reduplication",
+    "n_traditions": 6,
+    "sources": [
+     "R66"
+    ],
+    "external": false
+   },
+   {
+    "name": "ablaut reduplication",
+    "n_traditions": 3,
+    "sources": [
+     "R13"
+    ],
+    "external": false
+   },
+   {
+    "name": "exact reduplication",
+    "n_traditions": 5,
+    "sources": [
+     "R66"
+    ],
+    "external": false
+   },
+   {
+    "name": "internal rhyme",
+    "n_traditions": 1,
+    "sources": [
+     "R71"
+    ],
+    "external": false
+   },
+   {
+    "name": "leonine rhyme",
+    "n_traditions": 5,
+    "sources": [
+     "R72"
+    ],
+    "external": false
+   },
+   {
+    "name": "cross rhyme",
+    "n_traditions": 7,
+    "sources": [
+     "R73"
+    ],
+    "external": false
+   },
+   {
+    "name": "interlaced rhyme",
+    "n_traditions": 3,
+    "sources": [
+     "R74"
+    ],
+    "external": false
+   },
+   {
+    "name": "linked rhyme",
+    "n_traditions": 14,
+    "sources": [
+     "R62"
+    ],
+    "external": false
+   },
+   {
+    "name": "head rhyme (positional)",
+    "n_traditions": 4,
+    "sources": [
+     "R34"
+    ],
+    "external": false
+   },
+   {
+    "name": "anaphora",
+    "n_traditions": 5,
+    "sources": [
+     "R64"
+    ],
+    "external": false
+   },
+   {
+    "name": "epistrophe / radif",
+    "n_traditions": 5,
+    "sources": [
+     "R61"
+    ],
+    "external": false
+   },
+   {
+    "name": "qafiya (before the radif)",
+    "n_traditions": 3,
+    "sources": [
+     "R32+R61"
+    ],
+    "external": false
+   },
+   {
+    "name": "symploce",
+    "n_traditions": 3,
+    "sources": [
+     "R65"
+    ],
+    "external": false
+   },
+   {
+    "name": "anadiplosis",
+    "n_traditions": 7,
+    "sources": [
+     "R62"
+    ],
+    "external": false
+   },
+   {
+    "name": "epanalepsis",
+    "n_traditions": 3,
+    "sources": [
+     "R65"
+    ],
+    "external": false
+   },
+   {
+    "name": "analysed rhyme",
+    "n_traditions": 1,
+    "sources": [
+     "R85"
+    ],
+    "external": false
+   },
+   {
+    "name": "monorhyme / leash",
+    "n_traditions": 9,
+    "sources": [
+     "R90"
+    ],
+    "external": false
+   },
+   {
+    "name": "chain rhyme (interlocking scheme)",
+    "n_traditions": 1,
+    "sources": [
+     "R105"
+    ],
+    "external": false
+   },
+   {
+    "name": "chain rhyme (rap)",
+    "n_traditions": 1,
+    "sources": [
+     "R90+R6"
+    ],
+    "external": false
+   },
+   {
+    "name": "alliterative long line",
+    "n_traditions": 4,
+    "sources": [
+     "R29"
+    ],
+    "external": false
+   },
+   {
+    "name": "fourth lift must not alliterate",
+    "n_traditions": 3,
+    "sources": [
+     "R113"
+    ],
+    "external": false
+   },
+   {
+    "name": "dvitiyakshara-prasa",
+    "n_traditions": 4,
+    "sources": [
+     "R30"
+    ],
+    "external": false
+   },
+   {
+    "name": "monai",
+    "n_traditions": 1,
+    "sources": [
+     "R29+R30"
+    ],
+    "external": false
+   },
+   {
+    "name": "cynghanedd groes",
+    "n_traditions": 2,
+    "sources": [
+     "R35"
+    ],
+    "external": false
+   },
+   {
+    "name": "cynghanedd draws",
+    "n_traditions": 1,
+    "sources": [
+     "R36"
+    ],
+    "external": false
+   },
+   {
+    "name": "cynghanedd groes o gyswllt",
+    "n_traditions": 1,
+    "sources": [
+     "R37"
+    ],
+    "external": false
+   },
+   {
+    "name": "cynghanedd sain",
+    "n_traditions": 1,
+    "sources": [
+     "R80"
+    ],
+    "external": false
+   },
+   {
+    "name": "cynghanedd sain gadwynog",
+    "n_traditions": 1,
+    "sources": [
+     "R81"
+    ],
+    "external": false
+   },
+   {
+    "name": "cynghanedd sain lafarog",
+    "n_traditions": 1,
+    "sources": [
+     "R82"
+    ],
+    "external": false
+   },
+   {
+    "name": "cynghanedd sain drosgl",
+    "n_traditions": 1,
+    "sources": [
+     "R83"
+    ],
+    "external": false
+   },
+   {
+    "name": "cynghanedd lusg",
+    "n_traditions": 1,
+    "sources": [
+     "R21"
+    ],
+    "external": false
+   },
+   {
+    "name": "proest",
+    "n_traditions": 2,
+    "sources": [
+     "R11"
+    ],
+    "external": false
+   },
+   {
+    "name": "Scots vowel-length rhyme (Aitken's Law)",
+    "n_traditions": 6,
+    "sources": [
+     "R50"
+    ],
+    "external": false
+   },
+   {
+    "name": "Middle Chinese end rhyme (同用 group)",
+    "n_traditions": 2,
+    "sources": [
+     "R1+R43"
+    ],
+    "external": false
+   },
+   {
+    "name": "平仄 tonal template",
+    "n_traditions": 5,
+    "sources": [
+     "R44"
+    ],
+    "external": false
+   },
+   {
+    "name": "pantun ABAB",
+    "n_traditions": 1,
+    "sources": [
+     "R105+R1"
+    ],
+    "external": false
+   },
+   {
+    "name": "offbeat internal rhyme",
+    "n_traditions": 1,
+    "sources": [
+     "R77"
+    ],
+    "external": false
+   },
+   {
+    "name": "rhyming slang",
+    "n_traditions": 1,
+    "sources": [
+     "R115"
+    ],
+    "external": false
+   },
+   {
+    "name": "transformative / bent rhyme",
+    "n_traditions": 1,
+    "sources": [
+     "R27"
+    ],
+    "external": false
+   },
+   {
+    "name": "sung-delivery rhyme",
+    "n_traditions": 1,
+    "sources": [
+     "R27"
+    ],
+    "external": false
+   },
+   {
+    "name": "incremental repetition",
+    "n_traditions": 4,
+    "sources": [
+     "R67"
+    ],
+    "external": false
+   },
+   {
+    "name": "trite rhyme",
+    "n_traditions": 5,
+    "sources": [
+     "R59"
+    ],
+    "external": false
+   }
+  ],
+  "schemas_no_tradition": [
+   {
+    "name": "blues AAB stanza",
+    "n_traditions": 0,
+    "sources": [],
+    "external": false
+   },
+   {
+    "name": "refrain by reference",
+    "n_traditions": 0,
+    "sources": [],
+    "external": false
+   }
+  ],
+  "index_loaded": true,
+  "index_rows": 601,
+  "canon_cell_ref_total_multiline": 654,
+  "canon_distinct_indices": 555,
+  "entries_external": 116,
+  "entries_none_external": 1,
+  "entries_cites_nothing": 0,
+  "entry_detail": [
+   {
+    "id": "R89",
+    "line": 820,
+    "verdict": "none_external",
+    "counts": {
+     "project": 1
+    },
+    "n": 1
+   }
+  ],
+  "index_witness": {
+   "external": 501,
+   "project": 68,
+   "unrecorded": 32
+  },
+  "index_basis": {
+   "external/named": 501,
+   "project/module": 24,
+   "project/memory": 44,
+   "unrecorded/appeal": 14,
+   "unrecorded/no_source_field": 18
+  },
+  "coined_indices": [
+   [
+    "C13",
+    "cynghanedd lusg",
+    "module"
+   ],
+   [
+    "C21",
+    "goddefiad: h is not counted",
+    "memory"
+   ],
+   [
+    "C32",
+    "cymeriad synhwyrol",
+    "memory"
+   ],
+   [
+    "C41",
+    "Welsh orthographic substrate: the eight digraphs, the elision apostrophe, the gwant",
+    "module"
+   ],
+   [
+    "C44",
+    "comhardadh briste — Irish broken rhyme",
+    "memory"
+   ],
+   [
+    "C5",
+    "cynghanedd draws (traws)",
+    "module"
+   ],
+   [
+    "C56",
+    "Goidelic orthographic substrate: digraphs, silent lenition, and the caol-le-caol spelling rule",
+    "module"
+   ],
+   [
+    "E22",
+    "conventional-licence rhyme",
+    "memory"
+   ],
+   [
+    "E3",
+    "repetition (same-word rhyme)",
+    "module"
+   ],
+   [
+    "E35",
+    "end rhyme",
+    "memory"
+   ],
+   [
+    "E45",
+    "monorhyme / leash rhyme",
+    "module"
+   ],
+   [
+    "E50",
+    "cynghanedd in English (Hopkins's imitation)",
+    "module"
+   ],
+   [
+    "E51",
+    "vowelling on / vowelling off (Hopkins)",
+    "memory"
+   ],
+   [
+    "E54",
+    "refrain / burden / chorus",
+    "module"
+   ],
+   [
+    "E55",
+    "repetend",
+    "module"
+   ],
+   [
+    "E56",
+    "incremental repetition",
+    "module"
+   ],
+   [
+    "E58",
+    "anaphora",
+    "module"
+   ],
+   [
+    "E59",
+    "epistrophe",
+    "module"
+   ],
+   [
+    "E60",
+    "symploce",
+    "memory"
+   ],
+   [
+    "E65",
+    "antanaclasis",
+    "memory"
+   ],
+   [
+    "E74",
+    "sung-delivery rhyme",
+    "memory"
+   ],
+   [
+    "G29",
+    "ljóðaháttr full-line (Vollzeile) alliteration",
+    "memory"
+   ],
+   [
+    "G30",
+    "galdralag",
+    "memory"
+   ],
+   [
+    "G82",
+    "Kalevala weak alliteration",
+    "module"
+   ],
+   [
+    "G84",
+    "Finnic vowel-initial alliteration class",
+    "module"
+   ],
+   [
+    "G88",
+    "Scandinavian ballad omkvæd",
+    "memory"
+   ],
+   [
+    "G89",
+    "Scandinavian ballad assonance binding",
+    "memory"
+   ],
+   [
+    "I11",
+    "prāsa-yati",
+    "memory"
+   ],
+   [
+    "I26",
+    "maṭakku (Tamil yamaka)",
+    "memory"
+   ],
+   [
+    "I31",
+    "ridf",
+    "memory"
+   ],
+   [
+    "I39",
+    "tuk / tukānt",
+    "memory"
+   ],
+   [
+    "I43",
+    "pantun ABAB end rhyme",
+    "module"
+   ],
+   [
+    "I50",
+    "hamzah as a rime segment",
+    "module"
+   ],
+   [
+    "I51",
+    "Malay reduplication",
+    "module"
+   ],
+   [
+    "I61",
+    "chan (ฉันท์) quantitative template",
+    "module"
+   ],
+   [
+    "I64",
+    "Thai named rhyme faults",
+    "memory"
+   ],
+   [
+    "S105",
+    "reverse and doubled acrostics",
+    "memory"
+   ],
+   [
+    "S108",
+    "ṣimmud",
+    "memory"
+   ],
+   [
+    "S109",
+    "shibbuṣ",
+    "memory"
+   ],
+   [
+    "S122",
+    "nakarat",
+    "memory"
+   ],
+   [
+    "S38",
+    "qaṣīda monorhyme",
+    "module"
+   ],
+   [
+    "S54",
+    "jinās shibh al-ishtiqāq",
+    "memory"
+   ],
+   [
+    "S55",
+    "jinās mustawfā",
+    "memory"
+   ],
+   [
+    "S59",
+    "al-ḥurūf al-muhmala / muʿjama / raqṭāʾ",
+    "memory"
+   ],
+   [
+    "S65",
+    "tashābuh al-aṭrāf",
+    "memory"
+   ],
+   [
+    "S66",
+    "tardīd",
+    "memory"
+   ],
+   [
+    "S67",
+    "takrār / iʿāda",
+    "module"
+   ],
+   [
+    "S68",
+    "tashrīʿ / tawʾam",
+    "memory"
+   ],
+   [
+    "S89",
+    "maqṭaʿ with takhalluṣ",
+    "memory"
+   ],
+   [
+    "S90",
+    "tarjīʿ-band",
+    "memory"
+   ],
+   [
+    "S91",
+    "tarkīb-band",
+    "memory"
+   ],
+   [
+    "S92",
+    "mustazād",
+    "memory"
+   ],
+   [
+    "S94",
+    "hā-yi ghayr-i malfūẓ as rawī (the silent-h dispute)",
+    "module"
+   ],
+   [
+    "S96",
+    "biblical Hebrew homoioteleuton",
+    "memory"
+   ],
+   [
+    "X102",
+    "similicadencia",
+    "memory"
+   ],
+   [
+    "X107",
+    "anáfora / epífora / concatenación",
+    "module"
+   ],
+   [
+    "X124",
+    "palavra perduda",
+    "memory"
+   ],
+   [
+    "X152",
+    "assonance de laisse",
+    "module"
+   ],
+   [
+    "X154",
+    "rime kyrielle / refrain",
+    "module"
+   ],
+   [
+    "X155",
+    "vers rétrogrades",
+    "memory"
+   ],
+   [
+    "X169",
+    "coblas capdenals",
+    "memory"
+   ],
+   [
+    "X24",
+    "疊句 diéjù — verbatim line repetition",
+    "memory"
+   ],
+   [
+    "X27",
+    "藏頭 cángtóu — acrostic verse",
+    "memory"
+   ],
+   [
+    "X35",
+    "縁語 engo — associated words",
+    "memory"
+   ],
+   [
+    "X47",
+    "回文 kaibun — Japanese palindrome",
+    "memory"
+   ],
+   [
+    "X62",
+    "한시 by Korean authors — the Chinese system imported wholesale",
+    "memory"
+   ],
+   [
+    "X63",
+    "라임 — modern Korean rap rhyme",
+    "memory"
+   ],
+   [
+    "X87",
+    "rima aspra (rime petrose)",
+    "memory"
+   ]
+  ],
+  "unrecorded_indices": [
+   [
+    "C22",
+    "odl (prifodl) — Welsh full rhyme"
+   ],
+   [
+    "C26",
+    "cywydd deuair hirion couplet rhyme (accented against unaccented)"
+   ],
+   [
+    "C40",
+    "bai: proest i'r odl, gorodl, ymsathr odlau (rhyme-hygiene faults)"
+   ],
+   [
+    "C55",
+    "initial mutation as a channel-transforming operation"
+   ],
+   [
+    "C64",
+    "sèist (chorus) in Gaelic song"
+   ],
+   [
+    "E44",
+    "chain rhyme (interlocking-scheme sense)"
+   ],
+   [
+    "E62",
+    "epanalepsis"
+   ],
+   [
+    "G34",
+    "dunhenda (rímur)"
+   ],
+   [
+    "I24",
+    "aṭi-toṭai vs cīr-toṭai (scope)"
+   ],
+   [
+    "I30",
+    "rawī"
+   ],
+   [
+    "I32",
+    "qayd"
+   ],
+   [
+    "I33",
+    "taʾsīs and daxīl"
+   ],
+   [
+    "I34",
+    "waṣl, xurūj, mazīd, nāʾira"
+   ],
+   [
+    "I35",
+    "the qāfiya vowels"
+   ],
+   [
+    "I36",
+    "muqayyad vs muṭlaq qāfiya"
+   ],
+   [
+    "I37",
+    "ʿuyūb al-qāfiya (rhyme faults)"
+   ],
+   [
+    "I40",
+    "Hindi anuprās subtypes"
+   ],
+   [
+    "I41",
+    "yamak (Hindi) and ślesh (Hindi)"
+   ],
+   [
+    "I42",
+    "muṣammat internal rhyme"
+   ],
+   [
+    "I44",
+    "rima penuh vs rima separa"
+   ],
+   [
+    "I47",
+    "syair monorhyme quatrain"
+   ],
+   [
+    "I48",
+    "gurindam"
+   ],
+   [
+    "I49",
+    "talibun and seloka"
+   ],
+   [
+    "I55",
+    "สัมผัสใน (samphat nai)"
+   ],
+   [
+    "I58",
+    "rai (ร่าย) chain rhyme"
+   ],
+   [
+    "I62",
+    "kap yani 11 and the kap family"
+   ],
+   [
+    "I69",
+    "song thất lục bát"
+   ],
+   [
+    "I73",
+    "vần liền / vần cách / vần ôm / vần hỗn"
+   ],
+   [
+    "I74",
+    "điệp vận / lạc vận"
+   ],
+   [
+    "S124",
+    "vowel harmony as a rhyme base-rate"
+   ],
+   [
+    "X103",
+    "paronomasia"
+   ],
+   [
+    "X105",
+    "derivación / políptoton"
+   ]
+  ],
+  "traditions": {
+   "attachments": 320,
+   "distinct": 299,
+   "external": 212,
+   "project": 26,
+   "cannot_tell": 61
+  },
+  "coined_traditions": [
+   {
+    "schema": "paroemion",
+    "tradition": "Arabic al-ḥurūf al-muhmala / al-muʿjama",
+    "lang": "ara",
+    "canon": "R91",
+    "cites": [
+     "S59"
+    ]
+   },
+   {
+    "schema": "monorhyme / leash",
+    "tradition": "Arabic qaṣīda monorhyme",
+    "lang": "ara",
+    "canon": "R90",
+    "cites": [
+     "S38"
+    ]
+   },
+   {
+    "schema": "linked rhyme",
+    "tradition": "Arabic tashābuh al-aṭrāf",
+    "lang": "ara",
+    "canon": "R62",
+    "cites": [
+     "S65"
+    ]
+   },
+   {
+    "schema": "cynghanedd lusg",
+    "tradition": "Welsh cynghanedd lusg",
+    "lang": "cym",
+    "canon": "R21",
+    "cites": [
+     "C13"
+    ]
+   },
+   {
+    "schema": "semirhyme",
+    "tradition": "Welsh cynghanedd lusg (its excluded final syllable)",
+    "lang": "cym",
+    "canon": "R21",
+    "cites": [
+     "C13"
+    ]
+   },
+   {
+    "schema": "anaphora",
+    "tradition": "English anaphora",
+    "lang": "eng",
+    "canon": "R64",
+    "cites": [
+     "E58"
+    ]
+   },
+   {
+    "schema": "antanaclasis",
+    "tradition": "English antanaclasis",
+    "lang": "eng",
+    "canon": "R56",
+    "cites": [
+     "E65"
+    ]
+   },
+   {
+    "schema": "cynghanedd groes",
+    "tradition": "English cynghanedd after Hopkins (an imitation, doctrine 45)",
+    "lang": "eng",
+    "canon": "R35",
+    "cites": [
+     "E50"
+    ]
+   },
+   {
+    "schema": "epistrophe / radif",
+    "tradition": "English epistrophe",
+    "lang": "eng",
+    "canon": "R61",
+    "cites": [
+     "E59"
+    ]
+   },
+   {
+    "schema": "incremental repetition",
+    "tradition": "English incremental repetition (ballad)",
+    "lang": "eng",
+    "canon": "R67",
+    "cites": [
+     "E56"
+    ]
+   },
+   {
+    "schema": "monorhyme / leash",
+    "tradition": "English monorhyme / Skeltonics",
+    "lang": "eng",
+    "canon": "R90",
+    "cites": [
+     "E45"
+    ]
+   },
+   {
+    "schema": "repetition",
+    "tradition": "English refrain / burden / chorus",
+    "lang": "eng",
+    "canon": "R60+R69",
+    "cites": [
+     "E3",
+     "E54",
+     "E55"
+    ]
+   },
+   {
+    "schema": "assonance",
+    "tradition": "French assonance de laisse",
+    "lang": "fra",
+    "canon": "R5",
+    "cites": [
+     "X152"
+    ]
+   },
+   {
+    "schema": "monorhyme / leash",
+    "tradition": "French laisse",
+    "lang": "fra",
+    "canon": "R90",
+    "cites": [
+     "X152"
+    ]
+   },
+   {
+    "schema": "amphisbaenic rhyme",
+    "tradition": "French vers rétrogrades",
+    "lang": "fra",
+    "canon": "R92",
+    "cites": [
+     "X155"
+    ]
+   },
+   {
+    "schema": "mosaic rhyme",
+    "tradition": "Irish comhardadh briste",
+    "lang": "gle",
+    "canon": "R96",
+    "cites": [
+     "C44"
+    ]
+   },
+   {
+    "schema": "perfect rhyme",
+    "tradition": "Hindi-Urdu tuk / tukānt",
+    "lang": "hin",
+    "canon": "R1",
+    "cites": [
+     "I39"
+    ]
+   },
+   {
+    "schema": "amphisbaenic rhyme",
+    "tradition": "Japanese 回文 kaibun",
+    "lang": "jpn",
+    "canon": "R92",
+    "cites": [
+     "X47"
+    ]
+   },
+   {
+    "schema": "multisyllabic rhyme",
+    "tradition": "Korean 라임",
+    "lang": "kor",
+    "canon": "R6",
+    "cites": [
+     "X63"
+    ]
+   },
+   {
+    "schema": "pantun ABAB",
+    "tradition": "Malay pantun ABAB",
+    "lang": "msa",
+    "canon": "R105+R1",
+    "cites": [
+     "I43"
+    ]
+   },
+   {
+    "schema": "incremental repetition",
+    "tradition": "Old Norse galdralag",
+    "lang": "non",
+    "canon": "R67",
+    "cites": [
+     "G30"
+    ]
+   },
+   {
+    "schema": "anaphora",
+    "tradition": "Occitan coblas capdenals",
+    "lang": "oci",
+    "canon": "R64",
+    "cites": [
+     "X169"
+    ]
+   },
+   {
+    "schema": "anaphora",
+    "tradition": "Spanish anáfora",
+    "lang": "spa",
+    "canon": "R64",
+    "cites": [
+     "X107"
+    ]
+   },
+   {
+    "schema": "epistrophe / radif",
+    "tradition": "Spanish epífora",
+    "lang": "spa",
+    "canon": "R61",
+    "cites": [
+     "X107"
+    ]
+   },
+   {
+    "schema": "homoioteleuton",
+    "tradition": "Spanish similicadencia",
+    "lang": "spa",
+    "canon": "R54",
+    "cites": [
+     "X102"
+    ]
+   },
+   {
+    "schema": "repetition",
+    "tradition": "Turkish nakarat",
+    "lang": "tur",
+    "canon": "R60+R69",
+    "cites": [
+     "S122"
+    ]
+   }
+  ]
+ },
+ "coverage": {
+  "entries": 347,
+  "entries_with_numbers": 347,
+  "numbers_total": 21067,
+  "entries_audited": 19,
+  "unaudited": [
+   "A-2",
+   "A-3",
+   "B-1",
+   "B-2",
+   "B-3",
+   "B-4",
+   "C-2",
+   "C-3",
+   "C-4",
+   "C-5",
+   "D-1",
+   "D-2",
+   "D-3",
+   "D-4",
+   "E-2",
+   "E-3",
+   "E-4",
+   "F-2",
+   "F-3",
+   "F-5",
+   "F-6",
+   "F-4",
+   "F-4a",
+   "G-1",
+   "G-2",
+   "G-3",
+   "H-1",
+   "H-2",
+   "H-3",
+   "I-1",
+   "I-2",
+   "J-1",
+   "K-1a",
+   "K-2",
+   "K-3",
+   "K-4",
+   "L-2",
+   "L-3",
+   "L-4",
+   "L-4a",
+   "M-4a",
+   "M-5",
+   "M-6",
+   "M-7",
+   "M-8",
+   "M-9",
+   "M-12",
+   "M-13",
+   "M-14",
+   "K-7",
+   "M-17",
+   "M-10",
+   "N-4",
+   "N-5",
+   "N-3",
+   "M-15a",
+   "M-18",
+   "M-19",
+   "M-20",
+   "M-21",
+   "M-22",
+   "M-48",
+   "M-47",
+   "M-45",
+   "M-46",
+   "M-44",
+   "M-43",
+   "M-42",
+   "M-41",
+   "M-40",
+   "M-39",
+   "M-38",
+   "M-37",
+   "M-36",
+   "M-35",
+   "M-34",
+   "M-33",
+   "M-32",
+   "M-31",
+   "M-30",
+   "M-23",
+   "M-24",
+   "M-25",
+   "M-26",
+   "M-27",
+   "M-28",
+   "M-29",
+   "M-49",
+   "M-50",
+   "M-51",
+   "M-52",
+   "M-53",
+   "M-54",
+   "M-55",
+   "M-56",
+   "M-57",
+   "M-59",
+   "M-58",
+   "M-60",
+   "M-61",
+   "M-62",
+   "M-63",
+   "M-64",
+   "M-65",
+   "M-66",
+   "M-67",
+   "M-68",
+   "M-69",
+   "M-70",
+   "M-71",
+   "M-72",
+   "M-73",
+   "M-74",
+   "M-75",
+   "M-76",
+   "M-77",
+   "M-78",
+   "M-79",
+   "M-80",
+   "M-81",
+   "M-82",
+   "M-83",
+   "M-84",
+   "M-85",
+   "M-86",
+   "M-87",
+   "M-88",
+   "M-89",
+   "M-90",
+   "M-91",
+   "M-92",
+   "M-93",
+   "M-94",
+   "M-95",
+   "M-96",
+   "M-97",
+   "M-98",
+   "M-99",
+   "M-100",
+   "M-101",
+   "M-102",
+   "M-103",
+   "M-104",
+   "M-105",
+   "M-106",
+   "M-107",
+   "M-108",
+   "M-109",
+   "M-110",
+   "M-111",
+   "M-112",
+   "M-113",
+   "M-114",
+   "M-115",
+   "M-116",
+   "M-117",
+   "M-118",
+   "M-119",
+   "M-120",
+   "M-121",
+   "M-122",
+   "M-123",
+   "M-124",
+   "M-125",
+   "M-126",
+   "M-127",
+   "M-128",
+   "M-129",
+   "M-130",
+   "M-131",
+   "M-132",
+   "M-133",
+   "M-134",
+   "M-135",
+   "M-136",
+   "M-137",
+   "M-138",
+   "M-139",
+   "M-140",
+   "M-141",
+   "M-142",
+   "M-143",
+   "M-144",
+   "M-145",
+   "M-146",
+   "M-147",
+   "M-148",
+   "M-149",
+   "M-150",
+   "M-151",
+   "M-152",
+   "M-153",
+   "M-154",
+   "M-155",
+   "M-156",
+   "M-157",
+   "M-158",
+   "M-159",
+   "M-160",
+   "M-161",
+   "M-162",
+   "M-163",
+   "M-164",
+   "M-165",
+   "M-166",
+   "M-167",
+   "M-168",
+   "M-169",
+   "M-170",
+   "M-171",
+   "M-172",
+   "M-173",
+   "M-174",
+   "M-175",
+   "M-176",
+   "M-177",
+   "M-178",
+   "M-179",
+   "M-180",
+   "M-181",
+   "M-182",
+   "M-183",
+   "M-184",
+   "M-185",
+   "M-186",
+   "M-187",
+   "M-188",
+   "M-189",
+   "M-190",
+   "M-191",
+   "M-192",
+   "M-195",
+   "M-193",
+   "M-196",
+   "M-197",
+   "M-198",
+   "M-199",
+   "M-200",
+   "M-201",
+   "M-202",
+   "M-203",
+   "M-241",
+   "M-240",
+   "M-239",
+   "M-238",
+   "M-237",
+   "M-236",
+   "M-235",
+   "M-234",
+   "M-233",
+   "M-232",
+   "M-231",
+   "M-230",
+   "M-229",
+   "M-228",
+   "M-227",
+   "M-226",
+   "M-223",
+   "M-222",
+   "M-221",
+   "M-220",
+   "M-219",
+   "M-218",
+   "M-217",
+   "M-216",
+   "M-215",
+   "M-205",
+   "M-214",
+   "M-213",
+   "M-212",
+   "M-211",
+   "M-210",
+   "M-209",
+   "M-208",
+   "M-207",
+   "M-206",
+   "M-204",
+   "M-242",
+   "M-243",
+   "M-244",
+   "M-245",
+   "M-246",
+   "M-247",
+   "M-248",
+   "M-249",
+   "M-250",
+   "M-251",
+   "M-252",
+   "M-253",
+   "M-254",
+   "M-255",
+   "M-256",
+   "M-257",
+   "M-258",
+   "M-259",
+   "M-260",
+   "M-261",
+   "M-262",
+   "M-263",
+   "M-264",
+   "M-265",
+   "M-266",
+   "M-267",
+   "M-268",
+   "M-269",
+   "M-270",
+   "M-271",
+   "M-272",
+   "M-273",
+   "M-274",
+   "M-275",
+   "M-276",
+   "M-277",
+   "M-278",
+   "M-279",
+   "M-280",
+   "M-281",
+   "M-282",
+   "M-283",
+   "M-284",
+   "M-285",
+   "M-286",
+   "M-287",
+   "M-288",
+   "M-289",
+   "M-290",
+   "M-291",
+   "M-292"
+  ],
+  "rows": [
+   {
+    "id": "A-1",
+    "status": "CLOSED",
+    "numbers": 67,
+    "audited": true
+   },
+   {
+    "id": "A-2",
+    "status": "CLOSED",
+    "numbers": 25,
+    "audited": false
+   },
+   {
+    "id": "A-3",
+    "status": "PARTIAL",
+    "numbers": 3,
+    "audited": false
+   },
+   {
+    "id": "B-1",
+    "status": "PARTIAL",
+    "numbers": 10,
+    "audited": false
+   },
+   {
+    "id": "B-2",
+    "status": "OPEN",
+    "numbers": 15,
+    "audited": false
+   },
+   {
+    "id": "B-3",
+    "status": "OPEN",
+    "numbers": 1,
+    "audited": false
+   },
+   {
+    "id": "B-4",
+    "status": "OPEN",
+    "numbers": 1,
+    "audited": false
+   },
+   {
+    "id": "C-1",
+    "status": "CLOSED",
+    "numbers": 20,
+    "audited": true
+   },
+   {
+    "id": "C-2",
+    "status": "PARTIAL",
+    "numbers": 7,
+    "audited": false
+   },
+   {
+    "id": "C-3",
+    "status": "CLOSED",
+    "numbers": 23,
+    "audited": false
+   },
+   {
+    "id": "C-4",
+    "status": "PARTIAL",
+    "numbers": 22,
+    "audited": false
+   },
+   {
+    "id": "C-5",
+    "status": "CLOSED",
+    "numbers": 4,
+    "audited": false
+   },
+   {
+    "id": "D-1",
+    "status": "CLOSED",
+    "numbers": 33,
+    "audited": false
+   },
+   {
+    "id": "D-2",
+    "status": "PARTIAL",
+    "numbers": 22,
+    "audited": false
+   },
+   {
+    "id": "D-3",
+    "status": "PARTIAL",
+    "numbers": 22,
+    "audited": false
+   },
+   {
+    "id": "D-4",
+    "status": "OPEN",
+    "numbers": 1,
+    "audited": false
+   },
+   {
+    "id": "E-1",
+    "status": "CLOSED",
+    "numbers": 6,
+    "audited": true
+   },
+   {
+    "id": "E-2",
+    "status": "CLOSED",
+    "numbers": 30,
+    "audited": false
+   },
+   {
+    "id": "E-3",
+    "status": "PARTIAL",
+    "numbers": 71,
+    "audited": false
+   },
+   {
+    "id": "E-4",
+    "status": "OPEN",
+    "numbers": 1,
+    "audited": false
+   },
+   {
+    "id": "E-5",
+    "status": "OPEN",
+    "numbers": 167,
+    "audited": true
+   },
+   {
+    "id": "F-1",
+    "status": "PARTIAL",
+    "numbers": 4,
+    "audited": true
+   },
+   {
+    "id": "F-2",
+    "status": "OPEN",
+    "numbers": 1,
+    "audited": false
+   },
+   {
+    "id": "F-3",
+    "status": "OPEN",
+    "numbers": 48,
+    "audited": false
+   },
+   {
+    "id": "F-5",
+    "status": "OPEN",
+    "numbers": 22,
+    "audited": false
+   },
+   {
+    "id": "F-6",
+    "status": "OPEN",
+    "numbers": 8,
+    "audited": false
+   },
+   {
+    "id": "F-4",
+    "status": "?",
+    "numbers": 52,
+    "audited": false
+   },
+   {
+    "id": "F-4a",
+    "status": "CLOSED",
+    "numbers": 52,
+    "audited": false
+   },
+   {
+    "id": "G-1",
+    "status": "OPEN",
+    "numbers": 2,
+    "audited": false
+   },
+   {
+    "id": "G-2",
+    "status": "PARTIAL",
+    "numbers": 21,
+    "audited": false
+   },
+   {
+    "id": "G-3",
+    "status": "PARTIAL",
+    "numbers": 2,
+    "audited": false
+   },
+   {
+    "id": "H-1",
+    "status": "OPEN",
+    "numbers": 5,
+    "audited": false
+   },
+   {
+    "id": "H-2",
+    "status": "OPEN",
+    "numbers": 30,
+    "audited": false
+   },
+   {
+    "id": "H-3",
+    "status": "PARTIAL",
+    "numbers": 7,
+    "audited": false
+   },
+   {
+    "id": "I-1",
+    "status": "CLOSED",
+    "numbers": 14,
+    "audited": false
+   },
+   {
+    "id": "I-2",
+    "status": "PARTIAL",
+    "numbers": 37,
+    "audited": false
+   },
+   {
+    "id": "J-1",
+    "status": "CLOSED",
+    "numbers": 17,
+    "audited": false
+   },
+   {
+    "id": "K-1",
+    "status": "PARTIAL",
+    "numbers": 132,
+    "audited": true
+   },
+   {
+    "id": "K-1a",
+    "status": "OPEN",
+    "numbers": 47,
+    "audited": false
+   },
+   {
+    "id": "K-2",
+    "status": "CLOSED",
+    "numbers": 57,
+    "audited": false
+   },
+   {
+    "id": "K-3",
+    "status": "OPEN",
+    "numbers": 20,
+    "audited": false
+   },
+   {
+    "id": "K-4",
+    "status": "PARTIAL",
+    "numbers": 147,
+    "audited": false
+   },
+   {
+    "id": "K-5",
+    "status": "BLOCKED",
+    "numbers": 122,
+    "audited": true
+   },
+   {
+    "id": "K-6",
+    "status": "OPEN",
+    "numbers": 318,
+    "audited": true
+   },
+   {
+    "id": "L-1",
+    "status": "OPEN",
+    "numbers": 85,
+    "audited": true
+   },
+   {
+    "id": "L-2",
+    "status": "OPEN",
+    "numbers": 70,
+    "audited": false
+   },
+   {
+    "id": "L-3",
+    "status": "PARTIAL",
+    "numbers": 4,
+    "audited": false
+   },
+   {
+    "id": "L-4",
+    "status": "CLOSED",
+    "numbers": 32,
+    "audited": false
+   },
+   {
+    "id": "L-4a",
+    "status": "?",
+    "numbers": 79,
+    "audited": false
+   },
+   {
+    "id": "L-5",
+    "status": "CLOSED",
+    "numbers": 131,
+    "audited": true
+   },
+   {
+    "id": "M-1",
+    "status": "CLOSED",
+    "numbers": 74,
+    "audited": true
+   },
+   {
+    "id": "M-2",
+    "status": "CLOSED",
+    "numbers": 64,
+    "audited": true
+   },
+   {
+    "id": "M-3",
+    "status": "CLOSED",
+    "numbers": 220,
+    "audited": true
+   },
+   {
+    "id": "M-4",
+    "status": "PARTIAL",
+    "numbers": 140,
+    "audited": true
+   },
+   {
+    "id": "M-4a",
+    "status": "CLOSED",
+    "numbers": 90,
+    "audited": false
+   },
+   {
+    "id": "M-5",
+    "status": "CLOSED",
+    "numbers": 14,
+    "audited": false
+   },
+   {
+    "id": "M-6",
+    "status": "CLOSED",
+    "numbers": 29,
+    "audited": false
+   },
+   {
+    "id": "M-7",
+    "status": "CLOSED",
+    "numbers": 75,
+    "audited": false
+   },
+   {
+    "id": "M-8",
+    "status": "OPEN",
+    "numbers": 3,
+    "audited": false
+   },
+   {
+    "id": "M-9",
+    "status": "CLOSED",
+    "numbers": 19,
+    "audited": false
+   },
+   {
+    "id": "M-11",
+    "status": "PARTIAL",
+    "numbers": 82,
+    "audited": true
+   },
+   {
+    "id": "M-12",
+    "status": "OPEN",
+    "numbers": 10,
+    "audited": false
+   },
+   {
+    "id": "M-13",
+    "status": "OPEN",
+    "numbers": 37,
+    "audited": false
+   },
+   {
+    "id": "M-14",
+    "status": "OPEN",
+    "numbers": 8,
+    "audited": false
+   },
+   {
+    "id": "M-15",
+    "status": "PARTIAL",
+    "numbers": 22,
+    "audited": true
+   },
+   {
+    "id": "M-16",
+    "status": "CLOSED",
+    "numbers": 52,
+    "audited": true
+   },
+   {
+    "id": "K-7",
+    "status": "PARTIAL",
+    "numbers": 164,
+    "audited": false
+   },
+   {
+    "id": "M-17",
+    "status": "CLOSED",
+    "numbers": 42,
+    "audited": false
+   },
+   {
+    "id": "M-10",
+    "status": "OPEN",
+    "numbers": 7,
+    "audited": false
+   },
+   {
+    "id": "N-1",
+    "status": "CLOSED",
+    "numbers": 72,
+    "audited": true
+   },
+   {
+    "id": "N-2",
+    "status": "CLOSED",
+    "numbers": 27,
+    "audited": true
+   },
+   {
+    "id": "N-4",
+    "status": "CLOSED",
+    "numbers": 27,
+    "audited": false
+   },
+   {
+    "id": "N-5",
+    "status": "CLOSED",
+    "numbers": 36,
+    "audited": false
+   },
+   {
+    "id": "N-3",
+    "status": "OPEN",
+    "numbers": 55,
+    "audited": false
+   },
+   {
+    "id": "M-15a",
+    "status": "OPEN",
+    "numbers": 40,
+    "audited": false
+   },
+   {
+    "id": "M-18",
+    "status": "OPEN",
+    "numbers": 75,
+    "audited": false
+   },
+   {
+    "id": "M-19",
+    "status": "OPEN",
+    "numbers": 49,
+    "audited": false
+   },
+   {
+    "id": "M-20",
+    "status": "OPEN",
+    "numbers": 69,
+    "audited": false
+   },
+   {
+    "id": "M-21",
+    "status": "CLOSED",
+    "numbers": 135,
+    "audited": false
+   },
+   {
+    "id": "M-22",
+    "status": "PARTIAL",
+    "numbers": 152,
+    "audited": false
+   },
+   {
+    "id": "M-48",
+    "status": "OPEN",
+    "numbers": 29,
+    "audited": false
+   },
+   {
+    "id": "M-47",
+    "status": "CLOSED",
+    "numbers": 72,
+    "audited": false
+   },
+   {
+    "id": "M-45",
+    "status": "CLOSED",
+    "numbers": 69,
+    "audited": false
+   },
+   {
+    "id": "M-46",
+    "status": "OPEN",
+    "numbers": 32,
+    "audited": false
+   },
+   {
+    "id": "M-44",
+    "status": "PARTIAL",
+    "numbers": 38,
+    "audited": false
+   },
+   {
+    "id": "M-43",
+    "status": "CLOSED",
+    "numbers": 13,
+    "audited": false
+   },
+   {
+    "id": "M-42",
+    "status": "CLOSED",
+    "numbers": 31,
+    "audited": false
+   },
+   {
+    "id": "M-41",
+    "status": "CLOSED",
+    "numbers": 68,
+    "audited": false
+   },
+   {
+    "id": "M-40",
+    "status": "PARTIAL",
+    "numbers": 50,
+    "audited": false
+   },
+   {
+    "id": "M-39",
+    "status": "PARTIAL",
+    "numbers": 121,
+    "audited": false
+   },
+   {
+    "id": "M-38",
+    "status": "PARTIAL",
+    "numbers": 59,
+    "audited": false
+   },
+   {
+    "id": "M-37",
+    "status": "CLOSED",
+    "numbers": 52,
+    "audited": false
+   },
+   {
+    "id": "M-36",
+    "status": "?",
+    "numbers": 8,
+    "audited": false
+   },
+   {
+    "id": "M-35",
+    "status": "OPEN",
+    "numbers": 40,
+    "audited": false
+   },
+   {
+    "id": "M-34",
+    "status": "PARTIAL",
+    "numbers": 51,
+    "audited": false
+   },
+   {
+    "id": "M-33",
+    "status": "CLOSED",
+    "numbers": 168,
+    "audited": false
+   },
+   {
+    "id": "M-32",
+    "status": "CLOSED",
+    "numbers": 130,
+    "audited": false
+   },
+   {
+    "id": "M-31",
+    "status": "CLOSED",
+    "numbers": 27,
+    "audited": false
+   },
+   {
+    "id": "M-30",
+    "status": "PARTIAL",
+    "numbers": 57,
+    "audited": false
+   },
+   {
+    "id": "M-23",
+    "status": "OPEN",
+    "numbers": 48,
+    "audited": false
+   },
+   {
+    "id": "M-24",
+    "status": "CLOSED",
+    "numbers": 42,
+    "audited": false
+   },
+   {
+    "id": "M-25",
+    "status": "OPEN",
+    "numbers": 98,
+    "audited": false
+   },
+   {
+    "id": "M-26",
+    "status": "OPEN",
+    "numbers": 34,
+    "audited": false
+   },
+   {
+    "id": "M-27",
+    "status": "CLOSED",
+    "numbers": 115,
+    "audited": false
+   },
+   {
+    "id": "M-28",
+    "status": "CLOSED",
+    "numbers": 145,
+    "audited": false
+   },
+   {
+    "id": "M-29",
+    "status": "OPEN",
+    "numbers": 40,
+    "audited": false
+   },
+   {
+    "id": "M-49",
+    "status": "CLOSED",
+    "numbers": 17,
+    "audited": false
+   },
+   {
+    "id": "M-50",
+    "status": "CLOSED",
+    "numbers": 4,
+    "audited": false
+   },
+   {
+    "id": "M-51",
+    "status": "?",
+    "numbers": 22,
+    "audited": false
+   },
+   {
+    "id": "M-52",
+    "status": "CLOSED",
+    "numbers": 153,
+    "audited": false
+   },
+   {
+    "id": "M-53",
+    "status": "CLOSED",
+    "numbers": 10,
+    "audited": false
+   },
+   {
+    "id": "M-54",
+    "status": "PARTIAL",
+    "numbers": 72,
+    "audited": false
+   },
+   {
+    "id": "M-55",
+    "status": "CLOSED",
+    "numbers": 46,
+    "audited": false
+   },
+   {
+    "id": "M-56",
+    "status": "?",
+    "numbers": 25,
+    "audited": false
+   },
+   {
+    "id": "M-57",
+    "status": "CLOSED",
+    "numbers": 47,
+    "audited": false
+   },
+   {
+    "id": "M-59",
+    "status": "CLOSED",
+    "numbers": 132,
+    "audited": false
+   },
+   {
+    "id": "M-58",
+    "status": "?",
+    "numbers": 92,
+    "audited": false
+   },
+   {
+    "id": "M-60",
+    "status": "CLOSED",
+    "numbers": 28,
+    "audited": false
+   },
+   {
+    "id": "M-61",
+    "status": "CLOSED",
+    "numbers": 21,
+    "audited": false
+   },
+   {
+    "id": "M-62",
+    "status": "CLOSED",
+    "numbers": 12,
+    "audited": false
+   },
+   {
+    "id": "M-63",
+    "status": "CLOSED",
+    "numbers": 8,
+    "audited": false
+   },
+   {
+    "id": "M-64",
+    "status": "CLOSED",
+    "numbers": 17,
+    "audited": false
+   },
+   {
+    "id": "M-65",
+    "status": "CLOSED",
+    "numbers": 33,
+    "audited": false
+   },
+   {
+    "id": "M-66",
+    "status": "CLOSED",
+    "numbers": 33,
+    "audited": false
+   },
+   {
+    "id": "M-67",
+    "status": "CLOSED",
+    "numbers": 28,
+    "audited": false
+   },
+   {
+    "id": "M-68",
+    "status": "CLOSED",
+    "numbers": 8,
+    "audited": false
+   },
+   {
+    "id": "M-69",
+    "status": "CLOSED",
+    "numbers": 56,
+    "audited": false
+   },
+   {
+    "id": "M-70",
+    "status": "CLOSED",
+    "numbers": 9,
+    "audited": false
+   },
+   {
+    "id": "M-71",
+    "status": "CLOSED",
+    "numbers": 27,
+    "audited": false
+   },
+   {
+    "id": "M-72",
+    "status": "CLOSED",
+    "numbers": 14,
+    "audited": false
+   },
+   {
+    "id": "M-73",
+    "status": "CLOSED",
+    "numbers": 25,
+    "audited": false
+   },
+   {
+    "id": "M-74",
+    "status": "CLOSED",
+    "numbers": 32,
+    "audited": false
+   },
+   {
+    "id": "M-75",
+    "status": "CLOSED",
+    "numbers": 46,
+    "audited": false
+   },
+   {
+    "id": "M-76",
+    "status": "CLOSED",
+    "numbers": 42,
+    "audited": false
+   },
+   {
+    "id": "M-77",
+    "status": "CLOSED",
+    "numbers": 62,
+    "audited": false
+   },
+   {
+    "id": "M-78",
+    "status": "OPEN",
+    "numbers": 43,
+    "audited": false
+   },
+   {
+    "id": "M-79",
+    "status": "OPEN",
+    "numbers": 104,
+    "audited": false
+   },
+   {
+    "id": "M-80",
+    "status": "CLOSED",
+    "numbers": 70,
+    "audited": false
+   },
+   {
+    "id": "M-81",
+    "status": "CLOSED",
+    "numbers": 353,
+    "audited": false
+   },
+   {
+    "id": "M-82",
+    "status": "CLOSED",
+    "numbers": 46,
+    "audited": false
+   },
+   {
+    "id": "M-83",
+    "status": "CLOSED",
+    "numbers": 51,
+    "audited": false
+   },
+   {
+    "id": "M-84",
+    "status": "CLOSED",
+    "numbers": 48,
+    "audited": false
+   },
+   {
+    "id": "M-85",
+    "status": "PARTIAL",
+    "numbers": 80,
+    "audited": false
+   },
+   {
+    "id": "M-86",
+    "status": "CLOSED",
+    "numbers": 28,
+    "audited": false
+   },
+   {
+    "id": "M-87",
+    "status": "CLOSED",
+    "numbers": 26,
+    "audited": false
+   },
+   {
+    "id": "M-88",
+    "status": "CLOSED",
+    "numbers": 26,
+    "audited": false
+   },
+   {
+    "id": "M-89",
+    "status": "CLOSED",
+    "numbers": 14,
+    "audited": false
+   },
+   {
+    "id": "M-90",
+    "status": "CLOSED",
+    "numbers": 59,
+    "audited": false
+   },
+   {
+    "id": "M-91",
+    "status": "CLOSED",
+    "numbers": 16,
+    "audited": false
+   },
+   {
+    "id": "M-92",
+    "status": "CLOSED",
+    "numbers": 10,
+    "audited": false
+   },
+   {
+    "id": "M-93",
+    "status": "CLOSED",
+    "numbers": 9,
+    "audited": false
+   },
+   {
+    "id": "M-94",
+    "status": "OPEN",
+    "numbers": 28,
+    "audited": false
+   },
+   {
+    "id": "M-95",
+    "status": "PARTIAL",
+    "numbers": 53,
+    "audited": false
+   },
+   {
+    "id": "M-96",
+    "status": "CLOSED",
+    "numbers": 21,
+    "audited": false
+   },
+   {
+    "id": "M-97",
+    "status": "CLOSED",
+    "numbers": 14,
+    "audited": false
+   },
+   {
+    "id": "M-98",
+    "status": "CLOSED",
+    "numbers": 18,
+    "audited": false
+   },
+   {
+    "id": "M-99",
+    "status": "OPEN",
+    "numbers": 7,
+    "audited": false
+   },
+   {
+    "id": "M-100",
+    "status": "CLOSED",
+    "numbers": 25,
+    "audited": false
+   },
+   {
+    "id": "M-101",
+    "status": "OPEN",
+    "numbers": 7,
+    "audited": false
+   },
+   {
+    "id": "M-102",
+    "status": "CLOSED",
+    "numbers": 14,
+    "audited": false
+   },
+   {
+    "id": "M-103",
+    "status": "CLOSED",
+    "numbers": 10,
+    "audited": false
+   },
+   {
+    "id": "M-104",
+    "status": "CLOSED",
+    "numbers": 32,
+    "audited": false
+   },
+   {
+    "id": "M-105",
+    "status": "CLOSED",
+    "numbers": 59,
+    "audited": false
+   },
+   {
+    "id": "M-106",
+    "status": "CLOSED",
+    "numbers": 146,
+    "audited": false
+   },
+   {
+    "id": "M-107",
+    "status": "CLOSED",
+    "numbers": 43,
+    "audited": false
+   },
+   {
+    "id": "M-108",
+    "status": "CLOSED",
+    "numbers": 21,
+    "audited": false
+   },
+   {
+    "id": "M-109",
+    "status": "CLOSED",
+    "numbers": 18,
+    "audited": false
+   },
+   {
+    "id": "M-110",
+    "status": "CLOSED",
+    "numbers": 38,
+    "audited": false
+   },
+   {
+    "id": "M-111",
+    "status": "?",
+    "numbers": 120,
+    "audited": false
+   },
+   {
+    "id": "M-112",
+    "status": "?",
+    "numbers": 47,
+    "audited": false
+   },
+   {
+    "id": "M-113",
+    "status": "?",
+    "numbers": 34,
+    "audited": false
+   },
+   {
+    "id": "M-114",
+    "status": "?",
+    "numbers": 30,
+    "audited": false
+   },
+   {
+    "id": "M-115",
+    "status": "?",
+    "numbers": 21,
+    "audited": false
+   },
+   {
+    "id": "M-116",
+    "status": "CLOSED",
+    "numbers": 37,
+    "audited": false
+   },
+   {
+    "id": "M-117",
+    "status": "CLOSED",
+    "numbers": 62,
+    "audited": false
+   },
+   {
+    "id": "M-118",
+    "status": "CLOSED",
+    "numbers": 16,
+    "audited": false
+   },
+   {
+    "id": "M-119",
+    "status": "CLOSED",
+    "numbers": 27,
+    "audited": false
+   },
+   {
+    "id": "M-120",
+    "status": "OPEN",
+    "numbers": 17,
+    "audited": false
+   },
+   {
+    "id": "M-121",
+    "status": "CLOSED",
+    "numbers": 20,
+    "audited": false
+   },
+   {
+    "id": "M-122",
+    "status": "CLOSED",
+    "numbers": 34,
+    "audited": false
+   },
+   {
+    "id": "M-123",
+    "status": "CLOSED",
+    "numbers": 31,
+    "audited": false
+   },
+   {
+    "id": "M-124",
+    "status": "CLOSED",
+    "numbers": 12,
+    "audited": false
+   },
+   {
+    "id": "M-125",
+    "status": "CLOSED",
+    "numbers": 31,
+    "audited": false
+   },
+   {
+    "id": "M-126",
+    "status": "CLOSED",
+    "numbers": 19,
+    "audited": false
+   },
+   {
+    "id": "M-127",
+    "status": "CLOSED",
+    "numbers": 14,
+    "audited": false
+   },
+   {
+    "id": "M-128",
+    "status": "CLOSED",
+    "numbers": 15,
+    "audited": false
+   },
+   {
+    "id": "M-129",
+    "status": "CLOSED",
+    "numbers": 40,
+    "audited": false
+   },
+   {
+    "id": "M-130",
+    "status": "CLOSED",
+    "numbers": 37,
+    "audited": false
+   },
+   {
+    "id": "M-131",
+    "status": "CLOSED",
+    "numbers": 87,
+    "audited": false
+   },
+   {
+    "id": "M-132",
+    "status": "OPEN",
+    "numbers": 53,
+    "audited": false
+   },
+   {
+    "id": "M-133",
+    "status": "CLOSED",
+    "numbers": 68,
+    "audited": false
+   },
+   {
+    "id": "M-134",
+    "status": "CLOSED",
+    "numbers": 33,
+    "audited": false
+   },
+   {
+    "id": "M-135",
+    "status": "OPEN",
+    "numbers": 312,
+    "audited": false
+   },
+   {
+    "id": "M-136",
+    "status": "OPEN",
+    "numbers": 46,
+    "audited": false
+   },
+   {
+    "id": "M-137",
+    "status": "OPEN",
+    "numbers": 37,
+    "audited": false
+   },
+   {
+    "id": "M-138",
+    "status": "CLOSED",
+    "numbers": 269,
+    "audited": false
+   },
+   {
+    "id": "M-139",
+    "status": "OPEN",
+    "numbers": 391,
+    "audited": false
+   },
+   {
+    "id": "M-140",
+    "status": "OPEN",
+    "numbers": 143,
+    "audited": false
+   },
+   {
+    "id": "M-141",
+    "status": "CLOSED",
+    "numbers": 91,
+    "audited": false
+   },
+   {
+    "id": "M-142",
+    "status": "OPEN",
+    "numbers": 64,
+    "audited": false
+   },
+   {
+    "id": "M-143",
+    "status": "CLOSED",
+    "numbers": 56,
+    "audited": false
+   },
+   {
+    "id": "M-144",
+    "status": "CLOSED",
+    "numbers": 52,
+    "audited": false
+   },
+   {
+    "id": "M-145",
+    "status": "CLOSED",
+    "numbers": 73,
+    "audited": false
+   },
+   {
+    "id": "M-146",
+    "status": "CLOSED",
+    "numbers": 48,
+    "audited": false
+   },
+   {
+    "id": "M-147",
+    "status": "CLOSED",
+    "numbers": 40,
+    "audited": false
+   },
+   {
+    "id": "M-148",
+    "status": "?",
+    "numbers": 90,
+    "audited": false
+   },
+   {
+    "id": "M-149",
+    "status": "?",
+    "numbers": 56,
+    "audited": false
+   },
+   {
+    "id": "M-150",
+    "status": "?",
+    "numbers": 21,
+    "audited": false
+   },
+   {
+    "id": "M-151",
+    "status": "CLOSED",
+    "numbers": 27,
+    "audited": false
+   },
+   {
+    "id": "M-152",
+    "status": "CLOSED",
+    "numbers": 78,
+    "audited": false
+   },
+   {
+    "id": "M-153",
+    "status": "CLOSED",
+    "numbers": 45,
+    "audited": false
+   },
+   {
+    "id": "M-154",
+    "status": "CLOSED",
+    "numbers": 46,
+    "audited": false
+   },
+   {
+    "id": "M-155",
+    "status": "CLOSED",
+    "numbers": 40,
+    "audited": false
+   },
+   {
+    "id": "M-156",
+    "status": "CLOSED",
+    "numbers": 22,
+    "audited": false
+   },
+   {
+    "id": "M-157",
+    "status": "CLOSED",
+    "numbers": 59,
+    "audited": false
+   },
+   {
+    "id": "M-158",
+    "status": "CLOSED",
+    "numbers": 53,
+    "audited": false
+   },
+   {
+    "id": "M-159",
+    "status": "CLOSED",
+    "numbers": 54,
+    "audited": false
+   },
+   {
+    "id": "M-160",
+    "status": "CLOSED",
+    "numbers": 47,
+    "audited": false
+   },
+   {
+    "id": "M-161",
+    "status": "CLOSED",
+    "numbers": 63,
+    "audited": false
+   },
+   {
+    "id": "M-162",
+    "status": "OPEN",
+    "numbers": 35,
+    "audited": false
+   },
+   {
+    "id": "M-163",
+    "status": "CLOSED",
+    "numbers": 37,
+    "audited": false
+   },
+   {
+    "id": "M-164",
+    "status": "CLOSED",
+    "numbers": 36,
+    "audited": false
+   },
+   {
+    "id": "M-165",
+    "status": "CLOSED",
+    "numbers": 58,
+    "audited": false
+   },
+   {
+    "id": "M-166",
+    "status": "OPEN",
+    "numbers": 54,
+    "audited": false
+   },
+   {
+    "id": "M-167",
+    "status": "CLOSED",
+    "numbers": 63,
+    "audited": false
+   },
+   {
+    "id": "M-168",
+    "status": "OPEN",
+    "numbers": 219,
+    "audited": false
+   },
+   {
+    "id": "M-169",
+    "status": "CLOSED",
+    "numbers": 26,
+    "audited": false
+   },
+   {
+    "id": "M-170",
+    "status": "OPEN",
+    "numbers": 161,
+    "audited": false
+   },
+   {
+    "id": "M-171",
+    "status": "CLOSED",
+    "numbers": 92,
+    "audited": false
+   },
+   {
+    "id": "M-172",
+    "status": "CLOSED",
+    "numbers": 73,
+    "audited": false
+   },
+   {
+    "id": "M-173",
+    "status": "CLOSED",
+    "numbers": 53,
+    "audited": false
+   },
+   {
+    "id": "M-174",
+    "status": "CLOSED",
+    "numbers": 72,
+    "audited": false
+   },
+   {
+    "id": "M-175",
+    "status": "CLOSED",
+    "numbers": 84,
+    "audited": false
+   },
+   {
+    "id": "M-176",
+    "status": "CLOSED",
+    "numbers": 16,
+    "audited": false
+   },
+   {
+    "id": "M-177",
+    "status": "CLOSED",
+    "numbers": 36,
+    "audited": false
+   },
+   {
+    "id": "M-178",
+    "status": "CLOSED",
+    "numbers": 51,
+    "audited": false
+   },
+   {
+    "id": "M-179",
+    "status": "CLOSED",
+    "numbers": 26,
+    "audited": false
+   },
+   {
+    "id": "M-180",
+    "status": "CLOSED",
+    "numbers": 25,
+    "audited": false
+   },
+   {
+    "id": "M-181",
+    "status": "PARTIAL",
+    "numbers": 225,
+    "audited": false
+   },
+   {
+    "id": "M-182",
+    "status": "PARTIAL",
+    "numbers": 228,
+    "audited": false
+   },
+   {
+    "id": "M-183",
+    "status": "CLOSED",
+    "numbers": 83,
+    "audited": false
+   },
+   {
+    "id": "M-184",
+    "status": "CLOSED",
+    "numbers": 80,
+    "audited": false
+   },
+   {
+    "id": "M-185",
+    "status": "CLOSED",
+    "numbers": 63,
+    "audited": false
+   },
+   {
+    "id": "M-186",
+    "status": "CLOSED",
+    "numbers": 71,
+    "audited": false
+   },
+   {
+    "id": "M-187",
+    "status": "PARTIAL",
+    "numbers": 189,
+    "audited": false
+   },
+   {
+    "id": "M-188",
+    "status": "CLOSED",
+    "numbers": 77,
+    "audited": false
+   },
+   {
+    "id": "M-189",
+    "status": "CLOSED",
+    "numbers": 38,
+    "audited": false
+   },
+   {
+    "id": "M-190",
+    "status": "CLOSED",
+    "numbers": 49,
+    "audited": false
+   },
+   {
+    "id": "M-191",
+    "status": "CLOSED",
+    "numbers": 89,
+    "audited": false
+   },
+   {
+    "id": "M-192",
+    "status": "CLOSED",
+    "numbers": 58,
+    "audited": false
+   },
+   {
+    "id": "M-195",
+    "status": "CLOSED",
+    "numbers": 71,
+    "audited": false
+   },
+   {
+    "id": "M-193",
+    "status": "CLOSED",
+    "numbers": 193,
+    "audited": false
+   },
+   {
+    "id": "M-196",
+    "status": "PARTIAL",
+    "numbers": 157,
+    "audited": false
+   },
+   {
+    "id": "M-197",
+    "status": "CLOSED",
+    "numbers": 132,
+    "audited": false
+   },
+   {
+    "id": "M-198",
+    "status": "CLOSED",
+    "numbers": 42,
+    "audited": false
+   },
+   {
+    "id": "M-199",
+    "status": "CLOSED",
+    "numbers": 53,
+    "audited": false
+   },
+   {
+    "id": "M-200",
+    "status": "CLOSED",
+    "numbers": 27,
+    "audited": false
+   },
+   {
+    "id": "M-201",
+    "status": "CLOSED",
+    "numbers": 27,
+    "audited": false
+   },
+   {
+    "id": "M-202",
+    "status": "CLOSED",
+    "numbers": 22,
+    "audited": false
+   },
+   {
+    "id": "M-203",
+    "status": "CLOSED",
+    "numbers": 21,
+    "audited": false
+   },
+   {
+    "id": "M-241",
+    "status": "OPEN",
+    "numbers": 90,
+    "audited": false
+   },
+   {
+    "id": "M-240",
+    "status": "OPEN",
+    "numbers": 142,
+    "audited": false
+   },
+   {
+    "id": "M-239",
+    "status": "CLOSED",
+    "numbers": 191,
+    "audited": false
+   },
+   {
+    "id": "M-238",
+    "status": "CLOSED",
+    "numbers": 30,
+    "audited": false
+   },
+   {
+    "id": "M-237",
+    "status": "CLOSED",
+    "numbers": 37,
+    "audited": false
+   },
+   {
+    "id": "M-236",
+    "status": "CLOSED",
+    "numbers": 52,
+    "audited": false
+   },
+   {
+    "id": "M-235",
+    "status": "CLOSED",
+    "numbers": 64,
+    "audited": false
+   },
+   {
+    "id": "M-234",
+    "status": "CLOSED",
+    "numbers": 61,
+    "audited": false
+   },
+   {
+    "id": "M-233",
+    "status": "CLOSED",
+    "numbers": 63,
+    "audited": false
+   },
+   {
+    "id": "M-232",
+    "status": "CLOSED",
+    "numbers": 90,
+    "audited": false
+   },
+   {
+    "id": "M-231",
+    "status": "CLOSED",
+    "numbers": 84,
+    "audited": false
+   },
+   {
+    "id": "M-230",
+    "status": "CLOSED",
+    "numbers": 31,
+    "audited": false
+   },
+   {
+    "id": "M-229",
+    "status": "CLOSED",
+    "numbers": 51,
+    "audited": false
+   },
+   {
+    "id": "M-228",
+    "status": "CLOSED",
+    "numbers": 28,
+    "audited": false
+   },
+   {
+    "id": "M-227",
+    "status": "OPEN",
+    "numbers": 25,
+    "audited": false
+   },
+   {
+    "id": "M-226",
+    "status": "CLOSED",
+    "numbers": 59,
+    "audited": false
+   },
+   {
+    "id": "M-223",
+    "status": "CLOSED",
+    "numbers": 75,
+    "audited": false
+   },
+   {
+    "id": "M-222",
+    "status": "CLOSED",
+    "numbers": 23,
+    "audited": false
+   },
+   {
+    "id": "M-221",
+    "status": "CLOSED",
+    "numbers": 31,
+    "audited": false
+   },
+   {
+    "id": "M-220",
+    "status": "CLOSED",
+    "numbers": 43,
+    "audited": false
+   },
+   {
+    "id": "M-219",
+    "status": "CLOSED",
+    "numbers": 124,
+    "audited": false
+   },
+   {
+    "id": "M-218",
+    "status": "CLOSED",
+    "numbers": 93,
+    "audited": false
+   },
+   {
+    "id": "M-217",
+    "status": "CLOSED",
+    "numbers": 120,
+    "audited": false
+   },
+   {
+    "id": "M-216",
+    "status": "CLOSED",
+    "numbers": 41,
+    "audited": false
+   },
+   {
+    "id": "M-215",
+    "status": "CLOSED",
+    "numbers": 37,
+    "audited": false
+   },
+   {
+    "id": "M-205",
+    "status": "CLOSED",
+    "numbers": 43,
+    "audited": false
+   },
+   {
+    "id": "M-214",
+    "status": "CLOSED",
+    "numbers": 16,
+    "audited": false
+   },
+   {
+    "id": "M-213",
+    "status": "CLOSED",
+    "numbers": 32,
+    "audited": false
+   },
+   {
+    "id": "M-212",
+    "status": "CLOSED",
+    "numbers": 28,
+    "audited": false
+   },
+   {
+    "id": "M-211",
+    "status": "CLOSED",
+    "numbers": 33,
+    "audited": false
+   },
+   {
+    "id": "M-210",
+    "status": "CLOSED",
+    "numbers": 40,
+    "audited": false
+   },
+   {
+    "id": "M-209",
+    "status": "CLOSED",
+    "numbers": 39,
+    "audited": false
+   },
+   {
+    "id": "M-208",
+    "status": "CLOSED",
+    "numbers": 35,
+    "audited": false
+   },
+   {
+    "id": "M-207",
+    "status": "CLOSED",
+    "numbers": 42,
+    "audited": false
+   },
+   {
+    "id": "M-206",
+    "status": "CLOSED",
+    "numbers": 49,
+    "audited": false
+   },
+   {
+    "id": "M-204",
+    "status": "CLOSED",
+    "numbers": 51,
+    "audited": false
+   },
+   {
+    "id": "M-242",
+    "status": "CLOSED",
+    "numbers": 105,
+    "audited": false
+   },
+   {
+    "id": "M-243",
+    "status": "CLOSED",
+    "numbers": 34,
+    "audited": false
+   },
+   {
+    "id": "M-244",
+    "status": "PARTIAL",
+    "numbers": 292,
+    "audited": false
+   },
+   {
+    "id": "M-245",
+    "status": "CLOSED",
+    "numbers": 39,
+    "audited": false
+   },
+   {
+    "id": "M-246",
+    "status": "CLOSED",
+    "numbers": 39,
+    "audited": false
+   },
+   {
+    "id": "M-247",
+    "status": "CLOSED",
+    "numbers": 36,
+    "audited": false
+   },
+   {
+    "id": "M-248",
+    "status": "CLOSED",
+    "numbers": 100,
+    "audited": false
+   },
+   {
+    "id": "M-249",
+    "status": "CLOSED",
+    "numbers": 84,
+    "audited": false
+   },
+   {
+    "id": "M-250",
+    "status": "CLOSED",
+    "numbers": 52,
+    "audited": false
+   },
+   {
+    "id": "M-251",
+    "status": "CLOSED",
+    "numbers": 49,
+    "audited": false
+   },
+   {
+    "id": "M-252",
+    "status": "PARTIAL",
+    "numbers": 93,
+    "audited": false
+   },
+   {
+    "id": "M-253",
+    "status": "CLOSED",
+    "numbers": 54,
+    "audited": false
+   },
+   {
+    "id": "M-254",
+    "status": "CLOSED",
+    "numbers": 143,
+    "audited": false
+   },
+   {
+    "id": "M-255",
+    "status": "CLOSED",
+    "numbers": 132,
+    "audited": false
+   },
+   {
+    "id": "M-256",
+    "status": "OPEN",
+    "numbers": 148,
+    "audited": false
+   },
+   {
+    "id": "M-257",
+    "status": "CLOSED",
+    "numbers": 43,
+    "audited": false
+   },
+   {
+    "id": "M-258",
+    "status": "CLOSED",
+    "numbers": 61,
+    "audited": false
+   },
+   {
+    "id": "M-259",
+    "status": "CLOSED",
+    "numbers": 38,
+    "audited": false
+   },
+   {
+    "id": "M-260",
+    "status": "CLOSED",
+    "numbers": 192,
+    "audited": false
+   },
+   {
+    "id": "M-261",
+    "status": "CLOSED",
+    "numbers": 155,
+    "audited": false
+   },
+   {
+    "id": "M-262",
+    "status": "CLOSED",
+    "numbers": 53,
+    "audited": false
+   },
+   {
+    "id": "M-263",
+    "status": "CLOSED",
+    "numbers": 67,
+    "audited": false
+   },
+   {
+    "id": "M-264",
+    "status": "CLOSED",
+    "numbers": 19,
+    "audited": false
+   },
+   {
+    "id": "M-265",
+    "status": "CLOSED",
+    "numbers": 37,
+    "audited": false
+   },
+   {
+    "id": "M-266",
+    "status": "CLOSED",
+    "numbers": 167,
+    "audited": false
+   },
+   {
+    "id": "M-267",
+    "status": "CLOSED",
+    "numbers": 100,
+    "audited": false
+   },
+   {
+    "id": "M-268",
+    "status": "CLOSED",
+    "numbers": 199,
+    "audited": false
+   },
+   {
+    "id": "M-269",
+    "status": "CLOSED",
+    "numbers": 48,
+    "audited": false
+   },
+   {
+    "id": "M-270",
+    "status": "CLOSED",
+    "numbers": 51,
+    "audited": false
+   },
+   {
+    "id": "M-271",
+    "status": "CLOSED",
+    "numbers": 31,
+    "audited": false
+   },
+   {
+    "id": "M-272",
+    "status": "CLOSED",
+    "numbers": 57,
+    "audited": false
+   },
+   {
+    "id": "M-273",
+    "status": "CLOSED",
+    "numbers": 126,
+    "audited": false
+   },
+   {
+    "id": "M-274",
+    "status": "CLOSED",
+    "numbers": 20,
+    "audited": false
+   },
+   {
+    "id": "M-275",
+    "status": "CLOSED",
+    "numbers": 70,
+    "audited": false
+   },
+   {
+    "id": "M-276",
+    "status": "CLOSED",
+    "numbers": 110,
+    "audited": false
+   },
+   {
+    "id": "M-277",
+    "status": "OPEN",
+    "numbers": 45,
+    "audited": false
+   },
+   {
+    "id": "M-278",
+    "status": "CLOSED",
+    "numbers": 42,
+    "audited": false
+   },
+   {
+    "id": "M-279",
+    "status": "PARTIAL",
+    "numbers": 161,
+    "audited": false
+   },
+   {
+    "id": "M-280",
+    "status": "CLOSED",
+    "numbers": 12,
+    "audited": false
+   },
+   {
+    "id": "M-281",
+    "status": "CLOSED",
+    "numbers": 70,
+    "audited": false
+   },
+   {
+    "id": "M-282",
+    "status": "CLOSED",
+    "numbers": 270,
+    "audited": false
+   },
+   {
+    "id": "M-283",
+    "status": "CLOSED",
+    "numbers": 54,
+    "audited": false
+   },
+   {
+    "id": "M-284",
+    "status": "CLOSED",
+    "numbers": 37,
+    "audited": false
+   },
+   {
+    "id": "M-285",
+    "status": "CLOSED",
+    "numbers": 58,
+    "audited": false
+   },
+   {
+    "id": "M-286",
+    "status": "CLOSED",
+    "numbers": 25,
+    "audited": false
+   },
+   {
+    "id": "M-287",
+    "status": "CLOSED",
+    "numbers": 73,
+    "audited": false
+   },
+   {
+    "id": "M-288",
+    "status": "CLOSED",
+    "numbers": 135,
+    "audited": false
+   },
+   {
+    "id": "M-289",
+    "status": "CLOSED",
+    "numbers": 69,
+    "audited": false
+   },
+   {
+    "id": "M-290",
+    "status": "CLOSED",
+    "numbers": 33,
+    "audited": false
+   },
+   {
+    "id": "M-291",
+    "status": "CLOSED",
+    "numbers": 56,
+    "audited": false
+   },
+   {
+    "id": "M-292",
+    "status": "CLOSED",
+    "numbers": 49,
+    "audited": false
+   }
+  ]
+ }
+}
