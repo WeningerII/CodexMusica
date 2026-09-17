@@ -1,0 +1,60 @@
+Source: https://github.com/WeningerII/CodexMusica/actions/runs/35247512389/job/105291978089
+Excerpt of the unmodified GitHub job log; durations are elapsed leaf seconds, not CPU seconds.
+2026-09-17T16:57:47.6043914Z LEAF COST, slowest first — the top line is the floor a worker count cannot beat:
+2026-09-17T16:57:47.6044436Z      375.1s  node mcp/test.mjs
+2026-09-17T16:57:47.6044811Z      344.2s  node scripts/regression_recipes.js
+2026-09-17T16:57:47.6045234Z      132.2s  node scripts/check_app_parity.js
+2026-09-17T16:57:47.6045663Z      124.5s  node mcp/test_run_continuation.mjs
+2026-09-17T16:57:47.6047165Z      103.6s  node --test --test-concurrency=1 mcp/test_paid_budget.mjs mcp/test_python_bridge.mjs mcp/test_lyric_state.mjs mcp/test_turn_lifecycle.mjs mcp/test_battery_lifecycle.mjs mcp/test_battery_archive.mjs mcp/test_battery_storage.mjs mcp/test_job_store.mjs
+2026-09-17T16:57:47.6048664Z       93.0s  node scripts/check_locale_invariance.js
+2026-09-17T16:57:47.6050525Z       90.6s  node --test --test-concurrency=1 --test-timeout=120000 mcp/test_release_gates.mjs mcp/test_battery_repairs.mjs mcp/test_chat_production.mjs mcp/test_connector_contracts.mjs mcp/test_connector_http.mjs mcp/test_chatgpt.mjs mcp/test_runtime_assets.mjs mcp/test_state_codec.mjs mcp/test_lyric_workflow.mjs mcp/test_session_repairs.mjs mcp/test_pronunciation_choices.mjs
+2026-09-17T16:57:47.6052208Z       75.7s  node scripts/check_mobile_layout.js
+2026-09-17T16:57:47.6052516Z       66.3s  node scripts/eval_capabilities.js
+2026-09-17T16:57:47.6052833Z       65.2s  node scripts/check_cli_output.js
+2026-09-17T16:57:47.6053153Z       52.5s  node mcp/test_lyric_state.mjs --harness
+2026-09-17T16:57:47.6053559Z       45.3s  python3 lyric-harness/quality/test_pronunciation_choices.py
+2026-09-17T16:57:47.6053925Z       41.5s  node scripts/check_layout_usability.js
+2026-09-17T16:57:47.6054233Z       37.5s  node scripts/check_name_isolation.js
+2026-09-17T16:57:47.6054545Z       36.6s  node scripts/check_minified_equivalence.js
+2026-09-17T16:57:47.6054835Z       30.5s  node scripts/check_lazy_app.js
+2026-09-17T16:57:47.6055115Z       25.5s  node scripts/check_workbench.js
+2026-09-17T16:57:47.6055443Z       25.1s  python3 lyric-harness/quality/test_session_repairs.py
+2026-09-17T16:57:47.6055783Z       24.4s  node mcp/test_deferred_continuation.mjs
+2026-09-17T16:57:47.6056084Z       20.3s  node scripts/check_edit_differential.js
+2026-09-17T16:57:47.6056561Z       18.8s  node scripts/equivalence.js
+2026-09-17T16:57:47.6056848Z       17.1s  node scripts/app_recipe_regression.js
+2026-09-17T16:57:47.6057151Z       14.1s  node mcp/test_kitchen_repairs.mjs
+2026-09-17T16:57:47.6057495Z       11.4s  python3 lyric-harness/quality/test_computational_audit.py
+2026-09-17T16:57:47.6057829Z        7.6s  node scripts/check_slot_picks.js
+2026-09-17T16:57:47.6058121Z        7.1s  node scripts/check_edit_parity.js
+2026-09-17T16:57:47.6058414Z        4.5s  node mcp/test_writer_work_budget.mjs
+2026-09-17T16:57:47.6058727Z        3.1s  node scripts/check_connector_contract.js
+2026-09-17T16:57:47.6059039Z        2.8s  node scripts/check_geographic_expansion.js
+2026-09-17T16:57:47.6059376Z        2.5s  python3 scripts/test_profile_lyrics_phase.py
+2026-09-17T16:57:47.6059690Z        2.1s  node scripts/check_geographic_round2.js
+2026-09-17T16:57:47.6060008Z        1.6s  node scripts/build_descriptor_df.js --check
+2026-09-17T16:57:47.6060311Z        1.5s  node scripts/check_workspace_ops.js
+2026-09-17T16:57:47.6060606Z        1.4s  node scripts/regression_prefaces.js
+2026-09-17T16:57:47.6060889Z        1.4s  node scripts/check_duplicates.js
+2026-09-17T16:57:47.6061184Z        1.3s  node scripts/check_connector_parity.js
+2026-09-17T16:57:47.6061481Z        0.9s  node scripts/check_layout_geometry.js
+2026-09-17T16:57:47.6061794Z        0.9s  node scripts/test_capacity_children.mjs
+2026-09-17T16:57:47.6062097Z        0.8s  node scripts/build_favicon.js --check
+2026-09-17T16:57:47.6062399Z        0.7s  node scripts/build_atlas_tree.js --check
+2026-09-17T16:57:47.6062720Z        0.7s  python3 scripts/test_lyric_continuations.py
+2026-09-17T16:57:47.6063032Z        0.4s  python3 scripts/test_lyrics_capacity.py
+2026-09-17T16:57:47.6063366Z        0.4s  python3 scripts/test_production_qualification.py
+2026-09-17T16:57:47.6063795Z        0.3s  node scripts/check_publish_guard.js
+2026-09-17T16:57:47.6064130Z        0.3s  python3 scripts/test_worker_measurement_capture.py
+2026-09-17T16:57:47.6064460Z        0.2s  node scripts/build_atlas_geo.js --check
+2026-09-17T16:57:47.6064782Z        0.2s  node scripts/build_atlas_basemap.js --check
+2026-09-17T16:57:47.6065099Z        0.1s  node scripts/build_nav_glyphs.js --check
+2026-09-17T16:57:47.6065413Z        0.1s  node scripts/_gen_voice_parts.js --check
+2026-09-17T16:57:47.6065712Z        0.1s  node scripts/check_deploy_memory.js
+2026-09-17T16:57:47.6066032Z        0.1s  node scripts/check_atlas_publish.js --self-test
+2026-09-17T16:57:47.6066638Z        0.0s  node scripts/check_atlas_publish.js
+2026-09-17T16:57:47.6066938Z        0.0s  node scripts/check_glyph_skin.js
+2026-09-17T16:57:47.6067225Z     1914.1s  TOTAL across 53 leaves, 4 at a time
+2026-09-17T16:57:47.6067541Z ==============================================================
+2026-09-17T16:57:47.6067856Z every leaf of 'test:ci:serial' passed
+2026-09-17T16:57:47.6125493Z ##[group]Run npm run build:html

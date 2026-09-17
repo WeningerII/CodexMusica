@@ -1,0 +1,22 @@
+test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer (__main__.ProductionDataTests.test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer)
+The model the sidecar names must be the model the tagging uses. ... FAIL
+test_explicit_work_votes_preserve_sources_and_distinct_shared_titles (__main__.ProductionDataTests.test_explicit_work_votes_preserve_sources_and_distinct_shared_titles) ... ok
+
+======================================================================
+FAIL: test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer (__main__.ProductionDataTests.test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer)
+The model the sidecar names must be the model the tagging uses.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5119e7706e0e/CodexMusica-M30-work/lyric-harness/quality/test_production_data.py", line 377, in test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer
+    self.assertEqual(silent.returncode, 0, silent.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/workspace/scratch/5119e7706e0e/CodexMusica-M30-work/lyric-harness/quality/length_curve_calibration.py", line 88, in row_provenance
+    raise ValueError("calibration provenance requires the NLTK package") from None
+ValueError: calibration provenance requires the NLTK package
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.681s
+
+FAILED (failures=1)

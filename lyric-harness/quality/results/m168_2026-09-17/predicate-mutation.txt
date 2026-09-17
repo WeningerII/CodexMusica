@@ -1,0 +1,25 @@
+✖ sweep applies advertised dotted predicates and leaves vocabulary refusal to the harness (32.674192ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1248.458893
+
+✖ failing tests:
+
+test at mcp/test_connector_contracts.mjs:31:1
+✖ sweep applies advertised dotted predicates and leaves vocabulary refusal to the harness (32.674192ms)
+  AssertionError [ERR_ASSERTION]: {"content":[{"type":"text","text":"Error: 'sections.verse>=0' is not a predicate — write NAME<=N, NAME>=N or NAME=VALUE (the names are listed in this tool's `want` description, and an undeclared one refuses by name with the whole table)"}],"isError":true}
+      at TestContext.<anonymous> (file:///workspace/scratch/4cdaa09d1e77/CodexMusica-M-168/mcp/test_connector_contracts.mjs:40:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

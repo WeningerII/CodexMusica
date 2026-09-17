@@ -40,6 +40,27 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # M-282, 2026-09-17: the full deployed-envelope matrix belongs to release
+  # qualification. Start it beside the independent runner proof; waiting for
+  # the proof would add a serial dependency without supplying an image seed
+  # (the runner and image interpreters differ). Four matrix runners can now
+  # overlap the component pool under the account cap; no faster qualification
+  # wall is claimed. CI retains its image smoke test and acceptance controls.
+  capacity-matrix:
+    uses: ./.github/workflows/capacity-matrix.yml
+
+  capacity-matrix-result:
+    name: qualification-capacity-matrix
+    needs: capacity-matrix
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Require the merged matrix from this workflow attempt
+        env:
+          RESULT: ${{ needs.capacity-matrix.result }}
+        run: test "$RESULT" = success
+
   capacity-proof:
     uses: ./.github/workflows/capacity-proof.yml
 
@@ -98,6 +119,9 @@ jobs:
   # half of the measurement: that run shared the cap with three CI runs
   # (133 jobs) and its shards waited 10-15 min for a runner before they
   # started. Dispatch qualification after CI has finished, not beside it.
+  # The 2026-09-17 matrix move adds four potential concurrent runners to that
+  # historical pool; the account cap still queues excess work. No component
+  # coverage or timeout is reduced to make room.
   component:
     needs: capacity-proof
     name: qualification-${{ matrix.component }}
@@ -379,7 +403,7 @@ jobs:
           key: qualification-${{ matrix.component }}-baseline-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
 
   qualification-result:
-    needs: [capacity-proof-result, component]
+    needs: [capacity-proof-result, capacity-matrix-result, component]
     if: always()
     runs-on: ubuntu-latest
     steps:
@@ -391,7 +415,8 @@ jobs:
         env:
           RESULT: ${{ needs.component.result }}
           CAPACITY_RESULT: ${{ needs.capacity-proof-result.result }}
-        run: test "$RESULT" = success && test "$CAPACITY_RESULT" = success
+          MATRIX_RESULT: ${{ needs.capacity-matrix-result.result }}
+        run: test "$RESULT" = success && test "$CAPACITY_RESULT" = success && test "$MATRIX_RESULT" = success
       - uses: actions/download-artifact@v4
         with:
           pattern: qualification-*-${{ github.run_attempt }}

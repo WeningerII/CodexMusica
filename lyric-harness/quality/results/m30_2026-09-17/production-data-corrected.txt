@@ -1,0 +1,28 @@
+interpreter /workspace/scratch/5119e7706e0e/m30-venv/bin/python
+source hashes {"quality/mutate.py": "9180c309950c78ffb33d706ad22999920917fde65c0c2f6c190aacabb3d428af", "quality/test_production_data.py": "90f4cb3c46849b652428e858dd85d52f08e675344239fb03473130e7deaca0cd", "quality/lyric_reader.py": "b76263a5e37b10d1c5fb3953f501560918a7efdcfbbc304872f54074b577f9e3"}
+baseline: running 1 checks unmutated (6035cefe0ffcda39521f5c75f66c535c36188fdae42119e76efb6f4929661136) ...
+  BASELINE-FAIL  quality/test_production_data.py  326.2s in 2 attempt(s), bound 600s  FAIL: test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer (__main__.ProductionDataTests.test_cal
+BASELINE: 1 test file(s) measured; 0 PASS, 1 FAIL, 0 ERROR, 0 TIMEOUT
+  EXCLUDED FAIL: 1 already-red checks
+    quality/test_production_data.py: FAIL: test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer (__main__.ProductionDataTests.test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer) | FAILED (failures=1)
+phase wall seconds 330.023
+{
+  "quality/test_production_data.py": {
+    "status": "FAIL",
+    "seconds": 154.1,
+    "detail": "FAIL: test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer (__main__.ProductionDataTests.test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer) | FAILED (failures=1)",
+    "bound_seconds": 600,
+    "attempts": [
+      {
+        "status": "FAIL",
+        "seconds": 154.1,
+        "detail": "FAIL: test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer (__main__.ProductionDataTests.test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer) | FAILED (failures=1)"
+      },
+      {
+        "status": "FAIL",
+        "seconds": 172.1,
+        "detail": "FAIL: test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer (__main__.ProductionDataTests.test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer) | FAILED (failures=1)"
+      }
+    ]
+  }
+}

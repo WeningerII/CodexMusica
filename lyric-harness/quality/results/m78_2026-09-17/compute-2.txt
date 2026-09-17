@@ -1,0 +1,4 @@
+CACHE  /tmp/claude-0/m78/memo-2.tsv
+       fingerprint 18be93ffb403 | new (no file yet) | hits 0, misses 0
+POPULATION  324 files, 324 distinct authors, 2830 items, 90789 sung lines
+COMPUTE  shard 2/4: 324 files, 2830 rows -> /tmp/claude-0/m78/rows-2.tsv; cache hits 0 misses 2830; 5279 CPU-s, 5302 wall-s

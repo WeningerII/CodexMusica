@@ -14,7 +14,7 @@ from types import SimpleNamespace
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from quality.revise import Reviser, ReviseDeclaration
 from quality.schemes import mandate
-from quality.loop import revise_loop, _try_tier2
+from quality.loop import revise_loop, _try_tier2, _anchor_obligations
 from quality.propose import parse_group, parse_batch, render_line, render_group
 from quality.recover import recover
 
@@ -26,6 +26,86 @@ class ProductionRevisionTests(unittest.TestCase):
     def setUpClass(cls):
         cls.reviser = Reviser(rdecl=ReviseDeclaration(max_rounds=2, attempts_per_line=1))
         cls.m = mandate('AA', n_lines=2, default_relation='class:ASSONANCE')
+
+    def test_empty_pivot_menu_does_not_suppress_verified_partial_repair(self):
+        # M-256: a bounded conjunction is guidance, not proof that a
+        # single-line repair cannot help. Keep the actual grader/verifier.
+        from lyric_harness import Declaration
+        lines = ['It gleamed like polished silver',
+                 'We wandered deep into the night',
+                 'The whole thing felt like a dream',
+                 'A memory of the kitchen']
+        m = mandate([[1, 3], [2, 3], [4, 3]], n_lines=4,
+                    default_relation='class:RHYME')
+        r = Reviser(decl=Declaration(admit=('RHYME', 'RIME_RICHE')),
+                    rdecl=ReviseDeclaration(max_rounds=1,
+                    attempts_per_line=1, backtrack_width=1, modal_exclusion=0))
+        repaired = list(lines)
+        repaired[2] = 'The whole thing felt like twilight'
+        self.assertTrue(r.verify(lines, repaired, m, targeted={3})['accepted'])
+        self.assertTrue(next(b for b in r.brief(lines, m)
+                             if b.line_no == 3).joint_conflict)
+        for decline in (True, False):
+            asked = []
+            def group(g):
+                return None if decline else [lines[n - 1] for n in g.members]
+            def line(b, draft, attempt, reasons=None, whole=()):
+                asked.append(b.line_no)
+                return repaired[2] if b.line_no == 3 else None
+            with self.subTest(decline=decline):
+                result = revise_loop(r, lines, m, propose=line, propose_group=group)
+                self.assertIn(3, asked)
+                self.assertEqual(result.lines, repaired)
+                records = [a for rd in result.rounds for a in rd.attempts
+                           if a.line_no == 3]
+                self.assertEqual([(a.tier, a.accepted) for a in records],
+                                 [(2, False), (1, True)])
+                self.assertTrue(records[0].asked)
+                # A partial repair must not be promoted to finished.
+                self.assertNotEqual(result.stop_reason, 'success')
+
+    def test_backtrack_obligations_follow_token_occurrence_not_spelling(self):
+        lines = ['cat cat', 'bat', 'dog', 'hat']
+        for outside, expected in [('1.head', []), ('1.T2', ['dog']),
+                                  ('1.endword', ['dog']), ('1.line', ['dog'])]:
+            m = mandate([[1, 2], [outside, 3]], n_lines=4,
+                        default_relation='class:RHYME')
+            with self.subTest(outside=outside):
+                calls, returns = _anchor_obligations(self.reviser, m, lines,
+                                                     1, 2, rewriting_label='A')
+                self.assertEqual(calls, expected)
+                self.assertEqual(returns, [])
+
+    def test_round24_l19_verdict_is_independent_of_unrelated_l7_edit(self):
+        bank = Path(__file__).parent / 'results' / 'm256_2026-09-17'
+        plan = json.loads((bank / 'round24-plan.json').read_text())
+        original = json.loads((bank / 'round24.json').read_text())['lines']
+        m = mandate([g.split(',') for g in plan['groups'].split(';')],
+                    n_lines=22, relations=plan['relations'],
+                    returns=[list(map(int, g.split(',')))
+                             for g in plan['returns'].split(';')])
+        # The plan was regenerated at the run's source SHA, not current main.
+        groups = {m.labels.index(label) for label in ('G', 'H', 'N')}
+        readings = []
+        for repair_l7 in (False, True):
+            lines = list(original)
+            lines[18] = 'Waters lap the shore in calm'
+            if repair_l7:
+                lines[6] = lines[9] = 'I seem to drift on memory'
+            grade = self.reviser.grade(lines, m, _only_groups=groups)
+            readings.append(grade)
+        for key in ('verdicts', 'violations', 'refused_obligations',
+                    'pairs_mandated', 'pairs_judged', 'pairs_refused'):
+            self.assertEqual(readings[0][key], readings[1][key], key)
+        # The historical claim of clearing every L19 group no longer holds:
+        # palm/calm fails the named relation and other pairs are refused.
+        self.assertTrue(any(v['lines'] == (16, 19) and v['label'] == 'N'
+                            for v in readings[0]['violations']))
+        self.assertGreater(readings[0]['pairs_refused'], 0)
+        print('M-256 round-24 G/H/N replay:',
+              {k: readings[0][k] for k in ('pairs_mandated', 'pairs_judged',
+                                          'pairs_refused')},
+              'L7-independent; historical all-cleared claim not reproduced')
 
     def test_band_refusal_is_not_repair_or_completion(self):
         r = self.reviser

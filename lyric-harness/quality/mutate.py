@@ -177,8 +177,8 @@ SEED = 20260811
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 
-#: Bulk data directories symlinked WHOLE: 291 of the repo's 295 MB, and read
-#: -only in every code path the suite exercises. Everything else is mirrored as
+#: Bulk data directories symlinked WHOLE, read-only in the suite's code paths.
+#: Everything else is mirrored as
 #: real directories so that a test which WRITES lands inside the shadow.
 #:
 #: That distinction is not fussiness. `quality/discriminate.py` writes
@@ -188,16 +188,15 @@ ROOT = os.path.dirname(HERE)
 #: in the working tree and be read back by the next honest run. A mutation
 #: runner that poisons the thing it is measuring is worse than none.
 #:
-#: `corpus/` is on the list for the same reason and with the same evidence:
-#: `grep -l 'kalevala_rate\|prasa_rate' quality/test_*.py` is empty, so the
-#: only two modules that write into it are reached from their own `__main__`
-#: staging paths and never from a test. It is 21 of the 23 MB a shadow tree
-#: would otherwise copy, and this runner shares a disk with five sibling
-#: sessions -- the first full audit died on ENOSPC.
+#: `corpus/` WAS shared to save 21 MB per shadow (the historical measure). Withdrawn
+#: 2026-09-17, M-30: calibration_items resolves paths before applying the
+#: repository's edition policy. A corpus symlink escapes the shadow ROOT and
+#: silently turns declared editions into external fixtures: Blake's two
+#: Garden of Love printings receive two votes instead of one. Copy corpus
+#: bytes, including large files, so the real reader keeps its classification.
 SYMLINK_DIRS = (os.path.join("data", "labels"),
                 os.path.join("data", "authority_src"),
-                os.path.join("data", "nltk"),
-                "corpus")
+                os.path.join("data", "nltk"))
 #: Files at or below this are copied; above it they are symlinked. The 16 files
 #: over the line are dictionaries and label tables, none of them written.
 COPY_MAX_BYTES = 2 * 1024 * 1024
@@ -1489,7 +1488,8 @@ def _mirror(src_dir, dst_dir, links):
                     links.append(rel)
                 else:
                     _mirror(s, d, links)
-            elif name.endswith(".py") or os.path.getsize(s) <= COPY_MAX_BYTES:
+            elif (name.endswith(".py") or rel.startswith("corpus" + os.sep)
+                  or os.path.getsize(s) <= COPY_MAX_BYTES):
                 shutil.copy2(s, d)
             else:
                 os.symlink(os.path.realpath(s), d)
@@ -1656,7 +1656,7 @@ GATE = Gate()
 #: A TABLE AND NOT ONE BIG NUMBER, deliberately. Raising the global bound to
 #: cover `test_verbs` would give a genuinely HUNG two-second suite half an
 #: hour to hang in, and the whole point of a bound is to hear about that
-#: quickly. The 57 ordinary suites keep a tight ceiling; the four outliers get
+#: quickly. Other suites keep a tight ceiling; the measured outliers get
 #: one matched to what they were measured to need.
 #:
 #: THE NUMBERS ARE ~2x THE MEASURED SERIAL RUNTIME, and the factor is not
@@ -1721,24 +1721,36 @@ def run_test(tree, rel_path, timeout=None):
     env["PYTHONHASHSEED"] = str(SEED)          # doctrine 66
     env["PYTHONDONTWRITEBYTECODE"] = "1"       # no shared/stale bytecode
     env["LYRIC_MUTATE_ACTIVE"] = "1"           # recursion guard
-    t0 = time.time()
     GATE.acquire_shared()
+    t0 = time.monotonic()
     try:
         p = subprocess.run([sys.executable, rel_path], cwd=tree, env=env,
                            capture_output=True, timeout=timeout)
     except subprocess.TimeoutExpired:
         # THE BOUND IS NAMED. It is per-suite now, so "timed out" alone leaves
         # a reader guessing which ceiling was in force (`MISSING.md` M-30).
-        return ("TIMEOUT", round(time.time() - t0, 1),
-                "timed out after %ds (this suite's declared bound)" % timeout)
+        return ("TIMEOUT", round(time.monotonic() - t0, 1),
+                f"timed out after {timeout:g}s (this suite's declared bound)")
     finally:
         GATE.release_shared()
-    dt = round(time.time() - t0, 1)
+    dt = round(time.monotonic() - t0, 1)
+    return _test_result(p, dt)
+
+
+def _test_result(p, dt):
+    """Read the same exit and diagnostic evidence on first and isolated runs."""
     if p.returncode == 0:
         return "PASS", dt, ""
     err = (p.stderr or b"").decode("utf-8", "replace")
     out = (p.stdout or b"").decode("utf-8", "replace")
     status = "ERROR" if "Traceback (most recent call last)" in err else "FAIL"
+    # unittest prints assertion tracebacks too. Its completed roll-up tells
+    # failed checks apart from errors; a traceback alone cannot do that.
+    unittest_rollup = re.findall(r"^FAILED \(([^\n]+)\)$", err, re.MULTILINE)
+    if unittest_rollup:
+        fields = {name.strip(): int(value) for name, value in
+                  re.findall(r"([a-z ]+)=(\d+)", unittest_rollup[-1])}
+        status = "ERROR" if fields.get("errors", 0) else "FAIL"
     # THE SUITE'S OWN VERDICT OUTRANKS INCIDENTAL STDERR (`MISSING.md` M-30).
     # The tail was `stderr or stdout`, so ANY line a suite's subprocesses wrote
     # to stderr became the stated cause of its failure. Measured: a best-effort
@@ -1750,13 +1762,19 @@ def run_test(tree, rel_path, timeout=None):
     rollup = [l for l in out.splitlines() if re.match(r"^\s*\d+ FAILING:", l)]
     if rollup:
         tail = rollup
+    elif unittest_rollup:
+        tail = re.findall(r"^(?:FAIL|ERROR): .+$", err, re.MULTILINE)
+        tail.append("FAILED (" + unittest_rollup[-1] + ")")
     else:
         tail = (err.strip() or out.strip()).splitlines()
     return status, dt, " | ".join(tail[-3:])[:400]
 
 
-def confirm_failure(tree, rel_path, timeout=None, attempts=3):
+def confirm_failure(tree, rel_path, timeout=None, attempts=3, observations=None):
     """Re-run a failing test with the machine to itself. -> (verdict, detail).
+
+    When supplied, observations receives each isolated attempt's status,
+    execution seconds (excluding the gate wait), and diagnostic evidence.
 
     `verdict` is one of three, and the third one was being read as the first:
 
@@ -1785,8 +1803,9 @@ def confirm_failure(tree, rel_path, timeout=None, attempts=3):
     timeout = bound_for(rel_path, timeout)
     last = "failed on every isolated re-run"
     timed_out = 0
-    for _ in range(max(1, attempts)):
+    for attempt in range(max(1, attempts)):
         GATE.acquire_exclusive()
+        started = time.monotonic()
         try:
             env = dict(os.environ)
             env["PYTHONHASHSEED"] = str(SEED)
@@ -1798,17 +1817,24 @@ def confirm_failure(tree, rel_path, timeout=None, attempts=3):
                                    timeout=timeout)
             except subprocess.TimeoutExpired:
                 timed_out += 1
-                last = "timed out on every isolated re-run (%ds)" % timeout
+                last = (f"isolated attempt {attempt + 1} timed out "
+                        f"after {timeout:g}s")
+                if observations is not None:
+                    observations.append({"status": "TIMEOUT",
+                        "seconds": round(time.monotonic() - started, 1),
+                        "detail": last})
                 continue
         finally:
             GATE.release_exclusive()
-        if p.returncode == 0:
+        status, seconds, detail = _test_result(
+            p, round(time.monotonic() - started, 1))
+        if observations is not None:
+            observations.append({"status": status, "seconds": seconds,
+                                 "detail": detail})
+        if status == "PASS":
             return "FLAKY", ("passed on an isolated re-run: LOAD-SENSITIVE, "
                              "not counted as a catch")
-        err = (p.stderr or b"").decode("utf-8", "replace")
-        out = (p.stdout or b"").decode("utf-8", "replace")
-        tail = (err.strip() or out.strip()).splitlines()
-        last = " | ".join(tail[-3:])[:400]
+        last = detail
         return "CAUGHT", last
     if timed_out:
         return "REFUSED", last
@@ -1818,6 +1844,34 @@ def confirm_failure(tree, rel_path, timeout=None, attempts=3):
 # ---------------------------------------------------------------------------
 # Baseline
 # ---------------------------------------------------------------------------
+
+def report_baseline(results, inventory=None):
+    """Disclose measured scope and exclusions, including on a cached baseline.
+
+    A timeout or crash is unavailable evidence, never an already-red check.
+    An unasked suite is outside this measurement, not an excluded detector.
+    """
+    counts = collections.Counter(r["status"] for r in results.values())
+    scope = (f" of {inventory}" if inventory is not None else "")
+    print(f"BASELINE: {len(results)}{scope} test file(s) measured; "
+          + ", ".join(f"{counts[s]} {s}"
+                      for s in ("PASS", "FAIL", "ERROR", "TIMEOUT")))
+    if inventory is not None and len(results) < inventory:
+        print(f"  NOT MEASURED: {inventory - len(results)} test file(s); "
+              "no whole-inventory coverage claim")
+    for status, label in (("FAIL", "already-red checks"),
+                          ("ERROR", "crashed; health not established"),
+                          ("TIMEOUT", "UNRUNNABLE within the declared bound")):
+        rows = sorted(t for t, r in results.items() if r["status"] == status)
+        if not rows:
+            continue
+        print(f"  EXCLUDED {status}: {len(rows)} {label}")
+        for t in rows:
+            print(f"    {t}: {results[t].get('detail', '')[:400]}")
+    if counts["TIMEOUT"]:
+        print("  Raise --timeout and remeasure the excluded workloads; "
+              "a timeout is not a failing check or a passing sweep.")
+
 
 def source_fingerprint():
     """Hash executable source, every input file, sibling contracts and runtime.
@@ -1899,7 +1953,9 @@ def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
     if not todo:
         print(f"baseline: cached ({fp}) -- {len(tests)} test file(s), all "
               f"held at this fingerprint")
-        return {t: have[t] for t in tests}
+        results = {t: have[t] for t in tests}
+        report_baseline(results)
+        return results
     if have:
         print(f"baseline: {len(have)} test file(s) held at this fingerprint, "
               f"{len(todo)} of the {len(tests)} asked for still to run")
@@ -1912,6 +1968,7 @@ def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
             for f in futures.as_completed(fs):
                 t = fs[f]
                 st, dt, tail = f.result()
+                observations = [{"status": st, "seconds": dt, "detail": tail}]
                 if st != "PASS":
                     # EVERY BASELINE RED IS RE-CONFIRMED, 2026-08-22, and this
                     # module's own comment on `LOAD_SENSITIVE` asked for it:
@@ -1932,14 +1989,17 @@ def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
                     # and confirming every one of them would multiply the
                     # sweep's cost by its catch rate. The BASELINE is run once,
                     # its reds are few, and only the reds pay.
-                    verdict, detail = confirm_failure(tree, t, timeout)
-                    if verdict == "FLAKY":
-                        st, tail = "PASS", ""
-                    else:
-                        tail = detail
-                results[t] = {"status": st, "seconds": dt, "detail": tail}
-                if st != "PASS":
-                    print(f"  BASELINE-RED  {t}  ({st})  {tail[:120]}")
+                    confirm_failure(tree, t, timeout, observations=observations)
+                    # The isolated result determines health, not the initial
+                    # status. TIMEOUT -> FAIL and FAIL -> TIMEOUT both occur.
+                    st, tail = observations[-1]["status"], observations[-1]["detail"]
+                results[t] = {"status": st, "seconds": dt, "detail": tail,
+                              "bound_seconds": bound_for(t, timeout),
+                              "attempts": observations}
+                cost = sum(r["seconds"] for r in observations)
+                print(f"  BASELINE-{st}  {t}  {cost:.1f}s in "
+                      f"{len(observations)} attempt(s), "
+                      f"bound {bound_for(t, timeout)}s  {tail[:120]}", flush=True)
     finally:
         shutil.rmtree(shadow_root(tree), ignore_errors=True)
     have.update(results)
@@ -1947,33 +2007,7 @@ def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
         json.dump({"fingerprint": fp, "config": config, "results": have},
                   open(cache_path, "w"), indent=1)
     results = {t: have[t] for t in tests}
-    green = [t for t, r in results.items() if r["status"] == "PASS"]
-    # TWO REASONS A SUITE LEAVES THE BASELINE, AND THEY ARE NEVER SUMMED
-    # (doctrine 79/20). A suite with a red check IS already-red and the
-    # mutation sweep is right to skip it. A suite that TIMED OUT is not red at
-    # all — it is unrunnable inside this bound, and every mutation only that
-    # suite could catch is now unguarded for a reason that has nothing to do
-    # with the suite's health. Both were printed as "excluded as already-red",
-    # which charges a healthy suite with a failure it did not have and hides
-    # the real remedy (raise the bound) behind the wrong one (fix the test).
-    #
-    # MEASURED 2026-08-22, and it is live rather than hypothetical:
-    # `quality/test_capacity.py` runs in 430s against this module's 420s
-    # default, so the ONE suite in the tree that re-derives 12,387 rhyme
-    # families is excluded from every mutation sweep, by ten seconds, and the
-    # summary said it was red.
-    unrunnable = sorted(t for t, r in results.items()
-                        if r["status"] == "TIMEOUT")
-    red = sorted(t for t, r in results.items()
-                 if r["status"] not in ("PASS", "TIMEOUT"))
-    print(f"baseline: {len(green)}/{len(tests)} green, "
-          f"{len(red)} excluded as already-red, "
-          f"{len(unrunnable)} excluded as UNRUNNABLE at their own declared "
-          f"bound (not red — inconclusive, doctrine 20)")
-    if unrunnable:
-        print("  UNRUNNABLE: " + ", ".join(unrunnable))
-        print("  Every mutation only these could catch is UNGUARDED in this "
-              "run. Raise --timeout; do not read this as a passing sweep.")
+    report_baseline(results)
     return results
 
 
@@ -2328,18 +2362,7 @@ def report(results, baseline_results, elapsed, mode, bounded=None,
     print("=" * 78)
     print(f"MUTATION REPORT  ({mode} mode, seed {SEED})")
     print("=" * 78)
-    if inventory is not None:
-        # Which suites the unmutated baseline covered, said once at the top
-        # (M-276): the declared detectors alone over a sweep in which every
-        # subset caught its mutation, the whole inventory over one that
-        # escalated. A reader of the EXCLUDED block below has to know which
-        # population it was drawn from.
-        print(f"BASELINE over {len(baseline_results)} of {inventory} test "
-              f"file(s)"
-              + (" -- the whole inventory" if len(baseline_results) >= inventory
-                 else " -- the suites these mutations declare; the rest were "
-                      "never needed because no subset missed"))
-        print()
+    report_baseline(baseline_results, inventory)
     if bounded:
         # Printed FIRST, above the excluded-at-baseline block, because it
         # changes what every line below it means. "SURVIVED" under a bounded
@@ -2350,13 +2373,6 @@ def report(results, baseline_results, elapsed, mode, bounded=None,
               f"means 'survived these', NOT 'survived the suite':")
         for t in bounded:
             print(f"    {t}")
-        print()
-    red = [t for t, r in baseline_results.items() if r["status"] != "PASS"]
-    if red:
-        print("EXCLUDED, already red at baseline (cannot distinguish anything):")
-        for t in red:
-            print(f"  {t}  {baseline_results[t]['status']}  "
-                  f"{baseline_results[t]['detail'][:90]}")
         print()
     print(f"{'mut':5s} {'layer':11s} {'scope':22s} caught by")
     print("-" * 78)

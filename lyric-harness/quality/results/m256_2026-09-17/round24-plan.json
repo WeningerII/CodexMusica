@@ -1,0 +1,538 @@
+{
+  "plan_version": 2,
+  "request": {
+    "form": "verse-chorus",
+    "lines": 22,
+    "seed": 1000
+  },
+  "envelope": {
+    "beats_per_line": [2, 12],
+    "slots_per_line": [5, 48],
+    "lines_per_section": [1, 447],
+    "sections": [1, 111],
+    "total_lines": [12, 447],
+    "subdivisions": [1, 2, 4],
+    "bars_per_line": [1, 6],
+    "anacrusis": [0.0, 0.25, 0.5, 0.75, 1.0],
+    "body_cells": [1, 447]
+  },
+  "choices": {
+    "pattern": {
+      "functions": [
+        "vamp",
+        "prechorus",
+        "chorus",
+        "chorus",
+        "postchorus",
+        "verse",
+        "bridge",
+        "coda"
+      ],
+      "chosen_from": "generated grammar: 22 cell types x (1, 447) cells, optional intro/outro/coda, roster 20 of 22 functions"
+    },
+    "meter": {
+      "value": {
+        "beats": 12,
+        "unit": 8,
+        "groups": [3, 2, 2, 3, 2]
+      },
+      "beats_per_line": 12,
+      "slots_per_line": 24,
+      "chosen_from": "178 derived cycles (beats envelope [2, 12], slots envelope [5, 48]), measured BY DERIVATION ON THE DECLARED COORDINATE: 1 of 11 beats-per-line values, then 1 of 15 bars x subdivision factorisation(s) of 12 beats, then 1 of 12 groupings of 12. The line runs 12 beat(s) \u2014 at most the density band's ceiling, since a sung line carries at least one syllable a beat \u2014 and holds 24 slot(s), at least the band's floor. Both ends are the same calibrated band in different units; the pair share follows from how many ways each beat count factorises. Unit is notation, never enforced"
+    },
+    "placements": {
+      "pool": ["end", "endword", "head", "headrime", "T1", "T2", "T3", "T4", "T5", "T6", "T7"],
+      "words": ["1", "2", "3", "4", "5", "6", "7", "last"],
+      "measure": "uniform per MEMBER over the pool; per member and not per group because 8 of the 77 registered schemas anchor one member at each end of a word",
+      "token_ceiling": 7,
+      "token_ceiling_from": "the smaller of the floor's measured tokens-per-line floor 7.25 and this plan's own shortest line (12 syllable(s) after its pickup) less one for the last word \u2014 a plan asks for the n-th word only where BOTH the calibration and this meter say a line carries that many"
+    },
+    "schemes": {
+      "vamp": {
+        "rgs": [0, 0, 0],
+        "chosen_from": 4,
+        "lines": 3,
+        "lines_chosen_from": [1, 447]
+      },
+      "prechorus": {
+        "rgs": [0],
+        "chosen_from": 1,
+        "lines": 1,
+        "lines_chosen_from": [1, 447]
+      },
+      "chorus": {
+        "rgs": [0, 1, 1],
+        "chosen_from": 4,
+        "lines": 3,
+        "lines_chosen_from": [1, 447]
+      },
+      "postchorus": {
+        "rgs": [0, 0, 1, 2, 0],
+        "chosen_from": 51,
+        "lines": 5,
+        "lines_chosen_from": [1, 447]
+      },
+      "verse": {
+        "rgs": [0, 0, 1, 0],
+        "chosen_from": 14,
+        "lines": 4,
+        "lines_chosen_from": [1, 447]
+      },
+      "bridge": {
+        "rgs": [0],
+        "chosen_from": 1,
+        "lines": 1,
+        "lines_chosen_from": [1, 447]
+      },
+      "coda": {
+        "rgs": [0, 0],
+        "chosen_from": 1,
+        "lines": 2,
+        "lines_chosen_from": [1, 447]
+      }
+    },
+    "structures": {
+      "vamp": {
+        "name": "english-end-rhyme",
+        "chosen_from": ["english-end-rhyme"]
+      },
+      "prechorus": {
+        "name": "english-end-rhyme",
+        "chosen_from": ["english-end-rhyme"]
+      },
+      "chorus": {
+        "name": "english-end-rhyme",
+        "chosen_from": ["english-end-rhyme"]
+      },
+      "postchorus": {
+        "name": "english-end-rhyme",
+        "chosen_from": ["english-end-rhyme"]
+      },
+      "verse": {
+        "name": "english-end-rhyme",
+        "chosen_from": ["english-end-rhyme"]
+      },
+      "bridge": {
+        "name": "english-end-rhyme",
+        "chosen_from": ["english-end-rhyme"]
+      },
+      "coda": {
+        "name": "english-end-rhyme",
+        "chosen_from": ["english-end-rhyme"]
+      }
+    },
+    "anacrusis": {
+      "vamp": {
+        "value": 1.0,
+        "chosen_from": [0.0, 0.5, 1.0]
+      },
+      "prechorus": {
+        "value": 0.0,
+        "chosen_from": [0.0, 0.5, 1.0]
+      },
+      "chorus": {
+        "value": 0.0,
+        "chosen_from": [0.0, 0.5, 1.0]
+      },
+      "postchorus": {
+        "value": 0.5,
+        "chosen_from": [0.0, 0.5, 1.0]
+      },
+      "verse": {
+        "value": 0.0,
+        "chosen_from": [0.0, 0.5, 1.0]
+      },
+      "bridge": {
+        "value": 0.5,
+        "chosen_from": [0.0, 0.5, 1.0]
+      },
+      "coda": {
+        "value": 0.0,
+        "chosen_from": [0.0, 0.5, 1.0]
+      }
+    },
+    "bars_per_line": 1,
+    "subdivision": 2,
+    "density": {
+      "binding_cap": 2,
+      "chosen_from": "uniform over 1..4 per PLAN (the line-binding ceiling), from a stream seeded on (seed, 'density'); each line then draws its participation uniform over 1..2, and the end-rhyme pass binds free line ends on top (M-191)"
+    },
+    "end_rhyme": {
+      "added": 4,
+      "blocked": 1,
+      "narrow": 0,
+      "groups": ["1,2,3", "6,7", "11,12,15", "16,17,19"],
+      "chosen_from": "NOT A DRAW \u2014 each sung section's own `schemes[fn].rgs` re-realised at the line ends, so this consumes no seed entropy and the placement draw above is untouched. Three counts, never summed (doctrine 79): `added` groups emitted; `blocked` blocks whose ends the placement draw had already spent; `narrow` blocks whose lines cannot carry one more DISTINCT word."
+    },
+    "relations": {
+      "chosen_from": "uniform per group over the bare default plus the 22 certified drawable schemas (relations.DRAWABLE_SCHEMAS, witness-certified \u2014 M-117). The bare default lands on 1 draw in 23, a rarity this disclosure exists to hand the owner, exactly as the placement draw's `end` share was. A group binding declared tokens draws only from the schemas the pair route can bind there (relations.pair_bindable, M-149a); the rest stay drawable at default slots",
+      "value": {
+        "A": "schema:internal rhyme",
+        "B": "schema:family rhyme",
+        "C": "schema:analysed rhyme",
+        "D": "schema:perfect rhyme",
+        "E": "schema:pantun ABAB",
+        "F": "schema:internal rhyme",
+        "G": "schema:consonance",
+        "H": "schema:anaphora",
+        "I": "schema:pararhyme",
+        "J": "schema:cluster consonance / skothending span",
+        "K": "schema:pantun ABAB",
+        "L": "schema:light rhyme",
+        "M": "schema:monorhyme / leash",
+        "N": "schema:cluster consonance / skothending span"
+      }
+    },
+    "narrative": {
+      "chosen_from": "uniform over the 257472 legal story line-ups of this shape (quality/narrative.py, M-121; the count is exact and the draw is entropy-last)",
+      "value": {
+        "mode": "drawn",
+        "lineups": 257472,
+        "atoms": [
+          [0, "vamp", "DWELL"],
+          [1, "prechorus", "DWELL"],
+          [2, "chorus", "ANCHOR"],
+          [3, "chorus", "ANCHOR"],
+          [4, "postchorus", "JUDGE"],
+          [5, "verse", "COMPLICATE"],
+          [6, "bridge", "TURN"],
+          [7, "coda", "DEPART"]
+        ],
+        "junctions": [
+          [0, 1, "JUXTAPOSE"],
+          [1, 2, "JUXTAPOSE"],
+          [2, 3, "THEREFORE"],
+          [3, 4, "AND_THEN"],
+          [4, 5, "THEREFORE"],
+          [5, 6, "BUT"],
+          [6, 7, "THEREFORE"]
+        ]
+      }
+    },
+    "audible": {
+      "end_bound": 4,
+      "audible": 3,
+      "bare": 0,
+      "inaudible": ["cluster consonance / skothending span"],
+      "audible_names": ["pantun ABAB", "light rhyme", "monorhyme / leash"]
+    }
+  },
+  "total_lines": 22,
+  "sections": [
+    {
+      "name": "VAMP1",
+      "function": "vamp",
+      "bars": 3,
+      "start_bar": 1,
+      "meter": {
+        "beats": 12,
+        "unit": 8,
+        "groups": [3, 2, 2, 3, 2]
+      }
+    },
+    {
+      "name": "PRECHORUS1",
+      "function": "prechorus",
+      "bars": 1,
+      "start_bar": 4,
+      "meter": {
+        "beats": 12,
+        "unit": 8,
+        "groups": [3, 2, 2, 3, 2]
+      }
+    },
+    {
+      "name": "CHORUS1",
+      "function": "chorus",
+      "bars": 3,
+      "start_bar": 5,
+      "meter": {
+        "beats": 12,
+        "unit": 8,
+        "groups": [3, 2, 2, 3, 2]
+      }
+    },
+    {
+      "name": "CHORUS2",
+      "function": "chorus",
+      "bars": 3,
+      "start_bar": 8,
+      "meter": {
+        "beats": 12,
+        "unit": 8,
+        "groups": [3, 2, 2, 3, 2]
+      }
+    },
+    {
+      "name": "POSTCHORUS1",
+      "function": "postchorus",
+      "bars": 5,
+      "start_bar": 11,
+      "meter": {
+        "beats": 12,
+        "unit": 8,
+        "groups": [3, 2, 2, 3, 2]
+      }
+    },
+    {
+      "name": "VERSE1",
+      "function": "verse",
+      "bars": 4,
+      "start_bar": 16,
+      "meter": {
+        "beats": 12,
+        "unit": 8,
+        "groups": [3, 2, 2, 3, 2]
+      }
+    },
+    {
+      "name": "BRIDGE1",
+      "function": "bridge",
+      "bars": 1,
+      "start_bar": 20,
+      "meter": {
+        "beats": 12,
+        "unit": 8,
+        "groups": [3, 2, 2, 3, 2]
+      }
+    },
+    {
+      "name": "CODA1",
+      "function": "coda",
+      "bars": 2,
+      "start_bar": 21,
+      "meter": {
+        "beats": 12,
+        "unit": 8,
+        "groups": [3, 2, 2, 3, 2]
+      }
+    }
+  ],
+  "line_slots": [
+    {
+      "line": 1,
+      "section": "VAMP1",
+      "function": "vamp",
+      "bar": 1,
+      "beat": 2.0,
+      "duration": 11.0
+    },
+    {
+      "line": 2,
+      "section": "VAMP1",
+      "function": "vamp",
+      "bar": 2,
+      "beat": 2.0,
+      "duration": 11.0
+    },
+    {
+      "line": 3,
+      "section": "VAMP1",
+      "function": "vamp",
+      "bar": 3,
+      "beat": 2.0,
+      "duration": 11.0
+    },
+    {
+      "line": 4,
+      "section": "PRECHORUS1",
+      "function": "prechorus",
+      "bar": 4,
+      "beat": 1.0,
+      "duration": 12.0
+    },
+    {
+      "line": 5,
+      "section": "CHORUS1",
+      "function": "chorus",
+      "bar": 5,
+      "beat": 1.0,
+      "duration": 12.0
+    },
+    {
+      "line": 6,
+      "section": "CHORUS1",
+      "function": "chorus",
+      "bar": 6,
+      "beat": 1.0,
+      "duration": 12.0
+    },
+    {
+      "line": 7,
+      "section": "CHORUS1",
+      "function": "chorus",
+      "bar": 7,
+      "beat": 1.0,
+      "duration": 12.0
+    },
+    {
+      "line": 8,
+      "section": "CHORUS2",
+      "function": "chorus",
+      "bar": 8,
+      "beat": 1.0,
+      "duration": 12.0
+    },
+    {
+      "line": 9,
+      "section": "CHORUS2",
+      "function": "chorus",
+      "bar": 9,
+      "beat": 1.0,
+      "duration": 12.0
+    },
+    {
+      "line": 10,
+      "section": "CHORUS2",
+      "function": "chorus",
+      "bar": 10,
+      "beat": 1.0,
+      "duration": 12.0
+    },
+    {
+      "line": 11,
+      "section": "POSTCHORUS1",
+      "function": "postchorus",
+      "bar": 11,
+      "beat": 1.5,
+      "duration": 11.5
+    },
+    {
+      "line": 12,
+      "section": "POSTCHORUS1",
+      "function": "postchorus",
+      "bar": 12,
+      "beat": 1.5,
+      "duration": 11.5
+    },
+    {
+      "line": 13,
+      "section": "POSTCHORUS1",
+      "function": "postchorus",
+      "bar": 13,
+      "beat": 1.5,
+      "duration": 11.5
+    },
+    {
+      "line": 14,
+      "section": "POSTCHORUS1",
+      "function": "postchorus",
+      "bar": 14,
+      "beat": 1.5,
+      "duration": 11.5
+    },
+    {
+      "line": 15,
+      "section": "POSTCHORUS1",
+      "function": "postchorus",
+      "bar": 15,
+      "beat": 1.5,
+      "duration": 11.5
+    },
+    {
+      "line": 16,
+      "section": "VERSE1",
+      "function": "verse",
+      "bar": 16,
+      "beat": 1.0,
+      "duration": 12.0
+    },
+    {
+      "line": 17,
+      "section": "VERSE1",
+      "function": "verse",
+      "bar": 17,
+      "beat": 1.0,
+      "duration": 12.0
+    },
+    {
+      "line": 18,
+      "section": "VERSE1",
+      "function": "verse",
+      "bar": 18,
+      "beat": 1.0,
+      "duration": 12.0
+    },
+    {
+      "line": 19,
+      "section": "VERSE1",
+      "function": "verse",
+      "bar": 19,
+      "beat": 1.0,
+      "duration": 12.0
+    },
+    {
+      "line": 20,
+      "section": "BRIDGE1",
+      "function": "bridge",
+      "bar": 20,
+      "beat": 1.5,
+      "duration": 11.5
+    },
+    {
+      "line": 21,
+      "section": "CODA1",
+      "function": "coda",
+      "bar": 21,
+      "beat": 1.0,
+      "duration": 12.0
+    },
+    {
+      "line": 22,
+      "section": "CODA1",
+      "function": "coda",
+      "bar": 22,
+      "beat": 1.0,
+      "duration": 12.0
+    }
+  ],
+  "hook_slot": 5,
+  "hook_slot_refused": "",
+  "relation": "",
+  "title": "",
+  "functions": [],
+  "functions_unused": [],
+  "groups": "1.T7,2.T3,3.T7;6.T7,7.T7;5,7.T2;11.T6,12.T2,15.T6;12.T6,14.head;13.T2,15.head;16.T7,17.T2,19.T5;16.T5,18.T2,19.head;21.T7,22.T5;21.T2,22;1,2,3;6,7;11,12,15;16,17,19",
+  "returns": "5,8;6,9;7,10",
+  "subdivision": 2,
+  "relations": {
+    "A": "schema:internal rhyme",
+    "B": "schema:family rhyme",
+    "C": "schema:analysed rhyme",
+    "D": "schema:perfect rhyme",
+    "E": "schema:pantun ABAB",
+    "F": "schema:internal rhyme",
+    "G": "schema:consonance",
+    "H": "schema:anaphora",
+    "I": "schema:pararhyme",
+    "J": "schema:cluster consonance / skothending span",
+    "K": "schema:pantun ABAB",
+    "L": "schema:light rhyme",
+    "M": "schema:monorhyme / leash",
+    "N": "schema:cluster consonance / skothending span"
+  },
+  "narrative": {
+    "mode": "drawn",
+    "lineups": 257472,
+    "atoms": [
+      [0, "vamp", "DWELL"],
+      [1, "prechorus", "DWELL"],
+      [2, "chorus", "ANCHOR"],
+      [3, "chorus", "ANCHOR"],
+      [4, "postchorus", "JUDGE"],
+      [5, "verse", "COMPLICATE"],
+      [6, "bridge", "TURN"],
+      [7, "coda", "DEPART"]
+    ],
+    "junctions": [
+      [0, 1, "JUXTAPOSE"],
+      [1, 2, "JUXTAPOSE"],
+      [2, 3, "THEREFORE"],
+      [3, 4, "AND_THEN"],
+      [4, 5, "THEREFORE"],
+      [5, 6, "BUT"],
+      [6, 7, "THEREFORE"]
+    ]
+  },
+  "writer_brief": "Write a song: 22 lines, 8 sections, in this order:\n  [VAMP \u2014 3 lines \u2014 3 bars of 12/8, one-beat pickup]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\n  [PRECHORUS \u2014 1 line \u2014 1 bar of 12/8]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\n  [CHORUS \u2014 3 lines \u2014 3 bars of 12/8]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\n  [CHORUS \u2014 3 lines \u2014 3 bars of 12/8]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\n  [POSTCHORUS \u2014 5 lines \u2014 5 bars of 12/8, half-beat pickup]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\n  [VERSE \u2014 4 lines \u2014 4 bars of 12/8]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\n  [BRIDGE \u2014 1 line \u2014 1 bar of 12/8, half-beat pickup]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\n  [CODA \u2014 2 lines \u2014 2 bars of 12/8]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\nFeel: 12/8 grouped 3+2+2+3+2.\nRhyme plan (line numbers over the whole song):\n  lines 1.T7 & 2.T3 & 3.T7 stand in internal rhyme \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 6.T7 & 7.T7 stand in family rhyme \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 5 & 7.T2 stand in analysed rhyme \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 11.T6 & 12.T2 & 15.T6 stand in perfect rhyme \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 12.T6 & 14.head stand in pantun ABAB \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 13.T2 & 15.head stand in internal rhyme \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 16.T7 & 17.T2 & 19.T5 stand in consonance \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 16.T5 & 18.T2 & 19.head stand in anaphora \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 21.T7 & 22.T5 stand in pararhyme \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 21.T2 & 22 stand in cluster consonance / skothending span \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 1 & 2 & 3 stand in pantun ABAB \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 6 & 7 stand in light rhyme \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 11 & 12 & 15 stand in monorhyme / leash \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 16 & 17 & 19 stand in cluster consonance / skothending span \u2014 a NAMED relation, judged as itself, not as plain rhyme\nStory plan (one job per sung section; each enters from the section before it as stated):\n  VAMP1 holds the moment and deepens it, without advancing\n  PRECHORUS1 holds the moment and deepens it, without advancing \u2014 set beside (connection unstated) VAMP1\n  CHORUS1 is the fixed claim the song keeps returning to \u2014 set beside (connection unstated) PRECHORUS1\n  CHORUS2 is the fixed claim the song keeps returning to \u2014 because of CHORUS1\n  POSTCHORUS1 is a compressed verdict on what has happened \u2014 after CHORUS2\n  VERSE1 lets the pressure in \u2014 because of POSTCHORUS1\n  BRIDGE1 flips the reading of everything before it \u2014 against VERSE1\n  CODA1 is the leave-taking \u2014 the walk home \u2014 because of BRIDGE1\nEvery chorus after the first repeats the first chorus word for word, line for line.\nLine 5 is the hook \u2014 make it the line someone leaves humming.\nWhere a binding sits (a bare line number is its end word, read as a rhyme span):\n  T7: word 7, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T3: word 3, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T2: word 2, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T6: word 6, read as a rhyme span \u2014 from its last stressed syllable to its end\n  head: the first word, its first syllable \u2014 the head-rhyme / alliteration reading\n  T5: word 5, read as a rhyme span \u2014 from its last stressed syllable to its end\nWhat each named relation asks of the bound words:\n  internal rhyme: the bound words agree on nucleus, coda; different words, judged inside the line \u2014 NOT heard as end rhyme\n  family rhyme: the bound words agree on nucleus; coda agree by CLASS, not sound (declared manner partition); different words, judged at the line end \u2014 NOT heard as end rhyme\n  analysed rhyme: the bound words agree on nucleus; differ on coda; different words, judged at the line end \u2014 NOT heard as end rhyme\n  perfect rhyme (also: full rhyme): the bound words agree on nucleus, coda, onset (after the stressed syllable), prominence; differ on onset (at the stressed syllable); neither word runs on past the rhyme; different words, judged at the line end\n  pantun ABAB: the bound words agree on nucleus, coda; different words, judged at the line end\n  consonance: the bound words agree on coda; differ on nucleus; different words, judged at the line end \u2014 NOT heard as end rhyme\n  anaphora: the bound words agree on token; the same word, judged at the line head \u2014 NOT heard as end rhyme\n  pararhyme: the bound words agree on onset, coda; differ on nucleus; different words, judged at the line end \u2014 NOT heard as end rhyme\n  cluster consonance / skothending span: the bound words differ on nucleus; consonants judged by SEQUENCE-AGREE; different words, judged at the line end \u2014 NOT heard as end rhyme\n  light rhyme (also: anisobaric): the bound words agree on nucleus, coda; differ on prominence; different words, judged at the line end\n  monorhyme / leash: the bound words agree on nucleus, coda; different words, judged at the line end"
+}

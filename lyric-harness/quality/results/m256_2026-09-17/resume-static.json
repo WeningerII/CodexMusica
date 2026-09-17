@@ -1,0 +1,26 @@
+[
+  {
+    "argv": ["npm", "run", "lint"],
+    "exit_code": 0,
+    "elapsed_s": 8.41,
+    "output": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> codex-music-tool@2.0.0 lint\n> eslint .\n\n"
+  },
+  {
+    "argv": ["npm", "run", "check-docs"],
+    "exit_code": 0,
+    "elapsed_s": 56.64,
+    "output": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> codex-music-tool@2.0.0 check-docs\n> node scripts/check_docs.js && node scripts/check_doc_commands.js && node scripts/check_doc_paths.js && node scripts/check_doc_behaviors.js\n\n=== Documentation verification ===\n(149 active docs scanned: *.md + llms.txt + index.html + atlas.html; CHANGELOG/tests + codex.html excluded)\n\n[NUMERIC CLAIMS]  (22 count types)\n  \u2713 All canonical counts match current catalog state.\n\n[SCRIPT REFERENCES]  (82 unique refs across active docs)\n  \u2713 All script refs resolve to existing files.\n\nPASS \u2014 no drift detected.\n(Run with --with-audits for fast audit-count checks, or --all for full sweep.)\n=== Documented command execution (13 concrete commands) ===\nPASS \u2014 all 13 documented script commands exit 0.\n=== Documented path existence ===\n  present 247   ignored 0   declared-unreproducible 8   MISSING 0\n  (four counts, never summed \u2014 doctrine 79)\nPASS \u2014 every documented path is present, git-ignored, or declared unreproducible.\n=== Documented behavior assertions (8) ===\nPASS \u2014 all 8 documented behaviors hold.\n"
+  },
+  {
+    "argv": ["npm", "run", "check:closure"],
+    "exit_code": 0,
+    "elapsed_s": 9.6,
+    "output": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> codex-music-tool@2.0.0 check:closure\n> node scripts/check_build_closure.js\n\n=== Build closure is sound ===\n\n  \u2713 all 7895 tracked files classified \u2014 4822 in closure, 3073 inert\n  \u2713 all 32 file(s) read by a real build of all three artifacts are in the closure\n  \u2713 all 3 artifact builders actually ran under the tracer\n\nBUILD CLOSURE: PASS \u2014 every tracked file is classified, and every file a real build\nof api/ + codex.html + the discovery files reads is inside the closure.\n"
+  },
+  {
+    "argv": ["npm", "run", "check:promises"],
+    "exit_code": 0,
+    "elapsed_s": 0.35,
+    "output": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> codex-music-tool@2.0.0 check:promises\n> node scripts/check_promises.js\n\n=== Promise->gate coverage (bijection across docs / registry / gates) ===\nPASS \u2014 all 24 promises are documented AND gated; 0 orphans on any side.\n"
+  }
+]

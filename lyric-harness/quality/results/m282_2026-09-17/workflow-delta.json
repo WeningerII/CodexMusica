@@ -1,0 +1,20 @@
+[
+  {
+    "file": ".github/workflows/capacity-matrix.yml",
+    "added_jobs": [],
+    "removed_jobs": [],
+    "changed_jobs": []
+  },
+  {
+    "file": ".github/workflows/ci.yml",
+    "added_jobs": [],
+    "removed_jobs": ["capacity-matrix", "capacity-matrix-result"],
+    "changed_jobs": []
+  },
+  {
+    "file": ".github/workflows/production-qualification.yml",
+    "added_jobs": ["capacity-matrix", "capacity-matrix-result"],
+    "removed_jobs": [],
+    "changed_jobs": ["qualification-result"]
+  }
+]

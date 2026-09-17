@@ -1,0 +1,77 @@
+✔ inspection classifies the real plan count refusal and groups exact repeated headlines (355.365826ms)
+✔ inspection keeps kitchen clocks, recovery phase and unknown spend without private payloads (1.896393ms)
+✔ inspection distinguishes corrupt or missing evidence and strips private driver tails (2.233422ms)
+✔ the archive summary CLI exposes diagnostics after encrypted restore without running a battery (182.299708ms)
+✔ archive round trip preserves every byte and restores private permissions (7.610363ms)
+✔ wrong key or ciphertext tampering creates no restore tree (13.852809ms)
+✔ seal refuses symlink sources and leaves prior archive and plaintext intact (10.797966ms)
+✔ restore refuses existing destinations and symlinked ancestors (9.043094ms)
+✔ authenticated malicious paths and duplicate entries cannot partially restore (7.834452ms)
+✔ safe public summary cannot carry capability-bearing strings or nested metadata (0.811151ms)
+✔ workflow validates the secret before paid work and uploads no plaintext path (15.072202ms)
+ok 1 - declared 500 ms budget owns socket setup and delivery
+ok 2 - declared 40 ms budget owns socket setup and delivery
+ok 3 - failed identity probe preserves the cause and never sends paid work
+ok 4 - persistent paced429 cannot borrow ordinary retry budget
+ok 5 - paced wait sum never admits a retry exceeding its remaining budget
+ok 6 - post-header aborted settles with durable transport outcome
+ok 7 - post-header invalid-json settles with durable transport outcome
+ok 8 - post-header deadline settles with durable transport outcome
+ok 9 - kill during first request leaves intent; resume retrieves completion without repeating POST
+ok 10 - ambiguous missing job is never reissued on resume
+ok 11 - cancelled kitchen continuation distinguishes replayed outcomes
+ok 12 - cancelled kitchen continuation distinguishes rejected outcomes
+ok 13 - cancelled kitchen continuation distinguishes applied outcomes
+ok 14 - cancelled kitchen continuation distinguishes missing outcomes
+ok 15 - cancelled kitchen continuation distinguishes idle-disabled outcomes
+ok 16 - wall canary replays the exact durable checkpoint into a clean verified application
+ok 17 - wall canary replays the exact durable checkpoint into a parked verified application
+ok 18 - wall receipts refuse fabricated progress, changed identity, and incomplete replay
+ok 19 - wall progress compares the exact prior applied identity set independently of lexical ordering
+ok 20 - actual native nested replay measures only advancement beyond the preserved accepted frontier
+ok 21 - wall continuation retains the actual parked artifact and declarations
+ok 22 - actual wall HTTP refused-not-run cannot pass the canary
+ok 23 - actual wall HTTP missing-inventory cannot pass the canary
+ok 24 - explicit resume can continue interrupted signed checkpoint with a new request ID
+ok 25 - aggregate admission refuses a request that cannot finish before delivery reserve
+ok 26 - multi-song finished policy has an explicit outcome
+ok 27 - multi-song survey policy has an explicit outcome
+ok 28 - wrong live SHA refuses paid request
+ok 29 - pending job is polled to its actual completion without a second paid POST
+ok 30 - measurement requires durable recovery before spending
+ok 31 - same commit with changed configuration stops before the next paid turn
+ok 32 - partial upstream429 preserves the envelope and honors its pacing hint
+ok 33 - actual job-router persistence503 recovers and never enters ordinary retry
+ok 34 - actual retired receipt refuses replay after its full response was evicted
+ok 35 - uncertain proposal stops automatic continuation and plain resume
+ok 36 - measurement refuses incomplete fingerprint identity even with durable recovery
+ok 37 - interrupted proposal uncertainty is terminal even when its signed checkpoint survives
+ok 38 - job receipt detects a deployment between health probe and paid request
+ok 39 - completion rejects blank delivery
+ok 40 - completion rejects earlier success followed by unfinished result
+ok 41 - completion rejects HTTP200 error after success
+ok 42 - completion rejects changed final draft under old receipt
+ok 43 - terminal checkpoint restores verdict lost before summary write without another request
+ok 44 - multi-song resume restores a lost failed verdict instead of passing a sparse summary
+ok 45 - a bare signed empty wall cannot satisfy the continuation canary
+ok 46 - mandatory remote recovery refuses before any paid POST when unavailable
+ok 47 - verified receipt keeps complete request latency rather than the final lookup latency
+ok 48 - error checkpoint (top-level) is retained and resumed without retrying the stale envelope
+ok 49 - error checkpoint (nested) is retained and resumed without retrying the stale envelope
+ok 50 - durable continuation uses only the parent receipt, including large signed state
+ok 51 - stale continuation follows the existing successor without another paid branch
+51 battery lifecycle checks passed
+✔ mcp/test_battery_lifecycle.mjs (14337.293553ms)
+✔ 480 identical recovery polls retain a full checkpoint without inflating the journal beyond archive limits (7647.512726ms)
+✔ recording capacity stops before POST and leaves a sealed resumable checkpoint (1780.963378ms)
+✔ per-file recording headroom stops before a permitted archive file can overflow (793.243106ms)
+✔ resume refuses a missing historical journal segment before any new POST (467.127858ms)
+✔ rolled attempt segments replay a durable response after a lagging checkpoint without repeating POST (2420.291762ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28584.249557

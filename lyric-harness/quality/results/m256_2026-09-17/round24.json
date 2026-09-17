@@ -1,0 +1,62 @@
+{
+  "source_run": 34116990907,
+  "source_sha": "8bf7362f54f67c686347b5356b52f73491c808d2",
+  "artifact_id": 10020550885,
+  "archive_sha256": "22c2c22dbb99db4fd9046dfd2da09385afa5e921df1fe0700eefb8a0f30dd2cd",
+  "transcript_sha256": "6af9604d6779fb6dcc4fb346c74cc8064ce26ab460ac4faa8896438ee227bbd0",
+  "selection": "Final exit-3 lyric_revise song_at_stop; omit blank lines and bracketed section/FINISHED apparatus. Park counts in transcript order. No model reply used.",
+  "lines": [
+    "Lantern spins a golden wire",
+    "Above waves we pull together",
+    "Heavy fog is turning water",
+    "Now dim wick flickers slow",
+    "The Keeper's Nod, fading sunlight on sea",
+    "I close eyes to drift to be",
+    "I find the truth in what I agree",
+    "The Keeper's Nod, fading sunlight on sea",
+    "I close eyes to drift to be",
+    "I find the truth in what I agree",
+    "Through shadows where moments owe",
+    "Across iron-bolted glow",
+    "Heavy sorrow in stone",
+    "Oceans wash hidden bright",
+    "Follow every trace stony beau",
+    "Heavy iron chill is on palm",
+    "I find grip upon qualm",
+    "Quiet waters lap balm",
+    "Quiet waters lap psalm",
+    "Till dawn dissolves quiet shore",
+    "Tide will turn against door",
+    "And I will wake to watch well"
+  ],
+  "parks": [
+    {
+      "turn": 0,
+      "open": [6]
+    },
+    {
+      "turn": 1,
+      "open": [6, 6, 6, 5]
+    },
+    {
+      "turn": 2,
+      "open": [6, 4, 5, 5, 5]
+    },
+    {
+      "turn": 3,
+      "open": [5, 5]
+    },
+    {
+      "turn": 4,
+      "open": [5, 5, 5, 4, 2, 2, 1]
+    },
+    {
+      "turn": 5,
+      "open": [2, 1, 1, 2, 1, 1, 1, 2, 2, 2]
+    },
+    {
+      "turn": 6,
+      "open": [4, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+    }
+  ]
+}

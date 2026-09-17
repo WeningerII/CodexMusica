@@ -3382,7 +3382,7 @@ the repaired check now fails and the old one did not.
   unset — and the SECTION COST printout, slowest first, is the floor no
   shard count beats and the order the tuple is re-cut from. `test_verbs`,
   `test_plan` (whose §3 deals its twenty seeds by the same coordinate),
-  `test_revise`, `test_loop` and `test_capacity` call it. The lesson M-182
+  `test_revise`, `test_loop`, `test_capacity` and `test_relations_null` call it. The lesson M-182
   and M-244 both paid for: a CI job's wall is its LONGEST SINGLE PROCESS,
   and on run 1376 that was `test_plan` alone, 35.6 of 36.8 minutes — a
   number more shards could not touch until the work inside it was cut and

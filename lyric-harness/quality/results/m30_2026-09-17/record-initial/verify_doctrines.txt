@@ -1,0 +1,46 @@
+/workspace/scratch/5119e7706e0e/CodexMusica-M30-work/lyric-harness/quality/verify_doctrines.py:97: SyntaxWarning: invalid escape sequence '\|'
+  dash, en dash and `--` fold together); and an ESCAPED PIPE (`\|`, the one
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:550: SyntaxWarning: invalid escape sequence '\`'
+==========================================================================
+DOCTRINE CROSS-REFERENCE VERIFICATION
+==========================================================================
+  defined in CLAUDE.md               20  1-7, 9, 24, 32, 34, 37, 44-48, 62, 85, 92
+  defined in quality/METHOD.md       75  8, 10-23, 25-31, 33, 35-36, 38-43, 49-61, 63-84, 86-91, 93-95
+  TOTAL DEFINED                      95
+
+[ok  ] no number is defined twice
+[ok  ] every referenced number resolves  (8075 reference sites, 94 distinct numbers)
+[ok  ] nothing defined before the split has been lost  (baseline 95, from 9b5f7c9)
+[ok  ] ...and the baseline re-derives from 9b5f7c9 exactly (95 numbers)
+[ok  ] the definition set is a contiguous run 1..95
+[ok  ] every `known gap N` resolves against CLAUDE.md's own 1-10 list  (cited: [1, 2, 3, 4, 6, 7, 8, 9])
+[ok  ] every index row's TITLE agrees with its definition's title  (95 rows: 93 identical after normalisation, 2 carrying a trailing annotation)
+[note] rows that NEED each fold: wrap 37, period 95, emphasis 0, struck 0, dash 0, pipe 0  (a fold at 0 is unexercised — declared, not doing work)
+[ok  ] every doctrine carries a registry row that names a real check or a declared refusal
+[note] 1 doctrines are cited nowhere but this file pair: [23]
+
+THE DOCTRINE -> CHECK REGISTRY
+  ASKED            95
+  MECHANICAL       75
+  ASSERTED          6
+  PROSE            11
+  N-A               3
+  the 20 without a command, by number: [8, 10, 12, 23, 31, 32, 33, 38, 39, 40, 42, 49, 67, 69, 73, 77, 78, 86, 87, 93]
+  33 distinct commands stand behind the 75 mechanical rows
+
+MOST-CITED DOCTRINES (reference sites across the whole repo)
+  doctrine 79   831 sites  in 232 files   home: quality/METHOD.md
+  doctrine 20   816 sites  in 194 files   home: quality/METHOD.md
+  doctrine 1    604 sites  in 164 files   home: CLAUDE.md
+  doctrine 58   468 sites  in 163 files   home: quality/METHOD.md
+  doctrine 17   460 sites  in 150 files   home: quality/METHOD.md
+  doctrine 48   265 sites  in 118 files   home: CLAUDE.md
+  doctrine 54   246 sites  in 125 files   home: quality/METHOD.md
+  doctrine 28   177 sites  in 74 files   home: quality/METHOD.md
+  doctrine 80   161 sites  in 56 files   home: quality/METHOD.md
+  doctrine 45   153 sites  in 61 files   home: CLAUDE.md
+  doctrine 3    148 sites  in 63 files   home: CLAUDE.md
+  doctrine 9    130 sites  in 33 files   home: CLAUDE.md
+
+RESULT: PASS

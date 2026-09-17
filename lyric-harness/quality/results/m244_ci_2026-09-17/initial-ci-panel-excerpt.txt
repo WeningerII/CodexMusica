@@ -1,0 +1,15 @@
+Source: https://github.com/WeningerII/CodexMusica/actions/runs/35256583195/job/105322087361
+Head: 00949e99ccabc0231446a174ff295027e59a3737 (before M-282 integration)
+Filtered exact log lines; timestamps are flush time, SECTION COST values are the runner's measurements.
+
+2026-09-17T18:14:09.6682513Z RELATIONS NULLS · SECTION 9 (THE PANEL) — regressions
+2026-09-17T18:14:09.6683722Z SHARD 1/3: 6 of 17 sections (dealt by index residue over the cost-ordered tuple)
+2026-09-17T18:14:09.6722045Z      417.0s  s1_partition
+2026-09-17T18:14:09.6722280Z        3.4s  s10_missing_complete
+2026-09-17T18:14:09.6722539Z        0.2s  s4_prepare_per_replicate
+2026-09-17T18:14:09.6722853Z        0.0s  s15_named_nulls_are_not_independent_evidence
+2026-09-17T18:14:09.6723183Z        0.0s  s13_the_census_keeps_the_refusal_kind
+2026-09-17T18:14:09.6723466Z        0.0s  s7_unknown_step
+2026-09-17T18:14:09.6723723Z      420.6s  TOTAL, this shard (6 of 17 sections)
+2026-09-17T18:14:09.6724353Z all relations-null regressions pass
+2026-09-17T18:14:09.6724973Z   36 passed, 0 failed

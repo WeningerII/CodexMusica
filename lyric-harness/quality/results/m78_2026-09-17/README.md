@@ -36,3 +36,52 @@ Focused verification completed so far:
 
 These are local working-tree receipts. The later source hashes identify the
 published files; CI must qualify the final published head and current base.
+
+## Repin measurement — 2026-09-17, on the tree merged with main `f657d3a2`
+
+The comparator gate refused this head as expected (`comparator-before-repin.txt`:
+MOVED, 1 of 7 inputs, `lyric_harness.py`). The re-verification it demands was
+run on the MERGED tree (this branch plus main through #331), cold, in four
+isolated shards with fresh memo files and no reuse of any invalidated memo:
+
+    python3 quality/length_curve_calibration.py compute --shard I/4 \
+        --out rows-I.tsv --cache-path memo-I.tsv        # I = 1..4
+    python3 quality/length_curve_calibration.py check --rows rows-1.tsv ... rows-4.tsv
+
+Receipts in this directory: `compute-1.txt` .. `compute-4.txt` (the four shard
+logs, each ending in its COMPUTE line), `calibration-rows.1.tsv` ..
+`calibration-rows.4.tsv` (the rows the check read), and `curve-check.txt`
+(the verdict).
+
+| shard | files | rows | CPU-s | wall-s |
+|--:|--:|--:|--:|--:|
+| 1/4 | 325 | 2,105 | 4,197 | 4,214 |
+| 2/4 | 324 | 2,830 | 5,279 | 5,302 |
+| 3/4 | 324 | 1,453 | 3,772 | 3,792 |
+| 4/4 | 324 | 2,148 | 4,563 | 4,585 |
+
+8,536 items, 1,297 files, 17,811 CPU-s cold on this host (memo hits 0, misses
+8,536) — the same population as `comparator_repin_2026-09-16`.
+
+The verdict is `RESULT: HOLDS — the lyric row's 5 curves re-derive from the
+corpus`: `mattr`, `fwr` and `anaphora` re-derive to the shipped coefficients to
+16 significant figures, and `cv` and `predictability` re-derive all 21 knots.
+Stronger than the verdict: the data lines of each of the four row files are
+byte-identical to the corresponding `calibration-rows.N.tsv` banked by the
+2026-09-16 repin (compared with the provenance header stripped), so every
+feature value the comparator produces is unchanged by this edit. That is what
+`comparator-source-comparison.json` predicted from the ASTs, now measured
+rather than argued (doctrine 58: no constant was touched, nothing was tuned).
+
+The pin was advanced against that receipt:
+
+    python3 quality/check_comparator_pin.py --write --pinned-on 2026-09-17 \
+        --verified-by quality/results/m78_2026-09-17/curve-check.txt \
+        --verdict "RESULT: HOLDS — the lyric row's 5 curves re-derive from the corpus"
+
+`check_comparator_pin.py` now exits 0 on this tree (fingerprint
+`18be93ffb403…`). The predictability memo in any environment that carries the
+old fingerprint is discarded by construction on the next run, so the first
+Production qualification after this lands is COLD by design: budget ~3 hours
+for its `song`, `curves` and `short` components and do not read that as a
+regression.
