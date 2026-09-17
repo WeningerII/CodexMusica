@@ -1,9 +1,13 @@
 # M-78 — convention versus failure, 2026-09-17
 
-Implementation and verification are in progress. No calibration pass or
-comparator repin is claimed yet. Based on main fe9181f7, with open PRs
-328 and 329 inspected for changed files; neither changes comparator inputs.
-PR 330 concerns shared counters and will be integrated before final validation.
+Implementation and comparator re-verification are complete; the entry closed
+2026-09-17 with the merge `8e589b4e` (PR #333). The comparator pin was
+advanced on the receipt in this directory (`curve-check.txt`, see the repin
+section below). The paragraphs that follow were written while the work was
+in progress and are kept as the record of what was checked when. Based on
+main fe9181f7, with open PRs 328 and 329 inspected for changed files; neither
+changes comparator inputs. PR 330 concerns shared counters and was integrated
+before final validation.
 
 Doctrine 96 formalizes the existing convention policy without changing a
 finding's severity or the permitted region. The census now enforces that

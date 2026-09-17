@@ -10321,7 +10321,7 @@ may depart from cannot fail a check, and the shape layer's notes are notes on
 purpose. But 47 is the real size of the owner's complaint, and it is a
 question for a person, per code, which is what this census exists to put.
 
-### M-78 · formalize convention-versus-failure and correct its citations `PARTIAL` — implementation 2026-09-17; comparator verification pending
+### M-78 · formalize convention-versus-failure and correct its citations `CLOSED` 2026-09-17 — implementation and comparator re-verification, `8e589b4e`
 
 **CURRENT DISPOSITION, 2026-09-17.** Under the owner's assignment to complete
 this ID, remedy (a) below is implemented: doctrine 96, appended without
@@ -10338,10 +10338,21 @@ tests and documentation; actual score/vector citations remain doctrine 6,
 rejection/selection citations use doctrine 7, and refusal citations use
 79 or 20. The historical account below preserves the original miscitation
 and its then-current census; it is not a current inventory. The old test of
-absence is replaced by enforcement and counterexamples. Comparator input
-`lyric_harness.py` changes because it contains citations, so its new fingerprint
-requires fresh calibration receipts before the pin or this entry can close.
-Evidence is banked in `quality/results/m78_2026-09-17/README.md`.
+absence is replaced by enforcement and counterexamples.
+
+**CLOSED 2026-09-17, merged as `8e589b4e` (PR #333).** Comparator input
+`lyric_harness.py` changed because it contains citations, so the pin refused
+the head as MOVED (1 of 7 inputs) and the entry could not close on the
+implementation alone. The re-verification the gate demands was run cold on
+the merged tree in four isolated shards (8,536 items, 1,297 files, 17,811
+CPU-s, no invalidated memo reused) and returned `RESULT: HOLDS — the lyric
+row's 5 curves re-derive from the corpus`; the data lines of each shard's row
+file are byte-identical to the 2026-09-16 repin's, so no feature value moved.
+`quality/comparator_pin.json` was advanced on that receipt
+(`verified_by: quality/results/m78_2026-09-17/curve-check.txt`,
+`pinned_on: 2026-09-17`). Nothing was tuned and no constant was touched
+(doctrine 58). Evidence, shard logs and row files are banked under
+`quality/results/m78_2026-09-17/`.
 
 **HISTORICAL ACCOUNT — 2026-08-23, superseded by the disposition above.**
 > **TESTED WHILE OPEN.** `quality/test_gate_census.py` section 6 names this
