@@ -1,5 +1,13 @@
 # Where the time goes in one song
 
+**2026-09-17: historical report.** The August observations and proposals below
+are preserved. M-172 already refuted the headline modal-scan attribution;
+the current disposition of every section 5 item is in
+[`RESULTS_M170_2026-09-17.md`](RESULTS_M170_2026-09-17.md), with reproducible
+current measurements, field/state counterexamples, and the exact historical
+evidence that remains unavailable. Do not treat this report's old work order
+or proposed savings as current measurements.
+
 ## 1. The bill, in three units that must not be added together
 
 **One whole song attempt (round 10, run 33266613606, job 99137676797) — the only end-to-end wall clock anyone measured.** Step wall 17:49:14.358Z → 18:11:29.508Z = **1335.15s**. Server-side turn `ms` sums to **1033.738s (77.4%)**: t0 502.401, t1 301.918, t2 133.055, t3 80.780, t4 15.195, t5 0.389. The remaining **301.41s is client-side**, dominated by ≥240s of retry backoff (4 × the 60s floor at `scripts/flash_battery.mjs:260`). Eleven `lyric_revise` calls total. The three revise-only turns give a live mean of **103.2s per fold** (515.753s / 5 calls) — but that figure includes Gemini hop latency, so it is an upper bound on harness cost, not a harness measurement. The run produced no finished song.

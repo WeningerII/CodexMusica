@@ -38,15 +38,31 @@ POOL = ["and set it gently down beside the road",
         "the river takes the light and gives it back"]
 
 
-def declared_lines(seed):
+def declared_lines(seed, extra=()):
     """-> the line count `plan --seed=SEED` declares, read off its report."""
-    p = subprocess.run(["python3", "lyric_harness.py", "plan", f"--seed={seed}"],
+    shape = [a for a in extra if a.startswith("--lines=")]
+    p = subprocess.run([sys.executable, "lyric_harness.py", "plan", f"--seed={seed}", *shape],
                        cwd=HARN, capture_output=True, text=True)
     m = re.search(r"Write a song: (\d+) lines", p.stdout)
     if not m:
         sys.exit(f"REFUSED — plan --seed={seed} declared no line count "
                  f"(rc {p.returncode})")
     return int(m.group(1))
+
+
+def answer_pending(pending, fold, answer_for_line=None):
+    """Render every current deferred question; unknown kinds refuse explicitly."""
+    choose = answer_for_line or (lambda line: POOL[(fold + line) % len(POOL)])
+    kind, record = pending['kind'], pending['record']
+    if kind == 'propose':
+        return choose(record['line'])
+    if kind == 'propose_group':
+        members = record['members']
+    elif kind == 'propose_batch':
+        members = [row['line'] for row in record['records']]
+    else:
+        raise ValueError(f'unsupported pending kind: {kind}')
+    return '\n'.join(f'L{line}: {choose(line)}' for line in members)
 
 
 def main(argv):
@@ -62,15 +78,16 @@ def main(argv):
         else:
             extra.append(a)
     d = os.environ.get("FOLD_SERIES_DIR") or tempfile.mkdtemp(prefix="fold_series_")
-    n = declared_lines(seed)
+    os.makedirs(d, exist_ok=True)
+    n = declared_lines(seed, extra)
     draft = os.path.join(d, f"draft{seed}_{tag}.txt")
     state = os.path.join(d, f"state{seed}_{tag}.json")
+    if os.path.exists(state) or os.path.exists(draft):
+        sys.exit("REFUSED — draft/state already exists; use a new tag to preserve evidence")
     with open(draft, "w") as f:
         f.write("".join(f"we carry the morning to the {BANK[i % len(BANK)]}\n"
                         for i in range(n)))
-    if os.path.exists(state):
-        os.unlink(state)
-    cmd = ["python3", "lyric_harness.py", "finish", draft, f"--seed={seed}",
+    cmd = [sys.executable, "lyric_harness.py", "finish", draft, f"--seed={seed}",
            f"--propose=defer:{state}"] + extra
     print(f"CMD: {' '.join(cmd)}   ({n} lines; dir {d})", flush=True)
     for fold in range(folds + 1):
@@ -102,14 +119,14 @@ def main(argv):
             for l in p.stdout.splitlines():
                 if re.search(r"revise_loop|round \d|unresolved|FINISHED|STOP", l):
                     print("    #", l[:220], flush=True)
-            break
-        if pend["kind"] == "propose":
-            st["pending"]["answer"] = POOL[(fold + rec["line"]) % len(POOL)]
-        else:
-            st["pending"]["answer"] = "\n".join(
-                f"L{m}: {POOL[(fold + m) % len(POOL)]}" for m in rec["members"])
+            if p.returncode not in (0, 3):
+                print(p.stdout, p.stderr, flush=True)
+                return 2
+            return 0
+        st["pending"]["answer"] = answer_pending(pend, fold)
         json.dump(st, open(state, "w"), indent=1)
+    return 0
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    sys.exit(main(sys.argv[1:]))

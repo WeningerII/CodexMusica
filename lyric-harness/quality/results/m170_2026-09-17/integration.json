@@ -1,0 +1,41 @@
+{
+  "base": "9cd5c791467145ad159e1a5d9bf68b2ac0173d7d",
+  "integration_commit": "c0f5d70d125b9f9ffcbea61539b4b7b3719880f6",
+  "scope": "initial-call output parity after integration; timings are not headline benchmark observations",
+  "checks": [
+    {
+      "lines": 22,
+      "source_unchanged": true,
+      "code_equal": true,
+      "stdout_equal": true,
+      "stderr_equal": true,
+      "journal_equal": true,
+      "runtime_inputs_equal": true,
+      "source_coordinates_changed": [
+        "continuation_instrument",
+        "lyric-harness/quality/ban_convergence.py",
+        "lyric-harness/quality/senses.py",
+        "lyric-harness/quality/test_ban_convergence.py",
+        "lyric-harness/quality/test_production_data.py",
+        "lyric-harness/quality/test_shard.py"
+      ]
+    },
+    {
+      "lines": 28,
+      "source_unchanged": true,
+      "code_equal": true,
+      "stdout_equal": true,
+      "stderr_equal": true,
+      "journal_equal": true,
+      "runtime_inputs_equal": true,
+      "source_coordinates_changed": [
+        "continuation_instrument",
+        "lyric-harness/quality/ban_convergence.py",
+        "lyric-harness/quality/senses.py",
+        "lyric-harness/quality/test_ban_convergence.py",
+        "lyric-harness/quality/test_production_data.py",
+        "lyric-harness/quality/test_shard.py"
+      ]
+    }
+  ]
+}

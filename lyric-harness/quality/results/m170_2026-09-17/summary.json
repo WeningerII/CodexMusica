@@ -1,0 +1,2140 @@
+{
+  "arms": {
+    "bare22-1": {
+      "completed_resumes": 0,
+      "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_exit_code": 4,
+      "lines": 22,
+      "requested_resumes": 0,
+      "rows": [
+        {
+          "answers_before": 0,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 9935,
+              "hit": 20,
+              "miss": 9935,
+              "slots": 64
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0,
+              "rimes": 0
+            },
+            "score": {
+              "evicted": 0,
+              "held": 225,
+              "hit": 6,
+              "miss": 225
+            }
+          },
+          "cli_cpu": 14.650490775,
+          "cli_wall": 14.67248917100369,
+          "code": 4,
+          "fold": 0,
+          "memory": {
+            "VmHWM_KiB": 415656,
+            "VmRSS_KiB": 415656
+          },
+          "wall": 14.835999274000642
+        }
+      ],
+      "source_unchanged": true
+    },
+    "bare22-2": {
+      "completed_resumes": 0,
+      "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_exit_code": 4,
+      "lines": 22,
+      "requested_resumes": 0,
+      "rows": [
+        {
+          "answers_before": 0,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 9935,
+              "hit": 20,
+              "miss": 9935,
+              "slots": 64
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0,
+              "rimes": 0
+            },
+            "score": {
+              "evicted": 0,
+              "held": 225,
+              "hit": 6,
+              "miss": 225
+            }
+          },
+          "cli_cpu": 14.124684853,
+          "cli_wall": 14.139815445996646,
+          "code": 4,
+          "fold": 0,
+          "memory": {
+            "VmHWM_KiB": 415220,
+            "VmRSS_KiB": 415220
+          },
+          "wall": 14.273437802999979
+        }
+      ],
+      "source_unchanged": true
+    },
+    "bare22-3": {
+      "completed_resumes": 0,
+      "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_exit_code": 4,
+      "lines": 22,
+      "requested_resumes": 0,
+      "rows": [
+        {
+          "answers_before": 0,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 9935,
+              "hit": 20,
+              "miss": 9935,
+              "slots": 64
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0,
+              "rimes": 0
+            },
+            "score": {
+              "evicted": 0,
+              "held": 225,
+              "hit": 6,
+              "miss": 225
+            }
+          },
+          "cli_cpu": 14.246706145000001,
+          "cli_wall": 14.24990679199982,
+          "code": 4,
+          "fold": 0,
+          "memory": {
+            "VmHWM_KiB": 415220,
+            "VmRSS_KiB": 415220
+          },
+          "wall": 14.391033697000239
+        }
+      ],
+      "source_unchanged": true
+    },
+    "series-cold-22": {
+      "completed_resumes": 11,
+      "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_exit_code": 4,
+      "lines": 22,
+      "requested_resumes": 11,
+      "rows": [
+        {
+          "answers_before": 0,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 9935,
+              "hit": 20,
+              "miss": 9935,
+              "slots": 64
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0,
+              "rimes": 0
+            },
+            "score": {
+              "evicted": 0,
+              "held": 225,
+              "hit": 6,
+              "miss": 225
+            }
+          },
+          "cli_cpu": 13.745466997,
+          "cli_wall": 13.763055369003268,
+          "code": 4,
+          "fold": 0,
+          "memory": {
+            "VmHWM_KiB": 415216,
+            "VmRSS_KiB": 415216
+          },
+          "wall": 13.899748581003223
+        },
+        {
+          "answers_before": 0,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 11741,
+              "hit": 18082,
+              "miss": 11741,
+              "slots": 64
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0,
+              "rimes": 0
+            },
+            "score": {
+              "evicted": 0,
+              "held": 264,
+              "hit": 429,
+              "miss": 264
+            }
+          },
+          "cli_cpu": 18.367224204000003,
+          "cli_wall": 18.389416313002585,
+          "code": 4,
+          "fold": 1,
+          "memory": {
+            "VmHWM_KiB": 457364,
+            "VmRSS_KiB": 457364
+          },
+          "wall": 18.526735133003967
+        },
+        {
+          "answers_before": 9,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 12644,
+              "hit": 27118,
+              "miss": 12644,
+              "slots": 64
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0,
+              "rimes": 0
+            },
+            "score": {
+              "evicted": 0,
+              "held": 284,
+              "hit": 640,
+              "miss": 284
+            }
+          },
+          "cli_cpu": 21.050045669,
+          "cli_wall": 21.070237412997812,
+          "code": 4,
+          "fold": 2,
+          "memory": {
+            "VmHWM_KiB": 457572,
+            "VmRSS_KiB": 457572
+          },
+          "wall": 21.201415465002356
+        },
+        {
+          "answers_before": 10,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 2,
+              "hit": 0,
+              "miss": 2
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 15310,
+              "hit": 44338,
+              "miss": 15310,
+              "slots": 64
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 3,
+              "hit": 0,
+              "miss": 3,
+              "rimes": 3019
+            },
+            "score": {
+              "evicted": 19782,
+              "held": 8192,
+              "hit": 180619,
+              "miss": 27974
+            }
+          },
+          "cli_cpu": 43.262169335,
+          "cli_wall": 43.29309694100084,
+          "code": 4,
+          "fold": 3,
+          "memory": {
+            "VmHWM_KiB": 565872,
+            "VmRSS_KiB": 565872
+          },
+          "wall": 43.42557212700194
+        },
+        {
+          "answers_before": 11,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 8,
+              "hit": 0,
+              "miss": 8
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 24596,
+              "hit": 75353,
+              "miss": 24596,
+              "slots": 64
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 10,
+              "hit": 13,
+              "miss": 10,
+              "rimes": 10901
+            },
+            "score": {
+              "evicted": 212448,
+              "held": 8192,
+              "hit": 1647457,
+              "miss": 220640
+            }
+          },
+          "cli_cpu": 173.57189247699998,
+          "cli_wall": 173.67270816300152,
+          "code": 4,
+          "fold": 4,
+          "memory": {
+            "VmHWM_KiB": 612476,
+            "VmRSS_KiB": 612476
+          },
+          "wall": 173.8226315869979
+        },
+        {
+          "answers_before": 12,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 12,
+              "hit": 0,
+              "miss": 12
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 28695,
+              "hit": 102634,
+              "miss": 28695,
+              "slots": 126
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 14,
+              "hit": 37,
+              "miss": 14,
+              "rimes": 13156
+            },
+            "score": {
+              "evicted": 294428,
+              "held": 8192,
+              "hit": 2498024,
+              "miss": 302620
+            }
+          },
+          "cli_cpu": 269.98952106300004,
+          "cli_wall": 270.26958932900015,
+          "code": 4,
+          "fold": 5,
+          "memory": {
+            "VmHWM_KiB": 632948,
+            "VmRSS_KiB": 632948
+          },
+          "wall": 270.42499394100014
+        },
+        {
+          "answers_before": 19,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 12,
+              "hit": 0,
+              "miss": 12
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 28695,
+              "hit": 102723,
+              "miss": 28695,
+              "slots": 126
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 14,
+              "hit": 46,
+              "miss": 14,
+              "rimes": 13156
+            },
+            "score": {
+              "evicted": 313254,
+              "held": 8192,
+              "hit": 2687098,
+              "miss": 321446
+            }
+          },
+          "cli_cpu": 278.940301611,
+          "cli_wall": 278.9682240330003,
+          "code": 4,
+          "fold": 6,
+          "memory": {
+            "VmHWM_KiB": 632828,
+            "VmRSS_KiB": 632828
+          },
+          "wall": 279.103851834996
+        },
+        {
+          "answers_before": 20,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 12,
+              "hit": 0,
+              "miss": 12
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 28695,
+              "hit": 102903,
+              "miss": 28695,
+              "slots": 126
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 14,
+              "hit": 66,
+              "miss": 14,
+              "rimes": 13156
+            },
+            "score": {
+              "evicted": 350528,
+              "held": 8192,
+              "hit": 3060773,
+              "miss": 358720
+            }
+          },
+          "cli_cpu": 300.350531257,
+          "cli_wall": 300.3834259839932,
+          "code": 4,
+          "fold": 7,
+          "memory": {
+            "VmHWM_KiB": 632936,
+            "VmRSS_KiB": 632936
+          },
+          "wall": 300.52216373499687
+        },
+        {
+          "answers_before": 21,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 12,
+              "hit": 0,
+              "miss": 12
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 28695,
+              "hit": 103087,
+              "miss": 28695,
+              "slots": 126
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 14,
+              "hit": 89,
+              "miss": 14,
+              "rimes": 13156
+            },
+            "score": {
+              "evicted": 374813,
+              "held": 8192,
+              "hit": 3504263,
+              "miss": 383005
+            }
+          },
+          "cli_cpu": 327.067283352,
+          "cli_wall": 327.0987163020036,
+          "code": 4,
+          "fold": 8,
+          "memory": {
+            "VmHWM_KiB": 633376,
+            "VmRSS_KiB": 633376
+          },
+          "wall": 327.23062097199727
+        },
+        {
+          "answers_before": 22,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 12,
+              "hit": 0,
+              "miss": 12
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 28695,
+              "hit": 103087,
+              "miss": 28695,
+              "slots": 126
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 14,
+              "hit": 89,
+              "miss": 14,
+              "rimes": 13156
+            },
+            "score": {
+              "evicted": 374813,
+              "held": 8192,
+              "hit": 3504263,
+              "miss": 383005
+            }
+          },
+          "cli_cpu": 326.973487566,
+          "cli_wall": 327.007596043004,
+          "code": 4,
+          "fold": 9,
+          "memory": {
+            "VmHWM_KiB": 633360,
+            "VmRSS_KiB": 633360
+          },
+          "wall": 327.14394860100583
+        },
+        {
+          "answers_before": 23,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 12,
+              "hit": 0,
+              "miss": 12
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 28695,
+              "hit": 103176,
+              "miss": 28695,
+              "slots": 126
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 14,
+              "hit": 96,
+              "miss": 14,
+              "rimes": 13156
+            },
+            "score": {
+              "evicted": 374824,
+              "held": 8192,
+              "hit": 3636846,
+              "miss": 383016
+            }
+          },
+          "cli_cpu": 342.156998145,
+          "cli_wall": 342.36596460100554,
+          "code": 4,
+          "fold": 10,
+          "memory": {
+            "VmHWM_KiB": 633824,
+            "VmRSS_KiB": 633824
+          },
+          "wall": 342.5040795639943
+        },
+        {
+          "answers_before": 24,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 14,
+              "hit": 0,
+              "miss": 14
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 28695,
+              "hit": 103362,
+              "miss": 28695,
+              "slots": 126
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 17,
+              "hit": 120,
+              "miss": 17,
+              "rimes": 14119
+            },
+            "score": {
+              "evicted": 397817,
+              "held": 8192,
+              "hit": 4376846,
+              "miss": 406009
+            }
+          },
+          "cli_cpu": 370.564691233,
+          "cli_wall": 370.6046798889947,
+          "code": 4,
+          "fold": 11,
+          "memory": {
+            "VmHWM_KiB": 634276,
+            "VmRSS_KiB": 634276
+          },
+          "wall": 370.7501400359979
+        }
+      ],
+      "source_unchanged": true
+    },
+    "series-cold-28": {
+      "completed_resumes": 2,
+      "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_exit_code": 124,
+      "lines": 28,
+      "requested_resumes": 11,
+      "rows": [
+        {
+          "answers_before": 0,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 6,
+              "hit": 0,
+              "miss": 6
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 19940,
+              "hit": 3712,
+              "miss": 19940,
+              "slots": 74
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 8,
+              "hit": 12,
+              "miss": 8,
+              "rimes": 8028
+            },
+            "score": {
+              "evicted": 35828,
+              "held": 8192,
+              "hit": 827270,
+              "miss": 44020
+            }
+          },
+          "cli_cpu": 60.972141257000004,
+          "cli_wall": 60.978778433003754,
+          "code": 4,
+          "fold": 0,
+          "memory": {
+            "VmHWM_KiB": 588232,
+            "VmRSS_KiB": 501968
+          },
+          "wall": 61.11478454000462
+        },
+        {
+          "answers_before": 0,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 7,
+              "hit": 0,
+              "miss": 7
+            },
+            "pair": {
+              "evicted": 18191,
+              "held": 25751,
+              "hit": 40654,
+              "miss": 43942,
+              "slots": 74
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 15,
+              "hit": 89,
+              "miss": 15,
+              "rimes": 8284
+            },
+            "score": {
+              "evicted": 379060,
+              "held": 8192,
+              "hit": 6584202,
+              "miss": 387252
+            }
+          },
+          "cli_cpu": 344.25845298200005,
+          "cli_wall": 344.44086332200095,
+          "code": 4,
+          "fold": 1,
+          "memory": {
+            "VmHWM_KiB": 640820,
+            "VmRSS_KiB": 543180
+          },
+          "wall": 344.57906624300085
+        },
+        {
+          "answers_before": 1,
+          "code": 124,
+          "fold": 2,
+          "partial": true,
+          "wall": 600.0244741749993
+        }
+      ],
+      "source_unchanged": true
+    },
+    "series-warm-22": {
+      "completed_resumes": 11,
+      "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_exit_code": 4,
+      "lines": 22,
+      "requested_resumes": 11,
+      "rows": [
+        {
+          "answers_before": 0,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 9935,
+              "hit": 20,
+              "miss": 9935,
+              "slots": 64
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0,
+              "rimes": 0
+            },
+            "score": {
+              "evicted": 0,
+              "held": 225,
+              "hit": 6,
+              "miss": 225
+            }
+          },
+          "cli_cpu": 14.137543212999999,
+          "cli_wall": 14.15141784500156,
+          "code": 4,
+          "fold": 0,
+          "memory": {
+            "VmHWM_KiB": 415216,
+            "VmRSS_KiB": 415216
+          },
+          "wall": 14.293539439997403
+        },
+        {
+          "answers_before": 0,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 11741,
+              "hit": 18098,
+              "miss": 11741,
+              "slots": 64
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0,
+              "rimes": 0
+            },
+            "score": {
+              "evicted": 0,
+              "held": 264,
+              "hit": 660,
+              "miss": 264
+            }
+          },
+          "cli_cpu": 10.316231308999999,
+          "cli_wall": 10.319222255995555,
+          "code": 4,
+          "fold": 1,
+          "memory": {
+            "VmHWM_KiB": 463808,
+            "VmRSS_KiB": 463808
+          },
+          "wall": 10.319993336001062
+        },
+        {
+          "answers_before": 9,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 12644,
+              "hit": 27134,
+              "miss": 12644,
+              "slots": 64
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0,
+              "rimes": 0
+            },
+            "score": {
+              "evicted": 0,
+              "held": 284,
+              "hit": 1102,
+              "miss": 284
+            }
+          },
+          "cli_cpu": 7.908584968999996,
+          "cli_wall": 7.909950292996655,
+          "code": 4,
+          "fold": 2,
+          "memory": {
+            "VmHWM_KiB": 499220,
+            "VmRSS_KiB": 465924
+          },
+          "wall": 7.910634036001284
+        },
+        {
+          "answers_before": 10,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 2,
+              "hit": 0,
+              "miss": 2
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 15310,
+              "hit": 44354,
+              "miss": 15310,
+              "slots": 64
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 3,
+              "hit": 0,
+              "miss": 3,
+              "rimes": 3019
+            },
+            "score": {
+              "evicted": 19782,
+              "held": 8192,
+              "hit": 181312,
+              "miss": 27974
+            }
+          },
+          "cli_cpu": 28.589287777000003,
+          "cli_wall": 28.593063150998205,
+          "code": 4,
+          "fold": 3,
+          "memory": {
+            "VmHWM_KiB": 574772,
+            "VmRSS_KiB": 574772
+          },
+          "wall": 28.59531918200082
+        },
+        {
+          "answers_before": 11,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 8,
+              "hit": 1,
+              "miss": 8
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 24596,
+              "hit": 75369,
+              "miss": 24596,
+              "slots": 64
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 10,
+              "hit": 13,
+              "miss": 10,
+              "rimes": 10901
+            },
+            "score": {
+              "evicted": 212448,
+              "held": 8192,
+              "hit": 1648150,
+              "miss": 220640
+            }
+          },
+          "cli_cpu": 142.636795831,
+          "cli_wall": 142.68405059400538,
+          "code": 4,
+          "fold": 4,
+          "memory": {
+            "VmHWM_KiB": 677288,
+            "VmRSS_KiB": 677288
+          },
+          "wall": 142.690058811997
+        },
+        {
+          "answers_before": 12,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 15,
+              "hit": 1,
+              "miss": 15
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 29248,
+              "hit": 102708,
+              "miss": 29248,
+              "slots": 126
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 17,
+              "hit": 38,
+              "miss": 17,
+              "rimes": 14800
+            },
+            "score": {
+              "evicted": 335697,
+              "held": 8192,
+              "hit": 2951788,
+              "miss": 343889
+            }
+          },
+          "cli_cpu": 155.035222026,
+          "cli_wall": 155.05053621999832,
+          "code": 4,
+          "fold": 5,
+          "memory": {
+            "VmHWM_KiB": 699876,
+            "VmRSS_KiB": 653012
+          },
+          "wall": 155.05181843099854
+        },
+        {
+          "answers_before": 19,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 15,
+              "hit": 1,
+              "miss": 15
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 29248,
+              "hit": 102797,
+              "miss": 29248,
+              "slots": 126
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 17,
+              "hit": 47,
+              "miss": 17,
+              "rimes": 14800
+            },
+            "score": {
+              "evicted": 354523,
+              "held": 8192,
+              "hit": 3140862,
+              "miss": 362715
+            }
+          },
+          "cli_cpu": 21.042484125999977,
+          "cli_wall": 21.04534861999855,
+          "code": 4,
+          "fold": 6,
+          "memory": {
+            "VmHWM_KiB": 716748,
+            "VmRSS_KiB": 701748
+          },
+          "wall": 21.04592379499809
+        },
+        {
+          "answers_before": 20,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 15,
+              "hit": 1,
+              "miss": 15
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 29248,
+              "hit": 102977,
+              "miss": 29248,
+              "slots": 126
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 17,
+              "hit": 67,
+              "miss": 17,
+              "rimes": 14800
+            },
+            "score": {
+              "evicted": 391797,
+              "held": 8192,
+              "hit": 3514306,
+              "miss": 399989
+            }
+          },
+          "cli_cpu": 35.141102897999986,
+          "cli_wall": 35.14455037600419,
+          "code": 4,
+          "fold": 7,
+          "memory": {
+            "VmHWM_KiB": 716748,
+            "VmRSS_KiB": 640860
+          },
+          "wall": 35.145171045005554
+        },
+        {
+          "answers_before": 21,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 15,
+              "hit": 1,
+              "miss": 15
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 29248,
+              "hit": 103161,
+              "miss": 29248,
+              "slots": 126
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 17,
+              "hit": 90,
+              "miss": 17,
+              "rimes": 14800
+            },
+            "score": {
+              "evicted": 416082,
+              "held": 8192,
+              "hit": 3958027,
+              "miss": 424274
+            }
+          },
+          "cli_cpu": 31.721622133999972,
+          "cli_wall": 31.725036051000643,
+          "code": 4,
+          "fold": 8,
+          "memory": {
+            "VmHWM_KiB": 716748,
+            "VmRSS_KiB": 669680
+          },
+          "wall": 31.72573202100466
+        },
+        {
+          "answers_before": 22,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 15,
+              "hit": 1,
+              "miss": 15
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 29248,
+              "hit": 103161,
+              "miss": 29248,
+              "slots": 126
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 17,
+              "hit": 90,
+              "miss": 17,
+              "rimes": 14800
+            },
+            "score": {
+              "evicted": 416082,
+              "held": 8192,
+              "hit": 3958027,
+              "miss": 424274
+            }
+          },
+          "cli_cpu": 4.658467729999984,
+          "cli_wall": 4.659740609000437,
+          "code": 4,
+          "fold": 9,
+          "memory": {
+            "VmHWM_KiB": 716748,
+            "VmRSS_KiB": 613204
+          },
+          "wall": 4.660434151002846
+        },
+        {
+          "answers_before": 23,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 15,
+              "hit": 1,
+              "miss": 15
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 29248,
+              "hit": 103250,
+              "miss": 29248,
+              "slots": 126
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 17,
+              "hit": 97,
+              "miss": 17,
+              "rimes": 14800
+            },
+            "score": {
+              "evicted": 416093,
+              "held": 8192,
+              "hit": 4090841,
+              "miss": 424285
+            }
+          },
+          "cli_cpu": 14.865208209000002,
+          "cli_wall": 14.86662602800061,
+          "code": 4,
+          "fold": 10,
+          "memory": {
+            "VmHWM_KiB": 716748,
+            "VmRSS_KiB": 641876
+          },
+          "wall": 14.867221993001294
+        },
+        {
+          "answers_before": 24,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 16,
+              "hit": 2,
+              "miss": 16
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 29248,
+              "hit": 103436,
+              "miss": 29248,
+              "slots": 126
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 19,
+              "hit": 122,
+              "miss": 19,
+              "rimes": 15160
+            },
+            "score": {
+              "evicted": 439086,
+              "held": 8192,
+              "hit": 4830841,
+              "miss": 447278
+            }
+          },
+          "cli_cpu": 43.74592087100001,
+          "cli_wall": 43.7504031760036,
+          "code": 4,
+          "fold": 11,
+          "memory": {
+            "VmHWM_KiB": 716748,
+            "VmRSS_KiB": 645460
+          },
+          "wall": 43.75136211499921
+        }
+      ],
+      "source_unchanged": true
+    },
+    "series-warm-28": {
+      "completed_resumes": 11,
+      "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_exit_code": 4,
+      "lines": 28,
+      "requested_resumes": 11,
+      "rows": [
+        {
+          "answers_before": 0,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 6,
+              "hit": 0,
+              "miss": 6
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 19940,
+              "hit": 3712,
+              "miss": 19940,
+              "slots": 74
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 8,
+              "hit": 12,
+              "miss": 8,
+              "rimes": 8028
+            },
+            "score": {
+              "evicted": 35828,
+              "held": 8192,
+              "hit": 827270,
+              "miss": 44020
+            }
+          },
+          "cli_cpu": 61.410474152999996,
+          "cli_wall": 61.45383728399611,
+          "code": 4,
+          "fold": 0,
+          "memory": {
+            "VmHWM_KiB": 588144,
+            "VmRSS_KiB": 501760
+          },
+          "wall": 61.59797091300425
+        },
+        {
+          "answers_before": 0,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 7,
+              "hit": 6,
+              "miss": 7
+            },
+            "pair": {
+              "evicted": 18191,
+              "held": 25751,
+              "hit": 40654,
+              "miss": 43942,
+              "slots": 74
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 15,
+              "hit": 89,
+              "miss": 15,
+              "rimes": 8284
+            },
+            "score": {
+              "evicted": 379060,
+              "held": 8192,
+              "hit": 6584202,
+              "miss": 387252
+            }
+          },
+          "cli_cpu": 291.80694767800003,
+          "cli_wall": 291.8459067240037,
+          "code": 4,
+          "fold": 1,
+          "memory": {
+            "VmHWM_KiB": 643684,
+            "VmRSS_KiB": 544920
+          },
+          "wall": 291.84919802399963
+        },
+        {
+          "answers_before": 1,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 16,
+              "hit": 9,
+              "miss": 16
+            },
+            "pair": {
+              "evicted": 32440,
+              "held": 37191,
+              "hit": 69650,
+              "miss": 69631,
+              "slots": 74
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 31,
+              "hit": 202,
+              "miss": 31,
+              "rimes": 13112
+            },
+            "score": {
+              "evicted": 811056,
+              "held": 8192,
+              "hit": 13456300,
+              "miss": 819248
+            }
+          },
+          "cli_cpu": 361.11097148899995,
+          "cli_wall": 361.1948888839979,
+          "code": 4,
+          "fold": 2,
+          "memory": {
+            "VmHWM_KiB": 647636,
+            "VmRSS_KiB": 639364
+          },
+          "wall": 361.19886940500146
+        },
+        {
+          "answers_before": 2,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 16,
+              "hit": 9,
+              "miss": 16
+            },
+            "pair": {
+              "evicted": 32442,
+              "held": 38352,
+              "hit": 84819,
+              "miss": 70794,
+              "slots": 74
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 31,
+              "hit": 214,
+              "miss": 31,
+              "rimes": 13112
+            },
+            "score": {
+              "evicted": 811091,
+              "held": 8192,
+              "hit": 13457021,
+              "miss": 819283
+            }
+          },
+          "cli_cpu": 13.442607284000019,
+          "cli_wall": 13.444358702006866,
+          "code": 4,
+          "fold": 3,
+          "memory": {
+            "VmHWM_KiB": 647636,
+            "VmRSS_KiB": 632996
+          },
+          "wall": 13.44532353800605
+        },
+        {
+          "answers_before": 9,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 16,
+              "hit": 9,
+              "miss": 16
+            },
+            "pair": {
+              "evicted": 32442,
+              "held": 39513,
+              "hit": 99990,
+              "miss": 71955,
+              "slots": 74
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 31,
+              "hit": 226,
+              "miss": 31,
+              "rimes": 13112
+            },
+            "score": {
+              "evicted": 811115,
+              "held": 8192,
+              "hit": 13457753,
+              "miss": 819307
+            }
+          },
+          "cli_cpu": 13.188979055999994,
+          "cli_wall": 13.190441403996374,
+          "code": 4,
+          "fold": 4,
+          "memory": {
+            "VmHWM_KiB": 647636,
+            "VmRSS_KiB": 629584
+          },
+          "wall": 13.191217125997355
+        },
+        {
+          "answers_before": 10,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 16,
+              "hit": 9,
+              "miss": 16
+            },
+            "pair": {
+              "evicted": 32442,
+              "held": 42953,
+              "hit": 129214,
+              "miss": 75395,
+              "slots": 74
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 31,
+              "hit": 250,
+              "miss": 31,
+              "rimes": 13112
+            },
+            "score": {
+              "evicted": 811153,
+              "held": 8192,
+              "hit": 13458849,
+              "miss": 819345
+            }
+          },
+          "cli_cpu": 17.598964185,
+          "cli_wall": 17.601274722001108,
+          "code": 4,
+          "fold": 5,
+          "memory": {
+            "VmHWM_KiB": 647636,
+            "VmRSS_KiB": 634660
+          },
+          "wall": 17.601992537995102
+        },
+        {
+          "answers_before": 11,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 16,
+              "hit": 9,
+              "miss": 16
+            },
+            "pair": {
+              "evicted": 32442,
+              "held": 45232,
+              "hit": 143267,
+              "miss": 77674,
+              "slots": 74
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 31,
+              "hit": 262,
+              "miss": 31,
+              "rimes": 13112
+            },
+            "score": {
+              "evicted": 811190,
+              "held": 8192,
+              "hit": 13459568,
+              "miss": 819382
+            }
+          },
+          "cli_cpu": 13.25534854700004,
+          "cli_wall": 13.257548166999186,
+          "code": 4,
+          "fold": 6,
+          "memory": {
+            "VmHWM_KiB": 649160,
+            "VmRSS_KiB": 646620
+          },
+          "wall": 13.25843772400549
+        },
+        {
+          "answers_before": 12,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 16,
+              "hit": 9,
+              "miss": 16
+            },
+            "pair": {
+              "evicted": 32442,
+              "held": 48672,
+              "hit": 172491,
+              "miss": 81114,
+              "slots": 74
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 31,
+              "hit": 287,
+              "miss": 31,
+              "rimes": 13112
+            },
+            "score": {
+              "evicted": 826533,
+              "held": 8192,
+              "hit": 13672537,
+              "miss": 834725
+            }
+          },
+          "cli_cpu": 27.53629894400001,
+          "cli_wall": 27.540100976002577,
+          "code": 4,
+          "fold": 7,
+          "memory": {
+            "VmHWM_KiB": 654016,
+            "VmRSS_KiB": 652748
+          },
+          "wall": 27.540854286999092
+        },
+        {
+          "answers_before": 13,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 16,
+              "hit": 9,
+              "miss": 16
+            },
+            "pair": {
+              "evicted": 32442,
+              "held": 49833,
+              "hit": 187662,
+              "miss": 82275,
+              "slots": 74
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 31,
+              "hit": 300,
+              "miss": 31,
+              "rimes": 13112
+            },
+            "score": {
+              "evicted": 840903,
+              "held": 8192,
+              "hit": 13886101,
+              "miss": 849095
+            }
+          },
+          "cli_cpu": 24.08693650700002,
+          "cli_wall": 24.093705008999677,
+          "code": 4,
+          "fold": 8,
+          "memory": {
+            "VmHWM_KiB": 654016,
+            "VmRSS_KiB": 651512
+          },
+          "wall": 24.094577218995255
+        },
+        {
+          "answers_before": 14,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 16,
+              "hit": 9,
+              "miss": 16
+            },
+            "pair": {
+              "evicted": 32442,
+              "held": 50994,
+              "hit": 202833,
+              "miss": 83436,
+              "slots": 74
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 31,
+              "hit": 313,
+              "miss": 31,
+              "rimes": 13112
+            },
+            "score": {
+              "evicted": 855273,
+              "held": 8192,
+              "hit": 14099665,
+              "miss": 863465
+            }
+          },
+          "cli_cpu": 25.010930143999985,
+          "cli_wall": 25.018535925002652,
+          "code": 4,
+          "fold": 9,
+          "memory": {
+            "VmHWM_KiB": 654016,
+            "VmRSS_KiB": 652060
+          },
+          "wall": 25.019447245002084
+        },
+        {
+          "answers_before": 15,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 18,
+              "hit": 9,
+              "miss": 18
+            },
+            "pair": {
+              "evicted": 32442,
+              "held": 53895,
+              "hit": 217057,
+              "miss": 86337,
+              "slots": 74
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 33,
+              "hit": 347,
+              "miss": 33,
+              "rimes": 15364
+            },
+            "score": {
+              "evicted": 902134,
+              "held": 8192,
+              "hit": 14747568,
+              "miss": 910326
+            }
+          },
+          "cli_cpu": 45.79579447999993,
+          "cli_wall": 45.809057273996586,
+          "code": 4,
+          "fold": 10,
+          "memory": {
+            "VmHWM_KiB": 711972,
+            "VmRSS_KiB": 711972
+          },
+          "wall": 45.811259829002665
+        },
+        {
+          "answers_before": 16,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 18,
+              "hit": 9,
+              "miss": 18
+            },
+            "pair": {
+              "evicted": 32442,
+              "held": 55056,
+              "hit": 232228,
+              "miss": 87498,
+              "slots": 74
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 33,
+              "hit": 359,
+              "miss": 33,
+              "rimes": 15364
+            },
+            "score": {
+              "evicted": 902161,
+              "held": 8192,
+              "hit": 14748297,
+              "miss": 910353
+            }
+          },
+          "cli_cpu": 13.056516716000033,
+          "cli_wall": 13.06029106099595,
+          "code": 4,
+          "fold": 11,
+          "memory": {
+            "VmHWM_KiB": 711572,
+            "VmRSS_KiB": 625700
+          },
+          "wall": 13.06112417300028
+        }
+      ],
+      "source_unchanged": true
+    },
+    "timed22-1": {
+      "completed_resumes": 0,
+      "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_exit_code": 4,
+      "lines": 22,
+      "requested_resumes": 0,
+      "rows": [
+        {
+          "answers_before": 0,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 9935,
+              "hit": 20,
+              "miss": 9935,
+              "slots": 64
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0,
+              "rimes": 0
+            },
+            "score": {
+              "evicted": 0,
+              "held": 225,
+              "hit": 6,
+              "miss": 225
+            }
+          },
+          "cli_cpu": 13.657420511,
+          "cli_wall": 13.673912785998255,
+          "code": 4,
+          "fold": 0,
+          "memory": {
+            "VmHWM_KiB": 415672,
+            "VmRSS_KiB": 415672
+          },
+          "wall": 13.837289622999378
+        }
+      ],
+      "source_unchanged": true
+    },
+    "timed22-2": {
+      "completed_resumes": 0,
+      "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_exit_code": 4,
+      "lines": 22,
+      "requested_resumes": 0,
+      "rows": [
+        {
+          "answers_before": 0,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 9935,
+              "hit": 20,
+              "miss": 9935,
+              "slots": 64
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0,
+              "rimes": 0
+            },
+            "score": {
+              "evicted": 0,
+              "held": 225,
+              "hit": 6,
+              "miss": 225
+            }
+          },
+          "cli_cpu": 15.065333756,
+          "cli_wall": 15.076933083997574,
+          "code": 4,
+          "fold": 0,
+          "memory": {
+            "VmHWM_KiB": 415688,
+            "VmRSS_KiB": 415688
+          },
+          "wall": 15.213109244999941
+        }
+      ],
+      "source_unchanged": true
+    },
+    "timed22-3": {
+      "completed_resumes": 0,
+      "head": "8daf3486565570a9e4550219bc81111fb13de538",
+      "last_exit_code": 4,
+      "lines": 22,
+      "requested_resumes": 0,
+      "rows": [
+        {
+          "answers_before": 0,
+          "caches": {
+            "field": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0
+            },
+            "pair": {
+              "evicted": 0,
+              "held": 9935,
+              "hit": 20,
+              "miss": 9935,
+              "slots": 64
+            },
+            "rank": {
+              "evicted": 0,
+              "held": 0,
+              "hit": 0,
+              "miss": 0,
+              "rimes": 0
+            },
+            "score": {
+              "evicted": 0,
+              "held": 225,
+              "hit": 6,
+              "miss": 225
+            }
+          },
+          "cli_cpu": 13.987088478,
+          "cli_wall": 13.998617723998905,
+          "code": 4,
+          "fold": 0,
+          "memory": {
+            "VmHWM_KiB": 415660,
+            "VmRSS_KiB": 415660
+          },
+          "wall": 14.138549985000282
+        }
+      ],
+      "source_unchanged": true
+    }
+  },
+  "comparisons": {
+    "22": {
+      "complete": true,
+      "equal": true,
+      "folds": [
+        {
+          "code_equal": true,
+          "completed_calls": true,
+          "fold": 0,
+          "journal_equal": true,
+          "receipts_complete": true,
+          "stderr_equal": true,
+          "stdout_equal": true
+        },
+        {
+          "code_equal": true,
+          "completed_calls": true,
+          "fold": 1,
+          "journal_equal": true,
+          "receipts_complete": true,
+          "stderr_equal": true,
+          "stdout_equal": true
+        },
+        {
+          "code_equal": true,
+          "completed_calls": true,
+          "fold": 2,
+          "journal_equal": true,
+          "receipts_complete": true,
+          "stderr_equal": true,
+          "stdout_equal": true
+        },
+        {
+          "code_equal": true,
+          "completed_calls": true,
+          "fold": 3,
+          "journal_equal": true,
+          "receipts_complete": true,
+          "stderr_equal": true,
+          "stdout_equal": true
+        },
+        {
+          "code_equal": true,
+          "completed_calls": true,
+          "fold": 4,
+          "journal_equal": true,
+          "receipts_complete": true,
+          "stderr_equal": true,
+          "stdout_equal": true
+        },
+        {
+          "code_equal": true,
+          "completed_calls": true,
+          "fold": 5,
+          "journal_equal": true,
+          "receipts_complete": true,
+          "stderr_equal": true,
+          "stdout_equal": true
+        },
+        {
+          "code_equal": true,
+          "completed_calls": true,
+          "fold": 6,
+          "journal_equal": true,
+          "receipts_complete": true,
+          "stderr_equal": true,
+          "stdout_equal": true
+        },
+        {
+          "code_equal": true,
+          "completed_calls": true,
+          "fold": 7,
+          "journal_equal": true,
+          "receipts_complete": true,
+          "stderr_equal": true,
+          "stdout_equal": true
+        },
+        {
+          "code_equal": true,
+          "completed_calls": true,
+          "fold": 8,
+          "journal_equal": true,
+          "receipts_complete": true,
+          "stderr_equal": true,
+          "stdout_equal": true
+        },
+        {
+          "code_equal": true,
+          "completed_calls": true,
+          "fold": 9,
+          "journal_equal": true,
+          "receipts_complete": true,
+          "stderr_equal": true,
+          "stdout_equal": true
+        },
+        {
+          "code_equal": true,
+          "completed_calls": true,
+          "fold": 10,
+          "journal_equal": true,
+          "receipts_complete": true,
+          "stderr_equal": true,
+          "stdout_equal": true
+        },
+        {
+          "code_equal": true,
+          "completed_calls": true,
+          "fold": 11,
+          "journal_equal": true,
+          "receipts_complete": true,
+          "stderr_equal": true,
+          "stdout_equal": true
+        }
+      ],
+      "same_inputs": true
+    },
+    "28": {
+      "complete": false,
+      "equal": false,
+      "folds": [
+        {
+          "code_equal": true,
+          "completed_calls": true,
+          "fold": 0,
+          "journal_equal": true,
+          "receipts_complete": true,
+          "stderr_equal": true,
+          "stdout_equal": true
+        },
+        {
+          "code_equal": true,
+          "completed_calls": true,
+          "fold": 1,
+          "journal_equal": true,
+          "receipts_complete": true,
+          "stderr_equal": true,
+          "stdout_equal": true
+        },
+        {
+          "code_equal": false,
+          "completed_calls": false,
+          "fold": 2,
+          "journal_equal": false,
+          "receipts_complete": false,
+          "stderr_equal": false,
+          "stdout_equal": false
+        }
+      ],
+      "same_inputs": true
+    }
+  },
+  "initial_attribution": [
+    {
+      "arm": "timed22-1",
+      "calls": {
+        "Lexicon.__init__": 5,
+        "Reviser.__init__": 1,
+        "Reviser._matrix": 43,
+        "Reviser.brief": 10,
+        "Reviser.grade": 22,
+        "Reviser.group_merges": 11,
+        "Reviser.inspect": 11,
+        "RhymeField.field": 101,
+        "SlopFloor.check": 11,
+        "quality.relations.build_stream": 39,
+        "quality.relations.line_pairs_for": 96
+      },
+      "cli_cpu": 13.657420511,
+      "exclusive_cpu": {
+        "Lexicon.__init__": 2.483238318999999,
+        "Reviser.__init__": 1.0493685150000003,
+        "Reviser._matrix": 0.023454603000007346,
+        "Reviser.brief": 0.005201923999999636,
+        "Reviser.grade": 0.05725088700000036,
+        "Reviser.group_merges": 0.0036157039999906715,
+        "Reviser.inspect": 0.29181254900000475,
+        "RhymeField.field": 2.4925727799999953,
+        "SlopFloor.check": 0.038393928000003186,
+        "quality.relations.build_stream": 0.0759456089999978,
+        "quality.relations.line_pairs_for": 7.0750798270000015
+      },
+      "group_extra_grade_build_stream_calls": 11,
+      "group_extra_grade_calls": 11,
+      "group_extra_grade_cpu": 0.14495270199999766,
+      "wall": 13.837289622999378
+    },
+    {
+      "arm": "timed22-2",
+      "calls": {
+        "Lexicon.__init__": 5,
+        "Reviser.__init__": 1,
+        "Reviser._matrix": 43,
+        "Reviser.brief": 10,
+        "Reviser.grade": 22,
+        "Reviser.group_merges": 11,
+        "Reviser.inspect": 11,
+        "RhymeField.field": 101,
+        "SlopFloor.check": 11,
+        "quality.relations.build_stream": 39,
+        "quality.relations.line_pairs_for": 96
+      },
+      "cli_cpu": 15.065333756,
+      "exclusive_cpu": {
+        "Lexicon.__init__": 2.6353451870000004,
+        "Reviser.__init__": 1.014736515,
+        "Reviser._matrix": 0.024472330000008036,
+        "Reviser.brief": 0.0054838200000020265,
+        "Reviser.grade": 0.06271092399999567,
+        "Reviser.group_merges": 0.0038849739999911037,
+        "Reviser.inspect": 0.2992430219999953,
+        "RhymeField.field": 2.766066050000012,
+        "SlopFloor.check": 0.044831057999988655,
+        "quality.relations.build_stream": 0.07996702200000105,
+        "quality.relations.line_pairs_for": 8.06177703600001
+      },
+      "group_extra_grade_build_stream_calls": 11,
+      "group_extra_grade_calls": 11,
+      "group_extra_grade_cpu": 0.1474290509999996,
+      "wall": 15.213109244999941
+    },
+    {
+      "arm": "timed22-3",
+      "calls": {
+        "Lexicon.__init__": 5,
+        "Reviser.__init__": 1,
+        "Reviser._matrix": 43,
+        "Reviser.brief": 10,
+        "Reviser.grade": 22,
+        "Reviser.group_merges": 11,
+        "Reviser.inspect": 11,
+        "RhymeField.field": 101,
+        "SlopFloor.check": 11,
+        "quality.relations.build_stream": 39,
+        "quality.relations.line_pairs_for": 96
+      },
+      "cli_cpu": 13.987088478,
+      "exclusive_cpu": {
+        "Lexicon.__init__": 2.7233359429999995,
+        "Reviser.__init__": 1.132589055,
+        "Reviser._matrix": 0.024483048000003116,
+        "Reviser.brief": 0.004823259999994889,
+        "Reviser.grade": 0.05995610400000029,
+        "Reviser.group_merges": 0.0036111500000011176,
+        "Reviser.inspect": 0.28935202100000446,
+        "RhymeField.field": 2.519129303999993,
+        "SlopFloor.check": 0.045869206000004326,
+        "quality.relations.build_stream": 0.07743757799999906,
+        "quality.relations.line_pairs_for": 7.009427361999998
+      },
+      "group_extra_grade_build_stream_calls": 11,
+      "group_extra_grade_calls": 11,
+      "group_extra_grade_cpu": 0.1447882259999993,
+      "wall": 14.138549985000282
+    }
+  ],
+  "initial_equality": {
+    "complete": true,
+    "digests": {
+      "bare22-1": "ef759387b6c1e9e190f2c6fbab7690d6c4e1d67a79d37e6ac594b800b6b42828",
+      "bare22-2": "ef759387b6c1e9e190f2c6fbab7690d6c4e1d67a79d37e6ac594b800b6b42828",
+      "bare22-3": "ef759387b6c1e9e190f2c6fbab7690d6c4e1d67a79d37e6ac594b800b6b42828",
+      "timed22-1": "ef759387b6c1e9e190f2c6fbab7690d6c4e1d67a79d37e6ac594b800b6b42828",
+      "timed22-2": "ef759387b6c1e9e190f2c6fbab7690d6c4e1d67a79d37e6ac594b800b6b42828",
+      "timed22-3": "ef759387b6c1e9e190f2c6fbab7690d6c4e1d67a79d37e6ac594b800b6b42828"
+    },
+    "equal": true
+  },
+  "normalisation": "Run-directory paths, memo disclosures/counters, and only finish_bp temporary filename in BLUEPRINT header; findings, coverage, lyrics and journals remain compared.",
+  "version": 1
+}

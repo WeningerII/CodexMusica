@@ -1,0 +1,138 @@
+[
+  {
+    "name": "regenerate counters",
+    "argv": [
+      "/workspace/scratch/93824deb9e20/m170-venv/bin/python",
+      "quality/counters.py",
+      "--write"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "comparator",
+    "argv": [
+      "/workspace/scratch/93824deb9e20/m170-venv/bin/python",
+      "quality/check_comparator_pin.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "measurement controls",
+    "argv": [
+      "/workspace/scratch/93824deb9e20/m170-venv/bin/python",
+      "scripts/test_lyric_continuations.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "replay memo suite",
+    "argv": [
+      "/workspace/scratch/93824deb9e20/m170-venv/bin/python",
+      "quality/suite_sweep.py",
+      "--only",
+      "test_replay_memo.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "direct fold driver",
+    "argv": [
+      "/workspace/scratch/93824deb9e20/m170-venv/bin/python",
+      "quality/fold_series.py",
+      "m170-final-validation",
+      "--seed=16",
+      "--lines=22",
+      "--folds=1"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "verify_entries.py",
+    "argv": ["/workspace/scratch/93824deb9e20/m170-venv/bin/python", "quality/verify_entries.py"],
+    "exit_code": 0
+  },
+  {
+    "name": "counters.py",
+    "argv": [
+      "/workspace/scratch/93824deb9e20/m170-venv/bin/python",
+      "quality/counters.py",
+      "--check"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "audit_register.py",
+    "argv": [
+      "/workspace/scratch/93824deb9e20/m170-venv/bin/python",
+      "quality/audit_register.py",
+      "--check"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "verify_doctrines.py",
+    "argv": ["/workspace/scratch/93824deb9e20/m170-venv/bin/python", "quality/verify_doctrines.py"],
+    "exit_code": 0
+  },
+  {
+    "name": "battery_rounds.py",
+    "argv": [
+      "/workspace/scratch/93824deb9e20/m170-venv/bin/python",
+      "quality/battery_rounds.py",
+      "--check"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "verify_figures.py",
+    "argv": [
+      "/workspace/scratch/93824deb9e20/m170-venv/bin/python",
+      "quality/verify_figures.py",
+      "--check"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "gate_census.py",
+    "argv": [
+      "/workspace/scratch/93824deb9e20/m170-venv/bin/python",
+      "quality/gate_census.py",
+      "--check"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "pin_sweep.py",
+    "argv": [
+      "/workspace/scratch/93824deb9e20/m170-venv/bin/python",
+      "quality/pin_sweep.py",
+      "--verify-argv"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "lint",
+    "argv": ["npm", "run", "lint"],
+    "exit_code": 0
+  },
+  {
+    "name": "format:check",
+    "argv": ["npm", "run", "format:check"],
+    "exit_code": 0
+  },
+  {
+    "name": "validate",
+    "argv": ["npm", "run", "validate"],
+    "exit_code": 0
+  },
+  {
+    "name": "check-docs",
+    "argv": ["npm", "run", "check-docs"],
+    "exit_code": 1
+  },
+  {
+    "name": "check:closure",
+    "argv": ["npm", "run", "check:closure"],
+    "exit_code": 0
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "base": "51bc7c4af00fa4bf4e111141b018b0ccf3993307",
+  "runtime_source_matches_integration_receipts": true,
+  "checks": [
+    {
+      "argv": ["quality/check_comparator_pin.py"],
+      "exit_code": 0
+    },
+    {
+      "argv": ["quality/verify_entries.py"],
+      "exit_code": 0
+    },
+    {
+      "argv": ["quality/counters.py", "--check"],
+      "exit_code": 0
+    },
+    {
+      "argv": ["quality/audit_register.py", "--check"],
+      "exit_code": 0
+    },
+    {
+      "argv": ["quality/verify_doctrines.py"],
+      "exit_code": 0
+    },
+    {
+      "argv": ["quality/battery_rounds.py", "--check"],
+      "exit_code": 0
+    },
+    {
+      "argv": ["quality/verify_figures.py", "--check"],
+      "exit_code": 0
+    },
+    {
+      "argv": ["quality/gate_census.py", "--check"],
+      "exit_code": 0
+    },
+    {
+      "argv": ["quality/pin_sweep.py", "--verify-argv"],
+      "exit_code": 0
+    }
+  ]
+}
