@@ -1,0 +1,20 @@
+{
+  "wall_seconds": 1177.46,
+  "shards": [
+    {
+      "shard": 1,
+      "seconds": 1177.424,
+      "exit_code": 0
+    },
+    {
+      "shard": 2,
+      "seconds": 320.884,
+      "exit_code": 0
+    },
+    {
+      "shard": 3,
+      "seconds": 2.449,
+      "exit_code": 0
+    }
+  ]
+}

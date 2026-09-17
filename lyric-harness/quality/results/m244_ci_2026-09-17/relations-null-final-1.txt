@@ -1,0 +1,88 @@
+==========================================================================
+RELATIONS NULLS · SECTION 9 (THE PANEL) — regressions
+==========================================================================
+SHARD 1/3: 6 of 17 sections (dealt by index residue over the cost-ordered tuple)
+
+§1 the panel is a partition of the registry
+  PASS  §1 every declared schema gets exactly one row (empty panel)
+          78 rows for 78 schemas
+  PASS  §1 every verdict is one of PANEL_VERDICTS
+          ['cannot_obtain_declarable']
+  PASS  §1 a schema no slice could ask still carries a REASON
+  PASS  §1 one real slice: still one row per schema
+  PASS  §1 one real slice: the eng cell produces live rows
+          41 schemas with at least one row
+
+§4 `prepare` reaches every replicate (doctrine 56)
+  PASS  §4 with `prepare`, the caesura schema produces rows
+          4 rows
+  PASS  §4 the observation and every null replicate run the declaration
+          17 prepared streams; states ['present']
+  PASS  §4 every replicate is accounted for as used, refused, or void
+          [(3, 1, 0), (4, 0, 0)]
+  PASS  §4 actual unknown readings remain explicit refusals, not missing declarations
+          [('reading', 'span')]
+  PASS  §4 the null resolution and p-value use only measured replicates
+  PASS  §4 without `prepare`, the same schema yields NO live row
+
+§7 an unknown declaration step refuses at build time
+  PASS  §7 an unimplemented step raises rather than declaring nothing
+  PASS  §7 no named step is a no-op
+  PASS  §7 panel slice 'eng' names only implemented steps
+          ('caesura:searched', 'refrain:all_lines')
+  PASS  §7 panel slice 'fin' names only implemented steps
+          ('caesura:searched', 'refrain:all_lines')
+  PASS  §7 panel slice 'cym' names only implemented steps
+          ('caesura:searched', 'refrain:all_lines')
+  PASS  §7 panel slice 'cym_cynghanedd' names only implemented steps
+          ('caesura:searched', 'refrain:all_lines')
+  PASS  §7 panel slice 'non' names only implemented steps
+          ('caesura:searched', 'refrain:all_lines')
+  PASS  §7 panel slice 'san' names only implemented steps
+          ('caesura:searched', 'refrain:all_lines')
+  PASS  §7 panel slice 'msa' names only implemented steps
+          ('caesura:searched', 'refrain:all_lines')
+  PASS  §7 panel slice 'ltc' names only implemented steps
+          ('caesura:searched', 'refrain:all_lines')
+  PASS  §7 panel slice 'fas' names only implemented steps
+          ('caesura:searched', 'refrain:alternate')
+
+§10 `Coverage.missing` carries the whole set (doctrine 44)
+  PASS  §10 `family rhyme` refuses on msa
+  PASS  §10 `missing` holds BOTH capabilities
+          ('prominence', 'quotient:manner')
+  PASS  §10 `capability` is still the alphabetically first one, unchanged
+  PASS  §10 the two answer different questions — the cheap blocker is not the structural one
+          prominence structural=False, quotient:manner structural=True (in BLOCKERS=False, in LIFTED=True)
+
+§13 the census keeps WHY it refused (M-43)
+  PASS  §13 the DECLARATION STEP RAN and the refrain frame is EMPTY, not absent — the state this section exists for
+          Supply(capability='refrain_tail', state='empty', n=0, source='computed', detail='lines carrying a refrain tail')
+  PASS  §13 both still refuse with the SAME verdict, so no frozen ledger column moves
+  PASS  §13 ...and the census now says WHY they differ
+          vacuous='vacuous_frame' capability='capability' — both read '' before M-43, so a declared-and-empty frame and a resource nobody has produced a byte-identical row
+  PASS  §13 ...and the REMEDIES differ, which is the point (doctrine 44)
+          vacuous remedy is 'a TEXT the declared instrument can find something in: refrain_tail was declared and came back EMPTY, so declaring it again changes nothing'; before M-43 it was the same string as the capability case, 'declare the capability on the stream' — telling a reader to declare a capability the slice header already prints as DECLARED. (The test asserts the remedy does not OPEN with the instruction, not that the word is absent: the correct text says `declaring it again changes nothing`.)
+
+§15 M-42 named algorithms are not independent controls
+  PASS  §15 200 paired draws have identical final-token projections
+  PASS  §15 equal final tokens do not imply equal token grids
+  PASS  §15 actual mosaic judge disproves blanket both_line_final collapse
+  PASS  §15 names deduplicate statistics, separate slices, exclude non-clears/refusals
+  PASS  §15 no clear is an empty mapping
+  PASS  §15 public report discloses dependence and names the cleared algorithms
+==============================================================
+SECTION COST, slowest first — the top line is the floor a shard count cannot beat:
+    1159.9s  s1_partition
+      14.5s  s10_missing_complete
+       0.6s  s4_prepare_per_replicate
+       0.1s  s15_named_nulls_are_not_independent_evidence
+       0.1s  s13_the_census_keeps_the_refusal_kind
+       0.0s  s7_unknown_step
+    1175.2s  TOTAL, this shard (6 of 17 sections)
+==============================================================
+all relations-null regressions pass
+
+==========================================================================
+  36 passed, 0 failed
+==========================================================================

@@ -955,15 +955,59 @@ jobs:
           done
           [ "$ok" = "1" ]
 
-      - name: Build a fresh artifact from source
+      # M-244: cache only the build, keyed by the existing conservative closure
+      # and the runtime. A hit still proves its complete file inventory, then
+      # runs the ordinary byte comparison and every fault injection. Scheduled
+      # runs rebuild cold. There is deliberately no restore-keys fallback.
+      - name: Identify the complete artifact build inputs
+        id: artifact-key
         if: needs.gate.outputs.artifacts_affected == 'true'
         run: |
+          if key=$(node scripts/artifact_build_cache.js key); then
+            echo "key=$key" >> "$GITHUB_OUTPUT"
+          else
+            echo "Could not establish build identity; rebuilding without cache."
+          fi
+
+      - name: Restore an exact artifact build
+        id: artifact-cache
+        if: needs.gate.outputs.artifacts_affected == 'true' && steps.artifact-key.outputs.key != '' && github.event_name != 'schedule'
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ runner.temp }}/fresh
+          key: artifact-build-v1-${{ steps.artifact-key.outputs.key }}
+
+      - name: Admit the restored build bytes
+        id: artifact-admission
+        if: steps.artifact-cache.outputs.cache-hit == 'true'
+        run: |
+          if node scripts/artifact_build_cache.js admit "$RUNNER_TEMP/fresh"; then
+            echo "reusable=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build a fresh artifact from source
+        if: needs.gate.outputs.artifacts_affected == 'true' && steps.artifact-admission.outputs.reusable != 'true'
+        run: |
+          rm -rf "$RUNNER_TEMP/fresh"
           node scripts/build_static_api.js --out="$RUNNER_TEMP/fresh/api"
           node scripts/build_html.js --out="$RUNNER_TEMP/fresh/codex.html" --quiet
 
       - name: Reproducibility — committed api/ + codex.html == fresh build (0 diff)
         if: needs.gate.outputs.artifacts_affected == 'true'
         run: node scripts/check_artifact_fresh.js --prebuilt-api="$RUNNER_TEMP/fresh/api" --prebuilt-html="$RUNNER_TEMP/fresh/codex.html"
+
+      - name: Record the verified build inventory
+        if: needs.gate.outputs.artifacts_affected == 'true' && steps.artifact-key.outputs.key != '' && steps.artifact-cache.outputs.cache-hit != 'true'
+        env:
+          EXPECTED_KEY: ${{ steps.artifact-key.outputs.key }}
+        run: node scripts/artifact_build_cache.js record "$RUNNER_TEMP/fresh" "$EXPECTED_KEY"
+
+      - name: Cache the verified artifact build
+        if: needs.gate.outputs.artifacts_affected == 'true' && steps.artifact-key.outputs.key != '' && steps.artifact-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ runner.temp }}/fresh
+          key: artifact-build-v1-${{ steps.artifact-key.outputs.key }}
 
       # Fault injection runs on EVERY diff, docs-only included, and that is
       # deliberate: several of its classes inject into AGENTS.md / README.md /
@@ -2254,6 +2298,9 @@ jobs:
           # The pool is already four-wide; `plan.sweep` forks its own workers
           # (M-244) and must not inside it — the eight-on-four M-182 measured.
           SWEEP_WORKERS: '1'
+          # One formerly serial panel is dealt INSIDE the existing pool; all
+          # its sections still run once, with no extra runner jobs (M-244).
+          TEST_RELATIONS_NULL_SHARD: ${{ matrix.shard }}/3
         run: |
           set -e
           # FOUR AT A TIME, 2026-08-18. These are 49 independent PROCESSES
@@ -2378,7 +2425,11 @@ jobs:
             esac
             if [ -z "$_mine" ]; then
               _i=$(( ${_i:-0} + 1 ))
-              [ $(( (_i - 1) % _pool_n )) -eq $(( _pool_k - 1 )) ] || continue
+              # The panel deals its own sections by the same coordinate.
+              # Keep its index in the list so every other suite's deal holds.
+              if [ "$f" != relations_null ]; then
+                [ $(( (_i - 1) % _pool_n )) -eq $(( _pool_k - 1 )) ] || continue
+              fi
             fi
             while [ "$(jobs -rp | wc -l)" -ge 4 ]; do
               wait -n
