@@ -1,0 +1,80 @@
+==========================================================================
+RELATIONS NULLS · SECTION 9 (THE PANEL) — regressions
+==========================================================================
+SHARD 2/3: 6 of 17 sections (dealt by index residue over the cost-ordered tuple)
+
+§2 the reader is a coordinate (doctrine 58)
+  PASS  §2 `_read` KEEPS marker rows (the ledger's reader is unchanged)
+          2 of 40: ['--- TITLE: THE RAVEN.', '--- SOURCE: PG10031']
+  PASS  §2 `_read_slice` drops every marker row
+          0 marker rows in 40 panel lines
+  PASS  §2 `panel_reader_delta` measures the difference rather than asserting it is small
+          dropped 2, verdicts moved 2
+
+§5 `cleared()` fails toward the permissive side (doctrine 94)
+  PASS  §5 above nothing, null NEVER MOVED -> NOT cleared (doctrine 20/68)
+          differing 0.0, gap 0.0
+  PASS  §5 EQUAL to the null max with a live null -> NOT cleared (strictly above, doctrine 57)
+          gap 0.0
+  PASS  §5 above the null max with a live null -> cleared
+          gap 1.0
+  PASS  §5 a row with NO replicates -> NOT cleared
+  PASS  §5 a Refusal -> NOT cleared
+
+§8 a missing panel corpus REFUSES (doctrine 20/48)
+  PASS  §8 a missing slice returns a Refusal, not an empty list
+          corpus
+  PASS  §8 the panel records the refusal per slice
+  PASS  §8 the census is still complete after a refused slice
+
+§11 a refused replicate is COUNTED (doctrine 27/79)
+  PASS  §11 the radif schema is reachable on the one-ghazal fas slice
+          8 rows
+  PASS  §11 used + refused + void == the n that was asked for, on EVERY row
+          [(0, 12, 0), (1, 11, 0)]
+  PASS  §11 at least one null DOES destroy the frame, so the counter is exercised rather than decorative
+          [('global_redeal', 12), ('line_final_permutation', 12), ('line_permutation', 12), ('within_line_shuffle', 11)]
+  PASS  §11 `p` and `resolution` divide by the USED count, not by n
+
+§14 a void replicate is COUNTED, apart from a refused one (M-45)
+  PASS  §14 the probe row is live (the observation yielded a value)
+  PASS  §14 void counts EXACTLY the draws the statistic answered None on
+          used=5 void=5
+  PASS  §14 ...and refused is UNTOUCHED by them — two kinds, two counts, never summed (doctrine 79)
+  PASS  §14 used + refused + void == n
+  PASS  §14 `p` and `resolution` divide by the USED count — they were always honest; the counter makes the shortfall attributable
+  PASS  §14 the row's own rendering carries the count
+              replicates differing from the observation 100.0%   n=10 used=5 refused=0 void=5 seed=20260811
+  PASS  §14 the register's own row is reachable at small n
+          1 rows
+  PASS  §14 sweep's copy of the loop counts the void kind too — the row that printed refused=0 over a shortfall now attributes it
+          used=6 refused=0 void=6
+
+§16 one observation per schema/statistic set, every replicate retained
+  PASS  §16 derived_only=False: the positive fixture reaches observation and null judges
+  PASS  §16 derived_only=False: each observation coordinate measured once
+          Counter({('perfect rhyme', ('count', 'local_fraction@2')): 1})
+  PASS  §16 derived_only=False: complete rows equal independently recomputed null arms
+  PASS  §16 derived_only=False: every requested replicate still reaches the judge
+  PASS  §16 derived_only=False: every schema remains in the census
+  PASS  §16 derived_only=True: the positive fixture reaches observation and null judges
+  PASS  §16 derived_only=True: each observation coordinate measured once
+          Counter({('perfect rhyme', ('count', 'local_fraction@2')): 1, ('perfect rhyme', ('local_fraction@2',)): 1})
+  PASS  §16 derived_only=True: complete rows equal independently recomputed null arms
+  PASS  §16 derived_only=True: every requested replicate still reaches the judge
+  PASS  §16 derived_only=True: every schema remains in the census
+==============================================================
+SECTION COST, slowest first — the top line is the floor a shard count cannot beat:
+     317.1s  s2_reader
+       0.6s  s14_the_void_replicate_is_its_own_count
+       0.5s  s11_refused_replicates
+       0.3s  s16_observation_is_shared_but_every_null_is_measured
+       0.0s  s8_missing_corpus
+       0.0s  s5_cleared
+     318.5s  TOTAL, this shard (6 of 17 sections)
+==============================================================
+all relations-null regressions pass
+
+==========================================================================
+  33 passed, 0 failed
+==========================================================================

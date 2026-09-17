@@ -23207,6 +23207,50 @@ levers — the field memo, the `freshness` rebuild that is now the wall, the
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~298~~
 **299** with this entry (2026-09-05).
 
+
+**FOLLOW-UP 2026-09-17 — the old four-lever list is historical, not the
+current implementation inventory.** M-282 already pooled the trailing verify
+checks and split the capacity matrix; M-252 records observed push/PR duplicate
+skips. A bare post-merge branch mirror is avoided by not pushing main back to
+the working branch. Neither saving is newly claimed here. On the latest green
+PR run inspected, [run 2081](https://github.com/WeningerII/CodexMusica/actions/runs/35247512389)
+for #327, the full wall was 25.9 minutes, `verify` 9.6 minutes,
+`suites (shard 1/3)` 16.4 minutes, and the capacity pole job 16.1 minutes.
+The relations-null child occupied about 818 seconds of that suites job;
+`verify` waited 11.3 minutes after the gate completed. Job elapsed time, queue
+wait and individual leaf elapsed times are different quantities. The source
+run/job identities and local receipts are retained in
+`quality/results/m244_ci_2026-09-17/`.
+
+**BUILT HERE.** `relations_null.sweep` shares each unchanged observation
+across null algorithms within that call, keyed by schema and statistic tuple;
+it still measures every randomized replicate. The regression compares every
+result row with separate per-null recomputation, checks the full census and
+replicate counts, and detects the old redundant observation work in both
+ordinary and derived-only mode. The panel suite now uses the existing timed
+section idiom across the same three suites jobs. The actual CI shell is
+exercised with success and planted child failure; every other pooled suite
+still runs once and the panel's sections partition exactly once.
+
+The other implementation is an exact artifact **build** cache over the
+existing conservative build closure, the build invocation, cache admission
+code and Node runtime. It records the complete generated-file inventory only
+after the normal freshness comparison, and refuses changed inputs, a changed
+runtime, missing/extra/corrupt files, symlinks, truncated receipts, and inputs
+moving during a build. A cache miss rebuilds. An admitted build still goes
+through the normal freshness comparison and fault injections. Scheduled runs
+build cold. No cached pass verdict replaces a gate, and no prefix cache can
+substitute for the exact input identity.
+
+**STILL PARTIAL.** The persistent floor field memo and the site-only
+`harness_affected` scope with correct skipped-result semantics remain unbuilt.
+This change does not remove the measured capacity floor or the account's job
+queue, and does not establish a ten-minute end-to-end wall. The historical
+field profile is not a new measurement of today's critical path. Current
+hosted cold/warm cache observations and the final verification boundary are
+reported with the PR; local timings are explicitly local, not a prediction of
+GitHub's loaded runners. No corpus, threshold or comparator input is changed.
+
 ### M-245 · The `schema:semirhyme` judge refused the schema's own example — bend~ending read the coda off the stressed SYLLABLE of a maximal-onset syllabification, and every drawable schema is now pinned to the pair its definition names `CLOSED` 2026-09-05 — found by a connector user's seed-33 song grading exit 3 on one flag, and the flag being ours
 
 **THE FINDING.** The owner forwarded a friend's session: seed 33 at 20

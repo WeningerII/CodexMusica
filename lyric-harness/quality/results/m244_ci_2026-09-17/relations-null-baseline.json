@@ -1,0 +1,32 @@
+{
+  "counts": {
+    "PASS": 0,
+    "FAIL": 0,
+    "CANNOT RUN": 1
+  },
+  "rows": [
+    {
+      "suite": "quality/test_relations_null.py",
+      "exit": null,
+      "verdict": "CANNOT RUN",
+      "seconds": 1200.2,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": [
+        "exceeded the 1200s bound with no check printed red -- inconclusive, NOT a pass (doctrine 20)"
+      ]
+    }
+  ],
+  "partial": false,
+  "not_reached": [],
+  "appeared_during_run": [],
+  "head_at_start": "fe9181f7",
+  "head_at_end": "fe9181f7",
+  "tree_moved_during_run": false,
+  "excluded": {
+    "battery.py": "the sonnet/limerick ORACLE, not a suite. It prints measurements (mandated/judged/refused/violations) that a reader compares against the pinned baseline by hand; it has no pass/fail of its own to read, so a verdict here would be this module inventing one.",
+    "quality/negative_control.py": "the negative control. Same shape as the battery: it reports a rate against a null, and a rate is not a verdict.",
+    "quality/pin_sweep.py": "the OTHER sweep, and it asks a different question -- which committed FIGURES moved, not which CHECKS are red. It takes over an hour of its own and running it inside this one would hide two hours behind one progress line. `quality/test_pin_sweep.py` IS in this population; the hour-long sweep it tests is not."
+  }
+}

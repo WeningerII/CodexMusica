@@ -1492,6 +1492,12 @@ def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
             for nl in menu:
                 plan.setdefault(nl, {}).setdefault(c.schema, []).append(sn)
 
+    # The observation is the same stream under every null. Its statistic list
+    # can differ in derived_only mode, so retain that coordinate in the key.
+    # Replicates remain independent calls: only this unchanged observation is
+    # shared. M-244's panel otherwise realised it once per null algorithm.
+    observations = {}
+    burdens = {}
     results = []
     for nl_name, per_schema in sorted(plan.items()):
         nl = NULLS[nl_name]
@@ -1499,10 +1505,15 @@ def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
         for sname, snames in sorted(per_schema.items()):
             sch = R.REGISTRY[sname]
             stats = [STATISTICS[x] for x in snames]
-            obs, refusal = _measure(st0, sch, stats, chans, keep)
+            observation_key = (sname, tuple(snames))
+            if observation_key not in observations:
+                observations[observation_key] = _measure(st0, sch, stats, chans, keep)
+            obs, refusal = observations[observation_key]
             if refusal is not None or obs is None:
                 continue
-            burden = R.search_burden(sch, st0)
+            if sname not in burdens:
+                burdens[sname] = R.search_burden(sch, st0)
+            burden = burdens[sname]
             row = []
             for s, o in zip(stats, obs):
                 if o is None:
