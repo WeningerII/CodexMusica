@@ -1,0 +1,22 @@
+[
+  {
+    "command": [
+      "node",
+      "scripts/artifact_build_cache.js",
+      "admit",
+      "/workspace/scratch/548bb52a274d/m244-fresh-final"
+    ],
+    "exit": 0,
+    "seconds": 0.625
+  },
+  {
+    "command": [
+      "node",
+      "scripts/check_artifact_fresh.js",
+      "--prebuilt-api=/workspace/scratch/548bb52a274d/m244-fresh-final/api",
+      "--prebuilt-html=/workspace/scratch/548bb52a274d/m244-fresh-final/codex.html"
+    ],
+    "exit": 0,
+    "seconds": 0.739
+  }
+]

@@ -436,6 +436,63 @@ test('live qualification oracle rejects missing repairs, corrupt delivery and mi
 });
 
 // Complete comparison evidence is separate from candidate-image CI.
+test('release qualification refuses an absent, incomplete or duplicate capacity matrix', async () => {
+  const { QUALIFICATION_JOBS } = await import('../scripts/verify_ci.mjs');
+  const name = 'qualification-capacity-matrix';
+  assert(QUALIFICATION_JOBS.includes(name));
+  assert(!REQUIRED_JOBS.includes('capacity-matrix-result'));
+  const qualificationRun = { ...run, event: 'workflow_dispatch' };
+  const qualificationJobs = QUALIFICATION_JOBS.map((name) => ({
+    name,
+    status: 'completed',
+    conclusion: 'success',
+  }));
+  const options = { repository, sha, qualification: true };
+  assert.equal(validateCI(qualificationRun, qualificationJobs, options).run_id, run.id);
+  const withoutMatrix = qualificationJobs.filter((job) => job.name !== name);
+  // A successful matrix in CI is not the matrix in this qualification attempt.
+  assert.throws(
+    () =>
+      validateCI(
+        qualificationRun,
+        [
+          ...withoutMatrix,
+          ...jobs,
+          { name: 'capacity-matrix-result', status: 'completed', conclusion: 'success' },
+        ],
+        options
+      ),
+    /qualification-capacity-matrix/
+  );
+  for (const conclusion of ['skipped', 'cancelled', 'failure', 'timed_out', 'neutral', null]) {
+    assert.throws(
+      () =>
+        validateCI(
+          qualificationRun,
+          [...withoutMatrix, { name, status: 'completed', conclusion }],
+          options
+        ),
+      /qualification-capacity-matrix/
+    );
+  }
+  for (const status of ['queued', 'in_progress']) {
+    assert.throws(() =>
+      validateCI(
+        qualificationRun,
+        [...withoutMatrix, { name, status, conclusion: 'success' }],
+        options
+      )
+    );
+  }
+  assert.throws(() =>
+    validateCI(
+      qualificationRun,
+      [...qualificationJobs, { name, status: 'completed', conclusion: 'success' }],
+      options
+    )
+  );
+});
+
 test('production qualification requires each actual job in the exact trusted manual attempt', async () => {
   const { QUALIFICATION_JOBS } = await import('../scripts/verify_ci.mjs');
   const qualificationRun = { ...run, event: 'workflow_dispatch' };

@@ -1,0 +1,9 @@
+$ node scripts/artifact_build_cache.js admit /workspace/scratch/548bb52a274d/m244-fresh-final
+BUILD CACHE ADMITTED; freshness comparison still required
+EXIT 0; elapsed_seconds 0.625
+$ node scripts/check_artifact_fresh.js --prebuilt-api=/workspace/scratch/548bb52a274d/m244-fresh-final/api --prebuilt-html=/workspace/scratch/548bb52a274d/m244-fresh-final/codex.html
+Wrote llms.txt, sitemap.xml (4064 urls), robots.txt, server.json to /workspace/scratch/548bb52a274d/m244-fresh-final, base=https://codexmusica.com
+=== Artifact reproducibility (committed == fresh build from source?) ===
+PASS — committed api/ (4060 files) + codex.html + sitemap.xml / llms.txt / robots.txt / server.json are byte-identical to a fresh build (modulo build timestamps).
+       The published artifact is provably a function of the source.
+EXIT 0; elapsed_seconds 0.739

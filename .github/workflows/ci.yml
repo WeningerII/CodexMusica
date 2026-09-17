@@ -660,9 +660,11 @@ jobs:
       - name: Capacity acceptance oracle counterexamples
         run: python3 scripts/test_lyrics_capacity.py
       # THE CAPACITY MATRIX STOOD HERE FROM 2026-09-08 UNTIL 2026-09-12 and
-      # is now `.github/workflows/capacity-matrix.yml`, called by the
-      # `capacity-matrix` job below once this job has built the image and
-      # banked its receipt (M-282). MEASURED on run 34711856241: this job
+      # became `.github/workflows/capacity-matrix.yml`. Since M-282's
+      # 2026-09-17 placement decision, production qualification calls it;
+      # this job keeps the offline pipeline and oracle controls. The deploy
+      # requires the matrix in that exact SHA's qualification. MEASURED on
+      # run 34711856241: this job
       # took 23.1 min of the run's 34.9 and was the critical path alone --
       # build 0.5, offline pipeline 1.1, the matrix 20.9 -- and the matrix's
       # pole lane, sharing a core with a sibling lane, was 1,169 s of that.
@@ -690,27 +692,6 @@ jobs:
           path: lyrics-image.json
           if-no-files-found: error
           retention-days: 30
-
-  # The 18-execution capacity matrix, one runner per dealt shard, over an
-  # image rebuilt from this tree with the receipt `lyrics-image` just banked.
-  # Needs `lyrics-image` so the cheap offline pipeline still gates the
-  # expensive matrix, exactly as it did when both were one job, and so the
-  # seed is always the one this run admitted (M-282).
-  capacity-matrix:
-    needs: [dup, gate, lyrics-image]
-    if: needs.dup.outputs.already_covered != 'true'
-    uses: ./.github/workflows/capacity-matrix.yml
-
-  capacity-matrix-result:
-    needs: [dup, gate, capacity-matrix]
-    if: ${{ !cancelled() && needs.dup.outputs.already_covered != 'true' }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    steps:
-      - name: Require the merged matrix from this workflow attempt
-        env:
-          RESULT: ${{ needs.capacity-matrix.result }}
-        run: test "$RESULT" = success
 
   verify:
     needs: [dup, gate]
