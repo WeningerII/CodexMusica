@@ -497,10 +497,9 @@ function readSummary(source) {
     if (!optionalStat(root)) return { state: 'no_summary' };
     directoryChain(root);
     const file = join(root, 'summary.json');
-    if (!optionalStat(file)) return { state: 'no_summary' };
-    const summary = safeSummary(
-      JSON.parse(boundedRead(file, ARCHIVE_LIMITS.fileBytes).toString('utf8'))
-    );
+    const summary = optionalStat(file)
+      ? safeSummary(JSON.parse(boundedRead(file, ARCHIVE_LIMITS.fileBytes).toString('utf8')))
+      : { state: 'no_summary' };
     // A song reaches `summary.json` only when it ends; a run that was
     // cancelled or killed mid-song left nothing there. The projection reads
     // the checkpoint and transcript for what the summary cannot yet say —
