@@ -11864,7 +11864,42 @@ and a copy OUTSIDE the ignored path still fails `prettier --check` — true
 and no longer a defect any gate charges. The route question (RULINGS
 WANTED #12) is answered by the tree's third route and is struck there.
 
-### M-95 · `tandem` and `nightly` have not been green once in a week, for four separate reasons `PARTIAL` — 2026-08-24
+### M-95 · Historical `tandem` and `nightly` failures reconciled ~~`PARTIAL`~~ `CLOSED` — 2026-09-17
+
+**CLOSED by evidence reconciliation against `50e4de44`, not a new runtime
+repair.** The original 2026-08-24 account below remains historical. The
+previously unreadable August 23 job log is now accessible: both AUC steps
+explicitly **REFUSED at exit 2 because `wordfreq20k.txt` was absent**. These
+were resource-declaration refusals, not measured AUC drift or missing Python
+packages. `fcff2abe` replaced the retired resource in
+`quality/discriminate.py:RESOURCE_FILES` with the frequency table the features
+actually read; PR #189 merged it on August 23 at 12:49Z, after the failed
+04:51Z run. That PR also carried the associated sentinel/AUC re-adoptions
+(`bd68dfff`, `aaf04558`); no thresholds or pins are changed here.
+
+Scheduled run **1045** (August 27) passed `nightly`, both named AUC steps,
+both adoption checks, memo banking, and the separate mutation job. Scheduled
+runs **1180** (August 31) and **1652** (September 14) passed `tandem`.
+Scheduled run **1903** (September 16) passed `nightly` and `mutation`,
+including the AUC checks and deployment freshness. A job skipped on the
+other cron is not counted as a pass. The later red run **1713** (September
+15) also passed both AUC checks: its nightly failed on **47 live-surface
+differences**, while a separate plan shard failed installing a dependency.
+
+The original repairs shipped in `739a7ca9` (PR #191). The stronger cache-save
+repair is M-147 / `acab5913` (PR #196): split restore/save with an explicit
+`if: always()` save, including after a failed job. The schedule suspension
+and restoration belong to M-227/M-287; subsequent calibration repairs retain
+their own evidence. Current workflow wiring preserves these repairs.
+
+**Evidence and limits:** `quality/RESULTS_M95_CI_RECONCILIATION.md` links the
+exact jobs, commits and repairs, with selected API receipts and original log
+excerpts. These historical runs establish this entry's resolution; they do
+not certify the current comparator or the final documentation commit.
+There is no remaining M-95 implementation or comparator-batch dependency.
+
+**Historical account, recorded 2026-08-24:**
+
 **FOURTEEN SCHEDULED RUNS SINCE 2026-08-03, NOT ONE SUCCESS** (Actions API,
 `event=schedule`): 11 `failure`, 3 `cancelled`. The two jobs only these crons
 reach are the two nobody was watching, and "red for a week" turned out to be
@@ -11906,7 +11941,7 @@ the monospace recipe block, `--fs-nano` for the pill, `--fs-micro` for the rest.
    red. Two adoption checks were not asked for a week and read as fine
    (doctrine 20). Every other step in that job already had the guard.
 
-**STILL OPEN, AND THIS IS WHY THE ENTRY IS `PARTIAL`.** On 2026-08-23 the
+**HISTORICAL OPEN REQUIREMENT (resolved above on 2026-09-17).** On 2026-08-23 the
 `Joint AUC null` step failed in **1 second** and `Every discrimination AUC`
 in **under one**, both against a feature cache the step before had just spent
 16 minutes warming. Too fast to be a run and too fast to be a drift; the logs
