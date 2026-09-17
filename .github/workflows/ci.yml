@@ -1421,7 +1421,7 @@ jobs:
       # name is a promise; the old one had gone short of what the step does,
       # which is the same defect in the same file that the registry exists to
       # catch in the doctrines themselves.
-      - name: Doctrine numbering and the doctrine→check registry (1-95, no number in both files, every citation resolves, every doctrine mapped to a check or a declared refusal)
+      - name: Doctrine numbering and the doctrine→check registry (1-96, no number in both files, every citation resolves, every doctrine mapped to a check or a declared refusal)
         working-directory: lyric-harness
         run: python3 quality/verify_doctrines.py
 
@@ -1492,9 +1492,9 @@ jobs:
       # added without a gate MOVES A NUMBER (exit 3) instead of joining a list
       # nobody reads, and a new code is a question rather than a merge
       # conflict. A DISCLOSED-ONLY code is NOT automatically a defect —
-      # doctrine 6 is the counterweight and the shape layer's notes are notes
-      # on purpose — so this step gates the CENSUS, never the verdict on any
-      # individual code. 1.2s over the tree.
+      # doctrine 96 is the counterweight and the shape layer's notes are notes
+      # on purpose. M-78 also guards CONVENTION membership across all three
+      # gate routes: unchanged counts must not hide a promoted convention.
       - name: The gate census — which findings can refuse anything (exit 3 on drift)
         if: always()
         working-directory: lyric-harness

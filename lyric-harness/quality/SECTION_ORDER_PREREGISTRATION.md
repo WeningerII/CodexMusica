@@ -56,7 +56,7 @@ rondo-ish return shape and not a monotone ascent.
 
 **A `rank` field would therefore have flagged two of the three staged
 pìobaireachd songs as out of order, and they are not out of order — they are
-printed as their editor set them.** Doctrine 6: a convention a writer may
+printed as their editor set them.** Doctrine 96: a convention a writer may
 depart from cannot be the thing that fails a check, and here the "departure" is
 the majority of the evidence. **`rank` is REFUSED.**
 
@@ -111,7 +111,7 @@ songs.** THREE COUNTS, NEVER SUMMED (doctrine 79):
 | `ungrounded` — the target never appears at all | **0** |
 
 **ONLY `ungrounded` IS A FINDING.** Ordering is a DISCLOSURE and not a charge:
-an editor who opens on a variation has departed from nothing (doctrine 6). The
+an editor who opens on a variation has departed from nothing (doctrine 96). The
 single `grounded_after` is `THE PRAISE OF MORAG`, and reading the page is what
 explains it — the first movement is printed with **NO HEADING AT ALL**, because
 the compositor sets a heading only where the movement CHANGES. That is also

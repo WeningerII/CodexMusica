@@ -5901,7 +5901,7 @@ the quality layer (each says which module answered):
                           must be independent of that cell's label
                           (doctrine 13/14), and because reusing your own
                           word across your own songs is a style fact, not
-                          a defect (doctrine 6/7). Omitting it reads no
+                          a defect (doctrine 96). Omitting it reads no
                           song and costs nothing
   capacity WORD | --top=N what the LEXICON can sustain (quality/capacity.py,
                           the density design's stage 1, derived 2026-08-18):
@@ -10268,7 +10268,7 @@ def main():
                   f"{', '.join(sorted(_pur))} — the loop keeps asking on a "
                   f"line carrying one, and `verify()` is UNCHANGED: it still "
                   f"gates on new FLAGS alone, so a pursued note can ask for a "
-                  f"revision and still cannot reject one (doctrine 6/7)")
+                  f"revision and still cannot reject one (doctrine 7)")
 
         # `--blueprint=`/`--subdivision`/`--isochronous`: THE SAME THREE
         # DECLARED COORDINATES the `fit` verb already reads, wired here for
@@ -11430,7 +11430,7 @@ def main():
                                  f"(names no line; see below)")
             print(f"\n  WHAT TO CHANGE — {len(decisions)} decision(s). "
                   f"Flags only; the notes below are measurements handed "
-                  f"back, not defects (doctrine 6)")
+                  f"back, not defects (doctrine 96)")
             if not decisions:
                 print("    nothing on any line, and nothing about the draft "
                       "as a whole, carries a flag. The notes below still say "
@@ -12304,7 +12304,7 @@ def main():
         # gate wants the whole-song verb, and moving `brief` in the same
         # commit would silently change an exit code four other cases in
         # `quality/test_verbs.py` assert on. NOTES NEVER MOVE IT: a note is
-        # a measurement handed back and doctrine 6 says a convention a
+        # a measurement handed back and doctrine 96 says a convention a
         # writer may depart from cannot be the thing that fails a check.
         # Computed from the finding set, never from the rendering — the
         # rollup above collapses 48 findings into 3 rows and does not move
@@ -12346,7 +12346,7 @@ def main():
                   f"Not a refusal (2, doctrine 20: the harness answered) and "
                   f"not a pass (0). {song_counts['notes']} NOTE(s) are "
                   f"reported above and are NOT counted here — a note is a "
-                  f"measurement handed back, never a defect (doctrine 6/79)")
+                  f"measurement handed back, never a defect (doctrine 96/79)")
             sys.exit(3)
 
         # THE BAN GATE (2026-08-23, `MISSING.md` M-88). A draft with no flag

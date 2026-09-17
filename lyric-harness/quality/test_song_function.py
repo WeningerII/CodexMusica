@@ -260,7 +260,7 @@ def test_the_hook():
     # rather than a table entry: `verify()` rejects on `new_flags` and
     # `song`/`revise` exit 3 while one stands.
     #
-    # IT IS NOT DOCTRINE 6's CASE, which is why this one and not its
+    # IT IS NOT DOCTRINE 96's CASE, which is why this one and not its
     # neighbours. Every other shape code measures a draft against
     # `POPULAR_SONG`, a convention a writer may depart from. This asks whether
     # a hook the WRITER DECLARED occurs more than once, and the answer is a
@@ -274,7 +274,7 @@ def test_the_hook():
               "HOOK_DOES_NOT_RECUR"] == "flag",
           f"{hdnr[0].severity if hdnr else 'NOT EMITTED'}")
     check("...while the CONVENTION codes beside it stay notes, so the "
-          "promotion moved one code and did not open the family (doctrine 6)",
+          "promotion moved one code and did not open the family (doctrine 96)",
           all(G.SEVERITY[c] == "note" for c in
               ("DOWNBEAT_LOCKED", "QUATRAIN_LOCK", "METER_LOCKED",
                "SECTION_LENGTH_LOCKED", "RETURN_LOCKED")),

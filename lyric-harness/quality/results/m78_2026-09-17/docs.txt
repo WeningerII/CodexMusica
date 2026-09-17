@@ -1,0 +1,15 @@
+=== Documentation verification ===
+(153 active docs scanned: *.md + llms.txt + index.html + atlas.html; CHANGELOG/tests + codex.html excluded)
+
+[NUMERIC CLAIMS]  (22 count types)
+  ✓ All canonical counts match current catalog state.
+
+[SCRIPT REFERENCES]  (82 unique refs across active docs)
+  ✓ All script refs resolve to existing files.
+
+PASS — no drift detected.
+(Run with --with-audits for fast audit-count checks, or --all for full sweep.)
+=== Documented path existence ===
+  present 256   ignored 0   declared-unreproducible 8   MISSING 0
+  (four counts, never summed — doctrine 79)
+PASS — every documented path is present, git-ignored, or declared unreproducible.

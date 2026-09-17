@@ -1,0 +1,2 @@
+=== Promise->gate coverage (bijection across docs / registry / gates) ===
+PASS — all 24 promises are documented AND gated; 0 orphans on any side.

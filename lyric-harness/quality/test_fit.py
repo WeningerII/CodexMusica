@@ -216,7 +216,7 @@ def test_pigeonhole_is_unconditional():
           fin.satisfiable and fin.kind == "prominence",
           "nobody declared 'every prominent unit sits on a group head'. That "
           "is a norm of some repertoires and the opposite of the point in "
-          "others (doctrine 6)")
+          "others (doctrine 96)")
     check("a finding that is not a PLACEMENT one may not claim unsatisfiable",
           _raises(lambda: FitFinding("X", "m", kind="prominence",
                                      satisfiable=False),
@@ -818,7 +818,7 @@ def test_overlap_is_asked_of_a_flat_line_list_not_only_of_a_songfit():
           all(f.severity == "note" for fs in _res["per_line"].values()
               for f in fs if f.code == "OVERLAPPING_SPANS"),
           "two vocal parts sharing a pulse is legal; revise.py makes no "
-          "severity decision of its own here (doctrine 6)")
+          "severity decision of its own here (doctrine 96)")
 
 
 def test_uncovered_bars_asked_of_a_flat_list_not_only_of_a_songfit():
@@ -905,7 +905,7 @@ def test_uncovered_bars_asked_of_a_flat_list_not_only_of_a_songfit():
           f"{len(song.findings())} line finding(s)")
     check("SATISFIABLE, always — an empty bar is a rest, a break, or a "
           "melisma this layer declares itself unable to see; calling it a "
-          "contradiction would be a norm nobody declared (doctrine 6)",
+          "contradiction would be a norm nobody declared (doctrine 96)",
           all(f.satisfiable for f in song.section_findings)
           and all(f.kind == "placement" for f in song.section_findings))
 

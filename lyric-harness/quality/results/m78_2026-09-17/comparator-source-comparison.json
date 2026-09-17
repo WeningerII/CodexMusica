@@ -1,0 +1,8 @@
+{
+  "base": "fe9181f7319869ea44a7a1540b95b495705d3b81",
+  "path": "lyric-harness/lyric_harness.py",
+  "old_sha256": "c2f92b69e0551b8f5785228a6835bbc2b5d6904ad5e9cea5759bb0d1928c1e1b",
+  "new_sha256": "4a0bcb41ff44d3badabf0d12b7f4336a64857a5739d6a6613d9b9a2f25b83813",
+  "comparison": "AST with doctrine-reference numbers normalized; comments absent by AST construction",
+  "equal": true
+}

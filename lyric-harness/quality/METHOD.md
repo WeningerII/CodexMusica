@@ -1,13 +1,13 @@
 # METHOD — the long doctrine
 
-The appendix to `CLAUDE.md`. Seventy-five of the ninety-five doctrines live
+The appendix to `CLAUDE.md`. Seventy-five of the ninety-six doctrines live
 here: nulls, controls, calibration, thresholds, refusal rates, provenance
 verification, and what an edition does to the constraint you are trying to
-measure. `CLAUDE.md` keeps the twenty that decide what gets made.
+measure. `CLAUDE.md` keeps the twenty-one that decide what gets made.
 
 **The numbering is global and unbroken across the two files.** Doctrine 79 is
 doctrine 79 and it is in part C below. The index at the foot of `CLAUDE.md`
-maps every number 1–95 to its home. Nothing is defined twice and nothing was
+maps every number 1–96 to its home. Nothing is defined twice and nothing was
 deleted in the split: where a claim here has been falsified it is marked
 WITHDRAWN or AMENDED in place, per this project's own rule, which is why
 several items argue with themselves and why you should read an item to its end

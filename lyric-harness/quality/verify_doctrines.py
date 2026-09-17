@@ -103,7 +103,7 @@ row is one -- and the annotation is required to be balanced and at the END, so
 
 WHAT IT DELIBERATELY DOES NOT TOLERATE, and this is the load-bearing choice:
 ABBREVIATION. A prefix match was the obvious design and it was rejected on a
-measurement -- all 95 rows agree with their definitions in FULL, so a
+measurement -- all rows agree with their definitions in FULL, so a
 prefix/abbreviation tolerance would buy nothing today and would silently pass
 an index row truncated to its first three words, or a repin that lands past
 the truncation point. Nor is case, wording, or ordinary punctuation
@@ -613,6 +613,10 @@ REGISTRY = {
     95: (MECHANICAL, "python3 quality/test_align.py", CITED,
          "channel_agreement aligns flush RIGHT, pinned on the unequal-length "
          "pairs the sonnet oracle was structurally incapable of reaching"),
+    96: (MECHANICAL, "python3 quality/test_gate_census.py", CITED,
+         "every CONVENTION remains disclosed-only across flag, mandatory-pursuit "
+         "and length gates; mutations prove that unchanged totals cannot hide "
+         "a promotion, while declared requirements remain enforceable"),
 }
 
 #: Anything shaped like a repo path inside a registry row has to exist. A
@@ -850,7 +854,7 @@ def _verdict(dtitle, ititle, skip=()):
     trailing parenthesised note the definition does not (a dated repin, which
     is what doctrine 17 asks for). It must be BALANCED and at the END, so
     doctrine 57's own `1/(n+1)` is compared rather than stripped -- and
-    ABBREVIATION is not tolerated in either direction, because all 95 rows
+    ABBREVIATION is not tolerated in either direction, because all rows
     agree in full and a prefix rule would pass a truncated one.
     """
     d, i = _norm(dtitle, skip), _norm(ititle, skip)

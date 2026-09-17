@@ -22,7 +22,7 @@ tool rather than of the writer.
 and that is correct: the field is built from CMUdict, so compelling it would
 refuse coinages, dialect, proper nouns and multi-word mosaic rhymes, and
 would turn a harness that REJECTS bad writing into one that CHOOSES the words
-(doctrine 6/7 — enforce a floor, do not order the permitted region). The gate
+(doctrine 7 — enforce a floor, do not order the permitted region). The gate
 is therefore on the PROCESS, never on the vocabulary: was a brief ISSUED for
 the line this revision changed, against the draft it changed FROM?
 

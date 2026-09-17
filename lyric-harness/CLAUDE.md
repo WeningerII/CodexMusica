@@ -186,7 +186,7 @@ stale.
 
 **Read this file before you write. Read `quality/METHOD.md` when you are about
 to MEASURE** — a rate, a null, a threshold, a refusal, a provenance claim. One
-doctrine numbered 1–95 spans the two files and the index at the bottom of this
+doctrine numbered 1–96 spans the two files and the index at the bottom of this
 file says which number lives where; `doctrine 79` is still doctrine 79. The
 split exists because this file had reached ninety-five doctrines of which some
 seventy were about checking, so a session reading it learned to audit rather
@@ -482,7 +482,7 @@ opinion."* **NO DRAFT GRADES DIFFERENTLY**: every table was proven equivalent
 to the expression it replaced before it shipped (0 disagreements over all 21
 shape codes), so 0 codes are newly enforced and all 12 newly-VISIBLE gates
 were already firing.
-**A DISCLOSED-ONLY CODE IS NOT AUTOMATICALLY A DEFECT AND DOCTRINE 6 IS THE
+**A DISCLOSED-ONLY CODE IS NOT AUTOMATICALLY A DEFECT AND DOCTRINE 96 IS THE
 COUNTERWEIGHT**: a CONVENTION a writer may depart from cannot be what fails a
 check, so the shape layer's notes (`DOWNBEAT_LOCKED`, `QUATRAIN_LOCK`) are
 notes ON PURPOSE and promoting them would be the error. The instrument
@@ -1275,7 +1275,7 @@ written into the field: *violate it — is the result a NOVEL SONG or a
 MISLABELLED SECTION?* A prechorus with no chorus is not experimental; the word
 means before-the-chorus. Mislabelled, so it prunes. Verse-chorus-verse-chorus-
 bridge violated is a novel song — a CONVENTION, `FormConvention`'s business, a
-note, never the planner (doctrine 6, the owner's "move 37" ban).
+note, never the planner (doctrine 96, the owner's "move 37" ban).
 **A REFUSAL IS NOT AN ABSENCE** (doctrine 20): `placement_refused` records
 *why* a row could not claim, and 2 rows use it — `tag`, whose gloss says
 "closing a section OR THE SONG" and asserts both readings, and `drop`, where
@@ -2078,7 +2078,7 @@ what is declared but unread" rather than building something new.
   `BRIDGE_IS_A_VERSE`, `RETURN_LENGTH_DRIFT` and the like — are
   measurements against `POPULAR_SONG`, a labelled CONVENTION
   (`grid.FormConvention`, the same move `Meter.conventional_grouping`
-  makes), not a mandate the writer declared, and doctrine 6 says a
+  makes), not a mandate the writer declared, and doctrine 96 says a
   convention a writer is free to depart from cannot be the thing that fails
   `verify()`. `HOOK_ABSENT` is different in kind: the writer supplied the
   exact hook TEXT, and whether it occurs in the draft at all is a factual
@@ -2219,7 +2219,7 @@ NOTE what this does NOT fix: the mandate-INDEPENDENT slop floor's
 `REPEAT_IN_VERSE` finding (`quality/floor.py`) still reports a verbatim
 chorus as repeated words — it is a different question (does the draft's raw
 language behave like human verse did in calibration) asked by a layer that
-does not consult `Mandate.requirement` at all, doctrine 6/7's "two sources,
+does not consult `Mandate.requirement` at all, doctrine 96's "two sources,
 deliberately kept apart" holding exactly as designed. `--returns=` fixes the
 MANDATE layer's misclassification; it was never going to silence the floor,
 and should not.
@@ -3024,7 +3024,7 @@ underneath the quality layer:
 
 ## Doctrine you hold while writing
 
-Twenty of the ninety-five, and they are the twenty that decide what gets MADE:
+Twenty-one of the ninety-six, and they are the twenty-one that decide what gets MADE:
 what the object is, what the tool will and will not say about it, and what is
 worth measuring at all. The other seventy-five are in `quality/METHOD.md` and
 are not less true — they are just not what you need in working memory to draft
@@ -3292,6 +3292,23 @@ from the first run — do not drift from these either:**, merged into one run.)
    of the three it is, because "find a better source" is the answer to only one.
    Same round, second instance: `Guy-Bilitski/rcc-data` carries the root and
    commentary with **no licence file at all**, and silence is not permission.
+
+96. **A convention a writer may depart from cannot fail verification.**
+   A labelled convention describes a practice; it is not a requirement the
+   writer declared. Departures stay notes and must not enter a flag gate, the
+   mandatory-pursuit set, or the length gate merely for departing. This is the
+   note-versus-failure rule formerly miscited as doctrine 6 (M-78); doctrine 6
+   still forbids weighted scores and doctrine 7 still forbids ranking inside
+   the permitted region. Neither number is redefined.
+   A declared requirement is a different question: `RETURN_SCHEME_DRIFT`
+   against `POPULAR_SONG` stays a note, while breaking a declared
+   `schemes.Return(verbatim=True)` may flag `RETURN_NOT_VERBATIM`. A calibrated
+   floor also remains enforceable on its declared population and coordinates;
+   calling it a convention cannot excuse a failure. Refusal, lack of a repair
+   move, and a satisfied obligation keep their separate dispositions.
+   `quality/gate_census.py --check` enforces the CONVENTION disposition across
+   all three gate routes, including changes that leave the census totals
+   unchanged. `quality/test_gate_census.py` checks the rule and its counterexamples.
 
 <!-- /DOCTRINE-BLOCK -->
 
@@ -3950,7 +3967,7 @@ rather than this paragraph — a roster copied into two files drifts in both.
    hand-copied subset of `VARIATION_KINDS` — that spelling is what rotted
    `single_use`, which drifted from `FunctionSpec.recurrence` by one member and
    silenced both gates it fed. `CROSS_FUNCTION_REPRISE` is a NOTE, so it reaches
-   `verify()`'s diff and cannot reject there (doctrine 6), proven by a
+   `verify()`'s diff and cannot reject there (doctrine 7), proven by a
    counterfactual that re-types only that code and flips acceptance to False.
    The corpus bounds the FALSE-POSITIVE side and cannot supply the positive one
    — no INTRO/OUTRO/REPRISE mark exists in `MARK_FUNCTION` — and that limit is
@@ -4119,7 +4136,7 @@ rather than this paragraph — a roster copied into two files drifts in both.
    `elif` of `DOWNBEAT_LOCKED`, which fired (doctrine 24, the rule relabels).
    NOTES, never flags, and the FLAG count is byte-identical either side of the
    wiring: this is a measurement against a CONVENTION at an uncalibrated 0.90
-   threshold, and doctrine 6 says a convention a writer may depart from cannot
+   threshold, and doctrine 96 says a convention a writer may depart from cannot
    be what fails `verify()`. 5/4 and an 11-bar bridge are choices, not repairs.
    **THAT HOLDS FOR THE SIX LOCKS AND STOPPED BEING TRUE OF THE LAYER
    2026-08-23 (`MISSING.md` M-84).** `HOOK_DOES_NOT_RECUR` is a FLAG by the
@@ -4243,7 +4260,7 @@ rather than this paragraph — a roster copied into two files drifts in both.
    **A NOTE, and this is the one most likely to be promoted later** because it
    is about RHYME and rhyme is what the mandate flags. It must not be:
    `return_findings` is never handed a mandate, so everything it says is
-   measured against `POPULAR_SONG` and doctrine 6 applies — and **the flag for
+   measured against `POPULAR_SONG` and doctrine 96 applies — and **the flag for
    this already exists one layer down**, as `RETURN_NOT_VERBATIM` on a return
    the writer DECLARED with `schemes.Return(verbatim=True)`. `reprise_findings`
    does NOT get it: a reprise's own gloss is "later and CHANGED" and names no
@@ -4262,7 +4279,7 @@ resolves through this table.
 
 **The invariant, so it can be checked rather than trusted.** Extract every
 `^\d+\. \*\*` between the `<!-- DOCTRINE-BLOCK -->` markers of these two files;
-that set must be exactly 1–95, with no number in both. Extract every
+that set must be exactly 1–96, with no number in both. Extract every
 `doctrines? N` reference in the repo (with a literal space — `data/`
 `concreteness.txt` has a lexicon row `doctrine` TAB `0` that `\s` would read as a
 citation); every one must land in that set. At the split there were 1,630
@@ -4366,6 +4383,7 @@ cannot be renumbered — only added.
 | 93 | `D` | "Sung in performance" is a claim about practice; the TEXT has to carry a mark of it |
 | 94 | `B` | A positive-case suite cannot find a rule that is too GENEROUS |
 | 95 | `F` | The alignment defect was in the SHIPPED comparator, not only the taxonomy, and equal-length examples hid it |
+| 96 | `W` | A convention a writer may depart from cannot fail verification |
 
 **METHOD's parts.** `A` nulls, controls and what a negative result means ·
 `B` thresholds, calibration and fitting · `C` refusals and determinacy ·

@@ -314,7 +314,7 @@ class FunctionSpec:
     # the word means BEFORE THE CHORUS, so the section is simply something
     # else. Mislabelled, so it prunes. Verse-chorus-verse-chorus-bridge
     # violated is a novel song -- a CONVENTION, which belongs in
-    # `FormConvention` as a note and never near the planner (doctrine 6).
+    # `FormConvention` as a note and never near the planner (doctrine 96).
     #
     # WHY THESE FOUR KINDS AND NOT ONE `position` FIELD. M-54's first design
     # was `position in {first, last, free}`, and its own derivation refuted
@@ -1322,7 +1322,7 @@ def song_from_blueprint(obj, assume_meter=None):
 #: THE RULE, and it is one rule with one exception:
 #: everything here is measured against `POPULAR_SONG`, a labelled CONVENTION
 #: (`FormConvention`, the same move `Meter.conventional_grouping` makes) and
-#: NOT a mandate the writer declared. **Doctrine 6: a convention a writer is
+#: NOT a mandate the writer declared. **Doctrine 96: a convention a writer is
 #: free to depart from cannot be the thing that fails `verify()`.** 5/4 and an
 #: eleven-bar bridge are choices. So: note.
 #:
@@ -1408,7 +1408,7 @@ def severity_of(code):
         raise KeyError(
             f"{code!r} has no declared severity in grid.SEVERITY. A shape "
             f"finding is a measurement against a CONVENTION and is almost "
-            f"always a note (doctrine 6) — but 'almost always' is not a "
+            f"always a note (doctrine 96) — but 'almost always' is not a "
             f"ruling, and defaulting it here would be this module deciding "
             f"by omission. Add the row.")
     return sev
@@ -2881,7 +2881,7 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
     # IT IS A NOTE AT `Reviser._function_findings`, WHICH IS THE DEFAULT AND IS
     # ALSO THE ANSWER. Everything from this report is a note except HOOK_ABSENT
     # because everything here is measured against `POPULAR_SONG`, a labelled
-    # CONVENTION, and doctrine 6 says a convention a writer may depart from
+    # CONVENTION, and doctrine 96 says a convention a writer may depart from
     # cannot be the thing that fails `verify()`. This finding is the one most
     # likely to be promoted by a later reader, because it is ABOUT RHYME and
     # rhyme is what the mandate flags -- so: the flag for this already exists
@@ -3580,7 +3580,7 @@ def language_of_path(path):
 #: and `TAORLUATH`/`CRUNLUATH A-MACH` have zero attestation anywhere in the
 #: corpus. What the literary imitation does is ALTERNATE (ground, variation,
 #: ground, variation, close), so a `rank` check would have failed two of three
-#: songs that are printed exactly as their editor set them (doctrine 6).
+#: songs that are printed exactly as their editor set them (doctrine 96).
 #:
 #: `elaborates` SURVIVED that falsifier and this is it. The relation holds
 #: regardless of sequence, and it is what makes the alternation readable
@@ -3621,7 +3621,7 @@ def elaboration_findings(song):
 
     ONLY `ungrounded` IS A FINDING. Ordering is a DISCLOSURE and not a
     charge: an editor who opens on a variation has departed from nothing, and
-    doctrine 6 says a convention a writer may depart from cannot be what
+    doctrine 96 says a convention a writer may depart from cannot be what
     fails a check. `ELABORATION_UNGROUNDED` is different in kind -- the
     section says it varies something the song does not contain, which is a
     factual claim and false.

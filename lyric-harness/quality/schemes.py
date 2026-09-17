@@ -2047,7 +2047,7 @@ class Mandate:
         is `None` because a length disagreement names no pair. It belongs in
         `whole` as a NOTE, beside
         `RETURN_OUT_OF_RANGE`: it says which question could be asked, not that
-        a line is wrong, and doctrine 6/7 keep a disclosure out of the gate.
+        a line is wrong, and doctrine 96 keep a disclosure out of the gate.
 
         Both halves are now phrased the way `RefrainScheme.check_identity`
         phrases its own, so the two surfaces cannot drift: the length
