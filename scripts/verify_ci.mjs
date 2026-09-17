@@ -7,7 +7,6 @@ import { MUTATION_SHARDS } from './verify_qualification.mjs';
 export const REQUIRED_JOBS = Object.freeze([
   'gate',
   'lyrics-image',
-  'capacity-matrix-result',
   'capacity-proof-result',
   'verify',
   'freshness',
@@ -26,6 +25,9 @@ export const REQUIRED_JOBS = Object.freeze([
 // would have passed this check (M-282).
 export const QUALIFICATION_JOBS = Object.freeze([
   'qualification-capacity-proof',
+  // M-282: the full matrix moved from PR CI to production qualification.
+  // A green candidate image never substitutes for this exact attempt's matrix.
+  'qualification-capacity-matrix',
   ...Array.from({ length: MUTATION_SHARDS }, (_, i) => `qualification-mutation-${i + 1}`),
   'qualification-song',
   'qualification-short',

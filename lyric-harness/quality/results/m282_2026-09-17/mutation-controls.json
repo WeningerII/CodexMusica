@@ -1,0 +1,44 @@
+[
+  {
+    "control": "Old placement fails the new workflow controls",
+    "command": ["python3", "scripts/test_production_qualification.py", "MatrixPlacementTests"],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "FF\n======================================================================\nFAIL: test_matrix_is_qualification_owned_while_pr_controls_remain (__main__.MatrixPlacementTests.test_matrix_is_qualification_owned_while_pr_controls_remain)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/d9bbe6c2dbb5/CodexMusica-M282/scripts/test_production_qualification.py\", line 33, in test_matrix_is_qualification_owned_while_pr_controls_remain\n    self.assertFalse('uses: ./.github/workflows/capacity-matrix.yml' in self.ci,\nAssertionError: True is not false : PR CI still calls the full capacity matrix\n\n======================================================================\nFAIL: test_workflow_result_commands_refuse_missing_or_unsuccessful_matrix (__main__.MatrixPlacementTests.test_workflow_result_commands_refuse_missing_or_unsuccessful_matrix)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/d9bbe6c2dbb5/CodexMusica-M282/scripts/test_production_qualification.py\", line 41, in test_workflow_result_commands_refuse_missing_or_unsuccessful_matrix\n    matrix = self.job('capacity-matrix-result')\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/d9bbe6c2dbb5/CodexMusica-M282/scripts/test_production_qualification.py\", line 29, in job\n    self.assertIsNotNone(found, name)\nAssertionError: unexpectedly None : capacity-matrix-result\n\n----------------------------------------------------------------------\nRan 2 tests in 0.004s\n\nFAILED (failures=2)\n"
+  },
+  {
+    "control": "Old release requirements fail the new release control",
+    "command": [
+      "node",
+      "--test",
+      "--test-name-pattern=release qualification refuses",
+      "mcp/test_release_gates.mjs"
+    ],
+    "exit_code": 1,
+    "stdout": "\u2716 release qualification refuses an absent, incomplete or duplicate capacity matrix (9.677743ms)\n\u2139 tests 1\n\u2139 suites 0\n\u2139 pass 0\n\u2139 fail 1\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 146.839406\n\n\u2716 failing tests:\n\ntest at mcp/test_release_gates.mjs:439:1\n\u2716 release qualification refuses an absent, incomplete or duplicate capacity matrix (9.677743ms)\n  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n  \n    assert(QUALIFICATION_JOBS.includes(name))\n  \n      at TestContext.<anonymous> (file:///workspace/scratch/d9bbe6c2dbb5/CodexMusica-M282/mcp/test_release_gates.mjs:442:3)\n      at async Test.run (node:internal/test_runner/test:1389:7)\n      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: false,\n    expected: true,\n    operator: '==',\n    diff: 'simple'\n  }\n",
+    "stderr": ""
+  },
+  {
+    "control": "Removing only aggregate matrix refusal is caught",
+    "command": [
+      "python3",
+      "scripts/test_production_qualification.py",
+      "MatrixPlacementTests.test_workflow_result_commands_refuse_missing_or_unsuccessful_matrix"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "F\n======================================================================\nFAIL: test_workflow_result_commands_refuse_missing_or_unsuccessful_matrix (__main__.MatrixPlacementTests.test_workflow_result_commands_refuse_missing_or_unsuccessful_matrix)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/d9bbe6c2dbb5/CodexMusica-M282/scripts/test_production_qualification.py\", line 58, in test_workflow_result_commands_refuse_missing_or_unsuccessful_matrix\n    self.assertEqual(completed.returncode == 0, result == 'success',\nAssertionError: True != False : ('MATRIX_RESULT', '', b'')\n\n----------------------------------------------------------------------\nRan 1 test in 0.038s\n\nFAILED (failures=1)\n"
+  },
+  {
+    "control": "Removing only the release matrix requirement is caught",
+    "command": [
+      "node",
+      "--test",
+      "--test-name-pattern=release qualification refuses",
+      "mcp/test_release_gates.mjs"
+    ],
+    "exit_code": 1,
+    "stdout": "\u2716 release qualification refuses an absent, incomplete or duplicate capacity matrix (11.345451ms)\n\u2139 tests 1\n\u2139 suites 0\n\u2139 pass 0\n\u2139 fail 1\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 153.436706\n\n\u2716 failing tests:\n\ntest at mcp/test_release_gates.mjs:439:1\n\u2716 release qualification refuses an absent, incomplete or duplicate capacity matrix (11.345451ms)\n  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n  \n    assert(QUALIFICATION_JOBS.includes(name))\n  \n      at TestContext.<anonymous> (file:///workspace/scratch/d9bbe6c2dbb5/CodexMusica-M282/mcp/test_release_gates.mjs:442:3)\n      at async Test.run (node:internal/test_runner/test:1389:7)\n      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: false,\n    expected: true,\n    operator: '==',\n    diff: 'simple'\n  }\n",
+    "stderr": ""
+  }
+]

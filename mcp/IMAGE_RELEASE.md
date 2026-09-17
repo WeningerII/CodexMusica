@@ -9,6 +9,16 @@ pushed to the private-by-default GHCR package `ghcr.io/weningerii/codexmusica/ly
 The `lyrics-image` artifact contains its registry digest, commit and actual runtime
 source/data fingerprints. A successful image job alone does not authorize a deploy.
 
+The full CPU/memory capacity matrix runs in Production qualification, on both
+its nightly schedule and manual dispatch. Every declared cell still runs at one
+CPU and 2 GiB with the existing time, memory, queue, recovery and coverage checks.
+PR CI retains the actual-runtime capacity proof, image smoke/restart test and
+adversarial acceptance tests. Capacity regressions can therefore reach main but
+cannot be deployed: the release verifier requires a successful
+`qualification-capacity-matrix` job in the trusted qualification at the exact
+commit and attempt, and the qualification aggregate also requires that result.
+The matrix artifact remains `lyrics-capacity` in the qualification run.
+
 The deployment workflow requires a successful trusted main CI run and its complete
 required-job evidence, downloads the image manifest from that exact run, checks the
 main ordering guard, and calls the Render hook with `imgURL=repository@sha256:...`.

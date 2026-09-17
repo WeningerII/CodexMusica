@@ -2,8 +2,8 @@ name: Production capacity matrix
 
 # The 18-execution CPU/memory capacity matrix over the tested lyrics image,
 # dealt by (lines, seed) cell across runners instead of across three 1-CPU
-# lanes on one runner (M-282). Called by ci.yml after `lyrics-image` has built
-# and banked the receipt; every shard rebuilds the same image from the same
+# lanes on one runner (M-282). Called by production-qualification.yml since
+# the 2026-09-17 placement decision; every shard rebuilds from the same
 # tree and the merger requires every shard's `source_sha256` to agree, so the
 # four measurements are evidence about ONE runtime.
 #
@@ -46,10 +46,11 @@ name: Production capacity matrix
 # re-derives `production_qualified` rather than copying it from any shard.
 #
 # THE IMAGE IS REBUILT PER SHARD, NOT PULLED. `lyrics-image` publishes the
-# tested image only on a main push and only after its own checks; a pull
-# would make this workflow's shape depend on the event. A rebuild from the
-# same tree with the seed `lyrics-image` banked seconds earlier is ~40 s
-# (M-267); the merger's `source_sha256` equality is what makes four builds
+# tested image only on a main push and only after its own checks. Qualification
+# may run without a completed CI image, so a seed is only an optimization:
+# the image admits a current receipt or measures a fresh proof. The historical
+# seeded rebuild measured ~40 s (M-267); a hit here is not assumed. The
+# merger's `source_sha256` equality is what makes four builds
 # one runtime, and `BUILD_RELEASE_ID` is the same string in every shard so
 # the four images carry one release identity.
 on:
@@ -80,9 +81,8 @@ jobs:
             cells: 31:20260909,18:20260910,18:20260908
     steps:
       - uses: actions/checkout@v5
-      # The same seed `lyrics-image` restores, from the same prefix; this run
-      # banked its receipt under that prefix before this job could start, so
-      # the prefix returns it and the image's own python admits it.
+      # The same seed prefix `lyrics-image` uses. It may contain an earlier
+      # CI run's receipt; only the image's own Python decides its validity.
       - name: Restore the newest capacity receipt banked on this branch or main
         id: proof
         uses: actions/cache/restore@v4
