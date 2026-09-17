@@ -20293,6 +20293,44 @@ preregistration; until then a short song is graded on four thresholds
 and this sentence is where that is said.
 
 ### M-196 · The song bank's record is stamped on commits that do not exist, the log had no parser for the working order's LAST verb, and two songs sit in the bank with no entry ~~`PARTIAL`~~ `CLOSED` 2026-09-06 — the recovery verb is built and the one recoverable draft is banked through it 2026-09-01 — found by the 2026-09-01 triage audit (finding C27) counting the rows; the parser ships, the rest is recorded with its cost
+**ADDENDUM 2026-09-17 — THE DEFERRED BAN-CONVERGENCE READER IS BUILT.**
+`quality/ban_convergence.py` now reads the invocation facts banked by
+`song_log.record`. It chooses the newest grading step whose INPUT fingerprint
+matches the lyric being measured, borrowing `load_lyric_lines` and
+`draft_fingerprint`; facts from different steps never mix. The matching
+invocation outranks README prose and the planned mandate: placing it third,
+as the historical proposal below did, would still hide an actual declaration
+behind stale prose or a pre-revision plan. With no invocation facts, the old
+README-then-plan fallback remains. A recorded declaration that is ambiguous,
+invalid or belongs to other bytes produces a named refusal instead of a
+fallback. A loop's output fingerprint alone is not its banked input identity.
+
+Groups (including token slots), returns, letter schemes, per-group relations,
+structures and the default relation reach `schemes.mandate`. The report names
+the selected step and md5 and counts `mandate_banked` separately. A recorded
+`--cliques` invocation refuses: it does not contain the historical derived
+groups, and deriving them with today's comparator would invent that evidence.
+`quality/test_ban_convergence.py` section 4 exercises these paths through the
+actual grader and command-line instrument, including conflicting and missing
+declarations, different drafts, omitted coordinates and numeric group labels.
+
+**THE HISTORICAL MANDATES ARE STILL MISSING.** The bank has no recorded
+invocation facts to read: its source counts remain 11 README / 4 plan-log /
+1 refused, with 0 banked. Adding the reader does not move those counts,
+contrary to the prediction in the old "ONE CONSEQUENCE NOT TAKEN" paragraph.
+`oar_lair` remains refused and `the_long_way_back` still uses its disclosed
+plan reconstruction. Three lost draft byte sequences remain lost. These are
+retained evidence limitations, not work this reader can recover. M-196 stays
+CLOSED; the previously deferred reader is complete. The September 6 closure
+and the original proposals below are historical accounts.
+**THE RE-MEASUREMENT IS BANKED**, including both failed pre-repin checks, in
+`quality/RESULTS_M196_BANKED_MANDATE.md`. Main and the new reader agree on
+every existing per-song count. Their shared reading is 719 mandated / 517
+judged / 202 refused; 457 eligible pairs, 9 ban findings and HEAD / TAIL /
+OUTSIDE of 9 / 162 / 286. The stale September 2 grader pins are replaced as
+a complete descriptive set, with the old reading preserved in the receipts.
+No comparator input, threshold or calibration row changes.
+
 **CLOSED 2026-09-06 — `--bank-draft SONG MD5 FILE` IS BUILT, AND THE ONE DRAFT GIT COULD GIVE BACK WENT THROUGH IT.** `song_log.bank_draft_file` refuses on three conditions, each checked and none assumed: the song's log must HOLD the md5 (on an `md5`, `md5_in` or `md5_out` row — a fingerprint the log never printed is not a draft of this song, whatever the file holds); the file must FINGERPRINT to it through the same borrowed pair `bank_draft` uses (`load_lyric_lines`, `draft_fingerprint`), never a second hash; and the destination must be empty or hold these exact bytes. It looks nothing up for the caller — the md5 is typed, the file is named, and a `--bank-draft` that searched git history itself would be the backfill `drafts()` refuses to perform. Then `git show 8d7b3f18:lyric-harness/songs/the_long_way_back.txt` was handed to it under `687eaa34c949`: the two wrong-md5 probes REFUSED at exit 2 (a foreign md5 names the two the log does hold; the right file under the wrong md5 names what it does fingerprint), the right pair BANKED `songs/drafts/the_long_way_back.687eaa34c949.draft.txt`, and a second run answered the same path without writing. **Reading after: 3 BANKED, 44 RECOVERABLE, 3 LOST, 0 FAILING** — the three rows of the recovered draft moved from LOST to BANKED and nothing else moved; the three genuinely lost drafts (crooked_waltz 19, matinee 54 and 55) stay LOST because no copy of their bytes exists anywhere, which is the honest count and not a defect this verb can reach. `quality/test_songs_log.py` §9 (10 checks): the three refusals on a probe log, the acceptance byte for byte, idempotence, the overwrite refusal, both CLI exit codes, no residue, and the committed recovery file re-fingerprinting to the md5 in its own name; §8's LOST set and its `3 LOST` mutation reading are repinned with it. The `ban_convergence` third-mandate-source consequence below is still deliberately not taken and is not this entry's.
 
 
