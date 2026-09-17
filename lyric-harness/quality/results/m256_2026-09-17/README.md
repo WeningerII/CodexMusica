@@ -162,3 +162,14 @@ Main `fe9181f7319869ea44a7a1540b95b495705d3b81` is integrated cleanly;
 its planner fix is retained. The [integration receipt](integration-fe9181f7.json)
 records counter regeneration, comparator/triage checks, and exact equality of
 the five M-256 source hashes. Fresh CI qualifies this combined head.
+
+CI run [35251240653](https://github.com/WeningerII/CodexMusica/actions/runs/35251240653)
+passed at head `a85e4a24c83d92e57f7529c952e9872d7f2262f4`: 43 successful
+jobs and four skipped jobs. Main then advanced through PR #330 (M-294), at
+`95c80efb2adb9198cf74630f106733f910721f53`. This records-only change adds
+the counters-race report and its coverage pin. It is integrated here; the
+shared status row is regenerated from both changes, preserving M-256's
+PARTIAL status and the new OPEN entry. The [integration checks](integration-95c80efb.json)
+bind that combined record to the unchanged five tested source hashes.
+The prior CI success is historical evidence; the updated PR head gets its
+own CI run before merge.
