@@ -142,3 +142,9 @@ The immutable-source [final full-loop sweep](loop-final.json) passed in
 1 PASS, 0 FAIL, 0 CANNOT RUN. The five source hashes still match the recovered
 implementation. This supersedes the interrupted empty receipt and the earlier
 failed source-inspection run; neither earlier run is counted as passing.
+
+Main advanced during PR verification: PR #324 merged at
+`e31e30e73d2c7d517efbe6cb0fbce8babbb11b82`. The merge was clean and
+all five tested M-256 source hashes remain unchanged. The combined-tree
+[record checks](integration-e31e30e7.json) preserve the M-146 work and
+regenerate shared counters before current-head CI.

@@ -1,0 +1,652 @@
+
+3. THE ROUND TRIP — the graders accept what the planner emits, over a sweep
+  PASS  M-146: both dummy-draft modes preserve every token's syllable count across the whole bank
+          []
+  PASS  M-146: every named planner placement and every token anchors across the whole filler bank
+          []
+  PASS  M-146: filler changes preserve verbatim return copying
+  PASS  M-146: end receives an actual grade
+          []
+  PASS  M-146: endword receives an actual grade
+          []
+  PASS  M-146: head receives an actual grade
+          []
+  PASS  M-146: repeated head is judged and violates, not refused
+  PASS  M-146: headrime receives an actual grade
+          []
+  PASS  M-146: repeated headrime is judged and violates, not refused
+  PASS  M-146: T1 receives an actual grade
+          []
+  PASS  M-146: repeated T1 is judged and violates, not refused
+  PASS  M-146: T2 receives an actual grade
+          []
+  PASS  M-146: T3 receives an actual grade
+          []
+  PASS  M-146: T4 receives an actual grade
+          []
+  PASS  M-146: T5 receives an actual grade
+          []
+  PASS  M-146: T6 receives an actual grade
+          []
+  PASS  M-146: T7 receives an actual grade
+          []
+  PASS  M-146: restoring the old filler is rejected by the sweep's own guard
+  PASS  M-146: laundering a slot refusal into judged counts still fails
+  PASS  M-146: dropping a verdict while retaining green counters fails
+   per-seed coverage (seed, judged, refused): [(0, 18, 0), (1, 27, 0), (2, 50, 0), (3, 93, 0), (4, 90, 0), (5, 41, 0), (6, 67, 0), (7, 34, 0), (8, 25, 0), (9, 20, 0), (10, 15, 0), (11, 39, 0), (12, 15, 0), (13, 27, 0), (14, 51, 0), (15, 20, 0), (16, 18, 0), (17, 58, 0), (18, 31, 0), (19, 10, 0)]
+   per-seed cost, slowest first (the pool's wall is the top line): seed 5 58s, seed 3 56s, seed 6 48s, seed 4 45s, seed 9 42s, seed 14 40s, seed 17 39s, seed 2 39s, seed 16 28s, seed 11 25s, seed 0 25s, seed 15 22s, seed 7 22s, seed 8 21s, seed 10 18s, seed 18 17s, seed 1 15s, seed 19 13s, seed 13 8s, seed 12 8s
+  PASS  20 seed(s) [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]: blueprint READS, mandate PARSES, every mandated obligation has a verdict, mandated == judged > 0 and refused == 0 (three counts: doctrine 79), and no verbatim/drift finding stands on a planner shape — a seed past the schema door's pair guard (M-240) is a FOURTH count, the grader's own wall; no default plan may hit it
+          held [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]; bad: none; judged 749, refused 0, walled at the schema door 0 seed(s) as (seed, total_lines) []; graded totals 17..31
+  PASS  an exact --lines request is satisfied exactly
+  PASS  the emitted grading command carries BOTH mandate halves and the subdivision — nothing for an operator to remember
+          python3 lyric_harness.py song BP.json DRAFT.txt '--groups=2.endword,15.T5;3.T4,5.T4,16.head;4,6.head
+  PASS  a short draft is refused, never truncated-to-fit
+          the plan declares 22 line(s) and the draft carries 21 — they must be the same so
+
+10. THE SEED SWEEP — the last private instrument, made a verb (`MISSING.md` M-82)
+  PASS  the predicate vocabulary is CLOSED and every name reads a coordinate the plan already DISCLOSES — a sweep that invented a measurement would be a second planner (doctrine 58)
+          ['bars_per_line', 'beats_per_line', 'before', 'binding_cap', 'bound_words_per_line', 'group', 'hook', 'lines', 'lines_per_section', 'max_lines.breakdown', 'max_lines.bridge', 'max_lines.build', 'max_lines.chorus', 'max_lines.coda', 'max_lines.drop', 'max_lines.false_ending', 'max_lines.hook', 'max_lines.interlude', 'max_lines.intro', 'max_lines.outro', 'max_lines.patter', 'max_lines.postchorus', 'max_lines.prechorus', 'max_lines.reprise', 'max_lines.solo', 'max_lines.tag', 'max_lines.turnaround', 'max_lines.vamp', 'max_lines.verse', 'min_lines.breakdown', 'min_lines.bridge', 'min_lines.build', 'min_lines.chorus', 'min_lines.coda', 'min_lines.drop', 'min_lines.false_ending', 'min_lines.hook', 'min_lines.interlude', 'min_lines.intro', 'min_lines.outro', 'min_lines.patter', 'min_lines.postchorus', 'min_lines.prechorus', 'min_lines.reprise', 'min_lines.solo', 'min_lines.tag', 'min_lines.turnaround', 'min_lines.vamp', 'min_lines.verse', 'pins_per_line', 'returns', 'sections', 'sections.breakdown', 'sections.bridge', 'sections.build', 'sections.chorus', 'sections.coda', 'sections.drop', 'sections.false_ending', 'sections.hook', 'sections.interlude', 'sections.intro', 'sections.outro', 'sections.patter', 'sections.postchorus', 'sections.prechorus', 'sections.reprise', 'sections.solo', 'sections.tag', 'sections.turnaround', 'sections.vamp', 'sections.verse', 'slots_per_line', 'story_lineups', 'uses']
+  PASS  `story_lineups` reads off a real plan without inventing anything
+          story_lineups = 14976
+  PASS  `lines` reads off a real plan without inventing anything
+          lines = 16
+  PASS  `sections` reads off a real plan without inventing anything
+          sections = 6
+  PASS  `lines_per_section` reads off a real plan without inventing anything
+          lines_per_section = 1
+  PASS  `group` reads off a real plan without inventing anything
+          group = 4
+  PASS  `bars_per_line` reads off a real plan without inventing anything
+          bars_per_line = 1
+  PASS  `beats_per_line` reads off a real plan without inventing anything
+          beats_per_line = 10
+  PASS  `slots_per_line` reads off a real plan without inventing anything
+          slots_per_line = 20.0
+  PASS  `hook` reads off a real plan without inventing anything
+          hook = 4
+  PASS  `returns` reads off a real plan without inventing anything
+          returns = 2
+  PASS  `binding_cap` reads off a real plan without inventing anything
+          binding_cap = 4
+  PASS  `pins_per_line` reads off a real plan without inventing anything
+          pins_per_line = 4
+  PASS  `bound_words_per_line` reads off a real plan without inventing anything
+          bound_words_per_line = 2.25
+  PASS  `sections.breakdown` reads off a real plan without inventing anything
+          sections.breakdown = 0
+  PASS  `min_lines.breakdown` reads off a real plan without inventing anything
+          min_lines.breakdown = 0
+  PASS  `max_lines.breakdown` reads off a real plan without inventing anything
+          max_lines.breakdown = 0
+  PASS  `sections.bridge` reads off a real plan without inventing anything
+          sections.bridge = 0
+  PASS  `min_lines.bridge` reads off a real plan without inventing anything
+          min_lines.bridge = 0
+  PASS  `max_lines.bridge` reads off a real plan without inventing anything
+          max_lines.bridge = 0
+  PASS  `sections.build` reads off a real plan without inventing anything
+          sections.build = 0
+  PASS  `min_lines.build` reads off a real plan without inventing anything
+          min_lines.build = 0
+  PASS  `max_lines.build` reads off a real plan without inventing anything
+          max_lines.build = 0
+  PASS  `sections.chorus` reads off a real plan without inventing anything
+          sections.chorus = 2
+  PASS  `min_lines.chorus` reads off a real plan without inventing anything
+          min_lines.chorus = 2
+  PASS  `max_lines.chorus` reads off a real plan without inventing anything
+          max_lines.chorus = 2
+  PASS  `sections.coda` reads off a real plan without inventing anything
+          sections.coda = 0
+  PASS  `min_lines.coda` reads off a real plan without inventing anything
+          min_lines.coda = 0
+  PASS  `max_lines.coda` reads off a real plan without inventing anything
+          max_lines.coda = 0
+  PASS  `sections.drop` reads off a real plan without inventing anything
+          sections.drop = 0
+  PASS  `min_lines.drop` reads off a real plan without inventing anything
+          min_lines.drop = 0
+  PASS  `max_lines.drop` reads off a real plan without inventing anything
+          max_lines.drop = 0
+  PASS  `sections.false_ending` reads off a real plan without inventing anything
+          sections.false_ending = 0
+  PASS  `min_lines.false_ending` reads off a real plan without inventing anything
+          min_lines.false_ending = 0
+  PASS  `max_lines.false_ending` reads off a real plan without inventing anything
+          max_lines.false_ending = 0
+  PASS  `sections.hook` reads off a real plan without inventing anything
+          sections.hook = 0
+  PASS  `min_lines.hook` reads off a real plan without inventing anything
+          min_lines.hook = 0
+  PASS  `max_lines.hook` reads off a real plan without inventing anything
+          max_lines.hook = 0
+  PASS  `sections.interlude` reads off a real plan without inventing anything
+          sections.interlude = 0
+  PASS  `min_lines.interlude` reads off a real plan without inventing anything
+          min_lines.interlude = 0
+  PASS  `max_lines.interlude` reads off a real plan without inventing anything
+          max_lines.interlude = 0
+  PASS  `sections.intro` reads off a real plan without inventing anything
+          sections.intro = 1
+  PASS  `min_lines.intro` reads off a real plan without inventing anything
+          min_lines.intro = 1
+  PASS  `max_lines.intro` reads off a real plan without inventing anything
+          max_lines.intro = 1
+  PASS  `sections.outro` reads off a real plan without inventing anything
+          sections.outro = 0
+  PASS  `min_lines.outro` reads off a real plan without inventing anything
+          min_lines.outro = 0
+  PASS  `max_lines.outro` reads off a real plan without inventing anything
+          max_lines.outro = 0
+  PASS  `sections.patter` reads off a real plan without inventing anything
+          sections.patter = 0
+  PASS  `min_lines.patter` reads off a real plan without inventing anything
+          min_lines.patter = 0
+  PASS  `max_lines.patter` reads off a real plan without inventing anything
+          max_lines.patter = 0
+  PASS  `sections.postchorus` reads off a real plan without inventing anything
+          sections.postchorus = 1
+  PASS  `min_lines.postchorus` reads off a real plan without inventing anything
+          min_lines.postchorus = 7
+  PASS  `max_lines.postchorus` reads off a real plan without inventing anything
+          max_lines.postchorus = 7
+  PASS  `sections.prechorus` reads off a real plan without inventing anything
+          sections.prechorus = 1
+  PASS  `min_lines.prechorus` reads off a real plan without inventing anything
+          min_lines.prechorus = 2
+  PASS  `max_lines.prechorus` reads off a real plan without inventing anything
+          max_lines.prechorus = 2
+  PASS  `sections.reprise` reads off a real plan without inventing anything
+          sections.reprise = 0
+  PASS  `min_lines.reprise` reads off a real plan without inventing anything
+          min_lines.reprise = 0
+  PASS  `max_lines.reprise` reads off a real plan without inventing anything
+          max_lines.reprise = 0
+  PASS  `sections.solo` reads off a real plan without inventing anything
+          sections.solo = 0
+  PASS  `min_lines.solo` reads off a real plan without inventing anything
+          min_lines.solo = 0
+  PASS  `max_lines.solo` reads off a real plan without inventing anything
+          max_lines.solo = 0
+  PASS  `sections.tag` reads off a real plan without inventing anything
+          sections.tag = 0
+  PASS  `min_lines.tag` reads off a real plan without inventing anything
+          min_lines.tag = 0
+  PASS  `max_lines.tag` reads off a real plan without inventing anything
+          max_lines.tag = 0
+  PASS  `sections.turnaround` reads off a real plan without inventing anything
+          sections.turnaround = 0
+  PASS  `min_lines.turnaround` reads off a real plan without inventing anything
+          min_lines.turnaround = 0
+  PASS  `max_lines.turnaround` reads off a real plan without inventing anything
+          max_lines.turnaround = 0
+  PASS  `sections.vamp` reads off a real plan without inventing anything
+          sections.vamp = 0
+  PASS  `min_lines.vamp` reads off a real plan without inventing anything
+          min_lines.vamp = 0
+  PASS  `max_lines.vamp` reads off a real plan without inventing anything
+          max_lines.vamp = 0
+  PASS  `sections.verse` reads off a real plan without inventing anything
+          sections.verse = 1
+  PASS  `min_lines.verse` reads off a real plan without inventing anything
+          min_lines.verse = 2
+  PASS  `max_lines.verse` reads off a real plan without inventing anything
+          max_lines.verse = 2
+  PASS  six undemanding criteria still accept a strict minority of an arbitrary seed range, and more than none — so writability is SEARCHED and not drawn (MISSING.md M-79)
+          5 of 160 = 3.1% accepted
+  PASS  the conjunction accepts EXACTLY the intersection of the six predicates taken one at a time — the property a verb that ANDs correctly must have whatever the planner happens to draw
+          conjunction [7, 29, 35, 96, 152], intersection [7, 29, 35, 96, 152]
+  PASS  ...and the invariant is examined rather than satisfied by vacuity: predicates that genuinely cut, and a conjunction strictly smaller than the loosest of them
+          4 of 6 predicates cut; 5 accepted against a loosest single of 160
+
+10b. the density coordinate is a MEAN, and a real one
+  PASS  `bound_words_per_line` is declared real-valued, and it is the only measure that is
+          ('bound_words_per_line',)
+  PASS  ...and it reads the MEAN over EVERY line, which is strictly below the per-line maximum on a real plan — the two are different questions, and `pins_per_line` could not express a density preference
+          mean 2.370 against max 4 over 27 line(s)
+  PASS  ...a fractional threshold PARSES rather than refusing as a non-integer — the band this coordinate separates the songs on lies between two integers
+          ('bound_words_per_line', '<=', '1.5')
+  PASS  ...and it is not truncated on the way to the comparison: a mean of 1.2 passes `<=1.5` and fails `<=1`, which a floor to int could not distinguish
+          mean 1.20
+  PASS  THREE COUNTS, NEVER SUMMED (doctrine 79): swept, planned, and REFUSED-by-the-planner. A refusal is the envelope turning a request down and charging it to the predicates would blame the declaration for the planner
+          160 = 160 + 0
+  PASS  NO DEFAULT PREDICATE — a sweep with none accepts every seed that plans at all, which is honest and useless. A default would be the sweep deciding what the caller wants
+          [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+  PASS  the accepted set is in SEED order and carries no score — a sweep that returned 'the best seed' would be doctrine 19's own argmax, and whatever it ranked by would be the weighted quality score doctrine 6 forbids
+          17 accepted, keys ['accepted', 'planned', 'refused', 'seeds', 'wants']
+  PASS  an undeclared coordinate REFUSES and prints the vocabulary — a predicate silently matching nothing and one that refuses look identical in the accepted set, and the first has a caller believe their declaration was applied (doctrine 20)
+          'vibes<=3' asks about 'vibes', which is not a coordinate a sweep can r
+  PASS  ...and so does a predicate with no operator this vocabulary declares
+          'sections<3' carries none of <=, >=, =. A predicate is NAME<
+  PASS  ...and a count compared against a non-integer
+          'sections<=lots': 'sections' is a count and 'lots' is not an
+  PASS  ...and a FUNCTION name compared with an inequality, because functions do not compare
+          'uses>=chorus': 'uses' answers '=' and nothing else — it nam
+  PASS  an unreachable declaration accepts NOTHING, and the verb turns that into a refusal at exit 2 rather than an empty list — unreachable and merely rare are different answers and the acceptance rate is what separates them
+          planned 20, accepted 0
+
+8. the declared FORM is read by the sampler, not just printed
+  PASS  EVERY plan under the default form carries both a verse and a chorus — the two functions `FORM_REQUIRES` declares, measured 178 of 178 on corpus/song/ before being written down
+          200/200
+  PASS  ...withdrawing the MEMBERSHIP table alone leaves a chorus in every plan — the recurrence table (M-190) holds it by itself — while the verse goes
+          membership withdrawn: chorus 200/200, both 21/200
+  PASS  ...and WITHDRAWING both declarations collapses it, so the tables are load-bearing and not decoration the sampler would have satisfied on its own
+          both withdrawn: both 5/200 = 2.5%, chorus 64/200  vs declared 100.0%
+  PASS  the ORDER tendency is declared as a RATE and NOT enforced — 137 of 178 is a tendency, and a planner that refused the other 41 would refuse a quarter of the corpus it was measured on (doctrine 16/22)
+          (('a verse precedes the first chorus', 137, 178, '41 of the 178 open on the chorus. NOT enforced: a planner that refused those would be refusing a quarter of the corpus it was measured on.'),)
+  PASS  ...and the planner DOES draw both orders, which is what 'not enforced' has to mean if it means anything
+          68/200 plans put a verse before the first chorus; the corpus rate is 137/178 = 77.0% and this is NOT tuned to it
+
+4. THE MEASURE — uniform by derivation, and the v1 biases stay dead
+  PASS  the composition counter equals the enumeration for n in 1..15 — the Padovan recurrence counts the real list
+  PASS  the composition sampler is EXACT-uniform at n=7 — all 3 compositions drawn, each within 2900-3100 of 9000
+          {(2, 2, 3): 3008, (3, 2, 2): 2980, (2, 3, 2): 3012}
+  PASS  bell(k) equals the full RGS enumeration's own count for k in 2..7 — the disclosed pool size is held to the enumeration, not to itself (this pin caught bell() returning B(k-1) the day it was written)
+          [2, 5, 15, 52, 203, 877]
+  PASS  the partition sampler is EXACT-uniform at k=4 — all Bell(4)=15 partitions drawn, max/min frequency ratio under 1.25
+          15 partitions, ratio 1.145
+  PASS  above EXACT_ENUM_MAX the scheme pool is Bell(k)-1, disclosed without enumerating, and the drawn code is a valid RGS with a mandated pair
+  PASS  every dimension pair's beat range is TIGHT against the envelope — the top against the BEATS ceiling and the bottom against the SLOTS floor, both endpoints legal, one step past either is not
+          18 pairs
+  PASS  meter_space_size matches an independent iterative recompute — the disclosure's denominator cannot drift from the space
+          178 cycles
+  PASS  BEATS PER LINE — the coordinate the envelope is stated in, and the length a listener hears — is drawn UNIFORM over what the envelope can realise: every value reached, each within 15% of its share, and the observed mean within 1.0 of the envelope's own midpoint. ~~SLOTS per line~~ (M-81(A)) had the ORDER right and the UNIT wrong: a slot is a subdivision unit, so drawing uniformly over slots made a line's LENGTH a function of its grid resolution — 48 slots is twelve beats at subdivision 4 and forty-eight at subdivision 1
+          11/11 values, mean 6.95, midpoint 7.0, max deviation 7.3%
+  PASS  ...and the ADMITTED PAIR SET is the same set derived two ways — `meter_dims`' non-empty beat range and `meter_factorisations`' divisibility — so the sampler and the disclosure's denominator cannot come to different answers about what this envelope allows (doctrine 1)
+          18 pairs both ways
+  PASS  ...and EVERY pair the envelope admits is still REACHED, which is the coverage the uniformity check was really protecting
+          18/18 pairs
+  PASS  ...and the pair marginal MATCHES that prediction, every pair inside four sigma of its own expected count — so the shares follow from the arithmetic rather than from whatever the sampler happens to do
+          worst 2.02 sigma
+  PASS  ...and that marginal is the REALISABILITY share and not a flat one, which is what §4's struck pair-uniformity check asserted: a beat count one factorisation can make must not be rarer than one fifteen can
+          total variation to the realisability share 0.0095, to flat 0.4941; max/min predicted 50x
+  PASS  BOTH ENDS OF THE ENVELOPE ARE THE SAME CALIBRATED BAND READ IN DIFFERENT UNITS, and neither is a literal (`MISSING.md` M-81(B), doctrine 91): the BEATS ceiling is the density band's ceiling times `BEATS_PER_SYLLABLE_MAX` — a line carries at most that many syllables and at least one beat each — while the SLOTS floor is the band's floor, because a syllable occupies one slot. Detach either and this fails
+          beats ceiling 12, slots floor 5
+  PASS  ...and the SLOTS ceiling is not declared beside them — it FOLLOWS from the beats ceiling and the finest grid this vocabulary models, which is what makes the old `SLOTS_CEILING_X` unnecessary rather than merely renamed
+          slots ceiling 48 = 12 beats x 4
+  PASS  the beats-per-bar marginal is the SAMPLER'S OWN prediction and not the LEAF measure's — a two-hypothesis test, both sides computed, no threshold anywhere in it (compositions into {2,3} grow ~1.3247^n, so leaves still pile on the envelope's maximal beat count: 0.202 of the leaf's mass sits at 12 against this sampler's 0.018)
+          total variation to this sampler 0.0089, to the leaf 0.4327
+  PASS  ...and the two hypotheses are genuinely DIFFERENT, so that is not a comparison of one thing with itself — they part further from each other than the observation parts from either
+          predictions differ by 0.4274
+  PASS  ...and a line occupies ONE bar in most plans, which is what the pair-uniform measure got wrong in the other direction: it is the same slots product spelled as many short bars, and no song sets one lyric line across eight of them
+          median 1 bars/line, one-bar 67.0%
+  PASS  the 4/4 bias is dead: many distinct meters over 200 seeds, both notation units, and 4/4 under 30% of plans. The COUNT is not pinned at a literal — it moves with the derived envelope — so what is asserted is that the sampler is not concentrated: at least ten distinct cycles and 4/4 no more common than any single-cycle share of the space would make it
+          13 meters, units [4, 8], 4/4 6.5%
+  PASS  the 4-line bias is dead: k=4 takes under 20% of sections, and the draw reaches well past the quatrain
+          21 distinct k in [1, 24], k=4 at 0.114
+  PASS  the whole GENERATOR_ROSTER is reached — every section-kind function, not v1's five
+          reached 20 of 20
+  PASS  totals cover the envelope's order, not one shape: the distinct totals reached are most of what a UNIFORM draw over the DERIVED envelope reaches in this many seeds, both ends included
+          20 distinct of 20 in the envelope (100%; a uniform draw expects 20), [12, 31] against [12, 31]
+  PASS  draft admission and blueprint rendering cannot feed the sampler
+          []
+  PASS  plan.py imports exactly {schemes, meter_bands, structures, grid, floor, capacity, slots, relations, narrative, melody} from quality and opens NO file — the corpus cannot reach the dice (the owner's move-37 rule)
+          imports ['capacity', 'floor', 'grid', 'melody', 'meter_bands', 'narrative', 'relations', 'schemes', 'slots', 'structures'], open() calls 0
+  PASS  melody imports only math, has no relative imports or file readers
+  PASS  ...and from `narrative` ONLY the counter, the draw, the validator and the refusal — the module itself imports nothing from quality and opens no file, which is why it is the easiest admission this guard has ruled on
+          names ['count_lineups', 'draw_lineup', 'sung_sequence', 'validate_lineup']
+  PASS  ...and from `relations` ONLY the adopted drawable pool, never the stream builder or a realiser — `relations` reaches the phonology, which opens the dictionary
+          names ['CHANNEL_DOMAINS', 'DRAWABLE_SCHEMAS', 'POSITION_PLACEMENT_KINDS', 'REGISTRY', 'drawable_traits', 'group_satisfiable', 'identity_forced', 'overhang_member', 'pair_bindable', 'placement_bindable', 'planning_work_bound', 'unsatisfiable_pairs']
+  PASS  ...and from `floor` it names ONLY the adopted calibration table, never a feature reader — `floor.py` reaches `quality.features` and `lyric_harness`, so an unrestricted admission is the corpus arriving at the dice by a longer road
+          names ['FloorDeclaration', 'PROFILES']
+  PASS  ...and from `capacity` ONLY the adopted bound and explicit production proof admission
+          names ['ADOPTED_MAX_GROUP', 'require_current_proof']
+  PASS  capacity proof is one production-only admission with no returned value entering the dice
+  PASS  ...and from `slots` ONLY the plannable placement vocabulary, never a resolver — `slots` reaches `relations`, which opens a file, so the narrowing is what the import allow-list stands for
+          names ['LAST_WORD', 'PLANNABLE_PLACEMENTS', 'is_default_spelling', 'placement_word']
+  PASS  EVERY entry in the planner's envelope is DERIVED or argued, and none is a bare literal pair — the owner's standing rule that a number in the generator is a defect. The check is that the envelope MOVES when its derivation source moves: a floor profile whose token band widened must widen the line envelope
+          measured by perturbing floor.PROFILES in-process
+  PASS  ...and from `grid` — the one allowed module that opens files at all — it names ONLY the declared vocabulary and its pure checker, never a corpus reader. This is the check the import allow-list was standing in for, and it is stricter than the list
+          names ['SECTION_FUNCTIONS', 'UnknownFunction', 'as_function', 'placement_findings', 'specialisation_of']
+
+5. every free choice is echoed beside the set it was chosen from
+  PASS  the plan declares its version and echoes the ENVELOPE it volunteered from
+  PASS  the pattern discloses its functions AND the grammar they were generated from — a space too large to list is named by its generator
+  PASS  the meter disclosure names the space's SIZE and the measure over it — BY DERIVATION, not by leaf
+  PASS  every scheme discloses its rgs, its line count and the SIZE of the pool it was drawn from — a choice of one is a constant wearing a coordinate's name
+          {'intro': {'rgs': [0, 0], 'chosen_from': 1, 'lines': 2, 'lines_chosen_from': [1, 463]}, 'prechorus': {'rgs': [0, 1, 2, 3, 4, 1, 5, 5, 3, 6, 2, 1, 3, 5], 'chosen_from': 190899321, 'lines': 14, 'lines_chosen_from': [1, 463]}, 'chorus': {'rgs': [0], 'chosen_from': 1, 'lines': 1, 'lines_chosen_from': [1, 463]}, 'postchorus': {'rgs': [0], 'chosen_from': 1, 'lines': 1, 'lines_chosen_from': [1, 463]}, 'verse': {'rgs': [0], 'chosen_from': 1, 'lines': 1, 'lines_chosen_from': [1, 463]}, 'patter': {'rgs': [0, 0, 1, 2, 0], 'chosen_from': 51, 'lines': 5, 'lines_chosen_from': [1, 463]}, 'outro': {'rgs': [0, 0], 'chosen_from': 1, 'lines': 2, 'lines_chosen_from': [1, 463]}}
+  PASS  every sung kind's structure comes from the eng-calibrated pool, disclosed (doctrine 8 — the fin row is deliberately absent)
+  PASS  anacrusis is drawn PER KIND and disclosed with its choice set — sung kinds only (an instrumental has no pickup to a line)
+  PASS  hook_slot sits in a function this plan drew MORE THAN ONCE on every seed of the sweep — and since M-190 NO plan lacks one, because the form's chorus recurs by rule: the recurrence is what makes the two hook flags askable of every plan
+          with True, without False (the None branch is unreachable by design under the shipped table)
+  PASS  ...and under the MUTATION that drops the recurrence rule the None branch is reached and holds — BOTH branches exercised, neither asserted on a shape nothing produces
+          without True under the mutation
+  PASS  ...and a plan declaring no hook says WHY, so 'nothing recurs' and 'nobody asked' stop looking identical in an empty field (doctrine 20) — asked under the same mutation, since the shipped sweep has no such plan to ask
+          declared forms: ('verse-chorus',)
+  PASS  the writer brief carries shape and rhyme plan and NEVER names the harness — the coverage experiment's blindness rule, kept
+  PASS  EVERY section is briefed with its own duration, meter and pickup, read from the dict and slots the grid grades — measured-and-followed means surfaced, on sung and instrumental rows alike
+          733 section(s) (18 instrumental) over 100 seeds; misses: none
+
+7. the JOINT gate — every constraint legal, the conjunction checked
+  PASS  the sweep produced plans to ask the question of
+          40 plans
+  PASS  NO plan in the sweep asks for a conjunction it cannot have — the gate is satisfied BY CONSTRUCTION, which is the relationship `ADOPTED_MAX_GROUP` already has to the scheme sampler and is why the mutations below are the only way to fire it
+          0 findings over 40 plans
+  PASS  plans that DO declare a hook declare it in a function this plan drew MORE THAN ONCE — a hook is defined by RETURN, so a slot in a section heard once is a requirement no writer can meet
+          40 of 40 plans declare a hook
+  PASS  ...and a plan that declares NONE says WHY rather than going silent, because a shape with nothing recurring and a shape nobody asked about a hook look identical in an empty field (doctrine 20)
+          0 plans declare no hook, each with a stated reason
+  PASS  the codes are a DECLARED closed set, so a new one is added deliberately rather than by somebody typing a new string (doctrine 58)
+          ['SPAN_BELOW_DENSITY_FLOOR', 'TOKEN_INDEX_UNREACHABLE', 'WORDS_EXCEED_SPAN', 'TWO_GROUPS_ONE_WORD', 'HOOK_IN_NONRECURRING_SECTION', 'GROUP_CONTRADICTS_ITSELF', 'IDENTITY_AT_TWO_LINE_ENDS', 'PLACEMENT_CONTRADICTS_SCHEMA']
+  PASS  two declared groups landing on ONE WORD by two different NAMES fires — `head` and `T1` are both the first word, which is the coordinate `_place_group` was missing
+          ['TWO_GROUPS_ONE_WORD']
+  PASS  a placement naming a word past what the line can carry fires — a line has no more words than syllables, and no more syllables than the smaller of its slots and the band's ceiling
+          ['TOKEN_INDEX_UNREACHABLE']
+  PASS  a line whose span falls under the calibrated density FLOOR fires — below the floor the band flags it and at or above it `fit.SLOTS_EXCEEDED` does, so no draft clears both
+          ['SPAN_BELOW_DENSITY_FLOOR']
+  PASS  a line asked for more DISTINCT words than it can carry fires, and it is its own code — the last word must differ from every numbered one or the two groups binding them meet
+          ['WORDS_EXCEED_SPAN']
+  PASS  a plan with a joint finding is REFUSED by `make_plan`, and the refusal names the code
+          this seed's constraints cannot be satisfied together — 1 finding(s) over 1 line(
+  PASS  ...and the restoration held, so no later check inherits a mutated gate
+  PASS  keying the collision test on the placement NAME instead of the WORD makes `make_plan` REFUSE most seeds whose lines draw MORE THAN ONE web binding — so the repair is READ and the sweep's 0 above is an answer, not a check that stopped checking
+          20/40 seeds refused when the word is spelled as a placement name: 20/28 of the seeds with cap >= 2, 0/12 with cap 1 (refused, planned by cap: {1: [0, 12], 2: [8, 6], 3: [5, 2], 4: [7, 0]})
+  PASS  ...and NO cap-1 seed is refused by the mutation — one binding a line cannot meet another, which is what the density coordinate's cap of 1 says a line draws
+          cap-1 refused 0
+  PASS  ...and the cause it names is the collision, not something the mutation broke sideways
+          ['TWO_GROUPS_ONE_WORD']
+  PASS  ...and the restoration held: the clean sweep is clean again
+  PASS  a line with far MORE slots than the density ceiling produces NO joint finding — slots are a capacity, not a requirement, and M-79's Finding 1 read 78% of plans as impossible on exactly this confusion
+          []
+  PASS  `line_syllable_ceiling` is the CONJUNCTION of the two layers — the band's ceiling where the bar is roomy, the bar where it is not — so neither layer answers for the other
+          99 slots -> 12, 3 slots -> 3
+  PASS  `placement_word` REFUSES a locus it cannot resolve to one word, naming it
+          the placement 'line' resolves to locus 'line', and this module cannot
+  PASS  ...and it is DERIVED from `quality/slots.py`'s own loci, not a second table here: every plannable placement resolves, and the four names the pool draws denote only two words at the ends
+          [('1', 'head'), ('1', 'headrime'), ('last', 'end'), ('last', 'endword')]
+
+11. THE SECTION HEADER — everything inside the bracket, meter included, and what the harness WRITES it EXCLUDES (`MISSING.md` M-85)
+  PASS  the population is real, so this section cannot pass by examining nothing
+          442 headers over 60 plans
+  PASS  every header is ONE closed bracket with NOTHING outside it — the owner's rule, and the reason a header cannot leak into the rhyme calculation
+          0 malformed
+  PASS  ...and every header CARRIES ITS METER inside that bracket, read from the section's own dict rather than trusted to prose
+          0 missing beats/unit
+  PASS  ...and `is_apparatus_line` DROPS every one of them, which is the half that matters: what this harness WRITES, this harness EXCLUDES from the rhyme calculation
+          0 would be scored as lyric
+  PASS  RENDER -> LOAD ROUND-TRIPS: the rendered song read back through `load_lyric_lines` is EXACTLY the lines that went in, so no header, blank or pickup phrase the renderer writes can reach the grader as a word
+          0 of 60 songs did not round-trip
+  PASS  MUTATION — the same header with its apparatus moved OUTSIDE the bracket, split onto its own line, is SCORED AS LYRIC with end word 'pickup', which is the defect this section exists to keep out
+          same-line stays apparatus; split onto its own line it is not
+
+12. the SONG's length comes from the profile that grades a SONG — not from the union of three kinds of text
+  PASS  the SONG band is contained in the union of every live profile's reach — this never widens what the planner volunteers past what the floor can grade; since M-239 the two coincide, because the lyric-sheet profile's range contains the quatrain's and the sonnet's
+          song 462 of union 462
+  PASS  the measured song span starts at two lines and has no interior hole — the former seams between calibrated bands stay closed
+          song 2..463 gaps [], union gaps []
+  PASS  ...and the union has NO hole because one reach CONTAINS every other — the lyric-sheet reach, which is the only live `n_lines == 0` row's, so the union IS that reach; the end-to-end seam identity the two readings above pinned does not describe this arrangement and was struck rather than re-fitted
+          0 hole(s) []; widest lyric 2..463 contains ['sonnet', 'section'] of ['sonnet', 'section']; reaches {'lyric': (2, 463), 'section': (4, 5), 'sonnet': (12, 17)}; min-ordered touching [('lyric', 'section')]
+  PASS  MUTATION — narrow the live sheet row back to a 200-400-token BAND and the containment breaks: its reach no longer covers the stanza reaches, the union re-opens holes, and the perturbation is restored
+          2 hole(s) under the narrowed row [(6, 11), (18, 22)], 0 restored
+  PASS  the band is the reach of exactly the LIVE profile(s) declaring `n_lines == 0` — ONE since M-239 (the two band rows are superseded and read by nothing), and the set is its reach: a lyric sheet has no fixed line count, which is the coordinate, not the string 'song'
+          ['lyric'], 2..463
+  PASS  MUTATION — widening the LIVE lyric-sheet profile's measured token band (`lyric` since M-239, not the superseded `song` row) widens the SONG line band with it, and the perturbation is restored
+          462 -> 491 values
+  PASS  MUTATION — the stanza floor is READ from the calibrated stanza's own token range: triple it and the floor rises, and the perturbation is restored
+          4 -> 10
+  PASS  the SECTION ceiling is that floor divided into the song, never the song's line count itself — a sound bound is not a uniform draw (the M-81(A) error one layer over)
+          sections (1, 115) against song max 463
+  PASS  no seed is lost to the narrower band — 120 of 120 still plan
+          120 plans
+  PASS  every drawn total is INSIDE the lyric-sheet profile's own band (`lyric` since M-239, repinned 2026-09-05), so the planner volunteers no length that profile cannot hold to anything
+          [12, 31] against [2, 463]
+  PASS  ONE-LINE sung sections are a minority — well under the 39.4% this instrument measured before the band and the section ceiling were re-derived
+          28.5% of 853 sung sections, median 3 lines
+  PASS  and the section COUNT no longer runs to the song's line count: its tail sits inside the ceiling the stanza floor derives
+          max 11 sections against derived ceiling 115 (song max 463), median 7.0
+
+18. M-206 — the placement rule and the group's own slots, and the two routes that read them differently
+  PASS  the registry is what says so — 4 of the drawable schemas declare a placement rule a pair of LINE ENDS cannot satisfy, and they are the negated `both_line_final`, the two `both_line_initial` and the `neither_line_final` one
+  PASS  ...and the predicate is not a blanket refusal — the SAME four answer True at the placements their own definitions name, and `internal rhyme` is bindable at an internal slot, which is the whole reason it stays drawable
+  PASS  a schema with NO position-kind placement rule is admitted everywhere — the control that stops this reading as a cap on every group
+  PASS  `slots.is_default_spelling` is `is_default` in the module that owns the spelling, and not a hand-written test of it — a bare int and `N.end` are default, `N.endword`, `N.head` and `N.T4` are not, and the draw and the gate both ask IT
+  PASS  0 seeds are LOST to this filter — the bare default is always in the pool, so a group whose placements refuse every schema still draws a relation
+          60 of 60
+  PASS  ...and 0 plans carry the finding, so the gate is satisfied BY CONSTRUCTION and a MUTATION is the only way to fire it
+  PASS  the MUTATION fires it on most of the sweep — the pre-repair planner handed the writer a group no vocabulary can close on more than half of all seeds
+          42 of 60 seeds, 56 finding(s)
+  PASS  ...and the finding names the schema, the members and the placement rule, and points at the declaration that WOULD work rather than refusing the figure
+          group M declares 'schema:internal rhyme' over 2 members (4, 5), every one of them at the DEFAULT slot — the li
+
+14. THE 2026-09-01 RULINGS UNDER DELEGATION — the chorus recurs (M-190), the plan draws its own DENSITY (M-191), and three disclosures the writer reads (M-192)
+  PASS  M-190: every verse-chorus plan draws its CHORUS at least twice — a chorus drawn once is a section with a chorus's name (grid.py: a hook is defined by RETURN, one occurrence is a phrase), and the two hook flags were unaskable on it; 6 of 16 banked songs finished at exit 0 with no chorus
+          seeds drawing one chorus: [] over 1-40
+  PASS  ...declared in a table the form names, so a second form can declare its own returner without touching the sampler
+          {'verse-chorus': ('chorus',)}
+  PASS  ...and every plan in the sweep now carries a hook slot — the consequence the ruling was for
+          40/40
+  PASS  ...the MUTATION that empties the table brings the once-drawn chorus back, so the rule is READ
+          34 of 40 seeds draw one chorus without the rule
+  PASS  ...and EXACTLY the seeds whose first admissible pattern lacked a second chorus moved — rejection sampling leaves every accepted pattern byte-identical, so the rule costs no seed whose draw already recurred (measured 28 moved, 12 same)
+          moved 34, same 6; moved == once-drawn: True
+  PASS  M-191: every plan discloses a DENSITY cap, drawn uniform over 1..the line-binding ceiling — 1 is the classic end-rhyme song with one web binding a line, the ceiling is the pre-ruling draw
+          cap distribution over 1-40: {1: 11, 2: 14, 3: 7, 4: 8}; ceilings [4]
+  PASS  ...from a stream of its OWN, seeded on (seed, 'density'), so the main stream is undisturbed and the cap is a pure function of the seed
+  PASS  ...and the SPARSE band M-181's five songs occupy (M-181, wording struck M-238: <= 1.5 bound words a line) is REACHABLE — `plan --sweep=1-100 --want=bound_words_per_line<=1.5` accepted 0 of 99 before the ruling and 26 after
+          18 of 40 seeds at <= 1.5: [1, 9, 10, 12, 13, 16, 19, 21]
+  PASS  ...the cap MOVES the density it names: mean bound words a line is lower at cap 1 than at the ceiling (measured 1.23 / 1.61 / 1.93 / 2.22 at caps 1-4 over seeds 1-100)
+          mean bound_words_per_line by cap: {1: 1.12, 2: 1.49, 3: 1.9, 4: 2.13}
+  PASS  ...and the sweep can ASK for it by name — `binding_cap` reads the plan's own coordinate, so a writer selects the classic shape by declaring it rather than by re-rolling
+  PASS  M-192: `audible_as_end_rhyme` is DERIVED from the registry — both spans at the line-final token and nucleus AND coda required to agree — so perfect rhyme and rime riche are heard as end rhyme and consonance, assonance and anaphora are not
+          {'perfect rhyme': True, 'rime riche': True, 'consonance': False, 'assonance': False, 'anaphora': False}
+  PASS  audibility is disclosed but never RULED ON: the pool is unfiltered and neither a joint code nor a sweep measure reads it (MISSING.md M-120)
+          12 of 18 drawable schemas inaudible at a line end; no JOINT_CODES or SWEEP_MEASURES member names audibility
+  PASS  ...and the drawable pool holds BOTH kinds, which is why the disclosure is not vacuous: the dice can put an inaudible relation on a line end
+          6 of 18 drawable schemas audible as end rhyme: ["Scots vowel-length rhyme (Aitken's Law)", 'light rhyme', 'pantun ABAB', 'perfect rhyme', 'rime riche', 'semirhyme']
+  PASS  ...every plan discloses its end-bound groups PARTITIONED — audible / bare default / inaudible — and the partition is a pure function of the emitted plan, never summed past itself (doctrine 79)
+  PASS  ...the brief carries a LEGEND: every place a group names and every relation it draws is glossed, derived from the slot vocabulary and the registry, with an inaudible relation saying so — the brief used to name `T5`, `headrime` and `Scots vowel-length rhyme` with no gloss anywhere a writer could reach
+  PASS  ...and the number SLOTS_EXCEEDED grades against is printed UNDER every sung section's bracket — the ceiling of syllables a line after the pickup beside the band's floor — and never INSIDE it: the bracket is the measurement carrier every gate reads byte for byte (M-97)
+  PASS  M-193: the form's minimum section count is DERIVED from its two tables — verse once, chorus twice — and not typed
+          3
+  PASS  ...the planner's line envelope is the gradeable set restricted to totals whose stanza-sized cell ceiling can hold that many sections, so a total the pattern draw would reject on every attempt is never drawn: ~~the short profile (M-193) took the gradeable set to 6 lines~~ the 2026-09-15 length-curve profile starts at 2 lines (10 tokens at the band's highest tokens-per-line) and the fillable floor is 12
+          gradeable 2..463, fillable 12..463 (452 values), envelope (12, 463)
+  PASS  ...and every plan in the sweep drew a fillable total
+          totals [12, 13, 14, 15, 16, 17, 18, 19, 20, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+
+17. M-174 — an overhang schema on 3+ members contradicts itself, and the draw may not reach one
+  PASS  the registry's own coordinate is what says so — semirhyme demands member 2 overhang, and it is the ONE drawable schema that demands an overhang at all
+  PASS  a PAIR is satisfiable and 3+ members are not, by the count the gate and the draw both read — C(k-1, 2), so 0 / 1 / 3 / 6 at k = 2 / 3 / 4 / 5
+          [0, 1, 3, 6]
+  PASS  a schema with NO overhang demand is unbounded — the count is about `unmatched` and not about group size, so consonance over nine members is 0 (the control that stops this reading as a cap on every group)
+  PASS  the draw still REACHES the schema — it is narrowed to pairs, not deleted from the vocabulary (doctrine 24: a rule that would remove a category relabels instead)
+          24 overhang group(s) over seeds 1-40
+  PASS  ...and every one of them is a PAIR: no seed draws a group its own declared schema contradicts
+          sizes {2: 24}, impossible []
+  PASS  a clean plan earns no joint finding at all
+  PASS  the MUTATION fires the gate, on the group's own first line, naming the members and how many pairs are impossible — a hand-written plan is refused on the same terms as a drawn one
+          group B declares 'schema:semirhyme' over 3 members (4.T2, 8.T1, 14.head), and that schema
+  PASS  `GROUP_CONTRADICTS_ITSELF` is a declared JOINT code, so `make_plan` refuses on it like every other cause
+  PASS  `anaphora` is the one drawable schema whose identity rule demands the SAME TOKEN — read off `identity`, never off the name, and `consonance` is the control that does not
+  PASS  no seed binds a same-token schema at two line ENDS — satisfying one means both lines end on the same word, which `floor.REPEAT_IN_VERSE` flags on a layer that never reads the mandate, so the only legal answer trips another gate
+          0 such group(s) over seeds 1-40
+  PASS  ...and the MUTATION fires that gate too, naming the line-final slots and pointing at `epistrophe / radif`, which is this registry's own name for the same word ending two lines
+          group S declares 'schema:anaphora', whose identity rule requires its members to
+
+. the planner binds WHERE, not only at the ends — and draws overlapping covers, which an RGS partition cannot express
+  PASS  every plan's groups PARSE back into a Mandate — the spelling the planner emits is the spelling the declaration layer reads, which is the only shape that proves the coordinate crossed the seam
+          60 plans, 60 mandates
+  PASS  placements other than the line's end are DRAWN, not merely declarable: the head, the whole end word, the head read as a rhyme span, and indexed words all appear
+          {'end': 684, 'T3': 208, 'T4': 205, 'T2': 204, 'headrime': 190, 'endword': 186}
+  PASS  and `end` is ONE placement among them rather than the axis everything is measured against — the WEB DRAW's own share is near the uniform share of the pool, which is the correction stated as a measure; the end-rhyme pass then binds free ends ON TOP and is counted apart
+          web draw: end at 9.8% of its members; with the end-rhyme pass's additions 28.7%, over 60 plans
+  PASS  OVERLAPPING covers are reached by the DRAW. Doctrine 2 says maximal cliques may overlap and the mandate layer has always accepted them; the generator could not produce one, so that class of song had probability exactly zero from the front door
+          60/60 plans put some line in >1 group
+  PASS  a line's participation leaves the writer at least 1 word of their own: it is bounded by what a band-legal line can CARRY — the calibrated density band's floor — MINUS the reserve, so no plan hands back a line whose every word is dictated by some rhyme family
+          max participation 4, density floor 5 less reserve 1
+  PASS  ...and that is the property, stated without reference to the constant: NO line in any drawn plan is bound at every word
+          participation {0: 275, 1: 314, 2: 535, 3: 231, 4: 77} against floor 5
+  PASS  ...and it is not pinned at either extreme: lines carrying ONE binding and lines carrying several are both ordinary
+          participation {0: 275, 1: 314, 2: 535, 3: 231, 4: 77}
+  PASS  no group exceeds what the LEXICON is measured to sustain — the capacity layer's deepest CERTIFIED chain, so a plan never asks for a rhyme family no family can fill
+          ceiling 22
+
+13. the END-RHYME pass — each sung section's own scheme, re-realised at the line ends, and nothing else touched
+  PASS  the pass is IDEMPOTENT and PURE — run again on a plan already carrying its output it adds nothing, so it is a function of what the plan says and not of what the loop had in scope
+  PASS  every group this pass ADDED is a SUBSET of a block its section's own declared `rgs` names, and every one of them reaches the emitted plan — it re-realises a scheme the plan already drew, invents no grouping, and drops none of what it claims
+          219 of 219 added group(s) mirror a declared block AND appear in `groups`
+  PASS  NO line has its end bound twice — the collision `joint_findings` refuses, checked here on the population the pass actually produced rather than waiting for the gate
+  PASS  and no line is asked for more distinct spans than a BAND-LEGAL line is guaranteed to hold — the ceiling the web pass draws against, which this pass skipped on its first build. NO GATE REFUSES THIS: measured, dropping the check loses 0 of 60 seeds and puts 26 lines over, so this assertion IS the enforcement
+          ceiling 4, over: []
+  PASS  THREE COUNTS, NEVER SUMMED (doctrine 79): added / blocked / narrow, and all three are populated so none is decorative
+          added 219, blocked 178, narrow 2
+  PASS  the pass LIFTS the share of lines whose end is bound, and the before-figure is the same plan read without the pass's own contribution rather than a remembered number
+          26.0% -> 60.7% of 1429 lines
+
+-- 14. the relation draw: certified pool, carried to the grade, silent under a writer's declaration --
+  PASS  the ADOPTED drawable pool re-derives from the declared witness — a moved pool is a moved witness or a moved registry, and either must fail loud rather than drift (the meter-bands adoption pattern)
+          adoption drifted from derivation
+  PASS  a plan draws relations for its groups and every drawn name resolves in the `schema` namespace
+          13 drawn over 16 groups
+  PASS  every drawn label is a label the mandate itself would generate — `PLN.SC.label`, one definition, no respelling
+          labels ['B', 'C', 'D', 'F', 'G', 'H']
+  PASS  the grading command CARRIES the draw — a declared coordinate read by nothing is the defect this repo has an instrument for
+          ,M:schema:consonance,N:schema:perfect rhyme,P:schema:consonance' --subdivision 4
+  PASS  the draw is DISCLOSED in choices, like every other draw
+          choices.relations missing or diverged
+  PASS  a writer's own --relation SILENCES the draw — a declared coordinate is carried, never sampled over (M-55)
+          drew 0 despite a declaration
+  PASS  the draw consumes entropy AFTER every existing draw, so the seed's SHAPE is byte-identical to the pre-draw planner's — groups, returns and meter unmoved between the two calls above
+          shape moved with the relation coordinate
+  PASS  M-119's coordinates survive the M-122 rekeying — cluster consonance claims nucleus-Differ at the anchor (finality read from the span locus, no placement row), anaphora token-Agree at the head, head rhyme (positional) token-Differ at the head
+          cc {'gap': None, 'claims': (('consonants', 'anchor', 'SequenceEqual'), ('nucleus', 'anchor', 'Differ'))}, anaphora {'gap': None, 'claims': (('token', 'head', 'Agree'), ('token', 'head', 'Agree'))}, head rhyme {'gap': None, 'claims': (('nucleus', 'head', 'Agree'), ('coda', 'head', 'Agree'), ('token', 'head', 'Differ'))}
+  PASS  M-122(a): `adjacent_lines` is read as gap 1 — interlaced rhyme's whole reach, a placement KIND the flat dict could not carry (117 violations over sixty seeds before this)
+          {'gap': 1, 'claims': ()}
+  PASS  M-122(b): perfect rhyme carries TWO onset rules at two coordinates — Agree at post, Differ at the anchor — which the old per-channel dict collapsed into one, inflating the honest pre-fix count from 53 to a false 56
+          (('nucleus', 'anchor', 'Agree'), ('nucleus', 'post', 'Agree'), ('coda', 'anchor', 'Agree'), ('coda_presence', 'anchor', 'Agree'), ('coda', 'post', 'Agree'), ('coda_presence', 'post', 'Agree'), ('onset', 'post', 'Agree'), ('onset', 'anchor', 'Differ'), ('prominence', 'anchor', 'Agree'), ('span_length', 'end', 'Agree'))
+  PASS  M-122(c): the syllable coordinate SPLITS what the dict conflated — semirhyme's coda claim rides the anchor (as a PREFIX agreement since M-245, which the transitive closure correctly does not read as equality) while light rhyme's rides the written-out final syllable
+          semirhyme {'gap': None, 'claims': (('nucleus', 'anchor', 'Agree'), ('coda', 'anchor', 'PrefixAgree'), ('span_length', 'end', 'Differ'))}, light {'gap': None, 'claims': (('nucleus', 'final', 'Agree'), ('coda', 'final', 'Agree'), ('coda_presence', 'final', 'Agree'), ('prominence', 'final', 'Differ'))}
+  PASS  M-123: the adopted domain table says prominence is BINARY and nucleus is the 15-vowel inventory (measured over all 126,052 syllabifiable lexicon words; the eng adapter constructs prominence as `1 if stress in (1,2) else 0`), and light rhyme carries the prominence-Differ claim that caps its groups at 2
+          domains [('prominence', 2), ('nucleus', 15), ('coda_presence', 2)]
+  PASS  M-123's second face: `PresentVsAbsent` IS a Differ on a presence bit — subtractive rhyme's claims carry the derived (coda_presence, anchor, Differ) with a binary domain, and a coda-Agree schema projects the Agree edge onto the same derived channel so the parity closure can see equal codas contradict a presence split
+          subtractive (('nucleus', 'anchor', 'Agree'), ('coda', 'anchor', 'PresentVsAbsent'), ('coda_presence', 'anchor', 'Differ'))
+  PASS  M-125: span LENGTH is a hidden equality channel and the schema's own `unmatched` coordinate declares it — perfect rhyme and rime riche (forbid) claim length-Agree at the ends, semirhyme (require_b) claims length-Differ, so the Equal-Equal-Differ triangle {perfect 13~14, rime riche 13~17, semirhyme 14~17} that no words can close is caught by the existing closure with no new machinery
+          semirhyme (('nucleus', 'anchor', 'Agree'), ('coda', 'anchor', 'PrefixAgree'), ('span_length', 'end', 'Differ'))
+  PASS  M-125(b): the forced-opener ceiling is READ from the floor's own lyric-sheet profile (n_lines == 0, never by name — the M-106 idiom), so the gate and ANAPHORA_OVERLOAD cannot hold two thresholds
+          0.31380560334299584
+  PASS  M-123: the phonology the judge grades through emits prominence values from exactly the adopted domain — a probe over stressed and unstressed syllables reaches both values and nothing else
+          {0, 1}
+  PASS  no drawn conjunction violates a schema's own gap ceiling, puts opposite predicates on one (pair, channel, coordinate), closes an equality chain a Differ claim demands open, outnumbers a finite channel domain, forces a parity cycle on a binary one, or forces more identical line-openers than the floor's own ANAPHORA_OVERLOAD share admits — the measured 39-of-40 (M-118), 53-of-60 (M-122: 117 adjacency, 32 transitive), 40-of-60 (M-123: 74 impossible prominence cliques) and M-125 (seed 32's forced 9-of-21 openers and its length triangle) defects all read ZERO through the gate
+          adjacency 0, pairwise 0, transitive 0, oversize 0, parity 0, opener 0 over six seeds
+  PASS  the pair-unbindable subset of the drawable pool is DERIVED from the registry's own span rules: the two drawable free-run searchers remain; chain rhyme and monai are figure-level relations
+          ('compound / phrasal rhyme', 'multisyllabic rhyme')
+  PASS  no slotted group draws a schema the pair route cannot bind there — six seeds (including the four that leaked most before the filter), zero conjunctions
+  PASS  ...and the unbindable schemas STAY drawable at default slots — the filter narrows the slotted pool, it does not delete names from the certified adoption
+
+16. M-58 — the printed GRADE IT runs on both paths
+  PASS  the plan-first path prints TWO STEPS and says why — the file --out wrote is a PLAN and `song` reads a BLUEPRINT
+          rc 0
+  PASS  ...step 1 is the SAME plan invocation plus --fill/--out, so it re-derives the identical plan (a plan is a pure function of its seed) and writes the blueprint step 2 grades against
+  PASS  ...and step 2 is the grading command against BP.json, which step 1 actually writes
+  PASS  the FILL path keeps the single GRADE IT line, naming the blueprint that run just wrote — one step because one step is true there
+          rc 0
+
+1. a plan is a function of its request — seeded, reproducible
+  PASS  the same request is byte-identical twice (doctrine 66)
+  PASS  across ten seeds the CHOICES differ — the seed is READ, and the echoed request cannot stand in for read behaviour
+          10 distinct choice-set(s)
+
+9. the writer's declaration (M-55)
+  PASS  a plan with NO declaration carries empty WRITER coordinates — `relation` and `functions` stay unimputed — and its GRADE IT line carries no `--relation=` (the writer's singular spelling); what it does carry is `--relations=`, the DRAWN per-group coordinate (M-117), which is the planner's, not the writer's
+  PASS  a declared relation is STORED NAMESPACED, so the value the plan keeps re-resolves to the same judge (M-49)
+          type:rime riche
+  PASS  ...and it REACHES THE GRADE. Without this the writer declares a relation, the plan records it, and the one command that grades the draft asks the coarse admit set instead — a declared coordinate read by nothing, one layer out from M-54's
+          python3 lyric_harness.py song BP.json DRAFT.txt '--groups=1.head,2.T4;4.endword,5.T1;3.T3,5.T6;3.T2,5;8,9.T1;9.T6,10.T4;9.endword,10.head;11,12.T7;12.headrime,13.T4;15.T1,16.head;14.T2,15.T2;20.T3,24.headrime,26.endword;21.T3,22.T3,23.head,25.T4;25.endword,26.T2;19.T5,22.T2,23.T4;22.endword,24;20,22.headrime,23.T7,24.T2,25.T6;19.head,24.T6;1,2;15,16;21,23' '--returns=1,6;2,7;1,17;2,18' '--relation=type:rime riche' --subdivision 2
+  PASS  an unknown relation refuses AT PLAN TIME, while the writer is still holding the sentence they got wrong
+  PASS  a BARE name in two namespaces (M-37) refuses AT PLAN TIME, while the writer is still holding the sentence they got wrong
+  PASS  a declared ROSTER is an ALLOW-LIST: no function outside it appears in the sampled shape
+          ['intro', 'chorus', 'chorus', 'verse', 'chorus']
+  PASS  ...and functions the draw did NOT use are DISCLOSED, because a roster permits and does not compel — silence would let a writer believe they got a section they did not (doctrine 20)
+          ['bridge']
+  PASS  a plan with NO declared title carries `''`, and `fill_plan` writes that straight through -- the finding is UNCHANGED for anyone who does not declare one
+          ''
+  PASS  a declared title is CARRIED into the plan and through `fill_plan` into the blueprint -- never inferred, because guessing one off the first line is the inference TITLE_UNDECLARED exists to refuse
+          'Stay Awake' / 'Stay Awake'
+  PASS  `plan --title=` REACHES THE BLUEPRINT through the CLI, not only through the library -- the flag the sweep branch read and the plan branch did not
+          rc=0 title='Stay Awake'
+  PASS  TITLE_UNDECLARED stands on the SAME song with the title removed and is gone once it is declared -- the coordinate is read, not merely stored
+          declared=[] undeclared=['TITLE_UNDECLARED']
+  PASS  a roster asking for a PRECHORUS and NO CHORUS refuses, and the refusal quotes the gloss that makes it definitional — the word means before-the-chorus, so a roster that cannot contain one is not a novel structure but a contradiction (M-54's `requires`)
+          --functions asks for 'prechorus' and not for ['chorus'] — and 'prechorus' REQUIR
+  PASS  a roster naming a function the vocabulary declares and this GENERATOR cannot build refuses rather than silently dropping it — `refrain` is a real function and not a buildable section (M-56)
+  PASS  the declaration is DETERMINISTIC with the seed, like every other free choice here
+
+6. the filled song RENDERS in performance order — the copy-paste artifact is the system's output
+  PASS  every section's bracket header appears, in performance order, from the SAME builder the writer brief uses (seed 2)
+          [0, 6, 9, 15, 17, 21, 30, 32, 35, 41]
+  PASS  every line sits under its own header in slot order — the returned chorus is WRITTEN OUT, not '(x2)'
+  PASS  ...and each returned line's text appears at BOTH its positions in the rendering
+  PASS  an instrumental section is a header with NO lines under it — the hole in the song, measurements and all
+  PASS  a short draft refuses to render — the same refusal, and the same wording, as fill_plan's
+
+15. M-112 — the bound-token share is a pure disclosure
+  PASS  every sung section instance appears exactly once, in plan order
+          8 section(s)
+  PASS  the numerators sum to the plan's own word-keyed binding count — the same `bound_placements` + `placement_word` reading every other consumer of the groups string uses (doctrine 1)
+          total 59
+  PASS  each denominator is the sum of its lines' syllable ceilings — capacity, never a requirement (a sparse line is a slower line)
+  PASS  the numerator counts WORDS and not placement names — end+endword is one word, head+headrime+T1 is one word (M-80), so the toy reads 2/12 and 1/6 and a name-counting mutant reads 3 and 3
+          [(2, 12), (1, 6)]
+  PASS  `make_plan` does not consult `bound_token_share` — the share gates nothing, by design, until a calibration exists (the entry's own accounting; doctrine 22 for the future gate)
+
+2. refusals, not defaults (doctrine 20)
+  PASS  refuses {'seed': None} — a free choice without a declared seed is a hidden coordinate
+          plan requires --seed=N — an explicit integer seed
+  PASS  refuses {'seed': 1, 'form': 'ghazal'} — declared-but-blocked is a different answer from unknown (doctrine 28)
+          --form=ghazal is declared and BLOCKED: a ghazal's radif is a LICENSED repeat (ReviseDeclar
+  PASS  refuses {'seed': 1, 'form': 'madrigal'} — unknown is refused by name with the declared set listed
+          --form='madrigal' is not a declared form. Declared: verse-chorus; declared-but-blocked: gh
+  PASS  refuses {'seed': 1, 'lines': 11} — below the envelope is refused naming the envelope
+          --lines=11 is outside the planner's envelope [12, 463]. The envelope bounds what the plann
+  PASS  refuses {'seed': 1, 'lines': 464} — above the envelope is refused naming the envelope
+          --lines=464 is outside the planner's envelope [12, 463]. The envelope bounds what the plan
+  PASS  ...naming the envelope's own bounds, and that hand-declaring outside them stays open
+          --lines=464 is outside the planner's envelope [12, 463]. The envelope bounds what the planner VOLUNTEERS, not
+  PASS  ghazal's block names the missing FLAG, so the refusal is a work order and not a shrug
+
+19. M-214 — the legend's 'what each named relation asks' is derived from EVERY channel rule, the unmatched coordinate and the identity rule, not only Agree/Differ: come~some, bell~tell and light~my were written from the old legend and all VIOLATE
+  PASS  subtractive rhyme says the coda is PRESENT on one word and ABSENT on the other — the old legend said only 'agree on nucleus'
+          agree on nucleus; coda present on the first word and absent on the second (the first runs on where the second stops); different words
+  PASS  semirhyme says the second word carries an extra syllable after the rhyme — the whole relation, and the old legend omitted it
+          agree on nucleus, coda; the second word carries an extra syllable or more after the rhyme (bend / ending) — an equal pair fails; different words
+  PASS  family rhyme says the coda agrees by CLASS, not sound
+          agree on nucleus; coda agree by CLASS, not sound (declared manner partition); different words
+  PASS  perfect rhyme no longer contradicts itself: the two onset rules carry their scopes, and it says neither word runs on
+          agree on nucleus, coda, onset (after the stressed syllable), prominence; differ on onset (at the stressed syllable); neither word runs on past the rhyme; different words
+  PASS  rime riche says 'different words' — the identity rule is what separates it from repetition
+          agree on onset, nucleus, coda; neither word runs on past the rhyme; different words
+  PASS  anaphora says 'the same word'
+          agree on token; the same word
+  PASS  light rhyme still says 'differ on prominence' — the Agree/Differ half is unchanged
+          agree on nucleus, coda; differ on prominence; different words
+  PASS  brief_legend renders the derived clauses on the relation's own line, after the legend header
+          Where a binding sits (a bare line number is its end word, read as a rhyme span):
+  T2: word 2, read as a rhyme span — from its last stressed syllable to its end
+What each named relation asks of the bound words:
+  semirhyme: the bound words agree on nucleus, coda; the second word carries an extra syllable or more after the rhyme (bend / ending) — an equal pair fails; different words, judged at the line end
+  subtractive rhyme: the bound words agree on nucleus; coda present on the first word and absent on the second (the first runs on where the second stops); different words, judged at the line end — NOT heard as end rhyme
+==============================================================
+SECTION COST, slowest first — the top line is the floor a shard count cannot beat:
+     165.6s  test_the_round_trip
+      60.7s  test_the_measure
+      60.2s  test_the_form_is_read
+      51.3s  test_the_seed_sweep_is_a_verb
+      12.9s  test_the_joint_gate
+      12.9s  test_the_relation_draw
+      12.4s  test_the_song_length_is_the_songs_own
+      11.2s  test_the_disclosure
+      11.0s  test_the_section_header_keeps_its_apparatus_inside_the_bracket
+       9.2s  test_the_overhang_group
+       8.4s  test_the_placement_route
+       8.0s  test_the_delegated_rulings
+       6.2s  test_the_planner_plans_the_whole_line
+       5.3s  test_the_end_rhyme_pass_is_additive
+       5.0s  test_the_grade_it_line_runs
+       2.5s  test_the_writers_declaration
+       0.4s  test_determinism
+       0.1s  test_the_rendering
+       0.0s  test_the_bound_share
+       0.0s  test_the_legend_states_the_whole_schema
+       0.0s  test_refusals
+     443.4s  TOTAL, this shard (21 of 21 sections)
+==============================================================
+the planning phase plans, the graders accept what it plans, and the dice are uniform over derived spaces

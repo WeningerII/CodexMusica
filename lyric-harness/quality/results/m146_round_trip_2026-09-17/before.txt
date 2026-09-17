@@ -1,0 +1,14 @@
+BASE: fcebe7066b44943ccc199760b0471e7d2ae4b437
+
+3. THE ROUND TRIP — the graders accept what the planner emits, over a sweep
+   per-seed cost, slowest first (the pool's wall is the top line): seed 4 58s, seed 5 51s, seed 16 42s, seed 3 38s, seed 2 35s, seed 17 34s, seed 15 32s, seed 0 32s, seed 7 30s, seed 9 30s, seed 19 28s, seed 14 25s, seed 6 25s, seed 11 24s, seed 1 24s, seed 10 17s, seed 8 16s, seed 13 15s, seed 12 14s, seed 18 13s
+  PASS  20 seed(s) [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]: blueprint READS, mandate PARSES, mandated == judged + REFUSED with judged > 0 (three counts, never summed: doctrine 79), every refusal is a NO-ANCHOR slot on the dummy draft's own words rather than a shape the graders cannot take, and no verbatim/drift finding stands on a planner shape — a seed past the schema door's pair guard (M-240) is a FOURTH count, the grader's own wall; no default plan may hit it
+          held [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]; bad: none; judged 311, slot-refused 438, walled at the schema door 0 seed(s) as (seed, total_lines) []; graded totals 17..31
+  PASS  ...and the section's grading POWER clears the floor its own fixture predicts — the filler's anchorable-position share, squared, because a pair needs both ends. No literal: a weaker filler moves the prediction with it, and what this catches is the GRADER refusing what it ought to judge
+          judged share 41.5% against a derived floor 18.4% (3 of 7 token positions anchor on the filler)
+  PASS  an exact --lines request is satisfied exactly
+  PASS  the emitted grading command carries BOTH mandate halves and the subdivision — nothing for an operator to remember
+          python3 lyric_harness.py song BP.json DRAFT.txt '--groups=2.endword,15.T5;3.T4,5.T4,16.head;4,6.head
+  PASS  a short draft is refused, never truncated-to-fit
+          the plan declares 22 line(s) and the draft carries 21 — they must be the same so
+FAILURES: []
