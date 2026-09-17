@@ -6,6 +6,7 @@ import json
 import os
 import pickle
 from pathlib import Path
+import shutil
 import sys
 import tempfile
 import unittest
@@ -19,6 +20,94 @@ from quality import corpus_manifest as cm
 
 
 class ProductionDataTests(unittest.TestCase):
+    def _wordnet_probe(self, staged, selected, *, explicit=False,
+                       first="senses", missing=False, no_package=False):
+        """Cold process: neither NLTK's global loaders nor ambient data can help."""
+        import subprocess
+        env = {k: v for k, v in os.environ.items()
+               if k not in ("LYRIC_STAGED_DATA", "NLTK_DATA")}
+        if staged is not None:
+            env["LYRIC_STAGED_DATA"] = str(staged)
+        if explicit:
+            env["NLTK_DATA"] = str(selected)
+        script = '''
+import builtins, importlib, os, sys
+from pathlib import Path
+selected, first, missing, no_package = sys.argv[1:]
+if no_package == "True":
+    original_import = builtins.__import__
+    def without_nltk(name, *args, **kwargs):
+        if name == "nltk" or name.startswith("nltk."):
+            raise ImportError("nltk deliberately absent")
+        return original_import(name, *args, **kwargs)
+    builtins.__import__ = without_nltk
+else:
+    import nltk
+    # Include duplicate lower-priority entries: the shared loader must put
+    # the selected directory first exactly once, even if NLTK imported first.
+    nltk.data.path[:] = [selected + "/absent", selected, selected]
+importlib.import_module("quality." + first)
+from quality import senses, features, fetch_data
+if missing == "True":
+    assert not senses.available()
+    assert senses.sense_resource() is None
+    assert senses.polysemy("bank") == 0
+    assert senses.sense_of("bank", ["river", "bank"]) == "bank"
+else:
+    # Verify the relocated bytes through the actual stager before loading.
+    # An explicit NLTK_DATA is a read override, not a second staging target.
+    if "NLTK_DATA" not in os.environ:
+        fetch_data.fetch_all()
+    assert senses.available(), "staged WordNet/tagger were not found"
+    assert nltk.data.path[0] == selected, nltk.data.path
+    assert nltk.data.path.count(selected) == 1, nltk.data.path
+    assert Path(str(senses._WN.root)) == Path(selected) / "corpora/wordnet"
+    assert senses.polysemy("bank") > 1
+    assert senses.sense_of("bank", "she sat beside the river bank".split(), "n") != senses.sense_of("bank", "she took her money to the bank".split(), "n")
+    assert senses._pos(["she", "sat", "beside", "the", "river", "bank"])[1] == "v"
+print("WordNet staging contract holds")
+'''
+        result = subprocess.run(
+            [sys.executable, "-c", script, str(selected), first,
+             str(missing), str(no_package)], cwd=ROOT, env=env,
+            capture_output=True, text=True, timeout=60)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_wordnet_uses_shared_staging_in_both_import_orders(self):
+        from quality.features import NLTK_DIR
+        source = Path(os.path.abspath(NLTK_DIR))
+        self._wordnet_probe(None, source)
+        with tempfile.TemporaryDirectory() as directory:
+            staged = Path(directory) / "staged"
+            selected = staged / "nltk"
+            selected.mkdir(parents=True)
+            for name in ("corpora", "taggers"):
+                shutil.copytree(source / name, selected / name)
+            for first in ("senses", "features", "fetch_data"):
+                with self.subTest(first=first):
+                    self._wordnet_probe(staged, selected, first=first)
+
+    def test_wordnet_honors_explicit_nltk_directory_before_shared_default(self):
+        from quality.features import NLTK_DIR
+        with tempfile.TemporaryDirectory() as directory:
+            staged = Path(directory) / "empty-staging"
+            selected = Path(directory) / "explicit-nltk"
+            shutil.copytree(NLTK_DIR, selected)
+            self._wordnet_probe(staged, selected, explicit=True)
+
+    def test_wordnet_missing_resources_keep_sense_capability_absent(self):
+        from quality.features import NLTK_DIR
+        source = Path(os.path.abspath(NLTK_DIR))
+        for present in ("corpora", "taggers", None):
+            with self.subTest(present=present), tempfile.TemporaryDirectory() as directory:
+                staged = Path(directory)
+                selected = staged / "nltk"
+                selected.mkdir()
+                if present:
+                    shutil.copytree(source / present, selected / present)
+                self._wordnet_probe(staged, selected, missing=True)
+        self._wordnet_probe(None, source, missing=True, no_package=True)
+
     def test_nonlyric_annotations_preserve_source_text_and_all_other_lyrics(self):
         import lyric_harness as lh
         from quality.lyric_reader import lyric_items, normalized_rows, calibration_items

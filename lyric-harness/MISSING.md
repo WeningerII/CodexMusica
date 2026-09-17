@@ -19846,7 +19846,7 @@ itself fetches, and names no staging command. It is a misattribution and
 not an answer, and it is why the check has to live in the constructor
 rather than be left to the generic handler.
 
-**WHAT STAYS OPEN, and it is a neighbour, not this defect.**
+**HISTORICAL REMAINDER — CLOSED 2026-09-17 below.**
 `quality/senses.py:53` keeps its own `WORDNET_DIR = …/data/nltk`, so under
 `LYRIC_STAGED_DATA` the WordNet corpus `fetch_data.py` stages would land
 where `senses` does not look. It is left because `senses` DEGRADES —
@@ -19854,6 +19854,28 @@ where `senses` does not look. It is left because `senses` DEGRADES —
 crashes or refuses, and because importing `quality.features` from it is an
 import-cycle question no suite in this WP runs. One coordinate, two homes,
 noted here so it cannot become a quiet third.
+
+**2026-09-17 — THE WORDNET REMAINDER IS CLOSED.** `quality/senses.py`
+now imports the stager's `NLTK_DIR` as `WORDNET_DIR` and calls the shared
+`features._tagger()` before loading either WordNet or its POS model. Thus
+`LYRIC_STAGED_DATA` selects the shared staging directory, and an explicit
+`NLTK_DATA` retains the shared resolver's read precedence. The selected
+directory is moved to the front exactly once even when NLTK was imported
+first; the sense loader no longer inserts its own hard-coded default.
+The change preserves the opt-in sense derivation, declared-sense override,
+and absent-resource behavior: no derived `sense` capability when the corpus,
+tagger, or package is unavailable.
+
+`quality/test_production_data.py` now runs cold subprocess checks with
+ambient NLTK paths excluded: the default location, relocated staging with
+each of `senses`, `features`, and `fetch_data` imported first, explicit
+`NLTK_DATA` over an empty staging default, and separate absent corpus,
+tagger, both resources, and package cases. Present-data checks verify the
+actual loaded corpus path, disambiguation, and POS tagging; relocated bytes
+are checked by the existing stager. These tests never hide or rename the
+shared resources. The comparator inputs are unchanged; the staged-data
+comparator gate reports HOLDS, so no calibration or pin update is required.
+
 **2026-09-02 — the record job read this entry as false on a clean
 checkout.** CI's `record` job at `94e736f` went red at step 9
 (`verify_entries.py`), on the two citations of the concreteness table in
