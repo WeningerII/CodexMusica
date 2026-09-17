@@ -1,0 +1,52 @@
+[
+  {
+    "command": ["python3", "quality/counters.py", "--write"],
+    "exit_code": 0,
+    "receipt": "00-counters.txt"
+  },
+  {
+    "command": ["python3", "quality/verify_entries.py"],
+    "exit_code": 0,
+    "receipt": "01-verify_entries.txt"
+  },
+  {
+    "command": ["python3", "quality/verify_doctrines.py"],
+    "exit_code": 0,
+    "receipt": "02-verify_doctrines.txt"
+  },
+  {
+    "command": ["python3", "quality/battery_rounds.py", "--check"],
+    "exit_code": 0,
+    "receipt": "03-battery_rounds.txt"
+  },
+  {
+    "command": ["python3", "quality/counters.py", "--check"],
+    "exit_code": 0,
+    "receipt": "04-counters.txt"
+  },
+  {
+    "command": ["python3", "quality/verify_figures.py", "--check"],
+    "exit_code": 0,
+    "receipt": "05-verify_figures.txt"
+  },
+  {
+    "command": ["python3", "quality/gate_census.py", "--check"],
+    "exit_code": 0,
+    "receipt": "06-gate_census.txt"
+  },
+  {
+    "command": ["python3", "quality/pin_sweep.py", "--verify-argv"],
+    "exit_code": 0,
+    "receipt": "07-pin_sweep.txt"
+  },
+  {
+    "command": ["python3", "quality/audit_register.py", "--check"],
+    "exit_code": 0,
+    "receipt": "08-audit_register.txt"
+  },
+  {
+    "command": ["python3", "quality/check_comparator_pin.py"],
+    "exit_code": 0,
+    "receipt": "09-check_comparator_pin.txt"
+  }
+]

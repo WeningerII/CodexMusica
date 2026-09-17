@@ -1,0 +1,47 @@
+
+==========================================================================
+CHECK -- the committed register-audit figures against this run
+==========================================================================
+  [ok  ] canon_distinct_indices   committed 555
+  [ok  ] canon_entries            committed 117
+  [ok  ] canon_refs_multiline     committed 654
+  [ok  ] canon_refs_singleline    committed 611
+  [ok  ] canon_unsourced          committed 113
+  [ok  ] canon_year_tokens        committed 23
+  [ok  ] coverage_audited         committed 19
+  [ok  ] coverage_entries         committed 348
+  [ok  ] cym_defective            committed 126
+  [ok  ] cym_read                 committed 29443
+  [ok  ] cym_refused              committed 0
+  [ok  ] cym_total                committed 29569
+  [ok  ] entries_cites_nothing    committed 0
+  [ok  ] entries_external         committed 116
+  [ok  ] entries_none_external    committed 1
+  [ok  ] fin_defective            committed 151
+  [ok  ] fin_read                 committed 144562
+  [ok  ] fin_refused              committed 567
+  [ok  ] fin_total                committed 145280
+  [ok  ] index_external           committed 501
+  [ok  ] index_project            committed 68
+  [ok  ] index_rows               committed 601
+  [ok  ] index_unrecorded         committed 32
+  [ok  ] schemas                  committed 78
+  [ok  ] schemas_no_tradition     committed 2
+  [ok  ] schemas_with_traditions  committed 76
+  [ok  ] traditions_attachments   committed 320
+  [ok  ] traditions_cannot_tell   committed 61
+  [ok  ] traditions_distinct      committed 299
+  [ok  ] traditions_external      committed 212
+  [ok  ] traditions_project       committed 26
+  [ok  ] consistency C1           committed ok  
+  [ok  ] consistency C2           committed ok  
+  [ok  ] consistency C3           committed ok  
+  [ok  ] consistency C4           committed ok  
+  [ok  ] consistency C5           committed ok  
+  [ok  ] consistency C6           committed ok  
+  [ok  ] consistency C7           committed ok  
+  [ok  ] consistency C8           committed n/a 
+  [ok  ] consistency C9           committed ok  
+  [ok  ] consistency C10          committed ok  
+
+RESULT: PASS
