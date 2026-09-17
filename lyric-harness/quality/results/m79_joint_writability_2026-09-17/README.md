@@ -80,3 +80,10 @@ output. `comparator.txt` records HOLDS at exit 0; no repin is owed.
 Integration and CI for the published head are recorded on this assignment's
 pull request. These local receipts do not claim a hosted writer completion,
 a full round-trip fixture audit (M-146), or a production qualification run.
+
+The first published head's record job failed `triage.py --check`: the entry
+explained its remaining requirement but omitted the required `TESTED WHILE
+OPEN` declaration. The follow-up makes that declaration explicit beside the
+regression description. `triage-check.json` records the corrected gate and
+`triage-suite.txt` its existing suite; neither the checker nor status was
+weakened to clear it.

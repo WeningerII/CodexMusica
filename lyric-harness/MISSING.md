@@ -10400,6 +10400,10 @@ brief. Contrasts cover a spare word, fractional slots, subdivision, alias
 collisions and a reachable high token index with few actual bindings.
 The explicit-brief test now includes section use, order and participation
 alongside length, stanza size and group size, and checks the joint gate.
+**TESTED WHILE OPEN.** These regressions guard the repaired arithmetic
+reserve and explicit preference selection. They do not establish the
+complete mandate's simultaneous lexical feasibility or grammatical lyrics;
+that precise remainder below keeps this entry PARTIAL despite passing tests.
 
 **THE HISTORICAL FIGURES ARE NOT CURRENT WRITABILITY RATES.** Receipts and
 exact commands are in `quality/results/m79_joint_writability_2026-09-17/README.md`.
