@@ -1,0 +1,564 @@
+{
+  "retrieved_on": "2026-09-17",
+  "repository": "WeningerII/CodexMusica",
+  "inspected_main": "50e4de4459f2055ce01d45cfc6ee67dcdb2e1640",
+  "scope": "Selected historical scheduled runs, not a claim that this change's final commit ran nightly or tandem.",
+  "runs": [
+    {
+      "run_id": 32618905302,
+      "run_number": 832,
+      "head_sha": "e24e716463c03feb15debf9291e697c1e87676e3",
+      "event": "schedule",
+      "created_at": "2026-08-23T04:51:43Z",
+      "conclusion": "failure",
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/32618905302",
+      "jobs_api": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/32618905302/jobs?per_page=100",
+      "jobs": [
+        {
+          "id": 97143923438,
+          "name": "nightly",
+          "conclusion": "failure",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/32618905302/job/97143923438",
+          "steps": [
+            {
+              "number": 9,
+              "name": "Joint AUC null against its cold pins (needs the warm cache above)",
+              "conclusion": "failure",
+              "started_at": "2026-08-23T05:08:09Z",
+              "completed_at": "2026-08-23T05:08:10Z"
+            },
+            {
+              "number": 10,
+              "name": "Every discrimination AUC against its cold pin (~17.6 CPU-min)",
+              "conclusion": "failure",
+              "started_at": "2026-08-23T05:08:10Z",
+              "completed_at": "2026-08-23T05:08:10Z"
+            },
+            {
+              "number": 11,
+              "name": "The full mutation sweep (~53 CPU-min — adversary 4 for real)",
+              "conclusion": "success",
+              "started_at": "2026-08-23T05:08:10Z",
+              "completed_at": "2026-08-23T07:15:17Z"
+            },
+            {
+              "number": 12,
+              "name": "Rhyme capacity adoption check (tier 1 in full + every sample witness re-graded)",
+              "conclusion": "skipped",
+              "started_at": "2026-08-23T07:15:17Z",
+              "completed_at": "2026-08-23T07:15:17Z"
+            },
+            {
+              "number": 13,
+              "name": "Kalevala alliteration adoption check (full remeasurement)",
+              "conclusion": "skipped",
+              "started_at": "2026-08-23T07:15:17Z",
+              "completed_at": "2026-08-23T07:15:17Z"
+            },
+            {
+              "number": 14,
+              "name": "Song-profile calibration, full (bounded slice, resumable memo)",
+              "conclusion": "failure",
+              "started_at": "2026-08-23T07:15:17Z",
+              "completed_at": "2026-08-23T07:15:17Z"
+            }
+          ]
+        },
+        {
+          "id": 97143923896,
+          "name": "tandem",
+          "conclusion": "skipped",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/32618905302/job/97143923896",
+          "steps": []
+        }
+      ]
+    },
+    {
+      "run_id": 33086717655,
+      "run_number": 1045,
+      "head_sha": "baae41213322571a3f55f5174219cc406808af60",
+      "event": "schedule",
+      "created_at": "2026-08-27T15:14:25Z",
+      "conclusion": "success",
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/33086717655",
+      "jobs_api": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/33086717655/jobs?per_page=100",
+      "jobs": [
+        {
+          "id": 98568244413,
+          "name": "nightly",
+          "conclusion": "success",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/33086717655/job/98568244413",
+          "steps": [
+            {
+              "number": 9,
+              "name": "Joint AUC null against its cold pins (needs the warm cache above)",
+              "conclusion": "success",
+              "started_at": "2026-08-27T15:31:49Z",
+              "completed_at": "2026-08-27T15:32:22Z"
+            },
+            {
+              "number": 10,
+              "name": "Every discrimination AUC against its cold pin (~17.6 CPU-min)",
+              "conclusion": "success",
+              "started_at": "2026-08-27T15:32:22Z",
+              "completed_at": "2026-08-27T15:48:37Z"
+            },
+            {
+              "number": 11,
+              "name": "Rhyme capacity adoption check (tier 1 in full + every sample witness re-graded)",
+              "conclusion": "success",
+              "started_at": "2026-08-27T15:48:37Z",
+              "completed_at": "2026-08-27T15:57:34Z"
+            },
+            {
+              "number": 12,
+              "name": "Kalevala alliteration adoption check (full remeasurement)",
+              "conclusion": "success",
+              "started_at": "2026-08-27T15:57:34Z",
+              "completed_at": "2026-08-27T16:09:53Z"
+            },
+            {
+              "number": 17,
+              "name": "Song-profile calibration, full (bounded slice, resumable memo)",
+              "conclusion": "success",
+              "started_at": "2026-08-27T16:30:32Z",
+              "completed_at": "2026-08-27T18:57:51Z"
+            },
+            {
+              "number": 20,
+              "name": "Deployment freshness — the live connector's advertised surface against the tree's",
+              "conclusion": "success",
+              "started_at": "2026-08-27T18:57:55Z",
+              "completed_at": "2026-08-27T18:57:56Z"
+            },
+            {
+              "number": 21,
+              "name": "Bank the predictability memo — whatever this job's verdict was",
+              "conclusion": "success",
+              "started_at": "2026-08-27T18:57:56Z",
+              "completed_at": "2026-08-27T18:57:57Z"
+            }
+          ]
+        },
+        {
+          "id": 98568244647,
+          "name": "mutation",
+          "conclusion": "success",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/33086717655/job/98568244647",
+          "steps": [
+            {
+              "number": 7,
+              "name": "One shard of the mutation sweep (adversary 4, rotating by date)",
+              "conclusion": "success",
+              "started_at": "2026-08-27T15:14:49Z",
+              "completed_at": "2026-08-27T18:04:01Z"
+            }
+          ]
+        },
+        {
+          "id": 98568245642,
+          "name": "tandem",
+          "conclusion": "skipped",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/33086717655/job/98568245642",
+          "steps": []
+        }
+      ]
+    },
+    {
+      "run_id": 33389402929,
+      "run_number": 1180,
+      "head_sha": "1206fe251370f36bfa94ff2b344b822040a29bfc",
+      "event": "schedule",
+      "created_at": "2026-08-31T11:57:40Z",
+      "conclusion": "success",
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/33389402929",
+      "jobs_api": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/33389402929/jobs?per_page=100",
+      "jobs": [
+        {
+          "id": 99479297264,
+          "name": "tandem",
+          "conclusion": "success",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/33389402929/job/99479297264",
+          "steps": [
+            {
+              "number": 6,
+              "name": "Cross-artifact tandem (source ↔ HTML ↔ zip, + audit snapshots)",
+              "conclusion": "success",
+              "started_at": "2026-08-31T11:58:04Z",
+              "completed_at": "2026-08-31T12:28:32Z"
+            }
+          ]
+        },
+        {
+          "id": 99479297989,
+          "name": "mutation",
+          "conclusion": "skipped",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/33389402929/job/99479297989",
+          "steps": []
+        },
+        {
+          "id": 99479298108,
+          "name": "nightly",
+          "conclusion": "skipped",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/33389402929/job/99479298108",
+          "steps": []
+        }
+      ]
+    },
+    {
+      "run_id": 34838313817,
+      "run_number": 1652,
+      "head_sha": "d12108fe8deb95d2315431b29fb720991c394bee",
+      "event": "schedule",
+      "created_at": "2026-09-14T11:27:39Z",
+      "conclusion": "success",
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/34838313817",
+      "jobs_api": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/34838313817/jobs?per_page=100",
+      "jobs": [
+        {
+          "id": 103957157617,
+          "name": "tandem",
+          "conclusion": "success",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/34838313817/job/103957157617",
+          "steps": [
+            {
+              "number": 6,
+              "name": "Cross-artifact tandem (source ↔ HTML ↔ zip, + audit snapshots)",
+              "conclusion": "success",
+              "started_at": "2026-09-14T11:28:03Z",
+              "completed_at": "2026-09-14T11:58:50Z"
+            }
+          ]
+        },
+        {
+          "id": 103957158812,
+          "name": "mutation",
+          "conclusion": "skipped",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/34838313817/job/103957158812",
+          "steps": []
+        },
+        {
+          "id": 103957418352,
+          "name": "plan (1/5)",
+          "conclusion": "success",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/34838313817/job/103957418352",
+          "steps": [
+            {
+              "number": 5,
+              "name": "Install nltk (the floor reaches the POS tagger through features.py)",
+              "conclusion": "success",
+              "started_at": "2026-09-14T11:30:05Z",
+              "completed_at": "2026-09-14T11:30:09Z"
+            }
+          ]
+        },
+        {
+          "id": 103959116623,
+          "name": "nightly",
+          "conclusion": "skipped",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/34838313817/job/103959116623",
+          "steps": []
+        },
+        {
+          "id": 103959424671,
+          "name": "plan-result",
+          "conclusion": "success",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/34838313817/job/103959424671",
+          "steps": []
+        }
+      ]
+    },
+    {
+      "run_id": 34952583021,
+      "run_number": 1713,
+      "head_sha": "64d32b204f493790a9c98f74f68f8ffb242cdb23",
+      "event": "schedule",
+      "created_at": "2026-09-15T09:27:49Z",
+      "conclusion": "failure",
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/34952583021",
+      "jobs_api": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/34952583021/jobs?per_page=100",
+      "jobs": [
+        {
+          "id": 104326672003,
+          "name": "mutation",
+          "conclusion": "success",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/34952583021/job/104326672003",
+          "steps": [
+            {
+              "number": 8,
+              "name": "One shard of the mutation sweep (adversary 4, rotating by date)",
+              "conclusion": "success",
+              "started_at": "2026-09-15T09:28:12Z",
+              "completed_at": "2026-09-15T09:56:35Z"
+            },
+            {
+              "number": 9,
+              "name": "Bank the baseline memo — whatever this shard's verdict was",
+              "conclusion": "success",
+              "started_at": "2026-09-15T09:56:35Z",
+              "completed_at": "2026-09-15T09:56:36Z"
+            }
+          ]
+        },
+        {
+          "id": 104326673337,
+          "name": "tandem",
+          "conclusion": "skipped",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/34952583021/job/104326673337",
+          "steps": []
+        },
+        {
+          "id": 104327208112,
+          "name": "plan (1/5)",
+          "conclusion": "failure",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/34952583021/job/104327208112",
+          "steps": [
+            {
+              "number": 5,
+              "name": "Install nltk (the floor reaches the POS tagger through features.py)",
+              "conclusion": "failure",
+              "started_at": "2026-09-15T09:29:20Z",
+              "completed_at": "2026-09-15T09:29:57Z"
+            }
+          ]
+        },
+        {
+          "id": 104328975432,
+          "name": "plan-result",
+          "conclusion": "failure",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/34952583021/job/104328975432",
+          "steps": []
+        },
+        {
+          "id": 104329000807,
+          "name": "nightly",
+          "conclusion": "failure",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/34952583021/job/104329000807",
+          "steps": [
+            {
+              "number": 9,
+              "name": "Joint AUC null against its cold pins (needs the warm cache above)",
+              "conclusion": "success",
+              "started_at": "2026-09-15T09:45:38Z",
+              "completed_at": "2026-09-15T09:45:57Z"
+            },
+            {
+              "number": 10,
+              "name": "Every discrimination AUC against its cold pin (~17.6 CPU-min)",
+              "conclusion": "success",
+              "started_at": "2026-09-15T09:45:57Z",
+              "completed_at": "2026-09-15T09:56:23Z"
+            },
+            {
+              "number": 13,
+              "name": "Rhyme capacity adoption check (tier 1 in full + every sample witness re-graded)",
+              "conclusion": "success",
+              "started_at": "2026-09-15T09:56:27Z",
+              "completed_at": "2026-09-15T09:58:01Z"
+            },
+            {
+              "number": 14,
+              "name": "Kalevala alliteration adoption check (full remeasurement)",
+              "conclusion": "success",
+              "started_at": "2026-09-15T09:58:01Z",
+              "completed_at": "2026-09-15T10:06:05Z"
+            },
+            {
+              "number": 19,
+              "name": "Song-profile calibration, full (bounded slice, resumable memo)",
+              "conclusion": "success",
+              "started_at": "2026-09-15T10:29:39Z",
+              "completed_at": "2026-09-15T12:02:31Z"
+            },
+            {
+              "number": 20,
+              "name": "length-curve row re-derives from the corpus (M-239)",
+              "conclusion": "success",
+              "started_at": "2026-09-15T12:02:31Z",
+              "completed_at": "2026-09-15T12:03:31Z"
+            },
+            {
+              "number": 23,
+              "name": "Deployment freshness — the live connector's advertised surface against the tree's",
+              "conclusion": "failure",
+              "started_at": "2026-09-15T12:03:39Z",
+              "completed_at": "2026-09-15T12:03:41Z"
+            },
+            {
+              "number": 24,
+              "name": "Bank the predictability memo — whatever this job's verdict was",
+              "conclusion": "success",
+              "started_at": "2026-09-15T12:03:41Z",
+              "completed_at": "2026-09-15T12:03:42Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": 35078809014,
+      "run_number": 1903,
+      "head_sha": "4d1c4181d24c3cbaaa41069ce33a11a6701d969a",
+      "event": "schedule",
+      "created_at": "2026-09-16T09:20:02Z",
+      "conclusion": "success",
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/35078809014",
+      "jobs_api": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/35078809014/jobs?per_page=100",
+      "jobs": [
+        {
+          "id": 104737535695,
+          "name": "mutation",
+          "conclusion": "success",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/35078809014/job/104737535695",
+          "steps": [
+            {
+              "number": 8,
+              "name": "One shard of the mutation sweep (adversary 4, rotating by date)",
+              "conclusion": "success",
+              "started_at": "2026-09-16T09:30:46Z",
+              "completed_at": "2026-09-16T10:17:11Z"
+            },
+            {
+              "number": 9,
+              "name": "Bank the baseline memo — whatever this shard's verdict was",
+              "conclusion": "success",
+              "started_at": "2026-09-16T10:17:11Z",
+              "completed_at": "2026-09-16T10:17:12Z"
+            }
+          ]
+        },
+        {
+          "id": 104737537168,
+          "name": "tandem",
+          "conclusion": "skipped",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/35078809014/job/104737537168",
+          "steps": []
+        },
+        {
+          "id": 104758859030,
+          "name": "plan (1/5)",
+          "conclusion": "success",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/35078809014/job/104758859030",
+          "steps": [
+            {
+              "number": 5,
+              "name": "Install nltk (the floor reaches the POS tagger through features.py)",
+              "conclusion": "success",
+              "started_at": "2026-09-16T11:00:01Z",
+              "completed_at": "2026-09-16T11:00:04Z"
+            }
+          ]
+        },
+        {
+          "id": 104778847293,
+          "name": "plan-result",
+          "conclusion": "success",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/35078809014/job/104778847293",
+          "steps": []
+        },
+        {
+          "id": 104780414165,
+          "name": "nightly",
+          "conclusion": "success",
+          "url": "https://github.com/WeningerII/CodexMusica/actions/runs/35078809014/job/104780414165",
+          "steps": [
+            {
+              "number": 9,
+              "name": "Joint AUC null against its cold pins (needs the warm cache above)",
+              "conclusion": "success",
+              "started_at": "2026-09-16T12:23:18Z",
+              "completed_at": "2026-09-16T12:23:36Z"
+            },
+            {
+              "number": 10,
+              "name": "Every discrimination AUC against its cold pin (~17.6 CPU-min)",
+              "conclusion": "success",
+              "started_at": "2026-09-16T12:23:36Z",
+              "completed_at": "2026-09-16T12:32:52Z"
+            },
+            {
+              "number": 13,
+              "name": "Rhyme capacity adoption check (tier 1 in full + every sample witness re-graded)",
+              "conclusion": "success",
+              "started_at": "2026-09-16T12:32:57Z",
+              "completed_at": "2026-09-16T12:34:23Z"
+            },
+            {
+              "number": 14,
+              "name": "Kalevala alliteration adoption check (full remeasurement)",
+              "conclusion": "success",
+              "started_at": "2026-09-16T12:34:23Z",
+              "completed_at": "2026-09-16T12:41:21Z"
+            },
+            {
+              "number": 19,
+              "name": "Song-profile calibration, full (bounded slice, resumable memo)",
+              "conclusion": "success",
+              "started_at": "2026-09-16T13:02:34Z",
+              "completed_at": "2026-09-16T14:25:35Z"
+            },
+            {
+              "number": 20,
+              "name": "length-curve row re-derives from the corpus (M-239)",
+              "conclusion": "success",
+              "started_at": "2026-09-16T14:25:35Z",
+              "completed_at": "2026-09-16T14:26:34Z"
+            },
+            {
+              "number": 23,
+              "name": "Deployment freshness — the live connector's advertised surface against the tree's",
+              "conclusion": "success",
+              "started_at": "2026-09-16T14:26:36Z",
+              "completed_at": "2026-09-16T14:26:37Z"
+            },
+            {
+              "number": 24,
+              "name": "Bank the predictability memo — whatever this job's verdict was",
+              "conclusion": "success",
+              "started_at": "2026-09-16T14:26:37Z",
+              "completed_at": "2026-09-16T14:26:38Z"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "log_excerpts": [
+    {
+      "job_id": 97143923438,
+      "description": "Both AUC commands refused the retired resource, with exit 2.",
+      "lines": [
+        "2026-08-23T05:08:10.3756933Z   cache:  data/feature_cache.json   384 entries   status 'fingerprint match'",
+        "2026-08-23T05:08:10.3757637Z   REFUSED -- a DECLARED coordinate of every cached vector is absent:",
+        "2026-08-23T05:08:10.3758166Z       wordfreq20k.txt",
+        "2026-08-23T05:08:10.3763852Z RESULT: REFUSED (not a pass, not a failure -- doctrine 20)",
+        "2026-08-23T05:08:10.4812834Z ##[error]Process completed with exit code 2.",
+        "2026-08-23T05:08:10.7123087Z     res  wordfreq20k.txt          ABSENT",
+        "2026-08-23T05:08:10.7123744Z   REFUSED — a DECLARED coordinate of every feature vector is absent:",
+        "2026-08-23T05:08:10.7124287Z       wordfreq20k.txt",
+        "2026-08-23T05:08:10.7125812Z RESULT: REFUSED (not a pass, not a failure — doctrine 20)",
+        "2026-08-23T05:08:10.7236300Z ##[error]Process completed with exit code 2."
+      ]
+    },
+    {
+      "job_id": 104329000807,
+      "description": "Later nightly failed the deployment-surface comparison; it did not fail an AUC check.",
+      "lines": [
+        "2026-09-15T12:03:41.6609978Z DRIFT — 47 difference(s) between the tree and https://mcp.codexmusica.com/mcp:",
+        "2026-09-15T12:03:41.6610510Z   get_operation: missing from the live server",
+        "2026-09-15T12:03:41.6610907Z   resume_operation: missing from the live server",
+        "2026-09-15T12:03:41.6611446Z   begin_lyrics: missing from the live server",
+        "2026-09-15T12:03:41.6742970Z ##[error]Process completed with exit code 3."
+      ]
+    },
+    {
+      "job_id": 104327208112,
+      "description": "Separate plan-shard dependency installation failure.",
+      "lines": [
+        "2026-09-15T09:29:57.2491245Z ERROR: Could not find a version that satisfies the requirement regex==2026.9.3 (from versions: none)",
+        "2026-09-15T09:29:57.2492819Z ERROR: No matching distribution found for regex==2026.9.3",
+        "2026-09-15T09:29:57.2891108Z ##[error]Process completed with exit code 1."
+      ]
+    }
+  ]
+}
