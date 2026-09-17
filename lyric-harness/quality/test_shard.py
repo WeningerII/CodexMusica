@@ -759,6 +759,134 @@ def test_the_two_qualification_tables_cannot_drift_apart():
           py["components"] != planted["components"])
 
 
+CRON = re.compile(r"^\s*-\s*cron:\s*'([^']+)'\s*$", re.M)
+
+
+def _minute_of_day(expr, where):
+    """-> minutes past midnight UTC for a `minute hour ...` cron, or None.
+
+    TEXT, not YAML, for the reason `_ci_jobs` gives two sections up: the
+    harness declares no third-party package and `yaml` is not in the standard
+    library.
+    """
+    parts = expr.split()
+    if len(parts) != 5 or not parts[0].isdigit() or not parts[1].isdigit():
+        check(f"{where}'s cron is a plain minute-and-hour schedule "
+              f"this can compare", False, expr)
+        return None
+    return int(parts[1]) * 60 + int(parts[0])
+
+
+def _gap(qual_min, back_min):
+    """-> minutes from the qualification's cron to the backstop's, modulo a day."""
+    return (back_min - qual_min) % (24 * 60)
+
+
+def _same_night(gap):
+    """-> True when the backstop follows the qualification within one night."""
+    return 0 < gap <= 12 * 60
+
+
+def _reaches(lookback_hours, gap):
+    """-> True when the lookback window reaches back past the primary's cron."""
+    return lookback_hours * 60 >= gap
+
+
+def test_the_backstop_can_still_reach_what_it_backs_up():
+    print("\n10. the qualification backstop fires after the qualification, "
+          "names a workflow that exists, and looks back far enough to see it")
+    # WHY THIS FILE HAS A GUARD AT ALL. `qualification-backstop.yml` exists
+    # because on 2026-09-17 GitHub dropped the 01:23 schedule outright -- the
+    # cron was intact on main, no commit had touched it, and the workflow had
+    # no `schedule`-event run at all. The backstop asks one question an hour
+    # and a half later: did a qualification start tonight? If not, it
+    # dispatches one.
+    #
+    # AND WHY THE GUARD IS NOT OPTIONAL: EVERY WAY THIS BREAKS IS SILENT. The
+    # backstop stands down by DOING NOTHING and reporting success, so all
+    # three drifts below produce a green check on a night with no
+    # qualification -- or a duplicate every night -- and neither shows up
+    # anywhere until somebody asks why the connector stopped tracking main.
+    root = os.path.join(HERE, "..", "..")
+    wf = os.path.join(root, ".github", "workflows")
+    back = io.open(os.path.join(wf, "qualification-backstop.yml"),
+                   encoding="utf-8").read()
+
+    # (1) IT MUST NAME A WORKFLOW THAT EXISTS. `TARGET:` is a bare filename in
+    # an env block; nothing resolves it until the dispatch is attempted, and a
+    # dispatch against a missing workflow is a 404 at 02:47 with no reader.
+    target = re.search(r"^\s*TARGET:\s*(\S+)\s*$", back, re.M)
+    check("the backstop declares the workflow it dispatches", target is not None)
+    if not target:
+        return
+    named = target.group(1)
+    check("and that workflow is a file in .github/workflows",
+          os.path.isfile(os.path.join(wf, named)), named)
+
+    # (2) IT MUST FIRE AFTER THE RUN IT IS BACKING UP. Reversed, the backstop
+    # asks its question BEFORE the primary was due, finds nothing every single
+    # night, and dispatches a duplicate every single night -- the failure that
+    # looks like the feature working.
+    qual = io.open(os.path.join(wf, named), encoding="utf-8").read()
+    q_crons = CRON.findall(qual)
+    b_crons = CRON.findall(back)
+    check("both workflows carry exactly one cron this can compare",
+          len(q_crons) == 1 and len(b_crons) == 1, f"{q_crons} vs {b_crons}")
+    if len(q_crons) != 1 or len(b_crons) != 1:
+        return
+    q_min = _minute_of_day(q_crons[0], named)
+    b_min = _minute_of_day(b_crons[0], "the backstop")
+    if q_min is None or b_min is None:
+        return
+    gap = _gap(q_min, b_min)
+    # `_gap` IS MODULAR, AND THAT IS WHY THE BOUND IS HERE. A backstop 30
+    # minutes BEFORE the qualification does not read as a negative gap -- it
+    # reads as 1410 minutes, which any bare `> 0` test waves through. The
+    # window is what makes "before" fail: the backstop covers THIS night, so a
+    # gap that has wrapped most of the way round the clock is the reversed
+    # order, not a late one.
+    check("the backstop fires after the qualification and on the same night",
+          _same_night(gap), f"{q_crons[0]} vs {b_crons[0]} -> {gap} min")
+
+    # (3) NEITHER FIRES AT :00. ci.yml states the rule: GitHub queues cron runs
+    # globally and the top of the hour is the most contended minute there is.
+    # A backstop delayed by that contention is self-defeating.
+    check("neither cron sits on the contended top of the hour",
+          q_min % 60 != 0 and b_min % 60 != 0, f"{q_crons[0]} vs {b_crons[0]}")
+
+    # (4) THE LOOKBACK MUST REACH BACK PAST THE PRIMARY. This is the subtle
+    # one. The backstop counts qualifications started within LOOKBACK_HOURS; if
+    # that window is shorter than the gap between the two crons, a primary that
+    # ran perfectly is invisible to it and it dispatches a second one anyway.
+    look = re.search(r"^\s*LOOKBACK_HOURS:.*?\|\|\s*'(\d+)'", back, re.M)
+    check("the backstop declares a default lookback", look is not None)
+    if not look:
+        return
+    check("and the lookback window reaches back past the qualification's cron",
+          _reaches(int(look.group(1)), gap),
+          f"lookback {look.group(1)}h vs a {gap}-minute gap")
+
+    # (5) WITHOUT `actions: write` EVERY DISPATCH IS A 403. The job reports
+    # that one loudly rather than silently -- it is one of the two failures
+    # this workflow is allowed to go red for -- but a guard that catches it
+    # here catches it before a night is lost rather than after.
+    check("the backstop holds the one permission a dispatch requires",
+          re.search(r"^\s*actions:\s*write\s*$", back, re.M) is not None)
+
+    # THE CHECKS CAN FAIL, and each planted defect runs THE SAME PREDICATE the
+    # live check above ran, over a mutated value -- the shape section 9 uses.
+    # A planted case that asserts something about a name nobody used would
+    # prove only that the name was unused.
+    check("PLANTED: the target test applied to a renamed workflow refuses",
+          not os.path.isfile(os.path.join(wf, named[:-4] + "-renamed.yml")),
+          named[:-4] + "-renamed.yml")
+    check("PLANTED: a backstop 30 minutes BEFORE the qualification IS caught",
+          not _same_night(_gap(q_min, q_min - 30)),
+          f"gap would read {_gap(q_min, q_min - 30)} min")
+    check("PLANTED: a lookback too short to see the primary IS caught",
+          not _reaches(1, gap), f"1h vs a {gap}-minute gap")
+
+
 if __name__ == "__main__":
     for fn in (test_the_deal_is_exactly_once, test_a_bad_coordinate_refuses,
                test_run_sections_times_and_gates,
@@ -767,7 +895,8 @@ if __name__ == "__main__":
                test_each_ci_event_owns_completed_evidence,
                test_every_cache_restore_key_can_reach_its_producer,
                test_no_result_gate_calls_a_cancelled_run_a_failure,
-               test_the_two_qualification_tables_cannot_drift_apart):
+               test_the_two_qualification_tables_cannot_drift_apart,
+               test_the_backstop_can_still_reach_what_it_backs_up):
         fn()
     print("=" * 62)
     if FAILURES:
