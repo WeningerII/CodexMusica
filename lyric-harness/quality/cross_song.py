@@ -56,7 +56,7 @@ ruling:
   byte PREFIX of the flagged one), so a finding, a code or a moved count
   cannot be introduced here without turning a suite red.
 
-  DOCTRINE 6 / 7 — flag or note? NOTE, and not for want of nerve. A flag is
+  DOCTRINE 96 — flag or note? NOTE, and not for want of nerve. A flag is
   a floor; a floor needs a calibrated threshold stated as a false-positive
   rate (doctrine 22) measured at a length that could falsify it (doctrine
   72, 15). The statistic below is NOT SCALE-INVARIANT — see WHAT THE
@@ -497,7 +497,7 @@ def disclosure_lines(rows):
            f"(`quality/cross_song.py`, M-111) — how many of YOUR OWN songs "
            f"already sing each word as a content word. A DISCLOSURE: it "
            f"moves no verdict, no count and no exit code above, and there "
-           f"is no threshold on it (doctrine 6/7 — reusing your own word "
+           f"is no threshold on it (doctrine 96 — reusing your own word "
            f"is a style fact, not a defect)."]
     w = max(len(r["word"]) for r in rows)
     for r in rows:

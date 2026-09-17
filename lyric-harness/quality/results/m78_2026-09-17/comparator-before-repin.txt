@@ -1,0 +1,18 @@
+PIN      14821a50f63e8ffd3565ba36f1446117b4a6670bb42cc6c7f53970af02bed431
+MEASURED 18be93ffb403cb88955373561184f1efacaaa819c484b66995b2aa16690fe5d0
+
+THE COMPARATOR MOVED. Inputs that differ from the pin:
+    lyric_harness.py
+
+This is not a lint failure. A moved comparator DISCARDS the
+predictability memo (~2.1 CPU-hours) and can move any row fitted
+against it. This pull request owns that:
+  1. Re-run the calibrations this comparator feeds, at minimum
+     `python3 quality/length_curve_calibration.py check`.
+  2. If a row MOVED, argue it and repin as a SET — never tune a
+     constant to clear this gate (doctrine 58).
+  3. Bank the receipt, then re-pin:
+       python3 quality/check_comparator_pin.py --write \
+           --verified-by <receipt path> --verdict "<what it said>"
+
+RESULT: MOVED — 1 of 7 inputs.

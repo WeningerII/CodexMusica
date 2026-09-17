@@ -1211,7 +1211,7 @@ MUTATIONS = [
             "the whole fragment, so any line containing that word counts as an "
             "occurrence. HOOK_ABSENT is the ONLY `flag` in "
             "`song_function_report` — everything else there is a note against "
-            "a labelled convention (doctrine 6) — so this is the single "
+            "a labelled convention (doctrine 96) — so this is the single "
             "song-function finding `verify()` can reject a revision on, and "
             "the mutant makes it near-unreachable. GENEROUS DIRECTION: it "
             "finds MORE hooks, never fewer, so no positive case notices."),

@@ -1730,7 +1730,7 @@ def test_song_function_folds_into_the_same_finding_set():
           == "note", sorted(whole))
     check("and HOOK_CONFINED — the hook never leaves the chorus — also a "
           "NOTE: a measurement against `POPULAR_SONG`, a labelled "
-          "CONVENTION, not a mandate the writer declared (doctrine 6)",
+          "CONVENTION, not a mandate the writer declared (doctrine 96)",
           "HOOK_CONFINED" in whole
           and whole["HOOK_CONFINED"].severity == "note")
     check("no HOOK_ABSENT on the clean draft — the declared hook is right "
@@ -2634,7 +2634,7 @@ def test_stanza_lock_reaches_the_loop_not_only_the_grid_verb():
 
     shape = [f for f in res["whole"] if f.code in SHAPE]
     check("every one is a NOTE — a convention at an uncalibrated 0.90 "
-          "threshold may not be the thing that fails verify() (doctrine 6/16)",
+          "threshold may not be the thing that fails verify() (doctrine 96/16)",
           all(f.severity == "note" for f in shape),
           sorted((f.code, f.severity) for f in shape))
     check("each says in its own evidence that it is read off the DECLARED "
@@ -3023,7 +3023,7 @@ def test_a_blank_line_is_refused_not_renumbered():
         msg = str(e)
     check("the refusal NAMES THE LINE and names the seam",
           "L2" in msg and "SlopFloor.check" in msg and "RENUMBER" in msg,
-          "doctrine 6: locate the defect, name the layer, hand it back. A "
+          "doctrine 20: locate the defect, name the layer, hand it back. A "
           "refusal a caller cannot act on is a traceback with manners")
 
     # verify()'s own length gate CANNOT see this one — both drafts are five
@@ -3228,7 +3228,7 @@ def test_uncovered_bars_reaches_the_loop_not_only_fit():
           all(f.severity == "note" for f in ub)
           and all(f.satisfiable for f in song.section_findings),
           "an empty bar is a rest, an instrumental, or a melisma this layer "
-          "declares itself unable to see (doctrine 6)")
+          "declares itself unable to see (doctrine 96)")
 
     # THE COUNTERFACTUAL, MEASURED RATHER THAN ARGUED, and it is the reason
     # the two decisions above are not interchangeable. `revise.py`'s own
@@ -3329,7 +3329,7 @@ def test_a_holding_requirement_is_not_fixed_by_breaking_it():
     third check: a return declared with `Return(verbatim=True)` raises
     `RETURN_NOT_VERBATIM`, a FLAG, and the net-new gate rejects on it. Only
     the CONVENTION half was reachable, because `grid.py`'s only flag is
-    `HOOK_ABSENT` -- so the fix DISCLOSES rather than rejects (doctrine 6),
+    `HOOK_ABSENT` -- so the fix DISCLOSES rather than rejects (doctrine 96),
     and the rejection comes from `fixed` being correctly empty instead.
     """
     print("\n39. a requirement that HOLDS is not repaired by ending it")
@@ -3382,7 +3382,7 @@ def test_a_holding_requirement_is_not_fixed_by_breaking_it():
     both[6] = "count me down slow"
     r2 = R.verify(base, both, m, targeted={2, 7}, blueprint=bp)
     check("a genuine repair that incidentally ends it is ACCEPTED and says "
-          "so -- doctrine 6, the return is convention-measured and a writer "
+          "so -- doctrine 96, the return is convention-measured and a writer "
           "may depart from it",
           r2["accepted"] is True and r2["broken"] == [(0, "RETURN_LOCKED")]
           and "ENDING 1 holding requirement/licence" in r2["reasons"][0],

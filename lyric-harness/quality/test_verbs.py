@@ -82,7 +82,7 @@ WHAT IS ASSERTED, AND IN WHAT ORDER
      pipeline could gate on the whole-song verb. 2 was unavailable (every
      verb here already uses it for exactly one thing — the harness did not
      answer) and 1 was unavailable (an uncaught exception is Python's own
-     1). NOTES never move it, which is the case that PROVES doctrine 6
+     1). NOTES never move it, which is the case that PROVES doctrine 96
      rather than asserting it
  17. `revise --propose=stub|replay:PATH|call:MODULE:FACTORY` — WHO WRITES
      THE LINE. `revise_loop` has taken `propose=` since it was written and
@@ -2807,7 +2807,7 @@ def test_the_loop_pursues_a_note_it_can_brief():
 
     # THE SEPARATION THAT MAKES THIS LEGAL. Pursuing changes what the loop
     # ASKS for; it must never change what verify() REJECTS, or a note would
-    # start failing revisions and doctrine 6/7 would be broken by the fix.
+    # start failing revisions and doctrine 7 would be broken by the fix.
     # STATED AS AN EQUALITY, AT THE LAYER THE COORDINATE LIVES IN. Two
     # earlier versions of this assertion were wrong in different ways and both
     # are worth recording. The first demanded ACCEPTED and failed -- the TEST
@@ -2836,7 +2836,7 @@ def test_the_loop_pursues_a_note_it_can_brief():
               for k in ("accepted", "fixed", "broken", "new", "new_flags")),
           f"accepted {plain.get('accepted')} vs {pursued.get('accepted')}; "
           f"pursuing changes what the loop ASKS for and never what verify "
-          f"REJECTS (doctrine 6/7)")
+          f"REJECTS (doctrine 7)")
 
     # ONLY `revise` RUNS A LOOP, and this flag was added to the block SHARED by
     # brief/verify/revise/song, so on three of the four it changed no output --

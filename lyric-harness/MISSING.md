@@ -8364,7 +8364,7 @@ opposite treatment:
 |                         | example                                                                   | where it goes                                                                                     |
 | ----------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | **HARD / definitional** | an outro is LAST; a prechorus precedes a chorus; a build points at a drop | a DECLARED coordinate on `FunctionSpec`, pruning the planner's space and giving the grader a flag |
-| **SOFT / conventional** | verse-chorus-verse-chorus-bridge-chorus                                   | `FormConvention` only, a NOTE, never the planner (doctrine 6, and the "move 37" ban)              |
+| **SOFT / conventional** | verse-chorus-verse-chorus-bridge-chorus                                   | `FormConvention` only, a NOTE, never the planner (doctrine 96, and the "move 37" ban)              |
 
 Enforcing the hard half costs ZERO novelty: a section labelled `outro` that is
 not last is not a novel structure, it is a MISLABELLED SECTION. Enforcing the
@@ -9885,7 +9885,7 @@ in (`revise._function_findings`). A severity that cannot be read from the
 emitter is a finding of its own, and it is why this census reports the cause
 rather than one total.
 
-**A DISCLOSED-ONLY CODE IS NOT AUTOMATICALLY A DEFECT, and doctrine 6 is the
+**A DISCLOSED-ONLY CODE IS NOT AUTOMATICALLY A DEFECT, and doctrine 96 is the
 load-bearing counterweight.** A CONVENTION a writer may depart from cannot be
 the thing that fails a check, so the shape layer's notes (`DOWNBEAT_LOCKED`,
 `QUATRAIN_LOCK`) are notes ON PURPOSE and promoting them would be the error.
@@ -10040,7 +10040,7 @@ satisfiable by a free token. That is the owner's own framing: **existence
 rules become distribution bands.**
 
 **AND IT MUST STAY A NOTE.** These are measurements against `POPULAR_SONG`, a
-labelled CONVENTION, and doctrine 6 says a convention a writer may depart from
+labelled CONVENTION, and doctrine 96 says a convention a writer may depart from
 cannot be what fails `verify()`. 5/4 and an 11-bar bridge are choices. What is
 being closed is the SILENCE, never the severity.
 
@@ -10278,12 +10278,34 @@ which is the owner's call and not a table's.
 **WHAT IS NOT CLOSED, and it is now the honest headline: 51 of 71 codes can
 refuse NOTHING.** That is up from a reported 15, and it is not a regression —
 it is the 32 codes that were hiding inside UNDECIDABLE plus the 4 that were
-hiding from the scan entirely, now correctly counted as toothless. Doctrine 6 says most of them SHOULD be: a convention a writer
+hiding from the scan entirely, now correctly counted as toothless. Doctrine 96 says most of them SHOULD be: a convention a writer
 may depart from cannot fail a check, and the shape layer's notes are notes on
 purpose. But 47 is the real size of the owner's complaint, and it is a
 question for a person, per code, which is what this census exists to put.
 
-### M-78 · the rule that decides note-vs-flag for 51 of 71 codes is not a doctrine, and has been cited as one 22 times `OPEN` — sized 2026-08-23
+### M-78 · formalize convention-versus-failure and correct its citations `PARTIAL` — implementation 2026-09-17; comparator verification pending
+
+**CURRENT DISPOSITION, 2026-09-17.** Under the owner's assignment to complete
+this ID, remedy (a) below is implemented: doctrine 96, appended without
+renumbering, states the convention rule in `CLAUDE.md`, has an index row and a
+MECHANICAL registry entry, and is checked by `quality/test_gate_census.py`.
+`quality/gate_census.py --check` rejects any CONVENTION that becomes a flag,
+mandatory pursuit, or length gate, even when another code moves in the
+opposite direction and all aggregate counts hold. Missing or unreadable
+convention emitters cannot satisfy this check by absence. Declared hook and
+return requirements remain enforceable; NO_MOVE and REFUSAL remain distinct.
+
+The convention citations are repointed by meaning across code, CLI output,
+tests and documentation; actual score/vector citations remain doctrine 6,
+rejection/selection citations use doctrine 7, and refusal citations use
+79 or 20. The historical account below preserves the original miscitation
+and its then-current census; it is not a current inventory. The old test of
+absence is replaced by enforcement and counterexamples. Comparator input
+`lyric_harness.py` changes because it contains citations, so its new fingerprint
+requires fresh calibration receipts before the pin or this entry can close.
+Evidence is banked in `quality/results/m78_2026-09-17/README.md`.
+
+**HISTORICAL ACCOUNT — 2026-08-23, superseded by the disposition above.**
 > **TESTED WHILE OPEN.** `quality/test_gate_census.py` section 6 names this
 > entry and PINS THE ABSENCE: the `CONVENTION` disposition rules the largest
 > disclosed-only bucket, its own gloss states the note-vs-flag rule, and NO
@@ -11080,7 +11102,7 @@ are the mirror image and are also right — nine quatrains beside a thirty-line
 section is a form with a shape.
 
 **AND IT STAYS A NOTE**, unchanged: these are measurements against
-`POPULAR_SONG`, a labelled CONVENTION, and doctrine 6 says a convention a
+`POPULAR_SONG`, a labelled CONVENTION, and doctrine 96 says a convention a
 writer may depart from cannot be what fails `verify()`. What was closed is the
 SILENCE, never the severity — the sizing's own last requirement.
 
@@ -11284,7 +11306,7 @@ reader to the inline `open()` reds it.
 gate?"_ is asked of each code BY A PERSON rather than answered by whoever last
 edited the file. This is the first code that roster caused to be promoted.
 
-**IT IS NOT DOCTRINE 6's CASE, and that is the whole argument for taking this
+**IT IS NOT DOCTRINE 96's CASE, and that is the whole argument for taking this
 one and not its neighbours.** `M-77` warned that a CONVENTION a writer may
 depart from cannot be what fails a check, so `DOWNBEAT_LOCKED` and
 `QUATRAIN_LOCK` are notes ON PURPOSE — they measure a draft against
@@ -13054,7 +13076,7 @@ target the instrument is moving; the direction of that dependence is
 POSITIVE FEEDBACK onto exactly the second mode M-88 and this entry named.
 Doctrine 14: a GATE would be the `--cliques` shape precisely, because the
 ban's clean lists MANUFACTURE the reuse this entry's own funnel receipt
-records. Doctrine 6/7: a flag is a floor, a floor needs a threshold stated
+records. Doctrine 96: a flag is a floor, a floor needs a threshold stated
 as a false-positive rate at a length that could falsify it, and this
 statistic is NOT SCALE-INVARIANT — a fixed k silently asks a different
 question every time a song is banked, which is doctrine 15's failure with
@@ -21241,7 +21263,7 @@ fact about the mandate, and is the only condition under which the struck
 sentence was ever true.
 
 **WHAT THIS DOES NOT CLOSE.** It does not decide FOR the writer which call to
-answer — doctrine 6/7 forbids ordering the permitted region, and a partial
+answer — doctrine 7 forbids ordering the permitted region, and a partial
 answer that breaks a holding pair is correctly rejected by `verify()` rather
 than pre-filtered here. It also does not make the planner stop drawing a group
 whose members cannot rhyme with each other; that mandate is legal, gradeable

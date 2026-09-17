@@ -141,7 +141,7 @@ RHYME_FINDINGS = {"SCHEME_VIOLATION", "CLICHE_PAIR", "PREDICTABLE_RHYME",
 #: `schemes.Return(verbatim=True)` and `returns_check` raises
 #: `RETURN_NOT_VERBATIM`, a FLAG, which the net-new gate rejects on. Only
 #: the CONVENTION-measured half is reachable, because `grid.py`'s only flag
-#: is `HOOK_ABSENT` -- so this is the doctrine 6 region, where a writer may
+#: is `HOOK_ABSENT` -- so this is the doctrine 96 region, where a writer may
 #: depart and the harness may not fail them for it.
 #:
 #: WHICH IS WHY BREAKING ONE IS DISCLOSED AND NOT REJECTED. A revision that
@@ -2674,7 +2674,7 @@ class Reviser:
 
         SEVERITY IS NOT RE-DECIDED HERE. `FitFinding.satisfiable` already
         distinguishes "the declaration cannot be met" from "a count worth
-        knowing" (fit.py's own doctrine 6 argument), so a finding is a hard
+        knowing" (fit.py's own doctrine 96 argument), so a finding is a hard
         `flag` exactly when fit.py itself marked it unsatisfiable, and a soft
         `note` otherwise. This method does not maintain a second opinion.
 
@@ -2968,9 +2968,9 @@ class Reviser:
         RETURN_LENGTH_DRIFT and the like — are measurements against
         `POPULAR_SONG`, a CONVENTION (`grid.FormConvention`, explicitly
         labelled one, the same move `Meter.conventional_grouping` makes),
-        not a mandate the writer declared; doctrine 6 says this loop does
-        not turn a convention into a score, and a convention a writer is
-        free to depart from cannot be the thing that fails `verify()`.
+        not a mandate the writer declared. Doctrine 6 forbids a weighted
+        score; doctrine 96 separately forbids failing `verify()` on a
+        convention the writer is free to depart from.
         `HOOK_ABSENT` is different in kind: the writer supplied the exact
         hook TEXT, and it is a factual question — found in the draft's own
         words or not — with no convention in it at all, the same shape as
@@ -3049,7 +3049,7 @@ class Reviser:
         # uncalibrated 0.90 threshold (doctrine 16, and UNIFORM_ANACRUSIS's
         # own evidence says n=1 song is not a calibration, doctrine 72). 5/4
         # and an 11-bar bridge are choices, not repairs, so this may not be
-        # the thing that fails `verify()` (doctrine 6).
+        # the thing that fails `verify()` (doctrine 96).
         #
         # A PROPERTY OF THE DECLARED GRID, NOT OF THE WORDS, and the evidence
         # says so rather than leaving a reader to infer it: `uniformity` reads
@@ -3577,7 +3577,7 @@ class Reviser:
         #    DECLARED — is a note. Importing these as flags would make an
         #    unreadable word on a line nobody mandated fail HARDER than the
         #    identical word on a line the mandate put in a group. There is no
-        #    reading of doctrine 6/7 under which that is coherent.
+        #    reading of doctrine 79 under which that is coherent.
         #  - WHY fit.py'S SEVERITY IS KEPT AND THIS ONE IS NOT: `FitFinding.
         #    satisfiable` answers a LOOP question — the writer's own
         #    declaration contradicts itself and only the writer can resolve
@@ -3902,7 +3902,7 @@ class Reviser:
                 f"They are still graded by every mandate-INDEPENDENT layer in "
                 f"this loop — the slop floor, the readability refusals, meter "
                 f"and song function if a blueprint was declared — because "
-                f"none of those consults a mandate at all (doctrine 6/7: two "
+                f"none of those consults a mandate at all (doctrine 96: two "
                 f"sources, deliberately kept apart). A scope narrows what the "
                 f"MANDATE claims, never what the draft is measured on",
                 outside))

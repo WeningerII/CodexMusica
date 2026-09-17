@@ -55,7 +55,7 @@ stays reachable. Two consequences, and the second is the whole safety argument:
   *before the chorus*, so the section is simply something else. **Mislabelled →
   the constraint prunes.** Verse-chorus-verse-chorus-bridge-chorus violated is
   a novel song. **Novel → it is a convention, it goes to the grader as a NOTE
-  and never near the planner** (doctrine 6, and the owner's "move 37" ban).
+  and never near the planner** (doctrine 96, and the owner's "move 37" ban).
 
 That test is what stops this being counter-productive. It is cheap, it is
 per-row, and it is checkable by a reader.

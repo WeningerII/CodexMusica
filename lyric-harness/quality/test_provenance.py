@@ -413,7 +413,7 @@ def test_the_dataset_a_date_names_has_to_have_a_row():
 #: Files under `data/` that are NOT data and so are not asked for a row. A
 #: DECLARED list, not a heuristic: anything that stops matching one of these
 #: patterns becomes an orphan and fails, which is the direction an exclusion
-#: list has to fail in (doctrine 6 — rejection, not selection).
+#: list has to fail in (doctrine 7 — rejection, not selection).
 _NOT_DATA = ("*.py",                    # builders; code, not a source
              "*.md",                    # documentation
              "data/LICENSE.*",          # licence text carried for a source

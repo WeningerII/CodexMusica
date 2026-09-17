@@ -90,7 +90,7 @@ imported, and it is closed.
 |---|---|---|---|
 | THEREFORE | this section because of the last | any atom except TURN | |
 | BUT | this section against the last | TURN, ANCHOR, RESOLVE, DEPART | ~~a TURN may ONLY be entered by BUT — the one hard edge rule proposed~~ SOFTENED by ruling (§F·4): TURN enters by BUT or JUXTAPOSE — the *ten* witness |
-| AND-THEN | mere succession | any | legal and conventionally limited — the writers-room ban is a CONVENTION (doctrine 6); a chain of them is what the panel calls an inventory |
+| AND-THEN | mere succession | any | legal and conventionally limited — the writers-room ban is a CONVENTION (doctrine 96); a chain of them is what the panel calls an inventory |
 | MEANWHILE | elsewhere, same time | ESTABLISH, DWELL | |
 | ELABORATE | deeper into the same moment | DWELL (natural home), JUDGE | |
 | JUXTAPOSE | set beside, connection unstated | any | a REAL junction with a master tradition (renga's linked verse); parataxis stays declarable, never banned |

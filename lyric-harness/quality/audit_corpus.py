@@ -2254,7 +2254,7 @@ def check_enclitic_convention(files, src):
     rate was unstratifiable. This check answers it per file, reading the
     SAME closed set the joiner reads (`lyric_harness.ENCLITICS` via
     `_SPACED_ENCLITIC` — one definition, doctrine 1), and it charges
-    NOTHING: a convention is the printer's, not a defect (doctrine 6's
+    NOTHING: a convention is the printer's, not a defect (doctrine 96's
     shape one layer down). Dominance is a COMPARISON between the file's
     own two counts, never a declared threshold (doctrine 58): a file is
     noted per-file only when the spaced spellings OUTNUMBER the attached

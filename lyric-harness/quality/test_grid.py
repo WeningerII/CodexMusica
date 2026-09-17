@@ -1931,7 +1931,7 @@ def test_a_returns_broken_rhyme_scheme_reaches_the_report():
     # reformats the line (which is what happened).
     check("`RETURN_SCHEME_DRIFT` is declared a NOTE by `grid.SEVERITY`, in "
           "the module that defines it, so it cannot fail `verify()` — it is "
-          "measured against a labelled CONVENTION (doctrine 6)",
+          "measured against a labelled CONVENTION (doctrine 96)",
           SEVERITY["RETURN_SCHEME_DRIFT"] == "note"
           and GridFinding("RETURN_SCHEME_DRIFT", "m", "e").severity == "note",
           f"{POPULAR_SONG.name!r} — `return_findings` is never handed a "
@@ -1960,7 +1960,7 @@ def test_a_returns_broken_rhyme_scheme_reaches_the_report():
           f"{len(SEVERITY)} codes ruled; all three flags are facts about the "
           f"writer's own supplied hook text, not conventions — every other "
           f"shape code is measured against {POPULAR_SONG.name!r} and stays a "
-          f"note (doctrine 6)")
+          f"note (doctrine 96)")
 
 
 def _unruled_refuses():

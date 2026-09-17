@@ -79,7 +79,7 @@ UNDECIDABLE makes the tree look worse and this module look more necessary:
                         resolving it is not a guess; one unreadable arm still
                         voids the answer, as it does for a local.
 
-AND A DISCLOSED-ONLY CODE IS NOT AUTOMATICALLY A DEFECT. Doctrine 6 is the
+AND A DISCLOSED-ONLY CODE IS NOT AUTOMATICALLY A DEFECT. Doctrine 96 is the
 counterweight and it is load-bearing: a CONVENTION a writer may depart from
 cannot be the thing that fails a check, so the shape layer's notes
 (`DOWNBEAT_LOCKED`, `QUATRAIN_LOCK`) are notes ON PURPOSE and promoting them
@@ -524,19 +524,10 @@ def summarize(c):
 #: licenses it. `PROMOTE_CANDIDATE` is the one that is WORK rather than a
 #: settled answer.
 DISPOSITIONS = {
-    # THE CITATION IS A COROLLARY AND IS WRITTEN AS ONE. This rule is
-    # quoted as "doctrine 6" at 22 sites in this repository and doctrine 6
-    # does not say it: 6 is "no weighted quality score, ever" and its check
-    # (`test_floor.py`) verifies the floor emits a VECTOR and never a score.
-    # The rule follows from 6 AND 7 together — taste belongs in a declaration
-    # (6), and a floor may not order the region it already passed (7) — so a
-    # convention, being a declared taste rather than a floor, may not reject.
-    # It has NO NUMBER OF ITS OWN, and therefore no registry row and no
-    # check, while governing 51 of 71 codes. `MISSING.md` M-78.
-    "CONVENTION":  "a corollary of doctrines 6 and 7, not doctrine 6 alone — "
-                   "measured against a labelled convention a writer is free "
-                   "to depart from, so a flag would be the error and not the "
-                   "fix",
+    # M-78 gives this rule its own definition, registry row and gate.
+    "CONVENTION":  "doctrine 96 — measured against a labelled convention a "
+                   "writer is free to depart from; departure alone may not "
+                   "flag, compel revision, or fail a length gate",
     "REFUSAL":     "doctrine 79/20 — the harness could not answer. A refusal "
                    "is not a failure and putting it in a numerator charges "
                    "the wrong layer",
@@ -701,6 +692,22 @@ def unruled(c=None):
                   and k not in DISPOSITION)
 
 
+def convention_violations(c=None):
+    """Declared conventions must be visible notes, never enforcement (doctrine 96).
+
+    Walk the disposition roster, not just today's disclosed-only bucket: a
+    promoted convention has already left that bucket. Missing and unreadable
+    codes also fail, so losing the emitter cannot prove the rule by absence.
+    """
+    c = c if c is not None else census()
+    return sorted(code for code, disposition in DISPOSITION.items()
+                  if disposition == "CONVENTION"
+                  and (code not in c
+                       or c[code]["verdict"] != "DISCLOSED-ONLY"
+                       or c[code]["severities"] != ["note"]
+                       or c[code]["gates"]))
+
+
 def by_disposition(c=None):
     """-> {disposition: [codes]}, the ruling as a reader sees it."""
     c = c if c is not None else census()
@@ -763,7 +770,7 @@ def by_disposition(c=None):
 #: code by a person rather than answered by whoever last edited the file, and
 #: this is that question being answered.
 #:
-#: WHY IT IS NOT DOCTRINE 6's CASE, which is the objection M-77 raised against
+#: WHY IT IS NOT DOCTRINE 96's CASE, which is the objection M-77 raised against
 #: promoting the shape layer's notes. `DOWNBEAT_LOCKED` and `QUATRAIN_LOCK`
 #: measure a draft against `POPULAR_SONG` at an uncalibrated threshold — a
 #: CONVENTION a writer may depart from, and a convention cannot be what fails
@@ -822,10 +829,8 @@ def main(argv):
         print("\nA DISCLOSED-ONLY CODE IS NOT AUTOMATICALLY A DEFECT — a "
               "CONVENTION a writer may depart from cannot be what fails a "
               "check, so the shape layer's notes are notes on purpose. That "
-              "rule is a COROLLARY OF DOCTRINES 6 AND 7 and is quoted across "
-              "this tree as doctrine 6 alone, which says something else "
-              "entirely; it has no number of its own and therefore no check, "
-              "while governing most of this table (`MISSING.md` M-78).")
+              "rule is doctrine 96, enforced by this census across severity, "
+              "mandatory-pursuit and length gates (`MISSING.md` M-78).")
         return 0
     u = unruled(c)
     if u:
@@ -841,6 +846,12 @@ def main(argv):
         print(f"\nCHECK FAILED — disposition(s) outside the closed "
               f"vocabulary: {_bad}. The set is closed so a new kind is added "
               f"deliberately, not by somebody typing a new string.")
+        return 3
+    violations = convention_violations(c)
+    if violations:
+        print(f"\nCHECK FAILED — doctrine 96: declared convention(s) no longer "
+              f"disclosed-only: {', '.join(violations)}. A convention cannot "
+              f"become enforcement by promotion or disappear from the census.")
         return 3
     if s != PINNED:
         print(f"\nCHECK FAILED — the census moved: pinned {PINNED}, "

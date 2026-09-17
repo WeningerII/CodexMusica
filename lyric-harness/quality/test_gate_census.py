@@ -15,6 +15,8 @@ Sections:
   4  the causes stay apart, and the four-spelling reader is load-bearing
   5  the pin moves when the tree does
   6  every disclosed-only code carries a DECLARED disposition
+  7  conditional codes keep their correlated severity
+  8  doctrine 96 guards conventions against promotion (MISSING.md M-78)
 
 UNDECIDABLE REACHED 0 ON 2026-08-23 (`MISSING.md` M-77) and that turned two
 of these checks vacuous — `all()` over an empty list is True and reads exactly
@@ -232,30 +234,14 @@ def test_every_toothless_code_is_ruled():
           "person; a list nobody answers is the same defect one level up",
           GC.unruled(c) == [], f"unruled: {GC.unruled(c)}")
 
-    # MISSING.md M-78 — the rule that rules the LARGEST disposition bucket is
-    # stated by no doctrine. CONVENTION covers 17 of the disclosed-only codes
-    # and its own gloss reads "a corollary of doctrines 6 and 7, not doctrine 6
-    # alone", which is a rule nobody minted a number for. The search is proven
-    # ALIVE against the gloss itself before its absence over the doctrines is
-    # read as a finding — an empty scan and a clean one look identical
-    # (doctrine 20). Red the day somebody mints the doctrine, or repoints the
-    # citation, which is the day M-78 closes.
-    import re as _re
-    import verify_doctrines as _VD
-    _rule = _re.compile(r"corollary of doctrines 6 and 7", _re.I)
-    _titles, _problems = _VD.def_titles()
-    _stating = [n for n, (_rel, _part, t) in _titles.items() if _rule.search(t)]
-    _bucket = [k for k in dis if GC.DISPOSITION.get(k) == "CONVENTION"]
-    check("the note-vs-flag rule rules the biggest bucket and NO doctrine "
-          "states it (MISSING.md M-78)",
-          len(_titles) > 50 and not _problems
-          and _rule.search(GC.DISPOSITIONS["CONVENTION"])
-          and _stating == []
-          and len(_bucket) == max(
-              len([k for k in dis if GC.DISPOSITION.get(k) == d])
-              for d in set(GC.DISPOSITION.get(k) for k in dis)),
-          f"{len(_titles)} doctrines searched, {len(_bucket)} codes on "
-          f"CONVENTION, doctrines stating it: {_stating or 'none'}")
+    import verify_doctrines as VD
+    titles, problems = VD.def_titles()
+    check("doctrine 96 states the convention rule and owns a mechanical check",
+          not problems and 96 in titles
+          and titles[96][2] == "A convention a writer may depart from cannot fail verification."
+          and VD.REGISTRY[96][0] == VD.MECHANICAL
+          and VD.REGISTRY[96][1] == "python3 quality/test_gate_census.py"
+          and "doctrine 96" in GC.DISPOSITIONS["CONVENTION"])
     check("every ruling is inside the CLOSED vocabulary, so a new kind is "
           "added deliberately rather than by somebody typing a new string "
           "(doctrine 58)",
@@ -356,6 +342,50 @@ def emit(required):
                   ("LEXICAL_REPETITION_DECLARED", "ANAPHORA_DECLARED")))
 
 
+def test_conventions_cannot_be_promoted():
+    import copy
+    from unittest.mock import patch
+    print("\n8. doctrine 96 — a convention cannot become enforcement")
+    live = GC.census()
+    conventions = {code for code, kind in GC.DISPOSITION.items()
+                   if kind == "CONVENTION"}
+    check("the convention population is nonempty and every member is a note",
+          bool(conventions) and GC.convention_violations(live) == [])
+    check("declared hook and return failures still gate; the rule does not pardon them",
+          all(live[code]["verdict"] == "GATED" for code in
+              ("HOOK_ABSENT", "HOOK_DOES_NOT_RECUR", "TITLE_NOT_IN_HOOK",
+               "RETURN_NOT_VERBATIM")))
+    # Take the whole table, swap one existing flag for one convention and
+    # keep the same totals. The former count-only gate accepted this mutation.
+    for route in ("severity flag", "MANDATORY_PURSUE", "LENGTH_GATE_CODES"):
+        changed = copy.deepcopy(live)
+        changed["HOOK_ABSENT"].update(severities=["note"], gates=[],
+                                      verdict="DISCLOSED-ONLY")
+        changed["QUATRAIN_LOCK"].update(
+            severities=["flag"] if route == "severity flag" else ["note"],
+            gates=[route], verdict="GATED")
+        with patch.object(GC, "census", return_value=changed), \
+                patch.dict(GC.DISPOSITION, {"HOOK_ABSENT": "DISCLOSURE"}):
+            check(f"{route}: the planted swap preserves all census totals",
+                  GC.summarize(changed) == GC.PINNED)
+            check(f"{route}: the convention is named and the CLI refuses",
+                  GC.convention_violations(changed) == ["QUATRAIN_LOCK"]
+                  and GC.main(["--check"]) == 3)
+            with patch.object(GC, "convention_violations", return_value=[]):
+                check(f"{route}: removing this check recreates the old false pass",
+                      GC.main(["--check"]) == 0)
+    for state in ("missing", "UNDECIDABLE"):
+        changed = copy.deepcopy(live)
+        if state == "missing":
+            del changed["QUATRAIN_LOCK"]
+        else:
+            changed["QUATRAIN_LOCK"].update(verdict=state, severities=["computed"])
+        check(f"{state}: losing visibility cannot satisfy the convention rule",
+              GC.convention_violations(changed) == ["QUATRAIN_LOCK"])
+    check("all mutations are restored and the real census passes",
+          GC.census() == live and GC.main(["--check"]) == 0)
+
+
 def main():
     for fn in (test_the_census_sees_every_layer,
                test_gate_sets_are_read_not_respelled,
@@ -363,7 +393,8 @@ def main():
                test_the_two_causes_are_apart,
                test_the_pin_moves_when_the_tree_does,
                test_every_toothless_code_is_ruled,
-               test_conditional_codes_keep_their_correlated_severity):
+               test_conditional_codes_keep_their_correlated_severity,
+               test_conventions_cannot_be_promoted):
         fn()
     print(f"\n{'ALL PASS' if not FAILURES else 'FAILURES: ' + str(FAILURES)}")
     return 1 if FAILURES else 0

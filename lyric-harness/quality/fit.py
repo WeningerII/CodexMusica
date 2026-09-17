@@ -981,7 +981,7 @@ class FitFinding:
         THIS CLASS HAS ALWAYS DECIDED ITS OWN SEVERITY and never said so in a
         word any reader could find. `satisfiable=False` means the DECLARATION
         CANNOT BE MET — a contradiction, not a style call — so it is a hard
-        flag; everything else is a count worth knowing, and doctrine 6 says a
+        flag; everything else is a count worth knowing, and doctrine 96 says a
         count is not a verdict.
 
         The mapping was spelled `"flag" if not f.satisfiable else "note"` at
@@ -2035,7 +2035,7 @@ def uncovered_bar_findings(fits, sections=()):
     section whose words are not written yet. `UNANSWERABLE` in this module
     already says melisma is PERMANENT without a setting, so this layer cannot
     even tell a held syllable from a silent bar — charging the writer for one
-    would be a norm nobody declared (doctrine 6), which is the same reason
+    would be a norm nobody declared (doctrine 96), which is the same reason
     `crowded` and `fighting` are counts and not verdicts.
     """
     by_section, order = {}, []
