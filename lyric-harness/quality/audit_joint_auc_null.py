@@ -245,7 +245,14 @@ def main(n_perm=200, n_seeds=200, strict=False, cache_path=CACHE):
             # the M-31 repin had does not apply to a change in the tokens
             # themselves. The seed medians in `PINNED` are re-measured the
             # same day, 200 CVs per cell, on the warm cache this run builds.
-            ("ABSOLUTE (original ten)", QualityFeatures, "0.758", "0.967"),
+            # -> 0.761 on ABSOLUTE Exp 1 only, 2026-09-17, for E-5's
+            # `coda_empty_evidence` "gift" -> "cannot_tell" (eacc3369). The
+            # other three RECORDED strings HOLD to the printed digit: this
+            # arm's ~~0.758~~ 0.761 is the same figure `test_discriminate`
+            # repins as joint_all 1330/1755 -> 1335/1755 -- five more
+            # CONCORDANT pairs -- and the argument for it lives there
+            # (doctrine 1: one declaration, quoted here, not re-argued here).
+            ("ABSOLUTE (original ten)", QualityFeatures, "0.761", "0.967"),
             ("WITHIN-ITEM (respecified eight)", WithinItemFeatures,
              "0.621", "0.894")):
         qf = feats()
@@ -352,6 +359,34 @@ def main(n_perm=200, n_seeds=200, strict=False, cache_path=CACHE):
 #: moved most (+0.030) and now sits 0.044 ABOVE the within-item one, so the
 #: P2-at-the-median comparison RESULTS_WITHIN_ITEM.md scores runs further
 #: the wrong way than it did under M-31 (-0.012 there).
+#: REPINNED 2026-09-17 -- TWO OF THE FOUR SEED MEDIANS, for E-5's
+#: `coda_empty_evidence` "gift" -> "cannot_tell" (eacc3369, `MISSING.md`
+#: M-293): ~~0.621~~ 0.623 on within-item Exp 1 and ~~0.899~~ 0.900 on
+#: within-item Exp 2, each 200 CVs on the cache `discriminate.py` warmed the
+#: same day. **BOTH ABSOLUTE MEDIANS HOLD** to the printed digit -- 0.665 and
+#: 0.968, unmoved -- and all four RECORDED observed AUCs are matched by the
+#: run that found these two.
+#:
+#: AND THIS IS THE SEPARATE PIN EARNING ITS KEEP IN THE MIRROR IMAGE OF M-31.
+#: There, `wi_exp1`'s median fell by exactly the -0.017 its observed AUC fell,
+#: so the whole distribution translated with the draw. Here the two within-item
+#: OBSERVED figures do not move at all to the printed digit -- `test_
+#: discriminate` repins them 0.620513 -> 0.620513 (an identical 1089/1755) and
+#: 0.893914 -> 0.894408, both still 0.621 and 0.894 -- while their medians
+#: move +0.002 and +0.001. **The distribution translated under a stationary
+#: draw**, which is the case the comment above this pin describes and which
+#: nothing watching only the headline could see. Reading the two arms
+#: together: the change reaches the within-item feature set through
+#: `wi_predictability_advantage` (2116 -> 2104 concordant pairs of 6080), and
+#: WHY the one recorded fold split absorbs that shift while the median of 200
+#: does not is NOT measured -- no per-seed decomposition has been taken, so it
+#: is left as the observation it is (doctrine 58). One draw is a coin flip
+#: reported as a verdict (doctrine 73) and this is what that looks like from
+#: the other side.
+#:
+#: Doctrine 58 as ever: these are argued, not tuned. The whole argument for
+#: the direction lives in `quality/test_discriminate.py`'s 2026-09-17 block
+#: and in M-293 (doctrine 1: one declaration, cited here, not re-made here).
 PINNED = {
     "cache_entries": 384,
     "abs_exp1": {"n_pos": 15, "n_neg": 117, "n_features": 10,
@@ -359,9 +394,9 @@ PINNED = {
     "abs_exp2": {"n_pos": 152, "n_neg": 40, "n_features": 10,
                  "seed_median": 0.968},
     "wi_exp1": {"n_pos": 15, "n_neg": 117, "n_features": 8,
-                "seed_median": 0.621},
+                "seed_median": 0.623},
     "wi_exp2": {"n_pos": 152, "n_neg": 40, "n_features": 8,
-                "seed_median": 0.899},
+                "seed_median": 0.900},
 }
 
 #: The observed AUCs are NOT repeated here. They are checked against the

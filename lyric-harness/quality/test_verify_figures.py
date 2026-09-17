@@ -34,13 +34,17 @@ def check(name, ok, note=""):
 #: The shipped pin's two joints, copied so §2 and §3 do not depend on the
 #: live module's values moving under them. WALKED 2026-09-14 with the
 #: tokenizer-normalization repin: ~~0.7230769230769231 / 0.959703947368421~~
-#: -> 0.7578347578347578 / 0.9669407894736842, and the planted document
-#: below moves one rung with it — the leak is now 0.960 (the POLICED
-#: superseded rung), 0.964 has retired, 0.723 is the struck value and
-#: 0.758 / 0.967 the current pair.
+#: -> 0.7578347578347578 / 0.9669407894736842. WALKED AGAIN 2026-09-17 for
+#: E-5's empty-coda evidence (`MISSING.md` M-293): ~~0.7578347578347578 /
+#: 0.9669407894736842~~ -> 0.7606837606837608 / 0.9671052631578947, and the
+#: planted document below moves one rung with it — **0.758 is the newly
+#: POLICED superseded rung** and carries §2's struck case, 0.960 stays
+#: policed as Exp 2's (that row's spelling did not move, so its ladder was
+#: deliberately not walked), 0.723 has RETIRED and joins §2's labelled
+#: narrative, and 0.761 / 0.967 is the current pair.
 FAKE_PIN = {
-    "abs_exp1": {"joint_all": 0.7578347578347578},
-    "abs_exp2": {"joint_all": 0.9669407894736842},
+    "abs_exp1": {"joint_all": 0.7606837606837608},
+    "abs_exp2": {"joint_all": 0.9671052631578947},
 }
 
 
@@ -78,12 +82,15 @@ def s2_the_declared_form_is_the_whole_rule(tmp):
             # supersession and must not rescue this one.
             "SUPERSEDED 2026-08-22; cold it is 0.960 today.\n"
             # the two declared history forms
-            "The cold reading was ~~0.723~~ before the tokenizer fix.\n"
-            "> cold 0.960 against 0.723, recorded as history.\n"
+            "The cold reading was ~~0.758~~ before the empty-coda repin.\n"
+            "> cold 0.960 against 0.758, recorded as history.\n"
             # the current value, quotable anywhere
-            "The standing pair is 0.758 / 0.967.\n"
-            # a retired value in labelled narrative — listed, never policed
-            "pre-fix it read 0.971 against 0.709.\n"
+            "The standing pair is 0.761 / 0.967.\n"
+            # retired values in labelled narrative — listed, never policed.
+            # 0.723 retired on 2026-09-17 when 0.758 took the superseded
+            # rung, so this line also proves the rung BELOW the policed one
+            # stops being charged the moment the ladder walks.
+            "pre-fix it read 0.971 against 0.709, M-31 0.723.\n"
             # the standalone-decimal guard: a longer number must not match
             # (this section's own first draft wrote "the superseded
             # 0.964's business" here and went red on its own fixture —
@@ -99,17 +106,20 @@ def s2_the_declared_form_is_the_whole_rule(tmp):
           "rescues nothing", "0.960" in by.get((1, "VIOLATION"), []),
           str(sorted(by)))
     check("§2 a struck value is HISTORY",
-          "0.723" in by.get((2, "history"), []))
+          "0.758" in by.get((2, "history"), []))
     check("§2 a blockquote line is HISTORY for every value on it",
           "0.960" in by.get((3, "history"), [])
-          and "0.723" in by.get((3, "history"), []))
+          and "0.758" in by.get((3, "history"), []))
     check("§2 the current pair is counted as current, never charged",
-          "0.758" in by.get((4, "current"), [])
+          "0.761" in by.get((4, "current"), [])
           and "0.967" in by.get((4, "current"), []))
     check("§2 a RETIRED value in labelled narrative is listed and not a "
-          "violation — the lifecycle's unpoliced tier",
+          "violation — the lifecycle's unpoliced tier, and 0.723 reaching "
+          "it is the 2026-09-17 walk: a rung that stops being policed the "
+          "moment a newer spelling takes its place",
           "0.971" in by.get((5, "retired"), [])
           and "0.709" in by.get((5, "retired"), [])
+          and "0.723" in by.get((5, "retired"), [])
           and not any(c == "VIOLATION" for (l, c) in by if l == 5))
     check("§2 a longer decimal does not match a tracked spelling — 0.9600 "
           "yields no row for line 6",
@@ -120,7 +130,7 @@ def s3_the_relation_to_the_pin_is_load_bearing():
     print("\n§3 the derivation check IS the relation to the pin (the half "
           "M-33 found missing)")
     moved = {"abs_exp1": {"joint_all": 0.750},
-             "abs_exp2": {"joint_all": 0.9669407894736842}}
+             "abs_exp2": {"joint_all": 0.9671052631578947}}
     _rows, deriv = VF.survey(pinned=moved)
     check("§3 a moved measurement reds the derivation for the moved "
           "quantity AND the gap it feeds — the prose cannot stay quiet "

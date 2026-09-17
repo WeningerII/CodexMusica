@@ -31,6 +31,24 @@
 > in "The ten features, cold" carry the 2026-09-14 column beside the earlier
 > ones. Measured cold on Python 3.11 at features.py ast:6c13752dbbb959c8;
 > `origin/main` passes the previous pins 69/69 on the same box. The
+> *FIFTH: superseded again on 2026-09-17 by `MISSING.md` M-293 / E-5 — one
+> word in one line of `lyric_harness.py`, `Declaration.coda_empty_evidence`
+> "gift" → "cannot_tell", so two EMPTY codas stopped answering
+> `cluster_sim([], []) == 1.0` and absence stopped being scored as agreement.
+> **This time there IS an unmoved control and it is thirty of the thirty-six
+> per-feature AUCs** — byte-identical, the same concordant-pair count to the
+> half-pair — because every one of the fourteen figures that moved at all
+> reads the rhyme-predictability channel and nothing else in this harness
+> consults the rhyme comparator. Exp 1's joint goes **0.758 → 0.761** and
+> Exp 2's **HOLDS at 0.967** (one rank flip under the printed digit), so the
+> gap goes 0.209 → **0.206**; the predictability-only joints go 0.737/0.638 →
+> **0.731**/**0.637**. Both hit counts and both wrong-sign counts are
+> unmoved. The seed medians move on the within-item arms alone (0.621 → 0.623,
+> 0.899 → 0.900) with both absolute medians unmoved, which is a distribution
+> translating under a stationary draw — see `audit_joint_auc_null.py`. The
+> current numbers are in "The joint held-out AUCs, cold" at the foot of this
+> file.*
+>
 > interpretive prose below this note is the 2026-08-22 reading and is NOT
 > rewritten here: where it quotes a figure this note supersedes, the figure
 > is struck or the new one is set beside it, and the sentences about which
@@ -59,7 +77,8 @@ wrong sign below is a failed prediction and is reported as one.
 | pre-registered hits | ~~2/10~~ **4/10** | ~~4/10~~ **5/10** |
 | wrong-sign features | 0 | ~~5~~ **4** |
 | **joint held-out AUC** — pre-fix, 2026-08-09, **SUPERSEDED** three times | **0.709** | **0.971** |
-| **joint held-out AUC** — cold, current, measured 2026-09-14 (tokenizer normalized) | **0.758** | **0.967** |
+| **joint held-out AUC** — cold, current, measured 2026-09-17 (E-5 empty-coda evidence, M-293) | **0.761** | **0.967** |
+| ~~joint held-out AUC — cold, measured 2026-09-14 (tokenizer normalized)~~ | ~~0.758~~ | ~~0.967~~ |
 | ~~joint held-out AUC — cold, measured 2026-08-22, M-31~~ | ~~0.723~~ | ~~0.960~~ |
 | ~~joint held-out AUC — cold, measured 2026-08-13~~ | ~~0.717~~ | ~~0.964~~ |
 
@@ -106,11 +125,13 @@ power, and the power was spurious. Nothing was tuned to recover it.
 
 **Detecting bad writing works. Ranking good writing barely does.** That gap —
 0.971 against 0.709 on the pre-fix reading, ~~**0.964 against 0.717 cold**~~
-~~**0.960 against 0.723 cold**~~ **0.967 against 0.758 cold** — is the whole
+~~**0.960 against 0.723 cold**~~ ~~**0.967 against 0.758 cold**~~
+**0.967 against 0.761 cold** — is the whole
 argument in two numbers. A floor is
 objectively enforceable; a ceiling is not. Build the rejection gate. The gap is
-**0.262 pre-fix and ~~0.247~~ ~~0.237~~ 0.209 cold, so it narrowed by ~~0.015~~
-~~0.025~~ 0.053** (2026-09-14; the 0.025 was the M-31 reading),
+**0.262 pre-fix and ~~0.247~~ ~~0.237~~ ~~0.209~~ 0.206 cold, so it narrowed
+by ~~0.015~~ ~~0.025~~ ~~0.053~~ 0.056** (2026-09-17, M-293; the 0.053 was
+the tokenizer reading and the 0.025 the M-31 one),
 and the argument did not change. ~~doctrine 7 is still stated in the pre-fix
 pair, which is a repin someone owning `CLAUDE.md` has to make.~~ *Doctrine 7 was
 repinned to the current cold pair on 2026-08-22 and no longer states the pre-fix
@@ -404,8 +425,9 @@ is which numbers the fix was measured against.
 | predictability-only AUC | 0.670 | **0.676** | 0.617 | **0.560** |
 
 Cold, the last two rows read ~~**0.717** / **0.964**~~ ~~**0.723** / **0.960**~~
-**0.758** / **0.967** and ~~**0.710** / **0.648**~~ **0.737** / **0.638**
-(repinned 2026-09-14). The full cold table is at the foot of this file.
+~~**0.758** / **0.967**~~ **0.761** / **0.967** and ~~**0.710** / **0.648**~~
+~~**0.737** / **0.638**~~ **0.731** / **0.637**
+(repinned 2026-09-17, M-293). The full cold table is at the foot of this file.
 
 *(The first pair is repinned 2026-08-22 — `MISSING.md` M-31's cold re-run moved
 both joints and this line was missed in that pass, which is what a second reader
@@ -495,7 +517,8 @@ project had designated its candidate universal.
   result is weaker overall even as individual features got cleaner. At n=15
   it does not exclude chance. *(Both endpoints are WARM, and the post-fix one
   is **SUPERSEDED 2026-08-13**: cold, that fit reads ~~**0.717**~~ ~~**0.723**~~
-  **0.758** (repinned 2026-09-14; 2026-08-22, M-31). The FALL
+  ~~**0.758**~~ **0.761** (repinned 2026-09-17, M-293; 2026-09-14;
+  2026-08-22, M-31). The FALL
   cannot be recomputed — the pre-fix code has never been run cold, so there is
   no cold 0.709 to subtract from — and what can be said is only that the cold
   post-fix figure sits above the warm pre-fix one rather than below it, which
@@ -545,8 +568,10 @@ mismatch discards the cache and prints the coordinate that moved.
 
 | feature set | Exp 1 | Exp 2 | reading |
 |---|---|---|---|
-| ABSOLUTE, all 10 features | **0.758** | **0.967** | COLD, current, 2026-09-14 (tokenizer normalized) |
-| ABSOLUTE, predictability only | **0.737** | **0.638** | COLD, current, 2026-09-14 (tokenizer normalized) |
+| ABSOLUTE, all 10 features | **0.761** | **0.967** | COLD, current, 2026-09-17 (E-5 empty-coda evidence, M-293) |
+| ABSOLUTE, predictability only | **0.731** | **0.637** | COLD, current, 2026-09-17 (E-5 empty-coda evidence, M-293) |
+| ~~ABSOLUTE, all 10 features~~ | ~~0.758~~ | ~~0.967~~ | ~~cold 2026-09-14 (tokenizer normalized)~~, **SUPERSEDED** 2026-09-17 |
+| ~~ABSOLUTE, predictability only~~ | ~~0.737~~ | ~~0.638~~ | ~~cold 2026-09-14 (tokenizer normalized)~~, **SUPERSEDED** 2026-09-17 |
 | ~~ABSOLUTE, all 10 features~~ | ~~0.723~~ | ~~0.960~~ | ~~cold 2026-08-22, M-31~~, **SUPERSEDED** 2026-09-14 |
 | ~~ABSOLUTE, predictability only~~ | ~~0.710~~ | ~~0.648~~ | ~~cold 2026-08-22, M-31~~, **SUPERSEDED** 2026-09-14 |
 | ~~ABSOLUTE, all 10 features~~ | ~~0.717~~ | ~~0.964~~ | ~~cold 2026-08-13~~, **SUPERSEDED** by M-31 |
@@ -557,8 +582,11 @@ Over 200 cross-validation seeds rather than the one hard-coded seed every
 figure above is a single draw from (`audit_joint_auc_null.PINNED`, 2026-08-13):
 Exp 1 median ~~0.638~~ ~~0.635~~ **0.665**, Exp 2 median ~~0.967~~ ~~0.961~~
 **0.968** (repinned 2026-09-14 with the tokenizer normalization; the struck
-pairs are 2026-08-13 and 2026-08-22). The recorded Exp 1 draw of ~~0.717~~
-~~0.723~~ **0.758** sits well above its own median (~~+0.088~~ **+0.093**),
+pairs are 2026-08-13 and 2026-08-22. **Both ABSOLUTE medians HOLD under the
+2026-09-17 E-5 repin** — re-measured, 200 CVs each, unmoved to the printed
+digit — while both WITHIN-ITEM medians moved; see `RESULTS_WITHIN_ITEM.md`).
+The recorded Exp 1 draw of ~~0.717~~ ~~0.723~~ ~~0.758~~ **0.761** sits well
+above its own median (~~+0.088~~ ~~+0.093~~ **+0.096**),
 which is doctrine 73's point and is why the seed distribution is pinned
 separately from the headline.
 
@@ -747,7 +775,8 @@ Exp 1 at 0.604 (n=15, does not exclude chance), Exp 2 still 0.877."
   written.)*
 - The layer-level claim survives, on numbers that did not move in its favour:
   Experiment 1's joint AUC is ~~0.638~~ **0.621** within-item and ~~0.717~~
-  ~~0.723~~ **0.758** absolute at n = 15 (repinned 2026-09-14);
+  ~~0.723~~ ~~0.758~~ **0.761** absolute at n = 15 (repinned 2026-09-17,
+  M-293);
   `quality/NULL_AUDIT.md` §1.3 measured that neither beats its own
   label-permutation null's MAXIMUM, and the within-item one is not separated
   from that null at all (p = 0.13). That audit is warm and has not been re-run

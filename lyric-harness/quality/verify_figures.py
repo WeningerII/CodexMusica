@@ -82,12 +82,23 @@ def _pinned():
 #: it does, which is the relation M-33 found missing.
 #: WALKED 2026-09-14 for the tokenizer-normalization repin: 0.723/0.960/0.237
 #: -> superseded (policed), 0.717/0.964/0.247 -> retired, 0.758/0.967/0.209 in.
+#: WALKED 2026-09-17 for E-5's `coda_empty_evidence` "gift" -> "cannot_tell"
+#: (eacc3369), and ONLY TWO OF THE THREE ROWS MOVE. Exp 1 goes 0.758 ->
+#: superseded (policed), 0.723 -> retired, 0.761 in; the gap follows it,
+#: 0.209 -> superseded, 0.237 -> retired, 0.206 in. **Exp 2's row is NOT
+#: walked**, and that is a ruling rather than an omission: its derived
+#: spelling is 0.967 before and after, so walking it would put "0.967" in
+#: BOTH `current_spelling` and `superseded` at once -- and `superseded` is
+#: POLICED, so every live quotation of the figure in RESULTS.md would become
+#: a VIOLATION of a value that never moved. The ladder walks a SPELLING, not
+#: a sitting: a row whose prose spelling is unchanged has no stale generation
+#: for a tired repin to leave standing, which is the population M-33 measured.
 TRACKED = (
     {"name": "joint held-out AUC, Exp 1 (selection)",
      "derive": lambda p: p["abs_exp1"]["joint_all"],
-     "precision": 3, "current_spelling": "0.758",
-     "superseded": ("0.723",),
-     "retired": ("0.717", "0.716809", "0.659", "0.709")},
+     "precision": 3, "current_spelling": "0.761",
+     "superseded": ("0.758",),
+     "retired": ("0.723", "0.717", "0.716809", "0.659", "0.709")},
     {"name": "joint held-out AUC, Exp 2 (rejection)",
      "derive": lambda p: p["abs_exp2"]["joint_all"],
      "precision": 3, "current_spelling": "0.967",
@@ -96,9 +107,9 @@ TRACKED = (
     {"name": "the gap, rejection minus selection",
      "derive": lambda p: (p["abs_exp2"]["joint_all"]
                           - p["abs_exp1"]["joint_all"]),
-     "precision": 3, "current_spelling": "0.209",
-     "superseded": ("0.237",),
-     "retired": ("0.247", "0.262", "0.015", "0.025")},
+     "precision": 3, "current_spelling": "0.206",
+     "superseded": ("0.209",),
+     "retired": ("0.237", "0.247", "0.262", "0.015", "0.025")},
 )
 
 #: The documents in scope.  Per-document, declared, extendable.

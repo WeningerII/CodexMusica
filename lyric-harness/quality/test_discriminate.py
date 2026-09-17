@@ -106,12 +106,21 @@ Three facts a future reader needs before loosening any of it:
     four `joint_all` values agree with two independent earlier cold runs taken
     at two different `lyric_harness.py` digests (`audit_joint_auc_null.py`,
     commit 98f07a4) and with two more taken here at a third and a fourth.
-  * `abs_exp2`'s joint AUC sits 2.6e-05 BELOW the boundary between printing
-    0.964 and printing 0.965 -- 0.16 of a single rank flip. So the printed
-    figure the record quotes for the headline "detecting bad writing works"
-    number is one rank away from reading 0.965, in the up direction only. The
-    check prints that distance on every run rather than leaving it to be
-    rediscovered as an unexplained string mismatch.
+  * A HEADLINE FIGURE CAN SIT ON A RENDERING BOUNDARY, so the check prints
+    the distance on every run rather than leaving it to be rediscovered as
+    an unexplained string mismatch. ~~`abs_exp2`'s joint AUC sits 2.6e-05
+    BELOW the boundary between printing 0.964 and printing 0.965 -- 0.16 of
+    a single rank flip ... one rank away from reading 0.965, in the up
+    direction only.~~ REPINNED 2026-09-17, and it had gone stale at the
+    2026-09-14 tokenizer repin without being told: that arm has not printed
+    0.964 since 2026-08-13, and at today's 0.967105 it is 3.9e-04 from its
+    nearest bucket edge -- **2.40 rank flips, no longer a boundary case at
+    all**. The live instance is `wi_exp2`'s `joint_all`, 0.894408, **9.2e-05
+    from printing 0.895 -- 0.56 of one rank flip** -- which is the figure
+    `RESULTS_WITHIN_ITEM.md` quotes for its own Exp 2 headline. Twelve of the
+    forty-four pins are inside the 1e-04 mark that makes `close()` say so;
+    the number is DERIVED by `rendering_edge` on every run, so this bullet is
+    an illustration and never the source (doctrine 1).
   * If this ever fails by exactly one quantum, that is the tolerance sitting
     at the statistic's own resolution, and the remedy is to repin with the
     date and keep the superseded value visible (doctrine 17) -- not to widen
@@ -221,8 +230,10 @@ def rendering_edge(x):
     A value sitting on one is a value whose PRINTED figure — the thing
     RESULTS.md quotes — can flip on a movement far smaller than anything
     worth calling drift, so it is worth saying out loud rather than
-    discovering as a mystery string mismatch. `abs_exp2`'s 0.964 is 2.6e-05
-    from rendering as 0.965, which is 0.16 of one rank flip.
+    discovering as a mystery string mismatch. ~~`abs_exp2`'s 0.964 is 2.6e-05
+    from rendering as 0.965, which is 0.16 of one rank flip.~~ REPINNED
+    2026-09-17: `wi_exp2`'s 0.894408 is 9.2e-05 from rendering as 0.895,
+    which is 0.56 of one rank flip.
     """
     lo = math.floor(x * 1000 + 0.5) / 1000.0 - 0.0005
     return min(x - lo, lo + 0.001 - x)
@@ -391,15 +402,126 @@ def close(name, got, want, note=""):
 #: The prose that quotes these is repinned the same day in RESULTS.md,
 #: RESULTS_WITHIN_ITEM.md and PREREGISTRATION.md, and `verify_figures.py`'s
 #: TRACKED ladder walks 0.723/0.960/0.237 into the policed SUPERSEDED slot.
+#: REPINNED 2026-09-17 — FOURTEEN FIGURES, AND THE THIRTY THAT DID NOT MOVE
+#: ARE THE CONTROL. `MISSING.md` M-293 / E-5: commit eacc3369 (PR #301,
+#: merged 2026-09-16T12:43:46Z) changed one word in one line of
+#: `lyric_harness.py` — `Declaration.coda_empty_evidence` "gift" ->
+#: "cannot_tell". Under "gift" two EMPTY codas answered
+#: `cluster_sim([], []) == 1.0`, so absence was scored as agreement; under
+#: "cannot_tell" the branch sets `cs = 0.0`, drops the coda weight and
+#: renormalises over the weights that were actually asked.
+#:
+#: THE SIGNATURE, and it is the opposite shape from the repin above. The
+#: 2026-09-14 tokenizer normalization moved ALL FORTY-FOUR and had NO unmoved
+#: control, which is what a change to the token stream predicts. Here
+#: **THIRTY of the thirty-six per-feature AUCs are byte-identical — delta
+#: exactly +0.00e+00, the same concordant-pair count to the half-pair** — and
+#: every one of the fourteen that moved AT ALL reads the rhyme-predictability
+#: channel: the two `rhyme_predictability_*` features, `wi_predictability_
+#: advantage`, and the four joints that contain them. Nothing else in this
+#: harness consults the rhyme comparator. So the pattern IS the check that
+#: this is a correction reaching exactly what it touches and not a drift —
+#: the M-31 repin's own argument, at a different coordinate. What is MEASURED
+#: is the thirty zeros; that they are zero BECAUSE those features never read
+#: the comparator is a reading of the measurement, stated so the next repin
+#: touching a different channel can falsify it.
+#:
+#: THE SCALAR ONLY FALLS; THE PREDICTABILITY DOES NOT. Write `base` for the
+#: non-coda part of a syllable's weighted total. "gift" gives
+#: `base + w_coda`; "cannot_tell" gives `base * W/(W - w_coda)`. The second
+#: is <= the first exactly when `base <= W - w_coda`, which holds for every
+#: pair, because `base` is a weighted sum of similarities each at most 1 over
+#: those same weights — with equality only where every other channel is a
+#: perfect 1.0. So a scalar can only FALL, a rhyme field can only SHRINK, and
+#: `admits()` can only flip admits->rejects. But `_predictability()` is
+#: `1.0 - pos / max(1, len(words))`, so a shrinking field moves the RANK and
+#: the DENOMINATOR together and the quotient moves BOTH WAYS — measured
+#: inside one arm, `abs_exp1` `rhyme_predictability_mean` +5.70e-04 against
+#: `_min` -3.99e-03. A one-way change to the scalar producing a two-way
+#: change here is not a contradiction; it is what that quotient does.
+#:
+#: NINE OF THE FOURTEEN CLEAR TOL AND ALL FOURTEEN ARE REPINNED. The five
+#: that do not clear it are repinned anyway, on this file's own stated
+#: policy (see THE TOLERANCE, above): the pins are the MEASURED value, not
+#: the printed figure, and a pin left at a superseded full-precision value
+#: passes at TOL while being the wrong number — which spends the tolerance
+#: budget the policy exists to centre.
+#:
+#: `wi_exp1 joint_all` IS THE HONEST EDGE CASE AND IS RECORDED AS ONE. Its
+#: concordant-pair count is 1089.0/1755 before and after, so the STATISTIC
+#: did not move; its last bit did, -1.11e-16, which is one ulp and cannot be
+#: a rank change at this arm's quantum of 5.70e-04. WHY the same rational
+#: reaches a different last bit is NOT measured here — a different summation
+#: order somewhere under the fit is the obvious candidate and no count of it
+#: has been taken, so it is a hypothesis and not a finding (doctrine 58). It
+#: is pinned at the measured repr and it is NOT counted as a move.
+#:
+#: Pairs are of 1755 in the Exp 1 arms and 6080 in the Exp 2 arms.
+#:
+#:   arm       quantity                     superseded   measured    pairs
+#:   abs_exp1  joint_all                   ~~0.757835~~  0.760684   1330->1335
+#:   abs_exp1  joint_solo                  ~~0.736752~~  0.731054   1293->1283
+#:   abs_exp1  rhyme_predictability_mean   ~~0.244444~~  0.245014    429->430
+#:   abs_exp1  rhyme_predictability_min    ~~0.333048~~  0.329060  584.5->577.5
+#:   abs_exp2  joint_all                   ~~0.966941~~  0.967105   5879->5880
+#:   abs_exp2  joint_solo                  ~~0.637829~~  0.637336   3878->3875
+#:   abs_exp2  rhyme_predictability_mean   ~~0.348026~~  0.346053   2116->2104
+#:   abs_exp2  rhyme_predictability_min    ~~0.347533~~  0.347862   2113->2115
+#:   wi_exp1   joint_all                   ~~0.620513~~  0.620513   1089->1089
+#:   wi_exp1   joint_solo                  ~~0.741880~~  0.744729   1302->1307
+#:   wi_exp1   wi_predictability_advantage ~~0.244444~~  0.245014    429->430
+#:   wi_exp2   joint_all                   ~~0.893914~~  0.894408   5435->5438
+#:   wi_exp2   joint_solo                  ~~0.643750~~  0.644572   3914->3919
+#:   wi_exp2   wi_predictability_advantage ~~0.348026~~  0.346053   2116->2104
+#:
+#: Every delta above is an exact integer (or half-integer, on a tie) multiple
+#: of the arm's own quantum, 1/1755 and 1/6080, which is the check that these
+#: are rank movements and not arithmetic noise.
+#:
+#: WHAT THE RECORD'S THREE-DECIMAL FIGURES DO. The headline pair goes
+#: 0.758/0.967 -> **0.761**/0.967 — Exp 2 HOLDS to the printed digit, one
+#: rank flip under it — and the gap rejection-minus-selection goes
+#: ~~0.209~~ **0.206**. Doctrine 7 is untouched and its own sentence says
+#: why: rejection still beats selection by a fifth of an AUC and that
+#: doctrine "never rested on the third decimal". The predictability-only
+#: joints move in both directions and in every arm — abs 0.737/0.638 ->
+#: **0.731**/**0.637**, wi 0.742/0.644 -> **0.745**/**0.645** — while the
+#: two within-item `joint_all` figures HOLD at 0.621 and 0.894.
+#:
+#: WHY NO PULL REQUEST COULD SEE THIS. All three instruments that went red
+#: — this file, `quality/structure_census.py --check` and
+#: `quality/audit_joint_auc_null.py --check` — appear exactly once in
+#: `.github/workflows/ci.yml`, all three inside the `nightly` job, priced out
+#: of the per-PR jobs on purpose. The last green nightly ran on sha 4d1c4181
+#: and started 2026-09-16T12:13:24Z, THIRTY MINUTES AND TWENTY-TWO SECONDS
+#: before the merge, so the flip landed on a sha the nightly never saw. And
+#: `quality/comparator_pin.json` reported HOLDS throughout and was not a
+#: control: it was minted at f0ddee86 on 2026-09-17 00:53, some thirty-six
+#: hours AFTER the flip, so it ENCODES "cannot_tell" — `sha256(repr(
+#: Declaration()))` is `0d2b763159fb...` here and `0c7c170d6de0...` under
+#: "gift". A pin minted after the change it would have caught says HOLDS and
+#: nothing in its output distinguishes that from a change that never
+#: happened. M-293 carries the whole accounting.
+#:
+#: Measured cold on this box (the cache fingerprint moved with the source, so
+#: all 384 vectors were recomputed), cache `938c2c5d268ccc5e`; the repin
+#: table and the values in this literal are EMITTED from that measurement
+#: rather than transcribed. Restoring "gift" on this tree re-derives every
+#: superseded value above exactly, which is the A/B that locates the move in
+#: this change alone. The prose that quotes these is repinned the same day in
+#: RESULTS.md, RESULTS_WITHIN_ITEM.md and PREREGISTRATION.md, and
+#: `verify_figures.py`'s TRACKED ladder walks 0.758 and 0.209 into the
+#: policed SUPERSEDED slot — Exp 2's row deliberately not walked, because its
+#: spelling did not move and a superseded spelling is POLICED.
 
 PINNED = {
     "abs_exp1": {
         "label": "ABSOLUTE (original ten) / Exp 1  survived vs forgotten",
         "n_pos": 15, "n_neg": 117, "n_features": 10,
-        "joint_all": 0.7578347578347578, "joint_solo": 0.7367521367521368,
+        "joint_all": 0.7606837606837608, "joint_solo": 0.7310541310541311,
         "features": {
-            "rhyme_predictability_mean": 0.24444444444444444,
-            "rhyme_predictability_min": 0.33304843304843307,
+            "rhyme_predictability_mean": 0.245014245014245,
+            "rhyme_predictability_min": 0.32905982905982906,
             "concreteness_mean": 0.6695156695156695,
             "concreteness_p90": 0.6017094017094017,
             "abstract_noun_ratio": 0.32364672364672364,
@@ -420,10 +542,10 @@ PINNED = {
     "abs_exp2": {
         "label": "ABSOLUTE (original ten) / Exp 2  human vs generated",
         "n_pos": 152, "n_neg": 40, "n_features": 10,
-        "joint_all": 0.9669407894736842, "joint_solo": 0.6378289473684211,
+        "joint_all": 0.9671052631578947, "joint_solo": 0.6373355263157895,
         "features": {
-            "rhyme_predictability_mean": 0.3480263157894737,
-            "rhyme_predictability_min": 0.3475328947368421,
+            "rhyme_predictability_mean": 0.3460526315789474,
+            "rhyme_predictability_min": 0.34786184210526316,
             "concreteness_mean": 0.24638157894736842,
             "concreteness_p90": 0.20748355263157894,
             "abstract_noun_ratio": 0.8078125,
@@ -454,9 +576,9 @@ PINNED = {
         "label": "WITHIN-ITEM (respecified eight) / Exp 1  survived vs "
                  "forgotten",
         "n_pos": 15, "n_neg": 117, "n_features": 8,
-        "joint_all": 0.6205128205128205, "joint_solo": 0.7418803418803419,
+        "joint_all": 0.6205128205128204, "joint_solo": 0.7447293447293447,
         "features": {
-            "wi_predictability_advantage": 0.24444444444444444,
+            "wi_predictability_advantage": 0.245014245014245,
             "wi_concreteness_delta": 0.5168091168091168,
             "wi_abstract_delta": 0.5655270655270656,
             "wi_freq_delta": 0.49743589743589745,
@@ -469,9 +591,9 @@ PINNED = {
     "wi_exp2": {
         "label": "WITHIN-ITEM (respecified eight) / Exp 2  human vs generated",
         "n_pos": 152, "n_neg": 40, "n_features": 8,
-        "joint_all": 0.8939144736842106, "joint_solo": 0.6437499999999999,
+        "joint_all": 0.8944078947368421, "joint_solo": 0.6445723684210526,
         "features": {
-            "wi_predictability_advantage": 0.3480263157894737,
+            "wi_predictability_advantage": 0.3460526315789474,
             "wi_concreteness_delta": 0.4072368421052632,
             "wi_abstract_delta": 0.4176809210526316,
             "wi_freq_delta": 0.5493421052631579,

@@ -190,7 +190,10 @@ D1_2026_09_08 = {
 
 # 2026-09-15: nonlyric material retained as explicit apparatus. The live
 # diagnostic was measured before adoption; its former table remains above.
-D1_RECORDED = {
+# SUPERSEDED 2026-09-17 BY E-5 and kept whole (doctrine 17). It was the live
+# table until `Declaration.coda_empty_evidence` moved; see D1_RECORDED below
+# for what moved it and why the two cells that changed changed.
+D1_2026_09_15 = {
     "pool": 4390056,
     "measured": "2026-09-15",
     "population": "1297 English files; normalized-lyrics-v1, 106 explicit work groups; nonlyric apparatus annotated",
@@ -198,6 +201,57 @@ D1_RECORDED = {
               ("false", "admits"): 9, ("false", "rejects"): 671,
               ("refused", "admits"): 7, ("refused", "rejects"): 304},
     "agree": (675, 689),
+}
+
+# REPINNED 2026-09-17 — TWO CELLS AND THE AGREEMENT RATIO, for E-5.
+#
+# WHAT MOVED IT, located to one word by A/B rather than inferred. `eacc3369`
+# ("fix: remove empty-coda evidence bonus and recalibrate E-5", PR #301)
+# changed ONE line of lyric_harness.py:
+#     -    coda_empty_evidence: str = "gift"
+#     +    coda_empty_evidence: str = "cannot_tell"
+# Restoring "gift" at bf48281d re-derives D1_2026_09_15 above in every cell
+# (HOLDS 16, MOVED 0); leaving "cannot_tell" gives the table below. Nothing
+# else in the range moves any cell.
+#
+# WHY IT COULD ONLY FALL. Under "gift" two EMPTY codas answered
+# `cluster_sim([], []) == 1.0` — absence scored as agreement. Under
+# "cannot_tell" the branch sets cs=0.0 and drops the coda weight, then
+# renormalises `syl_total *= _wsum / (_wsum - _drop)`. With base <= _wsum -
+# w_coda for every other channel, the new total is <= the old one, so a score
+# can only FALL and admits() can only flip admits->rejects, never the reverse.
+# Observed: both flips downward, both in one bucket, refused and true cells
+# untouched. That is the predicted shape, not a coincidence it survived.
+#
+# THE ARGUMENT FOR THE NEW NUMBERS (doctrine 58 — the number is argued, not
+# tuned to make the check pass). The two pairs that left admission are
+#     'display'/'cry'    total 0.810 -> 0.708
+#     'quaker'/'desire'  total 0.805 -> 0.721
+# and BOTH sit in the masculine-rhyme=FALSE bucket: the judge says they are
+# not masculine rhymes and the engine had been admitting them anyway. They
+# were admitted only because an absent coda was counted as evidence FOR
+# agreement. true/admits HOLDS at 4 and true/rejects HOLDS at 5 — no genuine
+# masculine rhyme was lost — and agreement over judged RISES
+# 675/689 -> 677/689.
+# So this table records E-5 removing two of the engine's own false positives
+# at no cost to its true ones, which is what E-5 set out to do. This is an
+# UPGRADE recorded as an upgrade, and it is the one arm where the direction
+# is unambiguous: the discrimination AUCs repinned the same day move BOTH
+# ways and each owes its own separate argument.
+#
+# WHAT IS NOT MEASURED HERE. The corpus-wide rate at which "cannot_tell"
+# withdraws admission is NOT established by this arm: D1 is 1,000 seeded
+# pairs and 2 of them moved. E5_CODA_ADOPTION.md priced one population (947
+# mandated pairs, one loss) and did not price this one, which is how the
+# drift reached a nightly. Carried as a gap, not a finding.
+D1_RECORDED = {
+    "pool": 4390056,
+    "measured": "2026-09-17",
+    "population": "1297 English files; normalized-lyrics-v1, 106 explicit work groups; nonlyric apparatus annotated",
+    "table": {("true", "admits"): 4, ("true", "rejects"): 5,
+              ("false", "admits"): 7, ("false", "rejects"): 673,
+              ("refused", "admits"): 7, ("refused", "rejects"): 304},
+    "agree": (677, 689),
 }
 
 #: HISTORICAL, and unreachable from this tree by any population.
