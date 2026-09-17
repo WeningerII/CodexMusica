@@ -1,0 +1,7 @@
+{
+  "lyric-harness/quality/loop.py": "36f53663c1c76ae94bfa703cbe4247d7be84a0aa67bf30e66186a2732e8c09a7",
+  "lyric-harness/quality/test_loop.py": "1001fa571ab2ed7235fcd33b1067ea4f7d00f3e68edce9ab97071af6335b547c",
+  "lyric-harness/quality/test_production_revision.py": "118cd99654bc69441e22105637e6a26ec00b98942602524e52409a30de778711",
+  "scripts/flash_battery.mjs": "7f8d83824467a9f8718ea88fcdfbcfb592fd2709687b782981555a7dd5c2bdfe",
+  "mcp/test_battery_lifecycle.mjs": "1f1b69e7b48ab2dafacd272c28ff2cd61aea4ff0c9b4c1b2a3a44b898b976b8a"
+}

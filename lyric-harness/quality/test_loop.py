@@ -2143,7 +2143,14 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
 
 
 def test_tier2_that_walks_nothing_falls_through_to_tier1():
-    """`MISSING.md` M-185 — a pivot whose tier-2 search builds no proposal
+    """HISTORICAL RULE, SUPERSEDED BY M-256 ON 2026-09-17.
+
+    A declined/rejected group now leaves the single-line question reachable:
+    bounded empty guidance does not rule out a verified partial repair.
+    test_production_revision supplies the positive control. The former
+    argument is retained below as history, not the current contract.
+
+    `MISSING.md` M-185 — a pivot whose tier-2 search builds no proposal
     is asked by tier 1 in the same round, and the record says both.
 
     THE DEFECT, named by M-170 §5 item 10 and M-173(e) ("11 never asked"):
@@ -2164,8 +2171,7 @@ def test_tier2_that_walks_nothing_falls_through_to_tier1():
     the proposer about L3 in the same round, and a proposer that DECLINES
     every group brief (25 calls) is NOT a fall-through — it was asked.
     """
-    print("\n22. M-185 — tier 2 that walks NOTHING falls through to tier 1 "
-          "in the same round; a declined tier 2 does not")
+    print("\n22. M-256 — an unsuccessful backtrack leaves the line attempt reachable")
     from lyric_harness import Declaration
     draft = ["It gleamed like polished silver",
              "We wandered deep into the night",
@@ -2192,54 +2198,28 @@ def test_tier2_that_walks_nothing_falls_through_to_tier1():
     res = revise_loop(R, draft, mandate, propose=declines,
                       propose_group=declines_group)
     a3 = [a for r in res.rounds for a in r.attempts if a.line_no == 3]
-    # ~~tier 2 built NO proposal for L3 and says NOT ASKED, with
-    # `asked=False` on its record~~ — **SUPERSEDED 2026-09-03
-    # (`MISSING.md` M-205).** M-185's mechanism was a WORKAROUND for the
-    # third silent skip: the pivot's field came back empty, `walked` was
-    # empty, the `for w in walked` body never ran, and rather than ask
-    # about the group the tier consumed the turn and handed the line to
-    # tier 1. M-205 removes the skip — an empty pivot field is still a
-    # QUESTION, and it is put to the writer with the field declared empty
-    # and why. On THIS fixture that is strictly the better move: L3's
-    # three call words share no rhyme, so tier 1 is the tier that provably
-    # cannot help and tier 2 is the one that can. The fall-through is not
-    # deleted and still runs where no proposal is possible at all — a
-    # group with no movable member, or one pinned by a verbatim return,
-    # which §5's PIN fixture covers.
     check("tier 2 now ASKS about the group instead of walking nothing — an "
           "empty pivot field is a question, not a turn consumed in silence",
           a3 and a3[0].tier == 2 and a3[0].asked and asked2
           and "UNCONSTRAINED pivot" not in a3[0].reason,
           [(a.tier, a.tried, a.asked, a.reason[:70]) for a in a3]
           + [asked2])
-    # AND THERE IS NO FALL-THROUGH, WHICH IS M-185'S OWN RULE APPLIED TO
-    # THE NEW BEHAVIOUR — not a weakening of it. M-185 says a DECLINED
-    # tier 2 does not fall through: it was asked, and the writer's refusal
-    # is its own answer. The fall-through only ever existed for a tier 2
-    # that asked NOBODY. M-205 makes this fixture the declined case rather
-    # than the silent one, so the line gets ONE record, from the tier that
-    # could actually close it. (This check's first draft asserted tier 1
-    # was asked as well, which contradicted the rule the section states
-    # three checks further down; the suite caught it.)
-    check("...and precisely BECAUSE it asked, there is no fall-through — a "
-          "declined tier 2 is not a silent one, so L3 gets one record from "
-          "the tier that could close it, not two",
-          len(a3) == 1 and a3[0].tier == 2 and (3, 1) not in asked1,
+    check("declined tier 2 retains its record and falls through to tier 1",
+          [a.tier for a in a3] == [2, 1] and (3, 1) in asked1,
           [(a.tier, a.tried, a.asked) for a in a3] + [asked1])
     check("the stop is NO_PROGRESS on the proposer's refusal, not on a "
           "search nobody ran", res.stop_reason == "no_progress")
     # THE CONTRAST: under the shipped door the same groups' conjunctions
     # are non-empty, tier 2 walks and the proposer DECLINES every group
-    # brief — consulted, refused, and correctly no fall-through.
+    # brief — consulted and refused, then the line is asked too.
     asked1[:], asked2[:] = [], []
     res2 = revise_loop(Reviser(), draft,
                        SC.mandate(mandate, n_lines=4, default_relation="RHYME"), propose=declines,
                        propose_group=declines_group)
     a3b = [a for r in res2.rounds for a in r.attempts if a.line_no == 3]
-    check("a tier 2 the proposer DECLINED was asked: no fall-through, one "
-          "record, `asked=True`",
-          a3b and len(a3b) == 1 and a3b[0].tier == 2 and a3b[0].asked
-          and asked2 and (3, 1) not in asked1,
+    check("a declined tier 2 and the subsequent tier 1 are recorded separately",
+          [a.tier for a in a3b] == [2, 1] and a3b[0].asked
+          and asked2 and (3, 1) in asked1,
           [(a.tier, a.tried, a.asked) for a in a3b] + [len(asked2)])
 
 
