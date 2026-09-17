@@ -47,10 +47,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.dirname(HERE))
 
-#: WHERE THE CORPUS LIVES. A repo-local path, so a run never depends on a
-#: user-level `~/nltk_data` that may or may not exist and may or may not hold
-#: the same release (doctrine 34: a citation that resolves to nothing).
-WORDNET_DIR = os.path.join(os.path.dirname(HERE), "data", "nltk")
+#: The stager's shared default, including LYRIC_STAGED_DATA. `_tagger` uses
+#: the same resolver and prepends the caller's NLTK_DATA override when set,
+#: before either the corpus or the model is loaded (M-188).
+from quality.features import NLTK_DIR as WORDNET_DIR, _tagger  # noqa: E402
 
 #: The release this was measured against. WordNet 3.0, Princeton University,
 #: 2006 — the licence text ships beside the data at
@@ -85,14 +85,12 @@ def _load():
     # `noun.time` on one line and `verb.motion` on another.
     if _WN is None:
         try:
-            import nltk
-            if WORDNET_DIR not in nltk.data.path:
-                nltk.data.path.insert(0, WORDNET_DIR)
+            tag = _tagger()
             from nltk.corpus import wordnet as wn
             from nltk.wsd import lesk
             wn.synsets("test")          # force the load; raises if absent
-            nltk.pos_tag(["test"])      # and the tagger; see `_pos`
-            _WN, _LESK, _TAG = wn, lesk, nltk.pos_tag
+            tag(["test"])              # and the tagger; see `_pos`
+            _WN, _LESK, _TAG = wn, lesk, tag
         except Exception:
             _WN, _LESK = False, None
     return None if _WN is False else _WN
