@@ -44,9 +44,15 @@ MOVED, 1 of 7 inputs, `lyric_harness.py`). The re-verification it demands was
 run on the MERGED tree (this branch plus main through #331), cold, in four
 isolated shards with fresh memo files and no reuse of any invalidated memo:
 
-    python3 quality/length_curve_calibration.py compute --shard I/4 \
-        --out rows-I.tsv --cache-path memo-I.tsv        # I = 1..4
-    python3 quality/length_curve_calibration.py check --rows rows-1.tsv ... rows-4.tsv
+    python3 quality/length_curve_calibration.py compute --shard 1/4 \
+        --out quality/results/m78_2026-09-17/calibration-rows.1.tsv \
+        --cache-path memo-1.tsv          # likewise 2/4, 3/4, 4/4; the memos
+                                         # are scratch and were not banked
+    python3 quality/length_curve_calibration.py check \
+        --rows quality/results/m78_2026-09-17/calibration-rows.1.tsv \
+               quality/results/m78_2026-09-17/calibration-rows.2.tsv \
+               quality/results/m78_2026-09-17/calibration-rows.3.tsv \
+               quality/results/m78_2026-09-17/calibration-rows.4.tsv
 
 Receipts in this directory: `compute-1.txt` .. `compute-4.txt` (the four shard
 logs, each ending in its COMPUTE line), `calibration-rows.1.tsv` ..
