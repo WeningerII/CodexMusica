@@ -67,9 +67,10 @@ async function fixture(handler, fn) {
   });
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   const base = `http://127.0.0.1:${server.address().port}`;
-  const run = (args = [], onChild = () => {}) =>
+  const run = (args = [], onChild = () => {}, nodeArgs = []) =>
     new Promise((resolve, reject) => {
       const child = spawn(process.execPath, [
+        ...nodeArgs,
         cli,
         `--out=${out}`,
         `--base=${base}`,
@@ -112,6 +113,82 @@ async function test(name, fn) {
   checked++;
   console.log(`ok ${checked} - ${name}`);
 }
+
+// M-168: the native agent's short connection clock used to pre-empt the
+// battery's declared budget. Exercise actual sockets with that stricter agent;
+// unlike a source assertion this also proves the caller's shorter wall holds.
+for (const deadline of [500, 40]) {
+  await test(`declared ${deadline} ms budget owns socket setup and delivery`, async () => {
+    let posts = 0;
+    const commit = 'a'.repeat(40);
+    await fixture(
+      (req, res) => {
+        if (req.url === '/health') {
+          return setTimeout(() => json(res, 200, { commit }), 100);
+        }
+        if (req.method === 'GET') return json(res, 404, { error: 'unknown' });
+        posts++;
+        setTimeout(() => json(res, 200, finished), 100);
+      },
+      async ({ out, run }) => {
+        const preload = join(out, 'short-agent.mjs');
+        writeFileSync(
+          preload,
+          `import http from 'node:http';
+class ShortAgent extends http.Agent {
+  createConnection(options, callback) {
+    const socket = super.createConnection(options, callback);
+    socket.on('timeout', () => socket.destroy(new Error('inherited agent clock expired')));
+    return socket;
+  }
+}
+http.globalAgent = new ShortAgent({ keepAlive: true, timeout: 20 });
+`
+        );
+        const result = await run(
+          [`--commit=${commit}`, `--turn-deadline-ms=${deadline}`, '--delivery-reserve=0'],
+          () => {},
+          ['--import', preload]
+        );
+        assert.equal(posts, 1, 'the independent health budget must reach the POST');
+        assert.equal(result.status, deadline === 500 ? 0 : 1, result.stderr);
+        const attempts = rows(join(out, 'song0.attempts.jsonl'));
+        const identity = attempts.find((row) => row.event === 'identity_checked');
+        assert.equal(identity.status, 200);
+        assert.equal(identity.transport, null);
+        assert.equal(identity.commit, commit);
+        if (deadline === 500) {
+          assert.equal(summary(out).songs[0].exit_reason, 'finished');
+        } else {
+          assert.equal(summary(out).songs[0].exit_reason, 'transport');
+          assert.match(rows(join(out, 'song0.jsonl'))[0].transport, /declared client deadline/);
+        }
+      }
+    );
+  });
+}
+
+await test('failed identity probe preserves the cause and never sends paid work', async () => {
+  let posts = 0;
+  await fixture(
+    (req, res) => {
+      if (req.method === 'POST') posts++;
+      res.writeHead(502, { 'content-type': 'text/plain' });
+      res.end('upstream unavailable');
+    },
+    async ({ out, run }) => {
+      const result = await run([`--commit=${'a'.repeat(40)}`]);
+      assert.equal(result.status, 1, result.stderr);
+      assert.equal(posts, 0);
+      const attempts = rows(join(out, 'song0.attempts.jsonl'));
+      const identity = attempts.find((row) => row.event === 'identity_checked');
+      assert.equal(identity.status, 0);
+      assert.equal(identity.phase, 'protocol');
+      assert.match(identity.transport, /invalid JSON response \(HTTP 502\)/);
+      assert.ok(!attempts.some((row) => row.event === 'request_dispatched'));
+    }
+  );
+});
 
 await test('persistent paced429 cannot borrow ordinary retry budget', async () => {
   let posts = 0;

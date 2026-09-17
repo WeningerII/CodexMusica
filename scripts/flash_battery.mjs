@@ -413,6 +413,10 @@ function post(body, { path = '/chat', method = 'POST', timeoutMs = CLIENT_DEADLI
       url,
       {
         method,
+        // Native proxy tunnelling inherits the agent's (often 5 s) timeout
+        // unless this is explicit. Connection setup shares the same budget
+        // as response delivery; an undeclared agent clock must not win first.
+        timeout: timeoutMs,
         headers: { 'content-type': 'application/json', 'content-length': Buffer.byteLength(data) },
       },
       (res) => {
@@ -1071,6 +1075,9 @@ for (const [songNo, briefIdx] of indices.entries()) {
         event: 'identity_checked',
         request_id: intent.request_id,
         at: new Date().toISOString(),
+        status: identity.status,
+        phase: identity.phase ?? null,
+        transport: identity.transport ?? null,
         commit: identity.payload?.commit ?? null,
         build: identity.payload?.build ?? null,
         recovery: identity.payload?.recovery ?? null,
