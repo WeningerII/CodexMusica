@@ -177,8 +177,8 @@ SEED = 20260811
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 
-#: Bulk data directories symlinked WHOLE: 291 of the repo's 295 MB, and read
-#: -only in every code path the suite exercises. Everything else is mirrored as
+#: Bulk data directories symlinked WHOLE, read-only in the suite's code paths.
+#: Everything else is mirrored as
 #: real directories so that a test which WRITES lands inside the shadow.
 #:
 #: That distinction is not fussiness. `quality/discriminate.py` writes
@@ -188,16 +188,15 @@ ROOT = os.path.dirname(HERE)
 #: in the working tree and be read back by the next honest run. A mutation
 #: runner that poisons the thing it is measuring is worse than none.
 #:
-#: `corpus/` is on the list for the same reason and with the same evidence:
-#: `grep -l 'kalevala_rate\|prasa_rate' quality/test_*.py` is empty, so the
-#: only two modules that write into it are reached from their own `__main__`
-#: staging paths and never from a test. It is 21 of the 23 MB a shadow tree
-#: would otherwise copy, and this runner shares a disk with five sibling
-#: sessions -- the first full audit died on ENOSPC.
+#: `corpus/` WAS shared to save 21 MB per shadow (the historical measure). Withdrawn
+#: 2026-09-17, M-30: calibration_items resolves paths before applying the
+#: repository's edition policy. A corpus symlink escapes the shadow ROOT and
+#: silently turns declared editions into external fixtures: Blake's two
+#: Garden of Love printings receive two votes instead of one. Copy corpus
+#: bytes, including large files, so the real reader keeps its classification.
 SYMLINK_DIRS = (os.path.join("data", "labels"),
                 os.path.join("data", "authority_src"),
-                os.path.join("data", "nltk"),
-                "corpus")
+                os.path.join("data", "nltk"))
 #: Files at or below this are copied; above it they are symlinked. The 16 files
 #: over the line are dictionaries and label tables, none of them written.
 COPY_MAX_BYTES = 2 * 1024 * 1024
@@ -1489,7 +1488,8 @@ def _mirror(src_dir, dst_dir, links):
                     links.append(rel)
                 else:
                     _mirror(s, d, links)
-            elif name.endswith(".py") or os.path.getsize(s) <= COPY_MAX_BYTES:
+            elif (name.endswith(".py") or rel.startswith("corpus" + os.sep)
+                  or os.path.getsize(s) <= COPY_MAX_BYTES):
                 shutil.copy2(s, d)
             else:
                 os.symlink(os.path.realpath(s), d)
@@ -1744,6 +1744,13 @@ def _test_result(p, dt):
     err = (p.stderr or b"").decode("utf-8", "replace")
     out = (p.stdout or b"").decode("utf-8", "replace")
     status = "ERROR" if "Traceback (most recent call last)" in err else "FAIL"
+    # unittest prints assertion tracebacks too. Its completed roll-up tells
+    # failed checks apart from errors; a traceback alone cannot do that.
+    unittest_rollup = re.findall(r"^FAILED \(([^\n]+)\)$", err, re.MULTILINE)
+    if unittest_rollup:
+        fields = {name.strip(): int(value) for name, value in
+                  re.findall(r"([a-z ]+)=(\d+)", unittest_rollup[-1])}
+        status = "ERROR" if fields.get("errors", 0) else "FAIL"
     # THE SUITE'S OWN VERDICT OUTRANKS INCIDENTAL STDERR (`MISSING.md` M-30).
     # The tail was `stderr or stdout`, so ANY line a suite's subprocesses wrote
     # to stderr became the stated cause of its failure. Measured: a best-effort
@@ -1755,6 +1762,9 @@ def _test_result(p, dt):
     rollup = [l for l in out.splitlines() if re.match(r"^\s*\d+ FAILING:", l)]
     if rollup:
         tail = rollup
+    elif unittest_rollup:
+        tail = re.findall(r"^(?:FAIL|ERROR): .+$", err, re.MULTILINE)
+        tail.append("FAILED (" + unittest_rollup[-1] + ")")
     else:
         tail = (err.strip() or out.strip()).splitlines()
     return status, dt, " | ".join(tail[-3:])[:400]

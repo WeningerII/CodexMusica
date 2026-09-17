@@ -38,5 +38,11 @@
     "MKL_NUM_THREADS": null,
     "LYRIC_STAGED_DATA": null,
     "NLTK_DATA": null
+  },
+  "local_resource_limits_observed_2026_09_17": {
+    "cpu_count": 9,
+    "cpu.max": "800000 100000",
+    "cpuset.cpus.effective": "0-8",
+    "memory.max": "21474836480"
   }
 }

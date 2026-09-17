@@ -1,0 +1,21 @@
+interpreter /workspace/scratch/5119e7706e0e/m30-runtime/bin/python
+source hashes {"quality/mutate.py": "c5b169565bc3008fa4b271769bb6680e6dc6c7dd3e379eab7ab76f8d45c35e4f", "quality/test_production_data.py": "90f4cb3c46849b652428e858dd85d52f08e675344239fb03473130e7deaca0cd", "quality/lyric_reader.py": "b76263a5e37b10d1c5fb3953f501560918a7efdcfbbc304872f54074b577f9e3"}
+baseline: running 1 checks unmutated (2134bdfecbcc0cc0cb3979807df9798c8c7a4b0bd85547af62a2e448917ea7bb) ...
+  BASELINE-PASS  quality/test_production_data.py  187.8s in 1 attempt(s), bound 600s
+BASELINE: 1 test file(s) measured; 1 PASS, 0 FAIL, 0 ERROR, 0 TIMEOUT
+phase wall seconds 190.226
+{
+  "quality/test_production_data.py": {
+    "status": "PASS",
+    "seconds": 187.8,
+    "detail": "",
+    "bound_seconds": 600,
+    "attempts": [
+      {
+        "status": "PASS",
+        "seconds": 187.8,
+        "detail": ""
+      }
+    ]
+  }
+}

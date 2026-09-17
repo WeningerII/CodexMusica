@@ -1,0 +1,21 @@
+installing ['/workspace/scratch/5119e7706e0e/m30-runtime/bin/python', '-m', 'pip', 'install', '--ignore-installed', '--no-deps', 'nltk==3.10.3', 'regex==2026.9.10', 'click==8.5.0', 'joblib==1.5.3', 'tqdm==4.70.1', 'defusedxml==0.7.1']
+Collecting nltk==3.10.3
+  Using cached nltk-3.10.3-py3-none-any.whl.metadata (3.2 kB)
+Collecting regex==2026.9.10
+  Using cached regex-2026.9.10-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Collecting click==8.5.0
+  Using cached click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting joblib==1.5.3
+  Downloading joblib-1.5.3-py3-none-any.whl.metadata (5.5 kB)
+Collecting tqdm==4.70.1
+  Using cached tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+Collecting defusedxml==0.7.1
+  Using cached defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+Using cached nltk-3.10.3-py3-none-any.whl (1.8 MB)
+Using cached regex-2026.9.10-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (804 kB)
+Using cached click-8.5.0-py3-none-any.whl (125 kB)
+Downloading joblib-1.5.3-py3-none-any.whl (309 kB)
+Using cached tqdm-4.70.1-py3-none-any.whl (80 kB)
+Using cached defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+Installing collected packages: tqdm, regex, nltk, joblib, defusedxml, click
+Successfully installed click-8.5.0 defusedxml-0.7.1 joblib-1.5.3 nltk-3.10.3 regex-2026.9.10 tqdm-4.70.1

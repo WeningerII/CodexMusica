@@ -43,6 +43,7 @@ never the cheap answer, and a bare name gives the next reader no way to tell
 """
 
 import argparse
+import json
 import os
 import shutil
 import sys
@@ -463,6 +464,17 @@ def test_baseline_reporting_and_confirmed_health():
             "error.py": "raise RuntimeError('crashed control')\n",
             "timeout.py": "import time; time.sleep(5)\n",
         }
+        for kind, body in (("fail", "self.assertEqual(1, 2)"),
+                           ("error", "raise ValueError('unittest error')")):
+            scripts[f"unittest_{kind}.py"] = (
+                "import unittest\nclass Control(unittest.TestCase):\n"
+                f" def test_{kind}(self): {body}\n"
+                "unittest.main()\n")
+        scripts["unittest_mixed.py"] = (
+            "import unittest\nclass Control(unittest.TestCase):\n"
+            " def test_fail(self): self.fail('failed check')\n"
+            " def test_error(self): raise ValueError('test error')\n"
+            "unittest.main()\n")
         counter = ("from pathlib import Path\nimport time\n"
                    "p = Path(__file__).with_suffix('.count')\n"
                    "n = int(p.read_text()) if p.exists() else 0\n"
@@ -488,14 +500,23 @@ def test_baseline_reporting_and_confirmed_health():
                     contextlib.redirect_stdout(warm):
                 cached = mutate.baseline(list(scripts), 1, cache, timeout=0.5)
             with contextlib.redirect_stdout(final):
-                mutate.report([], cached, 0, "subset", inventory=10)
+                mutate.report([], cached, 0, "subset", inventory=13)
         check("M-30: isolated health replaces the initial status in both directions",
               {t: r["status"] for t, r in rows.items()} == {
                   "pass.py": "PASS", "fail.py": "FAIL", "error.py": "ERROR",
+                  "unittest_fail.py": "FAIL", "unittest_error.py": "ERROR",
+                  "unittest_mixed.py": "ERROR",
                   "timeout.py": "TIMEOUT", "timeout_then_fail.py": "FAIL",
                   "fail_then_timeout.py": "TIMEOUT"})
         check("M-30: a confirmed check reports its roll-up, not incidental stderr",
               rows["timeout_then_fail.py"]["detail"] == "1 FAILING: confirmed check")
+        check("M-30: unittest assertion tracebacks are failed checks, errors stay errors",
+              rows["unittest_fail.py"]["status"] == "FAIL"
+              and "FAIL: test_fail" in rows["unittest_fail.py"]["detail"]
+              and rows["unittest_error.py"]["status"] == "ERROR"
+              and "ERROR: test_error" in rows["unittest_error.py"]["detail"]
+              and rows["unittest_mixed.py"]["status"] == "ERROR"
+              and "failures=1, errors=1" in rows["unittest_mixed.py"]["detail"])
         check("M-30: every initial and isolated attempt retains its status and cost",
               [a["status"] for a in rows["timeout_then_fail.py"].get("attempts", [])]
               == ["TIMEOUT", "FAIL"]
@@ -508,9 +529,9 @@ def test_baseline_reporting_and_confirmed_health():
         for label, output in (("cold", cold), ("cached", warm), ("final", final)):
             out = output.getvalue()
             check(f"M-30: {label} report separates failed checks, crashes and timeouts",
-                  "1 PASS, 2 FAIL, 1 ERROR, 2 TIMEOUT" in out
-                  and "EXCLUDED FAIL: 2 already-red checks" in out
-                  and "EXCLUDED ERROR: 1 crashed" in out
+                  "1 PASS, 3 FAIL, 3 ERROR, 2 TIMEOUT" in out
+                  and "EXCLUDED FAIL: 3 already-red checks" in out
+                  and "EXCLUDED ERROR: 3 crashed" in out
                   and "EXCLUDED TIMEOUT: 2 UNRUNNABLE" in out)
         check("M-30: unmeasured suites are disclosed separately from exclusions",
               "NOT MEASURED: 4 test file(s)" in final.getvalue()
@@ -520,7 +541,7 @@ def test_baseline_reporting_and_confirmed_health():
         with patch.object(mutate, "baseline", return_value=rows), \
                 patch.object(mutate, "discover_tests", return_value=list(rows)), \
                 patch.object(mutate, "_scratch_base", return_value=d), \
-                patch.object(mutate, "source_fingerprint", return_value="m30-control"), \
+                patch.object(mutate, "source_fingerprint", return_value="live-tree-changed"), \
                 patch.object(sys, "argv", [__file__, "--baseline-only"]), \
                 contextlib.redirect_stdout(cli):
             try:
@@ -528,8 +549,10 @@ def test_baseline_reporting_and_confirmed_health():
             except SystemExit as e:
                 rc = e.code
         check("M-30: baseline-only CLI keeps the exclusions and its memo-only scope",
-              rc == 0 and "1 PASS, 2 FAIL, 1 ERROR, 2 TIMEOUT" in cli.getvalue()
-              and "no mutation sweep was run" in cli.getvalue())
+              rc == 0 and "1 PASS, 3 FAIL, 3 ERROR, 2 TIMEOUT" in cli.getvalue()
+              and "no mutation sweep was run" in cli.getvalue()
+              and "fingerprint m30-control" in cli.getvalue()
+              and "live-tree-changed" not in cli.getvalue())
 
     # A scheduler wait is not time spent running the suite. Use a controlled
     # clock rather than a machine-speed threshold, with the real run_test path.
@@ -741,6 +764,7 @@ def test_the_shadow_reaches_what_the_suites_read():
     """
     print("\n3f. the shadow reaches what the suites read (M-176)")
     import shutil
+    import subprocess
     base = mutate._scratch_base()
     tree = mutate.build_shadow(base)
     try:
@@ -757,6 +781,18 @@ def test_the_shadow_reaches_what_the_suites_read():
             os.path.join(tree, "../.claude/render_form_hook.sh"))
         check("and the Stop hook keeps its executable bit through the mirror",
               os.path.exists(hook) and os.access(hook, os.X_OK), hook)
+        probe = subprocess.run([sys.executable, "-c", """
+from pathlib import Path
+from quality.lyric_reader import ROOT, lyric_items, calibration_items
+p = ROOT / 'corpus/song/eng_british_william_blake.txt'
+assert p.resolve().is_relative_to(ROOT), 'corpus escaped the shadow'
+raw = sum(t == 'The Garden Of Love' for t, _, _ in lyric_items(p))
+selected = sum(t == 'The Garden Of Love' for t, _, _ in calibration_items(p))
+assert (raw, selected) == (2, 1), (raw, selected)
+print('source printings 2, declared work votes 1')
+"""], cwd=tree, capture_output=True, text=True, timeout=60)
+        check("M-30: a real shadow preserves corpus paths and declared edition votes",
+              probe.returncode == 0, (probe.stdout + probe.stderr).strip())
         for t in (os.path.join("quality", "test_render_form.py"),
                   os.path.join("quality", "test_verify_entries.py")):
             st, dt, tail = mutate.run_test(tree, t, timeout=600)
@@ -1397,8 +1433,12 @@ if __name__ == "__main__":
         print(f"baseline-only: {len(tests)} test file(s) -> {path}", flush=True)
         bl = mutate.baseline(tests, a.jobs, path, force=True,
                              confirm_all=a.confirm_all, timeout=a.timeout)
+        # The memo identifies the measured snapshot. Rehashing the live tree
+        # here could label hours of work with files edited during that run.
+        with open(path) as stream:
+            measured_fingerprint = json.load(stream)["fingerprint"]
         print(f"baseline-only: completed in {time.time() - started:.1f}s; "
-              f"fingerprint {mutate.source_fingerprint()}")
+              f"fingerprint {measured_fingerprint}")
         mutate.report_baseline(bl, inventory=len(tests))
         # This command produces a memo; it does not qualify any mutation.
         print("baseline-only: memo produced; no mutation sweep was run")
@@ -1426,9 +1466,8 @@ if __name__ == "__main__":
             shutil.rmtree(mutate._SNAPSHOT["path"], ignore_errors=True)
             mutate._SNAPSHOT.pop("path", None)
         # THE TRIPWIRE WAS WELDED TO THE SWEEP, WHICH IS WHY NOBODY RAN IT.
-        # Sections 1-3 read the mutation list and seven source files and cost
-        # ~0.3 s (3f adds a measured 0.2 s shadow build and two sub-second
-        # suites); section 4 forks the whole test suite once per mutation and
+        # Sections 1-3 read the list/source and run bounded runner controls;
+        # section 4 forks the whole test suite once per mutation and
         # cost 4,984 s for nineteen mutations on 2026-08-13. Until 2026-08-14
         # there was no way to ask for the first without paying for the second,
         # so the assertion that would have caught QS3's drift the day it

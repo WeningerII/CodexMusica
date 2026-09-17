@@ -6960,6 +6960,44 @@ baseline measured in hours, and choosing that number is a cost decision this
 entry does not take. What is fixed is that the exclusion is now LOUD and can
 no longer be read as a passing sweep.
 
+**RECONCILIATION IN PROGRESS — 2026-09-17.** The closing 420-second
+limitation above was superseded by the measured table in `quality/mutate.py`:
+600 seconds by default, verbs 3,000, discriminate 1,800, capacity 1,000,
+loop 900, and plan/revise 1,600 each (the latter pair and the driver's default
+were repaired by M-178). No limit is raised in this follow-up.
+
+**THE REPORTING REGRESSED IN OTHER READERS.** The final report, cached
+baseline, and test driver's baseline-only/blind-spot summaries again collapsed
+unavailable evidence into already-red checks; a lazy shard even called its
+subset the whole suite. They now share one PASS/FAIL/ERROR/TIMEOUT report and
+name unmeasured inventory separately. Isolated confirmation supplies the
+final health in both timeout-to-failure and failure-to-timeout transitions.
+Each attempt retains its execution wall, bound and cause; gate waiting is
+outside execution time. Completed unittest assertion tracebacks are FAIL,
+while test errors remain ERROR. The completion fingerprint comes from the
+measured memo rather than a live tree that may have changed during the run.
+
+**THE CENSUS FOUND A REAL SHADOW EXCLUSION.** `test_production_data.py`
+completed with two failed checks, mislabeled ERROR. One child deliberately
+changes HOME and lost this session's user-site NLTK installation; the follow-up
+uses the same package version in a fully staged isolated environment. The
+other failure was the runner: its corpus symlink made `calibration_items`
+resolve outside the shadow root and bypass the declared edition policy.
+Blake's two source printings got two calibration votes. The shadow now copies
+corpus bytes, including large files. The existing reader again preserves both
+printings and selects one declared vote; no corpus text or policy changes.
+The repaired real-shadow baseline is **PASS in 187.8 seconds, one attempt,
+600-second bound** (190.226 seconds total phase wall).
+
+**PARTIAL PENDING THE FULL CENSUS**, which is still running over all 106
+baseline files on the recorded initial source. The twelve new regressions
+pass; eleven fail against the original runner. The three core mutations are
+caught over four passing baseline suites, with 102 explicitly unmeasured.
+[The evidence record](quality/results/m30_2026-09-17/README.md) retains source
+identity, failed controls, actual retries, environment limits and the measured
+scope. The separate round-trip fixture work belongs to M-146 and already
+merged in PR #324; it is preserved here.
+
 ### M-23 · `Structure` has no `kind="partition"`, and that is the same missing kind four times `OPEN`
 **Found 2026-08-21, and it is the one change that serves every spec-shaped
 structural source this project has located.**
@@ -24566,3 +24604,32 @@ Never summed (doctrine 79). **Every one of the fourteen AUCs that moved at all r
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~347~~ -> **348**.
 
 **348** with this entry (2026-09-17).
+
+### M-294 · Two pull requests that each move one entry the same way write BYTE-IDENTICAL counters rows, git merges them without a conflict marker, and the row lands wrong by one in each direction — twice in one afternoon, both caught by a hand-run simulation no gate performs `OPEN` 2026-09-17 — under the owner's order, verbatim: *"write up the counters gate gap as a MISSING entry"*
+
+**WHAT WAS THERE, AND WHY IT LOOKED SAFE.** `quality/counters.py` makes `BACKLOG.md`'s counters table an OUTPUT: the row `MISSING entries by status` is DERIVED over the status token of every `### M-` heading in `MISSING.md`, committed as one line, and `--check` fails when the committed line disagrees with the measurement. The fleet's working rule for landing many PRs was built on that row: *every PR's re-derived counters row is distinct, so each landing conflicts `lyric-harness/BACKLOG.md` on every other open PR* — merge one, re-derive the rest, and a textual conflict on that line is what forces the re-derivation. That rule is TRUE exactly when the rows DIFFER. This entry is about the case where they do not.
+
+**THE MECHANISM.** Two PRs branch from one base whose row reads `44 OPEN / 28 PARTIAL`. Each moves ONE entry OPEN→PARTIAL — different entries — and each regenerates the row with `counters.py --write`. Both write **`43 OPEN / 29 PARTIAL`**, the same bytes, because a derivation over the same base with the same delta produces the same output whatever entry moved. Git's three-way merge reads *both sides changed this line to the same text* and resolves it clean, no marker, `merge-tree` reporting zero conflicts. The merged tree now has TWO entries moved and a row that says one. The safety net the rule relied on is precisely what identical moves remove, and the more disciplined the authors — each one dutifully regenerating the row — the more reliably the rows coincide.
+
+**MEASURED, TWICE, ON 2026-09-17.** Each by the same procedure: merge the PR's live head into current `main` in a detached worktree and run `python3 quality/counters.py --check` on the result.
+
+| instance | sibling already on main | PR still open | both rows read | `merge-tree` | gate on the merged tree |
+|---|---|---|---|---|---|
+| 1 | #323 (M-166 OPEN→PARTIAL, merged 16:21Z) | #325 at `90bd3581` (M-79 OPEN→PARTIAL) | `44 OPEN / 28 PARTIAL` | 0 conflicts | **FAIL** — committed 44/28, measured 43/29 |
+| 2 | #325 (merged 17:02Z at `b61df9b7`) | #329 at `183aa436` (M-256 OPEN→PARTIAL) | `43 OPEN / 29 PARTIAL` | 0 conflicts | **FAIL** — committed 43/29, measured 42/30 |
+
+The control is the three PRs that did NOT trip it on the same bases: #324, #326 and #327 each moved no status, so each carried a row equal to its own base's and the three-way merge took main's side — `rc=0` all three. The defect needs two movers from one base, not merely two open PRs. Instance 1 was repaired before merge (the author merged main and re-ran `--write`; the gate then read `rc=0` on `26da9b52`). Instance 2 is reported on #329 and open at the time of writing.
+
+**WHY EVERY GATE MISSED IT, and it is one gap wearing three coats.** (1) The PR's own CI: `.github/workflows/ci.yml`'s `record` job runs `counters.py --check` on the checkout `actions/checkout` gives a `pull_request` run — `refs/pull/N/merge` **as it stood when the run started**. A sibling that merges after that moment invalidates the proof, and nothing re-derives before the merge button. Both instances' runs were green on a merge commit against a base that no longer existed. (2) Branch protection: an up-to-date rule would report `mergeable_state: behind` and block; #325 and #326 were both BEHIND `main` by `merge-base` and both reported `clean`, so no such rule exists and nothing between "green" and "merged" re-asks the question. (3) M-250's `dup` rule skips `record` on a push whose commit a `pull_request` run already covers — coverage is per COMMIT, so the stale merge-ref proof counts as coverage. What DOES catch it is main's own push run, `record` going red on `main` AFTER the landing: correct, and the wrong moment.
+
+**AND THE DETECTION THAT WORKED IS A PRIVATE INSTRUMENT (standing rule 3).** Both instances were found by a scratch procedure — worktree, merge, gate — run by hand, twice, from one session's memory. A check that lives in an agent's habit gets run exactly as often as that agent remembers it (doctrine 48), which is the defect this register exists to end. The finding is real and the instrument is not: that is why this entry is OPEN and not CLOSED.
+
+**WHAT WOULD CLOSE IT, PRICED AND NOT BUILT.** (a) `record` re-derives against the LIVE base: fetch `origin/main` and merge it (or `merge-tree`) into the checkout before `counters.py --check`, so a PR whose base moved shows the drift as ITS OWN red, ~3 minutes on the warm path, closing the window from a full CI cycle to the seconds between check and merge. This is the recommended shape: it reads the right tree at the right moment and charges the right PR. (b) A "require branches to be up to date" protection rule — the owner's setting, not repository content — which forces a full 1.5–2.5 h re-run per base move: the throughput problem the fleet rules exist to avoid, now enforced by policy. (c) Stop committing the row at all. Refused here: the committed row is the FAILING TEST `counters.py`'s own header argues for, and removing the copy removes the test.
+
+**THIS ENTRY IS THE THIRD INSTANCE WAITING TO HAPPEN, SAID SO IT CANNOT BE.** It adds one OPEN entry from base `fe9181f7` (row `43/29`, regenerated here to `44 OPEN / 29 PARTIAL = 349`). #329's pending repair moves one OPEN→PARTIAL from the same base to `42/30`. Whichever lands second carries a row the other has invalidated, and the merge will be clean; the second must re-run `counters.py --write` after merging main, on the row it did not write.
+
+**NOT CLAIMED.** That (a) is built — it is priced. That `main` went red on either instance — both were caught before landing. How often this happened before 2026-09-17 — not measured; the register's own history of counters-only fix commits would answer it and has not been read. That the mechanism is confined to the status row: any derived-and-committed line regenerated by two PRs from one base has the same shape, and the other counters in the table are candidates nobody has checked.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~348~~ -> **349**.
+
+**349** with this entry (2026-09-17).
