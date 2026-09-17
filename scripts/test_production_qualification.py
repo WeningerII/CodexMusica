@@ -6,10 +6,59 @@ import contextlib
 import io
 import json
 import tempfile
+import os
+import re
+import subprocess
 from pathlib import Path
 from unittest.mock import patch
 import production_qualification as Q
 from production_qualification import COMPONENTS, aggregate, spec
+
+
+class MatrixPlacementTests(unittest.TestCase):
+    def setUp(self):
+        workflows = Path(__file__).resolve().parents[1] / '.github' / 'workflows'
+        self.ci = (workflows / 'ci.yml').read_text()
+        self.qualification = (workflows / 'production-qualification.yml').read_text()
+
+    def job(self, name):
+        # The workflow's top-level two-space job idiom, as in test_shard.py;
+        # no third-party YAML dependency is required by this cheap control.
+        found = re.search(r'^  ' + re.escape(name) + r':\n(.*?)(?=^  [\w-]+:|\Z)',
+                          self.qualification, re.M | re.S)
+        self.assertIsNotNone(found, name)
+        return found.group(1)
+
+    def test_matrix_is_qualification_owned_while_pr_controls_remain(self):
+        self.assertFalse('uses: ./.github/workflows/capacity-matrix.yml' in self.ci,
+                         'PR CI still calls the full capacity matrix')
+        self.assertIn('uses: ./.github/workflows/capacity-matrix.yml', self.job('capacity-matrix'))
+        self.assertIn('uses: ./.github/workflows/capacity-proof.yml', self.ci)
+        self.assertIn('node scripts/check_lyrics_image.mjs', self.ci)
+        self.assertIn('python3 scripts/test_lyrics_capacity.py', self.ci)
+
+    def test_workflow_result_commands_refuse_missing_or_unsuccessful_matrix(self):
+        matrix = self.job('capacity-matrix-result')
+        self.assertIn('name: qualification-capacity-matrix', matrix)
+        self.assertRegex(matrix, r'(?m)^    needs: capacity-matrix$')
+        self.assertIn('RESULT: ${{ needs.capacity-matrix.result }}', matrix)
+        final = self.job('qualification-result')
+        needs = re.search(r'(?m)^    needs: \[([^\]]+)\]$', final)
+        self.assertIsNotNone(needs)
+        self.assertIn('capacity-matrix-result', [x.strip() for x in needs.group(1).split(',')])
+        self.assertIn('MATRIX_RESULT: ${{ needs.capacity-matrix-result.result }}', final)
+        for body, variable in [(matrix, 'RESULT'), (final, 'MATRIX_RESULT')]:
+            self.assertIn('if: always()', body)
+            command = re.search(r'(?m)^        run: (test .+)$', body)
+            self.assertIsNotNone(command)
+            for result in ['success', '', 'skipped', 'cancelled', 'failure']:
+                env = {**os.environ, 'RESULT': 'success', 'CAPACITY_RESULT': 'success',
+                       'MATRIX_RESULT': 'success', variable: result}
+                completed = subprocess.run(['bash', '-c', command.group(1)], env=env,
+                                           capture_output=True, timeout=5)
+                self.assertEqual(completed.returncode == 0, result == 'success',
+                                 (variable, result, completed.stderr))
+
 
 class EvidenceTests(unittest.TestCase):
     def setUp(self):

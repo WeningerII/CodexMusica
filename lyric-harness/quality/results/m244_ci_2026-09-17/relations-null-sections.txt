@@ -1,0 +1,12 @@
+==========================================================================
+RELATIONS NULLS · SECTION 9 (THE PANEL) — regressions
+==========================================================================
+
+§1 the panel is a partition of the registry
+  PASS  §1 every declared schema gets exactly one row (empty panel)
+          78 rows for 78 schemas
+  PASS  §1 every verdict is one of PANEL_VERDICTS
+          ['cannot_obtain_declarable']
+  PASS  §1 a schema no slice could ask still carries a REASON
+
+INTERRUPTED by operator, exit 130: redundant baseline stopped after the bounded baseline was inconclusive. No full-suite pass or timing claimed.

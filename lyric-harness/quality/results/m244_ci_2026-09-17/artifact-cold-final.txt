@@ -1,0 +1,41 @@
+  ...100 traditions
+  ...200 traditions
+  ...300 traditions
+  ...400 traditions
+  ...500 traditions
+  ...600 traditions
+  ...700 traditions
+  ...800 traditions
+  ...900 traditions
+  ...1000 traditions
+  ...1100 traditions
+  ...1200 traditions
+  ...1300 traditions
+  ...1400 traditions
+  ...1500 traditions
+  ...1600 traditions
+  ...1700 traditions
+  ...1800 traditions
+  ...1900 traditions
+  ...2000 traditions
+  ...2100 traditions
+  ...2200 traditions
+  ...2300 traditions
+  ...2400 traditions
+  ...2500 traditions
+Done: 2588 traditions (0 failed), 1467 instruments in 1676.8s -> /workspace/scratch/548bb52a274d/m244-fresh-final/api
+Self-verify OK: 2588/2588 traditions, all recipes <=1000 chars, all ids resolve.
+
+real	27m59.367s
+user	58m7.165s
+sys	0m14.545s
+Built /workspace/scratch/548bb52a274d/m244-fresh-final/codex.html (5,439,315 bytes)
+note: that is the resolved output dir, not the committed ./codex.html — that file is unchanged.
+      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)
+Wrote llms.txt, sitemap.xml (4064 urls), robots.txt, server.json to /workspace/scratch/548bb52a274d/m244-fresh-final, base=https://codexmusica.com
+=== Artifact reproducibility (committed == fresh build from source?) ===
+PASS — committed api/ (4060 files) + codex.html + sitemap.xml / llms.txt / robots.txt / server.json are byte-identical to a fresh build (modulo build timestamps).
+       The published artifact is provably a function of the source.
+BUILD CACHE RECORDED 3d326603b4065c78df90d4aa12dbb6e18443123cabf837bcb9cf0bb3a7a71c26 (4061 files)
+
+EXIT 0

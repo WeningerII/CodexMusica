@@ -1,0 +1,6 @@
+{
+  "argv": ["python3", "quality/suite_sweep.py", "--only", "*loop.py"],
+  "exit_code": 0,
+  "elapsed_s": 728.76,
+  "output": "SUITE SWEEP -- 1 suite(s), each running its own default arm\n  (this repairs nothing; a FAIL is read and fixed by hand)\n\n  [ 1/ 1] test_loop.py                             PASS          729s   total    729s\n\n======================================================================\n  PASS         1   the suite ran and every check passed\n  FAIL         0   the suite ran and something is red -- read it and fix it\n  CANNOT RUN   0   inconclusive by construction, NOT a pass (doctrine 20)\n  three counts, never summed (doctrine 79)\n\n  tree: e2b8519c throughout\n\n  WHERE THE TIME WENT (slowest 5 of 1):\n    test_loop.py                               729s\n\n  NOT IN THIS POPULATION (3), each with its reason in `EXCLUDED`: battery.py, quality/negative_control.py, quality/pin_sweep.py\n"
+}

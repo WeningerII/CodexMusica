@@ -128,7 +128,7 @@ def test_every_dealt_suite_calls_the_one_idiom():
     import re
     ci = open(os.path.join(HERE, "..", "..", ".github", "workflows",
                            "ci.yml"), encoding="utf-8").read()
-    dealt = sorted(set(re.findall(r"TEST_([A-Z]+)_SHARD:", ci)))
+    dealt = sorted(set(re.findall(r"TEST_([A-Z_]+)_SHARD:", ci)))
     check("ci.yml deals at least the five suites this entry moved",
           {"VERBS", "PLAN", "REVISE", "LOOP", "CAPACITY"} <= set(dealt),
           str(dealt))
@@ -180,10 +180,17 @@ def test_no_section_reads_what_another_section_wrote():
             if container:
                 shared |= {t.id for t in n.targets if isinstance(t, ast.Name)}
         shared.discard("FAILURES")
+        sections = set()
+        for node in tree.body:
+            if (isinstance(node, ast.Assign)
+                    and any(isinstance(t, ast.Name) and t.id == "_SECTIONS"
+                            for t in node.targets)
+                    and isinstance(node.value, (ast.Tuple, ast.List))):
+                sections.update(x.id for x in node.value.elts if isinstance(x, ast.Name))
         writers, readers = {}, {}
         for fn in tree.body:
             if not (isinstance(fn, ast.FunctionDef)
-                    and fn.name.startswith("test_")):
+                    and (fn.name.startswith("test_") or fn.name in sections)):
                 continue
             for node in ast.walk(fn):
                 if (isinstance(node, ast.Call)
@@ -206,7 +213,7 @@ def test_no_section_reads_what_another_section_wrote():
 
     ci = open(os.path.join(HERE, "..", "..", ".github", "workflows",
                            "ci.yml"), encoding="utf-8").read()
-    dealt = sorted(set(re.findall(r"TEST_([A-Z]+)_SHARD:", ci)))
+    dealt = sorted(set(re.findall(r"TEST_([A-Z_]+)_SHARD:", ci)))
     for name in dealt:
         path = os.path.join(HERE, f"test_{name.lower()}.py")
         found = handoffs(path) if os.path.exists(path) else [("(missing)", [], [])]
@@ -887,6 +894,63 @@ def test_the_backstop_can_still_reach_what_it_backs_up():
           not _reaches(1, gap), f"1h vs a {gap}-minute gap")
 
 
+def test_panel_sections_keep_the_pool_inventory_and_failure_gate():
+    """Execute CI's actual pool shell with cheap, observable child processes."""
+    import ast
+    import collections
+    import subprocess
+    import tempfile
+    import textwrap
+    print("\n11. M-244 panel sections partition inside the existing pool, failures still gate")
+    job = _ci_jobs()["suites"]
+    bodies = re.findall(r"^        run: \|\n((?:(?: {10}.*)?\n)+)", job, re.M)
+    script = next(textwrap.dedent(b) for b in bodies if "for f in relations_null " in b)
+    names = re.search(r"for f in (.*?); do", script, re.S).group(1).replace("\\", "").split()
+    env_value = re.search(r"TEST_RELATIONS_NULL_SHARD: (.*)", job).group(1)
+    n = int(env_value.rsplit("/", 1)[1])
+    check("panel coordinate uses this matrix's shard", "${{ matrix.shard }}" in env_value)
+    panel_tree = ast.parse(open(os.path.join(HERE, "test_relations_null.py"), encoding="utf-8").read())
+    declared = {node.name for node in panel_tree.body if isinstance(node, ast.FunctionDef)
+                and re.match(r"s\d+_", node.name)}
+    assignment = next(node for node in panel_tree.body if isinstance(node, ast.Assign)
+                      and any(isinstance(t, ast.Name) and t.id == "_SECTIONS" for t in node.targets))
+    sections = [x.id for x in assignment.value.elts]
+    check("every panel section is declared once", len(sections) == len(declared)
+          and set(sections) == declared)
+    seen, section_seen = [], []
+    with tempfile.TemporaryDirectory(prefix="m244-pool-") as tmp:
+        stub = os.path.join(tmp, "python3")
+        with open(stub, "w", encoding="utf-8") as f:
+            f.write('#!/bin/sh\nprintf "CALLED %s\\n" "$1"\n'
+                    '[ "$1" != "$FAIL_SUITE" ]\n')
+        os.chmod(stub, 0o755)
+        for k in range(1, n + 1):
+            local = script.replace("/tmp/suites-failed", os.path.join(tmp, "failed"))
+            local = local.replace("/tmp/suite-logs", os.path.join(tmp, "logs"))
+            env = dict(os.environ, PATH=tmp + os.pathsep + os.environ.get("PATH", ""),
+                       SUITES_SHARD=str(k), SUITES_SHARDS=str(n), FAIL_SUITE="")
+            run = subprocess.run(["bash", "-c", local], env=env, capture_output=True, text=True)
+            called = re.findall(r"^CALLED quality/test_(\w+)\.py$", run.stdout, re.M)
+            check(f"pool shard {k}/{n} executes and includes its panel partition",
+                  run.returncode == 0 and called.count("relations_null") == 1,
+                  run.stderr[-300:])
+            seen.extend(called)
+            _env(f"{k}/{n}")
+            section_seen.extend(S.dealt(sections, "TEST_SHARD_PROBE")[0])
+        counts = collections.Counter(seen)
+        expected = collections.Counter(names)
+        expected["relations_null"] = n
+        check("the actual shell runs every other suite once, the panel once per shard", counts == expected)
+        check("the panel's union contains every section exactly once",
+              collections.Counter(section_seen) == collections.Counter(declared))
+        env["FAIL_SUITE"] = "quality/test_relations_null.py"
+        run = subprocess.run(["bash", "-c", local], env=env, capture_output=True, text=True)
+        check("a failed panel partition fails the real pool gate and names the suite",
+              run.returncode == 1 and "FAILING SUITES" in run.stdout
+              and "quality/test_relations_null.py" in run.stdout)
+    _env(None)
+
+
 if __name__ == "__main__":
     for fn in (test_the_deal_is_exactly_once, test_a_bad_coordinate_refuses,
                test_run_sections_times_and_gates,
@@ -896,7 +960,8 @@ if __name__ == "__main__":
                test_every_cache_restore_key_can_reach_its_producer,
                test_no_result_gate_calls_a_cancelled_run_a_failure,
                test_the_two_qualification_tables_cannot_drift_apart,
-               test_the_backstop_can_still_reach_what_it_backs_up):
+               test_the_backstop_can_still_reach_what_it_backs_up,
+               test_panel_sections_keep_the_pool_inventory_and_failure_gate):
         fn()
     print("=" * 62)
     if FAILURES:

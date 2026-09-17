@@ -1,0 +1,25 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: the independent health budget must reach the POST
+
+0 !== 1
+
+    at file:///workspace/scratch/4cdaa09d1e77/CodexMusica-M-168/mcp/test_battery_lifecycle.mjs:153:16
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async fixture (file:///workspace/scratch/4cdaa09d1e77/CodexMusica-M-168/mcp/test_battery_lifecycle.mjs:103:5)
+    at async file:///workspace/scratch/4cdaa09d1e77/CodexMusica-M-168/mcp/test_battery_lifecycle.mjs:124:5
+    at async test (file:///workspace/scratch/4cdaa09d1e77/CodexMusica-M-168/mcp/test_battery_lifecycle.mjs:112:3)
+    at async file:///workspace/scratch/4cdaa09d1e77/CodexMusica-M-168/mcp/test_battery_lifecycle.mjs:121:3 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 0,
+  expected: 1,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0
+
+EXIT: 1

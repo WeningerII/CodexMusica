@@ -1,0 +1,20 @@
+.F
+======================================================================
+FAIL: test_backtrack_obligations_follow_token_occurrence_not_spelling (__main__.ProductionRevisionTests.test_backtrack_obligations_follow_token_occurrence_not_spelling) (outside='1.head')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e66437fb1b49/m256-baseline/lyric-harness/quality/test_production_revision.py", line 71, in test_backtrack_obligations_follow_token_occurrence_not_spelling
+    self.assertEqual(calls, expected)
+AssertionError: Lists differ: ['dog'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'dog'
+
+- ['dog']
++ []
+
+----------------------------------------------------------------------
+Ran 2 tests in 63.485s
+
+FAILED (failures=1)

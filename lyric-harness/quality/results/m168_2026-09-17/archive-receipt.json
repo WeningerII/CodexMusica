@@ -1,0 +1,15 @@
+{
+  "created": "2026-09-17T17:22:52.998Z",
+  "archive": "m168-recovery.enc",
+  "sha256": "d5f3f702e78e197e404a40548852e8c08f103afc03ffddc45cfec4833b561ebb",
+  "version": 1,
+  "cipher": "AES-256-GCM",
+  "files_count": 22,
+  "plaintext_bytes": 4160755,
+  "sealed_bytes": 7398397,
+  "restoration": {
+    "files_count": 22,
+    "all_bytes_identical": true
+  },
+  "scope": "Private local raw battery and three preflight records; no Actions remote-upload or total-runner-loss qualification claimed."
+}

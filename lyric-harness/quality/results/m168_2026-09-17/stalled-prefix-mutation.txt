@@ -1,0 +1,43 @@
+ok 1 - declared 500 ms budget owns socket setup and delivery
+ok 2 - declared 40 ms budget owns socket setup and delivery
+ok 3 - failed identity probe preserves the cause and never sends paid work
+ok 4 - persistent paced429 cannot borrow ordinary retry budget
+ok 5 - paced wait sum never admits a retry exceeding its remaining budget
+ok 6 - post-header aborted settles with durable transport outcome
+ok 7 - post-header invalid-json settles with durable transport outcome
+ok 8 - post-header deadline settles with durable transport outcome
+ok 9 - kill during first request leaves intent; resume retrieves completion without repeating POST
+ok 10 - ambiguous missing job is never reissued on resume
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: turn deadline: 3000000 ms (maxTurnMs 2400000 + CHAT_TOOL_TIMEOUT_MS 600000 ms, both read from source; maxSteps 14)
+::notice title=battery song 0 turn 0::status=200 ms=16.35215199999999 tools=1 answers_on_record=none stopped=CANCELLED user_reasks=0 malformed_hops=unrecorded draft_carried=0/1 proposals=1/0/0 paths=unrecorded
+::notice title=battery song 0 turn 1::status=200 ms=2.8621040000000164 tools=1 answers_on_record=none stopped=CANCELLED user_reasks=0 malformed_hops=unrecorded draft_carried=0/1 proposals=1/0/0 paths=unrecorded
+::notice title=battery cycle::song 0 cycle 1 (turns 0-2): stop=null rounds=null open=null whole=none answers=null accepted=1 rejected=0 unknown=0
+::notice title=battery song 0 turn 2::status=200 ms=2.2837209999999857 tools=1 answers_on_record=none stopped=none user_reasks=0 malformed_hops=unrecorded draft_carried=0/1 proposals=1/0/0 paths=unrecorded
+::notice title=battery verdict::song 0: finished
+song 0: 3 turn(s), stop=exit 0, flags=0
+  loop ladder: (no call reached a stop condition)
+
+recorded to /tmp/battery-lifecycle-88Dkt3 — the transcript is the deliverable; the leak charging happens off it.
+
+
+0 !== 1
+
+    at file:///workspace/scratch/4cdaa09d1e77/CodexMusica-M-168/mcp/test_battery_lifecycle.mjs:485:16
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async fixture (file:///workspace/scratch/4cdaa09d1e77/CodexMusica-M-168/mcp/test_battery_lifecycle.mjs:103:5)
+    at async file:///workspace/scratch/4cdaa09d1e77/CodexMusica-M-168/mcp/test_battery_lifecycle.mjs:476:5
+    at async test (file:///workspace/scratch/4cdaa09d1e77/CodexMusica-M-168/mcp/test_battery_lifecycle.mjs:112:3)
+    at async file:///workspace/scratch/4cdaa09d1e77/CodexMusica-M-168/mcp/test_battery_lifecycle.mjs:444:3 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 0,
+  expected: 1,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

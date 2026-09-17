@@ -1,0 +1,232 @@
+$ python3 lyric-harness/quality/test_shard.py (expected exit 0)
+
+1. every section runs EXACTLY ONCE across a full k=1..n matrix, for every n that CI uses or might
+  PASS  n=1 k=1: the shard reports its coordinate and holds only indices ≡ 0 (mod 1)
+  PASS  n=1: the union of the shards is the whole tuple, each section once, in tuple order within a shard
+  PASS  n=2 k=1: the shard reports its coordinate and holds only indices ≡ 0 (mod 2)
+  PASS  n=2 k=2: the shard reports its coordinate and holds only indices ≡ 1 (mod 2)
+  PASS  n=2: the union of the shards is the whole tuple, each section once, in tuple order within a shard
+  PASS  n=3 k=1: the shard reports its coordinate and holds only indices ≡ 0 (mod 3)
+  PASS  n=3 k=2: the shard reports its coordinate and holds only indices ≡ 1 (mod 3)
+  PASS  n=3 k=3: the shard reports its coordinate and holds only indices ≡ 2 (mod 3)
+  PASS  n=3: the union of the shards is the whole tuple, each section once, in tuple order within a shard
+  PASS  n=4 k=1: the shard reports its coordinate and holds only indices ≡ 0 (mod 4)
+  PASS  n=4 k=2: the shard reports its coordinate and holds only indices ≡ 1 (mod 4)
+  PASS  n=4 k=3: the shard reports its coordinate and holds only indices ≡ 2 (mod 4)
+  PASS  n=4 k=4: the shard reports its coordinate and holds only indices ≡ 3 (mod 4)
+  PASS  n=4: the union of the shards is the whole tuple, each section once, in tuple order within a shard
+  PASS  n=5 k=1: the shard reports its coordinate and holds only indices ≡ 0 (mod 5)
+  PASS  n=5 k=2: the shard reports its coordinate and holds only indices ≡ 1 (mod 5)
+  PASS  n=5 k=3: the shard reports its coordinate and holds only indices ≡ 2 (mod 5)
+  PASS  n=5 k=4: the shard reports its coordinate and holds only indices ≡ 3 (mod 5)
+  PASS  n=5 k=5: the shard reports its coordinate and holds only indices ≡ 4 (mod 5)
+  PASS  n=5: the union of the shards is the whole tuple, each section once, in tuple order within a shard
+  PASS  n=6 k=1: the shard reports its coordinate and holds only indices ≡ 0 (mod 6)
+  PASS  n=6 k=2: the shard reports its coordinate and holds only indices ≡ 1 (mod 6)
+  PASS  n=6 k=3: the shard reports its coordinate and holds only indices ≡ 2 (mod 6)
+  PASS  n=6 k=4: the shard reports its coordinate and holds only indices ≡ 3 (mod 6)
+  PASS  n=6 k=5: the shard reports its coordinate and holds only indices ≡ 4 (mod 6)
+  PASS  n=6 k=6: the shard reports its coordinate and holds only indices ≡ 5 (mod 6)
+  PASS  n=6: the union of the shards is the whole tuple, each section once, in tuple order within a shard
+  PASS  n=8 k=1: the shard reports its coordinate and holds only indices ≡ 0 (mod 8)
+  PASS  n=8 k=2: the shard reports its coordinate and holds only indices ≡ 1 (mod 8)
+  PASS  n=8 k=3: the shard reports its coordinate and holds only indices ≡ 2 (mod 8)
+  PASS  n=8 k=4: the shard reports its coordinate and holds only indices ≡ 3 (mod 8)
+  PASS  n=8 k=5: the shard reports its coordinate and holds only indices ≡ 4 (mod 8)
+  PASS  n=8 k=6: the shard reports its coordinate and holds only indices ≡ 5 (mod 8)
+  PASS  n=8 k=7: the shard reports its coordinate and holds only indices ≡ 6 (mod 8)
+  PASS  n=8 k=8: the shard reports its coordinate and holds only indices ≡ 7 (mod 8)
+  PASS  n=8: the union of the shards is the whole tuple, each section once, in tuple order within a shard
+  PASS  n=12 k=1: the shard reports its coordinate and holds only indices ≡ 0 (mod 12)
+  PASS  n=12 k=2: the shard reports its coordinate and holds only indices ≡ 1 (mod 12)
+  PASS  n=12 k=3: the shard reports its coordinate and holds only indices ≡ 2 (mod 12)
+  PASS  n=12 k=4: the shard reports its coordinate and holds only indices ≡ 3 (mod 12)
+  PASS  n=12 k=5: the shard reports its coordinate and holds only indices ≡ 4 (mod 12)
+  PASS  n=12 k=6: the shard reports its coordinate and holds only indices ≡ 5 (mod 12)
+  PASS  n=12 k=7: the shard reports its coordinate and holds only indices ≡ 6 (mod 12)
+  PASS  n=12 k=8: the shard reports its coordinate and holds only indices ≡ 7 (mod 12)
+  PASS  n=12 k=9: the shard reports its coordinate and holds only indices ≡ 8 (mod 12)
+  PASS  n=12 k=10: the shard reports its coordinate and holds only indices ≡ 9 (mod 12)
+  PASS  n=12 k=11: the shard reports its coordinate and holds only indices ≡ 10 (mod 12)
+  PASS  n=12 k=12: the shard reports its coordinate and holds only indices ≡ 11 (mod 12)
+  PASS  n=12: the union of the shards is the whole tuple, each section once, in tuple order within a shard
+  PASS  unset runs everything, in order, and reports no coordinate — the local command nobody has to relearn
+  PASS  an EMPTY value is unset, not a refusal
+
+2. a malformed or out-of-range coordinate REFUSES rather than running the whole suite as if it were its share
+  PASS  '0/4' refuses by name
+  PASS  '5/4' refuses by name
+  PASS  '2' refuses by name
+  PASS  'a/b' refuses by name
+  PASS  '1/0' refuses by name
+
+3. run_sections times every section it ran, prints them slowest first, runs `always` on every shard, and gates on the failures list AFTER the sections ran
+  PASS  shard 1/2: exit 0 on an empty failures list and the footer is the last line
+  PASS  shard 1/2: `always` ran here too, first
+  PASS  shard 1/2: the dealt sections are the residue class
+  PASS  shard 1/2: SECTION COST names every section that ran and the TOTAL counts them (dealt + always)
+  PASS  shard 2/2: exit 0 on an empty failures list and the footer is the last line
+  PASS  shard 2/2: `always` ran here too, first
+  PASS  shard 2/2: the dealt sections are the residue class
+  PASS  shard 2/2: SECTION COST names every section that ran and the TOTAL counts them (dealt + always)
+  PASS  a non-empty failures list exits 1 and prints FAILING, never the footer
+  PASS  ...and unset ran all five
+
+4. every suite CI deals calls `quality.shard.run_sections` and keeps no residue arithmetic of its own (doctrine 1)
+  PASS  ci.yml deals at least the five suites this entry moved
+          ['CAPACITY', 'LOOP', 'PLAN', 'RELATIONS_NULL', 'REVISE', 'VERBS']
+  PASS  test_capacity.py calls run_sections and spells no `% n ==` residue of its own (in code; comments may explain it)
+          /workspace/scratch/548bb52a274d/CodexMusica-M244-work/lyric-harness/quality/test_capacity.py
+  PASS  test_loop.py calls run_sections and spells no `% n ==` residue of its own (in code; comments may explain it)
+          /workspace/scratch/548bb52a274d/CodexMusica-M244-work/lyric-harness/quality/test_loop.py
+  PASS  test_plan.py calls run_sections and spells no `% n ==` residue of its own (in code; comments may explain it)
+          /workspace/scratch/548bb52a274d/CodexMusica-M244-work/lyric-harness/quality/test_plan.py
+  PASS  test_relations_null.py calls run_sections and spells no `% n ==` residue of its own (in code; comments may explain it)
+          /workspace/scratch/548bb52a274d/CodexMusica-M244-work/lyric-harness/quality/test_relations_null.py
+  PASS  test_revise.py calls run_sections and spells no `% n ==` residue of its own (in code; comments may explain it)
+          /workspace/scratch/548bb52a274d/CodexMusica-M244-work/lyric-harness/quality/test_revise.py
+  PASS  test_verbs.py calls run_sections and spells no `% n ==` residue of its own (in code; comments may explain it)
+          /workspace/scratch/548bb52a274d/CodexMusica-M244-work/lyric-harness/quality/test_verbs.py
+
+5. in a dealt suite no section READS module state another section WROTE -- a verdict that depends on section order is a verdict that depends on the deal (doctrine 66)
+  PASS  test_capacity.py: no section reads a container another section mutated
+          []
+  PASS  test_loop.py: no section reads a container another section mutated
+          []
+  PASS  test_plan.py: no section reads a container another section mutated
+          []
+  PASS  test_relations_null.py: no section reads a container another section mutated
+          []
+  PASS  test_revise.py: no section reads a container another section mutated
+          []
+  PASS  test_verbs.py: no section reads a container another section mutated
+          []
+  PASS  PLANTED: a list one section appends and another reads IS found, named by writer and reader; a section-local list is not
+          [('_SEEN', ['test_a'], ['test_b'])]
+
+6. every CI event owns completed evidence; push/PR twins cannot cancel the only run doing work (BCI-07)
+  PASS  the workflow may ASK whether a PR covers this commit (`pull-requests: read`)
+  PASS  and whether the default branch already ran it (`actions: read`)
+  PASS  `dup` publishes the answer as an output every job can read
+          ['capacity', 'capacity-proof', 'capacity-proof-result', 'capacity-result', 'catalog', 'catalog-result', 'dup', 'freshness', 'gate', 'lyrics-image', 'mutation', 'nightly', 'plan', 'plan-result', 'record', 'revision-loop', 'revision-loop-result', 'suites', 'suites-result', 'tandem', 'verbs', 'verbs-result', 'verify']
+  PASS  `dup` answers before anything else: it needs nothing
+  PASS  and it stays fast: no checkout, no setup-node, no npm
+  PASS  `gate` is not exempt from the answer it used to publish
+  PASS  every job that runs off `dup` carries the guard
+          19 downstream:
+  PASS  mutation needs no guard because it cannot run on a push
+  PASS  nightly needs no guard because it cannot run on a push
+  PASS  tandem needs no guard because it cannot run on a push
+  PASS  coverage is produced by an explicit local command
+  PASS  `dup` asks the pull-request question, by endpoint
+  PASS  ...filtered to OPEN pull requests whose HEAD is this exact commit
+  PASS  ...and asks nothing else: no workflow-runs question (M-251 is not restored, and a run can conclude success having skipped every job)
+  PASS  an OPEN pull request whose head IS this commit -> true
+  PASS  deny-by-default: no open pull request has this head -> false
+  PASS  deny-by-default: HTTP 403 (the permission is missing) -> false
+  PASS  deny-by-default: the network failed (rc 7) -> false
+  PASS  deny-by-default: `gh` is not installed (rc 127) -> false
+  PASS  deny-by-default: the body does not parse as a count -> false
+  PASS  deny-by-default: the body is empty -> false
+  PASS  deny-by-default: the event is a pull_request -> false
+  PASS  deny-by-default: the event is a workflow_dispatch -> false
+  PASS  deny-by-default: the event is a schedule -> false
+  PASS  deny-by-default: the push is to the default branch -> false
+  PASS  `jq` is REACHABLE, so the filter cases below are ASKED rather than skipped (`apt-get install jq`)
+          jq present
+  PASS  REAL jq: an open PR at THIS sha -> true
+  PASS  REAL jq: an open PR at a DIFFERENT sha -> false
+  PASS  REAL jq: a CLOSED PR at this sha -> false
+  PASS  REAL jq: no pull request at all -> false
+  PASS  PLANTED: the stub that never asks IS caught
+  PASS  PLANTED: deny-by-default inverted IS caught
+  PASS  push and PR concurrency groups include the event coordinate
+  PASS  production runs are never cancelled by a newer run
+  PASS  PLANTED: a downstream job whose guard was dropped IS caught
+          capacity
+
+7. every cache restore-key prefix names a producer whose `path:` list is byte-identical, so the entry it names is reachable (M-264)
+  PASS  the sweep found the cache steps to check at all
+          18 step(s): capacity-matrix.yml, capacity-proof.yml, ci.yml, production-qualification.yml
+  PASS  every named producer is reachable from the step that names it
+  PASS  PLANTED: a consumer that grows a second `path:` entry IS caught
+
+8. every `*-result` fan-in gates on `!cancelled()`, so a run somebody superseded is not reported as a defect
+  PASS  the sweep found the fan-in jobs to check at all
+          capacity-proof-result, capacity-result, catalog-result, plan-result, revision-loop-result, suites-result, verbs-result
+  PASS  every `*-result` job carries an `if:` at all
+          []
+  PASS  and none of them gates on `always()`, which includes cancelled
+  PASS  PLANTED: one job put back on `always()` IS caught
+
+9. the Python and JavaScript qualification tables agree, component for component and argument for argument
+  PASS  the JavaScript table can be read at all (it must export COMPONENTS and expectedCommand)
+  PASS  both sides list the same components, in the same order
+          py ['mutation-1', 'mutation-2', 'mutation-3', 'mutation-4', 'mutation-5', 'mutation-6', 'mutation-7', 'mutation-8', 'mutation-9', 'mutation-10', 'mutation-11', 'mutation-12', 'mutation-13', 'mutation-14', 'mutation-15', 'mutation-16', 'song', 'short', 'curves'] vs js ['mutation-1', 'mutation-2', 'mutation-3', 'mutation-4', 'mutation-5', 'mutation-6', 'mutation-7', 'mutation-8', 'mutation-9', 'mutation-10', 'mutation-11', 'mutation-12', 'mutation-13', 'mutation-14', 'mutation-15', 'mutation-16', 'song', 'short', 'curves']
+  PASS  and both derive the same command for every one of them
+  PASS  the workflow declares its component matrix where this can read it
+  PASS  and the matrix is exactly the components the table declares
+          matrix ['mutation-1', 'mutation-2', 'mutation-3', 'mutation-4', 'mutation-5', 'mutation-6', 'mutation-7', 'mutation-8', 'mutation-9', 'mutation-10', 'mutation-11', 'mutation-12', 'mutation-13', 'mutation-14', 'mutation-15', 'mutation-16', 'song', 'short', 'curves'] vs table ['mutation-1', 'mutation-2', 'mutation-3', 'mutation-4', 'mutation-5', 'mutation-6', 'mutation-7', 'mutation-8', 'mutation-9', 'mutation-10', 'mutation-11', 'mutation-12', 'mutation-13', 'mutation-14', 'mutation-15', 'mutation-16', 'song', 'short', 'curves']
+  PASS  PLANTED: a table that lost a component IS caught
+
+10. the qualification backstop fires after the qualification, names a workflow that exists, and looks back far enough to see it
+  PASS  the backstop declares the workflow it dispatches
+  PASS  and that workflow is a file in .github/workflows
+          production-qualification.yml
+  PASS  both workflows carry exactly one cron this can compare
+          ['23 1 * * *'] vs ['47 2 * * *']
+  PASS  the backstop fires after the qualification and on the same night
+          23 1 * * * vs 47 2 * * * -> 84 min
+  PASS  neither cron sits on the contended top of the hour
+          23 1 * * * vs 47 2 * * *
+  PASS  the backstop declares a default lookback
+  PASS  and the lookback window reaches back past the qualification's cron
+          lookback 6h vs a 84-minute gap
+  PASS  the backstop holds the one permission a dispatch requires
+  PASS  PLANTED: the target test applied to a renamed workflow refuses
+          production-qualification-renamed.yml
+  PASS  PLANTED: a backstop 30 minutes BEFORE the qualification IS caught
+          gap would read 1410 min
+  PASS  PLANTED: a lookback too short to see the primary IS caught
+          1h vs a 84-minute gap
+
+11. M-244 panel sections partition inside the existing pool, failures still gate
+  PASS  panel coordinate uses this matrix's shard
+  PASS  every panel section is declared once
+  PASS  pool shard 1/3 executes and includes its panel partition
+  PASS  pool shard 2/3 executes and includes its panel partition
+  PASS  pool shard 3/3 executes and includes its panel partition
+  PASS  the actual shell runs every other suite once, the panel once per shard
+  PASS  the panel's union contains every section exactly once
+  PASS  a failed panel partition fails the real pool gate and names the suite
+==============================================================
+one deal, exactly once, timed, everywhere it is used
+EXIT 0
+$ node scripts/test_artifact_build_cache.js (expected exit 0)
+artifact build cache: source/runtime invalidation and damaged-cache controls pass
+EXIT 0
+$ node scripts/artifact_build_cache.js admit /workspace/scratch/548bb52a274d/m244-fresh-final (expected exit 1)
+BUILD CACHE MISS; rebuild required
+EXIT 1
+$ npm run check:closure (expected exit 0)
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> codex-music-tool@2.0.0 check:closure
+> node scripts/check_build_closure.js && node scripts/test_artifact_build_cache.js
+
+=== Build closure is sound ===
+
+  ✓ all 7979 tracked files classified — 4822 in closure, 3157 inert
+  ✓ all 32 file(s) read by a real build of all three artifacts are in the closure
+  ✓ all 3 artifact builders actually ran under the tracer
+
+BUILD CLOSURE: PASS — every tracked file is classified, and every file a real build
+of api/ + codex.html + the discovery files reads is inside the closure.
+artifact build cache: source/runtime invalidation and damaged-cache controls pass
+EXIT 0
+$ node scripts/check_doc_paths.js (expected exit 0)
+=== Documented path existence ===
+  present 256   ignored 0   declared-unreproducible 8   MISSING 0
+  (four counts, never summed — doctrine 79)
+PASS — every documented path is present, git-ignored, or declared unreproducible.
+EXIT 0
