@@ -1,0 +1,31 @@
+
+3i. M-30 baseline scope, exclusions and confirmation receipts
+  FAIL  M-30: isolated health replaces the initial status in both directions
+  FAIL  M-30: a confirmed check reports its roll-up, not incidental stderr
+  FAIL  M-30: unittest assertion tracebacks are failed checks, errors stay errors
+  FAIL  M-30: every initial and isolated attempt retains its status and cost
+  PASS  M-30: cache preserves the complete receipt and runs no child
+  FAIL  M-30: cold report separates failed checks, crashes and timeouts
+  FAIL  M-30: cached report separates failed checks, crashes and timeouts
+  FAIL  M-30: final report separates failed checks, crashes and timeouts
+  FAIL  M-30: unmeasured suites are disclosed separately from exclusions
+  FAIL  M-30: baseline-only CLI keeps the exclusions and its memo-only scope
+  FAIL  M-30: reported execution cost excludes the runner's gate wait
+          92.0
+
+3f. the shadow reaches what the suites read (M-176)
+  PASS  every repo-root path the three suites read resolves from the shadow harness dir
+          missing: none of 5
+  PASS  and the Stop hook keeps its executable bit through the mirror
+          /workspace/scratch/5119e7706e0e/m30-before-controls/mutant-ex399c0d/.claude/render_form_hook.sh
+  FAIL  M-30: a real shadow preserves corpus paths and declared edition votes
+          Traceback (most recent call last):
+  File "<string>", line 5, in <module>
+AssertionError: corpus escaped the shadow
+  PASS  quality/test_render_form.py is GREEN inside the shadow, as at head
+          PASS in 13.4s:
+  PASS  quality/test_verify_entries.py is GREEN inside the shadow, as at head
+          PASS in 4.2s:
+  PASS  shadow_root names the disposable wrapper, one level up
+          /workspace/scratch/5119e7706e0e/m30-before-controls/mutant-ex399c0d
+CONTROL failures: 11

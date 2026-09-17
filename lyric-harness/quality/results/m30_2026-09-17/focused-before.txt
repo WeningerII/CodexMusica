@@ -1,0 +1,14 @@
+
+3i. M-30 baseline scope, exclusions and confirmation receipts
+  FAIL  M-30: isolated health replaces the initial status in both directions
+  FAIL  M-30: a confirmed check reports its roll-up, not incidental stderr
+  FAIL  M-30: every initial and isolated attempt retains its status and cost
+  PASS  M-30: cache preserves the complete receipt and runs no child
+  FAIL  M-30: cold report separates failed checks, crashes and timeouts
+  FAIL  M-30: cached report separates failed checks, crashes and timeouts
+  FAIL  M-30: final report separates failed checks, crashes and timeouts
+  FAIL  M-30: unmeasured suites are disclosed separately from exclusions
+  FAIL  M-30: baseline-only CLI keeps the exclusions and its memo-only scope
+  FAIL  M-30: reported execution cost excludes the runner's gate wait
+          92.0
+CONTROL failures: 9

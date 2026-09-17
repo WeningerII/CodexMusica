@@ -6960,6 +6960,44 @@ baseline measured in hours, and choosing that number is a cost decision this
 entry does not take. What is fixed is that the exclusion is now LOUD and can
 no longer be read as a passing sweep.
 
+**RECONCILIATION IN PROGRESS — 2026-09-17.** The closing 420-second
+limitation above was superseded by the measured table in `quality/mutate.py`:
+600 seconds by default, verbs 3,000, discriminate 1,800, capacity 1,000,
+loop 900, and plan/revise 1,600 each (the latter pair and the driver's default
+were repaired by M-178). No limit is raised in this follow-up.
+
+**THE REPORTING REGRESSED IN OTHER READERS.** The final report, cached
+baseline, and test driver's baseline-only/blind-spot summaries again collapsed
+unavailable evidence into already-red checks; a lazy shard even called its
+subset the whole suite. They now share one PASS/FAIL/ERROR/TIMEOUT report and
+name unmeasured inventory separately. Isolated confirmation supplies the
+final health in both timeout-to-failure and failure-to-timeout transitions.
+Each attempt retains its execution wall, bound and cause; gate waiting is
+outside execution time. Completed unittest assertion tracebacks are FAIL,
+while test errors remain ERROR. The completion fingerprint comes from the
+measured memo rather than a live tree that may have changed during the run.
+
+**THE CENSUS FOUND A REAL SHADOW EXCLUSION.** `test_production_data.py`
+completed with two failed checks, mislabeled ERROR. One child deliberately
+changes HOME and lost this session's user-site NLTK installation; the follow-up
+uses the same package version in a fully staged isolated environment. The
+other failure was the runner: its corpus symlink made `calibration_items`
+resolve outside the shadow root and bypass the declared edition policy.
+Blake's two source printings got two calibration votes. The shadow now copies
+corpus bytes, including large files. The existing reader again preserves both
+printings and selects one declared vote; no corpus text or policy changes.
+The repaired real-shadow baseline is **PASS in 187.8 seconds, one attempt,
+600-second bound** (190.226 seconds total phase wall).
+
+**PARTIAL PENDING THE FULL CENSUS**, which is still running over all 106
+baseline files on the recorded initial source. The twelve new regressions
+pass; eleven fail against the original runner. The three core mutations are
+caught over four passing baseline suites, with 102 explicitly unmeasured.
+[The evidence record](quality/results/m30_2026-09-17/README.md) retains source
+identity, failed controls, actual retries, environment limits and the measured
+scope. The separate round-trip fixture work belongs to M-146 and already
+merged in PR #324; it is preserved here.
+
 ### M-23 · `Structure` has no `kind="partition"`, and that is the same missing kind four times `OPEN`
 **Found 2026-08-21, and it is the one change that serves every spec-shaped
 structural source this project has located.**

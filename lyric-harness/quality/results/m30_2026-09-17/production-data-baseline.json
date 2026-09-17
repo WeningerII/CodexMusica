@@ -1,0 +1,23 @@
+{
+  "fingerprint": "2134bdfecbcc0cc0cb3979807df9798c8c7a4b0bd85547af62a2e448917ea7bb",
+  "config": {
+    "jobs": 1,
+    "confirm_all": false,
+    "timeout": null
+  },
+  "results": {
+    "quality/test_production_data.py": {
+      "status": "PASS",
+      "seconds": 187.8,
+      "detail": "",
+      "bound_seconds": 600,
+      "attempts": [
+        {
+          "status": "PASS",
+          "seconds": 187.8,
+          "detail": ""
+        }
+      ]
+    }
+  }
+}

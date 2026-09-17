@@ -1,0 +1,324 @@
+source_before {"quality/mutate.py": "aff64998e165c2b12441f06206cf0ab4c8ca1ca5c86d0448a33f4e6168799670", "quality/test_mutation.py": "9f0331b0a6fa3ba2049a0613a144bc97c70c9443836b8f80a40dec7419f6e4c6"}
+
+1. the mutation list itself
+  PASS  names are unique
+  PASS  the declared inventory is exactly 58 mutations (58)
+          declared 58, pinned 58. If you ADDED a mutation or RETIRED one with a reason, move DECLARED_TOTAL in the same commit. If you did neither, a mutation has gone missing and the fix is to restore it: an anchor closed by deleting its mutation is a hole closed by removing the probe that found it.
+  PASS  ...and by series: M 33, Q 25
+          named neither M* nor Q*: none
+  PASS  every layer of CLAUDE.md's triage rule is mutated
+          covered ['anchor', 'band', 'comparator', 'ingestion', 'projection', 'structure', 'value']; missing []; unknown []
+  PASS    anchor: 4 mutation(s)
+  PASS    band: 9 mutation(s)
+  PASS    comparator: 9 mutation(s)
+  PASS    ingestion: 4 mutation(s)
+  PASS    projection: 2 mutation(s)
+  PASS    structure: 20 mutation(s)
+  PASS    value: 10 mutation(s)
+  PASS  every mutation carries a rationale of real length
+          a planted defect with no stated reason is a puzzle, not a test
+  PASS  every decision-carrying module is mutated by name
+          7 file(s) mutated: ['battery.py', 'lyric_harness.py', 'quality/fit.py', 'quality/floor.py', 'quality/grid.py', 'quality/revise.py', 'quality/schemes.py']
+  PASS  the runner excludes this file from its test inventory
+  PASS  ...and this file also refuses to run inside the runner
+          belt and braces: the environment guard fires even if the list above is edited
+  PASS  M1's declared subset names existing tests
+          missing []
+  PASS  M2's declared subset names existing tests
+          missing []
+  PASS  M3's declared subset names existing tests
+          missing []
+  PASS  M4's declared subset names existing tests
+          missing []
+  PASS  M5's declared subset names existing tests
+          missing []
+  PASS  M6's declared subset names existing tests
+          missing []
+  PASS  M7's declared subset names existing tests
+          missing []
+  PASS  M32's declared subset names existing tests
+          missing []
+  PASS  M33's declared subset names existing tests
+          missing []
+  PASS  M8's declared subset names existing tests
+          missing []
+  PASS  M9's declared subset names existing tests
+          missing []
+  PASS  M10's declared subset names existing tests
+          missing []
+  PASS  M11's declared subset names existing tests
+          missing []
+  PASS  M12's declared subset names existing tests
+          missing []
+  PASS  M13's declared subset names existing tests
+          missing []
+  PASS  M14's declared subset names existing tests
+          missing []
+  PASS  M15's declared subset names existing tests
+          missing []
+  PASS  M16's declared subset names existing tests
+          missing []
+  PASS  M17's declared subset names existing tests
+          missing []
+  PASS  M18's declared subset names existing tests
+          missing []
+  PASS  M19's declared subset names existing tests
+          missing []
+  PASS  M20's declared subset names existing tests
+          missing []
+  PASS  M21's declared subset names existing tests
+          missing []
+  PASS  M22's declared subset names existing tests
+          missing []
+  PASS  M23's declared subset names existing tests
+          missing []
+  PASS  M24's declared subset names existing tests
+          missing []
+  PASS  M30's declared subset names existing tests
+          missing []
+  PASS  M31's declared subset names existing tests
+          missing []
+  PASS  M25's declared subset names existing tests
+          missing []
+  PASS  M26's declared subset names existing tests
+          missing []
+  PASS  M27's declared subset names existing tests
+          missing []
+  PASS  M28's declared subset names existing tests
+          missing []
+  PASS  M29's declared subset names existing tests
+          missing []
+  PASS  QF1's declared subset names existing tests
+          missing []
+  PASS  QF2's declared subset names existing tests
+          missing []
+  PASS  QF3's declared subset names existing tests
+          missing []
+  PASS  QF4's declared subset names existing tests
+          missing []
+  PASS  QF5's declared subset names existing tests
+          missing []
+  PASS  QR1's declared subset names existing tests
+          missing []
+  PASS  QR2's declared subset names existing tests
+          missing []
+  PASS  QR3's declared subset names existing tests
+          missing []
+  PASS  QR4's declared subset names existing tests
+          missing []
+  PASS  QR5's declared subset names existing tests
+          missing []
+  PASS  QR6's declared subset names existing tests
+          missing []
+  PASS  QR7's declared subset names existing tests
+          missing []
+  PASS  QS1's declared subset names existing tests
+          missing []
+  PASS  QS2's declared subset names existing tests
+          missing []
+  PASS  QS3's declared subset names existing tests
+          missing []
+  PASS  QS4's declared subset names existing tests
+          missing []
+  PASS  QS5's declared subset names existing tests
+          missing []
+  PASS  QG1's declared subset names existing tests
+          missing []
+  PASS  QG2's declared subset names existing tests
+          missing []
+  PASS  QG3's declared subset names existing tests
+          missing []
+  PASS  QG4's declared subset names existing tests
+          missing []
+  PASS  QT1's declared subset names existing tests
+          missing []
+  PASS  QT2's declared subset names existing tests
+          missing []
+  PASS  QT3's declared subset names existing tests
+          missing []
+  PASS  QT4's declared subset names existing tests
+          missing []
+
+2. every mutation still applies cleanly (STALE != SURVIVED)
+  PASS  all 58 anchors name exactly one site in the file they target
+          a drifted anchor is a finding about this LIST, not a hole in the suite. Re-anchor it, or retire the mutation WITH A REASON -- do not delete it silently, because the mutation is the only record that the defect was ever detectable.
+
+3. M1 is the head/tail alignment revert, verbatim
+  PASS  M1 exists
+  PASS  M1 reverts the TAIL slice to a HEAD slice
+          ta, tb = anc_a[-n:], anc_b[-n:]  ->  ta, tb = anc_a[:n], anc_b[:n]
+  PASS  M1 targets the shipped comparator
+
+3b. the three-way outcome — SURVIVED is earned, not defaulted
+  PASS  caught: neither survived nor indeterminate
+  PASS  nothing caught it and every declared catcher ANSWERED -> SURVIVED, which is the only shape that earns the word 'hole'
+  PASS  a catcher that ran and timed out -> INDETERMINATE
+  PASS  a catcher the BASELINE DROPPED -> INDETERMINATE, not a hole — the clause that was missing
+  PASS  both at once is still one verdict, not two
+  PASS  a catch OUTRANKS both — a mutation that was detected is detected however noisy the run was
+  PASS  over all 8 combinations exactly one of caught/survived/indeterminate holds
+          []
+          0 mutation(s) declare quality/test_capacity.py in a subset; 0 would lose their WHOLE subset to it
+  PASS  no mutation currently loses its whole declared subset to the slowest suite — recorded, because it is what makes the missing clause harmless TODAY rather than always
+          []
+  PASS  an all-INDETERMINATE sweep cannot pass release
+          ['every mutation reached a conclusive verdict', 'M1 -- reverting the head/tail alignment fix -- is CAUGHT', 'CONTROL M5 (the coda channel forced True) is caught', 'CONTROL M9 (theta_rhyme 0.75 -> 0.50) is caught']
+  PASS  the standalone sweep also refuses incomplete evidence
+  PASS  every positive control demands an actual catch
+          ['every mutation reached a conclusive verdict', 'M1 -- reverting the head/tail alignment fix -- is CAUGHT', 'CONTROL M5 (the coda channel forced True) is caught', 'CONTROL M9 (theta_rhyme 0.75 -> 0.50) is caught']
+  PASS  a red baseline elsewhere in the tree does not fail a clean shard
+          []
+  PASS  and nothing else fails on it either
+          []
+  PASS  a survivor whose own detector was excluded still fails the shard
+          ['no survivor lost its baseline detector', 'M1 -- reverting the head/tail alignment fix -- is CAUGHT']
+  PASS  the shared baseline's config is the config the sweep looks up
+          produced {'jobs': 9, 'confirm_all': False, 'timeout': None} vs consumed {'jobs': 9, 'confirm_all': False, 'timeout': None}
+  PASS  --baseline-only does not change the sweep's own knobs
+  PASS  data-only changes invalidate the mutation baseline
+  PASS  runtime changes invalidate the mutation baseline
+
+3c. a failing suite's reported cause is its own verdict
+  PASS  a red suite is FAIL
+          FAIL
+  PASS  its reported cause is its OWN roll-up, not the stray stderr
+          1 FAILING: the real reason
+  PASS  a crash is still ERROR and still reports its traceback
+            File "/tmp/tmpn0auxec1/quality/test_zz_crash.py", line 1, in <module
+
+3d. the bounds are declared per suite, and only ever raise
+  PASS  every SUITE_TIMEOUT key names a file that exists — a bound on a renamed suite is a declared coordinate pointing at nothing
+          []
+  PASS  every entry RAISES above the default, or it is doing nothing
+          {}
+  PASS  a listed suite gets its own, larger bound
+  PASS  an unlisted suite gets the default
+  PASS  `--timeout` raises the floor for an unlisted suite
+  PASS  ...and NEVER lowers a listed one below its declared bound
+          3000s
+  PASS  a `--timeout` above every entry raises those too
+  PASS  the listed suites are exactly the ones measured above the default (four on 2026-08-22, two more on 2026-08-30) — another is an edit here, not a silent drop there
+          set()
+
+3e. the shard sets partition the declared list
+  PASS  for EVERY N from 1 to 58, shards 1..N together are exactly the 58 declared mutation(s), each once — the stride is swept, not spot-checked, so no N can be the one that drops a member
+          N=1..58
+  PASS  the round-robin stride balances BY COUNT: at N=4 the slice sizes are [15, 15, 14, 14], max-min <= 1 — a claim about how many mutations a shard asks, NOT about how long it takes (measured 171m41s against >200m on two equal-count shards)
+          [15, 15, 14, 14]
+
+3f. the shadow reaches what the suites read (M-176)
+  PASS  every repo-root path the three suites read resolves from the shadow harness dir
+          missing: none of 5
+  PASS  and the Stop hook keeps its executable bit through the mirror
+          /workspace/scratch/5119e7706e0e/m30-final-verified/mutant-4w8b7ls1/.claude/render_form_hook.sh
+  PASS  M-30: a real shadow preserves corpus paths and declared edition votes
+          source printings 2, declared work votes 1
+  PASS  quality/test_render_form.py is GREEN inside the shadow, as at head
+          PASS in 8.3s:
+  PASS  quality/test_verify_entries.py is GREEN inside the shadow, as at head
+          PASS in 3.2s:
+  PASS  shadow_root names the disposable wrapper, one level up
+          /workspace/scratch/5119e7706e0e/m30-final-verified/mutant-4w8b7ls1
+
+3g. the premised allowlist withholds escalation, and nothing else
+  PASS  every premised entry is an allowlist entry -- the shortcut is earned by the argument, never by the listing
+          set()
+  PASS  every premise names a declared mutation, distinct from its entry
+          {'M4': 'M11'}
+  PASS  escalate=False runs the declared subset and NOTHING after it
+          [('subset', ['quality/test_band.py', 'quality/test_mut_band.py', 'quality/test_coda.py'])]
+  PASS  escalate=True runs the subset and then the REST of the green suite
+          [('subset', ['quality/test_band.py', 'quality/test_mut_band.py', 'quality/test_coda.py']), ('escalated-full', ['quality/test_zzz_other.py', 'quality/test_zzz_more.py'])]
+  PASS  full mode is one batch either way -- the flag has no purchase there
+  PASS  a subset that the baseline dropped is not on the plan under either flag
+      1 premised entry of 1 allowlisted run subset-only: M4 (premise M11)
+
+3h. the baseline is the declared suites; the cache is a ledger
+  PASS  subset mode needs exactly the union of the declared subsets, in inventory order
+          ['quality/test_align.py', 'quality/test_audit_regressions.py', 'quality/test_band.py', 'quality/test_coda.py', 'quality/test_english_text.py', 'quality/test_fit.py', 'quality/test_floor.py', 'quality/test_grid.py', 'quality/test_loop.py', 'quality/test_mandate_language.py', 'quality/test_meter.py', 'quality/test_mut_band.py', 'quality/test_mut_oracle.py', 'quality/test_nucleus.py', 'quality/test_phonology.py', 'quality/test_relations.py', 'quality/test_revise.py', 'quality/test_song_function.py', 'quality/test_taxonomy.py']
+  PASS  that union is a fraction of the inventory -- the saving is real
+          19 of 106
+  PASS  full mode needs the whole inventory
+  PASS  no shard of 16 needs more than a quarter of the inventory up front
+          largest shard needs 10 of 106
+      whole sweep needs 19 of 106; the largest of 16 shards needs 10
+  PASS  a cold call runs what it is asked for
+          ['a.py', 'b.py']
+  PASS  a later call runs ONLY what the ledger does not hold
+          ['c.py']
+  PASS  a call the ledger covers runs nothing and answers over exactly what was asked
+          []
+  PASS  the ledger holds everything measured so far
+          ['a.py', 'b.py', 'c.py']
+  PASS  force discards the ledger and re-measures -- a rebaseline is a rebaseline
+          ['a.py'] ['a.py']
+
+3i. M-30 baseline scope, exclusions and confirmation receipts
+  PASS  M-30: isolated health replaces the initial status in both directions
+  PASS  M-30: a confirmed check reports its roll-up, not incidental stderr
+  PASS  M-30: unittest assertion tracebacks are failed checks, errors stay errors
+  PASS  M-30: every initial and isolated attempt retains its status and cost
+  PASS  M-30: cache preserves the complete receipt and runs no child
+  PASS  M-30: cold report separates failed checks, crashes and timeouts
+  PASS  M-30: cached report separates failed checks, crashes and timeouts
+  PASS  M-30: final report separates failed checks, crashes and timeouts
+  PASS  M-30: unmeasured suites are disclosed separately from exclusions
+  PASS  M-30: baseline-only CLI keeps the exclusions and its memo-only scope
+  PASS  M-30: reported execution cost excludes the runner's gate wait
+          2.0
+   ... phase 1 of 2: unmutated baseline over 4 of 106 test file(s) -- the suites these 3 mutation(s) declare; the other 102 only if one escalates -- 0 of 3 mutation(s) started
+baseline: running 4 checks unmutated (6c099031af6e0c86bbc114dc58a0ea8f1ba3f6c9824f4bdf48fa39654b049137) ...
+  BASELINE-PASS  quality/test_coda.py  2.9s in 1 attempt(s), bound 600s
+  BASELINE-PASS  quality/test_band.py  4.5s in 1 attempt(s), bound 600s
+  BASELINE-PASS  quality/test_mut_band.py  3.6s in 1 attempt(s), bound 600s
+  BASELINE-PASS  quality/test_taxonomy.py  14.5s in 1 attempt(s), bound 600s
+BASELINE: 4 test file(s) measured; 4 PASS, 0 FAIL, 0 ERROR, 0 TIMEOUT
+   ... phase 1 of 2 done (21s elapsed); phase 2 is 3 mutation(s)
+   ... 1 of 3 mutation(s) resolved (28s elapsed)
+   ... 2 of 3 mutation(s) resolved (35s elapsed)
+   ... 3 of 3 mutation(s) resolved (55s elapsed)
+   ... phase 2 of 2 done (55s elapsed); the baseline covered 4 of 106 test file(s), 0 escalation(s)
+
+==============================================================================
+MUTATION REPORT  (subset mode, seed 20260811)
+==============================================================================
+BASELINE: 4 of 106 test file(s) measured; 4 PASS, 0 FAIL, 0 ERROR, 0 TIMEOUT
+  NOT MEASURED: 102 test file(s); no whole-inventory coverage claim
+mut   layer       scope                  caught by
+------------------------------------------------------------------------------
+M1    band        subset                 test_mut_band.py[FAIL]
+M5    band        subset                 test_band.py[FAIL], test_coda.py[FAIL], test_mut_band.py[FAIL]
+M9    comparator  subset                 test_mut_band.py[FAIL]
+------------------------------------------------------------------------------
+3/3 caught, 0 SURVIVED, 0 INDETERMINATE, 0 stale   wall clock 54.7s
+
+4. the verdict   (54.7s wall clock, subset mode)
+  PASS  no mutation is STALE
+          [] -- the code moved under the list. Fix the anchors; this is not a hole in the suite.
+  PASS  every mutation reached a conclusive verdict
+          INDETERMINATE: []; rerun incomplete detectors before release
+  PASS  no survivor lost its baseline detector
+          []
+  PASS  the surviving set is empty, or exactly the declared allowlist
+          3 of 3 mutations caught; allowlist has 1 entry
+  PASS  the allowlist has no dead entries
+          [] are allowlisted but ARE now caught. Remove them: an allowlist that outlives its reason is a licence nobody re-read.
+  PASS  M1 -- reverting the head/tail alignment fix -- is CAUGHT
+          caught by test_mut_band.py
+  PASS  CONTROL M5 (the coda channel forced True) is caught
+          a control that stops being caught means the runner stopped running, not that the code got safer
+  PASS  CONTROL M9 (theta_rhyme 0.75 -> 0.50) is caught
+          a control that stops being caught means the runner stopped running, not that the code got safer
+  PASS  the working tree is exactly as it was found
+          every mutation's original text is intact and no mutant text is present. Mutations are applied only to shadow copies.
+
+5. blind spots, REPORTED (these are not assertions)
+BASELINE: 4 of 106 test file(s) measured; 4 PASS, 0 FAIL, 0 ERROR, 0 TIMEOUT
+  NOT MEASURED: 102 test file(s); no whole-inventory coverage claim
+  NOTE  battery.py caught 0 of 3 mutations, AND THAT NUMBER MEANS ALMOST NOTHING -- read the next two sentences before quoting it.
+        It USED to mean something. Until 9396946 battery.py's `__main__` printed and returned, so its exit status was 0 whatever the sonnet numbers said, and the oracle every result in CLAUDE.md is quoted against had never been an assertion. That is fixed: battery.py pins the four counts, exits 1 on drift, and `run_test` decides on returncode -- so it IS a detector now.
+        But the count above is an artifact of the PLAN, not a measurement of the detector. battery.py is appended last and the escalation only runs when the declared subset MISSED, so on a run where the subset catches everything battery.py is never executed and scores 0. A perfect detector and a useless one produce the same number here. To measure it, run a mutant against battery.py alone. quality/test_mut_oracle.py is the standing assertion.
+==============================================================================
+adversary 4 holds ON CORE: M1, M5, M9. The other declared mutations were not run.
+source_after {"quality/mutate.py": "aff64998e165c2b12441f06206cf0ab4c8ca1ca5c86d0448a33f4e6168799670", "quality/test_mutation.py": "9f0331b0a6fa3ba2049a0613a144bc97c70c9443836b8f80a40dec7419f6e4c6"}
+exit_code 0 command_wall_seconds 76.239
