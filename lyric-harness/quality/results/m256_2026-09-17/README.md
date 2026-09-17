@@ -173,3 +173,20 @@ PARTIAL status and the new OPEN entry. The [integration checks](integration-95c8
 bind that combined record to the unchanged five tested source hashes.
 The prior CI success is historical evidence; the updated PR head gets its
 own CI run before merge.
+
+Main then advanced through PR #332 (M-282), at
+`d2541f449fa5209bf55e7b9b22ce8ac9a436aecc`. Its placement of the full
+capacity matrix in exact-commit Production qualification is retained, along
+with the release verifier's mandatory matrix result. CI still owns the
+runtime capacity proof, image smoke checks, and acceptance controls. The
+merge is clean and all five M-256 source hashes remain unchanged. The
+[integration receipt](integration-d2541f44.json) records the combined counter
+check, release/qualification controls, comparator/triage checks, and profiler
+control.
+
+The superseded CI run `35255858129` had one known failure: the unchanged
+profiler timing fixture expected `wall_deadline` but hit its 50 ms
+`phase_deadline`. Its eight tests passed locally, including on the combined
+tree. No assertion or production behavior was changed. The original failed
+job `105319673586` remains the evidence; that CI attempt is not counted as
+green, and the next published head must pass its own CI before merge.
