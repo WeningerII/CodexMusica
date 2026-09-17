@@ -49,7 +49,7 @@ From `lyric-harness`, with CMUdict and the research assets staged:
 python3 -c "import lyric_harness; lyric_harness.fetch_data()"
 python3 quality/fetch_data.py --research
 python3 quality/test_plan.py
-python3 quality/suite_sweep.py --only 'test_slots.py'
+python3 quality/test_slots.py
 python3 quality/check_comparator_pin.py
 ```
 
@@ -94,7 +94,13 @@ The initial published-head CI failed formatting on `record-gates.json`, which
 was generated after the earlier local format run. The index was formatted,
 and the complete final file set was checked again. The original failure log
 is retained in [initial-ci-gate.json](results/m146_round_trip_2026-09-17/initial-ci-gate.json).
-No test or production behavior changed in this publication correction.
+The next CI run passed formatting and caught the reproduction block's suite
+filter being interpreted as a file path. The example now names the direct
+slot-suite entry point. This was reproduced locally after the report joined
+the tracked file set; the earlier path check did not scan that untracked
+report. [second-ci-gate.json](results/m146_round_trip_2026-09-17/second-ci-gate.json)
+preserves this failure. The tracked final document set passes the path check.
+No test or production behavior changed in either publication correction.
 
 ## Scope
 
