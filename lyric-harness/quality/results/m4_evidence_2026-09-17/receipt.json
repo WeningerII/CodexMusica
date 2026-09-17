@@ -1,0 +1,25 @@
+{
+  "base_commit": "50e4de4459f2055ce01d45cfc6ee67dcdb2e1640",
+  "source": {
+    "repository": "https://github.com/GITenberg/Malay-Magic-Being-an-introduction-to-the-folklore-and-popular-religion-of-the-Malay-Peninsula_47873",
+    "commit": "f5dd00edd79cdf6e5eed40635d38d6feb71cb2c8",
+    "file": "47873-8.txt",
+    "bytes": 1422204,
+    "md5": "19e717af1a18fbc845e5c6a386fdaa4d",
+    "sha256": "149a2b77a583981c8a9115e715ba79a952dd7b937d2888833efaacf745f037d8"
+  },
+  "command": "MSA_SOURCE=/workspace/scratch/eeaf902a4721/Malay-Magic-M-4/47873-8.txt python3 quality/audit_register.py --only M-4 --slow --json",
+  "runs": {
+    "before": {
+      "stdout": "before.txt",
+      "exit_code": 1,
+      "audit_register_sha256": "9bfac1aab3e66b80b04b85f2c66e1c823a231f02efb15cbbb70e6c400c9edc80"
+    },
+    "after": {
+      "stdout": "after.txt",
+      "exit_code": 0,
+      "audit_register_sha256": "d8ab5466af458499ee493bea2d507c995f089defc88ce6cc63b7edfe6095b6e0"
+    }
+  },
+  "scope": "M-4 derivations only; full stdout reports preserved. No claim that historical Finnish 155 -> 139 or the old Malay-language subset was reconstructed."
+}
