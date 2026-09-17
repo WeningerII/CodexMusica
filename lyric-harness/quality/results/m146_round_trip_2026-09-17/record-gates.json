@@ -1,0 +1,56 @@
+[
+  {
+    "argv": ["python3", "quality/verify_entries.py"],
+    "exit_code": 0,
+    "seconds": 234.801,
+    "output": "verify_entries.txt"
+  },
+  {
+    "argv": ["python3", "quality/verify_doctrines.py"],
+    "exit_code": 0,
+    "seconds": 18.183,
+    "output": "verify_doctrines.txt"
+  },
+  {
+    "argv": ["python3", "quality/battery_rounds.py", "--check"],
+    "exit_code": 0,
+    "seconds": 0.281,
+    "output": "battery_rounds.txt"
+  },
+  {
+    "argv": ["python3", "quality/counters.py", "--check"],
+    "exit_code": 0,
+    "seconds": 241.06,
+    "output": "counters.txt"
+  },
+  {
+    "argv": ["python3", "quality/verify_figures.py", "--check"],
+    "exit_code": 0,
+    "seconds": 0.405,
+    "output": "verify_figures.txt"
+  },
+  {
+    "argv": ["python3", "quality/gate_census.py", "--check"],
+    "exit_code": 0,
+    "seconds": 35.514,
+    "output": "gate_census.txt"
+  },
+  {
+    "argv": ["python3", "quality/pin_sweep.py", "--verify-argv"],
+    "exit_code": 0,
+    "seconds": 4.315,
+    "output": "pin_sweep.txt"
+  },
+  {
+    "argv": ["python3", "quality/audit_register.py", "--check"],
+    "exit_code": 0,
+    "seconds": 24.776,
+    "output": "audit_register.txt"
+  },
+  {
+    "argv": ["python3", "quality/check_comparator_pin.py"],
+    "exit_code": 0,
+    "seconds": 1.06,
+    "output": "check_comparator_pin.txt"
+  }
+]

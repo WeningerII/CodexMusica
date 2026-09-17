@@ -1,0 +1,130 @@
+{
+  "base_commit": "fcebe7066b44943ccc199760b0471e7d2ae4b437",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "test_plan_sha256": "8effad1e7fdae51764735d5169f84b63543958949086cac4a4b161dd12e45621",
+  "test_plan_git_blob": "7c0b48414636e96695d342f897281f956d975852",
+  "baseline_test_plan_git_blob": "a5183ac03ab65607b603b9dd1455df81ba84da43",
+  "runs": [
+    {
+      "command": "python3 quality/test_plan.py",
+      "exit_code": 0,
+      "receipt": "after-suite.txt"
+    },
+    {
+      "command": "python3 quality/suite_sweep.py --only test_slots.py",
+      "exit_code": 0,
+      "receipt": "slots.txt"
+    },
+    {
+      "command": "python3 quality/verify_entries.py --entry M-146",
+      "exit_code": 0,
+      "receipt": "entry-final.txt"
+    },
+    {
+      "command": "python3 quality/counters.py --write",
+      "exit_code": 0,
+      "receipt": "counters-write.txt"
+    },
+    {
+      "command": "npm run lint",
+      "exit_code": 0,
+      "receipt": "lint.txt"
+    },
+    {
+      "command": "npm run format:check",
+      "exit_code": 0,
+      "receipt": "format.txt"
+    },
+    {
+      "command": "npm run check-docs",
+      "exit_code": 0,
+      "receipt": "docs.txt"
+    },
+    {
+      "command": "npm run check:closure",
+      "exit_code": 0,
+      "receipt": "closure.txt"
+    },
+    {
+      "command": "npm run check:promises",
+      "exit_code": 0,
+      "receipt": "promises.txt"
+    },
+    {
+      "command": "npm run format:check (complete final file set after CI correction)",
+      "exit_code": 0,
+      "receipt": "final-format.txt"
+    },
+    {
+      "command": "node scripts/check_doc_paths.js (tracked final files)",
+      "exit_code": 0,
+      "receipt": "final-doc-paths.txt"
+    }
+  ],
+  "raw_receipts": {
+    "after-suite.txt": "621c5c9d7b936c642e1ffe1f62655d9de84a71b6489dbdd16d29150d7d9952ce",
+    "audit_register.txt": "a3cd37c960debdd3e0964b665c340fb479c393166527d0f2d1e3f18d6928d435",
+    "battery_rounds.txt": "cb13758a8e7c8f55f2552e7afdfc26226d1928917ce3b879132244055d78cda0",
+    "before.txt": "d29aa9f6b06ae39f4001f410489bc50f4c9a5627d9cee87de4cac696878da122",
+    "check_comparator_pin.txt": "24008cee1c675db2c1dae0f1788408cc6a7f60489456c126c1984255dcb3f4e9",
+    "closure.txt": "a9f9b49154d7fcebefa156d3ca09e353557f381c1df02a12e47a9a2ca4654508",
+    "counters-write.txt": "d56ce7b0d3f2c12a0e16720e7749eaa080fe031f9c6edb39cecc7b6d1e37a924",
+    "counters.txt": "436f1f95635de4374e98b59ec4b3fcab2efdbba7304f4d73bf9ec591e0f3070a",
+    "docs.txt": "70013330a56b2657febfdaa40266717fe9cca7a7758939b41ff0e4b68f825092",
+    "entry-final.txt": "f6a8eb40eafa91a49d4b1d42b44fd81f9ff6583cae8d575ce71c1b5c30195091",
+    "format.txt": "23d4d3e85336664b2389f0b0a669aa717b75722e1dc4300719c3fafb352112b7",
+    "gate_census.txt": "6cc9674fcbb3dce5f8e413e7aa6b51f6721c2992d2a7b9f376aff65c97f4a92e",
+    "lint.txt": "ef11d31c254e7adcb216a05575838c4b3d847c27befb58028ed1d1b6c58522ba",
+    "pin_sweep.txt": "5e1f4c2a405137ec48e308ba0cb2eb3817c51dfa77de1b96b56b54116c150ab1",
+    "promises.txt": "cd41f4e57be7206fe3cb9d791270cc19b9096d206881a75d4ed93fd4172a9aa9",
+    "slots.txt": "aced3fe7f559a2d9a208bfb1c95ea0a2bc0743ca98f3d093c33e69af231d4add",
+    "verify_doctrines.txt": "7a7f92931eb8687ec3247803994da2999af7f1bde8560691d0797f78571ea28c",
+    "verify_entries.txt": "f549a548b4ee9850033baeb2150bc149f0a925a6857fa764ccf886c2e5d6e34b",
+    "verify_figures.txt": "d72c07933c7ac88ee42e2e97a7069422487c8c38cedf158ebd92016299ace45b"
+  },
+  "receipt_normalization": "Text copies trim trailing whitespace and blank EOF lines only. raw-stdout.zip preserves original stdout/stderr bytes.",
+  "receipts": {
+    "after-suite.txt": "0ebc7d643fe8fe2013f35d6b4fcaa48470aa43b68978508153592efdc534537c",
+    "audit_register.txt": "ed1341a663deedc96a0f6cc297490823dbec52fd92ade6630d4150adf73d42d6",
+    "battery_rounds.txt": "cb13758a8e7c8f55f2552e7afdfc26226d1928917ce3b879132244055d78cda0",
+    "before.txt": "d29aa9f6b06ae39f4001f410489bc50f4c9a5627d9cee87de4cac696878da122",
+    "check_comparator_pin.txt": "24008cee1c675db2c1dae0f1788408cc6a7f60489456c126c1984255dcb3f4e9",
+    "closure.txt": "a9f9b49154d7fcebefa156d3ca09e353557f381c1df02a12e47a9a2ca4654508",
+    "counters-write.txt": "d56ce7b0d3f2c12a0e16720e7749eaa080fe031f9c6edb39cecc7b6d1e37a924",
+    "counters.txt": "436f1f95635de4374e98b59ec4b3fcab2efdbba7304f4d73bf9ec591e0f3070a",
+    "docs.txt": "70013330a56b2657febfdaa40266717fe9cca7a7758939b41ff0e4b68f825092",
+    "entry-final.txt": "ac4277b55f93816ef1bb49a34690d55d4eeaef13f1f134bb300e42502c95a20c",
+    "final-doc-paths.txt": "3ef71da5cf4f22446eaf22c50cde833ea5af95da1626b049077e7737a0b1ce48",
+    "final-format.txt": "23d4d3e85336664b2389f0b0a669aa717b75722e1dc4300719c3fafb352112b7",
+    "format.txt": "23d4d3e85336664b2389f0b0a669aa717b75722e1dc4300719c3fafb352112b7",
+    "gate_census.txt": "6cc9674fcbb3dce5f8e413e7aa6b51f6721c2992d2a7b9f376aff65c97f4a92e",
+    "initial-ci-gate.json": "739adafb4807b82f6da89cdc6dcae819fe99bbdbb2cbb0a29c7b250b5118a46f",
+    "lint.txt": "bb4bd7e298bae6956d59c814561cee6d691c0fdfad11f36ed44dae6169edf44e",
+    "pin_sweep.txt": "5e1f4c2a405137ec48e308ba0cb2eb3817c51dfa77de1b96b56b54116c150ab1",
+    "promises.txt": "cd41f4e57be7206fe3cb9d791270cc19b9096d206881a75d4ed93fd4172a9aa9",
+    "raw-stdout.zip": "01661e1c6412651bb7a6615f7db95a7b4655f78d77ff292b9c5fae6336549c1e",
+    "record-gates.json": "2a8b01291df24cb43924c4ab11d2183f41269466edb36d731484b99d98727176",
+    "second-ci-gate.json": "0ec763a853a7c7d43aa96dc2bc49ee21e891011a0f50cf8fbe88bdd84b7c2665",
+    "slots.txt": "aced3fe7f559a2d9a208bfb1c95ea0a2bc0743ca98f3d093c33e69af231d4add",
+    "verify_doctrines.txt": "7a7f92931eb8687ec3247803994da2999af7f1bde8560691d0797f78571ea28c",
+    "verify_entries.txt": "f549a548b4ee9850033baeb2150bc149f0a925a6857fa764ccf886c2e5d6e34b",
+    "verify_figures.txt": "d72c07933c7ac88ee42e2e97a7069422487c8c38cedf158ebd92016299ace45b"
+  },
+  "publication_corrections": [
+    {
+      "initial_head": "f8a4db7545394291dcf0376a5372e8ed37927e42",
+      "initial_ci_run": 35243843654,
+      "initial_conclusion": "failure",
+      "failed_step": "Formatting (prettier --check)",
+      "repair": "Format the generated record-gates.json index; no source behavior changed."
+    },
+    {
+      "initial_head": "e1357c5c13822f0fadc95a1c07b58c127e35b2a3",
+      "initial_ci_run": 35244211019,
+      "initial_conclusion": "failure",
+      "failed_step": "Docs drift + documented-command validity",
+      "repair": "Document the direct slot-suite command; check tracked final paths."
+    }
+  ]
+}

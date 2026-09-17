@@ -10372,8 +10372,67 @@ number; (b) is cheaper and leaves the strongest rule in the taxonomy as
 someone else's footnote. **Nothing is changed until that is ruled**, because a
 doctrine number is the owner's vocabulary and not a session's.
 
-### M-79 · the first end-to-end run: the pipeline stops at WRITE, because nothing checks that a plan is writable `OPEN` — measured 2026-08-23
-> **TESTED WHILE OPEN.** `quality/test_plan.py` section 10 names this entry and
+### M-79 · the first end-to-end run: joint plan-writability checks beyond individually legal constraints `PARTIAL` — measured 2026-08-23; updated 2026-09-17
+**CURRENT DISPOSITION, 2026-09-17.** The original heading, *"the pipeline
+stops at WRITE, because nothing checks that a plan is writable"*, is
+superseded. M-80 built the joint gate; M-82 made the seed search a verb;
+M-112, M-171 and M-191 supplied binding disclosures, a free-word reserve and
+a plan-level density draw. The production repair merged in PR #248 also
+made explicit `--want` predicates condition generation itself. None of
+these is a proof that every emitted mandate admits coherent lyrics.
+
+**THE REMAINING INDEPENDENT CHECK IS NOW BUILT.** M-171's reserve was held
+by the sampler but not by the final gate. A plan binding `head`, `T2`, `T3`,
+`T4` and `end` on a five-slot line passed `joint_findings`: every position
+was reachable, all five words fit, and no free word remained. The gate now
+emits `NO_FREE_WORD` when distinct bound words plus the existing
+`WORDS_LEFT_FREE` reserve exceed the integer capacity of this line, bounded
+by both its grid and the density ceiling. Aliases count once; returns add
+no new binding; roomy sparse lines remain permitted. This enforces the
+declared writing reserve, not a claim that fully bound words cannot form
+a sentence. It does not replace the sampler's conservative band-floor cap
+with a new distribution or retune any calibration.
+
+Three regressions in `quality/test_production_harness.py` fail on the
+original implementation and pass with this repair: the saturated line,
+the density ceiling despite surplus slots, and refusal before the writer's
+brief. Contrasts cover a spare word, fractional slots, subdivision, alias
+collisions and a reachable high token index with few actual bindings.
+The explicit-brief test now includes section use, order and participation
+alongside length, stanza size and group size, and checks the joint gate.
+**TESTED WHILE OPEN.** These regressions guard the repaired arithmetic
+reserve and explicit preference selection. They do not establish the
+complete mandate's simultaneous lexical feasibility or grammatical lyrics;
+that precise remainder below keeps this entry PARTIAL despite passing tests.
+
+**THE HISTORICAL FIGURES ARE NOT CURRENT WRITABILITY RATES.** Receipts and
+exact commands are in `quality/results/m79_joint_writability_2026-09-17/README.md`.
+At base `fcebe706` with this repair, the current CLI's transcription of
+Finding 2's shape predicates accepts **23 of 399** seeds (1–399), with
+399 planned and zero refused. Its slots predicate reads the widest line;
+the joint gate separately checks every line's lower bound. This is a new,
+fully specified reading, not a reproduction of the old private script.
+`quality/test_plan.py` section 10's six-preference sweep accepts **5 of 160**
+unconditioned seeds; its intersection and minority assertions are retained,
+with the wording corrected to describe preferences rather than writability.
+Over seeds 0–199, **200 of 200** meet `pins_per_line<=4`, **78 of 200** meet
+`bound_words_per_line<=1.5`, and **132 of 200** place the chorus first;
+all 200 contain both verse and chorus, and all 200 plan without refusal.
+The old 3.3%, five-pin and 56% claims remain historical below. No new
+corpus-order measurement or rate-matched default is claimed: order is a
+caller declaration, not an impossibility when the other order is drawn.
+
+**PRECISE REMAINDER.** Word-dependent feasibility of the complete coupled
+mandate within its syllable budgets is still not established. M-174's
+two-member overhang budget is one separately assigned part of that problem;
+a family-size certificate, free-word reserve or empty joint-finding list
+does not provide a simultaneous lexical witness, still less grammatical
+lyrics. This entry stays PARTIAL on that requirement. No draft was written
+or graded as a completion witness in this repair. The independent reserve
+check can merge without waiting for that separate implementation; no
+comparator input changed and the comparator gate HOLDS without a repin.
+
+> **HISTORICAL TEST DISPOSITION (superseded above).** `quality/test_plan.py` section 10 names this entry and
 > PINS FINDING 2 as an INEQUALITY, never as a count — that section struck a seed
 > list twice in one day (M-106, M-107) and says why, so recording a third would
 > be recording the same fragility again. Six undemanding predicates accept a
@@ -16221,7 +16280,35 @@ with this entry (doctrine 17, the superseded value kept visible): the
 register grew by one because M-145 is one more entry, which is what that
 counter counts.
 
-### M-146 · the round trip pinned the miscount M-144 repaired `CLOSED` — the fixture half is a separate finding and stays open
+### M-146 · Round-trip fixtures grade every mandated obligation `CLOSED` 2026-09-17
+
+**The remaining fixture work is complete.** `quality/test_plan.py` now fills
+lines with `birds carry bright morning bells strike {BANK}`. Both fixture
+modes preserve the old seven-token layout and each token's syllable count,
+and continue to copy the plan's declared returns verbatim. Every token and
+every named planner placement is checked across the whole bank for a real
+anchor. Pronunciation choices remain explicit on the full round trip.
+
+The sweep now requires `mandated == judged > 0` and `refused == 0`, plus an
+exact match between the mandate's pair/group obligations and actual verdict
+records. This is earned by the new fixture, not by counting a refusal as
+judged: the guard rejects the old filler, forged judged/refused counters,
+and a deleted verdict. Head-bound repeats are actually judged and violate;
+the fixture is not required to pass rhyme or quality findings. The existing
+shape, verbatim-return and schema-pair-wall checks remain enforced.
+
+On the same twenty default plans (seeds 0–19, 17–31 lines), the measured
+mandated/judged/refused triple moves **749/311/438 → 749/749/0**. Every
+obligation now has a verdict; neither arm hits the schema pair guard.
+Validation and the bounded before/after comparison are recorded in
+`quality/RESULTS_M146_ROUND_TRIP.md`. No production comparator, threshold,
+planner distribution, corpus text or provenance input changes. No M-146
+requirement remains; these synthetic fixtures certify coverage and shape,
+not lyric quality or all possible planner seeds.
+
+**Historical account (2026-08-27):** the counting repair below was complete;
+the fixture work it explicitly left open is superseded by the closure above.
+
 Found 2026-08-27 by CI going red on `quality/test_plan.py` one commit after
 M-144 shipped, and it is **my own defect from the previous sitting**: the fix
 was measured, mutation-tested and committed without running the suite that
@@ -17895,7 +17982,7 @@ one-answer-per-turn pace, is untouched by construction: this memo
 makes each fold cheap and compels nobody to fold faster. The register
 pin: `audit_register.coverage_entries` ~~224~~ -> 225 (2026-08-29).
 
-### M-168 · Round 10: the batching remedy landed and the kills stayed gone — the standing wall is the WRITER against the drawn mandate, and the parked push made it start over `OPEN` 2026-08-29 — the same-song clause shipped the sitting the round landed
+### M-168 · Round 10: the batching remedy landed and the kills stayed gone — the standing wall is the WRITER against the drawn mandate, and the parked push made it start over `PARTIAL` 2026-08-29 — current measurement and prerequisite repairs recorded 2026-09-17 below
 **THE ROUND, in its own numbers.** Run 33266613606, dispatched 17:49Z
 on 644bfc3 (the M-166 driver: short-song brief, batching CONTINUE),
 finished 18:11Z — **22.5 minutes against round 9's 151**. Six turns,
@@ -18104,6 +18191,50 @@ count 0 → 1 with `eligible` unchanged. One observation not measured
 further: `modal_field`'s forbidden set for common calls (`dust`, `drop`,
 `strait`) carries `'s`, `that`, `what`, `up` — the `freq_rank` fallback's
 function-word head reaching the tier-2 ban.
+
+**ADDENDUM 2026-09-17 — A CURRENT RAW MEASUREMENT, THREE MEASURED REPAIRS,
+AND NO COMPLETED-SONG CLAIM.** The owner's current assignment authorizes
+the paid workflow measurement and integration; the September 2 statement
+that only the owner may dispatch is historical. Main already contains the
+gated creation workflow and kitchen revision path. M-166's current account
+in PR #323 distinguishes its delivered timeout repair and local memo proof
+from the still-open deployed cache measurement.
+
+The current run uses `scripts/flash_battery.mjs --raw --expect=finished`
+against pinned deployed commit `bf48281d5a3d5f810d3be472feebaa6131795662`,
+with durable recovery required and complete build/source/configuration/asset
+identity recorded. The ask is exactly **Write a song**, continued only with
+**keep going**. No operator-authored plan or lyric is supplied. Exact commands,
+identity, outcome and validation are banked in
+`quality/RESULTS_M168_2026-09-17.md`.
+
+The measurement exposed three necessary repairs: (1) Node's proxy agent could
+end connection setup after 5 seconds despite the driver's declared 10-second
+identity budget; the HTTP request now explicitly receives its existing
+budget, and private identity records preserve the actual failure cause;
+(2) `lyric_sweep` advertised `sections.verse=2` but refused the dot before
+calling Python. The charset now admits dotted names while the bounded schema
+and Python's closed vocabulary remain authoritative; (3) cancelled kitchen
+continuations could repeat only old verified outcomes without tripping the
+interview-only idle counter. The existing idle policy now uses the validated
+outcome ledger for that case, preserving new rejections, application progress
+and missing-evidence refusals. Real-socket and real connector/harness controls
+pass and fail when their corresponding repairs are removed. No comparator
+input, grading threshold, corpus, or budget changes.
+
+**TESTED WHILE OPEN.** The battery-lifecycle and connector-contract tests
+establish these transport and predicate repairs, not a finished model song.
+The six-turn live run ended at `aggregate_deadline`, exit 1: seven applied
+repairs and ten rejected outcomes, five recovered cancellations near the
+270-second HTTP cutoff, then `LYRICS_UNFINISHED` with creation-grade and
+recovery-contract refusals. Zero certified songs out of one requested song.
+The cutoff's cause is unestablished; connected Render log access requires an
+explicitly confirmed workspace. The private record is retained, and the public
+projection and archive identity are linked in the report. M-168 remains
+**PARTIAL** until the latest successful revision certifies the exact delivered
+song on the current model-driven path. These observations do not close
+M-187's deployed memo/cache requirement or the stricter `MAX_TURN_MS` replay
+canary. The comparator fingerprint HOLDS; no repin is made.
 
 ### M-169 · The loop told the record what it did and every layer above dropped it — the run's own account reaches the transcript now `CLOSED` 2026-08-29 — built the sitting M-170's audit named it the cheapest high-value change on the table
 **THE DEFECT, and it is a RECORD defect rather than a code one.**
@@ -18567,7 +18698,8 @@ ones are asked for both at once and C(3,2) = 3 pairs fail at any line
 length in any language. The named next gate was therefore aimed one
 coordinate to the side — a b-line SLOT BUDGET check would have passed
 group F's (5,9) and (7,9) and still shipped the other four. The
-budget question is real and stays open, named at the end of M-174;
+budget question was left open here, named at the end of M-174 and
+closed by that entry's 2026-09-17 follow-up;
 what closed the group is the ordering.
 **WHAT SATISFYING 53 SCHEMA PAIRS ACTUALLY TOOK, banked for the
 writer-wall ladder (M-166/M-168).** (a) Names lie: `head rhyme
@@ -18601,6 +18733,29 @@ location, and one gate to grow. The register pin:
 `audit_register.coverage_entries` ~~230~~ -> 231 (2026-08-30).
 
 ### M-174 · A schema that demands an overhang ORDERS its whole group, so on three members it contradicts itself at every line length — 38.3% of seeds drew one `CLOSED` 2026-08-30 — the gate M-173 named, built after its own stated cause was measured wrong
+**REMAINING BUDGET CHECK CLOSED 2026-09-17.** The ordering repair below
+was already present; its two-member syllable-capacity follow-up was not.
+`quality/plan.py` now derives the overhanging member from the schema's own
+`unmatched` coordinate, in text order, and charges one additional syllable
+per distinct required word. The shared budget predicate is used before a
+relation is drawn and by `joint_findings` on the finished plan. Demands from
+several groups on one line accumulate; aliases of one token do not charge
+twice. Numbered placements include their preceding words, a separate end
+binding includes its final word, and the available capacity is the lesser of
+the line's slots after pickup and the calibrated density ceiling.
+`OVERHANG_EXCEEDS_SPAN` refuses an impossible line with its groups, minimum
+syllable demand and actual ceiling. The existing group-size gate remains.
+`quality/test_plan.py` section 17 holds both directions, reversed member
+spelling, default and per-group relations, token aliases, cumulative demands,
+and the exact capacity boundary. The real schema judge accepts
+`grow`/`growing` at the declared fourth word in `we see it growing tall`;
+the independent meter fitter counts six syllables, refuses five slots and
+accepts six. This is a necessary syllable lower bound, not a lexical
+feasibility certificate or a claim that a complete song was written.
+The historical account follows; its statements that this budget check is
+open are superseded by this update. Verification receipts are in
+`quality/results/m174_2026-09-17/`.
+
 **THE OWNER ASKED WHETHER WE HAD ACTUALLY SUCCEEDED, AND WE HAD NOT.**
 The banked song re-grades at **exit 3** with six `SCHEME_VIOLATION`
 lines, so the governing order — a clean exit 0 song — is not met, and
@@ -18750,7 +18905,8 @@ different group E, so that draft is a measurement rather than a
 deliverable — presented as exit 3, which is what it is. Two of the
 five swept seeds (67, 69) were already clean on this axis before the
 gate existed, so the next write starts there. And the BUDGET question
-M-174 named is still open and untouched: a k=2 overhang group still
+M-174 named was still open and untouched **at this sitting (closed
+2026-09-17 by M-174's follow-up above)**: a k=2 overhang group still
 needs a b-line that can afford the longer word. The register pin:
 `audit_register.coverage_entries` ~~232~~ -> 233 (2026-08-30).
 
@@ -24192,13 +24348,62 @@ The failure-summary guard from PR #257 remains in `.github/workflows/flash-batte
 **ADDENDUM, 21:40Z — CLOSED.** Both conditions the 20:30Z addendum named hold: GitHub's DNS check for `codexmusica.com` is green, and `CONNECTOR_URL` reads `https://mcp.codexmusica.com`. Flash-battery run 34649771010 (M-279's read-back) printed `MCP_LIVE_URL: https://mcp.codexmusica.com/mcp` and `check_live.mjs` answered from that address (`DRIFT — the surface matches but the build does not: the live server is serving 72d2b86cfd5e`, the right refusal for a deliberately unmatched pin), so the variable reaches the check and the address answers with the connector's JSON. The deploy of dd316b1b itself waits on M-280.
 **333** with this entry (2026-09-11).
 
-### M-279 · The first raw song ran four hours and eight minutes, nine turns, and never finished — the kitchen's cook had 80 of 98 proposals rejected, the loop parked on no progress five times, then thirteen `lyric_revise` calls in a row died at the ten-minute tool budget, and nobody could see any of it because the driver's per-turn rows went to the private log `PARTIAL` 2026-09-11 (the record is readable now and the rows reach the job log; why the kitchen stalls is the next entry's question) — under the owner's order, verbatim: *"stop the battery. we're coming up on 4 hours. It clearly isn't working as intended. Let me know what went wrong after you finish reading the results"*
+### M-279 · The first raw song ran four hours and eight minutes, nine turns, and never finished — the kitchen's cook had 80 of 98 proposals rejected, the loop parked on no progress five times, then thirteen `lyric_revise` calls in a row died at the ten-minute tool budget, and nobody could see any of it because the driver's per-turn rows went to the private log `PARTIAL` 2026-09-11 (the public record is readable; timeout causes and repeated grade refusals remain under this ID) — under the owner's order, verbatim: *"stop the battery. we're coming up on 4 hours. It clearly isn't working as intended. Let me know what went wrong after you finish reading the results"*
 **THE RUN.** Flash-battery run **34626453606** (raw mode, one song, 25 turns, pace 130 s, expect finished) against build 72d2b86c at `codex-musica-mcp-tc72.onrender.com`, dispatched 17:13Z, cancelled by this entry at 21:21Z. The public summary at the cancel read `{"songs":[],"completed_songs":0,"total_songs":0}` — `summary.json` holds a song only once it ends, and this one had not — and the job log held nothing between the drive step's start and the cancel, because `flash-battery.yml` sends the driver's whole output to `battery-out/driver.log` (f0886051, private by design), the M-220 per-turn `::notice` rows included. The only public signal was the encrypted checkpoint uploaded before each paid request (`archiveBeforeDispatch`), and those nine artifacts' timestamps were the first reading: dispatches at 17:13:49, 17:30:45, 17:49:18, 18:08:02, 18:38:38, 19:07:26, 19:22:13, 20:04:28 and 20:46:42 — turns of 17, 19, 19, 31, 29, 15, 42 and 42 minutes, the last two pinned at M-258's forty-minute wall plus one tool budget, and a ninth turn 35 minutes in flight at the cancel.
 **THE RECORD, READ.** `scripts/battery_inspect.mjs` (new) projects a record to counts, enums and timings — each turn's seconds, status, stop reason and hop count, each tool call's name, exit code and seconds, the loop ladder, the checkpoint's counters, and the driver's own allowlisted rows — and `battery_archive.mjs summary` attaches it as `inspection`, so the "Print only safe aggregate outcomes" step reports a song in progress and not only a finished one. Read back through the workflow itself (run 34649771010: `resume_run` restores the sealed record, the live check refuses the unmatched build before any paid request, the always() summary prints), song 0 of run 32 is: turn 0 **886 s**, MAX_STEPS at 14 calls — `lyric_sweep` twice, `lyric_plan` refused by the connector three times then answered, `lyric_revise` refused four times, `lyric_grade` **exit 2 (REFUSED)** twice, then one `lyric_revise` that ran 559 s to **exit 3, NO_PROGRESS after 2 rounds, 5 lines open**, 1 proposal accepted and 12 rejected; turn 1 **983 s**, two revise calls parked at NO_PROGRESS after one round each (333 s, 415 s; 5 open; 0 accepted, 16 rejected); turn 2 **993 s**, the first revise **killed at 599 s** (`path: killed`, exit -1, the M-165 ten-minute budget), then one parked at 4 open (3/14); turn 3 **1,706 s**, MAX_STEPS again: six revise calls refused, five grade calls refused, two revise calls killed at 599 s (3/8); turn 4 **1,598 s**: one park at 2 open after 2 rounds (318 s), two more kills (3/12); turn 5 **757 s**, `INVALID_PROVIDER_RESPONSE` after 5 hops, one kill (0/4); turn 6 **2,404 s**, MAX_TURN_MS at the 14th hop: seven grade refusals, three revise refusals, three kills, the last cut at 384 s by the wall (5/10); turn 7 **2,404 s**, MAX_TURN_MS after 5 hops: **four revise calls, four kills** (3/4). Eight recorded turns, **13,731 s**; `lyric_revise` reached exit 0 never, exit 3 five times (1,761 s), exit -1 **thirteen** times (**7,565 s — two hours six minutes of the four inside calls that returned nothing**), and was refused before running nineteen times; `lyric_grade` was called 25 times and answered **never** (exit 2 every time); the kitchen's cook proposed 98 lines and the checker accepted 18. The envelope the model carried back and forth was 0.9–1.5 MB a turn. The open-line count went 5 → 5 → 5 → 4 → 2 and then the calls stopped coming back at all.
 **WHAT WENT WRONG, IN ORDER.** (1) The product did not finish the song, and the record says where: a kitchen call that used to park with lines open (M-236, M-247) now runs past the ten-minute budget and is killed instead, with nothing on the record but `exit -1` — from turn 2 on, and every call from turn 7 on. A kill carries no ladder row (doctrine 20: absent is not zero), so what those thirteen calls were doing for 600 s each — how many rounds, how many proposals, whether 429 waits were inside — is in the private revise reports and not in this projection. (2) Each "keep going" was allowed 14 hops and forty minutes (M-258), and at three to ten minutes a hop that is 15–42 minutes a turn; twenty-five turns of that is ten to seventeen hours against a 355-minute job. The wall did its job (no turn ran over 2,404 s) and could not make the run useful. (3) The model spent hops the connector answered for it: nineteen revise calls and three plan calls refused before reaching the harness (M-229's wander rule and its kin), and twenty-five grade calls the harness refused — a third of all calls made. (4) Nobody could see any of it. The owner asked twice whether the run was still working; the per-turn rows that answer that were written to a file the job seals and uploads at the end.
 **WHAT SHIPS.** (a) `scripts/battery_inspect.mjs` and the `inspection` field on `battery_archive.mjs summary`; `.github/workflows/battery-inspect.yml` opens a named run's latest sealed record and prints that projection without a battery (it dispatches once it is on the default branch; until then the resume path above reads any run). (b) The drive step tees the driver's output into the private log and passes ONLY the per-turn `::notice title=battery song N turn T::` rows and the verdict row to the job log, with the verdict's `last error:` tail stripped; the malformed-hop notice, which quotes the model, does not match the allowlist, and `mcp/test_battery_archive.mjs` pins the allowlist against both kinds of row and the `PIPESTATUS[0]` exit. Nothing else the driver prints leaves the private log.
 **WHAT THIS DOES NOT DECIDE.** (1) **Why the kitchen runs ten minutes and returns nothing.** The next reading is the private revise reports of the thirteen killed calls (run 32's `flash-battery-recovery` artifact, 30 days), and the question is whether it is rounds × attempts × lines under `CONNECTOR_MAX_ROUNDS` 8 and three attempts a line, or 503/429 waits inside the cook, or the harness itself on a Standard instance; until it is read, no number here is a bound on the product. (2) **Whether a raw run should be allowed a forty-minute turn.** M-258 set the wall under the edge's hundred minutes so an hour of work is not lost; it says nothing about whether a person would wait forty minutes for "keep going". A raw measurement that wants a person's patience needs its own, smaller wall, declared as such, and that is a decision about what is being measured. (3) **Whether a lyric_grade the harness always refuses is the model's fault or the tool's.** Twenty-five for twenty-five is a pattern, and the reason is in the refusal text, which this projection does not carry.
 **334** with this entry (2026-09-11).
+
+**ADDENDUM 2026-09-17 — INSPECTION REPAIRED; CAUSAL REPAIR STILL OPEN.**
+Current-main review at `fcebe706` finds the deadline, proposal journal and
+creation-plan guards already present. Their existence does not explain the
+September 11 failure or establish convergence. M-170's newly banked local
+continuation audit is a different, interview-mode workload; M-166 and M-187
+own the timeout-margin/deployed-worker questions. The initial PR search was empty. At publication, PR #323 updates M-166
+and PR #324 updates M-146; both share this register but change separate
+entries and neither changes the comparator. No comparator input changes here.
+
+`scripts/battery_inspect.mjs` now projects closed refusal categories, numeric
+plan/draft counts for the harness's exact count-mismatch headline, and per-song
+local equality groups for repeated messages. Unknown causes remain
+`unclassified`, absent causes remain null. It also carries the recorded cook
+calls, time, maximum-call time, retry/wait counts and cost; memo counts; and
+the latest recovery phase, journal length, accepted-line count and unknown-spend
+flags. These are recorded observations, not elapsed time attributed to a cause.
+Malformed transcript rows are counted instead of disappearing. Raw refusal
+text, lyrics and continuation capabilities remain private. The driver's
+`last error` tail and partial-turn free text are excluded from the projection,
+matching the live workflow's publication boundary.
+
+The encrypted-restore regression found and repairs a second omission:
+`scripts/battery_archive.mjs summary` returned before inspecting surviving
+records when `summary.json` was absent. It now returns `no_summary` alongside
+the available inspection. Four new controls in `mcp/test_battery_archive.mjs`
+exercise the actual Python count-refusal producer, exact-message grouping,
+missing/unknown evidence, kitchen/recovery fields, private-text exclusion,
+and the encrypted restore → summary CLI path. All eleven archive tests pass.
+The missing-summary regression failed before that repair; no historical run
+was used as a synthetic test result.
+
+**PRECISE BLOCKER AND REMAINING WORK.** GitHub still retains encrypted recovery
+artifact **10282973326** from run **34626453606**, expiring
+**2026-10-11T21:21:42Z**. Its selected API receipt is banked in
+`quality/results/m279_2026-09-17/artifact-receipt.json`. This session cannot
+decrypt it: the key is an Actions secret, the available GitHub connector has
+no workflow-dispatch action, and the Actions browser is signed out. Run the
+existing **Battery inspect** workflow with `run_id=34626453606` on the repaired
+branch/main to read this projection inside Actions without a new paid battery.
+Any unclassified cause still requires authorized private inspection; a killed
+call with no retained progress remains unmeasured. Determine the actual reasons
+for all 25 grade refusals and the retained phase/provider work for the 13 kills,
+implement evidence-supported runtime repairs, then prove bounded recovery and
+continued progress on a pinned deployment before another whole-song run.
+The forty-minute raw-turn product decision remains open. This PR changes no
+runtime budget, grading rule or provider behavior and makes no timeout,
+convergence or deployed-performance claim. **M-279 remains PARTIAL.**
+Full scope and verification: `quality/RESULTS_M279_2026-09-17.md`.
 
 ### M-280 · The capacity proof refused the server's own last receipt as a stranger's and CI went red on main for it — the server finishes the pressure phase it is inside when the request goes inactive, writes one row more after the parent's last look, and the restart compares that file to a stale record and raises for thirty seconds `CLOSED` 2026-09-11 (built; the re-run and the next push measure) — under the owner's standing order: *"get us to production, do not prematurely stop"*
 **THE RED.** CI run **34645027230** on main dd316b1b (M-278's address move: ten lines of URL defaults in `server_http.js`, nothing near the capacity code) failed `lyrics-image` at the capacity matrix with `resident server recovery: actual server startup/recovery deadline: queue-pressure evidence belongs to an unobserved server process`. Every prior push on main this week passed the same step; the deploy of dd316b1b waits on trusted CI at that SHA.
@@ -24405,3 +24610,32 @@ Never summed (doctrine 79). **Every one of the fourteen AUCs that moved at all r
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~347~~ -> **348**.
 
 **348** with this entry (2026-09-17).
+
+### M-294 · Two pull requests that each move one entry the same way write BYTE-IDENTICAL counters rows, git merges them without a conflict marker, and the row lands wrong by one in each direction — twice in one afternoon, both caught by a hand-run simulation no gate performs `OPEN` 2026-09-17 — under the owner's order, verbatim: *"write up the counters gate gap as a MISSING entry"*
+
+**WHAT WAS THERE, AND WHY IT LOOKED SAFE.** `quality/counters.py` makes `BACKLOG.md`'s counters table an OUTPUT: the row `MISSING entries by status` is DERIVED over the status token of every `### M-` heading in `MISSING.md`, committed as one line, and `--check` fails when the committed line disagrees with the measurement. The fleet's working rule for landing many PRs was built on that row: *every PR's re-derived counters row is distinct, so each landing conflicts `lyric-harness/BACKLOG.md` on every other open PR* — merge one, re-derive the rest, and a textual conflict on that line is what forces the re-derivation. That rule is TRUE exactly when the rows DIFFER. This entry is about the case where they do not.
+
+**THE MECHANISM.** Two PRs branch from one base whose row reads `44 OPEN / 28 PARTIAL`. Each moves ONE entry OPEN→PARTIAL — different entries — and each regenerates the row with `counters.py --write`. Both write **`43 OPEN / 29 PARTIAL`**, the same bytes, because a derivation over the same base with the same delta produces the same output whatever entry moved. Git's three-way merge reads *both sides changed this line to the same text* and resolves it clean, no marker, `merge-tree` reporting zero conflicts. The merged tree now has TWO entries moved and a row that says one. The safety net the rule relied on is precisely what identical moves remove, and the more disciplined the authors — each one dutifully regenerating the row — the more reliably the rows coincide.
+
+**MEASURED, TWICE, ON 2026-09-17.** Each by the same procedure: merge the PR's live head into current `main` in a detached worktree and run `python3 quality/counters.py --check` on the result.
+
+| instance | sibling already on main | PR still open | both rows read | `merge-tree` | gate on the merged tree |
+|---|---|---|---|---|---|
+| 1 | #323 (M-166 OPEN→PARTIAL, merged 16:21Z) | #325 at `90bd3581` (M-79 OPEN→PARTIAL) | `44 OPEN / 28 PARTIAL` | 0 conflicts | **FAIL** — committed 44/28, measured 43/29 |
+| 2 | #325 (merged 17:02Z at `b61df9b7`) | #329 at `183aa436` (M-256 OPEN→PARTIAL) | `43 OPEN / 29 PARTIAL` | 0 conflicts | **FAIL** — committed 43/29, measured 42/30 |
+
+The control is the three PRs that did NOT trip it on the same bases: #324, #326 and #327 each moved no status, so each carried a row equal to its own base's and the three-way merge took main's side — `rc=0` all three. The defect needs two movers from one base, not merely two open PRs. Instance 1 was repaired before merge (the author merged main and re-ran `--write`; the gate then read `rc=0` on `26da9b52`). Instance 2 is reported on #329 and open at the time of writing.
+
+**WHY EVERY GATE MISSED IT, and it is one gap wearing three coats.** (1) The PR's own CI: `.github/workflows/ci.yml`'s `record` job runs `counters.py --check` on the checkout `actions/checkout` gives a `pull_request` run — `refs/pull/N/merge` **as it stood when the run started**. A sibling that merges after that moment invalidates the proof, and nothing re-derives before the merge button. Both instances' runs were green on a merge commit against a base that no longer existed. (2) Branch protection: an up-to-date rule would report `mergeable_state: behind` and block; #325 and #326 were both BEHIND `main` by `merge-base` and both reported `clean`, so no such rule exists and nothing between "green" and "merged" re-asks the question. (3) M-250's `dup` rule skips `record` on a push whose commit a `pull_request` run already covers — coverage is per COMMIT, so the stale merge-ref proof counts as coverage. What DOES catch it is main's own push run, `record` going red on `main` AFTER the landing: correct, and the wrong moment.
+
+**AND THE DETECTION THAT WORKED IS A PRIVATE INSTRUMENT (standing rule 3).** Both instances were found by a scratch procedure — worktree, merge, gate — run by hand, twice, from one session's memory. A check that lives in an agent's habit gets run exactly as often as that agent remembers it (doctrine 48), which is the defect this register exists to end. The finding is real and the instrument is not: that is why this entry is OPEN and not CLOSED.
+
+**WHAT WOULD CLOSE IT, PRICED AND NOT BUILT.** (a) `record` re-derives against the LIVE base: fetch `origin/main` and merge it (or `merge-tree`) into the checkout before `counters.py --check`, so a PR whose base moved shows the drift as ITS OWN red, ~3 minutes on the warm path, closing the window from a full CI cycle to the seconds between check and merge. This is the recommended shape: it reads the right tree at the right moment and charges the right PR. (b) A "require branches to be up to date" protection rule — the owner's setting, not repository content — which forces a full 1.5–2.5 h re-run per base move: the throughput problem the fleet rules exist to avoid, now enforced by policy. (c) Stop committing the row at all. Refused here: the committed row is the FAILING TEST `counters.py`'s own header argues for, and removing the copy removes the test.
+
+**THIS ENTRY IS THE THIRD INSTANCE WAITING TO HAPPEN, SAID SO IT CANNOT BE.** It adds one OPEN entry from base `fe9181f7` (row `43/29`, regenerated here to `44 OPEN / 29 PARTIAL = 349`). #329's pending repair moves one OPEN→PARTIAL from the same base to `42/30`. Whichever lands second carries a row the other has invalidated, and the merge will be clean; the second must re-run `counters.py --write` after merging main, on the row it did not write.
+
+**NOT CLAIMED.** That (a) is built — it is priced. That `main` went red on either instance — both were caught before landing. How often this happened before 2026-09-17 — not measured; the register's own history of counters-only fix commits would answer it and has not been read. That the mechanism is confined to the status row: any derived-and-committed line regenerated by two PRs from one base has the same shape, and the other counters in the table are candidates nobody has checked.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~348~~ -> **349**.
+
+**349** with this entry (2026-09-17).

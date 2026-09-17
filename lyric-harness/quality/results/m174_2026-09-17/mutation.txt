@@ -1,0 +1,34 @@
+
+17. M-174 — an overhang schema on 3+ members contradicts itself, and the draw may not reach one
+  FAIL  a pair's fourth-word overhang plus a separate end needs SIX syllables, not five; the finding names its line and demand
+  PASS  the exact six-syllable boundary passes, as does extra room
+  PASS  removing the directed demand preserves the old word budget
+  PASS  require_b follows TEXT order even when the pair is reversed
+  FAIL  require_a charges the earlier member, including a declared schema outside the drawable pool
+  FAIL  2 charges the same last-word syllable with a default relation and accounts for the other binding on its line
+  FAIL  2.end charges the same last-word syllable with a default relation and accounts for the other binding on its line
+  FAIL  2.endword charges the same last-word syllable with a default relation and accounts for the other binding on its line
+  FAIL  two overhanging words share one budget: each alone fits five, together they require six
+  FAIL  aliases of one word do not double-charge its extra syllable
+  FAIL  surplus grid slots cannot evade the calibrated density ceiling
+  PASS  the new refusal belongs to the declared joint-gate vocabulary
+  PASS  the real schema judge accepts grow/growing at the declared T4
+  PASS  that accepted pair exceeds five slots and fits six on the meter fitter, independently of the plan's budget arithmetic
+  PASS  the registry's own coordinate is what says so — semirhyme demands member 2 overhang, and it is the ONE drawable schema that demands an overhang at all
+  PASS  a PAIR is satisfiable and 3+ members are not, by the count the gate and the draw both read — C(k-1, 2), so 0 / 1 / 3 / 6 at k = 2 / 3 / 4 / 5
+          [0, 1, 3, 6]
+  PASS  a schema with NO overhang demand is unbounded — the count is about `unmatched` and not about group size, so consonance over nine members is 0 (the control that stops this reading as a cap on every group)
+  PASS  the draw still REACHES the schema — it is narrowed to pairs, not deleted from the vocabulary (doctrine 24: a rule that would remove a category relabels instead)
+          24 overhang group(s) over seeds 1-40
+  PASS  ...and every one of them is a PAIR: no seed draws a group its own declared schema contradicts
+          sizes {2: 24}, impossible []
+  PASS  a clean plan earns no joint finding at all
+  PASS  the MUTATION fires the gate, on the group's own first line, naming the members and how many pairs are impossible — a hand-written plan is refused on the same terms as a drawn one
+          group B declares 'schema:semirhyme' over 3 members (4.T2, 8.T1, 14.head), and that schema
+  PASS  `GROUP_CONTRADICTS_ITSELF` is a declared JOINT code, so `make_plan` refuses on it like every other cause
+  PASS  `anaphora` is the one drawable schema whose identity rule demands the SAME TOKEN — read off `identity`, never off the name, and `consonance` is the control that does not
+  PASS  no seed binds a same-token schema at two line ENDS — satisfying one means both lines end on the same word, which `floor.REPEAT_IN_VERSE` flags on a layer that never reads the mandate, so the only legal answer trips another gate
+          0 such group(s) over seeds 1-40
+  PASS  ...and the MUTATION fires that gate too, naming the line-final slots and pointing at `epistrophe / radif`, which is this registry's own name for the same word ending two lines
+          group S declares 'schema:anaphora', whose identity rule requires its members to
+MUTATION: omitted the required extra syllables; failures: 8

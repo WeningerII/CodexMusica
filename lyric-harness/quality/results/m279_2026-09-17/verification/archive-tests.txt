@@ -1,0 +1,19 @@
+✔ inspection classifies the real plan count refusal and groups exact repeated headlines (1514.05586ms)
+✔ inspection keeps kitchen clocks, recovery phase and unknown spend without private payloads (6.372168ms)
+✔ inspection distinguishes corrupt or missing evidence and strips private driver tails (2.621552ms)
+✔ the archive summary CLI exposes diagnostics after encrypted restore without running a battery (586.802963ms)
+✔ archive round trip preserves every byte and restores private permissions (12.529898ms)
+✔ wrong key or ciphertext tampering creates no restore tree (37.165993ms)
+✔ seal refuses symlink sources and leaves prior archive and plaintext intact (28.525283ms)
+✔ restore refuses existing destinations and symlinked ancestors (5.146722ms)
+✔ authenticated malicious paths and duplicate entries cannot partially restore (73.483239ms)
+✔ safe public summary cannot carry capability-bearing strings or nested metadata (1.184597ms)
+✔ workflow validates the secret before paid work and uploads no plaintext path (38.828899ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2905.319637

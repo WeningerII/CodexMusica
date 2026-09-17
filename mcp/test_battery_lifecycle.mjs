@@ -439,6 +439,62 @@ function wallFixture() {
   return { pending, after, journal };
 }
 const wallContext = { checkpointBuild: wallBuild, continuationBuild: wallBuild };
+
+for (const mode of ['replayed', 'rejected', 'applied', 'missing', 'idle-disabled']) {
+  await test(`cancelled kitchen continuation distinguishes ${mode} outcomes`, async () => {
+    const { pending, after } = wallFixture();
+    const first = structuredClone(after);
+    delete first.completion;
+    delete first.artifact;
+    first.stopped = 'CANCELLED';
+    first.lyric = pending.lyric;
+    first.tools[0].exit_code = -1;
+    first.tools[0].status = 'interrupted';
+    const second = structuredClone(first);
+    if (mode === 'rejected') {
+      const next = structuredClone(second.tools[0].verified_outcomes[0]);
+      Object.assign(next, {
+        outcome_id: '7'.repeat(64),
+        proposal_index: 1,
+        question_sha256: '8'.repeat(64),
+        accepted: false,
+        applied: false,
+        before_draft_sha256: next.after_draft_sha256,
+      });
+      delete next.applied_draft_sha256;
+      second.tools[0].verified_outcomes.push(next);
+    } else if (mode === 'missing') {
+      delete second.tools[0].verified_outcomes;
+    } else if (mode === 'applied') {
+      const tool = first.tools[0];
+      tool.verified_outcomes[0].applied = false;
+      delete tool.verified_outcomes[0].applied_draft_sha256;
+      tool.final_draft = pending.tools[0].final_draft;
+      tool.verified_outcomes_draft_sha256 = sha256(JSON.stringify(tool.final_draft));
+    }
+    let posts = 0;
+    await fixture(
+      (_req, res) => json(res, 200, [first, second, after][posts++]),
+      async ({ out, run }) => {
+        const stopped = mode === 'replayed' || mode === 'missing';
+        const result = await run([
+          '--turns=3',
+          '--raw',
+          ...(mode === 'idle-disabled' ? ['--stop-on=none'] : []),
+        ]);
+        assert.equal(result.status, stopped ? 1 : 0, result.stdout + result.stderr);
+        assert.equal(posts, stopped ? 2 : 3);
+        const song = summary(out).songs[0];
+        assert.equal(
+          song.exit_reason,
+          mode === 'missing' ? 'repair_evidence_unavailable' : stopped ? 'failed_fast' : 'finished'
+        );
+        if (mode === 'replayed')
+          assert.match(JSON.stringify(song.flags), /cancelled kitchen continuation.*no new/);
+      }
+    );
+  });
+}
 for (const mode of ['clean', 'parked'])
   await test(`wall canary replays the exact durable checkpoint into a ${mode} verified application`, async () => {
     const { pending, after } = wallFixture(),

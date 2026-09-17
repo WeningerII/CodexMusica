@@ -173,6 +173,12 @@ The per-request client ceiling remains derived from the server's declared turn
 wall plus its declared tool allowance. `--turn-deadline-ms` may lower that
 ceiling for a transport canary, but cannot raise it.
 
+Connection setup receives that same request budget explicitly, including native
+proxy tunnels; an agent's shorter inherited timeout must not silently replace it.
+The identity probe keeps its independent ten-second budget. The end-to-end timer
+still includes setup and response delivery. Private `identity_checked` rows retain
+the actual status, phase and transport error when the probe fails before dispatch.
+
 `--max-runtime=SECONDS` bounds a driver session (default 18,000 seconds).
 Before a request, retry, or re-ask, admission requires enough time for the full
 client request ceiling, any pacing delay, and `--delivery-reserve=SECONDS`
@@ -187,6 +193,13 @@ admit requests rejected by the other. A partial turn ending `UPSTREAM_429`
 preserves its returned envelope and honors the recorded wait hint before the
 next continuation. A stream aborted after headers, invalid JSON, or client
 deadline always settles into a transport outcome and recovery lookup.
+
+With the default single-song idle policy, a cancelled kitchen continuation stops
+if its validated outcome ledger adds nothing beyond the saved prefix. A newly
+rejected candidate or a previously accepted edit becoming applied counts as new
+evidence; replaying the same outcomes does not. Missing repair evidence has its
+own refusal. This prevents repeated paid continuations from silently evading the
+interview answer counter and does not certify completion or diagnose the cutoff.
 
 For a wall-recovery canary, `--expect=turn-wall` drives the wall response and the
 next accepted continuation within the same measurement. A later invocation can

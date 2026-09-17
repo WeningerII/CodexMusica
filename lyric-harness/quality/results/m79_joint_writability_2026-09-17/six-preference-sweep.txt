@@ -1,0 +1,11 @@
+  SWEEP: seeds 0..159 (160), form=verse-chorus
+    WANT sections<=6 — how many sections the pattern drew
+    WANT lines_per_section>=2 — the SMALLEST sung section's line count — sections carrying no lines are not counted, because a wordless section is not a short one
+    WANT group<=4 — the deepest rhyme group's member count
+    WANT uses=verse,chorus — the functions the pattern actually drew — a roster PERMITS and this is how a caller COMPELS, by drawing again rather than by weighting the dice
+    WANT before=verse,chorus — the first instance of A precedes the first instance of B
+    WANT pins_per_line<=5 — the most words any one line is bound at — the coordinate `M-79`'s Finding 3 says has none
+    swept 160  planned 160  REFUSED by the planner 0  accepted 5 (3.1% of the planned)
+    ACCEPTED (in seed order — this does NOT rank them; doctrine 7 enforces a floor and does not order the permitted region, and an argmax over a swept parameter is doctrine 19's own bias):
+      7, 29, 35, 96, 152
+    NEXT: python3 lyric_harness.py plan --seed=7

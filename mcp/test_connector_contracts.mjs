@@ -28,6 +28,37 @@ async function local(task) {
   return { server, client, close: () => client.close() };
 }
 
+test('sweep applies advertised dotted predicates and leaves vocabulary refusal to the harness', async () => {
+  const c = await local({ domain: 'lyrics' });
+  const sweep = (want) =>
+    c.client.callTool({
+      name: 'lyric_sweep',
+      arguments: { seed_from: 31, count: 1, lines: 12, want },
+    });
+  try {
+    const accepted = await sweep(['sections.verse>=0', 'min_lines.verse>=0', 'max_lines.verse>=0']);
+    assert(!accepted.isError, JSON.stringify(accepted));
+    const yes = JSON.parse(accepted.content[0].text);
+    assert.equal(yes.exit_code, 0);
+    assert.deepEqual(yes.accepted_shown, [31]);
+
+    // The same seed must be rejected when its section count cannot satisfy
+    // the predicate: merely accepting the spelling is not applying it.
+    const rejected = JSON.parse((await sweep(['sections.verse=-1'])).content[0].text);
+    assert.equal(rejected.exit_code, 2);
+    assert.equal(rejected.accepted_count, 0);
+
+    const unknown = await sweep(['sections.not_a_declared_function=1']);
+    assert.match(JSON.stringify(unknown), /not a coordinate a sweep can read/);
+    assert.doesNotMatch(JSON.stringify(unknown), /not a predicate/);
+    const flag = await sweep(['--sections.verse=1']);
+    assert.equal(flag.isError, true);
+    assert.match(flag.content[0].text, /not a predicate/);
+  } finally {
+    await c.close();
+  }
+});
+
 test('host-selected recipe endpoint exposes only recipe tools and retains full guidance', async () => {
   const server = buildServer({ task: { domain: 'recipe' } });
   const [a, b] = InMemoryTransport.createLinkedPair();

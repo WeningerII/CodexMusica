@@ -1,0 +1,48 @@
+[REFUSED ] NO_SHAPE             ### M-146 · Round-trip fixtures grade every mandated obligation `CLOSED` 2026-09-17
+[TRUE    ] REPO_PATH_EXISTS     **The remaining fixture work is complete.** `quality/test_plan.py` now fills lines with `birds carry
+            claim: quality/test_plan.py
+            repo : 1 present, 0 asserted absent and absent
+[REFUSED ] NO_SHAPE             Both fixture modes preserve the old seven-token layout and each token's syllable count, and continue
+[REFUSED ] NO_SHAPE             Every token and every named planner placement is checked across the whole bank for a real anchor.
+[REFUSED ] NO_SHAPE             Pronunciation choices remain explicit on the full round trip.
+[REFUSED ] NO_SHAPE             The sweep now requires `mandated == judged > 0` and `refused == 0`, plus an exact match between the
+[REFUSED ] NO_SHAPE             This is earned by the new fixture, not by counting a refusal as judged: the guard rejects the old fi
+[REFUSED ] NO_SHAPE             Head-bound repeats are actually judged and violate; the fixture is not required to pass rhyme or qua
+[REFUSED ] NO_SHAPE             The existing shape, verbatim-return and schema-pair-wall checks remain enforced.
+[REFUSED ] NO_SHAPE             On the same twenty default plans (seeds 0–19, 17–31 lines), the measured mandated/judged/refused tri
+[REFUSED ] NO_SHAPE             Every obligation now has a verdict; neither arm hits the schema pair guard.
+[TRUE    ] REPO_PATH_EXISTS     Validation and the bounded before/after comparison are recorded in `quality/RESULTS_M146_ROUND_TRIP.
+            claim: quality/RESULTS_M146_ROUND_TRIP.md
+            repo : 1 present, 0 asserted absent and absent
+[REFUSED ] NO_SHAPE             No production comparator, threshold, planner distribution, corpus text or provenance input changes.
+[REFUSED ] NO_SHAPE             No M-146 requirement remains; these synthetic fixtures certify coverage and shape, not lyric quality
+[REFUSED ] NO_SHAPE             **Historical account (2026-08-27):** the counting repair below was complete; the fixture work it exp
+[TRUE    ] REPO_PATH_EXISTS     Found 2026-08-27 by CI going red on `quality/test_plan.py` one commit after M-144 shipped, and it is
+            claim: quality/test_plan.py
+            repo : 1 present, 0 asserted absent and absent
+[REFUSED ] NO_SHAPE             `test_plan.py` §3 — THE ROUND TRIP, *"the graders accept what the planner emits ... by the real read
+[REFUSED ] NO_SHAPE             ``` g["pairs_mandated"] == g["pairs_judged"] > 0 and g["pairs_refused"] == 0 ```
+[REFUSED ] NO_SHAPE             **`pairs_refused == 0` WAS TRUE ONLY BECAUSE THE COUNT WAS WRONG.** M-144 stopped counting a declare
+[REFUSED ] NO_SHAPE             The moment that was repaired, the round trip's `== 0` began asserting the defect.
+[REFUSED ] NO_SHAPE             **AND THE REFUSAL HERE IS NOT ABOUT THE PLANNER, WHICH IS THE WHOLE POINT OF THE SECTION.** A slot r
+[REFUSED ] NO_SHAPE             So a NO-ANCHOR refusal at a declared slot is a fact about that filler vocabulary, not about the shap
+[REFUSED ] NO_SHAPE             **THE REPAIR IS A PARTITION PLUS A CAUSE, AND IT IS STRICTER THAN THE COUNT IT REPLACES** — never a
+[REFUSED ] NO_SHAPE             * `pairs_mandated == pairs_judged + pairs_refused` and `pairs_judged > 0`: the three counts still pa
+[REFUSED ] NO_SHAPE             * **every refusal must carry `slot_refusal`** — M-144's own kind.
+[REFUSED ] NO_SHAPE             Any OTHER refusal (an unreadable end word, a schema the judge cannot read) IS the planner emitting s
+[REFUSED ] NO_SHAPE             The old `== 0` could not tell those apart; it merely required their sum to vanish.
+[REFUSED ] NO_SHAPE             **THE FAMILY, STATED ONCE, BECAUSE IT IS THIS REPOSITORY'S OWN SHAPE (doctrine 17):** a check writte
+[REFUSED ] NO_SHAPE             `test_homeoteleuton.py` §5 did this exact thing to the two-name door (`MISSING.md` M-59, *"a check w
+[REFUSED ] NO_SHAPE             Three instances now, and the remedy is the same each time: **repoint the guard onto what the repair
+[REFUSED ] NO_SHAPE             **AND THE REPAIR REVEALED WHAT THE `== 0` HAD BEEN HIDING: HALF THIS SECTION'S MANDATED PAIRS ARE NE
+[REFUSED ] NO_SHAPE             The cause is exact and is a fact about seven words: `dummy_draft`'s line is `we carry the morning to
+[REFUSED ] NO_SHAPE             `we`, `the`, `to`, `the` are function words the phonology will not anchor, which is **doctrine 46's
+[REFUSED ] NO_SHAPE             So `head` reads `we` and refuses, `headrime` refuses with it, and every `T<n>` landing on an article
+[REFUSED ] NO_SHAPE             Under the old `== 0` this was invisible because the count it was reading was wrong in the compensati
+[REFUSED ] NO_SHAPE             **THAT IS GATED RATHER THAN NOTED, AND THE GATE CARRIES NO NUMBER.** The section now derives a floor
+[REFUSED ] NO_SHAPE             It is deliberately a LOWER bound.
+[REFUSED ] NO_SHAPE             What it catches is the direction worth catching — **the GRADER beginning to refuse pairs it ought to
+[REFUSED ] NO_SHAPE             **WHAT IS LEFT OPEN, NAMED SO IT IS NOT MISTAKEN FOR DONE:** the filler itself.
+[REFUSED ] NO_SHAPE             A content-word-only line of the same syllable count would anchor at every position and hand this sec
+[REFUSED ] NO_SHAPE             That is a FIXTURE change with a real blast radius — it moves every band, syllable and monotony readi
+[REFUSED ] NO_SHAPE             The measurement above is what a later sitting needs to size it.

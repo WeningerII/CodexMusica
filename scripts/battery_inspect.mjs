@@ -20,16 +20,80 @@ const num = (v) => (Number.isFinite(v) ? v : null);
 const secs = (ms) => (Number.isFinite(ms) ? Math.round(ms / 100) / 10 : null);
 const bool = (v) => (typeof v === 'boolean' ? v : null);
 const len = (v) => (v == null ? 0 : typeof v === 'string' ? v.length : JSON.stringify(v).length);
+const choice = (v, values) => (v == null ? null : values.includes(v) ? v : 'other');
 
 function readJSONSafe(file) {
   try {
+    if (existsSync(file) && statSync(file).size > TRANSCRIPT_LIMIT_BYTES)
+      return { unreadable: true };
     return existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : null;
   } catch {
     return { unreadable: true };
   }
 }
 
-function projectTool(c) {
+// Read the recorded headline, never publish it: refusals can quote private
+// titles, lyrics and capabilities. Unknown headlines get a local equality
+// group, not an inferred cause. The vocabulary is deliberately closed.
+function refusalOf(c, groups) {
+  const source =
+    typeof c.refusal === 'string' && c.refusal.trim()
+      ? 'harness'
+      : typeof c.error === 'string' && c.error.trim()
+        ? c.refused_by_connector === true
+          ? 'connector'
+          : 'tool_error'
+        : null;
+  if (!source) return null;
+  const text = source === 'harness' ? c.refusal : c.error;
+  const key = JSON.stringify([c.name, source, text]);
+  if (!groups.has(key)) groups.set(key, groups.size + 1);
+  const headline = text.replace(/^(?:Error: )?(?:REFUSED — )?/, '').trim();
+  const count =
+    /^the plan declares (\d+) line\(s\) and the draft carries (\d+) — they must be the same song\.$/.exec(
+      headline
+    );
+  const code =
+    /^(CREATION_ORDER|CREATION_PLAN|CREATION_DRAFT|RESOURCE_LIMIT|PROPOSER_CONFIG|PROVIDER_TRUNCATED|DECLARATION_CAPACITY|PROVIDER_REFUSAL):/.exec(
+      headline
+    )?.[1];
+  return {
+    source,
+    group: groups.get(key),
+    category: count ? 'PLAN_DRAFT_LINE_COUNT' : code || 'unclassified',
+    ...(count ? { expected_lines: Number(count[1]), actual_lines: Number(count[2]) } : {}),
+  };
+}
+
+function projectRecovery(record) {
+  if (record == null) return null;
+  if (record.unreadable) return { unreadable: true };
+  const p = record.progress && typeof record.progress === 'object' ? record.progress : {};
+  const u =
+    record.proposer_usage && typeof record.proposer_usage === 'object' ? record.proposer_usage : {};
+  return {
+    state: choice(record.state, ['pending', 'completed', 'interrupted', 'retired']),
+    uncertain_proposal: bool(record.uncertain_proposal),
+    persistence_error_present: record.persistence_error != null,
+    progress_present: record.progress != null,
+    phase: choice(p.status, [
+      'started',
+      'grading',
+      'proposing',
+      'proposal_completed',
+      'accepted',
+      'finished',
+    ]),
+    round: num(p.round),
+    completed_proposals: Array.isArray(p.proposals) ? p.proposals.length : null,
+    accepted_lines: Array.isArray(p.accepted_lines) ? p.accepted_lines.length : null,
+    provider_in_flight: bool(u.in_flight),
+    provider_usage_unknown: bool(u.usage_unknown),
+    provider_unknown_attempts: num(u.unknown_attempts),
+  };
+}
+
+function projectTool(c, groups) {
   if (!c || typeof c !== 'object') return { name: 'other' };
   return {
     name: ident(c.name),
@@ -46,10 +110,31 @@ function projectTool(c) {
     draft_carried: bool(c.draft_carried),
     path: ident(c.path),
     verdict: ident(c.verdict),
+    refusal: refusalOf(c, groups),
+    status: choice(c.status, [
+      'refused',
+      'interrupted',
+      'uncertain_proposal',
+      'suspended',
+      'finished_clean',
+      'uncertified',
+      'journal_capacity',
+    ]),
+    writer: choice(c.writer, ['kitchen', 'interview']),
+    plan_lines: num(c.plan_lines),
+    memo_hit: num(c.memo_hit),
+    memo_asked: num(c.memo_asked),
+    proposer_calls: num(c.proposer_calls),
+    proposer_seconds: secs(c.proposer_ms),
+    proposer_max_seconds: secs(c.proposer_ms_max),
+    proposer_retries: num(c.proposer_retries),
+    proposer_wait_seconds: num(c.proposer_wait_s),
+    proposer_empty: num(c.proposer_empty),
+    proposer_cost_usd: num(c.proposer_cost_usd),
   };
 }
 
-function projectRow(row) {
+function projectRow(row, groups) {
   const d = row.stopped_detail && typeof row.stopped_detail === 'object' ? row.stopped_detail : {};
   return {
     turn: num(row.turn),
@@ -72,7 +157,7 @@ function projectRow(row) {
     calls_before_failure: num(row.calls_before_failure),
     reply_chars: len(row.reply),
     completion: row.completion != null,
-    tools: Array.isArray(row.tools) ? row.tools.map(projectTool) : [],
+    tools: Array.isArray(row.tools) ? row.tools.map((c) => projectTool(c, groups)) : [],
     sizes:
       row.sizes && typeof row.sizes === 'object'
         ? { history: num(row.sizes.history), lyric: num(row.sizes.lyric) }
@@ -133,6 +218,7 @@ export function projectRecord(source) {
   const ROOT = resolve(source);
   const manifest = readJSONSafe(join(ROOT, 'run.json'));
   const out = {
+    version: 2,
     mode: ident(manifest?.mode),
     started: typeof manifest?.started === 'string' ? manifest.started : null,
     songs: [],
@@ -154,12 +240,16 @@ export function projectRecord(source) {
                 return null;
               }
             })
-            .filter((r) => r && typeof r === 'object' && Number.isFinite(r.turn))
         : [];
+    const validRows = rows.filter((r) => r && typeof r === 'object' && Number.isFinite(r.turn));
+    const groups = new Map();
     out.songs.push({
       checkpoint: projectCheckpoint(readJSONSafe(join(ROOT, f))),
       transcript_too_large: tooLarge,
-      turns: rows.map(projectRow),
+      transcript_present: existsSync(transcript),
+      unreadable_rows: rows.length - validRows.length,
+      recovery: projectRecovery(readJSONSafe(join(ROOT, `song${n}.recovery.json`))),
+      turns: validRows.map((row) => projectRow(row, groups)),
     });
   }
   // The driver's own allowlisted rows (M-220): one notice per turn and the
@@ -170,11 +260,9 @@ export function projectRecord(source) {
       ? readFileSync(log, 'utf8')
           .split('\n')
           .filter((l) =>
-            /^::(notice|warning|error) title=battery (song \d+ turn \d+|verdict|partial turn)::/.test(
-              l
-            )
+            /^::(notice|warning|error) title=battery (song \d+ turn \d+|verdict)::/.test(l)
           )
-          .map((l) => l.slice(0, 600))
+          .map((l) => l.replace(/ — last error: .*$/, '').slice(0, 600))
       : [];
   return out;
 }

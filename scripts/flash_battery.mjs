@@ -671,7 +671,8 @@ for (const [songNo, briefIdx] of indices.entries()) {
   // their explicit outcome projection. Unknown observations are not repairs;
   // accepted/rejected outcome identities contribute once across resumptions.
   const foldInto = (tally, c) => {
-    for (const f of recordRepairs(repairLedger, c)) {
+    const additions = recordRepairs(repairLedger, c);
+    for (const f of additions) {
       if (f.verdict === 'accepted') tally.accepted++;
       else if (f.verdict === 'rejected') tally.rejected++;
       else if (f.verdict === 'unknown') tally.unknown++;
@@ -680,6 +681,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
         tally.reasons.set(k, (tally.reasons.get(k) || 0) + 1);
       }
     }
+    return additions.length;
   };
   const countVerdict = (calls, which) => {
     const seen = new Map();
@@ -1535,8 +1537,9 @@ for (const [songNo, briefIdx] of indices.entries()) {
       repairEvidenceError = error.message;
       flags.push({ turn: t, flag: 'repair_evidence_unavailable', detail: error.message });
     }
+    let newRepairOutcomes = 0;
     for (const c of repairEvidenceError ? [] : reviseCalls) {
-      foldInto(cycle, c);
+      newRepairOutcomes += foldInto(cycle, c);
 
       if (c.exit_code === 3) {
         parked++;
@@ -1787,6 +1790,19 @@ for (const [songNo, briefIdx] of indices.entries()) {
     }
     if (!partial && STOP_ON.has('idle') && tools.length === 0)
       reasons.push('turn made no tool call');
+    // M-168: a recovered cancellation can repeat the completed kitchen
+    // prefix forever without an interview answers_on_record counter. The
+    // validated ledger counts new outcomes (including unapplied -> applied),
+    // not replayed rows. Missing evidence already stops above; it is not zero.
+    if (
+      STOP_ON.has('idle') &&
+      p.stopped === 'CANCELLED' &&
+      t > 0 &&
+      reviseCalls.length > 0 &&
+      reviseCalls.every((c) => c.writer === 'kitchen' && !c.not_run && !c.isError && !c.error) &&
+      newRepairOutcomes === 0
+    )
+      reasons.push('cancelled kitchen continuation added no new verified outcome');
     // A park is a result, not idleness; the baseline resets after it so the
     // continuing run's first folds count. What IS idleness after a park: the
     // same or more lines open on three parks in a row (M-233).
