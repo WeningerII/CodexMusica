@@ -1727,8 +1727,24 @@ structurally impoverished — "O Captain! My Captain!" carries the "Fallen cold
 and dead" burden closing every stanza and our file records no refrain marking
 at all. That is a fact about Whitman, and Whitman is K-3's subject.
 
-### K-3 · The Whitman negative control does not separate `OPEN`
-> **TESTED WHILE OPEN.** `quality/test_band.py` section 9 names this entry and
+### K-3 · Replace the Whitman negative control; retain the finding `CLOSED` 2026-09-17
+
+**ACTIONABLE WORK — COMPLETE.** The replacement is the positive corpus's own
+line-permuted quatrains, matched by construction, against a multi-author,
+multi-scheme positive. It shipped in `3e0b8068` as
+`quality/negative_control.py`; `BACKLOG.md` §3.5 recorded the task discharged
+in `b844cd6f`. No replacement implementation remains to build.
+
+**FINDING — RETAINED.** Whitman carries the property under test as repetition
+and remains ineligible as the negative control. It stays available as the
+legacy comparison. Closing the replacement task preserves that finding and
+the corpus's printed text, provenance and existing annotation limitations.
+The former `OPEN` status mixed this standing finding into the work queue.
+Separated at the owner's request, 2026-09-17: the status now describes the
+actionable task; the finding and its regression remain below.
+
+> **REGRESSION GUARD — originally TESTED WHILE OPEN.** `quality/test_band.py`
+> section 9 names this entry and
 > PINS THE ELIGIBILITY CLAUSE — the one no build can discharge, because it is a
 > fact about `corpus/whitman.txt` rather than about a separation better
 > calibration could fix. It requires the detected link population to be
@@ -1736,7 +1752,13 @@ at all. That is a fact about Whitman, and Whitman is K-3's subject.
 > refuses) AND majority REPEAT on an identical token: 7 REPEAT / 2 RHYME of 9,
 > 7 on the same token. Deliberately null-free, so it costs seconds rather than
 > a replicate draw. Red the day the control stops carrying the property.
-**Now (verified):** all four recorded Whitman figures (18.0, 20.0, 21.3, 26.0%)
+
+**Reverified 2026-09-17 at `50e4de44`:** section 9 still measures 7 REPEAT and
+2 RHYME links, with 7 of 9 on the same token. The band regression suite and
+all 50 null-shape checks pass. This verifies the retained eligibility finding;
+the historical null draws below were not recomputed in this status correction.
+
+**Historical measurements:** all four recorded Whitman figures (18.0, 20.0, 21.3, 26.0%)
 fall inside one line-permutation null spanning 6.7–27.3%. Replacement is the
 corpus's own shuffled self, plus a multi-author positive spanning more than one
 scheme — BUILT, and it is `quality/negative_control.py` (2026-08-11).
@@ -1744,8 +1766,8 @@ scheme — BUILT, and it is `quality/negative_control.py` (2026-08-11).
 it is a fact about Whitman rather than about the control's authorship:
 `corpus/whitman.txt` is itself structurally impoverished — "O Captain! My
 Captain!" carries the "Fallen cold and dead" burden closing every stanza and
-our file records no refrain marking at all. **This entry stays OPEN as a
-FINDING and not as a task** — the replacement was built; what does not go away
+our file records no refrain marking at all. **~~This entry stays OPEN as a
+FINDING and not as a task~~ — status superseded 2026-09-17**: the replacement was built; what does not go away
 is that the text this project used as its negative control carries the property
 under test.
 

@@ -266,7 +266,7 @@ def test_theta_for_and_its_readers():
 def test_the_negative_control_carries_the_property():
     """MISSING.md K-3 — the text used as the negative control is not eligible.
 
-    PINS THE GAP, and it pins the clause that no build can discharge: K-3's
+    PINS THE RETAINED FINDING, the clause no build can discharge: K-3's
     finding is a fact about `corpus/whitman.txt` itself, not about a
     separation that better calibration could fix. A negative control has to
     be a text WITHOUT the property under test; this one carries it, as
@@ -274,10 +274,11 @@ def test_the_negative_control_carries_the_property():
 
     Deliberately null-free, so it costs ~2s rather than a replicate draw: the
     eligibility clause needs no threshold sweep. It goes red the day the
-    detected links stop being majority REPEAT — i.e. the day the control is
-    actually clean, which is the day this entry closes — and red the other
-    way if the link population empties out, since a majority over nothing is
-    the empty-population pass doctrine 20 exists to refuse.
+    detected links stop being majority REPEAT, requiring the finding to be
+    re-examined, and red the other way if the link population empties out,
+    since a majority over nothing is the empty-population pass doctrine 20
+    exists to refuse. K-3's replacement task is CLOSED; this guard preserves
+    the eligibility finding independently of that task's status.
     """
     print("\n9. MISSING.md K-3 — the negative control carries the property")
     import negative_control as _NC
