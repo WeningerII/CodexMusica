@@ -7575,6 +7575,67 @@ the corpus at that date is not this corpus — so both readings stand and the
 34 files appear in BOTH rows and the union is 119, which is exactly the number
 of findings check H emits.
 
+**THE THREE NAMED RESIDUE CLASSES ARE CHARACTERISED 2026-09-18, AND THE
+CORPUS IS NOT TOUCHED.** This entry says each remedy needs a human reading of
+the printing. That reading is done for the three whole-file classes it names —
+Watts 444, Burns 186, Lovelace 102, **732 residue blocks** — and it is banked
+here so the pass that applies it is mechanical rather than another reading. **No
+`corpus/` byte moves in this commit**, so the closing sitting is still owed by
+the application and not by the record.
+
+| file | residue | covered by a defended predicate | leftover |
+|---|--:|--:|--:|
+| `corpus/song/eng_hymn_watts.txt` | 444 | 443 | 1 |
+| `corpus/song/eng_celtic_robert_burns.txt` | 186 | 173 | 13 |
+| `corpus/song/eng_british_richard_lovelace.txt` | 102 | 81 | 21 |
+| total | **732** | **697 (95.2%)** | **35 (4.8%)** |
+
+**NO PREDICATE SELECTS A SUNG LINE.** Every false match found — 33 across the
+three files — is apparatus sitting in a MULTI-LINE block, which never entered
+check H's population at all. So the true apparatus class is LARGER than the
+residue in all three files, and the residue is a floor here exactly as the
+census is a floor in M-20.
+
+**THE THREE RULES THAT WERE BUILT AND THEN REJECTED ARE THE PART WORTH
+KEEPING**, because they are what a later session would re-derive and ship.
+Each is M-47's Durfey/Gay failure in a new file:
+
+1. **Watts, the title echo without its structural conjunct.** Watts titles an
+   item by its own printed scripture argument, and the argument is staged as a
+   one-line `[VERSE 1]` before the stanza. A rule reading *the line equals its
+   item's title* is right about those and wrong about everything else, because
+   Watts ALSO titles items by their own first sung line. **RE-DERIVED HERE
+   INDEPENDENTLY: 721 lines file-wide equal their item's title, of which 433
+   are ALONE in their block and 288 sit inside a real stanza.** The exemplar is
+   `From all that dwell below the skies` at line 225, whose next line is `Let
+   the Creator's praise arise;`. The conjunct *alone in its block, and that
+   block is the item's first* is what makes the rule safe, and 433 is exactly
+   the covered count.
+2. **Lovelace, the positional note run.** *Everything at or after the item's
+   first note-shaped block is a note* covers 86 of 102 and swallows sung text,
+   because `THE SCRUTINIE.` opens a new poem INSIDE one `--- TITLE:` item. Do
+   not use a positional rule on this file.
+3. **Burns, the loose dateline.** A dateline regex without a mandatory
+   four-digit year matches the sung line `Oh, Mary, canst thou wreck his
+   peace,`. The year-anchored form is the only one that holds.
+
+**WHAT THE LEFTOVER 35 ARE, AND WHY THEY STAY LEFT OVER.** Lovelace's 21 are
+the sharpest: every one speaks ABOUT the text in modern editorial English (`A
+quaver (a well-known musical expression).`, `Rufus Festus Avienus, the Latin
+poet.`) while Lovelace's own text is seventeenth-century spelling — so they are
+apparatus by CONTENT and undecidable from the line alone, which is a different
+verdict from apparatus-by-shape and is recorded as one (doctrine 20). Burns's
+13 and Watts's 1 (`End of the Third Book.`, a book divider whose two siblings
+sit inside multi-line blocks and so never reach the census) are the same kind.
+
+**PROVENANCE, STATED RATHER THAN IMPLIED.** The residue counts and the three
+rejected rules were produced by a delegated read in this session against the
+live tree; the Watts figures in item 1 above and the three residue counts were
+RE-DERIVED independently before being written here, and the per-group
+breakdowns were not. The pass that applies any of this re-derives its own
+groups and its own false-match counts at application time — a predicate banked
+without its re-derivation is the stale number this register exists to refuse.
+
 **AND THE `ornament` COLLAPSE IS THE SHARPEST CELL**, 72 -> 8. It is the one
 shape whose fall is an order of magnitude rather than a percentage, and this
 entry does not guess at why; it is named so that a session reading the shape
