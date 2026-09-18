@@ -31,6 +31,41 @@ ROOT = Path(__file__).resolve().parents[1]
 HARN = ROOT / 'lyric-harness'
 
 
+def deployed_turn_seconds():
+    """-> the seconds one deployed turn may take, READ FROM THE CONNECTOR.
+
+    THE CEILING ON `--timeout` WAS A BARE 600 WITH NO COMMENT AND NO SOURCE,
+    and M-170 item 6 is unmeasured because of it: the 28-line COLD arm reaches
+    that ceiling at continuation 2 (exit 124), so its later cold continuations
+    and full-arm equivalence were never measured, and the entry refused to
+    substitute a longer budget SILENTLY. This is that substitution made out
+    loud, and tied to a number the deployment actually enforces instead of a
+    new one invented here.
+
+    `mcp/gemini_agent.js` sets `maxTurnMs: 2_400_000` -- 2,400 s, FOUR TIMES
+    the old ceiling. A continuation that takes 700 s is therefore well inside
+    a legal turn, and refusing to measure it said nothing about the workload;
+    it was an artifact of this instrument. `scripts/flash_battery.mjs` already
+    reads the same constant out of the same file rather than restating it
+    (doctrine 1), and this follows that precedent, so the instrument cannot go
+    stale against a deployment that re-tunes its turn.
+
+    The DEFAULT is unchanged at 600: nothing moves unless a caller asks, and a
+    caller who asks is recorded in the evidence as having asked.
+
+    REFUSES rather than guesses if the constant cannot be read -- an
+    instrument that silently invents its own ceiling is the defect above.
+    """
+    src = (ROOT / 'mcp' / 'gemini_agent.js').read_text(encoding='utf-8')
+    m = re.search(r'maxTurnMs:\s*([\d_]+)', src)
+    if not m:
+        raise SystemExit(
+            'REFUSED: maxTurnMs not found in mcp/gemini_agent.js; this '
+            'instrument reads its ceiling from the connector and will not '
+            'invent one (doctrine 20)')
+    return int(m.group(1).replace('_', '')) / 1000.0
+
+
 class ComponentClock:
     """Nested clocks, including exceptional exits, with no double-counted self time."""
     def __init__(self):
@@ -161,15 +196,19 @@ def main():
     ap.add_argument('--seed', type=int, default=16)
     ap.add_argument('--lines', type=int, default=22)
     ap.add_argument('--folds', type=int, default=11, help='resumes after the initial call')
-    ap.add_argument('--timeout', type=float, default=600)
+    ap.add_argument('--timeout', type=float, default=600,
+                    help='seconds one call may take; the ceiling is the '
+                         'deployed maxTurnMs read from mcp/gemini_agent.js')
     ap.add_argument('--out', type=Path)
     a = ap.parse_args()
     if a.serve:
         return serve(a.components)
     if a.out is None or a.out.exists():
         ap.error('--out must name a new directory; existing evidence is never overwritten')
-    if a.lines < 2 or a.folds < 0 or not 0 < a.timeout <= 600:
-        ap.error('require lines >= 2, folds >= 0, 0 < timeout <= 600')
+    ceiling = deployed_turn_seconds()
+    if a.lines < 2 or a.folds < 0 or not 0 < a.timeout <= ceiling:
+        ap.error('require lines >= 2, folds >= 0, 0 < timeout <= %g '
+                 '(the deployed maxTurnMs)' % ceiling)
     if a.fixture == 'density' and a.lines % 2:
         ap.error('density fixture requires an even number of lines')
     a.out.mkdir(parents=True)
