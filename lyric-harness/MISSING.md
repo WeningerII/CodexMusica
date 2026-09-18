@@ -13766,18 +13766,47 @@ a line end today. Every other placement keeps the full pool, the draw stays
 uniform over whichever pool applies, and a declared `--relation=` still wins
 and suppresses the draw entirely.
 
-Measured over the same seeds 1-40 the panel finding used:
+Measured over seeds 1-40, both rows produced in one process on THIS tree: the
+`before` row by restoring the pre-ruling draw (the pool derivation preserves
+`DRAWABLE_SCHEMAS` order, so the restored path is byte-identical to the old
+one), the `after` row by the shipped code.
 
 | | end-bound groups | audible | bare default | inaudible | plans free of one |
 |---|--:|--:|--:|--:|--:|
-| before | 250 | 74 | 27 | **149 (59.6%)** | **0 of 40** |
+| before | 156 | 49 | 20 | **87 (55.8%)** | **3 of 40** |
 | after | 156 | 102 | 54 | **0 (0.0%)** | **40 of 40** |
 
-The end-bound total moves with the share because a narrowed draw consumes
-entropy differently, so the plans themselves differ from that seed on; that is
-the intended distribution change and not a population error. What the table
-says plainly is that a drawn plan no longer organises its line ends by
-relations a listener does not hear as the lines rhyming. `quality/test_plan.py`
+**M-192's `before` row does NOT reproduce, and the reason is not an error in
+either reading.** That record — 250 end-bound groups, 149 inaudible, 59.6%, 0
+of 40 free — was measured on **2026-09-01 over a 22-schema
+`DRAWABLE_SCHEMAS`**; the certified pool holds **18** today. Two of its names
+have since left the pool while remaining in `REGISTRY`: `monorhyme / leash`,
+one of the seven it counted audible, which is why six are audible now, and
+`chain rhyme (rap)`, which it counted fourteen times among inaudible ends.
+M-190's chorus rule and M-191's drawn density cap have also moved how many
+groups a seed emits, which is the 250 against 156. The 59.6% therefore stands
+as a dated reading of a different population and is not quoted forward as this
+ruling's baseline (doctrine 20); 55.8% on the current tree is.
+
+The end-bound total is the SAME on both rows here, because every draw before
+the relation draw is byte-identical: sections, meter, groups, returns,
+schemes, line slots, hook slot and the density cap all compare equal over
+seeds 1-40, and each group still spends exactly one draw over its own pool in
+the same order. What moves is which relation lands, on 39 of 40 seeds, and on
+every one of those the first moved group is end-bound. Sixteen non-end-bound
+groups also move, downstream rather than by a second rule, because all groups
+share one generator and a narrowed end-bound group shifts what a later group
+draws. One consequence is stated rather than hidden: `narrative.draw_lineup`
+was added below this draw on the same generator after the comment promising
+entropy-last was written, so **15 of 40 seeds also draw a different story
+line-up**. Preserving that would have required changing every group's mapping
+including non-end-bound ones, which is strictly worse, so the draw primitive
+is left alone and the consequence is recorded.
+
+The inaudible relations the old draw put on line ends, most frequent first:
+multisyllabic rhyme 31, cluster consonance 11, family rhyme 10, pararhyme 9,
+assonance 7, consonance 7, subtractive rhyme 6, compound/phrasal rhyme 5,
+internal rhyme 1. After the narrowing: none. `quality/test_plan.py`
 section 14 has flipped accordingly: it pinned that the disclosure was all there
 was, and it now pins the narrowing, its derivation, that non-end placements
 keep the full pool, and that a declared relation still wins.
@@ -13787,16 +13816,18 @@ of the drawable schemas count as audible at a line end is still decided by the
 comparator's own nucleus-and-coda test rather than by a declaration anybody
 made, and M-140's schema-door reporting rule — schema-only agreement at a line
 END reported under its own name rather than as end rhyme — is not built here.
-**TWO HANDS WROTE THIS ENTRY THE SAME HOUR, AND THEIR `before` ROWS
-DISAGREE.** The block above was written by a concurrent session and takes its
-`before` row from M-192's record as remembered — 250 end-bound groups, 149
-inaudible, 59.6%, 0 of 40 free. That row does NOT reproduce on this tree; it
-was measured on 2026-09-01 over a 22-schema pool, before M-190 and M-191
-moved how many groups a seed emits. The row below is the same question asked
-again this hour, with the pre-ruling draw restored on the CURRENT tree, and it
-is the one a reader should check against. Neither block is retracted here;
-whoever reconciles them should keep the measured row and date the remembered
-one.
+**RECONCILED.** Two hands wrote this entry within the hour and their `before`
+rows disagreed: one quoted M-192's remembered 59.6%, the other measured 55.8%
+on the current tree. The measured row is kept and the remembered one is dated
+above with the population change that explains it. A further finding from that
+sitting is kept here rather than lost: **M-120 SUBSUMES M-206 at the only
+groups M-206 guards.** M-206's placement filter runs on all-default groups, an
+all-default group is end-bound by construction, and all six audible schemas
+satisfy `placement_bindable(("end", "end"))` — so with the narrowing in place
+M-206's own mutation fired on 0 of 60 seeds and its check was reading green for
+the wrong reason. The mutation now lifts the narrowing too. M-206's filter is
+NOT removed: it becomes load-bearing again the moment the audibility predicate
+admits a schema whose placement rule two line ends cannot satisfy.
 
 **SHIPPED 2026-09-18 — THE NARROWING, AND THE ENTRY STAYS OPEN.** At an
 END-BOUND group — every member at `end`/`endword`, `plan._end_bound_group`,
