@@ -1,14 +1,49 @@
-COMPARATOR REPIN RECEIPT — M-135 and M-140, 2026-09-18
+COMPARATOR REPIN RECEIPT — M-135 and M-140, 2026-09-18 (SECOND REBUILD)
 
-WHAT MOVED THE COMPARATOR: Declaration() and lyric_harness.py.
-  Declaration gained `search` (M-135), a declared string naming what the
-  maximum is taken over; lyric_harness gained `_split_by_audible_end` and
-  the M-140 reporting split. Neither reads into any score.
+THIS RECEIPT SUPERSEDES THE FIRST ONE BANKED THE SAME DAY, and the reason is
+worth more than the numbers. The first rebuild was paid against fingerprint
+31a1ab473ff4, and the pin was moved onto it. CI then refused this branch under
+`test_verbs.py` §12, which holds `lyric_harness.py` to EXACTLY ONE broad
+exception handler — the declared span-lookup fallback. The M-140 work had added
+two more. Both guarded conditions that cannot occur, so removing them was the
+correct repair and it changed no behaviour; but `lyric_harness.py` is input 1
+of seven to `comparator_fingerprint()`, WHOLE FILE, and the removal moved the
+comparator a second time, to 7687581e91a2, discarding the memo the first
+rebuild had just finished producing.
+
+THE COST IS THE FINDING. A correction to a comparator-batch PR pays the whole
+memo again — this is the batching rule's own logic applied to a branch rather
+than across branches, and nothing in the tree said so before this sitting. The
+first receipt is not deleted for being wrong about its arithmetic; it is
+superseded because the tree moved underneath it.
+
+WHAT MOVED THE COMPARATOR, both times:
+  1st  Declaration() gained `search` (M-135) and lyric_harness.py gained
+       `_split_by_audible_end` and the M-140 reporting split.
+  2nd  lyric_harness.py lost two broad exception handlers that CI was right
+       to refuse. Neither reads into any score, then or now.
 
 HOW THE MEMO WAS REBUILT: four shards of
-  `length_curve_calibration.py compute --shard k/4`, merged with
-  `merge-cache` together with the 200 entries surviving the earlier run.
-  1,297 files, 8,536 rows, 17,808 CPU-s (4.95 CPU-hours), 5,371 s wall.
+  `length_curve_calibration.py compute --shard k/4`, merged with `merge-cache`.
+  NO PRIOR MEMO WAS MERGED IN, and that is deliberate: the on-disk memo carried
+  #fingerprint 31a1ab473ff4, and `cmd_merge_cache` REFUSES a shard whose
+  fingerprint is not the current one (exit 2, by name). Under a moved
+  comparator every prior entry is invalid, so overwriting is the correct
+  operation and passing the old memo as a shard would have been refused.
+
+  8,536 rows, 17,757 CPU-s (4.93 CPU-hours), 5,379 s wall.
+  FILE COUNT, both figures, because they disagree and neither is adjusted
+  to the other: the four shards sum to 1,297 (325+324+324+324) and the
+  song-profile population reader reports 1,296 over the same corpus. The
+  row counts agree exactly at 8,536, so the disagreement is in how a file
+  is counted at a shard boundary and not in what was computed. Recorded
+  rather than resolved; the first receipt printed only 1,297.
+  Per shard: 1/4 2105 rows 4205 CPU-s; 2/4 2830 rows 5224 CPU-s;
+             3/4 1453 rows 3773 CPU-s; 4/4 2148 rows 4555 CPU-s.
+  Every shard reported cache hits 0, misses = its own row count, which is
+  what a genuinely cold memo under a new fingerprint must look like.
+  The first rebuild cost 17,808 CPU-s; this one 17,757, a 0.3% difference
+  over the same corpus — the second payment is the same size as the first.
 
 === length_curve_calibration.py check --rows (4 shard row files) ===
 ROWS  from 4 file(s): 8536 items
@@ -19,10 +54,11 @@ MATTR/TTR  532 of 8536 items degenerate at calibration window 50 -> HOLDS
   cv             CK  shipped 21 knots, re-derived 21  -> HOLDS
   predictability CK  shipped 21 knots, re-derived 21  -> HOLDS
 RESULT: HOLDS — the lyric row's 5 curves re-derive from the corpus
+curve-check rc=0
 
-=== song_profile_calibration.py --check (warm on the rebuilt memo) ===
+=== song_profile_calibration.py --check (warm) ===
 CACHE  /root/.cache/lyric-harness/song_predictability_v1.tsv
-       fingerprint 31a1ab473ff4 | read 8536 entries, written 2026-09-18T13:54:20 | hits 0, misses 0
+       fingerprint 7687581e91a2 | read 8536 entries, written 2026-09-18T16:05:23 | hits 0, misses 0
 POPULATION  1296 files, 1293 distinct authors, 8536 items, 279502 sung lines
 CACHE  after population: hits 8536, misses 0
 
@@ -106,12 +142,34 @@ CACHE  after population: hits 8536, misses 0
    asked 21, answered 21, refused 0 (doctrine 79)
    every shipped constant reproduces.
 CACHE  /root/.cache/lyric-harness/song_predictability_v1.tsv
-       fingerprint 31a1ab473ff4 | read 8536 entries, written 2026-09-18T13:54:20 | hits 8536, misses 0
+       fingerprint 7687581e91a2 | read 8536 entries, written 2026-09-18T16:05:23 | hits 8536, misses 0
 
 PHASE COST  (wall / cpu seconds; they are not the same number and neither is the other's estimate)
-   population                       58.6      59.2
+   population                       58.2      58.7
    pick_band                         0.7       0.7
-   report_fpr                        5.6       5.6
-   report_period                    27.2      27.1
+   report_fpr                        5.5       5.5
+   report_period                    27.0      27.0
    check_shipped                     0.0       0.0
-   TOTAL                            92.0      92.6
+   TOTAL                            91.3      91.9
+song-profile rc=0
+
+=== comparator pin, read BEFORE the repin ===
+PIN      31a1ab473ff4d5feeaa7edbdb48414905ccf45f39d5e9602d187adf491d9ab4f
+MEASURED 7687581e91a2053f7ff3b368b23b37136667b57a2e50ea68660aae35ce0342fa
+
+THE COMPARATOR MOVED. Inputs that differ from the pin:
+    lyric_harness.py
+
+This is not a lint failure. A moved comparator DISCARDS the
+predictability memo (~2.1 CPU-hours) and can move any row fitted
+against it. This pull request owns that:
+  1. Re-run the calibrations this comparator feeds, at minimum
+     `python3 quality/length_curve_calibration.py check`.
+  2. If a row MOVED, argue it and repin as a SET — never tune a
+     constant to clear this gate (doctrine 58).
+  3. Bank the receipt, then re-pin:
+       python3 quality/check_comparator_pin.py --write \
+           --verified-by <receipt path> --verdict "<what it said>"
+
+RESULT: MOVED — 1 of 7 inputs.
+=== DONE — read /tmp/claude-0/land.log, then repin by hand with the real verdict (16:07:41Z)
