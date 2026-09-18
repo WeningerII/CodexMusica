@@ -49,6 +49,7 @@ and exits 3 on drift, and that is its whole enforcement.
     python3 quality/search_null.py            the sweep, printed
     python3 quality/search_null.py --check    against the pins, exit 3 on drift
 """
+import collections
 import random
 import statistics as st
 import sys
@@ -80,6 +81,96 @@ SONNET_SCHEME = "ABABCDCDEFEFGG"
 #: sentence that follows from it: `theta_rhyme` must sit above the crossover,
 #: because below it the comparator's own search is working against the band.
 CROSSOVER = 0.72
+
+#: THE BUCKETS THE CROSSOVER WAS RE-MEASURED IN (`MISSING.md` M-135,
+#: 2026-09-18). Declared rather than chosen per run, because a bucket edge
+#: picked after seeing the answer is doctrine 19's argmax wearing a histogram.
+PER_K_BUCKETS = ((3, 4), (5, 8), (9, 16), (17, None))
+
+#: THE PER-BUCKET CROSSOVER TABLE, AND THE REASON THE ADOPTED SCALAR ABOVE IS
+#: A POPULATION MIXTURE (`MISSING.md` M-135, measured 2026-09-18).
+#:
+#: M-135's ruling proposed DECLARING the search and REFUSING a realized k
+#: beyond a calibrated bound. Re-running this module's own sweep -- its
+#: population, its SEED, its REPLICATES, its theta grid, its estimator,
+#: reproducing its printed figures to the digit -- but cutting both arms by
+#: the k each pair actually realized, found that NO SUCH BOUND EXISTS, and
+#: the refusal half of the ruling was withdrawn on this table rather than
+#: built. `Declaration.search` is the half that survived.
+#:
+#: THE TWO POPULATIONS INVERT. On the sonnets the bucket that FAILS is the
+#: LOW one; on the song corpus every measurable bucket clears. So no rule of
+#: the form "refuse k above K" is honest on both, and one drawn from the
+#: sonnet table alone would refuse 75.45% of sonnet pairs and 80.98% of song
+#: pairs -- a coordinate that refuses the mode is a different instrument.
+#:
+#: AND THE FINDING IS THE MODE ITSELF: 74.3% of sonnet pairs sit at exactly
+#: k=4, where the bucket crossover is 0.7591 -- ABOVE the shipped
+#: `theta_rhyme` of 0.75 -- and the search buys -0.16 pp, at or below
+#: break-even. The adopted 0.72 clears only because the 19.9% of pairs at
+#: k=5-8 buy +4.40 pp and carry the average. The gate below is NOT
+#: strengthened to fail per bucket: that would turn the modal sonnet bucket
+#: red on main without a ruling on what replaces `theta_rhyme`, and retuning
+#: theta to clear a bucket is the tuning doctrine 58 forbids. What is owed,
+#: and is the whole of M-135's remaining coupling half, is a preregistered
+#: decision on which population's crossover the band is calibrated against.
+#:
+#: WHAT `--check` RE-DERIVES AND WHAT IT DOES NOT, stated rather than left to
+#: be assumed (doctrine 20). The sonnet BUCKET POPULATIONS are re-derived
+#: every run and pinned below, so a corpus or comparator move that changes
+#: which pairs land in which bucket reds this module and tells the reader the
+#: crossovers beside them are stale. The CROSSOVER VALUES themselves, and the
+#: whole song-corpus arm, are a RECORD of the 2026-09-18 run: re-deriving
+#: them costs the full sweep per bucket over 206,114 song pairs, and a figure
+#: banked without its command is named as such rather than dressed as a pin.
+PER_K_CROSSOVER = {
+    ("sonnets", (3, 4)): {"pairs": 823, "crossover": 0.7591,
+                          "buys_pp": -0.16, "clears": "NO, 4 of 10"},
+    ("sonnets", (5, 8)): {"pairs": 220, "crossover": 0.6410,
+                          "buys_pp": +4.40, "clears": "yes, 10 of 10"},
+    ("song", (3, 4)): {"pairs": 162711, "crossover": 0.6901,
+                       "buys_pp": +0.13, "clears": "yes, 10 of 10"},
+    ("song", (5, 8)): {"pairs": 35021, "crossover": 0.7261,
+                       "buys_pp": +0.14, "clears": "yes, 9 of 10"},
+    ("song", (17, None)): {"pairs": 216, "crossover": 0.6214,
+                           "buys_pp": +7.36, "clears": "yes, 10 of 10"},
+}
+
+
+def realized_k(pairs, decl):
+    """-> collections.Counter of the k each pair's maximum was taken over.
+
+    Doctrine 56's own coordinate, counted. `best_score` has banked
+    `search_k` on every score since the first commit; this is what reads it
+    across a population instead of one pair at a time.
+    """
+    ks = collections.Counter()
+    for ca, cb, wa, wb in pairs:
+        s = LH.best_score(ca, cb, decl, wa, wb)
+        if s:
+            ks[s["spans"]["search_k"]] += 1
+    return ks
+
+
+def bucket_populations(ks):
+    """-> {bucket: pairs} over `PER_K_BUCKETS`, plus the below-floor count.
+
+    A k below the first bucket's floor is kept APART and never folded into
+    it (doctrine 79): on the sonnets that is 13 pairs at k=2, and a table
+    that silently absorbed them would report a bucket population the sweep
+    did not measure.
+    """
+    out = {b: 0 for b in PER_K_BUCKETS}
+    below = 0
+    for k, c in ks.items():
+        for lo, hi in PER_K_BUCKETS:
+            if k >= lo and (hi is None or k <= hi):
+                out[(lo, hi)] += c
+                break
+        else:
+            below += c
+    return out, below
+
 
 #: The figures `--check` holds. Keyed by theta; each value is
 #: (real_lift_pp, null_lift_pp) on the sonnet arm. Held to a tolerance rather
@@ -282,6 +373,42 @@ def main(argv):
           "loosened further")
     print("  by a mechanism no coordinate declares.")
 
+    # THE MIXTURE, DISCLOSED (M-135, 2026-09-18). The scalar above is one
+    # number over a population whose k is near-degenerate, and the bucket
+    # that carries the mode is the one that does not clear. Printed on every
+    # run rather than filed in the register, because the adopted figure is
+    # not readable without it.
+    ks = realized_k([p for u in units for p in scheme_pairs(u)], decl)
+    pops, below = bucket_populations(ks)
+    tot = sum(ks.values())
+    print(f"\n  THE SEARCH IS NEAR-DEGENERATE, AND THE MODE IS THE PROBLEM "
+          f"(M-135):")
+    print(f"    realized k over {tot} sonnet pairs — "
+          + ", ".join(f"k={k}: {c} ({100.0 * c / tot:.1f}%)"
+                      for k, c in sorted(ks.items())))
+    print(f"    no-search (k=1) pairs: {ks.get(1, 0)} — the module's own "
+          f"no-search arm is CONSTRUCTED, not observed")
+    print(f"  {'bucket':>10}{'pairs':>8}{'crossover':>12}"
+          f"{'buys pp':>10}{'clears theta':>16}")
+    for lo, hi in PER_K_BUCKETS:
+        rec = PER_K_CROSSOVER.get(("sonnets", (lo, hi)))
+        name = f"k={lo}-{hi}" if hi else f"k={lo}+"
+        got = pops[(lo, hi)]
+        if rec is None:
+            print(f"  {name:>10}{got:>8}{'—':>12}{'—':>10}"
+                  f"{'not measured':>16}")
+            continue
+        print(f"  {name:>10}{got:>8}{rec['crossover']:>12.4f}"
+              f"{rec['buys_pp']:>+10.2f}{rec['clears']:>16}")
+    print(f"    below the first bucket: {below} pair(s), counted apart and "
+          f"never folded in (doctrine 79)")
+    print("    the sonnet CROSSOVERS above are a RECORD of the 2026-09-18 "
+          "run; what --check")
+    print("    re-derives is the bucket POPULATIONS beside them, so a "
+          "population that moves")
+    print("    says the crossovers are stale rather than letting them read "
+          "as current.")
+
     if not check:
         print("\n  Not a verdict on any draft: this is the SCALAR gate, not "
               "`admits()`,\n  which types the relation and accepts the near "
@@ -311,6 +438,22 @@ def main(argv):
               f"measured crossover {CROSSOVER}")
         print(f"         margin {decl.theta_rhyme - CROSSOVER:+.2f} — thin, "
               f"and that is the finding, not a comfort")
+
+    # THE BUCKET POPULATIONS THE BANKED CROSSOVERS WERE MEASURED ON (M-135).
+    # The crossovers themselves are a record and say so; these are what holds
+    # them honest. If a corpus or comparator move puts different pairs in a
+    # bucket, the figure beside that bucket stopped describing it, and this
+    # is what says so instead of letting the table read as current.
+    for (arm, bucket), rec in sorted(PER_K_CROSSOVER.items(), key=repr):
+        if arm != "sonnets":
+            continue          # the song arm's 206,114 pairs are not re-swept
+        got = pops[bucket]
+        ok = got == rec["pairs"]
+        bad += 0 if ok else 1
+        name = f"k={bucket[0]}-{bucket[1]}" if bucket[1] else f"k={bucket[0]}+"
+        print(f"  [{'ok  ' if ok else 'FAIL'}] sonnet bucket {name:<8}"
+              f" committed {rec['pairs']} pairs, measured {got}"
+              f"{'' if ok else ' — the crossover beside it is now stale'}")
 
     for th, (want_r, want_n) in sorted(PINNED_SONNET.items()):
         got_r, got_n, _ = res[th]

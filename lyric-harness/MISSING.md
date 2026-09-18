@@ -14962,12 +14962,56 @@ What is owed after this, and is now the whole of this entry's coupling half, is 
 preregistered decision on which population's crossover the band is calibrated
 against, taken with the per-k table in hand rather than against an average that
 conceals it.
-> **TESTED WHILE OPEN.** `quality/test_spans.py` section 3 names this entry and
-> PINS THE UNCORRECTED SEARCH: the k=6 span search beats its own k=1
+**WHAT SHIPPED 2026-09-18, AND IT IS THE DECLARATION HALF ALONE.**
+`Declaration.search` names what the maximum is taken over, in the tuple, where
+doctrine 1 says a coordinate that decides an answer belongs. It is ADDITIVE and
+was proven so rather than asserted: re-scoring the section-3 pair under a
+DIFFERENT declared `search` returns a byte-identical total, relation and
+`search_k`, and `search_null.py --check`'s twelve pinned lifts are unmoved to
+the hundredth. No k bound is declared, because none was earned.
+
+**AND THE DISCLOSURE HALF IS A COMMAND, NOT A PARAGRAPH.**
+`search_null.PER_K_CROSSOVER` banks the per-bucket table and
+`search_null.py` prints the realized-k distribution beside the adopted scalar on
+every run: 1,108 sonnet pairs, **74.3% at exactly k=4**, **0 at k=1** — so the
+module's own no-search arm is CONSTRUCTED rather than observed, which is stated
+where it can be read instead of inferred. **What `--check` re-derives is the
+bucket POPULATIONS (823 and 220, both holding), and what it does not is the
+crossover VALUES or the song arm's 206,114 pairs**; a figure banked without its
+command is named as such rather than dressed as a pin (doctrine 20). The
+populations are the gate on the record: a corpus or comparator move that puts
+different pairs in a bucket reds the module and says the crossovers beside them
+are stale.
+
+**THE FIELD MOVES `repr(Declaration())` AND THEREFORE THE COMPARATOR
+FINGERPRINT**, which is correct and is the price the owner's batching rule
+exists to pay once: a run that declared a different search is not comparable to
+one that did not. Two prose counts went with it — `field_store.py`'s *"all 21 of
+them"* and `test_field_store.py`'s twin — repinned to 22, and the only reason
+neither was silently wrong is that `declaration_tuple` is DERIVED, so the key
+was right on the day the field landed and only the sentences were not.
+
+> **TESTED WHILE OPEN.** ~~`quality/test_spans.py` section 3 names this entry
+> and PINS THE UNCORRECTED SEARCH: the k=6 span search beats its own k=1
 > restriction (0.579 against 0.272), yet `Declaration` carries no field naming a
 > search or a k, so the identical bare theta admits both — and
 > `search_null.CROSSOVER` (0.72) sits BELOW that theta (0.75), which is the one
-> state this entry's gate refuses. Red the day k enters the comparison.
+> state this entry's gate refuses. Red the day k enters the comparison.~~
+> **REPOINTED 2026-09-18 — k HAS ENTERED THE COMPARISON, so the block above
+> pinned the defect and would now keep it.** Section 3 names this entry and
+> pins THREE things, each proven by its own mutation: that the search is real
+> and is now NAMED (`decl_fields == ["search"]`; removing the field reds it);
+> that naming it moves NO verdict, asked by re-scoring under a changed `search`
+> rather than by comparing an expression to itself, which is what the first
+> draft of that check did; and that the adopted crossover is a MIXTURE — the
+> bucket carrying 74.3% of sonnet pairs has a crossover of 0.7591, ABOVE
+> `theta_rhyme`, and buys −0.16 pp (dropping that figure under theta reds it).
+> **Red the day the coupling half is ruled on**, which is what this entry still
+> owes: a preregistered decision on which population's crossover the band is
+> calibrated against. The gate is deliberately NOT strengthened to fail per
+> bucket, because that reds the modal sonnet bucket on main without a ruling on
+> what replaces `theta_rhyme`, and retuning theta to clear a bucket is the
+> tuning doctrine 58 forbids.
 The audit the owner asked for, run against the site every rhyme number passes
 through. **DOCTRINE 56 IS HONOURED IN ONE LAYER AND RECORDED-BUT-UNAPPLIED IN
 THE OTHER, and the two layers are one screen apart.**

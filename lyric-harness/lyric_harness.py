@@ -854,6 +854,39 @@ class Declaration:
                                               # argument/spent rhymes on -ment
     fitted: bool = False                      # weights hand-set, not corpus-fitted
 
+    #: WHAT SEARCH THE MAXIMUM IS TAKEN OVER (`MISSING.md` M-135, doctrine 56).
+    #: `best_score` maximises over every pair of pronunciation spans and has
+    #: recorded `search_k` since it was written, under a comment calling that
+    #: recording "the precondition for a null under the same search". NOTHING
+    #: CONSUMED IT: the winner of a k-wide search faced a threshold calibrated
+    #: without reference to k, so the search was an undeclared coordinate that
+    #: decides an answer — doctrine 1's own shape, and the one it says to fix by
+    #: putting the coordinate in the tuple rather than by arguing about it.
+    #:
+    #: THIS IS A DECLARATION AND NOT A BOUND, and the difference was MEASURED
+    #: rather than chosen. The ruling that opened M-135 proposed refusing a
+    #: realized k beyond a calibrated bound; re-running `quality/search_null.py`'s
+    #: own sweep cut by the k each pair actually realized found that no such
+    #: bound exists. The two populations INVERT — on the sonnets the bucket that
+    #: fails is the LOW one, k=3-4, while on the song corpus every measurable
+    #: bucket clears — so a bound honest on one refuses the other, and one drawn
+    #: from the sonnet table alone would refuse 75.45% of sonnet pairs and
+    #: 80.98% of song pairs. A coordinate that refuses the mode is a different
+    #: instrument, not a declaration.
+    #:
+    #: SO IT STATES WHAT THE SEARCH IS AND GATES NOTHING. What it costs per
+    #: bucket is `search_null.PER_K_CROSSOVER`, disclosed beside the adopted
+    #: scalar because that scalar is a population MIXTURE: 74.3% of sonnet pairs
+    #: sit at k=4, where the bucket crossover is 0.7591 — ABOVE the shipped
+    #: `theta_rhyme` — and the search buys −0.16 pp. Changing this string moves
+    #: `repr(Declaration())` and therefore the comparator fingerprint, which is
+    #: correct: a run that declared a different search is not comparable to one
+    #: that did not.
+    search: str = (
+        "max over every pronunciation span pair; k = candidates_a x "
+        "candidates_b, recorded per pair as spans.search_k; uncorrected"
+    )
+
     def show(self):
         return json.dumps(asdict(self), indent=2)
 

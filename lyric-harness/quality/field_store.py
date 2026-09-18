@@ -53,13 +53,18 @@ fingerprint folds:
 
   1. `store_version` -- this file's own format number.
   2. `declaration` -- `discriminate.declaration_tuple(decl)` over EVERY entry
-     of `dataclasses.fields(Declaration)`, all 21 of them, and deliberately
-     NOT a hand-picked subset. Only 6 of the 21 can move a field result today
+     of `dataclasses.fields(Declaration)`, all ~~21~~ **22** of them
+     (REPINNED 2026-09-18: `search` entered under `MISSING.md` M-135, and
+     this sentence is the count doctrine 58 warns about -- the only reason
+     it did not go stale silently is that `declaration_tuple` is DERIVED, so
+     the key was right on the day the field landed and only the prose was
+     wrong), and deliberately
+     NOT a hand-picked subset. Only 6 of them can move a field result today
      (`field()` keeps `s["total"]` and discards `s["relation"]`, so the whole
      relation ladder is invisible to it), and keying on a measured subset
      would be exactly right until the day somebody returns `relation` from
      `field()` -- at which point the key would be incomplete and nothing would
-     say so. Keying on all 21 also means a coordinate ADDED to `Declaration`
+     say so. Keying on all of them also means a coordinate ADDED to `Declaration`
      enters the key by itself, with nobody remembering to add it.
   3. `lexicon` -- the type, `strip_parens`, the g2p fallback's (type,
      min_confidence), and the CONTENT digests of `cmudict.dict` and
