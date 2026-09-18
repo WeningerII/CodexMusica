@@ -4475,6 +4475,324 @@ await check('validation: actionable errors', () => {
       'and without it the check names the worker — the finding, reproduced'
     );
   });
+  // ─────────── M-187(a): IS THE WARM WORKER ENGAGED ON THE DEPLOYED BOX? ───────────
+  //
+  // M-187 shipped the worker into the image and then said, in its own OPEN
+  // list, that nothing measures whether that worker is ENGAGED where it runs.
+  // check_live.mjs compares the ADVERTISED surface; a warm answer and a cold
+  // one are byte-identical, so the surface cannot tell them apart and the only
+  // signal is the clock. The standing instrument was therefore two identical
+  // deferred lyric_revise calls timed back to back on the live /mcp — the
+  // second under ~10 s means the replay memo engaged, ~80 s flat means cold —
+  // which spends two paid revisions and about three minutes to answer yes/no.
+  // The cheap form the entry named is a `worker` state on /health, and that is
+  // what these four checks pin: the state machine against a REAL worker.py
+  // process, and the field itself off the REAL /health handler.
+  //
+  // WHAT THIS DOES NOT CLAIM. It does not read the deployed box. (a)'s
+  // deployed half still binds only after a merge and a deploy; what is built
+  // here is the instrument that reading will use.
+  const m187WorkerFixture = async () => {
+    const { mkdtemp, mkdir, writeFile, copyFile, rm } = await import('node:fs/promises');
+    const { tmpdir } = await import('node:os');
+    const nodePath = await import('node:path');
+    const { createPythonBridge } = await import('./python_bridge.js');
+    const here = nodePath.dirname(fileURLToPath(import.meta.url));
+    const dir = await mkdtemp(nodePath.join(tmpdir(), 'm187-worker-'));
+    const harnessDir = nodePath.join(dir, 'lyric-harness');
+    await mkdir(harnessDir);
+    await mkdir(nodePath.join(dir, 'mcp'));
+    const workerPath = nodePath.join(dir, 'mcp', 'worker.py');
+    // The REAL worker.py — the process whose absence from the image was the
+    // M-187 defect. Only the CLI it drives is a local fixture, so no verb,
+    // no lexicon and no provider call is involved in reading this state.
+    await copyFile(nodePath.join(here, 'worker.py'), workerPath);
+    await writeFile(
+      nodePath.join(harnessDir, 'lyric_harness.py'),
+      `import sys, time
+
+def cli():
+    if sys.argv[1] == 'wait':
+        time.sleep(float(sys.argv[2]))
+    print('answered ' + sys.argv[1], flush=True)
+    return 0
+
+if __name__ == '__main__':
+    sys.exit(cli())
+`
+    );
+    const bridge = createPythonBridge({
+      python: 'python3',
+      harnessDir,
+      workerPath,
+      harnessEnv: () => ({ ...process.env, PYTHONDONTWRITEBYTECODE: '1' }),
+      timeoutMs: 10_000,
+      maxOutputBytes: 1024 * 1024,
+    });
+    return {
+      bridge,
+      cleanup: async () => {
+        await bridge.internals.kill();
+        await rm(dir, { recursive: true, force: true });
+      },
+    };
+  };
+
+  await check('/health worker state: a worker nobody has used is COLD, not warm', async () => {
+    const { bridge, cleanup } = await m187WorkerFixture();
+    try {
+      const cold = bridge.workerState();
+      assert.deepEqual(
+        cold,
+        { enabled: true, spawned: false, warm: false, served: 0 },
+        'before any request there is no process and nothing has been served'
+      );
+      // THE PLANTED MUTANT, and it is the reading this field exists to
+      // replace: "the warm path is configured" (LYRIC_WORKER !== '0', which
+      // mcp/lyric_tools.js has exported as _workerInternals.enabled since
+      // M-155) was the only worker fact the connector could state, and it is
+      // TRUE on the box where the image never shipped worker.py. A state that
+      // answers from configuration alone cannot see the M-187 defect.
+      const fromConfiguration = { warm: bridge.internals.enabled };
+      assert.equal(fromConfiguration.warm, true, 'configuration says the warm path is on...');
+      assert.notEqual(
+        cold.warm,
+        fromConfiguration.warm,
+        '...and the real state says nothing is warm — the two disagree exactly where it matters'
+      );
+      assert.equal(
+        bridge.internals.pid(),
+        null,
+        'and no process was spawned by asking: reading this state is free'
+      );
+    } finally {
+      await cleanup();
+    }
+  });
+
+  await check(
+    '/health worker state: WARM means served here, and a kill takes it away',
+    async () => {
+      const { bridge, cleanup } = await m187WorkerFixture();
+      try {
+        // THE ONE READING THAT SEPARATES THE CHEAPER ANSWERS FROM THE RIGHT
+        // ONE: a worker that EXISTS and has answered NOTHING. That is the box
+        // one instant after its first call arrives, and every cheaper
+        // definition of warm gets it wrong — the memo is populated by an
+        // ANSWER, not by a process and not by a dispatch.
+        // Settled into a value either way: a failure here must surface as this
+        // check's own assertion, never as an unhandled rejection that takes
+        // the whole suite down with it.
+        const inFlight = bridge.internals.runWarm(['wait', '1.5']).then(
+          (answer) => answer,
+          (error) => ({ code: null, error: error.message })
+        );
+        const spawnedBy = Date.now() + 5000;
+        while (bridge.internals.pid() === null && Date.now() < spawnedBy)
+          await new Promise((r) => setTimeout(r, 5));
+        const mid = bridge.workerState();
+        assert.deepEqual(
+          mid,
+          { enabled: true, spawned: true, warm: false, served: 0 },
+          'a spawned worker that has answered nothing is NOT warm and has served nothing'
+        );
+        // THE PLANTED MUTANTS, computed from what the bridge exposes at this
+        // same instant so they are readings and not fabrications. The first is
+        // what the connector could already say before this change
+        // (_workerInternals.enabled, true on the very box whose image never
+        // shipped worker.py); the second is the obvious wrong fix, a process
+        // check; the third is counting at DISPATCH, which the pending promise
+        // above proves would read 1 here.
+        assert.equal(bridge.internals.enabled, true, 'configuration says warm...');
+        assert.notEqual(mid.warm, bridge.internals.enabled, '...and it is wrong here');
+        assert.equal(bridge.internals.pid() !== null, true, 'a process is up...');
+        assert.notEqual(mid.warm, bridge.internals.pid() !== null, '...and that is wrong too');
+        const answered = await inFlight;
+        assert.equal(answered.code, 0, 'the in-flight request was real and it answered');
+        assert.deepEqual(
+          bridge.workerState(),
+          { enabled: true, spawned: true, warm: true, served: 1 },
+          '...and the ANSWER is what turns it warm — one, not the two a dispatch count would hold'
+        );
+        const pid = bridge.internals.pid();
+        await bridge.internals.runWarm(['two']);
+        assert.equal(bridge.workerState().served, 2, 'the count follows the answers');
+        assert.equal(bridge.internals.pid(), pid, '...in ONE process — the memo has not moved');
+        // THE MEMO CANNOT OUTLIVE ITS PROCESS. runVerb SIGKILLs the worker on
+        // every path that falls back cold, and the next request starts a
+        // process that remembers nothing. A count carried across the kill
+        // would report a populated memo that no longer exists — the exact
+        // false 'engaged' this field must never give.
+        bridge.internals.kill();
+        assert.deepEqual(
+          bridge.workerState(),
+          { enabled: true, spawned: false, warm: false, served: 0 },
+          'after a kill the reading is cold again'
+        );
+        await bridge.internals.runWarm(['three']);
+        assert.equal(
+          bridge.workerState().served,
+          1,
+          "and the respawned process counts from zero, not from the dead one's two"
+        );
+        assert.notEqual(bridge.internals.pid(), pid, '...because it IS a different process');
+      } finally {
+        await cleanup();
+      }
+    }
+  );
+
+  // THE FIELD ON THE REAL ENDPOINT. The two above drive the bridge; these two
+  // spawn mcp/server_http.js and curl it, because the claim M-187 needs is
+  // that ONE CURL answers the question — not that a function exists.
+  const m187Health = async (extraEnv) => {
+    const { spawn } = await import('node:child_process');
+    const { createServer } = await import('node:net');
+    const { mkdtempSync, rmSync } = await import('node:fs');
+    const { tmpdir } = await import('node:os');
+    const { join } = await import('node:path');
+    const listener = createServer();
+    await new Promise((r) => listener.listen(0, '127.0.0.1', r));
+    const port = listener.address().port;
+    await new Promise((r) => listener.close(r));
+    const root = mkdtempSync(join(tmpdir(), 'm187-health-'));
+    const child = spawn(
+      process.execPath,
+      [fileURLToPath(new URL('./server_http.js', import.meta.url))],
+      {
+        cwd: fileURLToPath(new URL('..', import.meta.url)),
+        env: {
+          ...process.env,
+          PORT: String(port),
+          GEMINI_API_KEY: '',
+          LYRIC_RUNTIME_DIR: root,
+          BUILD_GIT_COMMIT: '',
+          RENDER_GIT_COMMIT: '',
+          ...extraEnv,
+        },
+      }
+    );
+    let log = '';
+    child.stdout.on('data', (c) => (log += c));
+    child.stderr.on('data', (c) => (log += c));
+    try {
+      const deadline = Date.now() + 20_000;
+      for (;;) {
+        try {
+          const res = await NET_FETCH(`http://127.0.0.1:${port}/health`);
+          if (res.ok) return await res.json();
+        } catch {}
+        if (child.exitCode != null) assert.fail(`the HTTP server exited: ${log}`);
+        if (Date.now() > deadline) assert.fail(`/health never answered: ${log}`);
+        await new Promise((r) => setTimeout(r, 25));
+      }
+    } finally {
+      child.kill('SIGKILL');
+      rmSync(root, { recursive: true, force: true });
+    }
+  };
+
+  await check(
+    '/health answers the engagement question and names the SERVING sha in one curl',
+    async () => {
+      const sha = 'a'.repeat(40);
+      const body = await m187Health({ RENDER_GIT_COMMIT: sha });
+      // ONE CURL. This is the whole claim: the shape the two-revise timing
+      // instrument was built to infer is now stated outright.
+      assert.deepEqual(
+        body.worker,
+        { enabled: true, spawned: false, warm: false, served: 0 },
+        'a freshly started process has answered nothing, and /health says exactly that'
+      );
+      // THE SERVING SHA, and it was ALREADY HERE — M-187 asked for
+      // RENDER_GIT_COMMIT on /health, mcp/build_identity.js has reported it
+      // since M-230, and since M-289 scripts/deploy_guard.sh reads this very
+      // field through `check_live.mjs --print-commit`. Pinned, not added.
+      assert.equal(
+        body.commit,
+        sha,
+        'the serving sha is the top-level commit check_live.mjs reads'
+      );
+      assert.equal(body.build.reported_commit, sha, 'and RENDER_GIT_COMMIT is reported verbatim');
+      // THE PLANTED MUTANT for the worker field: the payload as it stood
+      // before this change, which is this one minus `worker`. Everything the
+      // caller could ask it about engagement is absent.
+      const preFix = { ...body };
+      delete preFix.worker;
+      assert.equal(
+        Object.hasOwn(preFix, 'worker'),
+        false,
+        'the pre-fix payload has no worker state...'
+      );
+      assert.notDeepEqual(
+        Object.keys(preFix).sort(),
+        Object.keys(body).sort(),
+        '...and that is the only difference this check would survive'
+      );
+      // NOTHING PRIVATE CROSSES A PUBLIC ENDPOINT. /health is unauthenticated,
+      // so the two new-facing fields are read against the whole payload: the
+      // worker state is four booleans-and-a-count and the sha is forty hex
+      // characters, and neither can carry a lyric, model text, a capability
+      // token or a key.
+      const seeded = await m187Health({
+        RENDER_GIT_COMMIT: sha,
+        GEMINI_API_KEY: 'sk-m187-never-served',
+        LYRIC_ADMIN_TOKEN: 'm187-admin-never-served',
+      });
+      const text = JSON.stringify(seeded);
+      for (const secret of ['sk-m187-never-served', 'm187-admin-never-served'])
+        assert.equal(text.includes(secret), false, `a secret reached /health: ${secret}`);
+      assert.match(
+        text,
+        /"worker":\{"enabled":(?:true|false),"spawned":(?:true|false),"warm":(?:true|false),"served":\d+\}/,
+        'the worker state is booleans and a count — there is no room in it for a lyric'
+      );
+      assert.deepEqual(
+        Object.values(seeded.worker).map((v) => typeof v),
+        ['boolean', 'boolean', 'boolean', 'number'],
+        'and no field of it is a string, which is the only shape prose could arrive in'
+      );
+    }
+  );
+
+  await check(
+    '/health without RENDER_GIT_COMMIT falls back to the identity the repo carries',
+    async () => {
+      const built = 'b'.repeat(40);
+      const fallback = await m187Health({ BUILD_GIT_COMMIT: built });
+      assert.equal(fallback.commit, built, 'BUILD_GIT_COMMIT serves when Render does not say');
+      assert.equal(
+        fallback.build.reported_commit,
+        null,
+        'and reported_commit stays null — unknown is never dressed up as a match'
+      );
+      const silent = await m187Health({});
+      assert.equal(
+        silent.commit,
+        null,
+        'a runtime that carries no identity at all reports null, which check_live.mjs refuses'
+      );
+      // THE PLANTED MUTANT: a fallback that invents an identity. commitDrift
+      // treats a missing commit as NOT a match, so any non-null stand-in here
+      // would turn "I do not know what I am serving" into a passing compare.
+      const { commitDrift } = await import('./check_live.mjs');
+      assert.match(
+        commitDrift(built, silent.commit),
+        /does not report a commit/,
+        'unknown must stay unknown at the reader'
+      );
+      assert.equal(
+        commitDrift(built, built),
+        null,
+        '...while the real fallback value matches, so the field is load-bearing in both directions'
+      );
+      assert.deepEqual(
+        fallback.worker,
+        { enabled: true, spawned: false, warm: false, served: 0 },
+        'the worker state is reported whether or not the sha is known — they are separate facts'
+      );
+    }
+  );
   await check('a battery transport failure is a recorded row, never a crash', async () => {
     const { spawnSync } = await import('node:child_process');
     const { mkdtempSync, rmSync } = await import('node:fs');

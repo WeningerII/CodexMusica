@@ -1420,8 +1420,16 @@ refusals, grid constraints, preservation and the real CLI plan/fill path;
 `mcp/test.mjs` and `mcp/test_lyric_workflow.mjs` cover connector argument and
 receipt continuity.
 
-### I-2 · No way to sample the space under constraints `PARTIAL` 2026-08-21 — the SAMPLER shipped; ~~the PREDICATE is ruled on hold~~ the PREDICATE shipped as `plan --sweep` (M-82, 2026-08-23) and the residue is three scheme coordinates it cannot yet name (repinned 2026-09-06)
-**REPINNED 2026-09-06 — THE BLOCKER THIS ENTRY RESTS ON WAS SPENT SIXTEEN DAYS AGO.** The last paragraph below says the filter is *"RULED ON HOLD, by name"* and must not be built as a favour. The ruling came on 2026-08-23 — *"make it a verb"* — and it is `plan --sweep=LO-HI [--want=PRED;PRED]` (M-82, `CLAUDE.md` standing rule 3): a closed predicate vocabulary over coordinates the plan already discloses, rejection-sampled from the uniform proposal, ranking nothing. So the PREDICATE exists. **What is still missing is narrower than the entry's own example and is a residue, not a blocker**: this entry asks for *3 sounds, no adjacencies, at least 2 section-crossings*, and `plan.SWEEP_MEASURES` at HEAD names 13 measures — `bars_per_line beats_per_line binding_cap bound_words_per_line group hook lines lines_per_section pins_per_line returns sections slots_per_line story_lineups` — none of which is `n_sounds`, `adjacencies` or `crossings`, though `schemes.SchemeCoordinates` computes all three for every drawn scheme. Adding the three is a build of the M-82 shape (a measure reads a disclosed coordinate; the sweep's own test pins the vocabulary), and it is not taken in a record-only sitting. Status stays PARTIAL on that residue and on nothing else.
+### I-2 · No way to sample the space under constraints `PARTIAL` 2026-08-21 — the SAMPLER shipped; ~~the PREDICATE is ruled on hold~~ the PREDICATE shipped as `plan --sweep` (M-82, 2026-08-23); ~~the residue is three scheme coordinates it cannot yet name~~ the three coordinates shipped 2026-09-18 and the residue is now what the worked example asks for BESIDES them (repinned 2026-09-06, again 2026-09-18)
+**REPINNED 2026-09-06 — THE BLOCKER THIS ENTRY RESTS ON WAS SPENT SIXTEEN DAYS AGO.** The last paragraph below says the filter is *"RULED ON HOLD, by name"* and must not be built as a favour. The ruling came on 2026-08-23 — *"make it a verb"* — and it is `plan --sweep=LO-HI [--want=PRED;PRED]` (M-82, `CLAUDE.md` standing rule 3): a closed predicate vocabulary over coordinates the plan already discloses, rejection-sampled from the uniform proposal, ranking nothing. So the PREDICATE exists. **What is still missing is narrower than the entry's own example and is a residue, not a blocker**: this entry asks for *3 sounds, no adjacencies, at least 2 section-crossings*, and ~~`plan.SWEEP_MEASURES` at HEAD names 13 measures — `bars_per_line beats_per_line binding_cap bound_words_per_line group hook lines lines_per_section pins_per_line returns sections slots_per_line story_lineups` — none of which is `n_sounds`, `adjacencies` or `crossings`~~ — struck 2026-09-18, it names those three now and the hand-written table runs 16 — though ~~`schemes.SchemeCoordinates`~~ `schemes.Coordinates` computes all three for every drawn scheme. Adding the three is a build of the M-82 shape (a measure reads a disclosed coordinate; the sweep's own test pins the vocabulary), and it is not taken in a record-only sitting. ~~Status stays PARTIAL on that residue and on nothing else.~~ Struck 2026-09-18: the three shipped, and building them found the example asking for two more things the planner cannot do — see below.
+
+**SHIPPED 2026-09-18 — THE THREE COORDINATES ARE MEASURES, AND THE WORKED EXAMPLE STILL CANNOT BE ASKED WHOLE.** `n_sounds`, `adjacencies` and `crossings` are `plan.SWEEP_MEASURES` names, so the hand-written table runs 16 rather than 13 (the function-specific names are still three per roster function on top). They are the M-82 shape and nothing new: a private `plan._sweep_coords` lays each section instance's own DISCLOSED code — `choices["schemes"][fn]["rgs"]` — over that instance's lines and hands the partition to `quality/schemes.py`'s `coordinates`, which is the same function the `partition` verb prints from, so a sweep and a plan cannot report different coordinates for one seed. Two instances of a function are TWO sets of sounds, which is `end_rhyme_groups`' own ruling one layer over: one code per function fixes the SHAPE and never says two verses share their rhymes. `quality/test_plan.py` §10 pins the table by name and by count and §10c carries a planted mutant per measure — AAAA against ABAB for `n_sounds`, AABB for `adjacencies`, ABBA for `crossings` — plus a source mutant that keys the partition on the code symbol instead of the section instance and reads 2 sounds where the shipped measure reads 4. MEASURED over seeds 0-23: `n_sounds` 8-21, `adjacencies` 1-13, `crossings` 0-44; `plan --sweep=0-40 --want=n_sounds<=8` accepts 4 of 40 and `--want=crossings>=2` accepts 22 of 40.
+
+**THREE CORRECTIONS THE BUILD OWED THIS ENTRY, each a reading of the tree rather than of the register.** (a) The class is `schemes.Coordinates`; this entry has called it `SchemeCoordinates` since 2026-08-21 and no such name exists. (b) `crossings` counts rhyme blocks that INTERLEAVE — ABAB, against `nestings`' ABBA — and is NOT this entry's "section-crossings", which is the separate `section_crossing` coordinate. The repin named the three by their field names and the example by its prose, and the two do not line up. (c) `--lines=11` is BELOW the planner's declared envelope floor of 12 and refuses by name, so the example's eleven-line SONG is not drawable at all — an eleven-line SECTION is. The 2026-08-21 paragraph below reads `EXACT_ENUM_MAX = 10` as proof the eleven-line case is reachable; that is true of the SCHEME sampler and false of the song.
+
+**TESTED WHILE OPEN.** `quality/test_plan.py` §10 and §10c name this entry and guard the half that shipped, not the half that is missing: they pin the measure table BY NAME at 16 so a fourteenth coordinate cannot arrive unannounced, and they pin that the three READ `choices["schemes"][fn]["rgs"]` rather than re-deriving a scheme, with a planted mutant per measure. Neither of them asserts that the worked example can be asked, and §10c's own detail line prints `adjacencies` running 1-13 over seeds 0-23 — the residue below, stated by the test that would otherwise look like a closure. A green run says the three coordinates are wired and honest; it does not say this entry is done.
+
+**WHAT REMAINS, AND WHY THE STATUS IS STILL PARTIAL.** Three things, none of them a coordinate that is missing a measure. (1) `adjacencies=0` — the example's "no adjacencies" — accepted 0 of 40 seeds. Every section instance realises its own code and any code with two consecutive members contributes an adjacent pair, so a song-length draw is adjacent almost surely; this is M-181's finding about `pins_per_line` at a different coordinate, and it is a fact about the DRAW, not about the predicate. (2) "at least 2 section-crossings" cannot be wanted at all, because this planner draws every rhyme group INSIDE one section instance: 0 of 443 groups over seeds 0-29 span a section boundary, and `schemes.Coordinates.section_crossing` says the same thing in its own comment. A measure for it would select nothing, forever, and naming it would be a coordinate that reads as a filter matching nothing. (3) The "no name" half is still not a measure. `schemes.identify` returning `None` is a call the layer makes, and the repin above named the residue as three coordinates and not four; it was left rather than built, and it is named here so the next sitting does not read the silence as an oversight.
 
 **Missing:** "give me an 11-line scheme with 3 sounds, no adjacencies, at least
 2 section-crossings, and no name" — the spaces are enumerable and there is no
@@ -20568,6 +20576,81 @@ idle expected). It binds only after a merge and a deploy, so it is the
 owner's; a `worker` state and `RENDER_GIT_COMMIT` on `/health` would make
 it one curl and would also hand (b) the SERVING sha it lacks. (c) and (d)
 are unchanged.
+**ADDENDUM 2026-09-18 — (a)'s CHEAP HALF IS BUILT; ITS SHA CLAUSE WAS ALREADY
+PAID AND IS STRUCK; THE DEPLOYED HALF AND (d) STILL BIND ONLY AFTER A MERGE AND
+A DEPLOY.** The sentence above named two fields. Only one of them was missing.
+~~`RENDER_GIT_COMMIT` on `/health` would also hand (b) the SERVING sha it
+lacks~~ — READ THE TREE FIRST: `/health` has reported it since M-230 and
+nothing was owed. `mcp/build_identity.js`'s `releaseIdentity` returns `commit`
+(the baked image identity, falling back to `BUILD_GIT_COMMIT` then
+`RENDER_GIT_COMMIT`) and `reported_commit` (`RENDER_GIT_COMMIT` verbatim), both
+public on `/health` as `commit` and `build.reported_commit`; and since M-289
+`deploy_guard.sh` READS that very field through `check_live.mjs
+--print-commit`, so (b)'s "nothing in-repo holds the serving sha" is twice
+false today. A curl of a local server this sitting printed
+`"commit":"dddd…"` beside `"reported_commit":"dddd…"` on an unmodified tree.
+No second identity source was invented; the checks below PIN what is there.
+
+WHAT SHIPPED. `/health` gains one field, `worker`, of two booleans and a count:
+`enabled` (`LYRIC_WORKER !== '0'`), `spawned` (the warm process exists), `warm`
+(it exists AND has answered at least one request in THIS process, which is the
+only state in which its replay memo is populated) and `served`. It is read off
+variables `mcp/python_bridge.js` already keeps — a new per-process `served`
+counter incremented where a warm reply RESOLVES, reset on spawn and on kill —
+exposed as `bridge.workerState()`, re-exported by `mcp/lyric_tools.js` as
+`lyricWorkerState()`. NO PROBE: no spawn, no verb, no grading, no provider
+call, nothing that can block the handler, and no budget, timeout, grading rule
+or provider behaviour touched. Booleans and a count cannot carry a lyric, model
+text, a capability or a token, which is the precondition for a public endpoint.
+
+WHY IT IS THE CHEAP FORM. The standing instrument was two identical deferred
+`lyric_revise` calls timed back to back — two paid revisions and ~3 minutes to
+answer yes or no. This is one curl, and it answers a question the timing could
+only infer: `spawned:false` is exactly the shape of the defect that opened this
+entry, an image with no `worker.py`, where a failed spawn falls back to cold in
+silence and the surface stays byte-identical.
+
+FOUR CHECKS IN `mcp/test.mjs`, the suite `ci.yml` already runs; **167 against
+163 before**, no existing check skipped, disabled or weakened. Two drive a REAL
+`worker.py` over a trivial local CLI fixture (no verb, no lexicon, no provider)
+and two SPAWN `mcp/server_http.js` and curl it, because the claim is that ONE
+CURL answers — not that a function exists. They cover: the cold reading; the
+reading after a request has been served, and back to cold after a kill; the
+serving sha present on `/health`; the fallback when `RENDER_GIT_COMMIT` is
+unset, including the runtime that carries no identity at all, whose `null`
+`commitDrift` still refuses; and a payload scanned for a planted key and a
+planted admin token with every `worker` field asserted non-string, because
+prose can only arrive as a string.
+
+THE DISCRIMINATING READING, and it is the one that took two tries: a worker
+that EXISTS and has answered NOTHING. The first draft of these checks passed
+against a `warm` computed from the process alone AND against a count taken at
+DISPATCH — both wrong, neither caught. Reading the state mid-flight, while a
+deliberately slow request is pending, separates all three: configuration says
+warm, a process check says warm, a dispatch count says one served, and the
+shipped reading says `{spawned:true, warm:false, served:0}`. The first two
+mutants are PLANTED IN THE CHECK, computed from `_workerInternals` at that same
+instant, so they are readings and not fabrications.
+
+TWO-SIDED, MEASURED. Against the pre-fix source all four checks go red
+(`bridge.workerState is not a function` twice; `undefined` where the payload's
+`worker` should be, twice). Six defects were then reintroduced in turn and each
+named the checks it should: `warm` from `spawned` alone and counting at
+DISPATCH each red the mid-flight reading ALONE (`served: 1` where 0 belongs);
+carrying the count across the kill reds the post-kill reading; striking the
+`worker` field from `/health` reds BOTH endpoint checks and neither bridge
+check; a `commit` fallback that invents forty zeroes reds the
+no-identity-at-all reading; and adding one string field to the worker state
+reds the cold reading. All sources restored byte-identical. `npm run lint` and
+`npx prettier --check .` clean.
+
+WHAT IS STILL OPEN, and it is not claimed. (a)'s DEPLOYED half binds only after
+a merge and a deploy: nothing here has read the live box, and until this field
+is SERVING, the engagement question on Render is still answered only by the two
+paid revisions. (d)'s Render memory reading (~600 MB idle expected) likewise
+binds after a deploy. (c) is unchanged and unbuilt. Neither `deploy_guard.sh`
+nor `check_live.mjs` reads the new `worker` field — it is an instrument for the
+owner's curl, not a gate, and no gate was given it.
 
 ### M-188 · A missing staged resource crashed every grading verb at EXIT 1, in three voices, and the README said there was nothing to stage `CLOSED` 2026-09-01 — found by three readers of the audit stopped on a fresh checkout, and confirmed by hiding each resource in turn
 **THE DEFECT AS FOUND, and the probe that showed it.** With

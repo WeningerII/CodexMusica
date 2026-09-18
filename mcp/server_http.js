@@ -35,7 +35,7 @@ import {
 } from './job_store.js';
 import { withExecutionContext } from './execution_context.js';
 import { HTTP_REQUEST_BYTES } from './payload_limits.js';
-import { lyricCapacity } from './lyric_tools.js';
+import { lyricCapacity, lyricWorkerState } from './lyric_tools.js';
 import { createOperationBudget } from './paid_budget.js';
 import { effectiveConfiguration } from './runtime_config.js';
 import { runtimeAssets } from './runtime_assets.js';
@@ -277,6 +277,32 @@ app.get('/health', (_req, res) =>
     service: 'codex-musica-mcp',
     lyrics: chatRouter.readiness(),
     queue: lyricCapacity(),
+    // WHY THIS FIELD EXISTS (M-187(a)). Nothing measured whether the warm
+    // worker is ENGAGED on the deployed box. check_live.mjs compares the
+    // ADVERTISED surface, not the process answering it, and a warm answer and
+    // a cold one are byte-identical — the only difference is the clock. So the
+    // standing instrument was two identical deferred lyric_revise calls timed
+    // back to back on the live /mcp: the second under ~10 s means the replay
+    // memo engaged, ~80 s flat means every call is cold. That costs two full
+    // paid revisions and about three minutes to ask a yes/no question. This
+    // field turns it into one curl: `spawned` says the warm process exists at
+    // all (the M-187 defect was an image that never shipped worker.py, and a
+    // failed spawn falls back to cold silently), and `warm` says it has
+    // answered at least one request IN THIS PROCESS, which is the only state
+    // under which its memo is populated. It is a read of variables the bridge
+    // already keeps: no probe, no spawn, no grading, no provider call, and
+    // nothing that can block this handler. Booleans and a count carry no
+    // lyric, no model text, no capability and no secret, so it is safe on a
+    // public endpoint.
+    //
+    // WHAT THIS FIELD IS NOT. M-187 also asked for RENDER_GIT_COMMIT here so
+    // the deploy guard could learn the SERVING sha. That half was already
+    // paid: `commit` below is the baked image identity falling back to
+    // BUILD_GIT_COMMIT then RENDER_GIT_COMMIT, `build.reported_commit` is
+    // RENDER_GIT_COMMIT verbatim, and since M-289 deploy_guard.sh reads this
+    // very field through `check_live.mjs --print-commit`. Nothing was added
+    // for it.
+    worker: lyricWorkerState(),
     commit: buildIdentity.commit,
     build: buildIdentity,
     recovery: {
