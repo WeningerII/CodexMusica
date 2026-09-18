@@ -204,6 +204,12 @@ export function createPythonBridge({
   const queue = [];
   let active = false;
   let worker = null;
+  // M-187(a): how many warm replies THIS worker process has answered. The
+  // engagement question is about memos, and a memo lives inside the process
+  // that built it — a worker that spawned but has answered nothing is as cold
+  // as no worker at all. Reset on spawn and on kill so the count can never
+  // outlive the process it describes.
+  let served = 0;
   let protocol = '';
   let nextId = 1;
   let waiter = null;
@@ -226,6 +232,7 @@ export function createPythonBridge({
     const pending = waiter;
     worker = null;
     waiter = null;
+    served = 0;
     protocol = '';
     const lifecycle = old && children.get(old);
     if (old && !lifecycle?.closed) {
@@ -280,6 +287,7 @@ export function createPythonBridge({
     });
     onLifecycle({ event: 'spawn', pid: child.pid, path: 'warm' });
     worker = child;
+    served = 0;
     child.unref();
     child.stdin.unref?.();
     child.stdout.unref?.();
@@ -303,6 +311,9 @@ export function createPythonBridge({
             waiter.capture.finish();
             const current = waiter;
             waiter = null;
+            // Counted on the ANSWER, never on the dispatch: a request the
+            // worker was handed and died on populated nothing.
+            served++;
             current.resolve({ code: reply.code, ...current.capture.result() });
           } else throw interrupted('unreadable worker reply', { protocolError: true });
         } catch (error) {
@@ -781,6 +792,19 @@ export function createPythonBridge({
       admittedBytes,
       queued: queue.length,
       active,
+    }),
+    // M-187(a): the only state the connector already holds that answers "is
+    // the warm worker ENGAGED on the deployed box?" — booleans and a count,
+    // read off the bridge's own variables. No probe, no spawn, no work: this
+    // is a property read, so it cannot spend provider credit, grade anything
+    // or block the health check. Nothing here can carry a lyric, model text,
+    // a capability or a secret, which is the precondition for putting it on a
+    // public endpoint.
+    workerState: () => ({
+      enabled: workerEnabled,
+      spawned: Boolean(worker),
+      warm: Boolean(worker) && served > 0,
+      served,
     }),
     cleanup(fn) {
       if (!reapingChild) return fn();

@@ -244,6 +244,10 @@ const runVerb = (args, options = {}) =>
     admission: options.admission || admissionScope.getStore(),
   });
 export const lyricCapacity = () => bridge.capacity();
+// M-187(a): whether the warm worker exists and whether it is warm in the sense
+// that matters — it has answered at least one request in this process, so its
+// replay memo is populated. Read straight off the bridge; see workerState().
+export const lyricWorkerState = () => bridge.workerState();
 export const _workerInternals = bridge.internals;
 
 const EXIT_MEANING = {
