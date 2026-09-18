@@ -21903,6 +21903,45 @@ run found, so the constraint layer prunes the space and the draw stays a
 derivation, never a walk of the tree. Production qualification of the maximum
 workload is not claimed by this ruling and stays open.
 
+**THE DRAW WAS MEASURED BEFORE IT WAS REPAIRED, AND THE ENTRY'S REMEDY IS
+ALREADY BUILT WHILE THE DEFECT IS SOMEWHERE ELSE.** This entry says the
+section-count draw is uniform over admissible PATTERNS and prescribes the M-81
+move: draw the COUNT first, then a pattern of that many cells. Read at
+`_sample_pattern`, the count IS drawn first — `n_cells = rng.randint(1,
+max(1, max_cells))` — and the cells are drawn afterwards. The prescribed
+repair is the shipped code, so the entry's premise about where the bias lives
+is wrong.
+
+The bias itself is real, and it is in the LINE allocation rather than the
+pattern draw. Measured over seeds 1-40 on the current planner, counting the
+line slots each sung section actually receives:
+
+| quantity | measured |
+|---|--:|
+| sung sections per plan | 4 min, 7 median, 11 max |
+| lines per sung section | 1 min, 2 median, 19 max |
+| sung sections carrying exactly ONE line | **74 of 280, 26.4%** |
+| total lines per plan | 12 min, 25 median, 31 max |
+
+A quarter of every sung section a plan draws is one line long, and the median
+section is two lines. That is the defect RULINGS WANTED #22 recorded from seed
+33 by hand, now sized over a population: a one-line verse cannot carry the
+narrative its own gloss says a verse carries, and a one-line chorus is not the
+returning section a listener hears. The thin-section complaint is CONFIRMED
+and RE-AIMED — it is a statement about how lines are dealt to sections, not
+about how the section count is drawn.
+
+WHAT THIS DOES NOT DO. The repair is not taken here, because the honest
+options are not equivalent and one of them is a doctrine 58 trap. A per-kind
+floor DERIVED from each function's own declared reach is the shape this
+register prefers, but `FunctionSpec` carries `recurrence`, `returns_as`,
+`boundary` and the placement fields and NO line-count reach, so there is
+nothing to derive from today and a typed floor would be exactly the unwritten
+threshold this entry was opened about. Declaring a per-function minimum in the
+vocabulary, each row's evidence quoted from its own gloss, is the defensible
+route and is a vocabulary addition with its own sitting. The measurement above
+is what that sitting should be preregistered against.
+
 **CURRENT STATUS — 2026-09-08.** The calibration and structural envelope
 remains distinct from execution admission. `plan.execution_limits()` derives
 the writer's current ceiling of **31 lines** from the candidate-work budget;
