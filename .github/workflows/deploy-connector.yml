@@ -62,10 +62,25 @@ jobs:
     # commit. A same-SHA receipt cannot stand down that immutable promotion;
     # serialization and the main-tip ordering guard remain authoritative.
     #
-    # The qualification workflow only ever runs by manual dispatch, so for it
-    # `event == 'workflow_dispatch'` is the trust condition CI's `push` is; the
-    # evidence step below still resolves the PUSH CI run at the same SHA, so a
-    # qualification cannot promote a commit whose CI never ran.
+    # For the qualification, the trust condition CI's `push` is comes from
+    # `QUALIFICATION_EVENTS` in `scripts/verify_ci.mjs`; the evidence step below
+    # still resolves the PUSH CI run at the same SHA, so a qualification cannot
+    # promote a commit whose CI never ran.
+    #
+    # AND THIS EXPRESSION IS THE THIRD READER OF THAT SET, WHICH THE SET'S OWN
+    # COMMENT DID NOT KNOW -- 2026-09-18, doctrine 1. It declares itself read in
+    # TWO places that must never disagree (the run lookup and the acceptance
+    # predicate) and names neither this file nor `qualification-backstop.yml`. A
+    # workflow `if` cannot import a JavaScript constant, so the spelling is
+    # copied here and the copy went stale the day the nightly schedule landed:
+    # `workflow_dispatch` alone, against a checker that had been widened to
+    # accept `schedule` in the same sitting. MEASURED on main at `fae14b1b`:
+    # deploy run 177 (2026-09-18 07:09Z) fired on the FIRST scheduled
+    # qualification this repository has ever had succeed and was SKIPPED by this
+    # line -- the nightly could not deploy, silently, with nothing red anywhere.
+    # A copy cannot be removed; it can be CHECKED, and
+    # `mcp/test_release_gates.mjs` now requires this expression to name exactly
+    # the members of `QUALIFICATION_EVENTS`.
     if: >-
       ${{ github.event_name == 'workflow_dispatch' ||
           (github.event.workflow_run.conclusion == 'success' &&
@@ -73,7 +88,8 @@ jobs:
            ((github.event.workflow_run.name == 'CI' &&
              github.event.workflow_run.event == 'push') ||
             (github.event.workflow_run.name == 'Production qualification' &&
-             github.event.workflow_run.event == 'workflow_dispatch'))) }}
+             (github.event.workflow_run.event == 'workflow_dispatch' ||
+              github.event.workflow_run.event == 'schedule')))) }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -123,8 +139,16 @@ jobs:
               echo "release_id=${{ github.repository_id }}:$(node -p 'JSON.parse(require("fs").readFileSync("verified-ci.json")).run_id'):$(node -p 'JSON.parse(require("fs").readFileSync("verified-ci.json")).run_attempt'):lyrics-image" >> "$GITHUB_OUTPUT"
               ;;
             10)
+              # THE REASON IS THE SCRIPT'S, NOT A PARAPHRASE -- the same rule
+              # the deploy guard's own stand-down already follows below. This
+              # sentence used to be a literal reading "no Production
+              # qualification exists there yet", which since 2026-09-18 is one
+              # of TWO stand-downs: absent, and running. Reading `stand_down`
+              # out of the evidence keeps them apart without a second copy of
+              # either sentence (doctrine 1).
               echo "qualified=no" >> "$GITHUB_OUTPUT"
-              echo "why=STAND DOWN — CI is green at $TESTED_SHA but no Production qualification exists there yet. Dispatch 'Production qualification' on main; its completion deploys by itself." >> "$GITHUB_OUTPUT"
+              WHY=$(node -p 'JSON.parse(require("fs").readFileSync("verified-ci.json")).stand_down')
+              echo "why=STAND DOWN — CI is green at $TESTED_SHA. $WHY A Production qualification on main deploys by itself when it completes." >> "$GITHUB_OUTPUT"
               ;;
             *)
               echo "verify_ci.mjs failed with $rc"

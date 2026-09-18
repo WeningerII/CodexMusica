@@ -54,14 +54,36 @@ export const QUALIFICATION_EVENTS = ['workflow_dispatch', 'schedule'];
 
 export const QUALIFICATION_ABSENT = 'No trusted main production qualification exists at this SHA.';
 
+//: AND "RUNNING" IS A THIRD ANSWER, NOT THE FAILED ONE -- 2026-09-18, doctrine
+//: 20 at the deploy gate. A qualification that is IN FLIGHT has not said
+//: anything yet, and until today the run lookup handed it to `validateCI`,
+//: which rejected it on `status !== 'completed'` with the SAME sentence a
+//: genuinely failed qualification earns -- so the deploy painted itself red
+//: for the ordinary condition of a qualification still running. MEASURED on
+//: main at `fae14b1b`: deploy run 175 (2026-09-18 04:28Z) fired on the merge's
+//: push CI while qualification run 24 was 16 minutes into a 2h43m run, and
+//: went red on "has not succeeded" where the honest answer is the stand-down
+//: M-287 already built. Inconclusive by construction is not a null, and it is
+//: certainly not a failure.
+export const QUALIFICATION_PENDING =
+  'A main production qualification at this SHA has not completed yet.';
+
 export async function productionEvidence(sha, options = {}) {
   const result = await verifyCI(sha, options);
   try {
     result.qualification = await verifyCI(sha, { ...options, qualification: true });
   } catch (error) {
-    if (error.message !== QUALIFICATION_ABSENT) throw error;
+    // TWO STAND-DOWNS, NEVER SUMMED AND NEVER MERGED INTO ONE SENTENCE
+    // (doctrine 79): nobody has started a qualification here, and one is
+    // running. Both mean DO NOT DEPLOY YET and neither is a defect; they ask
+    // different things of whoever reads the summary, so the reason carried out
+    // is the one that was thrown. Anything else -- a qualification that
+    // completed and did not succeed among them -- is still re-thrown and still
+    // red, which is this file's own rule two constants up.
+    if (error.message !== QUALIFICATION_ABSENT && error.message !== QUALIFICATION_PENDING)
+      throw error;
     result.qualification = null;
-    result.stand_down = QUALIFICATION_ABSENT;
+    result.stand_down = error.message;
   }
   return result;
 }
@@ -154,19 +176,41 @@ export async function verifyCI(
   const data = await get(
     `actions/workflows/${qualification ? 'production-qualification.yml' : 'ci.yml'}/runs?head_sha=${sha}${qualification ? '' : '&event=push'}&branch=main&per_page=100`
   );
-  const run = data.workflow_runs
-    ?.filter(
+  // AN IN-FLIGHT RUN IS NOT EVIDENCE, AND UNTIL 2026-09-18 IT MASKED THE
+  // EVIDENCE THAT WAS THERE. The selection took the newest matching run BY ID
+  // whatever its status, so a run that had not finished outranked a completed
+  // one at the same SHA and `validateCI` then rejected the whole question.
+  // MEASURED on main at `fae14b1b`: deploy run 176 (2026-09-18 06:56Z) fired on
+  // qualification run 24's SUCCESS and went red anyway, because the nightly
+  // scheduled qualification run 25 -- newer id, still running, 13 minutes from
+  // its own success -- was what this line picked. Two qualifications at one SHA
+  // is now the ORDINARY case (a dispatch, the nightly schedule, and the
+  // backstop's recovery dispatch), so this is not a corner.
+  //
+  // COMPLETENESS IS THE ONLY NARROWING, and that is deliberate. Selecting the
+  // newest SUCCESSFUL run would let a green witness outrank a red one at the
+  // same SHA -- promoting evidence selectively, which is a real weakening of
+  // this gate. A completed FAILURE still wins the selection and is still red.
+  const matching =
+    data.workflow_runs?.filter(
       (item) =>
         item.head_sha === sha &&
         (qualification ? QUALIFICATION_EVENTS.includes(item.event) : item.event === 'push') &&
         item.head_branch === 'main' &&
         item.head_repository?.full_name === repository
-    )
-    .sort((a, b) => b.id - a.id)[0];
-  if (!run)
+    ) ?? [];
+  const run = matching.filter((item) => item.status === 'completed').sort((a, b) => b.id - a.id)[0];
+  if (!run) {
+    if (matching.length)
+      throw new Error(
+        qualification
+          ? QUALIFICATION_PENDING
+          : 'A main push CI run at this SHA has not completed yet.'
+      );
     throw new Error(
       qualification ? QUALIFICATION_ABSENT : 'No trusted main push CI run exists at this SHA.'
     );
+  }
   if (!Number.isSafeInteger(run.run_attempt) || run.run_attempt < 1)
     throw new Error('The CI run has no verified attempt identity.');
   const jobs = [];
