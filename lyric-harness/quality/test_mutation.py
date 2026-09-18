@@ -758,9 +758,39 @@ def test_the_shadow_reaches_what_the_suites_read():
     shadow, all three green at head, one cause.
 
     This drives the REAL `build_shadow` (0.2s, 24 MB measured) and runs the
-    two sub-second suites inside it; `test_verbs` is not run here (its own
+    sub-second suites inside it; `test_verbs` is not run here (its own
     bound is 3000s) — the ci.yml existence check below is the coordinate its
     §24 reads.
+
+    IT HAPPENED AGAIN, ONE DIRECTORY FURTHER OUT — 2026-09-18, and this
+    check did not catch it because it was a LIST. `quality/test_shard.py`
+    gained a qualification-table cross-check on 2026-09-10 (M-266) that
+    reaches `<repo>/scripts` twice: `import production_qualification`
+    through the import path, and `node ... './scripts/verify_qualification
+    .mjs'` with cwd at the repo root. `scripts` was not in `SIBLING_RULES`,
+    so the suite was ERROR in every mutation baseline for eight days while
+    reading PASS at head — and it is the suite whose §6 pins the duplicate-
+    run contract. Found by M-30's full 107-suite census, not by review.
+
+    M-176's fix repaired the instance and left the CLASS open: the tuple
+    below records the paths three suites read in August, so a fourth reach
+    added in September was invisible to it. That is the sentence this
+    repository keeps writing about its own censuses — a list that is short
+    looks exactly like a list that is complete.
+
+    A DERIVED REPLACEMENT WAS TRIED AND REFUSED, and the measurement is the
+    reason rather than the taste. Grepping the suites for quoted or
+    slash-delimited repo-root directory names returns
+    `.claude .git .github assets data node_modules scripts` — it invents
+    four (`data/` and `assets/` are HARNESS-internal names that collide with
+    repo-root ones, `.git` and `node_modules` are incidental) and, worse,
+    it MISSES `mcp`, whose reach lives in `verify_entries.py` rather than in
+    any `test_*.py`. A false negative here drops a detector silently, which
+    is the failure direction this whole section exists to stop, so the
+    derivation is not shipped. The list stays declared, and what is added
+    instead is EXECUTION: `test_shard.py` now RUNS inside the shadow, where
+    an import and a subprocess are exercised rather than asserted about.
+    THE CLASS REMAINS OPEN and `MISSING.md` M-30 says so.
     """
     print("\n3f. the shadow reaches what the suites read (M-176)")
     import shutil
@@ -770,12 +800,19 @@ def test_the_shadow_reaches_what_the_suites_read():
     try:
         reaches = ("../.github/workflows/ci.yml", "../.claude/settings.json",
                    "../.claude/render_form_hook.sh", "../mcp/lyric_tools.js",
-                   "../mcp/test.mjs")
+                   "../mcp/test.mjs",
+                   # scripts/ joined 2026-09-18 -- see SIBLING_RULES. Both
+                   # halves of `test_shard.py`'s qualification cross-check
+                   # are named, because it reads one through Python's import
+                   # path and the other through a node subprocess, and only
+                   # the first raised.
+                   "../scripts/production_qualification.py",
+                   "../scripts/verify_qualification.mjs")
         missing = [r for r in reaches
                    if not os.path.exists(os.path.normpath(
                        os.path.join(tree, r)))]
-        check("every repo-root path the three suites read resolves from the "
-              "shadow harness dir", not missing,
+        check("every repo-root path the reaching suites read resolves from "
+              "the shadow harness dir", not missing,
               f"missing: {missing or 'none'} of {len(reaches)}")
         hook = os.path.normpath(
             os.path.join(tree, "../.claude/render_form_hook.sh"))
@@ -793,8 +830,14 @@ print('source printings 2, declared work votes 1')
 """], cwd=tree, capture_output=True, text=True, timeout=60)
         check("M-30: a real shadow preserves corpus paths and declared edition votes",
               probe.returncode == 0, (probe.stdout + probe.stderr).strip())
+        # RUNNING THE SUITE IS THE EVIDENCE; a path-existence assertion is
+        # only a proxy for it. `test_shard.py` joined this list 2026-09-18:
+        # its reach is resolved by an IMPORT and by a node subprocess with
+        # cwd at the repo root, neither of which an os.path.exists above can
+        # exercise. It costs 0.9s in the shadow.
         for t in (os.path.join("quality", "test_render_form.py"),
-                  os.path.join("quality", "test_verify_entries.py")):
+                  os.path.join("quality", "test_verify_entries.py"),
+                  os.path.join("quality", "test_shard.py")):
             st, dt, tail = mutate.run_test(tree, t, timeout=600)
             check(f"{t} is GREEN inside the shadow, as at head",
                   st == "PASS", f"{st} in {dt}s: {tail[:120]}")
@@ -804,6 +847,18 @@ print('source printings 2, declared work votes 1')
               mutate.shadow_root(tree) == os.path.dirname(tree) and
               os.path.basename(mutate.shadow_root(tree)).startswith("mutant-"),
               mutate.shadow_root(tree))
+        # EVERY DECLARED SIBLING ARRIVES, so a rule that silently does
+        # nothing cannot read as a rule that works -- the same argument the
+        # comparator pin makes about a gate that always says HOLDS.
+        repo = os.path.dirname(mutate.ROOT)
+        declared = [n for n, _ in mutate.SIBLING_RULES
+                    if os.path.isdir(os.path.join(repo, n))]
+        absent = [n for n in declared
+                  if not os.path.exists(
+                      os.path.join(mutate.shadow_root(tree), n))]
+        check("every SIBLING_RULES directory present at the repo root is "
+              "present in the shadow", not absent,
+              f"declared {declared}, absent {absent or 'none'}")
     finally:
         shutil.rmtree(mutate.shadow_root(tree), ignore_errors=True)
 

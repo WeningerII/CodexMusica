@@ -7234,10 +7234,53 @@ printings and selects one declared vote; no corpus text or policy changes.
 The repaired real-shadow baseline is **PASS in 187.8 seconds, one attempt,
 600-second bound** (190.226 seconds total phase wall).
 
-**PARTIAL PENDING THE FULL CENSUS**, which is still running over all 106
-baseline files on the recorded initial source. The twelve new regressions
-pass; eleven fail against the original runner. The three core mutations are
-caught over four passing baseline suites, with 102 explicitly unmeasured.
+**THE FULL CENSUS RAN — 2026-09-18, all 107 files, and it found a fifth
+suite excluded for something other than its own health.** 106 PASS, 1 ERROR,
+no FAIL and no TIMEOUT; a whole-tree baseline costs 8,440 CPU-s (2.34
+CPU-hours), 4,185.2 s wall four-wide. Reproduce with
+`python3 quality/test_mutation.py --baseline-only --jobs 4`.
+[The census](quality/results/m30_2026-09-18/README.md) carries every suite's
+seconds against its own bound.
+
+**THE BOUND IS NOW MEASURED**, which is the sentence this entry has been
+PARTIAL on since 2026-08-22. Four suites use more than half their bound:
+`test_verbs` 2,606.6 of 3,000 (86.9%), `test_relations_null` 453.0 of 600
+(75.5%), `test_loop` 654.7 of 900 (72.7%), `test_discriminate` 1,109.1 of
+1,800 (61.6%). The one worth naming is `test_relations_null`, because its
+600 s is the DEFAULT — no bound was ever declared for it — so it is the suite
+closest to a false TIMEOUT, and a false TIMEOUT does not report a hole, it
+MANUFACTURES one. No bound is raised here: that is a cost decision and
+doctrine 58 makes it a question.
+
+**THE ERROR IS `quality/test_shard.py`, AND IT IS A FACT ABOUT THE COPY.**
+PASS at head, ERROR in the shadow in 0.5 s, re-confirmed in isolation:
+`ModuleNotFoundError: No module named 'production_qualification'` at line 721.
+`SIBLING_RULES` mirrored `.github`, `mcp` and `.claude` beside the harness but
+not `scripts`, and that suite's qualification cross-check (added 2026-09-10
+for M-266) reaches `<repo>/scripts` twice — once through the import path and
+once through a node subprocess with cwd at the repo root. It had been dropped
+from every mutation baseline for eight days, and its §6 is what pins the
+duplicate-run contract that overturned BCI-07: a suite that grades a ruling
+was itself ungraded. **FIXED**: `SIBLING_RULES` gains `("scripts", "tree")`;
+the suite is PASS in the shadow in 0.9 s, node included.
+
+**THE CLASS IS NOT FIXED AND THE DERIVATION WAS REFUSED ON ITS OWN
+MEASUREMENT.** M-176 built the guard this should have tripped —
+`test_mutation.py` §3f — as a hand-written list of five paths, so a fourth
+reach added a month later was invisible to it. Deriving the list by grepping
+the suites for repo-root directory names returns
+`.claude .git .github assets data node_modules scripts`: it invents four
+(`data/` and `assets/` are harness-internal names colliding with repo-root
+ones) and MISSES `mcp`, whose reach lives in `verify_entries.py` and not in
+any `test_*.py`. A false negative drops a detector silently, which is the
+direction that section exists to stop, so it is not shipped. What is added
+instead is EXECUTION: `test_shard.py` now RUNS inside the shadow, and every
+declared sibling present at the repo root must be present in the shadow.
+Mutation-proved: removing the rule reds exactly those two checks.
+
+**STILL PARTIAL**, for the same reason as before and one new one: no bound is
+raised, and the reach guard remains a declared list rather than a derived one.
+The twelve new regressions pass; eleven fail against the original runner.
 [The evidence record](quality/results/m30_2026-09-17/README.md) retains source
 identity, failed controls, actual retries, environment limits and the measured
 scope. The separate round-trip fixture work belongs to M-146 and already

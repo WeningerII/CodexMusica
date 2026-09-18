@@ -223,7 +223,19 @@ SKIP_NAMES = {"__pycache__", ".git", ".pytest_cache", ".mypy_cache",
 #: `.claude/` locally carries a multi-gigabyte worktrees/ working area that
 #: is not part of the repository, and no suite reads below its top level.
 #: A sibling absent from the working tree is skipped, never invented.
-SIBLING_RULES = ((".github", "tree"), ("mcp", "tree"), (".claude", "files"))
+#:
+#: `scripts` JOINED 2026-09-18, FOUND BY M-30's OWN FULL CENSUS and not by
+#: anybody reading a diff. `quality/test_shard.py` gained a cross-check on
+#: 2026-09-10 (M-266) that imports `production_qualification` from
+#: `<repo>/scripts` and shells node at `./scripts/verify_qualification.mjs`.
+#: Neither existed in the shadow, so that suite came back ERROR
+#: (`ModuleNotFoundError: No module named 'production_qualification'`) in
+#: every mutation baseline for eight days while reading PASS at head -- and
+#: it is the suite whose section 6 pins the duplicate-run contract. The
+#: shape is M-176's exactly, one directory further out, which is why the
+#: check below is now DERIVED from the suites instead of listing paths.
+SIBLING_RULES = ((".github", "tree"), ("mcp", "tree"), (".claude", "files"),
+                 ("scripts", "tree"))
 
 #: The harness copy's directory name inside a shadow -- derived from the real
 #: tree, so relative reaches like `../.github` resolve at the same depth in
