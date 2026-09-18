@@ -20576,6 +20576,81 @@ idle expected). It binds only after a merge and a deploy, so it is the
 owner's; a `worker` state and `RENDER_GIT_COMMIT` on `/health` would make
 it one curl and would also hand (b) the SERVING sha it lacks. (c) and (d)
 are unchanged.
+**ADDENDUM 2026-09-18 — (a)'s CHEAP HALF IS BUILT; ITS SHA CLAUSE WAS ALREADY
+PAID AND IS STRUCK; THE DEPLOYED HALF AND (d) STILL BIND ONLY AFTER A MERGE AND
+A DEPLOY.** The sentence above named two fields. Only one of them was missing.
+~~`RENDER_GIT_COMMIT` on `/health` would also hand (b) the SERVING sha it
+lacks~~ — READ THE TREE FIRST: `/health` has reported it since M-230 and
+nothing was owed. `mcp/build_identity.js`'s `releaseIdentity` returns `commit`
+(the baked image identity, falling back to `BUILD_GIT_COMMIT` then
+`RENDER_GIT_COMMIT`) and `reported_commit` (`RENDER_GIT_COMMIT` verbatim), both
+public on `/health` as `commit` and `build.reported_commit`; and since M-289
+`deploy_guard.sh` READS that very field through `check_live.mjs
+--print-commit`, so (b)'s "nothing in-repo holds the serving sha" is twice
+false today. A curl of a local server this sitting printed
+`"commit":"dddd…"` beside `"reported_commit":"dddd…"` on an unmodified tree.
+No second identity source was invented; the checks below PIN what is there.
+
+WHAT SHIPPED. `/health` gains one field, `worker`, of two booleans and a count:
+`enabled` (`LYRIC_WORKER !== '0'`), `spawned` (the warm process exists), `warm`
+(it exists AND has answered at least one request in THIS process, which is the
+only state in which its replay memo is populated) and `served`. It is read off
+variables `mcp/python_bridge.js` already keeps — a new per-process `served`
+counter incremented where a warm reply RESOLVES, reset on spawn and on kill —
+exposed as `bridge.workerState()`, re-exported by `mcp/lyric_tools.js` as
+`lyricWorkerState()`. NO PROBE: no spawn, no verb, no grading, no provider
+call, nothing that can block the handler, and no budget, timeout, grading rule
+or provider behaviour touched. Booleans and a count cannot carry a lyric, model
+text, a capability or a token, which is the precondition for a public endpoint.
+
+WHY IT IS THE CHEAP FORM. The standing instrument was two identical deferred
+`lyric_revise` calls timed back to back — two paid revisions and ~3 minutes to
+answer yes or no. This is one curl, and it answers a question the timing could
+only infer: `spawned:false` is exactly the shape of the defect that opened this
+entry, an image with no `worker.py`, where a failed spawn falls back to cold in
+silence and the surface stays byte-identical.
+
+FOUR CHECKS IN `mcp/test.mjs`, the suite `ci.yml` already runs; **167 against
+163 before**, no existing check skipped, disabled or weakened. Two drive a REAL
+`worker.py` over a trivial local CLI fixture (no verb, no lexicon, no provider)
+and two SPAWN `mcp/server_http.js` and curl it, because the claim is that ONE
+CURL answers — not that a function exists. They cover: the cold reading; the
+reading after a request has been served, and back to cold after a kill; the
+serving sha present on `/health`; the fallback when `RENDER_GIT_COMMIT` is
+unset, including the runtime that carries no identity at all, whose `null`
+`commitDrift` still refuses; and a payload scanned for a planted key and a
+planted admin token with every `worker` field asserted non-string, because
+prose can only arrive as a string.
+
+THE DISCRIMINATING READING, and it is the one that took two tries: a worker
+that EXISTS and has answered NOTHING. The first draft of these checks passed
+against a `warm` computed from the process alone AND against a count taken at
+DISPATCH — both wrong, neither caught. Reading the state mid-flight, while a
+deliberately slow request is pending, separates all three: configuration says
+warm, a process check says warm, a dispatch count says one served, and the
+shipped reading says `{spawned:true, warm:false, served:0}`. The first two
+mutants are PLANTED IN THE CHECK, computed from `_workerInternals` at that same
+instant, so they are readings and not fabrications.
+
+TWO-SIDED, MEASURED. Against the pre-fix source all four checks go red
+(`bridge.workerState is not a function` twice; `undefined` where the payload's
+`worker` should be, twice). Six defects were then reintroduced in turn and each
+named the checks it should: `warm` from `spawned` alone and counting at
+DISPATCH each red the mid-flight reading ALONE (`served: 1` where 0 belongs);
+carrying the count across the kill reds the post-kill reading; striking the
+`worker` field from `/health` reds BOTH endpoint checks and neither bridge
+check; a `commit` fallback that invents forty zeroes reds the
+no-identity-at-all reading; and adding one string field to the worker state
+reds the cold reading. All sources restored byte-identical. `npm run lint` and
+`npx prettier --check .` clean.
+
+WHAT IS STILL OPEN, and it is not claimed. (a)'s DEPLOYED half binds only after
+a merge and a deploy: nothing here has read the live box, and until this field
+is SERVING, the engagement question on Render is still answered only by the two
+paid revisions. (d)'s Render memory reading (~600 MB idle expected) likewise
+binds after a deploy. (c) is unchanged and unbuilt. Neither `deploy_guard.sh`
+nor `check_live.mjs` reads the new `worker` field — it is an instrument for the
+owner's curl, not a gate, and no gate was given it.
 
 ### M-188 · A missing staged resource crashed every grading verb at EXIT 1, in three voices, and the README said there was nothing to stage `CLOSED` 2026-09-01 — found by three readers of the audit stopped on a fresh checkout, and confirmed by hiding each resource in turn
 **THE DEFECT AS FOUND, and the probe that showed it.** With
