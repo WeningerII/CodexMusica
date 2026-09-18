@@ -2197,6 +2197,34 @@ SWEEP_MEASURES = {
                              "`pins_per_line` is the per-line cap",
                              lambda p: (sum(_sweep_pins(p).values())
                                         / max(1, p["total_lines"]))),
+    # THE THREE SCHEME COORDINATES (`MISSING.md` I-2, 2026-09-18). That
+    # entry's worked example — "3 sounds, no adjacencies, at least 2
+    # section-crossings" — named coordinates `quality/schemes.py` has
+    # computed since it was written and no predicate could ask about. These
+    # three are that residue, and they are the M-82 shape and nothing new: a
+    # measure READS a coordinate the plan already discloses.
+    #
+    # READ, NEVER RECOMPUTED. `_sweep_coords` builds the song's partition
+    # out of `choices["schemes"][fn]["rgs"]` — the code the planner DREW and
+    # PRINTED — and hands it to `schemes.coordinates`, the same function the
+    # `partition` verb prints from. Re-deriving the scheme here would be the
+    # second planner doctrine 58 refuses, and a sweep and a plan could then
+    # disagree about the same seed.
+    "n_sounds": ("how many DISTINCT rhyme sounds the drawn scheme asks the "
+                 "song to find — `schemes.Coordinates.n_sounds` over the "
+                 "whole song, where each section INSTANCE carries its own "
+                 "sounds (two verses sharing a scheme SHAPE do not thereby "
+                 "share their rhymes)",
+                 lambda p: _sweep_coords(p).n_sounds),
+    "adjacencies": ("how many rhymes land on CONSECUTIVE lines (the AABB "
+                    "coordinate) — `adjacencies=0` asks for a shape whose "
+                    "rhymes all reach across a line",
+                    lambda p: _sweep_coords(p).adjacencies),
+    "crossings": ("how many pairs of rhyme blocks INTERLEAVE (the ABAB "
+                  "coordinate, against `nestings`' ABBA) — the coordinate "
+                  "that separates a shape a listener has heard ten thousand "
+                  "times from one nobody has used",
+                  lambda p: _sweep_coords(p).crossings),
 }
 
 #: MEASURES THAT ARE REAL-VALUED, declared rather than inferred. Every other
@@ -2254,6 +2282,41 @@ def _sweep_sung(plan):
     for s in plan["line_slots"]:
         out[s["section"]] = out.get(s["section"], 0) + 1
     return out
+
+
+def _sweep_coords(plan):
+    """-> `schemes.Coordinates` for the song's own drawn rhyme partition.
+
+    THE SCHEME IS READ OFF THE PLAN, not drawn again. Every line the plan
+    sings is assigned the block its section instance's DISCLOSED code
+    (`choices["schemes"][fn]["rgs"]`) puts it in, and the partition that
+    makes is handed to `quality/schemes.py` — so the coordinates a sweep
+    selects on and the coordinates that module reports for the same plan are
+    the same numbers by construction.
+
+    KEYED ON THE SECTION INSTANCE, which is the same ruling `end_rhyme_groups`
+    makes one layer over: one code per FUNCTION means every instance of a
+    function has the same scheme SHAPE, and treating two verses as sharing
+    their actual rhyme sounds would be this measure deciding something the
+    planner never declared. So VERSE1's `A` and VERSE2's `A` are two sounds.
+
+    A LINE WHOSE INSTANCE HAS NO USABLE CODE IS A SINGLETON, never dropped: a
+    scheme layer reads an unrhymed line as its own block (`schemes.parse`,
+    "an unrhymed line is a SINGLETON BLOCK, not a missing value"), and
+    dropping it would shorten the song the coordinates describe.
+    """
+    schemes = (plan.get("choices") or {}).get("schemes") or {}
+    per = {}
+    for s in plan.get("line_slots") or []:
+        per.setdefault(s["section"], []).append(s)
+    keys = {}
+    for name, slots in per.items():
+        slots = sorted(slots, key=lambda s: s["line"])
+        code = (schemes.get(slots[0]["function"]) or {}).get("rgs") or ()
+        for i, s in enumerate(slots):
+            keys[s["line"]] = ((name, code[i]) if len(code) == len(slots)
+                               else ("", s["line"]))
+    return SC.coordinates(tuple(keys[ln] for ln in sorted(keys)))
 
 
 def _sweep_pins(plan):

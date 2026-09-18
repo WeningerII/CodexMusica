@@ -2161,6 +2161,29 @@ def test_the_seed_sweep_is_a_verb():
           and all(isinstance(v, tuple) and callable(v[1])
                   for v in PLN.SWEEP_MEASURES.values()),
           f"{sorted(set(PLN.SWEEP_MEASURES) | set(PLN.SWEEP_SETS) | set(PLN.SWEEP_ORDERS))}")
+    # THE TABLE ITSELF, PINNED BY NAME AND BY COUNT. The function-specific
+    # names are DERIVED from `GENERATOR_ROSTER` and move with the roster, so
+    # what is written down here is the BASE table — the names typed by hand —
+    # and it is pinned as a SET so a fourteenth is added deliberately rather
+    # than by somebody typing a new string (doctrine 58, the same argument
+    # `JOINT_CODES` is pinned on). The three scheme coordinates joined it on
+    # 2026-09-18 (`MISSING.md` I-2): that entry's worked example asks for "3
+    # sounds, no adjacencies, at least 2 section-crossings" and `n_sounds`,
+    # `adjacencies` and `crossings` were computed by `quality/schemes.py` the
+    # whole time with no predicate able to name them. Thirteen names before,
+    # sixteen after, and the derived count moves with the base one.
+    _base = sorted(m for m in PLN.SWEEP_MEASURES if "." not in m)
+    check("the BASE measure table is pinned by name — the three scheme "
+          "coordinates took it from 13 names to 16 (`MISSING.md` I-2) — and "
+          "the derived names are exactly three per roster function",
+          _base == ["adjacencies", "bars_per_line", "beats_per_line",
+                    "binding_cap", "bound_words_per_line", "crossings",
+                    "group", "hook", "lines", "lines_per_section",
+                    "n_sounds", "pins_per_line", "returns", "sections",
+                    "slots_per_line", "story_lineups"]
+          and len(PLN.SWEEP_MEASURES) == len(_base) + 3 * len(GENERATOR_ROSTER),
+          f"{len(_base)} base + {3 * len(GENERATOR_ROSTER)} derived = "
+          f"{len(PLN.SWEEP_MEASURES)}: {_base}")
     p = PLN.make_plan(seed=108)
     for name, (_gloss, fn) in PLN.SWEEP_MEASURES.items():
         check(f"`{name}` reads off a real plan without inventing anything",
@@ -2335,6 +2358,163 @@ def test_the_seed_sweep_is_a_verb():
           "acceptance rate is what separates them",
           empty["accepted"] == [] and empty["planned"] > 0,
           f"planned {empty['planned']}, accepted 0")
+
+    # ------------------------------------------------------------------
+    print("\n10c. THE THREE SCHEME COORDINATES — `MISSING.md` I-2's residue")
+    # THE ENTRY'S OWN WORKED EXAMPLE asks for "3 sounds, no adjacencies, at
+    # least 2 section-crossings", and `quality/schemes.py` computed all three
+    # from the day it was written while no predicate could name one. These
+    # measures close that, and the claim they make is narrow and checkable:
+    # they READ the scheme the plan DISCLOSED — `choices["schemes"][fn].rgs`
+    # — and hand it to `schemes.coordinates`, so a sweep and a plan cannot
+    # report different coordinates for the same seed.
+    #
+    # THE TOYS ARE PLANS HANDED TO THE MEASURE, not draws — the same terms
+    # `joint_findings` is checked on, and for the same reason: the measure is
+    # a pure function of the emitted dict, so a hand-written plan examines it
+    # exactly as a drawn one does. Two VERSE instances, because that is the
+    # case this measure has a RULING about.
+    def _toy(code, instances=2, fn="verse"):
+        slots, ln = [], 0
+        for i in range(instances):
+            for _ in code:
+                ln += 1
+                slots.append({"section": f"{fn.upper()}{i + 1}",
+                              "function": fn, "line": ln, "duration": 3.0})
+        return {"choices": {"schemes": {fn: {"rgs": list(code)}}},
+                "line_slots": slots, "total_lines": ln,
+                "groups": "", "returns": ""}
+
+    def _holds(plan, text):
+        return PLN.sweep_holds(plan, PLN.parse_sweep_want(text))
+
+    _abab, _aabb, _abba = (_toy([0, 1, 0, 1]), _toy([0, 0, 1, 1]),
+                           _toy([0, 1, 1, 0]))
+    _co = {n: PLN._sweep_coords(t) for n, t in
+           (("ABAB", _abab), ("AABB", _aabb), ("ABBA", _abba))}
+    check("the three coordinates read a hand-written plan as "
+          "`quality/schemes.py` reads the same partition: ABAB crosses, "
+          "AABB is adjacent, ABBA nests and neither of the last two crosses",
+          (_co["ABAB"].crossings, _co["ABAB"].adjacencies) == (2, 0)
+          and (_co["AABB"].adjacencies, _co["AABB"].crossings) == (4, 0)
+          and (_co["ABBA"].nestings, _co["ABBA"].crossings) == (2, 0),
+          ", ".join(f"{n}: sounds {c.n_sounds} adj {c.adjacencies} "
+                    f"cross {c.crossings} nest {c.nestings}"
+                    for n, c in _co.items()))
+    check("...and TWO INSTANCES OF ONE FUNCTION ARE TWO SETS OF SOUNDS: one "
+          "code per function means the instances share a scheme SHAPE, and "
+          "counting them as sharing rhymes would be this measure declaring "
+          "something the planner never did (`end_rhyme_groups`' own ruling)",
+          _co["ABAB"].n_sounds == 4 and PLN._sweep_coords(
+              _toy([0, 1, 0, 1], instances=1)).n_sounds == 2,
+          f"4 sounds over two instances, "
+          f"{PLN._sweep_coords(_toy([0, 1, 0, 1], instances=1)).n_sounds} "
+          f"over one")
+
+    # THE PLANTED MUTANT, ONE PER MEASURE. Each is the SAME toy with its
+    # DISCLOSED code changed to the shape the predicate is refusing, and each
+    # predicate must flip — a check that cannot fail is not a check
+    # (doctrine 20: "equal" and "nothing was compared" read the same
+    # otherwise). They also pin the direction of the read: nothing but
+    # `choices["schemes"]` moved between the two plans.
+    check("MUTATION — `n_sounds=4` holds on the ABAB toy and FAILS when its "
+          "disclosed code is mutated to AAAA, which asks the singers for two "
+          "sounds and not four",
+          _holds(_abab, "n_sounds=4")
+          and not _holds(_toy([0, 0, 0, 0]), "n_sounds=4"),
+          f"ABAB {PLN.SWEEP_MEASURES['n_sounds'][1](_abab)}, "
+          f"AAAA {PLN.SWEEP_MEASURES['n_sounds'][1](_toy([0, 0, 0, 0]))}")
+    check("MUTATION — `adjacencies=0` (the entry's own 'no adjacencies') "
+          "holds on ABAB and FAILS on the AABB mutant, where every rhyme "
+          "lands on the next line",
+          _holds(_abab, "adjacencies=0")
+          and not _holds(_aabb, "adjacencies=0"),
+          f"ABAB {PLN.SWEEP_MEASURES['adjacencies'][1](_abab)}, "
+          f"AABB {PLN.SWEEP_MEASURES['adjacencies'][1](_aabb)}")
+    check("MUTATION — `crossings>=2` holds on ABAB and FAILS on the ABBA "
+          "mutant, which NESTS instead: the two are different coordinates "
+          "and a measure collapsing them would answer both the same",
+          _holds(_abab, "crossings>=2") and not _holds(_abba, "crossings>=2")
+          and _co["ABBA"].nestings == 2,
+          f"ABAB crosses {PLN.SWEEP_MEASURES['crossings'][1](_abab)}, "
+          f"ABBA crosses {PLN.SWEEP_MEASURES['crossings'][1](_abba)} and "
+          f"nests {_co['ABBA'].nestings}")
+
+    # THE SOURCE MUTANT, and it is the one the instance ruling rests on:
+    # key the partition on the code SYMBOL alone and every instance of a
+    # function collapses into one set of sounds. `n_sounds=4` then reads 2 on
+    # the identical plan, so the ruling above is READ rather than an accident
+    # of what the toys happen to contain.
+    _real_coords = PLN._sweep_coords
+    try:
+        def _collapse(pl):
+            per, out = {}, []
+            for s in sorted(pl["line_slots"], key=lambda s: s["line"]):
+                i = per.get(s["section"], 0)
+                per[s["section"]] = i + 1
+                out.append(pl["choices"]["schemes"][s["function"]]["rgs"][i])
+            return SC.coordinates(tuple(out))
+        PLN._sweep_coords = _collapse
+        _collapsed = PLN.SWEEP_MEASURES["n_sounds"][1](_abab)
+        _still = _holds(_abab, "n_sounds=4")
+    finally:
+        PLN._sweep_coords = _real_coords
+    check("SOURCE MUTATION — a partition keyed on the code SYMBOL instead of "
+          "the section INSTANCE reads the same plan as two sounds, not four, "
+          "and `n_sounds=4` stops holding",
+          _collapsed == 2 and not _still
+          and PLN.SWEEP_MEASURES["n_sounds"][1](_abab) == 4,
+          f"mutant reads {_collapsed}, the shipped measure "
+          f"{PLN.SWEEP_MEASURES['n_sounds'][1](_abab)}")
+
+    # READ, NEVER RECOMPUTED, on a REAL plan: edit only the disclosed scheme
+    # and every one of the three moves with it. A measure that re-derived the
+    # scheme from the seed would answer the mutated plan exactly as it
+    # answered the drawn one — and a sweep and a plan would then be able to
+    # disagree about the same seed, which is the whole reason these read.
+    _drawn = PLN.make_plan(seed=108)
+    _before = tuple(PLN.SWEEP_MEASURES[m][1](_drawn)
+                    for m in ("n_sounds", "adjacencies", "crossings"))
+    _edited = json.loads(json.dumps(_drawn))
+    for _fn, _sc in _edited["choices"]["schemes"].items():
+        _sc["rgs"] = list(range(len(_sc["rgs"])))
+    _after = tuple(PLN.SWEEP_MEASURES[m][1](_edited)
+                   for m in ("n_sounds", "adjacencies", "crossings"))
+    check("the three READ the plan's own disclosure: rewriting only "
+          "`choices[\"schemes\"][fn][\"rgs\"]` to all-singletons moves every "
+          "one of them, so no sweep can report coordinates the plan does not",
+          _after[0] == _drawn["total_lines"] and _after[1:] == (0, 0)
+          and _before != _after,
+          f"drawn {_before} -> all-singleton disclosure {_after} over "
+          f"{_drawn['total_lines']} lines")
+
+    # AND IT SELECTS, END TO END. A measure nothing can be asked with is not
+    # a measure: the entry's residue is closed when a caller can put one of
+    # these in a `--want` and get a strict, non-empty subset back.
+    _scan = range(24)
+    _seen = {m: sorted({PLN.SWEEP_MEASURES[m][1](make_plan(seed=k))
+                        for k in _scan})
+             for m in ("n_sounds", "adjacencies", "crossings")}
+    check("each of the three takes MORE THAN ONE value over a real seed "
+          "range, so a predicate on it CUTS rather than being satisfied by "
+          "every draw — the property `pins_per_line` turned out not to have "
+          "at song length (`MISSING.md` M-181)",
+          all(len(v) > 1 for v in _seen.values()),
+          "; ".join(f"{m}: {v[0]}..{v[-1]} over {len(v)} values"
+                    for m, v in _seen.items()))
+    # AND IT SELECTS, END TO END, through the verb rather than through the
+    # table. The threshold is DERIVED from the spread just measured — the
+    # largest value the range actually reached — so this cannot go vacuous
+    # the way a typed number could: some seed attains it and, since the
+    # spread has more than one value, some seed does not.
+    _sel = PLN.sweep(_scan, wants=[PLN.parse_sweep_want(
+        f"crossings>={_seen['crossings'][-1]}")])
+    check("a `--want` on one of the three SELECTS over a real seed range — "
+          "a strict, non-empty subset of the seeds that planned at all, "
+          "which is exactly what the entry's example could not ask for",
+          0 < len(_sel["accepted"]) < _sel["planned"],
+          f"{len(_sel['accepted'])} of {_sel['planned']} planned seeds "
+          f"accept `crossings>={_seen['crossings'][-1]}`")
 
 
 def test_the_section_header_keeps_its_apparatus_inside_the_bracket():
