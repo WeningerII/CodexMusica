@@ -2021,11 +2021,27 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None):
             funcs.extend(cell)
         if not funcs:
             continue
-        # AT MOST ONE CLOSER, and that bound is NOT derived — nothing in
-        # either gloss says a song may not carry a coda AND an outro. It is
-        # the old `rng.choice((None, "outro", "coda"))` preserved as an
-        # EXPLICIT declared choice rather than silently kept in a tuple's
-        # shape, and the ruling on whether to lift it is M-54's open half.
+        # AT MOST ONE CLOSER, and it IS derived after all — measured
+        # 2026-09-18 while ruling M-54's open half under the owner's
+        # delegation. This comment used to say the bound was not derived,
+        # that nothing in either gloss forbids a song carrying a coda AND an
+        # outro, and that lifting it was an open ruling. All three are wrong,
+        # and one call refutes them: `outro` and `coda` BOTH declare
+        # `boundary="last"`, each with `placement_evidence` quoting its own
+        # gloss ("closes the song", "a closing section"), so
+        # `grid.placement_findings` already refuses either ordering —
+        #
+        #   ["verse", "chorus", "outro", "coda"] -> SECTION_NOT_AT_BOUNDARY
+        #   ["verse", "chorus", "coda", "outro"] -> SECTION_NOT_AT_BOUNDARY
+        #
+        # The exclusion therefore lives in the vocabulary, one layer down,
+        # where M-54 says a single definition belongs; this line is not the
+        # rule, it is an optimisation that skips a draw the placement layer
+        # is certain to reject. Drawing a subset of `enders` here would be
+        # admissible and useless: every two-closer pattern would be thrown
+        # away on the next line. Lifting it needs `boundary` to stop meaning
+        # strictly-final for one of the two, which is a vocabulary change
+        # with its own argument to make and is NOT this line's to take.
         ending = rng.choice(enders)
         if ending:
             funcs.append(ending)

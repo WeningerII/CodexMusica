@@ -312,6 +312,7 @@ sys.path.insert(0, os.path.join(HERE, "..", ".."))
 import lyric_harness as _lh  # noqa: E402
 from lyric_harness import CLICHE_PAIRS, SUFFIXES  # noqa: E402
 from quality.features import QualityFeatures  # noqa: E402
+from quality import field_store as _field_store  # noqa: E402
 
 #: Provenance of every threshold below. Printed by `report()` on purpose.
 CALIBRATION = {
@@ -1662,6 +1663,34 @@ class SlopFloor:
         # constructor builds itself.
         self.qf = qf or QualityFeatures(
             mattr_window=self.decl.mattr_window, features=FLOOR_FEATURES)
+        # THE PERSISTENT FIELD STORE (`MISSING.md` M-244's remaining lever).
+        # `PREDICTABLE_RHYME` below is the floor's expensive check and it is
+        # `RhymeField.field` all the way down -- M-244 profiled it at 151.5 s
+        # of a 171.8 s graded seed, all of it in the 62 CACHE MISSES, one per
+        # distinct end word, which every fresh process pays over again.
+        # `quality/field_store.py` serves those from disk on an identical key.
+        #
+        # AND IT ATTACHES HERE, IN THE CALLER, RATHER THAN IN
+        # `quality/features.py`, which is where the cache it replaces lives.
+        # That file is one of the four inputs `quality/check_comparator_pin.py`
+        # hashes: editing it moves the comparator pin, discards the ~2.1
+        # CPU-hour predictability memo and demands a cold re-verification of
+        # every calibration keyed on it. A memo installable only by
+        # invalidating everything that depends on it is not a memo. It needs no
+        # edit anyway -- `RhymeField.field` touches `_cache` with `in`, `[]`
+        # and `[] =` and nothing else, so a MutableMapping stands in for the
+        # dict without a byte of the comparator moving.
+        #
+        # THE STATUS IS KEPT, NOT DISCARDED, because "no store" and "a store
+        # that answered nothing" are different states and a caller must be
+        # able to tell them apart (doctrine 20); `field_store.disclosure()` is
+        # the line that reads it. Attaching cannot fail loudly: an identity it
+        # cannot spell leaves the plain dict exactly where it was.
+        self.field_store = (_field_store.attach(self.qf.field)
+                            if _field_store.enabled() else
+                            {"attached": False,
+                             "reason": "off (LYRIC_FIELD_STORE=0)",
+                             "fingerprint": None, "database": None, "rows": 0})
 
     # -- individual checks ------------------------------------------------
 

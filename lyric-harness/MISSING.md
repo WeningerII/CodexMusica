@@ -8443,6 +8443,31 @@ only, so `refrain` and `hook` stop carrying a placement coordinate by
 declaration rather than by accident. `_CELLS` and the grader's reading of
 `placement_findings` are recorded in this entry as owed and are already shipped;
 the entry's text is corrected to match the tree in the same sitting.
+
+**THE FIRST HALF WAS MEASURED BEFORE IT WAS LIFTED, AND THE MEASUREMENT CLOSES
+IT INSTEAD.** The ruling above said to lift the outro/coda exclusion because no
+gloss licenses it. That premise is false, and one call refutes it. `outro` and
+`coda` BOTH declare `boundary="last"`, each carrying `placement_evidence` that
+quotes its own gloss — "closes the song" and "a closing section" — so
+`grid.placement_findings` already refuses a pattern holding both, in either
+order:
+
+    ["verse", "chorus", "outro", "coda"]  ->  SECTION_NOT_AT_BOUNDARY
+    ["verse", "chorus", "coda", "outro"]  ->  SECTION_NOT_AT_BOUNDARY
+
+So the exclusion is DERIVED, and it is derived in exactly the place this entry
+argues a definition belongs: the vocabulary, read by the one table the planner
+and the grader share. The line in `_sample_pattern` is not the rule. It is an
+optimisation that skips a draw the placement layer is certain to reject, and
+lifting it would change no distribution at all — every two-closer pattern drawn
+would be discarded on the next line. The entry's own framing was the error: the
+bound was described as preserved-but-unwarranted when it was enforced one layer
+down the whole time, and the comment saying so has been corrected in place
+rather than left to mislead the next reader. Lifting the exclusion in any real
+sense would require `boundary` to stop meaning strictly-final for one of the
+two, which is a vocabulary change with its own argument to make and is not
+taken here. **This half of M-54 is closed by measurement rather than by a
+build.** The reader-refusal half stands as ruled and is unaffected.
 **Raised by the owner 2026-08-22, asking whether the section vocabulary is
 machine-readable to the order of "outro is at the end… in a way that does not
 bar novel move-37 song structures", and naming constraint propagation as the
