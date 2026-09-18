@@ -1253,8 +1253,47 @@ broken across a rest. This is the thing that makes a lyric singable and
 > | whether a phrase breathes / a word broken across a rest | open, **PERMANENT without a declared setting** — `fit.py`'s own row says melisma and rest _"IS the setting, and it comes from notation, not from text"_                                                                                                                                                             |
 >
 > **AND THE CALIBRATED PROMINENCE BAND [2, 7] IS NOT OPT-IN** — it runs on
-> every `inspect()` with no blueprint declared at all. So the first clause is
-> reaching drafts that never asked for meter.
+> every `inspect()` with no blueprint declared at all. ~~So the first clause is
+> reaching drafts that never asked for meter.~~
+>
+> **THE CONSEQUENT IS FALSE AND IS STRUCK 2026-09-18 (doctrine 17), MEASURED
+> RATHER THAN ARGUED, BEFORE ANYTHING WAS BUILT ON IT.** This clause was carried
+> into a campaign plan as an item — make the band opt-in — and that would have
+> overturned a calibration adopted by three preregistrations
+> (`quality/RESULTS_METER_BANDS_READER.md`) on the strength of a sentence that
+> joins two different layers with the word "so". The antecedent is TRUE and is
+> the adopted design. What does not follow is the consequent: **the first clause
+> is `_meter_findings`, which is not the band**, and that method in
+> `quality/revise.py` says so in its own docstring — *"`blueprint` is REQUIRED to opt in at
+> all: with none, this method is simply not called"*. The band is
+> `_band_findings`, whose docstring one screen away says, in capitals,
+> *"NEEDS NO BLUEPRINT AND NO SUBDIVISION. The bands are pigeonhole counts of
+> the TEXT — no placement, no meter, no isochrony anywhere in their
+> derivation"*. One clause about agreement WITH a metric accent, one count of
+> the words; this sentence read the second as evidence about the first.
+>
+> **MEASURED on `quality/fixtures/song.blueprint.json`'s own 16 lines under one
+> mandate, graded twice — once with no blueprint, once with the blueprint and a
+> declared `Subdivision(2)`:**
+>
+> | | codes emitted | of the five metric-accent codes | band codes |
+> |---|--:|---|---|
+> | no blueprint | 7 | **none** | `BAND_UNJUDGED`, `DENSITY_OUT_OF_BAND` |
+> | blueprint + subdivision | 16 | `PROMINENCE_CANNOT_ALIGN`, `PROMINENCE_EXCEEDS_HEADS` | `BAND_UNJUDGED`, `DENSITY_OUT_OF_BAND` |
+>
+> **Zero of the five reach an undeclared draft**, and the band's findings are
+> identical either way DOWN TO THE LINE NUMBERS — the same codes on the same
+> lines, so the blueprint moves the first clause and moves nothing about the
+> band. The opt-in item is therefore REFUSED rather than deferred: there is no
+> defect here to close, and building one would have made every out-of-band line
+> in a draft that declared no meter stop being refused, which is the calibrated
+> floor this repository spent three registrations earning.
+>
+> **WHAT SURVIVES THE STRIKE.** The antecedent stands, unchanged, as a statement
+> about the band and about nothing else, and this entry's residue — melodic
+> agreement, vowel length, breath — is untouched: two of its three clauses are
+> blocked on `F-2`'s coordinate and the third is permanent without a declared
+> setting, exactly as the table above says.
 >
 > **THE BOUNDARY THIS LAYER IS BUILT ON, recorded so the entry stops implying
 > otherwise:** every verdict here is a function of the DECLARATION (doctrine
@@ -1515,19 +1554,37 @@ FALSE against a tree that does not contain it.
 > measures the 1,297-file tree** while this one describes a 143-file one, with
 > no sentence telling a reader which is which.
 >
-> **LIVE, at HEAD:** `corpus/song/eng_*.txt` is **1,297 files / 8,667 songs /
-> 283,515 sung lines**, with **2,467 marked repeat blocks (1,580 BURDEN, 597
-> REFRAIN, 290 CHORUS)**. The sung-line count is a coordinate of the reader and
+> **LIVE, at HEAD:** `corpus/song/eng_*.txt` is **1,297 files**, ~~8,667 songs~~
+> **8,652 staged items of which 8,537 are WORK VOTES**, ~~283,515~~ **282,745
+> sung lines**, and ~~2,467 marked repeat blocks (1,580 BURDEN, 597 REFRAIN, 290
+> CHORUS)~~ **2,432 marked repeat blocks (1,580 BURDEN, 595 REFRAIN, 257
+> CHORUS)**.
+> REPINNED 2026-09-18; every figure in this block is declared VOLATILE and every
+> one of them had drifted, which is what VOLATILE means and is not a defect.
+> **THE FIRST QUANTITY IS REPINNED IN ITS UNITS AS WELL AS ITS VALUE (M-20)**:
+> this entry's own rule says *a song is a `--- TITLE:` line*, and a poem staged
+> twice in one file is two of those, so the rule counts STAGED ITEMS. The work
+> vote is the count after `data/calibration_work_editions.json` has ruled on the
+> printings, the difference is 115, and the two are never summed. The sung-line
+> count is a coordinate of the reader and
 > is stated as `lyric_harness.is_apparatus_line`'s — the one predicate every
 > verb shares — because a hand-spelled filter gives 283,717 over the same files
 > and the two are not the same question (doctrine 58's rule half).
 >
 > **AND THE DIRECTION OF THE DRIFT IS THE FINDING, not the size of it.** Songs
-> rose **+73.6%** (4,993 → 8,667) and sung lines **+84.7%**, while marked
-> repeat blocks moved **2,443 → 2,467, +1.0%** — and inside that total BURDEN
-> _fell_ (1,592 → 1,580) and REFRAIN _fell_ (604 → 597), with only CHORUS
-> rising (247 → 290). Three mass loads added some 3,700 songs and about a
-> dozen net repeat blocks. **`K-1a`'s finding — that the printed record's
+> rose ~~**+73.6%** (4,993 → 8,667)~~ **+73.3% (4,993 → 8,652 staged items)**
+> and sung lines ~~**+84.7%**~~ **+84.2%**, while marked
+> repeat blocks moved ~~**2,443 → 2,467, +1.0%**~~ **2,443 → 2,432, −0.5%** — and
+> inside that total BURDEN
+> _fell_ (1,592 → 1,580) and REFRAIN _fell_ (604 → ~~597~~ **595**), with only
+> CHORUS rising (247 → ~~290~~ **257**). ~~Three mass loads added some 3,700
+> songs and about a dozen net repeat blocks.~~ **REPINNED 2026-09-18 AND THE
+> SIGN FLIPPED: three mass loads added some 3,700 staged items and NET ELEVEN
+> FEWER repeat blocks.** The entry's own argument is unchanged and is stronger
+> for it — it never rested on the dozen being positive, only on the total
+> standing still while the corpus nearly doubled, and standing still is what it
+> did in the one direction that cannot be read as growth.
+> **`K-1a`'s finding — that the printed record's
 > chorus is concentrated rather than representative — got WORSE under the
 > loads, not better**, and `K-1a` carries the current triple where this entry
 > does not.
@@ -1629,9 +1686,49 @@ stated.
 > (`Air XXXI -- You'll think ere many Days ensue`, `Air XXXVI -- Cease your
 Funning`, `GAELIC AIR`, `To The Air Of "Am Rhein, Am Rhein!"`). So there is no
 > single mechanical rule that is right, which is exactly what a declared field
-> would fix. **Until `--- AIR:` exists, neither this figure nor M-11's "ZERO
+> would fix. ~~**Until `--- AIR:` exists, neither this figure nor M-11's "ZERO
 > across 8,009 non-English songs" is re-derivable, and the rarest field in the
-> corpus is the one field the corpus does not declare.**
+> corpus is the one field the corpus does not declare.**~~
+>
+> **THE FIELD IS REFUSED 2026-09-18, AND THE SENTENCE ABOVE IS WHY — IT STOPPED
+> BEING TRUE (doctrine 17).** `--- AIR:` was carried into a campaign plan as a
+> corpus-integrity item, and three facts read against the tree refuse it, none
+> of them a matter of taste.
+>
+> **(1) The premise is falsified.** M-11's rate IS re-derivable and has been
+> since `quality/audit_register.py`'s `_d_named_airs` was written: it answers
+> over the whole corpus rather than returning `UNVERIFIABLE`. The clause above
+> conditions the field on a blocker that no longer exists.
+>
+> **(2) The module that owns the question already argues against it**, in
+> `quality/grid.py`, beside `AIR_IN_TITLE`: *"There is no `--- AIR:` line in
+> `corpus/song/` and there does not need to be… what was actually wrong is that
+> nothing SPLIT it."* `split_named_air` is that split, `MarkedSong.air` carries
+> the coordinate, and the reader and the corpus audit's item walk both consume
+> it — so the air is a read coordinate today and not a substring, which is the
+> whole of what this paragraph asked for.
+>
+> **(3) A shipped structural control depends on the field's ABSENCE.**
+> `quality/verify_entries.py` probes that there is no `--- AIR:` marker anywhere
+> in the corpus, so adding one would red a check written to hold a sentence in
+> this very entry. A field cannot be introduced as an integrity repair by
+> breaking the integrity check that names it.
+>
+> **AND THE PRICE WAS MEASURED BEFORE IT WAS DECLINED**, because "it is not
+> needed" and "it is not worth it" are different refusals (doctrine 79). The
+> field would add a header line to **194 files** carrying **11,099** title-level
+> airs — and any edit to one `corpus/` file costs the same closing sitting as an
+> edit to three hundred, six calibrated constant sets re-adopted in one commit.
+> That is the cost of a coordinate the tree already reads.
+>
+> **WHAT REMAINS GENUINELY OPEN, narrower than the struck sentence and stated so
+> it is not read as closed**: the **144-title residue** the `[air:` rule does not
+> cover — `To The Air Of "Am Rhein, Am Rhein!"`, `Song For An Air By Hummel`,
+> `Air XXXI -- …` — plus the 19 in-body `Tune--"…"` lines in
+> `corpus/song/eng_celtic_robert_burns.txt`. What those need is a second
+> declared CONVENTION, which is a reading job on the printings, not a field.
+> **The English `[air:` count is REPINNED ~~318~~ -> 539** at HEAD; 318 was the
+> 143-file tree's figure and this entry has grown by 1,154 files since.
 > **Still missing:** the Tin Pan Alley generation (Dresser, Cannon, Dacre, Lamb,
 > Cole, Lawlor, Weatherly...) and the eight music-hall names — a
 > **scanned-broadside problem, not a rights problem**. Every one is out of
@@ -4240,6 +4337,76 @@ it moves the population it lands inside the closing sitting
 short-poem blind spot is NOT closed by this ruling: a pair too short for
 `item_overlap_pairs` at any containment is invisible to both instruments, so the
 count stays a floor and this entry stays open on it.
+
+**AND THE RULING PRESCRIBED WORK THAT ALREADY EXISTS — MEASURED 2026-09-18,
+BEFORE A BYTE OF IT WAS BUILT.** The paragraph above says the later staging is
+MARKED and that the song census excludes a marked duplicate BY DECLARATION.
+Both halves were checked against the tree rather than taken on faith, and the
+first is DONE: `data/calibration_work_editions.json` is an item-level
+declaration keyed on `(file, physical title line)` whose own policy string is
+this ruling in the registry's words — *"One work vote across explicitly
+reviewed printings. Unlisted items remain distinct... Raw runtime/source
+reading preserves every edition. Registry body hashes and physical positions
+are mandatory; drift refuses calibration."* It holds 106 works over 215
+editions, 109 of them at weight 0, plus 6 outright exclusions.
+
+**EVERY ONE OF THE 28 `eng_` PAIRS IS ALREADY IN IT, FIRST STAGING AT WEIGHT 1
+AND LATER STAGING AT WEIGHT 0** — all 28, checked pair by pair against both
+sides' title line numbers, with the one `cym_` pair the only member of the
+census that no registry row names, and that is the Mynyddog speaker-label pair
+this entry already assigns out. So the marking half of the ruling asks for a
+mechanism the repository shipped before the ruling was written, and taking it
+as work would have produced a second declaration beside the first, which is the
+defect doctrine 1 is about.
+
+**WHAT WAS ACTUALLY MISSING IS THE OTHER HALF: NOTHING READ THE DECLARATION.**
+`quality/lyric_reader.py`'s `calibration_items` consults it — so
+`build_song_frequency`, and through it the floor's own calibration, has never
+double-counted these poems — while every CENSUS counted raw `--- TITLE:` lines
+and ignored it: `quality/audit_corpus.py`'s file `titles` count and its `_items`
+walk, `quality/audit_register.py`'s D1, and `quality/counters.py`'s
+`english_corpus`, which reads D1. **MEASURED: 8,652 raw staged items against
+8,537 work votes, a difference of exactly 115, which is exactly the registry's
+115 `eng_` rows at weight 0 or excluded.** The harm this entry recorded — *"`eng_`
+song counts are inflated by at least 28"* — is therefore TRUE of the raw number,
+FALSE of the weighted one, and the weighted one already existed and was already
+what the calibration consumed. The entry had the defect in the right place and
+the repair in the wrong one.
+
+**WHAT SHIPS INSTEAD, and it is the shape `_d_repeat_blocks` already uses for
+K-1a one axis over.** D1 reports the work votes APPENDED after the raw count so
+downstream parsing keeps matching the substring it always matched, and
+`counters.py` renders both, never summed, and REFUSES LOUDLY if D1 ever stops
+printing the vote or if the two counts stop summing to the raw total — both
+mutations proven to red `counters.py --check`. The raw count is NOT replaced:
+"how many items are staged" is the question a corpus audit asks and the one
+`audit_corpus`'s shape pins depend on, while "how many distinct works" is the
+question every per-song RATE needs, and rendering either alone reads as the
+other.
+
+**AND NO CORPUS FILE IS EDITED, WHICH MOVES THIS ENTRY OUT OF THE CLOSING
+SITTING.** `quality/CORPUS_LOADING_PROTOCOL.md` makes any corpus edit force
+re-adoption of six calibrated constant sets in one sitting, and this entry was
+carried into a campaign plan as the reason that sitting had to happen. It is
+not: the declaration is a `data/` table, the census change is two Python
+modules, and `corpus/` is byte-identical either side of it. The sitting is still
+owed by `M-25`, which genuinely rewrites staged text; it is not owed by this.
+
+**TWO THINGS THE MEASUREMENT LEAVES OPEN AND THIS ENTRY NOW CARRIES.** First,
+the registry votes Burns's two printings of `Behold the Hour, the Boat Arrive`
+as ONE work (weight 1 and weight 0), while the ruling above nets that pair out
+of the marking on the ground that *"Burns wrote the Clarinda song twice; they
+are two authorial versions, both count as songs"*. Those are opposite answers
+about one pair, one of them shipped and one of them written here the same day,
+and the disagreement is recorded rather than resolved by whichever was typed
+last. Second, the `cym_` Mynyddog pair is still undeclared in the registry, so
+the `cym_` census still double-counts it; that is this entry's assigned-out
+re-staging defect and it does edit a corpus file.
+
+**THIS ENTRY STAYS OPEN ON THE UNCHANGED GROUND**: the short-poem blind spot.
+`THE WOMEN FOLK` is a real double staging that one letter — `sarely` against
+`sairly` — keeps out of the census and therefore out of the registry, so the
+count is a floor and the registry inherits the floor.
 
 **THE POPULATION, RE-MEASURED 2026-09-18 UNDER THE SAME RULE.** The census
 returns **29** pairs, not 28 — 28 `eng_` and 1 `cym_`. The figure is robust: it
@@ -7376,22 +7543,49 @@ dash-joined range (`XLIV.—XLVI.  DA.`), no ornament class at all
 a one-line `[VERSE]` block was never asked about it, 13 files, silently.
 
 Check H reports **THREE COUNTS AND NEVER SUMS THEM**, which is the other half
-of the repair. Over `corpus/song/`, 72,803 `[VERSE]` blocks:
+of the repair. **REPINNED 2026-09-18 — every cell of this table moved, and one
+of them moved in a direction a drift does not explain.** The 2026-08-21 reading
+is struck beside the live one rather than overwritten (doctrine 17); the live
+column is `python3 quality/audit_corpus.py --check H --severity NOTE --json`,
+aggregated over its own findings, with the corpus-wide block total counted by
+the same mark rule and CONTROLLED against check H's own per-file totals (41,412
+blocks over the 119 reporting files, both ways, exactly).
 
-|                                                      | blocks | files |
-| ---------------------------------------------------- | -----: | ----: |
-| one-line `[VERSE]` blocks — the CANDIDATE population |  2,550 |     — |
-| MATCHED a declared apparatus shape — charged, WARN   |  1,045 |   105 |
-| RESIDUE — reported UNADJUDICATED, never as clean     |  1,505 |    48 |
+Over `corpus/song/`, ~~72,803~~ **74,177** `[VERSE]` blocks:
 
-Shapes: `allcaps-label` 512 · `numeral` 445 · `ornament` 72 · `heading-word` 16. **The residue is the bigger half and the census never saw it**, sampled at
+|                                                      | blocks 2026-08-21 | blocks LIVE | files 2026-08-21 | files LIVE |
+| ---------------------------------------------------- | ----------------: | ----------: | ---------------: | ---------: |
+| one-line `[VERSE]` blocks — the CANDIDATE population |             2,550 |   **2,376** |                — |          — |
+| MATCHED a declared apparatus shape — charged, WARN   |             1,045 |     **961** |              105 |     **65** |
+| RESIDUE — reported UNADJUDICATED, never as clean     |             1,505 |   **1,415** |               48 |     **88** |
+
+Shapes: `allcaps-label` ~~512~~ **503** · `numeral` ~~445~~ **434** ·
+`ornament` ~~72~~ **8** · `heading-word` 16 — summing to the matched 961, which
+is the one addition this table permits because the shapes PARTITION the matched
+blocks and are not a fourth count.
+
+**THE FILE COLUMN DID NOT DRIFT, IT REVERSED, AND THAT IS RECORDED RATHER THAN
+EXPLAINED.** Blocks fell by about 7% in every row while the two file counts
+swapped magnitude: matched 105 -> 65 and residue 48 -> 88. A corpus that lost
+174 candidate blocks cannot move 40 files from one column to the other in each
+direction at once, so at least one of the 2026-08-21 file figures is a
+transposition rather than a measurement. Which one cannot be settled from here —
+the corpus at that date is not this corpus — so both readings stand and the
+2026-08-21 file column is not quotable. The LIVE column carries its own control:
+34 files appear in BOTH rows and the union is 119, which is exactly the number
+of findings check H emits.
+
+**AND THE `ornament` COLLAPSE IS THE SHARPEST CELL**, 72 -> 8. It is the one
+shape whose fall is an order of magnitude rather than a percentage, and this
+entry does not guess at why; it is named so that a session reading the shape
+table does not carry 72 forward. **The residue is the bigger half and the census never saw it**, sampled at
 n=50 (seed 20260821): roughly a quarter is real text — single lines of
 dramatic dialogue, which is a DIFFERENT staging defect — and the rest is
 apparatus in shapes the table deliberately does not spell, because a false
 positive there would be manufactured. THREE CLASSES THE 940 MISSED ENTIRELY,
 and each is a whole file's worth: **`eng_hymn_watts.txt` 444**, every one a
 printed scripture argument (`The nativity of Christ, Luke 1. 30 &c.`);
-**`eng_british_richard_lovelace.txt` 113**, every one a modern editor's
+**`eng_british_richard_lovelace.txt` ~~113~~ 102** (REPINNED 2026-09-18 with the table above; the other two, Watts 444 and Burns 186, re-derive unmoved), every one a modern editor's
 textual footnote (`Original reads NEERE.`, `i.e. own.`); and
 **`eng_celtic_robert_burns.txt` 186**, subtitles and `Tune--"..."` lines,
 which are the named-air field (`M-11`) printed in the body.
@@ -7424,13 +7618,17 @@ in `data/sources.tsv` with the reason beside them. The repair is visible in
 the check's own numbers as exactly −14 out of the MATCHED half and 0 out of
 the residue, which is the signature of a repair rather than a rule change.
 
-**TESTED WHILE OPEN, and the split is exactly 14 against 1,045.** Check H is
+**TESTED WHILE OPEN, and the split is exactly 14 against ~~1,045~~ 961
+(REPINNED 2026-09-18 with the table above; the figures in this block were the
+2026-08-21 reading and the argument is unchanged by the repin).** Check H is
 built, wired into `audit()`, and pinned by `quality/test_corpus_audit.py` §4b
 with five proven mutations (rule broken two ways, flush removed, emission
 stubbed, check unregistered) — so the DISCRIMINATOR this entry asks for is
 finished and has a regression. The entry stays `OPEN` because the
-discriminator is not the repair: 1,045 charged blocks across 105 files are
-still typed as sung verse, the residue of 1,505 is still unadjudicated, and
+discriminator is not the repair: ~~1,045~~ **961** charged blocks across
+~~105~~ **65** files are
+still typed as sung verse, the residue of ~~1,505~~ **1,415** across **88**
+files is still unadjudicated, and
 the three remedies the classes want — an item split, a mark, a drop — each
 need a reading of the printing that no check can do. Doctrine 17: the built
 half is real and is not quoted as if it closed the entry.
