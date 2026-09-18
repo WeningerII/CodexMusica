@@ -5574,27 +5574,32 @@ def _split_by_audible_end(sch_sat):
     side of this function existing. MEASURED on the maintained sonnet
     battery: 2 of 17 rescues read as end rhyme and 15 do not.
 
-    LAZY AND FORGIVING, because this is a report line. The registry import
-    is paid only on a draft that HAS a rescue, and a name the registry
-    cannot resolve counts as NOT audible rather than raising — a disclosure
-    that crashes a grade would be a worse defect than the one it discloses.
+    LAZY, AND IT CATCHES NOTHING. The first draft wrapped both the import
+    and the per-name judgement in `except Exception`, on the argument that a
+    disclosure which crashes a grade is worse than the one it discloses.
+    `test_verbs.py` §12 refused it — this file declares EXACTLY ONE broad
+    handler, the span-lookup fallback — and the refusal was right twice
+    over, because both handlers were guarding conditions that cannot occur:
+
+      * the IMPORT is already paid by the caller. `sch_sat` is non-empty
+        only when `grade()` ran the whole-vocabulary rescue, which imports
+        from this same module; a draft with a rescue has already proven the
+        import.
+      * an UNRESOLVABLE NAME never reaches the judge. `REGISTRY.get` returns
+        None for it and the `is not None` test below is what makes it count
+        as not audible — which is the behaviour the forgiving handler was
+        added to provide, already provided.
+
+    So the handlers were catching nothing and would have hidden a real
+    failure the day one occurred, which is what §12 exists to stop. The
+    registry import stays lazy because the cost is real; the swallowing is
+    gone because the risk was not.
     """
-    try:
-        from quality.relations import REGISTRY as _REG, \
-            audible_as_end_rhyme as _aud
-    except Exception:
-        return [], list(sch_sat)
+    from quality.relations import REGISTRY as _REG, audible_as_end_rhyme as _aud
     audible, rest = [], []
     for r in sch_sat:
-        hit = False
-        for name in (r.get("satisfied_by") or ()):
-            sch = _REG.get(name)
-            try:
-                if sch is not None and _aud(sch):
-                    hit = True
-                    break
-            except Exception:
-                continue
+        hit = any(_REG.get(n) is not None and _aud(_REG[n])
+                  for n in (r.get("satisfied_by") or ()))
         (audible if hit else rest).append(r)
     return audible, rest
 
