@@ -2647,6 +2647,26 @@ jobs:
           OPENBLAS_NUM_THREADS: '1'
         run: python3 quality/schema_end_reading.py --check
 
+      # HOW FAR APART ARE THE LINES THE SCHEMA DOOR RESCUES? (`MISSING.md`
+      # M-240's open half, under
+      # `quality/BOUNDED_SCHEMA_WINDOW_PREREGISTRATION.md`.) The remedy for
+      # the candidate-explosion wall is a door bounded by LINE DISTANCE, and
+      # the null it owes is the distribution of today's rescue distances.
+      # MEASURED: all 17 battery rescues sit at distance exactly 2 -- which
+      # is NOT a free window, because the sonnet scheme's furthest binding is
+      # 2, so the retention is 100% by construction and the runner refuses it
+      # as evidence. The pin is here because the DISTRIBUTION moving is worth
+      # a red: a rescue at a new distance means the population that refusal
+      # describes has changed.
+      - name: The schema door's rescues by line distance, and why the sonnets cannot answer
+        if: ${{ always() && matrix.shard == 2 }}
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/schema_window.py --check
+
       # WHICH DOOR EACH SITE JUDGES A PAIR AT (`MISSING.md` M-139, owner's
       # ruling 2026-08-26: *"go find everywhere it still has the incorrect 4
       # and make sure all 77 are there ... 4 is poisonous as fuck"*).

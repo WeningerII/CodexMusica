@@ -22652,6 +22652,37 @@ lines. What this entry says is missing is the door that SCALES, and that is
 unbuilt: nothing in the suite asserts a 144-line draft grades, because it
 does not. The disclosure is tested; the gap is open.
 
+**THE NULL IT OWES IS MEASURED 2026-09-18, AND THE FIRST POPULATION CANNOT
+ANSWER THE QUESTION — WHICH IS ITSELF THE RESULT.**
+`quality/BOUNDED_SCHEMA_WINDOW_PREREGISTRATION.md` was committed before the
+runner existed: five declared windows, a selection rule fixed in advance (the
+SMALLEST window retaining ≥99.0% of today's rescues on EVERY population), and
+four falsifiers. `quality/schema_window.py` runs it.
+
+**MEASURED on the maintained sonnet battery: all 17 rescues sit at line
+distance exactly 2, so retention is 100% at every declared window.** That reads
+like a free window and is not evidence for one. **E2 FIRES**: the sonnet scheme
+binds one pair at distance 1 and six at distance 2 per item, so **2 is the
+furthest a rescue COULD be**, and the retention column is 100% BY CONSTRUCTION.
+It is a fact about the scheme, not about the schema door, and the runner refuses
+it as evidence rather than printing it as a result (doctrine 20 — inconclusive
+by construction is not a null). The registration named this outcome in advance,
+which is why it was recognised rather than banked.
+
+**SO THE WINDOW QUESTION IS STILL OPEN AND ITS POPULATION IS NAMED**: the corpus
+items under the cover `recover.py` derives from the printed text, and the
+shipped drafts under their own mandates. Those are the two populations whose
+mandates reach past 2, and neither is measured yet. The pin is banked anyway —
+17 rescues, all at distance 2 — because a rescue appearing at distance 1, or the
+count leaving 17, means the population this refusal describes has changed.
+
+**AND E4 IS NOT MEASURED BY THIS RUNNER, SAID RATHER THAN LEFT TO BE
+ASSUMED.** Retention is an exact upper bound on what a window KEEPS, because
+windowing can only remove pairs from the door's question. It is not a proof that
+what stays is judged identically: some schemas read the whole stream, so a
+narrower stream could change which names answer a pair that remains. Testing
+that needs the windowed door, which is still unbuilt.
+
 **THE COMPLETE ANSWER, NOT BUILT:** a schema door that considers a pair
 only within a bounded LINE DISTANCE, which makes the stream linear in the
 draft and removes the wall. It changes what "the 77 schemas over the whole
