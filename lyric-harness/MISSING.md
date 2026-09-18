@@ -13755,6 +13755,23 @@ the plan and measured against M-192's 59.6% as its own before-and-after; it
 lands in step 3 of the 2026-09-18 campaign, and `quality/test_plan.py` section
 14 — which today pins that the disclosure is all there is — flips with it.
 
+> **TESTED WHILE OPEN.** `quality/test_plan.py` section 14 names this entry,
+> and since the ruling landed it pins the NARROWING rather than the absence of
+> one: that the certified pool holds both kinds, so narrowing the end pool is a
+> rule and not a no-op; that no plan over seeds 1-40 draws an inaudible
+> relation at an end-bound group; that the bare default survives the narrowing
+> and the dice stay flat over whichever pool applies, against a floor derived
+> from the pool size rather than typed; that the pool is DERIVED, so moving
+> `relations.audible_as_end_rhyme` moves it; that a group with one member
+> inside a line keeps the full certified pool; that a declared `--relation=`
+> still wins; and that the narrowing stays a draw-time pool rather than
+> becoming a refusal. Each carries a planted mutant. The entry STAYS OPEN
+> because what the ruling did not reach is a declaration: which schemas count
+> as audible at a line end is still decided by the comparator's own
+> nucleus-and-coda test rather than by any declaration a person made, and
+> M-140's schema-door reporting rule is not built. Red the day that
+> declaration lands, or the day the narrowing is removed.
+
 **SHIPPED AND MEASURED 2026-09-18.** The narrowing is built. At a line end the
 pool is the audible family and nowhere else: `_end_bound_group` is the same
 definition `audible_share` already partitions by, so the draw and the
