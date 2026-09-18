@@ -1,0 +1,1048 @@
+{
+  "version": 1,
+  "head": "c665302838ecb47710d01fe5af205ad5a1bd5c0b",
+  "mode": "warm",
+  "fixture": "plan",
+  "components": false,
+  "seed": 16,
+  "lines": 28,
+  "requested_resumes": 11,
+  "argv": [
+    "finish",
+    "/tmp/claude-0/m170/warm28full/draft.txt",
+    "--seed=16",
+    "--lines=28",
+    "--propose=defer:/tmp/claude-0/m170/warm28full/state.json"
+  ],
+  "source_sha256": {
+    "lyric-harness/lyric_harness.py": "a2f3bebda91a6ca3698d81c18cef5b5634e92ec8299078ee4eaafea191601544",
+    "lyric-harness/quality/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lyric-harness/quality/audit_band_control.py": "13eea2be8497b9795cbe4e306433a7754d68a142868140f11b3b9555178e0f5a",
+    "lyric-harness/quality/audit_corpus.py": "c9acbfcf8423c2c4daf69e1ee3dfff374f192beaea6d15293597f05777a44395",
+    "lyric-harness/quality/audit_fwer_fpr.py": "3e2d505763111d71a23ee5415fb0955604c9fddad21986988a1465e1965f2765",
+    "lyric-harness/quality/audit_hafez_radif.py": "cbba71b54c22ffde75b74b571a0a8fe4ba25fca90d0876b7b61313597b48a313",
+    "lyric-harness/quality/audit_joint_auc_null.py": "123fbdd5186e4b2e64335747cb69f24210e201af3de305831a1e4a8fa20d55b7",
+    "lyric-harness/quality/audit_kalevala_null.py": "9cbdc9b6fced92bcdeafcf1e62002399b0fe3e79e2af1a56f17969ea74a226e7",
+    "lyric-harness/quality/audit_register.py": "6b7932da347861c6ed0b19dc1dd379502eae08315b9c6d979cc79a0eef8b4fc7",
+    "lyric-harness/quality/audit_rhyme_organization.py": "63153043366fc39df62baa7299ea5c0b6af20296e8fdaeb1ddad41516ba52e10",
+    "lyric-harness/quality/audit_spans.py": "b318281862b4167b17800feb6005b2c7c745fbe4b5876ea6d27310f93ce3c67f",
+    "lyric-harness/quality/audit_tang_null.py": "669f0c0778f0d7d818eac7426013f011ff203aaea8baba0b601ee0755ec70ceb",
+    "lyric-harness/quality/audit_time_pooled_null.py": "afceec05ea97413add3a526dc485f046799aa578bf8444cd80a54e2b22fe6cc0",
+    "lyric-harness/quality/ban_convergence.py": "d10abc7e2dcea1bb8eb901d1e6fa6392937362c3e30856f8e4132d5e98ba43ac",
+    "lyric-harness/quality/battery_rounds.py": "8ef4a5b9b185518368257c68b00bf92ff8558458455d7ad9009eb8b5ad98cdcf",
+    "lyric-harness/quality/brief_provenance.py": "aaa70c1a1091a9eb63ec6e86a416f60c11727c4e41f562a061829616625b0532",
+    "lyric-harness/quality/build_ci_corpus.py": "619ff4b3b2bf1f40e7a6f1185849a5989977d1cbf930191b5a83717dee82be43",
+    "lyric-harness/quality/build_song_frequency.py": "12ee067f3a16754333f8df0a2993e42fbceb29e3290f3995478ca62b16cc129d",
+    "lyric-harness/quality/calibration_rebuild.py": "f1a8cd5bb0fc028cee4680c8bee5a7051ae5f3c0bd79cb410a1800bba1131b2d",
+    "lyric-harness/quality/canon_sources.py": "14674b666f4059d28c8379cf207b091f277310efccc5a9e942ffc6fae159f855",
+    "lyric-harness/quality/capacity.py": "ab352c556bba339243a2ea55631a46d71eeed945e53ddbb662320374b8a67b9a",
+    "lyric-harness/quality/chance_rate.py": "d7e313c2e73b4a1ccc69a445a1f8f79336c20e2f23f441a8ddc3b0d927390a9c",
+    "lyric-harness/quality/check_comparator_pin.py": "ce119bfe5e74e33c019283960218a3bccb9ca4120898100926edb2b870738702",
+    "lyric-harness/quality/check_data_rows.py": "fe1601e576f9f5ab1182f65981592a4bb2d6553c4c5d36c5d72c49a22ae01389",
+    "lyric-harness/quality/check_render_form.py": "bc49a811e7329863d1b3a182b3e80c1b2737eefa85021b8c97b26bf1dd0008df",
+    "lyric-harness/quality/controls.py": "b8cee9c5b87980dd39d582ab7b1273531f8dc5b83e6e36a6f5923767ecfeaae8",
+    "lyric-harness/quality/corpus.py": "51d17b9fcb200c8731d1a2da01438b5bfc78ea760722e28f55d0cbfa29dc385c",
+    "lyric-harness/quality/corpus_manifest.py": "57e3471ce32c7ec14e17e720dcd4c44daa3f0694b4afb7a54aa46a6e5ca38c5b",
+    "lyric-harness/quality/corpus_taxonomy.py": "460a7d9ca8d8fb68f4793c139f4ad557b311efd766740d7083c45dfc7c462a75",
+    "lyric-harness/quality/counters.py": "cf04bba8e28d231803fa1ace3fee51092ff7169a33f43a0d5caedbe1b92b467f",
+    "lyric-harness/quality/coverage_log.py": "2d1be9dd9d2337f656cefcfb8b054c5c96d696b3872056c45d11dc796065fb13",
+    "lyric-harness/quality/cross_song.py": "97f7d5171528084e1a88dcdb2211682e248ce7ec821dbadca94169f813ceb6cc",
+    "lyric-harness/quality/cym_rhyme_rate.py": "9165da70be23877bb7b9e3941738a8f66769314515886c65dec5679381b0d6a8",
+    "lyric-harness/quality/cynghanedd_rate.py": "5083e7e9c786b01d085af1ff0094455e7a1ffc9a51dfefebd182def9ceec7db5",
+    "lyric-harness/quality/declared_inputs.py": "e0b97eace0df2dbb805ed1e561982201600573af453faa9392ed111814aac765",
+    "lyric-harness/quality/discriminate.py": "cb9fa4c122aef724e949b0ee9b3a803b5d2787b492db11aacfa8e66dbc7f50e4",
+    "lyric-harness/quality/door_census.py": "fe1efa3efa4f3adf834de073df6e66d98e61f7122bad7acd2fd5bc2b32cc2bf6",
+    "lyric-harness/quality/e5_coda_adoption.py": "bebeb95d9de771393184c8e7c7fc79381afdc171bdad4da465ea7131c1aee92d",
+    "lyric-harness/quality/eval_matrix.py": "a2ec654fc9cab794cd37817b409064f8e3bc5bbbabff8c0e03f6c61d05f68d09",
+    "lyric-harness/quality/expected_drift.py": "43c2f32d28fe480ac715f0959f0a1c76375417ac3eea64697ef59dd40e06a3c2",
+    "lyric-harness/quality/features.py": "dd2872b3db184ed12887227050bd970c646cf57fe63a350e39fec2cbc92db902",
+    "lyric-harness/quality/fetch_data.py": "45c78b404b2dff65b9ff2cb6941449ca778e1a317150e1aff10fa907b3bbafed",
+    "lyric-harness/quality/field_store.py": "16ed033822a6fe4014325b54ff3438e5a3587a8c1ca28321381ecb03396fc799",
+    "lyric-harness/quality/figures.py": "ee9824e30814c30f5fdbb2b34858cfce254370efd964ecfce01038c6faccb7cc",
+    "lyric-harness/quality/fin_rhyme_rate.py": "14c099945984e1f6f883d7dcbffc441204a3635cd5388cfe744e1832ac8f34d6",
+    "lyric-harness/quality/fit.py": "3ae29173f73f893d921328938477b56d7aeb3fd3c9cc0e51d1be66068cfb38cb",
+    "lyric-harness/quality/fit_matrix.py": "c5e9859e76a3cf7ecd568da56091bc942842aa0c9db5f8163d04cf0c29607667",
+    "lyric-harness/quality/floor.py": "e108e01d4946c471c4ebd5c1733e035f06e530bbe57dbab5f6e001757d14f896",
+    "lyric-harness/quality/fold_series.py": "1b24c313d8ca880af65c0b357e9e0cd029c2988c86c20953b5f2fc396662e91e",
+    "lyric-harness/quality/frequency.py": "48e66ace91d8cab4691cce1b67e8e9447c98e01064ce7cd5d61c2eba105559bd",
+    "lyric-harness/quality/fwer_family.py": "7d99e53931d5edb9d8c7ff81c72dedf3fc2d0dfad48d35163264d8c5c57e1a18",
+    "lyric-harness/quality/g2p.py": "be83b5cd41cd7bc9dd7e5992fdfbe6531979ee24b0827e59b3ded4ee6e03a547",
+    "lyric-harness/quality/gate_census.py": "6939c07e89d1d504dbbc369c78b77406e8a8b59b58cf947e9583873ad600c22c",
+    "lyric-harness/quality/gate_corpora.py": "45c803cf74456ef967a47751c875b0533a4d4edb5fd19e867e4b458cec832567",
+    "lyric-harness/quality/graph_probe.py": "c746310c35229dbe26236a39ec9c41a301fcd6815ebed1dbc68285e8569d0871",
+    "lyric-harness/quality/grid.py": "68965a8f955e9a89e1259c49b66667008e2e713fc0af5534e9502e8b03eaab42",
+    "lyric-harness/quality/hafez_rate.py": "b011fcbd907428ecf6d9bd51f4328201f69e0deb5eea4fcb16c72a40a401d5e8",
+    "lyric-harness/quality/internal_rhyme_rate.py": "f8bbb5402b059b517a38893c2aee13600b554d4ca07e665d8eb7e260b286135a",
+    "lyric-harness/quality/ipa.py": "2769ad654f59b52e8e4a471328f702d3e093e69ca3e0cd406a5fa1f635dc8e72",
+    "lyric-harness/quality/kalevala_calibration.py": "919d391f1dedaabc5e1be57cf22fdcdbb81e66f6c2ad7c52c28f6c78b3e3da87",
+    "lyric-harness/quality/kalevala_rate.py": "c42c886b47951f030218d6a8818c0bda5d670da890d785c5e738248f8ecff0b1",
+    "lyric-harness/quality/length_curve_calibration.py": "db3dbbc9bd3d705407fdde3b744bdabd5a8dc493bde22981289e9c477a0f8910",
+    "lyric-harness/quality/line_relations.py": "c164d9c7029288e873071aacfb6ffb078f1506755e1ca116dc1c84ccf5f34a58",
+    "lyric-harness/quality/loop.py": "36f53663c1c76ae94bfa703cbe4247d7be84a0aa67bf30e66186a2732e8c09a7",
+    "lyric-harness/quality/ltc_overlap.py": "e5e24ed29422fb63e9407293463ac0971c3000313cd5924e653ab6e6208f6e20",
+    "lyric-harness/quality/lyric_reader.py": "b76263a5e37b10d1c5fb3953f501560918a7efdcfbbc304872f54074b577f9e3",
+    "lyric-harness/quality/m40_poet_cells.py": "9d3abb3e5d92b8a4d07bd10f0fcc7c2fc7bf4f79b3449f8656f62684b250e180",
+    "lyric-harness/quality/mark_coverage.py": "7a8ab2a2a3fca233055cc3409bc0563208ead851cd9119c481cab6f852b1410c",
+    "lyric-harness/quality/melody.py": "f25ef83353dd2dfbb2525c13984cdba19a49cb2086912fe6d655568cda922369",
+    "lyric-harness/quality/meter.py": "39b48bc3397157618f9a536a062d998329da19ec63a905f06ffc1e1cefe507bf",
+    "lyric-harness/quality/meter_bands.py": "88b9180478e138b5c76b3f6ec59a79d126a58d90f6bd3279fa35911489b9ee9f",
+    "lyric-harness/quality/metric_complexity.py": "52c9a02e2c99bd09e9527f95d24640f97f7a879d0f5b55d3ea5222d5dfde0d80",
+    "lyric-harness/quality/morphology.py": "32a592636a988ebb3755e2ea7b2a0d62e3db16012fb1276f44c5f80cc114c02a",
+    "lyric-harness/quality/mutate.py": "c53258ab8c612682d9661f7166778c6c10602d30af566c9d9d9b7bc72397dd6f",
+    "lyric-harness/quality/narrative.py": "7ca6a168afefa912cda4046a7b53240637049c7e97a12d7559a9a83d8939f856",
+    "lyric-harness/quality/narrative_bands.py": "a4e7ce275ba869ffb28f7f04652cc9bac0c18442539cfdd408d06568a9508d42",
+    "lyric-harness/quality/near_relation_pricing.py": "f7046f4b495c180a51c99425e35bba03d7fdec9d110e4b2dbf7c85031832b981",
+    "lyric-harness/quality/negative_control.py": "c7b2832b6ab7fad2f92bee5f2ab43091120b6843a28e7598c98e163d9f718e1a",
+    "lyric-harness/quality/phonology/__init__.py": "74813d64ff7dd2038b44c913e8881ee9829696b1642a49037178655996957f09",
+    "lyric-harness/quality/phonology/cym.py": "2df5fab3e0cf9f34c690930c4a18230386da7aafb5189cb3d2ca0c2775ed1bad",
+    "lyric-harness/quality/phonology/eng.py": "a90dbb93cd31c7987e3c248096a5240e44c10fc9a0bc397a814be2100fe5f57b",
+    "lyric-harness/quality/phonology/fas.py": "b015ec0c4b64ff2da3ac66c0be984236925aa30883033731ea118f3b0eb35306",
+    "lyric-harness/quality/phonology/fin.py": "9f334146d64dcdda3e42ad79f1f2241b58d6fedb6a80d10c5cde066a13728139",
+    "lyric-harness/quality/phonology/ltc.py": "f09e90252be740c55f6fb62a149a34679a30a14bf526971f6bcb14c4af05813f",
+    "lyric-harness/quality/phonology/msa.py": "e4ff9f90b55e51a632f9d7cf979f909631b31e42299d454afc6d9f4b8bf82a74",
+    "lyric-harness/quality/phonology/non.py": "c0eac03fca0f0608d60076b0cfbf7de851a3b17e374f67c5d635d5f3e397f963",
+    "lyric-harness/quality/phonology/san.py": "6b0dcb02e5571327935e044b9a977cf33c8e97898f49283ac5bb2c1ec427a14c",
+    "lyric-harness/quality/phonology/som.py": "5af13c08c9fa5775446793556e0ffddbbfe667ed9754c68220f8ebf110d773ba",
+    "lyric-harness/quality/phrase_commonplace.py": "15023686c3062ebafefe29cefeb157629a2fcef8aefce3259e8935dd59caaac5",
+    "lyric-harness/quality/pin_sweep.py": "087615d1f42d624cefdbb6bab426a1da1a50e08e3cf46d201d35b8366f671788",
+    "lyric-harness/quality/plan.py": "a4fea0b9ee5affb6faa3bbd6422ee12d033fda1f27a6cb40667ec2cd71747472",
+    "lyric-harness/quality/populate_authority.py": "fff903ddc5ccdcc8db835c76432e264c9929117888b03057297ae7f7db15c4b4",
+    "lyric-harness/quality/positive_control.py": "00423bedf3bb96b47394cd9f1d3b1d31320aa5222cd2c872d95b2d180483c415",
+    "lyric-harness/quality/prasa_rate.py": "b73c52825384041bc6f8ed4d372bc42cb76340d9b8cedb7310f2c746c9f9746c",
+    "lyric-harness/quality/pronunciation.py": "903401eac257f12916a514fec582d2103bdcdb7eacf36d33667a5191ec5f201e",
+    "lyric-harness/quality/propose.py": "81d6950a23a56e3f8a2f4cfc017bd619008d5e72ab5b62733f0eec00e48e0708",
+    "lyric-harness/quality/provenance.py": "9897b677cc1f702cc1ee2f4e1f488c17d8bdccca1e7831d02d86006994b17c75",
+    "lyric-harness/quality/quotients.py": "794bcafd5414e3b73f29d0014859c1e8ec1bbec0702151f086807718137b8325",
+    "lyric-harness/quality/readability.py": "3718211a189dfe80595f8cf70d901fd8253220d55119dc2672fb822aacf2e69a",
+    "lyric-harness/quality/recertify_capacity.py": "f7ce99d9ccd30cd3e067d32a5039bfa15abd8220968e59b5f3d9b9354f11a2b8",
+    "lyric-harness/quality/recover.py": "936d65d5e338208787c256f0924d1104710438358b41702c111221fbda44d02a",
+    "lyric-harness/quality/redteam_band.py": "d38451cbecea56e0a27a737120a863f0523e74bbbd51564be1b494aa2fb6eeab",
+    "lyric-harness/quality/regrade_verdicts.py": "a10a2ac581ef7544def20f07f71e0bb94001fbf0b398ec0a9d04b097077ede09",
+    "lyric-harness/quality/relation_shapes.py": "d0f64d19773b88a4055f0ad03a6fc037d6970bf5989db227fb1a8fbc6a000f55",
+    "lyric-harness/quality/relations.py": "edf520e9d89c93101f9be2447798916f3ca0bdfd4d3d2fd7060228b7fff26513",
+    "lyric-harness/quality/relations_null.py": "1e875991325980359e62c42b17ce8e9014c96a69fdddefdcc6c011897fc836b2",
+    "lyric-harness/quality/release_assets.py": "f357b9fa2858decde6ffe3fd3983dd293dda1a7fcb9fab827ae0fef1200bdf74",
+    "lyric-harness/quality/replay_memo.py": "6bf9c4374bf04bcac954230ef61de52a426097eda4cbbfaf23fac449ad5bd756",
+    "lyric-harness/quality/results/m170_2026-09-17/predicate_probe.py": "eabfb68c240bd5213581928c8012e0d40c1bdaee606a14f0e6b1ed78de5ef014",
+    "lyric-harness/quality/results/m244_ci_2026-09-17/observation-control-command.py": "0db1eb0f4fd0103e87104eb76c9033b30a4ea5fe00bde498058d850d973dd096",
+    "lyric-harness/quality/revise.py": "3db42b880b4d9c9e51544599f138272c1f1d73aeb06b50c78a85ec53a3da075e",
+    "lyric-harness/quality/rhyme_constraints.py": "936772ae0541ecd7b329550304623dee25febfed99b3c32efcd4e40ea28d0b9a",
+    "lyric-harness/quality/rhyme_organization.py": "866d0b86834a8028986923d76a9e6f71b21b09c35484be91e9b13a319b0934ce",
+    "lyric-harness/quality/rhyme_types.py": "1063bc774dbb15da56a535e21363067fbf7163a659c8065406c73b817d3d1d68",
+    "lyric-harness/quality/run_positive_control.py": "b2b69bfc52079b6bf46b1c9f5067dced4324f5eb0d6daf3210031f1a6cb8df67",
+    "lyric-harness/quality/schema_census.py": "8fdc6daa22d3ff549888d24e6c25f34de073a4b0c570ce0d7b581d5816901b12",
+    "lyric-harness/quality/schema_end_reading.py": "836b46aa3d4fa828d4da73a7d12558b535548733ded44f2ef902c52f80362a6c",
+    "lyric-harness/quality/schema_window.py": "3062370f4fc9f44abe08ef5f72da1e70b255ee4c3b8a883d456fc9208e733c33",
+    "lyric-harness/quality/schemes.py": "55eccad44e29b69e6c975896e2134d508d45856bec8f8b3349008b8ceaed628d",
+    "lyric-harness/quality/search_null.py": "2ea97edf65c53dfce61a5c93494d70fde62e8db4c069bc4719bb37712c9e668d",
+    "lyric-harness/quality/section_marks.py": "d1a9f5a99aa005d129ef20cf157c12f3bc867cc3a7aece77ec35ff88c21841e2",
+    "lyric-harness/quality/senses.py": "e6026148ecac0b72a52fc1905b7f0692bbbe208b8eebd80639da582c7b4218aa",
+    "lyric-harness/quality/sentencehood.py": "420e2a8466f065ab4bafff217b0c9b5aa61dd4da1a669b2e5db32cec276aed32",
+    "lyric-harness/quality/shard.py": "1aff3ab07bfff2f28cf860d5dfa249f69af5cae5973851b5d04f247f044b0dfa",
+    "lyric-harness/quality/slots.py": "6d6931653508113e4ef935e6b7dba345408aad26ed50f4bb7cb4016ffb7264e3",
+    "lyric-harness/quality/som_channel_audit.py": "102897a36fb61baa83b1c1f25fedfaf77f5fd167270a35d3455662df81e4cd10",
+    "lyric-harness/quality/song_log.py": "0cd47add0b6bbaf00106bf92f5dc0273bdba98d2d22dabdd1ced9b93599c525d",
+    "lyric-harness/quality/song_profile_calibration.py": "df3d88dd517dc40c3e3a3545e7c65806ed76d1419773702caefbb4c9fd10ac25",
+    "lyric-harness/quality/song_record.py": "a1eb5acc572630efc30536b0ac4dd26cc5a0a687d1a84681a365eeb5db5071ca",
+    "lyric-harness/quality/source_identity.py": "f5396aae68eb6406664e87c4d5d6526e0f3c6664b80f965c0e45c90eacbf3ef2",
+    "lyric-harness/quality/span_rules.py": "03f51c397c830a47380efa3bb6209a969bae8c86a015e319ced9d2da5a2a675e",
+    "lyric-harness/quality/stage_sagadb.py": "43402493c0b551834ad6c63fef970bf6cf46d8c8ceca92308d298120eea1e9d9",
+    "lyric-harness/quality/structure_census.py": "b09a5db3272d6877a153e809f2fee6c7b98e6b8e245db6c76cfc64ee65add4f4",
+    "lyric-harness/quality/structures.py": "e6cb2a86f2699c28cab60668c11f80e39322e3915bf54e91a5ff83115c93914b",
+    "lyric-harness/quality/suite_sweep.py": "9dba85f051fef487b4f3a91197ed15efb519db3c2289b570b1a9b79eb1ec738a",
+    "lyric-harness/quality/tempo.py": "4fd83ebb4ff98c93d886ff023ebaf2c4c22843743c967073603e899aa017f802",
+    "lyric-harness/quality/test_align.py": "50b3cd2e60ef6ab10510f7f6798dd5fd4e56ada06448a79f01b1a9203390dbef",
+    "lyric-harness/quality/test_audit_regressions.py": "0ce56bec5e69ed31965766242afec3de957376c064acfbdeb922804e1c2a5eb4",
+    "lyric-harness/quality/test_ban_convergence.py": "7d4ce29b376ee643dfe14fadb8b0c7195de3e2260530c530e1f91522670853e3",
+    "lyric-harness/quality/test_band.py": "00b7f0e2306ffa8bae37b58906e7ea800b03f6e47f98d9213f926f333779f5f9",
+    "lyric-harness/quality/test_battery_rounds.py": "59c3712e47dcb39920be0176e4626bd8b8193d6b479ae3a6762afd1f89197267",
+    "lyric-harness/quality/test_brief_provenance.py": "8bcd64527d8c2b43ee01879cad78591ccc60bef5e44a4cf88cf4bb475059b1b6",
+    "lyric-harness/quality/test_candidate_pair_projection.py": "5d06a3f3b6e90bb0f3b8835723fe84b43dc372b05a2f6bb5ee5687b1ffb8a3dd",
+    "lyric-harness/quality/test_capabilities.py": "43fcea07908f477108d157f6e0c8ec877e739fa1ae6ef7baa76635c5f967023d",
+    "lyric-harness/quality/test_capacity.py": "e97435e1b5d6f820e2614952fc659816f7ae71457c96d97f7d4099b9f9c0b59d",
+    "lyric-harness/quality/test_capacity_receipt.py": "2098463966567986a8a23a0d62ca3523c61524970faae17f53035d62df2ef566",
+    "lyric-harness/quality/test_chance_rate.py": "800de4786b4a536fc0085570a13281b1a89736bee37117d232e0af0c898296d5",
+    "lyric-harness/quality/test_coda.py": "b297ffe8fde4270dfe28349054daf7b9547a348383959e11a5da9903ac95a335",
+    "lyric-harness/quality/test_comparator_pin.py": "57f394f52741b27ec17fda74798cd93670242fc6ff4d208813d745d15a9220f8",
+    "lyric-harness/quality/test_computational_audit.py": "bdc2f1626bde9236a547f921e0daba99e3d7739a9334bf85b969ec4b59d01ed3",
+    "lyric-harness/quality/test_controls.py": "689f01530f1c0106ff72f1d624f459dc42ea42a2bfbac8c431ec2f958c8ac489",
+    "lyric-harness/quality/test_corpus_audit.py": "59f7291e9376353f3c332e7ea8d98be84481cf4d81e494fbaf99f8c65525e520",
+    "lyric-harness/quality/test_corpus_taxonomy.py": "1f65ad6fbd4371ae3b38c8ce3d4d1e88bba0a330f12724d4158b00689dc8353d",
+    "lyric-harness/quality/test_cross_song.py": "44f2e032dd79a6eee4a07852633c3608ed8c3f789a0eb236cdf4a4545236a63b",
+    "lyric-harness/quality/test_crosslinguistic.py": "462399ef5da116022aacfcd90e4d946fd75d4ec866eb2c3df16d658523c79d9c",
+    "lyric-harness/quality/test_cym.py": "be33f807afd9846d9cca920f4fd3464b78d0070847fd2a90e8349b097278c354",
+    "lyric-harness/quality/test_data_row_claims.py": "0fecf9b479ab360f8ec5a066eb6c78376747ae9cc7859b6ada6f1c9cb5caa596",
+    "lyric-harness/quality/test_declared_inputs.py": "fa02d9597e268ea12d75f78e623d7c90967d9426d3687a627965927daf3d8046",
+    "lyric-harness/quality/test_discriminate.py": "82c6c387d55eb2a41a675bc036f80e4a7dbc6318936b5d643d4130c4f1292bb7",
+    "lyric-harness/quality/test_door_census.py": "f1cbdad1274d739024d75c32d41bd8f4f1cd7384e62189cb55fa1529865cb17d",
+    "lyric-harness/quality/test_english_text.py": "62515ba266886c17b73fc94464bc78c70602a43268d14f7501a9a51049e70bad",
+    "lyric-harness/quality/test_expected_drift.py": "6ff59a846b68b7b03e67f98cb9f7f380765c8610ce4e2ed80661f9dc91f20171",
+    "lyric-harness/quality/test_field_store.py": "71c6e0a036ad707b1284ae6f0adf4beed35db2d59b8549adb681af1835461b65",
+    "lyric-harness/quality/test_fit.py": "558028377ca73e5586785ba7af5de3893b2e87c7e4a7ddbad790bb7b229f5aa8",
+    "lyric-harness/quality/test_floor.py": "3ba93acea8b7194a4612bd6551341e69081a544ee1fb9226d5bc31c762981c97",
+    "lyric-harness/quality/test_floor_window.py": "d4174ba005d4a90ced540f2172155846a60c5922bcd32e2723a7ce4560ee0a00",
+    "lyric-harness/quality/test_fwer.py": "1114303a238c8c297e5649a0e8ef6d6059883fbb30ea7649590bf04fca37e344",
+    "lyric-harness/quality/test_g2p.py": "f22213dc83f3ffb621dfb35c1f79019d1486351b171ad9ffa526019376b8322e",
+    "lyric-harness/quality/test_gate_census.py": "ccb55fc068ec56fe664adc0be0a5af507bb9da58210f8ba9ef741317d76303b5",
+    "lyric-harness/quality/test_grid.py": "ead5495327960b06147e22bbe258abdd581bd11f136fcdaaa9fb7dc379b2ab62",
+    "lyric-harness/quality/test_homeoteleuton.py": "ed7b81030f22360fe3ae03901742c5dd928c0f624ec9b137a7f7a553d75924e0",
+    "lyric-harness/quality/test_homograph.py": "fecdf90c054157bd33d571029bfd24bfca2eae7257948e82c076ed9e05e343d9",
+    "lyric-harness/quality/test_interlocking_chain.py": "5ab5c3b4288898d85ed21123e7311371030a8ca2365745846eec6b90d2758b56",
+    "lyric-harness/quality/test_ipa.py": "f4eb995969f38a11f9a813f55b16201ca747f337aca8942a989acd9b5aa94681",
+    "lyric-harness/quality/test_loop.py": "1001fa571ab2ed7235fcd33b1067ea4f7d00f3e68edce9ab97071af6335b547c",
+    "lyric-harness/quality/test_ltc.py": "c3f0b8fc5e8a6b3c6637fdeb3853140a725a8ab08d9904fa464d89c4b63558ed",
+    "lyric-harness/quality/test_mandate_language.py": "d7ec5c05f599bd657812a52574362de4fdd15293aadb4b85d1f7528d46c03f2f",
+    "lyric-harness/quality/test_mandate_relation.py": "b15b3949d9b0630dfdabc46467b95177fc4f8c70d6dfd3e8483e0dd5334abbcf",
+    "lyric-harness/quality/test_matrix.py": "623cb1ba8c6d3c7b518989e20cd4cab735a744d0acf1b171899763ff04475838",
+    "lyric-harness/quality/test_melody.py": "e2734bb0ef1c8f175bdd9475f437583bad920e7f3b501a813ecf3e612d35b20e",
+    "lyric-harness/quality/test_meter.py": "1310dc561e5d9ac952ed95dc52a6ada4575e4c0e3f4548f22045ec6a1d60087b",
+    "lyric-harness/quality/test_meter_bands.py": "ff51c11a8ce8f4035438ad35f5c5c1ade53a3579a75972d30770eb2ea81ac5bb",
+    "lyric-harness/quality/test_msa_fin.py": "8d64824e67422903068fc7c02aed8f46c745aee37cc289076fe92b464fee7677",
+    "lyric-harness/quality/test_mut_band.py": "cb10bf9a46ad6593bec6b2485861ac6da10cb1ef38c1e1fa136f18cb4958515b",
+    "lyric-harness/quality/test_mut_oracle.py": "1a89f8fbfae5445fac996d2b853b1d49dcf5b5af42454c8ce38126ffffe9009d",
+    "lyric-harness/quality/test_mutation.py": "0764f341015fa772611325826024c408425946abcaf4cd04b43bbe5b2e17e527",
+    "lyric-harness/quality/test_narrative.py": "d2d657a4ed7332571433f39b53da58dfcf0ef31d8ef5d661e9c8f38f540430ee",
+    "lyric-harness/quality/test_nc_census.py": "731afb93ad53e8a95cf5797bd5d3f31373f46ba158d9c235dfde797bcb298ad2",
+    "lyric-harness/quality/test_nucleus.py": "6e404d91d0b1230ca9a01d2413526951d46906fd0cf13f73059e2747de1e0f6f",
+    "lyric-harness/quality/test_null_shapes.py": "f82bbe5b85dca982b1c467b0b075668eb791b27bed933740985323ff376fd362",
+    "lyric-harness/quality/test_phon_fas.py": "6caf733511fbc3aa7ecdfd160c98a6a16e39ae32b1740678b5876f9a5c7cd4ea",
+    "lyric-harness/quality/test_phon_msa.py": "9a53ed067c96972fc622de1bd3d8a86661c345a5ae6c568ab956b854574568d1",
+    "lyric-harness/quality/test_phon_non.py": "12391b1cd70a08cbc2a4c15f985730e7bf828440b6dfe4d578dfd4e90cca34df",
+    "lyric-harness/quality/test_phon_san.py": "065bce03eeef48de12f4269f64f9fe60c8396d7143465bdd31145d32a90637d1",
+    "lyric-harness/quality/test_phonology.py": "7099e8b965b9d3ca5dc07b959a2c5375bd5e7a023e23882486c4720ee914b548",
+    "lyric-harness/quality/test_phrase_commonplace.py": "6eb1bdb49d1fcdd4fd9224b0c614928c2a153113f564ffd9fa1270da25542ba7",
+    "lyric-harness/quality/test_pin_sweep.py": "2c6a8ef1458e7b8a10d3e3ba71373dcf87feb539a091fedefe7814eb77522d89",
+    "lyric-harness/quality/test_placement.py": "b987d2eea0d553d09a6f58db3f832579581586ef7dd0a6791579101525df2ddc",
+    "lyric-harness/quality/test_plan.py": "dbdd7e1c6d19ed3d23bce26a6ad90f3581c37b980efcbdb022c8cc181d6dc11b",
+    "lyric-harness/quality/test_positive_control.py": "49c8c5515e2e1f48e63a0f6e0cd747c77c902d73a7d603f379489f54e2a1ce8d",
+    "lyric-harness/quality/test_production_data.py": "90f4cb3c46849b652428e858dd85d52f08e675344239fb03473130e7deaca0cd",
+    "lyric-harness/quality/test_production_harness.py": "4f9b4c1331383b451fd227757a6daf73328b8ec8f68f279c773f75471a3d5141",
+    "lyric-harness/quality/test_production_journal.py": "5062d9b2fe92234dd85c5092d13e1ba4667fee25ba22b6dc4f15dc327f371875",
+    "lyric-harness/quality/test_production_relations.py": "cd2d3a88a1d216fd588fb95aacc0166390747b5410e662a3abf2ace70d36d09d",
+    "lyric-harness/quality/test_production_revision.py": "118cd99654bc69441e22105637e6a26ec00b98942602524e52409a30de778711",
+    "lyric-harness/quality/test_pronunciation_choices.py": "28d3bec4b17af8807d402ccf87162869d4fd014a9d7a9763ba154fdc4717d9fb",
+    "lyric-harness/quality/test_propose.py": "4e9aa7be01f524448a926f2e879930e50453edc3866593d4ba948af912c88ff1",
+    "lyric-harness/quality/test_provenance.py": "7f0ffc8693ce85abeff764da03f96e87471df758ec5d350f356165d1c7629242",
+    "lyric-harness/quality/test_readability.py": "a191b316bc3e4a2fd5e6a440dc84ab3f5bddfe1bdfdc4c39bcbc1d164e7147b0",
+    "lyric-harness/quality/test_readings_seam.py": "8491debe395aa134539f6666ff09c690de4199240e6f1d364656d117c823ad57",
+    "lyric-harness/quality/test_recover.py": "891b4eb691ab34785efe46a73914a50a9d5411f532921d87446beef82c138f57",
+    "lyric-harness/quality/test_register_audit.py": "c6b0ccc1bd7a23646d402930ae14dd599d32839781afe4f7480dd84679bd62a7",
+    "lyric-harness/quality/test_relation_shapes.py": "cd947d648672d6e9302fe832d6b736cba1bf8e99884e0df3ca087d1b41c8ac2a",
+    "lyric-harness/quality/test_relations.py": "4f5e8fcc6af0d04bb91830a5b4923d816fd15fb7521686397175bce638cb47f9",
+    "lyric-harness/quality/test_relations_null.py": "e11987382d14d5fed4d3a6d88b8842da44750e5a03a69d7cbcf49400671bb9b7",
+    "lyric-harness/quality/test_render_form.py": "97862a10e4db90bee936344db16ae71c7b5640a14c3ddfe1ce3b58c784dddda6",
+    "lyric-harness/quality/test_replay_memo.py": "4686c2650e621b9cda092f1f8d409cca719726143788ab22122be1112f9a8666",
+    "lyric-harness/quality/test_revise.py": "01efe07fdb92b8f8ce331af8492da4345a237931abcf7ccaef86be3a405bf5dc",
+    "lyric-harness/quality/test_rhyme_organization.py": "733a94c89bb3ce2fea3557fb3e4dd4c9b86cb6a63734292191ac0fc782b292f5",
+    "lyric-harness/quality/test_screen.py": "7053f14ba30e688c2fe66a6b4b1316d82e995b01878719aa9c52b60f49d09dda",
+    "lyric-harness/quality/test_section_marks.py": "e1e5fa409b67476dc27490c519d19f296d50d3f5dd98985d7b42ccca83a2260d",
+    "lyric-harness/quality/test_sentencehood.py": "e9a9ac594e056fe8df787f59ccfeebf74ba7ae50adb799b99599f303f438b098",
+    "lyric-harness/quality/test_session_repairs.py": "e8589f261a194c6776fe4f8342d106e4744a58fb5242b5652b7af6d98033f812",
+    "lyric-harness/quality/test_shard.py": "516f8403ded0a19c01fa018cd730b202d5b7f0c0f5f82d30f3fefb34da3c0a23",
+    "lyric-harness/quality/test_slots.py": "98f1147d0297b94830cf6b3b765375967afcaa3311f20c1731d55fef11b7b068",
+    "lyric-harness/quality/test_song_function.py": "d3f6e783f6a48757cca62415b1dcb9df224652e802d6f34b01f8f4e92b9f5d46",
+    "lyric-harness/quality/test_songs.py": "b04251e9dc98f5ca304fba39cd58dc1787ef78f411bdcc6b8cc9d037ab240356",
+    "lyric-harness/quality/test_songs_log.py": "dec87fae9982d441b6b0657a258db0094ed5de145191164921fb414553d56cfa",
+    "lyric-harness/quality/test_songs_record.py": "f24a33e0fda446e283a595308ae9061b8eb6e7f7f6baf722e70b7e22dfbdaf04",
+    "lyric-harness/quality/test_spans.py": "657677bdbd207d43be92de523287df6e1632a55903f88d335ba63d8cf715f275",
+    "lyric-harness/quality/test_staging.py": "35394726cc9e87bc2a751fb11dfc7ab8b5060c87f1ddfda2ee2f06ca21ecca5d",
+    "lyric-harness/quality/test_structure_census.py": "e70a14d8ac8a9c4abe8909888450f789dfde96e22d1f5083659c975b5babf3f0",
+    "lyric-harness/quality/test_structures.py": "deb8ee7a4d7df3d5c7ada4798d8a4401a751d71ec6781734af5fe1ed757b320f",
+    "lyric-harness/quality/test_stub_resolution.py": "7b16e1a39f6600797d9a2b439ce830375985943a2b2c1712547cf1ed87711346",
+    "lyric-harness/quality/test_suite_sweep.py": "87906e6fa0a4e4b415b61245ea526874fc1b3a6cc3e4a9c3c6681a823c3d9e33",
+    "lyric-harness/quality/test_taxonomy.py": "6e5a8b7ee6ecee722708aab3af07fe0a5c6eb5497a81f9670c7f9ccbf7416348",
+    "lyric-harness/quality/test_tempo.py": "7f24b54d0698222f193706e1e76d4f250bae01f0e9251a8f988c5333ddcd913e",
+    "lyric-harness/quality/test_time_layer.py": "45a4d847e4039ebe371944742adbede7aeba06dc9e4adb06d7dec88efe0338ca",
+    "lyric-harness/quality/test_triage.py": "c6c324af092832beeb6f0dd4ff9119eac6fb7fd49f910eb28bf21bf9695513d3",
+    "lyric-harness/quality/test_verbs.py": "7aa59f9a462614d854af273c3bf3fcc1c3dd784fb65366638cf1cad93e06f804",
+    "lyric-harness/quality/test_verify_entries.py": "e4ac76ddc2eafc0d061d69863c03981f0e0be06d5e8a8511651c5bd342c85dd6",
+    "lyric-harness/quality/test_verify_figures.py": "73494d142004803accc7b67eb67a0b0ee40f028820c7ce404030285d9701aaf0",
+    "lyric-harness/quality/test_within_item.py": "fac7b38468ea24949bb0dd3f9ffcb91fb14c3c2959dfbce3dd8c4f28aeec047f",
+    "lyric-harness/quality/time_attainable.py": "76479bb7ec181f6e35710e8ca3a37b05b0f30259d55d1d6d2cfb965c84175f7d",
+    "lyric-harness/quality/time_layer.py": "f72a3eb8b4258658e9f895dae8ec124772c764217fce4010df6bd9b43857f6f6",
+    "lyric-harness/quality/triage.py": "d4d3d958f1910758f257f68b6946990e637195e02511ac336ef01cc53285aaa7",
+    "lyric-harness/quality/verify_capacity.py": "bc8f3c9b0051ed3a34f4445e4cbfa0ee86f527bc25ba5206bda695d0c24038cb",
+    "lyric-harness/quality/verify_doctrines.py": "3ef11bdc69e315035d75b63b3e7f590fef4e98542a340850f59e955aa5388ae7",
+    "lyric-harness/quality/verify_entries.py": "68241a6f37bd168166a2db7a1cbd72d9e2e0166c32e0cedda3385222224969aa",
+    "lyric-harness/quality/verify_figures.py": "18611b72672fdadcb2be5b4f6b5d6a88fe46878baadf549df35355d739875a6e",
+    "lyric-harness/quality/within_item.py": "908266d9548604f18d17adba732fe7612bcf1fbaf79ed427f4541ebf18ca8dfe",
+    "instrument": "12302ad8bc108338389dc0ecb55013620d70a96168208af453897301a72fe3ed",
+    "continuation_instrument": "0b5d03ef655d8488b1af0fcda39ff5ca0fe7d1f9a0eaad3018348aae68cacc29"
+  },
+  "python": "3.11.15 (main, Mar  3 2026, 09:26:23) [GCC 13.3.0]",
+  "draft_sha256": "2bb81316cfeebc16e77e614f79d669555a89d809e6e0921115bcd4c211c7ee0c",
+  "runtime_sha256": {
+    "mcp/worker.py": "bae4e8585871be40d6e8631558151e81119b02e091da2461754cb84774f66c06",
+    "lyric-harness/cmudict.dict": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
+    "lyric-harness/data/opensubtitles_en_50k.tsv": "c0519dbd5b0fc30e192ea323faf946d05c658f7f647c8490278594fbf490b008",
+    "lyric-harness/data/runtime_assets.json": "bf808a56ce001b97dd91dcd9cd6bd97bd15d6b114b2b7ef1680a558dd675e1d2"
+  },
+  "host": {
+    "platform": "Linux-6.18.44-fc-v33-x86_64-with-glibc2.39",
+    "cpu_count": 4,
+    "affinity": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "memo_environment": {},
+  "rows": [
+    {
+      "fold": 0,
+      "answers_before": 0,
+      "wall": 68.23065773799681,
+      "code": 4,
+      "cli_wall": 68.06594861399935,
+      "cli_cpu": 68.636486059,
+      "memory": {
+        "VmHWM_KiB": 736424,
+        "VmRSS_KiB": 660204
+      },
+      "maxrss_KiB": 736424,
+      "components": {},
+      "caches": {
+        "pair": {
+          "hit": 150,
+          "miss": 16407,
+          "evicted": 0,
+          "slots": 128,
+          "held": 16394
+        },
+        "field": {
+          "hit": 0,
+          "miss": 7,
+          "evicted": 0,
+          "held": 7
+        },
+        "score": {
+          "hit": 389228,
+          "miss": 20902,
+          "evicted": 12710,
+          "held": 8192
+        },
+        "rank": {
+          "hit": 47,
+          "miss": 9,
+          "evicted": 0,
+          "held": 9,
+          "rimes": 8283
+        }
+      },
+      "load_average": [
+        0.59326171875,
+        0.87744140625,
+        0.95751953125
+      ],
+      "stdout_sha256": "eb9d9fae57c49055ab4cfe26a557b281a44d4ae45efb5f8150d1ca7e1ba67636",
+      "semantic_sha256": "ec5d14cd989dc10f9191d9b24255762c84ea23bdcece5c9ba1d5c4c90943d59c",
+      "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "journal_sha256": "0228edbc7e31df955c039e50e599503954685dc33962ce9c46833c83474b2252",
+      "pending": {
+        "kind": "propose_group",
+        "record": {
+          "members": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "texts": [
+            "we carry the morning to the stone",
+            "we carry the morning to the rain",
+            "we carry the morning to the door",
+            "we carry the morning to the light",
+            "we carry the morning to the road"
+          ],
+          "words": [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "round": 1,
+          "new": null
+        }
+      }
+    },
+    {
+      "fold": 1,
+      "answers_before": 0,
+      "wall": 154.06289460599874,
+      "code": 4,
+      "cli_wall": 154.06167107200235,
+      "cli_cpu": 154.049872568,
+      "memory": {
+        "VmHWM_KiB": 814716,
+        "VmRSS_KiB": 704828
+      },
+      "maxrss_KiB": 814716,
+      "components": {},
+      "caches": {
+        "pair": {
+          "hit": 407,
+          "miss": 32881,
+          "evicted": 0,
+          "slots": 128,
+          "held": 16482
+        },
+        "field": {
+          "hit": 7,
+          "miss": 10,
+          "evicted": 0,
+          "held": 10
+        },
+        "score": {
+          "hit": 2139009,
+          "miss": 124077,
+          "evicted": 115885,
+          "held": 8192
+        },
+        "rank": {
+          "hit": 108,
+          "miss": 18,
+          "evicted": 0,
+          "held": 18,
+          "rimes": 9646
+        }
+      },
+      "load_average": [
+        0.8759765625,
+        0.90625,
+        0.96435546875
+      ],
+      "stdout_sha256": "aafbde813c06d5faa0d172c29049c846b9f2ad731b1c88bfa41aaedbd2817909",
+      "semantic_sha256": "330c3350a269021772e3a558cae0786681d878eaf71faf8ff7aca7565c44b1ba",
+      "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "journal_sha256": "16bacd1947674704ce4ecc2206801c2413de32f3cd567ef1a37734bae714a241",
+      "pending": {
+        "kind": "propose",
+        "record": {
+          "line": 1,
+          "attempt": 0,
+          "round": 1,
+          "draft": "87237d445731",
+          "text": null
+        }
+      }
+    },
+    {
+      "fold": 2,
+      "answers_before": 1,
+      "wall": 55.12528435499917,
+      "code": 4,
+      "cli_wall": 55.124149338997086,
+      "cli_cpu": 55.120500757,
+      "memory": {
+        "VmHWM_KiB": 814716,
+        "VmRSS_KiB": 755852
+      },
+      "maxrss_KiB": 814716,
+      "components": {},
+      "caches": {
+        "pair": {
+          "hit": 657,
+          "miss": 49362,
+          "evicted": 0,
+          "slots": 128,
+          "held": 16482
+        },
+        "field": {
+          "hit": 7,
+          "miss": 10,
+          "evicted": 0,
+          "held": 10
+        },
+        "score": {
+          "hit": 2529269,
+          "miss": 144703,
+          "evicted": 136511,
+          "held": 8192
+        },
+        "rank": {
+          "hit": 162,
+          "miss": 18,
+          "evicted": 0,
+          "held": 18,
+          "rimes": 9646
+        }
+      },
+      "load_average": [
+        1.06005859375,
+        0.96484375,
+        0.984375
+      ],
+      "stdout_sha256": "ea4dbd98333f2d4353c9f1fae4f260b39e269afbf60605c5a4951cc68a1644a5",
+      "semantic_sha256": "72826c19a4fdc479524180f137ce960d93c3e91e3b1834ecef0f1f3a8960678a",
+      "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "journal_sha256": "5dbea0c0ea4c9f8701dc24d634dea15b1f4c554e2995cedf690d0e4d0ddc3a24",
+      "pending": {
+        "kind": "propose",
+        "record": {
+          "line": 1,
+          "attempt": 1,
+          "round": 1,
+          "draft": "87237d445731",
+          "text": null
+        }
+      }
+    },
+    {
+      "fold": 3,
+      "answers_before": 2,
+      "wall": 55.36751412800004,
+      "code": 4,
+      "cli_wall": 55.366414365998935,
+      "cli_cpu": 55.36284377800001,
+      "memory": {
+        "VmHWM_KiB": 814716,
+        "VmRSS_KiB": 794596
+      },
+      "maxrss_KiB": 814716,
+      "components": {},
+      "caches": {
+        "pair": {
+          "hit": 907,
+          "miss": 65843,
+          "evicted": 0,
+          "slots": 128,
+          "held": 16482
+        },
+        "field": {
+          "hit": 7,
+          "miss": 10,
+          "evicted": 0,
+          "held": 10
+        },
+        "score": {
+          "hit": 2919529,
+          "miss": 165329,
+          "evicted": 157137,
+          "held": 8192
+        },
+        "rank": {
+          "hit": 210,
+          "miss": 18,
+          "evicted": 0,
+          "held": 18,
+          "rimes": 9646
+        }
+      },
+      "load_average": [
+        1.1025390625,
+        0.98974609375,
+        0.9951171875
+      ],
+      "stdout_sha256": "249a5e824008ae67d1e9e49565f2be185bf85c6b87bddb48bbf0c3de1b2088c8",
+      "semantic_sha256": "992943597a2394da0eaa3823c0ac433379057de505879e261244fbfec8aa0c3f",
+      "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "journal_sha256": "ebc3fdb9f26c26ce83704e8931c5419b94ea22fc246b0644a229f49dfcc2bcd4",
+      "pending": {
+        "kind": "propose",
+        "record": {
+          "line": 1,
+          "attempt": 2,
+          "round": 1,
+          "draft": "87237d445731",
+          "text": null
+        }
+      }
+    },
+    {
+      "fold": 4,
+      "answers_before": 3,
+      "wall": 74.40601409200099,
+      "code": 4,
+      "cli_wall": 74.40471499999694,
+      "cli_cpu": 74.40048466500002,
+      "memory": {
+        "VmHWM_KiB": 814716,
+        "VmRSS_KiB": 794436
+      },
+      "maxrss_KiB": 814716,
+      "components": {},
+      "caches": {
+        "pair": {
+          "hit": 1121,
+          "miss": 82287,
+          "evicted": 0,
+          "slots": 128,
+          "held": 16436
+        },
+        "field": {
+          "hit": 7,
+          "miss": 10,
+          "evicted": 0,
+          "held": 10
+        },
+        "score": {
+          "hit": 3569817,
+          "miss": 200355,
+          "evicted": 192163,
+          "held": 8192
+        },
+        "rank": {
+          "hit": 287,
+          "miss": 18,
+          "evicted": 0,
+          "held": 18,
+          "rimes": 9646
+        }
+      },
+      "load_average": [
+        1.0390625,
+        0.9951171875,
+        1.0
+      ],
+      "stdout_sha256": "bc400ed5a215884613d3f28398bcdd35e8413186156a4e4ac889dbdaeca31ca5",
+      "semantic_sha256": "56a2975b7c6f910f4fd9c340d298ef2b2cdbd1dd8cafd635a999ba0f754951f3",
+      "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "journal_sha256": "bbab4aba69c9b81dbdf49d7201aeb7cb0ea8f27a2799167722f8ffa4d957b537",
+      "pending": {
+        "kind": "propose",
+        "record": {
+          "line": 2,
+          "attempt": 0,
+          "round": 1,
+          "draft": "87237d445731",
+          "text": null
+        }
+      }
+    },
+    {
+      "fold": 5,
+      "answers_before": 4,
+      "wall": 49.46850697700211,
+      "code": 4,
+      "cli_wall": 49.467255930001556,
+      "cli_cpu": 49.46358859200001,
+      "memory": {
+        "VmHWM_KiB": 814716,
+        "VmRSS_KiB": 772684
+      },
+      "maxrss_KiB": 814716,
+      "components": {},
+      "caches": {
+        "pair": {
+          "hit": 1378,
+          "miss": 98761,
+          "evicted": 0,
+          "slots": 128,
+          "held": 16482
+        },
+        "field": {
+          "hit": 7,
+          "miss": 11,
+          "evicted": 0,
+          "held": 11
+        },
+        "score": {
+          "hit": 3830935,
+          "miss": 214799,
+          "evicted": 206607,
+          "held": 8192
+        },
+        "rank": {
+          "hit": 337,
+          "miss": 19,
+          "evicted": 0,
+          "held": 19,
+          "rimes": 10094
+        }
+      },
+      "load_average": [
+        1.0087890625,
+        1.0,
+        1.0
+      ],
+      "stdout_sha256": "4a3113d736aa1bff3003f2748208d7eacb57b71dd38866f83830e18abde445f4",
+      "semantic_sha256": "3c69a691c28870da24763a1fe6cd4449e85e80fde1bfd5bdfed0f6c88f22cb4c",
+      "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "journal_sha256": "c2e1a0e238c9cd8d411ea6e324142f12a29efdbb7494dc0ae53578dd9d9a7d54",
+      "pending": {
+        "kind": "propose",
+        "record": {
+          "line": 2,
+          "attempt": 1,
+          "round": 1,
+          "draft": "87237d445731",
+          "text": null
+        }
+      }
+    },
+    {
+      "fold": 6,
+      "answers_before": 5,
+      "wall": 47.50145617900125,
+      "code": 4,
+      "cli_wall": 47.50017862399909,
+      "cli_cpu": 47.49616188500005,
+      "memory": {
+        "VmHWM_KiB": 814716,
+        "VmRSS_KiB": 771676
+      },
+      "maxrss_KiB": 814716,
+      "components": {},
+      "caches": {
+        "pair": {
+          "hit": 1628,
+          "miss": 115242,
+          "evicted": 0,
+          "slots": 128,
+          "held": 16482
+        },
+        "field": {
+          "hit": 7,
+          "miss": 11,
+          "evicted": 0,
+          "held": 11
+        },
+        "score": {
+          "hit": 4092065,
+          "miss": 229231,
+          "evicted": 221039,
+          "held": 8192
+        },
+        "rank": {
+          "hit": 386,
+          "miss": 19,
+          "evicted": 0,
+          "held": 19,
+          "rimes": 10094
+        }
+      },
+      "load_average": [
+        1.0556640625,
+        1.01416015625,
+        1.0029296875
+      ],
+      "stdout_sha256": "26cfb2e51d0bdb3227f0c1c7c382db153f782066aaae25e26700b588bc3c5e1d",
+      "semantic_sha256": "ea6dbc195067c2475d33f2d5230d82052d521180dfd2f12c22a047222e6a5000",
+      "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "journal_sha256": "cca4139a13fe6bf778ab33f39968045e2daeb8947d2473ee16a2e14fba33755e",
+      "pending": {
+        "kind": "propose",
+        "record": {
+          "line": 2,
+          "attempt": 2,
+          "round": 1,
+          "draft": "87237d445731",
+          "text": null
+        }
+      }
+    },
+    {
+      "fold": 7,
+      "answers_before": 6,
+      "wall": 71.15940200600016,
+      "code": 4,
+      "cli_wall": 71.15812030400048,
+      "cli_cpu": 71.15445986700001,
+      "memory": {
+        "VmHWM_KiB": 814716,
+        "VmRSS_KiB": 771676
+      },
+      "maxrss_KiB": 814716,
+      "components": {},
+      "caches": {
+        "pair": {
+          "hit": 1799,
+          "miss": 131642,
+          "evicted": 0,
+          "slots": 128,
+          "held": 16394
+        },
+        "field": {
+          "hit": 7,
+          "miss": 11,
+          "evicted": 0,
+          "held": 11
+        },
+        "score": {
+          "hit": 4681737,
+          "miss": 262881,
+          "evicted": 254689,
+          "held": 8192
+        },
+        "rank": {
+          "hit": 456,
+          "miss": 19,
+          "evicted": 0,
+          "held": 19,
+          "rimes": 10094
+        }
+      },
+      "load_average": [
+        1.0224609375,
+        1.00927734375,
+        1.0
+      ],
+      "stdout_sha256": "64607e4cf286514283cfdd4d80ea9a21f9002cb2c7557a38de695a4742dfeaee",
+      "semantic_sha256": "6f23ca72e8013b906f22d4a6ca2b7df90d61bea73c8efbe0fde85c78281c1423",
+      "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "journal_sha256": "3d4df18e11098790d3ce5c33b46ec5805fec00256b9b761681083c365fa7cf99",
+      "pending": {
+        "kind": "propose",
+        "record": {
+          "line": 3,
+          "attempt": 0,
+          "round": 1,
+          "draft": "87237d445731",
+          "text": null
+        }
+      }
+    },
+    {
+      "fold": 8,
+      "answers_before": 7,
+      "wall": 53.677758849000384,
+      "code": 4,
+      "cli_wall": 53.676612352999655,
+      "cli_cpu": 53.673016329000006,
+      "memory": {
+        "VmHWM_KiB": 814716,
+        "VmRSS_KiB": 771676
+      },
+      "maxrss_KiB": 814716,
+      "components": {},
+      "caches": {
+        "pair": {
+          "hit": 1970,
+          "miss": 148028,
+          "evicted": 0,
+          "slots": 128,
+          "held": 16394
+        },
+        "field": {
+          "hit": 7,
+          "miss": 11,
+          "evicted": 0,
+          "held": 11
+        },
+        "score": {
+          "hit": 5011366,
+          "miss": 282146,
+          "evicted": 273954,
+          "held": 8192
+        },
+        "rank": {
+          "hit": 507,
+          "miss": 19,
+          "evicted": 0,
+          "held": 19,
+          "rimes": 10094
+        }
+      },
+      "load_average": [
+        1.0048828125,
+        1.00244140625,
+        1.0
+      ],
+      "stdout_sha256": "b4e3ffe217d58d071e8e212866e82b59fe49871815c533895213dbd0a1844836",
+      "semantic_sha256": "957825db036991c90bdc0809f880d36f9bbdaf917efc9448bbfcef8bfbadeca1",
+      "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "journal_sha256": "065b5e291cd7c0f9ec795446f1cb60945acb37df58c5e12420f846450759ccb1",
+      "pending": {
+        "kind": "propose",
+        "record": {
+          "line": 3,
+          "attempt": 1,
+          "round": 1,
+          "draft": "87237d445731",
+          "text": null
+        }
+      }
+    },
+    {
+      "fold": 9,
+      "answers_before": 8,
+      "wall": 53.35993219399825,
+      "code": 4,
+      "cli_wall": 53.35872945700248,
+      "cli_cpu": 53.35699839100005,
+      "memory": {
+        "VmHWM_KiB": 814716,
+        "VmRSS_KiB": 771676
+      },
+      "maxrss_KiB": 814716,
+      "components": {},
+      "caches": {
+        "pair": {
+          "hit": 2134,
+          "miss": 164421,
+          "evicted": 0,
+          "slots": 128,
+          "held": 16394
+        },
+        "field": {
+          "hit": 7,
+          "miss": 11,
+          "evicted": 0,
+          "held": 11
+        },
+        "score": {
+          "hit": 5341008,
+          "miss": 301398,
+          "evicted": 293206,
+          "held": 8192
+        },
+        "rank": {
+          "hit": 554,
+          "miss": 19,
+          "evicted": 0,
+          "held": 19,
+          "rimes": 10094
+        }
+      },
+      "load_average": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stdout_sha256": "69fea38a2c8d25a54adbbdc59238e6d6c364e14d49aba805da5d20301eb6ab39",
+      "semantic_sha256": "30134dddd703f8e355c3d905ac612b1acb1938f554f6bd2a7ace456b59740b60",
+      "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "journal_sha256": "d89f1dc25990f7761c05d88c96e4d3b77fc63b23ac8eac6757b3d33d772d2a07",
+      "pending": {
+        "kind": "propose",
+        "record": {
+          "line": 3,
+          "attempt": 2,
+          "round": 1,
+          "draft": "87237d445731",
+          "text": null
+        }
+      }
+    },
+    {
+      "fold": 10,
+      "answers_before": 9,
+      "wall": 85.8540513150001,
+      "code": 4,
+      "cli_wall": 85.85277093200057,
+      "cli_cpu": 85.84675624400006,
+      "memory": {
+        "VmHWM_KiB": 814716,
+        "VmRSS_KiB": 771676
+      },
+      "maxrss_KiB": 814716,
+      "components": {},
+      "caches": {
+        "pair": {
+          "hit": 2298,
+          "miss": 181089,
+          "evicted": 0,
+          "slots": 128,
+          "held": 269
+        },
+        "field": {
+          "hit": 7,
+          "miss": 11,
+          "evicted": 0,
+          "held": 11
+        },
+        "score": {
+          "hit": 6056554,
+          "miss": 344498,
+          "evicted": 336306,
+          "held": 8192
+        },
+        "rank": {
+          "hit": 625,
+          "miss": 19,
+          "evicted": 0,
+          "held": 19,
+          "rimes": 10094
+        }
+      },
+      "load_average": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stdout_sha256": "2bd98b3c0301d9238de0220e61bd02fb52e060ce630190611d53ac6eb40d498c",
+      "semantic_sha256": "423b64eeb58f58f631066cce93da1b06d77236ecf8b2e901aa53ae00e9ed855d",
+      "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "journal_sha256": "ac2b36f49b3780a277fbd52fb9f5f1d2a5918ba26b41c279df96e36c2e7e50c6",
+      "pending": {
+        "kind": "propose",
+        "record": {
+          "line": 4,
+          "attempt": 0,
+          "round": 1,
+          "draft": "87237d445731",
+          "text": null
+        }
+      }
+    },
+    {
+      "fold": 11,
+      "answers_before": 10,
+      "wall": 76.94314182900052,
+      "code": 4,
+      "cli_wall": 76.94198746599795,
+      "cli_cpu": 76.93825008199997,
+      "memory": {
+        "VmHWM_KiB": 814716,
+        "VmRSS_KiB": 808252
+      },
+      "maxrss_KiB": 814716,
+      "components": {},
+      "caches": {
+        "pair": {
+          "hit": 2634,
+          "miss": 213651,
+          "evicted": 0,
+          "slots": 128,
+          "held": 16438
+        },
+        "field": {
+          "hit": 7,
+          "miss": 11,
+          "evicted": 0,
+          "held": 11
+        },
+        "score": {
+          "hit": 6443542,
+          "miss": 368396,
+          "evicted": 360204,
+          "held": 8192
+        },
+        "rank": {
+          "hit": 675,
+          "miss": 19,
+          "evicted": 0,
+          "held": 19,
+          "rimes": 10094
+        }
+      },
+      "load_average": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "stdout_sha256": "a85cc171525cd641fd694faef0556cc24062757ba5460d7bd8c5674c4a9c225e",
+      "semantic_sha256": "84b923af4a2ee51db22eff15ba5d53d59b9c70b1d0ac36c1fbe5c8b65080e8c8",
+      "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "journal_sha256": "cd047685a7b25f99451fb4516d83908afeae03cd09ca716ad0634b83a7d95de0",
+      "pending": {
+        "kind": "propose",
+        "record": {
+          "line": 4,
+          "attempt": 1,
+          "round": 1,
+          "draft": "87237d445731",
+          "text": null
+        }
+      }
+    }
+  ],
+  "capacity_qualified": false,
+  "last_attempted_resume": 11,
+  "completed_resumes": 11,
+  "last_exit_code": 4,
+  "source_unchanged": true
+}

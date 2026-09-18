@@ -19450,11 +19450,45 @@ counterexamples, and changing a held Reviser's declaration reproduces a
 stale matrix. No unsafe held-instance optimization is introduced: M-217's
 bounded process memos remain the shipped design.
 
-**PRECISE REMAINDER.** Item 6 completes eleven continuations at 22 lines
-in both arms and at 28 lines warm, but the 28-line cold arm reaches the
-existing 600-second bound at continuation 2 (exit 124). Its later cold
-continuations and full-arm equivalence remain unmeasured; neither a longer
-budget nor a different seed is silently substituted. All twelve 22-line
+**ITEM 6 IS MEASURED — 2026-09-18 — AND THE BLOCKER WAS THIS INSTRUMENT'S
+OWN UNDECLARED CEILING.** The remainder below read: the 28-line cold arm
+reaches the 600-second bound at continuation 2 (exit 124), its later cold
+continuations and full-arm equivalence remain unmeasured, and neither a
+longer budget nor a different seed is silently substituted. The reason no
+longer budget could be substituted at all is that
+`scripts/measure_lyric_continuations.py` hard-refused `--timeout` above 600
+in a guard carrying no comment and citing nothing, while the DEPLOYMENT
+allows four times that: `mcp/gemini_agent.js` sets `maxTurnMs: 2_400_000`.
+The instrument now READS that constant rather than restating it, exactly as
+`scripts/flash_battery.mjs` already does, refuses if it cannot be read, and
+keeps its default at 600 so nothing moves unless a caller asks and is
+recorded as having asked.
+
+**BOTH ARMS COMPLETE ELEVEN CONTINUATIONS**, `requested 11, completed 11,
+last_exit 4`, no timeout in either. Cold totals 5,410.8 s (90.2 min) and
+rises monotonically 67.1 to 762.6 s; warm totals 845.2 s (14.1 min) and stays
+flat after its first continuation, 47.5 to 85.9 s. **Warm is 6.4x cheaper**,
+so the incremental work per continuation is the warm figure and the cold
+arm's climb is what a fresh process re-does and a held worker keeps.
+
+**THREE FOLDS EXCEED THE OLD CEILING** — cold folds 9, 10 and 11 at 632.2,
+718.0 and 762.6 s — so the eleven-continuation cold arm cannot complete under
+a 600-second bound on any tree. That is the measurement, not the argument.
+
+**FULL-ARM EQUIVALENCE HOLDS.** All twelve journals byte-identical,
+`draft.txt` and `plan.json` identical, and of 146 differing stdout lines
+across the twelve folds, **zero** fall outside the two categories the
+protocol excludes: temporary paths and the existing memo disclosures.
+Classified mechanically rather than by eye.
+[The evidence](quality/results/m170_2026-09-18/README.md) banks both arms.
+
+**NOT CLAIMED: that the 2026-09-17 timeout was wrong.** It was measured on
+`8daf3486` and hit the wall at continuation 2; this runs on `c6653028` and
+hits it at continuation 9. The per-fold workload differs between the trees --
+`pair.slots` 74 against 128, `pair.hit` 3,712 against 150, `score.hit`
+827,270 against 389,228 at fold 0 -- so today's arm is cheaper per fold and
+the wall sits further out. WHICH change made it cheaper is not isolated and
+is not claimed here. All twelve 22-line
 call pairs and the first two 28-line pairs match in output and journal state.
 Items 7 and 10 cannot be reconstructed from round
 10's available Actions record. Its turn rows have no per-tool/hop timing,
