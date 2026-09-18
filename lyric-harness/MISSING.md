@@ -4205,6 +4205,60 @@ declared dialect, which this repository does not have.** Until it exists,
 obtain", not "hard to build".
 
 ### M-20 · Poems staged TWICE in their own file, and every instrument that could see it is looking somewhere else `OPEN`
+
+**RULED 2026-09-18 UNDER THE OWNER'S DELEGATION (RULINGS WANTED #13): THE
+DEFECT IS IN THE COUNT, SO THE REPAIR IS A DECLARATION AND NOT A DELETION.**
+The question was put as which printing wins, and the honest answer is that the
+repository has already answered a larger version of it:
+`quality/CORPUS_EDITORIAL_REVIEW.json` states the standing policy as *preserve
+edition words as explicitly marked apparatus where non-lyric; retain distinct
+poems and printing variants in source files*, and `test_corpus_audit.py` argues
+in its own comment that deleting on a tiebreak would be attribution by
+convenience. Both hold here. The harm this entry measured is not that the bytes
+are present twice; it is that `eng_` song counts are inflated by at least 28 and
+that every per-song rate over the affected files double-counts. So the later
+staging is MARKED, in the shape the 2026-09-15 apparatus pass already
+established (a declared marker, the original text and its physical line
+preserved, a per-line receipt with before and after hashes), and the song census
+excludes a marked duplicate BY DECLARATION. Nothing is deleted, no printing is
+adjudicated away, and `sarely` versus `sairly` never has to be settled to fix
+the count: both printings stay readable and exactly one of them counts. Where
+the two stagings are token-identical the FIRST is the one that counts; where
+they differ the first still counts and the marker records the difference, so a
+later reading can revisit it without recovering deleted bytes. The marker lands
+in ONE commit with the mechanical `RUN-ON` / `DOUBLE-STAGED` split, and because
+it moves the population it lands inside the closing sitting
+`quality/CORPUS_LOADING_PROTOCOL.md` prescribes rather than on its own. The
+short-poem blind spot is NOT closed by this ruling: a pair too short for
+`item_overlap_pairs` at any containment is invisible to both instruments, so the
+count stays a floor and this entry stays open on it.
+
+**THE POPULATION, RE-MEASURED 2026-09-18 UNDER THE SAME RULE.** The census
+returns **29** pairs, not 28 — 28 `eng_` and 1 `cym_`. The figure is robust: it
+reproduces under eight spellings of the stated fold (NFKC and NFKD, `lower` and
+`casefold`, `str.isalnum` and the unicode word class) and it reproduces against
+the corpus at the oldest commit in this checkout that touches it, so the
+difference is in the entry's recorded number and not in a drifted tree. This
+entry's `28` is repinned to `29` and its floor language stands. Three further
+facts move with it. **Seven of the 29 need no reading at all** — three pairs are
+byte-identical and four more token-identical under the fold — so the entry's
+reason for parking the whole set applies to 22, not to all of them. **Two of the
+29 are not double stagings and must not be marked as such.** In
+`cym_song_mynyddog.txt` the folded title `y ddau` is a SPEAKER LABEL inside a
+three-voice dialogue that the stager promoted to a title, so the joint refrain
+surfaces twice as its own item; the repair is to re-stage that song as one item
+and it is a different defect, recorded here and assigned out of this entry. In
+`eng_celtic_robert_burns.txt` the two printings of `Behold the Hour, the Boat
+Arrive` carry wholly different text through most of the first stanza because
+Burns wrote the Clarinda song twice; they are two authorial versions, both count
+as songs, and the repair is to distinguish their titles. Netting those two out,
+**27 pairs carry a duplicate to mark**, and the count is still a floor: `THE
+WOMEN FOLK` in `eng_celtic_james_hogg.txt` is a real double staging that this
+census does not see, because one letter separates `sarely` from `sairly` in the
+opening line. That pair also shows the entry citing item numbers in two
+numbering schemes at once — its `8` and `27` are 1-based where its own table two
+paragraphs earlier is 0-based, so `27` denotes two different items inside one
+entry; the item numbers are corrected with the repin.
 > **TESTED WHILE OPEN.** `quality/test_corpus_audit.py`'s near-duplication
 > series names this entry and PINS THE POPULATION'S EXISTENCE together with the
 > fact that its SIZE is a coordinate of the fold: two spellings of "same title,
@@ -6186,6 +6240,22 @@ schemas remain separate from measured zeroes. No new heuristic or panel
 coordinate is invented to clear a blocker.
 
 ### M-35 · A pair can stand in many relations at once, and the mandate can hold one per group — with identical groups silently deduped `OPEN`
+
+**RULED 2026-09-18 UNDER THE OWNER'S DELEGATION: THE GRADER GETS THE TRADITION
+COORDINATE, AND THE EDGE IS THE UNIT.** Two things are settled here. First, the
+representation: the unit becomes a labelled EDGE — (position pair, relation,
+anchor) — with parallel edges permitted between the same two positions, and the
+node is a POSITION rather than a line, because `internal` and `leonine` do not
+live at line granularity at all; padding a group with a spare line to keep it
+distinct is named a workaround and stays refused. Second, the coordinate M-44
+waits on: `tradition_scope` already exists in the relations layer, so the grader
+reads it rather than growing a second vocabulary, and a cross-tradition name
+firing on an English pair is LABELLED with the tradition it comes from instead
+of being either silently fired or silently dropped. Until the edge
+representation lands, M-44 takes the label alone as an interim gate, which is
+additive and moves no verdict. Every count this layer produces — capacity,
+density, the relation null, the earned-partner artifact — must say which axis it
+counts along, since the numbers already banked do not.
 **Filed 2026-08-22 at the owner's observation, mid-build of the declared
 relation coordinate: "each poem and song are actually N dimensional webs".
 Measured before writing, and the measurement sharpens the claim rather than
@@ -8356,6 +8426,23 @@ path could not distinguish _not declared_ from _declared as the default_ for
 statement.
 
 ### M-54 · "an outro is last" is enforced by CONTROL FLOW and stated nowhere, so no grader can check it and no table can extend it `PARTIAL`
+
+**RULED 2026-09-18 UNDER THE OWNER'S DELEGATION: THE OUTRO/CODA EXCLUSION IS
+LIFTED, AND A DEFINITIONAL VIOLATION REFUSES AT THE READER.** The exclusion was
+preserved as an explicit declared choice with a comment saying no gloss licenses
+it, which is an honest way to carry a rule nobody can defend; nothing in either
+function's gloss makes an outro and a coda mutually exclusive, and songs that
+close twice are ordinary, so it is lifted and the distribution change is
+measured and disclosed rather than avoided. On the second half: a definitional
+violation belongs at the READER, refused the way `UNDECLARED_METER` is, and the
+cost of moving it is nil by the entry's own measurement — shipped blueprints
+carry 0 violations, so nothing that exists today starts refusing. The fourth
+residue, M-56's kinds, is answered in M-101's ruling by derivation: the
+convention profile asks its placement questions of `kind == "section"` rows
+only, so `refrain` and `hook` stop carrying a placement coordinate by
+declaration rather than by accident. `_CELLS` and the grader's reading of
+`placement_findings` are recorded in this entry as owed and are already shipped;
+the entry's text is corrected to match the tree in the same sitting.
 **Raised by the owner 2026-08-22, asking whether the section vocabulary is
 machine-readable to the order of "outro is at the end… in a way that does not
 bar novel move-37 song structures", and naming constraint propagation as the
@@ -12316,6 +12403,25 @@ came first (`test_songs_log.py` §6 plants exactly that log and requires the
 refusal).
 
 ### M-101 · a CONVENTION asks about four function names nobody derived `OPEN`
+
+**RULED 2026-09-18 UNDER THE OWNER'S DELEGATION (RULINGS WANTED #4): DERIVE
+THE MEMBERSHIP FROM THE VOCABULARY'S OWN DECLARED KIND.** The convention profile
+asks `has_<fn>` and `bars_until_first_<fn>` — a presence question and a
+PLACEMENT question — so its membership is every function the vocabulary declares
+with `kind == "section"`, read off `SECTION_FUNCTIONS` at call time, and nothing
+is named by hand. Two facts decide it against the shipped tuple. `bridge` is in
+the hand-written four and carries `recurrence="once"`, so the four cannot be
+"the sections that come back"; and `burden` and `refrain` carry `kind="line"`,
+so a placement coordinate on either asks a question about the wrong kind of
+object, which is M-54's fourth residue answered here by derivation rather than
+by a second hand-written list. The derived membership is a SUPERSET of the
+shipped four, so `--want=uses=bridge` and every banked predicate keep working;
+what moves is that the profile grows from four names to the twenty the
+vocabulary declares, and any pinned profile output grows with it. The
+alternative readings are declined with their reason: measuring the marked corpus
+would let the corpus's editorial bias (K-1a) choose the vocabulary, and naming
+the twenty by hand would re-create the same unwritten threshold one list over
+(doctrine 58).
 Filed 2026-08-24, by the owner catching a sweep predicate and asking what
 stood behind it.
 
@@ -13607,6 +13713,22 @@ WRITING defect (no shared nucleus run) and correctly stays one.
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~176~~ -> **177**.
 
 ### M-120 · schema satisfaction and audible scheme are different coordinates, and nothing discloses the second `OPEN`
+
+**RULED 2026-09-18 UNDER THE OWNER'S DELEGATION (RULINGS WANTED #6 AND #18):
+NARROW THE END-BOUND DRAW TO THE AUDIBLE SUBSET, AND DERIVE THAT SUBSET.** M-192
+measured the cost of leaving it open: of 250 end-bound groups over seeds 1-40,
+149 (59.6%) draw a relation a listener does not hear as the lines rhyming, and 0
+of 40 plans is free of one. A song whose line ends are organised by relations
+nobody hears as rhyme is not the sound the dice were meant to risk, so at the
+LINE END the drawable pool narrows to the audible family; every other placement
+— internal, head, chain, and the rest of the web — keeps the full certified pool
+and M-117's uniform draw is untouched there. The audible family is DERIVED, not
+hand-listed: a relation is audible at a line end when it agrees on nucleus and
+coda at the end anchor, which is the same channel test the comparator already
+makes, so no new declaration invents a taxonomy. The narrowing is disclosed on
+the plan and measured against M-192's 59.6% as its own before-and-after; it
+lands in step 3 of the 2026-09-18 campaign, and `quality/test_plan.py` section
+14 — which today pins that the disclosure is all there is — flips with it.
 > **TESTED WHILE OPEN.** `quality/test_plan.py` section 14 names this entry and
 > PINS THAT NOTHING RULES ON AUDIBILITY: the drawable pool is unfiltered (12 of
 > 18 schemas are inaudible at a line end), no `plan.JOINT_CODES` member can
@@ -14354,6 +14476,83 @@ to close, and it reappeared inside M-129's own repair — the same shape as
 M-133's vacuous first gate draft, in the neighbouring file, on the same day.
 
 ### M-135 · the comparator's span search has no null under the same search `OPEN`
+
+**RULED 2026-09-18 UNDER THE OWNER'S DELEGATION: DECLARE THE SEARCH AS A
+COORDINATE, AND REFUSE BEYOND THE CALIBRATED BOUND.** Of the two remedies this
+entry names, correcting for k would require choosing a correction factor nobody
+has earned (doctrine 58) and would re-grade every pair in the repository;
+declaring the search is additive, moves no verdict at the default, and is
+doctrine 1's own shape for an undeclared coordinate that decides an answer.
+`Declaration` therefore carries the search the band was calibrated under, and a
+realized `search_k` beyond that bound REFUSES rather than quietly admitting: a
+pair whose pronunciation ambiguity hands the max more chances than the
+calibration covered is a question this instrument was not calibrated to answer,
+and a refusal is what the repository says in that position. The bound is set by
+measurement, not by taste — the crossover is re-measured per k bucket and the
+bound is the largest k at which `theta_rhyme` still clears the bucket crossover
+with `search_null.TOLERANCE_PP` to spare. `quality/test_spans.py` section 3,
+which today asserts that the declaration carries no k field, flips to pin the
+coordinate and the refusal. This ruling does not restate any figure struck on
+its 2026-08-26 dating: the re-pairing null and the song-corpus sweep are re-run
+under E-5 in the same sitting, per doctrine 20.
+
+**THE BOUND WAS MEASURED THE SAME DAY, AND THE MEASUREMENT REFUSES THE
+MECHANISM WHILE FINDING SOMETHING WORSE.** The ruling above set the bound by
+measurement rather than by taste, and the measurement came back saying no such
+bound exists. Re-running `search_null.py`'s own sweep — its population, its
+`SEED`, its `REPLICATES`, its theta grid, its estimator, reproducing its printed
+figures to the digit — but cutting both arms by the k each pair actually
+realized, gives these crossovers.
+
+| population | bucket | pairs | crossover | buys at theta 0.75 | theta 0.75 clears |
+|---|---|--:|--:|--:|---|
+| sonnets | k=3-4 | 823 | 0.7591 | -0.16 pp | NO, 4 of 10 replicates |
+| sonnets | k=5-8 | 220 | 0.6410 | +4.40 pp | yes, 10 of 10 |
+| song | k=3-4 | 162,711 | 0.6901 | +0.13 pp | yes, 10 of 10 |
+| song | k=5-8 | 35,021 | 0.7261 | +0.14 pp | yes, 9 of 10 |
+| song | k=17+ | 216 | 0.6214 | +7.36 pp | yes, 10 of 10 |
+
+Three things follow, and the first is the reason the declared-bound design is
+REFUSED here rather than built. **The two populations invert.** On the sonnets
+the bucket that FAILS is the low one, k=3-4; on the song corpus every measurable
+bucket clears and only k=17+ clears with the module's own 1.5 pp margin. There
+is therefore no rule of the form "refuse k above K" that is honest on both, and
+a bound drawn from the sonnet table alone would refuse **75.45%** of sonnet
+pairs and **80.98%** of song pairs — three quarters of every real population,
+because the bucket that fails is the modal one. A coordinate that refuses the
+mode is not a declaration, it is a different instrument.
+
+**Second, and this is the finding: the adopted `CROSSOVER = 0.72` is a
+population MIXTURE that is not conservative on the module's own population.**
+74.3% of sonnet pairs sit at exactly k=4, where the bucket crossover is
+**0.7591 — above the shipped `theta_rhyme` of 0.75** — and the lift the search
+buys there is **-0.16 pp**, at or below break-even. The aggregate clears only
+because the 19.9% of pairs at k=5-8 buy +4.40 pp and carry the average. So the
+gate that passes today passes on a number whose population is a coordinate
+nobody wrote beside it, which is doctrine 58 in the one place this entry was
+already looking, and the coupling it names is not merely unpinned: at the modal
+k it is measurably adverse.
+
+**Third, k is near-degenerate and the module's own no-search arm is
+constructed.** No sonnet pair realizes k=1 and only 122 of 206,114 song pairs
+do, so "the search versus no search" is a contrast against a restriction that
+almost never occurs; 74% to 79% of both populations sit at k=4. That is why the
+per-k table has three usable buckets and not a curve, and it is recorded rather
+than smoothed.
+
+**WHAT IS TAKEN, AND WHAT IS NOT.** The declaration half of the ruling stands
+and is doctrine 1's: the search remains an undeclared coordinate that decides an
+answer, and `Declaration` should carry it. The REFUSAL half is withdrawn on this
+measurement — there is no defensible bound to refuse beyond — and is replaced by
+DISCLOSURE: the per-bucket crossover table is reported beside the gate so a
+reader sees the mixture rather than the average. The gate itself is NOT
+strengthened to fail per bucket in this sitting, because that would turn the
+modal sonnet bucket red on main without a ruling on what replaces `theta_rhyme`,
+and retuning theta to clear a bucket is exactly the tuning doctrine 58 forbids.
+What is owed after this, and is now the whole of this entry's coupling half, is a
+preregistered decision on which population's crossover the band is calibrated
+against, taken with the per-k table in hand rather than against an average that
+conceals it.
 > **TESTED WHILE OPEN.** `quality/test_spans.py` section 3 names this entry and
 > PINS THE UNCORRECTED SEARCH: the k=6 span search beats its own k=1
 > restriction (0.579 against 0.272), yet `Declaration` carries no field naming a
@@ -14636,6 +14835,80 @@ for the battery's. Wired into the `suites` job beside `meter_bands.py --check`,
 the sibling adoption gate it is modelled on.
 
 ### M-136 · identity-is-not-rhyme rides an optional argument `OPEN`
+
+**RULED 2026-09-18 UNDER THE OWNER'S DELEGATION (RULINGS WANTED #7): BOTH
+VERDICT-MOVING HALVES ARE TAKEN, UNDER THE PREREGISTRATION THIS ENTRY ALREADY
+BANKS.** The parked reason was never that the halves are wrong; it was that they
+move recorded verdicts without a preregistration of their own, which is the same
+blocker M-138's pricing named and then cleared on 2026-09-02. So the banked
+preregistration is RUN, not waived: population the wordless `score()` call
+sites, statistic the recorded verdicts moved per site class, falsifiers a
+verdict moving at a syllable-inside-a-line site and an ASSONANCE emission
+changing a pinned `scheme --profile assonance` output beyond a relabel. If it
+holds, `word_a` and `word_b` become REQUIRED at the end-word sites only and the
+assonance profile emits ASSONANCE; if either falsifier fires, the half it fires
+against is refused and the refusal is recorded here with its evidence. A
+comparator that reports RHYME for `light` / `light` because its caller omitted
+the words is asserting an identity it cannot see, and a disclosure on the flags
+does not stop a consumer reading the verdict; that is why the end-word sites are
+where the requirement binds and the syllable-inside-a-line sites are where it
+does not.
+
+**THE PREREGISTRATION WAS RUN THE SAME DAY, AND IT FALSIFIED. BOTH HALVES ARE
+REFUSED, WITH THE EVIDENCE.** The ruling above is conditional by construction,
+and the condition resolved against adoption on both arms.
+
+**Half (2), the assonance profile emitting ASSONANCE: FALSIFIER (ii) FIRED.**
+The one pinned banked command that runs the profile is `test_verbs.py`'s `scheme
+ABAB --profile assonance dawn again silt rebuilt`. With the conjunctive band
+restored in a scratch copy, its output moves far past a relabel: `mandated 2
+judged 1 refused 1` becomes `mandated 2 judged 0 refused 2`, so the violation
+rate's denominator collapses to zero; a NEW refusal appears, the permitted
+pronunciations of again and rebuilt ceasing to agree on the declared relation;
+two pairs land on NO_RELATION, which is not in `ADMITTABLE_RELATIONS`, so an
+admitted pair becomes an unadmittable non-relation; and the profile named for
+assonance returns CONSONANCE on its very first pair, dawn/again. This entry's own
+headline row moves with them, silver/dream going RHYME to NO_RELATION. Three
+pinned tests go red. By the preregistration's own clause that makes half (2) a
+profile-definition ruling and not a comparator fix, and it is refused here
+rather than argued into place.
+
+**Half (1), required words at the end-word sites: NOTHING TO ADOPT.** Falsifier
+(i) did not fire — the single syllable-inside-a-line site was executed over 29
+llusg comparisons with 0 verdicts moved, and it cannot move, because the
+identity block writes `relation` and `flags` and never writes `total`, which is
+what that site reads. But the statistic the preregistration names evaluates to
+ZERO: across the three end-word sites, roughly 21,700 executed comparisons moved
+**0** recorded verdicts. The coda-adoption site relabels both sides identically
+so its inequality cannot flip; the redteam site never reaches REPEAT because its
+sampler skips equal pairs, and `full_identity` only ever relabels a pair already
+inside the tuple it counts; the g2p site reads a total. A requirement that moves
+nothing is not a fix, and adopting it would still force a carve-out for the very
+pin that holds the wordless path.
+
+**TWO CORRECTIONS BANKED REGARDLESS.** The population this entry states is not
+reproducible. The census the entry asks for — an AST census in
+`door_census.py`'s shape, resolving the callee rather than grepping — returns
+**10** wordless sites, not 48: three end-word, one syllable-inside-a-line, six
+that compare synthetic syllable dicts with no word behind them or never read a
+return value. Run against the commit that first wrote "forty-eight" into
+`lyric_harness.py`, the same census returns **5**. No reading at either commit
+yields 48, so the number was asserted rather than measured, and it is corrected
+here and at its two sites. The second correction follows from the first: the
+claim that MOST wordless sites ask a question identity does not bear on is **1
+of 10**, and that one is the cynghanedd llusg site the entry already names.
+
+**AND ONE DEFECT THE RUN EXPOSED IN THE PIN ITSELF.** The banked assertion
+bundle beside that `scheme --profile assonance` command PASSES under both
+builds: it asserts only that two runs differ and that one pair's TOTAL differs,
+and totals do not move under the band change. So the output moved, judged
+collapsed to zero, a refusal appeared, and the pin that names the command stayed
+green. A pin that cannot fail on the thing it pins is doctrine 20's shape, and
+repairing it is owed whether or not the profile question is ever reopened.
+Related and unrepaired: `PROFILES` carries `full`, `assonance` and `rawi` and no
+`consonance`, while the band is two-armed, so the escape hatch keyed on a zero
+coda weight exists for exactly one arm and the CONSONANCE arm has no profile at
+all.
 Found by the comparator audit's band-typing lane and **verified independently
 before being banked** — the lane's two headline claims did NOT survive that
 check and are recorded below as refuted, which is why the three here are stated
@@ -15130,6 +15403,21 @@ non-grading site on a MANDATE VERDICT roster is that the cover goes straight to
 
 
 ### M-139 · the door moved twice and 17 of 19 sites are short of it `OPEN`
+
+**RULED 2026-09-18 UNDER THE OWNER'S DELEGATION: `--cliques` MEANS THE RHYME
+GRAPH.** Doctrine 2's primary object is the rhyme, and a cover DERIVED for a
+writer to satisfy is not the place to spend the whole-vocabulary door. The
+entry's own measurement decides it: at the wide door the same drafts go from 763
+to 2,795 edges and 21.3% to 78.1% of line pairs, 19 groups become 41, 242
+pair-slots become 10,626, and one giant clique appears — a cover a writer cannot
+act on, bought at a 77x stream cost. So `mandate_from_graph` keeps the narrow
+door, its comment stops implying the question is open, and the one-line widening
+stays refused. Two measurements the entry marks provisional are owed before
+anything further is ruled on the figures: an independent narrower pass, because
+the density sweep counted every pair `whole_vocabulary_pairs` returns and is
+therefore an upper bound, and the unmeasured movement of the answer with
+`bearing` set. `modal_exclusion = 6` is named here as the unswept literal it is
+(doctrine 58) and is not swept by this ruling.
 The doctrine-9 lane of the comparator audit, opened on the candidate field and
 widened by the owner's ruling mid-sitting. **The first draft of this entry had
 the finding and the wrong ceiling**, and the correction is the entry: it read
@@ -15686,6 +15974,23 @@ lane opened moved again on 2026-09-01: one field per binding PLACE
 What is still owed is the `--cliques` ruling above.
 
 ### M-140 · the 77-schema door has no chance rate, and the judge does not read `normative` `OPEN`
+
+**RULED 2026-09-18 UNDER THE OWNER'S DELEGATION: THE SCHEMA DOOR KEEPS ITS
+DEFAULT AND LOSES ITS SILENCE.** The measurement is not in dispute — the
+77-schema default admits 23.30% of random CMUdict word pairs, 19.69x the 1.18%
+canon, while the seven DECLARED pairs still separate at +12.50 pp over the null
+maximum. Both facts are true of the same door: it discriminates where a writer
+declared something, and it is very wide where nobody did. Retuning it to shrink
+the number is doctrine 58's error and stays refused, and narrowing the default
+would delete the capability M-116 added. So the pricing is taken as a REPORTING
+rule rather than a threshold: schema satisfaction alone, at a LINE END, is
+reported under its own name rather than as end rhyme, and the audible family
+(M-120's derived nucleus-and-coda agreement) is what the end-rhyme reading
+requires. A pair that satisfies a schema and nothing else is still satisfied,
+still printed, and no longer counted as a sound the listener gets. Because that
+moves recorded readings it lands under a preregistration of its own, in the same
+sitting as M-120's narrowing, and `chance_rate.py --check` is re-run in the
+closing sitting as the entry already expects.
 Opened 2026-08-26 out of M-138's strike, and it is the larger of the two: that
 entry priced the door M-59 widened, and **nobody has ever priced the door M-116
 widened.**
@@ -21427,6 +21732,22 @@ with this entry (2026-09-03).
 
 ### M-241 · A song's length still needs a musical declaration; the default writer now uses a bounded executable subset of the calibration envelope `OPEN` 2026-09-04 — current status updated 2026-09-08
 
+**RULED 2026-09-18 UNDER THE OWNER'S DELEGATION: LENGTH DERIVES FROM THE
+DECLARED FORM, AND THE DRAW IS REPAIRED BY DIMENSION.** The owner's 2026-09-04
+ruling stands and is not reopened: no typed per-genre ceiling and no corpus
+percentile. What replaces the missing rationale is a derivation in the form
+vocabulary's own terms — a declared form implies its sections and each section's
+own declared reach, and a song that declares no form REFUSES to volunteer a
+length rather than drawing one. The second half is this entry's own: the
+section-count draw favours many thin sections at every length because it is
+uniform over admissible PATTERNS, so it is repaired the way M-81 repaired
+meters, by drawing the COUNT first and then a pattern of that many cells,
+uniform over each set. The sampler must stay UNIFORM OVER SOLUTIONS: a greedy
+left-to-right collapse re-introduces exactly the enumeration bias the v2 smoke
+run found, so the constraint layer prunes the space and the draw stays a
+derivation, never a walk of the tree. Production qualification of the maximum
+workload is not claimed by this ruling and stays open.
+
 **CURRENT STATUS — 2026-09-08.** The calibration and structural envelope
 remains distinct from execution admission. `plan.execution_limits()` derives
 the writer's current ceiling of **31 lines** from the candidate-work budget;
@@ -24489,6 +24810,84 @@ The failure-summary guard from PR #257 remains in `.github/workflows/flash-batte
 **333** with this entry (2026-09-11).
 
 ### M-279 · The first raw song ran four hours and eight minutes, nine turns, and never finished — the kitchen's cook had 80 of 98 proposals rejected, the loop parked on no progress five times, then thirteen `lyric_revise` calls in a row died at the ten-minute tool budget, and nobody could see any of it because the driver's per-turn rows went to the private log `PARTIAL` 2026-09-11 (the public record is readable; timeout causes and repeated grade refusals remain under this ID) — under the owner's order, verbatim: *"stop the battery. we're coming up on 4 hours. It clearly isn't working as intended. Let me know what went wrong after you finish reading the results"*
+
+**RULED 2026-09-18 UNDER THE OWNER'S DELEGATION: A RAW RUN GETS ITS OWN WALL,
+DECLARED AS SUCH.** M-258's forty-minute turn was sized for a different
+question, and inheriting it by default is how a raw run came to spend four hours
+and eight minutes without finishing. A raw run therefore declares its OWN
+budget, smaller than the forty minutes and named as the raw-run wall, so that
+exceeding it is a stated refusal at a declared coordinate rather than an
+aggregate deadline nobody chose for this case. The wall's number is set from the
+inspect projection's own turn timings rather than picked, and it is declared
+where a reader can see it. This ruling changes no provider behaviour, no grading
+rule and no deployed setting; the causal questions this entry owes — the reasons
+for the 25 grade refusals and the retained work behind the 13 kills — are
+answered from the Battery inspect projection, not by this ruling.
+
+**THE PROJECTION, READ 2026-09-18 (Battery inspect on run 34626453606, job
+105427501016).** The read is done and it answers the fourth question, eliminates
+two candidates for the second, and cannot answer the first or the third. **The
+kills are the run.** Thirteen `lyric_revise` calls returned `exit -1` with
+`path: "killed"`, `status: "interrupted"`, `writer: "kitchen"`, together
+**7,565.0 s — 64.5% of all recorded turn time**, clustered hard at 599.0–599.1 s
+against a tool budget the projection never names. They retained NOTHING: on
+every one of the thirteen, `loop_rounds`, `loop_stop_reason`, `loop_unresolved`,
+`plan_lines`, `memo_hit` and `memo_asked` are null, and the song's recovery block
+reads `"progress_present":false, "phase":null, "round":null,
+"completed_proposals":null, "accepted_lines":null`. Ten minutes in, a kill hands
+back nothing, and that is the product defect stated exactly. **The forty-minute
+turns are those kills laid end to end**: turn 7 reached `MAX_TURN_MS` at
+`cap_seconds: 2400` on five hops with four calls, all four killed, 2,388.6 s of
+2,404.0 s — 99.4% — and NONE of the four ever issued a proposer call. Turn 6 is
+the same shape with a third kill cut short by the wall. `cap_seconds: 2400` is
+the only named wall in the record, it never fired early, and nothing upstream
+failed (`hit_upstream_final: false`, `rate_limited: false`, `retries: 0`,
+`truncated: 0`, `partials: 0`, `last_status: 200`).
+
+Two candidates for what the kills were doing are ELIMINATED by the record rather
+than argued away. Not provider waits: `proposer_retries: 0`,
+`proposer_wait_seconds: 0` and `proposer_empty: 0` on every kill that recorded
+them, and no `503`, `429`, `rate_limit` or wait string appears anywhere in the
+log. Not round exhaustion under `CONNECTOR_MAX_ROUNDS` 8: the five calls that
+finished parked at 1–2 rounds and never approached 8. What is left splits in
+two, and the split is the next instrument's target: **seven kills** issued 4–13
+cook calls and then stalled, spending **52.8 s of provider time inside 4,193 s
+of wall clock, 1.26%**, so whatever burned the other 98.7% was not the proposer;
+**six kills** — turn 5 call 1, turn 6 call 13, and all four of turn 7 — recorded
+`proposer_calls: 0` and no proposer timing at all, ten minutes each without ever
+reaching the cook. The terminal state of the run is a revise path that never
+gets to the proposer and returns nothing when the budget ends it.
+
+The first and third questions CANNOT be answered from this record, and the
+reason is sharper than the allowlist. All **24** grade calls (not 25; the 25th
+would sit on the uncheckpointed ninth turn) are `exit 2` with `"refusal": null`,
+and `battery_inspect.mjs` emits null there only when NEITHER a harness refusal
+string nor a connector error string is present on the recorded row — so the
+September 11 driver retained no refusal headline for an exit-2 grade at all. The
+only per-call variation is `banned_pairs`, 0 nine times, 1 thirteen times and 2
+twice, rising to 1 after turn 3 and staying: a signal, not a reason. Worth
+noting against a guess: `PLAN_DRAFT_LINE_COUNT`, the closed vocabulary's
+count-mismatch category, appears NOWHERE in the projection, while `plan_lines`
+is 13 on every plan and parked revise against `draft_carried` of 0/5, 0/4, 0/4,
+0/8, 0/5, 1/1, 1/6 and 4/4 — which makes a count mismatch the leading
+hypothesis and not evidence. The grade refusals also cost 340.9 s over 7.7–27.1 s
+each, so the tool is doing real work before refusing.
+
+**WHAT THIS READ MAKES BUILDABLE, and it is this entry's repair list.** (1) A
+killed call must RETAIN what it had: the recovery schema already carries
+`phase`, `round`, `completed_proposals` and `accepted_lines` and simply never
+populates them for an interrupted call. (2) The tool budget must be NAMED on the
+kill the way `cap_seconds` is named on the turn, so a kill is self-evident
+instead of inferred from a 599.0 clustering. (3) The revise loop needs a stage
+stamp separating cook time from check and persist time, because
+`proposer_calls: 0` says where the time is not and nothing says where it is. (4)
+The grade row must retain its refusal headline, without which questions one and
+three cannot be asked again. Two figures in this entry's own text are corrected
+by the record: the eight recorded turns total **11,731.3 s (3 h 15 m 31 s)**,
+not 13,731 s, and the record carries **24** grade refusals, not 25. Every other
+figure this entry states — 13 kills at 7,565 s, 5 parks, 19 revise refusals, 3
+plan refusals, 98 proposals with 18 accepted, and the open-line path 5-5-5-4-2 —
+matches the projection exactly.
 **THE RUN.** Flash-battery run **34626453606** (raw mode, one song, 25 turns, pace 130 s, expect finished) against build 72d2b86c at `codex-musica-mcp-tc72.onrender.com`, dispatched 17:13Z, cancelled by this entry at 21:21Z. The public summary at the cancel read `{"songs":[],"completed_songs":0,"total_songs":0}` — `summary.json` holds a song only once it ends, and this one had not — and the job log held nothing between the drive step's start and the cancel, because `flash-battery.yml` sends the driver's whole output to `battery-out/driver.log` (f0886051, private by design), the M-220 per-turn `::notice` rows included. The only public signal was the encrypted checkpoint uploaded before each paid request (`archiveBeforeDispatch`), and those nine artifacts' timestamps were the first reading: dispatches at 17:13:49, 17:30:45, 17:49:18, 18:08:02, 18:38:38, 19:07:26, 19:22:13, 20:04:28 and 20:46:42 — turns of 17, 19, 19, 31, 29, 15, 42 and 42 minutes, the last two pinned at M-258's forty-minute wall plus one tool budget, and a ninth turn 35 minutes in flight at the cancel.
 **THE RECORD, READ.** `scripts/battery_inspect.mjs` (new) projects a record to counts, enums and timings — each turn's seconds, status, stop reason and hop count, each tool call's name, exit code and seconds, the loop ladder, the checkpoint's counters, and the driver's own allowlisted rows — and `battery_archive.mjs summary` attaches it as `inspection`, so the "Print only safe aggregate outcomes" step reports a song in progress and not only a finished one. Read back through the workflow itself (run 34649771010: `resume_run` restores the sealed record, the live check refuses the unmatched build before any paid request, the always() summary prints), song 0 of run 32 is: turn 0 **886 s**, MAX_STEPS at 14 calls — `lyric_sweep` twice, `lyric_plan` refused by the connector three times then answered, `lyric_revise` refused four times, `lyric_grade` **exit 2 (REFUSED)** twice, then one `lyric_revise` that ran 559 s to **exit 3, NO_PROGRESS after 2 rounds, 5 lines open**, 1 proposal accepted and 12 rejected; turn 1 **983 s**, two revise calls parked at NO_PROGRESS after one round each (333 s, 415 s; 5 open; 0 accepted, 16 rejected); turn 2 **993 s**, the first revise **killed at 599 s** (`path: killed`, exit -1, the M-165 ten-minute budget), then one parked at 4 open (3/14); turn 3 **1,706 s**, MAX_STEPS again: six revise calls refused, five grade calls refused, two revise calls killed at 599 s (3/8); turn 4 **1,598 s**: one park at 2 open after 2 rounds (318 s), two more kills (3/12); turn 5 **757 s**, `INVALID_PROVIDER_RESPONSE` after 5 hops, one kill (0/4); turn 6 **2,404 s**, MAX_TURN_MS at the 14th hop: seven grade refusals, three revise refusals, three kills, the last cut at 384 s by the wall (5/10); turn 7 **2,404 s**, MAX_TURN_MS after 5 hops: **four revise calls, four kills** (3/4). Eight recorded turns, **13,731 s**; `lyric_revise` reached exit 0 never, exit 3 five times (1,761 s), exit -1 **thirteen** times (**7,565 s — two hours six minutes of the four inside calls that returned nothing**), and was refused before running nineteen times; `lyric_grade` was called 25 times and answered **never** (exit 2 every time); the kitchen's cook proposed 98 lines and the checker accepted 18. The envelope the model carried back and forth was 0.9–1.5 MB a turn. The open-line count went 5 → 5 → 5 → 4 → 2 and then the calls stopped coming back at all.
 **WHAT WENT WRONG, IN ORDER.** (1) The product did not finish the song, and the record says where: a kitchen call that used to park with lines open (M-236, M-247) now runs past the ten-minute budget and is killed instead, with nothing on the record but `exit -1` — from turn 2 on, and every call from turn 7 on. A kill carries no ladder row (doctrine 20: absent is not zero), so what those thirteen calls were doing for 600 s each — how many rounds, how many proposals, whether 429 waits were inside — is in the private revise reports and not in this projection. (2) Each "keep going" was allowed 14 hops and forty minutes (M-258), and at three to ten minutes a hop that is 15–42 minutes a turn; twenty-five turns of that is ten to seventeen hours against a 355-minute job. The wall did its job (no turn ran over 2,404 s) and could not make the run useful. (3) The model spent hops the connector answered for it: nineteen revise calls and three plan calls refused before reaching the harness (M-229's wander rule and its kin), and twenty-five grade calls the harness refused — a third of all calls made. (4) Nobody could see any of it. The owner asked twice whether the run was still working; the per-turn rows that answer that were written to a file the job seals and uploads at the end.
