@@ -17004,6 +17004,31 @@ accepted. **934 of 984 REPEAT edges (94.9%) carry a locus**, so there is NO
 mandate spelling in this harness that can hold them: `--groups=` charges them
 and `--returns=` refuses them.
 
+**THE OPEN HALF IS PRE-REGISTERED — 2026-09-18 — AND ITS POPULATION
+RE-MEASURED AT HEAD.** Re-run on `74cb8889` through `recover.recover_file`
+over `quality/fixtures/song.txt`: 99 edges, **34 REPEAT**, of which **32
+(94.1%) carry a locus** — and the module's own published
+`repeats_at_a_placement` is **32**, agreeing with an independent count of the
+same edges. The entry's corpus-wide 934 of 984 (94.9%) reproduces in shape on
+the fixture. `mandate_spelling` still emits both `--groups=` and `--returns=`.
+
+**THE REFUSAL HAS ALREADY BEEN REPAIRED ONCE, WHICH THIS ENTRY DID NOT SAY.**
+The text above quotes the failure as `invalid literal for int() with base 10:
+'1.head'`. At head it is a NAMED refusal that cites M-142 and states the
+remedy, and `quality/schemes.py` argues the reason in place: every identity
+judge here reads LINES, so accepting `1.head` would take a declaration about
+one WORD and judge a different thing about its whole line. The gap is
+unchanged; its symptom is not.
+
+[The pre-registration](quality/PLACED_RETURN_PREREGISTRATION.md) is written
+before the judge exists, because what it adds is a SIXTH member of a
+five-member closed `Requirement` vocabulary whose every member carries a
+doctrine argument. It declares three falsifiers, forbids partial adoption —
+the parser may NOT start accepting a placed member in any commit that does not
+also land the judge — and fixes the evidence for additivity in advance: every
+existing mandate must grade BYTE-IDENTICALLY, not merely leave the tests
+green, which is the shape M-135 used for `Declaration.search`.
+
 **CLOSED HALF: `mandate_spelling`, and the doctrine-14 sentence is TRUE now
 rather than asserted.** `recover` emits the cover as the CLI's own two flags,
 split on each edge's OWN `relation` and never re-derived — 146 band edges to
