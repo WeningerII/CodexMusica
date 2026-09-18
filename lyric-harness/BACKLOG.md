@@ -1521,10 +1521,16 @@ until ruled.
    CLOSED 2026-09-17: the comparator was re-verified cold on the merged tree
    (HOLDS, rows byte-identical to the 2026-09-16 repin) and the pin advanced
    in `8e589b4e`; nothing here awaits a ruling.
-4. **M-101 — which section functions may a CONVENTION profile ask
+4. ~~**M-101 — which section functions may a CONVENTION profile ask
    about?** Derive from recurrence contracts, measure from the marked
    corpus, or name them by hand — the current four are hardcoded with no
-   recorded reason.
+   recorded reason.~~
+   RULED 2026-09-18 under the delegation: DERIVE from the vocabulary's own
+   declared `kind`. Two measured facts decide it — `bridge` is in the
+   hand-written four and carries `recurrence="once"`, and `burden` and
+   `refrain` carry `kind="line"`, so a placement question on either asks
+   about the wrong kind of object. The derived set is a superset of the
+   four, so every banked predicate keeps working.
 5. ~~**M-111 — may a check read `songs/` at screen time to disclose
    cross-song word reuse?** The songs register rules songs are NOT
    corpus; the measured concentration (10 content words shared by ≥4 of
@@ -1599,10 +1605,16 @@ until ruled.
     verdict-neutral; picking the route is the work.~~ STRUCK 2026-09-01:
     moot since `2833312` put the bank's blueprints outside prettier's
     jurisdiction (M-94 CLOSED as moot).
-13. **M-20 — which printing wins when a poem is staged twice in its own
+13. ~~**M-20 — which printing wins when a poem is staged twice in its own
     file?** A reading question over ≥28 doubled songs; the mechanical
     `RUN-ON`/`DOUBLE-STAGED` split is recorded as a route and waits on
-    the same sitting.
+    the same sitting.~~
+    RULED 2026-09-18 under the delegation: the defect is in the COUNT, so
+    the repair is a declaration and not a deletion. The later staging is
+    marked in the 2026-09-15 apparatus pass's own shape and the census
+    excludes a marked duplicate by declaration; nothing is deleted and no
+    printing is adjudicated away. Re-measured the same day: the population
+    is 29, not 28, and two of the 29 are not double stagings at all.
 14. **M-5 — may the Kanteletar's `w`→`v` allograph FOLD?** The fold
     moves the ADOPTED Kalevala-alliteration calibration (0.3249,
     re-derived nightly), so it re-opens an adoption; the detector that
@@ -1747,6 +1759,44 @@ until ruled.
    declared words, and a reader took it for the judge reading the whole
    phrase (M-245's finding). Rendering only; the ruling is whether the
    line prints the judge's own reads or is dropped under a schema verdict.
+
+## RULINGS TAKEN UNDER DELEGATION — 2026-09-18
+
+The owner, on being handed this register's remaining work as an ordered plan:
+*"It's nonsense that you'd ask me to rule on any of that when you know more
+than I do and have a better understanding of the respective environments. It
+would be wrong of me to rule on any of those decisions when I know inherently
+that you're going to make the best available decision."* Every ruling taken on
+that delegation is listed here so the owner can read them in one place and
+overrule any; the full argument and the measurement behind each is the named
+entry, and each entry says on its face that it was ruled under delegation.
+
+The delegation does NOT suspend the preregistration discipline, and the first
+sitting proves why. A ruling that moves recorded verdicts is taken under a
+preregistration of its own — the shape M-138's pricing was taken under on
+2026-09-02 — and the preregistration is RUN rather than assumed. M-136's was
+run the same day and FALSIFIED, so both of its halves are refused with the
+evidence rather than adopted on the strength of the ruling.
+
+| entry | the ruling | what moved |
+|---|---|---|
+| M-20 | the defect is the COUNT, so the later staging is MARKED and excluded by declaration, never deleted; the population re-measured at 29, two of which are not double stagings | the duplicate marker, the census, `RUN-ON` / `DOUBLE-STAGED` |
+| M-35 | the unit becomes a labelled EDGE over POSITIONS with parallel edges; the grader reads `tradition_scope` rather than growing a second vocabulary | the mandate representation, M-44's interim label |
+| M-54 | the outro/coda exclusion is LIFTED; a definitional violation refuses at the READER; M-56's kinds are answered by M-101's derivation | `SECTION_FUNCTIONS`, the reader |
+| M-101 | DERIVE the convention profile's membership from `kind == "section"`; `bridge` recurs "once" and `burden`/`refrain` are line-kind | `song_profile`, `has_*`, `bars_until_first_*` |
+| M-120 | NARROW the end-bound draw to the audible family, DERIVED from nucleus-and-coda agreement; every other placement keeps the full pool | the end-bound draw, `test_plan` §14 |
+| M-135 | DECLARE the search as a coordinate and REFUSE beyond the calibrated bound; the bound is measured per k bucket, not chosen | `Declaration`, `best_score`, `test_spans` §3 |
+| M-136 | TAKEN under the banked preregistration — which was RUN and FALSIFIED, so BOTH halves are refused with their evidence | nothing; two corrections banked |
+| M-139 | `--cliques` means the RHYME graph; the one-line widening stays refused | `mandate_from_graph` |
+| M-140 | the schema door keeps its default and loses its silence: schema-only agreement at a line END is reported under its own name | the end-rhyme reading |
+| M-241 | length DERIVES from the declared form; the section-count draw draws the COUNT first, uniform over each set | `_sample_pattern` |
+| M-279 | a raw run gets its OWN wall, declared as such, sized from the projection's own timings | the raw-turn budget |
+
+Not taken, and the line says why: every RULINGS WANTED row outside the ordered
+plan the owner approved (N-3, M-18, M-5, M-137, M-41, M-46 / M-42, M-52, K-6,
+and items 21 through 24) stays open. The delegation is broad enough to reach
+them; the approved scope is not, and choosing what to work on is a different
+act from choosing how to answer a question already in scope.
 
 ## RULINGS TAKEN UNDER DELEGATION — 2026-09-01
 
