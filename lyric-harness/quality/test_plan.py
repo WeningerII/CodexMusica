@@ -1101,7 +1101,8 @@ def test_the_measure():
                               "REGISTRY", "overhang_member",
                               "unsatisfiable_pairs", "group_satisfiable",
                               "identity_forced", "placement_bindable",
-                              "POSITION_PLACEMENT_KINDS", "planning_work_bound"}
+                              "POSITION_PLACEMENT_KINDS", "planning_work_bound",
+                              "audible_as_end_rhyme"}
     # The operational admission bound counts registry candidate positions;
     # it never builds a phonological stream or reads corpus/dictionary data.
     # `placement_bindable` joined 2026-09-03 (M-206) as `pair_bindable`'s
@@ -1122,6 +1123,19 @@ def test_the_measure():
     # gap ceiling and end-channel signature per drawable schema,
     # derived in relations.py from its own rows so the planner
     # never reads a row itself.
+    # `audible_as_end_rhyme` joined 2026-09-18 with M-120's ruling, and it
+    # is the NARROWEST name on this list rather than the widest: it reads a
+    # schema's own declared `spans` loci and its declared `channels`, both
+    # already in the registry rows `drawable_traits` derives from, and
+    # returns a bool. No stream is built, no probe line is realised, no
+    # word is read — so unlike `placement_bindable` it does not even reach
+    # the DICTIONARY, let alone the corpus. `plan._audible_end_pool` is the
+    # one caller and its whole body is this predicate over
+    # `DRAWABLE_SCHEMAS`, which is the derivation M-120 required in place
+    # of a list written into plan.py. (It was reachable from plan.py before
+    # today through `audible_share`'s function-local `_RLa` import, which
+    # this AST walk does not collect; the admission is stated now that the
+    # module alias names it.)
     # `CHANNEL_DOMAINS` joined with M-123: an ADOPTED table of finite
     # channel value domains (prominence binary, the vowel inventory, the
     # derived presence bit) — the same declared-constant species as
@@ -3556,9 +3570,28 @@ def test_the_placement_route(FAILURES=None):
     # `placement_bindable` alone would disable both (doctrine 1 working), so
     # the gate is stubbed out of `make_plan` and re-run afterwards on the
     # plans the mutant draw shipped.
+    #
+    # AND SINCE 2026-09-18 IT MUST ALSO LIFT M-120's END NARROWING, which
+    # is a fact about the two rules and not a convenience. This filter
+    # runs on ALL-DEFAULT groups, and an all-default group is END-BOUND by
+    # construction — so M-120's pool at exactly those groups is the six
+    # audible schemas, and every one of the six passes
+    # `placement_bindable(("end", "end"))`, because agreeing on nucleus
+    # and coda at the line-final token is a stronger demand than being
+    # allowed to sit there. M-120 SUBSUMES M-206 at the only groups M-206
+    # guards, so with the narrowing in place this mutation fired on 0 of
+    # 60 seeds and the check below read GREEN for the wrong reason — the
+    # placement filter looking unnecessary is not the placement filter
+    # working. Both are lifted here so the count measures M-206's own
+    # rule, and the subsumption is the reason to keep M-206 rather than
+    # to drop it: widen `audible_as_end_rhyme` by one schema whose
+    # placement rule two ends cannot satisfy and it is load-bearing again
+    # the same hour.
     _pb, _jf = RL.placement_bindable, PLN.joint_findings
+    _ap206 = PLN._audible_end_pool
     RL.placement_bindable = lambda *a, **k: True
     PLN.joint_findings = lambda plan: []
+    PLN._audible_end_pool = lambda: tuple(RL.DRAWABLE_SCHEMAS)
     try:
         mut = {}
         for sd in seeds:
@@ -3568,6 +3601,7 @@ def test_the_placement_route(FAILURES=None):
                 pass
     finally:
         RL.placement_bindable, PLN.joint_findings = _pb, _jf
+        PLN._audible_end_pool = _ap206
     fired = {sd: [f for f in PLN.joint_findings(pl)
                   if f[0] == "PLACEMENT_CONTRADICTS_SCHEMA"]
              for sd, pl in mut.items()}
@@ -3711,35 +3745,252 @@ def test_the_delegated_rulings(FAILURES=None):
           aud.get("perfect rhyme") is True and aud.get("rime riche") is True
           and aud.get("consonance") is False and aud.get("assonance") is False
           and aud.get("anaphora") is False, f"{aud}")
-    # MISSING.md M-120 — schema satisfaction and audible scheme are different
-    # things, and audibility is a RECORD rather than a coordinate of the draw.
-    # M-192 shipped the DISCLOSURE; what M-120 still owns is that nothing rules
-    # on it. Pinned as three facts: the drawable pool is unfiltered (12 of 18
-    # are inaudible at a line end), no member of JOINT_CODES can refuse a plan
-    # for it, and no SWEEP_MEASURES name lets a sweep select on it. Red the day
-    # the ruling lands as a coordinate — pool filtered or weighted, a joint code
-    # minted, or a sweep measure added — which is the day M-120 closes.
+    # ═══ MISSING.md M-120 — FLIPPED 2026-09-18, THE DAY THE RULING LANDED ═══
+    # This block PINNED THE ABSENCE until today: the drawable pool was
+    # unfiltered, audibility was a RECORD (M-192's disclosure) and nothing
+    # ruled on it. The owner's delegation ruled (RULINGS WANTED #6 and #18):
+    # AT THE LINE END THE POOL NARROWS TO THE AUDIBLE FAMILY, everywhere else
+    # M-117's uniform draw over the full certified pool is untouched. What is
+    # pinned now is that ruling and nothing wider — four claims, each with the
+    # mutation that removes it:
+    #   (1) the narrowing itself: no end-bound group over seeds 1-40 draws a
+    #       relation a listener does not hear as the lines rhyming;
+    #   (2) the DERIVATION: the end pool is `audible_as_end_rhyme` over
+    #       `DRAWABLE_SCHEMAS` read at call time, never a six written down —
+    #       move the predicate and the pool moves, which a hand list cannot;
+    #   (3) NON-END PLACEMENT IS UNTOUCHED: a group with a member inside a
+    #       line still draws from all 18, inaudible names included;
+    #   (4) a declared `--relation=` still wins and suppresses the draw.
+    # What M-120 still owns, and why the entry does NOT close here: the
+    # narrowing is a DRAW-TIME pool, not a refusal — no `JOINT_CODES` member
+    # refuses a plan for audibility and no `SWEEP_MEASURES` name selects on
+    # it, so a hand-written `--relation=` or `--groups=` still puts whatever
+    # it likes on a line end and the grader stays the final word.
     m120_inaudible = [n for n in RL.DRAWABLE_SCHEMAS
                       if not RL.audible_as_end_rhyme(RL.REGISTRY[n])]
-    check("audibility is disclosed but never RULED ON: the pool is unfiltered "
-          "and neither a joint code nor a sweep measure reads it "
-          "(MISSING.md M-120)",
-          len(m120_inaudible) > 0
-          and len(m120_inaudible) < len(RL.DRAWABLE_SCHEMAS)
-          and not any("audib" in c.lower() for c in PLN.JOINT_CODES)
-          and not any("audib" in m.lower() for m in PLN.SWEEP_MEASURES),
-          f"{len(m120_inaudible)} of {len(RL.DRAWABLE_SCHEMAS)} drawable "
-          f"schemas inaudible at a line end; no JOINT_CODES or "
-          f"SWEEP_MEASURES member names audibility")
-
     drawable_aud = [n for n in RL.DRAWABLE_SCHEMAS
                     if RL.audible_as_end_rhyme(RL.REGISTRY[n])]
-    check("...and the drawable pool holds BOTH kinds, which is why the "
-          "disclosure is not vacuous: the dice can put an inaudible relation "
+    check("M-120: the drawable pool holds BOTH kinds — 12 of 18 certified "
+          "schemas are inaudible at a line end — which is why narrowing the "
+          "END pool is a rule and not a no-op",
+          0 < len(drawable_aud) < len(RL.DRAWABLE_SCHEMAS)
+          and len(m120_inaudible) == len(RL.DRAWABLE_SCHEMAS)
+          - len(drawable_aud),
+          f"{len(drawable_aud)} audible / {len(m120_inaudible)} inaudible "
+          f"of {len(RL.DRAWABLE_SCHEMAS)}: {drawable_aud}")
+    # ── (1) THE NARROWING ──
+    m120_bad = {k: p["choices"]["audible"]["inaudible"]
+                for k, p in plans.items() if p["choices"]["audible"]["inaudible"]}
+    m120_eb = sum(p["choices"]["audible"]["end_bound"] for p in plans.values())
+    m120_bare = sum(p["choices"]["audible"]["bare"] for p in plans.values())
+    check("...and NO plan over seeds 1-40 now draws an inaudible relation at "
+          "an END-BOUND group: 156 end-bound groups, 0 inaudible, 40 of 40 "
+          "plans free of one — against 87 of 156 (55.8%) and 3 of 40 free "
+          "the hour before the ruling (M-192 measured 149 of 250, 59.6% and "
+          "0 of 40 on the 22-schema pool it had)",
+          m120_bad == {} and m120_eb > 0,
+          f"{m120_eb} end-bound groups over seeds 1-40, "
+          f"{sum(len(v) for v in m120_bad.values())} inaudible, "
+          f"{40 - len(m120_bad)} of 40 plans free")
+    check("...and the BARE DEFAULT survives the narrowing at a line end — "
+          "the pool narrowed, it was not replaced by an all-schema mandate, "
+          "and the dice stay flat over whatever pool applies (doctrine 19)",
+          m120_bare > 0,
+          f"{m120_bare} of {m120_eb} end-bound groups on the bare default")
+    # AND THE DICE STAY FLAT OVER THE NARROWED POOL, WHICH IS A BOUND AND
+    # NOT A TASTE. Uniform over pool-plus-default means the bare default is
+    # drawn 1 time in len(pool)+1 per group; the conjunction gate can only
+    # SHRINK a group's accepted subset, never grow it, so the bare share at
+    # a line end cannot sit BELOW 1/(end pool + 1) = 1/7 = 14.3% however the
+    # gate rules. Measured 34.6% (54 of 156), above the floor exactly
+    # because the gate rejects audible candidates on some groups. This is
+    # the clause that catches a narrowing that also REWEIGHTED — a draw
+    # preferring a schema wherever one survives keeps the bare default in
+    # the pool and still drops the share to 10.3%, under the floor.
+    m120_webn = sum(1 for p in plans.values()
+                    for gi, g in enumerate(p["groups"].split(";"))
+                    if g.strip()
+                    and not _PL._end_bound_group([m.strip()
+                                                  for m in g.split(",")]))
+    m120_webbare = sum(
+        1 for p in plans.values()
+        for gi, g in enumerate(p["groups"].split(";"))
+        if g.strip()
+        and not _PL._end_bound_group([m.strip() for m in g.split(",")])
+        and not (p.get("relations") or {}).get(PLN.SC.label((gi,))))
+    check("...and the DICE STAY FLAT over whichever pool applies: the bare "
+          "default is 1 draw in len(pool)+1 and the conjunction gate can "
+          "only shrink a group's subset, so its share at a line end cannot "
+          "fall below 1/(end pool + 1) — and it does not, while the same "
+          "default is correspondingly RARER across the web, where the pool "
+          "is three times the size",
+          m120_bare / m120_eb >= 1 / (len(drawable_aud) + 1)
+          and m120_webbare / m120_webn < m120_bare / m120_eb,
+          f"bare {100 * m120_bare / m120_eb:.1f}% of {m120_eb} end-bound "
+          f"groups (floor 1/{len(drawable_aud) + 1} = "
+          f"{100 / (len(drawable_aud) + 1):.1f}%), "
+          f"{100 * m120_webbare / m120_webn:.1f}% of {m120_webn} off the "
+          f"line end (floor 1/{len(RL.DRAWABLE_SCHEMAS) + 1} = "
+          f"{100 / (len(RL.DRAWABLE_SCHEMAS) + 1):.1f}%)")
+    # AND THE MUTANT THAT PROVES IT IS THE BARE DEFAULT HOLDING THE POOL
+    # OPEN, not luck: hand the draw an EMPTY audible pool. If the bare
+    # default were still seeded into every group's pool the planner plans
+    # all 40 seeds with every end-bound group bare; if the narrowing had
+    # replaced the pool rather than shrunk it, `_ok` is empty at the first
+    # end-bound group and `make_plan` REFUSES — which is exactly what a
+    # source mutant that drops the bare default at a line end does. This is
+    # M-117's own "the bare default keeps the pool non-empty by
+    # construction" asked at pool size ZERO, the size the narrowing could
+    # reach the day a registry edit leaves nothing audible.
+    real_pool = _PL._audible_end_pool
+    try:
+        _PL._audible_end_pool = lambda: ()
+        mut_empty = {k: make_plan(seed=k)["choices"]["audible"] for k in SEEDS}
+    except Exception as _exc:
+        mut_empty = {"refused": repr(_exc)[:90]}
+    finally:
+        _PL._audible_end_pool = real_pool
+    check("...and an EMPTY end pool still plans every seed, with every "
+          "end-bound group on the bare default — the narrowing SHRANK the "
+          "pool, it did not replace it, and the bare default is what keeps "
+          "a narrowed pool non-empty by construction (M-117)",
+          len(mut_empty) == len(SEEDS)
+          and all(v["bare"] == v["end_bound"] and v["audible"] == 0
+                  and not v["inaudible"] for v in mut_empty.values()),
+          f"empty end pool: {len(mut_empty)} of 40 seeds planned, "
+          f"{sum(v['bare'] for v in mut_empty.values() if isinstance(v, dict) and 'bare' in v)} "
+          f"bare of {m120_eb} end-bound groups")
+    # THE MUTATION: hand the draw the FULL pool at a line end and the
+    # inaudible end relations come straight back. Nothing else is touched,
+    # so this isolates the narrowing from every other filter the draw runs.
+    try:
+        _PL._audible_end_pool = lambda: tuple(RL.DRAWABLE_SCHEMAS)
+        mut_full = {k: make_plan(seed=k)["choices"]["audible"] for k in SEEDS}
+    finally:
+        _PL._audible_end_pool = real_pool
+    mut_bad = sum(len(v["inaudible"]) for v in mut_full.values())
+    mut_free = sum(1 for v in mut_full.values() if not v["inaudible"])
+    check("...the MUTATION that un-narrows the end pool brings every one of "
+          "them back, so the narrowing is READ rather than an accident of "
+          "which schemas happen to survive the conjunction gate",
+          mut_bad > 0 and mut_free < len(SEEDS),
+          f"un-narrowed: {mut_bad} inaudible end relations, "
+          f"{mut_free} of 40 plans free")
+    # ── (2) THE DERIVATION, AND IT IS THE POINT ──
+    disc = plans[7]["choices"]["relations"]["end_narrowing"]
+    check("...the narrowing is DISCLOSED on the plan the way every other "
+          "draw is — how many groups drew at a line end, the end pool "
+          "against the certified pool, the names it held, and the predicate "
+          "that derived them",
+          disc["end_pool"] == len(drawable_aud)
+          and disc["full_pool"] == len(RL.DRAWABLE_SCHEMAS)
+          and list(disc["end_pool_names"]) == drawable_aud
+          and disc["derived_by"] == "relations.audible_as_end_rhyme"
+          and all(p["choices"]["relations"]["end_narrowing"]["end_bound_groups"]
+                  == p["choices"]["audible"]["end_bound"]
+                  for p in plans.values()),
+          f"{disc['end_pool']} of {disc['full_pool']}, by "
+          f"{disc['derived_by']}")
+    # THE MUTATION THAT ONLY A DERIVATION SURVIVES: move the PREDICATE, not
+    # the planner. A hand-written six in `plan.py` would be blind to this;
+    # a derivation admits the newly-audible schema to the end pool the same
+    # call, and the dice can then put it on a line end.
+    real_aud = RL.audible_as_end_rhyme
+    try:
+        RL.audible_as_end_rhyme = (
+            lambda sch: real_aud(sch) or sch.name == "consonance")
+        mut_wide = {k: make_plan(seed=k) for k in SEEDS}
+    finally:
+        RL.audible_as_end_rhyme = real_aud
+    wide_disc = mut_wide[7]["choices"]["relations"]["end_narrowing"]
+    wide_drawn = {v.split(":", 1)[1] for p in mut_wide.values()
+                  for v in (p.get("relations") or {}).values()}
+    wide_at_end = any(
+        "consonance" == (p.get("relations") or {}).get(PLN.SC.label((gi,)), "")
+        .split(":")[-1]
+        and _PL._end_bound_group([m.strip() for m in g.split(",")])
+        for p in mut_wide.values()
+        for gi, g in enumerate(p["groups"].split(";")) if g.strip())
+    check("...and MOVING THE PREDICATE moves the pool, which is the whole "
+          "reason the six are not written down here: teach "
+          "`audible_as_end_rhyme` to hear consonance and the end pool grows "
+          "to 7 with nothing in plan.py edited, and the dice put consonance "
           "on a line end",
-          0 < len(drawable_aud) < len(RL.DRAWABLE_SCHEMAS),
-          f"{len(drawable_aud)} of {len(RL.DRAWABLE_SCHEMAS)} drawable "
-          f"schemas audible as end rhyme: {drawable_aud}")
+          wide_disc["end_pool"] == len(drawable_aud) + 1
+          and "consonance" in wide_disc["end_pool_names"]
+          and wide_at_end and "consonance" in wide_drawn,
+          f"widened end pool {wide_disc['end_pool']}, consonance at a line "
+          f"end: {wide_at_end}")
+    # ── (3) EVERY OTHER PLACEMENT KEEPS THE FULL POOL ──
+    def _web_inaudible(p):
+        rels = p.get("relations") or {}
+        out = []
+        for gi, g in enumerate(p["groups"].split(";")):
+            if not g.strip():
+                continue
+            if _PL._end_bound_group([m.strip() for m in g.split(",")]):
+                continue
+            nm = rels.get(PLN.SC.label((gi,)), "")
+            nm = nm.split(":", 1)[1] if ":" in nm else ""
+            sch = RL.REGISTRY.get(nm)
+            if sch is not None and not RL.audible_as_end_rhyme(sch):
+                out.append(nm)
+        return out
+    web = {k: _web_inaudible(p) for k, p in plans.items()}
+    check("...and a group with ONE member inside a line keeps the FULL "
+          "certified pool: M-117's uniform draw is untouched off the line "
+          "end, and the schemas the end no longer hears are still drawn "
+          "across the web where they are exactly the figure they are named "
+          "for",
+          sum(len(v) for v in web.values()) > 0
+          and len({n for v in web.values() for n in v}) >= 3,
+          f"{sum(len(v) for v in web.values())} inaudible-at-an-end names "
+          f"still drawn off the line end over seeds 1-40: "
+          f"{sorted({n for v in web.values() for n in v})[:6]}")
+    # THE MUTATION: narrow EVERYWHERE — declare every group end-bound — and
+    # the web loses the twelve, which is the over-reach this claim forbids.
+    real_eb = _PL._end_bound_group
+    try:
+        _PL._end_bound_group = lambda members: True
+        mut_all = {k: make_plan(seed=k) for k in SEEDS}
+    finally:
+        _PL._end_bound_group = real_eb
+    mut_web = sum(len(_web_inaudible(p)) for p in mut_all.values())
+    check("...the MUTATION that narrows EVERY placement strips them from the "
+          "web, so this check would catch a ruling applied too widely as "
+          "surely as one applied not at all",
+          mut_web == 0,
+          f"narrowed everywhere: {mut_web} inaudible names left off the "
+          f"line end")
+    # ── (4) A DECLARED RELATION STILL WINS ──
+    m120_decl = make_plan(seed=7, relation="schema:consonance")
+    check("...and a declared --relation STILL WINS: the planner draws "
+          "nothing, narrows nothing and discloses no narrowing, because a "
+          "declared coordinate is carried and never sampled over (M-55) — "
+          "the ruling narrows the DICE, it does not overrule the writer",
+          m120_decl.get("relations") == {}
+          and "end_narrowing" not in m120_decl["choices"]["relations"]
+          and "NOT DRAWN" in m120_decl["choices"]["relations"]["chosen_from"]
+          and m120_decl["relation"] == "schema:consonance",
+          f"drew {len(m120_decl.get('relations') or {})}; "
+          f"{m120_decl['choices']['relations']['chosen_from'][:44]}")
+    check("...and that check is not vacuous — the SAME seed with nothing "
+          "declared draws relations and discloses the narrowing, which is "
+          "the state this one asserts a declaration suppresses",
+          (plans[7].get("relations") or {}) != {}
+          and "end_narrowing" in plans[7]["choices"]["relations"],
+          f"undeclared seed 7 draws {len(plans[7]['relations'])} relations")
+    # ── WHAT M-120 STILL OWNS ──
+    check("...and the narrowing stays a DRAW-TIME POOL, not a refusal: no "
+          "JOINT_CODES member refuses a plan for audibility and no "
+          "SWEEP_MEASURES name selects on it, so a hand-written --relation "
+          "or --groups still puts what it likes on a line end and the "
+          "grader stays the final word (M-73). M-120 is not closed by the "
+          "narrowing alone",
+          not any("audib" in c.lower() for c in PLN.JOINT_CODES)
+          and not any("audib" in m.lower() for m in PLN.SWEEP_MEASURES),
+          f"{len(PLN.JOINT_CODES)} joint codes, "
+          f"{len(PLN.SWEEP_MEASURES)} sweep measures, none names audibility")
     parts_ok = all(
         p["choices"]["audible"] == _PL.audible_share(p)
         and p["choices"]["audible"]["audible"]
@@ -3747,11 +3998,20 @@ def test_the_delegated_rulings(FAILURES=None):
         + len(p["choices"]["audible"]["inaudible"])
         == p["choices"]["audible"]["end_bound"]
         for p in plans.values())
+    # REPINNED 2026-09-18 WITH THE M-120 RULING. This check used to read
+    # non-vacuity off the INAUDIBLE cell — "the dice can put an inaudible
+    # relation on a line end" — and the ruling below has emptied that cell
+    # on purpose: 0 of 156 end-bound groups over seeds 1-40, against 87
+    # the hour before. Leaving the old clause would have made M-120's own
+    # success read as this check's failure. Non-vacuity is now read off the
+    # two cells the ruling LEAVES populated (audible and the bare default),
+    # and that the third is reachable at all is pinned where it belongs —
+    # by M-120's un-narrowing mutation below, which fills it again.
     check("...every plan discloses its end-bound groups PARTITIONED — "
           "audible / bare default / inaudible — and the partition is a pure "
           "function of the emitted plan, never summed past itself "
           "(doctrine 79)",
-          parts_ok and any(p["choices"]["audible"]["inaudible"]
+          parts_ok and any(p["choices"]["audible"]["bare"] > 0
                            for p in plans.values())
           and any(p["choices"]["audible"]["audible"] > 0
                   for p in plans.values()))
