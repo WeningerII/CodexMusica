@@ -2622,6 +2622,51 @@ jobs:
           OPENBLAS_NUM_THREADS: '1'
         run: python3 quality/search_null.py --check
 
+      # DOES THE SCHEMA DOOR RESCUE A SOUND THE LISTENER GETS? (`MISSING.md`
+      # M-140, registered in `quality/SCHEMA_END_READING_PREREGISTRATION.md`
+      # before it was measured.) A pair the scalar door fails and the
+      # whole-vocabulary schema door rescues is still satisfied, and stops
+      # being counted as end rhyme unless an answering schema puts both spans
+      # at the line-final token and requires the nucleus AND the coda to
+      # agree. MEASURED over the maintained battery: 2 of 17 rescues read as
+      # end rhyme and 15 do not, so nearly nine in ten were being printed
+      # under a heading a reader takes as end rhyme.
+      #
+      # IT IS HERE BECAUSE IT HOLDS A PIN AND A PIN ASKED BY NOTHING IS NOT A
+      # PIN. `pin_sweep` counted 30 pin-holding files against 23 named in CI
+      # once already; this one is named in the same commit as the module, so
+      # it never joins that count. Cheap -- it reads `check_scheme`'s own
+      # report over the sonnet battery and counts, ~1 min, no scoring beyond
+      # what the battery already pays.
+      - name: The schema door's end-rhyme reading, split from its satisfaction
+        if: ${{ always() && matrix.shard == 2 }}
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/schema_end_reading.py --check
+
+      # HOW FAR APART ARE THE LINES THE SCHEMA DOOR RESCUES? (`MISSING.md`
+      # M-240's open half, under
+      # `quality/BOUNDED_SCHEMA_WINDOW_PREREGISTRATION.md`.) The remedy for
+      # the candidate-explosion wall is a door bounded by LINE DISTANCE, and
+      # the null it owes is the distribution of today's rescue distances.
+      # MEASURED: all 17 battery rescues sit at distance exactly 2 -- which
+      # is NOT a free window, because the sonnet scheme's furthest binding is
+      # 2, so the retention is 100% by construction and the runner refuses it
+      # as evidence. The pin is here because the DISTRIBUTION moving is worth
+      # a red: a rescue at a new distance means the population that refusal
+      # describes has changed.
+      - name: The schema door's rescues by line distance, and why the sonnets cannot answer
+        if: ${{ always() && matrix.shard == 2 }}
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/schema_window.py --check
+
       # WHICH DOOR EACH SITE JUDGES A PAIR AT (`MISSING.md` M-139, owner's
       # ruling 2026-08-26: *"go find everywhere it still has the incorrect 4
       # and make sure all 77 are there ... 4 is poisonous as fuck"*).

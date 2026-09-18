@@ -232,7 +232,8 @@ status_base = FS.attach(field_base, database=DB3)
 answer_base = field_base.field(WORD)
 field_base.field(SECOND)          # a second row, for the bound in section 6
 
-#: MEASURED, not assumed: perturbing each of the 21 declared coordinates one
+#: MEASURED, not assumed: perturbing each of the ~~21~~ 22 declared
+#: coordinates (REPINNED 2026-09-18, M-135's `search`) one
 #: at a time and re-scoring `rain`, `stove` and `day`, FIVE move a field —
 #: `channel_weights`, `trailing_syllable_penalty`, `theta_rhyme`,
 #: `coda_empty_evidence` and `scalar_alignment`. `scalar_alignment` is used
@@ -323,7 +324,7 @@ def alternative(decl, spec):
 # A DEDICATED OBJECT, NOT ONE OF THE ATTACHED ONES. `RhymeField.__init__`
 # reads the lexicon, `VOWELS` and `NUC_FLOOR` and nothing from the
 # declaration, so swapping `decl` on one object is the same identity question
-# as building 21 of them and costs one construction instead of 21. Nothing
+# as building one per coordinate and costs one construction instead. Nothing
 # below scores a field, so no store is touched.
 probe = RhymeField(LEX, BASE)
 mark = FS.fingerprint(FS.store_identity(probe))

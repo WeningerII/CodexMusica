@@ -51,6 +51,7 @@ printing convention and its language is a declared coordinate.
 
 import re
 import os
+import dataclasses
 import sys
 import json
 
@@ -178,30 +179,70 @@ def test_search_size_is_recorded():
     check("a max over k is not a max over 1 here — the search is real",
           sp["search_k"] > 1,
           "so a bare maximum quotes a search back at itself until k is known")
-    # MISSING.md M-135 — the span search has no null under it, and this is
-    # the pin that says so rather than a citation. The search DOES work
-    # (restricting both sides to endword_only collapses k to 1 and drops the
-    # score), yet k reaches no admission decision: `Declaration` carries no
-    # field naming a search or a k, so the same bare theta faces a k=6 total
-    # and a k=1 total, and `search_null.CROSSOVER` sits BELOW that theta —
-    # the one state M-135's gate refuses. It goes red the day k enters the
-    # comparison, or the day CROSSOVER rises past theta.
+    # MISSING.md M-135 — REPOINTED 2026-09-18, and the thing it pins is the
+    # OPPOSITE of what it pinned before. Until today this asserted
+    # `decl_fields == []`: the declaration named no search, so the same bare
+    # theta faced a k=6 total and a k=1 total and nothing said so. The
+    # coordinate has landed, so the absence is no longer the finding and
+    # pinning it would keep the defect rather than the fix (doctrine 17's
+    # shape, applied to a check).
+    #
+    # WHAT IT PINS NOW IS THE HALF OF THE RULING THAT SURVIVED MEASUREMENT.
+    # M-135 proposed declaring the search AND refusing a realized k beyond a
+    # calibrated bound. Cutting this module's own sweep by realized k found
+    # no such bound exists, so the refusal half was WITHDRAWN and replaced by
+    # disclosure. This section therefore requires three things at once: that
+    # the search is real, that it is now NAMED, and that naming it gates
+    # NOTHING — because a session reading the field could reasonably assume a
+    # declared coordinate refuses something, and here it deliberately does
+    # not.
     # endword_only returns ONE candidate, not a list — best_score wants lists.
     one = lh.best_score([SN.endword_only(aa)], [SN.endword_only(bb)], DECL,
                         "go", "receipt")
-    decl_fields = [f for f in dir(DECL)
-                   if not f.startswith("_")
-                   and ("search" in f.lower() or f == "k")]
-    check("the k=6 search beats its own k=1 restriction, yet k reaches no "
-          "admission decision and CROSSOVER sits under theta "
-          "(MISSING.md M-135)",
+    decl_fields = [f.name for f in dataclasses.fields(DECL)
+                   if "search" in f.name.lower() or f.name == "k"]
+    check("the k=6 search beats its own k=1 restriction, and the search is "
+          "now a DECLARED coordinate (MISSING.md M-135)",
           one["spans"]["search_k"] == 1
           and s["total"] > one["total"]
-          and decl_fields == []
-          and SN.CROSSOVER < DECL.theta_rhyme,
+          and decl_fields == ["search"]
+          and "search_k" in DECL.search,
           f"k={sp['search_k']} scores {s['total']:.3f} vs k=1 "
-          f"{one['total']:.3f}; declaration k-fields {decl_fields}; "
-          f"CROSSOVER {SN.CROSSOVER} < theta {DECL.theta_rhyme}")
+          f"{one['total']:.3f}; declaration k-fields {decl_fields}")
+    # AND IT GATES NOTHING, which is the withdrawn half made mechanical. Both
+    # totals face the identical bare theta: the declaration states what the
+    # maximum was taken over and moves no admission.
+    # NOT `x == x`. The first draft of this check compared one expression to
+    # itself, which is the species this repository's own test discipline
+    # section is about: a condition no change to the tree can move. The
+    # discriminating question is whether the NEW COORDINATE moves a score,
+    # so it is asked by changing the coordinate and re-scoring.
+    other = dataclasses.replace(DECL, search="a different declared search")
+    s_other = lh.best_score(aa, bb, other, "go", "receipt")
+    check("declaring the search moves NO verdict — re-scoring under a "
+          "DIFFERENT declared search is byte-identical, and no k bound "
+          "exists to refuse anything",
+          s_other["total"] == s["total"]
+          and s_other["relation"] == s["relation"]
+          and s_other["spans"]["search_k"] == sp["search_k"]
+          and not any(f.name.startswith("theta_search")
+                      or f.name.endswith("_k_max")
+                      for f in dataclasses.fields(DECL)),
+          f"{s_other['total']:.6f} == {s['total']:.6f} under a changed "
+          f"`search`; no k bound is declared, because M-135's refusal half "
+          f"is withdrawn on the measurement that the two populations invert")
+    # THE MIXTURE IS DISCLOSED, AND THE MODAL BUCKET IS THE ONE THAT FAILS.
+    # This is the finding that replaced the bound: the adopted scalar clears
+    # on an average its own modal bucket does not reach.
+    modal = SN.PER_K_CROSSOVER[("sonnets", (3, 4))]
+    check("the adopted crossover is a MIXTURE: the sonnet bucket carrying "
+          "the mode has a crossover ABOVE theta_rhyme and buys nothing",
+          SN.CROSSOVER < DECL.theta_rhyme
+          and modal["crossover"] > DECL.theta_rhyme
+          and modal["buys_pp"] <= 0.0,
+          f"adopted {SN.CROSSOVER} < theta {DECL.theta_rhyme}, but the "
+          f"k=3-4 bucket's {modal['crossover']} sits above it and buys "
+          f"{modal['buys_pp']:+.2f} pp over {modal['pairs']} pairs")
 
 
 def test_a_tie_at_the_maximum_is_reported():

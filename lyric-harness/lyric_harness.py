@@ -854,6 +854,39 @@ class Declaration:
                                               # argument/spent rhymes on -ment
     fitted: bool = False                      # weights hand-set, not corpus-fitted
 
+    #: WHAT SEARCH THE MAXIMUM IS TAKEN OVER (`MISSING.md` M-135, doctrine 56).
+    #: `best_score` maximises over every pair of pronunciation spans and has
+    #: recorded `search_k` since it was written, under a comment calling that
+    #: recording "the precondition for a null under the same search". NOTHING
+    #: CONSUMED IT: the winner of a k-wide search faced a threshold calibrated
+    #: without reference to k, so the search was an undeclared coordinate that
+    #: decides an answer — doctrine 1's own shape, and the one it says to fix by
+    #: putting the coordinate in the tuple rather than by arguing about it.
+    #:
+    #: THIS IS A DECLARATION AND NOT A BOUND, and the difference was MEASURED
+    #: rather than chosen. The ruling that opened M-135 proposed refusing a
+    #: realized k beyond a calibrated bound; re-running `quality/search_null.py`'s
+    #: own sweep cut by the k each pair actually realized found that no such
+    #: bound exists. The two populations INVERT — on the sonnets the bucket that
+    #: fails is the LOW one, k=3-4, while on the song corpus every measurable
+    #: bucket clears — so a bound honest on one refuses the other, and one drawn
+    #: from the sonnet table alone would refuse 75.45% of sonnet pairs and
+    #: 80.98% of song pairs. A coordinate that refuses the mode is a different
+    #: instrument, not a declaration.
+    #:
+    #: SO IT STATES WHAT THE SEARCH IS AND GATES NOTHING. What it costs per
+    #: bucket is `search_null.PER_K_CROSSOVER`, disclosed beside the adopted
+    #: scalar because that scalar is a population MIXTURE: 74.3% of sonnet pairs
+    #: sit at k=4, where the bucket crossover is 0.7591 — ABOVE the shipped
+    #: `theta_rhyme` — and the search buys −0.16 pp. Changing this string moves
+    #: `repr(Declaration())` and therefore the comparator fingerprint, which is
+    #: correct: a run that declared a different search is not comparable to one
+    #: that did not.
+    search: str = (
+        "max over every pronunciation span pair; k = candidates_a x "
+        "candidates_b, recorded per pair as spans.search_k; uncorrected"
+    )
+
     def show(self):
         return json.dumps(asdict(self), indent=2)
 
@@ -5503,13 +5536,72 @@ def schema_default_disclosure(sch_sat):
         f"L{r['lines'][0]}~L{r['lines'][1]} (group "
         f"{r['label']}) via {r['satisfied_by'][0]}"
         for r in sch_sat[:4])
+    aud, inaud = _split_by_audible_end(sch_sat)
     return (f"  SCHEMA DEFAULT: {len(sch_sat)} mandated pair(s) "
             f"satisfied by the whole-vocabulary default, not the "
             f"scalar door — {egs}"
             + (" …" if len(sch_sat) > 4 else "")
             + " — laziness at these relations is UNCALIBRATED; "
             "declaring a relation narrows (M-116)\n"
+            f"    of those, {len(aud)} read as END RHYME and {len(inaud)} "
+            f"do NOT — two counts, never summed (M-140): an answering "
+            f"schema is the end-rhyme reading only when BOTH its spans sit "
+            f"at the line-final token and it requires the nucleus AND the "
+            f"coda to agree. The rest are real relations this grade judges "
+            f"correctly and a listener does not hear as the lines rhyming."
+            + (("\n    not heard as end rhyme: "
+                + "; ".join(f"L{r['lines'][0]}~L{r['lines'][1]} via "
+                            f"{r['satisfied_by'][0]}" for r in inaud[:4])
+                + (" …" if len(inaud) > 4 else "")) if inaud else "")
+            + "\n"
             f"    (that door's {door_chance_note('schema')})")
+
+
+def _split_by_audible_end(sch_sat):
+    """-> (audible, not_audible) over `pairs_schema_satisfied` records.
+
+    `MISSING.md` M-140's reporting rule, registered in
+    `quality/SCHEMA_END_READING_PREREGISTRATION.md` before it was measured.
+    A rescue is the END-RHYME READING when ANY answering schema is one
+    `relations.audible_as_end_rhyme` accepts — M-120's derivation, both
+    member spans at the line-final token and nucleus AND coda required to
+    agree. `any` is the conservative direction: it can only move a pair into
+    the audible half.
+
+    A RENDERING, AND THE REGISTRATION'S OWN E3 SAYS SO. Nothing here moves a
+    verdict, a score, a relation or a violation; the battery's
+    mandated/judged/refused/violations quadruple is byte-identical either
+    side of this function existing. MEASURED on the maintained sonnet
+    battery: 2 of 17 rescues read as end rhyme and 15 do not.
+
+    LAZY, AND IT CATCHES NOTHING. The first draft wrapped both the import
+    and the per-name judgement in `except Exception`, on the argument that a
+    disclosure which crashes a grade is worse than the one it discloses.
+    `test_verbs.py` §12 refused it — this file declares EXACTLY ONE broad
+    handler, the span-lookup fallback — and the refusal was right twice
+    over, because both handlers were guarding conditions that cannot occur:
+
+      * the IMPORT is already paid by the caller. `sch_sat` is non-empty
+        only when `grade()` ran the whole-vocabulary rescue, which imports
+        from this same module; a draft with a rescue has already proven the
+        import.
+      * an UNRESOLVABLE NAME never reaches the judge. `REGISTRY.get` returns
+        None for it and the `is not None` test below is what makes it count
+        as not audible — which is the behaviour the forgiving handler was
+        added to provide, already provided.
+
+    So the handlers were catching nothing and would have hidden a real
+    failure the day one occurred, which is what §12 exists to stop. The
+    registry import stays lazy because the cost is real; the swallowing is
+    gone because the risk was not.
+    """
+    from quality.relations import REGISTRY as _REG, audible_as_end_rhyme as _aud
+    audible, rest = [], []
+    for r in sch_sat:
+        hit = any(_REG.get(n) is not None and _aud(_REG[n])
+                  for n in (r.get("satisfied_by") or ()))
+        (audible if hit else rest).append(r)
+    return audible, rest
 
 
 def near_relation_default_disclosure(verdicts, theta):

@@ -1700,6 +1700,42 @@ def test_the_default_doors_are_priced_where_they_answer():
           and "M-116" in sd and "M-140" in sd
           and f"{_CR.ADOPTED['schema'][0]}..{_CR.ADOPTED['schema'][1]}" in sd,
           sd)
+
+    # MISSING.md M-140, registered in
+    # `quality/SCHEMA_END_READING_PREREGISTRATION.md` before it was measured.
+    # THE SPLIT IS THE POINT AND IT MUST HAVE BOTH SIDES: a rescue reads as
+    # END RHYME only when an answering schema puts both spans at the
+    # line-final token AND requires the nucleus and the coda to agree.
+    # `pararhyme` keeps the coda and changes the nucleus, so the pair above
+    # is NOT the end-rhyme reading, and the line must say so rather than
+    # print it under a heading a reader takes as end rhyme.
+    check("M-140: a rescue by a schema a listener does not hear as end "
+          "rhyme is counted apart, and named",
+          "0 read as END RHYME and 1 do NOT" in sd
+          and "not heard as end rhyme: L1~L3 via pararhyme" in sd
+          and "never summed" in sd,
+          sd)
+    # AND THE OTHER SIDE OF THE SPLIT IS NOT EMPTY, which is falsifier E2:
+    # a split that only ever lands one way is not a split. `perfect rhyme`
+    # is the canonical audible schema.
+    sd_aud = _LH.schema_default_disclosure(
+        [{"lines": (2, 4), "label": "B", "satisfied_by": ["perfect rhyme"]}])
+    check("M-140: a rescue by an AUDIBLE schema lands in the other half, so "
+          "the split has both sides (falsifier E2 does not fire)",
+          sd_aud is not None
+          and "1 read as END RHYME and 0 do NOT" in sd_aud
+          and "not heard as end rhyme" not in sd_aud,
+          sd_aud)
+    # AND AN UNRESOLVABLE NAME IS NOT AUDIBLE AND DOES NOT CRASH THE GRADE.
+    # A disclosure that raises would be a worse defect than the one it
+    # discloses, so the classifier is forgiving in the direction that
+    # under-claims.
+    sd_bad = _LH.schema_default_disclosure(
+        [{"lines": (1, 2), "label": "C", "satisfied_by": ["no such schema"]}])
+    check("M-140: a name the registry cannot resolve counts as NOT audible "
+          "rather than raising",
+          sd_bad is not None and "0 read as END RHYME and 1 do NOT" in sd_bad,
+          sd_bad)
     verd = [
         {"lines": (0, 2), "endwords": ("home", "alone"),
          "relation": "ASSONANCE", "score": 0.974, "why": None},

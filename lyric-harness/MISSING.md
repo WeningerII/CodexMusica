@@ -7575,6 +7575,67 @@ the corpus at that date is not this corpus — so both readings stand and the
 34 files appear in BOTH rows and the union is 119, which is exactly the number
 of findings check H emits.
 
+**THE THREE NAMED RESIDUE CLASSES ARE CHARACTERISED 2026-09-18, AND THE
+CORPUS IS NOT TOUCHED.** This entry says each remedy needs a human reading of
+the printing. That reading is done for the three whole-file classes it names —
+Watts 444, Burns 186, Lovelace 102, **732 residue blocks** — and it is banked
+here so the pass that applies it is mechanical rather than another reading. **No
+`corpus/` byte moves in this commit**, so the closing sitting is still owed by
+the application and not by the record.
+
+| file | residue | covered by a defended predicate | leftover |
+|---|--:|--:|--:|
+| `corpus/song/eng_hymn_watts.txt` | 444 | 443 | 1 |
+| `corpus/song/eng_celtic_robert_burns.txt` | 186 | 173 | 13 |
+| `corpus/song/eng_british_richard_lovelace.txt` | 102 | 81 | 21 |
+| total | **732** | **697 (95.2%)** | **35 (4.8%)** |
+
+**NO PREDICATE SELECTS A SUNG LINE.** Every false match found — 33 across the
+three files — is apparatus sitting in a MULTI-LINE block, which never entered
+check H's population at all. So the true apparatus class is LARGER than the
+residue in all three files, and the residue is a floor here exactly as the
+census is a floor in M-20.
+
+**THE THREE RULES THAT WERE BUILT AND THEN REJECTED ARE THE PART WORTH
+KEEPING**, because they are what a later session would re-derive and ship.
+Each is M-47's Durfey/Gay failure in a new file:
+
+1. **Watts, the title echo without its structural conjunct.** Watts titles an
+   item by its own printed scripture argument, and the argument is staged as a
+   one-line `[VERSE 1]` before the stanza. A rule reading *the line equals its
+   item's title* is right about those and wrong about everything else, because
+   Watts ALSO titles items by their own first sung line. **RE-DERIVED HERE
+   INDEPENDENTLY: 721 lines file-wide equal their item's title, of which 433
+   are ALONE in their block and 288 sit inside a real stanza.** The exemplar is
+   `From all that dwell below the skies` at line 225, whose next line is `Let
+   the Creator's praise arise;`. The conjunct *alone in its block, and that
+   block is the item's first* is what makes the rule safe, and 433 is exactly
+   the covered count.
+2. **Lovelace, the positional note run.** *Everything at or after the item's
+   first note-shaped block is a note* covers 86 of 102 and swallows sung text,
+   because `THE SCRUTINIE.` opens a new poem INSIDE one `--- TITLE:` item. Do
+   not use a positional rule on this file.
+3. **Burns, the loose dateline.** A dateline regex without a mandatory
+   four-digit year matches the sung line `Oh, Mary, canst thou wreck his
+   peace,`. The year-anchored form is the only one that holds.
+
+**WHAT THE LEFTOVER 35 ARE, AND WHY THEY STAY LEFT OVER.** Lovelace's 21 are
+the sharpest: every one speaks ABOUT the text in modern editorial English (`A
+quaver (a well-known musical expression).`, `Rufus Festus Avienus, the Latin
+poet.`) while Lovelace's own text is seventeenth-century spelling — so they are
+apparatus by CONTENT and undecidable from the line alone, which is a different
+verdict from apparatus-by-shape and is recorded as one (doctrine 20). Burns's
+13 and Watts's 1 (`End of the Third Book.`, a book divider whose two siblings
+sit inside multi-line blocks and so never reach the census) are the same kind.
+
+**PROVENANCE, STATED RATHER THAN IMPLIED.** The residue counts and the three
+rejected rules were produced by a delegated read in this session against the
+live tree; the Watts figures in item 1 above and the three residue counts were
+RE-DERIVED independently before being written here, and the per-group
+breakdowns were not. The pass that applies any of this re-derives its own
+groups and its own false-match counts at application time — a predicate banked
+without its re-derivation is the stale number this register exists to refuse.
+
 **AND THE `ornament` COLLAPSE IS THE SHARPEST CELL**, 72 -> 8. It is the one
 shape whose fall is an order of magnitude rather than a percentage, and this
 entry does not guess at why; it is named so that a session reading the shape
@@ -14962,12 +15023,56 @@ What is owed after this, and is now the whole of this entry's coupling half, is 
 preregistered decision on which population's crossover the band is calibrated
 against, taken with the per-k table in hand rather than against an average that
 conceals it.
-> **TESTED WHILE OPEN.** `quality/test_spans.py` section 3 names this entry and
-> PINS THE UNCORRECTED SEARCH: the k=6 span search beats its own k=1
+**WHAT SHIPPED 2026-09-18, AND IT IS THE DECLARATION HALF ALONE.**
+`Declaration.search` names what the maximum is taken over, in the tuple, where
+doctrine 1 says a coordinate that decides an answer belongs. It is ADDITIVE and
+was proven so rather than asserted: re-scoring the section-3 pair under a
+DIFFERENT declared `search` returns a byte-identical total, relation and
+`search_k`, and `search_null.py --check`'s twelve pinned lifts are unmoved to
+the hundredth. No k bound is declared, because none was earned.
+
+**AND THE DISCLOSURE HALF IS A COMMAND, NOT A PARAGRAPH.**
+`search_null.PER_K_CROSSOVER` banks the per-bucket table and
+`search_null.py` prints the realized-k distribution beside the adopted scalar on
+every run: 1,108 sonnet pairs, **74.3% at exactly k=4**, **0 at k=1** — so the
+module's own no-search arm is CONSTRUCTED rather than observed, which is stated
+where it can be read instead of inferred. **What `--check` re-derives is the
+bucket POPULATIONS (823 and 220, both holding), and what it does not is the
+crossover VALUES or the song arm's 206,114 pairs**; a figure banked without its
+command is named as such rather than dressed as a pin (doctrine 20). The
+populations are the gate on the record: a corpus or comparator move that puts
+different pairs in a bucket reds the module and says the crossovers beside them
+are stale.
+
+**THE FIELD MOVES `repr(Declaration())` AND THEREFORE THE COMPARATOR
+FINGERPRINT**, which is correct and is the price the owner's batching rule
+exists to pay once: a run that declared a different search is not comparable to
+one that did not. Two prose counts went with it — `field_store.py`'s *"all 21 of
+them"* and `test_field_store.py`'s twin — repinned to 22, and the only reason
+neither was silently wrong is that `declaration_tuple` is DERIVED, so the key
+was right on the day the field landed and only the sentences were not.
+
+> **TESTED WHILE OPEN.** ~~`quality/test_spans.py` section 3 names this entry
+> and PINS THE UNCORRECTED SEARCH: the k=6 span search beats its own k=1
 > restriction (0.579 against 0.272), yet `Declaration` carries no field naming a
 > search or a k, so the identical bare theta admits both — and
 > `search_null.CROSSOVER` (0.72) sits BELOW that theta (0.75), which is the one
-> state this entry's gate refuses. Red the day k enters the comparison.
+> state this entry's gate refuses. Red the day k enters the comparison.~~
+> **REPOINTED 2026-09-18 — k HAS ENTERED THE COMPARISON, so the block above
+> pinned the defect and would now keep it.** Section 3 names this entry and
+> pins THREE things, each proven by its own mutation: that the search is real
+> and is now NAMED (`decl_fields == ["search"]`; removing the field reds it);
+> that naming it moves NO verdict, asked by re-scoring under a changed `search`
+> rather than by comparing an expression to itself, which is what the first
+> draft of that check did; and that the adopted crossover is a MIXTURE — the
+> bucket carrying 74.3% of sonnet pairs has a crossover of 0.7591, ABOVE
+> `theta_rhyme`, and buys −0.16 pp (dropping that figure under theta reds it).
+> **Red the day the coupling half is ruled on**, which is what this entry still
+> owes: a preregistered decision on which population's crossover the band is
+> calibrated against. The gate is deliberately NOT strengthened to fail per
+> bucket, because that reds the modal sonnet bucket on main without a ruling on
+> what replaces `theta_rhyme`, and retuning theta to clear a bucket is the
+> tuning doctrine 58 forbids.
 The audit the owner asked for, run against the site every rhyme number passes
 through. **DOCTRINE 56 IS HONOURED IN ONE LAYER AND RECORDED-BUT-UNAPPLIED IN
 THE OTHER, and the two layers are one screen apart.**
@@ -16400,6 +16505,63 @@ still printed, and no longer counted as a sound the listener gets. Because that
 moves recorded readings it lands under a preregistration of its own, in the same
 sitting as M-120's narrowing, and `chance_rate.py --check` is re-run in the
 closing sitting as the entry already expects.
+**MEASURED AND SHIPPED 2026-09-18, UNDER ITS OWN PREREGISTRATION
+(`quality/SCHEMA_END_READING_PREREGISTRATION.md`, committed before the runner
+existed).** The ruling above is a REPORTING rule, and it rested on a premise
+nobody had counted: that some schema rescues are end rhyme and some are not. The
+registration named three falsifiers — an empty inaudible half withdraws the
+change, an empty audible half replaces it with a stronger sentence, and any
+moved verdict withdraws it outright. **The hypothesis holds and no falsifier
+fires.**
+
+| the maintained sonnet battery | count |
+|---|--:|
+| scalar passes | 946 |
+| schema rescues **reading as END RHYME** | **2** (11.8%) |
+| schema rescues **NOT heard as end rhyme** | **15** (88.2%) |
+| violations | 4 |
+| refusals, kept apart | 97 |
+
+**THE QUADRUPLE IS THE CONTROL, not a coincidence**: 946 + 17 + 4 = 967 judged
+against 97 refused, which is `battery.py`'s own recorded `1,064 mandated, 967
+judged, 97 refused, 4 violations` to the pair. A split that did not reproduce
+the oracle would be measuring a different population than the oracle does. And
+E3 is satisfied by construction and by running it: the battery's quadruple is
+byte-identical either side of the change, because the change is a rendering.
+
+**SO NEARLY NINE RESCUES IN TEN WERE BEING PRINTED UNDER A HEADING A READER
+TAKES AS END RHYME**, and the schemas doing the rescuing say why — `consonance`
+10, `internal rhyme` 10, `multisyllabic rhyme` 3, `assonance` 2, `anaphora` 2.
+Half of those bind somewhere other than the line end and the rest let the
+nucleus or the coda differ; every one is a real relation the grade judges
+correctly, and none is a sound a listener gets as the lines rhyming.
+
+**WHAT SHIPS.** The `SCHEMA DEFAULT` line reports the two halves apart, never
+summed, names the inaudible ones with the schema that answered, and states the
+rule in the line itself rather than citing an entry. `audible_as_end_rhyme` is
+M-120's derivation, consulted and not respelled (doctrine 1), and a rescue
+counts audible when ANY answering schema is — the conservative direction, since
+`any` can only move a pair into the audible half and so only make the hypothesis
+harder to hold. The classifier is deliberately FORGIVING: a name the registry
+cannot resolve counts as not audible rather than raising, because a disclosure
+that crashes a grade is a worse defect than the one it discloses. Three checks
+in `quality/test_readability.py`, the classifier mutated to call everything
+audible reddening exactly the two that should go red and leaving the control
+standing.
+
+**`quality/schema_end_reading.py` IS THE RUNNER AND `--check` HOLDS THE SPLIT.**
+Its first draft read `verdicts`, which is `quality.revise.grade`'s key and not
+`check_scheme`'s, so it printed **−17 scalar passes** — a negative count, the
+one arithmetic this repository can always catch, and it printed before it was
+caught. Recorded rather than quietly fixed, and the runner now REFUSES on a
+count below zero instead of rendering it.
+
+**THIS ENTRY STAYS OPEN ON ITS OWN SUBJECT.** The door is still UNPRICED and is
+deliberately not retuned: the reporting rule changes what a reader is told and
+changes no threshold, which is the whole of what the ruling took. What is still
+owed is the pricing, and the 23.9–24.7% chance rate stands beside every rescue
+in the meantime.
+
 Opened 2026-08-26 out of M-138's strike, and it is the larger of the two: that
 entry priced the door M-59 widened, and **nobody has ever priced the door M-116
 widened.**
@@ -22490,6 +22652,37 @@ lines. What this entry says is missing is the door that SCALES, and that is
 unbuilt: nothing in the suite asserts a 144-line draft grades, because it
 does not. The disclosure is tested; the gap is open.
 
+**THE NULL IT OWES IS MEASURED 2026-09-18, AND THE FIRST POPULATION CANNOT
+ANSWER THE QUESTION — WHICH IS ITSELF THE RESULT.**
+`quality/BOUNDED_SCHEMA_WINDOW_PREREGISTRATION.md` was committed before the
+runner existed: five declared windows, a selection rule fixed in advance (the
+SMALLEST window retaining ≥99.0% of today's rescues on EVERY population), and
+four falsifiers. `quality/schema_window.py` runs it.
+
+**MEASURED on the maintained sonnet battery: all 17 rescues sit at line
+distance exactly 2, so retention is 100% at every declared window.** That reads
+like a free window and is not evidence for one. **E2 FIRES**: the sonnet scheme
+binds one pair at distance 1 and six at distance 2 per item, so **2 is the
+furthest a rescue COULD be**, and the retention column is 100% BY CONSTRUCTION.
+It is a fact about the scheme, not about the schema door, and the runner refuses
+it as evidence rather than printing it as a result (doctrine 20 — inconclusive
+by construction is not a null). The registration named this outcome in advance,
+which is why it was recognised rather than banked.
+
+**SO THE WINDOW QUESTION IS STILL OPEN AND ITS POPULATION IS NAMED**: the corpus
+items under the cover `recover.py` derives from the printed text, and the
+shipped drafts under their own mandates. Those are the two populations whose
+mandates reach past 2, and neither is measured yet. The pin is banked anyway —
+17 rescues, all at distance 2 — because a rescue appearing at distance 1, or the
+count leaving 17, means the population this refusal describes has changed.
+
+**AND E4 IS NOT MEASURED BY THIS RUNNER, SAID RATHER THAN LEFT TO BE
+ASSUMED.** Retention is an exact upper bound on what a window KEEPS, because
+windowing can only remove pairs from the door's question. It is not a proof that
+what stays is judged identically: some schemas read the whole stream, so a
+narrower stream could change which names answer a pair that remains. Testing
+that needs the windowed door, which is still unbuilt.
+
 **THE COMPLETE ANSWER, NOT BUILT:** a schema door that considers a pair
 only within a bounded LINE DISTANCE, which makes the stream linear in the
 draft and removes the wall. It changes what "the 77 schemas over the whole
@@ -25728,8 +25921,100 @@ The control is the three PRs that did NOT trip it on the same bases: #324, #326 
 
 **VERIFIED BY MUTATION, each repair against the check that is supposed to hold it.** Restoring the newest-by-id selection reds the in-flight section (12 pass, 1 fail); restoring `productionEvidence`'s single-constant catch reds the same section; restoring the dispatch-only `if` reds the events-agreement section. The repaired tree is 13 of 13, and the offline production group `test_release_gates` + `test_battery_repairs` + `test_connector_contracts` + `test_runtime_assets` is 44 of 44. `prettier --check` passes over `scripts/`, `mcp/` and `.github/`; the edited workflow parses as YAML with the `if` expression balanced.
 
+**AND THE DOWNSTREAM SYMPTOM WAS OBSERVED THE SAME DAY, WHICH CLOSES THE CHAIN
+END TO END.** The 2026-09-18 nightly's deployment-freshness step failed on main
+at `fae14b1b` with exactly one difference:
+
+```
+DRIFT — 1 difference(s) between the tree and https://mcp.codexmusica.com/mcp:
+  lyric_sweep: inputSchema differs
+the deployment is serving a different connector than this tree declares — redeploy, or explain
+```
+
+`lyric_sweep`'s input schema last moved in commit `f27813cb`, *"Advertise the
+three new sweep predicates, which I declared and did not describe"*, which
+landed in the merge this entry's three deploy runs were firing on. So the live
+connector is serving a schema one commit behind the tree **because the deploy
+could not advance**, and the freshness check is not a second defect — it is this
+entry's defect seen from the other end, by the one instrument that looks at the
+running service rather than at the repository.
+
+**IT IS THE EVIDENCE THIS ENTRY EXPLICITLY DID NOT CLAIM.** The section below
+says the live service was serving an older qualified commit and that the fix
+cannot advance it by itself. That was an inference from the deploy logs; this
+is a measurement of the service. What is still not claimed is that the repair
+WORKS: that binds only when a qualification runs on a sha carrying it and the
+deploy fires, and the nightly freshness step is what will say so.
+
 **NOT CLAIMED.** That the connector is now serving `fae14b1b` — it is not, and this repair cannot make it, because the fix is itself a new commit that needs its own CI and its own qualification before any deploy may promote it. That the live service was WRONG in the meantime: it was serving an older qualified commit, which is the ordering guard working; what it could not do was advance. That anything re-dispatches the missed night — the backstop dispatches when a qualification did not HAPPEN, and these three nights all happened. And no gate anywhere reads the deploy's stand-down REASON; it is a sentence in a run summary, not a check.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~349~~ -> **350**.
 
 **350** with this entry (2026-09-18).
+
+### M-296 · The nightly's own time budget is recorded in a workflow comment and nowhere a reader of this register can find it — and the 2026-09-18 run turned its bound arithmetic into a measurement, by seven seconds `PARTIAL` 2026-09-18 — raised while watching main rather than reported
+
+**WHAT WAS THERE.** `.github/workflows/ci.yml`'s `nightly` job carries a
+paragraph headed `CURRENT LIMITATION (BCI-10)`: *"the older 77.4m non-song
+measurement plus the 150m song and newer 40m curve bounds totals 267.4m before
+setup/save, exceeding this 240m job by 27.4m. This is bound arithmetic, not a
+current completed-run measurement; cache save may be lost at the job ceiling."*
+It is careful, it is honest about what it is, and **it exists only there**. A
+grep for `BCI-10` over this repository returns one hit, in the workflow. Nothing
+in `MISSING.md` carries it, so a session reading the gap register to find out
+what is unresolved about the nightly finds nothing, and the sixteen record-job
+gates cannot ask about a limitation no entry declares.
+
+**THE MEASUREMENT IT WAS MISSING, OBSERVED 2026-09-18 ON RUN 35327407748.**
+
+| step | window | outcome |
+|---|---|---|
+| 1–18 | 09:03:44 → 10:34:19 | all success, 90.6 min |
+| 19 song-profile slice | 10:34:19 → 13:04:19 | **failure**, exactly its own `timeout 150m` |
+| 20 length-curve row | 13:04:19 | **skipped** |
+| 23 deployment freshness | 13:04:22 → 13:04:23 | **failure** (and it is M-295's, not this entry's) |
+| 24 bank the memo | 13:04:23 → 13:04:24 | **success — 1,355,461 bytes saved** |
+| job cap (240 min) | 13:04:26 | run concluded `cancelled` |
+
+**THE FEARED OUTCOME DID NOT HAPPEN, AND THE MARGIN IS SEVEN SECONDS.** BCI-10's
+worry is that the cache save is lost at the job ceiling, because a job-level
+timeout cancels the remaining steps and `if: always()` cannot save a step that is
+never reached. It was not lost: step 19's OWN timeout fired at 13:04:19, seven
+seconds before the job cap at 13:04:26, and steps 20 through 24 ran inside that
+gap. The self-healing design the workflow argues for — *"an overrun now BANKS its
+memo, so a night that runs out resumes the next night and completes, instead of
+restarting cold forever"* — worked, and the run's `cancelled` conclusion is the
+POST-steps meeting the cap rather than the bank being lost. **Reading the run's
+conclusion alone would have recorded the opposite**, which is why this entry
+reads the step table.
+
+**SO THE LIMITATION IS REAL AND ITS MARGIN IS NOT A DESIGN, IT IS A
+COINCIDENCE.** Step 19 began at 10:34:19 because the eighteen steps before it
+took 90.6 minutes; it is bounded at 150; 90.6 + 150 = 240.6, which is PAST the
+240-minute cap. That the bank still happened is the arithmetic landing seven
+seconds the right side of a boundary it is on the wrong side of. Any step added
+before 19, or any night where the earlier steps run slower, moves it the other
+way — and then the bank IS lost and the night restarts cold forever, exactly as
+BCI-10 says. **The workflow's own instruction is the right one and is repeated
+here so the register carries it: the next step added to that job needs the budget
+re-measured first, not extended.**
+
+**WHY THIS IS PARTIAL AND NOT A FIX.** The remedy is not obvious and it is not
+mine to pick by arithmetic alone. Raising the cap buys margin and lengthens a
+nightly that already runs four hours. Cutting the 150-minute slice buys margin
+and is the one thing the workflow argues against, because it trades a
+self-healing overrun for a check that never reaches its verdict. Moving the bank
+earlier changes what "whatever this job's verdict was" means. What this entry
+DOES is put the limitation where a reader of the register will meet it, with a
+measurement instead of arithmetic.
+
+**NOT CLAIMED.** That step 20 being skipped is new — it is the documented
+consequence of 19 failing, and the length-curve row therefore went unchecked on
+main last night, which is worth knowing when reading any claim that it holds.
+That the slice made progress — it banked 1.36 MB, and whether that advances the
+resume point far enough to finish tonight is not measured here. That the freshness
+failure at step 23 belongs to this entry: it is M-295's, recorded there.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~350~~ -> **351**.
+
+**351** with this entry (2026-09-18).
