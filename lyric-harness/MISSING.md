@@ -16444,6 +16444,63 @@ still printed, and no longer counted as a sound the listener gets. Because that
 moves recorded readings it lands under a preregistration of its own, in the same
 sitting as M-120's narrowing, and `chance_rate.py --check` is re-run in the
 closing sitting as the entry already expects.
+**MEASURED AND SHIPPED 2026-09-18, UNDER ITS OWN PREREGISTRATION
+(`quality/SCHEMA_END_READING_PREREGISTRATION.md`, committed before the runner
+existed).** The ruling above is a REPORTING rule, and it rested on a premise
+nobody had counted: that some schema rescues are end rhyme and some are not. The
+registration named three falsifiers — an empty inaudible half withdraws the
+change, an empty audible half replaces it with a stronger sentence, and any
+moved verdict withdraws it outright. **The hypothesis holds and no falsifier
+fires.**
+
+| the maintained sonnet battery | count |
+|---|--:|
+| scalar passes | 946 |
+| schema rescues **reading as END RHYME** | **2** (11.8%) |
+| schema rescues **NOT heard as end rhyme** | **15** (88.2%) |
+| violations | 4 |
+| refusals, kept apart | 97 |
+
+**THE QUADRUPLE IS THE CONTROL, not a coincidence**: 946 + 17 + 4 = 967 judged
+against 97 refused, which is `battery.py`'s own recorded `1,064 mandated, 967
+judged, 97 refused, 4 violations` to the pair. A split that did not reproduce
+the oracle would be measuring a different population than the oracle does. And
+E3 is satisfied by construction and by running it: the battery's quadruple is
+byte-identical either side of the change, because the change is a rendering.
+
+**SO NEARLY NINE RESCUES IN TEN WERE BEING PRINTED UNDER A HEADING A READER
+TAKES AS END RHYME**, and the schemas doing the rescuing say why — `consonance`
+10, `internal rhyme` 10, `multisyllabic rhyme` 3, `assonance` 2, `anaphora` 2.
+Half of those bind somewhere other than the line end and the rest let the
+nucleus or the coda differ; every one is a real relation the grade judges
+correctly, and none is a sound a listener gets as the lines rhyming.
+
+**WHAT SHIPS.** The `SCHEMA DEFAULT` line reports the two halves apart, never
+summed, names the inaudible ones with the schema that answered, and states the
+rule in the line itself rather than citing an entry. `audible_as_end_rhyme` is
+M-120's derivation, consulted and not respelled (doctrine 1), and a rescue
+counts audible when ANY answering schema is — the conservative direction, since
+`any` can only move a pair into the audible half and so only make the hypothesis
+harder to hold. The classifier is deliberately FORGIVING: a name the registry
+cannot resolve counts as not audible rather than raising, because a disclosure
+that crashes a grade is a worse defect than the one it discloses. Three checks
+in `quality/test_readability.py`, the classifier mutated to call everything
+audible reddening exactly the two that should go red and leaving the control
+standing.
+
+**`quality/schema_end_reading.py` IS THE RUNNER AND `--check` HOLDS THE SPLIT.**
+Its first draft read `verdicts`, which is `quality.revise.grade`'s key and not
+`check_scheme`'s, so it printed **−17 scalar passes** — a negative count, the
+one arithmetic this repository can always catch, and it printed before it was
+caught. Recorded rather than quietly fixed, and the runner now REFUSES on a
+count below zero instead of rendering it.
+
+**THIS ENTRY STAYS OPEN ON ITS OWN SUBJECT.** The door is still UNPRICED and is
+deliberately not retuned: the reporting rule changes what a reader is told and
+changes no threshold, which is the whole of what the ruling took. What is still
+owed is the pricing, and the 23.9–24.7% chance rate stands beside every rescue
+in the meantime.
+
 Opened 2026-08-26 out of M-138's strike, and it is the larger of the two: that
 entry priced the door M-59 widened, and **nobody has ever priced the door M-116
 widened.**

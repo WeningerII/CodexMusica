@@ -5536,13 +5536,67 @@ def schema_default_disclosure(sch_sat):
         f"L{r['lines'][0]}~L{r['lines'][1]} (group "
         f"{r['label']}) via {r['satisfied_by'][0]}"
         for r in sch_sat[:4])
+    aud, inaud = _split_by_audible_end(sch_sat)
     return (f"  SCHEMA DEFAULT: {len(sch_sat)} mandated pair(s) "
             f"satisfied by the whole-vocabulary default, not the "
             f"scalar door — {egs}"
             + (" …" if len(sch_sat) > 4 else "")
             + " — laziness at these relations is UNCALIBRATED; "
             "declaring a relation narrows (M-116)\n"
+            f"    of those, {len(aud)} read as END RHYME and {len(inaud)} "
+            f"do NOT — two counts, never summed (M-140): an answering "
+            f"schema is the end-rhyme reading only when BOTH its spans sit "
+            f"at the line-final token and it requires the nucleus AND the "
+            f"coda to agree. The rest are real relations this grade judges "
+            f"correctly and a listener does not hear as the lines rhyming."
+            + (("\n    not heard as end rhyme: "
+                + "; ".join(f"L{r['lines'][0]}~L{r['lines'][1]} via "
+                            f"{r['satisfied_by'][0]}" for r in inaud[:4])
+                + (" …" if len(inaud) > 4 else "")) if inaud else "")
+            + "\n"
             f"    (that door's {door_chance_note('schema')})")
+
+
+def _split_by_audible_end(sch_sat):
+    """-> (audible, not_audible) over `pairs_schema_satisfied` records.
+
+    `MISSING.md` M-140's reporting rule, registered in
+    `quality/SCHEMA_END_READING_PREREGISTRATION.md` before it was measured.
+    A rescue is the END-RHYME READING when ANY answering schema is one
+    `relations.audible_as_end_rhyme` accepts — M-120's derivation, both
+    member spans at the line-final token and nucleus AND coda required to
+    agree. `any` is the conservative direction: it can only move a pair into
+    the audible half.
+
+    A RENDERING, AND THE REGISTRATION'S OWN E3 SAYS SO. Nothing here moves a
+    verdict, a score, a relation or a violation; the battery's
+    mandated/judged/refused/violations quadruple is byte-identical either
+    side of this function existing. MEASURED on the maintained sonnet
+    battery: 2 of 17 rescues read as end rhyme and 15 do not.
+
+    LAZY AND FORGIVING, because this is a report line. The registry import
+    is paid only on a draft that HAS a rescue, and a name the registry
+    cannot resolve counts as NOT audible rather than raising — a disclosure
+    that crashes a grade would be a worse defect than the one it discloses.
+    """
+    try:
+        from quality.relations import REGISTRY as _REG, \
+            audible_as_end_rhyme as _aud
+    except Exception:
+        return [], list(sch_sat)
+    audible, rest = [], []
+    for r in sch_sat:
+        hit = False
+        for name in (r.get("satisfied_by") or ()):
+            sch = _REG.get(name)
+            try:
+                if sch is not None and _aud(sch):
+                    hit = True
+                    break
+            except Exception:
+                continue
+        (audible if hit else rest).append(r)
+    return audible, rest
 
 
 def near_relation_default_disclosure(verdicts, theta):
