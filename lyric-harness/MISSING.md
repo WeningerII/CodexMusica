@@ -25921,8 +25921,100 @@ The control is the three PRs that did NOT trip it on the same bases: #324, #326 
 
 **VERIFIED BY MUTATION, each repair against the check that is supposed to hold it.** Restoring the newest-by-id selection reds the in-flight section (12 pass, 1 fail); restoring `productionEvidence`'s single-constant catch reds the same section; restoring the dispatch-only `if` reds the events-agreement section. The repaired tree is 13 of 13, and the offline production group `test_release_gates` + `test_battery_repairs` + `test_connector_contracts` + `test_runtime_assets` is 44 of 44. `prettier --check` passes over `scripts/`, `mcp/` and `.github/`; the edited workflow parses as YAML with the `if` expression balanced.
 
+**AND THE DOWNSTREAM SYMPTOM WAS OBSERVED THE SAME DAY, WHICH CLOSES THE CHAIN
+END TO END.** The 2026-09-18 nightly's deployment-freshness step failed on main
+at `fae14b1b` with exactly one difference:
+
+```
+DRIFT — 1 difference(s) between the tree and https://mcp.codexmusica.com/mcp:
+  lyric_sweep: inputSchema differs
+the deployment is serving a different connector than this tree declares — redeploy, or explain
+```
+
+`lyric_sweep`'s input schema last moved in commit `f27813cb`, *"Advertise the
+three new sweep predicates, which I declared and did not describe"*, which
+landed in the merge this entry's three deploy runs were firing on. So the live
+connector is serving a schema one commit behind the tree **because the deploy
+could not advance**, and the freshness check is not a second defect — it is this
+entry's defect seen from the other end, by the one instrument that looks at the
+running service rather than at the repository.
+
+**IT IS THE EVIDENCE THIS ENTRY EXPLICITLY DID NOT CLAIM.** The section below
+says the live service was serving an older qualified commit and that the fix
+cannot advance it by itself. That was an inference from the deploy logs; this
+is a measurement of the service. What is still not claimed is that the repair
+WORKS: that binds only when a qualification runs on a sha carrying it and the
+deploy fires, and the nightly freshness step is what will say so.
+
 **NOT CLAIMED.** That the connector is now serving `fae14b1b` — it is not, and this repair cannot make it, because the fix is itself a new commit that needs its own CI and its own qualification before any deploy may promote it. That the live service was WRONG in the meantime: it was serving an older qualified commit, which is the ordering guard working; what it could not do was advance. That anything re-dispatches the missed night — the backstop dispatches when a qualification did not HAPPEN, and these three nights all happened. And no gate anywhere reads the deploy's stand-down REASON; it is a sentence in a run summary, not a check.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~349~~ -> **350**.
 
 **350** with this entry (2026-09-18).
+
+### M-296 · The nightly's own time budget is recorded in a workflow comment and nowhere a reader of this register can find it — and the 2026-09-18 run turned its bound arithmetic into a measurement, by seven seconds `PARTIAL` 2026-09-18 — raised while watching main rather than reported
+
+**WHAT WAS THERE.** `.github/workflows/ci.yml`'s `nightly` job carries a
+paragraph headed `CURRENT LIMITATION (BCI-10)`: *"the older 77.4m non-song
+measurement plus the 150m song and newer 40m curve bounds totals 267.4m before
+setup/save, exceeding this 240m job by 27.4m. This is bound arithmetic, not a
+current completed-run measurement; cache save may be lost at the job ceiling."*
+It is careful, it is honest about what it is, and **it exists only there**. A
+grep for `BCI-10` over this repository returns one hit, in the workflow. Nothing
+in `MISSING.md` carries it, so a session reading the gap register to find out
+what is unresolved about the nightly finds nothing, and the sixteen record-job
+gates cannot ask about a limitation no entry declares.
+
+**THE MEASUREMENT IT WAS MISSING, OBSERVED 2026-09-18 ON RUN 35327407748.**
+
+| step | window | outcome |
+|---|---|---|
+| 1–18 | 09:03:44 → 10:34:19 | all success, 90.6 min |
+| 19 song-profile slice | 10:34:19 → 13:04:19 | **failure**, exactly its own `timeout 150m` |
+| 20 length-curve row | 13:04:19 | **skipped** |
+| 23 deployment freshness | 13:04:22 → 13:04:23 | **failure** (and it is M-295's, not this entry's) |
+| 24 bank the memo | 13:04:23 → 13:04:24 | **success — 1,355,461 bytes saved** |
+| job cap (240 min) | 13:04:26 | run concluded `cancelled` |
+
+**THE FEARED OUTCOME DID NOT HAPPEN, AND THE MARGIN IS SEVEN SECONDS.** BCI-10's
+worry is that the cache save is lost at the job ceiling, because a job-level
+timeout cancels the remaining steps and `if: always()` cannot save a step that is
+never reached. It was not lost: step 19's OWN timeout fired at 13:04:19, seven
+seconds before the job cap at 13:04:26, and steps 20 through 24 ran inside that
+gap. The self-healing design the workflow argues for — *"an overrun now BANKS its
+memo, so a night that runs out resumes the next night and completes, instead of
+restarting cold forever"* — worked, and the run's `cancelled` conclusion is the
+POST-steps meeting the cap rather than the bank being lost. **Reading the run's
+conclusion alone would have recorded the opposite**, which is why this entry
+reads the step table.
+
+**SO THE LIMITATION IS REAL AND ITS MARGIN IS NOT A DESIGN, IT IS A
+COINCIDENCE.** Step 19 began at 10:34:19 because the eighteen steps before it
+took 90.6 minutes; it is bounded at 150; 90.6 + 150 = 240.6, which is PAST the
+240-minute cap. That the bank still happened is the arithmetic landing seven
+seconds the right side of a boundary it is on the wrong side of. Any step added
+before 19, or any night where the earlier steps run slower, moves it the other
+way — and then the bank IS lost and the night restarts cold forever, exactly as
+BCI-10 says. **The workflow's own instruction is the right one and is repeated
+here so the register carries it: the next step added to that job needs the budget
+re-measured first, not extended.**
+
+**WHY THIS IS PARTIAL AND NOT A FIX.** The remedy is not obvious and it is not
+mine to pick by arithmetic alone. Raising the cap buys margin and lengthens a
+nightly that already runs four hours. Cutting the 150-minute slice buys margin
+and is the one thing the workflow argues against, because it trades a
+self-healing overrun for a check that never reaches its verdict. Moving the bank
+earlier changes what "whatever this job's verdict was" means. What this entry
+DOES is put the limitation where a reader of the register will meet it, with a
+measurement instead of arithmetic.
+
+**NOT CLAIMED.** That step 20 being skipped is new — it is the documented
+consequence of 19 failing, and the length-curve row therefore went unchecked on
+main last night, which is worth knowing when reading any claim that it holds.
+That the slice made progress — it banked 1.36 MB, and whether that advances the
+resume point far enough to finish tonight is not measured here. That the freshness
+failure at step 23 belongs to this entry: it is M-295's, recorded there.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~350~~ -> **351**.
+
+**351** with this entry (2026-09-18).
