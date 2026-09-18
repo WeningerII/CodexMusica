@@ -5509,11 +5509,49 @@ Three rules make it correct rather than merely wider:
 
 **MEASURED THROUGH THE REAL ENTRY POINT**, `position='end'`, coarse `RHYME`:
 
-| pair               | before | after                                                                                          |
-| ------------------ | -----: | ---------------------------------------------------------------------------------------------- |
-| `night`/`light`    |      5 | **9** — and `perfect rhyme (last stressed syllable)` now answers YES, where it was a VIOLATION |
-| `mother`/`brother` |      — | 7, including `feminine rhyme` and `double rhyme`                                               |
-| `love`/`move`      |      — | 2 — correctly NOT a perfect rhyme                                                              |
+| pair               | before | after                                                                                          | re-measured 2026-09-18 |
+| ------------------ | -----: | ---------------------------------------------------------------------------------------------- | ---------------------: |
+| `night`/`light`    |      5 | ~~**9**~~ — and `perfect rhyme (last stressed syllable)` now answers YES, where it was a VIOLATION | **11** |
+| `mother`/`brother` |      — | 7, including `feminine rhyme` and `double rhyme`                                               | **7** |
+| `love`/`move`      |      — | 2 — correctly NOT a perfect rhyme                                                              | **2** |
+
+**RE-MEASURED 2026-09-18 ON `0eb0a50b`, and ONE ROW MOVED.** Over the 76
+names the `type` namespace declares today, at `position='end'` and coarse
+`RHYME`, through `satisfies_relation` itself:
+
+- `night`/`light` — 11 satisfied, 60 no, 5 refused, 0 undecided. The eleven
+  are `antya-prasa`, `broken rhyme`, `compound rhyme`, `cynghanedd lusg`,
+  `masculine rhyme`, `mosaic rhyme`, `perfect rhyme (last stressed
+  syllable)`, `phrasal rhyme`, `qafiya`, `single rhyme`, `split rhyme`.
+  **The row above recorded 9.**
+- `mother`/`brother` — 7 satisfied, and `feminine rhyme` and `double rhyme`
+  are both among them, exactly as recorded.
+- `love`/`move` — 2 satisfied (`consonance`, `slant rhyme (consonant)`), and
+  no perfect rhyme, exactly as recorded.
+
+**TWO OF THE THREE ROWS REPRODUCE TO THE NAME.** So this is one figure that
+moved as the registry grew, not a judge behaving differently: the entry's
+substantive claim — that the widened path answers at a name's own coordinate
+and says YES to `perfect rhyme (last stressed syllable)` — holds unchanged.
+The old figure is struck rather than overwritten (doctrine 17).
+
+**THE FIVE REFUSALS ARE PRINCIPLED, AND NAMED SO THE COUNT IS NOT MISTAKEN
+FOR A GAP.** `eye rhyme`, `sight rhyme` and `historical rhyme` refuse because
+they are reachable only at a NON-PHONETIC realisation and `classify_pair`
+reads a phonemic stream — the per-key phonetic guard this entry describes,
+doing its job. `chain rhyme` and `multisyllabic rhyme` refuse because they are
+registered only at 4-syllable cells while this pair reads 1 syllable at every
+registered coordinate, which is M-58 item 1's rule that a length the registry
+cannot represent REFUSES rather than FAILS. **The source comment at
+`quality/rhyme_types.py` says "answers 11, refuses 3"**; the answer count
+reproduces and the refusal count does not, most likely because M-58 item 1
+turned two former noes into refusals after that comment was written. Recorded,
+not adjusted, and not repaired here.
+
+**NOTHING GATES THESE THREE FIGURES.** `verify_figures.py --check` passes on
+this tree, so the table above was free to drift by two without any instrument
+noticing — the same shape M-33 built that instrument for. Whether these
+belong under it is a question for the owner, not a repair taken here.
 
 **WHAT IS STILL OPEN.** Cross-tradition names appear for English pairs —
 `adalhending` and `dvitiyakshara-prasa (full aksara)` on `mother`/`brother`.
