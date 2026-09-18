@@ -845,6 +845,10 @@ export async function createChatRouter({
           // field added to loopFields is a field added HERE, in one edit.
           path: c.path ?? null,
           ms: c.ms ?? null,
+          // M-279: the named tool budget and the work a killed call retained,
+          // copied by name as the M-216 fields are.
+          tool_deadline: c.tool_deadline ?? null,
+          retained: c.retained ?? null,
           memo_state: c.memo_state ?? null,
           memo_hit: c.memo_hit ?? null,
           memo_asked: c.memo_asked ?? null,

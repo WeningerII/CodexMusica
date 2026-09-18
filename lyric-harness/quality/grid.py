@@ -2668,11 +2668,49 @@ def function_profile(song):
              for i, s in enumerate(song.sections) if s.function_name is not None]
     if named:
         prof["function_names"] = named
-    for fn in ("chorus", "prechorus", "bridge", "hook"):
+    for fn in profile_functions():
         bars, sec = song.bars_until(fn)
         prof[f"bars_until_first_{fn}"] = bars
         prof[f"has_{fn}"] = bool(song.instances_of(fn))
     return prof
+
+
+def profile_functions():
+    """-> the function names this profile asks its two questions of, DERIVED.
+
+    RULED 2026-09-18 under the owner's delegation (MISSING.md M-101, RULINGS
+    WANTED #4). This read a hand-written `("chorus", "prechorus", "bridge",
+    "hook")` -- four of the vocabulary's twenty-two names, with no measurement,
+    no corpus rate, no gloss rule and no ruling behind the membership, which is
+    doctrine 58's unwritten threshold wearing a tuple's clothes. It had already
+    steered a plan through `--want=uses=bridge`.
+
+    The membership is now READ OFF THE VOCABULARY, and the rule is the profile's
+    own two questions. `has_<fn>` asks whether a function is present and
+    `bars_until_first_<fn>` asks WHERE it first lands, so the profile may ask
+    about exactly those functions that are sections -- the objects a bar offset
+    is a fact about. That is `kind == "section"`, declared per row since M-56.
+
+    Two facts measured 2026-09-18 decide this against the shipped tuple, and
+    both are readable off `SECTION_FUNCTIONS` without running anything. `bridge`
+    is one of the hand-written four and carries `recurrence="once"`, so the four
+    were never "the sections that come back" whatever else they were. And
+    `burden` and `refrain` carry `kind="line"` -- they are a refrain line or
+    couplet, not a span -- so a bar offset on either answers a question about
+    the wrong kind of object, which is M-54's fourth residue answered here by
+    derivation rather than by a second hand-written list.
+
+    The derived membership is a SUPERSET of the four it replaces, so every
+    banked predicate keeps working and no key a reader depends on disappears;
+    what moves is that the profile grows from four names to the twenty the
+    vocabulary declares as sections. The two alternative readings are declined
+    with their reason: measuring the marked corpus would let that corpus's
+    editorial bias (MISSING.md K-1a, where one anthology supplies 23.0% of all
+    repeat blocks) pick the vocabulary, and naming the twenty by hand would
+    rebuild the same unwritten threshold one list over.
+    """
+    return tuple(sorted(name for name, spec in SECTION_FUNCTIONS.items()
+                        if spec.kind == "section"))
 
 
 def return_findings(song, function="chorus", convention=POPULAR_SONG,

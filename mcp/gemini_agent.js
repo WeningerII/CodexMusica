@@ -418,6 +418,12 @@ function loopFields(v) {
     // drawn shape. Null where the verb printed no such line.
     path: typeof v?.path === 'string' ? v.path : null,
     ms: typeof v?.ms === 'number' ? v.ms : null,
+    // THE WALL AND THE RETAINED WORK (M-279): `path: 'killed'` and 599.0 s
+    // were the whole of what thirteen ten-minute calls left behind — the cap
+    // was never named and every field the call HAD observed was dropped one
+    // layer above this one. Copied by name, as the M-216 fields are.
+    tool_deadline: v?.tool_deadline && typeof v.tool_deadline === 'object' ? v.tool_deadline : null,
+    retained: v?.retained && typeof v.retained === 'object' ? v.retained : null,
     memo_state: typeof v?.memo_state === 'string' ? v.memo_state : null,
     memo_hit: typeof v?.memo_hit === 'number' ? v.memo_hit : null,
     memo_asked: typeof v?.memo_asked === 'number' ? v.memo_asked : null,

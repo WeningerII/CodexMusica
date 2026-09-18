@@ -177,6 +177,42 @@ def test_the_questions_that_needed_a_function():
     check("'does this song have a pre-chorus' (D-1's other example)",
           prof["has_prechorus"] is True and prof["has_hook"] is False)
 
+    # M-101, RULED 2026-09-18 under the delegation: the profile's membership is
+    # DERIVED from the vocabulary's declared `kind`, never a hand-written tuple.
+    # This read `("chorus", "prechorus", "bridge", "hook")` -- four of
+    # twenty-two names with no recorded reason, which is doctrine 58's unwritten
+    # threshold, and it had already steered a plan through `--want=uses=bridge`.
+    # These four checks are what a re-hardcoding has to get past. The last of
+    # them is the one that matters: a tuple typed back in would have to happen
+    # to equal the derivation, and the day the vocabulary gains a section it
+    # would stop doing so.
+    fns = G.profile_functions()
+    kinds = {G.SECTION_FUNCTIONS[f].kind for f in fns}
+    check("the profile asks its two questions of SECTIONS only (M-101)",
+          kinds == {"section"},
+          f"{len(fns)} names, kinds {sorted(kinds)} -- `bars_until_first_X` is "
+          "a placement question and a bar offset is not a fact about a line")
+    check("the two LINE-kind functions are excluded BY DECLARATION (M-54's "
+          "fourth residue, answered by derivation)",
+          "burden" not in fns and "refrain" not in fns
+          and G.SECTION_FUNCTIONS["burden"].kind == "line"
+          and G.SECTION_FUNCTIONS["refrain"].kind == "line",
+          "burden and refrain are a refrain line or couplet, not a span")
+    check("the derivation is a SUPERSET of the four it replaced, so every "
+          "banked predicate keeps working",
+          {"chorus", "prechorus", "bridge", "hook"} <= set(fns),
+          "including `bridge`, whose own recurrence is "
+          f"{G.SECTION_FUNCTIONS['bridge'].recurrence!r} -- the fact that the "
+          "shipped four were never 'the sections that come back'")
+    check("the membership is READ, not typed: it equals the vocabulary's own "
+          "section rows",
+          fns == tuple(sorted(n for n, sp in G.SECTION_FUNCTIONS.items()
+                              if sp.kind == "section")),
+          "red the day a tuple is hardcoded back in, or a section is added to "
+          "the vocabulary and the profile stops asking about it")
+    for fn in fns:
+        assert f"has_{fn}" in prof and f"bars_until_first_{fn}" in prof, fn
+
     f, r, rets = G.return_findings(song, "chorus", rhyme_key=key())
     codes = {x.code for x in f}
     check("does the chorus hold ONE length and ONE meter across returns?",

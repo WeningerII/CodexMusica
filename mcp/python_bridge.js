@@ -23,6 +23,54 @@ function interrupted(message, flags = {}) {
   return Object.assign(new Error(message), flags);
 }
 
+// THE COARSE STAGE A CALL WAS IN WHEN IT ENDED (`MISSING.md` M-279, repair
+// 3). Run 34626453606 banked thirteen ten-minute `lyric_revise` kills whose
+// rows said `proposer_calls: 0` — where the time was NOT — and nothing said
+// where it WAS; six of the thirteen never reached the cook at all. The
+// capture already reads every control record the harness streams, so this is
+// an observation and not an inference, and it separates proposer time from
+// the rest of the revise path without timing anything new. The vocabulary is
+// closed and identifier-shaped, and only a record carrying this invocation's
+// own nonce can set it: no lyric, no model text and no capability reaches it.
+export const BRIDGE_STAGES = [
+  'spawned',
+  'checkpointed',
+  'started',
+  'grading',
+  'proposing',
+  'proposal_completed',
+  'accepted',
+  'finished',
+  'proposer_call',
+  'proposer_returned',
+  'result_recorded',
+];
+
+// WHAT A KILLED CALL STILL HAD (M-279, repair 1). The recovery schema
+// already carries phase, round, completed proposals and accepted lines, and
+// an interrupted call simply never populated them — so thirteen calls that
+// ran ten minutes each handed back nothing at all. Nothing is invented here:
+// every field is read off a control record this invocation's nonce admitted,
+// and a field never observed stays null (doctrine 20 — absent is not zero).
+export function retainedOf(result) {
+  const cp = result?.checkpoint && typeof result.checkpoint === 'object' ? result.checkpoint : null;
+  const usage =
+    result?.proposer_record && typeof result.proposer_record === 'object'
+      ? result.proposer_record
+      : null;
+  const count = (value) => (Array.isArray(value) ? value.length : null);
+  const whole = (value) => (Number.isSafeInteger(value) ? value : null);
+  return {
+    stage: BRIDGE_STAGES.includes(result?.stage) ? result.stage : 'spawned',
+    phase: typeof cp?.status === 'string' ? cp.status : null,
+    round: whole(cp?.round),
+    completed_proposals: count(cp?.proposals),
+    accepted_lines: count(cp?.accepted_lines),
+    proposer_calls: whole(usage?.calls),
+    proposer_in_flight: typeof usage?.in_flight === 'boolean' ? usage.in_flight : null,
+  };
+}
+
 function capture(maxBytes, context = {}, controlToken) {
   const streams = { stdout: '', stderr: '' };
   const pending = { stdout: '', stderr: '' };
@@ -30,6 +78,7 @@ function capture(maxBytes, context = {}, controlToken) {
   let checkpoint;
   let proposer_record;
   let lyric_result;
+  let stage = 'spawned';
   let unjournalledDispatch = false;
   let unknownAtQuestionStart = 0;
   const keep = (stream, text) => {
@@ -66,12 +115,18 @@ function capture(maxBytes, context = {}, controlToken) {
       delete record.transport_token;
       if (prefix === CHECKPOINT) {
         checkpoint = record;
+        // M-279: the latest admitted record IS the stage. A checkpoint whose
+        // status the vocabulary does not name still says a checkpoint arrived.
+        stage = BRIDGE_STAGES.includes(record.status) ? record.status : 'checkpointed';
         unjournalledDispatch = false;
         unknownAtQuestionStart = proposer_record?.unknown_attempts || 0;
         context.onCheckpoint?.(record);
-      } else if (prefix === RESULT) lyric_result = record;
-      else {
+      } else if (prefix === RESULT) {
+        lyric_result = record;
+        stage = 'result_recorded';
+      } else {
         proposer_record = record;
+        stage = record.in_flight ? 'proposer_call' : 'proposer_returned';
         if (record.in_flight || ['response', 'ok', 'empty'].includes(record.status))
           unjournalledDispatch = true;
         if (
@@ -115,6 +170,7 @@ function capture(maxBytes, context = {}, controlToken) {
         checkpoint,
         proposer_record,
         lyric_result,
+        stage,
         accounting_unknown: Boolean(proposer_record?.in_flight || proposer_record?.usage_unknown),
         uncertain_proposal: Boolean(checkpoint?.status === 'proposing' && unjournalledDispatch),
       };
@@ -313,6 +369,22 @@ export function createPythonBridge({
     const signal = signals.length > 1 ? AbortSignal.any(signals) : signals[0];
     const deadlineAt = Math.min(at + timeoutMs, external - reserve);
     const deadlineMs = now + deadlineAt - at;
+    // THE WALL, NAMED (M-279, repair 2). The turn wall says
+    // `stopped_detail: {seconds, cap_seconds}` and a reader can see it; the
+    // tool budget named nothing and existed in run 34626453606's record only
+    // as thirteen kills clustered at 599.0-599.1 s. The deadline is a
+    // MINIMUM of this tool budget and any caller deadline less its delivery
+    // reserve, so a cap alone would still not say which clock ended the
+    // call: `bound_by` says which one. Reported, never changed — no budget
+    // value is read or written here that was not already computed above.
+    const callerAt = Number.isFinite(external) ? external - reserve : Infinity;
+    const toolDeadline = {
+      tool_budget_ms: Math.round(timeoutMs),
+      caller_deadline_ms: Number.isFinite(external) ? Math.round(external - at) : null,
+      reserve_ms: Math.round(reserve),
+      cap_ms: Math.round(deadlineAt - at),
+      bound_by: at + timeoutMs <= callerAt ? 'tool_budget' : 'caller_deadline',
+    };
     return {
       ...options,
       context: { ...context, signal, deadlineAt, deadlineMs },
@@ -320,6 +392,7 @@ export function createPythonBridge({
       signal,
       deadlineMs,
       deadlineAt,
+      toolDeadline,
     };
   };
   const admit = ({ bytes = 0, context = getContext() || {}, signal } = {}) => {
@@ -508,6 +581,8 @@ export function createPythonBridge({
       checkpoint: error.checkpoint,
       proposer_record: error.proposer_record,
       lyric_result: error.lyric_result,
+      // M-279: a kill is exactly the record that needs its stage.
+      stage: BRIDGE_STAGES.includes(error.stage) ? error.stage : 'spawned',
       accounting_unknown: Boolean(error.accounting_unknown),
       uncertain_proposal: Boolean(error.uncertain_proposal),
       timed_out: Boolean(error.timedOut),
@@ -528,7 +603,20 @@ export function createPythonBridge({
   const runVerb = (args, supplied = {}) => {
     const t0 = performance.now();
     const options = limits(supplied);
-    const stamp = (result, path) => ({ ...result, path, ms: Math.round(performance.now() - t0) });
+    const stamp = (result, path) => {
+      const ms = Math.round(performance.now() - t0);
+      // M-279 repairs 1-3: what bound this call, how long it actually ran,
+      // and what it still had when it ended — on a kill exactly as on an
+      // answer, because `path: 'killed'` and a 599 s figure are what the
+      // record used to hold and neither of them is a reason.
+      return {
+        ...result,
+        path,
+        ms,
+        tool_deadline: { ...options.toolDeadline, elapsed_ms: ms },
+        retained: retainedOf(result),
+      };
+    };
     let admission;
     try {
       admission =
@@ -598,6 +686,9 @@ export function createPythonBridge({
             throw new Error('checkpoint file exceeds cap');
           result.checkpoint = JSON.parse(await readFile(options.checkpointPath, 'utf8'));
           if (result.checkpoint.status !== 'proposing') result.uncertain_proposal = false;
+          // M-279: the newer source of accepted state is also the newer
+          // source of what the kill retained.
+          result.retained = retainedOf(result);
           options.context.onCheckpoint?.(result.checkpoint);
         } catch (error) {
           if (error.code !== 'ENOENT') result.checkpoint_error = error.message;

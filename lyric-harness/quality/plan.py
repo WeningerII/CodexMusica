@@ -2021,11 +2021,27 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None):
             funcs.extend(cell)
         if not funcs:
             continue
-        # AT MOST ONE CLOSER, and that bound is NOT derived — nothing in
-        # either gloss says a song may not carry a coda AND an outro. It is
-        # the old `rng.choice((None, "outro", "coda"))` preserved as an
-        # EXPLICIT declared choice rather than silently kept in a tuple's
-        # shape, and the ruling on whether to lift it is M-54's open half.
+        # AT MOST ONE CLOSER, and it IS derived after all — measured
+        # 2026-09-18 while ruling M-54's open half under the owner's
+        # delegation. This comment used to say the bound was not derived,
+        # that nothing in either gloss forbids a song carrying a coda AND an
+        # outro, and that lifting it was an open ruling. All three are wrong,
+        # and one call refutes them: `outro` and `coda` BOTH declare
+        # `boundary="last"`, each with `placement_evidence` quoting its own
+        # gloss ("closes the song", "a closing section"), so
+        # `grid.placement_findings` already refuses either ordering —
+        #
+        #   ["verse", "chorus", "outro", "coda"] -> SECTION_NOT_AT_BOUNDARY
+        #   ["verse", "chorus", "coda", "outro"] -> SECTION_NOT_AT_BOUNDARY
+        #
+        # The exclusion therefore lives in the vocabulary, one layer down,
+        # where M-54 says a single definition belongs; this line is not the
+        # rule, it is an optimisation that skips a draw the placement layer
+        # is certain to reject. Drawing a subset of `enders` here would be
+        # admissible and useless: every two-closer pattern would be thrown
+        # away on the next line. Lifting it needs `boundary` to stop meaning
+        # strictly-final for one of the two, which is a vocabulary change
+        # with its own argument to make and is NOT this line's to take.
         ending = rng.choice(enders)
         if ending:
             funcs.append(ending)
@@ -3340,6 +3356,47 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
     # This runs AFTER the end-rhyme pass so the added end groups draw too,
     # and consumes entropy strictly AFTER every existing draw, so a seed's
     # shape under the old planner is byte-identical under this one.
+    # M-120, RULED 2026-09-18 UNDER THE OWNER'S DELEGATION (RULINGS
+    # WANTED #6 AND #18): AT THE LINE END THE POOL IS THE AUDIBLE FAMILY.
+    # M-192 measured the cost of leaving it open and disclosed it without
+    # ruling: of 250 end-bound groups over seeds 1-40, 149 (59.6%) drew a
+    # relation nobody hears as the lines rhyming and 0 of 40 plans was free
+    # of one — the panel finding M-120 was filed on, with its cause
+    # attached. A song whose line ENDS are organised by relations a
+    # listener does not hear as rhyme is not the sound the dice were meant
+    # to risk, so an END-BOUND group — every member at `end`/`endword`,
+    # `_end_bound_group`, the SAME definition `audible_share` partitions by
+    # (doctrine 1) — draws from `_audible_end_pool()` instead. EVERY OTHER
+    # PLACEMENT IS UNTOUCHED: a group with one member inside a line (head,
+    # chain, internal, the rest of the web) keeps the full certified pool
+    # and M-117's uniform draw there is exactly what it was. The subset is
+    # DERIVED from `relations.audible_as_end_rhyme` over the same
+    # `DRAWABLE_SCHEMAS`, never hand-listed, so certifying a schema whose
+    # ends agree on nucleus and coda widens the end pool with nothing here
+    # edited (M-117's certification idiom, one coordinate over).
+    # THE DICE STAY FLAT (doctrine 19): uniform over whatever pool applies,
+    # the bare default still one draw in len(pool)+1 at BOTH placements —
+    # rarer at a line end only because the pool there is smaller, which is
+    # the narrowing itself and not a reweighting. A declared `--relation=`
+    # still wins and the planner draws nothing (M-55).
+    # ENTROPY, SAID PLAINLY — AND THE PARAGRAPH ABOVE IS NOW HALF TRUE.
+    # This changes the NUMBER OF CHOICES at end-bound groups, so seeds draw
+    # different relations: that is the ruling, not a regression. No draw is
+    # added, removed or reordered — every draw BEFORE this one is
+    # byte-identical (measured over seeds 1-40: sections, meter, groups,
+    # returns, schemes, line slots, hook slot and density all unmoved), and
+    # each group still spends exactly one `randrange` over its own pool, in
+    # the same order. What a smaller pool DOES move is everything drawn
+    # from the same stream after it, and there are two such places. (a)
+    # LATER GROUPS: they share this stream and this claim ledger, so a
+    # narrowed end-bound group can move the relation a later group draws —
+    # 16 of 136 moved groups over seeds 1-40 were not themselves end-bound,
+    # and on every one of the 39 moved seeds the FIRST moved group was.
+    # (b) THE NARRATIVE LINE-UP: the claim above that this draw is
+    # entropy-last was written the day it landed and M-121 has since put
+    # `narrative.draw_lineup` on the same `rng` below it, so 15 of 40 seeds
+    # also draw a different story line-up. Neither is a draw this ruling
+    # added; both are one stream reading a different number of choices.
     # THE CONJUNCTION GATE ON THE DRAW ITSELF (M-118, filed the hour the
     # first drawn plan was read): measured over seeds 4-43 before this
     # filter, 39 OF 40 seeds drew a jointly unsatisfiable schema
@@ -3435,6 +3492,10 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
         _acap = int(_FL.FloorDeclaration().resolve("anaphora_max", _aprof,
                                                    _atok)
                     * total + 1e-9)
+        # M-120: DERIVED HERE, once per call, from the registry's own
+        # audibility test — never a list written down in this file.
+        _aud_pool = _audible_end_pool()
+        _narrowed = 0
         _pairc = {}
         _eqp = {}
         _nep = {}
@@ -3480,9 +3541,14 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
             # then refused the plan.
             _slotted_g = any(not _SL.is_default_spelling(_m2)
                              for _m2 in groups[_gi])
+            # M-120: the line end hears a smaller family than the web does.
+            _end_g = _end_bound_group(groups[_gi])
             _ok = [] if relation else [""]
             _candidates = ([relation.split(":", 1)[1]] if relation
+                           else _aud_pool if _end_g
                            else _RL.DRAWABLE_SCHEMAS)
+            if _end_g:
+                _narrowed += 1
             for _cand in _candidates:
                 if _cand not in _traits:
                     raise PlanRefused(
@@ -3660,15 +3726,39 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
             "NOT DRAWN — the writer declared --relation and a declared "
             "coordinate is carried, never sampled over (M-55)" if relation
             else f"uniform per group over the bare default plus the "
-                 f"{len(_RL.DRAWABLE_SCHEMAS)} certified drawable schemas "
-                 f"(relations.DRAWABLE_SCHEMAS, witness-certified — "
-                 f"M-117). The bare default lands on 1 draw in "
-                 f"{len(_RL.DRAWABLE_SCHEMAS) + 1}, a rarity this "
-                 f"disclosure exists to hand the owner, exactly as the "
-                 f"placement draw's `end` share was. A group binding "
+                 f"certified drawable pool that applies where the group "
+                 f"binds. AT A LINE END (every member at end/endword) the "
+                 f"pool is the AUDIBLE family — {len(_aud_pool)} of the "
+                 f"{len(_RL.DRAWABLE_SCHEMAS)} certified schemas, DERIVED "
+                 f"at call time by relations.audible_as_end_rhyme and "
+                 f"never listed here (M-120, ruled 2026-09-18 under the "
+                 f"owner's delegation: M-192 measured 149 of 250 end-bound "
+                 f"groups over seeds 1-40 drawing a relation nobody hears "
+                 f"as the lines rhyming). ANYWHERE ELSE — a group with one "
+                 f"member inside a line — the pool is all "
+                 f"{len(_RL.DRAWABLE_SCHEMAS)} and M-117's draw is "
+                 f"untouched. The dice stay flat at both (doctrine 19): "
+                 f"the bare default lands on 1 draw in len(pool)+1, which "
+                 f"is 1 in {len(_aud_pool) + 1} at a line end and 1 in "
+                 f"{len(_RL.DRAWABLE_SCHEMAS) + 1} elsewhere — a rarity "
+                 f"this disclosure exists to hand the owner, exactly as "
+                 f"the placement draw's `end` share was. A group binding "
                  f"declared tokens draws only from the schemas the pair "
                  f"route can bind there (relations.pair_bindable, "
                  f"M-149a); the rest stay drawable at default slots"),
+        # THE NARROWING, DISCLOSED AS NUMBERS AND NOT ONLY AS PROSE
+        # (M-120): how many groups drew at a line end, how big the pool
+        # was there against the certified pool, and WHICH names it held —
+        # so a reader can check the derivation against the registry
+        # instead of taking the sentence above on faith. Absent when a
+        # declared relation suppressed the draw, because then nothing was
+        # narrowed and a zero would read as a measurement.
+        **({} if relation else {"end_narrowing": {
+            "end_bound_groups": _narrowed,
+            "end_pool": len(_aud_pool),
+            "full_pool": len(_RL.DRAWABLE_SCHEMAS),
+            "end_pool_names": list(_aud_pool),
+            "derived_by": "relations.audible_as_end_rhyme"}}),
         "value": dict(drawn_relations)}
 
     # THE JOINT GATE (`MISSING.md` M-80). Every constraint above is
@@ -3857,6 +3947,47 @@ def _pickup_phrase(beats):
     return f", {n}-{unit}-beat pickup"
 
 
+def _end_bound_group(members):
+    """-> True when EVERY member of this group binds at the line END.
+
+    ONE DEFINITION (doctrine 1) for the two places M-120 made ask the
+    question: the relation draw's end-pool narrowing above and
+    `audible_share`'s partition below. A bare line number IS the end in
+    another coat (`--groups=` has meant that since the day placements
+    were spelled), `<line>.end` is the same slot written out, and
+    `<line>.endword` anchors at the word start of that same last word —
+    all three are heard at the line's end. Anything else (`head`, `T4`,
+    a searched span) puts a member INSIDE a line, and a group with one
+    such member is not heard as the line ends binding whatever relation
+    it draws, so it keeps the full certified pool.
+    """
+    for m in members:
+        m = str(m).strip()
+        if "." in m and m.split(".", 1)[1] not in ("end", "endword"):
+            return False
+    return True
+
+
+def _audible_end_pool():
+    """-> the drawable schemas a listener hears as END RHYME, DERIVED at
+    call time (`MISSING.md` M-120, ruled 2026-09-18 under the owner's
+    delegation).
+
+    NOT A HAND LIST, and that is the whole point of deriving it: the
+    pool is `relations.DRAWABLE_SCHEMAS` filtered by
+    `relations.audible_as_end_rhyme`, the registry's own channel test
+    (both member spans at the line-final token, nucleus AND coda
+    required to agree). Certify a nineteenth schema whose ends agree on
+    both channels and it joins this pool the same hour, with nothing
+    here edited; move the predicate and the pool moves with it. A
+    written-out six would have been a second taxonomy beside the
+    registry's, which is exactly what M-120 said no declaration should
+    invent.
+    """
+    return tuple(n for n in _RL.DRAWABLE_SCHEMAS
+                 if _RL.audible_as_end_rhyme(_RL.REGISTRY[n]))
+
+
 def audible_share(plan):
     """-> the plan's END-BOUND groups partitioned by whether a listener
     hears their drawn relation as end rhyme (`MISSING.md` M-192; the
@@ -3879,9 +4010,7 @@ def audible_share(plan):
         if not g.strip():
             continue
         members = [m.strip() for m in g.split(",")]
-        at_end = all(("." not in m) or m.split(".", 1)[1] in ("end", "endword")
-                     for m in members)
-        if not at_end:
+        if not _end_bound_group(members):
             continue
         out["end_bound"] += 1
         name = rels.get(SC.label((gi,)))

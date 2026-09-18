@@ -445,10 +445,21 @@ def test_the_wired_draw():
     #: PARARHYME, F RIME RICHE, J MONAI** (measured 2026-09-05).
     # 2026-09-08 supersedes the historical M-239 draw above: same exact
     # causal pin, measured after the executable work/capacity admission repair.
+    #: REPINNED 2026-09-18 (`MISSING.md` M-120, RULED under the owner's
+    #: delegation): ONE coordinate moves and it is the one the ruling aims
+    #: at. `F` drew `cluster consonance / skothending span`, which is a real
+    #: relation and is NOT audible as rhyme at a line end; `F`'s group is
+    #: end-bound, so the narrowed pool no longer offers it and the label
+    #: falls to the bare default. `A` and `D` are untouched, and `J` was
+    #: already bare. This pin moving is the ruling working, not drift: a
+    #: seed whose line ends stop being organised by a relation nobody hears
+    #: is the entire point, and the M-120 entry's own before/after table
+    #: records the same movement over seeds 1-40 (inaudible 87 -> 0, bare
+    #: 20 -> 54).
     check("seed 31's exact current relation draw re-derives",
           {k:pl["relations"].get(k) for k in ("A","D","F","J")} == {
               "A":"schema:head rhyme (positional)", "D":"schema:pararhyme",
-              "F":"schema:cluster consonance / skothending span", "J":None},
+              "F":None, "J":None},
           {k:pl["relations"].get(k) for k in ("A","D","F","J")})
     #: REPINNED A SIXTH TIME 2026-08-30 (`MISSING.md` M-174), and this move
     #: is the NARROWEST of the six, which is itself the reading: the
@@ -456,10 +467,17 @@ def test_the_wired_draw():
     #: its existence, so seed 31's cover is BYTE-IDENTICAL at 359 groups and
     #: only the label count moves, 19 -> 20. The three named draws (A bare,
     #: D consonance, F pararhyme, J perfect rhyme) all held through it.
-    check("seed 31 now draws the executable floor 12, with 79 groups and 8 labels; "
+    #: REPINNED AN EIGHTH TIME 2026-09-18 (M-120): the LABEL COUNT moves
+    #: 8 -> 6 and nothing else does. Lines stay 12 and the cover stays
+    #: BYTE-IDENTICAL at 79 groups, because the narrowing changes which
+    #: relation an end-bound group draws and never whether the group
+    #: exists. Two labels whose groups are end-bound drew a relation
+    #: inaudible at a line end and now carry the bare default, which is
+    #: recorded as no entry at all.
+    check("seed 31 now draws the executable floor 12, with 79 groups and 6 labels; "
           "the prior 18/147/9 draw remains recorded above",
           pl["total_lines"] == min(P.fillable_line_counts()) == 12
-          and len(pl["groups"]) == 79 and len(pl["relations"]) == 8,
+          and len(pl["groups"]) == 79 and len(pl["relations"]) == 6,
           f"lines {pl['total_lines']}, groups {len(pl['groups'])}, labels {len(pl['relations'])}")
     nar = pl["narrative"]
     #: REPINNED 2026-09-05 (M-239) WITH THE LENGTH: seed 31's roster is

@@ -8443,6 +8443,31 @@ only, so `refrain` and `hook` stop carrying a placement coordinate by
 declaration rather than by accident. `_CELLS` and the grader's reading of
 `placement_findings` are recorded in this entry as owed and are already shipped;
 the entry's text is corrected to match the tree in the same sitting.
+
+**THE FIRST HALF WAS MEASURED BEFORE IT WAS LIFTED, AND THE MEASUREMENT CLOSES
+IT INSTEAD.** The ruling above said to lift the outro/coda exclusion because no
+gloss licenses it. That premise is false, and one call refutes it. `outro` and
+`coda` BOTH declare `boundary="last"`, each carrying `placement_evidence` that
+quotes its own gloss — "closes the song" and "a closing section" — so
+`grid.placement_findings` already refuses a pattern holding both, in either
+order:
+
+    ["verse", "chorus", "outro", "coda"]  ->  SECTION_NOT_AT_BOUNDARY
+    ["verse", "chorus", "coda", "outro"]  ->  SECTION_NOT_AT_BOUNDARY
+
+So the exclusion is DERIVED, and it is derived in exactly the place this entry
+argues a definition belongs: the vocabulary, read by the one table the planner
+and the grader share. The line in `_sample_pattern` is not the rule. It is an
+optimisation that skips a draw the placement layer is certain to reject, and
+lifting it would change no distribution at all — every two-closer pattern drawn
+would be discarded on the next line. The entry's own framing was the error: the
+bound was described as preserved-but-unwarranted when it was enforced one layer
+down the whole time, and the comment saying so has been corrected in place
+rather than left to mislead the next reader. Lifting the exclusion in any real
+sense would require `boundary` to stop meaning strictly-final for one of the
+two, which is a vocabulary change with its own argument to make and is not
+taken here. **This half of M-54 is closed by measurement rather than by a
+build.** The reader-refusal half stands as ruled and is unaffected.
 **Raised by the owner 2026-08-22, asking whether the section vocabulary is
 machine-readable to the order of "outro is at the end… in a way that does not
 bar novel move-37 song structures", and naming constraint propagation as the
@@ -13729,12 +13754,190 @@ makes, so no new declaration invents a taxonomy. The narrowing is disclosed on
 the plan and measured against M-192's 59.6% as its own before-and-after; it
 lands in step 3 of the 2026-09-18 campaign, and `quality/test_plan.py` section
 14 — which today pins that the disclosure is all there is — flips with it.
-> **TESTED WHILE OPEN.** `quality/test_plan.py` section 14 names this entry and
-> PINS THAT NOTHING RULES ON AUDIBILITY: the drawable pool is unfiltered (12 of
-> 18 schemas are inaudible at a line end), no `plan.JOINT_CODES` member can
-> refuse a plan for it, and no `plan.SWEEP_MEASURES` name lets a sweep select on
-> it. M-192 shipped the disclosure; this pins that the disclosure is all there
-> is. Red the day the ruling lands as a coordinate.
+
+> **TESTED WHILE OPEN.** `quality/test_plan.py` section 14 names this entry,
+> and since the ruling landed it pins the NARROWING rather than the absence of
+> one: that the certified pool holds both kinds, so narrowing the end pool is a
+> rule and not a no-op; that no plan over seeds 1-40 draws an inaudible
+> relation at an end-bound group; that the bare default survives the narrowing
+> and the dice stay flat over whichever pool applies, against a floor derived
+> from the pool size rather than typed; that the pool is DERIVED, so moving
+> `relations.audible_as_end_rhyme` moves it; that a group with one member
+> inside a line keeps the full certified pool; that a declared `--relation=`
+> still wins; and that the narrowing stays a draw-time pool rather than
+> becoming a refusal. Each carries a planted mutant. The entry STAYS OPEN
+> because what the ruling did not reach is a declaration: which schemas count
+> as audible at a line end is still decided by the comparator's own
+> nucleus-and-coda test rather than by any declaration a person made, and
+> M-140's schema-door reporting rule is not built. Red the day that
+> declaration lands, or the day the narrowing is removed.
+
+**SHIPPED AND MEASURED 2026-09-18.** The narrowing is built. At a line end the
+pool is the audible family and nowhere else: `_end_bound_group` is the same
+definition `audible_share` already partitions by, so the draw and the
+disclosure cannot disagree (doctrine 1), and the family is DERIVED once per
+call from `relations.audible_as_end_rhyme` over the certified pool rather than
+listed by hand, so it grows when a schema is certified or when the audibility
+predicate moves. Six of the eighteen certified drawable schemas are audible at
+a line end today. Every other placement keeps the full pool, the draw stays
+uniform over whichever pool applies, and a declared `--relation=` still wins
+and suppresses the draw entirely.
+
+Measured over seeds 1-40, both rows produced in one process on THIS tree: the
+`before` row by restoring the pre-ruling draw (the pool derivation preserves
+`DRAWABLE_SCHEMAS` order, so the restored path is byte-identical to the old
+one), the `after` row by the shipped code.
+
+| | end-bound groups | audible | bare default | inaudible | plans free of one |
+|---|--:|--:|--:|--:|--:|
+| before | 156 | 49 | 20 | **87 (55.8%)** | **3 of 40** |
+| after | 156 | 102 | 54 | **0 (0.0%)** | **40 of 40** |
+
+**M-192's `before` row does NOT reproduce, and the reason is not an error in
+either reading.** That record — 250 end-bound groups, 149 inaudible, 59.6%, 0
+of 40 free — was measured on **2026-09-01 over a 22-schema
+`DRAWABLE_SCHEMAS`**; the certified pool holds **18** today. Two of its names
+have since left the pool while remaining in `REGISTRY`: `monorhyme / leash`,
+one of the seven it counted audible, which is why six are audible now, and
+`chain rhyme (rap)`, which it counted fourteen times among inaudible ends.
+M-190's chorus rule and M-191's drawn density cap have also moved how many
+groups a seed emits, which is the 250 against 156. The 59.6% therefore stands
+as a dated reading of a different population and is not quoted forward as this
+ruling's baseline (doctrine 20); 55.8% on the current tree is.
+
+The end-bound total is the SAME on both rows here, because every draw before
+the relation draw is byte-identical: sections, meter, groups, returns,
+schemes, line slots, hook slot and the density cap all compare equal over
+seeds 1-40, and each group still spends exactly one draw over its own pool in
+the same order. What moves is which relation lands, on 39 of 40 seeds, and on
+every one of those the first moved group is end-bound. Sixteen non-end-bound
+groups also move, downstream rather than by a second rule, because all groups
+share one generator and a narrowed end-bound group shifts what a later group
+draws. One consequence is stated rather than hidden: `narrative.draw_lineup`
+was added below this draw on the same generator after the comment promising
+entropy-last was written, so **15 of 40 seeds also draw a different story
+line-up**. Preserving that would have required changing every group's mapping
+including non-end-bound ones, which is strictly worse, so the draw primitive
+is left alone and the consequence is recorded.
+
+The inaudible relations the old draw put on line ends, most frequent first:
+multisyllabic rhyme 31, cluster consonance 11, family rhyme 10, pararhyme 9,
+assonance 7, consonance 7, subtractive rhyme 6, compound/phrasal rhyme 5,
+internal rhyme 1. After the narrowing: none. `quality/test_plan.py`
+section 14 has flipped accordingly: it pinned that the disclosure was all there
+was, and it now pins the narrowing, its derivation, that non-end placements
+keep the full pool, and that a declared relation still wins.
+
+WHAT REMAINS. This entry stays OPEN on the half the ruling did not reach: which
+of the drawable schemas count as audible at a line end is still decided by the
+comparator's own nucleus-and-coda test rather than by a declaration anybody
+made, and M-140's schema-door reporting rule — schema-only agreement at a line
+END reported under its own name rather than as end rhyme — is not built here.
+**RECONCILED.** Two hands wrote this entry within the hour and their `before`
+rows disagreed: one quoted M-192's remembered 59.6%, the other measured 55.8%
+on the current tree. The measured row is kept and the remembered one is dated
+above with the population change that explains it. A further finding from that
+sitting is kept here rather than lost: **M-120 SUBSUMES M-206 at the only
+groups M-206 guards.** M-206's placement filter runs on all-default groups, an
+all-default group is end-bound by construction, and all six audible schemas
+satisfy `placement_bindable(("end", "end"))` — so with the narrowing in place
+M-206's own mutation fired on 0 of 60 seeds and its check was reading green for
+the wrong reason. The mutation now lifts the narrowing too. M-206's filter is
+NOT removed: it becomes load-bearing again the moment the audibility predicate
+admits a schema whose placement rule two line ends cannot satisfy.
+
+**SHIPPED 2026-09-18 — THE NARROWING, AND THE ENTRY STAYS OPEN.** At an
+END-BOUND group — every member at `end`/`endword`, `plan._end_bound_group`,
+the SAME definition `audible_share` partitions by (doctrine 1) — the draw's
+candidate pool is now `plan._audible_end_pool()`: `DRAWABLE_SCHEMAS` filtered
+by `relations.audible_as_end_rhyme`, **read at call time, six of eighteen
+today, with nothing written down in `plan.py`**. Certify a nineteenth schema
+whose ends agree on nucleus and coda and it joins the end pool the same hour;
+move the predicate and the pool moves with it, which `test_plan.py` §14 proves
+by teaching the predicate to hear consonance and watching the end pool grow to
+seven and consonance land on a line end. A group with ONE member inside a line
+keeps all eighteen and M-117's uniform draw there is byte-untouched, and a
+declared `--relation=` still wins and suppresses the draw entirely (M-55). The
+dice stay flat (doctrine 19): the bare default is still 1 draw in
+len(pool)+1 — 1 in 7 at a line end, 1 in 19 across the web — and an EMPTY end
+pool still plans all forty seeds, because the bare default is what keeps a
+narrowed pool non-empty by construction. `choices.relations.end_narrowing`
+discloses the narrowing as numbers (groups narrowed, end pool against
+certified pool, the names, and the predicate that derived them) beside the
+prose `chosen_from` every draw already carries.
+
+**BEFORE AND AFTER, seeds 1-40, re-run the same hour on the same tree**
+(`_audible_end_pool` returned the full pool for the BEFORE row, which is the
+pre-ruling draw exactly):
+
+| | end-bound groups | audible | bare | inaudible | inaudible share | plans free of one |
+|---|---|---|---|---|---|---|
+| before | 156 | 49 | 20 | 87 | **55.8%** | 3 of 40 |
+| after | 156 | 102 | 54 | **0** | **0.0%** | **40 of 40** |
+
+**AND THE BEFORE ROW IS NOT M-192's 59.6% / 0-of-40, WHICH IS WORTH SAYING
+RATHER THAN ADJUSTING.** M-192 measured 250 end-bound groups over a
+**22-schema** drawable pool on 2026-09-01; the certified pool is **18** today.
+Two of the names it counted have left it — `monorhyme / leash`, one of the
+seven it called AUDIBLE, and `chain rhyme (rap)`, which it counted 14 times
+among the inaudible ends — so the audible family is six rather than seven
+(both are still in `REGISTRY`, neither is in `DRAWABLE_SCHEMAS`). M-191's
+drawn density cap and M-190's chorus rule have both since moved how many
+groups a seed emits, which is where 250 became 156. Re-measured on today's tree the
+pre-ruling figure is **87 of 156 (55.8%) and 3 of 40 plans free** — the same
+finding at a slightly smaller magnitude, not the same number. The inaudible
+names the old draw put on line ends, most first: multisyllabic rhyme 31,
+cluster consonance 11, family rhyme 10, pararhyme 9, assonance 7, consonance
+7, subtractive rhyme 6, compound/phrasal rhyme 5, internal rhyme 1. After the
+ruling: none.
+
+**WHAT MOVED, SAID EXACTLY.** No draw was added, removed or reordered, and
+every draw BEFORE the relation draw is byte-identical over seeds 1-40 —
+sections, meter, groups, returns, schemes, line slots, hook slot and the
+density cap all unmoved, which is why the end-bound count is 156 on both rows.
+**39 of 40 seeds draw a different relation somewhere** (only seed 22 is
+unmoved); 136 group draws moved, **120 of them at end-bound groups** and 16
+not, and on every one of the 39 seeds the FIRST moved group is end-bound. The
+16 are the shared stream and the shared claim ledger, not a second rule. The
+same shared stream moves the M-121 narrative line-up on 15 of 40 seeds: the
+2026-08-25 comment promising this draw is entropy-last was true the day it was
+written and M-121 has since put `narrative.draw_lineup` below it, which the
+comment now says out loud.
+
+**AND M-120's NARROWING SUBSUMES M-206's PLACEMENT FILTER AT THE ONLY GROUPS
+M-206 GUARDS.** That filter runs on all-default groups, an all-default group is
+end-bound by construction, and all six audible schemas pass
+`placement_bindable(("end", "end"))` — agreeing on nucleus and coda at the
+line-final token is strictly more than being allowed to sit there. With the
+narrowing in place M-206's own mutation fired on 0 of 60 seeds and its check
+read green for the wrong reason, so §13's mutation now lifts the narrowing too.
+The subsumption is a reason to KEEP M-206, not to drop it: widen
+`audible_as_end_rhyme` by one schema whose placement rule two line ends cannot
+satisfy and it is load-bearing again the same hour.
+
+**WHAT REMAINS, AND WHY THIS IS NOT CLOSED.** The narrowing is a DRAW-TIME
+POOL, not a refusal. No `plan.JOINT_CODES` member refuses a plan for
+audibility and no `plan.SWEEP_MEASURES` name selects on it, so a hand-written
+`--relation=schema:consonance` or a hand-written `--groups=` still puts an
+inaudible relation on a line end and the grader stays the final word (M-73) —
+which is the right split for a taste coordinate and is exactly what a reader
+of this entry should be able to check. Still open beside it: whether the
+audible family is the RIGHT family (the predicate is a phonological core, not
+a listening study), and whether the end pool at six is wide enough that a
+plan's ends do not all sound alike — neither is decidable without taste, and
+neither is answered here.
+> **TESTED, AND FLIPPED THE DAY THE RULING LANDED.** `quality/test_plan.py`
+> section 14 named this entry and PINNED THAT NOTHING RULED ON AUDIBILITY —
+> unfiltered pool, no joint code, no sweep measure. It now pins the ruling
+> instead, in four claims each with the mutation that removes it: the
+> narrowing (un-narrow the end pool and 87 inaudible end relations come
+> back), the DERIVATION (move `audible_as_end_rhyme` and the pool moves, which
+> a hand-written six cannot), NON-END PLACEMENT UNTOUCHED (narrow everywhere
+> and the 266 inaudible names still drawn across the web vanish), and a
+> declared `--relation=` still winning. The flat-dice bound rides with them —
+> the bare default's share at a line end may not fall below 1/(end pool + 1),
+> which catches a narrowing that also reweighted. What it still pins as an
+> ABSENCE is the last paragraph above: no joint code, no sweep measure.
 Filed 2026-08-25 from panel run 5 (`quality/RESULTS_PANEL.md` §8), the
 first measurement of a song whose relations the planner DREW (M-117).
 Both weakest-of-set ballots against the suspect heard the drawn web as
@@ -21747,6 +21950,45 @@ left-to-right collapse re-introduces exactly the enumeration bias the v2 smoke
 run found, so the constraint layer prunes the space and the draw stays a
 derivation, never a walk of the tree. Production qualification of the maximum
 workload is not claimed by this ruling and stays open.
+
+**THE DRAW WAS MEASURED BEFORE IT WAS REPAIRED, AND THE ENTRY'S REMEDY IS
+ALREADY BUILT WHILE THE DEFECT IS SOMEWHERE ELSE.** This entry says the
+section-count draw is uniform over admissible PATTERNS and prescribes the M-81
+move: draw the COUNT first, then a pattern of that many cells. Read at
+`_sample_pattern`, the count IS drawn first — `n_cells = rng.randint(1,
+max(1, max_cells))` — and the cells are drawn afterwards. The prescribed
+repair is the shipped code, so the entry's premise about where the bias lives
+is wrong.
+
+The bias itself is real, and it is in the LINE allocation rather than the
+pattern draw. Measured over seeds 1-40 on the current planner, counting the
+line slots each sung section actually receives:
+
+| quantity | measured |
+|---|--:|
+| sung sections per plan | 4 min, 7 median, 11 max |
+| lines per sung section | 1 min, 2 median, 19 max |
+| sung sections carrying exactly ONE line | **74 of 280, 26.4%** |
+| total lines per plan | 12 min, 25 median, 31 max |
+
+A quarter of every sung section a plan draws is one line long, and the median
+section is two lines. That is the defect RULINGS WANTED #22 recorded from seed
+33 by hand, now sized over a population: a one-line verse cannot carry the
+narrative its own gloss says a verse carries, and a one-line chorus is not the
+returning section a listener hears. The thin-section complaint is CONFIRMED
+and RE-AIMED — it is a statement about how lines are dealt to sections, not
+about how the section count is drawn.
+
+WHAT THIS DOES NOT DO. The repair is not taken here, because the honest
+options are not equivalent and one of them is a doctrine 58 trap. A per-kind
+floor DERIVED from each function's own declared reach is the shape this
+register prefers, but `FunctionSpec` carries `recurrence`, `returns_as`,
+`boundary` and the placement fields and NO line-count reach, so there is
+nothing to derive from today and a typed floor would be exactly the unwritten
+threshold this entry was opened about. Declaring a per-function minimum in the
+vocabulary, each row's evidence quoted from its own gloss, is the defensible
+route and is a vocabulary addition with its own sitting. The measurement above
+is what that sitting should be preregistered against.
 
 **CURRENT STATUS — 2026-09-08.** The calibration and structural envelope
 remains distinct from execution admission. `plan.execution_limits()` derives

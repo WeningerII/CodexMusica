@@ -679,6 +679,32 @@ function extractRefusal(report) {
   return m ? m[1].trim() : null;
 }
 
+// AND NOTHING CALLED IT (M-279, repair 4). `extractRefusal` has read the
+// headline since M-168 and no caller ever existed: `verdictOf` set
+// `v.refusal` only from the authenticated record, and only where that record
+// is version 1 AND its status is `refused`. Every exit-2 result that fails
+// either test therefore banked `refusal: null` — the connector's OWN
+// output-cap refusal (`failure` below prints a headline and stamps no
+// record), a control frame lost to the kill that raised the exit, a record
+// under another status, a build that stamped none. Run 34626453606's
+// TWENTY-FOUR `lyric_grade` refusals are that hole: all exit 2, all
+// `refusal: null`, and the two questions that run owes cannot be asked of it
+// at all. The printed headline first, else the last line the harness wrote
+// to stderr, bounded. The authenticated refusal still wins where there is
+// one. RETAINED, NEVER PUBLISHED: a refusal can quote a private title, a
+// lyric or a capability, so `scripts/battery_inspect.mjs` classifies this
+// string into its closed vocabulary and prints no headline of its own.
+const REFUSAL_HEADLINE_MAX = 400;
+function refusalHeadlineOf(r) {
+  const printed = extractRefusal(r.stdout);
+  if (printed) return printed.slice(0, REFUSAL_HEADLINE_MAX);
+  const lines = String(r.stderr || '')
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean);
+  return lines.length ? lines[lines.length - 1].slice(0, REFUSAL_HEADLINE_MAX) : null;
+}
+
 // THE RUN'S OWN THREE DISCLOSURES, READ OUT OF THE REPORT (M-216): which
 // path answered and how long it took (stamped on the result by `runVerb`),
 // the replay memo's warm/cold tally (`REPLAY MEMO: warm — 14 of 28 grading
@@ -936,6 +962,20 @@ function verdictOf(r) {
   if (r.accounting_unknown) v.proposer_usage_unknown = true;
   if (r.timed_out) v.timed_out = true;
   if (r.cancelled) v.cancelled = true;
+  // M-279, ABOVE THE EARLY RETURN ON PURPOSE. A killed call has no
+  // authenticated record, so everything below this point is unreachable for
+  // exactly the thirteen rows that needed it most. The bridge stamps the
+  // wall that bound the call (repair 2), the coarse stage it was in when it
+  // ended (repair 3) and whatever progress its own control records had
+  // already shown (repair 1); all three ride the verdict from here.
+  if (r.tool_deadline) v.tool_deadline = r.tool_deadline;
+  if (r.retained) v.retained = r.retained;
+  // Repair 4: the reason an exit 2 refused. Overwritten below by the
+  // authenticated headline where the record carries one.
+  if (r.code === 2) {
+    const headline = refusalHeadlineOf(r);
+    if (headline) v.refusal = headline;
+  }
   const coverage = record?.coverage || r.checkpoint?.coverage;
   if (coverage) {
     v.coverage = coverage;
@@ -1530,6 +1570,7 @@ export const _verdictInternals = {
   draftFromText,
   verdictOf,
   extractRefusal,
+  refusalHeadlineOf,
   extractRecoveredMandate,
   extractRecoverRefusals,
   extractReportCounts,

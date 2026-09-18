@@ -65,6 +65,61 @@ function refusalOf(c, groups) {
   };
 }
 
+// THE WALL A CALL RAN INTO, AS A NUMBER AND A NAME (M-279). The turn's cap
+// is printed as `cap_seconds` and the tool budget was printed as nothing —
+// run 34626453606's thirteen kills could only be READ as a budget because
+// they clustered at 599.0-599.1 s. `bound_by` says which clock ended the
+// call, because the deadline is a minimum of the tool budget and any caller
+// deadline less its reserve. Numbers and one closed enum; nothing else.
+function projectDeadline(d) {
+  if (!d || typeof d !== 'object') return null;
+  return {
+    cap_seconds: secs(d.cap_ms),
+    elapsed_seconds: secs(d.elapsed_ms),
+    tool_budget_seconds: secs(d.tool_budget_ms),
+    caller_deadline_seconds: secs(d.caller_deadline_ms),
+    reserve_seconds: secs(d.reserve_ms),
+    bound_by: choice(d.bound_by, ['tool_budget', 'caller_deadline']),
+  };
+}
+
+// WHAT THE CALL STILL HAD WHEN IT ENDED (M-279), counts and enums only. The
+// stage list mirrors `BRIDGE_STAGES` in mcp/python_bridge.js and is spelled
+// here rather than imported so this projector stays standalone; anything the
+// bridge adds and this list does not name reads as `other`, never as a new
+// value this projector prints.
+function projectRetained(r) {
+  if (!r || typeof r !== 'object') return null;
+  return {
+    stage: choice(r.stage, [
+      'spawned',
+      'checkpointed',
+      'started',
+      'grading',
+      'proposing',
+      'proposal_completed',
+      'accepted',
+      'finished',
+      'proposer_call',
+      'proposer_returned',
+      'result_recorded',
+    ]),
+    phase: choice(r.phase, [
+      'started',
+      'grading',
+      'proposing',
+      'proposal_completed',
+      'accepted',
+      'finished',
+    ]),
+    round: num(r.round),
+    completed_proposals: num(r.completed_proposals),
+    accepted_lines: num(r.accepted_lines),
+    proposer_calls: num(r.proposer_calls),
+    proposer_in_flight: bool(r.proposer_in_flight),
+  };
+}
+
 function projectRecovery(record) {
   if (record == null) return null;
   if (record.unreadable) return { unreadable: true };
@@ -109,6 +164,9 @@ function projectTool(c, groups) {
     banned_pairs: num(c.banned_pairs),
     draft_carried: bool(c.draft_carried),
     path: ident(c.path),
+    // M-279: the named wall and the retained progress of this call.
+    tool_deadline: projectDeadline(c.tool_deadline),
+    retained: projectRetained(c.retained),
     verdict: ident(c.verdict),
     refusal: refusalOf(c, groups),
     status: choice(c.status, [
