@@ -709,9 +709,54 @@ not.
 > statement in the `internal rhyme` schema note. It would be the first test to
 > name E-3, moving it CITED → GUARDED.
 
-### E-4 · No rhyme density over time `OPEN`
+### E-4 · No rhyme density over time `OPEN` — and MEASURED 2026-09-18: the corpus supplies neither axis the entry names
 **Missing:** rhyme rate per bar, acceleration into a hook, thinning in a
 bridge — rhyme as a rhythmic parameter rather than a per-pair verdict.
+
+**MEASURED BEFORE BUILDING, 2026-09-18 on `eaad5dac`, and BOTH NAMED AXES
+REFUSE.** The entry asks for two things and the tree supplies neither today.
+
+**THE PER-BAR AXIS IS BLOCKED BY G-3, WHICH IS PINNED AS DISCONNECTED.**
+`quality/grid.py` holds the bar grid, `lyric_harness.py meter TEMPLATE` answers
+from the SPINE, and G-3 records that the two are unconnected. That is not an
+oversight this entry may quietly route around: `quality/test_verbs.py` §1 PINS
+the disconnection as three facts, so a commit that connects them breaks that
+pin ON PURPOSE. A rhyme rate per BAR therefore cannot be computed without
+first resolving G-3, and doing so silently would defeat a tripwire somebody
+built.
+
+**THE HOOK-AND-BRIDGE AXIS HAS AN EMPTY POPULATION.** `grid.SECTION_FUNCTIONS`
+declares 22 section functions. Counting bracketed marks across all **1,421**
+files of `corpus/song/`, mapped onto those functions (`verse 1` → `verse`):
+
+| section function | marks | files |
+| ---------------- | ----: | ----: |
+| `verse`          | 74,177 | 1,388 |
+| `burden`         | 1,753 | 35 |
+| `refrain`        | 707 | 40 |
+| `chorus`         | 236 | 62 |
+| `patter`         | 3 | 1 |
+| **`hook`**       | **0** | **0** |
+| **`bridge`**     | **0** | **0** |
+| the other 15     | 0 | 0 |
+
+**`hook` and `bridge` are the two words this entry uses, and neither occurs
+once.** Five of 22 functions appear at all. The corpus is historical and
+traditional verse — its 714 distinct bracketed marks are dominated by `radif`
+(54,193), an apparatus annotation, and `bayt N` (a couplet unit), not by
+modern song sections. So "acceleration into a hook" and "thinning in a bridge"
+name a contrast this population cannot express, and an instrument built to
+report them would answer from an empty axis rather than refuse.
+
+**WHAT THIS CORPUS COULD ANSWER, said so the refusal is not read as
+impossible.** A `verse` against `chorus`/`refrain`/`burden` density contrast is
+available, but the arms are thin — 1,388 files against 62, 40 and 35 — and
+that imbalance is the design decision this entry does not take.
+
+**NOT CLAIMED:** that rhyme density over time is unmeasurable, or that the
+verse/chorus contrast would show nothing. What is claimed is narrower and
+verified: **the two axes the entry names are a blocked coordinate and an empty
+population**, and neither is repaired by writing the runner first.
 
 ### E-5 · The empty/empty coda gift ~~`OPEN`~~ `CLOSED` 2026-09-15 — absent coda evidence omitted from the default scalar
 
