@@ -632,6 +632,105 @@ test('an absent qualification is a stand-down with CI evidence kept; a failed on
   );
 });
 
+// A RUNNING QUALIFICATION IS NEITHER EVIDENCE NOR A DEFECT, AND IT IS NOT THE
+// NEWEST THING AT THE SHA THAT DECIDES -- 2026-09-18. Three deploy runs on main
+// at `fae14b1b` are this section's whole population, and each names a different
+// half of the same defect: 175 red because the only qualification at the SHA was
+// still running, 176 red on run 24's SUCCESS because the newer nightly run 25
+// was in flight and outranked it by id, 177 skipped because the workflow's own
+// `if` had never been told about `schedule`. Two qualifications at one SHA is
+// now the ordinary case, so none of this is a corner.
+test('an in-flight qualification stands down, and never masks a completed one', async () => {
+  const { productionEvidence, QUALIFICATION_JOBS, QUALIFICATION_ABSENT, QUALIFICATION_PENDING } =
+    await import('../scripts/verify_ci.mjs');
+  const ciJobs = REQUIRED_JOBS.map((name) => ({
+    name,
+    status: 'completed',
+    conclusion: 'success',
+  }));
+  const qualJobs = QUALIFICATION_JOBS.map((name) => ({
+    name,
+    status: 'completed',
+    conclusion: 'success',
+  }));
+  const done = {
+    ...run,
+    id: 20,
+    event: 'workflow_dispatch',
+    status: 'completed',
+    conclusion: 'success',
+  };
+  const running = { ...run, id: 21, event: 'schedule', status: 'in_progress', conclusion: null };
+  const failed = { ...done, id: 22, conclusion: 'failure' };
+  // The jobs endpoint is keyed on the run id in the URL, so each fixture run
+  // answers with its own inventory and the CI half stays the CI half.
+  const fetchFor = (qualificationRuns) => async (url) => ({
+    ok: true,
+    json: async () =>
+      url.includes('/runs?')
+        ? { workflow_runs: url.includes('production-qualification') ? qualificationRuns : [run] }
+        : url.includes(`/runs/${run.id}/`)
+          ? { jobs: ciJobs, total_count: ciJobs.length }
+          : { jobs: qualJobs, total_count: qualJobs.length },
+  });
+  const evidence = (runs) =>
+    productionEvidence(sha, { repository, token: 'fixture', fetchImpl: fetchFor(runs) });
+
+  // 1. RUNNING AND NOTHING ELSE: a stand-down, and NOT the absent one. The two
+  //    reasons ask different things of whoever reads the deploy summary.
+  const pending = await evidence([running]);
+  assert.equal(pending.qualification, null);
+  assert.equal(pending.stand_down, QUALIFICATION_PENDING);
+  assert.notEqual(QUALIFICATION_PENDING, QUALIFICATION_ABSENT);
+  assert.equal(pending.run_id, run.id); // CI's half is kept either way
+
+  // 2. THE DEFECT ITSELF: a completed success beside a newer in-flight run is
+  //    the evidence. Under the pre-2026-09-18 selection this threw.
+  const both = await evidence([done, running]);
+  assert.equal(both.stand_down, undefined);
+  assert.equal(both.qualification.run_id, done.id);
+
+  // 3. AND THE NARROWING IS COMPLETENESS, NOT SUCCESS. A completed FAILURE at
+  //    the same SHA still wins the selection and is still red -- selecting the
+  //    newest SUCCESSFUL run would promote evidence selectively, which is the
+  //    weakening this repair is not.
+  await assert.rejects(evidence([done, failed]), /has not succeeded/);
+  await assert.rejects(evidence([done, failed, running]), /has not succeeded/);
+
+  // 4. THE ORDER OF THE PAGE DECIDES NOTHING.
+  assert.equal((await evidence([running, done])).qualification.run_id, done.id);
+
+  // 5. AND A SCHEDULED QUALIFICATION IS EVIDENCE ONCE IT COMPLETES -- the half
+  //    the deploy workflow's own `if` was refusing.
+  const scheduled = await evidence([{ ...running, status: 'completed', conclusion: 'success' }]);
+  assert.equal(scheduled.stand_down, undefined);
+  assert.equal(scheduled.qualification.run_id, running.id);
+});
+
+// DOCTRINE 1 AT A SEAM NO IMPORT CAN CROSS. A workflow `if` cannot read a
+// JavaScript constant, so `QUALIFICATION_EVENTS` is copied into
+// `deploy-connector.yml` by hand -- and that copy went stale the day the
+// nightly schedule landed, skipping the deploy on the first scheduled
+// qualification that ever succeeded. The copy cannot be removed; this is the
+// check that it agrees.
+test('the deploy workflow trusts exactly the declared qualification events', async () => {
+  const { QUALIFICATION_EVENTS } = await import('../scripts/verify_ci.mjs');
+  const yml = readFileSync(
+    join(import.meta.dirname, '..', '.github', 'workflows', 'deploy-connector.yml'),
+    'utf8'
+  );
+  const expression = yml.match(/^ {4}if: >-\n((?: {6}.*\n)+)/m)?.[1];
+  assert(expression, 'the deploy job must declare an `if` guard');
+  const arm = expression.slice(expression.indexOf("'Production qualification'"));
+  assert(arm.length, 'the guard must name the Production qualification producer');
+  const named = [...arm.matchAll(/workflow_run\.event == '([a-z_]+)'/g)].map((m) => m[1]);
+  assert.deepEqual([...named].sort(), [...QUALIFICATION_EVENTS].sort());
+  // The CI producer's own trust condition is a different question and must not
+  // have been folded in by this check reading too far.
+  const ciArm = expression.slice(0, expression.indexOf("'Production qualification'"));
+  assert.match(ciArm, /workflow_run\.event == 'push'/);
+});
+
 test('qualification artifact cannot cross source, attempt or incomplete calibration boundaries', async () => {
   const { COMPONENTS, expectedCommand, validateQualification } =
     await import('../scripts/verify_qualification.mjs');

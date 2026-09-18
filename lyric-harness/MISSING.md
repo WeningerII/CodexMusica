@@ -25507,3 +25507,31 @@ The control is the three PRs that did NOT trip it on the same bases: #324, #326 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~348~~ -> **349**.
 
 **349** with this entry (2026-09-17).
+
+### M-295 · Three deploy runs on one main sha, three different wrong answers, and the live connector could not advance past any of them — a running qualification read as a failed one, a newer in-flight run masking a completed success, and the first scheduled qualification this repository ever produced skipped by a copy of a constant that could not be imported `CLOSED` 2026-09-18 (built; the next merge's deploy measures) — found by the hourly fleet tick rather than by a report
+
+**WHAT WAS MEASURED, AND IT IS THE WHOLE POPULATION.** Main sat at `fae14b1b` with every push-gated job green, last night's qualification green, and `Deploy connector to Render` runs 175, 176 and 177 reading `failure`, `failure`, `skipped`. Three runs, one sha, three distinct causes — and read from the run list alone the failures look like one flaky deploy.
+
+| run | fired by | at | verdict | cause |
+|---|---|---|---|---|
+| 175 | CI push run 2167 completing | 04:28Z | **failure** | qualification run 24 was 16 min into a 2h43m run; an IN-FLIGHT run was handed to `validateCI`, which rejects on `status !== 'completed'` with the sentence a FAILED qualification earns |
+| 176 | qualification run 24 **succeeding** | 06:56Z | **failure** | the run lookup sorts by id and takes the newest whatever its status; nightly run 25 (newer id, still running, 13 min from its own success) outranked the success it was firing on |
+| 177 | qualification run 25 succeeding | 07:09Z | **skipped** | `deploy-connector.yml`'s job `if` requires `event == 'workflow_dispatch'` on the qualification producer, and run 25 is `schedule` |
+
+**THE THIRD IS M-292'S OWN SHAPE, ONE SEAM FURTHER OUT.** That entry declared `QUALIFICATION_EVENTS` once *"because it is read in two places that must never disagree"* and named the run lookup and `validateCI`. There is a THIRD reader and the constant's own comment does not know about it: the workflow `if`, which cannot import a JavaScript constant and therefore carries a hand copy. M-292 widened the two it named and left the third spelling `workflow_dispatch` alone — so the nightly schedule it built produced a green qualification every night that the deploy silently declined to act on, with nothing red anywhere. The cost is exactly what M-292 was written to end: the connector tracks main as often as somebody dispatches by hand.
+
+**AND THE FIRST TWO ARE DOCTRINE 20 AND DOCTRINE 79 AT THE SAME LINE.** A qualification that is RUNNING has said nothing yet. Collapsing it into *"has not succeeded"* charges the deploy red for the ordinary condition of a two-and-three-quarter-hour job being two and three-quarter hours long — inconclusive by construction reported as a failure. And "nobody has started one" and "one is running" are two stand-downs that ask different things of whoever reads the summary; merging them into one sentence is the count-summing this register keeps refusing.
+
+**WHAT SHIPS.**
+1. **`scripts/verify_ci.mjs` selects among COMPLETED runs only.** An in-flight run is no longer evidence and no longer masks evidence. **The narrowing is completeness, not success, and that is the load-bearing choice**: selecting the newest SUCCESSFUL run would let a green witness outrank a red one at the same sha, which is promoting evidence selectively and a real weakening of this gate. A completed FAILURE still wins the selection and is still red — this file's own rule, unchanged.
+2. **`QUALIFICATION_PENDING`, a second stand-down.** With no completed qualification at the sha, `productionEvidence` now returns the reason that was thrown rather than one constant for two conditions, and the deploy's rc=10 summary reads the script's `stand_down` instead of a literal sentence of its own. Run 175's case becomes a green stand-down with no code written for it.
+3. **`deploy-connector.yml` accepts `schedule` on the qualification arm**, and the stale comment asserting the workflow *"only ever runs by manual dispatch"* is replaced rather than left standing.
+4. **The copy that cannot be removed is CHECKED.** `mcp/test_release_gates.mjs` parses the deploy job's `if`, extracts every event named in the qualification arm, and requires that set to equal `QUALIFICATION_EVENTS` — with a control asserting the CI arm still names `push`, so the check cannot pass by reading too far.
+
+**VERIFIED BY MUTATION, each repair against the check that is supposed to hold it.** Restoring the newest-by-id selection reds the in-flight section (12 pass, 1 fail); restoring `productionEvidence`'s single-constant catch reds the same section; restoring the dispatch-only `if` reds the events-agreement section. The repaired tree is 13 of 13, and the offline production group `test_release_gates` + `test_battery_repairs` + `test_connector_contracts` + `test_runtime_assets` is 44 of 44. `prettier --check` passes over `scripts/`, `mcp/` and `.github/`; the edited workflow parses as YAML with the `if` expression balanced.
+
+**NOT CLAIMED.** That the connector is now serving `fae14b1b` — it is not, and this repair cannot make it, because the fix is itself a new commit that needs its own CI and its own qualification before any deploy may promote it. That the live service was WRONG in the meantime: it was serving an older qualified commit, which is the ordering guard working; what it could not do was advance. That anything re-dispatches the missed night — the backstop dispatches when a qualification did not HAPPEN, and these three nights all happened. And no gate anywhere reads the deploy's stand-down REASON; it is a sentence in a run summary, not a check.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~349~~ -> **350**.
+
+**350** with this entry (2026-09-18).
