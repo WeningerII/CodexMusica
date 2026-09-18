@@ -4,10 +4,13 @@ Measured 2026-09-18 on `c665302838ec`, serially, nothing else heavy on the box.
 
 Reproduce with:
 
+Both commands run from `lyric-harness/`; the instrument itself lives at the
+repository root, one level up.
+
 ```
-python3 scripts/measure_lyric_continuations.py --mode cold --seed 16 --lines 28 \
+python3 ../scripts/measure_lyric_continuations.py --mode cold --seed 16 --lines 28 \
     --folds 11 --timeout 2400 --out <new dir>
-python3 scripts/measure_lyric_continuations.py --mode warm --seed 16 --lines 28 \
+python3 ../scripts/measure_lyric_continuations.py --mode warm --seed 16 --lines 28 \
     --folds 11 --timeout 2400 --out <new dir>
 ```
 

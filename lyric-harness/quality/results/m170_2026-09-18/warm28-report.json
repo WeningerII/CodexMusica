@@ -280,12 +280,7 @@
   "host": {
     "platform": "Linux-6.18.44-fc-v33-x86_64-with-glibc2.39",
     "cpu_count": 4,
-    "affinity": [
-      0,
-      1,
-      2,
-      3
-    ]
+    "affinity": [0, 1, 2, 3]
   },
   "memo_environment": {},
   "rows": [
@@ -330,11 +325,7 @@
           "rimes": 8283
         }
       },
-      "load_average": [
-        0.59326171875,
-        0.87744140625,
-        0.95751953125
-      ],
+      "load_average": [0.59326171875, 0.87744140625, 0.95751953125],
       "stdout_sha256": "eb9d9fae57c49055ab4cfe26a557b281a44d4ae45efb5f8150d1ca7e1ba67636",
       "semantic_sha256": "ec5d14cd989dc10f9191d9b24255762c84ea23bdcece5c9ba1d5c4c90943d59c",
       "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -342,13 +333,7 @@
       "pending": {
         "kind": "propose_group",
         "record": {
-          "members": [
-            1,
-            2,
-            3,
-            4,
-            5
-          ],
+          "members": [1, 2, 3, 4, 5],
           "texts": [
             "we carry the morning to the stone",
             "we carry the morning to the rain",
@@ -356,13 +341,7 @@
             "we carry the morning to the light",
             "we carry the morning to the road"
           ],
-          "words": [
-            "",
-            "",
-            "",
-            "",
-            ""
-          ],
+          "words": ["", "", "", "", ""],
           "round": 1,
           "new": null
         }
@@ -409,11 +388,7 @@
           "rimes": 9646
         }
       },
-      "load_average": [
-        0.8759765625,
-        0.90625,
-        0.96435546875
-      ],
+      "load_average": [0.8759765625, 0.90625, 0.96435546875],
       "stdout_sha256": "aafbde813c06d5faa0d172c29049c846b9f2ad731b1c88bfa41aaedbd2817909",
       "semantic_sha256": "330c3350a269021772e3a558cae0786681d878eaf71faf8ff7aca7565c44b1ba",
       "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -470,11 +445,7 @@
           "rimes": 9646
         }
       },
-      "load_average": [
-        1.06005859375,
-        0.96484375,
-        0.984375
-      ],
+      "load_average": [1.06005859375, 0.96484375, 0.984375],
       "stdout_sha256": "ea4dbd98333f2d4353c9f1fae4f260b39e269afbf60605c5a4951cc68a1644a5",
       "semantic_sha256": "72826c19a4fdc479524180f137ce960d93c3e91e3b1834ecef0f1f3a8960678a",
       "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -531,11 +502,7 @@
           "rimes": 9646
         }
       },
-      "load_average": [
-        1.1025390625,
-        0.98974609375,
-        0.9951171875
-      ],
+      "load_average": [1.1025390625, 0.98974609375, 0.9951171875],
       "stdout_sha256": "249a5e824008ae67d1e9e49565f2be185bf85c6b87bddb48bbf0c3de1b2088c8",
       "semantic_sha256": "992943597a2394da0eaa3823c0ac433379057de505879e261244fbfec8aa0c3f",
       "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -592,11 +559,7 @@
           "rimes": 9646
         }
       },
-      "load_average": [
-        1.0390625,
-        0.9951171875,
-        1.0
-      ],
+      "load_average": [1.0390625, 0.9951171875, 1.0],
       "stdout_sha256": "bc400ed5a215884613d3f28398bcdd35e8413186156a4e4ac889dbdaeca31ca5",
       "semantic_sha256": "56a2975b7c6f910f4fd9c340d298ef2b2cdbd1dd8cafd635a999ba0f754951f3",
       "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -653,11 +616,7 @@
           "rimes": 10094
         }
       },
-      "load_average": [
-        1.0087890625,
-        1.0,
-        1.0
-      ],
+      "load_average": [1.0087890625, 1.0, 1.0],
       "stdout_sha256": "4a3113d736aa1bff3003f2748208d7eacb57b71dd38866f83830e18abde445f4",
       "semantic_sha256": "3c69a691c28870da24763a1fe6cd4449e85e80fde1bfd5bdfed0f6c88f22cb4c",
       "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -714,11 +673,7 @@
           "rimes": 10094
         }
       },
-      "load_average": [
-        1.0556640625,
-        1.01416015625,
-        1.0029296875
-      ],
+      "load_average": [1.0556640625, 1.01416015625, 1.0029296875],
       "stdout_sha256": "26cfb2e51d0bdb3227f0c1c7c382db153f782066aaae25e26700b588bc3c5e1d",
       "semantic_sha256": "ea6dbc195067c2475d33f2d5230d82052d521180dfd2f12c22a047222e6a5000",
       "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -775,11 +730,7 @@
           "rimes": 10094
         }
       },
-      "load_average": [
-        1.0224609375,
-        1.00927734375,
-        1.0
-      ],
+      "load_average": [1.0224609375, 1.00927734375, 1.0],
       "stdout_sha256": "64607e4cf286514283cfdd4d80ea9a21f9002cb2c7557a38de695a4742dfeaee",
       "semantic_sha256": "6f23ca72e8013b906f22d4a6ca2b7df90d61bea73c8efbe0fde85c78281c1423",
       "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -836,11 +787,7 @@
           "rimes": 10094
         }
       },
-      "load_average": [
-        1.0048828125,
-        1.00244140625,
-        1.0
-      ],
+      "load_average": [1.0048828125, 1.00244140625, 1.0],
       "stdout_sha256": "b4e3ffe217d58d071e8e212866e82b59fe49871815c533895213dbd0a1844836",
       "semantic_sha256": "957825db036991c90bdc0809f880d36f9bbdaf917efc9448bbfcef8bfbadeca1",
       "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -897,11 +844,7 @@
           "rimes": 10094
         }
       },
-      "load_average": [
-        1.0,
-        1.0,
-        1.0
-      ],
+      "load_average": [1.0, 1.0, 1.0],
       "stdout_sha256": "69fea38a2c8d25a54adbbdc59238e6d6c364e14d49aba805da5d20301eb6ab39",
       "semantic_sha256": "30134dddd703f8e355c3d905ac612b1acb1938f554f6bd2a7ace456b59740b60",
       "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -958,11 +901,7 @@
           "rimes": 10094
         }
       },
-      "load_average": [
-        1.0,
-        1.0,
-        1.0
-      ],
+      "load_average": [1.0, 1.0, 1.0],
       "stdout_sha256": "2bd98b3c0301d9238de0220e61bd02fb52e060ce630190611d53ac6eb40d498c",
       "semantic_sha256": "423b64eeb58f58f631066cce93da1b06d77236ecf8b2e901aa53ae00e9ed855d",
       "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -1019,11 +958,7 @@
           "rimes": 10094
         }
       },
-      "load_average": [
-        1.0,
-        1.0,
-        1.0
-      ],
+      "load_average": [1.0, 1.0, 1.0],
       "stdout_sha256": "a85cc171525cd641fd694faef0556cc24062757ba5460d7bd8c5674c4a9c225e",
       "semantic_sha256": "84b923af4a2ee51db22eff15ba5d53d59b9c70b1d0ac36c1fbe5c8b65080e8c8",
       "stderr_semantic_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
