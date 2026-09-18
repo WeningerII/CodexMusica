@@ -5342,6 +5342,345 @@ await check('validation: actionable errors', () => {
 }
 
 {
+  // M-279 — THE THIRTEEN KILLS THAT RETAINED NOTHING, AND THE TWENTY-FOUR
+  // REFUSALS THAT NAMED NOTHING. Flash-battery run 34626453606 spent 7,565.0 s
+  // — 64.5% of all recorded turn time — inside thirteen `lyric_revise` calls
+  // that came back `exit -1, path: "killed", status: "interrupted"` and
+  // nothing else: `loop_rounds`, `loop_stop_reason`, `loop_unresolved`,
+  // `plan_lines`, `memo_hit` and `memo_asked` all null, and the song's
+  // recovery block reading `progress_present: false, phase: null, round:
+  // null`. The budget that killed them is NEVER NAMED anywhere in that
+  // record — it exists only as a 599.0-599.1 s clustering — while the turn
+  // wall says `stopped_detail: {seconds: 2400, cap_seconds: 2400}` and can
+  // simply be read. Six of the thirteen recorded `proposer_calls: 0`: ten
+  // minutes each without ever reaching the cook, and nothing saying where the
+  // time went instead. And all 24 `lyric_grade` calls were exit 2 with
+  // `refusal: null`, so why a grade refused cannot be asked of that record.
+  //
+  // Four repairs, RETENTION AND OBSERVABILITY ONLY — no grading rule, no
+  // threshold, no budget value and no provider behaviour moves here. Each is
+  // driven through the REAL bridge against a local fixture CLI (no paid
+  // request, no model), then through the real verdict, the real tool row and
+  // the real public projection; and each carries a planted mutant — the
+  // pre-fix artifact, reproduced — which the new check must reject.
+  const { mkdtempSync, mkdirSync, writeFileSync, copyFileSync, rmSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const { createPythonBridge, BRIDGE_STAGES, retainedOf } = await import('./python_bridge.js');
+  const { _verdictInternals: M279_VERDICT } = await import('./lyric_tools.js');
+  const { _agentInternals: M279_AGENT } = await import('./gemini_agent.js');
+  const { projectRecord } = await import('../scripts/battery_inspect.mjs');
+  const M279_KILL_MS = 1200;
+  const M279_CAP_BYTES = 1048576;
+
+  // The fixture CLI: a checkpoint the harness would stream, optionally a
+  // proposer dispatch, then a stall past the deadline. Nothing here is paid,
+  // nothing is a model, and the deadline is the bridge's own.
+  const m279 = { dir: mkdtempSync(join(tmpdir(), 'm279-bridge-')) };
+  try {
+    const harnessDir = join(m279.dir, 'lyric-harness');
+    mkdirSync(harnessDir);
+    mkdirSync(join(m279.dir, 'mcp'));
+    const workerPath = join(m279.dir, 'mcp', 'worker.py');
+    copyFileSync(fileURLToPath(new URL('./worker.py', import.meta.url)), workerPath);
+    writeFileSync(
+      join(harnessDir, 'lyric_harness.py'),
+      `import sys, os, time, json
+
+def cli():
+    mode = sys.argv[1]
+    token = os.environ.get('LYRIC_CONTROL_TOKEN')
+    if mode == 'flood':
+        for _ in range(512):
+            print('x' * 4096, flush=True)
+        return 0
+    print('  lyric checkpoint: ' + json.dumps({
+        'transport_token': token, 'version': 1, 'status': 'proposing', 'round': 2,
+        'proposals': [{'i': 1}, {'i': 2}], 'accepted_lines': ['one accepted line']}), flush=True)
+    if mode == 'stall-in-cook':
+        print('  proposer event: ' + json.dumps({
+            'transport_token': token, 'model': 'fixture', 'calls': 3,
+            'status': 'request', 'in_flight': True}), flush=True)
+    time.sleep(30)
+    return 0
+
+if __name__ == '__main__':
+    sys.exit(cli())
+`
+    );
+    const bridge = createPythonBridge({
+      python: process.env.LYRIC_PYTHON || 'python3',
+      harnessDir,
+      workerPath,
+      harnessEnv: () => ({ ...process.env, PYTHONDONTWRITEBYTECODE: '1' }),
+      timeoutMs: M279_KILL_MS,
+      maxOutputBytes: M279_CAP_BYTES,
+      workerEnabled: true,
+    });
+    m279.beforeCook = await bridge.runVerb(['stall-before-cook']);
+    m279.inCook = await bridge.runVerb(['stall-in-cook']);
+    // A caller deadline UNDER the tool budget: the deadline is a minimum, so
+    // the cap alone cannot say which clock ended the call.
+    m279.caller = await bridge.runVerb(['stall-in-cook'], {
+      context: { deadlineAt: performance.now() + 900 },
+    });
+    m279.flood = await bridge.runVerb(['flood']);
+    bridge.internals.kill();
+  } catch (error) {
+    m279.error = error;
+  }
+
+  // The verdict and the tool row a battery actually banks, and the public
+  // projection read back off a record on disk — the real three layers.
+  const m279Row = (result) => M279_AGENT.loopFields(M279_VERDICT.verdictOf(result));
+  const m279Projected = (tools) => {
+    const dir = mkdtempSync(join(tmpdir(), 'm279-record-'));
+    try {
+      writeFileSync(join(dir, 'run.json'), JSON.stringify({ mode: 'raw', started: null }));
+      writeFileSync(join(dir, 'song0.checkpoint.json'), JSON.stringify({ song: 0, state: {} }));
+      writeFileSync(
+        join(dir, 'song0.jsonl'),
+        JSON.stringify({ turn: 0, ms: 599_050, tools }) + '\n'
+      );
+      return projectRecord(dir).songs[0].turns[0].tools;
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  };
+  const m279Ran = () =>
+    assert.ok(!m279.error, `the M-279 bridge fixture ran: ${m279.error?.stack || ''}`);
+
+  await check(
+    'M-279 (1): a killed call hands back the progress it HAD — phase, round, proposals, accepted lines',
+    () => {
+      m279Ran();
+      const killed = m279.inCook;
+      assert.equal(killed.code, -1, 'the fixture was killed, exactly as the thirteen were');
+      assert.equal(killed.path, 'killed');
+      assert.equal(killed.timed_out, true);
+      assert.ok(
+        killed.retained,
+        'the kill carries a retention record at all — pre-fix it carried none'
+      );
+      assert.deepEqual(
+        {
+          phase: killed.retained.phase,
+          round: killed.retained.round,
+          completed_proposals: killed.retained.completed_proposals,
+          accepted_lines: killed.retained.accepted_lines,
+          proposer_calls: killed.retained.proposer_calls,
+        },
+        {
+          phase: 'proposing',
+          round: 2,
+          completed_proposals: 2,
+          accepted_lines: 1,
+          proposer_calls: 3,
+        },
+        'everything the capture had already observed when the deadline fired'
+      );
+      // NOTHING IS INVENTED: a call that observed no control record keeps
+      // its nulls (doctrine 20 — absent is not zero).
+      assert.deepEqual(retainedOf({}), {
+        stage: 'spawned',
+        phase: null,
+        round: null,
+        completed_proposals: null,
+        accepted_lines: null,
+        proposer_calls: null,
+        proposer_in_flight: null,
+      });
+      const [projected] = m279Projected([{ name: 'lyric_revise', ...m279Row(killed) }]);
+      assert.deepEqual(
+        [
+          projected.retained.phase,
+          projected.retained.round,
+          projected.retained.completed_proposals,
+          projected.retained.accepted_lines,
+        ],
+        ['proposing', 2, 2, 1],
+        'and it survives the verdict, the tool row and the public projection'
+      );
+      // THE PLANTED MUTANT: the pre-fix record, reproduced — the bridge
+      // stamped no retention, so the verdict carried none and the row was
+      // the thirteen kills' row exactly.
+      const mutant = { ...killed };
+      delete mutant.retained;
+      const [mutated] = m279Projected([{ name: 'lyric_revise', ...m279Row(mutant) }]);
+      assert.equal(mutated.retained, null, 'pre-fix: ten minutes, and the record holds nothing');
+      assert.notEqual(projected.retained, null, '...which is exactly what this check now rejects');
+    }
+  );
+
+  await check(
+    'M-279 (2): the tool budget is NAMED on the kill, with the clock that bound it',
+    () => {
+      m279Ran();
+      const wall = m279.inCook.tool_deadline;
+      assert.ok(wall, 'the kill names a wall at all — pre-fix it named none');
+      assert.equal(wall.tool_budget_ms, M279_KILL_MS, 'the budget this bridge was given, reported');
+      assert.equal(wall.cap_ms, M279_KILL_MS, 'and it is the cap that actually bound the call');
+      assert.equal(wall.bound_by, 'tool_budget');
+      assert.ok(
+        wall.elapsed_ms >= M279_KILL_MS,
+        `${wall.elapsed_ms} ms against a ${wall.cap_ms} ms wall, both on the record`
+      );
+      // The deadline is a MINIMUM of the tool budget and any caller deadline
+      // less its delivery reserve, so a number alone would still not say
+      // which wall this was. A caller deadline underneath it binds instead.
+      const caller = m279.caller.tool_deadline;
+      assert.equal(caller.bound_by, 'caller_deadline');
+      assert.ok(
+        caller.cap_ms < caller.tool_budget_ms,
+        `${caller.cap_ms} < ${caller.tool_budget_ms}`
+      );
+      assert.equal(
+        caller.tool_budget_ms,
+        M279_KILL_MS,
+        'the budget VALUE is reported, never moved'
+      );
+      const bridgeSrc = readFileSync(new URL('./python_bridge.js', import.meta.url), 'utf8');
+      assert.ok(
+        /const deadlineAt = Math\.min\(at \+ timeoutMs, external - reserve\);/.test(bridgeSrc),
+        'the deadline arithmetic is untouched: this repair reports it and computes nothing new'
+      );
+      const [projected] = m279Projected([{ name: 'lyric_revise', ...m279Row(m279.inCook) }]);
+      assert.equal(projected.tool_deadline.cap_seconds, M279_KILL_MS / 1000);
+      assert.equal(projected.tool_deadline.bound_by, 'tool_budget');
+      assert.ok(projected.tool_deadline.elapsed_seconds >= projected.tool_deadline.cap_seconds);
+      // THE PLANTED MUTANT: the pre-fix record — the wall appears nowhere,
+      // and a reader is left inferring it from a cluster of like timings.
+      const mutant = { ...m279.inCook };
+      delete mutant.tool_deadline;
+      const [mutated] = m279Projected([{ name: 'lyric_revise', ...m279Row(mutant) }]);
+      assert.equal(mutated.tool_deadline, null, 'pre-fix: the kill named no wall at all');
+      assert.ok(
+        mutated.ms >= M279_KILL_MS / 1000,
+        '...leaving only the elapsed seconds a reader has to CLUSTER, as M-279 had to at 599.0'
+      );
+    }
+  );
+
+  await check(
+    'M-279 (3): a coarse stage says WHERE the ten minutes went, in closed identifiers',
+    () => {
+      m279Ran();
+      assert.ok(
+        Array.isArray(BRIDGE_STAGES) && m279.beforeCook.retained && m279.inCook.retained,
+        'the bridge declares a closed stage vocabulary and stamps it on both kills'
+      );
+      const before = m279.beforeCook.retained.stage;
+      const inside = m279.inCook.retained.stage;
+      assert.equal(before, 'proposing', 'this kill never reached the cook');
+      assert.equal(inside, 'proposer_call', '...and this one died waiting on it');
+      assert.notEqual(before, inside, 'the two ten-minute kills are no longer the same row');
+      assert.equal(m279.beforeCook.retained.proposer_calls, null, 'and absent is still not zero');
+      // THIS ROW IS PROJECTED INTO A PUBLIC JOB LOG: identifier-shaped,
+      // closed, carrying no lyric, no model text and no capability.
+      for (const stage of BRIDGE_STAGES) assert.match(stage, /^[a-z][a-z_]*$/);
+      assert.ok(BRIDGE_STAGES.includes(before) && BRIDGE_STAGES.includes(inside));
+      const [p1] = m279Projected([{ name: 'lyric_revise', ...m279Row(m279.beforeCook) }]);
+      const [p2] = m279Projected([{ name: 'lyric_revise', ...m279Row(m279.inCook) }]);
+      assert.notEqual(p1.retained.stage, p2.retained.stage, 'the projection localises the stall');
+      const [unknown] = m279Projected([
+        { name: 'lyric_revise', retained: { stage: 'a private capability name' } },
+      ]);
+      assert.equal(unknown.retained.stage, 'other', 'an unnamed stage is `other`, never printed');
+      // THE PLANTED MUTANT: the pre-fix record — no stage, and the six
+      // proposer-less kills read identically to the seven that reached the cook.
+      const strip = (result) => {
+        const mutant = { ...result, retained: { ...result.retained } };
+        delete mutant.retained.stage;
+        return mutant;
+      };
+      const [m1] = m279Projected([{ name: 'lyric_revise', ...m279Row(strip(m279.beforeCook)) }]);
+      const [m2] = m279Projected([{ name: 'lyric_revise', ...m279Row(strip(m279.inCook)) }]);
+      assert.equal(m1.retained.stage, null);
+      assert.equal(m2.retained.stage, null, 'pre-fix: both kills, one indistinguishable row');
+    }
+  );
+
+  await check(
+    'M-279 (4): an exit-2 verb retains its refusal headline; the projector classifies and never prints it',
+    () => {
+      m279Ran();
+      // The reachable exit 2 that carries NO authenticated record: the
+      // connector's own output-cap refusal, driven through the real bridge.
+      assert.equal(m279.flood.code, 2);
+      assert.equal(m279.flood.lyric_result, undefined, 'an overflow has no authenticated verdict');
+      assert.match(
+        M279_VERDICT.verdictOf(m279.flood).refusal,
+        /printed more than this connector can carry/,
+        'the printed headline is retained where the record cannot speak'
+      );
+      // The authenticated headline still WINS where the record carries one.
+      assert.equal(
+        M279_VERDICT.verdictOf({
+          code: 2,
+          stdout: '  REFUSED — a printed headline\n',
+          stderr: '',
+          lyric_result: {
+            version: 1,
+            status: 'refused',
+            refusal: 'CREATION_PLAN: the authenticated one',
+          },
+        }).refusal,
+        'CREATION_PLAN: the authenticated one'
+      );
+      // ...and an exit 2 that printed no report at all keeps its last stderr line.
+      assert.equal(
+        M279_VERDICT.verdictOf({
+          code: 2,
+          stdout: '',
+          stderr: 'usage: lyric_harness.py\nlyric_harness.py: error: the reason\n',
+        }).refusal,
+        'lyric_harness.py: error: the reason'
+      );
+      // THE PROJECTION CLASSIFIES AND NEVER PRINTS: a refusal can quote a
+      // private title, a lyric or a capability (battery_inspect.mjs's header).
+      const secret = 'CREATION_PLAN: the song "Private Working Title" carries no plan on record';
+      const mismatch =
+        'the plan declares 13 line(s) and the draft carries 5 — they must be the same song.';
+      const refusedRow = (headline) => ({
+        name: 'lyric_grade',
+        ...m279Row({ code: 2, stdout: `  REFUSED — ${headline}\n`, stderr: '' }),
+      });
+      const rows = m279Projected([
+        refusedRow(secret),
+        refusedRow(mismatch),
+        refusedRow('an unrecognised headline'),
+      ]);
+      assert.deepEqual(Object.keys(rows[0].refusal).sort(), ['category', 'group', 'source']);
+      assert.equal(rows[0].refusal.source, 'harness');
+      assert.equal(rows[0].refusal.category, 'CREATION_PLAN');
+      assert.equal(rows[1].refusal.category, 'PLAN_DRAFT_LINE_COUNT');
+      assert.deepEqual([rows[1].refusal.expected_lines, rows[1].refusal.actual_lines], [13, 5]);
+      assert.equal(rows[2].refusal.category, 'unclassified', 'an unknown cause is not inferred');
+      assert.ok(rows[2].refusal.group > 0, '...it gets a local equality group instead');
+      const printed = JSON.stringify(rows);
+      assert.ok(
+        !printed.includes('Private Working Title') && !printed.includes('unrecognised headline'),
+        'the projector prints the classification and never the headline'
+      );
+      const chatSrc = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+      assert.ok(
+        /refusal: c\.refusal \?\? null,/.test(chatSrc) &&
+          /tool_deadline: c\.tool_deadline \?\? null,/.test(chatSrc) &&
+          /retained: c\.retained \?\? null,/.test(chatSrc),
+        'the battery row copies all three by name, as it copies the M-216 fields'
+      );
+      // THE PLANTED MUTANT: the pre-fix row — exit 2 with `refusal: null`,
+      // which is the shape all 24 of run 34626453606's grade calls were
+      // banked in, and the reason its first and third questions cannot be asked.
+      const [mutated] = m279Projected([{ name: 'lyric_grade', exit_code: 2, refusal: null }]);
+      assert.equal(mutated.refusal, null, 'pre-fix: exit 2, and no reason on the record at all');
+    }
+  );
+
+  rmSync(m279.dir, { recursive: true, force: true });
+}
+
+{
   // THE DEPLOY RE-RUN GUARD, DRIVEN — `MISSING.md` M-187 (b), owed by that
   // entry's 2026-09-02 addendum and paid here. `scripts/deploy_guard.sh` and
   // `scripts/last_deployed_sha.sh` shipped exercised only in a throwaway
