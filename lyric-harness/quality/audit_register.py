@@ -731,10 +731,57 @@ def _claim_or_unverifiable(entries, key, measured, fmt):
     return (CONFIRMED if got == want else MOVED), measured, fmt % c
 
 
+def _eng_work_votes():
+    """-> (work votes, items the edition registry declares out).
+
+    THE ONE DEFINITION IS `lyric_reader.calibration_items`, called rather
+    than respelled (doctrine 1): it is what `build_song_frequency` already
+    consumes, so the floor's own calibration and this census cannot come to
+    different answers about which items count. Measured at 1.0s over the
+    1,297 `eng_` files, which is inside what this module already pays to
+    read them line by line three times.
+    """
+    import pathlib
+    from quality import lyric_reader as LR
+    voted = sum(len(list(LR.calibration_items(pathlib.Path(f))))
+                for f in _song_files("eng_"))
+    raw, _, _ = _song_stats(_song_files("eng_"))
+    return voted, raw - voted
+
+
 def _d_songs():
+    """The English song count — RAW STAGED ITEMS, with the WORK VOTES beside it.
+
+    TWO COUNTS, NEVER SUMMED, and the second one is M-20's whole subject.
+    A `--- TITLE:` line is a staged item; it is not a song, because a poem
+    staged twice in one file produces two of them. `data/calibration_work_
+    editions.json` has ruled on 106 such works since it was written — "One
+    work vote across explicitly reviewed printings. Unlisted items remain
+    distinct... Raw runtime/source reading preserves every edition" — and
+    every one of M-20's 28 `eng_` double-staged pairs is already in it, the
+    first staging at weight 1 and the later at weight 0. So the declaration
+    M-20 asks for EXISTS; what did not exist is a census that reads it, and
+    this derivation reported the raw count alone with no coordinate saying
+    which question it answers.
+
+    THE RAW COUNT IS NOT REPLACED, and that is deliberate. "How many items
+    are staged" is a real question — it is the one a corpus audit asks, and
+    `audit_corpus`'s own shape pins depend on it — while "how many distinct
+    works does this corpus hold" is the question every per-song RATE needs.
+    Rendering either alone reads as the other. The work votes are APPENDED
+    after the raw number for the reason `_d_repeat_blocks` appends its
+    concentration: the parsing regexes downstream keep matching the
+    substring they always matched, and the bare number stops being
+    quotable without its coordinate.
+    """
     songs, _, _ = _song_stats(_song_files("eng_"))
-    return _claim_or_unverifiable(read_entries(), "songs", songs,
-                                  "%d English songs, per K-1")
+    verdict, _measured, want = _claim_or_unverifiable(
+        read_entries(), "songs", songs, "%d English songs, per K-1")
+    voted, zeroed = _eng_work_votes()
+    detail = ("%d raw staged items; WORK VOTES (M-20): %d, with %d item(s) "
+              "declared weight 0 in data/calibration_work_editions.json"
+              % (songs, voted, zeroed))
+    return verdict, detail, want
 
 
 def _d_sung_lines():

@@ -1378,7 +1378,12 @@ def corpus_song_files():
 
 
 def english_corpus():
-    """MISSING.md K-1's own quantities: English songs, sung lines, repeat blocks.
+    """MISSING.md K-1's own quantities: English items, sung lines, repeat blocks.
+
+    ~~English songs~~ — STRUCK 2026-09-18 (M-20): the first quantity was
+    never a count of songs. It counts `--- TITLE:` lines, and a poem staged
+    twice in one file is two of them; the work vote is printed beside it now
+    and the two are never summed.
 
     DERIVATION. `python3 quality/audit_register.py --slow` derivations D1, D2
     and D3, which are the repo's existing instrument for these and STATE THEIR
@@ -1399,7 +1404,26 @@ def english_corpus():
     corpus only grows is not a bound.
     """
     out, _ = _once("register", ["quality/audit_register.py", "--slow"])
-    songs = int(_derivation(out, "D1"))
+    d1 = _derivation(out, "D1")
+    songs = int(_grab(r"^(\d+) raw staged items", d1,
+                      "the raw staged-item count").group(1))
+    # M-20: THE RAW COUNT MAY NOT BE RENDERED WITHOUT ITS WORK VOTES, which
+    # is K-1a's rule one axis over. A `--- TITLE:` line is a staged ITEM and
+    # a poem staged twice in one file produces two of them, so the raw number
+    # is the denominator of every per-song rate and is not a count of songs.
+    # `data/calibration_work_editions.json` has already voted on those
+    # printings; a D1 that stopped printing the vote must fail this cell
+    # loudly rather than hand the inflated number back out alone.
+    votes = re.search(r"WORK VOTES \(M-20\): (\d+), with (\d+) item", d1)
+    if not votes:
+        raise ValueError(
+            "D1 no longer prints its WORK VOTES (M-20) — a `--- TITLE:` "
+            "line is a staged item and not a song, and the raw count is "
+            "not renderable without the edition registry's vote")
+    voted, zeroed = int(votes.group(1)), int(votes.group(2))
+    if voted + zeroed != songs:
+        raise ValueError("work votes %d + %d declared out != %d staged items"
+                         % (voted, zeroed, songs))
     lines = int(_derivation(out, "D2"))
     d3 = _derivation(out, "D3")
     rb = _grab(r"BURDEN (\d+) REFRAIN (\d+) CHORUS (\d+) \(sum (\d+)\)",
@@ -1422,13 +1446,19 @@ def english_corpus():
     nfiles = len(
         [f for f in os.listdir(os.path.join(ROOT, "corpus", "song"))
          if f.startswith("eng_") and f.endswith(".txt")])
-    cell = ("%d files, %s songs, %s sung lines; %s repeat blocks "
+    cell = ("%d files, %s staged items (%s work votes, %d declared out), "
+            "%s sung lines; %s repeat blocks "
             "(%s BURDEN / %s REFRAIN / %s CHORUS); %s"
-            % (nfiles, "{:,}".format(songs), "{:,}".format(lines),
+            % (nfiles, "{:,}".format(songs), "{:,}".format(voted), zeroed,
+               "{:,}".format(lines),
                "{:,}".format(tot), "{:,}".format(b),
                "{:,}".format(r), "{:,}".format(c), conc.group(0)))
     return Answered(cell,
-                    "rule: a song is a `--- TITLE:` line; a sung line is "
+                    "rule: a staged item is a `--- TITLE:` line and a WORK "
+                    "VOTE is one that `data/calibration_work_editions.json` "
+                    "does not declare weight 0 (M-20 — two counts, never "
+                    "summed: a poem staged twice is two items and one work); "
+                    "a sung line is "
                     "non-blank and does not begin `#`, `---` or `[`; a repeat "
                     "block is a `[TAG` line with its trailing index stripped; "
                     "the concentration rides the cell because the total "
