@@ -26961,6 +26961,36 @@ runner time, the second weakens a guard whose over-inclusiveness is doctrine
 16's deliberate design, and the third is a scheduling promise nobody has made.
 **This entry names them and rules on none.**
 
+**BUT THE FIRST ONE IS PRICED NOW, BECAUSE PRICING IT IS ARITHMETIC AND NOT A
+RULING.** From each night's own step table and row count, at the documented
+corpus size of **8,663** items:
+
+    night        steps 1-18   slice -> rows      rate     full rebuild   job total
+    2026-09-18     90.58 min  150 -> 8,000   53.33/min      162.4 min     253.0 min
+    2026-09-19     92.55 min  150 -> 7,400   49.33/min      175.6 min     268.2 min
+
+**SO RAISING THE STEP TIMEOUT ALONE CANNOT WORK: THE JOB CEILING BINDS FIRST.**
+A from-scratch pass needs **162-176 minutes** against the 150 it is given, but
+the whole job then needs **253-268 minutes** against a **240-minute** ceiling —
+over by **13 to 28 minutes**. Option 1 is therefore not "raise `timeout 150m`";
+it is "raise the step AND the job's `timeout-minutes`", which is a different
+and larger request.
+
+**AND IT LANDS WHERE M-296's BCI-10 ARITHMETIC ALREADY IS, FROM THE OTHER
+DIRECTION.** That paragraph sums DECLARED bounds — *"the older 77.4m non-song
+measurement plus the 150m song and newer 40m curve bounds totals 267.4m before
+setup/save, exceeding this 240m job by 27.4m"* — and calls itself *"bound
+arithmetic, not a current completed-run measurement"*. The 2026-09-19 row above
+IS that measurement, derived from observed throughput rather than declared
+bounds, and it reads **268.2 against 267.4**. Two independent routes to one
+place is a check on both.
+
+**WHAT THE ESTIMATE ASSUMES, STATED RATHER THAN BURIED**: a uniform per-item
+cost. The memo is written sorted and items differ in length, so the two rates
+(53.33 and 49.33 rows/min, ~8% apart across two runs on different runners) are
+a first-order figure and not a measurement of the tail. Nothing here is
+adopted and no constant is tuned to it (doctrine 58).
+
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~353~~ -> **354**.
 
 **354** with this entry (2026-09-19).
