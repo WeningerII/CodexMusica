@@ -27163,6 +27163,19 @@ read from, and the push run is that commit's only CI until the pull request
 exists. The residual is the same one the job's own comment names, at its real
 size.
 
+**AND IT HAS A WITNESS ON ITS OWN ARM, WHICH IS THE THING M-252 CLOSED
+WITHOUT.** This entry's whole complaint about M-252 is that it certified a
+guard from the merge-mirror arm while the arm M-250 was written for had never
+once answered `true`, so closing this one on an argument would repeat the
+defect one entry later. **MEASURED on the very push that carries the repair**,
+run 2259 (push, `01085aaa`, job 105923619665): the step started at 15:51:52,
+asked, waited one interval, asked again and finished at **15:52:03** — PR #359
+had been created at 15:52:02, one second earlier. **22 of the 23 jobs report
+`skipped` and the whole run took 25 seconds** (15:51:40 → 15:52:05). The
+comparison is run 2256 on the previous commit: 41 jobs, 37 of them to success,
+**17 minutes**. The interval the fix was built to cover is the interval it was
+caught in, on its first live invocation, in the direction the fix predicted.
+
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~355~~ -> **356**.
 
 **356** with this entry (2026-09-19).
