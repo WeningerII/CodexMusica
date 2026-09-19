@@ -26818,6 +26818,30 @@ place. The other 15 are left for a ruling rather than overwritten, because
 changing a status to clear a check is how a census starts agreeing with
 whatever was easiest to edit.
 
+**TESTED WHILE OPEN**, and the entry stays `OPEN` for a reason the suite
+cannot discharge: `quality/test_backlog_status.py` gates the CENSUS — that both
+documents are read, that a status is the LAST one stated, that SELF-FLAGGED and
+SILENT partition the disagreements — and it gates NOTHING about the sixteen
+rows themselves. Reconciling those is a ruling on sixteen entries by a person,
+which is the whole of what this entry asks for. A built instrument with tests
+is not the gap closing.
+
+**AND THE PRE-FLIGHT THAT WAS SUPPOSED TO CATCH THIS REPORTED GREEN, WHICH IS
+THIS ENTRY'S OWN SUBJECT ARRIVING ONE LAYER IN.** `triage.py --check` was run
+before the commit, came back PASS, and is RED on the identical tree once
+staged. The cause is the population: `triage.py` names its regressions with
+**`git ls-files`**, so a NEW suite that is not yet staged is invisible to it —
+the check ran, examined a population missing the only file that could fail it,
+and said so in the words of a pass. Doctrine 20 at the pre-flight: a check
+that looked at the wrong population is not a check that found nothing. The
+remedy is ordering, not a code change — **stage first, then run the
+pre-flight**. The session's own pre-flight script now says out loud how many
+untracked files sit under `quality/` so a green run cannot quietly mean an
+empty one; that script lives in the session scratchpad and is deliberately NOT
+cited here as a repo path, because it is absent from a clean checkout and
+`quality/verify_entries.py` is right to fail a sentence that implies
+otherwise — which it did, on this paragraph's first draft.
+
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~352~~ -> **353**.
 
 **353** with this entry (2026-09-19).
