@@ -17004,8 +17004,51 @@ accepted. **934 of 984 REPEAT edges (94.9%) carry a locus**, so there is NO
 mandate spelling in this harness that can hold them: `--groups=` charges them
 and `--returns=` refuses them.
 
-**THE OPEN HALF IS PRE-REGISTERED — 2026-09-18 — AND ITS POPULATION
-RE-MEASURED AT HEAD.** Re-run on `74cb8889` through `recover.recover_file`
+**THE OPEN HALF IS BUILT — 2026-09-19 — AND IT IS THE SIXTH REQUIREMENT THE
+VOCABULARY'S OWN PIN SAID WOULD BE A CHANGE TO THE LIST.**
+`REQUIRE_RETURN_AT` constrains the WORD at a declared placement and leaves the
+rest of the line alone, which is the whole difference from `REQUIRE_RETURN`
+and the reason it is a sixth member rather than a flag on the fifth. Its
+`rhyme_required` is UNKNOWN, not True: two lines sharing a HEAD word are not
+thereby obliged to rhyme at their ends, and asserting that here would be this
+entry's own defect inverted.
+
+`Return` carries `loci` parallel to `lines`; `Mandate.placed_returns_check` is
+the judge. It REFUSES without a lexicon rather than defaulting to one
+(doctrine 45), and a placement naming nothing in a given line is a REFUSAL and
+not a failed return (doctrine 20).
+
+**A CLASS IS ALL-PLACED OR ALL-WHOLE-LINE.** `1.head,3` REFUSES: a member
+carrying no placement names no word, so the two are different claims and one
+class cannot hold both. That is exactly the case
+`quality/test_mandate_language.py` §7 has always pinned, so **the tripwire did
+not have to be disarmed** — the accepted all-placed case is new coverage
+beside it.
+
+**UNION-FIND KEYS ON (line, locus), NOT ON THE LINE.** A placed class
+`{1.head, 3.head}` and a whole-line class `{1, 5}` share the number 1 and are
+NOT transitively one class; merging them on the number would fuse "the word at
+1.head returns" with "line 1 returns". Two PLACED classes sharing a placement
+DO merge, because identity is an equivalence relation WITHIN a shape.
+
+**THE WHOLE-LINE JUDGE IS UNTOUCHED, AND A CHECK ASSERTS IT STILL FIRES.**
+`returns_check` is byte-identical; the placed case is a separate method rather
+than a branch in that loop, because folding it in would put a claim about one
+word through a comparison of two lines. The diff's only deletions are the
+`REQUIREMENTS` tuple and the `__all__` line, both replaced by supersets.
+
+**TWO GUARDS FIRED ON THE WAY IN AND BOTH WERE RIGHT.** The cardinality pin
+_"the requirement set is closed at five"_ failed on the sixth — its purpose —
+and is updated with the argument rather than the number. And `mutate.py`'s QS3
+anchor matched TWICE, because the new method had duplicated
+`if r.verbatim is not True:` / `continue` verbatim; an anchor matching twice
+names no single site, so the filter moved into a comprehension and the anchor
+is unique again. §15b pins all five at exactly one match and is what caught it.
+
+Mutation-proved: disabling the comparison reds exactly its own two checks and
+leaves 163 controls standing. 165 pass, 0 fail (was 150).
+
+**THE POPULATION, RE-MEASURED AT HEAD.** Re-run on `74cb8889` through `recover.recover_file`
 over `quality/fixtures/song.txt`: 99 edges, **34 REPEAT**, of which **32
 (94.1%) carry a locus** — and the module's own published
 `repeats_at_a_placement` is **32**, agreeing with an independent count of the
