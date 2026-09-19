@@ -26909,6 +26909,58 @@ unchecked on main for two consecutive nights — which is worth knowing when
 reading any claim that it holds. M-296 records the same for 2026-09-18; this
 entry is the second instance and the first measurement of the direction.
 
+**THE CAUSE IS ESTABLISHED, THE SAME DAY, AND IT CORRECTS THIS ENTRY'S OWN
+FRAMING (doctrine 17: the superseded reading stays visible).** ~~it retreats~~
+~~going BACKWARDS~~ ~~1,136 items lost~~ — **the memo is not losing rows. It is
+being correctly DISCARDED and partially rebuilt, and the two counts the step
+prints are under DIFFERENT COMPARATOR FINGERPRINTS, so their difference was
+never a progress measure at all.**
+
+**MEASURED, by computing `comparator_fingerprint()` at each nightly's own
+commit in a detached worktree:**
+
+    2026-09-18 nightly   commit fae14b1b   fingerprint ba9a00e4
+    2026-09-19 nightly   commit 796bfd10   fingerprint cc1e0df6
+
+They differ. `_Memo.open()` compares the file's `#fingerprint` header against
+the current one and, on a mismatch, sets `self.entries = {}` — **the WHOLE memo,
+not a row of it** — and `flush()` then rewrites the file from that dict. So the
+2026-09-19 run read 8000 rows written under `ba9a00e4`, discarded all of them,
+and wrote back 7400 rows computed from scratch under `cc1e0df6`. `before` and
+`after` count two different populations.
+
+**SO THE DEFECT IS NOT A REGRESSION, IT IS A NON-COMPLETION, AND IT IS WORSE
+THAN THE ONE THIS ENTRY FIRST NAMED.** M-260's *"a cold memo advances a slice
+per nightly until warm"* is **FALSE across nights whenever the fingerprint
+moves**. Resumability is real WITHIN a run — `flush()` every 200 puts is what
+lets an interrupted run keep its progress — and does not survive a fingerprint
+move, by design and correctly (doctrine 16: the guard is over-inclusive on
+purpose). The consequence is that a 150-minute slice must finish ~8,667 items
+FROM SCRATCH or lose everything, and it reaches 7,400–8,000. **It never
+completes, so the length-curve row (step 20) is never checked.**
+
+**AND THE BYTE DIVERGENCE DISSOLVES.** 1,355,461 against 2,562,947 was recorded
+above as unexplained with bytes up and items down; under a from-scratch rebuild
+each night they are simply two different partial files and there is no tension
+to explain.
+
+**WHAT THIS MAKES OF THE OWNER'S COMPARATOR-BATCHING RULE.** Standing rule 4
+batches comparator changes to pay the recomputation ONCE instead of once per
+PR. Under daily churn the stake is larger than the entry's own wording
+suggests: it is not that the rebuild is paid repeatedly, it is that **a memo
+re-cooled every night can never warm at all**, so the calibration it guards
+never runs to completion on any commit. Not every PR moves it — `796bfd10` and
+`6530ceb3` share `cc1e0df6`, so PRs 356 and 357 did not — but enough do.
+
+**WHAT IS STILL NOT DONE, AND THE RULING IS NOT MINE.** The fix is a real
+choice between at least three, and each trades something: raise the 150-minute
+slice until a from-scratch pass fits; key the memo per-row by fingerprint so a
+moved comparator invalidates only the rows it actually changes; or freeze the
+comparator for a run of nights so one rebuild can finish. The first spends
+runner time, the second weakens a guard whose over-inclusiveness is doctrine
+16's deliberate design, and the third is a scheduling promise nobody has made.
+**This entry names them and rules on none.**
+
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~353~~ -> **354**.
 
 **354** with this entry (2026-09-19).

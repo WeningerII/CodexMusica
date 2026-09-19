@@ -3805,20 +3805,24 @@ jobs:
           after=$(grep -vc '^#' "$MEMO" 2>/dev/null || true); after=${after:-0}
           # THE SIGN IS RENDERED, NOT ASSUMED (M-299, doctrine 91: a count is a
           # coordinate of its RENDERING). `+$((after - before))` prints the
-          # literal `+` in front of a negative, so a SHRINKING memo read as
-          # `+-536 banked this run` on 2026-09-18 and `+-600` on 2026-09-19 --
-          # two consecutive nights of the resumable memo going BACKWARDS,
-          # rendered as progress, with no gate reading the number. This block
-          # only DISCLOSES: the exit code below is unchanged, because the
-          # remedy needs the cause and a threshold chosen to make a symptom
-          # loud is doctrine 58's error.
+          # literal `+` in front of a negative, so `+-536` on 2026-09-18 and
+          # `+-600` on 2026-09-19 read as progress. THE CAUSE IS KNOWN NOW and
+          # the first reading of it here was wrong: the memo is NOT losing
+          # rows. A moved comparator fingerprint makes `_Memo.open()` discard
+          # the WHOLE file and `flush()` rewrite it from a from-scratch
+          # rebuild, so `before` and `after` count two DIFFERENT populations
+          # and their difference was never a progress measure. This block only
+          # DISCLOSES: the exit code below is unchanged.
           delta=$((after - before))
           if [ "$delta" -lt 0 ]; then
             echo "memo: $before -> $after items (MEMO SHRANK BY $((-delta)) THIS RUN)"
-            echo "A NEGATIVE delta is not progress. M-260 and M-296 both read this"
-            echo "step as advancing a slice per nightly; MISSING.md M-299 records it"
-            echo "retreating twice and does NOT yet know why. Read M-299 before"
-            echo "gating on this number or tuning anything to it (doctrine 58)."
+            echo "A NEGATIVE delta means the comparator fingerprint MOVED: the memo"
+            echo "was discarded WHOLE and rebuilt from scratch, so these two counts are"
+            echo "under DIFFERENT fingerprints and their difference is not progress."
+            echo "The defect is NON-COMPLETION, not regression -- a 150m slice must"
+            echo "finish the whole corpus from scratch or lose it, and M-260's \"advances"
+            echo "a slice per nightly until warm\" does not hold across a moved"
+            echo "fingerprint. MISSING.md M-299 has the mechanism and rules on no fix."
           else
             echo "memo: $before -> $after items (+$delta banked this run)"
           fi
