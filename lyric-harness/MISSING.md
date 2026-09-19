@@ -6634,6 +6634,43 @@ weakest evidence the partition can give. It is INHERITED from
 `relations.LANG_CELL` and `tradition_scope` has it identically; it is not a
 new defect and it is not repaired here.
 
+**THE COMPARATOR COST WAS PAID AND THE SENTENCE THAT PRICED IT WAS WRONG —
+RECORDED, NOT QUIETLY DROPPED (doctrine 17).** The gate's entrance is a print
+block in the `types` verb, and `lyric_harness.py` is input 1 of seven to
+`comparator_fingerprint()`, WHOLE FILE, so eleven lines moved it
+`7687581e91a2` -> `b7d4953b3ba5` and discarded the predictability memo. The
+commit that shipped the gate closed with *"The memo is rebuilt on main before
+the nightly rather than left cold."* **That is false and was not checked before
+it was written.** CI's memo is not a file anything here can touch: it is a
+GitHub Actions cache (`path: ~/.cache/lyric-harness`, `restore-keys:
+lyric-harness-predictability-v1-`), populated only by a workflow run. What is
+true, read off `ci.yml` rather than assumed: the calibration step carries a
+150-minute budget, is RESUMABLE, and banks its cache even on a timeout — a
+deadlock fixed 2026-08-23, where a cold cache aborted the job at `grep` exit 2
+before any test ran — so a cold memo advances a slice per nightly until warm.
+
+**THE RE-VERIFICATION THE PIN DEMANDS WAS RUN, AND IT HOLDS.**
+`quality/results/m35_2026-09-19/curve-check.txt`: the lyric row's 5 curves
+re-derive to FULL PRINTED PRECISION over 8,536 items and
+`song_profile_calibration`'s 21 constants all reproduce, 0 refused. Nothing
+moved, so nothing is re-adopted and no constant was tuned (doctrine 58).
+**THE REBUILD WAS KILLED MID-RUN BY A CONTAINER RESTART AND RESUMED**, which
+the receipt records rather than smooths: the partial shard caches carried the
+correct NEW fingerprint, so 4,000 rows came back as cache HITS instead of being
+recomputed, and the resumed half cost 11,687 CPU-s. The killed run's own cost
+was not captured and is NOT estimated. The shard file sum (1,297) and the
+population reader (1,296) disagree by one, exactly as they did on 2026-09-18,
+and both are recorded unadjusted.
+
+**AND THE GATE SCRIPT THIS SESSION HAD BEEN TRUSTING WAS CHECKING HALF THE
+JOB.** The local pre-flight ran 16 gates and reported `OVERALL_FAIL=0` on a
+tree whose `record` job then failed on the comparator pin; CI's `record` runs
+**29**, and the script also called `audit_register.py` WITHOUT `--check`, the
+weaker form that does not go red when a derived figure moves. It now DERIVES
+its list from `ci.yml`'s `record` job instead of keeping a second copy, because
+a second copy of a gate set is how a census starts disagreeing with the thing
+it counts (doctrine 1).
+
 **WHAT IS STILL UNBUILT IS THE EDGE REPRESENTATION ITSELF.** This is the
 interim gate the ruling authorised *"until the edge representation lands"*,
 and it is exactly that: a label. Parallel edges between two positions, the
