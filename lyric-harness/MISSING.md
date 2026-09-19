@@ -26845,3 +26845,70 @@ otherwise — which it did, on this paragraph's first draft.
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~352~~ -> **353**.
 
 **353** with this entry (2026-09-19).
+
+### M-299 · The resumable predictability memo does not resume — it SHRANK on both nights that instrument it, and the counter that would have said so renders a negative delta as `+-536` `OPEN` 2026-09-19 — found by reading the nightly's own log after it exited 124 for the second night running
+
+**WHAT TWO ENTRIES REST ON.** `MISSING.md` M-260 states that the calibration
+step is *"a bounded resumable slice that banks whatever it reaches"*, so **"a
+cold memo advances a slice per nightly until warm"**. M-296 records the
+2026-09-18 nightly turning that budget's bound arithmetic into a measurement
+and ends on the open question in as many words: *"That the slice made progress
+— it banked 1.36 MB, and whether that advances the resume point far enough to
+finish tonight is not measured here."*
+
+**IT IS MEASURED NOW, AND IT DOES NOT ADVANCE. IT RETREATS, ON BOTH NIGHTS.**
+The step prints its own before/after, and both nights are in the logs:
+
+    2026-09-18  run 35327407748   memo: 8536 -> 8000 items (+-536 banked this run)
+    2026-09-19  run 35433057207   memo: 8000 -> 7400 items (+-600 banked this run)
+
+**1,136 items lost across two nights, monotone, after 150 minutes of compute
+each.** Both runs then exit **124** — `INCOMPLETE — bounded memo progress is
+retained but cannot qualify calibration` — and both bank the smaller memo.
+
+**THE COUNTER'S OWN RENDERING IS THE TELL.** `+$((after - before))` prints
+`+-536` and `+-600`. The `+` is a literal, so the arithmetic was written by
+somebody who took the delta to be non-negative by construction. Nothing reads
+this number — it is echoed to a log and no gate consults it — which is why a
+mechanism two entries describe as advancing has been going backwards in the
+open for at least two nights (doctrine 48: a measurement nobody reads is
+followed exactly as often as someone remembers to look).
+
+**THE CACHE CHAIN IS INTACT, SO THIS IS NOT A LOST RESTORE.** Each night
+restores the previous night's bank by key — `35205355952` -> `35327407748` ->
+the 2026-09-19 run — and each save reports success. The memo is being read,
+worked on, and written back smaller.
+
+**AND THE OBVIOUS EXPLANATION IS RULED OUT FOR THE FIRST NIGHT.** The tempting
+reading is the comparator: a moved `comparator_fingerprint()` discards rows
+computed under the old one, so a shrink is the guard working. **The timeline
+refuses it.** The fingerprint-moving commit (M-35's `types` tradition gate) is
+`6a53a1bd`, merged **2026-09-19T03:41Z**; the 2026-09-18 nightly ran
+**09-18 09:03 -> 13:04Z**, hours before it. So that move can account for at
+most the SECOND drop and cannot touch the first. Two drops, one candidate
+cause, and it reaches one of them.
+
+**A SECOND COORDINATE MOVES THE OTHER WAY AND IS NOT EXPLAINED EITHER.** The
+banked tarball grows while the item count falls — **1,355,461 bytes** on
+2026-09-18 against **2,562,947** on 2026-09-19, near doubling. Bytes up,
+items down, same file, consecutive nights. Recorded as an observation; no
+mechanism is asserted for it here.
+
+**WHAT IS NOT DONE, DELIBERATELY.** The nightly is NOT changed. Turning the
+`124` into a hard failure, or gating on a non-negative delta, is a ruling on a
+mechanism nobody has yet explained, and doctrine 58 governs: the remedy needs
+the CAUSE, not a threshold chosen to make the symptom loud. What would
+separate the live hypotheses is cheap and is named here so the next sitting
+does not re-derive it — read the memo file's own header and row shape at
+restore and at save, and count rows PER FINGERPRINT rather than with
+`grep -vc '^#'`, which cannot tell a discarded row from an absent one.
+
+**WHAT THIS COSTS TODAY.** The length-curve row (step 20) is SKIPPED on both
+nights as the documented consequence of step 19 failing, so that row has gone
+unchecked on main for two consecutive nights — which is worth knowing when
+reading any claim that it holds. M-296 records the same for 2026-09-18; this
+entry is the second instance and the first measurement of the direction.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~353~~ -> **354**.
+
+**354** with this entry (2026-09-19).
