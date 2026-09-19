@@ -8818,6 +8818,31 @@ def main():
                    "the vocabulary, and that is the point of it being a "
                    "space")
         print(f"  NAMES: {', '.join(names) if names else _un}")
+        # M-35's INTERIM GATE. A name the engine fires carries a TRADITION,
+        # and firing a Persian or Old Norse name on an English draft is the
+        # case M-44's open item names. The label is printed exactly when the
+        # ordinary reading would be wrong: a name inside its own tradition
+        # says nothing (`type_canon.label` returns None), so silence here is
+        # the in-tradition verdict and not an unasked question.
+        if names:
+            from quality import type_canon as _TCn
+            _lab = []
+            for _n in names:
+                try:
+                    _l = _TCn.label(_n, lang)
+                except KeyError:
+                    # A name with no ruling is not a name with no tradition
+                    # (doctrine 20). `type_canon --check` is what fails on it;
+                    # this reader says so rather than inventing a verdict.
+                    _l = (f"{_n!r} has no canon ruling in "
+                          f"`quality/type_canon.py` — CANNOT TELL")
+                if _l:
+                    _lab.append(_l)
+            if _lab:
+                print(f"  TRADITION ({len(_lab)} of {len(names)} name(s) "
+                      f"come from outside {lang!r}):")
+                for _l in _lab:
+                    print(f"    - {_l}")
         print(f"  verdict: {t.verdict()}   alliterates: {t.alliterates()}")
         route = getattr(t, "route", None)
         if route:
