@@ -2608,8 +2608,59 @@ def _member_slot(x):
     return _SL.slot_line(x), None
 
 
-def _normalise_groups(raw, n_lines):
-    """-> (groups, free, loci). Validates, dedupes, sends singletons to free.
+#: The keys a MAPPING group may carry. Unknown keys are REFUSED rather than
+#: ignored, because a misspelled `relaton:` silently graded as the default is
+#: the silently-different-question defect doctrine 20 names.
+GROUP_KEYS = ("members", "relation")
+
+
+def _split_group_relation(x):
+    """-> (members, declared relation) for one raw group.
+
+    THE MAPPING SPELLING IS M-35's EDGE LABEL. A group is otherwise an
+    iterable of line numbers, each optionally naming a place in its line; a
+    MAPPING additionally carries the relation that labels THAT edge:
+
+        {"members": [1, 2], "relation": "type:masculine rhyme"}
+
+    WHY THE RELATION HAS TO RIDE HERE AND NOT IN THE `relations=` SIDE MAP.
+    That map is keyed by the index or label of a group AFTER normalisation,
+    and the labels are generated from the index after the dedup has already
+    run -- so the key that would keep two same-lines-same-placement edges
+    apart is computed from the thing that collapsed them. Measured: 
+    `mandate([[1,2],[1,2]], relations={0: ..., 1: ...})` refused with
+    "relations declares group index 1 and the mandate has 1 group(s)".
+    Declaring the relation ON the group is what makes the two edges distinct
+    before anything is keyed (`MISSING.md` M-35).
+
+    THE SIDE MAP IS NOT DELETED (doctrine 17): a group that declares no
+    relation here is addressed by `relations=` exactly as before, and every
+    mandate ever written is byte-identical.
+    """
+    if isinstance(x, dict):
+        bad = [k for k in x if k not in GROUP_KEYS]
+        if bad:
+            raise NoMandate(
+                f"a mapping group may carry {list(GROUP_KEYS)} and this one "
+                f"also carries {bad!r}. An unrecognised key is REFUSED rather "
+                f"than ignored, because a misspelling graded as the default "
+                f"is a silently different question (doctrine 20).")
+        if "members" not in x:
+            raise NoMandate(
+                f"a mapping group must name its `members`; got {x!r}. The "
+                f"mapping spelling exists to put a RELATION on an edge, not "
+                f"to replace the members with one.")
+        rel = x.get("relation") or ""
+        if rel and not isinstance(rel, str):
+            raise NoMandate(
+                f"a group's `relation` must be a declared relation NAME as a "
+                f"string; got {rel!r}.")
+        return list(x["members"]), rel
+    return list(x), ""
+
+
+def _normalise_groups(raw, n_lines, raw_rels=None):
+    """-> (groups, free, loci, rels). Validates, dedupes, sends singletons to free.
 
     `loci` is index-aligned with `groups`, and each entry is either `""` — every
     member of that group binds at the default slot, the end of its line — or a
@@ -2626,8 +2677,10 @@ def _normalise_groups(raw, n_lines):
     — a song can ask for both at once — and a key of line numbers alone would
     silently collapse the second into the first.
     """
-    seen, groups, loci = set(), [], []
-    for g in raw:
+    raw_rels = list(raw_rels or [""] * len(list(raw)))
+    seen, groups, loci, rels = set(), [], [], []
+    for gi, g in enumerate(raw):
+        g_rel = raw_rels[gi] if gi < len(raw_rels) else ""
         try:
             pairs = [_member_slot(x) for x in g]
         except SlotRefused:
@@ -2669,16 +2722,22 @@ def _normalise_groups(raw, n_lines):
         if len(members) < 2:
             continue            # a singleton mandates nothing; it is FREE
         place = tuple(by_line[i] for i in members)
+        # THE DECLARED RELATION IS PART OF THE KEY (M-35). Without it, two
+        # edges over one (lines, placement) collapse and the second becomes
+        # unaddressable -- which is the whole of what that entry's
+        # `masculine rhyme` AND `assonance` example could not say.
         key = (tuple(members),
-               tuple(p.rule if p is not None else None for p in place))
+               tuple(p.rule if p is not None else None for p in place),
+               g_rel)
         if key in seen:
             continue
         seen.add(key)
         groups.append(tuple(members))
         loci.append("" if all(p is None for p in place) else place)
+        rels.append(g_rel)
     covered = {i for g in groups for i in g}
     free = tuple(i for i in range(1, n_lines + 1) if i not in covered)
-    return tuple(groups), free, tuple(loci)
+    return tuple(groups), free, tuple(loci), tuple(rels)
 
 
 def _normalise_scope(raw, n_lines, groups, returns):
@@ -2965,12 +3024,15 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
             raw = blocks(code)
             org = origin or f"RGS code {tuple(code)}"
         else:
-            raw = [list(x) for x in items]
+            split = [_split_group_relation(x) for x in items]
+            raw = [m for m, _ in split]
+            raw_rels = [r for _, r in split]
             n = n_lines if n_lines is not None else max(
                 [max(g) for g in raw if g] or [0])
             org = origin or "declared line groups"
 
-    groups, free, loci = _normalise_groups(raw, n)
+    groups, free, loci, group_rels = _normalise_groups(
+        raw, n, locals().get("raw_rels"))
     rets = _normalise_returns(
         extra_returns + (_list_returns(returns) if returns else []), n, rule)
     if not groups and not rets:
@@ -2999,8 +3061,11 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
                    rule=rule, loci=loci,
                    structures=(_st := _normalise_structures(
                        structures, labels, len(groups))),
-                   relations=_normalise_relations(relations, labels,
-                                                  len(groups), _st),
+                   relations=_merge_group_relations(
+                       group_rels,
+                       _normalise_relations(relations, labels,
+                                            len(groups), _st),
+                       labels),
                    # VALIDATED BY `Mandate.__post_init__`, not here, because
                    # `Mandate` is also constructed directly and a check that
                    # lives only in the factory is not a check on the field.
@@ -3045,6 +3110,43 @@ def _normalise_structures(structures, labels, n_groups):
                 f"{n_groups} group(s) — they must be the same mandate.")
         for k, name in enumerate(seq):
             out[k] = _resolve_structure(_ST, name) if name else ""
+    return tuple(out)
+
+
+def _merge_group_relations(group_rels, side, labels):
+    """-> the index-aligned relation tuple, from BOTH declaration routes.
+
+    `group_rels` is what each group declared ON ITSELF (M-35's edge label);
+    `side` is the `relations=` map resolved against the same indices. A group
+    may use either and NOT BOTH: two statements of one coordinate would make
+    the mandate's meaning depend on which this function read first, which is
+    doctrine 1's own case, so it is REFUSED at the declaration site rather
+    than resolved by precedence.
+
+    THE SIDE MAP IS UNTOUCHED WHERE NO GROUP DECLARES ONE, so every mandate
+    written before the edge label existed is byte-identical (doctrine 17).
+    """
+    if not group_rels:
+        return side
+    n = len(group_rels)
+    out = list(side) + [""] * (n - len(side)) if side else [""] * n
+    for k, declared in enumerate(group_rels):
+        if not declared:
+            continue
+        if out[k]:
+            raise NoMandate(
+                f"group {labels[k]!r} declares the relation {declared!r} on "
+                f"itself AND is given {out[k]!r} by `relations=`. A "
+                f"coordinate stated twice is refused, never resolved by "
+                f"precedence -- the mandate's meaning would depend on which "
+                f"route this function read first (doctrine 1). Declare it in "
+                f"one place.")
+        # STORED AS DECLARED, resolved by the SAME path the side map takes
+        # (`_normalise_relations` via `Mandate.__post_init__`). Re-namespacing
+        # it here would be a second reader of one spelling (doctrine 1) -- the
+        # first draft of this line did exactly that and produced
+        # `named:masculine rhyme`, a namespace that does not exist.
+        out[k] = declared
     return tuple(out)
 
 
