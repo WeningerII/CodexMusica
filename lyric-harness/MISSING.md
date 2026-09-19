@@ -1454,8 +1454,60 @@ rule RELABELS the second shape of the defect instead of widening the first.
 NAMED and at most five can FIRE on any one song** — which is what
 `quality/test_grid.py` pins (`len(stanza_lock(cliche_song())) == 5`). Doctrine
 91: the count is a coordinate of the question. Say which one is being asked.
-**Missing:** clichéd section orders, clichéd hook placement, the exhausted
-verse-chorus-bridge sequence, clichéd rhyme-scheme choice itself.
+**THE FIRST ITEM IS MEASURED NOW — 2026-09-19 — AND IT COULD ONLY BE ANSWERED
+ONE WAY.** *Clichéd section orders* had been a phrase with no measurement
+behind it. `quality/song_shape.py` answers it, and the two routes it does NOT
+take are why the answer is worth having:
+
+  **THE CORPUS CANNOT CALIBRATE IT.** E-4 measured `grid`'s 22 declared
+  section functions over all 1,421 files of `corpus/song/`: verse 74,177
+  marks, chorus 236, and **bridge 0, hook 0**. Its bracketed marks are
+  dominated by `radif` and `bayt N`. A section-order cliché scored against
+  that population would be answering from an empty axis.
+
+  **AND SCORING THE SERIES AGAINST THE SERIES WOULD BE CIRCULAR.** The
+  delivered songs DO carry the marks — 18 distinct functions over 16 songs —
+  but they are this system's own output, so reading their frequencies as a
+  norm is doctrine 13/14's error exactly: a resource used to score a cell may
+  not be independent of nothing.
+
+**WHAT IS LEFT IS NOT A JUDGEMENT AND IS STILL A FACT**, and it is the one
+nothing in this tree could see: which songs share a section order with which.
+MEASURED over the 16 delivered songs — **14 distinct orders, 2 shared by two
+songs each**:
+
+    long_bridge, taught_me_time
+        intro-verse-prechorus-chorus-verse-false_ending-false_ending-coda
+    the_frost_ledger, the_river_keeps_the_score
+        intro-drop-verse-chorus-postchorus
+
+**AND THE REGISTER WAS BLIND TO IT BY CONSTRUCTION.** `songs/RESULTS.tsv`
+banks `n_sections` — a COUNT — so two songs with byte-identical orders are
+INDISTINGUISHABLE in it, and their counts merely agree with each other. Both
+pairs above match on `n_sections` (8 and 5) and nothing said more.
+
+**NOTHING HERE FAILS A SONG.** Two songs sharing a shape is not a defect
+(doctrine 96, and doctrine 7 on not ordering the permitted region), so the
+duplicates are DISCLOSED and `--check` gates the CENSUS against its own banked
+counts the way `gate_census.py` does — the series moving is an answer,
+reported, never a charge against a song. The population is
+`song_record.songs()` and not a second glob (doctrine 1), which
+`quality/test_song_shape.py` §1 proves by SHRINKING that function and
+requiring the census to follow; §3 verifies each duplicate group against the
+RAW marks, so a shared order cannot be an artefact of stripping instance
+digits.
+
+**Missing:** ~~clichéd section orders~~ (measured above), clichéd hook
+placement, the exhausted verse-chorus-bridge sequence, clichéd rhyme-scheme
+choice itself. **THE REMAINING THREE ARE NOT SYMMETRIC WITH THE FIRST AND THE
+DIFFERENCE IS PRICED**: a shared ORDER is a fact about two committed texts,
+while `hook placement` and `rhyme-scheme choice` being *clichéd* are claims
+against a norm — and both populations that could supply one are refused
+above. The honest shape for them is the UNIFORMITY the six `stanza_lock`
+cliches already use, which measures a draft against ITSELF and needs no
+corpus: `bridge` occurs **once** across all 16 songs and `hook` **twice**, so
+the verse-chorus-bridge sequence in particular has almost no instances here to
+be exhausted by.
 
 ---
 
