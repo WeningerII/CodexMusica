@@ -26756,3 +26756,92 @@ owner's standing order is met for tonight by run 26 whatever run 27 does.
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~351~~ -> **352**.
 
 **352** with this entry (2026-09-19).
+
+### M-298 · The work queue and the register state one coordinate in two documents, and 16 queue rows silently disagree with the register that closed them `OPEN` 2026-09-19 — adversary 8's own blind spot
+
+**`BACKLOG.md`'s sitting tables are the WORK QUEUE** — what a session picks up
+next — and each row carries a `status` cell. **`MISSING.md`'s `###` headings
+carry the REGISTER's status for the same entry ids.** Two documents stating one
+coordinate is doctrine 1's own case, and **nothing compared them.**
+
+**AND THE INSTRUMENT THAT EXISTS FOR THIS IS THE ONE THAT CANNOT SEE IT.**
+Adversary 8 is `quality/audit_register.py`, whose whole subject is *"do the
+documents agree with each other and with the code?"* It mentions `BACKLOG.md`
+**five times and every one is inside a prose comment**; it never parses that
+file's status table. So `audit_register --check` passes — it passed on the tree
+this entry was written against — while the queue lists entries the register
+closed weeks ago.
+
+**MEASURED, `quality/backlog_status.py`, over 100 queue rows and 352 register
+entries — 100 compared, 79 agreeing, and the disagreements split in two and
+never summed (doctrine 79):**
+
+  - **SELF-FLAGGED, 5.** The row says so itself, in its kind cell (`STALE · S`)
+    or its own text (*"LIKELY STALE"*) — `F-5`, `M-132`, `M-15a`, `M-181`,
+    `M-182`. The queue already knows and the row IS the reconciliation task.
+    **That is the system working and it is not counted as a defect.**
+  - **SILENT, 16.** Nothing in the row says the register disagrees: `A-2`,
+    `B-1`, `E-3`, `E-5`, `I-1`, `M-137`, `M-15`, `M-162`, `M-166`, `M-170`,
+    `M-227`, `M-24`, `M-34`, `M-36`, `M-42`, `M-74`. A queue entry
+    indistinguishable from a live one.
+
+**EVERY DISAGREEMENT RUNS ONE WAY** — the queue is never AHEAD of the register,
+only behind it — which is what a table nobody revisits on close looks like.
+
+**THE COST IS A SESSION'S SITTING, NOT A WRONG NUMBER.** A reader picking work
+off the queue picks an entry the register says is done, and finds that out
+after reading it. Nothing downstream computes from these cells.
+
+**NOTHING HERE RULES ON WHICH DOCUMENT IS RIGHT, AND THAT IS THE DESIGN.** A
+disagreement can mean the queue is stale OR that the register closed an entry
+whose residue is real — `BACKLOG.md` carries its own paragraph naming **six**
+entries with *"a stale HEADLINE over a live residue"*. So the census prints the
+LIST and a person rules on each, the way `quality/gate_census.py` hands over
+its roster instead of deciding it. **`silent_n` is therefore pinned at 16 and
+not at 0**: driving it to zero means ruling on sixteen entries, which is a
+sitting of its own, and the pin is what keeps the drift visible while that
+waits.
+
+**THE LOAD-BEARING RULE IS THAT A STATUS IS THE LAST ONE STATED.** Both
+documents supersede in place with `~~OPEN~~ CLOSED` (doctrine 17), so reading
+the FIRST token reports every already-reconciled row as broken and says nothing
+about the rows that are — the census exactly inverted.
+`quality/test_backlog_status.py` §2 proves it with that mutation; §4 proves
+SELF-FLAGGED and SILENT are a partition rather than a label, by requiring every
+flagged row to actually carry the word and no silent row to carry it.
+
+**ONE ROW WAS RECONCILED IN THIS COMMIT AND IT IS THE ONE THIS SESSION MADE
+STALE**: `H-3`'s queue row read *"Clichéd section orders, hook placement, and
+rhyme-scheme choice are undetected"* and *"The section-order clause stands
+untouched"* — both false since this morning's `song_shape.py` work. Struck in
+place. The other 15 are left for a ruling rather than overwritten, because
+changing a status to clear a check is how a census starts agreeing with
+whatever was easiest to edit.
+
+**TESTED WHILE OPEN**, and the entry stays `OPEN` for a reason the suite
+cannot discharge: `quality/test_backlog_status.py` gates the CENSUS — that both
+documents are read, that a status is the LAST one stated, that SELF-FLAGGED and
+SILENT partition the disagreements — and it gates NOTHING about the sixteen
+rows themselves. Reconciling those is a ruling on sixteen entries by a person,
+which is the whole of what this entry asks for. A built instrument with tests
+is not the gap closing.
+
+**AND THE PRE-FLIGHT THAT WAS SUPPOSED TO CATCH THIS REPORTED GREEN, WHICH IS
+THIS ENTRY'S OWN SUBJECT ARRIVING ONE LAYER IN.** `triage.py --check` was run
+before the commit, came back PASS, and is RED on the identical tree once
+staged. The cause is the population: `triage.py` names its regressions with
+**`git ls-files`**, so a NEW suite that is not yet staged is invisible to it —
+the check ran, examined a population missing the only file that could fail it,
+and said so in the words of a pass. Doctrine 20 at the pre-flight: a check
+that looked at the wrong population is not a check that found nothing. The
+remedy is ordering, not a code change — **stage first, then run the
+pre-flight**. The session's own pre-flight script now says out loud how many
+untracked files sit under `quality/` so a green run cannot quietly mean an
+empty one; that script lives in the session scratchpad and is deliberately NOT
+cited here as a repo path, because it is absent from a clean checkout and
+`quality/verify_entries.py` is right to fail a sentence that implies
+otherwise — which it did, on this paragraph's first draft.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~352~~ -> **353**.
+
+**353** with this entry (2026-09-19).
