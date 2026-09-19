@@ -1441,6 +1441,15 @@ quatrains~~ — and never measured the discontinuity, which is the interesting p
 > failure after it.
 
 ### H-3 · No structural cliché beyond the grid `PARTIAL`
+**TESTED WHILE OPEN.** `quality/test_song_shape.py` names this entry and the
+entry stays PARTIAL, which is the honest state rather than a bookkeeping
+convenience: the suite gates the FIRST of four items — clichéd section orders,
+measured below — and the other three are untouched. A part delivery with tests
+is not the entry closing. The three that remain are named at the foot of this
+entry with the reason they are not symmetric with the first: a shared ORDER is
+a fact about two committed texts, while the rest are claims against a norm that
+neither available population can supply.
+
 **Now:** `stanza_lock()` names ~~five~~ **six** grid clichés. That is the only
 structural cliché detector.
 **Re-derived 2026-08-11 by walking the AST of `quality/grid.py`** rather than by
