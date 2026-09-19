@@ -966,6 +966,26 @@ REQUIRE_RETURN = Requirement(
     "this line must RETURN VERBATIM; REPEAT is the REQUIREMENT here "
     "(doctrine 3), and a non-identical return is the finding")
 
+#: PLACED identity required -- M-142. The WORD at the declared placement must
+#: return verbatim, and the REST OF THE LINE IS NOT CONSTRAINED. That last
+#: clause is the whole difference from `REQUIRE_RETURN` and the reason this is
+#: a sixth member rather than a flag on the fifth: a recovered cover admits
+#: REPEAT edges at a placement (94% of them carry one, measured), and the only
+#: two spellings this harness had were `--groups=`, which CHARGES them as
+#: violations, and `--returns=`, which declares the whole line identical and so
+#: says something the cover never claimed.
+#:
+#: `rhyme_required` is UNKNOWN and not True: two lines whose HEAD words are the
+#: same word are not thereby obliged to rhyme at their ends, and asserting that
+#: obligation here would be this entry's own defect inverted -- a claim about a
+#: line derived from a declaration about one word in it.
+REQUIRE_RETURN_AT = Requirement(
+    "REQUIRE_RETURN_AT", UNKNOWN, True, False,
+    True,
+    "the WORD at the declared placement must RETURN VERBATIM; the rest of "
+    "the line is not constrained, and whether these lines must RHYME is not "
+    "declared by a placed return (doctrine 28)")
+
 #: Rhyme required, REPEAT licensed, identity NOT declared. The honest value for
 #: a return whose verbatim requirement the caller declined to state — and for
 #: every pair that a return edge merged into a rhyme class without the two
@@ -999,7 +1019,8 @@ UNDECLARED = Requirement(
     "'nothing required' — see FREE for the other one (doctrine 28)")
 
 #: The closed set, in strength order. A sixth value is a change to this list.
-REQUIREMENTS = (REQUIRE_RETURN, REQUIRE_RHYME, LICENSE_REPEAT, FREE,
+REQUIREMENTS = (REQUIRE_RETURN, REQUIRE_RETURN_AT, REQUIRE_RHYME,
+                LICENSE_REPEAT, FREE,
                 UNDECLARED)
 
 
@@ -1042,6 +1063,28 @@ class Return:
     #: TRUE (must be verbatim), FALSE (a return that need only keep its rhyme),
     #: or `UNKNOWN` (the caller declines to say, and the unknown propagates).
     verbatim: object = True
+    #: PLACEMENTS, parallel to `lines`, one per member -- M-142's open half.
+    #: Empty means the whole-line class this object has always been. A
+    #: non-empty tuple means the class declares that the WORD AT each member's
+    #: placement is identical across members, and says NOTHING about the rest
+    #: of those lines. The two are different claims about different objects,
+    #: which is why `_normalise_returns` refuses a class that mixes them and
+    #: why union-find keys on (line, locus) rather than on the line: a placed
+    #: class and a whole-line class that happen to share a line number are not
+    #: transitively one class, and merging them on the number alone would
+    #: fuse "the word at 1.head returns" with "line 1 returns".
+    loci: tuple = ()
+
+    @property
+    def placed(self):
+        """-> True when this class judges WORDS at placements, not lines."""
+        return bool(self.loci)
+
+    def members(self):
+        """-> ((line, locus), ...). `locus` is "" for a whole-line member."""
+        if not self.loci:
+            return tuple((i, "") for i in self.lines)
+        return tuple(zip(self.lines, self.loci))
     #: HOW this class was learnt, in words. A CLOSED LOOP as it stands: written
     #: by `parse_returns`, read only by `_normalise_returns` to build the
     #: merged class's own `origin`, and surfaced by nothing -- `describe()`
@@ -1247,37 +1290,78 @@ def _normalise_returns(raw, n_lines, rule):
             # M-142: a member carrying a PLACEMENT refused here as
             # `invalid literal for int() with base 10: '1.head'` — the
             # wrong layer's words, naming neither the placement nor the
-            # remedy. The refusal is NAMED now, and it stays a refusal
-            # rather than an acceptance: a return class declares whole
-            # LINES identical (REQUIRE_RETURN) and every identity judge
-            # here — `returns_check`'s verbatim comparison, the loop's
-            # pinning, `repeat_is_violation` — reads LINES, so accepting
-            # `1.head` would take a declaration about one WORD and judge
-            # a different one about its whole line. A placed word-identity
-            # judge is M-142's open half; until it exists the honest
-            # answer is this sentence, not a silent flattening.
+            # remedy. It was then a NAMED refusal, for a stated reason:
+            # every identity judge read LINES, so accepting `1.head`
+            # would take a declaration about one WORD and judge a
+            # different one about its whole line.
+            #
+            # THE JUDGE EXISTS NOW — `Mandate.placed_returns_check` — so
+            # the spelling is accepted, and ONLY because of that. The
+            # registration for this half
+            # (`quality/PLACED_RETURN_PREREGISTRATION.md`) forbids the
+            # parser accepting a placed member in any commit that does
+            # not also land the judge, because a spelling accepted ahead
+            # of its judge IS the silent flattening this entry exists to
+            # refuse.
+            #
+            # A CLASS IS ALL-PLACED OR ALL-WHOLE-LINE, AND MIXING REFUSES.
+            # `REQUIRE_RETURN_AT` constrains the WORD at a placement; a
+            # member carrying no placement names no word, so `1.head,3`
+            # is not a weaker claim, it is two different claims in one
+            # class. That is the case `test_mandate_language.py` §7 has
+            # always pinned, and it still refuses.
             mem = set()
+            placed_mem = {}
             for x in r:
                 s = str(x).strip()
                 try:
                     mem.add(int(s))
+                    continue
                 except ValueError:
-                    if "." in s:
+                    pass
+                if "." in s:
+                    head, _, place = s.partition(".")
+                    place = place.strip()
+                    try:
+                        ln = int(head.strip())
+                    except ValueError:
                         raise NoMandate(
                             f"return class member {s!r} carries a "
-                            f"placement — a return class declares whole "
-                            f"LINES identical, and every identity judge "
-                            f"here reads lines, so a PLACED identity "
-                            f"(the word at {s!r} repeats) has no judge "
-                            f"to hand it to (MISSING M-142). Declare the "
-                            f"bare line number for a whole-line return; "
-                            f"a word-level repeat is the rhyme layer's "
-                            f"REPEAT machinery's question, not a return.")
+                            f"placement but {head.strip()!r} is not a "
+                            f"line number.")
+                    if not place:
+                        raise NoMandate(
+                            f"return class member {s!r} ends at the dot "
+                            f"and names no placement.")
+                    placed_mem[ln] = place
+                    continue
+                raise NoMandate(
+                    f"return class member {s!r} is not a line "
+                    f"number — a return class is declared as 1-based "
+                    f"line numbers (`13,33`), whole lines being the "
+                    f"same line.")
+            if mem and placed_mem:
+                raise NoMandate(
+                    f"return class {list(r)!r} MIXES a placed member with a "
+                    f"whole-line one. A placed class declares that the WORD "
+                    f"at each placement returns and says nothing about the "
+                    f"rest of those lines (REQUIRE_RETURN_AT); a bare line "
+                    f"number names no word, so the two are different claims "
+                    f"and one class cannot hold both (MISSING M-142). "
+                    f"Declare them as two classes.")
+            if placed_mem:
+                lns = sorted(placed_mem)
+                if len(lns) < 2:
                     raise NoMandate(
-                        f"return class member {s!r} is not a line "
-                        f"number — a return class is declared as 1-based "
-                        f"line numbers (`13,33`), whole lines being the "
-                        f"same line.")
+                        f"placed return class {list(r)!r} has fewer than two "
+                        f"members; one placement is not a return of "
+                        f"anything on its own.")
+                items.append(Return(
+                    lines=tuple(lns), label="",
+                    verbatim=rule.default_verbatim,
+                    origin="declared placed return class",
+                    loci=tuple(placed_mem[i] for i in lns)))
+                continue
             mem = sorted(mem)
             if len(mem) < 2:
                 raise NoMandate(
@@ -1307,14 +1391,20 @@ def _normalise_returns(raw, n_lines, rule):
         if ra != rb:
             parent[rb] = ra
 
+    # UNION-FIND KEYS ON (line, locus), NOT ON THE LINE — M-142. A placed
+    # class `{1.head, 3.head}` and a whole-line class `{1, 5}` share the
+    # number 1 and are NOT transitively one class: the first says the word at
+    # a placement returns, the second says a whole line does. Keying on the
+    # number alone would fuse them and produce a class that claims both.
     for r in items:
-        first = r.lines[0]
-        for i in r.lines[1:]:
-            union(first, i)
+        ms = r.members()
+        first = ms[0]
+        for k in ms[1:]:
+            union(first, k)
 
     buckets = {}
     for r in items:
-        buckets.setdefault(find(r.lines[0]), []).append(r)
+        buckets.setdefault(find(r.members()[0]), []).append(r)
 
     merged = []
     for root, group in sorted(buckets.items()):
@@ -1330,11 +1420,31 @@ def _normalise_returns(raw, n_lines, rule):
                 f"declaration order (doctrine 20; and a tie broken by "
                 f"iterating a set is doctrine 66).")
         labels = sorted({r.label for r in group if r.label})
+        # A BUCKET IS HOMOGENEOUS BY CONSTRUCTION (M-142): union-find keys on
+        # (line, locus), so a placed member never unions with a whole-line one
+        # and a group is therefore all-placed or all-whole-line. The loci are
+        # rebuilt in the merged class's own line order.
+        placed_here = [r for r in group if r.placed]
+        loci = ()
+        if placed_here:
+            at = {}
+            for r in placed_here:
+                for i, pl in r.members():
+                    prev = at.setdefault(i, pl)
+                    if prev != pl:
+                        raise NoMandate(
+                            f"line {i} is declared at two different "
+                            f"placements in one transitively merged placed "
+                            f"return class ({prev!r} and {pl!r}). One line "
+                            f"cannot return at two placements in the same "
+                            f"class; declare them separately (MISSING M-142).")
+            loci = tuple(at[i] for i in lines)
         merged.append(Return(
             lines=lines,
             label="+".join(labels) if labels else "",
             verbatim=group[0].verbatim,
-            origin="; ".join(sorted({r.origin for r in group if r.origin}))))
+            origin="; ".join(sorted({r.origin for r in group if r.origin})),
+            loci=loci))
     return tuple(merged)
 
 
@@ -2137,6 +2247,86 @@ class Mandate:
             out.append((r.label, i, j, kind,
                         f"return {r.label} must come back VERBATIM: "
                         f"L{i} {a!r} vs L{j} {b!r}"))
+        return out
+
+    def placed_returns_check(self, lines, lex=None):
+        """-> findings for PLACED return classes. M-142's open half.
+
+        A PLACED class declares that the WORD AT each member's placement is
+        identical across members, and says NOTHING about the rest of those
+        lines. `returns_check` above is the WHOLE-LINE judge and is left
+        exactly as it was: the two read different objects, and folding the
+        placed case into that loop would put a claim about one word through a
+        comparison of two lines, which is the defect M-142 exists to refuse.
+
+        REFUSES WITHOUT A LEXICON rather than defaulting to one. Resolving a
+        placement to a word needs `quality/slots.py` and the lexicon it reads;
+        picking one silently would make a claim about a language nobody named,
+        which is the sentence `NO_RHYME_KEY` already carries one layer over
+        (doctrine 45). A refusal here is `cannot tell`, never `identical`.
+
+        A placement that names nothing IN A GIVEN LINE is a REFUSAL and not a
+        no: `head` read as a rhyme span names nothing in a line opening on a
+        function word, and reporting that as a failed return would charge the
+        writer for a position the line does not have (doctrine 20, and
+        `_slot_words`' own rule in `quality/recover.py`).
+        """
+        from quality import slots as _SL
+        out = []
+        # THE VERBATIM FILTER IS IN THIS COMPREHENSION AND NOT IN THE LOOP,
+        # deliberately: `quality/mutate.py`'s QS3 anchors on the literal
+        # `if r.verbatim is not True:` / `continue` inside `returns_check`,
+        # and an anchor that matches TWICE is a mutation that no longer names
+        # one site. `test_mandate_language.py` §15b pins all five anchors at
+        # exactly one match and caught this the first time it was written.
+        placed = [r for r in self.returns
+                  if getattr(r, "placed", False) and r.verbatim is True]
+        if not placed:
+            return out
+        if lex is None:
+            out.append((None, None, None, "NO_LEXICON",
+                        "a placed return names a WORD at a placement and "
+                        "resolving it needs a lexicon; none was declared, so "
+                        "this judge CANNOT TELL whether the word returned. "
+                        "Pass `lex=` (doctrine 45: a checker picking the "
+                        "coordinate for you is the bug)"))
+            return out
+        n = len(lines)
+        for r in placed:
+            seen = {}
+            for i, place in r.members():
+                if not 1 <= i <= n:
+                    out.append((r.label, i, None, "OUT_OF_RANGE",
+                                f"placed return names L{i}, past the {n} "
+                                f"line(s) given; the word at {place!r} was "
+                                f"NOT CHECKED (doctrine 20)"))
+                    continue
+                try:
+                    slot = _SL.parse_slot(f"1.{place}")
+                    anc, label, _rest = _SL.resolve(lex, lines[i - 1], slot)
+                except Exception as exc:
+                    out.append((r.label, i, None, "PLACEMENT_UNREADABLE",
+                                f"L{i} placement {place!r} could not be "
+                                f"resolved: {exc}. CANNOT TELL, not a failed "
+                                f"return (doctrine 20)"))
+                    continue
+                if not (anc and label):
+                    out.append((r.label, i, None, "PLACEMENT_ABSENT",
+                                f"L{i} has no {place!r} to read — the "
+                                f"placement names nothing in this line, so "
+                                f"the return is unasked rather than broken "
+                                f"(doctrine 20)"))
+                    continue
+                seen[(i, place)] = label
+            vals = {v for v in seen.values()}
+            if len(vals) > 1:
+                where = ", ".join(f"L{i}.{pl}={w!r}"
+                                  for (i, pl), w in sorted(seen.items()))
+                out.append((r.label, None, None, "NOT_RETURNED_AT",
+                            f"placed return {r.label or '(unlabelled)'} "
+                            f"requires ONE word at every declared placement "
+                            f"and reads {len(vals)}: {where}. The rest of "
+                            f"these lines is not constrained by this class"))
         return out
 
     def undeclared_returns(self):
@@ -2981,5 +3171,6 @@ __all__ = ["bell", "stirling2", "rgs", "label", "parse", "canonical",
            "parse_refrain", "REFRAIN_FORMS", "refrain_form",
            # the three statements: rhyme, return, and the licence per PAIR
            "UNKNOWN", "Requirement", "REQUIREMENTS", "REQUIRE_RHYME",
-           "REQUIRE_RETURN", "LICENSE_REPEAT", "FREE", "UNDECLARED",
+           "REQUIRE_RETURN", "REQUIRE_RETURN_AT", "LICENSE_REPEAT",
+           "FREE", "UNDECLARED",
            "Return", "ReturnRule", "parse_returns"]

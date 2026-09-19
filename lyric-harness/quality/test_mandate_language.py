@@ -193,8 +193,22 @@ def test_unknown():
     ok("decided() is the branch-free reader",
        S.LICENSE_REPEAT.decided("identity_required") == (False, None)
        and S.REQUIRE_RETURN.decided("identity_required") == (True, True))
-    # the whole point: a consumer CANNOT collapse the five into a boolean
-    ok("the requirement set is closed at five", len(S.REQUIREMENTS) == 5)
+    # the whole point: a consumer CANNOT collapse them into a boolean
+    ok("the requirement set is CLOSED, and its size is pinned so that adding "
+       "a member is a conscious act — this check fired on M-142's sixth and "
+       "that is what it is for",
+       len(S.REQUIREMENTS) == 6)
+    ok("the sixth is REQUIRE_RETURN_AT, and it is NOT REQUIRE_RETURN with a "
+       "flag: it constrains the WORD at a placement and leaves the rest of "
+       "the line alone (MISSING.md M-142)",
+       S.REQUIRE_RETURN_AT in S.REQUIREMENTS
+       and S.REQUIRE_RETURN_AT.identity_required is True
+       and S.REQUIRE_RETURN_AT is not S.REQUIRE_RETURN)
+    ok("...and it declares NOTHING about rhyme, because two lines sharing a "
+       "HEAD word are not thereby obliged to rhyme at their ends — asserting "
+       "that here would be M-142's own defect inverted",
+       S.REQUIRE_RETURN_AT.decided("rhyme_required") == (False, None)
+       and S.REQUIRE_RETURN.decided("rhyme_required") == (True, True))
     ok("FREE and UNDECLARED are DIFFERENT VALUES",
        S.FREE is not S.UNDECLARED and S.FREE.declared and
        not S.UNDECLARED.declared,
@@ -361,6 +375,26 @@ def test_refusals():
        "judges read lines, so `1.head` has no judge to be handed to",
        raises(lambda: S.mandate([["1.head", "3"]], n_lines=4,
                                 returns=[["1.head", "3"]]), "placement"))
+    ok("an ALL-PLACED return class is ACCEPTED now that the judge exists "
+       "(MISSING.md M-142) and carries its loci",
+       S.mandate("ABAB", n_lines=4,
+                 returns=[["1.head", "3.head"]]).returns[0].loci
+       == ("head", "head"))
+    ok("a placed class of ONE member still REFUSES",
+       raises(lambda: S.mandate("ABAB", n_lines=4,
+                                returns=[["1.head"]]), "fewer than two"))
+    ok("a member ending at the dot REFUSES rather than reading as line 1",
+       raises(lambda: S.mandate("ABAB", n_lines=4,
+                                returns=[["1.", "3.head"]]), "no placement"))
+    ok("a PLACED class and a WHOLE-LINE class sharing a line number are NOT "
+       "transitively one class — identity is an equivalence relation WITHIN "
+       "a shape, and the word at 1.head returning is not line 1 returning",
+       len(S.mandate("ABABAB", n_lines=6,
+                     returns=[["1.head", "3.head"], ["1", "5"]]).returns) == 2)
+    ok("...while two PLACED classes sharing a placement DO merge",
+       S.mandate("ABABAB", n_lines=6,
+                 returns=[["1.head", "3.head"],
+                          ["3.head", "5.head"]]).returns[0].lines == (1, 3, 5))
     ok("...and a member that is not a line number at all refuses in this "
        "layer's own words too",
        raises(lambda: S.mandate([[1, 3]], n_lines=4,
@@ -1318,6 +1352,44 @@ def test_line_count_cannot_fire_through_the_reviser():
        f"`Mandate`, none on a length guard")
 
 
+def test_placed_return_judge():
+    """M-142: the judge that compares the WORD at a placement."""
+    print("\n§18  the PLACED return judge (MISSING.md M-142)")
+    import lyric_harness as LH
+    lex = LH.Lexicon()
+    m = S.mandate("ABAB", n_lines=4, returns=[["1.head", "3.head"]])
+    same = ["morning breaks the hill", "b line here",
+            "morning leaves the shore", "d line here"]
+    diff = ["morning breaks the hill", "b line here",
+            "evening leaves the shore", "d line here"]
+
+    ok("it REFUSES without a lexicon rather than defaulting to one — "
+       "resolving a placement to a word needs one, and picking silently "
+       "would claim a language nobody named (doctrine 45)",
+       [f[3] for f in m.placed_returns_check(same)] == ["NO_LEXICON"])
+    ok("the same word at both placements is CLEAN",
+       m.placed_returns_check(same, lex=lex) == [])
+    fs = m.placed_returns_check(diff, lex=lex)
+    ok("A DIFFERENT WORD FIRES — this judge can FAIL, which is the only "
+       "check worth having (doctrine 48)",
+       [f[3] for f in fs] == ["NOT_RETURNED_AT"])
+    ok("...and it NAMES both words rather than reporting a bare mismatch",
+       bool(fs) and "morning" in fs[0][4] and "evening" in fs[0][4])
+    ok("a whole-line mandate reaches this judge and it says NOTHING — the "
+       "placed judge grades placed classes only",
+       S.mandate("ABAB", n_lines=4,
+                 returns=[["1", "3"]]).placed_returns_check(diff, lex=lex)
+       == [])
+    ok("a line past the draft is NOT CHECKED rather than failed",
+       [f[3] for f in S.mandate("ABABABAB", n_lines=8,
+                                returns=[["1.head", "7.head"]])
+        .placed_returns_check(same, lex=lex)] == ["OUT_OF_RANGE"])
+    ok("the whole-line judge is UNTOUCHED by all of this: a broken "
+       "whole-line return still fires there",
+       [f[3] for f in S.mandate("ABAB", n_lines=4, returns=[["1", "3"]])
+        .returns_check(diff)] != [])
+
+
 def main():
     print(__doc__.strip().splitlines()[0])
     test_unknown()
@@ -1336,6 +1408,7 @@ def main():
     test_check_identity_needs_the_whole_draft()
     test_returns_check_needs_the_whole_draft()
     test_line_count_cannot_fire_through_the_reviser()
+    test_placed_return_judge()
     print(f"\n{len(PASS)} passed, {len(FAIL)} failed")
     if FAIL:
         for f in FAIL:
