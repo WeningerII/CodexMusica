@@ -27179,3 +27179,116 @@ caught in, on its first live invocation, in the direction the fix predicted.
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~355~~ -> **356**.
 
 **356** with this entry (2026-09-19).
+
+### M-302 · A writer could learn whether a line would be accepted only by SPENDING a grading cycle on it, so two agent writers built four pre-flight scripts apiece — which standing rule 3 calls a defect report, not a convenience `CLOSED` 2026-09-19 — the owner's instruction, verbatim: *"build the pre-flight verb"*
+
+**HOW IT WAS FOUND: BY WATCHING TWO WRITERS WORK, NOT BY READING THE CODE.**
+The owner ruled that the paid kitchen writer be split off from the question of
+whether the multi-place case converges at all (*"do the split - drive it with
+an agent first"*), and two agents were put on seed 1000's 22-line case through
+`--propose=defer:` — one from a seeded draft, one writing its own. They were
+stopped after the owner saw the cost: **arm B alone had spent 2 h 19 m, 559.8 k
+tokens and 1,495 tool calls.**
+
+**WHAT THEY ACTUALLY DID WITH THOSE TOOL CALLS, which is the finding.** Neither
+flailed. Each independently built a private pre-flight rig and ran it before
+daring to answer:
+
+| built by hand | what it re-derived |
+|---|---|
+| `syl.py` | a syllable counter, wrapping `word_syllable_map` |
+| `band.py` | a density/prominence band checker, wrapping `meter_bands` + `fit` |
+| `schematest.py` | a relation prober against the schema registry |
+| `try.sh`, `pre/`, `pre2/` | a wrapper around **this repository's own `verify` verb**, plus two whole shadow `finish` rigs |
+
+**STANDING RULE 3 NAMES THIS EXACTLY** — *"any measurement or step used in
+producing a delivered song goes through a verb, and an improvised script used
+twice is a defect report, not a convenience"* — and neither agent had read it.
+The rule was written after the owner asked what "my private workflow" meant and
+the honest answer was a confession about an operator's scratch script. The same
+defect reappeared from OUTSIDE the project, under the same pressure, which is
+the strongest evidence the rule is about a real force rather than one session's
+sloppiness.
+
+**THE FORCE, MEASURED.** A `finish` cycle on that case ran **8, 11 then 15
+minutes and lengthening** (arm A's answer files at 18:06, 18:14, 18:25, 18:40;
+n=3 gaps, and why it lengthens is NOT diagnosed here). A rejected answer costs a
+whole cycle. The acceptance decision ALONE runs in **31 s** on the same 22-line
+draft and **9 s** on the twelve-line fixture the suite uses. So the writer faced
+a 15-to-30x penalty for asking the harness directly instead of guessing, and
+guessing well required rebuilding the harness's own measurements by hand. Arm A
+found the right route unaided — `try.sh` shells out to `verify` — which is the
+sharpest part: **the decision was already reachable, and nothing pointed a
+writer at it.**
+
+**WHAT SHIPS.**
+1. **`loop.apply_candidate(reviser, lines, mandate, line_no, candidate)`** —
+   extracted from `_try_tier1`, where it was six inline lines. It is THE ONE
+   DEFINITION of what a one-line answer changes: the line, plus every member of
+   its declared verbatim return (M-201's rule). `_try_tier1` calls it now and
+   spells it nowhere.
+2. **`tryline DRAFT LINE "the new line" --seed=N`** — the verb. It rides the
+   SAME block `finish` does, so the mandate, blueprint and subdivision come off
+   the plan and nothing on its command line restates any of them; then it calls
+   `Reviser.verify` with the arguments the loop passes. **It decides nothing.**
+   Exit 0 ACCEPTED, 3 REJECTED, 2 REFUSED. Three counts ride out separately and
+   are never summed (doctrine 79): what was FIXED, the new FLAGS that rejected
+   it, the new NOTES that did not, and coverage lost — a pair that was JUDGED
+   and is now REFUSED, which is neither.
+
+**THE EXTRACTION IS NOT TIDYING, AND THE MEASUREMENT SAYS SO.** Building the
+verb, a hand-built candidate that edited L7 of the seed-1000 draft *without* its
+return class came back with **two** new flags — `L7:SCHEME_VIOLATION` and a
+spurious `L10:RETURN_NOT_VERBATIM`. Through `apply_candidate` the same candidate
+reports **one**. A pre-flight that mirrored returns its own way would answer
+confidently about a draft the loop never builds, which is doctrine 1's own case.
+On the suite's twelve-line fixture the mirror is the difference between FIXING
+`RETURN_NOT_VERBATIM` and leaving it standing.
+
+**PINNED** (`quality/test_verbs.py` §60, 19 checks): that `_try_tier1` CALLS
+`apply_candidate` and that its inline `after[...] = candidate` spelling is gone
+by AST; the contract, both ways (a line in a return moves its whole class, a
+line in none moves alone) with the naive apply shown to be a DIFFERENT draft, so
+the mirror is not a no-op on the fixture; the verb accepting at exit 0 and
+reporting the return class as what it moved; the mirror being what earns the
+`RETURN_NOT_VERBATIM` fix; a rejection at exit 3 naming its new flags, still
+reporting what it fixed, with notes carried separately from flags; and three
+refusals at exit 2 — a line outside the draft, a non-numeric line, an empty
+candidate. A line number outside the draft REFUSES rather than answering no,
+because a question about a line that does not exist is not a rejected candidate
+(doctrine 20).
+
+**WHAT THIS DOES NOT CLAIM.** It does not make the seed-1000 case converge, and
+it is not evidence that it can. Both arms were still descending when stopped —
+arm A 15 of 20 answers accepted, arm B 18 of 27, with lines worked per round
+6→7→3 and 10→5→4→1 — and neither reached a stop condition. The dominant
+rejection in the late rounds was **"nothing was fixed" (8 of 12)**, which is a
+line rewrite offered against a JOINT constraint that no single line can satisfy;
+**zero group-level answers were given by either arm**, so the tier-2 whole-group
+backtrack built for exactly that case never came into play. Whether that is the
+loop failing to offer the group move or the writers failing to take it is NOT
+diagnosed here and is the next question, not this entry's.
+
+**AND THE COST FIGURE IS AN UPPER BOUND ON THE REMEDY, NOT A PROMISE.** 31 s and
+9 s are the acceptance decision on two drafts; nothing here measures how many
+pre-flights a writer needs per accepted line, so no end-to-end saving is
+claimed.
+
+**AND M-301's OTHER TWO WITNESSES LAND HERE**, rather than costing a pull
+request for one paragraph. That entry cites run 2259 only; all three arms of the
+repaired `dup` job have now fired in production:
+
+| run | arm | result |
+|---|---|---|
+| 2259 | pull request opened ~20 s AFTER the push | 22 of 23 jobs skipped, 25 s |
+| 2261 | pull request already open at push time | answered at the FIRST poll, no wait, 9 s |
+| 2264 | merge mirror — the sha IS `main`'s head | 1 success + 22 skipped, **7 s** |
+
+Run 2264 is M-251's question, withdrawn 2026-09-06 for reading workflow RUNS and
+answered here from the default branch's REF. **It also discharges M-300's
+procedural remedy**: a bare post-merge sync now costs seven seconds and no jobs,
+so the stop-hook's *"N unpushed commits"* nag can simply be obeyed.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~356~~ -> **357**.
+
+**357** with this entry (2026-09-19).

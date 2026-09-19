@@ -1055,6 +1055,39 @@ def _notify_verified(proposer, before, after, members, verdict, round_no):
         record(list(before), list(after), tuple(members), verdict, round_no)
 
 
+def apply_candidate(reviser, lines, mandate, line_no, candidate):
+    """-> `(after, targets)`: the draft with one answer applied, and the set
+    of line numbers that answer MOVED.
+
+    THE ONE DEFINITION OF WHAT A ONE-LINE ANSWER CHANGES, and it is more than
+    the line. A RETURN IS A CLASS, AND REVISING ONE MEMBER OF IT IS REFUSING
+    TO REVISE (`MISSING.md` M-201, owner's ruling 2026-09-02, found by the
+    first clean end-to-end run). A `REQUIRE_RETURN` group says these lines ARE
+    the same line; moving one and not its mates breaks the return, which rule
+    2 then rejects — so the loop was ASKING a question whose every answer is
+    refused, and spending the line's whole attempt budget doing it. On seed
+    275 that was 10 of 19 lines. The move is the one M-105 already made at
+    tier 2 when it stopped revising a PAIR and started revising the whole
+    group: a set of lines that must move together is revised together, in one
+    proposal, and every member is TARGETED so rule 2 admits what it asked for.
+
+    EXTRACTED 2026-09-19 (M-302) SO A SECOND CALLER CANNOT DISAGREE WITH THE
+    LOOP ABOUT IT. `tryline` answers "would this line be accepted?" ahead of a
+    grading cycle, and a pre-flight that mirrored returns differently from the
+    loop would confidently answer about a draft the loop never builds — the
+    exact shape of defect doctrine 1 is about. One definition, two callers.
+    """
+    m = (mandate if hasattr(mandate, "return_of")
+         else reviser.mandate(lines, mandate))
+    ret = m.return_of(line_no)
+    targets = (set(ret.lines) if ret is not None and ret.verbatim is True
+               else {line_no})
+    after = list(lines)
+    for ln in targets:
+        after[ln - 1] = candidate
+    return after, targets
+
+
 def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                assume, profile, propose, whole=()):
     tried = 0
@@ -1069,25 +1102,8 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         if candidate is None:
             break
         tried += 1
-        after = list(lines)
-        after[b.line_no - 1] = candidate
-        # A RETURN IS A CLASS, AND REVISING ONE MEMBER OF IT IS REFUSING TO
-        # REVISE (`MISSING.md` M-201, owner's ruling 2026-09-02, found by the
-        # first clean end-to-end run). A `REQUIRE_RETURN` group says these
-        # lines ARE the same line; moving one and not its mates breaks the
-        # return, which rule 2 then rejects — so the loop was ASKING a
-        # question whose every answer is refused, and spending the line's
-        # whole attempt budget doing it. On seed 275 that was 10 of 19 lines.
-        # The move is the one M-105 already made at tier 2 when it stopped
-        # revising a PAIR and started revising the whole group: a set of
-        # lines that must move together is revised together, in one proposal,
-        # and every member is TARGETED so rule 2 admits what it asked for.
-        m = mandate if hasattr(mandate, "return_of") else reviser.mandate(lines, mandate)
-        ret = m.return_of(b.line_no)
-        targets = (set(ret.lines) if ret is not None and ret.verbatim is True
-                   else {b.line_no})
-        for ln in targets:
-            after[ln - 1] = candidate
+        after, targets = apply_candidate(reviser, lines, mandate,
+                                         b.line_no, candidate)
         res = reviser.verify(lines, after, mandate, targeted=set(targets),
                              profile=profile, blueprint=blueprint,
                              subdivision=subdivision, assume=assume)

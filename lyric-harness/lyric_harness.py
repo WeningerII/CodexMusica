@@ -6128,6 +6128,22 @@ the quality layer (each says which module answered):
                           -- and an empty accepted set REFUSES at exit 2
                           with the rate, because unreachable and merely
                           rare are different answers
+  tryline DRAFT LINE "the new line" --seed=N [the same plan flags as finish]
+                          THE PRE-FLIGHT: would this one line be ACCEPTED?
+                          The verdict is `Reviser.verify` -- the same call,
+                          with the same arguments, the revise loop makes to
+                          decide whether to keep an answer -- and what the
+                          answer MOVES is `loop.apply_candidate`, so a
+                          declared verbatim return is mirrored here exactly
+                          as the loop mirrors it. Nothing about acceptance
+                          is decided in this verb. MEASURED: 31 s against a
+                          `finish` cycle's 8-15 minutes, which is the whole
+                          reason it exists -- a writer could otherwise learn
+                          a candidate's fate only by spending a cycle on it,
+                          and two agent writers answered that by improvising
+                          four pre-flight scripts apiece (standing rule 3:
+                          an improvised script used twice is a defect
+                          report). Exit 0 ACCEPTED, 3 REJECTED, 2 REFUSED
   finish DRAFT --seed=N [--form=verse-chorus] [--lines=N] [--relation=NAME]
          [--functions=a,b,c] [--title=TEXT] [--narrative=...]
          [--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY]
@@ -6183,6 +6199,10 @@ VERB_LAYERS = (
      "quality/grid.py, then shares this same report"),
     ("revise", "quality/loop.py", "the automated write-check-fix loop, "
      "driven on top of brief/verify"),
+    ("tryline", "quality/loop.py", "the PRE-FLIGHT -- would this one line "
+     "be accepted? -- a front door onto `Reviser.verify`, the loop's own "
+     "acceptance decision, over `loop.apply_candidate`, the loop's own "
+     "definition of what a one-line answer moves"),
     ("finish", "quality/loop.py", "the working order's last step as one "
      "door: plan-derived mandate, the loop to a stop condition, and the "
      "render exists only past one"),
@@ -10159,7 +10179,7 @@ def main():
                     lexicon_three_counts(lex, _words), what="word tokens"):
                 print(_out)
 
-    elif cmd in ("brief", "verify", "revise", "song", "finish"):
+    elif cmd in ("brief", "verify", "revise", "song", "finish", "tryline"):
         from quality import loop as LP
         from quality.revise import Reviser
         from quality.schemes import NoMandate
@@ -10187,7 +10207,7 @@ def main():
         # pairs are unskippable" stamp made mechanical.
         finish_plan = None
         finish_seed = None
-        if cmd == "finish":
+        if cmd in ("finish", "tryline"):
             from quality import plan as PLN2
             # THE PLAN IS THE ONE STATEMENT OF THE METER LAYER AND OF THE
             # MANDATE, so a second spelling of either on this command line
@@ -11979,7 +11999,7 @@ def main():
                 if _bp_say:
                     print(_bp_say)
                 BPROV.write_ledger(args[1], lines, _bp_states)
-                if cmd == "finish":
+                if cmd in ("finish", "tryline"):
                     # THE MANDATE AND THE METER COME OFF THE PLAN, spelled
                     # exactly as its own GRADE IT line spells them
                     # (`quality/plan.py:grading_command` — doctrine 1: one
@@ -11987,9 +12007,10 @@ def main():
                     # restated) and handed to the SAME `_mandate_arg` every
                     # hand-typed mandate goes through, so `finish` cannot
                     # come to parse a spelling differently from `revise`.
-                    if [a for a in args[2:] if not a.startswith("-")]:
-                        _refuse(f"finish does not take a mandate argument "
-                                f"— got {args[2]!r}",
+                    _pos_from = 4 if cmd == "tryline" else 2
+                    if [a for a in args[_pos_from:] if not a.startswith("-")]:
+                        _refuse(f"{cmd} does not take a mandate argument "
+                                f"— got {args[_pos_from]!r}",
                                 detail=["the plan the seed names IS the "
                                         "mandate; a second spelling beside "
                                         "it would be two statements of one "
@@ -12059,6 +12080,130 @@ def main():
                         "less expansive lines may be admitted; no writer was started.",
                         machine={"execution_limits": _actual_work,
                                  "final_draft": list(lines), "certified": False})
+                if cmd == "tryline":
+                    # `tryline DRAFT N "line" --seed=S` — THE PRE-FLIGHT
+                    # (`MISSING.md` M-302). It answers ONE question, the one
+                    # a writer holding a candidate actually has: WOULD THIS
+                    # LINE BE ACCEPTED? Before it existed the only way to
+                    # find out was to answer the loop and pay a full grading
+                    # cycle for the verdict.
+                    #
+                    # MEASURED 2026-09-19, which is the whole argument for
+                    # the verb: a `finish` cycle on the seed-1000 case ran
+                    # 8, 11 then 15 minutes and lengthening; the acceptance
+                    # decision alone runs in 31 s. A rejected answer cost a
+                    # cycle, so two independent agent writers driving
+                    # `--propose=defer:` did the rational thing and built
+                    # their own pre-flight rigs — a syllable counter, a
+                    # density/prominence band checker, a schema prober and a
+                    # shell wrapper around this very verdict — 1,495 tool
+                    # calls between them. STANDING RULE 3 NAMES THAT EXACTLY:
+                    # "an improvised script used twice is a defect report,
+                    # not a convenience." Two writers improvised four apiece,
+                    # and neither had read the rule. This verb is the defect
+                    # report answered.
+                    #
+                    # IT IS A FRONT DOOR, NOT A SECOND OPINION. The verdict
+                    # is `Reviser.verify` — the same call, with the same
+                    # arguments, that `quality/loop.py` makes to decide
+                    # whether to keep an answer — and what the answer CHANGES
+                    # is `loop.apply_candidate`, the one definition extracted
+                    # in this same lot so that a pre-flight cannot mirror a
+                    # declared return differently from the loop and then
+                    # answer confidently about a draft the loop never builds
+                    # (doctrine 1). Nothing about acceptance is decided here.
+                    try:
+                        _target = int(args[2])
+                    except (IndexError, ValueError):
+                        _refuse(
+                            "tryline requires a LINE NUMBER as its second "
+                            "argument",
+                            detail=["usage: tryline DRAFT LINE \"the new "
+                                    "line\" --seed=N [the same plan flags "
+                                    "`finish` takes]",
+                                    "the line number is 1-based, as every "
+                                    "brief and every finding in this "
+                                    "repository spells it"])
+                    if not 1 <= _target <= len(lines):
+                        _refuse(
+                            f"tryline was asked about L{_target} of a "
+                            f"{len(lines)}-line draft",
+                            detail=["a line number outside the draft is a "
+                                    "question about a line that does not "
+                                    "exist, not a rejected candidate — so "
+                                    "it REFUSES rather than answering no "
+                                    "(doctrine 20)"])
+                    _cand = args[3] if len(args) > 3 else ""
+                    if not _cand.strip():
+                        _refuse(
+                            "tryline requires the candidate line as its "
+                            "third argument",
+                            detail=["an empty candidate is not a revision; "
+                                    "pass the whole new line as one quoted "
+                                    "argument"])
+                    # WHAT THE ANSWER MOVES, asked of the loop's own
+                    # definition: the line, PLUS every member of its
+                    # declared verbatim return. A caller who edits one
+                    # member by hand earns `RETURN_NOT_VERBATIM` on its
+                    # mates — measured on this very case while building the
+                    # verb, editing L7 of the seed-1000 draft without its
+                    # return class put the finding on L10.
+                    _after, _targets = LP.apply_candidate(
+                        rv, lines, scheme, _target, _cand)
+                    _res = rv.verify(lines, _after, scheme,
+                                     targeted=set(_targets),
+                                     profile=rv_profile, blueprint=bp_path,
+                                     subdivision=subdivision, assume=assume)
+                    _ok = bool(_res.get("accepted"))
+                    _moved = ", ".join(f"L{n}" for n in sorted(_targets))
+                    print()
+                    print(f"  VERDICT: {'ACCEPTED' if _ok else 'REJECTED'} "
+                          f"— L{_target}")
+                    print(f"  MOVES  : {_moved}"
+                          + ("" if len(_targets) == 1 else
+                             "  (a declared verbatim return moves as a "
+                             "class — the loop mirrors it and so does this)"))
+                    for _r in _res.get("reasons") or ():
+                        print(f"  WHY    : {_r}")
+                    _fx = _res.get("fixed") or []
+                    _nf = _res.get("new_flags") or []
+                    _nn = [c for c in (_res.get("new") or []) if c not in _nf]
+                    print(f"  FIXED  : {len(_fx)}"
+                          + ("" if not _fx else "  " + ", ".join(
+                              f"L{a}:{b}" for a, b in _fx)))
+                    # THREE COUNTS, NEVER SUMMED (doctrine 79). A new FLAG
+                    # rejects; a new NOTE does not; a coverage regression is
+                    # a third thing again — a pair that was JUDGED and is
+                    # now REFUSED, which is neither a fix nor a new finding.
+                    print(f"  NEW FLAG: {len(_nf)}"
+                          + ("" if not _nf else "  " + ", ".join(
+                              f"L{a}:{b}" for a, b in _nf))
+                          + ("" if _nf else "  (a new flag is what rejects)"))
+                    print(f"  NEW NOTE: {len(_nn)}"
+                          + ("" if not _nn else "  " + ", ".join(
+                              f"L{a}:{b}" for a, b in _nn))
+                          + "  (notes never reject — doctrine 7)")
+                    _cr = list(_res.get("coverage_regressions") or ())
+                    print(f"  COVERAGE LOST: {len(_cr)}"
+                          + ("" if not _cr else "  " + ", ".join(map(str, _cr))
+                             + "  (previously JUDGED, now REFUSED — not a "
+                               "new finding and not a fix)"))
+                    _lyric_result(version=1, status="tryline",
+                                  command="tryline", line=_target,
+                                  moves=sorted(_targets), candidate=_cand,
+                                  accepted=_ok,
+                                  reasons=list(_res.get("reasons") or ()),
+                                  fixed=[list(x) for x in _fx],
+                                  new_flags=[list(x) for x in _nf],
+                                  new_notes=[list(x) for x in _nn],
+                                  coverage_regressions=[str(x) for x in _cr],
+                                  transport_token=None)
+                    # EXIT 3 ON A REJECTION, matching `revise`/`song`'s "a
+                    # gate said no" code rather than 2, which this file
+                    # reserves for a question the harness could not answer.
+                    # A rejected candidate IS an answer.
+                    sys.exit(0 if _ok else 3)
+
                 from quality import replay_memo as RM
                 _rm_key = RM.run_key(sys.argv[1:], input_paths=(args[1], bp_path))
                 from quality.propose import ProposerUnavailable
