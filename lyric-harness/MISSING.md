@@ -6665,7 +6665,14 @@ and both are recorded unadjusted.
 **AND THE GATE SCRIPT THIS SESSION HAD BEEN TRUSTING WAS CHECKING HALF THE
 JOB.** The local pre-flight ran 16 gates and reported `OVERALL_FAIL=0` on a
 tree whose `record` job then failed on the comparator pin; CI's `record` runs
-**29**, and the script also called `audit_register.py` WITHOUT `--check`, the
+**30** — ~~29~~, and THE MISCOUNT WAS INSIDE THE SENTENCE ABOUT MISCOUNTING,
+which is this entry's own subject arriving one layer in. Re-derived rather than
+re-typed: `jobs.record.steps` holds **32** entries carrying a `run`, of which
+**2** are skipped by name with a stated reason (the numpy install and the
+lexicon staging, neither a check), leaving **30** executed. The first figure
+was got by subtracting a third step nobody named. A count in prose that no
+command re-derives is a threshold nobody wrote down (doctrine 58) —, and the
+script also called `audit_register.py` WITHOUT `--check`, the
 weaker form that does not go red when a derived figure moves. It now DERIVES
 its list from `ci.yml`'s `record` job instead of keeping a second copy, because
 a second copy of a gate set is how a census starts disagreeing with the thing
