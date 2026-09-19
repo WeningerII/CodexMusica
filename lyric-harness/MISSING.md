@@ -26912,3 +26912,60 @@ entry is the second instance and the first measurement of the direction.
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~353~~ -> **354**.
 
 **354** with this entry (2026-09-19).
+
+### M-300 · The merge-hygiene rule has an unstated precondition, and when it fails obeying the rule puts a red check on main's own head commit `OPEN` 2026-09-19 — found by declining to obey it twice
+
+**THE RULE, AS THE FLEET BRIEF STATES IT**: *"ALWAYS cancel, as the LAST STEP
+OF EVERY MERGE: that branch's `push` run and its `refs/pull/N/merge` run if
+still queued or running."* It is a good rule and it has a real injury behind
+it — fifteen uncancelled runs once starved main's own CI for forty minutes.
+
+**ITS UNSTATED PRECONDITION IS THAT THE BRANCH HEAD IS NOT MAIN'S HEAD.**
+Normally that holds: the branch sits at the PRE-merge sha and main sits at the
+merge commit, so cancelling the branch's run touches a sha main does not
+carry. **It stops holding the moment the branch is fast-forwarded onto the
+merge commit**, which is what a post-merge `git checkout -B <branch>
+origin/main` followed by a push produces. Then one sha is BOTH main's head and
+the branch's head, and the two runs on it are distinguishable only by
+`head_branch`.
+
+**AND CANCELLING IS NOT SYMMETRIC WITH LETTING IT RUN.** A cancelled check is
+IMMUTABLE on its sha and renders RED; `skipped` is neutral and `cancelled` is
+not — the brief says so itself, in the paragraph that also says never to cancel
+a run on main. So obeying the cancel rule here marks **main's own head commit**
+red, permanently, which is the 231-red-marks injury arriving from the opposite
+direction.
+
+**MEASURED, THIS SESSION: 2 INSTANCES**, both created by pushing a bare
+post-merge sync, on `796bfd10` and `98ccb8be`. Not a large cost and it is not
+claimed as one — each duplicate run does **45 of 48 jobs and 9,931 job-seconds**
+(~2.76 CPU-hours), so the two together are ~5.5 CPU-hours. **The cost is not
+why this is written down; the red mark is.**
+
+**THE `dup` JOB DOES NOT SUPPRESS IT, AND ITS REASON IS CORRECT FOR THE
+QUESTION IT ASKS.** From its own log on `796bfd10`:
+
+    already_covered=false — no OPEN pull request has this commit at its head
+                            — this push is this branch's only CI
+
+That is right for an ordinary branch push. It is wrong here only because the
+question is about OPEN PULL REQUESTS and never about whether the sha is
+already main's head with main's own run covering it. **This entry does NOT
+propose changing it**: the owner ruled on that job, overturning BCI-07, and
+`quality/test_shard.py` §6 pins the contract — the fleet brief's *"do not fix
+the dup job again"* is a standing instruction and is obeyed here.
+
+**SO THE REMEDY IS PROCEDURAL AND BELONGS TO WHOEVER RUNS THE MERGE: DO NOT
+PUSH A BARE POST-MERGE SYNC.** The branch needs no push until it carries new
+work; resetting it onto main locally is enough, and the next real commit's push
+creates exactly one run on a sha main does not have. That removes the duplicate
+run and the dilemma together, without touching a workflow.
+
+**WHAT PROMPTED THE PUSHES IS NAMED, because it will prompt the next one**: a
+stop-hook reports *"N unpushed commit(s)"* after the local reset, which is
+literally true and carries no defect — every one of those commits is already on
+main. Reading that nag as work to do is what creates the duplicate.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~354~~ -> **355**.
+
+**355** with this entry (2026-09-19).
