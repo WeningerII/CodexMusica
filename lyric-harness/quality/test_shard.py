@@ -368,18 +368,57 @@ def test_each_ci_event_owns_completed_evidence():
     if body is not None:
         script = "\n".join(l[10:] for l in body.group(1).splitlines())
 
-    # ONE QUESTION, AND IT IS THE PULL-REQUEST ONE. Pinned on the endpoint and
-    # on both halves of the filter: an ancestor commit of an open PR is NOT
-    # its head, and a closed PR is not an open one.
+    # ~~ONE QUESTION, AND IT IS THE PULL-REQUEST ONE. Pinned on the endpoint
+    # and on both halves of the filter: an ancestor commit of an open PR is
+    # NOT its head, and a closed PR is not an open one.~~
+    #
+    # STRUCK 2026-09-19 (M-301, doctrine 17) AND THE STRIKE IS THE FINDING.
+    # That question was asked TWELVE SECONDS BEFORE THE FACT IT ASKS ABOUT
+    # BECOMES TRUE, so it answered `false` on every branch push this
+    # repository has made since M-250 shipped. MEASURED on run 2256
+    # (`ed089796`): `dup` completed at 14:33:52 with `no OPEN pull request has
+    # this commit at its head`, PR #358 was created at 14:33:58 with that very
+    # sha at its head, and the push run went on to run 37 jobs to success over
+    # 17 minutes beside the pull_request run doing the same work. Doctrine 48
+    # in its purest form: the mechanism was real, reachable, correct, and
+    # unable to fire, and a guard that cannot fire reads exactly like a guard
+    # that is working. The owner's instruction was "fix that too for me
+    # please", on the duplicate they had just been shown.
+    #
+    # WHAT IS PINNED NOW, and it is three claims rather than one. (a) The
+    # subject is THE BRANCH, not the commit — an open pull request whose head
+    # REF is this branch is sent a `synchronize` for this push, which is true
+    # the moment the pull request exists, where its head SHA lags. (b) There
+    # is a SECOND question, the merge mirror, answered from the default
+    # branch's REF and not from its workflow runs, because a sha is a fact and
+    # a run's conclusion is an inference about jobs that may all have skipped
+    # — which is why `actions:` is still absent from this script. (c) The wait
+    # is REAL: §6 drives the loop with a stub that answers late and requires
+    # the script to come back and find it.
     check("`dup` asks the pull-request question, by endpoint",
-          "/pulls" in script and "commits/$GITHUB_SHA" in script)
-    check("...filtered to OPEN pull requests whose HEAD is this exact commit",
-          '.state == "open"' in script and ".head.sha == $ENV.GITHUB_SHA" in script)
-    check("...and asks nothing else: no workflow-runs question (M-251 is not "
-          "restored, and a run can conclude success having skipped every job)",
+          "/pulls?state=open" in script)
+    check("...about THIS BRANCH, whose ref is true the moment the pull "
+          "request exists, and not about the head SHA, which lags the push",
+          ".head.ref == $ENV.BRANCH" in script
+          and ".head.sha == $ENV.GITHUB_SHA" not in script)
+    check("...and only a pull request on THIS repository: a fork's branch may "
+          "carry the same name and is a different pull request",
+          ".head.repo.full_name == $ENV.GITHUB_REPOSITORY" in script)
+    check("`dup` asks the merge-mirror question from the default branch's REF",
+          "git/ref/heads/$DEFAULT_BRANCH" in script)
+    check("...and asks nothing else: no workflow-runs question (M-251 is "
+          "answered from a sha, not from a run that can conclude success "
+          "having skipped every job)",
           "workflow_runs" not in script and "/actions/" not in script)
+    # THE TWO WAITS ARE DECLARED COORDINATES, not literals buried in the
+    # script: a wait nobody wrote down is a threshold nobody wrote down
+    # (doctrine 58), and this section could not ask the question without
+    # paying 90 s a case if they were not settable.
+    check("the deadline and the interval are declared in the step's `env:`",
+          "WAIT_SECONDS:" in dup and "POLL_SECONDS:" in dup)
 
-    def answer(stub, event="push", branch="fix/x", default="trunk"):
+    def answer(stub, event="push", branch="fix/x", default="trunk",
+               wait="0", poll="1"):
         """-> (rc, GITHUB_OUTPUT lines) for the real script over a stubbed `gh`.
 
         The fixture's default branch is NOT called `main`, on purpose and
@@ -403,8 +442,14 @@ def test_each_ci_event_owns_completed_evidence():
                      "GITHUB_OUTPUT": output, "GH_TOKEN": "t",
                      "GITHUB_REPOSITORY": "o/r", "GITHUB_SHA": "a" * 40,
                      "EVENT_NAME": event, "BRANCH": branch,
-                     "DEFAULT_BRANCH": default},
-                capture_output=True, text=True, timeout=60)
+                     "DEFAULT_BRANCH": default,
+                     # A DEADLINE OF ZERO ASKS ONCE. The cases below are about
+                     # the ANSWER, and paying the production wait for each of
+                     # them would put ~20 minutes into a 0.5 s section; the
+                     # wait itself is asked for separately, below, where it is
+                     # the subject rather than the overhead.
+                     "WAIT_SECONDS": wait, "POLL_SECONDS": poll},
+                capture_output=True, text=True, timeout=180)
             got = [l for l in io.open(output, encoding="utf-8").read().splitlines() if l]
             return run.returncode, got
 
@@ -419,13 +464,17 @@ def test_each_ci_event_owns_completed_evidence():
         return "#!/bin/bash\nprintf '%%s\\n' %r\nexit %d\n" % (text, rc)
 
     if script:
-        # ONE CASE SAYS YES.
-        check("an OPEN pull request whose head IS this commit -> true",
+        SELF = "a" * 40  # the fixture's own GITHUB_SHA, set in `answer()`
+        # TWO CASES SAY YES, ONE PER QUESTION.
+        check("an OPEN pull request whose head REF is this branch -> true",
               says(const("1"), "true"))
+        check("this sha IS the default branch's head -> true (merge mirror)",
+              says(const(SELF), "true"))
         # AND EVERY OTHER PATH SAYS RUN IT. This is the 2026-08-14 lesson --
         # six commits with no CI at all -- held as a property of the script.
         for name, stub, kw in [
-            ("no open pull request has this head", const("0"), {}),
+            ("no open pull request on this branch", const("0"), {}),
+            ("the default branch's head is a DIFFERENT sha", const("b" * 40), {}),
             ("HTTP 403 (the permission is missing)", const("", 1), {}),
             ("the network failed (rc 7)", const("", 7), {}),
             ("`gh` is not installed (rc 127)", "#!/bin/bash\nexit 127\n", {}),
@@ -447,22 +496,76 @@ def test_each_ci_event_owns_completed_evidence():
               "than skipped (`apt-get install jq`)", have_jq,
               "jq present" if have_jq else "jq missing")
         if have_jq:
-            def over(rows):
+            def over(rows, ref=None):
+                """A `gh` that answers the REF question and the PULLS question
+                separately -- which a single-answer stub cannot do now that
+                there are two, and conflating them is how a stub starts
+                proving something about itself instead of about the script.
+                """
                 fd, path = tempfile.mkstemp(suffix=".json")
                 with io.open(fd, "w", encoding="utf-8") as fh:
                     fh.write(rows)
                 return ('#!/bin/bash\nf=""\np=""\nfor a in "$@"; do\n'
                         '  if [ "$p" = "--jq" ]; then f="$a"; fi\n  p="$a"\n'
-                        'done\njq "$f" < %s\n' % path)
-            HEAD = "a" * 40
-            check("REAL jq: an open PR at THIS sha -> true",
-                  says(over('[{"state":"open","head":{"sha":"%s"}}]' % HEAD), "true"))
-            check("REAL jq: an open PR at a DIFFERENT sha -> false",
-                  says(over('[{"state":"open","head":{"sha":"deadbeef"}}]'), "false"))
-            check("REAL jq: a CLOSED PR at this sha -> false",
-                  says(over('[{"state":"closed","head":{"sha":"%s"}}]' % HEAD), "false"))
-            check("REAL jq: no pull request at all -> false",
+                        'done\ncase "$*" in\n'
+                        '  *git/ref*) printf \'%%s\\n\' %r ;;\n'
+                        '  *) jq "$f" < %s ;;\nesac\n'
+                        % (ref or "b" * 40, path))
+            MINE = '{"full_name":"o/r"}'
+            FORK = '{"full_name":"fork/r"}'
+            check("REAL jq: an open PR whose head REF is this branch -> true",
+                  says(over('[{"head":{"ref":"fix/x","repo":%s}}]' % MINE), "true"))
+            check("REAL jq: an open PR on ANOTHER branch -> false",
+                  says(over('[{"head":{"ref":"other","repo":%s}}]' % MINE), "false"))
+            # The same branch NAME on a fork is a different pull request, and
+            # the push that started this run did not move its head.
+            check("REAL jq: the same branch name on a FORK -> false",
+                  says(over('[{"head":{"ref":"fix/x","repo":%s}}]' % FORK), "false"))
+            check("REAL jq: no open pull request at all -> false",
                   says(over("[]"), "false"))
+            check("REAL jq: the ref question alone can say yes",
+                  says(over("[]", ref=SELF), "true"))
+
+        # THE WAIT IS THE REPAIR, SO THE WAIT IS ASKED FOR. A deadline of zero
+        # answers every case above; none of them can tell a script that polls
+        # from a script that asks once and gives up, which is exactly the
+        # difference between this job working and M-250's three entries.
+        def late():
+            """A `gh` answering the PULLS question 0, 0, then 1 -- a pull
+            request opened two polls after the push, which is the shape
+            MEASURED on every pull request this repository has opened. The
+            tally file is written INTO the stub rather than passed through the
+            environment, because `answer()` hands the script an explicit env
+            and a variable it does not name would silently make this a stub
+            that answers 0 forever -- a check that cannot fail.
+            """
+            fd, path = tempfile.mkstemp(suffix=".n")
+            os.close(fd)
+            os.remove(path)
+            return ('#!/bin/bash\n'
+                    'case "$*" in *git/ref*) echo ref ; exit 0 ;; esac\n'
+                    'n=$(cat %s 2>/dev/null || echo 0)\n'
+                    'n=$((n + 1)); echo "$n" > %s\n'
+                    'if [ "$n" -le 2 ]; then echo 0; else echo 1; fi\n'
+                    % (path, path))
+        check("a pull request that appears AFTER the push is found: two 0s "
+              "then a 1, inside the deadline -> true",
+              says(late(), "true", wait="6", poll="1"))
+        check("...and the deadline is a deadline: the same stub with no room "
+              "to reach the 1 -> false (deny-by-default)",
+              says(late(), "false", wait="1", poll="1"))
+        # AN INTERVAL OF ZERO IS AN INFINITE LOOP unless the script refuses
+        # it, and an infinite loop here fails every job in the file -- which
+        # is deny-by-default inverted in the most expensive possible way.
+        check("a zero interval falls back to the declared one and TERMINATES",
+              says(const("0"), "false", wait="2", poll="0"))
+        # ASKED WITH A STUB THAT SAYS YES AT ONCE, on purpose: the claim is
+        # that a non-numeric deadline is CAUGHT rather than compared -- under
+        # `bash -e` an uncaught `[ "" -ge 0 ]` exits 2, which fails `dup` and
+        # with it every job in the file. Asking it with a `no` would pay the
+        # fallback's own 90 s to learn nothing the case above has not shown.
+        check("a deadline that is not a number does not abort the script",
+              says(const("1"), "true", wait="", poll="1"))
 
         # THE CHECK CAN FAIL, and the two planted defects are the two ways
         # this job has actually been wrong: a stub that never asks (BCI-07's,

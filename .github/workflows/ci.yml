@@ -21,6 +21,16 @@ permissions:
   # decision that can come back, and `quality/test_shard.py` §6 pins the
   # permission's presence. A read-only scope nothing calls costs nothing. What
   # would be false is calling it load-bearing TODAY.
+  #
+  # ADDENDUM 2026-09-19 (M-301): `dup` asks TWO questions now and the second
+  # one is M-251's, so the sentence above has half come back — but it came
+  # back in the SCOPE THIS ADDENDUM ALREADY HAD. The merge mirror is answered
+  # from the default branch's REF (`git/ref/heads/…`, `contents: read`), not
+  # from its workflow runs, because a sha is a fact and a run's conclusion is
+  # an inference about jobs that may all have skipped. So `actions: read` is
+  # STILL unused and is STILL kept on the argument above, and the addendum's
+  # last sentence is the one that has to be reread rather than rewritten: it
+  # is not load-bearing today either.
   actions: read
 
 on:
@@ -199,8 +209,12 @@ jobs:
   # THE QUESTION IS ITS OWN JOB (M-252) and must stay one: a job's outputs
   # land when the JOB ends, `gate` measured 57 s publishing this answer from
   # inside itself, and everything downstream waits on it. No `needs:`, no
-  # checkout, no toolchain — one HTTP question, capped at 30 s inside a
-  # two-minute job.
+  # checkout, no toolchain — ~~one HTTP question, capped at 30 s inside a
+  # two-minute job~~ **two HTTP questions, each capped at 30 s, the second
+  # re-asked until `WAIT_SECONDS` elapses, inside a four-minute job (M-301,
+  # 2026-09-19)**. The part that must not move is the FIRST clause: this job
+  # still carries no checkout and no toolchain, so what it spends is spent
+  # waiting for an answer rather than building one.
   #
   # ONE QUESTION, NOT TWO. M-251's second question — has the default branch
   # already run this exact sha green — is NOT restored here. It reads workflow
@@ -209,52 +223,128 @@ jobs:
   # such a run is a claim this job could not make honestly. The merge mirror
   # it caught is avoidable with no code at all (MISSING.md: fast-forward the
   # branch locally and push it only with the next real commit).
+  #
+  # ~~ONE QUESTION~~ STRUCK 2026-09-19 (M-301, doctrine 17) BY THE OWNER'S
+  # INSTRUCTION, verbatim: "fix that too for me please", on the duplicate they
+  # had just been shown. THERE ARE TWO QUESTIONS NOW AND NEITHER IS THE ONE
+  # THE PARAGRAPH ABOVE REFUSES — no job in this file reads the Actions API,
+  # and the merge mirror is answered from the default branch's REF rather than
+  # from its runs, which is the honest form of M-251's question: a sha is a
+  # fact, a run's conclusion is an inference.
+  #
+  # AND THE FIRST QUESTION WAS BEING ASKED TWELVE SECONDS TOO EARLY, WHICH IS
+  # WHY IT NEVER ONCE FIRED. MEASURED 2026-09-19 over the ten most recent
+  # branch pushes: the push run is created FIRST and `dup` answers about six
+  # seconds in, while the pull_request run — and, on a new branch, the pull
+  # request itself — arrives 10 to 22 seconds after the push. On run 2256
+  # (`ed089796`) `dup` completed at 14:33:52 saying `already_covered=false —
+  # no OPEN pull request has this commit at its head`, and PR #358 was created
+  # at 14:33:58 with that very sha at its head. The push run then ran 37 jobs
+  # to success over 17 minutes beside a pull_request run doing the same work.
+  # So `already_covered` has been `false` on every branch push since M-250
+  # shipped: the question was right, the moment was wrong, and a guard that
+  # cannot fire reads exactly like a guard that is working (doctrine 48).
+  #
+  # THE REPAIR IS A BOUNDED WAIT AND A BROADER SUBJECT, not a broader licence.
+  # `WAIT_SECONDS` below is the deadline and `POLL_SECONDS` the interval; both
+  # are declared coordinates rather than literals in the script, because a
+  # wait nobody wrote down is a threshold nobody wrote down (doctrine 58) and
+  # because the suite that gates this job sets them to zero to ask the
+  # question without paying for it. And the subject moves from THE COMMIT to
+  # THE BRANCH: an open pull request whose head REF is this branch will be
+  # sent a `synchronize` for this push and will run, whereas its head SHA is a
+  # field that lags the push by the very interval this job was losing to.
+  # Deny-by-default is untouched — the deadline expiring is a `false`.
+  #
+  # THE COST, STATED: up to WAIT_SECONDS on the critical path of a branch push
+  # that turns out to have no pull request, since every job `needs:` this one.
+  # A push to the default branch and every non-push event still answer without
+  # asking anything at all. Against 37 jobs and 17 minutes of duplicated work
+  # on essentially every pull request, that is the trade being made.
   dup:
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    # WAIT_SECONDS + one 30 s question + startup, with room to spare.
+    timeout-minutes: 4
     outputs:
       already_covered: ${{ steps.ask.outputs.already_covered }}
     steps:
-      - name: Does an open pull request already own this commit's CI?
+      - name: Does anything else already own this commit's CI?
         id: ask
         env:
           GH_TOKEN: ${{ github.token }}
           EVENT_NAME: ${{ github.event_name }}
           BRANCH: ${{ github.ref_name }}
           DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          # MEASURED 2026-09-19 over the ten most recent branch pushes: the
+          # pull_request run is created 2 to 22 s after the push run, and on a
+          # branch whose pull request does not exist yet it is the PULL
+          # REQUEST that arrives late (PR #358 at +15 s, #357 at +13 s, #356
+          # at +15 s, #355 at +19 s, #354 at +10 s). 90 is roughly four times
+          # the observed maximum, and it is the whole of what a branch push
+          # with no pull request pays.
+          WAIT_SECONDS: '90'
+          POLL_SECONDS: '10'
         # NOTHING IN THIS SCRIPT MAY EXIT NON-ZERO. The default shell is
         # `bash -e`, and a failing command here fails `dup`, which every job
         # `needs:` — so an unanswerable question would STOP CI rather than
-        # run it, which is deny-by-default inverted. The one command that can
-        # fail is therefore the condition of an `elif` and is negated with
-        # `!`, two places `-e` does not reach, and its failure IS the answer
-        # `false`.
+        # run it, which is deny-by-default inverted. Every command that can
+        # fail is therefore the condition of an `if`/`elif` or the left side
+        # of a `||`, which are the places `-e` does not reach, and its failure
+        # IS the answer `false`. The two `gh` calls, the two guards on the
+        # declared waits, and the `-ge` comparison inside the loop are all
+        # one of those three shapes; `quality/test_shard.py` §6 asserts the
+        # exit code beside every answer for exactly this reason.
         run: |
           covered=false
+
+          # A DEADLINE THAT IS NOT A NUMBER IS NOT A DEADLINE. Both are read
+          # from the environment so the suite can set them to zero; a value
+          # that will not compare falls back to the declared one rather than
+          # spinning this job — and an interval of zero with a nonzero
+          # deadline is an infinite loop, which would fail every job below.
+          [ "$WAIT_SECONDS" -ge 0 ] 2>/dev/null || WAIT_SECONDS=90
+          [ "$POLL_SECONDS" -ge 1 ] 2>/dev/null || POLL_SECONDS=10
 
           if [ "$EVENT_NAME" != 'push' ]; then
             why="a '$EVENT_NAME' run is never the duplicate — it is the run a pull request's checks are read from"
           elif [ "$BRANCH" = "$DEFAULT_BRANCH" ]; then
             why="a push to '$DEFAULT_BRANCH' is the one run nothing may silently drop"
-          elif ! answer="$(timeout 30 gh api \
+          elif tip="$(timeout 30 gh api \
                 -H 'Accept: application/vnd.github+json' \
                 -H 'X-GitHub-Api-Version: 2022-11-28' \
-                "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/pulls?per_page=100" \
-                --jq '[.[] | select(.state == "open" and .head.sha == $ENV.GITHUB_SHA)] | length' 2>&1)"; then
-            why="the question could not be asked ($answer) — an unanswered question is not a yes"
+                "repos/$GITHUB_REPOSITORY/git/ref/heads/$DEFAULT_BRANCH" \
+                --jq '.object.sha' 2>&1)" && [ "$tip" = "$GITHUB_SHA" ]; then
+            covered=true
+            why="this sha IS the head of '$DEFAULT_BRANCH' — that branch's own push run owns this tree, and a push to it never defers (M-251, the merge mirror)"
           else
-            case "$answer" in
-              '' | *[!0-9]*)
-                why="the answer did not parse as a count ($answer) — an unanswered question is not a yes"
-                ;;
-              0)
-                why="no OPEN pull request has this commit at its head — this push is this branch's only CI"
-                ;;
-              *)
-                covered=true
-                why="$answer open pull request(s) have this commit at their head"
-                ;;
-            esac
+            waited=0
+            while : ; do
+              if answer="$(timeout 30 gh api \
+                    -H 'Accept: application/vnd.github+json' \
+                    -H 'X-GitHub-Api-Version: 2022-11-28' \
+                    "repos/$GITHUB_REPOSITORY/pulls?state=open&per_page=100" \
+                    --jq '[.[] | select(.head.ref == $ENV.BRANCH and .head.repo.full_name == $ENV.GITHUB_REPOSITORY)] | length' 2>&1)"; then
+                case "$answer" in
+                  '' | *[!0-9]*)
+                    why="the answer did not parse as a count ($answer) — an unanswered question is not a yes"
+                    ;;
+                  0)
+                    why="no OPEN pull request has '$BRANCH' at its head after ${waited}s of ${WAIT_SECONDS}s — this push is this branch's only CI"
+                    ;;
+                  *)
+                    covered=true
+                    why="$answer open pull request(s) have '$BRANCH' at their head, answered at ${waited}s — that pull request is sent this push and its run owns this sha"
+                    ;;
+                esac
+              else
+                why="the question could not be asked ($answer) — an unanswered question is not a yes"
+              fi
+              if [ "$covered" = 'true' ] || [ "$waited" -ge "$WAIT_SECONDS" ]; then
+                break
+              fi
+              sleep "$POLL_SECONDS"
+              waited=$(( waited + POLL_SECONDS ))
+            done
           fi
 
           echo "already_covered=$covered" >> "$GITHUB_OUTPUT"

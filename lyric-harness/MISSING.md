@@ -27032,10 +27032,17 @@ QUESTION IT ASKS.** From its own log on `796bfd10`:
 
 That is right for an ordinary branch push. It is wrong here only because the
 question is about OPEN PULL REQUESTS and never about whether the sha is
-already main's head with main's own run covering it. **This entry does NOT
+already main's head with main's own run covering it. ~~**This entry does NOT
 propose changing it**: the owner ruled on that job, overturning BCI-07, and
 `quality/test_shard.py` §6 pins the contract — the fleet brief's *"do not fix
-the dup job again"* is a standing instruction and is obeyed here.
+the dup job again"* is a standing instruction and is obeyed here.~~
+**STRUCK 2026-09-19 THE SAME DAY (M-301, doctrine 17): THE STANDING
+INSTRUCTION WAS SUPERSEDED BY THE OWNER IN PERSON**, verbatim, *"fix that too
+for me please"*, on a screenshot of the two runs. The diagnosis above is
+untouched and is what M-301 built: the second question is now asked, and it is
+asked of main's own REF rather than of its runs. What this paragraph got wrong
+is not the mechanism but the standing — a fleet brief is a standing
+instruction until the person who set it says otherwise, and they did.
 
 **SO THE REMEDY IS PROCEDURAL AND BELONGS TO WHOEVER RUNS THE MERGE: DO NOT
 PUSH A BARE POST-MERGE SYNC.** The branch needs no push until it carries new
@@ -27051,3 +27058,111 @@ main. Reading that nag as work to do is what creates the duplicate.
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~354~~ -> **355**.
 
 **355** with this entry (2026-09-19).
+
+### M-301 · `dup` asked the right question twelve seconds before its answer could be true, so `already_covered` was `false` on every branch push this repository ever made and every pull request paid for two full runs `CLOSED` 2026-09-19 — the owner's instruction, verbatim: *"fix that too for me please"*
+
+**THE OWNER ASKED A QUESTION FIRST AND IT IS THE BETTER STATEMENT OF THE
+DEFECT**: *"why is it that 2 are always opened?"* — ALWAYS. M-250 shipped a
+job whose whole purpose is that they are not always opened, M-252 closed on
+that job being reachable and fast, and the person watching the Actions page
+could see, every time, that it was not working. The answer they were owed is
+this entry.
+
+**MEASURED 2026-09-19, and the measurement is one log line beside one
+timestamp.** On run 2256 (push, `ed089796`, job 105913073515) `dup` started at
+14:33:48, finished at 14:33:52, and said:
+
+    already_covered=false — no OPEN pull request has this commit at its head
+                            — this push is this branch's only CI
+
+**PR #358 was created at 14:33:58 with that very sha at its head.** Six
+seconds later. The push run then ran **37 jobs to success over 17 minutes**
+(14:33:43 → 14:50:47) beside pull_request run 2257 on the identical sha doing
+the identical work. The same shape holds across the ten most recent branch
+pushes: the push run is created FIRST, `dup` answers about six seconds in, and
+the pull request (or, on a branch that already has one, the `synchronize` that
+moves its head) lands 10 to 22 s later — #358 at +15 s, #357 at +13 s, #356 at
++15 s, #355 at +19 s, #354 at +10 s.
+
+**SO THE QUESTION WAS RIGHT AND THE MOMENT WAS WRONG, WHICH IS DOCTRINE 48 IN
+ITS PUREST FORM.** The mechanism was built, tested, reachable, correct and
+UNABLE TO FIRE — and a guard that cannot fire reads exactly like a guard that
+is working. Nothing went red for it because nothing was wrong: `dup` answered
+truthfully every time about the state of the world at the instant it asked.
+
+**THREE ENTRIES AND A CLOSED `PARTIAL` DID NOT CATCH IT, AND THE REASON IS
+WORTH MORE THAN THE FIX.** M-250 built the question. M-251 added a second and
+then withdrew it. M-252 was reopened precisely because the guard *"could not
+fire on the twin it was written for"* — and it diagnosed the cause as the
+57-second publishing job, moved the answer into `dup`, measured `dup` at four
+seconds, saw a run where `dup` succeeded and 24 jobs skipped, and closed. That
+observation was real and it was of the MERGE MIRROR arm, where the default
+branch's run is already complete when the branch push starts. **The arm M-250
+was written for — a push to a branch with a pull request — was never once
+observed answering `true`, and M-252 closed on a witness from the other arm.**
+Doctrine 79 one layer out: two arms of one guard are two counts, and a witness
+for one is not a witness for the other.
+
+**THE REPAIR, AND EACH HALF IS A DIFFERENT KIND OF CHANGE.**
+
+1. **A BOUNDED WAIT.** `WAIT_SECONDS` (90) and `POLL_SECONDS` (10) are
+   declared in the step's `env:`, not written into the script, because a wait
+   nobody wrote down is a threshold nobody wrote down (doctrine 58) and
+   because `quality/test_shard.py` §6 sets them to zero to ask the question
+   without paying for it. 90 is roughly four times the observed maximum lag.
+   **Deny-by-default is untouched**: the deadline expiring is a `false`, and
+   so is every 403, timeout, missing `gh` and unparseable body, exactly as
+   before.
+2. **A BROADER SUBJECT, NOT A BROADER LICENCE.** The question moves from THE
+   COMMIT to THE BRANCH: an open pull request whose head REF is this branch is
+   sent a `synchronize` for this push and will run. That fact is true the
+   moment the pull request exists, where `head.sha` is a field that lags the
+   push by the very interval this job was losing to. The filter also requires
+   `head.repo.full_name` to be this repository, because a fork's branch may
+   carry the same name and is a different pull request.
+3. **THE MERGE MIRROR, WHICH IS M-251's QUESTION ASKED HONESTLY.** M-251 was
+   withdrawn on the ground that it read workflow RUNS and *"a run can conclude
+   `success` having SKIPPED every job"*. That objection is about the EVIDENCE,
+   not about the question, and it is answered by changing the evidence: `dup`
+   now compares `$GITHUB_SHA` with the default branch's REF
+   (`git/ref/heads/…`). A sha is a fact; a run's conclusion is an inference.
+   A push to the default branch never defers, so if this sha IS that branch's
+   head, a run that does the full matrix on this tree exists by construction.
+   **`actions: read` remains unused and remains kept** on the argument already
+   recorded above its declaration — this is a `contents: read` question.
+
+**WHAT IT COSTS, STATED RATHER THAN BURIED.** Up to `WAIT_SECONDS` on the
+critical path of a branch push that turns out to have NO pull request, since
+every job `needs: dup`. A push to the default branch and every non-push event
+still answer without asking anything at all. Against 37 jobs and 17 minutes of
+duplicated work on essentially every pull request, that is the trade.
+
+**AND M-300's CLOSING PARAGRAPH IS STRUCK BY THIS ONE** (see above). That
+entry declined to touch `dup` on a standing fleet instruction, *"do not fix
+the dup job again"*, and proposed a procedural remedy instead. The owner
+overrode the instruction directly. The procedural remedy is still correct and
+still cheaper; what changes is that it is no longer the only one.
+
+**PINNED** (`quality/test_shard.py` §6, rewritten in place): the endpoint and
+both halves of the new filter; the merge-mirror question by its REF path; the
+continued ABSENCE of any workflow-runs question; the two waits being declared
+in `env:` at all; a stub that answers `0`, `0`, then `1` and must be FOUND
+inside the deadline — the check that separates a script which polls from one
+that asks once and gives up, which is the whole of this entry; the same stub
+with no room to reach the `1` coming back `false`; and the two guards that
+keep a zero interval or a non-numeric deadline from spinning a job every other
+job waits on. The twelve deny-by-default cases and both PLANTED mutations are
+M-250's and are unchanged.
+
+**WHAT IS NOT CLAIMED.** The FIRST push of a branch that has no pull request
+yet still runs everything, and the pull request opened afterwards runs
+everything again on `refs/pull/N/merge`. That is one duplicate per BRANCH
+rather than one per PUSH, and it is not removable from inside this job: the
+pull_request run tests the branch merged into its base, is the run the merge is
+read from, and the push run is that commit's only CI until the pull request
+exists. The residual is the same one the job's own comment names, at its real
+size.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~355~~ -> **356**.
+
+**356** with this entry (2026-09-19).
