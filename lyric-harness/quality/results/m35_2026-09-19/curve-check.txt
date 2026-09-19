@@ -1,0 +1,85 @@
+COMPARATOR REPIN RECEIPT — M-35's interim tradition gate, 2026-09-19
+
+WHAT MOVED THE COMPARATOR, and it is the smallest thing that can:
+  EXACTLY 1 OF 7 INPUTS. `lyric_harness.py`, whole file, which is input 1 to
+  `comparator_fingerprint()`. The change is an eleven-line block in the `types`
+  verb that prints M-35's TRADITION label after the NAMES line. It reads
+  nothing into any score and cannot reach a fitted value; it discards a CACHE,
+  not a measurement. The other six inputs are byte-identical.
+
+  7687581e91a2053f...  ->  b7d4953b3ba562091eda766d5c817a421b37432e5fa9a62be2dd04c0c84ff529
+
+HOW THE MEMO WAS REBUILT: four shards of
+  `length_curve_calibration.py compute --shard k/4`, merged with `merge-cache`.
+  NO PRIOR MEMO WAS MERGED IN. The on-disk memo carried the old fingerprint,
+  and `cmd_merge_cache` REFUSES a shard whose fingerprint is not the current
+  one (exit 2, by name). Under a moved comparator every prior entry is invalid,
+  so overwriting is the correct operation.
+
+THE RUN WAS INTERRUPTED AND RESUMED, AND THAT IS RECORDED RATHER THAN SMOOTHED.
+  A container restart at ~01:45 killed all four shards mid-run. The partial
+  shard caches SURVIVED and carried the CORRECT new fingerprint b7d4953b3ba5,
+  so re-running each shard against the same `--cache-path` reused the work
+  instead of recomputing it: 4,000 rows came back as cache HITS.
+  THE FIRST, KILLED RUN'S OWN CPU COST WAS NOT CAPTURED — its shards died
+  before printing their totals — so it is NOT estimated here. What is measured
+  is the RESUMED run, and its hit count is the honest record of how much of the
+  first run survived.
+
+  RESUMED RUN: 8,536 rows, 11,687 CPU-s, 3,882 s wall (the slowest shard;
+  the four ran in parallel on 4 vCPUs). Cache hits 4,000, misses 4,536.
+  Per shard, files / rows / hits / misses / CPU-s / wall-s:
+    1/4   325 / 2105 / 1000 / 1105 / 2769 / 2777
+    2/4   324 / 2830 / 1000 / 1830 / 3865 / 3882
+    3/4   324 / 1453 /  800 /  653 / 2135 / 2142
+    4/4   324 / 2148 / 1200 /  948 / 2918 / 2925
+  The hits are NOT free rows that were never computed: they were computed by
+  the killed run and banked before it died. Counting them as this run's misses
+  would overstate this payment; counting them nowhere would understate the
+  total. They are reported as hits, which is what they are.
+
+  FILE COUNT, BOTH FIGURES, because they disagree and neither is adjusted to
+  the other: the four shards sum to 1,297 (325+324+324+324) and the
+  song-profile population reader reports 1,296 over the same corpus. The row
+  counts agree exactly at 8,536, so the disagreement is in how a file is
+  counted at a shard boundary and not in what was computed. This reproduces
+  the identical 1,297 / 1,296 split the 2026-09-18 receipt recorded, which is
+  evidence it is a property of the two readers and not of either run.
+
+=== length_curve_calibration.py check --rows (4 shard row files) ===
+ROWS  from 4 file(s): 8536 items
+MATTR/TTR  532 of 8536 items degenerate at calibration window 50 -> HOLDS
+  mattr          C1  shipped [0.49968978828344063, 0.03751889880962087]  re-derived [0.49968978828344063, 0.03751889880962087]  -> HOLDS
+  fwr            C1  shipped [0.5604841642384619, -0.014308228025864213]  re-derived [0.5604841642384619, -0.014308228025864213]  -> HOLDS
+  anaphora       C2  shipped [1.1413067296229165, -0.24203952493270758, 0.01609986645877518]  re-derived [1.1413067296229165, -0.24203952493270758, 0.01609986645877518]  -> HOLDS
+  cv             CK  shipped 21 knots, re-derived 21  -> HOLDS
+  predictability CK  shipped 21 knots, re-derived 21  -> HOLDS
+RESULT: HOLDS — the lyric row's 5 curves re-derive from the corpus
+curve-check rc=0
+
+Every coefficient re-derives to FULL PRINTED PRECISION, not to a tolerance,
+and the degenerate count 532/8536 reproduces the 2026-09-18 reading exactly.
+
+=== song_profile_calibration.py --check (warm) ===
+CACHE  fingerprint b7d4953b3ba5 | read 8536 entries, written 2026-09-19T02:55:31 | hits 0, misses 0
+POPULATION  1296 files, 1293 distinct authors, 8536 items, 279502 sung lines
+CACHE  after population: hits 8536, misses 0
+  asked 21, answered 21, refused 0 (doctrine 79)
+  every shipped constant reproduces.
+PHASE COST (wall / cpu seconds)
+   population      55.9  56.5
+   pick_band        0.6   0.6
+   report_fpr       5.9   5.5
+   report_period   26.8  26.8
+   check_shipped    0.0   0.0
+   TOTAL           89.3  89.5
+song_profile_calibration rc=0
+
+THE WARM/COLD CONTRAST, MEASURED HERE RATHER THAN QUOTED: this check ran in
+89.3 s wall against a warm memo. The rebuild that warmed it cost 11,687 CPU-s
+in its resumed half alone. That ratio is the whole argument for the batching
+rule, and it is why an eleven-line print block is not a free change.
+
+NOTHING MOVED, SO NOTHING IS RE-ADOPTED. No constant was tuned, no row was
+repinned, and no threshold was touched (doctrine 58). The only thing that
+changes is the fingerprint the pin records.

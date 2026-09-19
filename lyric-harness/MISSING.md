@@ -5598,12 +5598,40 @@ this tree, so the table above was free to drift by two without any instrument
 noticing — the same shape M-33 built that instrument for. Whether these
 belong under it is a question for the owner, not a repair taken here.
 
-**WHAT IS STILL OPEN.** Cross-tradition names appear for English pairs —
+~~**WHAT IS STILL OPEN.** Cross-tradition names appear for English pairs —
 `adalhending` and `dvitiyakshara-prasa (full aksara)` on `mother`/`brother`.
 Those are RULE SHAPE matched and tradition NOT, which is doctrine 43, and the
 relations layer already has `tradition_scope` to label it while the grader
 layer does not. Widening the judge makes that gap visible rather than causing
-it, and closing it is the tradition coordinate M-35's ruling would supply.
+it, and closing it is the tradition coordinate M-35's ruling would supply.~~
+
+**THE LABEL SHIPPED 2026-09-19 (M-35's interim gate) AND ONE CLAUSE ABOVE WAS
+WRONG — STRUCK, NOT OVERWRITTEN (doctrine 17).** *"the relations layer already
+has `tradition_scope` to label it"* is false of these two names and of 48 of
+the 76 the `type` namespace declares: `tradition_scope` takes a
+`RelationSchema`, and neither `adalhending` nor `dvitiyakshara-prasa` has a
+`relations.REGISTRY` row. M-35 records the full measurement and why both
+inheritance shortcuts into it flatten the answer.
+
+What this entry asked for is now a command. `quality/type_canon.py` is the
+declared per-NAME join to the 601, and `types W1 -- W2 --position=` prints the
+verdict after its NAMES line:
+
+    'adalhending' comes from non (G2) and is being fired on a 'eng' draft:
+    the RULE SHAPE matched, the tradition did not (doctrine 43).
+
+`dvitiyakshara-prasa` answers the same way from `kan, tel, san (I8)`. The
+narrowing `dvitiyakshara-prasa (full aksara)` — the spelling this entry
+quotes — is UNSOURCED rather than labelled, because the 601 attests I8 and
+records no entry for the engine's narrowing of it, and claiming the parent's
+tradition for a distinction the engine drew is the error the gate exists to
+refuse. A refusal is not an absence (doctrine 20).
+
+**STILL OPEN, NARROWER:** the label is additive and moves no verdict, so these
+names still FIRE on an English pair exactly as measured above. Whether a
+`rule_shape` verdict should do anything beyond disclose is the owner's ruling
+and is not taken here (doctrine 96: a tradition a writer may reach outside of
+is not obviously a thing that fails a check).
 
 **Why it matters:** this is the floor under the whole ladder. The 601 survey,
 the 117 canon structures and the 77 schemas all sit above a judge that, as
@@ -6514,6 +6542,152 @@ representation lands, M-44 takes the label alone as an interim gate, which is
 additive and moves no verdict. Every count this layer produces — capacity,
 density, the relation null, the earned-partner artifact — must say which axis it
 counts along, since the numbers already banked do not.
+
+**THE INTERIM GATE IS BUILT — 2026-09-19 — AND THE RULING'S OWN ROUTE INTO IT
+DOES NOT REACH THE FIRING PATH.** The ruling said the grader should read
+`relations.tradition_scope` *"rather than growing a second vocabulary"*.
+Measured before building, that premise is false about the half that needs it,
+and the two shortcuts that DO look like it are worse than no answer.
+
+**WHY `tradition_scope` CANNOT BE ASKED.** It takes a `RelationSchema`. The
+names a mandate FIRES in the `type` namespace live in `rhyme_types.NAMED`,
+which is a different table:
+
+    type namespace                        76 names
+    with a `relations.REGISTRY` row       26
+    reachable through a schema's `aka=`    2   (`antya-prasa`, `higaad`)
+    with neither                          48
+
+Of the 18 distinct names measured FIRING through `satisfies_relation` at
+position `end` on `night`/`light` (yes=11), `mother`/`brother` (7) and
+`love`/`move` (2) — M-44's own three probe pairs, reproduced to the name — **13
+are in that 48** and 5 have a route (`antya-prasa`, `broken rhyme`,
+`consonance`, `cynghanedd lusg`, `mosaic rhyme`).
+
+**THIS PARAGRAPH'S OWN FIGURE WAS WRONG IN ITS FIRST DRAFT AND THE CORRECTION
+IS THE ENTRY'S OWN SUBJECT.** It read 15, got by SUMMING the three pairs'
+per-pair counts (8 + 6 + 1) without deduping `perfect rhyme (last stressed
+syllable)`, which fires on two of the three, and without crediting
+`antya-prasa`'s `aka=` route. Three counts summed into a distinct-name claim
+(doctrine 79) and a route not re-asked after it was measured — inside the
+entry recording that the routes are what nobody re-asked. Re-derived in one
+pass rather than patched: 18 fire, 5 have a route, 13 do not.
+
+**AND BOTH INHERITANCE SHORTCUTS FLATTEN THE ANSWER, WHICH IS THE FINDING.**
+Each was tried and each is refused, on ONE argument:
+
+  - BY CELL. `NAMED`'s value is a SYNONYM TUPLE at one coordinate, so
+    inheriting a cell's canon entries covers **66 of 76** names and is the
+    obvious build. It is wrong. `masculine rhyme`, `single rhyme`, `qafiya`
+    and `antya-prasa` are ONE cell — English, English, Persian, Sanskrit — so
+    a cell is multi-tradition BY CONSTRUCTION, which is this entry's own
+    thesis. Inheriting the union reports `qafiya` as `in_tradition` on an
+    English draft: the exact cross-tradition firing the gate exists to label,
+    silenced by the gate.
+  - BY `aka=`. `higaad` reaches the `alliteration` schema, whose sourced
+    traditions are Old English, Japanese and Korean. A Somali name would come
+    back attested in three languages that are not Somali — and
+    `quality/relations.py` already has a name for that shape, `the gabay
+    higaad error`.
+
+Both answer about a RELATION where the gate asks about a NAME.
+
+**SO THE JOIN IS PER NAME AND IT IS DECLARED — `quality/type_canon.py`.** A
+row declares only the canon entry ids and the language codes; the tradition
+PROSE is read from `quality/canon_index.tsv` through `canon_sources.index()`,
+the one reader, and never retyped (doctrine 1). **TOTALITY IS THE GATE**: 76 =
+**54 SOURCED + 22 UNSOURCED + 0 UNRULED**, `--check` exits 3 on drift, and
+`pin_sweep` discovers it by the flag it spells. The 22 refusals are three
+ARGUED CLASSES, not 22 ad-hoc reasons — English spellings the 601 does not
+carry (`single rhyme`, `sight rhyme`, `split rhyme`, …), engine-internal
+narrowings of a parent the canon does attest (`*-adjacent`, `dvitiyakshara-
+prasa (full aksara)`, `Kalevala alliteration (weak, framed)`), and `higaad`.
+
+**THE NORMALISER IS A CANDIDATE GENERATOR AND A BAD JUDGE (doctrine 45), WHICH
+IS WHY THE TABLE IS DECLARED AND NOT COMPUTED.** Joining by display name
+reaches 24 of 76 exactly; folding diacritics, slashes and parentheticals
+reaches 36. The residue is where it matters: `rime riche` matches TWO rows,
+E2 (English, naturalised from French) and X131 (French), so a normaliser
+picking one picks a tradition; `compound rhyme` and `phrasal rhyme` both land
+on the slashed E31, a real merge that must be declared rather than hidden; and
+`chain rhyme` matches E43 (rap sense) and E44 (interlocking SCHEME) — two
+SENSES, settled here by the cell rather than the name, since the engine's
+`chain rhyme` is a four-syllable full-identity PAIR cell beside
+`multisyllabic rhyme` and a scheme is not something two words can be.
+
+**IT MOVES NO VERDICT, WHICH IS WHAT THE RULING MEANT BY ADDITIVE.** Nothing
+here is consulted by `satisfies_relation`, by `grade()` or by any gate. The
+entrance is the `types` verb, which now prints a TRADITION block after its
+NAMES line — on `night`/`light` at `--position=end`, **5 of the 11 names it
+prints come from outside English**, three of them named (`qafiya` ara/fas/hin,
+`antya-prasa` san/kan, `cynghanedd lusg` cym) and two refused. A name inside
+its own tradition prints NOTHING, so silence is the in-tradition verdict and
+not an unasked question.
+
+**ALL FOUR SCOPE VALUES ARE REACHABLE, MEASURED, so none is a value that is
+not real** (doctrine 48): over 54 sourced names x 41 languages, `in_tradition`
+85, `cell_cited` 204, `rule_shape` 1,925, plus `unsourced` for the 22. **ONE
+WEAKNESS IS STATED RATHER THAN BURIED**: 71 of the 204 `cell_cited` verdicts
+come through the `X` cell, which lumps 13 unrelated languages (Chinese,
+Japanese, Korean and ten Romance), so a third of that verdict rests on the
+weakest evidence the partition can give. It is INHERITED from
+`relations.LANG_CELL` and `tradition_scope` has it identically; it is not a
+new defect and it is not repaired here.
+
+**THE COMPARATOR COST WAS PAID AND THE SENTENCE THAT PRICED IT WAS WRONG —
+RECORDED, NOT QUIETLY DROPPED (doctrine 17).** The gate's entrance is a print
+block in the `types` verb, and `lyric_harness.py` is input 1 of seven to
+`comparator_fingerprint()`, WHOLE FILE, so eleven lines moved it
+`7687581e91a2` -> `b7d4953b3ba5` and discarded the predictability memo. The
+commit that shipped the gate closed with *"The memo is rebuilt on main before
+the nightly rather than left cold."* **That is false and was not checked before
+it was written.** CI's memo is not a file anything here can touch: it is a
+GitHub Actions cache (`path: ~/.cache/lyric-harness`, `restore-keys:
+lyric-harness-predictability-v1-`), populated only by a workflow run. What is
+true, read off `ci.yml` rather than assumed: the calibration step carries a
+150-minute budget, is RESUMABLE, and banks its cache even on a timeout — a
+deadlock fixed 2026-08-23, where a cold cache aborted the job at `grep` exit 2
+before any test ran — so a cold memo advances a slice per nightly until warm.
+
+**THE RE-VERIFICATION THE PIN DEMANDS WAS RUN, AND IT HOLDS.**
+`quality/results/m35_2026-09-19/curve-check.txt`: the lyric row's 5 curves
+re-derive to FULL PRINTED PRECISION over 8,536 items and
+`song_profile_calibration`'s 21 constants all reproduce, 0 refused. Nothing
+moved, so nothing is re-adopted and no constant was tuned (doctrine 58).
+**THE REBUILD WAS KILLED MID-RUN BY A CONTAINER RESTART AND RESUMED**, which
+the receipt records rather than smooths: the partial shard caches carried the
+correct NEW fingerprint, so 4,000 rows came back as cache HITS instead of being
+recomputed, and the resumed half cost 11,687 CPU-s. The killed run's own cost
+was not captured and is NOT estimated. The shard file sum (1,297) and the
+population reader (1,296) disagree by one, exactly as they did on 2026-09-18,
+and both are recorded unadjusted.
+
+**AND THE GATE SCRIPT THIS SESSION HAD BEEN TRUSTING WAS CHECKING HALF THE
+JOB.** The local pre-flight ran 16 gates and reported `OVERALL_FAIL=0` on a
+tree whose `record` job then failed on the comparator pin; CI's `record` runs
+**30** — ~~29~~, and THE MISCOUNT WAS INSIDE THE SENTENCE ABOUT MISCOUNTING,
+which is this entry's own subject arriving one layer in. Re-derived rather than
+re-typed: `jobs.record.steps` holds **32** entries carrying a `run`, of which
+**2** are skipped by name with a stated reason (the numpy install and the
+lexicon staging, neither a check), leaving **30** executed. The first figure
+was got by subtracting a third step nobody named. A count in prose that no
+command re-derives is a threshold nobody wrote down (doctrine 58) —, and the
+script also called `audit_register.py` WITHOUT `--check`, the
+weaker form that does not go red when a derived figure moves. It now DERIVES
+its list from `ci.yml`'s `record` job instead of keeping a second copy, because
+a second copy of a gate set is how a census starts disagreeing with the thing
+it counts (doctrine 1).
+
+**WHAT IS STILL UNBUILT IS THE EDGE REPRESENTATION ITSELF.** This is the
+interim gate the ruling authorised *"until the edge representation lands"*,
+and it is exactly that: a label. Parallel edges between two positions, the
+node as a POSITION rather than a line, and the axis disclosure the ruling asks
+of every count this layer produces are all still open.
+`quality/test_type_canon.py`, 8 sections, with the two refused shortcuts
+CONSTRUCTED in sections 3 and 4 and required to differ from what ships —
+because a test that only asserted the shipped behaviour would pass just as
+happily against a build that took either one.
+
 **Filed 2026-08-22 at the owner's observation, mid-build of the declared
 relation coordinate: "each poem and song are actually N dimensional webs".
 Measured before writing, and the measurement sharpens the claim rather than
