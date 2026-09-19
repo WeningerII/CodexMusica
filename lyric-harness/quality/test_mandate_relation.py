@@ -1122,6 +1122,108 @@ def test_e2_default_grade_reaches_the_registry():
           and not disconnected["refusals"])
 
 
+def test_the_edge_label_carries_two_relations_over_one_pair():
+    print("\n15. the edge label — two relations over one pair (M-35)")
+    # THE PREMISE, AND IT IS A CONTROL RATHER THAN A PREAMBLE: the side map
+    # cannot express this, and still cannot. It is keyed by the index or label
+    # of a group AFTER normalisation, and the labels are generated from that
+    # index after the dedup has already run — so the key that would keep the
+    # two edges apart is computed from the thing that collapsed them.
+    try:
+        mandate([[1, 2], [1, 2]], n_lines=2,
+                relations={0: "type:masculine rhyme", 1: "class:ASSONANCE"})
+        check("the `relations=` side map still cannot say this", False,
+              "it was accepted, so this section's premise is gone")
+    except NoMandate as exc:
+        check("the `relations=` side map still REFUSES by arity, so the old "
+              "route is not quietly deleted (doctrine 17)",
+              "1 group" in str(exc), str(exc)[:70])
+
+    m = mandate([{"members": [1, 2], "relation": "type:masculine rhyme"},
+                 {"members": [1, 2], "relation": "class:ASSONANCE"}],
+                n_lines=2)
+    check("a MAPPING group carries the relation that labels THAT edge, so "
+          "two edges over one pair at one placement survive the dedup",
+          (m.groups, m.labels) == (((1, 2), (1, 2)), ("A", "B")),
+          f"groups {m.groups} labels {m.labels}")
+    check("each edge resolves to its OWN declared relation through the same "
+          "path the side map takes — not re-namespaced by a second reader",
+          (m.relation_of(0), m.relation_of(1))
+          == ("type:masculine rhyme", "class:ASSONANCE"),
+          f"{m.relation_of(0)!r} / {m.relation_of(1)!r}")
+
+    # THE LOAD-BEARING HALF. Storage no judge reads would be M-35's own defect
+    # one layer in, so the two edges are driven through `grade()` and required
+    # to DISAGREE: `night`/`light` is a masculine rhyme and is not assonance.
+    g = _R.grade(LINES, m)
+    verdicts = {v["label"]: v for v in g["verdicts"]}
+    check("ONE PAIR, TWO EDGES, TWO OPPOSITE VERDICTS — the thing M-35's "
+          "heading says a mandate cannot hold",
+          (len(g["verdicts"]) == 2
+           and all(v["lines"] == (1, 2) for v in g["verdicts"])
+           and not verdicts["A"]["why"] and bool(verdicts["B"]["why"])),
+          f"A why={verdicts['A']['why']!r}  B why={verdicts['B']['why']!r}")
+    check("the violation names the DECLARED relation it was judged at, so a "
+          "reader can tell which edge failed",
+          "class:ASSONANCE" in (verdicts["B"]["why"] or ""),
+          (verdicts["B"]["why"] or "")[:80])
+    check("the doctrine-79 triple counts BOTH edges and refuses neither",
+          (g["pairs_mandated"], g["pairs_judged"], g["pairs_refused"],
+           len(g["violations"])) == (2, 2, 0, 1),
+          f"{g['pairs_mandated']}/{g['pairs_judged']}/{g['pairs_refused']}, "
+          f"{len(g['violations'])} violation(s)")
+
+    # ADDITIVE, MEASURED. A mandate that declares no group relation must be
+    # byte-identical to what it always was.
+    bare = _R.grade(LINES, mandate([[1, 2]], n_lines=2))
+    check("a group declaring no relation is unmoved — one pair, no relation, "
+          "no violation",
+          (bare["pairs_mandated"], len(bare["violations"])) == (1, 0)
+          and bare["verdicts"][0]["why"] is None)
+    check("a list group still yields the empty relation, so the letter-scheme "
+          "and RGS branches pass nothing new",
+          mandate([[1, 2], [1, 3]], n_lines=4).relations == ("", ""))
+
+    # THE MUTATION. The third element of the dedup key is what keeps the two
+    # edges apart; without it they share a key and the second is dropped. The
+    # pre-fix key is rebuilt here rather than monkeypatched, so the section is
+    # proven capable of failing against the build that shipped before it.
+    pre_fix = {(tuple(gr), loc) for gr, loc in zip(m.groups, m.loci)}
+    shipped = {(tuple(gr), loc, rel)
+               for gr, loc, rel in zip(m.groups, m.loci, m.relations)}
+    check("under the PRE-FIX key the two edges COLLIDE (1 key for 2 groups) "
+          "and under the shipped key they do not — so the declared relation "
+          "is load-bearing and this section fails against the old build",
+          len(pre_fix) == 1 and len(shipped) == 2,
+          f"pre-fix {len(pre_fix)} key(s), shipped {len(shipped)}")
+
+    # WHAT REFUSES. A misspelling graded as the default is a silently
+    # different question (doctrine 20), so it is refused rather than ignored.
+    for bad, why in (
+            ({"members": [1, 2], "relaton": "type:qafiya"},
+             "an unknown key"),
+            ({"relation": "type:qafiya"}, "a mapping naming no members"),
+            ({"members": [1, 2], "relation": 7}, "a non-string relation"),
+            ({"members": [1, 2], "relation": "not a relation"},
+             "an undeclared relation name")):
+        try:
+            mandate([bad], n_lines=2)
+            check("%s refuses" % why, False, "it was accepted")
+        except NoMandate:
+            check("%s REFUSES rather than being ignored" % why, True)
+
+    # AND DECLARING ONE COORDINATE TWICE REFUSES rather than resolving by
+    # precedence — a mandate whose meaning depends on which reader ran first
+    # is doctrine 1's own defect.
+    try:
+        mandate([{"members": [1, 2], "relation": "type:qafiya"}], n_lines=2,
+                relations={"A": "class:ASSONANCE"})
+        check("declaring a relation by BOTH routes refuses", False,
+              "it was accepted, so one route silently wins")
+    except NoMandate:
+        check("declaring a relation by BOTH routes REFUSES rather than "
+              "resolving by precedence (doctrine 1)", True)
+
 if __name__ == "__main__":
     for fn in (test_vocabulary, test_judge, test_mandate_coordinate,
                test_grade_routing, test_position_is_declared,
@@ -1133,7 +1235,8 @@ if __name__ == "__main__":
                test_the_type_judge_past_one_syllable,
                test_the_default_door_reads_normative,
                test_every_drawable_schema_answers_its_own_example,
-               test_e2_default_grade_reaches_the_registry):
+               test_e2_default_grade_reaches_the_registry,
+               test_the_edge_label_carries_two_relations_over_one_pair):
         fn()
     print("=" * 62)
     if FAILURES:

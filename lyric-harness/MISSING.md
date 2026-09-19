@@ -6739,6 +6739,59 @@ its list from `ci.yml`'s `record` job instead of keeping a second copy, because
 a second copy of a gate set is how a census starts disagreeing with the thing
 it counts (doctrine 1).
 
+**THE EDGE REPRESENTATION IS SCOPED NOW — 2026-09-19 — AND IT IS SMALLER THAN
+THIS ENTRY SAYS IN ONE DIRECTION AND DIFFERENT IN ANOTHER.** Measured at head
+before writing a line of it, because "some sixty sites take a group literally"
+is the kind of figure that decides whether a thing gets built at all.
+
+**PARALLEL EDGES ALREADY WORK, AND THE TREE ALREADY GRADES THEM.** The entry
+reads as though the representation cannot hold two edges between one pair.
+It can:
+
+    mandate([["1.end","2.end"], ["1.head","2.head"]], n_lines=4)
+      -> groups ((1, 2), (1, 2))    two entries, one line set, distinct loci
+
+`_normalise_groups`' dedup key CARRIES THE PLACEMENT and its docstring says
+why — *"`L1.end ~ L2.end` and `L1.head ~ L2.head` are two different
+requirements over one pair of lines"*. So a duplicate line set is already
+PRODUCED and already CONSUMED by every one of the 93 non-test sites that read
+`.groups`; their tolerance of it is not a hope, it is existing behaviour.
+
+**SO THE SURVIVING GAP IS ONE COORDINATE, NOT A REPRESENTATION.** What still
+cannot be said is two edges at the SAME (lines, placement) under DIFFERENT
+RELATIONS — this entry's own `masculine rhyme` AND `assonance` example:
+
+    mandate([[1,2],[1,2]], n_lines=4,
+            relations={0: "type:masculine rhyme", 1: "class:ASSONANCE"})
+      -> REFUSED: relations declares group index 1 and the mandate has 1 group(s)
+
+**AND THE FAILURE IS NOT SILENT, WHICH THIS ENTRY SAYS IT IS.** *"silently
+dedupe to one"* is half right: the DEDUP is silent, and the CONSEQUENCE is a
+named refusal naming the arity, the moment anyone tries to use the second
+group. Struck as a description of the symptom, kept as a description of the
+mechanism (doctrine 17, and the same species of stale symptom M-142's entry
+carried).
+
+**WHY THE OBVIOUS ONE-LINE FIX IS WRONG, and this is the design ruling the
+build needed.** Adding the relation to the dedup key cannot work, because the
+relation is not available when the dedup runs: `_normalise_groups(raw, n)` is
+called at `schemes.py`'s mandate() before relations are resolved, and
+`relations` is a SIDE MAP keyed by the index or label of the group AFTER
+normalisation. The key that would prevent the collapse is computed from the
+thing the collapse produces. So the change the ruling's *labelled EDGE* asks
+for is precisely this: **a group must carry its relation AT DECLARATION**,
+rather than being addressed by an index assigned to it afterwards. That is
+the edge label, and it is the whole of what is missing.
+
+**WHAT THAT DOES AND DOES NOT COST.** It does NOT require the groups tuple to
+change shape, so the 93 sites stand — which is why this is worth building
+rather than deferring further. It DOES require a declaration spelling, the
+`relations=` side map kept working beside it (doctrine 17: the old spelling is
+not deleted for being superseded), and the refusal above replaced by an
+answer. The node-as-POSITION half is separate and is already half-built:
+`Mandate.loci` and `quality/slots.py` carry the placement coordinate that the
+measurement above exercises.
+
 **WHAT IS STILL UNBUILT IS THE EDGE REPRESENTATION ITSELF.** This is the
 interim gate the ruling authorised *"until the edge representation lands"*,
 and it is exactly that: a label. Parallel edges between two positions, the
@@ -6818,6 +6871,77 @@ arity extension for the 12 non-pair figures, but multiplicity: parallel edges.
 The 2026-08-22 relation coordinate is unaffected and correct as far as it goes:
 one relation per group, groups may overlap, and nothing here needs undoing.
 
+
+**AND THE EDGE LABEL IS BUILT — 2026-09-19 — SO THE ENTRY'S OWN EXAMPLE IS
+SAYABLE.** The scoping paragraph above named exactly one missing coordinate and
+this is it. A group may now be a MAPPING carrying the relation that labels THAT
+edge, and two edges over one pair at one placement no longer collapse:
+
+    mandate([{"members": [1, 2], "relation": "type:masculine rhyme"},
+             {"members": [1, 2], "relation": "class:ASSONANCE"}], n_lines=4)
+
+      groups    ((1, 2), (1, 2))
+      relations ('type:masculine rhyme', 'class:ASSONANCE')
+      labels    ('A', 'B')
+
+**AND THE TWO EDGES REACH `grade()` AND DISAGREE, WHICH IS THE MEASUREMENT
+WORTH HAVING** — storage that no judge reads would be this entry's own defect
+one layer in. On `night`/`light`: `mandated 2, judged 2, refused 0,
+violations 1`, with **A SATISFIED and B VIOLATED ON ONE PAIR** — B carrying
+`does not satisfy the declared relation 'class:ASSONANCE'`, because a perfect
+rhyme is not assonance (the route is STRICTER, as `test_mandate_relation` §8
+already holds for `schema:consonance`). One pair, two relations, two opposite
+verdicts: the thing the heading says a mandate cannot hold.
+
+**THE SPELLING WAS THE ONE OPEN DECISION AND IT IS ARGUED, NOT TAKEN
+SILENTLY.** The alternative was `relations=` accepting a LIST aligned to the
+raw groups — no new group grammar at all — and it is refused because it gives
+one parameter two readings BY TYPE (dict = post-normalisation index or label,
+list = raw index), which is doctrine 1's own defect and the shape this tree has
+repaired repeatedly. The mapping puts the label on the edge it labels. An
+unknown key REFUSES rather than being ignored, because a misspelled `relaton:`
+graded as the default is a silently different question (doctrine 20), and
+declaring a relation by BOTH routes refuses rather than resolving by
+precedence — a coordinate stated twice would make a mandate's meaning depend on
+which reader ran first.
+
+**ADDITIVE, MEASURED RATHER THAN ASSERTED.** The dedup key gains the declared
+relation as a third element; it already carried the placement. A group that
+declares nothing is addressed by the `relations=` side map exactly as before
+(doctrine 17 — the old route is not deleted, it simply still cannot say this,
+and `mandate([[1,2],[1,2]], relations={0: …, 1: …})` refuses with the same
+arity message quoted above). Control: `mandate([[1,2]])` grades
+`mandated 1, judged 1, refused 0, violations 0` with relation `''`, and the
+letter-scheme and RGS-code branches pass no group relations at all.
+
+**AND IT COSTS NO COMPARATOR MEMO, WHICH IS WHY IT COULD LAND ALONE UNDER
+STANDING RULE 4.** `quality/schemes.py` is not one of `comparator_fingerprint`'s
+seven inputs; re-derived at HEAD rather than reasoned about, the fingerprint is
+`b7d4953b3ba5` — the value the `types` gate moved it to, unmoved by this build.
+The rule is about WHEN the recomputation is paid, and this change does not
+incur one.
+
+**WHAT IS STILL OPEN, SO THE HEADING STAYS `OPEN`.** The ruling's node-as-
+POSITION half is only partly built: a member is still a LINE number with an
+optional slot, so `Mandate.loci` and `quality/slots.py` carry placement beside
+the group rather than as the node itself, and a WITHIN-LINE binding still
+refuses by name (a group is a set of lines and a rhyme whose members share a
+line has one member). `internal` and `leonine` therefore still do not live at
+mandate granularity. The counting question this entry raises — that capacity,
+density, the relation null and the earned-partner artifact are each a count
+over pairs under ONE relation, and now demonstrably need to say which axis they
+count along — is untouched by this build and is the reason it is named here
+rather than closed.
+
+**THE GATE IS `quality/test_mandate_relation.py` §15, AND IT IS PROVEN ABLE TO
+FAIL IN BOTH DIRECTIONS** — the build shipped with no test of its own for one
+commit, which is this tree's most-repeated defect and is recorded rather than
+quietly repaired. 15 checks: the side map's arity refusal kept as a CONTROL so
+the section cannot pass by the old route working, the two-verdict grade, the
+doctrine-79 triple, the two additivity controls, five refusals, and the
+MUTATION. Dropping the declared relation from the dedup key collapses the two
+edges to one — measured `groups ((1, 2),) labels ('A',)`, M-35's own described
+symptom reproduced on demand — and §15 goes red on it.
 ### M-34 · The named-type engine can never name a masculine rhyme, and it explains the emptiness as a fact about the vocabulary ~~`PARTIAL`~~ `CLOSED` 2026-09-06 — the verb declares the position now, and says INCOMPLETE when it cannot
 **CLOSED 2026-09-06 — `types W1 -- W2 --position=P` OVER THE DECLARED `POSITION` VOCABULARY, AND THE BARE VERB NAMES THE MISSING AXIS.** The first cut declared the position to `classify_pair` with each word as its own one-word `Frame`, and the library refused it correctly: a word that IS its whole line measures `holorhyme`, not `end`, and *"a declared coordinate that contradicts the measurement is refused, not overwritten in either direction."* The verb takes the mandate path's own move instead — M-44's loop turned around. `rhyme_types.names_at(a, b, phon, position)` judges every registered name at its OWN coordinate under the caller's declared position: the 18 position-agnostic keys always admitted, a registered position that differs always a real no, `Indeterminate` keys returned as SKIPPED so a short list is not read as a small vocabulary (doctrine 20). The position is ASSERTED, as a mandate asserts it for a line-final group, and the axis line says so in the word DECLARED. Measured: `night -- light --position=end` names **11** (masculine rhyme first; M-44 measured the same 11 on the same pair through `satisfies_relation`), `mother -- brother --position=end` names feminine rhyme; a bogus value refuses at exit 2 in §16's one shape; and the bare verb prints `UNNAMED — and the coordinate is INCOMPLETE: no --position= was declared, and 31 of 49 named keys need one`, the 31 and the 49 derived from `NAMED` at print time and never quoted. The old sentence survives for the case it is now true of — a pair unnamed at a COMPLETE coordinate. `quality/test_verbs.py` §57 (6 checks) and the `--position=` row in §16; `--help` carries the flag. The 9 types needing `internal`/`head`/`leonine`/`cross`/`holorhyme` are reachable by declaring those words, and remain unreachable from an end-rhyme MANDATE by definition, as recorded below.
 
