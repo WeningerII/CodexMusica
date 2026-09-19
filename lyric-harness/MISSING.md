@@ -26729,6 +26729,30 @@ nights to say whether the delay is a property or an artefact of a busy week, or
 an owner ruling that the placement argument be dropped rather than defended.
 Until then the comment should not be read as describing when this workflow runs.
 
+**ADDENDUM, THE SAME MORNING — THE PREDICTION WAS CONFIRMED BEFORE THE ENTRY
+WAS AN HOUR OLD, AND THAT IS A DIFFERENT KIND OF EVIDENCE FROM THE THREE ROWS
+ABOVE.** This entry said that under a ~4.7 h queue tonight's scheduled
+qualification *"land[s] near 06:00"* and was *"not yet due"* at 05:15Z. It
+started at **2026-09-19T05:59:23Z** — run 27, `event: schedule`, on
+`ed3811e0` — **4.61 h after its 01:23 cron.**
+
+    2026-09-17  4.81 h        2026-09-19  4.61 h   <- predicted, then observed
+    2026-09-18  4.63 h        backstop    4.83 h
+    four observations, range 4.61-4.83 h
+
+So the delay is no longer only three odd readings: it is a stated expectation
+that held on the next occurrence, which is the one thing three retrospective
+rows could not supply. **It is still four observations inside one week**, and
+the entry stays OPEN on exactly the ground it opened on — nothing here says
+whether this is a property of the schedule or of a busy week, and the cron is
+still not retuned.
+
+**AND THE CONCURRENCY CLAIM HELD TOO.** The entry said the 05:20 dispatch would
+be *serialised* against whatever the schedule delivered rather than racing it.
+Observed: run 26 `in_progress`, run 27 `pending` behind it, which is
+`concurrency: cancel-in-progress: false` doing what the entry claimed. The
+owner's standing order is met for tonight by run 26 whatever run 27 does.
+
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~351~~ -> **352**.
 
 **352** with this entry (2026-09-19).
