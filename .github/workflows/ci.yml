@@ -3803,7 +3803,25 @@ jobs:
           # a memo, this line would abort at 2 and skip the `case` that is the
           # only thing able to report what happened.
           after=$(grep -vc '^#' "$MEMO" 2>/dev/null || true); after=${after:-0}
-          echo "memo: $before -> $after items (+$((after - before)) banked this run)"
+          # THE SIGN IS RENDERED, NOT ASSUMED (M-299, doctrine 91: a count is a
+          # coordinate of its RENDERING). `+$((after - before))` prints the
+          # literal `+` in front of a negative, so a SHRINKING memo read as
+          # `+-536 banked this run` on 2026-09-18 and `+-600` on 2026-09-19 --
+          # two consecutive nights of the resumable memo going BACKWARDS,
+          # rendered as progress, with no gate reading the number. This block
+          # only DISCLOSES: the exit code below is unchanged, because the
+          # remedy needs the cause and a threshold chosen to make a symptom
+          # loud is doctrine 58's error.
+          delta=$((after - before))
+          if [ "$delta" -lt 0 ]; then
+            echo "memo: $before -> $after items (MEMO SHRANK BY $((-delta)) THIS RUN)"
+            echo "A NEGATIVE delta is not progress. M-260 and M-296 both read this"
+            echo "step as advancing a slice per nightly; MISSING.md M-299 records it"
+            echo "retreating twice and does NOT yet know why. Read M-299 before"
+            echo "gating on this number or tuning anything to it (doctrine 58)."
+          else
+            echo "memo: $before -> $after items (+$delta banked this run)"
+          fi
           case $rc in
             0) echo "COMPLETE — the shipped constants re-derive over the whole corpus." ;;
             1) echo "DRIFT — the constants no longer describe corpus/song/."
