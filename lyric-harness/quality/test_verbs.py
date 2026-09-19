@@ -5708,6 +5708,118 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     check("an empty candidate REFUSES — it is not a revision", rc == 2,
           out[-200:])
 
+    # (e) PAST THE LOOP'S FIRST ACCEPTED ANSWER (`MISSING.md` M-303). The
+    #     loop's current draft lives in the deferred state and in no file —
+    #     `finish` never writes the draft back and the ledger refuses a
+    #     hand-edit of it — so a pre-flight that reads only the file is a
+    #     round-one instrument. Measured on the first song written through
+    #     the verb: L5 ACCEPTED, applied by hand, and the next question
+    #     REFUSED as an unbriefed revision. `--propose=defer:PATH` asks
+    #     against the state's current draft instead, and the parity claim
+    #     is checked here the only way it can be: the verdict the verb
+    #     gives BEFORE an answer is folded is the verdict the loop records
+    #     when it folds it.
+    st = os.path.join(tmpd, "state.json")
+    rc, out, _ = run("finish", draft, "--seed=7", "--lines=12",
+                     f"--propose=defer:{st}", expect_rc=4)
+    with _io.open(st, encoding="utf-8") as fh:
+        stj = json.load(fh)
+    pend = stj.get("pending") or {}
+    members = [int(r["line"]) for r in
+               (pend.get("record") or {}).get("records") or ()]
+    check("the loop suspends on the fixture with a batch open",
+          rc == 4 and pend.get("kind") == "propose_batch"
+          and members == [3, 5, 8], f"{rc} {pend.get('kind')} {members}")
+    # while nothing has moved, the state and the file are the same draft
+    rc, out, _ = run("tryline", draft, "5", "Stay by the door and pray",
+                     "--seed=7", "--lines=12", f"--propose=defer:{st}",
+                     expect_rc=0)
+    row = _machine_result(out)
+    check("asked through the state, the verb says WHICH draft it read and "
+          "that nothing has moved yet",
+          rc == 0 and row.get("against") == "state"
+          and row.get("moved_since_handed_in") == []
+          and row.get("open_question") == [3, 5, 8]
+          and "AGAINST: the loop's CURRENT draft" in out
+          and "OPEN   : the loop's open question is L3, L5, L8" in out,
+          out[-600:])
+    l5_before = bool(row.get("accepted"))
+    rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
+                     "--seed=7", "--lines=12", "--propose=stub",
+                     expect_rc=2)
+    check("a proposer spelling on tryline REFUSES — defer:PATH is the one "
+          "value it takes", rc == 2 and "defer:PATH" in out, out[-300:])
+    other = os.path.join(tmpd, "d12_other.txt")
+    with _io.open(draft, encoding="utf-8") as fh:
+        ol = fh.read().splitlines()
+    ol[0] = "the water holds the night"
+    _io.open(other, "w", encoding="utf-8").write("\n".join(ol) + "\n")
+    rc, out, _ = run("tryline", other, "3", "nothing here is very still",
+                     "--seed=7", "--lines=12", f"--propose=defer:{st}",
+                     expect_rc=2)
+    check("a state started on a DIFFERENT handed-in draft REFUSES by name",
+          rc == 2 and "DIFFERENT handed-in draft" in out, out[-300:])
+    rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
+                     "--seed=7", "--lines=12",
+                     f"--propose=defer:{os.path.join(tmpd, 'nope.json')}",
+                     expect_rc=2)
+    check("a state that does not exist REFUSES — nothing has been briefed",
+          rc == 2 and "nothing has been briefed" in out, out[-300:])
+    # ANSWER THE BATCH with lines the verb accepted, and let the loop fold
+    stj["pending"]["answer"] = ("L3: nothing here is very still\n"
+                                "L5: Stay by the door and pray\n"
+                                "L8: A shore as old as the vein")
+    with _io.open(st, "w", encoding="utf-8") as fh:
+        json.dump(stj, fh)
+    rc, out, _ = run("finish", draft, "--seed=7", "--lines=12",
+                     f"--propose=defer:{st}", expect_rc=4)
+    with _io.open(st, encoding="utf-8") as fh:
+        stj = json.load(fh)
+    moved = [i + 1 for i, (a, b) in enumerate(zip(stj["input_draft"],
+                                                  stj["accepted_lines"]))
+             if a != b]
+    verdicts = {int(o["line"]): bool(o["accepted"])
+                for o in stj.get("outcomes") or ()}
+    check("the loop folded the answers and moved past the file",
+          rc == 4 and 3 in moved and 5 in moved, f"{rc} moved={moved}")
+    check("PARITY: the verb's verdict before the fold is the loop's verdict "
+          "at the fold (L5)", verdicts.get(5) is l5_before is True,
+          f"{verdicts} vs tryline {l5_before}")
+    check("...and for L3, whose fix only the return mirror earns",
+          verdicts.get(3) is True, str(verdicts))
+    # NOW the file is a draft the loop no longer holds
+    rc, out, _ = run("tryline", draft, "9", "carry the cold light",
+                     "--seed=7", "--lines=12", expect_rc=2)
+    check("asked against the FILE once the state has moved past it, the "
+          "verb REFUSES and names the state to ask instead",
+          rc == 2 and "past this file" in out and st in out, out[-400:])
+    rc, out, _ = run("tryline", draft, "9", "carry the cold light",
+                     "--seed=7", "--lines=12", f"--propose=defer:{st}")
+    row = _machine_result(out)
+    check("asked through the state, it answers against the CURRENT draft "
+          "and says which lines moved",
+          rc in (0, 3) and row.get("against") == "state"
+          and row.get("moved_since_handed_in") == moved, out[-500:])
+    check("...and a line the loop does not have open is answered as a "
+          "verdict, not an answer — said in so many words",
+          9 not in (row.get("open_question") or []) and "NOT among them" in out,
+          out[-500:])
+    # a state whose pending brief and current draft disagree is refused
+    bad = os.path.join(tmpd, "state_bad.json")
+    bj = dict(stj)
+    bj["accepted_lines"] = list(stj["accepted_lines"])
+    # the open question is a GROUP on [6, 7, 10, 11] — a group record names
+    # its draft by its members' texts, so the tamper lands on a member
+    bj["accepted_lines"][5] = "a line nobody accepted"
+    with _io.open(bad, "w", encoding="utf-8") as fh:
+        json.dump(bj, fh)
+    rc, out, _ = run("tryline", draft, "9", "carry the cold light",
+                     "--seed=7", "--lines=12", f"--propose=defer:{bad}",
+                     expect_rc=2)
+    check("a state whose open brief was asked on a different draft than "
+          "it now holds REFUSES rather than reads a verdict off it",
+          rc == 2 and "open question was asked on draft" in out, out[-300:])
+
 
 def test_a_proposer_that_cannot_reach_its_writer_refuses_by_name():
     """59. THE `call:` SEAM'S ONE DECLARED FAILURE IS A REFUSED, NOT A

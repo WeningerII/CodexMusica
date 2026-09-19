@@ -27292,3 +27292,85 @@ so the stop-hook's *"N unpushed commits"* nag can simply be obeyed.
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~356~~ -> **357**.
 
 **357** with this entry (2026-09-19).
+
+### M-303 · `tryline` could answer only the loop's FIRST question — the loop's current draft lives in the deferred state and in no file, so the pre-flight built to save a cycle refused its own second use `CLOSED` 2026-09-19 — found by writing the first song through it, which is how this class of defect gets found: the writer is the first to see it
+
+**HOW IT WAS FOUND.** The owner's reading of the writer experiment (M-302) was
+that it had been run as a batch and not as a loop: *"if you go write a song and
+something gets fucked up then you're the first to see it so you could stop, fix
+it, then start writing from scratch to see if your fix actually worked."* So a
+song was written by hand through the verb, and the verb broke on its second
+use. A twelve-line plan (`plan --seed=7 --lines=12`), a draft, `song` to grade
+it: two flags. `tryline` on L5 with a candidate: **ACCEPTED in 22 s**. The
+candidate applied to the draft file, `tryline` on L7:
+
+```
+REFUSED — unbriefed revision — line(s) [5] moved since draft cd0756140c0b and
+no brief was ever issued for them
+```
+
+**WHY, AND WHY THE REFUSAL WAS RIGHT.** The ledger beside the draft (M-200, the
+owner's ruling that the deferred loop is *the only front door*) refuses a
+hand-edited line, and a hand-applied accepted answer IS a hand-edited line as
+far as any file can tell. `finish` never writes the draft back; the loop's
+current draft is the state's `accepted_lines`, and on a suspended state that
+list's fingerprint is exactly the `draft` the pending brief was issued on
+(checked on arm A's state: `3bf3d1b6b1d3` both ways). A pre-flight that reads
+only the file is therefore a round-one instrument: the moment the loop folds
+its first answer, the file is a draft the loop no longer holds, and any verdict
+read against it is stale. Standing rule 3 applied a second time — the agent
+writers' fourth script was a wrapper that copied the state's draft out to a
+file to get past exactly this.
+
+**THE REMEDY IS ONE FLAG THE VERB ALREADY PARSED.** `tryline … --propose=defer:PATH`
+asks against that state's current draft. Nothing new is spelled: `--propose=defer:`
+is the coordinate `finish` and the ledger already read the state path off, and
+on `tryline` it is the only value the flag takes — `stub`, `replay:` and `call:`
+are proposers, nothing in a pre-flight writes a line, so they REFUSE by name.
+Asked with it, the verb prints `AGAINST:` (the state, its round and status, and
+which lines have moved since the handed-in file), `OPEN:` (the loop's open
+question and whether the asked line is among it — a verdict on a line the loop
+does not have open is said to be a verdict and not an answer), refuses a state
+started on a different handed-in draft, a state that does not exist, and a state
+whose pending brief and current draft disagree. Asked WITHOUT it once a state on
+the ledger has moved past the file, it REFUSES and names the state to ask
+instead (doctrine 20) — the file path stays a round-one instrument by
+declaration rather than by accident.
+
+**PINNED** (`quality/test_verbs.py` §60(e), 12 checks): the fixture suspends on
+a three-line batch; asked through the state before anything moves, the verb
+names the draft it read and the open question; the three refusals; the batch
+answered with lines the verb accepted and the loop folding them; **PARITY** —
+the verb's verdict on L5 before the fold is the loop's recorded verdict at the
+fold, and L3's return-mirror fix likewise; the file path refusing once the state
+has moved past it, naming the state; the state path answering against the
+current draft with the moved lines listed and a line not open reported as such;
+and the disagreeing-state refusal.
+
+**MEASURED, on the way.** A `tryline` call on the twelve-line draft runs 20–22 s
+whether asked of the file or the state. Arm A's own wrapper around `verify` on
+the 22-line seed-1000 draft, timed once tonight: **128 s** — so the writers'
+fifteen-minute timeouts were budgeting for the `finish` cycle, not for the
+verdict. One slot on the fixture (L8, pantun with `rain`) took four candidates
+to clear: `lane`, `chain`, `grain` each rejected as *"the modal candidate … the
+slop direction (doctrine 9)"*, `vein` accepted.
+
+**WHAT THIS DOES NOT CLAIM, and what it noticed.** (1) A batch's rows are
+verified in order with each accepted row folded before the next; a pre-flight
+asked before the fold reads the draft as it stood. The loop's own batch test
+admits only lines independent of one another, so only a whole-draft finding can
+read differently, and the verb says so under `OPEN:` rather than folding rows it
+has not verified. (2) On the fixture the loop verified L3 and L5 of the batch,
+then escalated to a tier-2 group question on `[6, 7, 10, 11]` **without visiting
+L8** — the row sits answered and unverified. That is the loop's order, not the
+verb's, and it is recorded here rather than claimed correct. (3) Three different
+words in one slot were each reported as *the* modal candidate. Not diagnosed
+here; the next question, not this entry's. (4) A group question's record
+names its draft by its members' texts and not by a fingerprint — that is what
+its replay matches on — so the disagreeing-state refusal is checked the way
+the record is spelled, and a tamper OUTSIDE the members is not detectable from
+a group question; the verb does not pretend otherwise.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~357~~ -> **358**.
+
+**358** with this entry (2026-09-19).
