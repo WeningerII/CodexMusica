@@ -26669,3 +26669,66 @@ failure at step 23 belongs to this entry: it is M-295's, recorded there.
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~350~~ -> **351**.
 
 **351** with this entry (2026-09-18).
+
+### M-297 · The qualification's schedule is placed by an argument about wall-clock that no measurement supports, and both observations there are contradict it `OPEN` 2026-09-19 — found while meeting the owner's standing order that qualification runs every night
+
+**THE OWNER'S STANDING ORDER IS THE CONTEXT**: *"when you have a second I'd like
+you to make sure 'Production Qualification' gets done every night."* Checking
+that tonight's had run is what surfaced this; the entry is about the SCHEDULE,
+not about any component's verdict.
+
+**WHAT IS THERE.** `.github/workflows/production-qualification.yml` places its
+cron with an explicit wall-clock argument, in a comment:
+
+> clear of the other two schedules rather than racing them for runners —
+> `ci.yml`'s nightly is 04:17 … Measured, a qualification is capacity-proof plus
+> the slowest component, and the slowest is `song` at about 1 h 55 m, so a
+> **01:23 start lands near 03:30 and finishes before the nightly begins**.
+
+The reasoning is careful and the component figure is measured. **What is not
+measured is the premise the conclusion rests on — that a `23 1 * * *` cron
+starts at 01:23.**
+
+**MEASURED, AND EVERY OBSERVATION THERE IS CONTRADICTS IT.** GitHub queues cron
+runs, and on this repository it has queued them by more than four hours:
+
+| workflow | cron | actually started | late by |
+|---|---|---|---|
+| production-qualification | `23 1 * * *` | 2026-09-17T06:11:35Z | **4.81 h** |
+| production-qualification | `23 1 * * *` | 2026-09-18T06:00:43Z | **4.63 h** |
+| qualification-backstop | `47 2 * * *` | 2026-09-18T07:36:42Z | **4.83 h** |
+
+So a 01:23 cron starts near 06:00 and, at the comment's own 1 h 55 m, finishes
+near 08:00 — **after** the 04:17 nightly it was placed to precede, and
+overlapping it rather than clearing it. The placement argument does not hold
+against the only evidence that exists about when these jobs run.
+
+**AND THE SCHEDULE HAS ONLY EVER DELIVERED TWICE.** Of the workflow's 25 runs
+before today, exactly **2** carry `event: schedule`; the rest are
+`workflow_dispatch`. The backstop has **1** run in its whole history. That is
+the whole population, and it is why the rows above are three observations and
+not a distribution.
+
+**WHAT IS NOT CLAIMED, AND ONE READING WAS WITHDRAWN BEFORE IT WAS WRITTEN.**
+At 05:15Z today neither tonight's qualification nor its backstop had run, and
+the first reading taken here was that BOTH had been silently dropped — the
+failure `qualification-backstop.yml` exists to catch, with the backstop sharing
+the single point of failure it guards. **That is not established and the delay
+above is why**: under a ~4.7 h queue tonight's runs land near 06:00 and 07:30
+and were not yet due. The dispatch made at 05:20 (run 26, on `2a5262d5`) is
+belt-and-braces for the owner's order, not a rescue, and the workflow's
+`concurrency` group with `cancel-in-progress: false` serialises it against
+whatever the schedule later delivers.
+
+**THE CRON IS NOT RETUNED HERE, DELIBERATELY.** Moving `23 1 * * *` earlier to
+compensate would be setting a threshold from three observations to cancel a
+delay nobody has characterised — doctrine 58's error with the arithmetic
+reversed, and it would also be tuning against a queue whose depth is GitHub's
+and not this repository's. What is owed is either a measurement over enough
+nights to say whether the delay is a property or an artefact of a busy week, or
+an owner ruling that the placement argument be dropped rather than defended.
+Until then the comment should not be read as describing when this workflow runs.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~351~~ -> **352**.
+
+**352** with this entry (2026-09-19).
