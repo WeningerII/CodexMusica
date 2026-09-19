@@ -6739,6 +6739,59 @@ its list from `ci.yml`'s `record` job instead of keeping a second copy, because
 a second copy of a gate set is how a census starts disagreeing with the thing
 it counts (doctrine 1).
 
+**THE EDGE REPRESENTATION IS SCOPED NOW — 2026-09-19 — AND IT IS SMALLER THAN
+THIS ENTRY SAYS IN ONE DIRECTION AND DIFFERENT IN ANOTHER.** Measured at head
+before writing a line of it, because "some sixty sites take a group literally"
+is the kind of figure that decides whether a thing gets built at all.
+
+**PARALLEL EDGES ALREADY WORK, AND THE TREE ALREADY GRADES THEM.** The entry
+reads as though the representation cannot hold two edges between one pair.
+It can:
+
+    mandate([["1.end","2.end"], ["1.head","2.head"]], n_lines=4)
+      -> groups ((1, 2), (1, 2))    two entries, one line set, distinct loci
+
+`_normalise_groups`' dedup key CARRIES THE PLACEMENT and its docstring says
+why — *"`L1.end ~ L2.end` and `L1.head ~ L2.head` are two different
+requirements over one pair of lines"*. So a duplicate line set is already
+PRODUCED and already CONSUMED by every one of the 93 non-test sites that read
+`.groups`; their tolerance of it is not a hope, it is existing behaviour.
+
+**SO THE SURVIVING GAP IS ONE COORDINATE, NOT A REPRESENTATION.** What still
+cannot be said is two edges at the SAME (lines, placement) under DIFFERENT
+RELATIONS — this entry's own `masculine rhyme` AND `assonance` example:
+
+    mandate([[1,2],[1,2]], n_lines=4,
+            relations={0: "type:masculine rhyme", 1: "class:ASSONANCE"})
+      -> REFUSED: relations declares group index 1 and the mandate has 1 group(s)
+
+**AND THE FAILURE IS NOT SILENT, WHICH THIS ENTRY SAYS IT IS.** *"silently
+dedupe to one"* is half right: the DEDUP is silent, and the CONSEQUENCE is a
+named refusal naming the arity, the moment anyone tries to use the second
+group. Struck as a description of the symptom, kept as a description of the
+mechanism (doctrine 17, and the same species of stale symptom M-142's entry
+carried).
+
+**WHY THE OBVIOUS ONE-LINE FIX IS WRONG, and this is the design ruling the
+build needed.** Adding the relation to the dedup key cannot work, because the
+relation is not available when the dedup runs: `_normalise_groups(raw, n)` is
+called at `schemes.py`'s mandate() before relations are resolved, and
+`relations` is a SIDE MAP keyed by the index or label of the group AFTER
+normalisation. The key that would prevent the collapse is computed from the
+thing the collapse produces. So the change the ruling's *labelled EDGE* asks
+for is precisely this: **a group must carry its relation AT DECLARATION**,
+rather than being addressed by an index assigned to it afterwards. That is
+the edge label, and it is the whole of what is missing.
+
+**WHAT THAT DOES AND DOES NOT COST.** It does NOT require the groups tuple to
+change shape, so the 93 sites stand — which is why this is worth building
+rather than deferring further. It DOES require a declaration spelling, the
+`relations=` side map kept working beside it (doctrine 17: the old spelling is
+not deleted for being superseded), and the refusal above replaced by an
+answer. The node-as-POSITION half is separate and is already half-built:
+`Mandate.loci` and `quality/slots.py` carry the placement coordinate that the
+measurement above exercises.
+
 **WHAT IS STILL UNBUILT IS THE EDGE REPRESENTATION ITSELF.** This is the
 interim gate the ruling authorised *"until the edge representation lands"*,
 and it is exactly that: a label. Parallel edges between two positions, the
