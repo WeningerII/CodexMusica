@@ -1506,9 +1506,73 @@ requiring the census to follow; §3 verifies each duplicate group against the
 RAW marks, so a shared order cannot be an artefact of stripping instance
 digits.
 
-**Missing:** ~~clichéd section orders~~ (measured above), clichéd hook
-placement, the exhausted verse-chorus-bridge sequence, clichéd rhyme-scheme
-choice itself. **THE REMAINING THREE ARE NOT SYMMETRIC WITH THE FIRST AND THE
+
+**AND THE FIRST ITEM'S OWN FINDING HAS A CONFOUND THAT WAS NOT MEASURED WHEN
+IT SHIPPED — 2026-09-19, AND IT IS RECORDED RATHER THAN QUIETLY FOLDED IN
+(doctrine 17).** The paragraph above presents two songs sharing a section
+order as a fact about the SERIES' SHAPE, and a reader takes that as an
+observation about craft. **MEASURED: both duplicate orders are also duplicate
+SEEDS — 2 of 2, and the correspondence is on MEMBERSHIP rather than merely on
+count.**
+
+    long_bridge, taught_me_time                       both declare seed 1
+    the_frost_ledger, the_river_keeps_the_score       both declare seed 32
+
+A plan is a pure function of its seed and the planner's code, so two songs
+planned from one seed are **one draw**, not two songs arriving at the same
+shape. The census still measures what it always measured; what it could not
+say is that neither duplicate is independent evidence. It says so now —
+`song_shape.py` carries the seed as a censused coordinate and the report
+prints `CONFOUNDED` beside each group, so the qualification is MECHANICAL and
+cannot go stale the way this paragraph did.
+
+**THE SEED IS READ, NEVER RE-DERIVED.** `quality/song_log.py`'s `seed` fact is
+the declaration; re-running `make_plan` at HEAD answers a different question,
+because the planner has been re-derived many times since these songs were
+written — measured, **seed 1 at HEAD gives
+`intro-verse-chorus-tag-prechorus-chorus-tag-build-outro`, which neither
+seed-1 song has.** `oar_lair` logs no seed at all and comes back REFUSED
+rather than zero or guessed (doctrine 20). `quality/test_song_shape.py` §6/§7,
+with the MUTATION: erasing the seeds recovers the pre-seed reading exactly, so
+the coordinate is proven load-bearing.
+
+**THE SECOND ITEM IS MEASURED AND ITS PROVENANCE IS REFUSED — 2026-09-19.**
+*Clichéd hook placement* cannot be answered as a cliché here, for the reason
+already given: it is a claim against a norm and both populations are refused.
+What IS a fact about the committed bytes, and is the half worth having:
+
+    declared a hook            10 of 16     declared none    6
+    in ONE section function    10           spread over 2+   0
+    chorus 8   verse 2
+
+**NO song's hook phrase reaches a second section function** — measured over
+every occurrence, sub-line, so a hook echoed inside a longer line elsewhere
+would have been found. That is a property of what was written.
+
+**AND THE ATTRIBUTION IS REFUSED RATHER THAN TAKEN, WHICH IS WHERE THIS
+SITTING NEARLY WENT WRONG.** The obvious reading is that the placement is the
+PLANNER'S: `plan.py` derives `hook_slot` from the drawn pattern — the first
+line slot whose function is in the verbatim-returning pool, else the recurring
+pool — so censusing hook placement would census the planner's own draw and be
+circular in exactly the way this entry already refuses for the corpus and the
+series. That argument is true of the CURRENT planner and **does not reach this
+population**: measured, `hook_slot` is present in **0 of 16** committed
+blueprints, which predate the field (`MISSING.md` M-212, 2026-09-03). So
+whether each committed song's hook position was DRAWN or CHOSEN is not
+recoverable from the artifacts, and the census says so instead of crediting a
+mechanism it cannot show. A refusal is not an absence, and it is also not a
+licence to assert the tidier story.
+
+**THE TWO VERSE-HOOK SONGS ARE THE SEED-1 PAIR**, so the 8/2 split is at most
+9 independent draws and not 10 — named here because the two measurements in
+this entry share a confound and reading them as corroborating each other would
+double-count one draw.
+
+**Missing:** ~~clichéd section orders~~ (measured above, with its seed
+confound now named), ~~clichéd hook placement~~ (measured above as a FACT; the
+*clichéd* reading refused for want of a norm, and the provenance refused for
+want of `hook_slot` in the committed blueprints), the exhausted
+verse-chorus-bridge sequence, clichéd rhyme-scheme choice itself. **THE REMAINING THREE ARE NOT SYMMETRIC WITH THE FIRST AND THE
 DIFFERENCE IS PRICED**: a shared ORDER is a fact about two committed texts,
 while `hook placement` and `rhyme-scheme choice` being *clichéd* are claims
 against a norm — and both populations that could supply one are refused

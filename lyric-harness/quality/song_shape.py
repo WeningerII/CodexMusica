@@ -42,6 +42,8 @@ what a delivered song is (doctrine 1).
 
 from __future__ import annotations
 
+import csv
+import json
 import os
 import re
 import sys
@@ -74,17 +76,106 @@ def _functions(path):
     return tuple(raw), tuple(fns)
 
 
+#: WHERE A SONG'S SEED IS RECORDED. `quality/song_log.py` banks one row per
+#: (invocation, fact); the `seed` fact is the DECLARED one the plan was drawn
+#: from. Read, never re-derived: a plan is a pure function of its seed AND the
+#: planner's code, and the planner has been re-derived many times since these
+#: songs were written, so re-running `make_plan` at HEAD answers a different
+#: question (measured: seed 1 at HEAD gives a section order neither seed-1 song
+#: has).
+_SEED_FACT = "seed"
+
+
+def _seed(stem):
+    """-> the seed this song's log declares, or None.
+
+    None is a REFUSAL and not a zero (doctrine 20): `oar_lair` logs no seed
+    row, so its seed is not obtainable from the artifacts and is never
+    guessed.
+    """
+    path = os.path.join("songs", f"{stem}.log.tsv")
+    if not os.path.exists(path):
+        return None
+    with open(path, encoding="utf-8") as fh:
+        for row in csv.reader(fh, delimiter="\t"):
+            if len(row) > 7 and row[6] == _SEED_FACT:
+                return row[7]
+    return None
+
+
+def hook_census():
+    """-> where the declared hook lands, over the songs that declare one.
+
+    WHAT THIS IS AND IS NOT. It is a FACT about committed bytes: which section
+    function each song's hook phrase occurs in, and whether it occurs in more
+    than one. It is NOT a claim that any placement is clichéd — that would be
+    a claim against a norm, and H-3's entry refuses both populations that
+    could supply one.
+
+    AND THE PROVENANCE IS REFUSED RATHER THAN ATTRIBUTED. The current planner
+    DERIVES `hook_slot` from the drawn pattern, which would make a census of
+    hook placement a census of the planner's own draw. That reasoning does not
+    reach this population: `hook_slot` is present in **0 of 16** committed
+    blueprints, which predate the field (`MISSING.md` M-212, 2026-09-03). So
+    whether each committed song's hook position was drawn or chosen is NOT
+    recoverable from the artifacts, and this census says so instead of
+    crediting either.
+    """
+    from quality import grid as GR
+    from quality import song_record as SR
+    rows, with_slot = [], 0
+    for path in sorted(SR.songs()):
+        stem = os.path.basename(path)[:-4]
+        bp = os.path.join("songs", f"{stem}.blueprint.json")
+        if not os.path.exists(bp):
+            rows.append({"song": stem, "hook": None, "functions": ()})
+            continue
+        with open(bp, encoding="utf-8") as fh:
+            if json.load(fh).get("hook_slot"):
+                with_slot += 1
+        song, hooks = GR.song_from_blueprint(bp)
+        fns = tuple(sorted({o.function for h in hooks
+                            for o in GR.hook_occurrences(song, h)}))
+        rows.append({"song": stem, "hook": bool(hooks), "functions": fns})
+    declared = [r for r in rows if r["hook"]]
+    spread = [r for r in declared if len(r["functions"]) > 1]
+    where = {}
+    for r in declared:
+        if len(r["functions"]) == 1:
+            where[r["functions"][0]] = where.get(r["functions"][0], 0) + 1
+    return {"rows": rows, "songs": len(rows),
+            "declared": len(declared),
+            "undeclared": len(rows) - len(declared),
+            "spread_over_functions": len(spread),
+            "where": where,
+            "blueprints_with_hook_slot": with_slot}
+
+
 def census():
     """-> the shape of every delivered song, and who shares one with whom."""
     from quality import song_record as SR
-    rows, by_seq = [], {}
+    rows, by_seq, by_seed = [], {}, {}
     for p in SR.songs():
         raw, fns = _functions(p)
         name = os.path.basename(p)
+        stem = name[:-4] if name.endswith(".txt") else name
+        seed = _seed(stem)
         rows.append({"song": name, "n": len(fns), "raw": raw,
-                     "functions": fns})
+                     "functions": fns, "seed": seed})
         by_seq.setdefault(fns, []).append(name)
+        if seed is not None:
+            by_seed.setdefault(seed, []).append(name)
     dupes = {k: sorted(v) for k, v in by_seq.items() if len(v) > 1}
+    seed_dupes = {k: sorted(v) for k, v in by_seed.items() if len(v) > 1}
+    # THE CONFOUND, MEASURED RATHER THAN ARGUED. A shared section order is a
+    # fact about two committed texts; it is a fact about two DRAWS if the two
+    # songs were planned from one seed. Counted per duplicate group so the
+    # question is asked of each, never summed with anything (doctrine 79).
+    seed_of = {r["song"]: r["seed"] for r in rows}
+    confounded = sorted(
+        tuple(v) for v in dupes.values()
+        if len({seed_of.get(n) for n in v}) == 1
+        and seed_of.get(v[0]) is not None)
     inventory = {}
     for r in rows:
         for f in r["functions"]:
@@ -92,13 +183,27 @@ def census():
     return {"rows": rows, "duplicates": dupes, "inventory": inventory,
             "songs": len(rows), "distinct": len(by_seq),
             "duplicate_groups": len(dupes),
-            "functions_used": len(inventory)}
+            "functions_used": len(inventory),
+            "seed_duplicates": seed_dupes,
+            "seed_duplicate_groups": len(seed_dupes),
+            "seeds_missing": sum(1 for r in rows if r["seed"] is None),
+            "orders_confounded_by_seed": len(confounded),
+            "confounded": confounded}
 
 
 #: MEASURED 2026-09-19. Counts, never a threshold — `--check` reports that the
 #: series MOVED, which is an answer and not a failure of any song.
 PINNED = {"songs": 16, "distinct": 14, "duplicate_groups": 2,
-          "functions_used": 18}
+          "functions_used": 18,
+          # THE CONFOUND. Both duplicate section orders are also duplicate
+          # SEEDS -- 2 of 2 -- so neither is evidence about craft that is
+          # independent of the draw. Pinned so that a third duplicate order
+          # arriving WITHOUT a shared seed moves a number and has to be read.
+          "seed_duplicate_groups": 2, "orders_confounded_by_seed": 2,
+          "seeds_missing": 1,
+          # THE HOOK. Counts, not a norm.
+          "hook_declared": 10, "hook_spread_over_functions": 0,
+          "blueprints_with_hook_slot": 0}
 
 
 def report(c=None):
@@ -114,21 +219,53 @@ def report(c=None):
     if c["duplicates"]:
         out.append("")
         out.append("SONGS SHARING A SECTION ORDER — disclosed, not charged:")
+        seed_of = {r["song"]: r["seed"] for r in c["rows"]}
         for seq, names in sorted(c["duplicates"].items(),
                                  key=lambda kv: kv[1]):
             out.append(f"  {', '.join(names)}")
             out.append(f"      {'-'.join(seq)}")
+            seeds = [seed_of.get(n) for n in names]
+            if len(set(seeds)) == 1 and seeds[0] is not None:
+                out.append(f"      CONFOUNDED — both declare seed "
+                           f"{seeds[0]}, so this is one draw and not two "
+                           f"songs agreeing.")
+            else:
+                shown = ", ".join("REFUSED" if x is None else str(x)
+                                  for x in seeds)
+                out.append(f"      seeds differ ({shown}) — not explained "
+                           f"by the draw.")
     else:
         out.append("")
         out.append("No two songs share a section order.")
+    if c["seeds_missing"]:
+        out.append("")
+        out.append(f"{c['seeds_missing']} song(s) log no seed: REFUSED, "
+                   f"never guessed (doctrine 20).")
+    h = hook_census()
+    out.append("")
+    out.append(f"HOOK — declared by {h['declared']} of {h['songs']}, "
+               f"{h['undeclared']} declare none.")
+    out.append(f"  in one section function only: "
+               f"{h['declared'] - h['spread_over_functions']}"
+               f"   spread over two or more: {h['spread_over_functions']}")
+    for fn, n in sorted(h["where"].items(), key=lambda kv: (-kv[1], kv[0])):
+        out.append(f"    {fn:14s} {n}")
+    out.append(f"  PROVENANCE REFUSED — `hook_slot` is in "
+               f"{h['blueprints_with_hook_slot']} of {h['songs']} committed "
+               f"blueprints, which predate the field, so whether a hook "
+               f"position was DRAWN or CHOSEN is not recoverable here.")
     return "\n".join(out)
 
 
 def check():
     """-> exit code. 3 when the census drifts from PINNED."""
-    c = census()
+    c = dict(census())
     print(report(c))
     print()
+    h = hook_census()
+    c["hook_declared"] = h["declared"]
+    c["hook_spread_over_functions"] = h["spread_over_functions"]
+    c["blueprints_with_hook_slot"] = h["blueprints_with_hook_slot"]
     moved = {k: (PINNED[k], c[k]) for k in PINNED if PINNED[k] != c[k]}
     for k, (was, now) in sorted(moved.items()):
         print(f"MOVED  {k}: pinned {was}, measured {now}")
