@@ -818,6 +818,13 @@ def _every_verb_fixture():
         # honest answer, the no-seed refusal, because a full run here would
         # double §44's loop cost for a claim about reachability alone.
         "finish": ["finish", quat],
+        # The pre-flight (M-302/M-303): dispatch reachability on the same bare
+        # quatrain, which REFUSES for want of a --seed exactly as `finish`
+        # does above -- the roster's job is "did not raise", and §60 carries
+        # the verb's behaviour. Joined 2026-09-19, one CI run after the verb
+        # itself: run 2266's §7 named it uncovered, which is this roster's
+        # own census doing its job.
+        "tryline": ["tryline", quat, "1", "a wholly new line"],
         # The human door (2026-09-01, M-195). Behavioural coverage is §49 —
         # this row is the dispatch-reachability claim on a bare quatrain,
         # which REFUSES its sectioning (no mark, no blank block: the M-72
@@ -4884,10 +4891,15 @@ def test_a_missing_staged_resource_refuses_instead_of_crashing():
     # blank block, so its sectioning is REFUSED — a work order, never a
     # failure, and never a resource refusal. Its 3 is declared here beside
     # `finish`'s 2 (CI's verbs (4) at 551e8e8 caught the omission).
-    OWN = {"finish": 2, "recover": 3}
+    # `tryline` joined the roster 2026-09-19 (M-302/M-303) and rides
+    # `finish`'s block, so on the bare quatrain it gives `finish`'s own
+    # --seed refusal, rc 2 -- declared here for the same reason `recover`'s
+    # 3 is (CI's verbs (4) at 5790ae49 caught the roster omission; this
+    # twin would have caught the exit one run later).
+    OWN = {"finish": 2, "recover": 3, "tryline": 2}
     check(f"the other {len(cases) - len(NEED)} answer, and every one but "
-          f"`finish` (its own --seed refusal, rc 2) and `recover` (its own "
-          f"REFUSED-coordinate work order, rc 3) at rc 0",
+          f"`finish` and `tryline` (their own --seed refusal, rc 2) and "
+          f"`recover` (its own REFUSED-coordinate work order, rc 3) at rc 0",
           len(answering) == len(cases) - len(NEED)
           and all(answering.get(v) == rc for v, rc in OWN.items())
           and all(rc == 0 for v, rc in answering.items() if v not in OWN),
