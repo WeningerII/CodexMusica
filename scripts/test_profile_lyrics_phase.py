@@ -141,12 +141,34 @@ class FirstMenuProfileTests(unittest.TestCase):
             # Neither budget's meaning changes: the phase case's menu still
             # overruns its phase budget 4x, the wall case's still finishes far
             # inside it.
-            for label, delay, expected in [('phase', '.2', 'phase_deadline'), ('wall', '.001', 'wall_deadline')]:
+            #
+            # THE SAME RACE HAS A SECOND DOOR, and phase=.05 was it. In the wall
+            # case the run must get from `profile_started` (which arms a 50 ms
+            # timer) through the 1 ms menu call to the `profile_completed`
+            # event that re-arms it, within those 50 ms of WALL time -- a
+            # scheduler stall anywhere in that window fires the phase alarm on
+            # a 1 ms call. CI run 35529580957 (PR 363, fbc76a6f: two markdown
+            # files) reported exactly that, `'phase_deadline' !=
+            # 'wall_deadline'` with profile_started true, on a `verify` job
+            # running 53 leaves 4 at a time; main was green on the same
+            # scripts. MEASURED here with a sleep inside the profiled call
+            # standing in for the stall: at phase=.05 a 60 ms stall already
+            # reads phase_deadline; at phase=.5 stalls of 60, 100 and 400 ms
+            # all read wall_deadline and 600 ms reads phase_deadline, which is
+            # the budget doing its job. Under 32 busy loops on 4 CPUs the
+            # observed window was 7 ms, so the box cannot reproduce CI's stall
+            # -- the stand-in is the evidence. phase=.5 (delay 2, still a 4x
+            # overrun) and wall=4 keep every ordering: the phase case's alarm
+            # fires at startup+0.5 s, before the wall's 4 s for any startup
+            # under 3.5 s; the wall case's 4 s still expires during the 10 s
+            # post-profile sleep. Both cases correct at 0, 0.06, 0.1 and 0.4 s
+            # of stall, and 3 of 3 under the 32-loop contention.
+            for label, delay, expected in [('phase', '2', 'phase_deadline'), ('wall', '.001', 'wall_deadline')]:
                 out = root / label
                 command = [sys.executable, str(MODULE), '--repo-root=' + str(root),
                            '--seed=1', '--lines=1', '--draft=' + str(root / 'draft.txt'),
                            '--plan=' + str(root / 'plan.json'), '--out=' + str(out),
-                           '--phase-seconds=.05', '--wall-seconds=2']
+                           '--phase-seconds=.5', '--wall-seconds=4']
                 result = subprocess.run(command, env=dict(os.environ, FAKE_MENU_DELAY=delay),
                                         capture_output=True, text=True, timeout=60)
                 self.assertEqual(result.returncode, 124, result.stderr)

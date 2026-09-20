@@ -6,17 +6,28 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
-### Removed — the `hozho` preface
+### Added — duplicate and remove on every workspace card
 
-The owner named `hozho` as an artist's name and asked for it to be removed
-from the repository altogether. M-281 had kept it as a Diné word for harmony;
-that ruling is struck, not deleted, and the owner's stands. The lexicon entry
-in `references/07_preface_lexicon.js`, its glyph in
-`scripts/_nav_glyph_map.json` and `references/09_nav_glyphs.js`, the
-diacritics example in `src/app.js` that cited it, and every pinned count of
-the lexicon (741 → 740) go together. The frozen descriptor table is not
+Each instrument card in the workspace tree now carries a duplicate and a
+remove button at its bottom-right corner, the same two operations the detail
+pane's action row offers at the far right of the screen. The card is a
+`<button>`, so the pair is a sibling sharing the card's grid cell rather than
+a child; a click on either never selects the card and never starts a drag,
+and on phones the pair grows to the 44px touch minimum. The inline detail
+panel that mobile inserts after the card auto-places into the next row.
+
+### Removed — one preface, at the owner's request
+
+The owner identified one preface id as an artist's name and asked for it to
+be removed from the repository altogether, then for the name itself to be
+scrubbed from this file and from `lyric-harness/MISSING.md`. M-281 had kept
+it as a Diné word for harmony; that ruling is struck, not deleted, and the
+owner's stands. The lexicon entry in `references/07_preface_lexicon.js`, its
+glyph in `scripts/_nav_glyph_map.json` and `references/09_nav_glyphs.js`,
+the diacritics example in `src/app.js` that cited it, and every pinned count
+of the lexicon (741 → 740) went together. The frozen descriptor table is not
 re-frozen: `build_descriptor_df.js --check` tolerates the nine moved counts,
-so no recipe snapshot is re-blessed here.
+so no recipe snapshot is re-blessed. The name survives only in git history.
 
 ### Changed — the genre and instrument lists are alphabetical
 
