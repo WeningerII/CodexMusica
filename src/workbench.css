@@ -241,6 +241,9 @@ h3 {
   padding: 10px 6px !important;
   min-height: 64px;
 }
+.sb-card-row > .sb-card {
+  padding-right: 64px !important;
+}
 .sb-card-thumb {
   width: 36px !important;
   height: 36px !important;

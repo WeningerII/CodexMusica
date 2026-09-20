@@ -15170,6 +15170,24 @@ function renderSidebarTraditions() {
     });
   });
 
+  // Wire the per-card duplicate / remove cluster. Same two operations as the
+  // detail pane's action row, reachable without crossing the screen; the
+  // cluster sits outside the .sb-card button, so a click here never selects
+  // the card and never starts a drag.
+  host.querySelectorAll('[data-card-action]').forEach(b => {
+    b.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const cardId = b.dataset.cardId;
+      if (b.dataset.cardAction === 'duplicate') {
+        dupCard(cardId);
+        renderAll();
+        showToast('Duplicated', 'success');
+      } else if (b.dataset.cardAction === 'delete') {
+        rmCard(cardId);
+      }
+    });
+  });
+
   // Wire "Add to tradition" buttons — opens existing instrument modal with
   // tradition pre-context (stored on the modal for the add handler to read).
   host.querySelectorAll('[data-add-to-trad]').forEach(b => {
@@ -15209,7 +15227,12 @@ function renderSidebarCard(card) {
   const thumb = (typeof image === 'function') ? image(card.instrumentId, 24) : '';
   const fingerprint = card.traditionId && typeof renderFingerprint === 'function' ? renderFingerprint(card.traditionId) : '';
 
+  // The card is a <button>, so its own controls cannot live inside it. The
+  // row is a one-cell grid: card and action cluster share the cell, the
+  // cluster pinned to the card's bottom-right corner, and the inline detail
+  // panel that mobile inserts after the card auto-places into a second row.
   return (
+    '<div class="sb-card-row">' +
     '<button class="sb-card' + (isSelected ? ' is-selected' : '') + (card.pinned ? ' is-pinned' : '') + '" data-card-id="' + esc(card.id) + '" ' +
       'title="Click to edit; drag to move between genres (hold first on touch)" style="--family-tint: ' + familyTint + '; --family-color: ' + familyColor + ';">' +
       '<span class="sb-drag-hint" aria-hidden="true">' + icon('grip-vertical', 14) + '</span>' +
@@ -15225,7 +15248,12 @@ function renderSidebarCard(card) {
           fingerprint +
         '</div>' +
       '</div>' +
-    '</button>'
+    '</button>' +
+    '<div class="sb-card-actions" role="group" aria-label="' + esc(name) + ' actions">' +
+      '<button class="sb-card-action" data-card-action="duplicate" data-card-id="' + esc(card.id) + '" data-tooltip="Duplicate" data-tooltip-pos="left" aria-label="Duplicate ' + esc(name) + '">' + icon('copy', 12) + '</button>' +
+      '<button class="sb-card-action is-danger" data-card-action="delete" data-card-id="' + esc(card.id) + '" data-tooltip="Remove" data-tooltip-pos="left" aria-label="Remove ' + esc(name) + '">' + icon('trash-2', 12) + '</button>' +
+    '</div>' +
+    '</div>'
   );
 }
 

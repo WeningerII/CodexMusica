@@ -6,6 +6,16 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added — duplicate and remove on every workspace card
+
+Each instrument card in the workspace tree now carries a duplicate and a
+remove button at its bottom-right corner, the same two operations the detail
+pane's action row offers at the far right of the screen. The card is a
+`<button>`, so the pair is a sibling sharing the card's grid cell rather than
+a child; a click on either never selects the card and never starts a drag,
+and on phones the pair grows to the 44px touch minimum. The inline detail
+panel that mobile inserts after the card auto-places into the next row.
+
 ### Removed — one preface, at the owner's request
 
 The owner identified one preface id as an artist's name and asked for it to

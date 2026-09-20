@@ -431,6 +431,18 @@ body.is-dnd-active * { cursor: grabbing !important; }
 
 .sb-card { display: flex; align-items: center; gap: var(--s2); padding: 8px; border: none; background: transparent; border-radius: 6px; cursor: pointer; text-align: left; width: 100%; transition: background 120ms ease; }
 .sb-card:hover { background: var(--surface-2); }
+/* Per-card duplicate / remove cluster at the card's bottom-right. The card is a
+   <button>, so the cluster is a sibling sharing one grid cell; the inline detail
+   panel mobile inserts after the card auto-places into the next row. */
+.sb-card-row { display: grid; grid-template-columns: minmax(0, 1fr); }
+.sb-card-row > .sb-card { grid-area: 1 / 1; padding-right: 64px; }
+.sb-card-actions { grid-area: 1 / 1; justify-self: end; align-self: end; display: inline-flex; gap: 2px; margin: 0 6px 6px 0; z-index: 1; }
+.sb-card-action { background: transparent; border: none; padding: 0; width: 26px; height: 26px; border-radius: var(--r1); color: var(--text-3); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; opacity: 0.55; transition: opacity var(--t-fast) var(--ease), color var(--t-fast) var(--ease), background var(--t-fast) var(--ease); }
+.sb-card-row:hover .sb-card-action,
+.sb-card-row:focus-within .sb-card-action,
+.sb-card-row > .sb-card.is-selected ~ .sb-card-actions .sb-card-action { opacity: 1; }
+.sb-card-action:hover { color: var(--text); background: var(--surface-2); }
+.sb-card-action.is-danger:hover { color: var(--color-red); background: var(--color-red-soft); }
 .sb-card.is-selected { background: var(--family-tint, var(--surface-2)); }
 .sb-card-thumb { width: 32px; height: 32px; border-radius: 6px; background: var(--family-tint, var(--surface-2)); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .sb-card-thumb svg, .sb-card-thumb img { width: 24px; height: 24px; }
@@ -1347,6 +1359,8 @@ body.is-dnd-active * { cursor: grabbing !important; }
   .app-bar .actions .btn { min-height: 44px; }
   .detail-tab { min-height: 44px; }
   .sb-card { min-height: 44px; }
+  .sb-card-row > .sb-card { padding-right: 96px; }
+  .sb-card-action { width: 44px; height: 44px; opacity: 1; }
   .sb-tradition-header { min-height: 44px; }
   .sb-tradition-move,
   .sb-tradition-delete { min-width: 44px; min-height: 44px; }
