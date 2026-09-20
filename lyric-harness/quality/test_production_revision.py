@@ -3,6 +3,7 @@
 Offline only: real graders and a deterministic writer at the existing proposer seam.
 """
 import json
+import copy
 import os
 from pathlib import Path
 import subprocess
@@ -26,6 +27,302 @@ class ProductionRevisionTests(unittest.TestCase):
     def setUpClass(cls):
         cls.reviser = Reviser(rdecl=ReviseDeclaration(max_rounds=2, attempts_per_line=1))
         cls.m = mandate('AA', n_lines=2, default_relation='class:ASSONANCE')
+
+    def test_unknown_internal_anchor_gets_a_repair_question_without_becoming_a_violation(self):
+        before = ['Hold this cup beside the glass', 'The reed will bend beneath the rain']
+        after = ['Hold red cups beside the glass', before[1]]
+        m = mandate([['1.T2', '2.T4']], n_lines=2,
+                    default_relation='class:ASSONANCE')
+        r = Reviser(rdecl=ReviseDeclaration(max_rounds=2, attempts_per_line=1,
+                                            backtrack_width=0))
+        found = r.inspect(before, m)
+        self.assertEqual(found['grade']['pairs_refused'], 1)
+        self.assertFalse(found['grade']['violations'])
+        verdict = r.verify(before, after, m, targeted={1})
+        self.assertTrue(verdict['accepted'], verdict['reasons'])
+        asked = []
+        def writer(b, lines, attempt, reasons=None, whole=()):
+            asked.append(b.line_no)
+            return after[0] if b.line_no == 1 else None
+        result = revise_loop(r, before, m, propose=writer)
+        self.assertIn(1, asked)
+        self.assertEqual(result.lines, after)
+        self.assertEqual(result.pairs_refused, 0)
+        # When the unreadable endpoint is later, the readable mate cannot
+        # repair its absent anchor and must not consume a writer attempt.
+        reverse = [before[1], before[0]]
+        reverse_m = mandate([['1.T4', '2.T2']], n_lines=2,
+                            default_relation='class:ASSONANCE')
+        asked.clear()
+        def reverse_writer(b, lines, attempt, reasons=None, whole=()):
+            asked.append(b.line_no)
+            return after[0] if b.line_no == 2 else None
+        reverse_result = revise_loop(r, reverse, reverse_m, propose=reverse_writer)
+        self.assertEqual(asked, [2])
+        self.assertEqual(reverse_result.lines, [before[1], after[0]])
+
+    def test_internal_rhyme_does_not_charge_unmandated_line_end_cliches(self):
+        lines = ['Cats in the cellar burn with fire',
+                 'Bats in the rafters wake desire']
+        internal = mandate([['1.head', '2.head']], n_lines=2,
+                           default_relation='class:RHYME')
+        end = mandate('AA', n_lines=2, default_relation='class:RHYME')
+        r = self.reviser
+        def cliches(m):
+            found = r.inspect(lines, m)
+            return [f for fs in found['per_line'].values() for f in fs
+                    if f.code == 'CLICHE_PAIR']
+        self.assertTrue(cliches(end))
+        self.assertFalse(cliches(internal))
+        # A schema can declare a different locus even with bare line numbers.
+        onset = mandate('AA', n_lines=2, default_relation='schema:anaphora')
+        self.assertFalse(cliches(onset))
+
+    def test_frozen_interview_cannot_clear_end_predictability_by_editing_an_internal_only_pair(self):
+        case = json.loads((Path(__file__).parent / 'results' /
+                           'continuation_audit_2026-09-20' /
+                           'dead_letter_case.json').read_text())
+        plan = case['plan']
+        m = mandate([g.split(',') for g in plan['groups'].split(';')],
+                    n_lines=plan['total_lines'], relations=plan['relations'],
+                    default_relation=plan['relation'],
+                    returns=[list(map(int, g.split(',')))
+                             for g in plan['returns'].split(';')])
+        floor, scheme = self.reviser._floor_for(m)
+        rows = []
+        for key in ('before_last_answer', 'final_retained'):
+            rows.append([f.obligations for f in floor.check(case[key], scheme)
+                         if f.code == 'PREDICTABLE_RHYME'])
+        # The old projection charged 39 pairs, including internal-only
+        # demands, then called the L5/L10 change "fixed 39". Ten actual
+        # end-bound pairs remain just as predictable after that answer.
+        self.assertTrue(rows[0])
+        self.assertEqual(len(rows[0][0]), 10)
+        self.assertEqual(rows[0], rows[1])
+        from quality import slots
+        brief = next(b for b in self.reviser.brief(case['before_last_answer'], m,
+                                                  include_offers=False)
+                     if b.line_no == 1)
+        self.assertTrue(slots.is_default(brief.slot))
+        self.assertTrue(brief.violated_groups)
+        self.assertTrue(all(slots.is_default(m.slot_of(m.labels.index(label), 1))
+                            for label in brief.violated_groups))
+        verdict = self.reviser.verify(case['before_last_answer'], case['final_retained'],
+                                      m, targeted={5, 10})
+        self.assertFalse(verdict['accepted'], verdict['reasons'])
+        self.assertFalse([f for f in verdict['fixed_findings']
+                          if f['code'] == 'PREDICTABLE_RHYME'])
+
+    def test_expanded_offer_does_not_claim_exact_vowel_pool_provenance(self):
+        case = json.loads((Path(__file__).parent / 'results' /
+                           'continuation_audit_2026-09-20' /
+                           'greenhouse_case.json').read_text())
+        plan = case['plan']
+        m = mandate([g.split(',') for g in plan['groups'].split(';')],
+                    n_lines=plan['total_lines'], relations=plan['relations'],
+                    default_relation=plan['relation'],
+                    returns=[list(map(int, g.split(',')))
+                             for g in plan['returns'].split(';')])
+        r, lines = self.reviser, case['retained']
+        b = next(b for b in r.brief(lines, m, target_lines={6}) if b.line_no == 6)
+        self.assertGreater(b.field_widened, 0)
+        self.assertIn('have', b.candidates)
+        # The coarse class admits near vowels under its declared channel
+        # threshold; that is not a claim of identical nuclei or an index
+        # lookup in the exact-vowel pool. Preserve the actual grade.
+        have = r._word_anchors('have')[0][0][0]['nucleus']
+        waits = r._word_anchors('waits')[0][0][0]['nucleus']
+        self.assertNotEqual(have, waits)
+        kept, refused = r.declared_offer(['have'], lines, m, 6, b.slot,
+                                         [m.labels.index('D')])
+        self.assertEqual((kept, refused), (['have'], []))
+        prompt = render_line(b, lines)
+        self.assertNotIn('OFFERED FROM THE VOWEL BAND', prompt)
+        self.assertNotIn("words below share the call's", prompt)
+
+    def test_default_admission_disclosure_uses_production_line_numbers(self):
+        from lyric_harness import near_relation_default_disclosure
+        lines = ['I walk the road that leads me home',
+                 'The empty cups are mine alone']
+        m = mandate('AA', n_lines=2)
+        g = self.reviser.grade(lines, m)
+        self.assertEqual(g['verdicts'][0]['lines'], (1, 2))
+        self.assertIsNone(g['verdicts'][0]['why'])
+        report = near_relation_default_disclosure(g['verdicts'],
+                                                  self.reviser.decl.theta_rhyme)
+        self.assertIn('L1~L2 home/alone', report)
+        self.assertNotIn('L2~L3', report)
+
+    def test_declared_class_cli_does_not_claim_default_scalar_admission(self):
+        with tempfile.TemporaryDirectory() as directory:
+            draft = Path(directory) / 'draft.txt'
+            draft.write_text('Ring the bell beside the door\nTin cups shake beside the shelf\n')
+            got = subprocess.run([sys.executable, str(Path(__file__).parents[1] /
+                                  'lyric_harness.py'), 'brief', str(draft),
+                                  '--groups=1.T1,2.T1', '--relation=class:ASSONANCE'],
+                                 capture_output=True, text=True, timeout=90)
+        self.assertIn('class:ASSONANCE', got.stdout, got.stderr)
+        self.assertNotIn('ADMIT DOOR:', got.stdout)
+
+    def test_mixed_admission_disclosure_keeps_only_default_groups_and_actual_cuts(self):
+        from lyric_harness import Declaration, near_relation_default_disclosure
+        r = Reviser(decl=Declaration(theta_by_relation={'ASSONANCE': 0.9}))
+        m = mandate([[1, 2], [1, 3]], n_lines=3,
+                    relations={'A': 'class:ASSONANCE'})
+        g = r.grade(['I walk the road that leads me home',
+                     'The empty cups are mine alone',
+                     'The glass beside the sink is mine alone'], m)
+        self.assertEqual(len(g['verdicts']), 2)
+        self.assertFalse(g['violations'])
+        default = {k for k in range(len(m.groups)) if r.schema_route_open(m, k)}
+        self.assertEqual(default, {1})
+        report = near_relation_default_disclosure(g['verdicts'], r.decl.theta_rhyme,
+                                                  default_groups=default,
+                                                  cuts=r.decl.theta_by_relation)
+        self.assertIn('ADMIT DOOR: 1 mandated pair(s)', report)
+        self.assertIn('ASSONANCE 0.9', report)
+        self.assertNotIn('ASSONANCE 0.82', report)
+        self.assertIn('chance rate is not established', report)
+
+    def test_empty_single_partner_menu_can_start_with_a_verified_joint_repair(self):
+        case = json.loads((Path(__file__).parent / 'results' /
+                           'continuation_audit_2026-09-20' /
+                           'spare_key_case.json').read_text())
+        plan, lines = case['plan'], case['initial']
+        m = mandate([g.split(',') for g in plan['groups'].split(';')],
+                    n_lines=plan['total_lines'], relations=plan['relations'],
+                    default_relation=plan['relation'],
+                    returns=[list(map(int, g.split(',')))
+                             for g in plan['returns'].split(';')])
+        r = Reviser(rdecl=ReviseDeclaration(max_rounds=1, attempts_per_line=2,
+                                            backtrack_width=1))
+        b = next(b for b in r.brief(lines, m, target_lines={2}) if b.line_no == 2)
+        self.assertTrue(b.field_computed)
+        self.assertTrue(b.violated_groups)
+        self.assertFalse(b.candidates)
+        self.assertFalse(b.joint_conflict)  # each place has only one partner
+        after = list(lines)
+        after[0] = after[7] = 'The spare key turns locks behind the shop'
+        after[1] = after[8] = 'Come when leaks have taken all your sleep'
+        verdict = r.verify(lines, after, m, targeted={1, 2, 8, 9})
+        self.assertTrue(verdict['accepted'], verdict['reasons'])
+        calls = []
+        def single(*args):
+            calls.append('single')
+            return None
+        def group(g):
+            calls.append('group')
+            return [after[n - 1] for n in g.members]
+        result = revise_loop(r, lines, m, propose=single, propose_group=group)
+        self.assertEqual(calls[0], 'group', calls)
+        self.assertEqual(result.lines, after)
+        # Empty menus are not impossibility proofs. Declining the group must
+        # leave both original single-line attempts available to the writer.
+        order, single_attempts = [], []
+        def declined(g):
+            order.append('group')
+            return None
+        def unchanged(b, current, attempt, reasons=None, whole=()):
+            order.append('single')
+            single_attempts.append((b.line_no, attempt))
+            return b.text
+        parked = revise_loop(r, lines, m, propose=unchanged, propose_group=declined)
+        self.assertEqual(order[0], 'group')
+        self.assertEqual([a for n, a in single_attempts if n == 2], [0, 1])
+        self.assertEqual(parked.lines, lines)
+
+    def test_audible_plan_disclosure_resolves_the_declared_global_relation(self):
+        from quality.plan import make_plan, audible_share
+        plan = make_plan(20261001, lines=12, relation='class:CONSONANCE',
+                         functions=['verse', 'chorus', 'outro'],
+                         wants=['uses=verse,chorus', 'sections>=3', 'returns>=1'])
+        share = audible_share(plan)
+        self.assertEqual(share['end_bound'], 2)
+        self.assertEqual(share['bare'], 0)
+        self.assertFalse(share['inaudible'])
+        self.assertEqual(share['unclassified'], ['class:CONSONANCE'] * 2)
+        # Per-group declarations still override the global declaration;
+        # absence of both remains a real bare default.
+        plan = {'groups': '1,2;3,4', 'relation': 'schema:consonance',
+                'relations': {'A': 'schema:perfect rhyme'}}
+        share = audible_share(plan)
+        self.assertEqual((share['audible'], share['bare']), (1, 0))
+        self.assertEqual(share['inaudible'], ['consonance'])
+        self.assertEqual(audible_share({'groups': '1,2'})['bare'], 1)
+
+    def test_unjudged_neighbor_is_not_rendered_as_holding(self):
+        case = json.loads((Path(__file__).parent / 'results' /
+                           'continuation_audit_2026-09-20' /
+                           'signal_flags_case.json').read_text())
+        p, lines = case['plan'], case['initial']
+        m = mandate([g.split(',') for g in p['groups'].split(';')],
+                    n_lines=p['total_lines'], default_relation=p['relation'],
+                    returns=[list(map(int, g.split(','))) for g in p['returns'].split(';')])
+        b = next(b for b in self.reviser.brief(lines, m, target_lines={3})
+                 if b.line_no == 3)
+        self.assertIn('B', b.violated_groups)
+        for rendered in (str(b), render_line(b, lines)):
+            unknown = next(x for x in rendered.splitlines() if 'group D ' in x)
+            holding = next(x for x in rendered.splitlines() if 'group C ' in x)
+            self.assertIn('UNJUDGED', unknown)
+            self.assertNotIn('HOLDS', unknown)
+            self.assertIn('HOLDS', holding)
+        with tempfile.TemporaryDirectory() as directory:
+            draft = Path(directory) / 'draft.txt'
+            draft.write_text('\n'.join(lines) + '\n')
+            got = subprocess.run([sys.executable, str(Path(__file__).parents[1] /
+                                  'lyric_harness.py'), 'brief', str(draft),
+                                  '--groups=' + p['groups'], '--returns=' + p['returns'],
+                                  '--relation=' + p['relation']],
+                                 capture_output=True, text=True, timeout=90)
+        self.assertIn('UNJUDGED', got.stdout, got.stderr)
+        self.assertFalse(any('group D ' in x and 'HOLDS' in x
+                             for x in got.stdout.splitlines()))
+        self.assertNotIn('can never ASK', got.stdout)
+
+    def test_revision_can_retire_an_occurrence_reading_without_transferring_it(self):
+        from quality import pronunciation as P, replay_memo as RM
+        case = json.loads((Path(__file__).parent / 'results' /
+                           'continuation_audit_2026-09-20' / 'rain_gauge_case.json').read_text())
+        p, before, after = case['plan'], case['before'], case['after']
+        lex = copy.copy(self.reviser.lex)
+        lex.pronunciations = P.validate_choices(case['pronunciations'], lex)
+        r = Reviser(lex=lex, rdecl=ReviseDeclaration(max_rounds=1, attempts_per_line=1,
+                                                    backtrack_width=0))
+        m = mandate([g.split(',') for g in p['groups'].split(';')],
+                    n_lines=p['total_lines'], default_relation=p['relation'],
+                    returns=[list(map(int, g.split(','))) for g in p['returns'].split(';')])
+        v = r.verify(before, after, m, targeted={3})
+        self.assertTrue(v['accepted'], v['reasons'])
+        retired = next(x for x in v['coverage_after']['obligations']
+                       if x['id'] == 'pronunciation:1')
+        self.assertEqual(retired['status'], 'not_requested')
+        self.assertTrue(retired['retired'])
+        self.assertFalse(retired['matching_lines'])
+        # A fresh check has no revision lineage: stale declarations still
+        # refuse, and the scoped verification did not mutate the caller.
+        self.assertIn('pronunciation:1', r.inspect(after, m)['coverage']['refused_obligations'])
+        unchanged = next(x for x in v['coverage_after']['obligations']
+                         if x['id'] == 'pronunciation:2')
+        self.assertEqual(unchanged['status'], 'answered')
+        self.assertEqual(lex.pronunciations, case['pronunciations'])
+        # Same word in changed context gains no guessed/transported reading.
+        ambiguous = list(before)
+        ambiguous[2] = 'I plant each seed beside the walls of our home'
+        refused = r.verify(before, ambiguous, m, targeted={3})
+        self.assertFalse(refused['accepted'])
+        self.assertTrue(any(x.startswith(('density:', 'prominence:'))
+                            for x in refused['layer_coverage_regressions']))
+        self.assertNotIn('pronunciation:1', refused['layer_coverage_regressions'])
+        # The replay proxy must keep both its memo and revision scope.
+        wrapped, disclose = RM.wrap(r, 'retired-pronunciation-regression', len(before))
+        for _ in range(2):
+            result = revise_loop(wrapped, before, m,
+                                 propose=lambda b, *args: after[2] if b.line_no == 3 else None)
+            self.assertEqual(result.lines, after)
+            self.assertTrue(result.coverage_certified)
+        self.assertGreater(disclose.record().get('memo_hit', 0), 0)
+        self.assertIn('pronunciation:1', wrapped.inspect(after, m)['coverage']['refused_obligations'])
 
     def test_empty_pivot_menu_does_not_suppress_verified_partial_repair(self):
         # M-256: a bounded conjunction is guidance, not proof that a
@@ -114,7 +411,10 @@ class ProductionRevisionTests(unittest.TestCase):
         self.assertIn('density:L1', result['layer_coverage_regressions'])
         stopped = revise_loop(r, ['My 123 whistles by the stove', CLEAN[1]], self.m)
         self.assertFalse(stopped.coverage_certified)
-        self.assertEqual(stopped.stop_reason, 'uncertified')
+        self.assertEqual(stopped.stop_reason, 'no_progress')
+        self.assertEqual([b.line_no for b in stopped.unresolved_unjudged], [1])
+        self.assertFalse(stopped.unresolved_flagged or stopped.unresolved_pursued)
+        self.assertTrue(stopped.rounds)
         self.assertTrue(any(f.code == 'BAND_UNJUDGED' for f in stopped.findings))
         self.assertTrue(r.inspect(CLEAN, self.m)['coverage']['certified'])
 

@@ -1,0 +1,332 @@
+{
+  "plan": {
+    "choices": {
+      "anacrusis": {
+        "chorus": {
+          "chosen_from": [0, 1],
+          "value": 1
+        },
+        "verse": {
+          "chosen_from": [0, 1],
+          "value": 0
+        }
+      },
+      "audible": {
+        "audible": 0,
+        "audible_names": [],
+        "bare": 0,
+        "end_bound": 2,
+        "inaudible": [],
+        "unclassified": ["class:CONSONANCE", "class:CONSONANCE"]
+      },
+      "bars_per_line": 1,
+      "brief_selection": {
+        "attempts": [
+          {
+            "failed": [],
+            "seed": 20261002,
+            "status": "accepted"
+          }
+        ],
+        "candidate_seed": 20261002,
+        "policy": "first satisfying candidate; no ranking",
+        "wants": ["uses=verse,chorus", "sections>=3", "returns>=1"]
+      },
+      "density": {
+        "binding_cap": 3,
+        "chosen_from": "uniform over 1..4 per PLAN (the line-binding ceiling), from a stream seeded on (seed, 'density'); each line then draws its participation uniform over 1..3, and the end-rhyme pass binds free line ends on top (M-191)"
+      },
+      "end_rhyme": {
+        "added": 2,
+        "blocked": 0,
+        "chosen_from": "NOT A DRAW \u2014 each sung section's own `schemes[fn].rgs` re-realised at the line ends, so this consumes no seed entropy and the placement draw above is untouched. Three counts, never summed (doctrine 79): `added` groups emitted; `blocked` blocks whose ends the placement draw had already spent; `narrow` blocks whose lines cannot carry one more DISTINCT word.",
+        "groups": ["4,5", "6,7"],
+        "narrow": 0
+      },
+      "execution": {
+        "admitted": true,
+        "basis": "registry span enumeration; no phonological bucket pruning assumed",
+        "candidate_upper_bound": 291600,
+        "inspection_only": false,
+        "limiting_schema": "chain rhyme (rap)",
+        "max_candidate_pairs": 2000000,
+        "max_lines": 31,
+        "max_syllables_per_line": 12,
+        "scope": "English lines at or below the declared density ceiling; no latency/RSS guarantee"
+      },
+      "meter": {
+        "beats_per_line": 8,
+        "chosen_from": "178 derived cycles (beats envelope [2, 12], slots envelope [5, 48]), measured BY DERIVATION ON THE DECLARED COORDINATE: 1 of 11 beats-per-line values, then 1 of 9 bars x subdivision factorisation(s) of 8 beats, then 1 of 4 groupings of 8. The line runs 8 beat(s) \u2014 at most the density band's ceiling, since a sung line carries at least one syllable a beat \u2014 and holds 8 slot(s), at least the band's floor. Both ends are the same calibrated band in different units; the pair share follows from how many ways each beat count factorises. Unit is notation, never enforced",
+        "slots_per_line": 8,
+        "value": {
+          "beats": 8,
+          "groups": [3, 2, 3],
+          "unit": 8
+        }
+      },
+      "narrative": {
+        "chosen_from": "uniform over the 52 legal story line-ups of this shape (quality/narrative.py, M-121; the count is exact and the draw is entropy-last)",
+        "value": {
+          "atoms": [
+            [0, "chorus", "ANCHOR"],
+            [1, "verse", "JUDGE"],
+            [2, "chorus", "ANCHOR"]
+          ],
+          "junctions": [
+            [0, 1, "ELABORATE"],
+            [1, 2, "AND_THEN"]
+          ],
+          "lineups": 52,
+          "mode": "drawn"
+        }
+      },
+      "pattern": {
+        "chosen_from": "generated grammar: 22 cell types x 1..3 cells under the drawn total and declared brief, optional intro/outro/coda, roster 20 of 22 functions",
+        "functions": ["chorus", "verse", "chorus"]
+      },
+      "placements": {
+        "measure": "uniform per MEMBER over the pool; per member and not per group because 8 of the 77 registered schemas anchor one member at each end of a word",
+        "pool": ["end", "endword", "head", "headrime", "T1", "T2", "T3", "T4", "T5", "T6"],
+        "token_ceiling": 6,
+        "token_ceiling_from": "the smaller of the floor's measured tokens-per-line floor 7.00 and this plan's own shortest line (7 syllable(s) after its pickup) less one for the last word \u2014 a plan asks for the n-th word only where BOTH the calibration and this meter say a line carries that many",
+        "words": ["1", "2", "3", "4", "5", "6", "last"]
+      },
+      "relations": {
+        "chosen_from": "NOT DRAWN \u2014 the writer declared --relation and a declared coordinate is carried, never sampled over (M-55)",
+        "value": {}
+      },
+      "schemes": {
+        "chorus": {
+          "chosen_from": 51,
+          "lines": 5,
+          "lines_chosen_from": [1, 463],
+          "rgs": [0, 1, 2, 3, 3]
+        },
+        "verse": {
+          "chosen_from": 1,
+          "lines": 2,
+          "lines_chosen_from": [1, 463],
+          "rgs": [0, 0]
+        }
+      },
+      "shape_attempts": 1,
+      "structures": {
+        "chorus": {
+          "chosen_from": ["english-end-rhyme"],
+          "name": "english-end-rhyme"
+        },
+        "verse": {
+          "chosen_from": ["english-end-rhyme"],
+          "name": "english-end-rhyme"
+        }
+      },
+      "subdivision": 1
+    },
+    "envelope": {
+      "anacrusis": [0, 0.25, 0.5, 0.75, 1],
+      "bars_per_line": [1, 6],
+      "beats_per_line": [2, 12],
+      "body_cells": [1, 463],
+      "lines_per_section": [1, 463],
+      "sections": [1, 115],
+      "slots_per_line": [5, 48],
+      "subdivisions": [1, 2, 4],
+      "total_lines": [12, 463]
+    },
+    "execution_limits": {
+      "admitted": true,
+      "basis": "registry span enumeration; no phonological bucket pruning assumed",
+      "candidate_upper_bound": 291600,
+      "inspection_only": false,
+      "limiting_schema": "chain rhyme (rap)",
+      "max_candidate_pairs": 2000000,
+      "max_lines": 31,
+      "max_syllables_per_line": 12,
+      "scope": "English lines at or below the declared density ceiling; no latency/RSS guarantee"
+    },
+    "functions": ["verse", "chorus", "outro"],
+    "functions_unused": ["outro"],
+    "groups": "4.T1,5.T2;2.T3,3.T6,5.T3;1.endword,2.head,3.T2;1.T4,3.T1;6.T3,7.T4;4,5;6,7",
+    "hook_slot": 1,
+    "hook_slot_refused": "",
+    "line_slots": [
+      {
+        "bar": 1,
+        "beat": 2,
+        "duration": 7,
+        "function": "chorus",
+        "line": 1,
+        "section": "CHORUS1"
+      },
+      {
+        "bar": 2,
+        "beat": 2,
+        "duration": 7,
+        "function": "chorus",
+        "line": 2,
+        "section": "CHORUS1"
+      },
+      {
+        "bar": 3,
+        "beat": 2,
+        "duration": 7,
+        "function": "chorus",
+        "line": 3,
+        "section": "CHORUS1"
+      },
+      {
+        "bar": 4,
+        "beat": 2,
+        "duration": 7,
+        "function": "chorus",
+        "line": 4,
+        "section": "CHORUS1"
+      },
+      {
+        "bar": 5,
+        "beat": 2,
+        "duration": 7,
+        "function": "chorus",
+        "line": 5,
+        "section": "CHORUS1"
+      },
+      {
+        "bar": 6,
+        "beat": 1,
+        "duration": 8,
+        "function": "verse",
+        "line": 6,
+        "section": "VERSE1"
+      },
+      {
+        "bar": 7,
+        "beat": 1,
+        "duration": 8,
+        "function": "verse",
+        "line": 7,
+        "section": "VERSE1"
+      },
+      {
+        "bar": 8,
+        "beat": 2,
+        "duration": 7,
+        "function": "chorus",
+        "line": 8,
+        "section": "CHORUS2"
+      },
+      {
+        "bar": 9,
+        "beat": 2,
+        "duration": 7,
+        "function": "chorus",
+        "line": 9,
+        "section": "CHORUS2"
+      },
+      {
+        "bar": 10,
+        "beat": 2,
+        "duration": 7,
+        "function": "chorus",
+        "line": 10,
+        "section": "CHORUS2"
+      },
+      {
+        "bar": 11,
+        "beat": 2,
+        "duration": 7,
+        "function": "chorus",
+        "line": 11,
+        "section": "CHORUS2"
+      },
+      {
+        "bar": 12,
+        "beat": 2,
+        "duration": 7,
+        "function": "chorus",
+        "line": 12,
+        "section": "CHORUS2"
+      }
+    ],
+    "narrative": {
+      "atoms": [
+        [0, "chorus", "ANCHOR"],
+        [1, "verse", "JUDGE"],
+        [2, "chorus", "ANCHOR"]
+      ],
+      "junctions": [
+        [0, 1, "ELABORATE"],
+        [1, 2, "AND_THEN"]
+      ],
+      "lineups": 52,
+      "mode": "drawn"
+    },
+    "plan_version": 3,
+    "relation": "class:CONSONANCE",
+    "relations": {},
+    "request": {
+      "form": "verse-chorus",
+      "functions": ["verse", "chorus", "outro"],
+      "inspection_only": false,
+      "lines": 12,
+      "narrative": null,
+      "relation": "class:CONSONANCE",
+      "seed": 20261002,
+      "title": "The Red Flag",
+      "wants": ["uses=verse,chorus", "sections>=3", "returns>=1"]
+    },
+    "returns": "1,8;2,9;3,10;4,11;5,12",
+    "sections": [
+      {
+        "bars": 5,
+        "function": "chorus",
+        "meter": {
+          "beats": 8,
+          "groups": [3, 2, 3],
+          "unit": 8
+        },
+        "name": "CHORUS1",
+        "start_bar": 1
+      },
+      {
+        "bars": 2,
+        "function": "verse",
+        "meter": {
+          "beats": 8,
+          "groups": [3, 2, 3],
+          "unit": 8
+        },
+        "name": "VERSE1",
+        "start_bar": 6
+      },
+      {
+        "bars": 5,
+        "function": "chorus",
+        "meter": {
+          "beats": 8,
+          "groups": [3, 2, 3],
+          "unit": 8
+        },
+        "name": "CHORUS2",
+        "start_bar": 8
+      }
+    ],
+    "subdivision": 1,
+    "title": "The Red Flag",
+    "total_lines": 12,
+    "writer_brief": "Write a song: 12 lines, 3 sections, in this order:\n  [CHORUS \u2014 5 lines \u2014 5 bars of 8/8, one-beat pickup]\n      up to 7 syllables a line after the pickup; the calibrated band asks at least 5\n  [VERSE \u2014 2 lines \u2014 2 bars of 8/8]\n      up to 8 syllables a line after the pickup; the calibrated band asks at least 5\n  [CHORUS \u2014 5 lines \u2014 5 bars of 8/8, one-beat pickup]\n      up to 7 syllables a line after the pickup; the calibrated band asks at least 5\nFeel: 8/8 grouped 3+2+3.\nRhyme plan (line numbers over the whole song):\n  lines 4.T1 & 5.T2 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 2.T3 & 3.T6 & 5.T3 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 1.endword & 2.head & 3.T2 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 1.T4 & 3.T1 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 6.T3 & 7.T4 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 4 & 5 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 6 & 7 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\nStory plan (one job per sung section; each enters from the section before it as stated):\n  CHORUS1 is the fixed claim the song keeps returning to\n  VERSE1 is a compressed verdict on what has happened \u2014 deeper into CHORUS1\n  CHORUS2 is the fixed claim the song keeps returning to \u2014 after VERSE1\nEvery chorus after the first repeats the first chorus word for word, line for line.\nLine 1 is the hook \u2014 make it the line someone leaves humming.\nWhere a binding sits (a bare line number is its end word, read as a rhyme span):\n  T1: the first word, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T2: word 2, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T3: word 3, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T6: word 6, read as a rhyme span \u2014 from its last stressed syllable to its end\n  endword: the end word, read whole, from its first syllable\n  head: the first word, its first syllable \u2014 the head-rhyme / alliteration reading\n  T4: word 4, read as a rhyme span \u2014 from its last stressed syllable to its end"
+  },
+  "initial": [
+    "We fly this red flag for hope",
+    "Cup the lamp; ships need its light",
+    "Good sleep will come; boots thump",
+    "Boat lights are all the bay keeps",
+    "We let limp hands lift cups",
+    "We count cold plates at first dawn",
+    "My cuffs still held the night's cold rain",
+    "We fly this red flag for hope",
+    "Cup the lamp; ships need its light",
+    "Good sleep will come; boots thump",
+    "Boat lights are all the bay keeps",
+    "We let limp hands lift cups"
+  ]
+}

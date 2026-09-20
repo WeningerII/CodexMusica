@@ -27374,3 +27374,78 @@ a group question; the verb does not pretend otherwise.
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~357~~ -> **358**.
 
 **358** with this entry (2026-09-19).
+
+### M-304 · Interview answers, successor state and response receipts disagree across continuation paths `CLOSED` 2026-09-20 — external audit F01–F09 reproduced on current main; repaired with production regressions
+
+All nine supplied findings still reproduced on `30bef2a`, after the audited
+`740cd69f9b848ad137ea399bd18f671293dd7c61`. The baseline used real local MCP,
+workers, native creation client and production grading. The supplied historical
+audit also demonstrated F01 hosted; this sitting does not inherit that as proof
+of a deployed repair. F01–F09 are labels in that audit, not new MISSING numbers.
+
+One isolated comparator batch repairs batch-origin fingerprints (F01), exact
+answer targets including raw echoed labels (F02), authenticated suspended
+counters (F03), state/revision consistency (F04), group attempt, complete-question and outcome
+identity (F05), retained pending artifacts (F06), exit-2 recovery including the
+chat wrapper (F07), native successor persistence (F08), and atomic prior-round
+feedback (F09). The additional caller manifestations share these causes and
+are not counted as independent discoveries.
+
+Regression witnesses are in `quality/test_production_journal.py` and
+`mcp/test_continuation_audit.mjs` (repository root). The journal suite is already
+in CI and the MCP suite joins `test:connector:live`. Current single records carry
+`batch:null`; pending legacy questions can supply known origin metadata, but
+ambiguous already-folded legacy batches refuse without overwriting history.
+Legacy attempt-less group answers bind only their first matching question on a
+deterministic native replay. Changed connector semantic envelopes still refuse
+automatic replay and support explicit recovery exports. No score, threshold,
+admission bound or source fingerprint was weakened.
+
+The fuller coverage and recovery record is `docs/lyrics-continuation-audit.md`
+(repository root). It distinguishes local regression fixtures from fresh
+operator-written interview songs, required pronunciation/coverage refusals from
+rejected lyrics, and numerical certification from artistic assessment. The historical
+17-line Last Ferry reached exit 0 through two rounds including accepted batch,
+group, mirrored return and second-attempt whole-song revision; it predates the
+additional fresh-run fixes and is not final-build qualification. A separately
+requested 128-line work was refused at the existing 31-line executable admission
+bound; it was not shortened and is not evidence of long-song capability.
+
+Frozen fresh runs additionally exposed incorrect end-floor projection of
+internal obligations, explicit stress overridden by function-word defaults,
+missing repair questions for text-dependent unknown checks, and expanded menus
+mislabelled as exact-vowel searches. A later grade exposed one-based line
+numbers incremented again in the admission summary and named-relation results
+credited to the default scalar cutoff; the summary now uses the actual route
+and active cuts. Production regressions preserve the actual
+28-line inputs and the original floor false-fix claim; the two diagnostic songs
+are not counted as successful qualification. Graded failures and unknown checks
+remain separate, with the latter still preventing certification. The genuinely
+new 28-line Last Label completed the public workflow on `b330acc` at exit 0 after
+one round and one accepted edit; the previous frozen songs were not resumed.
+Further frozen cases cover empty single-partner menu scheduling, the planner's
+audibility report ignoring the global relation, and an unjudged neighboring
+group falsely labelled as holding. They have production regressions; the loop
+retains all single-line attempts after a declined group, and renderers retain
+unknown readings without guessing or instructing the writer to preserve them.
+Rain Gauge then exposed occurrence declarations blocking removal of their own
+original line. Revision-scoped retirement retains the immutable declarations,
+never transports phones to changed text, and keeps fresh stale-input and actual
+lost-reading controls. Replay memo entries bind the revision origin.
+
+The closure is the implementation and regression result, not a claim of general
+songwriting capability or deployed verification. Eleven real-worker MCP tests,
+41 production revision tests, 20 journal tests, 15 pronunciation tests and the
+related replay/proposer/loop controls pass. A fresh twelve-line run on `6f28dce`
+accepted two overlapping group repairs and retired obsolete readings, but
+remains unfinished at a five-member consonance repair in round two. Its exact
+trace is banked; neither empty menus nor the measured four-monosyllable bound
+prove the entire plan impossible. The 128-line workflow remains blocked by
+M-240 and was not shortened.
+
+Eight fresh calibration shards recomputed all 8,536 rows. The normal provenance-
+checked curve verification returned HOLDS for all five shipped curves, without
+changing any threshold; `quality/results/continuation_audit_2026-09-20/curve-check.txt`
+backs comparator pin `de112e81810f`. The branch's pull request records required
+checks and merge separately from the local evidence. BOOKKEEPING: coverage
+entries 358 → 359; M-304 is closed, and M-240 remains open.

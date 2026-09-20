@@ -672,6 +672,10 @@ DISPOSITION = {
     "MANDATE_GROUPS_INDISTINGUISHABLE": "DISCLOSURE",
     "MANDATE_NOT_INDEPENDENT": "DISCLOSURE",
     "MANDATE_SCOPE_DECLARED": "DISCLOSURE",
+    # M-304: this reports the floor's applicable loci, not a lyric defect.
+    # The actual internal relations remain enforced by their named judge;
+    # forcing this note to clear would forbid using internal obligations.
+    "FLOOR_LOCUS_SCOPE": "DISCLOSURE",
     "STRUCTURE_UNCALIBRATED": "DISCLOSURE",
     "REFRAIN_REPEAT": "SATISFIED",
     "GROUPS_DECLARED_RETURN": "SATISFIED",
@@ -795,7 +799,8 @@ def by_disposition(c=None):
 # certification via the floor gate set (also exposed under its legacy
 # LENGTH_GATE_CODES name). A nondefault window without a caller-owned cut
 # leaves lexical diversity unjudged; it is not a newly calibrated threshold.
-PINNED = {'codes': 76, 'gated': 25, 'disclosed_only': 51, 'undecidable': 0,
+# M-304 adds one scope disclosure. No existing gate or disposition changes.
+PINNED = {'codes': 77, 'gated': 25, 'disclosed_only': 52, 'undecidable': 0,
           'computed': 0, 'consumer_assigned': 0}
 
 

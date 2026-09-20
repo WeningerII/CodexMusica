@@ -154,6 +154,11 @@ class MemoReviser:
     def __getattr__(self, name):
         return getattr(self._rv, name)
 
+    def for_revision(self, lines):
+        # Preserve the proxy and its accounting when the loop scopes
+        # occurrence retirement. Delegating through __getattr__ would drop it.
+        return MemoReviser(self._rv.for_revision(lines), self._slot)
+
     # ── the four memoised calls ──────────────────────────────────────────
     #
     # Each wrapper spells its OWN entry key — the coordinates that vary
@@ -168,6 +173,9 @@ class MemoReviser:
         if key is None:
             self._slot["tally"]["bypass"] += 1
             return compute()
+        origin = getattr(self._rv, '_pronunciation_origin', None)
+        if origin is not None:
+            key = ('revision_origin', origin, key)
         store = self._slot["store"]
         if key in store:
             self._slot["tally"]["hit"] += 1

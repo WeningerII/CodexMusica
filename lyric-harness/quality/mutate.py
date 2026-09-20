@@ -1084,22 +1084,44 @@ MUTATIONS = [
     # unnecessary.
     Mutation(
         name="QR7", layer="structure", file=REVISE,
-        old="            if key in bucket:\n"
-            "                return\n"
-            "            bucket.add(key)\n"
-            "            per.setdefault(ln, []).append(f)\n"
-            "\n"
-            "        fl, pseudo = self._floor_for(m)\n"
-            "        for f in fl.check(lines, pseudo):\n"
-            "            if f.locations:\n"
-            "                for ln in dict.fromkeys(f.locations):",
-        new="            bucket.add(key)\n"
-            "            per.setdefault(ln, []).append(f)\n"
-            "\n"
-            "        fl, pseudo = self._floor_for(m)\n"
-            "        for f in fl.check(lines, pseudo):\n"
-            "            if f.locations:\n"
-            "                for ln in f.locations:",
+        old='            if key in bucket:\n'
+            '                return\n'
+            '            bucket.add(key)\n'
+            '            per.setdefault(ln, []).append(f)\n'
+            '\n'
+            '        fl, pseudo = self._floor_for(m)\n'
+            '        omitted = sorted(set(m.pairs0()) - set(fl._pairs(lines, pseudo)) -\n'
+            '                         {(i - 1, j - 1) for i, j, *_ in m.return_pairs()})\n'
+            '        if omitted:\n'
+            '            whole.append(Finding(\n'
+            '                "FLOOR_LOCUS_SCOPE", "note",\n'
+            '                "end-rhyme floor checks exclude pairs declared only at other anchors",\n'
+            '                f"{len(omitted)} line pair(s) bind internal, head, token or other "\n'
+            '                "non-default anchors or structures. Their declared relations are graded at "\n'
+            '                "those anchors; no line-end predictability, suffix or stock-pair "\n'
+            '                "finding stands in for that measurement. Lexical and other "\n'
+            '                "whole-draft checks still run on the complete draft.", []))\n'
+            '        for f in fl.check(lines, pseudo):\n'
+            '            if f.locations:\n'
+            '                for ln in dict.fromkeys(f.locations):',
+        new='            bucket.add(key)\n'
+            '            per.setdefault(ln, []).append(f)\n'
+            '\n'
+            '        fl, pseudo = self._floor_for(m)\n'
+            '        omitted = sorted(set(m.pairs0()) - set(fl._pairs(lines, pseudo)) -\n'
+            '                         {(i - 1, j - 1) for i, j, *_ in m.return_pairs()})\n'
+            '        if omitted:\n'
+            '            whole.append(Finding(\n'
+            '                "FLOOR_LOCUS_SCOPE", "note",\n'
+            '                "end-rhyme floor checks exclude pairs declared only at other anchors",\n'
+            '                f"{len(omitted)} line pair(s) bind internal, head, token or other "\n'
+            '                "non-default anchors or structures. Their declared relations are graded at "\n'
+            '                "those anchors; no line-end predictability, suffix or stock-pair "\n'
+            '                "finding stands in for that measurement. Lexical and other "\n'
+            '                "whole-draft checks still run on the complete draft.", []))\n'
+            '        for f in fl.check(lines, pseudo):\n'
+            '            if f.locations:\n'
+            '                for ln in f.locations:',
         subset=T_LOOP,
         rationale=(
             "BACKLOG 1.5 restored: a floor Finding carries one entry in "

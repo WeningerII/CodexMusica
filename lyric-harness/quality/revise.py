@@ -420,12 +420,10 @@ class SlotField:
     #: every group that declares no `schema:` relation, which is every
     #: mandate written before relations existed.
     schema_refused: tuple = ()
-    #: HOW MANY OF `offered` CAME THROUGH THE VOWEL-BAND DOOR (M-257): the
-    #: place's declared relation refuses the rhyme band by construction
-    #: (`Reviser.schema_refuses_rhyme_band`), the rhyme-band offer was
-    #: empty, and these words share the call's vowel and answer every
-    #: schema bound here. 0 on every other place. Not a wider `offered`
-    #: in disguise: when this is non-zero, `offered` IS this list.
+    #: Candidates obtained after the ordinary rhyme menu was empty. M-257
+    #: introduced an exact-vowel pool; the declared-offer fallback also
+    #: searches ranked words and comparator candidates. This count does
+    #: not establish vowel identity or which of those pools supplied a word.
     widened: int = 0
 
 
@@ -639,9 +637,8 @@ class Brief:
     #: non-empty is a NARROWED offer, not a thin lexicon, and the renderers
     #: say which.
     schema_refused: tuple = ()
-    #: The `widened` of the SlotField at `slot` (M-257): non-zero when
-    #: `candidates` came through the vowel-band door because the declared
-    #: relation refuses every rhyme of the call, and the renderers say so.
+    #: The `widened` of the SlotField at `slot`: an expanded candidate
+    #: search, not proof of an exact-vowel pool or identical nuclei.
     field_widened: int = 0
     #: THE POINTER AN EMPTY OFFER OWES (`MISSING.md` M-246, 2026-09-05): a
     #: printable sentence, non-empty exactly when `candidates` is empty and
@@ -695,6 +692,13 @@ class Brief:
     schema_route_note: str = None
     offers_requested: bool = True
 
+    @property
+    def unjudged_groups(self):
+        """Unknown rhyme obligations, distinct from both violations and passes."""
+        return tuple(sorted({g for f in self.findings
+                             if f.code == 'SCHEME_UNREADABLE'
+                             for g in f.groups}))
+
     def __str__(self):
         out = [f"L{self.line_no}: {self.text}"]
         if not self.offers_requested:
@@ -717,7 +721,10 @@ class Brief:
             _sk = self.group_slots.get(lab, None) if self.group_slots else None
             place = f" at {_sk}" if _sk is not None else ""
             standing = ""
-            if self.violated_groups:
+            if lab in self.unjudged_groups:
+                standing = (" — VIOLATED; also UNJUDGED" if lab in self.violated_groups
+                            else " — UNJUDGED")
+            elif self.violated_groups:
                 standing = (" — VIOLATED" if lab in self.violated_groups
                             else " — HOLDS")
             if lab in self.return_groups:
@@ -902,6 +909,22 @@ def _schema_name_of(_RT, want):
     return canon if kind == "schema" else ""
 
 
+def _floor_pair_groups(m):
+    """End-bound obligations, with their groups, for grading and guidance."""
+    from quality import relations as RL, rhyme_types as RT, structures as ST
+    ident = {(i, j) for i, j, *_ in m.return_pairs()}
+    pairs = {}
+    for i, j, k in m.pairs():
+        if ((i, j) in ident or not _SL.is_default(m.slot_of(k, i)) or
+                not _SL.is_default(m.slot_of(k, j)) or m.structure_of(k) != ST.DEFAULT):
+            continue
+        name = _schema_name_of(RT, m.relation_of(k))
+        if name and RL.REGISTRY[name].spans != (RL.END_ANCHOR, RL.END_ANCHOR):
+            continue
+        pairs.setdefault((i, j), set()).add(k)
+    return pairs
+
+
 #: THE PROCESS-LEVEL FIELD MEMO (`MISSING.md` M-217). Keyed by
 #: `Reviser._field_memo_key` — the instance key PLUS every declared field of
 #: the `Declaration` PLUS the lexicon's identity — so a hit is only ever an
@@ -1028,6 +1051,15 @@ class Reviser:
         self._slot_cache = {}
         self._field_cache = {}
         self._anchor_cache = {}
+        self._pronunciation_origin = None
+
+    def for_revision(self, lines):
+        """Scope retirement to this input without changing its readings or caller."""
+        if not getattr(self.lex, 'pronunciations', ()):
+            return self
+        scoped = copy.copy(self)
+        scoped._pronunciation_origin = tuple(lines)
+        return scoped
 
     @property
     def engine(self):
@@ -1384,6 +1416,17 @@ class Reviser:
             if _own:
                 out.update(_own)
                 continue
+            if f.obligations:
+                # Aggregate floor findings retain their measured pairs.
+                # Their end-word guidance must not fall back to the first
+                # internal group on a line. Keep this projection out of the
+                # finding identity: dropping one pair must not relabel all
+                # remaining pairs as newly fixed/newly introduced.
+                end_groups = _floor_pair_groups(m)
+                for pair in f.obligations:
+                    if ln in pair:
+                        out.update(end_groups.get(tuple(pair), ()))
+                continue
             locs = list(getattr(f, "locations", ()) or ())
             if len(locs) != 2 or ln not in locs:
                 continue
@@ -1535,6 +1578,8 @@ class Reviser:
                 hit.append(k)
             if hit:
                 r["groups"] = [m.labels[k] for k in hit]
+                r["repair_lines"] = [ln for ln in (i, j)
+                                     if records[ln - 1]["final_unreadable"]]
                 _kept_refusals.append(r)
         refusals = _kept_refusals
 
@@ -1586,6 +1631,7 @@ class Reviser:
                     "endwords": (endwords[i - 1], endwords[j - 1]),
                     "unreadable": [str(sl) for _, sl in bad],
                     "slot_refusal": True,
+                    "repair_lines": [ln for ln, _ in bad],
                     "groups": [m.labels[k]],
                     "reason": (
                         f"the declared slot resolves to NO ANCHOR on "
@@ -3135,8 +3181,11 @@ class Reviser:
         it is a change beyond the relation checks and is said out loud here
         rather than slipped in.
         """
-        ident = {(i - 1, j - 1) for i, j, *_ in m.return_pairs()}
-        pairs = [p for p in m.pairs0() if p not in ident]
+        # The floor reads LINE ENDS. Project only obligations that bind both
+        # ends; an internal/head/token mandate cannot license measuring an
+        # unrelated pair of end words. Keep pairs declared at both places
+        # once, and continue to subtract licensed returns.
+        pairs = sorted((i - 1, j - 1) for i, j in _floor_pair_groups(m))
         qf = copy.copy(self.floor.qf)
         qf.pairs_from_scheme = staticmethod(lambda _s, _p=pairs: list(_p))
         fl = copy.copy(self.floor)
@@ -3312,6 +3361,17 @@ class Reviser:
             per.setdefault(ln, []).append(f)
 
         fl, pseudo = self._floor_for(m)
+        omitted = sorted(set(m.pairs0()) - set(fl._pairs(lines, pseudo)) -
+                         {(i - 1, j - 1) for i, j, *_ in m.return_pairs()})
+        if omitted:
+            whole.append(Finding(
+                "FLOOR_LOCUS_SCOPE", "note",
+                "end-rhyme floor checks exclude pairs declared only at other anchors",
+                f"{len(omitted)} line pair(s) bind internal, head, token or other "
+                "non-default anchors or structures. Their declared relations are graded at "
+                "those anchors; no line-end predictability, suffix or stock-pair "
+                "finding stands in for that measurement. Lexical and other "
+                "whole-draft checks still run on the complete draft.", []))
         for f in fl.check(lines, pseudo):
             if f.locations:
                 for ln in dict.fromkeys(f.locations):
@@ -3527,9 +3587,11 @@ class Reviser:
                     "SCHEME_UNREADABLE", "note",
                     f"L{i}/L{j} are mandated together (group(s) "
                     f"{', '.join(r['groups']) or '-'}) and the harness could "
-                    f"not read an end word, so this rhyme is UNKNOWN rather "
+                    f"not read a declared rhyme anchor, so this rhyme is UNKNOWN rather "
                     f"than absent",
-                    r["reason"], [i, j], groups=tuple(r["groups"])))
+                    r["reason"], [i, j], groups=tuple(r["groups"]),
+                    subject=("unreadable_anchor", *r["repair_lines"])
+                    if r.get("repair_lines") else ()))
         # THE READABILITY REPORT, JOINED — AND IT IS THE SAME LAYER AS THE
         # BLOCK ABOVE, WHICH IS WHY IT SITS HERE.
         #
@@ -3971,7 +4033,9 @@ class Reviser:
             _coverage_rows.append({"id": f"return:{i}:{j}", "layer": "return",
                                    "status": "refused" if ret.verbatim is SC.UNKNOWN else "answered"})
         from quality.pronunciation import declaration_coverage
-        _coverage_rows.extend(declaration_coverage(getattr(self.lex, "pronunciations", ()), lines))
+        _coverage_rows.extend(declaration_coverage(
+            getattr(self.lex, "pronunciations", ()), lines,
+            original_lines=self._pronunciation_origin))
         _refused_ids = [row["id"] for row in _coverage_rows if row["status"] == "refused"]
         _coverage = {k: rep[k] for k in ("pairs_mandated", "pairs_judged", "pairs_refused")}
         _coverage.update(scope="requested_layers", certified=not _refused_ids,
@@ -5250,8 +5314,8 @@ class Reviser:
                     b.partial_by_call = _pf.by_call
                     # M-204 — carried beside the field it narrowed.
                     b.schema_refused = _pf.schema_refused
-                    # M-257 — how many of `candidates` came through the
-                    # vowel-band door, beside the offer they are.
+                    # Expanded-search count, carried with its offer. Both
+                    # exact-vowel and broader declared-offer routes use it.
                     b.field_widened = _pf.widened
                     # M-246 — the pointer an EMPTY offer owes, set beside
                     # the offer it explains and nowhere else: empty offer,
@@ -5311,6 +5375,8 @@ class Reviser:
         cancels out of the diff, same as one that is absent because it is
         genuinely clean.
         """
+        if self._pronunciation_origin is None:
+            self = self.for_revision(before)
         out = {"accepted": False, "reasons": [],
                "blueprint_declared": blueprint is not None}
         m = self.mandate(before, mandate)

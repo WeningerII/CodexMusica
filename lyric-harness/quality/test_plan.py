@@ -1173,13 +1173,38 @@ def test_the_measure():
             elif n.value.id in ("_NV", "NV"):
                 nar_names.add(n.attr)
     check("plan.py imports exactly {schemes, meter_bands, structures, grid, "
-          "floor, capacity, slots, relations, narrative, melody} from quality and "
+          "floor, capacity, slots, relations, narrative, melody, rhyme_types} from quality and "
           "opens NO file — the corpus cannot reach the dice (the owner's "
           "move-37 rule)",
           subs == {"schemes", "meter_bands", "structures", "grid", "floor",
-                   "capacity", "slots", "relations", "narrative", "melody"}
+                   "capacity", "slots", "relations", "narrative", "melody",
+                   "rhyme_types"}
           and opens == 0,
           f"imports {sorted(subs)}, open() calls {opens}")
+    # M-304's report resolves an explicitly declared class/type/schema name.
+    # The resolver reads namespace tables only. Admit that one function in
+    # audible_share, never the module, a word classifier or a sampler import.
+    report_imports = []
+    report_parents = {id(child): parent for parent in ast.walk(tree)
+                      for child in ast.iter_child_nodes(parent)}
+    for node in ast.walk(tree):
+        if ((isinstance(node, ast.ImportFrom) and
+             (node.module == 'quality.rhyme_types' or
+              (node.module == 'quality' and any(a.name == 'rhyme_types'
+                                               for a in node.names)))) or
+            (isinstance(node, ast.Import) and any(a.name == 'quality.rhyme_types'
+                                                 for a in node.names))):
+            owner = report_parents.get(id(node))
+            while owner is not None and not isinstance(owner, ast.FunctionDef):
+                owner = report_parents.get(id(owner))
+            report_imports.append((type(node).__name__, getattr(node, 'module', None),
+                                   tuple(a.name for a in node.names),
+                                   getattr(owner, 'name', None)))
+    check('rhyme_types contributes only its name resolver inside audible_share; '
+          'neither the sampler nor the report can import its word readers',
+          report_imports == [('ImportFrom', 'quality.rhyme_types',
+                              ('resolve_relation',), 'audible_share')],
+          str(report_imports))
     # Melody is a pure declaration reader/formatter. Guard the admitted
     # module itself so this cannot become a route from the corpus to dice.
     import inspect

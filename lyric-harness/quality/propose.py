@@ -96,7 +96,7 @@ _MEMBER_MARK_RE = re.compile(r"^[ \t]*L[ \t]*(\d+)[ \t]*:[ \t]*(.*)$",
 #: `verify()` cannot see, because a relabelled line is just a changed line.
 #: Stripped rather than refused: a sung line that opens "L3:" does not exist,
 #: so this is not a guess between two readings.
-_ECHOED_LABEL_RE = re.compile(r"^[ \t]*L[ \t]*\d+[ \t]*[:.][ \t]*")
+_ECHOED_LABEL_RE = re.compile(r"^[ \t]*L[ \t]*(\d+)[ \t]*[:.][ \t]*")
 _HAS_LETTER_RE = re.compile(r"[^\W\d_]", re.UNICODE)
 #: A line that both OPENS and CLOSES with one of these is refused: it is a
 #: wrapper the model added or it is punctuation the writer meant, and there
@@ -328,6 +328,7 @@ def _mandate_block(brief, indent="  "):
     # the sentence it always rendered.
     gslots = dict(getattr(brief, "group_slots", {}) or {})
     violated = set(getattr(brief, "violated_groups", ()) or ())
+    unjudged = set(getattr(brief, "unjudged_groups", ()) or ())
     for lab, mem, calls in must_answer:
         rhyme_calls = [(n, w) for n, w in calls if n not in return_members]
         shown = ", ".join(f"L{n} ({w!r})" for n, w in _ordered(
@@ -339,7 +340,11 @@ def _mandate_block(brief, indent="  "):
             place = (f" at its {_place_phrase(gslots[lab])}"
                      if gslots[lab] is not None else " at its end word")
         standing = ""
-        if violated:
+        if lab in unjudged:
+            standing = (" — VIOLATED; also UNJUDGED" if lab in violated
+                        else " — UNJUDGED")
+            standing += "; unresolved readings are not evidence that this word holds"
+        elif violated:
             standing = (" — VIOLATED, this is the word to change"
                         if lab in violated else
                         " — HOLDS as written; leave that word alone")
@@ -692,6 +697,13 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
     out.append("")
 
     out.append(f"WHAT THE GRADER FOUND ON L{line_no} ({len(findings)})")
+    if any(f.code in {"SCHEME_UNREADABLE", "BAND_UNJUDGED", "PROMINENCE_UNDECIDED"}
+           for f in findings):
+        out.append("  An unjudged required check is UNKNOWN, not a lyric violation. "
+                   "A replacement can make the declared anchor or reading judgeable. "
+                   "Keep the intended meaning; do not invent a pronunciation to obtain a pass. "
+                   "If the current reading is intentional, decline the rewrite and retain "
+                   "the draft for an explicit reading declaration and regrade.")
     if findings:
         out.extend(_finding_lines(findings))
     else:
@@ -741,18 +753,15 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
                    "same judge the verdict uses.")
     _wid = int(getattr(brief, "field_widened", 0) or 0)
     if candidates and _wid:
-        # THE VOWEL-BAND DOOR (`MISSING.md` M-257). Said before the list:
-        # these words do NOT rhyme with the call and are not meant to. The
-        # declared relation demands a different coda or vowel, so every
-        # rhyme of the call is refused by construction and the offer is
-        # drawn from the words that share the call's vowel, judged by that
-        # relation's own judge.
-        out.append("  OFFERED FROM THE VOWEL BAND: this place's declared "
-                   "relation refuses every RHYME of the call")
-        out.append("  by construction (it demands a different coda or "
-                   "vowel), so the words below share the call's")
-        out.append("  vowel and not its rhyme, and each one was accepted "
-                   "by that relation's own judge.")
+        # M-257 originally supplied only an exact-vowel pool. The later
+        # declared-offer fallback also searches ranked words and comparator
+        # candidates; `field_widened` counts either route, not vowel identity.
+        out.append("  OFFERED FROM AN EXPANDED CANDIDATE POOL: the ordinary "
+                   "rhyme menu was empty.")
+        out.append("  These suggestions were screened against the declared "
+                   "relation at this place using the production grader.")
+        out.append("  The expanded search does not require identical vowel "
+                   "nuclei; the declared relation decides what holds.")
     if candidates:
         out.extend(_offered_block(candidates, decl, note))
         out.append("  Offered, NOT required. The grader re-grades the rhyme "
@@ -927,7 +936,7 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
     return "\n".join(out)
 
 
-def parse_line(text):
+def parse_line(text, *, line_no=None):
     """-> the proposed line as a `str`, or `None` when the response is not
     unambiguously one line.
 
@@ -940,9 +949,10 @@ def parse_line(text):
       - a bare single line, alone in the response
       - one fenced block holding exactly one non-empty line
       - one `LINE: ...` marker, anywhere, with prose around it
-      - an echoed `L3: ` label on the front of any of the above — stripped,
-        because no sung line begins with a line label and leaving it in
-        writes the label into the draft
+      - an echoed `L3: ` label on the front of any of the above, provided
+        it matches `line_no` when the caller supplies the pending target.
+        ModelProposer and deferred interview supply that target. The optional
+        form without it remains a context-free parser for external callers.
 
     REFUSED, returning `None`:
       - nothing, or nothing with a letter in it
@@ -965,34 +975,38 @@ def parse_line(text):
         return None
     marks = _LINE_MARK_RE.findall(text)
     if fences:
-        body = _clean_single(fences[0])
+        body = _clean_single(fences[0], line_no=line_no)
         outside = _LINE_MARK_RE.findall(_FENCE_RE.sub("\n", text, count=1))
         if outside:
             if len(outside) > 1:
                 return None
-            other = _clean_single(outside[0])
+            other = _clean_single(outside[0], line_no=line_no)
             if other is None or body is None or other != body:
                 return None
         return body
     if marks:
         if len(marks) > 1:
             return None
-        return _clean_single(marks[0])
-    return _clean_single(text)
+        return _clean_single(marks[0], line_no=line_no)
+    return _clean_single(text, line_no=line_no)
 
 
-def _clean_single(blob):
+def _clean_single(blob, *, line_no=None):
     """-> the ONE non-empty line in `blob`, cleaned, or `None`.
 
     Cleaning is exactly two moves, both of which have a single reading: strip
-    surrounding whitespace, and strip an echoed `L7: ` line label. Everything
-    else the model might have wrapped the line in is a refusal, not a fixup.
+    surrounding whitespace, and strip a matching echoed line label. A label
+    naming another pending target refuses. Everything else the model might
+    have wrapped the line in is a refusal, not a fixup.
     """
     if blob is None:
         return None
     rows = [r.strip() for r in blob.splitlines()]
     rows = [r for r in rows if r]
     if len(rows) != 1:
+        return None
+    label = _ECHOED_LABEL_RE.match(rows[0])
+    if label and line_no is not None and int(label.group(1)) != line_no:
         return None
     row = _ECHOED_LABEL_RE.sub("", rows[0]).strip()
     if not row:
@@ -1049,7 +1063,9 @@ def render_group(group_brief):
         out.extend(_finding_lines(g.whole))
         out.extend(["", "DECLARED MANDATE", g.mandate_description, "", "CURRENT DRAFT"])
         out.extend(_draft_block(g.lines))
-        out.extend(_attempt_block(g.attempt, g.reasons))
+        out.extend(_attempt_block(g.attempt, g.reasons,
+                                  prior=getattr(g, "prior", None),
+                                  what="rewrite of this group"))
         out.extend(["", "Return exactly these lines (include unchanged members): " +
                     ", ".join(f"L{n}" for n in g.members),
                     "One L<number>: <whole line> row each. No commentary or additional lines.",
@@ -1445,7 +1461,8 @@ class ModelProposer:
                              reasons=reasons)
         with_capacity = getattr(self.call, "with_capacity", None)
         raw = with_capacity(prompt, max_lines=1) if with_capacity else self.call(prompt)
-        parsed = self.parse(raw)
+        parsed = (parse_line(raw, line_no=brief.line_no) if self.parse is parse_line
+                  else self.parse(raw))
         return parsed if parsed is None or len(parsed) <= self.MAX_LINE_CHARS else None
 
     def propose_group(self, group_brief):

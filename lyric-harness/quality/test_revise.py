@@ -3157,9 +3157,11 @@ def test_substituted_end_word_reaches_the_loop():
 
     from quality.loop import revise_loop
     lr = revise_loop(R, draft, m12)
-    check("a note starts no repair round, but incomplete coverage cannot "
-          "be certified as success",
-          lr.stop_reason == "uncertified" and not lr.rounds
+    check("text-dependent unknowns receive a repair pass without turning "
+          "notes into violations or certifying incomplete coverage",
+          lr.stop_reason == "no_progress" and len(lr.rounds) == 1
+          and lr.unresolved == lr.unresolved_unjudged and bool(lr.unresolved)
+          and not any(f.severity == 'flag' for b in lr.unresolved for f in b.findings)
           and lr.coverage["certified"] is False,
           f"{lr.stop_reason}, {len(lr.rounds)} round(s)")
 
@@ -3240,8 +3242,12 @@ def test_uncovered_bars_reaches_the_loop_not_only_fit():
     from quality.loop import revise_loop
     shipped = revise_loop(R, _UB_LINES, m, blueprint=_UB_BLUEPRINT,
                           subdivision=sub)
-    check("uncovered bars remain notes; the unfilled setting still prevents certification",
-          shipped.stop_reason == "uncertified" and not shipped.unresolved
+    check("uncovered bars remain whole-draft notes; text-dependent unknowns "
+          "are retained and the unfilled setting still prevents certification",
+          shipped.stop_reason == "no_progress"
+          and shipped.unresolved == shipped.unresolved_unjudged
+          and bool(shipped.unresolved)
+          and not any(f.severity == 'flag' for b in shipped.unresolved for f in b.findings)
           and shipped.coverage.get("certified") is False
           and any(f.code == "UNCOVERED_BARS" for f in shipped.whole),
           f"{shipped.stop_reason}, {len(shipped.rounds)} round(s), "

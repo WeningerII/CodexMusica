@@ -128,6 +128,12 @@ export async function connectConnector({ url, task, transport, session = null } 
                 delete next[key];
               if (verdict.state) next.state = verdict.state;
               if (verdict.checkpoint) next.checkpoint = verdict.checkpoint;
+              // These identify the returned successor, not the request that
+              // produced it. Persist them together with its state on reconnect.
+              for (const key of ['run_id', 'run_revision']) {
+                delete next[key];
+                if (verdict[key] != null) next[key] = verdict[key];
+              }
               continuation = { seed: args.seed, args: next };
             } else if (verdict.measurement_status === 'finished') continuation = null;
           }

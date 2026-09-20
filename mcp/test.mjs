@@ -1134,8 +1134,9 @@ await check('validation: actionable errors', () => {
           'a moved declaration is refused, not replaced'
         );
         assert.ok(
-          /status: 'parked',/.test(src) && /RUNS\.del\(runRec\.run_id\);/.test(src),
-          'exit 3 parks the record and exit 0 forgets it'
+          /status: r\.code === 2 \? 'uncertified' : 'parked',/.test(src) &&
+            /RUNS\.del\(runRec\.run_id\);/.test(src),
+          'exit 2 stays uncertified, exit 3 parks the record, and exit 0 forgets it'
         );
         assert.ok(
           !/openRunNote/.test(src),
@@ -1362,7 +1363,7 @@ await check('validation: actionable errors', () => {
               { line: 1, text: ' a ' },
               { line: 3, text: 'b' },
             ],
-            'propose_batch'
+            { kind: 'propose_batch', record: { records: [{ line: 1 }, { line: 3 }] } }
           ),
           'L1: a\nL3: b'
         );
@@ -1372,23 +1373,27 @@ await check('validation: actionable errors', () => {
               { line: 7, text: 'x' },
               { line: 9, text: 'y' },
             ],
-            'propose_group'
+            { kind: 'propose_group', record: { members: [7, 9] } }
           ),
           'L7: x\nL9: y'
         );
         // A single-line question takes the one row's text bare.
-        assert.equal(LT.answerFromRows([{ line: 4, text: 'bare' }], 'propose'), 'bare');
+        assert.equal(
+          LT.answerFromRows([{ line: 4, text: 'bare' }], { kind: 'propose', record: { line: 4 } }),
+          'bare'
+        );
         // ...and a single-line question sent two rows gets the rows, which the
         // harness's strict single-line parser then refuses by name.
-        assert.equal(
-          LT.answerFromRows(
-            [
-              { line: 4, text: 'p' },
-              { line: 5, text: 'q' },
-            ],
-            'propose'
-          ),
-          'L4: p\nL5: q'
+        assert.throws(
+          () =>
+            LT.answerFromRows(
+              [
+                { line: 4, text: 'p' },
+                { line: 5, text: 'q' },
+              ],
+              { kind: 'propose', record: { line: 4 } }
+            ),
+          /every asked line exactly once/
         );
         // The schema: `answers` beside `answer`, and the twins beside every array.
         const S = LT.LYRIC_TOOL_SCHEMAS;
@@ -1471,7 +1476,7 @@ await check('validation: actionable errors', () => {
           'the head names `answers`'
         );
         assert.ok(
-          /const answer = answerFromRows\(a\.answers, st\?\.pending\?\.kind\)/.test(src),
+          /const answer = answerFromRows\(a\.answers, st\?\.pending\)/.test(src),
           'the join is keyed on the question kind'
         );
         for (const t of ['lyric_grade', 'lyric_check', 'lyric_recover'])
@@ -4323,6 +4328,8 @@ await check('validation: actionable errors', () => {
       'mcp/README.md': 'documentation',
       'mcp/PRIVACY.md': 'documentation',
       'mcp/test.mjs': 'this suite — CI runs it against the tree; the image runs server_http.js',
+      'mcp/test_continuation_audit.mjs':
+        'real local worker continuation regression suite, executed by CI',
       'mcp/test_spend_store.mjs': 'shared corrupt-spend assertion and isolated fault runner',
       'mcp/test_paid_budget.mjs': 'offline shared spending admission regressions',
       'mcp/test_python_bridge.mjs': 'offline worker lifecycle regressions',

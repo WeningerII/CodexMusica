@@ -1,0 +1,362 @@
+{
+  "plan": {
+    "choices": {
+      "anacrusis": {
+        "chorus": {
+          "chosen_from": [0, 0.25, 0.5, 0.75, 1],
+          "value": 1
+        },
+        "outro": {
+          "chosen_from": [0, 0.25, 0.5, 0.75, 1],
+          "value": 0.75
+        },
+        "verse": {
+          "chosen_from": [0, 0.25, 0.5, 0.75, 1],
+          "value": 0.75
+        }
+      },
+      "audible": {
+        "audible": 0,
+        "audible_names": [],
+        "bare": 3,
+        "end_bound": 3,
+        "inaudible": []
+      },
+      "bars_per_line": 4,
+      "brief_selection": {
+        "attempts": [
+          {
+            "failed": [],
+            "seed": 20260930,
+            "status": "accepted"
+          }
+        ],
+        "candidate_seed": 20260930,
+        "policy": "first satisfying candidate; no ranking",
+        "wants": ["uses=verse,chorus", "sections>=3", "returns>=1"]
+      },
+      "density": {
+        "binding_cap": 2,
+        "chosen_from": "uniform over 1..4 per PLAN (the line-binding ceiling), from a stream seeded on (seed, 'density'); each line then draws its participation uniform over 1..2, and the end-rhyme pass binds free line ends on top (M-191)"
+      },
+      "end_rhyme": {
+        "added": 3,
+        "blocked": 1,
+        "chosen_from": "NOT A DRAW \u2014 each sung section's own `schemes[fn].rgs` re-realised at the line ends, so this consumes no seed entropy and the placement draw above is untouched. Three counts, never summed (doctrine 79): `added` groups emitted; `blocked` blocks whose ends the placement draw had already spent; `narrow` blocks whose lines cannot carry one more DISTINCT word.",
+        "groups": ["1,2", "6,7", "10,11,12"],
+        "narrow": 0
+      },
+      "execution": {
+        "admitted": true,
+        "basis": "registry span enumeration; no phonological bucket pruning assumed",
+        "candidate_upper_bound": 291600,
+        "inspection_only": false,
+        "limiting_schema": "chain rhyme (rap)",
+        "max_candidate_pairs": 2000000,
+        "max_lines": 31,
+        "max_syllables_per_line": 12,
+        "scope": "English lines at or below the declared density ceiling; no latency/RSS guarantee"
+      },
+      "meter": {
+        "beats_per_line": 8,
+        "chosen_from": "178 derived cycles (beats envelope [2, 12], slots envelope [5, 48]), measured BY DERIVATION ON THE DECLARED COORDINATE: 1 of 11 beats-per-line values, then 1 of 9 bars x subdivision factorisation(s) of 8 beats, then 1 of 1 groupings of 2. The line runs 8 beat(s) \u2014 at most the density band's ceiling, since a sung line carries at least one syllable a beat \u2014 and holds 32 slot(s), at least the band's floor. Both ends are the same calibrated band in different units; the pair share follows from how many ways each beat count factorises. Unit is notation, never enforced",
+        "slots_per_line": 32,
+        "value": {
+          "beats": 2,
+          "groups": [2],
+          "unit": 4
+        }
+      },
+      "narrative": {
+        "chosen_from": "uniform over the 208 legal story line-ups of this shape (quality/narrative.py, M-121; the count is exact and the draw is entropy-last)",
+        "value": {
+          "atoms": [
+            [0, "chorus", "ANCHOR"],
+            [1, "verse", "ESTABLISH"],
+            [2, "chorus", "ANCHOR"],
+            [3, "outro", "DEPART"]
+          ],
+          "junctions": [
+            [0, 1, "THEREFORE"],
+            [1, 2, "JUXTAPOSE"],
+            [2, 3, "JUXTAPOSE"]
+          ],
+          "lineups": 208,
+          "mode": "drawn"
+        }
+      },
+      "pattern": {
+        "chosen_from": "generated grammar: 22 cell types x 1..3 cells under the drawn total and declared brief, optional intro/outro/coda, roster 20 of 22 functions",
+        "functions": ["chorus", "verse", "chorus", "outro"]
+      },
+      "placements": {
+        "measure": "uniform per MEMBER over the pool; per member and not per group because 8 of the 77 registered schemas anchor one member at each end of a word",
+        "pool": ["end", "endword", "head", "headrime", "T1", "T2", "T3", "T4", "T5", "T6", "T7"],
+        "token_ceiling": 7,
+        "token_ceiling_from": "the smaller of the floor's measured tokens-per-line floor 7.00 and this plan's own shortest line (12 syllable(s) after its pickup) less one for the last word \u2014 a plan asks for the n-th word only where BOTH the calibration and this meter say a line carries that many",
+        "words": ["1", "2", "3", "4", "5", "6", "7", "last"]
+      },
+      "relations": {
+        "chosen_from": "NOT DRAWN \u2014 the writer declared --relation and a declared coordinate is carried, never sampled over (M-55)",
+        "value": {}
+      },
+      "schemes": {
+        "chorus": {
+          "chosen_from": 1,
+          "lines": 2,
+          "lines_chosen_from": [1, 463],
+          "rgs": [0, 0]
+        },
+        "outro": {
+          "chosen_from": 4,
+          "lines": 3,
+          "lines_chosen_from": [1, 463],
+          "rgs": [0, 0, 0]
+        },
+        "verse": {
+          "chosen_from": 51,
+          "lines": 5,
+          "lines_chosen_from": [1, 463],
+          "rgs": [0, 1, 1, 2, 2]
+        }
+      },
+      "shape_attempts": 1,
+      "structures": {
+        "chorus": {
+          "chosen_from": ["english-end-rhyme"],
+          "name": "english-end-rhyme"
+        },
+        "outro": {
+          "chosen_from": ["english-end-rhyme"],
+          "name": "english-end-rhyme"
+        },
+        "verse": {
+          "chosen_from": ["english-end-rhyme"],
+          "name": "english-end-rhyme"
+        }
+      },
+      "subdivision": 4
+    },
+    "envelope": {
+      "anacrusis": [0, 0.25, 0.5, 0.75, 1],
+      "bars_per_line": [1, 6],
+      "beats_per_line": [2, 12],
+      "body_cells": [1, 463],
+      "lines_per_section": [1, 463],
+      "sections": [1, 115],
+      "slots_per_line": [5, 48],
+      "subdivisions": [1, 2, 4],
+      "total_lines": [12, 463]
+    },
+    "execution_limits": {
+      "admitted": true,
+      "basis": "registry span enumeration; no phonological bucket pruning assumed",
+      "candidate_upper_bound": 291600,
+      "inspection_only": false,
+      "limiting_schema": "chain rhyme (rap)",
+      "max_candidate_pairs": 2000000,
+      "max_lines": 31,
+      "max_syllables_per_line": 12,
+      "scope": "English lines at or below the declared density ceiling; no latency/RSS guarantee"
+    },
+    "functions": ["verse", "chorus", "outro"],
+    "functions_unused": [],
+    "groups": "1.T5,2.T3;4.T7,5.T3;6.head,7.headrime;3.T6,5.endword,7.T2;10.T6,11.head,12.T5;10.T5,12.headrime;1,2;6,7;10,11,12",
+    "hook_slot": 1,
+    "hook_slot_refused": "",
+    "line_slots": [
+      {
+        "bar": 1,
+        "beat": 2,
+        "duration": 7,
+        "function": "chorus",
+        "line": 1,
+        "section": "CHORUS1"
+      },
+      {
+        "bar": 5,
+        "beat": 2,
+        "duration": 7,
+        "function": "chorus",
+        "line": 2,
+        "section": "CHORUS1"
+      },
+      {
+        "bar": 9,
+        "beat": 1.75,
+        "duration": 7.25,
+        "function": "verse",
+        "line": 3,
+        "section": "VERSE1"
+      },
+      {
+        "bar": 13,
+        "beat": 1.75,
+        "duration": 7.25,
+        "function": "verse",
+        "line": 4,
+        "section": "VERSE1"
+      },
+      {
+        "bar": 17,
+        "beat": 1.75,
+        "duration": 7.25,
+        "function": "verse",
+        "line": 5,
+        "section": "VERSE1"
+      },
+      {
+        "bar": 21,
+        "beat": 1.75,
+        "duration": 7.25,
+        "function": "verse",
+        "line": 6,
+        "section": "VERSE1"
+      },
+      {
+        "bar": 25,
+        "beat": 1.75,
+        "duration": 7.25,
+        "function": "verse",
+        "line": 7,
+        "section": "VERSE1"
+      },
+      {
+        "bar": 29,
+        "beat": 2,
+        "duration": 7,
+        "function": "chorus",
+        "line": 8,
+        "section": "CHORUS2"
+      },
+      {
+        "bar": 33,
+        "beat": 2,
+        "duration": 7,
+        "function": "chorus",
+        "line": 9,
+        "section": "CHORUS2"
+      },
+      {
+        "bar": 37,
+        "beat": 1.75,
+        "duration": 7.25,
+        "function": "outro",
+        "line": 10,
+        "section": "OUTRO1"
+      },
+      {
+        "bar": 41,
+        "beat": 1.75,
+        "duration": 7.25,
+        "function": "outro",
+        "line": 11,
+        "section": "OUTRO1"
+      },
+      {
+        "bar": 45,
+        "beat": 1.75,
+        "duration": 7.25,
+        "function": "outro",
+        "line": 12,
+        "section": "OUTRO1"
+      }
+    ],
+    "narrative": {
+      "atoms": [
+        [0, "chorus", "ANCHOR"],
+        [1, "verse", "ESTABLISH"],
+        [2, "chorus", "ANCHOR"],
+        [3, "outro", "DEPART"]
+      ],
+      "junctions": [
+        [0, 1, "THEREFORE"],
+        [1, 2, "JUXTAPOSE"],
+        [2, 3, "JUXTAPOSE"]
+      ],
+      "lineups": 208,
+      "mode": "drawn"
+    },
+    "plan_version": 3,
+    "relation": "class:CONSONANCE",
+    "relations": {},
+    "request": {
+      "form": "verse-chorus",
+      "functions": ["verse", "chorus", "outro"],
+      "inspection_only": false,
+      "lines": 12,
+      "narrative": null,
+      "relation": "class:CONSONANCE",
+      "seed": 20260930,
+      "title": "The Spare Key",
+      "wants": ["uses=verse,chorus", "sections>=3", "returns>=1"]
+    },
+    "returns": "1,8;2,9",
+    "sections": [
+      {
+        "bars": 8,
+        "function": "chorus",
+        "meter": {
+          "beats": 2,
+          "groups": [2],
+          "unit": 4
+        },
+        "name": "CHORUS1",
+        "start_bar": 1
+      },
+      {
+        "bars": 20,
+        "function": "verse",
+        "meter": {
+          "beats": 2,
+          "groups": [2],
+          "unit": 4
+        },
+        "name": "VERSE1",
+        "start_bar": 9
+      },
+      {
+        "bars": 8,
+        "function": "chorus",
+        "meter": {
+          "beats": 2,
+          "groups": [2],
+          "unit": 4
+        },
+        "name": "CHORUS2",
+        "start_bar": 29
+      },
+      {
+        "bars": 12,
+        "function": "outro",
+        "meter": {
+          "beats": 2,
+          "groups": [2],
+          "unit": 4
+        },
+        "name": "OUTRO1",
+        "start_bar": 37
+      }
+    ],
+    "subdivision": 4,
+    "title": "The Spare Key",
+    "total_lines": 12,
+    "writer_brief": "Write a song: 12 lines, 4 sections, in this order:\n  [CHORUS \u2014 2 lines \u2014 8 bars of 2/4, one-beat pickup]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\n  [VERSE \u2014 5 lines \u2014 20 bars of 2/4, three-quarter-beat pickup]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\n  [CHORUS \u2014 2 lines \u2014 8 bars of 2/4, one-beat pickup]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\n  [OUTRO \u2014 3 lines \u2014 12 bars of 2/4, three-quarter-beat pickup]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\nFeel: 2/4 grouped 2.\nRhyme plan (line numbers over the whole song):\n  lines 1.T5 & 2.T3 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 4.T7 & 5.T3 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 6.head & 7.headrime stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 3.T6 & 5.endword & 7.T2 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 10.T6 & 11.head & 12.T5 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 10.T5 & 12.headrime stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 1 & 2 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 6 & 7 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 10 & 11 & 12 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\nStory plan (one job per sung section; each enters from the section before it as stated):\n  CHORUS1 is the fixed claim the song keeps returning to\n  VERSE1 puts the world and its cast in place \u2014 because of CHORUS1\n  CHORUS2 is the fixed claim the song keeps returning to \u2014 set beside (connection unstated) VERSE1\n  OUTRO1 is the leave-taking \u2014 the walk home \u2014 set beside (connection unstated) CHORUS2\nEvery chorus after the first repeats the first chorus word for word, line for line.\nLine 1 is the hook \u2014 make it the line someone leaves humming.\nWhere a binding sits (a bare line number is its end word, read as a rhyme span):\n  T5: word 5, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T3: word 3, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T7: word 7, read as a rhyme span \u2014 from its last stressed syllable to its end\n  head: the first word, its first syllable \u2014 the head-rhyme / alliteration reading\n  headrime: the first word, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T6: word 6, read as a rhyme span \u2014 from its last stressed syllable to its end\n  endword: the end word, read whole, from its first syllable\n  T2: word 2, read as a rhyme span \u2014 from its last stressed syllable to its end"
+  },
+  "initial": [
+    "The spare key keeps dark off the porch",
+    "Come when work has knocked you from your perch",
+    "I watched you fold the shop receipts",
+    "Your boots had holes; I left hot soup",
+    "I kept heat low to guard your sleep",
+    "Clock hands crept while I watched the rain",
+    "Luke, soup will keep you warm till dawn",
+    "The spare key keeps dark off the porch",
+    "Come when work has knocked you from your perch",
+    "I turn the worn wood block; crumbs drop",
+    "Squeak of the hinge pulls me from sleep",
+    "Wide eyes scan the book while I heat soup"
+  ],
+  "frozen_at": 7,
+  "reason": "Repeated single-line request with no certified candidates at either violated place; investigate group-first fallback for a single fixed partner."
+}

@@ -484,5 +484,148 @@ class KitchenVerificationReceipts(unittest.TestCase):
             self.assertEqual(position, digest(answers))
 
 
+class DeferredAuditRegressions(unittest.TestCase):
+    def test_model_line_labels_are_bound_to_the_requested_target(self):
+        from quality.propose import ModelProposer, parse_line
+        text = 'I left the basket underneath the oak'
+        b = Brief(1, 'Copper cat')
+        for wrap in (lambda s: s, lambda s: '```text\n' + s + '\n```',
+                     lambda s: 'LINE: ' + s):
+            for line in (2, 31):
+                raw = wrap(f'L{line}: {text}')
+                self.assertIsNone(ModelProposer(lambda p: raw).propose(b, ['Copper cat'], 0))
+            self.assertEqual(parse_line(wrap('L1: ' + text), line_no=1), text)
+            self.assertEqual(parse_line(wrap(text), line_no=1), text)
+
+    def test_batch_origin_survives_accepted_edits_but_external_mismatch_is_stale(self):
+        lines = ['first original line', 'second original line']
+        briefs = [Brief(i + 1, t) for i, t in enumerate(lines)]
+        for b in briefs:
+            b.round_no = 1
+        with tempfile.TemporaryDirectory() as tmp, contextlib.redirect_stdout(io.StringIO()):
+            path = Path(tmp) / 'state.json'
+            one, _, say = LH._defer_proposer(str(path), lines)
+            with self.assertRaises(LH._NeedProposal):
+                one.prefetch(briefs[0], briefs[1:], lines)
+            say.state['pending']['answer'] = 'L1: first accepted line\nL2: second proposed line'
+            saved = json.dumps(say.state)
+            for external in [False, True]:
+                path.write_text(saved)
+                current = list(lines)
+                if external:
+                    current[1] = 'genuinely changed replay input'
+                one, _, say = LH._defer_proposer(str(path), current)
+                current[0] = one(briefs[0], current, 0)
+                self.assertEqual(one(briefs[1], current, 0), 'second proposed line')
+                self.assertEqual(say.record()['stale_answers'], 2 if external else 0)
+
+    def test_group_attempt_keys_and_legacy_binding_are_deterministic(self):
+        g = SimpleNamespace(members=(1, 2), attempt=0,
+                            brief=SimpleNamespace(round_no=1),
+                            proposal_for=lambda n: ('old line', 'word'))
+        first = LH._brief_key(g)
+        groups = {first: ('new one', 'new two')}
+        self.assertEqual(LH._group_lookup(groups, g), ('new one', 'new two'))
+        g.attempt = 1
+        self.assertNotEqual(first, LH._brief_key(g))
+        self.assertIsNone(LH._group_lookup(groups, g))
+        # Old journals cannot say which attempt they answered. Bind each old
+        # record once, on the deterministic replay walk; repeat reads of that
+        # exact question work, but a new retry must ask the writer.
+        legacy = LH._group_key((1, 2), ('old line', 'old line'), ('word', 'word'), 1)
+        groups = {legacy: ('legacy one', 'legacy two')}
+        self.assertEqual(LH._group_lookup(groups, g), ('legacy one', 'legacy two'))
+        self.assertEqual(LH._group_lookup(groups, g), ('legacy one', 'legacy two'))
+        g.attempt = 2
+        self.assertIsNone(LH._group_lookup(groups, g))
+
+    def test_legacy_folded_batch_without_origin_refuses_without_rewriting_journal(self):
+        from quality.revise import draft_fingerprint
+        lines = ['first original line', 'second original line']
+        old = {'version': 1, 'input_draft': lines, 'accepted_lines':
+               ['first accepted line', lines[1]], 'pending': None,
+               'answered': {'propose_group': [], 'propose': [
+                   {'line': n, 'attempt': 0, 'round': 1,
+                    'draft': draft_fingerprint(lines), 'text': text}
+                   for n, text in enumerate(['first accepted line', 'second proposed line'], 1)]}}
+        with tempfile.TemporaryDirectory() as tmp, contextlib.redirect_stdout(io.StringIO()) as out:
+            path = Path(tmp) / 'state.json'
+            path.write_text(json.dumps(old))
+            before = path.read_bytes()
+            with self.assertRaises(SystemExit) as stopped:
+                LH._defer_proposer(str(path), lines)
+            self.assertEqual(stopped.exception.code, 2)
+            self.assertIn('legacy batch origin', out.getvalue())
+            self.assertIn('accepted_lines', out.getvalue())
+            self.assertEqual(path.read_bytes(), before)
+
+    def test_atomic_round_two_prompt_carries_actual_round_one_rejection(self):
+        from quality.revise import Reviser, ReviseDeclaration
+        from quality.loop import _try_tier2
+        from quality.schemes import mandate
+        lines = ['Copper cat', 'Copper cat', 'Azure dog']
+        m = mandate([[1, 3], [1, 2]], n_lines=3, returns=[[1, 2]],
+                    default_relation='class:ASSONANCE')
+        rv = Reviser(rdecl=ReviseDeclaration(max_rounds=2, attempts_per_line=1,
+                                            backtrack_width=1))
+        b = next(x for x in rv.brief(lines, m) if x.line_no == 1)
+        witnessed = False
+        with tempfile.TemporaryDirectory() as tmp, contextlib.redirect_stdout(io.StringIO()):
+            path = Path(tmp) / 'state.json'
+            for _ in range(8):
+                _, group, say = LH._defer_proposer(str(path), lines)
+                seen = []
+                def capture(g):
+                    seen.append(g)
+                    return group(g)
+                capture.record, capture.prior = group.record, group.prior
+                try:
+                    for rn in (1, 2):
+                        b.round_no = rn
+                        _try_tier2(rv, b, lines, m, rv.rdecl, None, None, None, None, capture)
+                except LH._NeedProposal as question:
+                    g = seen[-1]
+                    if rn == 2 and g.prior:
+                        self.assertTrue(g.whole_repair)
+                        self.assertEqual(g.prior['round'], 1)
+                        self.assertIn('ROUND 1', question.prompt)
+                        for reason in g.prior['reasons']:
+                            self.assertIn(reason, question.prompt)
+                        witnessed = True
+                        break
+                    say.state['pending']['answer'] = '\n'.join(
+                        f'L{n}: {lines[n-1]}' for n in question.record['members'])
+                    path.write_text(json.dumps(say.state))
+                    continue
+                break
+        self.assertTrue(witnessed, 'the actual atomic repair must reach the next round')
+
+    def test_group_question_identity_includes_pivot_and_full_context(self):
+        from dataclasses import replace
+        from quality.revise import Reviser, ReviseDeclaration
+        from quality.loop import _try_tier2
+        from quality.schemes import mandate
+        lines = ['Copper cat', 'Copper cat', 'Azure dog', 'The empty room is still']
+        m = mandate([[1, 3]], n_lines=4, returns=[[1, 2]],
+                    default_relation='class:ASSONANCE')
+        rv = Reviser(rdecl=ReviseDeclaration(attempts_per_line=1, backtrack_width=1))
+        captured = []
+        def writer(g):
+            captured.append(g)
+            return tuple(lines[n-1] for n in g.members)
+        for pivot in (1, 3):
+            b = next(b for b in rv.brief(lines, m) if b.line_no == pivot)
+            b.round_no = 1
+            _try_tier2(rv, b, lines, m, rv.rdecl, None, None, None, None, writer)
+        first, second = captured
+        self.assertEqual(first.members, second.members)
+        self.assertEqual(first.attempt, second.attempt)
+        self.assertNotEqual(LH._brief_key(first), LH._brief_key(second),
+                            'attempt numbering restarts for each pivot')
+        changed = replace(first, lines=tuple(lines[:3] + ['The room now holds a crowd']))
+        self.assertNotEqual(LH._brief_key(first), LH._brief_key(changed),
+                            'an outside line changes the question context')
+
+
 if __name__ == '__main__':
     unittest.main()

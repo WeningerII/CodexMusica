@@ -378,7 +378,8 @@ function askedOf(pending) {
     return {
       kind: 'propose_group',
       members: Array.isArray(rec.members) ? rec.members : null,
-      attempt: null,
+      attempt: typeof rec.attempt === 'number' ? rec.attempt : null,
+      question_sha256: typeof rec.question_sha256 === 'string' ? rec.question_sha256 : null,
       round: typeof rec.round === 'number' ? rec.round : null,
     };
   }
@@ -435,14 +436,20 @@ function outcomeAt(st, line, attempt, round) {
 // on `line`. Before this a tier-2 answer folded as `unknown` with no
 // reasons, always, so a writer whose group rewrite was rejected three
 // rounds running saw three silences.
-function groupOutcomeAt(st, members, round) {
+function groupOutcomeAt(st, members, round, attempt = null, question = null) {
   const outs = st && Array.isArray(st.group_outcomes) ? st.group_outcomes : [];
   const want = Array.isArray(members) ? members.map(Number).join(',') : null;
   if (want == null) return null;
   for (let i = outs.length - 1; i >= 0; i--) {
     const o = outs[i];
     if (!o || typeof o !== 'object' || !Array.isArray(o.members)) continue;
-    if (o.members.map(Number).join(',') === want && (o.round ?? null) === (round ?? null)) return o;
+    if (
+      o.members.map(Number).join(',') === want &&
+      (o.round ?? null) === (round ?? null) &&
+      (o.attempt ?? null) === attempt &&
+      (o.question_sha256 ?? null) === question
+    )
+      return o;
   }
   return null;
 }
@@ -455,7 +462,7 @@ function foldedOne(asked, answer, st) {
     asked.kind === 'propose' && typeof asked.attempt === 'number'
       ? outcomeAt(st, asked.line, asked.attempt, asked.round)
       : asked.kind === 'propose_group' && Array.isArray(asked.members)
-        ? groupOutcomeAt(st, asked.members, asked.round)
+        ? groupOutcomeAt(st, asked.members, asked.round, asked.attempt, asked.question_sha256)
         : null;
   if (o) {
     verdict = o.accepted === true ? 'accepted' : o.accepted === false ? 'rejected' : 'unknown';
@@ -1545,8 +1552,21 @@ const answersField = z
   .describe(
     "The writer's answer as STRUCTURE: one {line, text} per asked line, every asked line present, nothing else — the shape to use for a BATCH or a group question (and fine for a single line). Replaces `answer` for those; send one of the two."
   );
-export function answerFromRows(rows, kind) {
+export function answerFromRows(rows, pending) {
   const list = Array.isArray(rows) ? rows : [];
+  const kind = pending?.kind;
+  const asked = askedOf(pending);
+  const members = kind === 'propose' ? [asked?.line] : asked?.lines || asked?.members || [];
+  if (
+    !members.length ||
+    list.length !== members.length ||
+    new Set(list.map((r) => r.line)).size !== list.length ||
+    list.some((r) => !members.includes(r.line))
+  )
+    throw refuse(
+      'Structured answers must name every asked line exactly once and no others: ' +
+        members.join(', ')
+    );
   if (kind === 'propose' && list.length === 1) return String(list[0].text).trim();
   return list.map((r) => `L${r.line}: ${String(r.text).trim()}`).join('\n');
 }
@@ -2393,7 +2413,7 @@ export function registerLyricTools(server, tool) {
                 // M-248: the structured answer becomes the harness's own row
                 // format here, keyed on the question's kind.
                 if (Array.isArray(a.answers)) {
-                  const answer = answerFromRows(a.answers, st?.pending?.kind);
+                  const answer = answerFromRows(a.answers, st?.pending);
                   if (a.answer != null && a.answer !== answer)
                     throw refuse(
                       'Conflicting answer and answers: send one exact proposal representation.'
@@ -2619,6 +2639,7 @@ export function registerLyricTools(server, tool) {
                 // render call sits after the loop's return — so this branch has
                 // nothing to leak even if it tried.
                 const st = JSON.parse(await readFile(statePath, 'utf8'));
+                const suspendedVerdict = verdictOf(r);
                 const stateWire = encodeInterview(st);
                 const onRecord = st.answered.propose.length + st.answered.propose_group.length;
                 const askedNow = askedOf(st.pending);
@@ -2688,10 +2709,15 @@ export function registerLyricTools(server, tool) {
                         // (M-219's second finding, the third spelling of it).
                         path: typeof r.path === 'string' ? r.path : null,
                         ms: typeof r.ms === 'number' ? r.ms : null,
-                        ...extractRunRecord(r.stdout),
+                        ...Object.fromEntries(
+                          ['memo_state', 'memo_hit', 'memo_asked', 'stale_answers', 'plan_lines']
+                            .filter((key) => suspendedVerdict[key] !== undefined)
+                            .map((key) => [key, suspendedVerdict[key]])
+                        ),
+                        certified: false,
                         state: stateWire,
                         replay_draft: a.draft,
-                        final_draft: exactDraft,
+                        final_draft: exactDraft || st.accepted_lines || null,
                       }),
                     },
                   ],
@@ -2726,7 +2752,9 @@ export function registerLyricTools(server, tool) {
                 if (runKey && r.code !== 0 && exactDraft) {
                   const parkedRec = RUNS.put(runKey, {
                     seed: typeof a.seed === 'number' ? a.seed : null,
-                    status: 'parked',
+                    status: r.code === 2 ? 'uncertified' : 'parked',
+                    exit_code: r.code,
+                    refused_obligations: verdict.coverage?.refused_obligations || [],
                     draft: exactDraft,
                     replay_draft: a.draft,
                     decl: declarationsOf(a),
@@ -3177,6 +3205,7 @@ export const LYRIC_INSTRUCTIONS =
   'there means the question was not asked rather than answered clean. For unresolved pronunciation, read ' +
   'pronunciation_options from grade/check, select the intended dictionary reading or supply ARPABET with ' +
   'an honest source in pronunciations, then regrade. Choices bind exact line text and token position, ' +
-  'including every verbatim chorus return. Never choose phones just to pass a check. Changed wording ' +
-  'requires a fresh declaration; changing readings during revision requires regrading and a new run. Recipes ' +
+  'including every verbatim chorus return. Never choose phones just to pass a check. A revision can ' +
+  'remove an original occurrence; its reading is retained as retired and never applied to changed text. ' +
+  'New text is graded independently. Supplying new readings during revision requires regrading and a new run. Recipes ' +
   'describe the SOUND, lyric tools govern the WORDS; the conversation is the only place they meet.';

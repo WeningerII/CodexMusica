@@ -221,12 +221,12 @@ with tempfile.TemporaryDirectory(prefix="rm_unknown_") as unknown_dir:
                             f"--propose=defer:{state}")
     unknown = result_record(out)
     journal = json.load(open(state, encoding="utf-8"))
-    check("the original default-reading fixture explicitly refuses its unjudged "
-          "obligation without inventing a repair request",
-          rc == 2 and unknown["stop_reason"] == "UNCERTIFIED"
-          and unknown["final_draft"] == HISTORICAL_LINES
-          and "rhyme:2:3:0" in unknown["coverage"]["refused_obligations"]
-          and journal["pending"] is None
+    check("the original default-reading fixture asks for an unknown reading repair "
+          "without inventing a pronunciation or accepting an unjudged answer",
+          rc == 4 and unknown["status"] == "suspended"
+          and journal["accepted_lines"] == HISTORICAL_LINES
+          and journal["pending"] is not None
+          and "UNKNOWN" in journal["pending"]["prompt"]
           and not any(journal["answered"].values()), err)
 
 # ── 4. key separation ────────────────────────────────────────────────────

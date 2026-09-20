@@ -159,6 +159,13 @@ export function runRefusal(rec, args) {
     return `REFUSED: run_revision is required when continuing run_id; current revision is ${rec.revision}. Pass the revision returned with this run.`;
   if (args.run_revision !== rec.revision)
     return `REFUSED: stale run revision ${args.run_revision}; current revision is ${rec.revision}. Recover the current record before continuing.`;
+  for (const field of ['state', 'checkpoint'])
+    if (
+      ['suspended', 'interrupted', 'uncertain_proposal'].includes(rec.status) &&
+      args[field] != null &&
+      args[field] !== rec[field]
+    )
+      return `REFUSED: continuation mismatch: ${field} does not belong to run revision ${rec.revision}. Pass the state/checkpoint returned with that revision verbatim, or omit it to carry the cached continuation. Standalone state recovery remains available without run_id.`;
   if (
     ['suspended', 'interrupted', 'uncertain_proposal'].includes(rec.status) &&
     Array.isArray(args.draft) &&
@@ -166,6 +173,8 @@ export function runRefusal(rec, args) {
   )
     return 'REFUSED: a continuation cannot replace the original replay draft. Omit draft to carry it, or use new_run with the new draft.';
   const who = typeof rec.seed === 'number' ? `seed ${rec.seed}` : 'the declared mandate';
+  if (rec.status === 'uncertified')
+    return `REFUSED by the tool: the lyric_revise run for ${who} is UNCERTIFIED at exit 2 (no question pending). Coverage remains unresolved: ${(rec.refused_obligations || []).join(', ') || 'see the returned coverage record'}. Keep the returned final_draft. Inspect lyric_grade pronunciation options and explicitly declare any pronunciation you can establish, then use new_run:true with that draft and those declarations. Do not guess a reading to obtain certification.`;
   if (rec.status === 'parked') {
     const open = Array.isArray(rec.open) && rec.open.length ? rec.open.join(', ') : 'none';
     const tail = ` Continue it: rewrite the open line(s) (${open}) and call lyric_revise with \`run_id\` and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`. Or send \`new_run: true\` to start an independent run on the draft you hold. (run ${rec.run_id})`;

@@ -525,8 +525,8 @@ def read_line(text, phon=None, strip_parens=True):
                 refused.append(RefusedToken(word, "UNRESOLVED_READING",
                     "pronunciations disagree on syllable count; no reading was selected"))
                 continue
-            weak = word.lower() in _lh.WEAK_ALWAYS or (
-                word.lower() in _lh.WEAK_NONFINAL and wi < len(words) - 1)
+            weak = _lh.weak_token(lex.for_token(wi), word,
+                                  phrase_final=wi == len(words) - 1)
             offset = 0
             for readings in piece_readings:
                 if not readings:

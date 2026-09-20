@@ -1,0 +1,13 @@
+{
+  "scope": "Diagnostic necessary bound for mutually CONSONANCE monosyllabic anchors; not a word search, not a bound for multisyllabic anchors.",
+  "theta_nucleus": 0.6,
+  "vowel_count": 15,
+  "clique_counts": {
+    "1": 15,
+    "2": 65,
+    "3": 86,
+    "4": 23,
+    "5": 0
+  },
+  "maximum_monosyllabic_group": 4
+}

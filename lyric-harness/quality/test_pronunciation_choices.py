@@ -46,6 +46,40 @@ class PronunciationChoices(unittest.TestCase):
         self.assertFalse(read.prominence_undecided)
         self.assertEqual([s.prominence for s in read.units], [1, 0, 0, 1])
 
+    def test_explicit_stress_survives_function_word_defaults_in_every_reader(self):
+        # The frozen Dead Letter Office run exposed an unjudgeable T5
+        # anchor on "back". Its documented explicit-reading recovery must
+        # not silently demote the stress the writer has just declared.
+        from quality.revise import Reviser
+        from quality.schemes import mandate
+        for line, token, word, phones in (
+                ('I hear her call back: darling child', 5, 'back', ['B', 'AE1', 'K']),
+                ('The last word is the', 5, 'the', ['DH', 'AH1'])):
+            with self.subTest(word=word):
+                lex = self.lex([choice(line, token, word, phones, 'declared')])
+                chosen = [s for s in lh.word_syllable_map(lex, line)
+                          if s['widx'] == token - 1]
+                self.assertEqual([s['stress'] for s in chosen], [1])
+                default = [s for s in lh.word_syllable_map(self.base, line)
+                           if s['widx'] == token - 1]
+                self.assertEqual([s['stress'] for s in default], [0])
+                read = fit.read_line(line, English(lexicon=lex))
+                self.assertEqual([s.prominence for s in read.units
+                                  if s.word == word], [1])
+                self.assertIn(phones[-2], lex.transcribe(line)[0])
+                if word == 'back':
+                    m = mandate([['1.T5', '2.end']], n_lines=2,
+                                default_relation='class:RHYME')
+                    lines = [line, 'We follow the track']
+                    self.assertEqual(Reviser(lex=self.base).grade(lines, m)['pairs_refused'], 1)
+                    report = Reviser(lex=lex).grade(lines, m)
+                    self.assertEqual(report['pairs_refused'], 0, report)
+                    self.assertFalse(report['violations'], report)
+                else:
+                    anchors, _, _ = lh.line_anchors(lex, line)
+                    self.assertTrue(anchors)
+                    self.assertTrue(all(a[-1]['stress'] == 1 for a in anchors))
+
     def test_declared_unknown_and_hyphenated_reading(self):
         for word in ['Zzyzx', 'Zzyzx-Quux']:
             line = 'I love ' + word
@@ -141,7 +175,13 @@ class PronunciationChoices(unittest.TestCase):
         m = mandate('AA', n_lines=2, default_relation='class:ASSONANCE')
         result = Reviser(lex=self.lex([choice()])).verify(before, after, m, targeted={1})
         self.assertFalse(result['accepted'])
-        self.assertIn('pronunciation:1', result['layer_coverage_regressions'])
+        self.assertIn('prominence:L1', result['layer_coverage_regressions'])
+        self.assertNotIn('pronunciation:1', result['layer_coverage_regressions'])
+        retired = next(row for row in result['coverage_after']['obligations']
+                       if row['id'] == 'pronunciation:1')
+        self.assertEqual(retired['status'], 'not_requested')
+        self.assertTrue(retired['retired'])
+        self.assertFalse(retired['matching_lines'])
 
     def test_actual_cli_parses_choices_and_exports_options(self):
         import json, subprocess, tempfile
