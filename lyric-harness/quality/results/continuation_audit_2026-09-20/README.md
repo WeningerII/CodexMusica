@@ -55,8 +55,8 @@ Node/Python dependencies and lexical inputs are staged:
 
 ```sh
 node --test --test-concurrency=1 ../mcp/test_continuation_audit.mjs
-python3 -m unittest discover -s quality -p test_production_journal.py
-python3 -m unittest discover -s quality -p test_production_revision.py
+python3 quality/test_production_journal.py
+python3 quality/test_production_revision.py
 python3 quality/test_pronunciation_choices.py
 python3 quality/test_replay_memo.py
 python3 quality/test_loop.py
