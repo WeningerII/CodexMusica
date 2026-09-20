@@ -388,6 +388,10 @@ const PINNED_PROBE = `(() => {
 
     // Load a real workspace. Every assertion below is about editing a stack,
     // and the empty state has neither a tree nor a recipe bar to check.
+    // Reach the starter through the search box, as check_layout_usability does:
+    // the browse list is alphabetical and shows 50 rows, so Delta blues is not
+    // on the first page of it.
+    await page.getByLabel('Search genres').fill('Delta blues');
     const starter = await page.$('[data-ui="genre-add"][data-id="delta_blues"]');
     if (!starter) {
       fail(vp, 'no starter recipe in the empty state — cannot exercise the editor');
