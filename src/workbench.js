@@ -164,16 +164,25 @@ function renderGenreDiscovery() {
             ? 1
             : a.name.localeCompare(b.name, 'en')
       );
-  else if (node) {
-    const under = (id) => {
-      let p = tradParent(id);
-      while (p) {
-        if (p === node.id) return true;
-        p = getTreeNode(p)?.parent;
-      }
-      return false;
-    };
-    all = all.filter((t) => under(t.id) || (Catalog.ext(t.id)?.crossRefs || []).includes(node.id));
+  else {
+    if (node) {
+      const under = (id) => {
+        let p = tradParent(id);
+        while (p) {
+          if (p === node.id) return true;
+          p = getTreeNode(p)?.parent;
+        }
+        return false;
+      };
+      all = all.filter(
+        (t) => under(t.id) || (Catalog.ext(t.id)?.crossRefs || []).includes(node.id)
+      );
+    }
+    // Catalog.all() is the catalog's declaration order — the order traditions
+    // were researched and added, which reads as arbitrary in a flat list. Search
+    // results and the instrument list are already alphabetical; the browse list
+    // is too. Copy before sorting: the unfiltered path hands back the live array.
+    all = all.slice().sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
   }
   if (UI.genre) {
     renderGenreWeb(UI.genre);
@@ -219,7 +228,11 @@ function renderInstrumentDiscovery() {
       (!UI.instrumentClass || i.class === UI.instrumentClass) &&
       (!q || normalizeSearch(i.name + ' ' + i.short).includes(q)) &&
       passesInstrumentFilter(i, app.instrumentAxisFilters)
-  );
+  )
+    // INSTRUMENTS is sorted globally by family, then by the `short` label — but
+    // this list shows `name`, so it read as scrambled. Sort the rows by what
+    // the row displays; family and class navigation still group on the left.
+    .sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
   const classes = fam
     ? [...new Set(INSTRUMENTS.filter((i) => i.family === fam.id).map((i) => i.class))]
     : [];
