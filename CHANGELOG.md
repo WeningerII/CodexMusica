@@ -6,6 +6,18 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — the genre and instrument lists are alphabetical
+
+The flat genre list rendered `Catalog.all()` in catalog order — the order the
+traditions were declared in `references/05_traditions.js`, which reads as
+arbitrary (honky-tonk, Bakersfield, outlaw, bluegrass, old-time, conjunto…).
+The instrument list was sorted by family and then by the `short` label while
+each row displays `name`, so it read as scrambled inside every family. No
+stated reason existed for either. Both views now sort the rows they show by
+the name they show, case-insensitively, in `src/workbench.js`; a search already
+did, and the family and branch navigation still group on the left. The global
+`INSTRUMENTS` order and every recipe path are untouched.
+
 ### Changed — the page ships minified, and the connector compresses what it sends
 
 Two delivery changes, neither touching the catalog, the engine, or any gate that
