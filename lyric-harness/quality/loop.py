@@ -798,8 +798,10 @@ class RoundResult:
 @dataclass
 class LoopResult:
     """-> from `revise_loop`. `stop_reason` is one of "success",
-    "no_progress", "round_limit" — never a fourth value, so a caller can
-    switch on it exhaustively.
+    "no_progress", "round_limit", "whole_draft_unresolved", "uncertified".
+    The last two were added after the original three-value contract.
+    Exhausted text-dependent unknown repairs remain "no_progress" or
+    "round_limit" with coverage uncertified and explicit unjudged targets.
 
     THE FIELDS BELOW `unresolved` ARE THE DISCLOSURE, and they are metadata
     about the CALL, not verdicts about the draft: which optional grading

@@ -24,8 +24,8 @@
     },
     {
       "path": "ci-integration.json",
-      "bytes": 4526,
-      "sha256": "6395627ff978d387e04ef45ab5e92c07fe9aeea4081bf4fc5838eaac5268eaad"
+      "bytes": 6699,
+      "sha256": "aa0cb096de6c535bdd749f4d8ee52404d41fe2d3e63965d72e672fba7e553fe0"
     },
     {
       "path": "consonance-monosyllable-bound.json",
@@ -94,8 +94,8 @@
     },
     {
       "path": "verification.zip",
-      "bytes": 257065,
-      "sha256": "61ac03d4f0d3fb046855281d8c1d9b77777aef56a06e5008aa504626b4de7c51"
+      "bytes": 264317,
+      "sha256": "fd3879a00a0d793ba1431d77f6c682200c7fbacea421917bbab2818682f2091c"
     }
   ]
 }

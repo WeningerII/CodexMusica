@@ -306,6 +306,11 @@ checks: the new floor-scope note needed its explicit disclosure disposition;
 the planner import guard needed a narrowly scoped admission for the relation
 name resolver; the CLI audibility test still matched the old wording; and a
 historical whole-flag fixture now correctly retained its unknown-reading lines.
+A later-finishing audit suite also expected unknown text to terminate without
+a repair question. Its replacement assertion records the actual L2 request,
+the writer's decline, the retained draft and the unchanged refused-pair count;
+the judged-to-refused rejection remains required. The loop's stale three-value
+docstring now lists its five existing stop reasons.
 The disposition and census are recorded, the import guard permits only the
 resolver inside the report, and the CLI tests retain exact counts, uncertainty
 and the separate fully judged success control. The initial failures are banked

@@ -144,11 +144,25 @@ class AuditRegressions(unittest.TestCase):
         self.assertFalse(out['accepted'])
         self.assertEqual(out['coverage_regressions'], [(1, 2, 0)])
         self.assertEqual(out['new_flags'], [])
-        stopped = revise_loop(self.rv, after, m, propose=lambda *a, **k: None)
-        self.assertEqual(stopped.stop_reason, 'uncertified')
+        # M-304 keeps text-dependent unknown checks repairable. The
+        # historical zero-question stop is no longer correct: ask only
+        # the unreadable anchor, honor the writer's decline, and retain
+        # its uncertified status without treating the unknown as a flag.
+        asked = []
+        def decline(brief, lines, attempt, reasons=None, whole=()):
+            asked.append((brief.line_no, attempt))
+        stopped = revise_loop(self.rv, after, m, propose=decline)
+        self.assertEqual(stopped.stop_reason, 'no_progress')
+        self.assertEqual(asked, [(2, 0)])
+        self.assertEqual(stopped.lines, after)
         self.assertFalse(stopped.coverage_certified)
         self.assertEqual(stopped.whole_flags, [])
-        self.assertEqual(stopped.unresolved, [])
+        self.assertEqual(stopped.unresolved_flagged, [])
+        self.assertEqual(stopped.unresolved_pursued, [])
+        self.assertEqual([b.line_no for b in stopped.unresolved], [2])
+        self.assertEqual(stopped.unresolved, stopped.unresolved_unjudged)
+        self.assertEqual((stopped.pairs_mandated, stopped.pairs_judged,
+                          stopped.pairs_refused), (1, 0, 1))
 
     def test_direct_conflict_zero_width_and_profile(self):
         # Unambiguous declared class: the test is search/budget control,
