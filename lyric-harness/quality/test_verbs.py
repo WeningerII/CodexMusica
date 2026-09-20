@@ -818,6 +818,13 @@ def _every_verb_fixture():
         # honest answer, the no-seed refusal, because a full run here would
         # double §44's loop cost for a claim about reachability alone.
         "finish": ["finish", quat],
+        # The pre-flight (M-302/M-303): dispatch reachability on the same bare
+        # quatrain, which REFUSES for want of a --seed exactly as `finish`
+        # does above -- the roster's job is "did not raise", and §60 carries
+        # the verb's behaviour. Joined 2026-09-19, one CI run after the verb
+        # itself: run 2266's §7 named it uncovered, which is this roster's
+        # own census doing its job.
+        "tryline": ["tryline", quat, "1", "a wholly new line"],
         # The human door (2026-09-01, M-195). Behavioural coverage is §49 —
         # this row is the dispatch-reachability claim on a bare quatrain,
         # which REFUSES its sectioning (no mark, no blank block: the M-72
@@ -4884,10 +4891,15 @@ def test_a_missing_staged_resource_refuses_instead_of_crashing():
     # blank block, so its sectioning is REFUSED — a work order, never a
     # failure, and never a resource refusal. Its 3 is declared here beside
     # `finish`'s 2 (CI's verbs (4) at 551e8e8 caught the omission).
-    OWN = {"finish": 2, "recover": 3}
+    # `tryline` joined the roster 2026-09-19 (M-302/M-303) and rides
+    # `finish`'s block, so on the bare quatrain it gives `finish`'s own
+    # --seed refusal, rc 2 -- declared here for the same reason `recover`'s
+    # 3 is (CI's verbs (4) at 5790ae49 caught the roster omission; this
+    # twin would have caught the exit one run later).
+    OWN = {"finish": 2, "recover": 3, "tryline": 2}
     check(f"the other {len(cases) - len(NEED)} answer, and every one but "
-          f"`finish` (its own --seed refusal, rc 2) and `recover` (its own "
-          f"REFUSED-coordinate work order, rc 3) at rc 0",
+          f"`finish` and `tryline` (their own --seed refusal, rc 2) and "
+          f"`recover` (its own REFUSED-coordinate work order, rc 3) at rc 0",
           len(answering) == len(cases) - len(NEED)
           and all(answering.get(v) == rc for v, rc in OWN.items())
           and all(rc == 0 for v, rc in answering.items() if v not in OWN),
@@ -5566,6 +5578,261 @@ def test_density_declares_its_line_window():
 
 
 
+def test_tryline_is_the_loops_own_acceptance_decision():
+    """60. THE PRE-FLIGHT ANSWERS WITH THE LOOP'S OWN VERDICT, OVER THE
+    LOOP'S OWN DEFINITION OF WHAT AN ANSWER MOVES (`MISSING.md` M-302).
+
+    WHY THE VERB EXISTS, measured 2026-09-19. A `finish` cycle on the
+    seed-1000 case ran 8, 11 then 15 minutes and lengthening; the acceptance
+    decision alone runs in 31 s, and 9 s on the twelve-line fixture below. So
+    a writer could learn a candidate's fate only by SPENDING a cycle on it,
+    and two independent agent writers driving `--propose=defer:` answered
+    that by building their own pre-flight rigs — a syllable counter, a
+    density/prominence band checker, a schema prober, and a shell wrapper
+    around this very verdict — 1,495 tool calls between them. Standing rule 3
+    names it exactly: *an improvised script used twice is a defect report,
+    not a convenience.*
+
+    WHAT IS PINNED, and it is the seam rather than the wording. (a) The verb
+    calls `Reviser.verify` — the loop's own acceptance decision — and decides
+    nothing itself. (b) What an answer MOVES comes from
+    `loop.apply_candidate`, extracted in this lot so the loop and the
+    pre-flight cannot disagree about a declared verbatim return (doctrine 1).
+    (c) `_try_tier1` no longer spells that inline, so there is ONE definition
+    and not two. (d) The mirroring is not a no-op on the fixture: it is the
+    difference between fixing `RETURN_NOT_VERBATIM` and leaving it standing,
+    which is what a hand-rolled pre-flight gets wrong — measured while
+    building the verb, editing L7 of the seed-1000 draft without its return
+    class reported TWO new flags where the loop's own apply reports ONE.
+    """
+    print("\n60. `tryline` is the loop's acceptance decision, over the "
+          "loop's definition of what an answer moves (M-302)")
+    import ast
+    import io as _io
+    import tempfile
+    from quality import loop as LP
+    from quality import schemes as SC
+
+    # (a) ONE DEFINITION — the loop calls it, and no longer spells it inline.
+    src = _io.open(os.path.join(ROOT, "quality", "loop.py"),
+                   encoding="utf-8").read()
+    tree = ast.parse(src)
+    tier1 = next((n for n in ast.walk(tree)
+                  if isinstance(n, ast.FunctionDef) and n.name == "_try_tier1"),
+                 None)
+    check("`_try_tier1` exists to be asked about", tier1 is not None)
+    calls = {getattr(n.func, "id", getattr(n.func, "attr", ""))
+             for n in ast.walk(tier1) if isinstance(n, ast.Call)}
+    check("the loop CALLS `apply_candidate` rather than spelling the "
+          "mirror inline", "apply_candidate" in calls, sorted(calls)[:12])
+    inline = [n for n in ast.walk(tier1)
+              if isinstance(n, ast.Subscript)
+              and isinstance(n.value, ast.Name) and n.value.id == "after"]
+    check("and the inline `after[...] = candidate` spelling is GONE — a "
+          "second copy is how two readers start disagreeing (doctrine 1)",
+          not inline, f"{len(inline)} inline subscript(s) of `after`")
+
+    # (b) THE CONTRACT, on a mandate built here: a verbatim return moves as a
+    #     CLASS, and a line in none moves alone.
+    lines = ["one two three four", "five six seven eight",
+             "five six seven eight", "nine ten eleven twelve"]
+    m = SC.mandate([[1, 4]], n_lines=4, returns=[[2, 3]])
+    from quality import revise as RV2
+    rv = RV2.Reviser()
+    after, targets = LP.apply_candidate(rv, lines, m, 2, "a wholly new line")
+    check("a line in a declared verbatim return moves its WHOLE class",
+          targets == {2, 3}, str(sorted(targets)))
+    check("...and the draft carries the answer at every member",
+          after[1] == after[2] == "a wholly new line", str(after[1:3]))
+    naive = list(lines)
+    naive[1] = "a wholly new line"
+    check("MUTATION: the naive one-line apply is a DIFFERENT draft, so the "
+          "mirror is not a no-op on this fixture", naive != after)
+    after2, targets2 = LP.apply_candidate(rv, lines, m, 1, "another line")
+    check("a line in NO return moves alone", targets2 == {1},
+          str(sorted(targets2)))
+    check("...and its mates are untouched", after2[1:] == lines[1:])
+
+    # (c) THE VERB ITSELF, on a real plan. Seed 7 declares RETURNS 2,3, so
+    #     asking about L3 must move L2 with it — the mirroring reaching the
+    #     command line, not just the library.
+    tmpd = tempfile.mkdtemp()
+    draft = os.path.join(tmpd, "d12.txt")
+    _io.open(draft, "w", encoding="utf-8").write(
+        "the water holds the light\nthe morning turns to grey\n"
+        "nothing here is still\nand i will find a way\n"
+        "keep the low knot tight\nsay what the river wrote\n"
+        "hold the door for rain\nnothing turns about\n"
+        "carry the cold stone\nmarry the old bone\n"
+        "quiet folds a wing\ngrief is a small thing\n")
+    rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
+                     "--seed=7", "--lines=12", expect_rc=0)
+    row = _machine_result(out)
+    check("the verb ACCEPTS a good candidate at exit 0", rc == 0, out[-400:])
+    check("...and reports the return class as what it MOVED",
+          row.get("moves") == [2, 3], str(row.get("moves")))
+    check("...and says so in the report a human reads",
+          "a declared verbatim return moves as a class" in out)
+    # THE FIX THAT ONLY THE MIRROR EARNS. The fixture's L2 and L3 differ, so
+    # the draft opens carrying RETURN_NOT_VERBATIM; answering BOTH clears it
+    # and answering L3 alone cannot. This is the measurable difference
+    # between the shared definition and a hand-rolled pre-flight.
+    fixed = {tuple(x) for x in (row.get("fixed") or ())}
+    check("the mirror is what FIXES the return, which a line-only apply "
+          "leaves standing", (3, "RETURN_NOT_VERBATIM") in fixed,
+          str(sorted(fixed)))
+
+    # A REJECTION IS AN ANSWER, AND IT EXITS 3 — the code `revise`/`song`
+    # already use for "a gate said no" — never 2, which this file reserves
+    # for a question the harness could not answer at all. The three counts
+    # ride out separately (doctrine 79): what was fixed, what new FLAG
+    # rejected it, and what new NOTE did not.
+    rc, out, _ = run("tryline", draft, "1", "a", "--seed=7", "--lines=12",
+                     expect_rc=3)
+    row = _machine_result(out)
+    check("a candidate that trades one defect for another is REJECTED at "
+          "exit 3", rc == 3 and row.get("accepted") is False, out[-300:])
+    check("...naming the new FLAGS that rejected it",
+          {tuple(x) for x in (row.get("new_flags") or ())}
+          >= {(1, "DENSITY_OUT_OF_BAND"), (1, "PROMINENCE_OUT_OF_BAND")},
+          str(row.get("new_flags")))
+    check("...while still reporting what it DID fix — a rejection is not a "
+          "verdict that nothing happened", len(row.get("fixed") or ()) > 0,
+          str(row.get("fixed")))
+    check("...and the new NOTE is carried separately, never summed into the "
+          "flags that rejected (doctrine 79)",
+          len(row.get("new_notes") or ()) > 0 and
+          not ({tuple(x) for x in (row.get("new_notes") or ())}
+               & {tuple(x) for x in (row.get("new_flags") or ())}),
+          str(row.get("new_notes")))
+
+    # (d) THE REFUSALS — a question about a line that does not exist is not a
+    #     rejected candidate (doctrine 20), so it refuses rather than says no.
+    rc, out, _ = run("tryline", draft, "99", "some line",
+                     "--seed=7", "--lines=12", expect_rc=2)
+    check("a line number outside the draft REFUSES at 2, never 'rejected'",
+          rc == 2 and "REFUSED" in out, out[-200:])
+    rc, out, _ = run("tryline", draft, "notanumber", "some line",
+                     "--seed=7", "--lines=12", expect_rc=2)
+    check("a non-numeric line number REFUSES by name", rc == 2, out[-200:])
+    rc, out, _ = run("tryline", draft, "3", "  ",
+                     "--seed=7", "--lines=12", expect_rc=2)
+    check("an empty candidate REFUSES — it is not a revision", rc == 2,
+          out[-200:])
+
+    # (e) PAST THE LOOP'S FIRST ACCEPTED ANSWER (`MISSING.md` M-303). The
+    #     loop's current draft lives in the deferred state and in no file —
+    #     `finish` never writes the draft back and the ledger refuses a
+    #     hand-edit of it — so a pre-flight that reads only the file is a
+    #     round-one instrument. Measured on the first song written through
+    #     the verb: L5 ACCEPTED, applied by hand, and the next question
+    #     REFUSED as an unbriefed revision. `--propose=defer:PATH` asks
+    #     against the state's current draft instead, and the parity claim
+    #     is checked here the only way it can be: the verdict the verb
+    #     gives BEFORE an answer is folded is the verdict the loop records
+    #     when it folds it.
+    st = os.path.join(tmpd, "state.json")
+    rc, out, _ = run("finish", draft, "--seed=7", "--lines=12",
+                     f"--propose=defer:{st}", expect_rc=4)
+    with _io.open(st, encoding="utf-8") as fh:
+        stj = json.load(fh)
+    pend = stj.get("pending") or {}
+    members = [int(r["line"]) for r in
+               (pend.get("record") or {}).get("records") or ()]
+    check("the loop suspends on the fixture with a batch open",
+          rc == 4 and pend.get("kind") == "propose_batch"
+          and members == [3, 5, 8], f"{rc} {pend.get('kind')} {members}")
+    # while nothing has moved, the state and the file are the same draft
+    rc, out, _ = run("tryline", draft, "5", "Stay by the door and pray",
+                     "--seed=7", "--lines=12", f"--propose=defer:{st}",
+                     expect_rc=0)
+    row = _machine_result(out)
+    check("asked through the state, the verb says WHICH draft it read and "
+          "that nothing has moved yet",
+          rc == 0 and row.get("against") == "state"
+          and row.get("moved_since_handed_in") == []
+          and row.get("open_question") == [3, 5, 8]
+          and "AGAINST: the loop's CURRENT draft" in out
+          and "OPEN   : the loop's open question is L3, L5, L8" in out,
+          out[-600:])
+    l5_before = bool(row.get("accepted"))
+    rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
+                     "--seed=7", "--lines=12", "--propose=stub",
+                     expect_rc=2)
+    check("a proposer spelling on tryline REFUSES — defer:PATH is the one "
+          "value it takes", rc == 2 and "defer:PATH" in out, out[-300:])
+    other = os.path.join(tmpd, "d12_other.txt")
+    with _io.open(draft, encoding="utf-8") as fh:
+        ol = fh.read().splitlines()
+    ol[0] = "the water holds the night"
+    _io.open(other, "w", encoding="utf-8").write("\n".join(ol) + "\n")
+    rc, out, _ = run("tryline", other, "3", "nothing here is very still",
+                     "--seed=7", "--lines=12", f"--propose=defer:{st}",
+                     expect_rc=2)
+    check("a state started on a DIFFERENT handed-in draft REFUSES by name",
+          rc == 2 and "DIFFERENT handed-in draft" in out, out[-300:])
+    rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
+                     "--seed=7", "--lines=12",
+                     f"--propose=defer:{os.path.join(tmpd, 'nope.json')}",
+                     expect_rc=2)
+    check("a state that does not exist REFUSES — nothing has been briefed",
+          rc == 2 and "nothing has been briefed" in out, out[-300:])
+    # ANSWER THE BATCH with lines the verb accepted, and let the loop fold
+    stj["pending"]["answer"] = ("L3: nothing here is very still\n"
+                                "L5: Stay by the door and pray\n"
+                                "L8: A shore as old as the vein")
+    with _io.open(st, "w", encoding="utf-8") as fh:
+        json.dump(stj, fh)
+    rc, out, _ = run("finish", draft, "--seed=7", "--lines=12",
+                     f"--propose=defer:{st}", expect_rc=4)
+    with _io.open(st, encoding="utf-8") as fh:
+        stj = json.load(fh)
+    moved = [i + 1 for i, (a, b) in enumerate(zip(stj["input_draft"],
+                                                  stj["accepted_lines"]))
+             if a != b]
+    verdicts = {int(o["line"]): bool(o["accepted"])
+                for o in stj.get("outcomes") or ()}
+    check("the loop folded the answers and moved past the file",
+          rc == 4 and 3 in moved and 5 in moved, f"{rc} moved={moved}")
+    check("PARITY: the verb's verdict before the fold is the loop's verdict "
+          "at the fold (L5)", verdicts.get(5) is l5_before is True,
+          f"{verdicts} vs tryline {l5_before}")
+    check("...and for L3, whose fix only the return mirror earns",
+          verdicts.get(3) is True, str(verdicts))
+    # NOW the file is a draft the loop no longer holds
+    rc, out, _ = run("tryline", draft, "9", "carry the cold light",
+                     "--seed=7", "--lines=12", expect_rc=2)
+    check("asked against the FILE once the state has moved past it, the "
+          "verb REFUSES and names the state to ask instead",
+          rc == 2 and "past this file" in out and st in out, out[-400:])
+    rc, out, _ = run("tryline", draft, "9", "carry the cold light",
+                     "--seed=7", "--lines=12", f"--propose=defer:{st}")
+    row = _machine_result(out)
+    check("asked through the state, it answers against the CURRENT draft "
+          "and says which lines moved",
+          rc in (0, 3) and row.get("against") == "state"
+          and row.get("moved_since_handed_in") == moved, out[-500:])
+    check("...and a line the loop does not have open is answered as a "
+          "verdict, not an answer — said in so many words",
+          9 not in (row.get("open_question") or []) and "NOT among them" in out,
+          out[-500:])
+    # a state whose pending brief and current draft disagree is refused
+    bad = os.path.join(tmpd, "state_bad.json")
+    bj = dict(stj)
+    bj["accepted_lines"] = list(stj["accepted_lines"])
+    # the open question is a GROUP on [6, 7, 10, 11] — a group record names
+    # its draft by its members' texts, so the tamper lands on a member
+    bj["accepted_lines"][5] = "a line nobody accepted"
+    with _io.open(bad, "w", encoding="utf-8") as fh:
+        json.dump(bj, fh)
+    rc, out, _ = run("tryline", draft, "9", "carry the cold light",
+                     "--seed=7", "--lines=12", f"--propose=defer:{bad}",
+                     expect_rc=2)
+    check("a state whose open brief was asked on a different draft than "
+          "it now holds REFUSES rather than reads a verdict off it",
+          rc == 2 and "open question was asked on draft" in out, out[-300:])
+
+
 def test_a_proposer_that_cannot_reach_its_writer_refuses_by_name():
     """59. THE `call:` SEAM'S ONE DECLARED FAILURE IS A REFUSED, NOT A
     TRACEBACK (`MISSING.md` M-254).
@@ -5736,6 +6003,7 @@ if __name__ == "__main__":
         test_types_can_declare_its_position_and_names_the_missing_axis,
         test_density_declares_its_line_window,
         test_a_proposer_that_cannot_reach_its_writer_refuses_by_name,
+        test_tryline_is_the_loops_own_acceptance_decision,
     )
     # SHARDING (2026-08-18) AND THE PER-SECTION PROFILE (2026-09-01) LIVED
     # INLINE HERE and are ONE idiom in `quality/shard.py` since 2026-09-05

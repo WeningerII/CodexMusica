@@ -6128,6 +6128,32 @@ the quality layer (each says which module answered):
                           -- and an empty accepted set REFUSES at exit 2
                           with the rate, because unreachable and merely
                           rare are different answers
+  tryline DRAFT LINE "the new line" --seed=N [the same plan flags as finish]
+         [--propose=defer:PATH]
+                          THE PRE-FLIGHT: would this one line be ACCEPTED?
+                          The verdict is `Reviser.verify` -- the same call,
+                          with the same arguments, the revise loop makes to
+                          decide whether to keep an answer -- and what the
+                          answer MOVES is `loop.apply_candidate`, so a
+                          declared verbatim return is mirrored here exactly
+                          as the loop mirrors it. Nothing about acceptance
+                          is decided in this verb. MEASURED: 31 s against a
+                          `finish` cycle's 8-15 minutes, which is the whole
+                          reason it exists -- a writer could otherwise learn
+                          a candidate's fate only by spending a cycle on it,
+                          and two agent writers answered that by improvising
+                          four pre-flight scripts apiece (standing rule 3:
+                          an improvised script used twice is a defect
+                          report). Exit 0 ACCEPTED, 3 REJECTED, 2 REFUSED.
+                          --propose=defer:PATH asks against that deferred
+                          state's CURRENT draft -- the one its open brief was
+                          issued on -- which past the loop's first accepted
+                          answer is the only draft a pre-flight can be
+                          truthfully asked about: the handed-in file never
+                          moves and the ledger refuses a hand-edit of it;
+                          asked without it once a state on the ledger has
+                          moved past the file, this REFUSES and names the
+                          state (M-303)
   finish DRAFT --seed=N [--form=verse-chorus] [--lines=N] [--relation=NAME]
          [--functions=a,b,c] [--title=TEXT] [--narrative=...]
          [--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY]
@@ -6183,6 +6209,10 @@ VERB_LAYERS = (
      "quality/grid.py, then shares this same report"),
     ("revise", "quality/loop.py", "the automated write-check-fix loop, "
      "driven on top of brief/verify"),
+    ("tryline", "quality/loop.py", "the PRE-FLIGHT -- would this one line "
+     "be accepted? -- a front door onto `Reviser.verify`, the loop's own "
+     "acceptance decision, over `loop.apply_candidate`, the loop's own "
+     "definition of what a one-line answer moves"),
     ("finish", "quality/loop.py", "the working order's last step as one "
      "door: plan-derived mandate, the loop to a stop condition, and the "
      "render exists only past one"),
@@ -10159,7 +10189,7 @@ def main():
                     lexicon_three_counts(lex, _words), what="word tokens"):
                 print(_out)
 
-    elif cmd in ("brief", "verify", "revise", "song", "finish"):
+    elif cmd in ("brief", "verify", "revise", "song", "finish", "tryline"):
         from quality import loop as LP
         from quality.revise import Reviser
         from quality.schemes import NoMandate
@@ -10187,7 +10217,7 @@ def main():
         # pairs are unskippable" stamp made mechanical.
         finish_plan = None
         finish_seed = None
-        if cmd == "finish":
+        if cmd in ("finish", "tryline"):
             from quality import plan as PLN2
             # THE PLAN IS THE ONE STATEMENT OF THE METER LAYER AND OF THE
             # MANDATE, so a second spelling of either on this command line
@@ -10485,7 +10515,20 @@ def main():
         # subject is who wrote the words. That is the "silent downgrade"
         # this flag's own shape exists to refuse.
         propose_spec = _flag_value(args, "--propose", eq_only=True)
-        if propose_spec is not None and cmd not in ("revise", "finish"):
+        if (propose_spec is not None and cmd == "tryline"
+                and not propose_spec.startswith("defer:")):
+            _refuse(f"--propose={propose_spec} on `tryline` — a pre-flight "
+                    f"runs no proposer; the one value it takes is defer:PATH",
+                    detail=["`--propose=defer:PATH` names the deferred state "
+                            "whose CURRENT draft the question is asked "
+                            "against — the draft the loop's open brief was "
+                            "issued on — which is the only way a pre-flight "
+                            "stays truthful past the loop's first accepted "
+                            "answer (`MISSING.md` M-303)",
+                            "stub, replay: and call: are proposers, and "
+                            "nothing in this verb writes a line"])
+        if propose_spec is not None and cmd not in ("revise", "finish",
+                                                    "tryline"):
             _refuse(f"--propose={propose_spec} on `{cmd}` — only `revise` "
                     f"and `finish` run a proposer",
                     detail=[f"`{cmd}` grades a draft it is handed; nothing in it "
@@ -11979,7 +12022,7 @@ def main():
                 if _bp_say:
                     print(_bp_say)
                 BPROV.write_ledger(args[1], lines, _bp_states)
-                if cmd == "finish":
+                if cmd in ("finish", "tryline"):
                     # THE MANDATE AND THE METER COME OFF THE PLAN, spelled
                     # exactly as its own GRADE IT line spells them
                     # (`quality/plan.py:grading_command` — doctrine 1: one
@@ -11987,9 +12030,10 @@ def main():
                     # restated) and handed to the SAME `_mandate_arg` every
                     # hand-typed mandate goes through, so `finish` cannot
                     # come to parse a spelling differently from `revise`.
-                    if [a for a in args[2:] if not a.startswith("-")]:
-                        _refuse(f"finish does not take a mandate argument "
-                                f"— got {args[2]!r}",
+                    _pos_from = 4 if cmd == "tryline" else 2
+                    if [a for a in args[_pos_from:] if not a.startswith("-")]:
+                        _refuse(f"{cmd} does not take a mandate argument "
+                                f"— got {args[_pos_from]!r}",
                                 detail=["the plan the seed names IS the "
                                         "mandate; a second spelling beside "
                                         "it would be two statements of one "
@@ -12059,6 +12103,297 @@ def main():
                         "less expansive lines may be admitted; no writer was started.",
                         machine={"execution_limits": _actual_work,
                                  "final_draft": list(lines), "certified": False})
+                if cmd == "tryline":
+                    # `tryline DRAFT N "line" --seed=S` — THE PRE-FLIGHT
+                    # (`MISSING.md` M-302). It answers ONE question, the one
+                    # a writer holding a candidate actually has: WOULD THIS
+                    # LINE BE ACCEPTED? Before it existed the only way to
+                    # find out was to answer the loop and pay a full grading
+                    # cycle for the verdict.
+                    #
+                    # MEASURED 2026-09-19, which is the whole argument for
+                    # the verb: a `finish` cycle on the seed-1000 case ran
+                    # 8, 11 then 15 minutes and lengthening; the acceptance
+                    # decision alone runs in 31 s. A rejected answer cost a
+                    # cycle, so two independent agent writers driving
+                    # `--propose=defer:` did the rational thing and built
+                    # their own pre-flight rigs — a syllable counter, a
+                    # density/prominence band checker, a schema prober and a
+                    # shell wrapper around this very verdict — 1,495 tool
+                    # calls between them. STANDING RULE 3 NAMES THAT EXACTLY:
+                    # "an improvised script used twice is a defect report,
+                    # not a convenience." Two writers improvised four apiece,
+                    # and neither had read the rule. This verb is the defect
+                    # report answered.
+                    #
+                    # IT IS A FRONT DOOR, NOT A SECOND OPINION. The verdict
+                    # is `Reviser.verify` — the same call, with the same
+                    # arguments, that `quality/loop.py` makes to decide
+                    # whether to keep an answer — and what the answer CHANGES
+                    # is `loop.apply_candidate`, the one definition extracted
+                    # in this same lot so that a pre-flight cannot mirror a
+                    # declared return differently from the loop and then
+                    # answer confidently about a draft the loop never builds
+                    # (doctrine 1). Nothing about acceptance is decided here.
+                    try:
+                        _target = int(args[2])
+                    except (IndexError, ValueError):
+                        _refuse(
+                            "tryline requires a LINE NUMBER as its second "
+                            "argument",
+                            detail=["usage: tryline DRAFT LINE \"the new "
+                                    "line\" --seed=N [the same plan flags "
+                                    "`finish` takes]",
+                                    "the line number is 1-based, as every "
+                                    "brief and every finding in this "
+                                    "repository spells it"])
+                    if not 1 <= _target <= len(lines):
+                        _refuse(
+                            f"tryline was asked about L{_target} of a "
+                            f"{len(lines)}-line draft",
+                            detail=["a line number outside the draft is a "
+                                    "question about a line that does not "
+                                    "exist, not a rejected candidate — so "
+                                    "it REFUSES rather than answering no "
+                                    "(doctrine 20)"])
+                    _cand = args[3] if len(args) > 3 else ""
+                    if not _cand.strip():
+                        _refuse(
+                            "tryline requires the candidate line as its "
+                            "third argument",
+                            detail=["an empty candidate is not a revision; "
+                                    "pass the whole new line as one quoted "
+                                    "argument"])
+                    # WHAT THE ANSWER MOVES, asked of the loop's own
+                    # definition: the line, PLUS every member of its
+                    # declared verbatim return. A caller who edits one
+                    # member by hand earns `RETURN_NOT_VERBATIM` on its
+                    # mates — measured on this very case while building the
+                    # verb, editing L7 of the seed-1000 draft without its
+                    # return class put the finding on L10.
+                    # WHICH DRAFT THE QUESTION IS ASKED AGAINST (M-303).
+                    # The loop's current draft lives in the deferred state
+                    # and in no file: `finish` never writes the draft back,
+                    # and the ledger beside the file refuses a hand-edit of
+                    # it (M-200). So past the loop's first accepted answer
+                    # the file is a draft the loop no longer holds, and a
+                    # verdict read against it is a stale one — measured on
+                    # the first song written through this verb, 2026-09-19:
+                    # L5 accepted, applied by hand, and the very next
+                    # question refused as an unbriefed revision. Asked WITH
+                    # `--propose=defer:PATH`, the question is read against
+                    # that state's `accepted_lines`, which is by
+                    # construction the draft the open brief was issued on
+                    # (its pending record carries that draft's fingerprint
+                    # and this checks it). Asked WITHOUT, against the file —
+                    # and if a deferred state on the ledger has moved past
+                    # the file, that REFUSES rather than answers, naming the
+                    # state to ask instead (doctrine 20).
+                    from quality.revise import draft_fingerprint as _dfp3
+                    _against, _st_path, _st = lines, None, None
+                    _open_q, _moved_in = [], []
+                    if propose_spec.startswith("defer:"):
+                        _st_path = propose_spec.split(":", 1)[1]
+                        if not os.path.exists(_st_path):
+                            _refuse(
+                                f"--propose=defer:{_st_path} — no deferred "
+                                f"state there; nothing has been briefed",
+                                detail=["a pre-flight against a state the "
+                                        "loop has not written is a question "
+                                        "about a draft that does not exist "
+                                        "yet — run `finish ... "
+                                        "--propose=defer:PATH` first, then "
+                                        "ask here"])
+                        _st = _defer_state(_st_path)
+                        if not _st.get("input_draft"):
+                            _refuse(
+                                f"--propose=defer:{_st_path} — the state "
+                                f"was never started by `finish` (no "
+                                f"input_draft)")
+                        if list(_st["input_draft"]) != list(lines):
+                            _refuse(
+                                f"--propose=defer:{_st_path} — that state "
+                                f"was started on a DIFFERENT handed-in "
+                                f"draft than {args[1]}",
+                                detail=["the file `finish` was handed never "
+                                        "moves; the loop's answers live in "
+                                        "the state — hand this verb the same "
+                                        "file `finish` was given, and ask "
+                                        "about the state's current draft "
+                                        "through it"])
+                        _cur = list(_st.get("accepted_lines") or lines)
+                        if len(_cur) != len(lines):
+                            _refuse(
+                                f"--propose=defer:{_st_path} — the state's "
+                                f"current draft has {len(_cur)} line(s) "
+                                f"against the handed-in {len(lines)}")
+                        _pend = _st.get("pending") or None
+                        if _pend:
+                            _prec = _pend.get("record") or {}
+                            _precs = list(_prec.get("records") or ())
+                            _open_q = ([int(r["line"]) for r in _precs]
+                                       if _precs else
+                                       [int(x) for x in
+                                        (_prec.get("members") or
+                                         ([_prec["line"]] if "line" in _prec
+                                          else ()))])
+                            # A GROUP RECORD NAMES ITS DRAFT BY THE MEMBERS'
+                            # TEXTS, not by a fingerprint — that is what its
+                            # replay matches on — so it is checked the way it
+                            # is spelled: a tamper OUTSIDE the members is not
+                            # detectable from a group question, and this
+                            # does not pretend otherwise.
+                            _gm = list(_prec.get("members") or ())
+                            _gt = list(_prec.get("texts") or ())
+                            if (_gm and _gt and not _precs
+                                    and "line" not in _prec):
+                                _now = [_cur[int(m) - 1] for m in _gm
+                                        if 1 <= int(m) <= len(_cur)]
+                                if _now != _gt:
+                                    _refuse(
+                                        f"--propose=defer:{_st_path} — the "
+                                        f"open question was asked on draft "
+                                        f"lines {_gm} reading {_gt!r} but "
+                                        f"the state's current draft reads "
+                                        f"{_now!r}",
+                                        detail=["a state whose pending brief "
+                                                "and current draft disagree "
+                                                "is not one this verb can "
+                                                "read a verdict off; it was "
+                                                "written by `finish` and only "
+                                                "`pending.answer` is the "
+                                                "writer's to edit"])
+                            _pfp = ((_precs[0] if _precs else _prec)
+                                    .get("draft"))
+                            if _pfp and _pfp != _dfp3(_cur):
+                                _refuse(
+                                    f"--propose=defer:{_st_path} — the "
+                                    f"open question was asked on draft "
+                                    f"{_pfp} but the state's current draft "
+                                    f"is {_dfp3(_cur)}",
+                                    detail=["a state whose pending brief and "
+                                            "current draft disagree is not "
+                                            "one this verb can read a verdict "
+                                            "off; it was written by `finish` "
+                                            "and only `pending.answer` is "
+                                            "the writer's to edit"])
+                        _against = _cur
+                        _moved_in = [i + 1 for i, (a, b)
+                                     in enumerate(zip(lines, _cur)) if a != b]
+                        print(f"  AGAINST: the loop's CURRENT draft from "
+                              f"{_st_path} — round "
+                              f"{_st.get('round')}, status "
+                              f"{_st.get('status')!s}; "
+                              f"{len(_moved_in)} line(s) moved since the "
+                              f"handed-in file"
+                              + (f" {_moved_in}" if _moved_in else ""))
+                        if _open_q:
+                            print(f"  OPEN   : the loop's open question is "
+                                  f"{', '.join(f'L{n}' for n in _open_q)}"
+                                  f" ({_pend.get('kind')})"
+                                  + ("" if _target in _open_q else
+                                     f" — L{_target} is NOT among them; the "
+                                     f"answer slot will not take it, this "
+                                     f"is a verdict and not an answer"))
+                            if (_pend.get("kind") == "propose_batch"
+                                    and len(_open_q) > 1):
+                                print("           a batch's rows are verified "
+                                      "in order with each ACCEPTED row folded "
+                                      "before the next; its members are "
+                                      "independent by the loop's own test, "
+                                      "so only a whole-draft finding could "
+                                      "read differently there than here")
+                    else:
+                        _led = BPROV.read_ledger(args[1]) or {}
+                        for _sp in list(_led.get("states") or ()):
+                            if not os.path.exists(_sp):
+                                continue
+                            try:
+                                with open(_sp, encoding="utf-8") as _fh:
+                                    _sj = json.load(_fh)
+                            except (OSError, ValueError):
+                                continue
+                            if not isinstance(_sj, dict):
+                                continue
+                            _sc = list(_sj.get("accepted_lines") or ())
+                            _mv = [i + 1 for i, (a, b)
+                                   in enumerate(zip(lines, _sc)) if a != b]
+                            if _sc and _mv:
+                                _refuse(
+                                    f"the loop's current draft is "
+                                    f"{len(_mv)} line(s) past this file — "
+                                    f"{_mv} moved in the deferred state "
+                                    f"{_sp}",
+                                    detail=["a verdict read against a draft "
+                                            "the loop no longer holds is a "
+                                            "stale one, not a pre-flight",
+                                            f"ask the same question with "
+                                            f"--propose=defer:{_sp}"])
+                        print("  AGAINST: the handed-in file (no deferred "
+                              "state has moved past it)")
+                    _after, _targets = LP.apply_candidate(
+                        rv, _against, scheme, _target, _cand)
+                    _res = rv.verify(_against, _after, scheme,
+                                     targeted=set(_targets),
+                                     profile=rv_profile, blueprint=bp_path,
+                                     subdivision=subdivision, assume=assume)
+                    _ok = bool(_res.get("accepted"))
+                    _moved = ", ".join(f"L{n}" for n in sorted(_targets))
+                    print()
+                    print(f"  VERDICT: {'ACCEPTED' if _ok else 'REJECTED'} "
+                          f"— L{_target}")
+                    print(f"  MOVES  : {_moved}"
+                          + ("" if len(_targets) == 1 else
+                             "  (a declared verbatim return moves as a "
+                             "class — the loop mirrors it and so does this)"))
+                    for _r in _res.get("reasons") or ():
+                        print(f"  WHY    : {_r}")
+                    _fx = _res.get("fixed") or []
+                    _nf = _res.get("new_flags") or []
+                    _nn = [c for c in (_res.get("new") or []) if c not in _nf]
+                    print(f"  FIXED  : {len(_fx)}"
+                          + ("" if not _fx else "  " + ", ".join(
+                              f"L{a}:{b}" for a, b in _fx)))
+                    # THREE COUNTS, NEVER SUMMED (doctrine 79). A new FLAG
+                    # rejects; a new NOTE does not; a coverage regression is
+                    # a third thing again — a pair that was JUDGED and is
+                    # now REFUSED, which is neither a fix nor a new finding.
+                    print(f"  NEW FLAG: {len(_nf)}"
+                          + ("" if not _nf else "  " + ", ".join(
+                              f"L{a}:{b}" for a, b in _nf))
+                          + ("" if _nf else "  (a new flag is what rejects)"))
+                    print(f"  NEW NOTE: {len(_nn)}"
+                          + ("" if not _nn else "  " + ", ".join(
+                              f"L{a}:{b}" for a, b in _nn))
+                          + "  (notes never reject — doctrine 7)")
+                    _cr = list(_res.get("coverage_regressions") or ())
+                    print(f"  COVERAGE LOST: {len(_cr)}"
+                          + ("" if not _cr else "  " + ", ".join(map(str, _cr))
+                             + "  (previously JUDGED, now REFUSED — not a "
+                               "new finding and not a fix)"))
+                    _lyric_result(version=1, status="tryline",
+                                  command="tryline", line=_target,
+                                  moves=sorted(_targets), candidate=_cand,
+                                  accepted=_ok,
+                                  reasons=list(_res.get("reasons") or ()),
+                                  fixed=[list(x) for x in _fx],
+                                  new_flags=[list(x) for x in _nf],
+                                  new_notes=[list(x) for x in _nn],
+                                  coverage_regressions=[str(x) for x in _cr],
+                                  against="state" if _st is not None
+                                  else "file",
+                                  state=_st_path,
+                                  state_round=(_st or {}).get("round"),
+                                  state_status=(_st or {}).get("status"),
+                                  moved_since_handed_in=list(_moved_in),
+                                  open_question=list(_open_q),
+                                  transport_token=None)
+                    # EXIT 3 ON A REJECTION, matching `revise`/`song`'s "a
+                    # gate said no" code rather than 2, which this file
+                    # reserves for a question the harness could not answer.
+                    # A rejected candidate IS an answer.
+                    sys.exit(0 if _ok else 3)
+
                 from quality import replay_memo as RM
                 _rm_key = RM.run_key(sys.argv[1:], input_paths=(args[1], bp_path))
                 from quality.propose import ProposerUnavailable

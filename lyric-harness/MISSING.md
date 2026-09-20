@@ -27179,3 +27179,198 @@ caught in, on its first live invocation, in the direction the fix predicted.
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~355~~ -> **356**.
 
 **356** with this entry (2026-09-19).
+
+### M-302 · A writer could learn whether a line would be accepted only by SPENDING a grading cycle on it, so two agent writers built four pre-flight scripts apiece — which standing rule 3 calls a defect report, not a convenience `CLOSED` 2026-09-19 — the owner's instruction, verbatim: *"build the pre-flight verb"*
+
+**HOW IT WAS FOUND: BY WATCHING TWO WRITERS WORK, NOT BY READING THE CODE.**
+The owner ruled that the paid kitchen writer be split off from the question of
+whether the multi-place case converges at all (*"do the split - drive it with
+an agent first"*), and two agents were put on seed 1000's 22-line case through
+`--propose=defer:` — one from a seeded draft, one writing its own. They were
+stopped after the owner saw the cost: **arm B alone had spent 2 h 19 m, 559.8 k
+tokens and 1,495 tool calls.**
+
+**WHAT THEY ACTUALLY DID WITH THOSE TOOL CALLS, which is the finding.** Neither
+flailed. Each independently built a private pre-flight rig and ran it before
+daring to answer:
+
+| built by hand | what it re-derived |
+|---|---|
+| `syl.py` | a syllable counter, wrapping `word_syllable_map` |
+| `band.py` | a density/prominence band checker, wrapping `meter_bands` + `fit` |
+| `schematest.py` | a relation prober against the schema registry |
+| `try.sh`, `pre/`, `pre2/` | a wrapper around **this repository's own `verify` verb**, plus two whole shadow `finish` rigs |
+
+**STANDING RULE 3 NAMES THIS EXACTLY** — *"any measurement or step used in
+producing a delivered song goes through a verb, and an improvised script used
+twice is a defect report, not a convenience"* — and neither agent had read it.
+The rule was written after the owner asked what "my private workflow" meant and
+the honest answer was a confession about an operator's scratch script. The same
+defect reappeared from OUTSIDE the project, under the same pressure, which is
+the strongest evidence the rule is about a real force rather than one session's
+sloppiness.
+
+**THE FORCE, MEASURED.** A `finish` cycle on that case ran **8, 11 then 15
+minutes and lengthening** (arm A's answer files at 18:06, 18:14, 18:25, 18:40;
+n=3 gaps, and why it lengthens is NOT diagnosed here). A rejected answer costs a
+whole cycle. The acceptance decision ALONE runs in **31 s** on the same 22-line
+draft and **9 s** on the twelve-line fixture the suite uses. So the writer faced
+a 15-to-30x penalty for asking the harness directly instead of guessing, and
+guessing well required rebuilding the harness's own measurements by hand. Arm A
+found the right route unaided — `try.sh` shells out to `verify` — which is the
+sharpest part: **the decision was already reachable, and nothing pointed a
+writer at it.**
+
+**WHAT SHIPS.**
+1. **`loop.apply_candidate(reviser, lines, mandate, line_no, candidate)`** —
+   extracted from `_try_tier1`, where it was six inline lines. It is THE ONE
+   DEFINITION of what a one-line answer changes: the line, plus every member of
+   its declared verbatim return (M-201's rule). `_try_tier1` calls it now and
+   spells it nowhere.
+2. **`tryline DRAFT LINE "the new line" --seed=N`** — the verb. It rides the
+   SAME block `finish` does, so the mandate, blueprint and subdivision come off
+   the plan and nothing on its command line restates any of them; then it calls
+   `Reviser.verify` with the arguments the loop passes. **It decides nothing.**
+   Exit 0 ACCEPTED, 3 REJECTED, 2 REFUSED. Three counts ride out separately and
+   are never summed (doctrine 79): what was FIXED, the new FLAGS that rejected
+   it, the new NOTES that did not, and coverage lost — a pair that was JUDGED
+   and is now REFUSED, which is neither.
+
+**THE EXTRACTION IS NOT TIDYING, AND THE MEASUREMENT SAYS SO.** Building the
+verb, a hand-built candidate that edited L7 of the seed-1000 draft *without* its
+return class came back with **two** new flags — `L7:SCHEME_VIOLATION` and a
+spurious `L10:RETURN_NOT_VERBATIM`. Through `apply_candidate` the same candidate
+reports **one**. A pre-flight that mirrored returns its own way would answer
+confidently about a draft the loop never builds, which is doctrine 1's own case.
+On the suite's twelve-line fixture the mirror is the difference between FIXING
+`RETURN_NOT_VERBATIM` and leaving it standing.
+
+**PINNED** (`quality/test_verbs.py` §60, 19 checks): that `_try_tier1` CALLS
+`apply_candidate` and that its inline `after[...] = candidate` spelling is gone
+by AST; the contract, both ways (a line in a return moves its whole class, a
+line in none moves alone) with the naive apply shown to be a DIFFERENT draft, so
+the mirror is not a no-op on the fixture; the verb accepting at exit 0 and
+reporting the return class as what it moved; the mirror being what earns the
+`RETURN_NOT_VERBATIM` fix; a rejection at exit 3 naming its new flags, still
+reporting what it fixed, with notes carried separately from flags; and three
+refusals at exit 2 — a line outside the draft, a non-numeric line, an empty
+candidate. A line number outside the draft REFUSES rather than answering no,
+because a question about a line that does not exist is not a rejected candidate
+(doctrine 20).
+
+**WHAT THIS DOES NOT CLAIM.** It does not make the seed-1000 case converge, and
+it is not evidence that it can. Both arms were still descending when stopped —
+arm A 15 of 20 answers accepted, arm B 18 of 27, with lines worked per round
+6→7→3 and 10→5→4→1 — and neither reached a stop condition. The dominant
+rejection in the late rounds was **"nothing was fixed" (8 of 12)**, which is a
+line rewrite offered against a JOINT constraint that no single line can satisfy;
+**zero group-level answers were given by either arm**, so the tier-2 whole-group
+backtrack built for exactly that case never came into play. Whether that is the
+loop failing to offer the group move or the writers failing to take it is NOT
+diagnosed here and is the next question, not this entry's.
+
+**AND THE COST FIGURE IS AN UPPER BOUND ON THE REMEDY, NOT A PROMISE.** 31 s and
+9 s are the acceptance decision on two drafts; nothing here measures how many
+pre-flights a writer needs per accepted line, so no end-to-end saving is
+claimed.
+
+**AND M-301's OTHER TWO WITNESSES LAND HERE**, rather than costing a pull
+request for one paragraph. That entry cites run 2259 only; all three arms of the
+repaired `dup` job have now fired in production:
+
+| run | arm | result |
+|---|---|---|
+| 2259 | pull request opened ~20 s AFTER the push | 22 of 23 jobs skipped, 25 s |
+| 2261 | pull request already open at push time | answered at the FIRST poll, no wait, 9 s |
+| 2264 | merge mirror — the sha IS `main`'s head | 1 success + 22 skipped, **7 s** |
+
+Run 2264 is M-251's question, withdrawn 2026-09-06 for reading workflow RUNS and
+answered here from the default branch's REF. **It also discharges M-300's
+procedural remedy**: a bare post-merge sync now costs seven seconds and no jobs,
+so the stop-hook's *"N unpushed commits"* nag can simply be obeyed.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~356~~ -> **357**.
+
+**357** with this entry (2026-09-19).
+
+### M-303 · `tryline` could answer only the loop's FIRST question — the loop's current draft lives in the deferred state and in no file, so the pre-flight built to save a cycle refused its own second use `CLOSED` 2026-09-19 — found by writing the first song through it, which is how this class of defect gets found: the writer is the first to see it
+
+**HOW IT WAS FOUND.** The owner's reading of the writer experiment (M-302) was
+that it had been run as a batch and not as a loop: *"if you go write a song and
+something gets fucked up then you're the first to see it so you could stop, fix
+it, then start writing from scratch to see if your fix actually worked."* So a
+song was written by hand through the verb, and the verb broke on its second
+use. A twelve-line plan (`plan --seed=7 --lines=12`), a draft, `song` to grade
+it: two flags. `tryline` on L5 with a candidate: **ACCEPTED in 22 s**. The
+candidate applied to the draft file, `tryline` on L7:
+
+```
+REFUSED — unbriefed revision — line(s) [5] moved since draft cd0756140c0b and
+no brief was ever issued for them
+```
+
+**WHY, AND WHY THE REFUSAL WAS RIGHT.** The ledger beside the draft (M-200, the
+owner's ruling that the deferred loop is *the only front door*) refuses a
+hand-edited line, and a hand-applied accepted answer IS a hand-edited line as
+far as any file can tell. `finish` never writes the draft back; the loop's
+current draft is the state's `accepted_lines`, and on a suspended state that
+list's fingerprint is exactly the `draft` the pending brief was issued on
+(checked on arm A's state: `3bf3d1b6b1d3` both ways). A pre-flight that reads
+only the file is therefore a round-one instrument: the moment the loop folds
+its first answer, the file is a draft the loop no longer holds, and any verdict
+read against it is stale. Standing rule 3 applied a second time — the agent
+writers' fourth script was a wrapper that copied the state's draft out to a
+file to get past exactly this.
+
+**THE REMEDY IS ONE FLAG THE VERB ALREADY PARSED.** `tryline … --propose=defer:PATH`
+asks against that state's current draft. Nothing new is spelled: `--propose=defer:`
+is the coordinate `finish` and the ledger already read the state path off, and
+on `tryline` it is the only value the flag takes — `stub`, `replay:` and `call:`
+are proposers, nothing in a pre-flight writes a line, so they REFUSE by name.
+Asked with it, the verb prints `AGAINST:` (the state, its round and status, and
+which lines have moved since the handed-in file), `OPEN:` (the loop's open
+question and whether the asked line is among it — a verdict on a line the loop
+does not have open is said to be a verdict and not an answer), refuses a state
+started on a different handed-in draft, a state that does not exist, and a state
+whose pending brief and current draft disagree. Asked WITHOUT it once a state on
+the ledger has moved past the file, it REFUSES and names the state to ask
+instead (doctrine 20) — the file path stays a round-one instrument by
+declaration rather than by accident.
+
+**PINNED** (`quality/test_verbs.py` §60(e), 12 checks): the fixture suspends on
+a three-line batch; asked through the state before anything moves, the verb
+names the draft it read and the open question; the three refusals; the batch
+answered with lines the verb accepted and the loop folding them; **PARITY** —
+the verb's verdict on L5 before the fold is the loop's recorded verdict at the
+fold, and L3's return-mirror fix likewise; the file path refusing once the state
+has moved past it, naming the state; the state path answering against the
+current draft with the moved lines listed and a line not open reported as such;
+and the disagreeing-state refusal.
+
+**MEASURED, on the way.** A `tryline` call on the twelve-line draft runs 20–22 s
+whether asked of the file or the state. Arm A's own wrapper around `verify` on
+the 22-line seed-1000 draft, timed once tonight: **128 s** — so the writers'
+fifteen-minute timeouts were budgeting for the `finish` cycle, not for the
+verdict. One slot on the fixture (L8, pantun with `rain`) took four candidates
+to clear: `lane`, `chain`, `grain` each rejected as *"the modal candidate … the
+slop direction (doctrine 9)"*, `vein` accepted.
+
+**WHAT THIS DOES NOT CLAIM, and what it noticed.** (1) A batch's rows are
+verified in order with each accepted row folded before the next; a pre-flight
+asked before the fold reads the draft as it stood. The loop's own batch test
+admits only lines independent of one another, so only a whole-draft finding can
+read differently, and the verb says so under `OPEN:` rather than folding rows it
+has not verified. (2) On the fixture the loop verified L3 and L5 of the batch,
+then escalated to a tier-2 group question on `[6, 7, 10, 11]` **without visiting
+L8** — the row sits answered and unverified. That is the loop's order, not the
+verb's, and it is recorded here rather than claimed correct. (3) Three different
+words in one slot were each reported as *the* modal candidate. Not diagnosed
+here; the next question, not this entry's. (4) A group question's record
+names its draft by its members' texts and not by a fingerprint — that is what
+its replay matches on — so the disagreeing-state refusal is checked the way
+the record is spelled, and a tamper OUTSIDE the members is not detectable from
+a group question; the verb does not pretend otherwise.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~357~~ -> **358**.
+
+**358** with this entry (2026-09-19).
