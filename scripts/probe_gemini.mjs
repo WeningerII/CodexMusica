@@ -11,7 +11,7 @@
 // bundled catalog, and the model is really called. A stub would be strictly more
 // work — engine.js has no dependencies and the catalog is bundled — and it would
 // guarantee a false pass, because the hard part is resolving "haunted Appalachian
-// murder ballad" to a real preface id out of 741 against 2503 traditions, not
+// murder ballad" to a real preface id out of 740 against 2503 traditions, not
 // emitting syntactically valid JSON. A stub answers the easy half and lies about
 // the other.
 //
