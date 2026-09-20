@@ -2,7 +2,8 @@
 
 A declaration binds an exact lyric line and a one-based sung-token position.
 It applies to all verbatim occurrences of that line, including chorus returns.
-Changing that line invalidates the declaration; callers must re-declare it.
+Changing that line never transports its reading. A revision may retire a
+declaration whose original occurrence is gone; new text is judged independently.
 """
 import copy
 import hashlib
@@ -78,12 +79,17 @@ def for_token(lex, index):
     return out
 
 
-def declaration_coverage(rows, lines):
+def declaration_coverage(rows, lines, *, original_lines=None):
+    original = set(original_lines or ())
     return [{'id': f'pronunciation:{i+1}', 'layer': 'pronunciation',
-             'status': 'answered' if row['line'] in lines else 'refused',
+             'status': ('answered' if row['line'] in lines else
+                        'not_requested' if row['line'] in original else 'refused'),
+             'retired': row['line'] not in lines and row['line'] in original,
              'basis': row['basis'], 'source': row['source'],
-             'detail': 'Explicit occurrence reading applied' if row['line'] in lines else
-                       'Stale pronunciation: exact line is absent. Re-declare for the changed draft and regrade.',
+             'detail': ('Explicit occurrence reading applied' if row['line'] in lines else
+                        'Original occurrence removed by revision; its reading is not applied to new text.'
+                        if row['line'] in original else
+                        'Stale pronunciation: exact line is absent. Re-declare for the changed draft and regrade.'),
              'line': row['line'], 'token': row['token'], 'word': row['word'], 'phones': row['phones'],
              'matching_lines': [n+1 for n, text in enumerate(lines) if text == row['line']]}
             for i, row in enumerate(rows)]

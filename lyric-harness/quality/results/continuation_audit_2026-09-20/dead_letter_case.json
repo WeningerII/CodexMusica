@@ -1,0 +1,610 @@
+{
+  "description": "Frozen fresh interview: exact program plan and retained drafts. Diagnostic regression only; no fresh-song qualification claimed.",
+  "plan": {
+    "choices": {
+      "anacrusis": {
+        "bridge": {
+          "chosen_from": [0, 0.25, 0.5, 0.75, 1],
+          "value": 0.5
+        },
+        "chorus": {
+          "chosen_from": [0, 0.25, 0.5, 0.75, 1],
+          "value": 0.75
+        },
+        "verse": {
+          "chosen_from": [0, 0.25, 0.5, 0.75, 1],
+          "value": 0.75
+        }
+      },
+      "audible": {
+        "audible": 0,
+        "audible_names": [],
+        "bare": 5,
+        "end_bound": 5,
+        "inaudible": []
+      },
+      "bars_per_line": 1,
+      "brief_selection": {
+        "attempts": [
+          {
+            "failed": [],
+            "seed": 20260922,
+            "status": "accepted"
+          }
+        ],
+        "candidate_seed": 20260922,
+        "policy": "first satisfying candidate; no ranking",
+        "wants": ["uses=verse,chorus,bridge", "sections>=5", "returns>=1"]
+      },
+      "density": {
+        "binding_cap": 3,
+        "chosen_from": "uniform over 1..4 per PLAN (the line-binding ceiling), from a stream seeded on (seed, 'density'); each line then draws its participation uniform over 1..3, and the end-rhyme pass binds free line ends on top (M-191)"
+      },
+      "end_rhyme": {
+        "added": 5,
+        "blocked": 1,
+        "chosen_from": "NOT A DRAW \u2014 each sung section's own `schemes[fn].rgs` re-realised at the line ends, so this consumes no seed entropy and the placement draw above is untouched. Three counts, never summed (doctrine 79): `added` groups emitted; `blocked` blocks whose ends the placement draw had already spent; `narrow` blocks whose lines cannot carry one more DISTINCT word.",
+        "groups": ["1,2", "11,12", "16,18", "21,22,23", "25,26,27"],
+        "narrow": 0
+      },
+      "execution": {
+        "admitted": true,
+        "basis": "registry span enumeration; no phonological bucket pruning assumed",
+        "candidate_upper_bound": 1587600,
+        "inspection_only": false,
+        "limiting_schema": "chain rhyme (rap)",
+        "max_candidate_pairs": 2000000,
+        "max_lines": 31,
+        "max_syllables_per_line": 12,
+        "scope": "English lines at or below the declared density ceiling; no latency/RSS guarantee"
+      },
+      "meter": {
+        "beats_per_line": 3,
+        "chosen_from": "178 derived cycles (beats envelope [2, 12], slots envelope [5, 48]), measured BY DERIVATION ON THE DECLARED COORDINATE: 1 of 11 beats-per-line values, then 1 of 2 bars x subdivision factorisation(s) of 3 beats, then 1 of 1 groupings of 3. The line runs 3 beat(s) \u2014 at most the density band's ceiling, since a sung line carries at least one syllable a beat \u2014 and holds 12 slot(s), at least the band's floor. Both ends are the same calibrated band in different units; the pair share follows from how many ways each beat count factorises. Unit is notation, never enforced",
+        "slots_per_line": 12,
+        "value": {
+          "beats": 3,
+          "groups": [3],
+          "unit": 8
+        }
+      },
+      "narrative": {
+        "chosen_from": "uniform over the 1086 legal story line-ups of this shape (quality/narrative.py, M-121; the count is exact and the draw is entropy-last)",
+        "value": {
+          "atoms": [
+            [0, "chorus", "ANCHOR"],
+            [1, "chorus", "ANCHOR"],
+            [2, "bridge", "TURN"],
+            [3, "verse", "ESTABLISH"],
+            [4, "verse", "JUDGE"]
+          ],
+          "junctions": [
+            [0, 1, "JUXTAPOSE"],
+            [1, 2, "BUT"],
+            [2, 3, "THEREFORE"],
+            [3, 4, "AND_THEN"]
+          ],
+          "lineups": 1086,
+          "mode": "drawn"
+        }
+      },
+      "pattern": {
+        "chosen_from": "generated grammar: 22 cell types x 1..7 cells under the drawn total and declared brief, optional intro/outro/coda, roster 20 of 22 functions",
+        "functions": ["chorus", "chorus", "bridge", "verse", "verse"]
+      },
+      "placements": {
+        "measure": "uniform per MEMBER over the pool; per member and not per group because 8 of the 77 registered schemas anchor one member at each end of a word",
+        "pool": ["end", "endword", "head", "headrime", "T1", "T2", "T3", "T4", "T5", "T6", "T7"],
+        "token_ceiling": 7,
+        "token_ceiling_from": "the smaller of the floor's measured tokens-per-line floor 7.00 and this plan's own shortest line (9 syllable(s) after its pickup) less one for the last word \u2014 a plan asks for the n-th word only where BOTH the calibration and this meter say a line carries that many",
+        "words": ["1", "2", "3", "4", "5", "6", "7", "last"]
+      },
+      "relations": {
+        "chosen_from": "NOT DRAWN \u2014 the writer declared --relation and a declared coordinate is carried, never sampled over (M-55)",
+        "value": {}
+      },
+      "schemes": {
+        "bridge": {
+          "chosen_from": 115974,
+          "lines": 10,
+          "lines_chosen_from": [1, 463],
+          "rgs": [0, 0, 1, 2, 2, 1, 2, 1, 3, 4]
+        },
+        "chorus": {
+          "chosen_from": 51,
+          "lines": 5,
+          "lines_chosen_from": [1, 463],
+          "rgs": [0, 0, 0, 1, 2]
+        },
+        "verse": {
+          "chosen_from": 14,
+          "lines": 4,
+          "lines_chosen_from": [1, 463],
+          "rgs": [0, 0, 0, 1]
+        }
+      },
+      "shape_attempts": 1,
+      "structures": {
+        "bridge": {
+          "chosen_from": ["english-end-rhyme"],
+          "name": "english-end-rhyme"
+        },
+        "chorus": {
+          "chosen_from": ["english-end-rhyme"],
+          "name": "english-end-rhyme"
+        },
+        "verse": {
+          "chosen_from": ["english-end-rhyme"],
+          "name": "english-end-rhyme"
+        }
+      },
+      "subdivision": 4
+    },
+    "envelope": {
+      "anacrusis": [0, 0.25, 0.5, 0.75, 1],
+      "bars_per_line": [1, 6],
+      "beats_per_line": [2, 12],
+      "body_cells": [1, 463],
+      "lines_per_section": [1, 463],
+      "sections": [1, 115],
+      "slots_per_line": [5, 48],
+      "subdivisions": [1, 2, 4],
+      "total_lines": [12, 463]
+    },
+    "execution_limits": {
+      "admitted": true,
+      "basis": "registry span enumeration; no phonological bucket pruning assumed",
+      "candidate_upper_bound": 1587600,
+      "inspection_only": false,
+      "limiting_schema": "chain rhyme (rap)",
+      "max_candidate_pairs": 2000000,
+      "max_lines": 31,
+      "max_syllables_per_line": 12,
+      "scope": "English lines at or below the declared density ceiling; no latency/RSS guarantee"
+    },
+    "functions": ["verse", "chorus", "bridge", "outro"],
+    "functions_unused": ["outro"],
+    "groups": "1.headrime,2.headrime,3.endword;1.T2,4,5.T7;2.T3,3.head;11.T7,12.T1;13.endword,16.T5,18.T4;14.T2,15.T2,17.endword;12.T4,13.T2,14.T4,15,16.T7,19.endword,20;13.headrime,14.endword,19.T7,20.T1;19.T4,20.T2;21.T3,22.T7,23.T5;21.head,24.T4;21.T4,24.T5;25.T3,26.head,27.T7;26.T7,27.T3,28.headrime;1,2;11,12;16,18;21,22,23;25,26,27",
+    "hook_slot": 1,
+    "hook_slot_refused": "",
+    "line_slots": [
+      {
+        "bar": 1,
+        "beat": 1.75,
+        "duration": 2.25,
+        "function": "chorus",
+        "line": 1,
+        "section": "CHORUS1"
+      },
+      {
+        "bar": 2,
+        "beat": 1.75,
+        "duration": 2.25,
+        "function": "chorus",
+        "line": 2,
+        "section": "CHORUS1"
+      },
+      {
+        "bar": 3,
+        "beat": 1.75,
+        "duration": 2.25,
+        "function": "chorus",
+        "line": 3,
+        "section": "CHORUS1"
+      },
+      {
+        "bar": 4,
+        "beat": 1.75,
+        "duration": 2.25,
+        "function": "chorus",
+        "line": 4,
+        "section": "CHORUS1"
+      },
+      {
+        "bar": 5,
+        "beat": 1.75,
+        "duration": 2.25,
+        "function": "chorus",
+        "line": 5,
+        "section": "CHORUS1"
+      },
+      {
+        "bar": 6,
+        "beat": 1.75,
+        "duration": 2.25,
+        "function": "chorus",
+        "line": 6,
+        "section": "CHORUS2"
+      },
+      {
+        "bar": 7,
+        "beat": 1.75,
+        "duration": 2.25,
+        "function": "chorus",
+        "line": 7,
+        "section": "CHORUS2"
+      },
+      {
+        "bar": 8,
+        "beat": 1.75,
+        "duration": 2.25,
+        "function": "chorus",
+        "line": 8,
+        "section": "CHORUS2"
+      },
+      {
+        "bar": 9,
+        "beat": 1.75,
+        "duration": 2.25,
+        "function": "chorus",
+        "line": 9,
+        "section": "CHORUS2"
+      },
+      {
+        "bar": 10,
+        "beat": 1.75,
+        "duration": 2.25,
+        "function": "chorus",
+        "line": 10,
+        "section": "CHORUS2"
+      },
+      {
+        "bar": 11,
+        "beat": 1.5,
+        "duration": 2.5,
+        "function": "bridge",
+        "line": 11,
+        "section": "BRIDGE1"
+      },
+      {
+        "bar": 12,
+        "beat": 1.5,
+        "duration": 2.5,
+        "function": "bridge",
+        "line": 12,
+        "section": "BRIDGE1"
+      },
+      {
+        "bar": 13,
+        "beat": 1.5,
+        "duration": 2.5,
+        "function": "bridge",
+        "line": 13,
+        "section": "BRIDGE1"
+      },
+      {
+        "bar": 14,
+        "beat": 1.5,
+        "duration": 2.5,
+        "function": "bridge",
+        "line": 14,
+        "section": "BRIDGE1"
+      },
+      {
+        "bar": 15,
+        "beat": 1.5,
+        "duration": 2.5,
+        "function": "bridge",
+        "line": 15,
+        "section": "BRIDGE1"
+      },
+      {
+        "bar": 16,
+        "beat": 1.5,
+        "duration": 2.5,
+        "function": "bridge",
+        "line": 16,
+        "section": "BRIDGE1"
+      },
+      {
+        "bar": 17,
+        "beat": 1.5,
+        "duration": 2.5,
+        "function": "bridge",
+        "line": 17,
+        "section": "BRIDGE1"
+      },
+      {
+        "bar": 18,
+        "beat": 1.5,
+        "duration": 2.5,
+        "function": "bridge",
+        "line": 18,
+        "section": "BRIDGE1"
+      },
+      {
+        "bar": 19,
+        "beat": 1.5,
+        "duration": 2.5,
+        "function": "bridge",
+        "line": 19,
+        "section": "BRIDGE1"
+      },
+      {
+        "bar": 20,
+        "beat": 1.5,
+        "duration": 2.5,
+        "function": "bridge",
+        "line": 20,
+        "section": "BRIDGE1"
+      },
+      {
+        "bar": 21,
+        "beat": 1.75,
+        "duration": 2.25,
+        "function": "verse",
+        "line": 21,
+        "section": "VERSE1"
+      },
+      {
+        "bar": 22,
+        "beat": 1.75,
+        "duration": 2.25,
+        "function": "verse",
+        "line": 22,
+        "section": "VERSE1"
+      },
+      {
+        "bar": 23,
+        "beat": 1.75,
+        "duration": 2.25,
+        "function": "verse",
+        "line": 23,
+        "section": "VERSE1"
+      },
+      {
+        "bar": 24,
+        "beat": 1.75,
+        "duration": 2.25,
+        "function": "verse",
+        "line": 24,
+        "section": "VERSE1"
+      },
+      {
+        "bar": 25,
+        "beat": 1.75,
+        "duration": 2.25,
+        "function": "verse",
+        "line": 25,
+        "section": "VERSE2"
+      },
+      {
+        "bar": 26,
+        "beat": 1.75,
+        "duration": 2.25,
+        "function": "verse",
+        "line": 26,
+        "section": "VERSE2"
+      },
+      {
+        "bar": 27,
+        "beat": 1.75,
+        "duration": 2.25,
+        "function": "verse",
+        "line": 27,
+        "section": "VERSE2"
+      },
+      {
+        "bar": 28,
+        "beat": 1.75,
+        "duration": 2.25,
+        "function": "verse",
+        "line": 28,
+        "section": "VERSE2"
+      }
+    ],
+    "narrative": {
+      "atoms": [
+        [0, "chorus", "ANCHOR"],
+        [1, "chorus", "ANCHOR"],
+        [2, "bridge", "TURN"],
+        [3, "verse", "ESTABLISH"],
+        [4, "verse", "JUDGE"]
+      ],
+      "junctions": [
+        [0, 1, "JUXTAPOSE"],
+        [1, 2, "BUT"],
+        [2, 3, "THEREFORE"],
+        [3, 4, "AND_THEN"]
+      ],
+      "lineups": 1086,
+      "mode": "drawn"
+    },
+    "plan_version": 3,
+    "relation": "class:ASSONANCE",
+    "relations": {},
+    "request": {
+      "form": "verse-chorus",
+      "functions": ["verse", "chorus", "bridge", "outro"],
+      "inspection_only": false,
+      "lines": 28,
+      "narrative": null,
+      "relation": "class:ASSONANCE",
+      "seed": 20260922,
+      "title": "Dead Letter Office",
+      "wants": ["uses=verse,chorus,bridge", "sections>=5", "returns>=1"]
+    },
+    "returns": "1,6;2,7;3,8;4,9;5,10",
+    "sections": [
+      {
+        "bars": 5,
+        "function": "chorus",
+        "meter": {
+          "beats": 3,
+          "groups": [3],
+          "unit": 8
+        },
+        "name": "CHORUS1",
+        "start_bar": 1
+      },
+      {
+        "bars": 5,
+        "function": "chorus",
+        "meter": {
+          "beats": 3,
+          "groups": [3],
+          "unit": 8
+        },
+        "name": "CHORUS2",
+        "start_bar": 6
+      },
+      {
+        "bars": 10,
+        "function": "bridge",
+        "meter": {
+          "beats": 3,
+          "groups": [3],
+          "unit": 8
+        },
+        "name": "BRIDGE1",
+        "start_bar": 11
+      },
+      {
+        "bars": 4,
+        "function": "verse",
+        "meter": {
+          "beats": 3,
+          "groups": [3],
+          "unit": 8
+        },
+        "name": "VERSE1",
+        "start_bar": 21
+      },
+      {
+        "bars": 4,
+        "function": "verse",
+        "meter": {
+          "beats": 3,
+          "groups": [3],
+          "unit": 8
+        },
+        "name": "VERSE2",
+        "start_bar": 25
+      }
+    ],
+    "subdivision": 4,
+    "title": "Dead Letter Office",
+    "total_lines": 28,
+    "writer_brief": "Write a song: 28 lines, 5 sections, in this order:\n  [CHORUS \u2014 5 lines \u2014 5 bars of 3/8, three-quarter-beat pickup]\n      up to 9 syllables a line after the pickup; the calibrated band asks at least 5\n  [CHORUS \u2014 5 lines \u2014 5 bars of 3/8, three-quarter-beat pickup]\n      up to 9 syllables a line after the pickup; the calibrated band asks at least 5\n  [BRIDGE \u2014 10 lines \u2014 10 bars of 3/8, half-beat pickup]\n      up to 10 syllables a line after the pickup; the calibrated band asks at least 5\n  [VERSE \u2014 4 lines \u2014 4 bars of 3/8, three-quarter-beat pickup]\n      up to 9 syllables a line after the pickup; the calibrated band asks at least 5\n  [VERSE \u2014 4 lines \u2014 4 bars of 3/8, three-quarter-beat pickup]\n      up to 9 syllables a line after the pickup; the calibrated band asks at least 5\nFeel: 3/8 grouped 3.\nRhyme plan (line numbers over the whole song):\n  lines 1.headrime & 2.headrime & 3.endword stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 1.T2 & 4 & 5.T7 stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 2.T3 & 3.head stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 11.T7 & 12.T1 stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 13.endword & 16.T5 & 18.T4 stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 14.T2 & 15.T2 & 17.endword stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 12.T4 & 13.T2 & 14.T4 & 15 & 16.T7 & 19.endword & 20 stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 13.headrime & 14.endword & 19.T7 & 20.T1 stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 19.T4 & 20.T2 stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 21.T3 & 22.T7 & 23.T5 stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 21.head & 24.T4 stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 21.T4 & 24.T5 stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 25.T3 & 26.head & 27.T7 stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 26.T7 & 27.T3 & 28.headrime stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 1 & 2 stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 11 & 12 stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 16 & 18 stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 21 & 22 & 23 stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 25 & 26 & 27 stand in ASSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\nStory plan (one job per sung section; each enters from the section before it as stated):\n  CHORUS1 is the fixed claim the song keeps returning to\n  CHORUS2 is the fixed claim the song keeps returning to \u2014 set beside (connection unstated) CHORUS1\n  BRIDGE1 flips the reading of everything before it \u2014 against CHORUS2\n  VERSE1 puts the world and its cast in place \u2014 because of BRIDGE1\n  VERSE2 is a compressed verdict on what has happened \u2014 after VERSE1\nEvery chorus after the first repeats the first chorus word for word, line for line.\nLine 1 is the hook \u2014 make it the line someone leaves humming.\nWhere a binding sits (a bare line number is its end word, read as a rhyme span):\n  headrime: the first word, read as a rhyme span \u2014 from its last stressed syllable to its end\n  endword: the end word, read whole, from its first syllable\n  T2: word 2, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T7: word 7, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T3: word 3, read as a rhyme span \u2014 from its last stressed syllable to its end\n  head: the first word, its first syllable \u2014 the head-rhyme / alliteration reading\n  T1: the first word, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T5: word 5, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T4: word 4, read as a rhyme span \u2014 from its last stressed syllable to its end"
+  },
+  "initial": [
+    "Dead letter office, let me in",
+    "Send all this dust back to my lips",
+    "Ink keeps the words that we forget",
+    "A life can go cold on a shelf",
+    "Say all the names that I kept here",
+    "Dead letter office, let me in",
+    "Send all this dust back to my lips",
+    "Ink keeps the words that we forget",
+    "A life can go cold on a shelf",
+    "Say all the names that I kept here",
+    "I found one note at the back",
+    "Hands hold the time beneath a stamp",
+    "Fold white sheets; I know her hand",
+    "She cut my life into a note",
+    "Her love lay flat; I watched it rise",
+    "I hear her call back: darling child",
+    "She asked what kind of world would come",
+    "I see her stamp against the light",
+    "I trace her red ink: a rose, mine",
+    "Home felt as far away as sky",
+    "That old street kept its beds of weeds",
+    "The door still knew my only need",
+    "I let the old dream drift to sleep",
+    "Beside the worn black desk I weep",
+    "We leave love folded in a box",
+    "Some words can wear a blackened lock",
+    "My empty palm lets all that dust drop",
+    "Lost is a place with a name now"
+  ],
+  "after_initial_repairs": [
+    "Dead letter office, let me in",
+    "Send all this dust back to my lips",
+    "Ink keeps the words that we forget",
+    "A life can go cold on a shelf",
+    "Say all the names that I kept here",
+    "Dead letter office, let me in",
+    "Send all this dust back to my lips",
+    "Ink keeps the words that we forget",
+    "A life can go cold on a shelf",
+    "Say all the names that I kept here",
+    "I found one note at the back",
+    "Hands hold the time that made me mad",
+    "Fold white sheets; I know her hand",
+    "She cut my life into a note",
+    "Her love lay flat; I watched it rise",
+    "I hear her call back: darling child",
+    "She asked what kind of world would come",
+    "I see her stamp against the light",
+    "I trace her red ink: a rose, mine",
+    "Home felt as far away as sky",
+    "That old street kept its beds of weeds",
+    "The door was shut; I could breathe",
+    "I let the old dream drift to sleep",
+    "I knew her well; red wax would drip",
+    "We leave love folded in a box",
+    "Some words can wear a blackened lock",
+    "My empty palm lets all that dust drop",
+    "Lost is a place with a name now"
+  ],
+  "final_retained": [
+    "Dead letter office, let me in",
+    "Wreck this thin hush with living lips",
+    "Ink keeps the words that we forget",
+    "A life can go cold on a shelf",
+    "Say all the names that she left unsaid",
+    "Dead letter office, let me in",
+    "Wreck this thin hush with living lips",
+    "Ink keeps the words that we forget",
+    "A life can go cold on a shelf",
+    "Say all the names that she left unsaid",
+    "I found one note at the back",
+    "Hands hold the time that made me mad",
+    "Fold white sheets; I know her hand",
+    "She cut my life into a note",
+    "Her love lay flat; I watched it rise",
+    "I hear her call back: darling child",
+    "She asked what kind of world would come",
+    "I see her stamp against the light",
+    "I trace her red ink: a rose, mine",
+    "Home felt as far away as sky",
+    "That old street kept its beds of weeds",
+    "The door was shut; I could breathe",
+    "I let the old dream drift to sleep",
+    "I knew her well; red wax would drip",
+    "We leave love folded in a box",
+    "Some words can wear a blackened lock",
+    "My empty palm lets all that dust drop",
+    "Lost is a place with a name now"
+  ],
+  "before_last_answer": [
+    "Dead letter office, let me in",
+    "Wreck this thin hush with living lips",
+    "Ink keeps the words that we forget",
+    "A life can go cold on a shelf",
+    "Say all the names that I kept here",
+    "Dead letter office, let me in",
+    "Wreck this thin hush with living lips",
+    "Ink keeps the words that we forget",
+    "A life can go cold on a shelf",
+    "Say all the names that I kept here",
+    "I found one note at the back",
+    "Hands hold the time that made me mad",
+    "Fold white sheets; I know her hand",
+    "She cut my life into a note",
+    "Her love lay flat; I watched it rise",
+    "I hear her call back: darling child",
+    "She asked what kind of world would come",
+    "I see her stamp against the light",
+    "I trace her red ink: a rose, mine",
+    "Home felt as far away as sky",
+    "That old street kept its beds of weeds",
+    "The door was shut; I could breathe",
+    "I let the old dream drift to sleep",
+    "I knew her well; red wax would drip",
+    "We leave love folded in a box",
+    "Some words can wear a blackened lock",
+    "My empty palm lets all that dust drop",
+    "Lost is a place with a name now"
+  ]
+}

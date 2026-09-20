@@ -780,7 +780,7 @@ def _reads_the_prompt(prompt):
 
 def test_model_proposer_drives_a_real_loop_to_success():
     print("\n6. END TO END — a stub `call` answering off the prompt alone "
-          "drives a REAL revise_loop to SUCCESS")
+          "drives a REAL revise_loop; unknown and whole-draft work remain explicit")
     from quality.loop import revise_loop, swap_end_word
     from quality.revise import Reviser
 
@@ -800,16 +800,20 @@ def test_model_proposer_drives_a_real_loop_to_success():
         seen.append(prompt)
         text, offered, _forbidden = _reads_the_prompt(prompt)
         if text is None or not offered:
-            return "I cannot answer that."
+            # An unknown-reading question may have no field. Decline it
+            # explicitly: a bare sentence is a lyric proposal to this API.
+            return None
         k = asked.get(text, 0)
         asked[text] = k + 1
         return f"LINE: {swap_end_word(text, offered[min(k, len(offered) - 1)])}"
 
     R = Reviser()
     res = revise_loop(R, CLICHE, "ABAB", propose=ModelProposer(call).propose)
-    check("the line writer clears per-line work and honestly reports remaining global work",
-          not res.unresolved and res.stop_reason == "whole_draft_unresolved"
-          and bool(res.whole_flags), res.stop_reason)
+    check("the line writer clears judged per-line work and retains unknown "
+          "readings and remaining global work without certification",
+          res.unresolved == res.unresolved_unjudged and bool(res.unresolved)
+          and res.stop_reason == "whole_draft_unresolved"
+          and bool(res.whole_flags) and not res.coverage['certified'], res.stop_reason)
     # REPINNED 2026-09-01 (`MISSING.md` M-185) from ~~{1, 2, 3, 4}~~: the
     # offer is now screened from the offered word's OWN side, so the first
     # word this prompt-reader takes for L1 no longer re-opens L3 as a
@@ -819,7 +823,8 @@ def test_model_proposer_drives_a_real_loop_to_success():
     # unresolved, and a fresh Reviser finds no flag (the check below).
     check("both flagged lines were fixed, and both mandatory-pursued lines "
           "were CLOSED BY THOSE FIXES rather than re-opened by them",
-          set(res.rounds[0].fixed_lines) == {1, 2} and not res.unresolved,
+          set(res.rounds[0].fixed_lines) == {1, 2}
+          and not res.unresolved_flagged and not res.unresolved_pursued,
           f"fixed {res.rounds[0].fixed_lines}, resolved elsewhere "
           f"{res.rounds[0].resolved_elsewhere}, unresolved "
           f"{[b.line_no for b in res.unresolved]}")
@@ -831,12 +836,16 @@ def test_model_proposer_drives_a_real_loop_to_success():
     # line the loop actually FIXED. The closed lines are asserted absent
     # from the prompts, which is the stronger property.
     closed_texts = {CLICHE[n - 1] for n in res.rounds[0].resolved_elsewhere}
+    field_prompts = [p for p in seen if _reads_the_prompt(p)[1]]
+    coverage_prompts = [p for p in seen if not _reads_the_prompt(p)[1]]
     check("the stub was driven by the PROMPT and nothing else -- it never "
           "saw a Brief, so a prompt missing the line or the offered field "
           "could not have produced these; and a line another line's fix "
-          "CLOSED is never prompted (M-210), so the prompts are exactly the "
-          "lines fixed",
-          len(seen) == len(res.rounds[0].fixed_lines) >= 2
+          "CLOSED is never prompted (M-210). The later empty-field questions "
+          "retain the actual unresolved readings",
+          len(field_prompts) == len(res.rounds[0].fixed_lines) >= 2
+          and len(coverage_prompts) == len(res.unresolved_unjudged) == 2
+          and all('SCHEME_UNREADABLE' in p for p in coverage_prompts)
           and all(_reads_the_prompt(p)[0] for p in seen)
           and not any(_reads_the_prompt(p)[0] in closed_texts for p in seen),
           f"{len(seen)} prompt(s); fixed {res.rounds[0].fixed_lines}; "

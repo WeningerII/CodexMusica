@@ -4068,6 +4068,7 @@ def audible_share(plan):
     from quality import relations as _RLa
     rels = plan.get("relations") or {}
     out = {"end_bound": 0, "audible": 0, "bare": 0, "inaudible": [],
+           "unclassified": [],
            "audible_names": []}
     for gi, g in enumerate((plan.get("groups") or "").split(";")):
         if not g.strip():
@@ -4076,11 +4077,18 @@ def audible_share(plan):
         if not _end_bound_group(members):
             continue
         out["end_bound"] += 1
-        name = rels.get(SC.label((gi,)))
+        name = rels.get(SC.label((gi,))) or plan.get("relation")
         if not name:
             out["bare"] += 1
             continue
-        sname = name.split(":", 1)[1]
+        from quality.rhyme_types import resolve_relation
+        sname, kind = resolve_relation(name)
+        # This inventory's predicate belongs to the schema registry. A
+        # class or named type is an explicit different judge, not a bare
+        # default and not a schema with the same spelling.
+        if kind != 'schema':
+            out["unclassified"].append(name)
+            continue
         sch = _RLa.REGISTRY.get(sname)
         if sch is not None and _RLa.audible_as_end_rhyme(sch):
             out["audible"] += 1

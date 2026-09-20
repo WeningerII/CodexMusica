@@ -769,6 +769,7 @@ const SUSPENDED_RUN_NOTE = (seed) =>
 // The note names the open lines, the whole-draft flags and the standing
 // findings, and the one call that continues the song.
 function PARKED_RUN_NOTE(lyr) {
+  if (lyr.uncertified) return uncertifiedRunNote();
   const who = typeof lyr.seed === 'number' ? `seed ${lyr.seed}` : 'the declared mandate';
   const open = Array.isArray(lyr.open) && lyr.open.length ? lyr.open.join(', ') : null;
   const whole = Array.isArray(lyr.whole) && lyr.whole.length ? lyr.whole.join(', ') : null;
@@ -982,6 +983,10 @@ function sameDraft(a, b) {
   );
 }
 function parkedRefusal(lyr, name, args) {
+  if (lyr.uncertified)
+    return name === 'lyric_revise' || WANDER_ALWAYS.has(name)
+      ? 'REFUSED by the connector: ' + uncertifiedRunNote()
+      : null;
   const who = typeof lyr.seed === 'number' ? `seed ${lyr.seed}` : 'the declared mandate';
   const open = Array.isArray(lyr.open) && lyr.open.length ? lyr.open.join(', ') : 'none';
   const tail = ` Continue it: rewrite the open line(s) (${open}) and call lyric_revise with \`seed\` and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`. The song cannot finish through any other call.`;
@@ -1000,6 +1005,16 @@ function parkedRefusal(lyr, name, args) {
   if (sameDraft(args.draft, lyr.draft))
     return `${head}, and this call re-sends the SAME draft that parked — the loop is deterministic and would park again on the same lines.${tail}`;
   return null;
+}
+
+function uncertifiedRunNote() {
+  return (
+    'The lyric_revise run is UNCERTIFIED at exit 2 (no question pending). ' +
+    'Preserve its accepted draft and inspect the returned coverage and lyric_grade pronunciation options. ' +
+    'Resolve only readings you can establish explicitly; do not guess pronunciations or rewrite nonexistent open lines. ' +
+    'Start independent work with the retained draft and the resolved declarations in a new lyrics task. ' +
+    'This result is not a certified song.'
+  );
 }
 
 function suspendedSeed(lyr) {

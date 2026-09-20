@@ -482,6 +482,21 @@ MANDATORY_PURSUE = frozenset({"MODAL_RHYME", "HOMEOTELEUTON",
 #: finding already carries its `locations`, so the loop has lines to hold.
 
 
+# These are text-dependent required checks with no verdict yet. Ask the
+# writer for a readable replacement; do not call the unknown text a defect
+# or invent a pronunciation. Missing calibration/grid declarations cannot
+# be repaired by rewriting lyrics and therefore do not enter this set.
+REPAIRABLE_UNJUDGED = frozenset({"SCHEME_UNREADABLE", "BAND_UNJUDGED",
+                               "PROMINENCE_UNDECIDED"})
+
+
+def _unjudged_on(brief):
+    """Unknown checks this line can change, rather than its readable mate."""
+    return any(f.code in REPAIRABLE_UNJUDGED and
+               (not f.subject or f.subject[0] != "unreadable_anchor" or
+                brief.line_no in f.subject[1:]) for f in brief.findings)
+
+
 def _open_lines(briefs, pursue=frozenset()):
     """-> the briefs this loop still has work on. ONE definition, because the
     SUCCESS test and the ROUND_LIMIT tally must not be able to disagree about
@@ -495,7 +510,7 @@ def _open_lines(briefs, pursue=frozenset()):
     """
     return [b for b in briefs
             if any(f.severity == "flag" or f.code in pursue
-                   for f in b.findings)]
+                   for f in b.findings) or _unjudged_on(b)]
 
 
 def _open_by_rule(briefs, pursue=frozenset()):
@@ -833,6 +848,8 @@ class LoopResult:
     #: holding the loop open, which was previously unsayable.
     unresolved_flagged: list = field(default_factory=list)
     unresolved_pursued: list = field(default_factory=list)
+    #: Text-dependent required checks awaiting a verdict, not lyric defects.
+    unresolved_unjudged: list = field(default_factory=list)
     #: [Finding] — `inspect()`'s whole-draft half at the stop point. NOT
     #: reachable from `unresolved`, which holds `Brief`s and therefore only
     #: ever holds per-LINE findings.
@@ -963,10 +980,13 @@ class LoopResult:
             # (doctrine 79/91).
             _fl = {b.line_no for b in self.unresolved_flagged}
             _pu = {b.line_no for b in self.unresolved_pursued}
+            _uj = {b.line_no for b in self.unresolved_unjudged}
 
             def _why(n):
                 bits = (["flag"] if n in _fl else []) + (["pursued note"]
                                                          if n in _pu else [])
+                if n in _uj:
+                    bits.append("unjudged required check")
                 return "+".join(bits) or "?"
             out.append(f"  unresolved: "
                       + ", ".join(f"L{b.line_no} ({_why(b.line_no)})"
@@ -1022,7 +1042,8 @@ def _close(reviser, stop_reason, lines, rounds, unresolved, mandate,
     # what "unresolved" contains (doctrine 1, the argument `_open_lines`
     # itself was written for).
     _flagged, _pursued = _open_by_rule(unresolved, pursue)
-    if stop_reason == "success" and any(f.severity == "flag" for f in found["whole"]):
+    if (stop_reason in {"success", "no_progress"} and not (_flagged or _pursued)
+            and any(f.severity == "flag" for f in found["whole"])):
         stop_reason = "whole_draft_unresolved"
     if stop_reason == "success" and not found.get("coverage", {}).get("certified", not g["pairs_refused"]):
         stop_reason = "uncertified"
@@ -1030,6 +1051,7 @@ def _close(reviser, stop_reason, lines, rounds, unresolved, mandate,
         stop_reason, lines, rounds, unresolved,
         unresolved_flagged=_flagged,
         unresolved_pursued=_pursued,
+        unresolved_unjudged=[b for b in unresolved if _unjudged_on(b)],
         blueprint_declared=found["blueprint_declared"],
         subdivision_declared=subdivision is not None,
         profile=profile,
@@ -1833,6 +1855,11 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     # Caught by `quality/test_loop.py` §2 — a fixture whose line proposer
     # refuses everything had its draft REWRITTEN by the stock group stub,
     # so "a proposer that refuses everything" stopped being true of the run.
+    if getattr(getattr(reviser, 'lex', None), 'pronunciations', ()):
+        # The immutable input owns the occurrence declarations throughout
+        # replay. An accepted rewrite can remove an occurrence; it cannot
+        # transfer its phones to changed text or excuse a stale input choice.
+        reviser = reviser.for_revision(lines)
     _group_declared = propose_group is not None
     propose = propose or default_propose
     propose_group = propose_group or default_propose_group
@@ -1886,7 +1913,9 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         # whole-draft flag is not in `b.findings` for ANY b and cannot be
         # here. `_close` carries those out in `LoopResult.whole_flags`.
         flagged = _open_lines(briefs, pursue)
-        if not flagged:
+        judged_open = any(any(f.severity == "flag" or f.code in pursue
+                              for f in b.findings) for b in flagged)
+        if not judged_open:
             _found = reviser.inspect(lines, mandate, profile=profile,
                                      blueprint=blueprint, subdivision=subdivision,
                                      assume=assume)
@@ -1897,7 +1926,9 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                 for _attempt in range(rdecl.attempts_per_line):
                     _gb = GroupBrief(1, lines[0], "", (), (), "whole_draft", _members,
                                      briefs[0] if briefs else None, tuple(lines), _attempt,
-                                     reasons=_reasons, whole=_global, whole_repair=True,
+                                     reasons=_reasons, whole=_global + tuple(
+                                         f for b in flagged for f in b.findings
+                                         if f.code in REPAIRABLE_UNJUDGED), whole_repair=True,
                                      mandate_description=_found["mandate"].describe())
                     _got = propose_group(_gb)
                     if _got is None:
@@ -1925,13 +1956,14 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                                                   for n in a.touched})))
                 if _moved:
                     continue
-                return _close(reviser, "whole_draft_unresolved", lines, rounds, [], mandate,
+                return _close(reviser, "whole_draft_unresolved", lines, rounds, flagged, mandate,
                               blueprint, subdivision, assume, profile,
                               input_n=input_n, input_fp=input_fp, pursue=pursue)
-            return _close(reviser, "success", lines, rounds, [], mandate,
-                          blueprint, subdivision, assume, profile,
-                          input_n=input_n, input_fp=input_fp,
-                          pursue=pursue)
+            if not flagged:
+                return _close(reviser, "success", lines, rounds, [], mandate,
+                              blueprint, subdivision, assume, profile,
+                              input_n=input_n, input_fp=input_fp,
+                              pursue=pursue)
 
         # THE OTHER HALF OF `inspect()`, READ OFF ITS OWN KEY. `brief()` above
         # calls `inspect()` and keeps only `per_line`; the `whole` half —
@@ -1964,7 +1996,13 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         #: brief again, however far the draft had moved. One line was
         #: re-briefed per change and the rest of the round was not.
         latest_open = None
-        for b in flagged:
+        # Resolve judged obligations first. Unknown readings get their own
+        # pass once those obligations close, so an unjudgeable neighbor does
+        # not preempt the already-issued repair or its bounded backtrack.
+        pass_briefs = ([b for b in flagged
+                        if any(f.severity == "flag" or f.code in pursue
+                               for f in b.findings)] if judged_open else flagged)
+        for b in pass_briefs:
             if b.line_no in touched:
                 continue
             # ===========================================================
@@ -2023,7 +2061,10 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                     subdivision=subdivision, assume=assume)["whole"])
                 brief_lines = list(lines)
                 still_open = {x.line_no: x
-                              for x in _open_lines(fresh, pursue)}
+                              for x in _open_lines(fresh, pursue)
+                              if not judged_open or any(f.severity == "flag" or
+                                                        f.code in pursue
+                                                        for f in x.findings)}
                 latest_open = still_open
                 if b.line_no not in still_open:
                     # AN EARLIER FIX THIS ROUND CLOSED IT. Asking anyway is
@@ -2055,15 +2096,22 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
             # finding inventory above still covers every line and is
             # refreshed after every accepted edit; the writer receives the
             # same complete verified brief as an explicit brief request.
-            def _materialize(_b):
-                if getattr(_b, "offers_requested", True):
-                    return _b
-                _exact = reviser.brief(lines, mandate, profile=profile,
-                                      blueprint=blueprint, subdivision=subdivision,
-                                      assume=assume, target_lines={_b.line_no})
-                _got = next((x for x in _exact if x.line_no == _b.line_no), None)
-                if _got is not None:
-                    _got.round_no = round_no
+            def _asks_group_first(_b):
+                return _b.joint_conflict or (
+                    _group_declared and rdecl.backtrack_width > 0
+                    and _b.field_computed and _b.violated_groups and not _b.candidates)
+
+            def _materialize(_b, *, line_only=False):
+                _got = _b
+                if not getattr(_b, "offers_requested", True):
+                    _exact = reviser.brief(lines, mandate, profile=profile,
+                                          blueprint=blueprint, subdivision=subdivision,
+                                          assume=assume, target_lines={_b.line_no})
+                    _got = next((x for x in _exact if x.line_no == _b.line_no), None)
+                    if _got is not None:
+                        _got.round_no = round_no
+                if line_only and _got is not None and _asks_group_first(_got):
+                    return None
                 return _got
 
             _selected_line = b.line_no
@@ -2076,6 +2124,12 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
             if b is None:
                 resolved_elsewhere.append(_selected_line)
                 continue
+            # A single fixed partner can empty a bounded field just as a
+            # conjunction can. Ask the declared group writer first in both
+            # cases; M-205's after-exhaustion escalation needlessly spent the
+            # single-line budget before releasing those partners. This is
+            # scheduling guidance, not proof that no single-line repair exists.
+            _group_first = _asks_group_first(b)
             # THE BATCH DOOR (M-236). A proposer that asks a writer one
             # question per process (`defer:`) is handed, before THIS line's
             # first question, the briefs of every open line still ahead of
@@ -2086,16 +2140,16 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
             # first answer is already on record and raises its suspension
             # otherwise; the walk itself is unchanged, and a proposer without
             # the attribute is asked one line at a time as before. Lines
-            # that go to tier 2 first (`joint_conflict`) are not offered:
+            # that go to tier 2 first (an empty computed field) are not offered:
             # their first question is a group, not a line.
             # `--attempts=0` asks nothing (the tier-1 dead-end disclosure's
             # own case), so the door stays shut under it too.
             _prefetch = getattr(propose, "prefetch", None)
-            if _prefetch is not None and not b.joint_conflict \
+            if _prefetch is not None and not _group_first \
                     and rdecl.attempts_per_line >= 1:
                 _ahead = []
                 _seen_b = False
-                for _x in flagged:
+                for _x in pass_briefs:
                     if _x.line_no == b.line_no:
                         _seen_b = True
                         continue
@@ -2107,10 +2161,11 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                             continue
                     if _x.joint_conflict:
                         continue
-                    _x._materialize = lambda _candidate=_x: _materialize(_candidate)
+                    _x._materialize = lambda _candidate=_x: _materialize(
+                        _candidate, line_only=True)
                     _ahead.append(_x)
                 _prefetch(b, _ahead, lines, whole)
-            if b.joint_conflict:
+            if _group_first:
                 attempt, lines = _try_tier2(
                     reviser, b, lines, mandate, rdecl, blueprint,
                     subdivision, assume, profile, propose_group, whole)
@@ -2155,7 +2210,17 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                 # them would lose which tier the line was actually closed
                 # by, and `RoundResult.attempts` is the census the stop
                 # condition reads.
-                if not attempt.accepted and rdecl.backtrack_width < 1:
+                if not attempt.accepted and not any(
+                        f.severity == "flag" or f.code in pursue for f in b.findings):
+                    # A coverage-only question has no failed rhyme to drive
+                    # the candidate-field backtracker. Retain the reading as
+                    # unknown when the writer declines/cannot repair it.
+                    attempt = LineAttempt(
+                        attempt.line_no, attempt.tier, attempt.accepted, attempt.tried,
+                        attempt.reason + "; required reading remains unjudged; "
+                        "no failed rhyme was supplied to the tier-2 search",
+                        attempt.touched, asked=attempt.asked)
+                elif not attempt.accepted and rdecl.backtrack_width < 1:
                     # THE DECLARED COORDINATE COMES FIRST (`MISSING.md`
                     # M-208). `--backtrack=0` SAYS do not backtrack, and
                     # M-205's escalation read only `_group_declared`, so a

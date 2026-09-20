@@ -1737,14 +1737,14 @@ def test_the_default_doors_are_priced_where_they_answer():
           sd_bad is not None and "0 read as END RHYME and 1 do NOT" in sd_bad,
           sd_bad)
     verd = [
-        {"lines": (0, 2), "endwords": ("home", "alone"),
+        {"lines": (1, 3), "endwords": ("home", "alone"),
          "relation": "ASSONANCE", "score": 0.974, "why": None},
-        {"lines": (1, 3), "endwords": ("cat", "hat"),
+        {"lines": (2, 4), "endwords": ("cat", "hat"),
          "relation": "RHYME", "score": 1.0, "why": None},
-        {"lines": (4, 6), "endwords": ("sun", "much"),
+        {"lines": (5, 7), "endwords": ("sun", "much"),
          "relation": "ASSONANCE", "score": 0.772, "why": "x",
          "satisfied_by": ["assonance"]},
-        {"lines": (5, 7), "endwords": ("bad", "bat"),
+        {"lines": (6, 8), "endwords": ("bad", "bat"),
          "relation": "CONSONANCE", "score": 0.8, "why": None},
     ]
     nd = _LH.near_relation_default_disclosure(verd, 0.75)

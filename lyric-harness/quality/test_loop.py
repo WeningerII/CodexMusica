@@ -328,7 +328,10 @@ def test_success_stop():
           and 4 in res.rounds[0].resolved_elsewhere,
           f"fixed {res.rounds[0].fixed_lines}, resolved elsewhere "
           f"{res.rounds[0].resolved_elsewhere}")
-    check("no line left unresolved", res.unresolved == [])
+    check("judged line repairs close; unreadable obligations remain explicit",
+          res.unresolved_flagged == [] and res.unresolved_pursued == []
+          and res.unresolved == res.unresolved_unjudged
+          and bool(res.unresolved_unjudged) and not res.coverage_certified)
     R2 = Reviser()
     final = R2.brief(res.lines, "ABAB")
     check("the FINAL draft actually re-checks clean, independently",
@@ -385,10 +388,10 @@ def test_round_limit_stop():
     # MEASURED: fixed [1, 4], nothing left standing at the round cap.
     check("L1 WAS fixed this round -- this is real progress, not a stall",
           res.rounds[0].fixed_lines == [1, 4], res.rounds[0].fixed_lines)
-    check("nothing is left standing: L2 (the refused line) was closed by "
-          "L4's move and L3 by L1's — the round cap, not an open line, is "
-          "the stop",
-          res.unresolved == [],
+    check("the round cap retains unknown readings after the judged repairs close",
+          res.unresolved_flagged == [] and res.unresolved_pursued == []
+          and [b.line_no for b in res.unresolved_unjudged] == [1, 3]
+          and res.unresolved == res.unresolved_unjudged and not res.coverage_certified,
           [(b.line_no, [f.code for f in b.findings])
            for b in res.unresolved])
     check("`max_rounds` is the declared bound that fired, not a hidden one",
@@ -423,7 +426,8 @@ def test_tier2_backtrack_resolves_a_joint_conflict():
     # mandatory finding stands is unreportable (§20 pins it); what moved is
     # that the loop stopped offering the words that made one stand.
     check("the backtrack closes pursued findings while incomplete coverage still prevents success",
-          res.stop_reason == "uncertified" and res.coverage.get("certified") is False
+          res.stop_reason == "no_progress" and res.coverage.get("certified") is False
+          and bool(res.unresolved_unjudged)
           and [b.line_no for b in res.unresolved_pursued] == [],
           f"{res.stop_reason} pursued="
           f"{[b.line_no for b in res.unresolved_pursued]}")
@@ -768,12 +772,10 @@ def test_optin_layers_are_disclosed_and_success_is_per_line():
     check("...on a draft that STILL carries HOOK_ABSENT, a flag -- so "
           "SUCCESS means 'nothing left this loop can act on', never 'clean'",
           "HOOK_ABSENT" in codes, codes)
-    check("the two halves of the result openly disagree, which IS the "
-          "finding: `unresolved` (per-line, what every stop condition reads) "
-          "is EMPTY while `whole_flags` is not -- a `Brief` can only ever "
-          "carry a per-line finding, so no widening of `unresolved` would "
-          "have reached these",
-          res.unresolved == [] and res.whole_flags != [],
+    check("whole-draft flags and unknown per-line readings retain separate causes",
+          res.unresolved_flagged == [] and res.unresolved_pursued == []
+          and res.unresolved == res.unresolved_unjudged
+          and res.whole_flags != [] and not res.coverage_certified,
           f"unresolved {res.unresolved}, whole flags {codes}")
     check("the printed result carries the warning, not just the dataclass",
           "WHOLE-DRAFT REQUIREMENTS UNRESOLVED" in str(res))
@@ -798,7 +800,8 @@ def test_declared_returns_are_asked_and_have_no_move():
     check("L3's broken return reaches the loop as a FLAG -- `returns_check` "
           "is consulted on every run, not behind a parameter; a letter "
           "scheme simply declares no returns for it to check",
-          [b.line_no for b in res.unresolved] == [3]
+          [b.line_no for b in res.unresolved_flagged] == [3]
+          and all(b in res.unresolved_unjudged for b in res.unresolved if b.line_no != 3)
           and "RETURN_NOT_VERBATIM" in flagged_codes,
           f"unresolved {[b.line_no for b in res.unresolved]}, "
           f"codes {sorted(flagged_codes)}")
@@ -1092,9 +1095,12 @@ def test_propose_sees_the_whole_draft_rubric():
           "never the move, which is why `whole` is its own argument",
           not (per_line & {"HOOK_ABSENT", "LEXICAL_MONOTONY"}),
           sorted(per_line))
-    check("whole-draft flags prevent success even when every per-line repair is closed",
-          res.stop_reason == "whole_draft_unresolved" and res.unresolved == []
-          and bool(res.whole_flags),
+    check("whole-draft flags prevent success after judged line repairs close; "
+          "unjudged line checks remain explicitly open",
+          res.stop_reason == "whole_draft_unresolved"
+          and res.unresolved_flagged == [] and res.unresolved_pursued == []
+          and res.unresolved == res.unresolved_unjudged
+          and bool(res.unresolved_unjudged) and bool(res.whole_flags),
           res.stop_reason)
 
 
@@ -1131,7 +1137,8 @@ def test_tier2_still_resolves_a_joint_conflict_through_group_brief():
     # claim this check makes is unchanged: the contract route stops exactly
     # as the stub does; what the stub does moved, and this pin with it.
     check("the GroupBrief route closes the same repair but cannot certify incomplete coverage",
-          res.stop_reason == "uncertified" and res.coverage.get("certified") is False
+          res.stop_reason == "no_progress" and res.coverage.get("certified") is False
+          and bool(res.unresolved_unjudged)
           and [b.line_no for b in res.unresolved_pursued] == [],
           res.stop_reason)
     tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
@@ -1474,7 +1481,8 @@ def test_a_line_is_briefed_against_the_draft_as_it_now_stands():
     check("L3 opened the round and was NEVER ASKED ABOUT, because fixing L2 "
           "closed it -- the stale snapshot would have spent an attempt on a "
           "finding that was already gone",
-          asked == [2] and rnd.resolved_elsewhere == [3],
+          asked and set(asked) == {2} and rnd.resolved_elsewhere == [3]
+          and [b.line_no for b in r2.unresolved_unjudged] == [2],
           f"asked={asked} resolved_elsewhere={rnd.resolved_elsewhere}")
     check("...and it is NOT a `LineAttempt`: no attempt was made, so a "
           "record with accepted=False would be a failure that never "
@@ -1495,14 +1503,14 @@ def test_a_line_is_briefed_against_the_draft_as_it_now_stands():
     calls = []
     R3 = Reviser()
     _orig = R3.brief
-    R3.brief = lambda *a, **k: (calls.append(1), _orig(*a, **k))[1]
+    R3.brief = lambda *a, **k: (calls.append(k), _orig(*a, **k))[1]
     revise_loop(R3, D, "AA", propose=lambda *a, **k: None)
-    check("a round in which NOTHING is accepted re-briefs zero times -- one "
-          "`brief()` for the round, exactly as before the fix",
-          len(calls) == 1,
-          f"{len(calls)} brief() call(s): a proposer that refuses everything "
-          f"fixes nothing, so the run stops at NO_PROGRESS after one round "
-          f"and the re-brief branch is never entered")
+    assessments = [k for k in calls if k.get('include_offers') is False]
+    menus = [k for k in calls if k.get('include_offers') is not False]
+    check("a barren round performs one assessment; lazy per-line menus are not re-assessments",
+          len(assessments) == 1 and len(menus) == 2
+          and all(k.get('target_lines') for k in menus),
+          f"{len(assessments)} assessments, {len(menus)} targeted menus")
 
 
 #: A PIVOT WHOSE ANCHOR IS ITSELF A PIVOT, and no returns anywhere — the

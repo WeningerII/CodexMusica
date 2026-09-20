@@ -6,6 +6,26 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed — lyric interview continuation and recovery
+
+Batch replay now distinguishes its shared original draft from accepted edits;
+structured and echoed single-line targets must match the pending question.
+Suspended responses use authenticated counters and retain accepted lyrics.
+Run revisions bind the exact continuation, the native client stores successor
+revisions, and group retries retain attempt identity and prior-round feedback.
+Uncertified exit-2 recovery remains distinct from rejected exit-3 lyrics.
+Fresh-run regressions also repair floor checks applied to the wrong rhyme
+anchors, ignored explicit stress readings, and missing repair questions for
+text-dependent unknown checks. Broader candidate searches describe their
+actual scope instead of claiming every suggestion shares an exact vowel.
+Empty computed menus can ask the declared joint writer before exhausting
+single-line attempts. Unknown groups are labelled unjudged instead of holding.
+Admission and plan summaries follow the actual declared relation and line IDs.
+Rewrites can retire removed occurrence pronunciations without transporting
+phones to changed words or weakening stale-input and lost-coverage checks.
+See `docs/lyrics-continuation-audit.md` for reproductions, compatibility policy,
+fresh interview evidence, and the limits of local and deployed verification.
+
 ### Added — duplicate and remove on every workspace card
 
 Each instrument card in the workspace tree now carries a duplicate and a

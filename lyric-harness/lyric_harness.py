@@ -257,6 +257,20 @@ WEAK_NONFINAL = {
     "you", "he", "she", "we", "they", "me", "him", "us",
 }
 
+
+def weak_token(reader, word, phrase_final=False):
+    """Default function-word demotion; an explicit occurrence reading wins.
+
+    The supplied phones already declare stress. Applying a lexical default
+    afterward silently changes that declaration in both meter and anchors.
+    An unselected occurrence keeps the existing default, including repeats
+    of the same word elsewhere in the line.
+    """
+    if getattr(reader, "_pronunciation_choice", None):
+        return False
+    word = word.lower()
+    return word in WEAK_ALWAYS or (word in WEAK_NONFINAL and not phrase_final)
+
 SUFFIXES = [
     "ation", "ition", "ology", "ability", "iness", "fully",
     "tion", "sion", "ment", "ness", "ing", "ity", "ous", "ily",
@@ -1100,8 +1114,7 @@ class Lexicon:
                     oov.append(piece)
                 lw = piece.lower()
                 is_final = phrase_final and (index == len(words) - 1)
-                if lw in WEAK_ALWAYS or (lw in WEAK_NONFINAL
-                                         and not is_final):
+                if weak_token(reader, lw, phrase_final=is_final):
                     p = [re.sub(r"[12]$", "0", ph) for ph in p]
                 phones.extend(p)
         return phones, words, oov
@@ -2605,7 +2618,7 @@ def line_anchors(lex, text, promote=False, endpoint_pronunciations=None):
         v = list(var)
         if not syllabify(v):
             continue  # a vowelless final token cannot borrow the prefix nucleus
-        if lw in WEAK_ALWAYS:
+        if weak_token(end_reader, lw, phrase_final=True):
             v = [re.sub(r"[12]$", "0", ph) for ph in v]
         full = pre_phones + v
         sylls = syllabify(full)
@@ -4610,7 +4623,7 @@ def word_syllable_map(lex, text):
             phones.extend(p)
         lw = fold_apostrophes(w).lower().strip("'\".,;:!?()[]")
         final = (k == len(words) - 1)
-        if lw in WEAK_ALWAYS or (lw in WEAK_NONFINAL and not final):
+        if weak_token(reader, lw, phrase_final=final):
             phones = [re.sub(r"[12]$", "0", ph) for ph in phones]
         # The hyphen halves, read exactly as `_tag_span_words` reads them:
         # a span may name a token that is only partly the string it was built
@@ -5604,7 +5617,8 @@ def _split_by_audible_end(sch_sat):
     return audible, rest
 
 
-def near_relation_default_disclosure(verdicts, theta):
+def near_relation_default_disclosure(verdicts, theta, *, default_groups=None,
+                                     cuts=None):
     """-> the `ADMIT DOOR` report line for `grade()`'s verdicts, or None
     when no mandated pair was satisfied AS A NEAR RELATION.
 
@@ -5616,17 +5630,23 @@ def near_relation_default_disclosure(verdicts, theta):
     rate beside it. Pairs a schema rescued are NOT in this count — they
     are the `SCHEMA DEFAULT` line's, and the two are never summed
     (doctrine 79). A disclosure: the verdicts are read, not moved.
+
+    Production supplies the groups using the default admission route and
+    the active declaration's cuts. Named relations and structures have
+    their own judges and must not be credited to this scalar door. Grade
+    verdicts already carry one-based line numbers.
     """
     near = [v for v in (verdicts or ())
             if v.get("why") is None and not v.get("satisfied_by")
-            and v.get("relation") in NEAR_RELATIONS]
+            and v.get("relation") in NEAR_RELATIONS
+            and (default_groups is None or v.get("group") in default_groups)]
     if not near:
         return None
     by = {}
     for v in near:
         by[v["relation"]] = by.get(v["relation"], 0) + 1
     egs = "; ".join(
-        f"L{v['lines'][0] + 1}~L{v['lines'][1] + 1} "
+        f"L{v['lines'][0]}~L{v['lines'][1]} "
         f"{v['endwords'][0]}/{v['endwords'][1]} {v['relation']} "
         f"{v['score']:.3f}" for v in near[:4])
     # ~~"on theta_rhyme={theta} alone — a cut never priced on these
@@ -5634,16 +5654,22 @@ def near_relation_default_disclosure(verdicts, theta):
     # the cut each relation was actually judged at rather than a
     # `theta_rhyme` that no near relation reads any more (doctrine 58/91 —
     # a number in a report must be reproducible from the report).
-    cuts = ", ".join(f"{k} {v}" for k, v in
-                     sorted(_declared_cuts().items()) if k in by)
+    declared = _declared_cuts() if cuts is None else cuts
+    active = {k: declared.get(k, theta) for k in by}
+    cuts_text = ", ".join(f"{k} {v}" for k, v in sorted(active.items()))
+    priced = all(v == _declared_cuts().get(k, Declaration().theta_rhyme)
+                 for k, v in active.items())
+    chance = (f"that door's {door_chance_note('admit')}" if priced else
+              "chance rate is not established here for these custom cuts")
     return (f"  ADMIT DOOR: {len(near)} mandated pair(s) satisfied as a "
             f"near relation ("
             + ", ".join(f"{k} x{by[k]}" for k in sorted(by))
-            + f") on the priced near-relation cut"
-            + (f" ({cuts})" if cuts else f" (theta_rhyme={theta})")
+            + (") on the priced near-relation cut" if priced else
+               ") on the declared custom near-relation cut")
+            + f" ({cuts_text})"
             + f" — {egs}"
             + (" …" if len(near) > 4 else "")
-            + f"; that door's {door_chance_note('admit')}")
+            + f"; {chance}")
 
 
 def _declared_cuts():
@@ -6698,7 +6724,7 @@ def _first_attr(mod, names):
     return None, None
 
 
-def _group_key(members, texts, words, round_no=None):
+def _group_key(members, texts, words, round_no=None, attempt=None, question=None):
     """-> the hashable identity of ONE tier-2 proposal request.
 
     AND THE ROUND (M-183, 2026-09-01), for the reason tier 1's key carries
@@ -6715,6 +6741,13 @@ def _group_key(members, texts, words, round_no=None):
     attempts inside one backtrack search are several records rather than one
     replayed forever.
 
+    ATTEMPT also belongs to the question. A rejected whole-repair proposal
+    can leave members, texts and requested words unchanged on its next try.
+    Old attempt-less records are consumed by the first matching question in
+    `_group_lookup`, rather than reused throughout that retry budget. The
+    question digest binds its pivot (attempts restart per pivot), label and
+    full rendered context, including outside lines and rejection feedback.
+
     A RAGGED RECORD REFUSES. Three lists of different lengths cannot name a
     proposal — position is the only thing tying a member to its text and its
     word — and silently zipping to the shortest would replay a set nobody
@@ -6726,16 +6759,28 @@ def _group_key(members, texts, words, round_no=None):
             f"a propose_group record needs members/texts/words all the same "
             f"non-zero length; got {len(m)}/{len(t)}/{len(w)}")
     return (tuple(int(x) for x in m), tuple(t), tuple(w),
-            None if round_no is None else int(round_no))
+            None if round_no is None else int(round_no),
+            None if attempt is None else int(attempt), question)
 
 
 def _group_lookup(groups, group_brief):
     """-> the recorded `new` lines for THIS group question, or None — the
-    exact (round-carrying) key first, then the legacy key (M-183)."""
+    exact key first. A legacy answer without attempt identity is bound to
+    its first matching question for this replay walk, never every retry.
+    Binding is deterministic and repeated reads of that question still hit.
+    New connector builds refuse old semantic envelopes before this layer;
+    this compatibility path serves standalone native replay journals."""
     key = _brief_key(group_brief)
     hit = groups.get(key)
     if hit is None:
-        hit = groups.get(key[:3] + (None,))
+        for legacy in (key[:5] + (None,), key[:4] + (None, None),
+                       key[:3] + (None, None, None)):
+            if legacy == key:
+                continue
+            hit = groups.pop(legacy, None)
+            if hit is not None:
+                groups[key] = hit
+                break
     return hit
 
 
@@ -6754,10 +6799,17 @@ def _brief_key(group_brief):
         got = group_brief.proposal_for(n)
         texts.append(None if got is None else got[0])
         words.append(None if got is None else got[1])
+    import hashlib
+    from quality.propose import render_group
+    question = hashlib.sha256(json.dumps([
+        getattr(group_brief, "pivot_line_no", None),
+        getattr(group_brief, "label", None), render_group(group_brief)
+    ], ensure_ascii=False, separators=(",", ":")).encode("utf-8")).hexdigest()
     # The round is read off the PIVOT'S brief, where the loop stamps it.
     return _group_key(members, texts, words,
                       getattr(getattr(group_brief, "brief", None),
-                              "round_no", None))
+                              "round_no", None),
+                      getattr(group_brief, "attempt", 0), question)
 
 
 def _line_key(rec):
@@ -6866,7 +6918,8 @@ def _replay_proposer(path):
             ones[_line_key(r)] = r["text"]
         for r in rec.get("propose_group", []):
             groups[_group_key(r["members"], r["texts"], r["words"],
-                              r.get("round"))] = tuple(r["new"])
+                              r.get("round"), r.get("attempt"),
+                              r.get("question_sha256"))] = tuple(r["new"])
     except (KeyError, TypeError, ValueError) as e:
         _refuse(f"--propose=replay:{path} — a record is malformed: {e!r}",
                 detail=["`propose` records need line/attempt/text; "
@@ -7100,6 +7153,11 @@ def _defer_proposer(path, lines=None):
         # the enforcement; printing the prompt again is so the writer never has
         # to go looking for what was asked.
         if pend.get("answer") in (None, "", {}):
+            # Repeating a question executes no replay or grading. Preserve the
+            # artifact and say which counters belong to this no-work call.
+            _lyric_result(status="suspended", exit=4,
+                          final_draft=list(st["accepted_lines"]),
+                          stale_answers=0, memo_state="no run key")
             print(f"  SUSPENDED — a {pend['kind']} proposal is required and "
                   f"`pending.answer` in {path} is still empty.")
             print(f"  Answer it there, then run the same command again.\n")
@@ -7142,11 +7200,14 @@ def _defer_proposer(path, lines=None):
                                        "PROVIDER_PROPOSAL_TOO_LARGE")
             for r in _recs:
                 r2 = dict(r)
+                # The whole row set was asked against ONE draft. Record its
+                # first question even when folding a legacy pending batch.
+                r2["batch"] = list(_line_key(_recs[0]))
                 r2["text"] = parsed[int(r["line"])]
                 st["answered"]["propose"].append(r2)
         elif pend["kind"] == "propose":
             parsed = ans if isinstance(ans, str) else None
-            parsed = PR.parse_line(parsed) if parsed is not None else None
+            parsed = PR.parse_line(parsed, line_no=rec["line"]) if parsed is not None else None
             if parsed is None:
                 _refuse(f"--propose=defer:{path} — `pending.answer` is not "
                         f"unambiguously one line",
@@ -7159,6 +7220,7 @@ def _defer_proposer(path, lines=None):
                 raise _JournalCapacity(st, st["accepted_lines"], path,
                                        "PROVIDER_PROPOSAL_TOO_LARGE")
             rec["text"] = parsed
+            rec["batch"] = None  # known single question, including legacy pending singles
             st["answered"]["propose"].append(rec)
         else:
             parsed = (PR.parse_group(ans, rec.get("members") or ())
@@ -7190,8 +7252,27 @@ def _defer_proposer(path, lines=None):
     # on this entry). The count is read at the stop, where it is known.
     drafts = {_line_key(r): r.get("draft")
               for r in st["answered"]["propose"]}
+    # Already-folded old native batches lost their shared origin. Equal
+    # fingerprints on different lines could also be independent rejected
+    # answers; neither history can be reconstructed safely from that alone.
+    # Pending batches above can migrate because their row set still exists.
+    legacy_origins = {}
+    for r in st["answered"]["propose"]:
+        if r.get("draft") and "batch" not in r:
+            legacy_origins.setdefault((r.get("round"), r["draft"]), set()).add(r["line"])
+    if any(len(members) > 1 for members in legacy_origins.values()):
+        _refuse(f"--propose=defer:{path} — legacy batch origin is ambiguous",
+                detail=["Keep this journal unchanged and recover its accepted_lines "
+                        "as an uncertified artifact. Start an independent run with "
+                        "that complete draft and the same declarations in a NEW "
+                        "state file; automatic replay cannot reconstruct the old "
+                        "batch boundaries. Do not delete history to force a resume."])
+    batches = {_line_key(r): tuple(r["batch"])
+               for r in st["answered"]["propose"] if r.get("batch")}
+    batch_stale = {}
     groups = {_group_key(r["members"], r["texts"], r["words"],
-                         r.get("round")): tuple(r["new"])
+                         r.get("round"), r.get("attempt"),
+                         r.get("question_sha256")): tuple(r["new"])
               for r in st["answered"]["propose_group"]}
     tally = {"hit": 0, "stale": []}
     # WHAT VERIFY MADE OF EACH ANSWER, BESIDE THE ANSWERS (M-236). Written
@@ -7218,10 +7299,13 @@ def _defer_proposer(path, lines=None):
     st["group_outcomes"] = [o for o in (st.get("group_outcomes") or [])
                             if isinstance(o, dict)]
     _goutcome_at = {(tuple(int(x) for x in o["members"]),
-                     None if o.get("round") is None else int(o["round"])): i
+                     None if o.get("round") is None else int(o["round"]),
+                     o.get("attempt"), o.get("question_sha256")): i
                     for i, o in enumerate(st["group_outcomes"])
                     if "members" in o}
     last_grej = {}
+    active_group_attempt = None
+    active_group_question = None
 
     def record(line_no, attempt, round_no, text, accepted, reasons):
         entry = {"line": int(line_no), "attempt": int(attempt),
@@ -7283,7 +7367,17 @@ def _defer_proposer(path, lines=None):
             if _k not in ones:
                 _k = (brief.line_no, attempt, None)
             _rd = drafts.get(_k)
-            if _rd and _rd != _dfp(lines):
+            _batch = batches.get(_k)
+            if _batch is not None:
+                # Compare at the first member, before accepted edits from
+                # this batch advance the draft. A genuinely changed input
+                # still marks every consulted member of that batch stale.
+                if _batch not in batch_stale:
+                    batch_stale[_batch] = bool(_rd and _rd != _dfp(lines))
+                stale = batch_stale[_batch]
+            else:
+                stale = bool(_rd and _rd != _dfp(lines))
+            if stale:
                 tally["stale"].append(_k)
             return text
         # THE RECORD NAMES THE ROUND IT WAS ASKED IN (M-183): the same line
@@ -7384,14 +7478,18 @@ def _defer_proposer(path, lines=None):
     propose.record = record
 
     def propose_group(group_brief):
-        members, texts, words, round_no = _brief_key(group_brief)
+        nonlocal active_group_attempt, active_group_question
+        members, texts, words, round_no, attempt, question = _brief_key(group_brief)
+        active_group_attempt = attempt
+        active_group_question = question
         hit = _group_lookup(groups, group_brief)
         if hit is not None:
             tally["hit"] += 1
             return hit
         _suspend("propose_group",
                  {"members": list(members), "texts": list(texts),
-                  "words": list(words), "round": round_no, "new": None},
+                  "words": list(words), "round": round_no,
+                  "attempt": attempt, "question_sha256": question, "new": None},
                  PR.render_group(group_brief))
 
     def record_group(members, round_no, texts, accepted, reasons):
@@ -7401,10 +7499,12 @@ def _defer_proposer(path, lines=None):
         _m = tuple(int(x) for x in members)
         entry = {"members": list(_m),
                  "round": None if round_no is None else int(round_no),
+                 "attempt": active_group_attempt,
+                 "question_sha256": active_group_question,
                  "text": "\n".join(f"L{n}: {t}" for n, t in zip(_m, texts)),
                  "accepted": bool(accepted),
                  "reasons": [str(r) for r in (reasons or ())]}
-        k = (_m, entry["round"])
+        k = (_m, entry["round"], entry["attempt"], entry["question_sha256"])
         i = _goutcome_at.get(k)
         trial = dict(st, group_outcomes=list(st["group_outcomes"]))
         if i is None:
@@ -7792,15 +7892,15 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
         return ask("propose", prompt, current, round_no,
                    lambda: one(brief, current, attempt, reasons=reasons, whole=whole),
                    {"line": brief.line_no, "attempt": attempt, "round": round_no,
-                    "draft": draft_fingerprint(current)})
+                    "draft": draft_fingerprint(current), "batch": None})
 
     def wrapped_two(brief):
-        members, texts, words, round_no = _brief_key(brief)
+        members, texts, words, round_no, attempt, question = _brief_key(brief)
         return ask("propose_group", render_group(brief), brief.lines, round_no,
                    lambda: two(brief),
                    {"members": list(members), "texts": list(texts),
                     "words": list(words), "round": round_no,
-                    "attempt": getattr(brief, "attempt", None)})
+                    "attempt": attempt, "question_sha256": question})
 
     wrapped_one.checkpoint = checkpoint
     wrapped_one.checkpoint_state = state
@@ -9448,15 +9548,20 @@ def main():
         _au = the_plan["choices"].get("audible")
         if _au:
             print(f"  AUDIBLE: {_au['audible']} of {_au['end_bound']} "
-                  f"end-bound group(s) draw a relation a listener hears as "
+                  f"end-bound group(s) require a schema heard as "
                   f"END RHYME (nucleus and coda agree at the line end: "
                   f"{', '.join(sorted(set(_au['audible_names']))) or 'none'}); "
                   f"{_au['bare']} on the bare default; "
                   f"{len(_au['inaudible'])} on a relation heard as "
                   f"something else ("
                   f"{', '.join(sorted(set(_au['inaudible']))) or 'none'}). "
-                  f"A record, not a gate (M-192): the dice are uniform over "
-                  f"the certified schemas and this is what they drew.")
+                  f"{len(_au['unclassified'])} explicit class/type declaration(s) "
+                  f"outside this schema-only inventory ("
+                  f"{', '.join(sorted(set(_au['unclassified']))) or 'none'}). "
+                  f"A record, not a gate (M-192); "
+                  + ("relations were declared, not drawn."
+                     if the_plan.get('relation') else
+                     "the dice are uniform over the certified schema pool."))
         # M-112: the mandate's own weight on each section, said out loud.
         # The series' third song cleared every gate with a chorus binding
         # 23 of ~31 sung tokens and nothing had disclosed the share — it
@@ -11312,7 +11417,10 @@ def main():
             if _sd:
                 print(_sd)
             _nd = near_relation_default_disclosure(
-                _g.get("verdicts") or [], rv.decl.theta_rhyme)
+                _g.get("verdicts") or [], rv.decl.theta_rhyme,
+                default_groups={k for k in range(len(found["mandate"].groups))
+                                if rv.schema_route_open(found["mandate"], k)},
+                cuts=rv.decl.theta_by_relation)
             if _nd:
                 print(_nd)
             # A GROUP THAT MIXES SPAN KINDS, SAID OUT LOUD (M-114).
@@ -11479,17 +11587,13 @@ def main():
                     return
                 print(f"\n  WHOLE DRAFT — {len(whole)} finding(s) that name "
                       f"no single line, {len(whole_flags)} of them FLAG(S)")
-                print("      Not a line to revise, and not covered by the "
-                      "per-line half above: these are properties of the "
-                      "ITEM (the hook, the shape of the grid, the "
-                      "vocabulary across the whole draft), so there is no "
-                      "line_no to hand back and no candidate field to "
-                      "offer. `verify()` DOES read them — its diff covers "
-                      "`whole` as well as `per_line` — so a whole-draft "
-                      "flag can REJECT a revision and can never ASK for "
-                      "one. Disclosed here for the same reason "
-                      "`quality/loop.py` discloses them under a SUCCESS: a "
-                      "silent one reads exactly like a clean draft.")
+                print("      These findings measure the complete draft or its "
+                      "declarations and assign no single target line. A "
+                      "permitted local edit can improve a text-dependent "
+                      "finding, and the declared whole-draft writer can be "
+                      "asked for a wider repair. `verify()` reads these "
+                      "findings alongside per-line findings. Rewriting "
+                      "words cannot repair an unchanged grid declaration.")
                 for f in whole:
                     loc = (f" (lines {', '.join(map(str, f.locations))})"
                            if f.locations else "")
@@ -11652,12 +11756,15 @@ def main():
                 # `quality/propose.py` say the same in their own renderings.
                 _gs = dict(getattr(b, "group_slots", {}) or {})
                 _viol = set(getattr(b, "violated_groups", ()) or ())
+                _unjudged = set(getattr(b, "unjudged_groups", ()) or ())
                 for lab, mem, calls in b.must_answer:
                     shown = ", ".join(f"L{n} ({w!r})" for n, w in calls)
                     _place = (f" at {_gs[lab]}" if _gs.get(lab) is not None
                               else "")
-                    _stand = ((" — VIOLATED" if lab in _viol else " — HOLDS")
-                              if _viol else "")
+                    _stand = ((" — VIOLATED; also UNJUDGED" if lab in _viol
+                               else " — UNJUDGED") if lab in _unjudged else
+                              ((" — VIOLATED" if lab in _viol else " — HOLDS")
+                               if _viol else ""))
                     print(f"      must answer group {lab} {mem}{_place}: "
                           f"{shown}{_stand}")
                 if len(b.must_answer) > 1:
@@ -12521,7 +12628,11 @@ def main():
                 # CLAUDE.md promised the 3; probed on a TITLE_NOT_IN_HOOK
                 # draft, the stamp said 0.
                 _whole_codes = [f.code for f in result.whole_flags]
-                _code = (3 if (result.unresolved or _whole_codes) else
+                # An unresolved reading now gets a repair question too.
+                # Its exhausted budget remains exit 2 (unknown), not a
+                # manufactured lyric rejection at exit 3.
+                _code = (3 if (result.unresolved_flagged or result.unresolved_pursued
+                               or _whole_codes) else
                          0 if result.coverage_certified else 2)
                 _coverage = result.coverage or {
                     "pairs_mandated": result.pairs_mandated,
