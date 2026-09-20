@@ -18,6 +18,7 @@ record; F01–F09 are labels from the supplied external audit.
 | `verification.zip` | Local test logs, including failed/intermediate history. Use the mapping below for the final results; an old filename containing “final” does not supersede a later repair. |
 | `artifact-index.json` | SHA256 and size of every other file in this evidence directory, including the archives. |
 | `local-history.bundle` | Original local audit commits through `8c8dfb5`, including the fresh-run source commits. Requires their main-branch ancestors, available in the full repository history. Shell push lacked credentials; authenticated GitHub object publication creates a new commit for the same source tree. This bundle preserves the original commit identities for reproduction. |
+| `ci-integration.json` | Initial PR failures and the precise census/import/report assertions they exposed. The original failures are retained alongside their corrections. |
 
 To import that history from a full checkout, run from the repository root:
 `git fetch lyric-harness/quality/results/continuation_audit_2026-09-20/local-history.bundle refs/heads/fix/lyrics-continuation-audit:refs/remotes/audit/local-history`.

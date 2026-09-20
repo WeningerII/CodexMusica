@@ -4954,8 +4954,8 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
     rc, out, _ = run("revise", song, mand, "--returns=6,9;6,14",
                      f"--blueprint={bpath}", "--subdivision", "2",
                      "--max-rounds=1", "--attempts=0", "--backtrack=0")
-    check("`revise` exits 3 when a WHOLE-DRAFT flag stands and no line is "
-          "open — the same 3 `song` gives the same draft",
+    check("`revise` exits 3 when a WHOLE-DRAFT flag stands and no judged line "
+          "flag stands — the same 3 `song` gives the same draft",
           rc == 3, f"rc {rc}")
     check("...and prints that flag at the stop in the report's own "
           "FINDING spelling, marked as the whole draft's",
@@ -4965,20 +4965,24 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
     # verification found no pin discriminated it: §44's fixture always has
     # lines open, and this section read the STANDING block, not the stamp).
     # Under `defer:` the same run renders and stamps; the clause must name
-    # the flag, and the committed title must stamp exit 0 with no clause.
+    # the flag. M-304 also keeps this historical fixture's text-dependent
+    # unknown lines open; clearing the title still cannot certify them.
+    # Section 53 separately pins a fully judged whole-flag-only control.
     st = os.path.join(d, "state.json")
     rc3, out3, _ = run("revise", song, mand, "--returns=6,9;6,14",
                        f"--blueprint={bpath}", "--subdivision", "2",
                        "--max-rounds=1", "--attempts=0", "--backtrack=0",
                        f"--propose=defer:{st}")
     m3 = re.search(r"\[FINISHED — declared mandate — exit (\d) — (\w+) after "
-                   r"(\d+) round\(s\) — no line flag stands — WHOLE-DRAFT FLAG: "
-                   r"([^\]—]+)(?: — COVERAGE UNCERTIFIED: [^\]]+)?\]", out3)
+                   r"(\d+) round\(s\) — UNRESOLVED: L4, L8 — WHOLE-DRAFT FLAG: "
+                   r"([^\]—]+) — COVERAGE UNCERTIFIED: [^\]]+\]", out3)
     check("under defer: the stamp carries `— WHOLE-DRAFT FLAG: "
-          "TITLE_NOT_IN_HOOK` beside `no line flag stands`, and its exit is the "
-          "process's 3",
+          "TITLE_NOT_IN_HOOK` beside the unresolved reading targets and "
+          "uncertified coverage, and its exit is the process's 3",
           rc3 == 3 and m3 is not None and m3.group(1) == "3"
-          and m3.group(4).strip() == "TITLE_NOT_IN_HOOK",
+          and m3.group(4).strip() == "TITLE_NOT_IN_HOOK"
+          and _machine_result(out3).get('unresolved_lines') == [4, 8]
+          and _machine_result(out3).get('coverage', {}).get('certified') is False,
           m3.group(0) if m3 else out3[-300:])
     st0 = os.path.join(d, "state0.json")
     bp0 = os.path.join(HERE, "..", "songs", "keep_the_light.blueprint.json")
@@ -5164,19 +5168,36 @@ def test_the_plan_report_discloses_density_and_audibility():
           rc == 0 and m is not None and int(m.group(1)) == dn["binding_cap"]
           and "uniform over 1.." in m.group(2),
           f"rc {rc}; {m.group(0)[:90] if m else 'no DENSITY line'}")
-    m2 = re.search(r"^\s*AUDIBLE: (\d+) of (\d+) end-bound group\(s\) draw a "
-                   r"relation a listener hears as END RHYME", out, re.M)
+    m2 = re.search(r"^\s*AUDIBLE: (\d+) of (\d+) end-bound group\(s\) require a "
+                   r"schema heard as END RHYME", out, re.M)
     check("...and the AUDIBLE line partitions the end-bound groups with the "
           "plan's own counts — audible of end-bound, then the bare default "
-          "and the inaudible apart (doctrine 79)",
+          "and the inaudible and unclassified declarations apart (doctrine 79)",
           m2 is not None and int(m2.group(1)) == au["audible"]
           and int(m2.group(2)) == au["end_bound"]
           and f"{au['bare']} on the bare default" in out
           and f"{len(au['inaudible'])} on a relation heard as something else"
-          in out,
+          in out
+          and f"{len(au['unclassified'])} explicit class/type declaration(s)" in out
+          and au['end_bound'] == (au['audible'] + au['bare']
+                                 + len(au['inaudible']) + len(au['unclassified'])),
           f"{m2.group(0)[:90] if m2 else 'no AUDIBLE line'}")
     check("...and says it is a record, not a gate — the dice are untouched",
           "A record, not a gate" in out)
+    # An explicit global relation was previously called a bare default and
+    # described as drawn. Exercise the actual CLI with that different route.
+    rc_declared, out_declared, _ = run(
+        'plan', '--seed=31', '--relation=class:CONSONANCE', f'--out={bp}', expect_rc=0)
+    with open(bp, encoding='utf-8') as fh:
+        declared = _json.load(fh)['choices']['audible']
+    check('an explicit global class is disclosed outside the schema inventory, '
+          'never as bare or sampled',
+          rc_declared == 0 and declared['end_bound'] > 0
+          and declared['bare'] == declared['audible'] == 0
+          and declared['unclassified'] == ['class:CONSONANCE'] * declared['end_bound']
+          and '0 on the bare default' in out_declared
+          and 'relations were declared, not drawn' in out_declared,
+          str(declared))
     brief = plan.get("writer_brief", "")
     check("the writer brief carried in the blueprint has the legend and the "
           "capacity line the writer reads (M-192)",

@@ -301,6 +301,17 @@ and is not counted as a caught mutation. These checks used Node 24.19.0,
 Python 3.12.14 and NLTK 3.10.3, with the pinned Python also placed on PATH for
 tests that explicitly invoke `python3`.
 
+The first full PR run exposed integration expectations missed by those targeted
+checks: the new floor-scope note needed its explicit disclosure disposition;
+the planner import guard needed a narrowly scoped admission for the relation
+name resolver; the CLI audibility test still matched the old wording; and a
+historical whole-flag fixture now correctly retained its unknown-reading lines.
+The disposition and census are recorded, the import guard permits only the
+resolver inside the report, and the CLI tests retain exact counts, uncertainty
+and the separate fully judged success control. The initial failures are banked
+in `lyric-harness/quality/results/continuation_audit_2026-09-20/ci-integration.json`.
+These integration repairs do not change the comparator or lyric acceptance.
+
 The comparator batch changes `lyric_harness.py`, including explicit-reading
 handling. Its defaults are preserved, but this still requires calibration.
 Partial calibrations were stopped when later correctness bugs required

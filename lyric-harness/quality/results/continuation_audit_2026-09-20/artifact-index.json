@@ -4,8 +4,8 @@
   "files": [
     {
       "path": "README.md",
-      "bytes": 5469,
-      "sha256": "9913f3b16c707fe57d20436f452d27361ff924c2f87da5502be00f6826e09c12"
+      "bytes": 5643,
+      "sha256": "6559ef0f8eb4bd0a2179f8d120fb998dc642022ece799134c3ba19c11db2a9ec"
     },
     {
       "path": "baseline.zip",
@@ -21,6 +21,11 @@
       "path": "calibration-rows.zip",
       "bytes": 454582,
       "sha256": "51e87e2c0fd21469cf76dd7fbb8361f653337c54085ba7bdcf2566c3ffb5ed38"
+    },
+    {
+      "path": "ci-integration.json",
+      "bytes": 4526,
+      "sha256": "6395627ff978d387e04ef45ab5e92c07fe9aeea4081bf4fc5838eaac5268eaad"
     },
     {
       "path": "consonance-monosyllable-bound.json",
@@ -89,8 +94,8 @@
     },
     {
       "path": "verification.zip",
-      "bytes": 238264,
-      "sha256": "4834f76b7b3f9cf2d7fba959902984b4d4e4e46f6684d7cd5d880228359c247e"
+      "bytes": 257065,
+      "sha256": "61ac03d4f0d3fb046855281d8c1d9b77777aef56a06e5008aa504626b4de7c51"
     }
   ]
 }
