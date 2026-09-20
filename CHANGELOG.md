@@ -6,6 +6,18 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Removed — the `hozho` preface
+
+The owner named `hozho` as an artist's name and asked for it to be removed
+from the repository altogether. M-281 had kept it as a Diné word for harmony;
+that ruling is struck, not deleted, and the owner's stands. The lexicon entry
+in `references/07_preface_lexicon.js`, its glyph in
+`scripts/_nav_glyph_map.json` and `references/09_nav_glyphs.js`, the
+diacritics example in `src/app.js` that cited it, and every pinned count of
+the lexicon (741 → 740) go together. The frozen descriptor table is not
+re-frozen: `build_descriptor_df.js --check` tolerates the nine moved counts,
+so no recipe snapshot is re-blessed here.
+
 ### Changed — the genre and instrument lists are alphabetical
 
 The flat genre list rendered `Catalog.all()` in catalog order — the order the

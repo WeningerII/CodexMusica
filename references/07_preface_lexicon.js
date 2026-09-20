@@ -399,10 +399,6 @@ const PREFACE_LEXICON = [
     tokens: ['smoothed', 'jazz-trained', 'jazz-influenced', 'classical-jazz', 'intimate-aspirated', 'body-resonance-low-mid', 'chamber-fed', 'compound-architecture', 'controlled']
   },
   {
-    id: 'hozho',
-    tokens: ['pure', 'beat-free', 'key-locked', 'ceremonial', 'sacred-traditional', 'drone-foundation', 'drone-like', 'sustained-tone', 'devotional']
-  },
-  {
     id: 'yaaburnee',
     tokens: ['melismatic', 'devotional', 'sufi-mystical', 'court-ceremonial', 'ornament-heavy', 'ornamental-melismatic', 'thick', 'sufi', 'ceremonial']
   },

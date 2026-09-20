@@ -13030,9 +13030,9 @@ function _buildChunk(label, descs, preface) {
 //      another. Silently strip rather than corrupt the recipe shape.
 //   3. Case-insensitive lookup against lexicon ids — `Weeping`, `weeping`,
 //      and `WEEPING` all resolve to the canonical lowercase id.
-//   4. Fallback to display-word match — typing `morriña` or `hózhó` (the
-//      display form with diacritics) resolves to the entry even though the
-//      ids are `morrina`/`hozho`.
+//   4. Fallback to display-word match — typing `morriña` (the display form
+//      with diacritics) resolves to the entry even though the id is
+//      `morrina`.
 //   5. If still no match, render as free-form (post-sanitization).
 function _sanitizePreface(raw) {
   if (raw == null) return '';
@@ -17753,7 +17753,7 @@ function _initApp() {
   const searchPreface = document.getElementById('search-preface');
   if (searchPreface) {
     // Debounced on the same 30 ms as the tradition picker above, and for the
-    // same reason measured the same way. This list re-renders 741 prefaces per
+    // same reason measured the same way. This list re-renders 740 prefaces per
     // keystroke and was the one search input still doing it on every character.
     // MEASURED in Chromium against the built page: 15 ms per keystroke in
     // steady state and 60-152 ms on the first keystroke of a burst, against
