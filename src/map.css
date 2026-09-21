@@ -128,14 +128,13 @@ main {
 .toggle {
   background: white !important;
   font-size: 14px !important;
-  min-height: 40px;
+  min-height: 44px;
   padding: 8px 12px !important;
   border-color: #dadce0 !important;
 }
-/* The atlas marks a pressed pill with aria-pressed, not a class; the rule
-   above forces every pill white, so a pressed pill styled only by atlas.html
-   (dark pill, white text) became white text on white -- a blank pill. */
-.toggle[aria-pressed='true'],
+/* An open menu and an applied filter are separate states. Both stay legible. */
+.toggle[aria-expanded='true'],
+.toggle[data-active='true'],
 .toggle.on {
   background: #e8f0fe !important;
   color: #174ea6 !important;
@@ -152,7 +151,8 @@ main {
   background: white !important;
 }
 #legend-panel,
-#threads-panel {
+#threads-panel,
+#routes-panel {
   max-height: 55vh !important;
   overflow: auto;
   background: white !important;
@@ -241,7 +241,7 @@ input:focus-visible {
   .toggle {
     font-size: 12px !important;
     padding: 6px 8px !important;
-    min-height: 36px;
+    min-height: 44px;
     gap: 4px !important;
   }
   .toggle svg {
@@ -252,15 +252,16 @@ input:focus-visible {
     bottom: 12px !important;
   }
   .zoombtn {
-    width: 38px !important;
-    height: 38px !important;
+    width: 44px !important;
+    height: 44px !important;
   }
   #stack {
     bottom: 60px !important;
     max-height: 50dvh !important;
   }
   #legend-panel,
-  #threads-panel {
+  #threads-panel,
+  #routes-panel {
     max-height: 50dvh !important;
   }
   #legendwrap > div:first-child {
@@ -305,7 +306,8 @@ input:focus-visible {
 .list-open #list,
 .show-provenance .provenance,
 #legend-panel,
-#threads-panel {
+#threads-panel,
+#routes-panel {
   max-width: calc(100vw - 20px);
   overflow-wrap: anywhere;
   overscroll-behavior: contain;
@@ -326,10 +328,76 @@ input:focus-visible {
   min-height: 0;
 }
 #legend-panel,
-#threads-panel {
+#threads-panel,
+#routes-panel {
   max-height: min(55dvh, calc(100dvh - 150px)) !important;
 }
 #legend-panel.layout-adjusted,
-#threads-panel.layout-adjusted {
+#threads-panel.layout-adjusted,
+#routes-panel.layout-adjusted {
   max-height: calc(100dvh - 16px) !important;
+}
+
+/* Compact, explicit filter state stays visible after a picker closes. */
+#active-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 12px #0002;
+  font-size: 12px;
+}
+#filter-summary {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+#clear-filters,
+.panel-action {
+  flex-shrink: 0;
+  padding: 6px 8px;
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: #174ea6;
+  font: inherit;
+}
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 8px 4px;
+}
+#legend-panel .rowbtn,
+#threads-panel .rowbtn,
+#routes-panel .rowbtn {
+  min-height: 44px;
+}
+#legend-panel .rowtext {
+  white-space: normal;
+}
+#routes-panel .rowbtn[aria-current='true'],
+#threads-panel .rowbtn[aria-pressed='true'] {
+  background: #e8f0fe;
+  color: #174ea6;
+}
+.route-ends {
+  padding: 0 8px 10px 16px;
+  border-bottom: 1px solid #dadce0;
+}
+.route-end {
+  padding: 8px;
+  font-size: 13px;
+}
+#legendwrap {
+  max-height: calc(100dvh - 90px);
+}
+#legend-panel,
+#threads-panel,
+#routes-panel {
+  min-height: 0;
+  flex-shrink: 1;
 }
