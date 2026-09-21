@@ -78,6 +78,7 @@ function repoFiles() {
     return execFileSync('git', ['ls-files'], {
       cwd: ROOT,
       encoding: 'utf8',
+      maxBuffer: 16 * 1024 * 1024,
       stdio: ['ignore', 'pipe', 'ignore'],
     })
       .split('\n')

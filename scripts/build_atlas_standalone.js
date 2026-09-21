@@ -74,6 +74,11 @@ function metaCounts() {
 }
 
 const payload = {
+  earthImage:
+    'data:image/webp;base64,' +
+    fs
+      .readFileSync(path.join(ROOT, 'assets/earth-tiles/200407-v1/overview.webp'))
+      .toString('base64'),
   index,
   geo: readJson('data/atlas-geo.json'),
   sigs: readJson('references/_tradition_signatures.json'),
@@ -153,6 +158,7 @@ if (flags.artifact) {
     '\n</script>\n';
 } else {
   out = html
+    .replace('<script src="src/atlas-tiles.js"></script>', '')
     .replace(/<link rel="stylesheet" href="src\/(?:map|layout)\.css"\s*\/?\s*>/g, '')
     .replace('</head>', () => '<style>' + mapCss + '</style></head>')
     .replace('<script src="src/layout.js"></script>', () => '<script>' + layoutJs + '</script>')

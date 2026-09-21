@@ -90,3 +90,6 @@ lyric-harness/quality/results/computational_audit_2026-09-14
 
 # Raw audit regression receipts/logs: SHA-indexed evidence, not authored inputs.
 docs/production-audit-evidence
+
+# Generated image pyramid: compact manifests and hashed build receipts.
+assets/earth-tiles

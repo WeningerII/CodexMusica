@@ -27,3 +27,17 @@ vendored in this repository.
 
 [Lucide](https://lucide.dev) icons, licensed **ISC** (see
 `references/_assets/icons/_LICENSE.txt`).
+
+## Atlas satellite imagery
+
+`assets/earth-tiles/200407-v1/` is derived from NASA Earth Observatory's
+[Blue Marble: Next Generation, base map](https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-map/),
+July **2004**, native 500 m imagery (eight 21,600 × 21,600 source panels).
+Credit: NASA Earth Observatory / NASA Goddard Space Flight Center, Blue Marble
+Next Generation. This is a historical satellite composite, not live imagery.
+`assets/earth-sources.json` pins the eight source URLs, byte counts and SHA-256
+hashes. `scripts/build_earth_tiles.py` reprojects them to Equal Earth and writes
+small WebP tiles at seven resolutions plus an overview. The generated inventory
+records every output tile's bytes and hash; it is not fetched by the browser.
+The older `assets/earth-equal.webp` remains the historical NASA Blue Marble
+2002 derivative described in the original production workbench notes.

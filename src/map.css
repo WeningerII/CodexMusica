@@ -281,7 +281,7 @@ input:focus-visible {
   left: auto !important;
 }
 .show-provenance .provenance::after {
-  content: ' · Satellite imagery: NASA Blue Marble. Equal Earth projection.';
+  content: ' · Satellite imagery: NASA Blue Marble Next Generation (July 2004). Equal Earth projection.';
 }
 
 /* Search results are anchored to the field in viewport coordinates. */

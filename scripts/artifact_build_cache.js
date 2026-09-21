@@ -26,6 +26,7 @@ function fingerprint(root = ROOT, runtime = process.versions) {
     {
       cwd: root,
       encoding: 'utf8',
+      maxBuffer: 16 * 1024 * 1024,
     }
   )
     .split('\0')
