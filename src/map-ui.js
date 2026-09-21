@@ -3,11 +3,12 @@
 UILayout.anchor(document.getElementById('results'), document.getElementById('search'));
 for (const [id, title] of [
   ['card', 'tradition detail'],
-  ['thread-card', 'guided thread'],
+  ['thread-card', 'genre collection'],
   ['stack', 'traditions at this location'],
   ['list', 'traditions in view'],
   ['legend-panel', 'map legend'],
-  ['threads-panel', 'guided threads'],
+  ['threads-panel', 'genre collections'],
+  ['routes-panel', 'routes'],
 ]) {
   UILayout.floating(document.getElementById(id), { key: 'map-' + id, title });
 }

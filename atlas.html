@@ -656,26 +656,30 @@
             "
           >
             <div style="display: flex; gap: 4px; align-items: center; flex-wrap: wrap">
-              <button class="toggle" id="t-territories" aria-pressed="false" aria-expanded="false">
+              <button class="toggle" id="t-territories" aria-expanded="false" aria-controls="legend-panel">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
                   <line x1="4" y1="6" x2="20" y2="6"></line>
                   <line x1="7" y1="12" x2="17" y2="12"></line>
                   <line x1="10" y1="18" x2="14" y2="18"></line>
                 </svg>
-                <span>Territories</span><span id="t-territories-badge"></span>
+                <span>Genres</span><span id="t-territories-badge"></span>
               </button>
-              <button class="toggle" id="t-routes" aria-pressed="false">Routes</button>
-              <button class="toggle" id="t-threads" aria-pressed="false" aria-expanded="false">Threads</button>
-              <button class="toggle" id="t-density" aria-pressed="false">Density</button>
+              <button class="toggle" id="t-routes" aria-expanded="false" aria-controls="routes-panel">Routes</button>
+              <button class="toggle" id="t-threads" aria-expanded="false" aria-controls="threads-panel">Collections</button>
+            </div>
+            <div id="active-filters" hidden>
+              <span id="filter-summary" role="status"></span>
+              <button id="clear-filters" type="button">Clear filters</button>
             </div>
             <div id="threads-panel" class="panel" style="width: 300px" hidden></div>
+            <div id="routes-panel" class="panel" style="width: 320px" hidden></div>
             <div id="legend-panel" class="panel" style="width: 280px; max-height: 38vh; overflow-y: auto" hidden></div>
           </div>
 
           <div class="provenance" id="provenance"></div>
           <div id="tip" class="tip" hidden></div>
           <div id="card" class="card" role="dialog" aria-label="Tradition detail" hidden></div>
-          <div id="thread-card" class="card" style="z-index: 44" role="dialog" aria-label="Guided thread" hidden></div>
+          <div id="thread-card" class="card" style="z-index: 44" role="dialog" aria-label="Genre collection" hidden></div>
           <div id="stack" role="dialog" aria-modal="false" aria-labelledby="stack-title" hidden></div>
         </main>
       </div>

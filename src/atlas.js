@@ -98,8 +98,8 @@
     thread: null,
     stack: null, // { pts, anchorX, anchorY, filter }
     expanded: new Set(),
-    heat: false,
     routesOn: false,
+    routeIndex: null,
     w: 0,
     h: 0,
     dpr: 1,
@@ -188,6 +188,7 @@
     el.provenance = $('provenance');
     el.legendPanel = $('legend-panel');
     el.threadsPanel = $('threads-panel');
+    el.routesPanel = $('routes-panel');
 
     var get = function (u) {
       return fetch(u).then(function (r) {
@@ -230,6 +231,8 @@
         syncList();
         renderLegend();
         renderThreads();
+        renderRoutes();
+        syncControls();
         var deep = new URLSearchParams(location.search).get('trad');
         if (deep && S.byId[deep]) {
           select(S.byId[deep]);
@@ -316,11 +319,11 @@
         var end = function (e) {
           if (typeof e === 'string') return S.byId[e];
           var pr = proj(e[0], e[1]);
-          return { x: pr[0], y: pr[1] };
+          return { x: pr[0], y: pr[1], name: e[2] };
         };
         var a = end(r.a),
           b = end(r.b);
-        return a && b ? { ax: a.x, ay: a.y, bx: b.x, by: b.y, label: r.label } : null;
+        return a && b ? { ax: a.x, ay: a.y, bx: b.x, by: b.y, a: a, b: b, label: r.label } : null;
       })
       .filter(Boolean);
   }
@@ -601,7 +604,6 @@
 
     var cls = buildClusters();
     S.clusters = cls;
-    if (S.heat) drawHeat(ctx, cls);
 
     S.hit = [];
     drawDimmed(ctx);
@@ -626,7 +628,8 @@
     if (S.routesOn) {
       for (var r = 0; r < S.routes.length; r++) {
         var rt = S.routes[r];
-        if (rt._mx !== undefined) S.hit.push({ sx: rt._mx, sy: rt._my, r: 12, route: rt.label });
+        if (rt._mx !== undefined)
+          S.hit.push({ sx: rt._mx, sy: rt._my, r: 16, route: rt.label, routeIndex: r });
       }
     }
 
@@ -637,13 +640,16 @@
   function drawRoutes(ctx) {
     ctx.save();
     ctx.setLineDash([5, 4]);
-    ctx.strokeStyle = 'rgba(200,80,74,0.55)';
-    ctx.lineWidth = 1.3;
     for (var i = 0; i < S.routes.length; i++) {
       var r = S.routes[i];
+      // Off-screen routes must not retain hit targets from a previous view.
+      delete r._mx;
+      delete r._my;
       var a = toScreen(r.ax, r.ay),
         b = toScreen(r.bx, r.by);
       if (Math.max(a[0], b[0]) < -60 || Math.min(a[0], b[0]) > S.w + 60) continue;
+      ctx.strokeStyle = S.routeIndex === i ? '#e53935' : 'rgba(200,80,74,0.55)';
+      ctx.lineWidth = S.routeIndex === i ? 3 : 1.3;
       var mx = (a[0] + b[0]) / 2;
       var my = (a[1] + b[1]) / 2 - Math.min(110, Math.hypot(b[0] - a[0], b[1] - a[1]) * 0.22) - 10;
       ctx.beginPath();
@@ -652,23 +658,6 @@
       ctx.stroke();
       r._mx = (a[0] + 2 * mx + b[0]) / 4;
       r._my = (a[1] + 2 * my + b[1]) / 4;
-    }
-    ctx.restore();
-  }
-
-  function drawHeat(ctx, cls) {
-    ctx.save();
-    ctx.globalCompositeOperation = 'multiply';
-    for (var i = 0; i < cls.length; i++) {
-      var c = cls[i];
-      var r = 20 + Math.sqrt(c.pts.length) * 9;
-      var g = ctx.createRadialGradient(c.sx, c.sy, 0, c.sx, c.sy, r);
-      g.addColorStop(0, 'rgba(200,80,74,0.14)');
-      g.addColorStop(1, 'rgba(200,80,74,0)');
-      ctx.fillStyle = g;
-      ctx.beginPath();
-      ctx.arc(c.sx, c.sy, r, 0, 7);
-      ctx.fill();
     }
     ctx.restore();
   }
@@ -763,32 +752,17 @@
       })
       .filter(Boolean);
     ctx.save();
-    ctx.strokeStyle = '#c8504a';
-    ctx.lineWidth = 1.8;
-    for (var i = 0; i + 1 < stops.length; i++) {
-      var a = toScreen(stops[i].x, stops[i].y),
-        b = toScreen(stops[i + 1].x, stops[i + 1].y);
-      var mx = (a[0] + b[0]) / 2;
-      var my = (a[1] + b[1]) / 2 - Math.min(110, Math.hypot(b[0] - a[0], b[1] - a[1]) * 0.22) - 10;
-      ctx.beginPath();
-      ctx.moveTo(a[0], a[1]);
-      ctx.quadraticCurveTo(mx, my, b[0], b[1]);
-      ctx.stroke();
-    }
-    stops.forEach(function (p, i) {
+    // Collections group genres by theme; their list order is not a migration path.
+    stops.forEach(function (p) {
       var s = toScreen(p.x, p.y);
       ctx.beginPath();
       ctx.arc(s[0], s[1], 9, 0, 7);
-      ctx.fillStyle = '#c8504a';
-      ctx.fill();
       ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 3;
+      ctx.stroke();
+      ctx.strokeStyle = p.color;
       ctx.lineWidth = 1.5;
       ctx.stroke();
-      ctx.fillStyle = '#103557';
-      ctx.font = '600 10px IBM Plex Sans, sans-serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(String(i + 1), s[0], s[1] + 0.5);
       S.hit.push({ sx: s[0], sy: s[1], r: 11, pt: p });
     });
     ctx.restore();
@@ -886,6 +860,7 @@
     if (!hits.length) {
       closeStack();
       if (S.sel) select(null);
+      renderThreadCard();
       return;
     }
     var top = hits[0].h;
@@ -903,7 +878,11 @@
       return;
     }
 
-    if (top.route) return;
+    if (top.route) {
+      pickRoute(top.routeIndex);
+      setPanel('routes');
+      return;
+    }
 
     // Dots sharing a pixel: list them rather than silently picking one.
     var pts = [];
@@ -1325,7 +1304,7 @@
       h +=
         '<button data-act="back-thread" style="width:100%;margin-top:8px;padding:7px 12px;font-size:12px;' +
         'color:var(--muted);background:var(--surface-sunken);border:none;border-radius:6px">' +
-        '&#8592; Back to thread</button>';
+        '&#8592; Back to collection</button>';
     }
     el.card.innerHTML = h;
     el.card.hidden = false;
@@ -1419,6 +1398,12 @@
   function onQuery() {
     var val = el.search.value;
     var ql = val.trim().toLowerCase();
+    // Focusing an empty search must not erase the active collection filter.
+    if (S.thread && !ql) {
+      el.results.hidden = true;
+      return;
+    }
+    if (S.thread) exitThread();
     var all = !ql
       ? []
       : S.pts.filter(function (p) {
@@ -1478,8 +1463,11 @@
         );
       })
       .join('');
+    if (ql && !all.length && !tokenHit)
+      h = '<div class="route-end" role="status">No matching genres or places.</div>';
     el.results.innerHTML = h;
-    el.results.hidden = !ql || (!all.length && !tokenHit);
+    el.results.hidden = !ql;
+    syncControls();
     draw();
     scheduleListSync();
   }
@@ -1492,9 +1480,9 @@
       counts[p.root] = (counts[p.root] || 0) + 1;
     });
     var h =
-      '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:4px 8px 6px">' +
-      '<span class="label">Highlight territories</span>' +
-      '<button data-act="clear-roots" style="border:none;background:none;font-size:11px;color:var(--color-blue);padding:2px 4px">clear</button></div>';
+      '<div class="panel-heading"><span class="label">Genre groups</span>' +
+      '<button class="panel-action" data-act="clear-roots">Clear</button>' +
+      '<button class="panel-action" data-act="close-panel" aria-label="Close genre groups">&#215;</button></div>';
     h += S.roots
       .filter(function (r) {
         return counts[r];
@@ -1512,7 +1500,7 @@
           on +
           '"><span class="dot" style="background:' +
           rootColor(r) +
-          '"></span><span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' +
+          '"></span><span class="rowtext">' +
           esc(rootLabel(r)) +
           '</span><span style="font-family:var(--font-mono);font-size:10px;color:var(--muted-2)">' +
           counts[r] +
@@ -1521,23 +1509,25 @@
       })
       .join('');
     el.legendPanel.innerHTML = h;
-    var badge = $('t-territories-badge');
-    badge.textContent = S.focus.size ? ' · ' + S.focus.size + ' highlighted' : '';
+    syncControls();
   }
 
   function renderThreads() {
     el.threadsPanel.innerHTML =
-      '<div class="label" style="padding:4px 8px 6px">Guided threads</div>' +
+      '<div class="panel-heading"><span class="label">Genre collections</span>' +
+      '<button class="panel-action" data-act="close-panel" aria-label="Close collections">&#215;</button></div>' +
       S.threadDefs
         .map(function (t) {
           return (
-            '<button class="rowbtn" style="min-height:32px;font-size:13px" data-thid="' +
+            '<button class="rowbtn" style="font-size:13px" aria-pressed="' +
+            (!!S.thread && S.thread.id === t.id) +
+            '" data-thid="' +
             esc(t.id) +
             '"><span style="flex:1;min-width:0">' +
             esc(t.title) +
             '</span><span style="font-family:var(--font-mono);font-size:10px;color:var(--muted-2)">' +
             t.stops.length +
-            ' stops</span></button>'
+            ' genres</span></button>'
           );
         })
         .join('');
@@ -1555,6 +1545,8 @@
     el.search.value = '';
     el.results.hidden = true;
     select(null);
+    renderLegend();
+    renderThreads();
     renderThreadCard();
     var stops = t.stops
       .map(function (sid) {
@@ -1582,24 +1574,19 @@
       return;
     }
     var h =
-      '<button class="closebtn" data-act="exit-thread" title="Exit thread" aria-label="Exit thread">&#215;</button>' +
-      '<div class="label" style="color:var(--accent);margin-bottom:4px">Thread</div>' +
+      '<button class="closebtn" data-act="exit-thread" title="Clear collection" aria-label="Clear collection">&#215;</button>' +
+      '<div class="label" style="color:var(--accent);margin-bottom:4px">Collection</div>' +
       '<h2 style="margin-bottom:6px;padding-right:20px">' +
       esc(t.title) +
-      '</h2><p style="font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:12px;text-wrap:pretty">' +
-      esc(t.blurb) +
-      '</p><div style="display:flex;flex-direction:column;gap:2px">';
+      '</h2><div style="display:flex;flex-direction:column;gap:2px">';
     h += t.stops
-      .map(function (id, i) {
+      .map(function (id) {
         var p = S.byId[id];
         if (!p) return '';
         return (
           '<button class="rowbtn" data-tid="' +
           esc(id) +
-          '"><span style="width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;' +
-          'font-weight:600;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">' +
-          (i + 1) +
-          '</span><span class="rowtext"><span class="rowname">' +
+          '"><span class="rowtext"><span class="rowname">' +
           esc(p.name) +
           '</span><span class="rowplace">' +
           esc(p.place) +
@@ -1618,14 +1605,110 @@
     S.thread = null;
     S.qmatch = null;
     el.threadCard.hidden = true;
+    renderThreads();
+    if (S.sel) renderCard();
+    syncControls();
     draw();
     scheduleListSync();
   }
 
   // ── wiring ──
 
-  function toggle(btn, on) {
-    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+  function syncControls() {
+    [
+      ['territories', el.legendPanel, S.focus.size > 0],
+      ['threads', el.threadsPanel, !!S.thread],
+      ['routes', el.routesPanel, S.routesOn],
+    ].forEach(function (entry) {
+      var btn = $('t-' + entry[0]);
+      btn.setAttribute('aria-expanded', String(!entry[1].hidden));
+      btn.dataset.active = String(entry[2]);
+    });
+    $('t-territories-badge').textContent = S.focus.size ? ' · ' + S.focus.size : '';
+    var filters = [];
+    if (S.focus.size) filters.push(S.focus.size + ' genre group' + (S.focus.size === 1 ? '' : 's'));
+    if (S.thread) filters.push(S.thread.title);
+    if (el.search.value.trim()) filters.push('Search: ' + el.search.value.trim());
+    $('filter-summary').textContent = filters.join(' · ');
+    $('active-filters').hidden = filters.length === 0;
+  }
+
+  function setPanel(name, focus) {
+    var panels = { territories: el.legendPanel, threads: el.threadsPanel, routes: el.routesPanel };
+    var previous = Object.keys(panels).find(function (key) {
+      return !panels[key].hidden;
+    });
+    Object.keys(panels).forEach(function (key) {
+      panels[key].hidden = key !== name;
+    });
+    syncControls();
+    if (focus && previous) $('t-' + previous).focus();
+  }
+
+  function clearFilters() {
+    S.focus.clear();
+    S.thread = null;
+    S.qmatch = null;
+    el.search.value = '';
+    el.results.hidden = true;
+    el.threadCard.hidden = true;
+    closeStack();
+    renderLegend();
+    renderThreads();
+    if (S.sel) renderCard();
+    draw();
+    syncList();
+  }
+
+  function renderRoutes() {
+    var h =
+      '<div class="panel-heading"><span class="label">Routes</span>' +
+      '<button class="panel-action" data-act="hide-routes">Hide routes</button>' +
+      '<button class="panel-action" data-act="close-panel" aria-label="Close routes">&#215;</button></div>';
+    S.routes.forEach(function (route, i) {
+      var selected = S.routeIndex === i;
+      h +=
+        '<button class="rowbtn" data-route="' +
+        i +
+        '" aria-current="' +
+        selected +
+        '"><span class="rowtext"><span class="rowname">' +
+        esc(route.label) +
+        '</span></span></button>';
+      if (!selected) return;
+      h += '<div class="route-ends">';
+      [route.a, route.b].forEach(function (end) {
+        h += end.id
+          ? '<button class="rowbtn" data-tid="' +
+            esc(end.id) +
+            '"><span class="rowtext">' +
+            esc(end.name) +
+            '<span class="rowplace">' +
+            esc(end.place) +
+            '</span></span></button>'
+          : '<div class="route-end">' + esc(end.name) + '</div>';
+      });
+      h += '</div>';
+    });
+    el.routesPanel.innerHTML = h;
+  }
+
+  function pickRoute(index) {
+    var route = S.routes[index];
+    if (!route) return;
+    clearFilters();
+    select(null);
+    S.routesOn = true;
+    S.routeIndex = index;
+    renderRoutes();
+    syncControls();
+    var dx = Math.abs(route.ax - route.bx) + 0.35;
+    var dy = Math.abs(route.ay - route.by) + 0.35;
+    var scale = Math.max(
+      S.baseScale,
+      Math.min(S.baseScale * 20, Math.min(S.w / dx, S.h / dy) * 0.75)
+    );
+    flyTo({ x: (route.ax + route.bx) / 2, y: (route.ay + route.by) / 2 }, scale);
   }
 
   function wireControls() {
@@ -1644,53 +1727,59 @@
       flyTo({ x: 0, y: 0 }, S.baseScale);
     });
 
-    var tTerr = $('t-territories'),
-      tRoutes = $('t-routes'),
-      tThreads = $('t-threads'),
-      tHeat = $('t-density');
-    tTerr.addEventListener('click', function () {
-      var open = el.legendPanel.hidden;
-      el.legendPanel.hidden = !open;
-      el.threadsPanel.hidden = true;
-      toggle(tThreads, !!S.thread);
-      tThreads.setAttribute('aria-expanded', 'false');
-      toggle(tTerr, open);
-      tTerr.setAttribute('aria-expanded', open ? 'true' : 'false');
+    [
+      ['territories', el.legendPanel],
+      ['threads', el.threadsPanel],
+      ['routes', el.routesPanel],
+    ].forEach(function (entry) {
+      $('t-' + entry[0]).addEventListener('click', function () {
+        var open = entry[1].hidden;
+        if (entry[0] === 'routes' && open) S.routesOn = true;
+        setPanel(open ? entry[0] : null);
+        draw();
+      });
+      entry[1].addEventListener('click', function (e) {
+        if (e.target.closest('[data-act="close-panel"]')) setPanel(null, true);
+      });
     });
-    tThreads.addEventListener('click', function () {
-      var open = el.threadsPanel.hidden;
-      el.threadsPanel.hidden = !open;
-      el.legendPanel.hidden = true;
-      toggle(tTerr, S.focus.size > 0);
-      tTerr.setAttribute('aria-expanded', 'false');
-      toggle(tThreads, open || !!S.thread);
-      tThreads.setAttribute('aria-expanded', open ? 'true' : 'false');
+    $('clear-filters').addEventListener('click', function () {
+      clearFilters();
+      el.search.focus();
     });
-    tRoutes.addEventListener('click', function () {
-      S.routesOn = !S.routesOn;
-      toggle(tRoutes, S.routesOn);
-      draw();
-    });
-    tHeat.addEventListener('click', function () {
-      S.heat = !S.heat;
-      toggle(tHeat, S.heat);
-      draw();
+    el.routesPanel.addEventListener('click', function (e) {
+      if (e.target.closest('[data-act="hide-routes"]')) {
+        S.routesOn = false;
+        S.routeIndex = null;
+        el.tip.hidden = true;
+        renderRoutes();
+        setPanel(null, true);
+        draw();
+        return;
+      }
+      var row = e.target.closest('[data-route]');
+      if (!row) return;
+      pickRoute(Number(row.dataset.route));
+      // Rendering the selected endpoints replaces the row; preserve keyboard focus.
+      el.routesPanel.querySelector('[data-route="' + row.dataset.route + '"]').focus();
     });
 
     el.legendPanel.addEventListener('click', function (e) {
       if (e.target.closest('[data-act="clear-roots"]')) {
         S.focus.clear();
         renderLegend();
+        el.legendPanel.querySelector('[data-act="clear-roots"]').focus();
         draw();
         scheduleListSync();
         return;
       }
       var b = e.target.closest('[data-root]');
       if (!b) return;
+      if (S.thread) exitThread();
       var r = b.dataset.root;
       if (S.focus.has(r)) S.focus.delete(r);
       else S.focus.add(r);
       renderLegend();
+      el.legendPanel.querySelector('[data-root="' + r + '"]').focus();
       draw();
       scheduleListSync();
     });
@@ -1698,12 +1787,13 @@
     el.threadsPanel.addEventListener('click', function (e) {
       var b = e.target.closest('[data-thid]');
       if (!b) return;
-      el.threadsPanel.hidden = true;
+      setPanel(null);
       pickThread(b.dataset.thid);
+      el.threadCard.querySelector('[data-act="exit-thread"]').focus();
     });
 
     // One delegated handler for every "open this tradition" button on the page.
-    [el.list, el.results, el.card, el.threadCard].forEach(function (root) {
+    [el.list, el.results, el.card, el.threadCard, el.routesPanel].forEach(function (root) {
       root.addEventListener('click', function (e) {
         if (e.target.closest('[data-act="close-card"]')) {
           select(null);
@@ -1712,6 +1802,7 @@
         }
         if (e.target.closest('[data-act="exit-thread"]')) {
           exitThread();
+          $('t-threads').focus();
           return;
         }
         if (e.target.closest('[data-act="back-thread"]')) {
@@ -1738,13 +1829,22 @@
         if (!S.thread) S.qmatch = null;
         el.search.value = '';
         el.results.hidden = true;
+        syncControls();
         select(p);
+        if (root === el.routesPanel) setPanel(null);
         flyTo(p);
       });
     });
 
     el.search.addEventListener('input', onQuery);
     el.search.addEventListener('focus', onQuery);
+
+    document.addEventListener('pointerdown', function (e) {
+      // Dismiss before a canvas tap opens a route, and before a menu row is
+      // replaced. Testing click.target afterwards mistakes a replaced row for
+      // an outside click and immediately closes the menu it just updated.
+      if (!e.target.closest('#legendwrap')) setPanel(null);
+    });
 
     document.addEventListener('click', function (e) {
       if (!el.results.hidden && !e.target.closest('.searchwrap')) el.results.hidden = true;
@@ -1761,9 +1861,16 @@
         el.results.hidden = true;
         return;
       }
+      if (!el.legendPanel.hidden || !el.threadsPanel.hidden || !el.routesPanel.hidden) {
+        setPanel(null, true);
+        return;
+      }
       if (S.sel) {
         select(null);
         renderThreadCard();
+      } else if (S.thread) {
+        exitThread();
+        $('t-threads').focus();
       }
     });
   }
