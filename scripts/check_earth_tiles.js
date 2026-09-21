@@ -12,8 +12,17 @@ const base = 'assets/earth-tiles/200407-v1';
 const dir = path.join(root, base);
 const manifest = JSON.parse(fs.readFileSync(path.join(dir, 'manifest.json')));
 const inventory = JSON.parse(fs.readFileSync(path.join(dir, 'inventory.json')));
+// Only the pyramid's own paths are asked for: the whole tree's `ls-files`
+// passed 1 MiB once the tiles were added, and `execFileSync`'s default
+// `maxBuffer` is exactly 1 MiB, so the check died with ENOBUFS before it
+// read a single tile (Build atlas imagery run 35649441001). The larger
+// buffer is belt and braces for a pyramid that outgrows even its own listing.
 const tracked = new Set(
-  execFileSync('git', ['ls-files', '-z'], { cwd: root, encoding: 'utf8' }).split('\0')
+  execFileSync('git', ['ls-files', '-z', '--', base], {
+    cwd: root,
+    encoding: 'utf8',
+    maxBuffer: 64 * 1024 * 1024,
+  }).split('\0')
 );
 assert.equal(manifest.projection, 'Equal Earth');
 assert.equal(manifest.levels.length, 7);

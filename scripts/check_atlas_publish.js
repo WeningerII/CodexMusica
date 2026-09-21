@@ -69,6 +69,10 @@ function trackedSet(root) {
         cwd: root,
         encoding: 'utf8',
         stdio: ['ignore', 'pipe', 'ignore'],
+        // The default 1 MiB `maxBuffer` is smaller than the tree's listing
+        // once the earth-tile pyramid is tracked; ENOBUFS would land in the
+        // catch below and silently turn this into an existence-only test.
+        maxBuffer: 64 * 1024 * 1024,
       })
         .split('\0')
         .filter(Boolean)
