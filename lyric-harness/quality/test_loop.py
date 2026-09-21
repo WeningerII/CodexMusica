@@ -1241,6 +1241,11 @@ def test_a_dead_end_and_an_open_line_each_name_their_own_rule():
     never put at all: doctrine 20's own case, and reachable because that is a
     declared coordinate with no floor.
 
+    The "nothing offered" case is measured on a free singleton (`X`) line
+    since M-305: an endpoint of a violated pair is offered a field even when
+    the pair's finding is reported on the other endpoint, so a two-line AA
+    draft no longer has a line the harness offers nothing for.
+
     (b) `LoopResult.unresolved` unions two rules — a FLAG, or a NOTE whose
     code the caller declared in `pursue` — while its own field comment read
     "still carrying a flag finding at stop". That is false for every line held
@@ -1282,9 +1287,22 @@ def test_a_dead_end_and_an_open_line_each_name_their_own_rule():
           "PROPOSER declined" in d1 and f"{field_size} candidate(s) offered" in d1 and field_size > 0
           and "no candidates offered" not in d1, d1[:100])
 
-    # (a2) THE HARNESS OFFERED NOTHING — a meter-only line carries no rhyme
-    # finding, so `brief()` computes no field for it at all.
-    r2 = revise_loop(Reviser(), D, m_aa, blueprint=bp, subdivision=sub,
+    # (a2) THE HARNESS OFFERED NOTHING — a FREE SINGLETON (`X`) carries a
+    # meter flag and sits in no group, so `brief()` computes no field for it
+    # at all. It used to be enough for the line to carry no rhyme finding of
+    # its own: this fixture's L1 was the EARLIER endpoint of the violated AA
+    # pair, whose finding is reported once, on L2. Since M-305 the brief
+    # reads the incident verdict as well, so that endpoint is offered a field
+    # (measured: 23 candidates on the two-line draft) and its dead end is the
+    # PROPOSER's. The free line is the case the wording is about, and the
+    # violated pair beside it keeps the second rule on the same run.
+    D3 = D + ["the kettle on the ring is cold and still"]
+    bp3 = {"sections": [{"name": "V1", "bars": 3, "start_bar": 1,
+                         "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
+           "lines": [{"text": t, "bar": i + 1, "beat": 1, "duration": 4,
+                      "section": "V1"} for i, t in enumerate(D3)]}
+    m_xaa = SC.mandate("XAA", n_lines=3, default_relation="RHYME")
+    r2 = revise_loop(Reviser(), D3, m_xaa, blueprint=bp3, subdivision=sub,
                      propose=decline)
     d2 = reason_for(r2, 1)
     check("a line the harness could not offer a field for says so, and says "
