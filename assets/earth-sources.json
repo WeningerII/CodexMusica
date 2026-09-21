@@ -1,0 +1,50 @@
+[
+  {
+    "panel": "A1",
+    "url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-base/july/world.200407.3x21600x21600.A1.jpg",
+    "bytes": 44749728,
+    "sha256": "045bdba424fb4ab5a385b6282fe36d1ee43ceb336630bc9d1197db8d08038456"
+  },
+  {
+    "panel": "B1",
+    "url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-base/july/world.200407.3x21600x21600.B1.jpg",
+    "bytes": 43375022,
+    "sha256": "4fe552a037a000ff778df08900f185e491534f2b2a8f1779a85512f3ac8fd625"
+  },
+  {
+    "panel": "C1",
+    "url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-base/july/world.200407.3x21600x21600.C1.jpg",
+    "bytes": 77295488,
+    "sha256": "18c4b869510f63bb2261182e26e5c072faee7bc6553842bf9d52175da539e956"
+  },
+  {
+    "panel": "D1",
+    "url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-base/july/world.200407.3x21600x21600.D1.jpg",
+    "bytes": 55629400,
+    "sha256": "d2358197c6cbc479051141a8455ee456425c6479e94498888338813daecade68"
+  },
+  {
+    "panel": "A2",
+    "url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-base/july/world.200407.3x21600x21600.A2.jpg",
+    "bytes": 20529152,
+    "sha256": "6d4d048ee6f3aaf28f4b8bbf727d9d635217d81171783111ae09b706e8a7d108"
+  },
+  {
+    "panel": "B2",
+    "url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-base/july/world.200407.3x21600x21600.B2.jpg",
+    "bytes": 40104616,
+    "sha256": "ba7f8e4b9ef4858e14d74b5a7d69be142524f6838775ed0ec00296ca26c89e99"
+  },
+  {
+    "panel": "C2",
+    "url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-base/july/world.200407.3x21600x21600.C2.jpg",
+    "bytes": 32194198,
+    "sha256": "15fe50659ddb7b3f6395a76d7d880bfa1c78c7c957b9ed3b57dda60cac0866a1"
+  },
+  {
+    "panel": "D2",
+    "url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-base/july/world.200407.3x21600x21600.D2.jpg",
+    "bytes": 37058031,
+    "sha256": "5a5b804bacae0dd4303753a8bd35f26187270374205ab1a85ddab9ad2040cf9d"
+  }
+]

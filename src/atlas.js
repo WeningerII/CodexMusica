@@ -106,10 +106,14 @@
   };
 
   var earth = new Image();
-  earth.src = 'assets/earth-equal.webp';
   earth.onload = function () {
     draw();
   };
+  earth.src = (INLINE && INLINE.earthImage) || 'assets/earth-tiles/200407-v1/overview.webp';
+  var tiles =
+    !INLINE && window.AtlasTiles && typeof createImageBitmap === 'function'
+      ? new window.AtlasTiles(draw)
+      : null;
   var el = {};
   function $(id) {
     return document.getElementById(id);
@@ -590,6 +594,7 @@
       ctx.fillStyle = '#c4d9bd';
       ctx.fill(S.land);
     }
+    if (tiles) tiles.draw(ctx, v, S.w, S.h, S.dpr);
     ctx.restore();
 
     if (S.routesOn) drawRoutes(ctx);

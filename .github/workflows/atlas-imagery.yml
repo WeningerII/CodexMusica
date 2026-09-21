@@ -1,0 +1,49 @@
+name: Build atlas imagery
+
+# Reproducible, explicit asset build; never runs on PR/fork code or on main.
+# Source panels stay in runner scratch, only small WebP tiles enter the repo.
+on:
+  workflow_dispatch:
+  push:
+    branches: ['feat/atlas-on-demand-tiles']
+    paths:
+      - 'scripts/build_earth_tiles.py'
+      - 'assets/earth-sources.json'
+      - '.github/workflows/atlas-imagery.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: atlas-imagery-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.repository == 'WeningerII/CodexMusica' && github.ref == 'refs/heads/feat/atlas-on-demand-tiles'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow==12.3.0 numpy==2.3.5
+      - run: python scripts/test_earth_projection.py
+      - name: Build native 500m imagery pyramid
+        run: python scripts/build_earth_tiles.py --cache="$RUNNER_TEMP/earth-source" --workers=2
+      - name: Verify and commit only generated imagery
+        shell: bash
+        run: |
+          git add assets/earth-tiles/200407-v1
+          node scripts/check_earth_tiles.js
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Build verified NASA 500m Equal Earth tile pyramid'
+          # A concurrent source update is a refusal, never a force push.
+          git push origin HEAD:refs/heads/feat/atlas-on-demand-tiles

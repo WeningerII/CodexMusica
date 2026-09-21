@@ -96,6 +96,12 @@ function audit(root) {
     const p = localPath(m[1]);
     if (p && !refs.has(p)) refs.set(p, 'src/atlas.js (image)');
   }
+  // Dynamic tile URLs have their own complete inventory/hash gate. Check its
+  // entry points here too, including the fallback whose URL is an expression.
+  if (html.includes('src/atlas-tiles.js')) {
+    refs.set('assets/earth-tiles/200407-v1/overview.webp', 'atlas tile overview');
+    refs.set('assets/earth-tiles/200407-v1/manifest.json', 'atlas tile manifest');
+  }
   let fetched = 0;
   // Only the network branch's sidecar list: `get(...)` is also the name of
   // URLSearchParams' accessor further down, and that one takes a query key.
