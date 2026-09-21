@@ -1,0 +1,176 @@
+{
+  "scope": "Local public MCP. Operator intervals include writing, debugging and other verification; not pure writing time. Response sizes are saved JSON bytes, not wire bytes. All runners closed; private client snapshots excluded.",
+  "sessions": [
+    {
+      "session": "capacity-public-baseline",
+      "calls": 1,
+      "public_call_ms": 500,
+      "harness_ms": 494,
+      "operator_interval_ms": 10850,
+      "max_saved_response_bytes": 1999,
+      "final_receipt": {
+        "index": 1,
+        "tool": "lyric_sweep",
+        "started_at": "2026-09-21T00:05:23.098Z",
+        "call_wall_ms": 500,
+        "operator_interval_ms": 10850,
+        "harness_ms": 494,
+        "path": "warm",
+        "exit_code": 2,
+        "status": "refused",
+        "certified": false,
+        "asked": null,
+        "isError": false,
+        "error": null
+      }
+    },
+    {
+      "session": "fresh-apron",
+      "calls": 6,
+      "public_call_ms": 127568,
+      "harness_ms": 119718,
+      "operator_interval_ms": 190755,
+      "max_saved_response_bytes": 76438,
+      "final_receipt": {
+        "index": 6,
+        "tool": "lyric_revise",
+        "started_at": "2026-09-21T00:17:35.362Z",
+        "call_wall_ms": 27843,
+        "operator_interval_ms": 17774,
+        "harness_ms": 27198,
+        "path": "warm",
+        "exit_code": 4,
+        "status": "awaiting_proposal",
+        "certified": false,
+        "asked": {
+          "kind": "propose_batch",
+          "lines": [
+            2,
+            11
+          ],
+          "attempt": 0,
+          "round": 1
+        },
+        "isError": false,
+        "error": null
+      }
+    },
+    {
+      "session": "fresh-bus",
+      "calls": 11,
+      "public_call_ms": 298141,
+      "harness_ms": 288252,
+      "operator_interval_ms": 429814,
+      "max_saved_response_bytes": 89814,
+      "final_receipt": {
+        "index": 11,
+        "tool": "lyric_revise",
+        "started_at": "2026-09-21T00:44:20.771Z",
+        "call_wall_ms": 29344,
+        "operator_interval_ms": 75058,
+        "harness_ms": 29337,
+        "path": "warm",
+        "exit_code": 4,
+        "status": "awaiting_proposal",
+        "certified": false,
+        "asked": {
+          "kind": "propose",
+          "line": 11,
+          "attempt": 0,
+          "round": 1
+        },
+        "isError": false,
+        "error": null
+      }
+    },
+    {
+      "session": "fresh-flood",
+      "calls": 6,
+      "public_call_ms": 94101,
+      "harness_ms": 86772,
+      "operator_interval_ms": 169299,
+      "max_saved_response_bytes": 93039,
+      "final_receipt": {
+        "index": 6,
+        "tool": "lyric_revise",
+        "started_at": "2026-09-21T00:27:54.933Z",
+        "call_wall_ms": 35987,
+        "operator_interval_ms": 27600,
+        "harness_ms": 35273,
+        "path": "warm",
+        "exit_code": 4,
+        "status": "awaiting_proposal",
+        "certified": false,
+        "asked": {
+          "kind": "propose_group",
+          "members": [
+            1,
+            2,
+            5,
+            7
+          ],
+          "attempt": 0,
+          "question_sha256": "06196c8e799eb9d58ea6976c01a28374e5e3e76fe0c41e1f631bb19d2ee6263b",
+          "round": 1
+        },
+        "isError": false,
+        "error": null
+      }
+    },
+    {
+      "session": "fresh-foundry",
+      "calls": 3,
+      "public_call_ms": 17018,
+      "harness_ms": 17004,
+      "operator_interval_ms": 50732,
+      "max_saved_response_bytes": 18553,
+      "final_receipt": {
+        "index": 3,
+        "tool": "lyric_plan",
+        "started_at": "2026-09-21T00:08:59.200Z",
+        "call_wall_ms": 610,
+        "operator_interval_ms": 20524,
+        "harness_ms": 604,
+        "path": "warm",
+        "exit_code": 0,
+        "status": "planned",
+        "certified": false,
+        "asked": null,
+        "isError": false,
+        "error": null
+      }
+    },
+    {
+      "session": "fresh-glasshouse",
+      "calls": 7,
+      "public_call_ms": 95371,
+      "harness_ms": 92467,
+      "operator_interval_ms": 280707,
+      "max_saved_response_bytes": 87688,
+      "final_receipt": {
+        "index": 7,
+        "tool": "lyric_revise",
+        "started_at": "2026-09-21T00:53:58.963Z",
+        "call_wall_ms": 50838,
+        "operator_interval_ms": 67663,
+        "harness_ms": 50828,
+        "path": "warm",
+        "exit_code": 4,
+        "status": "awaiting_proposal",
+        "certified": false,
+        "asked": {
+          "kind": "propose_group",
+          "members": [
+            3,
+            6
+          ],
+          "attempt": 0,
+          "question_sha256": "e9bb391b4f214a3b91c027691b51adcf0e3d5008636f1ff80ac2bbca900d0325",
+          "round": 1
+        },
+        "isError": false,
+        "error": null
+      }
+    }
+  ]
+}

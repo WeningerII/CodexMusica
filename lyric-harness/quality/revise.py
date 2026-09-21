@@ -473,9 +473,9 @@ class Brief:
     fields_by_slot: dict = field(default_factory=dict)
     #: `{label: slot_key}` — where this line binds in each of its groups.
     group_slots: dict = field(default_factory=dict)
-    #: The labels of the groups a finding on this line names as VIOLATED;
-    #: empty when no finding can be attributed to a group (a many-line note
-    #: such as PREDICTABLE_RHYME), in which case `slot` is the first group's.
+    #: Labels violated by this line's findings or an incident graded pair;
+    #: empty when neither names a group (e.g. only PREDICTABLE_RHYME),
+    #: in which case `slot` is the first group's.
     violated_groups: tuple = ()
     #: The labels of the groups that bind at `slot` — the groups a tier-2
     #: backtrack may rewrite for this pivot. Tier 2 used to walk EVERY group
@@ -4052,13 +4052,17 @@ class Reviser:
     # -- the brief --------------------------------------------------------
 
     def declared_offer(self, candidates, lines, m, line, slot, group_indices,
-                       profile=None, sections=None, limit=None):
+                       profile=None, sections=None, limit=None,
+                       requested_obligations=None):
         """Filter word suggestions using the exact bound grade operation.
 
         The replacement is made at its declared locus and mirrored only to
         its actual verbatim class. Unknown at the requested locus never
         advertises a verified offer; unchanged collateral obligations retain
         their explicit unresolved or violated status.
+        For a partial menu, requested_obligations names exact (i, j, group)
+        identities to answer; other existing failures may remain, but none
+        may be introduced. Omission requests every incident pair as before.
         The finite input is a suggestion pool, not an impossibility proof.
         """
         from quality.loop import swap_at_slot
@@ -4074,6 +4078,12 @@ class Reviser:
             # independence: a changed head can alter a mosaic end-word score.
             return {(min(v["lines"]), max(v["lines"]), v["group"])
                     for v in grade["violations"]}
+
+        def demanded(obligations):
+            return any(k in requested and target_set.intersection((i, j))
+                       and (requested_obligations is None or
+                            (i, j, k) in requested_obligations)
+                       for i, j, k in obligations)
 
         baseline_bad = baseline_unknown = None
         kept, refused = [], []
@@ -4092,8 +4102,7 @@ class Reviser:
             demanded_grade = self.grade(trial, m, profile=profile, sections=sections,
                                         _only_groups=requested)
             demanded_unknown = set(map(tuple, demanded_grade.get("refused_obligations", ())))
-            if any(k in requested and target_set.intersection((i, j))
-                   for i, j, k in failures(demanded_grade) | demanded_unknown):
+            if demanded(failures(demanded_grade) | demanded_unknown):
                 refused.append(word)
                 continue
             # Materialize the original collateral state only if a candidate
@@ -4108,13 +4117,12 @@ class Reviser:
                                 _only_groups=relevant)
             bad = failures(graded)
             unknown = set(map(tuple, graded.get("refused_obligations", ())))
-            demanded = any(k in requested and target_set.intersection((i, j))
-                           for i, j, k in bad | unknown)
+            unanswered = demanded(bad | unknown)
             # A per-place menu must answer its requested relation. Existing
             # failures/refusals at another place remain open for their own
             # question; this word must not introduce any new collateral one.
             regressed = bool((bad - baseline_bad) or (unknown - baseline_unknown))
-            (refused if demanded or regressed else kept).append(word)
+            (refused if unanswered or regressed else kept).append(word)
             if limit is not None and len(kept) >= limit:
                 break
         return kept, refused
@@ -5101,6 +5109,13 @@ class Reviser:
                      for k, sl in _slot_of.items()}
             b.group_slots = {m.labels[k]: _skey[k] for k, _ in groups}
             _violated = self._violated_groups(m, ln, groups, fs)
+            # Pair findings are assigned once, to the later endpoint. That
+            # reporting ownership cannot establish that an earlier endpoint
+            # holds. Read the authoritative incident verdicts as well, before
+            # choosing places or generating offers (M-305).
+            _incident = {v["label"] for v in found["grade"]["violations"]
+                         if ln in v["lines"]}
+            _violated.update(k for k, _ in groups if m.labels[k] in _incident)
             b.violated_groups = tuple(m.labels[k] for k, _ in groups
                                       if k in _violated)
             _by_slot = {}
@@ -5148,7 +5163,7 @@ class Reviser:
             # a broken scheme. The cliche and predictable-rhyme cases are
             # precisely where a writer reaches for the obvious replacement, so
             # they are precisely where the modal exclusion has to be applied.
-            wants = any(f.code in RHYME_FINDINGS for f in fs)
+            wants = bool(_violated) or any(f.code in RHYME_FINDINGS for f in fs)
             if include_offers and wants and groups:
                 # ONE `joint_field` PER PLACE. On an ordinary end-rhyme
                 # mandate there is one place, so this is the one call it
@@ -5270,6 +5285,19 @@ class Reviser:
                         for _c1 in _calls:
                             _o1, _f1, _d1 = self.joint_field_screened(
                                 [_c1], exclude=(_cur,), profile=profile)
+                            if _explicit and _o1:
+                                # A fallback answers one call, but under the
+                                # same declared relation and actual locus as
+                                # the joint menu. Scalar rhyme alone is not
+                                # evidence for a named consonance offer.
+                                _obligations = {
+                                    (min(ln, x), max(ln, x), k)
+                                    for k in ks for x in dict(groups)[k]
+                                    if self._slot_word(lines, m, k, x, endwords) == _c1}
+                                _o1, _no = self.declared_offer(
+                                    _o1, lines, m, ln, _sl, ks,
+                                    profile=profile, sections=_sections,
+                                    requested_obligations=_obligations)
                             if _o1:
                                 _bycall.append((_c1, tuple(_o1)))
                     b.fields_by_slot[sk] = SlotField(
@@ -5654,14 +5682,15 @@ class Reviser:
         # is empty, which is every revision that moved its end word.
         if modal_kept:
             out["reasons"].append(
-                "; ".join(f"L{ln} KEPT its end word {w!r} — the INCUMBENT, "
+                "; ".join(f"L{ln} KEPT its {_SL.word_phrase(b_before[ln].slot)} "
+                          f"{w!r} — the INCUMBENT, "
                           f"not a modal candidate"
                           + ("; it is also in this line's modal head"
                              if w in (b_before[ln].forbidden_modal
                                       if ln in b_before else ()) else "")
                           for ln, w in modal_kept)
                 + " — RULE 3 asks whether a modal candidate was TAKEN, and a "
-                  "byte-identical end word took nothing. Disclosed because "
+                  "byte-identical bound word took nothing. Disclosed because "
                   "'kept the word already there' and 'was never excluded at "
                   "all' are different outcomes (doctrine 20)")
         if not m.independent():

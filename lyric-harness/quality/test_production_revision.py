@@ -280,6 +280,93 @@ class ProductionRevisionTests(unittest.TestCase):
                              for x in got.stdout.splitlines()))
         self.assertNotIn('can never ASK', got.stdout)
 
+    def test_brief_reads_violations_on_both_endpoints(self):
+        from quality import pronunciation as P
+        case = json.loads((Path(__file__).parent / 'results' /
+                           'capacity_followup_2026-09-21' /
+                           'spare_apron_case.json').read_text())
+        lex = copy.copy(self.reviser.lex)
+        lex.pronunciations = P.validate_choices(case['pronunciations'], lex)
+        r = Reviser(lex=lex)
+        lines = case['draft']
+        m = mandate([g.split(',') for g in case['groups'].split(';')],
+                    n_lines=12, default_relation='class:CONSONANCE',
+                    returns=[[8, 9]])
+        b = next(b for b in r.brief(lines, m, target_lines={2},
+                                    include_offers=False) if b.line_no == 2)
+        self.assertIn('A', b.violated_groups)
+        self.assertIn('G', b.violated_groups)
+        self.assertTrue(b.slot_conflict)
+        for rendered in (str(b), render_line(b, lines)):
+            a = next(x for x in rendered.splitlines() if 'group A ' in x)
+            self.assertIn('VIOLATED', a)
+            self.assertNotIn('HOLDS', a)
+
+    def test_partial_menu_obeys_the_declared_relation(self):
+        from quality import pronunciation as P
+        case = json.loads((Path(__file__).parent / 'results' /
+                           'capacity_followup_2026-09-21' /
+                           'flood_map_case.json').read_text())
+        lex = copy.copy(self.reviser.lex)
+        lex.pronunciations = P.validate_choices(case['pronunciations'], lex)
+        r = Reviser(lex=lex)
+        lines = case['draft']
+        m = mandate([g.split(',') for g in case['groups'].split(';')],
+                    n_lines=12, default_relation='class:CONSONANCE',
+                    returns=[[8, 9]])
+        b = next(b for b in r.brief(lines, m, target_lines={2})
+                 if b.line_no == 2)
+        self.assertTrue(b.joint_conflict)
+        self.assertNotIn('york', dict(b.partial_by_call).get('Dark', ()))
+        from quality.loop import swap_at_slot
+        for call, words in b.partial_by_call:
+            mates = [ln for ln in m.groups[0] if ln != 2 and
+                     r._slot_word(lines, m, 0, ln, {}) == call]
+            for word in words:
+                trial = list(lines)
+                trial[1] = swap_at_slot(lines[1], b.slot, word)
+                g = r.grade(trial, m, _only_groups={0})
+                self.assertFalse([v for v in g['violations']
+                                  if 2 in v['lines'] and any(ln in v['lines'] for ln in mates)],
+                                 (call, word))
+
+    def test_partial_offer_can_leave_an_existing_failure_open(self):
+        lines = ['seed', 'red', 'road']
+        m = mandate('AAA', n_lines=3, default_relation='class:CONSONANCE')
+        r = self.reviser
+        kept, _ = r.declared_offer(['bud'], lines, m, 1, None, {0},
+                                  requested_obligations={(1, 3, 0)})
+        self.assertEqual(kept, ['bud'])
+        full, _ = r.declared_offer(['bud'], lines, m, 1, None, {0})
+        self.assertEqual(full, [])
+        # It must actually answer its requested call, not merely preserve
+        # the old failures. The bud/red obligation is still violated.
+        failed, _ = r.declared_offer(['bud'], lines, m, 1, None, {0},
+                                    requested_obligations={(1, 2, 0)})
+        self.assertEqual(failed, [])
+
+    def test_kept_anchor_disclosure_names_its_actual_position(self):
+        from quality import pronunciation as P
+        case = json.loads((Path(__file__).parent / 'results' /
+                           'capacity_followup_2026-09-21' /
+                           'last_bus_case.json').read_text())
+        lex = copy.copy(self.reviser.lex)
+        lex.pronunciations = P.validate_choices(case['pronunciations'], lex)
+        r = Reviser(lex=lex)
+        m = mandate([g.split(',') for g in case['groups'].split(';')],
+                    n_lines=12, default_relation='class:CONSONANCE',
+                    returns=[[8, 9]])
+        from quality.plan import fill_plan
+        from quality.fit import Subdivision
+        plan = case['plan']
+        v = r.verify(case['before'], case['after'], m, targeted={1},
+                     blueprint=fill_plan(plan, case['before']),
+                     subdivision=Subdivision(1, source='frozen public plan'))
+        self.assertTrue(v['accepted'], v['reasons'])
+        kept = next(s for s in v['reasons'] if 'KEPT' in s)
+        self.assertIn("KEPT its first word 'Rain'", kept)
+        self.assertNotIn('end word', kept)
+
     def test_revision_can_retire_an_occurrence_reading_without_transferring_it(self):
         from quality import pronunciation as P, replay_memo as RM
         case = json.loads((Path(__file__).parent / 'results' /

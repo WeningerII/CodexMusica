@@ -119,9 +119,21 @@ try {
   );
   // Actual seed1/24-line regression: the original nine independent briefs
   // exceeded the journal limit. After admitting the first seven, the real
-  // replay/verify walk must still reach the omitted L21/L23 questions.
+  // replay/verify walk must still reach the omitted questions.
   // These unchanged answers deliberately fix nothing: no accepted edit can
   // silently close the remaining obligations on this liveness control.
+  // ~~The batch was the run's FIRST question, [1, 5, 6, 14, 15, 17, 19] with
+  // [21, 23] omitted~~ — since M-305 the brief reads the incident verdict for
+  // BOTH endpoints of a violated pair, so L1 (the earlier endpoint of violated
+  // pairs in groups A and L) is a joint-conflict pivot and tier 2 asks its
+  // group rewrites before the batch door opens. MEASURED on this tree at
+  // attempts 3: group [1,8,9,10,11], L1 x3, group [2,8,13], L2 x3, group
+  // [3,4,9,10,12], L3 x3, group [4,6,7], L4 x3, then the batch door opens on
+  // continuation 16 at pivot L5 with nine independent briefs
+  // [5, 6, 11, 14, 15, 17, 20, 21, 24], of which the first seven fit (336837
+  // state bytes) and [21, 24] are omitted. The omitted pair is re-asked on the
+  // walk's SECOND batch [13, 16, 18, 21, 24], 30 continuations after the
+  // first, while 14, 15, 17 and 20 of the first batch are still unvisited.
   const splitDraft = [
     'we carry the morning to the stone',
     'we carry the morning to the rain',
@@ -148,7 +160,16 @@ try {
     'we carry the morning to the light',
     'we carry the morning to the road',
   ];
-  const originalIndependent = [1, 5, 6, 14, 15, 17, 19, 21, 23];
+  // ~~[1, 5, 6, 14, 15, 17, 19, 21, 23]~~ — the nine independent briefs the
+  // batch door sees on this tree (measured at the harness's prefetch).
+  const originalIndependent = [5, 6, 11, 14, 15, 17, 20, 21, 24];
+  // Every question before the batch is a tier-2 group rewrite or a tier-1
+  // retry of its pivot; the door opened on continuation 16 (measured).
+  const BATCH_DOOR_BOUND = 18;
+  // ~~8~~ — the tail is re-asked on the second batch, which the linear walk
+  // reaches only after the group questions and the three attempts per pivot
+  // of L5..L12; measured 30 continuations after the first batch.
+  const TAIL_BOUND = 32;
   const splitCall = (args) =>
     a.callTool({ name: 'lyric_revise', arguments: args }, undefined, {
       timeout: TOOL_BUDGET_MS + 30000,
@@ -165,28 +186,71 @@ try {
   );
   assert.equal(split.exit_code, 4);
   let splitState = decodeState(split.state);
+  const membersOf = (pending) =>
+    pending.kind === 'propose_batch'
+      ? pending.record.records.map((r) => r.line)
+      : pending.kind === 'propose_group'
+        ? pending.record.members
+        : [pending.record.line];
+  const reached = new Set();
+  // Walk to the batch door: answer each group / pivot question with the
+  // draft's own line(s) until the first propose_batch appears. A run that
+  // never opens the door within the bound fails here with its walk listed,
+  // rather than being read as a batch.
+  const doorWalk = [];
+  let doorHops = 0;
+  while (splitState.pending.kind !== 'propose_batch') {
+    const members = membersOf(splitState.pending);
+    doorWalk.push(`${splitState.pending.kind}[${members}]`);
+    for (const n of members) reached.add(n);
+    assert.ok(
+      doorHops < BATCH_DOOR_BOUND,
+      `no propose_batch within ${BATCH_DOOR_BOUND} continuations: ${doorWalk.join(' > ')}`
+    );
+    assert.equal(split.status, 'awaiting_proposal');
+    const answer =
+      splitState.pending.kind === 'propose'
+        ? splitDraft[members[0] - 1]
+        : members.map((n) => `L${n}: ${splitDraft[n - 1]}`).join('\n');
+    split = verdict(
+      await splitCall({
+        run_id: split.run_id,
+        run_revision: split.run_revision,
+        answer,
+      })
+    );
+    assert.equal(split.exit_code, 4, 'the fresh run is not ended before the batch door');
+    splitState = decodeState(split.state);
+    assert.deepEqual(splitState.accepted_lines, splitDraft);
+    doorHops++;
+  }
+  console.log(
+    JSON.stringify({
+      batch_door_continuation: doorHops,
+      walk: doorWalk,
+      first_batch: membersOf(splitState.pending),
+      state_bytes: Buffer.byteLength(JSON.stringify(splitState), 'utf8'),
+    })
+  );
   const firstSubset = splitState.pending.record.records.map((r) => r.line);
-  assert.deepEqual(firstSubset, [1, 5, 6, 14, 15, 17, 19]);
+  // ~~[1, 5, 6, 14, 15, 17, 19]~~
+  assert.deepEqual(firstSubset, [5, 6, 11, 14, 15, 17, 20]);
   const omittedTail = originalIndependent.filter((n) => !firstSubset.includes(n));
-  assert.deepEqual(omittedTail, [21, 23]);
-  const reached = new Set(firstSubset);
+  // ~~[21, 23]~~
+  assert.deepEqual(omittedTail, [21, 24]);
+  for (const n of firstSubset) reached.add(n);
   const verifiedFirst = new Map();
   const tailFolded = new Set();
   let continuations = 0;
   for (
     ;
-    continuations < 8 &&
+    continuations < TAIL_BOUND &&
     (omittedTail.some((n) => !tailFolded.has(n)) || !verifiedFirst.has(firstSubset[0]));
     continuations++
   ) {
     assert.equal(split.status, 'awaiting_proposal');
     const pending = splitState.pending;
-    const members =
-      pending.kind === 'propose_batch'
-        ? pending.record.records.map((r) => r.line)
-        : pending.kind === 'propose_group'
-          ? pending.record.members
-          : [pending.record.line];
+    const members = membersOf(pending);
     const answer =
       pending.kind === 'propose'
         ? splitDraft[members[0] - 1]
@@ -231,12 +295,7 @@ try {
       }
     }
     const next = splitState.pending;
-    const asked =
-      next.kind === 'propose_batch'
-        ? next.record.records.map((r) => r.line)
-        : next.kind === 'propose_group'
-          ? next.record.members
-          : [next.record.line];
+    const asked = membersOf(next);
     for (const n of asked) reached.add(n);
     for (const n of firstSubset) {
       const folded = splitState.answered.propose.find(
@@ -308,7 +367,7 @@ try {
     'later first-batch answers remain recorded but unvisited at this stop'
   );
   console.log(
-    `PASS actual seed1/24 split liveness at attempts3: first [${firstSubset}] retained, pivot rejected, omitted [${omittedTail}] reasked and folded after ${continuations} continuation(s); exact draft preserved; actual batch results keep future unvisited answers unknown.`
+    `PASS actual seed1/24 split liveness at attempts3: batch door on continuation ${doorHops}, first [${firstSubset}] retained, pivot rejected, omitted [${omittedTail}] reasked and folded after ${continuations} further continuation(s); exact draft preserved; actual batch results keep future unvisited answers unknown.`
   );
 } finally {
   _workerInternals.kill();

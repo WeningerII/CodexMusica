@@ -27449,3 +27449,94 @@ changing any threshold; `quality/results/continuation_audit_2026-09-20/curve-che
 backs comparator pin `de112e81810f`. The branch's pull request records required
 checks and merge separately from the local evidence. BOOKKEEPING: coverage
 entries 358 → 359; M-304 is closed, and M-240 remains open.
+
+
+### M-305 · Public screening and revision omit existing verdict evidence `CLOSED` 2026-09-21
+
+Fresh public screening for The Last Casting returned `picket / packet` as
+`RIME_RICHE 1.000` without saying that only their final syllables supplied
+the score. The production verdict already contains both exact spans and
+the explanation; `screen_pairs` discarded them and its renderer had nothing
+to print. Both a structured-row regression and a real CLI check fail before
+the repair. The screen now carries and renders that same verdict evidence;
+no comparator decision, named-relation answer or promotion setting changes.
+The song stopped at discovery and is not a completed-song claim.
+
+This batch also removes two M-240 enumeration costs: retained whole-query
+duplicate history and repeated scans of shared projected buckets. Exact
+sequence, mirror/skip counters and global-figure semantics remain under
+regression. The 31-line admission ceiling is unchanged, and the public
+128-line request still refuses. M-240 remains OPEN.
+
+See `docs/lyrics-capacity-followup.md` (repository root). The four feedback
+repairs below have failing-before witnesses and passing regression controls.
+All five curves re-derived from 8,536 fresh items without threshold changes.
+This closes those implemented defects; it does not certify general writing
+capability, completed songs, larger admission or deployment. PR integration
+and release qualification remain separate gates.
+
+The next independent song, The Spare Apron, stopped before its first answer:
+L2's brief called its group-A black/thick/cake obligations holding while the
+grade explicitly failed them. Pair findings belong to the later endpoint;
+brief status now also reads all incident grade violations before selecting
+slots and candidate fields. The exact frozen draft regression fails before
+this fix. Finding ownership/counts and unjudged-group handling are preserved.
+The Flood Map begins fresh under the same overlapping consonance conditions.
+
+The Flood Map then stopped at an invalid partial menu: Dark → york was offered
+under class:CONSONANCE, while the public screen rejects that exact pair. The
+per-call fallback skipped the declared-offer filter used by the joint menu.
+The fallback now checks its exact requested obligations at their actual loci
+and preserves the no-new-collateral-failure rule. This is a third independent
+cause within M-305, with a failing-before frozen regression and a passing
+positive control for a legitimate partial offer. The Last Bus Home is fresh.
+
+The Last Bus Home accepted three repairs, then its verification explanation
+called preserved first word Rain an end word. The decision already used the
+correct slot; the disclosure had a hard-coded name. It now uses the shared
+slot-description function, with a failing-before exact-plan regression and
+an ordinary-end-word control. This is the fourth feedback cause in M-305
+(six causes including the two M-240 resource costs). The run was frozen at
+that explanation; The Glasshouse Key starts independently under the same plan.
+
+The final independent Glasshouse Key run accepted one coupled edit, retained
+all three changed lines in its next question, and correctly named Rain as its
+first word and green as word 5. It remains unfinished at that next question;
+all local runners are closed. M-240 remains OPEN at 31 admitted lines with
+12 syllables per line; the 128-line refusal is preserved without substitution.
+
+**PR INTEGRATION, 2026-09-21 (the fix commits on the branch).** The change to
+`brief()` above — reading the incident verdict for BOTH endpoints of a violated
+pair — moves the revision loop's trajectory on three pinned fixtures, none of
+which the entry's own verification ran. Each is re-measured, not loosened, and
+the superseded values stay visible beside the new ones:
+
+- `quality/test_loop.py` §17: the "no candidate field was offered" wording was
+  measured on the earlier endpoint of a violated AA pair, which now carries a
+  field (23 candidates) and a PROPOSER dead end instead. The case is now a free
+  singleton (`X`) line under `XAA`, which is what the wording is about.
+- `quality/test_verbs.py` §60(e): the seed-7 fixture's batch is ~~[3, 5, 8]~~
+  **[3, 5, 7]** — L7, the earlier endpoint of the violated pair (7, 8), now
+  carries group C as VIOLATED beside D and F and wins the independence walk over
+  L8. L7's parity is measured too (`hold the door for drought`, ACCEPTED); the
+  post-fold question is still the group on [6, 7, 10, 11], now pinned.
+- `mcp/test.mjs` (lyric family) and `mcp/test_run_continuation.mjs`, the seed-1
+  24-line draft: the batch door was the run's FIRST question,
+  ~~[1, 5, 6, 14, 15, 17, 19] with [21, 23] omitted~~. L1 is now the earlier
+  endpoint of violated pairs in groups A and L, so it is a joint-conflict pivot
+  and tier 2 asks four group rewrites (and each pivot's tier-1 retries) before
+  the door opens at L5: continuation 8 at the interview default, 16 at three
+  attempts, with nine independent briefs **[5, 6, 11, 14, 15, 17, 20, 21, 24]**,
+  the first seven admitted (336,837 state bytes) and **[21, 24]** re-asked on the
+  second batch, 30 continuations later. Both tests now walk to the first
+  `propose_batch` and measure the claim there; a run that never reaches the door
+  within its bound fails naming the walk. `test_run_continuation` runs ~10 min
+  where it ran 2–4 — 46 harness hops — recorded here, not claimed cheap.
+
+The trajectory shift itself is RECORDED, not claimed correct: an earlier
+endpoint that used to be answered through its later mate is now a pivot in its
+own right, and on a draft where every pair fails that is a group rewrite per
+group before any independent line is asked. Whether that order is the one the
+loop should keep is the next question, not this entry's.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~359~~ -> **360**.

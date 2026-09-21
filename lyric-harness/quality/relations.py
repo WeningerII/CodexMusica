@@ -2774,7 +2774,13 @@ def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
                 bucket_meta[id(values)] = [(b, b.head(),
                     _span_line(b, stream) if need_line else None) for b in values]
     mirror_complete = a_keys == b_keys
-    seen = set()
+    # Duplicate candidates only share history with the same left span.
+    # Retain that row until its last occurrence (left spans can repeat),
+    # instead of keeping the entire Cartesian product alive for the query.
+    remaining = {}
+    for a, _ in layout:
+        remaining[a.idx] = remaining.get(a.idx, 0) + 1
+    seen = {}
     # A requested pair projection used to filter only after visiting the
     # complete span Cartesian product. Build the same canonical line-pair
     # predicate once, then retain each bucket's original order. The old
@@ -2783,7 +2789,9 @@ def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
     # their result. Full-figure/global queries retain the unfiltered path.
     requested_partners = None
     projected_buckets = {}
+    bucket_lines = {}
     if requested_line_pairs is not None:
+        import heapq
         requested_partners = {}
         for left, right in requested_line_pairs:
             if left is not None and right is not None and left < right:
@@ -2792,22 +2800,36 @@ def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
     for a, buckets in layout:
         a_head = a.head()
         la = _span_line(a, stream) if need_line else None
+        remaining[a.idx] -= 1
         if requested_partners is not None:
             partners = requested_partners.get(la)
             if not partners:
+                if not remaining[a.idx]:
+                    seen.pop(a.idx, None)
                 continue
+        row_seen = seen.setdefault(a.idx, set())
         for v in buckets:
             candidates = bucket_meta[id(v)]
             if requested_partners is not None:
                 key = (id(v), la)
                 if key not in projected_buckets:
-                    projected_buckets[key] = [row for row in candidates
-                                               if row[2] in partners]
+                    # Index each shared bucket once instead of rescanning
+                    # it for every queried line. Merge by original offset
+                    # so interleaved origins retain the exact old order.
+                    if id(v) not in bucket_lines:
+                        by_line = {}
+                        for offset, row in enumerate(candidates):
+                            by_line.setdefault(row[2], []).append((offset, row))
+                        bucket_lines[id(v)] = by_line
+                    by_line = bucket_lines[id(v)]
+                    projected_buckets[key] = [row for _, row in heapq.merge(
+                        *(by_line.get(line, ()) for line in partners),
+                        key=lambda entry: entry[0])]
                 candidates = projected_buckets[key]
             for b, b_head, lb in candidates:
-                if a.idx == b.idx or (a.idx, b.idx) in seen:
+                if a.idx == b.idx or b.idx in row_seen:
                     continue
-                seen.add((a.idx, b.idx))
+                row_seen.add(b.idx)
                 reversed_pair = a_head > b_head
                 if reversed_pair and (mirror_complete or mirrored(a, b, a_keys, b_keys)):
                     # CANDIDATE level: a de-duplicated pair is never
@@ -2824,6 +2846,8 @@ def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
                             and (min(la, lb), max(la, lb)) in skip_line_pairs):
                         continue  # the memo carries it; see line_pairs_for
                 yield a, b, reversed_pair
+        if not remaining[a.idx]:
+            del seen[a.idx]
 
 
 MAX_CANDIDATE_PAIRS = 2_000_000

@@ -3,6 +3,7 @@ import dataclasses
 import inspect
 import os
 import sys
+import tracemalloc
 import unittest
 from unittest.mock import patch
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
@@ -77,6 +78,74 @@ def visited_pairs(function, *args, **kwargs):
 
 
 class RequestedPairPushdown(unittest.TestCase):
+    def test_sparse_requests_index_each_bucket_once(self):
+        class Line(int):
+            hashes = 0
+
+            def __hash__(self):
+                Line.hashes += 1
+                return super().__hash__()
+
+        # Every line participates, but each asks only for its neighbors.
+        # Interleaved bucket origins also exercise stable merged order.
+        spans = [Span((i,), Line(i % 128)) for i in range(256)]
+        layout = [(a, [spans]) for a in spans]
+        keys = {s.idx for s in spans}
+        requested = {(i, i + 1) for i in range(127)}
+        args = (None, layout, None, keys, keys, None)
+        with patch.object(R, '_span_line', side_effect=lambda s, _st: s.line):
+            Line.hashes = 0
+            expected = list(prior_enumerator(*args, requested_line_pairs=requested))
+            old_hashes = Line.hashes
+            Line.hashes = 0
+            actual = list(R._candidate_pairs(*args, requested_line_pairs=requested))
+            new_hashes = Line.hashes
+        self.assertEqual(actual, expected)
+        self.assertLess(new_hashes, old_hashes / 4)
+        print(f'Sparse-query line-key hashes: {old_hashes} -> {new_hashes}; '
+              f'{len(actual)} candidates in identical order.')
+
+    def test_repeated_left_spans_preserve_deduplication(self):
+        spans = [Span((i,), i // 2) for i in range(8)]
+        keys = {s.idx for s in spans}
+        # Nonadjacent repeated left spans and overlapping buckets are legal
+        # enumeration inputs; releasing all history per row would duplicate
+        # candidates here.
+        layout = [(a, [spans[:5], spans]) for a in spans + spans[::-1]]
+        with patch.object(R, '_span_line', side_effect=lambda s, _st: s.line):
+            for requested in (None, {(0, 1), (1, 3)}):
+                old_tally, new_tally = {}, {}
+                args = (None, layout, None, keys, keys, {(0, 1)})
+                expected = list(prior_enumerator(*args, tally=old_tally,
+                                                requested_line_pairs=requested))
+                actual = list(R._candidate_pairs(*args, tally=new_tally,
+                                                requested_line_pairs=requested))
+                self.assertEqual(actual, expected)
+                self.assertEqual(new_tally, old_tally)
+
+    def test_full_query_does_not_retain_the_cartesian_history(self):
+        spans = [Span((i,), i) for i in range(512)]
+        layout = [(a, [spans]) for a in spans]
+        keys = {s.idx for s in spans}
+        args = (None, layout, None, keys, keys, None)
+
+        def measure(function):
+            tracemalloc.start()
+            try:
+                count = sum(1 for _ in function(*args))
+                return count, tracemalloc.get_traced_memory()[1]
+            finally:
+                tracemalloc.stop()
+
+        expected, old_peak = measure(prior_enumerator)
+        actual, new_peak = measure(R._candidate_pairs)
+        self.assertEqual(actual, expected)
+        # Relative to the frozen, identical query on this interpreter, not
+        # an RSS qualification or a platform-specific byte ceiling.
+        self.assertLess(new_peak, old_peak / 4)
+        print(f'Full-query traced peak bytes: {old_peak} -> {new_peak}; '
+              f'{actual} yielded candidates on both paths.')
+
     def test_exact_sequence_tally_mirror_and_skip_parity(self):
         spans = [Span((i,), i // 2 if i != 7 else None) for i in range(8)]
         even, odd = spans[::2], spans[1::2]
