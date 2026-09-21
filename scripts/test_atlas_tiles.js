@@ -192,3 +192,19 @@ test('drawing uses the same Equal Earth extent and retains loaded parents during
   r.dispose();
   await flush();
 });
+
+test('large displays keep complete viewport coverage within the tile budget', async () => {
+  const f = fixture();
+  await flush();
+  const selected = f.renderer.selection({ cx: 0, cy: 0, scale: 700 }, 3840, 2160, 2);
+  assert(selected.length <= 64);
+  const z = selected[0].z,
+    level = manifest.levels[z];
+  const columns = Math.ceil(level.width / 512),
+    rows = Math.ceil(level.height / 512);
+  assert.equal(selected.length, columns * rows);
+  assert(selected.some((t) => t.x === 0 && t.y === 0));
+  assert(selected.some((t) => t.x === columns - 1 && t.y === rows - 1));
+  f.renderer.dispose();
+  await flush();
+});

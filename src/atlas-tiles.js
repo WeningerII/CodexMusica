@@ -59,7 +59,7 @@
     });
   };
 
-  AtlasTiles.prototype.selection = function (view, w, h, dpr) {
+  AtlasTiles.prototype.selection = function (view, w, h, dpr, ceiling) {
     var m = this.manifest,
       e = m.extent,
       spanX = e[2] - e[0],
@@ -69,7 +69,8 @@
     // ancestor. Cached ancestors remain visible while sharper tiles arrive.
     if (physicalWidth <= m.levels[0].width) return [];
     var z = 1;
-    while (z < m.levels.length - 1 && m.levels[z].width < physicalWidth) z++;
+    var limit = ceiling === undefined ? m.levels.length - 1 : ceiling;
+    while (z < limit && m.levels[z].width < physicalWidth) z++;
     var level = m.levels[z],
       size = m.tileSize;
     var x0 = Math.max(
@@ -104,11 +105,13 @@
         });
       }
     }
-    // Bound memory/request pressure even for an unusually large display.
+    // On large/retina displays choose a coarser complete viewport instead of
+    // sharpening only its centre or exceeding the decoded-pixel budget.
+    if (selected.length > MAX_CACHED && z > 1) return this.selection(view, w, h, dpr, z - 1);
     selected.sort(function (a, b) {
       return a.distance - b.distance;
     });
-    return selected.slice(0, MAX_CACHED);
+    return selected;
   };
 
   AtlasTiles.prototype.update = function (view, w, h, dpr) {
@@ -145,8 +148,8 @@
     this.wanted.forEach(function (tile) {
       if (self.active.size >= MAX_ACTIVE || self.cache.has(tile.key) || self.active.has(tile.key))
         return;
-      // One attempt per tile per page session. Bounded failure history; no retry
-      // storm while offline or when a publication is incomplete.
+      // Remember recent failures in a bounded history; no retry storm while
+      // offline or when a publication is incomplete.
       if (self.failed.has(tile.key)) return;
       var controller = new AbortController();
       var job = { controller: controller };

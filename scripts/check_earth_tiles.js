@@ -31,6 +31,10 @@ assert.equal(manifest.tileSize, 512);
 assert.equal(manifest.gutter, 1);
 assert.equal(manifest.levels[6].width, 86400);
 assert.equal(inventory.sources.length, 8);
+assert.deepEqual(
+  inventory.sources,
+  JSON.parse(fs.readFileSync(path.join(root, 'assets/earth-sources.json')))
+);
 const expected = new Set();
 let bytes = 0;
 for (const [z, level] of manifest.levels.entries()) {

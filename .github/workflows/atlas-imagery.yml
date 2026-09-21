@@ -1,15 +1,9 @@
 name: Build atlas imagery
 
-# Reproducible, explicit asset build; never runs on PR/fork code or on main.
+# Explicit manual asset build on a selected first-party branch, never main.
 # Source panels stay in runner scratch, only small WebP tiles enter the repo.
 on:
-  workflow_dispatch:
-  push:
-    branches: ['feat/atlas-on-demand-tiles']
-    paths:
-      - 'scripts/build_earth_tiles.py'
-      - 'assets/earth-sources.json'
-      - '.github/workflows/atlas-imagery.yml'
+  workflow_dispatch: {}
 
 permissions:
   contents: read
@@ -20,7 +14,7 @@ concurrency:
 
 jobs:
   build:
-    if: github.repository == 'WeningerII/CodexMusica' && github.ref == 'refs/heads/feat/atlas-on-demand-tiles'
+    if: github.repository == 'WeningerII/CodexMusica' && github.ref_type == 'branch' && github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 90
     permissions:
@@ -36,6 +30,12 @@ jobs:
       - run: python scripts/test_earth_projection.py
       - name: Build native 500m imagery pyramid
         run: python scripts/build_earth_tiles.py --cache="$RUNNER_TEMP/earth-source" --workers=2
+      - name: Preserve generated imagery
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-imagery
+          path: assets/earth-tiles/200407-v1/
+          retention-days: 3
       - name: Verify and commit only generated imagery
         shell: bash
         run: |
@@ -46,4 +46,4 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git commit -m 'Build verified NASA 500m Equal Earth tile pyramid'
           # A concurrent source update is a refusal, never a force push.
-          git push origin HEAD:refs/heads/feat/atlas-on-demand-tiles
+          git push origin "HEAD:${GITHUB_REF}"
