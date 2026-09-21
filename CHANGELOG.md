@@ -6,6 +6,23 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed — the weekly `tandem` cross-check reads the minified page again
+
+The Monday `tandem` job went red on main with two findings that were both
+false: "harvestDescriptors not found in built codex.html" and "source has
+2588 traditions, HTML has 0". Both checks in `scripts/tandem.js` read the
+built page by regexes that described its pretty-printed shape: a `\n}` before
+the harvester's closing brace, and `^const NAME =` with a space before the
+`=` to promote the data tables out of the vm context. The page has shipped
+minified since 2026-09-14, so neither matched, and `build_html.js --check`
+was moved to an in-context read-back that same day while the tandem copy was
+left behind; the job runs only weekly, so this was its first look. The
+harvester is now found by its declaration and read to its matching brace,
+and the tables are read back by evaluating in the same context. The
+invariants are unchanged: the production harvester must not pool
+`match_tokens`, and the shipped tables must match the source count and
+bijection.
+
 ### Fixed — lyric interview continuation and recovery
 
 Batch replay now distinguishes its shared original draft from accepted edits;
