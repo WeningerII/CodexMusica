@@ -69,6 +69,10 @@ function trackedSet(root) {
         cwd: root,
         encoding: 'utf8',
         stdio: ['ignore', 'pipe', 'ignore'],
+        // The default 1 MiB `maxBuffer` is smaller than the tree's listing
+        // once the earth-tile pyramid is tracked; ENOBUFS would land in the
+        // catch below and silently turn this into an existence-only test.
+        maxBuffer: 64 * 1024 * 1024,
       })
         .split('\0')
         .filter(Boolean)
@@ -95,6 +99,12 @@ function audit(root) {
   for (const m of js.matchAll(/\.src\s*=\s*['"]([^'"]+)['"]/g)) {
     const p = localPath(m[1]);
     if (p && !refs.has(p)) refs.set(p, 'src/atlas.js (image)');
+  }
+  // Dynamic tile URLs have their own complete inventory/hash gate. Check its
+  // entry points here too, including the fallback whose URL is an expression.
+  if (html.includes('src/atlas-tiles.js')) {
+    refs.set('assets/earth-tiles/200407-v1/overview.webp', 'atlas tile overview');
+    refs.set('assets/earth-tiles/200407-v1/manifest.json', 'atlas tile manifest');
   }
   let fetched = 0;
   // Only the network branch's sidecar list: `get(...)` is also the name of

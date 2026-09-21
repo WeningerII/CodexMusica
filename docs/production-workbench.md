@@ -57,12 +57,13 @@ has been deployed or that all release gates passed.
 
 ## Map asset
 
-`assets/earth-equal.webp` derives from NASA Blue Marble:
-https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57730/land_ocean_ice_2048.jpg
+The map uses NASA Blue Marble Next Generation (July 2004, native 500 m)
+converted into a static Equal Earth tile pyramid. See
+[atlas imagery](atlas-imagery.md) for source provenance, build commands,
+loading limits and verification. `assets/earth-sources.json` pins all eight
+NASA panels. The browser loads a small overview immediately and downloads only
+visible detail tiles; no political boundaries are drawn.
 
-`scripts/project_earth.py` reproduces the reprojection with Pillow and NumPy.
-The image is a fixed world raster, not high-resolution satellite tiles. Existing
-geographic anchors, verification metadata, tree, routes and Kin calculations
-remain in use. No political boundary overlay is drawn. Attribution is available
-in the map information control. The atlas publish gate checks runtime image
-paths as well as data and HTML resources.
+The former `assets/earth-equal.webp` was derived from
+https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57730/land_ocean_ice_2048.jpg
+with `scripts/project_earth.py`; it is retained as a historical asset.

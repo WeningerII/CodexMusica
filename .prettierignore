@@ -93,3 +93,6 @@ docs/production-audit-evidence
 
 # Exact public creation I/O and SHA-indexed calibration evidence.
 lyric-harness/quality/results/capacity_followup_2026-09-21
+
+# Generated image pyramid: compact manifests and hashed build receipts.
+assets/earth-tiles
