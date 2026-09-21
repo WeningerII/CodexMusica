@@ -7141,19 +7141,76 @@ try {
     // The original 24-line seed1 fixture produced a 400KB nine-line prompt,
     // before its first answer. Independent questions must split into fitting
     // batches without discarding their constraints or ending the fresh run.
-    const splitRes = await client.callTool(
+    // ~~The batch was the FIRST question of the run~~ — since M-305 the brief
+    // reads the incident verdict for BOTH endpoints of a violated pair, so L1
+    // (the earlier endpoint of violated pairs in groups A and L) is a
+    // joint-conflict pivot and tier 2 asks its group rewrites before the batch
+    // door opens. MEASURED on this tree at the interview default (attempts 1):
+    // group [1,8,9,10,11], L1, group [2,8,13], L2, group [3,4,9,10,12], L3,
+    // group [4,6,7], L4, then the batch [5,6,11,14,15,17,20] on continuation
+    // 8 (334949 state bytes). The walk below answers every question with the
+    // draft's own unchanged line(s) — exactly as test_run_continuation.mjs
+    // does, so no accepted edit can close an obligation — until the first
+    // propose_batch appears, and the claim is measured on THAT state. A run
+    // that never reaches the batch door within the bound is reported as such,
+    // never forced.
+    const SPLIT_WALK_BOUND = 12;
+    const splitMembers = (pending) =>
+      pending.kind === 'propose_batch'
+        ? pending.record.records.map((r) => r.line)
+        : pending.kind === 'propose_group'
+          ? pending.record.members
+          : [pending.record.line];
+    let splitRes = await client.callTool(
       { name: 'lyric_revise', arguments: withLines({ draft }) },
       undefined,
       LIVE_OPTS
     );
     assert.ok(!splitRes.isError);
     assert.equal(splitRes.content.length, 2);
-    const splitVerdict = JSON.parse(splitRes.content[1].text);
+    let splitVerdict = JSON.parse(splitRes.content[1].text);
     assert.equal(splitVerdict.status, 'awaiting_proposal');
     assert.equal(splitVerdict.exit_code, 4);
-    const splitState = decodeState(splitVerdict.state);
+    let splitState = decodeState(splitVerdict.state);
     assert.deepEqual(splitState.accepted_lines, draft);
     assert.deepEqual(splitState.answered.propose, []);
+    const splitWalk = [];
+    let splitHop = 0;
+    while (splitState.pending.kind !== 'propose_batch') {
+      const members = splitMembers(splitState.pending);
+      splitWalk.push(`${splitState.pending.kind}[${members.join(',')}]`);
+      assert.ok(
+        splitHop < SPLIT_WALK_BOUND,
+        `no propose_batch within ${SPLIT_WALK_BOUND} continuations: ${splitWalk.join(' → ')}`
+      );
+      const answer =
+        splitState.pending.kind === 'propose'
+          ? draft[members[0] - 1]
+          : members.map((n) => `L${n}: ${draft[n - 1]}`).join('\n');
+      splitRes = await client.callTool(
+        {
+          name: 'lyric_revise',
+          arguments: withLines({
+            run_id: splitVerdict.run_id,
+            run_revision: splitVerdict.run_revision,
+            answer,
+          }),
+        },
+        undefined,
+        LIVE_OPTS
+      );
+      assert.ok(
+        !splitRes.isError,
+        `continuation ${splitHop + 1} answered (got: ${String(splitRes.content?.[0]?.text).slice(0, 200)})`
+      );
+      assert.equal(splitRes.content.length, 2);
+      splitVerdict = JSON.parse(splitRes.content[1].text);
+      assert.equal(splitVerdict.status, 'awaiting_proposal');
+      assert.equal(splitVerdict.exit_code, 4, 'the fresh run is not ended before the batch door');
+      splitState = decodeState(splitVerdict.state);
+      assert.deepEqual(splitState.accepted_lines, draft, 'unchanged answers fix nothing');
+      splitHop++;
+    }
     assert.equal(splitState.pending.kind, 'propose_batch');
     assert.ok(splitState.pending.record.records.length > 1);
     assert.ok(splitState.pending.record.records.length < 9);
@@ -7162,6 +7219,7 @@ try {
     console.log(
       `  ok  lyric_revise live: seed ${planSeed}, ${nLines} lines, first batch ` +
         `[${splitState.pending.record.records.map((r) => r.line).join(',')}] ` +
+        `on continuation ${splitHop} after ${splitWalk.join(' → ') || '(nothing)'} ` +
         `fits ${Buffer.byteLength(JSON.stringify(splitState), 'utf8')} state bytes without dropping a brief`
     );
     passed++;

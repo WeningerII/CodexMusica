@@ -5752,6 +5752,14 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     #     is checked here the only way it can be: the verdict the verb
     #     gives BEFORE an answer is folded is the verdict the loop records
     #     when it folds it.
+    #     THE BATCH MOVED under `MISSING.md` M-305 (~~[3, 5, 8]~~ [3, 5, 7]).
+    #     The brief now reads the grade's incident verdict for BOTH endpoints
+    #     of a violated pair, where before a pair finding was reported only
+    #     on its later endpoint. So L7 — the earlier endpoint of the violated
+    #     pair (7, 8) — now carries group C [7, 8] as VIOLATED (beside D and
+    #     F) and wins the batch's independence walk over L8, which used to
+    #     stand in the batch only because the (7, 8) finding sat on it alone.
+    #     Every value below is re-measured on that trajectory; none is loosened.
     st = os.path.join(tmpd, "state.json")
     rc, out, _ = run("finish", draft, "--seed=7", "--lines=12",
                      f"--propose=defer:{st}", expect_rc=4)
@@ -5762,7 +5770,8 @@ def test_tryline_is_the_loops_own_acceptance_decision():
                (pend.get("record") or {}).get("records") or ()]
     check("the loop suspends on the fixture with a batch open",
           rc == 4 and pend.get("kind") == "propose_batch"
-          and members == [3, 5, 8], f"{rc} {pend.get('kind')} {members}")
+          and members == [3, 5, 7],  # ~~[3, 5, 8]~~ since M-305
+          f"{rc} {pend.get('kind')} {members}")
     # while nothing has moved, the state and the file are the same draft
     rc, out, _ = run("tryline", draft, "5", "Stay by the door and pray",
                      "--seed=7", "--lines=12", f"--propose=defer:{st}",
@@ -5772,11 +5781,25 @@ def test_tryline_is_the_loops_own_acceptance_decision():
           "that nothing has moved yet",
           rc == 0 and row.get("against") == "state"
           and row.get("moved_since_handed_in") == []
-          and row.get("open_question") == [3, 5, 8]
+          and row.get("open_question") == [3, 5, 7]  # ~~[3, 5, 8]~~ M-305
           and "AGAINST: the loop's CURRENT draft" in out
-          and "OPEN   : the loop's open question is L3, L5, L8" in out,
+          # ~~"...is L3, L5, L8"~~ since M-305
+          and "OPEN   : the loop's open question is L3, L5, L7" in out,
           out[-600:])
     l5_before = bool(row.get("accepted"))
+    # L7 is the member M-305 moved INTO the batch, so its parity is measured
+    # too: the verb's verdict here is what the fold below must record.
+    # Measured 2026-09-21: 'hold the door for drought' ACCEPTED — word 5 is
+    # in the -out field the C mandate offers and NOT on the forbidden modal
+    # list ('doubt', 'out', ... are REJECTED as the slop direction).
+    rc, out, _ = run("tryline", draft, "7", "hold the door for drought",
+                     "--seed=7", "--lines=12", f"--propose=defer:{st}",
+                     expect_rc=0)
+    row = _machine_result(out)
+    l7_before = bool(row.get("accepted"))
+    check("...and the member M-305 moved into the batch is asked the same "
+          "way, and ACCEPTED", rc == 0 and row.get("against") == "state"
+          and row.get("moves") == [7] and l7_before, out[-400:])
     rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
                      "--seed=7", "--lines=12", "--propose=stub",
                      expect_rc=2)
@@ -5799,9 +5822,11 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     check("a state that does not exist REFUSES — nothing has been briefed",
           rc == 2 and "nothing has been briefed" in out, out[-300:])
     # ANSWER THE BATCH with lines the verb accepted, and let the loop fold
+    # ~~"L8: A shore as old as the vein"~~ — L8 is no longer in the batch
+    # since M-305; the third row answers L7 with the candidate accepted above
     stj["pending"]["answer"] = ("L3: nothing here is very still\n"
                                 "L5: Stay by the door and pray\n"
-                                "L8: A shore as old as the vein")
+                                "L7: hold the door for drought")
     with _io.open(st, "w", encoding="utf-8") as fh:
         json.dump(stj, fh)
     rc, out, _ = run("finish", draft, "--seed=7", "--lines=12",
@@ -5813,13 +5838,19 @@ def test_tryline_is_the_loops_own_acceptance_decision():
              if a != b]
     verdicts = {int(o["line"]): bool(o["accepted"])
                 for o in stj.get("outcomes") or ()}
+    # measured: moved=[2, 3, 5, 7] (L2 rides with L3 as its return class),
+    # verdicts {3: True, 5: True, 7: True}
     check("the loop folded the answers and moved past the file",
-          rc == 4 and 3 in moved and 5 in moved, f"{rc} moved={moved}")
+          rc == 4 and 3 in moved and 5 in moved and 7 in moved,
+          f"{rc} moved={moved}")
     check("PARITY: the verb's verdict before the fold is the loop's verdict "
           "at the fold (L5)", verdicts.get(5) is l5_before is True,
           f"{verdicts} vs tryline {l5_before}")
     check("...and for L3, whose fix only the return mirror earns",
           verdicts.get(3) is True, str(verdicts))
+    check("...and for L7, the member M-305 moved into the batch",
+          verdicts.get(7) is l7_before is True,
+          f"{verdicts} vs tryline {l7_before}")
     # NOW the file is a draft the loop no longer holds
     rc, out, _ = run("tryline", draft, "9", "carry the cold light",
                      "--seed=7", "--lines=12", expect_rc=2)
@@ -5842,7 +5873,18 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     bj = dict(stj)
     bj["accepted_lines"] = list(stj["accepted_lines"])
     # the open question is a GROUP on [6, 7, 10, 11] — a group record names
-    # its draft by its members' texts, so the tamper lands on a member
+    # its draft by its members' texts, so the tamper lands on a member.
+    # Re-measured after M-305: with L7 folded the loop still opens group D
+    # [6, 7, 10, 11] (`propose_group`, L7 now reading the accepted
+    # candidate), so the tamper on L6 is pinned here rather than assumed.
+    post = stj.get("pending") or {}
+    check("after the fold the open question is the GROUP on [6, 7, 10, 11], "
+          "which is what the tamper below relies on",
+          post.get("kind") == "propose_group"
+          and (post.get("record") or {}).get("members") == [6, 7, 10, 11]
+          and "hold the door for drought"
+          in ((post.get("record") or {}).get("texts") or []),
+          f"{post.get('kind')} {(post.get('record') or {}).get('members')}")
     bj["accepted_lines"][5] = "a line nobody accepted"
     with _io.open(bad, "w", encoding="utf-8") as fh:
         json.dump(bj, fh)
