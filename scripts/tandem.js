@@ -432,6 +432,27 @@ check('frozen descriptor-DF (app.js inline ↔ canonical JSON, + catalog coverag
   return `${tokens ? tokens[1] : '?'} tokens parity-locked, ${cov ? cov[1] : '?'}% of the live catalog covered`;
 });
 
+// The text between a `{` at `openBrace` and its matching `}`, skipping string
+// literals so a brace inside a quoted string does not count. Enough for the
+// injected harvester core, which carries no regex literals or comments.
+function balancedBody(src, openBrace) {
+  if (src[openBrace] !== '{') throw new Error('balancedBody: no `{` at offset ' + openBrace);
+  let depth = 0;
+  let quote = null;
+  for (let i = openBrace; i < src.length; i++) {
+    const ch = src[i];
+    if (quote) {
+      if (ch === '\\') i++;
+      else if (ch === quote) quote = null;
+      continue;
+    }
+    if (ch === '"' || ch === "'" || ch === '`') quote = ch;
+    else if (ch === '{') depth++;
+    else if (ch === '}' && --depth === 0) return src.slice(openBrace + 1, i);
+  }
+  throw new Error('balancedBody: unbalanced braces after offset ' + openBrace);
+}
+
 // Card-descriptor semantics: there are TWO different card-descriptor harvesters
 // in the codex, intentionally:
 //   - `_card_descriptors.cardDescriptors` and the HTML embed's
@@ -459,11 +480,17 @@ check('card-descriptor semantics aligned (production vs audit)', () => {
   const auditNodeSrc = fs.readFileSync(path.join(ROOT, 'scripts/_matcher.js'), 'utf8');
   const builtHtml = fs.readFileSync(HTML_PATH, 'utf8');
 
-  // The injected core in the built HTML.
-  const m = builtHtml.match(/function harvestDescriptors\(card, lookups\)\s*\{([\s\S]*?)\n\}/);
-  if (!m)
+  // The injected core in the built HTML. build_html.js squeezes every block it
+  // emits (2026-09-14), so the core sits on one line: no space after the comma,
+  // no newline before its closing brace. The regex this used to anchor on
+  // (`\n}`) described the pretty-printed shape, not the function, and stopped
+  // matching the day the page shipped minified. Find the declaration and walk
+  // its braces to the matching close instead; that reads the same body from
+  // either shape.
+  const decl = builtHtml.match(/function harvestDescriptors\(card,\s*lookups\)\s*\{/);
+  if (!decl)
     throw new Error('harvestDescriptors not found in built codex.html — build_html inject missing');
-  const embedBody = m[1];
+  const embedBody = balancedBody(builtHtml, decl.index + decl[0].length - 1);
   if (!/function _cardDescriptorSet\(card\)/.test(builtHtml)) {
     throw new Error('_cardDescriptorSet browser adapter not found in built codex.html');
   }
@@ -711,7 +738,7 @@ check('catalog data matches source', () => {
   // key of each chunk sits inline after `{` instead of on its own 2-space-indented
   // line — a line-anchored regex silently misses exactly those keys. Eval is
   // format-proof and matches what the browser actually loads. (Mirrors the
-  // tag-strip + const→globalThis promotion used by build_html.js --check.)
+  // tag-strip and the in-context read-back used by build_html.js --check.)
   const tradStart = html.indexOf('const TRADITIONS');
   const tradEnd = html.indexOf('const TRADITION_EXTRAS');
   if (tradStart < 0 || tradEnd < 0) throw new Error('TRADITIONS/EXTRAS blocks not found in HTML');
@@ -723,13 +750,26 @@ check('catalog data matches source', () => {
     .slice(tradStart, dataEnd)
     .split('\n')
     .filter((l) => l !== '</script>' && !l.startsWith('<script>'))
-    .join('\n')
-    .replace(/^const (\w+) =/gm, 'globalThis.$1 =');
+    .join('\n');
   const dataSandbox = { Object, Array, JSON };
   vm.createContext(dataSandbox);
   vm.runInContext(dataJs, dataSandbox, { filename: 'html-data-block.js', timeout: 15000 });
-  const htmlTradIds = new Set((dataSandbox.TRADITIONS || []).map((t) => t.id));
-  const htmlExtrasKeys = new Set(Object.keys(dataSandbox.TRADITION_EXTRAS || {}));
+  // Top-level `const` binds in the context's lexical environment and never
+  // becomes a property of the sandbox object, so the tables are read back by
+  // evaluating in the same context. This used to rewrite `^const (\w+) =` to
+  // `globalThis.$1 =` first — a dependency on the SOURCE being pretty-printed
+  // (every declaration on its own line with a space before `=`). Minified
+  // output has neither, so from 2026-09-14 the rewrite matched nothing, both
+  // tables read as undefined, and this check reported "HTML has 0" against a
+  // page that held all 2,588. build_html.js --check hit the same wall the same
+  // day and moved to this read-back; the tandem copy was left behind.
+  const probe = (expr) => vm.runInContext(expr, dataSandbox, { timeout: 5000 });
+  const htmlTradIds = new Set(
+    probe("typeof TRADITIONS === 'undefined' ? [] : TRADITIONS.map((t) => t.id)")
+  );
+  const htmlExtrasKeys = new Set(
+    probe("typeof TRADITION_EXTRAS === 'undefined' ? [] : Object.keys(TRADITION_EXTRAS)")
+  );
 
   // (1) Count parity with source
   const sourceCount = C.TRADITIONS.length;
