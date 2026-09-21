@@ -3439,12 +3439,11 @@ def test_the_mandate_block_is_gated_on_the_mandate():
     `verify()` accepted, correctly by its own rules, so the word the other
     half of the only mandated pair has to answer changed in silence.
 
-    THE FIELD IS STILL GATED ON `wants`, and check 4 is that half: a
-    meter-only line is not handed rhyme words it has no use for, which is
-    `brief()`'s own long-standing argument and is unaffected. Check 5 is the
-    CONTROL that makes this a repair rather than a deletion -- a line in NO
-    mandated group must still get the default sentence, or the fix would
-    have been to stop saying anything.
+    M-305 (2026-09-21): this fixture was never rhyme-satisfied. The pair
+    fails, but its finding belongs to L2. L1 now receives an offer for its
+    incident violation. A separate holding-pair control preserves the rule
+    that genuine meter-only repair needs no rhyme menu. A line in NO group
+    must still get the default sentence.
     """
     print("\n40. the MANDATE block is gated on the MANDATE, and the "
           "CANDIDATE FIELD on the finding set -- two gates, not one")
@@ -3491,13 +3490,30 @@ def test_the_mandate_block_is_gated_on_the_mandate():
                                                                "stairs")])]
           and b1.must_rhyme_with == (2, "stairs"),
           f"must_answer={b1.must_answer if b1 else '?'}")
-    check("...and it is handed NO candidate field and NO forbidden set: the "
-          "OFFER stays gated on the finding set, so a meter-only line is "
-          "never given rhyme words it has no use for",
-          b1 is not None and not b1.candidates and not b1.forbidden_modal
-          and not b1.forbidden_incumbent and b1.joint_conflict is False,
-          f"candidates={len(b1.candidates) if b1 else '?'} "
-          f"forbidden={b1.forbidden_modal if b1 else '?'}")
+    check("M-305: the incident pair really fails, so L1 needs the rhyme "
+          "field even though the finding belongs to L2",
+          b1 is not None and b1.violated_groups == ("A",)
+          and b1.field_computed and bool(b1.candidates),
+          f"candidates={len(b1.candidates) if b1 else '?'}")
+
+    # Keep the original no-unneeded-offer guarantee on a genuinely holding
+    # relation, not on absence of an endpoint-owned finding.
+    import copy
+    holding = [lines[0].rsplit(' ', 1)[0] + ' red',
+               lines[1].rsplit(' ', 1)[0] + ' road', lines[2]]
+    holding_bp = copy.deepcopy(bp)
+    for row, text in zip(holding_bp['lines'], holding):
+        row['text'] = text
+    holding_m = _SC2.mandate([[1, 2]], n_lines=3,
+                             default_relation='class:CONSONANCE')
+    hb = next(b for b in R.brief(holding, holding_m, blueprint=holding_bp,
+                                subdivision=sub) if b.line_no == 1)
+    check("CONTROL: a genuinely holding pair leaves the meter-only line "
+          "without a rhyme menu or forbidden set",
+          any(f.code == 'SLOTS_EXCEEDED' for f in hb.findings)
+          and not hb.violated_groups and not hb.field_computed
+          and not hb.candidates and not hb.forbidden_modal,
+          f"violated={hb.violated_groups} field={hb.field_computed}")
 
     p1 = _PR.render_line(b1, lines, whole=found["whole"])
     # REPINNED 2026-09-02: the group sentence names the PLACE the group

@@ -27449,3 +27449,58 @@ changing any threshold; `quality/results/continuation_audit_2026-09-20/curve-che
 backs comparator pin `de112e81810f`. The branch's pull request records required
 checks and merge separately from the local evidence. BOOKKEEPING: coverage
 entries 358 → 359; M-304 is closed, and M-240 remains open.
+
+
+### M-305 · Public screening and revision omit existing verdict evidence `CLOSED` 2026-09-21
+
+Fresh public screening for The Last Casting returned `picket / packet` as
+`RIME_RICHE 1.000` without saying that only their final syllables supplied
+the score. The production verdict already contains both exact spans and
+the explanation; `screen_pairs` discarded them and its renderer had nothing
+to print. Both a structured-row regression and a real CLI check fail before
+the repair. The screen now carries and renders that same verdict evidence;
+no comparator decision, named-relation answer or promotion setting changes.
+The song stopped at discovery and is not a completed-song claim.
+
+This batch also removes two M-240 enumeration costs: retained whole-query
+duplicate history and repeated scans of shared projected buckets. Exact
+sequence, mirror/skip counters and global-figure semantics remain under
+regression. The 31-line admission ceiling is unchanged, and the public
+128-line request still refuses. M-240 remains OPEN.
+
+See `docs/lyrics-capacity-followup.md` (repository root). The four feedback
+repairs below have failing-before witnesses and passing regression controls.
+All five curves re-derived from 8,536 fresh items without threshold changes.
+This closes those implemented defects; it does not certify general writing
+capability, completed songs, larger admission or deployment. PR integration
+and release qualification remain separate gates.
+
+The next independent song, The Spare Apron, stopped before its first answer:
+L2's brief called its group-A black/thick/cake obligations holding while the
+grade explicitly failed them. Pair findings belong to the later endpoint;
+brief status now also reads all incident grade violations before selecting
+slots and candidate fields. The exact frozen draft regression fails before
+this fix. Finding ownership/counts and unjudged-group handling are preserved.
+The Flood Map begins fresh under the same overlapping consonance conditions.
+
+The Flood Map then stopped at an invalid partial menu: Dark → york was offered
+under class:CONSONANCE, while the public screen rejects that exact pair. The
+per-call fallback skipped the declared-offer filter used by the joint menu.
+The fallback now checks its exact requested obligations at their actual loci
+and preserves the no-new-collateral-failure rule. This is a third independent
+cause within M-305, with a failing-before frozen regression and a passing
+positive control for a legitimate partial offer. The Last Bus Home is fresh.
+
+The Last Bus Home accepted three repairs, then its verification explanation
+called preserved first word Rain an end word. The decision already used the
+correct slot; the disclosure had a hard-coded name. It now uses the shared
+slot-description function, with a failing-before exact-plan regression and
+an ordinary-end-word control. This is the fourth feedback cause in M-305
+(six causes including the two M-240 resource costs). The run was frozen at
+that explanation; The Glasshouse Key starts independently under the same plan.
+
+The final independent Glasshouse Key run accepted one coupled edit, retained
+all three changed lines in its next question, and correctly named Rain as its
+first word and green as word 5. It remains unfinished at that next question;
+all local runners are closed. M-240 remains OPEN at 31 admitted lines with
+12 syllables per line; the 128-line refusal is preserved without substitution.

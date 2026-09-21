@@ -5816,6 +5816,7 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
                    "reason": None, "relation": None, "score": None,
                    "why": None, "schema_scaffold": [],
                    "flags": [], "coda_no_evidence": False,
+                   "spans": None, "attribution": "",
                    "named": None, "named_reason": None}
             if g["refusals"]:
                 row["refused"] = True
@@ -5825,6 +5826,8 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
                 row["relation"] = v["relation"]
                 row["score"] = v["score"]
                 row["why"] = v["why"]
+                row["spans"] = v.get("spans")
+                row["attribution"] = v.get("attribution", "")
                 # E-5 / M-136 (2026-09-02): the comparator's own flags
                 # ride the row, so a screen can say what a verdict did not
                 # ask and what part of a CLEAN verdict was agreement by
@@ -9215,7 +9218,8 @@ def main():
                     _cf = next(f for f in r["flags"]
                                if f.startswith("coda: no evidence"))
                     status += f"  |  {_cf}"
-                print(f"  {pair}  {verdict}  {status}{named_status}")
+                print(f"  {pair}  {verdict}  {status}"
+                      f"{r['attribution']}{named_status}")
         print(f"  {n_banned} banned, {n_ref} refused, {n_rhyme} clean and "
               f"rhyming, {n_near} clean and ADMITTED as a near relation, "
               f"{n_non} clean but not a rhyme — a banned pair is "

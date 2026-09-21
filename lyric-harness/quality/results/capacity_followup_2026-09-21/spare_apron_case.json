@@ -1,0 +1,48 @@
+{
+  "writer": "interview",
+  "draft": [
+    "Smoke curls past cold bread",
+    "She lifts the last black lid",
+    "Dad, flour masks the road",
+    "We grind seed in this shop",
+    "Her hands still grip thick wood",
+    "Bud, red dawn warms the glass",
+    "She makes the same good cake",
+    "Wear the apron; stay here",
+    "Wear the apron; stay here",
+    "Back home, thin walls smell sweet",
+    "Her book holds rain and yeast",
+    "I bring her scraps of time"
+  ],
+  "pronunciations": [
+    {
+      "line": "She makes the same good cake",
+      "token": 5,
+      "word": "good",
+      "phones": [
+        "G",
+        "UH1",
+        "D"
+      ],
+      "basis": "dictionary",
+      "source": "writer: stressed adjective good"
+    },
+    {
+      "line": "Dad, flour masks the road",
+      "token": 2,
+      "word": "flour",
+      "phones": [
+        "F",
+        "L",
+        "AW1",
+        "R"
+      ],
+      "basis": "dictionary",
+      "source": "writer: one-syllable flour in the intended performance"
+    }
+  ],
+  "max_rounds": 3,
+  "attempts": 2,
+  "backtrack": 2,
+  "groups": "1.T1,2.T5,5.T5,7.endword;3,6.T2;1.T4,3.T1,4.T3,6.head,7.T5;10.T2,12.endword;10.head,11.T2;10.T3,11.T4;1,2,5"
+}

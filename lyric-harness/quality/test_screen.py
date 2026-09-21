@@ -450,6 +450,27 @@ def test_named_judgment_survives_broad_uncertainty():
           out)
 
 
+def test_screen_retains_partial_anchor_evidence():
+    from quality.revise import Reviser
+    from quality import schemes as SC
+    words = ("picket", "packet")
+    lines = [c.format(w=w) for c, w in zip(LH._SCREEN_CARRIERS, words)]
+    verdict = Reviser().inspect(lines, SC.mandate([[1, 2]], n_lines=2))["grade"]["verdicts"][0]
+    row = LH.screen_pairs(words, relation="class:CONSONANCE")[0]
+    check("screen retains the actual partial-anchor score and its evidence",
+          row["relation"] == verdict["relation"] == "RIME_RICHE"
+          and row["score"] == verdict["score"] == 1.0
+          and bool(verdict["attribution"])
+          and row.get("attribution") == verdict["attribution"]
+          and row.get("spans") == verdict["spans"])
+    rc, out, _ = run("screen", *words, "--relation=class:CONSONANCE")
+    check("the public screen names the actual syllables without changing the named verdict",
+          rc == 0 and verdict["attribution"] in out
+          and "last 1 of 2 syllables of 'picket'" in out
+          and "last 1 of 2 syllables of 'packet'" in out
+          and "VIOLATES class:CONSONANCE" in out, out)
+
+
 if __name__ == "__main__":
     for fn in (test_the_controls, test_honesty_and_the_split,
                test_no_drift, test_the_scaffold, test_the_cli,
@@ -457,7 +478,8 @@ if __name__ == "__main__":
                test_the_screen_asks_the_grades_question,
                test_the_screen_judges_a_drawn_schema_and_names_a_near_relation,
                test_the_screen_says_which_words_cannot_be_bound_at_a_token,
-               test_named_judgment_survives_broad_uncertainty):
+               test_named_judgment_survives_broad_uncertainty,
+               test_screen_retains_partial_anchor_evidence):
         fn()
     print("=" * 62)
     if FAILURES:

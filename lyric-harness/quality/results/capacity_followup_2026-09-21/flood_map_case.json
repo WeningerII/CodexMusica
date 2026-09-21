@@ -1,0 +1,45 @@
+{
+  "writer": "interview",
+  "draft": [
+    "Dark ink stains red charts",
+    "We float past the cork board",
+    "Red flags show the road",
+    "I mark mud on each wall",
+    "She sends us to work late",
+    "Dead reeds hide the bridge",
+    "She draws the town's last mark",
+    "The flood map leaves us out",
+    "The flood map leaves us out",
+    "Back home, rain eats the steps",
+    "My boots track silt and loss",
+    "We name what none can save"
+  ],
+  "pronunciations": [
+    {
+      "line": "She sends us to work late",
+      "token": 3,
+      "word": "us",
+      "phones": [
+        "AH1",
+        "S"
+      ],
+      "basis": "dictionary",
+      "source": "writer: pronoun us, one syllable"
+    },
+    {
+      "line": "The flood map leaves us out",
+      "token": 5,
+      "word": "us",
+      "phones": [
+        "AH1",
+        "S"
+      ],
+      "basis": "dictionary",
+      "source": "writer: pronoun us, one syllable"
+    }
+  ],
+  "max_rounds": 3,
+  "attempts": 2,
+  "backtrack": 2,
+  "groups": "1.T1,2.T5,5.T5,7.endword;3,6.T2;1.T4,3.T1,4.T3,6.head,7.T5;10.T2,12.endword;10.head,11.T2;10.T3,11.T4;1,2,5"
+}
