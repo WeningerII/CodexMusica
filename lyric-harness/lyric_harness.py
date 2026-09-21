@@ -2555,6 +2555,22 @@ def _tag_span_words(sylls, phones, owners, words, lex=None):
         rd, un = pieces.get(w, (None, None))
         sylls[k]["word_read"] = tuple(rd) if rd is not None else ()
         sylls[k]["word_unread"] = tuple(un) if un is not None else ()
+        # THE WORD'S OWN ONSET (2026-09-21, `MISSING.md` M-306). `syllabify`
+        # maximises the onset of the next syllable across the word boundary,
+        # so `about rain` reads `abou-train` and the anchor on `rain` carries
+        # the onset [T, R]. Every rhyme channel wants that reading; the one
+        # question that does not is IDENTITY -- rime riche asks whether the
+        # bound WORDS agree on onset, and `rain`/`reign` do whatever the word
+        # before them ends in. Measured before this tag: `rain ~ reign` and
+        # `rite ~ write` screened plain RHYME while `vain ~ vein` screened
+        # RIME_RICHE, on the same carrier lines, because the second carrier
+        # ends in `about` and /t/+/r/ is a legal onset while /t/+/v/ is not.
+        # The onset phones of syllable k are the phones between the previous
+        # nucleus's coda and this nucleus; keep the ones this word owns.
+        onset = sylls[k].get("onset") or []
+        sylls[k]["onset_own"] = tuple(
+            ph for idx, ph in zip(range(ni - len(onset), ni), onset)
+            if 0 <= idx < len(owners) and owners[idx] == w)
 
 
 def line_anchors(lex, text, promote=False, endpoint_pronunciations=None):
@@ -3555,6 +3571,19 @@ def channel_agreement(anc_a, anc_b, decl):
     return nuc >= decl.theta_nucleus, min(codas) >= decl.theta_coda
 
 
+def _own_onset(syl):
+    """The onset phones the syllable's own word contributes (M-306).
+
+    `onset_own` is written by `_tag_span_words` beside the six provenance
+    tags; an anchor that never passed through it (no owners to attribute,
+    or a caller building anchors by hand) has no such key and the full
+    onset stands in, which is the reading every caller had before the tag.
+    Returned as a list so it compares like `onset` does.
+    """
+    own = syl.get("onset_own")
+    return list(own) if own is not None else list(syl.get("onset") or [])
+
+
 def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
     """Score two anchors. Returns dict with total, per-channel sub-scores,
     relation (RHYME / REPEAT / RIME_RICHE band flags), and value flags."""
@@ -3733,11 +3762,17 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
     if word_a and word_b:
         wa, wb = word_a.lower().strip(), word_b.lower().strip()
         la, lb = wa.split()[-1], wb.split()[-1]
-        # structural identity: same shape, every channel equal incl. onsets
+        # structural identity: same shape, every channel equal incl. onsets.
+        # The onset compared is the WORD'S OWN (`onset_own`, written by
+        # `_tag_span_words`; M-306) where the anchor carries one, so a
+        # consonant the preceding word lent across the boundary cannot
+        # make `rain`/`reign` a plain rhyme in one line and rime riche in
+        # the next. An anchor without the tag (a wordless call, an anchor
+        # built outside `line_anchors`) reads exactly as it did.
         full_identity = (extra == 0 and all(
             anc_a[i]["nucleus"] == anc_b[i]["nucleus"]
             and anc_a[i]["coda"] == anc_b[i]["coda"]
-            and anc_a[i]["onset"] == anc_b[i]["onset"]
+            and _own_onset(anc_a[i]) == _own_onset(anc_b[i])
             for i in range(n)))
         if wa == wb:
             out["relation"] = "REPEAT"

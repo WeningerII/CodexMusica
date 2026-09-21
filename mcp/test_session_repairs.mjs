@@ -163,3 +163,72 @@ test('every public recipe format obeys limits smaller than its genre header', ()
     }
   }
 });
+
+test('mixing session_id with caller-managed state names the offending fields, and the schema says so first', async () => {
+  const { JobStore } = await import('./job_store.js');
+  const { WorkflowSessions } = await import('./workflow_sessions.js');
+  const { buildWorkflowServer } = await import('./workflow_tools.js');
+  const { Client } = await import('@modelcontextprotocol/sdk/client/index.js');
+  const server = await buildWorkflowServer({
+    sessions: new WorkflowSessions({ store: new JobStore() }),
+    compatibility: true,
+  });
+  const client = new Client({ name: 'mixed-mode-check', version: '1' });
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  try {
+    await server.connect(a);
+    await client.connect(b);
+    // Measured on the hosted connector, 2026-09-21: a caller that mirrored
+    // the published schema sent `writer: 'interview'` beside its session_id
+    // (begin_lyrics had already fixed the writer) and was refused with
+    // "never both" and no field name — it could not tell which of writer,
+    // draft or pronunciations to drop. The refusal names the keys now.
+    const begun = await client.callTool({
+      name: 'begin_lyrics',
+      arguments: { writer: 'interview' },
+    });
+    const session_id = begun.structuredContent.session_id;
+    const mixed = await client.callTool({
+      name: 'lyric_revise',
+      arguments: { session_id, seed: 31, writer: 'interview', run_id: 'abc' },
+    });
+    assert(mixed.isError, JSON.stringify(mixed));
+    const text = mixed.content[0].text;
+    assert.match(text, /never both: /);
+    assert.match(text, /\bwriter\b/);
+    assert.match(text, /\brun_id\b/);
+    assert.match(
+      text,
+      /are caller-managed state the session already carries; omit it with session_id/
+    );
+    const one = await client.callTool({
+      name: 'lyric_revise',
+      arguments: { session_id, seed: 31, writer: 'interview' },
+    });
+    assert(one.isError);
+    assert.match(one.content[0].text, /never both: writer is caller-managed state/);
+    // Ordinary arguments are not caller-managed state: the refusal is not raised for them.
+    const plain = await client.callTool({
+      name: 'lyric_revise',
+      arguments: { session_id, seed: 31, draft: ['a line'] },
+    });
+    assert.doesNotMatch(plain.content[0].text, /never both/);
+    // And the schema says which fields are caller-managed before any call is made.
+    const revise = (await client.listTools()).tools.find((t) => t.name === 'lyric_revise');
+    for (const key of ['writer', 'state', 'checkpoint', 'run_id', 'run_revision'])
+      assert.match(
+        revise.inputSchema.properties[key].description,
+        /^CALLER-MANAGED STATE — omit with session_id/,
+        key
+      );
+    for (const key of ['draft', 'pronunciations', 'seed'])
+      assert.doesNotMatch(
+        revise.inputSchema.properties[key].description ?? '',
+        /CALLER-MANAGED/,
+        key
+      );
+  } finally {
+    await client.close();
+    await server.close();
+  }
+});

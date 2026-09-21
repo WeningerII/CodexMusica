@@ -471,6 +471,43 @@ def test_screen_retains_partial_anchor_evidence():
           and "VIOLATES class:CONSONANCE" in out, out)
 
 
+def test_rime_riche_reads_the_words_own_onset():
+    """M-306 (2026-09-21). `syllabify` maximises the onset of the next
+    syllable ACROSS the word boundary, so on the screen's second carrier
+    (`... about {w}`) every r-initial word borrows the /t/ of `about`:
+    `about rain` reads `abou-train`. The identity test behind RIME_RICHE
+    compared that borrowed onset, so `rain ~ reign` and `rite ~ write`
+    screened plain RHYME while `vain ~ vein` (no legal /tv/ onset) screened
+    RIME_RICHE — one carrier, two answers to the same question, and the
+    named judge (`schema:rime riche`) said SATISFIES for all of them. The
+    anchor now carries the WORD'S OWN onset beside the resyllabified one and
+    identity reads that."""
+    print("\n8. rime riche reads the word's own onset, not the one its neighbour lent")
+    from quality.revise import Reviser
+    from quality import schemes as SC
+    lines = [c.format(w=w) for c, w in zip(LH._SCREEN_CARRIERS, ("rain", "reign"))]
+    verdict = Reviser().inspect(lines, SC.mandate([[1, 2]], n_lines=2))["grade"]["verdicts"][0]
+    anc_b = verdict["spans"]["anchor_b"][0]
+    check("the resyllabified onset on `about reign` is still [T, R] — the rhyme channels keep it",
+          anc_b["onset"] == ["T", "R"], anc_b["onset"])
+    check("...and the anchor now also carries the word's OWN onset, [R]",
+          list(anc_b.get("onset_own", ())) == ["R"], anc_b.get("onset_own"))
+    rows = {(r["a"], r["b"]): r for r in LH.screen_pairs(["rain", "reign", "vein", "rite", "write"])}
+    check("rain ~ reign is RIME_RICHE, the same answer vain ~ vein already gave",
+          rows[("rain", "reign")]["relation"] == "RIME_RICHE", rows[("rain", "reign")]["relation"])
+    check("rite ~ write is RIME_RICHE too (and still HOMEOTELEUTON, which is the spelling's business)",
+          rows[("rite", "write")]["relation"] == "RIME_RICHE"
+          and "HOMEOTELEUTON" in rows[("rite", "write")]["codes"], rows[("rite", "write")])
+    check("CONTROL: rain ~ vein stays plain RHYME — the words' own onsets differ",
+          rows[("rain", "vein")]["relation"] == "RHYME", rows[("rain", "vein")]["relation"])
+    check("the coarse verdict now agrees with the named judge on the same pair",
+          LH.screen_pairs(["rain", "reign"], relation="schema:rime riche")[0]["named"] is True
+          and rows[("rain", "reign")]["relation"] == "RIME_RICHE")
+    check("an anchor without the tag reads as it always did (a wordless call is unchanged)",
+          LH._own_onset({"onset": ["T", "R"]}) == ["T", "R"]
+          and LH._own_onset({"onset": ["T", "R"], "onset_own": ("R",)}) == ["R"])
+
+
 if __name__ == "__main__":
     for fn in (test_the_controls, test_honesty_and_the_split,
                test_no_drift, test_the_scaffold, test_the_cli,
@@ -479,7 +516,8 @@ if __name__ == "__main__":
                test_the_screen_judges_a_drawn_schema_and_names_a_near_relation,
                test_the_screen_says_which_words_cannot_be_bound_at_a_token,
                test_named_judgment_survives_broad_uncertainty,
-               test_screen_retains_partial_anchor_evidence):
+               test_screen_retains_partial_anchor_evidence,
+               test_rime_riche_reads_the_words_own_onset):
         fn()
     print("=" * 62)
     if FAILURES:

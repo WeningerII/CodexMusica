@@ -207,7 +207,13 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
     );
     if (compatibility) {
       for (const [key, schema] of Object.entries(originalShape)) {
-        if (privateInput.has(key)) shape[key] = schema.optional();
+        if (privateInput.has(key))
+          shape[key] = schema
+            .optional()
+            .describe(
+              'CALLER-MANAGED STATE — omit with session_id (the session carries it). ' +
+                (schema.description ?? '')
+            );
       }
     }
     if (tool.name !== 'start_recipe') shape.session_id = compatibility ? id.optional() : id;
@@ -237,8 +243,20 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
         },
       },
       async ({ session_id, ...args }) => {
-        if (compatibility && session_id && Object.keys(args).some((key) => privateInput.has(key)))
-          throw new Error('Choose session_id or caller-managed state, never both.');
+        if (compatibility && session_id) {
+          // A refusal names the field it refuses. This one used to say only
+          // "never both" while the offending key was `writer`, which
+          // `begin_lyrics` fixes for the session and which nothing in the
+          // published schema marked as caller-managed; a caller mirroring
+          // the schema could not tell which of its arguments to drop.
+          const mixed = Object.keys(args).filter((key) => privateInput.has(key));
+          if (mixed.length)
+            throw new Error(
+              'Choose session_id or caller-managed state, never both: ' +
+                `${mixed.join(', ')} ${mixed.length === 1 ? 'is' : 'are'} caller-managed state ` +
+                'the session already carries; omit it with session_id.'
+            );
+        }
         if (compatibility && !session_id && tool.name !== 'start_recipe') {
           if (domain === 'recipe' && !args.workspace)
             throw new Error('Provide the latest session_id or the original workspace.');

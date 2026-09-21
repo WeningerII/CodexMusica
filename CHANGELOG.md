@@ -6,6 +6,26 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed — the connector's session-contract refusal names its field, and rime riche reads the word's own onset
+
+Two defects found by writing a twelve-line song through the hosted connector
+(`MISSING.md` M-306). The revise step refused a session-mode call with
+"Choose session_id or caller-managed state, never both" and no field name,
+while the offending argument was `writer`, which `begin_lyrics` had already
+fixed for the session and which nothing in the published schema marked as
+caller-managed; a caller mirroring the schema could not tell which of its
+arguments to drop. The refusal now names the fields, and every caller-managed
+field (`writer`, `state`, `checkpoint`, `run_id`, `run_revision`, `workspace`,
+`recover_only`, `recovery_part`) says so in its schema description. Separately,
+the screen answered `rain ~ reign` as plain RHYME while `vain ~ vein` was RIME
+RICHE on the same carrier lines: the syllabifier maximises onsets across the
+word boundary, so `about rain` reads `abou-train`, and the identity test behind
+rime riche compared that borrowed onset. Anchors now carry the word's own onset
+beside the resyllabified one and identity reads that; the rhyme channels are
+untouched. `lyric_harness.py` moved, so the comparator is repinned against a
+fresh curve-check receipt and the next Production qualification runs cold by
+design.
+
 ### Fixed — the weekly `tandem` cross-check reads the minified page again
 
 The Monday `tandem` job went red on main with two findings that were both

@@ -27540,3 +27540,78 @@ group before any independent line is asked. Whether that order is the one the
 loop should keep is the next question, not this entry's.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~359~~ -> **360**.
+
+### M-306 · The connector's session-contract refusal named no field, and rime riche read the onset a neighbouring word lent `CLOSED` 2026-09-21 — found by writing a twelve-line song through the hosted connector, which is how this class of defect gets found: the writer is the first to see it
+
+**WHAT HAPPENED.** The owner asked for one song through the connector, with
+the standing rule that a bug stops the work and is reported rather than
+worked around. Sweep, screen, plan and grade ran in session mode (seed 10,
+twelve lines, title *Low Tide*); the grade came back exit 0, certified, no
+flag, no banned pair. The revise step then refused, verbatim: *"Choose
+session_id or caller-managed state, never both."* The call carried the
+session's latest id plus `seed`, `lines`, `title`, `wants`, `writer:
+'interview'`, `draft` and the two `pronunciations` the grade itself had
+offered. It carried none of `state`, `checkpoint` or `run_id`, which are what
+the schema calls caller-managed state, and `lyric_grade` had accepted `draft`
+and `pronunciations` with a session id a minute earlier.
+
+**DEFECT 1, the connector (`mcp/workflow_tools.js`).** `privateInput` names
+eight keys the session carries — `workspace`, `state`, `checkpoint`,
+`run_id`, `run_revision`, `writer`, `recover_only`, `recovery_part` — and the
+compatibility server refuses any of them beside a `session_id`. Two things
+were wrong with how it said so. The refusal did not name the key, so a caller
+could not tell which of `writer`, `draft` or `pronunciations` to drop; and the
+published schema, which in compatibility mode lists those keys as ordinary
+optional parameters, carried no word that the session already holds them. The
+`begin_lyrics` description says the writer is fixed for the session; nothing
+on `lyric_revise` said not to repeat it. The refusal now reads *"never both:
+writer is caller-managed state the session already carries; omit it with
+session_id"* (several keys are listed together), and every caller-managed
+field's schema description begins *CALLER-MANAGED STATE — omit with
+session_id*. `mcp/test_session_repairs.mjs` pins both, and pins that `draft`,
+`pronunciations` and `seed` carry no such label.
+
+**DEFECT 2, the harness (`lyric_harness.py`), found on the way.** Screening
+homophones for the plan's rime-riche group: `rain ~ reign` and `rite ~ write`
+came back coarse class `RHYME 1.000` while `vain ~ vein` and `light ~ lite`
+came back `RIME_RICHE 1.000`, on the same two carrier lines, and the named
+judge said SATISFIES `schema:rime riche` for all of them. MEASURED at the
+anchor: the screen's second carrier ends in `about`, `syllabify` maximises the
+onset of the next syllable across the word boundary, and /t/+/r/ is a legal
+onset while /t/+/v/ is not — so the anchor on `reign` carried the onset
+`[T, R]` and `score`'s identity test, which compares onsets, fell through to
+plain RHYME. Every rhyme channel wants the resyllabified reading; the one
+question that does not is identity, which asks whether the bound WORDS agree.
+`_tag_span_words` now writes `onset_own` (the onset phones the nucleus's own
+word contributes) beside its six provenance tags, and `full_identity` reads
+it through `_own_onset`, which falls back to the full onset on an anchor that
+never passed through the tagger, so a wordless call reads as it always did.
+`quality/test_screen.py` §8 pins the borrowed `[T, R]` beside the own `[R]`,
+the three verdicts, the `rain ~ vein` control, and coarse-versus-named
+agreement on the pair that disagreed. The `M27` mutation (`quality/mutate.py`)
+still lands on its anchor text.
+
+**COMPARATOR.** `lyric_harness.py` is a comparator input, so its fingerprint
+moved. The five calibration curves were re-derived on this tree and the pin
+advanced against that receipt (`quality/results/m306_onset_2026-09-21/
+curve-check.txt`); the next Production qualification runs cold by design,
+about three hours, and that is the guard working rather than a regression.
+
+**VERIFIED END TO END.** The same creation order replayed in session mode
+through the compatibility server built from this tree (begin, sweep, screen,
+plan, grade, revise — the exact draft, the two declared readings): the mixed
+call is refused by name (*"…never both: writer is caller-managed state…"*)
+and the call the contract intends, without `writer`, finishes the song —
+`[FINISHED — seed 10 — exit 0 — SUCCESS after 0 round(s)]` — in four seconds
+warm. No further session-contract defect surfaced along that order.
+
+**WHAT THIS DOES NOT CLAIM.** On the hosted connector the song is not
+finished: the grade there is a graded draft and the revise step was never
+reached before the refusal. Whether
+the plan's `CREATION_ORDER` (a screen before the plan, which cannot know the
+plan's groups) is the right order is a question for the owner, not a defect
+this entry repairs. Rime riche under the modal ban remains a hard mandate —
+a homophone is often the most predictable partner of its twin — and this
+entry only makes the coarse verdict agree with the named one.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~360~~ -> **361**.
