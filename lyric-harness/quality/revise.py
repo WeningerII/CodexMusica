@@ -4948,6 +4948,7 @@ class Reviser:
             pool.discard(c)
             pool.discard(w)
             outrank = 0
+            later = []
             for x in sorted(pool):
                 cx = cond_w.get(x, 0)
                 fx = self.lex.freq_rank.get(x, 10 ** 9)
@@ -4962,10 +4963,19 @@ class Reviser:
                     continue
                 sc = best_score(anc_w, anc_x, self.decl, lab_w, lab_x,
                                 profile=profile)
-                if self._offerable(w, x, sc):
+                if admits_decl(sc, self.decl):
                     outrank += 1
                     if outrank >= k:
                         break
+                else:
+                    later.append(x)
+            # The schema half of the same predicate (`_offerable`), asked
+            # only when the coarse outrankers did not already reach k.
+            for x in later:
+                if outrank >= k:
+                    break
+                if self._offerable(w, x, None):
+                    outrank += 1
             if outrank < k:
                 return True
         return False

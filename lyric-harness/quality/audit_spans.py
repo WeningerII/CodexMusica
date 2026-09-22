@@ -633,8 +633,15 @@ def sweep_record(lex, decl, verbose=True):
 #: pairs. 1064/967/97/4 -> 1064/970/94/7; claimed and tie counts stay
 #: fixed. audit_spans.sweep_battery independently measured the full partition
 #: retained in report_slang_oracle.json. No span or threshold rule changed.
+#: REPINNED 2026-09-22, THE N-RELATION MODEL: every mandated pair judged
+#: against every relation it stands in and every schema. 1064/970/94/7 ->
+#: 1064/958/106/7; claimed 605 -> 600, ties 114 -> 109 (the five fewer claims
+#: and ties are among the twelve newly refused pairs, which leave the judged
+#: denominator); violations and their attribution unchanged. Measured by
+#: `python3 quality/audit_spans.py --check`; the exact partition is written by
+#: `--write-oracle` into both oracle records.
 PINNED = {
-    "mandated": 1064, "judged": 970, "refused": 94,
+    "mandated": 1064, "judged": 958, "refused": 106,
     #: ~~82~~ under the two-name door; ~~35~~ when it widened to all four
     #: relations (M-59); ~~12~~ when the whole schema vocabulary joined the
     #: default (M-116, owner ruling 2026-08-25 — 23 pairs stopped
@@ -648,7 +655,7 @@ PINNED = {
     #: count rose where it had fallen three times.
     "violations": 7,
     #: report lines that name the two words that actually produced the number
-    "claimed": 605,
+    "claimed": 600,
     #: the same question asked of the violations alone.
     #: ~~36~~ of ~~82~~; ~~7~~ of ~~35~~; ~~2~~ of ~~12~~ under M-116;
     #: 4 of 14 under M-138's pricing — and the SHARE rose, 16.7% -> 28.6%,
@@ -657,7 +664,7 @@ PINNED = {
     #: (the population that DOES name its own words), and a tightening adds
     #: them back. Both new pairs are ordinary end-word assonance.
     "violations_claimed": 1,
-    "ties": 114,
+    "ties": 109,
     "violation_ties": 3,
 }
 

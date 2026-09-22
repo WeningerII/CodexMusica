@@ -348,13 +348,24 @@ def main(n=200):
 #: by this lot; only the recorded counts move, which is the remedy this file's
 #: own doctrine-58 note prescribes -- "argue them and repin with the superseded
 #: value visible and dated; do NOT tune `captured_lines` or theta to meet them."
+#: REPINNED 2026-09-22, THE N-RELATION MODEL (`python3 quality/audit_band_control.py
+#: --check`, measured). A pair now stands in EVERY coarse relation its sound
+#: supports, and `infer_chains` asks every admittable relation, so the
+#: conjunctive band no longer RELABELS a chain edge away: a pair it denies
+#: RHYME still stands in ASSONANCE or CONSONANCE and stays an edge. Band ON
+#: therefore equals band OFF on both corpora — the band decides WHICH relations
+#: a pair holds, not WHETHER it is an edge at this door:
+#:   whitman_captured_off   ~~37~~ 36    whitman_captured_on   ~~16~~ 36
+#:   sonnet_captured_off      441        sonnet_captured_on   ~~406~~ 441
+#: This arm stops measuring the band's effect on chains; what it still pins is
+#: that the chain door moved with the model rather than silently.
 PINNED = {"whitman_lines": 150,
-          "whitman_captured_off": 37,   # REPINNED 2026-09-16 from ~~39~~ (E-5)
-          "whitman_captured_on": 16,
+          "whitman_captured_off": 36,   # REPINNED 2026-09-22 from ~~37~~
+          "whitman_captured_on": 36,    # REPINNED 2026-09-22 from ~~16~~
           "sonnet_items": 60,
           "sonnet_lines": 840,
-          "sonnet_captured_off": 441,   # REPINNED 2026-09-16 from ~~449~~ (E-5)
-          "sonnet_captured_on": 406}    # REPINNED 2026-09-16 from ~~411~~ (E-5)
+          "sonnet_captured_off": 441,
+          "sonnet_captured_on": 441}    # REPINNED 2026-09-22 from ~~406~~
 
 #: READING ORDER for the check's report only -- shape first, then the two arms
 #: per corpus, so the band-OFF control sits next to the band-ON figure it
