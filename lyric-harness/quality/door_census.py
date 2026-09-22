@@ -170,10 +170,6 @@ RULINGS = {
         "A candidate FIELD for one call word over the corpus lexicon: words "
         "standing in an admitted coarse relation at its cut. One word, so "
         "no line-pair schema is askable (M-139)."),
-    ("quality/revise.py", "Reviser._field_one"): (
-        PER_WORD,
-        "The writer's candidate field, one word; the schema route is "
-        "disclosed through `Brief.schema_route_note` (M-139)."),
     ("quality/revise.py", "Reviser.joint_field_screened"): (
         PER_WORD,
         "The offered field screened from the offered word's own side "
@@ -337,9 +333,10 @@ _BY_DOOR = {
 # reads `admits_decl`/`admitted_relations`, RHYME-family intersections and
 # single-label EQUALITY, and two dispositions joined (DEFINITION, FORM). The
 # single-label site in cym_rhyme_rate.py was repaired by the lead the same day
-# (membership now), so incomplete is 0.
+# (membership now), so incomplete is 0. `Reviser._field_one` stopped
+# calling the predicate directly (slice B, same day): per_word 9 -> 8.
 # Measured by `python3 quality/door_census.py --check`.
-PINNED = {"sites": 36, "full": 7, "incomplete": 0, "per_word": 9,
+PINNED = {"sites": 35, "full": 7, "incomplete": 0, "per_word": 8,
           "rendering": 3, "validation": 1, "definition": 2, "form": 6,
           "argued": 8}
 
