@@ -361,8 +361,8 @@ def whitman_battery():
 # no longer RHYME or ASSONANCE and near rhymes are judged by the schemas.
 # ~~958/106/7~~ -> judged 936, refused 128, violations 9: 22 more refusals
 # (readings/schemas undecided) and two new violations, both argument/spent
-# (-ment on a promoted final: PROMOTED_RHYME, which the sonnet mandate's
-# consensus does not settle). Measured by `python3 battery.py`.
+# (sonnets 76 and 104): scalar 0.901 but the pair now stands in NO coarse
+# relation and NO schema, so it is charged. Measured by `python3 battery.py`.
 EXPECTED = {"mandated": 1064, "judged": 936, "refused": 128, "violations": 9}
 
 

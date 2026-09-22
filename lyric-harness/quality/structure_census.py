@@ -261,14 +261,17 @@ D1_2026_09_17 = {
 # first syllable and every interior consonant to agree). Agreement over
 # judged is unchanged at 677/689; refused rows unchanged. Measured by
 # `python3 quality/structure_census.py --check`. D1_2026_09_17 kept above.
+# RE-MEASURED THE SAME DAY after `nucleus_agreement` became "licensed" (a near
+# vowel no longer carries RHYME): ~~false/admits 6, false/rejects 674,
+# refused/admits 7, refused/rejects 304, agreement 677/689~~.
 D1_RECORDED = {
     "pool": 4390056,
     "measured": "2026-09-22",
     "population": "1297 English files; normalized-lyrics-v1, 106 explicit work groups; nonlyric apparatus annotated",
     "table": {("true", "admits"): 3, ("true", "rejects"): 6,
-              ("false", "admits"): 6, ("false", "rejects"): 674,
-              ("refused", "admits"): 7, ("refused", "rejects"): 304},
-    "agree": (677, 689),
+              ("false", "admits"): 2, ("false", "rejects"): 678,
+              ("refused", "admits"): 6, ("refused", "rejects"): 305},
+    "agree": (681, 689),
 }
 
 #: HISTORICAL, and unreachable from this tree by any population.
