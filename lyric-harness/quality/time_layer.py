@@ -168,13 +168,20 @@ class TimeDeclaration:
     #: seed=20260810. Observed min=0.0231, max=0.0562; 2*max=0.1124.
     #: The saturated control is an evaluation, never a calibration input.
     #: Previous 0.152 described the earlier occurrence predicate.
-    max_null_band_pass: float = 0.1124
+    #: RE-MEASURED 2026-09-22 under the N-relation model (a candidate is a
+    #: span pair whose relation SET holds a RHYME-family relation; RHYME needs
+    #: a stressed first syllable and every interior consonant to agree), same
+    #: rule and parameters: observed min=0.0126, max=0.0395; 2*max=0.0790.
+    #: `python3 quality/fwer_family.py --calibrate`. Previous 0.1124.
+    max_null_band_pass: float = 0.0790
     max_null_band_pass_basis: str = (
-        "2 x max over 30 Shakespeare sonnets = 2 x 0.0562, measured 2026-09-14 "
-        "with word identity=(line,widx), alignment=tail, theta_coda=0.80, "
-        "theta=0.80, window=32, null_samples=20000, seed=20260810. "
-        "Re-run quality/fwer_family.py --calibrate after ANY change to the "
-        "band or candidate/null population. Previous value: 0.152.")
+        "2 x max over 30 Shakespeare sonnets = 2 x 0.0395, measured 2026-09-22 "
+        "with the N-relation candidate door (RHYME family in the pair's "
+        "relation set), word identity=(line,widx), alignment=tail, "
+        "theta_coda=0.80, theta=0.80, window=32, null_samples=20000, "
+        "seed=20260810. Re-run quality/fwer_family.py --calibrate after ANY "
+        "change to the band or candidate/null population. Previous values: "
+        "0.1124, 0.152.")
     n_perm: int = 2000
     seed: int = 20260810
     isochrony: str = ("ASSUMED, not measured. Grid positions are evenly "

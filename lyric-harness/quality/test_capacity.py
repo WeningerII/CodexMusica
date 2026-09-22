@@ -236,7 +236,9 @@ def test_the_anchor():
           "a rhyme-only declaration refuses it BY RELATION",
           (v_hair is not None and v_hair["why"] is None
            and v_narrow is not None
-           and "admit set" in (v_narrow["why"] or "")),
+           # the narrowed door names the relation it refused on
+           and "CONSONANCE" in (v_narrow["why"] or "")
+           and "no admitted relation" in (v_narrow["why"] or "")),
           f"default: {v_hair and (v_hair['relations'], v_hair['score'], v_hair['why'])}; "
           f"narrowed: {v_narrow and v_narrow['why']}")
     # Families are strictly FINER than the graded band: silver/deliver
