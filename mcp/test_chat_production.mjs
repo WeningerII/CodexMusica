@@ -951,6 +951,15 @@ test('actual chat admission keeps a signed turn counter even when history is pru
     assert.deepEqual(recovered.continuation.lyric.final_draft, ['accepted']);
     assert.equal(recovered.continuation.lyric.resumable, true);
     assert.equal(recovered.continuation.task.brief, 'brief');
+    const resumed = await post({ message: 'continue', ...recovered.continuation });
+    assert.equal(resumed.status, 429, JSON.stringify(resumed.body));
+    assert.doesNotMatch(resumed.body.error, /could not be verified/);
+    const viaReceipt = await post({
+      message: 'continue',
+      continuation_id: id,
+      request_id: crypto.randomBytes(32).toString('hex'),
+    });
+    assert.equal(viaReceipt.status, 429, JSON.stringify(viaReceipt.body));
     const uncertain = router.recoverCheckpoint({ ...store.get(id), uncertain_proposal: true });
     assert.equal(uncertain.lyric.resumable, false);
     assert.equal(uncertain.lyric.uncertain_proposal, true);

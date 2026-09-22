@@ -463,8 +463,17 @@ export async function createChatRouter({
         draft_fp: null,
       },
     };
-    if (jsonBytes(envelope) > 4 * 1024 * 1024) return null;
-    return { ...envelope, sig: sign(envelope) };
+    // The HTTP verifier rebuilds these fields in this order. Recovery may
+    // have added lyric after task; signing that insertion order invalidates
+    // our own continuation. Keep existing signed envelopes compatible.
+    const recovered = {
+      history: envelope.history,
+      workspace: envelope.workspace,
+      lyric: envelope.lyric,
+      task: envelope.task,
+    };
+    if (jsonBytes(recovered) > 4 * 1024 * 1024) return null;
+    return { ...recovered, sig: sign(recovered) };
   };
   router.get('/chat/status', (_req, res) => {
     const readiness = router.readiness();

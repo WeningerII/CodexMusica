@@ -563,3 +563,53 @@ test('creation carries melody and refuses a changed tune', () => {
   assert.equal(creationRefusal(t, 'lyric_grade', { ...args, melody: reordered }), null);
   assert.match(creationRefusal(t, 'lyric_grade', { ...args, melody: '{}' }), /melody differs/);
 });
+
+test('creation normalizes draft_text before exact grade and revision qualification', () => {
+  const t = fresh();
+  const p = planned(t);
+  const args = { seed: 16, draft_text: draft.join('\r\n') };
+  assert.equal(creationRefusal(t, 'lyric_grade', args), null);
+  assert.deepEqual(args.draft, draft);
+  recordCreation(t, 'lyric_grade', args, gradeReceipt(p));
+  assert.ok(t.workflow.grade);
+  assert.equal(creationRefusal(t, 'lyric_revise', { ...args }), null);
+  assert.match(
+    creationRefusal(t, 'lyric_revise', {
+      seed: 16,
+      draft_text: 'changed\nwords',
+    }),
+    /CREATION_GRADE/
+  );
+  assert.match(
+    creationRefusal(t, 'lyric_grade', {
+      seed: 16,
+      draft,
+      draft_text: 'changed\nwords',
+    }),
+    /conflicting draft/
+  );
+  assert.match(
+    creationRefusal(t, 'lyric_grade', {
+      seed: 16,
+      draft_text: draft[0],
+    }),
+    /line count/
+  );
+});
+
+test('array whitespace is normalized before binding the grade receipt', () => {
+  const t = fresh();
+  const p = planned(t);
+  const args = { seed: 16, draft: draft.map((line) => `  ${line}  `) };
+  assert.equal(creationRefusal(t, 'lyric_grade', args), null);
+  recordCreation(t, 'lyric_grade', args, gradeReceipt(p));
+  assert.ok(t.workflow.grade);
+  assert.deepEqual(args.draft, draft);
+  assert.equal(
+    creationRefusal(t, 'lyric_revise', {
+      seed: 16,
+      draft: draft.map((line) => ` ${line} `),
+    }),
+    null
+  );
+});

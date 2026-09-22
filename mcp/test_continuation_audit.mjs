@@ -8,7 +8,7 @@ import { buildServer } from './tools.js';
 import { connectConnector } from './client.js';
 import { RUNS, _workerInternals, _verdictInternals } from './lyric_tools.js';
 import { _agentInternals } from './gemini_agent.js';
-import { decodeState } from './state_codec.js';
+import { decodeState, encodeState } from './state_codec.js';
 
 const peers = [];
 async function connect(native = false, session = null) {
@@ -441,4 +441,17 @@ test('F08: native creation carries server revisions through repeated answers and
     );
     assert.equal(v.run_revision, previous.run_revision + 1);
   }
+});
+
+test('structured answers without a pending question name the missing question', async () => {
+  const c = await connect();
+  const initial = verdict(await call(c, single));
+  const state = decodeState(initial.state);
+  state.pending = null;
+  const result = await call(c, {
+    state: encodeState(state),
+    answers: [{ line: 1, text: 'A replacement' }],
+  });
+  assert.equal(result.isError, true);
+  assert.match(result.content[0].text, /holds no pending question/);
 });

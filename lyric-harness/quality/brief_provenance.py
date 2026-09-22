@@ -123,18 +123,34 @@ def briefed(state_paths):
                 st = json.load(f)
         except (OSError, ValueError):
             continue
+        if not isinstance(st, dict):
+            continue
         records = []
-        for entries in (st.get("answered") or {}).values():
-            for e in entries or []:
-                if isinstance(e, dict) and isinstance(e.get("record"), dict):
-                    records.append(e["record"])
-        pend = st.get("pending")
-        if isinstance(pend, dict) and isinstance(pend.get("record"), dict):
-            records.append(pend["record"])
-        for r in records:
-            line = r.get("line")
-            if isinstance(line, int):
-                out.setdefault(line, set()).add(r.get("draft") or "")
+        answered = st.get("answered") or {}
+        if isinstance(answered, dict):
+            for entries in answered.values():
+                if isinstance(entries, list):
+                    records.extend(entries)
+        if isinstance(st.get("pending"), dict):
+            records.append(st["pending"])
+        while records:
+            r = records.pop()
+            if not isinstance(r, dict):
+                continue
+            # Completed answers are flat replay records; pending questions
+            # (and older sidecars) wrap them. Batches carry individual records
+            # and group questions name all their members under one fingerprint.
+            if isinstance(r.get("record"), dict):
+                records.append(r["record"])
+                continue
+            if isinstance(r.get("records"), list):
+                records.extend(r["records"])
+            members = r.get("members") or []
+            if not isinstance(members, list):
+                members = []
+            for line in [r.get("line"), *members]:
+                if isinstance(line, int) and not isinstance(line, bool) and line > 0:
+                    out.setdefault(line, set()).add(r.get("draft") or "")
     return out
 
 

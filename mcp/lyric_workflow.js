@@ -1,6 +1,7 @@
 // Creation qualifications are host-owned receipts from executed tools. Model
 // arguments and completedSteps are never evidence that a step occurred.
 import { createHash } from 'node:crypto';
+import { draftFromText, normalizeDraftLines } from './lyric_text.js';
 
 const hash = (value) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const list = (value) =>
@@ -196,6 +197,13 @@ export function creationRefusal(task, name, args, lyric = null) {
               ? JSON.stringify(request[key])
               : structuredClone(request[key]);
     }
+  }
+  if (Array.isArray(args.draft)) args.draft = normalizeDraftLines(args.draft);
+  if (typeof args.draft_text === 'string') {
+    const draft = draftFromText(args.draft_text);
+    if (Array.isArray(args.draft) && !same(args.draft, draft))
+      return 'CREATION_DRAFT: conflicting draft and draft_text; send one exact draft representation.';
+    args.draft = draft;
   }
   if (!Array.isArray(args.draft) || !args.draft.length)
     return 'CREATION_DRAFT: the exact complete draft is required.';

@@ -1,0 +1,469 @@
+{
+  "version": 1,
+  "date": "2026-09-22",
+  "baseline_commit": "08adfcff",
+  "report_ids": [
+    "C-1",
+    "P9"
+  ],
+  "population": "battery.parse_sonnets: 152 fourteen-line sonnets, ABABCDCDEFEFGG; sonnet_index is the filtered battery index",
+  "baseline": {
+    "mandated": 1064,
+    "judged": 967,
+    "refused": 97,
+    "violations": 4
+  },
+  "current": {
+    "mandated": 1064,
+    "judged": 970,
+    "refused": 94,
+    "violations": 7
+  },
+  "meaning": "Three pairs previously refused only by the missing slang surface now yield violations. No accepted pair changed and no pronunciation, threshold or corpus input was changed. Both check_scheme and Reviser.grade independently return the current totals.",
+  "newly_judged_pairs": [
+    {
+      "sonnet_index": 33,
+      "lines": [
+        2,
+        4
+      ],
+      "endwords": [
+        "eye",
+        "alchemy"
+      ],
+      "before": {
+        "lines": [
+          2,
+          4
+        ],
+        "endwords": [
+          "eye",
+          "alchemy"
+        ],
+        "unreadable": [],
+        "schemas": [
+          "rhyming slang"
+        ],
+        "reason": "Default relation remains unresolved in applicable schemas: rhyming slang"
+      },
+      "after": {
+        "status": "violation",
+        "score": 0.635,
+        "reason": "below theta_rhyme=0.75"
+      }
+    },
+    {
+      "sonnet_index": 86,
+      "lines": [
+        6,
+        8
+      ],
+      "endwords": [
+        "dead",
+        "astonished"
+      ],
+      "before": {
+        "lines": [
+          6,
+          8
+        ],
+        "endwords": [
+          "dead",
+          "astonished"
+        ],
+        "unreadable": [],
+        "schemas": [
+          "rhyming slang"
+        ],
+        "reason": "Default relation remains unresolved in applicable schemas: rhyming slang"
+      },
+      "after": {
+        "status": "violation",
+        "score": 0.741,
+        "reason": "below theta(ASSONANCE)=0.82 (theta_rhyme=0.75; the near relations carry their own priced cut, M-138)"
+      }
+    },
+    {
+      "sonnet_index": 104,
+      "lines": [
+        10,
+        12
+      ],
+      "endwords": [
+        "words",
+        "affords"
+      ],
+      "before": {
+        "lines": [
+          10,
+          12
+        ],
+        "endwords": [
+          "words",
+          "affords"
+        ],
+        "unreadable": [],
+        "schemas": [
+          "rhyming slang"
+        ],
+        "reason": "Default relation remains unresolved in applicable schemas: rhyming slang"
+      },
+      "after": {
+        "status": "violation",
+        "score": 0.668,
+        "reason": "below theta_rhyme=0.75"
+      }
+    }
+  ],
+  "still_refused_pairs_with_slang_reason_removed": [
+    {
+      "sonnet_index": 5,
+      "lines": [
+        10,
+        12
+      ],
+      "remaining_schemas": [
+        "amphisbaenic rhyme",
+        "chain rhyme (rap)",
+        "compound / phrasal rhyme",
+        "enjambed rhyme",
+        "holorhyme",
+        "incremental repetition",
+        "mosaic rhyme",
+        "multisyllabic rhyme",
+        "parechesis / general consonance",
+        "syllabic rhyme"
+      ]
+    },
+    {
+      "sonnet_index": 12,
+      "lines": [
+        6,
+        8
+      ],
+      "remaining_schemas": [
+        "chain rhyme (rap)",
+        "compound / phrasal rhyme",
+        "enjambed rhyme",
+        "holorhyme",
+        "incremental repetition",
+        "mosaic rhyme",
+        "multisyllabic rhyme",
+        "parechesis / general consonance"
+      ]
+    },
+    {
+      "sonnet_index": 13,
+      "lines": [
+        6,
+        8
+      ],
+      "remaining_schemas": [
+        "internal rhyme"
+      ]
+    },
+    {
+      "sonnet_index": 14,
+      "lines": [
+        10,
+        12
+      ],
+      "remaining_schemas": [
+        "Scots vowel-length rhyme (Aitken's Law)",
+        "additive rhyme",
+        "amphisbaenic rhyme",
+        "apocopated rhyme",
+        "assonance",
+        "broken rhyme",
+        "chain rhyme (rap)",
+        "cluster consonance / skothending span",
+        "compound / phrasal rhyme",
+        "consonance",
+        "cross rhyme",
+        "enjambed rhyme",
+        "family rhyme",
+        "holorhyme",
+        "incremental repetition",
+        "interlaced rhyme",
+        "internal rhyme",
+        "linked rhyme",
+        "mosaic rhyme",
+        "multisyllabic rhyme",
+        "pararhyme",
+        "parechesis / general consonance",
+        "perfect rhyme",
+        "reverse rhyme",
+        "rime riche",
+        "semirhyme",
+        "subtractive rhyme",
+        "syllabic rhyme"
+      ]
+    },
+    {
+      "sonnet_index": 17,
+      "lines": [
+        2,
+        4
+      ],
+      "remaining_schemas": [
+        "Scots vowel-length rhyme (Aitken's Law)",
+        "additive rhyme",
+        "amphisbaenic rhyme",
+        "apocopated rhyme",
+        "assonance",
+        "broken rhyme",
+        "cluster consonance / skothending span",
+        "consonance",
+        "cross rhyme",
+        "enjambed rhyme",
+        "family rhyme",
+        "interlaced rhyme",
+        "internal rhyme",
+        "linked rhyme",
+        "mosaic rhyme",
+        "pararhyme",
+        "perfect rhyme",
+        "reverse rhyme",
+        "rime riche",
+        "semirhyme",
+        "subtractive rhyme",
+        "syllabic rhyme"
+      ]
+    },
+    {
+      "sonnet_index": 49,
+      "lines": [
+        5,
+        7
+      ],
+      "remaining_schemas": [
+        "amphisbaenic rhyme",
+        "syllabic rhyme"
+      ]
+    },
+    {
+      "sonnet_index": 49,
+      "lines": [
+        10,
+        12
+      ],
+      "remaining_schemas": [
+        "Scots vowel-length rhyme (Aitken's Law)",
+        "additive rhyme",
+        "amphisbaenic rhyme",
+        "apocopated rhyme",
+        "assonance",
+        "broken rhyme",
+        "cluster consonance / skothending span",
+        "consonance",
+        "cross rhyme",
+        "enjambed rhyme",
+        "family rhyme",
+        "head rhyme (positional)",
+        "interlaced rhyme",
+        "internal rhyme",
+        "linked rhyme",
+        "mosaic rhyme",
+        "pararhyme",
+        "perfect rhyme",
+        "reverse rhyme",
+        "rime riche",
+        "semirhyme",
+        "subtractive rhyme",
+        "syllabic rhyme"
+      ]
+    },
+    {
+      "sonnet_index": 72,
+      "lines": [
+        6,
+        8
+      ],
+      "remaining_schemas": [
+        "Scots vowel-length rhyme (Aitken's Law)",
+        "additive rhyme",
+        "apocopated rhyme",
+        "assonance",
+        "broken rhyme",
+        "cluster consonance / skothending span",
+        "consonance",
+        "cross rhyme",
+        "enjambed rhyme",
+        "family rhyme",
+        "interlaced rhyme",
+        "internal rhyme",
+        "linked rhyme",
+        "mosaic rhyme",
+        "multisyllabic rhyme",
+        "pararhyme",
+        "perfect rhyme",
+        "reverse rhyme",
+        "rime riche",
+        "semirhyme",
+        "subtractive rhyme",
+        "syllabic rhyme"
+      ]
+    },
+    {
+      "sonnet_index": 72,
+      "lines": [
+        13,
+        14
+      ],
+      "remaining_schemas": [
+        "chain rhyme (rap)",
+        "compound / phrasal rhyme",
+        "enjambed rhyme",
+        "holorhyme",
+        "incremental repetition",
+        "mosaic rhyme",
+        "multisyllabic rhyme",
+        "parechesis / general consonance"
+      ]
+    },
+    {
+      "sonnet_index": 85,
+      "lines": [
+        5,
+        7
+      ],
+      "remaining_schemas": [
+        "chain rhyme (rap)",
+        "compound / phrasal rhyme",
+        "enjambed rhyme",
+        "holorhyme",
+        "incremental repetition",
+        "internal rhyme",
+        "mosaic rhyme",
+        "multisyllabic rhyme",
+        "parechesis / general consonance"
+      ]
+    },
+    {
+      "sonnet_index": 91,
+      "lines": [
+        10,
+        12
+      ],
+      "remaining_schemas": [
+        "amphisbaenic rhyme"
+      ]
+    },
+    {
+      "sonnet_index": 93,
+      "lines": [
+        5,
+        7
+      ],
+      "remaining_schemas": [
+        "Scots vowel-length rhyme (Aitken's Law)",
+        "additive rhyme",
+        "amphisbaenic rhyme",
+        "anadiplosis",
+        "apocopated rhyme",
+        "assonance",
+        "broken rhyme",
+        "chain rhyme (rap)",
+        "cluster consonance / skothending span",
+        "compound / phrasal rhyme",
+        "consonance",
+        "cross rhyme",
+        "cynghanedd lusg",
+        "enjambed rhyme",
+        "epanalepsis",
+        "family rhyme",
+        "holorhyme",
+        "incremental repetition",
+        "light rhyme",
+        "linked rhyme",
+        "mosaic rhyme",
+        "multisyllabic rhyme",
+        "pantun ABAB",
+        "pararhyme",
+        "parechesis / general consonance",
+        "perfect rhyme",
+        "repetition",
+        "reverse rhyme",
+        "rime riche",
+        "semirhyme",
+        "subtractive rhyme",
+        "syllabic rhyme"
+      ]
+    },
+    {
+      "sonnet_index": 94,
+      "lines": [
+        10,
+        12
+      ],
+      "remaining_schemas": [
+        "chain rhyme (rap)",
+        "compound / phrasal rhyme",
+        "enjambed rhyme",
+        "holorhyme",
+        "incremental repetition",
+        "internal rhyme",
+        "mosaic rhyme",
+        "multisyllabic rhyme",
+        "parechesis / general consonance"
+      ]
+    },
+    {
+      "sonnet_index": 102,
+      "lines": [
+        1,
+        3
+      ],
+      "remaining_schemas": [
+        "anadiplosis",
+        "anaphora",
+        "chain rhyme (rap)",
+        "compound / phrasal rhyme",
+        "enjambed rhyme",
+        "epanalepsis",
+        "head rhyme (positional)",
+        "holorhyme",
+        "incremental repetition",
+        "linked rhyme",
+        "mosaic rhyme",
+        "multisyllabic rhyme",
+        "parechesis / general consonance"
+      ]
+    },
+    {
+      "sonnet_index": 135,
+      "lines": [
+        13,
+        14
+      ],
+      "remaining_schemas": [
+        "interlaced rhyme",
+        "internal rhyme",
+        "parechesis / general consonance"
+      ]
+    },
+    {
+      "sonnet_index": 136,
+      "lines": [
+        2,
+        4
+      ],
+      "remaining_schemas": [
+        "anadiplosis",
+        "anaphora",
+        "chain rhyme (rap)",
+        "compound / phrasal rhyme",
+        "enjambed rhyme",
+        "epanalepsis",
+        "head rhyme (positional)",
+        "holorhyme",
+        "incremental repetition",
+        "internal rhyme",
+        "linked rhyme",
+        "mosaic rhyme",
+        "multisyllabic rhyme",
+        "parechesis / general consonance"
+      ]
+    }
+  ]
+}
