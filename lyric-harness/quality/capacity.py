@@ -141,8 +141,8 @@ ADOPTED = {
     "chain_hi_at_least": {2: 2817, 5: 593, 8: 272, 12: 162, 16: 106,
                           20: 81},
     "certified": 81,
-    "max_chain_lo": 22,            # REPINNED 2026-09-16 from ~~23~~ (E-5)
-    "max_chain_lo_family": "IY",   # REPINNED 2026-09-16 from ~~"IY-Z"~~ (E-5)
+    "max_chain_lo": 38,            # REPINNED 2026-09-22 from ~~22~~ (N-relation)
+    "max_chain_lo_family": "EY",   # REPINNED 2026-09-22 from ~~"IY"~~ (N-relation)
 }
 
 #: Families the per-push crown re-certifies (test_capacity §3) — the
@@ -169,7 +169,17 @@ _PAIR_RE = re.compile(r"L(\d+)/L(\d+)")
 #: group of 23 now volunteers at most 22, and under the ban actually in force
 #: no family has been measured to fill 23. Do not restore 23 without a
 #: witness that survives `verify_capacity` at the current ban.
-ADOPTED_MAX_GROUP = 22
+#: REPINNED 2026-09-22: ~~22~~ -> 38, THE N-RELATION MODEL. `class:RHYME` is
+#: MEMBERSHIP now, so a rime-riche pair also satisfies it, and the grader
+#: consults every schema for every pair. All 81 witnesses were re-graded by
+#: `recertify_capacity.py --reverify-from` under certification source
+#: 658a3ffd: 70 old witnesses still certify unchanged; 11 no longer did and
+#: were RE-CONSTRUCTED, all deeper (EY 21->38, OW-Z 19->38, AE-N 15->37, UW
+#: 21->36, EY-Z 19->36, AA 21->36, IY 22->35, UW-Z 21->33, AA-K 14->33, AE-M
+#: 10->31, AY-L 14->23). EY and OW-Z tie at 38; the name is table order. The
+#: 70 kept witnesses were NOT re-constructed, so they are still lower bounds
+#: that a fresh construction may beat.
+ADOPTED_MAX_GROUP = 38
 
 
 def _rime_key(phones):

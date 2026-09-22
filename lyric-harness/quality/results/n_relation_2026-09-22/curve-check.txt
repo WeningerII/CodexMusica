@@ -1,0 +1,12 @@
+CACHE  /root/.cache/lyric-harness/song_predictability_v1.tsv
+       fingerprint 16f793c6f7a4 | read 8536 entries, written 2026-09-22T22:24:47 | hits 0, misses 0
+POPULATION  1296 files, 1293 distinct authors, 8536 items, 279502 sung lines
+ROWS  computed: 8536 items (memo hits 8536, misses 0)
+MATTR/TTR  532 of 8536 items degenerate at calibration window 50 -> HOLDS
+  mattr          C1  shipped [0.49968978828344063, 0.03751889880962087]  re-derived [0.49968978828344063, 0.03751889880962087]  -> HOLDS
+  fwr            C1  shipped [0.5604841642384619, -0.014308228025864213]  re-derived [0.5604841642384619, -0.014308228025864213]  -> HOLDS
+  anaphora       C2  shipped [1.1413067296229165, -0.24203952493270758, 0.01609986645877518]  re-derived [1.1413067296229165, -0.24203952493270758, 0.01609986645877518]  -> HOLDS
+  cv             CK  shipped 21 knots, re-derived 21  -> HOLDS
+  predictability CK  shipped 21 knots, re-derived 21  -> MOVED
+RESULT: MOVED — predictability. Argue it and repin as a SET; do not tune (doctrine 58).
+rc=1 secs=74
