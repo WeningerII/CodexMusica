@@ -1775,7 +1775,6 @@ class Reviser:
                     unknown.update(((i, k), (j, k)))
                     continue
             rels = frozenset(s["relations"])
-            rel = relation_label(s)
             admitted = admitted_relations(
                 s, self.decl.theta_rhyme, frozenset(self.decl.admit),
                 self.decl.theta_by_relation)
@@ -2012,9 +2011,9 @@ class Reviser:
                 # A pair satisfies a bare group when it stands in ANY
                 # admitted relation at that relation's own cut; the schema
                 # pass below then judges it against the whole vocabulary.
-                why = (f"{rel}: no admitted relation at its cut "
-                       f"(theta_rhyme={self.decl.theta_rhyme}; per-relation "
-                       f"cuts {dict(self.decl.theta_by_relation)})")
+                # One sentence with `check_scheme` (lyric_harness).
+                from lyric_harness import unadmitted_reason as _UR
+                why = _UR(s, self.decl)
             verdicts.append({"lines": (i, j), "group": k,
                              "label": m.labels[k],
                              "members": list(m.groups[k]),

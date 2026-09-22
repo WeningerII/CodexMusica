@@ -102,6 +102,7 @@ def sweep_battery(lex, decl, verbose=True):
     claimed = viol_claimed = 0
     viol_rows = []
     refused_at = []
+    uncertain_at = []
     endword_table = {}
     for si, sn in enumerate(sonnets, 1):
         res = lh.check_scheme(lex, sn, SONNET_SCHEME, decl)
@@ -111,6 +112,12 @@ def sweep_battery(lex, decl, verbose=True):
         by = {p["lines"]: p for p in res["pair_scores"]}
         refl = {tuple(r["lines"]) for r in res["refusals"]}
         refused_at.extend([si, a, b] for a, b in sorted(refl))
+        # a refusal with no unreadable end word is UNCERTAINTY: permitted
+        # readings disagree, or a schema stays undecided at the pair
+        uncertain_at.extend(
+            [si, *r["lines"]] for r in sorted(res["refusals"],
+                                              key=lambda r: tuple(r["lines"]))
+            if not r.get("unreadable"))
         viol_at = {(v[0], v[1]): v for v in res["violations"]}
         for i in range(len(sn)):
             for j in range(i + 1, len(sn)):
@@ -206,7 +213,8 @@ def sweep_battery(lex, decl, verbose=True):
             "violations_claimed": viol_claimed,
             "pair_kinds": pair_kinds, "viol_kinds": viol_kinds,
             "ties": ties, "violation_ties": viol_ties,
-            "violation_rows": viol_rows, "refused_at": refused_at}
+            "violation_rows": viol_rows, "refused_at": refused_at,
+            "uncertain_at": uncertain_at}
 
 
 #: The two committed oracle records whose CURRENT half this sweep measures.
@@ -246,11 +254,15 @@ def write_oracles(fresh, date, meaning):
         path = os.path.join(HERE, name)
         with open(path, encoding="utf-8") as fh:
             rec = json.load(fh)
-        rec.setdefault("superseded", []).append(
-            {"date": rec.get("date"), "current": rec.get("current")})
+        cur = {k: fresh[k] for k in ("mandated", "judged", "refused",
+                                     "violations")}
+        if rec.get("current") != cur:
+            rec.setdefault("superseded", []).append(
+                {"date": rec.get("date"), "current": rec.get("current")})
         rec["date"] = date
-        rec["current"] = {k: fresh[k] for k in ("mandated", "judged",
-                                                "refused", "violations")}
+        rec["current"] = cur
+        # uncertainty refusals (no unreadable end word), measured
+        rec["uncertainty_refusals"] = sorted(fresh["uncertain_at"])
         rec["meaning"] = meaning
         rec["current_partition"] = part
         rec["span_attribution"] = attribution
