@@ -649,8 +649,8 @@ def test_welsh_accentuation_classes():
         sa = c.skeleton(a, "acen")
         sb = c.skeleton(b, "acen")
         answered = sa == sb or (len(sb) > len(sa) and sb[-len(sa):] == sa)
-        check(f"[{src}, ATTESTED] ... and the acennog span does NOT answer it",
-              not answered, f"acen: {sa} | {sb}")
+        check(f"[{src}, ATTESTED] acennog counterfactual after corrected glides",
+              answered == (a == "O flaen"), f"acen: {sa} | {sb}")
 
     # ATTESTED from the literature rather than from the staged corpus: this
     # line of Dafydd ap Gwilym is the one quoted for the ddisgynedig rule,
@@ -698,10 +698,9 @@ def test_welsh_accentuation_classes():
     check("[Alun, ATTESTED] a half with no diweddeb refuses the whole "
           "placement", ans["class"] is None and ans["first"] is None,
           ans["why"][:88])
-    check("... and the acennog span WOULD have called that croes too",
-          c.skeleton("Geiriau yr", "acen") == c.skeleton("euog Iorwerth",
-                                                         "acen")
-          == ["g", "r"],
+    check("... and corrected Iorwerth no longer gives the old false croes",
+          (c.skeleton("Geiriau yr", "acen"), c.skeleton("euog Iorwerth", "acen"))
+          == (["g", "r"], ["g"]),
           "refusing where the class cannot be determined is the fix; "
           "defaulting to acennog is the defect")
 
@@ -955,13 +954,16 @@ def test_welsh_rhyme_against_the_tradition():
     check("  the arms separate by 100 points, which is what makes the "
           "positive one mean anything (doctrine 76)",
           pc["true"] / pc["judged"] - ps["true"] / ps["judged"] > 0.99)
+    # J-1: iawn is one syllable. The former second positive, L85/86
+    # feiriawn/iawn, no longer agrees under the deliberately wrong
+    # prominence anchor; the production depth-anchor verdict is unchanged.
     port = cym.pair_census(c, coup, rule="prominent")
     print("          the ENGLISH PORT on the same couplets: mandated "
           f"{port['mandated']}, judged {port['judged']}, refused "
           f"{port['refused']} -> {port['true']} True")
     check("THE ANCHOR IS THE COORDINATE THIS RELATION TURNS ON: the English "
-          "port answers True on 2 of 52 where the shipped rule answers 51 of "
-          "51", port["true"] == 2,
+          "port answers True on 1 of 52 where the shipped rule answers 51 of "
+          "51", port["true"] == 1,
           "Welsh stress is penultimate, so a cywydd couplet pairs an accented "
           "end with an unaccented one and a prominence anchor reads a "
           "different span on each side")

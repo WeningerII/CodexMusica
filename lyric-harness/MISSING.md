@@ -17,6 +17,24 @@ with the constraint named).
 
 **Verified** means checked against the code on the date given, not recalled.
 
+**2026-09-22 report repairs.** PR #370 merged as `3c14ea29`: report
+C-1/P9, O-1, B-1, G-2, M14, M15, M16 and T20, with the measured R14
+oracle reconciliation. These are REPORT identifiers, not this register's
+similarly named entries. C-1 was rechecked on that main: public
+`scheme AA cat dog` judges one violation and refuses zero pairs; the
+missing/supplied slang-surface regression passes. The fix ledger is
+`../docs/lyrics-report-fixes.md`. Remaining High work is being handled in
+the owner's impact order. H-2 remains an explicit conflict with M-116,
+not a completed repair or permission to reverse its ruling.
+
+**Follow-up branch, not yet merged:** A-3, Q20, D-1, Q21, E-1/E-2,
+C-2/J-1, J-3, I-1, K-1 and W2F-1 have repairs and regression evidence
+in the ledger. Q6's inspection admission is corrected to the derived 463-line
+envelope; the separate 31-line execution limit remains. R16's stale research
+claims are explicitly historical; the failed 31/34-pin study remains open
+and its instrument remains withheld. Q7 was assessed as a Medium throughput
+limitation and deferred. CI is pending; these are not claims of merged closure.
+
 ---
 
 ## A. Notation and scheme representation

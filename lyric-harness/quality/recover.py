@@ -457,8 +457,15 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
     return r
 
 
-def recover_file(path, **kw):
+def recover_file(path, input_format="source", **kw):
     """Use the grader's normalized reader and retain physical row positions."""
+    if input_format == "literal":
+        from lyric_harness import load_draft_lines, read_lyric_text
+        raw = read_lyric_text(path).splitlines()
+        return recover(load_draft_lines(path), raw_lines=raw,
+                       lyric_indices={i for i, line in enumerate(raw) if line.strip()}, **kw)
+    if input_format != "source":
+        raise ValueError("input format must be literal or source")
     from quality.lyric_reader import normalized_rows
     rows = list(normalized_rows(path))
     indices = {i for i, row in enumerate(rows) if row.kind == "lyric"}

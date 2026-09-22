@@ -1,5 +1,15 @@
 # RESULTS — phrase-level cliché, and why it is REFUSED
 
+> **CURRENT REPRODUCIBILITY WARNING — R16, 2026-09-22.** On main
+> `3c14ea29`, `python3 quality/phrase_commonplace.py --check` exits 1:
+> **31 of 34 pinned figures have moved**. The current population is 1,297
+> authors and 1,881,636 tokens, not the 143 authors and 991,751 tokens
+> recorded below. The PINNED/YES claims and tables below are historical
+> results, not current certification. The existing decision to withhold this
+> instrument as a rejection remains; these measurements do not re-adopt it.
+> Re-running and evaluating the full study is still open under MISSING's
+> pin-drift entry. No thresholds or pins were changed to make this check pass.
+
 `MISSING.md` **H-1**, the tenth item on its Missing list: *cliché at the PHRASE
 level rather than the rhyme-pair level*. One slice of H-1's programme, taken
 on its own; the other nine (imagery, specificity, metaphor, point of view,

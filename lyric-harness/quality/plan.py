@@ -4419,7 +4419,7 @@ def brief_legend(plan):
     return out
 
 
-def grading_command(plan, draft_path="DRAFT.txt", bp_path="BP.json"):
+def grading_command(plan, draft_path="DRAFT.txt", bp_path="BP.json", input_format="literal"):
     """The exact invocation that grades a draft against this plan.
 
     **SHELL-QUOTED WITH `shlex.quote`, BECAUSE A DRAWN RELATION NAME CAN
@@ -4440,7 +4440,9 @@ def grading_command(plan, draft_path="DRAFT.txt", bp_path="BP.json"):
     The connector is immune either way (`execFile`, one argv token, no shell),
     which is exactly why the honest carrier is the half that broke.
     """
-    parts = [f"python3 lyric_harness.py song {bp_path} {draft_path}"]
+    if input_format not in ("literal", "source"):
+        raise ValueError("input format must be literal or source")
+    parts = [f"python3 lyric_harness.py song {bp_path} {draft_path} --input-format={input_format}"]
     if plan["groups"]:
         parts.append(shlex.quote(f"--groups={plan['groups']}"))
     if plan["returns"]:

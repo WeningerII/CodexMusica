@@ -75,7 +75,9 @@ const MAX_WORD_CHARS = 40;
 // covers 4-3,245 tokens, so `ENVELOPE["total_lines"]` reads (12, 447). The
 // ceiling here is that number and nothing else; a 448-line draft is refused
 // loudly, as a 65-line one was.
-const MAX_LINES = 447; // the planner envelope's own total_lines ceiling
+// Exported planner admission, checked against plan.ENVELOPE by test_high_report.
+// Executable creation has its separate registry-derived bound (currently 31).
+const MAX_LINES = 463;
 const MAX_LINE_CHARS = 200;
 // THE MANDATE CEILING IS SIZED TO THE RECOVER DOOR'S OWN OUTPUT (M-195,
 // repinned 2026-09-02 from ~~400~~). A pasted song's mandate is what
@@ -202,7 +204,7 @@ const MANDATE_RE = new RegExp(`^${MEMBER_RE}(,${MEMBER_RE})*(;${MEMBER_RE}(,${ME
 const WANT_RE = /^[a-z][a-z_.]*(<=|>=|=)[A-Za-z0-9_.,-]+$/;
 const STRUCTURES_RE =
   /^[A-Za-z0-9]{1,3}:[A-Za-z0-9()',. /-]{1,64}(,[A-Za-z0-9]{1,3}:[A-Za-z0-9()',. /-]{1,64})*$/;
-const RETURNS_RE = /^[0-9]+(,[0-9]+)*(;[0-9]+(,[0-9]+)*)*$/;
+const RETURNS_RE = MANDATE_RE;
 // A SCHEME IS ONE LETTER PER LINE, so its bound IS the line ceiling and
 // nothing else. REPINNED 2026-09-05 (M-239): ~~{1,64}~~, a hand copy of
 // the old MAX_LINES that the 447 repin left behind — a 65..447-line draft
@@ -1303,7 +1305,7 @@ const linesField = z
   .max(MAX_LINES)
   .optional()
   .describe(
-    "Exact total line count to request (12-447 — the planner's envelope, derived from the calibrated length range; outside it the harness refuses by name). Omit to let the planner choose."
+    `Exact total line count to request (12-${MAX_LINES} — the planner's envelope, derived from the calibrated length range). Executable creation has a separate registry-derived capacity; larger shapes require inspection_only and are not writable plans. Omit to let the planner choose.`
   );
 
 // THE WRITER'S DECLARATION (MISSING.md M-55). Neither field is sampled here
@@ -1865,7 +1867,9 @@ export const LYRIC_TOOL_SCHEMAS = {
       .string()
       .max(MAX_MANDATE_CHARS)
       .optional()
-      .describe("Verbatim-return classes by line numbers, e.g. '5,13;6,14'. Optional."),
+      .describe(
+        "Verbatim returns: whole lines '5,13;6,14' or word identity at placements '1.head,3.head'. Optional."
+      ),
     relation: relationField,
     // THE SAME MANDATE lyric_check GRADES UNDER (M-189): `verify` accepted
     // `--structures=` on the CLI while this schema had no field for it, so
@@ -2463,7 +2467,7 @@ export function registerLyricTools(server, tool) {
                   "groups must be line numbers like '1,3;2,4', optionally naming a place"
                 );
               if (!seeded && a.returns && !RETURNS_RE.test(a.returns))
-                throw refuse("returns must be line numbers like '5,13;6,14'");
+                throw refuse("returns must be members like '5,13;6,14' or '1.head,3.head'");
               if (!seeded && a.structures && !STRUCTURES_RE.test(a.structures))
                 throw refuse(
                   "structures must be 'LABEL:name' pairs, comma-separated, e.g. 'A:pararhyme'"
@@ -2959,7 +2963,7 @@ export function registerLyricTools(server, tool) {
         if (hasGroups && !MANDATE_RE.test(a.groups))
           throw refuse("groups must be line numbers like '1,3;2,4', optionally naming a place");
         if (a.returns && !RETURNS_RE.test(a.returns))
-          throw refuse("returns must be line numbers like '5,13;6,14'");
+          throw refuse("returns must be members like '5,13;6,14' or '1.head,3.head'");
         const bPath = path.join(dir, 'before.txt');
         const aPath = path.join(dir, 'after.txt');
         await writeFile(bPath, a.before.join('\n') + '\n', 'utf8');
@@ -3085,7 +3089,7 @@ export function registerLyricTools(server, tool) {
               'endword, head, headrime, line, or T<n> for the n-th word'
           );
         if (a.returns && !RETURNS_RE.test(a.returns))
-          throw refuse("returns must be line numbers like '5,13;6,14'");
+          throw refuse("returns must be members like '5,13;6,14' or '1.head,3.head'");
         // CHARSET ONLY, and the vocabulary is deliberately NOT restated here.
         // The catalog is 58 rows and 33 aliases whose names carry '(', ')',
         // ',' and '-'; a second copy of a closed vocabulary in JS is the copy

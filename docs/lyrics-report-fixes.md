@@ -4,6 +4,82 @@ Source: the owner-supplied `REPORT.md` reporting 243 findings against
 `claude/epic-gates-qs16b4`. This batch was checked against main commit
 `08adfcff`; it does not close the full report.
 
+PR #370 merged this batch as `3c14ea29`. A subsequent check on that main
+reproduced C-1's corrected public verdict (one judged violation, zero
+refused pairs) and passed the missing/supplied slang-surface regression.
+
+PR #371 was merged during this follow-up as `cd20232f`. Its comparator
+identity, nightly-budget and endpoint-verification changes are preserved;
+it does not duplicate the report repairs below.
+
+## High-priority follow-up in progress
+
+The owner's order is A-3, Q20, D-1, Q21, E-1/E-2, C-2/J-1, J-3, I-1,
+K-1 and W2F-1. Q6, Q7 and R16 require explicit assessment. None of these
+is marked merged by the work-in-progress changes below.
+
+- A-3: literal draft input preserves all nonblank lines. Source apparatus
+  removal requires the explicit CLI declaration `--input-format=source`;
+  corpus-library readers retain their source conventions. The three reported
+  prefix cases pass public `brief` regressions with exact draft preservation.
+- Q20: requested function refusals now contribute to coverage; shape has an
+  explicit row. Convention-based findings remain notes. Focused function
+  refusal coverage passes; public `song` certification reports incomplete coverage on the requested
+  refusal.
+- D-1: malformed interview answers refuse without changing the retained state.
+  Public tests submit wrong-type, oversized and over-capacity strings, verify
+  byte-identical state, then resume the same run with a corrected answer.
+  Actual journal-capacity limits still stop oversized runs.
+- Q21: placed returns use the placement-aware judge; whole-line return checks
+  exclude them. CLI and native MCP tests accept matching heads with different
+  tails and detect a changed head. Undecidable placement checks refuse coverage.
+- E-1/E-2: normalize space-form declarations before verb dispatch. Public
+  equality tests cover language, blueprint and relation declarations; missing
+  values refuse instead of disappearing.
+- C-2: explicit apostrophized g-dropping derives the colloquial reading;
+  unmarked ambiguous forms retain dictionary and derived readings. J-1:
+  attested Welsh consonantal glides no longer add vowel nuclei. The full
+  phonology suite passes; three assertions that encoded erroneous glide
+  consequences were updated with measured explanations, without changing
+  the 51/51 production depth-anchor result.
+- J-3: `types` passes the declared fallback to its English reader; public
+  missing-reading and supplied-fallback controls pass.
+- I-1: runtime lexicon construction cannot download missing assets. The public
+  CLI returns a named refusal within the regression timeout, without network
+  access or a traceback. Explicit setup retains its download path.
+- K-1: both source readers reject duplicate identifiers. Four conflicting
+  shipped pairs retain their previously operative completed record and record
+  the earlier superseded claims in its note. Reversing source order preserves
+  provenance; conflicting duplicates fail in both orders.
+- W2F-1: README deployment, provider-call and retention statements now match
+  the configuration and existing privacy policy.
+
+Verification to date: 12 public/high regression tests, the native MCP high
+regression, all 25 production-relation tests and the full phonology suite
+pass. Required CI and merge are still pending.
+
+### Explicit assessment of the later mixed-severity findings
+
+- **Q6 — High, admission mismatch confirmed.** The musical envelope is
+  12–463; the executable creation limit is independently 31. The connector's
+  old 447 ceiling made 448–463 unavailable even for explicit inspection.
+  Admission now matches 463, with a regression against the planner's derived
+  envelope and a schema description distinguishing inspection from execution.
+  The 65,536-character mandate ceiling is an independent argv bound, not a
+  derivation from the obsolete 447 value.
+- **Q7 — Medium operational limitation, deferred while serious repairs are
+  verified.** The 28-seed page still uses the obsolete 201-line cost premise;
+  current executable plans are capped at 31. Pagination preserves the complete
+  requested search rather than discarding seeds or falsely certifying an empty
+  search. Raising this bound needs current deployment timing, and is a
+  throughput optimization rather than a repair to certification or lost data.
+  No new performance guarantee or remeasurement on the deployment is claimed.
+- **R16 — High evidence-integrity claim corrected; research still open.**
+  The public check still exits 1 with 31/34 pins moved, over 1,297 authors and
+  1,881,636 tokens. The results document now prominently marks its PINNED/YES
+  claims as historical. The instrument remains withheld from rejection;
+  its study and pins were not silently re-adopted or adjusted.
+
 ## Fixed in this batch
 
 | Report ID | Defect and repair | Regression evidence |

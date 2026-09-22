@@ -2987,7 +2987,7 @@ class Reviser:
         hs = bp.get("hook_slot") if isinstance(bp, dict) else None
         return hs if isinstance(hs, int) and not isinstance(hs, bool) else None
 
-    def _function_findings(self, lines, blueprint):
+    def _function_findings(self, lines, blueprint, coverage_out=None):
         """-> [Finding], all whole-draft. `quality/grid.py`'s FUNCTION layer
         (verse/chorus/bridge/hook/return) read off the SAME blueprint
         `_meter_findings` already requires.
@@ -3061,6 +3061,17 @@ class Reviser:
             hooks = [lines[_hs - 1]]
         rep = GR.song_function_report(song, hooks=hooks,
                                       rhyme_key=GR.rime_cmudict(self.lex))
+        if coverage_out is not None:
+            requested = any(section.declared for section in song.sections) or bool(hooks)
+            coverage_out.append({"id": "function:draft", "layer": "function",
+                                 "status": ("refused" if rep["refusals"] else "answered")
+                                 if requested else "not_requested"})
+            if requested:
+                for index, refusal in enumerate(rep["refusals"]):
+                    coverage_out.append({"id": f"function:{refusal.code}:{index}",
+                                         "layer": "function", "status": "refused",
+                                         "code": refusal.code})
+            coverage_out.append({"id": "shape:draft", "layer": "shape", "status": "answered"})
         whole = []
         for f in rep["findings"]:
             whole.append(Finding(
@@ -3515,6 +3526,17 @@ class Reviser:
         # (`quality.grid.compare_returns`), not a bare "changed" boolean, so a
         # word-order shift and a dropped line are not the same finding.
         from quality.grid import _KIND_GLOSS
+        _placed_return_refusals = set()
+        for label, i, j, kind, msg in m.placed_returns_check(lines, lex=self.lex):
+            if kind != "NOT_RETURNED_AT":
+                _placed_return_refusals.add(label)
+            locations = sorted({ln for ret in m.returns if ret.placed and ret.label == label
+                                for ln, _place in ret.members()})
+            whole.append(Finding("RETURN_NOT_VERBATIM" if kind == "NOT_RETURNED_AT"
+                                 else "RETURN_" + kind,
+                                 "flag" if kind == "NOT_RETURNED_AT" else "note",
+                                 msg, "Judged word identity at the declared placements.",
+                                 locations, (label or "",)))
         for label, i, j, kind, msg in m.returns_check(lines):
             ev = _KIND_GLOSS.get(kind, "")
             if kind == "OUT_OF_RANGE":
@@ -3968,6 +3990,7 @@ class Reviser:
                 f"sources, deliberately kept apart). A scope narrows what the "
                 f"MANDATE claims, never what the draft is measured on",
                 outside))
+        _function_coverage = []
         if blueprint is not None:
             m_per, m_whole = self._meter_findings(lines, blueprint,
                                                    subdivision, assume)
@@ -3975,13 +3998,17 @@ class Reviser:
                 for f in fs:
                     add(ln, f)
             whole.extend(m_whole)
-            whole.extend(self._function_findings(lines, blueprint))
+            whole.extend(self._function_findings(lines, blueprint, coverage_out=_function_coverage))
+        else:
+            _function_coverage = [{"id": layer + ":draft", "layer": layer,
+                                   "status": "not_requested"}
+                                  for layer in ("function", "shape")]
         # The calibrated bands run UNCONDITIONALLY — no blueprint, no
         # subdivision, no mandate in their derivation, so unlike the meter
         # block above there is no opt-in coordinate to disclose and their
         # silence genuinely means the draft's lines sit inside what 139,694
         # sung English lines do (see `_band_findings`).
-        _prom_runs, _coverage_rows = {}, []
+        _prom_runs, _coverage_rows = {}, list(_function_coverage)
         for ln, fs in self._band_findings(lines, runs_out=_prom_runs,
                                         coverage_out=_coverage_rows).items():
             for f in fs:
@@ -4031,7 +4058,9 @@ class Reviser:
                                    "status": "refused" if (i, j, k) in _rhyme_unknown else "answered"})
         for i, j, ret in m.return_pairs():
             _coverage_rows.append({"id": f"return:{i}:{j}", "layer": "return",
-                                   "status": "refused" if ret.verbatim is SC.UNKNOWN else "answered"})
+                                   "status": "refused" if ret.verbatim is SC.UNKNOWN or
+                                   (ret.placed and ret.label in _placed_return_refusals)
+                                   else "answered"})
         from quality.pronunciation import declaration_coverage
         _coverage_rows.extend(declaration_coverage(
             getattr(self.lex, "pronunciations", ()), lines,
