@@ -661,15 +661,20 @@ def section9():
     for f in [CYWYDD] + song_files():
         us = units(os.path.join(SONG, f))
         c = Counter()
+        tot = 0
         for u in us:
             for i in range(len(u) - 1):
                 for k in (1, 2):
                     if i + k >= len(u):
                         continue
                     t = C.relation_type(u[i], u[i + k])
-                    if t is not None:
-                        c[t] += 1
-        tot = sum(c[k] for k in ("REPEAT", "RIME_RICHE", "RHYME"))
+                    if t:
+                        # A pair counts once in the total and once under
+                        # EVERY relation it stands in (a repeat is also rime
+                        # riche and rhyme), so the columns overlap.
+                        tot += 1
+                        for r in t:
+                            c[r] += 1
         out[f] = (tot, c["REPEAT"], c["RIME_RICHE"], c["RHYME"])
         print("  %-42s of %5d TRUE verdicts: REPEAT %4d (%5.1f%%)  "
               "RIME_RICHE %3d  RHYME %4d"
@@ -681,7 +686,8 @@ def section9():
     _, coup, _ = cywydd_arms()
     tails = Counter()
     for a, b in coup:
-        if C.relation_type(a, b) == "RHYME":
+        t = C.relation_type(a, b)
+        if t and "RHYME" in t and "REPEAT" not in t:
             tails[C.shared_tail(a, b)] += 1
     print("   ", tails.most_common(14))
     return out
