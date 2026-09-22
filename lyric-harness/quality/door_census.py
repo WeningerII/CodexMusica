@@ -178,6 +178,16 @@ RULINGS = {
         PER_WORD,
         "The offered field screened from the offered word's own side "
         "(M-185): one word against each call word."),
+    ("quality/revise.py", "Reviser._field_split"): (
+        PER_WORD,
+        "Splits one call word's candidate field into words standing in an "
+        "admitted coarse relation (`admits_decl`) and words left for the "
+        "end-pair schema pass; one word against each candidate (M-185)."),
+    ("quality/revise.py", "Reviser._offer_reopens"): (
+        PER_WORD,
+        "The conservative outranker count behind M-185's screen: does an "
+        "offered word reopen a modal head from the other side, at the "
+        "declared coarse set — one word each, a COUNT bounding a scan."),
     ("quality/revise.py", "Reviser._offerable"): (
         PER_WORD,
         "The field's own predicate on a word pair: an admitted coarse "
@@ -334,7 +344,7 @@ _BY_DOOR = {
 # single-label EQUALITY, and two dispositions joined (DEFINITION, FORM). The
 # one INCOMPLETE site is a single-label defect outside this census's owner.
 # Measured by `python3 quality/door_census.py --check`.
-PINNED = {"sites": 35, "full": 7, "incomplete": 1, "per_word": 7,
+PINNED = {"sites": 37, "full": 7, "incomplete": 1, "per_word": 9,
           "rendering": 3, "validation": 1, "definition": 2, "form": 6,
           "argued": 8}
 

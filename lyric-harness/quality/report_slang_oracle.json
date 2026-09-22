@@ -2,7 +2,10 @@
   "version": 1,
   "date": "2026-09-22",
   "baseline_commit": "08adfcff",
-  "report_ids": ["C-1", "P9"],
+  "report_ids": [
+    "C-1",
+    "P9"
+  ],
   "population": "battery.parse_sonnets: 152 fourteen-line sonnets, ABABCDCDEFEFGG; sonnet_index is the filtered battery index",
   "baseline": {
     "mandated": 1064,
@@ -12,21 +15,35 @@
   },
   "current": {
     "mandated": 1064,
-    "judged": 970,
-    "refused": 94,
+    "judged": 958,
+    "refused": 106,
     "violations": 7
   },
-  "meaning": "Three pairs previously refused only by the missing slang surface now yield violations. No accepted pair changed and no pronunciation, threshold or corpus input was changed. Both check_scheme and Reviser.grade independently return the current totals.",
+  "meaning": "N-relation model: every mandated pair is judged against every coarse relation it stands in and every registry schema, asked of every pair. Twelve more pairs refuse (permitted readings disagree on the relation set, or a schema is undecided at the pair); the seven violations are unchanged.",
   "newly_judged_pairs": [
     {
       "sonnet_index": 33,
-      "lines": [2, 4],
-      "endwords": ["eye", "alchemy"],
+      "lines": [
+        2,
+        4
+      ],
+      "endwords": [
+        "eye",
+        "alchemy"
+      ],
       "before": {
-        "lines": [2, 4],
-        "endwords": ["eye", "alchemy"],
+        "lines": [
+          2,
+          4
+        ],
+        "endwords": [
+          "eye",
+          "alchemy"
+        ],
         "unreadable": [],
-        "schemas": ["rhyming slang"],
+        "schemas": [
+          "rhyming slang"
+        ],
         "reason": "Default relation remains unresolved in applicable schemas: rhyming slang"
       },
       "after": {
@@ -37,13 +54,27 @@
     },
     {
       "sonnet_index": 86,
-      "lines": [6, 8],
-      "endwords": ["dead", "astonished"],
+      "lines": [
+        6,
+        8
+      ],
+      "endwords": [
+        "dead",
+        "astonished"
+      ],
       "before": {
-        "lines": [6, 8],
-        "endwords": ["dead", "astonished"],
+        "lines": [
+          6,
+          8
+        ],
+        "endwords": [
+          "dead",
+          "astonished"
+        ],
         "unreadable": [],
-        "schemas": ["rhyming slang"],
+        "schemas": [
+          "rhyming slang"
+        ],
         "reason": "Default relation remains unresolved in applicable schemas: rhyming slang"
       },
       "after": {
@@ -54,13 +85,27 @@
     },
     {
       "sonnet_index": 104,
-      "lines": [10, 12],
-      "endwords": ["words", "affords"],
+      "lines": [
+        10,
+        12
+      ],
+      "endwords": [
+        "words",
+        "affords"
+      ],
       "before": {
-        "lines": [10, 12],
-        "endwords": ["words", "affords"],
+        "lines": [
+          10,
+          12
+        ],
+        "endwords": [
+          "words",
+          "affords"
+        ],
         "unreadable": [],
-        "schemas": ["rhyming slang"],
+        "schemas": [
+          "rhyming slang"
+        ],
         "reason": "Default relation remains unresolved in applicable schemas: rhyming slang"
       },
       "after": {
@@ -73,7 +118,10 @@
   "still_refused_pairs_with_slang_reason_removed": [
     {
       "sonnet_index": 5,
-      "lines": [10, 12],
+      "lines": [
+        10,
+        12
+      ],
       "remaining_schemas": [
         "amphisbaenic rhyme",
         "chain rhyme (rap)",
@@ -89,7 +137,10 @@
     },
     {
       "sonnet_index": 12,
-      "lines": [6, 8],
+      "lines": [
+        6,
+        8
+      ],
       "remaining_schemas": [
         "chain rhyme (rap)",
         "compound / phrasal rhyme",
@@ -103,12 +154,20 @@
     },
     {
       "sonnet_index": 13,
-      "lines": [6, 8],
-      "remaining_schemas": ["internal rhyme"]
+      "lines": [
+        6,
+        8
+      ],
+      "remaining_schemas": [
+        "internal rhyme"
+      ]
     },
     {
       "sonnet_index": 14,
-      "lines": [10, 12],
+      "lines": [
+        10,
+        12
+      ],
       "remaining_schemas": [
         "Scots vowel-length rhyme (Aitken's Law)",
         "additive rhyme",
@@ -142,7 +201,10 @@
     },
     {
       "sonnet_index": 17,
-      "lines": [2, 4],
+      "lines": [
+        2,
+        4
+      ],
       "remaining_schemas": [
         "Scots vowel-length rhyme (Aitken's Law)",
         "additive rhyme",
@@ -170,12 +232,21 @@
     },
     {
       "sonnet_index": 49,
-      "lines": [5, 7],
-      "remaining_schemas": ["amphisbaenic rhyme", "syllabic rhyme"]
+      "lines": [
+        5,
+        7
+      ],
+      "remaining_schemas": [
+        "amphisbaenic rhyme",
+        "syllabic rhyme"
+      ]
     },
     {
       "sonnet_index": 49,
-      "lines": [10, 12],
+      "lines": [
+        10,
+        12
+      ],
       "remaining_schemas": [
         "Scots vowel-length rhyme (Aitken's Law)",
         "additive rhyme",
@@ -204,7 +275,10 @@
     },
     {
       "sonnet_index": 72,
-      "lines": [6, 8],
+      "lines": [
+        6,
+        8
+      ],
       "remaining_schemas": [
         "Scots vowel-length rhyme (Aitken's Law)",
         "additive rhyme",
@@ -232,7 +306,10 @@
     },
     {
       "sonnet_index": 72,
-      "lines": [13, 14],
+      "lines": [
+        13,
+        14
+      ],
       "remaining_schemas": [
         "chain rhyme (rap)",
         "compound / phrasal rhyme",
@@ -246,7 +323,10 @@
     },
     {
       "sonnet_index": 85,
-      "lines": [5, 7],
+      "lines": [
+        5,
+        7
+      ],
       "remaining_schemas": [
         "chain rhyme (rap)",
         "compound / phrasal rhyme",
@@ -261,12 +341,20 @@
     },
     {
       "sonnet_index": 91,
-      "lines": [10, 12],
-      "remaining_schemas": ["amphisbaenic rhyme"]
+      "lines": [
+        10,
+        12
+      ],
+      "remaining_schemas": [
+        "amphisbaenic rhyme"
+      ]
     },
     {
       "sonnet_index": 93,
-      "lines": [5, 7],
+      "lines": [
+        5,
+        7
+      ],
       "remaining_schemas": [
         "Scots vowel-length rhyme (Aitken's Law)",
         "additive rhyme",
@@ -304,7 +392,10 @@
     },
     {
       "sonnet_index": 94,
-      "lines": [10, 12],
+      "lines": [
+        10,
+        12
+      ],
       "remaining_schemas": [
         "chain rhyme (rap)",
         "compound / phrasal rhyme",
@@ -319,7 +410,10 @@
     },
     {
       "sonnet_index": 102,
-      "lines": [1, 3],
+      "lines": [
+        1,
+        3
+      ],
       "remaining_schemas": [
         "anadiplosis",
         "anaphora",
@@ -338,12 +432,22 @@
     },
     {
       "sonnet_index": 135,
-      "lines": [13, 14],
-      "remaining_schemas": ["interlaced rhyme", "internal rhyme", "parechesis / general consonance"]
+      "lines": [
+        13,
+        14
+      ],
+      "remaining_schemas": [
+        "interlaced rhyme",
+        "internal rhyme",
+        "parechesis / general consonance"
+      ]
     },
     {
       "sonnet_index": 136,
-      "lines": [2, 4],
+      "lines": [
+        2,
+        4
+      ],
       "remaining_schemas": [
         "anadiplosis",
         "anaphora",
@@ -364,271 +468,1080 @@
   ],
   "current_partition": {
     "refused": [
-      [1, 10, 12],
-      [3, 1, 3],
-      [4, 6, 8],
-      [5, 10, 12],
-      [7, 9, 11],
-      [10, 2, 4],
-      [10, 5, 7],
-      [11, 1, 3],
-      [11, 2, 4],
-      [12, 6, 8],
-      [13, 1, 3],
-      [13, 2, 4],
-      [13, 6, 8],
-      [14, 10, 12],
-      [16, 5, 7],
-      [17, 2, 4],
-      [18, 6, 8],
-      [18, 10, 12],
-      [20, 6, 8],
-      [24, 1, 3],
-      [26, 1, 3],
-      [30, 10, 12],
-      [31, 9, 11],
-      [32, 10, 12],
-      [33, 13, 14],
-      [35, 6, 8],
-      [37, 10, 12],
-      [38, 10, 12],
-      [39, 5, 7],
-      [40, 5, 7],
-      [40, 6, 8],
-      [41, 9, 11],
-      [43, 2, 4],
-      [45, 1, 3],
-      [45, 9, 11],
-      [46, 9, 11],
-      [48, 5, 7],
-      [49, 5, 7],
-      [49, 9, 11],
-      [49, 10, 12],
-      [51, 1, 3],
-      [51, 5, 7],
-      [52, 5, 7],
-      [52, 6, 8],
-      [54, 2, 4],
-      [56, 6, 8],
-      [57, 2, 4],
-      [57, 5, 7],
-      [57, 9, 11],
-      [63, 2, 4],
-      [65, 9, 11],
-      [66, 1, 3],
-      [66, 6, 8],
-      [67, 1, 3],
-      [67, 2, 4],
-      [68, 1, 3],
-      [72, 6, 8],
-      [72, 13, 14],
-      [73, 9, 11],
-      [79, 10, 12],
-      [82, 2, 4],
-      [85, 5, 7],
-      [86, 1, 3],
-      [87, 6, 8],
-      [88, 5, 7],
-      [89, 2, 4],
-      [90, 1, 3],
-      [90, 9, 11],
-      [91, 10, 12],
-      [93, 5, 7],
-      [94, 10, 12],
-      [96, 1, 3],
-      [101, 1, 3],
-      [102, 1, 3],
-      [103, 13, 14],
-      [105, 10, 12],
-      [111, 9, 11],
-      [113, 9, 11],
-      [114, 9, 11],
-      [116, 5, 7],
-      [117, 5, 7],
-      [119, 1, 3],
-      [123, 2, 4],
-      [123, 10, 12],
-      [124, 2, 4],
-      [124, 5, 7],
-      [126, 1, 3],
-      [135, 13, 14],
-      [136, 2, 4],
-      [140, 2, 4],
-      [145, 9, 11],
-      [146, 2, 4],
-      [150, 6, 8],
-      [152, 5, 7]
+      [
+        1,
+        6,
+        8
+      ],
+      [
+        1,
+        10,
+        12
+      ],
+      [
+        3,
+        1,
+        3
+      ],
+      [
+        4,
+        6,
+        8
+      ],
+      [
+        5,
+        10,
+        12
+      ],
+      [
+        7,
+        6,
+        8
+      ],
+      [
+        7,
+        9,
+        11
+      ],
+      [
+        10,
+        2,
+        4
+      ],
+      [
+        10,
+        5,
+        7
+      ],
+      [
+        11,
+        1,
+        3
+      ],
+      [
+        11,
+        2,
+        4
+      ],
+      [
+        12,
+        6,
+        8
+      ],
+      [
+        13,
+        1,
+        3
+      ],
+      [
+        13,
+        2,
+        4
+      ],
+      [
+        13,
+        6,
+        8
+      ],
+      [
+        14,
+        6,
+        8
+      ],
+      [
+        14,
+        10,
+        12
+      ],
+      [
+        16,
+        5,
+        7
+      ],
+      [
+        17,
+        2,
+        4
+      ],
+      [
+        18,
+        2,
+        4
+      ],
+      [
+        18,
+        6,
+        8
+      ],
+      [
+        18,
+        10,
+        12
+      ],
+      [
+        20,
+        6,
+        8
+      ],
+      [
+        24,
+        1,
+        3
+      ],
+      [
+        26,
+        1,
+        3
+      ],
+      [
+        30,
+        10,
+        12
+      ],
+      [
+        31,
+        9,
+        11
+      ],
+      [
+        32,
+        10,
+        12
+      ],
+      [
+        33,
+        13,
+        14
+      ],
+      [
+        35,
+        6,
+        8
+      ],
+      [
+        35,
+        10,
+        12
+      ],
+      [
+        37,
+        10,
+        12
+      ],
+      [
+        38,
+        10,
+        12
+      ],
+      [
+        39,
+        5,
+        7
+      ],
+      [
+        40,
+        5,
+        7
+      ],
+      [
+        40,
+        6,
+        8
+      ],
+      [
+        41,
+        9,
+        11
+      ],
+      [
+        43,
+        2,
+        4
+      ],
+      [
+        45,
+        1,
+        3
+      ],
+      [
+        45,
+        9,
+        11
+      ],
+      [
+        46,
+        9,
+        11
+      ],
+      [
+        48,
+        5,
+        7
+      ],
+      [
+        49,
+        2,
+        4
+      ],
+      [
+        49,
+        5,
+        7
+      ],
+      [
+        49,
+        9,
+        11
+      ],
+      [
+        49,
+        10,
+        12
+      ],
+      [
+        51,
+        1,
+        3
+      ],
+      [
+        51,
+        5,
+        7
+      ],
+      [
+        52,
+        5,
+        7
+      ],
+      [
+        52,
+        6,
+        8
+      ],
+      [
+        54,
+        2,
+        4
+      ],
+      [
+        56,
+        6,
+        8
+      ],
+      [
+        57,
+        2,
+        4
+      ],
+      [
+        57,
+        5,
+        7
+      ],
+      [
+        57,
+        9,
+        11
+      ],
+      [
+        59,
+        1,
+        3
+      ],
+      [
+        63,
+        2,
+        4
+      ],
+      [
+        65,
+        9,
+        11
+      ],
+      [
+        66,
+        1,
+        3
+      ],
+      [
+        66,
+        6,
+        8
+      ],
+      [
+        67,
+        1,
+        3
+      ],
+      [
+        67,
+        2,
+        4
+      ],
+      [
+        68,
+        1,
+        3
+      ],
+      [
+        72,
+        6,
+        8
+      ],
+      [
+        72,
+        9,
+        11
+      ],
+      [
+        72,
+        13,
+        14
+      ],
+      [
+        73,
+        9,
+        11
+      ],
+      [
+        79,
+        10,
+        12
+      ],
+      [
+        82,
+        2,
+        4
+      ],
+      [
+        85,
+        5,
+        7
+      ],
+      [
+        86,
+        1,
+        3
+      ],
+      [
+        87,
+        2,
+        4
+      ],
+      [
+        87,
+        6,
+        8
+      ],
+      [
+        88,
+        5,
+        7
+      ],
+      [
+        89,
+        2,
+        4
+      ],
+      [
+        90,
+        1,
+        3
+      ],
+      [
+        90,
+        9,
+        11
+      ],
+      [
+        91,
+        10,
+        12
+      ],
+      [
+        93,
+        5,
+        7
+      ],
+      [
+        94,
+        10,
+        12
+      ],
+      [
+        96,
+        1,
+        3
+      ],
+      [
+        97,
+        1,
+        3
+      ],
+      [
+        101,
+        1,
+        3
+      ],
+      [
+        102,
+        1,
+        3
+      ],
+      [
+        103,
+        13,
+        14
+      ],
+      [
+        105,
+        10,
+        12
+      ],
+      [
+        111,
+        9,
+        11
+      ],
+      [
+        113,
+        9,
+        11
+      ],
+      [
+        114,
+        9,
+        11
+      ],
+      [
+        116,
+        5,
+        7
+      ],
+      [
+        117,
+        5,
+        7
+      ],
+      [
+        119,
+        1,
+        3
+      ],
+      [
+        123,
+        2,
+        4
+      ],
+      [
+        123,
+        10,
+        12
+      ],
+      [
+        124,
+        2,
+        4
+      ],
+      [
+        124,
+        5,
+        7
+      ],
+      [
+        126,
+        1,
+        3
+      ],
+      [
+        129,
+        2,
+        4
+      ],
+      [
+        135,
+        13,
+        14
+      ],
+      [
+        136,
+        2,
+        4
+      ],
+      [
+        140,
+        2,
+        4
+      ],
+      [
+        145,
+        9,
+        11
+      ],
+      [
+        146,
+        2,
+        4
+      ],
+      [
+        149,
+        1,
+        3
+      ],
+      [
+        150,
+        6,
+        8
+      ],
+      [
+        152,
+        5,
+        7
+      ]
     ],
     "violations": [
-      [9, 10, 12],
-      [26, 6, 8],
-      [33, 2, 4],
-      [42, 6, 8],
-      [86, 6, 8],
-      [104, 10, 12],
-      [150, 5, 7]
+      [
+        9,
+        10,
+        12
+      ],
+      [
+        26,
+        6,
+        8
+      ],
+      [
+        33,
+        2,
+        4
+      ],
+      [
+        42,
+        6,
+        8
+      ],
+      [
+        86,
+        6,
+        8
+      ],
+      [
+        104,
+        10,
+        12
+      ],
+      [
+        150,
+        5,
+        7
+      ]
     ]
   },
   "span_attribution": {
     "date": "2026-09-22",
     "current": {
-      "claimed": 605,
-      "ties": 114,
+      "claimed": 600,
+      "ties": 109,
       "violations_claimed": 1,
       "violation_ties": 3
     },
     "mosaic_violations": 4,
     "mosaic_coordinates": [
-      [9, 10, 12],
-      [26, 6, 8],
-      [33, 2, 4],
-      [150, 5, 7]
+      [
+        9,
+        10,
+        12
+      ],
+      [
+        26,
+        6,
+        8
+      ],
+      [
+        33,
+        2,
+        4
+      ],
+      [
+        150,
+        5,
+        7
+      ]
     ],
     "severe_violations": 4,
     "pair_kinds": [
       {
-        "kinds": ["exact", "exact"],
-        "n": 605
+        "kinds": [
+          "exact",
+          "exact"
+        ],
+        "n": 600
       },
       {
-        "kinds": ["exact", "part"],
-        "n": 273
+        "kinds": [
+          "exact",
+          "part"
+        ],
+        "n": 268
       },
       {
-        "kinds": ["exact", "reach"],
+        "kinds": [
+          "exact",
+          "reach"
+        ],
         "n": 4
       },
       {
-        "kinds": ["exact", "substituted"],
+        "kinds": [
+          "exact",
+          "substituted"
+        ],
         "n": 2
       },
       {
-        "kinds": ["part", "part"],
-        "n": 81
+        "kinds": [
+          "part",
+          "part"
+        ],
+        "n": 79
       },
       {
-        "kinds": ["part", "reach"],
+        "kinds": [
+          "part",
+          "reach"
+        ],
         "n": 1
       },
       {
-        "kinds": ["reach", "reach"],
+        "kinds": [
+          "reach",
+          "reach"
+        ],
         "n": 4
       }
     ],
     "viol_kinds": [
       {
-        "kinds": ["exact", "exact"],
+        "kinds": [
+          "exact",
+          "exact"
+        ],
         "n": 1
       },
       {
-        "kinds": ["exact", "part"],
+        "kinds": [
+          "exact",
+          "part"
+        ],
         "n": 2
       },
       {
-        "kinds": ["exact", "reach"],
+        "kinds": [
+          "exact",
+          "reach"
+        ],
         "n": 1
       },
       {
-        "kinds": ["reach", "reach"],
+        "kinds": [
+          "reach",
+          "reach"
+        ],
         "n": 3
       }
     ],
     "violation_rows": [
       {
         "sonnet": 9,
-        "lines": [10, 12],
-        "endwords": ["it", "it"],
+        "lines": [
+          10,
+          12
+        ],
+        "endwords": [
+          "it",
+          "it"
+        ],
+        "relations": [
+          "ASSONANCE",
+          "CONSONANCE",
+          "PROMOTED_RHYME",
+          "REPEAT",
+          "RHYME",
+          "compound / phrasal rhyme",
+          "internal rhyme",
+          "mosaic rhyme",
+          "multisyllabic rhyme",
+          "repetition"
+        ],
         "claim": false,
-        "kinds": ["reach", "reach"]
+        "kinds": [
+          "reach",
+          "reach"
+        ]
       },
       {
         "sonnet": 26,
-        "lines": [6, 8],
-        "endwords": ["it", "it"],
+        "lines": [
+          6,
+          8
+        ],
+        "endwords": [
+          "it",
+          "it"
+        ],
+        "relations": [
+          "ASSONANCE",
+          "CONSONANCE",
+          "PROMOTED_RHYME",
+          "REPEAT",
+          "RHYME",
+          "compound / phrasal rhyme",
+          "internal rhyme",
+          "mosaic rhyme",
+          "multisyllabic rhyme",
+          "repetition"
+        ],
         "claim": false,
-        "kinds": ["reach", "reach"]
+        "kinds": [
+          "reach",
+          "reach"
+        ]
       },
       {
         "sonnet": 33,
-        "lines": [2, 4],
-        "endwords": ["eye", "alchemy"],
+        "lines": [
+          2,
+          4
+        ],
+        "endwords": [
+          "eye",
+          "alchemy"
+        ],
+        "relations": [],
         "claim": false,
-        "kinds": ["reach", "exact"]
+        "kinds": [
+          "reach",
+          "exact"
+        ]
       },
       {
         "sonnet": 42,
-        "lines": [6, 8],
-        "endwords": ["her", "her"],
+        "lines": [
+          6,
+          8
+        ],
+        "endwords": [
+          "her",
+          "her"
+        ],
+        "relations": [
+          "ASSONANCE",
+          "CONSONANCE",
+          "REPEAT",
+          "RHYME",
+          "internal rhyme",
+          "mosaic rhyme",
+          "repetition"
+        ],
         "claim": true,
-        "kinds": ["exact", "exact"]
+        "kinds": [
+          "exact",
+          "exact"
+        ]
       },
       {
         "sonnet": 86,
-        "lines": [6, 8],
-        "endwords": ["dead", "astonished"],
+        "lines": [
+          6,
+          8
+        ],
+        "endwords": [
+          "dead",
+          "astonished"
+        ],
+        "relations": [],
         "claim": false,
-        "kinds": ["exact", "part"]
+        "kinds": [
+          "exact",
+          "part"
+        ]
       },
       {
         "sonnet": 104,
-        "lines": [10, 12],
-        "endwords": ["words", "affords"],
+        "lines": [
+          10,
+          12
+        ],
+        "endwords": [
+          "words",
+          "affords"
+        ],
+        "relations": [],
         "claim": false,
-        "kinds": ["exact", "part"]
+        "kinds": [
+          "exact",
+          "part"
+        ]
       },
       {
         "sonnet": 150,
-        "lines": [5, 7],
-        "endwords": ["thee", "thee"],
+        "lines": [
+          5,
+          7
+        ],
+        "endwords": [
+          "thee",
+          "thee"
+        ],
+        "relations": [
+          "ASSONANCE",
+          "CONSONANCE",
+          "REPEAT",
+          "RHYME",
+          "internal rhyme",
+          "mosaic rhyme",
+          "multisyllabic rhyme",
+          "repetition"
+        ],
         "claim": false,
-        "kinds": ["reach", "reach"]
+        "kinds": [
+          "reach",
+          "reach"
+        ]
       }
     ]
   },
   "uncertainty_refusals": [
-    [4, 6, 8],
-    [5, 10, 12],
-    [7, 9, 11],
-    [12, 6, 8],
-    [13, 1, 3],
-    [13, 2, 4],
-    [13, 6, 8],
-    [14, 10, 12],
-    [16, 5, 7],
-    [17, 2, 4],
-    [31, 9, 11],
-    [35, 6, 8],
-    [37, 10, 12],
-    [39, 5, 7],
-    [45, 1, 3],
-    [48, 5, 7],
-    [49, 5, 7],
-    [49, 10, 12],
-    [51, 5, 7],
-    [52, 5, 7],
-    [54, 2, 4],
-    [57, 2, 4],
-    [57, 5, 7],
-    [67, 1, 3],
-    [72, 6, 8],
-    [72, 13, 14],
-    [73, 9, 11],
-    [79, 10, 12],
-    [85, 5, 7],
-    [90, 1, 3],
-    [90, 9, 11],
-    [91, 10, 12],
-    [93, 5, 7],
-    [94, 10, 12],
-    [102, 1, 3],
-    [111, 9, 11],
-    [116, 5, 7],
-    [119, 1, 3],
-    [123, 10, 12],
-    [135, 13, 14],
-    [136, 2, 4],
-    [145, 9, 11],
-    [150, 6, 8],
-    [152, 5, 7]
+    [
+      4,
+      6,
+      8
+    ],
+    [
+      5,
+      10,
+      12
+    ],
+    [
+      7,
+      9,
+      11
+    ],
+    [
+      12,
+      6,
+      8
+    ],
+    [
+      13,
+      1,
+      3
+    ],
+    [
+      13,
+      2,
+      4
+    ],
+    [
+      13,
+      6,
+      8
+    ],
+    [
+      14,
+      10,
+      12
+    ],
+    [
+      16,
+      5,
+      7
+    ],
+    [
+      17,
+      2,
+      4
+    ],
+    [
+      31,
+      9,
+      11
+    ],
+    [
+      35,
+      6,
+      8
+    ],
+    [
+      37,
+      10,
+      12
+    ],
+    [
+      39,
+      5,
+      7
+    ],
+    [
+      45,
+      1,
+      3
+    ],
+    [
+      48,
+      5,
+      7
+    ],
+    [
+      49,
+      5,
+      7
+    ],
+    [
+      49,
+      10,
+      12
+    ],
+    [
+      51,
+      5,
+      7
+    ],
+    [
+      52,
+      5,
+      7
+    ],
+    [
+      54,
+      2,
+      4
+    ],
+    [
+      57,
+      2,
+      4
+    ],
+    [
+      57,
+      5,
+      7
+    ],
+    [
+      67,
+      1,
+      3
+    ],
+    [
+      72,
+      6,
+      8
+    ],
+    [
+      72,
+      13,
+      14
+    ],
+    [
+      73,
+      9,
+      11
+    ],
+    [
+      79,
+      10,
+      12
+    ],
+    [
+      85,
+      5,
+      7
+    ],
+    [
+      90,
+      1,
+      3
+    ],
+    [
+      90,
+      9,
+      11
+    ],
+    [
+      91,
+      10,
+      12
+    ],
+    [
+      93,
+      5,
+      7
+    ],
+    [
+      94,
+      10,
+      12
+    ],
+    [
+      102,
+      1,
+      3
+    ],
+    [
+      111,
+      9,
+      11
+    ],
+    [
+      116,
+      5,
+      7
+    ],
+    [
+      119,
+      1,
+      3
+    ],
+    [
+      123,
+      10,
+      12
+    ],
+    [
+      135,
+      13,
+      14
+    ],
+    [
+      136,
+      2,
+      4
+    ],
+    [
+      145,
+      9,
+      11
+    ],
+    [
+      150,
+      6,
+      8
+    ],
+    [
+      152,
+      5,
+      7
+    ]
+  ],
+  "superseded": [
+    {
+      "date": "2026-09-22",
+      "current": {
+        "mandated": 1064,
+        "judged": 970,
+        "refused": 94,
+        "violations": 7
+      }
+    }
   ]
 }

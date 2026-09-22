@@ -244,12 +244,29 @@ D1_2026_09_15 = {
 # pairs and 2 of them moved. E5_CODA_ADOPTION.md priced one population (947
 # mandated pairs, one loss) and did not price this one, which is how the
 # drift reached a nightly. Carried as a gap, not a finding.
-D1_RECORDED = {
+D1_2026_09_17 = {
     "pool": 4390056,
     "measured": "2026-09-17",
     "population": "1297 English files; normalized-lyrics-v1, 106 explicit work groups; nonlyric apparatus annotated",
     "table": {("true", "admits"): 4, ("true", "rejects"): 5,
               ("false", "admits"): 7, ("false", "rejects"): 673,
+              ("refused", "admits"): 7, ("refused", "rejects"): 304},
+    "agree": (677, 689),
+}
+
+# REPINNED 2026-09-22 — THE N-RELATION MODEL, and the engine side of this
+# table now asks whether RHYME is IN the pair's relation SET (at its cut)
+# rather than whether one label equals it. One pair moved in each judged row:
+# true/admits 4 -> 3 and false/admits 7 -> 6 (RHYME needs a lexically stressed
+# first syllable and every interior consonant to agree). Agreement over
+# judged is unchanged at 677/689; refused rows unchanged. Measured by
+# `python3 quality/structure_census.py --check`. D1_2026_09_17 kept above.
+D1_RECORDED = {
+    "pool": 4390056,
+    "measured": "2026-09-22",
+    "population": "1297 English files; normalized-lyrics-v1, 106 explicit work groups; nonlyric apparatus annotated",
+    "table": {("true", "admits"): 3, ("true", "rejects"): 6,
+              ("false", "admits"): 6, ("false", "rejects"): 674,
               ("refused", "admits"): 7, ("refused", "rejects"): 304},
     "agree": (677, 689),
 }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "date": "2026-09-08",
+  "date": "2026-09-22",
   "baseline_commit": "43cb831786e4a0e95b7d98a23b07856f471ed2e9",
   "baseline": {
     "mandated": 1064,
@@ -10,11 +10,11 @@
   },
   "current": {
     "mandated": 1064,
-    "judged": 967,
-    "refused": 97,
-    "violations": 4
+    "judged": 958,
+    "refused": 106,
+    "violations": 7
   },
-  "meaning": "A coverage correction, not a quality improvement: the remaining four violations are identical-word REPEAT; uncertainty is excluded from the judged denominator. No comparator threshold was changed.",
+  "meaning": "N-relation model: every mandated pair is judged against every coarse relation it stands in and every registry schema, asked of every pair. Twelve more pairs refuse (permitted readings disagree on the relation set, or a schema is undecided at the pair); the seven violations are unchanged.",
   "delta": {
     "endpoint_pronunciation_refusals": 28,
     "default_schema_uncertainty_refusals": 19,
@@ -24,151 +24,327 @@
   "new_reading_refusals": [
     {
       "sonnet": 4,
-      "lines": [6, 8],
-      "endwords": ["give", "live"]
+      "lines": [
+        6,
+        8
+      ],
+      "endwords": [
+        "give",
+        "live"
+      ]
     },
     {
       "sonnet": 7,
-      "lines": [9, 11],
-      "endwords": ["car", "are"]
+      "lines": [
+        9,
+        11
+      ],
+      "endwords": [
+        "car",
+        "are"
+      ]
     },
     {
       "sonnet": 13,
-      "lines": [1, 3],
-      "endwords": ["are", "prepare"]
+      "lines": [
+        1,
+        3
+      ],
+      "endwords": [
+        "are",
+        "prepare"
+      ]
     },
     {
       "sonnet": 13,
-      "lines": [2, 4],
-      "endwords": ["live", "give"]
+      "lines": [
+        2,
+        4
+      ],
+      "endwords": [
+        "live",
+        "give"
+      ]
     },
     {
       "sonnet": 16,
-      "lines": [5, 7],
-      "endwords": ["hours", "flowers"]
+      "lines": [
+        5,
+        7
+      ],
+      "endwords": [
+        "hours",
+        "flowers"
+      ]
     },
     {
       "sonnet": 31,
-      "lines": [9, 11],
-      "endwords": ["live", "give"]
+      "lines": [
+        9,
+        11
+      ],
+      "endwords": [
+        "live",
+        "give"
+      ]
     },
     {
       "sonnet": 35,
-      "lines": [6, 8],
-      "endwords": ["compare", "are"]
+      "lines": [
+        6,
+        8
+      ],
+      "endwords": [
+        "compare",
+        "are"
+      ]
     },
     {
       "sonnet": 37,
-      "lines": [10, 12],
-      "endwords": ["give", "live"]
+      "lines": [
+        10,
+        12
+      ],
+      "endwords": [
+        "give",
+        "live"
+      ]
     },
     {
       "sonnet": 39,
-      "lines": [5, 7],
-      "endwords": ["live", "give"]
+      "lines": [
+        5,
+        7
+      ],
+      "endwords": [
+        "live",
+        "give"
+      ]
     },
     {
       "sonnet": 45,
-      "lines": [1, 3],
-      "endwords": ["fire", "desire"]
+      "lines": [
+        1,
+        3
+      ],
+      "endwords": [
+        "fire",
+        "desire"
+      ]
     },
     {
       "sonnet": 48,
-      "lines": [5, 7],
-      "endwords": ["are", "care"]
+      "lines": [
+        5,
+        7
+      ],
+      "endwords": [
+        "are",
+        "care"
+      ]
     },
     {
       "sonnet": 51,
-      "lines": [5, 7],
-      "endwords": ["find", "wind"]
+      "lines": [
+        5,
+        7
+      ],
+      "endwords": [
+        "find",
+        "wind"
+      ]
     },
     {
       "sonnet": 52,
-      "lines": [5, 7],
-      "endwords": ["rare", "are"]
+      "lines": [
+        5,
+        7
+      ],
+      "endwords": [
+        "rare",
+        "are"
+      ]
     },
     {
       "sonnet": 54,
-      "lines": [2, 4],
-      "endwords": ["give", "live"]
+      "lines": [
+        2,
+        4
+      ],
+      "endwords": [
+        "give",
+        "live"
+      ]
     },
     {
       "sonnet": 57,
-      "lines": [2, 4],
-      "endwords": ["desire", "require"]
+      "lines": [
+        2,
+        4
+      ],
+      "endwords": [
+        "desire",
+        "require"
+      ]
     },
     {
       "sonnet": 57,
-      "lines": [5, 7],
-      "endwords": ["hour", "sour"]
+      "lines": [
+        5,
+        7
+      ],
+      "endwords": [
+        "hour",
+        "sour"
+      ]
     },
     {
       "sonnet": 67,
-      "lines": [1, 3],
-      "endwords": ["live", "achieve"]
+      "lines": [
+        1,
+        3
+      ],
+      "endwords": [
+        "live",
+        "achieve"
+      ]
     },
     {
       "sonnet": 73,
-      "lines": [9, 11],
-      "endwords": ["fire", "expire"]
+      "lines": [
+        9,
+        11
+      ],
+      "endwords": [
+        "fire",
+        "expire"
+      ]
     },
     {
       "sonnet": 79,
-      "lines": [10, 12],
-      "endwords": ["give", "live"]
+      "lines": [
+        10,
+        12
+      ],
+      "endwords": [
+        "give",
+        "live"
+      ]
     },
     {
       "sonnet": 90,
-      "lines": [1, 3],
-      "endwords": ["now", "bow"]
+      "lines": [
+        1,
+        3
+      ],
+      "endwords": [
+        "now",
+        "bow"
+      ]
     },
     {
       "sonnet": 90,
-      "lines": [9, 11],
-      "endwords": ["last", "taste"]
+      "lines": [
+        9,
+        11
+      ],
+      "endwords": [
+        "last",
+        "taste"
+      ]
     },
     {
       "sonnet": 111,
-      "lines": [9, 11],
-      "endwords": ["care", "are"]
+      "lines": [
+        9,
+        11
+      ],
+      "endwords": [
+        "care",
+        "are"
+      ]
     },
     {
       "sonnet": 116,
-      "lines": [5, 7],
-      "endwords": ["minds", "winds"]
+      "lines": [
+        5,
+        7
+      ],
+      "endwords": [
+        "minds",
+        "winds"
+      ]
     },
     {
       "sonnet": 119,
-      "lines": [1, 3],
-      "endwords": ["now", "bow"]
+      "lines": [
+        1,
+        3
+      ],
+      "endwords": [
+        "now",
+        "bow"
+      ]
     },
     {
       "sonnet": 123,
-      "lines": [10, 12],
-      "endwords": ["hours", "showers"]
+      "lines": [
+        10,
+        12
+      ],
+      "endwords": [
+        "hours",
+        "showers"
+      ]
     },
     {
       "sonnet": 145,
-      "lines": [9, 11],
-      "endwords": ["care", "are"]
+      "lines": [
+        9,
+        11
+      ],
+      "endwords": [
+        "care",
+        "are"
+      ]
     },
     {
       "sonnet": 150,
-      "lines": [6, 8],
-      "endwords": ["most", "lost"]
+      "lines": [
+        6,
+        8
+      ],
+      "endwords": [
+        "most",
+        "lost"
+      ]
     },
     {
       "sonnet": 152,
-      "lines": [5, 7],
-      "endwords": ["fire", "desire"]
+      "lines": [
+        5,
+        7
+      ],
+      "endwords": [
+        "fire",
+        "desire"
+      ]
     }
   ],
   "moved_rescue_causes": [
     {
       "sonnet": 5,
-      "lines": [10, 12],
-      "endwords": ["glass", "was"],
-      "old_rescues": ["chain rhyme (rap)"],
+      "lines": [
+        10,
+        12
+      ],
+      "endwords": [
+        "glass",
+        "was"
+      ],
+      "old_rescues": [
+        "chain rhyme (rap)"
+      ],
       "current": {
         "first": {
           "chain rhyme (rap)": false
@@ -180,9 +356,17 @@
     },
     {
       "sonnet": 12,
-      "lines": [6, 8],
-      "endwords": ["herd", "beard"],
-      "old_rescues": ["chain rhyme (rap)"],
+      "lines": [
+        6,
+        8
+      ],
+      "endwords": [
+        "herd",
+        "beard"
+      ],
+      "old_rescues": [
+        "chain rhyme (rap)"
+      ],
       "current": {
         "first": {
           "chain rhyme (rap)": null
@@ -194,9 +378,17 @@
     },
     {
       "sonnet": 13,
-      "lines": [6, 8],
-      "endwords": ["were", "bear"],
-      "old_rescues": ["internal rhyme"],
+      "lines": [
+        6,
+        8
+      ],
+      "endwords": [
+        "were",
+        "bear"
+      ],
+      "old_rescues": [
+        "internal rhyme"
+      ],
       "current": {
         "first": {
           "internal rhyme": true
@@ -208,9 +400,18 @@
     },
     {
       "sonnet": 14,
-      "lines": [10, 12],
-      "endwords": ["art", "convert'"],
-      "old_rescues": ["assonance", "chain rhyme (rap)"],
+      "lines": [
+        10,
+        12
+      ],
+      "endwords": [
+        "art",
+        "convert'"
+      ],
+      "old_rescues": [
+        "assonance",
+        "chain rhyme (rap)"
+      ],
       "current": {
         "first": {
           "assonance": true,
@@ -224,9 +425,17 @@
     },
     {
       "sonnet": 49,
-      "lines": [10, 12],
-      "endwords": ["desert", "part"],
-      "old_rescues": ["chain rhyme (rap)"],
+      "lines": [
+        10,
+        12
+      ],
+      "endwords": [
+        "desert",
+        "part"
+      ],
+      "old_rescues": [
+        "chain rhyme (rap)"
+      ],
       "current": {
         "first": {
           "chain rhyme (rap)": false
@@ -238,9 +447,17 @@
     },
     {
       "sonnet": 93,
-      "lines": [5, 7],
-      "endwords": ["eye", "history"],
-      "old_rescues": ["consonance"],
+      "lines": [
+        5,
+        7
+      ],
+      "endwords": [
+        "eye",
+        "history"
+      ],
+      "old_rescues": [
+        "consonance"
+      ],
       "current": {
         "first": {
           "consonance": true
@@ -252,9 +469,17 @@
     },
     {
       "sonnet": 102,
-      "lines": [1, 3],
-      "endwords": ["forth", "worth"],
-      "old_rescues": ["chain rhyme (rap)"],
+      "lines": [
+        1,
+        3
+      ],
+      "endwords": [
+        "forth",
+        "worth"
+      ],
+      "old_rescues": [
+        "chain rhyme (rap)"
+      ],
       "current": {
         "first": {
           "chain rhyme (rap)": null
@@ -266,9 +491,17 @@
     },
     {
       "sonnet": 104,
-      "lines": [10, 12],
-      "endwords": ["words", "affords"],
-      "old_rescues": ["chain rhyme (rap)"],
+      "lines": [
+        10,
+        12
+      ],
+      "endwords": [
+        "words",
+        "affords"
+      ],
+      "old_rescues": [
+        "chain rhyme (rap)"
+      ],
       "current": {
         "first": {
           "chain rhyme (rap)": false
@@ -280,9 +513,18 @@
     },
     {
       "sonnet": 135,
-      "lines": [13, 14],
-      "endwords": ["err'd", "transferr'd"],
-      "old_rescues": ["interlaced rhyme", "internal rhyme"],
+      "lines": [
+        13,
+        14
+      ],
+      "endwords": [
+        "err'd",
+        "transferr'd"
+      ],
+      "old_rescues": [
+        "interlaced rhyme",
+        "internal rhyme"
+      ],
       "current": {
         "first": {
           "interlaced rhyme": true,
@@ -296,20 +538,70 @@
     }
   ],
   "remaining_violations": [
-    [9, "it", "it", 1.0],
-    [26, "it", "it", 1.0],
-    [42, "her", "her", 1.0],
-    [150, "thee", "thee", 1.0]
+    [
+      9,
+      "it",
+      "it",
+      1.0
+    ],
+    [
+      26,
+      "it",
+      "it",
+      1.0
+    ],
+    [
+      33,
+      "eye",
+      "alchemy",
+      0.635
+    ],
+    [
+      42,
+      "her",
+      "her",
+      1.0
+    ],
+    [
+      86,
+      "dead",
+      "astonished",
+      0.741
+    ],
+    [
+      104,
+      "words",
+      "affords",
+      0.668
+    ],
+    [
+      150,
+      "thee",
+      "thee",
+      1.0
+    ]
   ],
   "default_schema_refusals": [
     {
       "sonnet": 5,
-      "lines": [10, 12],
-      "endwords": ["glass", "was"],
+      "lines": [
+        10,
+        12
+      ],
+      "endwords": [
+        "glass",
+        "was"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [10, 12],
-        "endwords": ["glass", "was"],
+        "lines": [
+          10,
+          12
+        ],
+        "endwords": [
+          "glass",
+          "was"
+        ],
         "unreadable": [],
         "schemas": [
           "amphisbaenic rhyme",
@@ -329,12 +621,24 @@
     },
     {
       "sonnet": 12,
-      "lines": [6, 8],
-      "endwords": ["herd", "beard"],
+      "lines": [
+        6,
+        8
+      ],
+      "endwords": [
+        "herd",
+        "beard"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [6, 8],
-        "endwords": ["herd", "beard"],
+        "lines": [
+          6,
+          8
+        ],
+        "endwords": [
+          "herd",
+          "beard"
+        ],
         "unreadable": [],
         "schemas": [
           "chain rhyme (rap)",
@@ -352,25 +656,52 @@
     },
     {
       "sonnet": 13,
-      "lines": [6, 8],
-      "endwords": ["were", "bear"],
+      "lines": [
+        6,
+        8
+      ],
+      "endwords": [
+        "were",
+        "bear"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [6, 8],
-        "endwords": ["were", "bear"],
+        "lines": [
+          6,
+          8
+        ],
+        "endwords": [
+          "were",
+          "bear"
+        ],
         "unreadable": [],
-        "schemas": ["internal rhyme", "rhyming slang"],
+        "schemas": [
+          "internal rhyme",
+          "rhyming slang"
+        ],
         "reason": "Default relation remains unresolved in applicable schemas: internal rhyme, rhyming slang"
       }
     },
     {
       "sonnet": 14,
-      "lines": [10, 12],
-      "endwords": ["art", "convert'"],
+      "lines": [
+        10,
+        12
+      ],
+      "endwords": [
+        "art",
+        "convert'"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [10, 12],
-        "endwords": ["art", "convert'"],
+        "lines": [
+          10,
+          12
+        ],
+        "endwords": [
+          "art",
+          "convert'"
+        ],
         "unreadable": [],
         "schemas": [
           "Scots vowel-length rhyme (Aitken's Law)",
@@ -408,12 +739,24 @@
     },
     {
       "sonnet": 17,
-      "lines": [2, 4],
-      "endwords": ["deserts", "parts"],
+      "lines": [
+        2,
+        4
+      ],
+      "endwords": [
+        "deserts",
+        "parts"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [2, 4],
-        "endwords": ["deserts", "parts"],
+        "lines": [
+          2,
+          4
+        ],
+        "endwords": [
+          "deserts",
+          "parts"
+        ],
         "unreadable": [],
         "schemas": [
           "Scots vowel-length rhyme (Aitken's Law)",
@@ -445,38 +788,80 @@
     },
     {
       "sonnet": 33,
-      "lines": [2, 4],
-      "endwords": ["eye", "alchemy"],
+      "lines": [
+        2,
+        4
+      ],
+      "endwords": [
+        "eye",
+        "alchemy"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [2, 4],
-        "endwords": ["eye", "alchemy"],
+        "lines": [
+          2,
+          4
+        ],
+        "endwords": [
+          "eye",
+          "alchemy"
+        ],
         "unreadable": [],
-        "schemas": ["rhyming slang"],
+        "schemas": [
+          "rhyming slang"
+        ],
         "reason": "Default relation remains unresolved in applicable schemas: rhyming slang"
       }
     },
     {
       "sonnet": 49,
-      "lines": [5, 7],
-      "endwords": ["pass", "was"],
+      "lines": [
+        5,
+        7
+      ],
+      "endwords": [
+        "pass",
+        "was"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [5, 7],
-        "endwords": ["pass", "was"],
+        "lines": [
+          5,
+          7
+        ],
+        "endwords": [
+          "pass",
+          "was"
+        ],
         "unreadable": [],
-        "schemas": ["amphisbaenic rhyme", "rhyming slang", "syllabic rhyme"],
+        "schemas": [
+          "amphisbaenic rhyme",
+          "rhyming slang",
+          "syllabic rhyme"
+        ],
         "reason": "Default relation remains unresolved in applicable schemas: amphisbaenic rhyme, rhyming slang, syllabic rhyme"
       }
     },
     {
       "sonnet": 49,
-      "lines": [10, 12],
-      "endwords": ["desert", "part"],
+      "lines": [
+        10,
+        12
+      ],
+      "endwords": [
+        "desert",
+        "part"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [10, 12],
-        "endwords": ["desert", "part"],
+        "lines": [
+          10,
+          12
+        ],
+        "endwords": [
+          "desert",
+          "part"
+        ],
         "unreadable": [],
         "schemas": [
           "Scots vowel-length rhyme (Aitken's Law)",
@@ -509,12 +894,24 @@
     },
     {
       "sonnet": 72,
-      "lines": [6, 8],
-      "endwords": ["desert", "impart"],
+      "lines": [
+        6,
+        8
+      ],
+      "endwords": [
+        "desert",
+        "impart"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [6, 8],
-        "endwords": ["desert", "impart"],
+        "lines": [
+          6,
+          8
+        ],
+        "endwords": [
+          "desert",
+          "impart"
+        ],
         "unreadable": [],
         "schemas": [
           "Scots vowel-length rhyme (Aitken's Law)",
@@ -546,12 +943,24 @@
     },
     {
       "sonnet": 72,
-      "lines": [13, 14],
-      "endwords": ["forth", "worth"],
+      "lines": [
+        13,
+        14
+      ],
+      "endwords": [
+        "forth",
+        "worth"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [13, 14],
-        "endwords": ["forth", "worth"],
+        "lines": [
+          13,
+          14
+        ],
+        "endwords": [
+          "forth",
+          "worth"
+        ],
         "unreadable": [],
         "schemas": [
           "chain rhyme (rap)",
@@ -569,12 +978,24 @@
     },
     {
       "sonnet": 85,
-      "lines": [5, 7],
-      "endwords": ["words", "affords"],
+      "lines": [
+        5,
+        7
+      ],
+      "endwords": [
+        "words",
+        "affords"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [5, 7],
-        "endwords": ["words", "affords"],
+        "lines": [
+          5,
+          7
+        ],
+        "endwords": [
+          "words",
+          "affords"
+        ],
         "unreadable": [],
         "schemas": [
           "chain rhyme (rap)",
@@ -593,38 +1014,79 @@
     },
     {
       "sonnet": 86,
-      "lines": [6, 8],
-      "endwords": ["dead", "astonished"],
+      "lines": [
+        6,
+        8
+      ],
+      "endwords": [
+        "dead",
+        "astonished"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [6, 8],
-        "endwords": ["dead", "astonished"],
+        "lines": [
+          6,
+          8
+        ],
+        "endwords": [
+          "dead",
+          "astonished"
+        ],
         "unreadable": [],
-        "schemas": ["rhyming slang"],
+        "schemas": [
+          "rhyming slang"
+        ],
         "reason": "Default relation remains unresolved in applicable schemas: rhyming slang"
       }
     },
     {
       "sonnet": 91,
-      "lines": [10, 12],
-      "endwords": ["costs", "boast"],
+      "lines": [
+        10,
+        12
+      ],
+      "endwords": [
+        "costs",
+        "boast"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [10, 12],
-        "endwords": ["costs", "boast"],
+        "lines": [
+          10,
+          12
+        ],
+        "endwords": [
+          "costs",
+          "boast"
+        ],
         "unreadable": [],
-        "schemas": ["amphisbaenic rhyme", "rhyming slang"],
+        "schemas": [
+          "amphisbaenic rhyme",
+          "rhyming slang"
+        ],
         "reason": "Default relation remains unresolved in applicable schemas: amphisbaenic rhyme, rhyming slang"
       }
     },
     {
       "sonnet": 93,
-      "lines": [5, 7],
-      "endwords": ["eye", "history"],
+      "lines": [
+        5,
+        7
+      ],
+      "endwords": [
+        "eye",
+        "history"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [5, 7],
-        "endwords": ["eye", "history"],
+        "lines": [
+          5,
+          7
+        ],
+        "endwords": [
+          "eye",
+          "history"
+        ],
         "unreadable": [],
         "schemas": [
           "Scots vowel-length rhyme (Aitken's Law)",
@@ -666,12 +1128,24 @@
     },
     {
       "sonnet": 94,
-      "lines": [10, 12],
-      "endwords": ["die", "dignity"],
+      "lines": [
+        10,
+        12
+      ],
+      "endwords": [
+        "die",
+        "dignity"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [10, 12],
-        "endwords": ["die", "dignity"],
+        "lines": [
+          10,
+          12
+        ],
+        "endwords": [
+          "die",
+          "dignity"
+        ],
         "unreadable": [],
         "schemas": [
           "chain rhyme (rap)",
@@ -690,12 +1164,24 @@
     },
     {
       "sonnet": 102,
-      "lines": [1, 3],
-      "endwords": ["forth", "worth"],
+      "lines": [
+        1,
+        3
+      ],
+      "endwords": [
+        "forth",
+        "worth"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [1, 3],
-        "endwords": ["forth", "worth"],
+        "lines": [
+          1,
+          3
+        ],
+        "endwords": [
+          "forth",
+          "worth"
+        ],
         "unreadable": [],
         "schemas": [
           "anadiplosis",
@@ -718,25 +1204,51 @@
     },
     {
       "sonnet": 104,
-      "lines": [10, 12],
-      "endwords": ["words", "affords"],
+      "lines": [
+        10,
+        12
+      ],
+      "endwords": [
+        "words",
+        "affords"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [10, 12],
-        "endwords": ["words", "affords"],
+        "lines": [
+          10,
+          12
+        ],
+        "endwords": [
+          "words",
+          "affords"
+        ],
         "unreadable": [],
-        "schemas": ["rhyming slang"],
+        "schemas": [
+          "rhyming slang"
+        ],
         "reason": "Default relation remains unresolved in applicable schemas: rhyming slang"
       }
     },
     {
       "sonnet": 135,
-      "lines": [13, 14],
-      "endwords": ["err'd", "transferr'd"],
+      "lines": [
+        13,
+        14
+      ],
+      "endwords": [
+        "err'd",
+        "transferr'd"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [13, 14],
-        "endwords": ["err'd", "transferr'd"],
+        "lines": [
+          13,
+          14
+        ],
+        "endwords": [
+          "err'd",
+          "transferr'd"
+        ],
         "unreadable": [],
         "schemas": [
           "interlaced rhyme",
@@ -749,12 +1261,24 @@
     },
     {
       "sonnet": 136,
-      "lines": [2, 4],
-      "endwords": ["lies", "subtleties"],
+      "lines": [
+        2,
+        4
+      ],
+      "endwords": [
+        "lies",
+        "subtleties"
+      ],
       "state": "refusal",
       "refusal": {
-        "lines": [2, 4],
-        "endwords": ["lies", "subtleties"],
+        "lines": [
+          2,
+          4
+        ],
+        "endwords": [
+          "lies",
+          "subtleties"
+        ],
         "unreadable": [],
         "schemas": [
           "anadiplosis",
@@ -786,845 +1310,858 @@
   },
   "current_partition": {
     "refused": [
-      [1, 10, 12],
-      [3, 1, 3],
-      [4, 6, 8],
-      [5, 10, 12],
-      [7, 9, 11],
-      [10, 2, 4],
-      [10, 5, 7],
-      [11, 1, 3],
-      [11, 2, 4],
-      [12, 6, 8],
-      [13, 1, 3],
-      [13, 2, 4],
-      [13, 6, 8],
-      [14, 10, 12],
-      [16, 5, 7],
-      [17, 2, 4],
-      [18, 6, 8],
-      [18, 10, 12],
-      [20, 6, 8],
-      [24, 1, 3],
-      [26, 1, 3],
-      [30, 10, 12],
-      [31, 9, 11],
-      [32, 10, 12],
-      [33, 2, 4],
-      [33, 13, 14],
-      [35, 6, 8],
-      [37, 10, 12],
-      [38, 10, 12],
-      [39, 5, 7],
-      [40, 5, 7],
-      [40, 6, 8],
-      [41, 9, 11],
-      [43, 2, 4],
-      [45, 1, 3],
-      [45, 9, 11],
-      [46, 9, 11],
-      [48, 5, 7],
-      [49, 5, 7],
-      [49, 9, 11],
-      [49, 10, 12],
-      [51, 1, 3],
-      [51, 5, 7],
-      [52, 5, 7],
-      [52, 6, 8],
-      [54, 2, 4],
-      [56, 6, 8],
-      [57, 2, 4],
-      [57, 5, 7],
-      [57, 9, 11],
-      [63, 2, 4],
-      [65, 9, 11],
-      [66, 1, 3],
-      [66, 6, 8],
-      [67, 1, 3],
-      [67, 2, 4],
-      [68, 1, 3],
-      [72, 6, 8],
-      [72, 13, 14],
-      [73, 9, 11],
-      [79, 10, 12],
-      [82, 2, 4],
-      [85, 5, 7],
-      [86, 1, 3],
-      [86, 6, 8],
-      [87, 6, 8],
-      [88, 5, 7],
-      [89, 2, 4],
-      [90, 1, 3],
-      [90, 9, 11],
-      [91, 10, 12],
-      [93, 5, 7],
-      [94, 10, 12],
-      [96, 1, 3],
-      [101, 1, 3],
-      [102, 1, 3],
-      [103, 13, 14],
-      [104, 10, 12],
-      [105, 10, 12],
-      [111, 9, 11],
-      [113, 9, 11],
-      [114, 9, 11],
-      [116, 5, 7],
-      [117, 5, 7],
-      [119, 1, 3],
-      [123, 2, 4],
-      [123, 10, 12],
-      [124, 2, 4],
-      [124, 5, 7],
-      [126, 1, 3],
-      [135, 13, 14],
-      [136, 2, 4],
-      [140, 2, 4],
-      [145, 9, 11],
-      [146, 2, 4],
-      [150, 6, 8],
-      [152, 5, 7]
+      [
+        1,
+        6,
+        8
+      ],
+      [
+        1,
+        10,
+        12
+      ],
+      [
+        3,
+        1,
+        3
+      ],
+      [
+        4,
+        6,
+        8
+      ],
+      [
+        5,
+        10,
+        12
+      ],
+      [
+        7,
+        6,
+        8
+      ],
+      [
+        7,
+        9,
+        11
+      ],
+      [
+        10,
+        2,
+        4
+      ],
+      [
+        10,
+        5,
+        7
+      ],
+      [
+        11,
+        1,
+        3
+      ],
+      [
+        11,
+        2,
+        4
+      ],
+      [
+        12,
+        6,
+        8
+      ],
+      [
+        13,
+        1,
+        3
+      ],
+      [
+        13,
+        2,
+        4
+      ],
+      [
+        13,
+        6,
+        8
+      ],
+      [
+        14,
+        6,
+        8
+      ],
+      [
+        14,
+        10,
+        12
+      ],
+      [
+        16,
+        5,
+        7
+      ],
+      [
+        17,
+        2,
+        4
+      ],
+      [
+        18,
+        2,
+        4
+      ],
+      [
+        18,
+        6,
+        8
+      ],
+      [
+        18,
+        10,
+        12
+      ],
+      [
+        20,
+        6,
+        8
+      ],
+      [
+        24,
+        1,
+        3
+      ],
+      [
+        26,
+        1,
+        3
+      ],
+      [
+        30,
+        10,
+        12
+      ],
+      [
+        31,
+        9,
+        11
+      ],
+      [
+        32,
+        10,
+        12
+      ],
+      [
+        33,
+        13,
+        14
+      ],
+      [
+        35,
+        6,
+        8
+      ],
+      [
+        35,
+        10,
+        12
+      ],
+      [
+        37,
+        10,
+        12
+      ],
+      [
+        38,
+        10,
+        12
+      ],
+      [
+        39,
+        5,
+        7
+      ],
+      [
+        40,
+        5,
+        7
+      ],
+      [
+        40,
+        6,
+        8
+      ],
+      [
+        41,
+        9,
+        11
+      ],
+      [
+        43,
+        2,
+        4
+      ],
+      [
+        45,
+        1,
+        3
+      ],
+      [
+        45,
+        9,
+        11
+      ],
+      [
+        46,
+        9,
+        11
+      ],
+      [
+        48,
+        5,
+        7
+      ],
+      [
+        49,
+        2,
+        4
+      ],
+      [
+        49,
+        5,
+        7
+      ],
+      [
+        49,
+        9,
+        11
+      ],
+      [
+        49,
+        10,
+        12
+      ],
+      [
+        51,
+        1,
+        3
+      ],
+      [
+        51,
+        5,
+        7
+      ],
+      [
+        52,
+        5,
+        7
+      ],
+      [
+        52,
+        6,
+        8
+      ],
+      [
+        54,
+        2,
+        4
+      ],
+      [
+        56,
+        6,
+        8
+      ],
+      [
+        57,
+        2,
+        4
+      ],
+      [
+        57,
+        5,
+        7
+      ],
+      [
+        57,
+        9,
+        11
+      ],
+      [
+        59,
+        1,
+        3
+      ],
+      [
+        63,
+        2,
+        4
+      ],
+      [
+        65,
+        9,
+        11
+      ],
+      [
+        66,
+        1,
+        3
+      ],
+      [
+        66,
+        6,
+        8
+      ],
+      [
+        67,
+        1,
+        3
+      ],
+      [
+        67,
+        2,
+        4
+      ],
+      [
+        68,
+        1,
+        3
+      ],
+      [
+        72,
+        6,
+        8
+      ],
+      [
+        72,
+        9,
+        11
+      ],
+      [
+        72,
+        13,
+        14
+      ],
+      [
+        73,
+        9,
+        11
+      ],
+      [
+        79,
+        10,
+        12
+      ],
+      [
+        82,
+        2,
+        4
+      ],
+      [
+        85,
+        5,
+        7
+      ],
+      [
+        86,
+        1,
+        3
+      ],
+      [
+        87,
+        2,
+        4
+      ],
+      [
+        87,
+        6,
+        8
+      ],
+      [
+        88,
+        5,
+        7
+      ],
+      [
+        89,
+        2,
+        4
+      ],
+      [
+        90,
+        1,
+        3
+      ],
+      [
+        90,
+        9,
+        11
+      ],
+      [
+        91,
+        10,
+        12
+      ],
+      [
+        93,
+        5,
+        7
+      ],
+      [
+        94,
+        10,
+        12
+      ],
+      [
+        96,
+        1,
+        3
+      ],
+      [
+        97,
+        1,
+        3
+      ],
+      [
+        101,
+        1,
+        3
+      ],
+      [
+        102,
+        1,
+        3
+      ],
+      [
+        103,
+        13,
+        14
+      ],
+      [
+        105,
+        10,
+        12
+      ],
+      [
+        111,
+        9,
+        11
+      ],
+      [
+        113,
+        9,
+        11
+      ],
+      [
+        114,
+        9,
+        11
+      ],
+      [
+        116,
+        5,
+        7
+      ],
+      [
+        117,
+        5,
+        7
+      ],
+      [
+        119,
+        1,
+        3
+      ],
+      [
+        123,
+        2,
+        4
+      ],
+      [
+        123,
+        10,
+        12
+      ],
+      [
+        124,
+        2,
+        4
+      ],
+      [
+        124,
+        5,
+        7
+      ],
+      [
+        126,
+        1,
+        3
+      ],
+      [
+        129,
+        2,
+        4
+      ],
+      [
+        135,
+        13,
+        14
+      ],
+      [
+        136,
+        2,
+        4
+      ],
+      [
+        140,
+        2,
+        4
+      ],
+      [
+        145,
+        9,
+        11
+      ],
+      [
+        146,
+        2,
+        4
+      ],
+      [
+        149,
+        1,
+        3
+      ],
+      [
+        150,
+        6,
+        8
+      ],
+      [
+        152,
+        5,
+        7
+      ]
     ],
     "violations": [
-      [9, 10, 12],
-      [26, 6, 8],
-      [42, 6, 8],
-      [150, 5, 7]
+      [
+        9,
+        10,
+        12
+      ],
+      [
+        26,
+        6,
+        8
+      ],
+      [
+        33,
+        2,
+        4
+      ],
+      [
+        42,
+        6,
+        8
+      ],
+      [
+        86,
+        6,
+        8
+      ],
+      [
+        104,
+        10,
+        12
+      ],
+      [
+        150,
+        5,
+        7
+      ]
     ]
   },
   "span_attribution": {
-    "date": "2026-09-16",
-    "meaning": "Attribution is measured over the corrected judged denominator; refusing uncertain pairs is reduced coverage, not better rhyme or a rendering change.",
+    "date": "2026-09-22",
     "current": {
-      "claimed": 605,
-      "ties": 114,
+      "claimed": 600,
+      "ties": 109,
       "violations_claimed": 1,
       "violation_ties": 3
     },
-    "mosaic_violations": 3,
-    "severe_violations": 3,
+    "mosaic_violations": 4,
+    "mosaic_coordinates": [
+      [
+        9,
+        10,
+        12
+      ],
+      [
+        26,
+        6,
+        8
+      ],
+      [
+        33,
+        2,
+        4
+      ],
+      [
+        150,
+        5,
+        7
+      ]
+    ],
+    "severe_violations": 4,
     "pair_kinds": [
       {
-        "kinds": ["exact", "exact"],
-        "n": 605
+        "kinds": [
+          "exact",
+          "exact"
+        ],
+        "n": 600
       },
       {
-        "kinds": ["exact", "part"],
-        "n": 271
+        "kinds": [
+          "exact",
+          "part"
+        ],
+        "n": 268
       },
       {
-        "kinds": ["exact", "reach"],
-        "n": 3
+        "kinds": [
+          "exact",
+          "reach"
+        ],
+        "n": 4
       },
       {
-        "kinds": ["exact", "substituted"],
+        "kinds": [
+          "exact",
+          "substituted"
+        ],
         "n": 2
       },
       {
-        "kinds": ["part", "part"],
-        "n": 81
+        "kinds": [
+          "part",
+          "part"
+        ],
+        "n": 79
       },
       {
-        "kinds": ["part", "reach"],
+        "kinds": [
+          "part",
+          "reach"
+        ],
         "n": 1
       },
       {
-        "kinds": ["reach", "reach"],
+        "kinds": [
+          "reach",
+          "reach"
+        ],
         "n": 4
       }
     ],
     "viol_kinds": [
       {
-        "kinds": ["exact", "exact"],
+        "kinds": [
+          "exact",
+          "exact"
+        ],
         "n": 1
       },
       {
-        "kinds": ["reach", "reach"],
+        "kinds": [
+          "exact",
+          "part"
+        ],
+        "n": 2
+      },
+      {
+        "kinds": [
+          "exact",
+          "reach"
+        ],
+        "n": 1
+      },
+      {
+        "kinds": [
+          "reach",
+          "reach"
+        ],
         "n": 3
       }
     ],
     "violation_rows": [
       {
         "sonnet": 9,
-        "lines": [10, 12],
-        "endwords": ["it", "it"],
+        "lines": [
+          10,
+          12
+        ],
+        "endwords": [
+          "it",
+          "it"
+        ],
+        "relations": [
+          "ASSONANCE",
+          "CONSONANCE",
+          "PROMOTED_RHYME",
+          "REPEAT",
+          "RHYME",
+          "compound / phrasal rhyme",
+          "internal rhyme",
+          "mosaic rhyme",
+          "multisyllabic rhyme",
+          "repetition"
+        ],
         "claim": false,
-        "kinds": ["reach", "reach"]
+        "kinds": [
+          "reach",
+          "reach"
+        ]
       },
       {
         "sonnet": 26,
-        "lines": [6, 8],
-        "endwords": ["it", "it"],
+        "lines": [
+          6,
+          8
+        ],
+        "endwords": [
+          "it",
+          "it"
+        ],
+        "relations": [
+          "ASSONANCE",
+          "CONSONANCE",
+          "PROMOTED_RHYME",
+          "REPEAT",
+          "RHYME",
+          "compound / phrasal rhyme",
+          "internal rhyme",
+          "mosaic rhyme",
+          "multisyllabic rhyme",
+          "repetition"
+        ],
         "claim": false,
-        "kinds": ["reach", "reach"]
-      },
-      {
-        "sonnet": 42,
-        "lines": [6, 8],
-        "endwords": ["her", "her"],
-        "claim": true,
-        "kinds": ["exact", "exact"]
-      },
-      {
-        "sonnet": 150,
-        "lines": [5, 7],
-        "endwords": ["thee", "thee"],
-        "claim": false,
-        "kinds": ["reach", "reach"]
-      }
-    ],
-    "new_refusal_attribution": [
-      {
-        "sonnet": 4,
-        "lines": [6, 8],
-        "endwords": ["give", "live"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: give  ~  live   (best of k=8)"
-      },
-      {
-        "sonnet": 5,
-        "lines": [10, 12],
-        "endwords": ["glass", "was"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: glass  ~  was   (best of k=10)"
-      },
-      {
-        "sonnet": 7,
-        "lines": [9, 11],
-        "endwords": ["car", "are"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: car  ~  are   (best of k=10)"
-      },
-      {
-        "sonnet": 12,
-        "lines": [6, 8],
-        "endwords": ["herd", "beard"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: herd  ~  beard   (best of k=4)"
-      },
-      {
-        "sonnet": 13,
-        "lines": [1, 3],
-        "endwords": ["are", "prepare"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": false,
-        "kinds": ["exact", "part"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: are  ~  -prepare [last 1 of 2 syllables of 'prepare']   (best of k=10)"
-      },
-      {
-        "sonnet": 13,
-        "lines": [2, 4],
-        "endwords": ["live", "give"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: live  ~  give   (best of k=8)"
-      },
-      {
-        "sonnet": 13,
-        "lines": [6, 8],
-        "endwords": ["were", "bear"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: were  ~  bear   (best of k=4)"
-      },
-      {
-        "sonnet": 14,
-        "lines": [10, 12],
-        "endwords": ["art", "convert'"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": false,
-        "kinds": ["reach", "reach"],
-        "tied": false,
-        "mosaic": true,
-        "note": "scored on: such art  ~  thou convert'   (best of k=8)   MOSAIC (both sides): the winning span reaches back past the end word"
-      },
-      {
-        "sonnet": 16,
-        "lines": [5, 7],
-        "endwords": ["hours", "flowers"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": true,
-        "mosaic": false,
-        "note": "scored on: hours  ~  flowers   (best of k=15, 2 tied at the max)"
-      },
-      {
-        "sonnet": 17,
-        "lines": [2, 4],
-        "endwords": ["deserts", "parts"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": false,
-        "kinds": ["part", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: -deserts [last 1 of 2 syllables of 'deserts']  ~  parts   (best of k=8)"
-      },
-      {
-        "sonnet": 31,
-        "lines": [9, 11],
-        "endwords": ["live", "give"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: live  ~  give   (best of k=8)"
+        "kinds": [
+          "reach",
+          "reach"
+        ]
       },
       {
         "sonnet": 33,
-        "lines": [2, 4],
-        "endwords": ["eye", "alchemy"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
+        "lines": [
+          2,
+          4
+        ],
+        "endwords": [
+          "eye",
+          "alchemy"
+        ],
+        "relations": [],
         "claim": false,
-        "kinds": ["reach", "exact"],
-        "tied": false,
-        "mosaic": true,
-        "note": "scored on: sovereign eye  ~  alchemy   (best of k=6)   MOSAIC (left): the winning span reaches back past the end word"
+        "kinds": [
+          "reach",
+          "exact"
+        ]
       },
       {
-        "sonnet": 35,
-        "lines": [6, 8],
-        "endwords": ["compare", "are"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": false,
-        "kinds": ["part", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: -compare [last 1 of 2 syllables of 'compare']  ~  are   (best of k=10)"
-      },
-      {
-        "sonnet": 37,
-        "lines": [10, 12],
-        "endwords": ["give", "live"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
+        "sonnet": 42,
+        "lines": [
+          6,
+          8
+        ],
+        "endwords": [
+          "her",
+          "her"
+        ],
+        "relations": [
+          "ASSONANCE",
+          "CONSONANCE",
+          "REPEAT",
+          "RHYME",
+          "internal rhyme",
+          "mosaic rhyme",
+          "repetition"
+        ],
         "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: give  ~  live   (best of k=8)"
-      },
-      {
-        "sonnet": 39,
-        "lines": [5, 7],
-        "endwords": ["live", "give"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: live  ~  give   (best of k=8)"
-      },
-      {
-        "sonnet": 45,
-        "lines": [1, 3],
-        "endwords": ["fire", "desire"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": false,
-        "kinds": ["exact", "part"],
-        "tied": true,
-        "mosaic": false,
-        "note": "scored on: fire  ~  -desire [last 2 of 3 syllables of 'desire']   (best of k=15, 2 tied at the max)"
-      },
-      {
-        "sonnet": 48,
-        "lines": [5, 7],
-        "endwords": ["are", "care"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: are  ~  care   (best of k=10)"
-      },
-      {
-        "sonnet": 49,
-        "lines": [5, 7],
-        "endwords": ["pass", "was"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: pass  ~  was   (best of k=10)"
-      },
-      {
-        "sonnet": 49,
-        "lines": [10, 12],
-        "endwords": ["desert", "part"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": false,
-        "kinds": ["part", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: -desert [last 1 of 2 syllables of 'desert']  ~  part   (best of k=8)"
-      },
-      {
-        "sonnet": 51,
-        "lines": [5, 7],
-        "endwords": ["find", "wind"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: find  ~  wind   (best of k=8)"
-      },
-      {
-        "sonnet": 52,
-        "lines": [5, 7],
-        "endwords": ["rare", "are"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: rare  ~  are   (best of k=10)"
-      },
-      {
-        "sonnet": 54,
-        "lines": [2, 4],
-        "endwords": ["give", "live"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: give  ~  live   (best of k=8)"
-      },
-      {
-        "sonnet": 57,
-        "lines": [2, 4],
-        "endwords": ["desire", "require"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": false,
-        "kinds": ["part", "part"],
-        "tied": true,
-        "mosaic": false,
-        "note": "scored on: -desire [last 2 of 3 syllables of 'desire']  ~  -require [last 2 of 3 syllables of 'require']   (best of k=18, 2 tied at the max)"
-      },
-      {
-        "sonnet": 57,
-        "lines": [5, 7],
-        "endwords": ["hour", "sour"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": true,
-        "mosaic": false,
-        "note": "scored on: hour  ~  sour   (best of k=25, 3 tied at the max)"
-      },
-      {
-        "sonnet": 67,
-        "lines": [1, 3],
-        "endwords": ["live", "achieve"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": false,
-        "kinds": ["exact", "part"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: live  ~  -achieve [last 1 of 2 syllables of 'achieve']   (best of k=8)"
-      },
-      {
-        "sonnet": 72,
-        "lines": [6, 8],
-        "endwords": ["desert", "impart"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": false,
-        "kinds": ["part", "part"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: -desert [last 1 of 2 syllables of 'desert']  ~  -impart [last 1 of 2 syllables of 'impart']   (best of k=8)"
-      },
-      {
-        "sonnet": 72,
-        "lines": [13, 14],
-        "endwords": ["forth", "worth"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: forth  ~  worth   (best of k=4)"
-      },
-      {
-        "sonnet": 73,
-        "lines": [9, 11],
-        "endwords": ["fire", "expire"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": false,
-        "kinds": ["exact", "part"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: fire  ~  -expire [last 1 of 2 syllables of 'expire']   (best of k=10)"
-      },
-      {
-        "sonnet": 79,
-        "lines": [10, 12],
-        "endwords": ["give", "live"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: give  ~  live   (best of k=8)"
-      },
-      {
-        "sonnet": 85,
-        "lines": [5, 7],
-        "endwords": ["words", "affords"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": false,
-        "kinds": ["exact", "part"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: words  ~  -affords [last 1 of 2 syllables of 'affords']   (best of k=4)"
+        "kinds": [
+          "exact",
+          "exact"
+        ]
       },
       {
         "sonnet": 86,
-        "lines": [6, 8],
-        "endwords": ["dead", "astonished"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
+        "lines": [
+          6,
+          8
+        ],
+        "endwords": [
+          "dead",
+          "astonished"
+        ],
+        "relations": [],
         "claim": false,
-        "kinds": ["exact", "part"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: dead  ~  -astonished [last 1 of 3 syllables of 'astonished']   (best of k=6)"
-      },
-      {
-        "sonnet": 90,
-        "lines": [1, 3],
-        "endwords": ["now", "bow"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: now  ~  bow   (best of k=8)"
-      },
-      {
-        "sonnet": 90,
-        "lines": [9, 11],
-        "endwords": ["last", "taste"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: last  ~  taste   (best of k=8)"
-      },
-      {
-        "sonnet": 91,
-        "lines": [10, 12],
-        "endwords": ["costs", "boast"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: costs  ~  boast   (best of k=8)"
-      },
-      {
-        "sonnet": 93,
-        "lines": [5, 7],
-        "endwords": ["eye", "history"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": false,
-        "kinds": ["exact", "part"],
-        "tied": true,
-        "mosaic": false,
-        "note": "scored on: eye  ~  -history [last 1 of 3 syllables of 'history']   (best of k=12, 2 tied at the max)"
-      },
-      {
-        "sonnet": 94,
-        "lines": [10, 12],
-        "endwords": ["die", "dignity"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": false,
-        "kinds": ["exact", "part"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: die  ~  -dignity [last 1 of 3 syllables of 'dignity']   (best of k=6)"
-      },
-      {
-        "sonnet": 102,
-        "lines": [1, 3],
-        "endwords": ["forth", "worth"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": false,
-        "kinds": ["exact", "reach"],
-        "tied": false,
-        "mosaic": true,
-        "note": "scored on: forth  ~  more worth   (best of k=4)   MOSAIC (right): the winning span reaches back past the end word"
+        "kinds": [
+          "exact",
+          "part"
+        ]
       },
       {
         "sonnet": 104,
-        "lines": [10, 12],
-        "endwords": ["words", "affords"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
+        "lines": [
+          10,
+          12
+        ],
+        "endwords": [
+          "words",
+          "affords"
+        ],
+        "relations": [],
         "claim": false,
-        "kinds": ["reach", "reach"],
-        "tied": false,
-        "mosaic": true,
-        "note": "scored on: other words  ~  scope affords   (best of k=4)   MOSAIC (both sides): the winning span reaches back past the end word"
-      },
-      {
-        "sonnet": 111,
-        "lines": [9, 11],
-        "endwords": ["care", "are"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: care  ~  are   (best of k=10)"
-      },
-      {
-        "sonnet": 116,
-        "lines": [5, 7],
-        "endwords": ["minds", "winds"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: minds  ~  winds   (best of k=8)"
-      },
-      {
-        "sonnet": 119,
-        "lines": [1, 3],
-        "endwords": ["now", "bow"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: now  ~  bow   (best of k=8)"
-      },
-      {
-        "sonnet": 123,
-        "lines": [10, 12],
-        "endwords": ["hours", "showers"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": true,
-        "mosaic": false,
-        "note": "scored on: hours  ~  showers   (best of k=15, 2 tied at the max)"
-      },
-      {
-        "sonnet": 135,
-        "lines": [13, 14],
-        "endwords": ["err'd", "transferr'd"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": false,
-        "kinds": ["exact", "part"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: err'd  ~  -transferr'd [last 1 of 2 syllables of \"transferr'd\"]   (best of k=4)"
-      },
-      {
-        "sonnet": 136,
-        "lines": [2, 4],
-        "endwords": ["lies", "subtleties"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": false,
-        "kinds": ["exact", "part"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: lies  ~  -subtleties [last 1 of 3 syllables of 'subtleties']   (best of k=6)"
-      },
-      {
-        "sonnet": 145,
-        "lines": [9, 11],
-        "endwords": ["care", "are"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: care  ~  are   (best of k=10)"
+        "kinds": [
+          "exact",
+          "part"
+        ]
       },
       {
         "sonnet": 150,
-        "lines": [6, 8],
-        "endwords": ["most", "lost"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": true,
-        "kinds": ["exact", "exact"],
-        "tied": false,
-        "mosaic": false,
-        "note": "scored on: most  ~  lost   (best of k=8)"
-      },
-      {
-        "sonnet": 152,
-        "lines": [5, 7],
-        "endwords": ["fire", "desire"],
-        "refused": true,
-        "new_refused": true,
-        "violation": false,
-        "claim": false,
-        "kinds": ["exact", "part"],
-        "tied": true,
-        "mosaic": false,
-        "note": "scored on: fire  ~  -desire [last 2 of 3 syllables of 'desire']   (best of k=15, 2 tied at the max)"
-      }
-    ],
-    "delta": {
-      "excluded_pairs": 47,
-      "excluded_claimed": 27,
-      "excluded_tied": 7,
-      "previous_claimed": 632,
-      "previous_tied": 121,
-      "previous_mosaic_violations": 4,
-      "newly_refused_mosaic_violation": [33, 2, 4],
-      "e5_span_kind_move": {
-        "date": "2026-09-16",
-        "entry": "E-5",
-        "previous": {
-          "exact+part": 273,
-          "exact+reach": 1
-        },
-        "current": {
-          "exact+part": 271,
-          "exact+reach": 3
-        },
-        "judged_unchanged": 967,
-        "claimed_unchanged": 605,
-        "why": "Withdrawing the empty/empty coda evidence changed WHICH span pair wins, not whether a pair is judged. Nothing entered or left the judged population, every other cell of the partition is unchanged, and exactly two pairs moved bucket. Both are a vowel-final monosyllable against a -y polysyllable, which is the empty-coda case the change is about.",
-        "pairs": [
-          {
-            "sonnet": 7,
-            "lines": [2, 4],
-            "endwords": ["eye", "majesty"],
-            "from": ["exact", "part"],
-            "to": ["exact", "reach"]
-          },
-          {
-            "sonnet": 61,
-            "lines": [6, 8],
-            "endwords": ["pry", "jealousy"],
-            "from": ["exact", "part"],
-            "to": ["exact", "reach"]
-          }
+        "lines": [
+          5,
+          7
         ],
-        "measured": "Classified twice over the same 152-sonnet battery, once with coda_empty_evidence=gift and once with the adopted cannot_tell; these two pairs are the ONLY difference. MISSING.md's E-5 entry already records eye/majesty as a span that moves when the bonus is removed, so this is that same finding reaching the oracle; sonnet 61 pry/jealousy is a second instance the entry does not name."
+        "endwords": [
+          "thee",
+          "thee"
+        ],
+        "relations": [
+          "ASSONANCE",
+          "CONSONANCE",
+          "REPEAT",
+          "RHYME",
+          "internal rhyme",
+          "mosaic rhyme",
+          "multisyllabic rhyme",
+          "repetition"
+        ],
+        "claim": false,
+        "kinds": [
+          "reach",
+          "reach"
+        ]
+      }
+    ]
+  },
+  "superseded": [
+    {
+      "date": "2026-09-08",
+      "current": {
+        "mandated": 1064,
+        "judged": 967,
+        "refused": 97,
+        "violations": 4
       }
     }
-  }
+  ]
 }

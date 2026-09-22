@@ -75,6 +75,14 @@ a setting, and here no setting produces it. The DIRECTION and the SIZE of the
 calibration's effect stand — false positives fall 3.0x — and the digit does
 not.
 
+**REPINNED 2026-09-22 (the N-relation model): ~~2.00% (60 of 3,000)~~ ->
+0.20% (6 of 3,000) and ~~2.10% (84 of 4,000)~~ -> 0.18% (7 of 4,000).** The
+statistic is now "RHYME is in the harness's relation SET and not in strict
+identity's", both sides being sets; RHYME needs a lexically stressed first
+syllable and every consonant after the first nucleus (interior onsets
+included) to agree, and the reference line reads the same consonant channel.
+Measured by `python3 quality/redteam_band.py 4000` and `... 3000`.
+
 **REPINNED 2026-08-14: ~~3.57% (107 of 3,000)~~ -> 2.00% (60 of 3,000) and
 ~~3.60% (144 of 4,000)~~ -> 2.10% (84 of 4,000).** The superseded pair is kept
 struck rather than overwritten (doctrine 17), because it is still the correct

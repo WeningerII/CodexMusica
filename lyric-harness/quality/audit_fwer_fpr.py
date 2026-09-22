@@ -501,9 +501,15 @@ PINNED = {
     #    because the family is too large, and for no other reason. Recorded
     #    as its own dated row in RESULTS_FWER.md, as this file's own FAIL
     #    text requires of a moved REAL-arm count.
-    "real_cannot_tell": 19,
+    #    REPINNED 2026-09-22 from ~~19 / 0 / 1~~ (N-relation model): a
+    #    candidate event is a span pair whose relation SET holds a RHYME-
+    #    family relation, and RHYME now needs a lexically stressed first
+    #    syllable; the one answered item lost the pair that let it answer and
+    #    is mute for the recorded reason. Measured by
+    #    `python3 quality/audit_fwer_fpr.py --check`.
+    "real_cannot_tell": 20,
     "real_refused": 0,
-    "real_answered": 1,
+    "real_answered": 0,
     #    ... and what the answered item is: an OBSERVED ZERO, which is the
     #    "none" half of doctrine 28. `attainable` True, `n_events` 0.
     "real_answered_events": 0,

@@ -986,11 +986,13 @@ MUTATIONS = [
         name="QR2", layer="value", file=REVISE,
         # LENGTHENED 2026-09-01: `_offer_reopens` (M-185) reads the same
         # coordinate one method down, so the anchor names `joint_field`'s
-        # own site by the line that spends it.
+        # own site by the line that spends it. RE-ANCHORED 2026-09-22: the
+        # head is now the first k MEMBERS of the remainder (a loop), not a
+        # slice; the planted defect — k forced to 0 — is unchanged.
         old="        k = self.rdecl.modal_exclusion\n"
-            "        forbidden = homeo + rest_ranked[:k]",
+            "        # The head: the first k MEMBERS of the remainder in rank order.",
         new="        k = 0\n"
-            "        forbidden = homeo + rest_ranked[:k]",
+            "        # The head: the first k MEMBERS of the remainder in rank order.",
         subset=T_LOOP,
         rationale=(
             "Doctrine 9's ENTIRE mechanism disabled at its one implementation "
