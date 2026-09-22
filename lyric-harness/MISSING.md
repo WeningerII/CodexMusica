@@ -27755,13 +27755,44 @@ finish a 164-minute rebuild in a 150-minute slice, and a raised ceiling still
 re-cools the memo every other day. **Neither is sufficient and this is
 deliberately recorded as two entries for that reason.**
 
-**WHAT IS NOT DONE.** The three steps that grew (the 77-schema door 10.2 -> 28.0m
-is 18 of the 24 minutes) are not investigated here; a step whose cost nearly
-trebles is its own question and tuning the ceiling is not an answer to it
-(doctrine 58). Nor is the budget made self-checking: the sum still lives in a
-comment that a fourth step can silently invalidate, exactly as this one did,
-and *"re-measure before adding a step"* is a sentence rather than a gate
-(doctrine 48).
+**RAISED AGAIN THE SAME DAY, TO THE PLATFORM CEILING, AND THAT CLOSES THE
+BUDGET QUESTION AT THIS LAYER.** The owner's instruction: *"I think it might
+help if we increased the budget by a decent bit more given that time has been
+kicking us in the butt on almost all of the nightly stuff"*, and *"let's make
+the start time an hour earlier too"*. `timeout-minutes` is **360** and the slice
+**200m** (88.5 + 200 + 40 + ~2 = 330.5m of 360, ~30m margin; the slice's
+headroom over its measured ~164m cold cost goes ~10% -> ~22%). The cron moves
+`'17 4 * * *'` -> `'17 3 * * *'`, in THREE places — the `schedule:` stanza and
+the `if:` on both `mutation` and `nightly`, which compare the literal string, so
+changing one would fire a scheduled run with those jobs silently skipped.
+
+**360 IS A LIMIT, NOT A CHOICE, AND SAYING SO IS THE POINT.** A GitHub-hosted
+job gets 6 hours of execution time; the runner kills it there whatever
+`timeout-minutes` says. A larger number would not buy a minute — it would
+replace a clean self-inflicted step timeout with a CANCELLATION, which is this
+entry's own defect. **AND AN EARLIER START BUYS LATENCY, NOT RUNTIME**: the
+ceiling is on execution, not on wall-clock time of day, so 03:17Z changes when
+the answer lands (09:17Z instead of 10:17Z on a full cold run) and changes
+nothing about what fits.
+
+**WHAT IS NOT DONE, AND THE FIRST ITEM IS NOW THE ONLY REAL HEADROOM LEFT.**
+(1) The song-profile slice and the length-curve step are still in the SAME job
+as 88.5 minutes of other people's checks. Moving them to their own job gives
+each pair its own 6 hours and drops the main nightly back to its warm ~90m —
+the idiom this repository already uses for the mutation shards and each
+qualification component. It needs the memo cache's restore/save and the staged
+resources moved with it, and a cache key two jobs in one run cannot collide on
+(the current key is `github.run_id`, which a second job would hit exactly). It
+is deliberately NOT bundled with a budget raise: a mistake in it takes the
+nightly down, and a down nightly is this entry's whole subject.
+(2) The three steps that grew (the 77-schema door 10.2 -> 28.0m is 18 of the 24
+minutes) are not investigated; a step whose cost nearly trebles is its own
+question and raising a ceiling is not an answer to it (doctrine 58).
+(3) The budget is not self-checking: the sum still lives in a comment that a
+fourth step can silently invalidate, exactly as this one did, and *"re-measure
+before adding a step"* is a sentence rather than a gate (doctrine 48). At 360
+there is no longer a larger number to reach for, which makes this the item that
+bites next.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~361~~ -> **362**.
 

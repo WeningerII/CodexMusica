@@ -101,7 +101,27 @@ on:
     # request. Deliberately NOT at :00 — GitHub's scheduler queues cron runs
     # globally and the top of the hour is the most contended minute there is,
     # which shows up as a scheduled run starting late or being dropped.
-    - cron: '17 4 * * *'
+    #
+    # ~~'17 4 * * *'~~ -> '17 3 * * *' (2026-09-22, the owner's instruction:
+    # *"let's make the start time an hour earlier too that way we're not
+    # worried about how long it's going to take"*). STATED PLAINLY BECAUSE IT
+    # WOULD OTHERWISE READ AS BUDGET: an earlier start buys LATENCY, not
+    # runtime. A job's ceiling is 6 hours of EXECUTION time wherever it starts,
+    # so this changes when the answer lands (09:17Z instead of 10:17Z on a
+    # full cold run) and changes nothing about what fits. The budget raise is
+    # the `timeout-minutes` beside the nightly job, and what actually removes
+    # the ceiling is moving the calibration into its own job — named in
+    # `MISSING.md` M-307 as not done.
+    #
+    # It still clears the two jobs ahead of it: production-qualification at
+    # '23 1' and qualification-backstop at '47 2'.
+    #
+    # THE STRING IS A COORDINATE IN THREE PLACES, not one: this stanza and the
+    # `if:` on BOTH the `mutation` and `nightly` jobs, which compare
+    # `github.event.schedule` to it literally. Change one and the scheduled run
+    # fires with those jobs silently skipped — a green CI that ran none of the
+    # nightly work (doctrine 1).
+    - cron: '17 3 * * *'
 
 # ONE LIVE RUN PER BRANCH. This is the `gate` job's argument (below) restated at
 # the level of the RUN instead of the JOB, and it was the larger of the two leaks
@@ -3328,7 +3348,7 @@ jobs:
   mutation:
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'schedule' && github.event.schedule == '17 4 * * *')
+      (github.event_name == 'schedule' && github.event.schedule == '17 3 * * *')
     runs-on: ubuntu-latest
     # ~~2 h 07 m measured + headroom~~ — REPINNED 2026-08-26: the last
     # shard to FINISH took 171m41s (shard 2/2, run #909) and its sibling was
@@ -3479,7 +3499,7 @@ jobs:
     needs: capacity-proof-result
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'schedule' && github.event.schedule == '17 4 * * *')
+      (github.event_name == 'schedule' && github.event.schedule == '17 3 * * *')
     runs-on: ubuntu-latest
     # 350, RAISED FROM 240 ON 2026-09-22, AND BCI-10 BELOW IS NO LONGER BOUND
     # ARITHMETIC — IT IS A MEASUREMENT. That note said the bounds totalled
@@ -3507,12 +3527,42 @@ jobs:
     # bound, and at a 150m slice that is 278.5m: the job could not finish a
     # cold night under 240 however the slice behaved.
     #
-    # 88.5 + 180 (the slice, raised below) + 40 + ~1 save = **309.5m**, and
-    # 350 leaves ~40m for the growth that made this arithmetic stale twice.
+    # ~~88.5 + 180 + 40 + ~1 save = 309.5m, and 350 leaves ~40m~~ — RAISED
+    # AGAIN THE SAME DAY, to the PLATFORM CEILING, on the owner's instruction:
+    # *"I think it might help if we increased the budget by a decent bit more
+    # given that time has been kicking us in the butt on almost all of the
+    # nightly stuff."*
+    #
+    # **360 IS NOT A CHOICE, IT IS THE LIMIT.** A GitHub-hosted job gets 6
+    # hours of execution time and the runner kills it there whatever this
+    # number says, so `timeout-minutes: 400` would not buy a minute — it would
+    # only replace a clean self-inflicted timeout with a cancellation, which is
+    # the failure mode M-307 exists for: a cancelled job never reaches the memo
+    # save. So this is the most a SINGLE job can be given, and the honest
+    # reading of it is that the budget question is now closed at this layer.
+    #
+    # 88.5 non-song + 200 slice + 40 curve + ~2 setup/save = **330.5m of 360**,
+    # ~30m of margin — and the slice's own share went 180 -> 200 with the
+    # ceiling, against a measured cold cost of ~164m, so it now carries ~22%
+    # headroom instead of ~10%.
+    #
+    # WHAT ACTUALLY REMOVES THE CEILING is moving the song-profile slice and
+    # the length-curve step into their OWN job: each job gets its own 6 hours,
+    # the main nightly drops back to its measured ~90m warm, and the
+    # calibration pair stops competing with 88.5 minutes of other people's
+    # checks for one budget. That is the idiom this repository already uses for
+    # the mutation shards and each qualification component, and it is NOT done
+    # here — it needs the memo cache's restore/save and the staged resources
+    # moved with it, and a cache key that two jobs in one run cannot collide
+    # on. `MISSING.md` M-307 names it open rather than leaving it implied. It is
+    # deliberately not bundled with a budget raise: a mistake in it takes the
+    # nightly down, and this paragraph's whole subject is a nightly that has
+    # been down.
+    #
     # A WARM night is unaffected and still ~90m — the ceiling is a bound on
     # the cold path, not a cost every night pays. The next step added here
     # re-measures this paragraph off a run; it does not extend it.
-    timeout-minutes: 350
+    timeout-minutes: 360
     steps:
       - uses: actions/checkout@v5
 
@@ -3917,16 +3967,18 @@ jobs:
           # Measured, both arms, under `bash -e`.
           before=$(grep -vc '^#' "$MEMO" 2>/dev/null || true); before=${before:-0}
           set +e
-          # 180m, RAISED FROM 150 ON 2026-09-22 SO A COLD REBUILD FITS IN ONE
-          # NIGHT, and the number is the corpus's own cost rather than a round
-          # figure: run 2338 reached 7,800 of 8,536 items in exactly 150m, so
-          # the whole corpus from scratch is ~164m and 150 was ~14m short —
-          # every cold night spent 150 minutes and exited 124 by ~9%.
+          # ~~180m~~ 200m, RAISED FROM 150 ON 2026-09-22 SO A COLD REBUILD FITS
+          # IN ONE NIGHT, and the number is the corpus's own cost rather than a
+          # round figure: run 2338 reached 7,800 of 8,536 items in exactly 150m,
+          # so the whole corpus from scratch is ~164m and 150 was ~14m short —
+          # every cold night spent 150 minutes and exited 124 by ~9%. 180 gave
+          # that ~10% headroom; 200 gives ~22%, taken from the job ceiling's own
+          # raise to the platform maximum the same day (see `timeout-minutes`).
           # The job ceiling above is what pays for it; the paragraph there is
           # the arithmetic. The bound STAYS inside the step for the reason the
           # comment above gives — a step that exits cleanly always reaches the
           # save, and a job that is cancelled does not.
-          timeout 180m python3 quality/song_profile_calibration.py --check
+          timeout 200m python3 quality/song_profile_calibration.py --check
           rc=$?
           set -e
           # Same guard, same reason: if the run above refused before writing
