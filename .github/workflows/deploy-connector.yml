@@ -308,10 +308,52 @@ jobs:
           MCP_LIVE_URL: ${{ vars.CONNECTOR_URL != '' && format('{0}/mcp', vars.CONNECTOR_URL) || '' }}
         run: |
           npm --prefix mcp ci --no-audit --no-fund
+          echo "verifying ${MCP_LIVE_URL:-the address check_live.mjs documents}"
           deadline=$((SECONDS + 1800))
           until node mcp/check_live.mjs --commit="$TESTED_SHA" --ready --config=render --image-manifest=verified-image/lyrics-image.json; do
             if [ "$SECONDS" -ge "$deadline" ]; then
               echo '::error::Render did not serve the verified commit and configuration within 30 minutes'
+              exit 1
+            fi
+            sleep 30
+          done
+
+      # AND THE ADDRESS PEOPLE ACTUALLY USE IS A SECOND QUESTION, ASKED HERE
+      # SINCE 2026-09-22 (M-308). The step above verifies `vars.CONNECTOR_URL`
+      # — the Render service — and the comment on it is right that the address
+      # is configuration. What it does not say is that `check_live.mjs`'s own
+      # default, `https://mcp.codexmusica.com/mcp`, is a DIFFERENT address: it
+      # is the one `AGENTS.md` publishes, the one a client adds as a custom
+      # connector, and the one the nightly's freshness step checks. So a
+      # deploy could verify the Render host, go green, and leave the
+      # documented endpoint serving an older connector with nothing able to
+      # say so until the nightly — which is what happened: run 216 verified
+      # 08adfcff at 01:34 on 2026-09-22 and the nightly read
+      # `DRIFT — 3 difference(s)` against the public address at 13:20, naming
+      # `edit_recipe`, `render_recipe` and `lyric_revise` inputSchemas.
+      # TWO ADDRESSES, ONE QUESTION, AND THE GATE WAS ON THE ONE NOBODY USES.
+      #
+      # It runs only when the two addresses actually differ, because with
+      # `CONNECTOR_URL` unset the step above already IS this check and a
+      # second copy would be one question asked twice (doctrine 1). It polls
+      # on the same deadline: a custom domain in front of the service can lag
+      # the service itself, and a routing layer that never catches up is
+      # exactly the failure this step exists to name rather than a reason to
+      # skip it.
+      - name: Verify the address the product documents
+        if: steps.guard.outputs.go == 'yes' && vars.CONNECTOR_URL != ''
+        env:
+          TESTED_SHA: ${{ steps.sha.outputs.sha }}
+        run: |
+          echo "verifying the documented endpoint (check_live.mjs's own default)"
+          deadline=$((SECONDS + 1800))
+          until node mcp/check_live.mjs --commit="$TESTED_SHA" --ready --config=render --image-manifest=verified-image/lyrics-image.json; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo '::error::the Render service serves the verified commit but the documented endpoint does not'
+              echo 'The deploy reached the service and not the address clients use. Check the'
+              echo 'custom domain / routing in front of it; do NOT relax this check, because'
+              echo "the nightly's deployment-freshness step asks this same question and a"
+              echo 'green deploy that leaves it red is the gap this step was added to close.'
               exit 1
             fi
             sleep 30

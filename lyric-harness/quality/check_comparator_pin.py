@@ -18,8 +18,13 @@ reach and blocked every deploy behind it until the row was repinned (#311,
 
 The defect was never the change. It was the SILENCE: a comparator can move in
 a one-line diff, and the instrument that notices is the most expensive one in
-the tree, so it notices late and somewhere else. This gate is cheap -- four
-file hashes, a repr and two function sources -- and it turns that late,
+the tree, so it notices late and somewhere else. This gate is cheap -- ~~four
+file hashes~~ **a dependency-closure hash, three file hashes (REPINNED
+2026-09-22, `MISSING.md` M-299: `lyric_harness.py` is read as the comparator's
+transitive closure rather than whole, which narrows what is READ without
+narrowing what is COVERED -- CLAUDE.md standing rule 4 carries the argument and
+`quality/test_source_identity.py` checks the assumption it rests on)**, a repr
+and two function sources -- and it turns that late,
 displaced refusal into an immediate red on the PR that actually moved it.
 
 WHAT IT CLAIMS, AND WHAT IT DOES NOT. It claims ONLY: the comparator is

@@ -25965,7 +25965,7 @@ delivered in silence, and the silence was ours.
 ~~`lyric-harness-predictability-v1-` is added as a SECOND restore-key, after the qualification-specific prefix so a genuine re-run still prefers its own banked state (which also carries `/tmp/mutate-scratch/baseline.json`; the nightly entry carries the memo alone).~~ ~~The new step is what turns that from a guess into a line in the log; if it reports 0, the remedy is a `workflow_dispatch` of ci.yml, whose song-profile job is a bounded resumable slice that banks whatever it reaches.~~
 **THE STEP DID ITS JOB AND THE FIX BEHIND IT DID NOT.** Qualification run **34436960370** at `ab5db477`: `curves` restored, printed **`predictability memo: 0 line(s)`**, ran the full 2,400 s and returned **124**. The remedy the paragraph above prescribes had ALREADY BEEN TAKEN — CI run **34413319893** was a `workflow_dispatch` and its song-profile job banked **172,949 bytes** at **01:32:47Z** under `lyric-harness-predictability-v1-34413319893`, three hours before the restore. The restore's own log line names the entry it could not find: **`Cache not found for input keys: …, lyric-harness-predictability-v1-`**. A cache that exists, a prefix that names it, and a miss.
 **A CACHE KEY IS NOT AN ADDRESS, AND THE `path:` LIST IS THE REST OF IT.** `actions/cache` computes `version = sha256(paths.join('|') + '|' + compressionMethod + '|1.0')` and sends that ONE version alongside the primary key AND every restore-key — on the v1 REST path (`cache?keys=…&version=…`) and the v2 twirp path alike — with no version-relaxed fallback. The strings it hashes are the RAW `path:` lines as YAML split and trimmed them; `resolvePaths()` output feeds only `createTar` and never the version. ci.yml banks the memo under a ONE-line `path:`; this workflow restored under a TWO-line one. **Reimplementing `getCacheVersion` over the two literal lists: `f1a8e46d724720af…` for `~/.cache/lyric-harness`, `201f650e7f9e6d0d…` for that plus `/tmp/mutate-scratch/baseline.json`.** Those are the SHIPPED bytes and not the library in general: the rule was re-read out of actions/cache's own bundled restore script (dist/restore/index.js in THAT repository, not this one) at its SHA `0057852bfaa89a56745cba8c7296529d2fc39830`, the SHA the failing job's own log records downloading, and the compression component is `zstd-without-long` because the dist returns it whenever zstd exists at all and the job's tar line carries `--use-compress-program zstdmt` with no `--long=30`. Cache SCOPE is ruled out positively rather than waved away — both runs carry `head_branch` `main`, so a match was permitted and did not happen. The toolkit's own miss message says the shape outright — *"There exist one or more cache(s) with similar key but they have different version or scope"* — and this repository never saw it, because the restore step prints only the keys it tried. **This is M-263's shape once more and the third time in this workflow: a cross-boundary cache share that could not work, argued from the key alone.**
-**AND THE SECOND DEFECT, WHICH THIS ENTRY DID NOT SEE AND WHICH REACHING THE ENTRY WOULD NOT HAVE FIXED.** The memo is fingerprint-guarded: `comparator_fingerprint()` takes a **whole-file** hash of `lyric_harness.py` and `quality/features.py`, deliberately, so that a moved comparator costs a recomputation rather than a stale number. **M-259 added 17 lines to `quality/features.py`** — between the nightly's `a1666165` and qualification's `ab5db477`. So the memo banked that night was banked under a fingerprint that no longer existed, and a successful restore would have been read, DISCARDED by name, and recomputed. Reaching the entry and being able to use it are two different repairs. This entry only ever attempted the first, and got neither.
+**AND THE SECOND DEFECT, WHICH THIS ENTRY DID NOT SEE AND WHICH REACHING THE ENTRY WOULD NOT HAVE FIXED.** The memo is fingerprint-guarded: `comparator_fingerprint()` takes a **whole-file** hash of `lyric_harness.py` and `quality/features.py`, deliberately, so that a moved comparator costs a recomputation rather than a stale number. **(REPINNED 2026-09-22, M-299: the `lyric_harness.py` half is its dependency CLOSURE now, not the whole file. The `features.py` half is unchanged and this entry's finding is untouched either way -- M-259's 17 lines were IN `features.py`.)** **M-259 added 17 lines to `quality/features.py`** — between the nightly's `a1666165` and qualification's `ab5db477`. So the memo banked that night was banked under a fingerprint that no longer existed, and a successful restore would have been read, DISCARDED by name, and recomputed. Reaching the entry and being able to use it are two different repairs. This entry only ever attempted the first, and got neither.
 **SO THE WARM PATH IS A COMMIT-ORDERING FACT, NOT A CACHE FACT.** `nightly` runs on `workflow_dispatch` or the 4:17 cron, and both crons are commented out under M-227 — so warming the memo for a qualification at SHA X means dispatching ci.yml **at X**, not merely recently. Any commit touching either comparator file between the two dispatches puts the memo back to cold, silently, and the gate then rests on unrelated history.
 **WHAT SHIPS, AND THE BUDGET IS THE HALF THAT DOES NOT DEPEND ON LUCK.** (1) One restore step PER PRODUCER, each with a `path:` byte-identical to that producer's, and the paired saves split the same way — a save's version comes from the same function, so a combined save is unreachable from split restores. The memo save is unguarded and the job now `mkdir -p`s its directory, because splitting one two-path save into two one-path saves turns "one of the two existed" into "this one must"; the baseline save is guarded on `-s`, since nothing creates a baseline for `song`, `short` or `curves` and a zero-byte file would restore into a JSON parse error rather than a cold start. (2) **`spec('curves')` moves 2,400 → 14,400 s.** FOUR ONE-PROCESS COLD READINGS BRACKET 6,506-9,072 CPU-s: ci.yml's `TOTAL 8,758.6 CPU-s` from run 33305249323's PHASE COST table; the band cell's **9,072 CPU-s** for the same arm (`RESULTS_SONG_FLOOR.md`); ~8,450 (`RESULTS_CACHE_IDENTITY.md`); and the most recent, CI run 34413319893's `population 6,505.6`. 14,400 is **1.59x-2.21x** a cold one-process run, and the `component` matrix already budgets 14,400 per mutation shard — so curves paying its own cold cost does not extend this run's critical path by a second. **The warm path is now an optimisation and the gate no longer depends on it.**
 **`song` WAS MOVED TO 14,400 AND MOVED STRAIGHT BACK, BECAUSE A RUN MEASURED IT WHILE THE CHANGE WAS IN FLIGHT. STRUCK, NOT DELETED (doctrine 17).**
@@ -26846,7 +26846,7 @@ otherwise — which it did, on this paragraph's first draft.
 
 **353** with this entry (2026-09-19).
 
-### M-299 · The resumable predictability memo does not resume — it SHRANK on both nights that instrument it, and the counter that would have said so renders a negative delta as `+-536` `OPEN` 2026-09-19 — found by reading the nightly's own log after it exited 124 for the second night running
+### M-299 · The resumable predictability memo does not resume — it SHRANK on both nights that instrument it, and the counter that would have said so renders a negative delta as `+-536` `CLOSED` 2026-09-22 (built; tonight's scheduled nightly measures) — found by reading the nightly's own log after it exited 124 for the second night running, closed under the owner's order, verbatim: *"we haven't had a green nightly in quite some time.  Work until you have fixed the problem(s)"*
 
 **WHAT TWO ENTRIES REST ON.** `MISSING.md` M-260 states that the calibration
 step is *"a bounded resumable slice that banks whatever it reaches"*, so **"a
@@ -26990,6 +26990,72 @@ cost. The memo is written sorted and items differ in length, so the two rates
 (53.33 and 49.33 rows/min, ~8% apart across two runs on different runners) are
 a first-order figure and not a measurement of the tail. Nothing here is
 adopted and no constant is tuned to it (doctrine 58).
+
+**CLOSED 2026-09-22, AND THE RULING IS A FOURTH OPTION THIS ENTRY DID NOT
+NAME — PLUS THE FIRST ONE IT PRICED.** The three it listed were: raise the
+slice, key the memo per row by fingerprint, or freeze the comparator for a run
+of nights. The second is the one this entry warned would weaken a guard whose
+over-inclusiveness is doctrine 16's design, and it is not what shipped.
+
+**THE FOURTH OPTION IS TO NARROW WHAT THE FINGERPRINT READS WITHOUT NARROWING
+WHAT IT COVERS.** `comparator_fingerprint_parts()` hashed all 13,161 lines of
+`lyric_harness.py`. It now hashes `quality/source_identity.definition_closure`
+of that file over the names the two importers actually TAKE from it —
+`quality/features.py`'s three import statements (two of them INSIDE function
+bodies) and this module's own `lyric_harness.<attr>` uses, read off their
+source by `module_entry_names` rather than written down, so the entry set
+widens by itself when an import does. **62 of ~220 top-level names, 104,556 of
+the file's ~500,000 characters.**
+
+**IT IS NOT OPTION 2 AND THE DIFFERENCE IS THE WHOLE ARGUMENT.** Per-row
+keying lets a row computed under one comparator survive under another — a
+stale hit. This discards the WHOLE memo exactly as before, on any change to
+anything the comparator can reach. The closure is TRANSITIVE, so a change to a
+helper five calls deep still moves the hash; the reached NAMES are hashed
+beside the text, so a definition entering or leaving the comparator's reach
+moves it even with every definition's own bytes unchanged; and only definitions
+nothing reachable mentions are dropped.
+
+**THE ASSUMPTION THAT WOULD BREAK IT IS CHECKED, NOT ASSUMED.** A closure taken
+by name is complete only while the reachable definitions look their
+collaborators up by name. `quality/test_source_identity.py` §4 parses the
+closure and counts every `getattr`/`globals`/`eval`/`exec`/`vars` call whose
+target is a module rather than an instance: **0 over 62 definitions and 104,556
+characters**, with the population printed beside the verdict so the section
+cannot pass by examining nothing (doctrine 20). §3 proves transitivity on the
+REAL fingerprint rather than a re-implementation — it plants a comment inside
+`_download_retryable`, a definition no entry point names, and requires
+`comparator_fingerprint()` to move. `test_comparator_pin.py` §2 now runs the
+PAIR: a comment INSIDE a reached definition must move it, and a comment
+appended OUTSIDE every reached definition must NOT.
+
+**WHAT IT BUYS, MEASURED OVER THE 60 COMMITS BEFORE IT:**
+
+    commits touching lyric_harness.py                        10
+      would still discard the memo (the closure moved)         3
+      would NO LONGER discard it (outside the closure)          7
+
+**7 of 10 invalidations were this file's reporting half, not its comparator**,
+and each one cost a ~2.4-CPU-hour rebuild and took the nightly's bounded slice
+with it. The 3 that remain are the ones standing rule 4 is about and they still
+cost the full recomputation, which is why that rule is amended rather than
+weakened — CLAUDE.md standing rule 4 carries the coverage argument in full.
+
+**AND OPTION 1 SHIPPED WITH IT, BECAUSE THE NARROWING ALONE DOES NOT FINISH A
+COLD NIGHT.** This entry priced a from-scratch pass at 162–176 minutes against
+the 150 it is given and said correctly that raising the step alone cannot work
+because the job ceiling binds first. Both moved: the slice bound 150m -> 180m
+and the job's `timeout-minutes` 240 -> 350, on the re-measured non-song total
+of **88.5m** (not 77.4m — the 77-schema door alone grew 10.2m -> 28.0m). Cold
+worst case 88.5 + 180 + 40 + ~1 = **309.5m** of 350. A warm night is unchanged
+at ~90m. See M-307 for the half of this nobody had read: the job ceiling was
+not merely tight, it was CANCELLING nightlies before the memo save ran.
+
+**WHAT IS STILL TRUE AND UNFIXED.** `+$((after - before))` still prints `+-536`
+on a negative delta. The step now DISCLOSES the cause in words when the delta
+is negative rather than rendering the sign as progress, and no gate reads the
+number, so it is left as disclosure; the honest per-fingerprint row count this
+entry asked for is still not built.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~353~~ -> **354**.
 
@@ -27620,3 +27686,188 @@ a homophone is often the most predictable partner of its twin — and this
 entry only makes the coarse verdict agree with the named one.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~360~~ -> **361**.
+
+### M-307 · Three of the last nine nightlies were CANCELLED at the job ceiling, and a cancelled job never reaches the memo save — so the self-healing overrun heals only while the job fits, which it has not since the curve step landed `CLOSED` 2026-09-22 (built; tonight's scheduled nightly measures) — found by reading the RUNS rather than the bound arithmetic, under the owner's order, verbatim: *"we haven't had a green nightly in quite some time.  Work until you have fixed the problem(s)"*
+
+**WHAT TWO PARAGRAPHS OF `ci.yml` REST ON.** The split into
+`actions/cache/restore` + `actions/cache/save` with `if: always()` (2026-08-27,
+run #1045) exists so *"an overrun now BANKS its memo, so a night that runs out
+resumes the next night and completes, instead of restarting cold forever"*. The
+paragraph above the song step states the mechanism it depends on: *"If the JOB
+hits `timeout-minutes` it is cancelled and the cache's post step can be
+skipped — the slice would be computed and thrown away, every night, forever. A
+`timeout` inside the step makes the process exit cleanly well inside the
+budget, so the post step always runs."*
+
+**"WELL INSIDE THE BUDGET" IS THE PRECONDITION, AND IT STOPPED HOLDING.** Read
+off the runs (`gh run view <id> --json jobs`, which is how the budget paragraph
+itself says to measure):
+
+    run   date        nightly job   conclusion   last step reached
+    1651  2026-09-14      248.3m    CANCELLED    song-profile slice
+    2169  2026-09-18      242.0m    CANCELLED    song-profile slice
+    2248  2026-09-19      242.7m    CANCELLED    song-profile slice
+    2338  2026-09-22      238.5m    failure      Bank the predictability memo
+
+**Run 2248's step list ENDS AT the slice.** The length-curve step, the
+deployment-freshness step and `Bank the predictability memo` are not in it —
+the job was cancelled at the 240-minute ceiling the instant the slice's own
+150-minute `timeout` returned, so the 150 minutes of compute it had just done
+were thrown away and the next night started cold again. That is the exact
+permanent deadlock the cache split was written to end, reintroduced from the
+other side: not by a `post-if: success()` this time, but by a job ceiling the
+steps inside it cannot fit under.
+
+**THE ARITHMETIC WAS ALSO 11 MINUTES LIGHT, AND IT WAS LIGHT IN THE FLATTERING
+DIRECTION.** M-296's BCI-10 note sums the declared bounds against a 77.4m
+non-song figure measured 2026-09-01. Re-measured off runs 2248 and 2338, the
+non-song steps are **88.5m**: feature cache 18.3m, discrimination 17.8m, the
+77-schema door **28.0m** (it was 609s = 10.2m — it nearly trebled and nothing
+re-added it up), Kalevala 12.0m, banked verdicts 8.1m, capacity 2.5m, the AUC
+null 0.6m, setup/install/fetch ~1.2m. So the cold worst case was
+88.5 + 150 + 40 = **278.5m against 240**, and the job could not finish a cold
+night however the slice behaved. BCI-10 called itself *"bound arithmetic, not a
+current completed-run measurement"* — the completed-run measurements had been
+sitting in the run list for eight days, and the hedge is what let a live
+deadlock read as a known limitation.
+
+**WHY NOTHING WENT RED IN A WAY ANYBODY WOULD READ.** A cancelled workflow run
+is not a failed one. It carries no red X on a commit status the way an exit 1
+does, `dup`-style summaries skip it, and the two runs that DID fail (2272,
+2338) failed at a step with a documented exit code (124, `INCOMPLETE`) that
+reads as progress. So the register recorded the exit-124 nights (M-296, M-299)
+and never recorded the three that were killed outright.
+
+**THE FIX IS THE ARITHMETIC AND NOTHING ELSE.** `timeout-minutes` 240 -> 350
+and the slice bound 150m -> 180m, both carrying their measurement in the
+comment beside them. 88.5 + 180 + 40 + ~1 save = **309.5m of 350**, leaving
+~40m for the growth that made this sum stale twice. The 180 is the corpus's own
+cold cost rather than a round number: run 2338 reached 7,800 of 8,536 items in
+exactly 150 minutes, so a from-scratch pass is ~164m and 150 was short by ~9%.
+**A WARM NIGHT IS UNAFFECTED at ~90m** — the ceiling bounds the cold path, it
+is not a cost every night pays.
+
+**AND THE CEILING IS THE FALLBACK NOW, NOT THE DESIGN.** M-299's closure is the
+other half: the comparator fingerprint no longer moves on 7 of 10 commits that
+touch `lyric_harness.py`, so cold nights become rare instead of nightly. Either
+change alone leaves the nightly red — a narrowed fingerprint still cannot
+finish a 164-minute rebuild in a 150-minute slice, and a raised ceiling still
+re-cools the memo every other day. **Neither is sufficient and this is
+deliberately recorded as two entries for that reason.**
+
+**RAISED AGAIN THE SAME DAY, TO THE PLATFORM CEILING, AND THAT CLOSES THE
+BUDGET QUESTION AT THIS LAYER.** The owner's instruction: *"I think it might
+help if we increased the budget by a decent bit more given that time has been
+kicking us in the butt on almost all of the nightly stuff"*, and *"let's make
+the start time an hour earlier too"*. `timeout-minutes` is **360** and the slice
+**200m** (88.5 + 200 + 40 + ~2 = 330.5m of 360, ~30m margin; the slice's
+headroom over its measured ~164m cold cost goes ~10% -> ~22%). The cron moves
+`'17 4 * * *'` -> `'17 3 * * *'`, in THREE places — the `schedule:` stanza and
+the `if:` on both `mutation` and `nightly`, which compare the literal string, so
+changing one would fire a scheduled run with those jobs silently skipped.
+
+**360 IS A LIMIT, NOT A CHOICE, AND SAYING SO IS THE POINT.** A GitHub-hosted
+job gets 6 hours of execution time; the runner kills it there whatever
+`timeout-minutes` says. A larger number would not buy a minute — it would
+replace a clean self-inflicted step timeout with a CANCELLATION, which is this
+entry's own defect. **AND AN EARLIER START BUYS LATENCY, NOT RUNTIME**: the
+ceiling is on execution, not on wall-clock time of day, so 03:17Z changes when
+the answer lands (09:17Z instead of 10:17Z on a full cold run) and changes
+nothing about what fits.
+
+**WHAT IS NOT DONE, AND THE FIRST ITEM IS NOW THE ONLY REAL HEADROOM LEFT.**
+(1) The song-profile slice and the length-curve step are still in the SAME job
+as 88.5 minutes of other people's checks. Moving them to their own job gives
+each pair its own 6 hours and drops the main nightly back to its warm ~90m —
+the idiom this repository already uses for the mutation shards and each
+qualification component. It needs the memo cache's restore/save and the staged
+resources moved with it, and a cache key two jobs in one run cannot collide on
+(the current key is `github.run_id`, which a second job would hit exactly). It
+is deliberately NOT bundled with a budget raise: a mistake in it takes the
+nightly down, and a down nightly is this entry's whole subject.
+(2) The three steps that grew (the 77-schema door 10.2 -> 28.0m is 18 of the 24
+minutes) are not investigated; a step whose cost nearly trebles is its own
+question and raising a ceiling is not an answer to it (doctrine 58).
+(3) The budget is not self-checking: the sum still lives in a comment that a
+fourth step can silently invalidate, exactly as this one did, and *"re-measure
+before adding a step"* is a sentence rather than a gate (doctrine 48). At 360
+there is no longer a larger number to reach for, which makes this the item that
+bites next.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~361~~ -> **362**.
+
+**362** with this entry (2026-09-22).
+
+### M-308 · The deploy verifies the Render service and the nightly checks the address the product documents, so a green deploy left the public connector serving three different tool schemas with nothing able to say so for eleven hours `PARTIAL` 2026-09-22 (the deploy-side gate is built; the live service is stale and only a redeploy clears it) — found by reading the nightly's freshness step log instead of its exit code, under the owner's order, verbatim: *"we haven't had a green nightly in quite some time.  Work until you have fixed the problem(s)"*
+
+**THE TWO ADDRESSES.** `deploy-connector.yml`'s `Verify the deployed runtime`
+sets `MCP_LIVE_URL` from `vars.CONNECTOR_URL` — the image-backed Render service
+at `codex-musica-mcp-tc72.onrender.com`, and M-278's comment above that step is
+right that the address is configuration rather than code. `ci.yml`'s nightly
+`Deployment freshness` step runs `node check_live.mjs` with NO argument, so it
+reads that module's own `DEFAULT_URL`: **`https://mcp.codexmusica.com/mcp`**,
+which is the address `AGENTS.md` publishes, the address a client pastes into
+*Settings → Connectors → Add custom connector*, and the only address any user of
+this product ever touches.
+
+**SO THE GATE WAS ON THE ONE NOBODY USES.** A deploy could reach the service,
+verify commit, readiness, configuration and image manifest against it, and go
+green while the documented endpoint went on serving an older connector. Nothing
+in the repository asked the second question until the nightly, hours later.
+
+**MEASURED, AND THE TIMELINE IS THE WHOLE FINDING.** Deploy run 216 verified
+sha `08adfcff` and succeeded at **01:34Z on 2026-09-22**. The nightly reached
+the freshness step at **13:20Z on the same sha** and printed:
+
+    DRIFT — 3 difference(s) between the tree and https://mcp.codexmusica.com/mcp:
+      edit_recipe: inputSchema differs
+      render_recipe: inputSchema differs
+      lyric_revise: inputSchema differs
+    the deployment is serving a different connector than this tree declares — redeploy, or explain
+
+**Eleven hours and forty-six minutes** between a verified deploy and the
+measurement that the public endpoint did not have it.
+
+**THE TREE IS NOT THE DEFECT, AND THAT WAS CHECKED RATHER THAN ASSUMED.** The
+same check against a locally booted server built from this tree —
+`PORT=8791 LYRIC_WORKER=0 node server_http.js` then
+`node check_live.mjs http://127.0.0.1:8791/mcp` — answers
+`MATCH — 21 tool(s), full tool metadata and initialization match`, exit 0. So
+`expectedSharedSurface()` and `server_http.js` agree; what disagrees is the
+thing on the far side of the public address.
+
+**WHAT IS BUILT.** `deploy-connector.yml` gains
+`Verify the address the product documents`: the same `check_live.mjs` invocation
+with no `MCP_LIVE_URL`, on the same 1800-second deadline, **only when the two
+addresses actually differ** — with `CONNECTOR_URL` unset the existing step IS
+this check and a second copy would be one question asked twice (doctrine 1). It
+polls rather than probing once, because a custom domain in front of a service can
+lag the service, and a routing layer that never catches up is the failure this
+step exists to NAME.
+
+**WHAT IS NOT DONE, AND IT IS WHY THIS IS `PARTIAL`.** The live connector is
+still stale as this is written, and nothing in this repository can clear it: the
+deploy hook is a secret, `mcp.codexmusica.com` is outside this container's
+network allowlist, and the drift is a fact about a running service rather than
+about any file. **THE OWNER'S ACTION IS A REDEPLOY** — dispatch the production
+qualification for main's tip so `deploy-connector.yml` runs, and the new step
+will then say whether the documented endpoint took it. Until then the nightly's
+freshness step is correctly red, and NOT relaxing it is the ruling: a stale
+public connector is the one failure a user of this product experiences
+directly, so exit 3 there is the check working (doctrine 96 does not apply — this
+is not a convention a writer may depart from, it is a factual disagreement
+between a deployed service and the tree).
+
+**AND THE SECOND HALF OF THE DIAGNOSIS IS UNMADE.** Whether the public address
+is a Render custom domain on the OLD service, a CDN holding a stale upstream, or
+a service that rolled back after 01:34 is not established here — it needs the
+Render dashboard, which is not in this repository. The three drifting tools are
+recorded so whoever looks can tell a whole-service lag from a partial one: all
+three differ in `inputSchema` ONLY, with tool names, count and initialization
+matching, which is the shape of a connector a few commits behind rather than a
+different build.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~362~~ -> **363**.
+
+**363** with this entry (2026-09-22).
+

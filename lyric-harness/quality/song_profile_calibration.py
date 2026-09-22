@@ -355,21 +355,41 @@ def _sha256(*chunks):
 def comparator_fingerprint():
     """Everything that can change what `predictability_frac` answers.
 
-    Deliberately OVER-inclusive on the two comparator modules: a whole-file
-    hash of `lyric_harness.py` and `quality/features.py` means editing a
-    comment in either throws away a 2.1-CPU-hour cache. That is the correct
-    direction to be wrong in -- a stale hit is a wrong number reported as a
-    measurement, and this repo has already been bitten by a rate that was a
-    coordinate of a comparator that had moved underneath it (CLAUDE.md, Test
-    discipline, on the Whitman figures). Recomputing costs time; trusting a
-    moved comparator costs the result.
+    Deliberately OVER-inclusive, and the direction is the design: a stale hit
+    is a wrong number reported as a measurement, and this repo has already
+    been bitten by a rate that was a coordinate of a comparator that had
+    moved underneath it (CLAUDE.md, Test discipline, on the Whitman figures).
+    Recomputing costs time; trusting a moved comparator costs the result.
+    `quality/features.py` is hashed WHOLE for that reason -- every one of its
+    ten features reads the same token stream, so there is no reporting half
+    of it to exclude.
 
+    THE OTHER TWO MODULES ARE READ NARROWLY -- each by what the comparator
+    actually reaches inside it -- and neither narrowing is a loosened guard.
     THIS file is included only by the two functions that define the QUESTION
     -- `predictability_frac` (whose source carries its own 0.90 cutoff) and
-    `_couplet_pairs` -- and not as a whole file, because the rest of it is reporting: an edit
-    to a print statement in section 4 cannot change what an item scores, and
+    `_couplet_pairs` -- because the rest of it is reporting: an edit to a
+    print statement in section 4 cannot change what an item scores, and
     invalidating on one would make the cache useless in a file under active
     edit, which is doctrine 48's failure mode wearing a different hat.
+    `lyric_harness.py` is included as `definition_closure` of the names the
+    two importers actually TAKE from it (`quality/source_identity.py`), which
+    is TRANSITIVE: a change to a helper five calls deep still moves the hash,
+    and only definitions nothing reachable mentions are dropped. That is the
+    same argument one file over, and it was paid for -- a whole-file hash of
+    13k lines under active edit discarded a ~2.4-CPU-hour memo on 7 of the 10
+    commits that touched it without touching anything the comparator can see,
+    and each of those took the nightly's bounded slice with it (`MISSING.md`
+    M-299). CLAUDE.md standing rule 4 governs WHEN the recomputation is paid
+    and forbids narrowing what the fingerprint COVERS; coverage here is
+    unchanged, because the closure reaches everything a reachable definition
+    names and the reached NAMES are hashed beside the text, so a change in
+    which definitions are reachable moves the fingerprint on its own.
+
+    COST: ~155 ms a call, because it parses a 13k-line file. Measured, and it
+    is affordable because of WHO calls it -- `PredictabilityCache.open()` once
+    per run, `length_curve_calibration` twice, the pin gate once -- never per
+    item. A caller that wanted it in a loop should hold the value.
     """
     return _sha256(*[value for _label, value in comparator_fingerprint_parts()])
 
@@ -382,11 +402,32 @@ def comparator_fingerprint_parts():
     say WHICH input moved instead of only that something did, and a caller that
     wanted the list would otherwise have to restate it (doctrine 1).
 
-    The labels are NOT hashed. Only the values are, in this order, exactly as
-    they were before this function was split out.
+    The labels are NOT hashed. Only the values are, and the ORDER is the one
+    this function has always folded: the `lyric_harness.py` input first (its
+    closure now, where it was a whole-file hash), then `quality/features.py`,
+    `cmudict.dict`, the frequency table, `repr(Declaration())`, and the two
+    function sources.
+
+    The closure's value carries the reached NAMES as well as the text, so a
+    definition entering or leaving the comparator's reach moves the
+    fingerprint even when every definition's own bytes are unchanged. The
+    entry set is READ off the two importers rather than written down here,
+    because a second statement of an import list goes stale the first time
+    somebody imports one more name (doctrine 1) -- and it caught that on its
+    first run: `quality/features.py` takes `_refuse` and `fold_apostrophes`
+    from inside two function bodies, two names a hand list had omitted and two
+    definitions the closure would then have missed.
     """
-    parts = []
-    for p in (lyric_harness.__file__, quality.features.__file__,
+    from quality.source_identity import (definition_closure, definition_source,
+                                         module_entry_names)
+    entries = sorted(
+        set(module_entry_names(quality.features.__file__, "lyric_harness"))
+        | set(module_entry_names(__file__, "lyric_harness")))
+    reached, closure = definition_closure(lyric_harness.__file__, entries)
+    parts = [("lyric_harness.py closure",
+              "lyric_harness.py:" + ",".join(reached) + ":"
+              + hashlib.sha256(closure.encode("utf-8")).hexdigest())]
+    for p in (quality.features.__file__,
               lyric_harness.CMUDICT_PATH, lyric_harness.FREQ_PATH):
         try:
             with open(p, "rb") as fh:
@@ -398,7 +439,6 @@ def comparator_fingerprint_parts():
             # hash DIFFERENTLY from a present one, not crash the fingerprint.
             parts.append((os.path.basename(p), "ABSENT:" + os.path.basename(p)))
     parts.append(("Declaration()", repr(lyric_harness.Declaration())))
-    from quality.source_identity import definition_source
     parts.append(("predictability_frac", definition_source(predictability_frac)))
     parts.append(("_couplet_pairs", definition_source(_couplet_pairs)))
     return parts
