@@ -118,7 +118,7 @@ def test_battery_is_unmoved():
 
 
 def _production_oracle():
-    with open(os.path.join(HERE, 'production_relation_oracle.json')) as stream:
+    with open(os.path.join(HERE, 'report_slang_oracle.json')) as stream:
         return json.load(stream)
 
 
@@ -484,9 +484,7 @@ def test_real_population_against_shakespeares_own_form():
           "carcanet, nought, jollity, strumpeted, attainted, 'greeing — "
           "words no morphology reaches, because they are not derived")
     oracle = _production_oracle()
-    uncertainty = {(row['sonnet'], *row['lines'])
-                   for key in ('new_reading_refusals', 'default_schema_refusals')
-                   for row in oracle[key]}
+    uncertainty = {tuple(row) for row in oracle['uncertainty_refusals']}
     check("G2P preserves every exact known-reading/schema uncertainty refusal",
           {p for p, row in details0.items() if not row['unreadable']} == uncertainty
           and r1 == uncertainty | _HIGH_LEXICAL_REFUSALS)

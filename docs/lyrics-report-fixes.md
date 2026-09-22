@@ -47,6 +47,11 @@ current-baseline prose (R14) are updated together.
   provenance failures. They pass with these fixes.
 - Changed JavaScript passed ESLint and Prettier checks; documented-path and
   whitespace checks passed.
+- CI exposed two additional stale sonnet summaries. The counters writer updated
+  the backlog row; the independent span audit measured 605 attributed pairs,
+  365 misnamed pairs, and four mosaic violations over the new population.
+  Current span and G2P tests use the exact new partition while the previous
+  production oracle remains historical.
 
 These are regression fixtures. HTTP model responses are stubbed where specified
 by the existing suites; the native creation and run tests execute the real MCP

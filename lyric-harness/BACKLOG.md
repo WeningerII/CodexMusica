@@ -2156,7 +2156,7 @@ never one (doctrine 79).
 | `corpus/song/eng_*` — K-1's own quantities | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | `data/sources.tsv` rows | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | `data/lyricists.tsv` rows | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
-| sonnet battery | 4/967 = 0.4% violations (`mandated 1064, judged 967, refused 97`) | `python3 battery.py` |
+| sonnet battery | 7/970 = 0.7% violations (`mandated 1064, judged 970, refused 94`) | `python3 battery.py` |
 | band FPR on random pairs | **2.10%** (84 of 4,000 at seed 20260810, the runner's own default n; 2.00% = 60 of 3,000 at n=3,000 — the population size is a coordinate) | `python3 quality/redteam_band.py` |
 | register-audit findings | **0** — FALSE derivations: none | `python3 quality/audit_register.py` |
 | adversaries built, of 8 | REFUSED (judgement) — `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them (the INSTRUMENT column is checkable and `quality/verify_entries.py` checks it) | `read BACKLOG.md §0` |
