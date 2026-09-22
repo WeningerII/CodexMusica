@@ -324,7 +324,12 @@ class ProductionRevisionTests(unittest.TestCase):
         b = next(b for b in r.brief(lines, m, target_lines={2})
                  if b.line_no == 2)
         self.assertTrue(b.joint_conflict)
-        self.assertNotIn('york', dict(b.partial_by_call).get('Dark', ()))
+        # REPINNED for relation SETS: `york` was excluded while Dark/york
+        # carried one label other than CONSONANCE; its coda agrees, so it
+        # stands in CONSONANCE among its relations and the declared judge
+        # accepts it. What binds is below: every word offered for a call
+        # passes the declared relation through `grade()`.
+        self.assertTrue(dict(b.partial_by_call).get('Dark'))
         from quality.loop import swap_at_slot
         for call, words in b.partial_by_call:
             mates = [ln for ln in m.groups[0] if ln != 2 and
@@ -353,22 +358,17 @@ class ProductionRevisionTests(unittest.TestCase):
         self.assertEqual(failed, [])
 
     def test_kept_anchor_disclosure_names_its_actual_position(self):
-        from quality import pronunciation as P
-        case = json.loads((Path(__file__).parent / 'results' /
-                           'capacity_followup_2026-09-21' /
-                           'last_bus_case.json').read_text())
-        lex = copy.copy(self.reviser.lex)
-        lex.pronunciations = P.validate_choices(case['pronunciations'], lex)
-        r = Reviser(lex=lex)
-        m = mandate([g.split(',') for g in case['groups'].split(';')],
-                    n_lines=12, default_relation='class:CONSONANCE',
-                    returns=[[8, 9]])
-        from quality.plan import fill_plan
-        from quality.fit import Subdivision
-        plan = case['plan']
-        v = r.verify(case['before'], case['after'], m, targeted={1},
-                     blueprint=fill_plan(plan, case['before']),
-                     subdivision=Subdivision(1, source='frozen public plan'))
+        # REPINNED for relation SETS: the recorded last-bus case violated its
+        # first-word place only while `class:CONSONANCE` was one exclusive
+        # label; judged by membership that place holds and the case no
+        # longer reaches the disclosure. Constructed instead (doctrine 94):
+        # L2's violated PRIMARY place is its first word, the revision fixes
+        # the end group and keeps that first word.
+        before = ['Snow fills the old van', 'Rain taps the cold bus']
+        after = ['Snow fills the old van', 'Rain taps the cold man']
+        m = mandate([['1.head', '2.head'], [1, 2]], n_lines=2,
+                    relations={'A': 'class:ASSONANCE', 'B': 'class:RHYME'})
+        v = self.reviser.verify(before, after, m, targeted={2})
         self.assertTrue(v['accepted'], v['reasons'])
         kept = next(s for s in v['reasons'] if 'KEPT' in s)
         self.assertIn("KEPT its first word 'Rain'", kept)
