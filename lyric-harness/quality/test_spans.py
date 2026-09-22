@@ -687,9 +687,12 @@ def test_the_sweep_runs_and_reports_three_counts():
     check("the full span-kind partition matches the measured oracle",
           [{"kinds": list(k), "n": v} for k, v in sorted(r["pair_kinds"].items())]
           == ATTRIBUTION["pair_kinds"])
+    # Each row carries EVERY relation the violating pair stands in (the
+    # N-relation model), so the oracle pins the relation SET as well.
     check("the exact violations retain their independent attribution witnesses",
           [{key: list(v[key]) if isinstance(v[key], tuple) else v[key]
-            for key in ("sonnet", "lines", "endwords", "claim", "kinds")}
+            for key in ("sonnet", "lines", "endwords", "relations", "claim",
+                        "kinds")}
            for v in r["violation_rows"]] == ATTRIBUTION["violation_rows"])
     check("ties match the measured oracle; 7 former ties are now refused",
           r["ties"] == ATTRIBUTION["current"]["ties"]
