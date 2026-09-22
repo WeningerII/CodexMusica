@@ -3610,7 +3610,10 @@ def test_the_collision_cut_is_one_constant_and_cannot_drift():
     src = open(os.path.join(root, "lyric_harness.py"), encoding="utf-8").read()
     check("and the llusg threshold is still a SEPARATE literal, deliberately "
           "not bound to it",
-          len(re.findall(r'if s\["total"\] >= 0\.9:', src)) == 1,
+          # The llusg rhyme is a RELATION test at this literal cut since
+          # 2026-09-22 (a scalar alone admitted assonance as the rhyme).
+          len(re.findall(r'admits\(s, 0\.9, relations=RHYME_RELATIONS\)',
+                         src)) == 1,
           "one question, one coordinate — the collision cut and a Welsh "
           "imitation's rhyme test are not the same setting")
 
@@ -5186,8 +5189,10 @@ def test_the_plan_report_discloses_density_and_audibility():
           and au['end_bound'] == (au['audible'] + au['bare']
                                  + len(au['inaudible']) + len(au['unclassified'])),
           f"{m2.group(0)[:90] if m2 else 'no AUDIBLE line'}")
-    check("...and says it is a record, not a gate — the dice are untouched",
-          "A record, not a gate" in out)
+    check("...and says it is a record, not a gate, and that no relation is "
+          "drawn — a bare group is judged against every relation",
+          "A record, not a gate" in out and "no relation is drawn" in out
+          and "RELATION: none declared and none drawn" in out)
     # An explicit global relation was previously called a bare default and
     # described as drawn. Exercise the actual CLI with that different route.
     rc_declared, out_declared, _ = run(
@@ -5200,7 +5205,8 @@ def test_the_plan_report_discloses_density_and_audibility():
           and declared['bare'] == declared['audible'] == 0
           and declared['unclassified'] == ['class:CONSONANCE'] * declared['end_bound']
           and '0 on the bare default' in out_declared
-          and 'relations were declared, not drawn' in out_declared,
+          and 'DECLARED, not sampled' in out_declared
+          and 'none declared and none drawn' not in out_declared,
           str(declared))
     brief = plan.get("writer_brief", "")
     check("the writer brief carried in the blueprint has the legend and the "
@@ -5591,6 +5597,18 @@ def test_density_declares_its_line_window():
                                LH.Declaration(), window=2)
         check("the API returns the window it read, beside the numbers",
               res["window"] == 2, res["window"])
+        # PER RELATION (the N-relation model): each relation a match stands
+        # in gets its own coverage; `overall` is their union, so no
+        # relation's share exceeds it. lamp/damp and out/stout are perfect
+        # rhymes, so RHYME, ASSONANCE and CONSONANCE each carry them.
+        br = res["by_relation"]
+        check("density is reported PER RELATION — a perfect-rhyme match "
+              "counts toward RHYME, ASSONANCE and CONSONANCE alike — and no "
+              "relation's share exceeds the union `overall`",
+              br and set(br) <= set(LH.ADMITTABLE_RELATIONS) | {"REPEAT"}
+              and {"RHYME", "ASSONANCE", "CONSONANCE"} <= set(br)
+              and max(br.values()) <= res["overall"],
+              f"{br} overall {res['overall']}")
     finally:
         os.unlink(tmp.name)
     from quality import relations as RL

@@ -1232,7 +1232,11 @@ class Welsh(Phonology):
 
     def relation_type(self, a, b, depth=RIME_DEPTH, rule=RHYME_RULE,
                       diacritics=DIACRITICS, glide=GLIDE):
-        """-> REPEAT / RIME_RICHE / RHYME / NONE / None.
+        """-> the SET of relations the pair stands in, a frozenset over
+        {REPEAT, RIME_RICHE, RHYME}; empty when it stands in none; None when
+        `rhymes` cannot decide. The relations NEST, and every one that holds
+        is returned: a repeat is also rime riche (the rime and its onset
+        agree) and also rhyme; rime riche is also rhyme.
 
         Doctrine 3: identity is not rhyme, and this repo has already been bitten
         by not typing it -- half of `corpus/whitman.txt`'s detected chain links
@@ -1251,16 +1255,17 @@ class Welsh(Phonology):
         if v is None:
             return None
         if not v:
-            return "NONE"
+            return frozenset()
+        out = {"RHYME"}
         sa = self._sylls_for_rime(a, diacritics)
         sb = self._sylls_for_rime(b, diacritics)
         if [s.text for s in sa] == [s.text for s in sb]:
-            return "REPEAT"
+            out.add("REPEAT")
         d = max(1, min(depth, len(sa), len(sb))) if rule == "depth" else depth
         i, j = self._rime_start(sa, rule, d), self._rime_start(sb, rule, d)
         if [s.text for s in sa[i:]] == [s.text for s in sb[j:]]:
-            return "RIME_RICHE"
-        return "RHYME"
+            out.add("RIME_RICHE")
+        return frozenset(out)
 
     def refusal_reason(self, word, depth=RIME_DEPTH, rule=RHYME_RULE,
                        diacritics=DIACRITICS, glide=GLIDE):

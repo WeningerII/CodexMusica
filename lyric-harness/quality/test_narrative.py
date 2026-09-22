@@ -456,11 +456,20 @@ def test_the_wired_draw():
     #: is the entire point, and the M-120 entry's own before/after table
     #: records the same movement over seeds 1-40 (inaudible 87 -> 0, bare
     #: 20 -> 54).
-    check("seed 31's exact current relation draw re-derives",
-          {k:pl["relations"].get(k) for k in ("A","D","F","J")} == {
-              "A":"schema:head rhyme (positional)", "D":"schema:pararhyme",
-              "F":None, "J":None},
-          {k:pl["relations"].get(k) for k in ("A","D","F","J")})
+    #: REPINNED 2026-09-22 (N relations per pair): THE PLANNER DRAWS NO
+    #: RELATION. Every group is judged against every coarse relation and
+    #: every registry schema, so seed 31 carries no per-group label at all
+    #: (was A head rhyme, D pararhyme, F/J bare) and the choice record says
+    #: why. Measured: lines 12, 79 groups, 0 labels; the narrative draw
+    #: (34112 line-ups, 7 atoms, 6 junctions) held.
+    check("seed 31 draws NO relation: no group carries a label and the "
+          "choice record says every group is judged against every relation",
+          pl["relations"] == {}
+          and pl["choices"]["relations"]["chosen_from"].startswith(
+              "NOT DRAWN — every group is judged against the whole "
+              "vocabulary"),
+          {"relations": pl["relations"],
+           "chosen_from": pl["choices"]["relations"]["chosen_from"][:60]})
     #: REPINNED A SIXTH TIME 2026-08-30 (`MISSING.md` M-174), and this move
     #: is the NARROWEST of the six, which is itself the reading: the
     #: overhang filter refuses a self-contradicting group its RELATION, not
@@ -474,10 +483,10 @@ def test_the_wired_draw():
     #: exists. Two labels whose groups are end-bound drew a relation
     #: inaudible at a line end and now carry the bare default, which is
     #: recorded as no entry at all.
-    check("seed 31 now draws the executable floor 12, with 79 groups and 6 labels; "
+    check("seed 31 now draws the executable floor 12, with 79 groups and 0 labels; "
           "the prior 18/147/9 draw remains recorded above",
           pl["total_lines"] == min(P.fillable_line_counts()) == 12
-          and len(pl["groups"]) == 79 and len(pl["relations"]) == 6,
+          and len(pl["groups"]) == 79 and len(pl["relations"]) == 0,
           f"lines {pl['total_lines']}, groups {len(pl['groups'])}, labels {len(pl['relations'])}")
     nar = pl["narrative"]
     #: REPINNED 2026-09-05 (M-239) WITH THE LENGTH: seed 31's roster is

@@ -214,16 +214,19 @@ def test_mandate_coordinate():
         except NoMandate:
             check("%s refuses IN THE MANDATE LAYER'S OWN TYPE, so every "
                   "CLI surface turns it into REFUSED at exit 2" % why, True)
-    try:
-        mandate("ABAB", relations={"A": "qafiya"},
-                structures={"A": "perfect-rhyme"})
-        check("a group declaring BOTH a structure and a relation refuses",
-              False, "it was accepted")
-    except NoMandate as e:
-        check("a group declaring BOTH a structure and a relation refuses — "
-              "two judges over one group's pairs, and which answered would "
-              "depend on grade()'s branch order (doctrine 1)",
-              "two judges" in str(e))
+    both = mandate("ABAB", relations={"A": "qafiya"},
+                   structures={"A": "perfect-rhyme"})
+    check("a group may declare BOTH a structure and a relation — a pair "
+          "stands in many relations at once, so both demands are carried "
+          "and `grade()` requires each",
+          both.relations[0] == "type:qafiya"
+          and both.structures[0] == "perfect-rhyme",
+          (both.relations, both.structures))
+    many = mandate("ABAB", relations={"A": ["ASSONANCE", "schema:pararhyme"]})
+    check("...and one group may require SEVERAL relations of a pair "
+          "(`relations_of` lists every one)",
+          many.relations_of(0) == ("class:ASSONANCE", "schema:pararhyme")
+          and many.relations_of(1) == (), many.relations)
     ok = mandate("ABAB", relations={"A": "qafiya"},
                  structures={"B": "perfect-rhyme"})
     check("...but the two coordinates coexist on DIFFERENT groups, which "
@@ -246,12 +249,20 @@ def test_grade_routing():
     check("a declared named type the pair does NOT satisfy FLAGS, and the "
           "finding names the relation", w and "feminine rhyme" in w, w)
     # THE STRICTER HALF, and the reason this is not a wider global set.
-    a = _why(relations={"A": "ASSONANCE"})
-    check("A GROUP DECLARING ASSONANCE IS NOT SATISFIED BY A FULL RHYME. "
-          "This is what a global widening could never express: adding "
-          "ASSONANCE to `admits()` makes every requirement in every song "
-          "satisfiable by assonance — looser. Asked per group, the same "
-          "name is STRICTER.", a and "ASSONANCE" in a, a)
+    check("A FULL RHYME ALSO STANDS IN ASSONANCE, so a group declaring "
+          "ASSONANCE is satisfied by it (membership, not one label)",
+          _why(relations={"A": "ASSONANCE"}) is None,
+          _why(relations={"A": "ASSONANCE"}))
+    a = _why(relations={"A": "RIME_RICHE"})
+    check("...and a declared relation the pair does NOT stand in still "
+          "binds: night/light is not rime riche. Asked per group, a name "
+          "is STRICTER than the default",
+          a and "RIME_RICHE" in a, a)
+    b = _why(relations={"A": ["ASSONANCE", "RIME_RICHE"]})
+    check("a group requiring SEVERAL relations fails when any one is "
+          "missing", b and "RIME_RICHE" in b, b)
+    check("...and passes when the pair stands in all of them",
+          _why(relations={"A": ["ASSONANCE", "RHYME"]}) is None)
     check("an unreadable member REFUSES the pair rather than failing it",
           str(_R.grade(["zzzqx qqzzx", "and everything I own is light"],
                        mandate("AA", relations={"A": "masculine rhyme"}))
@@ -541,9 +552,16 @@ def test_the_schema_namespace_is_judged():
           (g["violations"], g["refusals"]))
 
     g = _grade("schema:consonance")
-    check("...and VIOLATED where it does not — the same pair is a full "
-          "rhyme, not a consonance, so the schema route is STRICTER than "
-          "the coarse door and not merely another way to pass",
+    check("a full rhyme ALSO stands in consonance, so `schema:consonance` "
+          "is satisfied by the same pair (a pair holds every relation its "
+          "sound supports)",
+          not g["violations"] and not g["refusals"],
+          (g["violations"], g["refusals"]))
+    g = _grade("schema:pararhyme")
+    check("...and VIOLATED where it does not hold — much/touch share their "
+          "vowel, so `schema:pararhyme` (vowel differs) fails: the schema "
+          "route is STRICTER than the default and not merely another way "
+          "to pass",
           len(g["violations"]) == 1 and not g["refusals"],
           (g["violations"], g["refusals"]))
 
@@ -722,7 +740,7 @@ def test_identity_is_the_schemas_own_ruling():
 
 def test_the_drawable_pool_holds_through_the_grade_route():
     """§10 — THE M-148 GATE. The certified draw pool and the mandate judge
-    must agree: every name in `relations.DRAWABLE_SCHEMAS` accepts an answer
+    must agree: every name in `relations.DRAWABLE_EXHIBITS` accepts an answer
     THROUGH THE GRADE ROUTE — `Reviser.grade` on a mandate declaring the
     schema — never only through the `realise()` stream the certificate was
     issued on. M-148's finding is that the two routes disagreed and nothing
@@ -751,29 +769,14 @@ def test_the_drawable_pool_holds_through_the_grade_route():
           "grade route")
     from quality import relations as RL
     rv = Reviser()
-    wlines = list(RL.DRAWABLE_WITNESS_LINES)
-    wsections = list(RL.DRAWABLE_WITNESS_SECTIONS)
-    from quality import phonology as PH
-    wstream = RL.build_stream(
-        wlines, PH.get("eng"), sections=wsections,
-        stanzas=RL.stanzas_from_sections(wsections),
-        stanza_source="declared_sections",
-        declaration={"language": "eng"})
+    # The planner draws no schema now; the exhibit table
+    # (`relations.DRAWABLE_EXHIBITS`) is the certified set, each exhibit
+    # judged through `Reviser.grade` on a mandate declaring the schema.
     bad = []
-    for name in RL.DRAWABLE_SCHEMAS:
-        ps = RL.line_pairs_for(RL.REGISTRY[name], wstream)
-        if isinstance(ps, RL.Refusal) or not ps:
-            # The old aggregate poem can contain ambiguous CMU readings.
-            # Certify the dedicated example through its declared slots.
-            a, b, sa, sb = RL.DRAWABLE_EXHIBITS[name][0]
-            g = rv.grade([a, b], mandate([[sa, sb]], n_lines=2,
-                         default_relation=f"schema:{name}"))
-        else:
-            i, j = min(ps)
-            g = rv.grade(wlines,
-                         mandate([[i, j]], n_lines=len(wlines),
-                                 default_relation=f"schema:{name}"),
-                         sections=wsections)
+    for name in sorted(RL.DRAWABLE_EXHIBITS):
+        a, b, sa, sb = RL.DRAWABLE_EXHIBITS[name][0]
+        g = rv.grade([a, b], mandate([[sa, sb]], n_lines=2,
+                     default_relation=f"schema:{name}"))
         if g["violations"] or g["refusals"]:
             bad.append((name, g["violations"]
                         or [r["reason"][:90] for r in g["refusals"]]))
@@ -993,8 +996,8 @@ def test_the_default_door_reads_normative():
           "`homoioteleuton`, the tier-1 ban, among them — so the filter "
           "is live and not vacuous",
           "homoioteleuton" in bad and len(bad) >= 3, f"{sorted(bad)}")
-    check("...and none of them is drawable by the planner",
-          not (set(bad) & set(RL.DRAWABLE_SCHEMAS)))
+    check("...and none of them has a certified exhibit row",
+          not (set(bad) & set(RL.DRAWABLE_EXHIBITS)))
 
 
 def test_every_drawable_schema_answers_its_own_example():
@@ -1027,13 +1030,8 @@ def test_every_drawable_schema_answers_its_own_example():
             return "REFUSED: " + g["refusals"][0]["reason"][:80]
         return "violated" if g["violations"] else "satisfied"
 
-    check("every name in the drawable pool has an exhibit row, and every "
-          "row names a drawable schema — the table and the pool are one set",
-          set(RL.DRAWABLE_EXHIBITS) == set(RL.DRAWABLE_SCHEMAS),
-          f"missing {sorted(set(RL.DRAWABLE_SCHEMAS) - set(RL.DRAWABLE_EXHIBITS))}, "
-          f"extra {sorted(set(RL.DRAWABLE_EXHIBITS) - set(RL.DRAWABLE_SCHEMAS))}")
     wrong = []
-    for name in RL.DRAWABLE_SCHEMAS:
+    for name in sorted(RL.DRAWABLE_EXHIBITS):
         ex, con = RL.DRAWABLE_EXHIBITS[name]
         got_ex, got_con = _grade(name, *ex), _grade(name, *con)
         if got_ex != "satisfied":
@@ -1106,8 +1104,9 @@ def test_e2_default_grade_reaches_the_registry():
     m = mandate("AA")
     graded = rv.grade(lines, m)
     v = graded["verdicts"][0]
-    check("a scalar NO_RELATION is satisfied by the internal-rhyme schema",
-          v["relation"] == "NO_RELATION" and v["why"] is None
+    check("a pair admitted in NO coarse relation is satisfied by the "
+          "internal-rhyme schema",
+          not v["admitted"] and v["why"] is None
           and "internal rhyme" in v.get("satisfied_by", ())
           and not graded["violations"] and not graded["refusals"])
 
@@ -1139,8 +1138,15 @@ def test_the_edge_label_carries_two_relations_over_one_pair():
               "route is not quietly deleted (doctrine 17)",
               "1 group" in str(exc), str(exc)[:70])
 
+    both = mandate([[1, 2]], n_lines=2,
+                   relations={0: ["type:masculine rhyme", "class:ASSONANCE"]})
+    check("ONE group may require SEVERAL relations of its pair (a list in "
+          "the side map): the pair must stand in each",
+          both.relations_of(0) == ("type:masculine rhyme", "class:ASSONANCE")
+          and _R.grade(LINES, both)["verdicts"][0]["why"] is None,
+          both.relations)
     m = mandate([{"members": [1, 2], "relation": "type:masculine rhyme"},
-                 {"members": [1, 2], "relation": "class:ASSONANCE"}],
+                 {"members": [1, 2], "relation": "class:RIME_RICHE"}],
                 n_lines=2)
     check("a MAPPING group carries the relation that labels THAT edge, so "
           "two edges over one pair at one placement survive the dedup",
@@ -1149,12 +1155,13 @@ def test_the_edge_label_carries_two_relations_over_one_pair():
     check("each edge resolves to its OWN declared relation through the same "
           "path the side map takes — not re-namespaced by a second reader",
           (m.relation_of(0), m.relation_of(1))
-          == ("type:masculine rhyme", "class:ASSONANCE"),
+          == ("type:masculine rhyme", "class:RIME_RICHE"),
           f"{m.relation_of(0)!r} / {m.relation_of(1)!r}")
 
     # THE LOAD-BEARING HALF. Storage no judge reads would be M-35's own defect
     # one layer in, so the two edges are driven through `grade()` and required
-    # to DISAGREE: `night`/`light` is a masculine rhyme and is not assonance.
+    # to DISAGREE: `night`/`light` is a masculine rhyme (and assonance, and
+    # consonance) and is not rime riche.
     g = _R.grade(LINES, m)
     verdicts = {v["label"]: v for v in g["verdicts"]}
     check("ONE PAIR, TWO EDGES, TWO OPPOSITE VERDICTS — the thing M-35's "
@@ -1165,7 +1172,7 @@ def test_the_edge_label_carries_two_relations_over_one_pair():
           f"A why={verdicts['A']['why']!r}  B why={verdicts['B']['why']!r}")
     check("the violation names the DECLARED relation it was judged at, so a "
           "reader can tell which edge failed",
-          "class:ASSONANCE" in (verdicts["B"]["why"] or ""),
+          "class:RIME_RICHE" in (verdicts["B"]["why"] or ""),
           (verdicts["B"]["why"] or "")[:80])
     check("the doctrine-79 triple counts BOTH edges and refuses neither",
           (g["pairs_mandated"], g["pairs_judged"], g["pairs_refused"],

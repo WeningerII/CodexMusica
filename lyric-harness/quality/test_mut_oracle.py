@@ -227,7 +227,7 @@ def test_transitivity_defect():
     # the only thing this counter exists to say.
     lines = ["the deed is done", "the light has gone", "a heart of stone"]
     res = check_scheme(LEX, lines, "AAA", DECL)
-    edges = {p["endwords"]: (p["relation"], p["score"])
+    edges = {p["endwords"]: ("+".join(p["relations"]), p["score"])
              for p in res["pair_scores"]}
     # THE ADMIT SET IS WHAT DECIDES, and that is the content of this
     # section since 2026-08-22 (doctrine 17). It read
@@ -254,14 +254,15 @@ def test_transitivity_defect():
           ".75 scalar and fails on the RELATION, which is `admits`'s second "
           "clause and the only thing this counter exists to say",
           narrow["transitivity_defect_triangles"] == 1,
-          f"{ {p['endwords']: (p['relation'], round(p['score'], 3)) for p in narrow['pair_scores']} }"
+          f"{ {p['endwords']: ('+'.join(p['relations']), round(p['score'], 3)) for p in narrow['pair_scores']} }"
           f"; admit=('RHYME', 'RIME_RICHE'). A counter that fired on "
           f"COMPLETE triangles instead would report a broken class as clean.")
     res2 = check_scheme(LEX, ["the deed is done", "the sun has won",
                               "a race begun"], "AAA", DECL)
     check("a complete triangle is NOT a defect",
           res2["transitivity_defect_triangles"] == 0,
-          str({p["endwords"]: p["relation"] for p in res2["pair_scores"]}))
+          str({p["endwords"]: "+".join(p["relations"])
+               for p in res2["pair_scores"]}))
 
 
 # ---------------------------------------------------------------------------
@@ -271,16 +272,26 @@ def test_transitivity_defect():
 def test_value_layer():
     print("\n5. identity is not rhyme, and the value flags are findings "
           "(mutations M26-M29)")
-    check("an identical word is REPEAT", rel("cat", "cat")["relation"]
-          == "REPEAT",
-          "doctrine 3: REPEAT inverts by context -- a violation inside a "
-          "verse, the requirement across chorus instances, licensed as "
-          "radif. Without the check a self-rhyme scores 1.0 and wins.")
-    check("same sound, different word is RIME_RICHE",
-          rel("sea", "see")["relation"] == "RIME_RICHE",
-          "the taxonomy has to be able to SAY it (doctrine 24)")
-    check("a genuine rhyme is neither",
-          rel("night", "light")["relation"] == "RHYME")
+    # A pair stands in EVERY relation its sound supports: identity is also
+    # rhyme, rime riche is also rhyme. What must hold is that each of
+    # REPEAT and RIME_RICHE is IN the set exactly where identity says so.
+    cat, sea, night = rel("cat", "cat"), rel("sea", "see"), rel("night", "light")
+    check("an identical word stands in REPEAT (and in RHYME beside it)",
+          "REPEAT" in cat["relations"] and "RHYME" in cat["relations"],
+          f"{sorted(cat['relations'])}. doctrine 3: REPEAT inverts by "
+          "context -- a violation inside a verse, the requirement across "
+          "chorus instances, licensed as radif. Without the check a "
+          "self-rhyme stands in RHYME alone, scores 1.0 and wins.")
+    check("same sound, different word stands in RIME_RICHE and RHYME, not "
+          "REPEAT",
+          "RIME_RICHE" in sea["relations"] and "RHYME" in sea["relations"]
+          and "REPEAT" not in sea["relations"],
+          f"{sorted(sea['relations'])}. the taxonomy has to be able to SAY "
+          "it (doctrine 24)")
+    check("a genuine rhyme stands in RHYME and in neither identity relation",
+          "RHYME" in night["relations"]
+          and not night["relations"] & {"REPEAT", "RIME_RICHE"},
+          f"{sorted(night['relations'])}")
     check("the cliche pair is flagged",
           "cliche_pair" in rel("fire", "desire")["flags"],
           "doctrine 9: passing the band by reaching for fire/desire is the "

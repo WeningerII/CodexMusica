@@ -1228,19 +1228,21 @@ def _cli_score(a, b):
                        cwd=ROOT, capture_output=True, text=True, timeout=300)
     txt = p.stdout
     tot = re.search(r"total:\s*([\d.]+)", txt)
-    rel = re.search(r"relation:\s*(\w+)", txt)
+    # the verb prints the pair's relation SET (`relations: A+B`)
+    rel = re.search(r"relations:\s*([\w+]+)", txt)
     nuc = re.search(r"nucleus\s+([\d.]+)", txt)
     return ((float(tot.group(1)) if tot else None),
-            (rel.group(1) if rel else None),
+            (frozenset(rel.group(1).split("+")) if rel else None),
             (float(nuc.group(1)) if nuc else None), txt.strip())
 
 
 def _d_now_why():
     tot, rel, nuc, _ = _cli_score("now", "why")
-    ok = _tol(0.850, tot, abs_=0.0005) and rel == "RHYME"
+    ok = _tol(0.850, tot, abs_=0.0005) and rel is not None and "RHYME" in rel
     return (CONFIRMED if ok else MOVED), \
-        "now ~ why total %s relation %s (empty coda omitted from evidence; agreement unchanged)" % (tot, rel), \
-        "now ~ why scores 0.850 and types RHYME (historical gift: 0.902)"
+        "now ~ why total %s relations %s (empty coda omitted from evidence; agreement unchanged)" \
+        % (tot, "+".join(sorted(rel or ()))), \
+        "now ~ why scores 0.850 and stands in RHYME (historical gift: 0.902)"
 
 
 def _d_five_of():

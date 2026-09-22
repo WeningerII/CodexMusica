@@ -660,7 +660,7 @@ def test_straits_and_modern_behave_as_declared():
     check("pechah and pecah give identical syllables",
           _syl("pechah") == _syl("pecah") == "pe.cah", _syl("pechah"))
     check("pechah / pecah is REPEAT, not two words that sound alike",
-          M.relation_type("pechah", "pecah") == "REPEAT",
+          "REPEAT" in M.relation_type("pechah", "pecah"),
           str(M.relation_type("pechah", "pecah")))
     # ka- / ke- is the pepet, and it is NOT folded: it cannot reach a rime.
     check("katiga / ketiga rhyme (the swap is outside the rime)",
@@ -884,18 +884,24 @@ def test_relation_type_separates_echo_from_rhyme():
     counts = {}
     for q in QUATRAINS:
         for p in M.abab(q)["pairs"]:
-            counts[p["relation"]] = counts.get(p["relation"], 0) + 1
+            rels = p["relations"]
+            for r in (("UNDECIDED",) if rels is None else
+                      sorted(rels) or ("NONE",)):
+                counts[r] = counts.get(r, 0) + 1
     print(f"          over the 164 mandated pairs: {counts}")
-    check("REPEAT is separated from RHYME rather than counted as one",
-          counts.get("REPEAT", 0) > 0 and counts.get("RHYME", 0) > 0,
+    check("REPEAT is reported beside RHYME rather than counted as one",
+          counts.get("REPEAT", 0) > 0 and counts.get("RHYME", 0)
+          > counts.get("REPEAT", 0),
           str(counts))
-    check("`Ijrail against itself is REPEAT",
-          M.relation_type("`Ijrail", "`Ijrail") == "REPEAT")
-    check("beriring against iring-iring is RIME_RICHE, not REPEAT",
-          M.relation_type("beriring", "iring-iring") == "RIME_RICHE",
+    check("`Ijrail against itself is REPEAT (and, on the rime, rime riche "
+          "and rhyme too)",
+          M.relation_type("`Ijrail", "`Ijrail") == frozenset({"REPEAT", "RIME_RICHE", "RHYME"}))
+    check("beriring against iring-iring is RIME_RICHE and rhyme, not REPEAT",
+          M.relation_type("beriring", "iring-iring")
+          == frozenset({"RIME_RICHE", "RHYME"}),
           str(M.relation_type("beriring", "iring-iring")))
     check("tanjong against di-kandong is a plain RHYME",
-          M.relation_type("tanjong", "di-kandong") == "RHYME",
+          M.relation_type("tanjong", "di-kandong") == frozenset({"RHYME"}),
           str(M.relation_type("tanjong", "di-kandong")))
     # echo_depth reports the whole-word echo as a COUNT, not a threshold.
     check("echo_depth(purun, turun) == 1 — the rime syllable only",

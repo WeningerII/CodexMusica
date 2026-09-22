@@ -4,9 +4,10 @@
 A FAMILY is a construction pool over the declared frequency vocabulary,
 keyed by the first pronunciation's phoneme tail from its last prominent
 vowel. It is not an equivalence class of the certified class:RHYME relation:
-RIME_RICHE shares that tail but is a distinct subtype, and another allowed
-pronunciation can make a prospective pair unresolved. Certification must
-answer those differences, not infer acceptance from a family key.
+another allowed pronunciation can make a prospective pair unresolved, and a
+pair stands in EVERY relation its sound supports (a rime riche pair is also
+RHYME), so certification asks whether RHYME is a MEMBER of the pair's
+relation set rather than inferring acceptance from a family key.
 
 A SPELLING CLASS is Reviser._spelled_rime's value. Same-class pairs incur
 HOMEOTELEUTON, so the class count (chain_hi) is an upper bound on an earned
@@ -223,6 +224,17 @@ def _consonance_key(phones):
     return tuple(p for p in phones[a + 1:] if not p[-1:].isdigit())
 
 
+def _promoted_rhyme_key(phones):
+    """The FINAL syllable's rime (last vowel to the end), for a word whose
+    final vowel is lexically UNSTRESSED — what PROMOTED_RHYME holds constant
+    (argument/spent on -ment). A word whose final vowel carries stress keys
+    None: its final agreement is RHYME's, not a promoted one."""
+    vidx = [i for i, p in enumerate(phones) if p[-1:].isdigit()]
+    if not vidx or phones[vidx[-1]][-1] != "0":
+        return None
+    return tuple(p.rstrip("012") for p in phones[vidx[-1]:])
+
+
 def _rime_riche_key(phones):
     """The WHOLE word's phones, onset included, stress stripped — two
     words in one family sound identical (bare/bear)."""
@@ -242,6 +254,7 @@ RELATION_KEYS = {
     "ASSONANCE": _assonance_key,
     "CONSONANCE": _consonance_key,
     "RIME_RICHE": _rime_riche_key,
+    "PROMOTED_RHYME": _promoted_rhyme_key,
 }
 
 #: The relation the SHIPPED artifact and every ADOPTED constant are derived
@@ -301,7 +314,12 @@ def families(reviser, relation=ADOPTED_RELATION):
     pop = population(lex)
     fams = defaultdict(lambda: defaultdict(list))
     for w, phones in pop.items():
-        fams[key_fn(phones)][reviser._spelled_rime(w)].append(w)
+        k = key_fn(phones)
+        if k is None:
+            # only PROMOTED_RHYME keys None: the word's final vowel is
+            # stressed, so it cannot stand in that relation at all
+            continue
+        fams[k][reviser._spelled_rime(w)].append(w)
     for classes in fams.values():
         for words in classes.values():
             words.sort(key=lambda x: lex.freq_rank.get(x, 10 ** 9))
@@ -338,8 +356,9 @@ def _group_measurement(reviser, words):
     """Exact pair relations and the shared grader ban, with failed edges.
 
     The first-reading perfect-tail partition is only a construction pool:
-    RHYME excludes its RIME_RICHE subtype, and unresolved pronunciations
-    cannot certify a pair. Every accepted witness answers the declared class.
+    unresolved pronunciations cannot certify a pair. `class:RHYME` is a
+    MEMBERSHIP test — a pair whose relation set contains RHYME satisfies it,
+    rime riche included. Every accepted witness answers the declared class.
     """
     import quality.schemes as SC
     if len(words) < 2:

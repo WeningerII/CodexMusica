@@ -226,7 +226,7 @@ def test_the_price_reproduces():
         sh, st = score(aa, bb, DECL, a, b), score(aa, bb, TAIL, a, b)
         if abs(sh["total"] - st["total"]) > 1e-9:
             moved += 1
-        if sh["relation"] != st["relation"]:
+        if sh["relations"] != st["relations"]:
             relflip += 1
         if admits(sh, DECL.theta_rhyme) != admits(st, TAIL.theta_rhyme):
             admflip += 1

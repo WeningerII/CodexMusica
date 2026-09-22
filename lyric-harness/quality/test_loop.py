@@ -328,10 +328,18 @@ def test_success_stop():
           and 4 in res.rounds[0].resolved_elsewhere,
           f"fixed {res.rounds[0].fixed_lines}, resolved elsewhere "
           f"{res.rounds[0].resolved_elsewhere}")
+    # REPINNED under the N-relation field: the stock proposer takes the
+    # first offer, and the relation-aware field now leads L1's menu with a
+    # word whose pair with `desire` is judged under every reading, so no
+    # obligation is left unjudged. MEASURED: unjudged [], certified. The
+    # invariant stays: whatever is unresolved is exactly the unjudged set,
+    # and coverage is certified exactly when that set is empty.
     check("judged line repairs close; unreadable obligations remain explicit",
           res.unresolved_flagged == [] and res.unresolved_pursued == []
           and res.unresolved == res.unresolved_unjudged
-          and bool(res.unresolved_unjudged) and not res.coverage_certified)
+          and res.coverage_certified == (not res.unresolved_unjudged),
+          ([b.line_no for b in res.unresolved_unjudged],
+           res.coverage_certified))
     R2 = Reviser()
     final = R2.brief(res.lines, "ABAB")
     check("the FINAL draft actually re-checks clean, independently",
@@ -388,12 +396,14 @@ def test_round_limit_stop():
     # MEASURED: fixed [1, 4], nothing left standing at the round cap.
     check("L1 WAS fixed this round -- this is real progress, not a stall",
           res.rounds[0].fixed_lines == [1, 4], res.rounds[0].fixed_lines)
+    # REPINNED under the N-relation field (was: L1/L3 left unjudged): L1's
+    # first offer is now judged under every reading. The invariant holds.
     check("the round cap retains unknown readings after the judged repairs close",
           res.unresolved_flagged == [] and res.unresolved_pursued == []
-          and [b.line_no for b in res.unresolved_unjudged] == [1, 3]
-          and res.unresolved == res.unresolved_unjudged and not res.coverage_certified,
-          [(b.line_no, [f.code for f in b.findings])
-           for b in res.unresolved])
+          and res.unresolved == res.unresolved_unjudged
+          and res.coverage_certified == (not res.unresolved_unjudged),
+          ([(b.line_no, [f.code for f in b.findings])
+            for b in res.unresolved], res.coverage_certified))
     check("`max_rounds` is the declared bound that fired, not a hidden one",
           len(res.rounds) == R.rdecl.max_rounds == 1)
 
@@ -1446,7 +1456,7 @@ def test_a_line_is_briefed_against_the_draft_as_it_now_stands():
           bool(l2) and "L1 ('chairs')" in l2[0]
           and "L1 ('four')" not in l2[0],
           [x.strip() for x in l2[0].splitlines()
-           if "must rhyme with" in x] if l2 else "L2 never briefed")
+           if "relation with" in x] if l2 else "L2 never briefed")
     check("...and its SCHEME_VIOLATION evidence no longer quotes the deleted "
           "word either -- the whole brief moved, not one line of it",
           bool(l2) and "'four' ~ 'stairs'" not in l2[0],

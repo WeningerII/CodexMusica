@@ -147,8 +147,10 @@ def interval(k=None, n=None, alpha=0.05):
 # ---------------------------------------------------------------------------
 
 def random_arm(sampler, lex, decl):
-    """-> dict. Every JUDGED drawn pair's (relation, total), kept as a list per
-    relation so any cut on `SWEEP` is a count and not a re-run.
+    """-> dict. Every JUDGED drawn pair's total IN EVERY RELATION IT STANDS IN
+    (`relation_totals`), kept as a list per relation so any cut on `SWEEP` is
+    a count and not a re-run. A pair is priced under each of its relations,
+    never bucketed under one.
 
     THE DRAW IS `chance_rate.Sampler`'s, NOT A SECOND COPY OF IT. That module
     exists because M-138's figures came from an uncommitted script whose
@@ -172,12 +174,14 @@ def random_arm(sampler, lex, decl):
             out["refused"] += 1
             continue
         out["judged"] += 1
-        out["totals"].setdefault(s["relation"], []).append(s["total"])
+        for rel, tot in L.relation_totals(s).items():
+            out["totals"].setdefault(rel, []).append(tot)
     return out
 
 
 def admitted(arm, relation, t):
-    """-> how many drawn pairs this cell admits AS `relation` at cut `t`."""
+    """-> how many drawn pairs stand in `relation` at cut `t` (a pair may
+    count under several relations)."""
     return sum(1 for x in arm["totals"].get(relation, ()) if x >= t)
 
 
@@ -213,11 +217,12 @@ def canon_records(lex, decl, log=None):
     """-> list of per-sonnet records off ONE `check_scheme` pass each.
 
     WHAT IS KEPT, and it is deliberately the RAW verdicts rather than a
-    violation count: the mandated pairs, each with the relation and total
-    `best_score` gave it, the refusal set, and `check_scheme`'s own violation
-    and schema-rescue lists — so `reprice` below can move a threshold WITHOUT
-    re-reading the corpus, and so E0 can compare the two readings pair for
-    pair rather than count against count.
+    violation count: the mandated pairs, each with EVERY coarse relation it
+    stands in and that relation's own best total, the reading consensus, and
+    the schema names `check_scheme` found for it, the refusal set, and
+    `check_scheme`'s own violation list — so `reprice` below can move a
+    threshold WITHOUT re-reading the corpus, and so E0 can compare the two
+    readings pair for pair rather than count against count.
     """
     import battery
     sonnets = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))
@@ -228,56 +233,52 @@ def canon_records(lex, decl, log=None):
         mand = [(i, j) for i in range(n) for j in range(i + 1, n)
                 if L.same_scheme_class(SONNET_SCHEME[i], SONNET_SCHEME[j])]
         by = {tuple(p["lines"]): p for p in r["pair_scores"]}
+        # Per-relation totals off the SAME anchors check_scheme reads, so a
+        # per-relation cut can be moved without re-reading the corpus.
+        ancs = [L.line_anchors(lex, ln, promote=decl.final_promotion)
+                for ln in sn]
+        totals = {}
+        for i, j in mand:
+            s = L.best_score(ancs[i][0], ancs[j][0], decl, ancs[i][1],
+                             ancs[j][1])
+            totals[(i + 1, j + 1)] = dict(L.relation_totals(s))
+        schemas = {tuple(d["lines"]): tuple(d["satisfied_by"])
+                   for d in r.get("pairs_schema_satisfied", ())}
         recs.append({
             "idx": idx, "lines": sn,
             "mandated": [(i + 1, j + 1) for i, j in mand],
             "bearing": {x for pr in mand for x in pr},
             "refused": {tuple(x["lines"]) for x in r.get("refusals", [])},
-            "pairs": {(i + 1, j + 1): (by[(i + 1, j + 1)]["relation"],
-                                       by[(i + 1, j + 1)]["score"])
+            # (coarse relation totals, best score, reading consensus,
+            # schema names) — every relation the pair stands in.
+            "pairs": {(i + 1, j + 1): (totals[(i + 1, j + 1)],
+                                       by[(i + 1, j + 1)]["score"],
+                                       by[(i + 1, j + 1)]["reading_verdict"],
+                                       schemas.get((i + 1, j + 1), ()))
                       for i, j in mand},
             "base_violations": {(v[0], v[1]) for v in r["violations"]},
-            "base_rescued": {tuple(d["lines"])
-                             for d in r.get("pairs_schema_satisfied", ())},
         })
         if log and idx % 25 == 0:
             log(f"    canon: {idx}/{len(sonnets)} sonnets read")
     return recs
 
 
-_WVP_MEMO = {}
-
-
-def schema_answers(rec):
-    """-> the set of mandated pairs the 77-schema default answers on.
-
-    LAZY AND MEMOISED, because it is the expensive call in this file (4.7 s a
-    sonnet against 0.05 s for `check_scheme`) and most sonnets never need it.
-    THE CALL IS `check_scheme`'s OWN, bearing and all: the rescue is what
-    turned 35 violations into 12, and a repricing that reproduced it
-    approximately would be measuring a different oracle (doctrine 1).
-    """
-    if rec["idx"] not in _WVP_MEMO:
-        from quality import phonology as _PH
-        from quality.relations import whole_vocabulary_pairs as _WVP
-        got = _WVP(list(rec["lines"]), _PH.get("eng"), bearing=rec["bearing"])
-        _WVP_MEMO[rec["idx"]] = set(got)
-    return _WVP_MEMO[rec["idx"]]
-
-
-def reprice(recs, thetas, decl, rescue=True):
+def reprice(recs, thetas, decl, schemas_too=True):
     """-> dict. The sonnet arm under per-relation cuts `thetas`.
 
-    THE CHAIN IS `check_scheme`'s, IN ITS ORDER, and the only substitution is
-    the threshold: where that function reads `decl.theta_rhyme`, this reads
-    `thetas.get(relation, decl.theta_rhyme)`. Everything else — REPEAT charged,
-    an unadmitted relation charged, NO_ANCHOR charged, the schema rescue
-    applied to every non-REPEAT charge — is the same in the same sequence.
-    E0 is what proves that claim rather than asserting it.
+    `check_scheme`'s own verdict, with only the cuts substituted: a pair
+    holding REPEAT is charged (identity's own rule); otherwise it is
+    satisfied when it stands in ANY admitted coarse relation at its cut
+    (`thetas`, else `decl.theta_by_relation`, else `theta_rhyme`) with a
+    determinate reading, or — at the default admit set — in ANY registry
+    schema. Every relation is consulted for every pair. `schemas_too=False`
+    asks the coarse relations alone (E2's admitted-set clause), which is a
+    composition figure, not a second door. E0 proves the construction.
     """
     admit = frozenset(decl.admit)
+    cuts = {**dict(decl.theta_by_relation), **thetas}
     out = {"mandated": 0, "judged": 0, "refused": 0,
-           "violations": [], "rescued": [], "by_relation": Counter()}
+           "violations": [], "schema_only": [], "by_relation": Counter()}
     for rec in recs:
         for pr in rec["mandated"]:
             out["mandated"] += 1
@@ -285,27 +286,25 @@ def reprice(recs, thetas, decl, rescue=True):
                 out["refused"] += 1
                 continue
             out["judged"] += 1
-            rel, tot = rec["pairs"][pr]
-            th = thetas.get(rel, decl.theta_rhyme)
-            why = None
-            if rel == "REPEAT":
-                why = "REPEAT"
-            elif rel in L.NEAR_RELATIONS and rel not in admit:
-                why = "not admitted"
-            elif rel == L.NO_ANCHOR:
-                why = "NO_ANCHOR"
-            elif tot < th:
-                why = f"below theta({rel})={th}"
-            elif not (rel in admit and tot >= th):
-                why = f"{rel} not admitted"
-            if why is None:
+            totals, tot, reading, schemas = rec["pairs"][pr]
+            label = L.relation_label(set(totals))
+            if "REPEAT" in totals:
+                out["violations"].append((rec["idx"], pr, label, tot,
+                                          "REPEAT"))
+                out["by_relation"]["REPEAT"] += 1
                 continue
-            if rescue and why != "REPEAT" and \
-                    L.admit_is_default(decl) and pr in schema_answers(rec):
-                out["rescued"].append((rec["idx"], pr, rel, tot))
+            coarse = frozenset(r for r, x in totals.items()
+                               if r in admit and x >= cuts.get(
+                                   r, decl.theta_rhyme))
+            if coarse and reading is True:
                 continue
-            out["violations"].append((rec["idx"], pr, rel, tot, why))
-            out["by_relation"][rel] += 1
+            if schemas_too and schemas and L.admit_is_default(decl):
+                out["schema_only"].append((rec["idx"], pr, label, tot))
+                continue
+            out["violations"].append((rec["idx"], pr, label, tot,
+                                      "no admitted relation at its cut"))
+            for r in (totals or {"NO_RELATION": 0}):
+                out["by_relation"][r] += 1
     return out
 
 
@@ -350,7 +349,9 @@ def _print_random(arms, decl):
         print(f"    {a['sampler'].label()}")
         print(f"      drawn {a['drawn']}  refused {a['refused']}  "
               f"judged {a['judged']}   (never summed)")
-        for rel in ("RHYME", "RIME_RICHE", "ASSONANCE", "CONSONANCE"):
+        # Every coarse relation; a pair counts under each it stands in, so
+        # these overlap and are not a partition of judged.
+        for rel in sorted(L.ADMITTABLE_RELATIONS):
             c = admitted(a, rel, decl.theta_rhyme)
             r = ratio_of(a, rel, decl.theta_rhyme)
             shown = "cannot tell" if r is None else f"{r:6.2f}x"
@@ -465,7 +466,7 @@ def main(argv):
     if "--seeds" in argv:
         import statistics
         print(f"  THE {SEEDS}-SEED ARM — the SHIPPED cell, re-drawn")
-        rels = ("RHYME", "RIME_RICHE", "ASSONANCE", "CONSONANCE")
+        rels = tuple(sorted(L.ADMITTABLE_RELATIONS))
         rows = {r: [] for r in rels}
         arms, tot = [], []
         for k in range(SEEDS):
@@ -523,7 +524,8 @@ def main(argv):
     g = det["got"]
     print(f"    mandated {g['mandated']}  judged {g['judged']}  "
           f"refused {g['refused']}  violations {len(g['violations'])}  "
-          f"rescued by schema {len(g['rescued'])}")
+          f"satisfied by a schema and no admitted coarse relation "
+          f"{len(g['schema_only'])}")
     if not ok:
         print("    E0 FIRES — nothing below this is read:")
         for b in det["bad"]:
@@ -547,31 +549,27 @@ def main(argv):
     # --- E1 -------------------------------------------------------------
     print()
     print("  E1 — does that cut cost more than the canon arm can carry?")
-    print("    TWO READINGS, REPORTED APART (doctrine 79). The SCALAR DOOR")
-    print("    reading counts pairs that leave the admitted set; the AFTER")
-    print("    RESCUE reading is what battery.py prints, and the difference")
-    print("    is pairs the 77-schema default absorbed — a door M-140 pins")
-    print("    at 20.3-21.0x the canon arm and leaves UNPRICED. A rate that")
-    print("    looks flat only because an unpriced door caught the movement")
-    print("    is the defect this whole sitting is about.")
-    base_s = reprice(recs, {}, decl, rescue=False)
+    print("    TWO READINGS, REPORTED APART (doctrine 79): the COARSE")
+    print("    relations alone, and every relation (coarse and schema) —")
+    print("    what battery.py prints. A pair is judged against all of them.")
+    base_s = reprice(recs, {}, decl, schemas_too=False)
     if any(v is None for v in cuts.values()):
         print("    no cut on the declared grid reaches the target for "
               + ", ".join(k for k, v in cuts.items() if v is None))
         print("    E1 FIRES by the registered no-cut clause: REFUSED.")
     else:
-        rp_s = reprice(recs, cuts, decl, rescue=False)
+        rp_s = reprice(recs, cuts, decl, schemas_too=False)
         rp = reprice(recs, cuts, decl)
         base = reprice(recs, {}, decl)
         nv = len(rp["violations"])
         print(f"    at {cuts}:")
-        print(f"      SCALAR DOOR   {len(base_s['violations'])} -> "
+        print(f"      COARSE ONLY   {len(base_s['violations'])} -> "
               f"{len(rp_s['violations'])} of {rp_s['judged']} judged "
               f"(+{len(rp_s['violations']) - len(base_s['violations'])})")
-        print(f"      AFTER RESCUE  {len(base['violations'])} -> {nv} "
-              f"(+{nv - len(base['violations'])}); the schema door absorbed "
-              f"{len(rp['rescued'])} against {len(base['rescued'])} today, "
-              f"i.e. {len(rp['rescued']) - len(base['rescued'])} more")
+        print(f"      ALL RELATIONS {len(base['violations'])} -> {nv} "
+              f"(+{nv - len(base['violations'])}); pairs standing in a "
+              f"schema and no admitted coarse relation "
+              f"{len(base['schema_only'])} -> {len(rp['schema_only'])}")
         print(f"      charged by relation: "
               + "  ".join(f"{k}={v}" for k, v in
                           sorted(rp["by_relation"].items())))
@@ -590,18 +588,16 @@ def main(argv):
     # --- E2 -------------------------------------------------------------
     print()
     print("  E2 — the empty/empty coda, in `total` only")
-    print("    THE PRIMARY CLAUSE IS THE ADMITTED SET, not the violation")
-    print("    count. The registration glossed the two as one and they are")
-    print("    NOT one: a pair the scalar door stops admitting and the")
-    print("    schema door catches has still left the admitted set, and")
-    print("    reading only the second number would let an unpriced door")
-    print("    launder the rate this sitting exists to price.")
+    print("    THE PRIMARY CLAUSE IS THE COARSE ADMITTED SET, not the")
+    print("    violation count: a pair that leaves every admitted coarse")
+    print("    relation but still stands in a schema has moved, and reading")
+    print("    only the violation count would hide it.")
     # This is the historical zero-loss E2, not the E-5 adoption policy.
     # Freeze its baseline explicitly now that gift is no longer the default.
     from dataclasses import replace
     decl = replace(decl, coda_empty_evidence="gift")
     recs = canon_records(lex, decl)
-    base_s = reprice(recs, {}, decl, rescue=False)
+    base_s = reprice(recs, {}, decl, schemas_too=False)
     base = reprice(recs, {}, decl)
     adm0 = _admitted_set(recs, decl)
     print(f"    gift (historical)   admitted {len(adm0)} of "
@@ -611,22 +607,22 @@ def main(argv):
         r2 = canon_records(lex, d2)
         adm = _admitted_set(r2, d2)
         left = adm0 - adm
-        p2s = reprice(r2, {}, d2, rescue=False)
+        p2s = reprice(r2, {}, d2, schemas_too=False)
         p2 = reprice(r2, {}, d2)
         nv = len(p2["violations"])
         print(f"    {rule}:")
         print(f"      LEFT THE ADMITTED SET  {len(left)} mandated pair(s) "
               f"({100 * len(left) / max(1, len(adm0)):.1f}% of the "
               f"{len(adm0)} admitted today)")
-        print(f"      SCALAR DOOR   {len(base_s['violations'])} -> "
+        print(f"      COARSE ONLY   {len(base_s['violations'])} -> "
               f"{len(p2s['violations'])} of {p2s['judged']} judged")
-        print(f"      AFTER RESCUE  {len(base['violations'])} -> {nv}; the "
-              f"schema door absorbed {len(p2['rescued'])} against "
-              f"{len(base['rescued'])} today")
+        print(f"      ALL RELATIONS {len(base['violations'])} -> {nv}; "
+              f"schema-only pairs {len(base['schema_only'])} -> "
+              f"{len(p2['schema_only'])}")
         for pin in ("now why", "see free", "cat hat"):
             a, b = pin.split()
             sa = L.best_score(*_two(lex, a, b), d2, a, b)
-            print(f"      {a}/{b:<6} {sa['total']:.3f} {sa['relation']}"
+            print(f"      {a}/{b:<6} {sa['total']:.3f} {L.relation_label(sa)}"
                   + ("   <- below theta_rhyme: NOT admitted"
                      if sa["total"] < d2.theta_rhyme else ""))
         fired = bool(left) or nv > VIOL_MAX
@@ -636,17 +632,20 @@ def main(argv):
 
 
 def _admitted_set(recs, decl):
-    """-> the mandated JUDGED pairs the SCALAR door admits, schema rescue
-    excluded on purpose. This is E2's primary clause and it is a different
-    question from `reprice`'s violation count (doctrine 79)."""
+    """-> the mandated JUDGED pairs that stand in at least one admitted COARSE
+    relation at its cut (schemas not consulted: E2's primary clause is the
+    coarse scalar's own set, a different question from `reprice`'s
+    violation count — doctrine 79)."""
     admit = frozenset(decl.admit)
+    cuts = dict(decl.theta_by_relation)
     out = set()
     for rec in recs:
         for pr in rec["mandated"]:
             if pr in rec["refused"]:
                 continue
-            rel, tot = rec["pairs"][pr]
-            if rel in admit and tot >= decl.theta_rhyme:
+            totals = rec["pairs"][pr][0]
+            if any(r in admit and x >= cuts.get(r, decl.theta_rhyme)
+                   for r, x in totals.items()):
                 out.add((rec["idx"], pr))
     return out
 

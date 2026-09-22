@@ -382,8 +382,8 @@ MUTATIONS = [
         rationale=(
             "Same reduction, coda channel. One agreeing syllable would then "
             "carry the whole anchor, so `nation`/`ration` and `nation`/"
-            "`nasal` become indistinguishable on the channel that decides "
-            "between RHYME and ASSONANCE. The nucleus half of this is M2; "
+            "`nasal` become indistinguishable on the channel RHYME needs and "
+            "ASSONANCE does not. The nucleus half of this is M2; "
             "both are here because the two channels are read by different "
             "lines and a fix to one need not fix the other."),
     ),
@@ -399,7 +399,7 @@ MUTATIONS = [
             "ought to stop two ABSENT codas agreeing and delete every "
             "open-syllable rhyme in English, a quarter of the sonnets' "
             "mandated pairs. It deletes nothing: 0 differences in "
-            "`channel_agreement` and 0 in the resulting relation over 4,000 "
+            "`channel_agreement` and 0 in the resulting relation set over 4,000 "
             "random CMUdict pairs, 1,206 of which have a both-absent aligned "
             "coda -- because `cluster_sim` opens with its own `if not a and "
             "not b: return 1.0`. The band's clause RESTATES a guarantee the "
@@ -422,19 +422,19 @@ MUTATIONS = [
     ),
     Mutation(
         name="M6", layer="band", file=LH,
-        # RE-ANCHORED 2026-08-18: `admits` grew the declared `relations`
-        # parameter (Declaration.admit) and the clause this mutation deletes
-        # moved with it. The planted defect is UNCHANGED — drop the relation
-        # clause, keep only the scalar — only its coordinates moved.
-        old=('    rel = RHYME_RELATIONS if relations is None else relations\n'
-             '    return s is not None and s["total"] >= theta and \\\n'
-             '        s["relation"] in rel'),
-        new='    return s is not None and s["total"] >= theta',
+        # RE-ANCHORED 2026-08-18 (`admits` grew `relations`) and AGAIN
+        # 2026-09-22: the relation clause now lives in `admitted_relations`,
+        # which tests each relation the pair stands in for membership in the
+        # allowed set. The planted defect is UNCHANGED — drop the relation
+        # clause, keep only the cut — only its coordinates moved.
+        old='                     if r in allowed and t >= cuts.get(r, theta))',
+        new='                     if t >= cuts.get(r, theta))',
         subset=T_BAND,
         rationale=(
-            "`admits` drops the RELATION clause and keeps only the scalar. "
-            "This is the sun/much leak in its original form: an ASSONANCE edge "
-            "whose nucleus carried it over theta is admitted as rhyme. "
+            "`admitted_relations` drops the RELATION clause and keeps only "
+            "the cut: every relation the pair stands in counts, whatever the "
+            "declaration admits, REPEAT and NO_ANCHOR included. A declared "
+            "narrowing (admit=RHYME only) then admits an assonance edge. "
             "Doctrine 3 says the band is TYPED; this untypes it."),
     ),
     Mutation(
@@ -756,25 +756,30 @@ MUTATIONS = [
     # ----------------------------------------------------------------- value
     Mutation(
         name="M26", layer="value", file=LH,
-        old='        if wa == wb:\n            out["relation"] = "REPEAT"',
-        new='        if False:\n            out["relation"] = "REPEAT"',
+        # RE-ANCHORED 2026-09-22: `score` adds REPEAT to the pair's relation
+        # SET rather than overwriting one label; same planted defect.
+        old='        if wa == wb:\n            rels.add("REPEAT")',
+        new='        if False:\n            rels.add("REPEAT")',
         subset=T_VALUE,
         rationale=(
             "The REPEAT identity check disabled. Doctrine 3: identity is not "
             "rhyme, and REPEAT inverts by context -- a violation inside a verse, "
             "the requirement across chorus instances, licensed as radif. "
-            "Without the check a self-rhyme scores 1.0 and passes as the best "
-            "rhyme in the item."),
+            "Without the check a self-rhyme stands in RHYME alone, scores 1.0 "
+            "and passes as the best rhyme in the item."),
     ),
     Mutation(
         name="M27", layer="value", file=LH,
-        old='        elif full_identity:\n            out["relation"] = "RIME_RICHE"',
-        new='        elif False:\n            out["relation"] = "RIME_RICHE"',
+        # RE-ANCHORED 2026-09-22 onto the relation SET: RIME_RICHE is added
+        # beside RHYME, never instead of it.
+        old='        elif full_identity and stressed:\n            rels.add("RIME_RICHE")',
+        new='        elif False:\n            rels.add("RIME_RICHE")',
         subset=T_VALUE,
         rationale=(
-            "RIME_RICHE disabled: same sound, different word (`sea`/`see`) "
-            "reports as ordinary RHYME. The relation exists because the "
-            "taxonomy has to be able to SAY it (doctrine 24)."),
+            "RIME_RICHE dropped from the set: same sound, different word "
+            "(`sea`/`see`) stands in RHYME and nothing says it is also rime "
+            "riche. The relation exists because the taxonomy has to be able "
+            "to SAY it (doctrine 24)."),
     ),
     Mutation(
         name="M28", layer="value", file=LH,

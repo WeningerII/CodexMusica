@@ -806,7 +806,11 @@ class Finnish(Phonology):
 
     def relation_type(self, a, b, depth=RIME_DEPTH, rule=RHYME_RULE,
                       harmony=HARMONY, fold_w=FOLD_W_TO_V):
-        """-> REPEAT / RIME_RICHE / SUFFIX_RHYME / RHYME / NONE / None.
+        """-> the SET of relations the pair stands in, a frozenset over
+        {REPEAT, RIME_RICHE, SUFFIX_RHYME, RHYME}; empty when it stands in
+        none; None when `rhymes` cannot decide. Each is its own predicate and
+        every one that holds is returned: a suffix rhyme is also a rhyme, and
+        also rime riche when its supporting onset agrees too.
 
         Doctrine 3 says identity is not rhyme, and Finnish adds a fourth type
         the English taxonomy has no name for. Agglutination means two words in
@@ -821,32 +825,31 @@ class Finnish(Phonology):
         if r is None:
             return None
         if not r:
-            return "NONE"
+            return frozenset()
+        out = {"RHYME"}
         sa = self.syllabify(_fold(a) if fold_w else a)
         sb = self.syllabify(_fold(b) if fold_w else b)
         if [s.text for s in sa] == [s.text for s in sb]:
-            return "REPEAT"
+            out.add("REPEAT")
         d = max(1, min(depth, len(sa), len(sb)))
         i, j = self._rime_start(sa, rule, d), self._rime_start(sb, rule, d)
-        # SUFFIX_RHYME is checked BEFORE rime riche, because it is the more
-        # specific claim: it says WHY the sounds agree. The test is exact
-        # membership of the two words' longest common written tail, never
-        # "ends with an ending" — `kulta : tulta` shares `ulta`, which ends
-        # with the partitive `ta`, and a loose test would mistype a real
-        # rhyme as grammar.
+        # SUFFIX_RHYME: exact membership of the two words' longest common
+        # written tail, never "ends with an ending" — `kulta : tulta` shares
+        # `ulta`, which ends with the partitive `ta`, and a loose test would
+        # type a real rhyme as grammar.
         ta = "".join(s.text for s in sa)
         tb = "".join(s.text for s in sb)
         k = 0
         while k < min(len(ta), len(tb)) and ta[-1 - k] == tb[-1 - k]:
             k += 1
         if ta[len(ta) - k:] in SUFFIXES:
-            return "SUFFIX_RHYME"
+            out.add("SUFFIX_RHYME")
         # RIME_RICHE: the covered stretch agrees INCLUDING the onset the rime
         # never looks at — the supporting consonant is identical too, so the
         # two words sound the same from there on and differ only earlier.
         if [s.text for s in sa[i:]] == [s.text for s in sb[j:]]:
-            return "RIME_RICHE"
-        return "RHYME"
+            out.add("RIME_RICHE")
+        return frozenset(out)
 
 
 #: code -> (layer that OWNS it, is it a defect at all, one-line reason).

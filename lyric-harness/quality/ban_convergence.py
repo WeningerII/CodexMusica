@@ -346,7 +346,9 @@ def measure_lines(rv, lines, mandate):
            "eligible": 0, "rank_head": 0, "rank_tail": 0, "rank_outside": 0,
            "ranks": [], "pairs": []}
     for v in rep["verdicts"]:
-        if v["why"] or v["relation"] == "REPEAT":
+        # identity (REPEAT in the pair's relation set) is not a partner a
+        # ban could have steered; every other satisfied pair is eligible
+        if v["why"] or "REPEAT" in v["relations"]:
             continue
         st = v.get("structure")
         if st is not None and st != _ST.DEFAULT:

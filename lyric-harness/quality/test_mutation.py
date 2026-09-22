@@ -69,7 +69,7 @@ ALLOWLIST = {
         "not cb)` clause that makes two ABSENT codas AGREE -- and the "
         "behaviour does not move: over 4,000 random CMUdict anchor pairs, "
         "1,206 of which have at least one both-absent aligned coda, "
-        "`channel_agreement` differs on 0 and the resulting RELATION differs "
+        "`channel_agreement` differs on 0 and the resulting RELATION SET differs "
         "on 0. The reason is that `cluster_sim` opens with its own `if not a "
         "and not b: return 1.0`, so the band's clause RESTATES a guarantee "
         "the comparator already gives. No test can distinguish the two "

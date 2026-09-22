@@ -585,7 +585,7 @@ def test_the_canary_is_still_refused_and_that_is_correct():
         try:
             a, _, _ = lh.line_anchors(LEX, "lot o' news")
             b, _, _ = lh.line_anchors(LEX, "hypotenuse")
-            out = {"total": 0.0, "relation": "NO_ANCHOR"}
+            out = {"total": 0.0, "relations": frozenset({"NO_ANCHOR"})}
             for x in (a or []):
                 for y in (b or []):
                     s = lh.score(x, y, decl)
@@ -599,11 +599,11 @@ def test_the_canary_is_still_refused_and_that_is_correct():
     gold = best("HH AY0 P AA1 T AH0 N UW2 S".split())
     check("the guessed reading yields a NON-relation — a verdict, on an "
           "invention", guessed["total"] < 0.75,
-          f"guessed {' '.join(lo.phones)} -> {guessed['relation']} "
+          f"guessed {' '.join(lo.phones)} -> {lh.relation_label(guessed)} "
           f"{guessed['total']:.3f}")
     check("while the ATTESTED pronunciation yields a real relation",
           gold["total"] > 0.85,
-          f"gold HH AY0 P AA1 T AH0 N UW2 S -> {gold['relation']} "
+          f"gold HH AY0 P AA1 T AH0 N UW2 S -> {lh.relation_label(gold)} "
           f"{gold['total']:.3f}. So the canary's remedy is a DICTIONARY "
           f"ENTRY, not a G2P: letter-to-sound converts the refusal into a "
           f"false 'these do not rhyme', which is strictly worse than the "

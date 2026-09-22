@@ -1210,11 +1210,13 @@ def _select(utt, rt, found):
     if s.quantifier == "exists_k":
         for fid, fs in by.items():
             if len(fs) >= s.k - 1:
-                # Same tie-break, same reason: `max` keeps its FIRST maximum,
-                # so equal (verdict, witness-length) settles on the earliest
-                # figure in `fs` -- lowest index, fixed and stated (doctrine 66).
+                # EVERY FINDING IS KEPT. The frame's quantified verdict rides
+                # on its strongest witness, listed first (`max` keeps its
+                # FIRST maximum -- lowest index, doctrine 66); the others
+                # follow with their own verdicts.
                 best = max(fs, key=lambda x: (x.verdict is True, len(x.witness)))
                 out.append(replace(best, verdict=or3([x.verdict for x in fs])))
+                out.extend(x for x in fs if x is not best)
         return out
     if s.quantifier == "forall":
         for fid, fs in by.items():
@@ -1226,12 +1228,13 @@ def _select(utt, rt, found):
                        for i in e.sites}
             if covered >= toks:
                 out.append(replace(fs[0], verdict=and3([x.verdict for x in fs])))
+                out.extend(fs[1:])
         return out
     if s.quantifier == "count_fraction":
         n = len(utt.frames.get(s.frame, ()))
         for fid, fs in by.items():
             if len(fs) >= s.min_count and n and len(fs) / n >= s.min_fraction:
-                out.append(fs[0])
+                out.extend(fs)
         return out
     return found
 

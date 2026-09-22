@@ -155,8 +155,24 @@ class OrganizationTests(unittest.TestCase):
         self.assertGreater(result["strata"]["internal"]["unresolved_pairs"], 0)
         json.dumps(result)  # the complete declaration must be serializable
 
+    def test_one_edge_carries_every_relation(self):
+        # A perfect rhyme is also assonance and consonance: the edge carries
+        # all three, and each relation has its own graph. No score threshold
+        # decides membership; each relation is judged at its own cut.
+        graph = WordGraph(self.lex)
+        held, unresolved = graph.relations("cat", "bat")
+        self.assertTrue({"RHYME", "ASSONANCE", "CONSONANCE"} <= held, held)
+        self.assertNotIn("RHYME", graph.relations("cat", "cap")[0])
+        self.assertEqual(graph.relation("cat", "cap", "ASSONANCE"), 1)
+        self.assertEqual(graph.relation("cat", "cap", "RHYME"), 0)
+        a, _, _ = graph.build(["cat cap"], relation="ASSONANCE")
+        self.assertEqual(int(a[0, 1]), 1)
+        a, _, _ = graph.build(["cat cap"], relation="RHYME")
+        self.assertEqual(int(a[0, 1]), 0)
+        self.assertEqual(graph.relations("cat", "cat"), (frozenset(), frozenset()))
+
     def test_validation(self):
-        for kw in ({"alpha": True}, {"alpha": float("nan")}, {"theta": 2},
+        for kw in ({"alpha": True}, {"alpha": float("nan")},
                    {"n_perm": 0}, {"seed": -1}, {"end_window": 0}):
             with self.assertRaises(ValueError):
                 OrganizationDeclaration(**kw)

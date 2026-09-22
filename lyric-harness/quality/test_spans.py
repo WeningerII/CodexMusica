@@ -87,9 +87,11 @@ def test_the_original_bad_report_line():
     aa = anchors("I don't get to go")
     bb = anchors("how they read the address like a receipt")
     s = lh.best_score(aa, bb, DECL, "go", "receipt")
-    check("the original scalar remains 0.579 with the current NO_RELATION verdict",
-          s["total"] == 0.579 and s["relation"] == "NO_RELATION",
-          f"total {s['total']}  relation {s['relation']}")
+    check("the original scalar remains 0.579 and the pair stands in NO "
+          "relation (an empty relation set, printed NO_RELATION)",
+          s["total"] == 0.579 and s["relations"] == frozenset()
+          and lh.relation_label(s) == "NO_RELATION",
+          f"total {s['total']}  relations {sorted(s['relations'])}")
     sp = s["spans"]
     check("the winning LEFT span is the mosaic reach, not the end word",
           sp["a"]["words"] == ["get", "to", "go"], sp["a"]["text"])
@@ -223,7 +225,7 @@ def test_search_size_is_recorded():
           "DIFFERENT declared search is byte-identical, and no k bound "
           "exists to refuse anything",
           s_other["total"] == s["total"]
-          and s_other["relation"] == s["relation"]
+          and s_other["relations"] == s["relations"]
           and s_other["spans"]["search_k"] == sp["search_k"]
           and not any(f.name.startswith("theta_search")
                       or f.name.endswith("_k_max")
@@ -313,7 +315,7 @@ def test_the_consumers_print_it():
           and p24["spans"]["a"]["words"] == ["enjoys", "it"]
           and p24["spans"]["b"]["words"] == ["destroys", "it"],
           f"endwords {p24['endwords']} score {p24['score']} "
-          f"{p24['relation']}  ::  {p24['spans_note']}")
+          f"{p24['relations']}  ::  {p24['spans_note']}")
     check("the printed note is non-empty exactly where there is provenance",
           bool(p24["spans_note"]))
 

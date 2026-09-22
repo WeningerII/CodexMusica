@@ -59,13 +59,13 @@ fingerprint folds:
      it did not go stale silently is that `declaration_tuple` is DERIVED, so
      the key was right on the day the field landed and only the prose was
      wrong), and deliberately
-     NOT a hand-picked subset. Only 6 of them can move a field result today
-     (`field()` keeps `s["total"]` and discards `s["relation"]`, so the whole
-     relation ladder is invisible to it), and keying on a measured subset
-     would be exactly right until the day somebody returns `relation` from
-     `field()` -- at which point the key would be incomplete and nothing would
-     say so. Keying on all of them also means a coordinate ADDED to `Declaration`
-     enters the key by itself, with nobody remembering to add it.
+     NOT a hand-picked subset. Since 2026-09-22 `field()` admits a word by
+     the pair's RELATION SET at `decl.admit` and `theta_by_relation`
+     (`admits_decl`), so the relation coordinates move a field result too;
+     keying on a measured subset would go incomplete the day another one
+     does, and nothing would say so. Keying on all of them also means a
+     coordinate ADDED to `Declaration` enters the key by itself, with nobody
+     remembering to add it.
   3. `lexicon` -- the type, `strip_parens`, the g2p fallback's (type,
      min_confidence), and the CONTENT digests of `cmudict.dict` and
      `data/opensubtitles_en_50k.tsv`. CONTENT, not path: every tuple a field
@@ -123,7 +123,12 @@ __all__ = ["STORE_VERSION", "Unspellable", "attach", "clear", "default_database"
 #: format a file on disk is without opening it), which is
 #: `song_profile_calibration.CACHE_VERSION`'s convention and is followed here
 #: rather than re-argued.
-STORE_VERSION = 1
+#:
+#: 2 since 2026-09-22 (N-relation model): a field row now means "words standing
+#: in an ADMITTED coarse relation at its own cut" (`admits_decl`), no longer
+#: "words whose scalar total clears theta_rhyme". Same tuple, different
+#: membership, so the version moves rather than relying on the source digest.
+STORE_VERSION = 2
 
 #: Decoded fields held in memory at once, per attached store. NOT a clamp: past
 #: it the LRU evicts a DECODED field and the SQLite row stays exactly where it

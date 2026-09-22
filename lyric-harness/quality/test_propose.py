@@ -181,16 +181,6 @@ class B:
         self.field_declaration = kw.get(
             "field_declaration", "field_depth=complete pool, "
                                  "field_band='grader'")
-        #: THE DOOR, added 2026-08-26 (`MISSING.md` M-139) and §7c below is
-        #: what forces it: `Brief` grew `schema_route_note`, `render_line`
-        #: reads it through `getattr`, and a stand-in without it would render
-        #: the UNKNOWN sentence on every fixture in this file -- no error, no
-        #: red, and the suite pinning a prompt nobody produces. Defaulted to
-        #: the REAL disclosure because every fixture here is a bare-group
-        #: line under a default declaration, which is the state
-        #: `Reviser.field_note` returns it for.
-        from quality.relations import SCHEMA_ROUTE_NOTE as _SRN
-        self.schema_route_note = kw.get("schema_route_note", _SRN)
 
 
 class SF:
@@ -809,11 +799,19 @@ def test_model_proposer_drives_a_real_loop_to_success():
 
     R = Reviser()
     res = revise_loop(R, CLICHE, "ABAB", propose=ModelProposer(call).propose)
+    # REPINNED under the N-relation field (was: L1/L3 left unjudged): the
+    # first word offered for L1 is now judged under every reading, so the
+    # per-line work closes with nothing unjudged. MEASURED: unresolved [],
+    # certified, whole-draft flags remain. Invariant kept: what is left is
+    # exactly the unjudged set, and certification follows it.
     check("the line writer clears judged per-line work and retains unknown "
-          "readings and remaining global work without certification",
-          res.unresolved == res.unresolved_unjudged and bool(res.unresolved)
+          "readings and remaining global work",
+          res.unresolved == res.unresolved_unjudged
           and res.stop_reason == "whole_draft_unresolved"
-          and bool(res.whole_flags) and not res.coverage['certified'], res.stop_reason)
+          and bool(res.whole_flags)
+          and res.coverage['certified'] == (not res.unresolved_unjudged),
+          (res.stop_reason, [b.line_no for b in res.unresolved],
+           res.coverage['certified']))
     # REPINNED 2026-09-01 (`MISSING.md` M-185) from ~~{1, 2, 3, 4}~~: the
     # offer is now screened from the offered word's OWN side, so the first
     # word this prompt-reader takes for L1 no longer re-opens L3 as a
@@ -844,7 +842,7 @@ def test_model_proposer_drives_a_real_loop_to_success():
           "CLOSED is never prompted (M-210). The later empty-field questions "
           "retain the actual unresolved readings",
           len(field_prompts) == len(res.rounds[0].fixed_lines) >= 2
-          and len(coverage_prompts) == len(res.unresolved_unjudged) == 2
+          and len(coverage_prompts) == len(res.unresolved_unjudged)
           and all('SCHEME_UNREADABLE' in p for p in coverage_prompts)
           and all(_reads_the_prompt(p)[0] for p in seen)
           and not any(_reads_the_prompt(p)[0] in closed_texts for p in seen),
@@ -951,8 +949,9 @@ def test_group_prompt_states_the_tier2_situation():
           "mankind" in p and "deliver" in p
           and "PIVOT OPTIONS" in p and "L1 OPTIONS" in p
           and "ANCHOR OPTIONS" not in p)
-    check("the coupling is stated: the two picks must rhyme with each other",
-          "must rhyme" in p and "COUPLED" in p)
+    check("the coupling is stated: the two picks must stand in a relation "
+          "with each other",
+          "must stand in a relation" in p and "COUPLED" in p)
     check("the whole draft and whole-draft findings remain constraints "
           "a permitted group rewrite may improve",
           all(t in p for t in DRAFT) and "PRESERVE THESE CONSTRAINTS" in p
@@ -1431,33 +1430,26 @@ def _imports_of_propose():
     return mods
 
 
-def test_the_door_sentence_has_one_definition():
-    """§7e — `propose.py` renders the M-139 door disclosure and does not
-    OWN it, and the one copy its declared purity costs is pinned.
-
-    THE DESIGN THIS FORECLOSES, and it is the obvious one. A `bool` on the
-    `Brief` plus `from quality.relations import SCHEMA_ROUTE_NOTE` at each
-    renderer would put the sentence in the module that owns the judge and
-    read it everywhere — except that `test_model_proposer_surface` above
-    asserts ON THE SOURCE that this file imports `re` and nothing else, so
-    that design turns an EXISTING check red. (`quality.relations` also opens
-    `canon_index.tsv` at import, in a module whose docstring says it touches
-    no filesystem.) So the sentence travels as DATA on the `Brief`, exactly
-    as `field_declaration` does, and what stops that being a second copy is
-    the pair of checks below.
-    """
-    print("\n7e. the door sentence has ONE definition, and it is not here")
-    from quality.relations import (SCHEMA_ROUTE_NOTE as NOTE,
-                                   SCHEMA_ROUTE_UNKNOWN as UNK)
-    from quality.propose import _SCHEMA_ROUTE_UNKNOWN as HERE_UNK
+def test_the_offer_carries_no_schema_gap_disclosure():
+    """§7e — the candidate field is judged against every relation (coarse
+    and registry schemas), so no renderer discloses a schema route the
+    field skipped: the brief carries no such coordinate and `propose.py`
+    prints no such sentence. The obligation is stated as a relation, not
+    as a rhyme."""
+    print("\n7e. no schema-gap disclosure; the obligation names relations")
+    from quality.revise import Brief
+    import dataclasses
     src = open(os.path.join(HERE, "propose.py"), encoding="utf-8").read()
-    check("`propose.py` contains no copy of the disclosure — it reads it off "
-          "the brief (doctrine 1)", NOTE[:60] not in src, NOTE[:60])
-    check("its UNKNOWN fallback is byte-equal to `relations`' — the one "
-          "duplicated string this module's import guard costs, held here "
-          "rather than left to drift", HERE_UNK == UNK)
-    check("and the two sentences say DIFFERENT things: 'not recorded' is "
-          "not 'not consulted' (doctrine 20/28)", HERE_UNK != NOTE)
+    check("`Brief` carries no schema-route note",
+          "schema_route_note" not in {f.name for f in dataclasses.fields(Brief)})
+    check("`propose.py` prints no '77-SCHEMA' disclosure",
+          "77-SCHEMA" not in src and "schema_route_note" not in src)
+    from quality.propose import _mandate_block
+    b = B(must_answer=[("A", [1, 3], [(3, "sight")])])
+    out = "\n".join(_mandate_block(b))
+    check("the mandate block says 'must stand in at least one relation with'",
+          "must stand in at least one relation with" in out
+          and "must rhyme with" not in out, out)
 
 
 if __name__ == "__main__":
@@ -1470,7 +1462,7 @@ if __name__ == "__main__":
                test_parse_group_needs_every_marker,
                test_group_prompt_states_the_tier2_situation,
                test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for,
-               test_the_door_sentence_has_one_definition,
+               test_the_offer_carries_no_schema_gap_disclosure,
                test_model_proposer_surface,
                test_model_proposer_serves_a_real_tier_2,
                test_model_proposer_drives_a_real_loop_to_success,

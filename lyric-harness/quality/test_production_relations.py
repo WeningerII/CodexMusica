@@ -194,7 +194,7 @@ class ProductionRelations(unittest.TestCase):
             self.assertFalse(pair('analysed rhyme', bad))
         st = R.build_stream(good, get('eng'), stanzas=[0,0,1,1])
         self.assertFalse(R.line_pairs_for(R.REGISTRY['analysed rhyme'], st))
-        self.assertNotIn('analysed rhyme', R.DRAWABLE_SCHEMAS)
+        self.assertNotIn('analysed rhyme', R.DRAWABLE_EXHIBITS)
         self.assertIsInstance(R.pair_satisfies(R.REGISTRY['analysed rhyme'],
             stream(good), (0,-1), (1,-1)), R.Refusal)
         self.assertTrue(pair('blues AAB stanza',

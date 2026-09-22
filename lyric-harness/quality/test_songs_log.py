@@ -100,7 +100,9 @@ def test_the_row_is_what_the_verb_printed():
     """
     print("\n3. what is banked equals what the verb said")
     rc, out = run(["lyric_harness.py", "screen", "hair", "chair"])
-    printed = re.search(r"hair ~ chair\s+\S+\s+[\d.]+\s+(.+)", out)
+    # The row is `a ~ b  SCORE  VERDICT | relations...` since 2026-09-22: the
+    # single coarse-class column is gone, every relation is listed instead.
+    printed = re.search(r"hair ~ chair\s+[\d.]+\s+(.+)", out)
     check("`screen` printed a verdict for the control pair", bool(printed),
           printed.group(1).strip() if printed else out[:120])
     facts = dict(L._p_screen(out))
@@ -110,13 +112,13 @@ def test_the_row_is_what_the_verb_printed():
     check("...and it is the BANNED answer, so this section cannot pass on a "
           "pair the ban never looks at",
           "HOMEOTELEUTON" in facts.get("pair:hair~chair", ""))
+    counts = {k: v for k, v in facts.items() if not k.startswith("pair:")}
     check("...and the summary counts come off the verb's own tail line, "
-          "never re-counted here (doctrine 1) — M-113 split the clean "
-          "bucket, so the two halves are two facts",
-          facts.get("banned") == "1" and facts.get("clean_rhyming") == "0"
-          and facts.get("clean_non_rhyme") == "0",
-          f"banned={facts.get('banned')} rhyming={facts.get('clean_rhyming')} "
-          f"non={facts.get('clean_non_rhyme')}")
+          "never re-counted here (doctrine 1): one banned, every other "
+          "bucket zero, whatever the verb names its buckets",
+          counts.get("banned") == "1" and len(counts) >= 3
+          and all(v == "0" for k, v in counts.items() if k != "banned"),
+          f"{counts}")
 
 
 def test_the_claim_gate_is_two_sided():

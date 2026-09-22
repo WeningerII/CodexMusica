@@ -460,8 +460,8 @@ check("a SECOND Reviser grading the one-line variant is served the 3 pairs that 
       "do not touch the changed line and scores the 3 that do",
       t2["hit"] == 3 and t2["miss"] == 9, str(t2))
 check("a served score IS the recorded verdict: L1~L2 identical across the two "
-      "Revisers, total and relation", m2[0][1]["total"] == m1[0][1]["total"]
-      and m2[0][1]["relation"] == m1[0][1]["relation"])
+      "Revisers, total and relations", m2[0][1]["total"] == m1[0][1]["total"]
+      and m2[0][1]["relations"] == m1[0][1]["relations"])
 rc_ = _Rv(lex=lex8)
 rc_._matrix(_lines8, profile="assonance")
 t3 = _RV.score_memo_tally()

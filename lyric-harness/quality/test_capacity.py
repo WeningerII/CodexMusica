@@ -237,7 +237,7 @@ def test_the_anchor():
           (v_hair is not None and v_hair["why"] is None
            and v_narrow is not None
            and "admit set" in (v_narrow["why"] or "")),
-          f"default: {v_hair and (v_hair['relation'], v_hair['score'], v_hair['why'])}; "
+          f"default: {v_hair and (v_hair['relations'], v_hair['score'], v_hair['why'])}; "
           f"narrowed: {v_narrow and v_narrow['why']}")
     # Families are strictly FINER than the graded band: silver/deliver
     # sit in different perfect classes (the feminine anchors SIL vs LIV)
@@ -486,7 +486,12 @@ def test_the_relation_is_a_coordinate():
             ("RHYME", (12387, 8131, 399, 1)),
             ("ASSONANCE", (15, 0, 5269, 2382)),
             ("CONSONANCE", (3527, 1905, 2002, 1)),
-            ("RIME_RICHE", (37462, 35471, 7, 1))):
+            ("RIME_RICHE", (37462, 35471, 7, 1)),
+            # 2026-09-22: PROMOTED_RHYME joined ADMITTABLE_RELATIONS; its
+            # key is the final UNSTRESSED syllable's rime (words ending on
+            # a stressed vowel cannot stand in it). Measured by
+            # `python3 quality/capacity.py --families=PROMOTED_RHYME`.
+            ("PROMOTED_RHYME", (331, 116, 3541, 3))):
         s = CAP.family_summary(R, rel)
         got = (s["families"], s["singletons"], s["max"], s["median"])
         check(f"{rel}: families/singletons/max/median pin at {want} — "

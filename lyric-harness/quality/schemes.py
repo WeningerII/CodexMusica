@@ -912,7 +912,8 @@ class Requirement:
     """
 
     name: str
-    #: must these two lines stand in a RHYME relation?
+    #: must these two lines stand in at least one relation (the default
+    #: obligation: any coarse relation or registry schema)?
     #: NO PRODUCTION READER. `grade()` decides rhyme from `Mandate.pairs()`
     #: (a pair is mandated because it is in a group), never by asking this
     #: field, so it is declared and read by `test_mandate_language.py` alone.
@@ -948,14 +949,15 @@ class Requirement:
         return self.name
 
 
-#: Rhyme required, identity FORBIDDEN. What every letter scheme has always
-#: meant by "these two lines share a letter", and what `Mandate.groups` has
-#: always meant. Doctrine 3: inside a verse, REPEAT is the violation.
+#: A relation required, identity FORBIDDEN. What `Mandate.groups` has always
+#: meant. An identical word still stands in its other relations (REPEAT is
+#: one relation in the pair's set, not the negation of rhyme); doctrine 3
+#: rules that inside a verse the identity itself is the violation.
 REQUIRE_RHYME = Requirement(
     "REQUIRE_RHYME", True, False, True,
     True,
-    "these lines must RHYME and must not be the same word (doctrine 3: "
-    "REPEAT is a violation inside a verse)")
+    "these lines must stand in at least one relation and must not be the "
+    "same word (doctrine 3: REPEAT is a violation inside a verse)")
 
 #: Identity required. The refrain, the chorus return, the radif. Rhyme follows
 #: from identity, so it is required too; REPEAT is not a violation here, it is
@@ -1551,27 +1553,19 @@ class Mandate:
     #: frozen instance built by code that bypassed `mandate()` still answers
     #: through `structure_of`, which resolves absence to the default.
     structures: tuple = ()
-    #: declared RELATION per group, index-aligned with `groups` — WHAT
-    #: relation a pair in that group must stand in. `()` or a "" slot means
-    #: the DEFAULT: the coarse `Declaration.admit` set, the historical path,
-    #: byte-for-byte. Added 2026-08-22.
+    #: declared RELATION(S) per group, index-aligned with `groups` — WHAT a
+    #: pair in that group must stand in. `()` or a "" slot means the
+    #: DEFAULT: the pair must stand in AT LEAST ONE relation — an admitted
+    #: coarse relation (`Declaration.admit`, all five by default) or any
+    #: registry schema (`relations.whole_vocabulary_pairs`).
     #:
-    #: WHY THIS EXISTS AND WHY IT IS NOT A WIDER GLOBAL SET. `admits()` is
-    #: ONE set answering "what counts as satisfying ANY rhyme mandate
-    #: anywhere" — two members by default, four by an explicit
-    #: `Declaration.admit`. Widening THAT would make every rhyme requirement
-    #: in every song satisfiable by assonance: looser, not richer. A
-    #: per-group relation is richer AND STRICTER — a group declaring
-    #: `CONSONANCE` is not satisfied by a perfect rhyme unless it says so.
-    #:
-    #: THE VOCABULARY IS `quality.rhyme_types.relation_vocabulary()`: the 4
-    #: coarse classes, judged free from the score, and the named types, which
-    #: cost one `classify_pair` (~1.3 ms/pair, measured) and are paid for
-    #: ONLY by groups that declare one — the same lazy discipline
-    #: `structures` uses.
-    #:
-    #: A GROUP MAY NOT DECLARE BOTH a structure and a relation: that is two
-    #: judges for one group, and `mandate()` refuses it (doctrine 1).
+    #: A declared relation NARROWS the requirement: a group declaring
+    #: `class:CONSONANCE` is satisfied by a pair whose relation set holds
+    #: CONSONANCE (a perfect rhyme does, being also consonance). A slot may
+    #: name SEVERAL relations joined by `RELATION_SEP` (declared as a list or
+    #: a " & "-joined string): the pair must stand in EVERY one of them
+    #: (`relations_of`). A group may declare a structure AND relations; both
+    #: are required of its pairs.
     relations: tuple = ()
     #: THE MANDATE-LEVEL RELATION, and the route `relations` becomes the
     #: DEFAULT by (owner's instruction 2026-08-22, "wire Mandate.relations as
@@ -1586,8 +1580,7 @@ class Mandate:
     #:
     #: RESOLUTION ORDER, and it is the only order that lets a song be mostly
     #: one relation with exceptions: the group's own `relations[k]`, else this,
-    #: else "" -- which still means the coarse `Declaration.admit` path, so a
-    #: mandate that declares neither is byte-for-byte the old object.
+    #: else "" -- the default obligation (at least one relation).
     #:
     #: Validated at DECLARATION time through the same `resolve_relation` every
     #: per-group name goes through, so a typo refuses when the mandate is
@@ -1698,62 +1691,19 @@ class Mandate:
         if self.default_relation:
             from quality import rhyme_types as _RT
             object.__setattr__(self, "default_relation",
-                               _resolve_relation(_RT, self.default_relation))
+                               _resolve_relation_spec(_RT,
+                                                      self.default_relation))
 
-        # AND THE SONG-WIDE RELATION MAY NOT STAND BESIDE ANY DECLARED
-        # STRUCTURE (2026-08-24, `MISSING.md` M-102). `_normalise_relations`
-        # already refuses a GROUP that declares both, on the argument that two
-        # judges over one set of pairs would let `grade()`'s branch order
-        # decide the mandate's meaning. That check reads the per-group tuple
-        # and CANNOT SEE THIS FIELD, and `relation_of` falls back to it for
-        # every group that declares no relation of its own -- so the identical
-        # collision reappeared one coordinate over and nothing refused it.
-        #
-        # MEASURED on a four-line draft under `--groups=1,2;3,4`: with
-        # `--structures=B:kalevala-alliteration` alone the structure is judged
-        # and 0 SCHEME_VIOLATION stands; adding `--relation=type:pararhyme`
-        # gives 4, because `relation_of` answers non-empty for every group and
-        # `grade()` takes the relation branch first. The structure was never
-        # judged -- and `STRUCTURE_UNCALIBRATED` fired in BOTH runs, because it
-        # reads `m.structures` and not what answered. So the failing shape was
-        # DECLARED, DISCLOSED, ban-skipped and never judged, with its own
-        # disclosure vouching for it. That is worse than a silent drop: a
-        # caller reading "laziness is NOT graded under your declared structure"
-        # would conclude the structure graded correctness, and it graded
-        # nothing.
-        #
-        # REFUSED RATHER THAN ORDERED, and the refusal costs no capability:
-        # a mixed intent -- this relation on those groups, that structure on
-        # this one -- is exactly what the PER-GROUP `--relations=LABEL:NAME`
-        # spelling says, and the refusal names it.
-        if self.default_relation and any(self.structures or ()):
-            _named = ", ".join(repr(x) for x in self.structures if x)
-            raise NoMandate(
-                f"a song-wide relation ({self.default_relation!r}) was "
-                f"declared beside structure(s) {_named}. Both judge the same "
-                f"pairs, and the relation would win on every group -- "
-                f"including the ones the structure was declared for -- "
-                f"because a group with no relation of its own falls back to "
-                f"the song's. The structure would be declared, disclosed and "
-                f"never judged. Declare the relation PER GROUP instead "
-                f"(`--relations=A:NAME,C:NAME`), which leaves the structured "
-                f"group to its structure -- REFUSED, not silently resolved "
-                f"(doctrine 1).")
+        # A song-wide relation beside declared structures is a CONJUNCTION:
+        # a structured group falls back to the song's relation and its pairs
+        # must satisfy both (`Reviser.grade` judges each).
 
     def relation_of(self, group_index):
-        """-> the declared relation NAME for one group, or "" for default.
-
-        `relations` is index-aligned with `groups`, the same convention
-        `labels` and `structures` use, and a shorter tuple reads as default
-        for the tail. Absence has ONE meaning here — the historical
-        `Declaration.admit` path — so a mandate widened by one group does not
-        silently shift every later group's declaration (doctrine 66).
-
-        Unlike `structure_of` this returns "" rather than a default NAME,
-        because the default is not a row in this vocabulary: it is the coarse
-        admit SET, which is a different kind of object. Saying so with "" is
-        honest; inventing a name for it would put a fifth thing in a
-        four-name table."""
+        """-> the declared relation spelling for one group, or "" for the
+        default obligation (at least one relation of any kind). Several
+        required relations come back joined by `RELATION_SEP`; read them
+        one by one through `relations_of`. A shorter tuple reads as default
+        for the tail (doctrine 66)."""
         if group_index < len(self.relations) and self.relations[group_index]:
             return self.relations[group_index]
         # THE MANDATE-LEVEL DEFAULT (2026-08-22).  A group that declares
@@ -1761,6 +1711,11 @@ class Mandate:
         # mandate declaring NEITHER falls through to the coarse admit set, so
         # every caller that never learned this field is unaffected.
         return self.default_relation or ""
+
+    def relations_of(self, group_index):
+        """-> tuple of every relation NAME one group requires (a pair must
+        stand in each), or () for the default obligation."""
+        return split_relations(self.relation_of(group_index))
 
     def slot_of(self, group_index, line):
         """-> the `Slot` one LINE binds at inside one GROUP.
@@ -2651,10 +2606,16 @@ def _split_group_relation(x):
                 f"mapping spelling exists to put a RELATION on an edge, not "
                 f"to replace the members with one.")
         rel = x.get("relation") or ""
+        if isinstance(rel, (list, tuple)):
+            if not all(isinstance(r, str) for r in rel):
+                raise NoMandate(
+                    f"a group's `relation` must be relation NAMES as "
+                    f"strings; got {rel!r}.")
+            rel = RELATION_SEP.join(r for r in rel if r)
         if rel and not isinstance(rel, str):
             raise NoMandate(
                 f"a group's `relation` must be a declared relation NAME as a "
-                f"string; got {rel!r}.")
+                f"string (or a list of them); got {rel!r}.")
         return list(x["members"]), rel
     return list(x), ""
 
@@ -3156,12 +3117,10 @@ def _normalise_relations(relations, labels, n_groups, structures=()):
     Every name resolves through `quality.rhyme_types.resolve_relation` or the
     whole mandate REFUSES — a relation that does not exist, graded as the
     default, would be a silently different question (doctrine 20). A label
-    that names no group refuses the same way. "" slots mean default.
-
-    AND A GROUP MAY NOT DECLARE BOTH a structure and a relation. Both are
-    judges over the same pairs, and letting one win would make the mandate's
-    meaning depend on `grade()`'s branch order rather than on what was
-    written (doctrine 1). Refused here, at the declaration site.
+    that names no group refuses the same way. "" slots mean default. A
+    slot may name several relations (a list, or a `RELATION_SEP`-joined
+    string): the pair must stand in each. A group may declare a structure
+    beside its relations; `grade()` requires both.
     """
     if not relations:
         return ()
@@ -3184,7 +3143,7 @@ def _normalise_relations(relations, labels, n_groups, structures=()):
                 raise NoMandate(
                     f"relations declares group index {idx} and the mandate "
                     f"has {n_groups} group(s).")
-            out[idx] = _resolve_relation(_RT, name) if name else ""
+            out[idx] = _resolve_relation_spec(_RT, name) if name else ""
     else:
         seq = list(relations)
         if len(seq) > n_groups:
@@ -3192,18 +3151,35 @@ def _normalise_relations(relations, labels, n_groups, structures=()):
                 f"relations declares {len(seq)} entries for {n_groups} "
                 f"group(s) — they must be the same mandate.")
         for k, name in enumerate(seq):
-            out[k] = _resolve_relation(_RT, name) if name else ""
-    for k, rel in enumerate(out):
-        st = structures[k] if k < len(structures) else ""
-        if rel and st:
-            lab = labels[k] if k < len(labels) else k
-            raise NoMandate(
-                f"group {lab!r} declares BOTH a structure ({st!r}) and a "
-                f"relation ({rel!r}). Those are two judges over the same "
-                f"pairs, and which one answered would depend on grade()'s "
-                f"branch order rather than on what was written. Declare one "
-                f"(doctrine 1) — REFUSED, not silently resolved.")
+            out[k] = _resolve_relation_spec(_RT, name) if name else ""
     return tuple(out)
+
+
+#: The separator between several relations one group requires of a pair.
+RELATION_SEP = " & "
+
+
+def split_relations(spec):
+    """-> tuple of relation names in one stored relation spelling."""
+    if not spec:
+        return ()
+    return tuple(p.strip() for p in str(spec).split(RELATION_SEP.strip())
+                 if p.strip())
+
+
+def _resolve_relation_spec(_RT, spec):
+    """One declared relation, or several (a list or a `RELATION_SEP`-joined
+    string) -> the stored spelling, each name resolved and deduplicated."""
+    names = (list(spec) if isinstance(spec, (list, tuple, set, frozenset))
+             else list(split_relations(spec)))
+    out = []
+    for n in names:
+        if not n:
+            continue
+        r = _resolve_relation(_RT, n)
+        if r not in out:
+            out.append(r)
+    return RELATION_SEP.join(out)
 
 
 def _resolve_relation(_RT, name):
@@ -3267,7 +3243,8 @@ def _list_returns(spec):
 __all__ = ["bell", "stirling2", "rgs", "label", "parse", "canonical",
            "blocks", "Coordinates", "coordinates", "crossing_rhymes",
            "NAMED", "identify", "unnamed_fraction", "Cover",
-           "Mandate", "mandate", "NoMandate",
+           "Mandate", "mandate", "NoMandate", "RELATION_SEP",
+           "split_relations",
            # the A-1 refrain notation
            "SUPERSCRIPTS", "is_refrain_notation", "RefrainScheme",
            "parse_refrain", "REFRAIN_FORMS", "refrain_form",

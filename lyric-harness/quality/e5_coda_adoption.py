@@ -17,10 +17,18 @@ MAX_LOSS_RATE = 0.005
 
 
 def admitted(records, decl):
+    """Mandated judged pairs standing in at least one admitted coarse
+    relation at its own cut. The coarse scalar is what E-5 changes; the
+    schema half is counted by check_scheme's violations below."""
     return {(r['idx'], p) for r in records for p in r['mandated']
             if p not in r['refused']
-            and L.admits({'relation': r['pairs'][p][0], 'total': r['pairs'][p][1]},
-                         L.theta_for({'relation': r['pairs'][p][0]}, decl), decl.admit)}
+            and L.admits_decl({'relation_totals': r['pairs'][p][0]}, decl)}
+
+
+def _row(pair):
+    totals, score, reading, schemas = pair
+    return {'relations': sorted(totals), 'score': score,
+            'reading': reading, 'schemas': list(schemas)}
 
 
 def main():
@@ -42,27 +50,27 @@ def main():
         if x['refused'] != y['refused']:
             failures.append(f"refusal drift: sonnet {x['idx']}")
         for p in x['mandated']:
-            if x['pairs'][p][0] != y['pairs'][p][0]:
+            if set(x['pairs'][p][0]) != set(y['pairs'][p][0]):
                 winner_changes.append({'sonnet': x['idx'], 'lines': p,
-                                       'gift': x['pairs'][p], 'cannot_tell': y['pairs'][p]})
+                                       'gift': _row(x['pairs'][p]), 'cannot_tell': _row(y['pairs'][p])})
             candidates = [L.line_anchors(lex, x['lines'][j-1],
                                         promote=old.final_promotion)[0] for j in p]
             for left in candidates[0]:
                 for right in candidates[1]:
                     sa, sb = [L.score(left, right, d) for d in (old, new)]
                     fixed_candidates += 1
-                    if sa['relation'] != sb['relation']:
+                    if sa['relations'] != sb['relations']:
                         failures.append(f"fixed-span relation drift: sonnet {x['idx']} {p}")
     va = sum(len(r['base_violations']) for r in a)
     vb = sum(len(r['base_violations']) for r in b)
     if vb > va:
-        failures.append('post-rescue violations increased')
+        failures.append('violations increased')
     controls = {}
     for w1, w2 in [('now', 'why'), ('see', 'free'), ('cat', 'hat')]:
         anchors = [L.line_anchors(lex, w)[0] for w in (w1, w2)]
         scores = [L.best_score(*anchors, d, w1, w2) for d in (old, new)]
-        controls[f'{w1}/{w2}'] = [[s['total'], s['relation']] for s in scores]
-        if scores[1]['relation'] != 'RHYME' or (w1 != 'now' and scores[1]['total'] != 1.0):
+        controls[f'{w1}/{w2}'] = [[s['total'], sorted(s['relations'])] for s in scores]
+        if 'RHYME' not in scores[1]['relations'] or (w1 != 'now' and scores[1]['total'] != 1.0):
             failures.append(f'control failed: {w1}/{w2}')
         if w1 == 'now' and not scores[1]['total'] < scores[0]['total']:
             failures.append('empty-coda gift remains')
@@ -70,16 +78,16 @@ def main():
     for sampler in CR.GRID:
         before, after = [CR.measure(sampler, lex, d) for d in (old, new)]
         rows.append({'sampler': sampler.label(),
-                     'gift': {k: before[k] for k in ('judged', 'admit', 'narrow', 'schema')},
-                     'cannot_tell': {k: after[k] for k in ('judged', 'admit', 'narrow', 'schema')}})
+                     'gift': {k: before[k] for k in ('judged', 'any', 'admit', 'rhyme', 'schema')},
+                     'cannot_tell': {k: after[k] for k in ('judged', 'any', 'admit', 'rhyme', 'schema')}})
         if after['admit'] > before['admit']:
             failures.append(f'random admission increased: {sampler.label()}')
     report = {'max_loss_rate': MAX_LOSS_RATE, 'legacy_admitted': len(aa),
               'adopted_admitted': len(bb), 'lost': [
                   {'sonnet': i, 'lines': p, 'text': [a[i-1]['lines'][j-1] for j in p],
-                   'gift': a[i-1]['pairs'][p], 'cannot_tell': b[i-1]['pairs'][p]}
+                   'gift': _row(a[i-1]['pairs'][p]), 'cannot_tell': _row(b[i-1]['pairs'][p])}
                   for i, p in lost],
-              'post_rescue_violations': [va, vb], 'controls': controls,
+              'violations': [va, vb], 'controls': controls,
               'fixed_candidates': fixed_candidates, 'winner_changes': winner_changes,
               'random': rows, 'failures': failures}
     print(json.dumps(report, indent=2))

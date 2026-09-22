@@ -401,6 +401,14 @@ PRESETS = {
 }
 
 
+def _tri_or(vals):
+    """True if any is True, else None if any is None, else False."""
+    vals = [v for v in vals if v is not _NOT_ASKED]
+    if any(v is True for v in vals):
+        return True
+    return None if any(v is None for v in vals) else False
+
+
 def agreement_cells(ternary=False):
     """Single-syllable agreement patterns as (onset, nucleus, coda).
 
@@ -583,21 +591,39 @@ class RhymeType:
                 out[pred] = (chan, decl)
         return out
 
-    def verdict(self):
-        """Do these rhyme? True / False / None, propagating the unknown.
-
-        None is not a failure path. It is the answer whenever the decision
-        rests on a channel the phonology declined to read -- or on a relation
-        the phonology declined to decide, which `fas` does on 60.2% of real
-        Hafez pairs and which is the designed outcome, not a gap.
-        """
+    def relations(self):
+        """-> {relation: True/False/None} for EVERY relation this coordinate
+        answers, side by side: the channel rhyme and alliteration, and — where
+        the phonology declares its own — the declared rhyme and alliteration
+        (named by the phonology's relation). Neither route replaces the
+        other; a pair may stand in one and not the other."""
+        out = {"rhyme (channels)": self.channel_verdict(),
+               "alliteration (channels)": self.channel_alliteration()}
         v = getattr(self, "_declared_rhyme", _NOT_ASKED)
-        return self.channel_verdict() if v is _NOT_ASKED else v
+        if v is not _NOT_ASKED:
+            out["rhyme (declared)"] = v
+        v = getattr(self, "_declared_allit", _NOT_ASKED)
+        if v is not _NOT_ASKED:
+            out["alliteration (declared)"] = v
+        for k, v in getattr(self, "_declared_relations", {}).items():
+            out[f"{k} (declared)"] = v
+        return out
+
+    def verdict(self):
+        """Do these stand in ANY rhyme relation? True / False / None.
+
+        The channel rhyme and the phonology's declared rhyme are two
+        relations; the pair rhymes when either holds (`relations()` keeps
+        them apart). None is the answer when neither holds and one could not
+        be decided -- `fas` declines 60.2% of real Hafez pairs by design.
+        """
+        return _tri_or((self.channel_verdict(),
+                        getattr(self, "_declared_rhyme", _NOT_ASKED)))
 
     def alliterates(self):
-        """Do these alliterate? The same read, a different predicate."""
-        v = getattr(self, "_declared_allit", _NOT_ASKED)
-        return self.channel_alliteration() if v is _NOT_ASKED else v
+        """Do these stand in ANY alliteration relation? The same read."""
+        return _tri_or((self.channel_alliteration(),
+                        getattr(self, "_declared_allit", _NOT_ASKED)))
 
     def cells(self):
         """-> per syllable, EVERY cell name that syllable's agreement meets
@@ -651,15 +677,25 @@ class RhymeType:
                 continue
             skip = set(FREE.get(k, ())) | set(ignoring)
             if all(_axis_satisfies(ax, mine[i], k[i], k)
+                   or (ax == "position"
+                       and k[i] in getattr(self, "positions", ()))
                    for ax, i in AXIS_INDEX.items() if ax not in skip):
                 out.extend(n for n in NAMED[k] if n not in out)
         return tuple(out)
 
+    def every_name(self, ignoring=()):
+        """-> `names()` over this coordinate AND every other alignment
+        `classify_pair` tried (`alternatives`): each alignment the pair
+        supports is a relation the pair stands in."""
+        out = []
+        for x in (self,) + tuple(getattr(self, "alternatives", ())):
+            out.extend(n for n in x.names(ignoring) if n not in out)
+        return tuple(out)
+
     def describe(self):
-        nm = self.names()
+        nm = self.every_name()
         head = " / ".join(nm) if nm else "UNNAMED"
-        per = ", ".join(
-            (CELL_NAMES.get(a) or ("no-name",))[0] for a in self.agreement)
+        per = ", ".join("+".join(c) or "no-name" for c in self.cells())
         pos = "UNLOCATED" if self.position is None else self.position
         anc = (self.anchor_a.describe() if not self.anchors_differ
                else f"A {self.anchor_a.describe()} | B {self.anchor_b.describe()}")
@@ -1390,6 +1426,33 @@ def _score(pairs, select):
     return sum(1 for syl in pairs for j in idx if syl[j] is True)
 
 
+def _positions(a, b, frame, spans):
+    """-> EVERY position predicate the frame measures for this pair (a
+    one-word line is both its head and its end; two whole lines are
+    holorhyme AND end AND head). `_position` is the one this module files
+    as `RhymeType.position`; names read the whole set."""
+    sa, sb = spans.get("a"), spans.get("b")
+    if sa is None or sb is None:
+        return frozenset()
+    (sta, spa, na), (stb, spb, nb) = sa, sb
+    same_line = (str(frame.line_a).split() == str(frame.line_b).split())
+    end_a, end_b = spa == na, spb == nb
+    head_a, head_b = sta == 0, stb == 0
+    out = {_position(a, b, frame, spans)}
+    if same_line:
+        out.add("internal")
+        return frozenset(out)
+    if end_a and end_b:
+        out.add("end")
+    if head_a and head_b:
+        out.add("head")
+    if end_a != end_b:
+        out.add("cross")
+    if not (end_a and end_b):
+        out.add("internal")
+    return frozenset(out)
+
+
 def _position(a, b, frame, spans):
     """Compute POSITION from the frame. Never asserted, never defaulted."""
     sa, sb = spans.get("a"), spans.get("b")
@@ -1606,16 +1669,18 @@ def classify_pair(a, b, phon, span=None, position=None, boundary="simple",
     else:
         length = "subtractive"
 
+    positions = None
     if frame is not None and (frame.line_a is not None
                               and frame.line_b is not None):
         got = _position(a, b, frame, spans)
-        if position is not None and got != position:
+        positions = _positions(a, b, frame, spans)
+        if position is not None and position not in positions:
             raise Unverifiable(
                 f"position={position!r} was declared and the frame measures "
-                f"{got!r}. A declared coordinate that contradicts the "
-                f"measurement is refused, not overwritten in either "
-                f"direction.")
-        position = got
+                f"{sorted(positions)}. A declared coordinate that "
+                f"contradicts the measurement is refused, not overwritten in "
+                f"either direction.")
+        position = got if position is None else position
     elif position is not None:
         raise Unverifiable(
             "a Frame was supplied without both lines, so position could not "
@@ -1632,6 +1697,9 @@ def classify_pair(a, b, phon, span=None, position=None, boundary="simple",
     object.__setattr__(t, "alternatives", tuple(
         _dcx.replace(t, agreement=a) for a in dict.fromkeys(every)
         if a != agr))
+    if positions is not None:
+        for x in (t,) + t.alternatives:
+            object.__setattr__(x, "positions", positions)
     object.__setattr__(t, "offsets", (tuple(xa), tuple(xb)))
     object.__setattr__(t, "searched", (len(cand_a), len(cand_b)))
     object.__setattr__(t, "select", select)
@@ -1655,6 +1723,19 @@ def classify_pair(a, b, phon, span=None, position=None, boundary="simple",
                 and _implements(phon, "alliterates"):
             object.__setattr__(t, "_declared_allit",
                                _ask(phon, "alliterates", a, b))
+        # EVERY OTHER RELATION THE PHONOLOGY DECLARES (both hendingar, ...),
+        # each reported beside the channel relations, never instead of them.
+        if anchor_a == LAST_PROMINENT and anchor_b == LAST_PROMINENT \
+                and getattr(phon, "relation", "none") not in ("none", "unset"):
+            try:
+                extra = dict(phon.relations(a, b))
+            except Exception:
+                extra = {}
+            extra = {k: v for k, v in extra.items()
+                     if k not in ("rhymes", "alliterates")
+                     and v in (True, False, None)}
+            if extra:
+                object.__setattr__(t, "_declared_relations", extra)
     return t
 
 
@@ -1711,10 +1792,11 @@ def alliterates(a, b, phon, preset="kalevala-alliteration", **kw):
 # relation must this pair stand in", so they share one field and one
 # resolver; which one answered is REPORTED, never guessed.
 
-#: The coarse classes `score()` puts in `s["relation"]`.  Declared here rather
-#: than imported so this module stays free of `lyric_harness` (it is imported
-#: BY that module), and pinned by `test_rhyme_types.py` against the real set
-#: so the two cannot drift into two vocabularies (doctrine 1).
+#: The coarse relations `score()` puts in the SET `s["relations"]` (a pair
+#: may stand in several).  Declared here rather than imported so this module
+#: stays free of `lyric_harness` (it is imported BY that module), and pinned
+#: by `test_taxonomy.py` against `lyric_harness.ADMITTABLE_RELATIONS` so the
+#: two cannot drift into two vocabularies (doctrine 1).
 CLASS_RELATIONS = ("RHYME", "RIME_RICHE", "PROMOTED_RHYME", "ASSONANCE",
                    "CONSONANCE")
 
@@ -1728,11 +1810,18 @@ class RelationRefused(ValueError):
 #: THE THREE NAMESPACES.  Ruled by the owner 2026-08-22 on `MISSING.md`
 #: M-37: a declaration says WHICH vocabulary it means.
 #:
-#: WHY.  26 of `relations.REGISTRY`'s 77 schema names are also names in the
-#: table below, and where both judges answer they DISAGREE on 6 of 102
-#: measured cells in both directions -- `syllabic rhyme` says no to
-#: mother/brother as a CELL (the cell excludes a rhyme whose stressed
-#: syllable also agrees) and yes as a SCHEMA.  Worse, the class/cell line was
+#: WHY.  26 of `relations.REGISTRY`'s 78 schema names are also names in the
+#: table below, and the two are DIFFERENT JUDGES of one name. RE-MEASURED
+#: 2026-09-22 after both judges became inclusive (every name a pair's sound
+#: supports): over 43 word pairs (the exhibit table's end words plus 22
+#: textbook pairs), each word ending a line of its own, the type judge at
+#: position `end` and the schema judge DISAGREE on 69 of 724 answerable
+#: cells, in both directions -- `mosaic rhyme` and `broken rhyme` say yes to
+#: night/light as TYPES (their cells) and no as SCHEMAS (their spans need a
+#: split or multi-word member); `assonance` says yes to bend/ending as a
+#: SCHEMA and no as a TYPE (the one-syllable cell does not extend over a
+#: tail that differs). (The first measurement, 6 of 102, was on another
+#: pair set.)  Worse, the class/cell line was
 #: carried by CAPITALISATION alone: `ASSONANCE` resolved to the coarse class
 #: and `assonance` to the cell, two different relations one shift key apart.
 #:
@@ -1856,7 +1945,7 @@ def resolve_relation(name):
         raise RelationRefused(
             f"{name!r} names a relation in {len(hits)} namespaces "
             f"({', '.join(hits)}) and they do not agree -- MEASURED, the "
-            f"type and schema judges disagree on 6 of 102 answerable cells "
+            f"type and schema judges disagree on 69 of 724 answerable cells "
             f"in both directions (`MISSING.md` M-37). Say which: "
             f"{', '.join(f'{ns}:{key}' for ns in hits)}. REFUSED rather "
             f"than resolved by table order (doctrine 1/45).")
@@ -2312,6 +2401,10 @@ def names_at(a, b, phon, position, preset=None):
     `skipped` names the registered keys `classify_pair` found Indeterminate
     for this pair (an anchor with no referent at this length), so a short
     list is not read as a small vocabulary (doctrine 20).
+
+    EVERY ALIGNMENT counts: a name any alignment `classify_pair` tried
+    supports is a name the pair stands in. The registry schemas the pair
+    stands in are `schema_names_at`.
     """
     if position not in POSITION:
         raise ValueError(f"position {position!r} is not in the declared "
@@ -2335,11 +2428,23 @@ def names_at(a, b, phon, position, preset=None):
             continue
         if t is None:
             return None
-        got = _dc.replace(t, position=reg).names()
+        got = {n for x in (t,) + tuple(getattr(t, "alternatives", ()))
+               for n in _dc.replace(x, position=reg).names()}
         for n in names_here:
             if n in got and n not in found:
                 found.append(n)
     return tuple(found), tuple(n for n in skipped if n not in found)
+
+
+def schema_names_at(a, b, phon):
+    """-> {"true": (names...), "undecided": (...), "refused": (...)} — every
+    `relations.REGISTRY` schema the two words stand in when each ends a line
+    of its own (the two-line stream [a, b]); the whole registry is asked."""
+    from quality import relations as _R
+    res = _R.whole_vocabulary_pairs([str(a), str(b)], phon)
+    return {"true": tuple(res.get((1, 2), ())),
+            "undecided": tuple(res.undecided.get((1, 2), ())),
+            "refused": tuple(sorted(res.refused))}
 
 
 __all__ = ["CHANNELS", "SPAN", "IDENTITY", "STRESS", "POSITION", "BOUNDARY",
@@ -2349,7 +2454,7 @@ __all__ = ["CHANNELS", "SPAN", "IDENTITY", "STRESS", "POSITION", "BOUNDARY",
            "named_count", "classify", "Anchor", "ANCHOR_RULES", "DETERMINACY",
            "SPAN_RULES", "PROMINENCE_RULES", "FRAME_RULES", "ANCHOR_VALUES",
            "PRESETS", "Frame", "Unverifiable", "resolve_anchor", "alliterates",
-           "names_at",
+           "names_at", "schema_names_at",
            "UNLOCATED", "LAST_PROMINENT", "WORD_INITIAL", "FINAL_UNPROMINENT",
            "PENULTIMATE_PROMINENT", "SECOND_AKSARA", "LINE_PENULT",
            "PROMINENT_ONSET_SEARCH", "PROMINENT_SEARCH", "WELSH_PENULT",
@@ -2361,13 +2466,20 @@ __all__ = ["CHANNELS", "SPAN", "IDENTITY", "STRESS", "POSITION", "BOUNDARY",
 
 
 def coarse_relation_consensus(lex, line_a, line_b, decl, relation=None,
-                              profile=None, promote=False, min_score=None, member_lexicons=None):
+                              profile=None, promote=False, min_score=None,
+                              member_lexicons=None, per_relation=False):
     """Unanimous endpoint-pronunciation verdict with the existing scorer.
 
     Each pronunciation still gets the scorer's declared anchor-span search.
     Dictionary ordering and maximizing over different readings cannot turn an
     unresolved homograph into a certified rhyme. ``relation`` is a canonical
-    coarse class, or None for the declaration's admissibility predicate.
+    coarse class (or a set of them: any member satisfies), or None for the
+    declaration's admissibility predicate.
+
+    ``per_relation=True`` returns {relation: True/False/None} for EVERY
+    relation in ``decl.admit``, each at its own declared cut and each
+    unanimous across readings on its own — the pair's whole relation set,
+    not one verdict.
     """
     import itertools
     import lyric_harness as lh
@@ -2392,6 +2504,21 @@ def coarse_relation_consensus(lex, line_a, line_b, decl, relation=None,
         return out
     la, lb = member_lexicons or (lex, lex)
     aa, bb = candidates(line_a, la), candidates(line_b, lb)
+    if per_relation:
+        names = tuple(sorted(decl.admit))
+        if not aa or not bb:
+            return {n: None for n in names}
+        seen = {n: set() for n in names}
+        for (anc_a, word_a), (anc_b, word_b) in itertools.product(aa, bb):
+            score = lh.best_score(anc_a, anc_b, decl, word_a, word_b,
+                                  profile=profile)
+            held = lh.admitted_relations(score, decl.theta_rhyme,
+                                         relations=frozenset(names),
+                                         cuts=decl.theta_by_relation)
+            for n in names:
+                seen[n].add(n in held)
+        return {n: (next(iter(v)) if len(v) == 1 else None)
+                for n, v in seen.items()}
     if not aa or not bb:
         return None
     values = set()

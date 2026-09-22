@@ -267,6 +267,26 @@ def test_the_type_space():
     check("perfect rhyme is nucleus+coda, NOT all three",
           T.CELL_NAMES[(0, 1, 1)][0] == "perfect rhyme"
           and "alliteration" in T.CELL_NAMES[(1, 0, 0)])
+    _pr = T.RhymeType(((0, 1, 1),))
+    check("a perfect-rhyme syllable carries EVERY cell name it meets — "
+          "perfect rhyme AND assonance AND consonance — and describe() "
+          "prints them all",
+          {"perfect rhyme", "assonance", "consonance"} <= set(_pr.cells()[0])
+          and all(n in _pr.describe()
+                  for n in ("perfect rhyme", "assonance", "consonance")),
+          _pr.describe())
+    _rr = T.RhymeType(((1, 1, 1),))
+    check("an identical syllable is rime riche and assonance and consonance "
+          "and alliteration, and NOT perfect rhyme (perfect rhyme's "
+          "different onset is its definition)",
+          {"rime riche", "assonance", "consonance", "alliteration"}
+          <= set(_rr.cells()[0]) and "perfect rhyme" not in _rr.cells()[0],
+          str(_rr.cells()))
+    import lyric_harness as _lh
+    check("CLASS_RELATIONS is the harness's ADMITTABLE_RELATIONS, name for "
+          "name (one vocabulary, doctrine 1)",
+          set(T.CLASS_RELATIONS) == set(_lh.ADMITTABLE_RELATIONS),
+          f"{sorted(T.CLASS_RELATIONS)} vs {sorted(_lh.ADMITTABLE_RELATIONS)}")
     check("the space is large and enumerable",
           T.space_size(1) == 20736 and T.space_size(2) == 186624,
           f"span<=3 is {T.space_size(3):,}")
@@ -377,9 +397,17 @@ def test_ternary_channels_and_unbounded_span():
           T.span_name(5) == "5-syllable multisyllabic"
           and T.span_name(2) == "feminine",
           "the old SPAN dict lumped everything 4+ into 'extended'")
-    check("an undetermined type reports UNNAMED rather than a nearest cell",
-          T.RhymeType(((False, None, True),)).names() == ()
-          and T.RhymeType(((False, None, True),)).verdict() is None)
+    # REPINNED 2026-09-22 (N relations per pair): the coda AGREES, so the
+    # pair is decided in consonance whatever the unread nucleus is; every
+    # name that needs the nucleus stays out, and the rhyme verdict stays
+    # None. Was `names() == ()`, which read one unknown channel as "no
+    # relation at all".
+    _u = T.RhymeType(((False, None, True),))
+    check("an undetermined channel names only what the DETERMINED channels "
+          "decide: consonance yes, nothing that needs the nucleus",
+          "consonance" in _u.names()
+          and not {"assonance", "perfect rhyme", "pararhyme"} & set(_u.names())
+          and _u.verdict() is None, str(_u.names()))
 
 
 def test_the_anchor_is_a_coordinate_and_it_moves_the_span():
@@ -681,7 +709,7 @@ def test_four_languages_four_anchors():
           f"cannot be told from traws, because the distinction IS the anchor")
 
 
-def test_the_phonologys_own_relation_wins():
+def test_the_phonologys_own_relation_is_reported():
     print("\n14. channel equality is not the relation everywhere")
     from quality.phonology import get
     ltc = get("ltc")
@@ -691,7 +719,8 @@ def test_the_phonologys_own_relation_wins():
     check("ltc: the raw channels say 流~樓 do NOT rhyme",
           t.channel_verdict() is False,
           "nucleus 尤 against 侯 — different rime categories in the rime book")
-    check("but ltc.rhymes says they DO, and that answer wins",
+    check("but ltc.rhymes says they DO: the pair stands in the declared "
+          "relation, so it rhymes (verdict = ANY rhyme relation holds)",
           ltc.rhymes("流", "樓") is True and t.verdict() is True
           and t.route["rhyme"] == "declared_relation",
           "doctrine 36: the granularity a REFERENCE WORK records is not the "
@@ -701,6 +730,24 @@ def test_the_phonologys_own_relation_wins():
           "this disagreement is how the case was found; a producer that hid "
           "it would ship a confident wrong answer on the strongest positive "
           "control this project has")
+    check("BOTH relations are reported side by side — neither replaces the "
+          "other (N relations per pair)",
+          t.relations()["rhyme (channels)"] is False
+          and t.relations()["rhyme (declared)"] is True, str(t.relations()))
+    ts = T.classify_pair("vedam", "prabandham", get("san"))
+    check("and the other direction: san's antya-prāsa says NO (onset "
+          "differs) while the channels say the rime agrees — the pair "
+          "stands in the channel rhyme, and antya-prāsa's no does not "
+          "suppress it",
+          ts.relations()["rhyme (declared)"] is False
+          and ts.relations()["rhyme (channels)"] is True
+          and ts.verdict() is True, str(ts.relations()))
+    tn = T.classify_pair("fara", "sára", get("non"))
+    check("non: skothending is reported beside aðalhending, which `rhymes` "
+          "alone never consulted",
+          tn.relations().get("skothending (declared)") is True
+          and tn.relations().get("adalhending (declared)") is False,
+          str(tn.relations()))
     check("consult=False is reachable, so the channel-only path stays "
           "demonstrable",
           T.classify_pair("流", "樓", ltc, consult=False).verdict() is False)
@@ -917,7 +964,7 @@ if __name__ == "__main__":
                test_the_anchor_is_a_coordinate_and_it_moves_the_span,
                test_position_is_computed_or_refused,
                test_four_languages_four_anchors,
-               test_the_phonologys_own_relation_wins,
+               test_the_phonologys_own_relation_is_reported,
                test_registry_reachability):
         fn()
     print("=" * 62)

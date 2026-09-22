@@ -223,8 +223,8 @@ def test_the_doctrine_14_claim_is_GRADED_not_grepped():
           isinstance(ms, dict) and set(ms) == {"--groups=", "--returns="},
           str(sorted(ms))[:90] if isinstance(ms, dict) else repr(ms))
 
-    reps = [e for e in r["web"] if e["relation"] == "REPEAT"]
-    band = [e for e in r["web"] if e["relation"] != "REPEAT"]
+    reps = [e for e in r["web"] if "REPEAT" in e["relations"]]
+    band = [e for e in r["web"] if "REPEAT" not in e["relations"]]
     check("the fixture HAS both kinds — a section that graded a REPEAT-free "
           "cover would pass against the defect and prove nothing",
           reps and band, f"{len(reps)} REPEAT, {len(band)} band")

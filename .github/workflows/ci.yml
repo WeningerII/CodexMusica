@@ -2796,7 +2796,7 @@ jobs:
       #
       # COST, MEASURED before it was added: **1.9s**, pure AST, no corpus and
       # no scoring.
-      - name: Door census, every pair-satisfaction site against the 77
+      - name: Door census, every pair-satisfaction site against every relation
         if: ${{ always() && matrix.shard == 2 }}
         working-directory: lyric-harness
         run: python3 quality/door_census.py --check
@@ -2809,13 +2809,15 @@ jobs:
       # own figures came from an uncommitted script and do not reproduce --
       # the sampler's POPULATION and READER were never declared, so two later
       # re-derivations disagreed with the entry and with each other. This
-      # gates the band (`admit 289..339`, `narrow 36..46`, `schema 897..932`)
-      # over a declared 2x2 grid, and asserts that its shipped cell's draw
+      # gates the band over a declared 2x2 grid — every pair counted in EVERY
+      # relation it stands in (`any`, `admit`, `rhyme`, `schema` are
+      # overlapping families of ONE door, never summed; the pins are
+      # `chance_rate.ADOPTED`) — and asserts that its shipped cell's draw
       # still reproduces `redteam_band.sample_pairs` pair for pair, so the two
       # instruments cannot drift apart again (doctrine 1).
       #
       # COST, MEASURED before it was added: **45s** -- four cells of 4,000
-      # pairs, each judged at three doors. It is here rather than in the
+      # pairs, each judged against every relation. It is here rather than in the
       # cheap-suite pool for exactly that reason.
       - name: Chance rate, the shipped door against random pairs
         if: ${{ always() && matrix.shard == 1 }}
@@ -3855,7 +3857,7 @@ jobs:
       # question nobody asked. MEASURED, run 34413319893: steps 9, 10, 13 and
       # 14 failed and these three were SKIPPED, so a nightly that reported four
       # problems was actually hiding an unknown number of them behind them.
-      - name: The 77-schema door against its matched redeal
+      - name: The default door (every relation) against its matched redeal
         if: always()
         working-directory: lyric-harness
         run: python3 quality/chance_rate.py --null --check

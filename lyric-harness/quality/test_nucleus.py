@@ -118,7 +118,8 @@ def anchor_of(word):
 def rel(a, b, decl=None):
     d = decl or DECL
     aa, bb = anchor_of(a), anchor_of(b)
-    return score(aa, bb, d, a, b)["relation"]
+    # EVERY coarse relation the pair stands in: a set, never one label.
+    return score(aa, bb, d, a, b)["relations"]
 
 
 def aligned(a, b):
@@ -162,7 +163,7 @@ def test_the_priced_cost_of_leaving_it_at_060():
     print("\n2. what 0.600 costs, asserted rather than described")
     n_fo = vowel_sim("AY", "AH")
     check("`five`/`of` is typed RHYME, at nucleus 0.603 against 0.600",
-          rel("five", "of") == "RHYME" and abs(n_fo - 0.603) < 5e-4,
+          "RHYME" in rel("five", "of") and abs(n_fo - 0.603) < 5e-4,
           f"vowel_sim(AY, AH) = {n_fo:.3f}. A margin of 0.003 is a coin flip "
           f"wearing a verdict, and this check exists so that it is VISIBLE "
           f"rather than hidden. It is the declared cost of the incumbent, not "
@@ -177,7 +178,7 @@ def test_the_priced_cost_of_leaving_it_at_060():
           f"long one agree.")
     check("...and raising the threshold is REACHABLE, so the cost is "
           "demonstrable (doctrine 84)",
-          rel("five", "of", Declaration(theta_nucleus=0.70)) != "RHYME",
+          "RHYME" not in rel("five", "of", Declaration(theta_nucleus=0.70)),
           f"at 0.70 it is {rel('five', 'of', Declaration(theta_nucleus=0.70))}")
 
 
@@ -216,7 +217,7 @@ def test_the_shape_is_declared():
     ident = Declaration(nucleus_agreement="identity")
     lic = Declaration(nucleus_agreement="licensed")
     check("`identity` is reachable and refuses `five`/`of`",
-          rel("five", "of", ident) != "RHYME",
+          "RHYME" not in rel("five", "of", ident),
           f"{rel('five', 'of', ident)}. This is the red team's REFERENCE LINE "
           f"promoted from a number inside a script to a shape a caller can "
           f"select — which is what makes 'identity would delete slant rhyme' "
@@ -226,10 +227,10 @@ def test_the_shape_is_declared():
                                 ident)[0])
     check("`identity` still admits a perfect rhyme, so it is a shape and not "
           "an off switch",
-          rel("nation", "station", ident) == "RHYME")
+          "RHYME" in rel("nation", "station", ident))
     check("`licensed` admits `graces`/`faces` where `identity` refuses it",
-          rel("graces", "faces", lic) == "RHYME"
-          and rel("graces", "faces", ident) != "RHYME",
+          "RHYME" in rel("graces", "faces", lic)
+          and "RHYME" not in rel("graces", "faces", ident),
           f"licensed={rel('graces', 'faces', lic)}, "
           f"identity={rel('graces', 'faces', ident)} — the two-tier rule, and "
           f"the tier it adds is one pair wide")
@@ -337,9 +338,9 @@ def test_the_sonnets_cannot_price_this_channel():
           f"dialect, dictionary and metre is not a true-positive cost: it "
           f"prices the `dialect` coordinate, not `theta_nucleus`.")
     check("the reduced-vowel cases are the ones the licence exists for",
-          all(rel(*nm.split("/"),
+          all("RHYME" not in rel(*nm.split("/"),
                   Declaration(theta_nucleus=0.70,
-                              nucleus_agreement="scalar")) != "RHYME"
+                              nucleus_agreement="scalar"))
               for nm in sorted(set(schwa))[:3]),
           f"{sorted(set(schwa))[:6]} — refused by a bare tightening. In each "
           f"the offending SYLLABLE is AH0 against IH0 in an unstressed "

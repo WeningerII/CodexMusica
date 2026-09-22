@@ -698,8 +698,18 @@ class OldNorse(Phonology):
                           self.onset(a, ia), self.onset(b, ib), "skot",
                           ae_merged)
 
+    def relations(self, a, b):
+        """Both hendingar and alliteration, each its own relation: a pair
+        may stand in skothending while failing aðalhending, and `rhymes`
+        (aðalhending) must not hide it."""
+        out = super().relations(a, b)
+        out["adalhending"] = self.adalhending(a, b)
+        out["skothending"] = self.skothending(a, b)
+        return out
+
     def rhymes(self, a, b):
-        """Aðalhending on the stressed syllable of each word.
+        """Aðalhending on the stressed syllable of each word. Its own
+        predicate; skothending is reported beside it by `relations`.
 
         Dróttkvætt has NO end-rhyme -- the rhyme of this tradition is the
         internal hending, which is the whole reason the cell is worth having:

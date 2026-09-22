@@ -726,7 +726,8 @@ def dedup_verify(path):
 def d1_diagnostic():
     """Registration D1 — recorded, NOT a falsifier. 1,000 seeded
     endword-cross pairs from eng_song; the masculine-rhyme judge tabulated
-    against the engine's admits() verdict (RHYME/RIME_RICHE at theta). A
+    against whether RHYME (any of `RHYME_RELATIONS`, at its cut) is IN the
+    engine's relation set for the pair — membership, never one label. A
     cell compilation and a scalar band are different questions, so
     agreement is MEASURED and disagreements exemplified; no threshold was
     preregistered, and registering the tabulation now is what stops the
@@ -748,7 +749,8 @@ def d1_diagnostic():
         ancs1, _, _ = LH.line_anchors(lex, a)
         ancs2, _, _ = LH.line_anchors(lex, b)
         s = LH.best_score(ancs1, ancs2, decl, a, b)
-        av = LH.admits(s, decl.theta_rhyme)
+        av = LH.admits(s, decl.theta_rhyme, LH.RHYME_RELATIONS,
+                       decl.theta_by_relation)
         key = (("true" if sv else "refused" if sv is None else "false"),
                "admits" if av else "rejects")
         tab[key] += 1

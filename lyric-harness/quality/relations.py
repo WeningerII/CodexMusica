@@ -476,6 +476,10 @@ class Frames:
     #: ambiguous over 843 stub lines, which is wrong more often than right.
     stub_resolution: dict = field(default_factory=dict)
     stub_source: str = "none"
+    #: THE 平仄 TEMPLATE: {line index -> pattern over `TONE_MARKS`}, DECLARED
+    #: by `declare_tonal_template` — a regulated-verse slot is the FORM's.
+    tonal_template: dict = field(default_factory=dict)
+    tonal_source: str = "none"
 
 
 #: Capability prefix for a DECLARED QUOTIENT (defect P14).  `capabilities()`
@@ -624,6 +628,21 @@ class Stream:
             return self._frame_supply(cap, fr.stub_source,
                                       len(fr.stub_resolution),
                                       "stub lines resolved to a span")
+        if cap == "tonal_template":
+            return self._frame_supply(cap, fr.tonal_source,
+                                      len(fr.tonal_template),
+                                      "lines carrying a declared 平仄 pattern")
+        if cap == "tone":
+            # A 平/仄 prominence, not a stress: present only when the
+            # phonology DECLARES its prominence channel as the tone binary
+            # (ltc's `prominence_rule`), so a stress stream is never read as
+            # tones.
+            rule = str(getattr(self.phon, "prominence_rule", "") or "")
+            n = (sum(1 for u in self.units if u.syl.prominence is not None)
+                 if "平" in rule and "仄" in rule else 0)
+            return Supply(cap, "present" if n else "absent", n, "phonology",
+                          "units whose prominence the phonology declares as "
+                          "平/仄")
         if cap == "bayt":
             return self._frame_supply(cap, fr.bayt_source, len(fr.hemistich),
                                       "lines mapped to a (bayt, half)")
@@ -2903,9 +2922,30 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=MAX_CANDIDATE_PAIR
     """
     if requested_line_pairs is not None and not pair_scope_representable(schema):
         raise ValueError("candidate projection requires a pair-local schema")
-    if not figure_pair_representable(schema) and schema.name not in (
-            "symploce", "analysed rhyme", "blues AAB stanza"):
-        return _full_shape(schema, stream)
+    if "stub_resolution" in schema.capabilities() \
+            and stream.supply("stub_resolution").state == "absent":
+        derived = _stub_resolved_stream(stream)
+        if isinstance(derived, (Refusal, list)):
+            return derived
+        stream = derived
+    if not figure_pair_representable(schema) and \
+            schema.name not in LINE_MEMBER_SHAPES:
+        # A token-member or template figure: its EDGES are the instances,
+        # each with its own verdict; `assemble()` re-judges the whole figure.
+        shapes = _full_shape(schema, stream)
+        if isinstance(shapes, Refusal):
+            return shapes
+        seen, out = set(), []
+        for _, edges, _ in shapes:
+            for e in edges:
+                k = (e.a.idx, e.b.idx, e.a.origin, e.b.origin)
+                if k in seen:
+                    continue
+                seen.add(k)
+                tag = {True: "true", False: "false", None: "none"}[e.verdict]
+                if keep == "all" or tag in keep:
+                    out.append(e)
+        return out
     # THE WHOLE SET, not the first name.  This loop used to `return` inside the
     # `for`, so the answer was whichever missing capability sorted first and a
     # schema needing two reported one.  See `Refusal` for the measurement; the
@@ -4144,6 +4184,44 @@ def declare_stub_resolution(stream, mapping):
             "units_substituted": done, "source": "declared"}
 
 
+def _stub_resolved_stream(stream):
+    """THE STUB RESOLUTION, DERIVED FROM A DECLARED `line_status`.
+
+    -> a resolved COPY of the stream (the caller's is untouched), `[]` when
+    the declared status marks no stub (no line points anywhere, so nothing
+    stands in `refrain by reference`), or a `Refusal` when nobody declared
+    which lines are pointers, or when stubs exist and none resolves
+    uniquely. Which lines are stubs stays the caller's declaration (P10);
+    only the unique incipit match is derived, `search_stub_resolution`'s
+    own rule."""
+    sup = stream.supply("line_status")
+    if sup.state == "absent":
+        return Refusal("refrain by reference", "stub_resolution",
+                       "refrain by reference needs 'stub_resolution' — "
+                       "declare it (`declare_stub_resolution`) or declare "
+                       "which lines are pointers (`line_status`) and it is "
+                       "derived.", missing=("stub_resolution",),
+                       kind="capability")
+    if sup.state == "empty":
+        return []
+    rep = search_stub_resolution(stream)
+    if isinstance(rep, Refusal):
+        return rep
+    if not rep["resolved"]:
+        return Refusal("refrain by reference", "stub_resolution",
+                       f"{rep['stubs']} declared stub(s), none resolving to "
+                       f"a unique earlier line (ambiguous "
+                       f"{len(rep['ambiguous'])}, unmatched "
+                       f"{len(rep['unmatched'])}, no incipit "
+                       f"{len(rep['no_incipit'])}); declare the resolution.",
+                       missing=("stub_resolution",), kind="capability")
+    import copy
+    derived = replace(stream, frames=copy.copy(stream.frames))
+    declare_stub_resolution(derived, rep["resolved"])
+    derived.frames.stub_source = "derived:" + rep["source"]
+    return derived
+
+
 def declare_delivery(stream, overrides, name="delivered"):
     """Declare HOW THE LINES ARE SUNG, as a second stream. -> a summary dict.
 
@@ -4435,13 +4513,14 @@ declare(RelationSchema(
     aka=("front rhyme", "head-and-body rhyme"),
     spans=(END_ANCHOR, END_ANCHOR), align="anchor",
     channels=(ChannelRule("onset", AGREE, "anchor"),
-              ChannelRule("nucleus", AGREE, "anchor"),
-              ChannelRule("coda", DIFFER, "anchor")),
+              ChannelRule("nucleus", AGREE, "anchor")),
     placement=(Placement("both_line_final"), Placement("different_lines")),
     identity=(DISTINCT,),
     note="THE CELL rhyme_types.CELL_NAMES[(1,1,0)] declares nameless, with the "
          "source's own example bat/back. Structurally unreachable by suffix "
-         "alignment: the agreeing material is a PREFIX of the rime."))
+         "alignment: the agreeing material is a PREFIX of the rime. Nothing "
+         "is required of the coda: a pair whose codas also agree is reverse "
+         "rhyme and rime riche at once."))
 
 declare(RelationSchema(
     name="alliteration",
@@ -4664,10 +4743,11 @@ declare(RelationSchema(
     channels=(ChannelRule("nucleus", AGREE, "each"),
               ChannelRule("coda", ClassEqual(resource="manner",
                                              label="declared manner partition"),
-                          "each"),
-              ChannelRule("onset", DIFFER, "first")),
+                          "each")),
     placement=(Placement("different_lines"),), identity=(DISTINCT,),
-    note="the span may BEGIN MID-WORD and the two sides may have different "
+    note="Nothing is required of the first onset: a span whose onset also "
+         "agrees is multisyllabic rhyme and rime riche at once. "
+         "the span may BEGIN MID-WORD and the two sides may have different "
          "word counts, so phon.syllabify(word) on a single token cannot even "
          "be called. anchor='searched' carries its own k for the null."))
 
@@ -5132,9 +5212,12 @@ declare(RelationSchema(
     name="平仄 tonal template",
     spans=(WHOLE_LINE, WHOLE_LINE), align="flush_left",
     channels=(ChannelRule("prominence", AGREE, "each"),),
+    requires=("tonal_template", "tone"),
     figure=Figure(nodes=1, edges=(), template="declared 平仄 pattern",
                   frame="line"),
-    note="a relation between a text and a TEMPLATE rather than between two "
+    note="Judged per line against the pattern `declare_tonal_template` "
+         "declares, over the 平/仄 a tone-bearing phonology (ltc) supplies. "
+         "a relation between a text and a TEMPLATE rather than between two "
          "spans -- the degenerate FIGURE. Doctrine 41: every second line-end "
          "in an isosyllabic form is periodic whether or not anything rhymes."))
 
@@ -5228,9 +5311,11 @@ declare(RelationSchema(
     channels=(ChannelRule("token", AGREE, "each"),),
     identity=(IdentityRule("token", AGREE),), requires=("stub_resolution",),
     note="941 instances in the staged corpus. Its last token strips to '&c', "
-         "which is not a word. Only the EXCLUSION is built; the resolution is "
-         "not, so this refuses on 'stub_resolution' rather than reading a "
-         "pointer as text."))
+         "which is not a word. The resolution is declared "
+         "(`declare_stub_resolution`) or derived from a declared "
+         "`line_status` (unique incipit matches only); with neither it "
+         "refuses on 'stub_resolution' rather than reading a pointer as "
+         "text."))
 
 declare(RelationSchema(
     name="incremental repetition",
@@ -5385,51 +5470,13 @@ class Unprovidable:
     detail: str = ""
 
 
-UNPROVIDABLE = (
-    Unprovidable(
-        capability="stub_resolution",
-        schemas=("refrain by reference",),
-        needs=(
-            "a declared map from a stub LINE to the SPAN of lines it points "
-            "at -- not a line pointer, a span, because `&c.` stands for a "
-            "whole chorus and nothing in the text says how many lines that "
-            "is. `Stream.line_status` already MARKS the stub and "
-            "`lyric_harness.chorus_stub_match` already names which "
-            "tradition's convention it read; what is absent is the "
-            "resolution, and `relations.py` ships no detector on purpose "
-            "(BACKLOG 2.4: `&c.` is an EDITION's fact, not English's)."),
-        would_manufacture=(
-            "ordinary verbatim refrains, reported as refrains BY REFERENCE. "
-            "The schema's one channel is token AGREE over the whole line, so "
-            "with the flag set and the stub still tokenising to `c` it would "
-            "fire on every exactly-repeated line in the text and on no stub "
-            "at all -- the inverse of what it is for."),
-        blocker="build",
-        detail=(
-            "DOCTRINE 44's 'hard to build', and `quality/declared_inputs.py` "
-            "says so first: its header excludes this row from the six "
-            "declared-input families precisely because the map 'is derivable "
-            "from the text itself', making it a producer defect (P10) and "
-            "not an input nobody can supply. HOW HARD, measured 2026-08-13 "
-            "over `corpus/song/`: 843 stub lines; matching each stub's "
-            "incipit against earlier lines resolves 158 (18.7%) to a UNIQUE "
-            "earlier line, leaves 224 (26.6%) with no earlier match at all, "
-            "and 461 (54.7%) ambiguous between 2 and 9 candidates. And a "
-            "unique match still gives only the chorus's FIRST line. So the "
-            "naive resolver is wrong more often than right and the honest "
-            "version is an edition-level annotation. "
-            "SECOND, INDEPENDENT BLOCKER, and it is the one that decides the "
-            "question: `relations_null.null_menu('refrain by reference', "
-            "'count')` is EMPTY -- no randomisation in `NULLS` moves "
-            "whole-line token identity, so the schema's primary statistic "
-            "CANNOT FAIL (doctrine 63/68). Wiring the capability would "
-            "therefore start a schema firing with no null behind it, which "
-            "is the exact move this area exists to prevent. The positional "
-            "statistics DO have a menu (local_fraction@0/@2 under "
-            "global_redeal), so a resolution built later must be reported on "
-            "those and never on `count`."),
-    ),
-)
+#: EMPTY since 2026-09-22. `stub_resolution` was the last entry, and it is
+#: supplied: `declare_stub_resolution` takes the edition's map, and a
+#: declared `line_status` derives the unique incipit matches
+#: (`_stub_resolved_stream`), so `refrain by reference` judges wherever the
+#: text says which lines are pointers. Its `count` statistic still has no
+#: null in `relations_null.NULLS`; report it on the positional statistics.
+UNPROVIDABLE = ()
 
 
 #: RETIRED, AND KEPT WHOLE (2026-08-23, doctrines 3/24 and 17).
@@ -6876,7 +6923,8 @@ _WVP_MEMO = {}
 _WVP_MEMO_CAP = 32
 
 
-def _wvp_key(text_lines, phon, sections, bearing, requested_pairs=None):
+def _wvp_key(text_lines, phon, sections, bearing, requested_pairs=None,
+             line_status=None):
     """-> a hashable key for the memo, or None when one cannot be spelled."""
     try:
         d = phon.declaration()
@@ -6887,86 +6935,88 @@ def _wvp_key(text_lines, phon, sections, bearing, requested_pairs=None):
     try:
         sk = json.dumps(sections, sort_keys=True) if sections else None
         return (pk, tuple(text_lines), sk,
-                tuple(sorted(bearing)) if bearing else None, requested_pairs)
+                tuple(sorted(bearing)) if bearing else None, requested_pairs,
+                tuple(line_status) if line_status else None)
     except TypeError:
         return None
 
 
 class VocabularyPairResults(dict):
-    """Definite schema witnesses with a separate undecided pair inventory."""
-    def __init__(self, true=(), undecided=()):
+    """Definite schema witnesses per pair, with the undecided pairs, the
+    schemas that REFUSED on this draft (name -> Refusal), and the line-level
+    figures that hold of single lines (1-based line -> names)."""
+    def __init__(self, true=(), undecided=(), refused=None, lines=None):
         super().__init__((k,list(v)) for k,v in dict(true).items())
-        self.undecided = {k:list(v) for k,v in dict(undecided).items() if k not in self}
+        self.undecided = {k:list(v) for k,v in dict(undecided).items()}
+        self.refused = dict(refused or {})
+        self.lines = {k: list(v) for k, v in dict(lines or {}).items()}
 
 
 def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
-                           requested_pairs=None):
-    """Every 1-based line pair ANY registered schema is true of, with the
-    names that answered -> {(i, j): [canonical schema names, sorted]}.
+                           requested_pairs=None, line_status=None):
+    """Every 1-based line pair, with EVERY registered schema true of it
+    -> {(i, j): [canonical schema names, sorted]}.
 
-    THE WHOLE-VOCABULARY DEFAULT'S ONE JUDGE (owner ruling 2026-08-25,
-    `MISSING.md` M-116, task #86's second half). Both readers of the default
-    — `quality.revise.grade` and `lyric_harness.check_scheme` — consult THIS
-    function, so a mandated pair cannot be satisfied by one grader and
-    charged by the other (doctrine 1; `check_scheme`'s own comment has
-    called the two-copy chain "the standing defect" since 2026-08-15).
+    THE WHOLE-VOCABULARY JUDGE. Every schema in `REGISTRY` is asked of every
+    pair, whatever its `normative` status (a forbidden or deprecated relation
+    still HOLDS of the pair; banning it is a separate layer, and
+    `REGISTRY[name].normative` is there to read). A pair listed with several
+    names stands in all of them.
 
+    Nothing is silent: `.undecided` lists pair -> schemas that could not
+    decide there, `.refused` lists schema -> `Refusal` for the schemas this
+    draft cannot supply (a refusal is not a violation and not a pass), and
+    `.lines` lists line -> the LINE-LEVEL figures (sain, the 平仄 template)
+    that hold of one line and so of no pair.
+
+    The stream is built under the PHONOLOGY'S OWN language declaration.
     `bearing` is the declared rhyme-bearing subset as 0-BASED line indices
-    (a mandate's own groups); it feeds `mark_refrain_tail`, whose docstring
-    records why `lines=None` answers zero on every ghazal. Refusing schemas
-    contribute nothing (`keep_refusal=False` — a schema this draft cannot
-    supply is silent here, not a violation and not a pass), and same-line
-    instances are dropped by `line_pairs_for`'s own rule, so an intra-line
-    figure can never satisfy a cross-line mandate.
+    (it feeds `mark_refrain_tail`); `line_status` optionally declares which
+    lines are chorus stubs (it lets `refrain by reference` judge).
 
-    MEMOISED on declared coordinates — see `_WVP_MEMO` above. A hit is a
-    fresh copy of a recorded answer to an IDENTICAL call, never a nearby
-    one; a call whose key cannot be spelled runs the judge in full.
-
-    `requested_pairs` is an optional collection of 1-based cross-line pairs.
-    Every requested witness is retained; unrequested pairs are absent, not
-    measured false. The full text and declared frames remain the context.
-    The exact query is part of the memo key, including the empty query.
+    MEMOISED on declared coordinates — see `_WVP_MEMO` above.
+    `requested_pairs` is an optional collection of 1-based cross-line pairs:
+    unrequested pairs are absent, not measured false.
     """
     requested_pairs = _normalise_pair_query(requested_pairs, len(text_lines))
-    memo_key = _wvp_key(text_lines, phon, sections, bearing, requested_pairs)
+    memo_key = _wvp_key(text_lines, phon, sections, bearing, requested_pairs,
+                        line_status)
     if memo_key is not None and memo_key in _WVP_MEMO:
-        cached = _WVP_MEMO[memo_key]
-        return VocabularyPairResults(cached, cached.undecided)
+        c = _WVP_MEMO[memo_key]
+        return VocabularyPairResults(c, c.undecided, c.refused, c.lines)
+    try:
+        lang = phon.declaration().get("language") or "und"
+    except (AttributeError, TypeError):
+        lang = getattr(phon, "language", None) or "und"
     stream = build_stream(text_lines, phon,
                           sections=sections,
                           stanzas=stanzas_from_sections(sections),
                           stanza_source=("declared_sections"
                                          if sections else ""),
-                          declaration={"language": "eng"})
+                          declaration={"language": lang},
+                          **({"line_status": tuple(line_status)}
+                             if line_status else {}))
     if bearing:
         mark_refrain_tail(stream, lines=sorted(bearing))
-    out, undecided = {}, {}
+    out, undecided, refused, lines = {}, {}, {}, {}
     for name in sorted(REGISTRY):
-        # THE DEFAULT DOOR READS `normative` (2026-09-01, `MISSING.md`
-        # M-140 ruled under the owner's delegation). A schema the registry
-        # marks FORBIDDEN — `homoioteleuton`, the tier-1 ban itself — or
-        # DEPRECATED cannot SATISFY a mandate nobody narrowed: the same
-        # registry would be banning a pair on one page and admitting it on
-        # the next. Asking for such a schema BY NAME (`schema:…`) is
-        # untouched — the judge answers, and the name's own status is the
-        # writer's to read; only the silent default declines it. Measured
-        # exposure at ruling time: 0 pairs whose SOLE satisfier was a
-        # forbidden or deprecated schema (M-140), so no recorded verdict
-        # moves — this is what the default CLAIMS, made true.
-        if REGISTRY[name].normative in ("forbidden", "deprecated"):
-            continue
-        ps = line_pairs_for(REGISTRY[name], stream, keep_refusal=False,
+        ps = line_pairs_for(REGISTRY[name], stream, keep_refusal=True,
                             requested_pairs=requested_pairs)
+        if isinstance(ps, Refusal):
+            refused[name] = ps
+            continue
         for pair in ps:
             out.setdefault(pair, []).append(name)
         for pair in getattr(ps, "undecided", ()):
             undecided.setdefault(pair, []).append(name)
+        for li in getattr(ps, "lines", ()):
+            lines.setdefault(li, []).append(name)
+    res = VocabularyPairResults(out, undecided, refused, lines)
     if memo_key is not None:
         if len(_WVP_MEMO) >= _WVP_MEMO_CAP:
             _WVP_MEMO.pop(next(iter(_WVP_MEMO)))
-        _WVP_MEMO[memo_key] = VocabularyPairResults(out, undecided)
-    return VocabularyPairResults(out, undecided)
+        _WVP_MEMO[memo_key] = res
+    return VocabularyPairResults(res, res.undecided, res.refused, res.lines)
 
 
 #: THE ONE SENTENCE THIS TREE SAYS ABOUT THE ROUTE ABOVE, SAID ONCE
@@ -6976,29 +7026,17 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
 #: askable at that site at any depth -- and a field silent about a whole
 #: acceptance route reads as though nothing else could answer (doctrine 20).
 #:
-#: THE WORDING IS THE MEASUREMENT'S AND IT CLAIMS EXACTLY ONE THING.
-#: MEASURED 2026-08-26 over `quality/fixtures/` and `songs/` -- 15 drafts
-#: under their own committed mandates, 452 mandated pairs -- **15 pairs
-#: (3.32%) on 3 drafts are accepted ONLY by this judge**, and of the 10 whose
-#: bound spans both read, **0 are offerable** from fields 1,434-3,981 words
-#: deep. Every one scores BELOW `theta_rhyme` 0.75 (0.395-0.705), so
-#: `admits()` refuses them ON THE SCALAR and a field built from words that
-#: CLEAR the band can never hold them at any depth. So the sentence must NOT
-#: say these words fail the 77 and must NOT imply a deeper field would reach
-#: them: it names the ROUTE and says a pair may satisfy on it with no offered
-#: word taken. A wording implying schema-satisfying words could have been
-#: offered would be worse than no disclosure at all.
+#: The sentence must NOT say the offered words fail the schemas and must NOT
+#: imply a deeper field would reach a schema-satisfying pair (M-139).
 SCHEMA_ROUTE_NOTE = (
-    "THE 77-SCHEMA HALF OF THE DEFAULT WAS NOT CONSULTED FOR THIS FIELD. "
-    "A mandated pair declaring no relation is satisfied when `admits()` "
-    "passes it OR when the two LINES stand in any schema the vocabulary "
-    "names (`relations.whole_vocabulary_pairs`, all 77). This field was "
-    "built at the first door only: the second judges LINE PAIRS over a "
-    "built stream and this site holds one WORD, so it is not askable here "
-    "at any depth. That is a limit of the field and not a verdict on these "
-    "words -- a pair can satisfy the mandate on the schema route with none "
-    "of them taken, and a word absent from this list has not been refused "
-    "by the 77.")
+    "THE REGISTRY SCHEMAS WERE NOT CONSULTED FOR THIS FIELD. Every mandated "
+    "pair is judged against every coarse relation AND every registry schema "
+    "(`relations.whole_vocabulary_pairs`); this field offers words by the "
+    "coarse relations only, because a schema judges LINE PAIRS over a built "
+    "stream and this site holds one WORD. That is a limit of the field and "
+    "not a verdict on these words -- a pair can satisfy the mandate through a "
+    "schema with none of them taken, and a word absent from this list has "
+    "not been refused by the schemas.")
 
 #: WHAT A RENDERER SAYS WHEN THE OBJECT DOES NOT CARRY THE COORDINATE, and
 #: it is a DIFFERENT CLAIM rather than a second copy of the one above. THREE
@@ -7013,125 +7051,14 @@ SCHEMA_ROUTE_UNKNOWN = (
     "consulted (doctrine 20).")
 
 
-#: THE DRAW WITNESS — sixteen plain English lines carrying the common
-#: figures (two perfect-rhyme pairs, an assonance pair sun/much, a
-#: consonance pair love/prove, a pararhyme pair gate/goat, a mosaic tail
-#: curator/grate-her, a rime-riche pair sole/soul, a subtractive pair
-#: grow/growing). DECLARED, in the capacity layer's certification idiom: a
-#: schema joins `DRAWABLE_SCHEMAS` by ANSWERING ON AN EXHIBIT HERE, and the
-#: pool grows by growing the witness — never by hand-editing the tuple. A
-#: schema absent from the pool is not refused as a relation (the default
-#: fan and the declared route still judge it); it is only not DRAWN, because
-#: a planner must not mandate what no witness proves a writer can satisfy
-#: in plain English (M-79's founding rule, M-117).
-DRAWABLE_WITNESS_LINES = (
-    "The kitchen light was fading fast",
-    "He walked alone across the field",
-    "A silver ship went sailing past",
-    "The morning broke across the shield",
-    "We stood beneath the winter sun",
-    "The cold had never asked for much",
-    "She wrote a letter full of love",
-    "A thing the years could never prove",
-    "He waited by the garden gate",
-    "And fed a wandering mountain goat",
-    "She traded quips with the curator",
-    "His cold reviews began to grate her",
-    "He patched his boot along the sole",
-    "And swore it cost him half his soul",
-    "He told the sapling: reach and grow",
-    "The rings inside it kept on growing",
-)
-DRAWABLE_WITNESS_SECTIONS = ("a",) * 4 + ("b",) * 4 + ("c",) * 4 + ("d",) * 4
-
-
-def derive_drawable_schemas(phon=None):
-    """-> the sorted names a planner may DRAW a group's relation from.
-
-    Three rules, each derived from a coordinate the registry itself
-    declares, none hand-listed (doctrine 1):
-
-    1. THE SCHEMA ANSWERS ON THE WITNESS — `line_pairs_for` over the
-       declared witness stream returns a NON-EMPTY frozenset. A refusal
-       means the plain grade-time stream cannot supply it; an empty set
-       means no exhibit proves a writer can satisfy it in plain English —
-       either way a drawn mandate would be unwritable or unjudgeable
-       (M-79: no unwritable plan ships).
-    2. NOT INTRA-LINE ONLY — a figure whose every placement is
-       same_line/same_token is a property of one line and can never
-       satisfy a mandated pair (`rhyme_types.satisfies_relation`'s own
-       refusal, read here from the same placement rows).
-    3. NO IDENTITY AT THE LINE END — a schema whose identity rule demands
-       token AGREEMENT at a line-final placement mandates exactly what
-       `grade()`'s REPEAT branch charges (doctrine 3), so a drawn group
-       could only be satisfied by what the grader refuses.
-
-    The planner reads the ADOPTED tuple below, never this function — the
-    derivation costs a stream build and the planner opens no file — and
-    `quality/test_plan.py` re-derives the tuple against this function so
-    drift fails loud (the meter-bands adoption pattern).
-    """
-    if phon is None:
-        from quality import phonology as _PH
-        phon = _PH.get("eng")
-    intra = {"same_line", "same_token", "same_word"}
-    final = {"both_line_final", "a_line_final", "exactly_one_line_final"}
-    stream = build_stream(
-        list(DRAWABLE_WITNESS_LINES), phon,
-        sections=list(DRAWABLE_WITNESS_SECTIONS),
-        stanzas=stanzas_from_sections(list(DRAWABLE_WITNESS_SECTIONS)),
-        stanza_source="declared_sections",
-        declaration={"language": "eng"})
-    from quality.revise import Reviser
-    from quality.schemes import mandate
-    verifier = Reviser()
-    out = []
-    for name in sorted(REGISTRY):
-        sch = REGISTRY[name]
-        # A planner may not VOLUNTEER a schema the registry forbids or
-        # deprecates (M-140, 2026-09-01); none is drawable today on its own
-        # merits, and the rule is stated where the pool is derived so a
-        # future witness cannot certify one in by accident.
-        if sch.normative in ("forbidden", "deprecated"):
-            continue
-        if not pair_scope_representable(sch):
-            continue
-        ps = line_pairs_for(sch, stream)
-        if isinstance(ps, Refusal) or not ps:
-            exhibit = DRAWABLE_EXHIBITS.get(name)
-            if exhibit is None:
-                continue
-            a, b, _, _ = exhibit[0]
-            witness = build_stream([a,b], phon, stanzas=[0,0],
-                                   stanza_source="dedicated_exhibit")
-            ps = line_pairs_for(sch,witness)
-            if isinstance(ps, Refusal) or not ps:
-                continue
-        pk = {p.kind for p in sch.placement}
-        if pk and pk <= intra:
-            continue
-        if any(type(r.predicate).__name__ == "Agree" for r in sch.identity) \
-                and (not pk or pk & final):
-            continue
-        # Production eligibility needs a definite positive AND contrast on
-        # the real declared-slot grade route. A merely callable new schema
-        # cannot enter the draw by matching an incidental aggregate edge.
-        if name not in DRAWABLE_EXHIBITS:
-            continue
-        controls = []
-        for a,b,sa,sb in DRAWABLE_EXHIBITS[name]:
-            report = verifier.grade([a,b], mandate([[sa,sb]], n_lines=2,
-                                    default_relation="schema:"+name))
-            controls.append(None if report["refusals"] else not report["violations"])
-        if controls == [True,False]:
-            out.append(name)
-    return tuple(out)
-
-
-def drawable_traits():
+def planning_traits(names=None):
     """-> {name: {"gap": int|None, "claims": ((channel, coord, pred),...)}}
-    for every drawable schema — the coordinates the PLANNER's conjunction
-    gate reads (M-118, widened by M-119, rebuilt by M-122).
+    for every registry schema (or `names`) — the coordinates the PLANNER's
+    feasibility gate reads for a DECLARED relation (M-118, widened by M-119,
+    rebuilt by M-122). The planner draws no relation; these claims only
+    check that a relation the writer declared can hold on every group at
+    once. Claims come from the schemas' own channels, so a Differ here is a
+    definitional one (the registry carries no exclusion-only Differ).
 
     M-122, found designing the first song of the paired experiment: two
     more facts the registry states that the pairwise dict could not
@@ -7155,7 +7082,7 @@ def drawable_traits():
     and the anchor position always exists); the dict this replaces
     silently collapsed perfect rhyme's TWO onset rules (Agree@post,
     Differ@anchor) into one. Identity is still not collected at the
-    ends (`derive_drawable_schemas` rule 3 bars Agree-identity there).
+    ends.
     Measured over seeds 1-60 before the rebuild, with this keying:
     53 seeds drew an unsatisfiable conjunction — 117 adjacency
     violations, 32 transitive contradictions; 0 after.
@@ -7166,18 +7093,19 @@ def drawable_traits():
     # (subtractive rhyme drew onto a three-member group, the same
     # pigeonhole as light rhyme's one axis over). Each such claim is
     # translated to Differ on a derived `<channel>_presence` channel,
-    # and every Agree on a channel ANY drawable schema tests for
+    # and every Agree on a channel ANY schema tests for
     # presence projects an Agree edge onto the same derived channel,
     # because equal codas are equally present — that projection is what
     # lets the parity closure see monorhyme's coda-Agree contradict a
     # subtractive presence-Differ across a chain. The channel set is
     # derived from the registry, never hand-listed.
+    names = tuple(sorted(REGISTRY)) if names is None else tuple(names)
     presence_channels = {
-        c.channel for name in DRAWABLE_SCHEMAS
+        c.channel for name in REGISTRY
         for c in (REGISTRY[name].channels or ())
         if type(c.predicate).__name__ == "PresentVsAbsent"}
     out = {}
-    for name in DRAWABLE_SCHEMAS:
+    for name in names:
         sch = REGISTRY[name]
         gap = None
         for p in sch.placement:
@@ -7267,7 +7195,7 @@ CHANNEL_DOMAINS = {
     "prominence": (0, 1),
     "nucleus": ("AA", "AE", "AH", "AO", "AW", "AY", "EH", "ER",
                 "EY", "IH", "IY", "OW", "OY", "UH", "UW"),
-    # A derived channel: `drawable_traits` translates PresentVsAbsent to
+    # A derived channel: `planning_traits` translates PresentVsAbsent to
     # Differ on `<channel>_presence`, and a presence bit is binary BY
     # CONSTRUCTION — nothing to measure, a coda is there or it is not.
     "coda_presence": (0, 1),
@@ -7448,54 +7376,16 @@ def group_satisfiable(schema, members):
     return unsatisfiable_pairs(schema, members) == 0
 
 
-#: ADOPTED 2026-08-25 from `derive_drawable_schemas()` (owner ruling "now do
-#: the planner too", M-117). Re-derived by `quality/test_plan.py`; a moved
-#: pool is a moved witness or a moved registry, and either fails loud.
-DRAWABLE_SCHEMAS = (
-    "Scots vowel-length rhyme (Aitken's Law)",
-    "anaphora",
-    "assonance",
-    "cluster consonance / skothending span",
-    "compound / phrasal rhyme",
-    "consonance",
-    "family rhyme",
-    "head rhyme (positional)",
-    "interlaced rhyme",
-    "internal rhyme",
-    "light rhyme",
-    "multisyllabic rhyme",
-    "pantun ABAB",
-    "pararhyme",
-    "perfect rhyme",
-    "rime riche",
-    "semirhyme",
-    "subtractive rhyme",
-)
-
-
-#: ONE EXHIBIT AND ONE CONTRAST PER DRAWABLE NAME, judged on the route a
-#: PLANNED mandate takes (`Reviser.grade` on a two-line draft, one group,
-#: `default_relation="schema:<name>"`, a one-stanza frame) — 2026-09-05,
-#: `MISSING.md` M-245.  Each row is `(exhibit, contrast)`, each of those
-#: `(line_a, line_b, slot_a, slot_b)` with the slots in the mandate's own
-#: spelling ("1" is line 1's end word, "1.T2" its second word, "1.head" its
-#: first).  The exhibit must SATISFY and the contrast must VIOLATE — neither
-#: may be REFUSED — and `quality/test_mandate_relation.py` §13 asks both of
-#: every name in `DRAWABLE_SCHEMAS`, so a name without a row fails.
-#:
-#: WHY A SECOND TABLE BESIDE THE WITNESS: the pool is certified on a
-#: sixteen-line witness whose exhibit for a schema is whatever pair happens
-#: to satisfy it there, and `semirhyme`'s was grow~growing — an OPEN
-#: syllable, which the anchor-syllable coda read agreed on — while the
-#: schema's own example, bend~ending, VIOLATED the same judge from the day
-#: the schema was drawable.  A witness proves "some pair answers"; this
-#: table pins that THE PAIR THE DEFINITION NAMES answers, and a pair the
-#: definition excludes does not.  Where the registry states an example it
-#: is the exhibit (bend~ending, sun~much, sea~see, bad~bed, bee~beauty,
-#: feared~year, fast~lost); the rest are textbook cases written for the
-#: row and read as such.  The `again` trap is why `remain` stands in the
-#: pantun row: CMUdict General American reads `again` as AH0-G-EH1-N, so
-#: rain~again is not a rhyme in the declared dialect (doctrine 1).
+#: ONE EXHIBIT AND ONE CONTRAST PER NAME, judged on the route a mandate
+#: declaring that schema takes (`Reviser.grade` on a two-line draft, one
+#: group, `default_relation="schema:<name>"`) — `MISSING.md` M-245. Each row
+#: is `(exhibit, contrast)`, each `(line_a, line_b, slot_a, slot_b)`. The
+#: exhibit must SATISFY the schema; the contrast must stand in NONE of it —
+#: never a pair that only fails because it also stands in a stronger
+#: relation (a perfect rhyme is still assonance). The name is historical:
+#: the planner draws nothing now; `schema_census` reads the rows as
+#: evidence. Where the registry states an example it is the exhibit
+#: (bend~ending, sun~much, sea~see, bad~bed, bee~beauty, feared~year).
 DRAWABLE_EXHIBITS = {
     "Scots vowel-length rhyme (Aitken's Law)": (
         ("the kitchen light was fading fast",
@@ -7565,8 +7455,16 @@ DRAWABLE_EXHIBITS = {
 }
 
 
+def audible_relations(names):
+    """-> the members of a pair's relation SET (schema names; coarse names
+    are ignored) that a listener hears as end rhyme. Audibility is reported
+    of the set a pair stands in, never used to pick one relation."""
+    return tuple(n for n in names
+                 if n in REGISTRY and audible_as_end_rhyme(REGISTRY[n]))
+
+
 def audible_as_end_rhyme(schema):
-    """Would a listener hear this schema, drawn onto two line ENDS, as end
+    """Would a listener hear this schema, holding at two line ENDS, as end
     rhyme?  (`MISSING.md` M-192, the disclosure M-120 / RULINGS WANTED #6
     asked for.)
 
@@ -7579,9 +7477,8 @@ def audible_as_end_rhyme(schema):
     lets the coda differ (assonance), or binds anywhere but the line end
     (anaphora, head rhyme, internal rhyme, chain rhyme) is a real relation
     the grade judges correctly and NOT one a listener hears as the lines
-    rhyming. A record, never a gate (M-73): the planner discloses the share
-    of a plan's end-bound groups that draw an audible relation, and the
-    dice are untouched.
+    rhyming. A record, never a gate (M-73): a property of one schema,
+    read over the whole relation set a pair stands in (`audible_relations`).
     """
     spans = (schema.spans[0], schema.spans[-1])
     if not all(r.locus == "line_final_token" for r in spans):
@@ -7597,9 +7494,13 @@ class LinePairResults(frozenset):
     Use verdict() when enforcing a mandate. Iteration contains only definite
     witnesses, so an undecided relation never manufactures an allowed pair.
     """
-    def __new__(cls, true=(), undecided=()):
+    def __new__(cls, true=(), undecided=(), lines=(), undecided_lines=()):
         obj = super().__new__(cls, true)
         obj.undecided = frozenset(undecided) - obj
+        # A LINE-LEVEL figure (the sain family, the 平仄 template) holds of
+        # one line and never of a pair: its findings ride here, 1-based.
+        obj.lines = frozenset(lines)
+        obj.undecided_lines = frozenset(undecided_lines) - obj.lines
         return obj
 
     def verdict(self, pair):
@@ -7629,20 +7530,205 @@ class FigureMembers(list):
         self.members = tuple(li + 1 for li in members)
 
 
+#: Every figure `_full_shape` judges whole. Members of the first three are
+#: LINES; members of the three sain figures are TOKENS of one line; the tonal
+#: template has one member, a line, read against a declared pattern.
+LINE_MEMBER_SHAPES = ("symploce", "analysed rhyme", "blues AAB stanza")
+TOKEN_MEMBER_SHAPES = ("cynghanedd sain", "cynghanedd sain gadwynog",
+                       "cynghanedd sain lafarog")
+TEMPLATE_SHAPES = ("平仄 tonal template",)
+FULL_SHAPES = LINE_MEMBER_SHAPES + TOKEN_MEMBER_SHAPES + TEMPLATE_SHAPES
+
+
+def _odl_edge():
+    """The sain figures' `odl` edge: the vowel and what follows it agree on
+    the words' last syllables (the registry's own `cynghanedd sain` channels,
+    placement and figure stripped so it judges one token pair)."""
+    return replace(REGISTRY["cynghanedd sain"], placement=(), figure=PAIR)
+
+
+def _token_edge_schema(label, schema):
+    """-> (pair schema, extra check) for one labelled edge of a sain figure."""
+    if label == "odl":
+        return _odl_edge(), None
+    if label == "alliteration":
+        return replace(REGISTRY["alliteration"], placement=(),
+                       figure=PAIR), None
+    if label == "zero-onset link":
+        # Two ABSENT onsets agreeing is the link (the schema's own note);
+        # two PRESENT onsets agreeing is ordinary alliteration, not this.
+        def both_absent(sa, sb, stream):
+            return all(_empty(stream.units[sp.idx[0]].syl.onset)
+                       for sp in (sa, sb))
+        return replace(schema, placement=(), figure=PAIR), both_absent
+    raise ValueError(f"{schema.name}: no edge definition for {label!r}")
+
+
+def _token_figures(schema, stream):
+    """The sain figures, judged per LINE over ordered token tuples.
+
+    -> [(line, FigureMembers, verdict)], verdict True or None (a False
+    tuple is not a finding). Members are the line's tokens in printed order;
+    each labelled edge is evaluated between the two tokens it names through
+    the edge's own schema, and the tuple's verdict is `tri_and` of them."""
+    import itertools
+    import math
+    n = schema.figure.nodes
+    edges_def = [(ai, bi, _token_edge_schema(lab, schema))
+                 for ai, bi, lab in schema.figure.edges]
+    by_line = {}
+    for (li, ti), ids in stream.tokens.items():
+        if ids:
+            by_line.setdefault(li, []).append(ti)
+    work = sum(math.comb(len(v), n) for v in by_line.values())
+    if work > MAX_CANDIDATE_PAIRS:
+        return Refusal(schema.name, "work_budget", "Full-figure candidate "
+                       f"count {work} exceeds {MAX_CANDIDATE_PAIRS}.",
+                       kind="work_budget")
+    span_memo, result = {}, []
+
+    def span(rule, li, ti):
+        key = (rule, li, ti)
+        if key not in span_memo:
+            ids = stream.tokens.get((li, ti), ())
+            try:
+                got = list(_spans_at(rule, stream, ids, f"L{li}.T{ti}"))
+            except NoReferent:
+                got = []
+            span_memo[key] = got[0] if got else None
+        return span_memo[key]
+
+    for li in sorted(by_line):
+        toks = sorted(by_line[li])
+        for members in itertools.combinations(toks, n):
+            edges, values = FigureMembers((li,)), []
+            edges.tokens = members
+            for ai, bi, (sch, extra) in edges_def:
+                sa = span(sch.spans[0], li, members[ai])
+                sb = span(sch.spans[-1], li, members[bi])
+                if sa is None or sb is None:
+                    values.append(None)
+                    continue
+                e = evaluate(sch, sa, sb, stream)
+                if e is None:
+                    values.append(False)
+                    break
+                v = e.verdict
+                if extra is not None and v is not False \
+                        and not extra(sa, sb, stream):
+                    v = False
+                edges.append(replace(e, schema=schema.name, verdict=v))
+                values.append(v)
+                if v is False:
+                    break
+            verdict = tri_and(values)
+            if verdict is not False:
+                result.append((li, edges, verdict))
+    return result
+
+
+#: The declared 平仄 alphabet: 平 level, 仄 oblique, 中 either (可平可仄).
+TONE_MARKS = {"平": 1, "仄": 0, "中": None}
+
+
+def declare_tonal_template(stream, mapping, source="declared"):
+    """Declare the 平仄 pattern each line is held to. -> a summary dict.
+
+    `mapping` is {0-based line: pattern}, one mark per syllable from
+    `TONE_MARKS`. The pattern is the FORM's (a regulated-verse slot), not
+    something the text carries, so it arrives by declaration and nothing
+    here guesses it."""
+    if not isinstance(mapping, dict):
+        raise NoReferent("`mapping` is {line: pattern} with 0-based lines")
+    out = {}
+    for li, pat in mapping.items():
+        li = int(li)
+        if not 0 <= li < len(stream.lines):
+            raise NoReferent(f"line {li} is outside this stream's "
+                             f"{len(stream.lines)} line(s)")
+        pat = "".join(str(pat).split())
+        bad = sorted({c for c in pat if c not in TONE_MARKS})
+        if not pat or bad:
+            raise NoReferent(f"pattern {pat!r} for line {li} uses marks "
+                             f"outside {sorted(TONE_MARKS)}: {bad}")
+        out[li] = pat
+    stream.frames.tonal_template = out
+    stream.frames.tonal_source = source if out else "none"
+    return {"lines": len(out), "source": stream.frames.tonal_source}
+
+
+def _template_figures(schema, stream):
+    """The 平仄 template, judged per declared LINE against its pattern.
+
+    A line whose syllable count differs from its pattern fails it; a 中
+    position is free; a syllable whose 平/仄 the phonology leaves open
+    (None, or several readings of a 多音字 that disagree) makes the line
+    undecided rather than failed."""
+    result = []
+    unread = {li for li, _, _ in stream.unreadable}
+    for li, pat in sorted(stream.frames.tonal_template.items()):
+        ids = tuple(stream.lines[li])
+        sp = Span(ids, 0, 1, "syllable", f"L{li}.line")
+        reads, values = [], []
+        if li in unread:
+            values.append(None)
+        if len(ids) != len(pat):
+            values.append(False)
+        for k, (i, mark) in enumerate(zip(ids, pat)):
+            want = TONE_MARKS[mark]
+            if want is None:
+                continue
+            got = stream.units[i].syl.prominence
+            if got is None:
+                v = None
+            else:
+                alts = _alts(got)
+                v = (True if alts == {want} else
+                     None if want in alts else False)
+            reads.append(("prominence", k, Read(v, v is not None,
+                                                 f"template {mark}")))
+            values.append(v)
+        inst = Instance(schema.name, sp, sp,
+                        Alignment(tuple((k, k) for k in range(len(ids))),
+                                  (), (), "template"),
+                        tuple(reads), tri_and(values) if values else True,
+                        (), ())
+        edges = FigureMembers((li,))
+        edges.append(inst)
+        result.append((li, edges, inst.verdict))
+    return result
+
+
 def _full_shape(schema, stream):
     """Evaluate labelled complete figures, never their two-member proxy.
 
-    Members are bound in printed order within the declared frame. A named
-    composite without executable member bindings refuses explicitly.
-    """
+    -> [(frame, FigureMembers, verdict)] or a `Refusal`. LINE-member figures
+    bind lines in printed order within the declared frame; TOKEN-member
+    figures (the sain family) bind tokens of one line; the TEMPLATE figure
+    reads one line against its declared pattern. A figure outside
+    `FULL_SHAPES` has no member bindings and refuses by name."""
     import itertools
     import math
-    supported = {"symploce", "analysed rhyme", "blues AAB stanza"}
-    if schema.name not in supported:
+    if schema.name not in FULL_SHAPES:
         return Refusal(schema.name, "figure",
                        "The declared multi-member graph/template has no "
                        "executable member bindings; a pair projection cannot "
                        "certify the full figure.", kind="unsupported_shape")
+    if schema.name in TOKEN_MEMBER_SHAPES + TEMPLATE_SHAPES:
+        sup = {c: stream.supply(c) for c in schema.capabilities()}
+        miss = tuple(c for c, v in sup.items() if v.state != "present")
+        if miss:
+            vac = tuple(c for c in miss if sup[c].state == "empty")
+            return Refusal(schema.name, miss[0],
+                           f"{schema.name} needs {', '.join(miss)}; this "
+                           f"declaration does not supply "
+                           f"{'it' if len(miss) == 1 else 'them'}.",
+                           missing=miss, vacuous=vac,
+                           kind=("vacuous_frame" if len(vac) == len(miss)
+                                 else "capability"))
+        return (_token_figures(schema, stream)
+                if schema.name in TOKEN_MEMBER_SHAPES
+                else _template_figures(schema, stream))
     if schema.figure.frame == "stanza" and not stream.provides("stanza"):
         return Refusal(schema.name, "stanza", "A full figure requires a "
                        "declared stanza frame.", missing=("stanza",))
@@ -7715,8 +7801,17 @@ def _full_shape(schema, stream):
                              placement=(), figure=PAIR)
                 edge(ep, 0, 1)
             elif schema.name == "analysed rhyme":
+                # THE CROSSING IS THE DEFINITION: the vowel pairs are NOT
+                # also consonant pairs and the consonant pairs NOT also
+                # vowel pairs (four full rhymes are rhyme, not analysed
+                # rhyme). The registry's assonance and consonance leave the
+                # other channel free, so the figure states its own Differ.
                 for ai, bi, label in schema.figure.edges:
-                    edge(label, ai, bi)
+                    base = REGISTRY[label]
+                    other = "coda" if label == "assonance" else "nucleus"
+                    edge(replace(base, channels=base.channels + (
+                        ChannelRule(other, DIFFER, "anchor"),),
+                        name=f"{label} (crossed)"), ai, bi)
                     if values[-1] is False:
                         break
             else:
@@ -7779,6 +7874,12 @@ def line_pairs_for(schema, stream, keep_refusal=True, requested_pairs=None):
         assemblies = _full_shape(schema, stream)
         if isinstance(assemblies, Refusal):
             return assemblies if keep_refusal else LinePairResults()
+        if schema.name not in LINE_MEMBER_SHAPES:
+            held, open_ = set(), set()
+            for li, _, verdict in assemblies:
+                if verdict is not False:
+                    (held if verdict is True else open_).add(li + 1)
+            return LinePairResults((), (), held, open_)
         true, unknown = set(), set()
         for _, es, verdict in assemblies:
             ls = sorted(getattr(es, "members",

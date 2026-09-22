@@ -833,7 +833,9 @@ class Malay(Phonology):
         return n
 
     def relation_type(self, a, b):
-        """-> REPEAT / RIME_RICHE / RHYME / NONE / None.
+        """-> the SET of relations the pair stands in, a frozenset over
+        {REPEAT, RIME_RICHE, RHYME}; empty when it stands in none; None when
+        `rhymes` cannot decide. A repeat is also rime riche and rhyme.
 
         Doctrine 3: identity is not rhyme, and in this corpus the distinction
         is not academic — pantun lines 1 and 3 are frequently the same line.
@@ -844,17 +846,18 @@ class Malay(Phonology):
         if r is None:
             return None
         if not r:
-            return "NONE"
+            return frozenset()
+        out = {"RHYME"}
         sa, sb = self.syllabify(a), self.syllabify(b)
         # Compare the CANONICAL syllables, not the raw strings: `pechah` and
         # `pecah` are one word in two spellings and must not be reported as
         # two words that happen to sound alike.
         if [s.text for s in sa] == [s.text for s in sb]:
-            return "REPEAT"
+            out.add("REPEAT")
         x, y = sa[-1], sb[-1]
         if (x.onset, x.nucleus, x.coda) == (y.onset, y.nucleus, y.coda):
-            return "RIME_RICHE"
-        return "RHYME"
+            out.add("RIME_RICHE")
+        return frozenset(out)
 
     def alliterates(self, a, b):
         """-> True / False / None on the first phoneme unit.
@@ -950,7 +953,7 @@ class Malay(Phonology):
             v = None if (wa is None or wb is None) else self.rhymes(wa, wb)
             pairs.append({"tag": tag, "lines": (i, j), "words": (wa, wb),
                           "rhymes": v,
-                          "relation": None if (wa is None or wb is None)
+                          "relations": None if (wa is None or wb is None)
                           else self.relation_type(wa, wb),
                           "echo": None if (wa is None or wb is None)
                           else self.echo_depth(wa, wb)})

@@ -286,14 +286,15 @@ def _word_occurrences(stream, span):
 
 
 def _raw_score(stream, sa, sb, decl, comparator):
-    """The scalar this layer thresholds, band-typed. None when the pair is not
-    a rhyme relation at all -- those can never be events, so they are not
-    candidates for a p-value either."""
+    """The scalar this layer thresholds. None when RHYME (any of
+    `RHYME_RELATIONS`) is not among the relations the pair stands in -- this
+    layer places RHYME events, so such a pair is not a candidate for a
+    p-value. Membership in the set, never one label."""
     a, b = sa
     c, d = sb
     s = score(stream[a:b], stream[c:d], decl,
               _words(stream, a, b), _words(stream, c, d))
-    if s["relation"] not in RHYME_RELATIONS:
+    if not s["relations"] & RHYME_RELATIONS:
         return None
     if comparator is not None:
         t, _ = comparator.score(stream[a:b], stream[c:d])

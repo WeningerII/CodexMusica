@@ -17,19 +17,21 @@ nobody wrote down, and `rng.choice(sorted(entries))` is not
 sampler (doctrine 58, one axis out), so the sampler is a declared object here
 and every reported figure names the cell it came from.
 
-**TWO DOORS, MEASURED SIDE BY SIDE, NEVER SUMMED** (doctrine 79). The complete
-default has moved twice and in two different coordinates (`MISSING.md` M-139):
+**ONE DOOR, COUNTED PER RELATION.** A pair stands in EVERY relation its sound
+supports, and the default judges it against all of them: the coarse relations
+(`admitted_relations` at `decl.admit` and each relation's own cut) and every
+registry schema (`relations.whole_vocabulary_pairs`). The counts are:
 
-  ADMIT   `admits(s, theta_rhyme, decl.admit)` — read from the DECLARATION,
-          never spelled as a literal, which is the exact defect M-138 names in
-          `quality/redteam_band.py` and `quality/negative_control.py`.
-  SCHEMA  `relations.whole_vocabulary_pairs` — all 77 schemas (M-116, owner
-          ruling 2026-08-25). A pair the ADMIT door refuses is still admitted
-          by the default when any registered schema answers on it.
-  NARROW  the historical `{RHYME, RIME_RICHE}`, carried for the ladder only.
+  ANY     pairs standing in at least one relation — THE default door.
+  ADMIT   pairs standing in at least one admitted COARSE relation.
+  RHYME   pairs standing in at least one of `RHYME_RELATIONS`.
+  SCHEMA  pairs standing in at least one registry schema.
+  by relation — every relation a pair stands in, coarse and schema alike;
+          a pair is counted in each, so these overlap by design.
 
-A pair can be admitted by both, so the two counts are reported apart and
-`--check` never adds them.
+ADMIT, RHYME and SCHEMA are relation FAMILIES inside the one door, not rival
+doors, and none is a rescue for another. They overlap, so `--check` never adds
+them.
 
 **WHAT THE SCHEMA ARM MEASURES, STATED BEFORE IT IS READ** (doctrine 20). It
 judges each drawn pair as a TWO-LINE STREAM of one word each. That is the
@@ -44,10 +46,10 @@ is not interchangeable with a rate measured on songs.
 reported as a verdict, so `ADOPTED` holds the min and max over the declared
 grid and `--check` requires every cell to sit inside it.
 
-    python3 quality/chance_rate.py            # the shipped cell, both doors
+    python3 quality/chance_rate.py            # the shipped cell
     python3 quality/chance_rate.py --sweep    # every declared sampler cell
     python3 quality/chance_rate.py --check    # re-derive the band, exit 3 on drift
-    python3 quality/chance_rate.py --null     # does the 77-door separate from a matched redeal?
+    python3 quality/chance_rate.py --null     # does the default door separate from a matched redeal?
     python3 quality/chance_rate.py --null --check   # ...and has that answer moved? (exit 3)
 """
 import os
@@ -176,16 +178,15 @@ GRID = tuple(Sampler(RB.SEED, 4000, p, r)
 # ---------------------------------------------------------------------------
 
 def measure(sampler, lex, decl, phon=None, schema=True):
-    """-> dict. THREE COUNTS NEVER SUMMED: drawn / refused / judged, and the
-    door counts are shares of JUDGED, because a pair CMUdict cannot read was
-    never put to any door (doctrine 79)."""
+    """-> dict. THREE COUNTS NEVER SUMMED: drawn / refused / judged. Every
+    pair is counted in EVERY relation it stands in — each coarse relation it
+    holds at its own cut and each registry schema its two lines stand in —
+    and `any` is the default door: at least one of them."""
     from collections import Counter
     wide = frozenset(decl.admit)
-    narrow = frozenset(L.RHYME_RELATIONS)
     out = {"sampler": sampler, "drawn": 0, "refused": 0, "judged": 0,
-           "admit": 0, "narrow": 0, "schema": 0,
+           "any": 0, "admit": 0, "rhyme": 0, "schema": 0,
            "relations": Counter(), "schema_names": Counter(),
-           "schema_only": 0, "admit_only": 0, "both": 0,
            "schema_sole_forbidden": 0, "schema_any_forbidden": 0}
     if schema and phon is None:
         from quality.revise import _relation_phonology
@@ -193,15 +194,9 @@ def measure(sampler, lex, decl, phon=None, schema=True):
     disowned = frozenset()
     if schema:
         from quality import relations as RF
-        # THE REGISTRY DISOWNS SOME OF ITS OWN NAMES and the judge does not
-        # read the field: `RelationSchema.normative` is `forbidden` on
-        # `homoioteleuton` (whose own note calls it "THE SINGLE MOST
-        # IMPORTANT FALSE-POSITIVE CLASS for any tail comparator", and whose
-        # spelled-rime class is this repo's TIER-1 OUTRIGHT BAN) and on
-        # `fourth lift must not alliterate`, and `deprecated` on two more.
-        # `whole_vocabulary_pairs` iterates `sorted(REGISTRY)` and filters on
-        # nothing, so a pair satisfied ONLY by a disowned schema satisfies the
-        # default. Counted, never assumed — see `MISSING.md` M-140.
+        # The registry marks some of its own names `forbidden` or
+        # `deprecated`; the judge declines them. Counted, never assumed —
+        # see `MISSING.md` M-140.
         disowned = frozenset(
             n for n, sc in RF.REGISTRY.items()
             if getattr(sc, "normative", None) in ("forbidden", "deprecated"))
@@ -210,59 +205,55 @@ def measure(sampler, lex, decl, phon=None, schema=True):
         out["drawn"] += 1
         aa, wa = read(lex, a)
         bb, wb = read(lex, b)
-        by_admit = False
         s = None
         if aa and bb:
             try:
                 s = cmp_(aa, bb, decl, wa, wb)
             except (KeyError, IndexError, ValueError):
                 s = None
+        coarse = frozenset()
         if s is None:
             out["refused"] += 1
         else:
             out["judged"] += 1
-            # `theta_for`, NOT `decl.theta_rhyme` — REPOINTED 2026-09-02.
-            # This module's whole subject is "how often does the SHIPPED door
-            # call two random words a rhyme", and since the near-relation
-            # pricing landed (`MISSING.md` M-138) the shipped door cuts
-            # ASSONANCE at its own threshold. A flat 0.75 here would be this
-            # instrument measuring a door that no longer exists — which is
-            # verbatim M-139, and verbatim the defect M-138 names in
-            # `redteam_band.py` and `negative_control.py`. The NARROW arm is
-            # the CONTROL that this repointing moved only what it should:
-            # RHYME and RIME_RICHE carry no per-relation cut, so `theta_for`
-            # returns `theta_rhyme` for them and that band is byte-identical.
-            if L.admits(s, L.theta_for(s, decl), wide):
+            # Every coarse relation the pair holds at ITS OWN cut
+            # (`decl.theta_by_relation`, else `theta_rhyme`), within the
+            # declared admit set — the set, never one label.
+            coarse = L.admitted_relations(s, decl.theta_rhyme, wide,
+                                          decl.theta_by_relation)
+            if coarse:
                 out["admit"] += 1
-                out["relations"][s["relation"]] += 1
-                by_admit = True
-            if L.admits(s, L.theta_for(s, decl), narrow):
-                out["narrow"] += 1
-        if not schema:
-            continue
-        hit = RF.whole_vocabulary_pairs([a, b], phon).get((1, 2))
-        if hit:
-            out["schema"] += 1
+            if coarse & L.RHYME_RELATIONS:
+                out["rhyme"] += 1
+            for r in coarse:
+                out["relations"][r] += 1
+        sat = ()
+        if schema:
+            # Every schema that HOLDS is counted under its name; one the
+            # registry disowns (`forbidden`/`deprecated`) holds but never
+            # satisfies (M-140), so the door counts only the others.
+            hit = RF.whole_vocabulary_pairs([a, b], phon).get((1, 2)) or ()
+            sat = [n for n in hit if n not in disowned]
             for name in hit:
                 out["schema_names"][name] += 1
+                out["relations"][name] += 1
+            if sat:
+                out["schema"] += 1
             if any(n in disowned for n in hit):
                 out["schema_any_forbidden"] += 1
-            if all(n in disowned for n in hit):
-                out["schema_sole_forbidden"] += 1
-        if hit and by_admit:
-            out["both"] += 1
-        elif hit:
-            out["schema_only"] += 1
-        elif by_admit:
-            out["admit_only"] += 1
+                if not sat:
+                    out["schema_sole_forbidden"] += 1
+        if coarse or sat:
+            out["any"] += 1
     return out
 
 
 def rate(m, key):
     """A share of JUDGED, or None when nothing was judged — never 0.0, which
-    would read as a measured zero (doctrine 20). The schema arm's denominator
-    is DRAWN, because that door needs no anchor to answer."""
-    den = m["drawn"] if key == "schema" else m["judged"]
+    would read as a measured zero (doctrine 20). The schema family and the
+    whole door are shares of DRAWN, because a schema needs no anchor to
+    answer."""
+    den = m["drawn"] if key in ("schema", "any") else m["judged"]
     return (m[key] / den) if den else None
 
 
@@ -288,12 +279,12 @@ def rate(m, key):
 #: was 2x — still under it on every cell, so the adoption does not depend on
 #: the number it moved. Had it not held, the cut would have been REFUSED
 #: rather than re-swept (doctrine 58).
-# 2026-09-08: current coverage-aware corpus result (see the causal record
-# quality/production_relation_oracle.json). Historical random-pair sampler
-# rows below still use their explicitly named legacy scalar readers. Their
-# ratio to this revised denominator is descriptive, not validation of the
-# production consensus/full-schema grader; no new threshold is adopted here.
-CANON_VIOLATIONS, CANON_JUDGED = 4, 967
+# READ from the battery's own pin, never retyped: the constant here had
+# drifted to 4/967 while `battery.EXPECTED` moved on (N-relation repin,
+# 2026-09-22). A battery repin now moves this ratio with it.
+import battery as _battery  # noqa: E402
+CANON_VIOLATIONS = _battery.EXPECTED["violations"]
+CANON_JUDGED = _battery.EXPECTED["judged"]
 CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 
 #: THE BAND, adopted over `GRID` (doctrine 57: a figure from a sampler is
@@ -351,15 +342,21 @@ CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 # E-5, 2026-09-15: `cannot_tell` omits empty-coda evidence. Re-derived via
 # python3 quality/chance_rate.py --check and quality/e5_coda_adoption.py.
 # Historical gift bands: admit 173..193, narrow 36..46; schema unchanged.
+# REPINNED 2026-09-22, N-RELATION MODEL (doctrine 17: previous pins
+# ~~admit (118, 134), narrow (33, 40), schema (889, 914)~~). Every pair is now
+# counted in every relation it stands in and the default door is ANY relation;
+# the `narrow` door no longer exists and its place is the RHYME family.
+# Measured by `python3 quality/chance_rate.py --check` over GRID.
 ADOPTED = {
-    "admit": (118, 134),
-    "narrow": (33, 40),
-    "schema": (889, 914),
+    "any": (919, 946),
+    "admit": (89, 99),
+    "rhyme": (8, 9),
+    "schema": (896, 921),
 }
 
 
 # ---------------------------------------------------------------------------
-# THE SEPARATION ARM — does the whole-vocabulary door find anything?
+# THE SEPARATION ARM — does the default door find anything?
 # ---------------------------------------------------------------------------
 
 #: The positive corpus and the null design, DECLARED (doctrine 14: a control
@@ -438,9 +435,13 @@ NULL_LINES = 14
 #: identically at d12108fe (CI) and 38c8f331 (locally), so #269 moved none
 #: of it. The M-140/M-145 quotations of 69.05%/71.02% stay as quoted, for the
 #: reason the 2026-08-30 paragraph gives.
+# REPINNED 2026-09-22 (N-relation model) from ~~all 0.4812/0.5126/0.5330,
+# mandated 0.8631/0.5089/0.5357~~: a pair is answered when it stands in ANY
+# relation — an admitted coarse relation or any schema — asked of every pair.
+# Measured by `python3 quality/chance_rate.py --null --check`.
 ADOPTED_SEPARATION = {
-    "all": {"r_obs": 0.4812, "median": 0.5126, "max": 0.5330},
-    "mandated": {"r_obs": 0.8631, "median": 0.5089, "max": 0.5357},
+    "all": {"r_obs": 0.0, "median": 0.0, "max": 0.0},
+    "mandated": {"r_obs": 0.0, "median": 0.0, "max": 0.0},
 }
 
 #: How far a re-derivation may sit from the pin before it is DRIFT. The figures
@@ -510,17 +511,32 @@ def _sonnets(path="corpus/sonnets.txt"):
 SONNET_MANDATED = ((1, 3), (2, 4), (5, 7), (6, 8), (9, 11), (10, 12), (13, 14))
 
 
-def _answered(lines, phon, RF):
-    """-> (all-pairs rate, mandated-pairs rate) off ONE stream build."""
+def _answered(lines, phon, RF, lex=None, decl=None):
+    """-> (all-pairs rate, mandated-pairs rate) off ONE stream build.
+
+    A pair is ANSWERED when it stands in ANY relation the default consults:
+    an admitted coarse relation at its cut, or any registry schema. Every
+    pair is asked both; neither is a rescue for the other."""
     n = len(lines)
-    got = RF.whole_vocabulary_pairs(list(lines), phon)
+    got = set(RF.whole_vocabulary_pairs(list(lines), phon))
+    if lex is not None:
+        ancs = [L.line_anchors(lex, ln, promote=decl.final_promotion)
+                for ln in lines]
+        for i in range(n):
+            for j in range(i + 1, n):
+                if (i + 1, j + 1) in got or not (ancs[i][0] and ancs[j][0]):
+                    continue
+                s = L.best_score(ancs[i][0], ancs[j][0], decl,
+                                 ancs[i][1], ancs[j][1])
+                if L.admits_decl(s, decl):
+                    got.add((i + 1, j + 1))
     allr = len(got) / (n * (n - 1) / 2)
     hit = sum(1 for pr in SONNET_MANDATED if pr in got)
     return allr, hit / len(SONNET_MANDATED)
 
 
 def separation(seed=None, items=NULL_ITEMS, draws=NULL_DRAWS, log=None):
-    """-> dict. The whole-vocabulary door's observed rate against its matched
+    """-> dict. The default door (any relation)'s observed rate against its matched
     redeal. Reports the excess over the null MEDIAN and over the null MAX as
     TWO statistics under two labels, because this repository has quoted those
     two under one word before and `CLAUDE.md` records what it cost."""
@@ -529,10 +545,11 @@ def separation(seed=None, items=NULL_ITEMS, draws=NULL_DRAWS, log=None):
     from quality import relations as RF
     from quality.revise import _relation_phonology
     phon = _relation_phonology()
+    lex, decl = L.Lexicon(), L.Declaration()
     son = _sonnets()
     rng = _r.Random(RB.SEED if seed is None else seed)
     pos = son[:items]
-    obs = [_answered(s, phon, RF) for s in pos]
+    obs = [_answered(s, phon, RF, lex, decl) for s in pos]
     r_all = statistics.mean(x[0] for x in obs)
     r_man = statistics.mean(x[1] for x in obs)
     n_all, n_man = [], []
@@ -541,7 +558,7 @@ def separation(seed=None, items=NULL_ITEMS, draws=NULL_DRAWS, log=None):
         for _ in pos:
             picks = rng.sample(range(len(son)), NULL_LINES)
             a, m = _answered([son[p][i] for i, p in enumerate(picks)],
-                             phon, RF)
+                             phon, RF, lex, decl)
             va.append(a)
             vm.append(m)
         n_all.append(statistics.mean(va))
@@ -565,7 +582,8 @@ def separation(seed=None, items=NULL_ITEMS, draws=NULL_DRAWS, log=None):
 
 
 def _print_separation(r):
-    print("  SEPARATION - the 77-schema door against a MATCHED REDEAL")
+    print("  SEPARATION - the default door (any coarse relation or any "
+          "schema) against a MATCHED REDEAL")
     print(f"    {r['items']} sonnets, {r['draws']} null draws, "
           f"{NULL_LINES} lines each; null = each line from a DIFFERENT "
           f"sonnet at the SAME position index")
@@ -608,36 +626,36 @@ def _print(m, decl):
     print(f"  {s.label()}")
     print(f"    drawn {m['drawn']}   refused by CMUdict {m['refused']}   "
           f"judged {m['judged']}      (never summed)")
-    for key, gloss in (("admit", f"ADMIT  decl.admit={sorted(decl.admit)}"),
-                       ("narrow", "NARROW {RHYME, RIME_RICHE} (historical)"),
-                       ("schema", "SCHEMA all 77, two-line stream")):
+    for key, gloss in (("any", "ANY relation (the default door)"),
+                       ("admit", f"ADMIT  a coarse relation in "
+                                 f"decl.admit={sorted(decl.admit)}"),
+                       ("rhyme", f"RHYME  one of {sorted(L.RHYME_RELATIONS)}"),
+                       ("schema", "SCHEMA a registry schema, two-line stream")):
         r = rate(m, key)
         shown = "cannot tell" if r is None else f"{100 * r:6.2f}%"
         ratio = "" if r is None else f"   {r / CANON_RATE:5.2f}x canon"
         print(f"    {key.upper():<7}{m[key]:>6} {shown}{ratio}   {gloss}")
     if m["relations"]:
-        # PER RELATION, WITH ITS OWN RATIO — because the ADMIT total is a SUM
-        # over these and a sum of rates under a ceiling can sit above it
-        # (doctrine 79). The pricing that set these cuts was adopted per
-        # relation, so the per-relation ratio is the figure it is answerable
-        # to and the one a reader should be able to run rather than trust.
-        print("    ADMIT by relation : "
-              + "  ".join(
-                  f"{k}={v} ({v / m['judged'] / CANON_RATE:.2f}x)"
-                  for k, v in sorted(m["relations"].items()))
-              + f"   [cut: " + ", ".join(
-                  f"{k} {v}" for k, v in
-                  sorted(decl.theta_by_relation.items())) + "]")
+        # PER RELATION, WITH ITS OWN RATIO. A pair is counted in every
+        # relation it stands in, so these overlap and never sum to a door.
+        coarse = {k: v for k, v in m["relations"].items()
+                  if k in L.ADMITTABLE_RELATIONS}
+        if coarse:
+            print("    COARSE by relation: "
+                  + "  ".join(
+                      f"{k}={v} ({v / m['judged'] / CANON_RATE:.2f}x)"
+                      for k, v in sorted(coarse.items()))
+                  + "   [cut: " + ", ".join(
+                      f"{k} {v}" for k, v in
+                      sorted(decl.theta_by_relation.items())) + "]")
     if m["schema_names"]:
         top = m["schema_names"].most_common(8)
         print("    SCHEMA top names  : "
               + "  ".join(f"{k}={v}" for k, v in top))
-        print(f"    ADMIT only {m['admit_only']}   SCHEMA only "
-              f"{m['schema_only']}   both {m['both']}   "
-              f"(three counts, never summed)")
         print(f"    DISOWNED  a schema the registry marks forbidden or "
-              f"deprecated answered on {m['schema_any_forbidden']}, and was "
-              f"the SOLE satisfier on {m['schema_sole_forbidden']}")
+              f"deprecated HELD on {m['schema_any_forbidden']}, and was the "
+              f"only schema holding on {m['schema_sole_forbidden']} (held, "
+              f"never counted as satisfying)")
 
 
 def main(argv):

@@ -95,7 +95,8 @@ def anchor_of(word):
 
 def rel(a, b, decl=None):
     d = decl or DECL
-    return score(anchor_of(a), anchor_of(b), d, a, b)["relation"]
+    # EVERY coarse relation the pair stands in: a set, never one label.
+    return score(anchor_of(a), anchor_of(b), d, a, b)["relations"]
 
 
 def total(a, b, decl=None):
@@ -112,16 +113,17 @@ def test_the_reported_rhymes_that_were_not_rhymes():
     for a, b in (("wall", "floor"), ("call", "floor"), ("wall", "more"),
                  ("call", "more"), ("ear", "will")):
         r = rel(a, b)
-        check(f"{a}/{b} is not RHYME", r != "RHYME",
+        check(f"{a}/{b} is not RHYME", "RHYME" not in r,
               f"{total(a, b):.3f} {r} — identical nucleus, coda L against R")
-    check("and each is RELABELLED, not rejected (doctrine 24)",
-          all(rel(a, b) == "ASSONANCE" for a, b in
+    check("and each stands in ASSONANCE (and nothing else), not rejected "
+          "(doctrine 24)",
+          all(rel(a, b) == frozenset({"ASSONANCE"}) for a, b in
               (("wall", "floor"), ("call", "more"), ("ear", "will"))),
           "ASSONANCE is a named member of the taxonomy: the graph keeps the "
           "edge and the name. A rule that deleted the category would be a "
           "worse defect than the leak.")
     check("`will`/`gun` was ALREADY ASSONANCE and is unchanged",
-          rel("will", "gun") == "ASSONANCE",
+          rel("will", "gun") == frozenset({"ASSONANCE"}),
           "the brief that opened this cell called it 'the same generosity on "
           "L against N'. It is not: cons_sim(L,N) is 0.730, BELOW theta_coda "
           "0.80, so the band always typed it ASSONANCE. What made it look "
@@ -161,7 +163,7 @@ def test_no_threshold_could_have_fixed_this():
     d95 = Declaration(coda_agreement="scalar", theta_coda=0.95)
     check("`scalar 0.95` pays the full true-positive cost and STILL admits "
           "wall/floor",
-          rel("wall", "floor", d95) == "RHYME",
+          "RHYME" in rel("wall", "floor", d95),
           "which is why this was a SHAPE change and not a calibration")
 
 
@@ -199,7 +201,7 @@ def test_the_generosity_is_general_to_the_construction():
     for a, b in (("miss", "myth"), ("cap", "cat"), ("rob", "rod"),
                  ("back", "bat")):
         check(f"{a}/{b} was admitted by the scalar and is not now",
-              rel(a, b, d80) == "RHYME" and rel(a, b) != "RHYME",
+              "RHYME" in rel(a, b, d80) and "RHYME" not in rel(a, b),
               f"scalar {total(a, b, d80):.3f} {rel(a, b, d80)} -> "
               f"identity {rel(a, b)}")
 
@@ -237,8 +239,8 @@ def test_the_shape_is_declared():
                 "broken inside the tuple")
     lic = Declaration(coda_agreement="licensed", coda_licence=(("S", "Z"),))
     check("a declared licence works, and is word-final only by default",
-          rel("miss", "fizz", lic) == "RHYME"
-          and rel("miss", "fizz") != "RHYME",
+          "RHYME" in rel("miss", "fizz", lic)
+          and "RHYME" not in rel("miss", "fizz"),
           "reachable so a later cell with real evidence can fill it "
           "(doctrine 84); not shipped, for the same reason the fitted matrix "
           "is not (known gap 2) — nothing showed it helped")
@@ -254,16 +256,16 @@ def test_the_true_positives_that_must_survive():
     for a, b in (("nation", "station"), ("see", "free"), ("day", "way"),
                  ("light", "night"), ("wights", "knights"),
                  ("graces", "faces")):
-        check(f"{a}/{b} is still RHYME", rel(a, b) == "RHYME",
+        check(f"{a}/{b} is still RHYME", "RHYME" in rel(a, b),
               f"{total(a, b):.3f}")
     check("two ABSENT codas still agree (doctrine 25)",
           channel_agreement(anchor_of("see"), anchor_of("free"), DECL)[1],
           "reading empty-vs-empty as disagreement would delete every "
           "open-syllable rhyme in English")
     check("`sun`/`much` is still ASSONANCE — the case the band was built for",
-          rel("sun", "much") == "ASSONANCE")
+          rel("sun", "much") == frozenset({"ASSONANCE"}))
     check("`bad`/`bat` is still ASSONANCE, not promoted back to RHYME",
-          rel("bad", "bat") == "ASSONANCE",
+          rel("bad", "bat") == frozenset({"ASSONANCE"}),
           "doctrine 94 priced this cost out loud when theta_coda moved "
           "0.60 -> 0.80; a T~D licence would have undone it and is refused")
     # quality/mutate.py M3 (`min(codas)` -> `max(codas)`) reported SURVIVED on
@@ -278,7 +280,7 @@ def test_the_true_positives_that_must_survive():
     # repo is a monosyllable or a pair that agrees throughout.
     check("a two-syllable anchor may not have one agreeing coda carry the "
           "other (mutate.py M3)",
-          rel("nation", "nasal") == "ASSONANCE",
+          rel("nation", "nasal") == frozenset({"ASSONANCE"}),
           "`nation` EY-SH-AH-N against `nasal` EY-Z-AH-L: the first aligned "
           "syllable has two ABSENT codas and agrees, the second is N against "
           "L and does not. Under `max(codas)` this reads RHYME. The band is "

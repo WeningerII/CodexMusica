@@ -689,7 +689,8 @@ def test_the_song_the_loop_could_not_grade():
                  if coarse_relation_consensus(
                      R.lex, lines[c["lines"][0] - 1], lines[c["lines"][1] - 1],
                      R.decl, promote=R.decl.final_promotion,
-                     relation=c["relation"], min_score=THETA_COLLISION) is True}
+                     relation=set(c["relations"]) or None,
+                     min_score=THETA_COLLISION) is True}
     check("the partition reproduces mandated verdicts and confirmed collisions",
           (rep["pairs_mandated"], rep["pairs_judged"], rep["pairs_refused"],
            len(rep["violations"])) == (8, 8, 0, 0)
@@ -1275,8 +1276,8 @@ def test_what_the_loop_can_say_on_the_declared_mandate():
           f"merged group -- a property of this fixture's incidental word "
           f"choices, not of the merge detector.)")
     check("some of them are outright REPEAT, the refrain itself",
-          sum(1 for c in ret if c["relation"] == "REPEAT") >= 4,
-          f"{sum(1 for c in ret if c['relation'] == 'REPEAT')} of the "
+          sum(1 for c in ret if "REPEAT" in c["relations"]) >= 4,
+          f"{sum(1 for c in ret if 'REPEAT' in c['relations'])} of the "
           f"chorus's returns are an IDENTICAL end word. Doctrine 3 calls "
           f"REPEAT the REQUIREMENT across chorus instances, and "
           f"`repeat_licence` defaults to 'unlicensed', so the derived-cover "
@@ -1324,7 +1325,8 @@ def test_the_collision_set_is_partitioned_not_silenced():
                  if coarse_relation_consensus(
                      R.lex, lines[c["lines"][0] - 1], lines[c["lines"][1] - 1],
                      R.decl, promote=R.decl.final_promotion,
-                     relation=c["relation"], min_score=THETA_COLLISION) is True}
+                     relation=set(c["relations"]) or None,
+                     min_score=THETA_COLLISION) is True}
     check("the raw scheme's confirmed collisions equal the consensus-confirmed part of the note inventory",
           {(a, b) for a, b, _, _, _ in cs["collisions"]} == confirmed
           and confirmed <= edges,
@@ -1341,8 +1343,10 @@ def test_the_collision_set_is_partitioned_not_silenced():
     near = by.get("NEAR_COLLISION", 0)
     check("a near-relation is no longer reported as an unintended RHYME",
           near > 0 and all(
-              R._collision_code(c["relation"]) == "NEAR_COLLISION"
-              for c in rep["collisions"] if c["relation"] in NEAR_RELATIONS),
+              R._collision_code(c["relations"]) == "NEAR_COLLISION"
+              for c in rep["collisions"]
+              if set(c["relations"]) & NEAR_RELATIONS
+              and not set(c["relations"]) & (RHYME_RELATIONS | {"REPEAT"})),
           f"{by} -- {near} of {len(edges)} collisions are pairs `grade()` "
           f"would call a VIOLATION if they were mandated, because the "
           f"collision cut is the scalar alone and the mandate cut is "
@@ -3525,7 +3529,7 @@ def test_the_mandate_block_is_gated_on_the_mandate():
     check("the TIER-1 PROMPT -- the surface a writer actually reads -- no "
           "longer claims no group was declared, and states the group instead",
           "(no rhyme group declared for this line)" not in p1
-          and "group A [1, 2] at its end word — this line must rhyme with: "
+          and "group A [1, 2] at its end word — this line must stand in at least one relation with: "
           "L2 ('stairs')" in p1,
           [l.strip() for l in p1.splitlines()
            if "group" in l and "rhyme" in l][:2])
@@ -3843,7 +3847,7 @@ def test_a_return_is_not_rendered_as_a_rhyme():
 
     `Brief.must_answer` is `(label, members, [(line, endword), ...])`. There
     is no requirement in that tuple, so BOTH renderers printed one sentence
-    over all three: "this line must rhyme with: L19 ('ear')". That is not a
+    over all three: "this line must stand in at least one relation with: L19 ('ear')". That is not a
     lighter wording of the mandate, it is A DIFFERENT AND STRICTLY WEAKER
     REQUIREMENT — a writer who answers it with a rhyme has not returned, and
     `RETURN_NOT_VERBATIM` is a FLAG, so the loop rejects the very answer its
@@ -3901,17 +3905,17 @@ def test_a_return_is_not_rendered_as_a_rhyme():
     # this in the TIER 2 prompt, so all three are pinned.
     s = str(b3)
     check("`Brief.__str__` says the line must BE the other one, word for "
-          "word, and no longer says 'must rhyme with'",
+          "word, and no longer states a relation obligation",
           "group A [1, 3] is a RETURN" in s and "must BE L1 ('given')" in s
           and "not merely a rhyme" in s
-          and "group A [1, 3] — this line must rhyme with" not in s,
+          and "group A [1, 3] — this line must stand in at least one relation with" not in s,
           [l.strip() for l in s.splitlines() if "group A" in l])
 
     p1 = _PR.render_line(b3, DEC, whole=())
     check("the TIER 1 prompt says the same",
           "group A [1, 3] is a RETURN" in p1
           and "the same line word for word" in p1
-          and "must rhyme with: L1" not in p1,
+          and "at least one relation with: L1" not in p1,
           [l.strip() for l in p1.splitlines() if "group A" in l])
     # The consequence is hard-wrapped across three lines, so it is asserted
     # against the whitespace-collapsed text -- pinning the sentence and not
@@ -3935,7 +3939,7 @@ def test_a_return_is_not_rendered_as_a_rhyme():
           "found it on, and it renders the mandate through the SAME block",
           "group A [1, 3] is a RETURN" in p2
           and "the same line word for word" in p2
-          and "must rhyme with: L1" not in p2,
+          and "at least one relation with: L1" not in p2,
           [l.strip() for l in p2.splitlines() if "group A" in l])
 
     # CONTROL ON THE RENDERERS -- the ordinary sentence is not gone, it is
@@ -3943,9 +3947,10 @@ def test_a_return_is_not_rendered_as_a_rhyme():
     p4 = _PR.render_line(b4, DEC, whole=())
     # REPINNED 2026-09-02 with §40's: M-184 puts the binding PLACE in the
     # group sentence, so the ordinary spelling carries "at its end word".
-    check("CONTROL: an ordinary group still renders 'must rhyme with', and "
+    check("CONTROL: an ordinary group still renders its relation "
+          "obligation, and "
           "is not relabelled a return",
-          "group B [2, 4] at its end word — this line must rhyme with: "
+          "group B [2, 4] at its end word — this line must stand in at least one relation with: "
           "L2 ('light')" in p4
           and "RETURN" not in p4.split("THE RHYME MANDATE")[-1].split(
               "OFFERED")[0],
@@ -4074,9 +4079,10 @@ def test_a_report_says_when_the_named_pair_is_not_the_evidence():
     check("CONTROL: the verdict itself is untouched -- same score, same "
           "relation, same `why`; only the report gained a sentence",
           abs(v["score"] - s["total"]) < 1e-12
-          and v["relation"] == s["relation"]
-          and all(v[k] == without_note[k] for k in ("score", "relation", "why")),
-          f"score={v['score']:.3f} relation={v['relation']} why={v['why']!r}")
+          and set(s["relations"]) <= set(v["relations"])
+          and all(v[k] == without_note[k]
+                  for k in ("score", "relations", "why")),
+          f"score={v['score']:.3f} relations={v['relations']} why={v['why']!r}")
 
 
 def test_a_refusal_speaks_for_one_group_not_the_pair():
@@ -4147,55 +4153,46 @@ def test_a_refusal_speaks_for_one_group_not_the_pair():
 
 
 def test_the_field_says_which_door_it_was_read_at():
-    """§45 — `MISSING.md` M-139's PER_WORD disclosure, and it is checked at
-    every site that renders a candidate field.
-
-    WHY THIS IS NOT §7c's JOB, stated because the two look alike.
-    `quality/test_propose.py` §7c pins the STAND-IN's field list to `Brief`'s,
-    so a coordinate `Brief` grows and a stub does not is a red check. That is
-    necessary and it is not sufficient, and §7c's own comment says so: the
-    renderers read through `getattr`, so a renderer that never ASKS for the
-    field produces exactly the prompt it produced before. MEASURED on seven
-    mutations of this repair — a renderer dropped, the coordinate forced
-    shut, the `getattr` default collapsed to `""`, the third state deleted —
-    §7c stays GREEN on 7 of 7 and this section fails on 7 of 7.
+    """§45 — the candidate field is read at the GRADER'S door, which is
+    every relation: an admitted coarse relation at its cut OR any registry
+    schema at the two line ends (`Reviser._field_one`). A narrowed `admit`
+    shuts the schema half exactly as it shuts it in `grade()`. With the
+    field consulting the schemas, no renderer discloses a skipped route.
     """
-    print("\n45. the candidate field says which DOOR it was read at "
-          "(M-139)")
+    print("\n45. the candidate field is read at the grader's door -- every "
+          "relation, schemas included")
     import io as _io
     import subprocess as _sp
-    from quality.revise import schema_route_lines
-    from quality.relations import (SCHEMA_ROUTE_NOTE as NOTE,
-                                   SCHEMA_ROUTE_UNKNOWN as UNK)
     from quality import propose as PR
     from quality.loop import GroupBrief, AnchorSlot
-    from lyric_harness import Declaration
+    from lyric_harness import Declaration, admits_decl, best_score
 
-    def flat(t):
-        return " ".join(t.split())
-
-    KEY, UKEY = NOTE[:44], UNK[:44]
-
-    # -- 45a THE TWO ARMS, and NO NUMBER IN THE CHECK. One draft, two
-    # declarations, opposite renderings. The disclosure is true exactly when
-    # `grade()`'s rescue is live, which is what "the brief and the verdict
-    # ask the same question" means for this coordinate -- and both readings
-    # come from ONE function, `Reviser.schema_route_open`.
     A = Reviser()
     B = Reviser(decl=Declaration(admit=frozenset({"RHYME"})))
-    ba = [x for x in A.brief(CLICHE, "ABAB") if x.candidates][0]
-    bb = [x for x in B.brief(CLICHE, "ABAB") if x.candidates][0]
-    check("a field built under the DEFAULT door says the 77 were not asked",
-          ba.schema_route_note == NOTE)
-    check("a field built under a NARROWED `admit` says NOTHING -- the route "
-          "is shut and the field's door IS the verdict's door",
-          bb.schema_route_note == "")
-    check("the two arms RENDER differently: a coordinate that changes no "
-          "output is one the writer cannot act on (doctrine 1)",
-          PR.render_line(ba, CLICHE) != PR.render_line(bb, CLICHE))
 
-    # -- 45b THE RENDERER CENSUS, DRIVEN. Not a count read off the source:
-    # every site is run and its output read.
+    # -- 45a THE SCHEMA HALF IS IN THE FIELD, and only under the default.
+    call = "sight"
+    fa = A._field_one(call)
+    anc_c, lab_c = A._word_anchors(call)
+
+    def coarse(rv, w):
+        anc_w, lab_w = rv._word_anchors(w)
+        return admits_decl(best_score(anc_c, anc_w, rv.decl, lab_c, lab_w),
+                           rv.decl)
+    schema_only = [w for w in fa if not coarse(A, w)]
+    check("the default field offers partners that stand in a registry "
+          "schema and in no admitted coarse relation",
+          len(schema_only) > 0
+          and all(A._end_pair_schemas(call, w) for w in schema_only[:20]),
+          f"{len(schema_only)} of {len(fa)}: {schema_only[:6]}")
+    fb = B._field_one(call)
+    check("a NARROWED admit shuts the schema half: every word in that field "
+          "passes the narrowed coarse door",
+          fb and all(coarse(B, w) for w in fb), f"{len(fb)} words")
+
+    # -- 45b NO RENDERER DISCLOSES A SKIPPED ROUTE any more.
+    OLD = "77-SCHEMA HALF OF THE DEFAULT"
+    ba = [x for x in A.brief(CLICHE, "ABAB") if x.candidates][0]
     buf = _io.StringIO()
     A.report(CLICHE, "ABAB", stream=buf)
     gb = GroupBrief(pivot_line_no=3, pivot_text=CLICHE[2],
@@ -4208,86 +4205,58 @@ def test_the_field_says_which_door_it_was_read_at():
     tmp = os.path.join(tempfile.gettempdir(), "m139_cliche.txt")
     with open(tmp, "w", encoding="utf-8") as fh:
         fh.write("\n".join(CLICHE) + "\n")
-    cli = _sp.run([sys.executable,
-                   os.path.join(HERE, "..", "lyric_harness.py"),
-                   "brief", tmp, "ABAB"],
-                  capture_output=True, text=True, timeout=900).stdout
+    proc = _sp.run([sys.executable,
+                    os.path.join(HERE, "..", "lyric_harness.py"),
+                    "brief", tmp, "ABAB"],
+                   capture_output=True, text=True, timeout=900)
     sites = {
-        "revise.Brief.__str__": flat(str(ba)).count(KEY),
-        "revise.Reviser.report": flat(buf.getvalue()).count(KEY),
-        "propose.render_line": flat(PR.render_line(ba, CLICHE)).count(KEY),
-        "propose.render_group": flat(PR.render_group(gb)).count(KEY),
-        "lyric_harness._print_brief_report": flat(cli).count(KEY),
+        "revise.Brief.__str__": str(ba),
+        "revise.Reviser.report": buf.getvalue(),
+        "propose.render_line": PR.render_line(ba, CLICHE),
+        "propose.render_group": PR.render_group(gb),
+        "lyric_harness._print_brief_report": proc.stdout,
     }
-    for name in sorted(sites):
-        check(f"{name} discloses the door", sites[name] >= 1,
-              f"{sites[name]} occurrence(s)")
-    # THE ONE COUNT THAT IS ONE QUESTION. The others are NOT summed
-    # (doctrine 79): `report` prints the report-level line and every brief's
-    # own, the CLI prints one per field-bearing line, and those denominators
-    # differ. A tier-2 prompt renders TWO options lists through one
-    # `_offered_block`, and both must carry it.
-    check("`render_group` discloses on BOTH of its options lists -- the "
-          "pivot's and the member's",
-          sites["propose.render_group"] == 2,
-          f"{sites['propose.render_group']} of 2")
-    check("every renderer of a candidate field discloses the door; none is "
-          "silent", all(sites.values()), f"{sites}")
+    check("the CLI brief ran (a renderer that crashes discloses nothing and "
+          "proves nothing)", proc.returncode in (0, 1, 3) and proc.stdout,
+          proc.stderr[-300:])
+    check("no renderer prints the old skipped-route disclosure",
+          not any(OLD in " ".join(t.split()) for t in sites.values()),
+          [k for k, t in sites.items() if OLD in " ".join(t.split())])
 
-    # -- 45c THREE STATES, AND THE THIRD IS THE ONE A `bool` WOULD EAT.
-    check("`None` renders the UNKNOWN sentence, not silence",
-          bool(schema_route_lines(None))
-          and UKEY in flat(" ".join(schema_route_lines(None))))
-    check("`\"\"` renders silence -- the route is SHUT and nothing is owed",
-          schema_route_lines("") == [])
-    check("the two are DIFFERENT renderings: inconclusive is not null "
-          "(doctrine 20)",
-          schema_route_lines(None) != schema_route_lines(""))
-
-    class Stale:
-        """A stand-in that predates the coordinate -- §7c's own hazard."""
-        line_no, text, findings, keep = 1, "x", [], []
-        candidates = ["a", "b"]
-        forbidden_modal, must_answer, joint_conflict = [], [], False
-        must_rhyme_with = None
-        field_declaration = "field_depth=?, field_band=?"
-
-    stale = flat(PR.render_line(Stale(), CLICHE))
-    check("a stand-in that has NOT grown the coordinate renders the UNKNOWN "
-          "sentence and never silence -- the `getattr` default is not `\"\"`",
-          UKEY in stale and KEY not in stale)
-
-    # -- 45d THE SENTENCE'S CLAIM IS TRUE OF THE POPULATION IT IS MADE
-    # ABOUT. It says a 77-rescued pair may be unreachable from the field AT
-    # ANY DEPTH; the warrant is that such a pair fails on the SCALAR, and a
-    # field is built from words that CLEAR the band. Measured here rather
-    # than asserted, on a shipped fixture, with its own denominator printed
-    # so an empty population cannot read as a pass (doctrine 20).
+    # -- 45c THE FIELD AGREES WITH THE GRADE ON SCHEMA-ONLY PAIRS. On a
+    # shipped fixture, every mandated pair the grade accepts ONLY through a
+    # schema whose partner is in the engine's pool for the call (the bound
+    # on what the field judges) is in that call's field.
     lines = [l.rstrip() for l in
              open(os.path.join(HERE, "fixtures", "song.txt"),
                   encoding="utf-8").read().splitlines()
              if l.strip() and not l.strip().startswith("[")]
     cover = [[2, 4], [1, 3]]
     rep = A.grade(lines, cover)
-    ss = rep["pairs_schema_satisfied"]
-    check("the fixture still REACHES the 77-only route -- an empty "
-          "population would make the check below vacuous",
-          len(ss) >= 1, f"{len(ss)} of {rep['pairs_mandated']} mandated")
+    only = [v for v in rep["verdicts"]
+            if v["why"] is None and not v["admitted"] and v.get("schemas")]
     m = A.mandate(lines, cover)
     _a, endwords, _r, _mx = A._matrix(lines)
-    unreachable = 0
-    for e in ss:
-        i, j = e["lines"]
-        k = [x for x in range(len(m.groups)) if m.labels[x] == e["label"]][0]
-        wi = A._slot_word(lines, m, k, i, endwords)
-        wj = A._slot_word(lines, m, k, j, endwords)
-        fi = {w.lower() for w in A._field_one(wi)}
-        fj = {w.lower() for w in A._field_one(wj)}
-        if wj.lower() not in fi and wi.lower() not in fj:
-            unreachable += 1
-    check("every 77-only pair is ABSENT from the complete-pool field of "
-          "BOTH its words, so 'not askable at any depth' is measured",
-          unreachable == len(ss), f"{unreachable} of {len(ss)}")
+    pooled = reached = 0
+    for v in only:
+        i, j = v["lines"]
+        wi, wj = (A._slot_word(lines, m, v["group"], x, endwords)
+                  for x in (i, j))
+        pool = {c["word"] for c in A.engine.candidates(
+            wi, n=len(A.engine.index) + 1)["candidates"]}
+        if wj.lower() not in pool:
+            continue
+        pooled += 1
+        schemas_here = A._end_pair_schemas(wi, wj.lower())
+        if (wj.lower() in {w.lower() for w in A._field_one(wi)}
+                or not schemas_here):
+            reached += 1
+    check("every schema-only pair inside the engine's pool is offerable "
+          "(or its end words alone stand in no schema -- the line pair's "
+          "schema is not an end-word relation)",
+          reached == pooled,
+          f"{reached} of {pooled} pooled; {len(only)} schema-only pairs of "
+          f"{rep['pairs_mandated']} mandated")
 
 
 def test_a_field_is_per_place_not_per_line():
