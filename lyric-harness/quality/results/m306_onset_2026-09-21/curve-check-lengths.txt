@@ -1,0 +1,11 @@
+CACHE  /root/.cache/lyric-harness/song_predictability_v1.tsv
+       fingerprint 1510801307d6 | read 8536 entries, written 2026-09-22T00:42:12 | hits 0, misses 0
+POPULATION  1296 files, 1293 distinct authors, 8536 items, 279502 sung lines
+ROWS  computed: 8536 items (memo hits 8536, misses 0)
+MATTR/TTR  532 of 8536 items degenerate at calibration window 50 -> HOLDS
+  mattr          C1  shipped [0.49968978828344063, 0.03751889880962087]  re-derived [0.49968978828344063, 0.03751889880962087]  -> HOLDS
+  fwr            C1  shipped [0.5604841642384619, -0.014308228025864213]  re-derived [0.5604841642384619, -0.014308228025864213]  -> HOLDS
+  anaphora       C2  shipped [1.1413067296229165, -0.24203952493270758, 0.01609986645877518]  re-derived [1.1413067296229165, -0.24203952493270758, 0.01609986645877518]  -> HOLDS
+  cv             CK  shipped 21 knots, re-derived 21  -> HOLDS
+  predictability CK  shipped 21 knots, re-derived 21  -> HOLDS
+RESULT: HOLDS — the lyric row's 5 curves re-derive from the corpus
