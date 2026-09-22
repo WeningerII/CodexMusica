@@ -52,6 +52,10 @@ current-baseline prose (R14) are updated together.
   365 misnamed pairs, and four mosaic violations over the new population.
   Current span and G2P tests use the exact new partition while the previous
   production oracle remains historical.
+- Follow-up CI exposed stale slot/readability expectations and missing slang
+  capability disclosures. The capability census now supplies and names a
+  constructed slang fixture; the null-panel audit records the absent sourced
+  slang projection as an input blocker.
 
 These are regression fixtures. HTTP model responses are stubbed where specified
 by the existing suites; the native creation and run tests execute the real MCP

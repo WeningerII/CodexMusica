@@ -266,13 +266,17 @@ def test_untouched_path():
     print("\n8. the untouched path: an end-rhyme mandate is byte-identical")
     rv = Reviser()
     g = rv.grade(DRAFT, SC.mandate("ABAB", n_lines=4))
-    check("a plain letter mandate accounts for both exact pairs, preserving unresolved schemas",
-          not g['verdicts'] and not g['violations']
-          and {tuple(r['lines']) for r in g['refusals']} == {(1, 3), (2, 4)}
+    # C-1/P9: absent slang evidence no longer makes light/silver undecidable.
+    # The other pair still refuses for its genuinely unresolved schemas.
+    check("a plain letter mandate separates the negative pair from unresolved schemas",
+          {tuple(v['lines']) for v in g['verdicts']} == {(1, 3)}
+          and {tuple(v['lines']) for v in g['violations']} == {(1, 3)}
+          and g['violations'][0]['endwords'] == ('light', 'silver')
+          and {tuple(r['lines']) for r in g['refusals']} == {(2, 4)}
           and all(not r['unreadable'] and 'unresolved in schema' in r['reason']
-                  for r in g['refusals'])
+                  and 'rhyming slang' not in r['reason'] for r in g['refusals'])
           and (g["pairs_mandated"], g["pairs_judged"], g["pairs_refused"])
-          == (2, 0, 2))
+          == (2, 1, 1))
     clean_lines = ['we follow every beam of light', 'the stones are wet with rain',
                    'and keep our candles through the night', 'we hear the distant train']
     clean = rv.grade(clean_lines, SC.mandate('ABAB', n_lines=4))

@@ -342,12 +342,14 @@ def test_nothing_was_lost_on_the_sonnets():
     # invariance is what this whole test exists to check, and it holds.
     # REPINNED 2026-09-08: the original 50 lexical refusals remain; 28
     # pronunciation disagreements and 19 unresolved schema answers also refuse.
-    # battery.EXPECTED and production_relation_oracle.json own this partition.
+    # C-1/P9, 2026-09-22: three slang-only refusals become judged violations;
+    # 16 schema uncertainties remain. battery.EXPECTED and
+    # report_slang_oracle.json own the current partition.
     check(f"violations + refusals == the recorded total",
           viol + ref == battery.EXPECTED["violations"] + battery.EXPECTED["refused"],
           f"{viol} + {ref} -- nothing was invented and nothing vanished")
-    check("97 pairs refuse: 50 lexical gaps, 28 reading disagreements, 19 unresolved schema answers",
-          ref == battery.EXPECTED["refused"] == 50 + 28 + 19,
+    check("94 pairs refuse: 50 lexical gaps, 28 reading disagreements, 16 unresolved schema answers",
+          ref == battery.EXPECTED["refused"] == 50 + 28 + 16,
           "Unknown pronunciation/schema answers remain outside rhyme failures and judged coverage")
     # 73 -> 81 -> 82: 0.60 -> 0.80 calibrated theta_coda, then scalar ->
     # identity coda_agreement. The count that matters to THIS test is
@@ -360,7 +362,7 @@ def test_nothing_was_lost_on_the_sonnets():
     check(f"the violation count is {battery.EXPECTED['violations']} "
           f"(was 73 at theta_coda 0.60, 81 at scalar coda_agreement)",
           viol == battery.EXPECTED["violations"], str(viol))
-    check("the judged denominator is 967, and every mandated pair is accounted for",
+    check("the judged denominator is 970, and every mandated pair is accounted for",
           judged == battery.EXPECTED["judged"] and judged + ref == mandated,
           f"{judged}: a violation RATE is "
           f"{battery.EXPECTED['violations']}/{battery.EXPECTED['judged']} = "

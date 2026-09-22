@@ -3071,6 +3071,11 @@ class Blocker:
 # mechanism awaiting caller coordinates; validate = available derivation lacks
 # evidence for default use; disjoint = intentionally unsupported capability.
 BLOCKER_RECORDS = {
+    "slang": Blocker("obtain",
+        "a sourced slang projection for the panel texts. An ordinary lexicon "
+        "does not attest slang expansions; no panel slice supplies the separate "
+        "slang surface. The capability census uses a disclosed constructed "
+        "fixture only, not a sourced register for these measurements."),
     'sense': Blocker('validate',
         'a sense inventory. `antanaclasis` is one word in two SENSES; with any '
         'resource that keys on the token it degenerates to `repetition`, which is a '
