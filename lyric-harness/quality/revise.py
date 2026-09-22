@@ -4854,11 +4854,15 @@ class Reviser:
         # candidate is first TYPED by the relation SET it stands in with
         # every call (`best_score(...)["relations"]`, the object `grade()`
         # reads): a word whose set holds a rhyme relation with every call is
-        # screened and offered first in its doctrine-9 order; then words
-        # admitted in some coarse relation with every call; then words that
-        # reach a call only through a registry schema. A partition, not a
+        # screened and offered first in its doctrine-9 order; then the other
+        # words in every call's coarse half; then words that reach a call
+        # only through another reading or a registry schema. A partition, not a
         # re-ranking: within each part the order is what it always was.
         anc_calls = [self._word_anchors(c) for c in calls]
+        coarse_all = None
+        for c in calls:
+            co = set(self._field_split(c, profile=profile)[0])
+            coarse_all = co if coarse_all is None else coarse_all & co
         rhymes, nears, schema_only = [], [], []
         for w in rest_ranked:
             if w in drop:
@@ -4866,15 +4870,16 @@ class Reviser:
             # single letters are lexicon artifacts, not words a writer can use
             if len(w) < 2 and w not in ("a", "i"):
                 continue
-            anc_w, lab_w = self._word_anchors(w)
-            scs = [best_score(anc_c, anc_w, self.decl, lab_c, lab_w,
-                              profile=profile) for anc_c, lab_c in anc_calls]
-            if not all(admits_decl(sc, self.decl) for sc in scs):
-                # Not coarse-admitted with every call: in the field only
-                # through a schema, which `_member` decides when the menu
-                # reaches it.
+            if w not in coarse_all:
+                # Not in every call's coarse half: in the field only through
+                # another reading or a schema, which `_member` decides when
+                # the menu reaches it (never for the whole pool).
                 schema_only.append(w)
-            elif all(sc["relations"] & RHYME_RELATIONS for sc in scs):
+                continue
+            anc_w, lab_w = self._word_anchors(w)
+            if all(best_score(anc_c, anc_w, self.decl, lab_c, lab_w,
+                              profile=profile)["relations"] & RHYME_RELATIONS
+                   for anc_c, lab_c in anc_calls):
                 rhymes.append(w)
             else:
                 nears.append(w)

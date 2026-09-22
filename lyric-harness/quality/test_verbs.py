@@ -4383,7 +4383,8 @@ def test_a_song_wide_relation_may_not_stand_beside_a_structure():
     judged — while STRUCTURE_UNCALIBRATED fires in BOTH, so the disclosure
     vouched for a coordinate that graded nothing.
     """
-    print("\n44. a song-wide relation beside a declared structure REFUSES")
+    print("\n44. a song-wide relation beside a declared structure is JUDGED "
+          "with it, never dropped")
     import tempfile
     lines = ["the night was cold and bright", "we held each other tight",
              "we walked beneath the sun", "and rivers ran with silver"]
@@ -4401,33 +4402,38 @@ def test_a_song_wide_relation_may_not_stand_beside_a_structure():
         rc, out, _ = run("brief", path, "--groups=1,2;3,4",
                          "--structures=B:kalevala-alliteration",
                          "--relation=type:pararhyme")
-        check("...and declaring a SONG-WIDE relation beside it REFUSES at "
-              "exit 2 rather than letting the relation win in silence",
-              rc == 2 and "song-wide relation" in out)
+        # REPOINTED 2026-09-22 (the N-relation model, `quality/schemes.py`):
+        # a song-wide relation beside a declared structure is a CONJUNCTION
+        # now, not a refusal — the structured group's pairs must satisfy
+        # BOTH, so neither coordinate can win in silence. Asserted by the
+        # structured group B being CHARGED under the song-wide relation
+        # while its structure is still disclosed.
+        check("...and declaring a SONG-WIDE relation beside it JUDGES BOTH: "
+              "the structured group's pair is charged under the relation "
+              "while the structure is still graded and disclosed",
+              rc == 3 and "L3 and L4 are both in group B" in out
+              and "'type:pararhyme'" in out
+              and "STRUCTURE_UNCALIBRATED" in out)
         check("...naming both coordinates, so the caller can see which two "
-              "collided", "'type:pararhyme'" in out
+              "were judged", "'type:pararhyme'" in out
               and "'kalevala-alliteration'" in out)
-        check("...and naming the spelling that DOES express the mixed "
-              "intent, so the refusal costs no capability",
-              "--relations=" in out)
-        # THE HEADLINE IS THE OTHER HALF. `NoMandate` covers two different
-        # answers and one headline over both said the wrong one.
-        check("the refusal does NOT claim the caller declared nothing — "
-              "they declared groups, a structure and a relation "
-              "(doctrine 20)",
+        check("...and the song-wide relation reaches the UNstructured group "
+              "too — a relation beside a structure is never dropped",
+              "L1 and L2 are both in group A" in out)
+        check("nothing claims the caller declared nothing — they declared "
+              "groups, a structure and a relation (doctrine 20)",
               "given nothing to check against" not in out)
         rc_e, out_e, _ = run("brief", path)
         check("...while a genuinely empty mandate DOES still say exactly "
               "that, which is the control that keeps the split honest",
               rc_e == 2
               and "given nothing to check against" in out_e)
-        # A PER-GROUP relation beside a structure on ANOTHER group is the
-        # intent the refusal points at, and it must still be reachable.
+        # A PER-GROUP relation beside a structure on ANOTHER group is still
+        # reachable.
         rc_p, out_p, _ = run("brief", path, "--groups=1,2;3,4",
                              "--structures=B:kalevala-alliteration",
                              "--relations=A:type:pararhyme")
-        check("...and the per-group spelling the refusal recommends is "
-              "ACCEPTED, so the advice is not a dead end",
+        check("...and the per-group spelling is ACCEPTED on its own",
               rc_p == 0 and "STRUCTURE_UNCALIBRATED" in out_p)
     finally:
         os.unlink(path)
@@ -5212,7 +5218,10 @@ def test_the_plan_report_discloses_density_and_audibility():
     check("the writer brief carried in the blueprint has the legend and the "
           "capacity line the writer reads (M-192)",
           "Where a binding sits" in brief
-          and "What each named relation asks" in brief
+          # No relation is drawn (N-relation model): the bare plan names
+          # none, and each group is briefed to stand in at least one.
+          and "What each named relation asks" not in brief
+          and "must stand in at least one relation" in brief
           and re.search(r"^\s+up to \d+ syllables a line after the pickup; "
                         r"the calibrated band asks at least \d+$", brief, re.M)
           is not None)
@@ -6009,8 +6018,14 @@ def test_a_proposer_that_cannot_reach_its_writer_refuses_by_name():
               and coverage.get("certified") is False
               and bool(coverage.get("refused_obligations"))
               and coverage.get("pairs_mandated") == 9
-              and coverage.get("pairs_judged") == 3
-              and coverage.get("pairs_refused") == 6,
+              # REPINNED 2026-09-22 (N-relation model), MEASURED by this
+              # run: ~~3/6~~ -> 2/7. The reading-consensus check is
+              # membership over the pair's relation SET now, so one more
+              # pair whose endpoint readings disagree on a relation is
+              # refused rather than judged (the battery moved 28 -> 39 the
+              # same way).
+              and coverage.get("pairs_judged") == 2
+              and coverage.get("pairs_refused") == 7,
               f"final lines={len(completed.get('final_draft', []))}; "
               f"judged/refused={coverage.get('pairs_judged')}/"
               f"{coverage.get('pairs_refused')}")

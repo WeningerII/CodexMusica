@@ -1015,8 +1015,11 @@ def test_the_field_is_the_graders_own_field():
     for w in scal._field_one("light"):
         ax, wa = scal._word_anchors("light")
         ay, wb = scal._word_anchors(w)
+        # `relations=` the DECLARED door: omitted, `admits` now means every
+        # admittable relation, which is not the door this arm narrows to.
         if not admits(best_score(ax, ay, scal.decl, wa, wb),
-                      scal.decl.theta_rhyme):
+                      scal.decl.theta_rhyme,
+                      relations=frozenset(scal.decl.admit)):
             raw_rejected.append(w)
     check("the legacy scalar generator still produces hints outside the declared rhyme door",
           bool(raw_rejected), raw_rejected[:8])
@@ -1079,9 +1082,10 @@ def test_no_joint_candidate_was_a_coordinate_of_a_literal():
             # A check that verifies the field against a door the verdict
             # abandoned on 2026-08-22 passes exactly while the field is
             # broken, which is what all three were doing.
-            if not admits(best_score(ax, ay, R.decl, wa, wb),
-                          R.decl.theta_rhyme,
-                          relations=frozenset(R.decl.admit)):
+            # THE GRADER'S DEFAULT PREDICATE IS EVERY RELATION: an admitted
+            # coarse relation at its cut, or a registry schema at the two
+            # line ends (`Reviser._offerable`, the field's own predicate).
+            if not R._offerable(c, w, best_score(ax, ay, R.decl, wa, wb)):
                 FAILURES.append("joint field member fails the grader")
                 break
     check("every one of them passes the grader against every call",
