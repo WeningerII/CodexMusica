@@ -2173,7 +2173,7 @@ class Mandate:
         from quality.grid import compare_returns, normalise_line
         out = []
         n = len(lines)
-        declared = self.return_pairs()
+        declared = [(i, j, r) for i, j, r in self.return_pairs() if not r.placed]
         # The pairs this method GRADES. Non-verbatim and UNKNOWN returns are
         # skipped by the loop below and are a THIRD count in the message, never
         # folded into either of the other two: the mandate did not require

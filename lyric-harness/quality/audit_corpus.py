@@ -398,6 +398,8 @@ class Sources:
         self.path = path
         self.rows = []
         if os.path.exists(path):
+            from quality.provenance import load_sources
+            load_sources(path)  # refuse conflicting identities before building lookup tables
             with open(path, encoding="utf-8") as fh:
                 self.rows = list(csv.DictReader(fh, delimiter="\t"))
         self.by_id = {r["source_id"]: r for r in self.rows}

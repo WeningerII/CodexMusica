@@ -97,11 +97,13 @@ see `scripts/build_static_api.js` and `scripts/build_discovery.js`.
 
 ## Live MCP connector
 
-A hosted **Model Context Protocol** server (`mcp/`, deployed on Render, auto-deploys from
-`main`) exposes the full *editable* engine as MCP tools — the headless twin of the browser
+A hosted **Model Context Protocol** server (`mcp/`, deployed on Render with automatic
+deploys disabled in `render.yaml`) exposes the full *editable* engine as MCP tools — the headless twin of the browser
 app: seed a recipe, then edit prefaces / variants / room / chain / tuning, add/remove
-instruments and traditions, and re-render. Streamable HTTP, no auth, read-only and
-deterministic.
+instruments and traditions, and re-render. The shared Streamable HTTP endpoint requires
+no account login. Recipe operations are deterministic; lyrics have a separate revision
+lifecycle, and kitchen revision can make paid external model calls. Workflow sessions
+retain requests and results for recovery.
 
 - Endpoint: `https://mcp.codexmusica.com/mcp`
 - Server card (zero-config discovery): `https://mcp.codexmusica.com/.well-known/mcp.json`
@@ -110,14 +112,17 @@ deterministic.
 
 ## Ask the engine (chat, no MCP client needed)
 
-The published page carries a chat bar that drives the same nine tools in plain language —
+The published page carries a chat bar that drives recipe and lyrics tools in plain language —
 no connector setup, no account. Type a request, get the recipe back verbatim, with the
 tool calls that produced it listed underneath.
 
 The page is static, so it cannot hold a model key: the bar posts to `/chat` on the same
 Render service that hosts the connector, and that service calls Gemini. The conversation
-and the recipe workspace live in the browser and are posted back each turn — the server
-stores nothing, the same promise the connector makes. The envelope is HMAC-signed so a
+and the recipe workspace are posted back each turn. The service can retain messages,
+drafts, checkpoints and signed continuations in recovery receipts; completed or interrupted
+receipt metadata becomes eligible for expiration after 24 hours, with cleanup and payload
+retirement governed by `mcp/PRIVACY.md`. A separate bounded lyric run cache can expire after
+six hours or be evicted earlier. The envelope is HMAC-signed so a
 caller can only extend a transcript the server itself wrote.
 
 - The model never sees the workspace. It is stripped from the function declarations and

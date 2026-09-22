@@ -355,7 +355,9 @@ class English(Phonology):
         """
         import lyric_harness as lh
         key = lh.fold_apostrophes(word).lower()
-        prons = self._lexicon().entries.get(key)
+        lex = self._lexicon()
+        prons = (lex.pronunciation_variants(word) if hasattr(lex, "pronunciation_variants")
+                 else lex.entries.get(key))
         if self.readings == "first" or not prons:
             return [self._syllabify_single(word)]
         return [[Syllable(word, tuple(s["onset"]), s["nucleus"],

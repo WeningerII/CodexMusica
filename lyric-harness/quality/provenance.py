@@ -361,6 +361,9 @@ def load_sources(path=None):
     path = path or os.path.join(DATA, "sources.tsv")
     out = {}
     for r in _read_tsv(path):
+        source_id = r["source_id"].strip()
+        if source_id in out:
+            raise ValueError(f"DUPLICATE_SOURCE_ID: {source_id} in {path}; reconcile the records before admission")
         s = Source(
             source_id=r["source_id"].strip(),
             licence=(r.get("licence") or "").strip().lower(),

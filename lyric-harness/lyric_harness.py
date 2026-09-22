@@ -134,12 +134,23 @@ def download_to(url, dest, attempts=DOWNLOAD_ATTEMPTS, sleep=time.sleep):
         f"{attempt + 1} attempt(s): {last}") from last
 
 
-def fetch_data():
+class LexicalAssetUnavailable(Exception):
+    """A required staged lexicon cannot be read; runtime must not download it."""
+
+
+def fetch_data(download=True):
     if not os.path.exists(CMUDICT_PATH):
+        if not download:
+            raise LexicalAssetUnavailable(
+                "LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit "
+                "fetch_data() setup step before grading. No runtime download was attempted.")
         print(f"downloading {os.path.basename(CMUDICT_PATH)} ...", file=sys.stderr)
         download_to(CMUDICT_URL, CMUDICT_PATH)
     from quality.release_assets import verify_asset
-    verify_asset("cmudict", root=HERE)
+    try:
+        verify_asset("cmudict", root=HERE)
+    except (OSError, ValueError) as exc:
+        raise LexicalAssetUnavailable(f"LEXICAL_ASSET_UNREADABLE: {exc}") from exc
     if not os.path.exists(FREQ_PATH):
         # Repo-committed and provenance-gated (data/sources.tsv), not a raw
         # upstream mirror -- the file adds a `#` header and a rank column
@@ -967,7 +978,7 @@ class Lexicon:
         caller declares which of the two traditions -- literary aside or
         voice attribution -- the text in front of it was written in.
         """
-        fetch_data()
+        fetch_data(download=False)
         self.entries = {}          # word -> list of pronunciations (phone lists)
         self.freq_rank = {}
         self.strip_parens = strip_parens
@@ -1038,13 +1049,38 @@ class Lexicon:
         return [word] if choice and choice['word'] == word else re.split(r"[-\u2011]", word)
 
 
+    def pronunciation_variants(self, word):
+        """Keep explicit -in' elision separate from a bare-name homograph.
+
+        Bare spellings retain both readings where the dictionary and the
+        existing -ing reduction disagree, so consensus graders can refuse.
+        """
+        raw = fold_apostrophes(word).lower().strip('"“”.,;:!?()[]')
+        key = raw.strip("'")
+        choice = getattr(self, "_pronunciation_choice", None)
+        if choice and fold_apostrophes(choice["word"]).lower() == raw:
+            return [list(choice["phones"])]
+        prons = [list(p) for p in self.entries.get(key, ())]
+        reduced = []
+        if key.endswith("in"):
+            for phones in self.entries.get(key + "g", ()):
+                if len(phones) >= 2 and phones[-2:] == ["IH0", "NG"]:
+                    reduced.append(list(phones[:-1]) + ["N"])
+        if reduced and raw.endswith("in'"):
+            return reduced
+        for phones in reduced:
+            if phones not in prons:
+                prons.append(phones)
+        return prons
+
     def transcribe_word(self, word):
         """Return (phones, oov_flag). Naive fallback for out-of-vocabulary."""
         w = fold_apostrophes(word).lower().strip("'\"“”‘’.,;:!?()[]")
         if not w:
             return [], False
-        if w in self.entries:
-            return list(self.entries[w][0]), False
+        variants = Lexicon.pronunciation_variants(self, word)
+        if variants:
+            return list(variants[0]), False
         # OOV fallback: strip trailing s / 's and re-attach the suffix with
         # its VOICING, which is fixed by the base's last phone (see
         # PLURAL_S_SIBILANT / PLURAL_S_VOICELESS). This used to append a
@@ -2081,7 +2117,22 @@ def indent_agreement(groups, indents):
 _PATH_SHAPED = re.compile(r"[/\\]|\.[A-Za-z0-9]{1,5}$")
 
 
-def _lyric_source(src, verb):
+def load_draft_lines(path, with_indent=False, input_format="literal"):
+    """Read caller-owned lines without interpreting lyric text as apparatus.
+
+    Source normalization is an explicit opt-in; its line coordinates refer to
+    the extracted lyrics. Library corpus readers retain load_lyric_lines.
+    """
+    if input_format == "source":
+        return load_lyric_lines(path, with_indent=with_indent)
+    if input_format != "literal":
+        raise ValueError("input format must be literal or source")
+    rows = [(line_indent(raw), raw.strip())
+            for raw in read_lyric_text(path).splitlines() if raw.strip()]
+    return rows if with_indent else [text for _, text in rows]
+
+
+def _lyric_source(src, verb, input_format="literal"):
     """-> list[str] | None. The `FILE|L...` argument shape, decided ONCE.
 
     `None` means "the arguments ARE the lines" and the caller applies its own
@@ -2092,7 +2143,7 @@ def _lyric_source(src, verb):
     taking a path-shaped token as a lyric.
     """
     if len(src) == 1 and os.path.exists(src[0]):
-        return load_lyric_lines(src[0])
+        return load_draft_lines(src[0], input_format=input_format)
     if len(src) == 1 and _PATH_SHAPED.search(src[0]):
         _refuse(f"{verb} — {src[0]!r} is not a file, and it is path-shaped",
                 detail=[f"the argument is `{verb} FILE|L...`: one token that "
@@ -2606,8 +2657,9 @@ def line_anchors(lex, text, promote=False, endpoint_pronunciations=None):
     # The consensus bridge narrows only this endpoint. Replacing a lexicon
     # entry would also change earlier occurrences of the same homograph.
     end_reader = lex.for_token(len(words) - 1) if hasattr(lex, "for_token") else lex
-    variants = (end_reader.entries.get(lw, []) if endpoint_pronunciations is None
-                else endpoint_pronunciations)
+    variants = ((end_reader.pronunciation_variants(last)
+                 if hasattr(end_reader, "pronunciation_variants") else end_reader.entries.get(lw, []))
+                if endpoint_pronunciations is None else endpoint_pronunciations)
     oov = list(pre_oov)
     if not variants:
         p, _, oo = end_reader.transcribe(last)   # handles hyphenated compounds
@@ -5944,7 +5996,12 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
 # remembered eight times in one round.
 # ---------------------------------------------------------------------------
 
-USAGE = """--pronunciations=<JSON> on song, finish, brief, revise, verify and recover:
+USAGE = """--input-format=literal|source (default: literal):
+  Draft files retain every nonblank line, including #, [ and --- prefixes.
+  Use source explicitly for printed apparatus and section headers; mandate
+  coordinates then refer to the extracted sung lines. MCP drafts are literal.
+
+--pronunciations=<JSON> on song, finish, brief, revise, verify and recover:
 explicit occurrence readings: a list of {line, token, word, phones, basis, source}.
 line is exact complete text; token is the 1-based sung word. Each choice applies
 to every verbatim repeat of the line, never to a changed line. basis=dictionary
@@ -7173,6 +7230,18 @@ def _defer_proposer(path, lines=None):
     st = _defer_state(path)
     st.setdefault("input_draft", list(lines or ()))
     st.setdefault("accepted_lines", list(lines or ()))
+    pending = st.get("pending")
+    if isinstance(pending, dict) and pending.get("answer") not in (None, "", {}):
+        pending_record = pending.get("record") or {}
+        pending_answer = pending["answer"]
+        count = (len(pending_record.get("records") or ()) if pending.get("kind") == "propose_batch"
+                 else len(pending_record.get("members") or ()) if pending.get("kind") == "propose_group"
+                 else 1)
+        if (not isinstance(pending_answer, str)
+                or len(pending_answer.encode("utf-8")) > count * (200 * 4 + 16)):
+            _refuse("INVALID_INTERVIEW_ANSWER: pending.answer must be a string "
+                        "within the requested line limits; correct the answer and resume "
+                        "this same run. Accepted progress and the pending question are retained.")
     _journal_admit(st, lines=st["accepted_lines"], path=path,
                    ceiling=JOURNAL_BYTES)
     if st.get("new_run_required"):
@@ -7209,8 +7278,9 @@ def _defer_proposer(path, lines=None):
                  else 1)
         if (not isinstance(ans, str)
                 or len(ans.encode("utf-8")) > count * (200 * 4 + 16)):
-            raise _JournalCapacity(st, st["accepted_lines"], path,
-                                   "PROVIDER_PROPOSAL_TOO_LARGE")
+            _refuse("INVALID_INTERVIEW_ANSWER: pending.answer must be a string "
+                        "within the requested line limits; correct the answer and resume "
+                        "this same run. Accepted progress and the pending question are retained.")
         # _suspend reserved this growth before asking the writer. Recheck an
         # externally supplied journal without consuming or changing its answer.
         folded_base = dict(st, pending=None)
@@ -7234,8 +7304,9 @@ def _defer_proposer(path, lines=None):
                                 "marker once and nothing else "
                                 "(quality/propose.py `parse_batch`)."])
             if any(len(text) > JOURNAL_LINE_CHARS for text in parsed.values()):
-                raise _JournalCapacity(st, st["accepted_lines"], path,
-                                       "PROVIDER_PROPOSAL_TOO_LARGE")
+                _refuse("INVALID_INTERVIEW_ANSWER: pending.answer must be a string "
+                        "within the requested line limits; correct the answer and resume "
+                        "this same run. Accepted progress and the pending question are retained.")
             for r in _recs:
                 r2 = dict(r)
                 # The whole row set was asked against ONE draft. Record its
@@ -7255,8 +7326,9 @@ def _defer_proposer(path, lines=None):
                                 "cannot catch that — a mis-parsed line is just "
                                 "a changed line, which is what was asked for."])
             if len(parsed) > JOURNAL_LINE_CHARS:
-                raise _JournalCapacity(st, st["accepted_lines"], path,
-                                       "PROVIDER_PROPOSAL_TOO_LARGE")
+                _refuse("INVALID_INTERVIEW_ANSWER: pending.answer must be a string "
+                        "within the requested line limits; correct the answer and resume "
+                        "this same run. Accepted progress and the pending question are retained.")
             rec["text"] = parsed
             rec["batch"] = None  # known single question, including legacy pending singles
             st["answered"]["propose"].append(rec)
@@ -7274,8 +7346,9 @@ def _defer_proposer(path, lines=None):
                                 "appear once (quality/propose.py "
                                 "`parse_group`)."])
             if any(len(text) > JOURNAL_LINE_CHARS for text in parsed):
-                raise _JournalCapacity(st, st["accepted_lines"], path,
-                                       "PROVIDER_PROPOSAL_TOO_LARGE")
+                _refuse("INVALID_INTERVIEW_ANSWER: pending.answer must be a string "
+                        "within the requested line limits; correct the answer and resume "
+                        "this same run. Accepted progress and the pending question are retained.")
             rec["new"] = list(parsed)
             st["answered"]["propose_group"].append(rec)
         st["pending"] = None
@@ -8201,6 +8274,29 @@ def _parse_narrative_flag(raw):
 def main():
     decl = Declaration()
     args = sys.argv[1:]
+    # Normalize these declared value flags before individual verbs read or
+    # remove them. A space spelling must never be consumed without its value
+    # reaching the same reader as the equals spelling.
+    value_flags = {"--blueprint", "--relation", "--placements", "--lang",
+                   "--window", "--marks", "--caesura"}
+    normalized, index = [], 0
+    while index < len(args):
+        arg = args[index]
+        if arg in value_flags:
+            if index + 1 == len(args) or args[index + 1].startswith("--"):
+                _refuse(f"{arg} requires a value")
+            normalized.append(arg + "=" + args[index + 1])
+            index += 2
+        else:
+            normalized.append(arg)
+            index += 1
+    args = normalized
+    input_format = _flag_value(args, "--input-format") or "literal"
+    if input_format not in ("literal", "source"):
+        _refuse("--input-format wants literal or source")
+    args = _strip_flag(args, "--input-format")
+    from functools import partial
+    read_input = partial(load_draft_lines, input_format=input_format)
 
     # --fallback=high|low is a GLOBAL declared coordinate: `Lexicon()` is
     # built once here, before any verb dispatches, so it cannot live inside
@@ -8423,7 +8519,7 @@ def main():
         if window < 0:
             _refuse("--window must be a non-negative line distance",
                     detail=["usage: density FILE [--window=N]"])
-        lines = load_lyric_lines(rest[0])
+        lines = read_input(rest[0])
         res = rhyme_density(lex, lines, decl, window=window)
         # THE WINDOW IS PRINTED ON EVERY RUN (E-3): a density read at line
         # distance 1 and one read song-wide are different numbers under one
@@ -8523,7 +8619,7 @@ def main():
         # else-branch read a MISTYPED PATH as a lyric line. `_lyric_source`
         # is the one definition now; the normalization below stays here.
         src = args[1:]
-        lines = _lyric_source(src, "qafiya")
+        lines = _lyric_source(src, "qafiya", input_format)
         if lines is None:
             lines = [l.strip() for l in src if l.strip()]
         res = check_qafiya(lex, lines, decl)
@@ -8548,7 +8644,7 @@ def main():
                   + ("; ".join(defects) if defects else "sound"))
 
     elif cmd == "graph":
-        lines = load_lyric_lines(args[1])
+        lines = read_input(args[1])
         th = (_number_or_refuse(args[2], float, "graph THETA",
                                 "graph FILE [theta]")
               if len(args) > 2 else None)
@@ -8589,7 +8685,7 @@ def main():
               f"(target {res['target']})")
 
     elif cmd == "chains":
-        lines = load_lyric_lines(args[1])
+        lines = read_input(args[1])
         th = (_number_or_refuse(args[2], float, "chains THETA",
                                 "chains FILE [theta]")
               if len(args) > 2 else None)
@@ -8906,7 +9002,11 @@ def main():
         # as `--fallback=bogus`, one screen away, which refuses at exit 2.
         # Membership-tested HERE, at the parse site, so the refusal names the
         # FLAG the user typed rather than the parameter four frames down.
-        phon = _phonology_or_refuse(lang)
+        if lang == "eng":
+            from quality.phonology.eng import English
+            phon = English(fallback=fallback, lexicon=lex)
+        else:
+            phon = _phonology_or_refuse(lang)
         if preset is not None:
             _value_in_vocabulary_or_refuse(
                 "--preset", preset, RT.PRESETS,
@@ -9039,7 +9139,7 @@ def main():
             _refuse(f"recover --placements={spec!r}: {exc}")
         try:
             rec = RC.recover_file(rest[0], lex=lex, decl=decl,
-                                  placements=declared)
+                                  placements=declared, input_format=input_format)
         except OSError as e:
             _refuse(f"recover {rest[0]!r} — {e.strerror or e}")
         print(RC.render(rec))
@@ -9059,6 +9159,8 @@ def main():
         # verification of M-195 named the gap. Quoted, so the line pastes.
         _gi = [f"python3 lyric_harness.py brief {rest[0]}",
                f"\"--groups={ms.get('--groups=', '')}\""]
+        if input_format == "source":
+            _gi.append("--input-format=source")
         if ms.get('--returns='):
             _gi.append(f"\"--returns={ms['--returns=']}\"")
         print(f"  GRADE IT: {' '.join(_gi)}")
@@ -9634,7 +9736,7 @@ def main():
             # strict decode, so an undecodable draft now refuses by name
             # rather than through a third inline `encoding="utf-8"`.
             try:
-                draft_lines = load_lyric_lines(fill)
+                draft_lines = read_input(fill)
             except UndecodableLyricFile as e:
                 _refuse(str(e))
             except OSError as e:
@@ -9673,7 +9775,7 @@ def main():
         if fill:
             print("  GRADE IT: " + PLN.grading_command(
                 the_plan, draft_path=fill,
-                bp_path=out_path or "BP.json"))
+                bp_path=out_path or "BP.json", input_format=input_format))
         else:
             # M-58 ITEM 4: THE ONE COMMAND THE PLANNER TELLS A WRITER TO
             # RUN MUST RUN. On the plan-first path `--out=` writes a PLAN,
@@ -9700,6 +9802,7 @@ def main():
                 _refill.append(_shlex.quote(f"--narrative={narrative_raw}"))
             if want_raw:
                 _refill.append(_shlex.quote(f"--want={want_raw}"))
+            _refill.append(f"--input-format={input_format}")
             _refill.append("--fill=DRAFT.txt --out=BP.json")
             print("  GRADE IT — TWO STEPS on the plan-first path (the "
                   "file --out wrote is a PLAN; `song` reads a BLUEPRINT):")
@@ -9707,11 +9810,12 @@ def main():
                   "get the blueprint:")
             print("       " + " ".join(_refill))
             print("    2. " + PLN.grading_command(
-                the_plan, draft_path="DRAFT.txt", bp_path="BP.json"))
+                the_plan, draft_path="DRAFT.txt", bp_path="BP.json",
+                input_format=input_format))
     elif cmd == "partition":
         from quality import schemes as SC
         src = args[1:]
-        lines = _lyric_source(src, "partition")
+        lines = _lyric_source(src, "partition", input_format)
         if lines is None:
             lines = src
         g = rhyme_graph(lex, lines, decl)
@@ -10237,7 +10341,7 @@ def main():
         for a, b, lab in pairs:
             print(f"    {lab}: L{a} == L{b}")
         if len(args) > 2:
-            lines = load_lyric_lines(args[2])
+            lines = read_input(args[2])
             print(f"  checked against {args[2]}: {len(lines)} line(s) vs "
                   f"{sch.n_lines} declared")
             bad = sch.check_identity(lines)
@@ -11256,7 +11360,7 @@ def main():
             # same-rate is a fact about the printing, not a defect.
             if src is not None:
                 try:
-                    _rows = load_lyric_lines(src, with_indent=True)
+                    _rows = read_input(src, with_indent=True)
                 except (OSError, UndecodableLyricFile):
                     # best-effort re-read for a DISCLOSURE: a vanished or
                     # undecodable file cannot break the report that is
@@ -11878,7 +11982,7 @@ def main():
         try:
             if cmd == "brief":
                 sides.append(("HANDED IN brief's FILE", args[1]))
-                lines = load_lyric_lines(args[1])
+                lines = read_input(args[1])
                 scheme, _tail = _mandate_arg(args, 2, lines)
                 _say_derived(scheme, len(lines), src=args[1])
                 _say_relation(scheme)
@@ -11927,7 +12031,7 @@ def main():
                 # because `parse_lyric_sections` is looking for the
                 # `[Section]` markers `is_apparatus_line` would drop.
                 lyric_text = open(args[2], encoding="utf-8").read()
-                marked = parse_lyric_sections(lyric_text)
+                marked = parse_lyric_sections(lyric_text) if input_format == "source" else []
                 song_obj, _hooks = GR.song_from_blueprint(song_bp_path)
                 # A `--- TITLE:` LINE IN THE LYRIC WAS DROPPED IN SILENCE —
                 # 2026-08-15. It is this repo's own item convention:
@@ -11951,7 +12055,7 @@ def main():
                     (l[len("--- TITLE:"):].strip()
                      for l in lyric_text.splitlines()
                      if l.startswith("--- TITLE:")), None)
-                if _lyric_title:
+                if _lyric_title and input_format == "source":
                     _bp_title = song_obj.title or ""
                     if _bp_title.strip().lower() != _lyric_title.lower():
                         _refuse(
@@ -11994,9 +12098,7 @@ def main():
                         if len(mlines) != bn:
                             print(f"  STRUCTURE: {mname}: {len(mlines)} "
                                   f"lyric line(s), blueprint places {bn}")
-                lines = ([l for _, ls in marked for l in ls] if marked else
-                        [l.strip() for l in lyric_text.splitlines()
-                         if l.strip() and not is_apparatus_line(l)])
+                lines = read_input(args[2])
                 scheme, _tail = _mandate_arg(args, 3, lines)
                 _say_derived(scheme, len(lines), src=args[2])
                 _say_relation(scheme)
@@ -12025,8 +12127,8 @@ def main():
             elif cmd == "verify":
                 sides.append(("HANDED IN verify's BEFORE", args[1]))
                 sides.append(("HANDED IN verify's AFTER", args[2]))
-                before = load_lyric_lines(args[1])
-                after = load_lyric_lines(args[2])
+                before = read_input(args[1])
+                after = read_input(args[2])
                 scheme, tail = _mandate_arg(args, 3, before)
                 _say_derived(scheme, len(before), src=args[1])
                 _say_relation(scheme)
@@ -12125,7 +12227,7 @@ def main():
                 # cannot be honoured refuses instead of quietly becoming
                 # this.
                 sides.append((f"HANDED IN {cmd}'s FILE", args[1]))
-                lines = load_lyric_lines(args[1])
+                lines = read_input(args[1])
                 from quality import brief_provenance as BPROV
                 # THE DEFERRED LOOP IS THE FRONT DOOR FOR A REVISION, and
                 # this is where that stops being advice (`MISSING.md` M-200,
@@ -13102,6 +13204,8 @@ def cli():
                         "`--relations=`) so the schema door is not consulted, "
                         "or grade a shorter draft. A schema door that scales "
                         "is `MISSING.md` M-240, open."])
+    except LexicalAssetUnavailable as e:
+        _refuse(str(e))
     except UndecodableLyricFile as e:
         _refuse(str(e),
                 detail=["this harness reads lyrics and corpora as UTF-8 and "

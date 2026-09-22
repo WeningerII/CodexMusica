@@ -419,8 +419,20 @@ class Welsh(Phonology):
             return []
         # group into onset* nucleus coda*
         groups, cur = [], []
-        for x in u:
-            if x[0] in VOWELS:
+        for index, x in enumerate(u):
+            # Welsh Academy Dictionary, Orthography and Pronunciation:
+            # gwl-/gwr-/gwn- before a vowel are a consonant cluster, as in
+            # gwlad/gwraig/gwneud. Initial ia-/io- and w before a/e/o are
+            # consonantal too. Do not generalize this to ambiguous wy or
+            # medial i (dianc has hiatus).
+            # https://geiriaduracademi.org/morffoleg-y-gymraeg/
+            following = u[index + 1] if index + 1 < len(u) else ""
+            cluster_w = (index == 1 and u[0] == "g" and x == "w"
+                         and following in ("l", "r", "n")
+                         and index + 2 < len(u) and u[index + 2][0] in VOWELS)
+            clear_glide = (x == "w" and following in ("a", "e", "o")) or (
+                index == 0 and x == "i" and following in ("a", "o"))
+            if x[0] in VOWELS and not (cluster_w or clear_glide):
                 groups.append(("V", x))
             else:
                 groups.append(("C", x))
@@ -541,7 +553,12 @@ class Welsh(Phonology):
             stop = None              # run to the end of the half
         out = []
         for i, syl in enumerate(syls):
-            out.extend(syl.onset)
+            # Semivowels need not be answered in consonantal cynghanedd
+            # (Bruch, A Guide to Welsh, Cornish, and Breton Verse, p. 3,
+            # rule 2). Preserve that declared skeleton convention while
+            # counting their syllables correctly in the phonological layer.
+            # https://www.kernewegva.com/PDFs/Cynghanedd.pdf
+            out.extend(c for c in syl.onset if c not in ("w", "i"))
             if i == stop:
                 return out
             out.extend(syl.coda)

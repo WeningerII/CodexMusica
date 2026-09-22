@@ -163,7 +163,11 @@ def run(*args, expect_rc=None, env=None):
     if env:
         e = dict(os.environ)
         e.update(env)
-    p = subprocess.run([sys.executable, "lyric_harness.py", *args],
+    # This legacy battery's files are printed sources, including section and
+    # provenance headers. Declare that reading explicitly after A-3; the
+    # default literal-input contract is exercised through CLI and MCP by
+    # test_high_report, including text that looks like those headers.
+    p = subprocess.run([sys.executable, "lyric_harness.py", "--input-format=source", *args],
                        cwd=ROOT, capture_output=True, text=True, timeout=CLI_TIMEOUT_SECONDS,
                        env=e)
     if expect_rc is not None and p.returncode != expect_rc:
