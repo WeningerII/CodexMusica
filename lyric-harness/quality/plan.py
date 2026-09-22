@@ -3478,8 +3478,12 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
     # signature is approximate on purpose (scope subtleties are not read);
     # the GRADER stays the final word, and this gate only removes draws
     # that are unsatisfiable on the registry's own declared coordinates.
+    # NO RELATION IS DRAWN. A group with no declared relation is judged
+    # against EVERY relation the vocabulary has — the coarse relations and
+    # every registry schema — so the plan picks none of them for it. Only a
+    # relation the writer DECLARED is carried, and checked for feasibility.
     drawn_relations = {}
-    if not relation or relation.startswith("schema:"):
+    if relation and relation.startswith("schema:"):
         _traits = _RL.drawable_traits()
         _grp_lines = [sorted({int(str(m).split(".")[0])
                               for m in g.split(",")})
@@ -3788,40 +3792,10 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
         "chosen_from": (
             "NOT DRAWN — the writer declared --relation and a declared "
             "coordinate is carried, never sampled over (M-55)" if relation
-            else f"uniform per group over the bare default plus the "
-                 f"certified drawable pool that applies where the group "
-                 f"binds. AT A LINE END (every member at end/endword) the "
-                 f"pool is the AUDIBLE family — {len(_aud_pool)} of the "
-                 f"{len(_RL.DRAWABLE_SCHEMAS)} certified schemas, DERIVED "
-                 f"at call time by relations.audible_as_end_rhyme and "
-                 f"never listed here (M-120, ruled 2026-09-18 under the "
-                 f"owner's delegation: M-192 measured 149 of 250 end-bound "
-                 f"groups over seeds 1-40 drawing a relation nobody hears "
-                 f"as the lines rhyming). ANYWHERE ELSE — a group with one "
-                 f"member inside a line — the pool is all "
-                 f"{len(_RL.DRAWABLE_SCHEMAS)} and M-117's draw is "
-                 f"untouched. The dice stay flat at both (doctrine 19): "
-                 f"the bare default lands on 1 draw in len(pool)+1, which "
-                 f"is 1 in {len(_aud_pool) + 1} at a line end and 1 in "
-                 f"{len(_RL.DRAWABLE_SCHEMAS) + 1} elsewhere — a rarity "
-                 f"this disclosure exists to hand the owner, exactly as "
-                 f"the placement draw's `end` share was. A group binding "
-                 f"declared tokens draws only from the schemas the pair "
-                 f"route can bind there (relations.pair_bindable, "
-                 f"M-149a); the rest stay drawable at default slots"),
-        # THE NARROWING, DISCLOSED AS NUMBERS AND NOT ONLY AS PROSE
-        # (M-120): how many groups drew at a line end, how big the pool
-        # was there against the certified pool, and WHICH names it held —
-        # so a reader can check the derivation against the registry
-        # instead of taking the sentence above on faith. Absent when a
-        # declared relation suppressed the draw, because then nothing was
-        # narrowed and a zero would read as a measurement.
-        **({} if relation else {"end_narrowing": {
-            "end_bound_groups": _narrowed,
-            "end_pool": len(_aud_pool),
-            "full_pool": len(_RL.DRAWABLE_SCHEMAS),
-            "end_pool_names": list(_aud_pool),
-            "derived_by": "relations.audible_as_end_rhyme"}}),
+            else "NOT DRAWN — every group is judged against the whole "
+                 "vocabulary: every coarse relation and every registry "
+                 "schema; a pair satisfies a group when it stands in any "
+                 "of them"),
         "value": dict(drawn_relations)}
 
     # THE JOINT GATE (`MISSING.md` M-80). Every constraint above is
@@ -4207,7 +4181,10 @@ def writer_brief(plan):
                            f"{name.split(':', 1)[1]} — a NAMED relation, "
                            f"judged as itself, not as plain rhyme")
             else:
-                out.append(f"  lines {g.replace(',', ' & ')} rhyme")
+                out.append(f"  lines {g.replace(',', ' & ')} must stand in "
+                           f"at least one relation — any coarse relation "
+                           f"(rhyme, rime riche, assonance, consonance) or "
+                           f"any registry schema")
     nar = plan.get("narrative") or {}
     if nar.get("mode") in ("drawn", "declared"):
         atom_say = {

@@ -4380,29 +4380,32 @@ declare(RelationSchema(
 declare(RelationSchema(
     name="assonance",
     spans=(END_ANCHOR, END_ANCHOR), align="anchor",
-    channels=(ChannelRule("nucleus", AGREE, "each"),
-              ChannelRule("coda", DIFFER, "anchor")),
+    channels=(ChannelRule("nucleus", AGREE, "each"),),
     placement=(Placement("both_line_final"), Placement("different_lines")),
     identity=(DISTINCT,),
-    note="NOT right-edge flush: the codas are REQUIRED to differ, so no suffix "
-         "of the two words is equal. A suffix comparator cannot represent it."))
+    note="The vowels agree. Nothing is required of the consonants: a pair "
+         "whose codas ALSO agree is assonance and perfect rhyme at once — a "
+         "pair stands in every relation its sound supports."))
 
 declare(RelationSchema(
     name="consonance",
     spans=(END_ANCHOR, END_ANCHOR), align="anchor",
-    channels=(ChannelRule("coda", AGREE, "each"),
-              ChannelRule("nucleus", DIFFER, "anchor")),
+    channels=(ChannelRule("coda", AGREE, "each"),),
     placement=(Placement("both_line_final"), Placement("different_lines")),
-    identity=(DISTINCT,)))
+    identity=(DISTINCT,),
+    note="The final consonants agree. Nothing is required of the vowel: a "
+         "pair whose vowels ALSO agree is consonance and perfect rhyme at "
+         "once."))
 
 declare(RelationSchema(
     name="cluster consonance / skothending span",
     spans=(SpanRule("line_final_token", "last_stressed", 1, "to_word_end"),) * 2,
     align="none",
-    channels=(ChannelRule("consonants", SequenceEqual(), "sequence"),
-              ChannelRule("nucleus", DIFFER, "anchor")),
+    channels=(ChannelRule("consonants", SequenceEqual(), "sequence"),),
     identity=(DISTINCT,),
-    note="EVERY consonant to the end of the cluster INCLUDING across the "
+    note="The vowel is not constrained: a pair whose vowels also agree stands "
+         "in this relation and in rhyme at once. "
+         "EVERY consonant to the end of the cluster INCLUDING across the "
          "syllable boundary. Snorri cites 'fyrð' from jörð:fyrðum; a checker "
          "keyed on the coda of a maximal-onset syllabification reads 'fyr'."))
 
@@ -7506,7 +7509,7 @@ DRAWABLE_EXHIBITS = {
          "1.head", "2.head")),
     "assonance": (
         ("we walked out in the sun", "it never felt like much", "1", "2"),
-        ("we walked out in the sun", "and started in to run", "1", "2")),
+        ("we walked out in the sun", "and started in to roam", "1", "2")),
     "cluster consonance / skothending span": (
         ("she kept the fast", "he lost the lost", "1", "2"),
         ("she kept the day", "he lost the sea", "1", "2")),
@@ -7515,7 +7518,7 @@ DRAWABLE_EXHIBITS = {
         ("I told her so", "she sold her hat", "1", "2")),
     "consonance": (
         ("he went mad", "she went to bed", "1", "2"),
-        ("he went mad", "she was so sad", "1", "2")),
+        ("he went mad", "she was so sore", "1", "2")),
     "family rhyme": (
         ("she fed the cat", "he wore the cap", "1", "2"),
         ("she fed the cat", "he ran the can", "1", "2")),

@@ -90,7 +90,8 @@ from lyric_harness import (NEAR_RELATIONS, NO_ANCHOR,  # noqa: E402
                            Lexicon, admits, best_score, bron_kerbosch,
                            line_anchors, line_readability, readability_records,
                            refusals_for_pairs, spans_note, spelled_rime,
-                           theta_for)
+                           theta_for, admitted_relations, admits_decl,
+                           relation_label, ADMITTABLE_RELATIONS)
 from quality import fit as FT  # noqa: E402
 from quality import grid as GR  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
@@ -1247,8 +1248,9 @@ class Reviser:
                         records[j]["final_unreadable"]:
                     continue
                 s = matrix[i][j]
-                if admits(s, theta, relations=frozenset(self.decl.admit)) \
-                        or s["relation"] == "REPEAT":
+                if admits(s, theta, relations=frozenset(self.decl.admit),
+                          cuts=self.decl.theta_by_relation) \
+                        or "REPEAT" in s["relations"]:
                     adj[i].add(j)
                     adj[j].add(i)
         cliques = []
@@ -1817,7 +1819,11 @@ class Reviser:
                     refused.add((i, j, k))
                     unknown.update(((i, k), (j, k)))
                     continue
-            rel = s["relation"]
+            rels = frozenset(s["relations"])
+            rel = relation_label(s)
+            admitted = admitted_relations(
+                s, self.decl.theta_rhyme, frozenset(self.decl.admit),
+                self.decl.theta_by_relation)
             why = None
             struct = m.structure_of(k) if _ST is not None else None
             want = m.relation_of(k) if _RT is not None else ""
@@ -1840,7 +1846,7 @@ class Reviser:
                     refused.add((i, j, k))
                     unknown.update(((i, k), (j, k)))
                     continue
-            if rel == "REPEAT" and not (want and _schema_name_of(_RT, want)):
+            if "REPEAT" in rels and not (want and _schema_name_of(_RT, want)):
                 # Identity is its own question under EVERY structure — the
                 # returns/licence machinery owns it, and an identical word
                 # trivially "satisfying" an alliteration demand is exactly
@@ -1944,7 +1950,7 @@ class Reviser:
                 else:
                     try:
                         ok = _RT.satisfies_relation(
-                            want, rel, ew_i, ew_j,
+                            want, rels, ew_i, ew_j,
                             self._relation_phonology(),
                             position=_SL.position_of(slot_i or i),
                             lines=(i, j), instances=_sch_pairs.get(want),
@@ -2022,58 +2028,24 @@ class Reviser:
                            f"{_ST.get(struct).kind} judge at that "
                            f"structure's anchors, not by the scalar "
                            f"comparator")
-            elif rel in NEAR_RELATIONS and rel not in self.decl.admit:
-                # An ADMITTED near relation falls through to `admits()` and
-                # satisfies on its scalar — `Declaration.admit`, the owner's
-                # declared widening. Undeclared, this branch is byte-for-byte
-                # the old one.
-                why = (f"{rel} not rhyme (conjunctive band; not in the "
-                       f"declared admit set)")
-            elif rel == NO_ANCHOR:
+            elif NO_ANCHOR in rels:
                 why = "NO_ANCHOR: nothing to compare (not a rhyme verdict)"
-            elif s["total"] < theta_for(s, self.decl):
-                # PER RELATION SINCE 2026-09-02 (`MISSING.md` M-138, priced).
-                # `check_scheme` is the other reader of this same chain and
-                # its own comment says the two must move together; they do
-                # here, in one commit, phrased the same way.
-                _th = theta_for(s, self.decl)
-                why = (f"below theta_rhyme={self.decl.theta_rhyme}"
-                       if _th == self.decl.theta_rhyme else
-                       f"below theta({rel})={_th} "
-                       f"(theta_rhyme={self.decl.theta_rhyme}; the near "
-                       f"relations carry their own priced cut, M-138)")
-            elif not admits(s, theta_for(s, self.decl),
-                            relations=frozenset(self.decl.admit)):
-                # NO_RELATION FELL THROUGH ALL FOUR BRANCHES — FIXED
-                # 2026-08-15. The chain above is an ENUMERATED blacklist, and
-                # `NO_RELATION` — the band's STRONGEST rejection, set when
-                # NEITHER channel agrees — is in none of its sets: it is not
-                # REPEAT, not in `NEAR_RELATIONS` (which is only ASSONANCE and
-                # CONSONANCE), not `NO_ANCHOR`, and its scalar can sit ABOVE
-                # `theta_rhyme` because the scalar is a weighted channel mean
-                # and the conjunctive band is a separate predicate. So a
-                # mandated pair the band flatly refuses came back `why=None`,
-                # which is the same value a clean rhyme returns.
-                #
-                # MEASURED at a3536ce: `debenture`/`thermco`, total 0.788
-                # against theta 0.75, flags "conjunctive band: neither channel
-                # agrees" — and `brief FILE --groups=1,2` on those two lines
-                # reported `0 FLAG` and `nothing on any line carries a flag`.
-                #
-                # THE FIX IS TO END THE CHAIN POSITIVELY rather than to add
-                # `NO_RELATION` to a set. An enumerated blacklist is wrong in
-                # the same way every time a new relation is named — this asks
-                # `admits()`, the ONE predicate `grade()` is supposed to agree
-                # with, so a relation added tomorrow is refused by default
-                # instead of admitted by omission. The four branches above are
-                # untouched and still own their own messages, so nothing that
-                # was already reported changes wording (doctrine 1).
-                why = f"{rel} not rhyme (conjunctive band)"
+            elif not admitted:
+                # A pair satisfies a bare group when it stands in ANY
+                # admitted relation at that relation's own cut; the schema
+                # pass below then judges it against the whole vocabulary.
+                why = (f"{rel}: no admitted relation at its cut "
+                       f"(theta_rhyme={self.decl.theta_rhyme}; per-relation "
+                       f"cuts {dict(self.decl.theta_by_relation)})")
             verdicts.append({"lines": (i, j), "group": k,
                              "label": m.labels[k],
                              "members": list(m.groups[k]),
                              "endwords": (ew_i, ew_j),
-                             "score": s["total"], "relation": rel,
+                             "score": s["total"],
+                             "relations": sorted(rels),
+                             "admitted": sorted(admitted),
+                             "satisfied_by": (sorted(admitted)
+                                              if why is None else []),
                              # THE NUMBER'S OWN PROVENANCE, CARRIED (M-253,
                              # 2026-09-06). This is the `Scored` that JUDGED
                              # the pair — the matrix cell for a default slot,
@@ -2154,27 +2126,35 @@ class Reviser:
         # disclose that the candidate field skips this route. Two spellings
         # of one gate is the drift `_field`'s own docstring is named after,
         # so the import moved into the method with the gate.
-        _fan = [v for v in verdicts
-                if v["why"] and v["relation"] != "REPEAT"
-                and self.schema_route_open(m, v["group"])]
-        if _fan:
+        # EVERY GRADED PAIR IS JUDGED AGAINST THE WHOLE VOCABULARY — not
+        # only the pairs the coarse relations failed. Each verdict's relation
+        # set gains every schema its two lines stand in; in a group whose
+        # route is open (nothing narrowed or declared), a pair is satisfied
+        # when ANY relation in that set holds.
+        _open = [v for v in verdicts if self.schema_route_open(m, v["group"])]
+        if verdicts:
             from quality import relations as _RF
-            # ONE JUDGE FOR BOTH READERS: `relations.whole_vocabulary_pairs`
-            # is the same call `lyric_harness.check_scheme` makes, so the
-            # two graders cannot drift about which pair the default
-            # satisfies (doctrine 1).
             _wvp = _RF.whole_vocabulary_pairs(
                 lines, self._relation_phonology(), sections=sections,
                 bearing={ln - 1 for g in m.groups for ln in g
                          if 1 <= ln <= len(lines)},
-                requested_pairs={tuple(v["lines"]) for v in _fan})
+                requested_pairs={tuple(sorted(v["lines"]))
+                                 for v in verdicts})
+            _open_ids = {id(v) for v in _open}
             _fan_unknown = set()
-            for v in _fan:
-                _hit = _wvp.get(tuple(sorted(v["lines"])))
+            for v in verdicts:
+                _hit = sorted(_wvp.get(tuple(sorted(v["lines"]))) or ())
+                v["schemas"] = _hit
+                v["relations"] = sorted(set(v["relations"]) | set(_hit))
+                if id(v) not in _open_ids:
+                    continue
                 if _hit:
-                    v["why"] = None
-                    v["satisfied_by"] = sorted(_hit)
-                else:
+                    v["satisfied_by"] = sorted(set(v["satisfied_by"])
+                                               | set(v["admitted"])
+                                               | set(_hit))
+                    if v["why"] and "REPEAT" not in v["relations"]:
+                        v["why"] = None
+                elif v["why"] and "REPEAT" not in v["relations"]:
                     _undecided = getattr(_wvp, "undecided", {}).get(tuple(sorted(v["lines"])))
                     if _undecided:
                         i, j = v["lines"]
@@ -2193,7 +2173,7 @@ class Reviser:
         for v in verdicts:
             if not v["why"]:
                 continue
-            if v["relation"] == "REPEAT":
+            if "REPEAT" in v["relations"]:
                 i, j = v["lines"]
                 # GATED ON THE MANDATE HAVING DECLARED ANY RETURN AT ALL --
                 # fixed 2026-08-13, and the comment below was already claiming
@@ -2216,7 +2196,7 @@ class Reviser:
                 if not (is_violation if declared else not default_licensed):
                     continue
             violations.append(v)
-        repeats = [v for v in verdicts if v["relation"] == "REPEAT"]
+        repeats = [v for v in verdicts if "REPEAT" in v["relations"]]
 
         # The DISJUNCTIVE reading, kept reachable so the default is a measured
         # choice. THE CONDITION IS PER LINE, and it is stated per line in
@@ -2384,7 +2364,8 @@ class Reviser:
                     collisions.append({
                         "lines": (i + 1, j + 1),
                         "endwords": (endwords[i], endwords[j]),
-                        "score": s["total"], "relation": s["relation"],
+                        "score": s["total"],
+                        "relations": sorted(s["relations"]),
                         "spans": s.get("spans"),           # M-253, as above
                         # BACKLOG 1.2, the same gate as `verdicts` above: a
                         # collision is reported as two end words and a
@@ -2479,7 +2460,7 @@ class Reviser:
                 pass
         return False, ""
 
-    def group_merges(self, lines, mandate=None, profile=None):
+    def group_merges(self, lines, mandate=None, profile=None, sections=None):
         """-> [merge], the group pairs the MANDATE splits and the GRAPH does
         not. A statement about the mandate, never about a line.
 
@@ -2566,13 +2547,14 @@ class Reviser:
                         ok = False          # (a) fails: not a collision
                         break
                     if not (admits(s, th,
-                                   relations=frozenset(self.decl.admit))
-                            or s["relation"] == "REPEAT"):
+                                   relations=frozenset(self.decl.admit),
+                                   cuts=self.decl.theta_by_relation)
+                            or "REPEAT" in s["relations"]):
                         unresolved.append((i, j))
                 if not ok:
                     continue
                 if unresolved and not self._schema_satisfies(
-                        lines, m, unresolved):
+                        lines, m, unresolved, sections=sections):
                     continue
                 declared, how = self._declared_return(m, a, b)
                 out.append({
@@ -2581,7 +2563,7 @@ class Reviser:
                     "members": (list(ga), list(gb)),
                     "lines": sorted(set(ga) | set(gb)),
                     "edges": [(i, j, matrix[i - 1][j - 1]["total"],
-                               matrix[i - 1][j - 1]["relation"],
+                               relation_label(matrix[i - 1][j - 1]),
                                endwords[i - 1], endwords[j - 1])
                               for i, j in cross],
                     "declared": declared,
@@ -2589,7 +2571,7 @@ class Reviser:
                                    "cannot state a return")})
         return out
 
-    def _schema_satisfies(self, lines, m, pairs):
+    def _schema_satisfies(self, lines, m, pairs, sections=None):
         """Do ALL these mandated line pairs stand in some registered schema?
 
         THE 77-SCHEMA HALF OF THE DEFAULT (owner ruling 2026-08-25, M-116),
@@ -2615,7 +2597,8 @@ class Reviser:
         if not _AID(self.decl):
             return False
         key = (tuple(lines),
-               tuple(tuple(g) for g in getattr(m, "groups", ())))
+               tuple(tuple(g) for g in getattr(m, "groups", ())),
+               tuple(sections) if sections else None)
         hit = getattr(self, "_wvp_cache", None)
         if hit is None:
             hit = self._wvp_cache = {}
@@ -2624,7 +2607,7 @@ class Reviser:
             if len(hit) > 8:
                 hit.clear()
             hit[key] = _RF.whole_vocabulary_pairs(
-                lines, self._relation_phonology(),
+                lines, self._relation_phonology(), sections=sections,
                 bearing={ln - 1 for g in getattr(m, "groups", ())
                          for ln in g if 1 <= ln <= len(lines)})
         wvp = hit[key]
@@ -2694,10 +2677,15 @@ class Reviser:
         """
         if undeclared:
             return "COLLISION_UNDECLARED"
-        if relation in RHYME_RELATIONS:
-            return "SCHEME_COLLISION"
-        if relation == "REPEAT":
+        # `relation` is the SET of relations the colliding pair stands in
+        # (a bare name is read as a one-member set). The finding code names
+        # the strongest echo among them; the finding itself lists them all.
+        rels = ({relation} if isinstance(relation, str)
+                else set(relation or ()))
+        if "REPEAT" in rels:
             return "REPEAT_ACROSS_GROUPS"
+        if rels & RHYME_RELATIONS:
+            return "SCHEME_COLLISION"
         return "NEAR_COLLISION"
 
     # -- meter --------------------------------------------------------------
@@ -3217,7 +3205,7 @@ class Reviser:
         It returns the same Finding inspect files; unrelated floor layers
         need not be executed to ask this named pair obligation.
         """
-        if v["why"] or v["relation"] == "REPEAT":
+        if v["why"] or "REPEAT" in v["relations"]:
             return None       # a violation, or a declared identity
         # A PAIR JUDGED UNDER A DECLARED NON-DEFAULT STRUCTURE IS NOT
         # ASKED THIS QUESTION. Both tiers below are END-RHYME laziness
@@ -3792,7 +3780,8 @@ class Reviser:
         # each member is charged to, which is this repo's own triage rule
         # (ingestion / projection / anchor / comparator / band / structure /
         # value) applied to the only output the loop has on a passing song.
-        merges = self.group_merges(lines, m, profile=profile)
+        merges = self.group_merges(lines, m, profile=profile,
+                                   sections=_sections)
         absorbed = {(i, j) for mg in merges for i, j, *_ in mg["edges"]}
         near = 0
         for mg in merges:
@@ -3830,14 +3819,14 @@ class Reviser:
             i, j = c["lines"]
             if (i, j) in absorbed:
                 continue
-            code = self._collision_code(c["relation"], c.get("undeclared"))
+            code = self._collision_code(c["relations"], c.get("undeclared"))
+            _crel = relation_label(set(c["relations"]))
             pair = (f"{c['endwords'][0]!r} ~ {c['endwords'][1]!r} "
-                    f"{c['score']:.3f} {c['relation']}"
+                    f"{c['score']:.3f} {_crel}"
                     f"{c.get('attribution', '')}")
             gi = ", ".join(m.labels[k] for k in m.groups_of(i)) or "free"
             gj = ", ".join(m.labels[k] for k in m.groups_of(j)) or "free"
-            if c["relation"] not in RHYME_RELATIONS and \
-                    c["relation"] != "REPEAT":
+            if not set(c["relations"]) & (RHYME_RELATIONS | {"REPEAT"}):
                 # COUNTED OFF THE RELATION, not off which code was emitted.
                 # `COLLISION_CUT_IS_SCALAR_ONLY` is a statement about the CUT,
                 # and the cut is applied identically to every pair in the set,
@@ -3851,7 +3840,7 @@ class Reviser:
                 out = c.get("undeclared_lines") or []
                 which = " and ".join(f"L{x}" for x in out) or f"L{i}/L{j}"
                 is_are = "is" if len(out) == 1 else "are"
-                would = self._collision_code(c["relation"])
+                would = self._collision_code(c["relations"])
                 msg = (f"L{i} and L{j} collide — {pair} — and the mandate "
                        f"DOES NOT SPEAK about {which}: UNDECLARED, not an "
                        f"unintended rhyme")
@@ -3890,7 +3879,7 @@ class Reviser:
                       "and stops")
             else:
                 msg = (f"L{i} ({gi}) and L{j} ({gj}) collide as "
-                       f"{c['relation']}, WHICH IS NOT A RHYME — {pair}")
+                       f"{_crel}, WHICH IS NOT A RHYME — {pair}")
                 # ASKED, NOT ASSERTED — 2026-08-22. This sentence used to
                 # state `admits()` is FALSE (the mandate cut)` as a fixed
                 # fact, which was true only while the DEFAULT admit set was
@@ -3900,7 +3889,7 @@ class Reviser:
                 # would be charged. Doctrine 45's shape, in prose rather
                 # than in a checker: a sentence that silently picks one
                 # answer to a question the declaration decides.
-                _adm = c["relation"] in self.decl.admit
+                _adm = bool(set(c["relations"]) & set(self.decl.admit))
                 ev = (f"scalar {c['score']:.3f} >= {THETA_COLLISION} (the "
                       f"collision cut) and `admits()` is "
                       f"{'TRUE' if _adm else 'FALSE'} (the mandate cut, "
@@ -4410,8 +4399,7 @@ class Reviser:
                 # the same reason one layer on: the near relations carry
                 # their own priced cut (M-138), and a FIELD built at 0.75
                 # would offer the writer partners the GRADE then charges.
-                if admits(s, theta_for(s, self.decl),
-                          relations=frozenset(self.decl.admit)):
+                if admits_decl(s, self.decl):
                     passing.append(cand)
         else:
             # An undeclared value must be loud, not silently one of the two.
@@ -4854,7 +4842,7 @@ class Reviser:
             anc_w, lab_w = self._word_anchors(w)
             typed = all(
                 best_score(anc_c, anc_w, self.decl, lab_c, lab_w,
-                           profile=profile)["relation"] in RHYME_RELATIONS
+                           profile=profile)["relations"] & RHYME_RELATIONS
                 for anc_c, lab_c in anc_calls)
             (rhymes if typed else nears).append(w)
         # THE SCREEN, bounded: each screen scores a few dozen pairs, and a
@@ -4942,8 +4930,7 @@ class Reviser:
                     continue
                 sc = best_score(anc_w, anc_x, self.decl, lab_w, lab_x,
                                 profile=profile)
-                if admits(sc, self.decl.theta_rhyme,
-                          relations=frozenset(self.decl.admit)):
+                if admits_decl(sc, self.decl):
                     outrank += 1
                     if outrank >= k:
                         break
@@ -5768,7 +5755,7 @@ class Reviser:
         # and the findings below it cannot disagree about a pair's kind.
         _ccounts = {}
         for _c in rep["collisions"]:
-            _code = self._collision_code(_c["relation"], _c.get("undeclared"))
+            _code = self._collision_code(_c["relations"], _c.get("undeclared"))
             _ccounts[_code] = _ccounts.get(_code, 0) + 1
         _cshort = {"SCHEME_COLLISION": "unasked-rhyme",
                    "NEAR_COLLISION": "not-a-rhyme",

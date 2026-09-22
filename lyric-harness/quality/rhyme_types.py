@@ -517,8 +517,19 @@ class RhymeType:
     # dated phonology in the repo while looking confident.
 
     def channel_verdict(self):
-        """What the CHANNELS say. Always available, always the same rule."""
-        return self.realises("nucleus", "coda")
+        """What the CHANNELS say. Always available, always the same rule:
+        the anchor syllable's nucleus and coda agree, and EVERY channel of
+        every syllable after it agrees — the consonant between two vowels
+        belongs to the rhyme even when syllabification files it as the next
+        syllable's onset (`kitchen`/`listen` is not a rhyme)."""
+        first = self.realises("nucleus", "coda")
+        if first is not True:
+            return first
+        for at in range(1, len(self.agreement)):
+            v = self.realises("onset", "nucleus", "coda", at=at)
+            if v is not True:
+                return v
+        return True
 
     def channel_alliteration(self):
         return self.realises("onset")
@@ -589,7 +600,17 @@ class RhymeType:
         return self.channel_alliteration() if v is _NOT_ASKED else v
 
     def cells(self):
-        return [CELL_NAMES.get(a, ()) for a in self.agreement]
+        """-> per syllable, EVERY cell name that syllable's agreement meets
+        (a fully agreeing syllable is identical sound AND perfect-rhyme
+        shaped only if its onset differs, AND assonance AND consonance...)."""
+        out = []
+        for a in self.agreement:
+            names = []
+            for cell, nm in CELL_NAMES.items():
+                if nm and _agreement_satisfies((a,), (cell,)):
+                    names.extend(n for n in nm if n not in names)
+            out.append(tuple(names))
+        return out
 
     def key(self):
         return (self.agreement, self.identity, self.stress, self.position,
@@ -616,22 +637,22 @@ class RhymeType:
         if bad:
             raise ValueError(f"{bad} are not axes; declared axes are "
                              f"{sorted(AXIS_INDEX)}")
-        out = list(NAMED.get(self.key(), ()))
+        # EVERY NAME THE COORDINATE SATISFIES, NOT THE ONE KEY IT EQUALS.
+        # A registered cell's agreement is a REQUIREMENT: an agreeing
+        # channel must agree, a differing channel is free unless the name's
+        # own definition requires the difference (`_DEFINITIONAL_DIFFER`).
+        # So a perfect rhyme is also assonance and consonance, rime riche is
+        # also assonance, and a feminine rhyme is also masculine-anchored
+        # assonance — every name its sound supports.
+        out = []
         mine = self.key()
-        for k, free in FREE.items():
-            if k == mine:
+        for k in NAMED:
+            if not NAMED[k]:
                 continue
-            skip = set(free) | set(ignoring)
-            if all(mine[i] == k[i] for ax, i in AXIS_INDEX.items()
-                   if ax not in skip):
+            skip = set(FREE.get(k, ())) | set(ignoring)
+            if all(_axis_satisfies(ax, mine[i], k[i], k)
+                   for ax, i in AXIS_INDEX.items() if ax not in skip):
                 out.extend(n for n in NAMED[k] if n not in out)
-        if ignoring:
-            for k in NAMED:
-                if k == mine or k in FREE:
-                    continue
-                if all(mine[i] == k[i] for ax, i in AXIS_INDEX.items()
-                       if ax not in set(ignoring)):
-                    out.extend(n for n in NAMED[k] if n not in out)
         return tuple(out)
 
     def describe(self):
@@ -719,6 +740,81 @@ ASSON = (0, 1, 0)
 CONSON = (0, 0, 1)
 ALLIT = (1, 0, 0)
 PARA = (1, 0, 1)
+
+
+#: The zeros in a registered cell that are part of the NAME'S DEFINITION
+#: rather than "not required": perfect rhyme is defined by a DIFFERENT onset
+#: before the agreeing rime, and pararhyme by a DIFFERENT vowel between the
+#: agreeing consonants. Every other zero in a registered cell is free.
+_DEFINITIONAL_DIFFER = {
+    PERFECT: (0,),          # onset
+    PARA: (1,),             # nucleus
+}
+
+
+#: A single-cell PARTIAL relation is not a claim about syllable count: an
+#: observed span longer than one syllable stands in it when the anchor
+#: syllable meets the cell and every later syllable meets its continuation
+#: (the later syllable's onset is post-vocalic there, so consonance and
+#: pararhyme continue on onset+coda, assonance on the nucleus).
+_SPAN_CONTINUATION = {
+    ASSON: (0, 1, 0),
+    CONSON: (1, 0, 1),
+    PARA: (1, 0, 1),
+}
+
+
+def _cell_meets(o, r, differ=()):
+    for ch, (ov, rv) in enumerate(zip(o, r)):
+        if rv:
+            if ov != 1:
+                return False
+        elif ch in differ:
+            if ov is None or ov:
+                return False
+    return True
+
+
+def _agreement_satisfies(observed, registered):
+    """Does an observed per-syllable agreement meet a registered one?
+
+    A registered 1 must agree; a registered 0 is free unless the name's
+    definition requires the difference (`_DEFINITIONAL_DIFFER` at the
+    anchor syllable, and an all-zero LATER syllable, which is the extra
+    unmatched syllable a name like semirhyme is defined by)."""
+    observed = tuple(tuple(c) for c in observed)
+    registered = tuple(tuple(c) for c in registered)
+    if not any(any(c) for c in registered):
+        return False            # the empty cell names nothing
+    if len(registered) == 1 and len(observed) > 1 \
+            and registered[0] in _SPAN_CONTINUATION:
+        r0 = registered[0]
+        return (_cell_meets(observed[0], r0,
+                            _DEFINITIONAL_DIFFER.get(r0, ()))
+                and all(_cell_meets(o, _SPAN_CONTINUATION[r0])
+                        for o in observed[1:]))
+    if len(observed) != len(registered):
+        return False
+    for pos, (o, r) in enumerate(zip(observed, registered)):
+        if pos > 0 and not any(r):
+            if any(v is None or v for v in o):
+                return False
+            continue
+        differ = _DEFINITIONAL_DIFFER.get(r, ()) if pos == 0 else ()
+        if not _cell_meets(o, r, differ):
+            return False
+    return True
+
+
+def _axis_satisfies(axis, mine, reg, reg_key):
+    """One axis of `names()`: the agreement axis by requirement, the
+    identity axis with `distinct` as the unconstrained default, every other
+    axis by equality."""
+    if axis == "agreement":
+        return _agreement_satisfies(mine, reg)
+    if axis == "identity":
+        return reg == "distinct" or mine == reg
+    return mine == reg
 
 
 def name(t, *names, free=()):
@@ -1456,6 +1552,7 @@ def classify_pair(a, b, phon, span=None, position=None, boundary="simple",
             self_pair = True
 
     best, ties = None, 0
+    every = []
     for ia, ib in combos:
         xa = _span_indices(len(sa), ia, anchor_a.span)
         xb = _span_indices(len(sb), ib, anchor_b.span)
@@ -1468,6 +1565,7 @@ def classify_pair(a, b, phon, span=None, position=None, boundary="simple",
              _cmp(sa[i].coda, sb[j].coda))
             for i, j in zip(xa[:m], xb[:m]))
         sc = _score(agr, select)
+        every.append(agr)
         if best is None or sc > best[0]:
             best = (sc, agr, ia, ib, xa[:m], xb[:m])
             ties = 1
@@ -1528,6 +1626,12 @@ def classify_pair(a, b, phon, span=None, position=None, boundary="simple",
                   realisation=realisation, anchor_a=anchor_a,
                   anchor_b=anchor_b)
     object.__setattr__(t, "origins", (ia, ib))
+    # EVERY ALIGNMENT THE SEARCH TRIED, not only the best-scoring one: a
+    # name another alignment supports is a name the pair stands in.
+    import dataclasses as _dcx
+    object.__setattr__(t, "alternatives", tuple(
+        _dcx.replace(t, agreement=a) for a in dict.fromkeys(every)
+        if a != agr))
     object.__setattr__(t, "offsets", (tuple(xa), tuple(xb)))
     object.__setattr__(t, "searched", (len(cand_a), len(cand_b)))
     object.__setattr__(t, "select", select)
@@ -1611,7 +1715,8 @@ def alliterates(a, b, phon, preset="kalevala-alliteration", **kw):
 #: than imported so this module stays free of `lyric_harness` (it is imported
 #: BY that module), and pinned by `test_rhyme_types.py` against the real set
 #: so the two cannot drift into two vocabularies (doctrine 1).
-CLASS_RELATIONS = ("RHYME", "RIME_RICHE", "ASSONANCE", "CONSONANCE")
+CLASS_RELATIONS = ("RHYME", "RIME_RICHE", "PROMOTED_RHYME", "ASSONANCE",
+                   "CONSONANCE")
 
 
 class RelationRefused(ValueError):
@@ -2005,7 +2110,11 @@ def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
         return (instances.verdict((i, j)) if hasattr(instances, "verdict")
                 else (i, j) in instances)
     if kind == "class":
-        return coarse == canon
+        # `coarse` is the SET of coarse relations the pair stands in (a bare
+        # name is read as a one-member set). Membership, not equality: a
+        # perfect rhyme satisfies class:ASSONANCE and class:CONSONANCE too.
+        return canon in ({coarse} if isinstance(coarse, str)
+                         else set(coarse or ()))
     if phon is None:
         raise RelationRefused(
             f"{canon!r} is a NAMED type and needs a phonology to classify "
@@ -2136,7 +2245,8 @@ def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
             continue
         if t is None:
             continue
-        if canon in _dc.replace(t, position=reg_position).names():
+        if any(canon in _dc.replace(x, position=reg_position).names()
+               for x in (t,) + tuple(getattr(t, "alternatives", ()))):
             return True
         # M-58 ITEM 2: the anchored-tail extension, for names whose
         # definition does not turn on syllable count. The observed
@@ -2156,7 +2266,9 @@ def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
                                              position=reg_position).names()):
                 return True
             continue
-        if len(t.agreement) == len(key[0]):
+        if len(t.agreement) == len(key[0]) or (
+                len(key[0]) == 1
+                and tuple(key[0][0]) in _SPAN_CONTINUATION):
             examined = True
         else:
             length_gap.append((len(key[0]), len(t.agreement)))
@@ -2285,9 +2397,15 @@ def coarse_relation_consensus(lex, line_a, line_b, decl, relation=None,
     values = set()
     for (anc_a, word_a), (anc_b, word_b) in itertools.product(aa, bb):
         score = lh.best_score(anc_a, anc_b, decl, word_a, word_b, profile=profile)
-        value = (score['relation'] == relation if relation else
-                 lh.admits(score, lh.theta_for(score, decl),
-                           relations=frozenset(decl.admit)))
+        # MEMBERSHIP, NEVER EQUALITY: a reading satisfies a named class when
+        # the class is AMONG the relations that reading stands in; a set of
+        # classes is satisfied by any of them.
+        if relation:
+            want = ({relation} if isinstance(relation, str)
+                    else set(relation))
+            value = bool(set(score['relations']) & want)
+        else:
+            value = lh.admits_decl(score, decl)
         if min_score is not None:
             value = value and score['total'] >= min_score
         values.add(value)
