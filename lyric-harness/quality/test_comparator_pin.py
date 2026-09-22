@@ -15,12 +15,13 @@ change; none of them is satisfied by a clean tree alone.
 
 Sections:
   1  the pin agrees with the tree it is committed against
-  2  a MOVED input is caught, and the moved input is NAMED
+  2  a MOVED input is caught and NAMED — and an edit outside the closure is not
   3  the fold and the parts are ONE definition, not two
   4  an input that is not staged CANNOT TELL — it does not read as MOVED
   5  a pin cannot be advanced without naming the receipt that backs it
 """
 
+import ast
 import io
 import json
 import os
@@ -68,20 +69,42 @@ def test_the_pin_agrees_with_this_tree():
           CP.main([]) == 0)
 
 
+def _plant_inside(path, definition):
+    """Insert a COMMENT inside one top-level definition's own body.
+
+    The weakest possible edit to a definition the comparator reaches: it
+    changes no behaviour and no AST, only the source text inside that
+    definition's line span. Returning the file's prior bytes lets the caller
+    restore it.
+    """
+    before = io.open(path, encoding="utf-8").read()
+    lines = before.splitlines(keepends=True)
+    node, = [n for n in ast.parse(before).body
+             if getattr(n, "name", None) == definition]
+    first = node.body[0].lineno - 1
+    indent = lines[first][:len(lines[first]) - len(lines[first].lstrip())]
+    lines.insert(first, indent + "# planted by test_comparator_pin.py section 2\n")
+    io.open(path, "w", encoding="utf-8").write("".join(lines))
+    return before
+
+
 def test_a_moved_input_is_caught_and_named():
     print("\n2. a MOVED input is caught, and the moved input is NAMED")
-    # The one mutation that matters. `comparator_fingerprint`'s own docstring
-    # says editing a COMMENT in either whole-file input throws the cache away,
-    # so a comment is the weakest possible move and the gate must still see it.
+    # THE TWO MUTATIONS ARE A PAIR AND NEITHER IS SUFFICIENT ALONE.
+    # `lyric_harness.py` is hashed as the comparator's dependency CLOSURE, so
+    # this section has to prove both halves of that: an edit inside the
+    # closure is caught at its WEAKEST (a comment, changing no behaviour and
+    # no AST), and an edit outside it is NOT — which is the whole reason the
+    # input narrowed, and a claim a reader of the pin has to be able to check.
+    # `score` is an entry point: `quality/features.py` imports it by name.
     target = os.path.join(HERE, "..", "lyric_harness.py")
-    before = io.open(target, encoding="utf-8").read()
     clean_fp, _clean_parts, _ = CP.measure()
+    before = _plant_inside(target, "score")
     try:
-        io.open(target, "a", encoding="utf-8").write(
-            "\n# planted by test_comparator_pin.py section 2\n")
         moved_fp, moved_parts, _ = CP.measure()
-        check("a COMMENT moves the fingerprint — the guard is over-inclusive "
-              "by construction and that is the correct direction to be wrong",
+        check("a COMMENT INSIDE a reached definition moves the fingerprint — "
+              "the guard is over-inclusive within the closure and that is the "
+              "correct direction to be wrong",
               moved_fp != clean_fp, f"{clean_fp[:12]} -> {moved_fp[:12]}")
         pin = _pin()
         differing = sorted(k for k, v in moved_parts.items()
@@ -89,7 +112,7 @@ def test_a_moved_input_is_caught_and_named():
         check("EXACTLY the edited input is named — a gate that says only "
               "'something moved' sends the next session looking at seven "
               "files",
-              differing == ["lyric_harness.py"], f"{differing}")
+              differing == ["lyric_harness.py closure"], f"{differing}")
         check("the gate exits 1, not 0 and not 2: this is a real move, not a "
               "container problem",
               CP.main([]) == 1)
@@ -99,6 +122,21 @@ def test_a_moved_input_is_caught_and_named():
     check("the mutation is reverted, so this suite leaves no residue",
           restored_fp == clean_fp)
     check("and the gate is green again afterwards", CP.main([]) == 0)
+
+    try:
+        io.open(target, "a", encoding="utf-8").write(
+            "\n# planted by test_comparator_pin.py section 2, outside the closure\n")
+        outside_fp, _outside_parts, _ = CP.measure()
+        check("a comment OUTSIDE every reached definition does NOT move the "
+              "fingerprint — it cannot change what an item scores, and "
+              "invalidating on one discarded a ~2.4-CPU-hour memo on 7 of the "
+              "10 commits that touched this file (MISSING.md M-299)",
+              outside_fp == clean_fp, f"{clean_fp[:12]} -> {outside_fp[:12]}")
+        check("and the gate still exits 0 on it", CP.main([]) == 0)
+    finally:
+        io.open(target, "w", encoding="utf-8").write(before)
+    check("still no residue after the second mutation",
+          CP.measure()[0] == clean_fp)
 
 
 def test_the_fold_and_the_parts_are_one_definition():

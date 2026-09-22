@@ -1,0 +1,79 @@
+RECEIPT — the comparator pin advances because its DESCRIPTOR moved, not because
+the comparator did.  M-299 / M-307, 2026-09-22.
+
+WHAT CHANGED.  `comparator_fingerprint_parts()`' first input was a whole-file
+sha256 of `lyric_harness.py`.  It is now a sha256 of
+`quality/source_identity.definition_closure` over that file, taken at the names
+`quality/features.py` and `quality/song_profile_calibration.py` actually import
+from it, with the reached names hashed beside the text.  Nothing else in the
+comparator was touched: not one byte of `lyric_harness.py`, `quality/features.py`,
+`cmudict.dict`, `data/opensubtitles_en_50k.tsv`, `Declaration`,
+`predictability_frac` or `_couplet_pairs`.
+
+THE CLAIM THIS RECEIPT BACKS.  No calibrated row can have moved, because every
+input the comparator READS is byte-identical to the one the previous pin
+measured.  That is a derivation, not a survey, and it is checkable in seconds:
+
+    $ python3 - <<'PY'
+    import sys, json, hashlib; sys.path.insert(0, '.')
+    from quality import check_comparator_pin as CP
+    fp, parts, absent = CP.measure()
+    pin = json.load(open('quality/comparator_pin.json'))
+    for k in sorted(set(parts) | set(pin['parts'])):
+        a, b = pin['parts'].get(k), parts.get(k)
+        print(f"  {'SAME ' if a==b else 'MOVED' if a and b else 'NEW  ' if b else 'GONE '}  {k}")
+    whole = "lyric_harness.py:" + hashlib.sha256(open('lyric_harness.py','rb').read()).hexdigest()
+    print("retired part digest        :", pin['parts']['lyric_harness.py'])
+    print("whole-file, digested as it :", CP._digest(whole))
+    print("equal:", CP._digest(whole) == pin['parts']['lyric_harness.py'])
+    PY
+
+Against the pin this repin supersedes
+(1510801307d6735b09633d55440cdf3da46d070bda9dfd8c3b710e96c160cd4a):
+
+      SAME   Declaration()
+      SAME   _couplet_pairs
+      SAME   cmudict.dict
+      SAME   features.py
+      GONE   lyric_harness.py
+      NEW    lyric_harness.py closure
+      SAME   opensubtitles_en_50k.tsv
+      SAME   predictability_frac
+
+    retired part digest        : 993dfabeb99a2113a02bed1117d21802ca6b9cc72023b39068beae7ce0fda079
+    whole-file, digested as it : 993dfabeb99a2113a02bed1117d21802ca6b9cc72023b39068beae7ce0fda079
+    equal: True
+
+SIX OF SEVEN INPUTS ARE UNMOVED, AND THE SEVENTH IS THE SAME FILE READ A
+NARROWER WAY — the retired part's digest still equals a whole-file hash of
+`lyric_harness.py` as it stands in this tree, so the file itself has not
+changed a byte since the pin was written.  The fingerprint moved because the
+DEFINITION of the first input moved, which is exactly what a repin is for.
+
+WHAT WAS MEASURED.
+
+    $ python3 quality/test_source_identity.py
+    ALL PASS            (5 sections; §4 measures 0 dynamic module-level
+                         lookups over 62 definitions / 104,556 characters)
+
+    $ python3 quality/test_comparator_pin.py
+    ALL PASS            (§2 runs the PAIR: a comment INSIDE a reached
+                         definition moves the fingerprint, a comment appended
+                         OUTSIDE every reached definition does NOT)
+
+    $ python3 quality/check_comparator_pin.py
+    RESULT: HOLDS       (after this repin)
+
+    closure size: 62 of ~220 top-level names, 104,556 of ~500,000 characters
+
+WHAT WAS NOT RE-RUN, AND WHY — STATED RATHER THAN OMITTED (doctrine 20).
+`quality/length_curve_calibration.py check` was NOT run for this repin.  It
+re-fits the `lyric` row's five curves from the corpus through
+`predictability_frac`, and every input to that derivation is proven identical
+above, so the run could only reproduce the committed digits at the cost of a
+from-scratch ~2.4-CPU-hour memo rebuild.  A repin whose evidence is "the inputs
+did not move" is not a repin that skipped its check; it is one whose check is
+an equality rather than a re-measurement.  THE LIMIT OF THAT ARGUMENT: it holds
+only because the diff touches nothing the comparator runs.  The NEXT repin that
+moves any of the seven owes the calibration run, and the 180m slice plus the
+350m job ceiling are what make it affordable in the nightly again (M-307).

@@ -165,13 +165,16 @@ stale.
 
 4. **BATCH THE COMPARATOR CHANGES.** Owner, 2026-09-16, verbatim: *"batch the
    comparator changes going forward."* `comparator_fingerprint()` in
-   `quality/song_profile_calibration.py` hashes SEVEN inputs — the WHOLE of
-   `lyric_harness.py`, the WHOLE of `quality/features.py`, `cmudict.dict`,
+   `quality/song_profile_calibration.py` hashes SEVEN inputs — ~~the WHOLE of
+   `lyric_harness.py`~~ **the comparator's dependency CLOSURE in
+   `lyric_harness.py` (REPINNED 2026-09-22, `MISSING.md` M-299)**, the WHOLE of
+   `quality/features.py`, `cmudict.dict`,
    `data/opensubtitles_en_50k.tsv`, `repr(Declaration())`, and the source of
    `predictability_frac` and of `_couplet_pairs`. A change to ANY of them
    moves the fingerprint and DISCARDS the predictability memo — and a comment
-   in either of the two whole-file inputs counts, because the guard is
-   over-inclusive by construction. Rebuilding that memo costs ~2.1 CPU-hours
+   inside a reached definition counts, because the guard is over-inclusive
+   ~~by construction~~ **within the closure**. Rebuilding that memo costs
+   ~2.1 CPU-hours
    over the corpus's 11,941 distinct end words, so a session does not land
    such changes one at a time: it COLLECTS them and lands them together,
    paying the recomputation once instead of once per PR.
@@ -183,6 +186,26 @@ stale.
    exists to remove (doctrine 16, and `comparator_fingerprint`'s own
    docstring on the Whitman figures). Batch the cheap edits; never batch a
    fix that makes a shipped number wrong in the meantime.
+
+   **AND THE 2026-09-22 REPIN IS NOT THAT NARROWING, WHICH IS THE ONE THING
+   THIS RULE'S SECOND PARAGRAPH HAD TO BE ANSWERED ON.** The closure is
+   `quality/source_identity.definition_closure` over the names the two
+   importers actually TAKE from `lyric_harness` — read off their own source,
+   nested imports and `module.attr` access included, never a hand-written
+   list — and it is TRANSITIVE: everything a reachable definition names is
+   in, so a change to a helper five calls deep still moves the hash, and only
+   definitions nothing reachable mentions are dropped. The reached NAMES are
+   hashed beside the text, so a definition entering or leaving the
+   comparator's reach moves the fingerprint on its own. COVERAGE IS
+   THEREFORE UNCHANGED and what is dropped is provably unreachable; the
+   assumption that would break it — a module-level lookup through
+   `getattr`/`globals`/`eval` — is CHECKED rather than assumed, in
+   `quality/test_source_identity.py` §4, which measures 0 over the whole
+   closure. WHAT IT BOUGHT, measured over the 60 commits before it: of the 10
+   that changed `lyric_harness.py`, **7 changed nothing the comparator can
+   see** and each of those discarded a ~2.4-CPU-hour memo and took the
+   nightly's bounded slice with it. The 3 that remain are the ones this rule
+   is about, and they still cost the full recomputation — so BATCH THEM.
 
 **Read this file before you write. Read `quality/METHOD.md` when you are about
 to MEASURE** — a rate, a null, a threshold, a refusal, a provenance claim. One
