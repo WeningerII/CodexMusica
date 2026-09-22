@@ -976,13 +976,20 @@ def test_the_default_door_reads_normative():
         RL._WVP_MEMO.clear()
         after = RL.whole_vocabulary_pairs(lines, phon)
         by_name = RL.line_pairs_for(RL.REGISTRY["perfect rhyme"], stream)
+        gv = Reviser().grade(list(lines), mandate("AA"))["verdicts"][0]
     finally:
         RL.REGISTRY["perfect rhyme"] = sch
         RL._WVP_MEMO.clear()
-    check("marked FORBIDDEN, the silent default no longer names it — the "
-          "registry cannot ban a pair on one page and admit it on the next",
-          "perfect rhyme" not in after.get((1, 2), []),
-          f"{after.get((1, 2), [])[:6]}")
+    # A pair stands in every relation its sound supports, so the judge
+    # still REPORTS the forbidden schema; what the registry's `normative`
+    # decides is whether that schema can SATISFY a default group.
+    check("marked FORBIDDEN, the schema is still reported but no longer "
+          "SATISFIES the default group — the registry cannot ban a pair on "
+          "one page and admit it on the next",
+          "perfect rhyme" in gv.get("schemas", [])
+          and "perfect rhyme" not in gv.get("satisfied_by", []),
+          (gv.get("schemas", [])[:6], gv.get("satisfied_by", [])[:6],
+           "perfect rhyme" in after.get((1, 2), [])))
     check("...while the judge asked BY NAME still answers: a writer who "
           "declares `schema:` a forbidden name gets the answer and the "
           "name's own status to read",
