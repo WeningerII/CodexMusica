@@ -3319,8 +3319,12 @@ def test_the_named_pair_disclosure_survives_the_module_boundary():
     # `report_pair`'s own docstring says it RELABELS rather than suppressing
     # the number, so a verdict that changed here would mean the alias had
     # done something else as well.
-    check("the verdict beside it is unchanged — 1.0 REPEAT on the named pair",
-          "(counting/counting): 1.0  REPEAT" in out,
+    # The label lists EVERY relation the pair stands in (N-relation
+    # model), so REPEAT sits among them rather than alone.
+    check("the verdict beside it is unchanged — 1.0, REPEAT among the "
+          "named pair's relations",
+          re.search(r"\(counting/counting\): 1\.0  \S*\bREPEAT\b", out)
+          is not None,
           "the alias fixed a report, and a verdict moving would say otherwise")
 
 
