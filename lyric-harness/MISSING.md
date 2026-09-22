@@ -27592,10 +27592,15 @@ agreement on the pair that disagreed. The `M27` mutation (`quality/mutate.py`)
 still lands on its anchor text.
 
 **COMPARATOR.** `lyric_harness.py` is a comparator input, so its fingerprint
-moved. The five calibration curves were re-derived on this tree and the pin
-advanced against that receipt (`quality/results/m306_onset_2026-09-21/
-curve-check.txt`); the next Production qualification runs cold by design,
-about three hours, and that is the guard working rather than a regression.
+moved. Both instruments were re-run on this tree: the band thresholds
+(`song_profile_calibration.py --check`, `quality/results/m306_onset_2026-09-21/
+curve-check.txt` — 21 asked, 21 answered, 0 refused, every shipped constant
+reproduces; the memo was discarded and rebuilt from scratch, 7,957 s wall for
+8,536 items) and the `lyric` row's five curves (`length_curve_calibration.py
+check`, `curve-check-lengths.txt` beside it, warm off that memo). The pin is
+advanced against the curves receipt; the next Production qualification runs
+cold by design, about three hours, and that is the guard working rather than
+a regression.
 
 **VERIFIED END TO END.** The same creation order replayed in session mode
 through the compatibility server built from this tree (begin, sweep, screen,
