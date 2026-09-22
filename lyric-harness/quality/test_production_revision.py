@@ -116,9 +116,15 @@ class ProductionRevisionTests(unittest.TestCase):
                             for label in brief.violated_groups))
         verdict = self.reviser.verify(case['before_last_answer'], case['final_retained'],
                                       m, targeted={5, 10})
-        self.assertFalse(verdict['accepted'], verdict['reasons'])
+        # The internal-only edit clears NO end-bound predictability charge.
+        # Under relation sets it does legitimately resolve the L4~L5 pair
+        # the old reading left unresolved (two SCHEME_UNREADABLE findings),
+        # so verify may accept it -- but only for those, never by claiming
+        # a PREDICTABLE_RHYME it did not answer.
         self.assertFalse([f for f in verdict['fixed_findings']
                           if f['code'] == 'PREDICTABLE_RHYME'])
+        self.assertEqual({f['code'] for f in verdict['fixed_findings']},
+                         {'SCHEME_UNREADABLE'}, verdict['reasons'])
 
     def test_expanded_offer_does_not_claim_exact_vowel_pool_provenance(self):
         case = json.loads((Path(__file__).parent / 'results' /
@@ -144,15 +150,16 @@ class ProductionRevisionTests(unittest.TestCase):
             trial[5] = swap_at_slot(lines[5], b.slot, word)
             g = r.grade(trial, m, _only_groups={m.labels.index('D')})
             self.assertFalse([v for v in g['violations'] if 6 in v['lines']], word)
-        # The coarse class admits near vowels under its declared channel
-        # threshold; that is not a claim of identical nuclei or an index
-        # lookup in the exact-vowel pool. Preserve the actual grade.
+        # The offered words are the declared judge's own; nothing claims an
+        # exact-vowel pool the grade did not consult.
         have = r._word_anchors('have')[0][0][0]['nucleus']
         waits = r._word_anchors('waits')[0][0][0]['nucleus']
         self.assertNotEqual(have, waits)
+        # ASSONANCE is vowel IDENTITY now (the near-vowel band no longer
+        # rounds up), so the declared judge refuses `have` against `waits`.
         kept, refused = r.declared_offer(['have'], lines, m, 6, b.slot,
                                          [m.labels.index('D')])
-        self.assertEqual((kept, refused), (['have'], []))
+        self.assertEqual((kept, refused), ([], ['have']))
         prompt = render_line(b, lines)
         self.assertNotIn('OFFERED FROM THE VOWEL BAND', prompt)
         self.assertNotIn("words below share the call's", prompt)
@@ -217,11 +224,11 @@ class ProductionRevisionTests(unittest.TestCase):
                                             backtrack_width=1))
         # THE PRECONDITION IS AN EMPTY SINGLE-PARTNER MENU. The recorded case
         # had one while CONSONANCE excluded perfect rhymes; under relation
-        # sets L2's menu is legitimately non-empty (york/dark stands in
-        # CONSONANCE), so the empty field is set up directly: what this test
-        # pins is what the LOOP does with an empty menu, not which words the
-        # field holds.
-        r._field_split = lambda word, profile=None: ([], [])
+        # sets L2's menu is legitimately non-empty, so the empty menu is set
+        # up directly (the declared judge refuses every word): what this
+        # test pins is what the LOOP does with an empty menu, not which
+        # words the field holds.
+        r.declared_offer = lambda candidates, *a, **k: ([], list(candidates))
         b = next(b for b in r.brief(lines, m, target_lines={2}) if b.line_no == 2)
         self.assertTrue(b.field_computed)
         self.assertTrue(b.violated_groups)

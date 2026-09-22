@@ -356,7 +356,14 @@ def whitman_battery():
 # relation SET or a schema stays undecided at the pair; a refusal is not a
 # violation (doctrine 79). The 7 violations are unchanged. The exact partition
 # is in quality/report_slang_oracle.json (`audit_spans.py --write-oracle`).
-EXPECTED = {"mandated": 1064, "judged": 958, "refused": 106, "violations": 7}
+# SAME DAY, LAST COMPARATOR CHANGE OF THE BATCH: `nucleus_agreement` defaults
+# to "licensed" (identity + the unstressed AH~IH licence), so a near vowel is
+# no longer RHYME or ASSONANCE and near rhymes are judged by the schemas.
+# ~~958/106/7~~ -> judged 936, refused 128, violations 9: 22 more refusals
+# (readings/schemas undecided) and two new violations, both argument/spent
+# (-ment on a promoted final: PROMOTED_RHYME, which the sonnet mandate's
+# consensus does not settle). Measured by `python3 battery.py`.
+EXPECTED = {"mandated": 1064, "judged": 936, "refused": 128, "violations": 9}
 
 
 def assert_pinned(got, expected=EXPECTED):

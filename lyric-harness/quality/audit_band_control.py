@@ -353,19 +353,22 @@ def main(n=200):
 #: supports, and `infer_chains` asks every admittable relation, so the
 #: conjunctive band no longer RELABELS a chain edge away: a pair it denies
 #: RHYME still stands in ASSONANCE or CONSONANCE and stays an edge. Band ON
-#: therefore equals band OFF on both corpora — the band decides WHICH relations
+#: therefore equalled band OFF on both corpora (until the licensed change below) — the band decides WHICH relations
 #: a pair holds, not WHETHER it is an edge at this door:
 #:   whitman_captured_off   ~~37~~ 36    whitman_captured_on   ~~16~~ 36
 #:   sonnet_captured_off      441        sonnet_captured_on   ~~406~~ 441
 #: This arm stops measuring the band's effect on chains; what it still pins is
 #: that the chain door moved with the model rather than silently.
+#: AND AGAIN THE SAME DAY when `nucleus_agreement` became "licensed": the
+#: band's nucleus channel is a predicate now, so band ON again drops edges band
+#: OFF keeps — whitman on ~~36~~ 27, sonnet on ~~441~~ 431; OFF rows held.
 PINNED = {"whitman_lines": 150,
           "whitman_captured_off": 36,   # REPINNED 2026-09-22 from ~~37~~
-          "whitman_captured_on": 36,    # REPINNED 2026-09-22 from ~~16~~
+          "whitman_captured_on": 27,    # REPINNED 2026-09-22 ~~16~~ ~~36~~
           "sonnet_items": 60,
           "sonnet_lines": 840,
           "sonnet_captured_off": 441,
-          "sonnet_captured_on": 441}    # REPINNED 2026-09-22 from ~~406~~
+          "sonnet_captured_on": 431}    # REPINNED 2026-09-22 ~~406~~ ~~441~~
 
 #: READING ORDER for the check's report only -- shape first, then the two arms
 #: per corpus, so the band-OFF control sits next to the band-ON figure it

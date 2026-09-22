@@ -949,7 +949,7 @@ def test_the_type_judge_past_one_syllable():
         RT.COUNT_DEFINITIONAL = keep2
     check("...and both mutations are reverted",
           ask("type:rime riche", "cellar", "seller") is True
-          and ask("type:pararhyme", "cellar", "seller") == "REFUSED")
+          and ask("type:alliteration", "cellar", "seller") == "REFUSED")
 
 
 def test_the_default_door_reads_normative():

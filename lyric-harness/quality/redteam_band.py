@@ -76,7 +76,10 @@ calibration's effect stand — false positives fall 3.0x — and the digit does
 not.
 
 **REPINNED 2026-09-22 (the N-relation model): ~~2.00% (60 of 3,000)~~ ->
-0.20% (6 of 3,000) and ~~2.10% (84 of 4,000)~~ -> 0.18% (7 of 4,000).** The
+~~0.20% (6 of 3,000)~~ -> 0.00% (0 of 3,000) and ~~2.10% (84 of 4,000)~~ ->
+~~0.18% (7 of 4,000)~~ -> 0.00% (0 of 4,000)** — the second step the same
+day, when `nucleus_agreement` became "licensed": RHYME now needs the nucleus
+IDENTICAL (bar the unstressed AH~IH licence), which is nearly the reference. The
 statistic is now "RHYME is in the harness's relation SET and not in strict
 identity's", both sides being sets; RHYME needs a lexically stressed first
 syllable and every consonant after the first nucleus (interior onsets

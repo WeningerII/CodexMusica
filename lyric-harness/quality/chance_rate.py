@@ -347,10 +347,13 @@ CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 # counted in every relation it stands in and the default door is ANY relation;
 # the `narrow` door no longer exists and its place is the RHYME family.
 # Measured by `python3 quality/chance_rate.py --check` over GRID.
+# RE-MEASURED the same day after `nucleus_agreement` became "licensed"
+# (a near vowel no longer carries RHYME or ASSONANCE): ~~any (919, 946),
+# admit (89, 99), rhyme (8, 9)~~; schema held.
 ADOPTED = {
-    "any": (919, 946),
-    "admit": (89, 99),
-    "rhyme": (8, 9),
+    "any": (900, 925),
+    "admit": (48, 52),
+    "rhyme": (1, 6),
     "schema": (896, 921),
 }
 

@@ -652,8 +652,10 @@ def sweep_record(lex, decl, verbose=True):
 #: denominator); violations and their attribution unchanged. Measured by
 #: `python3 quality/audit_spans.py --check`; the exact partition is written by
 #: `--write-oracle` into both oracle records.
+#: RE-MEASURED the same day after `nucleus_agreement` became "licensed":
+#: 958/106/7 -> 936/128/9, claimed 600 -> 586, ties 109 -> 108.
 PINNED = {
-    "mandated": 1064, "judged": 958, "refused": 106,
+    "mandated": 1064, "judged": 936, "refused": 128,
     #: ~~82~~ under the two-name door; ~~35~~ when it widened to all four
     #: relations (M-59); ~~12~~ when the whole schema vocabulary joined the
     #: default (M-116, owner ruling 2026-08-25 — 23 pairs stopped
@@ -665,9 +667,9 @@ PINNED = {
     #: 0 stopped, inside a preregistered ceiling of 20). THE FIRST THREE
     #: STEPS WIDENED THE DOOR AND THIS ONE TIGHTENED IT, which is why the
     #: count rose where it had fallen three times.
-    "violations": 7,
+    "violations": 9,
     #: report lines that name the two words that actually produced the number
-    "claimed": 600,
+    "claimed": 586,
     #: the same question asked of the violations alone.
     #: ~~36~~ of ~~82~~; ~~7~~ of ~~35~~; ~~2~~ of ~~12~~ under M-116;
     #: 4 of 14 under M-138's pricing — and the SHARE rose, 16.7% -> 28.6%,
@@ -676,7 +678,7 @@ PINNED = {
     #: (the population that DOES name its own words), and a tightening adds
     #: them back. Both new pairs are ordinary end-word assonance.
     "violations_claimed": 1,
-    "ties": 109,
+    "ties": 108,
     "violation_ties": 3,
 }
 
