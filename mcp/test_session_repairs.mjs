@@ -31,6 +31,22 @@ test('native creation blocks bypass, records real sweep/screen/plan, survives re
     await c.call('lyric_plan', { seed, lines: 12 });
     const session = c.snapshot();
     assert(session.task.workflow.plan, JSON.stringify(session.task.workflow));
+    const lines = Array(12).fill('The kettle whistles by the stove');
+    const assessed = await c.call('lyric_grade', { seed, draft_text: lines.join('\n') });
+    assert(!assessed.isError, JSON.stringify(assessed));
+    const grade = assessed.content
+      .flatMap((block) => {
+        try {
+          return [JSON.parse(block.text)];
+        } catch {
+          return [];
+        }
+      })
+      .find((value) => Number.isInteger(value.exit_code));
+    assert.equal(grade.measurement_status, 'graded');
+    assert.deepEqual(grade.final_draft, lines);
+    assert(c.snapshot().task.workflow.grade, JSON.stringify(grade));
+
     await c.close();
     c = await connect(session);
     await assert.rejects(

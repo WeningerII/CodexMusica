@@ -91,8 +91,8 @@ def sweep_battery(lex, decl, verbose=True):
     """Every mandated sonnet pair, classified by what its spans actually were.
 
     The denominator is the JUDGED count, never the mandated one. The current
-    97 refusals contain 50 lexical failures, 28 endpoint-pronunciation
-    disagreements and 19 unresolved default-schema answers. A provisional
+    94 refusals contain 50 lexical failures, 28 endpoint-pronunciation
+    disagreements and 16 unresolved default-schema answers. A provisional
     span on an unresolved pair is not certified evidence. Doctrine 79.
     """
     sonnets = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))
@@ -571,8 +571,12 @@ def sweep_record(lex, decl, verbose=True):
 #: one exact/exact (sonnet42) and three reach/reach (9,26,150).
 #: All counts and the full pair partition were independently measured;
 #: production_relation_oracle.json retains the exact causal coordinates.
+#: REPINNED 2026-09-22: missing slang capability no longer refuses three
+#: pairs. 1064/967/97/4 -> 1064/970/94/7; claimed and tie counts stay
+#: fixed. audit_spans.sweep_battery independently measured the full partition
+#: retained in report_slang_oracle.json. No span or threshold rule changed.
 PINNED = {
-    "mandated": 1064, "judged": 967, "refused": 97,
+    "mandated": 1064, "judged": 970, "refused": 94,
     #: ~~82~~ under the two-name door; ~~35~~ when it widened to all four
     #: relations (M-59); ~~12~~ when the whole schema vocabulary joined the
     #: default (M-116, owner ruling 2026-08-25 — 23 pairs stopped
@@ -584,7 +588,7 @@ PINNED = {
     #: 0 stopped, inside a preregistered ceiling of 20). THE FIRST THREE
     #: STEPS WIDENED THE DOOR AND THIS ONE TIGHTENED IT, which is why the
     #: count rose where it had fallen three times.
-    "violations": 4,
+    "violations": 7,
     #: report lines that name the two words that actually produced the number
     "claimed": 605,
     #: the same question asked of the violations alone.

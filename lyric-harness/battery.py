@@ -342,7 +342,12 @@ def whitman_battery():
 # or failure. Four identical-word REPEAT violations remain. This decrease is
 # reduced certified coverage, not improved rhyme quality. Full causal rows:
 # quality/production_relation_oracle.json. Thresholds and corpus unchanged.
-EXPECTED = {"mandated": 1064, "judged": 967, "refused": 97, "violations": 4}
+# REPINNED 2026-09-22 for report C-1/P9: the ordinary pronunciation
+# dictionary does not supply a slang expansion. Three pairs whose only
+# unresolved schema was rhyming slang now violate instead of refusing.
+# No accepted pair, pronunciation, threshold or corpus input changed. Both
+# graders agree; before/after rows are in quality/report_slang_oracle.json.
+EXPECTED = {"mandated": 1064, "judged": 970, "refused": 94, "violations": 7}
 
 
 def assert_pinned(got, expected=EXPECTED):

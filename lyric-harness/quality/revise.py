@@ -2603,7 +2603,7 @@ class Reviser:
         MEMOISED PER (draft, mandate). The stream costs 2.94s over 14 lines
         and 14.73s over 56, and a draft can offer several candidate merges;
         building one stream per candidate would multiply a rare cost by the
-        square of the group count. Keyed on the draft's identity and the
+        square of the group count. Keyed on the draft's content and the
         mandate's groups because those are what the answer depends on.
 
         AND ONLY UNDER THE DEFAULT DOOR, the same gate `grade()` uses: a
@@ -2614,7 +2614,7 @@ class Reviser:
         from lyric_harness import admit_is_default as _AID
         if not _AID(self.decl):
             return False
-        key = (id(lines), len(lines),
+        key = (tuple(lines),
                tuple(tuple(g) for g in getattr(m, "groups", ())))
         hit = getattr(self, "_wvp_cache", None)
         if hit is None:

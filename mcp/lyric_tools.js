@@ -28,6 +28,8 @@
 
 import { createPythonBridge } from './python_bridge.js';
 import { requestContext } from './execution_context.js';
+import { draftFromText, normalizeDraftLines } from './lyric_text.js';
+export { draftFromText } from './lyric_text.js';
 import { assessmentCoverageValid } from './lyric_workflow.js';
 import { openKitchenBudget } from './paid_budget.js';
 import { createHash } from 'node:crypto';
@@ -1493,12 +1495,6 @@ const draftTextField = z
   .describe(
     'The song lines as ONE string, one line per row (newline-separated), performance order, repeated sections written out in full — the same content as `draft`, for a caller whose array calls break. Send one of the two.'
   );
-export function draftFromText(text) {
-  return String(text)
-    .split(/\r?\n/)
-    .map((l) => l.trim())
-    .filter((l) => l && !/^\[[^\]]*\]$/.test(l));
-}
 
 // EVERY TOOL THAT TAKES LINES TAKES THEM AS ONE STRING TOO (M-248, round
 // 22). Round 22's turn 0 broke `lyric_grade{draft:[ …` twice — M-226's
@@ -1514,6 +1510,8 @@ const textTwinOf = (arrayName) =>
       `The same lines as \`${arrayName}\` as ONE newline-separated string, one line per row, performance order — for a caller whose array calls break. Send one of the two.`
     );
 export function takeLines(a, arrayName, textName, { preserveStructure = false } = {}) {
+  if (!preserveStructure && Array.isArray(a[arrayName]))
+    a[arrayName] = normalizeDraftLines(a[arrayName]);
   if (typeof a[textName] === 'string') {
     const lines = preserveStructure
       ? String(a[textName]).replace(/\r\n?/g, '\n').split('\n')
@@ -2241,10 +2239,6 @@ export function registerLyricTools(server, tool) {
                 throw refuse(
                   `\`run_id\` ${a.run_id} names no run this tool remembers — it may have finished, expired (${Math.round(RUNS.ttlMs / 3600000)} h idle) or been forgotten by a restart; pass \`state\` back, or omit \`run_id\` and send the draft to open a fresh run`
                 );
-              if (runRec && runKey && runRec.key !== runKey)
-                throw refuse(
-                  `\`run_id\` ${a.run_id} belongs to ${runRec.key}, and this call names ${runKey}`
-                );
               const runWander = runRefusal(runRec, a);
               if (runWander) throw refuse(runWander);
               const carried = { state: false, draft: false, decl: false };
@@ -2410,6 +2404,10 @@ export function registerLyricTools(server, tool) {
                     '`state` is not the JSON this tool returned — pass it back VERBATIM'
                   );
                 }
+                if ((a.answer != null || a.answers != null) && !st?.pending)
+                  throw refuse(
+                    '`answer`/`answers` was given and `state` holds no pending question — there is nothing it answers'
+                  );
                 // M-248: the structured answer becomes the harness's own row
                 // format here, keyed on the question's kind.
                 if (Array.isArray(a.answers)) {

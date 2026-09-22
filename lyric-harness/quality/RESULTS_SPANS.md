@@ -19,6 +19,23 @@ its first instrument and its first measurement.
 
 ## Headline
 
+**Re-measured 2026-09-22:** 1,064 obligations partition into **970 judged
+and 94 refused**. Of the judged pairs, **605** name the words that produced
+their number and **365** do not; **114** have tied maximum spans. Of the
+**seven** violations, **one** is exact/exact, **two** are exact/part,
+**one** is exact/reach, and **three** are reach/reach. Three violations have
+tied maxima. Four have a mosaic span, including sonnet33 L2–L4 `eye/alchemy`.
+
+The missing slang capability correction adds three formerly refused
+violations: `eye/alchemy`, `dead/astonished`, and `words/affords`. The span
+rules, pronunciation inputs, and thresholds did not change. Both the battery
+and the independent `audit_spans.sweep_battery` measured this population.
+`report_slang_oracle.json` records the exact partition and attribution witnesses;
+`test_spans.py` and `test_g2p.py` check these current coordinates. The prior
+`production_relation_oracle.json` remains the historical adoption below.
+
+### Historical adoption — 2026-09-08
+
 **Re-adopted 2026-09-08:** 1,064 obligations partition into **967 judged
 and 97 refused**. Of the judged pairs, **605** name the words that produced
 their number and **362** do not; **114** have tied maximum spans. Of the

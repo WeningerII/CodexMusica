@@ -21,6 +21,42 @@ def pair(name, lines, phon=None):
 
 
 class ProductionRelations(unittest.TestCase):
+    def test_slang_requires_its_declared_surface_not_an_ordinary_dictionary(self):
+        ordinary = stream(['cat', 'dog'])
+        schema = R.REGISTRY['rhyming slang']
+        self.assertTrue(ordinary.provides('lexicon'))
+        self.assertFalse(ordinary.provides('slang'))
+        result = R.line_pairs_for(schema, ordinary)
+        self.assertIsInstance(result, R.Refusal)
+        self.assertFalse(getattr(result, 'undecided', ()))
+        vocabulary = R.whole_vocabulary_pairs(['cat', 'dog'], get('eng'))
+        self.assertFalse(vocabulary)
+        self.assertFalse(vocabulary.undecided)
+        self.assertIn('slang', schema.capabilities())
+        ordinary.alt['slang'] = stream(['cat', 'hat'])
+        self.assertTrue(ordinary.provides('slang'))
+        self.assertEqual(R.line_pairs_for(schema, ordinary), {(1, 2)})
+
+    def test_schema_merge_cache_tracks_content_of_mutated_draft(self):
+        from unittest.mock import patch
+        from lyric_harness import Declaration
+        from quality.revise import Reviser
+        from quality.schemes import mandate
+        rv = Reviser.__new__(Reviser)
+        rv.decl = Declaration()
+        lines = ['cat', 'hat']
+        m = mandate('AA', n_lines=2)
+        def answers(draft, *args, **kwargs):
+            return {(1, 2): ['rhyme']} if draft[1] == 'hat' else {}
+        with patch.object(rv, '_relation_phonology', return_value=None), \
+                patch.object(R, 'whole_vocabulary_pairs', side_effect=answers) as judge:
+            self.assertTrue(rv._schema_satisfies(lines, m, [(1, 2)]))
+            lines[1] = 'dog'
+            self.assertFalse(rv._schema_satisfies(lines, m, [(1, 2)]))
+            self.assertFalse(rv._schema_satisfies(list(lines), m, [(1, 2)]))
+            self.assertEqual(judge.call_count, 2)
+
+
     def test_requested_pairs_match_full_registry_in_full_context(self):
         from unittest.mock import patch
         contexts = [

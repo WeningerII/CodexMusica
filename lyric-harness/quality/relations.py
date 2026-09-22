@@ -520,8 +520,10 @@ QUOTIENT_CAP = "quotient:"
 #: not have and which `declared_inputs.PeriodPhonology` refuses to construct
 #: without a named reconstruction.  Doctrine 44: the build was one name in a
 #: tuple; the blocker is, and always was, the data.
+# A slang expansion is a distinct supplied surface. Ordinary lexical
+# capability cannot supply the absent member of a rhyming-slang pair.
 ALT_SURFACES = ("orthography", "earlier", "delivered", "sung", "licence",
-                "poet")
+                "poet", "slang")
 
 
 @dataclass
@@ -5190,9 +5192,9 @@ declare(RelationSchema(
 declare(RelationSchema(
     name="rhyming slang",
     spans=(END_ANCHOR, END_ANCHOR), align="anchor",
-    channels=(ChannelRule("nucleus", AGREE, "each", surface="lexicon"),
-              ChannelRule("coda", AGREE, "each", surface="lexicon")),
-    requires=("lexicon",),
+    channels=(ChannelRule("nucleus", AGREE, "each", surface="slang"),
+              ChannelRule("coda", AGREE, "each", surface="slang")),
+    requires=("slang",),
     note="the only entry whose CONSTITUTIVE MEMBER IS ABSENT FROM THE TEXT. "
          "One span is supplied by a declared slang lexicon, not found in the "
          "stream. Marks the outer limit of a phonological producer."))

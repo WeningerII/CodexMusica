@@ -3416,9 +3416,14 @@ the repaired check now fails and the old one did not.
   `corpus/whitman.txt` carries the property under test as epistrophe and was
   never eligible for the role (`K-3`: replacement task CLOSED 2026-09-17;
   eligibility finding retained and guarded by `quality/test_band.py` section 9).
-- Current baselines: sonnets **1.4% violations (14/1014 JUDGED pairs)** —
-  MEASURED 2026-09-02, not recalled: `python3 battery.py` prints
-  `mandated 1064, judged 1014, refused 50` and `violations 14`.
+- Current baselines: sonnets **0.7% violations (7/970 JUDGED pairs)** —
+  MEASURED 2026-09-22 against both `check_scheme` and `Reviser.grade`:
+  `mandated 1064, judged 970, refused 94, violations 7`.
+  `quality/report_slang_oracle.json` records the before/after pair evidence:
+  three pairs previously refused only by the absent slang surface now violate.
+  No accepted pair, pronunciation, threshold or corpus input changed.
+  The preceding 2026-09-08 pin was 4/967 judged, with 97 refusals; the
+  older 2026-09-02 baseline **1.4% (14/1014)** and its history follow.
   **REPINNED 2026-09-02 from ~~1.2% (12/1014)~~ BY A TIGHTENING, which is
   the first time this ladder has moved in that direction.** The
   near-relation pricing (`MISSING.md` M-138, under

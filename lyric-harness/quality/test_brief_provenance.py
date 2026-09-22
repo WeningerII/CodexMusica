@@ -115,6 +115,24 @@ with tempfile.TemporaryDirectory() as td:
           "read, not only answered)",
           res3["briefed"] == [2, 4], str(res3))
 
+with tempfile.TemporaryDirectory() as td:
+    for kind, blob in (
+        ("answered", {"answered": {"propose": [
+            {"line": 2, "draft": fp_before, "text": "TWO"},
+            {"line": 4, "draft": fp_before, "text": "FOUR"}]}}),
+        ("group", {"answered": {"propose_group": [
+            {"members": [2, 4], "draft": fp_before, "new": ["TWO", "FOUR"]}]}}),
+        ("pending batch", {"pending": {"record": {"records": [
+            {"line": 2, "draft": fp_before}, {"line": 4, "draft": fp_before}]}}}),
+    ):
+        path = os.path.join(td, "native.json")
+        with open(path, "w") as f:
+            json.dump(blob, f)
+        check("native " + kind + " records prove every issued line",
+              BP.classify(BEFORE, AFTER, [path])["briefed"] == [2, 4])
+        check("native " + kind + " cannot prove a different draft",
+              BP.classify(AFTER, BEFORE, [path])["briefed"] == [])
+
 print("\n4. the three counts are separate and never summed (doctrine 79)")
 with tempfile.TemporaryDirectory() as td:
     mixed = _state(os.path.join(td, "m.json"),

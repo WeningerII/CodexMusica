@@ -65,6 +65,9 @@ BY_LANGUAGE = {
 #: does not declare the resource. What is missing in all three cases is a
 #: sourced TABLE, not code (doctrine 44).
 FIXTURE_ONLY = {
+    "rhyming slang": "the `slang` projected surface — this census declares "
+                    "a constructed projection only. No sourced slang register "
+                    "ships here; ordinary lexical data cannot supply it.",
     "historical rhyme": "the `earlier` period surface — a SOURCED earlier "
                         "reconstruction. `declared_inputs.PeriodPhonology` "
                         "refuses to build without a named one; this census "
@@ -97,6 +100,10 @@ def _full_stream():
     R.declare_orthography(st, lh.spelled_rime)
     R.declare_delivery(st, {}, name="delivered")
     R.declare_delivery(st, {}, name="sung")
+    # Constructed capability fixture, disclosed in FIXTURE_ONLY. The page
+    # stream cannot supply a slang projection merely by carrying a lexicon.
+    st.alt["slang"] = R.build_stream(DRAFT, get_phonology("eng"),
+                                    declaration={"language": "eng"})
     R.search_lifts(st)
     R.declare_senses(st, {})
     R.declare_stub_resolution(st, {3: (0, 2)})

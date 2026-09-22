@@ -70,11 +70,13 @@ try {
     call(a, {
       run_id: initial.run_id,
       run_revision: 1,
+      scheme: 'AA', // resend only part of the declaration; carry the relation
       answer: 'I left the basket underneath the oak',
     }),
     call(b, {
       run_id: initial.run_id,
       run_revision: 1,
+      scheme: 'AA', // resend only part of the declaration; carry the relation
       answer: 'I put the basket underneath the oak',
     }),
   ]);

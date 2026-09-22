@@ -441,7 +441,7 @@ def test_the_whole_registry():
     print("\n8. THE CENSUS — every schema askable, and it is DERIVED")
     from quality import schema_census as CEN
     rep = CEN.census()
-    check("all 77 schemas are askable with every declarable coordinate "
+    check(f"all {len(R.REGISTRY)} schemas are askable with every declarable coordinate "
           "declared — 0 blocked",
           len(rep["blocked"]) == 0 and len(rep["live"]) == len(R.REGISTRY),
           f"{len(rep['live'])} live / {len(R.REGISTRY)}, "
@@ -462,7 +462,7 @@ def test_the_whole_registry():
           "declares itself — 77 askable is not 77 shipped, and the report "
           "has to be the thing that says so (doctrine 94)",
           rep["fixture_only"] == ["dialect rhyme", "historical rhyme",
-                                  "proest"],
+                                  "proest", "rhyming slang"],
           str(rep["fixture_only"]))
     # NAMING THE COORDINATE, not just the schema. A reason that says "needs
     # more work" is the bare verdict doctrine 20 refuses; a reason that names
