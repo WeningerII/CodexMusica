@@ -260,7 +260,10 @@ def test_theta_for_and_its_readers():
         # `field_band`; `_field_one` is where the "grader" arm actually
         # scores, and it is the site M-139 already repaired once for the
         # same class of miss.
-        "Reviser._field_one": inspect.getsource(_RV.Reviser._field_one),
+        # REPOINTED 2026-09-22: `_field_one` delegates the coarse scoring
+        # to `_field_split`, which is where the cut is now applied
+        # (`admits_decl`); `_field_one` itself only joins the two halves.
+        "Reviser._field_split": inspect.getsource(_RV.Reviser._field_split),
         # The FOURTH, joined 2026-09-02 with the pricing. `recover` does
         # not GRADE, but every edge it lays down is a band-passing pair by
         # construction and the cover goes straight to `--groups=`, so a

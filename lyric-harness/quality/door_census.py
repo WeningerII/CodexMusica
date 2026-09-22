@@ -235,27 +235,27 @@ RULINGS = {
         "The pairwise GRAPH (`chains`, `graph`): a GENERATOR over every line "
         "pair, asking every admittable coarse relation plus REPEAT. The "
         "schemas are not folded in because, over every pair, the default "
-        "door does not separate from its matched redeal: @NULL_ALL@ "
+        "door does not separate from its matched redeal: all 91 pairs R_obs 51.14% against a null median 53.32% and max 54.90%, p 0.8095 at 20 draws "
         "(`chance_rate.py --null`), while on DECLARED pairs it does: "
-        "@NULL_MAN@. A generator asking a question answered at chance "
+        "the 7 mandated pairs R_obs 92.26% against a null median 52.68% and max 55.95%, +39.58 pp over the median. A generator asking a question answered at chance "
         "manufactures structure (doctrine 71; M-139, M-145)."),
     ("lyric_harness.py", "infer_chains.match"): (
         ARGUED,
         "Chain promotion at `theta_chain` over every admittable coarse "
         "relation plus REPEAT — a generator like `rhyme_graph`, for the same "
-        "measured reason (@NULL_ALL@; M-139)."),
+        "measured reason (all 91 pairs R_obs 51.14% against a null median 53.32% and max 54.90%, p 0.8095 at 20 draws; M-139)."),
     ("quality/revise.py", "Reviser.mandate_from_graph"): (
         ARGUED,
         "`--cliques` means the rhyme graph: a GENERATOR cover over every "
         "pair, handed to `grade()`, which asks every schema of each pair it "
         "then declares. Folding schemas into the generator would build "
-        "covers from a door at chance over undeclared pairs (@NULL_ALL@; "
+        "covers from a door at chance over undeclared pairs (all 91 pairs R_obs 51.14% against a null median 53.32% and max 54.90%, p 0.8095 at 20 draws; "
         "M-145)."),
     ("quality/recover.py", "recover"): (
         ARGUED,
         "The pasted-song door (M-72): a GENERATOR over every line pair of a "
         "text, same argument and measurement as `mandate_from_graph` "
-        "(@NULL_ALL@; M-145)."),
+        "(all 91 pairs R_obs 51.14% against a null median 53.32% and max 54.90%, p 0.8095 at 20 draws; M-145)."),
     ("quality/rhyme_types.py", "coarse_relation_consensus"): (
         ARGUED,
         "The all-pronunciation sub-question for the COARSE relations: every "
@@ -278,12 +278,6 @@ RULINGS = {
         "pairs of 4,000 (`chance_rate.ADOPTED['schema']`), which would "
         "saturate a four-line partition (doctrine 14; M-138)."),
 
-    # --------------------------------------------------------- INCOMPLETE
-    ("quality/cym_rhyme_rate.py", "section9"): (
-        INCOMPLETE,
-        "DEFECT: compares `relation_type(a, b)` — a SET since 2026-09-22 — "
-        "for EQUALITY with 'RHYME', which is never true. Must be membership "
-        "(`'RHYME' in ...`). Outside this census's owner (M-139)."),
 }
 
 #: The two RENDERING sites inside `check_scheme` cannot be keyed by function
@@ -342,9 +336,10 @@ _BY_DOOR = {
 # 0, per_word 3, rendering 6, validation 1, argued 14~~. The detector now
 # reads `admits_decl`/`admitted_relations`, RHYME-family intersections and
 # single-label EQUALITY, and two dispositions joined (DEFINITION, FORM). The
-# one INCOMPLETE site is a single-label defect outside this census's owner.
+# single-label site in cym_rhyme_rate.py was repaired by the lead the same day
+# (membership now), so incomplete is 0.
 # Measured by `python3 quality/door_census.py --check`.
-PINNED = {"sites": 37, "full": 7, "incomplete": 1, "per_word": 9,
+PINNED = {"sites": 36, "full": 7, "incomplete": 0, "per_word": 9,
           "rendering": 3, "validation": 1, "definition": 2, "form": 6,
           "argued": 8}
 

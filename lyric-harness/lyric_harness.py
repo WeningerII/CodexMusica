@@ -3492,7 +3492,7 @@ def theta_for(s, decl):
 
       `check_scheme`'s violation chain and its transitivity closure (here),
       `quality.revise.Reviser.grade`'s violation chain,
-      `quality.revise.Reviser._field` at `field_band="grader"`, whose own
+      `quality.revise.Reviser._field_split` (the `field_band="grader"` arm), whose own
         docstring promises it asks the verdict's question (M-139 fixed the
         same site for the same class of miss once already), and
       `quality.recover.recover`'s edge admit, which is the FOURTH and
@@ -13472,8 +13472,12 @@ def cli():
                 detail=["the path is read relative to the working directory, "
                         "not to any file already handed in."])
     except IndexError as e:
-        verb = sys.argv[1] if len(sys.argv) > 1 else "(no verb)"
-        n = max(0, len(sys.argv) - 2)
+        # The verb is the first argument that is not a global flag
+        # (`--input-format=`, `--fallback=`, ... ride ahead of it).
+        _pos = [i for i, a in enumerate(sys.argv[1:], 1)
+                if not a.startswith("--")]
+        verb = sys.argv[_pos[0]] if _pos else "(no verb)"
+        n = max(0, len(sys.argv) - 1 - _pos[0]) if _pos else 0
         _refuse(f"{verb} — ran out of arguments at {n} given",
                 detail=["`--help` prints every verb's usage line; `wiring` "
                         "prints which verb runs on which layer.",

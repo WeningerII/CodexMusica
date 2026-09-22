@@ -440,8 +440,8 @@ NULL_LINES = 14
 # relation — an admitted coarse relation or any schema — asked of every pair.
 # Measured by `python3 quality/chance_rate.py --null --check`.
 ADOPTED_SEPARATION = {
-    "all": {"r_obs": 0.0, "median": 0.0, "max": 0.0},
-    "mandated": {"r_obs": 0.0, "median": 0.0, "max": 0.0},
+    "all": {"r_obs": 0.5114, "median": 0.5332, "max": 0.5490},
+    "mandated": {"r_obs": 0.9226, "median": 0.5268, "max": 0.5595},
 }
 
 #: How far a re-derivation may sit from the pin before it is DRIFT. The figures
