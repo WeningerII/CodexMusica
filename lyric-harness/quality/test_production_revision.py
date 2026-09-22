@@ -289,8 +289,13 @@ class ProductionRevisionTests(unittest.TestCase):
         lex.pronunciations = P.validate_choices(case['pronunciations'], lex)
         r = Reviser(lex=lex)
         lines = case['draft']
+        # REPINNED for relation SETS: every pair at L2 stands in CONSONANCE
+        # among its other relations (a coda match is consonance whatever
+        # else holds), so `class:CONSONANCE` is satisfied there now. The
+        # rendering question needs both endpoints violated; `class:
+        # RIME_RICHE`, which none of these pairs stands in, gives that.
         m = mandate([g.split(',') for g in case['groups'].split(';')],
-                    n_lines=12, default_relation='class:CONSONANCE',
+                    n_lines=12, default_relation='class:RIME_RICHE',
                     returns=[[8, 9]])
         b = next(b for b in r.brief(lines, m, target_lines={2},
                                     include_offers=False) if b.line_no == 2)
@@ -298,7 +303,9 @@ class ProductionRevisionTests(unittest.TestCase):
         self.assertIn('G', b.violated_groups)
         self.assertTrue(b.slot_conflict)
         for rendered in (str(b), render_line(b, lines)):
-            a = next(x for x in rendered.splitlines() if 'group A ' in x)
+            # The obligation line (not a finding that also names group A).
+            a = next(x for x in rendered.splitlines()
+                     if 'group A ' in x and 'must' in x)
             self.assertIn('VIOLATED', a)
             self.assertNotIn('HOLDS', a)
 
@@ -527,11 +534,17 @@ class ProductionRevisionTests(unittest.TestCase):
         for first in [lines[0], 'Your kettle whistles by the stove']:
             trial = [first, *lines[1:]]
             full = self.reviser.grade(trial, m)
-            # Pair-bound anaphora has no use for a whole-song enumeration;
-            # the selected grade must agree with its rows in the full grade.
+            # Every graded pair is judged against the whole vocabulary, but a
+            # selected grade asks it only about the selected group's pairs
+            # (never a whole-song enumeration); its rows must agree with the
+            # full grade's.
             with patch.object(relations, 'line_pairs_for', wraps=relations.line_pairs_for) as enumeration:
                 partial = self.reviser.grade(trial, m, _only_groups={0})
-            self.assertFalse(enumeration.called)
+            asked = {tuple(p) for c in enumeration.call_args_list
+                     for p in (c.kwargs.get('requested_pairs') or ())}
+            self.assertTrue(all(c.kwargs.get('requested_pairs') is not None
+                                for c in enumeration.call_args_list))
+            self.assertLessEqual(asked, {(1, 2)})
             for key in ['verdicts', 'violations']:
                 self.assertEqual(partial[key], [v for v in full[key] if v['group'] == 0])
             self.assertEqual(partial['refused_obligations'],

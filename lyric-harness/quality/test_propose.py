@@ -239,7 +239,7 @@ DRAFT = ["It gleamed like polished silver",
 PIVOT_BRIEF = B(
     line_no=3, text=DRAFT[2],
     findings=[F("SCHEME_VIOLATION", "flag",
-                "L1 and L3 are both in group A [1, 3] but do not rhyme",
+                "L1 and L3 are both in group A [1, 3] but do not stand in the relation it requires",
                 "NO_RELATION (score 0.118; 'silver' ~ 'dream')", [1, 3])],
     # `forbidden_modal=["dream"]` UNTIL 2026-08-16, which encoded a Brief
     # `brief()` can no longer emit: on a joint-conflict pivot the modal head

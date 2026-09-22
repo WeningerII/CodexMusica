@@ -1455,7 +1455,8 @@ class Reviser:
 
     # -- grading the mandate ----------------------------------------------
 
-    def grade(self, lines, mandate=None, profile=None, sections=None, *, _only_groups=None):
+    def grade(self, lines, mandate=None, profile=None, sections=None, *,
+              _only_groups=None, _verdicts_only=False):
         """The mandate, diffed against the graph. -> dict, group-scoped.
 
         `sections` IS THE STANZA GROUND AND IT IS PASSED, NEVER INVENTED
@@ -2104,17 +2105,25 @@ class Reviser:
         # route is open (nothing narrowed or declared), a pair is satisfied
         # when ANY relation in that set holds.
         _open = [v for v in verdicts if self.schema_route_open(m, v["group"])]
-        if verdicts:
+        # `_verdicts_only` (a TRIAL grade, `declared_offer`): the caller reads
+        # only violations and refusals, and a pair's schemas can change
+        # those only where the group's route is open and the coarse
+        # relations failed it. The same judge answers those pairs; the
+        # reporting-only schema sets of every other pair are not computed.
+        _asked = ([v for v in _open
+                   if v["why"] and "REPEAT" not in v["relations"]]
+                  if _verdicts_only else verdicts)
+        if _asked:
             from quality import relations as _RF
             _wvp = _RF.whole_vocabulary_pairs(
                 lines, self._relation_phonology(), sections=sections,
                 bearing={ln - 1 for g in m.groups for ln in g
                          if 1 <= ln <= len(lines)},
                 requested_pairs={tuple(sorted(v["lines"]))
-                                 for v in verdicts})
+                                 for v in _asked})
             _open_ids = {id(v) for v in _open}
             _fan_unknown = set()
-            for v in verdicts:
+            for v in _asked:
                 _hit = sorted(_wvp.get(tuple(sorted(v["lines"]))) or ())
                 v["schemas"] = _hit
                 v["relations"] = sorted(set(v["relations"]) | set(_hit))
@@ -3427,7 +3436,8 @@ class Reviser:
             add(j, Finding(
                 "SCHEME_VIOLATION", "flag",
                 f"L{i} and L{j} are both in group {v['label']} "
-                f"{v['members']} but do not rhyme",
+                f"{v['members']} but do not stand in the relation it "
+                f"requires",
                 f"{v['why']} (score {v['score']:.3f}; "
                 f"{v['endwords'][0]!r} ~ {v['endwords'][1]!r})"
                 f"{v.get('attribution', '')}", [i, j],
@@ -4096,7 +4106,8 @@ class Reviser:
             # whole-vocabulary fan. The complete draft and mandate still reach
             # the grader, including every global frame and verbatim target.
             demanded_grade = self.grade(trial, m, profile=profile, sections=sections,
-                                        _only_groups=requested)
+                                        _only_groups=requested,
+                                        _verdicts_only=True)
             demanded_unknown = set(map(tuple, demanded_grade.get("refused_obligations", ())))
             if demanded(failures(demanded_grade) | demanded_unknown):
                 refused.append(word)
@@ -4106,11 +4117,12 @@ class Reviser:
             # the same complete relevant-group comparison as before.
             if baseline_bad is None:
                 baseline = self.grade(lines, m, profile=profile, sections=sections,
-                                      _only_groups=relevant)
+                                      _only_groups=relevant,
+                                      _verdicts_only=True)
                 baseline_bad = failures(baseline)
                 baseline_unknown = set(map(tuple, baseline.get("refused_obligations", ())))
             graded = self.grade(trial, m, profile=profile, sections=sections,
-                                _only_groups=relevant)
+                                _only_groups=relevant, _verdicts_only=True)
             bad = failures(graded)
             unknown = set(map(tuple, graded.get("refused_obligations", ())))
             unanswered = demanded(bad | unknown)
