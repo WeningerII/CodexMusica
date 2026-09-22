@@ -351,12 +351,19 @@ def test_the_consumers_print_it():
     # chain's mean_coherence can rest on a MULTI-WORD span, not just the bare
     # end word — still needs a real witness, and sonnet 19 supplies one that
     # survives the comparator change: L13/14, `thy wrong` ~ `live young`.
+    # REPOINTED 2026-09-22 (the N-relation model): sonnet 19's `thy wrong`
+    # ~ `live young` no longer chains — coarse relations now start on a
+    # lexically stressed syllable and read the consonants between vowels —
+    # so the witness moved, MEASURED over all 152 sonnets, to sonnet 14,
+    # whose chain rests on `minutes tell` ~ `rain and wind`: a multi-word
+    # span on both sides behind a mean labelled with bare end words.
     import battery
-    s19 = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))[18]
-    got = [m for c in lh.infer_chains(LEX, s19, DECL)
+    s14 = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))[13]
+    got = [m for c in lh.infer_chains(LEX, s14, DECL)
            for m in c["mosaic_pairs"]]
     check("...and on a real chain it names the mosaic pairs behind the mean",
-          any("thy wrong" in m["note"] for m in got),
+          any("minutes tell" in m["note"] and "rain and wind" in m["note"]
+              for m in got),
           str([m["note"] for m in got][:1]))
 
 

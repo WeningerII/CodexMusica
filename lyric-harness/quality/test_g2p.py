@@ -503,7 +503,14 @@ def test_letter_layer_costs_more_than_it_buys():
     # to it (`lyric_harness.admit_is_default`), and it is the door the
     # original 50.0%-vs-5.1% measurement was made under — re-measured
     # here, it reproduces to the decimal (5/10 against 2/39, 9.8x).
-    _door = lh.Declaration(admit=("RHYME", "RIME_RICHE"))
+    # THE RHYME FAMILY, 2026-09-22 (the N-relation model): the historical
+    # two-name door's equivalent is `RHYME_RELATIONS`, because a rhyme on a
+    # PROMOTED final syllable — which the two names covered when it was
+    # labelled RHYME — is its own relation, PROMOTED_RHYME, now. MEASURED:
+    # under ("RHYME", "RIME_RICHE") alone the derived layers go 2/39 -> 11/39
+    # wrong, every added pair a promoted-final rhyme the narrower door no
+    # longer names; under the rhyme family the pinned sets reproduce exactly.
+    _door = lh.Declaration(admit=tuple(sorted(lh.RHYME_RELATIONS)))
     m0, j0, r0, v0, details0 = _patched_battery(None, decl=_door, with_refusal_details=True)
     m1, j1, r1, v1 = _patched_battery("high", decl=_door)
     m2, j2, r2, v2 = _patched_battery("low", decl=_door)

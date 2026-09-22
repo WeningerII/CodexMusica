@@ -4382,17 +4382,26 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
         _wvp = _WVP(list(lines), _PH.get("eng"),
                     bearing={x for pr in mandated for x in pr},
                     requested_pairs=_asked)
+        from quality.relations import REGISTRY as _REG
         for pr in sorted(_asked):
             if pr in _wvp:
                 pair_schemas[pr] = sorted(_wvp[pr])
-                schema_satisfied.append({"lines": pr,
-                                         "satisfied_by": pair_schemas[pr]})
+                # Every schema the pair stands in is recorded; a schema the
+                # registry disowns (forbidden / deprecated — homoioteleuton
+                # is the ban itself) is a relation, never a satisfaction.
+                _sat = [n for n in pair_schemas[pr]
+                        if _REG[n].normative not in ("forbidden",
+                                                     "deprecated")]
+                if _sat:
+                    schema_satisfied.append({"lines": pr,
+                                             "satisfied_by": _sat})
         _kept = []
         for v in violations:
             pr = (v[0], v[1])
             if v[3].startswith("REPEAT"):
                 _kept.append(v)
-            elif pr in pair_schemas and admit_is_default(decl):
+            elif pr in {tuple(d["lines"]) for d in schema_satisfied} \
+                    and admit_is_default(decl):
                 continue
             elif pr in _wvp.undecided and admit_is_default(decl):
                 names = _wvp.undecided[pr]
@@ -12210,14 +12219,9 @@ def main():
                         print(f"      {_l}")
                 if b.candidates:
                     print(f"      offered: {', '.join(b.candidates[:12])}")
-                    # RENDER SITE 6 OF 6. `_print_brief_report` is a SECOND
-                    # renderer of a `Brief` -- it restates `Brief.__str__`'s
-                    # per-line block rather than calling it -- so a rule
-                    # added to one and not the other vanishes from the verb
-                    # a writer actually runs (`MISSING.md` M-139).
-                    from quality.revise import schema_route_lines as _SRL
-                    for _l in _SRL(b.schema_route_note, "      "):
-                        print(_l)
+                    # (The schema-route note rendered here was the 77-schema
+                    # RESCUE's disclosure; every pair is judged against the
+                    # whole vocabulary now, so `Brief` carries no such note.)
             _print_whole()
             return _counts()
 

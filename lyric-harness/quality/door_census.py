@@ -269,12 +269,12 @@ RULINGS = {
         ARGUED,
         "E-5 changes the coda SCALAR, so it counts the coarse admitted set "
         "that scalar moves; check_scheme's violations over every relation "
-        "are reported beside it in the same run. @E5@ (E-5)."),
+        "are reported beside it in the same run. MEASURED 2026-09-22 by `e5_coda_adoption.py`: 938 mandated pairs admitted under gift and 938 under cannot_tell, 0 lost; violations 7 -> 7 (E-5)."),
     ("quality/negative_control.py", "Quatrain.__init__"): (
         ARGUED,
         "The negative control of the COMPARATOR reads the coarse relation "
         "set at the declaration's cuts plus REPEAT. The schemas have their "
-        "own matched-redeal null: a schema holds on @SCHEMA_BAND@ random "
+        "own matched-redeal null: a schema holds on 896..921 random "
         "pairs of 4,000 (`chance_rate.ADOPTED['schema']`), which would "
         "saturate a four-line partition (doctrine 14; M-138)."),
 

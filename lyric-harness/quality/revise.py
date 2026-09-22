@@ -2121,10 +2121,15 @@ class Reviser:
                 v["relations"] = sorted(set(v["relations"]) | set(_hit))
                 if id(v) not in _open_ids:
                     continue
-                if _hit:
+                # A schema the registry disowns (forbidden / deprecated —
+                # homoioteleuton is the ban itself) is recorded as a relation
+                # the pair stands in but never satisfies a group.
+                _sat = [n for n in _hit if _RF.REGISTRY[n].normative
+                        not in ("forbidden", "deprecated")]
+                if _sat:
                     v["satisfied_by"] = sorted(set(v["satisfied_by"])
                                                | set(v["admitted"])
-                                               | set(_hit))
+                                               | set(_sat))
                     if v["why"] and "REPEAT" not in v["relations"]:
                         v["why"] = None
                 elif v["why"] and "REPEAT" not in v["relations"]:
