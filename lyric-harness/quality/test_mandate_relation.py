@@ -912,9 +912,13 @@ def test_the_type_judge_past_one_syllable():
           ask("type:masculine rhyme", "cellar", "seller") is False
           and ask("type:feminine rhyme", "cellar", "teller") is True)
     check("a name that is NEITHER refuses naming the registry's gap — "
-          "pararhyme has no 2-syllable key and no ruled extension, and "
+          "alliteration has no 2-syllable key and no ruled extension, and "
           "the pair may well stand in it (doctrine 79)",
-          ask("type:pararhyme", "cellar", "seller") == "REFUSED")
+          ask("type:alliteration", "cellar", "seller") == "REFUSED")
+    check("a partial relation CONTINUES across the span, so it answers at "
+          "any length: cellar/seller's vowels agree, so pararhyme (the "
+          "vowel must differ) is a real no",
+          ask("type:pararhyme", "cellar", "seller") is False)
     check("the identity family extends too: a repeated word is "
           "`type:identical rhyme` at any length",
           ask("type:identical rhyme", "cellar", "cellar") is True)
@@ -936,11 +940,11 @@ def test_the_type_judge_past_one_syllable():
     # is the disposition set doing the work, not the fixture.
     keep2 = RT.COUNT_DEFINITIONAL
     try:
-        RT.COUNT_DEFINITIONAL = keep2 | {"pararhyme"}
-        check("MUTATION: with pararhyme marked count-definitional, the "
+        RT.COUNT_DEFINITIONAL = keep2 | {"alliteration"}
+        check("MUTATION: with alliteration marked count-definitional, the "
               "refusal collapses to a flat False — the three-way "
               "disposition is what keeps the registry's gap honest",
-              ask("type:pararhyme", "cellar", "seller") is False)
+              ask("type:alliteration", "cellar", "seller") is False)
     finally:
         RT.COUNT_DEFINITIONAL = keep2
     check("...and both mutations are reverted",

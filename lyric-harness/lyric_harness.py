@@ -820,7 +820,16 @@ class Declaration:
     #               to agree with identity would do. Reachable so the claim is
     #               checkable, NOT proposed.
     #   "licensed"  identity plus `nucleus_licence`, the two-tier rule.
-    nucleus_agreement: str = "scalar"          # "scalar"|"identity"|"licensed"
+    #               THE DEFAULT SINCE THE N-RELATION MODEL. The objection
+    #               above to identity was that it "deletes every near rhyme"
+    #               — true only while a pair could hold ONE relation, so a
+    #               near rhyme had to be typed RHYME or fail. A pair now
+    #               stands in every relation it supports and is judged
+    #               against every registry schema, so a near vowel is judged
+    #               by the schemas that name it (family, slant...) and RHYME
+    #               and ASSONANCE mean the vowel agrees: bread/lid, bud/red
+    #               and black/thick no longer round up to RHYME.
+    nucleus_agreement: str = "licensed"        # "scalar"|"identity"|"licensed"
     # Unordered vowel pairs that AGREE without being identical, for the
     # `licensed` shape. The default holds exactly one pair and it is not a
     # judgement about English: CMUdict writes ONE reduced vowel two ways, and

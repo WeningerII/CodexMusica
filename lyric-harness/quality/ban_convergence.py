@@ -100,12 +100,14 @@ PINNED = {
     # these same totals. September 2's 719/549/170, 487, 7, 7/155/325 were
     # already stale on main; the new reader changes no historical mandate.
     # REPINNED 2026-09-22 (N-relation model), `ban_convergence.py --check`:
-    # ~~517/202, eligible 457, banned 9, head 9 / tail 162 / outside 286~~.
+    # ~~517/202, eligible 457, banned 9, head 9 / tail 162 / outside 286~~
+    # (tail/outside re-measured 160/295 after the later revise.py modal-head
+    # change, same day).
     # Every pair judged against every relation it stands in and every
     # schema; three refusals resolved, eligibility reads REPEAT from the set.
     "pairs_mandated": 719, "pairs_judged": 520, "pairs_refused": 199,
     "eligible": 459, "banned_in_final": 4,
-    "rank_head": 4, "rank_tail": 156, "rank_outside": 299,
+    "rank_head": 4, "rank_tail": 160, "rank_outside": 295,
 }
 
 

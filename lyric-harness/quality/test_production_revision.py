@@ -215,6 +215,13 @@ class ProductionRevisionTests(unittest.TestCase):
                              for g in plan['returns'].split(';')])
         r = Reviser(rdecl=ReviseDeclaration(max_rounds=1, attempts_per_line=2,
                                             backtrack_width=1))
+        # THE PRECONDITION IS AN EMPTY SINGLE-PARTNER MENU. The recorded case
+        # had one while CONSONANCE excluded perfect rhymes; under relation
+        # sets L2's menu is legitimately non-empty (york/dark stands in
+        # CONSONANCE), so the empty field is set up directly: what this test
+        # pins is what the LOOP does with an empty menu, not which words the
+        # field holds.
+        r._field_split = lambda word, profile=None: ([], [])
         b = next(b for b in r.brief(lines, m, target_lines={2}) if b.line_no == 2)
         self.assertTrue(b.field_computed)
         self.assertTrue(b.violated_groups)
