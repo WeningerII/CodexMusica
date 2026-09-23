@@ -5248,7 +5248,13 @@ def test_the_batch_door_asks_independent_lines_together():
         fh.write("\n".join([
             "we carried every box across the yard",
             "the morning light was thin and cold as tea",
-            "she counted out the coins upon the bench",
+            # ~~bench~~ -> floor (2026-09-23, N-relation model): RHYME now
+            # needs vowel IDENTITY, so bench's whole perfect-rhyme field is
+            # the 8 modal -ench words and L4's brief offers nothing (it goes
+            # to the group backtrack, not the batch). Main's field for bench
+            # was lunch/inch/branch… — not rhymes. `floor` keeps a non-modal
+            # perfect field (yore, war, four…) and a modal one (door).
+            "she counted out the coins upon the floor",
             "the radio was playing to the moon",
             "a letter came addressed to no one here",
             "the kettle hummed along beside the drum",
@@ -5280,7 +5286,7 @@ def test_the_batch_door_asks_independent_lines_together():
     # A row set missing a member REFUSES, and nothing is folded.
     st["pending"]["answer"] = ("L2: the morning light was thin and hit us "
                                "hard\nL4: she reached inside the drawer "
-                               "and found a wrench\nL6: the kettle hummed "
+                               "and found a door\nL6: the kettle hummed "
                                "along beside the drum")
     json.dump(st, open(state, "w"))
     rc2, out2, _ = run("revise", draft, *mand, f"--propose=defer:{state}",
@@ -5296,7 +5302,7 @@ def test_the_batch_door_asks_independent_lines_together():
     # carrying its round-1 rejection.
     st["pending"]["answer"] = ("L2: the morning light was thin and hit us "
                                "hard\nL4: she reached inside the drawer "
-                               "and found a wrench\nL6: the kettle hummed "
+                               "and found a door\nL6: the kettle hummed "
                                "along beside the drum\nL8: and nobody "
                                "remembered where the light")
     json.dump(st, open(state, "w"))

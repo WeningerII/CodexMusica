@@ -36,6 +36,8 @@ EMPTY CELLS (honest, waiting on infrastructure or history):
     types — croes, traws, sain, llusg) and the TEXT was located 2026-08-10
     (`data/sources.tsv:56`, OVERTURNED via GITenberg). Seven Welsh files,
     8,758 lines, are on disk. Live exemplars: Gwaith Alun 1909,
-    `corpus/cym_alun_strict.txt`, 1,558 strict-metre lines, 57.1% answered in
-    search mode against a 200-shuffle null max of 21.8%, p at the floor; and
+    `corpus/cym_alun_strict.txt`, 1,558 strict-metre lines, 55.7% answered in
+    search mode against a 200-shuffle null max of 21.3%, p at the floor
+    (REPINNED 2026-09-23 after `7d1ded93`'s J-1 glide change; ~~57.1% against
+    21.8%~~); and
     Llywelyn Goch's cywydd, `corpus/song/cym_cynghanedd_llywelyn_goch_cywydd.txt`.

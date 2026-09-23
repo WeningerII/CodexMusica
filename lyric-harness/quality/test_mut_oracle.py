@@ -247,12 +247,19 @@ def test_transitivity_defect():
           "admitted, so done/stone is a real edge and there is no defect",
           res["transitivity_defect_triangles"] == 0,
           f"{edges}; admit={Declaration().admit}")
+    # SINCE 2026-09-22 THE SHIPPED NUCLEUS IS A LICENSED IDENTITY, under which
+    # RHYME is (near-)transitive and none of these three pairs stands in it,
+    # so the broken class is demonstrated under the SCALAR nucleus declared
+    # beside the narrowed door: done~gone and gone~stone stand in RHYME and
+    # done~stone does not.
     narrow = check_scheme(LEX, lines, "AAA",
-                          Declaration(admit=("RHYME", "RIME_RICHE")))
-    check("...and NARROWING the door to the two rhyme relations makes the "
-          "same three lines a broken class again — done/stone clears the "
-          ".75 scalar and fails on the RELATION, which is `admits`'s second "
-          "clause and the only thing this counter exists to say",
+                          Declaration(admit=("RHYME", "RIME_RICHE"),
+                                      nucleus_agreement="scalar"))
+    check("...and NARROWING the door to the two rhyme relations (scalar "
+          "nucleus declared) makes the same three lines a broken class "
+          "again — done/stone clears the .75 scalar and fails on the "
+          "RELATION, which is `admits`'s second clause and the only thing "
+          "this counter exists to say",
           narrow["transitivity_defect_triangles"] == 1,
           f"{ {p['endwords']: ('+'.join(p['relations']), round(p['score'], 3)) for p in narrow['pair_scores']} }"
           f"; admit=('RHYME', 'RIME_RICHE'). A counter that fired on "

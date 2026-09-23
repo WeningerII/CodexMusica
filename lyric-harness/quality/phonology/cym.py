@@ -113,7 +113,8 @@ FIVE COORDINATES, EVERY ONE DECLARED AND EVERY ONE MEASURED. See
    line of the couplet ends accented, the other unaccented. Measured on the
    staged cywydd, which MANDATES 54 couplets: the shipped rule JUDGES 51 and
    answers TRUE on **51 of 51**; the English port judges 52 and answers TRUE on
-   **2 of 52**. It is not rejected, it is FALSIFIED, and `rule="prominent"`
+   **1 of 52** (~~2 of 52~~ until 7d1ded93's J-1 glide rule; repinned
+   2026-09-23, `cym_rhyme_rate.PINNED["s2"]`). It is not rejected, it is FALSIFIED, and `rule="prominent"`
    keeps the falsification a function call (doctrine 84).
 2. **The circumflex is FOLDED** (`diacritics="fold"`). It is a LENGTH mark, and
    the staged corpus writes the same language both ways: `cym_song_alun.txt`
