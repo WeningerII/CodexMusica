@@ -87,7 +87,10 @@ PRICING_RATE = PRICING_CANON[0] / PRICING_CANON[1]
 #: THE CUTS ADOPTED, 2026-09-02, by falsifier E1 of the preregistration.
 #: CONSONANCE is 0.75 — MEASURED and unmoved, written down because an
 #: omitted entry and a measured-equal one are different claims (doctrine 20).
-ADOPTED_CUTS = {"ASSONANCE": 0.82, "CONSONANCE": 0.75}
+#: RE-ADOPTED 2026-09-23: ASSONANCE ~~0.82~~ -> 0.75, the cut this module's
+#: `--check` re-derives under the licensed nucleus (the random ASSONANCE arm
+#: now holds only identical stressed vowels). CONSONANCE unchanged.
+ADOPTED_CUTS = {"ASSONANCE": 0.75, "CONSONANCE": 0.75}
 
 #: THE CEILING E1 AND E2 FIRE ABOVE. The exact Clopper–Pearson 95% interval on
 #: `PRICING_CANON` — 12 of 1,014 — is [0.006130, 0.020581], which over 1,014

@@ -2141,7 +2141,16 @@ class Reviser:
                     if v["why"] and "REPEAT" not in v["relations"]:
                         v["why"] = None
                 elif v["why"] and "REPEAT" not in v["relations"]:
-                    _undecided = getattr(_wvp, "undecided", {}).get(tuple(sorted(v["lines"])))
+                    # Refuse only on an undecided schema that COULD satisfy
+                    # the group: a disowned one (forbidden / deprecated)
+                    # never satisfies, so its indecision cannot move the
+                    # verdict, and with every satisfier decided False the
+                    # pair stays FAILED.
+                    _undecided = [n for n in (getattr(_wvp, "undecided", {})
+                                              .get(tuple(sorted(v["lines"])))
+                                              or ())
+                                  if _RF.REGISTRY[n].normative
+                                  not in ("forbidden", "deprecated")]
                     if _undecided:
                         i, j = v["lines"]
                         k = v["group"]

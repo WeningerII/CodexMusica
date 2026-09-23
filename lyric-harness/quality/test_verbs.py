@@ -4990,16 +4990,26 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
                        f"--blueprint={bpath}", "--subdivision", "2",
                        "--max-rounds=1", "--attempts=0", "--backtrack=0",
                        f"--propose=defer:{st}")
+    # ~~UNRESOLVED: L4, L8~~ -> L4, L8, L15, L16, L17 (2026-09-23, N-relation
+    # model). Group G binds 15.T7 'plea', L16 'quay', 17.T3 'tree'; CMUdict
+    # reads 'quay' K IY1 and K EY1. Main scored plea/KAY 0.787 as RHYME
+    # (IY~EY); vowel agreement is now identity, so that reading stands in NO
+    # relation while K IY1 is RHYME — the verdict differs across unresolved
+    # readings and both (15,16) and (16,17) are REFUSED for G, not passed.
+    _R3 = _machine_result(out3)
     m3 = re.search(r"\[FINISHED — declared mandate — exit (\d) — (\w+) after "
-                   r"(\d+) round\(s\) — UNRESOLVED: L4, L8 — WHOLE-DRAFT FLAG: "
+                   r"(\d+) round\(s\) — UNRESOLVED: L4, L8, L15, L16, L17 — "
+                   r"WHOLE-DRAFT FLAG: "
                    r"([^\]—]+) — COVERAGE UNCERTIFIED: [^\]]+\]", out3)
     check("under defer: the stamp carries `— WHOLE-DRAFT FLAG: "
           "TITLE_NOT_IN_HOOK` beside the unresolved reading targets and "
           "uncertified coverage, and its exit is the process's 3",
           rc3 == 3 and m3 is not None and m3.group(1) == "3"
           and m3.group(4).strip() == "TITLE_NOT_IN_HOOK"
-          and _machine_result(out3).get('unresolved_lines') == [4, 8]
-          and _machine_result(out3).get('coverage', {}).get('certified') is False,
+          and _R3.get('unresolved_lines') == [4, 8, 15, 16, 17]
+          and _R3.get('coverage', {}).get('certified') is False
+          and {"rhyme:15:16:6", "rhyme:16:17:6"}
+          <= set(_R3.get('coverage', {}).get('refused_obligations') or ()),
           m3.group(0) if m3 else out3[-300:])
     st0 = os.path.join(d, "state0.json")
     bp0 = os.path.join(HERE, "..", "songs", "keep_the_light.blueprint.json")
@@ -5801,8 +5811,17 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     #     F) and wins the batch's independence walk over L8, which used to
     #     stand in the batch only because the (7, 8) finding sat on it alone.
     #     Every value below is re-measured on that trajectory; none is loosened.
+    # THE RELATION IS DECLARED (2026-09-23, N-relation model). The planner
+    # no longer DRAWS a relation per group (seed 7 used to draw perfect /
+    # interlaced / internal rhyme, pantun, light, family), so under the
+    # default every group here is satisfied by some schema or REFUSED as
+    # undecided, and the loop's only open question is L3's return (a single
+    # `propose`, measured). Declaring `--relation=RHYME` on every call
+    # restores violated groups on L5 and L7, which is what this parity
+    # check needs: the batch below is re-measured under it, not assumed.
+    REL = "--relation=RHYME"
     st = os.path.join(tmpd, "state.json")
-    rc, out, _ = run("finish", draft, "--seed=7", "--lines=12",
+    rc, out, _ = run("finish", draft, "--seed=7", "--lines=12", REL,
                      f"--propose=defer:{st}", expect_rc=4)
     with _io.open(st, encoding="utf-8") as fh:
         stj = json.load(fh)
@@ -5815,7 +5834,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
           f"{rc} {pend.get('kind')} {members}")
     # while nothing has moved, the state and the file are the same draft
     rc, out, _ = run("tryline", draft, "5", "Stay by the door and pray",
-                     "--seed=7", "--lines=12", f"--propose=defer:{st}",
+                     "--seed=7", "--lines=12", REL, f"--propose=defer:{st}",
                      expect_rc=0)
     row = _machine_result(out)
     check("asked through the state, the verb says WHICH draft it read and "
@@ -5834,7 +5853,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # in the -out field the C mandate offers and NOT on the forbidden modal
     # list ('doubt', 'out', ... are REJECTED as the slop direction).
     rc, out, _ = run("tryline", draft, "7", "hold the door for drought",
-                     "--seed=7", "--lines=12", f"--propose=defer:{st}",
+                     "--seed=7", "--lines=12", REL, f"--propose=defer:{st}",
                      expect_rc=0)
     row = _machine_result(out)
     l7_before = bool(row.get("accepted"))
@@ -5842,7 +5861,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
           "way, and ACCEPTED", rc == 0 and row.get("against") == "state"
           and row.get("moves") == [7] and l7_before, out[-400:])
     rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
-                     "--seed=7", "--lines=12", "--propose=stub",
+                     "--seed=7", "--lines=12", REL, "--propose=stub",
                      expect_rc=2)
     check("a proposer spelling on tryline REFUSES — defer:PATH is the one "
           "value it takes", rc == 2 and "defer:PATH" in out, out[-300:])
@@ -5852,12 +5871,12 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     ol[0] = "the water holds the night"
     _io.open(other, "w", encoding="utf-8").write("\n".join(ol) + "\n")
     rc, out, _ = run("tryline", other, "3", "nothing here is very still",
-                     "--seed=7", "--lines=12", f"--propose=defer:{st}",
+                     "--seed=7", "--lines=12", REL, f"--propose=defer:{st}",
                      expect_rc=2)
     check("a state started on a DIFFERENT handed-in draft REFUSES by name",
           rc == 2 and "DIFFERENT handed-in draft" in out, out[-300:])
     rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
-                     "--seed=7", "--lines=12",
+                     "--seed=7", "--lines=12", REL,
                      f"--propose=defer:{os.path.join(tmpd, 'nope.json')}",
                      expect_rc=2)
     check("a state that does not exist REFUSES — nothing has been briefed",
@@ -5870,7 +5889,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
                                 "L7: hold the door for drought")
     with _io.open(st, "w", encoding="utf-8") as fh:
         json.dump(stj, fh)
-    rc, out, _ = run("finish", draft, "--seed=7", "--lines=12",
+    rc, out, _ = run("finish", draft, "--seed=7", "--lines=12", REL,
                      f"--propose=defer:{st}", expect_rc=4)
     with _io.open(st, encoding="utf-8") as fh:
         stj = json.load(fh)
@@ -5894,12 +5913,12 @@ def test_tryline_is_the_loops_own_acceptance_decision():
           f"{verdicts} vs tryline {l7_before}")
     # NOW the file is a draft the loop no longer holds
     rc, out, _ = run("tryline", draft, "9", "carry the cold light",
-                     "--seed=7", "--lines=12", expect_rc=2)
+                     "--seed=7", "--lines=12", REL, expect_rc=2)
     check("asked against the FILE once the state has moved past it, the "
           "verb REFUSES and names the state to ask instead",
           rc == 2 and "past this file" in out and st in out, out[-400:])
     rc, out, _ = run("tryline", draft, "9", "carry the cold light",
-                     "--seed=7", "--lines=12", f"--propose=defer:{st}")
+                     "--seed=7", "--lines=12", REL, f"--propose=defer:{st}")
     row = _machine_result(out)
     check("asked through the state, it answers against the CURRENT draft "
           "and says which lines moved",
@@ -5930,7 +5949,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     with _io.open(bad, "w", encoding="utf-8") as fh:
         json.dump(bj, fh)
     rc, out, _ = run("tryline", draft, "9", "carry the cold light",
-                     "--seed=7", "--lines=12", f"--propose=defer:{bad}",
+                     "--seed=7", "--lines=12", REL, f"--propose=defer:{bad}",
                      expect_rc=2)
     check("a state whose open brief was asked on a different draft than "
           "it now holds REFUSES rather than reads a verdict off it",

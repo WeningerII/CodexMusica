@@ -431,9 +431,31 @@ def test_real_population_against_shakespeares_own_form():
     check("off reproduces the current battery under the same declaration",
           dict(mandated=m0, judged=j0, refused=len(r0), violations=len(v0)) == battery.EXPECTED,
           f"{(m0, j0, len(r0), len(v0))}")
+    # 2026-09-23 (N-relation batch): a refusal can also be UNCERTAINTY that
+    # an unread INTERIOR word causes — a line-level schema cannot decide
+    # while a token inside the line has no reading. The derived layers give
+    # that token a reading and the schema then decides, so the pair is
+    # judged. MEASURED: exactly one such pair, sonnet 140 L6~L8
+    # ornaments/rents, whose line 6 carries `profan'd` (OOV in CMUdict, read
+    # P R OW0 F EY1 N D by the high layer); judged, it violates (no coarse
+    # relation, no schema).
+    sonnets_all = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))
+
+    def _interior_oov(p):
+        sn = sonnets_all[p[0] - 1]
+        return any(LEX.transcribe_word(w.lower())[1]
+                   for ln in (sn[p[1] - 1], sn[p[2] - 1])
+                   for w in lh.line_tokens(ln))
+    lexical_newly = {p for p in newly if details0[p]['unreadable']}
+    interior_newly = newly - lexical_newly
     check("the derived layers turn 39 of the 50 refusals into judgements",
-          len(newly) == 39 and all(details0[p]['unreadable'] for p in newly),
-          f"{len(newly)} lexical rescues; total refused {len(r0)} -> {len(r1)}")
+          len(lexical_newly) == 39,
+          f"{len(lexical_newly)} lexical rescues; total refused {len(r0)} -> {len(r1)}")
+    check("...and resolve exactly the uncertainty an unread INTERIOR word "
+          "caused — sonnet 140 L6~L8, `profan'd` — and no other",
+          interior_newly == {(140, 6, 8)}
+          and all(_interior_oov(p) for p in interior_newly),
+          f"{sorted(interior_newly)}")
     # REPINNED 2026-08-11: 38/39 -> 37/39, one PAIR added, after cell BA's
     # coda-identity fix. Sonnet 46 L9/L11, `impannelled`/`determined`, reads
     # ...N AH0 L D / ...M AH0 N D under the "high" fallback -- codas L-D and
@@ -465,10 +487,12 @@ def test_real_population_against_shakespeares_own_form():
     # come BACK, measured, under the declared two-name door §10 now runs
     # its cost comparison on: new_viol there is exactly [(45,9,11),
     # (46,9,11)].
+    new_viol = [p for p in lexical_newly if p in v1]
     check("and all 39 SATISFY the current door, as the sonnet mandates",
           len(new_viol) == 0,
-          f"{len(newly) - len(new_viol)}/{len(newly)} = "
-          f"{1 - len(new_viol)/len(newly):.1%}. This is the only clean "
+          f"{len(lexical_newly) - len(new_viol)}/{len(lexical_newly)} = "
+          f"{1 - len(new_viol)/len(lexical_newly):.1%} {sorted(new_viol)}. "
+          f"This is the only clean "
           f"accuracy number available on the real population: the form is "
           f"ground truth about the sound and no resource of ours supplied it "
           f"(doctrine 37)")
@@ -485,9 +509,10 @@ def test_real_population_against_shakespeares_own_form():
           "words no morphology reaches, because they are not derived")
     oracle = _production_oracle()
     uncertainty = {tuple(row) for row in oracle['uncertainty_refusals']}
-    check("G2P preserves every exact known-reading/schema uncertainty refusal",
+    check("G2P preserves every exact known-reading/schema uncertainty refusal "
+          "that no unread interior word caused",
           {p for p, row in details0.items() if not row['unreadable']} == uncertainty
-          and r1 == uncertainty | _HIGH_LEXICAL_REFUSALS)
+          and r1 == (uncertainty - interior_newly) | _HIGH_LEXICAL_REFUSALS)
 
 
 def test_letter_layer_costs_more_than_it_buys():

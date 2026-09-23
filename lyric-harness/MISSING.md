@@ -3663,7 +3663,12 @@ the default flips the same call to croes), §10c/§10k rewritten to declare
 what they read, `test_relations.py` X4 repointed at `caesura_re` plus the
 shared-default pin. `RESULTS_CYM_RHYME.md` §11a and `NULL_AUDIT.md` §2.1
 carry dated repin notes; `relations.mark_printed_caesura`'s docstring no
-longer claims cym carries three marks. **One remainder is NAMED rather than
+longer claims cym carries three marks.
+**REPINNED AGAIN 2026-09-23** after main `7d1ded93`'s J-1 glide change moved
+both `search` rows and both `marked` rows: Alun marked ~~104/1558 = 6.7%~~
+**85/1558 = 5.5%** (all llusg; null median 5.0%, max 6.2%, p 0.109), Twm
+marked ~~4/156~~ **1/156 = 0.6%** (p 1.000); the search headlines are now
+55.7% and 44.2% (N-1). `cynghanedd_rate.py --check` holds the counts. **One remainder is NAMED rather than
 silent (doctrine 20): the CLI `cynghanedd` verb reaches neither `caesura`
 nor the new `marks` — a pre-existing entrance gap M-7 widens by one
 coordinate — recorded as M-151.**
@@ -4162,6 +4167,35 @@ and the new `corpus/song/cym_song_alun.txt` are **the same book** — same poet,
 same 1909 Ab Owen volume, same transcriber, same flattened-ASCII orthography,
 same checker, same within-line-shuffle null, same seed.
 
+**REPINNED 2026-09-23 — THE TABLE BELOW MOVED AGAIN, AND IS KEPT VISIBLE AS
+SUPERSEDED (doctrine 17).** main `7d1ded93` (2026-09-22, report item J-1) made
+`w` before a/e/o, word-initial `ia-`/`io-` and `gwl-`/`gwr-`/`gwn-`
+consonantal in `cym.syllables()` and dropped semivowel onsets from
+`skeleton()`, and never repinned `quality/cynghanedd_rate.py` (`--check` red
+on 12 of 22 on origin/main, green at `7d1ded93^`) or
+`quality/cym_rhyme_rate.py` (10 of 48). Both are repinned. All seven rows
+re-run the same day at `caesura='search'`, 200 shuffles, seed 20260810, same
+command, same bytes, and the excess column again differences the values AS
+PRINTED:
+
+|                            | n judged | observed | null max |    excess |         p |
+| -------------------------- | -------: | -------: | -------: | --------: | --------: |
+| Alun, strict metre         |     1558 |    55.7% |    21.3% | **+34.4** |     floor |
+| Twm o'r Nant cywydd        |      156 |    44.2% |    27.6% | **+16.6** |     floor |
+| Llywelyn Goch cywydd, 1862 |      145 |    43.4% |    26.9% | **+16.5** |     floor |
+| Twm o'r Nant _cerdd rydd_  |      804 |    27.9% |    16.7% | **+11.2** |     floor |
+| Welsh hwiangerddi          |     1712 |    12.0% |    11.7% |      +0.3 |     floor |
+| **Alun, his own hymns**    |      262 |    14.1% |    14.5% |  **−0.4** | **0.020** |
+| Mynyddog, song             |     2893 |     7.2% |     8.4% |      −1.2 |     0.647 |
+
+(hits 868, 69, 63, 224, 205, 37, 208; null medians 18.7, 17.9, 18.6, 14.2,
+10.2, 10.7, 7.3. The runner, at full precision, prints +16.7 and +16.6 for
+the two cywydd rows.) **Every row fell and the ORDER held**: strict metre ≫
+_cerdd rydd_ ≫ nursery verse, hymn and song, so the finding stands. Alun's
+hymns now sit **below** the null max (−0.4, p 0.020 — three of 200 shuffles
+reached 14.1%), which is the "at chance" reading stated more plainly, not a
+new effect.
+
 **RE-MEASURED 2026-08-11 AND THE WHOLE TABLE MOVED.** The figures this entry
 shipped were taken before doctrine 82 — before `skeleton()`'s terminus became a
 property of the DIWEDDEB and `extent` lost its default. Every row below is
@@ -4217,7 +4251,9 @@ beside a null; here SPECIFICITY was what needed showing.
 > rather than smoothed, because a p of 0.015 sitting on a zero excess is
 > precisely the pair a reader would otherwise quote selectively (doctrine 57).
 > The conclusion rests on the excess column, all seven rows of it, and the
-> gradient +35.3 → +19.3 → +15.8 → +11.4 → +0.6 → +0.0 → −0.7 is the finding.
+> gradient ~~+35.3 → +19.3 → +15.8 → +11.4 → +0.6 → +0.0 → −0.7~~
+> **+34.4 → +16.6 → +16.5 → +11.2 → +0.3 → −0.4 → −1.2** (repinned
+> 2026-09-23, above) is the finding.
 
 ### N-2 · Doctrine 65 corroborated at scale, not merely defended `CLOSED` — with the headline `UNVERIFIABLE`
 ~~`cym` reads all five new Welsh files at **100.00%** — 0 unreadable tokens in
@@ -27928,3 +27964,13 @@ and every measurement instrument moved to sets, and their pins were
 re-measured.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~363~~ -> **364**.
+
+**2026-09-23, one instrument the sentence above missed.** "Every measurement
+instrument moved to sets, and their pins were re-measured" was not yet true of
+`quality/cym_rhyme_rate.py`: its §9 moved to the set but `PINNED["s9"]` was
+left at the exclusive-label counts, so `--check` failed there. Repinned from
+its own run with the superseded rows kept (RIME_RICHE now counts the REPEATs
+and RHYME equals the TRUE total; TRUE and REPEAT unchanged), in the same
+sitting as the J-1 glide repin of it and of `cynghanedd_rate.py` recorded
+under N-1. `RESULTS_CYM_RHYME.md` §2, §5, §8 and §9 carry the dated notes.
+

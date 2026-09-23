@@ -575,8 +575,14 @@ class Declaration:
     # re-cutting them is a different sitting with a different canon arm.
     # An empty dict restores the pre-pricing behaviour exactly, which is the
     # narrowing direction this file keeps available on every door.
+    # ASSONANCE RE-ADOPTED 2026-09-23 at ~~0.82~~ -> 0.75: under the licensed
+    # nucleus (identity + the unstressed AH~IH licence) a pair stands in
+    # ASSONANCE only when its stressed vowels are identical, and
+    # `quality/near_relation_pricing.py --check` re-derives the smallest cut
+    # on the preregistered sweep under 2x the canon arm in all four cells as
+    # 0.75 (the 0.82 cut read 0.76x..0.93x). Same rule, same target.
     theta_by_relation: dict = field(default_factory=lambda: {
-        "ASSONANCE": 0.82, "CONSONANCE": 0.75,
+        "ASSONANCE": 0.75, "CONSONANCE": 0.75,
     })
     # `theta_repeat_onset: float = 0.95` STOOD HERE UNTIL 2026-08-15, described
     # as "onset similarity above which full identity is REPEAT/rime riche
@@ -4412,8 +4418,15 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
             elif pr in {tuple(d["lines"]) for d in schema_satisfied} \
                     and admit_is_default(decl):
                 continue
-            elif pr in _wvp.undecided and admit_is_default(decl):
-                names = _wvp.undecided[pr]
+            elif admit_is_default(decl) and [
+                    n for n in _wvp.undecided.get(pr, ())
+                    if _REG[n].normative not in ("forbidden", "deprecated")]:
+                # Refused only when an undecided schema could SATISFY the
+                # pair (the same rule as `Reviser.grade`); a disowned one
+                # cannot, and with every satisfier decided False it fails.
+                names = [n for n in _wvp.undecided[pr]
+                         if _REG[n].normative not in ("forbidden",
+                                                      "deprecated")]
                 refusals.append({"lines": pr,
                     "endwords": (endwords[v[0]-1], endwords[v[1]-1]),
                     "unreadable": [], "schemas": sorted(names),

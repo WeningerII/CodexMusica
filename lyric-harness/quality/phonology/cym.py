@@ -72,6 +72,11 @@ WHAT IT COSTS, WHICH IS THE ONLY QUESTION (doctrine 61)
     Alun          54.1% -> 57.1%   27.8% -> 21.8%   +26.3 -> +35.3
     Twm o'r Nant  51.3% -> 46.2%   36.5% -> 26.9%   +14.7 -> +19.2
 
+(Those are the figures at the time of the choice. REPINNED 2026-09-23 after
+7d1ded93's J-1 glide change to `syllables()`/`skeleton()`: Alun 55.7% vs
+null max 21.3% (+34.4), Twm o'r Nant 44.2% vs 27.6% (+16.7), n=200 --
+`cynghanedd_rate.PINNED`.)
+
 The second row is the one to read: the class rule fires LESS often on Twm o'r
 Nant and is still the better rule, because the null falls further than the
 observation does. A rate is not evidence; the excess over a matched control is.

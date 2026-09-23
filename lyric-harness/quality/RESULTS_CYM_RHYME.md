@@ -695,9 +695,41 @@ glide alternative are applied inside `rimes()` and by nothing else, and
 `syllabify`, `skeleton`, `answer` and `cynghanedd` are byte-identical in
 behaviour. §10j of `quality/test_phonology.py` pins it.
 
+> **REPINNED 2026-09-23: that command now prints `868/1558 = 55.7%`**
+> (~~890/1558 = 57.1%~~). The separation held for everything THIS cell added,
+> but main `7d1ded93` (report J-1) later changed `syllables()` and `skeleton()`
+> themselves — shared by both paths — so both the cynghanedd figure and the
+> depth-2/`prominent` rime rows moved together (§2, §5, §8, §11a).
+
 ---
 
 ## 11a · That cross-reference is the number the repository carried under TWO values, and this is the record of it (doctrine 17)
+
+> **REPINNED 2026-09-23 — ALL FOUR ROWS BELOW ARE NOW SUPERSEDED, `search`
+> included.** main `7d1ded93` (2026-09-22, report item J-1) made `w` before
+> a/e/o, word-initial `ia-`/`io-` and `gwl-`/`gwr-`/`gwn-` consonantal in
+> `syllables()` and dropped semivowel onsets from `skeleton()`, and did not
+> repin `cynghanedd_rate.py` (`--check` red on 12 of 22 on origin/main, green
+> at `7d1ded93^`). Re-run at n=200, both editions, the same day:
+>
+> ```
+>   Alun  caesura='search'  R_obs 55.7% (868/1558)  null median 18.7%, min 15.9%, max 21.3%
+>                           excess over null MAX +34.4 pp   p = 0.005  <- AT THE FLOOR
+>   Alun  caesura='marked'  R_obs  5.5% (85/1558)   null median  5.0%, min  3.9%, max  6.2%
+>                           below its own null max          p = 0.109
+>   Twm   caesura='search'  R_obs 44.2% (69/156)    null median 17.9%, min 10.9%, max 27.6%
+>                           excess over null MAX +16.7 pp   p = 0.005  <- AT THE FLOOR
+>   Twm   caesura='marked'  R_obs  0.6% (1/156)     null median  3.8%, min  1.3%, max  7.7%
+>                           BELOW chance                    p = 1.000
+> ```
+>
+> Alun search by rule: croes 184 → 186, traws 375 → 378, sain 279 → 263,
+> llusg 52 → 41 — the move is in sain and llusg, the two rules that compare
+> whole stretches of consonants, which is where a dropped `w`/`i` onset lands.
+> `tried` did not move (16547, 1915), so the search width and the null's
+> fairness join are unchanged. The excess over the null max SHRANK on both
+> editions and both still clear it at the floor. The seven-corpus table is
+> `MISSING.md` N-1's, repinned the same day.
 
 > **THE TWO `marked` ROWS BELOW ARE SUPERSEDED 2026-08-28 (`MISSING.md`
 > M-7); the two `search` rows still reproduce to the decimal.** The dash
@@ -723,7 +755,7 @@ behaviour. §10j of `quality/test_phonology.py` pins it.
 > `cynghanedd_rate.py --check` holds the repinned rows.
 
 **MEASURED 2026-08-14 at the published n=200, and the value below is the one
-that reproduces at head** *(the two `search` rows; the `marked` rows are the
+that reproduced at head until 2026-09-23 (note above)** *(the two `search` rows; the `marked` rows are the
 old default's and are kept visible under the note above)*.
 
 ```
@@ -915,6 +947,14 @@ values AS PRINTED, so it records +19.3 and +15.8 where the runner — which
 differences at full precision and rounds last — prints +19.2 and +15.9. That
 0.1 is a rendering, not a disagreement, and `MISSING.md` says so in the
 paragraph under its table.)
+
+> **REPINNED 2026-09-23:** every figure in the right-hand column above is itself
+> superseded by `7d1ded93`'s J-1 glide change. Re-run at n=200: 868 = 55.7% /
+> 18.7 / 21.3 / +34.4; 69 = 44.2% / 17.9 / 27.6 / +16.7; 63 = 43.4% / 18.6 /
+> 26.9 / +16.6; 224 = 27.9% / 14.2 / 16.7 / +11.2; 205 = 12.0% / 10.2 / 11.7 /
+> +0.3; 37 = 14.1% / 10.7 / 14.5 / −0.4 (p 0.020); 208 = 7.2% / 7.3 / 8.4 /
+> −1.2 (p 0.647). The direction below still holds; the numbers in it are the
+> 2026-08-14 ones.
 
 **The GRADIENT'S DIRECTION IS UNCHANGED and its sharpest row got sharper.**
 Strict metre (+35.3, +19.2, +15.9) ≫ 18th-century *cerdd rydd* (+11.4) ≫ nursery
