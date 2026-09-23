@@ -105,9 +105,13 @@ PINNED = {
     # change, same day).
     # Every pair judged against every relation it stands in and every
     # schema; three refusals resolved, eligibility reads REPEAT from the set.
-    "pairs_mandated": 719, "pairs_judged": 520, "pairs_refused": 199,
-    "eligible": 459, "banned_in_final": 4,
-    "rank_head": 4, "rank_tail": 160, "rank_outside": 295,
+    # RE-MEASURED after `nucleus_agreement` became "licensed" (same day):
+    # ~~520/199, eligible 459, banned 4, head 4 / tail 160 / outside 295~~.
+    # The modal field is relation-typed too, so a partner now ranks inside
+    # it far more often (tail 160 -> 241).
+    "pairs_mandated": 719, "pairs_judged": 513, "pairs_refused": 206,
+    "eligible": 452, "banned_in_final": 5,
+    "rank_head": 5, "rank_tail": 241, "rank_outside": 206,
 }
 
 

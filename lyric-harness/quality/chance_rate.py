@@ -442,9 +442,11 @@ NULL_LINES = 14
 # mandated 0.8631/0.5089/0.5357~~: a pair is answered when it stands in ANY
 # relation — an admitted coarse relation or any schema — asked of every pair.
 # Measured by `python3 quality/chance_rate.py --null --check`.
+# RE-MEASURED the same day after `nucleus_agreement` became "licensed":
+# ~~all 0.5114/0.5332/0.5490, mandated 0.9226/0.5268/0.5595~~.
 ADOPTED_SEPARATION = {
-    "all": {"r_obs": 0.5114, "median": 0.5332, "max": 0.5490},
-    "mandated": {"r_obs": 0.9226, "median": 0.5268, "max": 0.5595},
+    "all": {"r_obs": 0.5009, "median": 0.5227, "max": 0.5408},
+    "mandated": {"r_obs": 0.9107, "median": 0.5208, "max": 0.5417},
 }
 
 #: How far a re-derivation may sit from the pin before it is DRIFT. The figures
