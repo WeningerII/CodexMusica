@@ -449,9 +449,9 @@ def test_the_whole_registry():
     check("21 of them are INTRA-LINE and are read by the figures route, not "
           "by a mandate — a pair of lines cannot stand in a one-line figure",
           len(rep["intra"]) == 21, len(rep["intra"]))
-    check("2 answer under their OWN phonology, which is a language "
+    check("3 answer under their OWN phonology, which is a language "
           "coordinate (M-4) and not a gap in the registry",
-          len(rep["other_language"]) == 2, rep["other_language"])
+          len(rep["other_language"]) == 3, rep["other_language"])
     # THE COUNT ABOVE IS 77 AND THREE OF THE 77 ARE LIVE ON A FIXTURE. That
     # was true before 2026-08-23 too -- `earlier` and `poet` have always been
     # constructed inputs -- and the census did not say so, so "77 askable"
@@ -462,7 +462,8 @@ def test_the_whole_registry():
           "declares itself — 77 askable is not 77 shipped, and the report "
           "has to be the thing that says so (doctrine 94)",
           rep["fixture_only"] == ["dialect rhyme", "historical rhyme",
-                                  "proest", "rhyming slang"],
+                                  "proest", "rhyming slang",
+                                  "平仄 tonal template"],
           str(rep["fixture_only"]))
     # NAMING THE COORDINATE, not just the schema. A reason that says "needs
     # more work" is the bare verdict doctrine 20 refuses; a reason that names

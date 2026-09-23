@@ -318,7 +318,7 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
     # 5. THE WEB. The cover over PLACEMENTS, not over line ends — which is
     #    the whole reason this module is written now rather than in terms of
     #    `mandate_from_graph`, whose cliques are cliques of `words[-1]`.
-    from lyric_harness import admits, best_score, theta_for
+    from lyric_harness import admitted_relations, best_score
     sites = []
     for i, line in enumerate(lines):
         for place, (anc, label) in _slot_words(lex, line, places).items():
@@ -332,6 +332,22 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
               f"bound deliberately — a silently truncated web reads as a "
               f"song with fewer relations in it")
         return r
+    # EVERY RELATION: the coarse relations each pair is admitted in, and
+    # every registry schema its two LINES stand in (the whole-vocabulary
+    # judge `grade()` applies to a default group), read at line-end pairs.
+    # A pair is an edge when its set is non-empty; each edge carries it.
+    _schemas_by_lines = {}
+    try:
+        from quality import relations as _RLv
+        from quality.revise import _relation_phonology as _RPv
+        _ends = sorted({s_[0] for s_ in sites if s_[1] == "end"})
+        _req = {(x, y) for x in _ends for y in _ends if x < y}
+        from lyric_harness import admit_is_default as _AIDv
+        if _req and _AIDv(decl):
+            _schemas_by_lines = dict(_RLv.whole_vocabulary_pairs(
+                lines, _RPv(), requested_pairs=_req))
+    except Exception:
+        _schemas_by_lines = {}
     edges = []
     for a in range(n):
         la, pa, anca, wa = sites[a]
@@ -344,18 +360,23 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
                 # `quality/figures.py` is the reader for them.
                 continue
             s = best_score(anca, ancb, decl, wa, wb)
-            # `theta_for` unless the caller declared a flat cut — see the
-            # note beside `theta_declared` above.
-            cut = theta if theta_declared else theta_for(s, decl)
-            if s["relation"] == "REPEAT" or admits(
-                    s, cut, relations=frozenset(decl.admit)):
+            # Per-relation cuts unless the caller declared a flat cut — see
+            # the note beside `theta_declared` above.
+            rels = set(admitted_relations(
+                s, theta, frozenset(decl.admit),
+                None if theta_declared else decl.theta_by_relation))
+            if "REPEAT" in s["relations"]:
+                rels.add("REPEAT")
+            if pa == "end" and pb == "end":
+                rels.update(_schemas_by_lines.get((la, lb)) or ())
+            if rels:
                 edges.append({"a": f"{la}.{pa}" if pa != "end" else str(la),
                               "b": f"{lb}.{pb}" if pb != "end" else str(lb),
                               "words": (wa, wb),
                               "score": round(s["total"], 3),
-                              "relation": s["relation"]})
-    # THE COVER AS THE CLI'S OWN MANDATE FLAGS, split on each edge's OWN
-    # `relation` and never re-derived. THIS IS NOT A CONVENIENCE — it is the
+                              "relations": sorted(rels)})
+    # THE COVER AS THE CLI'S OWN MANDATE FLAGS, split on whether each
+    # edge's relation SET holds REPEAT, never re-derived. THIS IS NOT A CONVENIENCE — it is the
     # coordinate that makes the doctrine-14 sentence below TRUE, and without
     # it that sentence was FALSE through this module's only documented
     # handoff. A `--groups=` group is REQUIRE_RHYME: identity FORBIDDEN,
@@ -367,8 +388,8 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
     # IDENTICAL — and the same web with the REPEAT edges split off charges
     # **0**. Over 18 pasted-song drafts a lane measured 984 REPEAT edges of
     # 8,673 on 17 of 18 drafts and 972 violations charged.
-    repeats = [e for e in edges if e["relation"] == "REPEAT"]
-    rhymes = [e for e in edges if e["relation"] != "REPEAT"]
+    repeats = [e for e in edges if "REPEAT" in e["relations"]]
+    rhymes = [e for e in edges if "REPEAT" not in e["relations"]]
     placed_repeats = [e for e in repeats
                       if "." in str(e["a"]) or "." in str(e["b"])]
     bare_repeats = [e for e in repeats
@@ -389,8 +410,8 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
            "--returns=": ";".join(f"{e['a']},{e['b']}"
                                   for e in bare_repeats)},
           "derived",
-          f"the cover as the two CLI mandate flags, split on each edge's own "
-          f"`relation`: {len(rhymes)} band edge(s) to `--groups=` and "
+          f"the cover as the two CLI mandate flags, split on whether each "
+          f"edge's relation set holds REPEAT: {len(rhymes)} edge(s) to `--groups=` and "
           f"{len(bare_repeats)} line-level REPEAT class(es) to `--returns=`, "
           f"which is the ONLY spelling under which identity is the "
           f"REQUIREMENT rather than the violation. Handing the WHOLE web to "
@@ -420,37 +441,22 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
                  f"(`theta_for`: {dict(sorted(decl.theta_by_relation.items()))} "
                  f"by relation, {decl.theta_rhyme} otherwise)")
     r.put("web", edges, "derived",
-          f"every admitted pair over {n} binding sites at {len(places)} "
-          f"placements per line, {_cut_said}, at the ADMIT door "
-          f"(`decl.admit`) PLUS REPEAT — and neither set contains the other, "
-          f"so this is not a NARROWING of the default but a DIFFERENT door. "
-          f"NOT INDEPENDENT OF THE "
-          f"GRADER (doctrine 14): every edge is a band-passing pair BY "
-          f"CONSTRUCTION, so grading this cover against the same band at the "
-          f"same cut cannot produce a rhyme violation — THROUGH "
-          f"`mandate_spelling` ABOVE, and NOT through `--groups=` alone, "
-          f"which charges every REPEAT edge. What it CAN say "
-          f"non-trivially is everything the band did not decide. AND THIS IS "
-          f"THE ADMIT DOOR ONLY: the grader that will judge this cover also "
-          f"accepts a pair whose two lines stand in ANY of the 77 registered "
-          f"schemas (`relations.whole_vocabulary_pairs`, `MISSING.md` M-116) "
-          f"whenever `admit_is_default` holds, and that route is NOT "
-          f"consulted here — so this cover UNDER-recovers against its own "
-          f"consumer, measured at +32.0% of line pairs on 18 of 18 drafts. "
-          f"Disclosed rather than silent (doctrine 20). RULED "
-          f"2026-08-27 (`MISSING.md` M-145): THE NARROW DOOR IS KEPT "
-          f"ON PURPOSE and `quality/door_census.py` rules this site "
-          f"ARGUED. This function is a GENERATOR — it puts the door "
-          f"to EVERY pair — and on that population "
-          f"`quality/chance_rate.py --null` measures the 77-schema "
-          f"door AT CHANCE (69.05% against a null median 71.02%, "
-          f"p 0.9048) while the same door separates by +12.50 pp "
-          f"over the null MAX on the DECLARED pairs a writer wrote. "
-          f"The grader's 77-consult is a RESCUE on a declared pair; "
-          f"running it as a GENERATOR here would manufacture "
-          f"structure rather than find it (doctrine 71). The +32.0% "
-          f"above is what that ruling COSTS, and it is stated rather "
-          f"than netted away")
+          f"every pair over {n} binding sites at {len(places)} placements "
+          f"per line that stands in at least one relation, {_cut_said}: the "
+          f"coarse relations admitted at the ADMIT door (`decl.admit`), "
+          f"REPEAT, and -- for two line ends under the default door -- every "
+          f"registry schema the two lines stand in "
+          f"(`relations.whole_vocabulary_pairs`, the judge `grade()` applies "
+          f"to a default group). Each edge carries its relation SET. NOT "
+          f"INDEPENDENT OF THE GRADER (doctrine 14): every edge satisfies "
+          f"the default obligation BY CONSTRUCTION, so grading this cover "
+          f"through `mandate_spelling` above cannot produce a relation "
+          f"violation. What it CAN say non-trivially is everything the "
+          f"relations did not decide. The schema door is at chance as a "
+          f"GENERATOR "
+          f"(`quality/chance_rate.py --null`, M-145: 69.05% against a null "
+          f"median 71.02%), so schema-only edges are what the vocabulary "
+          f"admits, not evidence the writer intended them")
     r.put("binding_sites", n, "counted",
           "line x placement, skipping placements that name nothing in "
           "their line")

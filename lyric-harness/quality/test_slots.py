@@ -234,8 +234,8 @@ def test_grade_reads_the_slot():
               f"{v[0]['endwords']}")
         check("scored by `best_score`, the comparator every threshold here "
               "was calibrated on — the placement moves, the judge does not",
-              v[0]["relation"] == "RHYME" and v[0]["score"] >= 0.99
-              and not v[0]["why"], f"{v[0]['score']:.3f} {v[0]['relation']}")
+              "RHYME" in v[0]["relations"] and v[0]["score"] >= 0.99
+              and not v[0]["why"], f"{v[0]['score']:.3f} {v[0]['relations']}")
     # the same pair WITHOUT the slot is a different verdict, which is the
     # only shape that proves the coordinate was read rather than tolerated
     g2 = rv.grade(DRAFT, SC.mandate([[1, 2], [3, 4]], n_lines=4))
@@ -268,10 +268,16 @@ def test_untouched_path():
     g = rv.grade(DRAFT, SC.mandate("ABAB", n_lines=4))
     # C-1/P9: absent slang evidence no longer makes light/silver undecidable.
     # The other pair still refuses for its genuinely unresolved schemas.
-    check("a plain letter mandate separates the negative pair from unresolved schemas",
+    # REPINNED under the N-relation grade (every pair judged against every
+    # schema): light/silver has no admitted coarse relation, and the
+    # registry's own judge answers `multisyllabic rhyme` for the two lines,
+    # so the pair is satisfied by that schema rather than violated.
+    # MEASURED: verdict (1, 3) why=None, satisfied_by ['multisyllabic rhyme'].
+    _v13 = [v for v in g['verdicts'] if tuple(v['lines']) == (1, 3)]
+    check("a plain letter mandate separates the judged pair from unresolved schemas",
           {tuple(v['lines']) for v in g['verdicts']} == {(1, 3)}
-          and {tuple(v['lines']) for v in g['violations']} == {(1, 3)}
-          and g['violations'][0]['endwords'] == ('light', 'silver')
+          and not g['violations'] and _v13 and not _v13[0]['admitted']
+          and _v13[0]['why'] is None and _v13[0]['schemas']
           and {tuple(r['lines']) for r in g['refusals']} == {(2, 4)}
           and all(not r['unreadable'] and 'unresolved in schema' in r['reason']
                   and 'rhyming slang' not in r['reason'] for r in g['refusals'])

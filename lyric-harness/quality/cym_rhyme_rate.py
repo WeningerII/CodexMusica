@@ -661,15 +661,20 @@ def section9():
     for f in [CYWYDD] + song_files():
         us = units(os.path.join(SONG, f))
         c = Counter()
+        tot = 0
         for u in us:
             for i in range(len(u) - 1):
                 for k in (1, 2):
                     if i + k >= len(u):
                         continue
                     t = C.relation_type(u[i], u[i + k])
-                    if t is not None:
-                        c[t] += 1
-        tot = sum(c[k] for k in ("REPEAT", "RIME_RICHE", "RHYME"))
+                    if t:
+                        # A pair counts once in the total and once under
+                        # EVERY relation it stands in (a repeat is also rime
+                        # riche and rhyme), so the columns overlap.
+                        tot += 1
+                        for r in t:
+                            c[r] += 1
         out[f] = (tot, c["REPEAT"], c["RIME_RICHE"], c["RHYME"])
         print("  %-42s of %5d TRUE verdicts: REPEAT %4d (%5.1f%%)  "
               "RIME_RICHE %3d  RHYME %4d"
@@ -681,7 +686,8 @@ def section9():
     _, coup, _ = cywydd_arms()
     tails = Counter()
     for a, b in coup:
-        if C.relation_type(a, b) == "RHYME":
+        t = C.relation_type(a, b)
+        if t and "RHYME" in t and "REPEAT" not in t:
             tails[C.shared_tail(a, b)] += 1
     print("   ", tails.most_common(14))
     return out
@@ -732,6 +738,21 @@ CHECK_N = 5
 #: here -- the pin IS the finding, because the numbers were previously true by
 #: nobody's checking.
 #:
+#: REPINNED 2026-09-23, TWO CAUSES, BOTH MEASURED (doctrine 17; every
+#: superseded value is kept beside its row below). (1) main `7d1ded93`
+#: (2026-09-22, report item J-1) taught `Welsh.syllables()` that `w` before
+#: a/e/o, word-initial `ia-`/`io-` and the `gwl-`/`gwr-`/`gwn-` cluster are
+#: CONSONANTAL, and never repinned this file: `--check` went red on 10 of 48
+#: on origin/main and passes at `7d1ded93^`. It moves only the readings whose
+#: anchor lands on a different syllable once a glide stops being a nucleus --
+#: depth 2 and `prominent` in §2, §5 and §8, and the RIME_RICHE/RHYME split in
+#: §9. Depth 1, `diacritics=keep`, both `glide=` rows, §1, §4 and §6 are
+#: byte-identical. (2) §9 ALSO moved on this branch because
+#: `cym.relation_type` now returns the SET of relations a pair stands in (a
+#: repeat is also rime riche and rhyme), so the columns overlap and RHYME
+#: equals the TRUE total. Re-run in full at n=200 the same day; §3, §4 and §7,
+#: which are not pinned, printed exactly what the document publishes.
+#:
 #: WHAT IS PINNED AND WHY THAT RATHER THAN THE RATE. Counts only, and never a
 #: null quantile: `med`, `mx`, `excess`, `p_hi`, `p_lo` and `differ` are Monte
 #: Carlo estimates at a declared n, and pinning them would make this check a
@@ -779,8 +800,10 @@ PINNED = {
     # negative straddle arm. 51/51 against 0/53 is the finding this cell made.
     "s2": {"lines": 108, "couplets": 54, "straddles": 53,
            "depth 1 (SHIPPED)": (54, 51, 3, 51),
-           "depth 2 (rich grade)": (54, 51, 3, 45),
-           "prominent (ENGLISH PORT)": (54, 52, 2, 2),
+           # REPINNED 2026-09-23 (7d1ded93's J-1 glide rule): superseded
+           # depth 2 ~~(54, 51, 3, 45)~~ and prominent ~~(54, 52, 2, 2)~~.
+           "depth 2 (rich grade)": (54, 51, 3, 48),
+           "prominent (ENGLISH PORT)": (54, 52, 2, 1),
            "diacritics=keep": (54, 51, 3, 50),
            "glide=vocalic": (54, 54, 0, 52),
            "glide=consonantal": (54, 54, 0, 53),
@@ -796,8 +819,11 @@ PINNED = {
     # reading refuses 344, which is doctrine 79's point in one row.
     "s5": {"pool": 5246,
            "depth 1 (SHIPPED)": (20000, 19656, 344, 415),
-           "depth 2 (rich grade)": (20000, 19656, 344, 314),
-           "prominent (ENGLISH PORT)": (20000, 18703, 1297, 107),
+           # REPINNED 2026-09-23 (7d1ded93's J-1 glide rule): superseded
+           # depth 2 ~~314~~ TRUE (1.597%) and prominent ~~107~~ (0.572%);
+           # every mandated/judged/refused count is unchanged.
+           "depth 2 (rich grade)": (20000, 19656, 344, 323),
+           "prominent (ENGLISH PORT)": (20000, 18703, 1297, 123),
            "diacritics=keep": (20000, 19656, 344, 403),
            "glide=vocalic": (20000, 19657, 343, 415),
            "glide=consonantal": (20000, 19657, 343, 416)},
@@ -825,23 +851,38 @@ PINNED = {
                ((69, 8, 1), (0, 77, 0)),
            ("cym_twm_or_nant_cywydd.txt", "diacritics=keep"):
                ((61, 17, 0), (0, 77, 0)),
+           # REPINNED 2026-09-23 (7d1ded93): superseded ~~((1, 70, 7),
+           # (0, 69, 8))~~ -- the one PORT couplet it answered True is gone.
            ("cym_twm_or_nant_cywydd.txt", "prominent (PORT)"):
-               ((1, 70, 7), (0, 69, 8)),
+               ((0, 71, 7), (0, 69, 8)),
            ("cym_alun_strict.txt", "depth 1 (SHIPPED)"):
                ((289, 486, 4), (423, 348, 7)),
            ("cym_alun_strict.txt", "diacritics=keep"):
                ((289, 486, 4), (423, 348, 7)),
+           # REPINNED 2026-09-23 (7d1ded93): superseded
+           # ~~((8, 750, 21), (14, 744, 20))~~.
            ("cym_alun_strict.txt", "prominent (PORT)"):
-               ((8, 750, 21), (14, 744, 20))},
+               ((6, 752, 21), (10, 748, 20))},
     # §9 REPEAT -- (TRUE verdicts, REPEAT, RIME_RICHE, RHYME) per file.
     # The cywydd's REPEAT is 0 and the pin is on the zero: doctrine 3's trap
     # is what made `whitman.txt` ineligible, and a corpus that started
     # carrying refrains would move this row before it moved any rate.
-    "s9": {CYWYDD: (51, 0, 6, 45),
-           "cym_song_alun.txt": (89, 0, 10, 79),
-           "cym_song_hwiangerddi.txt": (521, 42, 58, 421),
-           "cym_song_mynyddog.txt": (1106, 39, 94, 973),
-           "cym_song_twm_or_nant.txt": (303, 1, 37, 265)},
+    #
+    # REPINNED 2026-09-23, and the columns now OVERLAP: `relation_type`
+    # returns the SET of relations, so RIME_RICHE counts the REPEATs too and
+    # RHYME is every TRUE verdict. TRUE and REPEAT did not move. Superseded
+    # (doctrine 17), the exclusive-label columns MEASURED 2026-08-14:
+    #   ~~(51, 0, 6, 45)~~ ~~(89, 0, 10, 79)~~ ~~(521, 42, 58, 421)~~
+    #   ~~(1106, 39, 94, 973)~~ ~~(303, 1, 37, 265)~~
+    # and on origin/main after 7d1ded93 (exclusive labels, J-1 glide rule):
+    #   (51, 0, 4, 47) (89, 0, 9, 80) (521, 42, 58, 421) (1106, 39, 82, 985)
+    #   (303, 1, 33, 269) -- so exclusive RIME_RICHE = the set count minus
+    #   REPEAT on every row, which is how the two readings reconcile.
+    "s9": {CYWYDD: (51, 0, 4, 51),
+           "cym_song_alun.txt": (89, 0, 9, 89),
+           "cym_song_hwiangerddi.txt": (521, 42, 100, 521),
+           "cym_song_mynyddog.txt": (1106, 39, 121, 1106),
+           "cym_song_twm_or_nant.txt": (303, 1, 34, 303)},
 }
 
 

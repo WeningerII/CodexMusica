@@ -182,7 +182,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 if os.path.dirname(HERE) not in sys.path:
     sys.path.insert(0, os.path.dirname(HERE))
 
-from lyric_harness import (Declaration, Lexicon, admits, best_score,   # noqa: E402
+from lyric_harness import (Declaration, Lexicon, admits_decl, best_score,   # noqa: E402
                            infer_chains, line_anchors, line_tokens,
                            readability_records, word_syllable_map)
 
@@ -296,16 +296,15 @@ class Quatrain:
                     continue
                 s = best_score(data[i][0], data[j][0], decl,
                                data[i][1], data[j][1])
-                # THE DOOR THIS CONTROL READS IS `decl.admit` — the band's
-                # own (M-59) — and NOT the 77-schema default (M-116). Stated
-                # here 2026-09-01 (`MISSING.md` M-138, ruled under the
-                # owner's delegation): this instrument is the negative
-                # control of the BAND, so the door it grades through is the
-                # band's door; the wider default's chance rate has its own
-                # matched-redeal null in `quality/chance_rate.py`, and
-                # folding it in here would change what this control is a
-                # control OF (doctrine 14).
-                if admits(s, decl.theta_rhyme) or s["relation"] == "REPEAT":
+                # THE EDGE IS THE COARSE RELATION SET AT THE DECLARATION'S
+                # OWN CUTS (`admits_decl`: any relation in `decl.admit` at
+                # its cut), plus identity. This instrument is the negative
+                # control of the COMPARATOR, so it reads the coarse relations
+                # only; the schemas' chance rate has its own matched-redeal
+                # null in `quality/chance_rate.py` (doctrine 14). Until
+                # 2026-09-22 the code omitted `relations=` and read the
+                # historical two while this comment claimed `decl.admit`.
+                if admits_decl(s, decl) or "REPEAT" in s["relations"]:
                     self.pairs.add((i, j))
         self.scheme = self._label()
 
@@ -631,19 +630,23 @@ def whitman_link_relations(lex, decl, wl, theta=0.82):
     for i, line in enumerate(wl):
         a, last, _ = line_anchors(lex, line, promote=decl.final_promotion)
         anc[i] = (a, last)
-    rel, same = Counter(), 0
+    rel, same, tot = Counter(), 0, 0
     for c in infer_chains(lex, wl, decl, theta_chain=theta):
         if c["length"] < 2:
             continue
         for k in range(len(c["lines"]) - 1):
             i, j = c["lines"][k] - 1, c["lines"][k + 1] - 1
             s = best_score(anc[i][0], anc[j][0], decl, anc[i][1], anc[j][1])
-            rel[s["relation"]] += 1
+            # every relation the link stands in — a REPEAT link is also
+            # RHYME, ASSONANCE, ... so these counts overlap
+            rel.update(s["relations"])
+            tot += 1
             a = c["endwords"][k].lower().strip(".,;:!?")
             b = c["endwords"][k + 1].lower().strip(".,;:!?")
             same += (a == b)
-    tot = sum(rel.values()) or 1
-    print("    WHAT THE CHAINS ARE MADE OF — %d adjacent links:" % tot)
+    tot = tot or 1
+    print("    WHAT THE CHAINS ARE MADE OF — %d adjacent links (a link counts "
+          "under every relation it stands in):" % tot)
     for r, k in rel.most_common():
         print("      %-10s %3d  (%.0f%%)" % (r, k, 100.0 * k / tot))
     print("      links on the SAME TOKEN at both ends: %d (%.0f%%)"

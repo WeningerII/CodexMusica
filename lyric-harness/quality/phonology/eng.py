@@ -150,9 +150,10 @@ class English(Phonology):
         "at the phrase level -- doctrine 46: a function-word list is part of a "
         "phonology, not an optimisation")
     relation = (
-        "none declared. Rhyme is the channel comparison under Declaration's "
-        "theta and conjunctive band, so `rhymes()` stays the inherited stub "
-        "and the channels decide -- see this module's docstring")
+        "none declared. An English pair is judged in every relation it stands "
+        "in -- each coarse relation (score()) and every registry schema "
+        "(quality/relations.py REGISTRY) -- so `rhymes()` stays the inherited "
+        "stub and the channels decide -- see this module's docstring")
     # CORRECTED 2026-08-13. This read `cmudict-0.7b (public domain)` and both
     # halves were false. `cmudict-0.7b` 404s at cmusphinx/cmudict master --
     # what ships is the master working copy, which carries no release version

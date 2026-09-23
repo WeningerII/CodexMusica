@@ -90,7 +90,8 @@ from lyric_harness import (NEAR_RELATIONS, NO_ANCHOR,  # noqa: E402
                            Lexicon, admits, best_score, bron_kerbosch,
                            line_anchors, line_readability, readability_records,
                            refusals_for_pairs, spans_note, spelled_rime,
-                           theta_for)
+                           theta_for, admitted_relations, admits_decl,
+                           relation_label, ADMITTABLE_RELATIONS)
 from quality import fit as FT  # noqa: E402
 from quality import grid as GR  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
@@ -291,9 +292,10 @@ class ReviseDeclaration:
     #: is a coordinate of a setting, and this one was never written down.
     field_depth: int = None
 
-    #: WHICH PREDICATE DEFINES THE FIELD. "grader" is `admits()` — the scalar
-    #: clears `theta_rhyme` AND the relation is a rhyme relation — which is
-    #: exactly what `grade()` requires of a mandated pair. "scalar" is the
+    #: WHICH PREDICATE DEFINES THE FIELD. "grader" is what `grade()` requires
+    #: of a default mandated pair: the pair stands in an admitted coarse
+    #: relation at its cut, or in any registry schema at the two line ends
+    #: (`Reviser._field_one`). "scalar" is the
     #: scalar alone, which is what `_field` used to do, and it puts the brief
     #: in disagreement with the verdict that follows it: 17.3% of the words
     #: offered on this song's flagged lines were ones `grade()` rejects, so
@@ -652,44 +654,13 @@ class Brief:
     #: lexicon, is the binding constraint" (`quality/propose.py`) — true,
     #: and naming no move; a connector user read it, hand-edited the line
     #: three times, and was banned three times. ONE definition
-    #: (`ban_emptied_note`), carried as DATA for the reason
-    #: `schema_route_note` is: `propose.py` imports only `re`.
+    #: (`ban_emptied_note`), carried as DATA because `propose.py` imports
+    #: only `re`.
     offer_emptied_by_ban: str = ""
     #: The `(field_depth, field_band)` the candidate field was read at, as a
     #: printable string. A count with no setting beside it is the defect
     #: doctrine 58 is about, and this flag is a count of zero.
     field_declaration: str = "field_depth=?, field_band=?"
-    #: THE DOOR THE FIELD WAS READ AT, as a printable string, carried beside
-    #: the depth/band the same way and for a harder reason (`MISSING.md`
-    #: M-139). `grade()` accepts a mandated pair on `admits(...)` OR on the
-    #: 77 schemas; `_field_one` holds one WORD and the 77 judge LINE PAIRS,
-    #: so the second half is unaskable at that site -- and until this field
-    #: existed the brief said NOTHING about it, which reads as "asked, and
-    #: nothing else could answer" (doctrine 20).
-    #:
-    #: THREE STATES AND `None` IS THE POINT, exactly as `field_computed`
-    #: three fields up: `relations.SCHEMA_ROUTE_NOTE` = the route is open and
-    #: this field did not consult it; `""` = the route is SHUT for every
-    #: group this line is in (the caller narrowed `decl.admit`, or every
-    #: group declares its own relation or structure), so the field's door IS
-    #: the whole verdict door and there is nothing to disclose; `None` =
-    #: nobody asked. A `bool` here would make ABSENCE mean SHUT and collapse
-    #: the last two, which is the collapse this field exists to end.
-    #:
-    #: A STRING AND NOT A FLAG, AND THAT IS FORCED RATHER THAN PREFERRED.
-    #: `quality/propose.py` renders this at three of the six sites, and
-    #: `quality/test_propose.py`'s module-surface section asserts ON THE
-    #: SOURCE that its import set is exactly `{"re"}` -- so the obvious
-    #: design, a `bool` here plus `from quality.relations import
-    #: SCHEMA_ROUTE_NOTE` at each renderer, is not merely against that
-    #: module's docstring: it turns an existing check RED. (`relations` also
-    #: reads `canon_index.tsv` at import, which is a filesystem access in a
-    #: module that declares it has none.) So the sentence travels as DATA,
-    #: exactly as `field_declaration` does. What stops that becoming a
-    #: second copy is that its ONE definition is the constant in the module
-    #: that owns the judge, and `quality/test_propose.py` §7e pins that
-    #: `propose.py` contains no substring of it.
-    schema_route_note: str = None
     offers_requested: bool = True
 
     @property
@@ -761,7 +732,8 @@ class Brief:
                            "unsearched words and whole-line rewrites remain possible.")
         if self.must_rhyme_with and not self.must_answer:
             n, w = self.must_rhyme_with
-            out.append(f"    must rhyme with L{n} ({w!r})")
+            out.append(f"    must stand in at least one relation with "
+                       f"L{n} ({w!r})")
         # TWO LINES, TWO RULES. Printing one list under one sentence is what
         # made this renderer state doctrine 9 about a word that was only ever
         # the incumbent. Each line now names the rule it is stating, and the
@@ -796,9 +768,6 @@ class Brief:
         if self.candidates:
             out.append(f"    offered: {', '.join(self.candidates[:12])}"
                        + (" ..." if len(self.candidates) > 12 else ""))
-            # RENDER SITE 1 OF 6 (`MISSING.md` M-139). Every site reads the
-            # note off the brief; none of them writes prose about the 77.
-            out.extend(schema_route_lines(self.schema_route_note, "    "))
         if self.keep:
             out.append(f"    keep unchanged: {', '.join(map(str, self.keep))}")
         return "\n".join(out)
@@ -835,38 +804,6 @@ def ban_emptied_note(calls, labels, forbidden, width=76):
         f"`capacity WORD` can also show a certified chain and the words "
         f"the ban admits against WORD; that evidence has its own declared scope.")
     return "\n".join(textwrap.wrap(text, width))
-
-
-def schema_route_lines(note, indent="  "):
-    """-> [str], the door disclosure for ONE rendered candidate field.
-
-    THE ONE READER of `Brief.schema_route_note` in this module and in
-    `lyric_harness.py`, and the one place its three states are turned into
-    lines. `None` -> the UNKNOWN sentence; `""` -> nothing, BECAUSE THE
-    ROUTE IS SHUT and the field's door is the whole verdict door; anything
-    else -> that sentence. Collapsing the first two is doctrine 20 (see the
-    field's own docstring), and this function is where that collapse would
-    be written if anyone wrote it.
-
-    THE IMPORT IS LAZY for the reason every `quality` import in this file is:
-    `relations` reads `canon_index.tsv` at import, and only the UNKNOWN arm
-    needs it.
-
-    WRAPPED AT THE SAME COLUMN EVERY OTHER BLOCK IN THIS FILE IS. The
-    constant is stored unwrapped because the indent is the caller's, and a
-    500-character line dropped into a hand-wrapped report is a rendering
-    regression in the one artifact this disclosure exists to improve.
-    `textwrap.fill` is deterministic and takes no argument this function does
-    not hold, so doctrine 66 is untouched.
-    """
-    import textwrap
-    if note is None:
-        from quality.relations import SCHEMA_ROUTE_UNKNOWN as _U
-        note = _U
-    if not note:
-        return []
-    return textwrap.fill(note, width=76, initial_indent=indent,
-                         subsequent_indent=indent).splitlines()
 
 
 def _relation_phonology():
@@ -909,6 +846,16 @@ def _schema_name_of(_RT, want):
     return canon if kind == "schema" else ""
 
 
+def _relations_of(m, k):
+    """-> every relation name group `k` requires (a pair must stand in each),
+    or () for the default obligation."""
+    f = getattr(m, "relations_of", None)
+    if f is not None:
+        return tuple(f(k))
+    w = m.relation_of(k) if hasattr(m, "relation_of") else ""
+    return (w,) if w else ()
+
+
 def _floor_pair_groups(m):
     """End-bound obligations, with their groups, for grading and guidance."""
     from quality import relations as RL, rhyme_types as RT, structures as ST
@@ -918,8 +865,10 @@ def _floor_pair_groups(m):
         if ((i, j) in ident or not _SL.is_default(m.slot_of(k, i)) or
                 not _SL.is_default(m.slot_of(k, j)) or m.structure_of(k) != ST.DEFAULT):
             continue
-        name = _schema_name_of(RT, m.relation_of(k))
-        if name and RL.REGISTRY[name].spans != (RL.END_ANCHOR, RL.END_ANCHOR):
+        if any(_schema_name_of(RT, w) and
+               RL.REGISTRY[_schema_name_of(RT, w)].spans
+               != (RL.END_ANCHOR, RL.END_ANCHOR)
+               for w in _relations_of(m, k)):
             continue
         pairs.setdefault((i, j), set()).add(k)
     return pairs
@@ -975,6 +924,10 @@ RANK_MEMO_CAP = 2_048
 _RANK_MEMO_TALLY = {"hit": 0, "miss": 0, "evicted": 0}
 _RIME_MEMO = _collections_fm.OrderedDict()
 RIME_MEMO_CAP = 200_000
+#: (call, candidate, lexicon) -> the schemas the two words stand in as two
+#: line ends (`Reviser._end_pair_schemas`). Words, so bounded like the rimes.
+_END_PAIR_MEMO = _collections_fm.OrderedDict()
+END_PAIR_MEMO_CAP = 400_000
 
 
 def _score_memo_enabled():
@@ -1022,6 +975,7 @@ def field_memo_clear():
     """Empty the process memo and zero its tally (tests, and a declaration
     change a caller wants to be sure is not served from before it)."""
     _FIELD_MEMO.clear()
+    _END_PAIR_MEMO.clear()
     for k in _FIELD_MEMO_TALLY:
         _FIELD_MEMO_TALLY[k] = 0
 
@@ -1050,6 +1004,8 @@ class Reviser:
         #: mandate that declares a slot ever fills this.
         self._slot_cache = {}
         self._field_cache = {}
+        self._coarse_sets = {}
+        self._member_cache = {}
         self._anchor_cache = {}
         self._pronunciation_origin = None
 
@@ -1247,8 +1203,9 @@ class Reviser:
                         records[j]["final_unreadable"]:
                     continue
                 s = matrix[i][j]
-                if admits(s, theta, relations=frozenset(self.decl.admit)) \
-                        or s["relation"] == "REPEAT":
+                if admits(s, theta, relations=frozenset(self.decl.admit),
+                          cuts=self.decl.theta_by_relation) \
+                        or "REPEAT" in s["relations"]:
                     adj[i].add(j)
                     adj[j].add(i)
         cliques = []
@@ -1498,7 +1455,8 @@ class Reviser:
 
     # -- grading the mandate ----------------------------------------------
 
-    def grade(self, lines, mandate=None, profile=None, sections=None, *, _only_groups=None):
+    def grade(self, lines, mandate=None, profile=None, sections=None, *,
+              _only_groups=None, _verdicts_only=False):
         """The mandate, diffed against the graph. -> dict, group-scoped.
 
         `sections` IS THE STANZA GROUND AND IT IS PASSED, NEVER INVENTED
@@ -1713,7 +1671,7 @@ class Reviser:
                 stanza_source="declared_sections" if sections else "",
                 declaration={"language": "eng"})
         if _RT is not None:
-            _wants = {m.relation_of(k) for _, _, k in pairs if m.relation_of(k)}
+            _wants = {w for _, _, k in pairs for w in _relations_of(m, k)}
             _schemas = [w for w in _wants if _schema_name_of(_RT, w)]
             if _schemas:
                 from quality import relations as _R_mod
@@ -1757,7 +1715,7 @@ class Reviser:
                     # multiplied every candidate verification by every named
                     # figure). Default-slot consumers retain the full graph.
                     needs_instances = any(
-                        m.relation_of(k) == w and
+                        w in _relations_of(m, k) and
                         (not m.slots_declared() or
                          (_SL.is_default(m.slot_of(k, i)) and
                           _SL.is_default(m.slot_of(k, j))))
@@ -1766,7 +1724,7 @@ class Reviser:
                         continue
                     _canon = _schema_name_of(_RT, w)
                     _requested = {(i, j) for i, j, k in pairs
-                                  if m.relation_of(k) == w and
+                                  if w in _relations_of(m, k) and
                                   (not m.slots_declared() or
                                    (_SL.is_default(m.slot_of(k, i)) and
                                     _SL.is_default(m.slot_of(k, j))))}
@@ -1817,22 +1775,35 @@ class Reviser:
                     refused.add((i, j, k))
                     unknown.update(((i, k), (j, k)))
                     continue
-            rel = s["relation"]
+            rels = frozenset(s["relations"])
+            admitted = admitted_relations(
+                s, self.decl.theta_rhyme, frozenset(self.decl.admit),
+                self.decl.theta_by_relation)
             why = None
             struct = m.structure_of(k) if _ST is not None else None
-            want = m.relation_of(k) if _RT is not None else ""
-            _coarse = (not want and (_ST is None or struct == _ST.DEFAULT)) or str(want).startswith("class:")
+            wants = _relations_of(m, k) if _RT is not None else ()
+            _nondefault_struct = _ST is not None and struct != _ST.DEFAULT
+            _coarse = ((not wants and not _nondefault_struct)
+                       or (bool(wants) and all(str(w).startswith("class:")
+                                               for w in wants)))
             _ambiguous = any(len(self.lex.entries.get(str(w).lower(), ())) > 1
                              for w in (ew_i, ew_j))
             if _coarse and _ambiguous:
                 _default_slots = slot_i is None or (_SL.is_default(slot_i) and _SL.is_default(slot_j))
                 from quality.rhyme_types import coarse_relation_consensus
-                _consensus = coarse_relation_consensus(
-                    self.lex, lines[i - 1] if _default_slots else ew_i,
-                    lines[j - 1] if _default_slots else ew_j,
-                    self.decl, relation=str(want).split(":", 1)[1] if want else None,
-                    profile=profile, promote=self._promote(),
-                    member_lexicons=member_lexicons if not _default_slots else None)
+                # One consensus per required class (each must hold under
+                # every reading); the default asks the admit predicate.
+                _consensus = True
+                for _cw in (wants or (None,)):
+                    if coarse_relation_consensus(
+                            self.lex, lines[i - 1] if _default_slots else ew_i,
+                            lines[j - 1] if _default_slots else ew_j,
+                            self.decl,
+                            relation=str(_cw).split(":", 1)[1] if _cw else None,
+                            profile=profile, promote=self._promote(),
+                            member_lexicons=member_lexicons if not _default_slots else None) is None:
+                        _consensus = None
+                        break
                 if _consensus is None:
                     refusals.append({"lines": (i, j), "endwords": (ew_i, ew_j),
                                      "unreadable": [], "groups": [m.labels[k]],
@@ -1840,7 +1811,7 @@ class Reviser:
                     refused.add((i, j, k))
                     unknown.update(((i, k), (j, k)))
                     continue
-            if rel == "REPEAT" and not (want and _schema_name_of(_RT, want)):
+            if "REPEAT" in rels and not any(_schema_name_of(_RT, w) for w in wants):
                 # Identity is its own question under EVERY structure — the
                 # returns/licence machinery owns it, and an identical word
                 # trivially "satisfying" an alliteration demand is exactly
@@ -1862,218 +1833,204 @@ class Reviser:
                 # byte-identically (doctrine 3 stands: REPEAT is still not
                 # rhyme where nothing declared otherwise).
                 why = "REPEAT not rhyme (identical word)"
-            elif want:
-                # THE GROUP DECLARED WHAT RELATION IT WANTS. This is the
-                # coordinate `admits()` could never carry: `admits()` is ONE
-                # global set answering "what satisfies ANY mandate", so
-                # widening it makes every requirement looser. Asked per
-                # group, the same question is STRICTER — a group declaring
-                # ASSONANCE is not satisfied by a perfect rhyme.
-                #
-                # POSITION IS DECLARED, NOT ASSUMED. 31 of the 49 named types
-                # require one and `classify_pair` cannot know it (M-34).
-                # ~~A mandate's groups are end-rhyme groups by construction,
-                # so 'end' is the honest value here and is passed explicitly
-                # — a checker picking it silently would be the bug (doctrine
-                # 45), and it is exactly the wrong value for the internal,
-                # head, leonine, cross and holorhyme relations, which this
-                # path therefore cannot yet mandate.~~
-                # SUPERSEDED 2026-08-23 (doctrine 17, the strike stays
-                # visible): the first clause stopped being true when
-                # `Mandate.loci` shipped, and the sentence's own second half
-                # is the specification it was superseded by. A group's
-                # members now DECLARE where they bind, so the position comes
-                # from the declaration — `slots.position_of` — and 'end' is
-                # what a default slot resolves to rather than what every
-                # group is assumed to be. The head, internal and cross
-                # relations this comment named as unreachable are reachable
-                # by declaring the placement their own definitions require.
-                # M-148 (P2): A SCHEMA RELATION AT A DECLARED SLOT IS JUDGED
-                # AT THE DECLARED TOKENS. The instances route below hands the
-                # judge `line_pairs_for`'s answer, and `realise()` enumerates
-                # spans at the schema's OWN loci — measured (M-148 E2), the
-                # CLASS route reads a `1.T2`-to-`2.end` binding correctly
-                # while the schema route judged placements the writer never
-                # declared. `relations.pair_satisfies` keeps the schema's own
-                # anchors, channels and identity rules and takes only WHICH
-                # word from the slot; a default-slot mandate keeps the
-                # instances route, whose loci for an end-anchored schema ARE
-                # the declared placement.
-                _sch_name = _schema_name_of(_RT, want)
-                _via_pair = bool(
-                    _sch_name and _stream is not None and slot_i is not None
-                    and not (_SL.is_default(slot_i)
-                             and _SL.is_default(slot_j)))
-                if _via_pair:
-                    _ti = _SL.token_of(slot_i)
-                    _tj = _SL.token_of(slot_j)
-                    if _ti is None or _tj is None:
+            elif wants or _nondefault_struct:
+                # EVERY DECLARED REQUIREMENT IS ASKED: each relation the group
+                # names (the pair must stand in all of them), then the
+                # declared structure, if any. A refusal on any one refuses.
+                _refused_here = False
+                for want in wants:
+                    # THE GROUP DECLARED WHAT RELATION IT WANTS. This is the
+                    # coordinate `admits()` could never carry: `admits()` is ONE
+                    # global set answering "what satisfies ANY mandate", so
+                    # widening it makes every requirement looser. Asked per
+                    # group, the same question is STRICTER — a group declaring
+                    # ASSONANCE is not satisfied by a perfect rhyme.
+                    #
+                    # POSITION IS DECLARED, NOT ASSUMED. 31 of the 49 named types
+                    # require one and `classify_pair` cannot know it (M-34).
+                    # ~~A mandate's groups are end-rhyme groups by construction,
+                    # so 'end' is the honest value here and is passed explicitly
+                    # — a checker picking it silently would be the bug (doctrine
+                    # 45), and it is exactly the wrong value for the internal,
+                    # head, leonine, cross and holorhyme relations, which this
+                    # path therefore cannot yet mandate.~~
+                    # SUPERSEDED 2026-08-23 (doctrine 17, the strike stays
+                    # visible): the first clause stopped being true when
+                    # `Mandate.loci` shipped, and the sentence's own second half
+                    # is the specification it was superseded by. A group's
+                    # members now DECLARE where they bind, so the position comes
+                    # from the declaration — `slots.position_of` — and 'end' is
+                    # what a default slot resolves to rather than what every
+                    # group is assumed to be. The head, internal and cross
+                    # relations this comment named as unreachable are reachable
+                    # by declaring the placement their own definitions require.
+                    # M-148 (P2): A SCHEMA RELATION AT A DECLARED SLOT IS JUDGED
+                    # AT THE DECLARED TOKENS. The instances route below hands the
+                    # judge `line_pairs_for`'s answer, and `realise()` enumerates
+                    # spans at the schema's OWN loci — measured (M-148 E2), the
+                    # CLASS route reads a `1.T2`-to-`2.end` binding correctly
+                    # while the schema route judged placements the writer never
+                    # declared. `relations.pair_satisfies` keeps the schema's own
+                    # anchors, channels and identity rules and takes only WHICH
+                    # word from the slot; a default-slot mandate keeps the
+                    # instances route, whose loci for an end-anchored schema ARE
+                    # the declared placement.
+                    _sch_name = _schema_name_of(_RT, want)
+                    _via_pair = bool(
+                        _sch_name and _stream is not None and slot_i is not None
+                        and not (_SL.is_default(slot_i)
+                                 and _SL.is_default(slot_j)))
+                    if _via_pair:
+                        _ti = _SL.token_of(slot_i)
+                        _tj = _SL.token_of(slot_j)
+                        if _ti is None or _tj is None:
+                            refusals.append({
+                                "lines": (i, j),
+                                "endwords": (ew_i, ew_j),
+                                "unreadable": [],
+                                "groups": [m.labels[k]],
+                                "reason": (f"the declared relation {want!r} is a "
+                                           f"schema and a member's slot binds no "
+                                           f"single token (a whole-line slot), "
+                                           f"so the declared-token route cannot "
+                                           f"bind it — REFUSED, not failed "
+                                           f"(doctrine 79)")})
+                            refused.add((i, j, k))
+                            unknown.add((i, k))
+                            unknown.add((j, k))
+                            _refused_here = True
+                            break
+                        _out = _R_ref.pair_satisfies(
+                            _R_ref.REGISTRY[_sch_name], _stream,
+                            (i - 1, _ti), (j - 1, _tj))
+                        if isinstance(_out, _R_ref.Refusal):
+                            refusals.append({
+                                "lines": (i, j),
+                                "endwords": (ew_i, ew_j),
+                                "unreadable": [],
+                                "groups": [m.labels[k]],
+                                "reason": (f"the declared relation {want!r} "
+                                           f"cannot be judged at the declared "
+                                           f"tokens: {_out.detail} — REFUSED, "
+                                           f"not failed (doctrine 79)")})
+                            refused.add((i, j, k))
+                            unknown.add((i, k))
+                            unknown.add((j, k))
+                            _refused_here = True
+                            break
+                        ok = _out
+                    else:
+                        try:
+                            ok = _RT.satisfies_relation(
+                                want, rels, ew_i, ew_j,
+                                self._relation_phonology(),
+                                position=_SL.position_of(slot_i or i),
+                                lines=(i, j), instances=_sch_pairs.get(want),
+                                member_phons=member_phons)
+                        except _RT.RelationRefused as e:
+                            refusals.append({
+                                "lines": (i, j),
+                                "endwords": (ew_i, ew_j),
+                                "unreadable": [],
+                                "groups": [m.labels[k]],
+                                "reason": (f"the declared relation {want!r} "
+                                           f"cannot be judged here: {e} — "
+                                           f"REFUSED, not failed "
+                                           f"(doctrine 79)")})
+                            refused.add((i, j, k))
+                            unknown.add((i, k))
+                            unknown.add((j, k))
+                            _refused_here = True
+                            break
+                    if ok is None:
+                        # The phonology could not read a member, or the
+                        # classification is indeterminate. A refusal, never a no
+                        # — reading it as a failure charges the writer for a word
+                        # the engine cannot pronounce (doctrine 79).
                         refusals.append({
                             "lines": (i, j),
                             "endwords": (ew_i, ew_j),
                             "unreadable": [],
                             "groups": [m.labels[k]],
-                            "reason": (f"the declared relation {want!r} is a "
-                                       f"schema and a member's slot binds no "
-                                       f"single token (a whole-line slot), "
-                                       f"so the declared-token route cannot "
-                                       f"bind it — REFUSED, not failed "
+                            "reason": (f"the declared relation {want!r} has no "
+                                       f"coordinates in this pair (a member the "
+                                       f"phonology refuses, or an indeterminate "
+                                       f"classification) — REFUSED, not failed "
+                                       f"(doctrine 79)")})
+                        refused.add((i, j, k))
+                        unknown.add((i, k))
+                        unknown.add((j, k))
+                        _refused_here = True
+                        break
+                    if not ok:
+                        why = (f"does not satisfy the declared relation {want!r} "
+                               + (f"— judged by the schema's own channels at the "
+                                  f"DECLARED tokens "
+                                  f"(relations.pair_satisfies), not at the "
+                                  f"schema's own loci"
+                                  if _via_pair else
+                                  f"— judged by the named-type engine at that "
+                                  f"relation's own coordinate, not by the scalar "
+                                  f"comparator's admit set"))
+                    if why is not None:
+                        break
+                if _refused_here:
+                    continue
+                if why is None and _nondefault_struct:
+                    sv = _ST.judge(struct, ew_i, ew_j)
+                    if sv is None:
+                        refusals.append({
+                            "lines": (i, j),
+                            "endwords": (ew_i, ew_j),
+                            "unreadable": [],
+                            # The scalar refusals get their "groups" annotated
+                            # in one pass above, BEFORE this loop runs — a
+                            # record minted here must carry its own or the
+                            # SCHEME_UNREADABLE renderer KeyErrors. This one
+                            # names group k alone, deliberately: the refusal
+                            # is about THIS group's declared structure, not
+                            # about every group the pair happens to share.
+                            "groups": [m.labels[k]],
+                            "reason": (f"the declared structure {struct!r} has "
+                                       f"no coordinates in this pair (a "
+                                       f"refused anchor or an unreadable "
+                                       f"member) — REFUSED, not failed "
                                        f"(doctrine 79)")})
                         refused.add((i, j, k))
                         unknown.add((i, k))
                         unknown.add((j, k))
                         continue
-                    _out = _R_ref.pair_satisfies(
-                        _R_ref.REGISTRY[_sch_name], _stream,
-                        (i - 1, _ti), (j - 1, _tj))
-                    if isinstance(_out, _R_ref.Refusal):
-                        refusals.append({
-                            "lines": (i, j),
-                            "endwords": (ew_i, ew_j),
-                            "unreadable": [],
-                            "groups": [m.labels[k]],
-                            "reason": (f"the declared relation {want!r} "
-                                       f"cannot be judged at the declared "
-                                       f"tokens: {_out.detail} — REFUSED, "
-                                       f"not failed (doctrine 79)")})
-                        refused.add((i, j, k))
-                        unknown.add((i, k))
-                        unknown.add((j, k))
-                        continue
-                    ok = _out
-                else:
-                    try:
-                        ok = _RT.satisfies_relation(
-                            want, rel, ew_i, ew_j,
-                            self._relation_phonology(),
-                            position=_SL.position_of(slot_i or i),
-                            lines=(i, j), instances=_sch_pairs.get(want),
-                            member_phons=member_phons)
-                    except _RT.RelationRefused as e:
-                        refusals.append({
-                            "lines": (i, j),
-                            "endwords": (ew_i, ew_j),
-                            "unreadable": [],
-                            "groups": [m.labels[k]],
-                            "reason": (f"the declared relation {want!r} "
-                                       f"cannot be judged here: {e} — "
-                                       f"REFUSED, not failed "
-                                       f"(doctrine 79)")})
-                        refused.add((i, j, k))
-                        unknown.add((i, k))
-                        unknown.add((j, k))
-                        continue
-                if ok is None:
-                    # The phonology could not read a member, or the
-                    # classification is indeterminate. A refusal, never a no
-                    # — reading it as a failure charges the writer for a word
-                    # the engine cannot pronounce (doctrine 79).
-                    refusals.append({
-                        "lines": (i, j),
-                        "endwords": (ew_i, ew_j),
-                        "unreadable": [],
-                        "groups": [m.labels[k]],
-                        "reason": (f"the declared relation {want!r} has no "
-                                   f"coordinates in this pair (a member the "
-                                   f"phonology refuses, or an indeterminate "
-                                   f"classification) — REFUSED, not failed "
-                                   f"(doctrine 79)")})
-                    refused.add((i, j, k))
-                    unknown.add((i, k))
-                    unknown.add((j, k))
-                    continue
-                if not ok:
-                    why = (f"does not satisfy the declared relation {want!r} "
-                           + (f"— judged by the schema's own channels at the "
-                              f"DECLARED tokens "
-                              f"(relations.pair_satisfies), not at the "
-                              f"schema's own loci"
-                              if _via_pair else
-                              f"— judged by the named-type engine at that "
-                              f"relation's own coordinate, not by the scalar "
-                              f"comparator's admit set"))
-            elif _ST is not None and struct != _ST.DEFAULT:
-                sv = _ST.judge(struct, ew_i, ew_j)
-                if sv is None:
-                    refusals.append({
-                        "lines": (i, j),
-                        "endwords": (ew_i, ew_j),
-                        "unreadable": [],
-                        # The scalar refusals get their "groups" annotated
-                        # in one pass above, BEFORE this loop runs — a
-                        # record minted here must carry its own or the
-                        # SCHEME_UNREADABLE renderer KeyErrors. This one
-                        # names group k alone, deliberately: the refusal
-                        # is about THIS group's declared structure, not
-                        # about every group the pair happens to share.
-                        "groups": [m.labels[k]],
-                        "reason": (f"the declared structure {struct!r} has "
-                                   f"no coordinates in this pair (a "
-                                   f"refused anchor or an unreadable "
-                                   f"member) — REFUSED, not failed "
-                                   f"(doctrine 79)")})
-                    refused.add((i, j, k))
-                    unknown.add((i, k))
-                    unknown.add((j, k))
-                    continue
-                if not sv:
-                    why = (f"does not satisfy the declared structure "
-                           f"{struct!r} — judged by the catalog's own "
-                           f"{_ST.get(struct).kind} judge at that "
-                           f"structure's anchors, not by the scalar "
-                           f"comparator")
-            elif rel in NEAR_RELATIONS and rel not in self.decl.admit:
-                # An ADMITTED near relation falls through to `admits()` and
-                # satisfies on its scalar — `Declaration.admit`, the owner's
-                # declared widening. Undeclared, this branch is byte-for-byte
-                # the old one.
-                why = (f"{rel} not rhyme (conjunctive band; not in the "
-                       f"declared admit set)")
-            elif rel == NO_ANCHOR:
+                    if not sv:
+                        why = (f"does not satisfy the declared structure "
+                               f"{struct!r} — judged by the catalog's own "
+                               f"{_ST.get(struct).kind} judge at that "
+                               f"structure's anchors, not by the scalar "
+                               f"comparator")
+            elif NO_ANCHOR in rels:
                 why = "NO_ANCHOR: nothing to compare (not a rhyme verdict)"
-            elif s["total"] < theta_for(s, self.decl):
-                # PER RELATION SINCE 2026-09-02 (`MISSING.md` M-138, priced).
-                # `check_scheme` is the other reader of this same chain and
-                # its own comment says the two must move together; they do
-                # here, in one commit, phrased the same way.
-                _th = theta_for(s, self.decl)
-                why = (f"below theta_rhyme={self.decl.theta_rhyme}"
-                       if _th == self.decl.theta_rhyme else
-                       f"below theta({rel})={_th} "
-                       f"(theta_rhyme={self.decl.theta_rhyme}; the near "
-                       f"relations carry their own priced cut, M-138)")
-            elif not admits(s, theta_for(s, self.decl),
-                            relations=frozenset(self.decl.admit)):
-                # NO_RELATION FELL THROUGH ALL FOUR BRANCHES — FIXED
-                # 2026-08-15. The chain above is an ENUMERATED blacklist, and
-                # `NO_RELATION` — the band's STRONGEST rejection, set when
-                # NEITHER channel agrees — is in none of its sets: it is not
-                # REPEAT, not in `NEAR_RELATIONS` (which is only ASSONANCE and
-                # CONSONANCE), not `NO_ANCHOR`, and its scalar can sit ABOVE
-                # `theta_rhyme` because the scalar is a weighted channel mean
-                # and the conjunctive band is a separate predicate. So a
-                # mandated pair the band flatly refuses came back `why=None`,
-                # which is the same value a clean rhyme returns.
-                #
-                # MEASURED at a3536ce: `debenture`/`thermco`, total 0.788
-                # against theta 0.75, flags "conjunctive band: neither channel
-                # agrees" — and `brief FILE --groups=1,2` on those two lines
-                # reported `0 FLAG` and `nothing on any line carries a flag`.
-                #
-                # THE FIX IS TO END THE CHAIN POSITIVELY rather than to add
-                # `NO_RELATION` to a set. An enumerated blacklist is wrong in
-                # the same way every time a new relation is named — this asks
-                # `admits()`, the ONE predicate `grade()` is supposed to agree
-                # with, so a relation added tomorrow is refused by default
-                # instead of admitted by omission. The four branches above are
-                # untouched and still own their own messages, so nothing that
-                # was already reported changes wording (doctrine 1).
-                why = f"{rel} not rhyme (conjunctive band)"
+            elif not admitted:
+                # A pair satisfies a bare group when it stands in ANY
+                # admitted relation at that relation's own cut; the schema
+                # pass below then judges it against the whole vocabulary.
+                # One sentence with `check_scheme` (lyric_harness).
+                from lyric_harness import unadmitted_reason as _UR
+                why = _UR(s, self.decl)
             verdicts.append({"lines": (i, j), "group": k,
                              "label": m.labels[k],
                              "members": list(m.groups[k]),
                              "endwords": (ew_i, ew_j),
-                             "score": s["total"], "relation": rel,
+                             "score": s["total"],
+                             "relations": sorted(rels),
+                             "admitted": sorted(admitted),
+                             # What satisfied the group: the declared
+                             # relations (and structure) when it declared
+                             # any, else every admitted relation (the
+                             # schema pass below adds the schemas).
+                             "satisfied_by": ([] if why is not None else
+                                              (list(wants) + ([struct] if
+                                               _nondefault_struct else []))
+                                              if (wants or _nondefault_struct)
+                                              else sorted(admitted)),
                              # THE NUMBER'S OWN PROVENANCE, CARRIED (M-253,
                              # 2026-09-06). This is the `Scored` that JUDGED
                              # the pair — the matrix cell for a default slot,
@@ -2133,49 +2090,67 @@ class Reviser:
         # second judge to drift from (doctrine 1). Declaring a relation
         # remains the NARROWING move and is untouched: a group that says
         # `class:ASSONANCE` or `schema:pararhyme` is satisfied by exactly
-        # that. REPEAT is excluded — identity has its own licence machinery
-        # (doctrine 3) and this ruling is about rhyme relations. LAZY: a
-        # draft whose every undeclared pair already satisfies the scalar
-        # door pays nothing — no import, no stream, no realise. LAZINESS AT
-        # THESE RELATIONS IS UNCALIBRATED: a rescue records WHICH schemas
-        # answered (`satisfied_by`), because a pass under a relation with no
-        # measured modal regime must be tellable from a calibrated pass
-        # (the `STRUCTURE_UNCALIBRATED` contract, one layer over).
-        # ...AND ONLY UNDER THE DEFAULT DOOR (2026-08-25): a caller who
-        # NARROWED `Declaration.admit` has declared what satisfies them,
-        # and the rescue does not override a declaration.
-        # `lyric_harness.admit_is_default` is the one definition of this
-        # gate, shared with `check_scheme` (doctrine 1) -- and it is read
-        # through `self.schema_route_open` since 2026-08-26.
+        # that. An identical word stays in its relation set but its
+        # verdict is the returns/licence machinery's (doctrine 3). A pair's
+        # schemas are recorded on every verdict (`schemas`, `satisfied_by`).
+        # A caller who NARROWED `Declaration.admit` has declared what
+        # satisfies them; `lyric_harness.admit_is_default` is that gate,
+        # shared with `check_scheme`.
         # THE GROUP-LEVEL GATE IS `self.schema_route_open` AND NOTHING ELSE
-        # (`MISSING.md` M-139). It was spelled inline here -- the admit gate,
-        # the group's declared relation and the group's structure, three
-        # conditions -- and `brief()` had to answer the SAME question to
-        # disclose that the candidate field skips this route. Two spellings
-        # of one gate is the drift `_field`'s own docstring is named after,
-        # so the import moved into the method with the gate.
-        _fan = [v for v in verdicts
-                if v["why"] and v["relation"] != "REPEAT"
-                and self.schema_route_open(m, v["group"])]
-        if _fan:
+        # (`MISSING.md` M-139): one definition of which groups accept any
+        # relation, read here and by `brief()`.
+        # EVERY GRADED PAIR IS JUDGED AGAINST THE WHOLE VOCABULARY — not
+        # only the pairs the coarse relations failed. Each verdict's relation
+        # set gains every schema its two lines stand in; in a group whose
+        # route is open (nothing narrowed or declared), a pair is satisfied
+        # when ANY relation in that set holds.
+        _open = [v for v in verdicts if self.schema_route_open(m, v["group"])]
+        # `_verdicts_only` (a TRIAL grade, `declared_offer`): the caller reads
+        # only violations and refusals, and a pair's schemas can change
+        # those only where the group's route is open and the coarse
+        # relations failed it. The same judge answers those pairs; the
+        # reporting-only schema sets of every other pair are not computed.
+        _asked = ([v for v in _open
+                   if v["why"] and "REPEAT" not in v["relations"]]
+                  if _verdicts_only else verdicts)
+        if _asked:
             from quality import relations as _RF
-            # ONE JUDGE FOR BOTH READERS: `relations.whole_vocabulary_pairs`
-            # is the same call `lyric_harness.check_scheme` makes, so the
-            # two graders cannot drift about which pair the default
-            # satisfies (doctrine 1).
             _wvp = _RF.whole_vocabulary_pairs(
                 lines, self._relation_phonology(), sections=sections,
                 bearing={ln - 1 for g in m.groups for ln in g
                          if 1 <= ln <= len(lines)},
-                requested_pairs={tuple(v["lines"]) for v in _fan})
+                requested_pairs={tuple(sorted(v["lines"]))
+                                 for v in _asked})
+            _open_ids = {id(v) for v in _open}
             _fan_unknown = set()
-            for v in _fan:
-                _hit = _wvp.get(tuple(sorted(v["lines"])))
-                if _hit:
-                    v["why"] = None
-                    v["satisfied_by"] = sorted(_hit)
-                else:
-                    _undecided = getattr(_wvp, "undecided", {}).get(tuple(sorted(v["lines"])))
+            for v in _asked:
+                _hit = sorted(_wvp.get(tuple(sorted(v["lines"]))) or ())
+                v["schemas"] = _hit
+                v["relations"] = sorted(set(v["relations"]) | set(_hit))
+                if id(v) not in _open_ids:
+                    continue
+                # A schema the registry disowns (forbidden / deprecated —
+                # homoioteleuton is the ban itself) is recorded as a relation
+                # the pair stands in but never satisfies a group.
+                _sat = [n for n in _hit if _RF.REGISTRY[n].normative
+                        not in ("forbidden", "deprecated")]
+                if _sat:
+                    v["satisfied_by"] = sorted(set(v["satisfied_by"])
+                                               | set(v["admitted"])
+                                               | set(_sat))
+                    if v["why"] and "REPEAT" not in v["relations"]:
+                        v["why"] = None
+                elif v["why"] and "REPEAT" not in v["relations"]:
+                    # Refuse only on an undecided schema that COULD satisfy
+                    # the group: a disowned one (forbidden / deprecated)
+                    # never satisfies, so its indecision cannot move the
+                    # verdict, and with every satisfier decided False the
+                    # pair stays FAILED.
+                    _undecided = [n for n in (getattr(_wvp, "undecided", {})
+                                              .get(tuple(sorted(v["lines"])))
+                                              or ())
+                                  if _RF.REGISTRY[n].normative
+                                  not in ("forbidden", "deprecated")]
                     if _undecided:
                         i, j = v["lines"]
                         k = v["group"]
@@ -2193,7 +2168,7 @@ class Reviser:
         for v in verdicts:
             if not v["why"]:
                 continue
-            if v["relation"] == "REPEAT":
+            if "REPEAT" in v["relations"]:
                 i, j = v["lines"]
                 # GATED ON THE MANDATE HAVING DECLARED ANY RETURN AT ALL --
                 # fixed 2026-08-13, and the comment below was already claiming
@@ -2216,7 +2191,7 @@ class Reviser:
                 if not (is_violation if declared else not default_licensed):
                     continue
             violations.append(v)
-        repeats = [v for v in verdicts if v["relation"] == "REPEAT"]
+        repeats = [v for v in verdicts if "REPEAT" in v["relations"]]
 
         # The DISJUNCTIVE reading, kept reachable so the default is a measured
         # choice. THE CONDITION IS PER LINE, and it is stated per line in
@@ -2384,7 +2359,8 @@ class Reviser:
                     collisions.append({
                         "lines": (i + 1, j + 1),
                         "endwords": (endwords[i], endwords[j]),
-                        "score": s["total"], "relation": s["relation"],
+                        "score": s["total"],
+                        "relations": sorted(s["relations"]),
                         "spans": s.get("spans"),           # M-253, as above
                         # BACKLOG 1.2, the same gate as `verdicts` above: a
                         # collision is reported as two end words and a
@@ -2479,7 +2455,7 @@ class Reviser:
                 pass
         return False, ""
 
-    def group_merges(self, lines, mandate=None, profile=None):
+    def group_merges(self, lines, mandate=None, profile=None, sections=None):
         """-> [merge], the group pairs the MANDATE splits and the GRAPH does
         not. A statement about the mandate, never about a line.
 
@@ -2566,13 +2542,14 @@ class Reviser:
                         ok = False          # (a) fails: not a collision
                         break
                     if not (admits(s, th,
-                                   relations=frozenset(self.decl.admit))
-                            or s["relation"] == "REPEAT"):
+                                   relations=frozenset(self.decl.admit),
+                                   cuts=self.decl.theta_by_relation)
+                            or "REPEAT" in s["relations"]):
                         unresolved.append((i, j))
                 if not ok:
                     continue
                 if unresolved and not self._schema_satisfies(
-                        lines, m, unresolved):
+                        lines, m, unresolved, sections=sections):
                     continue
                 declared, how = self._declared_return(m, a, b)
                 out.append({
@@ -2581,7 +2558,7 @@ class Reviser:
                     "members": (list(ga), list(gb)),
                     "lines": sorted(set(ga) | set(gb)),
                     "edges": [(i, j, matrix[i - 1][j - 1]["total"],
-                               matrix[i - 1][j - 1]["relation"],
+                               tuple(sorted(matrix[i - 1][j - 1]["relations"])),
                                endwords[i - 1], endwords[j - 1])
                               for i, j in cross],
                     "declared": declared,
@@ -2589,7 +2566,7 @@ class Reviser:
                                    "cannot state a return")})
         return out
 
-    def _schema_satisfies(self, lines, m, pairs):
+    def _schema_satisfies(self, lines, m, pairs, sections=None):
         """Do ALL these mandated line pairs stand in some registered schema?
 
         THE 77-SCHEMA HALF OF THE DEFAULT (owner ruling 2026-08-25, M-116),
@@ -2615,7 +2592,8 @@ class Reviser:
         if not _AID(self.decl):
             return False
         key = (tuple(lines),
-               tuple(tuple(g) for g in getattr(m, "groups", ())))
+               tuple(tuple(g) for g in getattr(m, "groups", ())),
+               tuple(sections) if sections else None)
         hit = getattr(self, "_wvp_cache", None)
         if hit is None:
             hit = self._wvp_cache = {}
@@ -2624,7 +2602,7 @@ class Reviser:
             if len(hit) > 8:
                 hit.clear()
             hit[key] = _RF.whole_vocabulary_pairs(
-                lines, self._relation_phonology(),
+                lines, self._relation_phonology(), sections=sections,
                 bearing={ln - 1 for g in getattr(m, "groups", ())
                          for ln in g if 1 <= ln <= len(lines)})
         wvp = hit[key]
@@ -2694,10 +2672,15 @@ class Reviser:
         """
         if undeclared:
             return "COLLISION_UNDECLARED"
-        if relation in RHYME_RELATIONS:
-            return "SCHEME_COLLISION"
-        if relation == "REPEAT":
+        # `relation` is the SET of relations the colliding pair stands in
+        # (a bare name is read as a one-member set). The finding code names
+        # the strongest echo among them; the finding itself lists them all.
+        rels = ({relation} if isinstance(relation, str)
+                else set(relation or ()))
+        if "REPEAT" in rels:
             return "REPEAT_ACROSS_GROUPS"
+        if rels & RHYME_RELATIONS:
+            return "SCHEME_COLLISION"
         return "NEAR_COLLISION"
 
     # -- meter --------------------------------------------------------------
@@ -3062,14 +3045,48 @@ class Reviser:
         rep = GR.song_function_report(song, hooks=hooks,
                                       rhyme_key=GR.rime_cmudict(self.lex))
         if coverage_out is not None:
+            # REQUESTED IS DECIDED PER REFUSAL, NOT PER LAYER (report Q20's
+            # repair, narrowed 2026-09-23). `song_function_report` asks the
+            # CONVENTION's questions as well as the writer's: `chorus` is
+            # always asked, `bridge_contrast` always runs, and every
+            # returning function is asked whether it returns. A refusal whose
+            # whole content is "the premise this question needs is absent
+            # from the declaration" -- no section declares the function
+            # (FUNCTION_UNDECLARED), it occurs once and has no second time
+            # (SINGLE_INSTANCE), there is nothing to contrast it with
+            # (NO_COMPARATOR), a reprise side is missing
+            # (REPRISE_SIDE_UNDECLARED), no title was declared
+            # (TITLE_UNDECLARED) -- is a question NOBODY ASKED, and grid.py's
+            # own gating says so ("an unasked question is in none of the
+            # three counts"; "a single intro is not a question"). Counting
+            # those as unjudged obligations made every planned song with a
+            # once-drawn intro, or without a bridge, permanently
+            # uncertified, so `song`/`finish`/`revise` could never exit 0 on
+            # a blueprint at all. They stay on the report as refusal notes
+            # and are disclosed here as `not_requested`, so nothing is
+            # hidden; they just do not block certification.
+            #
+            # HOOK_UNDECLARED is the one conditional case: with a DECLARED
+            # title the writer asked "is the title in the hook?", and the
+            # missing hook is what refuses it -- a requested question the
+            # harness could not answer, which is exactly what Q20 required
+            # coverage to carry. With no title declared either, no hook
+            # question was asked of the draft at all.
+            unasked = {"FUNCTION_UNDECLARED", "SINGLE_INSTANCE", "NO_COMPARATOR",
+                       "REPRISE_SIDE_UNDECLARED", "TITLE_UNDECLARED"}
+            if not song.title:
+                unasked.add("HOOK_UNDECLARED")
             requested = any(section.declared for section in song.sections) or bool(hooks)
+            blocking = [r for r in rep["refusals"] if r.code not in unasked]
             coverage_out.append({"id": "function:draft", "layer": "function",
-                                 "status": ("refused" if rep["refusals"] else "answered")
+                                 "status": ("refused" if blocking else "answered")
                                  if requested else "not_requested"})
             if requested:
                 for index, refusal in enumerate(rep["refusals"]):
                     coverage_out.append({"id": f"function:{refusal.code}:{index}",
-                                         "layer": "function", "status": "refused",
+                                         "layer": "function",
+                                         "status": ("not_requested" if refusal.code in unasked
+                                                    else "refused"),
                                          "code": refusal.code})
             coverage_out.append({"id": "shape:draft", "layer": "shape", "status": "answered"})
         whole = []
@@ -3206,7 +3223,7 @@ class Reviser:
                   if getattr(r, "verbatim", False) is True]
         fl.declared_lexical_classes = tuple(forced)
         for k, group in enumerate(m.groups):
-            if m.relation_of(k) == "schema:anaphora":
+            if "schema:anaphora" in _relations_of(m, k):
                 forced.append(tuple(group))
         fl.declared_opening_classes = tuple(forced)
         return fl, "?" * m.n_lines
@@ -3217,7 +3234,7 @@ class Reviser:
         It returns the same Finding inspect files; unrelated floor layers
         need not be executed to ask this named pair obligation.
         """
-        if v["why"] or v["relation"] == "REPEAT":
+        if v["why"] or "REPEAT" in v["relations"]:
             return None       # a violation, or a declared identity
         # A PAIR JUDGED UNDER A DECLARED NON-DEFAULT STRUCTURE IS NOT
         # ASKED THIS QUESTION. Both tiers below are END-RHYME laziness
@@ -3462,7 +3479,8 @@ class Reviser:
             add(j, Finding(
                 "SCHEME_VIOLATION", "flag",
                 f"L{i} and L{j} are both in group {v['label']} "
-                f"{v['members']} but do not rhyme",
+                f"{v['members']} but do not stand in the relation it "
+                f"requires",
                 f"{v['why']} (score {v['score']:.3f}; "
                 f"{v['endwords'][0]!r} ~ {v['endwords'][1]!r})"
                 f"{v.get('attribution', '')}", [i, j],
@@ -3792,13 +3810,15 @@ class Reviser:
         # each member is charged to, which is this repo's own triage rule
         # (ingestion / projection / anchor / comparator / band / structure /
         # value) applied to the only output the loop has on a passing song.
-        merges = self.group_merges(lines, m, profile=profile)
+        merges = self.group_merges(lines, m, profile=profile,
+                                   sections=_sections)
         absorbed = {(i, j) for mg in merges for i, j, *_ in mg["edges"]}
         near = 0
         for mg in merges:
             la, lb = mg["labels"]
             ma, mb = mg["members"]
-            ev = "; ".join(f"L{i}~L{j} {wa!r}~{wb!r} {sc:.3f} {rel}"
+            ev = "; ".join(f"L{i}~L{j} {wa!r}~{wb!r} {sc:.3f} "
+                           f"{relation_label(set(rel))}"
                            for i, j, sc, rel, wa, wb in mg["edges"])
             if mg["declared"]:
                 whole.append(Finding(
@@ -3830,14 +3850,14 @@ class Reviser:
             i, j = c["lines"]
             if (i, j) in absorbed:
                 continue
-            code = self._collision_code(c["relation"], c.get("undeclared"))
+            code = self._collision_code(c["relations"], c.get("undeclared"))
+            _crel = relation_label(set(c["relations"]))
             pair = (f"{c['endwords'][0]!r} ~ {c['endwords'][1]!r} "
-                    f"{c['score']:.3f} {c['relation']}"
+                    f"{c['score']:.3f} {_crel}"
                     f"{c.get('attribution', '')}")
             gi = ", ".join(m.labels[k] for k in m.groups_of(i)) or "free"
             gj = ", ".join(m.labels[k] for k in m.groups_of(j)) or "free"
-            if c["relation"] not in RHYME_RELATIONS and \
-                    c["relation"] != "REPEAT":
+            if not set(c["relations"]) & (RHYME_RELATIONS | {"REPEAT"}):
                 # COUNTED OFF THE RELATION, not off which code was emitted.
                 # `COLLISION_CUT_IS_SCALAR_ONLY` is a statement about the CUT,
                 # and the cut is applied identically to every pair in the set,
@@ -3851,7 +3871,7 @@ class Reviser:
                 out = c.get("undeclared_lines") or []
                 which = " and ".join(f"L{x}" for x in out) or f"L{i}/L{j}"
                 is_are = "is" if len(out) == 1 else "are"
-                would = self._collision_code(c["relation"])
+                would = self._collision_code(c["relations"])
                 msg = (f"L{i} and L{j} collide — {pair} — and the mandate "
                        f"DOES NOT SPEAK about {which}: UNDECLARED, not an "
                        f"unintended rhyme")
@@ -3890,7 +3910,7 @@ class Reviser:
                       "and stops")
             else:
                 msg = (f"L{i} ({gi}) and L{j} ({gj}) collide as "
-                       f"{c['relation']}, WHICH IS NOT A RHYME — {pair}")
+                       f"{_crel}, WHICH IS NOT A RHYME — {pair}")
                 # ASKED, NOT ASSERTED — 2026-08-22. This sentence used to
                 # state `admits()` is FALSE (the mandate cut)` as a fixed
                 # fact, which was true only while the DEFAULT admit set was
@@ -3900,7 +3920,7 @@ class Reviser:
                 # would be charged. Doctrine 45's shape, in prose rather
                 # than in a checker: a sentence that silently picks one
                 # answer to a question the declaration decides.
-                _adm = c["relation"] in self.decl.admit
+                _adm = bool(set(c["relations"]) & set(self.decl.admit))
                 ev = (f"scalar {c['score']:.3f} >= {THETA_COLLISION} (the "
                       f"collision cut) and `admits()` is "
                       f"{'TRUE' if _adm else 'FALSE'} (the mandate cut, "
@@ -4129,7 +4149,8 @@ class Reviser:
             # whole-vocabulary fan. The complete draft and mandate still reach
             # the grader, including every global frame and verbatim target.
             demanded_grade = self.grade(trial, m, profile=profile, sections=sections,
-                                        _only_groups=requested)
+                                        _only_groups=requested,
+                                        _verdicts_only=True)
             demanded_unknown = set(map(tuple, demanded_grade.get("refused_obligations", ())))
             if demanded(failures(demanded_grade) | demanded_unknown):
                 refused.append(word)
@@ -4139,11 +4160,12 @@ class Reviser:
             # the same complete relevant-group comparison as before.
             if baseline_bad is None:
                 baseline = self.grade(lines, m, profile=profile, sections=sections,
-                                      _only_groups=relevant)
+                                      _only_groups=relevant,
+                                      _verdicts_only=True)
                 baseline_bad = failures(baseline)
                 baseline_unknown = set(map(tuple, baseline.get("refused_obligations", ())))
             graded = self.grade(trial, m, profile=profile, sections=sections,
-                                _only_groups=relevant)
+                                _only_groups=relevant, _verdicts_only=True)
             bad = failures(graded)
             unknown = set(map(tuple, graded.get("refused_obligations", ())))
             unanswered = demanded(bad | unknown)
@@ -4157,24 +4179,17 @@ class Reviser:
         return kept, refused
 
     def schema_route_open(self, m, group_index):
-        """Is the 77-schema half of the default LIVE for one GROUP?
+        """Does ONE GROUP accept a pair through any registry schema?
 
-        THE ONE DEFINITION OF THE FAN'S GROUP-LEVEL GATE (M-116/M-139).
-        `grade()`'s rescue turns on three facts about a GROUP -- the
-        declaration sits at the default door, the group declares no relation
-        of its own, and it declares no non-default structure -- and `brief()`
-        must answer that same question to say whether the candidate field
-        skipped the route. Two spellings of one gate is exactly how the brief
-        and the verdict come to disagree, which is the defect `_field`'s own
-        docstring is named after (doctrine 1).
+        THE ONE DEFINITION OF THE GROUP-LEVEL GATE (M-116/M-139), read by
+        `grade()` and `brief()` alike: the declaration sits at the default
+        door, the group declares no relation of its own, and it declares no
+        non-default structure. Every pair's schemas are computed and
+        reported regardless; a declared relation or structure narrows the
+        REQUIREMENT, not which relations are judged.
 
-        THE PER-PAIR HALF STAYS IN `grade()`: `v["why"]` and
-        `relation != "REPEAT"` are facts about a PAIR, and a brief has no
-        pair to ask them of.
-
-        LAZY EXACTLY AS `grade()` IS -- a mandate declaring no structure
-        anywhere never imports `quality.structures`, which is what that
-        gate is for there.
+        LAZY exactly as `grade()` is -- a mandate declaring no structure
+        anywhere never imports `quality.structures`.
         """
         from lyric_harness import admit_is_default as _AID
         if not _AID(self.decl):
@@ -4186,20 +4201,6 @@ class Reviser:
             return True
         from quality import structures as _ST_mod
         return m.structure_of(group_index) == _ST_mod.DEFAULT
-
-    def field_note(self, m, groups):
-        """-> `Brief.schema_route_note` for one line's groups.
-
-        ANY open group is enough, and that is the honest reading: ~~the field
-        is ONE list answering every group at once (`joint_field` intersects
-        them)~~ the field at each PLACE answers every group bound there
-        (M-184 split the list per place, 2026-09-01), so a single group
-        leaving the route open means a list was built without the 77 for a
-        pair the grader will apply them to.
-        """
-        from quality.relations import SCHEMA_ROUTE_NOTE as _N
-        return _N if any(self.schema_route_open(m, k)
-                         for k, _mates in groups) else ""
 
     def field_declaration(self):
         """The candidate field's own coordinates, as one printable string.
@@ -4227,89 +4228,22 @@ class Reviser:
         """-> ordered candidate words for each call word, under the GRADER'S
         OWN PREDICATE.
 
-        THE BRIEF AND THE VERDICT HAVE TO ASK THE SAME QUESTION. ~~`grade()`
-        accepts a mandated pair when `admits()` does: the scalar clears
-        `theta_rhyme` AND the relation is in `RHYME_RELATIONS`.~~ This function
-        used to keep the first half and drop the second, so it offered a
-        writer words that the verdict following the brief calls ASSONANCE or
-        CONSONANCE and counts as a violation. Measured on this repo's own
-        song, that was 58 of 336 offered words (17.3%) — concentrated on the
-        cluster codas, `ones` at 15/24 and `went`/`sent` at 7/24 — and it is
-        the same defect in two directions, because the FORBIDDEN list is the
-        head of this same population: 29 of 101 forbidden entries were words
-        no writer could have taken.
+        THE BRIEF AND THE VERDICT HAVE TO ASK THE SAME QUESTION. A default
+        group is satisfied by a pair that stands in ANY relation: an
+        admitted coarse relation at its own cut (`admits_decl`, reading
+        `decl.admit` and `theta_by_relation`), or any registry schema
+        (`relations.whole_vocabulary_pairs` in `grade()`). The field asks
+        both of every candidate in the engine's pool: the coarse half on
+        `best_score` over every variant of both sides, the schema half at
+        the two end tokens (`_end_pair_schemas`, the judgement
+        `lyric_harness.screen_pairs` makes). A caller who NARROWS
+        `decl.admit` narrows the field with it and shuts the schema half,
+        exactly as `schema_route_open` shuts it in `grade()`.
 
-        **THE STRIKE IS 2026-08-26 AND THE INVARIANT IS THE SAME ONE — THE
-        VERDICT MOVED TWICE AND THIS FUNCTION MOVED NEITHER TIME
-        (`MISSING.md` M-139).** `RHYME_RELATIONS` stopped being the verdict's
-        door on 2026-08-22, when M-59's owner ruling widened
-        `Declaration.admit` to all four; and it stopped being the whole
-        question at all on 2026-08-25, when M-116 put ALL 77 SCHEMAS in the
-        default, so `grade()` accepts a mandated pair on
-        `admits(s, theta, decl.admit)` **OR** on
-        `relations.whole_vocabulary_pairs`. This function kept spelling the
-        pre-widening set — `admits(s, theta)` with `relations=` OMITTED,
-        whose own docstring says None means the historical two — under a
-        paragraph claiming it asks the verdict's question. The paragraph was
-        the promise and the call was the defect, which is the ONLY reason
-        this reads as a regression rather than as a policy.
-
-        **THE TWO HALVES ARE NOT THE SAME KIND OF GAP AND ARE NOT CLOSED THE
-        SAME WAY.** The RELATION half is a coordinate this function can carry
-        and now does: the check below reads `self.decl.admit`, so a caller
-        who NARROWS the door narrows the field with it and a later per-
-        relation ruling (`MISSING.md` M-138) flows here for free rather than
-        needing a second edit. The SCHEMA half is not expressible here at
-        all — `whole_vocabulary_pairs` judges a LINE PAIR over a built
-        stream and this function holds one WORD — ~~so it is DISCLOSED
-        rather than silently dropped (`Brief.field_declaration`, and
-        doctrine 20: a field that stays quiet about a whole acceptance route
-        reads as though nothing else could answer)~~.
-
-        **THAT LAST CLAUSE WAS FALSE WHEN IT WAS WRITTEN AND IS STRUCK THE
-        SAME DAY — 2026-08-26.** `Brief.field_declaration` renders
-        `field_depth=..., field_band=...` and NOTHING about the schema
-        route; grep it and every renderer prints those two coordinates
-        alone. So the sentence asserted a disclosure that was never built,
-        which is doctrine 48 inside the docstring of the function this
-        entry's own repair is about — a principle living only in prose,
-        written by the lot that had just finished naming that failure mode.
-
-        ~~The schema half is at present SILENTLY DROPPED here.~~ **THE
-        DISCLOSURE SHIPPED 2026-08-26, ON ITS OWN COORDINATE AND NOT ON
-        `field_declaration`'s.** `Brief.schema_route_note` carries it,
-        `relations.SCHEMA_ROUTE_NOTE` is its ONE definition (the module that
-        owns the judge owns the sentence), and every one of the SIX sites
-        that renders a candidate field prints it — `Brief.__str__`,
-        `Reviser.report`, `propose._offered_block` from its three call sites,
-        and `lyric_harness._print_brief_report`, which restates
-        `Brief.__str__` rather than calling it and would otherwise have lost
-        the rule in the verb a writer actually runs.
-
-        WHAT IT CLAIMS IS BOUNDED BY WHAT WAS MEASURED. The field is
-        per-WORD and the schema route is per-LINE-PAIR, so the disclosure can
-        never list words: it names the ROUTE and says a pair may satisfy
-        without any offered word being taken. MEASURED over
-        `quality/fixtures/` and `songs/` — 15 drafts under their own
-        committed mandates, 452 mandated pairs — **15 pairs (3.32%) on 3
-        drafts are accepted ONLY by the 77**, and of the 10 whose bound spans
-        both read, **0 are offerable** from complete-pool fields
-        1,434–3,981 words deep, every one scoring BELOW `theta_rhyme` 0.75
-        (0.395–0.705). So the route is refused ON THE SCALAR and no depth
-        reaches it, which is why the sentence must not imply the field is
-        merely incomplete.
-
-        AND THE GATE IS ONE FUNCTION NOW, WHICH IS THE OTHER HALF OF THIS
-        DOCSTRING'S OWN PROMISE. `Reviser.schema_route_open` is read by
-        `grade()`'s rescue fan and by `brief()`'s disclosure alike, so the
-        brief cannot say the route is open on a pair the verdict treats as
-        closed (`MISSING.md` M-139).
-
-        `CandidateEngine` scores with `score()` on one pronunciation; the
-        grader scores with `best_score()` over every variant of both sides.
-        The check below uses `best_score`, so the field agrees with the
-        verdict rather than with the engine — which is what makes an offered
-        word a promise instead of a suggestion.
+        Measured before the schema half existed (2026-08-26): 15 of 452
+        mandated pairs (3.32%) were accepted only by a schema, every one
+        scoring below `theta_rhyme` (0.395-0.705), so none was offerable
+        from a field pre-cut at the scalar.
         """
         return [self._field_one(w, profile=profile) for w in calls]
 
@@ -4359,26 +4293,134 @@ class Reviser:
         dl = self._decl_lex_key()
         return None if dl is None else (self._promote(), profile) + dl
 
+    def _end_pair_schemas(self, a, b):
+        """-> frozenset of the registry schemas the words `a` and `b` stand
+        in when each ends a line: every schema bindable at two line ends,
+        judged by `relations.pair_satisfies` at the two end tokens of the
+        screen's own carrier lines -- the judgement `lyric_harness.
+        screen_pairs` makes. Schemas that refuse or cannot decide at the
+        pair contribute nothing. Memoised per (a, b) for the lexicon."""
+        dl = self._decl_lex_key()
+        key = (a, b, None if dl is None else dl[1])
+        if dl is not None:
+            store = _END_PAIR_MEMO
+        else:
+            store = getattr(self, "_end_pair_cache", None)
+            if store is None:
+                store = self._end_pair_cache = {}
+        hit = store.get(("end-pair",) + key)
+        if hit is not None:
+            return hit
+        from lyric_harness import _SCREEN_CARRIERS, _screen_not_applicable
+        from quality import relations as _RL
+        phon = getattr(self, "_rel_phon", None)
+        if phon is None:
+            phon = self._rel_phon = self._relation_phonology()
+        na = _screen_not_applicable()
+        found = set()
+        try:
+            st = _RL.build_stream([_SCREEN_CARRIERS[0].format(w=a),
+                                   _SCREEN_CARRIERS[1].format(w=b)], phon)
+        except Exception:
+            st = None
+        if st is not None:
+            for nm in sorted(_RL.REGISTRY):
+                sch = _RL.REGISTRY[nm]
+                if nm in na or sch.normative in ("forbidden", "deprecated"):
+                    continue
+                try:
+                    ans = _RL.pair_satisfies(sch, st, (0, -1), (1, -1))
+                except Exception:
+                    continue
+                if not isinstance(ans, _RL.Refusal) and ans is True:
+                    found.add(nm)
+        out = frozenset(found)
+        store[("end-pair",) + key] = out
+        if store is _END_PAIR_MEMO:
+            while len(_END_PAIR_MEMO) > END_PAIR_MEMO_CAP:
+                _END_PAIR_MEMO.popitem(last=False)
+        return out
+
+    def _offerable(self, a, b, s):
+        """Does the word pair (a, b), scored `s` by `best_score`, satisfy a
+        default group? The field's own predicate: an admitted coarse
+        relation at its cut, or -- when `decl.admit` is the default -- any
+        schema at the two line ends (`_end_pair_schemas`)."""
+        if s is not None and admits_decl(s, self.decl):
+            return True
+        from lyric_harness import admit_is_default as _AID
+        return bool(_AID(self.decl) and self._end_pair_schemas(a, b))
+
     def _field_one(self, word, profile=None):
+        """-> the complete field of one call word: every candidate in the
+        engine's pool standing in any relation the default group accepts,
+        in pool order. The coarse half is computed eagerly
+        (`_field_split`); the schema half is judged per candidate
+        (`_member`). The ranking reads the two halves lazily; this eager
+        form is for callers that want the whole population."""
+        coarse, pending = self._field_split(word, profile=profile)
+        return list(coarse) + [w for w in pending
+                               if self._member(word, w, profile=profile)]
+
+    def _member(self, call, w, profile=None):
+        """Is `w` in `call`'s field? The field's own predicate, memoised per
+        (call, w): in the coarse half, or an admitted coarse relation on
+        `best_score`, or -- under the default admit -- any schema at the two
+        line ends (`_offerable`)."""
+        coarse, pending = self._field_split(call, profile=profile)
+        if getattr(self, "_coarse_sets", None) is None:
+            self._coarse_sets, self._member_cache = {}, {}
+        cs = self._coarse_sets.get((call, profile))
+        if cs is None or cs[0] is not coarse:
+            if len(self._coarse_sets) > 256:
+                self._coarse_sets.clear()
+            cs = self._coarse_sets[(call, profile)] = (coarse, set(coarse),
+                                                       set(pending))
+        if w in cs[1]:
+            return True
+        if w not in cs[2]:
+            return False
+        key = (call, w, profile)
+        hit = self._member_cache.get(key)
+        if hit is not None:
+            return hit
+        anc_q, w_q = self._word_anchors(call)
+        anc_c, w_c = self._word_anchors(w)
+        s = (best_score(anc_q, anc_c, self.decl, w_q, w_c, profile=profile)
+             if anc_q and anc_c else None)
+        out = self._offerable(call, w, s)
+        if len(self._member_cache) > 200_000:
+            self._member_cache.clear()
+        self._member_cache[key] = out
+        return out
+
+    def _field_split(self, word, profile=None):
+        """-> (coarse, pending): the call's engine pool split into the words
+        already known to be in its field (an admitted coarse relation on
+        `best_score`, asked of pool words the engine scores >= theta_rhyme)
+        and the rest of the pool, whose membership `_member` decides on
+        demand. Under a narrowed `decl.admit` or `field_band='scalar'`
+        nothing is pending: the schema half is shut.
+
+        THE POOL: the engine's scalar candidates first, then every other
+        frequency-listed word sharing a channel a schema could bind at the
+        anchor (stressed nucleus, coda, onset) or the spelled ending, in
+        frequency order. Pending words are judged lazily, only as far as a
+        menu or the ban reaches, and each (call, candidate) answer is
+        memoised."""
         rd = self.rdecl
-        # `decl.admit` IS PART OF THE KEY since 2026-08-26 (M-139). It became
-        # a coordinate of this function's answer the moment the check below
-        # started reading it, and a cache keyed on the old tuple would serve
-        # one door's field to the other's caller — the silent comparator
-        # substitution doctrine 1 exists for.
-        key = (word, self._promote(), rd.field_depth, rd.field_band, profile,
-               self.decl.theta_rhyme, frozenset(self.decl.admit))
+        # `decl.admit` IS PART OF THE KEY since 2026-08-26 (M-139): it is a
+        # coordinate of this answer, and a cache keyed without it would serve
+        # one door's field to the other's caller (doctrine 1).
+        key = ("split", word, self._promote(), rd.field_depth, rd.field_band,
+               profile, self.decl.theta_rhyme, frozenset(self.decl.admit))
         hit = self._field_cache.get(key)
         if hit is not None:
             return hit
         # THE PROCESS MEMO (M-217, 2026-09-03). A field is a pure function of
-        # (word, declaration, lexicon); measured three times on the seed-7009
-        # replay, a REAL fold in a warm process still cost 69-72 s because a
-        # fresh `Reviser` per request rebuilt its ~22 pools from scratch —
-        # `_field_cache` is per instance and dies with it. This tier outlives
-        # the instance on the wider key. LRU at a derived bound, bypassed by
-        # `LYRIC_FIELD_MEMO=0`, and the tally is readable so a disclosure can
-        # say warm or cold rather than leaving the two indistinguishable.
+        # (word, declaration, lexicon); a fresh `Reviser` per request would
+        # otherwise rebuild every pool. LRU at a derived bound, bypassed by
+        # `LYRIC_FIELD_MEMO=0`, with a readable tally.
         mkey = self._field_memo_key(key) if _field_memo_enabled() else None
         if mkey is not None:
             mhit = _FIELD_MEMO.get(mkey)
@@ -4392,42 +4434,72 @@ class Reviser:
         if depth is None:                 # the COMPLETE pool, not a literal
             depth = len(self.engine.index) + 1
         res = self.engine.candidates(word, n=depth)
-        pool = [c["word"] for c in res.get("candidates", [])
-                if c["score"] >= self.decl.theta_rhyme]
+        rows = res.get("candidates", [])
         if rd.field_band == "scalar":
-            passing = pool
+            coarse = tuple(c["word"] for c in rows
+                           if c["score"] >= self.decl.theta_rhyme)
+            pending = ()
         elif rd.field_band == "grader":
+            from lyric_harness import admit_is_default as _AID
+            schemas_open = _AID(self.decl)
             anc_q, w_q = self._word_anchors(word)
-            passing = []
-            for cand in pool:
-                anc_c, w_c = self._word_anchors(cand)
-                s = best_score(anc_q, anc_c, self.decl, w_q, w_c,
-                               profile=profile)
-                # `decl.admit`, NOT the omitted default. Omitting it spelled
-                # the pre-M-59 two-name door in the one function whose
-                # docstring promises it asks the verdict's question (M-139).
-                # AND `theta_for`, NOT `theta_rhyme`, since 2026-09-02 for
-                # the same reason one layer on: the near relations carry
-                # their own priced cut (M-138), and a FIELD built at 0.75
-                # would offer the writer partners the GRADE then charges.
-                if admits(s, theta_for(s, self.decl),
-                          relations=frozenset(self.decl.admit)):
-                    passing.append(cand)
+            coarse, pending = [], []
+            for c in rows:
+                cand = c["word"]
+                if c["score"] >= self.decl.theta_rhyme:
+                    anc_c, w_c = self._word_anchors(cand)
+                    sc = best_score(anc_q, anc_c, self.decl, w_q, w_c,
+                                    profile=profile)
+                    if admits_decl(sc, self.decl):
+                        coarse.append(cand)
+                        continue
+                if schemas_open:
+                    pending.append(cand)
+            if schemas_open and anc_q:
+                # BEYOND THE SCALAR POOL: a word can stand in a registry
+                # schema with the call while scoring low on the scalar (a
+                # consonance, an alliteration, an eye rhyme). Every indexed
+                # word that shares a channel a schema could bind at the
+                # anchor -- the stressed nucleus, the coda, the onset -- or
+                # the spelled ending is added, in frequency order, after the
+                # scalar pool; `_member` decides each lazily.
+                seen = set(coarse) | set(pending) | {word.lower()}
+                keys = set()
+                for a in anc_q:
+                    if a:
+                        keys.add(("n", a[0]["nucleus"]))
+                        keys.add(("c", tuple(a[-1]["coda"])))
+                        keys.add(("o", tuple(a[0]["onset"])))
+                tail = (w_q or word).lower()[-3:]
+                extra = []
+                for cand, anc_c, rank in self.engine.index:
+                    if cand in seen or not anc_c:
+                        continue
+                    if (("n", anc_c[0]["nucleus"]) in keys
+                            or (("c", tuple(anc_c[-1]["coda"])) in keys
+                                and anc_c[-1]["coda"])
+                            or (("o", tuple(anc_c[0]["onset"])) in keys
+                                and anc_c[0]["onset"])
+                            or (len(tail) == 3 and cand.endswith(tail))):
+                        extra.append((rank, cand))
+                pending.extend(c for _r, c in sorted(extra))
+            coarse, pending = tuple(coarse), tuple(pending)
         else:
             # An undeclared value must be loud, not silently one of the two.
             raise ValueError(
                 f"ReviseDeclaration.field_band must be 'grader' or 'scalar', "
                 f"got {rd.field_band!r}")
+        out = (coarse, pending)
         if len(self._field_cache) > 64:
             self._field_cache.clear()
-        self._field_cache[key] = passing
+        self._field_cache[key] = out
         if mkey is not None:
-            _FIELD_MEMO[mkey] = passing
+            _FIELD_MEMO[mkey] = out
             _FIELD_MEMO.move_to_end(mkey)
             while len(_FIELD_MEMO) > FIELD_MEMO_CAP:
                 _FIELD_MEMO.popitem(last=False)
                 _FIELD_MEMO_TALLY["evicted"] += 1
-        return passing
+        return out
 
     def _spelled_rime(self, word):
         """`lyric_harness.spelled_rime` anchored at the RHYMING syllable —
@@ -4571,12 +4643,26 @@ class Reviser:
         return res
 
     def _rank_field_compute(self, calls, profile=None):
-        fields = self._field(calls, profile=profile)
+        # THE FIELDS, READ LAZILY. Each call's field is its coarse half plus
+        # the pending words `_member` admits; the ranking walks candidates
+        # in rank order and asks `_member` only where the answer decides the
+        # HEAD, so the schema half is judged for the words that can change
+        # the ban, and the offer asks it for the words it actually scans.
+        # The head is exactly the head of the complete field.
+        splits = [self._field_split(c, profile=profile) for c in calls]
+        fields = [list(co) + list(pe) for co, pe in splits]
         if not fields or not fields[0]:
             return [], [], fields
         common = set(fields[0])
         for f in fields[1:]:
             common &= set(f)
+        coarse_all = set(splits[0][0])
+        for co, _pe in splits[1:]:
+            coarse_all &= set(co)
+
+        def member(w):
+            return w in coarse_all or all(
+                self._member(c, w, profile=profile) for c in calls)
         order = {w: i for i, w in enumerate(fields[0])}
         cond = collections.Counter()
         for call in calls:
@@ -4602,12 +4688,23 @@ class Reviser:
         # disagreed in the OTHER direction, the call sitting in the offered
         # word's own head, and `joint_field_screened` closes that side.
         call_rimes = {self._spelled_rime(c) for c in calls}
-        homeo = [w for w in ranked if self._spelled_rime(w) in call_rimes]
+        homeo = [w for w in ranked if self._spelled_rime(w) in call_rimes
+                 and member(w)]
         rest_ranked = [w for w in ranked
                        if self._spelled_rime(w) not in call_rimes]
         k = self.rdecl.modal_exclusion
-        forbidden = homeo + rest_ranked[:k]
-        return rest_ranked[k:], forbidden, fields
+        # The head: the first k MEMBERS of the remainder in rank order.
+        # Words after the head stay in `rest` unjudged; the offer screen
+        # asks `_member` of the ones it reaches.
+        head, cut = [], 0
+        for n, w in enumerate(rest_ranked):
+            if len(head) >= k:
+                break
+            cut = n + 1
+            if member(w):
+                head.append(w)
+        forbidden = homeo + head
+        return rest_ranked[cut:], forbidden, fields
 
     def schema_screen(self, offered, calls, schema_name):
         """-> (kept, refused): the offer, judged by the SCHEMA the verdict
@@ -4837,26 +4934,38 @@ class Reviser:
         # global frequency is `i, on, was, are`: function words the widened
         # admit door (M-59; priced at M-138) types as ASSONANCE or CONSONANCE.
         # A menu headed by them is a menu no writer can use. So every
-        # candidate is first TYPED by its relation to every call, read off
-        # the comparator itself (`best_score(...)["relation"]`, the object
-        # `grade()` reads), and the RHYME-typed candidates are screened and
-        # offered first in their doctrine-9 order; the near-typed ones fill
-        # whatever the menu still has room for, in theirs. A partition, not a
+        # candidate is first TYPED by the relation SET it stands in with
+        # every call (`best_score(...)["relations"]`, the object `grade()`
+        # reads): a word whose set holds a rhyme relation with every call is
+        # screened and offered first in its doctrine-9 order; then the other
+        # words in every call's coarse half; then words that reach a call
+        # only through another reading or a registry schema. A partition, not a
         # re-ranking: within each part the order is what it always was.
         anc_calls = [self._word_anchors(c) for c in calls]
-        rhymes, nears = [], []
+        coarse_all = None
+        for c in calls:
+            co = set(self._field_split(c, profile=profile)[0])
+            coarse_all = co if coarse_all is None else coarse_all & co
+        rhymes, nears, schema_only = [], [], []
         for w in rest_ranked:
             if w in drop:
                 continue
             # single letters are lexicon artifacts, not words a writer can use
             if len(w) < 2 and w not in ("a", "i"):
                 continue
+            if w not in coarse_all:
+                # Not in every call's coarse half: in the field only through
+                # another reading or a schema, which `_member` decides when
+                # the menu reaches it (never for the whole pool).
+                schema_only.append(w)
+                continue
             anc_w, lab_w = self._word_anchors(w)
-            typed = all(
-                best_score(anc_c, anc_w, self.decl, lab_c, lab_w,
-                           profile=profile)["relation"] in RHYME_RELATIONS
-                for anc_c, lab_c in anc_calls)
-            (rhymes if typed else nears).append(w)
+            if all(best_score(anc_c, anc_w, self.decl, lab_c, lab_w,
+                              profile=profile)["relations"] & RHYME_RELATIONS
+                   for anc_c, lab_c in anc_calls):
+                rhymes.append(w)
+            else:
+                nears.append(w)
         # THE SCREEN, bounded: each screen scores a few dozen pairs, and a
         # common call's near-typed tier runs to hundreds of words, so at most
         # `_SCREEN_SCAN` × `offered` candidates of each part are screened.
@@ -4871,12 +4980,16 @@ class Reviser:
                 dropped.append(w)
                 continue
             rest.append(w)
-        for w in nears[:limit]:
-            if len(rest) >= self.rdecl.offered:
-                break
-            if self._offer_reopens(w, calls, fields, profile=profile):
-                continue
-            rest.append(w)
+        for part in (nears, schema_only):
+            for w in part[:limit]:
+                if len(rest) >= self.rdecl.offered:
+                    break
+                if part is schema_only and not all(
+                        self._member(c, w, profile=profile) for c in calls):
+                    continue
+                if self._offer_reopens(w, calls, fields, profile=profile):
+                    continue
+                rest.append(w)
         return rest, forbidden, dropped
 
     #: How far past the menu's own length the screen scans EACH part, in
@@ -4928,6 +5041,7 @@ class Reviser:
             pool.discard(c)
             pool.discard(w)
             outrank = 0
+            later = []
             for x in sorted(pool):
                 cx = cond_w.get(x, 0)
                 fx = self.lex.freq_rank.get(x, 10 ** 9)
@@ -4942,11 +5056,19 @@ class Reviser:
                     continue
                 sc = best_score(anc_w, anc_x, self.decl, lab_w, lab_x,
                                 profile=profile)
-                if admits(sc, self.decl.theta_rhyme,
-                          relations=frozenset(self.decl.admit)):
+                if admits_decl(sc, self.decl):
                     outrank += 1
                     if outrank >= k:
                         break
+                else:
+                    later.append(x)
+            # The schema half of the same predicate (`_offerable`), asked
+            # only when the coarse outrankers did not already reach k.
+            for x in later:
+                if outrank >= k:
+                    break
+                if self._offerable(w, x, None):
+                    outrank += 1
             if outrank < k:
                 return True
         return False
@@ -5235,11 +5357,12 @@ class Reviser:
                         _bound_schemas = []
                         for _k in ks:
                             try:
-                                _r2 = m.relation_of(_k) or ""
+                                _r2s = _relations_of(m, _k)
                             except Exception:
-                                _r2 = ""
-                            if str(_r2).startswith("schema:"):
-                                _bound_schemas.append(str(_r2))
+                                _r2s = ()
+                            _bound_schemas.extend(
+                                str(_r2) for _r2 in _r2s
+                                if str(_r2).startswith("schema:"))
                         if not _off and any(
                                 self.schema_refuses_rhyme_band(_r2)
                                 for _r2 in _bound_schemas):
@@ -5281,7 +5404,8 @@ class Reviser:
                                      [:self._SCREEN_SCAN * self.rdecl.offered]
                                      if word not in {_cur, *_forb}]
                             for _call in _calls:
-                                if any(str(m.relation_of(k) or "").startswith("schema:") for k in ks):
+                                if any(str(_w).startswith("schema:") for k in ks
+                                       for _w in _relations_of(m, k)):
                                     _pool.extend(self._widen_pool(_call, profile=profile)
                                                  [:self._SCREEN_SCAN * self.rdecl.offered])
                                 _raw = self.engine.candidates(
@@ -5356,10 +5480,6 @@ class Reviser:
                     # that `joint_field` ran, so an EMPTY head can be told
                     # apart from a head nobody asked for. See the field.
                     b.field_computed = True
-                    # THE DOOR THE FIELD WAS READ AT, SET WHERE THE FIELD IS
-                    # SET AND NOWHERE ELSE (`MISSING.md` M-139) -- the same
-                    # discipline `field_computed` one line up is under.
-                    b.schema_route_note = self.field_note(m, groups)
                     # A CONJUNCTION IS EMPTY AT ONE PLACE, never across
                     # places (M-184): two families at two places are two
                     # questions, and neither is unsatisfiable for the
@@ -5768,7 +5888,7 @@ class Reviser:
         # and the findings below it cannot disagree about a pair's kind.
         _ccounts = {}
         for _c in rep["collisions"]:
-            _code = self._collision_code(_c["relation"], _c.get("undeclared"))
+            _code = self._collision_code(_c["relations"], _c.get("undeclared"))
             _ccounts[_code] = _ccounts.get(_code, 0) + 1
         _cshort = {"SCHEME_COLLISION": "unasked-rhyme",
                    "NEAR_COLLISION": "not-a-rhyme",
@@ -5828,14 +5948,6 @@ class Reviser:
                   f"None of them earns a candidate field and that is a "
                   f"decision, not a gap: see `brief`'s 'WHY A COLLISION "
                   f"EARNS NO FIELD'.", file=stream)
-        # RENDER SITE 2 OF 6 -- the REPORT-level statement of what the
-        # field is, beside the coordinates it was read at. Whole-report and
-        # therefore DECLARATION-level: the report cannot speak for one line's
-        # groups, so it states the half a report can state and says so by
-        # asking group 0. A report with no group says nothing.
-        for _l in schema_route_lines(
-                self.field_note(m, [(0, ())]) if m.groups else None, "  "):
-            print(_l, file=stream)
         print(f"  candidate field: {self.field_declaration()}; "
               f"modal_exclusion={self.rdecl.modal_exclusion}; "
               f"group_merge={self.rdecl.group_merge!r}; "

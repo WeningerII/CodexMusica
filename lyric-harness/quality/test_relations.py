@@ -170,8 +170,17 @@ def test_inventory():
             findings[name] = len(res)
     check("nothing raises on a plain English quatrain", raised == 0,
           f"ran={ran} refused={refused} raised={raised}")
-    check("46 of 78 run; four unsupported complete shapes now refuse alongside capabilities "
-          "and spans", ran == 46 and refused == 32,
+    # REPINNED 2026-09-22 from 46/32: the three sain figures now JUDGE
+    # (token-member figures in `_full_shape`) and the 平仄 template refuses
+    # for its declared inputs (`tonal_template`, `tone`), not for want of
+    # member bindings. No schema refuses as an unsupported shape any more.
+    _shape_refusals = [n for n, s in R.REGISTRY.items()
+                       if isinstance(R.realise(s, st), R.Refusal)
+                       and R.realise(s, st).kind == "unsupported_shape"]
+    check("no schema refuses as an unsupported shape",
+          _shape_refusals == [], str(_shape_refusals))
+    check("49 of 78 run; the rest refuse for capabilities and spans",
+          ran == 49 and refused == 29,
           f"ran={ran} refused={refused}; capability_report says "
           f"{len(rep['reachable'])} reachable "
           f"(2 of those refuse at the SPAN, which is correct: 'penult' and "
@@ -1075,10 +1084,38 @@ def test_unprovidable_is_declared_and_measured():
     # repo's own declared CLICHE_PAIRS. `check_unprovidable` caught the stale
     # entry the same day and said what to do with it (doctrine 17: the
     # argument is retired whole, not deleted).
-    check("`poet` and `frequency` are NOT in the live table; "
-          "`stub_resolution` is",
-          {e.capability for e in R.UNPROVIDABLE} == {"stub_resolution"},
+    # REPINNED 2026-09-22. Was `== {"stub_resolution"}`. The resolution is
+    # SUPPLIED now: declared (`declare_stub_resolution`), or derived from a
+    # declared `line_status` (unique incipit matches only), so `refrain by
+    # reference` judges and the live table is empty.
+    check("`poet`, `frequency` and `stub_resolution` are NOT in the live "
+          "table — the last was supplied, not argued away",
+          {e.capability for e in R.UNPROVIDABLE} == set(),
           f"{sorted(e.capability for e in R.UNPROVIDABLE)}")
+    _lines = ["and so we sang of home", "we walked away",
+              "and so we sang, &c."]
+    _decl = R.build_stream(_lines, ENG, declaration={"language": "eng"},
+                           line_status=("", "", "stub"))
+    _got = R.line_pairs_for(R.REGISTRY["refrain by reference"], _decl)
+    check("`refrain by reference` JUDGES once the text says which lines are "
+          "pointers: the stub resolves to line 1 and the pair (1, 3) holds",
+          not isinstance(_got, R.Refusal) and set(_got) == {(1, 3)}
+          and _decl.frames.stub_source == "none", str(_got))
+    _plain = R.build_stream(["and so we sang", "we walked away",
+                             "and so we sang"], ENG,
+                            declaration={"language": "eng"},
+                            line_status=("", "", ""))
+    _none = R.line_pairs_for(R.REGISTRY["refrain by reference"], _plain)
+    check("...and a verbatim repeat with NO stub stands in no refrain BY "
+          "REFERENCE (looked, none) — the inversion the flag caused is gone",
+          not isinstance(_none, R.Refusal) and set(_none) == set(),
+          str(_none))
+    _undecl = R.line_pairs_for(R.REGISTRY["refrain by reference"],
+                               stream(["and so we sang", "and so we sang, &c."]))
+    check("...and with no stub status declared at all it still REFUSES by "
+          "name — which lines are pointers is the edition's to say (P10)",
+          isinstance(_undecl, R.Refusal)
+          and _undecl.missing == ("stub_resolution",), str(_undecl))
     check("...and `frequency` is RETIRED WHOLE rather than deleted — the "
           "reason a capability cannot be supplied does not stop being true "
           "because the schema that wanted it was re-founded",
@@ -1100,9 +1137,10 @@ def test_unprovidable_is_declared_and_measured():
     R.mark_refrain_tail(rich)
     rich.alt.update({s: rich for s in R.ALT_SURFACES})
     still = [e.capability for e in R.UNPROVIDABLE if rich.provides(e.capability)]
-    check("neither is reachable from a stream declaring everything a caller "
-          "CAN declare — including every alt surface",
+    check("nothing in the live table is reachable from a stream declaring "
+          "everything a caller CAN declare — including every alt surface",
           not still, f"now provided: {still}")
+    R.declare_stub_resolution(rich, {3: (0, 1)})
 
     # THE MANUFACTURING, MEASURED. Force the flag and compare.
     #
@@ -2102,8 +2140,18 @@ def test_relation_report_renderer_runs():
     check("`python3 quality/relations.py metidja.txt` RUNS end to end and "
           "exits 0",
           rc == 0 and "phonology eng   schemas declared 78" in out
-          and "RAN AND FIRED 20" in out,
-          "REFUSED 24 · RAN AND FOUND NOTHING 29 · RAN AND FIRED 24. "
+          and "REFUSED 27 (capability 27 · EMPTY DECLARED FRAME 0 · OTHER 0)"
+          in out and "RAN AND FOUND NOTHING 28" in out
+          and "RAN AND FIRED 23" in out,
+          "REFUSED 27 · RAN AND FOUND NOTHING 28 · RAN AND FIRED 23, "
+          "REPINNED 2026-09-22 by running this verb on both trees: at "
+          "f05dbf71 it read REFUSED 30 (4 OTHER — the unsupported shapes) · "
+          "25 · 23. The three sain figures now judge (and find nothing in "
+          "Browning's lines) and the 平仄 template refuses for its declared "
+          "inputs, so OTHER goes 4 -> 0, capability 26 -> 27 and found-"
+          "nothing 25 -> 28. The assertion pinned FIRED 20 while the prose "
+          "said 24 and the tree measured 23 — stale before this change. "
+          "Earlier: REFUSED 24 · RAN AND FOUND NOTHING 29 · RAN AND FIRED 24. "
           "REPINNED 2026-08-23 from ~~31 · 26 · 20~~ (2026-08-22, M-39) and "
           "before that ~~26 · 27 · 24~~ (2026-08-13). SEVEN SCHEMAS STOPPED "
           "REFUSING on this text, and the move is the capability work of "
@@ -2215,8 +2263,10 @@ def test_caesura_layer_reconciled():
           round(scan_mean, 1) == 10.6,
           f"{scan_mean:.4f} over the same 1,558 lines. "
           f"`python3 quality/cynghanedd_rate.py corpus/cym_alun_strict.txt 1` "
-          f"prints `mean placements tried = 10.6` beside `890/1558 = 57.1%`, "
-          f"which is METHOD doctrine 56's own Alun figure.")
+          f"prints `mean placements tried = 10.6` beside `868/1558 = 55.7%` "
+          f"(~~890/1558 = 57.1%~~ until 7d1ded93; repinned 2026-09-23 -- "
+          f"`tried` did not move), which is METHOD doctrine 56's own Alun "
+          f"figure.")
     check("...and the gap is exactly the THREE-part sain cuts: mean of "
           "k + C(k,2) lands on the scanner's number",
           round(two_and_three, 1) == 10.7
@@ -2491,10 +2541,12 @@ def test_vacuous_frame_is_not_a_null():
           "(doctrine 20)")
     raw, st = _eng_corpus_stream(VACUITY_ITEM)
     before = _split(st)
-    check("the staged item reproduces the measured split 31 FIRED / 26 "
-          "REFUSED / 20 RAN AND FOUND NOTHING (repinned from 30/26/21 at "
-          "M-148: the repaired skothending schema now fires here)",
-          before == (28, 30, 20),
+    # REPINNED 2026-09-22 (28, 30, 20) -> (31, 27, 20), measured on both
+    # trees: the three sain figures stopped refusing as unsupported shapes
+    # and JUDGE — and fire on this text — while the 平仄 template moved from
+    # the unsupported-shape refusal to a capability refusal.
+    check("the staged item reproduces the measured split (31, 27, 20)",
+          before == (31, 27, 20),
           f"{before} on corpus/{VACUITY_ITEM}: {len(raw)} raw lines, "
           f"{len(st.units)} units. PREMISE — it must hold on both trees.")
 
@@ -2542,8 +2594,8 @@ def test_vacuous_frame_is_not_a_null():
           _shown)
     after = _split(st)
     check("...so calling both markers moves NOTHING: the split is still "
-          "31/26/20, where it used to become 31/20/26",
-          after == before == (28, 30, 20),
+          "31/27/20, where it used to become 31/21/26",
+          after == before == (31, 27, 20),
           f"before {before} after {after}. Six schemas crossing from REFUSED "
           f"to RAN AND FOUND NOTHING is the collapse; the counts are the "
           f"cheapest place to see it.")
@@ -2552,9 +2604,9 @@ def test_vacuous_frame_is_not_a_null():
     rep = R.relation_report(st)
     check("relation_report separates the two refusals and the partition "
           "still closes",
-          rep["refused_vacuous"] == 6 and rep["refused_capability"] == 20
-          and rep["refused_other"] == 4
-          and rep["refused"] == 30
+          rep["refused_vacuous"] == 6 and rep["refused_capability"] == 21
+          and rep["refused_other"] == 0
+          and rep["refused"] == 27
           and (rep["refused"] + rep["ran_found_nothing"]
                + rep["ran_and_fired"]) == rep["declared"] == 78
           and {r[0] for r in rep["vacuous_refusals"]} == set(VACUOUS_SIX)
@@ -2637,11 +2689,11 @@ def test_vacuous_frame_is_not_a_null():
         mut_rep = R.relation_report(st)
         mut_state = st.supply("caesura").state
     check("MUTANT: with `provides` reading the SOURCE again, all six stop "
-          "refusing and return an empty list, the split moves to 31/20/26, "
+          "refusing and return an empty list, the split moves to 31/21/26, "
           "and the fourth count goes to zero",
           all(not isinstance(o, R.Refusal) and len(o) == 0
               for o in mut_outs.values())
-          and mut_split == (28, 24, 26) and mut_rep["refused_vacuous"] == 0
+          and mut_split == (31, 21, 26) and mut_rep["refused_vacuous"] == 0
           and mut_state == "present",
           f"{mut_split} under the mutant against {after} at head; "
           f"{ {n: len(o) for n, o in mut_outs.items()} }. Six schemas, six "
@@ -3166,6 +3218,10 @@ def test_the_pair_guard_refuses_before_it_evaluates():
     drift = []
     ran = 0
     for name, s in R.REGISTRY.items():
+        if name in R.TOKEN_MEMBER_SHAPES + R.TEMPLATE_SHAPES:
+            # Judged whole by `_full_shape` (token members / a template),
+            # never through the pair-candidate loop this section freezes.
+            continue
         t_new, t_old = {}, {}
         got = R.realise(s, st, keep="all", tally=t_new)
         if isinstance(got, R.Refusal):
@@ -3191,6 +3247,156 @@ def test_the_pair_guard_refuses_before_it_evaluates():
           repr(got) == repr(exp) and t_new == t_old and len(got) < len(ref),
           f"{len(got)} instances against {len(ref)} unskipped; "
           f"tally {t_new}")
+
+
+# ---------------------------------------------------------------------------
+# X11. N RELATIONS PER PAIR, JUDGED AGAINST THE WHOLE REGISTRY (2026-09-22)
+# ---------------------------------------------------------------------------
+
+def test_every_schema_judges_and_no_differ_only_excludes():
+    """X11. The five schemas that used to refuse now JUDGE over their
+    inputs; `whole_vocabulary_pairs` answers every schema for every pair; the
+    registry carries no Differ whose only job is to keep a schema disjoint
+    from a stronger relation.
+    """
+    print("\nX11. every schema judges; a pair stands in every relation its "
+          "sound supports")
+    from quality.phonology import get as _get
+    cym, eng, ltc = _get("cym"), _get("eng"), _get("ltc")
+
+    # -- THE SAIN FAMILY, judged per line over ordered token tuples.
+    st = R.build_stream(["Y gŵr wrth y dŵr a'i dyrau", "Mae'r ferch yn wych"],
+                        cym, declaration={"language": "cym"})
+    sain = R.line_pairs_for(R.REGISTRY["cynghanedd sain"], st)
+    fig = [(li, e.tokens, v) for li, e, v in
+           R._full_shape(R.REGISTRY["cynghanedd sain"], st)]
+    check("cynghanedd sain JUDGES: line 1 holds (gŵr ~ dŵr odl, dŵr ~ dyrau "
+          "alliteration) and line 2 does not; as a LINE figure it holds of "
+          "no pair",
+          not isinstance(sain, R.Refusal) and set(sain) == set()
+          and sain.lines == {1} and (0, (1, 4, 6), True) in fig,
+          f"lines {sorted(sain.lines)}; figures {fig[:3]}")
+    gad = R.line_pairs_for(R.REGISTRY["cynghanedd sain gadwynog"], st)
+    check("cynghanedd sain gadwynog JUDGES its interleaved figure (0,2) odl "
+          "+ (1,3) alliteration",
+          not isinstance(gad, R.Refusal) and gad.lines == {1},
+          f"{sorted(gad.lines)}")
+    est = R.build_stream(["old eight ate in arms", "the cat sat by the door"],
+                         eng, declaration={"language": "eng"})
+    laf = R.line_pairs_for(R.REGISTRY["cynghanedd sain lafarog"], est)
+    laf_cym = R.line_pairs_for(R.REGISTRY["cynghanedd sain lafarog"], st)
+    check("cynghanedd sain lafarog JUDGES: eight ~ ate is odl and ate ~ in "
+          "is the zero-onset link; the Welsh line, whose answering words "
+          "carry onsets, does not hold",
+          laf.lines == {1} and laf_cym.lines == set(),
+          f"eng {sorted(laf.lines)}; cym {sorted(laf_cym.lines)}")
+
+    # -- THE 平仄 TEMPLATE, over a tone-bearing phonology and a DECLARED
+    #    pattern. 登鸛雀樓: 白日依山盡 is 仄仄平平仄.
+    poem = ["白日依山盡", "黃河入海流", "欲窮千里目", "更上一層樓"]
+    lst = R.build_stream(poem, ltc, declaration={"language": "ltc"})
+    und = R.line_pairs_for(R.REGISTRY["平仄 tonal template"], lst)
+    check("the 平仄 template refuses for its INPUT, not its shape, when no "
+          "pattern is declared",
+          isinstance(und, R.Refusal) and und.missing == ("tonal_template",)
+          and und.kind == "capability", str(und))
+    R.declare_tonal_template(lst, {0: "仄仄平平仄", 1: "平平仄仄平",
+                                   2: "仄仄平平仄", 3: "中仄仄平平"})
+    tt = R.line_pairs_for(R.REGISTRY["平仄 tonal template"], lst)
+    check("...and JUDGES once declared: lines 1-2 match, line 3 (欲窮千里目 "
+          "is 仄平平仄仄) fails, line 4 matches with 更 (a 多音字) left free "
+          "by 中",
+          tt.lines == {1, 2, 4} and tt.undecided_lines == set(),
+          f"held {sorted(tt.lines)}, undecided {sorted(tt.undecided_lines)}")
+    R.declare_tonal_template(lst, {3: "平仄仄平平"})
+    tu = R.line_pairs_for(R.REGISTRY["平仄 tonal template"], lst)
+    check("...and a slot on a 多音字 whose readings split 平/仄 is UNDECIDED, "
+          "never a guess",
+          tu.lines == set() and tu.undecided_lines == {4},
+          f"held {sorted(tu.lines)}, undecided {sorted(tu.undecided_lines)}")
+    est2 = R.build_stream(["the cat sat"], eng, declaration={"language": "eng"})
+    R.declare_tonal_template(est2, {0: "平平平"})
+    tn = R.line_pairs_for(R.REGISTRY["平仄 tonal template"], est2)
+    check("...and an English stream's STRESS is never read as tone",
+          isinstance(tn, R.Refusal) and tn.missing == ("tone",), str(tn))
+
+    # -- ANALYSED RHYME keeps its crossing: four full rhymes are not it.
+    full = stream(["the cat", "a hat", "the mat", "a bat"])
+    got = R.line_pairs_for(R.REGISTRY["analysed rhyme"], full)
+    check("analysed rhyme's crossing is definitional: four lines that all "
+          "fully rhyme do NOT stand in it",
+          not isinstance(got, R.Refusal) and set(got) == set(), str(got))
+
+    # -- THE DIFFER AUDIT, per schema, on the registry itself.
+    def differs(name):
+        return sorted((c.channel, c.scope) for c in R.REGISTRY[name].channels
+                      if isinstance(c.predicate, R.Differ))
+    check("exclusion-only Differs are gone: assonance, consonance, cluster "
+          "consonance, reverse rhyme and multisyllabic rhyme require nothing "
+          "of the other channel",
+          all(differs(n) == [] for n in (
+              "assonance", "consonance", "cluster consonance / skothending span",
+              "reverse rhyme", "multisyllabic rhyme")),
+          str({n: differs(n) for n in ("reverse rhyme", "multisyllabic rhyme")}))
+    check("...while definitional Differs stay: perfect rhyme's onset, "
+          "pararhyme's vowel, light/wrenched rhyme's stress, eye/historical/"
+          "dialect rhyme's sound, rhyming reduplication's onset, proest's "
+          "vowel",
+          differs("perfect rhyme") == [("onset", "anchor")]
+          and differs("pararhyme") == [("nucleus", "each")]
+          and differs("light rhyme") == [("prominence", "last")]
+          and ("prominence", "last") in differs("wrenched rhyme")
+          and differs("eye rhyme") == [("nucleus", "last")]
+          and differs("historical rhyme") == [("nucleus", "anchor")]
+          and differs("dialect rhyme") == [("nucleus", "anchor")]
+          and differs("rhyming reduplication") == [("onset", "first")]
+          and ("nucleus", "anchor") in differs("proest"))
+    rr = stream(["i saw the sea", "and i can see"])
+    check("reverse rhyme now holds of a pair that is ALSO rime riche "
+          "(sea/see), and pararhyme still does not (the vowels agree)",
+          (1, 2) in R.line_pairs_for(R.REGISTRY["reverse rhyme"], rr)
+          and (1, 2) in R.line_pairs_for(R.REGISTRY["rime riche"], rr)
+          and (1, 2) not in R.line_pairs_for(R.REGISTRY["pararhyme"], rr))
+
+    # -- THE WHOLE-VOCABULARY JUDGE.
+    R._WVP_MEMO.clear()
+    lines = ["the night was cold", "the light was bold", "i saw the sea",
+             "and i can see"]
+    res = R.whole_vocabulary_pairs(lines, eng)
+    asked = set(n for v in res.values() for n in v) | set(res.refused) \
+        | set(n for v in res.undecided.values() for n in v)
+    check("whole_vocabulary_pairs answers or reports EVERY schema — a "
+          "refusal is listed by name, never dropped",
+          all(n in asked or not isinstance(R.line_pairs_for(
+              R.REGISTRY[n], R.build_stream(lines, eng)), R.Refusal)
+              for n in R.REGISTRY)
+          and all(isinstance(v, R.Refusal) for v in res.refused.values()),
+          f"{len(res.refused)} refused by name")
+    check("...and a pair stands in several schemas at once (night/light: "
+          "perfect rhyme, assonance, consonance)",
+          {"perfect rhyme", "assonance", "consonance"} <= set(res.get((1, 2), ())),
+          str(res.get((1, 2))))
+    check("...including a forbidden or deprecated one — banning is a "
+          "separate layer from standing in a relation",
+          "homoioteleuton" in res.get((1, 2), ())
+          and R.REGISTRY["homoioteleuton"].normative == "forbidden",
+          str(res.get((1, 2))))
+    wst = R.whole_vocabulary_pairs(["Y gŵr wrth y dŵr a'i dyrau",
+                                    "Mae'r ferch yn wych"], cym)
+    check("...under the PHONOLOGY'S OWN language (cym here, never a "
+          "hard-coded eng), with line-level figures on `.lines`",
+          "cynghanedd sain" in wst.lines.get(1, ()), str(wst.lines))
+    R._WVP_MEMO.clear()
+
+    # -- THE PLANNER NO LONGER DRAWS, so nothing keeps a draw pool.
+    check("no draw pool survives: DRAWABLE_SCHEMAS and its derivation are "
+          "gone, and the feasibility traits cover every registry schema",
+          not hasattr(R, "DRAWABLE_SCHEMAS")
+          and not hasattr(R, "derive_drawable_schemas")
+          and set(R.planning_traits()) == set(R.REGISTRY))
+    check("audibility is read over a pair's relation SET",
+          R.audible_relations(["assonance", "perfect rhyme", "RHYME"])
+          == ("perfect rhyme",))
 
 
 if __name__ == "__main__":
@@ -3227,6 +3433,7 @@ if __name__ == "__main__":
     test_frequency_refusal_is_measured_against_the_shipped_tables()
     test_the_judge_memo_answers_identical_calls_only()
     test_the_pair_guard_refuses_before_it_evaluates()
+    test_every_schema_judges_and_no_differ_only_excludes()
     print("=" * 66)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING:")

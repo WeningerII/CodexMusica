@@ -38,10 +38,10 @@ sitting; the permutation share was repinned to 79.2% on 2026-09-16 when E-5
 removed the empty-coda evidence bonus -- see `PINNED_SONNET` below. The
 re-pairing null has not been re-run under E-5, so 75.8% keeps its own dating.)
 
-WHAT IT DOES NOT DO. It measures the SCALAR gate (`total >= theta`), not this
-harness's verdict: `admits()` types the relation and, since M-59/M-116, accepts
-ASSONANCE, CONSONANCE and the whole-vocabulary schema default, which is why the
-battery reports 1.2% violations of judged pairs and not the rates below.
+WHAT IT DOES NOT DO. It measures the SCALAR (`total >= theta`) that cuts
+RHYME, not this harness's verdict: the grader judges every pair against its
+whole relation SET — each coarse relation at its own cut and every registry
+schema — which is why the battery's violation rate is not the rates below.
 Nothing here restates the battery and no violation count moves. It also grades
 nothing and repairs nothing -- `--check` compares against the pinned figures
 and exits 3 on drift, and that is its whole enforcement.
@@ -410,9 +410,9 @@ def main(argv):
           "as current.")
 
     if not check:
-        print("\n  Not a verdict on any draft: this is the SCALAR gate, not "
-              "`admits()`,\n  which types the relation and accepts the near "
-              "relations besides.")
+        print("\n  Not a verdict on any draft: this is the SCALAR that cuts "
+              "RHYME; the grader\n  judges every pair against every "
+              "relation it stands in and every schema.")
         return 0
 
     print("\n" + "=" * 70)

@@ -100,7 +100,9 @@ def test_the_row_is_what_the_verb_printed():
     """
     print("\n3. what is banked equals what the verb said")
     rc, out = run(["lyric_harness.py", "screen", "hair", "chair"])
-    printed = re.search(r"hair ~ chair\s+\S+\s+[\d.]+\s+(.+)", out)
+    # The row is `a ~ b  SCORE  VERDICT | relations...` since 2026-09-22: the
+    # single coarse-class column is gone, every relation is listed instead.
+    printed = re.search(r"hair ~ chair\s+[\d.]+\s+(.+)", out)
     check("`screen` printed a verdict for the control pair", bool(printed),
           printed.group(1).strip() if printed else out[:120])
     facts = dict(L._p_screen(out))
@@ -110,13 +112,13 @@ def test_the_row_is_what_the_verb_printed():
     check("...and it is the BANNED answer, so this section cannot pass on a "
           "pair the ban never looks at",
           "HOMEOTELEUTON" in facts.get("pair:hair~chair", ""))
+    counts = {k: v for k, v in facts.items() if not k.startswith("pair:")}
     check("...and the summary counts come off the verb's own tail line, "
-          "never re-counted here (doctrine 1) — M-113 split the clean "
-          "bucket, so the two halves are two facts",
-          facts.get("banned") == "1" and facts.get("clean_rhyming") == "0"
-          and facts.get("clean_non_rhyme") == "0",
-          f"banned={facts.get('banned')} rhyming={facts.get('clean_rhyming')} "
-          f"non={facts.get('clean_non_rhyme')}")
+          "never re-counted here (doctrine 1): one banned, every other "
+          "bucket zero, whatever the verb names its buckets",
+          counts.get("banned") == "1" and len(counts) >= 3
+          and all(v == "0" for k, v in counts.items() if k != "banned"),
+          f"{counts}")
 
 
 def test_the_claim_gate_is_two_sided():
@@ -384,7 +386,11 @@ def test_the_bytes_behind_the_md5_are_banked():
         rc, out = run(["quality/song_log.py", "--record", DRAFT_PROBE,
                        "--allow-dirty", "--", "python3", "lyric_harness.py",
                        "brief", lyric, "--groups=1,3;2,4", "--returns=2,4",
-                       "--relations=A:class:RHYME"])
+                       "--relations=A:class:RHYME",
+                       # the probe carries a `[Verse]` marker, which is
+                       # SOURCE apparatus only when declared so (report
+                       # A-3); the banked bytes follow the verb's reading
+                       "--input-format=source"])
         facts = {r["fact"]: r["value"] for r in L.read_log(DRAFT_PROBE)}
         check("a real grading verb recorded through `--record` banks its "
               "input's bytes", rc == 0 and "draft_file" in facts,

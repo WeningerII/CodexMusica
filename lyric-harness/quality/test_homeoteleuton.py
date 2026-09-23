@@ -198,7 +198,7 @@ def test_the_admit_coordinate():
           "the PRICED near-relation cut, and the refusal names it — the "
           "declared door is not a licence to skip the calibration "
           "(~~SATISFIES on its scalar~~, M-138 priced 2026-09-02)",
-          len(v) == 1 and "theta(ASSONANCE)=0.82" in v[0][3], v)
+          len(v) == 1 and "ASSONANCE 0.772 < 0.82" in v[0][3], v)
     # THE CLAIM ITSELF, ON A PAIR THE CUT ADMITS. Without this the section
     # would assert only what the pricing REFUSES and would pass on a tree
     # where declaring a near relation had stopped working altogether.
@@ -232,10 +232,13 @@ def test_the_admit_coordinate():
             check(why, False, "no refusal raised")
         except ValueError as e:
             check(why, "admit" in str(e), str(e)[:60])
+    # PROMOTED_RHYME joined 2026-09-22 (the N-relation model): rhyme on a
+    # PROMOTED final syllable is its own relation, not RHYME.
     check("the admittable vocabulary is the taxonomy's named pair set, "
           "REPEAT deliberately absent (identity has its own licence)",
-          ADMITTABLE_RELATIONS == {"RHYME", "RIME_RICHE", "ASSONANCE",
-                                   "CONSONANCE"})
+          ADMITTABLE_RELATIONS == {"RHYME", "RIME_RICHE", "PROMOTED_RHYME",
+                                   "ASSONANCE", "CONSONANCE"}
+          and "REPEAT" not in ADMITTABLE_RELATIONS)
 
 
 

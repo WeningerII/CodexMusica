@@ -99,9 +99,21 @@ PINNED = {
     # The unchanged main reader and the M-196 reader independently returned
     # these same totals. September 2's 719/549/170, 487, 7, 7/155/325 were
     # already stale on main; the new reader changes no historical mandate.
-    "pairs_mandated": 719, "pairs_judged": 517, "pairs_refused": 202,
-    "eligible": 457, "banned_in_final": 9,
-    "rank_head": 9, "rank_tail": 162, "rank_outside": 286,
+    # REPINNED 2026-09-22 (N-relation model), `ban_convergence.py --check`:
+    # ~~517/202, eligible 457, banned 9, head 9 / tail 162 / outside 286~~
+    # (tail/outside re-measured 160/295 after the later revise.py modal-head
+    # change, same day).
+    # Every pair judged against every relation it stands in and every
+    # schema; three refusals resolved, eligibility reads REPEAT from the set.
+    # RE-MEASURED after `nucleus_agreement` became "licensed" (same day):
+    # ~~520/199, eligible 459, banned 4, head 4 / tail 160 / outside 295~~.
+    # The modal field is relation-typed too, so a partner now ranks inside
+    # it far more often (tail 160 -> 241).
+    "pairs_mandated": 719, "pairs_judged": 513, "pairs_refused": 206,
+    # banned 5 -> 4, head 5 -> 4, outside 206 -> 207 after 04c2dee9 (the
+    # offer screen reads every registry relation), re-measured.
+    "eligible": 452, "banned_in_final": 4,
+    "rank_head": 4, "rank_tail": 241, "rank_outside": 207,
 }
 
 
@@ -346,7 +358,9 @@ def measure_lines(rv, lines, mandate):
            "eligible": 0, "rank_head": 0, "rank_tail": 0, "rank_outside": 0,
            "ranks": [], "pairs": []}
     for v in rep["verdicts"]:
-        if v["why"] or v["relation"] == "REPEAT":
+        # identity (REPEAT in the pair's relation set) is not a partner a
+        # ban could have steered; every other satisfied pair is eligible
+        if v["why"] or "REPEAT" in v["relations"]:
             continue
         st = v.get("structure")
         if st is not None and st != _ST.DEFAULT:

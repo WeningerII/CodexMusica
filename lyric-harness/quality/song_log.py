@@ -60,20 +60,25 @@ session thinks it meant. The invocation facts are:
 THE BYTES, AND WHY THE FILE'S NAME CANNOT DISAGREE WITH THE ROW
 ---------------------------------------------------------------
 On the grading verbs (`song`, `brief`, `revise`, `finish`) `--record` also
-writes the `load_lyric_lines` text it was handed to
+writes the text the verb GRADED (read under the verb's own declared
+`--input-format=`, literal by default since report A-3) to
 `songs/drafts/<song>.<md5>.draft.txt` — and the `<md5>` is the one THE VERB
 ITSELF PRINTED, read back out of the parser's own facts, never re-derived for
 the purpose. Before writing, the bytes are fingerprinted through the harness's
-own two definitions — `lyric_harness.load_lyric_lines` for what counts as sung
-text, `quality.revise.draft_fingerprint` for the identity — and a disagreement
+own two definitions — `lyric_harness.load_draft_lines` at the recorded
+`--input-format=` for what counts as sung text, `quality.revise.draft_fingerprint`
+for the identity — and a disagreement
 WRITES NOTHING and says so. That is not a second md5 hoped to match: it is the
 one md5, checked, with a refusal on the far side. A verb that printed no
 fingerprint gets no file and a printed line saying which.
 
-The bytes written are what was GRADED, not what was on disk: markers, the
-`--- TITLE:` line and blank lines are apparatus and the grader never saw them.
-Round-tripping is exact — `load_lyric_lines` of the draft file returns the same
-list — so a later reader grades the same population, which is the whole point.
+The bytes written are what was GRADED, not what was on disk: blank lines are
+never graded, and under `--input-format=source` markers and the `--- TITLE:`
+line are apparatus the grader never saw. Under the literal default an
+apparatus-SHAPED line (`[Chorus] we sing along`) IS a lyric line and is banked
+as one. Round-tripping is exact — the banked file is read back LITERALLY
+(`load_draft_lines`), one graded line per file line, so a later reader grades
+the same population, which is the whole point.
 
 `songs/drafts/` AND NOT `songs/`, MEASURED. The design in the register says
 `songs/<name>.<md5>.draft.txt`; `quality/test_songs.py` §1 globs `songs/*.txt`
@@ -206,7 +211,9 @@ def _p_screen(out):
     facts = []
     for m in re.finditer(r"^\s{2}(\S+) ~ (\S+)\s\s+(.+)$", out, re.M):
         tail = m.group(3).strip()
-        scored = re.match(r"\S+\s+[\d.]+\s+(.+)$", tail)
+        # `a ~ b  SCORE  VERDICT` since the relation-set screen (every
+        # relation listed); `a ~ b  LABEL SCORE  VERDICT` before it.
+        scored = re.match(r"(?:\S+\s+)?[\d.]+\s+(.+)$", tail)
         if scored:
             verdict = scored.group(1).strip()
         elif tail.startswith("REFUSED"):
@@ -228,6 +235,15 @@ def _p_screen(out):
     # mandate will charge, so the tail counts it apart — three clean
     # facts now, never summed. The M-113 four-count tail and the one-bucket
     # tail stay readable for the transcripts that carry them.
+    # The relation-set screen (M-309) counts pairs standing in at least one
+    # relation and pairs standing in none; the older tails stay readable.
+    m = re.search(r"^\s*(\d+) banned, (\d+) refused, (\d+) standing in at "
+                  r"least one relation, (\d+) standing in none", out, re.M)
+    if m:
+        facts += [("banned", m.group(1)), ("refused", m.group(2)),
+                  ("standing_in_some", m.group(3)),
+                  ("standing_in_none", m.group(4))]
+        return facts
     m = re.search(r"^\s*(\d+) banned, (\d+) refused, (\d+) clean and "
                   r"rhyming, (\d+) clean and ADMITTED[^,]*, (\d+) clean but "
                   r"not a rhyme", out, re.M)
@@ -500,6 +516,19 @@ def mandate_facts(argv):
     return facts
 
 
+def input_format_of(argv):
+    """-> the `--input-format=` the recorded command declared, else the
+    harness's own default (`literal`). Both spellings the harness normalises
+    (`--input-format=V` and `--input-format V`) are read."""
+    fmt = "literal"
+    for i, a in enumerate(argv):
+        if a.startswith("--input-format="):
+            fmt = a.split("=", 1)[1]
+        elif a == "--input-format" and i + 1 < len(argv):
+            fmt = argv[i + 1]
+    return fmt
+
+
 def bank_draft(song, verb, argv, facts):
     """-> (relpath, None) or (None, why-no-file-was-written).
 
@@ -527,7 +556,12 @@ def bank_draft(song, verb, argv, facts):
     # either (§5 of `test_songs_log.py` is about GRADING, and stands).
     import lyric_harness as LH
     from quality.revise import draft_fingerprint
-    lines = LH.load_lyric_lines(path)
+    # THE VERB'S OWN READING, NOT A FIXED ONE (report A-3, 7d1ded93). Since
+    # A-3 a grading verb reads its draft LITERALLY unless the command line
+    # declares `--input-format=source`, so `load_lyric_lines` -- the source
+    # reader -- is no longer what the verb graded, and on any draft carrying
+    # a marker the two disagree and nothing was ever banked.
+    lines = LH.load_draft_lines(path, input_format=input_format_of(argv))
     got = draft_fingerprint(lines)
     if got != fp:
         return None, ("%s fingerprints %s and `%s` graded %s — the input "
@@ -980,6 +1014,17 @@ def drafts(stream=sys.stdout):
         except (OSError, UnicodeDecodeError):
             return None
 
+    def banked_fp(path):
+        # A BANKED file holds exactly the graded lines, one per line, so it
+        # is read LITERALLY: re-reading it as a source would drop a graded
+        # line that merely looks like apparatus. (Files banked before A-3
+        # were written by the source reader and hold no such line, so they
+        # read identically either way.)
+        try:
+            return draft_fingerprint(LH.load_draft_lines(path))
+        except (OSError, UnicodeDecodeError):
+            return None
+
     names = sorted(os.path.basename(x) for x in _songs())
     for f in sorted(os.listdir(SONGS)):
         if f.endswith(".log.tsv"):
@@ -1015,7 +1060,7 @@ def drafts(stream=sys.stdout):
             md5, said = grp["md5"], grp["said"]
             where = "step " + ", ".join(grp["where"])
             path = draft_path(song, md5)
-            if os.path.exists(path) and fp_of(path) == md5:
+            if os.path.exists(path) and banked_fp(path) == md5:
                 if said and os.path.normpath(os.path.join(ROOT, said)) != \
                         os.path.normpath(path):
                     verdict, why = "FAILING", (

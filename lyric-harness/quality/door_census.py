@@ -6,62 +6,46 @@ everywhere it still has the incorrect 4 and make sure all 77 are there ... 4 is
 poisonous as fuck. without all 77 we're going to be racking up the wrong
 numbers and then we have to come back and do all of this all over again."*
 
-THE DEFAULT DOOR HAS MOVED TWICE AND IT MOVED IN TWO DIFFERENT COORDINATES,
-which is the whole reason a site can be behind without looking behind:
-
-  2026-08-22  `MISSING.md` M-59   `Declaration.admit` widened from the
-                                  historical {RHYME, RIME_RICHE} to all FOUR
-                                  of `ADMITTABLE_RELATIONS`.
-  2026-08-25  `MISSING.md` M-116  ALL 77 SCHEMAS joined the default. A
-                                  mandated pair that declares no relation is
-                                  satisfied when its two lines stand in ANY
-                                  schema the vocabulary names, judged by
-                                  `relations.whole_vocabulary_pairs`.
-
-So the complete default is **`admits(s, theta, decl.admit)` OR
-`whole_vocabulary_pairs`**, and a site reading only the first is not "slightly
-strict" — it is answering the question the tree asked in AUGUST 22nd's
-vocabulary. Both halves have to be present for a site to be at the default.
+THE DEFAULT DOOR, SINCE 2026-09-22 (the N-relation model). A pair stands in
+EVERY relation its sound supports, never one, and the default judges every
+pair against ALL of them: each coarse relation in `decl.admit` at its own cut
+(`admits_decl` / `admitted_relations`) AND every registry schema
+(`relations.whole_vocabulary_pairs`). Neither half is a rescue for the other;
+both are asked of every pair. The door's history — the historical two
+(RHYME, RIME_RICHE), M-59's widening to four, M-116's 77 schemas as a rescue
+for failed pairs — is in `MISSING.md`; none of those doors exists now.
 
 WHAT THIS COUNTS AS A SITE. Any place that decides whether a scored pair
 stands in a relation, found on the AST and never by reading:
 
-  * a call to `admits(...)`, by either spelling — `admits(...)` and
-    `LH.admits(...)`. THE FIRST DRAFT OF THIS FILE SAW ONLY THE FIRST and
-    reported 15 sites against a true 19, missing `quality/redteam_band.py`
-    entirely — the same shape `gate_census.py`'s first run had when it was
-    blind to `quality/grid.py` and therefore reported that layer as fully
-    gated. A census blind to a site reports that site as compliant.
-  * a membership test against `RHYME_RELATIONS`, or against a LITERAL
-    `("RHYME", "RIME_RICHE")` — the second spelling is how
-    `quality/redteam_band.py` writes it, and a grep for the constant name
-    cannot see it.
+  * a call to `admits`, `admitted_relations` or `admits_decl`, by either
+    spelling (`admits(...)` and `LH.admits(...)` — the first draft saw only
+    the first and missed `quality/redteam_band.py` entirely);
+  * a RHYME-family membership test: `x in RHYME_RELATIONS`,
+    `rels & RHYME_RELATIONS`, or the historical literal pair;
+  * an EQUALITY test against a relation NAME (`== "RHYME"`). A pair has a SET
+    of relations, so equality picks one label out of it: the defect the
+    N-relation model removes, flagged wherever it appears.
 
-HOW A SITE "REACHES THE 77", and both extensions were forced by a repair this
-detector then under-credited. A site reaches the judge when it is named in the
-site's own function, in an ENCLOSING one (a nested function sees its enclosing
-scope — `check_scheme.ok` sits inside a function that calls the judge thirty
-lines above it), or in a HELPER THE SITE CALLS, resolved ONE HOP
-(`Reviser.group_merges` asks through `Reviser._schema_satisfies`, which is the
-right shape because the stream is memoised across candidate merges).
-**EXACTLY ONE HOP**: unlimited depth would credit half a module through any
-path, and `quality/test_door_census.py` §3b pins all three edges of that —
-a called helper counts, an uncalled sibling does not, and two hops do not.
+HOW A SITE "REACHES THE SCHEMAS". The judge is named in the site's own
+function, an ENCLOSING one, or a HELPER THE SITE CALLS, resolved EXACTLY ONE
+HOP (`quality/test_door_census.py` §3b pins all three edges of that).
 
-SIX DISPOSITIONS, and the split is what keeps this from being a demand that
-every site widen. Not every site is judging a mandate.
+DISPOSITIONS. Not every site is judging a mandate.
 
-  FULL         reads `decl.admit` AND consults the 77. The complete default.
-  INCOMPLETE   judges MANDATE SATISFACTION and stops short of it. The defect
-               class, and the one the ruling above is about.
-  PER_WORD     holds a WORD, not a line pair, so it CANNOT ask the 77 —
-               `whole_vocabulary_pairs` judges line pairs over a built stream.
-               Owes a DISCLOSURE instead, because a field that stays silent
-               about a whole acceptance route reads as though nothing else
-               could answer (doctrine 20).
+  FULL         judges a pair against its coarse relation set AND consults
+               every schema. The complete default.
+  INCOMPLETE   judges MANDATE SATISFACTION short of it, or picks one label.
+               The defect class.
+  PER_WORD     holds a WORD or a within-line span, not a line pair, so the
+               schemas (which judge line pairs over a stream) cannot be asked.
   RENDERING    names or counts a relation and gates nothing.
   VALIDATION   validates a DECLARED set at declaration time.
-  ARGUED       deliberately narrower, with the argument written at the site.
+  DEFINITION   the predicate's own body.
+  FORM         a form or instrument whose own definition names ONE relation
+               family (a sain's rhyme, a RHYME-event layer): membership of
+               that family in the pair's set is its question.
+  ARGUED       deliberately narrower, with the measured argument at the site.
 
 AN UNRULED SITE FAILS `--check`. That is the half that answers the owner's
 "do all of this all over again": a site added at the narrow door with no
@@ -79,13 +63,19 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 
 #: The historical two, as a SET so the literal-tuple detector compares content
-#: rather than spelling. This is the door every site below is measured against
-#: — it is what `admits()` falls back to when `relations=` is omitted, by that
-#: function's own docstring.
+#: rather than spelling. A literal spelling of the RHYME family; `admits()`
+#: with `relations=` omitted means EVERY admittable relation since 2026-09-22.
 NARROW_LITERAL = frozenset({"RHYME", "RIME_RICHE"})
 
-#: The one judge of the 77 (owner ruling 2026-08-25, M-116). A site "consults
-#: the 77" when this name appears anywhere in its enclosing function — matched
+#: Every coarse relation name a scored pair's SET can hold, plus the two
+#: empty-set spellings. An EQUALITY test against one of these picks one label
+#: out of a set — the defect the N-relation model removes.
+RELATION_NAMES = frozenset({"RHYME", "RIME_RICHE", "PROMOTED_RHYME",
+                            "ASSONANCE", "CONSONANCE", "REPEAT",
+                            "NO_RELATION", "NO_ANCHOR"})
+
+#: The one judge of the registry schemas. A site "consults the schemas" when
+#: this name appears anywhere in its enclosing function — matched
 #: on the NAME and not on an import path, because both consumers reach it
 #: through a local alias (`_RF.whole_vocabulary_pairs`, `_WVP`).
 SCHEMA_JUDGE = "whole_vocabulary_pairs"
@@ -110,6 +100,8 @@ PER_WORD = "PER_WORD"
 RENDERING = "RENDERING"
 VALIDATION = "VALIDATION"
 ARGUED = "ARGUED"
+DEFINITION = "DEFINITION"
+FORM = "FORM"
 
 #: ONE RULING PER SITE, keyed on (relative path, qualified function name) and
 #: NEVER on a line number — `MISSING.md`'s Welsh entry records what a line
@@ -119,402 +111,179 @@ ARGUED = "ARGUED"
 #: Every ruling states the QUESTION the site asks, because the disposition
 #: follows from the question and not from the door it happens to spell.
 RULINGS = {
-    ("quality/e5_coda_adoption.py", "admitted"): (
-        ARGUED,
-        "E-5 measures scalar admission separately from schema rescue, at "
-        "theta_for and the declared relation set. Adding schema rescue here "
-        "would hide the admission loss the experiment exists to count. "
-        "The same runner reports check_scheme's post-rescue violations separately."),
-    ("quality/rhyme_types.py", "coarse_relation_consensus"): (
-        ARGUED,
-        "The all-pronunciation scalar subquestion: each permitted endpoint "
-        "reading is tested against the caller's declared scalar admit set. "
-        "A disagreement returns unknown; this helper never claims full "
-        "default-schema satisfaction. check_scheme and Reviser.grade compose "
-        "its determinate scalar result with their own whole_vocabulary_pairs "
-        "route when the declaration asks the default question. Adding schema "
-        "rescue inside this scalar consensus would change that subquestion "
-        "and its explicit class/score consumers. M-139's site-question "
-        "distinction applies here. MEASURED by test_production_relations: "
-        "4 controls give cat/hat=True, wind/moon=False and wind/find plus "
-        "an unreadable endpoint=unknown; the helper is not allowed to turn "
-        "that last state into either scalar satisfaction or absence."),
+    # ------------------------------------------------------------ DEFINITION
+    ("lyric_harness.py", "admits"): (
+        DEFINITION,
+        "The predicate itself: `bool(admitted_relations(...))`."),
+    ("lyric_harness.py", "admits_decl"): (
+        DEFINITION,
+        "The predicate at a Declaration's own admit set and per-relation "
+        "cuts."),
+
     # ---------------------------------------------------------------- FULL
     ("lyric_harness.py", "check_scheme"): (
         FULL,
-        "The scalar+relation chain, followed in the same function by the "
-        "77-schema rescue at `admit_is_default(decl)`. One of exactly two "
-        "sites in the tree that reach the complete default."),
-    ("quality/revise.py", "Reviser.grade"): (
-        FULL,
-        "The other one. Same shape, same judge, and deliberately the SAME "
-        "CALL as `check_scheme`'s so the two graders cannot drift about "
-        "which pair the default satisfies (doctrine 1)."),
-
+        "Every mandated pair is judged against its coarse relation set at "
+        "`decl.admit` AND every registry schema (`whole_vocabulary_pairs` "
+        "over every mandated pair, always)."),
     ("lyric_harness.py", "check_scheme.ok"): (
         FULL,
-        "The transitivity defect counter — a~b, b~c, a!~c inside one letter "
-        "group. REPAIRED 2026-08-26 (M-139): it asked SATISFACTION at four, "
-        "thirty lines under the 77-schema rescue, so a pair the same "
-        "function had just passed read as an ABSENT EDGE and a triangle with "
-        "one schema edge was counted a transitivity defect. It now also "
-        "consults `_schema_ok`, read from `schema_satisfied` rather than "
-        "re-derived, so no second stream is built and the two readings "
-        "cannot drift."),
-
-    # ------------------------------------------- RULED 2026-08-27 (M-145)
-    # `Reviser.mandate_from_graph` and `recover` — the two INCOMPLETE sites
-    # — are ARGUED now. (`Reviser.group_merges` sits between them because
-    # it is the third site M-139 repaired, and it is FULL.) THE DOOR AT
-    # EACH RULED SITE IS BYTE-IDENTICAL: nothing was widened and nothing was
-    # repaired, and ARGUED never claimed a site reaches the complete
-    # default. What changed
-    # is that the argument each was holding open FOR is written and measured
-    # here. `incomplete` therefore goes 2 -> 0 by RULING and not by repair,
-    # which is the one way this table can be talked into looking clean, so
-    # `test_door_census.py` §4 repoints its guard onto the ARGUED reasons
-    # rather than losing it. `MISSING.md` M-145.
-    ("quality/revise.py", "Reviser.mandate_from_graph"): (
-        ARGUED,
-        "`--cliques`: the DERIVED cover. It asks which lines this harness "
-        "sees as standing in a relation, then hands that cover to `grade()` "
-        "— which accepts on a strictly wider door, so the cover omits edges "
-        "its own consumer would have passed. AND ITS OWN DOCSTRING IS THE "
-        "ARGUMENT FOR REPAIRING IT: that method deliberately does NOT call "
-        "`rhyme_graph`, because `rhyme_graph` reads anchors at "
-        "`promote=False` and the grader reads them at "
-        "`decl.final_promotion`, and — its words — *'deriving a cover under "
-        "one setting and grading it under the other would make the cover an "
-        "approximate fixed point of the grader'*. The DOOR is one of those "
-        "settings. The principle is already stated at the site; it was "
-        "applied to the anchor coordinate and not to this one. Doctrine 14 "
-        "governs whether a derived cover may be used as a control; it does "
-        "not license the cover disagreeing with the grader. "
-        "MEASURED 2026-08-26 over 170 drafts and 18,507 line pairs: the "
-        "narrow door admits 4,291 (23.19%), narrow-OR-77 admits 13,526 "
-        "(73.09%), and 0 of 170 covers are unmoved -- so this is LIVE, not "
-        "latent. But the door coordinate is NESTED where `promote` is not, "
-        "so the tautology here is EXACTLY true rather than approximately (0 "
-        "RHYME violations under either door; every violation is REPEAT) and "
-        "the cover is STRICTER than its consumer, never looser. The one-line "
-        "widening takes a 41-line draft from 19 groups / 242 mandated "
-        "pair-slots to 41 / 10,626, the lazy gate `group_merges` uses fires "
-        "on 170 of 170 drafts so it buys nothing, and this site has no "
-        "mandate, so `bearing=` -- which both shipped consumers pass -- has "
-        "no honest value here. "
-        "RULED 2026-08-27 (`MISSING.md` M-145): **`--cliques` MEANS THE "
-        "RHYME GRAPH.** The narrow door is kept ON PURPOSE, the site is "
-        "unchanged, and the disposition moves INCOMPLETE -> ARGUED because "
-        "what was owed was the ARGUMENT and the argument is below. "
-        "IT IS A GENERATOR/RESCUE DISTINCTION AND IT IS MEASURED RATHER "
-        "THAN ASSERTED. This site is a GENERATOR: its loop is `for i in "
-        "range(n): for j in range(i + 1, n)`, so it puts the door to EVERY "
-        "pair — which is exactly the population `quality/chance_rate.py "
-        "--null` measures. On that population the 77-schema door does NOT "
-        "separate from its own null: R_obs 69.05% against a null median "
-        "71.02% and a null MAX 72.57%, below its own null on 20 of 20 "
-        "draws, empirical p 0.9048. On DECLARED pairs the same door "
-        "separates hard: 96.43% against a null median 79.17% and a null "
-        "MAX 83.93% — +17.26 pp over the median and +12.50 pp over the "
-        "MAXIMUM, two statistics under two labels and never one word for "
-        "both. Doctrine 71: a rate that does not separate from its own "
-        "null is not a finding about the text. So `grade()`'s 77-consult "
-        "is a RESCUE on a pair a WRITER declared, and running the same "
-        "judge as a GENERATOR over undeclared pairs MANUFACTURES structure "
-        "rather than finding it — the owner's 'move 37' ban one layer "
-        "over. The two rates are never summed and never read as one "
-        "(doctrine 79): a door may light an arbitrary pair at chance and "
-        "still discriminate a declared one, and only the second is what a "
-        "derived cover is for. "
-        "THE LIMIT ON THIS RULING, STATED RATHER THAN BURIED: that null "
-        "was measured on 14-line SONNETS, so carrying it to this site's "
-        "drafts is an INFERENCE from one item shape to another. It is the "
-        "strongest evidence in the tree and it is not a measurement on "
-        "this site's own population; a null over recovered drafts would "
-        "settle it and has not been run. `MISSING.md` M-139, M-140, "
-        "M-145."),
+        "The transitivity counter reads the same verdict as the chain above "
+        "it — `admits_decl` or a schema the pair stands in (M-139)."),
+    ("quality/revise.py", "Reviser.grade"): (
+        FULL,
+        "The grader: every verdict pair against its coarse relation set and "
+        "`whole_vocabulary_pairs`, the SAME call `check_scheme` makes."),
     ("quality/revise.py", "Reviser.group_merges"): (
         FULL,
-        "The merge detector asks, in its own words, whether every cross pair "
-        "would SATISFY the mandate. REPAIRED 2026-08-26 (M-139) by splitting "
-        "its two conditions, which used to be one `or` and one `break`: (a) "
-        "every cross pair a COLLISION is checked first and cheaply, and the "
-        "77 are asked -- through `_schema_satisfies`, memoised per (draft, "
-        "mandate) -- only for the pairs that clear (a) and fail (b). "
-        "MEASURED, that branch is nearly unreachable: of 400,000 random "
-        "CMUdict pairs, 2,576 clear `THETA_COLLISION` and exactly 2 (0.08%) "
-        "type NO_RELATION, which is the only way (b) can fail once (a) "
-        "holds. So `inspect()` -- which calls this every round of the loop "
-        "-- pays nothing on a draft that never reaches it. ~~That is the "
-        "satisfaction question at "
-        "four.~~ `MISSING.md` M-139."),
-    ("quality/recover.py", "recover"): (
-        ARGUED,
-        "The pasted-song door (M-72). Its doctrine-14 claim is that every "
-        "edge of the recovered cover is a band-passing pair BY "
-        "CONSTRUCTION; under the complete default the cover UNDER-recovers, "
-        "so a human's song is structured against a narrower reading than "
-        "the one it is then graded at. MEASURED 2026-08-26 over 18 pasted-"
-        "song drafts (`songs/`, `quality/fixtures/`), 402 sung lines, 4,675 "
-        "possible line pairs: narrow 2,968 (63.49%), narrow-OR-77 3,917 "
-        "(83.79%), +949 pairs and +1,488 placement edges (+17.2%), 18 of 18 "
-        "covers moved. LIVE, not latent. Cost 18.7x unconditional (median "
-        "0.18s -> 2.96s per draft) and the `candidate explosion` ceiling is "
-        "NOT reachable here -- worst draft 161,415 candidates, 8.07% of "
-        "`max_pairs`. THREE THINGS STOP THIS BEING A ONE-LINE WIDENING. "
-        "(1) THE DOORS ARE NOT NESTED: 497 line pairs on 18 of 18 are in the "
-        "narrow projection and NOT in the 77, because this site searches "
-        "four placements per line -- `NARROW` on the axis above reads as a "
-        "subset and here it is not one, so the move is a UNION and 'widen' "
-        "is the wrong verb. This row also spells the same "
-        "`or s['relation'] == 'REPEAT'` the `rhyme_graph` and "
-        "`infer_chains` rows do (984 of 8,673 edges, 11.3%, on 17 of 18 "
-        "drafts), which the detector cannot see and this ruling did not say. "
-        "(2) 88.2% of the 1,488 added placement edges name a `T<n>`, which "
-        "`slots.PLANNABLE_PLACEMENTS` excludes BY AN ARGUMENT AT THE SITE "
-        "and which this function already adopts as its default -- a fold "
-        "would override another module's declared coordinate silently. "
-        "(3) 10.2% of the added pairs carry NO spellable placement (91 "
-        "`chain rhyme (rap)` at locus `free`, 6 `multisyllabic rhyme`), and "
-        "the line end is not a free default for them. AND ANY FOLD MUST BE "
-        "GATED ON `admit_is_default`, the one gate both graders use: the "
-        "grader's 77-rescue is, so an ungated fold hands a NARROWED caller "
-        "edges the grader then CHARGES -- strictly worse than the present "
-        "defect. `bearing=` has no honest value here (no mandate) and, "
-        "measured, no value moves the answer on any of the 18. "
-        "RULED 2026-08-27 (`MISSING.md` M-145), AND IT IS TWO ANSWERS "
-        "BECAUSE IT WAS TWO QUESTIONS. "
-        "(a) THE DOOR STAYS NARROW, for `mandate_from_graph`'s reason and "
-        "not a second one: this site is a GENERATOR too — `for a in "
-        "range(n): ... for b in range(a + 1, n)` over every pair — and "
-        "`chance_rate.py --null` measures that population AT CHANCE (all "
-        "pairs 69.05% against a null median 71.02%, p 0.9048) while the "
-        "same door separates by +12.50 pp over the null MAX on DECLARED "
-        "pairs. A cover built by asking an undeclared pair a question it "
-        "answers at chance is manufactured structure (doctrine 71). "
-        "Objections (1) and (3) above are then MOOT rather than answered: "
-        "the un-nested 497 pairs and the 97 unspellable placements are "
-        "properties of a fold this ruling does not make. "
-        "(b) THE PLACEMENT QUESTION IS ANSWERED THE OTHER WAY, and it is a "
-        "separate question from the door. `slots.PLANNABLE_PLACEMENTS` "
-        "excludes `T<n>` because 'a planner draws it with the index "
-        "bounded by what a line reliably HAS, which is a coordinate of the "
-        "plan and not of this table' — an argument about VOLUNTEERING an "
-        "index. RECOVERY DOES NOT VOLUNTEER; it OBSERVES a text that "
-        "already exists, so the index is READ and not drawn and the "
-        "exclusion's own argument does not transfer. A RECOVERED `T4` "
-        "binding is therefore ADMISSIBLE where a PLANNED one is not, and "
-        "the answer to objection (2) is that the 88.2% is not an objection "
-        "to a recovered cover at all. "
-        "AND THE RULING SHIPS AS A COORDINATE RATHER THAN AS THIS "
-        "PARAGRAPH. `recover()` already took `placements=` and its DEFAULT "
-        "was `slots.PLANNABLE_PLACEMENTS` — another module's tuple, scoped "
-        "by its own docstring to 'WHAT A PLANNER MAY VOLUNTEER', read here "
-        "as though it bounded what a reader may OBSERVE. MEASURED on 12 "
-        "lines of `songs/crooked_waltz.txt`: default 41 binding sites and "
-        "113 edges, 0 naming a `T<n>`; with `T2,T3,T4` declared, 60 sites "
-        "and 256 edges of which 143 name one. So the coordinate WORKS and "
-        "reached the command line from NOTHING — `__main__` took a path "
-        "and no flag — which is this repository's most-repeated defect at "
-        "the outermost layer. `RECOVERABLE_PLACEMENTS` is this module's "
-        "own default now, IMPORTED from `slots` rather than respelled so "
-        "the two cannot drift (doctrine 1), byte-identical in value so no "
-        "recovered cover moves, and `--placements=` declares otherwise "
-        "with an unresolvable name REFUSING at declaration time instead of "
-        "being silently skipped per line (doctrine 20). "
-        "A SEPARATE DEFECT AT THIS SITE WAS FIXED 2026-08-26 and "
-        "is not what held it open -- the module's doctrine-14 sentence was "
-        "FALSE through its only documented handoff, and `mandate_spelling` "
-        "makes it true. `MISSING.md` M-139, M-140, M-145."),
+        "Would every cross pair satisfy the mandate: `admits_decl` or a "
+        "schema, the latter through `_schema_satisfies` (one hop, M-139)."),
+    ("quality/chance_rate.py", "measure"): (
+        FULL,
+        "The chance-rate instrument: every drawn pair is counted in every "
+        "coarse relation it holds at `decl.admit` and every schema "
+        "`whole_vocabulary_pairs` finds; ANY is the default door and the "
+        "RHYME family is one count inside it, never a second door."),
+    ("quality/chance_rate.py", "_answered"): (
+        FULL,
+        "The separation arm: a sonnet pair is answered when it stands in an "
+        "admitted coarse relation OR any schema, both asked of every pair."),
 
     # ------------------------------------------------------------ PER_WORD
-    ("quality/revise.py", "Reviser._field_one"): (
+    ("lyric_harness.py", "CandidateEngine.candidates"): (
         PER_WORD,
-        "The writer's candidate field. It holds ONE WORD and the 77 judge "
-        "LINE PAIRS over a built stream, so the schema half is not askable "
-        "here at any price. The relation half is, and is now read from "
-        "`decl.admit`. ~~The schema half is DISCLOSED through "
-        "`Brief.field_declaration`.~~ STRUCK 2026-08-26, THE SAME DAY, AND "
-        "THIS WAS THE SECOND COPY: `field_declaration` renders "
-        "`field_depth=..., field_band=...` and nothing else, so the schema "
-        "half is SILENTLY DROPPED at that site today. The first copy was "
-        "struck in `revise.py`'s own docstring and THIS ONE SURVIVED -- a "
-        "claim corrected in one place and left standing in another, which "
-        "is the two-copy defect this tree names oftenest, here inside the "
-        "instrument whose whole job is to be authoritative about what each "
-        "site does. MEASURED and it is why the disposition still holds: of "
-        "the 23 sonnet pairs the default accepts ONLY by the 77-schema "
-        "rescue, **0 are offerable** from fields 207-6,880 words deep -- the "
-        "route is not under-served by the field, it is unreachable from it "
-        "at any depth. ~~A DISCLOSURE is owed and is not yet built.~~ **THE "
-        "DISCLOSURE SHIPPED 2026-08-26**: `Brief.schema_route_note` carries "
-        "it, `relations.SCHEMA_ROUTE_NOTE` is its ONE definition, and all "
-        "SIX renderers of a `Brief` print it. THREE STATES, never two -- "
-        "`None` (not recorded) is rendered apart from `\"\"` (the route is "
-        "SHUT for this line's groups), because a bool default would make "
-        "ABSENCE mean SHUT and reproduce doctrine 20 inside the fix. "
-        "MEASURED on the drafts this repo ships, not only on the sonnets: "
-        "15 of 452 mandated pairs over 15 drafts are accepted ONLY by the "
-        "77, on 3 of 15 drafts, and 0 of the 10 with two readable spans are "
-        "offerable. `MISSING.md` M-139."),
-
-    # ------------------------------------------- RULED 2026-09-01 (M-185,
-    # M-189, under the owner's delegation). Three new keys, five sites.
+        "Holds ONE query word against candidate words and lists EVERY coarse "
+        "relation each stands in at its cut; registry schemas judge LINE "
+        "pairs over a built stream and are not askable here (M-139)."),
+    ("lyric_harness.py", "internal_matches"): (
+        PER_WORD,
+        "Span pairs INSIDE a line (internal rhyme): each match carries every "
+        "coarse relation it stands in. The schemas judge whole line pairs, "
+        "and `internal rhyme` is itself one of them (M-139)."),
+    ("lyric_harness.py", "end_pair_relations"): (
+        PER_WORD,
+        "The `screen` verb's coarse column for two words in fixed carriers; "
+        "the schemas are asked at the same two end tokens by `screen_pairs` "
+        "(M-189)."),
+    ("quality/features.py", "RhymeField.field"): (
+        PER_WORD,
+        "A candidate FIELD for one call word over the corpus lexicon: words "
+        "standing in an admitted coarse relation at its cut. One word, so "
+        "no line-pair schema is askable (M-139)."),
     ("quality/revise.py", "Reviser.joint_field_screened"): (
         PER_WORD,
-        "The offered candidate field, screened from the offered word's OWN "
-        "side (M-185): it holds ONE WORD against each call word and asks "
-        "the comparator's class, exactly as `_field_one` does, so the "
-        "schema half is not askable here at any price and the relation "
-        "half reads the band. Same disposition as `_field_one`, for the "
-        "same reason; the site is new because the screen is."),
+        "The offered field screened from the offered word's own side "
+        "(M-185): one word against each call word."),
+    ("quality/revise.py", "Reviser._field_split"): (
+        PER_WORD,
+        "Splits one call word's candidate field into words standing in an "
+        "admitted coarse relation (`admits_decl`) and words left for the "
+        "end-pair schema pass; one word against each candidate (M-185)."),
     ("quality/revise.py", "Reviser._offer_reopens"): (
         PER_WORD,
         "The conservative outranker count behind M-185's screen: does an "
-        "offered word REOPEN a modal head from the other side? It reads "
-        "`decl.admit` on word pairs — the declared door, one word each — "
-        "and answers a COUNT that bounds a scan (`_SCREEN_SCAN`), never a "
-        "verdict on a pair; the 77 judge line pairs and cannot be asked."),
-    ("lyric_harness.py", "main"): (
-        RENDERING,
-        "The `screen` verb's three sites (M-189): the COARSE class column "
-        "printed beside each pair, and the `n_near` tail count. The "
-        "verdict the screen delivers is `Reviser.grade` on a minimal "
-        "mandated pair — FULL, through that call — and, with "
-        "`--relation=`, `relations.pair_satisfies` at the declared tokens; "
-        "the coarse column is a rendering of the comparator's class that "
-        "the printed note says is NOT the grade's question (`the verdict "
-        "column is the COARSE class; a mandate declaring a NAMED relation "
-        "is judged by that name's own cell`). Three sites, one key: the "
-        "table is keyed by function and the verb lives in `main`."),
+        "offered word reopen a modal head from the other side, at the "
+        "declared coarse set — one word each, a COUNT bounding a scan."),
+    ("quality/revise.py", "Reviser._offerable"): (
+        PER_WORD,
+        "The field's own predicate on a word pair: an admitted coarse "
+        "relation, or a schema at the two line ends (`_end_pair_schemas`) "
+        "when the admit set is the default (M-185)."),
 
     # ----------------------------------------------------------- RENDERING
-    # `check_scheme`'s own naming test is NOT keyed here: this table is keyed
-    # by function, that function is already ruled FULL above, and a second
-    # entry under the same key would silently overwrite the first (the last
-    # literal wins). It is keyed by DOOR KIND in `_BY_DOOR` instead, which is
-    # the coordinate that actually separates the two sites.
+    ("lyric_harness.py", "near_relation_default_disclosure"): (
+        RENDERING,
+        "Names the satisfied pairs whose coarse set holds a near relation "
+        "and no rhyme, for the report line; decides nothing (M-138)."),
     ("quality/revise.py", "Reviser._collision_code"): (
         RENDERING,
-        "Chooses between `COLLISION` and `NEAR_COLLISION` as the NAME for an "
-        "unintended pair. It gates nothing and the collision cut is scalar "
-        "by declaration (`COLLISION_CUT_IS_SCALAR_ONLY`)."),
-    ("quality/revise.py", "Reviser.inspect"): (
-        RENDERING,
-        "Counts near-relation collisions apart from rhyme collisions for the "
-        "report. Counted off the RELATION on purpose, per the argument at "
-        "the site; no verdict turns on it."),
+        "Names an unintended pair COLLISION or NEAR_COLLISION from its "
+        "relation set; the collision cut itself is scalar."),
 
     # ---------------------------------------------------------- VALIDATION
     ("lyric_harness.py", "Declaration.__post_init__"): (
         VALIDATION,
-        "Refuses a declared `admit` naming no rhyme relation at all. It "
-        "reads the narrow set as a FLOOR on what a declaration may be, "
-        "which is the one place the historical two are the right question."),
+        "Refuses a declared `admit` naming no rhyme relation at all."),
+
+    # ---------------------------------------------------------------- FORM
+    ("lyric_harness.py", "check_cynghanedd"): (
+        FORM,
+        "Cynghanedd sain and llusg are DEFINED by rhyme between named "
+        "parts, so the form's own question is membership of the RHYME "
+        "family, asked of the pair's relation set (M-136)."),
+    ("quality/structure_census.py", "d1_diagnostic"): (
+        FORM,
+        "Tabulates the masculine-rhyme judge against whether RHYME is IN the "
+        "engine's relation set: the judge names rhyme, so the comparison is "
+        "that membership (M-138)."),
+    ("quality/time_layer.py", "_raw_score"): (
+        FORM,
+        "The time layer places RHYME events: a candidate is a span pair "
+        "whose relation set holds a RHYME-family relation (M-139)."),
+    ("quality/redteam_band.py", "run"): (
+        FORM,
+        "Adversary 3 scores the comparator's RHYME membership against a "
+        "strict-identity reference SET, per relation (M-138)."),
 
     # -------------------------------------------------------------- ARGUED
     ("lyric_harness.py", "rhyme_graph"): (
         ARGUED,
-        "The pairwise GRAPH and its `theta` — doctrine 2's primary object, "
-        "read by `chains` and `graph`. ~~read by `--cliques`~~ STRUCK "
-        "2026-08-26: `Reviser.mandate_from_graph` does NOT call this — it "
-        "builds its own matrix, by its own docstring's argument about "
-        "`promote`. ~~the argument has never been written down~~ — IT IS "
-        "WRITTEN NOW AND IT IS MEASURED. Widening this door takes known-"
-        "answer chain precision against the sonnet oracle's OWN scheme from "
-        "0.902 to 0.401 for +9.3 points of recall, and `battery.py` prints "
-        "this layer under the header `false chains (should be near zero)`; "
-        "126 of Shakespeare's 152 sonnets lose letter-representability; and "
-        "the 77 SATURATE — 65.3% of all sonnet line pairs become edges, 536 "
-        "of 1189 typed NO_RELATION by the comparator. THE DOORS ARE NOT "
-        "NESTED: this site spells {RHYME, RIME_RICHE} plus an explicit "
-        "`or REPEAT`, and REPEAT is deliberately ABSENT from "
-        "`ADMITTABLE_RELATIONS`, so neither set contains the other and "
-        "'move it to the default' is a TWO-WAY move that would delete the "
-        "epiphora capability. Figures attributed to a lane, not re-derived "
-        "by me; the non-nesting I verified. `MISSING.md` M-139."),
+        "The pairwise GRAPH (`chains`, `graph`): a GENERATOR over every line "
+        "pair, asking every admittable coarse relation plus REPEAT. The "
+        "schemas are not folded in because, over every pair, the default "
+        "door does not separate from its matched redeal: all 91 pairs R_obs 50.09% against a null median 52.27% and max 54.08%, p 0.8571 at 20 draws "
+        "(`chance_rate.py --null`), while on DECLARED pairs it does: "
+        "the 7 mandated pairs R_obs 91.07% against a null median 52.08% and max 54.17%, +38.99 pp over the median. A generator asking a question answered at chance "
+        "manufactures structure (doctrine 71; M-139, M-145)."),
     ("lyric_harness.py", "infer_chains.match"): (
         ARGUED,
-        "Chain promotion at `theta_chain`, a DIFFERENT threshold answering a "
-        "different question (does this line join a running chain). ~~the "
-        "reason is unwritten~~ — WRITTEN 2026-08-26 and it is the strongest "
-        "in the census: widening moves the negative control's empirical p "
-        "from 0.0199 to 0.0796, OUT of significance, because the door "
-        "raises the chance rate faster than the observation (doctrine 71's "
-        "own sentence, which `audit_band_control.py` already states); and "
-        "it would make `audit_band_control` read the conjunctive band as "
-        "removing 1 sonnet pair where it reads 38, since the band's whole "
-        "action is relabelling RHYME to ASSONANCE/CONSONANCE and a door "
-        "admitting the relabelled pairs undoes it AT THE POINT OF "
-        "MEASUREMENT — a control defined in terms of what it controls "
-        "(doctrine 14). These sites are UNMIGRATED rather than narrowed: "
-        "all three arrive in `0c3a0b1`, the commit that CREATED `admits()`, "
-        "when no other door existed. Figures attributed to a lane. "
-        "`MISSING.md` M-139."),
-    ("quality/chance_rate.py", "measure"): (
+        "Chain promotion at `theta_chain` over every admittable coarse "
+        "relation plus REPEAT — a generator like `rhyme_graph`, for the same "
+        "measured reason (all 91 pairs R_obs 50.09% against a null median 52.27% and max 54.08%, p 0.8571 at 20 draws; M-139)."),
+    ("quality/revise.py", "Reviser.mandate_from_graph"): (
         ARGUED,
-        "THE CHANCE-RATE INSTRUMENT, and its narrow expression is the "
-        "measurement rather than a lag. It asks all three doors of one "
-        "sample and reports them APART — `decl.admit`, the historical two, "
-        "and `whole_vocabulary_pairs` — because a pair can be admitted by "
-        "two of them at once and summing the counts would destroy the very "
-        "comparison the module exists for (doctrine 79; it prints ADMIT-only "
-        "/ SCHEMA-only / both). Folding the 77 into the `admits()` call "
-        "would make the ADMIT arm unreadable and leave nothing measuring "
-        "the door M-138 is about. Built 2026-08-26 with `MISSING.md` M-138's "
-        "strike; the 77 ARE consulted in the same function, which is why "
-        "this site reads YES on the schema column."),
+        "`--cliques` means the rhyme graph: a GENERATOR cover over every "
+        "pair, handed to `grade()`, which asks every schema of each pair it "
+        "then declares. Folding schemas into the generator would build "
+        "covers from a door at chance over undeclared pairs (all 91 pairs R_obs 50.09% against a null median 52.27% and max 54.08%, p 0.8571 at 20 draws; "
+        "M-145)."),
+    ("quality/recover.py", "recover"): (
+        ARGUED,
+        "The pasted-song door (M-72): a GENERATOR over every line pair of a "
+        "text, same argument and measurement as `mandate_from_graph` "
+        "(all 91 pairs R_obs 50.09% against a null median 52.27% and max 54.08%, p 0.8571 at 20 draws; M-145)."),
+    ("quality/rhyme_types.py", "coarse_relation_consensus"): (
+        ARGUED,
+        "The all-pronunciation sub-question for the COARSE relations: every "
+        "permitted endpoint reading tested for membership of the declared "
+        "coarse set; a disagreement returns unknown. check_scheme and "
+        "Reviser.grade ask the schemas beside it for every pair. MEASURED "
+        "by test_production_relations: 4 controls, cat/hat=True, "
+        "wind/moon=False, wind/find and an unreadable endpoint=unknown "
+        "(M-139)."),
+    ("quality/e5_coda_adoption.py", "admitted"): (
+        ARGUED,
+        "E-5 changes the coda SCALAR, so it counts the coarse admitted set "
+        "that scalar moves; check_scheme's violations over every relation "
+        "are reported beside it in the same run. MEASURED 2026-09-22 by `e5_coda_adoption.py`: 900 mandated pairs admitted under gift and 900 under cannot_tell, 0 lost; violations 9 -> 9 (E-5)."),
     ("quality/negative_control.py", "Quatrain.__init__"): (
         ARGUED,
-        "The negative control's own door, and it is NARROWER than the "
-        "grader's — which UNDERSTATES the chance rate, the flattering "
-        "direction (doctrine 14/71). Already filed as `MISSING.md` M-138 "
-        "and left to that entry's ruling, because moving it changes what a "
-        "recorded measurement means."),
-    ("quality/redteam_band.py", "run"): (
-        ARGUED,
-        "Adversary 3, the instrument whose output IS the `theta_coda` "
-        "recalibration. Spells the two as a LITERAL, so it cannot see what "
-        "happened to its sibling threshold. `MISSING.md` M-138."),
-    ("quality/structure_census.py", "d1_diagnostic"): (
-        ARGUED,
-        "The chance-rate census's diagnostic, whose own prose declares "
-        "RHYME/RIME_RICHE at theta. Declared and stated — but a chance rate "
-        "measured at a narrower door than the grader's understates chance, "
-        "so it carries the same OPEN question as the negative control. "
-        "`MISSING.md` M-138/M-139."),
-    ("quality/time_layer.py", "_raw_score"): (
-        ARGUED,
-        "The time layer, which doctrine 4 records as MUTE — `audit_fwer_fpr.py "
-        "--check` confirms cannot_tell 18 / refused 0 / answered 2, never "
-        "summed. ~~Widening a door on a layer that cannot look changes no "
-        "measurement, so this is recorded rather than repaired.~~ **STRUCK 2026-08-26 "
-        "— I ASSERTED THAT WITHOUT MEASURING IT, which is the whole defect this "
-        "census exists to catch, committed inside the census.** Measured on a "
-        "patched harness whose narrow arm reproduces 18/0/2 exactly as its own "
-        "control, widening to `decl.admit` moves the REAL arm to cannot_tell 0 / "
-        "refused 20 / answered 0 — **20 of 20 items change verdict**, because the "
-        "within-item null band-pass rate goes from a median 0.042 to 0.513 and "
-        "doctrine 28's tripwire `max_null_band_pass = 0.152` then fires on every "
-        "item. So the door does NOT leave this layer untouched: it silences it "
-        "HARDER. That figure is a lane measurement I have not re-derived myself "
-        "and is carried as attributed, not as mine. The disposition stays "
-        "ARGUED and the honest argument is the one that was never written: the "
-        "NARROW set is this layer's discriminant, and `max_null_band_pass` is an "
-        "unwritten coordinate OF THIS DOOR (doctrine 58) whose own provenance "
-        "names alignment, theta_coda, theta, window and null_samples — and not "
-        "the relation set. `MISSING.md` M-139."),
+        "The negative control of the COMPARATOR reads the coarse relation "
+        "set at the declaration's cuts plus REPEAT. The schemas have their "
+        "own matched-redeal null: a schema holds on 896..921 random "
+        "pairs of 4,000 (`chance_rate.ADOPTED['schema']`), which would "
+        "saturate a four-line partition (doctrine 14; M-138)."),
+
 }
 
 #: The two RENDERING sites inside `check_scheme` cannot be keyed by function
 #: alone — the function is FULL and also carries a naming test. Keyed on the
 #: door kind as well, because one function legitimately holds both.
 _BY_DOOR = {
-    ("lyric_harness.py", "check_scheme", "NARROW(literal 2)"): (
+    ("lyric_harness.py", "check_scheme", "RHYME(member)"): (
         RENDERING,
-        "Chooses the WORDING of an unintended-rhyme note ('unintended rhyme' "
-        "vs 'unintended {relation}, NOT a rhyme'). A naming choice; the "
-        "verdict is settled above it."),
+        "Chooses the WORDING of an unintended-pair note from the pair's "
+        "relation set; the verdict is settled above it."),
 }
 
 #: MEASURED 2026-08-26 on this tree, REPINNED 2026-08-27, and the INCOMPLETE
@@ -559,8 +328,17 @@ _BY_DOOR = {
 # 2026-09-08: pronunciation-consensus helper adds one deliberately scalar
 # site; check_scheme's all-readings-false branch adds one existing FULL site.
 # E-5, 2026-09-15: one argued measurement site; production doors unchanged.
-PINNED = {"sites": 29, "full": 5, "incomplete": 0, "per_word": 3,
-          "rendering": 6, "validation": 1, "argued": 14}
+# REPINNED 2026-09-22 (N-relation model) from ~~sites 29, full 5, incomplete
+# 0, per_word 3, rendering 6, validation 1, argued 14~~. The detector now
+# reads `admits_decl`/`admitted_relations`, RHYME-family intersections and
+# single-label EQUALITY, and two dispositions joined (DEFINITION, FORM). The
+# single-label site in cym_rhyme_rate.py was repaired by the lead the same day
+# (membership now), so incomplete is 0. `Reviser._field_one` stopped
+# calling the predicate directly (slice B, same day): per_word 9 -> 8.
+# Measured by `python3 quality/door_census.py --check`.
+PINNED = {"sites": 35, "full": 7, "incomplete": 0, "per_word": 8,
+          "rendering": 3, "validation": 1, "definition": 2, "form": 6,
+          "argued": 8}
 
 
 def _innermost(tree):
@@ -650,46 +428,58 @@ def _is_narrow_literal(node):
     return False
 
 
+def _name_of(node):
+    return (node.id if isinstance(node, ast.Name)
+            else node.attr if isinstance(node, ast.Attribute) else None)
+
+
 def _door_of(node, shadowed=False):
     """-> the door this node reads, or None if it is not a site.
 
     `shadowed` is True when the FILE defines its own `admits`, in which case a
-    bare `admits(...)` in it is NOT this tree's door. `quality/narrative.py`
-    defines `def admits(functions)` about section rosters — an unrelated
-    function with the same name — and this detector matches a bare name with
-    no import resolution, so without the guard a call to it would be counted
-    as a pair-satisfaction site. Zero such calls today; the guard is here
-    because a census that invents a site is the mirror of one that misses a
-    site, and this file has already been wrong three times in the missing
-    direction.
+    bare `admits(...)` in it is NOT this tree's door (`quality/narrative.py`
+    defines `def admits(functions)` about section rosters).
+
+    KINDS:
+      DECLARED(admit)   `admits`/`admitted_relations` given a relation set,
+                        or `admits_decl` — the declaration's coarse set.
+      ALL(omitted)      `admits`/`admitted_relations` with no relation set:
+                        every admittable coarse relation (since 2026-09-22;
+                        it meant the historical two before).
+      RHYME(member)     membership of the RHYME family — `x in
+                        RHYME_RELATIONS`, `rels & RHYME_RELATIONS`, or the
+                        historical literal pair. A question about ONE
+                        relation family, asked of a set.
+      SINGLE_LABEL(==)  equality against a relation NAME. Under the
+                        N-relation model a pair has a SET of relations, so an
+                        equality test is picking one label: a defect unless
+                        ruled otherwise.
     """
     if isinstance(node, ast.Call):
         f = node.func
-        name = (f.id if isinstance(f, ast.Name)
-                else f.attr if isinstance(f, ast.Attribute) else None)
-        if name == "admits" and not (shadowed
-                                     and isinstance(f, ast.Name)):
+        name = _name_of(f)
+        if name == "admits_decl":
+            return "DECLARED(admit)"
+        if name in ("admits", "admitted_relations") and not (
+                shadowed and isinstance(f, ast.Name)):
             given = (any(k.arg == "relations" for k in node.keywords)
                      or len(node.args) >= 3)
-            return "DECLARED(admit)" if given else "NARROW(omitted)"
+            return "DECLARED(admit)" if given else "ALL(omitted)"
         return None
-    if isinstance(node, ast.Compare) and \
-            any(isinstance(o, (ast.In, ast.NotIn)) for o in node.ops):
-        for c in node.comparators:
-            # ATTRIBUTE FORM TOO — `LH.RHYME_RELATIONS`, not only the bare
-            # name. The CALL branch above was taught this and the COMPARE
-            # branch was not, so the first blindness this file records
-            # survived at the other half of the same detector. LATENT today
-            # (0 hits) and not hypothetical: thirteen production modules
-            # already `import lyric_harness as LH`, and the module the first
-            # draft actually lost — `quality/structure_census.py` — is the
-            # attribute-idiom one.
-            nm = (c.id if isinstance(c, ast.Name)
-                  else c.attr if isinstance(c, ast.Attribute) else None)
-            if nm == "RHYME_RELATIONS":
-                return "NARROW(RHYME_RELATIONS)"
-            if _is_narrow_literal(c):
-                return "NARROW(literal 2)"
+    if isinstance(node, ast.BinOp) and isinstance(node.op, ast.BitAnd):
+        if "RHYME_RELATIONS" in (_name_of(node.left), _name_of(node.right)):
+            return "RHYME(member)"
+        return None
+    if isinstance(node, ast.Compare):
+        if any(isinstance(o, (ast.In, ast.NotIn)) for o in node.ops):
+            for c in node.comparators:
+                # attribute form too (`LH.RHYME_RELATIONS`)
+                if _name_of(c) == "RHYME_RELATIONS" or _is_narrow_literal(c):
+                    return "RHYME(member)"
+        if any(isinstance(o, (ast.Eq, ast.NotEq)) for o in node.ops):
+            for v in [node.left] + node.comparators:
+                if isinstance(v, ast.Constant) and v.value in RELATION_NAMES:
+                    return "SINGLE_LABEL(==)"
     return None
 
 
@@ -761,12 +551,16 @@ def unruled(rows=None):
     return [r for r in rows if r["disposition"] is None]
 
 
+DISPOSITION_KEYS = ((FULL, "full"), (INCOMPLETE, "incomplete"),
+                    (PER_WORD, "per_word"), (RENDERING, "rendering"),
+                    (VALIDATION, "validation"), (DEFINITION, "definition"),
+                    (FORM, "form"), (ARGUED, "argued"))
+
+
 def counts(rows=None):
     rows = census() if rows is None else rows
     out = {"sites": len(rows)}
-    for d, key in ((FULL, "full"), (INCOMPLETE, "incomplete"),
-                   (PER_WORD, "per_word"), (RENDERING, "rendering"),
-                   (VALIDATION, "validation"), (ARGUED, "argued")):
+    for d, key in DISPOSITION_KEYS:
         out[key] = sum(1 for r in rows if r["disposition"] == d)
     return out
 
@@ -776,21 +570,19 @@ def main(argv):
     rows = census()
     c = counts(rows)
 
-    print("WHICH DOOR EACH SITE JUDGES A PAIR AT (M-59 widened it to four, "
-          "M-116 added the 77)")
-    print(f"  the complete default is `admits(s, theta, decl.admit)` OR "
-          f"`{SCHEMA_JUDGE}`\n")
-    print(f"  {'file':30s}{'line':>6s}  {'door':24s}{'77':>4s}  "
+    print("WHICH RELATIONS EACH SITE JUDGES A PAIR AGAINST")
+    print(f"  the complete default: the pair's coarse relation set at "
+          f"`decl.admit` AND `{SCHEMA_JUDGE}`, for every pair\n")
+    print(f"  {'file':30s}{'line':>6s}  {'door':24s}{'sch':>4s}  "
           f"{'disposition':12s} function")
     for r in rows:
         print(f"  {r['path']:30s}{r['line']:6d}  {r['door']:24s}"
               f"{'YES' if r['sees_77'] else 'no':>4s}  "
               f"{str(r['disposition'] or 'UNRULED'):12s} {r['func']}")
 
-    print(f"\n  SIX DISPOSITIONS, NEVER SUMMED PAST THE PARTITION "
+    print(f"\n  DISPOSITIONS, NEVER SUMMED PAST THE PARTITION "
           f"(doctrine 79):")
-    for key in ("full", "incomplete", "per_word", "rendering", "validation",
-                "argued"):
+    for _, key in DISPOSITION_KEYS:
         print(f"    {key:12s} {c[key]}")
     print(f"    {'sites':12s} {c['sites']}")
 

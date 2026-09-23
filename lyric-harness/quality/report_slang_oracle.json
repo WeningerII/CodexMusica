@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "date": "2026-09-22",
+  "date": "2026-09-23",
   "baseline_commit": "08adfcff",
   "report_ids": ["C-1", "P9"],
   "population": "battery.parse_sonnets: 152 fourteen-line sonnets, ABABCDCDEFEFGG; sonnet_index is the filtered battery index",
@@ -12,11 +12,11 @@
   },
   "current": {
     "mandated": 1064,
-    "judged": 970,
-    "refused": 94,
-    "violations": 7
+    "judged": 936,
+    "refused": 128,
+    "violations": 9
   },
-  "meaning": "Three pairs previously refused only by the missing slang surface now yield violations. No accepted pair changed and no pronunciation, threshold or corpus input was changed. Both check_scheme and Reviser.grade independently return the current totals.",
+  "meaning": "N-relation model with nucleus_agreement=licensed and ASSONANCE cut 0.75: every mandated pair is judged against every coarse relation it stands in and every registry schema, asked of every pair; a near vowel no longer carries RHYME or ASSONANCE. Refusals 128 (readings or schemas undecided at the pair); violations 9 (it/it x2, her/her, thee/thee, eye/alchemy, dead/astonished, words/affords, argument/spent x2).",
   "newly_judged_pairs": [
     {
       "sonnet_index": 33,
@@ -364,10 +364,13 @@
   ],
   "current_partition": {
     "refused": [
+      [1, 6, 8],
+      [1, 9, 11],
       [1, 10, 12],
       [3, 1, 3],
       [4, 6, 8],
       [5, 10, 12],
+      [7, 6, 8],
       [7, 9, 11],
       [10, 2, 4],
       [10, 5, 7],
@@ -377,12 +380,15 @@
       [13, 1, 3],
       [13, 2, 4],
       [13, 6, 8],
+      [14, 6, 8],
       [14, 10, 12],
       [16, 5, 7],
       [17, 2, 4],
+      [18, 2, 4],
       [18, 6, 8],
       [18, 10, 12],
       [20, 6, 8],
+      [22, 10, 12],
       [24, 1, 3],
       [26, 1, 3],
       [30, 10, 12],
@@ -390,17 +396,20 @@
       [32, 10, 12],
       [33, 13, 14],
       [35, 6, 8],
+      [35, 10, 12],
       [37, 10, 12],
       [38, 10, 12],
       [39, 5, 7],
       [40, 5, 7],
       [40, 6, 8],
       [41, 9, 11],
+      [42, 5, 7],
       [43, 2, 4],
       [45, 1, 3],
       [45, 9, 11],
       [46, 9, 11],
       [48, 5, 7],
+      [49, 2, 4],
       [49, 5, 7],
       [49, 9, 11],
       [49, 10, 12],
@@ -413,6 +422,8 @@
       [57, 2, 4],
       [57, 5, 7],
       [57, 9, 11],
+      [57, 13, 14],
+      [59, 1, 3],
       [63, 2, 4],
       [65, 9, 11],
       [66, 1, 3],
@@ -421,59 +432,84 @@
       [67, 2, 4],
       [68, 1, 3],
       [72, 6, 8],
+      [72, 9, 11],
       [72, 13, 14],
       [73, 9, 11],
+      [74, 1, 3],
       [79, 10, 12],
       [82, 2, 4],
       [85, 5, 7],
       [86, 1, 3],
+      [87, 2, 4],
       [87, 6, 8],
       [88, 5, 7],
       [89, 2, 4],
+      [89, 5, 7],
       [90, 1, 3],
       [90, 9, 11],
       [91, 10, 12],
       [93, 5, 7],
       [94, 10, 12],
+      [95, 13, 14],
       [96, 1, 3],
+      [97, 1, 3],
+      [99, 6, 8],
       [101, 1, 3],
       [102, 1, 3],
       [103, 13, 14],
       [105, 10, 12],
+      [108, 10, 12],
+      [110, 13, 14],
       [111, 9, 11],
       [113, 9, 11],
+      [114, 5, 7],
       [114, 9, 11],
       [116, 5, 7],
       [117, 5, 7],
       [119, 1, 3],
+      [120, 6, 8],
       [123, 2, 4],
       [123, 10, 12],
       [124, 2, 4],
       [124, 5, 7],
       [126, 1, 3],
+      [129, 2, 4],
+      [132, 2, 4],
+      [133, 1, 3],
+      [133, 9, 11],
+      [133, 13, 14],
+      [134, 2, 4],
+      [134, 13, 14],
       [135, 13, 14],
       [136, 2, 4],
+      [139, 9, 11],
       [140, 2, 4],
+      [140, 6, 8],
+      [141, 13, 14],
       [145, 9, 11],
       [146, 2, 4],
+      [149, 1, 3],
       [150, 6, 8],
-      [152, 5, 7]
+      [152, 5, 7],
+      [152, 10, 12]
     ],
     "violations": [
       [9, 10, 12],
       [26, 6, 8],
       [33, 2, 4],
       [42, 6, 8],
+      [76, 10, 12],
       [86, 6, 8],
+      [104, 9, 11],
       [104, 10, 12],
       [150, 5, 7]
     ]
   },
   "span_attribution": {
-    "date": "2026-09-22",
+    "date": "2026-09-23",
     "current": {
-      "claimed": 605,
-      "ties": 114,
+      "claimed": 586,
+      "ties": 108,
       "violations_claimed": 1,
       "violation_ties": 3
     },
@@ -488,11 +524,11 @@
     "pair_kinds": [
       {
         "kinds": ["exact", "exact"],
-        "n": 605
+        "n": 586
       },
       {
         "kinds": ["exact", "part"],
-        "n": 273
+        "n": 263
       },
       {
         "kinds": ["exact", "reach"],
@@ -504,7 +540,7 @@
       },
       {
         "kinds": ["part", "part"],
-        "n": 81
+        "n": 76
       },
       {
         "kinds": ["part", "reach"],
@@ -522,7 +558,7 @@
       },
       {
         "kinds": ["exact", "part"],
-        "n": 2
+        "n": 4
       },
       {
         "kinds": ["exact", "reach"],
@@ -538,6 +574,18 @@
         "sonnet": 9,
         "lines": [10, 12],
         "endwords": ["it", "it"],
+        "relations": [
+          "ASSONANCE",
+          "CONSONANCE",
+          "PROMOTED_RHYME",
+          "REPEAT",
+          "RHYME",
+          "compound / phrasal rhyme",
+          "internal rhyme",
+          "mosaic rhyme",
+          "multisyllabic rhyme",
+          "repetition"
+        ],
         "claim": false,
         "kinds": ["reach", "reach"]
       },
@@ -545,6 +593,18 @@
         "sonnet": 26,
         "lines": [6, 8],
         "endwords": ["it", "it"],
+        "relations": [
+          "ASSONANCE",
+          "CONSONANCE",
+          "PROMOTED_RHYME",
+          "REPEAT",
+          "RHYME",
+          "compound / phrasal rhyme",
+          "internal rhyme",
+          "mosaic rhyme",
+          "multisyllabic rhyme",
+          "repetition"
+        ],
         "claim": false,
         "kinds": ["reach", "reach"]
       },
@@ -552,6 +612,7 @@
         "sonnet": 33,
         "lines": [2, 4],
         "endwords": ["eye", "alchemy"],
+        "relations": [],
         "claim": false,
         "kinds": ["reach", "exact"]
       },
@@ -559,20 +620,47 @@
         "sonnet": 42,
         "lines": [6, 8],
         "endwords": ["her", "her"],
+        "relations": [
+          "ASSONANCE",
+          "CONSONANCE",
+          "REPEAT",
+          "RHYME",
+          "internal rhyme",
+          "mosaic rhyme",
+          "repetition"
+        ],
         "claim": true,
         "kinds": ["exact", "exact"]
+      },
+      {
+        "sonnet": 76,
+        "lines": [10, 12],
+        "endwords": ["argument", "spent"],
+        "relations": [],
+        "claim": false,
+        "kinds": ["part", "exact"]
       },
       {
         "sonnet": 86,
         "lines": [6, 8],
         "endwords": ["dead", "astonished"],
+        "relations": [],
         "claim": false,
         "kinds": ["exact", "part"]
       },
       {
         "sonnet": 104,
+        "lines": [9, 11],
+        "endwords": ["argument", "spent"],
+        "relations": [],
+        "claim": false,
+        "kinds": ["part", "exact"]
+      },
+      {
+        "sonnet": 104,
         "lines": [10, 12],
         "endwords": ["words", "affords"],
+        "relations": [],
         "claim": false,
         "kinds": ["exact", "part"]
       },
@@ -580,28 +668,47 @@
         "sonnet": 150,
         "lines": [5, 7],
         "endwords": ["thee", "thee"],
+        "relations": [
+          "ASSONANCE",
+          "CONSONANCE",
+          "REPEAT",
+          "RHYME",
+          "internal rhyme",
+          "mosaic rhyme",
+          "multisyllabic rhyme",
+          "repetition"
+        ],
         "claim": false,
         "kinds": ["reach", "reach"]
       }
     ]
   },
   "uncertainty_refusals": [
+    [1, 6, 8],
+    [1, 9, 11],
     [4, 6, 8],
     [5, 10, 12],
+    [7, 6, 8],
     [7, 9, 11],
     [12, 6, 8],
     [13, 1, 3],
     [13, 2, 4],
     [13, 6, 8],
+    [14, 6, 8],
     [14, 10, 12],
     [16, 5, 7],
     [17, 2, 4],
+    [18, 2, 4],
+    [22, 10, 12],
     [31, 9, 11],
     [35, 6, 8],
+    [35, 10, 12],
     [37, 10, 12],
     [39, 5, 7],
+    [42, 5, 7],
     [45, 1, 3],
     [48, 5, 7],
+    [49, 2, 4],
     [49, 5, 7],
     [49, 10, 12],
     [51, 5, 7],
@@ -609,26 +716,71 @@
     [54, 2, 4],
     [57, 2, 4],
     [57, 5, 7],
+    [57, 13, 14],
+    [59, 1, 3],
     [67, 1, 3],
     [72, 6, 8],
+    [72, 9, 11],
     [72, 13, 14],
     [73, 9, 11],
+    [74, 1, 3],
     [79, 10, 12],
     [85, 5, 7],
+    [87, 2, 4],
+    [89, 5, 7],
     [90, 1, 3],
     [90, 9, 11],
     [91, 10, 12],
     [93, 5, 7],
     [94, 10, 12],
+    [95, 13, 14],
+    [97, 1, 3],
+    [99, 6, 8],
     [102, 1, 3],
+    [108, 10, 12],
+    [110, 13, 14],
     [111, 9, 11],
+    [114, 5, 7],
     [116, 5, 7],
     [119, 1, 3],
+    [120, 6, 8],
     [123, 10, 12],
+    [129, 2, 4],
+    [132, 2, 4],
+    [133, 1, 3],
+    [133, 9, 11],
+    [133, 13, 14],
+    [134, 2, 4],
+    [134, 13, 14],
     [135, 13, 14],
     [136, 2, 4],
+    [139, 9, 11],
+    [140, 6, 8],
+    [141, 13, 14],
     [145, 9, 11],
+    [149, 1, 3],
     [150, 6, 8],
-    [152, 5, 7]
+    [152, 5, 7],
+    [152, 10, 12]
+  ],
+  "superseded": [
+    {
+      "date": "2026-09-22",
+      "current": {
+        "mandated": 1064,
+        "judged": 970,
+        "refused": 94,
+        "violations": 7
+      }
+    },
+    {
+      "date": "2026-09-22",
+      "current": {
+        "mandated": 1064,
+        "judged": 958,
+        "refused": 106,
+        "violations": 7
+      }
+    }
   ]
 }

@@ -3138,6 +3138,11 @@ BLOCKER_RECORDS = {
         'mapping for these texts and their null replicates. Previously classified as '
         'disjoint; the field is no longer unconditionally inert.',
         'declare_beat'),
+    'tonal_template': Blocker('declare',
+        '`relations.declare_tonal_template` accepts a {line: 平/仄/中 pattern} '
+        'map. The pattern is the regulated-verse FORM\'s, never the text\'s, '
+        'so no panel slice can supply it without a caller declaring the form.',
+        'declare_tonal_template'),
 }
 
 BLOCKERS = {cap: record.describe() for cap, record in BLOCKER_RECORDS.items()}

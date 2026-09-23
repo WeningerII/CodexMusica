@@ -72,6 +72,11 @@ WHAT IT COSTS, WHICH IS THE ONLY QUESTION (doctrine 61)
     Alun          54.1% -> 57.1%   27.8% -> 21.8%   +26.3 -> +35.3
     Twm o'r Nant  51.3% -> 46.2%   36.5% -> 26.9%   +14.7 -> +19.2
 
+(Those are the figures at the time of the choice. REPINNED 2026-09-23 after
+7d1ded93's J-1 glide change to `syllables()`/`skeleton()`: Alun 55.7% vs
+null max 21.3% (+34.4), Twm o'r Nant 44.2% vs 27.6% (+16.7), n=200 --
+`cynghanedd_rate.PINNED`.)
+
 The second row is the one to read: the class rule fires LESS often on Twm o'r
 Nant and is still the better rule, because the null falls further than the
 observation does. A rate is not evidence; the excess over a matched control is.
@@ -113,7 +118,8 @@ FIVE COORDINATES, EVERY ONE DECLARED AND EVERY ONE MEASURED. See
    line of the couplet ends accented, the other unaccented. Measured on the
    staged cywydd, which MANDATES 54 couplets: the shipped rule JUDGES 51 and
    answers TRUE on **51 of 51**; the English port judges 52 and answers TRUE on
-   **2 of 52**. It is not rejected, it is FALSIFIED, and `rule="prominent"`
+   **1 of 52** (~~2 of 52~~ until 7d1ded93's J-1 glide rule; repinned
+   2026-09-23, `cym_rhyme_rate.PINNED["s2"]`). It is not rejected, it is FALSIFIED, and `rule="prominent"`
    keeps the falsification a function call (doctrine 84).
 2. **The circumflex is FOLDED** (`diacritics="fold"`). It is a LENGTH mark, and
    the staged corpus writes the same language both ways: `cym_song_alun.txt`
@@ -1232,7 +1238,11 @@ class Welsh(Phonology):
 
     def relation_type(self, a, b, depth=RIME_DEPTH, rule=RHYME_RULE,
                       diacritics=DIACRITICS, glide=GLIDE):
-        """-> REPEAT / RIME_RICHE / RHYME / NONE / None.
+        """-> the SET of relations the pair stands in, a frozenset over
+        {REPEAT, RIME_RICHE, RHYME}; empty when it stands in none; None when
+        `rhymes` cannot decide. The relations NEST, and every one that holds
+        is returned: a repeat is also rime riche (the rime and its onset
+        agree) and also rhyme; rime riche is also rhyme.
 
         Doctrine 3: identity is not rhyme, and this repo has already been bitten
         by not typing it -- half of `corpus/whitman.txt`'s detected chain links
@@ -1251,16 +1261,17 @@ class Welsh(Phonology):
         if v is None:
             return None
         if not v:
-            return "NONE"
+            return frozenset()
+        out = {"RHYME"}
         sa = self._sylls_for_rime(a, diacritics)
         sb = self._sylls_for_rime(b, diacritics)
         if [s.text for s in sa] == [s.text for s in sb]:
-            return "REPEAT"
+            out.add("REPEAT")
         d = max(1, min(depth, len(sa), len(sb))) if rule == "depth" else depth
         i, j = self._rime_start(sa, rule, d), self._rime_start(sb, rule, d)
         if [s.text for s in sa[i:]] == [s.text for s in sb[j:]]:
-            return "RIME_RICHE"
-        return "RHYME"
+            out.add("RIME_RICHE")
+        return frozenset(out)
 
     def refusal_reason(self, word, depth=RIME_DEPTH, rule=RHYME_RULE,
                        diacritics=DIACRITICS, glide=GLIDE):

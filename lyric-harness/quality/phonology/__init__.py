@@ -413,6 +413,18 @@ class Phonology:
         """
         return None
 
+    def relations(self, a, b):
+        """-> {relation name: True / False / None} for EVERY relation this
+        phonology decides of a pair — each its own predicate, none standing
+        in for another. The base reports `rhymes` and `alliterates` where a
+        module implements them (the stubs above are not answers); a module
+        with more declared relations adds them (`non`: both hendingar)."""
+        out = {}
+        for name in ("rhymes", "alliterates"):
+            if getattr(type(self), name) is not getattr(Phonology, name):
+                out[name] = getattr(self, name)(a, b)
+        return out
+
     def declaration(self):
         return {
             "language": self.language, "name": self.name,

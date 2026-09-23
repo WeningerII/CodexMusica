@@ -87,9 +87,11 @@ def test_the_original_bad_report_line():
     aa = anchors("I don't get to go")
     bb = anchors("how they read the address like a receipt")
     s = lh.best_score(aa, bb, DECL, "go", "receipt")
-    check("the original scalar remains 0.579 with the current NO_RELATION verdict",
-          s["total"] == 0.579 and s["relation"] == "NO_RELATION",
-          f"total {s['total']}  relation {s['relation']}")
+    check("the original scalar remains 0.579 and the pair stands in NO "
+          "relation (an empty relation set, printed NO_RELATION)",
+          s["total"] == 0.579 and s["relations"] == frozenset()
+          and lh.relation_label(s) == "NO_RELATION",
+          f"total {s['total']}  relations {sorted(s['relations'])}")
     sp = s["spans"]
     check("the winning LEFT span is the mosaic reach, not the end word",
           sp["a"]["words"] == ["get", "to", "go"], sp["a"]["text"])
@@ -223,7 +225,7 @@ def test_search_size_is_recorded():
           "DIFFERENT declared search is byte-identical, and no k bound "
           "exists to refuse anything",
           s_other["total"] == s["total"]
-          and s_other["relation"] == s["relation"]
+          and s_other["relations"] == s["relations"]
           and s_other["spans"]["search_k"] == sp["search_k"]
           and not any(f.name.startswith("theta_search")
                       or f.name.endswith("_k_max")
@@ -313,7 +315,7 @@ def test_the_consumers_print_it():
           and p24["spans"]["a"]["words"] == ["enjoys", "it"]
           and p24["spans"]["b"]["words"] == ["destroys", "it"],
           f"endwords {p24['endwords']} score {p24['score']} "
-          f"{p24['relation']}  ::  {p24['spans_note']}")
+          f"{p24['relations']}  ::  {p24['spans_note']}")
     check("the printed note is non-empty exactly where there is provenance",
           bool(p24["spans_note"]))
 
@@ -349,12 +351,19 @@ def test_the_consumers_print_it():
     # chain's mean_coherence can rest on a MULTI-WORD span, not just the bare
     # end word — still needs a real witness, and sonnet 19 supplies one that
     # survives the comparator change: L13/14, `thy wrong` ~ `live young`.
+    # REPOINTED 2026-09-22 (the N-relation model): sonnet 19's `thy wrong`
+    # ~ `live young` no longer chains — coarse relations now start on a
+    # lexically stressed syllable and read the consonants between vowels —
+    # so the witness moved, MEASURED over all 152 sonnets, to sonnet 14,
+    # whose chain rests on `minutes tell` ~ `rain and wind`: a multi-word
+    # span on both sides behind a mean labelled with bare end words.
     import battery
-    s19 = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))[18]
-    got = [m for c in lh.infer_chains(LEX, s19, DECL)
+    s14 = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))[13]
+    got = [m for c in lh.infer_chains(LEX, s14, DECL)
            for m in c["mosaic_pairs"]]
     check("...and on a real chain it names the mosaic pairs behind the mean",
-          any("thy wrong" in m["note"] for m in got),
+          any("minutes tell" in m["note"] and "rain and wind" in m["note"]
+              for m in got),
           str([m["note"] for m in got][:1]))
 
 
@@ -678,9 +687,12 @@ def test_the_sweep_runs_and_reports_three_counts():
     check("the full span-kind partition matches the measured oracle",
           [{"kinds": list(k), "n": v} for k, v in sorted(r["pair_kinds"].items())]
           == ATTRIBUTION["pair_kinds"])
+    # Each row carries EVERY relation the violating pair stands in (the
+    # N-relation model), so the oracle pins the relation SET as well.
     check("the exact violations retain their independent attribution witnesses",
           [{key: list(v[key]) if isinstance(v[key], tuple) else v[key]
-            for key in ("sonnet", "lines", "endwords", "claim", "kinds")}
+            for key in ("sonnet", "lines", "endwords", "relations", "claim",
+                        "kinds")}
            for v in r["violation_rows"]] == ATTRIBUTION["violation_rows"])
     check("ties match the measured oracle; 7 former ties are now refused",
           r["ties"] == ATTRIBUTION["current"]["ties"]

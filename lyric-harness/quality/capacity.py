@@ -4,9 +4,10 @@
 A FAMILY is a construction pool over the declared frequency vocabulary,
 keyed by the first pronunciation's phoneme tail from its last prominent
 vowel. It is not an equivalence class of the certified class:RHYME relation:
-RIME_RICHE shares that tail but is a distinct subtype, and another allowed
-pronunciation can make a prospective pair unresolved. Certification must
-answer those differences, not infer acceptance from a family key.
+another allowed pronunciation can make a prospective pair unresolved, and a
+pair stands in EVERY relation its sound supports (a rime riche pair is also
+RHYME), so certification asks whether RHYME is a MEMBER of the pair's
+relation set rather than inferring acceptance from a family key.
 
 A SPELLING CLASS is Reviser._spelled_rime's value. Same-class pairs incur
 HOMEOTELEUTON, so the class count (chain_hi) is an upper bound on an earned
@@ -140,8 +141,8 @@ ADOPTED = {
     "chain_hi_at_least": {2: 2817, 5: 593, 8: 272, 12: 162, 16: 106,
                           20: 81},
     "certified": 81,
-    "max_chain_lo": 22,            # REPINNED 2026-09-16 from ~~23~~ (E-5)
-    "max_chain_lo_family": "IY",   # REPINNED 2026-09-16 from ~~"IY-Z"~~ (E-5)
+    "max_chain_lo": 39,            # REPINNED 2026-09-23 ~~22~~ ~~38~~ (N-relation)
+    "max_chain_lo_family": "EH-R", # REPINNED 2026-09-23 ~~"IY"~~ ~~"EY"~~
 }
 
 #: Families the per-push crown re-certifies (test_capacity §3) — the
@@ -168,7 +169,23 @@ _PAIR_RE = re.compile(r"L(\d+)/L(\d+)")
 #: group of 23 now volunteers at most 22, and under the ban actually in force
 #: no family has been measured to fill 23. Do not restore 23 without a
 #: witness that survives `verify_capacity` at the current ban.
-ADOPTED_MAX_GROUP = 22
+#: REPINNED 2026-09-22: ~~22~~ -> 38, THE N-RELATION MODEL. `class:RHYME` is
+#: MEMBERSHIP now, so a rime-riche pair also satisfies it, and the grader
+#: consults every schema for every pair. All 81 witnesses were re-graded by
+#: `recertify_capacity.py --reverify-from` under certification source
+#: 658a3ffd: 70 old witnesses still certify unchanged; 11 no longer did and
+#: were RE-CONSTRUCTED, all deeper (EY 21->38, OW-Z 19->38, AE-N 15->37, UW
+#: 21->36, EY-Z 19->36, AA 21->36, IY 22->35, UW-Z 21->33, AA-K 14->33, AE-M
+#: 10->31, AY-L 14->23). EY and OW-Z tie at 38; the name is table order. The
+#: 70 kept witnesses were NOT re-constructed, so they are still lower bounds
+#: that a fresh construction may beat.
+#: RE-MEASURED 2026-09-23 after `nucleus_agreement` became "licensed" (a near
+#: vowel no longer stands in RHYME): certification source f350d3ae, 68 of the
+#: 81 witnesses above still certify unchanged, 13 were RE-CONSTRUCTED (EH-R
+#: 20->39, AA-N 19->35, AA-T 15->29, IY-AH 13->29, EH-T 13->29, AE-K-S 14->27,
+#: EH-N 13->23, AH-P 10->23; EY 38->37, EY-Z 36->35, AA 36->35, AA-K 33->31,
+#: AE-M 31->30), then all 81 re-verified on the final judge. ~~38~~ -> 39.
+ADOPTED_MAX_GROUP = 39
 
 
 def _rime_key(phones):
@@ -223,6 +240,17 @@ def _consonance_key(phones):
     return tuple(p for p in phones[a + 1:] if not p[-1:].isdigit())
 
 
+def _promoted_rhyme_key(phones):
+    """The FINAL syllable's rime (last vowel to the end), for a word whose
+    final vowel is lexically UNSTRESSED — what PROMOTED_RHYME holds constant
+    (argument/spent on -ment). A word whose final vowel carries stress keys
+    None: its final agreement is RHYME's, not a promoted one."""
+    vidx = [i for i, p in enumerate(phones) if p[-1:].isdigit()]
+    if not vidx or phones[vidx[-1]][-1] != "0":
+        return None
+    return tuple(p.rstrip("012") for p in phones[vidx[-1]:])
+
+
 def _rime_riche_key(phones):
     """The WHOLE word's phones, onset included, stress stripped — two
     words in one family sound identical (bare/bear)."""
@@ -242,6 +270,7 @@ RELATION_KEYS = {
     "ASSONANCE": _assonance_key,
     "CONSONANCE": _consonance_key,
     "RIME_RICHE": _rime_riche_key,
+    "PROMOTED_RHYME": _promoted_rhyme_key,
 }
 
 #: The relation the SHIPPED artifact and every ADOPTED constant are derived
@@ -301,7 +330,12 @@ def families(reviser, relation=ADOPTED_RELATION):
     pop = population(lex)
     fams = defaultdict(lambda: defaultdict(list))
     for w, phones in pop.items():
-        fams[key_fn(phones)][reviser._spelled_rime(w)].append(w)
+        k = key_fn(phones)
+        if k is None:
+            # only PROMOTED_RHYME keys None: the word's final vowel is
+            # stressed, so it cannot stand in that relation at all
+            continue
+        fams[k][reviser._spelled_rime(w)].append(w)
     for classes in fams.values():
         for words in classes.values():
             words.sort(key=lambda x: lex.freq_rank.get(x, 10 ** 9))
@@ -338,8 +372,9 @@ def _group_measurement(reviser, words):
     """Exact pair relations and the shared grader ban, with failed edges.
 
     The first-reading perfect-tail partition is only a construction pool:
-    RHYME excludes its RIME_RICHE subtype, and unresolved pronunciations
-    cannot certify a pair. Every accepted witness answers the declared class.
+    unresolved pronunciations cannot certify a pair. `class:RHYME` is a
+    MEMBERSHIP test — a pair whose relation set contains RHYME satisfies it,
+    rime riche included. Every accepted witness answers the declared class.
     """
     import quality.schemes as SC
     if len(words) < 2:

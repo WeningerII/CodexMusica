@@ -21,7 +21,7 @@ async function freePort() {
 
 test(
   'public HTTP rejects untrusted Origin before dispatch and reports disabled lyrics honestly',
-  { timeout: 30_000 },
+  { timeout: 60_000 },
   async () => {
     const port = await freePort(),
       root = mkdtempSync(join(tmpdir(), 'connector-http-'));
@@ -52,7 +52,13 @@ test(
     const exited = new Promise((resolve) => child.once('exit', resolve));
     try {
       let health;
-      const deadline = Date.now() + 15_000;
+      // This test is one leaf in the three-way parallel CI runner.  Starting
+      // the full lyric runtime can take longer than 15 seconds while the two
+      // neighbouring leaves are doing their own CPU-heavy catalog work.  Wait
+      // for the observable health contract rather than turning runner
+      // contention into a startup failure; the enclosing test timeout still
+      // provides a firm bound if the server never becomes healthy.
+      const deadline = Date.now() + 45_000;
       while (Date.now() < deadline) {
         try {
           health = await fetch(`${base}/health`);

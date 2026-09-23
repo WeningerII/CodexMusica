@@ -42,7 +42,8 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 import lyric_harness as L  # noqa: E402
-from lyric_harness import (Declaration, Lexicon, admits,  # noqa: E402
+from lyric_harness import (Declaration, Lexicon, RHYME_RELATIONS,  # noqa: E402
+                           admits,
                            anchor, best_score, channel_agreement, cluster_sim,
                            line_anchors, score, syllabify, vowel_sim)
 
@@ -60,6 +61,11 @@ N_PAIRS = 1200
 #: reverted to 0.60, which gives 10.50% and 2.58%. The ceilings sit between,
 #: nearer the observation than the mutant, and they are pre-registered here so
 #: that a change which moves them has to argue rather than merely pass.
+#: RE-MEASURED 2026-09-22 on relation SETS (RHYME membership) with
+#: nucleus_agreement="licensed": shipped 0.00% typed and 0.00% admitted;
+#: theta_coda at a 0.60 scalar 0.50% / 0.50%. The ceilings are UNCHANGED and
+#: NEITHER separates that mutant any more — the nucleus identity already
+#: refuses what the looser coda would admit. Not tuned to make it.
 TYPED_FPR_CEILING = 0.060
 ADMITTED_FPR_CEILING = 0.012
 
@@ -100,7 +106,12 @@ def rel(a, b, decl=None, profile=None):
     aa, _, _ = line_anchors(LEX, a, promote=d.final_promotion)
     bb, _, _ = line_anchors(LEX, b, promote=d.final_promotion)
     s = best_score(aa, bb, d, a, b, profile=profile)
-    return s["relation"], s["total"]
+    return s["relations"], s["total"]
+
+
+def is_rhyme(rels):
+    """RHYME is IN the pair's relation set (any of `RHYME_RELATIONS`)."""
+    return bool(set(rels) & RHYME_RELATIONS)
 
 
 # ---------------------------------------------------------------------------
@@ -149,27 +160,47 @@ def band_reference(anc_a, anc_b, decl, align="tail"):
         tb = anc_b[len(anc_b) - n:]
     else:
         ta, tb = anc_a[0:n], anc_b[0:n]
-    nucs = [vowel_sim(ta[i]["nucleus"], tb[i]["nucleus"]) for i in range(n)]
-    nuc_ok = min(nucs) >= decl.theta_nucleus
+    if decl.nucleus_agreement == "scalar":
+        nucs = [vowel_sim(ta[i]["nucleus"], tb[i]["nucleus"]) for i in range(n)]
+        nuc_ok = min(nucs) >= decl.theta_nucleus
+    else:
+        # identity per aligned syllable; "licensed" also admits a declared
+        # licence pair (AH~IH), unstressed on both sides when so declared.
+        # Written out, not imported from `nucleus_agrees` (a twin).
+        lic = {frozenset(p) for p in decl.nucleus_licence}
+        def _ok(x, y):
+            if x["nucleus"] == y["nucleus"]:
+                return True
+            if decl.nucleus_agreement != "licensed":
+                return False
+            if frozenset((x["nucleus"], y["nucleus"])) not in lic:
+                return False
+            return not decl.nucleus_licence_unstressed_only or (
+                x["stress"] == 0 and y["stress"] == 0)
+        nuc_ok = all(_ok(ta[i], tb[i]) for i in range(n))
+    # The consonant channel is every consonant after the first compared
+    # nucleus: each aligned coda AND the onset of every aligned syllable after
+    # the first (ki-tchen/li-sten differ there, not in a coda). 2026-09-22.
+    cons = [(ta[i]["coda"], tb[i]["coda"]) for i in range(n)]
+    cons += [(ta[i].get("onset") or [], tb[i].get("onset") or [])
+             for i in range(1, n)]
     if decl.coda_agreement == "scalar":
-        cods = []
-        for i in range(n):
-            ca, cb = ta[i]["coda"], tb[i]["coda"]
-            cods.append(1.0 if (not ca and not cb) else cluster_sim(ca, cb))
+        cods = [1.0 if (not ca and not cb) else cluster_sim(list(ca), list(cb))
+                for ca, cb in cons]
         return nuc_ok, min(cods) >= decl.theta_coda
     if decl.coda_agreement == "identity":
-        # Every aligned syllable's coda must be the EXACT same phone tuple.
-        # An absent coda is the empty tuple on both sides, which compares
+        # Every aligned consonant cluster must be the EXACT same phone tuple.
+        # An absent one is the empty tuple on both sides, which compares
         # equal by the same `() == ()` doctrine 25 already relies on.
-        cod_ok = all(tuple(ta[i]["coda"]) == tuple(tb[i]["coda"])
-                     for i in range(n))
+        cod_ok = all(tuple(ca) == tuple(cb) for ca, cb in cons)
         return nuc_ok, cod_ok
     raise ValueError(f"band_reference has no independent statement for "
                       f"coda_agreement={decl.coda_agreement!r}")
 
 
-def identity_label(a, b):
-    """The band's verdict under STRICT IDENTITY, tail-aligned. No judgement.
+def identity_relations(a, b):
+    """EVERY relation STRICT IDENTITY supports, tail-aligned — a SET (a
+    perfect rhyme is also assonance and consonance). No judgement.
 
     NOT ground truth for rhyme — the graded band exists on purpose and a rule
     tuned to agree with identity would delete slant rhyme, which is the point
@@ -181,10 +212,17 @@ def identity_label(a, b):
         return None
     ta, tb = a[len(a) - n:], b[len(b) - n:]
     nuc = all(ta[i]["nucleus"] == tb[i]["nucleus"] for i in range(n))
-    cod = all(tuple(ta[i]["coda"]) == tuple(tb[i]["coda"]) for i in range(n))
-    return {(True, True): "RHYME", (True, False): "ASSONANCE",
-            (False, True): "CONSONANCE", (False, False): "NO_RELATION"}[
-                (nuc, cod)]
+    cod = (all(tuple(ta[i]["coda"]) == tuple(tb[i]["coda"]) for i in range(n))
+           and all(tuple(ta[i].get("onset") or ()) == tuple(tb[i].get("onset")
+                                                            or ())
+                   for i in range(1, n)))
+    has_consonant = (any(ta[i]["coda"] or tb[i]["coda"] for i in range(n))
+                     or any(ta[i].get("onset") or tb[i].get("onset")
+                            for i in range(1, n)))
+    return frozenset(r for r, ok in (("RHYME", nuc and cod),
+                                     ("ASSONANCE", nuc),
+                                     ("CONSONANCE", cod and has_consonant))
+                     if ok)
 
 
 def sample_anchor_pairs(n, rng):
@@ -227,22 +265,32 @@ def test_band_is_tail_aligned():
     # (b) NON-VACUITY. Without this the check above passes for a suite made of
     #     equal-length pairs, which is exactly how the defect survived.
     unequal = [(aa, bb) for _, _, aa, bb in PAIRS if len(aa) != len(bb)]
+    # Counted under the SCALAR nucleus since 2026-09-22: alignment is a
+    # property of which syllables are compared, not of the nucleus shape, and
+    # under the shipped licensed identity most random pairs fail BOTH
+    # alignments (135 witnesses measured), which hides the difference this
+    # guard counts. The shipped declaration must still show some.
+    scalar = Declaration(nucleus_agreement="scalar")
     witnesses = [1 for aa, bb in unequal
-                 if band_reference(aa, bb, DECL)
-                 != band_reference(aa, bb, DECL, align="head")]
+                 if band_reference(aa, bb, scalar)
+                 != band_reference(aa, bb, scalar, align="head")]
+    shipped_w = sum(1 for aa, bb in unequal
+                    if band_reference(aa, bb, DECL)
+                    != band_reference(aa, bb, DECL, align="head"))
     check("the sample is NOT degenerate: hundreds of pairs distinguish head "
           "from tail alignment",
-          len(witnesses) >= 200,
+          len(witnesses) >= 200 and shipped_w > 0,
           f"{len(unequal)} of {len(PAIRS)} pairs are unequal-length "
           f"({len(unequal)/len(PAIRS):.1%}); head and tail alignment disagree "
-          f"on {len(witnesses)} of them. On the 152 sonnets the same two "
+          f"on {len(witnesses)} of them ({shipped_w} under the shipped "
+          f"licensed nucleus). On the 152 sonnets the same two "
           f"figures are 67.8% and 79.9%. If this number ever reaches 0 the "
           f"check above has gone vacuous and proves nothing.")
 
     # (c) the exposing case, in words, so a reader can check the machine.
     r, t = rel("get to go", "receipt")
     check("`get to go` / `receipt` is NOT a rhyme",
-          r not in ("RHYME", "RIME_RICHE"),
+          not is_rhyme(r),
           f"{r} at {t:.3f}. Head-aligned this compared get(EH,T) with "
           f"ceipt(IY,T), found the T codas identical and the front vowels "
           f"close, and typed a 0.579 pair as RHYME. Tail-aligned the nucleus "
@@ -277,7 +325,11 @@ def test_reduction_and_absence():
     def all_open(aa, bb):
         n = min(len(aa), len(bb))
         ta, tb = aa[len(aa) - n:], bb[len(bb) - n:]
-        return all(not ta[i]["coda"] and not tb[i]["coda"] for i in range(n))
+        # ...and every interior onset identical, since those are part of
+        # the consonant channel too: what is left to decide is the codas.
+        return (all(not ta[i]["coda"] and not tb[i]["coda"] for i in range(n))
+                and all(list(ta[i].get("onset") or [])
+                        == list(tb[i].get("onset") or []) for i in range(1, n)))
 
     openpairs = [(a, b, aa, bb) for a, b, aa, bb in PAIRS if all_open(aa, bb)]
     check("open-syllable pairs exist in the sample", len(openpairs) >= 20,
@@ -320,11 +372,13 @@ def _rates(decl, admits_fn=admits):
     typed = adm = 0
     for a, b, aa, bb in PAIRS:
         s = score(aa, bb, decl, a, b)
-        if identity_label(aa, bb) == "RHYME":
+        if "RHYME" in (identity_relations(aa, bb) or ()):
             continue                    # identity agrees; not a false positive
-        if s["relation"] in ("RHYME", "RIME_RICHE"):
+        if is_rhyme(s["relations"]):
             typed += 1
-        if admits_fn(s, decl.theta_rhyme):
+        # ADMITTED AS RHYME: a RHYME-family relation at the cut. M6 (the
+        # relation clause dropped) admits every relation the pair holds.
+        if admits_fn(s, decl.theta_rhyme, RHYME_RELATIONS):
             adm += 1
     return typed / len(PAIRS), adm / len(PAIRS)
 
@@ -338,20 +392,23 @@ def test_false_positive_rate_has_a_ceiling():
           typed <= TYPED_FPR_CEILING,
           f"{typed:.2%} of {len(PAIRS)} random CMUdict pairs are TYPED as "
           f"rhyme where strict tail-aligned identity says otherwise. "
-          f"theta_coda reverted to 0.60 reads 10.50% here; the band switched "
-          f"off reads 99.67%. Identity is a REFERENCE, not truth — a rule "
+          f"theta_coda reverted to a 0.60 scalar reads 0.50% here; the band "
+          f"switched off reads 38.25% (re-measured 2026-09-22 on relation "
+          f"SETS, licensed nucleus). Identity is a REFERENCE, not truth — a rule "
           f"tuned to agree with it would delete slant rhyme.")
     check(f"ADMITTED rate (scalar AND relation) stays under "
           f"{ADMITTED_FPR_CEILING:.1%}",
           adm <= ADMITTED_FPR_CEILING,
-          f"{adm:.2%}. theta_rhyme at 0.50 reads 1.58% here, theta_coda at "
-          f"0.60 reads 2.58%, and `admits` without its relation clause reads "
-          f"8.33% — the sun/much leak in its original form.")
+          f"{adm:.2%}. theta_coda at a 0.60 scalar reads 0.50% here, the band "
+          f"off 5.58%, and `admits` without its relation clause reads 1.50% "
+          f"— the sun/much leak in its original form. theta_rhyme at 0.50 "
+          f"reads 0.00%: RHYME membership needs both channels to agree, so "
+          f"the scalar floor no longer moves this rate (2026-09-22).")
 
     # The ceiling is meetable by refusing everything, so pin the other side.
     missed = [(a, b) for a, b in CANONICAL_RHYMES
-              if score(anchor_of(a), anchor_of(b), DECL, a, b)["relation"]
-              not in ("RHYME", "RIME_RICHE")]
+              if not is_rhyme(
+                  score(anchor_of(a), anchor_of(b), DECL, a, b)["relations"])]
     check("the TRUE-POSITIVE floor holds: 20 canonical rhymes all still type "
           "as rhyme", not missed,
           f"missed {missed}" if missed else
@@ -369,7 +426,8 @@ def test_declaration_defaults_are_pinned():
     d = Declaration()
     for field, want, why in [
         ("theta_rhyme", 0.75,
-         "the match band's lower edge; 0.50 reads 1.58% admitted-FPR here"),
+         "the match band's lower edge; 0.50 reads 0.00% admitted-FPR here, "
+         "unmoved (2026-09-22)"),
         ("theta_coda", 0.80,
          "CALIBRATED, was 0.60. Held out: FPR 11.93% -> 4.67% for 0.6pp of "
          "true-positive cost, same direction in both halves (doctrine 5). "
@@ -394,10 +452,11 @@ def test_declaration_defaults_are_pinned():
          "an unrelated reason -- cell BA's coda-identity fix -- and the "
          "EITHER-WAY invariant, which is the claim here, is untouched by "
          "that). quality/test_align.py; mutation M31."),
-        ("nucleus_agreement", "scalar",
-         "the SHAPE of the nucleus question, declared 2026-08-11. The "
-         "incumbent, not the winner: the sonnets cannot price this channel. "
-         "quality/test_nucleus.py; mutation M32."),
+        ("nucleus_agreement", "licensed",
+         "the SHAPE of the nucleus question, declared 2026-08-11 as "
+         "'scalar' and moved to 'licensed' 2026-09-22 (identity + the "
+         "unstressed AH~IH licence; near rhymes are judged by the registry "
+         "schemas). quality/test_nucleus.py; mutation M32."),
         ("nucleus_licence_unstressed_only", True,
          "what keeps the AH0~IH0 licence an INGESTION fact rather than a "
          "claim about vowels. Mutation M33."),
@@ -409,7 +468,7 @@ def test_declaration_defaults_are_pinned():
     # Behavioural, not just a value: the priced consequences of theta_coda.
     r, t = rel("independents", "powersoft")
     check("independents/powersoft is NOT typed as rhyme at the shipped "
-          "theta_coda", r not in ("RHYME", "RIME_RICHE"),
+          "theta_coda", not is_rhyme(r),
           f"{r} at {t:.3f}. NTS~FT scores exactly 0.600, so this pair passed "
           f"at theta_coda 0.60 and is the case that priced the change.")
     # UPDATED 2026-08-11: `coda_agreement` defaults to `identity` (cell BA),
@@ -419,12 +478,16 @@ def test_declaration_defaults_are_pinned():
     # threshold that cannot move the verdict is not "reachable"). Declaring
     # `coda_agreement="scalar"` explicitly is what makes theta_coda the
     # active coordinate again, and IS what the pre-2026-08-11 default was.
+    # ...and the nucleus declared SCALAR too since 2026-09-22: the shipped
+    # licensed nucleus refuses this pair's vowels whatever the coda cut says,
+    # so the coda threshold is only demonstrable under the scalar nucleus.
     r60, _ = rel("independents", "powersoft",
-                 decl=Declaration(theta_coda=0.60, coda_agreement="scalar"))
+                 decl=Declaration(theta_coda=0.60, coda_agreement="scalar",
+                                  nucleus_agreement="scalar"))
     check("...and it IS admitted again at 0.60 under the scalar coordinate, "
           "so the threshold is reachable and the defect is demonstrable "
           "(doctrine 84)",
-          r60 in ("RHYME", "RIME_RICHE"), f"at theta_coda 0.60 it is {r60}")
+          is_rhyme(r60), f"at theta_coda 0.60 it is {sorted(r60)}")
 
     # The semirhyme discount, stated as a difference rather than as a number
     # buried in a total, so it cannot be silently zeroed.

@@ -194,7 +194,7 @@ class ProductionRelations(unittest.TestCase):
             self.assertFalse(pair('analysed rhyme', bad))
         st = R.build_stream(good, get('eng'), stanzas=[0,0,1,1])
         self.assertFalse(R.line_pairs_for(R.REGISTRY['analysed rhyme'], st))
-        self.assertNotIn('analysed rhyme', R.DRAWABLE_SCHEMAS)
+        self.assertNotIn('analysed rhyme', R.DRAWABLE_EXHIBITS)
         self.assertIsInstance(R.pair_satisfies(R.REGISTRY['analysed rhyme'],
             stream(good), (0,-1), (1,-1)), R.Refusal)
         self.assertTrue(pair('blues AAB stanza',
@@ -213,12 +213,20 @@ class ProductionRelations(unittest.TestCase):
         got = pair('symploce', ['we hold qzxqzx', 'you warm qzxqzx'])
         self.assertIs(got.verdict((1,2)), False)
 
-    def test_graph_and_template_without_bindings_refuse(self):
+    def test_token_figures_judge_and_the_template_refuses_undeclared(self):
+        # The three sain figures are judged over a line's own tokens and
+        # answer on any stream (here: no instance, a real no); the 平仄
+        # template needs a DECLARED pattern and refuses without one.
+        st = stream(['cat hat bat', 'cat hat bat'])
         for name in ('cynghanedd sain', 'cynghanedd sain gadwynog',
-                     'cynghanedd sain lafarog', '平仄 tonal template'):
-            st = stream(['cat hat bat', 'cat hat bat'])
-            self.assertIsInstance(R.line_pairs_for(R.REGISTRY[name], st), R.Refusal)
-            self.assertIsInstance(R.realise(R.REGISTRY[name], st), R.Refusal)
+                     'cynghanedd sain lafarog'):
+            got = R.line_pairs_for(R.REGISTRY[name], st)
+            self.assertNotIsInstance(got, R.Refusal)
+            self.assertEqual(len(got), 0)
+        self.assertIsInstance(
+            R.line_pairs_for(R.REGISTRY['平仄 tonal template'], st), R.Refusal)
+        self.assertIsInstance(
+            R.realise(R.REGISTRY['平仄 tonal template'], st), R.Refusal)
 
     def test_aliases_have_identical_execution(self):
         from quality.rhyme_constraints import QUANTIFIER_ALIASES

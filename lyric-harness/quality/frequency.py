@@ -400,6 +400,12 @@ class FrequencyLayer:
         """-> Counter {partner: n}, the words realised as `call`'s line-final
         perfect-rhyme partner, leave-one-unit-out per `scoring`.
 
+        SCOPE: PERFECT RHYME ONLY (`build_song_frequency.rime_key`). A pair
+        stands in many relations, but this table counts only co-occurrence
+        in rhyme; it says nothing about which partner a writer reaches for
+        under assonance, consonance or any registry schema, and a modal ban
+        read from it is a laziness finding about rhyme pairs alone.
+
         THIS IS THE INSTRUMENT DOCTRINE 9 NAMES. The doctrine is not about how
         common a word is; it is about which word a writer reaches for GIVEN
         the call word. Measured leave-one-author-out over 1,760 (author, call

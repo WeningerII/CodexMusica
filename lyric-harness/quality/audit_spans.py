@@ -101,6 +101,8 @@ def sweep_battery(lex, decl, verbose=True):
     ties = viol_ties = 0
     claimed = viol_claimed = 0
     viol_rows = []
+    refused_at = []
+    uncertain_at = []
     endword_table = {}
     for si, sn in enumerate(sonnets, 1):
         res = lh.check_scheme(lex, sn, SONNET_SCHEME, decl)
@@ -108,7 +110,14 @@ def sweep_battery(lex, decl, verbose=True):
         judged += res["pairs_judged"]
         refused += res["pairs_refused"]
         by = {p["lines"]: p for p in res["pair_scores"]}
-        refl = {r["lines"] for r in res["refusals"]}
+        refl = {tuple(r["lines"]) for r in res["refusals"]}
+        refused_at.extend([si, a, b] for a, b in sorted(refl))
+        # a refusal with no unreadable end word is UNCERTAINTY: permitted
+        # readings disagree, or a schema stays undecided at the pair
+        uncertain_at.extend(
+            [si, *r["lines"]] for r in sorted(res["refusals"],
+                                              key=lambda r: tuple(r["lines"]))
+            if not r.get("unreadable"))
         viol_at = {(v[0], v[1]): v for v in res["violations"]}
         for i in range(len(sn)):
             for j in range(i + 1, len(sn)):
@@ -139,7 +148,8 @@ def sweep_battery(lex, decl, verbose=True):
                     viol_rows.append({
                         "sonnet": si, "lines": key,
                         "endwords": p["endwords"], "score": p["score"],
-                        "relation": p["relation"],
+                        # every relation the pair stands in, never one
+                        "relations": list(p["relations"]),
                         "claim": p["spans_claim"],
                         "kinds": p["spans_kinds"],
                         "note": p["spans_note"]})
@@ -189,7 +199,7 @@ def sweep_battery(lex, decl, verbose=True):
             print(f"    sonnet {r['sonnet']:3d} L{r['lines'][0]}-"
                   f"L{r['lines'][1]}  "
                   f"{r['endwords'][0]}/{r['endwords'][1]}  {r['score']}  "
-                  f"{r['relation']}")
+                  f"{lh.relation_label(r['relations'])}")
             print(f"        {r['note']}")
         print("\n  the battery's own `most frequent failing pairs` table, "
               "re-asked:")
@@ -203,7 +213,67 @@ def sweep_battery(lex, decl, verbose=True):
             "violations_claimed": viol_claimed,
             "pair_kinds": pair_kinds, "viol_kinds": viol_kinds,
             "ties": ties, "violation_ties": viol_ties,
-            "violation_rows": viol_rows}
+            "violation_rows": viol_rows, "refused_at": refused_at,
+            "uncertain_at": uncertain_at}
+
+
+#: The two committed oracle records whose CURRENT half this sweep measures.
+ORACLE_FILES = ("production_relation_oracle.json", "report_slang_oracle.json")
+
+
+def write_oracles(fresh, date, meaning):
+    """Rewrite the CURRENT half (counts, exact partition, span attribution)
+    of each committed oracle record from THIS sweep, keeping every historical
+    field as it was. The record is a measurement's output, so it is written
+    by the instrument that measures it and never by hand (standing rule 3).
+    """
+    import json
+    def kinds(d):
+        return [{"kinds": list(k), "n": n} for k, n in sorted(d.items())]
+    viol = [r for r in fresh["violation_rows"]]
+    part = {"refused": sorted(fresh["refused_at"]),
+            "violations": sorted([r["sonnet"], *r["lines"]] for r in viol)}
+    mosaic = sorted([r["sonnet"], *r["lines"]] for r in viol
+                    if any(k in (lh.SPAN_REACH, lh.SPAN_SUBSTITUTED,
+                                 lh.SPAN_UNATTRIBUTED) for k in r["kinds"]))
+    attribution = {
+        "date": date,
+        "current": {k: fresh[k] for k in ("claimed", "ties",
+                                          "violations_claimed",
+                                          "violation_ties")},
+        "mosaic_violations": len(mosaic), "mosaic_coordinates": mosaic,
+        "severe_violations": len(mosaic),
+        "pair_kinds": kinds(fresh["pair_kinds"]),
+        "viol_kinds": kinds(fresh["viol_kinds"]),
+        "violation_rows": [{"sonnet": r["sonnet"], "lines": list(r["lines"]),
+                            "endwords": list(r["endwords"]),
+                            "relations": list(r["relations"]),
+                            "claim": bool(r["claim"]),
+                            "kinds": list(r["kinds"])} for r in viol]}
+    for name in ORACLE_FILES:
+        path = os.path.join(HERE, name)
+        with open(path, encoding="utf-8") as fh:
+            rec = json.load(fh)
+        cur = {k: fresh[k] for k in ("mandated", "judged", "refused",
+                                     "violations")}
+        if rec.get("current") != cur:
+            rec.setdefault("superseded", []).append(
+                {"date": rec.get("date"), "current": rec.get("current")})
+        rec["date"] = date
+        rec["current"] = cur
+        # uncertainty refusals (no unreadable end word), measured
+        rec["uncertainty_refusals"] = sorted(fresh["uncertain_at"])
+        rec["meaning"] = meaning
+        rec["current_partition"] = part
+        rec["span_attribution"] = attribution
+        if "remaining_violations" in rec:
+            rec["remaining_violations"] = [
+                [r["sonnet"], r["endwords"][0], r["endwords"][1], r["score"]]
+                for r in viol]
+        with open(path, "w", encoding="utf-8") as fh:
+            json.dump(rec, fh, indent=2, ensure_ascii=False)
+            fh.write("\n")
+        print(f"  wrote {name}: current {rec['current']}")
 
 
 # ---------------------------------------------------------------------------
@@ -456,7 +526,7 @@ def sweep_record(lex, decl, verbose=True):
             continue
         s = lh.best_score(aa, bb, decl, r["a"], r["b"])
         r["total"] = s["total"]
-        r["relation"] = s["relation"]
+        r["relations"] = sorted(s["relations"])
         r["claim"] = s.claims(r["a"], r["b"])
         r["kinds"] = s.spans.kinds
         r["note"] = lh.spans_note(s)
@@ -505,7 +575,7 @@ def sweep_record(lex, decl, verbose=True):
             for r in disagrees:
                 print(f"    {r['file']}:{r['n']}  `{r['a']}`/`{r['b']}` "
                       f"recorded {r['recorded']}, measured {r['total']} "
-                      f"{r['relation']}")
+                      f"{lh.relation_label(r['relations'])}")
                 print(f"        {r['text']}")
         if refused_rows:
             print("\n  REFUSED — named, never charged (doctrine 79):")
@@ -575,8 +645,17 @@ def sweep_record(lex, decl, verbose=True):
 #: pairs. 1064/967/97/4 -> 1064/970/94/7; claimed and tie counts stay
 #: fixed. audit_spans.sweep_battery independently measured the full partition
 #: retained in report_slang_oracle.json. No span or threshold rule changed.
+#: REPINNED 2026-09-22, THE N-RELATION MODEL: every mandated pair judged
+#: against every relation it stands in and every schema. 1064/970/94/7 ->
+#: 1064/958/106/7; claimed 605 -> 600, ties 114 -> 109 (the five fewer claims
+#: and ties are among the twelve newly refused pairs, which leave the judged
+#: denominator); violations and their attribution unchanged. Measured by
+#: `python3 quality/audit_spans.py --check`; the exact partition is written by
+#: `--write-oracle` into both oracle records.
+#: RE-MEASURED the same day after `nucleus_agreement` became "licensed":
+#: 958/106/7 -> 936/128/9, claimed 600 -> 586, ties 109 -> 108.
 PINNED = {
-    "mandated": 1064, "judged": 970, "refused": 94,
+    "mandated": 1064, "judged": 936, "refused": 128,
     #: ~~82~~ under the two-name door; ~~35~~ when it widened to all four
     #: relations (M-59); ~~12~~ when the whole schema vocabulary joined the
     #: default (M-116, owner ruling 2026-08-25 — 23 pairs stopped
@@ -588,9 +667,9 @@ PINNED = {
     #: 0 stopped, inside a preregistered ceiling of 20). THE FIRST THREE
     #: STEPS WIDENED THE DOOR AND THIS ONE TIGHTENED IT, which is why the
     #: count rose where it had fallen three times.
-    "violations": 7,
+    "violations": 9,
     #: report lines that name the two words that actually produced the number
-    "claimed": 605,
+    "claimed": 586,
     #: the same question asked of the violations alone.
     #: ~~36~~ of ~~82~~; ~~7~~ of ~~35~~; ~~2~~ of ~~12~~ under M-116;
     #: 4 of 14 under M-138's pricing — and the SHARE rose, 16.7% -> 28.6%,
@@ -599,7 +678,7 @@ PINNED = {
     #: (the population that DOES name its own words), and a tightening adds
     #: them back. Both new pairs are ordinary end-word assonance.
     "violations_claimed": 1,
-    "ties": 114,
+    "ties": 108,
     "violation_ties": 3,
 }
 
@@ -651,6 +730,13 @@ def main(argv):
         sweep_corpus(lex)
     if only in (None, "record"):
         sweep_record(lex, decl)
+    for a in argv:
+        if a.startswith("--write-oracle="):
+            if battery is None:
+                print("REFUSED — --write-oracle needs sweep 1")
+                return 2
+            date, _, meaning = a.split("=", 1)[1].partition(":")
+            write_oracles(battery, date, meaning)
     if want_check:
         if battery is None:
             print("REFUSED — --check needs sweep 1; do not pass "

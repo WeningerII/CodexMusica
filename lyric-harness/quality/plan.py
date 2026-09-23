@@ -1233,7 +1233,7 @@ def line_binding_ceiling(max_token):
     (`MISSING.md` M-171): THAT BOUND PROTECTS THE LINE'S LENGTH AND NOT THE
     WRITER'S FREEDOM, and the difference is the whole entry.** At the floor
     exactly, a five-syllable line has all five of its words bound — each to a
-    different rhyme family, under a different drawn relation — and a line
+    different rhyme family, under a different declared relation — and a line
     whose every word is dictated is not a line anybody writes, it is a
     crossword with no free squares. The argument above is untouched and
     correct as far as it goes; it simply stops one short, because it asks
@@ -2589,15 +2589,11 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
     (`MISSING.md` M-55) and none of them is sampled. ~~The planner does
     not pick a relation: doing so would put `type:pararhyme` on a group
     nobody asked for, which is the "move 37" ban pointed at rhyme instead
-    of at shape.~~ SUPERSEDED BY OWNER RULING 2026-08-25 (M-117, doctrine
-    17 keeps the strike visible): when the writer declares NOTHING, each
-    group now DRAWS its relation uniformly over the certified pool
-    (`relations.DRAWABLE_SCHEMAS`) — a uniform draw over a witness-
-    certified vocabulary is the planner's ordinary dice, not move 37,
-    which bans sampling MEASURED corpus distributions. The struck
-    sentence's live half survives as precedence: a writer's declaration
-    is CARRIED into the plan artifact and SILENCES the draw, so the one
-    command that grades the draft names the relation the writer chose.
+    of at shape.~~ The planner picks no relation: a group the writer
+    declared nothing for is judged against EVERY relation (every coarse
+    relation and every registry schema), and a writer's declaration is
+    CARRIED into the plan artifact, so the one command that grades the
+    draft names the relation the writer chose.
 
     THREE LAYERS, AND ONLY THE MIDDLE ONE IS HERE (design doc §2):
     the VOCABULARY says a prechorus requires a chorus and that is
@@ -3401,86 +3397,21 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                     "placement draw had already spent; `narrow` blocks whose "
                     "lines cannot carry one more DISTINCT word.")
 
-    # THE RELATION DRAW — 2026-08-25, OWNER RULING ("now do the planner
-    # too"; `MISSING.md` M-117, the planner half of M-116's
-    # whole-vocabulary default). Each group draws its relation uniformly
-    # over the bare default plus the CERTIFIED drawable pool —
-    # `relations.DRAWABLE_SCHEMAS`, the schemas a declared English witness
-    # proves a writer can satisfy (the capacity layer's certification
-    # idiom: the pool grows by growing the witness, never by hand-editing
-    # the tuple; `derive_drawable_schemas` is the derivation and
-    # `test_plan.py` re-derives the adoption). THE WRITER'S OWN
-    # `--relation=` WINS: when one is declared the planner draws nothing,
-    # because a declared coordinate is carried, never sampled over (M-55).
-    # Uniform means the bare default is RARE — one draw in
-    # len(pool)+1 — which is the same consequence the placement draw's
-    # `end` share carries, disclosed the same way; reweighting it is the
-    # owner's call, not this draw's (doctrine 19: the dice stay flat).
-    # This runs AFTER the end-rhyme pass so the added end groups draw too,
-    # and consumes entropy strictly AFTER every existing draw, so a seed's
-    # shape under the old planner is byte-identical under this one.
-    # M-120, RULED 2026-09-18 UNDER THE OWNER'S DELEGATION (RULINGS
-    # WANTED #6 AND #18): AT THE LINE END THE POOL IS THE AUDIBLE FAMILY.
-    # M-192 measured the cost of leaving it open and disclosed it without
-    # ruling: of 250 end-bound groups over seeds 1-40, 149 (59.6%) drew a
-    # relation nobody hears as the lines rhyming and 0 of 40 plans was free
-    # of one — the panel finding M-120 was filed on, with its cause
-    # attached. A song whose line ENDS are organised by relations a
-    # listener does not hear as rhyme is not the sound the dice were meant
-    # to risk, so an END-BOUND group — every member at `end`/`endword`,
-    # `_end_bound_group`, the SAME definition `audible_share` partitions by
-    # (doctrine 1) — draws from `_audible_end_pool()` instead. EVERY OTHER
-    # PLACEMENT IS UNTOUCHED: a group with one member inside a line (head,
-    # chain, internal, the rest of the web) keeps the full certified pool
-    # and M-117's uniform draw there is exactly what it was. The subset is
-    # DERIVED from `relations.audible_as_end_rhyme` over the same
-    # `DRAWABLE_SCHEMAS`, never hand-listed, so certifying a schema whose
-    # ends agree on nucleus and coda widens the end pool with nothing here
-    # edited (M-117's certification idiom, one coordinate over).
-    # THE DICE STAY FLAT (doctrine 19): uniform over whatever pool applies,
-    # the bare default still one draw in len(pool)+1 at BOTH placements —
-    # rarer at a line end only because the pool there is smaller, which is
-    # the narrowing itself and not a reweighting. A declared `--relation=`
-    # still wins and the planner draws nothing (M-55).
-    # ENTROPY, SAID PLAINLY — AND THE PARAGRAPH ABOVE IS NOW HALF TRUE.
-    # This changes the NUMBER OF CHOICES at end-bound groups, so seeds draw
-    # different relations: that is the ruling, not a regression. No draw is
-    # added, removed or reordered — every draw BEFORE this one is
-    # byte-identical (measured over seeds 1-40: sections, meter, groups,
-    # returns, schemes, line slots, hook slot and density all unmoved), and
-    # each group still spends exactly one `randrange` over its own pool, in
-    # the same order. What a smaller pool DOES move is everything drawn
-    # from the same stream after it, and there are two such places. (a)
-    # LATER GROUPS: they share this stream and this claim ledger, so a
-    # narrowed end-bound group can move the relation a later group draws —
-    # 16 of 136 moved groups over seeds 1-40 were not themselves end-bound,
-    # and on every one of the 39 moved seeds the FIRST moved group was.
-    # (b) THE NARRATIVE LINE-UP: the claim above that this draw is
-    # entropy-last was written the day it landed and M-121 has since put
-    # `narrative.draw_lineup` on the same `rng` below it, so 15 of 40 seeds
-    # also draw a different story line-up. Neither is a draw this ruling
-    # added; both are one stream reading a different number of choices.
-    # THE CONJUNCTION GATE ON THE DRAW ITSELF (M-118, filed the hour the
-    # first drawn plan was read): measured over seeds 4-43 before this
-    # filter, 39 OF 40 seeds drew a jointly unsatisfiable schema
-    # conjunction — a gap-limited schema on a pair its own placement rule
-    # forbids (pantun ABAB spans at most 2 lines and the draw put it on a
-    # gap of 8), or two groups SHARING a line pair whose schemas demand
-    # opposite predicates on one channel (monorhyme's coda-Agree against
-    # assonance's coda-Differ on the same two end words). Every constraint
-    # was individually legal and nothing held their conjunction — M-79's
-    # finding replayed one coordinate over, and the same repair: filter
-    # the pool per group by what is decidable WITHOUT WORDS, draw uniform
-    # over the ACCEPTED subset (rejection keeps the dice flat — the
-    # planner's own idiom), and let the bare default — compatible with
-    # everything, since the whole-vocabulary fan satisfies it on any
-    # relation — keep the pool non-empty by construction. The channel
-    # signature is approximate on purpose (scope subtleties are not read);
-    # the GRADER stays the final word, and this gate only removes draws
-    # that are unsatisfiable on the registry's own declared coordinates.
-    drawn_relations = {}
-    if not relation or relation.startswith("schema:"):
-        _traits = _RL.drawable_traits()
+    # NO RELATION IS DRAWN. A group with no declared relation is judged
+    # against EVERY relation the vocabulary has — every coarse relation and
+    # every registry schema — so the plan picks none of them for it. Only a
+    # schema the writer DECLARED is carried, and it is checked here for
+    # feasibility on every group at once (M-118/M-122/M-123/M-125/M-149a/
+    # M-174/M-175/M-206): placement, gap, overhang order and budget, forced
+    # identity at line ends, and the claim ledger over the schema's own
+    # channel rules (Agree edges union per (channel, coordinate) key, Differ
+    # edges are disequalities, a binary domain is a parity union-find).
+    # Every Differ a registry schema carries is part of its definition, so
+    # the ledger never charges an overlap between relations as a
+    # contradiction. No randomness is consumed.
+    declared_relations = {}
+    if relation and relation.startswith("schema:"):
+        _traits = _RL.planning_traits((relation.split(":", 1)[1],))
         _grp_lines = [sorted({int(str(m).split(".")[0])
                               for m in g.split(",")})
                       for g in ";".join(
@@ -3496,7 +3427,7 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
         # chain's two ends differ (32 such contradictions over the same
         # sixty seeds; 53 of 60 seeds carried one shape or the other).
         # Claims now ride (channel, syllable-coordinate) keys from
-        # `drawable_traits`; Agree edges union per key, Differ edges are
+        # `planning_traits`; Agree edges union per key, Differ edges are
         # checked against the closure, and everything that is neither
         # keeps the old exact-match rule per pair.
         # M-123, found the hour the M-122 gate first emitted seed 32's
@@ -3555,10 +3486,6 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
         _acap = int(_FL.FloorDeclaration().resolve("anaphora_max", _aprof,
                                                    _atok)
                     * total + 1e-9)
-        # M-120: DERIVED HERE, once per call, from the registry's own
-        # audibility test — never a list written down in this file.
-        _aud_pool = _audible_end_pool()
-        _narrowed = 0
         _pairc = {}
         _eqp = {}
         _nep = {}
@@ -3604,20 +3531,12 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
             # then refused the plan.
             _slotted_g = any(not _SL.is_default_spelling(_m2)
                              for _m2 in groups[_gi])
-            # M-120: the line end hears a smaller family than the web does.
-            _end_g = _end_bound_group(groups[_gi])
-            _ok = [] if relation else [""]
-            _candidates = ([relation.split(":", 1)[1]] if relation
-                           else _aud_pool if _end_g
-                           else _RL.DRAWABLE_SCHEMAS)
-            if _end_g:
-                _narrowed += 1
-            for _cand in _candidates:
+            _ok = []
+            for _cand in (relation.split(":", 1)[1],):
                 if _cand not in _traits:
                     raise PlanRefused(
-                        f"declared relation schema:{_cand} has no certified "
-                        "planning feasibility contract; declare a supported "
-                        "relation before writing")
+                        f"declared relation schema:{_cand} is not in the "
+                        "registry")
                 if _slotted_g and not _RL.pair_bindable(
                         _RL.REGISTRY[_cand]):
                     continue
@@ -3759,14 +3678,12 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                     f"declared relation {relation!r} cannot bind group "
                     f"{SC.label((_gi,))} ({groups[_gi]}) together with this "
                     "plan's placement, cardinality and channel constraints")
-            _pick = _ok[0] if relation else _ok[rng.randrange(len(_ok))]
+            _pick = _ok[0]
             if _pick:
                 _binding = _overhang_binding(_RL.REGISTRY[_pick], groups[_gi])
                 if _binding is not None:
                     _ln, _word = _binding
                     _overhangs.setdefault(_ln, set()).add(_word)
-                if not relation:
-                    drawn_relations[SC.label((_gi,))] = "schema:" + _pick
                 for _ch, _co, _pr in _traits[_pick]["claims"]:
                     for _p in _pairs:
                         _pairc[(_p, _ch, _co)] = _pr
@@ -3783,46 +3700,16 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                                 _par[_ra] = (_rb, _pa ^ _pb ^ _w)
                     elif _pr == "Differ":
                         _nep.setdefault(_key, []).extend(_pairs)
-    plan["relations"] = drawn_relations
+    plan["relations"] = declared_relations
     plan["choices"]["relations"] = {
         "chosen_from": (
             "NOT DRAWN — the writer declared --relation and a declared "
             "coordinate is carried, never sampled over (M-55)" if relation
-            else f"uniform per group over the bare default plus the "
-                 f"certified drawable pool that applies where the group "
-                 f"binds. AT A LINE END (every member at end/endword) the "
-                 f"pool is the AUDIBLE family — {len(_aud_pool)} of the "
-                 f"{len(_RL.DRAWABLE_SCHEMAS)} certified schemas, DERIVED "
-                 f"at call time by relations.audible_as_end_rhyme and "
-                 f"never listed here (M-120, ruled 2026-09-18 under the "
-                 f"owner's delegation: M-192 measured 149 of 250 end-bound "
-                 f"groups over seeds 1-40 drawing a relation nobody hears "
-                 f"as the lines rhyming). ANYWHERE ELSE — a group with one "
-                 f"member inside a line — the pool is all "
-                 f"{len(_RL.DRAWABLE_SCHEMAS)} and M-117's draw is "
-                 f"untouched. The dice stay flat at both (doctrine 19): "
-                 f"the bare default lands on 1 draw in len(pool)+1, which "
-                 f"is 1 in {len(_aud_pool) + 1} at a line end and 1 in "
-                 f"{len(_RL.DRAWABLE_SCHEMAS) + 1} elsewhere — a rarity "
-                 f"this disclosure exists to hand the owner, exactly as "
-                 f"the placement draw's `end` share was. A group binding "
-                 f"declared tokens draws only from the schemas the pair "
-                 f"route can bind there (relations.pair_bindable, "
-                 f"M-149a); the rest stay drawable at default slots"),
-        # THE NARROWING, DISCLOSED AS NUMBERS AND NOT ONLY AS PROSE
-        # (M-120): how many groups drew at a line end, how big the pool
-        # was there against the certified pool, and WHICH names it held —
-        # so a reader can check the derivation against the registry
-        # instead of taking the sentence above on faith. Absent when a
-        # declared relation suppressed the draw, because then nothing was
-        # narrowed and a zero would read as a measurement.
-        **({} if relation else {"end_narrowing": {
-            "end_bound_groups": _narrowed,
-            "end_pool": len(_aud_pool),
-            "full_pool": len(_RL.DRAWABLE_SCHEMAS),
-            "end_pool_names": list(_aud_pool),
-            "derived_by": "relations.audible_as_end_rhyme"}}),
-        "value": dict(drawn_relations)}
+            else "NOT DRAWN — every group is judged against the whole "
+                 "vocabulary: every coarse relation and every registry "
+                 "schema; a pair satisfies a group when it stands in any "
+                 "of them"),
+        "value": dict(declared_relations)}
 
     # THE JOINT GATE (`MISSING.md` M-80). Every constraint above is
     # individually legal and their CONJUNCTION is what nothing held. Asked of
@@ -3854,8 +3741,9 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
     # story line-ups of THIS shape — or carried from the writer, who
     # silences the draw (M-117's precedence, ruled again for this
     # coordinate). Entropy is consumed LAST, after every existing draw
-    # and after the joint gate, so seed shapes, relation draws and
-    # refusals are byte-identical to the pre-narrative planner. A shape
+    # and after the joint gate. (No relation is drawn any more, so the
+    # line-up reads the stream one relation draw per group earlier than it
+    # did: seeded line-ups moved when the relation draw was removed.) A shape
     # admitting NO line-up is DISCLOSED and still ships: the sound plan
     # is writable, the story layer simply has nothing to ask, and the
     # harm-check registration records such seeds as refused-by-layer for
@@ -4013,16 +3901,15 @@ def _pickup_phrase(beats):
 def _end_bound_group(members):
     """-> True when EVERY member of this group binds at the line END.
 
-    ONE DEFINITION (doctrine 1) for the two places M-120 made ask the
-    question: the relation draw's end-pool narrowing above and
-    `audible_share`'s partition below. A bare line number IS the end in
+    ONE DEFINITION (doctrine 1) of the question `audible_share` partitions
+    by. A bare line number IS the end in
     another coat (`--groups=` has meant that since the day placements
     were spelled), `<line>.end` is the same slot written out, and
     `<line>.endword` anchors at the word start of that same last word —
     all three are heard at the line's end. Anything else (`head`, `T4`,
     a searched span) puts a member INSIDE a line, and a group with one
     such member is not heard as the line ends binding whatever relation
-    it draws, so it keeps the full certified pool.
+    it stands in.
     """
     for m in members:
         m = str(m).strip()
@@ -4031,39 +3918,18 @@ def _end_bound_group(members):
     return True
 
 
-def _audible_end_pool():
-    """-> the drawable schemas a listener hears as END RHYME, DERIVED at
-    call time (`MISSING.md` M-120, ruled 2026-09-18 under the owner's
-    delegation).
-
-    NOT A HAND LIST, and that is the whole point of deriving it: the
-    pool is `relations.DRAWABLE_SCHEMAS` filtered by
-    `relations.audible_as_end_rhyme`, the registry's own channel test
-    (both member spans at the line-final token, nucleus AND coda
-    required to agree). Certify a nineteenth schema whose ends agree on
-    both channels and it joins this pool the same hour, with nothing
-    here edited; move the predicate and the pool moves with it. A
-    written-out six would have been a second taxonomy beside the
-    registry's, which is exactly what M-120 said no declaration should
-    invent.
-    """
-    return tuple(n for n in _RL.DRAWABLE_SCHEMAS
-                 if _RL.audible_as_end_rhyme(_RL.REGISTRY[n]))
-
-
 def audible_share(plan):
     """-> the plan's END-BOUND groups partitioned by whether a listener
-    hears their drawn relation as end rhyme (`MISSING.md` M-192; the
-    disclosure M-120 / RULINGS WANTED #6 asked for). A RECORD (M-73): the
-    dice are untouched, the share is printed beside them.
+    hears their DECLARED relation as end rhyme (`MISSING.md` M-192). A
+    RECORD (M-73).
 
     An END-BOUND group is one whose every member binds at the line end
-    (`end` / `endword`); a group with a member inside a line is heard as
-    something else whatever its relation. Among those, the bare default
-    (the coarse band, which admits assonance and consonance since M-59) is
-    counted apart from the drawn schemas, and a schema counts as audible
-    by `relations.audible_as_end_rhyme` — both spans at the line-final
-    token, nucleus AND coda required to agree.
+    (`end` / `endword`). A group with no declared relation (`bare`) is
+    judged against every relation, so which relations its pairs stand in —
+    and whether any of them is heard as end rhyme — is decided by the words
+    and reported per pair by the grade (`relations.audible_relations`). A
+    declared schema counts as audible by `relations.audible_as_end_rhyme` —
+    both spans at the line-final token, nucleus AND coda required to agree.
     """
     from quality import relations as _RLa
     rels = plan.get("relations") or {}
@@ -4203,11 +4069,15 @@ def writer_brief(plan):
         for gi, g in enumerate(plan["groups"].split(";")):
             name = rels.get(SC.label((gi,))) or plan.get("relation")
             if name:
-                out.append(f"  lines {g.replace(',', ' & ')} stand in "
-                           f"{name.split(':', 1)[1]} — a NAMED relation, "
-                           f"judged as itself, not as plain rhyme")
+                out.append(f"  lines {g.replace(',', ' & ')} must stand in "
+                           f"{name.split(':', 1)[1]} (the lines may stand "
+                           f"in other relations as well; this one is "
+                           f"required)")
             else:
-                out.append(f"  lines {g.replace(',', ' & ')} rhyme")
+                out.append(f"  lines {g.replace(',', ' & ')} must stand in "
+                           f"at least one relation — any coarse relation "
+                           f"(rhyme, rime riche, assonance, consonance) or "
+                           f"any registry schema")
     nar = plan.get("narrative") or {}
     if nar.get("mode") in ("drawn", "declared"):
         atom_say = {
@@ -4307,7 +4177,7 @@ def schema_asks(sch):
     identity rule — not only the Agree/Differ channels.
 
     UNTIL 2026-09-03 THE LEGEND READ ONLY `Agree` AND `Differ` (`MISSING.md`
-    M-214), and the plan's own drawn relations then read as something they
+    M-214), and the plan's declared relations then read as something they
     are not: `subtractive rhyme` as "agree on nucleus" (its coda rule is
     PRESENT-vs-ABSENT — one word has the coda, the other has none),
     `semirhyme` as "agree on nucleus, coda" (its whole point is
@@ -4371,7 +4241,7 @@ def schema_asks(sch):
 
 def brief_legend(plan):
     """-> the legend the rhyme plan needs to be READ (`MISSING.md` M-192):
-    what each place a group names binds, and what each drawn relation
+    what each place a group names binds, and what each declared relation
     asks, one line apiece, derived from the slot vocabulary and the
     registry rather than typed. The brief used to name `T5`, `headrime`
     and `Scots vowel-length rhyme (Aitken's Law)` with no gloss anywhere
@@ -4422,14 +4292,11 @@ def brief_legend(plan):
 def grading_command(plan, draft_path="DRAFT.txt", bp_path="BP.json", input_format="literal"):
     """The exact invocation that grades a draft against this plan.
 
-    **SHELL-QUOTED WITH `shlex.quote`, BECAUSE A DRAWN RELATION NAME CAN
-    CONTAIN AN APOSTROPHE AND THE HAND-ROLLED `'...'` THEN CLOSES ON IT.**
-    `schema:Scots vowel-length rhyme (Aitken's Law)` is one of the 22
-    `DRAWABLE_SCHEMAS`, so once M-117 made the planner DRAW a relation per
-    group this line began emitting commands no shell can parse: MEASURED over
-    `make_plan(1..100)`, **48 of 100 seeds print a `GRADE IT:` line
-    `shlex.split` REFUSES**, and `bash -n` gives `syntax error near unexpected
-    token ')'`.
+    **SHELL-QUOTED WITH `shlex.quote`, BECAUSE A RELATION NAME CAN CONTAIN
+    AN APOSTROPHE AND THE HAND-ROLLED `'...'` THEN CLOSES ON IT.**
+    `schema:Scots vowel-length rhyme (Aitken's Law)` is a declarable name;
+    when the planner still drew relations, 48 of 100 seeds printed a
+    `GRADE IT:` line `shlex.split` REFUSES.
     **AND THE DEFECT WAS MET BEFORE AND FIXED IN THE WRONG PLACE**:
     `songs/README.md` carries a hand-escaped `(Aitken'"'"'s Law)` for
     `the_frost_ledger`, so somebody hit this, repaired the DOCUMENT, and left
@@ -4453,12 +4320,10 @@ def grading_command(plan, draft_path="DRAFT.txt", bp_path="BP.json", input_forma
     # a declared coordinate read by nothing, one layer out from M-54's.
     if plan.get("relation"):
         parts.append(shlex.quote(f"--relation={plan['relation']}"))
-    # THE DRAWN PER-GROUP RELATIONS REACH THE GRADE (M-117) — the same
-    # carry M-55 built for the writer's own declaration, one coordinate
-    # over: a plan that drew `schema:pararhyme` for group C and did not
-    # put it in this command would be a declared coordinate read by
-    # nothing. Sorted by label so the command is deterministic
-    # (doctrine 66).
+    # PER-GROUP RELATIONS, ONLY WHEN THE PLAN CARRIES DECLARED ONES. The
+    # planner draws none, so a plan with no declaration emits no
+    # `--relations=` and the grade judges every group against every
+    # relation. Sorted by label so the command is deterministic.
     if plan.get("relations"):
         _spec = ",".join(f"{k}:{v}"
                          for k, v in sorted(plan["relations"].items()))

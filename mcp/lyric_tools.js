@@ -1204,15 +1204,11 @@ function planArgs(a) {
   if (a.lines != null) args.push(`--lines=${a.lines}`);
   // THE WRITER'S DECLARATION (MISSING.md M-55). Neither FIELD is sampled
   // here: this flag is a CARRY of what the caller declared.
-  // ~~the planner never picks a relation, it carries the one that was
-  // declared~~ -- STRUCK 2026-08-26. True when written (2026-08-22 21:50,
-  // `9de8031b`) and false since `b0070e1` (2026-08-25 16:12, M-117): with no
-  // `--relation=` the planner DRAWS one schema per group from the certified
-  // pool and records the draw in `plan.relations` -- MEASURED at 28, 25 and
-  // 32 relations on seeds 1, 2 and 5. A declared `--relation=` still silences
-  // the draw entirely (`plan.relations` comes back `{}`), which is why this
-  // flag is still a carry; what changed is that the PLAN now has a relation
-  // coordinate of its own, and `lyric_grade` has to read it.
+  // The planner never picks a relation, it carries the one that was
+  // declared. (It DREW one schema per group from 2026-08-25 (M-117) until
+  // 2026-09-22; the N-relation model removed the draw, so `plan.relations`
+  // is empty unless declared and every group is judged against every
+  // relation.)
   // Without these two lines every relation and every roster the CLI accepts
   // is unreachable from this connector -- which is what `--structures` was
   // from the day it shipped, and what makes a coordinate built-and-tested
@@ -1322,13 +1318,14 @@ const linesField = z
 // is not what the door is, it is that a commit which KNEW the door had moved
 // updated one copy (doctrine 17 -- deleting the sentence deletes the
 // evidence).
-// WHAT "NOBODY SAID" MEANS TODAY IS THREE THINGS AND NONE OF THEM IS THE
-// TWO-NAME SET: the coarse band admits all FOUR classes (M-59); a pair with
-// no declared relation is ALSO satisfied by ANY of the 77 schemas the
-// vocabulary names (M-116, 2026-08-25, judged by
-// `relations.whole_vocabulary_pairs`); and on lyric_plan / lyric_grade the
-// PLANNER DRAWS a relation per group (M-117), so an omitted field selects the
-// dice rather than the bare door.
+// WHAT "NOBODY SAID" MEANS TODAY (2026-09-22, the N-relation model): every
+// mandated pair is judged against EVERY relation -- each coarse relation
+// (RHYME, RIME_RICHE, PROMOTED_RHYME, ASSONANCE, CONSONANCE) at its own cut
+// and every registry schema (`relations.whole_vocabulary_pairs`) -- and a
+// pair stands in all of them its sound supports at once. A group is satisfied
+// when its pairs stand in at least one. ~~the PLANNER DRAWS a relation per
+// group (M-117)~~ -- STRUCK: the planner draws none; `plan.relations` is empty
+// unless the writer declared one.
 const relationField = z
   .string()
   // 64 CHARS IS THE RELATION NAME'S OWN BOUND, not a line count: the longest
@@ -1337,7 +1334,7 @@ const relationField = z
   .max(64)
   .optional()
   .describe(
-    'Declare ONE rhyme relation every mandated group is judged under, e.g. "type:rime riche", "type:pararhyme", "class:ASSONANCE", "schema:perfect rhyme". Namespace it (type: / class: / schema:); overlapping bare names refuse. class: is the coarse band, type: is the named-cell engine, and schema: requires the complete declared figure and its placement. The registry has 77 named schemas: 73 implemented shapes and 4 explicit unsupported-shape refusals. An intra-line figure cannot stand in for a pair of lines; missing topology or placement refuses instead of accepting partial edges. With no declaration, the default remains a union: any of the four coarse classes OR membership in a fully realised supported named figure. Schema rescue and unresolved obligations are disclosed; unsupported shapes never count as success. On lyric_plan / lyric_grade an omitted relation instead draws and discloses one schema per group from 18 pair-representable schemas with witness/contrast coverage. Declaring one narrows that choice. Ask lyric_types for the vocabulary.'
+    'Declare ONE rhyme relation every mandated group must stand in, e.g. "type:rime riche", "type:pararhyme", "class:ASSONANCE", "schema:perfect rhyme". Namespace it (type: / class: / schema:); overlapping bare names refuse. class: is a coarse relation (membership: a perfect rhyme stands in class:RHYME, class:ASSONANCE and class:CONSONANCE at once), type: is the named-cell engine, and schema: requires the complete declared figure and its placement. The registry has 77 named schemas: 73 implemented shapes and 4 explicit unsupported-shape refusals. An intra-line figure cannot stand in for a pair of lines; missing topology or placement refuses instead of accepting partial edges. With no declaration, every pair is judged against EVERY relation — each coarse relation at its own cut and every registry schema — and a group is satisfied when its pairs stand in at least one; each pair\'s relations are all reported, and unresolved obligations are disclosed; unsupported shapes never count as success. Planning draws no relation. Declaring one narrows the requirement to that relation. Ask lyric_types for the vocabulary.'
   );
 
 const functionsField = z
@@ -1613,10 +1610,10 @@ export const LYRIC_TOOL_SCHEMAS = {
       .min(2)
       .max(MAX_WORDS)
       .describe('2-12 bare words; every unordered pair among them is screened.'),
-    // THE SCREEN CAN ASK THE GRADE'S QUESTION (M-189): a plan draws a
-    // named relation per group (M-117), and a screen that could only ask
-    // the coarse class was screening for a different mandate than the one
-    // the draft is graded under. Same field, same judge, same coordinate.
+    // THE SCREEN CAN ASK THE GRADE'S QUESTION (M-189): a mandate that
+    // DECLARES a relation is graded under that relation's own judge, so the
+    // screen asks it through the same field, judge and coordinate. Without
+    // one, every pair is listed with every relation it stands in.
     relation: relationField,
     fallback: fallbackField,
   },
@@ -1973,15 +1970,17 @@ export function registerLyricTools(server, tool) {
     {
       title: 'Screen rhyme pairs before writing',
       description:
-        'Is this rhyme pair USABLE? Judged by the song grader itself on a minimal mandated pair — every unordered pair among ' +
-        'the words gets a verdict: CLEAN — RHYMES, CLEAN — DOES NOT RHYME (clean means not banned; whether it rhymes is its ' +
-        'own answer), BANNED (HOMEOTELEUTON — same spelled ending, the laziest true rhyme; MODAL_RHYME — ' +
-        "the most predictable partner), or the grader's own refusal for unreadable or unresolved readings/schemas. A banned " +
-        'pair is an ANSWER, not an error. USE THIS BEFORE WRITING to check proposed pairs against the declared requirements. ' +
-        "Pass `relation` to ask the question a plan's drawn relation will ask (SATISFIES / VIOLATES / REFUSED per pair). " +
-        'That requested judgment is reported independently alongside the broad default judgment and its refusals. ' +
-        'Scope: this screens bare candidate words on fixed carrier lines, not the eventual lyric lines. ' +
-        'Coarse class relations search anchor spans and may differ in full-line context; CLEAN means no ban, not a passed rhyme. ' +
+        'Is this rhyme pair USABLE? Every unordered pair among the words is listed with EVERY relation it stands in — ' +
+        'each coarse relation (RHYME, RIME_RICHE, PROMOTED_RHYME, ASSONANCE, CONSONANCE) at its own cut and every registry ' +
+        'schema judged at the two end words (a perfect rhyme is also assonance and consonance; rain/reign is RHYME and ' +
+        "RIME_RICHE) — plus the schemas that could not decide at the pair, and the song grader's bans on a minimal mandated " +
+        'pair: BANNED (HOMEOTELEUTON — same spelled ending, the laziest true rhyme; MODAL_RHYME — the most predictable ' +
+        "partner), or the grader's own refusal for an unreadable word. A banned pair is an ANSWER, not an error. A pair " +
+        'standing in no relation is reported as standing in none. USE THIS BEFORE WRITING to check proposed pairs against ' +
+        'the declared requirements. Pass `relation` to ask the question a mandate declaring it will ask (SATISFIES / ' +
+        'VIOLATES / REFUSED per pair), reported independently beside the relation list. ' +
+        'Scope: this screens bare candidate words on fixed carrier lines, not the eventual lyric lines; coarse relations ' +
+        'search anchor spans and may differ in full-line context. ' +
         'Only lyric_grade on the exact planned draft establishes whether its actual bindings satisfy the mandate. ' +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_screen,
@@ -1991,7 +1990,14 @@ export function registerLyricTools(server, tool) {
       const sargs = [...globalsFor(a), 'screen', ...a.words];
       if (a.relation) sargs.push(`--relation=${a.relation}`);
       const r = await runVerb(sargs);
-      return verdictOf(r);
+      const v = verdictOf(r);
+      // EVERY RELATION EACH PAIR STANDS IN, off the harness's authenticated
+      // record rather than parsed out of the table: `relations` is the
+      // admitted coarse relations plus every registry schema true at the
+      // two end words, `undecided` the schemas that could not decide.
+      if (r.lyric_result?.status === 'screened' && Array.isArray(r.lyric_result.pairs))
+        v.pairs = r.lyric_result.pairs;
+      return v;
     }
   );
 
@@ -2106,32 +2112,14 @@ export function registerLyricTools(server, tool) {
         // that records what was asked for, and grading against anything else
         // would be a second statement of the mandate (doctrine 1).
         if (plan.relation) songArgs.push(`--relation=${plan.relation}`);
-        // AND SO DOES THE PER-GROUP DRAW (M-117, shipped 2026-08-25). With no
-        // `--relation=` the planner DRAWS one schema per group and records it
-        // in `plan.relations`. From that day until 2026-08-26 the draw reached
-        // the writer's BRIEF -- `lyric_plan` prints "... stand in X, a NAMED
-        // relation, judged as itself, not as plain rhyme", 27 rows on seed 31
-        // -- and reached the GRADE through NOTHING, so a plan graded here was
-        // graded against a mandate the plan does not state. That is
-        // `Reviser._field`'s own capitalised promise broken one layer out:
-        // THE BRIEF AND THE VERDICT HAVE TO ASK THE SAME QUESTION.
-        //
-        // MEASURED over three fresh seeds against filler drafts, unpatched
-        // against patched: 226 FLAG findings SUPPRESSED and 1 MANUFACTURED.
-        // THE DROP WAS NEVER ONE-SIGNED, and the exception is the instructive
-        // half: seed 1's group O is `schema:anaphora`, where token identity at
-        // the head is the REQUIREMENT, and a bare `--groups=` defaults every
-        // pair to REQUIRE_RHYME, where REPEAT is a violation (doctrine 3's
-        // inverting band). So the connector was not grading a LOOSER mandate,
-        // it was grading a DIFFERENT one.
-        //
-        // Sorted by label, byte-identical to `quality/plan.py`'s
-        // `grading_command()` spelling (doctrine 66, and doctrine 1 -- one
-        // definition of the mandate, read twice, never restated). `execFile`
-        // passes ONE argv token and there is no shell, so the parentheses and
-        // the apostrophe in `Scots vowel-length rhyme (Aitken's Law)` need no
-        // quoting here -- unlike the printed GRADE IT line, which they broke
-        // on 48 of 100 seeds until it was given `shlex.quote` the same day.
+        // PER-GROUP RELATIONS, ONLY WHEN THE PLAN CARRIES DECLARED ONES.
+        // The planner draws none (the N-relation model, 2026-09-22), so a
+        // plan with no declaration emits no `--relations=` and the grade
+        // judges every group against every relation. When the plan DOES
+        // carry them they go through byte-identical to `quality/plan.py`'s
+        // `grading_command()` spelling, sorted by label (doctrine 1).
+        // `execFile` passes ONE argv token and there is no shell, so a name's
+        // parentheses and apostrophes need no quoting here.
         if (plan.relations && Object.keys(plan.relations).length)
           songArgs.push(
             `--relations=${Object.keys(plan.relations)
@@ -3146,8 +3134,9 @@ export function registerLyricTools(server, tool) {
       title: 'Classify one rhyme pair (the 9-axis coordinate)',
       description:
         'The full rhyme-type coordinate for one word pair: per-syllable agreement, anchor, identity, stress, boundary, ' +
-        'traditional names where the coordinate has one. Taxonomy, not judgement — for the usable-or-banned verdict use ' +
-        'lyric_screen. ' +
+        'EVERY traditional name the coordinate satisfies over every alignment tried (a pair has many), every relation ' +
+        'it answers side by side, and — in English — every coarse relation and registry schema the two words stand in ' +
+        'as line ends. Taxonomy, not judgement — for bans use lyric_screen. ' +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_types,
     },
@@ -3164,7 +3153,7 @@ export function registerLyricTools(server, tool) {
 //: the live instructions), so the two surfaces stay one description.
 export const LYRIC_INSTRUCTIONS =
   ' BESIDE THE RECIPES, AND NEVER TOUCHING THEM, the lyric_* family is a songwriting ' +
-  'system. The program plans and grades; lyrics come from the client or the declared kitchen writer. Its 77-schema registry includes 73 implemented shapes and 4 explicit unsupported-shape refusals; automatic planning draws from 18 pair-representable schemas with witness/contrast coverage. Full figures and refused obligations remain explicit. The default rhyme test remains the union of the four coarse classes and supported named figures. The working order that ' +
+  'system. The program plans and grades; lyrics come from the client or the declared kitchen writer. Its 77-schema registry includes 73 implemented shapes and 4 explicit unsupported-shape refusals. A pair stands in EVERY relation its sound supports (a perfect rhyme is also assonance and consonance; rime riche is also rhyme): the default judges every pair against every coarse relation and every registry schema, and a group is satisfied when its pairs stand in at least one; planning draws none. Full figures and refused obligations remain explicit. The working order that ' +
   'produces one-draft songs: (0) lyric_sweep to CHOOSE the seed rather than guess it — declare what you ' +
   'want the shape to be and it returns the seeds that hold, in seed order, unranked; ' +
   '(1) lyric_screen candidate end-word pairs BEFORE writing — a banned pair ' +

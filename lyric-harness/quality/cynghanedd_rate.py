@@ -179,6 +179,19 @@ CHECK_N = 5
 #: 27.8% (+26.3), and it is kept here visible and dated (doctrine 17) because
 #: it is still quoted, as current, in four rows of `data/sources.tsv`.
 #:
+#: REPINNED 2026-09-23, AND THE 2026-08-14 "CURRENT" ABOVE IS NOW ITSELF
+#: SUPERSEDED (doctrine 17). main `7d1ded93` (2026-09-22, report item J-1)
+#: made `w` before a/e/o, word-initial `ia-`/`io-` and `gwl-`/`gwr-`/`gwn-`
+#: consonantal in `syllables()` and dropped semivowel onsets from
+#: `skeleton()`; `--check` went red on 12 of 22 on origin/main (it passes at
+#: `7d1ded93^`). Re-run at n=200 the same day, both editions: Alun
+#: `caesura='search'` **868/1558 = 55.7%**, null median 18.7%, max 21.3%,
+#: +34.4 pp, p at the floor (~~890/1558 = 57.1% / 19.4 / 21.8 / +35.3~~);
+#: Twm o'r Nant **69/156 = 44.2%**, median 17.9%, max 27.6%, +16.7 pp, p at
+#: the floor (~~72/156 = 46.2% / 19.2 / 26.9 / +19.2~~). Both editions still
+#: clear their null max; the excess SHRANK on both, the reverse of the
+#: 2026-08-10 move below, so the conclusion stands at a smaller margin.
+#:
 #: WHICH CHANGE MOVED IT, VERIFIED BY RUNNING THE OLD CODE RATHER THAN BY
 #: READING THE LOG. `git show <rev>:quality/phonology/cym.py` at four
 #: revisions, each run against this file at the byte-identical corpus:
@@ -221,7 +234,23 @@ CHECK_N = 5
 #: AND of a rendering. Argue them and repin with the superseded value visible
 #: and dated (doctrine 17); do not tune `cynghanedd_scan` to meet them.
 PINNED = {
-    # 890/1558 = 57.1% search, 104/1558 = 6.7% marked.
+    # REPINNED 2026-09-23, BOTH EDITIONS, BOTH MODES (doctrine 17): main
+    # `7d1ded93` (2026-09-22, report item J-1) changed `Welsh.syllables()` --
+    # `w` before a/e/o, word-initial `ia-`/`io-` and `gwl-`/`gwr-`/`gwn-` are
+    # now CONSONANTAL -- and `skeleton()` stopped emitting a semivowel onset
+    # (`w`, `i`) at all, and it never repinned this file: `--check` went red
+    # on 12 of 22 on origin/main and passes at `7d1ded93^`. `tried`, `judged`
+    # and `lines` did NOT move -- the search width is the same, only what it
+    # finds changed -- so this is the skeleton, not the null's fairness join.
+    # Alun 868/1558 = 55.7% search (~~890/1558 = 57.1%~~), 85/1558 = 5.5%
+    # marked (~~104/1558 = 6.7%~~). Superseded, MEASURED 2026-08-14/28:
+    #   marked  hits ~~104~~ by_type ~~{llusg 104}~~
+    #           null_hits ~~(108, 85, 96, 87, 98)~~
+    #   search  hits ~~890~~ by_type ~~{croes 184, llusg 52, sain 279,
+    #           traws 375}~~ null_hits ~~(310, 302, 290, 297, 319)~~
+    # The n=200 figures the documents quote were re-run the same day; see
+    # MISSING.md N-1 for the table.
+    # (history) 890/1558 = 57.1% search, 104/1558 = 6.7% marked.
     # MARKED REPINNED 2026-08-28 (M-7): the dash left the DEFAULT mark set
     # (`cym.CAESURA_MARKS`), so a `caesura='marked'` reading no longer splits
     # on the gwant unless an edition declares it. Superseded (doctrine 17):
@@ -236,15 +265,21 @@ PINNED = {
     # The search row is BYTE-IDENTICAL: that path never read the mark set.
     "corpus/cym_alun_strict.txt": {
         "lines": 1558,
-        "marked": {"judged": 1558, "hits": 104, "tried": 1558,
-                   "by_type": {"llusg": 104},
-                   "null_hits": (108, 85, 96, 87, 98)},
-        "search": {"judged": 1558, "hits": 890, "tried": 16547,
-                   "by_type": {"croes": 184, "llusg": 52, "sain": 279,
-                               "traws": 375},
-                   "null_hits": (310, 302, 290, 297, 319)},
+        "marked": {"judged": 1558, "hits": 85, "tried": 1558,
+                   "by_type": {"llusg": 85},
+                   "null_hits": (92, 78, 80, 78, 84)},
+        "search": {"judged": 1558, "hits": 868, "tried": 16547,
+                   "by_type": {"croes": 186, "llusg": 41, "sain": 263,
+                               "traws": 378},
+                   "null_hits": (297, 295, 285, 284, 305)},
     },
-    # 72/156 = 46.2% search, 4/156 = 2.6% marked.
+    # REPINNED 2026-09-23, same cause as Alun's (7d1ded93, J-1): 69/156 =
+    # 44.2% search (~~72/156 = 46.2%~~), 1/156 = 0.6% marked (~~4/156 =
+    # 2.6%~~). Superseded, MEASURED 2026-08-14/28: marked hits ~~4~~ by_type
+    # ~~{llusg 4}~~ null_hits ~~(6, 15, 11, 7, 4)~~; search hits ~~72~~
+    # by_type ~~{croes 27, llusg 2, sain 28, traws 15}~~ null_hits
+    # ~~(25, 30, 30, 22, 22)~~.
+    # (history) 72/156 = 46.2% search, 4/156 = 2.6% marked.
     # MARKED REPINNED 2026-08-28 (M-7), same change as Alun's: superseded
     # marked hits **5** with by_type {llusg 4, traws 1}, MEASURED 2026-08-14
     # — the 1 traws was a dash-split reading in the 1862 Pryse edition,
@@ -253,13 +288,13 @@ PINNED = {
     # no leading dashes. Older ladder: 80/156 = 51.3% search at cc08b43.
     "corpus/cym_twm_or_nant_cywydd.txt": {
         "lines": 156,
-        "marked": {"judged": 156, "hits": 4, "tried": 156,
-                   "by_type": {"llusg": 4},
-                   "null_hits": (6, 15, 11, 7, 4)},
-        "search": {"judged": 156, "hits": 72, "tried": 1915,
-                   "by_type": {"croes": 27, "llusg": 2, "sain": 28,
-                               "traws": 15},
-                   "null_hits": (25, 30, 30, 22, 22)},
+        "marked": {"judged": 156, "hits": 1, "tried": 156,
+                   "by_type": {"llusg": 1},
+                   "null_hits": (5, 10, 7, 6, 4)},
+        "search": {"judged": 156, "hits": 69, "tried": 1915,
+                   "by_type": {"croes": 26, "llusg": 1, "sain": 28,
+                               "traws": 14},
+                   "null_hits": (22, 28, 29, 19, 20)},
     },
 }
 
@@ -324,10 +359,11 @@ def check_all():
               f"DOSBARTH class table, the")
         print("  caesura search width or the shuffle has changed under this "
               "arm.")
-        print("  THE LAST TIME THIS MOVED IT MOVED 54.1% -> 57.1% and four "
-              "documents went")
-        print("  three days without hearing. Repin with the date, keep the "
-              "superseded value")
+        print("  THE LAST TIME THIS MOVED IT MOVED 57.1% -> 55.7% (2026-09-23, "
+              "7d1ded93); before")
+        print("  that 54.1% -> 57.1%, and four documents went three days "
+              "without hearing.")
+        print("  Repin with the date, keep the superseded value")
         print("  visible (doctrine 17), and re-run the two editions before "
               "quoting either.")
     print("RESULT:", "PASS" if not bad else "FAIL")

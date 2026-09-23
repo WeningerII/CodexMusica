@@ -107,8 +107,8 @@ two lines the form pairs.
 | reading | mandated | judged | refused | observed | null med | null max | excess | p_hi | differ |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | **depth 1 (SHIPPED)** | 54 | 51 | 3 | **100.00%** | 1.85% | 9.26% | **+90.74pp** | 0.0050 | 100.0% |
-| depth 2 (rich grade) | 54 | 51 | 3 | 88.24% | 1.85% | 7.41% | +80.83pp | 0.0050 | 100.0% |
-| **prominent (ENGLISH PORT)** | 54 | 52 | 2 | **3.85%** | 0.00% | 3.85% | **+0.00pp** | 0.0149 | 99.0% |
+| depth 2 (rich grade) | 54 | 51 | 3 | 94.12% ~~88.24%~~ | 1.85% | 7.55% ~~7.41%~~ | +86.57pp ~~+80.83pp~~ | 0.0050 | 100.0% |
+| **prominent (ENGLISH PORT)** | 54 | 52 | 2 | **1.92%** ~~3.85%~~ | 0.00% | 5.88% ~~3.85%~~ | **−3.96pp** ~~+0.00pp~~ | 0.2040 ~~0.0149~~ | 83.0% ~~99.0%~~ |
 | diacritics=keep | 54 | 51 | 3 | 98.04% | 1.85% | 9.26% | +88.78pp | 0.0050 | 100.0% |
 | glide=vocalic | 54 | 54 | 0 | 96.30% | 1.85% | 9.26% | +87.04pp | 0.0050 | 100.0% |
 | glide=consonantal | 54 | 54 | 0 | 98.15% | 1.85% | 9.26% | +88.89pp | 0.0050 | 100.0% |
@@ -118,6 +118,15 @@ two lines the form pairs.
 | arm | mandated | judged | refused | observed | null med | null max | p_lo |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | the 53 straddling pairs | 53 | 53 | 0 | **0.00%** | 1.89% | 9.43% | 0.2985 |
+
+> **REPINNED 2026-09-23 (doctrine 17), two rows.** main `7d1ded93`
+> (2026-09-22, report item J-1) made `w` before a/e/o, word-initial `ia-`/`io-`
+> and `gwl-`/`gwr-`/`gwn-` CONSONANTAL in `Welsh.syllables()`, which moves the
+> anchor of the depth-2 and `prominent` readings and nothing else in this
+> table; `cym_rhyme_rate.py --check` pins the counts (TRUE 45 → **48** at depth
+> 2, 2 → **1** under the port). Struck values are the 2026-08-11 measurement.
+> The port now sits **below** its own null (p_hi 0.2040), which is the §2b
+> falsification stated more strongly, not less. Re-run in full at n=200.
 
 **51 of 51 against 0 of 53.** `p 0.0050` is `1/(N+1)`: no replicate reached the
 observation, which is the resolution of a 200-replicate null and not a smaller
@@ -159,7 +168,8 @@ Welsh stress is **penultimate**. So:
 *Cywydd deuair hirion* pairs exactly those two on purpose: one line of the
 couplet ends *acennog* (accented final syllable), the other *diacen* (accent on
 the penult). The port therefore compares a two-syllable span against a
-one-syllable span on **every** couplet of the form, and answers True on 2 of 52.
+one-syllable span on **every** couplet of the form, and answers True on **1 of 52**
+(~~2 of 52~~ until main `7d1ded93`'s J-1 glide rule; repinned 2026-09-23, §2).
 
 It also **refuses outright on a proclitic line-end**, because a proclitic has no
 prominent syllable at all — 117 of 5,246 staged line-ends are proclitics, and
@@ -269,8 +279,13 @@ gap between two grades.
 | reading | mandated | judged | refused | admits |
 |---|---:|---:|---:|---:|
 | **depth 1 (SHIPPED)** | 20000 | 19656 | 344 (1.72%) | **2.111%** |
-| depth 2 (rich grade) | 20000 | 19656 | 344 (1.72%) | 1.597% |
-| prominent (ENGLISH PORT) | 20000 | 18703 | 1297 (6.49%) | 0.572% |
+| depth 2 (rich grade) | 20000 | 19656 | 344 (1.72%) | 1.643% ~~1.597%~~ |
+| prominent (ENGLISH PORT) | 20000 | 18703 | 1297 (6.49%) | 0.658% ~~0.572%~~ |
+
+**REPINNED 2026-09-23** (doctrine 17): TRUE 314 → **323** at depth 2 and
+107 → **123** under the port, from main `7d1ded93`'s J-1 glide rule (see §2's
+note). Every mandated/judged/refused count is unchanged; struck values are the
+2026-08-11 measurement.
 | diacritics=keep | 20000 | 19656 | 344 (1.72%) | 2.050% |
 | glide=vocalic | 20000 | 19657 | 343 (1.72%) | 2.111% |
 | glide=consonantal | 20000 | 19657 | 343 (1.72%) | 2.116% |
@@ -284,11 +299,11 @@ reader comparing a Welsh rate to an English one knows what chance looks like on
 each side.
 
 **The FPR does not adjudicate the anchor, and this table is where that gets
-tested.** `prominent` has by far the lowest chance rate (0.572%) and would win
-any contest scored on selectivity. It is the reading that answers True on 2 of
-52 attested couplets. Doctrine 61 says pick by lift over a **matched** control,
+tested.** `prominent` has by far the lowest chance rate (0.658%; ~~0.572%~~
+before the 2026-09-23 repin) and would win any contest scored on selectivity.
+It is the reading that answers True on 1 of 52 attested couplets (~~2 of 52~~). Doctrine 61 says pick by lift over a **matched** control,
 and the matched control is §2's permutation null, where depth 1 leads
-(+90.74pp against +0.00pp) — not this one.
+(+90.74pp against −3.96pp; ~~+0.00pp~~ before the 2026-09-23 repin) — not this one.
 
 ---
 
@@ -393,9 +408,13 @@ fixture said `hoewfardd` and `rodded` where the edition prints `hoew-fardd` and
 |---|---|---:|---:|
 | cym_twm_or_nant_cywydd | depth 1 (SHIPPED) | **69/77 = 89.6%** | **0/77 = 0.0%** |
 | cym_twm_or_nant_cywydd | diacritics=keep | 61/78 = 78.2% | 0/77 = 0.0% |
-| cym_twm_or_nant_cywydd | prominent (PORT) | 1/71 = 1.4% | 0/69 = 0.0% |
+| cym_twm_or_nant_cywydd | prominent (PORT) | 0/71 = 0.0% ~~1/71 = 1.4%~~ | 0/69 = 0.0% |
 | cym_alun_strict | depth 1 | 289/775 = 37.3% | 423/771 = 54.9% |
-| cym_alun_strict | prominent (PORT) | 8/758 = 1.1% | 14/758 = 1.8% |
+| cym_alun_strict | prominent (PORT) | 6/758 = 0.8% ~~8/758 = 1.1%~~ | 10/758 = 1.3% ~~14/758 = 1.8%~~ |
+
+The two `prominent (PORT)` rows were **REPINNED 2026-09-23** (doctrine 17; struck
+values are the 2026-08-11 measurement) after main `7d1ded93`'s J-1 glide rule
+moved the port's anchor; every depth-1 and `diacritics=keep` row is unchanged.
 
 `cym_twm_or_nant_cywydd.txt` is ONE cywydd and its couplets sit at even line
 indices, so the parity cut is the form: **89.6% against 0.0%**, a second
@@ -463,11 +482,22 @@ corpus is full of refrains, so the same trap is live here.
 
 | file | TRUE verdicts (offsets 1–2) | REPEAT | RIME_RICHE | RHYME |
 |---|---:|---:|---:|---:|
-| cym_cynghanedd_llywelyn_goch_cywydd | 51 | 0 (0.0%) | 6 | 45 |
-| cym_song_alun | 89 | 0 (0.0%) | 10 | 79 |
-| cym_song_hwiangerddi | 521 | **42 (8.1%)** | 58 | 421 |
-| cym_song_mynyddog | 1106 | 39 (3.5%) | 94 | 973 |
-| cym_song_twm_or_nant | 303 | 1 (0.3%) | 37 | 265 |
+| cym_cynghanedd_llywelyn_goch_cywydd | 51 | 0 (0.0%) | 4 ~~6~~ | 51 ~~45~~ |
+| cym_song_alun | 89 | 0 (0.0%) | 9 ~~10~~ | 89 ~~79~~ |
+| cym_song_hwiangerddi | 521 | **42 (8.1%)** | 100 ~~58~~ | 521 ~~421~~ |
+| cym_song_mynyddog | 1106 | 39 (3.5%) | 121 ~~94~~ | 1106 ~~973~~ |
+| cym_song_twm_or_nant | 303 | 1 (0.3%) | 34 ~~37~~ | 303 ~~265~~ |
+
+> **REPINNED 2026-09-23, AND THE COLUMNS NOW OVERLAP** (doctrine 17; struck
+> values are the 2026-08-11 exclusive-label measurement). Two causes, measured
+> separately. (1) `cym.relation_type` now returns the SET of relations a pair
+> stands in — a repeat is also rime riche and rhyme — so RIME_RICHE counts the
+> REPEATs too and RHYME equals the TRUE total. (2) main `7d1ded93`'s J-1 glide
+> rule moved the rime-riche boundary: on origin/main, still exclusive-label,
+> the rows read RIME_RICHE/RHYME 4/47, 9/80, 58/421, 82/985 and 33/269. The
+> exclusive RIME_RICHE is this table's column minus REPEAT on every row, which
+> is how the two readings reconcile. TRUE and REPEAT did not move, so the
+> finding below is untouched.
 
 `relation_type` types it rather than deleting it (doctrine 24), and the numbers
 say the trap is real but not dominant: 8.1% of the nursery-rhyme book's TRUE
@@ -521,8 +551,10 @@ form (Twm o'r Nant's couplets), not parallelism.
    comparable Welsh list is reachable (item 1), and inventing a plausible one
    would be the thing this repo forbids. `shared_tail()` ships the raw
    diagnostic instead, and the size of the unanswered question is visible: over
-   the cywydd's 45 non-REPEAT TRUE couplets the commonest shared written tails
-   are `edd` 4, `u` 3, `ir` 2, `ud` 2, `erch` 2, `eg` 2, `i` 2, `ae` 2 — a flat
+   the cywydd's 51 non-REPEAT TRUE couplets (~~45~~, the exclusive-RHYME count
+   before the 2026-09-23 repin: the set-valued `relation_type` now lets the
+   rime-riche couplets in too, §9) the commonest shared written tails are
+   `edd` 4, `u` 3, `ir` 2, `ud` 2, `erch` 2, `an` 2, `eg` 2, `i` 2, `ae` 2 — a flat
    distribution with no dominant ending, so whatever the answer is it is not
    carrying the relation the way agglutination carries it in Finnish.
    *Blocker: **cannot obtain**, same row as item 1.*
@@ -663,9 +695,41 @@ glide alternative are applied inside `rimes()` and by nothing else, and
 `syllabify`, `skeleton`, `answer` and `cynghanedd` are byte-identical in
 behaviour. §10j of `quality/test_phonology.py` pins it.
 
+> **REPINNED 2026-09-23: that command now prints `868/1558 = 55.7%`**
+> (~~890/1558 = 57.1%~~). The separation held for everything THIS cell added,
+> but main `7d1ded93` (report J-1) later changed `syllables()` and `skeleton()`
+> themselves — shared by both paths — so both the cynghanedd figure and the
+> depth-2/`prominent` rime rows moved together (§2, §5, §8, §11a).
+
 ---
 
 ## 11a · That cross-reference is the number the repository carried under TWO values, and this is the record of it (doctrine 17)
+
+> **REPINNED 2026-09-23 — ALL FOUR ROWS BELOW ARE NOW SUPERSEDED, `search`
+> included.** main `7d1ded93` (2026-09-22, report item J-1) made `w` before
+> a/e/o, word-initial `ia-`/`io-` and `gwl-`/`gwr-`/`gwn-` consonantal in
+> `syllables()` and dropped semivowel onsets from `skeleton()`, and did not
+> repin `cynghanedd_rate.py` (`--check` red on 12 of 22 on origin/main, green
+> at `7d1ded93^`). Re-run at n=200, both editions, the same day:
+>
+> ```
+>   Alun  caesura='search'  R_obs 55.7% (868/1558)  null median 18.7%, min 15.9%, max 21.3%
+>                           excess over null MAX +34.4 pp   p = 0.005  <- AT THE FLOOR
+>   Alun  caesura='marked'  R_obs  5.5% (85/1558)   null median  5.0%, min  3.9%, max  6.2%
+>                           below its own null max          p = 0.109
+>   Twm   caesura='search'  R_obs 44.2% (69/156)    null median 17.9%, min 10.9%, max 27.6%
+>                           excess over null MAX +16.7 pp   p = 0.005  <- AT THE FLOOR
+>   Twm   caesura='marked'  R_obs  0.6% (1/156)     null median  3.8%, min  1.3%, max  7.7%
+>                           BELOW chance                    p = 1.000
+> ```
+>
+> Alun search by rule: croes 184 → 186, traws 375 → 378, sain 279 → 263,
+> llusg 52 → 41 — the move is in sain and llusg, the two rules that compare
+> whole stretches of consonants, which is where a dropped `w`/`i` onset lands.
+> `tried` did not move (16547, 1915), so the search width and the null's
+> fairness join are unchanged. The excess over the null max SHRANK on both
+> editions and both still clear it at the floor. The seven-corpus table is
+> `MISSING.md` N-1's, repinned the same day.
 
 > **THE TWO `marked` ROWS BELOW ARE SUPERSEDED 2026-08-28 (`MISSING.md`
 > M-7); the two `search` rows still reproduce to the decimal.** The dash
@@ -691,7 +755,7 @@ behaviour. §10j of `quality/test_phonology.py` pins it.
 > `cynghanedd_rate.py --check` holds the repinned rows.
 
 **MEASURED 2026-08-14 at the published n=200, and the value below is the one
-that reproduces at head** *(the two `search` rows; the `marked` rows are the
+that reproduced at head until 2026-09-23 (note above)** *(the two `search` rows; the `marked` rows are the
 old default's and are kept visible under the note above)*.
 
 ```
@@ -883,6 +947,14 @@ values AS PRINTED, so it records +19.3 and +15.8 where the runner — which
 differences at full precision and rounds last — prints +19.2 and +15.9. That
 0.1 is a rendering, not a disagreement, and `MISSING.md` says so in the
 paragraph under its table.)
+
+> **REPINNED 2026-09-23:** every figure in the right-hand column above is itself
+> superseded by `7d1ded93`'s J-1 glide change. Re-run at n=200: 868 = 55.7% /
+> 18.7 / 21.3 / +34.4; 69 = 44.2% / 17.9 / 27.6 / +16.7; 63 = 43.4% / 18.6 /
+> 26.9 / +16.6; 224 = 27.9% / 14.2 / 16.7 / +11.2; 205 = 12.0% / 10.2 / 11.7 /
+> +0.3; 37 = 14.1% / 10.7 / 14.5 / −0.4 (p 0.020); 208 = 7.2% / 7.3 / 8.4 /
+> −1.2 (p 0.647). The direction below still holds; the numbers in it are the
+> 2026-08-14 ones.
 
 **The GRADIENT'S DIRECTION IS UNCHANGED and its sharpest row got sharper.**
 Strict metre (+35.3, +19.2, +15.9) ≫ 18th-century *cerdd rydd* (+11.4) ≫ nursery

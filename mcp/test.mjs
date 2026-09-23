@@ -4359,6 +4359,8 @@ await check('validation: actionable errors', () => {
         'offline lyrics creation order and task authorization regressions',
       'mcp/test_pronunciation_choices.mjs': 'offline occurrence pronunciation contract regressions',
       'mcp/test_session_repairs.mjs': 'offline session workflow and Rich rendering regressions',
+      'mcp/test_high_report.mjs':
+        'native connector regressions for the high-severity report repairs, executed by CI (test:connector:live)',
       'mcp/qualify_session_workflow.mjs': 'operator-run session qualification and evidence writer',
       'mcp/IMAGE_RELEASE.md': 'immutable image promotion operator documentation',
       'mcp/LYRICS_RUNTIME.md': 'operator documentation',
@@ -6850,6 +6852,23 @@ try {
     );
     console.log('  ok  lyric_screen live: hair/chair BANNED: HOMEOTELEUTON, exit 0');
     passed++;
+    // EVERY RELATION THE PAIR STANDS IN, structured (the N-relation model):
+    // hair/chair is a perfect rhyme, so it stands in RHYME AND ASSONANCE AND
+    // CONSONANCE at once — a single label here would be the defect.
+    assert.ok(Array.isArray(screened.pairs) && screened.pairs.length === 1, 'one pair, structured');
+    const hc = screened.pairs[0];
+    assert.deepEqual([hc.a, hc.b], ['hair', 'chair']);
+    for (const rel of ['RHYME', 'ASSONANCE', 'CONSONANCE'])
+      assert.ok(hc.coarse_relations.includes(rel), `hair/chair stands in ${rel}`);
+    assert.ok(
+      hc.relations.length > hc.coarse_relations.length &&
+        hc.schema_relations.every((n) => hc.relations.includes(n)),
+      'the relation list carries the registry schemas beside the coarse relations'
+    );
+    assert.deepEqual(hc.codes, ['HOMEOTELEUTON'], 'the ban rides beside the relations');
+    assert.ok(!/CLEAN —/.test(screened.report), 'no CLEAN — RHYMES / DOES NOT RHYME verdict');
+    console.log('  ok  lyric_screen live: the pair carries every relation it stands in');
+    passed++;
 
     // THE HUMAN DOOR, LIVE (M-195, added 2026-09-02): an unmarked four-line
     // paste through the real verb. The refusals must be read off the REAL
@@ -7079,39 +7098,32 @@ try {
     console.log('  ok  lyric_grade live: two blocks — the song plain, the verdict JSON');
     passed++;
 
-    // THE PLAN'S DRAWN RELATIONS REACH THE GRADE (MISSING.md M-117). With no
-    // `relation` declared, the planner DRAWS one schema per group, and the
-    // grade has to be asked the question the plan states. It was wired at the
-    // plan and at NOTHING ELSE from 2026-08-25 to 2026-08-26: the brief told
-    // the writer a group was "judged as itself, not as plain rhyme" and the
-    // grade judged it under the whole-vocabulary default. Measured over three
-    // seeds at the time, 226 FLAG findings suppressed and 1 MANUFACTURED —
-    // the drop was never one-signed, because `schema:anaphora` REQUIRES the
-    // token identity a bare `--groups=` charges as REPEAT.
-    //
-    // THE PIN IS AN EQUALITY BETWEEN THE HARNESS'S OWN TWO REPORTS — the
-    // brief's `a NAMED relation` rows against the grade's `RELATION: group`
-    // rows — so no vocabulary and no `--relations=` spelling is restated in
-    // JS (doctrine 1). It goes red on a connector that drops the coordinate:
-    // measured at 0 grade rows against 28 brief rows on seed 1. Adds no
-    // subprocess; both reports are already in hand.
-    const drawnInBrief = (planReport.match(/a NAMED relation/g) || []).length;
+    // NO RELATION IS DRAWN, AND NONE REACHES THE GRADE UNDECLARED (the
+    // N-relation model, 2026-09-22; M-117's per-group draw is removed). The
+    // brief tells the writer every group must stand in AT LEAST ONE
+    // relation, and the grade — with no `--relations=` off the plan — judges
+    // every group against every relation, so it announces no per-group
+    // RELATION row. Pinned as an equality between the harness's own two
+    // reports: the brief's group rows against the grade's, both read off
+    // text already in hand.
+    const namedInBrief = (planReport.match(/a NAMED relation/g) || []).length;
+    const anyInBrief = (planReport.match(/must stand in at least one relation/g) || []).length;
     const judgedInGrade = (gradeVerdict.report.match(/RELATION: group /g) || []).length;
+    assert.equal(namedInBrief, 0, 'the planner drew no per-group relation');
     assert.ok(
-      drawnInBrief > 0,
-      'the planner drew at least one per-group relation — a 0 here is the ' +
-        'certified pool going empty (M-117), not this wiring'
+      anyInBrief > 0,
+      'the brief tells the writer each group must stand in at least one relation'
     );
     assert.equal(
       judgedInGrade,
-      drawnInBrief,
-      'every relation the PLAN drew is a relation the GRADE judged — the ' +
-        'brief and the verdict have to ask the same question'
+      0,
+      'the grade judged no group under a drawn relation — every group is ' +
+        'judged against every relation'
     );
     console.log(
-      '  ok  lyric_grade live: the plan drew ' +
-        drawnInBrief +
-        ' relation(s) and the grade judged all of them (M-117)'
+      '  ok  lyric_grade live: no relation drawn; ' +
+        anyInBrief +
+        ' group(s) briefed to stand in at least one relation'
     );
     passed++;
 
@@ -7655,18 +7667,18 @@ try {
       bogus.report.includes('not a declared structure') && bogus.report.includes('58 structures'),
       "...through the catalog's own message, with the vocabulary size in it"
     );
-    // M-102: both judge the same pairs and the relation would win on every
-    // group, so the HARNESS refuses — not a second copy of the rule here.
+    // M-309: a group may require a relation AND a structure; both are
+    // judged and both must hold (M-102's refusal is retired).
     const collide = await callText('lyric_check', {
       lines: stLines,
       groups: '1,2;3,4',
       structures: 'B:kalevala-alliteration',
       relation: 'type:pararhyme',
     });
-    assert.equal(collide.exit_code, 2, 'a song-wide relation beside a structure REFUSES');
+    assert.notEqual(collide.exit_code, 2, 'a song-wide relation beside a structure is JUDGED');
     assert.ok(
-      collide.report.includes('song-wide relation') && collide.report.includes('--relations='),
-      '...naming the collision and the per-group spelling that expresses the intent'
+      collide.report.includes('pararhyme') && collide.report.includes('kalevala-alliteration'),
+      '...under both the declared relation and the declared structure'
     );
     console.log('  ok  lyric_check live: --structures reaches the mandate, with its disclosure');
     passed++;
