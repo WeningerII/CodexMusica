@@ -70,7 +70,13 @@ def main():
         anchors = [L.line_anchors(lex, w)[0] for w in (w1, w2)]
         scores = [L.best_score(*anchors, d, w1, w2) for d in (old, new)]
         controls[f'{w1}/{w2}'] = [[s['total'], sorted(s['relations'])] for s in scores]
-        if 'RHYME' not in scores[1]['relations'] or (w1 != 'now' and scores[1]['total'] != 1.0):
+        # now/why (AW~AY) is the empty-coda EVIDENCE control: what it must
+        # show is the total falling once absence stops counting. Since the
+        # nucleus became a licensed identity (2026-09-22) it stands in no
+        # coarse relation, so RHYME membership is asserted on the two true
+        # rhymes only.
+        if (w1 != 'now' and ('RHYME' not in scores[1]['relations']
+                             or scores[1]['total'] != 1.0)):
             failures.append(f'control failed: {w1}/{w2}')
         if w1 == 'now' and not scores[1]['total'] < scores[0]['total']:
             failures.append('empty-coda gift remains')

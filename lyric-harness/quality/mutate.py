@@ -457,16 +457,20 @@ MUTATIONS = [
     # no mutation is a coordinate whose test nobody is checking is still there.
     Mutation(
         name="M32", layer="band", file=LH,
-        old='    nucleus_agreement: str = "scalar"          # "scalar"|"identity"|"licensed"',
-        new='    nucleus_agreement: str = "identity"        # "scalar"|"identity"|"licensed"',
+        # RE-ANCHORED 2026-09-22: the shipped default is now "licensed"
+        # (identity + the unstressed AH~IH licence; near rhymes are the
+        # schemas' to judge). The planted defect is the default silently
+        # moving back to the SCALAR nucleus, which re-admits near vowels
+        # (bread/lid, bud/red) as RHYME and ASSONANCE.
+        old='    nucleus_agreement: str = "licensed"        # "scalar"|"identity"|"licensed"',
+        new='    nucleus_agreement: str = "scalar"          # "scalar"|"identity"|"licensed"',
         subset=_q("test_nucleus.py", "test_band.py", "test_mut_band.py"),
         rationale=(
-            "The nucleus channel silently promoted to strict identity. It "
-            "LOOKS like a tightening and it deletes near rhyme, which is "
-            "doctrine 94's own warning about a band tuned to agree with the "
-            "reference line. Held-out FPR falls 3.67% -> 0.20% and mandated "
-            "refusals rise 9.44% -> 20.08%, so a run that read only the FPR "
-            "would file this as an improvement."),
+            "The nucleus channel silently loosened from a licensed identity "
+            "back to the scalar cut: near vowels stand in RHYME and ASSONANCE "
+            "again and the coarse relations re-absorb what the registry "
+            "schemas judge. `test_mut_band` pins the default by value and "
+            "its random-pair rates move (typed/admitted 0.00% -> 0.08%)."),
     ),
     Mutation(
         name="M33", layer="band", file=LH,

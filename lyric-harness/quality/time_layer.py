@@ -172,16 +172,19 @@ class TimeDeclaration:
     #: span pair whose relation SET holds a RHYME-family relation; RHYME needs
     #: a stressed first syllable and every interior consonant to agree), same
     #: rule and parameters: observed min=0.0126, max=0.0395; 2*max=0.0790.
-    #: `python3 quality/fwer_family.py --calibrate`. Previous 0.1124.
-    max_null_band_pass: float = 0.0790
+    #: RE-MEASURED the same day after `nucleus_agreement` became "licensed":
+    #: min=0.0036, max=0.0126; 2*max=0.0252.
+    #: `python3 quality/fwer_family.py --calibrate`. Previous 0.0790, 0.1124.
+    max_null_band_pass: float = 0.0252
     max_null_band_pass_basis: str = (
-        "2 x max over 30 Shakespeare sonnets = 2 x 0.0395, measured 2026-09-22 "
+        "2 x max over 30 Shakespeare sonnets = 2 x 0.0126, measured 2026-09-22 "
+        "with nucleus_agreement='licensed', "
         "with the N-relation candidate door (RHYME family in the pair's "
         "relation set), word identity=(line,widx), alignment=tail, "
         "theta_coda=0.80, theta=0.80, window=32, null_samples=20000, "
         "seed=20260810. Re-run quality/fwer_family.py --calibrate after ANY "
         "change to the band or candidate/null population. Previous values: "
-        "0.1124, 0.152.")
+        "0.0790, 0.1124, 0.152.")
     n_perm: int = 2000
     seed: int = 20260810
     isochrony: str = ("ASSUMED, not measured. Grid positions are evenly "

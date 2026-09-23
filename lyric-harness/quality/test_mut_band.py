@@ -61,10 +61,11 @@ N_PAIRS = 1200
 #: reverted to 0.60, which gives 10.50% and 2.58%. The ceilings sit between,
 #: nearer the observation than the mutant, and they are pre-registered here so
 #: that a change which moves them has to argue rather than merely pass.
-#: RE-MEASURED 2026-09-22 on relation SETS (RHYME membership): shipped 0.08%
-#: typed and 0.08% admitted; theta_coda at a 0.60 scalar 2.42% / 2.08%. The
-#: ceilings are UNCHANGED — the admitted one still separates that mutant, the
-#: typed one no longer does, and they are not tuned to make it.
+#: RE-MEASURED 2026-09-22 on relation SETS (RHYME membership) with
+#: nucleus_agreement="licensed": shipped 0.00% typed and 0.00% admitted;
+#: theta_coda at a 0.60 scalar 0.50% / 0.50%. The ceilings are UNCHANGED and
+#: NEITHER separates that mutant any more — the nucleus identity already
+#: refuses what the looser coda would admit. Not tuned to make it.
 TYPED_FPR_CEILING = 0.060
 ADMITTED_FPR_CEILING = 0.012
 
@@ -159,8 +160,24 @@ def band_reference(anc_a, anc_b, decl, align="tail"):
         tb = anc_b[len(anc_b) - n:]
     else:
         ta, tb = anc_a[0:n], anc_b[0:n]
-    nucs = [vowel_sim(ta[i]["nucleus"], tb[i]["nucleus"]) for i in range(n)]
-    nuc_ok = min(nucs) >= decl.theta_nucleus
+    if decl.nucleus_agreement == "scalar":
+        nucs = [vowel_sim(ta[i]["nucleus"], tb[i]["nucleus"]) for i in range(n)]
+        nuc_ok = min(nucs) >= decl.theta_nucleus
+    else:
+        # identity per aligned syllable; "licensed" also admits a declared
+        # licence pair (AH~IH), unstressed on both sides when so declared.
+        # Written out, not imported from `nucleus_agrees` (a twin).
+        lic = {frozenset(p) for p in decl.nucleus_licence}
+        def _ok(x, y):
+            if x["nucleus"] == y["nucleus"]:
+                return True
+            if decl.nucleus_agreement != "licensed":
+                return False
+            if frozenset((x["nucleus"], y["nucleus"])) not in lic:
+                return False
+            return not decl.nucleus_licence_unstressed_only or (
+                x["stress"] == 0 and y["stress"] == 0)
+        nuc_ok = all(_ok(ta[i], tb[i]) for i in range(n))
     # The consonant channel is every consonant after the first compared
     # nucleus: each aligned coda AND the onset of every aligned syllable after
     # the first (ki-tchen/li-sten differ there, not in a coda). 2026-09-22.
@@ -248,15 +265,25 @@ def test_band_is_tail_aligned():
     # (b) NON-VACUITY. Without this the check above passes for a suite made of
     #     equal-length pairs, which is exactly how the defect survived.
     unequal = [(aa, bb) for _, _, aa, bb in PAIRS if len(aa) != len(bb)]
+    # Counted under the SCALAR nucleus since 2026-09-22: alignment is a
+    # property of which syllables are compared, not of the nucleus shape, and
+    # under the shipped licensed identity most random pairs fail BOTH
+    # alignments (135 witnesses measured), which hides the difference this
+    # guard counts. The shipped declaration must still show some.
+    scalar = Declaration(nucleus_agreement="scalar")
     witnesses = [1 for aa, bb in unequal
-                 if band_reference(aa, bb, DECL)
-                 != band_reference(aa, bb, DECL, align="head")]
+                 if band_reference(aa, bb, scalar)
+                 != band_reference(aa, bb, scalar, align="head")]
+    shipped_w = sum(1 for aa, bb in unequal
+                    if band_reference(aa, bb, DECL)
+                    != band_reference(aa, bb, DECL, align="head"))
     check("the sample is NOT degenerate: hundreds of pairs distinguish head "
           "from tail alignment",
-          len(witnesses) >= 200,
+          len(witnesses) >= 200 and shipped_w > 0,
           f"{len(unequal)} of {len(PAIRS)} pairs are unequal-length "
           f"({len(unequal)/len(PAIRS):.1%}); head and tail alignment disagree "
-          f"on {len(witnesses)} of them. On the 152 sonnets the same two "
+          f"on {len(witnesses)} of them ({shipped_w} under the shipped "
+          f"licensed nucleus). On the 152 sonnets the same two "
           f"figures are 67.8% and 79.9%. If this number ever reaches 0 the "
           f"check above has gone vacuous and proves nothing.")
 
@@ -365,17 +392,17 @@ def test_false_positive_rate_has_a_ceiling():
           typed <= TYPED_FPR_CEILING,
           f"{typed:.2%} of {len(PAIRS)} random CMUdict pairs are TYPED as "
           f"rhyme where strict tail-aligned identity says otherwise. "
-          f"theta_coda reverted to a 0.60 scalar reads 2.42% here; the band "
+          f"theta_coda reverted to a 0.60 scalar reads 0.50% here; the band "
           f"switched off reads 38.25% (re-measured 2026-09-22 on relation "
-          f"SETS). Identity is a REFERENCE, not truth — a rule "
+          f"SETS, licensed nucleus). Identity is a REFERENCE, not truth — a rule "
           f"tuned to agree with it would delete slant rhyme.")
     check(f"ADMITTED rate (scalar AND relation) stays under "
           f"{ADMITTED_FPR_CEILING:.1%}",
           adm <= ADMITTED_FPR_CEILING,
-          f"{adm:.2%}. theta_coda at a 0.60 scalar reads 2.08% here, the band "
-          f"off 5.58%, and `admits` without its relation clause reads 4.50% "
+          f"{adm:.2%}. theta_coda at a 0.60 scalar reads 0.50% here, the band "
+          f"off 5.58%, and `admits` without its relation clause reads 1.50% "
           f"— the sun/much leak in its original form. theta_rhyme at 0.50 "
-          f"reads 0.08%: RHYME membership needs both channels to agree, so "
+          f"reads 0.00%: RHYME membership needs both channels to agree, so "
           f"the scalar floor no longer moves this rate (2026-09-22).")
 
     # The ceiling is meetable by refusing everything, so pin the other side.
@@ -399,7 +426,7 @@ def test_declaration_defaults_are_pinned():
     d = Declaration()
     for field, want, why in [
         ("theta_rhyme", 0.75,
-         "the match band's lower edge; 0.50 reads 0.08% admitted-FPR here, "
+         "the match band's lower edge; 0.50 reads 0.00% admitted-FPR here, "
          "unmoved (2026-09-22)"),
         ("theta_coda", 0.80,
          "CALIBRATED, was 0.60. Held out: FPR 11.93% -> 4.67% for 0.6pp of "
@@ -425,10 +452,11 @@ def test_declaration_defaults_are_pinned():
          "an unrelated reason -- cell BA's coda-identity fix -- and the "
          "EITHER-WAY invariant, which is the claim here, is untouched by "
          "that). quality/test_align.py; mutation M31."),
-        ("nucleus_agreement", "scalar",
-         "the SHAPE of the nucleus question, declared 2026-08-11. The "
-         "incumbent, not the winner: the sonnets cannot price this channel. "
-         "quality/test_nucleus.py; mutation M32."),
+        ("nucleus_agreement", "licensed",
+         "the SHAPE of the nucleus question, declared 2026-08-11 as "
+         "'scalar' and moved to 'licensed' 2026-09-22 (identity + the "
+         "unstressed AH~IH licence; near rhymes are judged by the registry "
+         "schemas). quality/test_nucleus.py; mutation M32."),
         ("nucleus_licence_unstressed_only", True,
          "what keeps the AH0~IH0 licence an INGESTION fact rather than a "
          "claim about vowels. Mutation M33."),
@@ -450,8 +478,12 @@ def test_declaration_defaults_are_pinned():
     # threshold that cannot move the verdict is not "reachable"). Declaring
     # `coda_agreement="scalar"` explicitly is what makes theta_coda the
     # active coordinate again, and IS what the pre-2026-08-11 default was.
+    # ...and the nucleus declared SCALAR too since 2026-09-22: the shipped
+    # licensed nucleus refuses this pair's vowels whatever the coda cut says,
+    # so the coda threshold is only demonstrable under the scalar nucleus.
     r60, _ = rel("independents", "powersoft",
-                 decl=Declaration(theta_coda=0.60, coda_agreement="scalar"))
+                 decl=Declaration(theta_coda=0.60, coda_agreement="scalar",
+                                  nucleus_agreement="scalar"))
     check("...and it IS admitted again at 0.60 under the scalar coordinate, "
           "so the threshold is reachable and the defect is demonstrable "
           "(doctrine 84)",
