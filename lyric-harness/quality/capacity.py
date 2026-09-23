@@ -141,8 +141,8 @@ ADOPTED = {
     "chain_hi_at_least": {2: 2817, 5: 593, 8: 272, 12: 162, 16: 106,
                           20: 81},
     "certified": 81,
-    "max_chain_lo": 38,            # REPINNED 2026-09-22 from ~~22~~ (N-relation)
-    "max_chain_lo_family": "EY",   # REPINNED 2026-09-22 from ~~"IY"~~ (N-relation)
+    "max_chain_lo": 39,            # REPINNED 2026-09-23 ~~22~~ ~~38~~ (N-relation)
+    "max_chain_lo_family": "EH-R", # REPINNED 2026-09-23 ~~"IY"~~ ~~"EY"~~
 }
 
 #: Families the per-push crown re-certifies (test_capacity §3) — the
@@ -179,7 +179,13 @@ _PAIR_RE = re.compile(r"L(\d+)/L(\d+)")
 #: 10->31, AY-L 14->23). EY and OW-Z tie at 38; the name is table order. The
 #: 70 kept witnesses were NOT re-constructed, so they are still lower bounds
 #: that a fresh construction may beat.
-ADOPTED_MAX_GROUP = 38
+#: RE-MEASURED 2026-09-23 after `nucleus_agreement` became "licensed" (a near
+#: vowel no longer stands in RHYME): certification source f350d3ae, 68 of the
+#: 81 witnesses above still certify unchanged, 13 were RE-CONSTRUCTED (EH-R
+#: 20->39, AA-N 19->35, AA-T 15->29, IY-AH 13->29, EH-T 13->29, AE-K-S 14->27,
+#: EH-N 13->23, AH-P 10->23; EY 38->37, EY-Z 36->35, AA 36->35, AA-K 33->31,
+#: AE-M 31->30), then all 81 re-verified on the final judge. ~~38~~ -> 39.
+ADOPTED_MAX_GROUP = 39
 
 
 def _rime_key(phones):

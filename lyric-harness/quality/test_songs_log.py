@@ -386,7 +386,11 @@ def test_the_bytes_behind_the_md5_are_banked():
         rc, out = run(["quality/song_log.py", "--record", DRAFT_PROBE,
                        "--allow-dirty", "--", "python3", "lyric_harness.py",
                        "brief", lyric, "--groups=1,3;2,4", "--returns=2,4",
-                       "--relations=A:class:RHYME"])
+                       "--relations=A:class:RHYME",
+                       # the probe carries a `[Verse]` marker, which is
+                       # SOURCE apparatus only when declared so (report
+                       # A-3); the banked bytes follow the verb's reading
+                       "--input-format=source"])
         facts = {r["fact"]: r["value"] for r in L.read_log(DRAFT_PROBE)}
         check("a real grading verb recorded through `--record` banks its "
               "input's bytes", rc == 0 and "draft_file" in facts,

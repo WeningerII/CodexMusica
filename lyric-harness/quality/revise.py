@@ -3036,14 +3036,48 @@ class Reviser:
         rep = GR.song_function_report(song, hooks=hooks,
                                       rhyme_key=GR.rime_cmudict(self.lex))
         if coverage_out is not None:
+            # REQUESTED IS DECIDED PER REFUSAL, NOT PER LAYER (report Q20's
+            # repair, narrowed 2026-09-23). `song_function_report` asks the
+            # CONVENTION's questions as well as the writer's: `chorus` is
+            # always asked, `bridge_contrast` always runs, and every
+            # returning function is asked whether it returns. A refusal whose
+            # whole content is "the premise this question needs is absent
+            # from the declaration" -- no section declares the function
+            # (FUNCTION_UNDECLARED), it occurs once and has no second time
+            # (SINGLE_INSTANCE), there is nothing to contrast it with
+            # (NO_COMPARATOR), a reprise side is missing
+            # (REPRISE_SIDE_UNDECLARED), no title was declared
+            # (TITLE_UNDECLARED) -- is a question NOBODY ASKED, and grid.py's
+            # own gating says so ("an unasked question is in none of the
+            # three counts"; "a single intro is not a question"). Counting
+            # those as unjudged obligations made every planned song with a
+            # once-drawn intro, or without a bridge, permanently
+            # uncertified, so `song`/`finish`/`revise` could never exit 0 on
+            # a blueprint at all. They stay on the report as refusal notes
+            # and are disclosed here as `not_requested`, so nothing is
+            # hidden; they just do not block certification.
+            #
+            # HOOK_UNDECLARED is the one conditional case: with a DECLARED
+            # title the writer asked "is the title in the hook?", and the
+            # missing hook is what refuses it -- a requested question the
+            # harness could not answer, which is exactly what Q20 required
+            # coverage to carry. With no title declared either, no hook
+            # question was asked of the draft at all.
+            unasked = {"FUNCTION_UNDECLARED", "SINGLE_INSTANCE", "NO_COMPARATOR",
+                       "REPRISE_SIDE_UNDECLARED", "TITLE_UNDECLARED"}
+            if not song.title:
+                unasked.add("HOOK_UNDECLARED")
             requested = any(section.declared for section in song.sections) or bool(hooks)
+            blocking = [r for r in rep["refusals"] if r.code not in unasked]
             coverage_out.append({"id": "function:draft", "layer": "function",
-                                 "status": ("refused" if rep["refusals"] else "answered")
+                                 "status": ("refused" if blocking else "answered")
                                  if requested else "not_requested"})
             if requested:
                 for index, refusal in enumerate(rep["refusals"]):
                     coverage_out.append({"id": f"function:{refusal.code}:{index}",
-                                         "layer": "function", "status": "refused",
+                                         "layer": "function",
+                                         "status": ("not_requested" if refusal.code in unasked
+                                                    else "refused"),
                                          "code": refusal.code})
             coverage_out.append({"id": "shape:draft", "layer": "shape", "status": "answered"})
         whole = []

@@ -4359,6 +4359,8 @@ await check('validation: actionable errors', () => {
         'offline lyrics creation order and task authorization regressions',
       'mcp/test_pronunciation_choices.mjs': 'offline occurrence pronunciation contract regressions',
       'mcp/test_session_repairs.mjs': 'offline session workflow and Rich rendering regressions',
+      'mcp/test_high_report.mjs':
+        'native connector regressions for the high-severity report repairs, executed by CI (test:connector:live)',
       'mcp/qualify_session_workflow.mjs': 'operator-run session qualification and evidence writer',
       'mcp/IMAGE_RELEASE.md': 'immutable image promotion operator documentation',
       'mcp/LYRICS_RUNTIME.md': 'operator documentation',

@@ -2812,8 +2812,16 @@ def test_the_whole_draft_half_reaches_the_report():
                                timeout=900)
             return p.returncode, p.stdout
 
-        rc_b, out_b = cli("brief", lyric, GAP_SCHEME, "--blueprint=" + bp_path)
-        rc_s, out_s = cli("song", bp_path, lyric, GAP_SCHEME)
+        # The fixture file carries `[verse]`/`[chorus]` section marks, which
+        # is SOURCE apparatus: since report A-3 (7d1ded93) a draft is read
+        # LITERALLY unless `--input-format=source` declares otherwise, so
+        # without the declaration the two marks are two more lyric lines and
+        # the 4-letter scheme is refused against a 6-line draft before any
+        # finding is computed. The declaration is the file's own truth.
+        rc_b, out_b = cli("brief", lyric, GAP_SCHEME, "--blueprint=" + bp_path,
+                          "--input-format=source")
+        rc_s, out_s = cli("song", bp_path, lyric, GAP_SCHEME,
+                          "--input-format=source")
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
 
