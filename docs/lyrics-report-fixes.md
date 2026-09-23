@@ -25,7 +25,14 @@ is marked merged by the work-in-progress changes below.
 - Q20: requested function refusals now contribute to coverage; shape has an
   explicit row. Convention-based findings remain notes. Focused function
   refusal coverage passes; public `song` certification reports incomplete coverage on the requested
-  refusal.
+  refusal. Narrowed 2026-09-23: "requested" is decided per refusal. Refusals
+  whose premise is simply absent from the declaration (FUNCTION_UNDECLARED,
+  SINGLE_INSTANCE, NO_COMPARATOR, REPRISE_SIDE_UNDECLARED, TITLE_UNDECLARED,
+  and HOOK_UNDECLARED when no title is declared) are convention questions
+  nobody asked; they stay on the report and are disclosed as `not_requested`
+  coverage rows, but no longer make every blueprinted `song`/`finish`/`revise`
+  run uncertified (the regression that turned main's verbs, suites,
+  revision-loop and continuation-audit jobs red).
 - D-1: malformed interview answers refuse without changing the retained state.
   Public tests submit wrong-type, oversized and over-capacity strings, verify
   byte-identical state, then resume the same run with a corrected answer.
