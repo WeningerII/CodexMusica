@@ -4359,11 +4359,12 @@ class Reviser:
         demand. Under a narrowed `decl.admit` or `field_band='scalar'`
         nothing is pending: the schema half is shut.
 
-        THE POOL BOUNDS THE COST: only the engine's own candidates are ever
-        judged -- frequency-listed words scoring >= theta_rhyme - 0.15
-        against the call (`CandidateEngine.candidates`), cut at
-        `field_depth` -- so a schema-only partner outside that pool is not
-        offered; and each (call, candidate) schema answer is memoised."""
+        THE POOL: the engine's scalar candidates first, then every other
+        frequency-listed word sharing a channel a schema could bind at the
+        anchor (stressed nucleus, coda, onset) or the spelled ending, in
+        frequency order. Pending words are judged lazily, only as far as a
+        menu or the ban reaches, and each (call, candidate) answer is
+        memoised."""
         rd = self.rdecl
         # `decl.admit` IS PART OF THE KEY since 2026-08-26 (M-139): it is a
         # coordinate of this answer, and a cache keyed without it would serve
@@ -4411,6 +4412,34 @@ class Reviser:
                         continue
                 if schemas_open:
                     pending.append(cand)
+            if schemas_open and anc_q:
+                # BEYOND THE SCALAR POOL: a word can stand in a registry
+                # schema with the call while scoring low on the scalar (a
+                # consonance, an alliteration, an eye rhyme). Every indexed
+                # word that shares a channel a schema could bind at the
+                # anchor -- the stressed nucleus, the coda, the onset -- or
+                # the spelled ending is added, in frequency order, after the
+                # scalar pool; `_member` decides each lazily.
+                seen = set(coarse) | set(pending) | {word.lower()}
+                keys = set()
+                for a in anc_q:
+                    if a:
+                        keys.add(("n", a[0]["nucleus"]))
+                        keys.add(("c", tuple(a[-1]["coda"])))
+                        keys.add(("o", tuple(a[0]["onset"])))
+                tail = (w_q or word).lower()[-3:]
+                extra = []
+                for cand, anc_c, rank in self.engine.index:
+                    if cand in seen or not anc_c:
+                        continue
+                    if (("n", anc_c[0]["nucleus"]) in keys
+                            or (("c", tuple(anc_c[-1]["coda"])) in keys
+                                and anc_c[-1]["coda"])
+                            or (("o", tuple(anc_c[0]["onset"])) in keys
+                                and anc_c[0]["onset"])
+                            or (len(tail) == 3 and cand.endswith(tail))):
+                        extra.append((rank, cand))
+                pending.extend(c for _r, c in sorted(extra))
             coarse, pending = tuple(coarse), tuple(pending)
         else:
             # An undeclared value must be loud, not silently one of the two.
