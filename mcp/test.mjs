@@ -7667,18 +7667,18 @@ try {
       bogus.report.includes('not a declared structure') && bogus.report.includes('58 structures'),
       "...through the catalog's own message, with the vocabulary size in it"
     );
-    // M-102: both judge the same pairs and the relation would win on every
-    // group, so the HARNESS refuses — not a second copy of the rule here.
+    // M-309: a group may require a relation AND a structure; both are
+    // judged and both must hold (M-102's refusal is retired).
     const collide = await callText('lyric_check', {
       lines: stLines,
       groups: '1,2;3,4',
       structures: 'B:kalevala-alliteration',
       relation: 'type:pararhyme',
     });
-    assert.equal(collide.exit_code, 2, 'a song-wide relation beside a structure REFUSES');
+    assert.notEqual(collide.exit_code, 2, 'a song-wide relation beside a structure is JUDGED');
     assert.ok(
-      collide.report.includes('song-wide relation') && collide.report.includes('--relations='),
-      '...naming the collision and the per-group spelling that expresses the intent'
+      collide.report.includes('pararhyme') && collide.report.includes('kalevala-alliteration'),
+      '...under both the declared relation and the declared structure'
     );
     console.log('  ok  lyric_check live: --structures reaches the mandate, with its disclosure');
     passed++;

@@ -211,7 +211,9 @@ def _p_screen(out):
     facts = []
     for m in re.finditer(r"^\s{2}(\S+) ~ (\S+)\s\s+(.+)$", out, re.M):
         tail = m.group(3).strip()
-        scored = re.match(r"\S+\s+[\d.]+\s+(.+)$", tail)
+        # `a ~ b  SCORE  VERDICT` since the relation-set screen (every
+        # relation listed); `a ~ b  LABEL SCORE  VERDICT` before it.
+        scored = re.match(r"(?:\S+\s+)?[\d.]+\s+(.+)$", tail)
         if scored:
             verdict = scored.group(1).strip()
         elif tail.startswith("REFUSED"):
@@ -233,6 +235,15 @@ def _p_screen(out):
     # mandate will charge, so the tail counts it apart — three clean
     # facts now, never summed. The M-113 four-count tail and the one-bucket
     # tail stay readable for the transcripts that carry them.
+    # The relation-set screen (M-309) counts pairs standing in at least one
+    # relation and pairs standing in none; the older tails stay readable.
+    m = re.search(r"^\s*(\d+) banned, (\d+) refused, (\d+) standing in at "
+                  r"least one relation, (\d+) standing in none", out, re.M)
+    if m:
+        facts += [("banned", m.group(1)), ("refused", m.group(2)),
+                  ("standing_in_some", m.group(3)),
+                  ("standing_in_none", m.group(4))]
+        return facts
     m = re.search(r"^\s*(\d+) banned, (\d+) refused, (\d+) clean and "
                   r"rhyming, (\d+) clean and ADMITTED[^,]*, (\d+) clean but "
                   r"not a rhyme", out, re.M)
