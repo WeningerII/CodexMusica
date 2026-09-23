@@ -91,7 +91,7 @@ test('a verified rewrite retires its old occurrence reading and retains the orig
     // Under relation sets the accepted answer leaves the recorded draft
     // clean, so the run stops and is released; the original declaration
     // travels in the returned state instead of a live run.
-    assert.equal(RUNS.get(next.run_id), undefined);
+    assert.ok(!RUNS.get(next.run_id));
     assert.deepEqual(
       decodeState(next.state).connector_declarations.pronunciations,
       fixture.pronunciations
