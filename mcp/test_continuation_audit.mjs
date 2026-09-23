@@ -87,9 +87,20 @@ test('a verified rewrite retires its old occurrence reading and retains the orig
   assert.equal(next.folded.verdict, 'accepted');
   assert.equal(next.final_draft[2], fixture.after[2]);
   assert.equal(next.stale_answers, 0);
-  const again = verdict(await call(c, { run_id: next.run_id, run_revision: next.run_revision }));
-  assert.deepEqual(again.final_draft, next.final_draft);
-  assert.deepEqual(RUNS.get(next.run_id).decl.pronunciations, fixture.pronunciations);
+  if (next.status === 'finished_clean') {
+    // Under relation sets the accepted answer leaves the recorded draft
+    // clean, so the run stops and is released; the original declaration
+    // travels in the returned state instead of a live run.
+    assert.equal(RUNS.get(next.run_id), undefined);
+    assert.deepEqual(
+      decodeState(next.state).connector_declarations.pronunciations,
+      fixture.pronunciations
+    );
+  } else {
+    const again = verdict(await call(c, { run_id: next.run_id, run_revision: next.run_revision }));
+    assert.deepEqual(again.final_draft, next.final_draft);
+    assert.deepEqual(RUNS.get(next.run_id).decl.pronunciations, fixture.pronunciations);
+  }
 });
 
 test('group fold receipts cannot use a previous attempt verdict for an ungraded answer', () => {

@@ -110,8 +110,10 @@ PINNED = {
     # The modal field is relation-typed too, so a partner now ranks inside
     # it far more often (tail 160 -> 241).
     "pairs_mandated": 719, "pairs_judged": 513, "pairs_refused": 206,
-    "eligible": 452, "banned_in_final": 5,
-    "rank_head": 5, "rank_tail": 241, "rank_outside": 206,
+    # banned 5 -> 4, head 5 -> 4, outside 206 -> 207 after 04c2dee9 (the
+    # offer screen reads every registry relation), re-measured.
+    "eligible": 452, "banned_in_final": 4,
+    "rank_head": 4, "rank_tail": 241, "rank_outside": 207,
 }
 
 
