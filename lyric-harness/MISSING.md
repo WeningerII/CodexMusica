@@ -6668,7 +6668,7 @@ capability is promoted to measured by this documentation repair, and blocked
 schemas remain separate from measured zeroes. No new heuristic or panel
 coordinate is invented to clear a blocker.
 
-### M-35 · A pair can stand in many relations at once, and the mandate can hold one per group — with identical groups silently deduped `OPEN`
+### M-35 · A pair can stand in many relations at once, and the mandate can hold one per group — with identical groups silently deduped ~~`OPEN`~~ `CLOSED` 2026-09-23 by M-309 (a group may now require several relations and a structure together; every pair carries its full relation set)
 
 **RULED 2026-09-18 UNDER THE OWNER'S DELEGATION: THE GRADER GETS THE TRADITION
 COORDINATE, AND THE EDGE IS THE UNIT.** Two things are settled here. First, the
@@ -27889,3 +27889,42 @@ different build.
 
 **363** with this entry (2026-09-22).
 
+### M-309 · Every pair was forced into ONE rhyme relation and graded by four coarse boxes, with the 77 schemas as a rescue — the foundation behind a week of one-pair fixes `CLOSED` 2026-09-23 — found writing a love song through the connector: the screen typed `kitchen`/`listen` as `RHYME 1.000`
+
+**THE DEFECT.** A pair stands in many relations at once — a perfect rhyme is
+also assonance and consonance; rime riche is also rhyme — but the engine
+decided ONE: `score()` started every pair as `RHYME` and overwrote it
+(conjunctive band, then identity band); `best_score` kept the argmax's one
+label; `admits()` asked whether that label was in a 4-name set above one
+scalar; `satisfies_relation` compared a class by EQUALITY; `classify_pair`
+named one alignment with one exclusive cell per syllable; and the 77 registry
+schemas were consulted only for pairs the coarse check had already failed
+(3.32% of mandated pairs), while the planner drew ONE schema per group. To
+rank relations on one axis the engine needed a similarity score, so near
+misses rounded up to the top label. Measured examples, all wrong before:
+`kitchen`/`listen` RHYME (a promoted final `-en`, and the CH/S between the
+vowels read as the next syllable's onset and ignored), `bread`/`lid`,
+`bud`/`red`, `black`/`thick` RHYME (near vowels over the scalar nucleus cut).
+Entries that patched this at one label boundary each: M-37, M-59, M-126,
+M-136, M-175, M-189, M-306.
+
+**THE REPAIR.** Each coarse relation is an independent predicate and a pair
+carries the SET (`s["relations"]`; the key `relation` is gone), unioned over
+every reading and span (`relation_totals`); relations are admitted by
+membership at their own cuts (`admitted_relations`, `admits_decl`). Every
+mandated pair in `check_scheme` and `Reviser.grade` is judged against every
+registry schema, always; disowned schemas are recorded but never satisfy.
+Coarse relations start on a lexically stressed syllable; agreement on a
+promoted final is its own relation, `PROMOTED_RHYME`; consonants between
+vowels inside the rhyme are compared; vowel agreement is identity plus the
+AH~IH ingestion licence (`nucleus_agreement="licensed"`), the near vowel
+now being judged by the schemas that name it. Class relations are
+membership; named types return every name a coordinate satisfies; the
+assonance/consonance schemas no longer require the other channel to differ;
+the four unsupported shapes and `refrain by reference` now judge; the
+planner draws no relation; a group may require several relations and a
+structure together; screen, offers, recover, the phonology `relation_type`s
+and every measurement instrument moved to sets, and their pins were
+re-measured.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~363~~ -> **364**.
