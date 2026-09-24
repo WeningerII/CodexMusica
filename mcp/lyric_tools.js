@@ -1973,11 +1973,11 @@ export function registerLyricTools(server, tool) {
         'Is this rhyme pair USABLE? Every unordered pair among the words is listed with EVERY relation it stands in — ' +
         'each coarse relation (RHYME, RIME_RICHE, PROMOTED_RHYME, ASSONANCE, CONSONANCE) at its own cut and every registry ' +
         'schema judged at the two end words (a perfect rhyme is also assonance and consonance; rain/reign is RHYME and ' +
-        'RIME_RICHE) — plus the schemas that could not decide at the pair, and the song grader\'s bans on a minimal mandated ' +
+        "RIME_RICHE) — plus the schemas that could not decide at the pair, and the song grader's bans on a minimal mandated " +
         'pair: BANNED (HOMEOTELEUTON — same spelled ending, the laziest true rhyme; MODAL_RHYME — the most predictable ' +
         "partner), or the grader's own refusal for an unreadable word. A banned pair is an ANSWER, not an error. A pair " +
         'standing in no relation is reported as standing in none. USE THIS BEFORE WRITING to check proposed pairs against ' +
-        "the declared requirements. Pass `relation` to ask the question a mandate declaring it will ask (SATISFIES / " +
+        'the declared requirements. Pass `relation` to ask the question a mandate declaring it will ask (SATISFIES / ' +
         'VIOLATES / REFUSED per pair), reported independently beside the relation list. ' +
         'Scope: this screens bare candidate words on fixed carrier lines, not the eventual lyric lines; coarse relations ' +
         'search anchor spans and may differ in full-line context. ' +
