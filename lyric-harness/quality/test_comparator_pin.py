@@ -22,10 +22,13 @@ Sections:
 """
 
 import ast
+import contextlib
 import io
 import json
 import os
+import shutil
 import sys
+import tempfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
@@ -88,6 +91,46 @@ def _plant_inside(path, definition):
     return before
 
 
+@contextlib.contextmanager
+def _private_lyric_harness():
+    """Point the comparator at a PRIVATE COPY of `lyric_harness.py` -> its path.
+
+    SECTION 2 PLANTED INTO THE TREE'S OWN FILE UNTIL 2026-09-24, and that was
+    a defect of this suite, not of anything it gates. CI runs it FOUR-WIDE
+    beside the rest of its shard (`ci.yml`, "The 102 cheap suites"), and a
+    rewrite of the shared `lyric_harness.py` -- even one that puts the same
+    bytes back -- is seen by every sibling. `quality/capacity.py`'s
+    `_proof_epoch` stamps that file's size, mtime and ctime before and after
+    an admission and rightly REFUSES "proof inputs changed during admission"
+    when they move in between: that is what turned `test_capacity_receipt.py`
+    red on shard 3/3 of the N-relation line (`verify_capacity --check`
+    answered 2, not 0). Reproduced by running that suite while this one and
+    `test_source_identity.py` looped beside it: it failed the same assertion;
+    alone, all 6 of its tests pass. A sibling importing the module between
+    the truncate and the write would read half a file, which is the same
+    defect with a worse symptom (doctrine 77: parallel cells share a
+    scratchpad, so working files must be namespaced -- and a suite in a
+    four-wide pool is a parallel cell).
+
+    Nothing about the claim moves. The fingerprint reads the module's text
+    through `lyric_harness.__file__`
+    (`song_profile_calibration.comparator_fingerprint_parts`), so redirecting
+    that ONE attribute for the duration runs the REAL fingerprint over the
+    planted text -- the idiom section 4 already uses for `CMUDICT_PATH` -- and
+    no other process can see the plant.
+    """
+    module = C.lyric_harness
+    real = module.__file__
+    with tempfile.TemporaryDirectory(prefix="comparator_pin_") as tmp:
+        copy = os.path.join(tmp, os.path.basename(real))
+        shutil.copyfile(real, copy)
+        module.__file__ = copy
+        try:
+            yield copy
+        finally:
+            module.__file__ = real
+
+
 def test_a_moved_input_is_caught_and_named():
     print("\n2. a MOVED input is caught, and the moved input is NAMED")
     # THE TWO MUTATIONS ARE A PAIR AND NEITHER IS SUFFICIENT ALONE.
@@ -97,46 +140,67 @@ def test_a_moved_input_is_caught_and_named():
     # no AST), and an edit outside it is NOT — which is the whole reason the
     # input narrowed, and a claim a reader of the pin has to be able to check.
     # `score` is an entry point: `quality/features.py` imports it by name.
-    target = os.path.join(HERE, "..", "lyric_harness.py")
+    # ~~target = os.path.join(HERE, "..", "lyric_harness.py")~~ -- the TREE'S
+    # file, rewritten in place while the rest of a four-wide CI shard read it;
+    # both plants land in a private copy now (`_private_lyric_harness`,
+    # 2026-09-24).
+    real = C.lyric_harness.__file__
+    untouched = os.stat(real)
     clean_fp, _clean_parts, _ = CP.measure()
-    before = _plant_inside(target, "score")
-    try:
-        moved_fp, moved_parts, _ = CP.measure()
-        check("a COMMENT INSIDE a reached definition moves the fingerprint — "
-              "the guard is over-inclusive within the closure and that is the "
-              "correct direction to be wrong",
-              moved_fp != clean_fp, f"{clean_fp[:12]} -> {moved_fp[:12]}")
-        pin = _pin()
-        differing = sorted(k for k, v in moved_parts.items()
-                           if pin["parts"].get(k) != v)
-        check("EXACTLY the edited input is named — a gate that says only "
-              "'something moved' sends the next session looking at seven "
-              "files",
-              differing == ["lyric_harness.py closure"], f"{differing}")
-        check("the gate exits 1, not 0 and not 2: this is a real move, not a "
-              "container problem",
-              CP.main([]) == 1)
-    finally:
-        io.open(target, "w", encoding="utf-8").write(before)
-    restored_fp, _, _ = CP.measure()
-    check("the mutation is reverted, so this suite leaves no residue",
-          restored_fp == clean_fp)
-    check("and the gate is green again afterwards", CP.main([]) == 0)
+    with _private_lyric_harness() as target:
+        check("the private copy measures EXACTLY as the tree's file does, "
+              "so the comment planted below is the only thing the "
+              "fingerprint can see move",
+              CP.measure()[0] == clean_fp)
+        before = _plant_inside(target, "score")
+        try:
+            moved_fp, moved_parts, _ = CP.measure()
+            check("a COMMENT INSIDE a reached definition moves the "
+                  "fingerprint — the guard is over-inclusive within the "
+                  "closure and that is the correct direction to be wrong",
+                  moved_fp != clean_fp, f"{clean_fp[:12]} -> {moved_fp[:12]}")
+            pin = _pin()
+            differing = sorted(k for k, v in moved_parts.items()
+                               if pin["parts"].get(k) != v)
+            check("EXACTLY the edited input is named — a gate that says "
+                  "only 'something moved' sends the next session looking at "
+                  "seven files",
+                  differing == ["lyric_harness.py closure"], f"{differing}")
+            check("the gate exits 1, not 0 and not 2: this is a real move, "
+                  "not a container problem",
+                  CP.main([]) == 1)
+        finally:
+            io.open(target, "w", encoding="utf-8").write(before)
+        restored_fp, _, _ = CP.measure()
+        check("the mutation is reverted, so this suite leaves no residue",
+              restored_fp == clean_fp)
+        check("and the gate is green again afterwards", CP.main([]) == 0)
 
-    try:
-        io.open(target, "a", encoding="utf-8").write(
-            "\n# planted by test_comparator_pin.py section 2, outside the closure\n")
-        outside_fp, _outside_parts, _ = CP.measure()
-        check("a comment OUTSIDE every reached definition does NOT move the "
-              "fingerprint — it cannot change what an item scores, and "
-              "invalidating on one discarded a ~2.4-CPU-hour memo on 7 of the "
-              "10 commits that touched this file (MISSING.md M-299)",
-              outside_fp == clean_fp, f"{clean_fp[:12]} -> {outside_fp[:12]}")
-        check("and the gate still exits 0 on it", CP.main([]) == 0)
-    finally:
-        io.open(target, "w", encoding="utf-8").write(before)
-    check("still no residue after the second mutation",
-          CP.measure()[0] == clean_fp)
+        try:
+            io.open(target, "a", encoding="utf-8").write(
+                "\n# planted by test_comparator_pin.py section 2, "
+                "outside the closure\n")
+            outside_fp, _outside_parts, _ = CP.measure()
+            check("a comment OUTSIDE every reached definition does NOT move "
+                  "the fingerprint — it cannot change what an item scores, "
+                  "and invalidating on one discarded a ~2.4-CPU-hour memo on "
+                  "7 of the 10 commits that touched this file "
+                  "(MISSING.md M-299)",
+                  outside_fp == clean_fp,
+                  f"{clean_fp[:12]} -> {outside_fp[:12]}")
+            check("and the gate still exits 0 on it", CP.main([]) == 0)
+        finally:
+            io.open(target, "w", encoding="utf-8").write(before)
+        check("still no residue after the second mutation",
+              CP.measure()[0] == clean_fp)
+    after = os.stat(real)
+    check("and the tree's own `lyric_harness.py` was never written — a "
+          "plant in the shared file moves every four-wide sibling's view of "
+          "it, which is what refused `test_capacity_receipt.py`'s admission",
+          C.lyric_harness.__file__ == real
+          and (after.st_size, after.st_mtime_ns, after.st_ino)
+          == (untouched.st_size, untouched.st_mtime_ns, untouched.st_ino),
+          f"{real}")
 
 
 def test_the_fold_and_the_parts_are_one_definition():
