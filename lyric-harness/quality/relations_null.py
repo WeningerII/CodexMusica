@@ -1684,7 +1684,16 @@ LEDGER_BUDGET = None
 # they do not become executable by declaring a stream capability. The
 # previous (23,1) remains historical above. Five additional rows have only
 # unresolved witnesses: they need readings, not a false zero observation.
-LEDGER_CANNOT_OBTAIN = (29, 5)  # M-40: was (28, 5); stanza input missing on ledger slice.
+# REPINNED 2026-09-24, measured by `ledger_census()` on this tree: ~~(29, 5)~~
+# -> (30, 1). The N-relation model (#375, M-309: "the four unsupported
+# shapes ... now judge") gave the three `cynghanedd sain` variants and
+# `平仄 tonal template` member bindings (`relations.FULL_SHAPES`). The three
+# sain variants left CANNOT OBTAIN for EXTENDABLE (EXTENSION_LEDGER below);
+# 平仄 stays CANNOT OBTAIN but moved from implementation-required to
+# DECLARABLE — it now asks for `tonal_template`/`tone`, which a caller
+# declares (`relations.declare_tonal_template`). The one left needing a
+# build is `refrain by reference` (`stub_resolution`, NEVER_PROVIDED).
+LEDGER_CANNOT_OBTAIN = (30, 1)  # M-40: was (28, 5); stanza input missing on ledger slice. Then (29, 5) until 2026-09-24.
 
 
 def ledger_slice(root=None):
@@ -1808,6 +1817,12 @@ def menu_pairs(cov):
 # verdicts and confirmed/unresolved instance counts are unchanged. Previous
 # and current menu sizes are retained in docs/null-endpoint-gap.json. The
 # deeper historical null tables are not new-source qualification evidence.
+# 2026-09-24 (the N-relation model, #375): re-read with `record_extension()`.
+# THREE ROWS MOVED, all verdict-only (menus and arm pairs unchanged):
+# `cynghanedd sain`, `... gadwynog`, `... lafarog` ~~cannot_obtain~~ ->
+# extendable, because #375 made the full figures judge instead of refusing
+# as `unsupported_shape`. Ledger now: 3 controlled, ~~30~~ 33 extendable,
+# 11 no-instance, ~~34~~ 31 cannot-obtain (~~29 / 5~~ 30 / 1).
 EXTENSION_LEDGER = (
     # M-40: measured on the unchanged ledger slice, 2026-09-16.
     ('chain rhyme (interlocking scheme)',         'cannot_obtain',   7,  0),
@@ -1870,9 +1885,9 @@ EXTENSION_LEDGER = (
     ('cynghanedd groes',                        'cannot_obtain',   2,  0),
     ('cynghanedd draws',                        'cannot_obtain',   2,  0),
     ('cynghanedd groes o gyswllt',              'cannot_obtain',   2,  0),
-    ('cynghanedd sain',                         'cannot_obtain',   1,  0),
-    ('cynghanedd sain gadwynog',                'cannot_obtain',   1,  0),
-    ('cynghanedd sain lafarog',                 'cannot_obtain',   1,  0),
+    ('cynghanedd sain',                         'extendable',      1,  0),  # ~~cannot_obtain~~ 2026-09-24, #375
+    ('cynghanedd sain gadwynog',                'extendable',      1,  0),  # ~~cannot_obtain~~ 2026-09-24, #375
+    ('cynghanedd sain lafarog',                 'extendable',      1,  0),  # ~~cannot_obtain~~ 2026-09-24, #375
     ('cynghanedd sain drosgl',                  'extendable',      1,  0),
     ('cynghanedd lusg',                         'extendable',      1,  0),
     ('proest',                                  'cannot_obtain',   6,  0),

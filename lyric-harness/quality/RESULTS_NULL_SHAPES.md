@@ -12,6 +12,19 @@ parechesis, amphisbaenic rhyme, and rhyming slang have no confirmed witness
 but retain 1, 1, 22, 52, and 741 unresolved candidates respectively.
 They are refused instead of being reported as measured zero observations.
 
+**Superseded in part, 2026-09-24 (the N-relation model, #375 / M-309, which
+made "the four unsupported shapes ... now judge").** Re-measured by
+`relations_null.ledger_census()` on the same ledger: 3 controlled,
+~~30~~ **33** extendable, 11 no-instance, ~~33~~ **31** cannot-obtain, split
+~~28~~ **30** input-resolvable and ~~5~~ **1** implementation-required. The
+three `cynghanedd sain` variants now judge and are EXTENDABLE; `平仄 tonal
+template` now asks for its declared template (`tonal_template`, `tone`), a
+declaration rather than an implementation. The one schema still requiring a
+build is `refrain by reference` (`stub_resolution`). `EXTENSION_LEDGER` and
+`LEDGER_CANNOT_OBTAIN` carry the same repin. (The 2026-09-08 figures above
+were themselves already one M-40 schema behind: the ledger read 30 / 34 /
+(29, 5) before this repin.)
+
 This correction validates the coverage census and its refusal remedies.
 “Controlled” here records membership in the historical arm inventory;
 it does **not** qualify the historical effect sizes for the current judge.

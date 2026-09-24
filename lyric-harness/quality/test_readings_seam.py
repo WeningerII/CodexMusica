@@ -526,7 +526,8 @@ def test_the_guards_now_fire():
 #    test is the fourth inert coordinate wearing a fix
 # ---------------------------------------------------------------------------
 
-#: the 64 of 78 schemas whose channel map touches a patched reader.  Measured
+#: the ~~64~~ 63 of 78 schemas whose channel map touches a patched reader
+#: (63 since 2026-09-24: #375 dropped assonance's `coda DIFFER`).  Measured
 #: rather than listed, so a new schema is covered the day it lands.
 AFFECTED = sorted(n for n, s in R.REGISTRY.items()
                   if {cr.channel for cr in s.channels} &
@@ -565,8 +566,17 @@ def test_end_to_end():
     # reason the cheap-suite label is: a count that moves silently cannot
     # tell a schema that joined from a schema that stopped reading a patched
     # channel. The chain schema reads `coda`, so the seam covers it.
+    # MOVED ~~64~~ -> 63, 2026-09-24, measured on this tree: the N-relation
+    # model (#375, M-309) removed the "other channel must DIFFER" rule from
+    # the assonance schema (a pair whose codas also agree is assonance AND
+    # rhyme at once), and `ChannelRule("coda", DIFFER, "anchor")` was
+    # assonance's ONLY read of a patched channel -- it now reads `nucleus`
+    # alone and left the seam. Consonance, the skothending span, reverse
+    # rhyme and multisyllabic rhyme lost their DIFFER rules too but still
+    # read coda / consonants / onset through their AGREE rules, so they stay.
     check(f"{len(AFFECTED)} of {len(R.REGISTRY)} schemas read onset / coda / "
-          f"consonants / phones", len(AFFECTED) == 64,
+          f"consonants / phones", len(AFFECTED) == 63
+          and "assonance" not in AFFECTED,
           "the seam is not a corner of the module: it is two thirds of the "
           "declared inventory.")
     for lines in (["he counts the years", "she hides her tears"],
