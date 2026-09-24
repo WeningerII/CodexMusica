@@ -231,27 +231,27 @@ RULINGS = {
         "The pairwise GRAPH (`chains`, `graph`): a GENERATOR over every line "
         "pair, asking every admittable coarse relation plus REPEAT. The "
         "schemas are not folded in because, over every pair, the default "
-        "door does not separate from its matched redeal: all 91 pairs R_obs 50.09% against a null median 52.27% and max 54.08%, p 0.8571 at 20 draws "
+        "door does not separate from its matched redeal: all 91 pairs R_obs 50.27% against a null median 52.36% and max 54.21%, p 0.8571 at 20 draws "
         "(`chance_rate.py --null`), while on DECLARED pairs it does: "
-        "the 7 mandated pairs R_obs 91.07% against a null median 52.08% and max 54.17%, +38.99 pp over the median. A generator asking a question answered at chance "
+        "the 7 mandated pairs R_obs 91.07% against a null median 52.38% and max 54.76%, +38.69 pp over the median. A generator asking a question answered at chance "
         "manufactures structure (doctrine 71; M-139, M-145)."),
     ("lyric_harness.py", "infer_chains.match"): (
         ARGUED,
         "Chain promotion at `theta_chain` over every admittable coarse "
         "relation plus REPEAT — a generator like `rhyme_graph`, for the same "
-        "measured reason (all 91 pairs R_obs 50.09% against a null median 52.27% and max 54.08%, p 0.8571 at 20 draws; M-139)."),
+        "measured reason (all 91 pairs R_obs 50.27% against a null median 52.36% and max 54.21%, p 0.8571 at 20 draws; M-139)."),
     ("quality/revise.py", "Reviser.mandate_from_graph"): (
         ARGUED,
         "`--cliques` means the rhyme graph: a GENERATOR cover over every "
         "pair, handed to `grade()`, which asks every schema of each pair it "
         "then declares. Folding schemas into the generator would build "
-        "covers from a door at chance over undeclared pairs (all 91 pairs R_obs 50.09% against a null median 52.27% and max 54.08%, p 0.8571 at 20 draws; "
+        "covers from a door at chance over undeclared pairs (all 91 pairs R_obs 50.27% against a null median 52.36% and max 54.21%, p 0.8571 at 20 draws; "
         "M-145)."),
     ("quality/recover.py", "recover"): (
         ARGUED,
         "The pasted-song door (M-72): a GENERATOR over every line pair of a "
         "text, same argument and measurement as `mandate_from_graph` "
-        "(all 91 pairs R_obs 50.09% against a null median 52.27% and max 54.08%, p 0.8571 at 20 draws; M-145)."),
+        "(all 91 pairs R_obs 50.27% against a null median 52.36% and max 54.21%, p 0.8571 at 20 draws; M-145)."),
     ("quality/rhyme_types.py", "coarse_relation_consensus"): (
         ARGUED,
         "The all-pronunciation sub-question for the COARSE relations: every "
