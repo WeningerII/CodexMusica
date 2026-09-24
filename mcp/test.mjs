@@ -7160,7 +7160,11 @@ try {
     // door opens. MEASURED on this tree at the interview default (attempts 1):
     // group [1,8,9,10,11], L1, group [2,8,13], L2, group [3,4,9,10,12], L3,
     // group [4,6,7], L4, then the batch [5,6,11,14,15,17,20] on continuation
-    // 8 (334949 state bytes). The walk below answers every question with the
+    // 8 (334949 state bytes). ~~That M-305 walk~~ — REPINNED 2026-09-24 for
+    // M-309's N-relation model: the plan no longer draws a relation per group,
+    // so L1 is no longer a joint-conflict pivot and the batch
+    // [1,5,6,14,15,17,19] is again the FIRST question, on continuation 0
+    // (314780 state bytes; measured). The walk below answers every question with the
     // draft's own unchanged line(s) — exactly as test_run_continuation.mjs
     // does, so no accepted edit can close an obligation — until the first
     // propose_batch appears, and the claim is measured on THAT state. A run
