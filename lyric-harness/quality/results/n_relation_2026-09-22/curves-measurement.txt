@@ -1,0 +1,79 @@
+ROWS  8536 items, 1296 files, N 10..3244, median 154
+      mattr          defined on 8536 items
+      fwr            defined on 8536 items
+      anaphora       defined on 8536 items
+      cv             defined on 8536 items
+      predictability defined on 8480 items
+
+BINS  21 bins of ~400 items, fixed on the whole corpus (§2); the last three columns are DIAGNOSTIC — the share of 14-line and 4-line items and the number of files, because a form that clusters at one length is a different population inside that bin
+    k     n   N_lo   N_hi   N_med  14ln%   4ln%  files
+    0   400     10     46      35    0.0   34.5     85
+    1   400     46     61      53    0.8    0.5    120
+    2   400     61     77      69    2.5    0.0    143
+    3   400     77     89      83    9.5    0.0    123
+    4   400     89     99      94    6.0    0.0    170
+    5   400     99    107     103   11.2    0.0    162
+    6   400    107    115     112   29.0    0.0    161
+    7   400    115    127     121   17.0    0.0    178
+    8   400    127    137     132    0.8    0.0    159
+    9   400    137    147     142    0.0    0.0    172
+   10   400    147    159     152    0.2    0.0    184
+   11   400    159    173     165    0.0    0.0    189
+   12   400    173    190     182    0.0    0.0    191
+   13   400    190    208     199    0.0    0.0    208
+   14   400    208    231     219    0.0    0.0    197
+   15   400    231    257     243    0.0    0.0    209
+   16   400    257    287     270    0.0    0.0    202
+   17   400    287    328     307    0.0    0.0    184
+   18   400    328    390     357    0.0    0.0    192
+   19   400    390    505     436    0.0    0.0    177
+   20   536    505   3244     683    0.0    0.0    196
+
+REFERENCE CURVE (§5.1): per bin, each check's percentile over all items
+    k   N_lo   N_med          mattr            fwr       anaphora             cv predictability
+    0     10      35  0.6428 (n400)  0.5173 (n400)  0.5000 (n400)  0.0643 (n400)  1.0000 (n365)
+    1     46      53  0.6382 (n400)  0.5173 (n400)  0.4014 (n400)  0.0769 (n400)  1.0000 (n392)
+    2     61      69  0.6684 (n400)  0.5073 (n400)  0.3750 (n400)  0.0894 (n400)  1.0000 (n398)
+    3     77      83  0.6547 (n400)  0.5003 (n400)  0.3750 (n400)  0.1013 (n400)  1.0000 (n396)
+    4     89      94  0.6616 (n400)  0.4896 (n400)  0.3854 (n400)  0.1086 (n400)  1.0000 (n399)
+    5     99     103  0.6493 (n400)  0.4762 (n400)  0.3750 (n400)  0.1051 (n400)  1.0000 (n398)
+    6    107     112  0.7188 (n400)  0.4779 (n400)  0.2921 (n400)  0.0949 (n400)  1.0000 (n399)
+    7    115     121  0.6510 (n400)  0.4878 (n400)  0.3750 (n400)  0.0894 (n400)  1.0000 (n400)
+    8    127     132  0.6930 (n400)  0.4707 (n400)  0.3333 (n400)  0.1005 (n400)  1.0000 (n400)
+    9    137     142  0.6935 (n400)  0.4827 (n400)  0.3333 (n400)  0.1016 (n400)  1.0000 (n398)
+   10    147     152  0.7023 (n400)  0.4901 (n400)  0.3006 (n400)  0.1045 (n400)  1.0000 (n400)
+   11    159     165  0.6928 (n400)  0.4765 (n400)  0.3183 (n400)  0.1055 (n400)  1.0000 (n400)
+   12    173     182  0.7118 (n400)  0.4787 (n400)  0.2812 (n400)  0.1113 (n400)  0.9234 (n400)
+   13    190     199  0.7152 (n400)  0.4718 (n400)  0.3215 (n400)  0.1098 (n400)  0.9286 (n400)
+   14    208     219  0.7185 (n400)  0.4842 (n400)  0.3216 (n400)  0.1072 (n400)  0.9333 (n400)
+   15    231     243  0.7221 (n400)  0.4820 (n400)  0.3000 (n400)  0.1100 (n400)  0.9333 (n400)
+   16    257     270  0.7222 (n400)  0.4833 (n400)  0.2753 (n400)  0.1121 (n400)  0.9009 (n399)
+   17    287     307  0.7081 (n400)  0.4769 (n400)  0.3251 (n400)  0.1090 (n400)  0.9002 (n400)
+   18    328     357  0.7205 (n400)  0.4748 (n400)  0.2779 (n400)  0.1178 (n400)  0.9091 (n400)
+   19    390     436  0.7371 (n400)  0.4777 (n400)  0.2500 (n400)  0.1207 (n400)  0.8752 (n400)
+   20    505     683  0.7455 (n536)  0.4798 (n536)  0.2500 (n536)  0.1296 (n536)  0.8384 (n536)
+
+FULL-CORPUS FITS (§3): coefficients in x = ln N, pinball loss, two-start agreement
+  mattr          C0  coef=[0.690711]  loss=77.2713  iters=0  two-start |dloss|/loss=0.00e+00
+  mattr          C1  coef=[0.49969, 0.0375189]  loss=74.0533  iters=200  two-start |dloss|/loss=2.53e-07
+  mattr          C2  coef=[0.353328, 0.0919371, -0.00490726]  loss=74.0014  iters=200  two-start |dloss|/loss=7.11e-09
+  mattr          C2 turning point at N=11701 tokens
+  fwr            C0  coef=[0.487624]  loss=49.6809  iters=0  two-start |dloss|/loss=0.00e+00
+  fwr            C1  coef=[0.560484, -0.0143082]  loss=48.7883  iters=200  two-start |dloss|/loss=1.50e-08
+  fwr            C2  coef=[0.78005, -0.102573, 0.00867305]  loss=48.5450  iters=62  two-start |dloss|/loss=2.39e-09
+  fwr            C2 turning point at N=370 tokens — INSIDE the corpus range (E3 watch)
+  anaphora       C0  coef=[0.333333]  loss=111.0864  iters=0  two-start |dloss|/loss=0.00e+00
+  anaphora       C1  coef=[0.723874, -0.0754329]  loss=100.9299  iters=192  two-start |dloss|/loss=2.56e-11
+  anaphora       C2  coef=[1.14131, -0.24204, 0.0160999]  loss=99.5570  iters=38  two-start |dloss|/loss=3.51e-10
+  anaphora       C2 turning point at N=1839 tokens — INSIDE the corpus range (E3 watch)
+  cv             C0  coef=[0.101015]  loss=49.2356  iters=0  two-start |dloss|/loss=0.00e+00
+  cv             C1  coef=[0.0112663, 0.0180238]  loss=46.7495  iters=39  two-start |dloss|/loss=6.72e-09
+  cv             C2  coef=[-0.0554562, 0.0451994, -0.00270318]  loss=46.6696  iters=49  two-start |dloss|/loss=2.97e-09
+  cv             C2 turning point at N=4274 tokens
+  predictability C0  coef=[1]  loss=140.2535  iters=0  two-start |dloss|/loss=0.00e+00
+  predictability C1  coef=[1.26236, -0.0593743]  loss=136.1178  iters=104  two-start |dloss|/loss=4.18e-15
+  predictability C2  coef=[0.72551, 0.149328, -0.0197051]  loss=134.5713  iters=147  two-start |dloss|/loss=8.95e-14
+  predictability C2 turning point at N=44 tokens — INSIDE the corpus range (E3 watch)
+
+HELD-OUT (§4): 200 file 50/50 splits
+Terminated
