@@ -3459,11 +3459,11 @@ def test_the_grade_it_line_runs():
     check("...step 1 is the SAME plan invocation plus --fill/--out, so "
           "it re-derives the identical plan (a plan is a pure function "
           "of its seed) and writes the blueprint step 2 grades against",
-          "plan --seed=7 --form=verse-chorus --fill=DRAFT.txt "
-          "--out=BP.json" in out)
+          "plan --seed=7 --form=verse-chorus --input-format=literal "
+          "--fill=DRAFT.txt --out=BP.json" in out)
     check("...and step 2 is the grading command against BP.json, which "
           "step 1 actually writes",
-          "song BP.json DRAFT.txt" in out)
+          "song BP.json DRAFT.txt --input-format=literal" in out)
     with tempfile.TemporaryDirectory() as td:
         import json as _json
         p = make_plan(7)

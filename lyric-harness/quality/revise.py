@@ -176,6 +176,18 @@ SATISFACTION_FINDINGS = {"REFRAIN_REPEAT", "RETURN_LOCKED", "RADIF_LICENSED"}
 COLLISION_FINDINGS = {"SCHEME_COLLISION", "NEAR_COLLISION",
                       "REPEAT_ACROSS_GROUPS", "COLLISION_UNDECLARED"}
 
+#: `quality/grid.py` function refusals whose question has NO SUBJECT in what
+#: the writer declared: a function declared once cannot return, an undeclared
+#: one has no instance, a bridge with no verse has nothing to contrast with,
+#: and "is the title in the hook" asks nothing of a song that declared no
+#: title. They are still disclosed as coverage rows (`not_requested`), but
+#: they do not withhold certification -- every other function refusal (an
+#: undeclared hook under a declared chorus, an unreadable end word, a missing
+#: rhyme key) is a requested question left unjudged and does (report Q20).
+NO_SUBJECT_REFUSALS = frozenset({"SINGLE_INSTANCE", "FUNCTION_UNDECLARED",
+                                 "NO_COMPARATOR", "REPRISE_SIDE_UNDECLARED",
+                                 "TITLE_UNDECLARED"})
+
 #: Score at or above which two lines that share NO group are reported as an
 #: unintended rhyme. IMPORTED from `lyric_harness` since 2026-08-16 rather
 #: than re-declared here: this comment already said "the two must not
@@ -3062,14 +3074,24 @@ class Reviser:
         rep = GR.song_function_report(song, hooks=hooks,
                                       rhyme_key=GR.rime_cmudict(self.lex))
         if coverage_out is not None:
+            # Q20 charges a REQUESTED question that went unjudged. A refusal
+            # whose question has no subject in the declaration -- a verse
+            # declared once has no second time, a song with no bridge has
+            # nothing to contrast -- stays a disclosed row, not an unjudged
+            # obligation. Charging it made the planner's own seed-176 form
+            # uncertifiable (test_verbs §53).
             requested = any(section.declared for section in song.sections) or bool(hooks)
+            unjudged = [r for r in rep["refusals"] if r.code not in NO_SUBJECT_REFUSALS]
             coverage_out.append({"id": "function:draft", "layer": "function",
-                                 "status": ("refused" if rep["refusals"] else "answered")
+                                 "status": ("refused" if unjudged else "answered")
                                  if requested else "not_requested"})
             if requested:
                 for index, refusal in enumerate(rep["refusals"]):
                     coverage_out.append({"id": f"function:{refusal.code}:{index}",
-                                         "layer": "function", "status": "refused",
+                                         "layer": "function",
+                                         "status": ("not_requested"
+                                                    if refusal.code in NO_SUBJECT_REFUSALS
+                                                    else "refused"),
                                          "code": refusal.code})
             coverage_out.append({"id": "shape:draft", "layer": "shape", "status": "answered"})
         whole = []
