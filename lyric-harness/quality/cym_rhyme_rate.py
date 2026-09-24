@@ -764,6 +764,17 @@ CHECK_N = 5
 #: Doctrine 58: these are counts, and a count is a coordinate of a threshold
 #: AND of a rendering. Argue them and repin with the superseded value visible
 #: and dated (doctrine 17); do not tune `rimes()` to meet them.
+#:
+#: REPINNED 2026-09-24 -- ten figures, every one OFF the shipped reading.
+#: 7d1ded93 (PR #372, report J-1) made gwl-/gwr-/gwn-, initial ia-/io- and
+#: w before a/e/o consonantal in `Welsh.syllables()`, citing the Welsh
+#: Academy Dictionary; its commit says the calibration was not re-run. The
+#: moved rows are exactly the ones that read onsets or nuclei past the rime:
+#: depth 2, the prominence port, and REPEAT/RIME_RICHE/RHYME in §9 (an onset
+#: glide that used to be a nucleus no longer makes a pair rime riche). Every
+#: depth-1 (SHIPPED) row, every refusal count and all of §6 HOLD unchanged,
+#: so `rimes()` did not move -- the ingestion of glides did. Superseded
+#: values are kept beside each repinned literal.
 PINNED = {
     # §1 the corpus, counted -- (units, lines) per file, then the two
     # strict-metre files outside corpus/song/ as bare line counts.
@@ -779,8 +790,8 @@ PINNED = {
     # negative straddle arm. 51/51 against 0/53 is the finding this cell made.
     "s2": {"lines": 108, "couplets": 54, "straddles": 53,
            "depth 1 (SHIPPED)": (54, 51, 3, 51),
-           "depth 2 (rich grade)": (54, 51, 3, 45),
-           "prominent (ENGLISH PORT)": (54, 52, 2, 2),
+           "depth 2 (rich grade)": (54, 51, 3, 48),   # was 45 (J-1, 2026-09-24)
+           "prominent (ENGLISH PORT)": (54, 52, 2, 1),   # was 2 (J-1, 2026-09-24)
            "diacritics=keep": (54, 51, 3, 50),
            "glide=vocalic": (54, 54, 0, 52),
            "glide=consonantal": (54, 54, 0, 53),
@@ -796,8 +807,8 @@ PINNED = {
     # reading refuses 344, which is doctrine 79's point in one row.
     "s5": {"pool": 5246,
            "depth 1 (SHIPPED)": (20000, 19656, 344, 415),
-           "depth 2 (rich grade)": (20000, 19656, 344, 314),
-           "prominent (ENGLISH PORT)": (20000, 18703, 1297, 107),
+           "depth 2 (rich grade)": (20000, 19656, 344, 323),   # was 314 (J-1)
+           "prominent (ENGLISH PORT)": (20000, 18703, 1297, 123),   # was 107 (J-1)
            "diacritics=keep": (20000, 19656, 344, 403),
            "glide=vocalic": (20000, 19657, 343, 415),
            "glide=consonantal": (20000, 19657, 343, 416)},
@@ -826,22 +837,22 @@ PINNED = {
            ("cym_twm_or_nant_cywydd.txt", "diacritics=keep"):
                ((61, 17, 0), (0, 77, 0)),
            ("cym_twm_or_nant_cywydd.txt", "prominent (PORT)"):
-               ((1, 70, 7), (0, 69, 8)),
+               ((0, 71, 7), (0, 69, 8)),   # was ((1, 70, 7), ...) (J-1)
            ("cym_alun_strict.txt", "depth 1 (SHIPPED)"):
                ((289, 486, 4), (423, 348, 7)),
            ("cym_alun_strict.txt", "diacritics=keep"):
                ((289, 486, 4), (423, 348, 7)),
            ("cym_alun_strict.txt", "prominent (PORT)"):
-               ((8, 750, 21), (14, 744, 20))},
+               ((6, 752, 21), (10, 748, 20))},   # was ((8, 750, 21), (14, 744, 20)) (J-1)
     # §9 REPEAT -- (TRUE verdicts, REPEAT, RIME_RICHE, RHYME) per file.
     # The cywydd's REPEAT is 0 and the pin is on the zero: doctrine 3's trap
     # is what made `whitman.txt` ineligible, and a corpus that started
     # carrying refrains would move this row before it moved any rate.
-    "s9": {CYWYDD: (51, 0, 6, 45),
-           "cym_song_alun.txt": (89, 0, 10, 79),
+    "s9": {CYWYDD: (51, 0, 4, 47),   # was (51, 0, 6, 45) (J-1)
+           "cym_song_alun.txt": (89, 0, 9, 80),   # was (89, 0, 10, 79)
            "cym_song_hwiangerddi.txt": (521, 42, 58, 421),
-           "cym_song_mynyddog.txt": (1106, 39, 94, 973),
-           "cym_song_twm_or_nant.txt": (303, 1, 37, 265)},
+           "cym_song_mynyddog.txt": (1106, 39, 82, 985),   # was (1106, 39, 94, 973)
+           "cym_song_twm_or_nant.txt": (303, 1, 33, 269)},   # was (303, 1, 37, 265)
 }
 
 
