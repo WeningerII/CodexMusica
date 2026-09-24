@@ -273,7 +273,22 @@ def write_oracles(fresh, date, meaning):
         with open(path, "w", encoding="utf-8") as fh:
             json.dump(rec, fh, indent=2, ensure_ascii=False)
             fh.write("\n")
+        _prettier(path)
         print(f"  wrote {name}: current {rec['current']}")
+
+
+def _prettier(path):
+    """Format a written record with the repository's own Prettier, so the
+    CI `prettier --check .` gate never sees a layout this writer invented.
+    Refuses loudly rather than leaving an unformatted file behind."""
+    import subprocess
+    repo = os.path.dirname(ROOT)
+    r = subprocess.run(["npx", "--no-install", "prettier", "--write", path],
+                       cwd=repo, capture_output=True, text=True)
+    if r.returncode != 0:
+        raise SystemExit(f"REFUSED — prettier could not format {path}: "
+                         f"{(r.stderr or r.stdout).strip()[:300]} "
+                         f"(run `npm ci` at the repository root)")
 
 
 # ---------------------------------------------------------------------------
