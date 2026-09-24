@@ -57,7 +57,9 @@ families. The tier 1 counts remain 2,817 pools with at least 2 spelling classes,
 upper bounds, not proof of earned chains. All 81 required families were
 reconstructed and actually reverified under explicit class:RHYME, including
 pronunciation uncertainty and the unchanged ban. The deepest verified chain
-is **22**, held by **TWO** families, `IY` and `IY-Z`. REPINNED 2026-09-16
+is **39**, held by **ONE** family, `EH-R`. REPINNED 2026-09-24 with the
+N-relation model's re-certified artifact, superseding ~~**22**, held by
+**TWO** families, `IY` and `IY-Z`~~, which was REPINNED 2026-09-16
 with E-5, superseding a 23 that IY-Z witnessed alone; the entry names the
 three families whose committed witnesses the new ban turned dirty.
 The construction cap remains 40;
@@ -147,8 +149,10 @@ of 64 (22%). A deeper family has more pairs for the ban to land on. The three
 families this document quotes by name all moved: `AY-ER` (fire's) 28 → **27**,
 `IY` 37 → **34**, `EH-R` 33 → **31**.
 
-**Now, 2026-09-16 (E-5):** `max_chain_lo_family` is `IY`, superseding IY-Z;
-the 22-word bound is held by `IY` and `IY-Z` together. It is the largest
+**Now, 2026-09-24 (N-relation model):** `max_chain_lo_family` is `EH-R`;
+the 39-word bound is held by `EH-R` alone. Superseded (doctrine 17):
+~~2026-09-16 (E-5): `max_chain_lo_family` is `IY`, superseding IY-Z; the
+22-word bound is held jointly by IY and IY-Z~~. It is the largest
 actual witness from bounded construction, not an upper bound on the language.
 AND THE NAME IS NOW A TIE-BREAK RATHER THAN A MARGIN: `summarize` takes the
 first maximal row in table order, so re-sorting the artifact would move this
@@ -242,8 +246,9 @@ cause this time took re-grading the witnesses under both tables.
    PRIMARY and digs a distinct string per word (dictate -ictate, rotate
    -otate). Tier 1 barely binds there; the modal tier is what pinches.
 3. **Current re-adoption, 2026-09-08:** AY-ER (fire's family): 34 classes,
-   certified **16**. IY: attempts 40, certified **22**. EH-R
-   (there/care/hair): 47 classes, certified **20**. The gap now includes
+   certified **16**. IY: attempts 40, certified **35**. EH-R
+   (there/care/hair): 47 classes, certified **39**. (REPINNED 2026-09-24
+   with the N-relation model; superseded ~~IY 22, EH-R 20~~.) The gap now includes
    exact declared-relation and pronunciation refusals as well as the two-tier
    ban; it must not all be attributed to the modal tier.
 
