@@ -384,16 +384,32 @@ def _patched_battery(mode, extra=None, decl=None, *, with_refusal_details=False)
 
 # These are the original eleven lexical gaps left by the derived layers,
 # now identified separately from known-word pronunciation/schema uncertainty.
-# The letter layer guesses all but the final coordinate; its five wrong
-# guesses and the derived layers' two dialect residues remain unchanged.
+# The letter layer guesses all but the final coordinate.
+# REPINNED 2026-09-24, measured by §10's own three battery runs on this tree
+# (doctrine 17 — the superseded sets are kept here):
+#   _DERIVED_WRONG ~~{(45,9,11), (46,9,11)}~~ -> adds (49,9,11), (96,1,3)
+#   _LETTER_WRONG  ~~{(10,5,7), (41,9,11), (52,6,8), (66,1,3), (66,6,8)}~~
+#                  -> adds (26,1,3), (32,10,12)
+# THE CAUSE IS THE N-RELATION MODEL (#375, M-309), not the fallback: the
+# readings the layers supply are unchanged; what judges them moved. Measured
+# for sonnet 49 L9~L11, here/`uprear` (high layer: AH1 P R IH1 R): under
+# nucleus_agreement="scalar" the pair is {ASSONANCE, CONSONANCE, RHYME}; under
+# #375's default "licensed" (identity plus the AH~IH licence) IY~IH is no
+# longer agreement and the pair is CONSONANCE only, so the rhyme-family door
+# charges it. The other three are pairs on guessed or derived readings whose
+# rhyme now starts on the lexically stressed syllable (`wantonness`/less,
+# `vassalage`/`embassage`, age/`equipage`), none of which the rhyme family
+# admits. The comparison §10 exists for still holds and is still asserted
+# below as a ratio: letter 7/10 against derived 4/39.
 _HIGH_LEXICAL_REFUSALS = {
     (10, 5, 7), (26, 1, 3), (32, 10, 12), (38, 10, 12),
     (41, 9, 11), (52, 6, 8), (57, 9, 11), (66, 1, 3),
     (66, 6, 8), (88, 5, 7), (113, 9, 11),
 }
 _LOW_LEXICAL_REFUSALS = {(113, 9, 11)}
-_DERIVED_WRONG = {(45, 9, 11), (46, 9, 11)}
-_LETTER_WRONG = {(10, 5, 7), (41, 9, 11), (52, 6, 8), (66, 1, 3), (66, 6, 8)}
+_DERIVED_WRONG = {(45, 9, 11), (46, 9, 11), (49, 9, 11), (96, 1, 3)}
+_LETTER_WRONG = {(10, 5, 7), (26, 1, 3), (32, 10, 12), (41, 9, 11),
+                 (52, 6, 8), (66, 1, 3), (66, 6, 8)}
 
 
 def test_real_population_against_shakespeares_own_form():
@@ -485,8 +501,9 @@ def test_real_population_against_shakespeares_own_form():
     # `impannelled`/`determined` left it at M-59. Both remain what they
     # always were — declared-dialect residue, not bad guesses — and both
     # come BACK, measured, under the declared two-name door §10 now runs
-    # its cost comparison on: new_viol there is exactly [(45,9,11),
-    # (46,9,11)].
+    # its cost comparison on: new_viol there ~~is exactly [(45,9,11),
+    # (46,9,11)]~~ contains both, beside (49,9,11) and (96,1,3) since the
+    # N-relation model (2026-09-24; see `_DERIVED_WRONG`).
     new_viol = [p for p in lexical_newly if p in v1]
     check("and all 39 SATISFY the current door, as the sonnet mandates",
           len(new_viol) == 0,
@@ -527,7 +544,8 @@ def test_letter_layer_costs_more_than_it_buys():
     # makes): the two-name door is a DECLARED narrowing, the rescue defers
     # to it (`lyric_harness.admit_is_default`), and it is the door the
     # original 50.0%-vs-5.1% measurement was made under — re-measured
-    # here, it reproduces to the decimal (5/10 against 2/39, 9.8x).
+    # here, it reproduced to the decimal (~~5/10 against 2/39, 9.8x~~; 7/10
+    # against 4/39, 6.8x since 2026-09-24 under the rhyme family below).
     # THE RHYME FAMILY, 2026-09-22 (the N-relation model): the historical
     # two-name door's equivalent is `RHYME_RELATIONS`, because a rhyme on a
     # PROMOTED final syllable — which the two names covered when it was
@@ -535,6 +553,9 @@ def test_letter_layer_costs_more_than_it_buys():
     # under ("RHYME", "RIME_RICHE") alone the derived layers go 2/39 -> 11/39
     # wrong, every added pair a promoted-final rhyme the narrower door no
     # longer names; under the rhyme family the pinned sets reproduce exactly.
+    # SUPERSEDED 2026-09-24: under the rhyme family the pinned sets no longer
+    # reproduce exactly once nucleus_agreement="licensed" is the default;
+    # each grew by two, repinned with the cause at `_DERIVED_WRONG`.
     _door = lh.Declaration(admit=tuple(sorted(lh.RHYME_RELATIONS)))
     m0, j0, r0, v0, details0 = _patched_battery(None, decl=_door, with_refusal_details=True)
     m1, j1, r1, v1 = _patched_battery("high", decl=_door)
@@ -558,8 +579,10 @@ def test_letter_layer_costs_more_than_it_buys():
           and r2 == uncertainty | _LOW_LEXICAL_REFUSALS
           and only_letter == _HIGH_LEXICAL_REFUSALS - _LOW_LEXICAL_REFUSALS,
           f"{len(uncertainty)} unresolved known readings; total refused {len(r1)} -> {len(r2)}")
-    check("the exact two derived dialect residues and five wrong letter guesses remain",
-          set(derived_wrong) == _DERIVED_WRONG and set(lv) == _LETTER_WRONG)
+    # Renamed 2026-09-24 with the repin: ~~two~~ four, ~~five~~ seven.
+    check("the exact four derived-layer residues and seven wrong letter guesses remain",
+          set(derived_wrong) == _DERIVED_WRONG and set(lv) == _LETTER_WRONG,
+          f"derived {sorted(derived_wrong)}; letter {sorted(lv)}")
     check("and about half of what it alone judges does NOT rhyme",
           only_letter and l_rate >= 0.4,
           f"{len(lv)}/{len(only_letter)} = {l_rate:.0%} violations among the "

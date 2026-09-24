@@ -3694,9 +3694,12 @@ rather than this paragraph — a roster copied into two files drifts in both.
    shipped default (`min_confidence="high"`); only `"low"` reaches the
    letter-to-sound layer, which `test_g2p.py`'s
    `test_letter_layer_costs_more_than_it_buys` measures as net harmful (it
-   answers Shakespeare's own real refusals wrong **50.0%** of the time — 5 of
-   the 10 pairs only it can judge — against **5.1%** for the derived layers,
-   2 of 39, a **9.8x** gap. REPINNED 2026-08-13, and ~~"about 40% ... against
+   answers Shakespeare's own real refusals wrong ~~**50.0%**~~ **70.0%** of the
+   time — ~~5~~ 7 of the 10 pairs only it can judge — against ~~**5.1%**~~
+   **10.3%** for the derived layers, ~~2~~ 4 of 39, a ~~**9.8x**~~ **6.8x** gap
+   (REPINNED 2026-09-24 from `test_g2p.py` §10's run under the rhyme-family
+   door: #375's N-relation model, `nucleus_agreement="licensed"` above all,
+   charges two more pairs in each arm; the kind difference stands). REPINNED 2026-08-13, and ~~"about 40% ... against
    ~3%"~~ were BOTH stale by the same 2026-08-11 coda-identity fix that moved
    §9 from 38/39 to 37/39 and never reached §10's MESSAGE STRING, which quoted
    the literal `1/39 = 3%` — doctrine 48 inside an f-string. §10 now COMPUTES
