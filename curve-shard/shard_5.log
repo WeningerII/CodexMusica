@@ -1,0 +1,4 @@
+CACHE  ../curve-shard/cache_5.tsv
+       fingerprint 86812956db1e | new (no file yet) | hits 0, misses 0
+POPULATION  216 files, 216 distinct authors, 1086 items, 34717 sung lines
+COMPUTE  shard 5/6: 216 files, 1086 rows -> ../curve-shard/rows_5.tsv; cache hits 0 misses 1086; 2861 CPU-s, 2902 wall-s
