@@ -994,13 +994,18 @@ def drafts(stream=sys.stdout):
     from quality.song_record import songs as _songs
 
     def fp_of(path):
-        # A banked draft holds exactly the graded lines, one per row, so the
-        # literal reader is the identity on it -- including a `[Verse]` row
-        # a literal-input verb graded, which the corpus reader would drop.
-        try:
-            return draft_fingerprint(LH.load_draft_lines(path))
-        except (OSError, UnicodeDecodeError):
-            return None
+        # -> the fingerprints a grading verb could have printed for this file,
+        # one per declared input format. A verb run before A-3 (PR #372) read
+        # the source form, one after it the literal form, so a committed lyric
+        # with `[Section]` marks is recoverable under the first and a banked
+        # draft holding a graded `[Verse]` row matches only the second.
+        out = set()
+        for fmt in ("literal", "source"):
+            try:
+                out.add(draft_fingerprint(LH.load_draft_lines(path, input_format=fmt)))
+            except (OSError, UnicodeDecodeError):
+                pass
+        return out
 
     names = sorted(os.path.basename(x) for x in _songs())
     for f in sorted(os.listdir(SONGS)):
@@ -1015,7 +1020,7 @@ def drafts(stream=sys.stdout):
         if not rows:
             continue
         committed = os.path.join(SONGS, song)
-        here = fp_of(committed) if os.path.exists(committed) else None
+        here = fp_of(committed) if os.path.exists(committed) else set()
         # ONE LINE PER (song, md5), COUNTED IN ROWS. The question is about a
         # set of BYTES and a `song`/`revise` pair naming the same draft is one
         # artifact seen twice; the count stays on rows because the assertion
@@ -1037,7 +1042,7 @@ def drafts(stream=sys.stdout):
             md5, said = grp["md5"], grp["said"]
             where = "step " + ", ".join(grp["where"])
             path = draft_path(song, md5)
-            if os.path.exists(path) and fp_of(path) == md5:
+            if os.path.exists(path) and md5 in fp_of(path):
                 if said and os.path.normpath(os.path.join(ROOT, said)) != \
                         os.path.normpath(path):
                     verdict, why = "FAILING", (
@@ -1045,7 +1050,7 @@ def drafts(stream=sys.stdout):
                         % (said, os.path.relpath(path, ROOT)))
                 else:
                     verdict, why = "BANKED", os.path.relpath(path, ROOT)
-            elif md5 == here:
+            elif md5 in here:
                 verdict, why = "RECOVERABLE", ("no draft file; the committed "
                                                "lyric IS these bytes")
             elif grp["measured"] < DRAFT_BANKING_SINCE:
