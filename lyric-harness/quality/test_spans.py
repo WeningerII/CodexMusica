@@ -357,12 +357,20 @@ def test_the_consumers_print_it():
     # so the witness moved, MEASURED over all 152 sonnets, to sonnet 14,
     # whose chain rests on `minutes tell` ~ `rain and wind`: a multi-word
     # span on both sides behind a mean labelled with bare end words.
+    # RE-MEASURED 2026-09-24 on the merged tree (#375's N-relation model with
+    # its shipped defaults — `nucleus_agreement="licensed"`, ASSONANCE cut
+    # 0.75 — plus #377): the witness above was never observed on this tree.
+    # The same all-152-sonnets `infer_chains` sweep finds sonnet 14's chain
+    # find/derive/thrive resting on `heaven find` ~ `-together thrive`
+    # (MOSAIC both sides), so sonnet 14 stays the witness and only the words
+    # move. superseded: `minutes tell` ~ `rain and wind` (2026-09-22).
     import battery
     s14 = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))[13]
     got = [m for c in lh.infer_chains(LEX, s14, DECL)
            for m in c["mosaic_pairs"]]
     check("...and on a real chain it names the mosaic pairs behind the mean",
-          any("minutes tell" in m["note"] and "rain and wind" in m["note"]
+          any("heaven find" in m["note"] and "together thrive" in m["note"]
+              and "MOSAIC (both sides)" in m["note"]
               for m in got),
           str([m["note"] for m in got][:1]))
 
