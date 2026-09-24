@@ -2741,6 +2741,14 @@ jobs:
       # agree. MEASURED over the maintained battery: 2 of 17 rescues read as
       # end rhyme and 15 do not, so nearly nine in ten were being printed
       # under a heading a reader takes as end rhyme.
+      # REPINNED 2026-09-24 under the N-relation model: ~~2 of 17~~ 2 of 31
+      # (29 not audible). A "rescue" is now the pair satisfied by a schema and
+      # by NO coarse relation -- both halves are asked of every pair, so the
+      # word names a set, not an order -- and the runner reads that set by
+      # membership, because `pairs_schema_satisfied` now lists EVERY pair
+      # standing in a schema (the 924 this step first reported red on). The
+      # 14 entrants were coarse RHYME passes before the licensed-nucleus
+      # default; per-pair attribution in the runner's PINNED note.
       #
       # IT IS HERE BECAUSE IT HOLDS A PIN AND A PIN ASKED BY NOTHING IS NOT A
       # PIN. `pin_sweep` counted 30 pin-holding files against 23 named in CI
@@ -2768,6 +2776,12 @@ jobs:
       # as evidence. The pin is here because the DISTRIBUTION moving is worth
       # a red: a rescue at a new distance means the population that refusal
       # describes has changed.
+      # REPINNED 2026-09-24 under the N-relation model: ~~17, all at 2~~ 31,
+      # 29 at distance 2 and 2 at distance 1 (both closing couplets that were
+      # coarse RHYME passes before the licensed-nucleus default). The red
+      # first reported 924 because the runner read `pairs_schema_satisfied`,
+      # which now lists every pair standing in a schema; it reads
+      # `schema_end_reading.schema_only()` now. E2 still fires.
       - name: The schema door's rescues by line distance, and why the sonnets cannot answer
         if: ${{ always() && matrix.shard == 2 }}
         working-directory: lyric-harness

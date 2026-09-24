@@ -51,8 +51,32 @@ RETENTION_FLOOR = 0.990
 #: refused. The pin is banked anyway, because the distribution moving is
 #: itself worth a red -- a rescue appearing at distance 1, or the count
 #: leaving 17, means the population this refusal describes has changed.
+#:
+#: ~~{"rescues": 17, "by_distance": {2: 17}}~~ REPINNED 2026-09-24 ->
+#: {"rescues": 31, "by_distance": {2: 29, 1: 2}}, THE N-RELATION MODEL (#375,
+#: integrated by #380). Superseded rather than overwritten (doctrine 17), and
+#: the red did exactly what the paragraph above banked it for -- the count
+#: left 17 and a rescue appeared at distance 1 -- but it first fired on the
+#: WRONG population, and that is recorded before the right one:
+#:   * CI measured {"rescues": 924, "by_distance": {2: 782, 1: 142}}. That was
+#:     not a rescue count. `pairs_schema_satisfied` became EVERY judged pair
+#:     standing in a schema once every pair is asked every relation, and this
+#:     file read it as the rescued subset. Repinning 924 would have banked a
+#:     count whose meaning had changed.
+#:   * The rescue population is now read from `schema_end_reading.
+#:     schema_only()` -- satisfied by a schema and by no coarse relation, the
+#:     registration's set defined by membership rather than by order -- so
+#:     both runners name one set (doctrine 1).
+#: RE-MEASURED over that set: 31, of which 29 at distance 2 and 2 at
+#: distance 1. The 17 are all still there; the 14 entrants were coarse RHYME
+#: passes before `nucleus_agreement` defaulted to "licensed" (per-pair
+#: attribution in `schema_end_reading.PINNED`'s note), and the two at
+#: distance 1 are both entrants, both closing couplets (advance/ignorance,
+#: monument/spent). E2 STILL FIRES: the mandate's furthest binding is still
+#: 2, so retention is still 100% by construction and still refused as
+#: evidence for a window.
 PINNED = {
-    "sonnets": {"rescues": 17, "by_distance": {2: 17}},
+    "sonnets": {"rescues": 31, "by_distance": {2: 29, 1: 2}},
 }
 
 
@@ -61,7 +85,10 @@ def rescue_distances(population="sonnets"):
 
     Reuses `schema_end_reading`'s route rather than opening a second one: it
     reads `check_scheme`'s own report, which is the battery's route and the
-    one `Reviser.grade` shares (doctrine 1).
+    one `Reviser.grade` shares (doctrine 1). AND ITS DEFINITION OF A RESCUE,
+    `schema_only()`, since 2026-09-24: the report's `pairs_schema_satisfied`
+    lists every pair standing in a schema under the N-relation model, not the
+    rescued subset, and reading it raw is what turned this pin red at 924.
     """
     from quality import schema_end_reading as SER
     lex = LH.Lexicon()
@@ -83,7 +110,7 @@ def rescue_distances(population="sonnets"):
                 mand[b - a] += 1
     for sn in SER.sonnet_units():
         rep = LH.check_scheme(lex, sn, scheme, decl)
-        for r in (rep.get("pairs_schema_satisfied") or ()):
+        for r in SER.schema_only(rep):
             i, j = r["lines"][0], r["lines"][1]
             d = abs(int(j) - int(i))
             dist[d] += 1
