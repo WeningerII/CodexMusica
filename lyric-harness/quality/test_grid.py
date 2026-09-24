@@ -3183,10 +3183,21 @@ def test_the_cli_reads_the_marks_it_used_to_delete():
                 found.add(name)
         return found, refused
     marked, old, absent = inventory(cst), inventory(cold), inventory(fst)
-    unsupported = {"cynghanedd sain", "cynghanedd sain gadwynog",
-                   "cynghanedd sain lafarog", "平仄 tonal template"}
+    # REPOINTED 2026-09-24: #375 (the N-relation model, b42287af) gave the
+    # three sain figures EXECUTABLE token-member bindings —
+    # `relations.TOKEN_MEMBER_SHAPES`, judged per line by `_token_figures` —
+    # so they are no longer unbound and are JUDGED on every fixture (two of
+    # them are found on the marked/old readers of the Knight lyric). The
+    # only unbound template left is the 平仄 one, which reads a pattern only
+    # `declare_tonal_template` supplies, and none of these fixtures declares
+    # one. superseded: unsupported = {sain, sain gadwynog, sain lafarog,
+    # 平仄 tonal template} (#319). Two-sided: the sain family must now be
+    # OUT of every refusal set, so a regression that unbinds them fails.
+    unsupported = {"平仄 tonal template"}
+    bound_sain = set(_R.TOKEN_MEMBER_SHAPES)
     check("full figure findings and refusals are disjoint, and unbound templates refuse in every fixture",
           all(not found & refused and unsupported <= refused
+              and not bound_sain & refused
               for found, refused in (marked, old, absent)),
           [(len(found),len(refused)) for found,refused in (marked,old,absent)])
     frame_sensitive = {name for name, sch in _R.all_schemas().items()

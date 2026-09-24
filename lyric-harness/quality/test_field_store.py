@@ -239,7 +239,21 @@ field_base.field(SECOND)          # a second row, for the bound in section 6
 #: `coda_empty_evidence` and `scalar_alignment`. `scalar_alignment` is used
 #: here rather than a threshold on purpose: a key built from the thresholds
 #: somebody remembered would still be wrong about this one.
-MOVED = dataclasses.replace(BASE, scalar_alignment="tail")
+#:
+#: RE-MEASURED 2026-09-24 under #375's N-relation defaults
+#: (`nucleus_agreement="licensed"`, `theta_by_relation` ASSONANCE 0.75,
+#: `conjunctive_band`, `final_promotion`), same probe — section 4's
+#: `alternative()` per coordinate, `rain`/`stove`/`day` re-scored: still
+#: 22 coordinates, still FIVE move a field, but a different five —
+#: ~~`channel_weights`, `trailing_syllable_penalty`, `theta_rhyme`,
+#: `coda_empty_evidence`, `scalar_alignment`~~ `admit`,
+#: `channel_weights`, `conjunctive_band`, `coda_agreement` and
+#: `nucleus_agreement`. `scalar_alignment="tail"` now leaves all three
+#: fields byte-identical (rain 1925 vs 1925 candidates), so it could no
+#: longer witness a WRONG ANSWER. `coda_agreement` replaces it for the same
+#: reason it was chosen: a comparator MODE, not a threshold (rain 1925 ->
+#: 2236 candidates under "scalar").
+MOVED = dataclasses.replace(BASE, coda_agreement="scalar")
 field_moved = RhymeField(LEX, MOVED)
 status_moved = FS.attach(field_moved, database=DB3)
 answer_moved = field_moved.field(WORD)

@@ -739,6 +739,14 @@ def s15_blocker_kinds():
         "orthography": (lambda word: word[-2:],),
         "lifts": ({0: (0, 2), 1: (0, 2)},),
         "beat": ({0: (0, 2), 1: (0, 2)},),
+        # ADDED 2026-09-24: #375 (the N-relation model, b42287af) declared a
+        # fourth `declare` blocker, `tonal_template` -> `relations.
+        # declare_tonal_template`, for the 平仄 template figure it made
+        # executable. The equality check above is what caught that it had no
+        # witness; this row is its behavioural one — a {0-based line: pattern}
+        # of `TONE_MARKS`, which must take `supply('tonal_template')` from
+        # absent to present on the same fixture as the other three.
+        "tonal_template": ({0: "平仄平仄"},),
     }
     declared = {c for c, b in N.BLOCKER_RECORDS.items() if b.kind == "declare"}
     check("§15 every declare blocker has a behavioral witness", declared == set(fixtures))

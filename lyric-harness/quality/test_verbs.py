@@ -4416,10 +4416,24 @@ def test_a_song_wide_relation_may_not_stand_beside_a_structure():
         # BOTH, so neither coordinate can win in silence. Asserted by the
         # structured group B being CHARGED under the song-wide relation
         # while its structure is still disclosed.
+        #
+        # EXIT CODE CORRECTED 2026-09-24: the repoint above asserted `rc == 3`,
+        # but `brief` is the advisory verb and exits 0 on a graded draft
+        # whatever its flags — only `song`'s gates (and `plan`'s refusals)
+        # exit 3; the CONTROL check in `test_the_structures_spelling_reaches_the_verbs`
+        # already pins `rcr == 0` beside a SCHEME_VIOLATION flag. The charge
+        # is asserted on the MACHINE RESULT instead: certified coverage and a
+        # FLAG SCHEME_VIOLATION on exactly [3, 4] — the structured group —
+        # so the check still fails if the relation is dropped for group B.
+        _res = _machine_result(out)
+        _flags = [(f["code"], f["locations"]) for f in _res.get("findings", [])
+                  if f.get("severity") == "flag"]
         check("...and declaring a SONG-WIDE relation beside it JUDGES BOTH: "
               "the structured group's pair is charged under the relation "
               "while the structure is still graded and disclosed",
-              rc == 3 and "L3 and L4 are both in group B" in out
+              rc == 0 and _res.get("coverage", {}).get("certified") is True
+              and ("SCHEME_VIOLATION", [3, 4]) in _flags
+              and "L3 and L4 are both in group B" in out
               and "'type:pararhyme'" in out
               and "STRUCTURE_UNCALIBRATED" in out)
         check("...naming both coordinates, so the caller can see which two "
