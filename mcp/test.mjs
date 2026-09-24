@@ -4351,7 +4351,6 @@ await check('validation: actionable errors', () => {
       'mcp/test_chatgpt.mjs': 'offline ChatGPT session adapter regressions',
       'mcp/test_release_gates.mjs': 'offline verified CI and battery acceptance regressions',
       'mcp/test_run_continuation.mjs': 'offline real run continuation regressions',
-      'mcp/test_high_report.mjs': 'offline native regressions for the 2026-09-22 report repairs',
       'mcp/test_writer_work_budget.mjs': 'real native writer candidate-work admission regression',
       'mcp/test_deferred_continuation.mjs': 'real deferred provider recovery regression',
       'mcp/test_state_codec.mjs': 'offline portable state codec regressions',
