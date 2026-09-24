@@ -43,7 +43,8 @@ from lyric_harness import Declaration  # noqa: E402
 #: the fixtures, the pre-b1d7f64 comparator and the probe all live in the
 #: runner that measured them, so the test and the measurement cannot drift
 #: apart -- and its Lexicon is reused rather than loaded twice.
-from quality.fwer_family import (LEX, REAL, SATURATED,  # noqa: E402
+from quality.fwer_family import (GRID_NUCLEUS, LEX, REAL,  # noqa: E402
+                                 SATURATED, SCALAR_NUCLEUS_GUARD,
                                  TAIL_ALIGNED, head_agreement, probe,
                                  scrambled_sonnets)
 from quality.time_layer import (TimeDeclaration, _bh,  # noqa: E402
@@ -52,6 +53,16 @@ from quality.time_layer import (TimeDeclaration, _bh,  # noqa: E402
 
 FAILURES = []
 DECL = Declaration()
+#: The SCALAR nucleus, DECLARED (2026-09-24). The N-relation model (#375)
+#: moved the shipped `nucleus_agreement` to "licensed"; the checks below that
+#: need the pre-#375 nucleus shape -- the head-vs-tail contrast, which
+#: `head_agreement` refuses to run at any other shape, and the demonstrations
+#: of the family defect, whose size is a property of how much the band
+#: passes -- run at this declaration and say so. Paired with the guard
+#: measured AT this band (`fwer_family.SCALAR_NUCLEUS_GUARD`), because the
+#: shipped guard is a coordinate of the licensed band and refuses every item
+#: under a scalar nucleus.
+SCALAR = Declaration(nucleus_agreement=GRID_NUCLEUS)
 
 #: How many word-scrambled sonnets the alpha claim is measured on. Doctrine 72:
 #: "5.4% against 5.0%" was six sonnets and the guarding test used three with a
@@ -116,11 +127,30 @@ def test_a_per_pair_threshold_cannot_control_a_family():
     # per-pair false-positive rate r is an event with probability 1-(1-r)^m,
     # and BOTH r and m are measurable from the item under whatever band is
     # declared. Assert the arithmetic, not last month's answer.
-    t = TimeDeclaration(theta=0.80, window=32)
-    p = probe(REAL, DECL, t)
+    #
+    # UPDATED 2026-09-24: run at a DECLARED scalar nucleus. Under the licensed
+    # default (#375) the per-pair FPR r falls 0.0105 -> 0.0041 on this item
+    # and 1-(1-r)^m reads 37.4% -- still 7.5x alpha, the defect is not gone,
+    # and that is asserted on the shipped band below. The "far past alpha"
+    # check keeps its 10x and demonstrates the defect where the band passes
+    # enough for it to be large (70.0% at scalar), the same move section 2
+    # made with `coda_agreement`: the claim is about a per-pair threshold,
+    # not about which nucleus shape ships.
+    t = TimeDeclaration(theta=0.80, window=32,
+                        max_null_band_pass=SCALAR_NUCLEUS_GUARD)
+    p = probe(REAL, SCALAR, t)
     r, m = p["r"], p["m_cand"]
     predicted = p["predicted_none"]
-    check("the declaration implies a per-position error far past alpha",
+    ts = TimeDeclaration(theta=0.80, window=32)
+    ps = probe(REAL, DECL, ts)
+    check("on the SHIPPED licensed band the implied per-position error is "
+          "still past alpha, and observed saturation tracks it",
+          ps["predicted_none"] > ts.alpha
+          and ps["sat_none"] >= 0.5 * ps["predicted_none"],
+          f"1-(1-r)^m = {ps['predicted_none']:.1%} with r={ps['r']:.4f}, "
+          f"m={ps['m_cand']}; observed uncorrected {ps['sat_none']:.1%}")
+    check("the declaration implies a per-position error far past alpha "
+          "(declared nucleus_agreement='scalar')",
           predicted > 10 * t.alpha,
           f"1-(1-r)^m = {predicted:.1%} with r={r:.4f} (per-pair FPR at "
           f"theta={t.theta}, over ALL valid chance draws) and m={m} "
@@ -152,18 +182,31 @@ def test_the_family_is_measured_over_the_comparisons_made():
     # `theta_coda=0.60` vs `0.80` alone no longer moves the band's admittance
     # rate, and this check's whole claim depends on the band actually
     # tightening between the two declarations.
-    loose = Declaration(theta_coda=0.60, coda_agreement="scalar")
-    tight = Declaration(theta_coda=0.80, coda_agreement="scalar")
-    bad_l, _m, _d = h0_rate(loose, family="scored")
-    bad_t, _m, _d = h0_rate(tight, family="scored")
+    # UPDATED AGAIN 2026-09-24: `nucleus_agreement="scalar"` declared too,
+    # for the same reason. Under the licensed default (#375) the nucleus
+    # predicate already admits so little that tightening the coda barely
+    # moves the scored family: MEASURED on this tree, family='scored' reads
+    # 70.8% at 0.60 and 65.6% at 0.80 -- a false-event rate 13x alpha at
+    # both, so the defect is present, but it no longer MOVES with theta_coda
+    # and this check's claim is that it does. At a declared scalar nucleus it
+    # is 16.5% -> 40.6%. The guard is the one measured at that band
+    # (`SCALAR_NUCLEUS_GUARD`); the shipped 0.0252 refuses every scalar item
+    # and would turn this into a refusal count.
+    guard = dict(max_null_band_pass=SCALAR_NUCLEUS_GUARD)
+    loose = Declaration(theta_coda=0.60, coda_agreement="scalar",
+                        nucleus_agreement=GRID_NUCLEUS)
+    tight = Declaration(theta_coda=0.80, coda_agreement="scalar",
+                        nucleus_agreement=GRID_NUCLEUS)
+    bad_l, _m, _d = h0_rate(loose, family="scored", **guard)
+    bad_t, _m, _d = h0_rate(tight, family="scored", **guard)
     check("the defect is reachable and moves with the band",
           bad_t > 2 * bad_l,
           f"family='scored': H0 false-event rate {bad_l:.1%} at theta_coda "
           f"0.60 -> {bad_t:.1%} at 0.80. A TIGHTER band gives a HIGHER "
           f"corrected error rate, which is the signature of an m that is "
           f"counted downstream of the filter")
-    good_l, mute_l, _d = h0_rate(loose, family="candidate")
-    good_t, mute_t, _d = h0_rate(tight, family="candidate")
+    good_l, mute_l, _d = h0_rate(loose, family="candidate", **guard)
+    good_t, mute_t, _d = h0_rate(tight, family="candidate", **guard)
     check("counting the candidates makes the rate invariant to the band",
           abs(good_t - good_l) <= 0.02,
           f"family='candidate': {good_l:.1%} at theta_coda 0.60, "
@@ -249,23 +292,39 @@ def test_a_saturated_inventory_says_cannot_tell():
     # was dead while every test still passed. The threshold was stale, not the
     # guard -- shown from the null's own distribution over 30 sonnets, where
     # real verse runs 0.042-0.076 and the old reference "~0.10" is also stale.
-    for align, fn in (("tail (shipped)", TAIL_ALIGNED),
-                      ("head (pre-b1d7f64)", head_agreement)):
+    #
+    # UPDATED 2026-09-24. `head_agreement` replicates the pre-b1d7f64 SCALAR
+    # nucleus and refuses any other shape (it raised here once the default
+    # became "licensed" under #375). So the shipped comparator is checked
+    # at the shipped declaration and guard, and the head-vs-tail CONTRAST is
+    # run at a DECLARED scalar nucleus with the guard measured at that band
+    # (`SCALAR_NUCLEUS_GUARD`) -- the path the refusal itself names. Both
+    # alignments of the contrast share one declaration, so it still isolates
+    # alignment and nothing else.
+    for align, fn, decl, guard in (
+            ("tail (shipped, licensed nucleus)", TAIL_ALIGNED, DECL,
+             t.max_null_band_pass),
+            ("tail (declared scalar nucleus)", TAIL_ALIGNED, SCALAR,
+             SCALAR_NUCLEUS_GUARD),
+            ("head (pre-b1d7f64, declared scalar nucleus)", head_agreement,
+             SCALAR, SCALAR_NUCLEUS_GUARD)):
         LH.channel_agreement = fn
         try:
-            _s, _n, _sl, det = run(SATURATED)
-            _s2, _n2, _sl2, det_real = run(REAL)
+            _s, _n, _sl, det = run(SATURATED, decl,
+                                   max_null_band_pass=guard)
+            _s2, _n2, _sl2, det_real = run(REAL, decl,
+                                           max_null_band_pass=guard)
         finally:
             LH.channel_agreement = TAIL_ALIGNED
         check(f"the degenerate item is refused under {align}",
               "refused" in det, (det.get("refused") or "")[:110])
         check(f"the refusal reports a band-pass rate above the guard "
               f"under {align}",
-              det.get("null_band_pass_rate", 0) > t.max_null_band_pass,
+              det.get("null_band_pass_rate", 0) > guard,
               f"{det.get('null_band_pass_rate', 0):.3f} against a guard of "
-              f"{t.max_null_band_pass:.3f}")
+              f"{guard:.3f}")
         check(f"real verse is nowhere near the guard under {align}",
-              det_real.get("null_band_pass_rate", 1.0) < t.max_null_band_pass,
+              det_real.get("null_band_pass_rate", 1.0) < guard,
               f"{det_real.get('null_band_pass_rate', 0):.3f}")
 
 
@@ -421,13 +480,26 @@ def test_the_two_named_levers_are_dead():
         need = sorted(r["m_needed"] for r in rs)[len(rs) // 2]
         if crossing is None and med <= need:
             crossing = w
-    check("the window only reaches the range once it is no wider than a span",
-          crossing is not None and crossing <= t.max_span,
+    # REPINNED 2026-09-24, measured on this tree (first three sonnets, the
+    # sweep above): ~~the crossing is at window 2 <= max_span 3~~ -> NO window
+    # in the sweep reaches the range. At window 2 the p50 family is 8 against
+    # a p50 M_NEEDED of 6 (was 10 before #375: 0c9a90ad measures m_needed
+    # 10/7/10 there, 8/6/5 here, with m_med unchanged at 8/11/7). Cause: the
+    # N-relation model (#375) -- the same under a declared scalar nucleus, so
+    # it is the candidate door and relation sets, not `nucleus_agreement`;
+    # min_p rose, so the family at which the best pair still fires shrank.
+    # The lever this section refutes is DEADER, not alive, and the check is
+    # still two-sided: any window in the sweep reaching the range fails it
+    # and has to be re-read (at <= max_span it is the old adjacent-echo
+    # shape, RESULTS_FWER.md lever 2; wider would be a live lever).
+    check("no window in the sweep reaches the range -- not even one no wider "
+          "than a span (~~crossing at window 2 <= max_span 3~~, #375)",
+          crossing is None,
           f"the median family first drops to M_NEEDED at window {crossing}, "
-          f"against max_span={t.max_span}. A window that small admits only "
-          f"pairs whose two anchors are ADJACENT, so the setting that lets the "
-          f"layer speak is the setting at which it is no longer measuring "
-          f"rhyme at a distance")
+          f"against max_span={t.max_span}. Even a window that admits only "
+          f"pairs whose two anchors are ADJACENT -- the setting at which the "
+          f"layer would no longer be measuring rhyme at a distance -- does "
+          f"not let it speak")
     check("and min_p does not move with the window, so nothing was bought",
           abs(m_needed(probe(son[0], TimeDeclaration(theta=0.80, window=4))
                        ["min_p"]) -
