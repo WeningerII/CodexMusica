@@ -2215,7 +2215,7 @@ def test_caesura_layer_reconciled():
           round(scan_mean, 1) == 10.6,
           f"{scan_mean:.4f} over the same 1,558 lines. "
           f"`python3 quality/cynghanedd_rate.py corpus/cym_alun_strict.txt 1` "
-          f"prints `mean placements tried = 10.6` beside `890/1558 = 57.1%`, "
+          f"prints `mean placements tried = 10.6` beside `868/1558 = 55.7%`, "
           f"which is METHOD doctrine 56's own Alun figure.")
     check("...and the gap is exactly the THREE-part sain cuts: mean of "
           "k + C(k,2) lands on the scanner's number",
