@@ -15317,8 +15317,13 @@ the last place still stating the old one (doctrine 17/58).
 candidate is refused by a NAMED sub-bin — 50-400 and 100-800 and 200-500 on
 mattr, 100-400 on anaphora, ~~150-400~~ and 150-450 on predictability.
 
-**SUPERSEDED 2026-09-04, PINNED HERE 2026-09-05 (M-239).** The 200-400 band is
-still the `song` row's own band and its drift check still re-derives it, but
+**SUPERSEDED 2026-09-04, PINNED HERE 2026-09-05 (M-239).** The ~~200-400 band is
+still~~ 200-400 band WAS the `song` row's own band until 2026-09-24 — **the
+N-relation comparator (M-309, #375; PR #380) moved this entry's one refusal
+away: the 150-200 predictability sub-bin now reads 0.9286 against a band-wide
+0.9286, so the same five-check rule returns 150-400 again and the row was
+re-adopted there as a set** (3,533 items, `quality/RESULTS_SONG_FLOOR.md`
+§10a) — and its drift check still re-derives it, but
 the row is not applied to anything: `Profile.superseded_by="lyric"`, and
 `declaration_for` picks from `live_profiles()` — `section`, `sonnet`, `lyric`.
 The live lyric-sheet profile is `lyric`, 4-3,245 tokens over 8,667 items, whose
@@ -23498,7 +23503,8 @@ each 200-seed fit ~25 min.
   tie-break still hands a 14-line 118-token text to the sonnet.
 * `CLICHE_PAIR` reads no percentile, and under a profile whose range is the
   corpus `exact` is true at 25 tokens and 2,000: it is a FLAG only at
-  lengths where a band row measured its rate (50–150, 200–400) or under a
+  lengths where a band row measured its rate (50–150, ~~200–400~~ 150–400
+  since the `song` row's 2026-09-24 re-adoption) or under a
   stanza profile as before, a NOTE elsewhere that says so; its per-bin
   rate over 4–3,245 is OWED here.
 * The planner's envelope reads live sheet profiles: `song_line_counts`

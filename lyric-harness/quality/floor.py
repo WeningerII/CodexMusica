@@ -827,10 +827,46 @@ PROFILES = [
  'this fix. Historical note (previous tokenizer and calibration): The domain the ten '
  'pre-registered features were run on.')),
     Profile(
-        name="song", unit='whole lyric sheet, 200-400 tokens',
-        lo=200, hi=400, n_lines=0, n_human=2231, n_generated=0,
+        name="song", unit='whole lyric sheet, 150-400 tokens',
+        lo=150, hi=400, n_lines=0, n_human=3533, n_generated=0,
         superseded_by="lyric",  # 2026-09-04, M-239: the length-curve profile below
         tolerance=1.25,
+        #: RE-ADOPTED 2026-09-24 AS A SET, AND THE BAND MOVED BACK FOR THE
+        #: REASON IT MOVED ON 2026-08-26. The N-relation comparator (M-309,
+        #: #375; landing through PR #380; fingerprint 1e2d0c2dc62c) changed
+        #: predictability item by item, and the five-check band rule in
+        #: `song_profile_calibration.HOM` now answers 150-400: the 150-200
+        #: sub-bin's predictability 95th percentile reads 0.9286 against a
+        #: band-wide 0.9286 (|d| 0.0000 <= 0.05), where on 2026-08-26 it read
+        #: 1.0000 against 0.9375 and was the ONE refusal that moved the band
+        #: 150-400 -> 200-400 (M-131; the block below). The rule is unchanged;
+        #: its answer changed. Every candidate is still refused by a named
+        #: sub-bin except 150-400 and 200-400, and 150-400 is the wider.
+        #: `lo` ~~200~~ 150; the population is ~~2,231~~ 3,533 items over
+        #: ~~663~~ 878 authors, and the other values follow it. MEASURED, not
+        #: inferred: over the old 200-400 the four cheap thresholds re-derive
+        #: to the digit under the new comparator (predictability reads 0.9231
+        #: there against 0.9286), so the population moved and they did not.
+        #: Superseded -> adopted: mattr ~~0.717809720727355~~
+        #: 0.7127694818441452, fwr ~~0.47871873227323464~~ 0.4776852961798566,
+        #: cv ~~0.11080070804250827~~ 0.10939281388850974; anaphora 0.3 and
+        #: predictability 0.9285714285714286 unmoved. Held-out FPR, median
+        #: [5th-95th]: mattr ~~5.05 [2.75-7.95]~~ 4.68 [2.87-8.43], fwr ~~5.13
+        #: [3.23-8.43]~~ 4.92 [3.14-7.52], anaphora ~~4.83 [2.94-7.82]~~ 4.71
+        #: [2.92-7.28], cv ~~5.10 [3.32-7.16]~~ 5.09 [3.58-6.73],
+        #: predictability ~~5.05 [2.66-7.41]~~ 4.69 [2.87-6.79], ANY ~~20.13
+        #: [15.42-24.48]~~ 19.25 [14.47-25.12], cliche ~~7.62 [6.05-9.05]~~
+        #: 6.78 [5.41-7.89]. Anaphora period slope ~~(-0.021, 0.7097)~~
+        #: (-0.014, 0.7868) in `song_profile_calibration.PROFILE_PERIOD`.
+        #: ONE LIVE CONSEQUENCE, because this row is superseded for its
+        #: PERCENTILES but not for its CLICHE rate: `cliche_rate_rows()` reads
+        #: the rated band by `covers()`, so CLICHE_PAIR may flag on a sheet of
+        #: 150-199 tokens again (as it did before 2026-08-26), at the 6.78%
+        #: now measured over 150-400. Measured from the committed N-relation
+        #: rows by `quality/results/n_relation_2026-09-22/measure-song-band.txt`
+        #: (full record `song-adoption.json`, prior row `song-profile-before.json`,
+        #: both beside it); receipt `curves-measurement.txt` in that directory.
+        #:
         #: RE-ADOPTED 2026-08-26 AS A SET, AND THE BAND IS THE ONLY THING THAT
         #: MOVED ON ITS OWN. `lo` 150 -> 200; every other constant here follows
         #: from it, because a threshold is a percentile OF A POPULATION and the
@@ -906,27 +942,34 @@ PROFILES = [
         #: reader gives the true MATTR of this corpus, so the constant moves
         #: rather than the drift being ruled.
         percentiles={'anaphora_max': 0.3,
- 'line_length_cv_min': 0.11080070804250827,
- 'function_word_ratio_max': 0.47871873227323464,
- 'mattr_min': 0.717809720727355,
+ 'line_length_cv_min': 0.10939281388850974,
+ 'function_word_ratio_max': 0.4776852961798566,
+ 'mattr_min': 0.7127694818441452,
  'predictable_pair_fraction_max': 0.9285714285714286},
         #: EMPTY ON PURPOSE. There is no generated song class in this repo, so
         #: there is no separation to report and this profile may not borrow the
         #: sonnet's. `held_out_fpr` is what it has instead.
         measured_auc={},
-        held_out_fpr={'ANY': (20.13, 15.42, 24.48),
- 'anaphora': (4.83, 2.94, 7.82),
- 'cliche': (7.62, 6.05, 9.05),
- 'line_length_cv': (5.1, 3.32, 7.16),
- 'function_word_ratio': (5.13, 3.23, 8.43),
- 'mattr': (5.05, 2.75, 7.95),
- 'predictability': (5.05, 2.66, 7.41)},
-        source=(('Re-adopted 2026-09-15 after annotating 253 nonlyric rows as preserved apparatus, using the '
- 'current tokenizer: 2231 items / 663 author files, 200-400 tokens. Full 200 author-held-out '
- 'splits and 2000 period draws; unchanged registered band selection. See '
- 'quality/RESULTS_ENGLISH_NONLYRIC_2026-09-15.md.')),
+        held_out_fpr={'ANY': (19.25, 14.47, 25.12),
+ 'anaphora': (4.71, 2.92, 7.28),
+ 'cliche': (6.78, 5.41, 7.89),
+ 'line_length_cv': (5.09, 3.58, 6.73),
+ 'function_word_ratio': (4.92, 3.14, 7.52),
+ 'mattr': (4.68, 2.87, 8.43),
+ 'predictability': (4.69, 2.87, 6.79)},
+        source=(('Re-adopted 2026-09-24 under the N-relation comparator (M-309, #375; PR #380): the unchanged '
+ 'five-check band rule returns 150-400 again, 3533 items / 878 author files, from the committed, '
+ 'provenance-verified rows in quality/results/n_relation_2026-09-22/. Full 200 author-held-out '
+ 'splits and 2000 period draws. ~~Re-adopted 2026-09-15 after annotating 253 nonlyric rows as '
+ 'preserved apparatus, using the current tokenizer: 2231 items / 663 author files, 200-400 tokens. '
+ 'Full 200 author-held-out splits and 2000 period draws; unchanged registered band selection. See '
+ 'quality/RESULTS_ENGLISH_NONLYRIC_2026-09-15.md.~~')),
         note=(
-            (('CURRENT 2026-09-15 measurements supersede the historical values below; prior full declarations '
+            (('CURRENT 2026-09-24 measurements supersede the historical values below: 3533 works over 878 '
+ 'files, 150-400 tokens, re-adopted as a set when the N-relation comparator moved the band rule\'s '
+ 'answer back from 200-400 (the prior row is quality/results/n_relation_2026-09-22/'
+ 'song-profile-before.json). The 2026-09-15 figures that follow describe the 200-400 band. '
+ 'CURRENT 2026-09-15 measurements supersede the historical values below; prior full declarations '
  'are in quality/results/english_nonlyric_2026-09-15/profiles-before.json. CURRENT 2026-09-14 '
  'remeasurement after Unicode/apostrophe normalization: 2231 works over 663 files, 200-400 tokens. '
  'The unchanged five-check band rule, 200 author-held-out splits, and period controls were rerun '
@@ -2264,7 +2307,8 @@ class SlopFloor:
         # ~~the only false-positive rate it has was measured inside one band,
         # so that band is the only place it may carry a rejection~~ --
         # STRUCK 2026-09-05 (`MISSING.md` M-239). TWO band rows carry a rate
-        # (`short` 50-150 at 4.02%, `song` 200-400 at 7.64%), both of them
+        # (`short` 50-150 at 4.02%, `song` ~~200-400 at 7.64%~~ 150-400 at
+        # 6.78% since the 2026-09-24 re-adoption), both of them
         # SUPERSEDED for their percentiles and kept for their drift checks,
         # and an EXACT STANZA profile licenses a rejection too. Read the
         # rates from `cliche_rate_rows()`, never from a number typed in a
@@ -2301,8 +2345,9 @@ class SlopFloor:
         band there is no measurement to lean on (14.74% where nothing was
         calibrated, against 6.35% in band)~~ -- STRUCK 2026-09-05
         (`MISSING.md` M-239), and both halves were wrong by then. There are
-        TWO rated bands, not one (`short` 50-150 at 4.02%, `song` 200-400 at
-        7.64% -- read them with `cliche_rate_rows()`), and an EXACT STANZA
+        TWO rated bands, not one (`short` 50-150 at 4.02%, `song` ~~200-400 at
+        7.64%~~ 150-400 at 6.78% since 2026-09-24 -- read them with
+        `cliche_rate_rows()`), and an EXACT STANZA
         profile licenses a rejection as well. The 14.74% belonged to the
         corpus OUTSIDE the 2026-08-14 band table, a population the live
         table makes EMPTY: no corpus item sits under 4 or over 3,245 tokens,
@@ -2518,7 +2563,8 @@ class SlopFloor:
             # profile whose range is the whole corpus `exact` is True at 25
             # tokens and at 2,000 — and the only false-positive rates the
             # shipped list has were measured on the two band rows, 50-150
-            # (4.02%) and 200-400 (~~6.35%~~ 7.64%, repinned 2026-09-05: the
+            # (4.02%) and ~~200-400~~ 150-400 since 2026-09-24 (~~6.35%~~
+            # ~~7.64%~~ 6.78% now; repinned 2026-09-05: the
             # 6.35% / 118 of 1,859 point estimate is the 2026-08-14 150-400
             # reading, and the row's own `held_out_fpr["cliche"]` has been
             # (7.64, 5.99, 9.04) over the re-adopted 200-400 band since

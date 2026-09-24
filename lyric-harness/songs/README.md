@@ -480,7 +480,8 @@ verdict against the song corpus is `quality/floor.py`'s ~~song profile, which
 already runs inside `song`~~ **lyric-sheet profile** — REPINNED 2026-09-05
 (`MISSING.md` M-239): the live row is `lyric`, 4–3,245 tokens, whose five
 thresholds are functions of ln N evaluated at the sheet's own length; `song`
-(200–400) and `short` (50–150) are superseded and never applied.
+(~~200–400~~ 150–400 since its 2026-09-24 re-adoption) and `short` (50–150)
+are superseded and never applied.
 
 **AND THE FIRST RUN DID NOT FLATTER THE NEWEST SONG.** On concreteness —
 pre-registered as HIGHER in the survived/human class — `carry_it_over.txt` is

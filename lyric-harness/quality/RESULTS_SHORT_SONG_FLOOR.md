@@ -6,7 +6,8 @@
 > floor adopted `lyric`, a LENGTH-CURVE profile over **4–3,245 tokens, 8,667
 > human items (the whole song corpus)**, whose five thresholds are curves in
 > ln N rather than fixed percentiles. It SUPERSEDES both fixed-percentile band
-> rows — `short` (50–150) and `song` (200–400) — which keep their place in
+> rows — `short` (50–150) and `song` (~~200–400~~ 150–400 since its
+> 2026-09-24 re-adoption, `RESULTS_SONG_FLOOR.md` §10a) — which keep their place in
 > `PROFILES` with `superseded_by="lyric"` for their own drift checks and are
 > **never applied**; `live_profiles()` is `section`, `sonnet`, `lyric`. The
 > live calibration document is `quality/RESULTS_LENGTH_CURVE.md`. The
