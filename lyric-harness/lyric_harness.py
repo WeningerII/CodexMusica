@@ -13220,8 +13220,12 @@ def cli():
                 detail=["the path is read relative to the working directory, "
                         "not to any file already handed in."])
     except IndexError as e:
-        verb = sys.argv[1] if len(sys.argv) > 1 else "(no verb)"
-        n = max(0, len(sys.argv) - 2)
+        # The verb is the first token that is not a GLOBAL flag
+        # (`--fallback=`, `--voices`, `--input-format=` precede it).
+        at = next((i for i, a in enumerate(sys.argv[1:], 1)
+                   if not a.startswith("--")), None)
+        verb = sys.argv[at] if at is not None else "(no verb)"
+        n = max(0, len(sys.argv) - (at or len(sys.argv)) - 1)
         _refuse(f"{verb} — ran out of arguments at {n} given",
                 detail=["`--help` prints every verb's usage line; `wiring` "
                         "prints which verb runs on which layer.",
