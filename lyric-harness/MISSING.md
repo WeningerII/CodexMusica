@@ -27654,6 +27654,17 @@ the superseded values stay visible beside the new ones:
   `propose_batch` and measure the claim there; a run that never reaches the door
   within its bound fails naming the walk. `test_run_continuation` runs ~10 min
   where it ran 2–4 — 46 harness hops — recorded here, not claimed cheap.
+  *Repinned 2026-09-24 for M-309's N-relation model:* the plan no longer
+  DRAWS a relation per group (seed 1 drew light and perfect rhyme for two
+  end-bound groups; it now draws none and judges every group against every
+  relation), so L1 is no longer a joint-conflict pivot and the door is again
+  the run's FIRST question — ~~continuation 8 / 16, briefs
+  [5, 6, 11, 14, 15, 17, 20, 21, 24], 336,837 state bytes, [21, 24] re-asked
+  30 continuations later~~ **continuation 0 at both attempt counts, briefs
+  [1, 5, 6, 14, 15, 17, 19, 21, 23], the first seven admitted (314,780 state
+  bytes), [21, 23] re-asked on the second batch [2, 7, 16, 18, 20, 21, 23] at
+  continuation 4**. `test_run_continuation`'s bounds tighten with it (door
+  ~~18~~ 2, tail ~~32~~ 8, the pre-M-305 value), and it runs ~5 min.
 
 The trajectory shift itself is RECORDED, not claimed correct: an earlier
 endpoint that used to be answered through its later mate is now a pivot in its
