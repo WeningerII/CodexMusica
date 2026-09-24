@@ -57,9 +57,12 @@ families. The tier 1 counts remain 2,817 pools with at least 2 spelling classes,
 upper bounds, not proof of earned chains. All 81 required families were
 reconstructed and actually reverified under explicit class:RHYME, including
 pronunciation uncertainty and the unchanged ban. The deepest verified chain
-is **22**, held by **TWO** families, `IY` and `IY-Z`. REPINNED 2026-09-16
-with E-5, superseding a 23 that IY-Z witnessed alone; the entry names the
-three families whose committed witnesses the new ban turned dirty.
+is **39**, held by **ONE** family, `EH-R`. REPINNED 2026-09-23 under the
+N-relation model (class:RHYME is set membership, so a rime-riche pair also
+satisfies it; the nucleus is a licensed identity): 81 witnesses re-verified,
+13 rebuilt deeper or shallower (`quality/capacity.py` ADOPTED_MAX_GROUP
+carries the list). Superseded: the 22 `IY` and `IY-Z` held together after
+E-5 (2026-09-16), and before it a 23 that IY-Z witnessed alone.
 The construction cap remains 40;
 the largest witnessed group is a lower bound, not a proven maximum.
 See [the complete re-adoption](RESULTS_CAPACITY_PRODUCTION_2026-09-08.md).
@@ -147,8 +150,9 @@ of 64 (22%). A deeper family has more pairs for the ban to land on. The three
 families this document quotes by name all moved: `AY-ER` (fire's) 28 → **27**,
 `IY` 37 → **34**, `EH-R` 33 → **31**.
 
-**Now, 2026-09-16 (E-5):** `max_chain_lo_family` is `IY`, superseding IY-Z;
-the 22-word bound is held by `IY` and `IY-Z` together. It is the largest
+**Now, 2026-09-23 (N-relation model):** `max_chain_lo_family` is `EH-R`,
+superseding `IY` (E-5, 2026-09-16) and IY-Z before it; the 39-word bound is
+held by `EH-R` alone. It is the largest
 actual witness from bounded construction, not an upper bound on the language.
 AND THE NAME IS NOW A TIE-BREAK RATHER THAN A MARGIN: `summarize` takes the
 first maximal row in table order, so re-sorting the artifact would move this
@@ -241,9 +245,9 @@ cause this time took re-grading the witnesses under both tables.
    classes; IY: 228 classes), because the spelled rime anchors at the
    PRIMARY and digs a distinct string per word (dictate -ictate, rotate
    -otate). Tier 1 barely binds there; the modal tier is what pinches.
-3. **Current re-adoption, 2026-09-08:** AY-ER (fire's family): 34 classes,
-   certified **16**. IY: attempts 40, certified **22**. EH-R
-   (there/care/hair): 47 classes, certified **20**. The gap now includes
+3. **Current re-adoption, 2026-09-23 (N-relation model):** AY-ER (fire's
+   family): 34 classes, certified **16**. IY: attempts 40, certified **35**.
+   EH-R (there/care/hair): 47 classes, certified **39**. The gap now includes
    exact declared-relation and pronunciation refusals as well as the two-tier
    ban; it must not all be attributed to the modal tier.
 
