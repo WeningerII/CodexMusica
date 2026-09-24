@@ -91,7 +91,7 @@ from lyric_harness import (line_tokens, raw_final_token,  # noqa: E402
 import dataclasses as _dc  # noqa: E402
 
 
-def perfect_rhyme_reviser(coda_empty_evidence=None):
+def perfect_rhyme_reviser(coda_empty_evidence=None, nucleus_agreement=None):
     """A `Reviser` whose mandate DECLARES it wants perfect rhyme only.
 
     ADDED 2026-08-26 (`MISSING.md` M-139), and it restores a comparator
@@ -119,11 +119,26 @@ def perfect_rhyme_reviser(coda_empty_evidence=None):
     site. It stays None here, so every other caller keeps whatever
     `Declaration` currently defaults to, and a section that needs the
     historical scorer has to say so in its own text rather than inherit it.
+
+    `nucleus_agreement` IS THE THIRD, added 2026-09-24 on the same argument
+    and used by §13, §16 and §19 ALONE. The N-relation model (#375) moved
+    `Declaration.nucleus_agreement` from "scalar" to "licensed", so a near
+    vowel no longer rounds up to RHYME -- by design: black/thick, bread/lid.
+    Those sections' fields WERE such words (L3's pivot answering `night` was
+    offered that/what/not/but/out..., the §19 pivot answering `wake` was
+    offered check/week/speak/black...), and under perfect rhyme proper both
+    fields collapse to their modal head plus the `_offer_reopens` screen:
+    MEASURED, `night` -> 1 offer ('sleight'), `wake` -> 0. The findings under
+    test (what a `GroupBrief` carries, that `backtrack_width` bounds the
+    search, defect F) never moved; the words that could witness them did.
+    None keeps whatever `Declaration` currently defaults to.
     """
     R = Reviser()
     fields = dict(admit=tuple(sorted(RHYME_RELATIONS)))
     if coda_empty_evidence is not None:
         fields["coda_empty_evidence"] = coda_empty_evidence
+    if nucleus_agreement is not None:
+        fields["nucleus_agreement"] = nucleus_agreement
     return Reviser(lex=R.lex, decl=_dc.replace(R.decl, **fields),
                    floor=R.floor, rdecl=R.rdecl)
 
@@ -882,7 +897,16 @@ def test_group_brief_carries_the_situation():
     # rejection that populates `reasons` comes from `verify()`'s no-op rule
     # instead of from a mandate rigged to be unsatisfiable. Same 8, same two
     # labels, same pivot.
-    base = perfect_rhyme_reviser()
+    #
+    # THE NUCLEUS SHAPE IS DECLARED SINCE 2026-09-24 (#375, the N-relation
+    # model): see `perfect_rhyme_reviser`. Under the "licensed" default the
+    # pivot's field against `night` holds ONE word, so this section measured
+    # `1 / 24` offered and 6 proposals (1x2 + 2x2) -- a fact about which
+    # words a perfect-rhyme-only door now admits, not about what a
+    # `GroupBrief` carries or how `backtrack_width` bounds the walk. Declared
+    # rather than repinned: repinning would drop the COMPLETE-field claim
+    # below to a field no wider than the walk, where it cannot fail.
+    base = perfect_rhyme_reviser(nucleus_agreement="scalar")
     R = Reviser(lex=base.lex, decl=base.decl, floor=base.floor,
                  rdecl=ReviseDeclaration(backtrack_width=2))
     mandate = SC.mandate(SILVER_NIGHT_OPEN_MANDATE, n_lines=5,
@@ -1184,7 +1208,13 @@ def test_backtrack_width_still_bounds_the_search():
 
     # `..._OPEN_` AND THE NO-OP PROPOSER, 2026-08-17 — same reason as test
     # 13. The number this section exists to pin is unmoved: 2 x 5^2 = 50.
-    R = perfect_rhyme_reviser()          # the DECLARED default, width 5
+    # NUCLEUS SHAPE DECLARED 2026-09-24, same argument as test 13 and
+    # `perfect_rhyme_reviser`: under #375's "licensed" default this fixture
+    # proposes ~~50~~ 30 at width 5 and ~~8~~ 6 at width 2 (MEASURED, CI on
+    # #375's head), because group A's pivot field against `night` holds one
+    # word and the walk takes min(width, field) -- the bound held, the
+    # fixture stopped being wide enough to show it.
+    R = perfect_rhyme_reviser(nucleus_agreement="scalar")  # width 5, default
     mandate = SC.mandate(SILVER_NIGHT_OPEN_MANDATE, n_lines=len(SILVER_NIGHT_LOCKED),
                          default_relation="RHYME")
     res = revise_loop(R, SILVER_NIGHT_LOCKED, mandate,
@@ -1611,7 +1641,12 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
     # settles it and tier 2 is never entered. Restoring the door the section
     # was measured under keeps the defect-F regression alive instead of
     # repinning a finding away.
-    RV = perfect_rhyme_reviser()
+    # AND THE NUCLEUS SHAPE, 2026-09-24 (#375): under "licensed" the pivot
+    # field against `wake` is EMPTY (every -ake rhyme is in the modal head or
+    # dropped by the reopen screen; the old offers check/week/speak were
+    # near vowels typed RHYME), and `pf[0]` below raised IndexError and
+    # killed the suite. See `perfect_rhyme_reviser`.
+    RV = perfect_rhyme_reviser(nucleus_agreement="scalar")
     # Every mandate in this section DECLARES `class:RHYME` since 2026-08-25
     # (M-116): the subject is TIER 2's search discipline, which only runs
     # when a mandated pair fails — and under the whole-vocabulary default
@@ -1657,9 +1692,15 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
     # conjunction with the anchor's own calls. Both are computed here so the
     # difference is a number in this suite and not a claim in a comment.
     pf, _ = RV.joint_field(["wake"], exclude=("break",))
-    w = pf[0]
-    old, _ = RV.modal_field(w, exclude=("near",))
-    new, _ = RV.joint_field([w] + calls, exclude=("near",))
+    # THE PREMISE IS CHECKED, NOT INDEXED (2026-09-24). A bare `pf[0]` here
+    # raised IndexError when #375 emptied this field, killing every section
+    # after this one -- the masking shape recorded below for `attempts[-1]`.
+    check("the premise holds: the pivot has a field to draw its word from",
+          bool(pf), f"joint_field(['wake']) offered {len(pf)} word(s)")
+    w = pf[0] if pf else None
+    old, _ = RV.modal_field(w, exclude=("near",)) if w else ([], [])
+    new, _ = (RV.joint_field([w] + calls, exclude=("near",)) if w
+              else ([], []))
     check("the OLD anchor field offered words every one of which breaks a "
           "group nobody had mentioned; the folded one is empty, which is the "
           "true answer",
