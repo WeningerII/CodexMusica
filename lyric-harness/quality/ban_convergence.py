@@ -109,11 +109,14 @@ PINNED = {
     # ~~520/199, eligible 459, banned 4, head 4 / tail 160 / outside 295~~.
     # The modal field is relation-typed too, so a partner now ranks inside
     # it far more often (tail 160 -> 241).
-    "pairs_mandated": 719, "pairs_judged": 513, "pairs_refused": 206,
     # banned 5 -> 4, head 5 -> 4, outside 206 -> 207 after 04c2dee9 (the
-    # offer screen reads every registry relation), re-measured.
-    "eligible": 452, "banned_in_final": 4,
-    "rank_head": 4, "rank_tail": 241, "rank_outside": 207,
+    # offer screen reads every registry relation), re-measured. THEN, after
+    # the ASSONANCE cut 0.82 -> 0.75 and the refuse-only-on-a-satisfiable-
+    # undecided-schema rule (114e29d8): ~~513/206, eligible 452, tail 241,
+    # outside 207~~, measured by `ban_convergence.py --check`.
+    "pairs_mandated": 719, "pairs_judged": 518, "pairs_refused": 201,
+    "eligible": 458, "banned_in_final": 4,
+    "rank_head": 4, "rank_tail": 240, "rank_outside": 214,
 }
 
 

@@ -1,5 +1,5 @@
 #judge	data/song_endword_en.tsv=0906ad17076873a6ee76224c948f3e05	data/song_rhymepair_en.tsv=30a12ca3281295353e8720504b4e75e6
-#certification-source	f350d3ae4876446506c4739c4d060a5d6e74140519a8d9b1e1fe0d58b71a8252
+#certification-source	359bf27db4130a72f433d94562f9dd9dee423241f727032ac2159b9056c0fa30
 relation	family	words	classes	chain_hi	certified	chain_lo	witness	examples
 RHYME	IY	342	228	228	1	35	ve lee company key tea agree reality ricky maggie library ability guarantee identity marie degree jeremy kenny apology thirty li petty shitty hawaii yi pony louie cd dvd dc cory oui crappy enquiry nypd debris	we see probably nobody company tv key sea
 RHYME	EY-T	259	192	192	1	14	plait hate weight appreciate concentrate investigate roommate communicate eliminate congratulate hesitate participate demonstrate activate	wait great late straight eight appreciate create celebrate
