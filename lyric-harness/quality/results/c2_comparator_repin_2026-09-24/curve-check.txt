@@ -1,0 +1,52 @@
+RECEIPT — the comparator pin advances because the comparator MOVED and the
+calibrations it feeds were RE-DERIVED against it.  PR #377, 2026-09-24.
+
+WHAT MOVED.  7d1ded93 (PR #372, report C-2) added `Lexicon.pronunciation_variants`
+and routed `transcribe_word` and `line_anchors` through it: an unmarked `-in`
+spelling keeps both its dictionary reading and its g-dropped one.  That code is
+inside the comparator's dependency closure, so `check_comparator_pin.py` reported
+"MOVED — 1 of 7 inputs" (`lyric_harness.py closure`); the other six inputs are
+byte-identical to the 2026-09-22 pin.  Fingerprint now 86812956db1e9b126fb0bd7a1cbd68b1ceaaaf369d64ca45f4224bf15e093558.
+
+WHAT WAS RE-VERIFIED.  `quality/length_curve_calibration.py check` — the gate the
+pin's own instructions name — over the WHOLE corpus under the new comparator, with
+the predictability memo rebuilt from nothing (the moved fingerprint discards it).
+The memo build was dealt across six shards with the module's own
+`compute --shard I/6` (every 6th corpus file from I), then checked together with
+`check --rows`, which re-verifies each file's provenance.  Every shard carries the
+same provenance: comparator 86812956db1e, corpus_sha256
+294831223fff, population 08584341b359, question
+d53e59446e1a, tagger 0189b5b3824b, nltk 3.10.3; all at
+tree 0c9a90ad.
+
+  1/6   1562 items  row_sha256 d4ca2b52a04ff950  (file d4ca2b52a04ff950)  this session (local)
+  2/6   1568 items  row_sha256 491ec643f3284cf9  (file 491ec643f3284cf9)  cloud session, branch claude/curve-shard-2of6
+  3/6    910 items  row_sha256 7a83c13f5ebee455  (file 7a83c13f5ebee455)  cloud session, branch claude/curve-shard-3of6
+  4/6   1446 items  row_sha256 c93852c8d785b92e  (file c93852c8d785b92e)  cloud session, branch claude/curve-shard-4of6
+  5/6   1086 items  row_sha256 ddca8c1ea569b7e7  (file ddca8c1ea569b7e7)  cloud session, branch claude/curve-shard-5of6
+  6/6   1964 items  row_sha256 08f0d244d8507d9e  (file 08f0d244d8507d9e)  this session (local)
+  total  8536 items  = the lyric profile's n_human (8536)
+
+COST, MEASURED: 20,224 CPU-seconds (5.6 CPU-hours) summed over the six shards'
+own COMPUTE lines -- 3062 / 4161 / 3102 / 3047 / 2861 / 3991 s -- with 671 of
+the 8,536 items served from a memo an interrupted single-process run had banked
+at the same fingerprint, so a fully cold rebuild costs somewhat more.  That is
+more than twice the ~2.1 CPU-hours CLAUDE.md standing rule 4 quotes for the
+memo; the quoted figure is not re-pinned here, only recorded against.
+
+REPRODUCE (one process, the same check without --rows):
+    python3 quality/length_curve_calibration.py check
+
+THE CHECK, VERBATIM:
+    ROWS  from 6 file(s): 8536 items
+    MATTR/TTR  532 of 8536 items degenerate at calibration window 50 -> HOLDS
+      mattr          C1  shipped [0.49968978828344063, 0.03751889880962087]  re-derived [0.49968978828344063, 0.03751889880962087]  -> HOLDS
+      fwr            C1  shipped [0.5604841642384619, -0.014308228025864213]  re-derived [0.5604841642384619, -0.014308228025864213]  -> HOLDS
+      anaphora       C2  shipped [1.1413067296229165, -0.24203952493270758, 0.01609986645877518]  re-derived [1.1413067296229165, -0.24203952493270758, 0.01609986645877518]  -> HOLDS
+      cv             CK  shipped 21 knots, re-derived 21  -> HOLDS
+      predictability CK  shipped 21 knots, re-derived 21  -> HOLDS
+    RESULT: HOLDS — the lyric row's 5 curves re-derive from the corpus
+
+VERDICT.  HOLDS: every coefficient and knot count re-derives exactly, so the C-2
+change moved no calibrated row and the pin may advance (CLAUDE.md standing rule 4;
+doctrine 16/58 — nothing was tuned, the rows were measured).
